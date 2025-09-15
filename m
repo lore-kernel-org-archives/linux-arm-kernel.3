@@ -4,79 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBDCCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94240CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cPfd07ZOdvUhzODlvHhJl75jq74vTGl43U5ZELEC+hQ=; b=P+GZ+I0n4eOEIIFgx0eqVy22x2
-	vfqGstZ7b71/othyceoE60dZLUbQ7QR2ycMjWYvufI6dvdCxGaDlFbm8BDQMxdW9xg2hCq8phv2MO
-	rLT3MYPecZ9TILwAUy9nVGvHe7v98I/8cGgp/X0fFKmKhcFTejMhqnfLMLtZ1vdfFMEH8MjPyPhNP
-	xSAe75B3Vg5uhxmGs4vo1trUPH9QC9HF5l39diP51jVkOPfnPcB/Jc2CFSP+LD1gCvBWQOZIyM4x1
-	9z7qki69/vqsiRmnF1s925awnDHoTAGKFqlozHW4ygBKyu/r3tLwW61s8t2l5pliSsvRJC7/FLyi9
-	9AlcQR/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HpYL6iqWtxQ96LMUqjE2FZ64GoH2ifpjMnmYpc66Ncs=; b=BzPiXSMA3R84zPpFWwwsrhG6eJ
+	ZQUd36VIEEPse7CBwi+sdBNNRjwvzKxeN6yDPJX5nZc7Nsr+NHOa7nlIjiD5Kd/+YQSylsAmziK/P
+	XW0O5zIZYhD4JEpPZ2iAIPLnlhuCXdoALRBjPn8QIkPBkJDH1Jveix9iof0YtbDihn3tMedfFuVUk
+	R9Ym8mn5KrULGQl/1PfUJi1p5gXt+7g5RMgaagPwfLZorixrgp5fdbgQSEBZdxvDqziwJgWLZHvXT
+	FnpmcrmptHmAyy5uhoOd9nGTuXqRAyyGb67709+tVDE1kJWQOMBU/QSfGEx6S9+EPZ6HtUH3HlzKK
+	xDzA1fyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2Ms-00000002t53-1o8M;
-	Mon, 15 Sep 2025 06:07:14 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uy2Sn-00000002tdN-0yWW;
+	Mon, 15 Sep 2025 06:13:21 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2Mq-00000002t4e-30q0
+	id 1uy2Sl-00000002tcD-1MeM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 06:07:13 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58F66qpD979199;
-	Mon, 15 Sep 2025 01:06:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1757916412;
-	bh=cPfd07ZOdvUhzODlvHhJl75jq74vTGl43U5ZELEC+hQ=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=OaYUMthyr33aAC7dzCX+PEMhliUlbpvZGq0mAsf11GEWYWfILThL2tt8dE3t9qx7D
-	 eszInXNJSlZMdht14Kv0TvAkopuGwLqdcKm4TRA4Tb3ff50rxa+5S+yy+1VoYogtei
-	 6Kkv7lcwH1cfiCJNndoR+v7v0Qr22OqtqFuIR9q0=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58F66qGX3184091
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 15 Sep 2025 01:06:52 -0500
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 15
- Sep 2025 01:06:52 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 15 Sep 2025 01:06:52 -0500
-Received: from [172.24.233.62] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.233.62])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58F66jEK3245914;
-	Mon, 15 Sep 2025 01:06:46 -0500
-Message-ID: <cc5a5e12-4e71-4662-9a0d-f925c5bc50ed@ti.com>
-Date: Mon, 15 Sep 2025 11:36:45 +0530
+	Mon, 15 Sep 2025 06:13:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AGMvTUjKzR1wj9TDmi50fPbIOBmCk6xjG4fMdBgekzKRUucdQy6+6EKalcf0aeKSa/NsfRnZss4cJ83zj1BY4hcOG68cCpuKLnl4zxJR5BTENR6E1pnYYYjGiZHPSjV0n6+LS4qi2bJ47KGLZD4pZ6+WAhtk9h6XC9hNjjlQonUOlV9GXyMVpDvTsxtI2am0dxBQWVJfilC2IWRGzxiCmOP7pTA8mWRIKjGGytBuaq1l5khzMwLDTIr1v0hhGy6CxRNe148vSJcn5onJZfAY3aFS/P3RDB3CfyvY8eloPnMpwiHWTbJWSevJKq68B51CHDeeThGAY7kYCzCoyeRjGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HpYL6iqWtxQ96LMUqjE2FZ64GoH2ifpjMnmYpc66Ncs=;
+ b=nnIXebcjceHoBffcEvcjfvzE5Ta0goY2IV3otaYTSXkAFweG48DfUfAT+wwtCvzw78svuthgPhrberUKV6f1BPArToFESFT9ISARz5Ktxy/EpWxIWIbeNNhgpvfS5w3j/A+yZcxhUCEEAT1/7W9trWHnwJ46UM4FWx47TPsakzSPrDsVnnvK/3me5+tUOvfgXJ4BlHwOGawsdsZRr7jMe/MTNLs1AoUjRruWu+zlXMltvlWrd1pNjhoYHA9BjCznpISdHcGCx/Llt5qOCMarOIwABK3bWza43qWkBfUmNMLWyXJzO2OI0K72Z2dbR4Mxz1g6Lf4+ymIlY1GLDRELxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HpYL6iqWtxQ96LMUqjE2FZ64GoH2ifpjMnmYpc66Ncs=;
+ b=LEkHAMXAt4VQg63gpZijNzCDbpXroiPVoL2ze6o8jkfsV+jXYtDhgOe8RnAlZrJsKAufTDgO1MM+dNvNRl9LRv9Q/014Bv5eJq1InXRhmpX5pqdec1aAhbL8r26hozcwoHDt++RuV+6kcxNLBTIzNwxJOwculyl8OFzQr/lW8f5euRnD5kx3bRP2fQ9AOC2dlkmue1GaBHvCOYugjRsaysVP0ZV/wj6lBEhEl+BFG8MdOtT6sbeZw+ueCHZkDU5hZhRjY2a7GW8o0ywa/Ns/gxDG+WIyWdM5LncW5UAqsPvP0ci6+lYX+w9++nboqdPE9vfjkvf+PXVponQ7KP+Pjg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB7845.eurprd04.prod.outlook.com (2603:10a6:20b:2a7::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Mon, 15 Sep
+ 2025 06:13:12 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
+ 06:13:12 +0000
+Date: Mon, 15 Sep 2025 15:24:41 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/5] clk: samsung: clk-pll: Add support for pll_141xx
+Message-ID: <20250915072441.GA8224@nxa18884-linux.ap.freescale.net>
+References: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250914122116.2616801-3-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250914122116.2616801-3-ivo.ivanov.ivanov1@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI1PR02CA0045.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-am625: Add OLDI support
-To: Swamil Jain <s-jain1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <jyri.sarha@iki.fi>,
-        <tomi.valkeinen@ideasonboard.com>, <maarten.lankhorst@linux.intel.com>,
-        <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
-        <simona@ffwll.ch>, <aradhya.bhatia@linux.dev>
-CC: <h-shenoy@ti.com>, <praneeth@ti.com>, <u-kumar1@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
-References: <20250913064205.4152249-1-s-jain1@ti.com>
- <20250913064205.4152249-3-s-jain1@ti.com>
-Content-Language: en-US
-From: Devarsh Thakkar <devarsht@ti.com>
-In-Reply-To: <20250913064205.4152249-3-s-jain1@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB7845:EE_
+X-MS-Office365-Filtering-Correlation-Id: 31e3fecd-296e-442e-02e8-08ddf41ef2e8
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8kGj8tqNrquAUB7l26Nat5In3sNWmFKW92dKfSh1wrZckQ/tFWm41wushHot?=
+ =?us-ascii?Q?ggnyRswOPjA0vbhvIyBJ5WjVP/kdboSkVDP0rkNfq/nFUKUuyHAoc6vcyFkb?=
+ =?us-ascii?Q?IBzioswfDfZphpx0ARis84aEOC2tqUjsx2S2F1eu1QXfFn2UKVh/+YN1XP8b?=
+ =?us-ascii?Q?+wKSUdQxbqLNFSqzq8MCYxeWMxqg5b47DXd/JrH79sLH8C9MdYoCEe9xQINJ?=
+ =?us-ascii?Q?QdLku5UmbKuzDjarbdXnIsf0pSAcJtZoP5782PiOM32Zf8mWTDHuhxMK0tWn?=
+ =?us-ascii?Q?I+wXO76Q32fmtQTghtI20lQvVlt+g5Z4Zqhk1kv9F/GRsJB5KcMAQDZR6EFo?=
+ =?us-ascii?Q?0HP+JBeyU5JdA+7kI1n/NJklKHNf4l0uoTeySqjqo7I5ZPrOvAhDfvKIJ3bb?=
+ =?us-ascii?Q?CXG26+pvUFcgD8psA7VdAnyqKeZSOzxY5btpyUTKwbz9nx2sW7EQTipvNXLd?=
+ =?us-ascii?Q?EpIj9z3v5VcKZbYFh8a0QnMa9Q7Md7v0zgzKTV5/qYvDM7WzRIXjza/efP+v?=
+ =?us-ascii?Q?gTm+8zrLeJWEPvosk+mIzGATImSjGAPTGAk0YKxsiooV6gvIecDceT49ABEQ?=
+ =?us-ascii?Q?ABfOGVk9sQtKLPQfL3Z46jOXVlY52B2SDlvV5BM7yBH1QHl9NUuSxOvJ3Yn5?=
+ =?us-ascii?Q?4jsEnGetiawAnas2i72g7BKNB5hlv/9yIifuHVhvI0w1pHHfJ4mC8Tcuvteo?=
+ =?us-ascii?Q?XL3flsn14jodYng3NonBe4il0n2nnBJbum7OjcocIBjaUzOu0u0AlPh3hVhT?=
+ =?us-ascii?Q?y3EvPyQgDQ2JkJ0Jrpi4uHF8g9pnDdmgQ+1COfir9KUZam7T00PHI2yotNxN?=
+ =?us-ascii?Q?y34h0eaWiJIIzZSFGL4TZM2DN7cTQtP9eu5x7m9TRo/qkftmNUTaaPUH9Caw?=
+ =?us-ascii?Q?RHpy0t7IoLUuCzqUeckserHDzqPc7xQ3PHVZojNazIdG6SUrIsQwM9CfknDM?=
+ =?us-ascii?Q?rrSWUWYRlz5/qKekOuXKGmI5HJC3QiilQ8ciP8iwl4FSLobj/t5jjeiMYceP?=
+ =?us-ascii?Q?dC/w99tDjETq2RKFSSuvnZCTGM36TmaklF7mgDy30SvLPMfBggOIT534UdC2?=
+ =?us-ascii?Q?Zrf+KWkKAvhCAgo3vCIXbPh8r8UIMZKWAeYNdNahjOpOhEwZY26kD0y2cYhu?=
+ =?us-ascii?Q?ra8AEPzI5ygSClVaptBQlFzh1FxSrkfy+6RFfbLUq+SThLHkugiyKw1p/pRW?=
+ =?us-ascii?Q?1+deelF8+TxkYypEfpRw7hG40bw/g91et2viaTfo+2y+2jsfiv7RwwHuSvNG?=
+ =?us-ascii?Q?4QKC5EHveYjFx2W/L9HvL4jiwqzO876yjmgm57MrGx/E9KfN9S5kYfLtPUio?=
+ =?us-ascii?Q?Qa7LBFfoDX+jQapu8NLUdBpmWSZFFfJ2yLluB0ANmfgOk1b/yw8bheSHTOzX?=
+ =?us-ascii?Q?0y04s+lyACyua/Q0UiEKxmpbeGWanvhh2lCecwYsON27wzO7QkFPDCfYt5vy?=
+ =?us-ascii?Q?SFJaBJq5ob4W34ihL+eC7Ux3ADedcQiqZZ1ev/F0REKuIT7ICk1cpQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6HgXxH3GOgCcUpXTq1O9P+I07Q+i7EbQhPL5OZIXOebvqY6PoIBwybLWWQUF?=
+ =?us-ascii?Q?Y8XoLPLear7tzZH8Ory8FTn9QvYHzEO9RR40TyJSmfA7Adx8fQ0H7EGFvTg5?=
+ =?us-ascii?Q?6GB2TSUzT8LmF2O2Sutrzq1DmbXVoR/OUDf8mF98wm+u3WTsk+xfG6Tfb6Ee?=
+ =?us-ascii?Q?uA/MvUNUiV1zDi7AxFRdhFKhzclBCPEeIWuU9il4TG5zTttF/UrGPQ7gNGnc?=
+ =?us-ascii?Q?ZJMYR5TGvbXlyGjdyjJc8eVija3xfmCphm193dj7PW7SeEdhVFsiYTQNkP6o?=
+ =?us-ascii?Q?r8wey68zeJexWfuYQH5u4Jm31qiAQ4rXbLo1FDfE3/ZnUAUlPucAKq5lNU9K?=
+ =?us-ascii?Q?mFD4K+DFt9w48YVMbH6ecQWoXTZmlG2hb5URW2LLBgsaPcRxgc3lvd5W6dGF?=
+ =?us-ascii?Q?J2d/BYHAkAzSfuRWLg0iEFQbQHp0sV5GS5Z6c1T4nnF3Ru4TJVlnCvZrWSLW?=
+ =?us-ascii?Q?4ykVp9UObd45I8eEuDg8Rs9WVZESJp9HNLI4n4R77bwocUQoS3Nw9LyrO9yw?=
+ =?us-ascii?Q?BZeiKnHA9U/dBLu8nQVOM0oHNAtUMyhOCDGQyatD5Zk6h8dQ0Id88j4Y5K5C?=
+ =?us-ascii?Q?teREkK8DzcODpLtH/jKqqHqrzEiRMKh5VSnK7rVwa17WsDypGREPTTHc4uF0?=
+ =?us-ascii?Q?CtNNmZcF6vL/buep21KfGz793cB4tmBS0ZHKXsz7GN1N3U8UHovDaHYmZ9AD?=
+ =?us-ascii?Q?KrLD8klMMRHJH1gOs4g4qym5Vf1oJope4yJmAjIk7Lzxiycy7JIK6HSjaF5h?=
+ =?us-ascii?Q?eAIwxpuZJfKzhBOuhbKBZ1P+PwE6Fbsb9jbjp6CvH7OEPKrCnY2xcKpDORom?=
+ =?us-ascii?Q?2BpOfpCPsFCFl2CDak7tDdF8HZdxLg24XoDRoIuujXP5qL1xFO2kGHyNx9pL?=
+ =?us-ascii?Q?UtZxOboO7zHBq1KLAEMwklMRDqt8aU8fGO5CVvs2CcPZ3N+1UXCrxKV8HegI?=
+ =?us-ascii?Q?sX4kv5BcWNwEB7t8w6RYsQ55yRvzNHdgjtyN0qKmPEWFZqHcJoHHQgiJlseP?=
+ =?us-ascii?Q?hKwiHM4aGrslQCXpm8YE2oiYgpL1ZXKotprTWcgM9ARhNRo/F+OrqPDUx5mJ?=
+ =?us-ascii?Q?4a7lSBjd6hC0YlI+lhZN4+Do2TnVuhB0VAUaZhVVEsh/QCV5Ht+zfE27VQhn?=
+ =?us-ascii?Q?cZv+H5BXoSuLa/zFX0fXepB/9jwrF8s6Pvxm09a9niPRCJdRBmGwNnWNuWok?=
+ =?us-ascii?Q?WQT/rDiCfxHgpLN+nF/TW/tq1HUjWcxdrbLOW3AuN5xija6jmyssHOww3u4u?=
+ =?us-ascii?Q?FUe/5LUYgoqYq5MOAtmtMtAQ7kxW6kX5Y8qeFLcOX49/3lcauCog9kdIM5TP?=
+ =?us-ascii?Q?gFxffGxWkKuT4T2a8vpPF+g/6BdXshXEI4YlWxObXY9iVvjTgjwNQNtX0+69?=
+ =?us-ascii?Q?+TS6HGFeIZ95J1FxS53PnQDf+6Ufir1Z06AhwDQYWWxgfCx8n8knQw8n06nT?=
+ =?us-ascii?Q?LW9M75KYR8C9AtgGSHFSdUOTZhcSgPcz1RlIBkLNYvzPGiaeVcwmymHVhdh9?=
+ =?us-ascii?Q?cHWuKvx4oU8TPVSDnVJWKahjIIj2G7vAOi4oLz1PrLvZ9Pqr5AF0ovkBfBqb?=
+ =?us-ascii?Q?bLM/AlxLrCme6xwUsaMTJFOOx4kqJlmPw6tx7Zmj?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 31e3fecd-296e-442e-02e8-08ddf41ef2e8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 06:13:12.5030
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vY+6CLeyFUBkiTyItpcf02c5P3Z5m/pVJXOXqKEnw41DkeRSyVW7eoIoAJ/lkQvcA3mbEcNQ/oPTM9tFJoNKGg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7845
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_230712_898455_53DDE88E 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250914_231319_379516_B6089057 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +169,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/09/25 12:12, Swamil Jain wrote:
-> From: Aradhya Bhatia <a-bhatia1@ti.com>
+On Sun, Sep 14, 2025 at 03:21:13PM +0300, Ivaylo Ivanov wrote:
+>diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+>index e4faf02b6..acb366f14 100644
+>--- a/drivers/clk/samsung/clk-pll.c
+>+++ b/drivers/clk/samsung/clk-pll.c
+>@@ -273,7 +273,7 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
+> 	}
 > 
-> The AM625 SoC has 2 OLDI TXes under the DSS. Add their support.
-> 
-> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
-> Signed-off-by: Swamil Jain <s-jain1@ti.com>
+> 	/* Set PLL lock time. */
+>-	if (pll->type == pll_142xx)
+>+	if (pll->type == pll_142xx || pll->type == pll_141xx)
+> 		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
+> 			pll->lock_reg);
+> 	else
+>@@ -287,6 +287,7 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
+> 	tmp |= (rate->mdiv << PLL35XX_MDIV_SHIFT) |
+> 			(rate->pdiv << PLL35XX_PDIV_SHIFT) |
+> 			(rate->sdiv << PLL35XX_SDIV_SHIFT);
+>+
 
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
+Nit: unrelated change.
 
-Regards
-Devarsh
-
-> ---
->   arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 47 ++++++++++++++++++++++++
->   1 file changed, 47 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> index dcc71db8afd4..d240c157d819 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> @@ -793,6 +793,53 @@ dss: dss@30200000 {
->   		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
->   		status = "disabled";
->   
-> +		oldi-transmitters {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			oldi0: oldi@0 {
-> +				reg = <0>;
-> +				clocks = <&k3_clks 186 0>;
-> +				clock-names = "serial";
-> +				ti,oldi-io-ctrl = <&dss_oldi_io_ctrl>;
-> +				status = "disabled";
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					oldi0_port0: port@0 {
-> +						reg = <0>;
-> +					};
-> +
-> +					oldi0_port1: port@1 {
-> +						reg = <1>;
-> +					};
-> +				};
-> +			};
-> +
-> +			oldi1: oldi@1 {
-> +				reg = <1>;
-> +				clocks = <&k3_clks 186 0>;
-> +				clock-names = "serial";
-> +				ti,oldi-io-ctrl = <&dss_oldi_io_ctrl>;
-> +				status = "disabled";
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					oldi1_port0: port@0 {
-> +						reg = <0>;
-> +					};
-> +
-> +					oldi1_port1: port@1 {
-> +						reg = <1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
->   		dss_ports: ports {
->   			#address-cells = <1>;
->   			#size-cells = <0>;
-
+Regards,
+Peng
 
