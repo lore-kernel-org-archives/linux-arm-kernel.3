@@ -4,91 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C4A6CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 22:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC33CCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 22:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=13DnP3wRqU+zsSJbDDW+krsmHK5NNVJV3DHwW0NPTaE=; b=zD9SeVmZt4WG9WNKsI5BaBgsbr
-	QxZJuXtzl/elb8qDJj+En+W2k+eEoL+zbfxxtRjdOlZuVRaM5DG35r+QBcn55IsRsLMmrtfpgam/4
-	hjHNNZEfA1rEEij83LYb0BzagCPLlv3vzCkD/VVUgJ+HTQ4s8AD3xGofUNbuOlyjtzKPzPoXS7R3b
-	OIXOmWNTDiyROQNOXd0hhy+raz2IXLeMA2Ca+ID/MDYuTLt42c9cxE40QlyZF/lCBO2we1S3ba0jL
-	c5ibeQUdisqlQ4pP9qT6fPEcgFoHLCdgPrSYUzlv41ZVsQNGIrLtqcz5QkDQIcBLChWn/CNCkOfHF
-	AH3xwzZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kB/Wi+cRe7K/Xl4jkmaNXOwfB7KCAKUI6vYOHIxWVl4=; b=EDSfmRyy+74EgJ8XZcR4GVK4bM
+	9WMJUZAimCozkl1y34bVD3lc/3yOmL1StHbnqXZMluROvXYf141MHIFP2rOGt94+hR+DpFkq+Y5+t
+	BFUdqrBzAb/pl0IFGfV7dSBGnyxvEQLPr9ZGnHLNwJYHwZuY0PLMieLwji6kjEZ1ONuEOcGXFV+1C
+	B1lyRQtQGR5eK+VuQ5byM7s5iqqGttKOkZpl0LEfdQ2c6szwaRSV+3T+l3q1f0QcPry4+ceNuS10G
+	fFbaQaz//6SF2K2BJ2127iB22sLqbzLKkYVnxNoPw6v3kURw67hS1037N7k0hEr0QqckRUSAAsImF
+	5xa1UePw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyHxt-00000005ozd-2YbY;
-	Mon, 15 Sep 2025 22:46:29 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1uyI9E-00000005pz0-1j9h;
+	Mon, 15 Sep 2025 22:58:12 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyHxq-00000005ozC-2XpJ
+	id 1uyI9B-00000005py7-3xzx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 22:46:27 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b07d01fd4fbso487928166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 15:46:26 -0700 (PDT)
+	Mon, 15 Sep 2025 22:58:11 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-74595f3852cso3367922a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 15:58:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757976385; x=1758581185; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=13DnP3wRqU+zsSJbDDW+krsmHK5NNVJV3DHwW0NPTaE=;
-        b=DxtSd25YLYpGM0uAFAL6ffq+NTohHyo77CM6veVXgmV5pOtIRoSnoU7p6/dsEMCOrh
-         9pQXdJBv/7DcayIeJREzzexP29ykRWIiaF7WAVcRkiGkkWMQTUV0p0jkBNPhgwz617cA
-         olMI52i5ChthtLKE9F4U3ElMwromrM/IQfYFHLzflSMAbC6y9bbVGeKea5/Lo+B72tJ7
-         i2IFbt/91IVX1rB3JklcW1d33TqZ8W0mnsxVGuCq4iBT4vvqYSLvNE0XN82js7EdTGKC
-         C2JX9wo1JmaFjQ0G7WbUbn1Fa3aijx/fa1cpW2La2qjl1RrxTpI9ZK8KBeVspcRXQ/4U
-         i8zA==
+        d=ziepe.ca; s=google; t=1757977088; x=1758581888; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=kB/Wi+cRe7K/Xl4jkmaNXOwfB7KCAKUI6vYOHIxWVl4=;
+        b=HuwF5/lBvsR2STvcDa6zA4x+lRJpBkgNBLWlQ1BJNvXn0IVelYD7EhiEQJxHRTIsz6
+         xBZ49hJAOauvmK9jOJxAhXpy+hhwPwK0kQfH5xqFgTOax6nrInhbJsvJe5suBUXMrOcV
+         GNovFXf5ZNhu89iqcEcvPmZshrmxBwT6BFDV3ex5aHXnwNmk5cjjbfEmzZKbq2eTjXe6
+         lUO29msazMMoEPerkonBy1pOl9Q/Czarzd4ohfdaAGEXAdYhP4M+yEVRmqfnUV1pacpA
+         lZoat2zvsAFos6RGQj5DgW6fwzoy49ZJNMuT3gZxW8L6SFpyCxC2lc92CmVJ4zDtVPB8
+         zjbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757976385; x=1758581185;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=13DnP3wRqU+zsSJbDDW+krsmHK5NNVJV3DHwW0NPTaE=;
-        b=A3LDGOfymfEmDFCmkZQSzl6+/d1qNNnAMMaR8jZajQIOxORkdcNleaevJx+eILntSo
-         pEZNgTJzfs799wJhAVvxvEU31nisidzDl793YbO66fERZWk9+il14tlNrtfbZ8R4TzUK
-         gOmuGC0GxGNtmnZC4J4ILRjD+jcnBGLsyFHCaE3dCJU+2SDxcWTREfHW42evXN9GQULY
-         34ISQIPSsOuJDatWvXJ2OKwsSJALZAQXp2B0MY6VWj4TGA2IqTLrvSBlY+yWDYMimCJR
-         JYVa+9Xe76hOtCZidF+msqvHoqxF+2GtpSDZnFKfRmkw57xQP9xqKbehQ0WKJWx9YO+A
-         cgIg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5ayYzkOauX5QPoU1OiCnynH3bNPRkz2WfcwL6fGOghgUlBsF9V5a8+f/x9ldRiQQ4ak8cDRDdjwtExBDqhmMU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW5rX+pe+N6s7Ns+YXqcuitXVNso+KhVfXifOQ2cNF8mBhMIGE
-	czZ6gdKjyZVspBlp1Jf0HWoVOIJR5NTUEmgZFJjaZ+jIzyVMTxDbTCA=
-X-Gm-Gg: ASbGncs0mBWfDQPoe1hNkDAi3734tNmHKgAvsUKnCevW6xuZvW7+lBobzYkN580iFnd
-	/GAzDMkbRw2Dyz1a8F4rKrwavjkoyW/gFHQySEvILAEo9M4TbNKhVHU40bEIILQlHAjcCVffmLJ
-	NCIgZDAMsq6mEhLt9TysyB9ZNFv+HuDoduRor0mdjUnE7t39RekNOHxfk3ucs9LWvInh0Pg4zbM
-	UtpmPNlzCW03FRo7sRXVkIZ80YJBK+AfDYBdaXwAFvfEN5A6iKvPayl0A4e/g8w2NVBCIuR3MvD
-	3CRjeBzVtVb464PydfUIER+jd9Od7aDyqpKh6k2/AqfxFXmKaZISCjDS1qR+rtjlHxbvnDBCfdY
-	pJPJBGGDwCiw7lwOjosFn2nZj8asP4sMRq9UQ+rL52veGPJM=
-X-Google-Smtp-Source: AGHT+IFC1RDAQdftftflM3IR9GIxbYxiAqxOMxHqEUoMHehF7YawNWtyqMfqbQIPOxJCVyY9vyzwnw==
-X-Received: by 2002:a17:907:1c9e:b0:b04:5385:e26 with SMTP id a640c23a62f3a-b07c37a7fcemr1575363166b.58.1757976384468;
-        Mon, 15 Sep 2025 15:46:24 -0700 (PDT)
-Received: from localhost.localdomain ([2a0d:e487:214e:a6f2:7d6e:32b1:d615:2ff1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b32dd5bfsm1011153366b.63.2025.09.15.15.46.21
+        d=1e100.net; s=20230601; t=1757977088; x=1758581888;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kB/Wi+cRe7K/Xl4jkmaNXOwfB7KCAKUI6vYOHIxWVl4=;
+        b=uM+EuxmxvN0KoMnpKLaMj+U+ko6/dHTGFQ37biY5J6Qk26+toXqhHSbOnFj2Z6qq3S
+         RQKsCWvteYH/YSxwb0Qsjvy26PXBNp8/3vInkJV7Eaf/bKdgDlbzUaFIOhsd/hOYPNFV
+         ByqVs5hN17M3onRvn0Aw9Vlkv8PUb7mno/aQIst6mOrdGNNUa891ZHNbF43dqe6wubAA
+         hPx1ork1nuWVzQk2HN+gX3TD2up0wpt+wRshS6rT5c4kQlzAskvHTgU/+KKvK9DS1+xD
+         aSzGJc8DY/XEsnBl5PeNxuYfGH4MwmpH7UlcLCIeeB8tD/b1iAHfjN+cpqh8fL+z82il
+         OPxw==
+X-Forwarded-Encrypted: i=1; AJvYcCUzrPclHhrMUy6u6Wq0j0rs/bpRePRk+aGtLfYLe9U5ByFCBoWhHGOj9BC8Bm0/u7vwWZM3h2xJ5rUgoS6hbSYw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLpjOAZ0GBqYawyqHsHV5wzHEAzk8YZ+YA2zy6PJRnFzMwOwIs
+	XgPJrcyzGZPsHlCABH8TuuwgolH8LIX9T2Fqkd1tK6EghkrCfC4+6LYd/iC9IIBBqxo=
+X-Gm-Gg: ASbGncu4WVDaMTe1PkRweNOhZN3g20A4nSbnFi2pPdsVdk+gvWlE56Jf6z0w/AHmecu
+	wsoV+Nl+Tgg2Qm+qYd1jvpwZuISwzUIHp7oxaERBctCWuuWCtfhTRcn6Wrevopgj+TO5mUPpB1d
+	har/Zd9Jq9RucZNaw1UuTqxtMyFb5h9waSdIYOkd53nFsNEYT6cpHgx+5mmAYsr3mn9M9c3RPTh
+	981M1C48Tc2mCnBuMqgnQWwsA4WXP7kxUD4drUSaq6plmy+1Zk2L+rC8TqJPEcazDyb2TP0QDy8
+	eCuNXXXyl2kf44vHGVs6ukZ20wzfFZSms/PCgYz5KFwVr5MZWleMxfPlziaOIkENb+94Xv6wiLv
+	RKFC5DfA=
+X-Google-Smtp-Source: AGHT+IGSUOqb+ed31/428rqH5N5OvGqFxlxhfX8elAayaMc3UDw7hqxF226u18IdPmrznlxbRNVzmA==
+X-Received: by 2002:a05:6830:6adf:b0:745:9dc8:8dfd with SMTP id 46e09a7af769-7535638abb1mr9759182a34.35.1757977088588;
+        Mon, 15 Sep 2025 15:58:08 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7524986c872sm3180269a34.15.2025.09.15.15.58.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 15:46:22 -0700 (PDT)
-From: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
-To: mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: robh@kernel.org,
-	s.trumtrar@pengutronix.de,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+        Mon, 15 Sep 2025 15:58:07 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uyI98-00000004Yk1-1O1R;
+	Mon, 15 Sep 2025 19:58:06 -0300
+Date: Mon, 15 Sep 2025 19:58:06 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, heiko@sntech.de, p.zabel@pengutronix.de,
+	mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	jihed.chaibi.dev@gmail.com
-Subject: [PATCH] ARM: dts: stm32: stm32mp157c-phycore: Fix STMPE811 touchscreen node properties
-Date: Tue, 16 Sep 2025 00:46:11 +0200
-Message-Id: <20250915224611.169980-1-jihed.chaibi.dev@gmail.com>
-X-Mailer: git-send-email 2.39.5
+	linux-rockchip@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v9 3/7] iommu: Add verisilicon IOMMU driver
+Message-ID: <20250915225806.GM882933@ziepe.ca>
+References: <20250911155720.180465-1-benjamin.gaignard@collabora.com>
+ <20250911155720.180465-4-benjamin.gaignard@collabora.com>
+ <vrngq76nnms3jyl5hnxqnkimjc6kil66o6fdyqn5vm3fpovmja@cfynipjw7ktp>
+ <694b9ba15cd67f41a38f4a65a3811f035cf8e99d.camel@collabora.com>
+ <rt6nvgazcl6mvyy4iuut3n7irf72t7rex2iwabbkuxp7cdvez5@2nanenqgxjdy>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <rt6nvgazcl6mvyy4iuut3n7irf72t7rex2iwabbkuxp7cdvez5@2nanenqgxjdy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_154626_648481_29DB1A66 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250915_155810_054159_FF97B2E2 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +114,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move st,adc-freq, st,mod-12b, st,ref-sel, and st,sample-time properties
-from the touchscreen subnode to the parent touch@44 node. These properties
-are defined in the st,stmpe.yaml schema for the parent node, not the
-touchscreen subnode, resolving the validation error about unevaluated
-properties.
+On Sat, Sep 13, 2025 at 07:58:04AM +0200, Jörg Rödel wrote:
+> [Adding Will back to Cc]
+> 
+> On Fri, Sep 12, 2025 at 01:37:11PM -0400, Nicolas Dufresne wrote:
+> > To me this rejection isn't about Benjamin's driver, all iommu seems to look
+> > alike, so anyone else that would have sent new driver would have face the same
+> > issue.
+> 
+> This is about ignoring comments from one of the IOMMU maintainers. I am not
+> going to merge a driver with open comments/objections[1] from Will (and a few
+> others), so resolve this with him and get his Ack.
 
-Fixes: 27538a18a4fcc ("ARM: dts: stm32: add STM32MP1-based Phytec SoM")
-Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
----
- .../boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi    | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+I would strongly object to trying to share map_pages, unmap_pages,
+iova_to_phys, free and other iommu pt related functions in some
+limited way instead of helping on the much more complete iommu pt
+work. Which is what I said to Will, but for some reason he suggested
+it anyhow.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi b/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-index bf0c32027ba..370b2afbf15 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
-@@ -185,13 +185,13 @@ touch@44 {
- 		interrupt-parent = <&gpioi>;
- 		vio-supply = <&v3v3>;
- 		vcc-supply = <&v3v3>;
-+		st,sample-time = <4>;
-+		st,mod-12b = <1>;
-+		st,ref-sel = <0>;
-+		st,adc-freq = <1>;
- 
- 		touchscreen {
- 			compatible = "st,stmpe-ts";
--			st,sample-time = <4>;
--			st,mod-12b = <1>;
--			st,ref-sel = <0>;
--			st,adc-freq = <1>;
- 			st,ave-ctrl = <1>;
- 			st,touch-det-delay = <2>;
- 			st,settling = <2>;
--- 
-2.39.5
+Sorry, but it doesn't make sense to complain about duplication in
+drivers and then not help advance one of the biggest projects to
+actually concretely and comprehensively address that duplication.
 
+Jason
 
