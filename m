@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63311CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EA1CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iwfs6F38lBxXdMkQOG1UnveB4ukiRZeb8naPsfVj/kM=; b=oBNqy6BBLvGdaHQ6TGYhAKywRS
-	b6MUHJYG3lutA1OGHIrCqYbHeyRCLCtm4SsTHUGZ0qZu67geio17JxH0kUhtK9p6E3qC1uNxk0Cnw
-	Uh35T4cg11yFM2o9SqsA9zRVurJizX3n8vlaXSrs2MxkcZcSvg41bAcF/uyqpTMpKHThhouaScgG2
-	+LK4qsavoar31iNjlxaGgKZkQ75Shmsn6px/pzt8SXNl363jL2ADcvtBmLpeXndgEsoSXLAOpqreO
-	6XizO8V5qeKkpEwq7W7wXoysvPr9jtUBuRYkdQfZo8fnt1oiBZJaG2kRgFRCqO0CKdMrrVs2wmB9W
-	tss4crjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OJBodSypORMXF56YwL9sPuhfgR8HpVgyTjVi4leFDGI=; b=cRAc7DCzBxCTeexJ7iONw1ueg3
+	2PCSKgOzJQMbnXF09lJbLUYeOKCtozNcS0+Qy8jpkwHrZ3f9yqGuvb0BxsOdzcikIwolW1G16LMaj
+	5PqfYvh34jaWtgIuFDT1h/4304WKEJMeTZ7xNxFxCRJGYuxAxbZ1JxXcNPSBn4Za5aITvDN9pbduY
+	hEiTLJHK4pMpjEYpZJ5F+Mp6KvQkQEsd/ganpRJjh+cvpj769VE6UQ1dfroM3d2Jw8w8to8CayTf2
+	sfbCKO0oUCqLPCJ0t/oicXQXXNNbmv5RTjY1WCj9eKpANYONzg1a73qCoJ3LdQlwlRt602FEHzwmU
+	GsZazdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAHd-00000004ihe-3Iwv;
-	Mon, 15 Sep 2025 14:34:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyAHl-00000004ikG-0Ij1;
+	Mon, 15 Sep 2025 14:34:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAHb-00000004ihE-3bBX
+	id 1uyAHg-00000004iiI-0W44
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:34:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AD0160231;
-	Mon, 15 Sep 2025 14:34:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 169EDC4CEF7;
-	Mon, 15 Sep 2025 14:34:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757946859;
-	bh=KnApPHdpbkc0ZqBs12JwYi2eKHvm/OQD74k8kMvr4jQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MfR9fJfOqXGHrjFh3h+WbbF7uOfJlWGJe2Ds6MljZsis9feU+3khyHudcngQ4QASf
-	 FbCNnwo/DGqnFz5dB3jsLbjSOLa12LH8oFQUO0riP0+OsBiaHSUODDsns5AeKlMKBg
-	 zINErZXf3HPxZjdbwEfidaxpPCymNK6ahIC9+C4TiDnopomCGUSmkeWlbXrqlYrmio
-	 o6bXJ+aNyG+B0KJS2d78D1UepJvUNGBPRANtA3Cq7G7gfkjZ/PxmcRyIG+DSLGZPg0
-	 kyHOeR2Qta6NQE6gPzHfIJOcTzTGNfNFthXaftEMKmMfWgeUUu9qTV8zN+l63Pm+kf
-	 QdBajgWBFvR8w==
-Date: Mon, 15 Sep 2025 20:04:09 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Subject: Re: [PATCH v9 3/4] PCI: qcom: Prepare for the DWC ECAM enablement
-Message-ID: <astoz72ufcybla5mmueweeizsyn4p6xcprt63ld7hzrcyb7hid@ionwygzp4464>
-References: <20250909-controller-dwc-ecam-v9-3-7d5b651840dd@kernel.org>
- <20250912215053.GA1643809@bhelgaas>
+	Mon, 15 Sep 2025 14:34:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1757946864; x=1789482864;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6G5vs2cyxeBTHwZWABgSNrCBXx1XdkeNKjCIKpoDxFQ=;
+  b=yX0e8c3/7hUAaVv5EcrvopniABfhL0jlBZxNByumHsPWOJhgG8jlNYZs
+   Og4E+eTb/LpXKy0C8mOXvgqK0hbIWnKMHQJ5QY1H5XE3bSbClTCxIYI8e
+   na4JQAnTUy0cx6HVldYbZpPzL9D5I9N6dPerSYxcwAzBW2lQPm5aJFHfP
+   ZG6tzEXABs7w0vdOGR4WkWIyyKT+D8ophgPbQ2hHgyVXOyYRpXhRDyCTk
+   0fkxAj63oS8IN1FYepANMPm0ssUjCD6KWA3mZ7jsP8lUsnUTAbNtNsnIO
+   JjTASsMirJ/LRzCbWhPTJQ/FrTD82sCrX22D3V4ziW9mQ/MYYjYWJZ/LV
+   Q==;
+X-CSE-ConnectionGUID: DF1M/GhBQMGN2tUVc32rVw==
+X-CSE-MsgGUID: XRRqoovgT3yxUJMX9QI+Jg==
+X-IronPort-AV: E=Sophos;i="6.18,266,1751266800"; 
+   d="scan'208";a="277891866"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Sep 2025 07:34:23 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 15 Sep 2025 07:33:55 -0700
+Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 15 Sep 2025 07:33:53 -0700
+From: <nicolas.ferre@microchip.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Cristian Birsan <cristian.birsan@microchip.com>, Ryan Wanner
+	<ryan.wanner@microchip.com>, Varshini Rajendran
+	<varshini.rajendran@microchip.com>
+Subject: [PATCH 2/2] ARM: at91: remove default values for PMC_PLL_ACR
+Date: Mon, 15 Sep 2025 16:33:45 +0200
+Message-ID: <20250915143345.18998-1-nicolas.ferre@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250912215053.GA1643809@bhelgaas>
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_073424_192205_08C82676 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 04:50:53PM GMT, Bjorn Helgaas wrote:
-> On Tue, Sep 09, 2025 at 12:37:52PM +0530, Manivannan Sadhasivam wrote:
-> > From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > 
-> > To support the DWC ECAM mechanism, prepare the driver by performing below
-> > configurations:
-> > 
-> >   1. Since the ELBI region will be covered by the ECAM 'config' space,
-> >      override the 'elbi_base' with the address derived from 'dbi_base' and
-> >      the offset from PARF_SLV_DBI_ELBI register.
-> > 
-> >   2. Block the transactions from the host bridge to devices other than Root
-> >      Port on the root bus to return all F's. This is required when the 'CFG
-> >      Shift Feature' of iATU is enabled.
-> 
-> FWIW, before I noticed your v9, I had updated the comments here to fix
-> a few inconsistencies.  Here's the diff:
-> 
+From: Cristian Birsan <cristian.birsan@microchip.com>
 
-I will incorporate this in next version.
+Remove default values for PMC PLL Analog Control Register(ACR) as the
+values are specific for each SoC and PLL and load them from PLL
+characteristics structure
 
-- Mani
+Co-developed-by: Andrei Simion <andrei.simion@microchip.com>
+Signed-off-by: Andrei Simion <andrei.simion@microchip.com>
+Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
+[nicolas.ferre@microchip.com: fix pll acr write sequence, preserve val]
+Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+---
+ drivers/clk/at91/clk-sam9x60-pll.c | 7 ++-----
+ include/linux/clk/at91_pmc.h       | 2 --
+ 2 files changed, 2 insertions(+), 7 deletions(-)
 
-> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-> index 7c2b2c8c61c2..962f0311a23a 100644
-> --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> @@ -343,15 +343,15 @@ static void qcom_pci_config_ecam(struct dw_pcie_rp *pp)
->  	writel_relaxed(upper_32_bits(pci->dbi_phys_addr), pcie->parf + PARF_ECAM_BASE_HI);
->  
->  	/*
-> -	 * The only device on root bus is a single Root Port. So if PCI core
-> -	 * tries to access any devices other than Device/Function (0.0) in Bus
-> -	 * 0, the TLP will go outside of the controller to the PCI bus. But with
-> -	 * CFG Shift Feature (ECAM) enabled in iATU, there is no guarantee that
-> -	 * the response is going to be all F's. Hence, to make sure that the
-> +	 * The only device on the root bus is a single Root Port. If we try to
-> +	 * access any devices other than Device/Function 00.0 on Bus 0, the TLP
-> +	 * will go outside of the controller to the PCI bus. But with CFG Shift
-> +	 * Feature (ECAM) enabled in iATU, there is no guarantee that the
-> +	 * response is going to be all F's. Hence, to make sure that the
->  	 * requester gets all F's response for accesses other than the Root
-> -	 * Port, configure iATU to block the transactions starting from function
-> -	 * 1 of the root bus to the end of the root bus (i.e from dbi_base + 4kb
-> -	 * to dbi_base + 1MB).
-> +	 * Port, configure iATU to block the transactions starting from
-> +	 * function 1 of the root bus to the end of the root bus (i.e., from
-> +	 * dbi_base + 4KB to dbi_base + 1MB).
->  	 */
->  	addr = pci->dbi_phys_addr + SZ_4K;
->  	writel_relaxed(lower_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_WR_BASE);
-> @@ -1385,7 +1385,7 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
->  	if (pp->ecam_enabled) {
->  		/*
->  		 * Override ELBI when ECAM is enabled, as when ECAM
-> -		 * is enabled ELBI moves along with the dbi config space.
-> +		 * is enabled ELBI moves along with the DBI config space.
->  		 */
->  		offset = FIELD_GET(SLV_DBI_ELBI_ADDR_BASE, readl(pcie->parf + PARF_SLV_DBI_ELBI));
->  		pci->elbi_base = pci->dbi_base + offset;
-
+diff --git a/drivers/clk/at91/clk-sam9x60-pll.c b/drivers/clk/at91/clk-sam9x60-pll.c
+index a035dc15454b..3dc75a394ce1 100644
+--- a/drivers/clk/at91/clk-sam9x60-pll.c
++++ b/drivers/clk/at91/clk-sam9x60-pll.c
+@@ -103,11 +103,8 @@ static int sam9x60_frac_pll_set(struct sam9x60_pll_core *core)
+ 	    (cmul == frac->mul && cfrac == frac->frac))
+ 		goto unlock;
+ 
+-	/* Recommended value for PMC_PLL_ACR */
+-	if (core->characteristics->upll)
+-		val = AT91_PMC_PLL_ACR_DEFAULT_UPLL;
+-	else
+-		val = AT91_PMC_PLL_ACR_DEFAULT_PLLA;
++	/* Load recommended value for PMC_PLL_ACR */
++	val = core->characteristics->acr;
+ 	regmap_write(regmap, AT91_PMC_PLL_ACR, val);
+ 
+ 	regmap_write(regmap, AT91_PMC_PLL_CTRL1,
+diff --git a/include/linux/clk/at91_pmc.h b/include/linux/clk/at91_pmc.h
+index 7af499bdbecb..d60ce9708ea2 100644
+--- a/include/linux/clk/at91_pmc.h
++++ b/include/linux/clk/at91_pmc.h
+@@ -47,8 +47,6 @@
+ #define	AT91_PMC_PCSR		0x18			/* Peripheral Clock Status Register */
+ 
+ #define AT91_PMC_PLL_ACR	0x18			/* PLL Analog Control Register [for SAM9X60] */
+-#define		AT91_PMC_PLL_ACR_DEFAULT_UPLL	UL(0x12020010)	/* Default PLL ACR value for UPLL */
+-#define		AT91_PMC_PLL_ACR_DEFAULT_PLLA	UL(0x00020010)	/* Default PLL ACR value for PLLA */
+ #define		AT91_PMC_PLL_ACR_UTMIVR		(1 << 12)	/* UPLL Voltage regulator Control */
+ #define		AT91_PMC_PLL_ACR_UTMIBG		(1 << 13)	/* UPLL Bandgap Control */
+ 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
