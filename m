@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6335CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F82DCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HA2AX6/X/3WKJArgzEm9dYinODfkUL1MEX5kKZAu4FA=; b=agCpYDcw0Pfz+JQJomU/rrgleH
-	YIXXV1DOzN83Mxd2SQKdGfOttFBtRyIo8zBgJ8x/PQkKWGGMd2bBDXmnwU0jZOqzV0Mcv4tFAtU2F
-	KpYtzelWrX92Y0WoOH/wqE4PxfpOkVRC9KaoSd0NpvIn74IxHJmRJUQ+3eqNDcTk4vpwlmB6NVjVC
-	veEpGyDUmrfomjs8ENxSrqu0B7/WI6HfHZZyM+4Ko2JpZJ6CJeF6k103TZwGc5nRjBt58NKCIAAfO
-	fxXpBdmJWPEGyoTxfAql7pAj41zyeQxFJYCht5f/Ohc13IKRRkrGczeSt2kwdPOzif2fh0vW6onZ6
-	BsEDXkiw==;
+	bh=gVENMcmy572+AGe0xH0d/CoKuiwUWCQuAixdjDrf16A=; b=MWS4pzEsq55OBn+H+gP/Qjkl7b
+	dilxyGm/bWYAkjsdePai3fkltTOtOnRYqs8RSMVLL8xp+oJrcopvBxBtl5EebHkPNe5b/nhAg5vjZ
+	2WB2kmXNQlveMaBmhe6od3nstdpTw7+edrYrBNwocWFWq4w5ZZd4OWreTozn2Cmn+9F0xWavC0Fsh
+	c8wXuq3+eK/ZuLQrAOCSYtLCnn1FyUtKIEJSe19OTkfjBFFNViFJq6yzsBj3WfGObKQ+w0FkRrC3b
+	oL1oOBBxtnMP7rocRHmmigUVzDeNO7Gt6N2/Ca7Ed973CrZO0tw9MRJX/FMHYyyIVfg1nQIq4Yzxy
+	E0FDrE6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51X-00000003J5i-1pLy;
-	Mon, 15 Sep 2025 08:57:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uy51Y-00000003J72-1qls;
+	Mon, 15 Sep 2025 08:57:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51P-00000003Iw6-0a1q
+	id 1uy51Q-00000003Ixa-17qh
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 15 Sep 2025 08:57:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EA3A4090A;
-	Mon, 15 Sep 2025 08:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF935C4CEFA;
-	Mon, 15 Sep 2025 08:57:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AD6A3601A5;
+	Mon, 15 Sep 2025 08:57:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CA99C4CEF1;
+	Mon, 15 Sep 2025 08:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757926634;
-	bh=y+qpBialO0nK2NwGIINlkbx5XK+5lv6J5C1jwN7r+FU=;
+	s=k20201202; t=1757926635;
+	bh=BXehqBShX490v3aAs4Y17GiJfZWz8kwwWxRiKKAQ/G4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QNaHcKRH0c7bVGWjnYeS/q4So/+5khBagqnRwl20V97B1GZaeT3XGgeeI1cbOUIXR
-	 KyBLjmfpxjIaj8xkPeTOa+KjtOHQLm5ul7faZa+waTq+zT5sHkXuxOkS2LjYtjYZUY
-	 q4BRZS4ocvhRBp2VxmRnq0uIb/IqTy1/T2xXv8fpFWPn3826gt5s2aTQkvUXc9+xIB
-	 oOyr603CWkd5fORJljlxPRu3Pl4PIvUezGf/9gY/UClIu/RcF8W2Jw/bkqHnH0kzRo
-	 shuJw6sxhYq5Kc4kfSrle9owXBRQLOA1csanO6EuwFnmzKxbFK41Zfd6jkmDMRJt7E
-	 92nz22j2VX1bA==
+	b=qAsY1YT7BX7Y2ZvUjVN7i60TuTZ4MLoaL/jzxgNJbpn/6PhDH2lq8DJpAwXIXnsHz
+	 q462/cB/WUB9SZozwJt42UEg9YOCuwN189CFnW54lc9ph4V8gduKbOLZqKE6RjRe0x
+	 eHZY68uGfnipL3VkqiPyGtga5bCQxtK2pnP1iNCRgbnzvpUu7ap+aiFVxZdDnjv/b0
+	 ETfFhh5keGo1IeSUEW8J1oTGZLMDoYI/d27c5yA50wAUhrO+tCNSoVtvgCX8C2BWFQ
+	 TyLRfOA1JADSRmI9VklliNSDlfLP470uvYEXy86WTlcbQuarjsPWc403REPT6EiVA5
+	 LSrm9KkwybNAg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy51L-00000006IHP-2mj4;
-	Mon, 15 Sep 2025 08:57:11 +0000
+	id 1uy51N-00000006IHP-1mgI;
+	Mon, 15 Sep 2025 08:57:13 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 02/25] ACPI: irq: Add IRQ affinity reporting interface
-Date: Mon, 15 Sep 2025 09:56:39 +0100
-Message-Id: <20250915085702.519996-3-maz@kernel.org>
+Subject: [PATCH v2 09/25] perf: arm_spe_pmu: Convert to new IRQ affinity retrieval API
+Date: Mon, 15 Sep 2025 09:56:46 +0100
+Message-Id: <20250915085702.519996-10-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915085702.519996-1-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
@@ -75,9 +75,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015715_217010_039FAECB 
-X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +89,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug the irq_populate_fwspec_info() helper into the ACPI layer
-to offer an IRQ affinity reporting function. This is currently
-only supported for the CONFIG_ACPI_GENERIC_GSI configurations,
-but could later be extended to legacy architectures if necessary.
+Now that the relevant interrupt controllers are equipped with
+a callback returning the affinity of per-CPU interrupts, switch
+the ARM SPE driver over to this new method.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/acpi/irq.c   | 19 +++++++++++++++++++
- include/linux/acpi.h |  7 +++++++
- 2 files changed, 26 insertions(+)
+ drivers/perf/arm_spe_pmu.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
-index 76a856c32c4d0..d1595156c86a4 100644
---- a/drivers/acpi/irq.c
-+++ b/drivers/acpi/irq.c
-@@ -300,6 +300,25 @@ int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource *res)
- }
- EXPORT_SYMBOL_GPL(acpi_irq_get);
- 
-+const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
-+					    unsigned int index)
-+{
-+	struct irq_fwspec_info info;
-+	struct irq_fwspec fwspec;
-+	unsigned long flags;
-+
-+	if (acpi_irq_parse_one(handle, index, &fwspec, &flags))
-+		return NULL;
-+
-+	if (irq_populate_fwspec_info(&fwspec, &info))
-+		return NULL;
-+
-+	if (!(info.flags & IRQ_FWSPEC_INFO_AFFINITY_VALID))
-+		return NULL;
-+
-+	return info.affinity;
-+}
-+
- /**
-  * acpi_set_irq_model - Setup the GSI irqdomain information
-  * @model: the value assigned to acpi_irq_model
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 1c5bb1e887cd1..c506ae4bacc86 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1509,12 +1509,19 @@ static inline int acpi_parse_spcr(bool enable_earlycon, bool enable_console)
- 
- #if IS_ENABLED(CONFIG_ACPI_GENERIC_GSI)
- int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource *res);
-+const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
-+					    unsigned int index);
- #else
- static inline
- int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource *res)
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 369e77ad5f13f..a1c86a1f21427 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -1211,8 +1211,10 @@ static void arm_spe_pmu_dev_teardown(struct arm_spe_pmu *spe_pmu)
+ static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
  {
- 	return -EINVAL;
- }
-+static inline const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
-+							  unsigned int index)
-+{
-+	return NULL;
-+}
- #endif
+ 	struct platform_device *pdev = spe_pmu->pdev;
+-	int irq = platform_get_irq(pdev, 0);
++	const struct cpumask *affinity;
++	int irq;
  
- #ifdef CONFIG_ACPI_LPIT
++	irq = platform_get_irq_affinity(pdev, 0, &affinity);
+ 	if (irq < 0)
+ 		return -ENXIO;
+ 
+@@ -1221,10 +1223,7 @@ static int arm_spe_pmu_irq_probe(struct arm_spe_pmu *spe_pmu)
+ 		return -EINVAL;
+ 	}
+ 
+-	if (irq_get_percpu_devid_partition(irq, &spe_pmu->supported_cpus)) {
+-		dev_err(&pdev->dev, "failed to get PPI partition (%d)\n", irq);
+-		return -EINVAL;
+-	}
++	cpumask_copy(&spe_pmu->supported_cpus, affinity);
+ 
+ 	spe_pmu->irq = irq;
+ 	return 0;
 -- 
 2.39.2
 
