@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4AACAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99716CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtQ2+IKGaSccC+WCcbqXZdkqV476k46NRsEAV/Jg1WA=; b=aVxzx5F9bOZIIUZW2GY3jiP3Wk
-	z21wc9nHH4LF7XtkhOfUwFz/PbT7Jjj3Urh7wF/xhaRlKaJdHxYZRI63NyRd7LhB7BJVyidNrdp2M
-	pJoWbcqAsCaGlHArY/sPXkHboHGM6K8y1T1hxpaI2GuWzytOY4esiWhkVnQGTmbf7Mru3kU+6xGAN
-	QDHfiqkhfySvAOcZkM80GXWYjC1+4L2Dlg2L9aoK3DzRYPMOgGKc+JDmvHb8u+cvtZTLcIRlnZouw
-	tPACIDxLI4ER3E7TfyUc+sYI9suCf2aKf75noluRP405dV/1jwRNY9yqDD0/jVaZ9be3vPxND5zVa
-	4CzgSS2g==;
+	bh=QIC43Ctl2t/znait1zErPhPHRrCoDhLv4e6VlrpZsXM=; b=kl0KyKMQ0CoeYIViheru8dCaQi
+	nL7Bcx/2iqWmemFw8r0Ezl8eZFHrn1GWJ9HDrSUSsZD6FeLth41ktLxPeGS1ecTabdxwLcZf1+Wbk
+	53a4HwfuO7RFiFugkhYu4R/+wbcMsJ2NrB5FZc1847Nlgu9niUDiAbkIU0qQu4QCtLFyZPp93LeKr
+	D8WAO4I4QkgOpo7iPyTtdZg6rfbYWBKyDDMkB+gObBjsTXS4b6u0TVWn43DZ3i3GXnBiE/9P4+4Zz
+	zoVOa1DpwLhWn3GF1bdStltghyT1MraZGvSK5TsrSCd3EzYFOS3WS3KMx+BfQ4BZXfHUZ4eg7aZUY
+	XlKxs65Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyBlg-000000053yq-1jPh;
+	id 1uyBlg-000000053yC-0DNp;
 	Mon, 15 Sep 2025 16:09:28 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyBlZ-000000053sU-2n2C
+	id 1uyBlY-000000053rH-0lBv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 16:09:21 +0000
+	Mon, 15 Sep 2025 16:09:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1DBB36022E;
-	Mon, 15 Sep 2025 16:09:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD59C113D0;
+	by tor.source.kernel.org (Postfix) with ESMTP id 981BD60242;
 	Mon, 15 Sep 2025 16:09:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 098A3C4CEFD;
+	Mon, 15 Sep 2025 16:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757952560;
-	bh=Ua1yvS4tSf2gDUfc6JXSKhJMkLFJH732dutUmITWkZU=;
+	s=k20201202; t=1757952559;
+	bh=QlXjFWDuIZ5Q91ysSw6RnwWPX7rDoxkJzLK13J6/BvE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H7NeK5aGwgMRAG3uiFulFL4f7lmiGW03r89TuOt4sBeAYT/3Mzj+hEiJekp/NJPxK
-	 k9vwEUIvChpXaaiSqytT8lr9nWAVLqMxhjlUMXOFA56KvsQvAhDRxSJhCk8QmZyxrU
-	 WBfqWu0lr7woFEYZ7v7rvHxYaDhcDM4fkHJIiKyJ9cHnEpxBO1TneaFoncgV0jGH6L
-	 PHbegdx2UmfMob5qNBkynxwNdYHqt5Z1EomgcDjGIXBOzRwAIlpDvOWkHWW0cks7y1
-	 kmWu67TgPscvn+z9LhmnE4t2MTSGfyxsZTOPxVoFJ+bNmX05KMBV+N8A6sMiJZnvvk
-	 4AzSK/3/x0v6A==
+	b=ekbXC5n0FLvzvBeRPluIRi+2hVD8B2A+PfYAMbVW9WMyyxJjRAgDHUknxb+gGelLU
+	 No8L0eh94TPy8UvP+VvfL6UJmzhoeKTvTiCrgCskyWTE+aTAUlU3mLgZF2BR14hYw6
+	 G0cDACes2Qv3gxu6b6zHMea02RGAboGI/i7wccufletQW/ec5Dfifyvhi61g6lT1qc
+	 8yK2+Y/jGN9BIP6fbWiOtBkmA6IqePh36ZKwO5dp21sPrDnHZVgi5NCG2++arkDaHh
+	 J6QypfxLVqoqV6S/bRx46oty54bAyLTVcFvP1/mFdyOynA4AZctZkL0KXnKa77UKzH
+	 Ow/7SUB6ZzMhQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org,
 	fsverity@lists.linux.dev
@@ -53,9 +53,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Mikulas Patocka <mpatocka@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2 6/6] fsverity: Use 2-way interleaved SHA-256 hashing when supported
-Date: Mon, 15 Sep 2025 11:08:19 -0500
-Message-ID: <20250915160819.140019-7-ebiggers@kernel.org>
+Subject: [PATCH v2 5/6] fsverity: Remove inode parameter from fsverity_hash_block()
+Date: Mon, 15 Sep 2025 11:08:18 -0500
+Message-ID: <20250915160819.140019-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250915160819.140019-1-ebiggers@kernel.org>
 References: <20250915160819.140019-1-ebiggers@kernel.org>
@@ -75,323 +75,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the crypto library provides an optimized implementation of
-sha256_finup_2x(), use it to interleave the hashing of pairs of data
-blocks.  On some CPUs this nearly doubles hashing performance.  The
-increase in overall throughput of cold-cache fsverity reads that I'm
-seeing on arm64 and x86_64 is roughly 35% (though this metric is hard to
-measure as it jumps around a lot).
-
-For now this is only done on the verification path, and only for data
-blocks, not Merkle tree blocks.  We could use sha256_finup_2x() on
-Merkle tree blocks too, but that is less important as there aren't as
-many Merkle tree blocks as data blocks, and that would require some
-additional code restructuring.  We could also use sha256_finup_2x() to
-accelerate building the Merkle tree, but verification performance is
-more important.
+Due to the conversion from crypto_shash to the library API,
+fsverity_hash_block() can no longer fail.  Therefore, the inode
+parameter, which was used only to print an error message in the case of
+a failure, is no longer necessary.  Remove it.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- fs/verity/verify.c | 173 ++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 139 insertions(+), 34 deletions(-)
+ fs/verity/enable.c           | 12 +++++-------
+ fs/verity/fsverity_private.h |  2 +-
+ fs/verity/hash_algs.c        |  3 +--
+ fs/verity/verify.c           |  4 ++--
+ 4 files changed, 9 insertions(+), 12 deletions(-)
 
-diff --git a/fs/verity/verify.c b/fs/verity/verify.c
-index d7d5f65700b03..0b63c4cd8d7b2 100644
---- a/fs/verity/verify.c
-+++ b/fs/verity/verify.c
-@@ -8,10 +8,35 @@
- #include "fsverity_private.h"
+diff --git a/fs/verity/enable.c b/fs/verity/enable.c
+index 503268cf42962..f2f5b0471b6b2 100644
+--- a/fs/verity/enable.c
++++ b/fs/verity/enable.c
+@@ -17,12 +17,11 @@ struct block_buffer {
+ 	bool is_root_hash;
+ 	u8 *data;
+ };
  
- #include <linux/bio.h>
- #include <linux/export.h>
+ /* Hash a block, writing the result to the next level's pending block buffer. */
+-static int hash_one_block(struct inode *inode,
+-			  const struct merkle_tree_params *params,
++static int hash_one_block(const struct merkle_tree_params *params,
+ 			  struct block_buffer *cur)
+ {
+ 	struct block_buffer *next = cur + 1;
  
-+#define FS_VERITY_MAX_PENDING_BLOCKS 2
-+
-+struct fsverity_pending_block {
-+	const void *data;
-+	u64 pos;
-+	u8 real_hash[FS_VERITY_MAX_DIGEST_SIZE];
-+};
-+
-+struct fsverity_verification_context {
-+	struct inode *inode;
-+	struct fsverity_info *vi;
-+	unsigned long max_ra_pages;
-+
-+	/*
-+	 * This is the queue of data blocks that are pending verification.  When
-+	 * the crypto layer supports interleaved hashing, we allow multiple
-+	 * blocks to be queued up in order to utilize it.  This can improve
-+	 * performance significantly vs. sequential hashing of each block.
-+	 */
-+	int num_pending;
-+	int max_pending;
-+	struct fsverity_pending_block
-+		pending_blocks[FS_VERITY_MAX_PENDING_BLOCKS];
-+};
-+
- static struct workqueue_struct *fsverity_read_workqueue;
+ 	/*
+@@ -34,12 +33,11 @@ static int hash_one_block(struct inode *inode,
+ 		return -EINVAL;
  
- /*
-  * Returns true if the hash block with index @hblock_idx in the tree, located in
-  * @hpage, has already been verified.
-@@ -77,23 +102,24 @@ static bool is_hash_block_verified(struct fsverity_info *vi, struct page *hpage,
- 	SetPageChecked(hpage);
- 	return false;
+ 	/* Zero-pad the block if it's shorter than the block size. */
+ 	memset(&cur->data[cur->filled], 0, params->block_size - cur->filled);
+ 
+-	fsverity_hash_block(params, inode, cur->data,
+-			    &next->data[next->filled]);
++	fsverity_hash_block(params, cur->data, &next->data[next->filled]);
+ 	next->filled += params->digest_size;
+ 	cur->filled = 0;
+ 	return 0;
  }
  
- /*
-- * Verify a single data block against the file's Merkle tree.
-+ * Verify the hash of a single data block against the file's Merkle tree.
-  *
-  * In principle, we need to verify the entire path to the root node.  However,
-  * for efficiency the filesystem may cache the hash blocks.  Therefore we need
-  * only ascend the tree until an already-verified hash block is seen, and then
-  * verify the path to that block.
-  *
-  * Return: %true if the data block is valid, else %false.
-  */
--static bool
--verify_data_block(struct inode *inode, struct fsverity_info *vi,
--		  const void *data, u64 data_pos, unsigned long max_ra_pages)
-+static bool verify_data_block(struct inode *inode, struct fsverity_info *vi,
-+			      const struct fsverity_pending_block *dblock,
-+			      unsigned long max_ra_pages)
- {
-+	const u64 data_pos = dblock->pos;
- 	const struct merkle_tree_params *params = &vi->tree_params;
- 	const unsigned int hsize = params->digest_size;
- 	int level;
- 	u8 _want_hash[FS_VERITY_MAX_DIGEST_SIZE];
- 	const u8 *want_hash;
-@@ -113,23 +139,27 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
- 	 * The index of the previous level's block within that level; also the
- 	 * index of that block's hash within the current level.
- 	 */
- 	u64 hidx = data_pos >> params->log_blocksize;
- 
--	/* Up to 1 + FS_VERITY_MAX_LEVELS pages may be mapped at once */
--	BUILD_BUG_ON(1 + FS_VERITY_MAX_LEVELS > KM_MAX_IDX);
-+	/*
-+	 * Up to FS_VERITY_MAX_PENDING_BLOCKS + FS_VERITY_MAX_LEVELS pages may
-+	 * be mapped at once.
-+	 */
-+	static_assert(FS_VERITY_MAX_PENDING_BLOCKS + FS_VERITY_MAX_LEVELS <=
-+		      KM_MAX_IDX);
- 
- 	if (unlikely(data_pos >= inode->i_size)) {
- 		/*
- 		 * This can happen in the data page spanning EOF when the Merkle
- 		 * tree block size is less than the page size.  The Merkle tree
- 		 * doesn't cover data blocks fully past EOF.  But the entire
- 		 * page spanning EOF can be visible to userspace via a mmap, and
- 		 * any part past EOF should be all zeroes.  Therefore, we need
- 		 * to verify that any data blocks fully past EOF are all zeroes.
- 		 */
--		if (memchr_inv(data, 0, params->block_size)) {
-+		if (memchr_inv(dblock->data, 0, params->block_size)) {
- 			fsverity_err(inode,
- 				     "FILE CORRUPTED!  Data past EOF is not zeroed");
- 			return false;
+@@ -121,22 +119,22 @@ static int build_merkle_tree(struct file *filp,
+ 		if (bytes_read != buffers[-1].filled) {
+ 			err = -EINVAL;
+ 			fsverity_err(inode, "Short read of file data");
+ 			goto out;
  		}
- 		return true;
-@@ -218,53 +248,110 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
- 		want_hash = _want_hash;
+-		err = hash_one_block(inode, params, &buffers[-1]);
++		err = hash_one_block(params, &buffers[-1]);
+ 		if (err)
+ 			goto out;
+ 		for (level = 0; level < num_levels; level++) {
+ 			if (buffers[level].filled + params->digest_size <=
+ 			    params->block_size) {
+ 				/* Next block at @level isn't full yet */
+ 				break;
+ 			}
+ 			/* Next block at @level is full */
+ 
+-			err = hash_one_block(inode, params, &buffers[level]);
++			err = hash_one_block(params, &buffers[level]);
+ 			if (err)
+ 				goto out;
+ 			err = write_merkle_tree_block(inode,
+ 						      buffers[level].data,
+ 						      level_offset[level],
+@@ -152,11 +150,11 @@ static int build_merkle_tree(struct file *filp,
+ 		cond_resched();
+ 	}
+ 	/* Finish all nonempty pending tree blocks. */
+ 	for (level = 0; level < num_levels; level++) {
+ 		if (buffers[level].filled != 0) {
+-			err = hash_one_block(inode, params, &buffers[level]);
++			err = hash_one_block(params, &buffers[level]);
+ 			if (err)
+ 				goto out;
+ 			err = write_merkle_tree_block(inode,
+ 						      buffers[level].data,
+ 						      level_offset[level],
+diff --git a/fs/verity/fsverity_private.h b/fs/verity/fsverity_private.h
+index 5fe854a5b9ad3..d0458877afea4 100644
+--- a/fs/verity/fsverity_private.h
++++ b/fs/verity/fsverity_private.h
+@@ -87,11 +87,11 @@ const struct fsverity_hash_alg *fsverity_get_hash_alg(const struct inode *inode,
+ 						      unsigned int num);
+ union fsverity_hash_ctx *
+ fsverity_prepare_hash_state(const struct fsverity_hash_alg *alg,
+ 			    const u8 *salt, size_t salt_size);
+ void fsverity_hash_block(const struct merkle_tree_params *params,
+-			 const struct inode *inode, const void *data, u8 *out);
++			 const void *data, u8 *out);
+ void fsverity_hash_buffer(const struct fsverity_hash_alg *alg,
+ 			  const void *data, size_t size, u8 *out);
+ void __init fsverity_check_hash_algs(void);
+ 
+ /* init.c */
+diff --git a/fs/verity/hash_algs.c b/fs/verity/hash_algs.c
+index 9bb3c6344907e..de53e14c8aa78 100644
+--- a/fs/verity/hash_algs.c
++++ b/fs/verity/hash_algs.c
+@@ -92,19 +92,18 @@ fsverity_prepare_hash_state(const struct fsverity_hash_alg *alg,
+ }
+ 
+ /**
+  * fsverity_hash_block() - hash a single data or hash block
+  * @params: the Merkle tree's parameters
+- * @inode: inode for which the hashing is being done
+  * @data: virtual address of a buffer containing the block to hash
+  * @out: output digest, size 'params->digest_size' bytes
+  *
+  * Hash a single data or hash block.  The hash is salted if a salt is specified
+  * in the Merkle tree parameters.
+  */
+ void fsverity_hash_block(const struct merkle_tree_params *params,
+-			 const struct inode *inode, const void *data, u8 *out)
++			 const void *data, u8 *out)
+ {
+ 	union fsverity_hash_ctx ctx;
+ 
+ 	if (!params->hashstate) {
+ 		fsverity_hash_buffer(params->hash_alg, data, params->block_size,
+diff --git a/fs/verity/verify.c b/fs/verity/verify.c
+index a1f00c3fd3b27..d7d5f65700b03 100644
+--- a/fs/verity/verify.c
++++ b/fs/verity/verify.c
+@@ -200,11 +200,11 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
+ 		struct page *hpage = hblocks[level - 1].page;
+ 		const void *haddr = hblocks[level - 1].addr;
+ 		unsigned long hblock_idx = hblocks[level - 1].index;
+ 		unsigned int hoffset = hblocks[level - 1].hoffset;
+ 
+-		fsverity_hash_block(params, inode, haddr, real_hash);
++		fsverity_hash_block(params, haddr, real_hash);
+ 		if (memcmp(want_hash, real_hash, hsize) != 0)
+ 			goto corrupted;
+ 		/*
+ 		 * Mark the hash block as verified.  This must be atomic and
+ 		 * idempotent, as the same hash block might be verified by
+@@ -219,11 +219,11 @@ verify_data_block(struct inode *inode, struct fsverity_info *vi,
  		kunmap_local(haddr);
  		put_page(hpage);
  	}
  
--	/* Finally, verify the data block. */
--	fsverity_hash_block(params, data, real_hash);
--	if (memcmp(want_hash, real_hash, hsize) != 0)
-+	/* Finally, verify the hash of the data block. */
-+	if (memcmp(want_hash, dblock->real_hash, hsize) != 0)
+ 	/* Finally, verify the data block. */
+-	fsverity_hash_block(params, inode, data, real_hash);
++	fsverity_hash_block(params, data, real_hash);
+ 	if (memcmp(want_hash, real_hash, hsize) != 0)
  		goto corrupted;
  	return true;
  
  corrupted:
--	fsverity_err(inode,
--		     "FILE CORRUPTED! pos=%llu, level=%d, want_hash=%s:%*phN, real_hash=%s:%*phN",
--		     data_pos, level - 1,
--		     params->hash_alg->name, hsize, want_hash,
--		     params->hash_alg->name, hsize, real_hash);
-+	fsverity_err(
-+		inode,
-+		"FILE CORRUPTED! pos=%llu, level=%d, want_hash=%s:%*phN, real_hash=%s:%*phN",
-+		data_pos, level - 1, params->hash_alg->name, hsize, want_hash,
-+		params->hash_alg->name, hsize,
-+		level == 0 ? dblock->real_hash : real_hash);
- error:
- 	for (; level > 0; level--) {
- 		kunmap_local(hblocks[level - 1].addr);
- 		put_page(hblocks[level - 1].page);
- 	}
- 	return false;
- }
- 
--static bool
--verify_data_blocks(struct folio *data_folio, size_t len, size_t offset,
--		   unsigned long max_ra_pages)
-+static void
-+fsverity_init_verification_context(struct fsverity_verification_context *ctx,
-+				   struct inode *inode,
-+				   unsigned long max_ra_pages)
- {
--	struct inode *inode = data_folio->mapping->host;
- 	struct fsverity_info *vi = inode->i_verity_info;
--	const unsigned int block_size = vi->tree_params.block_size;
-+
-+	ctx->inode = inode;
-+	ctx->vi = vi;
-+	ctx->max_ra_pages = max_ra_pages;
-+	ctx->num_pending = 0;
-+	if (vi->tree_params.hash_alg->algo_id == HASH_ALGO_SHA256 &&
-+	    sha256_finup_2x_is_optimized())
-+		ctx->max_pending = 2;
-+	else
-+		ctx->max_pending = 1;
-+}
-+
-+static void
-+fsverity_clear_pending_blocks(struct fsverity_verification_context *ctx)
-+{
-+	int i;
-+
-+	for (i = ctx->num_pending - 1; i >= 0; i--) {
-+		kunmap_local(ctx->pending_blocks[i].data);
-+		ctx->pending_blocks[i].data = NULL;
-+	}
-+	ctx->num_pending = 0;
-+}
-+
-+static bool
-+fsverity_verify_pending_blocks(struct fsverity_verification_context *ctx)
-+{
-+	struct fsverity_info *vi = ctx->vi;
-+	const struct merkle_tree_params *params = &vi->tree_params;
-+	int i;
-+
-+	if (ctx->num_pending == 2) {
-+		/* num_pending == 2 implies that the algorithm is SHA-256 */
-+		sha256_finup_2x(params->hashstate ? &params->hashstate->sha256 :
-+						    NULL,
-+				ctx->pending_blocks[0].data,
-+				ctx->pending_blocks[1].data, params->block_size,
-+				ctx->pending_blocks[0].real_hash,
-+				ctx->pending_blocks[1].real_hash);
-+	} else {
-+		for (i = 0; i < ctx->num_pending; i++)
-+			fsverity_hash_block(params, ctx->pending_blocks[i].data,
-+					    ctx->pending_blocks[i].real_hash);
-+	}
-+
-+	for (i = 0; i < ctx->num_pending; i++) {
-+		if (!verify_data_block(ctx->inode, vi, &ctx->pending_blocks[i],
-+				       ctx->max_ra_pages))
-+			return false;
-+	}
-+	fsverity_clear_pending_blocks(ctx);
-+	return true;
-+}
-+
-+static bool fsverity_add_data_blocks(struct fsverity_verification_context *ctx,
-+				     struct folio *data_folio, size_t len,
-+				     size_t offset)
-+{
-+	struct fsverity_info *vi = ctx->vi;
-+	const struct merkle_tree_params *params = &vi->tree_params;
-+	const unsigned int block_size = params->block_size;
- 	u64 pos = (u64)data_folio->index << PAGE_SHIFT;
- 
- 	if (WARN_ON_ONCE(len <= 0 || !IS_ALIGNED(len | offset, block_size)))
- 		return false;
- 	if (WARN_ON_ONCE(!folio_test_locked(data_folio) ||
- 			 folio_test_uptodate(data_folio)))
- 		return false;
- 	do {
--		void *data;
--		bool valid;
--
--		data = kmap_local_folio(data_folio, offset);
--		valid = verify_data_block(inode, vi, data, pos + offset,
--					  max_ra_pages);
--		kunmap_local(data);
--		if (!valid)
-+		ctx->pending_blocks[ctx->num_pending].data =
-+			kmap_local_folio(data_folio, offset);
-+		ctx->pending_blocks[ctx->num_pending].pos = pos + offset;
-+		if (++ctx->num_pending == ctx->max_pending &&
-+		    !fsverity_verify_pending_blocks(ctx))
- 			return false;
- 		offset += block_size;
- 		len -= block_size;
- 	} while (len);
- 	return true;
-@@ -282,11 +369,19 @@ verify_data_blocks(struct folio *data_folio, size_t len, size_t offset,
-  *
-  * Return: %true if the data is valid, else %false.
-  */
- bool fsverity_verify_blocks(struct folio *folio, size_t len, size_t offset)
- {
--	return verify_data_blocks(folio, len, offset, 0);
-+	struct fsverity_verification_context ctx;
-+
-+	fsverity_init_verification_context(&ctx, folio->mapping->host, 0);
-+
-+	if (fsverity_add_data_blocks(&ctx, folio, len, offset) &&
-+	    fsverity_verify_pending_blocks(&ctx))
-+		return true;
-+	fsverity_clear_pending_blocks(&ctx);
-+	return false;
- }
- EXPORT_SYMBOL_GPL(fsverity_verify_blocks);
- 
- #ifdef CONFIG_BLOCK
- /**
-@@ -303,10 +398,12 @@ EXPORT_SYMBOL_GPL(fsverity_verify_blocks);
-  * filesystems) must instead call fsverity_verify_page() directly on each page.
-  * All filesystems must also call fsverity_verify_page() on holes.
-  */
- void fsverity_verify_bio(struct bio *bio)
- {
-+	struct inode *inode = bio_first_folio_all(bio)->mapping->host;
-+	struct fsverity_verification_context ctx;
- 	struct folio_iter fi;
- 	unsigned long max_ra_pages = 0;
- 
- 	if (bio->bi_opf & REQ_RAHEAD) {
- 		/*
-@@ -319,17 +416,25 @@ void fsverity_verify_bio(struct bio *bio)
- 		 * reduces the number of I/O requests made to the Merkle tree.
- 		 */
- 		max_ra_pages = bio->bi_iter.bi_size >> (PAGE_SHIFT + 2);
- 	}
- 
-+	fsverity_init_verification_context(&ctx, inode, max_ra_pages);
-+
- 	bio_for_each_folio_all(fi, bio) {
--		if (!verify_data_blocks(fi.folio, fi.length, fi.offset,
--					max_ra_pages)) {
--			bio->bi_status = BLK_STS_IOERR;
--			break;
--		}
-+		if (!fsverity_add_data_blocks(&ctx, fi.folio, fi.length,
-+					      fi.offset))
-+			goto ioerr;
- 	}
-+
-+	if (!fsverity_verify_pending_blocks(&ctx))
-+		goto ioerr;
-+	return;
-+
-+ioerr:
-+	fsverity_clear_pending_blocks(&ctx);
-+	bio->bi_status = BLK_STS_IOERR;
- }
- EXPORT_SYMBOL_GPL(fsverity_verify_bio);
- #endif /* CONFIG_BLOCK */
- 
- /**
 -- 
 2.51.0
 
