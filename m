@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE34CAC599
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D622DCAC59A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0kYO9CEWtqqrbvM8zDMLf4ipyabmGakj2Fqqwjv1KpQ=; b=qf0WB0nlboPIY3Yxi+brD0u19K
-	XYcKOXjHGFqtv5l6Oe41gK2SPOcX2VRuQC7i03E0zJygpmZuwJgD9ROIgxR3Q87fzp6/xbn9UsyDv
-	6flPVjbmpsmgnSS9dHDKDkcNns50/t3ICxxt+0h5vXdV8E0h++yXVGKBFa5JP0B1vPViZ/+jWQsNW
-	0tuQlBo4ac62M9WcoPecgKIoAMcFaaG/4atA0+Gnk7ofJg3t80dflSASDvz0PQ9dl7KJl5kRVJbpO
-	AHpdnQqWbEKG2i3GDZw6Yu3cYplDo29CGXRsYU6PwYZ1jC55VBJjmtHllyvoYKnBxVth5ERqIWT5A
-	NUtIwNnQ==;
+	bh=0emz1M+LXQIDYTxQ4mq1Z+Zdgy6lpCnxvJqShvL+wko=; b=msNtvzRg/lomnz6dKC8/PQ7QKR
+	d8kTwjl5aaPbGcnQ6eabodgog5GGE1qVgasbqGMS+CK/n702KCXHYpw6aK2WP1nIY6n0Y2o9mGYUQ
+	ZHTX1IZGM+/8PuQzHL4FFAuCmEaSKEboUaAKSTQ/wkurlVzdYV7sL/uEXfgv7EEmeBvL3d/3g02A9
+	sRgURV/yGQHwWrf5g72fkPd53R0SuAo8y0gh8WWs6gGUbiJ6cybzUcUziGWqLI0YA6VnhoiwCf6u5
+	R1frDuzsM1Lv0FO80LowGv7zytvD1uphw9Azq4LWnZalYM2vCmAgJHHW7iMlN3ajz5DhcokITxhgj
+	lcokwPIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51X-00000003J6O-40HS;
-	Mon, 15 Sep 2025 08:57:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy51Z-00000003J8d-33kU;
+	Mon, 15 Sep 2025 08:57:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51P-00000003Iw5-0ew1
+	id 1uy51P-00000003IwK-1NbH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:57:16 +0000
+	Mon, 15 Sep 2025 08:57:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EA5643A00;
+	by sea.source.kernel.org (Postfix) with ESMTP id A3A59447F3;
 	Mon, 15 Sep 2025 08:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0717C4CEFF;
-	Mon, 15 Sep 2025 08:57:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F308C4CEFC;
+	Mon, 15 Sep 2025 08:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757926634;
-	bh=Tg++jEb0qzQoJaPtBtzDLbCLFkMuRzXyuZynLSvq9z8=;
+	bh=4u1DgiC0kHhkv9VtJrOAXn89dh7UYCtkT3pFEWYEx0k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s8MyW1t/KY+ePpGZ7kfxfZRZBXGE5f4b73es1XFslk69eaQaAMgtMaeZGI3L8/NsK
-	 KAGz3FyHUAZOTmeog5TG72kUiRUp5CsuVPy7AuLErJFu2MKSVeh+F3Li51dPbqb7LZ
-	 bPXRm2bBsjYxqlVm2zUvWTj9uTLXg3D2yNm7pAb6NcUBG2B7EQUDyZ65/xtg+aFaDR
-	 k6qgSiUX1HOt8GldVlOEr9GuOZ8s8cI9InmQLHrgAQ1wK4ZTW4P1ckeHFrBsmMvlQU
-	 jq58QzrVRPj/0SUZHzQl7mwB8VUSiKBV3xVbgKdfUkfyfTaaL1XqRqHEzdN031SJZK
-	 n7YoGq73YbgPg==
+	b=h+2r6WO+SKBzliTvYSVlZgZ0OWsTN+miH21Dd7EWrVPNWoBydRGxWdC5Kvj73b72T
+	 DvhuY3FKkPSwde1c+lKgRHcyDdgDZnQ+AJZAW9YIkbOQpBRpvr9HROeCFSHQvElV9K
+	 nk30kpWEIbNTMldBbfI3bmDvWK2t0CSMx7hGGzr9OIuLdMqmwlb2kuKJRPI+Q+UEWo
+	 J7tQB3vQmsyw3hDfKduAeI3f2+AW5P/htZKgHPxmkI0RciYV8HrD+NZ7sAfzI55Cl1
+	 wRZKEH3vr9tWlx0E+Pftp83LDFxL3kFqK62n+fmo4nbg5L/DQDCFr6GoKDiRIVGz3r
+	 BQrGERW9/WEdw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy51L-00000006IHP-3rFH;
-	Mon, 15 Sep 2025 08:57:11 +0000
+	id 1uy51M-00000006IHP-2rPw;
+	Mon, 15 Sep 2025 08:57:12 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 03/25] of/irq: Add IRQ affinity reporting interface
-Date: Mon, 15 Sep 2025 09:56:40 +0100
-Message-Id: <20250915085702.519996-4-maz@kernel.org>
+Subject: [PATCH v2 06/25] irqchip/apple-aic: Add FW info retrieval support
+Date: Mon, 15 Sep 2025 09:56:43 +0100
+Message-Id: <20250915085702.519996-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915085702.519996-1-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
@@ -76,8 +76,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015715_256790_95E188A4 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250915_015715_407111_7DE9D413 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug the irq_populate_fwspec_info() helper into the OF layer
-to offer an IRQ affinity reporting function.
+Plug the new .get_info() callback into the Apple AIC driver,
+using some of the existing FIQ affinity handling infrastructure.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/of/irq.c       | 20 ++++++++++++++++++++
- include/linux/of_irq.h |  7 +++++++
- 2 files changed, 27 insertions(+)
+ drivers/irqchip/irq-apple-aic.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index 74aaea61de13c..9a205cb033bda 100644
---- a/drivers/of/irq.c
-+++ b/drivers/of/irq.c
-@@ -479,6 +479,26 @@ int of_irq_get(struct device_node *dev, int index)
- }
- EXPORT_SYMBOL_GPL(of_irq_get);
- 
-+const struct cpumask *of_irq_get_affinity(struct device_node *dev, int index)
-+{
-+	struct of_phandle_args oirq;
-+	struct irq_fwspec_info info;
-+	struct irq_fwspec fwspec;
-+	int rc;
-+
-+	rc = of_irq_parse_one(dev, index, &oirq);
-+	if (rc)
-+		return NULL;
-+
-+	of_phandle_args_to_fwspec(oirq.np, oirq.args, oirq.args_count,
-+				  &fwspec);
-+
-+	if (!irq_populate_fwspec_info(&fwspec, &info))
-+		return info.affinity;
-+
-+	return NULL;
-+}
-+
- /**
-  * of_irq_get_byname - Decode a node's IRQ and return it as a Linux IRQ number
-  * @dev: pointer to device tree node
-diff --git a/include/linux/of_irq.h b/include/linux/of_irq.h
-index a480063c9cb19..721cbdbc292df 100644
---- a/include/linux/of_irq.h
-+++ b/include/linux/of_irq.h
-@@ -43,6 +43,8 @@ extern int of_irq_parse_one(struct device_node *device, int index,
- 			  struct of_phandle_args *out_irq);
- extern int of_irq_count(struct device_node *dev);
- extern int of_irq_get(struct device_node *dev, int index);
-+extern const struct cpumask *of_irq_get_affinity(struct device_node *dev,
-+						      int index);
- extern int of_irq_get_byname(struct device_node *dev, const char *name);
- extern int of_irq_to_resource_table(struct device_node *dev,
- 		struct resource *res, int nr_irqs);
-@@ -77,6 +79,11 @@ static inline int of_irq_get_byname(struct device_node *dev, const char *name)
- {
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index 032d66dceb8ec..cb8b6f40ce8d3 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -651,6 +651,33 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
  	return 0;
  }
-+static inline const struct cpumask *of_irq_get_affinity(struct device_node *dev,
-+							int index)
+ 
++static int aic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
 +{
-+	return NULL;
++	const struct cpumask *mask;
++	u32 intid;
++
++	info->flags = 0;
++	info->affinity = NULL;
++
++	if (fwspec->param[0] != AIC_FIQ)
++		return 0;
++
++	if (fwspec->param_count == 3)
++		intid = fwspec->param[1];
++	else
++		intid = fwspec->param[2];
++
++	if (aic_irqc->fiq_aff[intid])
++		mask = &aic_irqc->fiq_aff[intid]->aff;
++	else
++		mask = cpu_possible_mask;
++
++	info->affinity = mask;
++	info->flags = IRQ_FWSPEC_INFO_AFFINITY_VALID;
++
++	return 0;
 +}
- static inline int of_irq_to_resource_table(struct device_node *dev,
- 					   struct resource *res, int nr_irqs)
- {
++
+ static int aic_irq_domain_translate(struct irq_domain *id,
+ 				    struct irq_fwspec *fwspec,
+ 				    unsigned long *hwirq,
+@@ -753,6 +780,7 @@ static const struct irq_domain_ops aic_irq_domain_ops = {
+ 	.translate	= aic_irq_domain_translate,
+ 	.alloc		= aic_irq_domain_alloc,
+ 	.free		= aic_irq_domain_free,
++	.get_fwspec_info = aic_irq_get_fwspec_info,
+ };
+ 
+ /*
 -- 
 2.39.2
 
