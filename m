@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C69CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C190CCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBZQ2T2IZb9DQ5IKJhfncUR/bMicrgAtY+dpr/zeHT0=; b=22hyFShJzYzrPzjbCqeizMichD
-	ZzyG8V19YWH27HzkGmSP0EpbBgInybN1Ddk4QdQwkmA8MHLgSW9ZbYiFqGGn/JQ8xnRzyxoS8qeaG
-	VZyTMzZYOpey+5LeNKSkHbY1zVeFcgfcsUaBFP3md4UqG5/aOKSKN+VZ8Zcy1glwrZbFew5LWnQ3t
-	SkEz+kaieFZVpbmmt457jmBl0YTjsS0zd8Xkm3bPFbULy4HXFLTRCh7CbgSh4fJENkxIRB66Djchl
-	TPjzmqmQSCZRPu0L0p9jIv0zSomRgrvGTurIpeBcXbllNSzKGkrz5NH9ZmU9ryi7KfEVjHsJgM72c
-	jOAEfTHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzTfZ6OkL6obc9RRZlXoM/ipHMTfVXpFSNM7FHA1pyY=; b=rKdTYIQtM5BBDHIP54mfUwXp8u
+	uyju40bH22tv1B/Bg/pTHS1RBhzddmckPJmdmt3WPoO/7LGOpEWU8DOjsZclUkzv98uChDEJkrOA9
+	jQlHfuVUNWn7+nmlLuNE9XplWVBxbFKwm+uLepH39KhdgS69vjknmxWzI6drz7IWcWjxRygHvUTRK
+	PqYBkqD/9FVkWTYeFz+PzTjn7P9AWh1x5MBVfqlzoMr269+b9omwccTm3BsZdzKYbuGGJy+P6OPCi
+	A7pzHP0sfC1B0o1Z20gqYFALnR2HNLi9BII9SKBm9BTdZDGksrKV+fsn9xMNbgUqcBVo2lZRxt38z
+	cS1FIrUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4wD-00000003HnE-06UF;
-	Mon, 15 Sep 2025 08:51:53 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uy4xA-00000003I4P-3lpG;
+	Mon, 15 Sep 2025 08:52:52 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4w9-00000003HlB-4ALN
+	id 1uy4x7-00000003I27-3v2r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:51:52 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250915085140epoutp03306d7c7008fc713f163134ec50a02b9c~laKgQwD4_2488924889epoutp03f
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 08:51:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250915085140epoutp03306d7c7008fc713f163134ec50a02b9c~laKgQwD4_2488924889epoutp03f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1757926300;
-	bh=QBZQ2T2IZb9DQ5IKJhfncUR/bMicrgAtY+dpr/zeHT0=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=MedraKfHUyaAHFSN+Kx1D0w1PiBwWeuUJtEb0nhh2T26ar+2y1uoeFj6p8U0/biIU
-	 67PCxuds34yT2r7l0oXQGFmV/MliMedPiKUKLqO7iAW/kSmSIABnfzWS6sWkHqTMXn
-	 Gk2xM46Z91lriMnGEsMpMYImXq0X6JRrOIcsSjzc=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250915085140epcas2p264ea28075622118bb8178354436c2cfc~laKfzCsiN1521415214epcas2p2M;
-	Mon, 15 Sep 2025 08:51:40 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.36.92]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cQJfz3k27z6B9mK; Mon, 15 Sep
-	2025 08:51:39 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250915085138epcas2p4b3b2f8058172efd14ca4438ccb232a7c~laKefpnwd1110011100epcas2p46;
-	Mon, 15 Sep 2025 08:51:38 +0000 (GMT)
-Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250915085138epsmtip19453fc15026e8e8a191121d4eb7d3f4f~laKeaRwwd1433914339epsmtip1J;
-	Mon, 15 Sep 2025 08:51:38 +0000 (GMT)
-From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Bartlomiej Zolnierkiewicz'"
-	<bzolnier@gmail.com>, "'Rafael J . Wysocki'" <rafael@kernel.org>, "'Daniel
- Lezcano'" <daniel.lezcano@linaro.org>, "'Zhang Rui'" <rui.zhang@intel.com>,
-	"'Lukasz	Luba'" <lukasz.luba@arm.com>, "'Rob Herring'" <robh@kernel.org>,
-	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'"
-	<alim.akhtar@samsung.com>, "'Henrik Grimler'" <henrik@grimler.se>
-Cc: <linux-pm@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <b453e64b-b3db-4b8f-ba9d-0da7e55fe057@kernel.org>
-Subject: RE: [PATCH v3 1/3] dt-bindings: thermal: samsung: Add a
- hw-sensor-indices property
-Date: Mon, 15 Sep 2025 17:51:38 +0900
-Message-ID: <060601dc261d$f2f2d5a0$d8d880e0$@samsung.com>
+	Mon, 15 Sep 2025 08:52:51 +0000
+Date: Mon, 15 Sep 2025 10:52:44 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1757926366;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DzTfZ6OkL6obc9RRZlXoM/ipHMTfVXpFSNM7FHA1pyY=;
+	b=Mi6ywzPPfRmBkAmPmmB94PBsG5oAxNjMQaRNxHmpFFRQte/ejEj+iFvVnSU059WrUIJWPZ
+	We53G9QOrAp0d3hHq9hkC+xDGZvWtoQmIyeRcHLWiAHtW5rwfmj8hzj0BBor/WXWLljKHr
+	sb7mlc6wfgkb8y6RwFyC/ePJ+r7gwciLWdGro1KISwtBDOtnW5sFSBcASghzouJssqAZFl
+	6P72GjWYOQxrnm1zDq/kraIMBZZd+OjeyjWSpWaMoEO4TLYN1Q2++Fi76HJoLGeAx5xsai
+	74/lbH+OPgC4Agtx3TebC1R7gcr6b6upBqDqTUNkSLqWyJknMgoVvEGDzUMgiQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1757926366;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DzTfZ6OkL6obc9RRZlXoM/ipHMTfVXpFSNM7FHA1pyY=;
+	b=/8h1CSO8vFJcz/ZTIkGrrYdbGZzg3Kci40oMB631Wj5xPFCVqiizAdgJR29SEmSbNeFaaq
+	WYGQ/mjmGmv/g1Dw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH v2 0/7] arm64: Make EFI calls preemptible
+Message-ID: <20250915085244.JLUfpdSP@linutronix.de>
+References: <20250905133035.275517-9-ardb+git@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 15.0
-Thread-Index: AQI2gN6OiEY8j6d92YCX64Q86w41mAJQEA6QAjvruSIB3AjCg7Or+Kxw
-Content-Language: ko
-X-CMS-MailID: 20250915085138epcas2p4b3b2f8058172efd14ca4438ccb232a7c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250915040742epcas2p4ddc37eb56eb9d96313a5c3fac8befe5d
-References: <20250915040715.486733-1-shin.son@samsung.com>
-	<CGME20250915040742epcas2p4ddc37eb56eb9d96313a5c3fac8befe5d@epcas2p4.samsung.com>
-	<20250915040715.486733-2-shin.son@samsung.com>
-	<b453e64b-b3db-4b8f-ba9d-0da7e55fe057@kernel.org>
+In-Reply-To: <20250905133035.275517-9-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015150_694193_9CAE6595 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250915_015250_116669_FDC4E391 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,122 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Krzysztof Kozlowski.
-
-> -----Original Message-----
-> From: Krzysztof Kozlowski =5Bmailto:krzk=40kernel.org=5D
-> Sent: Monday, September 15, 2025 1:29 PM
-> To: Shin Son <shin.son=40samsung.com>; Bartlomiej Zolnierkiewicz
-> <bzolnier=40gmail.com>; Rafael J . Wysocki <rafael=40kernel.org>; Daniel
-> Lezcano <daniel.lezcano=40linaro.org>; Zhang Rui <rui.zhang=40intel.com>;
-> Lukasz Luba <lukasz.luba=40arm.com>; Rob Herring <robh=40kernel.org>; Con=
-or
-> Dooley <conor+dt=40kernel.org>; Alim Akhtar <alim.akhtar=40samsung.com>;
-> Henrik Grimler <henrik=40grimler.se>
-> Cc: linux-pm=40vger.kernel.org; linux-samsung-soc=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH v3 1/3=5D dt-bindings: thermal: samsung: Add a hw-
-> sensor-indices property
+On 2025-09-05 15:30:36 [+0200], Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 >=20
-> On 15/09/2025 06:07, Shin Son wrote:
-> > The exynosautov920 TMU requires per-sensor interrupt enablement for
-> > its critical trip points.
-> >
-> > - **samsung,hw-sensor-indices**: List of sensor indices physically
-> >                                  monitored by this TMU block.
-> > 				 Indicies not listed exist in the SoC
-> > 				 register map but are not part of
-> > 				 this TMU instance
->=20
-> Not much improved here. Same comment as before. That's not even correct
-> syntax but some oddly formatted code. I asked to drop it and instead
-> describe hardware. This is not a place to write some **code** or whatever
-> this paragraph is about to represent.
+=E2=80=A6
+> Note that this is only a partial solution in terms of RT guarantees,
+> given that the runtime services execute at the same privilege level as
+> the kernel, and can therefore disable interrupts (and therefore
+> preemption) directly. But it should prevent scheduling latency spikes
+> for EFI calls that simply take a long time to run to completion.
 
-Understood=E2=80=94sorry=20for=20the=20confusion.=20I'll=20remove=20the=20c=
-ode-like=20formatting=20and=20replace=20it=20with=20a=20plain,=20hardware-f=
-ocused=0D=0ADescription=20as=20requested.=0D=0A=0D=0A>=20=0D=0A>=20>=0D=0A>=
-=20>=20Additionally,=20add=20myself=20to=20the=20bindings'=20maintainers=20=
-list,=20as=20I=20plan=0D=0A>=20>=20to=20actively=20work=20on=20the=20exynos=
-autov920=20TMU=20support=20and=20handle=20further=0D=0A>=20>=20updates=20in=
-=20this=20area.=0D=0A>=20>=20I=20also=20restrict=20'samsung,hw-sensor-indic=
-es'=20to=20the=20V920=20variant.=20To=0D=0A>=20>=20ensure=20properties=20in=
-troduced=20in=20'if/then'=20blocks=20are=20recognized,=20I=0D=0A>=20>=20rep=
-lace=20'addtionalProperties:=20false'=20with=20'unevaluatedProperties:=20fa=
-lse'.=0D=0A>=20=0D=0A>=20No,=20don't=20do=20that.=0D=0A=0D=0AUnderstood.=20=
-I'll=20keep=20'addtionalProperties:=20false'=20as=20is=20and=20promote=20's=
-amsung,hw-sensor-indices'=20to=20the=20common=20sections.=0D=0A=0D=0A>=20=
-=0D=0A>=20>=0D=0A>=20>=20Signed-off-by:=20Shin=20Son=20<shin.son=40samsung.=
-com>=0D=0A>=20>=20---=0D=0A>=20>=20=20.../thermal/samsung,exynos-thermal.ya=
-ml=20=20=20=20=20=20=20=7C=2040=20++++++++++++++++++-=0D=0A>=20>=20=201=20f=
-ile=20changed,=2038=20insertions(+),=202=20deletions(-)=0D=0A>=20>=0D=0A>=
-=20>=20diff=20--git=0D=0A>=20>=20a/Documentation/devicetree/bindings/therma=
-l/samsung,exynos-thermal.yam=0D=0A>=20>=20l=0D=0A>=20>=20b/Documentation/de=
-vicetree/bindings/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=20l=20index=
-=2029a08b0729ee..448c68986b10=20100644=0D=0A>=20>=20---=0D=0A>=20>=20a/Docu=
-mentation/devicetree/bindings/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=
-=20l=0D=0A>=20>=20+++=20b/Documentation/devicetree/bindings/thermal/samsung=
-,exynos-thermal=0D=0A>=20>=20+++=20.yaml=0D=0A>=20>=20=40=40=20-8,6=20+8,7=
-=20=40=40=20title:=20Samsung=20Exynos=20SoC=20Thermal=20Management=20Unit=
-=0D=0A>=20>=20(TMU)=0D=0A>=20>=0D=0A>=20>=20=20maintainers:=0D=0A>=20>=20=
-=20=20=20-=20Krzysztof=20Kozlowski=20<krzk=40kernel.org>=0D=0A>=20>=20+=20=
-=20-=20Shin=20Son=20<shin.son=40samsung.com>=0D=0A>=20>=0D=0A>=20>=20=20des=
-cription:=20=7C=0D=0A>=20>=20=20=20=20For=20multi-instance=20tmu=20each=20i=
-nstance=20should=20have=20an=20alias=20correctly=0D=0A>=20>=20numbered=20=
-=40=40=20-27,6=20+28,7=20=40=40=20properties:=0D=0A>=20>=20=20=20=20=20=20=
-=20=20-=20samsung,exynos5420-tmu-ext-triminfo=0D=0A>=20>=20=20=20=20=20=20=
-=20=20-=20samsung,exynos5433-tmu=0D=0A>=20>=20=20=20=20=20=20=20=20-=20sams=
-ung,exynos7-tmu=0D=0A>=20>=20+=20=20=20=20=20=20-=20samsung,exynosautov920-=
-tmu=0D=0A>=20>=0D=0A>=20>=20=20=20=20clocks:=0D=0A>=20>=20=20=20=20=20=20mi=
-nItems:=201=0D=0A>=20>=20=40=40=20-62,7=20+64,7=20=40=40=20properties:=0D=
-=0A>=20>=20=20=20=20=20=20minItems:=201=0D=0A>=20>=0D=0A>=20>=20=20=20=20'=
-=23thermal-sensor-cells':=0D=0A>=20>=20-=20=20=20=20const:=200=0D=0A>=20>=
-=20+=20=20=20=20enum:=20=5B0,=201=5D=0D=0A>=20>=0D=0A>=20>=20=20=20=20vtmu-=
-supply:=0D=0A>=20>=20=20=20=20=20=20description:=20The=20regulator=20node=
-=20supplying=20voltage=20to=20TMU.=0D=0A>=20>=20=40=40=20-97,6=20+99,8=20=
-=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20reg:=0D=0A>=20>=20=
-=20=20=20=20=20=20=20=20=20=20=20minItems:=202=0D=0A>=20>=20=20=20=20=20=20=
-=20=20=20=20=20=20maxItems:=202=0D=0A>=20>=20+=20=20=20=20=20=20=20=20'=23t=
-hermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20const:=20=
-0=0D=0A>=20>=20=20=20=20-=20if:=0D=0A>=20>=20=20=20=20=20=20=20=20propertie=
-s:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20compatible:=0D=0A>=20>=20=40=40=
-=20-119,6=20+123,8=20=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=
-=20reg:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=
-=20>=20=20=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=
-=20=20=20=20=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=
-=20=20=20=20=20const:=200=0D=0A>=20>=0D=0A>=20>=20=20=20=20-=20if:=0D=0A>=
-=20>=20=20=20=20=20=20=20=20properties:=0D=0A>=20>=20=40=40=20-139,8=20+145=
-,38=20=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20reg:=0D=0A>=
-=20>=20=20=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=20>=20=20=20=
-=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=20=20=20=20=
-=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=
-=20const:=200=0D=0A>=20>=0D=0A>=20>=20-additionalProperties:=20false=0D=0A>=
-=20>=20+=20=20-=20if:=0D=0A>=20>=20+=20=20=20=20=20=20properties:=0D=0A>=20=
->=20+=20=20=20=20=20=20=20=20compatible:=0D=0A>=20>=20+=20=20=20=20=20=20=
-=20=20=20=20contains:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20con=
-st:=20samsung,exynosautov920-tmu=0D=0A>=20>=20+=20=20=20=20then:=0D=0A>=20>=
-=20+=20=20=20=20=20=20properties:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20clo=
-cks:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=20>=
-=20+=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=20=20=
-=20=20=20=20reg:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20minItems:=201=
-=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=
-=20=20=20=20=20=20=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=
-=20=20=20=20=20=20=20const:=201=0D=0A>=20>=20+=20=20=20=20=20=20=20=20samsu=
-ng,hw-sensor-indices:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20descripti=
-on:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20List=20of=20thermal=
-=20sensor=20indices=20physically=20monitored=20by=20this=0D=0A>=20TMU=20ins=
-tance.=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20Indices=20not=20li=
-sted=20correspond=20to=20registers=20that=20exist=20in=20the=0D=0A>=20SoC=
-=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20but=20are=20not=20connec=
-ted=20to=20this=20TMU=20hardware=20block.=0D=0A>=20>=20+=20=20=20=20=20=20=
-=20=20=20=20=24ref:=20/schemas/types.yaml=23/definitions/uint32-array=0D=0A=
->=20=0D=0A>=20I=20don't=20understand=20what=20is=20happening=20here=20with=
-=20this=20binding.=20See=20writing=0D=0A>=20schema=20and=20example-schema.=
-=0D=0A>=20=0D=0A>=20=0D=0A>=20=0D=0A>=20Best=20regards,=0D=0A>=20Krzysztof=
-=0D=0A=0D=0AUnderstood.=20I'll=20rework=20the=20binding=20to=20follow=20the=
-=20'writing=20schema'=20and=20'example-schema'=20guidance=0D=0Aand=20includ=
-e=20these=20changes=20in=20v4.=0D=0A=0D=0AThanks.=0D=0ABest=20regards,=0D=
-=0AShin=20Son=0D=0A=0D=0A
+That sounds nice. There is no feature flag that could tell if a specific
+EFI-call (or any) will disable interrupts, right? But if the source code
+is available, you could check.
+
+Sebastian
 
