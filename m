@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA88CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 17:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCB8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 17:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFdF5CMCTAnwISZ/eT+Yrx/sOBZpyVdhARbcIzdq8VU=; b=igbDcAENZkp8P3wY7tVGDlp52L
-	v09bIxjT8YYesqv/I+xYogNG3WUDnCQmPdW8WUmBrkecyYnRBPa5NRlvBTAtNFs3Zd941ytC45c+x
-	sKL7KKBTaQNnUUjlaaLRDrYpUG+jnsLbO3ichHYlJ2xqC7kvyVUWdJpcVhTFRV466pd2M6BHgVnfA
-	pB4R5Llma6Z0ps2JybBpydOFb8BKSnorP3/vHKwhTG/Ci3iXndfBBtSAEQHvCZalEhuZTbRQrQSee
-	3FJY7agYY1CXDHUhovBeig4wn/sFGd8ZACusIEnASMTH6anlecX+x5Tr87egFYt9okL/u0jGEZec1
-	nLe1o6uQ==;
+	bh=QVjtWRQj//qcsIk5ldU0SmXs/R0deh67fLAsxifApOI=; b=OGeaSlt1Mp8xJrngSHstYqMqFw
+	MIFBFpPD+R/iJ/f9Wj/4lmJLZdbe9aWXnd/duuV1qI7e0dFmNQMhlxO+gsbIjMK6Ws9jM/1v3Er/X
+	rhm8SrhL37Us3b2I/PwlYBbk29v+4825Z7jHID58Vm5oi405lZ3ZXbYp0HNkJD9At57zJnsHZ7Y5A
+	KYLO5oZq1cDNGShlTBOEhor/i6F1FUTm7K4X9b/yXeOQmP1ne0J1Hs5qnm8oEQy01LOYQf8btCssV
+	PhTD9TANCGorIZsM95bb3IRtB0VF8CehqFciqs34nbgZUhk6KFF/S5vPe+Dk+8dUEXjAdqLDw6VOK
+	cx7UrtKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyDML-00000005Koo-1qmM;
-	Mon, 15 Sep 2025 17:51:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyDNd-00000005L9Q-1Qj7;
+	Mon, 15 Sep 2025 17:52:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyDMJ-00000005KoX-3S88;
-	Mon, 15 Sep 2025 17:51:23 +0000
+	id 1uyDNa-00000005L7b-4Aoi;
+	Mon, 15 Sep 2025 17:52:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D385B60202;
-	Mon, 15 Sep 2025 17:51:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B6CFC4CEF1;
-	Mon, 15 Sep 2025 17:51:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 58EDD44013;
+	Mon, 15 Sep 2025 17:52:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9434C4CEF1;
+	Mon, 15 Sep 2025 17:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757958682;
-	bh=fFdF5CMCTAnwISZ/eT+Yrx/sOBZpyVdhARbcIzdq8VU=;
+	s=k20201202; t=1757958762;
+	bh=QVjtWRQj//qcsIk5ldU0SmXs/R0deh67fLAsxifApOI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sRb5sF/bNQ34JDwzv2LB0JOxy9bYFZ+e7R8cPR1WaImljDF11kCCrpzEiUKGvLsi+
-	 HZa4tuxWeGLKXw1ZjCaOm4bHNIFe+lLBBBWyuqZ2j5ltYiJOkso94xIXk62ouG64Dm
-	 mB3b1TCOJ7qo8vTN4oSfSx4Z/8f6PAaNpzBlrNrQ8wKxa5mmdXKop2tKO4jedveEZY
-	 j3AUPBydRAZSw6YbOS/rsaouUKRdGm5ESTHPd2iAQEayn31iilu9EOSfWhZsCHzaR9
-	 pZentVVopng0ONFoSCIsZMXXK6V+5l+f7ubnk4hKAo2mhUrV4ltNhChzQGYhbS2GEp
-	 aCqjmEXNLCJVw==
-Date: Mon, 15 Sep 2025 18:51:16 +0100
+	b=teYt+F55IKAnrnN0DZru8mB8wI5H4tTsk7wt33eSj/xn6gfkjRBn4gLKUSBL9UYr5
+	 UZ1GCuBUvYn9PHoAbzvjfFvik9bz0u9zyDfuaey9guJ0I3KYuHEuRNqlmA3qrrhOY8
+	 CegsA90hjs/Q+XEWmrv/tbYvqQN+UKZtUSLRjRS511mPcTv92vkYztU1QNfywHwQA0
+	 A7VXZbH7r+oPzFg4UFr5AJbMBdvCb8+HcKh+vh9PtlXC7WlrApvgWecqzGPqAgvJuS
+	 PGfXC48ip+Q9Zw9B3cYeuQ4jAGsp52T3c841rbLTGv7gGrSs7++GuOBo1Eh3lFZtru
+	 eYNflOjXdhjOg==
+Date: Mon, 15 Sep 2025 18:52:36 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Chia-I Wu <olvaffe@gmail.com>
 Cc: Boris Brezillon <boris.brezillon@collabora.com>,
@@ -61,14 +61,19 @@ Cc: Boris Brezillon <boris.brezillon@collabora.com>,
 	linux-mediatek@lists.infradead.org
 Subject: Re: [PATCH v2 1/2] dt-bindings: gpu: mali-valhall-csf: add MediaTek
  MT8196 compatible
-Message-ID: <20250915-numerate-makeshift-c076500aaec3@spud>
+Message-ID: <20250915-deodorize-proxy-b18e41fa8668@spud>
 References: <20250913002155.1163908-1-olvaffe@gmail.com>
  <20250913002155.1163908-2-olvaffe@gmail.com>
+ <20250915-numerate-makeshift-c076500aaec3@spud>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vT2LutKl9MtQTSAL"
+	protocol="application/pgp-signature"; boundary="zj/IpRh5L7G4umUF"
 Content-Disposition: inline
-In-Reply-To: <20250913002155.1163908-2-olvaffe@gmail.com>
+In-Reply-To: <20250915-numerate-makeshift-c076500aaec3@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_105243_049408_78AA0DF5 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +89,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---vT2LutKl9MtQTSAL
+--zj/IpRh5L7G4umUF
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Sep 15, 2025 at 06:51:16PM +0100, Conor Dooley wrote:
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---vT2LutKl9MtQTSAL
+Hmm, actually there seems to be a more complete binding proposed here:
+https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250912-mt8196-gpufreq-v2-1-779a8a3729d9@collabora.com/
+
+
+
+--zj/IpRh5L7G4umUF
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMhSFAAKCRB4tDGHoIJi
-0hyDAQD5XpyVrgwBrD8kkao4gH4YK4KfNqnZEXgFzHZtZFmiBQEA0WDTgBM88F9Z
-PcXqDWyoUO1rnrO+HG6i4coKk1lnPQs=
-=JkzN
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMhSZAAKCRB4tDGHoIJi
+0h7OAQDrJvvwez35Fxek/+gxVlWQMSUkdCozpI6UIMXqKSSfyAEAgfq/22/qmjlG
+oPynLEW/PzKMbJDGm3gR2kAUCl+J9gQ=
+=LQXY
 -----END PGP SIGNATURE-----
 
---vT2LutKl9MtQTSAL--
+--zj/IpRh5L7G4umUF--
 
