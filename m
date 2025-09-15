@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05EACAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 17:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD014CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 17:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AP9z/nBXhZBgPQih2YdXAKjLgFzkdTp8MaQk5RGr6rk=; b=LcGw8MU/STmAaVordRC8x6TEHn
-	tWUSKsNz4+O4sDcSa/w0eua8r7aKpN6GmYNn9FTsX6eSl3gA98DlEDEiqgmSioafcM9ZsgEEp9dJW
-	aCzgasz5C9Kgyf5bz7vp/598numtY5yOWDNhQ/Bx4a4b/8YqJgbhOncBk0YTrDXH2sl1Q+PKoUN9I
-	26SlkrtXK8IAZxFKKlpUB1Ly3KEqwXwRb5C2fO6JxxRT5ALCyKbAgN9HQ7FMOispRbIeKb1kaonlv
-	wKgg6FBwdohPhw3pZrP7SlIfnmdnyoJp156kjdGL1b4bAHFRpmP+gXrpZ6wzvoSr58Chfrr3JLvSr
-	eZz6HoTQ==;
+	bh=UhtlqOXDupzkzc3nSNJvUxuVlPWJGH7dBhTIBsrkvzc=; b=HSmatMJ5fM8+ziJ2IfmQf0dEyv
+	1UU6TxVjfhR7O6iOfIFIyUknkmEfxOuii3UPAOnv5GXQ2JpoPhsT14vVo9GfewjrS/HILPdAF8sfb
+	KMhRibQJQv6E56LqVnBheg4Wdj4BQDB4y9yt9aUzuEnANIvcPVPETBKg+aIw8+itsWWESXtTV6jxJ
+	Ejv7h6tC5riVmwiMdhvTbiZDrQwIBKn8EFQnoaiCXiTyXTiDplq2OKxClsRSsRYV5+Wbh6Qz4Ulpz
+	xA/YR6CyORzQabUW2EFNHCWEO5qZq4otP7Uypinhg1rqBgiEk9Asgvlg1GmKxZW+zZuaG9xAiM1zh
+	9mH30Vfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyDPs-00000005Ldt-20se;
-	Mon, 15 Sep 2025 17:55:04 +0000
+	id 1uyDRB-00000005M0W-3Gkt;
+	Mon, 15 Sep 2025 17:56:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyDPq-00000005Ld8-0Vad;
-	Mon, 15 Sep 2025 17:55:03 +0000
+	id 1uyDR8-00000005Lyx-42wl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 17:56:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC9C041779;
-	Mon, 15 Sep 2025 17:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 562DAC4CEFB;
-	Mon, 15 Sep 2025 17:54:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A85E441893;
+	Mon, 15 Sep 2025 17:56:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41507C4CEF1;
+	Mon, 15 Sep 2025 17:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757958901;
-	bh=p6i1OXOwL1SbFMy6RHcrUa5lkMegakp9xY05tYmaFnw=;
+	s=k20201202; t=1757958982;
+	bh=UhtlqOXDupzkzc3nSNJvUxuVlPWJGH7dBhTIBsrkvzc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jom/24+EXhKUrEjPIycsMmgCYhmsBk1/WXxwQDO2r6+KPb+kDjeG8to3CCwvyqU/l
-	 oawXXgrHbTKOEYTYjVPgrJyCtjfq21/GjhscZsrXfDM4bMtSvzUQ58kdqXhYkaEspt
-	 Ny4iC9WtNufFJwcOxo518A1KT3kEYPnQzFoWgro6feQBLLfWND1LuAI1kIGvm+a0c6
-	 E8ycaLMCXRReKt2vOMMGFf5zGJSQan6rrQZbgVIFdzB/4bbbkoLF5+Q6qljSEdny0W
-	 jY5W1g7cN/dC0dhPI6/BkqxNRxPX8ESK+8pcBIjCifTi02o98uOSabpw5/AaEozXcx
-	 KgMv+VhBYMdYQ==
-Date: Mon, 15 Sep 2025 18:54:54 +0100
+	b=dXZwy6kz1KMTOyFhhyW7IqtB4tCr5+pVG7dXmvQi93dWtvlJbpq3cdaE4FbQUqy1f
+	 ej4cPuGHYksVOmiPIVi1r67OsVLXYCgvH8HDwFT21fe9YaNLd9T25nnmjFdeHBVnuL
+	 pwz1ZLeC6SgWAmiWyOxUXNSSLEUOEi5v6T90J8nxiNk/27Hl/uA91diEZobWhu3YtJ
+	 nTjD1NtjWFr5WLN9ZISaS8v4BmOn9PDgF0BmQVHe8uhRrGuipLDWFib1wYIbar1Ehm
+	 F4Bi6WC4EVCyv/H8/tdZ8Dp1jiupnLJCu1+aEUz/JfIrzOE91LwqLaAazeewz47bvP
+	 rPsLWYQUpT2Mg==
+Date: Mon, 15 Sep 2025 18:56:17 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	kernel@collabora.com, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 04/10] dt-bindings: mailbox: Add MT8196 GPUEB Mailbox
-Message-ID: <20250915-reviving-evasive-8ecd2d760ba8@spud>
-References: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com>
- <20250912-mt8196-gpufreq-v2-4-779a8a3729d9@collabora.com>
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v6 1/6] dt-bindings: net: sun8i-emac: Add A523
+ GMAC200 compatible
+Message-ID: <20250915-golf-antsy-9e71d5398324@spud>
+References: <20250913101349.3932677-1-wens@kernel.org>
+ <20250913101349.3932677-2-wens@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DOVzGwk1KV7PIqCa"
+	protocol="application/pgp-signature"; boundary="PtuhxQmA1Ve8bM5+"
 Content-Disposition: inline
-In-Reply-To: <20250912-mt8196-gpufreq-v2-4-779a8a3729d9@collabora.com>
+In-Reply-To: <20250913101349.3932677-2-wens@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_105502_206532_A251D517 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250915_105623_020739_90B6936D 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,119 +86,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---DOVzGwk1KV7PIqCa
+--PtuhxQmA1Ve8bM5+
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Sep 12, 2025 at 08:37:03PM +0200, Nicolas Frattaroli wrote:
-> The MediaTek MT8196 SoC includes an embedded MCU referred to as "GPUEB",
-> acting as glue logic to control power and frequency of the Mali GPU.
-> This MCU runs special-purpose firmware for this use, and the main
-> application processor communicates with it through a mailbox.
->=20
-> Add a binding that describes this mailbox.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  .../mailbox/mediatek,mt8196-gpueb-mbox.yaml        | 64 ++++++++++++++++=
-++++++
->  1 file changed, 64 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gp=
-ueb-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-g=
-pueb-mbox.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..56508f406fce88c7c1699aa67=
-b57394fc7b1c357
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbo=
-x.yaml
-> @@ -0,0 +1,64 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/mediatek,mt8196-gpueb-mbox.ya=
-ml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MFlexGraphics GPUEB Mailbox Controller
-> +
-> +maintainers:
-> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8196-gpueb-mbox
-> +
-> +  reg:
-> +    items:
-> +      - description: mailbox data registers
-> +      - description: mailbox control registers
-> +
-> +  reg-names:
-> +    items:
-> +      - const: data
-> +      - const: ctl
-> +
-> +  clocks:
-> +    items:
-> +      - description: main clock of the GPUEB MCU
-> +
-> +  interrupts:
-> +    items:
-> +      - description: fires when a new message is received
-> +
-> +  "#mbox-cells":
-> +    const: 1
-> +    description:
-> +      The number of the mailbox channel.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - interrupts
-> +  - "#mbox-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    gpueb_mbox: mailbox@4b09fd80 {
-
-drop the label, but otherwise this binding looks okay to me.
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +        compatible =3D "mediatek,mt8196-gpueb-mbox";
-> +        reg =3D <0x4b09fd80 0x280>,
-> +              <0x4b170000 0x7c>;
-> +        reg-names =3D "data", "ctl";
-> +        clocks =3D <&topckgen CLK_TOP_MFG_EB>;
-> +        interrupts =3D <GIC_SPI 608 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        #mbox-cells =3D <1>;
-> +    };
->=20
-> --=20
-> 2.51.0
->=20
-
---DOVzGwk1KV7PIqCa
+--PtuhxQmA1Ve8bM5+
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMhS7gAKCRB4tDGHoIJi
-0lYlAP9XouEer/Fwt1f66kXxrg1+AQ0F+bPce66xOHq6v41wAgEA4pG93Zb9AFHi
-eAUYrGfpE1XzVi8+aUoob4gbAyOwvw0=
-=+tYL
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMhTQQAKCRB4tDGHoIJi
+0ua/AQDDYt/Sy0eQGk4ojQ0b/BXXDaihykUMqx+YkoTxwrYBSQD9Hk7iZgJFQbQi
+/RNfwxM6H3OrFi9YeWXkX4kS9q4zCQ8=
+=C54e
 -----END PGP SIGNATURE-----
 
---DOVzGwk1KV7PIqCa--
+--PtuhxQmA1Ve8bM5+--
 
