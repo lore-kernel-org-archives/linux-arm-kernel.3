@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5A8CAC59E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD45CCAC59C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vbeOT5t0UXZc+qdSIoPJ20MTtB2VC98UJMtMovW3DQ8=; b=KC5LVl4+/DOsywXmwvz4AuMofz
-	Fkvca+Xhdd00JSs0ppyrYTe420lt612Hhk/2KNj1XaPd/mlLS3o0R4tyKYZLew6nRJZPyxMYvwPSw
-	SXP/RqiCQNufY1hEDKSu0nyOWBGh6oE8myRNuZOqvmUuTV6b/BmM6QK0m9IYIuoyJWO+jKLu3L1w6
-	dVbB4vLOEiM5bvN9TmckbfNxclzeNzU+Ug286DiWlBH4uPapnFQDphOTLqofyCzvYOmiTpqZh7CtH
-	ZEw+/Mo8/cZeaxoWS82y/0EoizSnmIK5YWpGYzpiFhYjai3nUweddsv2gWl8OnAUbM4BQ0z5sK8ly
-	/3f5fAnA==;
+	bh=XZCyl+SeXtJpq8IF4JCs/+nAiyXhE/kYQcwggyzG0eY=; b=MFkixwBRhm6Ut+K8VmhAtUpq9d
+	i/H0kfJmslGJb010glZEKA+anqm/2X8fOCvSQRa2Snxa5uH/fO2EGKfIvotYuNJGwUC6szw3nda4i
+	wSV2fb1MMQVoUdgmv6ZkdaI5VxWs/+CQcMoDwyECTiAxZOygeIuCTF0pc1jclKj8/e9ADmnjzBOhF
+	hTamjSFRYC4HD9Pb1ZQolqNbWuQQZAzUUyohk2yl2q1/EDfaRL5Dmvxp3uhNUfGEc4O0Vsa5zcuRb
+	VBv7g85f3ySnFQnbeQDBSmfJUgF2s2+zywNwYzyctMc0OARstKL9+i+56vUItqIVrow3xYug/Yjx9
+	wlgEpNtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51b-00000003JCG-3Wox;
+	id 1uy51b-00000003JBR-191y;
 	Mon, 15 Sep 2025 08:57:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51Q-00000003IyR-31pT
+	id 1uy51T-00000003J2L-2wWS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:57:20 +0000
+	Mon, 15 Sep 2025 08:57:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCFB1447B4;
-	Mon, 15 Sep 2025 08:57:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC9A9C113D0;
-	Mon, 15 Sep 2025 08:57:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 07DC2601A6;
+	Mon, 15 Sep 2025 08:57:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B781C4CEF9;
+	Mon, 15 Sep 2025 08:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757926635;
-	bh=6u/gpZ6YckoKaeQpYH44xQmuVDlG8thNzuOSAyOF6/E=;
+	s=k20201202; t=1757926638;
+	bh=f+QGIJt0TLdWgJhUimSN2JgMtMX5elof6Y6UFU21JN0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hj2pEWdZSAR5UvhIlIEYVYke8cAsRdBmoGlEn4cI7Na9ib8+5xeSIqSfBYXjP8Pjc
-	 dBqdxQ2IRUWWNsity5FW9r1UTjU5nc7rlSK/aZ3O82o6VlZGNiUko7d7BOj8TQJj7G
-	 Bv2G4ZiPUYdW/4H59gwYxBJpp6GvqSotJfnogXcojU0LgrzAi2CBbIZznInqYel5GT
-	 9diPInSRJlX0M1kT++phoEu7isTX9dZlXu+XX6w7BtzQRDEFXa4qDjodE1oAxZNt+W
-	 hdrvSU99cLwChdAhvUE8mP1q2V/RGmhZM19RikO4+6Np/MCcrbJszzo21Yglwd1H/U
-	 8WQNfStISdhCg==
+	b=mLZ5PQKrGeL+mKmYZ4G2h/tpozhllluN3lpiXEsqAQuPuklDYRdWwBRBxtP1SBTeg
+	 gpMaDOoOHnXzOZeSjeG5c3ihWQmc9xR9WGu/V/dCbQ87cgRerKj5X0/gfhLaKvWbLU
+	 hIPkXdmj/MDroN17yaflfqmHUlFvN3vKudg9hKLIdVlj6nNUtpvHWgOzPUXLpqvixx
+	 wr9mwlZh7mM2ObBZuM2sgayCCUcj1WcmERv0L75zoEKdHBweyylROYMzaSOjiolUXl
+	 Q8ADc63+e/8w11+Q5nxtflHAQlqvivlmxrAqPoUTVWpzFLwjD0+lPCxagXqgThJDKH
+	 9JHuBQKuxv78g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy51N-00000006IHP-412L;
-	Mon, 15 Sep 2025 08:57:14 +0000
+	id 1uy51Q-00000006IHP-2bf4;
+	Mon, 15 Sep 2025 08:57:16 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 11/25] genirq: Kill handle_percpu_devid_fasteoi_nmi()
-Date: Mon, 15 Sep 2025 09:56:48 +0100
-Message-Id: <20250915085702.519996-12-maz@kernel.org>
+Subject: [PATCH v2 21/25] irqchip/gic-v3: Drop support for custom PPI partitions
+Date: Mon, 15 Sep 2025 09:56:58 +0100
+Message-Id: <20250915085702.519996-22-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915085702.519996-1-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
@@ -75,9 +75,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015716_878289_C7901989 
-X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,74 +89,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no in-tree user of this flow handler anymore, so simply
-remove it.
+The only thing getting in the way of correctly handling PPIs the way
+they were intended is the GICv3 hack that deals with PPI partitions.
 
-Suggested-by: Will Deacon <will@kernel.org>
+Remove that code, allowing the common code to kick in.
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- include/linux/irq.h |  1 -
- kernel/irq/chip.c   | 28 ++--------------------------
- 2 files changed, 2 insertions(+), 27 deletions(-)
+ drivers/irqchip/Kconfig      |   1 -
+ drivers/irqchip/irq-gic-v3.c | 133 +++--------------------------------
+ 2 files changed, 8 insertions(+), 126 deletions(-)
 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index 1d6b606a81efe..1381f9d1f5c9d 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -655,7 +655,6 @@ extern void handle_bad_irq(struct irq_desc *desc);
- extern void handle_nested_irq(unsigned int irq);
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 6d12c6ab9ea47..c31d2f99d7b91 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -36,7 +36,6 @@ config GIC_NON_BANKED
+ config ARM_GIC_V3
+ 	bool
+ 	select IRQ_DOMAIN_HIERARCHY
+-	select PARTITION_PERCPU
+ 	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+ 	select HAVE_ARM_SMCCC_DISCOVERY
+ 	select IRQ_MSI_IOMMU
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index a14fd4c269692..0d8a6f46e9300 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -26,7 +26,6 @@
+ #include <linux/irqchip/arm-gic-common.h>
+ #include <linux/irqchip/arm-gic-v3.h>
+ #include <linux/irqchip/arm-gic-v3-prio.h>
+-#include <linux/irqchip/irq-partition-percpu.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
+ #include <linux/arm-smccc.h>
+@@ -46,8 +45,6 @@ static u8 dist_prio_nmi __ro_after_init = GICV3_PRIO_NMI;
+ #define FLAGS_WORKAROUND_ASR_ERRATUM_8601001	(1ULL << 2)
+ #define FLAGS_WORKAROUND_INSECURE		(1ULL << 3)
  
- extern void handle_fasteoi_nmi(struct irq_desc *desc);
--extern void handle_percpu_devid_fasteoi_nmi(struct irq_desc *desc);
+-#define GIC_IRQ_TYPE_PARTITION	(GIC_IRQ_TYPE_LPI + 1)
+-
+ static struct cpumask broken_rdists __read_mostly __maybe_unused;
  
- extern int irq_chip_compose_msi_msg(struct irq_data *data, struct msi_msg *msg);
- extern int irq_chip_pm_get(struct irq_data *data);
-diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
-index 0d0276378c707..869068ec6ac91 100644
---- a/kernel/irq/chip.c
-+++ b/kernel/irq/chip.c
-@@ -892,7 +892,8 @@ void handle_percpu_irq(struct irq_desc *desc)
-  *
-  * action->percpu_dev_id is a pointer to percpu variables which
-  * contain the real device id for the cpu on which this handler is
-- * called
-+ * called. This is also used for per-CPU NMIs, so special care is
-+ * required.
-  */
- void handle_percpu_devid_irq(struct irq_desc *desc)
- {
-@@ -929,31 +930,6 @@ void handle_percpu_devid_irq(struct irq_desc *desc)
- 		chip->irq_eoi(&desc->irq_data);
+ struct redist_region {
+@@ -68,11 +65,15 @@ struct gic_chip_data {
+ 	u64			flags;
+ 	bool			has_rss;
+ 	unsigned int		ppi_nr;
+-	struct partition_desc	**ppi_descs;
+ 	struct partition_affinity *parts;
+ 	unsigned int		nr_parts;
+ };
+ 
++struct partition_affinity {
++	cpumask_t			mask;
++	struct fwnode_handle		*partition_id;
++};
++
+ #define T241_CHIPS_MAX		4
+ static void __iomem *t241_dist_base_alias[T241_CHIPS_MAX] __read_mostly;
+ static DEFINE_STATIC_KEY_FALSE(gic_nvidia_t241_erratum);
+@@ -593,18 +594,6 @@ static void gic_irq_set_prio(struct irq_data *d, u8 prio)
+ 	writeb_relaxed(prio, base + offset + index);
  }
  
--/**
-- * handle_percpu_devid_fasteoi_nmi - Per CPU local NMI handler with per cpu
-- *				     dev ids
-- * @desc:	the interrupt description structure for this irq
-- *
-- * Similar to handle_fasteoi_nmi, but handling the dev_id cookie
-- * as a percpu pointer.
-- */
--void handle_percpu_devid_fasteoi_nmi(struct irq_desc *desc)
+-static u32 __gic_get_ppi_index(irq_hw_number_t hwirq)
 -{
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--	struct irqaction *action = desc->action;
--	unsigned int irq = irq_desc_get_irq(desc);
--	irqreturn_t res;
--
--	__kstat_incr_irqs_this_cpu(desc);
--
--	trace_irq_handler_entry(irq, action);
--	res = action->handler(irq, raw_cpu_ptr(action->percpu_dev_id));
--	trace_irq_handler_exit(irq, action, res);
--
--	if (chip->irq_eoi)
--		chip->irq_eoi(&desc->irq_data);
+-	switch (__get_intid_range(hwirq)) {
+-	case PPI_RANGE:
+-		return hwirq - 16;
+-	case EPPI_RANGE:
+-		return hwirq - EPPI_BASE_INTID + 16;
+-	default:
+-		unreachable();
+-	}
 -}
 -
- static void
- __irq_do_set_handler(struct irq_desc *desc, irq_flow_handler_t handle,
- 		     int is_chained, const char *name)
+ static int gic_irq_nmi_setup(struct irq_data *d)
+ {
+ 	struct irq_desc *desc = irq_to_desc(d->irq);
+@@ -1628,13 +1617,6 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+ 		case GIC_IRQ_TYPE_LPI:	/* LPI */
+ 			*hwirq = fwspec->param[1];
+ 			break;
+-		case GIC_IRQ_TYPE_PARTITION:
+-			*hwirq = fwspec->param[1];
+-			if (fwspec->param[1] >= 16)
+-				*hwirq += EPPI_BASE_INTID - 16;
+-			else
+-				*hwirq += 16;
+-			break;
+ 		default:
+ 			return -EINVAL;
+ 		}
+@@ -1643,10 +1625,8 @@ static int gic_irq_domain_translate(struct irq_domain *d,
+ 
+ 		/*
+ 		 * Make it clear that broken DTs are... broken.
+-		 * Partitioned PPIs are an unfortunate exception.
+ 		 */
+-		WARN_ON(*type == IRQ_TYPE_NONE &&
+-			fwspec->param[0] != GIC_IRQ_TYPE_PARTITION);
++		WARN_ON(*type == IRQ_TYPE_NONE);
+ 		return 0;
+ 	}
+ 
+@@ -1703,32 +1683,11 @@ static void gic_irq_domain_free(struct irq_domain *domain, unsigned int virq,
+ 	}
+ }
+ 
+-static bool fwspec_is_partitioned_ppi(struct irq_fwspec *fwspec,
+-				      irq_hw_number_t hwirq)
+-{
+-	enum gic_intid_range range;
+-
+-	if (!gic_data.ppi_descs)
+-		return false;
+-
+-	if (!is_of_node(fwspec->fwnode))
+-		return false;
+-
+-	if (fwspec->param_count < 4 || !fwspec->param[3])
+-		return false;
+-
+-	range = __get_intid_range(hwirq);
+-	if (range != PPI_RANGE && range != EPPI_RANGE)
+-		return false;
+-
+-	return true;
+-}
+-
+ static int gic_irq_domain_select(struct irq_domain *d,
+ 				 struct irq_fwspec *fwspec,
+ 				 enum irq_domain_bus_token bus_token)
+ {
+-	unsigned int type, ret, ppi_idx;
++	unsigned int type, ret;
+ 	irq_hw_number_t hwirq;
+ 
+ 	/* Not for us */
+@@ -1747,15 +1706,7 @@ static int gic_irq_domain_select(struct irq_domain *d,
+ 	if (WARN_ON_ONCE(ret))
+ 		return 0;
+ 
+-	if (!fwspec_is_partitioned_ppi(fwspec, hwirq))
+-		return d == gic_data.domain;
+-
+-	/*
+-	 * If this is a PPI and we have a 4th (non-null) parameter,
+-	 * then we need to match the partition domain.
+-	 */
+-	ppi_idx = __gic_get_ppi_index(hwirq);
+-	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
++	return d == gic_data.domain;
+ }
+ 
+ static int gic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
+@@ -1812,45 +1763,6 @@ static const struct irq_domain_ops gic_irq_domain_ops = {
+ 	.get_fwspec_info = gic_irq_get_fwspec_info,
+ };
+ 
+-static int partition_domain_translate(struct irq_domain *d,
+-				      struct irq_fwspec *fwspec,
+-				      unsigned long *hwirq,
+-				      unsigned int *type)
+-{
+-	unsigned long ppi_intid;
+-	struct device_node *np;
+-	unsigned int ppi_idx;
+-	int ret;
+-
+-	if (!gic_data.ppi_descs)
+-		return -ENOMEM;
+-
+-	np = of_find_node_by_phandle(fwspec->param[3]);
+-	if (WARN_ON(!np))
+-		return -EINVAL;
+-
+-	ret = gic_irq_domain_translate(d, fwspec, &ppi_intid, type);
+-	if (WARN_ON_ONCE(ret))
+-		return 0;
+-
+-	ppi_idx = __gic_get_ppi_index(ppi_intid);
+-	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+-				     of_fwnode_handle(np));
+-	if (ret < 0)
+-		return ret;
+-
+-	*hwirq = ret;
+-	*type = fwspec->param[2] & IRQ_TYPE_SENSE_MASK;
+-
+-	return 0;
+-}
+-
+-static const struct irq_domain_ops partition_domain_ops = {
+-	.translate = partition_domain_translate,
+-	.select = gic_irq_domain_select,
+-	.get_fwspec_info = gic_irq_get_fwspec_info,
+-};
+-
+ static bool gic_enable_quirk_msm8996(void *data)
+ {
+ 	struct gic_chip_data *d = data;
+@@ -2173,12 +2085,7 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
+ 	if (!parts_node)
+ 		return;
+ 
+-	gic_data.ppi_descs = kcalloc(gic_data.ppi_nr, sizeof(*gic_data.ppi_descs), GFP_KERNEL);
+-	if (!gic_data.ppi_descs)
+-		goto out_put_node;
+-
+ 	nr_parts = of_get_child_count(parts_node);
+-
+ 	if (!nr_parts)
+ 		goto out_put_node;
+ 
+@@ -2234,30 +2141,6 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
+ 	gic_data.parts = parts;
+ 	gic_data.nr_parts = nr_parts;
+ 
+-	for (i = 0; i < gic_data.ppi_nr; i++) {
+-		unsigned int irq;
+-		struct partition_desc *desc;
+-		struct irq_fwspec ppi_fwspec = {
+-			.fwnode		= gic_data.fwnode,
+-			.param_count	= 3,
+-			.param		= {
+-				[0]	= GIC_IRQ_TYPE_PARTITION,
+-				[1]	= i,
+-				[2]	= IRQ_TYPE_NONE,
+-			},
+-		};
+-
+-		irq = irq_create_fwspec_mapping(&ppi_fwspec);
+-		if (WARN_ON(!irq))
+-			continue;
+-		desc = partition_create_desc(gic_data.fwnode, parts, nr_parts,
+-					     irq, &partition_domain_ops);
+-		if (WARN_ON(!desc))
+-			continue;
+-
+-		gic_data.ppi_descs[i] = desc;
+-	}
+-
+ out_put_node:
+ 	of_node_put(parts_node);
+ }
 -- 
 2.39.2
 
