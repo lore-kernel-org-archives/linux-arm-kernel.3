@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFEDFCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3935CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7yYVY6Nd5fRMeiJ9wV4QtgoDMF5DHG9rTCJfUQqd8K0=; b=M4YVLJmm9bEu+6aGYIBs3KFsHf
-	wEz0q5nKqt2rdn1vN9DaE0j+JWVXcb3yrfI5IOlQ+EG+0OULNJuBDOr1X6G2IJpyAV9c3oymyBt01
-	Y4zANrUZswixNqnyP1XYfK6QFJSaxVwX7Nq4/FvmacxNYHG/AtLx0cxKWVCK6uPNudT6f/7cQO3jP
-	o2pDDFvNOmfZEgNXVTNFFXsybtuYzf1E1qde8OqvOTzixGO5sgQXnRaKk9XWIp+utGE7sZLmzHDLb
-	th5N3HIUbi+MuyDBp0ruN15JnuH15dETzUZFi0yws5ziNFytG8FkZErHpQRnCHpHR5LlxM1Fnc0eu
-	SsS57l9Q==;
+	bh=juLX+P6lDbpw0L6hrmuck8ZZIMJppZZRwBQD2yXUh7Y=; b=qvDXdZifPpTISLpNac4qx60Ngw
+	45yHpZWVVAuS8Xd3X2iKyWvEW69vY55osNfxURgyCS4mnZ+w89JOtmFJiOGGVzIHGMpjOCVuwkU58
+	yIG6l6Z7hnjvt10TicgcHRtfEAA60Rhk1CIliavMhq9QBQKheoj70xib+HCpz81JOXqXF30iECKkP
+	mv8t4TYlP+7jAjr1QUbNM7ErUi6jIBWgAxdQdiU1NDjrEe/+zFFcG4X4C1HC+jW6LfmRbbp6udWR6
+	BI3VqUmnSaA6+9JimETYFAaa4Gb1LQPXickiHtptJavCzpYpDmAXgIoronyXdU1zmXzQdVHlZ8QJs
+	3x/OsIzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB27-00000004tvG-45uJ;
-	Mon, 15 Sep 2025 15:22:24 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uyB2A-00000004tyu-3l0j;
+	Mon, 15 Sep 2025 15:22:26 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB1Y-00000004t0W-4Aha;
+	id 1uyB1Y-00000004syU-3yv2;
 	Mon, 15 Sep 2025 15:21:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757949706;
-	bh=ZHU/3tmdBD0CvUCFaWQ8xJdkHl6uD0n0E+V1jtNzUbo=;
+	s=mail; t=1757949704;
+	bh=eCbxBzKf9iUFjDYBRLkdqjG13ZIGNuqL9W1Y03OU5/U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eaW61prd2+L5mhmKlnqGJpdoopHIYGQFUIJ2V4ojinMzU8BhvJFrpfrPdBd7GjMQC
-	 qTTYsTLCzUu+y4Cdyr2wXBmYaQiJAuY2BxFqz8/mdD6Bh3G7LwE0Qp+Qe4zmF3Y7ko
-	 nnzNfodEIg2V5D9ZtN1XHIyd5VhmS41i0pwmPBnn5WtX/RUuK6oVVF8g+g50sC/8XX
-	 c33yjTqY4XtK5rLxICHYW0dZcnLFvvR5Qu9CFKJtqDwNUAWWao08cFyKB2WZmy1VJN
-	 yJiASXQYG3FIr2+brns/XpKN0aOuR9qQIAyMO3fC4Hm9gIew4CVchYXQKx3lGe2S7Y
-	 JMvXoTeqEwPZw==
+	b=q1UGDHwPItokRrGtaECu45gYPoAKNCgjkDgAiADRG2N9fcSTfWlBbAxW7jpPt0pZQ
+	 7YOLftTJ1QhbGWJTkDX9RCi59pvcQDWOs/BSK31SMoz5XLH7oYeaisYurxBDYF6ej5
+	 zAKhvZxQDB4woaZEgBghVTBqkW8FpPkQKjHrBFloamTgh1n4MZYJ2/RfKveRpE0pVN
+	 rrRBfq3wBhLvJ0TNCh5QpyRcA1YB6bWrE+IToAiEUKdMHInZTilAzfFYX8VTbtyPgK
+	 vFZTQUeuGLxr2FoKH+i+3eUC+xdishW57KNsgm/7H55S6REBCtmizcI9IxqwEKPxKn
+	 u7Gtpdd/o54HQ==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:1c8d:f5ba:823d:730b])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E4DAF17E1340;
-	Mon, 15 Sep 2025 17:21:45 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B475017E090D;
+	Mon, 15 Sep 2025 17:21:43 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -64,9 +64,9 @@ Cc: guangjie.song@mediatek.com,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>,
 	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v6 20/27] clk: mediatek: Add MT8196 mfg clock support
-Date: Mon, 15 Sep 2025 17:19:40 +0200
-Message-Id: <20250915151947.277983-21-laura.nao@collabora.com>
+Subject: [PATCH v6 18/27] clk: mediatek: Add MT8196 mcu clock support
+Date: Mon, 15 Sep 2025 17:19:38 +0200
+Message-Id: <20250915151947.277983-19-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250915151947.277983-1-laura.nao@collabora.com>
 References: <20250915151947.277983-1-laura.nao@collabora.com>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_082149_403458_359EC146 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250915_082149_586297_5BDDB33B 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,8 +90,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 mfg clock controller, which provides PLL
-control for the GPU.
+Add support for the MT8196 mcu clock controller, which provides PLL
+control for MCU.
 
 Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
@@ -99,46 +99,46 @@ Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
  drivers/clk/mediatek/Kconfig          |   7 ++
  drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8196-mfg.c | 150 ++++++++++++++++++++++++++
- 3 files changed, 158 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
+ drivers/clk/mediatek/clk-mt8196-mcu.c | 167 ++++++++++++++++++++++++++
+ 3 files changed, 175 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
 
 diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 68ac08cf8e82..1990721ec418 100644
+index fe2697b64ef0..8e5cdae80748 100644
 --- a/drivers/clk/mediatek/Kconfig
 +++ b/drivers/clk/mediatek/Kconfig
-@@ -1031,6 +1031,13 @@ config COMMON_CLK_MT8196_MDPSYS
+@@ -1017,6 +1017,13 @@ config COMMON_CLK_MT8196_IMP_IIC_WRAP
  	help
- 	  This driver supports MediaTek MT8196 mdpsys clocks.
+ 	  This driver supports MediaTek MT8196 i2c clocks.
  
-+config COMMON_CLK_MT8196_MFGCFG
-+	tristate "Clock driver for MediaTek MT8196 mfgcfg"
++config COMMON_CLK_MT8196_MCUSYS
++	tristate "Clock driver for MediaTek MT8196 mcusys"
 +	depends on COMMON_CLK_MT8196
-+	default m
++	default COMMON_CLK_MT8196
 +	help
-+	  This driver supports MediaTek MT8196 mfgcfg clocks.
++	  This driver supports MediaTek MT8196 mcusys clocks.
 +
  config COMMON_CLK_MT8196_PEXTPSYS
  	tristate "Clock driver for MediaTek MT8196 pextpsys"
  	depends on COMMON_CLK_MT8196
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index d2d8bc43e45b..0040a3968858 100644
+index 241e7f5e7316..46358623c3e5 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -156,6 +156,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o
+@@ -154,6 +154,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o
+ 				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
+ 				   clk-mt8196-peri_ao.o
  obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
- obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) += clk-mt8196-mdpsys.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_MFGCFG) += clk-mt8196-mfg.o
++obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) += clk-mt8196-mcu.o
  obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
  obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
  obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
+diff --git a/drivers/clk/mediatek/clk-mt8196-mcu.c b/drivers/clk/mediatek/clk-mt8196-mcu.c
 new file mode 100644
-index 000000000000..ae1eb9de79ae
+index 000000000000..5cbcc411ae73
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-@@ -0,0 +1,150 @@
++++ b/drivers/clk/mediatek/clk-mt8196-mcu.c
+@@ -0,0 +1,167 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) 2025 MediaTek Inc.
@@ -158,18 +158,26 @@ index 000000000000..ae1eb9de79ae
 +#include "clk-mtk.h"
 +#include "clk-pll.h"
 +
-+#define MFGPLL_CON0	0x008
-+#define MFGPLL_CON1	0x00c
-+#define MFGPLL_CON2	0x010
-+#define MFGPLL_CON3	0x014
-+#define MFGPLL_SC0_CON0	0x008
-+#define MFGPLL_SC0_CON1	0x00c
-+#define MFGPLL_SC0_CON2	0x010
-+#define MFGPLL_SC0_CON3	0x014
-+#define MFGPLL_SC1_CON0	0x008
-+#define MFGPLL_SC1_CON1	0x00c
-+#define MFGPLL_SC1_CON2	0x010
-+#define MFGPLL_SC1_CON3	0x014
++#define ARMPLL_LL_CON0	0x008
++#define ARMPLL_LL_CON1	0x00c
++#define ARMPLL_LL_CON2	0x010
++#define ARMPLL_LL_CON3	0x014
++#define ARMPLL_BL_CON0	0x008
++#define ARMPLL_BL_CON1	0x00c
++#define ARMPLL_BL_CON2	0x010
++#define ARMPLL_BL_CON3	0x014
++#define ARMPLL_B_CON0	0x008
++#define ARMPLL_B_CON1	0x00c
++#define ARMPLL_B_CON2	0x010
++#define ARMPLL_B_CON3	0x014
++#define CCIPLL_CON0	0x008
++#define CCIPLL_CON1	0x00c
++#define CCIPLL_CON2	0x010
++#define CCIPLL_CON3	0x014
++#define PTPPLL_CON0	0x008
++#define PTPPLL_CON1	0x00c
++#define PTPPLL_CON2	0x010
++#define PTPPLL_CON3	0x014
 +
 +#define MT8196_PLL_FMAX		(3800UL * MHZ)
 +#define MT8196_PLL_FMIN		(1500UL * MHZ)
@@ -201,36 +209,45 @@ index 000000000000..ae1eb9de79ae
 +		.pcwibits = MT8196_INTEGER_BITS,		\
 +	}
 +
-+static const struct mtk_pll_data mfg_ao_plls[] = {
-+	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-+	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-+	    MFGPLL_CON1, 0, 22),
++static const struct mtk_pll_data cpu_bl_plls[] = {
++	PLL(CLK_CPBL_ARMPLL_BL, "armpll-bl", ARMPLL_BL_CON0, ARMPLL_BL_CON0, 0,
++	    0, PLL_AO, BIT(0), ARMPLL_BL_CON1, 24, 0, 0, 0, ARMPLL_BL_CON1, 0, 22),
 +};
 +
-+static const struct mtk_pll_data mfgsc0_ao_plls[] = {
-+	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
-+	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC0_CON1, 0, 22),
++static const struct mtk_pll_data cpu_b_plls[] = {
++	PLL(CLK_CPB_ARMPLL_B, "armpll-b", ARMPLL_B_CON0, ARMPLL_B_CON0, 0, 0,
++	    PLL_AO, BIT(0), ARMPLL_B_CON1, 24, 0, 0, 0, ARMPLL_B_CON1, 0, 22),
 +};
 +
-+static const struct mtk_pll_data mfgsc1_ao_plls[] = {
-+	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
-+	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-+	    MFGPLL_SC1_CON1, 0, 22),
++static const struct mtk_pll_data cpu_ll_plls[] = {
++	PLL(CLK_CPLL_ARMPLL_LL, "armpll-ll", ARMPLL_LL_CON0, ARMPLL_LL_CON0, 0,
++	    0, PLL_AO, BIT(0), ARMPLL_LL_CON1, 24, 0, 0, 0, ARMPLL_LL_CON1, 0, 22),
 +};
 +
-+static const struct of_device_id of_match_clk_mt8196_mfg[] = {
-+	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
-+	  .data = &mfg_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc0-pll-ctrl",
-+	  .data = &mfgsc0_ao_plls },
-+	{ .compatible = "mediatek,mt8196-mfgpll-sc1-pll-ctrl",
-+	  .data = &mfgsc1_ao_plls },
++static const struct mtk_pll_data cci_plls[] = {
++	PLL(CLK_CCIPLL, "ccipll", CCIPLL_CON0, CCIPLL_CON0, 0, 0, PLL_AO,
++	    BIT(0), CCIPLL_CON1, 24, 0, 0, 0, CCIPLL_CON1, 0, 22),
++};
++
++static const struct mtk_pll_data ptp_plls[] = {
++	PLL(CLK_PTPPLL, "ptppll", PTPPLL_CON0, PTPPLL_CON0, 0, 0, PLL_AO,
++	    BIT(0), PTPPLL_CON1, 24, 0, 0, 0, PTPPLL_CON1, 0, 22),
++};
++
++static const struct of_device_id of_match_clk_mt8196_mcu[] = {
++	{ .compatible = "mediatek,mt8196-armpll-bl-pll-ctrl",
++	  .data = &cpu_bl_plls },
++	{ .compatible = "mediatek,mt8196-armpll-b-pll-ctrl",
++	  .data = &cpu_b_plls },
++	{ .compatible = "mediatek,mt8196-armpll-ll-pll-ctrl",
++	  .data = &cpu_ll_plls },
++	{ .compatible = "mediatek,mt8196-ccipll-pll-ctrl", .data = &cci_plls },
++	{ .compatible = "mediatek,mt8196-ptppll-pll-ctrl", .data = &ptp_plls },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mcu);
 +
-+static int clk_mt8196_mfg_probe(struct platform_device *pdev)
++static int clk_mt8196_mcu_probe(struct platform_device *pdev)
 +{
 +	const struct mtk_pll_data *plls;
 +	struct clk_hw_onecell_data *clk_data;
@@ -266,7 +283,7 @@ index 000000000000..ae1eb9de79ae
 +	return r;
 +}
 +
-+static void clk_mt8196_mfg_remove(struct platform_device *pdev)
++static void clk_mt8196_mcu_remove(struct platform_device *pdev)
 +{
 +	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
 +	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
@@ -277,17 +294,17 @@ index 000000000000..ae1eb9de79ae
 +	mtk_free_clk_data(clk_data);
 +}
 +
-+static struct platform_driver clk_mt8196_mfg_drv = {
-+	.probe = clk_mt8196_mfg_probe,
-+	.remove = clk_mt8196_mfg_remove,
++static struct platform_driver clk_mt8196_mcu_drv = {
++	.probe = clk_mt8196_mcu_probe,
++	.remove = clk_mt8196_mcu_remove,
 +	.driver = {
-+		.name = "clk-mt8196-mfg",
-+		.of_match_table = of_match_clk_mt8196_mfg,
++		.name = "clk-mt8196-mcu",
++		.of_match_table = of_match_clk_mt8196_mcu,
 +	},
 +};
-+module_platform_driver(clk_mt8196_mfg_drv);
++module_platform_driver(clk_mt8196_mcu_drv);
 +
-+MODULE_DESCRIPTION("MediaTek MT8196 GPU mfg clocks driver");
++MODULE_DESCRIPTION("MediaTek MT8196 mcusys clocks driver");
 +MODULE_LICENSE("GPL");
 -- 
 2.39.5
