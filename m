@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88A6CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8A9CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUMqV7Nzw6RNd3Vggbe8umh2upaViy7TnmKtsf5TDmQ=; b=cksq/q+OwzBZvCFbZ8BPhV1Nob
-	MB0mPuavTGvgjQeusXKouZe/ODN817JQqSl5iD60oRgccwHIsTQ+q8kNE0DxFX9mHIhGSUGym3Y3c
-	iKlQZ5cwK+1RhwqntwvotSnnTSaeEINlHJDEXvY8acY0D98iSHUtRsnBd2EQEXD72+aCrVMHS8HIY
-	uxdYAypzd55Yu2gfvR02zI4E61QmD2H0+dy2D2zY9HUXk6yqkYepTm48y73Y7R0p2jM1OF/qxumXN
-	NwOTszXjI7mx+D6Wplz+nUm/uQ788lp2aBXdd0XTRl7/GPlcNE4Joqjr6Tp6t2DztYctGyL5c2CQa
-	yY5hMwDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVMHhWMWW+z0ftn6nPGu/42b6y9+COcMk+xOQhhhwi8=; b=wXeCQjXUk2FOr9lg8bRxwtx54C
+	HvDn9jRLdlFpQl/i3YpnvYs8RnD/1rj9F0Ts+uMPuwvT+w8UfmruGJ9YIuUmDkjrZKieDPCYPMaoZ
+	qR4zMHU4FoUmnE6WVNOVDUBd2n1PPbQn3uugUXDOubGy+N7WwZs/Gdt/A9GsR6fIpWJOyGE49fyf3
+	1dRw3QWbmskaP96Os4ziLnf2LbQ9iIcq1zTt36U4yzsN8maTQMsUKuXyVDMzpOaWzrbvLNTUqXa1k
+	iAUAoMneM7p4NkSgMQI8ZSgsBkYC507sMzHRA8ca0bfsj1OSld/P9IBmqSIgQIdo+poL8u49cbWY2
+	LaUWE4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0wx-00000002mHj-3UVe;
-	Mon, 15 Sep 2025 04:36:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uy1Bx-00000002ncO-2cy2;
+	Mon, 15 Sep 2025 04:51:53 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0ww-00000002mHZ-2t2p
+	id 1uy1Bu-00000002nbB-3vL3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 04:36:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B745060193;
-	Mon, 15 Sep 2025 04:36:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36AFEC4CEF1;
-	Mon, 15 Sep 2025 04:36:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757910981;
-	bh=k0sNb7NLoVYVvW3vpRZbfBp88c3GVqAUJZWzv7Q2gnA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BzZgT5Hhy4pc7AgYH3SHmULpHKz1lw+ZkSNWmXdxZ49uR2y3/mwfdmsS0CL1vE8QX
-	 Bmq7R3gW6CDGiYewtTdSNuI15scKuKMUn2Xow+DrseH3sk0AuOqnU5qRuUhkhMV2eB
-	 z50elEW5tOAA3Sy/3fldbOadFOBhDqY1ZOUCIYoeHY5j7x983PCgQHjkxByty4zl+J
-	 cXiRLh5BSWYmxFrOuICVPX8xaFq8a1f+tCvG34UgITYE6+TX6ocvygRHKaOoFVjnoE
-	 ypP+WWnT6rtEO7r3BvSbAGxv7uuUanCAKGdexJJ93SbET93BeQ4am8FgSDT+WDqdPB
-	 fDuPo+eEO0RUA==
-Message-ID: <ede52fd2-fe20-4648-be7b-de10b14d7e3f@kernel.org>
-Date: Mon, 15 Sep 2025 06:36:16 +0200
+	Mon, 15 Sep 2025 04:51:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1757911906;
+	bh=BVMHhWMWW+z0ftn6nPGu/42b6y9+COcMk+xOQhhhwi8=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=bPIeS0xzB0UGuxDe0qaUYJe5B5ngK9Udw24LmmQDg3olfuibtVqhZDjmR9qPA1uf5
+	 6e/O9R4ScNXSvFcagUEcZe+d7VQdQzTqPt9tV57OY6qmcojbUL7dyzzWqsYs9X6nEb
+	 zFJA74uy8JM1C6BI3Db36OuzJhwQGSXsT1c9pu/VatP36fASJG7DVKcTYKTktn0xvW
+	 vaSv+YmdXDAxdaHgfOWkRLRLD6b3PVLImsj4dOB+x53AMp73yDie/sla6ENAmChbQl
+	 e4h7RfL6ZqZsOlwxxoQsSJmW2NtlUhxr7UCJa/pMYIbhEFfIB82iZiquTdQ8ffuc8O
+	 5a3yTSkIEy7rw==
+Received: from [IPv6:2405:6e00:2430:fb15:b2b4:1872:3690:c682] (unknown [120.20.190.44])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 398DE64CF0;
+	Mon, 15 Sep 2025 12:51:42 +0800 (AWST)
+Message-ID: <67f2276e99640bcbded80560e8b8d2922b731e81.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rebecca Cran <rebecca@bsdio.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,  Joel Stanley <joel@jms.id.au>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Mon, 15 Sep 2025 14:21:42 +0930
+In-Reply-To: <04b0799e-b0a3-4dbc-98f3-239869c79305@bsdio.com>
+References: <20250911051009.4044609-1-rebecca@bsdio.com>
+	 <20250911051009.4044609-3-rebecca@bsdio.com>
+	 <1e4c65c6-4745-45e2-9e20-9d2e69ae2ea4@kernel.org>
+	 <04b0799e-b0a3-4dbc-98f3-239869c79305@bsdio.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: exynos: Add initial support for the
- Exynos9610 SoC
-To: Alexandru Chimac <alex@chimac.ro>, Alim Akhtar <alim.akhtar@samsung.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
- <20250914-exynos9610-devicetree-v1-2-2000fc3bbe0b@chimac.ro>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250914-exynos9610-devicetree-v1-2-2000fc3bbe0b@chimac.ro>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250914_215151_195016_EBE8D230 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,82 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2025 22:44, Alexandru Chimac wrote:
-> +
-> +	arm-a53-pmu {
-> +		compatible = "arm,cortex-a53-pmu";
-> +		interrupts = <0 82 4>,
-> +			     <0 83 4>,
-> +			     <0 84 4>,
-> +			     <0 85 4>;
-> +		interrupt-affinity = <&cpu0>,
-> +				     <&cpu1>,
-> +				     <&cpu2>,
-> +				     <&cpu3>;
-> +	};
-> +
-> +	arm-a73-pmu {
-> +		compatible = "arm,cortex-a73-pmu";
-> +		interrupts = <0 96 4>,
-> +			     <0 97 4>,
-> +			     <0 98 4>,
-> +			     <0 99 4>;
+Hi Rebecca,
 
-You need to use proper defines.
+On Fri, 2025-09-12 at 17:37 -0600, Rebecca Cran wrote:
+> On 9/11/25 00:29, Krzysztof Kozlowski wrote:
+> > Never tested.
+> >=20
+> > It does not look like you tested the DTS against bindings. Please run
+> > `make dtbs_check W=3D1` (see
+> > Documentation/devicetree/bindings/writing-schema.rst or
+> > https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-s=
+ources-with-the-devicetree-schema/
+> > for instructions).
+>=20
+>=20
+> Am I doing something wrong, or are a certain number of validation issues=
+=20
+> expected?
 
-> +		interrupt-affinity = <&cpu100>,
-> +				     <&cpu101>,
-> +				     <&cpu102>,
-> +				     <&cpu103>;
-> +	};
-> +
-> +	oscclk: clock-osc {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-output-names = "oscclk";
-> +		clock-frequency = <26000000>;
+I expect you're not doing anything wrong there. There are a number of
+historical warnings from the ASPEED DTSIs. However, generally, the
+policy is as documented here:
 
-clock-frequency is board property.
+https://docs.kernel.org/process/maintainer-soc.html#validating-devicetree-f=
+ile
 
+>=20
+> For example, I'm seeing these - most of which are from aspeed-g5.dtsi,=
+=20
+> not my dts file:
+>=20
 
+*snip*
 
-...
+I'm okay with taking new ast2[456]00 devicetrees that don't introduce
+any new warnings of their own. However, given you're contributing a new
+devicetree, it would be super helpful if you could look at removing one
+or two of the warnings from the DTSI while you're at it, as this
+improves the utility of the checking tools for everyone.
 
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
-> +
-> +		/* Stock Samsung bootloader doesn't configure CNTFRQ_EL0 */
-> +		clock-frequency = <26000000>;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <1>;
-> +		ranges;
-> +
-> +		abox_rmem: abox@e9400000 {
+Cheers,
 
-What is abox?
-
-> +			compatible = "reserved-memory";
-> +			reg = <0x0 0xe9400000 0x2800000>;
-> +			no-map;
-> +		};
-> +
-> +		ramoops@f9d10000 {
-
-This belongs to the the board.
-
-> +			compatible = "ramoops";
-> +			reg = <0x0 0xf9d10000 0x200000>;
-> +			record-size = <0x80000>;
-> +			console-size = <0x80000>;
-
-Best regards,
-Krzysztof
+Andrew
 
