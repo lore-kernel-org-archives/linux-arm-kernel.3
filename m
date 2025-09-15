@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1430ECAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 05:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E08CA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 05:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13NPlfGbvgDFw8RrLUwVeJRg6pjNha4obGTNg9Fzl5w=; b=24fh8ydNcQhNVhyz24heEcyF5s
-	Omk0SJ6Sq76MaYMGBL3AHGok1sk65rZVWoTjx7DKPrNy+YPRSmUDZl+HXSeJeucBRWqMZf6ghrroX
-	rszkyIuDg2dMbvdZYRu8jBXCKwcBdrcK5UY3JgLig4swlrHskdBJvTKrI+oGlBAK09hBisYzvNqeL
-	vFlXEk/VcV4vTmACCFWrQV9+tVO2xtQ22KPtPDbxoR+XX7cwIgJ67aOZE5pn3x28SWFUPb3327bry
-	o9nX9QSag9blh87OwVoPZqmbVYIRJeziofp3O/ubUnTXeU/rdEkfspYRKBBMC7GxxKsSnSLXb+s+z
-	xtcVm58w==;
+	bh=oNMOaL81IkhElHKr2VApsXrxfwnHiJNxSJBV5ekXwTA=; b=k2fIzNCsWCiembwuM1Vv+wKwbj
+	F934zaIRJd+bAQLaGmUI2ipKUdvGuJV2+mujl84YqMPCrojDnlKKGL7uRv4iENYTy8PXNK1L1UIAD
+	3tMBCP1uJu5f/wpNArxE97moCanCpD4VOzikbh6SFYRB2Y87h9T7HF7ddSwvDkg0UB5TdyT3usnxX
+	nahdwkZEncVqFM+XFHjnn2Rp/bnDhwW40l6mU1vT72MWLIo4GU+JRRzWOfdlM6RJYiepN+3aOWXRX
+	4MmJMtFsNW96fN++qiwDVH0wUmSy7pGxgK5sxtLmDQECKuHTxK2aYttcUldcD8S1p0ieQLrxT/RvK
+	7ub7RhUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy1MO-00000002oJB-346B;
-	Mon, 15 Sep 2025 05:02:40 +0000
+	id 1uy1QX-00000002ojU-1SvY;
+	Mon, 15 Sep 2025 05:06:57 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy1MM-00000002oIj-1dzm
+	id 1uy1QU-00000002oim-2AHX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 05:02:39 +0000
+	Mon, 15 Sep 2025 05:06:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1757912556;
-	bh=13NPlfGbvgDFw8RrLUwVeJRg6pjNha4obGTNg9Fzl5w=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=htf09HkZFncGYF0Rk8VAKDviUA7EafLlMxtWRN/F0fsy/5RzAISL02kbcEX+N3Hpf
-	 gmYX+/6Ugp/r+8NcNHWSJJ57fuGIVId3f/v9GNVSx+Thn7pSlRSiOaM4n38n6kp9+a
-	 ZTAv/UH4ezzW3W//f6WHKC3Hg56oOsdoknqCzWvaX7MgsgexrA6Pbvso0IN+Lz+0GK
-	 9w/a1w7hH57eD7+hD+/VwuUX51By8eHIP5/BO3Neo2XdCnsdjCKjQUCPEx2DEwHxEf
-	 41+nNknmci6emz4/Uema0AIslKYe5kNKmEpyLCXa1rgQ4z7ADlg+30GHu2GU3JwFpO
-	 Pga+GDAX/L9KA==
+	d=codeconstruct.com.au; s=2022a; t=1757912812;
+	bh=oNMOaL81IkhElHKr2VApsXrxfwnHiJNxSJBV5ekXwTA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bwExPnFdRLkhCTTi+hk/aoWc+gY5XGZePQgDQN+4nim/C8quuZxzvEFZu002gI0rH
+	 9MQhVepzXwruhuA5KoAaeQc1UVV2xJ40DoOw7W6aSSAU39KsCncmJCpaaUbZo6Vhqg
+	 /IWyQZ0XW1SBb4NrMgUYpB+Z6F7UQuFy9gpVrgCP5ChIKmMztJMLz8FrXlEoK/OX0M
+	 R6Vmg4eHGafzc3EEDbyG3WGrF8dkPqJERJ6wqUddiRub+QPew+DrAs2qpMgSmaY9Yf
+	 /13wRgEQSpA7Yf/i1nm+adpnqT6V8yB1yH/BQFxjL8qyojo0YjyFdbOZ+DasjGATJg
+	 ljuHfKM4dmbVA==
 Received: from [IPv6:2405:6e00:2430:fb15:b2b4:1872:3690:c682] (unknown [120.20.190.44])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 04C2364CF0;
-	Mon, 15 Sep 2025 13:02:33 +0800 (AWST)
-Message-ID: <bb4509319d8d6a72b4d6c4a21c0362c76196fd52.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id F1C9864CF0;
+	Mon, 15 Sep 2025 13:06:49 +0800 (AWST)
+Message-ID: <28dc3bd8aeca7e3164747960747f75060c596704.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] peci: controller: peci-aspeed: convert from
+ round_rate() to determine_rate()
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rebecca Cran <rebecca@bsdio.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+To: Brian Masney <bmasney@redhat.com>, Iwona Winiarska
+	 <iwona.winiarska@intel.com>, Joel Stanley <joel@jms.id.au>, Maxime Ripard
+	 <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Date: Mon, 15 Sep 2025 14:32:32 +0930
-In-Reply-To: <20250911051009.4044609-3-rebecca@bsdio.com>
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
-	 <20250911051009.4044609-3-rebecca@bsdio.com>
+Date: Mon, 15 Sep 2025 14:36:48 +0930
+In-Reply-To: <aMatZAX6eFI1RmDH@redhat.com>
+References: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
+	 <aMatZAX6eFI1RmDH@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_220238_630109_CB33D681 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250914_220654_745005_782E6A63 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,131 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-09-10 at 23:10 -0600, Rebecca Cran wrote:
-> The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
-> ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
+Hi Brian,
+
+On Sun, 2025-09-14 at 07:56 -0400, Brian Masney wrote:
+> Hi Iwona, Joel, and Andrew,
 >=20
-> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts | 647
-> ++++++++++++++++++++
-> =C2=A02 files changed, 648 insertions(+)
+> On Sun, Aug 10, 2025 at 06:21:51PM -0400, Brian Masney wrote:
+> > The round_rate() clk ops is deprecated, so migrate this driver from
+> > round_rate() to determine_rate() using the Coccinelle semantic patch
+> > appended to the "under-the-cut" portion of the patch.
+> >=20
+> > Signed-off-by: Brian Masney <bmasney@redhat.com>
 >=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile
-> b/arch/arm/boot/dts/aspeed/Makefile
-> index aba7451ab749..6bffb7130839 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-ampere-mtjefferson.dtb \
-> =C2=A0	aspeed-bmc-ampere-mtmitchell.dtb \
-> =C2=A0	aspeed-bmc-arm-stardragon4800-rep2.dtb \
-> +	aspeed-bmc-asrock-altrad8.dtb \
-> =C2=A0	aspeed-bmc-asrock-e3c246d4i.dtb \
-> =C2=A0	aspeed-bmc-asrock-e3c256d4i.dtb \
-> =C2=A0	aspeed-bmc-asrock-romed8hm3.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-> b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-> new file mode 100644
-> index 000000000000..61f6cf8018c0
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-> @@ -0,0 +1,647 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/dts-v1/;
-> +#include "aspeed-g5.dtsi"
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/i2c/i2c.h>
-> +
-> +/ {
-> +	model =3D "ASRock ALTRAD8 BMC";
-> +	compatible =3D "asrock,altrad8-bmc", "aspeed,ast2500";
-> +
+> Would it be possible to get this picked up for v6.18? I'd like to remove
+> this API from drivers/clk in v6.19.
 
-*snip*
-
-> +};
-> +
-> +&uart1 {
-> +	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_txd1_default
-> +			 &pinctrl_rxd1_default
-> +			 &pinctrl_ncts1_default
-> +			 &pinctrl_nrts1_default>;
-> +};
-> +
-> +&uart2 {
-> +	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_txd2_default
-> +			 &pinctrl_rxd2_default>;
-> +};
-> +
-> +&uart3 {
-> +	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_txd3_default
-> +			 &pinctrl_rxd3_default>;
-> +};
-> +
-> +&uart4 {
-> +	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_txd4_default
-> +			 &pinctrl_rxd4_default>;
-> +};
-> +
-> +/* The BMC's uart */
-> +&uart5 {
-> +	status =3D "okay";
-> +};
-> +
-> +&mac0 {
-
-Recently I've decided that I'd like the "usual" node references here in
-the DTS to be ordered alphabetically. The style guide gives us two
-ordering options, either by ascending unit address or alphabetically:
-
-https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-of-=
-nodes
-
-Without the unit address being visible it's hard to verify the former,
-hence the preference for the latter.
-
-Can you please sort these accordingly?
-
-> +	status =3D "okay";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_rmii1_default>;
-> +	clocks =3D <&syscon ASPEED_CLK_GATE_MAC1CLK>,
-> +		 <&syscon ASPEED_CLK_MAC1RCLK>;
-> +	clock-names =3D "MACCLK", "RCLK";
-> +	use-ncsi;
-> +
-> +	nvmem-cells =3D <&eth0_macaddress>;
-> +	nvmem-cell-names =3D "mac-address";
-> +};
->=20
-
-*snip*
-
-> +
-> +&i2c3 {
-> +	status =3D "okay";
-> +
-> +	power-supply@3c {
-> +		compatible =3D "pmbus";
-
-Devicetrees describe the hardware and not abstract protocols like
-PMBus, so the compatible string must refer to a specific
-manufacturer,model here.
-
-Cheers,
+My (strong) preference is that Iwona applies it, but I'll keep an eye
+out for any unusual delays.
 
 Andrew
 
