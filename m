@@ -4,60 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC10CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E933ECAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=; b=oTLLUV6sjciZbeu8CYpnlFR2Hb
-	cFyOco01T5zMcawNIH/IEk3a6l3Oc22V4ZEOn1h86OUnHXDxVvN2CwKADmoiLseTisr/k991aUtol
-	M2vTHExASBoqIzKnBDSU8a9IL/kwANDi7cbWGLDHpDKd8UZrKGR9bA+PDbPeSg3hEohtNMQcDZYoH
-	HWgrWf1kA8FOUP3wqIfhsGLrYg3tMnQM5YUYi4FBalthVMo3Yw4Eazv2AcUJglPp2vHZkL1/CCGJO
-	5KzgOqCBmYx0vpveAETb7vIEZaQJ9CmqdvicRkWWQ3N/jQ5PJ+4ACimoOC0Jsl/9DLypv+bTA4i+0
-	uwXZUIOQ==;
+	bh=1ZNBEQC/8mpEzL4wmbNqb3FPh6BDDrGddIBOowgnbp0=; b=1nTHfJrzPqLf/SVOzslXxYmG4h
+	g24z/o0PudrefHAqFR9/Y1ST9ldHLjzBrV47ooWjUI4P29F9alVMOHW9bcCGAqymwIY4G1mstlgC2
+	7VVO7Jah7ZVI2qdgmBeqBpAp7g5UTjB67KGPQOUbi8u28dIFAlnpRpg+InqICAzC1lIt1dgh41asT
+	QUQdIpa6uApZkIxmpHCEmKwxn1Fyf2QHZmntIK41f1h35baflqcASKYfv3PbiNnaDwAPbGQSpsvyY
+	kQwQd5cNeJvnabj48CxLiEXcAUkl/6tMIkrDr96+aAics22pvEFl3NRIC0BnWrXmvzC6p54vDi9fL
+	slwm7rmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAUZ-00000004lgk-1f0a;
-	Mon, 15 Sep 2025 14:47:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAUY-00000004lgQ-0JU6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 15 Sep 2025 14:47:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=; b=lN5ce+NnuMdg/3CAGx8BC0fTSc
-	U7ZYbVcxrg9cZrNFbd6uONUCUhQU174UY63n7ds3k4i10jJGrmB2fS3HfApz79fS5Q9Jo0Iajl/Up
-	pJGviBRuWb0AJ7N3QbULpD0InwNqpJZOsKqhx8ekHImfLVuI0RsbTVFaaDbD1N6FMNMh6DSd/FP7R
-	7YBFa730rhhBjEkInyXHKv2UfBj478a1W5UU+7OnfB1VPaQeb8mLHyLs7kbZ+FgjR4e4XCZAVOali
-	E1ryRITfSfLdU479IeAu5Mu0iQNsWAyAQLRfCXD6p3r/LGLvdlj3fFADr07w3X0Xq6Tg1LVF+hkif
-	OE+8iJfw==;
+	id 1uyAW3-00000004m14-3baL;
+	Mon, 15 Sep 2025 14:49:15 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAUU-000000072HK-3ioB
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyAW0-00000004lzl-4681
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:47:40 +0000
+	Mon, 15 Sep 2025 14:49:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8BF240E87;
-	Mon, 15 Sep 2025 14:47:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82B8BC4CEF1;
-	Mon, 15 Sep 2025 14:47:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A80F43D2C;
+	Mon, 15 Sep 2025 14:49:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EDF4C4CEF1;
+	Mon, 15 Sep 2025 14:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757947654;
-	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=;
+	s=k20201202; t=1757947752;
+	bh=1ZNBEQC/8mpEzL4wmbNqb3FPh6BDDrGddIBOowgnbp0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D4wlMhtjYAOghN/Bw6VK9WtBE24NGMCF8oPJ9UZHSrMfKsq0/B3OdwmPRJ5yz1sGa
-	 OVjs4KV9tXx/GrndpwGtSpX48JUEtmtPKsZ5MbGv/LUPTizKZALqwjzGu68hOzB5ql
-	 FzXbyT1kXtp13oCs381JOyrWuZsJoBQ1XLv0n8ABkubTTcZuuiM2AYOM0ViN4MerAQ
-	 4VptVba9101kMNZ6kWvM9QXHn8hbA+JcFNVeucYKaF4NxAi5UCp3fD0SxzrBmMyZNx
-	 xky7ydLOm6XZ+ESqYeA6gQ8Jr0QLzQJu1SEJOQ0Zj/U6soM2QrlUeKptugAFYg0kGa
-	 6T1Qt47mcIgCw==
-Date: Mon, 15 Sep 2025 15:47:27 +0100
+	b=Uw/e9d7/kGCAran4GK0T6S0xU0+gS6A944ToJDHNMIGJHn9PAIUYlRLUTSxIVOfds
+	 7Zg/ChGsYEhAkzyT5nSAUbVpCVYjQBFUKOfgeLKSV4N4bztiHb1bilnrmZTPRI/3TK
+	 RkmBLTwNY3a0Hw2KLJXnijdTvniaBGMZCcmi+dkzPorZH1WeKe/DrYVfSPAqNMl8or
+	 fBxrz5KZ6PHUSBWsBb5ugQkgS0SLEE8uz6pxcTfza21YdBAjbODqepbdm/x7ec5djr
+	 QZrPWDpqCBt/X9jxoPp8PXB3ToP50q98GQ535zG0XIPPNyEtu27jdNz0HjJScGHOKs
+	 5yZyB3qr0jtHw==
+Date: Mon, 15 Sep 2025 15:49:04 +0100
 From: Daniel Thompson <danielt@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>
 Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
@@ -69,18 +54,20 @@ Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
 	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
 	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
 	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v2 06/15] backlight: Include <linux/of.h>
-Message-ID: <aMgm__4sUSKYxqDt@aspen.lan>
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org,
+	Nick Chan <towinchenmi@gmail.com>
+Subject: Re: [PATCH v2 07/15] backlight: apple_dwi_bl: Include
+ <linux/mod_devicetable.h>
+Message-ID: <aMgnYFWzXLUKUG-w@aspen.lan>
 References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-7-tzimmermann@suse.de>
+ <20250715122643.137027-8-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250715122643.137027-7-tzimmermann@suse.de>
+In-Reply-To: <20250715122643.137027-8-tzimmermann@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_154739_182103_9D5517E2 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20250915_074913_032009_169AD659 
+X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,11 +83,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 02:24:43PM +0200, Thomas Zimmermann wrote:
-> Include <linux/of.h> to avoid dependency on backlight header to
-> include it.
+On Tue, Jul 15, 2025 at 02:24:44PM +0200, Thomas Zimmermann wrote:
+> Include <linux/mod_devicetable.h> to declare struct of_device_id.
+> Avoids dependency on backlight header to include it.
 >
 > Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Reviewed-by: Nick Chan <towinchenmi@gmail.com>
 
 Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
 
