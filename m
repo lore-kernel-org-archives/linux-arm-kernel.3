@@ -4,57 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFD4CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 19:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2505FCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 19:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TiIl36uFY8ZkqiyyqljWp+GeIOt2p0pIoWmVGkzz89Q=; b=NN73Kb2Am1343l0YnRBMxEnhl/
-	5nMCkhKJcvXYRBjV1iJZIQ5dRH3SHRm4HKFM69GHSUL+1cDBwvn2lXR7Z9a3MsCXkkISQ5lryEnIS
-	6rWUjDTeqUWcvDM6lX0l3hKN1yXwCgBMhxD3AvZs50NR4LThjHJvwiE2rVtrEtfUnK4UY7odejHEh
-	W0JIU6y0CWJVGhM7Nrv0MeIQYzTaspYa1uCfPH11/i3h+g0jQfKwUxAKReexg/jN9lSY3HFBL32mZ
-	JKnz1Tl9HgMrOx1tzuWhnWkoIB18E5dP2BCxoFC0bd3PGv+j3+q6pKxkT3IV+jFw8fkPQZbfO7F/e
-	JDOg+x9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vJhLIV1mYQqcST1oL+DWVlUO1Mmv/0wElK+MzmN2lAU=; b=4E25R3PT1K1CQMRV5IAalgaZsz
+	P1d/DsXcKIBUFoIf60YEtNbnOYKwWLIqioSOI9h/a4hua/oIRRd7DpotjFSEnKo1nQJ7vDot34JLv
+	rG03B0mEI1m/4ALMqZyio1f5E/Trbb+ltu01RIFQ7f0v5v9l+Imcof0fhWSc+HVOsPSOJL4ibbLF8
+	aTBRtI1zmAyw1zf71RN1+liM+LW9aBtOIhuW+izWtTmgclh2n/g/t5oY0eeaLR5CMoSA6vouZjoio
+	5OdLijjnHNkN1jK7Nkee/Usb9rzyZfxC/6FqPy/yXp6wcVth5gM3fghANhAGbAsHESGuPXVoPrmp+
+	TC/AIvmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyF45-00000005Woe-27EB;
-	Mon, 15 Sep 2025 19:40:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyFGt-00000005Xzr-0BLL;
+	Mon, 15 Sep 2025 19:53:55 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyF43-00000005WoA-1LpX
+	id 1uyFGq-00000005Xz6-3mBa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 19:40:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFF8C43284;
-	Mon, 15 Sep 2025 19:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F133C4CEF1;
-	Mon, 15 Sep 2025 19:40:36 +0000 (UTC)
-Date: Mon, 15 Sep 2025 20:40:33 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aMhrscd1gz_syMtL@arm.com>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <20250816151929.197589-5-yeoreum.yun@arm.com>
- <aMRQIeIdyiWVR8a0@arm.com>
- <aMfrR0vserl/hfZ3@e129823.arm.com>
+	Mon, 15 Sep 2025 19:53:54 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45df7dc1b98so32085785e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 12:53:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1757966031; x=1758570831; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vJhLIV1mYQqcST1oL+DWVlUO1Mmv/0wElK+MzmN2lAU=;
+        b=hsnEof1yy9rWni8KhviJAmrfVLVLWj+qdS3hq12ejR0pz5SABBM1LPq8+h1NUm2Hnn
+         uku75A7TMMWF+A3CSLaywhwUdSVXZx836EdXjHpzG+ajKshCHOhbQAqdMZ5WXWXwHRdI
+         yZ/TvGwsY5eKqVdg78Ez+7z+dnQsUQGU33K3c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757966031; x=1758570831;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vJhLIV1mYQqcST1oL+DWVlUO1Mmv/0wElK+MzmN2lAU=;
+        b=r1JNjlRCeXYir8NfCJsDF06dEv2NuKpHs83QQM7jIo9jNl1a8jed9r/BAscI7a6LMx
+         luM4hRV69h+C695Ed+YfamRq+DIUDEalEDei+xyqfu9DOg4fFcLbZ66AU0sW3kDysnFA
+         vtAjRejU0YkdgIMOqLtCtLwm5LSwrIDFdNg0+LzCRC/La0IRzAF+5iChEapdeU43lXhg
+         DUYr7AzjiY2Fy6Of5RFvMpZLIbr5lQiAaR4thVKrJqBzP7kAI42bzcbxsiqwguivGaA4
+         wFn7Y+xT35Zs/NNh033GLl0AzGKtkzqG41F4OOSk+Yzn3A0OgSYsBpgzLXF7/1bkUmCu
+         Us1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUhWj4+WGkTbGEYH10pt2Gde45zfgmNGNfoMxreGxob6u6bxR/++T8FXnByXyFNs2mqQhPU5vYoKn85ptX3FKcF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfINYYdc2AUTFFEfXRBS/Ga/wpZyB43dBnsrHcM2f9FTDNvFXr
+	C9ZIrhaEgw2J4kpGuSdkTCop2qCmxeFCLHw82hYt4hPJKHbIVGsThtYFIgQDthFThHk=
+X-Gm-Gg: ASbGnctCYwcHXqnt2sNHQ3FgYBiaadOR4U2X9dSyCZbrty60ypYgOFIhxTBVQ4VuEaL
+	a8haNTQvdEgOysPXBjpHnTMUGBtF2fJ28wG+GwHwjVJBG/9o2/H6OWNsJ6LGCg+ZhSP949f71VI
+	K0dpU6t5Oc8MaTZ4+d9MgvaIFFbrmhoC8qu/eYquc86yDKkQ0cjU1mjljtVH39nWte2Qi4fYd3b
+	4rvJ0yl6thnpo1RufK9FkkuFn6j2X44FQ9Jrc03yYlGhEO4Mr/xtY5yBmsBXzmxQM5v9Q46oMVp
+	7xqoYT9f02pUo1l1RRq1JAKEjUHADcCXiYYsjzvX/+iAXrkrmjiOSATHoAS16kiFKTihVcA/oRU
+	5A9zQfYnLygnVkcLxHCOuMa6ip7vN5rvdMkWLCORxfVU7bEZL0KQ4krefPDiXwz4=
+X-Google-Smtp-Source: AGHT+IG7qHwPsEqR9IHaKIK+gqJMIa/E+Jy05PFsgkH/KUwCOfGsFJPue2mRPxnFFVk+CO6qHeKm9w==
+X-Received: by 2002:a7b:c44b:0:b0:45c:b5f7:c6e4 with SMTP id 5b1f17b1804b1-45f21202a1amr79796525e9.35.1757966030718;
+        Mon, 15 Sep 2025 12:53:50 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.230])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f32640f49sm530985e9.9.2025.09.15.12.53.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 12:53:50 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Frank Li <Frank.Li@nxp.com>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Javier Carrasco <javier.carrasco@wolfvision.net>,
+	Jeff LaBundy <jeff@labundy.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: [PATCH v3 0/6] Input: imx6ul_tsc - set glitch threshold by dts property
+Date: Mon, 15 Sep 2025 21:53:02 +0200
+Message-ID: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMfrR0vserl/hfZ3@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_124039_391263_AE025DF2 
-X-CRM114-Status: GOOD (  23.82  )
+X-CRM114-CacheID: sfid-20250915_125352_966296_EB91A84A 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,58 +110,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 11:32:39AM +0100, Yeoreum Yun wrote:
-> > On Sat, Aug 16, 2025 at 04:19:27PM +0100, Yeoreum Yun wrote:
-> > > diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> > > index bc06691d2062..ab7003cb4724 100644
-> > > --- a/arch/arm64/include/asm/futex.h
-> > > +++ b/arch/arm64/include/asm/futex.h
-> > > @@ -7,17 +7,21 @@
-> > >
-> > >  #include <linux/futex.h>
-> > >  #include <linux/uaccess.h>
-> > > +#include <linux/stringify.h>
-> > >
-> > >  #include <asm/errno.h>
-> > >
-> > > -#define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
-> > > +#define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
-> >
-> > I just noticed - you might as well leave the name as is here, especially
-> > if in patch 6 you align down address and use CAS on a 64-bit value as
-> > per Will's comment (and it's no longer LLSC). I think renaming this is
-> > unnecessary.
-> 
-> Okay. I'll restore to use origin name.
-> But I think LSUI wouldn't be used with CAS according to patch 6's
-> comments from you and additionally i think
-> chaning the CAS would make a failure because of
-> change of unrelated field. i.e)
-> 
-> struct user_structure{
->   uint32 futex;
->   uint32 some_value;
-> };
-> 
-> In this case, the change of some_value from user side could make a
-> failure of futex atomic operation.
+The series allows setting the glitch threshold for the detected signal
+from a DTS property instead of a hardcoded value.
+In addition, I applied a patch that replaces opencoded masking and
+shifting, with BIT(), GENMASK(), FIELD_GET() and FIELD_PREP() macros.
 
-Yes but the loop would read 'some_value' again, fold in 'futex' and
-retry. It would eventually succeed or fail after 128 iterations if the
-user keeps changing that location. Note that's also the case with LL/SC,
-the exclusive monitor would be cleared by some store in the same cache
-line (well, depending on the hardware implementation) and the STXR fail.
-From this perspective, CAS has better chance of succeeding.
+Changes in v3:
+- Remove the final part of the description that refers to
+  implementation details in fsl,imx6ul-tsc.yaml.
 
-> So I think it would be better to keep the current LLSC implementation
-> in LSUI.
+Changes in v2:
+- Replace patch ("dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
+  fsl,glitch-threshold") with ("dt-bindings: touchscreen: add
+  touchscreen-glitch-threshold-ns property"), making the previous property
+  general by moving it to touchscreen.yaml.
+- Rework "Input: imx6ul_tsc - set glitch threshold by DTS property" patch
+  to match changes made to the DTS property.
+- Move "Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros"
+  patch right after the patch fixing the typo.
 
-I think the code would look simpler with LL/SC but you can give it a try
-and post the code sample here (not in a new series).
+Dario Binacchi (5):
+  Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
+  dt-bindings: touchscreen: add touchscreen-glitch-threshold-ns property
+  dt-bindings: touchscreen: fsl,imx6ul-tsc: support glitch thresold
+  ARM: dts: imx6ull-engicam-microgea-bmm: set touchscreen glitch
+    threshold
+  Input: imx6ul_tsc - set glitch threshold by DTS property
 
-BTW, is there a test suite for all the futex operations? The cover
-letter did not mention any.
+Michael Trimarchi (1):
+  Input: imx6ul_tsc - fix typo in register name
+
+ .../input/touchscreen/fsl,imx6ul-tsc.yaml     |  12 ++
+ .../input/touchscreen/touchscreen.yaml        |   4 +
+ .../nxp/imx/imx6ull-engicam-microgea-bmm.dts  |   1 +
+ drivers/input/touchscreen/imx6ul_tsc.c        | 122 +++++++++++-------
+ 4 files changed, 95 insertions(+), 44 deletions(-)
 
 -- 
-Catalin
+2.43.0
+
+base-commit: f83ec76bf285bea5727f478a68b894f5543ca76e
+branch: tsc_de_glitch
 
