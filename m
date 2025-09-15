@@ -4,72 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBBACAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C32CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8agOD5B5tm2WlJshDFYXxTPuX3Y/TJLdnqt86U2CSw=; b=sZwD7SnkjFKurmfkNNJfXIJg00
-	J6zhx4qoaERDIqpeGrpeIn4uju/BKRn1C6AyLfs14zr/iyAV5pOu03xLHDr/e3QxoEL6uhrtlA02a
-	woqXxPMSVuSOuvt03VsjafEa8XARv8+nc4E9bAZ7/KEm1rg34Aa/KEdFDnUhDWT3h3gbBumc7bTrw
-	GwaBJ0E1h86jzJCj77mQyoFxnGN7wZ01BGbNRHMMnvv3uCSoEntxBZdcGKwfmDFrQGGisCjQyRtJ2
-	M8LK/Y2RCIYd3yxVy+64eNLu71vRgpXzaRivUzJJGISEDx8RlDktmKh/f310g2VrSPxHGDFjN2Hp1
-	w52VYM6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XN69o7s5WarO8Bp/yA+cv1u9A7mvayiOInoJ5vZqIyo=; b=q8QGlAK6SK9Q6WsXkqnK2re3eE
+	bxrzEYDnZy+CPViUypKPaUPYYeU/81lYqcP8Fv+g11tgmLnBIMtaDHy0WlGmqYEz3Fo3oJ5CM40c+
+	bQAjnWqQsKb6RNegolmro2V0hVdJvpbpa88SdSlxIXGsWyQ8aKione+edy1N4CXolFOYZ4osk8EVT
+	P8GQ8rNLfKKv9DErpJP30GgFRTQq9EOjrcTIbsvvmZAMfgKHruYEfW+GclS032fh4HZ3erGzmgxbl
+	cd4fnkwZrjkMJCV98W2v/TV+h7p3gPYe1aweS0RE+uREAdNQlqHoY0osSOZR1Nj753CVs0cuAyb+b
+	ECxYdzig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2vC-00000002xLi-2B50;
-	Mon, 15 Sep 2025 06:42:42 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uy2vW-00000002xTd-3ed0;
+	Mon, 15 Sep 2025 06:43:02 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2v9-00000002xL4-3aiC;
-	Mon, 15 Sep 2025 06:42:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757918557;
-	bh=dOUlmwtjQ7dFqHBYte2ksVsiBR2UJ6V2cqwUM9/Qyf0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bey7w97y3A/+4kjYut9Z4evws1FAIusM2YegGYIePSac8lorZw+rSQA/uhixwRjrF
-	 TFP8uehhYxvTBmldzsMNsERWsgapJW8u+Hk8sr6rasl3G3uyJh50fEb6VzlsWp07PI
-	 WVCc1Z8Oh4ohIsrP9CPsuDJRoBDCPUOKCsharMM+yHZ0l5NdReF2HjGVFO9m2lMjFk
-	 cU/Wmxb+skS2F8AbXqocdpalPP+Ou/dpyr9UOEyoJF+CSIiU0DH7LcibQk9T7+oMN+
-	 R2tO05DbP1w7PbsRXvxWnxEkAfya+kPWW5Hw4BnR4SStoRu1HOz10uLh5JL+/bRBmP
-	 eCHI22bPmH3HQ==
-Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7D89E17E046C;
-	Mon, 15 Sep 2025 08:42:36 +0200 (CEST)
-Date: Mon, 15 Sep 2025 08:42:24 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Chia-I Wu <olvaffe@gmail.com>
-Cc: Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] drm/panthor: add custom ASN_HASH support for
- mt8196
-Message-ID: <20250915084224.08fcc2a4@fedora>
-In-Reply-To: <20250913002155.1163908-3-olvaffe@gmail.com>
-References: <20250913002155.1163908-1-olvaffe@gmail.com>
-	<20250913002155.1163908-3-olvaffe@gmail.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	id 1uy2vU-00000002xRr-0cEo;
+	Mon, 15 Sep 2025 06:43:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WFXN/ESgpSMWtdFQtcTU2d6jbYr1cQoZP6ed4s/hQhCMy3Lc28NJqJd+424BP4ngfz5IIU2+AQhQE3ikop3sXl/YSR1LZYTD2hAYOl82Pnvh+VoF4sBiDb65EAIufObdbCXbhlSKzot8U1v858o/nobgz+BnI6d5aZ9Ky8px35DeSkceIBDmKNHcmK7EC/pX90pX1YvWswwc0CMwqQhlW4fNlkmwsF+Bhu6mZIBHUEhgUJnPw3kZeKj3K0yy8xDxQjWUsB9eiC7FrhFlMqOyN4jbkSFla29MZeYE/9aWgU/oWZRspl6FC+v9vKBln33GFRhjtN1mZs9n7TBqcsdXsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XN69o7s5WarO8Bp/yA+cv1u9A7mvayiOInoJ5vZqIyo=;
+ b=cVh4W2Olc87JPgVErW3ONGL5H07OAHCWdF1Aoww0E9g7UuLrkuRvzxfbv3V8kMssgmlYEMqgDfQCAeMaP6anuBohczYO4TZHAE0vSXOuIOwvZS5DSAC6G5RoiV3OG66ilzeefkxC/b1Z1mn4YFenO9LD3tHubo7iKa0Cq+43kKwBychpYCxvzMeC9nkRdPw+kFwqUapmMv3c/Zhes4BEv2Zi7YnrGisOY59+ylV2k3sosZo7DPy9x7IQQOOQchIM8ZeZAQUxG8vyvnGZIBQGRo/toDiCeeVmweF5lO3RJrcTamTpULlRfa/HNG/5sM5/Mgi3r0aSUkn0h18kFXZXQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XN69o7s5WarO8Bp/yA+cv1u9A7mvayiOInoJ5vZqIyo=;
+ b=cPk9vtAcvqOTbZDyq25WOi9T6Fqae8BfUdjO1/fU+a33Z7X7WgICtKz8IVq2/zf2MqsQvrsnvXHamm7UL6PcRriMqpzQOSKRbae1oElSIvKyFFVKC/HKvVEKg6dg8EVKkEB62GmDIksNDrRULUflX2VKNEOdak1BPQDwunFMnoeFwcZFM61Ga01LeZbRGsccIqY5RUcP79QjRGmpGslPhwntXT+ODBsM9rMchkbvTWLSNyKFpoSxuRp8/wtyF8DBG+HDcX5isp7+E2Cwc7qR0mDlKDYPwUCR4J+WtwyHQufmoLulRRMoyLytSRRkjwpGwtozRWJIPsuBRbdwOJmC7A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8336.eurprd04.prod.outlook.com (2603:10a6:102:1c5::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Mon, 15 Sep
+ 2025 06:42:53 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
+ 06:42:53 +0000
+Date: Mon, 15 Sep 2025 15:54:25 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Qiqi Wang <qiqi.wang@mediatek.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
+	jh.hsu@mediatek.com
+Subject: Re: [PATCH v2 3/4] clk: mediatek: Add clock drivers for MT8189 SoC
+Message-ID: <20250915075425.GE8224@nxa18884-linux.ap.freescale.net>
+References: <20250912120508.3180067-1-irving-ch.lin@mediatek.com>
+ <20250912120508.3180067-4-irving-ch.lin@mediatek.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250912120508.3180067-4-irving-ch.lin@mediatek.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI1PR02CA0028.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8336:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80bcb32c-ef6f-4649-0a79-08ddf42318b9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sdHaelyZqgaAg+XiO124BDsM5j5/FoJKcd0KUtCg3tGTkqU+/XAfFnfI5w8e?=
+ =?us-ascii?Q?Rm9YssxEZSMmG5Eb6880MTXlfAJtTKzghctkGhpHPZkP0uwkb+B967QNk1q5?=
+ =?us-ascii?Q?+PTU6Eft1UuaD5vWGU7joYIkPQQ9EFxm9ivOEso1azkyGP0Yzh6QSNAA2pR+?=
+ =?us-ascii?Q?ONxQsMTCDkqk/+TcY6bxgEWkxZg5AJsx+vI+TyW4mRAdq/rr7mOcDcvr4IYT?=
+ =?us-ascii?Q?32qSGmqjcAAhh5hVFm4U1uQLlqnDOiGUWbFipSQ5W55liMTK1KZYaosdbliK?=
+ =?us-ascii?Q?QAZZ/a84H58k3bj7fEXD4W/U3s/3YKhM7y0kYrfuoyu15/hGBTKjBy0uIUg9?=
+ =?us-ascii?Q?4zunYjYoVKSxN5erc6Y3KYqf4l+slPMlVNdYkijvmKdlCeWLjjymKE89v40h?=
+ =?us-ascii?Q?aODyuoeY9mPrh2dbU7uxrnBr96tqXOr/rZ5pzwXsZs/Yv7y8agXol2Kq0q1/?=
+ =?us-ascii?Q?mMHIQ7K8qCfW5tTJ4V5neXUEDpzfR4JyLj4gIp7CjowzaHZ6HqiujKU6SUYu?=
+ =?us-ascii?Q?+DcGx90sy3rfuUfxZGldnUcKjtgtQtu8Hl4XM8WNtnzNqStOojC1G561QlOF?=
+ =?us-ascii?Q?m++87ZsNq89Mzf/hA6XVZQRhkJf5odr5Rljw7uDfX0RC3BzxMxdaimEKBVBb?=
+ =?us-ascii?Q?Ggk8+ZmhlLRGo+mPC0QL8iS/deHUzrDDjmubgTukmONp5x6Oz0xGw//gs8qb?=
+ =?us-ascii?Q?f/GE6h/z/Jpg8BCn/REruK5M7hoeW253+ZJN0pVTsm9ISZ/uaZCf+asepbAU?=
+ =?us-ascii?Q?MMDisJ8F8kqr7wlqeOm/RMEKlgJDgdXiP8oK+nI29MTaTnTnG7dYn6zAXXx9?=
+ =?us-ascii?Q?fUSGy8IqvfuJmHXpg68+HsRUa34QWExgnIxgW4W/9vNiixjjuLDN8BWh6I0Q?=
+ =?us-ascii?Q?qyJG1bIwkcpB5cL6u1PU9nBPb3xu76vsciy1PNMRgHn3teMHqboW/xtJnOiK?=
+ =?us-ascii?Q?EwXMj9sI4YZnjcjJomJWTiKKpfzY3N/RllFt3eYr9FWpglljorObQbc4zbiF?=
+ =?us-ascii?Q?ui7RcWtQQAOVpS9BXggjIortCPa7JE3MQKsHye+8HlIymWSoyzbqBDTzaYM5?=
+ =?us-ascii?Q?Atv15MhyA36+kvreDMVFfWV/aiGL4/b+fCUtHIZXq9uUxZIh7rwN59WJ6bo3?=
+ =?us-ascii?Q?oDoN+dEHjEx2SW3tXaEJZbNqlxpRbuj2zGUNau0jjpOawo5p9P4u3Tv7OBKe?=
+ =?us-ascii?Q?0ytCNztRuy2VdyjthSfR2w4V55J9POEViRAtRP00yuQiYSQeT+P/Vame7Zwm?=
+ =?us-ascii?Q?/H9Bhj1NKmtkfqyCixiCVQbibyP3QbVH0dzUSma9WUfjUe7bevmGtE3JCx7F?=
+ =?us-ascii?Q?Ahg6dC0w8FSqDzBstONFprHGf/63awlcWkO9j4iLiNDCygxIF+s1qWSUa6aN?=
+ =?us-ascii?Q?zIjV+5QzRgoZ8AckvUrC68JNckzURwsqVQ9UtwD8lih+kWJi1xLpZFRwKThm?=
+ =?us-ascii?Q?CVCzLVGneqwAmJd567fiTptqqoJtGyWr4BGlq+41bo0ThARN9bArMg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7gKU4mmk+wc16VCWGqab5unufGe3yL27hsfQFVpkejTUGBSgIzVYHZHn+xhb?=
+ =?us-ascii?Q?d5Vn/AaalrBM3V84FXiqrhtxMYpPJ+q1IZP/Dat20JDxLfQ+z+2/4DD7nSXd?=
+ =?us-ascii?Q?F+/jTD9WB/YnM2QGh43M7zdo8AEamBEAp0kIxZuVHVY2fa76BJI1pKXWF51h?=
+ =?us-ascii?Q?JAWnQdt65Ep6F3qoAj0VWPg7y4MUVoTJkaY7qpxba/zjur3C7APtd5JXKH+I?=
+ =?us-ascii?Q?tLB01tlL5KoyQAuWAIn56vwFH3Qf6BmvP/a/6sIePMm4Ni70wVS3DfprAn6+?=
+ =?us-ascii?Q?NftfoJ1lpmHVJtbmR1rRdhsbmP+PGUV1YIBGA/Jih53oeCE7493p2zD3c3zh?=
+ =?us-ascii?Q?ngRtYXIEki/cMRIW7x44vm8jfudhw6j3WyMF4tewIThphQ0n+YbQzXELD20t?=
+ =?us-ascii?Q?T696RnreEquteB9XoNNioW+tbkAyV/kkRlrdKkCROxWOcttbii4BUjDEzPS8?=
+ =?us-ascii?Q?X5a4jsXw0xGhlpnLupTNxVrqxhmjHtmepr2Bx0MflkpCXAwXf/kHuSi7VtLf?=
+ =?us-ascii?Q?/0B6dRS6oz4Zyp7ywSLO/kj7xBcQMPoZ7ldoThg0AfjqLJT+Xpz0Ktsogp27?=
+ =?us-ascii?Q?q3qjR9Ta1+yPX5sh+cBA5XU59YArZ8Wusg9RNPcm4HJVruahZV5mq37CaJsj?=
+ =?us-ascii?Q?mJSg+WK1pMdg+yYEancwUbKXdp+o/gW6iJtK+6wNjkfRu0YEToBBwsSpQXtT?=
+ =?us-ascii?Q?lgeErbCXPn6yMOyvgvsrM76BGdCR/TG0fNJl8pKvKE8zkyfdoHgKUqpCSA5c?=
+ =?us-ascii?Q?iTSZE9d7Gc/HBy5cVvRyTE7vrbHhtZs8eh7yvzE75CPbPBExjL3Vy9NhRWcs?=
+ =?us-ascii?Q?xy0SS6QZtFoLtv41srxrzsK7+5h360t5G5OaXuhE+Rjjuma8ldBxy4CBmdK4?=
+ =?us-ascii?Q?vD1mxoPNqWHoFNStb2YmwGe271G6AAuaohYOU0NNVXqx9zGKduQcSX21Are6?=
+ =?us-ascii?Q?DVvbVGGJ/PuCp011hjaUAgav/dep9T3OxxMDMcd+rmLCjUHo1Ry+kfPYxHch?=
+ =?us-ascii?Q?Uogfo4d09mOiwmKuFylV58QO8Wvth8+1k8u6/X4j74vwUxHGkWClQaHm6tNX?=
+ =?us-ascii?Q?c+mnYW0n+0Pr5oo4PoErhQkCLMRf2arc3FwWqKpIqv7QQWuP76GI88z3aWKO?=
+ =?us-ascii?Q?EocH1izPNl8GfKJ47iSqZaxQGYhgfusHmp0+WcVSuSWLKiyyWObf/p1uDxF0?=
+ =?us-ascii?Q?IwXniS6iaKLXx/zDJEp+Yn7QIKVzUImXRj93VTj0H5Qq2jAzwi1qGS0XDZtf?=
+ =?us-ascii?Q?sHNPtOf0NUxABxwKNAyGfOcnZQ7OTr2MNKDTv2AuZJ3QnkBZJ4Jl5Nq2ShBj?=
+ =?us-ascii?Q?thd0lfrQNQRhyjK3O0eN1EcHXoV5lhmRc6k5zbqtn8J/wIBVjfOSE9Z/PQ0h?=
+ =?us-ascii?Q?6kcsNgPqjqjcYMbDkHVnhQE49cB3HNXWSRyDiRpxVrf/D4lv9GZfYnh+6T2U?=
+ =?us-ascii?Q?8CEGoxxecLuo8PppsK74oN3Ge4FL7zPGG108B0cJ3kAbFfpoBekVkTG1ySus?=
+ =?us-ascii?Q?huUpf5X9YD90zqPD+MBSHOg8JEkP79Bkp199rP9piTbaPxwfQgztRO9nmyAL?=
+ =?us-ascii?Q?HFVX3/rnJ3aPatn0VxeRXBw/TBLnGta412ucI/V2?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80bcb32c-ef6f-4649-0a79-08ddf42318b9
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 06:42:53.3868
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: V38+21aEqqdR51TNHFJM75U6jVzvPrvwWHkbrG7lzGrk6WZCqMzxPdid5of33G3LpoKmMUZCEaRcxXT5Xjf6fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8336
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_234240_082966_AE61BFCB 
-X-CRM114-Status: GOOD (  33.84  )
+X-CRM114-CacheID: sfid-20250914_234300_198117_32026119 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,179 +173,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sep 2025 17:21:55 -0700
-Chia-I Wu <olvaffe@gmail.com> wrote:
+Hi Irving-ch,
 
-> Add panthor_soc_data to control custom ASN_HASH. Add compatible string
-> for "mediatek,mt8196-mali" and enable custom ASN_HASH for the soc.
-> 
-> Without custom ASN_HASH, FW fails to boot
-> 
->   panthor 48000000.gpu: [drm] *ERROR* Unhandled Page fault in AS0 at VA 0x0000000000000000
->   panthor 48000000.gpu: [drm] *ERROR* Failed to boot MCU (status=fatal)
->   panthor 48000000.gpu: probe with driver panthor failed with error -110
-> 
-> With custom ASN_HASH, panthor probes fine and userspace boots to ui just
-> fine as well
-> 
->   panthor 48000000.gpu: [drm] clock rate = 0
->   panthor 48000000.gpu: EM: created perf domain
->   panthor 48000000.gpu: [drm] Mali-G925-Immortalis id 0xd830 major 0x0 minor 0x1 status 0x5
->   panthor 48000000.gpu: [drm] Features: L2:0x8130306 Tiler:0x809 Mem:0x301 MMU:0x2830 AS:0xff
->   panthor 48000000.gpu: [drm] shader_present=0xee0077 l2_present=0x1 tiler_present=0x1
->   panthor 48000000.gpu: [drm] Firmware protected mode entry not be supported, ignoring
->   panthor 48000000.gpu: [drm] Firmware git sha: 27713280172c742d467a4b7d11180930094092ec
->   panthor 48000000.gpu: [drm] CSF FW using interface v3.13.0, Features 0x10 Instrumentation features 0x71
->   [drm] Initialized panthor 1.5.0 for 48000000.gpu on minor 1
-> 
-> Note that the clock and the regulator drivers are not upstreamed yet.
-> They might as well take a different form when upstreamed.
-> 
-> Signed-off-by: Chia-I Wu <olvaffe@gmail.com>
+On Fri, Sep 12, 2025 at 08:04:52PM +0800, irving.ch.lin wrote:
+>From: Irving-ch Lin <irving-ch.lin@mediatek.com>
+>
+>Introduce a new clock (clk) driver port for the MediaTek
+>MT8189 SoC. The driver is newly implemented based on the hardware
+>layout and register settings of the MT8189 chip, enabling correct clk
+>management and operation for various modules.
+>
+>With clock topology, we need to register clock sequence below:
+>apmixedsys(pll) -> topckgen(div/mux) -> others(cgs)
+>
+>Signed-off-by: Irving-ch Lin <irving-ch.lin@mediatek.com>
+>---
+> drivers/clk/mediatek/Kconfig                 |  146 +++
+> drivers/clk/mediatek/Makefile                |   14 +
+> drivers/clk/mediatek/clk-mt8189-apmixedsys.c |  135 +++
+> drivers/clk/mediatek/clk-mt8189-bus.c        |  289 +++++
+> drivers/clk/mediatek/clk-mt8189-cam.c        |  131 +++
+> drivers/clk/mediatek/clk-mt8189-dbgao.c      |  115 ++
+> drivers/clk/mediatek/clk-mt8189-dvfsrc.c     |   61 +
+> drivers/clk/mediatek/clk-mt8189-iic.c        |  149 +++
+> drivers/clk/mediatek/clk-mt8189-img.c        |  122 ++
+> drivers/clk/mediatek/clk-mt8189-mdpsys.c     |  100 ++
+> drivers/clk/mediatek/clk-mt8189-mfg.c        |   56 +
+> drivers/clk/mediatek/clk-mt8189-mmsys.c      |  233 ++++
+> drivers/clk/mediatek/clk-mt8189-scp.c        |   92 ++
+> drivers/clk/mediatek/clk-mt8189-topckgen.c   | 1057 ++++++++++++++++++
+> drivers/clk/mediatek/clk-mt8189-ufs.c        |  106 ++
+> drivers/clk/mediatek/clk-mt8189-vcodec.c     |  119 ++
+> drivers/clk/mediatek/clk-mt8189-vlpcfg.c     |  145 +++
+> drivers/clk/mediatek/clk-mt8189-vlpckgen.c   |  280 +++++
+> drivers/clk/mediatek/clk-mux.c               |    4 +
+> 19 files changed, 3354 insertions(+)
 
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+This is too much changes in a single patch. Prefer to separate
+into small patches in next version, otherwise it is hard to review.
 
-> 
-> ---
-> v2:
->  - remove CONFIG_DRM_PANTHOR_SOC_MT8196 and panthor_soc*.[ch]
->  - update commit message
-> ---
->  drivers/gpu/drm/panthor/panthor_device.c |  2 ++
->  drivers/gpu/drm/panthor/panthor_device.h | 14 +++++++++++++
->  drivers/gpu/drm/panthor/panthor_drv.c    |  6 ++++++
->  drivers/gpu/drm/panthor/panthor_gpu.c    | 25 +++++++++++++++++++++++-
->  drivers/gpu/drm/panthor/panthor_regs.h   |  4 ++++
->  5 files changed, 50 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/panthor/panthor_device.c
-> index 81df49880bd87..c7033d82cef55 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.c
-> +++ b/drivers/gpu/drm/panthor/panthor_device.c
-> @@ -172,6 +172,8 @@ int panthor_device_init(struct panthor_device *ptdev)
->  	struct page *p;
->  	int ret;
->  
-> +	ptdev->soc_data = of_device_get_match_data(ptdev->base.dev);
-> +
->  	init_completion(&ptdev->unplug.done);
->  	ret = drmm_mutex_init(&ptdev->base, &ptdev->unplug.lock);
->  	if (ret)
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/panthor/panthor_device.h
-> index 4fc7cf2aeed57..9f0649ecfc4fc 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.h
-> +++ b/drivers/gpu/drm/panthor/panthor_device.h
-> @@ -31,6 +31,17 @@ struct panthor_perfcnt;
->  struct panthor_vm;
->  struct panthor_vm_pool;
->  
-> +/**
-> + * struct panthor_soc_data - Panthor SoC Data
-> + */
-> +struct panthor_soc_data {
-> +	/** @asn_hash_enable: True if GPU_L2_CONFIG_ASN_HASH_ENABLE must be set. */
-> +	bool asn_hash_enable;
-> +
-> +	/** @asn_hash: ASN_HASH values when asn_hash_enable is true. */
-> +	u32 asn_hash[3];
-> +};
-> +
->  /**
->   * enum panthor_device_pm_state - PM state
->   */
-> @@ -93,6 +104,9 @@ struct panthor_device {
->  	/** @base: Base drm_device. */
->  	struct drm_device base;
->  
-> +	/** @soc_data: Optional SoC data. */
-> +	const struct panthor_soc_data *soc_data;
-> +
->  	/** @phys_addr: Physical address of the iomem region. */
->  	phys_addr_t phys_addr;
->  
-> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-> index be962b1387f03..9dd90754865ac 100644
-> --- a/drivers/gpu/drm/panthor/panthor_drv.c
-> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
-> @@ -1682,7 +1682,13 @@ static struct attribute *panthor_attrs[] = {
->  
->  ATTRIBUTE_GROUPS(panthor);
->  
-> +static const struct panthor_soc_data soc_data_mediatek_mt8196 = {
-> +	.asn_hash_enable = true,
-> +	.asn_hash = { 0xb, 0xe, 0x0, },
-> +};
-> +
->  static const struct of_device_id dt_match[] = {
-> +	{ .compatible = "mediatek,mt8196-mali", .data = &soc_data_mediatek_mt8196, },
->  	{ .compatible = "rockchip,rk3588-mali" },
->  	{ .compatible = "arm,mali-valhall-csf" },
->  	{}
-> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-> index db69449a5be09..9d98720ce03fd 100644
-> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
-> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-> @@ -52,6 +52,28 @@ static void panthor_gpu_coherency_set(struct panthor_device *ptdev)
->  		ptdev->coherent ? GPU_COHERENCY_PROT_BIT(ACE_LITE) : GPU_COHERENCY_NONE);
->  }
->  
-> +static void panthor_gpu_l2_config_set(struct panthor_device *ptdev)
-> +{
-> +	const struct panthor_soc_data *data = ptdev->soc_data;
-> +	u32 l2_config;
-> +	u32 i;
-> +
-> +	if (!data || !data->asn_hash_enable)
-> +		return;
-> +
-> +	if (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) < 11) {
-> +		drm_err(&ptdev->base, "Custom ASN hash not supported by the device");
-> +		return;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(data->asn_hash); i++)
-> +		gpu_write(ptdev, GPU_ASN_HASH(i), data->asn_hash[i]);
-> +
-> +	l2_config = gpu_read(ptdev, GPU_L2_CONFIG);
-> +	l2_config |= GPU_L2_CONFIG_ASN_HASH_ENABLE;
-> +	gpu_write(ptdev, GPU_L2_CONFIG, l2_config);
-> +}
-> +
->  static void panthor_gpu_irq_handler(struct panthor_device *ptdev, u32 status)
->  {
->  	gpu_write(ptdev, GPU_INT_CLEAR, status);
-> @@ -241,8 +263,9 @@ int panthor_gpu_l2_power_on(struct panthor_device *ptdev)
->  			      hweight64(ptdev->gpu_info.shader_present));
->  	}
->  
-> -	/* Set the desired coherency mode before the power up of L2 */
-> +	/* Set the desired coherency mode and L2 config before the power up of L2 */
->  	panthor_gpu_coherency_set(ptdev);
-> +	panthor_gpu_l2_config_set(ptdev);
->  
->  	return panthor_gpu_power_on(ptdev, L2, 1, 20000);
->  }
-> diff --git a/drivers/gpu/drm/panthor/panthor_regs.h b/drivers/gpu/drm/panthor/panthor_regs.h
-> index 8bee76d01bf83..8fa69f33e911e 100644
-> --- a/drivers/gpu/drm/panthor/panthor_regs.h
-> +++ b/drivers/gpu/drm/panthor/panthor_regs.h
-> @@ -64,6 +64,8 @@
->  
->  #define GPU_FAULT_STATUS				0x3C
->  #define GPU_FAULT_ADDR					0x40
-> +#define GPU_L2_CONFIG					0x48
-> +#define   GPU_L2_CONFIG_ASN_HASH_ENABLE			BIT(24)
->  
->  #define GPU_PWR_KEY					0x50
->  #define  GPU_PWR_KEY_UNLOCK				0x2968A819
-> @@ -110,6 +112,8 @@
->  
->  #define GPU_REVID					0x280
->  
-> +#define GPU_ASN_HASH(n)					(0x2C0 + ((n) * 4))
-> +
->  #define GPU_COHERENCY_FEATURES				0x300
->  #define GPU_COHERENCY_PROT_BIT(name)			BIT(GPU_COHERENCY_  ## name)
->  
-
+Regards
+Peng
 
