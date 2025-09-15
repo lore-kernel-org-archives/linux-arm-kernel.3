@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CD6CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00D0CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 17:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5/VMURWFNJO1+OvPSg3PKhSSmMY2qHOmfcCrvRaSgM=; b=p4bvJVhjqpVxOSXMJfXTI3Cb23
-	WTdbUxrb22ufYxJ7wX/Sygkp7Y4Sxw3egrcOEIldDdydJZ7TmXqZOlsV+QqoU9oU6HC1OIwktUtd1
-	z07lK4B2NEz3FrgHuNSCWkaJ4zsJo3i4WdHPLbPcvnK7rw2uHGPq7ad8Xf1L/pVg12WKOYldkWImS
-	Rmumj118mjEE8Ug19jVCTc8ZD2As2rR0ao9xZGQjhiah39w3r9grMnBLi79Wo5ENsM7eWJR9/R3RD
-	1FMvZ4Jrgxj/cIjHV73vlM+n5S63E4q7F/Ffo8MFbd5nj5s6GXqmowKQQUNoO1Ka4dTDWfwKnV728
-	q/Wg9WYQ==;
+	bh=+OnU78tOuCsmUj7JhZ3ncDy5W2LHbjtL1orhVFVmg80=; b=BY9nuLap3VLb1Z8MVc28R0WOp5
+	67enZKtRET/a2m1rbh227x0P9Jse6hUuuv/iYphQU5J8IizIYBe9XRBN0z5uHrstHH+GkV8lEB1MP
+	28aff/R4o/Mw5xHn8InoHMMKrpnLtUsmg0GbaWm8RCaSt9EH69lznzoUsCU3qcNIYYfQwf60qp/2l
+	SweDLPda8BvNqpTmtFWyjIHgIvG2ezPltrn2vOpxSmXBOT1wDf1HsVW9nRqF8PV4z3RI/pxLR6Idm
+	TU3G9ZGvK7l8aXMiAfJ9xzpAfDVwQkpDgd8mbOxEVgmxOXQnLT8HsCBxGyN3bEvPkbRbH4cRx61OT
+	Y0DCQuKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCUf-00000005Bjl-0LaP;
-	Mon, 15 Sep 2025 16:55:57 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uyCaO-00000005CJd-0g0v;
+	Mon, 15 Sep 2025 17:01:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCUc-00000005Bj9-25rt;
-	Mon, 15 Sep 2025 16:55:55 +0000
-Received: from ideasonboard.com (mob-5-90-56-182.net.vodafone.it [5.90.56.182])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 82062B0B;
-	Mon, 15 Sep 2025 18:54:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757955272;
-	bh=ScHNo7xeAxbc9qs152ZJaY9kt3AjpGFgAP5bYGwbDhM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c70sDKW0Y91oM30vf++vp2z4pVbkNOEdGBxrMH87+iYEavirzIxXtUCKhgFzwH/KH
-	 ivQOwVUa5MFYJGAYc2gUP6A0ScAbeK8jx6ft6jvJouGoxqtvgUx+q/8AkW3LX4d1VE
-	 TQ8R7eqIgg2YgosbNbUJkyuF4YlP8QN+qRW6CNj8=
-Date: Mon, 15 Sep 2025 18:55:44 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, 
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Dafna Hirschfeld <dafna@fastmail.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: rkisp1: Improve frame sequence correctness on
- stats and params buffers
-Message-ID: <rthpkuipbpbp2lv2ddmruwb7fmpkmtlsnx3q6kk7gaskzpdaar@5bk3r44f2mpo>
-References: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
+	id 1uyCaL-00000005CIB-3e6h;
+	Mon, 15 Sep 2025 17:01:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BB4DD4403F;
+	Mon, 15 Sep 2025 17:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78B93C4CEF7;
+	Mon, 15 Sep 2025 17:01:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757955708;
+	bh=ybnq6TfBeUjye9uRRrxgazoqeAR/KqnFTVvxQhsbxpI=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JLfa2jcXrnbxpTRuxh1KJ+8gZAamHyThRyVHtBOvj2AncGOmXlLR5S8vUHU3o5/ZO
+	 M+FXXmD/qdqaBcUt+v41jYr8U4UsT1fyBTqh66km5cPbSPdaJPhGXuFJpuxg1U6PQ8
+	 /drAVcg9f3eTapOvUIpq84g/+r1xBAiggFEkanbUY1gBvNvTOUcvYBkVu+tVCQz13p
+	 fJYTxbDO4hnPaSVva9rspIUwRcEps3yX2RIT4gxgwjfttWCaDGr2oGpeH/fWR1cfMP
+	 HIKoIvTof8oDlUHZQTxBksbuJdWk8aLox4CyK8Xb4jl5GHkXT2vF3gBMLXmucyBe5b
+	 oitwRsrgUOCrg==
+Date: Mon, 15 Sep 2025 12:01:47 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Jakub Kicinski <kuba@kernel.org>, 
+ devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
+ Daniel Golle <daniel@makrotopia.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ DENG Qingfang <dqfext@gmail.com>, Lee Jones <lee@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Vladimir Oltean <olteanv@gmail.com>, Simon Horman <horms@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20250915104545.1742-4-ansuelsmth@gmail.com>
+References: <20250915104545.1742-1-ansuelsmth@gmail.com>
+ <20250915104545.1742-4-ansuelsmth@gmail.com>
+Message-Id: <175795551518.2905345.11331954231627495466.robh@kernel.org>
+Subject: Re: [net-next PATCH v18 3/8] dt-bindings: mfd: Document support
+ for Airoha AN8855 Switch SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_095554_678250_BF0F67ED 
-X-CRM114-Status: GOOD (  33.67  )
+X-CRM114-CacheID: sfid-20250915_100149_954471_C051F0CF 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,148 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan
 
-On Mon, Sep 08, 2025 at 11:41:48AM +0200, Stefan Klug wrote:
-> On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
-> handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
-> and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
-> commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
-> debugfs var for irq delay") a warning was added for that. There are two
-> cases where this condition can occur:
->
-> 1. The v-sync and the frame-end belong to the same frame. This means,
->    the irq was heavily delayed and the warning is likely appropriate.
->
-> 2. The v-sync belongs to the next frame. This can happen if the vertical
->    blanking between two frames is very short.
->
-> The current code always handles case 1 although case 2 is in my
-> experience the more common case and happens in regular usage. This leads
-
-I would rather argue that 8524fa22fd2f is possibily wrong, and case 1)
-would imply the interrupt has been delayed for the whole frame
-duration (+ blanking), which seems unlikely to me ?
-
-True we handle stats collection and parameters programming in irq
-context, which is less than ideal and could take time (I wonder if we
-should use a threaded irq, but that's a different problem)
-
-If that's the case and we only should care about 2) would simply
-handling RKISP1_CIF_ISP_FRAME before RKISP1_CIF_ISP_V_START be enough ?
-
-> to incorrect sequence numbers on stats and params buffers which in turn
-> breaks the regulation in user space. Fix that by adding a frame_active
-> flag to distinguish between these cases and handle the start of frame
-> either at the beginning or at the end of the rkisp1_isp_isr().
->
-> Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+On Mon, 15 Sep 2025 12:45:39 +0200, Christian Marangi wrote:
+> Document support for Airoha AN8855 Switch SoC. This SoC expose various
+> peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+> 
+> It does also support i2c and timers but those are not currently
+> supported/used.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
->  .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
->  2 files changed, 14 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> index ca952fd0829b..adf23416de9a 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> @@ -222,6 +222,7 @@ struct rkisp1_isp {
->  	struct media_pad pads[RKISP1_ISP_PAD_MAX];
->  	const struct rkisp1_mbus_info *sink_fmt;
->  	__u32 frame_sequence;
-> +	bool frame_active;
->  };
->
->  /*
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> index 8c29a1c9309a..1469075b2d45 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
->  	}
->
->  	isp->frame_sequence = -1;
-> +	isp->frame_active = false;
->
->  	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
->
-> @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
->   * Interrupt handlers
->   */
->
-> -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
-> +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
->  {
->  	struct v4l2_event event = {
->  		.type = V4L2_EVENT_FRAME_SYNC,
->  	};
->
-> +	isp->frame_sequence++;
-> +	isp->frame_active = true;
-> +
->  	event.u.frame_sync.frame_sequence = isp->frame_sequence;
->  	v4l2_event_queue(isp->sd.devnode, &event);
->  }
-> @@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->  	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
->
->  	/* Vertical sync signal, starting generating new frame */
-> -	if (status & RKISP1_CIF_ISP_V_START) {
-> -		rkisp1->isp.frame_sequence++;
-> -		rkisp1_isp_queue_event_sof(&rkisp1->isp);
-> +	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
-> +		status &= ~RKISP1_CIF_ISP_V_START;
-> +		rkisp1_isp_sof(&rkisp1->isp);
->  		if (status & RKISP1_CIF_ISP_FRAME) {
->  			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
->  			rkisp1->debug.irq_delay++;
->  		}
->  	}
-> +
->  	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
->  		/* Clear pic_size_error */
->  		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
-> @@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->  	if (status & RKISP1_CIF_ISP_FRAME) {
->  		u32 isp_ris;
->
-> +		rkisp1->isp.frame_active = false;
->  		rkisp1->debug.complete_frames++;
->
->  		/* New frame from the sensor received */
-> @@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->  		rkisp1_params_isr(rkisp1);
->  	}
->
-> +	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
+>  .../bindings/mfd/airoha,an8855.yaml           | 173 ++++++++++++++++++
+>  1 file changed, 173 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+> 
 
-I think you can drop the  && !rkisp1->isp.frame_active because if you
-get here and 'status & RKISP1_CIF_ISP_V_START' it means that:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-1) frame_active was false and you have entered the above
+yamllint warnings/errors:
 
-        if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml:
+	Error in referenced schema matching $id: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml
+	Tried these paths (check schema $id if path is wrong):
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+	/usr/local/lib/python3.13/dist-packages/dtschema/schemas/nvmem/airoha,an8855-efuse.yaml
 
-   and now the RKISP1_CIF_ISP_V_START bit in 'status' has been cleared
-   so you don't need to handle VSYNC here
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: soc@1 (airoha,an8855): efuse: {'compatible': ['airoha,an8855-efuse'], '#nvmem-cell-cells': 0, 'nvmem-layout': {'compatible': ['fixed-layout'], '#address-cells': 1, '#size-cells': 1, 'shift-sel-port0-tx-a@c': {'reg': [[12, 4]], 'phandle': 3}, 'shift-sel-port0-tx-b@10': {'reg': [[16, 4]], 'phandle': 4}, 'shift-sel-port0-tx-c@14': {'reg': [[20, 4]], 'phandle': 5}, 'shift-sel-port0-tx-d@18': {'reg': [[24, 4]], 'phandle': 6}, 'shift-sel-port1-tx-a@1c': {'reg': [[28, 4]], 'phandle': 7}, 'shift-sel-port1-tx-b@20': {'reg': [[32, 4]], 'phandle': 8}, 'shift-sel-port1-tx-c@24': {'reg': [[36, 4]], 'phandle': 9}, 'shift-sel-port1-tx-d@28': {'reg': [[40, 4]], 'phandle': 10}}} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml#"}
+	from schema $id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
+Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: /example-0/mdio/soc@1/efuse: failed to match any schema with compatible: ['airoha,an8855-efuse']
 
-2) frame_active was true and you delayed handling V_START till here.
-   If also ISP_FRAME was set, frame_start has been set to false here
-   above. If ISP_FRAME was not set then it has been delivered by a
-   previous interrupt and then frame_start is false.
+doc reference errors (make refcheckdocs):
 
-So I guess it's enough to check if at this point RKISP1_CIF_ISP_V_START
-is still set in 'status' ?
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250915104545.1742-4-ansuelsmth@gmail.com
 
-However, as said, it's seems unlikely to that your above 1) can
-happen. Have you ever hit a WARN() again with this patch applied ?
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-> +		rkisp1_isp_sof(&rkisp1->isp);
-> +
->  	return IRQ_HANDLED;
->  }
-> --
-> 2.48.1
->
->
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
