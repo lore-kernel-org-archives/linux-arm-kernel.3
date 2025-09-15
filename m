@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C20CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F6FCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CruBXo04JIwxh83Y+BdR4stkDQvHqXd4Z2lPxZpKdj4=; b=emXZ9mnaJ7cVfoISA9izO98Qr9
-	/jts5yV4/A+KGHh+93WPUTAv53Tc2cEWw9mahUP//sf3APCBvCgLBv1imMrb566ZvdScsuxIfScsm
-	R68gHzV9YnHAAFp21yiv4qVao8uN4I+PbmVf2iRJAKpsHgOl80ZYanYkv4zsNQV98qXBcaXHP9BH3
-	uVmm4DzaqzlXrZsO7utjJgbNuZcgDJFxcUS+V9nSgVKswAvHMKs8+vF8A8mYGzfcGMAijNgLtXG/2
-	trmU5yJWrqSEHZM6ZP2Ogk+/N8lNAP/ChS3XqGBbLjlN8EyOJoiidRvxMGM0RmXuBdVqdvs09beQE
-	AvRGOsQA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AGKTcaraS2qPYJXdEMirPqtRDKbRpXz3vOKdl0AcVF4=; b=3aAkxSDaT/kcgUrLDTnyqTr5Jx
+	7UYD/ihMgEtoxBpArOOJbCJI9pi4USWLEWVuhWGaLYML5a+ewDo2H0cKz5aqNO0VWhm7hVab8gabj
+	oBheZ/hTOLrdNJhbz0q+PtKC6Q5X4oD0SPQJXc+QaPJnJU2dQtzyAVC992ZvqiHf9rNi5IeOMbAlV
+	aChqrGC11EixTQXuEb2H4gSh6TP4s2YrzfwHKZNJoHlZNU4IhAeeazyFeG4rtM1Pth2RO3mdmqF5L
+	ztz0m0zFNFvuhZBJxzKpFeoSIQtNPk9AQDubGEcW7hOB58Pzlh3bIwjPcOQnSeLbD+XlRreY7+mTE
+	G2rOR3aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy603-00000003Yps-0cII;
-	Mon, 15 Sep 2025 09:59:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy6Du-00000003bAf-2zP4;
+	Mon, 15 Sep 2025 10:14:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy600-00000003Ypd-4C3c
+	id 1uy6Dt-00000003b9y-422J
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 15 Sep 2025 10:14:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=AGKTcaraS2qPYJXdEMirPqtRDKbRpXz3vOKdl0AcVF4=; b=Pkx469S/6lqo7AQtVNYTq0RrZ3
+	e3LY91J4IiBBvz7C+hZkxY9BgaZyaUs51Zak1M+2Cd2pFyDS6w80yRk/vRUPEVdGoZnDO/ugT1IqF
+	qiNQ7KK19rSEtmg1kLFsCCkB346LgTsw9+opjqOuI9lRkCJXjHBC3Kt++l81mrYNsUPpe+IKjO+Lo
+	ev+FxUw8bQQj6Sz+FLbsdx8VDX/IeyEV7E1oqOeyuhvNr4aH5JPmGYKI5V4icZ/VLPTl4bhSin/JK
+	DU5deuk1aF6sLGT4zX3Rhr634poMeR7CL0bK75SRoB1UPLqVf0kIsxMYGbinQVwABjdUNOPDpotQW
+	wMbD60kg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6Dq-00000006uih-3HvM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 09:59:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D58DE60191;
-	Mon, 15 Sep 2025 09:59:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E050C4CEF1;
-	Mon, 15 Sep 2025 09:59:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757930391;
-	bh=l4ynf+cyA3et/jBfIs6nmkskoymLiWmJNcg7GsX/poE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Uy/MHun2rSdJxZa6W+MCEgBhv4wvxqBHqeTeX8aBkDsk7SjpQzhLu2ZmuBd8sRvGw
-	 k6WEg1W0uAL8D54IUojGx/u3AcDyidyoPJbmxixZhFIasgGrg9M2tXB98MxOswe/CS
-	 LzYjGfn2WNmKBO3aQlKuTyyvG15i5QEAt6gK2defuByZJsjI00ozMCwUrIaTAg/xvj
-	 s/fQUHYdcOVNAVFxoSNvVqoOk8vFR8kOZP3S1kZqfFIQuK9SXtHILi3mgkbmZwoUCn
-	 PuzVG0BYfEW9UF5gJZe7kvk1pKhSnCR/HMydjD0//XAiIvn3AzzwUunFXg5CBIAn0R
-	 n+FdVAi50PnTQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uy5zx-00000006Jee-0iH1;
-	Mon, 15 Sep 2025 09:59:49 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Keir Fraser <keirf@google.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>
-Subject: Re: [PATCH v4 0/4] KVM: Speed up MMIO registrations
-Date: Mon, 15 Sep 2025 10:59:45 +0100
-Message-Id: <175793036859.521995.4956413640156757969.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250909100007.3136249-1-keirf@google.com>
-References: <20250909100007.3136249-1-keirf@google.com>
+	Mon, 15 Sep 2025 10:14:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75A2112FC;
+	Mon, 15 Sep 2025 03:13:59 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6A6383F66E;
+	Mon, 15 Sep 2025 03:14:06 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	arm-scmi@vger.kernel.org,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi: Updates for v6.18
+Date: Mon, 15 Sep 2025 11:13:41 +0100
+Message-Id: <20250915101341.2987516-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, keirf@google.com, seanjc@google.com, eric.auger@redhat.com, oliver.upton@linux.dev, will@kernel.org, pbonzini@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_111411_255624_C4D9240C 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Sep 2025 10:00:03 +0000, Keir Fraser wrote:
-> This is version 4 of the patches I previously posted here:
-> 
->  https://lore.kernel.org/all/20250819090853.3988626-1-keirf@google.com/
-> 
-> Changes since v3:
-> 
->  * Rebased to v6.17-rc5
->  * Added Tested-by tag to patch 4
->  * Fixed reproducible syzkaller splat
->  * Tweaked comments to Sean's specification
-> 
-> [...]
+Hi ARM SoC Team,
 
-Applied to next, thanks!
+Please pull !
 
-[1/4] KVM: arm64: vgic-init: Remove vgic_ready() macro
-      commit: 8810c6e7cca8fbfce7652b53e05acc465e671d28
-[2/4] KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
-      commit: 11490b5ec6bc4fe3a36f90817bbc8021ba8b05cd
-[3/4] KVM: Implement barriers before accessing kvm->buses[] on SRCU read paths
-      commit: 7788255aba6545a27b8d143c5256536f8dfb2c0a
-[4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-      commit: 7d9a0273c45962e9a6bc06f3b87eef7c431c1853
+Regards,
+Sudeep
 
-Cheers,
+-->8
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-6.18
+
+for you to fetch changes up to 2f86054cc1a6792f0812d5f23f271a83848edabb:
+
+  firmware: arm_scmi: Simplify printks with pOF format (2025-09-12 11:32:21 +0100)
+
+----------------------------------------------------------------
+Arm SCMI updates/fixes for v6.18
+
+These SCMI changes bring a mix of improvements, fixes, and cleanups:
+
+1. Device Tree bindings - allow multiple SCMI instances by suffixing
+   node names (Nikunj Kela).
+2. Code hardening - constify both scmi_{transport,voltage_proto}_ops
+   so they reside in read-only memory (Christophe JAILLET).
+3. VirtIO transport initialization - set DRIVER_OK before SCMI probing
+   to prevent potential stalls; while recent rework removes the practical
+   risk, this ensures correctness (Junnan Wu).
+4. Quirk handling - fix a critical bug by preventing writes to string
+   constants, avoiding faults in read-only memory (Johan Hovold).
+5. i.MX SCMI MISC protocol - extend support to discover board info,
+   retrieve configuration and build data, and document the new
+   MISC_BOARD_INFO command; all handled gracefully if unsupported (Peng Fan).
+6. Logging cleanup - simplify device tree node name logging by using
+   the %pOF format to print full paths (Krzysztof Kozlowski).
+
+----------------------------------------------------------------
+Christophe JAILLET (2):
+      firmware: arm_scmi: Constify struct scmi_voltage_proto_ops
+      firmware: arm_scmi: Constify struct scmi_transport_ops
+
+Johan Hovold (1):
+      firmware: arm_scmi: quirk: Prevent writes to string constants
+
+Junnan Wu (1):
+      firmware: arm_scmi: Mark VirtIO ready before registering scmi_virtio_driver
+
+Krzysztof Kozlowski (1):
+      firmware: arm_scmi: Simplify printks with pOF format
+
+Nikunj Kela (1):
+      dt-bindings: firmware: arm,scmi: Allow multiple instances
+
+Peng Fan (5):
+      firmware: arm_scmi: Fix function name typo in scmi_perf_proto_ops struct
+      firmware: arm_scmi: imx: Add documentation for MISC_BOARD_INFO
+      firmware: arm_scmi: imx: Discover MISC build info from the system manager
+      firmware: arm_scmi: imx: Support retrieving MISC protocol configuration info
+      firmware: arm_scmi: imx: Discover MISC board info from the system manager
+
+ .../devicetree/bindings/firmware/arm,scmi.yaml     |   2 +-
+ drivers/firmware/arm_scmi/bus.c                    |  13 ++-
+ drivers/firmware/arm_scmi/quirks.c                 |  15 ++-
+ drivers/firmware/arm_scmi/transports/mailbox.c     |   7 +-
+ drivers/firmware/arm_scmi/transports/optee.c       |   2 +-
+ drivers/firmware/arm_scmi/transports/virtio.c      |   3 +
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 111 +++++++++++++++++++++
+ drivers/firmware/arm_scmi/vendors/imx/imx95.rst    |  25 +++++
+ drivers/firmware/arm_scmi/voltage.c                |   2 +-
+ include/linux/scmi_protocol.h                      |   2 +-
+ 10 files changed, 162 insertions(+), 20 deletions(-)
 
