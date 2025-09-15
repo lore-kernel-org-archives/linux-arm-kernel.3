@@ -4,71 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B86CAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D38CAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EuC+XvIL/H1RcGvLTnb3E3XHeL2xCveiM1F3iSWb7A0=; b=E24rIdvVogzZwxEYd0kCgnXp1+
-	BWjLyNu+XfhuzW/+xYhKD2n//T6GIv3AuP99ioBZu96ofZfXR0mxVOgAmkEEH18wXM3maWv6wEwba
-	Q/B7Iz1XZuCEHNu1c7ErMIz0ofkUjyd8snTMHDVj6EaDZ04H99pZELShryi57QAynjpTeqCF/HUSF
-	9lGH4J3kQVPgjBOXJnCuZY69L66El3B3TxldO+5KhNmu3MLUuHJdm+FYqtlMM7PVtqHc6d+bdB38G
-	viqAWewyU1n2VdWTRM9Lbw3UGqbC1LVGDxSZOIQuExLk5FLrI5qmxeDwj7KkYaixaDA6DKQdRJdRr
-	u0tmdCyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=; b=QooODRvjibRVYWZ+7tn6JR0w1N
+	x+Qiaww/JiXqRO8qVS2fxVCMxRjWB0Wob/QEA7uqfjuq516aeI8ffKuJ6mazgliCT5RZb/pYEqoYa
+	OvI+ITLPHzhmx/ysJhRkR8/NyIoPUDZ3Pui1LlHWVPVN/l8qN64KSXN+ahf6FxVmGbCOb46eKhSYE
+	qF3oK6h32ihCjriMAZmAv0I1w/BWx38o8tUC2T0HPbWiOh8lUhXimkk1oW9+1EEj75IC6/ZCEb7h3
+	QtbCZ9kO3KxfyXq1sHVKd+8y9rY+Whim5527/VT7IkTTqxW+k0koZZ8LuWHjgmbH0perzlGXb2Xnv
+	kLSr3Pkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6yo-00000003pQ7-1saF;
-	Mon, 15 Sep 2025 11:02:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy74F-00000003qOm-0nVI;
+	Mon, 15 Sep 2025 11:08:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6yl-00000003pOK-42p5
+	id 1uy74C-00000003qOL-0E5y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 11:02:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9975444714;
-	Mon, 15 Sep 2025 11:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3162AC4CEF1;
-	Mon, 15 Sep 2025 11:02:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757934159;
-	bh=NuAPghNBbEeMoQfj/KDPyEmoT7CNKEs46PUUsk73Hxk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sf81PQ1US69vWJJL6Gp2AQ2dASB+blYHnLKq2DXxAnO9p2xk/km516ZQhePj0wG+e
-	 3C+EDslmHIlL3TihkcrL3gmA0bAHyAizd/ZhCVT6nIULkHhEVZIY0VamT4F5deB66j
-	 lFOrSV5d+knmwiwJEvy8Uv/rWoSA5hGkgS+HSUzihVE0ssIHG5IVahlmoM9zu2algM
-	 CWh3f9TjqS+j5KDUxG2EJ8JoWtQWbmrZ6BvjBa3855KpKaXlSDudQD1qiQJajd3U7G
-	 FSGQj+JlzFV25rRBdDYXr7BHACeJuru4PgRBLdRhdRTAR4scwOKhbsUWrJcZVI3WWY
-	 1EbltiwzcZW9Q==
-Date: Mon, 15 Sep 2025 12:02:34 +0100
-From: Simon Horman <horms@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v6 0/6] net: stmmac: Add support for Allwinner
- A523 GMAC200
-Message-ID: <20250915110234.GT224143@horms.kernel.org>
-References: <20250913101349.3932677-1-wens@kernel.org>
+	Mon, 15 Sep 2025 11:08:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1757934494;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=;
+	b=JNnk92dYFgJElfnBnBeOarj2oQ0UzcK0+/DxveeopGkgov5szKGd88afkl9y72I9QxoDH5
+	3jIojxLhjFS7u3DxftlXEP9f3Jz9MBhhBcK1348gU+lNf7hX8mk1gI8NwnmtEDjihIGG/6
+	p0ReQ8TQuuj7js+bBueP8KBNgF68pug=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-656-vWDzMG2MP_SzDZzgGuz1Wg-1; Mon, 15 Sep 2025 07:08:13 -0400
+X-MC-Unique: vWDzMG2MP_SzDZzgGuz1Wg-1
+X-Mimecast-MFC-AGG-ID: vWDzMG2MP_SzDZzgGuz1Wg_1757934492
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ebbbd9a430so224243f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 04:08:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1757934492; x=1758539292;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=;
+        b=bjkLhWvRMm+Z+OpHY4U/ReVvLCqBLvQgYn1jjS4k8avVeZW5iqySZyF8XUXCciJmq4
+         EO8OLvUgCQajsBfvnHCjOpZknrD4h3/QLOjsVD6CDdwF0K+pkwNOU8Lcm+Ah4uR50pmp
+         Aw7Gr9DQaCHmWmSQkDd4PrZ3htQT/B2DH8RRtTS7tb6d3pOP+TwRT7xz4nFoLsJuGsbI
+         XOkdj5wTHpKqZxkVL/Cm18Tuwq2J5MNQ02dHx2y6PJJOWJvudovTaFzeEhOrqPuknxII
+         WBBsIzsEYVIqI+paFWbCk63I43XUN6lF/CDU9Z5Xd9KdumQvMkPX2rkdHhmfFdEkIsyc
+         VSNg==
+X-Forwarded-Encrypted: i=1; AJvYcCXuZ4DBmB/0xTKOX+sjRRH0N/qQHkU/7Wmaamt0C3dXbRrVWpiPs9sqJIGuCaxNPTXEjplvPmVysbRBYrS+b6EE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2XjQpTwxafQac8cIghwcH6pC9i+NlA5EMzdPuP37Mo+eJObEq
+	wHgu9uw7hgv2NjPXD8ks9w3uCR0+H3bUqzMaoCNOBAaJtRpXErod2+b1qAYJ54VGNf3f0GTRnka
+	gePIXSVWP9DA6qrQSdvfg105YxTCqKecvGj6UyYODh+hfhXGrn39Sz/NvtHVN6CyXhAZErI5qlG
+	Hm
+X-Gm-Gg: ASbGncvyDdJKW2bPPbpynRVm/HrxRTlfL427rRRSzJ9CFulcCwyc1CxeCbi7+Rs2Wfy
+	4/3NoSPjbdXnLZWszWkcVCFubeSRgvBWgNzzaZhF6Y/cRXpDA96k0RsIRcB9F3UbJZQ2VBKygOZ
+	yKuWogKqclozf/MqIAHfXhIcdOQZGqF9vu8ixhuifGMxEz0B0je1GuDZ2R2PF24fOaB5qKnpfUy
+	FJEf6X/IsQxyhGr5fn/qh/jN9FxecxQ145HGsk/XkNIYoczPFB6KqmNnltjH6HShxMD30cWAcrD
+	RnWLaMG4ntp8PL1/ygmpBl8fVnmp1/DotiqitnFI/fMeyNcAd42fzbfZa+cXyb1FrgqMqmIC4Rv
+	qxqPhv0qTk5RLB1ScRqqpDwmileB1SWQap2DCa4PHFFZ9192puD1W6EhuoR7dO+NtWzQ=
+X-Received: by 2002:a05:6000:2307:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-3e7657924f5mr9180924f8f.16.1757934492267;
+        Mon, 15 Sep 2025 04:08:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGctyRyrIadbxrhHerFpu4jtEM0UPvEhLZCrLT5sa+2qupDmvbeVcrVDByB23FbmDYJzWxMRQ==
+X-Received: by 2002:a05:6000:2307:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-3e7657924f5mr9180891f8f.16.1757934491798;
+        Mon, 15 Sep 2025 04:08:11 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd? (p200300d82f18f900e0ae65d58bf88cfd.dip0.t-ipconnect.de. [2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e0153fbd5sm91804875e9.5.2025.09.15.04.08.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Sep 2025 04:08:11 -0700 (PDT)
+Message-ID: <8c51da7a-7370-4678-96a3-7cd6eaf0db62@redhat.com>
+Date: Mon, 15 Sep 2025 13:08:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250913101349.3932677-1-wens@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/2] mm: add spurious fault fixing support for huge
+ pmd
+To: Huang Ying <ying.huang@linux.alibaba.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
+ <20250915032946.33203-2-ying.huang@linux.alibaba.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250915032946.33203-2-ying.huang@linux.alibaba.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CSonPF1dItiFmymy6fs0qBJHQurm2f9F2QImdvoPhZ8_1757934492
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_040240_022572_B5429307 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250915_040816_175686_EE5B70B5 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +170,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 13, 2025 at 06:13:43PM +0800, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
+On 15.09.25 05:29, Huang Ying wrote:
+> In the current kernel, there is spurious fault fixing support for pte,
+> but not for huge pmd because no architectures need it. But in the
+> next patch in the series, we will change the write protection fault
+> handling logic on arm64, so that some stale huge pmd entries may
+> remain in the TLB. These entries need to be flushed via the huge pmd
+> spurious fault fixing mechanism.
 > 
-> Hi everyone,
-> 
-> This is v6 of my Allwinner A523 GMAC200 support series.
+> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> Cc: Vlastimil Babka <vbabka@suse.cz>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+> Cc: Dev Jain <dev.jain@arm.com>
+> Cc: Barry Song <baohua@kernel.org>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> ---
 
-Hi,
+[...]
 
-Unfortunately this series does not apply cleanly to net-next.
-So, after waiting for review, please rebase and repost.
+>   
+>   int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
+> @@ -1857,7 +1861,20 @@ void huge_pmd_set_accessed(struct vm_fault *vmf)
+>   	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
+>   		goto unlock;
+>   
+> -	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
+> +	if (!touch_pmd(vmf->vma, vmf->address, vmf->pmd, write)) {
+> +		/* Skip spurious TLB flush for retried page fault */
+> +		if (vmf->flags & FAULT_FLAG_TRIED)
+> +			goto unlock;
+> +		/*
+> +		 * This is needed only for protection faults but the arch code
+> +		 * is not yet telling us if this is a protection fault or not.
+> +		 * This still avoids useless tlb flushes for .text page faults
+> +		 * with threads.
+> +		 */
 
-Thanks!
+Can we instead just remove these comments and simplly say "see 
+handle_pte_fault()"
+
+> +		if (vmf->flags & FAULT_FLAG_WRITE)
+> +			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
+> +							 vmf->pmd);
+> +	}
+
+Okay, In the PTE case, we call flush_tlb_fix_spurious_fault() during 
+write faults if ptep_set_access_flags() returned "0".
+
+You are calling flush_tlb_fix_spurious_fault_pmd() during a write fault 
+when pmdp_set_access_flags() returned "0" as well.
+
+In general, LGTM, but I would just let touch_pmd() return the value of 
+pmdp_set_access_flags() instead and add a quick comment for touch_pmd() 
+what the return value means.
 
 -- 
-pw-bot: changes-requested
+Cheers
+
+David / dhildenb
+
 
