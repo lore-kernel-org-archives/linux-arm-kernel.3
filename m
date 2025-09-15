@@ -4,75 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972AFCAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CFCCAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezmIh4yAIIyC5Ofx9OYfMJK6a3eTs8fzX06OGshPKFg=; b=gTE1+tc2EcjFXcwwMHNVI/PToA
-	WlRaI/lxSpCsnTzcUbf5T38Ap+8/7bVdcJLp6Pfi/TTY2v3yvUbodIZ+y5kLU7kMZK4AFmsB584kp
-	sSlqB7wuqoqU86uxWMfV3OWunK73jjbH996RYiyrpe8GumcyHhL9dSvta7pEFsoWQKLZsdODDRu+7
-	EK0bawmm6px7eXrspj2fhgBMq8g0URTSxArscoXM5gUx3D25GNTCokQ0V1u+uDkQW6Gbn0osoexuo
-	BjNspdDSFbum2DE/N+4O0UUAUqqLPZC8yB3lEdKOCWllKx/n1lfljQNb8TxXUzMGRgTp8sLdOsvHG
-	XcDsY3hg==;
+	bh=JntDITgOThJNLP4MXQJ43VBflgagcrs9tOitGbwZPX8=; b=04hKI2TEzYvC/+0nlKgyswQ26j
+	GJZUgWMXqTlRIdYsBAE5/7BI89bnEpw9R5L9qqC9kO2s5+YsOGK/jy4Yh0xaf6L9ni50ZWH1sEam3
+	E9bcAh8xtrctbIMbc25kna84ABExEhxYezCegMIH5tsJRd6f3urlz0rFJ3qOFh3EkCfL6nmxo89+D
+	ZTc8euj/FVEKabb0xeIkhcWlpKBH66yFb9QnfLQRXxiHPoXlhd15TpBSIN8sxzw32B9HAWOOs9YSI
+	Kz+oKDE64bY0t88YD6uPJdKtZ5HHuFjjMakQ0y/yaFL96Dnl+DRka2oqFm8fDPJq2INk0BmTo+uhP
+	bE0LvsUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7FH-00000003sPu-3rIi;
-	Mon, 15 Sep 2025 11:19:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7FG-00000003sOl-0Iu0
+	id 1uy7N0-00000003td9-0i4D;
+	Mon, 15 Sep 2025 11:27:42 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy7Mx-00000003taO-2Uhw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 11:19:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D6971424;
-	Mon, 15 Sep 2025 04:19:31 -0700 (PDT)
-Received: from [10.57.70.220] (unknown [10.57.70.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6C7D73F694;
-	Mon, 15 Sep 2025 04:19:34 -0700 (PDT)
-Message-ID: <d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com>
-Date: Mon, 15 Sep 2025 13:19:32 +0200
+	Mon, 15 Sep 2025 11:27:40 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 348A11F8B0;
+	Mon, 15 Sep 2025 11:27:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757935656; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JntDITgOThJNLP4MXQJ43VBflgagcrs9tOitGbwZPX8=;
+	b=Rsb0V5T+AAgLb/QUPTZ/JYQZNEavTu8wHlENSEYwTlmHShN5RECnFYNLQPuXo1HLU7ZXzN
+	qxo/8HlVKsXY+T2zeq7YJBo3GSPZRzyGbBC2ZfAU+W49ycEOzlIa+PGcP7XoHMl1EvxBnz
+	H9mNLitqdRL3QHOT4TSBBDVdLiD/AME=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757935656;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JntDITgOThJNLP4MXQJ43VBflgagcrs9tOitGbwZPX8=;
+	b=ly0jmR4lryxNId0U7Z6g6pGZdqf3d3Dk/dfFCIOKx/mNg8LaQy5oLJdFhRijLmmouqOEva
+	ZGdv9tm2o4wKITCA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Rsb0V5T+;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ly0jmR4l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1757935656; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JntDITgOThJNLP4MXQJ43VBflgagcrs9tOitGbwZPX8=;
+	b=Rsb0V5T+AAgLb/QUPTZ/JYQZNEavTu8wHlENSEYwTlmHShN5RECnFYNLQPuXo1HLU7ZXzN
+	qxo/8HlVKsXY+T2zeq7YJBo3GSPZRzyGbBC2ZfAU+W49ycEOzlIa+PGcP7XoHMl1EvxBnz
+	H9mNLitqdRL3QHOT4TSBBDVdLiD/AME=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1757935656;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JntDITgOThJNLP4MXQJ43VBflgagcrs9tOitGbwZPX8=;
+	b=ly0jmR4lryxNId0U7Z6g6pGZdqf3d3Dk/dfFCIOKx/mNg8LaQy5oLJdFhRijLmmouqOEva
+	ZGdv9tm2o4wKITCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 250271372E;
+	Mon, 15 Sep 2025 11:27:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 9GaQBif4x2hwJQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Mon, 15 Sep 2025 11:27:35 +0000
+Message-ID: <8715a21b-83ac-4bc1-b856-fa90bb5b809f@suse.de>
+Date: Mon, 15 Sep 2025 14:27:34 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] Nesting support for lazy MMU mode
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: David Hildenbrand <david@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
- Mark Rutland <Mark.Rutland@arm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908191602.61160a7990b9ea418de758c7@linux-foundation.org>
- <d1b4ff2a-052f-4556-91ae-273962edbed0@redhat.com>
- <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
- <5a0818bb-75d4-47df-925c-0102f7d598f4-agordeev@linux.ibm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <5a0818bb-75d4-47df-925c-0102f7d598f4-agordeev@linux.ibm.com>
+Subject: Re: [PATCH v2 3/5] net: cadence: macb: Add support for Raspberry Pi
+ RP1 ethernet controller
+To: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Jakub Kicinski <kuba@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
+ <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, Andrew Lunn <andrew@lunn.ch>
+References: <20250822093440.53941-1-svarbanov@suse.de>
+ <20250822093440.53941-4-svarbanov@suse.de>
+ <0142ac69-f0eb-4135-b0d2-50c9fec27d43@suse.de>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <0142ac69-f0eb-4135-b0d2-50c9fec27d43@suse.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 348A11F8B0
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[dt,netdev];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_041942_231852_D39C0EA1 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250915_042739_791762_FD3850A0 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +158,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 08:28, Alexander Gordeev wrote:
-> On Fri, Sep 12, 2025 at 05:25:27PM +0200, Kevin Brodsky wrote:
->
-> Hi Kevin,
->
->> Based on the outcome of the discussion with David on patch 2 [1p], there
->> is indeed an alternative approach that we should seriously consider. In
->> summary:
->>
->> * Keep the API stateless, handle nesting with a counter in task_struct
->> * Introduce new functions to temporarily disable lazy_mmu without
->> impacting nesting, track that with a bool in task_struct (addresses the
->> situation in mm/kasan/shadow.c and possibly some x86 cases too)
->> * Move as much handling from arch_* to generic functions
->>
->> What the new generic infrastructure would look like:
->>
->> struct task_struct {
->>     ...
->> #ifdef CONFIG_ARCH_LAZY_MMU
->>     struct {
->>         uint8_t count;
->>         bool enabled; /* or paused, see below */
->>     } lazy_mmu_state;
->> #endif
->> }
->>
->> * lazy_mmu_mode_enable():
-> This helper is parameter-free, assuming the MMU unit does not need any
-> configuration other than turning it on/off. That is currently true, but
-> (as I noted in my other mail) I am going to introduce a friend enable
-> function that accepts parameters, creates an arch-specific state and
-> uses it while the lazy mmu mode is active.
 
-Yes I think that's fine.
 
-> That does not impact your design (AFAICT), except one change below.
->
->>     if (!lazy_mmu_state.count) {
->>         arch_enter_lazy_mmu_mode();
->>         lazy_mmu_state.enabled = true;
->>     }
->>     lazy_mmu_state.count++;
+On 9/10/25 2:32 PM, Stanimir Varbanov wrote:
+> Hi Jakub,
+> 
+> On 8/22/25 12:34 PM, Stanimir Varbanov wrote:
+>> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
 >>
->> * lazy_mmu_mode_disable():
->>     lazy_mmu_count--;
->>     if (!lazy_mmu_state.count) {
->>         lazy_mmu_state.enabled = false;
->>         arch_leave_lazy_mmu_mode();
->>     } else {
->>         arch_flush_lazy_mmu_mode();
->>     }
+>> The RP1 chip has the Cadence GEM block, but wants the tx_clock
+>> to always run at 125MHz, in the same way as sama7g5.
+>> Add the relevant configuration.
 >>
->> * lazy_mmu_mode_pause():
->>     lazy_mmu_state.enabled = false;
->>     arch_leave_lazy_mmu_mode();
-> This needs to be arch_pause_lazy_mmu_mode(), otherwise the arch-specific
-> state will be lost.
->
->> * lazy_mmu_mode_resume();
->>     arch_enter_lazy_mmu_mode();
-> Conversely, this needs to be arch_resume_lazy_mmu_mode(). And it can not
-> be arch_enter_lazy_mmu_mode(), since a lazy_mmu_mode_resume() caller does
-> not know the parameters passed to the lazy_mmu_mode_enable(...)-friend.
+>> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>> ---
+>>  drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
+>>  1 file changed, 12 insertions(+)
+>>
+> 
+> This patch is missing in net-next but ("dt-bindings: net: cdns,macb: Add
+> compatible for Raspberry Pi RP1") from this series has been applied.
+> 
+> Could you take this patch as well, please.
 
-Got it, that makes sense. Even without your proposal, it is probably a
-good idea to allow arch's to behave differently on pause/resume.
+Gentle ping.
 
-I hope we can avoid forcing all arch's to define arch_pause/arch_resume
-though, since only s390 will use it for the foreseeable future. Using
-optional macros should do the trick.
-
-- Kevin
+~Stan
 
