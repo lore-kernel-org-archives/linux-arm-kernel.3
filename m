@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCFFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FCFFCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZafX87MMcfI5y2IRaqNAT6HmdaHGKFoLkfY+lm2hc14=; b=aBxPkcZ95kCDQ4e7jWLIvmUPJP
-	LOR5J/XC16qPZjlnWNAQYHWUnUGB8VJM8p+7Y4ODlvtTzrUrpZUv0NM77XT+35EuLNunWlSAPLwT4
-	Vy7EnlSFzdzeQvtRznbj907iX4DDwqllMcjWMa4pXrM2W2rubxmSSGLqoOu+dksm4NGSBSna2oglQ
-	E88ZwWpnw1Jdbr5FA4ncsAueyn2C+Ov5efLXtqef2gfCKxiSumVsF5ya/NlbbKiC2l6iODA/Y83n8
-	gYPXaHVqNXkj7z7Jb18YqpDsJUjrHD4DLnlihpJbe/ZIbbR8fxoyH7Ztm9cx9T6O2vYvX79voUuOG
-	OJZebz+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=An6YdXg4eGfx92XlIXue1bjQl0ZEwOBl14AV7os1DcY=; b=gMRIFh2pu0HLckWGamO8xI8uwQ
+	Mwpk7CACZEpk3/0a0nOCMMkHXvsJXF/u1814/xGeGIaFdMBJdNabNCiowdVm3py2X0BxYwAfK5YDG
+	Pob0Ycbtm1W7fa6aBV/YnbjRcZTGf1tQdXLoKAzR6H7RHHumNMfxWMbR1nDaAP2cbxvpFtiKp+XkI
+	7vReHZZ0stYVnGqSN2jv09cHCd/7BYBtdAqFpC5orqKgindAl2AQkohNCRTX2fJ5+G1OLUtLiJYDj
+	Khc16KLwavrpnG4AJod/iNiMB4Otg/vE5CCvafDJcisI2S3X2d9tZzdv+PAvyoZ9BIekKP8BohTE4
+	G6J0HvgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAix-00000004pMH-0nBJ;
-	Mon, 15 Sep 2025 15:02:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyAo5-00000004qHy-3g8x;
+	Mon, 15 Sep 2025 15:07:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAiu-00000004pKo-2VnZ
+	id 1uyAo5-00000004qHm-1AEV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 15:02:33 +0000
+	Mon, 15 Sep 2025 15:07:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4620F44281;
-	Mon, 15 Sep 2025 15:02:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6991C4CEF5;
-	Mon, 15 Sep 2025 15:02:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B196160242;
+	Mon, 15 Sep 2025 15:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89D0DC4CEF1;
+	Mon, 15 Sep 2025 15:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757948552;
-	bh=ZafX87MMcfI5y2IRaqNAT6HmdaHGKFoLkfY+lm2hc14=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f5VmtA5g70F71yXQYaxm3xCQGg6KvCFDB7chmTjFVILW8w/K2+eM3qI9j0DVE/mD9
-	 MAIw0c8APm9rnxbauU+AbwBM1iTtXFuG3lWjdo3ho8OR2Axr4A857sy7pYLC+ashiZ
-	 7A8z9djjmRDEBuvya/tt4gu7BUse4qW9tJhlyxIBf6AjcXxDfAbcYNscJaooa00DgD
-	 DzjHb84yQGuqoSA1S9VJQapyTKLwGbbWjsTrPwZt+yKDmAKXzTZIUOpH3rrCkcaxsL
-	 ojh1Qd8gZMMPIEn2HqaVu1Jb/tISXdkTGS2Zs+qk1NFMOvT4jS7ACtTQZWgFYSPxQ0
-	 okYTlG8LjFpfw==
-Date: Mon, 15 Sep 2025 16:02:25 +0100
-From: Daniel Thompson <danielt@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
-	jessica.zhang@oss.qualcomm.com, deller@gmx.de,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	airlied@gmail.com, simona@ffwll.ch, fnkl.kernel@gmail.com,
-	j@jannau.net, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
-	sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev,
-	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
-	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
-	platform-driver-x86@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v2 15/15] backlight: Do not include <linux/fb.h> in
- header file
-Message-ID: <aMgqgSMaxFsM4eES@aspen.lan>
-References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-16-tzimmermann@suse.de>
+	s=k20201202; t=1757948872;
+	bh=E9O/m/wb8v3DqC+2hZK4UMJAS0IXQ7UazYZ1ZtSz/GU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YriVx8BkL92SCf1o3zVzYqSUmzRGjNQWh+8g6xKOM8qW+1F9nhjaGkHFQ7yqz0PpT
+	 61Kli187nqXARGqCf2/cZb9d2COs7tXT4ZEQyQAd9m4tUbK/VPo7oejrPVc0dgKzqH
+	 VC7OkLyQOuX/aeItsQu9R/rdMPOLOK8wiHsnIEcTPnZORPRT0IslCwW1QCWOvRX0SF
+	 wurXxEuY44C83mgyqGPF9HaTrw+JUB9FBqcXfmODxkx0dLzE7UDs85I0lju2m/WEeT
+	 oY9Oe7qH2fbpbGRhzSlS9SYrXMClAU38lrV3/M5OVVyV26LEk85D92lrfnveDwLasr
+	 bWPzDV3NZyThA==
+Message-ID: <523bd663-4c38-480e-a923-d53c923eea1a@kernel.org>
+Date: Mon, 15 Sep 2025 17:07:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715122643.137027-16-tzimmermann@suse.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_080232_651774_C8FBDC2A 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/25] irqchip/apple-aic: Add FW info retrieval support
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland
+ <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Janne Grunau
+ <j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ James Clark <james.clark@linaro.org>
+References: <20250915085702.519996-1-maz@kernel.org>
+ <20250915085702.519996-7-maz@kernel.org>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250915085702.519996-7-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,14 +77,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 02:24:52PM +0200, Thomas Zimmermann wrote:
-> The backlight interfaces don't require anything from <linux/fb.h>, so
-> don't include it.
->
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+On 15.09.25 10:56, Marc Zyngier wrote:
+> Plug the new .get_info() callback into the Apple AIC driver,
+> using some of the existing FIQ affinity handling infrastructure.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
 
-Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
+Acked-by: Sven Peter <sven@kernel.org>
 
 
-Daniel.
+
+Best,
+
+
+Sven
+
+
 
