@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3E3CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F159CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=46brcYxsRnKl4qMYopSHhhvI4N1LtmB8ElkDCOnVXYA=; b=zMyOgAOE2lsk3Moy7v48aesX4n
-	7FTRB93dCOPNu1VQSsSJvlT4AdQaz/buVntu+DnQJkak9su0Rilmh98qbb1I7PkOaSFCw43AB6Kyb
-	oYuTWcpPBhirSwLLFL4RRDc+aAmING6ACOBqSyW0cOQYYg56Blqy7a/cwtX/n5DpBOZNC1NS4bCSe
-	VIbo7HkZ6e79FSw6j63Rgca3UBawwxe217Bfr+LQXzvo+h7xNuuS53mnCfdwTwUclmRVzy6055w9R
-	e8EXmhLCCMGhJi12y/qkzyWJMeE99r4NmjsGNj5c+GgNk8F+KxAzSU761YtfS8iJzJ+JOUB+E4vIo
-	k4i0hsfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6IS5vHz7rcdvKn59w4ocCeK9p2cO4wgkBK087OWWbDc=; b=atl8DMTc6f/JexZdLLZSRxjNeY
+	9jO3X4QV69eBoHoPLoQ3o2QlkT0vJk91fJvYVzlZ4/1IN6pZOvQi91aUTWzhCMrtRSMfpbHQnD56S
+	o7qqNMaa85sPuwJ6jmL97VjOa+4iYnfE6p1rI9HK/H8jXKUDzwO9AjGtPACvfsLOW7ORmoiEJt6dV
+	BBGnuHg1m7zWHbvx+qSz20iAET/wOWb+lld23kWomzcUxiM2VkycYtLfzeFWHpjFP3tvL/0wd5aI1
+	8/jKbvSULKHYH+hXYKskpW+IOVeLuq9tckp/GetlKd39yw6DroJOJ3XuJ6SgeJGpnshy1qQkYI61X
+	hOJm5A4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyADR-00000004hgH-1Vn1;
-	Mon, 15 Sep 2025 14:30:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uyADv-00000004hn3-2uBG;
+	Mon, 15 Sep 2025 14:30:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyADO-00000004heO-1Opr
+	id 1uyADu-00000004hmt-3Ri5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:30:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1757946598; x=1789482598;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Vag2gnBb/vURH7J+sFwDP2yfkuPnkkqrFPGa8fWRmRg=;
-  b=ifqR8izRTSQGNHjQTp/b7rJL4CWJxOBMqa632nyocamdQGcI7RXBtn6n
-   iFxPXReT41OWp3j2K3WM5y6RIxRS+NhVIc1Nwqe50tVe5XuOBgmst6SAH
-   KT7OqzoVhling4xUL5XRRF/8SjpIaeSO3vrpIdRjTq+g6Ka8D4ooJxZSa
-   0ApUCO1RjEofAbWaEQrpEn/10VYFMQX8YyNOzKyxxyfDil+dxm9H6/zUx
-   KkPmvAyWARFZ+qOfYMrAdRr7xFhBSJxUQHcuVoBtn4Q3/wXb8gnjuKIPi
-   c46o/e5h2FD4Ts+8CY1KPTQNSr8FFcj/Yb4EywWo78x/hMFfjHXZ1byZh
-   w==;
-X-CSE-ConnectionGUID: LXjrnypeSNyBrbf8fuQoPA==
-X-CSE-MsgGUID: 5jpjx4GUTgyDK4/MLlSw3g==
-X-IronPort-AV: E=Sophos;i="6.18,266,1751266800"; 
-   d="scan'208";a="47065475"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Sep 2025 07:29:55 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 15 Sep 2025 07:29:32 -0700
-Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 15 Sep 2025 07:29:30 -0700
-From: <nicolas.ferre@microchip.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Cristian Birsan <cristian.birsan@microchip.com>, Ryan Wanner
-	<ryan.wanner@microchip.com>, Varshini Rajendran
-	<varshini.rajendran@microchip.com>, Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH 1/2] clk: at91: add ACR in all PLL settings
-Date: Mon, 15 Sep 2025 16:29:07 +0200
-Message-ID: <20250915142908.18737-1-nicolas.ferre@microchip.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 15 Sep 2025 14:30:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 31FF560244;
+	Mon, 15 Sep 2025 14:30:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8F5C4CEF1;
+	Mon, 15 Sep 2025 14:30:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757946629;
+	bh=apPcCqsC8a6v7Kjyoy9pw3XOQ7f+yRGI8jPksoqPdkk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MFt57mQz/v2JY1RBdOkAHsCBt/JhVM6K/IfIadF5CMVc7qLDvu4ODHS4fLhs2wqDJ
+	 8BGNFsvIJWxwPUaEpeim4emSs/5o2hh/tD0hcNYw6RuAzNnhLCTMVAkz94KvtPIi6l
+	 9ehKfhFUdY1AbEU/Z8f78KlBqbOVQIt10/tGnyHxKkLhJJUkGF9X8PsTdTwigkdQgz
+	 mE7K8k2JqeHVwyxOJovchUFObbp/IiT4rTJfn378MMk7eQe13S5aF450zYKytNQEwr
+	 7NiwwNPk5VtUNvTA1+9601OsvFf/MckI8gLZ4vU3WDQi9b+LvKWkvSS01P1tiHDnCB
+	 Lp6vkRYteVvIg==
+Date: Mon, 15 Sep 2025 15:30:25 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Vladimir Moravcevic <vmoravcevic@axiado.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	Tzu-Hao Wei <twei@axiado.com>,
+	Axiado Reviewers <linux-maintainer@axiado.com>,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] spi: axiado: Add driver for Axiado SPI DB controller
+Message-ID: <9b6aaad6-3dca-49e3-9a59-8e8a0179a517@sirena.org.uk>
+References: <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-0-814a1fa2a83e@axiado.com>
+ <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-2-814a1fa2a83e@axiado.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_072958_655668_1F08C070 
-X-CRM114-Status: GOOD (  11.58  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6o3ytfShT2K67AjJ"
+Content-Disposition: inline
+In-Reply-To: <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-2-814a1fa2a83e@axiado.com>
+X-Cookie: Use a pun, go to jail.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,156 +75,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Birsan <cristian.birsan@microchip.com>
 
-Add the ACR register to all PLL settings and provide the correct
-ACR value for each PLL used in different SoCs.
+--6o3ytfShT2K67AjJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Suggested-by: Mihai Sain <mihai.sain@microchip.com>
-Signed-off-by: Cristian Birsan <cristian.birsan@microchip.com>
-[nicolas.ferre@microchip.com: add sama7d65 and review commit message]
-Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
----
- drivers/clk/at91/pmc.h      | 1 +
- drivers/clk/at91/sam9x60.c  | 2 ++
- drivers/clk/at91/sam9x7.c   | 5 +++++
- drivers/clk/at91/sama7d65.c | 4 ++++
- drivers/clk/at91/sama7g5.c  | 2 ++
- 5 files changed, 14 insertions(+)
+On Mon, Sep 15, 2025 at 06:11:56AM -0700, Vladimir Moravcevic wrote:
 
-diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index 4fb29ca111f7..5daa32c4cf25 100644
---- a/drivers/clk/at91/pmc.h
-+++ b/drivers/clk/at91/pmc.h
-@@ -80,6 +80,7 @@ struct clk_pll_characteristics {
- 	u16 *icpll;
- 	u8 *out;
- 	u8 upll : 1;
-+	u32 acr;
- };
- 
- struct clk_programmable_layout {
-diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
-index db6db9e2073e..18baf4a256f4 100644
---- a/drivers/clk/at91/sam9x60.c
-+++ b/drivers/clk/at91/sam9x60.c
-@@ -36,6 +36,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
- 	.num_output = ARRAY_SIZE(plla_outputs),
- 	.output = plla_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00020010),
- };
- 
- static const struct clk_range upll_outputs[] = {
-@@ -48,6 +49,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.output = upll_outputs,
- 	.core_output = core_outputs,
- 	.upll = true,
-+	.acr = UL(0x12023010), /* fIN = [18 MHz, 32 MHz]*/
- };
- 
- static const struct clk_pll_layout pll_frac_layout = {
-diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-index 740f52906f6b..89868a0aeaba 100644
---- a/drivers/clk/at91/sam9x7.c
-+++ b/drivers/clk/at91/sam9x7.c
-@@ -107,6 +107,7 @@ static const struct clk_pll_characteristics plla_characteristics = {
- 	.num_output = ARRAY_SIZE(plla_outputs),
- 	.output = plla_outputs,
- 	.core_output = plla_core_outputs,
-+	.acr = UL(0x00020010), /* Old ACR_DEFAULT_PLLA value */
- };
- 
- static const struct clk_pll_characteristics upll_characteristics = {
-@@ -115,6 +116,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.output = upll_outputs,
- 	.core_output = upll_core_outputs,
- 	.upll = true,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics lvdspll_characteristics = {
-@@ -122,6 +124,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
- 	.num_output = ARRAY_SIZE(lvdspll_outputs),
- 	.output = lvdspll_outputs,
- 	.core_output = lvdspll_core_outputs,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics audiopll_characteristics = {
-@@ -129,6 +132,7 @@ static const struct clk_pll_characteristics audiopll_characteristics = {
- 	.num_output = ARRAY_SIZE(audiopll_outputs),
- 	.output = audiopll_outputs,
- 	.core_output = audiopll_core_outputs,
-+	.acr = UL(0x12023010), /* fIN=[20 MHz, 32 MHz] */
- };
- 
- static const struct clk_pll_characteristics plladiv2_characteristics = {
-@@ -136,6 +140,7 @@ static const struct clk_pll_characteristics plladiv2_characteristics = {
- 	.num_output = ARRAY_SIZE(plladiv2_outputs),
- 	.output = plladiv2_outputs,
- 	.core_output = plladiv2_core_outputs,
-+	.acr = UL(0x00020010),  /* Old ACR_DEFAULT_PLLA value */
- };
- 
- /* Layout for fractional PLL ID PLLA. */
-diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-index a5d40df8b2f2..7dee2b160ffb 100644
---- a/drivers/clk/at91/sama7d65.c
-+++ b/drivers/clk/at91/sama7d65.c
-@@ -138,6 +138,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
- 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
- 	.output = cpu_pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /* PLL characteristics. */
-@@ -146,6 +147,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
- 	.num_output = ARRAY_SIZE(pll_outputs),
- 	.output = pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- static const struct clk_pll_characteristics lvdspll_characteristics = {
-@@ -153,6 +155,7 @@ static const struct clk_pll_characteristics lvdspll_characteristics = {
- 	.num_output = ARRAY_SIZE(lvdspll_outputs),
- 	.output = lvdspll_outputs,
- 	.core_output = lvdspll_core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- static const struct clk_pll_characteristics upll_characteristics = {
-@@ -160,6 +163,7 @@ static const struct clk_pll_characteristics upll_characteristics = {
- 	.num_output = ARRAY_SIZE(upll_outputs),
- 	.output = upll_outputs,
- 	.core_output = upll_core_outputs,
-+	.acr = UL(0x12020010),
- 	.upll = true,
- };
- 
-diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
-index 8385badc1c70..1340c2b00619 100644
---- a/drivers/clk/at91/sama7g5.c
-+++ b/drivers/clk/at91/sama7g5.c
-@@ -113,6 +113,7 @@ static const struct clk_pll_characteristics cpu_pll_characteristics = {
- 	.num_output = ARRAY_SIZE(cpu_pll_outputs),
- 	.output = cpu_pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /* PLL characteristics. */
-@@ -121,6 +122,7 @@ static const struct clk_pll_characteristics pll_characteristics = {
- 	.num_output = ARRAY_SIZE(pll_outputs),
- 	.output = pll_outputs,
- 	.core_output = core_outputs,
-+	.acr = UL(0x00070010),
- };
- 
- /*
--- 
-2.43.0
+> +	/*Calculate the maximum data payload that can fit into the FIFO. */
+> +	if (fifo_total_bytes <= protocol_overhead_bytes) {
+> +		max_transfer_payload_bytes = 0;
+> +		dev_warn(&spi->dev, "SPI FIFO (%zu bytes) is too small for protocol overhead (%zu bytes)! Max data size forced to 0.\n",
+> +			 fifo_total_bytes, protocol_overhead_bytes);
 
+This might be a good fit for dev_warn_once(), I imagine if gets
+triggered lots of whatever operation triggers it will happen and the
+current code would spam the logs.
+
+> +	ret = devm_request_irq(&pdev->dev, irq, ax_spi_irq,
+> +			       0, pdev->name, ctlr);
+> +	if (ret != 0) {
+> +		ret = -ENXIO;
+> +		dev_err(&pdev->dev, "request_irq failed\n");
+> +		goto clk_dis_all;
+> +	}
+
+None of the other allocations are managed using devm, you most likely
+have unsafe race conditions especially if the interrupt line is shared.
+
+> +static void ax_spi_remove(struct platform_device *pdev)
+> +{
+> +	struct spi_controller *ctlr = platform_get_drvdata(pdev);
+> +	struct ax_spi *xspi = spi_controller_get_devdata(ctlr);
+> +
+> +	clk_disable_unprepare(xspi->ref_clk);
+> +	clk_disable_unprepare(xspi->pclk);
+> +	pm_runtime_set_suspended(&pdev->dev);
+> +	pm_runtime_disable(&pdev->dev);
+> +
+> +	spi_unregister_controller(ctlr);
+> +}
+
+This will do a bunch of teardown before unregistering the controller
+meaning that new operations might be submitted after the clocks are
+disabled which I imagine won't go well.  You should unregister from the
+subsystem first, then tear down the other resources.
+
+> +
+> +static struct platform_driver ax_spi_driver = {
+> +	.probe	= ax_spi_probe,
+> +	.remove	= ax_spi_remove,
+> +	.driver = {
+> +		.name = AX_SPI_NAME,
+> +		.of_match_table = ax_spi_of_match,
+> +	},
+> +};
+
+There were a bunch of runtime PM calls but there are no PM operations
+here at all.  That's not specifically a problem, for example power
+domain level PM with full state retention would work here, but it seems
+like at least stopping and starting the clocks would be a good idea.
+
+--6o3ytfShT2K67AjJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjIIwAACgkQJNaLcl1U
+h9CPLwf/RhrIkexh1/aNsOJYJL1gMHWTqKfNxLZYYXlBw8Nz2ZLtKKwNdPENxr/Z
++6dnY8StmyTSKkUOHjzsLH7xqN4gGvxf9RIBWHp529LSu+LkTxcGgaAHkfWcftvF
+RbnW46hMV/aq4A48M7xL8OlK2FXopDGmyicThrkm6T6XgfKcgMExMlxyDCVEt+0E
+YBO2phalHJCkPltNmzJrSbJzf6o0nGEf6Bxl7r/WXadmTRuF2hLZ5cYMJ5G8JC+G
+UYfRYZMuVhMh6E0KC55r2JEoYZy+YBYFC+7mkmi2SDxVh2moz9GRkveGp/7L2r82
+VajNVG7ozKcYcYpsx5VuwhvpK8r8jg==
+=W84H
+-----END PGP SIGNATURE-----
+
+--6o3ytfShT2K67AjJ--
 
