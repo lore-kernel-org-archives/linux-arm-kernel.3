@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10ACCCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E203DCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MpJb2WoV5ZJNHbnSXf7g0seafQ75IoQEZtdOuyConFA=; b=YpTITus3BBt8E1afAdhgCbdWii
-	fsMNqqMWIEZm6VkykzHGuJ1mgu3B6XJCR11ivGiAiNnltT1O011x9s8SCDJqdZgnyS+/OjjcPDSxi
-	pO5irvlKwocUqFwh5EEE6/jG5f7J08NbAtf34haN2UhjCCMs2/tmX0x5Sgxv8kn8W8LwBqNAZ76Q+
-	GGOGrNVN7Zi5+Fs2pic4hjqxNyotMrKhn0RJR94hx0Z0uqsRF8wl8EHgKEVF9F18eifkLo+E2Se9K
-	fNi5xXZVn6J8fd0G6eJNl5jyZ1ZVujz3oMICViA5oYL//XHc5ripsUKmRHG9nl0mV/PHEkhHIl3Sb
-	MXbjdqeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ly3pZAnmAFnHnFkAC2qd/+Em0AEoF7hodNZyEgQ+Rs=; b=FvbO08qdlRZ6OCLf2Eg+5JpRA7
+	T7MxHw8r4/d2evwRkVYMfbMYTaYJZr8JH38FVK6tX3Bp7EWob93PZOMuEXFvY52gYIqn3TxlzLAzF
+	4SoCbxJweQfpTH/akYzHk+onOaocQvAxuMV09LLLFCRlPmhvnoIL7BkBFH/JtUP6Mz8q5dawKqS0U
+	57GIZ+E11fZiw9qPZCW/MhsxJN4yttCdjVyDB2Mxp5wGsFueK5aEn9/HPfh/gi9nu7D4csvR/dL8w
+	Od2vPzBtpC2bjqQCsSpPthra1QR/Ad4zh9WsWJ1iSDS3Y3VjCTMNiNY+T+ObJz78V+bitAcbBkPqn
+	BCNulXpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy8aZ-00000004BhY-0cON;
-	Mon, 15 Sep 2025 12:45:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy8aW-00000004Bgl-1LCz
+	id 1uy8c8-00000004C48-3aza;
+	Mon, 15 Sep 2025 12:47:24 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy8c2-00000004C1e-0XU6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 12:45:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AFBF1BF7;
-	Mon, 15 Sep 2025 05:45:35 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DACA33F66E;
-	Mon, 15 Sep 2025 05:45:42 -0700 (PDT)
-Date: Mon, 15 Sep 2025 13:45:40 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 02/31] coresight: etm4x: Always set tracer's device
- mode on target CPU
-Message-ID: <20250915124540.GI12516@e132581.arm.com>
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-2-ea49e91124ec@arm.com>
- <88a6c0fe-ee7d-4ee6-a27c-8ec23bfed444@arm.com>
+	Mon, 15 Sep 2025 12:47:23 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=w508YE6uho32x7yE7/EJBlz8koT3SVa2CC+66Zgn5IwpQmySNfUD2ZfJwbFBkxQM8/C6rdlzbZwO4os4rYCikmo9NK5VnEg7aTqIToCZavahpCkVbfsEgomtNbKeeyX49mKmj1V5lfd8C2XHtAk4olDP3/zkM+iBBBk/CieHxETjcRZgjP0ojIBpT9CTfa8Fl0LYABIqmHmBnVdRQZ9c5WU7Amvn5725/7hAbIYe75uiIMSJ2k7zeXMMqNW+T/dGXb9vYjG3abowl/xUmY9S7Bg4ycXL3KEB2pymwAr5xKvrN11a2Rm2V3WMViQaFWwk1Iu1FuRo/5N23ppWHlAV/Q==; s=purelymail3; d=purelymail.com; v=1; bh=irm5rOzkMCBKy8afw3JexKMiBbgIOkVmWCMIQ2l0hUY=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1506483826;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 15 Sep 2025 12:46:29 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Mon, 15 Sep 2025 14:46:23 +0200
+Subject: [PATCH v3 1/4] dt-bindings: pinctrl: mediatek: Document MT6878 pin
+ controller bindings
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <88a6c0fe-ee7d-4ee6-a27c-8ec23bfed444@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250915-mt6878-pinctrl-support-v3-1-593cc007d4cf@mentallysanemainliners.org>
+References: <20250915-mt6878-pinctrl-support-v3-0-593cc007d4cf@mentallysanemainliners.org>
+In-Reply-To: <20250915-mt6878-pinctrl-support-v3-0-593cc007d4cf@mentallysanemainliners.org>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757940385; l=7159;
+ i=igor.belwon@mentallysanemainliners.org; s=20250908;
+ h=from:subject:message-id; bh=irm5rOzkMCBKy8afw3JexKMiBbgIOkVmWCMIQ2l0hUY=;
+ b=kY5stO3TWCNOuMxLH3HOmWHosNYVTrd6ojPgwbhL4T3EnOKSMWAi11YFYNfSdBNc4j6tnRBwR
+ saLN2TsUfLAC6fOtbKa39jJjOjYmxXQ4zXkQPqg/yU5KLOo9ckiVQIU
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=t9Kz6B3jEwJD7YAKcp8XftfEz7SUSlGbrsfFlbrrFwA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_054544_404653_6913AF28 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250915_054718_274290_1CCAA9FC 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +79,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 11:47:43AM +0100, Suzuki Kuruppassery Poulose wrote:
+Add device-tree bindings for the pin controller and the EINT controller
+found in the MediaTek MT6878 SoC.
 
-[...]
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ .../bindings/pinctrl/mediatek,mt6878-pinctrl.yaml  | 211 +++++++++++++++++++++
+ 1 file changed, 211 insertions(+)
 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > index 020f070bf17dc0557dfb3ae4f282b0a0c1778bd8..02ad41da7356547a67c53ff0a9146aec844f89da 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> > @@ -592,10 +592,23 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
-> >   static void etm4_enable_hw_smp_call(void *info)
-> 
-> While at this, please could you rename this function to make it explicit
-> that this is only for sysfs mode ?
-> 
-> e.g., etm4_enable_hw_sysfs_smp_call()
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6878-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6878-pinctrl.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8d44194a79389663de339a422dea7b68d8a060e2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6878-pinctrl.yaml
+@@ -0,0 +1,211 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/mediatek,mt6878-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6878 Pin Controller
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++  - Igor Belwon <igor.belwon@mentallysanemainliners.org>
++
++description:
++  The MediaTek MT6878 Pin controller is used to control SoC pins.
++
++properties:
++  compatible:
++    const: mediatek,mt6878-pinctrl
++
++  reg:
++    items:
++      - description: pin controller base
++      - description: bl group IO
++      - description: bm group IO
++      - description: br group IO
++      - description: bl1 group IO
++      - description: br1 group IO
++      - description: lm group IO
++      - description: lt group IO
++      - description: rm group IO
++      - description: rt group IO
++      - description: EINT controller E block
++      - description: EINT controller S block
++      - description: EINT controller W block
++      - description: EINT controller C block
++
++  reg-names:
++    items:
++      - const: base
++      - const: bl
++      - const: bm
++      - const: br
++      - const: bl1
++      - const: br1
++      - const: lm
++      - const: lt
++      - const: rm
++      - const: rt
++      - const: eint-e
++      - const: eint-s
++      - const: eint-w
++      - const: eint-c
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    description:
++      Number of cells in GPIO specifier. Since the generic GPIO binding is used,
++      the amount of cells must be specified as 2. See the below mentioned gpio
++      binding representation for description of particular cells.
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names:
++    maxItems: 216
++
++  interrupts:
++    description: The interrupt outputs to sysirq
++    maxItems: 1
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++# PIN CONFIGURATION NODES
++patternProperties:
++  '-pins$':
++    type: object
++    additionalProperties: false
++
++    patternProperties:
++      '^pins':
++        type: object
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml
++          - $ref: /schemas/pinctrl/pinmux-node.yaml
++        description:
++          A pinctrl node should contain at least one subnodes representing the
++          pinctrl groups available on the machine. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to muxer
++          configuration, pullups, drive strength, input enable/disable and input
++          schmitt.
++
++        properties:
++          pinmux:
++            description:
++              Integer array, represents gpio pin number and mux setting.
++              Supported pin number and mux are defined as macros in
++              arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h for this SoC.
++
++          drive-strength:
++            enum: [2, 4, 6, 8, 10, 12, 14, 16]
++
++          drive-strength-microamp:
++            enum: [125, 250, 500, 1000]
++
++          bias-pull-down:
++            oneOf:
++              - type: boolean
++              - enum: [75000, 5000]
++                description: Pull down RSEL type resistance values (in ohms)
++            description:
++              For normal pull down type there is no need to specify a resistance
++              value, hence this can be specified as a boolean property.
++              For RSEL pull down type a resistance value (in ohms) can be added.
++
++          bias-pull-up:
++            oneOf:
++              - type: boolean
++              - enum: [10000, 5000, 4000, 3000]
++                description: Pull up RSEL type resistance values (in ohms)
++            description:
++              For normal pull up type there is no need to specify a resistance
++              value, hence this can be specified as a boolean property.
++              For RSEL pull up type a resistance value (in ohms) can be added.
++
++          bias-disable: true
++
++          output-high: true
++
++          output-low: true
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++        required:
++          - pinmux
++
++        additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++  - gpio-controller
++  - '#gpio-cells'
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/pinctrl/mt65xx.h>
++    #define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
++    #define PINMUX_GPIO99__FUNC_SCL0 (MTK_PIN_NO(99) | 1)
++    #define PINMUX_GPIO100__FUNC_SDA0 (MTK_PIN_NO(100) | 1)
++
++    pio: pinctrl@10005000 {
++        compatible = "mediatek,mt6878-pinctrl";
++        reg = <0x10005000 0x1000>,
++              <0x11d10000 0x1000>,
++              <0x11d30000 0x1000>,
++              <0x11d40000 0x1000>,
++              <0x11d50000 0x1000>,
++              <0x11d60000 0x1000>,
++              <0x11e20000 0x1000>,
++              <0x11e30000 0x1000>,
++              <0x11eb0000 0x1000>,
++              <0x11ec0000 0x1000>,
++              <0x11ce0000 0x1000>,
++              <0x11de0000 0x1000>,
++              <0x11e60000 0x1000>,
++              <0x1c01e000 0x1000>;
++        reg-names = "base", "bl", "bm", "br", "bl1", "br1",
++                    "lm", "lt", "rm", "rt", "eint-e", "eint-s",
++                    "eint-w", "eint-c";
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-ranges = <&pio 0 0 220>;
++        interrupt-controller;
++        interrupts = <GIC_SPI 239 IRQ_TYPE_LEVEL_HIGH 0>;
++        #interrupt-cells = <2>;
++
++        gpio-pins {
++            pins {
++                pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
++                bias-pull-up = <4000>;
++                drive-strength = <6>;
++            };
++        };
++
++        i2c0-pins {
++            pins-bus {
++                pinmux = <PINMUX_GPIO99__FUNC_SCL0>,
++                         <PINMUX_GPIO100__FUNC_SDA0>;
++                bias-pull-down = <75000>;
++                drive-strength-microamp = <1000>;
++            };
++        };
++    };
 
-If no objection, I will update pair functions to
+-- 
+2.51.0
 
-  etm4_enable_sysfs_smp_call() / etm4_disable_sysfs_smp_call()
-
-[...]
-
-> > @@ -811,6 +824,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
-> >   	int ret = 0;
-> >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> > +	if (!coresight_take_mode(csdev, CS_MODE_PERF))
-> > +		return -EBUSY;
-> > +
-> 
-> Should be done after the CPU check below ? Otherwise you are undoing the
-> fix on sysfs side.
-
-ETMv3 driver has done in the suggested way for checking CPU first.
-ETMv4 driver should align with it. I will update in next version.
-
-Thanks,
-Leo
 
