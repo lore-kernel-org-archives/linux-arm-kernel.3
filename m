@@ -4,87 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59CD5CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8633CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxAhSsMDGNnMgBD5McDp4/uZmqqHc3OE6kQMHu7kZTE=; b=I6kwIzm1iJjjCSH3nJkIj/9ydc
-	ZCUNiBpfINFNzGCvoc1ERSJ7IJ8OM5UYKAz7l7F0OIhKq4HpdcyT5gB8EQbL2CGPR7SmIS64uV4yd
-	7FqmwDW2zMLm9LT6hL9ncOfqgJDAqX29zb4kvFvtaFPlrCWnN7OmL/GwMvFW+YwKrjB3cTzOZMTJN
-	/jKrFMoxmD2lv2vRCpzomge5kICS0rb7ClfEgO0pgEvcgagPD9MGFelxB6CFx7Unp3+i8lrNjpGUH
-	NAE4YwDESd6Y3Oyxap142+aM9fwUQs4s0XlvJ3glRCqwPV2McSQYdzkMoqAVw3iH9VXkN8vt6Mc50
-	K/6tMYMw==;
+	bh=MQDjqbiT9oGuFNrzjLvyS3Lnpn5E/CxPnw6kf2pPIuk=; b=GOzhaqTomIhdWNQYFn/byE63SB
+	BzJOOdVlvEEXxP6V1rL5dWkVx85VwDJRSnX0+MYxg/cGRpjZBEobeYkyz0PHn/Z8FN0BxwHHTNLzy
+	izqn3neywNdmj+1yUTXaCWQioHAY1rkwuy5A0Hw1FCnKp9c3rmA7DYWS0RsH7KJYrkHmZJGcz33Kq
+	JpmR86qCzFly9aRyZI+2NQGSpiannhyFQaXhBi200nEXFZUBDN6+SjdRwD4oZ8sEVGmdcc7R+U1G5
+	fZtF2y6H+BVM9VeSRJ2pZaBr0mIIzzFzpIr89CFH9PZXrd2ySwnizD37zc8jMvf1ncrj4Rqa5P5/W
+	mQm1x4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCJU-000000059SC-0FzE;
-	Mon, 15 Sep 2025 16:44:24 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uyCKQ-000000059i5-1qU0;
+	Mon, 15 Sep 2025 16:45:22 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCJR-000000059RI-1AZg
+	id 1uyCKO-000000059gf-00jS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 16:44:22 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b0428b537e5so610255366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 09:44:20 -0700 (PDT)
+	Mon, 15 Sep 2025 16:45:21 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-32e3726e2bbso1589721a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 09:45:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1757954659; x=1758559459; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=fxAhSsMDGNnMgBD5McDp4/uZmqqHc3OE6kQMHu7kZTE=;
-        b=if28Fs9qvJxiAKj7Ppfj/Rs8nRAiu6ISVV8EL/39PcO+HRrk14LtfOFJw9Om+QfWRP
-         ZNF3fEJYzmswwei9eJQ5c8fuTFUsk//01FXpxn4JDw8fvaH0zYpB4OBb8po7NO2CuZbB
-         OAVooSfvLxT0fi/aGzdsKmAG00H5585YhJhfpfnrL75/S+39bzdYEwJOibyzBVy0vRsE
-         Bx9dTfBXekwWBv9QsGxtzls5LUs6fOz9nKH8nT6Zpre6dWYI9o1SR9VWwF8ODfQZVbRD
-         BhOHLWhqzIda113HmgWm0cTV3AIAYJ7/ZxJJj2qwqn2HoSOUGSLUm2AVig1vTn/Ykc/6
-         ZNYw==
+        d=ziepe.ca; s=google; t=1757954719; x=1758559519; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MQDjqbiT9oGuFNrzjLvyS3Lnpn5E/CxPnw6kf2pPIuk=;
+        b=beqRB0MVhzlT16QHur40g726ZWElQGYjrTcfifvxlkNSbXAVccyGqgz4dBTg3ZBVxz
+         5aBqvFTDe0a411bnDk1w+OJB3XibN/pPQT40KvfbkBhvq4iM4rNk6D3mZHYLoZjiFYvw
+         imGCpF3ziID+xZokDItR59tHhrGX6nPJ3DmLo73dfEhfuLjSApm+c7O3YfUYK1SqyVou
+         LSYn0Fv9joxMsoR/KRr1ZC454VaBHCgk2CM+BkaCe/ECW2Jb8TXg3l+ZJUbLUIvcfgyA
+         JnkTZC7oPimy+uF4rJnRuyzdtyDJLTnwJrOxbe+F3fx1HjyaKg/bEyLa1o+mbDgg3Va1
+         8FoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757954659; x=1758559459;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fxAhSsMDGNnMgBD5McDp4/uZmqqHc3OE6kQMHu7kZTE=;
-        b=unFgRFb4bewEksYr5G0etOoTjRElxqMJiX2fKHDRMqrIo6Z+jChwkToAh5TlvtgFXU
-         Uwa4BoCC/o7KOYb56Xpx7XE6lQsK3+SOBKkMyi4Jowif3uNJBGrkAN8ZTIgvu39IP8a1
-         nfXkHY2XvP9ytwjufB9PphbyPerft7u3+WB/Rb2ecKMzr0l5kZc1siOAVwi+ns1ka+zp
-         1whyBuaf+CUCmgUMMe9X4VEY42kldIbJwrspsjX3vuoAw2kIj0VM4QS1QjgzBfYCIpfw
-         PQKJlRkiHxNntEWNAVV4v81pMR1o/4Dy21gw5S0QZeeLg1Z1127fjO8oX3yjLO4i+QBh
-         ylCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULqKpOHMQmK4dbBZK+M/hOIoLK7JphG2f4YSHsfZwAxjSH5Aigr0emI5TfOHksRGpaHS4GLB7qClRZ0UUwMe9o@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSeTeOZj4G8FQ8IjmGfzMgRTM3V4ztOP/RA4gSKkG+TBRqA4vI
-	L5dJfkx91GazrQyr8Crjt+oygcG6FS1LfF50WibjSuP67KXQldWAXh/OhqnXx0b+N2rwq7n9mV4
-	MeOJ1eDbXHqD7FCAB8eOnYeJO3sUVCkLb8cKYIcnhEw==
-X-Gm-Gg: ASbGncvD7dN0MX9b4aO+dPebk5sIf2SRhr0kgjXfjA3WJbpj4+60JV18NNr+UjerXeP
-	S0D7u5f7zXEk9vZWXvOwzz92yYLcoFcqHqMwbBwmKmUN63w2SsrgN++FeacUyiqctBtY+hPjTxc
-	/GhN7ulbWwSxrX+AT7lBW3WMzsfSCHp0uy6Mc11wKWAArVgfGhOhNSpaGg2cV7wKUQAF7homPn+
-	4NxiiKvuAQrGH+//Ls88bZkOWuw0xrVpBi72OpJJT/MLtl03xJlrPYdL1z27XY8w2RNfIay6OJa
-	cT4E/DbnQRfPdjZahhnAAD7v0xPZqrhEBHpzNL+RVzTf+u1jDQ==
-X-Google-Smtp-Source: AGHT+IGf97ggS/MfiEI88/iSLTqU3Qf0DD2i0f3tt8LPvU4vPPl8/glKU6zOH4FCiUjaVG28MlFFNsrhziUP+FCI8y8=
-X-Received: by 2002:a17:907:60d0:b0:b04:48c5:340 with SMTP id
- a640c23a62f3a-b07c354e86bmr1171558466b.9.1757954659264; Mon, 15 Sep 2025
- 09:44:19 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1757954719; x=1758559519;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MQDjqbiT9oGuFNrzjLvyS3Lnpn5E/CxPnw6kf2pPIuk=;
+        b=c4fjosDhoUbAVMdh2FwLM7QWLJBtH5l6Y2NKY07GhgH0hxyNMNwm4m101TnUuMl7UV
+         Ly+T0aCSg1TxS4RGNJ6WZELNIhcWUl1J1dnwLv90AYxpcJj1ORpBA3+52+dxFsxN5vfe
+         Hfl3Er/zQyLq481gr4Y29R8kJQdntgHYKJjoLv4YSLQLXRZtlbjoAzVRFUc2Zg5xLbPI
+         45NCPo4PO5/mi4fTyQbMb9VldWfXWhQKwmgZpiOD+kj3T1aaJAd3Q3eDC83EEiksoJ+q
+         ZsfV5ujJfNx2GaaiZN6FZfebG09XuqGNoERicGkyIH577/BlQRarG6A9bBfGdDHkohB0
+         G18g==
+X-Forwarded-Encrypted: i=1; AJvYcCUnz7tMCnKKTF6QGPMY67Vl41j0ZQF/h/YxXmJNCp+LIDD8y6f39pO9EJ+uRJyeSXrcCDfULBdabyWBKiYT2JcS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2gbJO8ugS7D++CHXNXvwYE89DbUM+kkN7jA4or75NaWENKwnf
+	0Mbbgds/itnK22Fkv9twsdVfd0W+CIsxfX0qVC/j/6/juX8JP/sDdp+rKPnTDQfRqF0=
+X-Gm-Gg: ASbGncu/Z96UcNX4zczi1bb8IZkVznfvJXlzBubYTV0WqUzKJjExsN1Ok0R6bglB859
+	yUQt6Y08gj1MWbvb77riJK91g+dyUcpwHNd9Z+6ZgXAm9w6Od4rkm+VeHmwiFYsfRZF2JshM7d6
+	7tuA2IfxEscTjCl9v76u0gOiNwMqYtAJSm8XBELodpQuRlF9qMht425lcl6hEt9KPvDOTEPi0U1
+	UcRs+aDwUiriT7zNoZ5v8ciRLT45fomPaR9gJKjXonc53Vi+Gz7CNRjUjbV7eB1oq0Jl2nCluL/
+	vQjrMOk0TTHIckuQ9sewuqVfDVZGsZuhwGIHNzYOG4GQdIdaZZvnJeNhJPpZcGbmGHty9DXp
+X-Google-Smtp-Source: AGHT+IEueZRPYz6Ovwnbpjg7oIfp7yjCHZ9L0M0q/iZt1RonHcNLG+PurDsqJLquezOzfjlKgS1iDA==
+X-Received: by 2002:a17:90b:3d0e:b0:32b:ab1f:5113 with SMTP id 98e67ed59e1d1-32de4f7ee8fmr16124999a91.28.1757954719094;
+        Mon, 15 Sep 2025 09:45:19 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b54a3aa1a22sm12075579a12.52.2025.09.15.09.45.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 09:45:18 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uyCKL-00000004TKd-1naj;
+	Mon, 15 Sep 2025 13:45:17 -0300
+Date: Mon, 15 Sep 2025 13:45:17 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 04/28] iommu/io-pgtable-arm: Move selftests to a
+ separate file
+Message-ID: <20250915164517.GL882933@ziepe.ca>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-5-smostafa@google.com>
 MIME-Version: 1.0
-References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com> <cc53b15e-f0a4-413d-95cb-174996344d64@foss.st.com>
-In-Reply-To: <cc53b15e-f0a4-413d-95cb-174996344d64@foss.st.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Mon, 15 Sep 2025 10:44:08 -0600
-X-Gm-Features: AS18NWCkJjz9GpcWFh1g-R-tsFUtCptD3QVQYJIYkkqkmvYcRqIFsZ3xDtRRAdE
-Message-ID: <CANLsYkyLBSbb=LUs9TOPx=cXXon5a_SS1DXmAve_5_7EwwD09g@mail.gmail.com>
-Subject: Re: [PATCH v19 0/6] Introduction of a remoteproc tee to load signed firmware
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, sumit.garg@kernel.org, 
-	Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Jens Wiklander <jens.wiklander@linaro.org>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250819215156.2494305-5-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_094421_350579_B44C56A5 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20250915_094520_042680_F074B5FF 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,115 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Sept 2025 at 10:04, Arnaud POULIQUEN
-<arnaud.pouliquen@foss.st.com> wrote:
->
-> Hello BJorn, Mathieu,
->
-> Do you think, you could find time to review this series before the
-> next merge window.
->
-> Regarding the discussion between Harshal and Sumit, I did not notice any
-> comments requesting immediate updates; the conversation focused more
-> on potential future extensions for FF-A.
->
+On Tue, Aug 19, 2025 at 09:51:32PM +0000, Mostafa Saleh wrote:
+> Soon, io-pgtable-arm.c will be compiled as part of the KVM/arm64
+> in the hypervisor object, which doesn't have many of the kernel APIs,
+> as faux devices, printk...
+> 
+> We would need to factor this things outside of this file, this patch
+> moves the selftests outside, which remove many of the kernel
+> dependencies, which also is not needed by the hypervisor.
+> Create io-pgtable-arm-kernel.c for that, and in the next patch
+> the rest of the code is factored out.
 
-I would like to get an RB from Sumit and Harshal before moving forward
-with this patchset.
+Please send this as a stand alone patch, it looks like a good idea.
 
+Also please add the boiler plate to wrap the selftest into a kunit and
+use the usual kunit machinery. We alredy have an kunit for
+smmuv3, it can just add another file to that.
 
-> Thanks and Regards,
-> Arnaud.
->
-> On 6/25/25 11:40, Arnaud Pouliquen wrote:
-> > Main updates from version V18[2]:
-> > - rework documentation for the release_fw ops
-> > - rework function documentation in remoteproc_tee.c
-> > - replace spinlock by mutex and generalize usage in remoteproc_tee.c
-> >
-> >
-> > Main updates from version V17[1]:
-> > - Fix:  warning: EXPORT_SYMBOL() is used, but #include <linux/export.h>
-> >    is missing
-> >
-> > More details are available in each patch commit message.
-> >
-> > [1]https://lore.kernel.org/linux-remoteproc/20250613091650.2337411-1-arnaud.pouliquen@foss.st.com/
-> > [2]https://lore.kernel.org/linux-remoteproc/20250616075530.4106090-1-arnaud.pouliquen@foss.st.com/
-> >
-> > Tested-on: commit 19272b37aa4f ("Linux 6.16-rc1")
-> >
-> > Description of the feature:
-> > --------------------------
-> > This series proposes the implementation of a remoteproc tee driver to
-> > communicate with a TEE trusted application responsible for authenticating
-> > and loading the remoteproc firmware image in an Arm secure context.
-> >
-> > 1) Principle:
-> >
-> > The remoteproc tee driver provides services to communicate with the OP-TEE
-> > trusted application running on the Trusted Execution Context (TEE).
-> > The trusted application in TEE manages the remote processor lifecycle:
-> >
-> > - authenticating and loading firmware images,
-> > - isolating and securing the remote processor memories,
-> > - supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
-> > - managing the start and stop of the firmware by the TEE.
-> >
-> > 2) Format of the signed image:
-> >
-> > Refer to:
-> > https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
-> >
-> > 3) OP-TEE trusted application API:
-> >
-> > Refer to:
-> > https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
-> >
-> > 4) OP-TEE signature script
-> >
-> > Refer to:
-> > https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
-> >
-> > Example of usage:
-> > sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
-> >
-> >
-> > 5) Impact on User space Application
-> >
-> > No sysfs impact. The user only needs to provide the signed firmware image
-> > instead of the ELF image.
-> >
-> >
-> > For more information about the implementation, a presentation is available here
-> > (note that the format of the signed image has evolved between the presentation
-> > and the integration in OP-TEE).
-> >
-> > https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
-> >
-> > Arnaud Pouliquen (6):
-> >    remoteproc: core: Introduce rproc_pa_to_va helper
-> >    remoteproc: Add TEE support
-> >    remoteproc: Introduce optional release_fw operation
-> >    dt-bindings: remoteproc: Add compatibility for TEE support
-> >    remoteproc: stm32: Create sub-functions to request shutdown and
-> >      release
-> >    remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-> >
-> >   .../bindings/remoteproc/st,stm32-rproc.yaml   |  58 +-
-> >   drivers/remoteproc/Kconfig                    |  10 +
-> >   drivers/remoteproc/Makefile                   |   1 +
-> >   drivers/remoteproc/remoteproc_core.c          |  52 ++
-> >   drivers/remoteproc/remoteproc_internal.h      |   6 +
-> >   drivers/remoteproc/remoteproc_tee.c           | 708 ++++++++++++++++++
-> >   drivers/remoteproc/stm32_rproc.c              | 139 +++-
-> >   include/linux/remoteproc.h                    |   6 +
-> >   include/linux/remoteproc_tee.h                |  87 +++
-> >   9 files changed, 1023 insertions(+), 44 deletions(-)
-> >   create mode 100644 drivers/remoteproc/remoteproc_tee.c
-> >   create mode 100644 include/linux/remoteproc_tee.h
-> >
-> >
-> > base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
->
+Jason
 
