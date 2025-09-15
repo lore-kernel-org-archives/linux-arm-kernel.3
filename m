@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E51CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8104FCAC59D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZQl9LiHtXjBFvewGCYrkNKM2Jc5gC4DTUKEbBzE794=; b=iUJz2L0D8BRabycMaeVruuKX6V
-	tLakxLTr6xY2ZbiowAqrfgYriHJRQkzXsV9YZwCUaLeqMWgunnzzavcFI5T19k0xWWLPxYse24RdE
-	hmDRgMaNzMBFSfAwnrc8d9/57nCiaoAvep1auqGzHGmk5ztRP9QlKIOd/aJv7deQAEfNX8pmi/DbU
-	ky6iAq+H/Op9fFl7LKp8yr2pEIHczCSFkbvRJxaFisflpJmA47GP4GK0BI/v4JkGYkHxrosKgPyAh
-	RhJzv7BBMeFa+eo1THTbyhuzt3FLyiaaMbHQVNV1Zu4P/IuagmgH+LSTQ2/+z34kYzpssbHCL8U7G
-	2WMdu4/w==;
+	bh=2pSYAmEawMPSlaPmEDHSKxSS5pll9/52AvfUuoIt0BM=; b=DENqZ2XmABB3yjjCOk7pf15hqG
+	IxCJLMXpC3GfMNMqIEdSatYyzMoblGf5OjjxAI1w4pEcNaRXHuohnPUkZEcoBVVK4VYyU8QrcnIvy
+	TqwL2fYzfUpXosY0a8p/y/4AxGpdLDOflmujIv95+AVC49phZjhMBrMiJXZQOL3idPFtGxJGdKnLu
+	7kjzPqX3L0NjT/S8vVizo69EsL/W1whWokloEDouO1AQeMxnug3BjAvAfTMd/XTxfF1diwzRCuVQL
+	r8ojCm6BZKx7BTIyhXpYj/rGce/bOMfiGJZZdYW2KI/ZNz7TqfCLOExRpbAFciQOd70Xjuf1vGeqj
+	lP2kSX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB1t-00000004tb1-1Ita;
-	Mon, 15 Sep 2025 15:22:09 +0000
+	id 1uyB1x-00000004tfh-02UY;
+	Mon, 15 Sep 2025 15:22:13 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB1T-00000004srt-26bH;
-	Mon, 15 Sep 2025 15:21:45 +0000
+	id 1uyB1V-00000004swH-2cSs;
+	Mon, 15 Sep 2025 15:21:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757949701;
-	bh=nntBfQIGtkCCe5lJOCxY/5D4xYBufwQrCZtHZs+iiNE=;
+	s=mail; t=1757949703;
+	bh=xZiTUJoml1PcEKEopIk/v+FM1m3yh+F+ryseknfNl+w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V514jMy4DOxKOBs5CYqmOeWPUJLESPaJnZnc7NjiADO5AE4ND3zq7tICKVNSgJ45j
-	 NPniDTLXoyzAM9RA2HQwy75E/Fbv3tmOh4asudFhm/+tPaGKusd5OsYf2mSjcmjP+n
-	 QwKRfZvhdI8wZbH2EVTVh7Vgc1DPw+tmHbKdN6R8zL+9y3Vs4WU8PTStuBB9G2AYjn
-	 ksfuSVFW4mA0SzhvGeKFQGGtYT4jTTzU5xbx0vdEvrIcKrbznDUDkzt771OdVUiDMo
-	 savvmYbnDY31K7BduiAvwksILbFTb+5eNYKx6sXppSovc0Ocrx+KdYRBr4znJem1GM
-	 OoHKP+cqOKliQ==
+	b=pwhowDQ6cQcDh6TLX5jELj/EEHCOBkG9HO34mDv+RaS2KYjK/aFJbXQFJkmCYAQ3S
+	 lcv4jMzvUG2xMNn9+Woh/H1zDmDAB/COFjeszWocvI0fUp7daxV7FptfT9orVIZGTd
+	 wnH6qmGtrRbccP8R2cQSzEMDXtp1u3SW6Su9/4gtlZybwFpE+VeNh0ApqflPMkeTyb
+	 hvVIY5FIsW4AlT4zgojcibL1OTBJrjhv2pnk0Ceb6sWC8bkmrZ3ZhMy4ZI6D5yZQZA
+	 EFjLDaG6nLBJ/MkiqGCNazwmkX8zVd6JrzNRVS2bimq0ZE2uEyyxyxTBMOulCzHLru
+	 5hw2qikG6ip4g==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:1c8d:f5ba:823d:730b])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F48A17E1340;
-	Mon, 15 Sep 2025 17:21:40 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 938B917E046C;
+	Mon, 15 Sep 2025 17:21:42 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org,
@@ -62,18 +62,20 @@ Cc: guangjie.song@mediatek.com,
 	linux-mediatek@lists.infradead.org,
 	netdev@vger.kernel.org,
 	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v6 15/27] clk: mediatek: Add MT8196 ufssys clock support
-Date: Mon, 15 Sep 2025 17:19:35 +0200
-Message-Id: <20250915151947.277983-16-laura.nao@collabora.com>
+	Laura Nao <laura.nao@collabora.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v6 17/27] clk: mediatek: Add MT8196 I2C clock support
+Date: Mon, 15 Sep 2025 17:19:37 +0200
+Message-Id: <20250915151947.277983-18-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250915151947.277983-1-laura.nao@collabora.com>
 References: <20250915151947.277983-1-laura.nao@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_082143_772441_0D7F529D 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250915_082145_895591_A9A4BB6F 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +90,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 ufssys clock controller, which provides clock
-gate control for UFS.
+Add support for the MT8196 I2C clock controller, which provides clock
+gate control for I2C.
 
-Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig             |   7 ++
- drivers/clk/mediatek/Makefile            |   1 +
- drivers/clk/mediatek/clk-mt8196-ufs_ao.c | 108 +++++++++++++++++++++++
- 3 files changed, 116 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+ drivers/clk/mediatek/Kconfig                  |   7 ++
+ drivers/clk/mediatek/Makefile                 |   1 +
+ .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    | 118 ++++++++++++++++++
+ 3 files changed, 126 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
 
 diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 1e0c6f177ecd..d99c39a7f10e 100644
+index c977719046a4..fe2697b64ef0 100644
 --- a/drivers/clk/mediatek/Kconfig
 +++ b/drivers/clk/mediatek/Kconfig
 @@ -1010,6 +1010,13 @@ config COMMON_CLK_MT8196
  	help
  	  This driver supports MediaTek MT8196 basic clocks.
  
-+config COMMON_CLK_MT8196_UFSSYS
-+	tristate "Clock driver for MediaTek MT8196 ufssys"
++config COMMON_CLK_MT8196_IMP_IIC_WRAP
++	tristate "Clock driver for MediaTek MT8196 imp_iic_wrap"
 +	depends on COMMON_CLK_MT8196
 +	default COMMON_CLK_MT8196
 +	help
-+	  This driver supports MediaTek MT8196 ufssys clocks.
++	  This driver supports MediaTek MT8196 i2c clocks.
 +
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
+ config COMMON_CLK_MT8196_PEXTPSYS
+ 	tristate "Clock driver for MediaTek MT8196 pextpsys"
+ 	depends on COMMON_CLK_MT8196
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 8888ffd3d7ba..1a497de00846 100644
+index 88f7d8a229c2..241e7f5e7316 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
 @@ -153,6 +153,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) += clk-mt8195-wpe.o
  obj-$(CONFIG_COMMON_CLK_MT8196) += clk-mt8196-apmixedsys.o clk-mt8196-topckgen.o \
  				   clk-mt8196-topckgen2.o clk-mt8196-vlpckgen.o \
  				   clk-mt8196-peri_ao.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
++obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) += clk-mt8196-imp_iic_wrap.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
+ obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
  obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-ufs_ao.c b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+diff --git a/drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c b/drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
 new file mode 100644
-index 000000000000..0c04717b7b4b
+index 000000000000..a63241671650
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-ufs_ao.c
-@@ -0,0 +1,108 @@
++++ b/drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
+@@ -0,0 +1,118 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) 2025 MediaTek Inc.
@@ -147,7 +148,6 @@ index 000000000000..0c04717b7b4b
 + *                    Laura Nao <laura.nao@collabora.com>
 + */
 +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <dt-bindings/reset/mediatek,mt8196-resets.h>
 +
 +#include <linux/clk-provider.h>
 +#include <linux/module.h>
@@ -157,95 +157,106 @@ index 000000000000..0c04717b7b4b
 +#include "clk-gate.h"
 +#include "clk-mtk.h"
 +
-+#define MT8196_UFSAO_RST0_SET_OFFSET	0x48
-+#define MT8196_UFSAO_RST1_SET_OFFSET	0x148
-+
-+static const struct mtk_gate_regs ufsao0_cg_regs = {
-+	.set_ofs = 0x108,
-+	.clr_ofs = 0x10c,
-+	.sta_ofs = 0x104,
++static const struct mtk_gate_regs imp_cg_regs = {
++	.set_ofs = 0xe08,
++	.clr_ofs = 0xe04,
++	.sta_ofs = 0xe00,
 +};
 +
-+static const struct mtk_gate_regs ufsao1_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0xc,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_UFSAO0(_id, _name, _parent, _shift) {	\
++#define GATE_IMP(_id, _name, _parent, _shift) {	\
 +		.id = _id,				\
 +		.name = _name,				\
 +		.parent_name = _parent,			\
-+		.regs = &ufsao0_cg_regs,		\
++		.regs = &imp_cg_regs,			\
 +		.shift = _shift,			\
++		.flags = CLK_OPS_PARENT_ENABLE,		\
 +		.ops = &mtk_clk_gate_ops_setclr,	\
 +	}
 +
-+#define GATE_UFSAO1(_id, _name, _parent, _shift) {	\
++static const struct mtk_gate impc_clks[] = {
++	GATE_IMP(CLK_IMPC_I2C11, "impc_i2c11", "i2c_p", 0),
++	GATE_IMP(CLK_IMPC_I2C12, "impc_i2c12", "i2c_p", 1),
++	GATE_IMP(CLK_IMPC_I2C13, "impc_i2c13", "i2c_p", 2),
++	GATE_IMP(CLK_IMPC_I2C14, "impc_i2c14", "i2c_p", 3),
++};
++
++static const struct mtk_clk_desc impc_mcd = {
++	.clks = impc_clks,
++	.num_clks = ARRAY_SIZE(impc_clks),
++};
++
++static const struct mtk_gate impe_clks[] = {
++	GATE_IMP(CLK_IMPE_I2C5, "impe_i2c5", "i2c_east", 0),
++};
++
++static const struct mtk_clk_desc impe_mcd = {
++	.clks = impe_clks,
++	.num_clks = ARRAY_SIZE(impe_clks),
++};
++
++static const struct mtk_gate_regs impn_hwv_regs = {
++	.set_ofs = 0x0000,
++	.clr_ofs = 0x0004,
++	.sta_ofs = 0x2c00,
++};
++
++#define GATE_HWV_IMPN(_id, _name, _parent, _shift) {	\
 +		.id = _id,				\
 +		.name = _name,				\
 +		.parent_name = _parent,			\
-+		.regs = &ufsao1_cg_regs,		\
++		.regs = &imp_cg_regs,			\
++		.hwv_regs = &impn_hwv_regs,		\
 +		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_ops_setclr,	\
++		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
++		.flags = CLK_OPS_PARENT_ENABLE,		\
 +	}
 +
-+static const struct mtk_gate ufsao_clks[] = {
-+	/* UFSAO0 */
-+	GATE_UFSAO0(CLK_UFSAO_UFSHCI_UFS, "ufsao_ufshci_ufs", "ufs", 0),
-+	GATE_UFSAO0(CLK_UFSAO_UFSHCI_AES, "ufsao_ufshci_aes", "aes_ufsfde", 1),
-+	/* UFSAO1 */
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_TX_SYM, "ufsao_unipro_tx_sym", "clk26m", 0),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM0, "ufsao_unipro_rx_sym0", "clk26m", 1),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_RX_SYM1, "ufsao_unipro_rx_sym1", "clk26m", 2),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_SYS, "ufsao_unipro_sys", "ufs", 3),
-+	GATE_UFSAO1(CLK_UFSAO_UNIPRO_SAP, "ufsao_unipro_sap", "clk26m", 4),
-+	GATE_UFSAO1(CLK_UFSAO_PHY_SAP, "ufsao_phy_sap", "clk26m", 8),
++static const struct mtk_gate impn_clks[] = {
++	GATE_IMP(CLK_IMPN_I2C1, "impn_i2c1", "i2c_north", 0),
++	GATE_IMP(CLK_IMPN_I2C2, "impn_i2c2", "i2c_north", 1),
++	GATE_IMP(CLK_IMPN_I2C4, "impn_i2c4", "i2c_north", 2),
++	GATE_HWV_IMPN(CLK_IMPN_I2C7, "impn_i2c7", "i2c_north", 3),
++	GATE_IMP(CLK_IMPN_I2C8, "impn_i2c8", "i2c_north", 4),
++	GATE_IMP(CLK_IMPN_I2C9, "impn_i2c9", "i2c_north", 5),
 +};
 +
-+static u16 ufsao_rst_ofs[] = {
-+	MT8196_UFSAO_RST0_SET_OFFSET,
-+	MT8196_UFSAO_RST1_SET_OFFSET
++static const struct mtk_clk_desc impn_mcd = {
++	.clks = impn_clks,
++	.num_clks = ARRAY_SIZE(impn_clks),
 +};
 +
-+static u16 ufsao_rst_idx_map[] = {
-+	[MT8196_UFSAO_RST0_UFS_MPHY] = 8,
-+	[MT8196_UFSAO_RST1_UFS_UNIPRO] = 1 * RST_NR_PER_BANK + 0,
-+	[MT8196_UFSAO_RST1_UFS_CRYPTO] = 1 * RST_NR_PER_BANK + 1,
-+	[MT8196_UFSAO_RST1_UFSHCI] = 1 * RST_NR_PER_BANK + 2,
++static const struct mtk_gate impw_clks[] = {
++	GATE_IMP(CLK_IMPW_I2C0, "impw_i2c0", "i2c_west", 0),
++	GATE_IMP(CLK_IMPW_I2C3, "impw_i2c3", "i2c_west", 1),
++	GATE_IMP(CLK_IMPW_I2C6, "impw_i2c6", "i2c_west", 2),
++	GATE_IMP(CLK_IMPW_I2C10, "impw_i2c10", "i2c_west", 3),
 +};
 +
-+static const struct mtk_clk_rst_desc ufsao_rst_desc = {
-+	.version = MTK_RST_SET_CLR,
-+	.rst_bank_ofs = ufsao_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(ufsao_rst_ofs),
-+	.rst_idx_map = ufsao_rst_idx_map,
-+	.rst_idx_map_nr = ARRAY_SIZE(ufsao_rst_idx_map),
++static const struct mtk_clk_desc impw_mcd = {
++	.clks = impw_clks,
++	.num_clks = ARRAY_SIZE(impw_clks),
 +};
 +
-+static const struct mtk_clk_desc ufsao_mcd = {
-+	.clks = ufsao_clks,
-+	.num_clks = ARRAY_SIZE(ufsao_clks),
-+	.rst_desc = &ufsao_rst_desc,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_ufs_ao[] = {
-+	{ .compatible = "mediatek,mt8196-ufscfg-ao", .data = &ufsao_mcd },
++static const struct of_device_id of_match_clk_mt8196_imp_iic_wrap[] = {
++	{ .compatible = "mediatek,mt8196-imp-iic-wrap-c", .data = &impc_mcd },
++	{ .compatible = "mediatek,mt8196-imp-iic-wrap-e", .data = &impe_mcd },
++	{ .compatible = "mediatek,mt8196-imp-iic-wrap-n", .data = &impn_mcd },
++	{ .compatible = "mediatek,mt8196-imp-iic-wrap-w", .data = &impw_mcd },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_ufs_ao);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_imp_iic_wrap);
 +
-+static struct platform_driver clk_mt8196_ufs_ao_drv = {
++static struct platform_driver clk_mt8196_imp_iic_wrap_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8196-ufs-ao",
-+		.of_match_table = of_match_clk_mt8196_ufs_ao,
++		.name = "clk-mt8196-imp_iic_wrap",
++		.of_match_table = of_match_clk_mt8196_imp_iic_wrap,
 +	},
 +};
++module_platform_driver(clk_mt8196_imp_iic_wrap_drv);
 +
-+module_platform_driver(clk_mt8196_ufs_ao_drv);
-+MODULE_DESCRIPTION("MediaTek MT8196 ufs_ao clocks driver");
++MODULE_DESCRIPTION("MediaTek MT8196 I2C Wrapper clocks driver");
 +MODULE_LICENSE("GPL");
 -- 
 2.39.5
