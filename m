@@ -4,85 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A645CAC587
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 02:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD07CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 02:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gLKbfglhxJbONgRNcwcxNTWdeFfRqEoK1bvM2yhwQgE=; b=Rv66w0Gv/Pugxj2VgB9eQpK9Qs
-	WNR0+HytuL1Yc57h5bWvZxhUOCrjpHUzlHFXefWFTBDn+syHbyIeDHb03N/FB5RNc/nhfuN0gZcw4
-	IhqqY89aBL0rGhp57PLrsD0RsY+i8bFWRN6xRL8kz+ayo+HmBdkjCyM8LW2W4/BnlEftWbJO9zUD8
-	atQ1qzcN5gBiCYj/MZpVkABkuSSRQ9PgQNLgN+M/1OiYeiLTW5+TI50caQJoqaVZY6sIs2MLaKBSJ
-	BgizhIZlfQmj43G+9Le+PoBhkGgDL9Jb23aFvpMrD9L1hMVkFsKVctzzpf8olaPXV8vifcL5wnFyn
-	6L80eA7A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ov854NrwUvH+oEreURQpPtuZXJiEgyq3gAFGLaM0O2A=; b=v8ACbKd2rMHGu9yxh7vF3Tlye+
+	wpeOQggRuw+p0VEWqby+Gt12jtU0NXVQqpwVJyFiDVElGunChuyhnftY8NhBDJs54XlAOcKcNyL1X
+	yzOlFFZ10Mbcp8NzmGFtfJKhBxQbvUJ+gsl6w1e+/XA7n7HU9jYIFHGLu4/EP9mgiSUMAlD/Hq0+D
+	KgKZUPL9WL2XnHsMEqL+BZCeg4efCgQCqnD4ehttn5Cw7DoblgrQX9btLiUSSbiZ/UXIIlLXZA33i
+	PG0CHbFNV+0CroGhUe5OsdsYLI/U/ZMACLkLFzlN96H03AncL7YM9n8Z8WgV63gT9KbULkRYXXI0f
+	dy0Ohumg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxytD-00000002Z42-2wKZ;
-	Mon, 15 Sep 2025 02:24:23 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxytA-00000002YvW-2gK9;
-	Mon, 15 Sep 2025 02:24:22 +0000
-X-QQ-mid: zesmtpsz9t1757902955tdbed93ca
-X-QQ-Originating-IP: zIT1IbJ0qW2TnaG8tjt3QQf9A/JGH1fEpFPpzLnG+5U=
-Received: from localhost.localdomain ( [183.51.120.121])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 15 Sep 2025 10:22:33 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8988539609789202725
-EX-QQ-RecipientCnt: 17
-From: Kaison Deng <dkx@t-chip.com.cn>
-To: Rob Herring <robh@kernel.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Lunn <andrew@lunn.ch>
-Cc: Wayne Chou <zxf@t-chip.com.cn>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kaison Deng <dkx@t-chip.com.cn>
-Subject: [PATCH v3 0/2] Add support for Firefly ROC-RK3588-RT
-Date: Mon, 15 Sep 2025 10:22:03 +0800
-Message-Id: <cover.1757902513.git.dkx@t-chip.com.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1uxytJ-00000002Z7x-1hYW;
+	Mon, 15 Sep 2025 02:24:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uxytF-00000002Z3m-0eEx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 02:24:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D2BF1424;
+	Sun, 14 Sep 2025 19:24:14 -0700 (PDT)
+Received: from [10.164.18.48] (unknown [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B82393F66E;
+	Sun, 14 Sep 2025 19:24:19 -0700 (PDT)
+Message-ID: <e1d9c9a9-7ab0-44e0-b293-7655f18638b5@arm.com>
+Date: Mon, 15 Sep 2025 07:54:16 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:t-chip.com.cn:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: OegHrGdQ9dQUnbIRCdL+JDtFObX7p1yMy3PEcIh0UxZkddwUVMscPvH5
-	DuqFVi2iYwZa8mAG9wzRGFsBrCgxEE3EBeW8c4xa+tXW4jZwO78oVlWBrqN4rsEJrJjbi+M
-	PYjB5lK+sMiHyCkcmDY0vtpP8JcytVwcnqrj4bhEzthYN+ufq9/MpViCut/bei2hkuY+E+B
-	YuJF9nlYY05U8/AdnaGTj/1liDyP1TypVsnVvU+HTqGfSYuG79ieCmYJAlfCL+TSyqJnQyd
-	yKUJD7Vlo1e2bwEbi6aSKIcm1Npa3jAdNVgT8El+UDzf6rzRBZYRPQ5elWLsFR4woIR9Nvj
-	WUSgSqyRKA96nHQjl3DPISvmcyV1dtx+tTG1U+UdZmM2B6rAwgONlJtA1Tq6f3BaFX4wLsU
-	jpGBkuCuwil7q0yVi1euEPyZbuwQrd5hzlFLuv09qnnp1ib7H1mwHGbLgvYS+izl0Mq692L
-	ha51zb7uKU3azm6BdJopQwDi9reHXbC1WSy48LqXixto4TyZCveBNOzXUaSOmw6Exl3IasC
-	nBWlzSNyHt2NQ4bojlRQoTUIHlT1pTVkjv//SE1Z26rHK3ctkNmk97Rc28cJGxPX+3ltgaj
-	l1QefKZay1zigdtEXVn58UY/vxB6e038POBZs+mBROrBAlj4QfUVxN1aX/F8Ml3ZaD5tqNZ
-	F+uzDpeNt9G14dy6gbkq4hrOzsFxCsBc8+gfL3GK6JRNhaemcD12lb6V6qpPUAnyG0Ckj+t
-	N+Ou9WafycvZRpMmhrCJVltDCGZRSw1SOrDe/euTNXb3VANdyf1i5a7PJXx0yloIBFDP/vv
-	oFM8/l0ykcfutdp7/zqNUrXLY31R6IprLF0HYrUUbGPFbvBBvAUvlyz3aw2jhhed0AvK1At
-	3DZ9pt6iCIPt7BwGlHKT1cjbbOY7yswq1P2WPoyiR3DJk4tTTLjKxLfux31zXswAJcmxje9
-	/SsMK4S2bOPyrO8uxZIM8UEmOrlUq8HRYAAioC2/gZAD7fcw72s1RnE8N9x1SE+2LVdzgrE
-	Nk0Nh8E61EladC4AXjmrv4NTndEDn3hShftX6r71W8DHi8x/nn1jLx4FnmPpFT5ZsMhAjPk
-	KpqiCdyOI0L0Y4aE/dnQhSM9EzWusBGlbSIYn0m1XEE8QzReaDoHK6CwarRtlphjQ==
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V4 0/2] arm64/sysreg: Clean up TCR_EL1 field macros
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250907123000.414181-1-anshuman.khandual@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250907123000.414181-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_192421_628066_AC94652C 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250914_192425_289319_8FE84507 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,32 +66,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series add support for Firefly ROC-RK3588-RT.
 
-Info of device can be found at:
-https://en.t-firefly.com/product/industry/rocrk3588rt
 
-Changes in v3:
-- Change rgmii-rxid phy-mode to rgmii-id
+On 07/09/25 5:59 PM, Anshuman Khandual wrote:
+> Currently TCR_EL1 field macros are sprinkled across the arm64 platform code
+> including KVM implementation. Clean these up via updating required register
+> filed definitions in tools sysreg format and then subsequently doing all
+> necessary replacements. All required TCR_XXX macros have been moved from
+> (asm/pgtable-hwdef.h) into KVM header (asm/kvm_arm.h) for their continued
+> usage in KVM.
+> 
+> The cleanup does not cause any functional change.
+> 
+> This applies on v6.17-rc4
 
-Changes in v2:
-- Add devicetree binding documentation for the Firefly ROC-RK3588-RT
-- Update the description to match the device tree
-- Adjust the descriptions of the model and compatible properties
-- Add audio support for hdmi0 and hdmi1
-- Adjust the attributes of sdhci in alphabetical order
+Gentle ping.
 
-Kaison Deng (2):
-  dt-bindings: arm: rockchip: Add Firefly ROC-RK3588-RT
-  arm64: dts: rockchip: Add devicetree for the ROC-RK3588-RT
-
- .../devicetree/bindings/arm/rockchip.yaml     |    5 +
- arch/arm64/boot/dts/rockchip/Makefile         |    1 +
- .../arm64/boot/dts/rockchip/rk3588-roc-rt.dts | 1134 +++++++++++++++++
- 3 files changed, 1140 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-roc-rt.dts
-
--- 
-2.25.1
+Any updates on this ?
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: kvmarm@lists.linux.dev
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> 
+> Changes in V4:
+> 
+> - Dropped all unused TCR_XXX macros while moving into KVM header
+> 
+> Changes in V3:
+> 
+> https://lore.kernel.org/all/20250901072037.743380-1-anshuman.khandual@arm.com/
+> 
+> - KVM TCR_XXX flags are expressed via TCR_EL1_XXX flags per Marc
+> 
+> Changes in V2:
+> 
+> https://lore.kernel.org/all/20250829060215.1086792-1-anshuman.khandual@arm.com/
+> 
+> - Fixed ARM ARM version from 7.B to L.B
+> - Changed UnsignedEnum into Enum per Mark
+> - Dropped all TCR_EL1 replacements from KVM code
+> - Moved existing TCR_XXX macros from (asm/pgtable-hwdef.h) into KVM header
+>   (asm/kvm_arm.h) for their continued usage
+> - Dropped patches 3 and 4 which could be done subsequently
+> 
+> Changes in V1:
+> 
+> https://lore.kernel.org/linux-arm-kernel/20250818045759.672408-1-anshuman.khandual@arm.com/
+> 
+> 
+> Anshuman Khandual (2):
+>   arm64/sysreg: Update TCR_EL1 register
+>   arm64/sysreg: Replace TCR_EL1 field macros
+> 
+>  arch/arm64/include/asm/assembler.h     |  6 +-
+>  arch/arm64/include/asm/cputype.h       |  2 +-
+>  arch/arm64/include/asm/kvm_arm.h       | 43 +++++++++++
+>  arch/arm64/include/asm/mmu_context.h   |  4 +-
+>  arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
+>  arch/arm64/include/asm/pgtable-prot.h  |  2 +-
+>  arch/arm64/include/asm/sysreg.h        |  2 -
+>  arch/arm64/kernel/cpufeature.c         |  4 +-
+>  arch/arm64/kernel/pi/map_kernel.c      |  8 +--
+>  arch/arm64/kernel/vmcore_info.c        |  2 +-
+>  arch/arm64/mm/proc.S                   | 36 ++++++----
+>  arch/arm64/tools/sysreg                | 52 +++++++++++---
+>  tools/arch/arm64/include/asm/cputype.h |  2 +-
+>  13 files changed, 127 insertions(+), 134 deletions(-)
+> 
 
 
