@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE0ACAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF76CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LuFJVSHeAQHDn0+XSdf5A7eQdiJjAJ7onpQpF2BurQ=; b=1tz92OSE8OgkDz/WaUyP6NNPMW
-	nX4E6/fEbsAZSz+YCjRSY+ZDEqpzllDko+HPCCiVrim1u2OUDU5Ceg53R82rW8KMvmSCRGvhkUPZy
-	E5wmIA+hTKmR4BFAxOq+Apc9SnarcYn35wT1LFlwUe7K62Aw6p1Aw8DQc4ETV2JrtVxy9R+tcckuH
-	u7ZFwdA6RqX8U40EmOh9lLxRePNYivdyeAh9cQByUUJc+q7O2IyNALA3h92sIgHtzIBi58/OQCrRs
-	ttqgdz0wonwjzNXuexexQNE+o0jxw0LlVBdpr0x6KA1WgofXbUgUSJZH2yf4G9S5sIFIyo0GPBlgL
-	vfMnGTXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5N/D7XV5BAi4+BzsE5Mao4XAgByMa2vhuzw2B/vvXJM=; b=Fp25Uyf7Jmis2/31GjwH0XU2AX
+	vdDRKfOIPgkVtkrwh99+Ms/HZMxU4NYnxFUaQklhOsGVcOfN3cDKtZPqI9r1+kjxTlUu5z8kTXVSy
+	GStBCdA/9tPhu1450zVRAADHkKzpYhB/EYlYFKm4yPiHdk2igjp1E782okUoS4J5kpQP/Eb3GC8X3
+	FmFr7i7okTZwds8D4XFgMjb5Az5Ljt04WZ+pxhtd1Kd0gePTOn+bZufLupwR9bMJwkqC6tknHnjL1
+	AHtZldoL5OtwpuCypcuObkKBBEdJL6t3Yp5SXszMcfqpk9ZOwTh7iDQ6hPnGl7rEAfBNADXYY7uiD
+	/wAgOndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy53x-00000003LFe-1O2z;
-	Mon, 15 Sep 2025 08:59:53 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1uy542-00000003LHK-2jKi;
+	Mon, 15 Sep 2025 08:59:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy53v-00000003LFJ-1Izq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:59:52 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3e8ef75b146so965873f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 01:59:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757926789; x=1758531589; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6LuFJVSHeAQHDn0+XSdf5A7eQdiJjAJ7onpQpF2BurQ=;
-        b=Lc+s3r5IDhV4tlUOiYCLvjyBenNs2eEaVPPb7yvw4i0SJXdHnRbwCUx9ssM/0HxPGK
-         uPf8v5tSl9u5LPZ/+uJpu/KrAktHXvQtQ0eXCQlt3dEhFipSZ3Y7grwdOpQMnH6oPTiF
-         NprWE6+vsEgANQEEyE+p1X05akfZe9FNcGjsy5yoNGnqrWIdkiKghkGn1fccdn2CE//9
-         9LWFqQqRi7fow+AgPYgX/UQwvloF2Lv+nFDcEDS7rNWfqD+GbNJor4mCjKzyVnQbxcNp
-         KjGGZplhFAzdRdxoajWBjjNgk42eLmfit+opl/ixMHsrE63KCAzIXyDIOLoZW+Ox1yhW
-         FSWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757926789; x=1758531589;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6LuFJVSHeAQHDn0+XSdf5A7eQdiJjAJ7onpQpF2BurQ=;
-        b=KjQrp7K7AJbkrbOyZRVlzPYmRzUb6wriNpO5gcGxBULZ3Pd3yvNWz41u3Jg7rpGw5h
-         IldoJGtXrqF7NfFnCv+yJRD1aylF3078JwqMF2khjey7w/z6DzMr5nhvj4PCY78ePKGV
-         okHdvsJ2eC+N9x1P9E18lr6uD/qIqJRnsMuoH0pNfn11TxgdZCdKm3EUWbW/N2hFk35B
-         ikpse6Y5yhscsTt5FmlC9MN8X3S12rV3y4v1fAs1/RYhQfizckUsFvVTJc5jrY5CoJDL
-         UOo7YrbMrFC9QiX4E4djLPj5jtsa9tNN3K+lR2zjVexZgcz7VdnsoYHZAbwV0Crol0ZT
-         m1gA==
-X-Forwarded-Encrypted: i=1; AJvYcCUXik7Z91DJwQ2Q9SnSvZm9xmoSA+WoBxd4VyfVytVA35zsSQCMTx5DPyTbrKiISn5iwYTimvep9u3qtpl1NYfT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDYUeeDH9tcL9/0XkmqxEXBIM1xSjlBLt8Snhbgbc0EkSOi71C
-	JR6PrjGe9pv45WTU6xCJq9VHgHSIgZcQGeRoHwThY/fJedxdSjXliWMr
-X-Gm-Gg: ASbGncv/kidpwj/94Khb2pWYW6pdnFxr0IYHOUoEKxJ1DVsYETzvIJcNppW7PoQFFWy
-	To/Y1dtnn9WFNQ4xziFmtBQZBsFz/G2m68mIARZpux11GweCnkwWEywfcNK1Xb/L2UWZOpEOAWN
-	G2cqQBjATs+SO67V4A1pZZ9ggC5pII708+YB/dyBXxMwVbSw+IWYMBOMedpG2jda/o7QO6lT7uC
-	OE05FRElGNLL55qbBTM8LgJBzZGfBNYKN06dfMGSTG2mUIyNRxFmXACore6k8HkaD5ww0TdZF+7
-	S3KXcTaC2FG+Fxvil/IdZsoUUtXWZp7PuFk3ekuvjXvSkZUSgZrwuCVLUu85ncTR1BpF7JHdxI2
-	uj5WXYnK65jkIyEKc1aICjN9+l/iGwIhHLV86W43MpYOGVPAw03U6EIWfoIfIgnZLJPIevPDJkm
-	1zDKPKZITtik8=
-X-Google-Smtp-Source: AGHT+IHPNlJyMCNv0p6hi8FUDXyC4LeGZ9hyO1d/g54G8GsV8O86kurfDHc3Bpeny255lVmyLx7p/w==
-X-Received: by 2002:a05:6000:4021:b0:3b9:148b:e78 with SMTP id ffacd0b85a97d-3e7659f46f8mr9388551f8f.53.1757926789143;
-        Mon, 15 Sep 2025 01:59:49 -0700 (PDT)
-Received: from [192.168.1.106] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e86602a7d5sm9370472f8f.62.2025.09.15.01.59.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Sep 2025 01:59:48 -0700 (PDT)
-Message-ID: <d23885a5-6d42-443a-bf19-eb6747e8ec47@gmail.com>
-Date: Mon, 15 Sep 2025 11:59:47 +0300
+	id 1uy540-00000003LG6-22QR;
+	Mon, 15 Sep 2025 08:59:57 +0000
+Received: from ideasonboard.com (mob-5-90-56-182.net.vodafone.it [5.90.56.182])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7B1C7346;
+	Mon, 15 Sep 2025 10:58:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757926715;
+	bh=1bv81qgssRPmX7JSSJSzYcQkRHnSBXBj0QjCUvFlfoM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bkienoBvij7Or3RoRcArKeF7h12b/srQR/TQmVP7M6WgptcGySgxVuj8y42p1Sjm6
+	 P41l2TjyiVuVQEHVIgkntdeC0E3lHs4qkhd06mkF6O4MaUUzsGWFwQkZtTyrcDRe5p
+	 3r6a7YfsH7c7dshF3mUn1vRyV0Jdzuk2oO42dGFk=
+Date: Mon, 15 Sep 2025 10:59:49 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Dan Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/8] media: uapi: Convert RkISP1 to V4L2 extensible
+ params
+Message-ID: <ffudipv64bfs2od7b6x7sfquqwqzr3n6a6zmbr4bu6ehd3rz25@3k7ycmqape2e>
+References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+ <20250820-extensible-parameters-validation-v4-2-30fe5a99cb1f@ideasonboard.com>
+ <20250908073949.GE4105@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
-Content-Language: en-US
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
- <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
- <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250908073949.GE4105@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015951_407524_BC3AA70E 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20250915_015956_720346_78AE23E9 
+X-CRM114-Status: GOOD (  48.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,230 +72,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/15/25 10:49, Peng Fan wrote:
-> On Sun, Sep 14, 2025 at 03:21:16PM +0300, Ivaylo Ivanov wrote:
->> Introduce a clocks management driver for exynos8890, providing clocks
->> for the peripherals of that SoC.
->>
->> As exynos8890 is the first SoC to have HWACG, it differs a bit from the
-> Hardware Auto Clock Gating(HWACG), if I understand correctly.
+Hi Laurent
+
+On Mon, Sep 08, 2025 at 09:39:49AM +0200, Laurent Pinchart wrote:
+> On Wed, Aug 20, 2025 at 02:58:10PM +0200, Jacopo Mondi wrote:
+> > With the introduction of common types for extensible parameters
+> > format, convert the rkisp1-config.h header to use the new types.
+> >
+> > Factor-out the documentation that is now part of the common header
+> > and only keep the driver-specific on in place.
+> >
+> > The conversion to use common types doesn't impact userspace as the
+> > new types are either identical to the ones already existing in the
+> > RkISP1 uAPI or are 1-to-1 type convertible.
+> >
+> > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > ---
+> >  include/uapi/linux/rkisp1-config.h | 67 +++++++++++++-------------------------
+> >  1 file changed, 23 insertions(+), 44 deletions(-)
+> >
+> > diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
+> > index 3b060ea6eed71b87d79abc8401eae4e9c9f5323a..fc040c7fb13cf18eaf8d9067e7be38bff120e6f6 100644
+> > --- a/include/uapi/linux/rkisp1-config.h
+> > +++ b/include/uapi/linux/rkisp1-config.h
+> > @@ -7,8 +7,13 @@
+> >  #ifndef _UAPI_RKISP1_CONFIG_H
+> >  #define _UAPI_RKISP1_CONFIG_H
+> >
+> > +#ifdef __KERNEL__
+> > +#include <linux/build_bug.h>
+> > +#endif /* __KERNEL__ */
+> >  #include <linux/types.h>
+> >
+> > +#include <linux/media/v4l2-extensible-params.h>
+> > +
+> >  /* Defect Pixel Cluster Detection */
+> >  #define RKISP1_CIF_ISP_MODULE_DPCC		(1U << 0)
+> >  /* Black Level Subtraction */
+> > @@ -1158,26 +1163,21 @@ enum rkisp1_ext_params_block_type {
+> >  	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
+> >  };
+> >
 >
->> newer SoCs. Q-channel and Q-state bits are separate registers, unlike
->> the CLK_CON_GAT_* ones that feature HWACG bits in the same register
->> that controls manual gating. Hence, don't use the clk-exynos-arm64
->> helper, but implement logic that enforces manual gating according to
->> how HWACG is implemented here.
->>
->> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> ---
->> drivers/clk/samsung/Makefile         |    1 +
->> drivers/clk/samsung/clk-exynos8890.c | 8695 ++++++++++++++++++++++++++
->> 2 files changed, 8696 insertions(+)
->> create mode 100644 drivers/clk/samsung/clk-exynos8890.c
->>
->> diff --git a/drivers/clk/samsung/Makefile b/drivers/clk/samsung/Makefile
->> index b77fe288e..982dc7c64 100644
->> --- a/drivers/clk/samsung/Makefile
->> +++ b/drivers/clk/samsung/Makefile
->> @@ -22,6 +22,7 @@ obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7870.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7885.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos850.o
->> +obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos8890.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos8895.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos990.o
->> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynosautov9.o
->> diff --git a/drivers/clk/samsung/clk-exynos8890.c b/drivers/clk/samsung/clk-exynos8890.c
->> new file mode 100644
->> index 000000000..670587bae
->> --- /dev/null
->> +++ b/drivers/clk/samsung/clk-exynos8890.c
->> @@ -0,0 +1,8695 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2025 Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> + * Author: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> + *
->> + * Common Clock Framework support for Exynos8890 SoC.
->> + */
->> +
->> +#include <linux/clk-provider.h>
->> +#include <linux/mod_devicetable.h>
->> +#include <linux/of_address.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include <dt-bindings/clock/samsung,exynos8890-cmu.h>
->> +
->> +#include "clk.h"
->> +
->> +/* NOTE: Must be equal to the last clock ID increased by one */
->> +#define TOP_NR_CLK	(CLK_GOUT_TOP_SCLK_PROMISE_DISP + 1)
->> +#define PERIS_NR_CLK	(CLK_GOUT_PERIS_SCLK_PROMISE_PERIS + 1)
->> +#define APOLLO_NR_CLK	(CLK_GOUT_APOLLO_SCLK_PROMISE_APOLLO + 1)
->> +#define AUD_NR_CLK	(CLK_GOUT_AUD_SCLK_I2S_BCLK + 1)
->> +#define BUS0_NR_CLK	(CLK_GOUT_BUS0_ACLK_TREX_P_BUS0 + 1)
->> +#define BUS1_NR_CLK	(CLK_GOUT_BUS1_ACLK_TREX_P_BUS1 + 1)
->> +#define CCORE_NR_CLK	(CLK_GOUT_CCORE_SCLK_PROMISE + 1)
->> +#define DISP0_NR_CLK	(CLK_GOUT_DISP0_OSCCLK_DP_I_CLK_24M + 1)
->> +#define DISP1_NR_CLK	(CLK_GOUT_DISP1_SCLK_PROMISE_DISP1 + 1)
->> +#define FSYS0_NR_CLK	(CLK_GOUT_FSYS0_SCLK_USBHOST20_REF_CLK + 1)
->> +#define FSYS1_NR_CLK	(CLK_GOUT_FSYS1_SCLK_PROMISE_FSYS1 + 1)
->> +#define G3D_NR_CLK	(CLK_GOUT_G3D_SCLK_ASYNCAXI_G3D + 1)
->> +#define MIF0_NR_CLK	(CLK_GOUT_MIF0_RCLK_DREX + 1)
->> +#define MIF1_NR_CLK	(CLK_GOUT_MIF1_RCLK_DREX + 1)
->> +#define MIF2_NR_CLK	(CLK_GOUT_MIF2_RCLK_DREX + 1)
->> +#define MIF3_NR_CLK	(CLK_GOUT_MIF3_RCLK_DREX + 1)
->> +#define MNGS_NR_CLK	(CLK_GOUT_MNGS_SCLK_PROMISE0_MNGS + 1)
->> +#define PERIC0_NR_CLK	(CLK_GOUT_PERIC0_SCLK_PWM + 1)
->> +#define PERIC1_NR_CLK	(CLK_GOUT_PERIC1_SCLK_UART5 + 1)
->> +
->> +/*
->> + * As exynos8890 first introduced hwacg, cmu registers are mapped similarly
->> + * to exynos7, with the exception of the new q-state and q-ch registers that
->> + * can set the behavior of automatic gates.
->> + */
->> +
->> +/* decoded magic number from downstream */
->> +#define QCH_EN_MASK		BIT(0)
->> +#define QCH_MASK		(GENMASK(19, 16) | BIT(12))
->> +#define QCH_DIS			(QCH_MASK | FIELD_PREP(QCH_EN_MASK, 0))
-> Nit: align code.
-
-Aligned in my editor, patch files offset each line with a single symbol
-so formatting gets broken...
-
+> /* For backward compatibility */
 >
->> +
->> +/* q-channel registers offsets range */
->> +#define QCH_OFF_START		0x2000
->> +#define QCH_OFF_END		0x23ff
->> +
->> +/* q-state registers offsets range */
->> +#define QSTATE_OFF_START	0x2400
->> +#define QSTATE_OFF_END		0x2fff
-> Nit: Align.
-
-What?
-
+> > -#define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+> > -#define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+> > +#define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE	V4L2_PARAMS_FL_BLOCK_DISABLE
+> > +#define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE	V4L2_PARAMS_FL_BLOCK_ENABLE
+> >
+> >  /* A bitmask of parameters blocks supported on the current hardware. */
+> >  #define RKISP1_CID_SUPPORTED_PARAMS_BLOCKS	(V4L2_CID_USER_RKISP1_BASE + 0x01)
+> >
+> >  /**
+> > - * struct rkisp1_ext_params_block_header - RkISP1 extensible parameters block
+> > - *					   header
+> > + * rkisp1_ext_params_block_header - RkISP1 extensible parameters block header
+> >   *
+> >   * This structure represents the common part of all the ISP configuration
+> > - * blocks. Each parameters block shall embed an instance of this structure type
+> > - * as its first member, followed by the block-specific configuration data. The
+> > - * driver inspects this common header to discern the block type and its size and
+> > - * properly handle the block content by casting it to the correct block-specific
+> > - * type.
+> > + * blocks and is identical to :c:type:`v4l2_params_block_header`.
+> >   *
+> > - * The @type field is one of the values enumerated by
+> > + * The type field is one of the values enumerated by
+> >   * :c:type:`rkisp1_ext_params_block_type` and specifies how the data should be
+> > - * interpreted by the driver. The @size field specifies the size of the
+> > + * interpreted by the driver. The size field specifies the size of the
+> >   * parameters block and is used by the driver for validation purposes.
+> >   *
+> >   * The @flags field is a bitmask of per-block flags RKISP1_EXT_PARAMS_FL_*.
 >
->> +
->> +/* check if the register offset is a QCH register */
->> +static bool is_qch_reg(unsigned long off)
->> +{
->> +	return off >= QCH_OFF_START && off <= QCH_OFF_END;
->> +}
->> +
->> +/* check if the register offset is a QSTATE register */
->> +static bool is_qstate_reg(unsigned long off)
->> +{
->> +	return off >= QSTATE_OFF_START && off <= QSTATE_OFF_END;
->> +}
->> +
->> +static void __init exynos8890_init_clocks(struct device_node *np,
->> +					  const struct samsung_cmu_info *cmu)
->> +{
->> +	const unsigned long *reg_offs = cmu->clk_regs;
->> +	size_t reg_offs_len = cmu->nr_clk_regs;
->> +	void __iomem *reg_base;
->> +	size_t i;
->> +
->> +	reg_base = of_iomap(np, 0);
->> +	if (!reg_base)
->> +		panic("%s: failed to map registers\n", __func__);
->> +
->> +	for (i = 0; i < reg_offs_len; ++i) {
->> +		void __iomem *reg = reg_base + reg_offs[i];
->> +		u32 val;
->> +
->> +		if (is_qch_reg(reg_offs[i])) {
->> +			val = QCH_DIS;
->> +			writel(val, reg);
->> +		} else if (is_qstate_reg(reg_offs[i])) {
->> +			val = 0;
->> +			writel(val, reg);
->> +		}
-> This seems to disable qchannel and set qstate to 0 for disable HWACG.
-> If this is true, a comment is preferred.
+> @flags leftover.
+>
+> > @@ -1193,14 +1193,14 @@ enum rkisp1_ext_params_block_type {
+> >   * If a new configuration of an ISP block has to be applied userspace shall
+> >   * fully populate the ISP block configuration and omit setting the
+> >   * RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE and RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bits
+> > - * in the @flags field.
+> > + * in the flags field.
+> >   *
+> >   * Setting both the RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE and
+> > - * RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bits in the @flags field is not allowed
+> > + * RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bits in the flags field is not allowed
+> >   * and not accepted by the driver.
+> >   *
+> >   * Userspace is responsible for correctly populating the parameters block header
+> > - * fields (@type, @flags and @size) and the block-specific parameters.
+> > + * fields (type, flags and size) and the block-specific parameters.
+>
+> Shouldn't you drop the parts of the documentation the duplicate
+> v4l2_params_block_header ? Same below.
 
-I believe the "DIS" part is pretty self explanatory, no?
+I don't think this part is duplicated. How driver handles
+ENABLE/DISABLE is still platform specific at the moment. Specifying
+that
+
+ * When userspace simply wants to disable an ISP block the
+ * RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bit should be set in @flags field. The
+ * driver ignores the rest of the block configuration structure in this case.
+
+documents a driver-specific behaviour as well as:
+
+
+ * If a new configuration of an ISP block has to be applied userspace shall
+ * fully populate the ISP block configuration and omit setting the
+ * RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE and RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bits
+ * in the flags field.
+
+and
+
+ * Setting both the RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE and
+ * RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE bits in the flags field is not allowed
+ * and not accepted by the driver.
+
+
+However, wWith the introduction of the generic validators in this
+series, all drivers using generic parameters implement the three above
+conditions, so I would rather move this part of documentation to
+v4l2_params_block_header ?
+
 
 >
->> +	}
->> +
->> +	iounmap(reg_base);
->> +}
->> +
->> +/* ---- CMU_TOP ------------------------------------------------------------- */
->> +
->> +#define MIF_CLK_CTRL1						0x1084
->> +#define MIF_CLK_CTRL2						0x1088
->> +#define MIF_CLK_CTRL3						0x108C
->> +#define MIF_CLK_CTRL4						0x1090
->> +#define ACD_PSCDC_CTRL_0					0x1094
->> +#define ACD_PSCDC_CTRL_1					0x1098
->> +#define ACD_PSCDC_STAT						0x109C
->> +#define CMU_TOP_SPARE0						0x1100
->> +#define CMU_TOP_SPARE1						0x1104
->> +#define CMU_TOP_SPARE2						0x1108
->> +#define CMU_TOP_SPARE3						0x110C
-> Some of the registers not aligned.
-
-How are they not, they're aligned both in editors and the patch. Please elaborate.
-
+> >   *
+> >   * For example:
+> >   *
+> > @@ -1220,17 +1220,8 @@ enum rkisp1_ext_params_block_type {
+> >   *		bls->config.fixed_val.gb = blackLevelGreenB_;
+> >   *		bls->config.fixed_val.b = blackLevelBlue_;
+> >   *	}
+> > - *
+> > - * @type: The parameters block type, see
+> > - *	  :c:type:`rkisp1_ext_params_block_type`
+> > - * @flags: A bitmask of block flags
+> > - * @size: Size (in bytes) of the parameters block, including this header
+> >   */
+> > -struct rkisp1_ext_params_block_header {
+> > -	__u16 type;
+> > -	__u16 flags;
+> > -	__u32 size;
+> > -};
+> > +#define rkisp1_ext_params_block_header v4l2_params_block_header
+> >
+> >  /**
+> >   * struct rkisp1_ext_params_bls_config - RkISP1 extensible params BLS config
+> > @@ -1594,21 +1585,7 @@ enum rksip1_ext_param_buffer_version {
+> >  /**
+> >   * struct rkisp1_ext_params_cfg - RkISP1 extensible parameters configuration
+> >   *
+> > - * This struct contains the configuration parameters of the RkISP1 ISP
+> > - * algorithms, serialized by userspace into a data buffer. Each configuration
+> > - * parameter block is represented by a block-specific structure which contains a
+> > - * :c:type:`rkisp1_ext_params_block_header` entry as first member. Userspace
+> > - * populates the @data buffer with configuration parameters for the blocks that
+> > - * it intends to configure. As a consequence, the data buffer effective size
+> > - * changes according to the number of ISP blocks that userspace intends to
+> > - * configure and is set by userspace in the @data_size field.
+> > - *
+> > - * The parameters buffer is versioned by the @version field to allow modifying
+> > - * and extending its definition. Userspace shall populate the @version field to
+> > - * inform the driver about the version it intends to use. The driver will parse
+> > - * and handle the @data buffer according to the data layout specific to the
+> > - * indicated version and return an error if the desired version is not
+> > - * supported.
+> > + * This is the driver-specific implementation of :c:type:`v4l2_params_buffer`.
+> >   *
+> >   * Currently the single RKISP1_EXT_PARAM_BUFFER_V1 version is supported.
+> >   * When a new format version will be added, a mechanism for userspace to query
+> > @@ -1624,11 +1601,6 @@ enum rksip1_ext_param_buffer_version {
+> >   * the maximum value represents the blocks supported by the kernel driver,
+> >   * independently of the device instance.
+> >   *
+> > - * For each ISP block that userspace wants to configure, a block-specific
+> > - * structure is appended to the @data buffer, one after the other without gaps
+> > - * in between nor overlaps. Userspace shall populate the @data_size field with
+> > - * the effective size, in bytes, of the @data buffer.
+> > - *
+> >   * The expected memory layout of the parameters buffer is::
+> >   *
+> >   *	+-------------------- struct rkisp1_ext_params_cfg -------------------+
+> > @@ -1678,4 +1650,11 @@ struct rkisp1_ext_params_cfg {
+> >  	__u8 data[RKISP1_EXT_PARAMS_MAX_SIZE];
+> >  };
+> >
+> > +#ifdef __KERNEL__
+> > +/* Make sure the header is type-convertible to the generic v4l2 params one */
+> > +static_assert((sizeof(struct rkisp1_ext_params_cfg) -
+> > +	      RKISP1_EXT_PARAMS_MAX_SIZE) ==
+> > +	      sizeof(struct v4l2_params_buffer));
+> > +#endif /* __KERNEL__ */
+> > +
+> >  #endif /* _UAPI_RKISP1_CONFIG_H */
+> >
+> > --
+> > 2.50.1
+> >
 >
->> +
-> [...]
->> +static void __init exynos8890_cmu_top_init(struct device_node *np)
->> +{
->> +	exynos8890_init_clocks(np, &top_cmu_info);
->> +	samsung_cmu_register_one(np, &top_cmu_info);
->> +}
->> +
->> +/* Register CMU_TOP early, as it's a dependency for other early domains */
->> +CLK_OF_DECLARE(exynos8890_cmu_top, "samsung,exynos8890-cmu-top",
->> +	       exynos8890_cmu_top_init);
-> Not sure you need to run Android GKI, without module built, this platform
-> will not able to support GKI.
+> --
+> Regards,
 >
-> It would be better to update to use platform drivers.
-
-Same as what Krzysztof said, design choice accross all samsung clock drivers.
-
+> Laurent Pinchart
 >
->> +
->> +/* ---- CMU_PERIS ---------------------------------------------------------- */
->> +
->> +#define QSTATE_CTRL_TMU				0x2474
->> +#define QSTATE_CTRL_CHIPID			0x2484
->> +#define QSTATE_CTRL_PROMISE_PERIS		0x2488
-> Not aligned.
->
->> +
->> +
->> +/* Register CMU_PERIS early, as it's needed for MCT timer */
->> +CLK_OF_DECLARE(exynos8890_cmu_peris, "samsung,exynos8890-cmu-peris",
->> +	       exynos8890_cmu_peris_init);
-> Same as above.
->
->> +
->> +/* ---- CMU_APOLLO --------------------------------------------------------- */
->> +
->> +/* Register Offset definitions for CMU_APOLLO (0x11900000) */
->> +#define APOLLO_PLL_LOCK				0x0000
->> +#define APOLLO_PLL_CON0				0x0100
->> +#define APOLLO_PLL_CON1				0x0104
->> +#define APOLLO_PLL_FREQ_DET			0x010C
-> Not align.
-
-Same as the other comments about alignment.
-
-Best regards,
-Ivaylo
-
->
-> Regards
-> Peng
->
-
 
