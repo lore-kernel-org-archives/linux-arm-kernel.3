@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A220CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266B9CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LgH8LX+EM3dcMOKqHeRxlX4TUeyhfjTTZyJNDSZg+4M=; b=k8iF3QaJ/LKpYILOlZRl6OqO7e
-	sgi2sVtoeXVqE5fKiYNl/N32ymsk/slwVd/F7nPvE3RQIyeddhtFLy5iU4+cYRRN1cH+RxZ6oYcIi
-	bQLkMb9kB4dqYvrtvrDsVwch0zHTK4GbWazRWkBe/g/KQkxbYHHuD43qVJWKlLbfJ+jXl09DcnYJh
-	7kho9YnCf54caUthrZoY11SE84LGP1Q7/UjNVjYS9fXm3P7bWpl+c89I83/63gL9a5JVMDcnekKlg
-	F9NSh4umEKFdVoCLhi8JYRYq2u45aIhMbKUS237KUF6K5nWjJJYSoFXFW96xGy0IJxLqXwv+covup
-	Mv7RJdJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GZ6vBa1QFNPyzc976BY/pO2MFElJimOQ67jwbTFbITY=; b=s7TBifQorPdz83ZW0dzg3Dtbq2
+	AmzcOVKWTexqZBS2XtOVUzP/4nHuYO7mIslbCaScudFkyV9BBqGp7oE/ufgevgmPOIhZUU5uVOx/v
+	bDkkSK5OSQQa7fNPi4y4FPHbAlA+l1VklzGQJFja3sk/jaO22ufomdjXv5h+7qK7NtAx4s20X6Rew
+	W8hh1FpzhNWBBuW7rBNk+IWGjfAB0V92+UAZGtECbztzCdpjPp2k4sP1UlhFx6vr5w/aRh3x/R3Hv
+	WQ97d283pU9+G2BW7VjaZR8VdYm49VZCxoI6Cp4VjruJM8tRRQCWyDPca6+3iAhQtR1uwdoy453Lt
+	NTOokBYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB2u-00000004uqO-05Mx;
-	Mon, 15 Sep 2025 15:23:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uyBAy-00000004xMz-1xo7;
+	Mon, 15 Sep 2025 15:31:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyB1g-00000004tDq-3Rmi;
-	Mon, 15 Sep 2025 15:21:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757949714;
-	bh=QBXnSmgBbqFHODyDh1LLzf0OUKFPjQHInbtAHK7mlQA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aUpaxbRpDvozAP2pCanpSAbiTVgCf1S6V3UkQs571nge+K4bYLAoeqkMgfFzk0B2e
-	 3muE/rsYZYTHC8m/ajXDjBfiFHk2MTE+fmSVoEwWj1KxId8qg8TFntbJ85Ac/Lvkbn
-	 RJGLsYsNnu+DHDUUdpPJjR62PUE94UDJv5tuWBr+ejJlt2mBh6tuZoMZCNtCpGe+zH
-	 aYTzR3fEOJ+fwb9s2BqOy8XeWBvWpqwm7WyUmSdDaukPsXrlIS+FORETGCqr1l+y3J
-	 gG8QvMbrV8PoFHQnT3AHzVlnCOB5+T7gLQtgTprq9OJEorHzTIUMkgVdSuXwTQLrxL
-	 mPkvVr76n0AoQ==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:1c8d:f5ba:823d:730b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E363317E1340;
-	Mon, 15 Sep 2025 17:21:53 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v6 27/27] clk: mediatek: Add MT8196 vencsys clock support
-Date: Mon, 15 Sep 2025 17:19:47 +0200
-Message-Id: <20250915151947.277983-28-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250915151947.277983-1-laura.nao@collabora.com>
-References: <20250915151947.277983-1-laura.nao@collabora.com>
+	id 1uyBAv-00000004xLX-2TbJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 15:31:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0BF49419C6;
+	Mon, 15 Sep 2025 15:31:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4703FC4CEF1;
+	Mon, 15 Sep 2025 15:31:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757950288;
+	bh=/6SecB83u1v8w/NbyVqyqydDInMYYCThfcOa2FnQ6dk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sRw248T3ndMFtl9dkaIozkjq9+OmsUtoXeVS/2ViJJiXXInmF5mPwvsyRfaVouLcj
+	 f1X4JoOzw7bIrGbtMpjh5nBEPQsIsEpwmymSBr3Qm9czUkA/15sgX2t/EggAHq04QX
+	 9AxYPUCYnKwFfcldSgS/czdTR6YAWPs6vao5OxpzHVnkt9KLOpd/DQp+RSHUDwXJOY
+	 ZeKGjhT+agUSQftAsF1U4MMkuCAx2d/e8F3oyiqf6JKv1M/FFALi8/BP77h+/Fwnz2
+	 u7U6Im+cXlrJ6glAFs8lfFcG1NO6UVhKHO6crDZ5LQ2qCn6Nzax30/Lj4fOlIjyhcd
+	 3sPyjKuu/cqPg==
+Date: Mon, 15 Sep 2025 16:31:22 +0100
+From: Daniel Thompson <danielt@kernel.org>
+To: maudspierings@gocontroll.com
+Cc: Lee Jones <lee@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
+	Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	MaudSpieringsmaudspierings@gocontroll.com
+Subject: Re: [PATCH v3 2/4] backlight: add max25014atg backlight
+Message-ID: <aMgxSokzn9Y9tyAs@aspen.lan>
+References: <20250911-max25014-v3-0-d03f4eba375e@gocontroll.com>
+ <20250911-max25014-v3-2-d03f4eba375e@gocontroll.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250911-max25014-v3-2-d03f4eba375e@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_082157_041202_D3E9DE87 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250915_083129_678363_A3D4B22C 
+X-CRM114-Status: GOOD (  33.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,292 +82,364 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 vencsys clock controller, which provides
-clock gate control for the video encoder.
+On Thu, Sep 11, 2025 at 09:53:19AM +0200, Maud Spierings via B4 Relay wrote:
+> diff --git a/drivers/video/backlight/max25014.c b/drivers/video/backlight/max25014.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f4ca79dfc39ccb04702e6114c35a5863f80b8853
+> --- /dev/null
+> +++ b/drivers/video/backlight/max25014.c
+> @@ -0,0 +1,394 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Backlight driver for Maxim MAX25014
+> + *
+> + * Copyright (C) 2025 GOcontroll B.V.
+> + * Author: Maud Spierings <maudspierings@gocontroll.com>
+> + */
+> +
+> +#include <linux/backlight.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/i2c.h>
+> +#include <linux/regmap.h>
+> +#include <linux/slab.h>
+> +
+> +#define MAX25014_ISET_DEFAULT_100 11
+> +#define MAX_BRIGHTNESS            100
+> +#define MIN_BRIGHTNESS            0
+> +#define TON_MAX                   130720 /* @153Hz */
+> +#define TON_STEP                  1307 /* @153Hz */
+> +#define TON_MIN                   0
+> +
+> +#define MAX25014_DEV_ID           0x00
+> +#define MAX25014_REV_ID           0x01
+> +#define MAX25014_ISET             0x02
+> +#define MAX25014_IMODE            0x03
+> +#define MAX25014_TON1H            0x04
+> +#define MAX25014_TON1L            0x05
+> +#define MAX25014_TON2H            0x06
+> +#define MAX25014_TON2L            0x07
+> +#define MAX25014_TON3H            0x08
+> +#define MAX25014_TON3L            0x09
+> +#define MAX25014_TON4H            0x0A
+> +#define MAX25014_TON4L            0x0B
+> +#define MAX25014_TON_1_4_LSB      0x0C
+> +#define MAX25014_SETTING          0x12
+> +#define MAX25014_DISABLE          0x13
+> +#define MAX25014_BSTMON           0x14
+> +#define MAX25014_IOUT1            0x15
+> +#define MAX25014_IOUT2            0x16
+> +#define MAX25014_IOUT3            0x17
+> +#define MAX25014_IOUT4            0x18
+> +#define MAX25014_OPEN             0x1B
+> +#define MAX25014_SHORT_GND        0x1C
+> +#define MAX25014_SHORT_LED        0x1D
+> +#define MAX25014_MASK             0x1E
+> +#define MAX25014_DIAG             0x1F
+> +
+> +#define MAX25014_IMODE_HDIM       BIT(2)
+> +#define MAX25014_ISET_ENABLE      BIT(5)
+> +#define MAX25014_ISET_PSEN        BIT(4)
+> +#define MAX25014_DIAG_HW_RST      BIT(2)
+> +#define MAX25014_SETTING_FPWM     GENMASK(6, 4)
+> +
+> +struct max25014 {
+> +	struct i2c_client *client;
+> +	struct backlight_device *bl;
+> +	struct regmap *regmap;
+> +	struct gpio_desc *enable;
+> +	struct regulator *vin; /* regulator for boost converter Vin rail */
+> +	uint32_t iset;
+> +	uint8_t strings_mask;
+> +};
+> +
+> +static const struct regmap_config max25014_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 8,
+> +	.max_register = MAX25014_DIAG,
+> +};
+> +
+> +/**
+> + * @brief control the brightness with i2c registers
+> + *
+> + * @param regmap trivial
+> + * @param brt brightness
+> + * @return int
+> + */
+> +static int max25014_register_control(struct regmap *regmap, uint32_t brt)
+> +{
+> +	uint32_t reg = TON_STEP * brt;
+> +	int ret;
+> +	/*
+> +	 * 18 bit number lowest, 2 bits in first register,
+> +	 * next lowest 8 in the L register, next 8 in the H register
+> +	 * Seemingly setting the strength of only one string controls all of
+> +	 * them, individual settings don't affect the outcome.
+> +	 */
+> +
+> +	ret = regmap_write(regmap, MAX25014_TON_1_4_LSB, reg & 0b00000011);
+> +	if (ret != 0)
+> +		return ret;
+> +	ret = regmap_write(regmap, MAX25014_TON1L, (reg >> 2) & 0b11111111);
+> +	if (ret != 0)
+> +		return ret;
+> +	return regmap_write(regmap, MAX25014_TON1H, (reg >> 10) & 0b11111111);
+> +}
+> +
+> +static int max25014_check_errors(struct max25014 *maxim)
+> +{
+> +	uint8_t i;
+> +	int ret;
+> +	uint32_t val;
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_OPEN, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
+> +		dev_err(&maxim->client->dev, "Open led strings detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
+> +		dev_err(&maxim->client->dev, "Short to ground detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	if (val > 0) {
+> +		dev_err(&maxim->client->dev, "Shorted led detected on:\n");
+> +		for (i = 0; i < 4; i++) {
+> +			if (val & 1 << i)
+> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
+> +		}
+> +		return -EIO;
+> +	}
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_DIAG, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +	/*
+> +	 * The HW_RST bit always starts at 1 after power up.
+> +	 * It is reset on first read, does not indicate an error.
+> +	 */
+> +	if (val > 0 && val != MAX25014_DIAG_HW_RST) {
+> +		if (val & 0b1)
+> +			dev_err(&maxim->client->dev, "Overtemperature shutdown\n");
+> +		if (val & 0b10)
+> +			dev_warn(&maxim->client->dev,
+> +				 "Chip is getting too hot (>125C)\n");
 
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/clk/mediatek/Kconfig           |   7 +
- drivers/clk/mediatek/Makefile          |   1 +
- drivers/clk/mediatek/clk-mt8196-venc.c | 236 +++++++++++++++++++++++++
- 3 files changed, 244 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
+The dev_warn() looks a bit odd here. Even through the hardware is alive
+the drive reacts to this warning by refusing to probe.
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 939d7d27c0c8..0e8dd82aa84e 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1066,6 +1066,13 @@ config COMMON_CLK_MT8196_VDECSYS
- 	help
- 	  This driver supports MediaTek MT8196 vdecsys clocks.
- 
-+config COMMON_CLK_MT8196_VENCSYS
-+	tristate "Clock driver for MediaTek MT8196 vencsys"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 vencsys clocks.
-+
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 131582b12783..d8736a060dbd 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -162,6 +162,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_MMSYS) += clk-mt8196-disp0.o clk-mt8196-disp1.o c
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8196_VDECSYS) += clk-mt8196-vdec.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_VENCSYS) += clk-mt8196-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-venc.c b/drivers/clk/mediatek/clk-mt8196-venc.c
-new file mode 100644
-index 000000000000..13e2e36e945f
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-venc.c
-@@ -0,0 +1,236 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
-+
-+static const struct mtk_gate_regs ven10_cg_regs = {
-+	.set_ofs = 0x4,
-+	.clr_ofs = 0x8,
-+	.sta_ofs = 0x0,
-+};
-+
-+static const struct mtk_gate_regs ven10_hwv_regs = {
-+	.set_ofs = 0x00b8,
-+	.clr_ofs = 0x00bc,
-+	.sta_ofs = 0x2c5c,
-+};
-+
-+static const struct mtk_gate_regs ven11_cg_regs = {
-+	.set_ofs = 0x10,
-+	.clr_ofs = 0x14,
-+	.sta_ofs = 0x10,
-+};
-+
-+static const struct mtk_gate_regs ven11_hwv_regs = {
-+	.set_ofs = 0x00c0,
-+	.clr_ofs = 0x00c4,
-+	.sta_ofs = 0x2c60,
-+};
-+
-+#define GATE_VEN10(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr_inv,	\
-+	}
-+
-+#define GATE_HWV_VEN10_FLAGS(_id, _name, _parent, _shift, _flags) {	\
-+		.id = _id,						\
-+		.name = _name,						\
-+		.parent_name = _parent,					\
-+		.regs = &ven10_cg_regs,					\
-+		.hwv_regs = &ven10_hwv_regs,				\
-+		.shift = _shift,					\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,		\
-+		.flags = (_flags) |					\
-+			 CLK_OPS_PARENT_ENABLE,				\
-+	}
-+
-+#define GATE_HWV_VEN10(_id, _name, _parent, _shift)	\
-+	GATE_HWV_VEN10_FLAGS(_id, _name, _parent, _shift, 0)
-+
-+#define GATE_HWV_VEN11(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,			\
-+		.hwv_regs = &ven11_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE		\
-+	}
-+
-+static const struct mtk_gate ven1_clks[] = {
-+	/* VEN10 */
-+	GATE_HWV_VEN10(CLK_VEN1_CKE0_LARB, "ven1_larb", "venc", 0),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE1_VENC, "ven1_venc", "venc", 4),
-+	GATE_VEN10(CLK_VEN1_CKE2_JPGENC, "ven1_jpgenc", "venc", 8),
-+	GATE_VEN10(CLK_VEN1_CKE3_JPGDEC, "ven1_jpgdec", "venc", 12),
-+	GATE_VEN10(CLK_VEN1_CKE4_JPGDEC_C1, "ven1_jpgdec_c1", "venc", 16),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE5_GALS, "ven1_gals", "venc", 28),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE29_VENC_ADAB_CTRL, "ven1_venc_adab_ctrl",
-+			"venc", 29),
-+	GATE_HWV_VEN10_FLAGS(CLK_VEN1_CKE29_VENC_XPC_CTRL,
-+			      "ven1_venc_xpc_ctrl", "venc", 30,
-+			      CLK_IGNORE_UNUSED),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE6_GALS_SRAM, "ven1_gals_sram", "venc", 31),
-+	/* VEN11 */
-+	GATE_HWV_VEN11(CLK_VEN1_RES_FLAT, "ven1_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven1_mcd = {
-+	.clks = ven1_clks,
-+	.num_clks = ARRAY_SIZE(ven1_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct mtk_gate_regs ven20_hwv_regs = {
-+	.set_ofs = 0x00c8,
-+	.clr_ofs = 0x00cc,
-+	.sta_ofs = 0x2c64,
-+};
-+
-+static const struct mtk_gate_regs ven21_hwv_regs = {
-+	.set_ofs = 0x00d0,
-+	.clr_ofs = 0x00d4,
-+	.sta_ofs = 0x2c68,
-+};
-+
-+#define GATE_VEN20(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr_inv,	\
-+	}
-+
-+#define GATE_HWV_VEN20(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.hwv_regs = &ven20_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VEN21(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,			\
-+		.hwv_regs = &ven21_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE		\
-+	}
-+
-+static const struct mtk_gate ven2_clks[] = {
-+	/* VEN20 */
-+	GATE_HWV_VEN20(CLK_VEN2_CKE0_LARB, "ven2_larb", "venc", 0),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE1_VENC, "ven2_venc", "venc", 4),
-+	GATE_VEN20(CLK_VEN2_CKE2_JPGENC, "ven2_jpgenc", "venc", 8),
-+	GATE_VEN20(CLK_VEN2_CKE3_JPGDEC, "ven2_jpgdec", "venc", 12),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE5_GALS, "ven2_gals", "venc", 28),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE29_VENC_XPC_CTRL, "ven2_venc_xpc_ctrl", "venc", 30),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE6_GALS_SRAM, "ven2_gals_sram", "venc", 31),
-+	/* VEN21 */
-+	GATE_HWV_VEN21(CLK_VEN2_RES_FLAT, "ven2_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven2_mcd = {
-+	.clks = ven2_clks,
-+	.num_clks = ARRAY_SIZE(ven2_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct mtk_gate_regs ven_c20_hwv_regs = {
-+	.set_ofs = 0x00d8,
-+	.clr_ofs = 0x00dc,
-+	.sta_ofs = 0x2c6c,
-+};
-+
-+static const struct mtk_gate_regs ven_c21_hwv_regs = {
-+	.set_ofs = 0x00e0,
-+	.clr_ofs = 0x00e4,
-+	.sta_ofs = 0x2c70,
-+};
-+
-+#define GATE_HWV_VEN_C20(_id, _name, _parent, _shift) {\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,		\
-+		.hwv_regs = &ven_c20_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VEN_C21(_id, _name, _parent, _shift) {\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,		\
-+		.hwv_regs = &ven_c21_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+static const struct mtk_gate ven_c2_clks[] = {
-+	/* VEN_C20 */
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE0_LARB, "ven_c2_larb", "venc", 0),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE1_VENC, "ven_c2_venc", "venc", 4),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE5_GALS, "ven_c2_gals", "venc", 28),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE29_VENC_XPC_CTRL, "ven_c2_venc_xpc_ctrl",
-+			  "venc", 30),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE6_GALS_SRAM, "ven_c2_gals_sram", "venc", 31),
-+	/* VEN_C21 */
-+	GATE_HWV_VEN_C21(CLK_VEN_C2_RES_FLAT, "ven_c2_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven_c2_mcd = {
-+	.clks = ven_c2_clks,
-+	.num_clks = ARRAY_SIZE(ven_c2_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_venc[] = {
-+	{ .compatible = "mediatek,mt8196-vencsys", .data = &ven1_mcd },
-+	{ .compatible = "mediatek,mt8196-vencsys-c1", .data = &ven2_mcd },
-+	{ .compatible = "mediatek,mt8196-vencsys-c2", .data = &ven_c2_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_venc);
-+
-+static struct platform_driver clk_mt8196_venc_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8196-venc",
-+		.of_match_table = of_match_clk_mt8196_venc,
-+	},
-+};
-+module_platform_driver(clk_mt8196_venc_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 Video Encoders clocks driver");
-+MODULE_LICENSE("GPL");
--- 
-2.39.5
+That problem means this should be dev_err() like all the other issues
+here.
 
+
+> +		if (val & 0b1000)
+> +			dev_err(&maxim->client->dev, "Boost converter overvoltage\n");
+> +		if (val & 0b10000)
+> +			dev_err(&maxim->client->dev, "Boost converter undervoltage\n");
+> +		if (val & 0b100000)
+> +			dev_err(&maxim->client->dev, "IREF out of range\n");
+> +		return -EIO;
+> +	}
+> +	return 0;
+> +}
+> +
+> +/*
+> + * 1. disable unused strings
+> + * 2. set dim mode
+> + * 3. set initial brightness
+> + * 4. set setting register
+> + * 5. enable the backlight
+> + */
+> +static int max25014_configure(struct max25014 *maxim, uint32_t initial_brightness)
+> +{
+> +	int ret;
+> +	uint32_t val;
+> +
+> +	ret = regmap_write(maxim->regmap, MAX25014_DISABLE,
+> +			   maxim->strings_mask);
+> +	if (ret != 0)
+> +		return ret;
+> +
+> +	ret = regmap_write(maxim->regmap, MAX25014_IMODE, MAX25014_IMODE_HDIM);
+> +	if (ret != 0)
+> +		return ret;
+> +
+> +	max25014_register_control(maxim->regmap,
+> +				  initial_brightness);
+> +
+> +	ret = regmap_read(maxim->regmap, MAX25014_SETTING, &val);
+> +	if (ret != 0)
+> +		return ret;
+> +
+> +	ret = regmap_write(
+> +		maxim->regmap, MAX25014_SETTING,
+> +		val & ~MAX25014_SETTING_FPWM);
+> +	if (ret != 0)
+> +		return ret;
+> +
+> +	ret = regmap_write(maxim->regmap, MAX25014_ISET,
+> +			   maxim->iset | MAX25014_ISET_ENABLE | MAX25014_ISET_PSEN);
+> +	return ret;
+> +}
+> +
+> +static int max25014_update_status(struct backlight_device *bl_dev)
+> +{
+> +	struct max25014 *maxim = bl_get_data(bl_dev);
+> +
+> +	if (bl_dev->props.state & BL_CORE_SUSPENDED)
+> +		bl_dev->props.brightness = 0;
+
+This should be using the backlight_is_blank() helper rather than
+fiddling with the state variables.
+
+
+> +
+> +	return max25014_register_control(maxim->regmap, bl_dev->props.brightness);
+> +}
+> +
+> +static const struct backlight_ops max25014_bl_ops = {
+> +	.options = BL_CORE_SUSPENDRESUME,
+> +	.update_status = max25014_update_status,
+> +};
+> +
+> +static int max25014_parse_dt(struct max25014 *maxim, uint32_t *initial_brightness)
+> +{
+> +	struct device *dev = &maxim->client->dev;
+> +	struct device_node *node = dev->of_node;
+> +	uint32_t strings[4];
+> +	int res, i;
+> +
+> +	if (!node) {
+> +		dev_err(dev, "no platform data\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	res = of_property_count_u32_elems(node, "maxim,strings");
+> +	if (res == 4) {
+> +		of_property_read_u32_array(node, "maxim,strings", strings, 4);
+> +	} else {
+> +		dev_err(dev, "strings property not correctly defined\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	for (i = 0; i < 4; i++) {
+> +		if (strings[i] == 0)
+> +			maxim->strings_mask |= 1 << i;
+> +	}
+> +
+> +	*initial_brightness = 50U;
+> +	of_property_read_u32(node, "default-brightness", initial_brightness);
+> +	maxim->iset = MAX25014_ISET_DEFAULT_100;
+> +	of_property_read_u32(node, "maxim,iset", &maxim->iset);
+> +
+> +	if (maxim->iset < 0 || maxim->iset > 15) {
+> +		dev_err(dev,
+> +			"Invalid iset, should be a value from 0-15, entered was %d\n",
+> +			maxim->iset);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (*initial_brightness < 0 || *initial_brightness > 100) {
+> +		dev_err(dev,
+> +			"Invalid initial brightness, should be a value from 0-100, entered was %d\n",
+> +			*initial_brightness);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int max25014_probe(struct i2c_client *cl)
+> +{
+> +	struct backlight_device *bl;
+> +	const struct i2c_device_id *id = i2c_client_get_device_id(cl);
+> +	struct max25014 *maxim;
+> +	struct backlight_properties props;
+> +	int ret;
+> +	uint32_t initial_brightness;
+> +
+> +	maxim = devm_kzalloc(&cl->dev, sizeof(struct max25014), GFP_KERNEL);
+> +	if (!maxim)
+> +		return -ENOMEM;
+> +
+> +	maxim->client = cl;
+> +
+> +	ret = max25014_parse_dt(maxim, &initial_brightness);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	maxim->vin = devm_regulator_get(&maxim->client->dev, "power");
+> +	if (IS_ERR(maxim->vin)) {
+> +		if (PTR_ERR(maxim->vin) == -EPROBE_DEFER)
+> +			return -EPROBE_DEFER;
+> +		maxim->vin = NULL;
+> +	}
+> +
+> +	if (maxim->vin) {
+> +		ret = regulator_enable(maxim->vin);
+> +		if (ret < 0) {
+> +			dev_err(&maxim->client->dev, "failed to enable Vin: %d\n", ret);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	maxim->enable =
+> +		devm_gpiod_get_optional(&maxim->client->dev, "enable", GPIOD_ASIS);
+> +	if (IS_ERR(maxim->enable)) {
+> +		ret = PTR_ERR(maxim->enable);
+> +		dev_err(&maxim->client->dev, "failed to get enable gpio: %d\n", ret);
+> +		goto disable_vin;
+> +	}
+> +
+> +	if (maxim->enable) {
+> +		gpiod_set_value_cansleep(maxim->enable, 1);
+> +
+> +		/* Datasheet Electrical Characteristics tSTARTUP 2ms */
+> +		usleep_range(2000, 2500);
+> +	}
+> +
+> +	maxim->regmap = devm_regmap_init_i2c(cl, &max25014_regmap_config);
+> +	if (IS_ERR(maxim->regmap)) {
+> +		ret = PTR_ERR(maxim->regmap);
+> +		dev_err(&maxim->client->dev, "failed to initialize the i2c regmap: %d\n", ret);
+> +		goto disable_full;
+> +	}
+> +
+> +	i2c_set_clientdata(cl, maxim);
+> +
+> +	ret = max25014_check_errors(maxim);
+> +	if (ret) { /* error is already reported in the above function */
+> +		goto disable_full;
+> +	}
+> +
+> +	ret = max25014_configure(maxim, initial_brightness);
+> +	if (ret) {
+> +		dev_err(&maxim->client->dev, "device config err: %d", ret);
+> +		goto disable_full;
+> +	}
+> +
+> +	memset(&props, 0, sizeof(props));
+> +	props.type = BACKLIGHT_PLATFORM;
+> +	props.max_brightness = MAX_BRIGHTNESS;
+
+Please ensure that props.scale is set to something better than UNKNOWN.
+
+
+Daniel.
 
