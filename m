@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00387CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679C2CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBqLv9PKfkjQ5gHdhF4wTG1dPataaxf3ZKCMa9QOkTA=; b=EkP5+rEYCIoF99mPadUsL+JAYu
-	PMs8ArYWSi6fdCpxPNfEqgH0DEdDRvCu4D+XlX0zCogkw8ybPtkCJpXrgHb/4exYlDZewZhmbh6ZF
-	1IbbNy0Ka5PLbbsYeGh60U0o/HipeT4IKFr2HdEcWBcZFAMBxFX2IRybFR+J/behb9SvDjtTXJrWG
-	iwfsUzV7F0AQHwSXSiKiZirsR1GqwvkW3uMAWT5vQFRoEyDviJECC19VrJ+AOJVVuOqO2JcQYy8Xa
-	Zy6fD1jDET4GRut8khwEs4UzJwrcDc/0xIXi2rE3Qz5KSBBYfU33U+u1mytoCtL00wc2Y49+s1z/E
-	xqcIKTDQ==;
+	bh=Ic9o+VndUXPRx8kTEScNKikd2uC1KP5uDpqoGdmWmrU=; b=OwS69OipKRoAj45LBa/ebKVP4e
+	ehkZAlvHeGtVMtgd8BLSlnuSOu2foA9eoVYm8Rs18kRs6fOMfI7TXo1Sc0yF0fGpy4rlhTS9lgoCa
+	A9i1X3le5RcRtjrSF9H5va4zFqVPADEZoxi3IVix2nHmhaMNKJOTff//5NcQhuLzKuldt/+Xr36z3
+	DUf/P9TRv+iIP+f9kV1Kxc6kCJ4abLPr8HbZEBnOqF/WDq9TEO9J03/2OcUG4+CkvFNhM1tFtHMVa
+	60vDQS0tetwAU3LnV3n3c0CQ43zyQKe737ccDb7CbRhq1yudVoOfc01Anpd0rdTKJLP5VyhH83729
+	X21rqZyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51a-00000003JAB-2fL0;
+	id 1uy51a-00000003J9T-14tV;
 	Mon, 15 Sep 2025 08:57:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51P-00000003IwJ-2IT5
+	id 1uy51Q-00000003IyJ-2g9o
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 15 Sep 2025 08:57:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8716F441A6;
+	by sea.source.kernel.org (Postfix) with ESMTP id E771F44804;
 	Mon, 15 Sep 2025 08:57:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6571EC4CEFE;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74A6C4CEF1;
 	Mon, 15 Sep 2025 08:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757926634;
-	bh=b54oXtSJ1jOB+4cqyMvjMq57VTZoxc0ThWvLI8ltuVk=;
+	bh=jQHOrUvrdulPrMOQtn05zaOApqc5lhkt4nBzVAEvlWw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KjPSf40E6TotVtFTseCZ7k5hHBxe+ZImDQR8/ElNulpp1ve3o5p7KZtWzGE1Uievc
-	 HNEo1y0XrLTxaI+SS7UgL5iihkLl4XwI1HrDaVkNG5jVMH41Y8giZbualFPiUGSupB
-	 ADA2Xj49/pL8+VMyijdfe2CSY/h4EwDaQ3I6kyOqU5lbKqqwGQogwlZdUv/AM5+wah
-	 Q+1KtZu2QYlaXID8IHFsUfizBmipkYTno0xtl/ZPrdmgJD0SOcXrWTnTjmIK+iMCtS
-	 UlF4BP4og2EADhqlcbUPOPkW8BFFli5xuCGxoAo8/DcXiZjQRDn7mvFqHACbtPmspZ
-	 Ymky/Wof7u3yw==
+	b=mhEZNaJCOef+kjuudwquagxii3vPQdIanoRj6OFfUnBUUlN8fm1rbJPQ9S/BKrvQ5
+	 Zp9O5ZOgux068/m4Ixy7HyArw1cavqKQCIG38Ty619Yol5Zrpg9fcoHnpiSutswoEP
+	 ZhDyAmdGgCwSHjwH3sboQ6OpDdH0E4elI7JagqhJjLI53VC2RTjb8Kqyq8VUaDSZgV
+	 ts6gu2rdjlmbLjaRoL7cmjuVkxlfhkI0LTSEi4w5vHM8nEU2+7kJ+5Ll21n2HS6b0i
+	 tGNT0O39khZcX2QW0P2fgLQfe3cZ7uehBs4plY/jSX62UgLhJCd2pFoxO3mhpaHt07
+	 0Gmrl39nppT7g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy51M-00000006IHP-1kaB;
+	id 1uy51M-00000006IHP-3uqQ;
 	Mon, 15 Sep 2025 08:57:12 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 05/25] irqchip/gic-v3: Add FW info retrieval support
-Date: Mon, 15 Sep 2025 09:56:42 +0100
-Message-Id: <20250915085702.519996-6-maz@kernel.org>
+Subject: [PATCH v2 07/25] coresight: trbe: Convert to new IRQ affinity retrieval API
+Date: Mon, 15 Sep 2025 09:56:44 +0100
+Message-Id: <20250915085702.519996-8-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915085702.519996-1-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
@@ -76,8 +76,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015715_622513_FAFE66DB 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250915_015716_749121_37853E8F 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,104 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug the new .get_info() callback into the GICv3 core driver,
-using some of the existing PPI affinity handling infrastructure.
+Now that the relevant interrupt controllers are equipped with
+a callback returning the affinity of per-CPU interrupts, switch
+the TRBE driver over to this new method.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v3.c | 53 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index dbeb85677b08c..71c278ddd1e39 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -69,6 +69,8 @@ struct gic_chip_data {
- 	bool			has_rss;
- 	unsigned int		ppi_nr;
- 	struct partition_desc	**ppi_descs;
-+	struct partition_affinity *parts;
-+	unsigned int		nr_parts;
- };
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130d..c512f8faa6012 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1472,9 +1472,10 @@ static void arm_trbe_remove_cpuhp(struct trbe_drvdata *drvdata)
+ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 			      struct trbe_drvdata *drvdata)
+ {
++	const struct cpumask *affinity;
+ 	int ret;
  
- #define T241_CHIPS_MAX		4
-@@ -1796,11 +1798,58 @@ static int gic_irq_domain_select(struct irq_domain *d,
- 	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
- }
- 
-+static int gic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
-+{
-+	const struct cpumask *mask = NULL;
-+
-+	info->flags = 0;
-+	info->affinity = NULL;
-+
-+	/* ACPI is not capable of describing PPI affinity -- yet */
-+	if (!is_of_node(fwspec->fwnode))
-+		return 0;
-+
-+	/* If the specifier provides an affinity, use it */
-+	if (fwspec->param_count == 4 && fwspec->param[3]) {
-+		struct fwnode_handle *fw;
-+
-+		switch (fwspec->param[0]) {
-+		case 1:			/* PPI */
-+		case 3:			/* EPPI */
-+			break;
-+		default:
-+			return 0;
-+		}
-+
-+		fw = of_node_to_fwnode(of_find_node_by_phandle(fwspec->param[3]));
-+		if (!fw)
-+			return -ENOENT;
-+
-+		for (int i = 0; i < gic_data.nr_parts; i++) {
-+			if (gic_data.parts[i].partition_id == fw) {
-+				mask = &gic_data.parts[i].mask;
-+				break;
-+			}
-+		}
-+
-+		if (!mask)
-+			return -ENOENT;
-+	} else {
-+		mask = cpu_possible_mask;
-+	}
-+
-+	info->affinity = mask;
-+	info->flags = IRQ_FWSPEC_INFO_AFFINITY_VALID;
-+
-+	return 0;
-+}
-+
- static const struct irq_domain_ops gic_irq_domain_ops = {
- 	.translate = gic_irq_domain_translate,
- 	.alloc = gic_irq_domain_alloc,
- 	.free = gic_irq_domain_free,
- 	.select = gic_irq_domain_select,
-+	.get_fwspec_info = gic_irq_get_fwspec_info,
- };
- 
- static int partition_domain_translate(struct irq_domain *d,
-@@ -1839,6 +1888,7 @@ static int partition_domain_translate(struct irq_domain *d,
- static const struct irq_domain_ops partition_domain_ops = {
- 	.translate = partition_domain_translate,
- 	.select = gic_irq_domain_select,
-+	.get_fwspec_info = gic_irq_get_fwspec_info,
- };
- 
- static bool gic_enable_quirk_msm8996(void *data)
-@@ -2231,6 +2281,9 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
- 		part_idx++;
+-	drvdata->irq = platform_get_irq(pdev, 0);
++	drvdata->irq = platform_get_irq_affinity(pdev, 0, &affinity);
+ 	if (drvdata->irq < 0) {
+ 		pr_err("IRQ not found for the platform device\n");
+ 		return drvdata->irq;
+@@ -1485,8 +1486,7 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 		return -EINVAL;
  	}
  
-+	gic_data.parts = parts;
-+	gic_data.nr_parts = nr_parts;
-+
- 	for (i = 0; i < gic_data.ppi_nr; i++) {
- 		unsigned int irq;
- 		struct partition_desc *desc;
+-	if (irq_get_percpu_devid_partition(drvdata->irq, &drvdata->supported_cpus))
+-		return -EINVAL;
++	cpumask_copy(&drvdata->supported_cpus, affinity);
+ 
+ 	drvdata->handle = alloc_percpu(struct perf_output_handle *);
+ 	if (!drvdata->handle)
 -- 
 2.39.2
 
