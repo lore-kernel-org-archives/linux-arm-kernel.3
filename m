@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B06CCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCE3CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LaNNoYa5Du7iCqkc2oPxcr71/D7vogeLUkEIi2fqLmY=; b=t0TM1JMMoBYe15ZL5imSTGxBoB
-	LrLDlStkEU5lo2QrlIVvYlfsGVNTWi5skaTnY4nWBN/8fxRLMWbc/8ohv3+How+mxiZVy7UfcyTDY
-	PcpU6eAMeDDfdixyVriIDOA0o+CVEsjpoEwLv922Qk5Iuqn6LiN3rrBKBPSHAejq3ALcZufTwLk/N
-	zEBa7aa8IrlOwu4FcBT9i7YcYb1nCfoyEW/RlUF1uFqF4tfW2SNwAZwGCyTGwXo8At+bNQj271SW7
-	gSbXokgOZLlDOBW70e+G58netK62xMV1Y80LKkK/GRjmKHlBUpo62/KQObxsK581pDUQfE40gxy9b
-	d2RsvArg==;
+	bh=Jr7rEBCmFrQx5wpGGNmncNNXlSFxjm3AfJnWaVt0LK8=; b=jgkLSRJzACivLsHKR2jXkCOF0h
+	90Spdysj2Y2nfQW7FGLN2q9ufVxuHnWDX0dJpeoYUFp7wfMa1+VVng3dJ53kbHFwxebxAWvNTBPQA
+	x77sD3kmGyqlnRiAUI7TxCze1qtXNI/bAsGgoIRq+oT2Y2satDNeal+zqYNdPnRV3ovMK99KgvyNP
+	lsi+DDDbSZ6isZzUTuvUg7hUGozesn7WhrcEXj0DXWa1DgYDOsp8X/ABrftP6mtjCcQ7TBpL0l6Ny
+	qFBMOQcei4Gbbaryt6PEGwZJcm4mVBb9yfbr3P66oX2bbCpSVOLshTqfJGIOf7mSe4Kg43AptJTqf
+	FddWJh2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5O7-00000003RER-372Q;
-	Mon, 15 Sep 2025 09:20:43 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uy5RG-00000003SK4-3TMU;
+	Mon, 15 Sep 2025 09:23:58 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5Ns-00000003QxL-1tcR;
-	Mon, 15 Sep 2025 09:20:29 +0000
-X-UUID: 34637f18921511f09f706fa2197c6ceb-20250915
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=LaNNoYa5Du7iCqkc2oPxcr71/D7vogeLUkEIi2fqLmY=;
-	b=u6mHfz4Cf7JJtwYtnM5JBa21swJExdqPeFVwOrmnNt3C9bu5IgZLki5zJuEZbcuWHbdlwARlUSR6V/K/rKSe0EN4fcAFvxgnsSYsI2EUjQEuZ/yRx5c0vdpQrrCgg7Qk2+VLigEedtZNXYdK+x7s3635X3PRFpSQzzyDgNJSug4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:1b0b4af8-4c71-453d-89ee-ca4ff5988cc5,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:1ca6b93,CLOUDID:50ad4ff8-ebfe-43c9-88c9-80cb93f22ca4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 34637f18921511f09f706fa2197c6ceb-20250915
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 43215453; Mon, 15 Sep 2025 02:20:21 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 15 Sep 2025 17:20:18 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 15 Sep 2025 17:20:17 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
-	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>
-Subject: [PATCH v3 8/8] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Mon, 15 Sep 2025 17:19:58 +0800
-Message-ID: <20250915091958.31509-9-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250915091958.31509-1-kyrie.wu@mediatek.com>
-References: <20250915091958.31509-1-kyrie.wu@mediatek.com>
+	id 1uy5RD-00000003SIM-1TyB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 09:23:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1757928233;
+	bh=ibrtgmyavezo7/rV24wGdikXdfg56Q20YZWEB+mLWa0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mT+NeYvznIc4tPG4UG5JHS3hYDS7hbLnIscEPoWCJjLxsLpq8eXISCLHN3iQr6nXq
+	 Pmbzaou7G37f3CE3OrHyKvQjDsKQkNSE41iYJidnNRSU8IVII+WXzGW/NydWpEJX6p
+	 5II/Cn2fq61/rRvig2tbY5I36tEKVS4FXokWyQHI=
+Date: Mon, 15 Sep 2025 11:23:53 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Mark Brown <broonie@kernel.org>, 
+	Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: open list <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
+	Ben Copeland <benjamin.copeland@linaro.org>, Shuah Khan <shuah@kernel.org>
+Subject: Re: next-20250909: selftests/arm64/gcs/basic-gcs.c:390:30: error:
+ use of undeclared identifier 'HWCAP_GCS'
+Message-ID: <5fe12804-2538-42c5-b5c7-66d36ff947d9@t-8ch.de>
+References: <CA+G9fYv77X+kKz2YT6xw7=9UrrotTbQ6fgNac7oohOg8BgGvtw@mail.gmail.com>
+ <1e331ebb-3315-4cbe-b194-ccbeeaded4da@t-8ch.de>
+ <965c8d7e-c5f2-4bd8-ab7c-c3116632f015@sirena.org.uk>
+ <5e4d9943-3a8d-4281-9007-f49bfc66dc6d@weissschuh.net>
+ <b9b8b8cf-4920-4f9d-bcea-bea913058601@weissschuh.net>
+ <a1dc9839-ab45-4dd6-9eeb-4bbc35bf8d90@sirena.org.uk>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+In-Reply-To: <a1dc9839-ab45-4dd6-9eeb-4bbc35bf8d90@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_022028_532156_28D7D208 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250915_022355_633019_56B55F12 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add compatible data to support MT8189 encoding.
+On 2025-09-12 12:14:00+0100, Mark Brown wrote:
+> On Fri, Sep 12, 2025 at 01:07:58PM +0200, Thomas Weißschuh wrote:
+> 
+> > The Makefile does *not* use -nostdinc, so the nolibc program probably finds the toolchain's glibc asm/hwcap.h.
+> > There also doesn't seem to be a static arm64 hwcap header in tools/include in the first place.
+> > I am still wondering how this works for the other tests.
+> 
+> make headers_install puts a copy in usr/include, probably we just need
+> to include that in the include path.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Naresh, could you test the patch below?
+The other custom $(CC) rules in the gcs directory are also not
+respecting $(CFLAGS), but I'll leave these for now.
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index c869c4245ebc..4f5c2d8d2855 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -468,6 +468,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.set_dma_bit_mask = true,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+};
-+
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -478,6 +491,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
--- 
-2.45.2
+diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
+index d2f3497a9..1fbbf0ca1 100644
+--- a/tools/testing/selftests/arm64/gcs/Makefile
++++ b/tools/testing/selftests/arm64/gcs/Makefile
+@@ -14,11 +14,11 @@ LDLIBS+=-lpthread
+ include ../../lib.mk
+
+ $(OUTPUT)/basic-gcs: basic-gcs.c
+-       $(CC) -g -fno-asynchronous-unwind-tables -fno-ident -s -Os -nostdlib \
+-               -static -include ../../../../include/nolibc/nolibc.h \
++       $(CC) $(CFLAGS) -fno-asynchronous-unwind-tables -fno-ident -s -nostdlib -nostdinc \
++               -static -I../../../../include/nolibc -include ../../../../include/nolibc/nolibc.h \
+                -I../../../../../usr/include \
+                -std=gnu99 -I../.. -g \
+-               -ffreestanding -Wall $^ -o $@ -lgcc
++               -ffreestanding $^ -o $@ -lgcc
+
+ $(OUTPUT)/gcs-stress-thread: gcs-stress-thread.S
+        $(CC) -nostdlib $^ -o $@
 
 
