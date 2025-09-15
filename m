@@ -4,43 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72476CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E686ECAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2gpbXdq9RJxD2evTsYHE10mNgcHX5gUa+5+CXM/Rpo=; b=AFG6AO7038tC64EANn0SaZRg4A
-	crcAzt/vwz5/XUiOxSJdYSUU9JXPhAU5QIQrKsVYnslvCVyQKRLTOrsKJi3uAsUKA4zeiSknGEw4d
-	kRtONIMrY5T4KPva2SaUfKjPC08Tp+VZyc6FPZhowMOHtzMX6Mzg5ZSk41uddgLvpaGXpnknHIYxi
-	WWraAyjZ7t8jcAA3vUpC8YYxBngvM2N70p+V8XrLL5g4zN+NPbERPRECLEdJpSMdgPdAA8Z5VJ4nH
-	4dyqCnxBRMr4AAr229megOTBizcKxGuDt/lB/kau4adGTfoVJriAU0I7kLOcmaSstfNkFgKKyRPOV
-	kmkN1tbA==;
+	bh=Bli4edlh5wOZWdKzF0nVDDMQjW+bgshm53Sg/x+eESI=; b=sMmLTw+jRsrEHHKwt/DIB3gIAJ
+	vuPGT6CmpXjL0tU1KWIxbUkxVJhtEQE7HQVbTEpufqDUrR6e8uNW58kdi6YTdaxddgh7BdYBTd8mj
+	laEE1UqNRPGnsw7OlKyyNlGczvf3sXdffEoF3Onkv8NmoblAR1drsW0UBalxR1Dh7/RiuvoE02JZK
+	xDrpk9YA+pa3663B6BoERf3wx+ut1F8OVHkaeJUhrj7/JLeTeeblfx7dwNBzzAv1A34KxWZKNIMLc
+	gAfVfA3DfzK8PApZPsvTluyS2pVccM5oe99V3VjFltzTp1rC48dpB7xYpboh/Nn5Y9A/BTRLp0lAA
+	w5sJlz8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Wt-00000003fNG-0jwc;
-	Mon, 15 Sep 2025 10:33:51 +0000
+	id 1uy6X2-00000003fW5-3W8z;
+	Mon, 15 Sep 2025 10:34:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6Wy-00000003fRx-3Ma5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 15 Sep 2025 10:33:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=Bli4edlh5wOZWdKzF0nVDDMQjW+bgshm53Sg/x+eESI=; b=buUN7L6dImzWF8sFJPfCLMQI1J
+	Dun4vzmNEXRU33a13ff6Ec152UM5/uy8btXKXOhOZeYBO4fWZhb3N1Gj4wLuezsxHpUlWTIg6i+Xn
+	9zKfWSVZK443Wci6qcp6+mtf/J4Gzdm4YOOs+0Twdw+/r/k3LYbzBDzIa0Q7C5XDskqj5WRTdbsW6
+	DHuTFs/8lRa9uhr0dTBuTnfXWKhVzOCObB3VQQYb49kWb94J7rkF3Yciol4BXoOJPSVSr+dYVkfif
+	2xEiLEizUCF9lBkK32F5ro38/11sO3x9H195tVeMejyhs71tnMbNwBmT01JnnZ0TWdkSNR/TZJiZZ
+	r7Gmq5FQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Wq-00000003fKA-0rIZ
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6Wv-00000006vWe-2cdF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:33:49 +0000
+	Mon, 15 Sep 2025 10:33:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 889071BF7;
-	Mon, 15 Sep 2025 03:33:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5DF451424;
+	Mon, 15 Sep 2025 03:33:43 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BBCF3F66E;
-	Mon, 15 Sep 2025 03:33:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F38083F66E;
+	Mon, 15 Sep 2025 03:33:49 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 15 Sep 2025 11:33:26 +0100
-Subject: [PATCH v3 03/31] coresight: etm3x: Always set tracer's device mode
- on target CPU
+Date: Mon, 15 Sep 2025 11:33:28 +0100
+Subject: [PATCH v3 05/31] coresight: etm4x: Ensure context synchronization
+ is not ignored
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-arm_coresight_power_management_fix-v3-3-ea49e91124ec@arm.com>
+Message-Id: <20250915-arm_coresight_power_management_fix-v3-5-ea49e91124ec@arm.com>
 References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -53,16 +68,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=4644;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=3873;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=mC+z7bkskDMNUGHCIDBDZe0qK42FFY15wl+fYU0Xll0=;
- b=gKFfo5fRLxv0H1eG3TZrTvDl40tmCRp2Oi6gvi2O8PS8SatQn+DW+J7NuTo2A41nhxDeoUT3I
- jo9dh5zf3MBCOTcti9c7B5zVmkKcAHPCgcW2AdKlXMGT6qeLKEMDh15
+ bh=fn963pYoU+lVrkCgnRYI6TuzRxmaQwTz3lSVBtCEYIY=;
+ b=+vmCcQH3xJjYWUDJd01FPa4gJGpNAxfxq0kKXFft1q0nvLzne6oSArAYC1Cz4mUOs/3OTwmzM
+ /2/Lc/lyRbiCShCz3xjSBhnABhbhFWxETJT0Upa04N8hhXF/CNT7oza
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_033348_353360_788C0B6D 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20250915_113354_192514_23E07BC1 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,152 +92,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ETMv3 driver shares the same issue as ETMv4 regarding race
-conditions when accessing the device mode.
+As recommended in section 4.3.7 "Synchronization of register updates" of
+ARM IHI0064H.b, a self-hosted trace analyzer should always executes an
+ISB instruction after programming the trace unit registers.
 
-This commit applies the same fix: ensuring that the device mode is
-modified only by the target CPU to eliminate race conditions across
-CPUs.
+An ISB works as a context synchronization event; a DSB is not required.
+Removes the redundant barrier in the enabling flow.
 
-Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
+The ISB was placed at the end of the enable and disable functions.
+However, this does not guarantee a context synchronization event in the
+calling code, which may speculatively execute across function
+boundaries.
+
+ISB instructions are moved into callers to ensure that a context
+synchronization is imposed immediately after enabling or disabling trace
+unit.
+
+Fixes: 40f682ae5086 ("coresight: etm4x: Extract the trace unit controlling")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 54 +++++++++++++++-------
- 1 file changed, 37 insertions(+), 17 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 38 +++++++++++++++-------
+ 1 file changed, 26 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 45630a1cd32fbd05ec8b2a6979f0174cacce365e..f759a47eaed9e804e30530a232370c9504912ac6 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -442,10 +442,23 @@ struct etm_enable_arg {
- static void etm_enable_hw_smp_call(void *info)
- {
- 	struct etm_enable_arg *arg = info;
-+	struct coresight_device *csdev;
- 
- 	if (WARN_ON(!arg))
- 		return;
-+
-+	csdev = arg->drvdata->csdev;
-+	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-+		/* Someone is already using the tracer */
-+		arg->rc = -EBUSY;
-+		return;
-+	}
-+
- 	arg->rc = etm_enable_hw(arg->drvdata);
-+
-+	/* The tracer didn't start */
-+	if (arg->rc)
-+		coresight_set_mode(csdev, CS_MODE_DISABLED);
- }
- 
- static int etm_cpu_id(struct coresight_device *csdev)
-@@ -464,17 +477,26 @@ static int etm_enable_perf(struct coresight_device *csdev,
- 			   struct perf_event *event,
- 			   struct coresight_path *path)
- {
-+	int ret = 0;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
- 	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
- 		return -EINVAL;
- 
-+	if (!coresight_take_mode(csdev, CS_MODE_PERF))
-+		return -EBUSY;
-+
- 	/* Configure the tracer based on the session's specifics */
- 	etm_parse_event_config(drvdata, event);
- 	drvdata->traceid = path->trace_id;
- 
- 	/* And enable it */
--	return etm_enable_hw(drvdata);
-+	ret = etm_enable_hw(drvdata);
-+	/* The tracer didn't start */
-+	if (ret)
-+		coresight_set_mode(csdev, CS_MODE_DISABLED);
-+
-+	return ret;
- }
- 
- static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
-@@ -517,12 +539,6 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
- 		      enum cs_mode mode, struct coresight_path *path)
- {
- 	int ret;
--	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--
--	if (!coresight_take_mode(csdev, mode)) {
--		/* Someone is already using the tracer */
--		return -EBUSY;
--	}
- 
- 	switch (mode) {
- 	case CS_MODE_SYSFS:
-@@ -535,17 +551,12 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
- 		ret = -EINVAL;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 382ec1a1cdd035e76d451d0112afd3f029ecbdb6..31d4838b47ae4a3a96c6a06774707214943268fc 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -460,13 +460,6 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+ 		return -ETIME;
  	}
  
--	/* The tracer didn't start */
--	if (ret)
--		coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+-	/*
+-	 * As recommended by section 4.3.7 ("Synchronization when using the
+-	 * memory-mapped interface") of ARM IHI 0064D
+-	 */
+-	dsb(sy);
+-	isb();
 -
- 	return ret;
+ 	return 0;
  }
  
--static void etm_disable_hw(void *info)
-+static void etm_disable_hw(struct etm_drvdata *drvdata)
- {
- 	int i;
--	struct etm_drvdata *drvdata = info;
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
+@@ -581,6 +574,13 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
  
-@@ -567,6 +578,15 @@ static void etm_disable_hw(void *info)
- 		"cpu: %d disable smp call done\n", drvdata->cpu);
+ 	if (!drvdata->paused)
+ 		rc = etm4_enable_trace_unit(drvdata);
++
++	/*
++	 * As recommended by section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 */
++	isb();
+ done:
+ 	etm4_cs_lock(drvdata, csa);
+ 
+@@ -956,11 +956,6 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+ 	if (etm4x_wait_status(csa, TRCSTATR_PMSTABLE_BIT, 1))
+ 		dev_err(etm_dev,
+ 			"timeout while waiting for PM stable Trace Status\n");
+-	/*
+-	 * As recommended by section 4.3.7 (Synchronization of register updates)
+-	 * of ARM IHI 0064H.b.
+-	 */
+-	isb();
  }
  
-+static void etm_disable_hw_smp_call(void *info)
-+{
-+	struct etm_drvdata *drvdata = info;
-+
-+	etm_disable_hw(drvdata);
-+
-+	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-+}
-+
- static void etm_disable_perf(struct coresight_device *csdev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-@@ -588,6 +608,8 @@ static void etm_disable_perf(struct coresight_device *csdev)
+ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+@@ -983,6 +978,13 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
  
- 	CS_LOCK(drvdata->csa.base);
+ 	etm4_disable_trace_unit(drvdata);
  
-+	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
++	/*
++	 * As recommended by section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 */
++	isb();
 +
- 	/*
- 	 * perf will release trace ids when _free_aux()
- 	 * is called at the end of the session
-@@ -612,7 +634,8 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
- 	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
- 	 * ensures that register writes occur when cpu is powered.
- 	 */
--	smp_call_function_single(drvdata->cpu, etm_disable_hw, drvdata, 1);
-+	smp_call_function_single(drvdata->cpu, etm_disable_hw_smp_call,
-+				 drvdata, 1);
+ 	/* read the status of the single shot comparators */
+ 	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+ 		config->ss_status[i] =
+@@ -1120,6 +1122,12 @@ static int etm4_resume_perf(struct coresight_device *csdev)
  
- 	spin_unlock(&drvdata->spinlock);
- 	cpus_read_unlock();
-@@ -652,9 +675,6 @@ static void etm_disable(struct coresight_device *csdev,
- 		WARN_ON_ONCE(mode);
- 		return;
- 	}
--
--	if (mode)
--		coresight_set_mode(csdev, CS_MODE_DISABLED);
- }
+ 	etm4_cs_unlock(drvdata, csa);
+ 	etm4_enable_trace_unit(drvdata);
++	/*
++	 * As recommended by section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 */
++	isb();
+ 	etm4_cs_lock(drvdata, csa);
  
- static const struct coresight_ops_source etm_source_ops = {
+ 	drvdata->paused = false;
+@@ -1136,6 +1144,12 @@ static void etm4_pause_perf(struct coresight_device *csdev)
+ 
+ 	etm4_cs_unlock(drvdata, csa);
+ 	etm4_disable_trace_unit(drvdata);
++	/*
++	 * As recommended by section 4.3.7 (Synchronization of register updates)
++	 * of ARM IHI 0064H.b, the self-hosted trace analyzer always executes an
++	 * ISB instruction after programming the trace unit registers.
++	 */
++	isb();
+ 	etm4_cs_lock(drvdata, csa);
+ 
+ 	drvdata->paused = true;
 
 -- 
 2.34.1
