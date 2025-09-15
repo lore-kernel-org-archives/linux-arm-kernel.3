@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F33BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 13:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20361CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 13:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vzDc0ULyBDh5Qx7Lyn1+0nLb8/OrW6d4SR1qIKvzoMw=; b=mHUuZPifWyhEvsShMM+6EleWOH
-	6rqP8Hs5ZKQqKRh9aI5W0ZfqDYLmzVujn0GsXh+2l8kJ3fA/nemjmk3s+ZiqULU/vpxYPxEhsEtKa
-	CAEorX7rLAZ76oo19v8rs8n5g0gslqmjjJvjU9b59DbIqY2XgtpVX+lZVpdZdPWElCOJbQXlKCOqh
-	NiN0ygPHOIF0PoOokyvHAM+FhUyqOxBAccmIeDdpPSEFNj8bFSv4T3yJfwkMYcmGi4dZjYr6f4Ku9
-	R05hhoBqC02n/tLbHjDA68iLkTg6Jl30fv795cbZ+A8q6QoU17l46gskgPxkttmuwZ1cZYLbVGybL
-	xUhsDj7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aEfR1XH1bMrVmYaoRtNyKhesOU2goaB7J6awZWHx9D8=; b=zKWM/bwYwwXe4Uv6oHuYe7oVqB
+	VjMy1Dn2+q69U8jROzHu8g+vs1PpkRR7A+Qet9nsZUOKDwEkufqSYbBrXMtkq+4wI/+Tw+65ykMs4
+	bXFofa4XCdvWj/RJXBfqJwLeBCjBVSAX0tkT8JZYs84I973u3HM4cTHypKXhOvg6xogy03ZZ3vGvt
+	wbhs8E6sFJkqD0JeTAgI5IWXqAv/kR6zaZObF7SKaXG35aFYNhMPsLlaPXUmjDLeJWbzCNGiT3dta
+	bxEAzcUsIqVJXYDo91FQf1UfXjFOsKt2Yzwb9Eb84L8u+n+RHi/YoBkzgpu8C4zV9i2RC2+nBWb4X
+	o3c0bVbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy99g-00000004IRM-2ZDi;
-	Mon, 15 Sep 2025 13:22:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uy9Cj-00000004Iwr-11sM;
+	Mon, 15 Sep 2025 13:25:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy99f-00000004IR4-2SRf
+	id 1uy9Cg-00000004Iw8-0wup
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 13:22:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC91C60244;
-	Mon, 15 Sep 2025 13:22:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F0F2C4CEFB;
-	Mon, 15 Sep 2025 13:22:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757942522;
-	bh=omVHC2lwXuWYfBEc6TmKSITT2zhlG65jkMcTKudJYvA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ElBQQ9KcNgtwr4NhGGUvtU3fqMuyETn+BzUs1uBvHuhGbf91zVGX1KOdeiYC21l2u
-	 737981xXKNHJIsCD5pBgdyC4MTZ/YUTmLJYIqSu8hI9FJHNTQxO/D4cZreo+pDxQTC
-	 0byr7EXAa+rYpJltKcE0f8ESi0hpZin/CoapjFC0c6MPY9JsDr+E4dVn5SzNzn4eI+
-	 SJC1LIIGN6JpQhlmOaLXWV4Tx1LmFEyozXaO1oRe88rlMSggIPq3Jr55kjJBMf0786
-	 FlLSd7gyRM3Aq14AHMFBLLfuV3/KS/D1J0gKbl7jvX4Ql4OpL2bKAnk381TswC26Rh
-	 HHJ7oVKE1knLw==
-Date: Mon, 15 Sep 2025 08:22:01 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 15 Sep 2025 13:25:11 +0000
+Received: from [127.0.1.1] (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 082A03FCE;
+	Mon, 15 Sep 2025 15:17:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757942242;
+	bh=c4yZf5AiBVUDuy3InXPlki0Snp/s01BBP2Iy0btwSkM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=pojt6AqJkxMINXvJxQZxHVm7kpOq6nQXdFrHOCKJ9d3TD+/jS+I8y9gsrf8vcupuL
+	 s8Zl7wchKZWBz8yfxVDv7Hw9UUkXuXEbUWwm5I5sdhZTz8/VUwkCMxtvKhLDOLwUP/
+	 6zRThlCdMkxTV/zvFJ45dsEf46HQYAlESSmtJeTA=
+From: Isaac Scott <isaac.scott@ideasonboard.com>
+Date: Mon, 15 Sep 2025 14:18:35 +0100
+Subject: [PATCH v3 3/3] media: imx-mipi-csis: Get number of active lanes
+ via mbus_config
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandru Chimac <alexchimac@protonmail.com>, 
- Stephen Boyd <sboyd@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>, 
- devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-samsung-soc@vger.kernel.org, 
- Michael Turquette <mturquette@baylibre.com>
-To: Alexandru Chimac <alex@chimac.ro>
-In-Reply-To: <20250915-exynos9610-clocks-v1-1-3f615022b178@chimac.ro>
-References: <20250915-exynos9610-clocks-v1-0-3f615022b178@chimac.ro>
- <20250915-exynos9610-clocks-v1-1-3f615022b178@chimac.ro>
-Message-Id: <175794237115.2496914.9134109163312001999.robh@kernel.org>
-Subject: Re: [PATCH 1/8] dt-bindings: clock: samsung: Add Exynos9610 CMU
- bindings
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250915-mbus-config-active-lanes-v3-3-97a1282a410b@ideasonboard.com>
+References: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
+In-Reply-To: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Isaac Scott <isaac.scott@ideasonboard.com>
+X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_062510_402049_9006C1B3 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The number of lanes actively used by a MIPI CSI transmitter may differ
+from that which is defined in device tree. As such, call on
+v4l2_get_active_data_lanes() to check if the driver reports a
+differing number of lanes to device tree, and use that number of active
+lanes.
 
-On Sun, 14 Sep 2025 21:19:19 +0000, Alexandru Chimac wrote:
-> This clock management unit has a topmost block (CMU_TOP)
-> that generates top clocks for other blocks, alongside 20
-> other blocks, out of which 11 are currently implemented.
-> 
-> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
-> ---
->  .../bindings/clock/samsung,exynos9610-clock.yaml   | 344 ++++++++++
->  include/dt-bindings/clock/samsung,exynos9610.h     | 720 +++++++++++++++++++++
->  2 files changed, 1064 insertions(+)
-> 
+If the number of active data lanes is invalid, or the op is not
+supported, use the number of lanes defined in device tree.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+---
+ drivers/media/platform/nxp/imx-mipi-csis.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml:250:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+index 6afbedfe131e..d3424ad54b4e 100644
+--- a/drivers/media/platform/nxp/imx-mipi-csis.c
++++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+@@ -967,6 +967,9 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
+ 	format = v4l2_subdev_state_get_format(state, CSIS_PAD_SINK);
+ 	csis_fmt = find_csis_format(format->code);
+ 
++	csis->num_data_lanes = v4l2_get_active_data_lanes(csis->source.pad,
++							  csis->bus.num_data_lanes);
++
+ 	ret = mipi_csis_calculate_params(csis, csis_fmt);
+ 	if (ret < 0)
+ 		goto err_unlock;
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/samsung,exynos9610-clock.yaml: $id: 'http://devicetree.org/schemas/clock/samsung,exynos9610-clock.yaml' does not match 'http://devicetree.org/schemas(/[^/ ]+)+\\.yaml#'
-	from schema $id: http://devicetree.org/meta-schemas/base.yaml#
-Error: Documentation/devicetree/bindings/clock/samsung,exynos9610-clock.example.dts:25.13-14 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/samsung,exynos9610-clock.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1527: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250915-exynos9610-clocks-v1-1-3f615022b178@chimac.ro
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.43.0
 
 
