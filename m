@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4404BCAC58F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 07:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF56ACAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxMdEwQMvYlUV1hjBcNiQQKiVr1P8tNvVX7qu/53r6M=; b=Vy451riBVeihYjjicQEP2YpHxj
-	5PHZ0vNyPCSkGU5vdCfeQzi7WLfCi3RbLXcuoTMxFhEhl7ld88FSSNuUg+r4B6feuIZkgJ2oqGiA9
-	qC5ff72U3uEuuoqjxXb82hw2H7nFIyeFz2gQ7Ehk6BwUGHlyoTQzt1fbuGgBlZ0CjPeM1qevwcX0j
-	uIfI21wiGpC0DJ3v2ST1iy39EQuvwvutKPkg5QSBACRubB1pVrZvcX0Su+ycwCY5qdJeuHotPssOe
-	C5pgyJnpxpHXuApqHUb4BaFzefhUbxf3MOIKddhwU2iuz68q7Ok+/yvGrFJsrwNfgIhATaLQk5LSN
-	GyzMWXjw==;
+	bh=20oObnJIvq7bQNxp+IbofEnRTXIp9RDpEeStzhlTyxM=; b=uBznB+52reQ0LnhUzepjsdO8N8
+	14vHIu2f3q6z0h5FoLP7FFAsfzBgDudpnlJX7eJe8Ttz2MtN7xHiuGoruQD97LZt6SUgOEe8guCcg
+	eUg4AyO0ExNE84HiZVqzGWv4kYniGwif4vcwGsUqZReVBUj5PoGbDQtYK6rvs0FtYmdQ0q38PgYyL
+	gM3ukErxchEcIw98gOV9LvgqAFvKCCI+vrlJfadACF4M06fJvsPMG/amPsMZwcapYdq/Mmk+/vg+w
+	irlJS68t1KrGKUNy6K6LAuP9BeMAx3ayl5DCzZLJnVuLeWZCDW5wvwmfG578d1qrKrTxyVmtIzfHO
+	hx7Y8uGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3wf-000000036Pd-3NqX;
-	Mon, 15 Sep 2025 07:48:17 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uy4Oq-00000003AR2-0gZX;
+	Mon, 15 Sep 2025 08:17:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3wd-000000036Nu-0P1V;
-	Mon, 15 Sep 2025 07:48:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757922492;
-	bh=vB9GcUmcfOQtoFZZDhDvPQi1G6RyCsjXZqj9XRwFDDg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eAdBbE/FYgw8uAuc6mgi4EXUTYPU+wCaeYzWmnTAU9LDniagsTtXnRYgKgslS3t5w
-	 Mb/Rpyrx3bfezOUOnz3+Az18Mf6d8LWOzqWFY/2ZWNzcuxZ+Lnf8/MhMsDLveLhbrS
-	 eu/iAySEqG+q8hHVBpSuFWBPxkZDNEKAAjouigISkJsmmLw5rqbwBhRd9hLnHNH1tP
-	 99bT8pEadDq5zdLkBu05NQD7MBaedKH0gNFtwMvZZ6iaKArjCoXZepCXEMOis+xhse
-	 81N6Et83WvkPh5Z/iMjqKnmcO4yaVOuJ3m5M9b/0dB+b2sXEUg30dpokq5+xawQqNN
-	 1k2ThEXkQfxcg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBEAF17E0F88;
-	Mon, 15 Sep 2025 09:48:11 +0200 (CEST)
-Message-ID: <a36c5bfe-be01-431b-9d4f-eb41a085bef7@collabora.com>
-Date: Mon, 15 Sep 2025 09:48:11 +0200
+	id 1uy4Oo-00000003AQL-2rG9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 08:17:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D591E60195;
+	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FD80C4CEF9;
+	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757924241;
+	bh=SdQHZDMCVCIf4yXCpwh6xj5ooQRTeCqnTuycX0e5QVw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hqxbmE6gCIqv+98d7Bx6z8cZ2nNBT7mgN5GX3qUWc8if8m37Zd8US+5csMzF5OMpJ
+	 FEsEC/RJArQUxfh4cuFZuWvHJLdJFaurrjUSuv/tj0E2ZNKaRYKu7DHEDiqopmCPim
+	 vgN2uNYdTYpI9MvN/LGx2LhZ01rzlbwHuDz8aKEQdoIlXHGK3rMROvctAKsp5eTEju
+	 lWW2/vXfU+2gdJyltTVKgnhFqpiza1z6EFw5ucLE2FNHF+Mqw3MVuJKgzEvVd4p8uO
+	 6XAVLE+ODA9nYWP9wokOLJoJTvLLxJTAODgip0DZTjMs5WXUZjQuItGDBRJPcxuG7B
+	 FqPjiDvF+Ei9A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E0D4CAC58E;
+	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
+From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Date: Mon, 15 Sep 2025 16:17:18 +0800
+Subject: [PATCH net v2 1/2] net: stmmac: est: Fix GCL bounds checks
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: Add VCP support for
- mt8196
-To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Jjian Zhou <Jjian.Zhou@mediatek.com>,
- Hailong Fan <Hailong.Fan@mediatek.com>
-References: <20250914122943.10412-1-xiangzhi.tang@mediatek.com>
- <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_004815_300590_84AE437B 
-X-CRM114-Status: GOOD (  24.89  )
+Message-Id: <20250915-qbv-fixes-v2-1-ec90673bb7d4@altera.com>
+References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
+In-Reply-To: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <Jose.Abreu@synopsys.com>, 
+ Rohan G Thomas <rohan.g.thomas@intel.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rohan G Thomas <rohan.g.thomas@altera.com>, 
+ Matthew Gerlach <matthew.gerlach@altera.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757924239; l=1340;
+ i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
+ bh=HUAYKbtaVV7CCEfir5e4410D4ZIncaawEtn3kXUUXA0=;
+ b=nYTLQKzxU0RExj8QRfyzQi45pvskNrqlgXE7azX/stBzmOcQXm//u60lh2AbIaP2zFrQzFKzO
+ T7brkbXToO1Bd3aK6yoT/ytTZTdTiMx3Gt63WLur+WUAucOkfZdju6R
+X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
+ pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
+X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
+ with auth_id=494
+X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,226 +87,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 14/09/25 14:29, Xiangzhi Tang ha scritto:
-> Add the new binding document for MediaTek Video Companion
-> Processor(VCP) on MediaTek mt8196.
-> 
-> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
-> ---
->   .../remoteproc/mediatek,mt8196-vcp.yaml       | 165 ++++++++++++++++++
->   1 file changed, 165 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml b/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
-> new file mode 100644
-> index 000000000000..71a55943843b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
-> @@ -0,0 +1,165 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/remoteproc/mediatek,mt8196-vcp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek Video Companion Processor (VCP)
-> +
-> +maintainers:
-> +  - Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>
-> +
-> +description:
-> +  The MediaTek VCP enables the SoC control the MediaTek Video Companion Risc-V coprocessor.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8196-vcp
-> +
-> +  reg:
-> +    items:
-> +      - description: sram base
-> +      - description: cfg group IO
-> +      - description: cfg core group IO
-> +      - description: cfg sec group IO
-> +      - description: vcp rdy group IO
-> +
-> +  reg-names:
-> +    items:
-> +      - const: sram
-> +      - const: cfg
-> +      - const: cfg_core
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-sram, cfg-global, cfg-core, cfg-sec, vcp-vlp-ao-ready
+Fix the bounds checks for the hw supported maximum GCL entry
+count and gate interval time.
 
-> +      - const: cfg_sec
-> +      - const: vcp_vlp_ao_rsvd7
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  mboxes:
-> +    maxItems: 5
-> +
-> +  mbox-names:
-> +    maxItems: 5
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  iommus:
-> +    description:
-> +      Using MediaTek iommu to apply larb ports for Multimedia Memory
-> +      Management Unit and address translation
-> +      Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
-> +    maxItems: 1
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  "^vcp@[a-f0-9]+$":
-> +    type: object
-> +    description:
-> +      The MediaTek VCP integrated to SoC might be a multi-core version.
+Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-"may feature one or multiple cores"
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index 694d6ee1438197bd4434af6e9b78f022e94ff98f..9c84bde848263976cf08f286751ee09e2dbac09b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -981,7 +981,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 	if (qopt->cmd == TAPRIO_CMD_DESTROY)
+ 		goto disable;
+ 
+-	if (qopt->num_entries >= dep)
++	if (qopt->num_entries > dep)
+ 		return -EINVAL;
+ 	if (!qopt->cycle_time)
+ 		return -ERANGE;
+@@ -1012,7 +1012,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 		s64 delta_ns = qopt->entries[i].interval;
+ 		u32 gates = qopt->entries[i].gate_mask;
+ 
+-		if (delta_ns > GENMASK(wid, 0))
++		if (delta_ns > GENMASK(wid - 1, 0))
+ 			return -ERANGE;
+ 		if (gates > GENMASK(31 - wid, 0))
+ 			return -ERANGE;
 
-> +      The other cores are represented as child nodes of the boot core.
-> +      There are some integration differences for the IP like the usage of
-> +      address translator for translating SoC bus addresses into address
-> +      space for the processor.
-> +
-> +      The SRAM are shared by all cores, each VCP core only using a piece
+-- 
+2.26.2
 
-s/piece/portion of/g
-
-> +      SRAM memory. The power of SRAM should be enabled before booting VCP cores.
-
-How do you enable the SRAM power?
-
-Is there a regulator, a power domain, both, or what?
-
-> +      The size of SRAM are varied on differnt SoCs.
-> +
-> +      The VCP cores has differences on different SoCs to support for
-> +      Hart.
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - mediatek,vcp-core
-> +
-> +      reg:
-> +        description: The base address and size of SRAM.
-> +        maxItems: 1
-> +
-> +      reg-names:
-> +        const: sram
-> +
-> +      mtk,vcp-core-twohart:
-
-1. s/mtk,/mediatek,/g
-2. there's no description, what does "twohart" mean?
-
-> +        enum: [0, 1]
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +      mtk,vcp-sram-offset:
-> +        description:
-> +          Allocated SRAM memory for each VCP core used.
-
-vcp-sram-offset is the same as the iostart in `reg`, so you don't need this
-property at all.
-
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - reg-names
-> +      - mtk,vcp-core-twohart
-> +      - mtk,vcp-sram-offset
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - mboxes
-> +  - mbox-names
-> +  - power-domains
-> +  - iommus
-> +  - memory-region
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/power/mt8196-power.h>
-> +
-> +    vcp: vcp@31800000 {
-> +        compatible = "mediatek,mt8196-vcp";
-> +        reg = <0x31800000 0x60000>,
-> +              <0x31a04000 0xa000>,
-> +              <0x31bd0000 0x1000>,
-> +              <0x31a70020 0x100>,
-> +              <0x1c00091c 0x4>;
-> +        reg-names = "sram",
-> +                    "cfg",
-> +                    "cfg_core",
-> +                    "cfg_sec",
-> +                    "vcp_vlp_ao_rsvd7";
-> +
-> +        interrupts = <GIC_SPI 787 IRQ_TYPE_LEVEL_HIGH 0>;
-> +
-> +        mboxes = <&vcp_mailbox0>,
-> +                 <&vcp_mailbox1>,
-> +                 <&vcp_mailbox2>,
-> +                 <&vcp_mailbox3>,
-> +                 <&vcp_mailbox4>;
-> +        mbox-names = "mbox0", "mbox1", "mbox2", "mbox3", "mbox4";
-
-Is there any descriptive name that can be used for mbox-names?
-
-As in, what is mbox0 used for? what is mbox1 used for? etc.
-
-> +
-> +        power-domains = <&scpsys MT8196_POWER_DOMAIN_MM_PROC_DORMANT>;
-> +        iommus = <&mm_smmu 160>;
-> +        memory-region = <&vcp_resv_mem>;
-> +
-> +        vcp@0 {
-> +            compatible = "mediatek,vcp-core";
-> +            reg = <0x0 0x31000>;
-> +            reg-names = "sram";
-> +            mtk,vcp-core-twohart = <1>;
-
-Is the first core always "twohart"?
-
-If it is, there's no need to even have this property, as you can add that to
-the driver, either in form of platform data (if this changes per-SoC) or just
-hardcoded.
-
-Regards,
-Angelo
-
-> +            mtk,vcp-sram-offset = <0x0>;
-> +        };
-> +
-> +        vcp@31000 {
-> +            compatible = "mediatek,vcp-core";
-> +            reg = <0x31000 0x60000>;
-> +            reg-names = "sram";
-> +            mtk,vcp-core-twohart = <0>;
-> +            mtk,vcp-sram-offset = <0x31000>;
-> +        };
-> +    };
 
 
