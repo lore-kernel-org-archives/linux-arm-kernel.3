@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14954CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8FCCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 09:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ICKBmocCPYXxFHgUB627O3pR8j4JSjF02NuDIYI+nE=; b=Nyty8zrMQL1i8TA5kCn/whJQVJ
-	MYEYLZLGljs8Qd2wQ6bFtpjywFIAY154CbZ8KnTmKhuWgq+DgkbUVnPKTizFF3arIxLwmyK2MBsTz
-	PgIvCAMAzrvJOAZVzQmq0Q8FQruCdW+DwzS5Dk/Gg3T+hiy/zejVFGlEkP4/U1XUoDw7KuJq6zs6R
-	D97S5kOeN7dMASt4/bhDoXyjpxC7htgkVlkTp81EwcKuN7enBGOSf8ofl1wf+18HxYwEJn4zhUqB2
-	1K3Rakps+kE/X/ptD53HuiL5k0nMVBzz43AnmdwEhcG03CxNoiaSb0X0xZzBCBnaUzzZ4UPdyTuxx
-	V6zZw5mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azzNEY9hBDF3TI9u6CEDiEslO65PaVgsK7oSjb4emq4=; b=mg9II5boR18OBNvWMY+BS9bgkq
+	9S1e9FfoEi1q87zP5DEq1JXFF/7r74jT6XfqEfGXDyL/OfBQbBdYiVe7oiDPgPfDNSqmAkPbpN0G8
+	QPe9lxqX0IY1rQkz+6nwo1L1/h0hXG1ysJX2541RGJXKHEpsOr39mHITXXR70VrJEJupn3W1g1n4X
+	ZN/E+5ZfVwEDzhL5BmDzNm6I3TLaIxrg9so1/ZWjuXPo3Agx0JWoKSH4/aXkZJTfMmRtZUpkjiQ5Q
+	vJlWv9R3dcPXqX+l/KIkM797Js1of6anXmxwnKF7BgVAFY8H6aWHSgOQPBTbgqBA68YnjKDtVqLtu
+	T3CUVMwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5eC-00000003Ubd-3rCt;
-	Mon, 15 Sep 2025 09:37:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy5eA-00000003UbC-3pgj
+	id 1uy5fp-00000003Ulg-1Krt;
+	Mon, 15 Sep 2025 09:39:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy5fn-00000003UlX-1B5L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 09:37:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 983EA1063;
-	Mon, 15 Sep 2025 02:37:09 -0700 (PDT)
-Received: from [10.1.35.47] (unknown [10.1.35.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 702B13F694;
-	Mon, 15 Sep 2025 02:37:15 -0700 (PDT)
-Message-ID: <5341c539-d03f-4a29-80bc-cd3deaab9a07@arm.com>
-Date: Mon, 15 Sep 2025 10:37:14 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 20/25] coresight: trbe: Request specific affinities for
- percpu IRQ
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland
- <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- Saravana Kannan <saravanak@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Peter
- <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- James Clark <james.clark@linaro.org>
-References: <20250915085702.519996-1-maz@kernel.org>
- <20250915085702.519996-21-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250915085702.519996-21-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_023719_002538_B2E06033 
-X-CRM114-Status: GOOD (  14.11  )
+	Mon, 15 Sep 2025 09:38:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 726F360191;
+	Mon, 15 Sep 2025 09:38:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213E8C4CEF1;
+	Mon, 15 Sep 2025 09:38:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757929138;
+	bh=pPcw5Aglj30q8w9L1jbmAPFHByeSGZ84ttWKjhwzqnY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iXkvwGCSqZkDn4G0fMbAyiH2KCJYx3UK0SD6fSjnM6gBYvRaWpmPWZA/hFGr77koC
+	 g8g4RFGr8ynQomGmuhNzeoHzgcmOI0u960M+XzxoAH7fev8q3zGtno3LQGqs/eYsBl
+	 pnc9R8PYRo/JfcK1dJU7Ne6vS3bDkOfUL1y8t0W135nycBlRWuKnoxAqGj7OvY8t/m
+	 XsZnHZJsnklN3mBfQIW4iA8N0bQ9+e2SrDo8z6V70bMNwk1VXcvUuLKEpis48zh607
+	 /m8EaGXsbDj6F2vQ5o4M0XojlOp60r4Y7W42izT/IwmTYv++abN98rVpn1WgEgU5xK
+	 zr5gbvFLaRVpw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uy5fk-00000006JJB-06WB;
+	Mon, 15 Sep 2025 09:38:56 +0000
+Date: Mon, 15 Sep 2025 10:38:55 +0100
+Message-ID: <86zfawawcw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	james.morse@arm.com,
+	tabba@google.com,
+	Quentin Perret <qperret@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix debug checking for np-guests using huge mappings
+In-Reply-To: <5d30d737-945f-4524-81ac-12ff03edca6c@arm.com>
+References: <20250815162655.121108-1-ben.horgan@arm.com>
+	<aKMkvQEyeK1QH12X@google.com>
+	<5d30d737-945f-4524-81ac-12ff03edca6c@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, vdonnefort@google.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, james.morse@arm.com, tabba@google.com, qperret@google.com, ryan.roberts@arm.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 09:56, Marc Zyngier wrote:
-> Let the TRBE driver request IRQs with an affinity mask matching
-> the TRBE implementation affinity.
+On Mon, 15 Sep 2025 10:13:29 +0100,
+Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index c512f8faa6012..4a84a6bc2e8fc 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -1492,7 +1492,8 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
->   	if (!drvdata->handle)
->   		return -ENOMEM;
->   
-> -	ret = request_percpu_irq(drvdata->irq, arm_trbe_irq_handler, DRVNAME, drvdata->handle);
-> +	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler, DRVNAME,
-> +					  affinity, drvdata->handle);
->   	if (ret) {
->   		free_percpu(drvdata->handle);
->   		return ret;
+> 
+> On 8/18/25 14:03, Vincent Donnefort wrote:
+> > Thanks for the fix!
+> > 
+> > On Fri, Aug 15, 2025 at 05:26:55PM +0100, Ben Horgan wrote:
+> >> When running with transparent huge pages and CONFIG_NVHE_EL2_DEBUG then
+> >> the debug checking in assert_host_shared_guest() fails on the launch of an
+> >> np-guest. This WARN_ON() causes a panic and generates the stack below.
+> >>
+> >> In __pkvm_host_relax_perms_guest() the debug checking assumes the mapping
+> >> is a single page but it may be a block map. Update the checking so that
+> >> the size is not checked and just assumes the correct size.
+> >>
+> >> While we're here make the same fix in __pkvm_host_mkyoung_guest().
+> >>
+> >>   Info: # lkvm run -k /share/arch/arm64/boot/Image -m 704 -c 8 --name guest-128
+> >>   Info: Removed ghost socket file "/.lkvm//guest-128.sock".
+> >> [ 1406.521757] kvm [141]: nVHE hyp BUG at: arch/arm64/kvm/hyp/nvhe/mem_protect.c:1088!
+> >> [ 1406.521804] kvm [141]: nVHE call trace:
+> >> [ 1406.521828] kvm [141]:  [<ffff8000811676b4>] __kvm_nvhe_hyp_panic+0xb4/0xe8
+> >> [ 1406.521946] kvm [141]:  [<ffff80008116d12c>] __kvm_nvhe_assert_host_shared_guest+0xb0/0x10c
+> >> [ 1406.522049] kvm [141]:  [<ffff80008116f068>] __kvm_nvhe___pkvm_host_relax_perms_guest+0x48/0x104
+> >> [ 1406.522157] kvm [141]:  [<ffff800081169df8>] __kvm_nvhe_handle___pkvm_host_relax_perms_guest+0x64/0x7c
+> >> [ 1406.522250] kvm [141]:  [<ffff800081169f0c>] __kvm_nvhe_handle_trap+0x8c/0x1a8
+> >> [ 1406.522333] kvm [141]:  [<ffff8000811680fc>] __kvm_nvhe___skip_pauth_save+0x4/0x4
+> >> [ 1406.522454] kvm [141]: ---[ end nVHE call trace ]---
+> >> [ 1406.522477] kvm [141]: Hyp Offset: 0xfffece8013600000
+> >> [ 1406.522554] Kernel panic - not syncing: HYP panic:
+> >> [ 1406.522554] PS:834003c9 PC:0000b1806db6d170 ESR:00000000f2000800
+> >> [ 1406.522554] FAR:ffff8000804be420 HPFAR:0000000000804be0 PAR:0000000000000000
+> >> [ 1406.522554] VCPU:0000000000000000
+> >> [ 1406.523337] CPU: 3 UID: 0 PID: 141 Comm: kvm-vcpu-0 Not tainted 6.16.0-rc7 #97 PREEMPT
+> >> [ 1406.523485] Hardware name: FVP Base RevC (DT)
+> >> [ 1406.523566] Call trace:
+> >> [ 1406.523629]  show_stack+0x18/0x24 (C)
+> >> [ 1406.523753]  dump_stack_lvl+0xd4/0x108
+> >> [ 1406.523899]  dump_stack+0x18/0x24
+> >> [ 1406.524040]  panic+0x3d8/0x448
+> >> [ 1406.524184]  nvhe_hyp_panic_handler+0x10c/0x23c
+> >> [ 1406.524325]  kvm_handle_guest_abort+0x68c/0x109c
+> >> [ 1406.524500]  handle_exit+0x60/0x17c
+> >> [ 1406.524630]  kvm_arch_vcpu_ioctl_run+0x2e0/0x8c0
+> >> [ 1406.524794]  kvm_vcpu_ioctl+0x1a8/0x9cc
+> >> [ 1406.524919]  __arm64_sys_ioctl+0xac/0x104
+> >> [ 1406.525067]  invoke_syscall+0x48/0x10c
+> >> [ 1406.525189]  el0_svc_common.constprop.0+0x40/0xe0
+> >> [ 1406.525322]  do_el0_svc+0x1c/0x28
+> >> [ 1406.525441]  el0_svc+0x38/0x120
+> >> [ 1406.525588]  el0t_64_sync_handler+0x10c/0x138
+> >> [ 1406.525750]  el0t_64_sync+0x1ac/0x1b0
+> >> [ 1406.525876] SMP: stopping secondary CPUs
+> >> [ 1406.525965] Kernel Offset: disabled
+> >> [ 1406.526032] CPU features: 0x0000,00000080,8e134ca1,9446773f
+> >> [ 1406.526130] Memory Limit: none
+> >> [ 1406.959099] ---[ end Kernel panic - not syncing: HYP panic:
+> >> [ 1406.959099] PS:834003c9 PC:0000b1806db6d170 ESR:00000000f2000800
+> >> [ 1406.959099] FAR:ffff8000804be420 HPFAR:0000000000804be0 PAR:0000000000000000
+> >> [ 1406.959099] VCPU:0000000000000000 ]
+> >>
+> >> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> >> Fixes: db14091d8f75 ("KVM: arm64: Stage-2 huge mappings for np-guests")
+> > 
+> > Not sure if it really matters but it's more about fixing f28f1d02f4ea (KVM: arm64: Add a range
+> > to __pkvm_host_unshare_guest()) which introduced the check size !=
+> > kvm_granule_size(). Even though this is noop until db14091d8f75
+> 
+> Happy to update the Fixes tag with whatever is required. I was in two
+> minds but opted for db14091d8f75 as that's where this starts to make a
+> functional difference.
 
+No need to resend, I've adjusted this locally.
 
-Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
