@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E40CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 13:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23440CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teJnLGjIgb0adG2Mj8T48sZIeGVoG0BDKly9m7Ltg5Y=; b=3isSUH4sy24mt4W7DDut/gJwfv
-	h/ncdNiQxqTRzfyxvWE4wtaSXiBukHzdJ5Hh8GOKZSJ1p/Zs3he4OXlyUEc6iMx23ALfnAXXprX00
-	i2I2FKnmDMq8DXuRGMoH0At74DubhRvzv0490NB6OovuEA3tzDy0bQ0ny+izUktpCzQdBn5pOGhxv
-	iYg7mjDpcl8hxykqIqtUjgLI0JpE1Z64m+tMMwT5QoK7kZi5tlssDjMvPPWyBDh/8JOnp9flvOgSf
-	ifPhSfkFD2y7r05kFEk76lfgUdvzMTmgDcoA62AU5rFwCH+sFquXu0TuqvW97xwiYuAoC1WxTRxo9
-	ONRGrj+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u9k3v7Ymx6xX117lxAtKN+N5IMOhg/8YdNdWaM7hZ5Y=; b=IKbfNsUd4JeohDeKy5AboCI0iL
+	Ja0IfRjCiA/+muREYKPmb+9boSLF/HueoL7gv+teeB2QuGbNrHp4kzXsQg6n6ji2w6o1144/4EjyD
+	Cv7UZzwC7gQh85AW1167f67KRC0JpD5ulcArYHGAbcN8snYjaspo+6SI0DIn+vDdP8NAyz9vLT2h/
+	Lb99tZdrbtARYCHfhuu0ko1denn4oPug+v3yJ4DJZTAE+yVbexMZE2yV1FQQeU6MwrS+m7tmCrx6Q
+	KEqoy8ATcsSknT1rdUINXMOhmLVCtG/rpn+F6p2ds/DPRzU8xIkvrAMz2NzBlR/7Q2f4FummunwZN
+	F7Fn5F1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy9fJ-00000004Uyy-2FLD;
-	Mon, 15 Sep 2025 13:54:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uy9pw-00000004a4W-136l;
+	Mon, 15 Sep 2025 14:05:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy9fH-00000004Uy2-2jlS;
-	Mon, 15 Sep 2025 13:54:43 +0000
+	id 1uy9pt-00000004a2u-3XvM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 14:05:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9734460236;
-	Mon, 15 Sep 2025 13:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 299A5C4CEF1;
-	Mon, 15 Sep 2025 13:54:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BA87405E4;
+	Mon, 15 Sep 2025 14:05:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D39CC4CEF1;
+	Mon, 15 Sep 2025 14:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757944481;
-	bh=XQja+r9pWH1pmAvJ3yoJnUXUELpdjU5crLCGTl4MGZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DB4AXQGESnInq9+Li1c4fKtX0IIAElBJuqjrRMEytH635Ne1ZA2UwbpExDWwjdZLW
-	 ksjeLGhYYo0gVn+laB8i4CPnTBnMIzb8KDq+JEjAL82YYD/R731cDOSVnQXuF7bhIa
-	 mDvse77MvpW6648ht5DwHLPmIqY5eWnm7MVFNOrnzbaHQ2ZSDPEz9mt/L07TzrxlHH
-	 ijvCl6LRLjOICQ1v1Q0dYat2HGWFuchgQGKArmPp5SV/GH3WWhztQFSXEutK3oBOq0
-	 T63Qaj2LMtoWifXQ/zKOieeohG0tMP+ijPcBxB6xDIFXcD8Ov/1wKKifqgBqdulYL/
-	 e4+FlaylOs4Ig==
-Date: Mon, 15 Sep 2025 08:54:40 -0500
+	s=k20201202; t=1757945141;
+	bh=d29ukCE4QThVN5wqs6kQsMhVNWS9bKwxuOT+pfkPa/E=;
+	h=From:To:Cc:Subject:Date:From;
+	b=emR704H7wiOC0i4kJa0Gl4umVfevA+UpDjb8NJ0bWQS9DNwqfTXOyDtNWb9tmnDEM
+	 uWXV2iUUE/cYYX6ozNavUkD76SYFrhxr5XNDR7hQMAdiuScUZuY69WwtkaE6pw27o8
+	 ENfy4oZBR6HRxEXs4N/o5mZZbm1N6BqJtHJL+7eBt/eoNqtm2XHqK/IosH+yxZ3YMK
+	 tTO8ddycoQyZehJ8luBirqR+vm/sp0CEZHKZ/EA0c4jhntuHpILMMSvF3BNvXtSy1t
+	 i4XchAOiXJw4W8CtY1QkkZmkPXBgLDsDiJjyJGiitTU41g82sW4GOLh0ExCWwdT4q/
+	 I+reakSJiouVQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Kaison Deng <dkx@t-chip.com.cn>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Jimmy Hon <honyuenkwun@gmail.com>, linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Jonas Karlman <jonas@kwiboo.se>, linux-rockchip@lists.infradead.org,
-	Andrew Lunn <andrew@lunn.ch>, Dragan Simic <dsimic@manjaro.org>,
-	Wayne Chou <zxf@t-chip.com.cn>, FUKAUMI Naoki <naoki@radxa.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: rockchip: Add Firefly
- ROC-RK3588-RT
-Message-ID: <175794446144.2732898.9504412064423841025.robh@kernel.org>
-References: <cover.1757902513.git.dkx@t-chip.com.cn>
- <27b2ce7950fdbf28c6c8404c3f8be3c1c35d6b3c.1757902513.git.dkx@t-chip.com.cn>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH] dt-bindings: arm: Add Arm C1 cores and PMUs
+Date: Mon, 15 Sep 2025 09:05:07 -0500
+Message-ID: <20250915140508.2806590-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <27b2ce7950fdbf28c6c8404c3f8be3c1c35d6b3c.1757902513.git.dkx@t-chip.com.cn>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_070541_907446_089796CB 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +76,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the newly introduced Arm C1-Nano/Pro/Premium/Ultra core and PMU
+compatible strings. These cores are part of the Lumex CSS. The new names
+are replacing the long lived Cortex-A/X branding going forward.
 
-On Mon, 15 Sep 2025 10:22:04 +0800, Kaison Deng wrote:
-> This documents Firefly ROC-RK3588-RT which is a SBC based on RK3588 SoC.
-> 
-> Link: https://en.t-firefly.com/product/industry/rocrk3588rt
-> 
-> Signed-off-by: Kaison Deng <dkx@t-chip.com.cn>
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/cpus.yaml | 4 ++++
+ Documentation/devicetree/bindings/arm/pmu.yaml  | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-
-Please add Acked-by/Reviewed-by tags when posting new versions. However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for acks received on the version they apply.
-
-If a tag was not added on purpose, please state why and what changed.
-
-Missing tags:
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
+diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
+index 41ad4ed0e74c..c1036dcfc912 100644
+--- a/Documentation/devicetree/bindings/arm/cpus.yaml
++++ b/Documentation/devicetree/bindings/arm/cpus.yaml
+@@ -123,6 +123,10 @@ properties:
+       - arm,arm1176jzf-s
+       - arm,arm11mpcore
+       - arm,armv8 # Only for s/w models
++      - arm,c1-nano
++      - arm,c1-premium
++      - arm,c1-pro
++      - arm,c1-ultra
+       - arm,cortex-a5
+       - arm,cortex-a7
+       - arm,cortex-a8
+diff --git a/Documentation/devicetree/bindings/arm/pmu.yaml b/Documentation/devicetree/bindings/arm/pmu.yaml
+index 9bb109e947dd..f47baaefcdac 100644
+--- a/Documentation/devicetree/bindings/arm/pmu.yaml
++++ b/Documentation/devicetree/bindings/arm/pmu.yaml
+@@ -28,6 +28,10 @@ properties:
+           - arm,arm1136-pmu
+           - arm,arm1176-pmu
+           - arm,arm11mpcore-pmu
++          - arm,c1-nano-pmu
++          - arm,c1-premium-pmu
++          - arm,c1-pro-pmu
++          - arm,c1-ultra-pmu
+           - arm,cortex-a5-pmu
+           - arm,cortex-a7-pmu
+           - arm,cortex-a8-pmu
+-- 
+2.51.0
 
 
