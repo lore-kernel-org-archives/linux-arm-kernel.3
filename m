@@ -4,54 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD07CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 02:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43F5CAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 02:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ov854NrwUvH+oEreURQpPtuZXJiEgyq3gAFGLaM0O2A=; b=v8ACbKd2rMHGu9yxh7vF3Tlye+
-	wpeOQggRuw+p0VEWqby+Gt12jtU0NXVQqpwVJyFiDVElGunChuyhnftY8NhBDJs54XlAOcKcNyL1X
-	yzOlFFZ10Mbcp8NzmGFtfJKhBxQbvUJ+gsl6w1e+/XA7n7HU9jYIFHGLu4/EP9mgiSUMAlD/Hq0+D
-	KgKZUPL9WL2XnHsMEqL+BZCeg4efCgQCqnD4ehttn5Cw7DoblgrQX9btLiUSSbiZ/UXIIlLXZA33i
-	PG0CHbFNV+0CroGhUe5OsdsYLI/U/ZMACLkLFzlN96H03AncL7YM9n8Z8WgV63gT9KbULkRYXXI0f
-	dy0Ohumg==;
+	bh=Ac7l5dVkk0vpzdT7SKs5XS4Zx6HoDGJagXwG71sDqrA=; b=LX55thzBxNSX1uifWT5ogmrYby
+	zv8MBqJthKJpxuXXwoyONZVZ4mEONH10O9yqE8lxXXqx5mtbW85Y7gHoFbbFAwCkqRhLYxD4oNt8y
+	0FmXlWXgN+laShPcE8VCjAzYC3Y8TMpR/9weNYlxRg5e/8bJVCVz902laVg+XtxkA/chc19rFJuQ+
+	XRNWXbcvbK388XGuq9YazNQsd7YRPx+BVj2+l8S3nOKiv78xzv5bO/+XYXNqx1bERdyFdIqTOQkxQ
+	O3hm7Xo+UQXuRtbRYNuGhY5DQKGJZ26DVrXMC9LinXp/kM4G6VieB9qXvc+flXh1XLlDFrGoguh2S
+	LrrEEY8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxytJ-00000002Z7x-1hYW;
-	Mon, 15 Sep 2025 02:24:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxytF-00000002Z3m-0eEx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 02:24:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D2BF1424;
-	Sun, 14 Sep 2025 19:24:14 -0700 (PDT)
-Received: from [10.164.18.48] (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B82393F66E;
-	Sun, 14 Sep 2025 19:24:19 -0700 (PDT)
-Message-ID: <e1d9c9a9-7ab0-44e0-b293-7655f18638b5@arm.com>
-Date: Mon, 15 Sep 2025 07:54:16 +0530
+	id 1uxyta-00000002ZI1-3Jrd;
+	Mon, 15 Sep 2025 02:24:46 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uxytX-00000002Z3Y-2oI7;
+	Mon, 15 Sep 2025 02:24:45 +0000
+X-QQ-mid: zesmtpsz9t1757902965tcee76ace
+X-QQ-Originating-IP: 8SygWpMkLfN+wjomF1uQCBSYsTX1NhwX4hZX4glgh2A=
+Received: from localhost.localdomain ( [183.51.120.121])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 15 Sep 2025 10:22:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 254777178612388058
+EX-QQ-RecipientCnt: 17
+From: Kaison Deng <dkx@t-chip.com.cn>
+To: Rob Herring <robh@kernel.org>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrew Lunn <andrew@lunn.ch>
+Cc: Wayne Chou <zxf@t-chip.com.cn>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kaison Deng <dkx@t-chip.com.cn>
+Subject: [PATCH v3 1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588-RT
+Date: Mon, 15 Sep 2025 10:22:04 +0800
+Message-Id: <27b2ce7950fdbf28c6c8404c3f8be3c1c35d6b3c.1757902513.git.dkx@t-chip.com.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1757902513.git.dkx@t-chip.com.cn>
+References: <cover.1757902513.git.dkx@t-chip.com.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4 0/2] arm64/sysreg: Clean up TCR_EL1 field macros
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250907123000.414181-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250907123000.414181-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:t-chip.com.cn:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: MbLl0hvuz6wXSB4rYr6xyW00PodqRBasf3yaMgtvdodk8D4xWFumbGAJ
+	b2oJ8EYIU4gDebh6TvqNBidn2CsVcGjC2T9f5+Ks23PXq+p3mF8R9SogFZwKOWUWYmr8Dhf
+	OeSPPvsPYsyo2fb2/DtSPO7NlmM7J4de+MU5trX2JgnpqbNHZsWDlO5yrzUulkpMPbgQmZE
+	Q5OreHXK7ICpm+DavL2bKF5bPST7OpfM3nvfyBFczbldA6BzLpE7btLCkg7maSGD+AS9lkS
+	lWpz/mYmXNbM1RuD6Ebw4vro6X2VOeX7bT9F0D9XCBs6T5Inw8/DF3/pxlcMQlN8NunLE5h
+	lSJxa1aBAhmIU2SfNRajL1494x56dXtS+zaH3D6TAXBsZRDoFQq5TffpyZgWtQiyAFV1Ji/
+	vtO2Xxtg4RlJPxJfTe2wM3wXwpN0tZxBkdOps8mNIF1i/F1etFZju385Toh1+ahGRvuVklO
+	vBcOT4LgER/ynf/46TUGLN7t0ZuaaRxwplTxSvYdKuBu3Y/AHhcQtihGZGAhoLhozYHkEOW
+	gG845+IrZwaTMZ7rqVeGFPb0oVIY89oWrWFAwCIz7g3xHMH6Fg3DExI6dJ17jShWR9Dz4xH
+	D/D3yudclZgT5qjS5nLmYqh6vtWK9Uh7t107iZ+IAR4do7Wr6wXohzj9sMvdCIWHISC6Gt4
+	+TzHEp4yyRAAwqXhwJmDsrBWaiMHR2XyuhXCaNK9JYHGytK4DKVsfY83oI8+3G47YhrxCVK
+	a80jg666/XGFbyqb39N19H2yWhMX+g47d24i3Z/5zcxXIZ7g8y68xku0oOAMBRedJVP+1lj
+	GDPWLsvinHX+edelnArYJEFbmTLyZl97NvgXHuwHqgExZ2Vlw9LNUdP3kN0mc1pvBvRdYn2
+	SII49SSiIm21tbW5GskdMjbxox0T7gZXh1gRGh2Ifodvs2TQ6AHZJ+gLHEXgQuzTYwG+LmV
+	jEPgjqjc46bCScL59mHPDhWq5YPMnEtlD6numP28PE3aqjfBskZ9fdwUs5vuQUy+/vAZEEn
+	xeQmQ59bYcA98neAI+lxso4wV9v250SR2HMh1XtzW1LRhGdxlbRCYKoBtVf1bUTFEBGPSYI
+	nMS0C4Z3P2T6J4RUPGyybHyv3FaH8R72r+WYTrQblLKx7ytl1xzniKEqpPY2bFtX4G9CQdd
+	yFH1g9pFZvAUDWVJj1fk+sr9dmfW4r5eiQZwJjhKTtDuQO4=
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_192425_289319_8FE84507 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250914_192443_987342_F0BFC64B 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,78 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This documents Firefly ROC-RK3588-RT which is a SBC based on RK3588 SoC.
 
+Link: https://en.t-firefly.com/product/industry/rocrk3588rt
 
-On 07/09/25 5:59 PM, Anshuman Khandual wrote:
-> Currently TCR_EL1 field macros are sprinkled across the arm64 platform code
-> including KVM implementation. Clean these up via updating required register
-> filed definitions in tools sysreg format and then subsequently doing all
-> necessary replacements. All required TCR_XXX macros have been moved from
-> (asm/pgtable-hwdef.h) into KVM header (asm/kvm_arm.h) for their continued
-> usage in KVM.
-> 
-> The cleanup does not cause any functional change.
-> 
-> This applies on v6.17-rc4
+Signed-off-by: Kaison Deng <dkx@t-chip.com.cn>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Gentle ping.
-
-Any updates on this ?
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: kvmarm@lists.linux.dev
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> 
-> Changes in V4:
-> 
-> - Dropped all unused TCR_XXX macros while moving into KVM header
-> 
-> Changes in V3:
-> 
-> https://lore.kernel.org/all/20250901072037.743380-1-anshuman.khandual@arm.com/
-> 
-> - KVM TCR_XXX flags are expressed via TCR_EL1_XXX flags per Marc
-> 
-> Changes in V2:
-> 
-> https://lore.kernel.org/all/20250829060215.1086792-1-anshuman.khandual@arm.com/
-> 
-> - Fixed ARM ARM version from 7.B to L.B
-> - Changed UnsignedEnum into Enum per Mark
-> - Dropped all TCR_EL1 replacements from KVM code
-> - Moved existing TCR_XXX macros from (asm/pgtable-hwdef.h) into KVM header
->   (asm/kvm_arm.h) for their continued usage
-> - Dropped patches 3 and 4 which could be done subsequently
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250818045759.672408-1-anshuman.khandual@arm.com/
-> 
-> 
-> Anshuman Khandual (2):
->   arm64/sysreg: Update TCR_EL1 register
->   arm64/sysreg: Replace TCR_EL1 field macros
-> 
->  arch/arm64/include/asm/assembler.h     |  6 +-
->  arch/arm64/include/asm/cputype.h       |  2 +-
->  arch/arm64/include/asm/kvm_arm.h       | 43 +++++++++++
->  arch/arm64/include/asm/mmu_context.h   |  4 +-
->  arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
->  arch/arm64/include/asm/pgtable-prot.h  |  2 +-
->  arch/arm64/include/asm/sysreg.h        |  2 -
->  arch/arm64/kernel/cpufeature.c         |  4 +-
->  arch/arm64/kernel/pi/map_kernel.c      |  8 +--
->  arch/arm64/kernel/vmcore_info.c        |  2 +-
->  arch/arm64/mm/proc.S                   | 36 ++++++----
->  arch/arm64/tools/sysreg                | 52 +++++++++++---
->  tools/arch/arm64/include/asm/cputype.h |  2 +-
->  13 files changed, 127 insertions(+), 134 deletions(-)
-> 
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index f9ee77f17ad7..6aceaa8acbb2 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -258,6 +258,11 @@ properties:
+           - const: firefly,roc-rk3576-pc
+           - const: rockchip,rk3576
+ 
++      - description: Firefly ROC-RK3588-RT
++        items:
++          - const: firefly,roc-rk3588-rt
++          - const: rockchip,rk3588
++
+       - description: Firefly Station M2
+         items:
+           - const: firefly,rk3566-roc-pc
+-- 
+2.25.1
 
 
