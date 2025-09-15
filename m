@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E416CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200ADCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoJ7swGtwRM0siHCm//wnPXlL53poRbNiCUMLyZD9ko=; b=VZIsTlBXsJAk/tpRnUIRmq0nRD
-	lWAzy01qYBQWy5HuR2/DLNtEGEWFgE3fPxnvCmricvjAnWMqt3ASLgSstyc2pGMxkmYb1fLBzn84e
-	06Fgwjov2Ew+0Cq0kB0IwNHwXxeZqCmfNMXbsr9VGdhNznf46yY+FfS+e4HmNmW4tHiwS3EbO0dBc
-	MSVxSmmp9zOM1e0J1OHBSxGR9/5cRiixkyzleMtyWS5JPydZ7HKVgWGx8YuVIKk7fP722fiA2bGeP
-	IqcGVd18RkxGpKLfbp3z3hXRtBA3fT/sxKB6euSc8BwcH9+Pl1fgzfTXtZjzi6vAILSkJvliKgRI6
-	SI/n/oOg==;
+	bh=kRasmdSNBx5icS3dojNjRzIU1ongxGvw+jFzOz4A6Pw=; b=qGTsRm47t7YkrsMESFYLXSMYk0
+	OEDwWTWaPg3zg3k3SVLkvIjK7J5mHecZNpHk7zkDpm7wJ5f40SWKpD46DL6fT4hVqj4DeyD+Q1ewP
+	+a+sjuDCsDz4Aj41oZfK2bqZkD3nQkwNlhB+cDwo0p0q9CQHlaTx6Ly+J+F6rE8gWEbYkqHt3oIbF
+	PMed0kxaMGP4MkigewA/CPfjzAZ6etoQ1P/DL0u5yPCmM5USUE+uj4DulK7WUuWWVN44RyrQtCaOc
+	xxnXHZcUglx7LSQuCokfb3rrJ/0fecIgg0/Va91ofpwtwaP5FYZoMwM+o8EvonFCkkC/w4rVmXdY2
+	/T5kP3PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7e6-00000003y2h-4Bzb;
-	Mon, 15 Sep 2025 11:45:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy7e5-00000003y0f-2sBZ;
+	Mon, 15 Sep 2025 11:45:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7dj-00000003xew-1IyD
+	id 1uy7dk-00000003xeO-0w9i
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 15 Sep 2025 11:45:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A61044954;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FA716022E;
+	Mon, 15 Sep 2025 11:45:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D55D6C4CEFB;
 	Mon, 15 Sep 2025 11:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4395C4CEF7;
-	Mon, 15 Sep 2025 11:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757936698;
-	bh=CHEV3kfdyE9wl1c6Ioc5A3Xa8u3LcRzauHlZkqmRQec=;
+	s=k20201202; t=1757936699;
+	bh=rlIhf/og2ExyGxY1kHGqS1t/0oTPguQPDGveZ54c0AU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fqORv/OszNbkJa8rPhzpfQEN2avWdu6FOQLyCfA59ujY0NorbZ1/w4IxRDBCshbfF
-	 1ZhTOD9VsHF6GPufnZb+tls3hHPEd5KjI6D/0ECazoXPzLgYB3Au2hdb7/+tJlOHKC
-	 GoJO2sPyQLYaj3gSc7GBA4TJTqElZbdWKYgUaLk03gg0gIBvjE4HxGQ2WaIl+uqMPJ
-	 I0phfSdpbT+7t+qMwsUqEaOyq0R/AiRNHOBSyQdq/e3domzQ+qXP7ZSQwGefisI0pT
-	 ouP0uU6mDXoBsfm0qG9kXnUF/Y+iE1uh8qd1YrRYq8th84/d4T5+w0GlHHfhUDEkny
-	 p+Y/7d9ci7RQQ==
+	b=jvGLBjuAY4ldoa501z4Q7tK7T00e8OlKKtR6Hxk+JYaD1dPXLr2U8j65XObmhL5dG
+	 EUj2LqzaltcmdmCBfLBHCftqIS9zcScoydImAngAjGPl81+FoJ4HyF2snpD/ZPD32/
+	 7Yw2h+Qzom58oFu38vCL+gLpg+e3j99KeQ9GRuBmum4KKvgAFoGiZYiUxB7EECsZFb
+	 7eNLsgluQiJBFM7v+fheAEJ97RvIqAV6YehpgohzhuLq4ydsWU63pT+sHlZohBNsN1
+	 EjxhP9JYQlzU8eGcsu73WA3X+n24dXODcI+m+kRuXp63GlOxd2q7tn3xxpu4+61KAB
+	 rCnbJ0xbjDIIw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy7dh-00000006MDw-0OlV;
-	Mon, 15 Sep 2025 11:44:57 +0000
+	id 1uy7di-00000006MDw-0Qmq;
+	Mon, 15 Sep 2025 11:44:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 11/16] KVM: arm64: Allow EL1 control registers to be accessed from the CPU state
-Date: Mon, 15 Sep 2025 12:44:46 +0100
-Message-Id: <20250915114451.660351-12-maz@kernel.org>
+Subject: [PATCH v2 16/16] KVM: arm64: selftest: Expand external_aborts test to look for TTW levels
+Date: Mon, 15 Sep 2025 12:44:51 +0100
+Message-Id: <20250915114451.660351-17-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915114451.660351-1-maz@kernel.org>
 References: <20250915114451.660351-1-maz@kernel.org>
@@ -68,9 +68,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_044459_367627_4B2B631B 
-X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +82,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we are about to plug the SW PTW into the EL1-only code, we can
-no longer assume that the EL1 state is not resident on the CPU,
-as we don't necessarily get there from EL2 traps.
-
-Turn the __vcpu_sys_reg() access on the EL1 state into calls to
-the vcpu_read_sys_reg() helper, which is guaranteed to do the
-right thing.
+Add a basic test corrupting a level-2 table entry to check that
+the resulting abort is a SEA on a PTW at level-3.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/at.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../selftests/kvm/arm64/external_aborts.c     | 43 +++++++++++++++++++
+ .../selftests/kvm/include/arm64/processor.h   |  1 +
+ .../selftests/kvm/lib/arm64/processor.c       | 13 +++++-
+ 3 files changed, 56 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 4f6686f59d1c4..c84a021067daf 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -110,7 +110,7 @@ static bool s1pie_enabled(struct kvm_vcpu *vcpu, enum trans_regime regime)
- 	case TR_EL10:
- 		return ((!vcpu_has_nv(vcpu) ||
- 			 (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TCR2En)) &&
--			(__vcpu_sys_reg(vcpu, TCR2_EL1) & TCR2_EL1_PIE));
-+			(vcpu_read_sys_reg(vcpu, TCR2_EL1) & TCR2_EL1_PIE));
- 	default:
- 		BUG();
- 	}
-@@ -139,7 +139,7 @@ static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
- 			return;
- 		}
+diff --git a/tools/testing/selftests/kvm/arm64/external_aborts.c b/tools/testing/selftests/kvm/arm64/external_aborts.c
+index 062bf84cced13..acb32d0f27bbe 100644
+--- a/tools/testing/selftests/kvm/arm64/external_aborts.c
++++ b/tools/testing/selftests/kvm/arm64/external_aborts.c
+@@ -250,6 +250,48 @@ static void test_serror(void)
+ 	kvm_vm_free(vm);
+ }
  
--		val = __vcpu_sys_reg(vcpu, TCR2_EL1);
-+		val = vcpu_read_sys_reg(vcpu, TCR2_EL1);
- 		wi->poe = val & TCR2_EL1_POE;
- 		wi->e0poe = val & TCR2_EL1_E0POE;
- 	}
-@@ -965,7 +965,7 @@ static void compute_s1_direct_permissions(struct kvm_vcpu *vcpu,
- 		wxn = (vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_WXN);
- 		break;
- 	case TR_EL10:
--		wxn = (__vcpu_sys_reg(vcpu, SCTLR_EL1) & SCTLR_ELx_WXN);
-+		wxn = (vcpu_read_sys_reg(vcpu, SCTLR_EL1) & SCTLR_ELx_WXN);
- 		break;
- 	}
++static void expect_sea_s1ptw_handler(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el1);
++
++
++	GUEST_ASSERT_EQ(regs->pc, expected_abort_pc);
++	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_CUR);
++	GUEST_ASSERT_EQ((esr & ESR_ELx_FSC), ESR_ELx_FSC_SEA_TTW(3));
++
++	GUEST_DONE();
++}
++
++static noinline void test_s1ptw_abort_guest(void)
++{
++	extern char test_s1ptw_abort_insn;
++
++	WRITE_ONCE(expected_abort_pc, (u64)&test_s1ptw_abort_insn);
++
++	asm volatile("test_s1ptw_abort_insn:\n\t"
++		     "ldr x0, [%0]\n\t"
++		     : : "r" (MMIO_ADDR) : "x0", "memory");
++
++	GUEST_FAIL("Load on S1PTW abort should not retire");
++}
++
++static void test_s1ptw_abort(void)
++{
++	struct kvm_vcpu *vcpu;
++	u64 *ptep, bad_pa;
++	struct kvm_vm *vm = vm_create_with_dabt_handler(&vcpu, test_s1ptw_abort_guest,
++							expect_sea_s1ptw_handler);
++
++	ptep = virt_get_pte_hva_at_level(vm, MMIO_ADDR, 2);
++	bad_pa = BIT(vm->pa_bits) - vm->page_size;
++
++	*ptep &= ~GENMASK(47, 12);
++	*ptep |= bad_pa;
++
++	vcpu_run_expect_done(vcpu);
++	kvm_vm_free(vm);
++}
++
+ static void test_serror_emulated_guest(void)
+ {
+ 	GUEST_ASSERT(!(read_sysreg(isr_el1) & ISR_EL1_A));
+@@ -327,4 +369,5 @@ int main(void)
+ 	test_serror_masked();
+ 	test_serror_emulated();
+ 	test_mmio_ease();
++	test_s1ptw_abort();
+ }
+diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+index 255fed769a8a5..e3e916b1d9c4e 100644
+--- a/tools/testing/selftests/kvm/include/arm64/processor.h
++++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+@@ -175,6 +175,7 @@ void vm_install_exception_handler(struct kvm_vm *vm,
+ void vm_install_sync_handler(struct kvm_vm *vm,
+ 		int vector, int ec, handler_fn handler);
  
++uint64_t *virt_get_pte_hva_at_level(struct kvm_vm *vm, vm_vaddr_t gva, int level);
+ uint64_t *virt_get_pte_hva(struct kvm_vm *vm, vm_vaddr_t gva);
+ 
+ static inline void cpu_relax(void)
+diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+index eb115123d7411..bd7480a93f963 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/processor.c
++++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+@@ -185,7 +185,7 @@ void virt_arch_pg_map(struct kvm_vm *vm, uint64_t vaddr, uint64_t paddr)
+ 	_virt_pg_map(vm, vaddr, paddr, attr_idx);
+ }
+ 
+-uint64_t *virt_get_pte_hva(struct kvm_vm *vm, vm_vaddr_t gva)
++uint64_t *virt_get_pte_hva_at_level(struct kvm_vm *vm, vm_vaddr_t gva, int level)
+ {
+ 	uint64_t *ptep;
+ 
+@@ -195,17 +195,23 @@ uint64_t *virt_get_pte_hva(struct kvm_vm *vm, vm_vaddr_t gva)
+ 	ptep = addr_gpa2hva(vm, vm->pgd) + pgd_index(vm, gva) * 8;
+ 	if (!ptep)
+ 		goto unmapped_gva;
++	if (level == 0)
++		return ptep;
+ 
+ 	switch (vm->pgtable_levels) {
+ 	case 4:
+ 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pud_index(vm, gva) * 8;
+ 		if (!ptep)
+ 			goto unmapped_gva;
++		if (level == 1)
++			break;
+ 		/* fall through */
+ 	case 3:
+ 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pmd_index(vm, gva) * 8;
+ 		if (!ptep)
+ 			goto unmapped_gva;
++		if (level == 2)
++			break;
+ 		/* fall through */
+ 	case 2:
+ 		ptep = addr_gpa2hva(vm, pte_addr(vm, *ptep)) + pte_index(vm, gva) * 8;
+@@ -223,6 +229,11 @@ uint64_t *virt_get_pte_hva(struct kvm_vm *vm, vm_vaddr_t gva)
+ 	exit(EXIT_FAILURE);
+ }
+ 
++uint64_t *virt_get_pte_hva(struct kvm_vm *vm, vm_vaddr_t gva)
++{
++	return virt_get_pte_hva_at_level(vm, gva, 3);
++}
++
+ vm_paddr_t addr_arch_gva2gpa(struct kvm_vm *vm, vm_vaddr_t gva)
+ {
+ 	uint64_t *ptep = virt_get_pte_hva(vm, gva);
 -- 
 2.39.2
 
