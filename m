@@ -4,109 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DE3CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76C3CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLL8rzXBaL9TL+cKj7734rcnA0rGbpZjb3H9q3ePb+M=; b=nIXHspm5Y5qo6s4Nll47/lUF6v
-	lD009YQgSh1I0rz/EkOzQsBmbkjKlvxwdZGCt7g33JmxyWQXjrmRgljBAuHKs3q0dLViaouWmPyEc
-	SuGk3yzqtWSv8QotVF7aj40i00ZXuMFWfmKlFRsaHiS1ZBuVXKPz+h2v19KaAziBdk4HcWEJN2FPY
-	r9PZ9VpO/I7Da0hkr1xyhkIF9dT5/8dpnO+EWQNLte+m5KwntR2dy9FLfEFYrSZ3+MbdVqzTWIIEU
-	QnkMa3a6GzQ8TJKiXD+uQ0eJafaFms7Kds6fNlvIDpYuOsOVQqvOwVRSaaLEpFOiUjEXlNxAGZuba
-	HPJCtaYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=knTNCoPdWg2pHCztUfEQ8k7yWdqtvYzIJewGisE0oL4=; b=j+g/bLhZYs3VLMP4hfVqROoGf5
+	Ab1CGlYOc0FsMOTsacbxL7NCqNMsQ4hIH9/S1UE+GCROipsjFQCd4PdZchVi948/kHdR8nsB88Olm
+	DpTOEY0kCdk9W+5Fiv82GcCwEOumRJ9QuruJVqy8P1L05WPA4XRQuzDEdkrjCLG1V0A7ci2uXHFJ4
+	nyCKmuyhlK8bcJQt8o3GtnmF1bPKuEIPfEg3Mf6/bdoyRFFpNAuuvQ4/dVt5xjkA7HgSa2kyfNZbr
+	Ifg5WLEf8qTgc59AvDIxC9FhMZdnj/CJZc4RSiiUlxsK8a5sk5xJAs+QhUC05eq+AnYTLJEIZ/Rw0
+	CYCvHkMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy8LF-0000000493j-0eB2;
-	Mon, 15 Sep 2025 12:29:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uy8NG-000000049ST-2PdY;
+	Mon, 15 Sep 2025 12:32:02 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy8LC-0000000492r-00G5
+	id 1uy8NE-000000049RA-1Ywv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 12:29:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757939391;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wLL8rzXBaL9TL+cKj7734rcnA0rGbpZjb3H9q3ePb+M=;
-	b=BxVbyryhWp089TG+BJWn0h2VhChtvXd2X+QpxpU4vILt7kZoA5uen1IKSuDSor6HLu8qNE
-	a2IqBegL6tJR1B4rI3cxt/vIANKDDwIgsf67jKa+ncngPS9WaLGTmApuTMsNvQlsPb3/jI
-	33W/2KELGMr0dm7F16KeU8n2QUO5eNQ=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-643-g5_DMkRVNHG1r71BASCfpA-1; Mon, 15 Sep 2025 08:29:49 -0400
-X-MC-Unique: g5_DMkRVNHG1r71BASCfpA-1
-X-Mimecast-MFC-AGG-ID: g5_DMkRVNHG1r71BASCfpA_1757939389
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7fc5584a2e5so1412003785a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 05:29:49 -0700 (PDT)
+	Mon, 15 Sep 2025 12:32:01 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-32e32f702b9so1451091a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 05:31:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1757939519; x=1758544319; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=knTNCoPdWg2pHCztUfEQ8k7yWdqtvYzIJewGisE0oL4=;
+        b=eH76I9XdjzOX+yd7lb0fExAX2HYOryGRDh2fKRFtBcikOU1+mYJ7AWJwyh0O5tZ+3d
+         w73hxexVIQe3xQMRV3gP/NXAc6IhsZ8Ca55tl75ZQH2LyXGy3/IiYD8mdVAjX/sCHrAf
+         DxQJppB22Fc4TN0EhQQPb5dFL1eC/hinfRhBw46WNCmKFQaee7eFiucOXD6GI20pd1zN
+         wf1wWTrvTUU6Pq7uT+uZtirPcHjP3L8Sr/2FqEkrz+L/frxHUpk7SOHNu9P1hdfqJRnM
+         SUSosgmHQ5q1JgsOYS3A6KZJnER0VBGbQdt4valRrCfS2gJg78sJt62Ddc36o7wcvY55
+         e2EQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757939389; x=1758544189;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1757939519; x=1758544319;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wLL8rzXBaL9TL+cKj7734rcnA0rGbpZjb3H9q3ePb+M=;
-        b=gtb29PMe/uyFl+0zbp6L1c3hTxzRLxfmOPxiQKZ1RVuQqqz55lK1Uhh/vMpAiA0a89
-         VUjmtdO/gK5/8k/E3qo4MwWAKQ1L/MTFSBIBxyjregSDz7oobCS/6Dzkmb3FgvA81H4V
-         1j5VwV0R9vdPC0yz/1AWEu2+q53OkdLKMUaquH+/qyCDE38WFzAbSYcsiCRUafuAnpYr
-         mSYNteutScxLRaXF718x6STlkBVQs8ZT15Z2t5CBoBXU3V8thMMD6ix05JFmFriTz6VF
-         GsmBo/x54GDp+uKf7XFS4S1pBI/qBer/GHGYzih3BEwJtzRA5QXd7MDfKrL49OiyTH/1
-         ZxSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLWjUSw9gMy/sVk9OVZ+t/L0dXvqASZldF6U5QRXqOei8QMfuK/YPL6XL2qiSgnmNAyLqUVkpo8dGIGX3ZxIf8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkODkUIomzwda2MlXCPp80JNFw8q0B8kSjzYMQMaL+BKa40S8d
-	sBHw6KjUKbpLJMSCB2v/wpmFo5FLw6ISp3MVWXjiYjSrR2nvHtV0nyyGSDDz3dN1w6CbiG6mjBd
-	T89sC2qroskev3FvCha2wAm3zXfEWbjJnlF0OmyewjkT0he6CIA4jKcBP2wQfCsHQO72GAU0oJE
-	RI
-X-Gm-Gg: ASbGncsjGrZexvbu+tsgsJ6WmRUV8NRM63I3THe8+6x+TgXTciCvzFrM8hZitaId6QQ
-	+ld8uQJx/Fqo+vGBj6I2ozqWkMd8LgvkSVZMI36Du2yEgIJM6Sezv4Ml+0FyoBitabwQnlZmmuB
-	kh17f5lds3XKz4zMlQpdO1hATjKworuQfFGliH6YBnDbzKX0aGcrAcVqPIa7U6hkSBCvvLwZTRJ
-	FMSaSxkk6MVoPo9I42nHhbW3MtLjO9xyxhnTtvQSubDdU394sotXlKEK9XDVygkCSxrnFSzm2e2
-	z0rpxbXbObO/rJOsLFjsRwiDDx2pVFdHk1vY4qrL0mRoATr/OZgEYWhrUOFn/fplc4U38PaeccP
-	IvVeg7EdqGAnkJz60POQAWu6JTMHQU3I=
-X-Received: by 2002:a05:620a:3194:b0:7f9:7000:f7bb with SMTP id af79cd13be357-823fbde9118mr1346854885a.7.1757939389145;
-        Mon, 15 Sep 2025 05:29:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHY7Mxjz8VG1qTosAk9YY8DjG+y2q7MXDw84ZmcJWfZt1ziy/I8az1raMUNBU225CmbUCJKNA==
-X-Received: by 2002:a05:620a:3194:b0:7f9:7000:f7bb with SMTP id af79cd13be357-823fbde9118mr1346851185a.7.1757939388265;
-        Mon, 15 Sep 2025 05:29:48 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b79a7b639esm26809461cf.5.2025.09.15.05.29.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 05:29:47 -0700 (PDT)
-Date: Mon, 15 Sep 2025 08:29:44 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 4/5] clk: Add KUnit tests for assigned-clock-sscs
-Message-ID: <aMgGuDxzYZpw9sti@redhat.com>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
- <20250915-clk-ssc-version1-v4-4-5a2cee2f0351@nxp.com>
+        bh=knTNCoPdWg2pHCztUfEQ8k7yWdqtvYzIJewGisE0oL4=;
+        b=Y2JZsEFLknu1qMiahlurC3Zb2F/kp7Ce8Bn4ZxiNlA4meoyvj5v9Aysx3suv6ZPBFm
+         A7a9pKxiu/IDD1poDMcPPoj+Sqfjk5/4xlgLIfYc6xlb+4rRwbNAgiO3kYDOtX+YgT/D
+         lZVfDU9eofUHuL3Sg1knwwQwKOAkjXpJ7NVV4MvAmmZU5IZOHrAbET2k40m5oRMgyWwn
+         kCngf3ZauADu4ktntPefj9Sq5Staz0wX+h0gvECDisUlFZTSm/3EK0Lq41yWi/aHigeA
+         pRpgdwVBk7D+g1aZLHuPVQ8rh4JuA7PvwkjS5YjoECO9gbPOCHnGHBUJpYhQFegbDATs
+         i+5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVxUwJIZT9lS9PNiS5ZXrHdX2ugA2+goGPrWNuSTenW+me8NNIFOIIJQtbfCzU1on69vmqClamXWGmP1ysFNTK8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0QbtXyE0ax0RXPmD2S5493ng0QP988gMpCde5yLQIXNJDqt4k
+	/a/CBSwMAvgs3IVs1xDZfsYWkv7LE9CF4Y0iIGeNL2NDHCrNzyR77kfleDPMEb9uxitJJmHiDgJ
+	/hwOfwlw98BI6+Gsv8V/8FGN0HcztFQg087j1m7hfHA==
+X-Gm-Gg: ASbGncvKfVwhYdSXL1A9TnLVsnaN54IzmfSsLo42Z0sbXyPbbarRdBE87gBYtDLZhNY
+	LnHIYKpl6iE2yreFgtULQEIR3s/P6pcXKfWMkJC86d1IiHHr49YmPeCXCwguSYGikUtmcwRO+rE
+	Pz97ISk+h9zkSV3w8L9jHe/DmNt/p5oSN1OBPoE6RjpFr3qn8zlB8j9mKuGxqe0zKCgXRaR1dCD
+	ZrMKJPp/Bsrc2JYLGwM93n3l6uVzKgajXIYEOY0tVWgroGAt353
+X-Google-Smtp-Source: AGHT+IH/frGLEtZ7ZHZnQY/5z33pxs75DFZAWxPCVhbB4mB21NkvYviO2w4jUhkbFFY8+vXiW0ByKtS6YODahX8cUnM=
+X-Received: by 2002:a17:90b:4c4d:b0:32e:32e4:9785 with SMTP id
+ 98e67ed59e1d1-32e32e49ff9mr6355901a91.6.1757939518184; Mon, 15 Sep 2025
+ 05:31:58 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20250915-clk-ssc-version1-v4-4-5a2cee2f0351@nxp.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: OXJ5RVU2QUniidoCy8LNC0RyuF83PoNiKBab7kG8PCI_1757939389
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+ <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
+ <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
+ <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
+ <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com> <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
+In-Reply-To: <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Mon, 15 Sep 2025 13:31:45 +0100
+X-Gm-Features: Ac12FXx-lR_XqhTnyAEupBeFxl6WMTjW6Kcjw5_GSL4qiK2IHfeaMNkbyUCiheY
+Message-ID: <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: Xaver Hugl <xaver.hugl@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
+	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com, leo.liu@amd.com, 
+	ville.syrjala@linux.intel.com, pekka.paalanen@collabora.com, 
+	contact@emersion.fr, mwen@igalia.com, jadahl@redhat.com, 
+	sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com, 
+	joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org, 
+	victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com, 
+	quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st, 
+	Liviu.Dudau@arm.com, sashamcintosh@google.com, 
+	chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, mcanal@igalia.com, 
+	kernel@collabora.com, daniels@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_052954_110296_41CA0F90 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250915_053200_416907_0683C820 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,32 +115,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 04:29:38PM +0800, Peng Fan wrote:
-> Spread spectrum configuration is part of clock frequency settings,
-> and its behavior can be validated similarly to assigned clock rates.
-> 
-> Extend the existing KUnit tests for assigned-clock-rates to cover
-> assigned-clock-sscs by reusing the test framework. Add new test
-> device trees:
->   - kunit_clk_assigned_sscs_null.dtso
->   - kunit_clk_assigned_sscs_null_consumer.dtso
->   - kunit_clk_assigned_sscs_without.dtso
->   - kunit_clk_assigned_sscs_without_consumer.dtso
->   - kunit_clk_assigned_sscs_zero.dtso
->   - kunit_clk_assigned_sscs_zero_consumer.dtso
-> 
-> These tests cover various invalid configurations of assigned-clock-sscs,
-> ensuring robustness and consistent error handling, similar to the coverage
-> provided for assigned-clock-rates.
-> 
-> Co-developed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Hi N=C3=ADcolas,
 
-This looks good to me. I'd typically leave a Reviewed-by, but that's
-probably not appropriate since I'm already listed with a
-Co-developed-by.
+On Wed, 3 Sept 2025 at 19:43, N=C3=ADcolas F. R. A. Prado
+<nfraprado@collabora.com> wrote:
+> On Tue, 2025-08-26 at 13:25 +0100, Daniel Stone wrote:
+> Based on this discussion, this is my understanding for the changes
+> desired on the series and their reasonings:
+>
+> 1. Add a driver cap, DRM_CAP_POST_BLEND_COLOR_PIPELINE, which drivers
+> will use to signal they support post-blend color pipelines.
+>   - Reason: Allow userspace to figure out that the driver doesn't
+> support post-blend color pipelines and choose to not set the client
+> cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, so it can use legacy
+> color management instead.
+> 2. Make it so setting the client cap,
+> DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, fails if the driver cap,
+> DRM_CAP_POST_BLEND_COLOR_PIPELINE, isn't set
+>   - Reason: Prevent userspace from making color management unusable if
+> the driver doesn't support post-blend color pipelines, as the legacy
+> color-management properties (GAMMA_LUT, DEGAMMA_LUT, CTM) would be
+> unwriteable with the client cap set.
 
-Brian
+Definitely.
 
+> 3. Make legacy color-management properties (GAMMA_LUT, DEGAMMA_LUT,
+> CTM) read-only if the client cap,
+> DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, is set
+>   - Reason: Allow drm_info to print legacy color management
+> configuration while still enabling post-blend color pipelines through
+> the client cap. Also to allow smooth handover from pre-colorop
+> userspace client to colorop-ready userspace client, as the latter can
+> now replicate the legacy color configuration through the colorops.
+
+I think yes, but I don't really feel strongly about this. If others
+involved have stronger opinions, I'm happy to yield.
+
+> Side note: Smooth handover back to pre-colorop userspace after tweaking
+> the colorops to something else would not be possible without making the
+> legacy properties writable too, so that the client could update them to
+> match the colorops setting before switching back. I don't imagine this
+> would be a common use case, and colorops are a superset of the legacy
+> properties so there are cases where it wouldn't even be possible to
+> replicate the colorop setting on the legacy properties, but thought I'd
+> mention this limitation for completeness' sake.
+
+That's a totally acceptable tradeoff. We don't have a standard
+inter-client capability handshake, so if downgrading from a
+newer/more-capable to an older/less-capable client is a bit janky,
+that's OK. There's only so much we can do given the original design
+decision for the KMS core to not be opinionated about a 'golden state'
+that could be used as a reference for userspace to work from as a
+base.
+
+> Also, as Xaver noted, this feedback also applies to pre-blend pipelines
+> and its legacy color-management properties (COLOR_ENCODING,
+> COLOR_RANGE), so the same changes would be desirable there for the same
+> reasons. So we should share this feedback on that series as well.
+
+Yep.
+
+Cheers,
+Daniel
 
