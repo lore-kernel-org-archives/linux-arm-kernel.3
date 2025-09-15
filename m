@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F3ECAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5724CCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4UfTitWr0/SY0YFizPV9dalGTR12rbqo6S3iSVpAJc=; b=iTZea0yLhEXWx36+MegHl1Pjb/
-	lz+TICjVnAm2eqNmjsHQjty/ciOr7BRcuJ1PreZsToJbi/Oto0x9y2KdxXxasUjweeOMP1F50WNgB
-	UckmoAEXf/jOA/cUFgx2g1r1JDGzyn0keHhJjR5U3VerNu1VPTaTOgizYOZFlwvbZ8rPR0zSy2wf6
-	S0uXUOOqst/GZ0aa7Sx5OIJYUTRm7hJtNK65RGn77+L7t/M0f+c7mKJAzK96Ctq7Sby43kPITILNG
-	2kIzL8rc5Hs0f7vT8jAPrUX83+iGRHFc64KSwwrv1XyPYymR42J/+fzXgOkH185Z7AxyKTZQOP5mE
-	/UfsI4bw==;
+	bh=iF+wFLzqJgcC4lMJZbTMW9CSMXwTLFbaGRq/VOX71hY=; b=IKPhHY1xEjXxGt+aFCPaw1f5h7
+	2343oMffdnG2QMJhRsbux5fpeAjZNGPYJzEDetQfJlqqU/y9jLYq1L1DWpvySj6KBhlNxUd/6/YwM
+	JIbA0RAywSnI1UX15UMoScLzwPqnYDzHqu+LsfCSwtaBVGefxZAwT/r8qCbPqTyJHZbRP+SnV49wE
+	WdoXVQVBSM6PGQZWlqxORa2Q6QzhH8p+ur4/Mb4UGJHORNe9ogmNr01VGbCGRo6XUAL7wkJXcdV7x
+	cEkGIVq0OoN8xt39h7PC1Z1PkKvKUchWkbEY6ajN3mxZg2/EtCvqo5zKxOos9F2McAvWL8esJ3iAB
+	xVb6b3sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6iv-00000003l7L-1huY;
-	Mon, 15 Sep 2025 10:46:17 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uy6j0-00000003lBF-3Kph;
+	Mon, 15 Sep 2025 10:46:22 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6ii-00000003kw6-1qQu
+	id 1uy6il-00000003kzA-2sFA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:46:06 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45dd505a1dfso32927135e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 03:46:03 -0700 (PDT)
+	Mon, 15 Sep 2025 10:46:11 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45df0cde41bso30932695e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 03:46:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757933162; x=1758537962; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1757933165; x=1758537965; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=J4UfTitWr0/SY0YFizPV9dalGTR12rbqo6S3iSVpAJc=;
-        b=bfcgqfM7qb0Ny7IraCAVKUPf3U5HtDM0hnG06vpt2IQ5nL/rO86HJ8Iry1DHyj0Ob4
-         gaqBLxi1uJ7gjWkCgRslGWpvqrcXqwD2fYMQDLFc3z/OGJ8Nk+M3o1iRvCzxwx/V81xD
-         yRrHIhNYQNHtPVQ/I+6naJXG+fTTVc6g43JZwpDk0+h2p1Clq3CET26cQ+51v8ponylF
-         qXHu+AuC+A2GkOa3+kqhq4fj5l/0tfxFdJYz03W9Jds1zu1UZw0DXZvwkqfmTJ+iQOMT
-         41vOE/849/htAPGaKVFmKt9FpFkzTl3ykKvYnQUVGD2zk79gmdWNWljK4RmUjX8r+D+i
-         qA1Q==
+        bh=iF+wFLzqJgcC4lMJZbTMW9CSMXwTLFbaGRq/VOX71hY=;
+        b=S4fF/l0gnO2XJnRa10uXxju5wqt6P8c+kIUjL+9iYecy2riDIM2cOnAGBeO0LIiVj4
+         EZOJ33liWyaiAaUfkeF06HfgNB6snf9qpwxD+SGrDKrXh0I3VPHRow3hJ8sJP1qKEqvX
+         ndUWIlSafa5SMwd1bb8t+rX+qJVt7NMKy+dJX2OxuduIuKl0YSToXpQqYR+OgosIdWql
+         Zb853mQ1iQcgCKD+BxrWedxsmZszWFN2XzjDPsBW9mm4UYbdluyqJF738vCJChbiD0RS
+         u6Uzz0yNpOPYWkizuJsuBUH+ZYFeZw2ZVSRsu9sXnrmWjinihV5WwcYUjvAqBD16tPRa
+         f8+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757933162; x=1758537962;
+        d=1e100.net; s=20230601; t=1757933165; x=1758537965;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=J4UfTitWr0/SY0YFizPV9dalGTR12rbqo6S3iSVpAJc=;
-        b=Lc+CAE8IvcFxtDib5UIDAKkii2SGWa7ZR0d5YykS9be3DByCo7HNe8idup5ybb3yXg
-         ITr9scoLUnZGAQTZKaZgXgJd+CvIdHYYW0Ojxt0RozzYFl/14r2Y6t5TMpferVWFr0ev
-         pxL93E+Id178KaVdzVOJMnfyCVjQrmz5fPTorpeRBGv0jamrib+V/oD4pZDEGixAmbVZ
-         5SC6TdAgn7tSZcadk6bO/P+F800dmuz8qYHaZ6MNxfbpFj0ABqZUYw/ux+TQ/WH7Y0Jk
-         IXUa2Uq+RcWNdkjTdj/Ke9WJ+VmzBSa4HbnFu+ITol0Lcsd4pElzgqlQZ0CqaK7UFfg2
-         ZyFA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPYcchXPXxZtTvYgnTADOIectGMjk1fC9UwJk+NC/nD+6HdFAoN1599tTdrbGvC5qZTDKzxNha4kxO7ckrJ6x6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD0FkaO4AGxRcbBj3H39TjwP6jYAj1kXgYJLxcid7jdeaCS7TF
-	2jfdBW3CeiA/vRzXQd7JtoKYfGt0MtoXLW1Jy9wF41K97Toi2A5c8Yn4
-X-Gm-Gg: ASbGncszPlnlLCz2Zgfh0ggIVt6XAkDbxRGKHa08IJ787dT+EZqyYGaUyWt6YR+/yzC
-	Vr3Kfo5vMZsp1RTBsJbzUn8kpLN9jZokT4pwDonUId3jiAkA51gbecU6Vk9eZzzgXgOTsybczAJ
-	wYqzE4ft2aSHXQcZRFgNVHGSZAxuQaHFyzxUKDOiV6a+TqKrjCGmsg7n3Dh1Z4JqCA5keA93EuI
-	8gRFIDt7NOAk3HnESnk60JLCMnx+oayS6bJpSS8gGOoXNI++m4RDOU9+WtkXAbqEV2Jq5O+ZPqX
-	LVFF2UGwi4Iw4pAzBYhhb/kEluRaxEgWCdU9/nsfoiClVMFhJlG7juYGS00ibfBjGx+j+d4He2s
-	MJryqyfnHMPqnJPMS1iK36zCQXFWKz8w8DsuVJgLMixCeXkQVZSCsOiIUKf9UXluKi3OTfpM=
-X-Google-Smtp-Source: AGHT+IEXNZcoVd0GzgGmN5xy38B0YlKF6tMdJTyKwSotC55HsiTkVEoFjPfwlkbgqGZKHOIXVx84vA==
-X-Received: by 2002:a05:600c:220f:b0:45d:d9ab:b86d with SMTP id 5b1f17b1804b1-45f211feea1mr95031475e9.31.1757933162216;
-        Mon, 15 Sep 2025 03:46:02 -0700 (PDT)
+        bh=iF+wFLzqJgcC4lMJZbTMW9CSMXwTLFbaGRq/VOX71hY=;
+        b=f8yI0+8KoCgkYTcBiUbwVTv9bBFv9NUbJZ1qpCr09Xf5R5oFneRd69+b5+g7414cWO
+         /LXGb5i49T1c6mBqT0blNpWdxtzSey68hJqWuoz7ax/cZ8fSFZ1WgfBSSU4sK2r55Pa9
+         x9Bo58SM0c8hBESVzx8vR2YH1eGmv+mZcfY8boKmPSYvvX8+++G8BBLDU/Shz///uUEQ
+         dohG6giQW+tNP5W0rR9/euyTO4uP72iQxoxPKAdvthzuvZ4K3N+PPE81FZ3ydHREnuYH
+         +nMkKcS9DkkXJ04eNgXtisoDMIQcbF0yNmGf9xa7NQ7hp5bKeGpTOboz7AorZBMuiqp1
+         ZPrA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5aQbk7nLc9339C4H15yZbMYA1jWweC8u+ilKJqmQUj1yAqZrrx7nt/C4AXPJHDfr6fSCExBBHZK3roWbYTPLR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/I/5+AAKgTWPkI4SxytwkwflS2/lTvDoWSclERpRyT5h4GM6h
+	cUvQ2YdFbpirGReep8ijzi1VeeZMtyJOr5xRYQP4cL7hCep/oXhPbyeA
+X-Gm-Gg: ASbGncseFw+3UG5MxwNWQ0vOkStTfQwqvfsuvHhaeuy34lj+XbXQyPWg+qb7qaVNQkB
+	Tm/lgLyf62AdscmpZnt3Kp4mZQEQZTbC+IBNCK8kZ2bsDv7L6Nm1oEUMj2+3YXBheLF44BxHCXZ
+	U0rLA7mZiyFmE+S522++Lgcg3FxfshvOXKuF6J+sBGRrM/RPuiB5Pvj39stg8JuhHxh66uFBVQD
+	dSqxK96X7kCD1+DSOn2fUJI+gSsS4AJqqwjCnOUbAnXIvr85MK+sVMti/zgwGQJg1oLpRjkrzqD
+	gDdfyjMG2YUW9bqnMO7j5xGqVTRT1cjmHcuhnb5V8CAG0QIr7fzSwlJNGBgnGq27eYuLYr1lCTf
+	gHYvI4JUnwMNw2GmLYJoHvjBN8nRVgUrABLUg2bBpzA/NrCqbcg9kyDaY8RrJd1hhrkFqhcEqH+
+	HJxLYMvQApynSvzzWZ
+X-Google-Smtp-Source: AGHT+IELDq9C+qaqcHK3qQ1jq6BhDiChpwSKwzWT15EdBPczDHPZKj3STFqLVsQfYL1hX2wJvmW1ig==
+X-Received: by 2002:a05:600c:1c9b:b0:45d:dd47:b465 with SMTP id 5b1f17b1804b1-45f211c8395mr96901105e9.7.1757933164393;
+        Mon, 15 Sep 2025 03:46:04 -0700 (PDT)
 Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45f2acbeee0sm67163365e9.0.2025.09.15.03.46.00
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45f2acbeee0sm67163365e9.0.2025.09.15.03.46.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 03:46:01 -0700 (PDT)
+        Mon, 15 Sep 2025 03:46:04 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Christian Marangi <ansuelsmth@gmail.com>,
 	Lee Jones <lee@kernel.org>,
@@ -95,17 +96,17 @@ To: Christian Marangi <ansuelsmth@gmail.com>,
 	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [net-next PATCH v18 3/8] dt-bindings: mfd: Document support for Airoha AN8855 Switch SoC
-Date: Mon, 15 Sep 2025 12:45:39 +0200
-Message-ID: <20250915104545.1742-4-ansuelsmth@gmail.com>
+Subject: [net-next PATCH v18 4/8] net: dsa: tag_mtk: add Airoha variant usage of this TAG
+Date: Mon, 15 Sep 2025 12:45:40 +0200
+Message-ID: <20250915104545.1742-5-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250915104545.1742-1-ansuelsmth@gmail.com>
 References: <20250915104545.1742-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_034604_583878_AD65E637 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250915_034607_824783_C0490CF1 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,197 +121,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha AN8855 Switch SoC. This SoC expose various
-peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+Add variant of the MTK TAG for Airoha Switch and comments about difference
+between Airoha AN8855 and Mediatek tag bitmap.
 
-It does also support i2c and timers but those are not currently
-supported/used.
+Airoha AN8855 doesn't support controlling SA learning and Leaky VLAN
+from tag. Although these bits are not used (and even not defined for
+Leaky VLAN), it's worth to add comments for these difference to prevent
+any kind of regression in the future if ever these bits will be used.
+
+Rework the makefile, config and tag driver to better report to
+external tool (like libpcap) the usage of this variant with a dedicated
+"Airoha" name.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../bindings/mfd/airoha,an8855.yaml           | 173 ++++++++++++++++++
- 1 file changed, 173 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+ include/net/dsa.h |  2 ++
+ net/dsa/Kconfig   | 11 +++++++++++
+ net/dsa/Makefile  |  2 +-
+ net/dsa/tag_mtk.c | 36 +++++++++++++++++++++++++++++++++---
+ 4 files changed, 47 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-new file mode 100644
-index 000000000000..647d6d4c4c6f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-@@ -0,0 +1,173 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/include/net/dsa.h b/include/net/dsa.h
+index d73ea0880066..bf03493e64ab 100644
+--- a/include/net/dsa.h
++++ b/include/net/dsa.h
+@@ -55,6 +55,7 @@ struct tc_action;
+ #define DSA_TAG_PROTO_LAN937X_VALUE		27
+ #define DSA_TAG_PROTO_VSC73XX_8021Q_VALUE	28
+ #define DSA_TAG_PROTO_BRCM_LEGACY_FCS_VALUE	29
++#define DSA_TAG_PROTO_AIROHA_VALUE		30
+ 
+ enum dsa_tag_protocol {
+ 	DSA_TAG_PROTO_NONE		= DSA_TAG_PROTO_NONE_VALUE,
+@@ -69,6 +70,7 @@ enum dsa_tag_protocol {
+ 	DSA_TAG_PROTO_KSZ9893		= DSA_TAG_PROTO_KSZ9893_VALUE,
+ 	DSA_TAG_PROTO_LAN9303		= DSA_TAG_PROTO_LAN9303_VALUE,
+ 	DSA_TAG_PROTO_MTK		= DSA_TAG_PROTO_MTK_VALUE,
++	DSA_TAG_PROTO_AIROHA		= DSA_TAG_PROTO_AIROHA_VALUE,
+ 	DSA_TAG_PROTO_QCA		= DSA_TAG_PROTO_QCA_VALUE,
+ 	DSA_TAG_PROTO_TRAILER		= DSA_TAG_PROTO_TRAILER_VALUE,
+ 	DSA_TAG_PROTO_8021Q		= DSA_TAG_PROTO_8021Q_VALUE,
+diff --git a/net/dsa/Kconfig b/net/dsa/Kconfig
+index 869cbe57162f..7d63ecda25c8 100644
+--- a/net/dsa/Kconfig
++++ b/net/dsa/Kconfig
+@@ -98,12 +98,23 @@ config NET_DSA_TAG_EDSA
+ 	  Say Y or M if you want to enable support for tagging frames for the
+ 	  Marvell switches which use EtherType DSA headers.
+ 
++config NET_DSA_TAG_MTK_COMMON
++	tristate
 +
-+title: Airoha AN8855 Switch SoC
+ config NET_DSA_TAG_MTK
+ 	tristate "Tag driver for Mediatek switches"
++	select NET_DSA_TAG_MTK_COMMON
+ 	help
+ 	  Say Y or M if you want to enable support for tagging frames for
+ 	  Mediatek switches.
+ 
++config NET_DSA_TAG_AIROHA
++	tristate "Tag driver for Airoha switches"
++	select NET_DSA_TAG_MTK_COMMON
++	help
++	  Say Y or M if you want to enable support for tagging frames for
++	  Airoha switches.
 +
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
+ config NET_DSA_TAG_KSZ
+ 	tristate "Tag driver for Microchip 8795/937x/9477/9893 families of switches"
+ 	help
+diff --git a/net/dsa/Makefile b/net/dsa/Makefile
+index 555c07cfeb71..7aba189a715c 100644
+--- a/net/dsa/Makefile
++++ b/net/dsa/Makefile
+@@ -27,7 +27,7 @@ obj-$(CONFIG_NET_DSA_TAG_GSWIP) += tag_gswip.o
+ obj-$(CONFIG_NET_DSA_TAG_HELLCREEK) += tag_hellcreek.o
+ obj-$(CONFIG_NET_DSA_TAG_KSZ) += tag_ksz.o
+ obj-$(CONFIG_NET_DSA_TAG_LAN9303) += tag_lan9303.o
+-obj-$(CONFIG_NET_DSA_TAG_MTK) += tag_mtk.o
++obj-$(CONFIG_NET_DSA_TAG_MTK_COMMON) += tag_mtk.o
+ obj-$(CONFIG_NET_DSA_TAG_NONE) += tag_none.o
+ obj-$(CONFIG_NET_DSA_TAG_OCELOT) += tag_ocelot.o
+ obj-$(CONFIG_NET_DSA_TAG_OCELOT_8021Q) += tag_ocelot_8021q.o
+diff --git a/net/dsa/tag_mtk.c b/net/dsa/tag_mtk.c
+index b670e3c53e91..32befcbdf4be 100644
+--- a/net/dsa/tag_mtk.c
++++ b/net/dsa/tag_mtk.c
+@@ -11,6 +11,7 @@
+ #include "tag.h"
+ 
+ #define MTK_NAME		"mtk"
++#define AIROHA_NAME		"airoha"
+ 
+ #define MTK_HDR_LEN		4
+ #define MTK_HDR_XMIT_UNTAGGED		0
+@@ -18,6 +19,9 @@
+ #define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
+ #define MTK_HDR_RECV_SOURCE_PORT_MASK	GENMASK(2, 0)
+ #define MTK_HDR_XMIT_DP_BIT_MASK	GENMASK(5, 0)
++/* AN8855 doesn't support SA_DIS and Leaky VLAN
++ * control in tag as these bits doesn't exist.
++ */
+ #define MTK_HDR_XMIT_SA_DIS		BIT(6)
+ 
+ static struct sk_buff *mtk_tag_xmit(struct sk_buff *skb,
+@@ -94,6 +98,7 @@ static struct sk_buff *mtk_tag_rcv(struct sk_buff *skb, struct net_device *dev)
+ 	return skb;
+ }
+ 
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_MTK)
+ static const struct dsa_device_ops mtk_netdev_ops = {
+ 	.name		= MTK_NAME,
+ 	.proto		= DSA_TAG_PROTO_MTK,
+@@ -102,8 +107,33 @@ static const struct dsa_device_ops mtk_netdev_ops = {
+ 	.needed_headroom = MTK_HDR_LEN,
+ };
+ 
+-MODULE_DESCRIPTION("DSA tag driver for Mediatek switches");
+-MODULE_LICENSE("GPL");
++DSA_TAG_DRIVER(mtk_netdev_ops);
+ MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_MTK, MTK_NAME);
++#endif
+ 
+-module_dsa_tag_driver(mtk_netdev_ops);
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_AIROHA)
++static const struct dsa_device_ops airoha_netdev_ops = {
++	.name		= AIROHA_NAME,
++	.proto		= DSA_TAG_PROTO_AIROHA,
++	.xmit		= mtk_tag_xmit,
++	.rcv		= mtk_tag_rcv,
++	.needed_headroom = MTK_HDR_LEN,
++};
 +
-+description: >
-+  Airoha AN8855 Switch is a SoC that expose various peripherals like an
-+  Ethernet Switch, a NVMEM provider and Ethernet PHYs.
++DSA_TAG_DRIVER(airoha_netdev_ops);
++MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_AIROHA, AIROHA_NAME);
++#endif
 +
-+  It does also support i2c and timers but those are not currently
-+  supported/used.
++static struct dsa_tag_driver *dsa_tag_driver_array[] =	{
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_MTK)
++	&DSA_TAG_DRIVER_NAME(mtk_netdev_ops),
++#endif
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_AIROHA)
++	&DSA_TAG_DRIVER_NAME(airoha_netdev_ops),
++#endif
++};
 +
-+properties:
-+  compatible:
-+    const: airoha,an8855
++module_dsa_tag_drivers(dsa_tag_driver_array);
 +
-+  reg:
-+    maxItems: 1
-+
-+  reset-gpios: true
-+
-+  efuse:
-+    type: object
-+    $ref: /schemas/nvmem/airoha,an8855-efuse.yaml
-+    description: EFUSE exposed by the Airoha AN8855 SoC
-+
-+  ethernet-switch:
-+    type: object
-+    $ref: /schemas/net/dsa/airoha,an8855-switch.yaml
-+    description: Switch exposed by the Airoha AN8855 SoC
-+
-+  mdio:
-+    $ref: /schemas/net/mdio.yaml#
-+    description: MDIO exposed by the Airoha AN8855 SoC
-+
-+required:
-+  - compatible
-+  - reg
-+  - mdio
-+  - ethernet-switch
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        soc@1 {
-+            compatible = "airoha,an8855";
-+            reg = <1>;
-+
-+            reset-gpios = <&pio 39 0>;
-+
-+            efuse {
-+                compatible = "airoha,an8855-efuse";
-+
-+                #nvmem-cell-cells = <0>;
-+
-+                nvmem-layout {
-+                    compatible = "fixed-layout";
-+                    #address-cells = <1>;
-+                    #size-cells = <1>;
-+
-+                    shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
-+                       reg = <0xc 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
-+                        reg = <0x10 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
-+                        reg = <0x14 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
-+                       reg = <0x18 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
-+                        reg = <0x1c 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
-+                        reg = <0x20 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
-+                       reg = <0x24 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
-+                        reg = <0x28 0x4>;
-+                    };
-+                };
-+            };
-+
-+            ethernet-switch {
-+                compatible = "airoha,an8855-switch";
-+
-+                ports {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+
-+                    port@0 {
-+                        reg = <0>;
-+                        label = "lan1";
-+                        phy-mode = "internal";
-+                        phy-handle = <&internal_phy1>;
-+                    };
-+
-+                    port@1 {
-+                        reg = <1>;
-+                        label = "lan2";
-+                        phy-mode = "internal";
-+                        phy-handle = <&internal_phy2>;
-+                    };
-+
-+                    port@5 {
-+                        reg = <5>;
-+                        label = "cpu";
-+                        ethernet = <&gmac0>;
-+                        phy-mode = "2500base-x";
-+
-+                        fixed-link {
-+                            speed = <2500>;
-+                            full-duplex;
-+                            pause;
-+                        };
-+                    };
-+                };
-+            };
-+
-+            mdio {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                internal_phy1: ethernet-phy@1 {
-+                  compatible = "ethernet-phy-idc0ff.0410",
-+                               "ethernet-phy-ieee802.3-c22";
-+                  reg = <1>;
-+
-+                  nvmem-cells = <&shift_sel_port0_tx_a>,
-+                      <&shift_sel_port0_tx_b>,
-+                      <&shift_sel_port0_tx_c>,
-+                      <&shift_sel_port0_tx_d>;
-+                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-+                };
-+
-+                internal_phy2: ethernet-phy@2 {
-+                  compatible = "ethernet-phy-idc0ff.0410",
-+                               "ethernet-phy-ieee802.3-c22";
-+                  reg = <2>;
-+
-+                  nvmem-cells = <&shift_sel_port1_tx_a>,
-+                      <&shift_sel_port1_tx_b>,
-+                      <&shift_sel_port1_tx_c>,
-+                      <&shift_sel_port1_tx_d>;
-+                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-+                };
-+            };
-+        };
-+    };
++MODULE_DESCRIPTION("DSA tag driver for Mediatek switches");
++MODULE_LICENSE("GPL");
 -- 
 2.51.0
 
