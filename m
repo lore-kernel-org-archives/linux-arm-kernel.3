@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F58CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DEBCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uXYipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=b5p7ktfbtmseF6+XKKYGh/eRde
-	kRXsNRdRzXz+ClbZ0gERZiND7T56JhgOcAaoBr7AvPIt7Ao758v4MA1/okRv/Qw6MJKQXvRaFsQZv
-	EsmVicaY6mst2GUwWIpiV4dJi4OkEdnxcQ5Kkq6jouhPdxcK/fAQhX5ydVAgdAOT6my7swtqX/rAS
-	DWCif2PVpWlye37XtGJxxZV3pkgKYNLk1q0bFDDzBJk7gAIDB6IhR9CVutHtHxlKtKiTUaxjulYNM
-	vtH3Zd231Tfe8Hp3elNQ4MiOu79sp7Uf26DB94/UvZkmFeefyUSPjAbR0iyluXpegHv6B6IthKMfa
-	cQ+ApyhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pSlpYZcH8neGHFlWwNf2IUpYDDlZEwlVV5MOcH+7Vk4=; b=iOnHiz1o/HrRFWJXSyEB0mcO9y
+	Ba+AZIJKNCrb9HxcwVybPcfXU40NS/WMzrC8EyV1va1uRA51kn46ySIQ9YKB6NhTb65sr125l/F2o
+	VtKFRue4quFajEhv6NXyVzSygfQOTFVyXwEw75vf5xohtYZiAJKB+Uw4INO+tUO/WQrHeRqF6lIUd
+	F9nFZMeRKon+XqbzKnT7NtSEzvrqdyQfylBqHW3XoLc7lrUHs80POuVnwQiOowik9AmiRYpq/LRQ1
+	0+B3tPsCdb/A4egoJlFBTkWukRNyDS5thADS6wNLS6GkYA/90GJZaVAWggA4Xj5cdyFGWiLgXJEcT
+	6gx+vJtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy82A-000000044kz-0k5S;
-	Mon, 15 Sep 2025 12:10:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uy8FR-000000047tQ-2p2y;
+	Mon, 15 Sep 2025 12:23:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy828-000000044kl-0mni;
-	Mon, 15 Sep 2025 12:10:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=uXYipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=IY5jgLbFVA/c0E6/l03Uz1V/i2
-	409PH3s0/9oQrEZVWdbNsSrrdQTa+LJdqa+U+TPh6Z1M2EXPPZsJBibQzaVhEu8NgDgvEIvtfSKcR
-	VyYyTML5/oeyxrFrcQ1xE+HTF34FIQQuAqpeVvffzmwizU5a0JXXxZbmKVNP28b7EDF4WL3ZozMCk
-	aVr2GopTBdIVe1a6ck9P/yhEV2T6RF7ND8vSveEp+QgBsTE5BMyBPdfw3lcmWQ2JMw3nM7G2KBFm2
-	zhl//liT+6lMLLSR4bm/gt46LHRMQ3QzjZZGQaCikSyHiGMDVI8XXuQ66xM9HQCy3OpOx7+f0bRwh
-	IpHxEUmg==;
-Received: from m16.mail.163.com ([117.135.210.5])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy824-00000006yHu-1rLW;
-	Mon, 15 Sep 2025 12:10:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=uX
-	YipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=EEBeOIh/Oflc6xA5cO
-	8ewa4chJ9vmkDiAP0WKltbkUE51T+ydUcJOSThGB7wYBC3BGFDNj3cmMSDBBI24M
-	K6YVLH18A0lDwF3Lk62/HSo6S16spdoIdjuY+AhMUJaQ3cJJhWS0MEXVRgJODkTO
-	N/KpT3GlRi7SB86gO4ylZNVW4=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3L8IEAshoNuutBQ--.65473S4;
-	Mon, 15 Sep 2025 20:09:41 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: tiffany.lin@mediatek.com,
-	andrew-ct.chen@mediatek.com,
-	yunfei.dong@mediatek.com,
-	mchehab@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	haoxiang_li2024@163.com,
-	hverkuil@kernel.org,
-	tzungbi@kernel.org,
-	jiasheng@iscas.ac.cn
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH] media: mediatek: vcodec: Fix a reference leak in mtk_vcodec_fw_vpu_init()
-Date: Mon, 15 Sep 2025 20:09:38 +0800
-Message-Id: <20250915120938.177691-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3L8IEAshoNuutBQ--.65473S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww1rWr4DKw4rAFWUGFWfXwb_yoW8GF4Dpr
-	s3Ka42kFyUJw1qvw18Zw4Uuay5Cr1SgrW8Cw13Zw1a9rnxXFWIqr1jy3WIqFZ7JFyvka43
-	Xrnaga4fCF4Fvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_MKuUUUUUU=
-X-Originating-IP: [36.112.3.223]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbBEAnJbmjIAYMTQwAAsM
+	id 1uy8FP-000000047sa-2VqY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 12:23:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2619544A09;
+	Mon, 15 Sep 2025 12:23:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4861C4CEF1;
+	Mon, 15 Sep 2025 12:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757939035;
+	bh=C+4SzYCH96e/fNL7WPm6faiDX2YWoo16lSCosa/c6TA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RahPNDXJpsAVxv+eLg862uHcSKaHcIv5KxtwekwzgnNr/N+ps9KJNfBvPs5d8/jtK
+	 38Oh0yViCIw8AsrTOYzbyzaPJnoqowKpTuklnfOQZJmHOFnJoksC/HB+9UJtzc+L/M
+	 9dDo7JNEGw++a/7tCmnOrU6fHIQ/zk6/QktXyK9gx+/y/zJ0KGJE0LBCMtFC6qXOEy
+	 ibb5277oRvxHrTO2fudCKWJ+H1CVJXX+CzNGxXw837jrQrbqJ/KpXRdBw2GgtMzyMX
+	 P517aEGxjG52tcf39QHK7fLrkVTlT3U8gF3/RGPCTCYZNWJ1aItDZlXebeSocb1s2b
+	 96XZIXvzlBYxw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uy8FM-00000006NBf-2yTK;
+	Mon, 15 Sep 2025 12:23:52 +0000
+Date: Mon, 15 Sep 2025 13:23:52 +0100
+Message-ID: <86wm5zc3af.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<wangwudi@hisilicon.com>,
+	<liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<yuzenghui@huawei.com>,
+	Nianyao Tang <tangnianyao@huawei.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>
+Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
+In-Reply-To: <f102058c-809d-e96e-9d96-1c1e14b36517@hisilicon.com>
+References: <20250909110615.129179-1-wangzhou1@hisilicon.com>
+	<86h5xbd8zp.wl-maz@kernel.org>
+	<f102058c-809d-e96e-9d96-1c1e14b36517@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, wangwudi@hisilicon.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com, yuzenghui@huawei.com, tangnianyao@huawei.com, jiangkunkun@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_131009_072273_ED6DA489 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250915_052355_679615_A94B72F7 
+X-CRM114-Status: GOOD (  56.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,37 +92,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vpu_get_plat_device() increases the reference count of the returned
-platform device. However, when devm_kzalloc() fails, the reference
-is not released, causing a reference leak.
+On Wed, 10 Sep 2025 04:27:15 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> 
+> On 2025/9/9 21:57, Marc Zyngier wrote:
+> > On Tue, 09 Sep 2025 12:06:15 +0100,
+> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>
+> >> HIP09/HIP10/HIP10C ITS have a problem, an ITS RAS will be reported in
+> >> some cases when GICv4.1 is enable.
+> > 
+> > Do you mean a RAS *error*? Why can't the firmware ignore this event instead?
+> 
+> Not only a RAS error, vSGI will be lost :(  I will add this information.
+> 
+> > 
+> >> A workaround is that set ITT size to max value(0xf) when doing MAPD with V = 1,
+> >> and avoid to send MAPD with V = 0 to hardware. Just clear V field in ITS device
+> >> table and clear ITS cache to implement MAPD with V = 0 instead.
+> >>
+> >> Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
+> >> Reviewed-by: Nianyao Tang <tangnianyao@huawei.com>
+> >> Reviewed-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> >> ---
+> >>  Documentation/arch/arm64/silicon-errata.rst |   6 ++
+> >>  arch/arm64/Kconfig                          |  13 +++
+> >>  drivers/irqchip/irq-gic-v3-its.c            | 114 +++++++++++++++++---
+> >>  3 files changed, 119 insertions(+), 14 deletions(-)
+> >>
+> >> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> >> index b18ef4064bc0..dfafc608dc57 100644
+> >> --- a/Documentation/arch/arm64/silicon-errata.rst
+> >> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> >> @@ -264,6 +264,12 @@ stable kernels.
+> >>  +----------------+-----------------+-----------------+-----------------------------+
+> >>  | Hisilicon      | Hip09           | #162100801      | HISILICON_ERRATUM_162100801 |
+> >>  +----------------+-----------------+-----------------+-----------------------------+
+> >> +| Hisilicon      | Hip09           | #162100803      | HISILICON_ERRATUM_162100803 |
+> >> ++----------------+-----------------+-----------------+-----------------------------+
+> >> +| Hisilicon      | Hip10           | #162200807      | HISILICON_ERRATUM_162100803 |
+> >> ++----------------+-----------------+-----------------+-----------------------------+
+> >> +| Hisilicon      | Hip10c          | #162400807      | HISILICON_ERRATUM_162100803 |
+> >> ++----------------+-----------------+-----------------+-----------------------------+
+> >>  +----------------+-----------------+-----------------+-----------------------------+
+> >>  | Qualcomm Tech. | Kryo/Falkor v1  | E1003           | QCOM_FALKOR_ERRATUM_1003    |
+> >>  +----------------+-----------------+-----------------+-----------------------------+
+> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> >> index e9bbfacc35a6..803df402c9af 100644
+> >> --- a/arch/arm64/Kconfig
+> >> +++ b/arch/arm64/Kconfig
+> >> @@ -1270,6 +1270,19 @@ config HISILICON_ERRATUM_162100801
+> >>  
+> >>  	  If unsure, say Y.
+> >>  
+> >> +config HISILICON_ERRATUM_162100803
+> >> +	bool "Hip09/10/10c 162100803/162200807/162400807 erratum support"
+> >> +	default y
+> >> +	help
+> >> +	  There is a hardware conflict between vSGI and vLPI, fix it by
+> >> +	  configure a max ITS ITT size 0xf when doing MAPD with V = 1, clear V
+> >> +	  field in ITS device table and clear ITS cache to implement MAPD with
+> >> +	  V = 0 instead. Hip09/10/10c have this same problem, just use
+> >> +	  HISILICON_ERRATUM_162100803 as the compile macro and
+> >> +	  ITS_FLAGS_WORKAROUND_HISILICON_162100803 as ITS flag for convenience.
+> >> +
+> > 
+> > I don't think any of the details belong to Kconfig. You don't even
+> > explain *what* the problem is (hardware conflict doesn't mean
+> > much). It is also completely unclear what MAPD has to do with vSGI and
+> > vLPI.
+> >
+> 
+> The hardware problem is a little tricky, let me try to explain.
+> 
+> In the case of ITS pipeline back-pressure, ITS hardware will mistake vSGI for vLPI,
+> then use a wrong "eventid" to do ITT size RAS checking, if the "eventid" is larger
+> than internal cached ITT size, an ITS RAS will be reported and related irq will be
+> discarded.
+> 
+> So one way to fix this problem is to let the internal cache ITT size to be a very
+> large value, above problem will not be triggered. Above mistake only happens in
+> certain step of ITS pipeline, so after above step, ITS hardware still consider the
+> irq as a vSGI...
+> 
+> Only MAPD can change internal cache ITT size, so we hack MAPD here...
+> 
+> >> +	  If unsure, say Y.
+> >> +
+> >>  config QCOM_FALKOR_ERRATUM_1003
+> >>  	bool "Falkor E1003: Incorrect translation due to ASID change"
+> >>  	default y
+> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> >> index 467cb78435a9..647bc70cc2f7 100644
+> >> --- a/drivers/irqchip/irq-gic-v3-its.c
+> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> >> @@ -49,6 +49,7 @@
+> >>  #define ITS_FLAGS_WORKAROUND_CAVIUM_23144	(1ULL << 2)
+> >>  #define ITS_FLAGS_FORCE_NON_SHAREABLE		(1ULL << 3)
+> >>  #define ITS_FLAGS_WORKAROUND_HISILICON_162100801	(1ULL << 4)
+> >> +#define ITS_FLAGS_WORKAROUND_HISILICON_162100803	(1ULL << 5)
+> >>  
+> >>  #define RD_LOCAL_LPI_ENABLED                    BIT(0)
+> >>  #define RD_LOCAL_PENDTABLE_PREALLOCATED         BIT(1)
+> >> @@ -716,7 +717,12 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
+> >>  
+> >>  	its_encode_cmd(cmd, GITS_CMD_MAPD);
+> >>  	its_encode_devid(cmd, desc->its_mapd_cmd.dev->device_id);
+> >> -	its_encode_size(cmd, size - 1);
+> >> +
+> >> +	if (its->flags & ITS_FLAGS_WORKAROUND_HISILICON_162100803)
+> >> +		its_encode_size(cmd, 0xf);
+> > 
+> > You are telling the ITS that it is allowed to go and access
+> > unspecified data (16 bit worth of translations). That's not
+> > acceptable. If you *have* to do that, then override the size in the
+> > driver code to actually allocate the corresponding memory.
+> 
+> Then we have to override the ITT memory to 2 ^ 16 * 8 for one device
+> :(
 
-Fix this by calling put_device() on fw_pdev->dev before returning
-on the error path.
+But what's the alternative? Letting the ITS speculate in random
+memory, possibly under the control of userspace or a guest? I don't
+think that's acceptable.
 
-Fixes: e25a89f743b1 ("media: mtk-vcodec: potential dereference of null pointer")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- .../media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+[...]
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-index d7027d600208..1c94316f2d7d 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
-@@ -117,8 +117,10 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_vpu_init(void *priv, enum mtk_vcodec_fw_use
- 		vpu_wdt_reg_handler(fw_pdev, mtk_vcodec_vpu_reset_enc_handler, priv, rst_id);
- 
- 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
--	if (!fw)
-+	if (!fw) {
-+		put_device(&fw_pdev->dev);
- 		return ERR_PTR(-ENOMEM);
-+	}
- 	fw->type = VPU;
- 	fw->ops = &mtk_vcodec_vpu_msg;
- 	fw->pdev = fw_pdev;
+> >> +	/*
+> >> +	 * Cache invalidate by a private register GITS_FUNC_EN, whose offset
+> >> +	 * is 0x20080 of ITS base address. GICv4.1 already maps sgir_base
+> >> +	 * (offset is 0x20000), so address of GITS_FUNC_EN can be got by
+> >> +	 * sgir_base + 0x80. Bit 16 is used to clear DT cache, the flip of
+> >> +	 * bit 19 indicates that DT cache has been cleared.
+> >> +	 */
+> >> +	while (--i) {
+> >> +		tmp = readl_relaxed(its_func_en) & mask;
+> >> +		writel_relaxed(tmp | (1 << 16), its_func_en);
+> >> +		tmp1 = readl_relaxed(its_func_en) & mask;
+> >> +		if (tmp != tmp1)
+> >> +			break;
+> >> +	}
+> > 
+> > Please define these bits so that they have names instead of using raw
+> > values. Why do you need to write bit 16 every time? Surely once you
+> > have written it *once*, the HW remember what it has been told to do?
+> 
+> HW will not remember it, so we have to write bit 16 every time.
+> 
+> > 
+> > And frankly, using readl_relaxed_poll_timeout_atomic should be the
+> > right thing to do.
+> 
+> The HW logic is that write bit 16 will trigger DT cache clear in one HW cycle
+> or not. NOT that waiting bit 19 to flip.
+
+Huh. This sounds crazy... Please document this.
+
+[...]
+
+> >> +#ifdef CONFIG_HISILICON_ERRATUM_162100803
+> >> +	{
+> >> +		.desc = "ITS: Hip09 erratum 162100803",
+> >> +		.iidr = 0x00051736,
+> >> +		.mask = 0xffffffff,
+> >> +		.init = its_enable_quirk_162100803,
+> >> +	},
+> >> +	{
+> >> +		.desc = "ITS: Hip10 erratum 162200807",
+> >> +		.iidr = 0x01051736,
+> >> +		.mask = 0xffffffff,
+> >> +		.init = its_enable_quirk_162100803,
+> >> +	},
+> >> +	{
+> >> +		.desc = "ITS: Hip10c erratum 162400807",
+> >> +		.iidr = 0x00061736,
+> >> +		.mask = 0xffffffff,
+> >> +		.init = its_enable_quirk_162100803,
+> > 
+> > Can you try to merge these three entries and adjust the mask
+> > accordingly? mask=0xeffcffff should do the trick, assuming that you
+> > don't have any other hardware overlapping this.
+> 
+> The iidrs are different, how to merge these entries?
+
+By using the mask:
+
+	{
+		.desc = "ITS: Hip10 erratum, will eat your vSGIs",
+		.iidr = 0x01051736,
+		.mask = 0xeffcffff,
+		.init = its_enable_quirk_162100803,
+	},
+
+will match all three platforms, assuming I got the mask correctly.
+
+> 
+> > 
+> >> +	},
+> >> +#endif
+> >>  #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+> >>  	{
+> >>  		.desc   = "ITS: Rockchip erratum RK3588001",
+> > 
+> > If the HW is this bad, and that this only affects virtual interrupts,
+> > why don't you simply disable GICv4 support? Messing with the internals
+> > of the ITS tables feels like a pretty bad idea. Or as I suggested
+> > above, get the firmware to ignore RAS events from the ITS.
+> 
+> The hack is ugly, but we want to try to save vSGI direct
+> injection...
+
+Well, if you think this is worth it...
+
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
