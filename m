@@ -4,58 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007C2CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA5CCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rfRsZFpoQYPjxmdn8fIPIG87WJT0e8u6Q6JGhONgU40=; b=rG/BGyqTizXWtb6pa1zjjjFLjU
-	0nN/9SqeiixVZjIdVGa3vzvp5NbVPx1IsLmYDp7jnbXPJ7U2IEj12KJx1ZfQWaxwMdCBBt8YpBXDA
-	CsXqPkSJ6ZsXdnq4sW26RxkPHZS/eA+EhqgZte9VfWUkpUF7w6koN9jLs25fLoesmdTpaTJCFHweF
-	1CNIaVCTcfleDcrqePWydOqg5kM3sWDhFpr+Yag434b8u3ksyks/Xk2kDPvAh9J5Yecu2K4bMJwc0
-	yE2FYS57Gwkf2PkkJh2+4jlrk3Nk3JA/LDQEzMaZUknuObIFm41PzinuXNjpqWuFvy3CsIF2yA8Br
-	l1tkRvug==;
+	bh=PnxrqVT4CJv7XwuStck11sanfs+LzKsDdzZRHTyGLHE=; b=jVZZEuVTt6CTvoi9IFlxLiQmRp
+	LysQpyh38Moj5Ka5980gE/GFooc4KN9DVye1BeutDqhLfbb4Fk0HBuAc9JhSJ0xMaqHdzlohLPmnh
+	uwCrZ0vT5LTLpF86f2JDMjSYJct7gMisdEVft3oYBC85kSsGY6to6rZwD55ZDqIWTfgvZzgV/vVqP
+	YSKN4GF/zeffdFfVjxVtg2JOYL91sItj4oIMhpewsweGsjYoSmFY1FXjDlKayFxDK2U9Om7QSF0Nh
+	7oI28NFOH3X2lvZyGCWePs2vxIjgZuVttE86RGBjO1RnzhkWOY5vxX9YAG+Oox+DVEq2C57VYUXGN
+	zCQR0scA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6kV-00000003m4r-1Zuz;
-	Mon, 15 Sep 2025 10:47:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6kS-00000003m3L-0cQV
+	id 1uy6ly-00000003mTV-3FQk;
+	Mon, 15 Sep 2025 10:49:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6ly-00000003mSu-0yXS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 15 Sep 2025 10:49:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=PnxrqVT4CJv7XwuStck11sanfs+LzKsDdzZRHTyGLHE=; b=K7n5vZxqjzxR1BEMpfQHeVsA9V
+	z6b9qB3MtXKeeizERJLbjWCZqQW9ENWjCBoOyuwTvMSj8JkqkOSv9mKttyqmoxnmOi9c078kU7vD4
+	lVNWE7O6WUdpCV62lCkcihOu6LMohc3u3IszPFaC7k+/n2fnGa34aunm8dyRhKTkxq7dsJ2bx0Tw8
+	hJLsVUd+mzAuaF1hvPjOqKayKJfmsBDp3n5Nk2dDwh13vX1LFYsKtVHTnB6Uwljmc/OruQDanRNfI
+	8zyOy/wlAw4OTEnV8N66JBg6ITf+fdS4KnZYscjKuF6Umqgsn8i0stZCWQgTIbnQCb/3X+9bmh14c
+	KPsSZ0Mw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6lu-00000006wN1-3Nwd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:47:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32DF91424;
-	Mon, 15 Sep 2025 03:47:43 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09B723F66E;
-	Mon, 15 Sep 2025 03:47:49 -0700 (PDT)
-Message-ID: <88a6c0fe-ee7d-4ee6-a27c-8ec23bfed444@arm.com>
-Date: Mon, 15 Sep 2025 11:47:43 +0100
+	Mon, 15 Sep 2025 10:49:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 916E541AC2;
+	Mon, 15 Sep 2025 10:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C20CC4CEF1;
+	Mon, 15 Sep 2025 10:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757933360;
+	bh=4DiSgYMz8F2wXzrctnA9iRgoWb2okBFC865kP4Gxo9c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UuYfNQK3/UM57VVpdB5oO0wZ4ZQeiVA/kSREV0ovvWmwrDrco4gN/VjyHeq2qhkCq
+	 k8xV+E5MMzND4/h98kbspRJUR49XJH9q0bAK5C7ky8ZO2kGSUA8WXkmI7klFqpKa7i
+	 VnM8FD8lpMn7oJPvFhSXb4iofemu21mizrNJ6cWZ4hH2F/Rxp9ti68uYNNXTjXSEcO
+	 qtaboKSLJoxKorC7cfMcBs67G8UDC6qQGusiSiwFqO6wRtwaGcdHy5FTVIAhNNGXXA
+	 h20je+sVSpN/t5EbVn/qAig0kfJm/ZGSyzMUF+PDAtdOXt7W+CqmfoSHKoE5x+QYOk
+	 kkIxEqZjoZE4w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uy6lo-00000006Kwj-49Uw;
+	Mon, 15 Sep 2025 10:49:17 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	quic_yingdeng@quicinc.com,
+	jinlong.mao@oss.qualcomm.com,
+	tingwei.zhang@oss.qualcomm.com
+Subject: Re: [PATCH v2] KVM: arm64: Fix NULL pointer access issue
+Date: Mon, 15 Sep 2025 11:49:14 +0100
+Message-Id: <175793328164.659173.8404797812390171241.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250902-etm_crash-v2-1-aa9713a7306b@oss.qualcomm.com>
+References: <20250902-etm_crash-v2-1-aa9713a7306b@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/31] coresight: etm4x: Always set tracer's device
- mode on target CPU
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-2-ea49e91124ec@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-2-ea49e91124ec@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, james.clark@linaro.org, yingchao.deng@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_034752_319718_7C015413 
-X-CRM114-Status: GOOD (  32.01  )
+X-CRM114-CacheID: sfid-20250915_114923_270329_53017EFC 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,213 +109,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 11:33, Leo Yan wrote:
-> When enabling a tracer via SysFS interface, the device mode may be set
-> by any CPU - not necessarily the target CPU. This can lead to race
-> condition in SMP, and may result in incorrect mode values being read.
+On Tue, 02 Sep 2025 11:48:25 +0800, Yingchao Deng wrote:
+> When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
+> resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
+> is_hyp_mode_available() return false during kvm_arm_init, the per-CPU base
+> pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
+> Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
+> will result in a NULL pointer.
 > 
-> Consider the following example, where CPU0 attempts to enable the tracer
-> on CPU1 (the target CPU):
-> 
->   CPU0                                    CPU1
->   etm4_enable()
->    ` coresight_take_mode(SYSFS)
->    ` etm4_enable_sysfs()
->       ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
->       			                /
->                                         /  CPU idle:
->                                        /   etm4_cpu_save()
->                                       /     ` coresight_get_mode()
-> 	       Failed to enable h/w /         ^^^
->    ` coresight_set_mode(DISABLED) <-'          Read the intermediate SYSFS mode
-> 
-> In this case, CPU0 initiates the operation by taking the SYSFS mode to
-> avoid conflicts with the Perf mode. It then sends an IPI to CPU1 to
-> configure the tracer registers. If any error occurs during this process,
-> CPU0 rolls back by setting the mode to DISABLED.
-> 
-> However, if CPU1 enters an idle state during this time, it might read
-> the intermediate SYSFS mode. As a result, the CPU PM flow could wrongly
-> save and restore tracer context that is actually disabled.
-> 
-> To resolve the issue, this commit moves the device mode setting logic on
-> the target CPU. This ensures that the device mode is only modified by
-> the target CPU, eliminating race condition between mode writes and reads
-> across CPUs.
-> 
-> An additional change introduces the etm4_disable_hw_smp_call() function
-> for SMP calls, which disables the tracer and explicitly set the mode to
-> DISABLED during SysFS operations.
-> 
-> The flow is updated with this change:
-> 
->   CPU0                                    CPU1
->   etm4_enable()
->    ` etm4_enable_sysfs()
->       ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
->                                            ` coresight_take_mode(SYSFS)
-> 	                                    Failed, set back to DISABLED
->                                            ` coresight_set_mode(DISABLED)
-> 
->                                            CPU idle:
->                                            etm4_cpu_save()
->                                             ` coresight_get_mode()
->                                                ^^^
->                                                Read out the DISABLED mode
-> 
-> Fixes: c38a9ec2b2c1 ("coresight: etm4x: moving etm_drvdata::enable to atomic field")
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 48 +++++++++++++++-------
->   1 file changed, 33 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 020f070bf17dc0557dfb3ae4f282b0a0c1778bd8..02ad41da7356547a67c53ff0a9146aec844f89da 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -592,10 +592,23 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   static void etm4_enable_hw_smp_call(void *info)
+> [...]
 
-While at this, please could you rename this function to make it explicit
-that this is only for sysfs mode ?
+Applied to next, thanks!
 
-e.g., etm4_enable_hw_sysfs_smp_call()
+[1/1] KVM: arm64: Fix NULL pointer access issue
+      commit 27d2b47eef033f1fc6c0452dc1017e43dad5fe14
 
->   {
->   	struct etm4_enable_arg *arg = info;
-> +	struct coresight_device *csdev;
->   
->   	if (WARN_ON(!arg))
->   		return;
-> +
-> +	csdev = arg->drvdata->csdev;
-> +	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> +		/* Someone is already using the tracer */
-> +		arg->rc = -EBUSY;
-> +		return;
-> +	}
-> +
->   	arg->rc = etm4_enable_hw(arg->drvdata);
-> +
-> +	/* The tracer didn't start */
-> +	if (arg->rc)
-> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
->   }
->   
->   /*
-> @@ -811,6 +824,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->   	int ret = 0;
->   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->   
-> +	if (!coresight_take_mode(csdev, CS_MODE_PERF))
-> +		return -EBUSY;
-> +
+Cheers,
 
-Should be done after the CPU check below ? Otherwise you are undoing the
-fix on sysfs side.
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
->   	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id())) {
->   		ret = -EINVAL;
->   		goto out;
-> @@ -830,6 +846,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
->   	ret = etm4_enable_hw(drvdata);
->   
->   out:
-> +	/* The tracer didn't start */
-> +	if (ret)
-> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
->   	return ret;
->   }
->   
-> @@ -882,11 +901,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
->   {
->   	int ret;
->   
-> -	if (!coresight_take_mode(csdev, mode)) {
-> -		/* Someone is already using the tracer */
-> -		return -EBUSY;
-> -	}
-> -
->   	switch (mode) {
->   	case CS_MODE_SYSFS:
->   		ret = etm4_enable_sysfs(csdev, path);
-> @@ -898,10 +912,6 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
->   		ret = -EINVAL;
->   	}
->   
-> -	/* The tracer didn't start */
-> -	if (ret)
-> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> -
->   	return ret;
->   }
->   
-> @@ -953,10 +963,9 @@ static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
->   	isb();
->   }
->   
-> -static void etm4_disable_hw(void *info)
-> +static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
->   {
->   	u32 control;
-> -	struct etmv4_drvdata *drvdata = info;
->   	struct etmv4_config *config = &drvdata->config;
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct csdev_access *csa = &csdev->access;
-> @@ -993,6 +1002,15 @@ static void etm4_disable_hw(void *info)
->   		"cpu: %d disable smp call done\n", drvdata->cpu);
->   }
->   
-> +static void etm4_disable_hw_smp_call(void *info)
-
-sysfs mode again.
-
-Rest looks fine
-
-Suzuki
-
-
-> +{
-> +	struct etmv4_drvdata *drvdata = info;
-> +
-> +	etm4_disable_hw(drvdata);
-> +
-> +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> +}
-> +
->   static int etm4_disable_perf(struct coresight_device *csdev,
->   			     struct perf_event *event)
->   {
-> @@ -1022,6 +1040,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
->   	/* TRCVICTLR::SSSTATUS, bit[9] */
->   	filters->ssstatus = (control & BIT(9));
->   
-> +	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> +
->   	/*
->   	 * perf will release trace ids when _free_aux() is
->   	 * called at the end of the session.
-> @@ -1047,7 +1067,8 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
->   	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
->   	 * ensures that register writes occur when cpu is powered.
->   	 */
-> -	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
-> +	smp_call_function_single(drvdata->cpu, etm4_disable_hw_smp_call,
-> +				 drvdata, 1);
->   
->   	raw_spin_unlock(&drvdata->spinlock);
->   
-> @@ -1087,9 +1108,6 @@ static void etm4_disable(struct coresight_device *csdev,
->   		etm4_disable_perf(csdev, event);
->   		break;
->   	}
-> -
-> -	if (mode)
-> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
->   }
->   
->   static int etm4_resume_perf(struct coresight_device *csdev)
-> 
 
 
