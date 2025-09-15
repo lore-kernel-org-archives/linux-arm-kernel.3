@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C842ACAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F2FCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVhl9Xkh3RYKb6rTSkbC3s85cwCOoI+a4HrkgaUVu8Y=; b=sEdZrJ1ZxVihMJIneff/ymcQk9
-	79cSpnln65gnmN8rqrYfUHr18vbpXQeswuW+MwPnXbw1cZjRn+KIHnZC2po7twBLnjEMIaD7HCZS2
-	sWZ3GVohGgjM2bjhiv6A9hsEOoQH3PrWpaSJIVCeNFxl4tQwzoIdDC7XJoSK2S6yvQuhVBxW7yLP4
-	/B3fbSgoKNEpnhg7VmbNhSx3qqJsYrHkNoxfa0QmMLm+/6q9/m+rQXvn/cdFwBRKcp1JcKS9RNQe9
-	aKsJbGc0UpkgdT896l4Am5G0wZVxe2tqkXjoXQqZjiptUTLO9J84qiU2EMvI1ZKT6BubGIda59l7j
-	ITvd1vJQ==;
+	bh=/6DbpFhOSmgt52rFX+CfGe0h6Cc29wsxupeAj2TJh/Y=; b=0zH/VN0s4L/lUwTuz8urc+kBXp
+	uIkU8weA7bgyQ6O39leDepa264E7JcUttM30qZmQ6Yr0OoRX4BG2EA2X+LqWGtVksMtxlN2UxUsa3
+	KqvC8aZfgLkr+lg8PLIbsLAjE1yiRUQd6mpVo0cN8jP/n6NmxW6T9AvkVUtAMSFI4F0q2R2sV8Ww/
+	GAoqCWBzGNh9afLUjpR59ieHRrjDjouy1NeXgnr91A2vkDAjTICO+5f2rtkJuBQ8vWdyNyfY5jQTn
+	Zz3SwGtRPZGNhyjWrWMF7TXHTH8CsrSIoPETvr9yxBkzcPW5DJjrQHaflF3iAMCA2+JiOCLpw1CLR
+	NaYOYIsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy52T-00000003KJw-0CJA;
-	Mon, 15 Sep 2025 08:58:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy52Y-00000003KPd-0xoQ;
+	Mon, 15 Sep 2025 08:58:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy51U-00000003IyR-1RSG
+	id 1uy51y-00000003Jl6-2RVt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:57:24 +0000
+	Mon, 15 Sep 2025 08:57:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A092444D2;
+	by tor.source.kernel.org (Postfix) with ESMTP id D36A260193;
 	Mon, 15 Sep 2025 08:57:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3253C4CEFA;
-	Mon, 15 Sep 2025 08:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8313DC4CEFA;
+	Mon, 15 Sep 2025 08:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757926639;
-	bh=zjGTnTXeZxX9IWdZqt0xePIPCnSCFLQrvT6nM+URiUE=;
+	bh=kzh4j/H3RZDe7ZkyacsAHuKMIz0DQecjQ2j642GjAyI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ruTyMvFvXi5wF4RTv9vNiyAy7u3vGpdMJohif3vDGXUanFxhSoNICzHSCsyJDRBEf
-	 SEyC80MXODrLsEYqf/0r3eJvAqgNTyTY20on6N4auQtugLBrQ1NH9t5sHVoGLmEmJT
-	 9Zyj+oTMOFZhBnd6POBl1jfKUwTJZFePhXWdfDLv89PAn/qyKh+e6wN6YplNG+K0ld
-	 WAviNoAaQV9KAMGW8jmVpIQLVD/Fsz6ypUP4Q9moy5vxxGnS6Ap8LWrF6jdi7pMWsj
-	 EbBrwH4DRi2vnO35EcFHNuJv0//FLzWoK4k3lwMoPkbfnSDmLfP+iE4Z4VaoYQOxTU
-	 aKCqhnsy+MHTw==
+	b=EZRFfemIR5d70YvHXUxHp3+8Vxolt0dIQTzuIr4clY0Q98Rqrh23wn43RwVLJvkJB
+	 31nzSVBxTqHyxXad5F1a9BG3tauYuL7SQjzZg3qIobMrtk5X8Ytw2SQbglnTUK2Y6f
+	 0BI7tVuwilMo3hzV5dGBRu3ne+fxeU7EPtaAWMBdhkH1esQ695ZiQEdAtXG+xV1+g7
+	 7MVNI1LFCLbqH8YghRl2VSpeUH+DNS+av3XDH4HhstMDKoMV+v1xp/+N1MrIrlLiPy
+	 v3OisHFj/WdWvDNn/8IQuuOaRRaRlDeV1VdtL02DB3OCTcFmYZZSLwxEdSuZwlNyQA
+	 JttL69Zgls4nA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uy51R-00000006IHP-0ena;
+	id 1uy51R-00000006IHP-2wOa;
 	Mon, 15 Sep 2025 08:57:17 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
@@ -63,9 +63,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Janne Grunau <j@jannau.net>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 23/25] irqchip: Kill irq-partition-percpu
-Date: Mon, 15 Sep 2025 09:57:00 +0100
-Message-Id: <20250915085702.519996-24-maz@kernel.org>
+Subject: [PATCH v2 25/25] perf: arm_pmu: Kill last use of per-CPU cpu_armpmu pointer
+Date: Mon, 15 Sep 2025 09:57:02 +0100
+Message-Id: <20250915085702.519996-26-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250915085702.519996-1-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
@@ -75,9 +75,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_015720_484685_5A8FAFAC 
-X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,350 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This code is now completely unused, and nobody will ever miss it.
+Having removed the use of the cpu_armpmu per-CPU variable from the
+interrupt handling, the only user left is the BRBE scheduler hook.
 
+It is easy to drop the use of this variable by following the pointer
+to the generic PMU structure, and get the arm_pmu structure from there.
+
+Perform the conversion and kill cpu_armpmu altogether.
+
+Suggested-by: Will Deacon <will@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/Kconfig                      |   3 -
- drivers/irqchip/Makefile                     |   1 -
- drivers/irqchip/irq-partition-percpu.c       | 241 -------------------
- include/linux/irqchip/irq-partition-percpu.h |  53 ----
- 4 files changed, 298 deletions(-)
- delete mode 100644 drivers/irqchip/irq-partition-percpu.c
- delete mode 100644 include/linux/irqchip/irq-partition-percpu.h
+ drivers/perf/arm_pmu.c       | 5 -----
+ drivers/perf/arm_pmuv3.c     | 2 +-
+ include/linux/perf/arm_pmu.h | 2 --
+ 3 files changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index c31d2f99d7b91..4bb25d21f6e9b 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -450,9 +450,6 @@ config LS_SCFG_MSI
- 	depends on PCI_MSI
- 	select IRQ_MSI_LIB
+diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+index 23814707cf771..7171d8e0d27a5 100644
+--- a/drivers/perf/arm_pmu.c
++++ b/drivers/perf/arm_pmu.c
+@@ -104,7 +104,6 @@ static const struct pmu_irq_ops percpu_pmunmi_ops = {
+ 	.free_pmuirq = armpmu_free_percpu_pmunmi
+ };
  
--config PARTITION_PERCPU
--	bool
+-DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
+ static DEFINE_PER_CPU(int, cpu_irq);
+ static DEFINE_PER_CPU(const struct pmu_irq_ops *, cpu_irq_ops);
+ 
+@@ -726,8 +725,6 @@ static int arm_perf_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 	if (pmu->reset)
+ 		pmu->reset(pmu);
+ 
+-	per_cpu(cpu_armpmu, cpu) = pmu;
 -
- config STM32MP_EXTI
- 	tristate "STM32MP extended interrupts and event controller"
- 	depends on (ARCH_STM32 && !ARM_SINGLE_ARMV7M) || COMPILE_TEST
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 93e3ced023bb8..da429f3e29ec7 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -36,7 +36,6 @@ obj-$(CONFIG_ARM_GIC_V3)		+= irq-gic-v3.o irq-gic-v3-mbi.o irq-gic-common.o
- obj-$(CONFIG_ARM_GIC_ITS_PARENT)	+= irq-gic-its-msi-parent.o
- obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
- obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
--obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
- obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o irq-gic-v5-its.o \
- 					   irq-gic-v5-iwb.o
- obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
-diff --git a/drivers/irqchip/irq-partition-percpu.c b/drivers/irqchip/irq-partition-percpu.c
-deleted file mode 100644
-index 4441ffe149ea0..0000000000000
---- a/drivers/irqchip/irq-partition-percpu.c
-+++ /dev/null
-@@ -1,241 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Copyright (C) 2016 ARM Limited, All Rights Reserved.
-- * Author: Marc Zyngier <marc.zyngier@arm.com>
-- */
+ 	irq = armpmu_get_cpu_irq(pmu, cpu);
+ 	if (irq)
+ 		per_cpu(cpu_irq_ops, cpu)->enable_pmuirq(irq);
+@@ -747,8 +744,6 @@ static int arm_perf_teardown_cpu(unsigned int cpu, struct hlist_node *node)
+ 	if (irq)
+ 		per_cpu(cpu_irq_ops, cpu)->disable_pmuirq(irq);
+ 
+-	per_cpu(cpu_armpmu, cpu) = NULL;
 -
--#include <linux/bitops.h>
--#include <linux/interrupt.h>
--#include <linux/irqchip.h>
--#include <linux/irqchip/chained_irq.h>
--#include <linux/irqchip/irq-partition-percpu.h>
--#include <linux/irqdomain.h>
--#include <linux/seq_file.h>
--#include <linux/slab.h>
+ 	return 0;
+ }
+ 
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index f6d7bab5d555c..2dee2d928aaef 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -1039,7 +1039,7 @@ static int armv8pmu_user_event_idx(struct perf_event *event)
+ static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx,
+ 				struct task_struct *task, bool sched_in)
+ {
+-	struct arm_pmu *armpmu = *this_cpu_ptr(&cpu_armpmu);
++	struct arm_pmu *armpmu = to_arm_pmu(pmu_ctx->pmu);
+ 	struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
+ 
+ 	if (!hw_events->branch_users)
+diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+index 6690bd77aa4ee..bab26a7d79f4c 100644
+--- a/include/linux/perf/arm_pmu.h
++++ b/include/linux/perf/arm_pmu.h
+@@ -132,8 +132,6 @@ struct arm_pmu {
+ 
+ #define to_arm_pmu(p) (container_of(p, struct arm_pmu, pmu))
+ 
+-DECLARE_PER_CPU(struct arm_pmu *, cpu_armpmu);
 -
--struct partition_desc {
--	int				nr_parts;
--	struct partition_affinity	*parts;
--	struct irq_domain		*domain;
--	struct irq_desc			*chained_desc;
--	unsigned long			*bitmap;
--	struct irq_domain_ops		ops;
--};
--
--static bool partition_check_cpu(struct partition_desc *part,
--				unsigned int cpu, unsigned int hwirq)
--{
--	return cpumask_test_cpu(cpu, &part->parts[hwirq].mask);
--}
--
--static void partition_irq_mask(struct irq_data *d)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	if (partition_check_cpu(part, smp_processor_id(), d->hwirq) &&
--	    chip->irq_mask)
--		chip->irq_mask(data);
--}
--
--static void partition_irq_unmask(struct irq_data *d)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	if (partition_check_cpu(part, smp_processor_id(), d->hwirq) &&
--	    chip->irq_unmask)
--		chip->irq_unmask(data);
--}
--
--static int partition_irq_set_irqchip_state(struct irq_data *d,
--					   enum irqchip_irq_state which,
--					   bool val)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	if (partition_check_cpu(part, smp_processor_id(), d->hwirq) &&
--	    chip->irq_set_irqchip_state)
--		return chip->irq_set_irqchip_state(data, which, val);
--
--	return -EINVAL;
--}
--
--static int partition_irq_get_irqchip_state(struct irq_data *d,
--					   enum irqchip_irq_state which,
--					   bool *val)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	if (partition_check_cpu(part, smp_processor_id(), d->hwirq) &&
--	    chip->irq_get_irqchip_state)
--		return chip->irq_get_irqchip_state(data, which, val);
--
--	return -EINVAL;
--}
--
--static int partition_irq_set_type(struct irq_data *d, unsigned int type)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	if (chip->irq_set_type)
--		return chip->irq_set_type(data, type);
--
--	return -EINVAL;
--}
--
--static void partition_irq_print_chip(struct irq_data *d, struct seq_file *p)
--{
--	struct partition_desc *part = irq_data_get_irq_chip_data(d);
--	struct irq_chip *chip = irq_desc_get_chip(part->chained_desc);
--	struct irq_data *data = irq_desc_get_irq_data(part->chained_desc);
--
--	seq_printf(p, "%5s-%lu", chip->name, data->hwirq);
--}
--
--static struct irq_chip partition_irq_chip = {
--	.irq_mask		= partition_irq_mask,
--	.irq_unmask		= partition_irq_unmask,
--	.irq_set_type		= partition_irq_set_type,
--	.irq_get_irqchip_state	= partition_irq_get_irqchip_state,
--	.irq_set_irqchip_state	= partition_irq_set_irqchip_state,
--	.irq_print_chip		= partition_irq_print_chip,
--};
--
--static void partition_handle_irq(struct irq_desc *desc)
--{
--	struct partition_desc *part = irq_desc_get_handler_data(desc);
--	struct irq_chip *chip = irq_desc_get_chip(desc);
--	int cpu = smp_processor_id();
--	int hwirq;
--
--	chained_irq_enter(chip, desc);
--
--	for_each_set_bit(hwirq, part->bitmap, part->nr_parts) {
--		if (partition_check_cpu(part, cpu, hwirq))
--			break;
--	}
--
--	if (unlikely(hwirq == part->nr_parts))
--		handle_bad_irq(desc);
--	else
--		generic_handle_domain_irq(part->domain, hwirq);
--
--	chained_irq_exit(chip, desc);
--}
--
--static int partition_domain_alloc(struct irq_domain *domain, unsigned int virq,
--				  unsigned int nr_irqs, void *arg)
--{
--	int ret;
--	irq_hw_number_t hwirq;
--	unsigned int type;
--	struct irq_fwspec *fwspec = arg;
--	struct partition_desc *part;
--
--	BUG_ON(nr_irqs != 1);
--	ret = domain->ops->translate(domain, fwspec, &hwirq, &type);
--	if (ret)
--		return ret;
--
--	part = domain->host_data;
--
--	set_bit(hwirq, part->bitmap);
--	irq_set_chained_handler_and_data(irq_desc_get_irq(part->chained_desc),
--					 partition_handle_irq, part);
--	irq_set_percpu_devid_partition(virq, &part->parts[hwirq].mask);
--	irq_domain_set_info(domain, virq, hwirq, &partition_irq_chip, part,
--			    handle_percpu_devid_irq, NULL, NULL);
--	irq_set_status_flags(virq, IRQ_NOAUTOEN);
--
--	return 0;
--}
--
--static void partition_domain_free(struct irq_domain *domain, unsigned int virq,
--				  unsigned int nr_irqs)
--{
--	struct irq_data *d;
--
--	BUG_ON(nr_irqs != 1);
--
--	d = irq_domain_get_irq_data(domain, virq);
--	irq_set_handler(virq, NULL);
--	irq_domain_reset_irq_data(d);
--}
--
--int partition_translate_id(struct partition_desc *desc, void *partition_id)
--{
--	struct partition_affinity *part = NULL;
--	int i;
--
--	for (i = 0; i < desc->nr_parts; i++) {
--		if (desc->parts[i].partition_id == partition_id) {
--			part = &desc->parts[i];
--			break;
--		}
--	}
--
--	if (WARN_ON(!part)) {
--		pr_err("Failed to find partition\n");
--		return -EINVAL;
--	}
--
--	return i;
--}
--
--struct partition_desc *partition_create_desc(struct fwnode_handle *fwnode,
--					     struct partition_affinity *parts,
--					     int nr_parts,
--					     int chained_irq,
--					     const struct irq_domain_ops *ops)
--{
--	struct partition_desc *desc;
--	struct irq_domain *d;
--
--	BUG_ON(!ops->select || !ops->translate);
--
--	desc = kzalloc(sizeof(*desc), GFP_KERNEL);
--	if (!desc)
--		return NULL;
--
--	desc->ops = *ops;
--	desc->ops.free = partition_domain_free;
--	desc->ops.alloc = partition_domain_alloc;
--
--	d = irq_domain_create_linear(fwnode, nr_parts, &desc->ops, desc);
--	if (!d)
--		goto out;
--	desc->domain = d;
--
--	desc->bitmap = bitmap_zalloc(nr_parts, GFP_KERNEL);
--	if (WARN_ON(!desc->bitmap))
--		goto out;
--
--	desc->chained_desc = irq_to_desc(chained_irq);
--	desc->nr_parts = nr_parts;
--	desc->parts = parts;
--
--	return desc;
--out:
--	if (d)
--		irq_domain_remove(d);
--	kfree(desc);
--
--	return NULL;
--}
--
--struct irq_domain *partition_get_domain(struct partition_desc *dsc)
--{
--	if (dsc)
--		return dsc->domain;
--
--	return NULL;
--}
-diff --git a/include/linux/irqchip/irq-partition-percpu.h b/include/linux/irqchip/irq-partition-percpu.h
-deleted file mode 100644
-index b35ee22c278f8..0000000000000
---- a/include/linux/irqchip/irq-partition-percpu.h
-+++ /dev/null
-@@ -1,53 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * Copyright (C) 2016 ARM Limited, All Rights Reserved.
-- * Author: Marc Zyngier <marc.zyngier@arm.com>
-- */
--
--#ifndef __LINUX_IRQCHIP_IRQ_PARTITION_PERCPU_H
--#define __LINUX_IRQCHIP_IRQ_PARTITION_PERCPU_H
--
--#include <linux/fwnode.h>
--#include <linux/cpumask_types.h>
--#include <linux/irqdomain.h>
--
--struct partition_affinity {
--	cpumask_t			mask;
--	void				*partition_id;
--};
--
--struct partition_desc;
--
--#ifdef CONFIG_PARTITION_PERCPU
--int partition_translate_id(struct partition_desc *desc, void *partition_id);
--struct partition_desc *partition_create_desc(struct fwnode_handle *fwnode,
--					     struct partition_affinity *parts,
--					     int nr_parts,
--					     int chained_irq,
--					     const struct irq_domain_ops *ops);
--struct irq_domain *partition_get_domain(struct partition_desc *dsc);
--#else
--static inline int partition_translate_id(struct partition_desc *desc,
--					 void *partition_id)
--{
--	return -EINVAL;
--}
--
--static inline
--struct partition_desc *partition_create_desc(struct fwnode_handle *fwnode,
--					     struct partition_affinity *parts,
--					     int nr_parts,
--					     int chained_irq,
--					     const struct irq_domain_ops *ops)
--{
--	return NULL;
--}
--
--static inline
--struct irq_domain *partition_get_domain(struct partition_desc *dsc)
--{
--	return NULL;
--}
--#endif
--
--#endif /* __LINUX_IRQCHIP_IRQ_PARTITION_PERCPU_H */
+ u64 armpmu_event_update(struct perf_event *event);
+ 
+ int armpmu_event_set_period(struct perf_event *event);
 -- 
 2.39.2
 
