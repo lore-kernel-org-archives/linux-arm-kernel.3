@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C32ECAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 07:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4404BCAC58F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 07:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYiHZELFarw3PToNRADNwpDtZ4cHTMNtElA+diEGHz4=; b=0lAoqgX6HgGN5c6mcrSQZIQ1AD
-	lA2/p9e9UiiHpB1e2oLYC1nBrznC1sxC875Nc+iVrOMzuskBehCuE8976xTTzdxx83UELmRx7OHwV
-	6BUkrgoOFZSa8qp5N3O8cdS5QukcoyF0LD/5W/tDJneiETj5aP99TOxuCLG8JGW14jnnObFKAIosT
-	QErrmcKFJMDHcYxC4kw/5VCrPXteHcLw0TFJZRYmYdHsiCmK07IlWv1xg6nupBRiVzYYSzpmXsFUV
-	V4lW1jnfiXzmNxCwTFeLBiVurwd7JZK7aHiIQuLGTSVveme2ys5JBDAXFfYXmuvwHR3xGki7BjgkA
-	cOHfam2Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jxMdEwQMvYlUV1hjBcNiQQKiVr1P8tNvVX7qu/53r6M=; b=Vy451riBVeihYjjicQEP2YpHxj
+	5PHZ0vNyPCSkGU5vdCfeQzi7WLfCi3RbLXcuoTMxFhEhl7ld88FSSNuUg+r4B6feuIZkgJ2oqGiA9
+	qC5ff72U3uEuuoqjxXb82hw2H7nFIyeFz2gQ7Ehk6BwUGHlyoTQzt1fbuGgBlZ0CjPeM1qevwcX0j
+	uIfI21wiGpC0DJ3v2ST1iy39EQuvwvutKPkg5QSBACRubB1pVrZvcX0Su+ycwCY5qdJeuHotPssOe
+	C5pgyJnpxpHXuApqHUb4BaFzefhUbxf3MOIKddhwU2iuz68q7Ok+/yvGrFJsrwNfgIhATaLQk5LSN
+	GyzMWXjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3ih-000000034MK-1fLs;
-	Mon, 15 Sep 2025 07:33:51 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uy3wf-000000036Pd-3NqX;
+	Mon, 15 Sep 2025 07:48:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3if-000000034LQ-1RlN;
-	Mon, 15 Sep 2025 07:33:50 +0000
+	id 1uy3wd-000000036Nu-0P1V;
+	Mon, 15 Sep 2025 07:48:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1757921627;
-	bh=CvSpZpuhDtzZdxfbopkSom4BlyFhn0H99cY81Z+ClJ4=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=PpNo0Gm0NGeq8BUqPEaE3VEteESp1T51bYoPqaOnH7v0WlIn2RZNrOED5yoZLgRWS
-	 e1TFKJSQT5faQR8H3/9zZUn9MAypxIdcoqz4J+JPljcpa5IcQ9WOpYZTHYj9eIR6rk
-	 yvitPSU5wIU9kNIrlI9EMBUsCqbpmxp0BLsCyOOVcEpKkhe6Ay2wVB7sox7L+EpBx8
-	 jTsXFoH68PEU7dja1RyyC1g63aE+Po3RfQnADOAYE0hY/YXvfN1h/rmVxjtDE8Or7D
-	 bnavYcMIvsHSxO1+qdnHpvZ5A+kCIg5tEOlgQt+wLJoKkMagR9yj1fHSYC4v6idDJb
-	 wpCkaCbCfybyQ==
+	s=mail; t=1757922492;
+	bh=vB9GcUmcfOQtoFZZDhDvPQi1G6RyCsjXZqj9XRwFDDg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eAdBbE/FYgw8uAuc6mgi4EXUTYPU+wCaeYzWmnTAU9LDniagsTtXnRYgKgslS3t5w
+	 Mb/Rpyrx3bfezOUOnz3+Az18Mf6d8LWOzqWFY/2ZWNzcuxZ+Lnf8/MhMsDLveLhbrS
+	 eu/iAySEqG+q8hHVBpSuFWBPxkZDNEKAAjouigISkJsmmLw5rqbwBhRd9hLnHNH1tP
+	 99bT8pEadDq5zdLkBu05NQD7MBaedKH0gNFtwMvZZ6iaKArjCoXZepCXEMOis+xhse
+	 81N6Et83WvkPh5Z/iMjqKnmcO4yaVOuJ3m5M9b/0dB+b2sXEUg30dpokq5+xawQqNN
+	 1k2ThEXkQfxcg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD81C17E0AC3;
-	Mon, 15 Sep 2025 09:33:46 +0200 (CEST)
-Message-ID: <8b1c1796-6de2-4526-9a29-d8649141b878@collabora.com>
-Date: Mon, 15 Sep 2025 09:33:46 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EBEAF17E0F88;
+	Mon, 15 Sep 2025 09:48:11 +0200 (CEST)
+Message-ID: <a36c5bfe-be01-431b-9d4f-eb41a085bef7@collabora.com>
+Date: Mon, 15 Sep 2025 09:48:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tty: serial: 8250_mtk: enable baud clock
-To: Daniel Golle <daniel@makrotopia.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Yu Jiaoliang <yujiaoliang@vivo.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Changqi Hu <changqi.hu@mediatek.com>, Sam Shih <sam.shih@mediatek.com>,
- Steven Liu <steven.liu@mediatek.com>, John Crispin <john@phrozen.org>,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <5d6acd2273e3c98a5cbc685ad94eff19c6b6d044.1757807642.git.daniel@makrotopia.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: Add VCP support for
+ mt8196
+To: Xiangzhi Tang <xiangzhi.tang@mediatek.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Jjian Zhou <Jjian.Zhou@mediatek.com>,
+ Hailong Fan <Hailong.Fan@mediatek.com>
+References: <20250914122943.10412-1-xiangzhi.tang@mediatek.com>
+ <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <5d6acd2273e3c98a5cbc685ad94eff19c6b6d044.1757807642.git.daniel@makrotopia.org>
+In-Reply-To: <20250914122943.10412-2-xiangzhi.tang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_003349_551032_F16CE3AE 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20250915_004815_300590_84AE437B 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +82,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 14/09/25 01:59, Daniel Golle ha scritto:
-> Some MediaTek SoCs got a gated UART baud clock, which currently gets
-> disabled as the clk subsystem believes it would be unused. This results in
-> the uart freezing right after "clk: Disabling unused clocks" on those
-> platforms.
+Il 14/09/25 14:29, Xiangzhi Tang ha scritto:
+> Add the new binding document for MediaTek Video Companion
+> Processor(VCP) on MediaTek mt8196.
 > 
-> To fix this request the "baud" clock as enabled to prevent disabling it
-> among with the unused clocks.
-> Runtime power management can probably also be restored to the state before
-> commit e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock
-> management"), but that isn't strictly needed to fix the regression
-> introduced by that commit.
+> Signed-off-by: Xiangzhi Tang <xiangzhi.tang@mediatek.com>
+> ---
+>   .../remoteproc/mediatek,mt8196-vcp.yaml       | 165 ++++++++++++++++++
+>   1 file changed, 165 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
 > 
-> Fixes: e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock management")
-> Suggested-by: Sam Shih <sam.shih@mediatek.com>
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> diff --git a/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml b/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
+> new file mode 100644
+> index 000000000000..71a55943843b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/remoteproc/mediatek,mt8196-vcp.yaml
+> @@ -0,0 +1,165 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/remoteproc/mediatek,mt8196-vcp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek Video Companion Processor (VCP)
+> +
+> +maintainers:
+> +  - Xiangzhi Tang <Xiangzhi.Tang@mediatek.com>
+> +
+> +description:
+> +  The MediaTek VCP enables the SoC control the MediaTek Video Companion Risc-V coprocessor.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt8196-vcp
+> +
+> +  reg:
+> +    items:
+> +      - description: sram base
+> +      - description: cfg group IO
+> +      - description: cfg core group IO
+> +      - description: cfg sec group IO
+> +      - description: vcp rdy group IO
+> +
+> +  reg-names:
+> +    items:
+> +      - const: sram
+> +      - const: cfg
+> +      - const: cfg_core
 
-Is there any particular reason why you didn't en/disable the uart_clk in
-runtime PM ops?
+sram, cfg-global, cfg-core, cfg-sec, vcp-vlp-ao-ready
 
-Cheers,
+> +      - const: cfg_sec
+> +      - const: vcp_vlp_ao_rsvd7
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  mboxes:
+> +    maxItems: 5
+> +
+> +  mbox-names:
+> +    maxItems: 5
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  iommus:
+> +    description:
+> +      Using MediaTek iommu to apply larb ports for Multimedia Memory
+> +      Management Unit and address translation
+> +      Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+> +    maxItems: 1
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^vcp@[a-f0-9]+$":
+> +    type: object
+> +    description:
+> +      The MediaTek VCP integrated to SoC might be a multi-core version.
+
+"may feature one or multiple cores"
+
+> +      The other cores are represented as child nodes of the boot core.
+> +      There are some integration differences for the IP like the usage of
+> +      address translator for translating SoC bus addresses into address
+> +      space for the processor.
+> +
+> +      The SRAM are shared by all cores, each VCP core only using a piece
+
+s/piece/portion of/g
+
+> +      SRAM memory. The power of SRAM should be enabled before booting VCP cores.
+
+How do you enable the SRAM power?
+
+Is there a regulator, a power domain, both, or what?
+
+> +      The size of SRAM are varied on differnt SoCs.
+> +
+> +      The VCP cores has differences on different SoCs to support for
+> +      Hart.
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - mediatek,vcp-core
+> +
+> +      reg:
+> +        description: The base address and size of SRAM.
+> +        maxItems: 1
+> +
+> +      reg-names:
+> +        const: sram
+> +
+> +      mtk,vcp-core-twohart:
+
+1. s/mtk,/mediatek,/g
+2. there's no description, what does "twohart" mean?
+
+> +        enum: [0, 1]
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +      mtk,vcp-sram-offset:
+> +        description:
+> +          Allocated SRAM memory for each VCP core used.
+
+vcp-sram-offset is the same as the iostart in `reg`, so you don't need this
+property at all.
+
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - reg-names
+> +      - mtk,vcp-core-twohart
+> +      - mtk,vcp-sram-offset
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - mboxes
+> +  - mbox-names
+> +  - power-domains
+> +  - iommus
+> +  - memory-region
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/power/mt8196-power.h>
+> +
+> +    vcp: vcp@31800000 {
+> +        compatible = "mediatek,mt8196-vcp";
+> +        reg = <0x31800000 0x60000>,
+> +              <0x31a04000 0xa000>,
+> +              <0x31bd0000 0x1000>,
+> +              <0x31a70020 0x100>,
+> +              <0x1c00091c 0x4>;
+> +        reg-names = "sram",
+> +                    "cfg",
+> +                    "cfg_core",
+> +                    "cfg_sec",
+> +                    "vcp_vlp_ao_rsvd7";
+> +
+> +        interrupts = <GIC_SPI 787 IRQ_TYPE_LEVEL_HIGH 0>;
+> +
+> +        mboxes = <&vcp_mailbox0>,
+> +                 <&vcp_mailbox1>,
+> +                 <&vcp_mailbox2>,
+> +                 <&vcp_mailbox3>,
+> +                 <&vcp_mailbox4>;
+> +        mbox-names = "mbox0", "mbox1", "mbox2", "mbox3", "mbox4";
+
+Is there any descriptive name that can be used for mbox-names?
+
+As in, what is mbox0 used for? what is mbox1 used for? etc.
+
+> +
+> +        power-domains = <&scpsys MT8196_POWER_DOMAIN_MM_PROC_DORMANT>;
+> +        iommus = <&mm_smmu 160>;
+> +        memory-region = <&vcp_resv_mem>;
+> +
+> +        vcp@0 {
+> +            compatible = "mediatek,vcp-core";
+> +            reg = <0x0 0x31000>;
+> +            reg-names = "sram";
+> +            mtk,vcp-core-twohart = <1>;
+
+Is the first core always "twohart"?
+
+If it is, there's no need to even have this property, as you can add that to
+the driver, either in form of platform data (if this changes per-SoC) or just
+hardcoded.
+
+Regards,
 Angelo
 
-> ---
->   drivers/tty/serial/8250/8250_mtk.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
-> index b44de2ed7413..9329ed1f759d 100644
-> --- a/drivers/tty/serial/8250/8250_mtk.c
-> +++ b/drivers/tty/serial/8250/8250_mtk.c
-> @@ -475,13 +475,13 @@ static int mtk8250_probe_of(struct platform_device *pdev, struct uart_port *p,
->   	int dmacnt;
->   #endif
->   
-> -	data->uart_clk = devm_clk_get(&pdev->dev, "baud");
-> +	data->uart_clk = devm_clk_get_enabled(&pdev->dev, "baud");
->   	if (IS_ERR(data->uart_clk)) {
->   		/*
->   		 * For compatibility with older device trees try unnamed
->   		 * clk when no baud clk can be found.
->   		 */
-> -		data->uart_clk = devm_clk_get(&pdev->dev, NULL);
-> +		data->uart_clk = devm_clk_get_enabled(&pdev->dev, NULL);
->   		if (IS_ERR(data->uart_clk)) {
->   			dev_warn(&pdev->dev, "Can't get uart clock\n");
->   			return PTR_ERR(data->uart_clk);
-
+> +            mtk,vcp-sram-offset = <0x0>;
+> +        };
+> +
+> +        vcp@31000 {
+> +            compatible = "mediatek,vcp-core";
+> +            reg = <0x31000 0x60000>;
+> +            reg-names = "sram";
+> +            mtk,vcp-core-twohart = <0>;
+> +            mtk,vcp-sram-offset = <0x31000>;
+> +        };
+> +    };
 
 
