@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEFFCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCFFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0i6RikQC6DfYiiM+/GamuDmLEyTAbg8j3Lwj+lkcTk=; b=XZj9UIdvAerQARaIbSVAtT6IUI
-	QORhRJBddHTMYODhblqqtTgrRLm7cnsKCLEprNTpCercsQ8IcLlf6j2Gk+i0hwvxZHsFgljdMA9b6
-	egZozyj0syCVdDgBWKNjGKv7XtNi7Z9rbRBCyuI/5BoKIf20wSN/ZCVBGomlj/e1YpAU6+B676bCH
-	5bRPYQv9doXR5BMPzxYG7BSIWWwj6jBwS/aBpq1TpNx+iyvKD/MRFo1+oExKFLyytPDVOaEAn5TvQ
-	hh0i7EZwADq/l9AqsGI6rkZMoILTsM7JwRQTh7rhySzn7Tr24BVZFNr7e+xvy/Kx9LSYJY4skq9bh
-	ETKv3kJw==;
+	bh=ZafX87MMcfI5y2IRaqNAT6HmdaHGKFoLkfY+lm2hc14=; b=aBxPkcZ95kCDQ4e7jWLIvmUPJP
+	LOR5J/XC16qPZjlnWNAQYHWUnUGB8VJM8p+7Y4ODlvtTzrUrpZUv0NM77XT+35EuLNunWlSAPLwT4
+	Vy7EnlSFzdzeQvtRznbj907iX4DDwqllMcjWMa4pXrM2W2rubxmSSGLqoOu+dksm4NGSBSna2oglQ
+	E88ZwWpnw1Jdbr5FA4ncsAueyn2C+Ov5efLXtqef2gfCKxiSumVsF5ya/NlbbKiC2l6iODA/Y83n8
+	gYPXaHVqNXkj7z7Jb18YqpDsJUjrHD4DLnlihpJbe/ZIbbR8fxoyH7Ztm9cx9T6O2vYvX79voUuOG
+	OJZebz+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAi9-00000004p6R-0XR6;
-	Mon, 15 Sep 2025 15:01:45 +0000
+	id 1uyAix-00000004pMH-0nBJ;
+	Mon, 15 Sep 2025 15:02:35 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAi6-00000004p5Y-3DQL
+	id 1uyAiu-00000004pKo-2VnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 15:01:43 +0000
+	Mon, 15 Sep 2025 15:02:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6428F4199B;
-	Mon, 15 Sep 2025 15:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C476C4CEF5;
-	Mon, 15 Sep 2025 15:01:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4620F44281;
+	Mon, 15 Sep 2025 15:02:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6991C4CEF5;
+	Mon, 15 Sep 2025 15:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757948502;
-	bh=+0i6RikQC6DfYiiM+/GamuDmLEyTAbg8j3Lwj+lkcTk=;
+	s=k20201202; t=1757948552;
+	bh=ZafX87MMcfI5y2IRaqNAT6HmdaHGKFoLkfY+lm2hc14=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qqJlOyb4u8dmfEH9xbldImMZRZQ85dwUmfhkUuUpDfbyva9VqHjaKc9MzztA4vVki
-	 chZ5OqV3dwxrwhKpmvTDOSImagN1Tf3y0+7WlysTXgEvoZfSeLj7zNrHhLNiuT1j3x
-	 hKnV+LPaPhzZOPSKiNjeiSVvJ0KSUy/DVXv/8Ssufa41BQ/As2e95mbdUK03jNGcrJ
-	 Fj5/t8PAhN2sh/02gINWNH5uMVELU3JzuvwIGaJ6dAjkKEL6RO4JHS72gkNgDttyKy
-	 Y4H7YfB6t0zKhB3+UXTF3Cq/bc6r3+aCXy3TZ9v94cZLfoEkal70A2i3um88KDlvb6
-	 YXwK5kFAnLIvA==
-Date: Mon, 15 Sep 2025 16:01:35 +0100
+	b=f5VmtA5g70F71yXQYaxm3xCQGg6KvCFDB7chmTjFVILW8w/K2+eM3qI9j0DVE/mD9
+	 MAIw0c8APm9rnxbauU+AbwBM1iTtXFuG3lWjdo3ho8OR2Axr4A857sy7pYLC+ashiZ
+	 7A8z9djjmRDEBuvya/tt4gu7BUse4qW9tJhlyxIBf6AjcXxDfAbcYNscJaooa00DgD
+	 DzjHb84yQGuqoSA1S9VJQapyTKLwGbbWjsTrPwZt+yKDmAKXzTZIUOpH3rrCkcaxsL
+	 ojh1Qd8gZMMPIEn2HqaVu1Jb/tISXdkTGS2Zs+qk1NFMOvT4jS7ACtTQZWgFYSPxQ0
+	 okYTlG8LjFpfw==
+Date: Mon, 15 Sep 2025 16:02:25 +0100
 From: Daniel Thompson <danielt@kernel.org>
 To: Thomas Zimmermann <tzimmermann@suse.de>
 Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
@@ -55,18 +55,18 @@ Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
 	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
 	platform-driver-x86@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v2 14/15] backlight: rt4831: Include
- <linux/mod_devicetable.h>
-Message-ID: <aMgqT8crih7S79Oj@aspen.lan>
+Subject: Re: [PATCH v2 15/15] backlight: Do not include <linux/fb.h> in
+ header file
+Message-ID: <aMgqgSMaxFsM4eES@aspen.lan>
 References: <20250715122643.137027-1-tzimmermann@suse.de>
- <20250715122643.137027-15-tzimmermann@suse.de>
+ <20250715122643.137027-16-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250715122643.137027-15-tzimmermann@suse.de>
+In-Reply-To: <20250715122643.137027-16-tzimmermann@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_080142_821243_CB118ED3 
-X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-CacheID: sfid-20250915_080232_651774_C8FBDC2A 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,9 +82,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 02:24:51PM +0200, Thomas Zimmermann wrote:
-> Include <linux/mod_devicetable.h> to declare struct of_device_id.
-> Avoids dependency on backlight header to include it.
+On Tue, Jul 15, 2025 at 02:24:52PM +0200, Thomas Zimmermann wrote:
+> The backlight interfaces don't require anything from <linux/fb.h>, so
+> don't include it.
 >
 > Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
