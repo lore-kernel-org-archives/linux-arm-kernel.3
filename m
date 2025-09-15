@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB437CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C901CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o46i/o8MWxcUDoudhli6683iY51sm5cABqex0VruGrI=; b=c1xQkuleQS3+909G26Wn/4oS7T
-	XEPTjdZDZckshlDNZ9eZzAZMbqtesHm6VdCky54fer2i+lSs6AKfZQ7JPezclg4ZUw1HRXfr8H8SW
-	BYzhnH+irWDV0trdwNeffNre3NFxQ/jWPUroyO8JnVvPGTTQwK2R4gFSp96+cB4itBjwYG4DdF5HK
-	STrPFVZiCRhwObLZoddqVN7rNUUcUYsSaXjLhSrliKkw7pP22S8uua3df0XNY9EM8MMGn/ogF1Jbk
-	nIMo0j5Ob1Tlx1ZXce53QwYTZwRFswTNMG8x7IPTCP/0XAzsmmUliBKB801//G193By/Y/hcb/Xsh
-	CAM+6G5Q==;
+	bh=fwopsEOek4ou3+ezmGuS74+PQLBMuVqqlmPaeWYH/gY=; b=Yj4sUKNZBifa++yCbXV5x8B2Rk
+	Mox5WRLRimpguNWvUAWEnKX4RM0C3ut8vhVD/xf4WGAM1wn09me7QR8dSF65oANfUsv5Ey+fw7lQ3
+	Sx0GHv53AsNTUZUeY7bWk62O9JSaNq/muQ9yUMRcCK/4natfd7VKxVDiX+1XFH2ffmh8dAX8Vrhfw
+	zDKjyl6gVUZwWTrnZx1BQDJH82NDoHGHpv1WT0TQWg2L25bGdV25ZQ1Oj+AniO6L1a0ZF12NdTRRG
+	vi5bsU3TVoGnoW6Bx7+ZXm0z1xAnKmCEAlOp4/qycUz97dJsV4Dh7yAZ5QjMA8PNZbLsdN7+gg2EJ
+	WdrDfDlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6eU-00000003jqH-1TE7;
-	Mon, 15 Sep 2025 10:41:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uy6em-00000003jva-3mCR;
+	Mon, 15 Sep 2025 10:42:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6eS-00000003jpZ-0voh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:41:40 +0000
+	id 1uy6ek-00000003ju0-3ngo;
+	Mon, 15 Sep 2025 10:42:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B8B560191;
-	Mon, 15 Sep 2025 10:41:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32734C4CEF1;
-	Mon, 15 Sep 2025 10:41:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 126CA43710;
+	Mon, 15 Sep 2025 10:41:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91F74C4CEF1;
+	Mon, 15 Sep 2025 10:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757932899;
-	bh=Fb8y6re6cSdb3s8Dmb8ibHc12xk4vLOBlLPifU1XVpA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=eWELfBvj6lLhW8104ktom4jIKkcNcyV2iIMdqlUhHMP4Igz2u1dYAD+kSd7vcrIGU
-	 Huv0cyYQdI8UcvX+bmSv8E2wYVbIundxUMim1rsYtlo+YA0d9KpFdZu16o7QQHL+8N
-	 p5LR6n5FdA1eRL1SXHgeSMrKXB6i7WTEAwXdbyiJIcHIvVMv/qSajV44GgbG1ZAuDR
-	 daYwylP+IMJyTRb3xnEnTRB99G5Us3p0vpApYVYD3+bJsASb2Y+zNUbxRBLUrbd9rP
-	 JVkeofqV7zqauIeTojFLSdCOio5X0mGBKIHT10rGyIIEHEgRF6zwJ5LsFrl4OyzfZs
-	 TNoMNx/4s3Qaw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uy6eP-00000006KhX-0F6P;
-	Mon, 15 Sep 2025 10:41:37 +0000
-Date: Mon, 15 Sep 2025 11:41:36 +0100
-Message-ID: <86y0qgatgf.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	quic_yingdeng@quicinc.com,
-	jinlong.mao@oss.qualcomm.com,
-	tingwei.zhang@oss.qualcomm.com
-Subject: Re: [PATCH v2] KVM: arm64: Fix NULL pointer access issue
-In-Reply-To: <aLk_F8LgpFW6Qo3O@linux.dev>
-References: <20250902-etm_crash-v2-1-aa9713a7306b@oss.qualcomm.com>
-	<aLk_F8LgpFW6Qo3O@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, yingchao.deng@oss.qualcomm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com, jinlong.mao@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1757932917;
+	bh=4BjLepU4AwvkrI0d43q0aFDK1GjRHaIm4CkmokzQ9SI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FKXB17uSwbZe+whIjd4zRzhq1ba+B4tNal7uYCuvuT/S8/7Sn8kRzxjdnJ+gtvsqK
+	 l546xMXwcEVDqPsuJETGL6e77trVb+5Z3GKXvfhYlgO3+s8FHLeRluR7Nr0abCJB7x
+	 /5d7O2U4kYzI0PIxAnvaJ1VLGj0xkcOQRQwVH3vORv+gBgYah0d7Z/JR5a+CMyAd8R
+	 wPV05buDYcw0i+Z4IWXpGg9zVIZxh4Nc9t/JObhE0YSv0Ozc+nZyVH4eSD65CNx4l9
+	 KHyqELQQiCrUtxxg8J7r0lBVLCiLdnTS2c61RWCVThb7jO+wL4FlUs5SCL7zrbEnji
+	 Td6YbrVMt3Rgw==
+Date: Mon, 15 Sep 2025 11:41:52 +0100
+From: Will Deacon <will@kernel.org>
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	Sean Christopherson <seanjc@google.com>
+Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
+Message-ID: <aMftcHLgBvH76erX@willie-the-truck>
+References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+ <f740b716-6c8b-46a5-31ae-ecc37e766152@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f740b716-6c8b-46a5-31ae-ecc37e766152@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_034158_962067_DC2494D4 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,135 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 04 Sep 2025 08:26:15 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
->=20
-> Hi Yingchao,
->=20
-> The shortlog is extremely vague, you should aim to succinctly describe
-> the functional change of your patch. e.g.
->=20
->   KVM: arm64: Return early from trace helpers when KVM isn't available
->=20
-> On Tue, Sep 02, 2025 at 11:48:25AM +0800, Yingchao Deng wrote:
-> > When linux is booted in EL1, macro "host_data_ptr()" is a wrapper that
-> > resolves to "&per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)",
-> > is_hyp_mode_available() return false during kvm_arm_init, the per-CPU b=
-ase
-> > pointer __kvm_nvhe_kvm_arm_hyp_percpu_base[cpu] remains uninitialized.
-> > Consequently, any access via per_cpu_ptr_nvhe_sym(kvm_host_data, cpu)
-> > will result in a NULL pointer.
-> >=20
-> > Add is_kvm_arm_initialised() condition check to ensure that kvm_arm_init
-> > completes all necessary initialization steps, including init_hyp_mode.
->=20
-> OTOH, the changelog is very mechanical and hard to grok.
->=20
->   When linux is booted at EL1, host_data_ptr() resolves to the nVHE
->   hypervisor's copy of host data. When hyp mode isn't available for
->   KVM the nVHE percpu bases remain uninitialized. Consequently, any usage
->   of host_data_ptr() will result in a NULL dereference which has been
->   observed in KVM's trace filtering helpers.
->=20
->   Add an early return to the trace filtering helpers if KVM isn't
->   initialized, avoiding the NULL dereference.
->=20
-> > Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
-> > Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-> > Reviewed-by: James Clark <james.clark@linaro.org>
-> > ---
-> > Add a check to prevent accessing uninitialized per-CPU data.
-> > ---
-> > Changes in v2:
-> > 1. Move the warning to the end in order to improve readability. No
-> > functional change intended
->=20
-> IMO, the warning should be the very first condition we evaluate. Even if
-> the system configuration leads to an early return anyway (e.g. protected
-> mode) the caller is not invoking these helpers from the right context.
+On Mon, Sep 15, 2025 at 12:25:52AM -0600, Paul Walmsley wrote:
+> On Tue, 9 Sep 2025, Atish Patra wrote:
+> 
+> > SBI v3.0 specification[1] added two new improvements to the PMU chaper.
+> > The SBI v3.0 specification is frozen and under public review phase as
+> > per the RISC-V International guidelines. 
+> > 
+> > 1. Added an additional get_event_info function to query event availablity
+> > in bulk instead of individual SBI calls for each event. This helps in
+> > improving the boot time.
+> > 
+> > 2. Raw event width allowed by the platform is widened to have 56 bits
+> > with RAW event v2 as per new clarification in the priv ISA[2].
+> > 
+> > Apart from implementing these new features, this series improves the gpa
+> > range check in KVM and updates the kvm SBI implementation to SBI v3.0.
+> > 
+> > The opensbi patches have been merged. This series can be found at [3].
+> > 
+> > [1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc7/riscv-sbi.pdf 
+> > [2] https://github.com/riscv/riscv-isa-manual/issues/1578
+> > [3] https://github.com/atishp04/linux/tree/b4/pmu_event_info_v6
+> > 
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> 
+> For the series:
+> 
+> Acked-by: Paul Walmsley <pjw@kernel.org>
 
-This is what I intend to merge, with the commit log repainted as
-above, and the helpers refactored in a slightly less ugly way (well,
-at least more to my own taste, YMMV).
+I was assuming this series would go via the Risc-V arch tree so please
+shout if you were expecting me to take it via drivers/perf/!
 
-	M.
-
-=46rom 27d2b47eef033f1fc6c0452dc1017e43dad5fe14 Mon Sep 17 00:00:00 2001
- From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Date: Tue, 2 Sep 2025 11:48:25 +0800
-Subject: [PATCH] KVM: arm64: Return early from trace helpers when KVM isn't
- available
-
-When Linux is booted at EL1, host_data_ptr() resolves to the nVHE
-hypervisor's copy of host data. When hyp mode isn't available for
-KVM the nVHE percpu bases remain uninitialized. Consequently, any usage
-of host_data_ptr() will result in a NULL dereference which has been
-observed in KVM's trace filtering helpers.
-
-Add an early return to the trace filtering helpers if KVM isn't
-initialized, avoiding the NULL dereference. Take this opportunity
-to move the TRBE-skipping checks to a common helper.
-
-Fixes: 054b88391bbe2 ("KVM: arm64: Support trace filtering for guests")
-Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-[maz: repainted the helpers to be readable, and the commit message
- with Oliver's suggestion]
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/debug.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
-
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 381382c19fe47..1aaeb40a9a388 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -230,29 +230,29 @@ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u6=
-4 val)
- 	preempt_enable();
- }
-=20
--void kvm_enable_trbe(void)
-+static bool skip_trbe_access(bool skip_condition)
- {
--	if (has_vhe() || is_protected_kvm_enabled() ||
--	    WARN_ON_ONCE(preemptible()))
--		return;
-+	return (WARN_ON_ONCE(preemptible()) || skip_condition ||
-+		is_protected_kvm_enabled() || !is_kvm_arm_initialised());
-+}
-=20
--	host_data_set_flag(TRBE_ENABLED);
-+void kvm_enable_trbe(void)
-+{
-+	if (!skip_trbe_access(has_vhe()))
-+		host_data_set_flag(TRBE_ENABLED);
- }
- EXPORT_SYMBOL_GPL(kvm_enable_trbe);
-=20
- void kvm_disable_trbe(void)
- {
--	if (has_vhe() || is_protected_kvm_enabled() ||
--	    WARN_ON_ONCE(preemptible()))
--		return;
--
--	host_data_clear_flag(TRBE_ENABLED);
-+	if (!skip_trbe_access(has_vhe()))
-+		host_data_clear_flag(TRBE_ENABLED);
- }
- EXPORT_SYMBOL_GPL(kvm_disable_trbe);
-=20
- void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest)
- {
--	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
-+	if (skip_trbe_access(false))
- 		return;
-=20
- 	if (has_vhe()) {
---=20
-2.39.2
-
-
---=20
-Without deviation from the norm, progress is not possible.
+Will
 
