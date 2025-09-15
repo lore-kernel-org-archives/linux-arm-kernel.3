@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE13FCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 07:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE3FCA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 07:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcTob5oZFnz2hmotCzRccMJz27ChyKAtIlI+k/LYPsU=; b=OHQg6LVcOY62KJ5uSPJ6tvPP2p
-	snM3wmZkipFg8EAfofuKy1mTv7m0HHrInWuXmbAr0ERDIv+DpC7jn9k4AzxFb+9Buw7hWZ//N8b0b
-	ka1hTKRjW3TnRZWPu3QE79wRD2oMwsucnmrGu2p14t7HzTRbjGjZo/oKiH1d4IppLnrltr5wXPIcn
-	x1NYfZyvqrse+Qgg6V0T2mv2KPMdOL8pGA9PgR3rvtTO6RmN7XYaiTaCo8kXRWKZEs2m33nepa2jz
-	RVhIuuLP4Ves+DoWJaj6uUPeGtWcyUzQ3pbDcDBzlFA3Cp5zjDnSbbQepFn3CAdnrdza6oJ0+BFkt
-	Groy1wYA==;
+	bh=/QVfsvIC+IuNf6Hb09G8E2MeKT3uXxnU1Y209PKo3wo=; b=jZ4N7k7FWxyDZV9ILNIvCnVVAK
+	zCNqakL4vaX87gnZZJnZLq55BIU0PVHvGwM8gB55EEPYgju7SyCveCfvObIKQY92e/BgB/FGTZxA5
+	MSedngOIw3dgzgXil9oVvE+p5Jl2Qn4pT1SrV2og7UDBauyQqELcE4NIBytG9i8JVYctwSh9YnLtj
+	WdJHd97fPWI04CFvBT5fzS9JWWkT4ZNyiREJq7rcMA2Orl5GDA45ykl33LjnyTORdu54h+a7ZGOAt
+	sS14SOdyznkbMGOeFSdPO+dVmukJEhh+JWh7BzSJKbzyA9IG2Vel/R/VEC5ZPrueKLQBvnbOlup/R
+	1KJ84VlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3PM-000000030c8-1ACd;
-	Mon, 15 Sep 2025 07:13:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy3SB-000000030sx-3WtB;
+	Mon, 15 Sep 2025 07:16:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy3PK-000000030b5-0cua
+	id 1uy3SA-000000030sn-1OPA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 07:13:51 +0000
+	Mon, 15 Sep 2025 07:16:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6E4143BE2;
-	Mon, 15 Sep 2025 07:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97EF1C4CEF1;
-	Mon, 15 Sep 2025 07:13:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 706EC6014D;
+	Mon, 15 Sep 2025 07:16:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62065C4CEF1;
+	Mon, 15 Sep 2025 07:16:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757920429;
-	bh=RBstruI8aqugkuKemrcCOfrfs1zaZlQtORPCGRJvYzc=;
+	s=k20201202; t=1757920605;
+	bh=xN/IDm/RwJ/Z1PXmRSTIDpQHVTtac2xfe7C8rroHJE0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c/Y1rC2RXw5SHanCMfXuzcRpXdyyZbTe3o+eCac2xnhgaJJhUHQahwsK4bjh6uurl
-	 xFwWBUJE5QxdUV/Y57+UZVXbOmaaaQcEUJvpgI9s8VzbGMhKrUSAPNcxvBCYq28Xrh
-	 wMzYcKrdQZ3HmVEtydAqCFL2v/pQ0q1l/4lSEtS3n+KxJXyEK0zsl9S+4vRpVHudEa
-	 mR+gT+ljkgnoHnoXnm6jq2NzZtAbJq0elpa5HeMOacW2JbJdMQk1y7gV+kB72yeHA7
-	 CQRs0e3Kvw9+NfjW7kfeJ7zcdBRgTKb4oXmN93oGtUnKRcOq5NqO4kOClDq1yaXP09
-	 9FLOT3xeB0Oqg==
-Message-ID: <1c16121a-36a6-4101-9a2c-d45547c6ea0a@kernel.org>
-Date: Mon, 15 Sep 2025 09:13:44 +0200
+	b=ClcySuI1fW8l8ax85DrQ9b5SPPZV6yCL1tNEDfVSIx5uodTzS9T3Vz6r+dOMc3iqw
+	 /QPrEvHbYfqCoRcegcIPuNQwaRw3d6iN7uiayis8CD1v4RHewSwZlARfjarAstpa2Y
+	 PYrDhEcMEXvFA7z194vsTJfITQVaNHugWM+Lu0yOO2KQ9wYqC+fmvdlCJf8SvFqkgQ
+	 8e7BeyynoaBPTTdk3uGy1NF5cff3UjMBCdcYTR7LoU+9nhXrMqP5TCBevzKZsPBiH7
+	 1MnOZTBB2Ar5HHP6v78aGPJvvb1cIU6WeVO8JFg/qdk2pO4sxE8W3S5/1gmCu0dzHj
+	 cM/qGz5wBzGUQ==
+Message-ID: <83128929-4daa-4dac-8162-e773af675438@kernel.org>
+Date: Mon, 15 Sep 2025 09:16:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] iommu/exynos: Implement register set and fault
- handling on SysMMU v9
-To: "myunggeun.ji" <myunggeun.ji@samsung.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev
-Cc: Jongho Park <jongho0910.park@samsung.com>,
- kiisung lee <kiisung.lee@samsung.com>
-References: <20250915051320.3378957-1-myunggeun.ji@samsung.com>
- <CGME20250915051106epcas2p1c1bdb06ec2ec65aad8a96ffe155ed8b6@epcas2p1.samsung.com>
- <20250915051320.3378957-2-myunggeun.ji@samsung.com>
+Subject: Re: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
+To: Peng Fan <peng.fan@oss.nxp.com>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
+ <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250915051320.3378957-2-myunggeun.ji@samsung.com>
+In-Reply-To: <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_001350_232027_D8568F37 
-X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,60 +121,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 07:13, myunggeun.ji wrote:
-> +
->  static struct exynos_iommu_domain *to_exynos_domain(struct iommu_domain *dom)
->  {
->  	return container_of(dom, struct exynos_iommu_domain, domain);
-> @@ -522,19 +571,26 @@ static void __sysmmu_get_version(struct sysmmu_drvdata *data)
->  	ver = readl(data->sfrbase + REG_MMU_VERSION);
->  
->  	/* controllers on some SoCs don't report proper version */
-> +
+On 15/09/2025 09:49, Peng Fan wrote:
+> [...]
+>> +static void __init exynos8890_cmu_top_init(struct device_node *np)
+>> +{
+>> +	exynos8890_init_clocks(np, &top_cmu_info);
+>> +	samsung_cmu_register_one(np, &top_cmu_info);
+>> +}
+>> +
+>> +/* Register CMU_TOP early, as it's a dependency for other early domains */
+>> +CLK_OF_DECLARE(exynos8890_cmu_top, "samsung,exynos8890-cmu-top",
+>> +	       exynos8890_cmu_top_init);
+> 
+> Not sure you need to run Android GKI, without module built, this platform
+> will not able to support GKI.
 
-Please clean up your patch before posting.
+Why would anyone worry about GKI? We develop mainline kernel, not
+Android kernel.
 
->  	if (ver == 0x80000001u)
->  		data->version = MAKE_MMU_VER(1, 0);
->  	else
->  		data->version = MMU_RAW_VER(ver);
->  
-> -	dev_dbg(data->sysmmu, "hardware version: %d.%d\n",
-> -		MMU_MAJ_VER(data->version), MMU_MIN_VER(data->version));
-> +	if (data->version != 0x91)
-> +		dev_err(data->sysmmu, "hardware version: %d.%d\n",
-> +			MMU_MAJ_VER(data->version), MMU_MIN_VER(data->version));
-> +	else if (data->version == 0x91)
-> +		dev_err(data->sysmmu, "hardware version: %d.%d\n",
-> +			MMU_MAJ_VER_V9(data->version), MMU_MIN_VER_V9(data->version));
->  
-> -	if (MMU_MAJ_VER(data->version) < 5) {
-> +	if (data->version == 0x91) {
-> +		data->variant = &sysmmu_v9_vm_variant;
-> +	} else if (MMU_MAJ_VER(data->version) < 5) {
->  		data->variant = &sysmmu_v1_variant;
->  	} else if (MMU_MAJ_VER(data->version) < 7) {
->  		data->variant = &sysmmu_v5_variant;
-> -	} else {
-> +	} else if (MMU_MAJ_VER(data->version) < 9) {
->  		if (__sysmmu_has_capa1(data))
->  			__sysmmu_get_vcr(data);
->  		if (data->has_vcr)
-> @@ -763,10 +819,9 @@ static int exynos_sysmmu_probe(struct platform_device *pdev)
->  	if (IS_ERR(data->pclk))
->  		return PTR_ERR(data->pclk);
->  
-> -	if (!data->clk && (!data->aclk || !data->pclk)) {
-> -		dev_err(dev, "Failed to get device clock(s)!\n");
-> -		return -ENOSYS;
-> -	}
-> +	/* There is no clock information after v9 */
+This seems to be aligned with existing approach, no? What is different here?
 
-There is, you just missed to implement it.
-
-> +	if (!data->clk && (!data->aclk || !data->pclk))
-> +		dev_warn(dev, "Failed to get device clock(s)!\n");
->  
 Best regards,
 Krzysztof
 
