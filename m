@@ -4,42 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1B4CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAFBCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3MyRi66ehv8eMgAGglOu2Yhjn0VrJE0YAewKAMiGaX4=; b=2xR159lN1xERqCeHHn6m1qApst
-	df5LybiZZs8TPsnWEa0vK9wWPkJqHzWNVUXb4u9vxb4xdbn7ckQu9GV44Xn5Txbbd7ZkfIe7nPRo2
-	et65kJVXOT8Uxo2rfJuD+gGYVt+fEUPoiVhg5w9RsS36WjM0WD7zRCZDqLIIBCdCTkNGuOsix78Yn
-	1uyqU4jawOhhz/n6LVUKlDktoPLOiOB3pwTMxe6/P1zh/vR4NLiZFaNYEcpqC/FYOowXZlLVa3+bM
-	3HS2eL/KGbmnJA2NwboMWnQUsDZN/MEzqUdPq3g8jtDfo5kjNtLqNiDsxv5beo48ZQ6tq0pTtcwTU
-	uwVn6gPA==;
+	bh=khH2DsG4RBkobNQ0LZhno6yvOYxRyFWKdf75r1eaMp4=; b=jhZGwUE3xcFNLHQWrpFIb90Rxs
+	OaOuNHuRNR04gIixiYCTGjm70F4UwEsCZ054lX3J6GR3PMpFSYPTcW+K8PTe4rPopHx96b1BpvAia
+	2bNDjxFiRmF6dWPV3DOkhqvxzZr5HH9kFa230A1BLtkiaX1+gWDFX3ICb7spd9TQ1KFTr8Wi/rlrd
+	uiBAlezP6TJ1EO9ymAJ8RRCbXT7FoFb89R8ay0HCjWSdXIY4l5lwkflzaZevSi7ebSA+YOD8qQIth
+	rZFRtAKHxS1j+TMPBMVQ8ECK0KPYMSvZl50+eS8p59N9i0P1KY+WLgvgGTCmxd9cSEpdhki47p217
+	tQ1eF8OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xu-00000003gfQ-1Q8y;
-	Mon, 15 Sep 2025 10:34:54 +0000
+	id 1uy6Xs-00000003gdD-3QUm;
+	Mon, 15 Sep 2025 10:34:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6XY-00000003gAu-0E5g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 15 Sep 2025 10:34:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=khH2DsG4RBkobNQ0LZhno6yvOYxRyFWKdf75r1eaMp4=; b=cprRsgb1mMw7L2dbwpTPeOzblO
+	NG2BhmOOFJtaDtiXqGxz39Lbty2rPMw6p/nT3i9Al2/u09wzjITA3AM7q5dzhpNC2kSTi9G4FkQz8
+	G5JBQOCeOkhh13pQlgRBI0BelrXYRs8U0jOoZ1d4ECA5uu0hlrrNlr8W5UjKHlQyYgLKhtleN0D4M
+	UK3ROgb6sY2HigSaib1euiRFG4yUZEBrdK5pE8NCTEcrGDuWSJywIJIM0V4l5bQF1tCyYCynC4N60
+	CGP2CLZa5HFSfU/N1T/Gofh0zyGM0v+QGNm5D1uoduowG2rJ6MYMiy2r1YWsPHGd8OdgJgnuAYTMa
+	jCekOtOQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xa-00000003gDN-05oj
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy6XU-00000006vb2-38SS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:34:35 +0000
+	Mon, 15 Sep 2025 10:34:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5321E1C2B;
-	Mon, 15 Sep 2025 03:34:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 986071424;
+	Mon, 15 Sep 2025 03:34:19 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E99823F66E;
-	Mon, 15 Sep 2025 03:34:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3BCA03F66E;
+	Mon, 15 Sep 2025 03:34:26 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 15 Sep 2025 11:33:50 +0100
-Subject: [PATCH v3 27/31] coresight: Add PM callbacks for percpu sink
+Date: Mon, 15 Sep 2025 11:33:47 +0100
+Subject: [PATCH v3 24/31] coresight: Add per-CPU path pointer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-arm_coresight_power_management_fix-v3-27-ea49e91124ec@arm.com>
+Message-Id: <20250915-arm_coresight_power_management_fix-v3-24-ea49e91124ec@arm.com>
 References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -52,16 +67,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=5895;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=3722;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=2nrCz8ebdM+X/8JMktB2062XDBMV1Z2lR/MANA8dBVc=;
- b=bV28bIviSyqxNz96ssG3S2RT/Bjrmx0J2G/RDUu7Qu9hkmUieR2Rt8QjwL/JxVXsKnaMie0ag
- V1YvnFmWyAwCdesoJaxlz2FhOvzVR5sUKDcCjNUSp5la2ApGM1U8Dgf
+ bh=POuBCwaeZ54zh4lDjl69RTtASWP0DhxKRVu6v9OXJWo=;
+ b=0JAXIe4GCpa5y4tTqMA2U/ataxImurQiZ2Qm4asXCgN11K3vi9zxehL71tXuxZ0HA/072EsFs
+ s16ePr4Bgi8A8Bcuu76LJlnxNp3TmlLWuuzZRK2E1zZLMQa+tFXmlAa
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_033434_159649_6FB5D10A 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20250915_113429_435503_9BA3332B 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,193 +91,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike a system level's sink, the per-CPU sink may lose power during CPU
-idle states. Currently, this refers specifically to TRBE as the sink.
-This commit registers save and restore callbacks for the per-CPU sink
-via the PM notifier.
+Introduce per-CPU path pointers, save activated paths into the
+structure. This will be used by later changes for controlling the path
+during CPU idle.
 
-There are no changes to the coresight_enable_helpers() function; the
-code movement is solely for compilation purposes.
+The path pointer is assigned before setting the source device mode to
+active, and it is cleared after the device is changed to an inactive
+mode. So safe access to path pointers is guaranteed when the device is
+in an active mode.
+
+The path enabling has been refactored: a new _coresight_enable_path()
+function is introduced to enable components in the path. The existing
+coresight_enable_path() function now calls this new helper and updates
+the per-CPU pointers accordingly.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 101 +++++++++++++++++++++------
- include/linux/coresight.h                    |   4 ++
- 2 files changed, 82 insertions(+), 23 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 48 ++++++++++++++++++++++++++--
+ 1 file changed, 46 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 04e8c3b862494abb2a5a46d385f0ff4cad93b71f..ef9dbba285710fe508580ee2726e22bcc654014e 100644
+index 94803cacf1a374ae8a3b9513d7d029d5c77d5925..904123279ee70531787feea98e5f9fc502470f88 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -393,6 +393,25 @@ static void coresight_disable_helper(struct coresight_device *csdev, void *data)
- 	helper_ops(csdev)->disable(csdev, data);
- }
+@@ -37,6 +37,27 @@ DEFINE_MUTEX(coresight_mutex);
+ static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
+ static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
  
-+static int coresight_enable_helpers(struct coresight_device *csdev,
-+				    enum cs_mode mode, void *data)
-+{
-+	int i, ret = 0;
-+	struct coresight_device *helper;
++/*
++ * Activated path pointer for a per-CPU source device. When enabling a path,
++ * the path pointer is first assigned, followed by a synchronous SMP call on
++ * the target CPU to transition the device mode from DISABLED to an enabled
++ * state. Conversely, during the disable flow, an SMP call on the target CPU
++ * transitions the device mode to DISABLED, after which the path pointer is
++ * cleared.
++ *
++ *  per_cpu(csdev_cpu_path, csdev->cpu) = path
++ *  coresight_take_mode(csdev, CS_MODE_SYSFS or CS_MODE_PERF)
++ *
++ *  // Safe to access per_cpu(csdev_cpu_path, cpu);
++ *
++ *  coresight_set_mode(csdev, CS_MODE_DISABLED)
++ *  per_cpu(csdev_cpu_path, csdev->cpu) = NULL
++ *
++ * As a result, the device mode is used to determine whether it is safe
++ * to access the path pointer.
++ */
++static DEFINE_PER_CPU(struct coresight_path *, csdev_cpu_path);
 +
-+	for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
-+		helper = csdev->pdata->out_conns[i]->dest_dev;
-+		if (!helper || !coresight_is_helper(helper))
-+			continue;
-+
-+		ret = coresight_enable_helper(helper, mode, data);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static void coresight_disable_helpers(struct coresight_device *csdev, void *data)
+ /**
+  * struct coresight_node - elements of a path, from source to sink
+  * @csdev:	Address of an element.
+@@ -510,6 +531,12 @@ static void coresight_disable_path_from(struct coresight_path *path,
+ 
+ void coresight_disable_path(struct coresight_path *path)
  {
- 	int i;
-@@ -480,6 +499,43 @@ static void coresight_restore_source(struct coresight_device *csdev)
- 		source_ops(csdev)->restore(csdev);
- }
- 
-+static int coresight_save_percpu_sink(struct coresight_device *csdev)
-+{
-+	int ret;
++	struct coresight_device *source;
 +
-+	if (csdev && sink_ops(csdev)->save) {
-+		ret = sink_ops(csdev)->save(csdev);
-+		if (ret)
-+			return ret;
++	source = coresight_get_source(path);
++	if (coresight_is_percpu_source(source))
++		per_cpu(csdev_cpu_path, source->cpu) = NULL;
 +
-+		coresight_disable_helpers(csdev, NULL);
-+	}
-+
-+	/* Return success if callback is not supported */
-+	return 0;
-+}
-+
-+static int coresight_restore_percpu_sink(struct coresight_device *csdev,
-+					 struct coresight_path *path,
-+					 enum cs_mode mode)
-+{
-+	int ret = 0;
-+
-+	if (csdev && sink_ops(csdev)->restore) {
-+		ret = coresight_enable_helpers(csdev, mode, path);
-+		if (ret)
-+			return ret;
-+
-+		ret = sink_ops(csdev)->restore(csdev);
-+		if (ret) {
-+			coresight_disable_helpers(csdev, path);
-+			return ret;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
- /*
-  * coresight_disable_path_from : Disable components in the given path beyond
-  * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-@@ -553,25 +609,6 @@ void coresight_disable_path(struct coresight_path *path)
+ 	coresight_disable_path_from(path, NULL);
  }
  EXPORT_SYMBOL_GPL(coresight_disable_path);
+@@ -533,8 +560,8 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
+ 	return 0;
+ }
  
--static int coresight_enable_helpers(struct coresight_device *csdev,
--				    enum cs_mode mode, void *data)
--{
--	int i, ret = 0;
--	struct coresight_device *helper;
--
--	for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
--		helper = csdev->pdata->out_conns[i]->dest_dev;
--		if (!helper || !coresight_is_helper(helper))
--			continue;
--
--		ret = coresight_enable_helper(helper, mode, data);
--		if (ret)
--			return ret;
--	}
--
--	return 0;
--}
--
- static int _coresight_enable_path(struct coresight_path *path,
- 				  enum cs_mode mode, void *sink_data,
- 				  bool in_idle)
-@@ -1670,9 +1707,12 @@ EXPORT_SYMBOL_GPL(coresight_alloc_device_name);
- static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 				   void *v)
+-int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+-			  void *sink_data)
++static int _coresight_enable_path(struct coresight_path *path,
++				  enum cs_mode mode, void *sink_data)
  {
+ 	int ret = 0;
+ 	u32 type;
+@@ -601,6 +628,23 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+ 	goto out;
+ }
+ 
++int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
++			  void *sink_data)
++{
 +	int ret;
- 	unsigned int cpu = smp_processor_id();
- 	struct coresight_device *source = per_cpu(csdev_source, cpu);
- 	struct coresight_path *path;
-+	struct coresight_device *sink;
-+	enum cs_mode mode;
- 
- 	if (!coresight_need_save_restore_source(source))
- 		return NOTIFY_OK;
-@@ -1685,18 +1725,33 @@ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 	if (WARN_ON(!path))
- 		return NOTIFY_BAD;
- 
-+	sink = coresight_get_sink(path);
-+	mode = coresight_get_mode(source);
++	struct coresight_device *source;
 +
- 	switch (cmd) {
- 	case CPU_PM_ENTER:
- 		if (coresight_save_source(source))
- 			return NOTIFY_BAD;
- 
--		coresight_disable_path_from(path, NULL, true);
-+		ret = 0;
-+		if (coresight_is_percpu_sink(sink))
-+			ret = coresight_save_percpu_sink(sink);
-+		else
-+			coresight_disable_path_from(path, NULL, true);
++	ret = _coresight_enable_path(path, mode, sink_data);
++	if (ret)
++		return ret;
 +
-+		if (ret) {
-+			coresight_restore_source(source);
-+			return NOTIFY_BAD;
-+		}
- 		break;
- 	case CPU_PM_EXIT:
- 	case CPU_PM_ENTER_FAILED:
--		if (_coresight_enable_path(path,
--					   coresight_get_mode(source),
--					   NULL, true))
-+		if (coresight_is_percpu_sink(sink))
-+			ret = coresight_restore_percpu_sink(sink, path, mode);
-+		else
-+			ret = _coresight_enable_path(path, mode, NULL, true);
++	source = coresight_get_source(path);
++	if (coresight_is_percpu_source(source))
++		per_cpu(csdev_cpu_path, source->cpu) = path;
 +
-+		if (ret)
- 			return NOTIFY_BAD;
- 
- 		coresight_restore_source(source);
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 462876b5a870f3e93ad2a1807a9045d5eb115ccd..21bb99f9684747d7a610aa7185e1ba5f987248d9 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -363,6 +363,8 @@ enum cs_mode {
-  * @alloc_buffer:	initialises perf's ring buffer for trace collection.
-  * @free_buffer:	release memory allocated in @get_config.
-  * @update_buffer:	update buffer pointers after a trace session.
-+ * @save:		save context for a sink.
-+ * @restore:		restore context for a sink.
-  */
- struct coresight_ops_sink {
- 	int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
-@@ -375,6 +377,8 @@ struct coresight_ops_sink {
- 	unsigned long (*update_buffer)(struct coresight_device *csdev,
- 			      struct perf_output_handle *handle,
- 			      void *sink_config);
-+	int (*save)(struct coresight_device *csdev);
-+	int (*restore)(struct coresight_device *csdev);
- };
- 
- /**
++	return 0;
++}
++
+ struct coresight_device *coresight_get_sink(struct coresight_path *path)
+ {
+ 	struct coresight_device *csdev;
 
 -- 
 2.34.1
