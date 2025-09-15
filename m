@@ -4,51 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C3A3CAC597
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA94CAC592
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 13:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8gSrlWZZB1Zip76MzC2e9lNbcSF7eMp1Btfkx+qUvrU=; b=iR+tmykULf1aTh
-	5Cd3X49GUeIdL/aAzQMvf8q63tHkHx9nWA/X+BZu891GzrWCJWJRM/DUForlWoKZ0e2HPN3g0fUq2
-	eTZ8ADY3YQtxNg1s13Wn305nTZbeBeC214X8xaylVFvb4vY9W8Mt0Sy2QeRbHbaxpPSXBBtkAMx8e
-	dYO9Ez0tcdsnJ1iPnAE+JfVrqds7SxtGrL8ldv9foAuFImep6MKbF4+hvtrLoiutht1JXOzK5k/3b
-	2gfOk89oiB5mf0TM/TnKkboIvrPS6/c6owkzpDTD+kO4+6RJFJ18NjeGD1T7Qb6KWV2Hz4w/lbjeD
-	lcgN3OsTgLJMGSTVUpYA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gh5i9So2lAdGUeCywQW4dY/E5qo43fnZ9yTmzUbH8a8=; b=odvVEhhK2WsfE1KV8222R+6DR8
+	C/KRplTlQS/DdaPNHu1ZO2FfJokcORub0XaNfHJhYZptzElrtze32eNC181c3IciKTYxlaGYprw4N
+	rhh7pM0LGyD+hd7BOwIo2Tw46WNM5mNC1WUWg0GShNWkZ5cZjD4zTb1q2P8M2ke+N8mVQxuKrhUTh
+	+lOyeKJ8333c9244A5Mx3nJjUFYBLhzbfXF48lpfPJqPgODzCxFU1I5SL+etG7qnlansHEK/6/d28
+	s8SJVX5Nr5BYmayQQWPufh9oUnz1YP4qhAoxgKgE2cTqA8/UsCYcjt8YSEM+cONV8Eh4kgJ0w6QTL
+	bwOBHEcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy96S-00000004Hmp-022Z;
-	Mon, 15 Sep 2025 13:18:44 +0000
+	id 1uy96R-00000004HmY-32RS;
+	Mon, 15 Sep 2025 13:18:43 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy96P-00000004Hl9-3Lzk
+	id 1uy96P-00000004HlA-3LzD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 13:18:43 +0000
+	Mon, 15 Sep 2025 13:18:42 +0000
 Received: from [127.0.1.1] (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E43D11744;
-	Mon, 15 Sep 2025 15:17:19 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8963622CF;
+	Mon, 15 Sep 2025 15:17:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757942240;
-	bh=K168Nz0/cSOMcDV5Ibjm1ORQDmfgPC7IGoVfDOOSL+o=;
-	h=From:Subject:Date:To:Cc:From;
-	b=oPi9ooxIybJfeENFQJOqbO+uh9kdSW9cB4wvM25ugmvLs02/B/0MVG1zAyEN+P4Cx
-	 QFJySqYsAu3RSOOW9DWY9XKdj6DBkyFFVHjWths/W3RSoLJKl69++RXsIo6EHPXDPp
-	 Ox5B/qNAvS2bS8lvGMlgEQStM+oi3nrqGr4zGOKU=
+	s=mail; t=1757942241;
+	bh=ywZiur11oipxoYMdutVTBFOmdw+ZWTNq9HDTBsGjna4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=WCst6joHxuo6OuFbOVtgQGlFY7TFD2OcvpXnXchENNDM61YbWoLSOMCUtF546i3w1
+	 BtLs+Nvk7NT6DDzXFd2ssoMtP2idDAI/HqDl8cZe31h8xQKEdjbrUNFquezDXdmRSg
+	 DLx0fhc2jJemL4cEVOzQUkMzSDXnvLmJIyAW5NUU=
 From: Isaac Scott <isaac.scott@ideasonboard.com>
-Subject: [PATCH v3 0/3] media: imx-mipi-csis: Get the number of active
- lanes from mbus_config
-Date: Mon, 15 Sep 2025 14:18:32 +0100
-Message-Id: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
+Date: Mon, 15 Sep 2025 14:18:33 +0100
+Subject: [PATCH v3 1/3] media: v4l: Add helper to get number of active
+ lanes via a pad
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACgSyGgC/03MTQ6CMBBA4auYrh3SHwroynsYF0M7wCTSmrYSE
- 8LdbVy5/Bbv7SJTYsrietpFoo0zx1BhzifhFgwzAftqoaW28qIsrOM7g4th4hnQFd4Inhgog2r
- R28H1qIZO1PyVaOLPb31/VE8prlCWRPg3lEZJrVvTKNsZq3tQwBnRNdnFUm7sCXMMY8TkGxdXc
- Rxfb9mITrIAAAA=
+Message-Id: <20250915-mbus-config-active-lanes-v3-1-97a1282a410b@ideasonboard.com>
+References: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
+In-Reply-To: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Rui Miguel Silva <rmfrfs@gmail.com>, 
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
@@ -61,8 +59,8 @@ Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
  Frank Li <Frank.Li@nxp.com>, Isaac Scott <isaac.scott@ideasonboard.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_061841_981245_2089E3D0 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20250915_061841_981824_99E2D561 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +75,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is possible that the number of desired active MIPI CSI2 data lanes
-does not match the maximum listed in device tree. Add a helper function
-to v4l2_common that calls the get_mbus_config op to get the number of
-actively used data lanes in drivers that support it.
+Sometimes, users will not use all of the MIPI CSI 2 lanes available when
+connecting to the MIPI CSI receiver of their device. Add a helper
+function that checks the mbus_config for the device driver to allow
+users to define the number of active data lanes through the
+get_mbus_config op.
 
-Compare it to the number of lanes configured in device tree, and if its
-invalid, use the number present in device tree.
+If the driver does not implement this op, fall back to using the number
+of data lanes specified in device tree.
 
-This series also uses the helper in imx-mipi-csis driver to set the
-currently configured num_data_lanes, while keeping track of the number
-of data lanes set in device tree to ensure we can still use all possible
-lanes if we need to, and the upstream subdev driver requests them.
-
-Tested on v6.15, compile tested on v6.17-rc6.
-
----------
-
-Changes v2 -> v3:
-
-- Rename dt_lanes to max_data_lanes
-- Remove check for < 0 on unsigned int max_data_lanes in
-  v4l2_get_active_data_lanes()
-- Added comment to explain that mbus_config is expected to be zeroed at
-  init in drivers implementing get_mbus_config subdev pad op
-- Wrapped signature in header file and source for
-  v4l2_get_active_data_lanes()
-- Added kernel-doc documentation for v4l2_get_active_data_lanes()
-- Added debug message to indicate an invalid number of active lanes
-- Changed csis->max_data_lanes to csis->num_data_lanes
-- Changed uses of csis->bus.num_data_lanes to csis->num_data_lanes where
-  appropriate to make csis->bus immutable after probe
-
-Changes v1 -> v2:
-
-- Added helper function to get active data lanes in v4l2-common
-- Store the maximum data lanes possible, as configured in device tree
-- Added media: prefix to commit titles
-
-Isaac Scott (3):
-  media: v4l: Add helper to get number of active lanes via a pad
-  media: imx-mipi-csis: Store the number of data_lanes configured in dt
-  media: imx-mipi-csis: Get number of active lanes via mbus_config
-
- drivers/media/platform/nxp/imx-mipi-csis.c |  8 ++++++-
- drivers/media/v4l2-core/v4l2-common.c      | 25 ++++++++++++++++++++++
- include/media/v4l2-common.h                |  1 +
- 3 files changed, 33 insertions(+), 1 deletion(-)
-
---
-2.43.0
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
 ---
-Isaac Scott (3):
-      media: v4l: Add helper to get number of active lanes via a pad
-      media: imx-mipi-csis: Store the number of data_lanes configured in dt
-      media: imx-mipi-csis: Get number of active lanes via mbus_config
+ drivers/media/v4l2-core/v4l2-common.c | 32 ++++++++++++++++++++++++++++++++
+ include/media/v4l2-common.h           | 21 +++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
- drivers/media/platform/nxp/imx-mipi-csis.c | 17 +++++++++++-----
- drivers/media/v4l2-core/v4l2-common.c      | 32 ++++++++++++++++++++++++++++++
- include/media/v4l2-common.h                | 21 ++++++++++++++++++++
- 3 files changed, 65 insertions(+), 5 deletions(-)
----
-base-commit: f83ec76bf285bea5727f478a68b894f5543ca76e
-change-id: 20250915-mbus-config-active-lanes-14ad58c7a186
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 6e585bc76367..2ce8407f1397 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -571,6 +571,38 @@ s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
+ 	return __v4l2_get_link_freq_ctrl(sd->ctrl_handler, mul, div);
+ }
+ EXPORT_SYMBOL_GPL(__v4l2_get_link_freq_pad);
++
++unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad,
++					unsigned int max_data_lanes)
++{
++	struct v4l2_mbus_config mbus_config = {};
++	struct v4l2_subdev *sd;
++	unsigned int lanes;
++	int ret;
++
++	sd = media_entity_to_v4l2_subdev(pad->entity);
++	ret = v4l2_subdev_call(sd, pad, get_mbus_config, pad->index,
++			       &mbus_config);
++	if (ret < 0 && ret != -ENOIOCTLCMD)
++		return ret;
++
++	/*
++	 * This relies on the mbus_config being zeroed at init time.
++	 */
++	if (!mbus_config.bus.mipi_csi2.num_data_lanes)
++		return max_data_lanes;
++
++	lanes = mbus_config.bus.mipi_csi2.num_data_lanes;
++
++	if (lanes > max_data_lanes) {
++		dev_dbg(sd->dev, "Active data lanes (%u) exceeds max (%u)\n",
++			lanes, max_data_lanes);
++		return -EINVAL;
++	}
++
++	return lanes;
++}
++EXPORT_SYMBOL_GPL(v4l2_get_active_data_lanes);
+ #endif /* CONFIG_MEDIA_CONTROLLER */
+ 
+ /*
+diff --git a/include/media/v4l2-common.h b/include/media/v4l2-common.h
+index 0a43f56578bc..6af0695460ab 100644
+--- a/include/media/v4l2-common.h
++++ b/include/media/v4l2-common.h
+@@ -584,6 +584,27 @@ int v4l2_fill_pixfmt_mp(struct v4l2_pix_format_mplane *pixfmt, u32 pixelformat,
+ 	(pad, mul, div)
+ s64 __v4l2_get_link_freq_pad(struct media_pad *pad, unsigned int mul,
+ 			     unsigned int div);
++
++/**
++ * v4l2_get_active_data_lanes - Get number of active data lanes from driver
++ *
++ * @pad: The transmitter's media pad.
++ * @max_data_lanes: The maximum number of active data lanes supported by
++ * 		    the MIPI CSI link in hardware. This can be configured
++ * 		    in device tree.
++ *
++ * This function is intended for obtaining the number of data lanes that are
++ * actively being used by the driver for a MIPI CSI-2 device on a given media pad.
++ * This information is derived from a mbus_config fetched from a device driver
++ * using the get_mbus_config v4l2_subdev pad op.
++ *
++ * Return:
++ * * >0: Number of active data lanes
++ * * %-EINVAL: Number of active data lanes is invalid, as it exceeds the maximum
++ *	       supported data lanes listed in device tree.
++ */
++unsigned int v4l2_get_active_data_lanes(const struct media_pad *pad,
++					unsigned int max_data_lanes);
+ #else
+ #define v4l2_get_link_freq(handler, mul, div)		\
+ 	__v4l2_get_link_freq_ctrl(handler, mul, div)
 
-Best regards,
 -- 
-Isaac Scott <isaac.scott@ideasonboard.com>
+2.43.0
 
 
