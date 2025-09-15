@@ -4,48 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8008BCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEFFCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 15:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vlHZgzAbzGv2RDVxmL81ejyLn+cnwO5n/jdABZ3GZjk=; b=QtRqFHSztYpaWlikATgkVuyDbz
-	QJVX38uI6n8t5qQ0cUytHmx9JIaLQ0ceP7PrUjZ9E/LF2c0MXBwhzsZqXq0k6kPSd4yZQPe/g7iV3
-	VtzZfJflUGTRb1nddTW+vFoinetW1hK6uOct4Wt+I5mamQBh/In9pUqpo5UktaNOLO5zz2p9zwmCB
-	zccZC5+h3JTkVZaS5oonO7XbuMGe7AFWhrfpxefdX4kV255d8cTELAw4IyBoNsQecX/qou8IcGY5+
-	QLTEjfO2UUTVKhD+WgaurcUEOQojMiaTXIzif7N3evCW9dyZHWc3l8SF2X8bVvosn1O4ZwLAwVc9R
-	6kG2Anxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+0i6RikQC6DfYiiM+/GamuDmLEyTAbg8j3Lwj+lkcTk=; b=XZj9UIdvAerQARaIbSVAtT6IUI
+	QORhRJBddHTMYODhblqqtTgrRLm7cnsKCLEprNTpCercsQ8IcLlf6j2Gk+i0hwvxZHsFgljdMA9b6
+	egZozyj0syCVdDgBWKNjGKv7XtNi7Z9rbRBCyuI/5BoKIf20wSN/ZCVBGomlj/e1YpAU6+B676bCH
+	5bRPYQv9doXR5BMPzxYG7BSIWWwj6jBwS/aBpq1TpNx+iyvKD/MRFo1+oExKFLyytPDVOaEAn5TvQ
+	hh0i7EZwADq/l9AqsGI6rkZMoILTsM7JwRQTh7rhySzn7Tr24BVZFNr7e+xvy/Kx9LSYJY4skq9bh
+	ETKv3kJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAhp-00000004p1w-3SA5;
-	Mon, 15 Sep 2025 15:01:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAhn-00000004p1H-1Vek
+	id 1uyAi9-00000004p6R-0XR6;
+	Mon, 15 Sep 2025 15:01:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyAi6-00000004p5Y-3DQL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 15:01:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F6231424;
-	Mon, 15 Sep 2025 08:01:14 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A40F63F694;
-	Mon, 15 Sep 2025 08:01:21 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Lixiang Mao <liximao@qti.qualcomm.com>
-Subject: [PATCH] firmware: arm_ffa: Add support for IMPDEF value in the memory access descriptor
-Date: Mon, 15 Sep 2025 16:01:19 +0100
-Message-Id: <20250915150119.3106344-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 15 Sep 2025 15:01:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6428F4199B;
+	Mon, 15 Sep 2025 15:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C476C4CEF5;
+	Mon, 15 Sep 2025 15:01:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757948502;
+	bh=+0i6RikQC6DfYiiM+/GamuDmLEyTAbg8j3Lwj+lkcTk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qqJlOyb4u8dmfEH9xbldImMZRZQ85dwUmfhkUuUpDfbyva9VqHjaKc9MzztA4vVki
+	 chZ5OqV3dwxrwhKpmvTDOSImagN1Tf3y0+7WlysTXgEvoZfSeLj7zNrHhLNiuT1j3x
+	 hKnV+LPaPhzZOPSKiNjeiSVvJ0KSUy/DVXv/8Ssufa41BQ/As2e95mbdUK03jNGcrJ
+	 Fj5/t8PAhN2sh/02gINWNH5uMVELU3JzuvwIGaJ6dAjkKEL6RO4JHS72gkNgDttyKy
+	 Y4H7YfB6t0zKhB3+UXTF3Cq/bc6r3+aCXy3TZ9v94cZLfoEkal70A2i3um88KDlvb6
+	 YXwK5kFAnLIvA==
+Date: Mon, 15 Sep 2025 16:01:35 +0100
+From: Daniel Thompson <danielt@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
+	jessica.zhang@oss.qualcomm.com, deller@gmx.de,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	airlied@gmail.com, simona@ffwll.ch, fnkl.kernel@gmail.com,
+	j@jannau.net, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
+	sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev,
+	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
+	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v2 14/15] backlight: rt4831: Include
+ <linux/mod_devicetable.h>
+Message-ID: <aMgqT8crih7S79Oj@aspen.lan>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <20250715122643.137027-15-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715122643.137027-15-tzimmermann@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_080123_529932_EA391BA0 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20250915_080142_821243_CB118ED3 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,108 +82,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
-memory access descriptor to allow any sender could to specify an its any
-custom value for each receiver. Also this value must be specified by the
-receiver when retrieving the memory region. The sender must ensure it
-informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
-such as a partition message.
+On Tue, Jul 15, 2025 at 02:24:51PM +0200, Thomas Zimmermann wrote:
+> Include <linux/mod_devicetable.h> to declare struct of_device_id.
+> Avoids dependency on backlight header to include it.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-So the FF-A driver can use the message interfaces to communicate the value
-and set the same in the ffa_mem_region_attributes structures when using
-the memory interfaces.
+Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
 
-The driver ensure that the size of the endpoint memory access descriptors
-is set correctly based on the FF-A version.
 
-Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
-Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/firmware/arm_ffa/driver.c | 46 ++++++++++++++++++++++++++-----
- include/linux/arm_ffa.h           |  1 +
- 2 files changed, 40 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index cf6e44429ecd..2ea30ce93d78 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -654,6 +654,41 @@ static u16 ffa_memory_attributes_get(u32 func_id)
- 	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
- }
- 
-+static u32 ffa_emad_size_get(u32 version)
-+{
-+	struct ffa_mem_region_attributes *ep_mem_access;
-+	u32 sz;
-+
-+	if (version <= FFA_VERSION_1_1)
-+		sz = sizeof(*ep_mem_access) - sizeof(ep_mem_access->impdef_val);
-+	else
-+		sz = sizeof(*ep_mem_access);
-+
-+	return sz;
-+}
-+
-+static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
-+{
-+	struct ffa_mem_region_attributes *ep_mem_access;
-+
-+	if (version > FFA_VERSION_1_1)
-+		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
-+	else
-+		memset(dst, 0, sizeof(ep_mem_access->impdef_val));
-+}
-+
-+static void
-+ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
-+{
-+	if (version <= FFA_VERSION_1_0) {
-+		mem_region->ep_mem_size = 0;
-+	} else {
-+		mem_region->ep_mem_size = ffa_emad_size_get(version);
-+		mem_region->ep_mem_offset = sizeof(*mem_region);
-+		memset(mem_region->reserved, 0, 12);
-+	}
-+}
-+
- static int
- ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
- 		       struct ffa_mem_ops_args *args)
-@@ -683,16 +718,13 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
- 		ep_mem_access->composite_off = composite_offset;
- 		ep_mem_access->flag = 0;
- 		ep_mem_access->reserved = 0;
-+		ffa_emad_impdef_value_init(drv_info->version,
-+					   ep_mem_access->impdef_val,
-+					   args->attrs[idx].impdef_val);
- 	}
- 	mem_region->handle = 0;
- 	mem_region->ep_count = args->nattrs;
--	if (drv_info->version <= FFA_VERSION_1_0) {
--		mem_region->ep_mem_size = 0;
--	} else {
--		mem_region->ep_mem_size = sizeof(*ep_mem_access);
--		mem_region->ep_mem_offset = sizeof(*mem_region);
--		memset(mem_region->reserved, 0, 12);
--	}
-+	ffa_mem_region_additional_setup(drv_info->version, mem_region);
- 
- 	composite = buffer + composite_offset;
- 	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 0a0132c6ae3e..a1b0ee11c4a6 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -347,6 +347,7 @@ struct ffa_mem_region_attributes {
- 	 * an `struct ffa_mem_region_addr_range`.
- 	 */
- 	u32 composite_off;
-+	u8 impdef_val[16];
- 	u64 reserved;
- };
- 
--- 
-2.34.1
-
+Daniel.
 
