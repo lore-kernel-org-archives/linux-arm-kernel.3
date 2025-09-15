@@ -4,63 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F159CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183F8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IS5vHz7rcdvKn59w4ocCeK9p2cO4wgkBK087OWWbDc=; b=atl8DMTc6f/JexZdLLZSRxjNeY
-	9jO3X4QV69eBoHoPLoQ3o2QlkT0vJk91fJvYVzlZ4/1IN6pZOvQi91aUTWzhCMrtRSMfpbHQnD56S
-	o7qqNMaa85sPuwJ6jmL97VjOa+4iYnfE6p1rI9HK/H8jXKUDzwO9AjGtPACvfsLOW7ORmoiEJt6dV
-	BBGnuHg1m7zWHbvx+qSz20iAET/wOWb+lld23kWomzcUxiM2VkycYtLfzeFWHpjFP3tvL/0wd5aI1
-	8/jKbvSULKHYH+hXYKskpW+IOVeLuq9tckp/GetlKd39yw6DroJOJ3XuJ6SgeJGpnshy1qQkYI61X
-	hOJm5A4g==;
+	bh=6L4EtqUlXn1LyjgNfK94roBsXJv28Y7z/PNr5z4xvZ0=; b=LUSJfPc6c4CK6AyaN0j9/sn1ju
+	tFfdOPoPwUJyvvED1OC4rw9QPD5VsSW8ejBVRb5mzYhAC8C3/0rvr0qbB0FJxkuzyv4zbVvfVQlMy
+	wOqhg+mY9rH2KI8JKYmZURIPBgE7IPI18mIDjcfAS6N2iZnjjW9TzLv23nuYSjtFePq4KYBduxXAP
+	9AsMyqTrlh4ekanWZfFQwEYaYHjGdhJx3Ph2DNRTw0TTnTJ0c+kVWkVoF3LAvzV9qj2J0LkFl5Tmm
+	IutZrfgWcGDHrCsORmnJF9505uvXLQDyRlVesCiFq8Kve1r46srcgB0+NCKhNHGnvv9d1tQhD74cG
+	us5ZynOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyADv-00000004hn3-2uBG;
-	Mon, 15 Sep 2025 14:30:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyAED-00000004hsV-0Kb1;
+	Mon, 15 Sep 2025 14:30:49 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyADu-00000004hmt-3Ri5
+	id 1uyAE9-00000004hq1-2MCh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:30:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31FF560244;
-	Mon, 15 Sep 2025 14:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8F5C4CEF1;
-	Mon, 15 Sep 2025 14:30:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757946629;
-	bh=apPcCqsC8a6v7Kjyoy9pw3XOQ7f+yRGI8jPksoqPdkk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MFt57mQz/v2JY1RBdOkAHsCBt/JhVM6K/IfIadF5CMVc7qLDvu4ODHS4fLhs2wqDJ
-	 8BGNFsvIJWxwPUaEpeim4emSs/5o2hh/tD0hcNYw6RuAzNnhLCTMVAkz94KvtPIi6l
-	 9ehKfhFUdY1AbEU/Z8f78KlBqbOVQIt10/tGnyHxKkLhJJUkGF9X8PsTdTwigkdQgz
-	 mE7K8k2JqeHVwyxOJovchUFObbp/IiT4rTJfn378MMk7eQe13S5aF450zYKytNQEwr
-	 7NiwwNPk5VtUNvTA1+9601OsvFf/MckI8gLZ4vU3WDQi9b+LvKWkvSS01P1tiHDnCB
-	 Lp6vkRYteVvIg==
-Date: Mon, 15 Sep 2025 15:30:25 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Tzu-Hao Wei <twei@axiado.com>,
-	Axiado Reviewers <linux-maintainer@axiado.com>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] spi: axiado: Add driver for Axiado SPI DB controller
-Message-ID: <9b6aaad6-3dca-49e3-9a59-8e8a0179a517@sirena.org.uk>
-References: <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-0-814a1fa2a83e@axiado.com>
- <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-2-814a1fa2a83e@axiado.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6o3ytfShT2K67AjJ"
+	Mon, 15 Sep 2025 14:30:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VXnsPo6TOYv6kcDLvYn/XojeVcYo0csPYdzTt3A86RuZB69hy82WWzUXsaqQWdZ30ATPMV6GsB3zRYR37Z1DwNaheWC0NlpxvxIECR5dtUfUvVuW3BHFWcT0JFXuA6s19eEJ5NHc4ZV6MnqIbxTciAR45thAEmVPwZ5xEyH0AJFRk9/BT635MY7oxWyEaBSOe7fvvuT67cBpE7t5Y7Xfe4IuEgu/gwzyV+PrZRKzng+7WmaUWe6gFff30jz9UYhek9tFrV2b6cgEFSPCKQ9T6re6/2zFD4+YGZzcQubFEedXstGhAclWGS42HhJNWWJg8cybYUIpBiV7IaW653W9eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6L4EtqUlXn1LyjgNfK94roBsXJv28Y7z/PNr5z4xvZ0=;
+ b=pmfsVAKYqSWO/EsWe9fNuawXhiELOtDE2j8ErE1pw3sbtjBsg4KLzbq8F5vc3M/Rc+QhAAlkPLx/4yKwzdJEG9ZtikfFJt5YXM+KquALfzezQPgmLwe+A5GgeJZuIPeFvGcGhZ+ccrobCSfpIRz9Xf/iyNcolyuwcknHF8WQKaq0FA5jj0GTikvpSL2ccHTIqXjzFaD5ILIlu5cSeGvOPsbI5XohGUV2x4gYNyrrfXZZQ8g4Ub2sg2rspYfeWYArcdS0MfICL6KDfTPCdjxpZfutvzvGkmj3o7uKhNyd2RLAJITvMWOTXDhmfLYcx0eQc5AY6JSE13MOg9nXlyXyGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6L4EtqUlXn1LyjgNfK94roBsXJv28Y7z/PNr5z4xvZ0=;
+ b=BTJbAq7b1hQ2n2+T4gSKLQSZ/14ttb7V2hZIZwvBRun2ccTTgsYs/f3Je5O4tGvY8TIq1tV0TEDFe+Wj7f+fsdr+X2e3XV7OfaV1y8AIT34SpYjnc/dUk0oK2NDfLR+Sg7Gt+mYs/TWVvHeJY9oudj3FQlfwDt9JB4z3iTIFDUD/csuU4itDAirIygN7rwNVXq3IVo16jvisUYI2Tncgd7o0cBog74zxD30uqZIY4+61VciivTFUP4FwFisp/mVkFyUrxXLZnW1M6buClqhlSfXlg29/3ucGXQ7Su/ygopbYSi4+dWCDTKydSi2B9wxb5QT4fF4SV9z8M6OxeNyxlw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by PAXPR04MB8880.eurprd04.prod.outlook.com (2603:10a6:102:20f::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Mon, 15 Sep
+ 2025 14:30:35 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
+ 14:30:35 +0000
+Date: Mon, 15 Sep 2025 10:30:26 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
+ glitch thresold
+Message-ID: <aMgjAjfydIbYexkE@lizhi-Precision-Tower-5810>
+References: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
+ <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250915-axiado-ax3000-soc-spi-db-controller-driver-v1-2-814a1fa2a83e@axiado.com>
-X-Cookie: Use a pun, go to jail.
+In-Reply-To: <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: BYAPR06CA0008.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::21) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PAXPR04MB8880:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d157e6f-214f-4577-fd96-08ddf4646f39
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ILKkxu/RKA9ujCK3ORT0ntiPIQHx1G3hDeZmsqoS83CmOZPerj1SSTnDCZeO?=
+ =?us-ascii?Q?qOBN484M2WwbTst/mjVR80g9CwlByRWoLH4noHijzKXB1+EhHPGGpO06L8iN?=
+ =?us-ascii?Q?Pl2o8t/pxngxR7u5/cbCW3R4pCORZNYL7ABgHduZzjnp9qsGOZPm86viMaGP?=
+ =?us-ascii?Q?0stkJ2LAXPSToVIXkM/TEqIVJnBKV56ImEbZdHfqCa2rvwEheXxJMGV1pfrx?=
+ =?us-ascii?Q?css5ExHdi22q9ubo/PD1pxeEsJDvvAJsdYJ+B6XgS2/bVGjM49vjAPwIdnkY?=
+ =?us-ascii?Q?TkdJEL+ocdVsZJoYlJpxqJ5RLgAAG28M8CINfKZOgscs9HlzeFG6gVGfopFn?=
+ =?us-ascii?Q?347y9Wc6qxOcErvx9U/8VhAnv9TV7qO4YS50q6LQ3vQvn92otbgldgNv9OU/?=
+ =?us-ascii?Q?gBubxlKvwTaf/v5PVtPSBFGW8wG+xgXPFzEXy1lbvEnMGb9zgToNidmt4Kav?=
+ =?us-ascii?Q?XVZtE0FBRkMgnIPJ43aALhBQ5tczydMJ/n8d4dFmKoICO7UWzJ1qWakvX2TH?=
+ =?us-ascii?Q?UZX9x55Bb4eS/mvnr0xPaCb0/RTpGww5ycO1RtO8MAleV5oxmmcg+kJbWLQ0?=
+ =?us-ascii?Q?nDdq1qkcIOV53S/A8WQ3Lxcdi6S5ali6Fx+MrkEl/I0o9HoqyEMLT3RSFoGW?=
+ =?us-ascii?Q?TCslaW4DCkp1OkliiyJ5UCPnUIOZgIYLMaxhe1LctEsNU6i74TQphpLL4e5c?=
+ =?us-ascii?Q?RYxsJ/S7fgMuYdIphpYiUIdZ0NeskO+k/1xIFvLuIeX5cA4sF3BrtzR+p8T1?=
+ =?us-ascii?Q?j4b2apjqrGKRkaYbNCWagDHwZlvk2Lyc8BZSA2MpOQmPus+GS4DmvdhUKd2S?=
+ =?us-ascii?Q?Jb+H70YyADoe0Cu6ABSCjbibBmflr4bns/K1v4E5l3l9HtVLVfhBxrnfE5Nx?=
+ =?us-ascii?Q?XdM6T9l6yG+Xx1kVzMIL4AGnVYtDQGSFj/MNJBfdrvayxQLmG+EJ1SoTaxdd?=
+ =?us-ascii?Q?ey/6Bf/0ipncXDKU7tS3goPlMlg7ZgXx0bMQ6KrC/uKDEnPjaN72gNygOxjg?=
+ =?us-ascii?Q?L80uEFdiYfi52iOCyUUL4eTQ7DDJ3Mo7kYjPBbWDJqXLUcdVps+U04qiQEVF?=
+ =?us-ascii?Q?NuNk9ssWmfg7K/qkosd7nfSAB1VwAlMAG9QIiNTR+AjnhwaoN9hwRAifzN01?=
+ =?us-ascii?Q?c58hbP5dersadVjnw0mXHyBd6SVRyChkONbb1VRWk3NlPaMu6dggHgMV6f5s?=
+ =?us-ascii?Q?uVAI7U+ucSTpMIe4gS0paJsjTThnW/tx0lsU1ZgJROuRkiV0DwnNWDryY0qN?=
+ =?us-ascii?Q?GS/VUzmICbfr2pQ+bptUOykXhJVMMhvR1qxgC9dOuq72kiDUS8KvyCiT9JNu?=
+ =?us-ascii?Q?dUu5ii+j+ceqI5gu7H8clYuJiJEfvziINR3UoXrFaGF+SvucpC7unhUUk2rn?=
+ =?us-ascii?Q?/2TzWbPaM9xGvNbXy4gt3xxBt6GPqD+RXmlmri8KtDl0exYZsQbYOoFtutjO?=
+ =?us-ascii?Q?TIZkNEj/cy1eoCroo+0VkZEzUqImTh2JrQBAvFFgpURhnVmiiQtxAA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9uwnxejsE+EDV16XDLWtd5+4u99YTE9j3PXfLL1Xz/5lNAO3ZV79+A7vNN/c?=
+ =?us-ascii?Q?AsmJcn8nxxwFW+8Miq79soLPbjS1ebOPrIwOMe9+GzkAsSG1W0BpQU8yZYpr?=
+ =?us-ascii?Q?bxzsjBguDI8D/+5/t5iFSA/4+B+vmVubL4ASNnjRB6QMAUjdLyUT97+CH8kF?=
+ =?us-ascii?Q?U5x+UnoFn6ZF/6ZOqSs/dJBIEq82sHEajH8CDg0e+Zl8FJei9M3dws6ADm3W?=
+ =?us-ascii?Q?cNC/dW3LWUPU7VjthEhwOFn6US1fmFgGt13u6yxZGMs8u/VgN/HLcVPnj97+?=
+ =?us-ascii?Q?AmS/PzfL0FfNbX3ZZXCb0Wj381UtlS95BIJnzqzKvrM94yH1a0vIRRHSC+JV?=
+ =?us-ascii?Q?0W2/ktRSNj+Z4DpJy7XmVzFugm3PIaeYFYXJciHjJ9kPOaVg+kHJdXtVmX4r?=
+ =?us-ascii?Q?74OsuKhF/pIhBTGbKlSH+Z8TPhbUdpgD0sdLkIecGObqUK0oKUGN5fawarjL?=
+ =?us-ascii?Q?BTPRaermacwApzmROk2Xm5wJuvoYSmhYHNyeSytXJQXzoeb9Zzn1WXuckACv?=
+ =?us-ascii?Q?z+n6P4cu6uYn/4v9QHyZ4yoq1Bx+dMSUqbgFQ+QE2CAmzEL5+6jq4WWWm2RP?=
+ =?us-ascii?Q?DCu5xoACIWmYkHvQs2yE9juvQ3YNU2VHR5nHupVTIbiLsp83H/zvhq91DCOX?=
+ =?us-ascii?Q?Dq9rSGCY2IJYe0lK5H6LiOKu3Tw96QbzYHJB1xxcL+xaF562Ele1EcD925Bm?=
+ =?us-ascii?Q?2ZCcTL4IYPq4mVK6pUH7ZmOPzKAx2Slh1y1hcphP25HtLdsgwvWcPh4yOAP7?=
+ =?us-ascii?Q?Xbme9+/JmKwAOvkv78ZCRZW774/AAaiJ/SL4ZWCpfWu4dJooCnHyECrV4Bhg?=
+ =?us-ascii?Q?SJPXyBq0xTaTf3VdFTIKLIaU9j6b2b6dpbmTPhmWXmfVlrASJcRRi9Sj7HXY?=
+ =?us-ascii?Q?BloB0AHuDq7/hP2p6o186W9bmjKxUIid7oG5WQLVRNBwL5Cd5SYyDjraAkZa?=
+ =?us-ascii?Q?GCqkqKfUClRpUxY+btLE7Z4F1MDkisg6U0xoQmmd20SIe97QZOGS2ZJTPQkF?=
+ =?us-ascii?Q?FcyWz82ncrBL0ZNHcWI4oeL1td1wKruWqUZQwee14SNCMGUCyKRXWrUYV7HY?=
+ =?us-ascii?Q?7g0+v0MZgZvOLhLnq7e7MwGK/STby3r6zwchsq+KeNcujWuADjSmAkw/7/Nb?=
+ =?us-ascii?Q?+l6GnTKDKWPlhjfT9LezMMMSCO14G8xvwWslmVZDSZADblYR9yy84Mlcdu+3?=
+ =?us-ascii?Q?5XU03zIquOBDqEw8nj6JUPmmPMRO47CJNgHgJogFDSsVJgq8H+rSODK9dQ2h?=
+ =?us-ascii?Q?4rWS8j6pz0T49z6WdlXPVYHSbw3wgJ9gwax2Ribmd0y2QdwS/pyzZHhK6Vrw?=
+ =?us-ascii?Q?IJwd3wjJ76ahlOxYZ6jQdvXioUdN1rb8oBUy8xrUZeYvkp6qK2gY43p397Zm?=
+ =?us-ascii?Q?JUGBZgHt1O1tODpCJ4vDIeexydocvnbBMCfkCk1BkMOdBLSszzG0f680xs+G?=
+ =?us-ascii?Q?Oo6gxsHhda1rZvd9g6yoOfcG1pp9pJa48mSOm4PgKPYARUdvEU+fdrCYZPnd?=
+ =?us-ascii?Q?uNzQvYr6/LoCQoDc+YLC7tsXH7AJqf/3HfmHYSJiy1qaZ/paMCAGWJNjhUIm?=
+ =?us-ascii?Q?ysqDcjvAJFbgovDEIGrL1BeLaYeDOTaSU+ePsC+3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d157e6f-214f-4577-fd96-08ddf4646f39
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 14:30:35.8161
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rsji23mugWwK5qm9gYq1ygXhWxuakb1NnJXSzIOZT14Zxp0WbmBSHSCd//9YIzEhE0EOdk4mbeskQzeAbor1+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8880
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_073045_601433_AAEE749C 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,81 +166,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---6o3ytfShT2K67AjJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Sep 15, 2025 at 06:11:56AM -0700, Vladimir Moravcevic wrote:
-
-> +	/*Calculate the maximum data payload that can fit into the FIFO. */
-> +	if (fifo_total_bytes <= protocol_overhead_bytes) {
-> +		max_transfer_payload_bytes = 0;
-> +		dev_warn(&spi->dev, "SPI FIFO (%zu bytes) is too small for protocol overhead (%zu bytes)! Max data size forced to 0.\n",
-> +			 fifo_total_bytes, protocol_overhead_bytes);
-
-This might be a good fit for dev_warn_once(), I imagine if gets
-triggered lots of whatever operation triggers it will happen and the
-current code would spam the logs.
-
-> +	ret = devm_request_irq(&pdev->dev, irq, ax_spi_irq,
-> +			       0, pdev->name, ctlr);
-> +	if (ret != 0) {
-> +		ret = -ENXIO;
-> +		dev_err(&pdev->dev, "request_irq failed\n");
-> +		goto clk_dis_all;
-> +	}
-
-None of the other allocations are managed using devm, you most likely
-have unsafe race conditions especially if the interrupt line is shared.
-
-> +static void ax_spi_remove(struct platform_device *pdev)
-> +{
-> +	struct spi_controller *ctlr = platform_get_drvdata(pdev);
-> +	struct ax_spi *xspi = spi_controller_get_devdata(ctlr);
+On Sun, Sep 14, 2025 at 07:16:01PM +0200, Dario Binacchi wrote:
+> Support the touchscreen-glitch-threshold-ns property. Unlike the
+> generic description in touchscreen.yaml, this controller maps the
+> provided value to one of four discrete thresholds internally.
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> ---
+>
+> (no changes since v1)
+>
+>  .../input/touchscreen/fsl,imx6ul-tsc.yaml         | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> index 678756ad0f92..310af56a0be6 100644
+> --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> @@ -62,6 +62,21 @@ properties:
+>      description: Number of data samples which are averaged for each read.
+>      enum: [ 1, 4, 8, 16, 32 ]
+>
+> +  touchscreen-glitch-threshold-ns:
+> +    description: |
+> +      Unlike the generic property defined in touchscreen.yaml, this
+> +      controller does not allow arbitrary values. Internally the value is
+> +      converted to IPG clock cycles and mapped to one of four discrete
+> +      thresholds exposed by the TSC_DEBUG_MODE2 register:
 > +
-> +	clk_disable_unprepare(xspi->ref_clk);
-> +	clk_disable_unprepare(xspi->pclk);
-> +	pm_runtime_set_suspended(&pdev->dev);
-> +	pm_runtime_disable(&pdev->dev);
+> +        0: 8191 IPG cycles
+> +        1: 4095 IPG cycles
+> +        2: 2047 IPG cycles
+> +        3: 1023 IPG cycles
+
+you should use ns
+   enum:
+      - 1023
+      - 2047
+      - 4095
+      - 8191
+
+you can limit only 4 values, but unit have to ns. your driver map it to
+register value.
+
+Frank
+
 > +
-> +	spi_unregister_controller(ctlr);
-> +}
-
-This will do a bunch of teardown before unregistering the controller
-meaning that new operations might be submitted after the clocks are
-disabled which I imagine won't go well.  You should unregister from the
-subsystem first, then tear down the other resources.
-
+> +      Any value provided in device tree is converted to cycles and rounded
+> +      up to the next supported threshold, or to 8191 if above 4095.
 > +
-> +static struct platform_driver ax_spi_driver = {
-> +	.probe	= ax_spi_probe,
-> +	.remove	= ax_spi_remove,
-> +	.driver = {
-> +		.name = AX_SPI_NAME,
-> +		.of_match_table = ax_spi_of_match,
-> +	},
-> +};
-
-There were a bunch of runtime PM calls but there are no PM operations
-here at all.  That's not specifically a problem, for example power
-domain level PM with full state retention would work here, but it seems
-like at least stopping and starting the clocks would be a good idea.
-
---6o3ytfShT2K67AjJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjIIwAACgkQJNaLcl1U
-h9CPLwf/RhrIkexh1/aNsOJYJL1gMHWTqKfNxLZYYXlBw8Nz2ZLtKKwNdPENxr/Z
-+6dnY8StmyTSKkUOHjzsLH7xqN4gGvxf9RIBWHp529LSu+LkTxcGgaAHkfWcftvF
-RbnW46hMV/aq4A48M7xL8OlK2FXopDGmyicThrkm6T6XgfKcgMExMlxyDCVEt+0E
-YBO2phalHJCkPltNmzJrSbJzf6o0nGEf6Bxl7r/WXadmTRuF2hLZ5cYMJ5G8JC+G
-UYfRYZMuVhMh6E0KC55r2JEoYZy+YBYFC+7mkmi2SDxVh2moz9GRkveGp/7L2r82
-VajNVG7ozKcYcYpsx5VuwhvpK8r8jg==
-=W84H
------END PGP SIGNATURE-----
-
---6o3ytfShT2K67AjJ--
+>  required:
+>    - compatible
+>    - reg
+> --
+> 2.43.0
+>
 
