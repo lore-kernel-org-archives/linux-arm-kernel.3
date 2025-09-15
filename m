@@ -4,140 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4716ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22ECBCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7mNaU9AhJn4Xq2FHC7G2kb7GgzktfPd9RfttKwzj4HA=; b=PwC8MqsSUF+vsneB5aHM64XGEk
-	WxCkV/uQWZ74mx+RGgSAxczWkNGSx4SnxC0hG0hPaW3zwxsNI3M5O1Imm5Q71JAeHPp6vdfyXr1q0
-	/AEdL615rcNG7c/y7U0oYWwDGbAmDPCuAflwjCxZF/vappO+7hc4tNLx8PWvhqm4Z7bwiM+P3uQVd
-	9i9/qI0n2rcpMYSePsw4gefKAW8wlFYpet2m4CBKfwinpymxdDUgfW+vzGuaeiOIxE6ugSqDMlMLW
-	tka5nzaqAiZKMqJ5UjaisWXrnIujFawLIhM8Rb+PWIs3Wspc0UlKTUepgmwHaJJHFs7aYwawiOIAV
-	rG2VZBrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ORjmM8N4yD/rbNjlEVVF81Wa25kia5y9JaZc6HWpof0=; b=qsI5uEBeIGc4uRteGO4FqhgB+t
+	sLwn379+FhLwxyyIsbiMlmV3QJaxym1d8XhzXYK+c7XJuBq8YWqiv/aL+LbvnMeYV+74Kddxq7Drv
+	CQzC9FcwLu1Pr7kYtItH2KbOzR7a2VsvxsNRzdMmUxIUYSx4/03lF9gcN0NdbLLHEHsT5UHZBKXIW
+	L+q8uP2tNtxGkc2APQamAbdvjUoqK2+JTxgC2ymHjYNdOiScv+M/E0OTmRgSvStZCziBw18JAmri6
+	o/XRNfZBTepdsHiyARGqZ1SG68qjks4ItTLlqPYLO0wUEDCBSp2uvyBLRnkQpV0nni/TwIGbHfWhW
+	z2IlLv3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAEp-00000004i4S-42vD;
-	Mon, 15 Sep 2025 14:31:27 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uyAGC-00000004iMb-0S75;
+	Mon, 15 Sep 2025 14:32:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAEn-00000004i2o-0iuw
+	id 1uyAGA-00000004iMM-3WP9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:31:26 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 2B87F336BF;
-	Mon, 15 Sep 2025 14:31:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757946683; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7mNaU9AhJn4Xq2FHC7G2kb7GgzktfPd9RfttKwzj4HA=;
-	b=N6wMOPavB1lqRwyCxggSCOXxUC4RE9D4hvNEiH8DopNz2Io85LyNsX2urRGQ8lyuu3HHhP
-	t1aNNFc4E4LTYGrHNwjksYnWUEGYPVh/1ikzA/gf63Mq4WQHIM520X/ukYi0HxRkuOBUfI
-	tBp1trRLeaOXzToXGcVolwq6M3k04/k=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757946683;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7mNaU9AhJn4Xq2FHC7G2kb7GgzktfPd9RfttKwzj4HA=;
-	b=RVHJWlNBbcWbFWhbZWerd4SLJEEPIkqECj7HlekZWRPZXKYUavodpaTZAERdl+WcMFVU58
-	QXfo9dkBx6dnJZAQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1757946683; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7mNaU9AhJn4Xq2FHC7G2kb7GgzktfPd9RfttKwzj4HA=;
-	b=N6wMOPavB1lqRwyCxggSCOXxUC4RE9D4hvNEiH8DopNz2Io85LyNsX2urRGQ8lyuu3HHhP
-	t1aNNFc4E4LTYGrHNwjksYnWUEGYPVh/1ikzA/gf63Mq4WQHIM520X/ukYi0HxRkuOBUfI
-	tBp1trRLeaOXzToXGcVolwq6M3k04/k=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1757946683;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7mNaU9AhJn4Xq2FHC7G2kb7GgzktfPd9RfttKwzj4HA=;
-	b=RVHJWlNBbcWbFWhbZWerd4SLJEEPIkqECj7HlekZWRPZXKYUavodpaTZAERdl+WcMFVU58
-	QXfo9dkBx6dnJZAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2EED21368D;
-	Mon, 15 Sep 2025 14:31:22 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mooGCTojyGiRYgAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Mon, 15 Sep 2025 14:31:22 +0000
-Message-ID: <c2448974-7a66-4fa8-87ee-3c4a824ea1cc@suse.de>
-Date: Mon, 15 Sep 2025 17:31:13 +0300
+	Mon, 15 Sep 2025 14:32:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2FAA660244;
+	Mon, 15 Sep 2025 14:32:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE6EC4CEF1;
+	Mon, 15 Sep 2025 14:32:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757946769;
+	bh=+j3LayYJxSUBw9F3gG4AuqtZ1v7+7hcjLS4AmZM8N4Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Quuka+LVbaND7romyzfJB2qnudKUfkDXh2lPjp8Y28fo3/4i7zput13t9nqfMfmah
+	 kXMLOVUCLRExsL9yQCQ1xUBciPjsOGaclAc8ojd0N8DS4frzpb8rbtZ+YV4RPp5+NA
+	 IQYhg/i5/AWhAtaH8aigXVHWiQ+SbNNoaTx+qvuUykmBV8eWHYMdCw7H84/6T84/vL
+	 dVFDKeqoIncoe5AyQqLsgC2+ODvlCReVtkW7uQ+DvjWAuWk3scxjjhzsTS0Ox8Qhev
+	 XuFcOhajEC8TvbMEbQwfXOtrfck6fDTWKkuhaRblNsCJ6BLQIIu5XFRNp3QAUEzBnL
+	 rr9qm8yD+OQOg==
+Date: Mon, 15 Sep 2025 20:02:41 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Subject: Re: [PATCH v9 3/4] PCI: qcom: Prepare for the DWC ECAM enablement
+Message-ID: <hxaj7c6siernov3qb36rmxpcpdbq6gilaejc27eij4iyqdzuzc@jt76e6vdkbdo>
+References: <20250909-controller-dwc-ecam-v9-3-7d5b651840dd@kernel.org>
+ <20250912214432.GA1643354@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] net: cadence: macb: Add support for Raspberry Pi
- RP1 ethernet controller
-To: Andrew Lunn <andrew@lunn.ch>, Stanimir Varbanov <svarbanov@suse.de>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Jakub Kicinski <kuba@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Andrea della Porta <andrea.porta@suse.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
- <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-4-svarbanov@suse.de>
- <0142ac69-f0eb-4135-b0d2-50c9fec27d43@suse.de>
- <8715a21b-83ac-4bc1-b856-fa90bb5b809f@suse.de>
- <d2afd474-1514-4663-9e96-7efea30a5eaa@lunn.ch>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <d2afd474-1514-4663-9e96-7efea30a5eaa@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	TAGGED_RCPT(0.00)[dt,netdev];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_073125_361631_1FCE56C5 
-X-CRM114-Status: GOOD (  14.26  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250912214432.GA1643354@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,50 +75,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-Thank you the answer!
-
-On 9/15/25 4:34 PM, Andrew Lunn wrote:
-> On Mon, Sep 15, 2025 at 02:27:34PM +0300, Stanimir Varbanov wrote:
->>
->>
->> On 9/10/25 2:32 PM, Stanimir Varbanov wrote:
->>> Hi Jakub,
->>>
->>> On 8/22/25 12:34 PM, Stanimir Varbanov wrote:
->>>> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
->>>>
->>>> The RP1 chip has the Cadence GEM block, but wants the tx_clock
->>>> to always run at 125MHz, in the same way as sama7g5.
->>>> Add the relevant configuration.
->>>>
->>>> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
->>>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>>> ---
->>>>  drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
->>>>  1 file changed, 12 insertions(+)
->>>>
->>>
->>> This patch is missing in net-next but ("dt-bindings: net: cdns,macb: Add
->>> compatible for Raspberry Pi RP1") from this series has been applied.
->>>
->>> Could you take this patch as well, please.
->>
->> Gentle ping.
+On Fri, Sep 12, 2025 at 04:44:32PM GMT, Bjorn Helgaas wrote:
+> Sorry, I missed your repost of this series, Mani.  I'll reiterate my
+> questions here.
 > 
-> Such pings are ignored. Please rebase the patch to net-next and submit
-> it again.
+> I also deleted the pci/controller/dwc-ecam branch, where Krishna's v8
+> series was queued up, to avoid confusion (it looked like that branch
+> was ready to be included in linux-next, but it's not).
+> 
+> On Tue, Sep 09, 2025 at 12:37:52PM +0530, Manivannan Sadhasivam wrote:
+> > From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> > 
+> > To support the DWC ECAM mechanism, prepare the driver by performing below
+> > configurations:
+> > 
+> >   1. Since the ELBI region will be covered by the ECAM 'config' space,
+> >      override the 'elbi_base' with the address derived from 'dbi_base' and
+> >      the offset from PARF_SLV_DBI_ELBI register.
+> > 
+> >   2. Block the transactions from the host bridge to devices other than Root
+> >      Port on the root bus to return all F's. This is required when the 'CFG
+> >      Shift Feature' of iATU is enabled.
+> 
+> > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> 
+> > +static void qcom_pci_config_ecam(struct dw_pcie_rp *pp)
+> > +{
+> > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> > +	struct qcom_pcie *pcie = to_qcom_pcie(pci);
+> > +	u64 addr, addr_end;
+> > +	u32 val;
+> > +
+> > +	writel_relaxed(lower_32_bits(pci->dbi_phys_addr), pcie->parf + PARF_ECAM_BASE);
+> > +	writel_relaxed(upper_32_bits(pci->dbi_phys_addr), pcie->parf + PARF_ECAM_BASE_HI);
+> > +
+> > +	/*
+> > +	 * The only device on root bus is a single Root Port. So if PCI core
+> > +	 * tries to access any devices other than Device/Function (0.0) in Bus
+> > +	 * 0, the TLP will go outside of the controller to the PCI bus. But with
+> > +	 * CFG Shift Feature (ECAM) enabled in iATU, there is no guarantee that
+> > +	 * the response is going to be all F's. Hence, to make sure that the
+> > +	 * requester gets all F's response for accesses other than the Root
+> > +	 * Port, configure iATU to block the transactions starting from function
+> > +	 * 1 of the root bus to the end of the root bus (i.e from dbi_base + 4kb
+> > +	 * to dbi_base + 1MB).
+> > +	 */
+> > +	addr = pci->dbi_phys_addr + SZ_4K;
+> > +	writel_relaxed(lower_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_WR_BASE);
+> > +	writel_relaxed(upper_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_WR_BASE_HI);
+> > +
+> > +	writel_relaxed(lower_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_RD_BASE);
+> > +	writel_relaxed(upper_32_bits(addr), pcie->parf + PARF_BLOCK_SLV_AXI_RD_BASE_HI);
+> > +
+> > +	addr_end = pci->dbi_phys_addr + SZ_1M - 1;
+> > +
+> > +	writel_relaxed(lower_32_bits(addr_end), pcie->parf + PARF_BLOCK_SLV_AXI_WR_LIMIT);
+> > +	writel_relaxed(upper_32_bits(addr_end), pcie->parf + PARF_BLOCK_SLV_AXI_WR_LIMIT_HI);
+> > +
+> > +	writel_relaxed(lower_32_bits(addr_end), pcie->parf + PARF_BLOCK_SLV_AXI_RD_LIMIT);
+> > +	writel_relaxed(upper_32_bits(addr_end), pcie->parf + PARF_BLOCK_SLV_AXI_RD_LIMIT_HI);
+> > +
+> > +	val = readl_relaxed(pcie->parf + PARF_SYS_CTRL);
+> > +	val |= PCIE_ECAM_BLOCKER_EN;
+> > +	writel_relaxed(val, pcie->parf + PARF_SYS_CTRL);
+> 
+> The driver already supported ECAM in the existing "firmware_managed"
+> path (which looks untouched by this series and doesn't do any of this
+> iATU configuration).
+> 
 
-Sorry about that.
+'firmware_managed' refers to the Qcom platforms supporting BIOS/bootloader that
+has initialized the PCIe controller and configured ECAM mode. The driver doesn't
+need to do any resource handling on its own including iATU as everything would
+be handled by the BIOS/bootloader. This mode is used by the Qcom Automotive
+SoCs.
 
-I did not realized that if it applies cleanly on net-next I need to
-re-send it.
+And This mode is different from the DWC ECAM mode implemented in this series as
+this one requires doing all iATU configuration in the driver itself. This mode
+will be used by the Mobile/IoT/Compute SoCs.
 
-I will send it as a separate one with version v3.
+Qcom SoCs have different requirement for different market segments. This is the
+reason why we have many different implementations.
 
-~Stan
+> And IIUC, this series adds support for ECAM whenever the DT 'config'
+> range is sufficiently aligned.  In this new ECAM support, it looks
+> like we look for and pay attention to 'bus-range' in this path:
+> 
+>   qcom_pcie_probe
+>     dw_pcie_host_init
+>       devm_pci_alloc_host_bridge
+>         devm_of_pci_bridge_init
+>           pci_parse_request_of_pci_ranges
+>             devm_of_pci_get_host_bridge_resources
+>               of_pci_parse_bus_range
+>                 of_property_read_u32_array(node, "bus-range", ...)
+>       dw_pcie_host_get_resources
+>         res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "config")
+>         pp->ecam_enabled = dw_pcie_ecam_enabled(pp, res)
+> 
+> Since qcom_pci_config_ecam() doesn't look at the root bus number at
+> all, is this also an implicit restriction that the root bus must be
+> bus 0?  Does qcom support root buses other than 0?
+> 
 
+No, not at the moment.
 
+> > +}
+> > +
+> >  static int qcom_pcie_start_link(struct dw_pcie *pci)
+> >  {
+> >  	struct qcom_pcie *pcie = to_qcom_pcie(pci);
+> > @@ -326,6 +382,9 @@ static int qcom_pcie_start_link(struct dw_pcie *pci)
+> >  		qcom_pcie_common_set_16gt_lane_margining(pci);
+> >  	}
+> >  
+> > +	if (pci->pp.ecam_enabled)
+> > +		qcom_pci_config_ecam(&pci->pp);
+> 
+> qcom_pcie_start_link() seems like a strange place to do this
+> ECAM-related iATU configuration.  ECAM is a function of the host
+> bridge, not of any particular Root Port or link.
+> 
+
+I thought qcom_pci_config_ecam() needs to be called after
+dw_pcie_config_ecam_iatu() and before pci_host_probe() in dw_pcie_host_init().
+Since there were no other callbacks in-between other than this start_link()
+callback, Krishna has called it from here.
+
+But looks like qcom_pci_config_ecam() could be called before
+dw_pcie_config_ecam_iatu() as replied by Krishna [1]. So I will move it to
+qcom_pcie_host_init().
+
+- Mani
+
+[1] https://lore.kernel.org/linux-pci/d12e002b-e99e-4963-a732-4873e13c5419@oss.qualcomm.com
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
