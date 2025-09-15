@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA67CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 19:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFD4CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 19:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BzTgkEW/VzjYQsZb4pmYhJboSv9V2pycrc3aBF7hB4M=; b=q6qPJl73FoZ+MgKyI79x33Hx/r
-	m4EbBJFb0U3j5wUjaQ1r85JdyvtwawV9yZ7baQyUMnSHFDSA0l+ZEacDB0nn+cPY5qwssM3ovEHPG
-	P6qIAfoP4Djrxv/ZKkZdmpk5Y79O8yhbU83B5dW7H/ooWw2YayWDp50THqMCL/m42hwadW2xmkspp
-	KZleU94guGXLs9T2w+Kt2JQMUumH7jj1fjYZrWI7x6cx/jZ34CrKU8ryHUXAlOaVWXBwF3iIvOlss
-	H1nBFVz4xdBFYxSpQqBAkSQqE3+xqym0+FvSoyufh0ZIpeMbghxLAl3xrsr5YomhHsVLolh0TZjIv
-	16nUJ53w==;
+	bh=TiIl36uFY8ZkqiyyqljWp+GeIOt2p0pIoWmVGkzz89Q=; b=NN73Kb2Am1343l0YnRBMxEnhl/
+	5nMCkhKJcvXYRBjV1iJZIQ5dRH3SHRm4HKFM69GHSUL+1cDBwvn2lXR7Z9a3MsCXkkISQ5lryEnIS
+	6rWUjDTeqUWcvDM6lX0l3hKN1yXwCgBMhxD3AvZs50NR4LThjHJvwiE2rVtrEtfUnK4UY7odejHEh
+	W0JIU6y0CWJVGhM7Nrv0MeIQYzTaspYa1uCfPH11/i3h+g0jQfKwUxAKReexg/jN9lSY3HFBL32mZ
+	JKnz1Tl9HgMrOx1tzuWhnWkoIB18E5dP2BCxoFC0bd3PGv+j3+q6pKxkT3IV+jFw8fkPQZbfO7F/e
+	JDOg+x9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyEnS-00000005V5K-05lV;
-	Mon, 15 Sep 2025 19:23:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyF45-00000005Woe-27EB;
+	Mon, 15 Sep 2025 19:40:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyEnR-00000005V55-0nSE
+	id 1uyF43-00000005WoA-1LpX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 19:23:29 +0000
+	Mon, 15 Sep 2025 19:40:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46A276024D;
-	Mon, 15 Sep 2025 19:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B81A3C4CEF7;
-	Mon, 15 Sep 2025 19:23:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757964207;
-	bh=0wgdASjQ8+qDJ79gn/NuVPOeE4bNUVFLO8UtfwxeGVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eI+9acgiP6WXqQyvH3870s+EQuPE3FRAzxwJsd0aa6K04KAM/Mt/17qm2MtmTVOsz
-	 3OZQJkwpbm2815yS21+T4NM9Ovp5xQfhEtH7sstIkx/65axdj5gaAz/pT6uzEjOJH2
-	 rXFDqdpyrvmZLrBcl9c72pYJg8wY2x4eIrw46PB2s0nt5uQt7z7QW71UqTno/gQJ0E
-	 P75SbBo4i8eKKqCLxOxEKBYPTkZFbHTeMT7pBspFrHWjYiVTi529rRxtAWfxyQ/Sfp
-	 V7999w8IbTuEcxNseeyUHX/7aq4xSgQwP4p6jjc6yJ2ljNnbKFlcDDMo9F898K/oI6
-	 CovY+eYXxaOrg==
-Date: Mon, 15 Sep 2025 14:23:26 -0500
-From: Rob Herring <robh@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v6 1/6] dt-bindings: net: sun8i-emac: Add A523
- GMAC200 compatible
-Message-ID: <20250915192326.GA3089483-robh@kernel.org>
-References: <20250913101349.3932677-1-wens@kernel.org>
- <20250913101349.3932677-2-wens@kernel.org>
+	by sea.source.kernel.org (Postfix) with ESMTP id CFF8C43284;
+	Mon, 15 Sep 2025 19:40:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F133C4CEF1;
+	Mon, 15 Sep 2025 19:40:36 +0000 (UTC)
+Date: Mon, 15 Sep 2025 20:40:33 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
+	ardb@kernel.org, scott@os.amperecomputing.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
+ operation
+Message-ID: <aMhrscd1gz_syMtL@arm.com>
+References: <20250816151929.197589-1-yeoreum.yun@arm.com>
+ <20250816151929.197589-5-yeoreum.yun@arm.com>
+ <aMRQIeIdyiWVR8a0@arm.com>
+ <aMfrR0vserl/hfZ3@e129823.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250913101349.3932677-2-wens@kernel.org>
+In-Reply-To: <aMfrR0vserl/hfZ3@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_124039_391263_AE025DF2 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +69,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 13, 2025 at 06:13:44PM +0800, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
+On Mon, Sep 15, 2025 at 11:32:39AM +0100, Yeoreum Yun wrote:
+> > On Sat, Aug 16, 2025 at 04:19:27PM +0100, Yeoreum Yun wrote:
+> > > diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> > > index bc06691d2062..ab7003cb4724 100644
+> > > --- a/arch/arm64/include/asm/futex.h
+> > > +++ b/arch/arm64/include/asm/futex.h
+> > > @@ -7,17 +7,21 @@
+> > >
+> > >  #include <linux/futex.h>
+> > >  #include <linux/uaccess.h>
+> > > +#include <linux/stringify.h>
+> > >
+> > >  #include <asm/errno.h>
+> > >
+> > > -#define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> > > +#define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> >
+> > I just noticed - you might as well leave the name as is here, especially
+> > if in patch 6 you align down address and use CAS on a 64-bit value as
+> > per Will's comment (and it's no longer LLSC). I think renaming this is
+> > unnecessary.
 > 
-> The Allwinner A523 SoC family has a second Ethernet controller, called
-> the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-> numbering. This controller, according to BSP sources, is fully
-> compatible with a slightly newer version of the Synopsys DWMAC core.
-> The glue layer around the controller is the same as found around older
-> DWMAC cores on Allwinner SoCs. The only slight difference is that since
-> this is the second controller on the SoC, the register for the clock
-> delay controls is at a different offset. Last, the integration includes
-> a dedicated clock gate for the memory bus and the whole thing is put in
-> a separately controllable power domain.
+> Okay. I'll restore to use origin name.
+> But I think LSUI wouldn't be used with CAS according to patch 6's
+> comments from you and additionally i think
+> chaning the CAS would make a failure because of
+> change of unrelated field. i.e)
 > 
-> Add a compatible string entry for it, and work in the requirements for
-> a second clock and a power domain.
+> struct user_structure{
+>   uint32 futex;
+>   uint32 some_value;
+> };
 > 
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-> ---
-> Changes since v4:
-> - Move clock-names list to main schema (Rob)
-> Changes since v2:
-> - Added "select" to avoid matching against all dwmac entries
-> Changes since v1:
-> - Switch to generic (tx|rx)-internal-delay-ps properties
-> ---
->  .../net/allwinner,sun8i-a83t-emac.yaml        | 95 ++++++++++++++++++-
->  1 file changed, 93 insertions(+), 2 deletions(-)
+> In this case, the change of some_value from user side could make a
+> failure of futex atomic operation.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Yes but the loop would read 'some_value' again, fold in 'futex' and
+retry. It would eventually succeed or fail after 128 iterations if the
+user keeps changing that location. Note that's also the case with LL/SC,
+the exclusive monitor would be cleared by some store in the same cache
+line (well, depending on the hardware implementation) and the STXR fail.
+From this perspective, CAS has better chance of succeeding.
+
+> So I think it would be better to keep the current LLSC implementation
+> in LSUI.
+
+I think the code would look simpler with LL/SC but you can give it a try
+and post the code sample here (not in a new series).
+
+BTW, is there a test suite for all the futex operations? The cover
+letter did not mention any.
+
+-- 
+Catalin
 
