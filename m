@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA48CCAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BD9CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBKk546wIa0wyqVvj44lyfAavOv6v2xCxQMd3iPifrk=; b=zAVmds1LTrVw99k4sfcsICKOz2
-	YlAW/epOvMhS7YP7OSWmK+AxuvbCEZh/PwGavUEiENdw1Nzosd9wZQpftqZ96QnquFbGJgQvCP9CE
-	B1RTLRb/HrWM8V/K5n2VTuthCb+OXZV1IDPfehP2G36x9PzLFF9kSKRlEWWv+pD+Y81RSLNrFItSa
-	PobkpBlWCeTggzvyattasqP9Szt1iC2XZ/9qHU/C2HuMnIvPIuSBJiJHz13kZo7mILZIpP2edxODR
-	DBIxWePaulm2DlrEggktGZcoa5WvObwEf3ab2I02Lu2ZBb1fYBoyJHiSpfzrR+HXDf14BTFDAbVNw
-	nM8qeL5w==;
+	bh=LEXwQPF2sp+gruN2d3ooT8Av0Z9vbVjvETwyGrddegU=; b=Js4i2uF5woiBcQ43Oh6g72C0F7
+	oyTJVBtEPJ6D43druixqyPSSDIu5xZApJz0T/b/Q3Fdx9/PPtedRzYUCWlSOLbDaUHwWY8FF/sZ+A
+	N6P8vNz8IUyCyMrJlAlugbDOzh8OLW/EFsBJ3ipl3fF/YB8QKq7RJdr+QPrPLeaum4HeGrHi3Saz4
+	Ri+cJCBW95hKN+qikmjHGOJIJUX1Ki516LaE3FdA3C0sq/Ajw8yZYBIllcekbsSsHPsfmKMxTsHL3
+	JC039IzC8n8PbTKvv+3qq6LxftoN4tiTWebOlCKlWSfwfQmJQBsYaeU6YjnZy/kIiYkXqbLkhglCA
+	bTmlVmkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6YP-00000003hKE-1uCU;
+	id 1uy6YP-00000003hLL-3vx3;
 	Mon, 15 Sep 2025 10:35:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xj-00000003gNt-3YHV
+	id 1uy6Xl-00000003gQX-2AeJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 15 Sep 2025 10:34:44 +0000
+	Mon, 15 Sep 2025 10:34:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=fBKk546wIa0wyqVvj44lyfAavOv6v2xCxQMd3iPifrk=; b=XjWYdpx4HGLTIXvy4rlg8gR+J8
-	V8HQs34dPaa2Zcp1crAKF0v1qr3qHLevJ1IzQp/AowdFevkkLAo7iUbGiLWLY3xseuBrotg4gPGsz
-	nfwtnyt9VnejOi+c2ojPkH8U08mm3cCd3CXqWQMNWl9oHmlFws0J8hlT3EUcZlpWtuRlBmlZVF22U
-	AZhX0naolGeQT3nu9l+CfzW2gyrFkJ5MtB9kopTORcDyLn2taHQSMe64m2duLRL3b9fP/O1ZC5ZXD
-	JM/p500kumDioKPK6TH/tJ2dLb7pfw/edGeFax4TOTgY1ts4UmLxIgN8sIb9has1ez+tOKHeJ9DAF
-	tu5cfYeg==;
+	bh=LEXwQPF2sp+gruN2d3ooT8Av0Z9vbVjvETwyGrddegU=; b=W7Fwa8eu4pAE9asyI/8ibQmi6P
+	gkvJelXHN3AoJqrbOXKL09CkzhdllXPT3JGeeVxVTwV/SMWcued+YMIxIXAjtSve9pCtjohay3qNp
+	RFg38DnfevOJnvP+mQ7EZcTWQ13+fnJGrPcFhgKnFqbdUSSvgla8DcgHIFMWh+lN0H91y+eVPCFle
+	8OsATQ5479/ozjqjnKTCBmwcDwQG++A8H0OnfLERAyb1hDizJg/9cEiFhh+8WYBsQ5AoQetqVokc2
+	q6Asi0rYU3RlaQ5wQsf8/rsRWz8DQY57uQF6EaDVTLbr3fZVRogHCUI0uZQuYCEtVRz1fLvl6TrWK
+	w/5kAqPQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xe-00000006vdd-0oCp
+	id 1uy6Xh-00000006vf1-49vz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:34:42 +0000
+	Mon, 15 Sep 2025 10:34:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25AB81424;
-	Mon, 15 Sep 2025 03:34:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBA891BF7;
+	Mon, 15 Sep 2025 03:34:32 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC44E3F66E;
-	Mon, 15 Sep 2025 03:34:35 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F5013F66E;
+	Mon, 15 Sep 2025 03:34:39 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 15 Sep 2025 11:33:52 +0100
-Subject: [PATCH v3 29/31] coresight: Take hotplug lock in
- enable_source_store() for Sysfs mode
+Date: Mon, 15 Sep 2025 11:33:54 +0100
+Subject: [PATCH v3 31/31] coresight: Manage activated path during CPU
+ hotplug
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-arm_coresight_power_management_fix-v3-29-ea49e91124ec@arm.com>
+Message-Id: <20250915-arm_coresight_power_management_fix-v3-31-ea49e91124ec@arm.com>
 References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -68,16 +68,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=3393;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=1398;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=J/gjXWB3YlGT1qEVZQfVCNf4HObK7okmRsI3Zjx8WWw=;
- b=qjka+o2t3uVIpOAcYiSinnGSk/TKCB8pkTiunX8S1kpbYbAOVB2HkJLAJyGgW4ufC25zIRuWx
- B7tdQRbTuPVBc+L+14DWwifbxZYIR6wh72vxv2SvfUFrW7OqB/lZ2S1
+ bh=6JzhWBc462uClAegBGGb7X7XlDcz+J4rkj1oGc91ARg=;
+ b=V89ZoIwQWNG0t3I6Tos9/Bg0jgELG3uacGesAlz3U/lQohW0WkkOqzgHS/5Ga0LeV4oR5YSpv
+ qZgOwLsLP/8D83Z3dMwTSCHKWyvlwmJ27/o9viQxzq44WU1w9YgIGZm
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_113439_270000_2E849BCA 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20250915_113442_427975_90BA1980 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hotplug lock is acquired and released in the etm4_disable_sysfs()
-function, which is a low-level function located in the ETM4 driver.
-This prevents us from a new solution for hotplug.
+This commit handles activated path during the CPU hotplug process.
 
-Firstly, hotplug callbacks cannot invoke etm4_disable_sysfs() to disable
-the source; otherwise, a deadlock issue occurs.  The reason is that, in
-the hotplug flow, the kernel acquires the hotplug lock before calling
-callbacks.  Subsequently, if coresight_disable_source() is invoked and
-it calls etm4_disable_sysfs(), the hotplug lock will be acquired twice,
-leading to a double lock issue.
+When a CPU is hotplug off or hotplug in, and if an activated path is
+associated with it, the CPU PM notifier disables and enables the path,
+including the sink and helpers.
 
-Secondly, when hotplugging a CPU on or off, if we want to manipulate all
-components on a path attached to the CPU, we need to maintain atomicity
-for the entire path.  Otherwise, a race condition may occur with users
-setting the same path via the Sysfs knobs, ultimately causing mess
-states in CoreSight components.
-
-This patch moves the hotplug locking from etm4_disable_sysfs() into
-enable_source_store().  As a result, when users control the Sysfs knobs,
-the whole flow is protected by hotplug locking, ensuring it is mutual
-exclusive with hotplug callbacks.
-
-Note, the paired function etm4_enable_sysfs() does not use hotplug
-locking, which is why this patch does not modify it.
+When disabling a path, the sink's disable() callback updates its buffer
+in SysFS mode.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 9 ---------
- drivers/hwtracing/coresight/coresight-sysfs.c      | 7 +++++++
- 2 files changed, 7 insertions(+), 9 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 4218cefca63d7b2f3b102e74d7f007ebc7b08861..920c817de8c33751760a1ed7ab1df8437620bb4e 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1088,13 +1088,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index e39d1f835d77c302d475f93e125dd4f19d313864..bbad58335129968f7d0f5f22084a93c3cb114ae7 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1720,6 +1720,7 @@ static int coresight_starting_cpu(unsigned int cpu)
+ 	if (path->saved_mode != CS_MODE_SYSFS)
+ 		return 0;
  
--	/*
--	 * Taking hotplug lock here protects from clocks getting disabled
--	 * with tracing being left on (crash scenario) if user disable occurs
--	 * after cpu online mask indicates the cpu is offline but before the
--	 * DYING hotplug callback is serviced by the ETM driver.
--	 */
--	cpus_read_lock();
- 	raw_spin_lock(&drvdata->spinlock);
++	_coresight_enable_path(path, path->saved_mode, NULL, false);
+ 	source_ops(source)->enable(source, NULL, path->saved_mode, path);
+ 	return 0;
+ }
+@@ -1746,7 +1747,8 @@ static int coresight_dying_cpu(unsigned int cpu)
+ 	if (WARN_ON(path->saved_mode != CS_MODE_SYSFS))
+ 		return 0;
  
- 	/*
-@@ -1108,8 +1101,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+-	source_ops(source)->disable(source, NULL);
++	coresight_disable_source(source, NULL);
++	coresight_disable_path_from(path, NULL, false);
+ 	return 0;
+ }
  
- 	cscfg_csdev_disable_active_config(csdev);
- 
--	cpus_read_unlock();
--
- 	/*
- 	 * we only release trace IDs when resetting sysfs.
- 	 * This permits sysfs users to read the trace ID after the trace
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index cb02f1bfaf068ec3f50f997bcb94f7d5215ccea8..a4c5a334703f0bb35db5eeda87ae5a9756f6a453 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -363,6 +363,13 @@ static ssize_t enable_source_store(struct device *dev,
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * CoreSight hotplug callbacks in core layer control a activated path
-+	 * from its source to sink. Taking hotplug lock here protects a race
-+	 * condition with hotplug callbacks.
-+	 */
-+	guard(cpus_read_lock)();
-+
- 	if (val) {
- 		ret = coresight_enable_sysfs(csdev);
- 		if (ret)
 
 -- 
 2.34.1
