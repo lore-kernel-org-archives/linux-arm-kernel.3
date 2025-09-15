@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A2CCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C69CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ObcafcCbQnsZhz46XUmGraAwsDohz3Tu1dnpkVQHv8=; b=jBS0fp1fU+bdPA81fbYqWVslrU
-	vYJudGrpAB5+af+7weUe0Q9PeWDzdIvLue24K+at27PjIdPph5ZmZJP+OpPwnGokk9yjmFFWc57Mu
-	nB28ckUeqAA+FxbgiXJStHi6CYh9T6jV8OTpQj37HAEocCxXi9eqFZNYyWaQJa7XMGEueBveke9Qp
-	zGjwrr6k2xaXh3Fl71wGh2XP1cXr9JK+DcTjExbyfbD4zGFcVgZ/WsOX6JqLmoYWh9ZRLxrT7ZU5q
-	KOHe512LnwvkhVSk7zyzKx6Aqr3uih4XQtItJZc6xXcsWycM4EzUeNIgK7pDlE4IPV0c2Fh+VYdRo
-	Lzovgbhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QBZQ2T2IZb9DQ5IKJhfncUR/bMicrgAtY+dpr/zeHT0=; b=22hyFShJzYzrPzjbCqeizMichD
+	ZzyG8V19YWH27HzkGmSP0EpbBgInybN1Ddk4QdQwkmA8MHLgSW9ZbYiFqGGn/JQ8xnRzyxoS8qeaG
+	VZyTMzZYOpey+5LeNKSkHbY1zVeFcgfcsUaBFP3md4UqG5/aOKSKN+VZ8Zcy1glwrZbFew5LWnQ3t
+	SkEz+kaieFZVpbmmt457jmBl0YTjsS0zd8Xkm3bPFbULy4HXFLTRCh7CbgSh4fJENkxIRB66Djchl
+	TPjzmqmQSCZRPu0L0p9jIv0zSomRgrvGTurIpeBcXbllNSzKGkrz5NH9ZmU9ryi7KfEVjHsJgM72c
+	jOAEfTHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4mw-00000003GEe-49NB;
-	Mon, 15 Sep 2025 08:42:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uy4wD-00000003HnE-06UF;
+	Mon, 15 Sep 2025 08:51:53 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4mv-00000003GE7-0ekA;
-	Mon, 15 Sep 2025 08:42:18 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5C7701744;
-	Mon, 15 Sep 2025 10:40:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757925656;
-	bh=bLuFRrtZpntSyMvL7BEQp3qtuWlEXg+XcfMGbVNmTkU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=anoLQSM1j8s4PvZQyHqIhTsfJyxO1Ynj947BWqph4Yig7JJbFSHJ2tFaSOwGvKmVR
-	 9t9z6QAolvmrK6sbe53ZCuMx6aHrOOJozvgnq9ONqMEAALbCleZXgxBZLKXOa4bezR
-	 CY7imYIrVFqsVNxktlne3NDaKy+8UmAovc6jIrhU=
-Date: Mon, 15 Sep 2025 11:41:48 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/8] media: uapi: Introduce V4L2 extensible params
-Message-ID: <20250915084148.GC22385@pendragon.ideasonboard.com>
-References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
- <20250820-extensible-parameters-validation-v4-1-30fe5a99cb1f@ideasonboard.com>
- <20250908073534.GD4105@pendragon.ideasonboard.com>
- <pmvm3rzynu6s6zaayg3gnjkdphcobuhwb6jwk3hpwpvkvl6e7a@l2ixrpgvatdx>
+	id 1uy4w9-00000003HlB-4ALN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 08:51:52 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250915085140epoutp03306d7c7008fc713f163134ec50a02b9c~laKgQwD4_2488924889epoutp03f
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 08:51:40 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250915085140epoutp03306d7c7008fc713f163134ec50a02b9c~laKgQwD4_2488924889epoutp03f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1757926300;
+	bh=QBZQ2T2IZb9DQ5IKJhfncUR/bMicrgAtY+dpr/zeHT0=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=MedraKfHUyaAHFSN+Kx1D0w1PiBwWeuUJtEb0nhh2T26ar+2y1uoeFj6p8U0/biIU
+	 67PCxuds34yT2r7l0oXQGFmV/MliMedPiKUKLqO7iAW/kSmSIABnfzWS6sWkHqTMXn
+	 Gk2xM46Z91lriMnGEsMpMYImXq0X6JRrOIcsSjzc=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250915085140epcas2p264ea28075622118bb8178354436c2cfc~laKfzCsiN1521415214epcas2p2M;
+	Mon, 15 Sep 2025 08:51:40 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.36.92]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cQJfz3k27z6B9mK; Mon, 15 Sep
+	2025 08:51:39 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250915085138epcas2p4b3b2f8058172efd14ca4438ccb232a7c~laKefpnwd1110011100epcas2p46;
+	Mon, 15 Sep 2025 08:51:38 +0000 (GMT)
+Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250915085138epsmtip19453fc15026e8e8a191121d4eb7d3f4f~laKeaRwwd1433914339epsmtip1J;
+	Mon, 15 Sep 2025 08:51:38 +0000 (GMT)
+From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Bartlomiej Zolnierkiewicz'"
+	<bzolnier@gmail.com>, "'Rafael J . Wysocki'" <rafael@kernel.org>, "'Daniel
+ Lezcano'" <daniel.lezcano@linaro.org>, "'Zhang Rui'" <rui.zhang@intel.com>,
+	"'Lukasz	Luba'" <lukasz.luba@arm.com>, "'Rob Herring'" <robh@kernel.org>,
+	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'"
+	<alim.akhtar@samsung.com>, "'Henrik Grimler'" <henrik@grimler.se>
+Cc: <linux-pm@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <b453e64b-b3db-4b8f-ba9d-0da7e55fe057@kernel.org>
+Subject: RE: [PATCH v3 1/3] dt-bindings: thermal: samsung: Add a
+ hw-sensor-indices property
+Date: Mon, 15 Sep 2025 17:51:38 +0900
+Message-ID: <060601dc261d$f2f2d5a0$d8d880e0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <pmvm3rzynu6s6zaayg3gnjkdphcobuhwb6jwk3hpwpvkvl6e7a@l2ixrpgvatdx>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AQI2gN6OiEY8j6d92YCX64Q86w41mAJQEA6QAjvruSIB3AjCg7Or+Kxw
+Content-Language: ko
+X-CMS-MailID: 20250915085138epcas2p4b3b2f8058172efd14ca4438ccb232a7c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250915040742epcas2p4ddc37eb56eb9d96313a5c3fac8befe5d
+References: <20250915040715.486733-1-shin.son@samsung.com>
+	<CGME20250915040742epcas2p4ddc37eb56eb9d96313a5c3fac8befe5d@epcas2p4.samsung.com>
+	<20250915040715.486733-2-shin.son@samsung.com>
+	<b453e64b-b3db-4b8f-ba9d-0da7e55fe057@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_014217_340415_C4105AA3 
-X-CRM114-Status: GOOD (  64.04  )
+X-CRM114-CacheID: sfid-20250915_015150_694193_9CAE6595 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,278 +102,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 10:31:14AM +0200, Jacopo Mondi wrote:
-> On Mon, Sep 08, 2025 at 09:35:34AM +0200, Laurent Pinchart wrote:
-> > On Wed, Aug 20, 2025 at 02:58:09PM +0200, Jacopo Mondi wrote:
-> > > Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
-> >
-> > I expect more ISP-related helpers, such as extensible statistics
-> > formats, and more. How about already moving this to v4l2-isp.h ?
-> >
-> > > The header defines two types that all drivers that use the extensible
-> > > parameters format for ISP configuration shall use to build their own
-> > > format versions.
-> > >
-> > > The newly introduce type v4l2_params_block represent the
-> >
-> > "The v4l2_params_block structure represents the"
-> >
-> > except the structure name is v4l2_params_block_header.
-> >
-> > > header to be prepend to each ISP configuration block and the
-> > > v4l2_params_buffer type represent the base type for the configuration
-> > > parameters buffer.
-> > >
-> > > The v4l2_params_buffer represents the container for the ISP
-> > > configuration data block. The generic type is defined with a 0-sized
-> > > data block that specific ISP implementation shall properly size
-> > > according to their capabilities.
-> > >
-> > > [Add v4l2_params_buffer_size()]
-> > > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > ---
-> > >  MAINTAINERS                                       |   6 +
-> > >  include/uapi/linux/media/v4l2-extensible-params.h | 146 ++++++++++++++++++++++
-> > >  2 files changed, 152 insertions(+)
-> > >
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index fe168477caa45799dfe07de2f54de6d6a1ce0615..67216d1e92d7ac81617bb3c4329e4096aa205706 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -26380,6 +26380,12 @@ F:	drivers/media/i2c/vd55g1.c
-> > >  F:	drivers/media/i2c/vd56g3.c
-> > >  F:	drivers/media/i2c/vgxy61.c
-> > >
-> > > +V4L2 EXTENSIBLE PARAMETERS FORMAT
-> > > +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > +L:	linux-media@vger.kernel.org
-> > > +S:	Maintained
-> > > +F:	include/uapi/linux/media/v4l2-extensible-params.h
-> > > +
-> > >  VF610 NAND DRIVER
-> > >  M:	Stefan Agner <stefan@agner.ch>
-> > >  L:	linux-mtd@lists.infradead.org
-> > > diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..aca643f505f2705eeca7337f0dd182bcfd1ea60d
-> > > --- /dev/null
-> > > +++ b/include/uapi/linux/media/v4l2-extensible-params.h
-> > > @@ -0,0 +1,146 @@
-> > > +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
-> >
-> > Why the MIT license ? And why GPL-2.0+ instead of GPL-2.0 ?
-> 
-> Blindly copied from the rkisp1 header. I'll use GPL-2.0
-> 
-> > > +/*
-> > > + * Video4Linux2 extensible configuration parameters base types
-> > > + *
-> > > + * Copyright (C) 2025 Ideas On Board Oy
-> > > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > + */
-> > > +
-> > > +#ifndef _UAPI_V4L2_PARAMS_H_
-> > > +#define _UAPI_V4L2_PARAMS_H_
-> > > +
-> > > +#include <linux/stddef.h>
-> > > +#include <linux/types.h>
-> > > +
-> > > +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
-> > > +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
-> > > +
-> > > +/*
-> > > + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag.
-> > > + *
-> > > + * Platform-specific flags should be defined as:
-> > > + * #define PLATFORM_SPECIFIC_FLAG0     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(0))
-> > > + * #define PLATFORM_SPECIFIC_FLAG1     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(1))
-> > > + */
-> > > +#define V4L2_PARAMS_FL_PLATFORM_FLAGS(n)       ((n) + 8)
-> >
-> > s/PLATFORM/DRIVER/
-> >
-> > > +
-> > > +/**
-> > > + * struct v4l2_params_block_header - V4L2 extensible parameters block header
-> > > + *
-> > > + * This structure represents the common part of all the ISP configuration
-> > > + * blocks. Each parameters block shall embed an instance of this structure type
-> > > + * as its first member, followed by the block-specific configuration data. The
-> > > + * driver inspects this common header to discern the block type and its size and
-> > > + * properly handle the block content by casting it to the correct block-specific
-> > > + * type.
-> >
-> > The last sentence is not relevant for the userspace API.
-> >
-> > > + *
-> > > + * The @type field is one of the values enumerated by each platform-specific ISP
-> > > + * block types which specifies how the data should be interpreted by the driver.
-> > > + * The @size field specifies the size of the parameters block and is used by the
-> > > + * driver for validation purposes.
-> >
-> >  * The @type field is an ISP driver-specific value that identifies the block type.
-> >  * The @size field specifies the size of the parameters block.
-> >
-> > but that seems to duplicate the documentation of the fields below. I'd
-> > move the field documentation up, and then only add additional paragraphs
-> > when they contain extra information.
-> >
-> > > + *
-> > > + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
-> > > + * platform-specific flags specified by the platform-specific header.
-> >
-> > It's not platform-specific but ISP driver-specific (or you could just
-> > write driver-specific).
-> >
-> > > + *
-> > > + * Documentation of the platform-specific flags handling is specified by the
-> > > + * platform-specific block header type:
-> > > + *
-> > > + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
-> > > + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
-> >
-> > I wouldn't mention specific platforms here, that won't really scale.
-> >
-> > > + *
-> > > + * Userspace is responsible for correctly populating the parameters block header
-> > > + * fields (@type, @flags and @size) and the block-specific parameters.
-> >
-> > This is the kind of information I think I would expect in
-> > Documentation/userspace-api/media/v4l/extensible-parameters.rst more
-> > than here. We usually keep documentation minimal in header files for the
-> > userspace API, and document the behaviour in .rst files. This being
-> > said, if you think having more documentation in the headers is better,
-> > that could work too.
-> 
-> No worries, I wasn't sure how much documentation is the right amount
-> of documentation. I'm fine reducing it.
+Hello, Krzysztof Kozlowski.
 
-Not necessarily reducing the documentation, but splitting it more
-clearly between UAPI and kernel API.
+> -----Original Message-----
+> From: Krzysztof Kozlowski =5Bmailto:krzk=40kernel.org=5D
+> Sent: Monday, September 15, 2025 1:29 PM
+> To: Shin Son <shin.son=40samsung.com>; Bartlomiej Zolnierkiewicz
+> <bzolnier=40gmail.com>; Rafael J . Wysocki <rafael=40kernel.org>; Daniel
+> Lezcano <daniel.lezcano=40linaro.org>; Zhang Rui <rui.zhang=40intel.com>;
+> Lukasz Luba <lukasz.luba=40arm.com>; Rob Herring <robh=40kernel.org>; Con=
+or
+> Dooley <conor+dt=40kernel.org>; Alim Akhtar <alim.akhtar=40samsung.com>;
+> Henrik Grimler <henrik=40grimler.se>
+> Cc: linux-pm=40vger.kernel.org; linux-samsung-soc=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH v3 1/3=5D dt-bindings: thermal: samsung: Add a hw-
+> sensor-indices property
+>=20
+> On 15/09/2025 06:07, Shin Son wrote:
+> > The exynosautov920 TMU requires per-sensor interrupt enablement for
+> > its critical trip points.
+> >
+> > - **samsung,hw-sensor-indices**: List of sensor indices physically
+> >                                  monitored by this TMU block.
+> > 				 Indicies not listed exist in the SoC
+> > 				 register map but are not part of
+> > 				 this TMU instance
+>=20
+> Not much improved here. Same comment as before. That's not even correct
+> syntax but some oddly formatted code. I asked to drop it and instead
+> describe hardware. This is not a place to write some **code** or whatever
+> this paragraph is about to represent.
 
-> > > + *
-> > > + * @type: The parameters block type (platform-specific)
-> > > + * @flags: A bitmask of block flags (platform-specific)
-> > > + * @size: Size (in bytes) of the parameters block, including this header
-> > > + */
-> > > +struct v4l2_params_block_header {
-> > > +	__u16 type;
-> > > +	__u16 flags;
-> > > +	__u32 size;
-> > > +} __attribute__((aligned(8)));
-> > > +
-> > > +/**
-> > > + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
-> > > + *
-> > > + * Users of the v4l2 extensible parameters will have differing sized data arrays
-> > > + * depending on their specific parameter buffers. Drivers and userspace will
-> > > + * need to be able to calculate the appropriate size of the struct to
-> > > + * accommodate all ISP configuration blocks provided by the platform.
-> > > + * This macro provides a convenient tool for the calculation.
-> > > + *
-> > > + * Each driver shall provide a definition of their extensible parameters
-> > > + * implementation data buffer size. As an example:
-> > > + *
-> > > + * #define PLATFORM_BLOCKS_MAX_SIZE		\
-> > > + *	sizeof(platform_block_0)	+	\
-> > > + *	sizeof(platform_block_1)
-> > > + *
-> > > + * #define PLATFORM_BUFFER_SIZE			\
-> > > + *	v4l2_params_buffer_size(PLATFORM_BLOCKS_MAX_SIZE)
-> > > + *
-> > > + * Drivers are then responsible for allocating buffers of the proper size
-> > > + * by assigning PLATFORM_BUFFER_SIZE to the per-plane size of the videobuf2
-> > > + * .queue_setup() operation and userspace shall use PLATFORM_BUFFER_SIZE
-> > > + * when populating the ISP configuration data buffer.
-> >
-> > Most if not all of this also seems to be information for drivers, not
-> > for userspace. I doesn't belong in the UAPI documentation.
-> >
-> > > + *
-> > > + * @max_params_size: The total size of the ISP configuration blocks
-> > > + */
-> > > +#define v4l2_params_buffer_size(max_params_size) \
-> > > +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
-> > > +
-> > > +/**
-> > > + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
-> > > + *
-> > > + * This struct contains the configuration parameters of the ISP algorithms,
-> > > + * serialized by userspace into a data buffer. Each configuration parameter
-> > > + * block is represented by a block-specific structure which contains a
-> > > + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
-> > > + * the @data buffer with configuration parameters for the blocks that it intends
-> > > + * to configure. As a consequence, the data buffer effective size changes
-> > > + * according to the number of ISP blocks that userspace intends to configure and
-> > > + * is set by userspace in the @data_size field.
-> > > + *
-> > > + * The parameters buffer is versioned by the @version field to allow modifying
-> > > + * and extending its definition. Userspace shall populate the @version field to
-> > > + * inform the driver about the version it intends to use. The driver will parse
-> > > + * and handle the @data buffer according to the data layout specific to the
-> > > + * indicated version and return an error if the desired version is not
-> > > + * supported.
-> >
-> > How does userspace know which versions are supported ?
-> 
-> Good question. There are no negotiation/discoverability uAPI at the
-> moment.
-
-One option is to add a read-only bitmask control to report the supported
-versions. Speaking of versions, I think they are meant to describe the
-API version (as in the layout of the standard structures), not
-driver-specific versions, so I would move the version definition to this
-header.
-
-> > > + *
-> > > + * For each ISP block that userspace wants to configure, a block-specific
-> > > + * structure is appended to the @data buffer, one after the other without gaps
-> > > + * in between nor overlaps. Userspace shall populate the @data_size field with
-> > > + * the effective size, in bytes, of the @data buffer.
-> > > + *
-> > > + * Drivers shall take care of properly sizing of the extensible parameters
-> > > + * buffer @data array. The v4l2_params_buffer type is defined with a
-> > > + * flexible-array-member at the end, which resolves to a size of 0 bytes when
-> > > + * inspected with sizeof(struct v4l2_params_buffer). This of course is not
-> > > + * suitable for neither buffer allocation in the kernel driver nor for proper
-> > > + * handling in userspace of the @data buffer it has to populate.
-> > > + *
-> > > + * Drivers using this type in their userspace API definition are responsible
-> > > + * for providing the exact definition of the @data buffer size using the
-> > > + * v4l2_params_buffer_size() macro. The size shall be used
-> > > + * by the driver for buffers allocation and by userspace for populating the
-> > > + * @data buffer before queueing it to the driver
-> >
-> > Most of those two paragraphs are driver documentation too.
-> >
-> > > + *
-> > > + * Drivers that were already using extensible-parameters before the introduction
-> > > + * of this file define their own type-convertible implementation of this
-> > > + * type, see:
-> > > + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
-> > > + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
-> >
-> > Drop this too.
-> 
-> Ack.
-> 
-> > > + *
-> > > + * @version: The parameters buffer version (platform-specific)
-> > > + * @data_size: The configuration data effective size, excluding this header
-> > > + * @data: The configuration data
-> > > + */
-> > > +struct v4l2_params_buffer {
-> > > +	__u32 version;
-> > > +	__u32 data_size;
-> > > +	__u8 data[] __counted_by(data_size);
-> > > +};
-> > > +
-> > > +#endif /* _UAPI_V4L2_PARAMS_H_ */
-
--- 
-Regards,
-
-Laurent Pinchart
+Understood=E2=80=94sorry=20for=20the=20confusion.=20I'll=20remove=20the=20c=
+ode-like=20formatting=20and=20replace=20it=20with=20a=20plain,=20hardware-f=
+ocused=0D=0ADescription=20as=20requested.=0D=0A=0D=0A>=20=0D=0A>=20>=0D=0A>=
+=20>=20Additionally,=20add=20myself=20to=20the=20bindings'=20maintainers=20=
+list,=20as=20I=20plan=0D=0A>=20>=20to=20actively=20work=20on=20the=20exynos=
+autov920=20TMU=20support=20and=20handle=20further=0D=0A>=20>=20updates=20in=
+=20this=20area.=0D=0A>=20>=20I=20also=20restrict=20'samsung,hw-sensor-indic=
+es'=20to=20the=20V920=20variant.=20To=0D=0A>=20>=20ensure=20properties=20in=
+troduced=20in=20'if/then'=20blocks=20are=20recognized,=20I=0D=0A>=20>=20rep=
+lace=20'addtionalProperties:=20false'=20with=20'unevaluatedProperties:=20fa=
+lse'.=0D=0A>=20=0D=0A>=20No,=20don't=20do=20that.=0D=0A=0D=0AUnderstood.=20=
+I'll=20keep=20'addtionalProperties:=20false'=20as=20is=20and=20promote=20's=
+amsung,hw-sensor-indices'=20to=20the=20common=20sections.=0D=0A=0D=0A>=20=
+=0D=0A>=20>=0D=0A>=20>=20Signed-off-by:=20Shin=20Son=20<shin.son=40samsung.=
+com>=0D=0A>=20>=20---=0D=0A>=20>=20=20.../thermal/samsung,exynos-thermal.ya=
+ml=20=20=20=20=20=20=20=7C=2040=20++++++++++++++++++-=0D=0A>=20>=20=201=20f=
+ile=20changed,=2038=20insertions(+),=202=20deletions(-)=0D=0A>=20>=0D=0A>=
+=20>=20diff=20--git=0D=0A>=20>=20a/Documentation/devicetree/bindings/therma=
+l/samsung,exynos-thermal.yam=0D=0A>=20>=20l=0D=0A>=20>=20b/Documentation/de=
+vicetree/bindings/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=20l=20index=
+=2029a08b0729ee..448c68986b10=20100644=0D=0A>=20>=20---=0D=0A>=20>=20a/Docu=
+mentation/devicetree/bindings/thermal/samsung,exynos-thermal.yam=0D=0A>=20>=
+=20l=0D=0A>=20>=20+++=20b/Documentation/devicetree/bindings/thermal/samsung=
+,exynos-thermal=0D=0A>=20>=20+++=20.yaml=0D=0A>=20>=20=40=40=20-8,6=20+8,7=
+=20=40=40=20title:=20Samsung=20Exynos=20SoC=20Thermal=20Management=20Unit=
+=0D=0A>=20>=20(TMU)=0D=0A>=20>=0D=0A>=20>=20=20maintainers:=0D=0A>=20>=20=
+=20=20=20-=20Krzysztof=20Kozlowski=20<krzk=40kernel.org>=0D=0A>=20>=20+=20=
+=20-=20Shin=20Son=20<shin.son=40samsung.com>=0D=0A>=20>=0D=0A>=20>=20=20des=
+cription:=20=7C=0D=0A>=20>=20=20=20=20For=20multi-instance=20tmu=20each=20i=
+nstance=20should=20have=20an=20alias=20correctly=0D=0A>=20>=20numbered=20=
+=40=40=20-27,6=20+28,7=20=40=40=20properties:=0D=0A>=20>=20=20=20=20=20=20=
+=20=20-=20samsung,exynos5420-tmu-ext-triminfo=0D=0A>=20>=20=20=20=20=20=20=
+=20=20-=20samsung,exynos5433-tmu=0D=0A>=20>=20=20=20=20=20=20=20=20-=20sams=
+ung,exynos7-tmu=0D=0A>=20>=20+=20=20=20=20=20=20-=20samsung,exynosautov920-=
+tmu=0D=0A>=20>=0D=0A>=20>=20=20=20=20clocks:=0D=0A>=20>=20=20=20=20=20=20mi=
+nItems:=201=0D=0A>=20>=20=40=40=20-62,7=20+64,7=20=40=40=20properties:=0D=
+=0A>=20>=20=20=20=20=20=20minItems:=201=0D=0A>=20>=0D=0A>=20>=20=20=20=20'=
+=23thermal-sensor-cells':=0D=0A>=20>=20-=20=20=20=20const:=200=0D=0A>=20>=
+=20+=20=20=20=20enum:=20=5B0,=201=5D=0D=0A>=20>=0D=0A>=20>=20=20=20=20vtmu-=
+supply:=0D=0A>=20>=20=20=20=20=20=20description:=20The=20regulator=20node=
+=20supplying=20voltage=20to=20TMU.=0D=0A>=20>=20=40=40=20-97,6=20+99,8=20=
+=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20reg:=0D=0A>=20>=20=
+=20=20=20=20=20=20=20=20=20=20=20minItems:=202=0D=0A>=20>=20=20=20=20=20=20=
+=20=20=20=20=20=20maxItems:=202=0D=0A>=20>=20+=20=20=20=20=20=20=20=20'=23t=
+hermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20const:=20=
+0=0D=0A>=20>=20=20=20=20-=20if:=0D=0A>=20>=20=20=20=20=20=20=20=20propertie=
+s:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20compatible:=0D=0A>=20>=20=40=40=
+=20-119,6=20+123,8=20=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=
+=20reg:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=
+=20>=20=20=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=
+=20=20=20=20=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=
+=20=20=20=20=20const:=200=0D=0A>=20>=0D=0A>=20>=20=20=20=20-=20if:=0D=0A>=
+=20>=20=20=20=20=20=20=20=20properties:=0D=0A>=20>=20=40=40=20-139,8=20+145=
+,38=20=40=40=20allOf:=0D=0A>=20>=20=20=20=20=20=20=20=20=20=20reg:=0D=0A>=
+=20>=20=20=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=20>=20=20=20=
+=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=20=20=20=20=
+=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=
+=20const:=200=0D=0A>=20>=0D=0A>=20>=20-additionalProperties:=20false=0D=0A>=
+=20>=20+=20=20-=20if:=0D=0A>=20>=20+=20=20=20=20=20=20properties:=0D=0A>=20=
+>=20+=20=20=20=20=20=20=20=20compatible:=0D=0A>=20>=20+=20=20=20=20=20=20=
+=20=20=20=20contains:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20con=
+st:=20samsung,exynosautov920-tmu=0D=0A>=20>=20+=20=20=20=20then:=0D=0A>=20>=
+=20+=20=20=20=20=20=20properties:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20clo=
+cks:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20minItems:=201=0D=0A>=20>=
+=20+=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=20=20=20=20=
+=20=20=20=20reg:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20minItems:=201=
+=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20maxItems:=201=0D=0A>=20>=20+=
+=20=20=20=20=20=20=20=20'=23thermal-sensor-cells':=0D=0A>=20>=20+=20=20=20=
+=20=20=20=20=20=20=20const:=201=0D=0A>=20>=20+=20=20=20=20=20=20=20=20samsu=
+ng,hw-sensor-indices:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20descripti=
+on:=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20List=20of=20thermal=
+=20sensor=20indices=20physically=20monitored=20by=20this=0D=0A>=20TMU=20ins=
+tance.=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20Indices=20not=20li=
+sted=20correspond=20to=20registers=20that=20exist=20in=20the=0D=0A>=20SoC=
+=0D=0A>=20>=20+=20=20=20=20=20=20=20=20=20=20=20=20but=20are=20not=20connec=
+ted=20to=20this=20TMU=20hardware=20block.=0D=0A>=20>=20+=20=20=20=20=20=20=
+=20=20=20=20=24ref:=20/schemas/types.yaml=23/definitions/uint32-array=0D=0A=
+>=20=0D=0A>=20I=20don't=20understand=20what=20is=20happening=20here=20with=
+=20this=20binding.=20See=20writing=0D=0A>=20schema=20and=20example-schema.=
+=0D=0A>=20=0D=0A>=20=0D=0A>=20=0D=0A>=20Best=20regards,=0D=0A>=20Krzysztof=
+=0D=0A=0D=0AUnderstood.=20I'll=20rework=20the=20binding=20to=20follow=20the=
+=20'writing=20schema'=20and=20'example-schema'=20guidance=0D=0Aand=20includ=
+e=20these=20changes=20in=20v4.=0D=0A=0D=0AThanks.=0D=0ABest=20regards,=0D=
+=0AShin=20Son=0D=0A=0D=0A
 
