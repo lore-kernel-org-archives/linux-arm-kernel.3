@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEDACAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A726CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48CT5tVNHI02Ne4h4z7ubnwDB7dvuPaCRV960NC6vaQ=; b=w5JPZWSZ6ZDoHM16VmU+plQQBz
-	Tu+i5BQjg/cNCCCokCwuQ9nVOgRfgOHBmqXRqVrHrG2Hh9oSQXoT74XlMgEfRG3RSWBgCMprGBE8D
-	iLYIfF5Znh7qwOh4NVgqd4B4B0rJaWkWK1YKn2Q5BEriV9CSvZjU2zA4ULwheqdAmIpofNkysTDi3
-	ntRE8H9Je2cp0WYkLcT7SJ1PS6uVZ60IlnpJ5If4uX8Gw9AO5f2UsyTsQo+6JKAwhvxJFjhE+a6HH
-	2Tu/l2HiH8o+meDNP7y+eaDZHGWdwBrz77D9zyHu7j8QDOM62h0v2sqeTzpMcdGbDBg7DmV3mjBlQ
-	Yhc1cFOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R8vrwHu8vhbNZonZggE69klPUG5CjF8THASRPUKtN+I=; b=wVVP5Rw3SCijm9BgaGqQdK0pgv
+	GD1FjPCb33nN+5cNaZVZ4zZdiKRd3Ax8oIYYP9VUuWmy2X4Cy04S9k327AAXsxDJXeB5STVORukQQ
+	XGgAYbcdPEUXFEVpwOnHApiyh53iWGPjCD74ghOXgSBfSuY45nvAeqb6eQh9EAHQHe8bNbXufyR1o
+	fiCjvfPl1OH7FLhqmiN7Gj4R6XVH3hcFb7uhVP04X44RFlKsat5Fcxxx//VcW87oNs8XXSwNuiZY9
+	4deAV8QI60ZlV+fK5EV7n42RpEdFpU/0hEqL8N49TWXH2ILEVfS9vs9sTy3v1AlvU3gWT6T1H6SAx
+	o5t3NrFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAas-00000004nX2-1HO8;
-	Mon, 15 Sep 2025 14:54:14 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uyAbm-00000004nlT-036y;
+	Mon, 15 Sep 2025 14:55:10 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAap-00000004nVv-0gXI;
-	Mon, 15 Sep 2025 14:54:12 +0000
+	id 1uyAbj-00000004nl0-41Js
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 14:55:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1757948051; x=1789484051;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5zvV9UB2aUF1HHaCSUBXMQThneYkRcHlnJ3H82rt5bI=;
-  b=huqOC9Dor9qLp3BNVidfYTMJdkgnh1qUdBK3I1g2ahR1WiidIBSCNPaw
-   4iHKgRQ33AUi2Jw2DfQzMS9Pgx6sK+bh89mN5qmPA9P3COedxLfrNH4ed
-   pii9/jHQ0PVUwUrNReHWEQ3eBCVSGnsByFZqRWtwi+DFEq0x7jFln5Ez/
-   4M64+Y0ZK6N9tCMWLR1h/i+sQ/b5U1CrSEPaDt3acEtS+kqgiuEF+ynB7
-   2CkFtpNZBpvr68YKhLl+MOprb0dRSlE4ur4bgDyIOLtLYv7yrgRSKGzho
-   DWKoT0CZSVJhxhs/YvNEfg0ECSpuQlEbTIPW9dBvcCmdVfQXGri/J+fiU
-   A==;
-X-CSE-ConnectionGUID: qYJ+1qmnR5yTN8GH9bWBVg==
-X-CSE-MsgGUID: OpXBQDMBTRyLRHVMELxCnA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11554"; a="82795230"
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1757948108; x=1789484108;
+  h=message-id:date:mime-version:subject:from:to:cc:
+   references:in-reply-to:content-transfer-encoding;
+  bh=EwNwBb1ZMwIRBiUXSFpclOvP5L0lGkCC606UBB6bd7E=;
+  b=n72ouBc2/HcJizy6WQP6lM0l/3HSH/w3SMaOPR5f7k7MG7xIuyPeUowb
+   wSoRF5M/XUDvP5iptJLRvPNEt9C/jrnUbXo9M0ZVJz/F/jtFv/sCMcb92
+   +U5csg76Z1Z7siNkq9sWwJt/gKlVAoN/pHhhIi+RT8znQ02zgInPU+Bor
+   IKM0Dl+uEnpazvZT6e9eSEzE3z73afBK6rdWiA0oO4lbU2ibx8ZknbodX
+   zL9a5BIjNAzamA0tVpOTD+Mhf468NVBL6sO+RrFctZUJxGT0OKrfWk8YT
+   kPBW57KBBEvyk0uri4GIbwFXy7r2J4nStQy7zIZ1N1SpAHZsm7SHoqKUB
+   w==;
+X-CSE-ConnectionGUID: V6We0pr5QIOXx8mFDIxkEw==
+X-CSE-MsgGUID: 2WzlJk5dRtitwyzzXmjgJg==
 X-IronPort-AV: E=Sophos;i="6.18,266,1751266800"; 
-   d="scan'208";a="82795230"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2025 07:54:11 -0700
-X-CSE-ConnectionGUID: E3GBIukpQ82WZ5mySMLIug==
-X-CSE-MsgGUID: D+8ffKhCR6CpAUOP6jo9fw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,266,1751266800"; 
-   d="scan'208";a="174734971"
-Received: from smile.fi.intel.com ([10.237.72.51])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2025 07:54:07 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uyAah-00000003HCK-2SRS;
-	Mon, 15 Sep 2025 17:54:03 +0300
-Date: Mon, 15 Sep 2025 17:54:03 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Yu Jiaoliang <yujiaoliang@vivo.com>,
-	Changqi Hu <changqi.hu@mediatek.com>,
-	Sam Shih <sam.shih@mediatek.com>,
-	Steven Liu <steven.liu@mediatek.com>,
-	John Crispin <john@phrozen.org>, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] tty: serial: 8250_mtk: enable baud clock
-Message-ID: <aMgoi8sQlNhc3CXq@smile.fi.intel.com>
-References: <2de07b0a6d51d5d3bf3e55cd03cf75adfc91ee7d.1757941345.git.daniel@makrotopia.org>
+   d="scan'208";a="47066873"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Sep 2025 07:55:07 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 15 Sep 2025 07:54:59 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 15 Sep 2025 07:54:57 -0700
+Message-ID: <272ffdb9-9d7f-4a48-9968-7de1d32d721e@microchip.com>
+Date: Mon, 15 Sep 2025 16:54:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2de07b0a6d51d5d3bf3e55cd03cf75adfc91ee7d.1757941345.git.daniel@makrotopia.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: at91: clk-master: Add check for divide by 3
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+To: <Ryan.Wanner@microchip.com>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250908200725.75364-1-Ryan.Wanner@microchip.com>
+ <1882cb12-cb65-423a-bacb-3965ba845ab3@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <1882cb12-cb65-423a-bacb-3965ba845ab3@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_075411_236320_7A2834FF 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250915_075508_069695_D61989A0 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +89,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 02:06:37PM +0100, Daniel Golle wrote:
+On 09/09/2025 at 09:57, Nicolas Ferre wrote:
+> On 08/09/2025 at 22:07, Ryan.Wanner@microchip.com wrote:
+>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>
+>> A potential divider for the master clock is div/3. The register
+>> configuration for div/3 is MASTER_PRES_MAX. The current bit shifting
+>> method does not work for this case. Checking for MASTER_PRES_MAX will
+>> ensure the correct decimal value is stored in the system.
+>>
+>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-...
+Added to clk-microchip, on its way upstream.
+Thanks, regards,
+   Nicolas
 
-> -		data->uart_clk = devm_clk_get(&pdev->dev, NULL);
-> +		data->uart_clk = devm_clk_get_enabled(&pdev->dev, NULL);
->  		if (IS_ERR(data->uart_clk)) {
->  			dev_warn(&pdev->dev, "Can't get uart clock\n");
->  			return PTR_ERR(data->uart_clk);
-
-Consider making this to be either dev_warn_once() / _ratelimited() or
-better to have
-
-	return dev_err_probe(...);
-
-This will allow to avoid flooding the logs when clock is not yet ready.
-The proposed change can be done in the separate patch.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+> Thanks Ryan, regards,
+>     Nicolas
+> 
+>> ---
+>>    drivers/clk/at91/clk-master.c | 3 +++
+>>    1 file changed, 3 insertions(+)
+>>
+>> diff --git a/drivers/clk/at91/clk-master.c b/drivers/clk/at91/clk-master.c
+>> index 7a544e429d34..d5ea2069ec83 100644
+>> --- a/drivers/clk/at91/clk-master.c
+>> +++ b/drivers/clk/at91/clk-master.c
+>> @@ -580,6 +580,9 @@ clk_sama7g5_master_recalc_rate(struct clk_hw *hw,
+>>    {
+>>    	struct clk_master *master = to_clk_master(hw);
+>>    
+>> +	if (master->div == MASTER_PRES_MAX)
+>> +		return DIV_ROUND_CLOSEST_ULL(parent_rate, 3);
+>> +
+>>    	return DIV_ROUND_CLOSEST_ULL(parent_rate, (1 << master->div));
+>>    }
+>>    
+> 
 
 
