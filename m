@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BD9CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810BDCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 10:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEXwQPF2sp+gruN2d3ooT8Av0Z9vbVjvETwyGrddegU=; b=Js4i2uF5woiBcQ43Oh6g72C0F7
-	oyTJVBtEPJ6D43druixqyPSSDIu5xZApJz0T/b/Q3Fdx9/PPtedRzYUCWlSOLbDaUHwWY8FF/sZ+A
-	N6P8vNz8IUyCyMrJlAlugbDOzh8OLW/EFsBJ3ipl3fF/YB8QKq7RJdr+QPrPLeaum4HeGrHi3Saz4
-	Ri+cJCBW95hKN+qikmjHGOJIJUX1Ki516LaE3FdA3C0sq/Ajw8yZYBIllcekbsSsHPsfmKMxTsHL3
-	JC039IzC8n8PbTKvv+3qq6LxftoN4tiTWebOlCKlWSfwfQmJQBsYaeU6YjnZy/kIiYkXqbLkhglCA
-	bTmlVmkw==;
+	bh=JN7K9r+dzHKTA9sjq9YxaEHN1qEsQC8Mj11MCX5hNsY=; b=DFip95XGphmbdpKwOweLFG9oEv
+	TKJP9g9Q8EW7SVccgoLCgzBvZ1IWJEuX9SoTHMLV/XA6nfXe4Cv/heUkse5D+6m4kiThxPmyXcYrm
+	I6AngQWT8BE8vPdt98ZNAgjCwXkJmoenh43Ae1Af1dq8HW+3BOpCHtQsPpLeoMJOzRxrLlubuwXRc
+	wPo1pUpVamVdmpy12j0SZk8NQ8KYZOOQFWLu/JrOND8qqd2NfxS788orE9d18dwFECcf50u+5up5I
+	B+9W735Pyr2XR1aN7drL07RAFzZ+LIZ5lclKJR0ZV72Fg3E3lcPTYc9NGewzEJf/dk/HXw22QXj58
+	0ei4oYnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6YP-00000003hLL-3vx3;
-	Mon, 15 Sep 2025 10:35:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uy6Ys-00000003ht2-1ebZ;
+	Mon, 15 Sep 2025 10:35:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xl-00000003gQX-2AeJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 15 Sep 2025 10:34:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=LEXwQPF2sp+gruN2d3ooT8Av0Z9vbVjvETwyGrddegU=; b=W7Fwa8eu4pAE9asyI/8ibQmi6P
-	gkvJelXHN3AoJqrbOXKL09CkzhdllXPT3JGeeVxVTwV/SMWcued+YMIxIXAjtSve9pCtjohay3qNp
-	RFg38DnfevOJnvP+mQ7EZcTWQ13+fnJGrPcFhgKnFqbdUSSvgla8DcgHIFMWh+lN0H91y+eVPCFle
-	8OsATQ5479/ozjqjnKTCBmwcDwQG++A8H0OnfLERAyb1hDizJg/9cEiFhh+8WYBsQ5AoQetqVokc2
-	q6Asi0rYU3RlaQ5wQsf8/rsRWz8DQY57uQF6EaDVTLbr3fZVRogHCUI0uZQuYCEtVRz1fLvl6TrWK
-	w/5kAqPQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy6Xh-00000006vf1-49vz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 10:34:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBA891BF7;
-	Mon, 15 Sep 2025 03:34:32 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F5013F66E;
-	Mon, 15 Sep 2025 03:34:39 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 15 Sep 2025 11:33:54 +0100
-Subject: [PATCH v3 31/31] coresight: Manage activated path during CPU
- hotplug
+	id 1uy6Yp-00000003hov-2ke6;
+	Mon, 15 Sep 2025 10:35:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1757932549;
+	bh=Aa9ZL/X4bPp5w+MdeWDS3WTgkxlZOjtygj8nuNk04VI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SrkMRLFTOcFjgV9yFNegoLT/ZRb1CVY72iNiyvsXeuXc4Axco+sF4rY/tFgkN695c
+	 BnLsEU2JJgLEdSMy+vI9TM1tXpQw+wBDkT1oNuGWzudFXMCNpCHlR57hCo95NCO0T+
+	 uf9mN7B2uGSO4goFhVSymjNxGjwSmvUx3XKe+mqYk8FOg0nDEzhDR6y2rLBm0vVG7j
+	 n4cH/RMvB+UrwtnTfizGo6ej0wSBCuSwy/LMDSltg/Owb1f7W8u8FCzLYW938vRO/k
+	 /1RbFElNXZt6wHIMJUIGqxe3mrIss94YK8GWgOQpNsVBEIrbmNEdMtPVgpQrBvlHcL
+	 dKv11E22Gx+9w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6155817E0147;
+	Mon, 15 Sep 2025 12:35:48 +0200 (CEST)
+Message-ID: <982e21c1-b929-4921-aadb-2ce8ab573cfd@collabora.com>
+Date: Mon, 15 Sep 2025 12:35:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/10] drm/panthor: call into devfreq for current
+ frequency
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com>
+ <20250912-mt8196-gpufreq-v2-6-779a8a3729d9@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250912-mt8196-gpufreq-v2-6-779a8a3729d9@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-arm_coresight_power_management_fix-v3-31-ea49e91124ec@arm.com>
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757932420; l=1398;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=6JzhWBc462uClAegBGGb7X7XlDcz+J4rkj1oGc91ARg=;
- b=V89ZoIwQWNG0t3I6Tos9/Bg0jgELG3uacGesAlz3U/lQohW0WkkOqzgHS/5Ga0LeV4oR5YSpv
- qZgOwLsLP/8D83Z3dMwTSCHKWyvlwmJ27/o9viQxzq44WU1w9YgIGZm
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_113442_427975_90BA1980 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20250915_033551_885315_A191E73C 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +91,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit handles activated path during the CPU hotplug process.
+Il 12/09/25 20:37, Nicolas Frattaroli ha scritto:
+> As it stands, panthor keeps a cached current frequency value for when it
+> wants to retrieve it. This doesn't work well for when things might
+> switch frequency without panthor's knowledge.
+> 
+> Instead, implement the get_cur_freq operation, and expose it through a
+> helper function to the rest of panthor.
+> 
+> Reviewed-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-When a CPU is hotplug off or hotplug in, and if an activated path is
-associated with it, the CPU PM notifier disables and enables the path,
-including the sink and helpers.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-When disabling a path, the sink's disable() callback updates its buffer
-in SysFS mode.
-
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-core.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index e39d1f835d77c302d475f93e125dd4f19d313864..bbad58335129968f7d0f5f22084a93c3cb114ae7 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1720,6 +1720,7 @@ static int coresight_starting_cpu(unsigned int cpu)
- 	if (path->saved_mode != CS_MODE_SYSFS)
- 		return 0;
- 
-+	_coresight_enable_path(path, path->saved_mode, NULL, false);
- 	source_ops(source)->enable(source, NULL, path->saved_mode, path);
- 	return 0;
- }
-@@ -1746,7 +1747,8 @@ static int coresight_dying_cpu(unsigned int cpu)
- 	if (WARN_ON(path->saved_mode != CS_MODE_SYSFS))
- 		return 0;
- 
--	source_ops(source)->disable(source, NULL);
-+	coresight_disable_source(source, NULL);
-+	coresight_disable_path_from(path, NULL, false);
- 	return 0;
- }
- 
-
--- 
-2.34.1
 
 
