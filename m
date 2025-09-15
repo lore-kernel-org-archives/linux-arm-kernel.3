@@ -4,177 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DE4CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47152CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=; b=O7sPHrAPGp8xoVenmGT2HxXiVK
-	DVhQMBkzkvRx05QaLPVcbg15EpWNGALBhXlGzCX4pqhox0pVvts2SRRL3vd6eEbOl3YvMubTcNu+Q
-	PT2hdrEdMGanHm4cmL9xtJn/KDCzNiQ5/7hLH6uA+KnSkjJoBhomuALZ1U59D2QIGTBohLdKeDHjj
-	H5nnCkfbcxgHMpBHOm+PufuuHq/hPit8qe2uUcusT6f2FvwtthtgQ9Y2pGT6dfQoy97rtCe4WfhQM
-	N3QDXDNqJbNiw9+DAvoUg8SihluFFRNYOxhpA7/oQ10sOygbSd6tZghygAF7D1xycHCY7EVo4cbnr
-	A9BdkXSw==;
+	bh=sOHEiPYXvUr6gKTsQoEHdgEipFp7/iuUHD/gTijLfpE=; b=2az51/Ktev4zSDi6aXtzApq4DK
+	A8SGznlu8MI4BBPVrcIBwEMENZHEgTW0YHEDL2U4zTkwEeQwAVlIr4z6hocZsH+bT3uHCyY0IVwJW
+	oj5153q8JvddxdqDN2AqgOfsEABt5SgVZxqBHkUTzv81sKL1mnRvMlYNwjBpRsUV44C6X5I0p37TM
+	9wmlwtTkwF80kONb23zSdpd3VOjlK4XgdNwAFCVrLRld9krYG0PfOpXuR045soAjjwJ0LYcyIOpQ6
+	kzmgZJopBXfwqerBejRP0GRqLVgTNcZM73ll5xd/G+SpIyAJ4bDpLDT24IB2qqtlEqczH81WHcEKB
+	UHyTt+gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4bm-00000003D9J-3MRy;
-	Mon, 15 Sep 2025 08:30:46 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1uy4cV-00000003Dad-0pKt;
+	Mon, 15 Sep 2025 08:31:31 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4bh-00000003Czs-3dRe
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:30:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WiogRlaRGPH9IPxUhNZS8QKeqXboA4nxBT0nhFXADhGnatt6LjywcmT/PAgQJDwVaRHqyjxIpL6JcIfaHX0Z0GWAafxIURSkYF+U04+WlLZkKLkxLShFSppdpch/b2CMolzDnoL464pab6ED47ASilGtts/RX1mifa1P/TxAutPEwAXN8x6nPoGwIq40002Z8nUX2i592gNnfdVJiRB+h1l6lsCalRGW+nKxsIsGZbOy97MoSaPR8+8xYbl2TaRthZhXOWzjNZlvMbh9ruTHIojmEjIDLWwev500JEh0oOz/PHDi2gn3YlEmQ3uOWCDDDxKnqqIhBwaqiW4PRnP5iw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=;
- b=zPze5HJHX7nLOqtjGr+kcXBskQcbPfP+oJDXZ+leMrYidsCbSl8uicfzVoa1SqSW4CxbY4K43TGkENffThiBRr74HfQ1aEnFqq5OAO6tcl4SxhoANQHDWvDGOAuqprST0kv+75PpWswNh3uWM+Vh+UsOvuVd/BQXeBBUdTHTimaCs7UAWybdfQKlSTWWEknNfDLDLkUmz9yjcq+A9ZHfwgPRXcZJfHEbbUoupg6RL5ATeDEPR0Nus7NWzf6sQ6XITZxm1d6NvKZQohrXE/quay8uFRw+6wlnp6TaQMvRbuttzn1QpMWRuQZTacX3wFy5lnRX5oU6WCf4NZLjbdEoZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pIJfCg4N2oQGUDEPTId1k3KrZRqXxJU5TwK1ZfHn4bY=;
- b=E9y3LOBtsok/TLpr9sFx84rCC7ut0InbNS7cF5a3eC+TwBavWeKlmAfVD2xTDHNG8O1aqSSM8pk51H+vsA4fPrkfo+27tpsCMqslVR4Kbn5pWlgApMe9eao2ikaKQCS9FkxbB+9Yjfs+v61hTmmTx+KVVqEZxajyR1j0JcoUEa5v9/+T3MQH/KLmu6hwM+n9sz9vkjdH3FZz8aTT4qmUVrlgwa+GH+DvCL+NtMW6eJ2/AEmXX7jg2KaMUPgdsYQ509GkenGrS+33taeVaE7FCI9wm5QMFmNE1XRmIl9gtiJvBSNXzSBACJ/DsGELV16/kiReVAT2NQVoO4FfbacdDQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI1PR04MB7181.eurprd04.prod.outlook.com (2603:10a6:800:12a::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Mon, 15 Sep
- 2025 08:30:35 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
- 08:30:35 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Mon, 15 Sep 2025 16:29:39 +0800
-Subject: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
-In-Reply-To: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757925004; l=6023;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=/f/t/uvptCFsPsDbOruMFADsd8OrSPUdYLFUpJTxZ8M=;
- b=gIXahYYYynJk3KpjZj+JqdZuxsiIzKms0S5QI7cjes9KG5LBE/CL+EAHbooqJDt95kTlwwPnA
- yQQ6Uvkxsb1Bak7ETAnE9cirD2Pd1BAZvEEkWLO/kRaOMxpyojxAkFl
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR01CA0115.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1uy4cQ-00000003DV4-0cfL;
+	Mon, 15 Sep 2025 08:31:29 +0000
+Received: from ideasonboard.com (mob-5-90-56-182.net.vodafone.it [5.90.56.182])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F159E19E5;
+	Mon, 15 Sep 2025 10:30:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757925002;
+	bh=cBpTVNqPicaQ2318y2FR5BI1VBvytrRzeoBNsCGZJeQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n6ubdRhqEemjt7wZ/oCRovFq5wMyGe4T0jMUMJz1O4H8XzVXw3+C0ZiN6ZGfe2KMN
+	 8Q4OykSLzs2IoB5vo0lnFbMLSXtWgk2kYVE3NwN/LorCeC3IVY5KgnP2Swh763j3Gg
+	 sypj+7v6b6+9Mt+3TyX0nej8R+pI/jfQ/i6WlLY8=
+Date: Mon, 15 Sep 2025 10:31:14 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Dan Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/8] media: uapi: Introduce V4L2 extensible params
+Message-ID: <pmvm3rzynu6s6zaayg3gnjkdphcobuhwb6jwk3hpwpvkvl6e7a@l2ixrpgvatdx>
+References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+ <20250820-extensible-parameters-validation-v4-1-30fe5a99cb1f@ideasonboard.com>
+ <20250908073534.GD4105@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB7181:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d15b8ee-bdcb-4026-98c3-08ddf43224a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bTZZUWh0cGF2UUZTdTRGZVFVWHBYNGg4UWtFd05CbVRURDdSQ29abTFSWTFH?=
- =?utf-8?B?Zm54U2o0MlBjMnpYQ2FYNnhHd3FpUXlpOXNobG1pU0N2ckZsZENLQUNpK3Ro?=
- =?utf-8?B?Q1lCWHIwaXdoL25OZmJ6L2RobVVrMXQzYUUvK1YxeGpCcXRYckhwT0dkS0Vp?=
- =?utf-8?B?VGdvTDNoWStCLzVWQXdKL0RwdkhubWJXMzl6ZDdkczFaaGZOTGZuMjVLNk5w?=
- =?utf-8?B?QlRZdXBsaHg0YnkvNnh0eEQ1MFQzM3JqZlBYanNSVkMzbVFsbk5yMTVCa3hL?=
- =?utf-8?B?L1Y0a1BXS0szYlNVRForTHNJOTdTK2F3MEE2c1dldUpBampJZnF4K2RKQkRo?=
- =?utf-8?B?a1loTzlkams4RVRVbUF3bmNsV2dES3JpSDluT2Zqb3JYbmRkTkpoQ2hRcFRY?=
- =?utf-8?B?VjUzeUc5RVovZW9Xa1NXYWNsOXBtblV5ZGg3WElSUU5aWWR0MHVyekRmLzBr?=
- =?utf-8?B?QUxTYVBtOUppVGJlRFg2OTV5RFJ1ejUveUNBcXpVTmFiNWdOV2FGNW42UUll?=
- =?utf-8?B?RStjdlJyTXdySWY0UEFGMmtyb0dQVXExemVFZDhiUzAxSDRkTVpoYnRwdUJB?=
- =?utf-8?B?RkdNRG9pM3BkRmJyVUhab0grM3NyZnhvR05BRVNzMExBOUg0UTFtUktoTVVW?=
- =?utf-8?B?L1NSUGJ5QmJvb2k1eEFocjVFTUxnaXAvSGNrSjllRnQ0djgxMlNIWjZadnVq?=
- =?utf-8?B?R0Fha1Fpb2trVFhwd1ZOVlNxblhpRHFIY3dYZXByOVNVMjZEclVIR0M3Ni9w?=
- =?utf-8?B?TExEbDg2Z2Zoam12M3VSZTY0SUoweVJHVldvQzAra0FzNURMbllwc3dKVWF1?=
- =?utf-8?B?Yk15YWZySXNzKzVMVFUxSEJlSzcrT29mS0kvTFNEVkFiaHZSTEFXVHhlTjYy?=
- =?utf-8?B?T3pwMG9wcWVUZ05RQ1F4ODhzcWdVYW5kd3I5UjNoQzFiclk3bVVKVFpJVjE4?=
- =?utf-8?B?elJBWEYvMW5lQkJKTFd0cFYvSEhEUHdVVmdFcXNFZyt0WWNZTEE3ZC9qV1Bz?=
- =?utf-8?B?THRjSkw5K2R5ODAxVm1pNEFGS1ZJNzZBUHZ2SkpLdDhQNDJGWFg1dGZQSEww?=
- =?utf-8?B?MmUrYm93QVlDNzNxaklBNzNZZExKZjFJMStRTTFWQU1CL0dHL1lzUUNjUjF1?=
- =?utf-8?B?b0xjZ09vaGZ3WDh1Z0o5N1JwcTZiS3BlcDJIZWx2NWV1Si9wdTZZeXY5L211?=
- =?utf-8?B?WVQya3JHcXcwNjFWbVNDV0FHUWluNWRkTlo3MjV4TmtnYkd0WTh2dThxQ3V6?=
- =?utf-8?B?bUxjRTl6WXZPZmp4UlZlOE13dzlWb3JxWDVyTVlDY3VzMERkeSt1dWw2THZC?=
- =?utf-8?B?eVU3ZTN4NWhicENmbi9XOVpPZnVISkFGY0VVUlBTbkhWS1NySVlyOGk5akJV?=
- =?utf-8?B?S054U0FFdmJrNExvbFlSTkoyY3hKYkVPNXR0UEdRNXlKSXkyRTRvandGV05V?=
- =?utf-8?B?NUE1YWQ0QXdsclJQY0lYeEMzZ0JGOWk1RHIzV05DVVgyVlBLSWdUak1kVkp5?=
- =?utf-8?B?ck8vSXhNNlhBSitITkNlSkVwNDFQem9Qb0xveXVXaWNMT25hM1FTUFlUMzBz?=
- =?utf-8?B?NEhmTDkyYmVwOFE5VW90RElwK1M4WWxpRW1LOXU3Umx6WWM1NHZDZ3h5U1VN?=
- =?utf-8?B?M2V6SFhsMytpczJxU2FWd2llVVQ4cjJNWnI4NGpPMUY2ZVdNWXlLNzdqWjVj?=
- =?utf-8?B?ckh5czNXbGQ2ZEU3MWV3NG1FYlFZaWtkeWVKRE1HYXlWc2JMeEtWR2RNQ1RM?=
- =?utf-8?B?c2lTZ0gzN0JlVVZ4V05XZDdtYnFkemNQdGs3UE9KZGV5SDMxS2oyblhLeTJx?=
- =?utf-8?B?Q1NoQWRkSGxqWGhjQ2xsRko2Mk5ZSEpqOERPOVlkZXlXRW5pZzBNUG5ndnVH?=
- =?utf-8?B?R1EyWkRzSmZ1WU40R3VRWHZ0SkpPVjhWTURyOHRIVEQxbWEvclpwQ3IzYXRa?=
- =?utf-8?B?RVZlS0gyZEFoMlBheW5hbHZXRlljZlJLTExMaEs3TitEa3RIck9iWXpkZWFK?=
- =?utf-8?B?WUZvaUNqY053PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1RrWkRMckcyNUQzaVh4Y0cwSnF2dmtWUU9nSkxNRjJVUDZxZ3doYkJKR0VC?=
- =?utf-8?B?akNPTnY2N1VIZWJ1aWVNLzNNcG5PVkRnWVExYlhwWXlRV2wzTTRIMmpEb1Vr?=
- =?utf-8?B?T1lFRUY1bG9vb0xMRkEyZVN3VHZyUXNESElOZFNiOXc3OUtWd2oyTUQ3VmlU?=
- =?utf-8?B?K0tHU1VtcmYrUGhpYWJpSjFHV1l6eENpdE90VDBNTy9aWHFHbW5IQ3R3UEFN?=
- =?utf-8?B?R3BzcFZHQmRpZVB4bXQ5VGVLVTZKaHhvTUFYU1ZkbWtvZ1B2N3R2SXBKb3ZB?=
- =?utf-8?B?VUxwZjZHSytLT3MxSmt3VkxRbGdPcTJjb0I5YUtjdUlTUnpaUkhzMlF2aStP?=
- =?utf-8?B?NnJHc1E2aitBUk5jTWdMcUdYNVYvZzdVOUQ3cDhWUVJxb0V6dEZTMjJMZ21C?=
- =?utf-8?B?VG92b3NmK1hNUUErRnU2em9YbFV4WHNyWFRSMzRXeVkvVVpLTVF6VUoyelFS?=
- =?utf-8?B?K0Q1bnFQQ0JzZThEeDJ5bllUeHZid2hhT205NUhaT1RNaVI3VjBuYllJSkVm?=
- =?utf-8?B?VGp4Q3crMkROR3Ird0gwYnRnazlKUDRZUW1iMm1nUWdOSzF1TWdpODJJME5O?=
- =?utf-8?B?N3JLcGltTm9qVDNSUXNqN0hoaGV1YjVYRWRYTHg2SkVBSzZZYjdIRGVudU9W?=
- =?utf-8?B?aGNrOXo0U1o2Q05jUzZmL0pQdTNkQm80Y2MreFczbkIvSWhSSHhpRkZmT0F5?=
- =?utf-8?B?U3B1VDFtQkYzcFFjR0hZY0FCcFYwOVExTUNiR1Rxa2pnYzFvWlpMZ3pXT1dJ?=
- =?utf-8?B?eG1kQktncG85RlVBbCtZTnBEUDhXS2hzR3pFY0JtYkJYdnNRbWxaZGZNa1ZW?=
- =?utf-8?B?Y21PM0N3TVZDWWJRWFdqcm1ERXd6Qi8wVGNCUUxPZCtRYUhYRnhaakdMcWpo?=
- =?utf-8?B?YnFiaHdzaHJFRUJGSmxjQnhsWnJ3aGtTS1ZOVE52YlhDY2FNSGNtWWNFdVYz?=
- =?utf-8?B?cE9IcSs1dDRtd0FwZncrZkZUNEcwbWJWZEFMWDJiRzdUaTNZRHFJOXllOGpn?=
- =?utf-8?B?a3N5UWhBMXpjT0o5QVpEakZoWGdzVDNrYlJyNHlPbm1UQWFYemlBZlFvaTln?=
- =?utf-8?B?QXptM21Xa3BjYm1TaTl3VVlsYTA4UmJFMFpWeXk2dTdnbnBsVGtHYlAyRitP?=
- =?utf-8?B?dmZvOXVPQ1ZhenZWVURjSkVTbWIyQUtrekVHN0cvYXh2NVFpVVV6WnZwTUN4?=
- =?utf-8?B?eDhYcTJUUTlJUHo4QmhWOEJFWVJMNmI5UDQ0Z25QYmVoWlZUTkxZQTBmSWNH?=
- =?utf-8?B?bnZxRisrdnhMcWJzRTdIWG9ZNmxTcy9rOGlyTzJPTjZYeXU0V2Mvd2RMc1JD?=
- =?utf-8?B?ZUdkUCs4U212MXNVa255WlhsMVUyUm9NUzNxOGllbnNNR2xkcHJVTkxHU3or?=
- =?utf-8?B?Vk03NEIzNzExeW5FWXQwRmlvVC9jRng4THk2bkROSDNNWUdncWlhVk1lUS9w?=
- =?utf-8?B?WGo4OGwxTGlFSUFQOVA1TXdkU2NvWDA5QUx0NjdjenV5S2thQ0VPdmJJNTlJ?=
- =?utf-8?B?RHU1djhFTGVjRE9jcGp0MmVHS2pXTE9BN1N5MXVLNGh2MmdVdkdpVmNSMWIw?=
- =?utf-8?B?bjlYcCtBQzh3R3drMVM0cllMZ2MxNUYxaFROZjQwWFJKdEZwZTFlYmgxK0hy?=
- =?utf-8?B?Qk9wNmh0RVpSUitOanRlVko3SkU4UFJndDc3NVJDU2VWQy9RWGRxSGlzY21q?=
- =?utf-8?B?dXFjQS9hblAyWUs5cmRJL0g4Y0Q3M1paeDVrVm1SWThsdXlPSFUxVnh4Z215?=
- =?utf-8?B?bHNQZjYzZ2UxWGxLUTlKTDRBT09oQzI0VFpNczJJNy9zY3dPOU1kQThJMlFx?=
- =?utf-8?B?RE9sRlE3VFp1cmJWcUZhT2hndDliZkxRM0VITHdhQWQ0Y2xrTmdqT1BLMldt?=
- =?utf-8?B?SVVjTHZkeWFxQzludENvYkZ4RzdiZnV2bVNqQWFoUkl5QkZaY011UlpiSnMx?=
- =?utf-8?B?ZE44eGhvaUZxS29rMzZXUStNZmcrTERXUXI3S1FiQ0RKSTk1NkNlUEQ4UWs4?=
- =?utf-8?B?aHJFT2JaWWpHRnIyT1Z4ZU1JazgrWGJKR2t0Wjk2NzJLZVBLNjAwR25FVU8v?=
- =?utf-8?B?dnNIWFZNNGs0bDRodGdZTTFsdThNWTQ4N1pLZkUwb3VMelRkeWZnbTI3VHFE?=
- =?utf-8?Q?H+wAu+M408yINbtgyooKt78rJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d15b8ee-bdcb-4026-98c3-08ddf43224a5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 08:30:35.8333
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zclcZ5km4SW1ciS7j2a1Rxv4N5XK/jkSOC4qm+HXFHDD8onpBLX2hZYNvKPAte8swL/EEdsn/WkudUHz36Hemw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7181
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250908073534.GD4105@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_013042_061463_EF630CD3 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20250915_013126_368060_C1ED651A 
+X-CRM114-Status: GOOD (  61.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,174 +71,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PLL clocks on NXP i.MX95 SoCs support Spread Spectrum (SS).
-This patch introduces scmi_clk_imx_set_spread_spectrum to pass SS
-configuration to the SCMI firmware, which handles the actual
-implementation.
+Hi Laurent
 
-To ensure this feature is only enabled on NXP platforms,
-scmi_clk_imx_extended_config_oem is added. Since SS is only applicable
-to PLL clocks, config_oem_get is used to verify SS support for a given
-clock.
+On Mon, Sep 08, 2025 at 09:35:34AM +0200, Laurent Pinchart wrote:
+> Hi Jacopo,
+>
+> Thank you for the patch.
+>
+> On Wed, Aug 20, 2025 at 02:58:09PM +0200, Jacopo Mondi wrote:
+> > Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
+>
+> I expect more ISP-related helpers, such as extensible statistics
+> formats, and more. How about already moving this to v4l2-isp.h ?
+>
+> > The header defines two types that all drivers that use the extensible
+> > parameters format for ISP configuration shall use to build their own
+> > format versions.
+> >
+> > The newly introduce type v4l2_params_block represent the
+>
+> "The v4l2_params_block structure represents the"
+>
+> except the structure name is v4l2_params_block_header.
+>
+> > header to be prepend to each ISP configuration block and the
+> > v4l2_params_buffer type represent the base type for the configuration
+> > parameters buffer.
+> >
+> > The v4l2_params_buffer represents the container for the ISP
+> > configuration data block. The generic type is defined with a 0-sized
+> > data block that specific ISP implementation shall properly size
+> > according to their capabilities.
+> >
+> > [Add v4l2_params_buffer_size()]
+> > Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > ---
+> >  MAINTAINERS                                       |   6 +
+> >  include/uapi/linux/media/v4l2-extensible-params.h | 146 ++++++++++++++++++++++
+> >  2 files changed, 152 insertions(+)
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index fe168477caa45799dfe07de2f54de6d6a1ce0615..67216d1e92d7ac81617bb3c4329e4096aa205706 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -26380,6 +26380,12 @@ F:	drivers/media/i2c/vd55g1.c
+> >  F:	drivers/media/i2c/vd56g3.c
+> >  F:	drivers/media/i2c/vgxy61.c
+> >
+> > +V4L2 EXTENSIBLE PARAMETERS FORMAT
+> > +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > +L:	linux-media@vger.kernel.org
+> > +S:	Maintained
+> > +F:	include/uapi/linux/media/v4l2-extensible-params.h
+> > +
+> >  VF610 NAND DRIVER
+> >  M:	Stefan Agner <stefan@agner.ch>
+> >  L:	linux-mtd@lists.infradead.org
+> > diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..aca643f505f2705eeca7337f0dd182bcfd1ea60d
+> > --- /dev/null
+> > +++ b/include/uapi/linux/media/v4l2-extensible-params.h
+> > @@ -0,0 +1,146 @@
+> > +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
+>
+> Why the MIT license ? And why GPL-2.0+ instead of GPL-2.0 ?
+>
 
-i.MX95 SCMI firmware Spread Spectrum extConfigValue definition is as
-below, no modulation method because firmware forces to use down spread.
-	 extConfigValue[7:0]   - spread percentage (%)
-	 extConfigValue[23:8]  - Modulation Frequency (KHz)
-	 extConfigValue[24]    - Enable/Disable
-	 extConfigValue[31:25] - Reserved
+Blindly copied from the rkisp1 header. I'll use GPL-2.0
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/clk-scmi.c        | 64 ++++++++++++++++++++++++++++++++++++++++---
- include/linux/scmi_protocol.h |  5 ++++
- 2 files changed, 65 insertions(+), 4 deletions(-)
+> > +/*
+> > + * Video4Linux2 extensible configuration parameters base types
+> > + *
+> > + * Copyright (C) 2025 Ideas On Board Oy
+> > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > + */
+> > +
+> > +#ifndef _UAPI_V4L2_PARAMS_H_
+> > +#define _UAPI_V4L2_PARAMS_H_
+> > +
+> > +#include <linux/stddef.h>
+> > +#include <linux/types.h>
+> > +
+> > +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+> > +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+> > +
+> > +/*
+> > + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag.
+> > + *
+> > + * Platform-specific flags should be defined as:
+> > + * #define PLATFORM_SPECIFIC_FLAG0     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(0))
+> > + * #define PLATFORM_SPECIFIC_FLAG1     ((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(1))
+> > + */
+> > +#define V4L2_PARAMS_FL_PLATFORM_FLAGS(n)       ((n) + 8)
+>
+> s/PLATFORM/DRIVER/
+>
+> > +
+> > +/**
+> > + * struct v4l2_params_block_header - V4L2 extensible parameters block header
+> > + *
+> > + * This structure represents the common part of all the ISP configuration
+> > + * blocks. Each parameters block shall embed an instance of this structure type
+> > + * as its first member, followed by the block-specific configuration data. The
+> > + * driver inspects this common header to discern the block type and its size and
+> > + * properly handle the block content by casting it to the correct block-specific
+> > + * type.
+>
+> The last sentence is not relevant for the userspace API.
+>
+> > + *
+> > + * The @type field is one of the values enumerated by each platform-specific ISP
+> > + * block types which specifies how the data should be interpreted by the driver.
+> > + * The @size field specifies the size of the parameters block and is used by the
+> > + * driver for validation purposes.
+>
+>  * The @type field is an ISP driver-specific value that identifies the block type.
+>  * The @size field specifies the size of the parameters block.
+>
+> but that seems to duplicate the documentation of the fields below. I'd
+> move the field documentation up, and then only add additional paragraphs
+> when they contain extra information.
+>
+> > + *
+> > + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
+> > + * platform-specific flags specified by the platform-specific header.
+>
+> It's not platform-specific but ISP driver-specific (or you could just
+> write driver-specific).
+>
+> > + *
+> > + * Documentation of the platform-specific flags handling is specified by the
+> > + * platform-specific block header type:
+> > + *
+> > + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
+> > + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
+>
+> I wouldn't mention specific platforms here, that won't really scale.
+>
+> > + *
+> > + * Userspace is responsible for correctly populating the parameters block header
+> > + * fields (@type, @flags and @size) and the block-specific parameters.
+>
+> This is the kind of information I think I would expect in
+> Documentation/userspace-api/media/v4l/extensible-parameters.rst more
+> than here. We usually keep documentation minimal in header files for the
+> userspace API, and document the behaviour in .rst files. This being
+> said, if you think having more documentation in the headers is better,
+> that could work too.
+>
 
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index d2408403283fc72f0cf902e65f4c08bcbc7b4b0b..bb5e20dab18e92932ab4b99192b496e0c4d96417 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/module.h>
- #include <linux/scmi_protocol.h>
-+#include <linux/scmi_imx_protocol.h>
- #include <asm/div64.h>
- 
- #define NOT_ATOMIC	false
-@@ -23,6 +24,7 @@ enum scmi_clk_feats {
- 	SCMI_CLK_RATE_CTRL_SUPPORTED,
- 	SCMI_CLK_PARENT_CTRL_SUPPORTED,
- 	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_IMX_SSC_SUPPORTED,
- 	SCMI_CLK_FEATS_COUNT
- };
- 
-@@ -98,6 +100,35 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
- 	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
- }
- 
-+static int scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-+					    struct clk_spread_spectrum *clk_ss)
-+{
-+	struct scmi_clk *clk = to_scmi_clk(hw);
-+	int ret;
-+	u32 val;
-+
-+	/*
-+	 * extConfigValue[7:0]   - spread percentage (%)
-+	 * extConfigValue[23:8]  - Modulation Frequency
-+	 * extConfigValue[24]    - Enable/Disable
-+	 * extConfigValue[31:25] - Reserved
-+	 */
-+	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, clk_ss->spread_bp / 10000);
-+	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, clk_ss->modfreq_hz);
-+	if (clk_ss->method != CLK_SSC_NO_SPREAD)
-+		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-+	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 val, false);
-+	if (ret)
-+		dev_warn(clk->dev,
-+			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-+			 clk_ss->modfreq_hz, clk_ss->spread_bp, clk_ss->method,
-+			 clk->id);
-+
-+	return ret;
-+}
-+
- static u8 scmi_clk_get_parent(struct clk_hw *hw)
- {
- 	struct scmi_clk *clk = to_scmi_clk(hw);
-@@ -316,11 +347,33 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
- 	}
- 
-+	if (feats_key & BIT(SCMI_CLK_IMX_SSC_SUPPORTED))
-+		ops->set_spread_spectrum = scmi_clk_imx_set_spread_spectrum;
-+
- 	return ops;
- }
- 
-+static void scmi_clk_imx_extended_config_oem(const struct scmi_handle *handle,
-+					     struct scmi_clk *sclk,
-+					     unsigned int *feats_key)
-+{
-+	int ret;
-+	u32 val;
-+
-+	if (strcmp(handle->version->vendor_id, SCMI_IMX_VENDOR) ||
-+	    strcmp(handle->version->sub_vendor_id, SCMI_IMX_SUBVENDOR))
-+		return;
-+
-+	ret = scmi_proto_clk_ops->config_oem_get(sclk->ph, sclk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 &val, NULL, false);
-+	if (!ret)
-+		*feats_key |= BIT(SCMI_CLK_IMX_SSC_SUPPORTED);
-+}
-+
- /**
-  * scmi_clk_ops_select() - Select a proper set of clock operations
-+ * @handle: A reference to an SCMI entity
-  * @sclk: A reference to an SCMI clock descriptor
-  * @atomic_capable: A flag to indicate if atomic mode is supported by the
-  *		    transport
-@@ -345,8 +398,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
-  *	   NULL otherwise.
-  */
- static const struct clk_ops *
--scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
--		    unsigned int atomic_threshold_us,
-+scmi_clk_ops_select(const struct scmi_handle *handle, struct scmi_clk *sclk,
-+		    bool atomic_capable, unsigned int atomic_threshold_us,
- 		    const struct clk_ops **clk_ops_db, size_t db_size)
- {
- 	const struct scmi_clock_info *ci = sclk->info;
-@@ -370,9 +423,12 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	if (!ci->parent_ctrl_forbidden)
- 		feats_key |= BIT(SCMI_CLK_PARENT_CTRL_SUPPORTED);
- 
--	if (ci->extended_config)
-+	if (ci->extended_config) {
- 		feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
- 
-+		scmi_clk_imx_extended_config_oem(handle, sclk, &feats_key);
-+	}
-+
- 	if (WARN_ON(feats_key >= db_size))
- 		return NULL;
- 
-@@ -459,7 +515,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		 * to avoid sharing the devm_ allocated clk_ops between multiple
- 		 * SCMI clk driver instances.
- 		 */
--		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-+		scmi_ops = scmi_clk_ops_select(handle, sclk, transport_is_atomic,
- 					       atomic_threshold_us,
- 					       scmi_clk_ops_db,
- 					       ARRAY_SIZE(scmi_clk_ops_db));
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f..37f422b4b1ef2af2b4231a1677161aa24e07d0e2 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
- 	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
- 	SCMI_CLOCK_CFG_PHASE,
- 	SCMI_CLOCK_CFG_OEM_START = 0x80,
-+	SCMI_CLOCK_CFG_IMX_SSC = 0x80,
- 	SCMI_CLOCK_CFG_OEM_END = 0xFF,
- };
- 
-+#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-+#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-+#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-+
- /**
-  * struct scmi_clk_proto_ops - represents the various operations provided
-  *	by SCMI Clock Protocol
+No worries, I wasn't sure how much documentation is the right amount
+of documentation. I'm fine reducing it.
 
--- 
-2.37.1
+> > + *
+> > + * @type: The parameters block type (platform-specific)
+> > + * @flags: A bitmask of block flags (platform-specific)
+> > + * @size: Size (in bytes) of the parameters block, including this header
+> > + */
+> > +struct v4l2_params_block_header {
+> > +	__u16 type;
+> > +	__u16 flags;
+> > +	__u32 size;
+> > +} __attribute__((aligned(8)));
+> > +
+> > +/**
+> > + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
+> > + *
+> > + * Users of the v4l2 extensible parameters will have differing sized data arrays
+> > + * depending on their specific parameter buffers. Drivers and userspace will
+> > + * need to be able to calculate the appropriate size of the struct to
+> > + * accommodate all ISP configuration blocks provided by the platform.
+> > + * This macro provides a convenient tool for the calculation.
+> > + *
+> > + * Each driver shall provide a definition of their extensible parameters
+> > + * implementation data buffer size. As an example:
+> > + *
+> > + * #define PLATFORM_BLOCKS_MAX_SIZE		\
+> > + *	sizeof(platform_block_0)	+	\
+> > + *	sizeof(platform_block_1)
+> > + *
+> > + * #define PLATFORM_BUFFER_SIZE			\
+> > + *	v4l2_params_buffer_size(PLATFORM_BLOCKS_MAX_SIZE)
+> > + *
+> > + * Drivers are then responsible for allocating buffers of the proper size
+> > + * by assigning PLATFORM_BUFFER_SIZE to the per-plane size of the videobuf2
+> > + * .queue_setup() operation and userspace shall use PLATFORM_BUFFER_SIZE
+> > + * when populating the ISP configuration data buffer.
+>
+> Most if not all of this also seems to be information for drivers, not
+> for userspace. I doesn't belong in the UAPI documentation.
+>
+> > + *
+> > + * @max_params_size: The total size of the ISP configuration blocks
+> > + */
+> > +#define v4l2_params_buffer_size(max_params_size) \
+> > +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
+> > +
+> > +/**
+> > + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
+> > + *
+> > + * This struct contains the configuration parameters of the ISP algorithms,
+> > + * serialized by userspace into a data buffer. Each configuration parameter
+> > + * block is represented by a block-specific structure which contains a
+> > + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
+> > + * the @data buffer with configuration parameters for the blocks that it intends
+> > + * to configure. As a consequence, the data buffer effective size changes
+> > + * according to the number of ISP blocks that userspace intends to configure and
+> > + * is set by userspace in the @data_size field.
+> > + *
+> > + * The parameters buffer is versioned by the @version field to allow modifying
+> > + * and extending its definition. Userspace shall populate the @version field to
+> > + * inform the driver about the version it intends to use. The driver will parse
+> > + * and handle the @data buffer according to the data layout specific to the
+> > + * indicated version and return an error if the desired version is not
+> > + * supported.
+>
+> How does userspace know which versions are supported ?
+>
 
+Good question. There are no negotiation/discoverability uAPI at the
+moment.
+
+> > + *
+> > + * For each ISP block that userspace wants to configure, a block-specific
+> > + * structure is appended to the @data buffer, one after the other without gaps
+> > + * in between nor overlaps. Userspace shall populate the @data_size field with
+> > + * the effective size, in bytes, of the @data buffer.
+> > + *
+> > + * Drivers shall take care of properly sizing of the extensible parameters
+> > + * buffer @data array. The v4l2_params_buffer type is defined with a
+> > + * flexible-array-member at the end, which resolves to a size of 0 bytes when
+> > + * inspected with sizeof(struct v4l2_params_buffer). This of course is not
+> > + * suitable for neither buffer allocation in the kernel driver nor for proper
+> > + * handling in userspace of the @data buffer it has to populate.
+> > + *
+> > + * Drivers using this type in their userspace API definition are responsible
+> > + * for providing the exact definition of the @data buffer size using the
+> > + * v4l2_params_buffer_size() macro. The size shall be used
+> > + * by the driver for buffers allocation and by userspace for populating the
+> > + * @data buffer before queueing it to the driver
+>
+> Most of those two paragraphs are driver documentation too.
+>
+> > + *
+> > + * Drivers that were already using extensible-parameters before the introduction
+> > + * of this file define their own type-convertible implementation of this
+> > + * type, see:
+> > + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
+> > + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
+>
+> Drop this too.
+>
+
+Ack.
+
+Thanks
+   j
+
+> > + *
+> > + * @version: The parameters buffer version (platform-specific)
+> > + * @data_size: The configuration data effective size, excluding this header
+> > + * @data: The configuration data
+> > + */
+> > +struct v4l2_params_buffer {
+> > +	__u32 version;
+> > +	__u32 data_size;
+> > +	__u8 data[] __counted_by(data_size);
+> > +};
+> > +
+> > +#endif /* _UAPI_V4L2_PARAMS_H_ */
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
+>
 
