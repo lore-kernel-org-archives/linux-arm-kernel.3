@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC28CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 23:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95544CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 23:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=; b=2IkfmKqYF6TyApt6knllrhTU12
-	qd4Ge6gRahY0IAT0Yf6gYzQ6414rA5ax6qpMS4kXMuWcLxgWLAlxTIEz16XaFfcsdNPQF6ymAcBjK
-	Bvmq3pyE09mmhrXbwg4OwOtBdhSiVUjFtPxN4/j4hTbbqfE3jtcKAxV+Ty07OerZb2vMxDeuG2Tx7
-	D311ETDUgDQLMvmTboENsfNbL90StMMxn7096lVsRaJceu7NDGYnHNW7UQiGmEI0aitufIEHosiOn
-	UJCaOde34BB8Gv/Sq32lm2roZ8o3ahoYtqWAHP5dofcRkPnZRom2ZhSSJBhD/VKMo7xOw6gm7Q+WC
-	AK2X8gDw==;
+	bh=lgsUeyln5jHJQtg6nGIuuJa3omU5ijeYPDC8tIR2gz0=; b=b3slyvObQfzIj0Vtvk2QBLAb4j
+	V3DqOGZf+3R9JT0iCWjyuvC13THAd3Ql52YpVvnFkcwelfm4fd23oZPcsrR7rGVBKwupdOHkfxTA5
+	O2y0P2Cq0dTLwQeXHRcOTMs9h8wx6tgPOjlpRRjHsncqQpJdXfDpNS/CKhI7SY9+dJ0AQ8MOJk59Q
+	DPtL+jBlPnB+hYuwOzsMj/6FOAHjyF02OhNt+1MvCMezGXsRaxZDkFoWMChLSVVu390C2yleUEN02
+	zYg/voHHRP2vPWf9RinZbmqBYB1YxuJQCetICawNscJ8MB5wPtopFX4+k7N0HeFPEnCUY4Jfzjwzh
+	Bw7XqSjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyISq-00000005rvH-2gGx;
-	Mon, 15 Sep 2025 23:18:28 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uyIVc-00000005sO0-33HX;
+	Mon, 15 Sep 2025 23:21:20 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyISo-00000005ruW-0ZHw
+	id 1uyIVZ-00000005sNB-3rPL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 23:18:27 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-777ea9fa8fdso1314863b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 16:18:25 -0700 (PDT)
+	Mon, 15 Sep 2025 23:21:19 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2445824dc27so43535385ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 16:21:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757978305; x=1758583105; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=;
-        b=U4iFA1ZTJ8cX+L9GyAvnfURcLCZxLp7isFaC1fHF854UB0jnKSoTJkm9GzolaVDgGH
-         gVlUDlDMJ+kpvhT29dbGhQ3trOsWcIxkYH8jLu+zqB/VOPseC+IpS3L1Wvvd9mqeJKM1
-         eEIAoNTS1+g6UDStEDCXkZurJLEyP9TweLJ794Cbjw/8bAWwADEMh4a8/9xSTRrshUjY
-         ucpw4Q8n38q1CkhKz+rfySgfP9ta6CSk7+CFVLmzRi53F2sZdWJyvu9o5Q7QfiS0YZ43
-         w5Za3XCUITvbkA4PNFk1yS3mTH4NdTkzbWDJsf+GG6nIu5TsTqV2MOOtaLOIUg6wQJw5
-         4Naw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1757978477; x=1758583277; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lgsUeyln5jHJQtg6nGIuuJa3omU5ijeYPDC8tIR2gz0=;
+        b=zLXysYEVtcM+PY9h6ZHpt926fJLf4oC0LFi2qJCt3AURSwudReB+qGzsGW4hvYAgns
+         fLrIXodQmj0E0QePUzsLvXBWLe0gB5iowr+Bgp6YdOGiqO+XK2Z5J2Wo7dKp7OQpPK+n
+         pMdv83tYxbH/2gKWw92NjZoox1361fjjfbV9TEMun5rGbiwUCEOKQPsrIaySrieVACac
+         svW1GGXGbAubJV+/YSOpYr0mZT3p74CUtDqnSmCXD8/KI0a+0EmJFhwMWr63sao4Ol1Z
+         rl6DfwJiDjLjd4sSSVM91ycMFPgiBokduaAU242A86TTLBiHpjcgUIJGyJKrSA73Eeue
+         e1bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757978305; x=1758583105;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=;
-        b=rLsSib+8YzwoJyNQwXK7BRlT3LQy3cOaRYA6VdZEZSCDGx2ERMi40F0mK4edFnL/A3
-         wkQLT55Ax9YCoFGq4Yy1VMQ4rRjRpTe3iP0UMQIjx4aNg4RllJvT/sWTK//NtuDqCguH
-         9A7ASXLNtd8BuZDzmzjgyVOAHmxPc49xchPidQODbK4Pi1PPDO3OF4q0yHeuq6lUdzkh
-         4HqfW8T9S2DM0aNziLTwv0+yCYNsjnySNiWKZWrqdk8XcQAMcEpX4vJ2RKOgeI8TatIY
-         vTTB5B1hQedzsvHoqg7Usz3ca+MBQScvJdm5fdpzZR072zGDs7BhHr80lsjoq0miOuio
-         EM6g==
-X-Forwarded-Encrypted: i=1; AJvYcCWZMKef/GKbnLxY9SxZU2Tjybo4eFY9mH02xxCC9rkNH31wP3KZzWkKJ3HqPASgMMjoyKF8T0Kj9aU12jNtb0x9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0BYNcnZ6lM5TMmuO8pdNrrkRS1vxVeov8nqdruZnezL5gtmpm
-	HmWxEyoof9BgHVDfwkVjgbe+TmQNwci7vu/9hlF6osBrJr9QBZOsdYjK
-X-Gm-Gg: ASbGncvEqSNgqFSeUkARrsgTe1Q5JINUP1b+SQyeFXABWyTAjImzI5a8V/sjIfdYJKX
-	ItNHjPJopLAZilG4/EusglXDNMQnd1uWrPRzullOyE0gOr7NR/C+V8mIvt0pWd7clX0mzVc6jzb
-	ltxt+EUwz1yaqrsMaEGK2FhCKJyzm9Ul9aIla0O9BevQ7NRUemYx8N80TFsL9OKOIx615XNl9Bh
-	xUWjvYbDis6WtqUlT3QhtuN8quBHpAlvOAOTH5SImZPjqWvJWnj/UOJ45+7OyXvE6zjxML69uuw
-	m0VpJZgP0SgDbpEIqq2Bq73KobvKm8MPGqAWRMLRpF2QVUvvJDK+k02dd3niz7PQgkqwT09+BI1
-	KI7RAH8l2dIBnUZutyCFSudKUICVDy77fuTySBEPGXKJak3frE3ZqZw9XWKDG
-X-Google-Smtp-Source: AGHT+IEeWggDjh2aRCpx1suFPoqcxzvxrWOO8w9b7MPKM4IOfFG1MlxM/2ym7uq0iEUOJ01ZQNukyQ==
-X-Received: by 2002:a05:6a20:6a25:b0:247:55a7:695a with SMTP id adf61e73a8af0-266ed65b2b6mr265970637.15.1757978305237;
-        Mon, 15 Sep 2025 16:18:25 -0700 (PDT)
-Received: from [192.168.1.105] ([59.188.211.98])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ea0859e20sm324333a91.0.2025.09.15.16.18.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Sep 2025 16:18:24 -0700 (PDT)
-Message-ID: <2fb684e0-449b-4377-81a5-5be03cdf3e6c@gmail.com>
-Date: Tue, 16 Sep 2025 07:18:20 +0800
+        d=1e100.net; s=20230601; t=1757978477; x=1758583277;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lgsUeyln5jHJQtg6nGIuuJa3omU5ijeYPDC8tIR2gz0=;
+        b=K4342lPgZkCBfCcF7jRP7mganfserp87xqXqK8q8RYP31AI/ab+7rY1ODQBPJ/lw2k
+         FwZ4349NyWQQ1SeZxrT0GWPPdZ6+yQ6HaOMxS3Yr9z3LayUt1gCotbWT3/Nmnt97PokO
+         +tdLoWQzoACK00Zu1plaxQY0NclQegGCm/Gy9C7P1q7wi6bklMeEH3B6JGRBhp3kUdEn
+         z3EQdTM9wsenqkaDr5snUwxHp37uWkCO8sDmxvL4vb91MQNmCCEiyK9OQp1Q0hfADbPf
+         wwyPwk5tTAzwRXaLAarmIQxxyt4hIqB9KU4p4COsZQN5ITawl1rQTVEHpYxUfYMMcR8u
+         b26Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVVE7mwT5ot/d4yOKtoxGJ8VbaPyLNh6X1mwqwmA2q+pdeQ/SikmvAS9QpayBMrmN5IxnlBhUxAqh8in3w3GA88@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2Qdqa4ESfGHdyZMeox2W0LQBCjMl10YQgfP7RC4TMwVPO2ff+
+	qxcK3wJK8EReEqRF9EhPIj9UoPpUGrmHl/jpGO5XaHlY6cFB8zJ/o7KPDKts+w8rXBc=
+X-Gm-Gg: ASbGncvhkBjcFnysIbf70U38OeO7Ffyf0KvPmPNMa/Bs/fVJrgUqKqfZdniTnK3gb+W
+	V0ppd/wcpwCKoG1GI+5BhXPmmwe7Jdg7gRrpKfjQKNLmwP7v9h9YUfJ+jOzk8lRa2hbPo7NEUN5
+	oPTVhrbW6NQHYr5d7PNHjBpi+/pytIcapsbZSjK5bew5TYWk4vYmnQ/0OfW73WCNVMFmTtS7BHw
+	L/cUBwFLUECsh5GgESDCUAyoXrairpZcLXrFY3TYqkhWRajqg2WVheFXnxWHHMzOPisw11vlA11
+	jiA3A6JiVSLsazb5omHXB7UGPgYlG7c/qEteuedHptco0DvB2JCNL2UO6cisRYCXw2Bs5gE6nWz
+	JMYXsfrYsg1DGybrGxbshQockEwvl8t0=
+X-Google-Smtp-Source: AGHT+IEMv8jBnfBFpzOj2tDIE4OBC2iZqPmVd1ibS2mAaD25rPyFSdy7EKxeRUd8V1wYJ+kr0edLjQ==
+X-Received: by 2002:a17:903:3888:b0:24c:cc32:788b with SMTP id d9443c01a7336-25d243e7b4cmr166970205ad.3.1757978476693;
+        Mon, 15 Sep 2025 16:21:16 -0700 (PDT)
+Received: from localhost ([71.212.208.158])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77607b17c78sm14543629b3a.50.2025.09.15.16.21.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 16:21:16 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Paul Walmsley <paul@pwsan.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Sudeep Holla <sudeep.holla@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
+References: <20250710-arm32-clk-round-rate-v1-0-a9146b77aca9@redhat.com>
+Subject: Re: (subset) [PATCH 0/3] ARM: convert from clk round_rate() to
+ determine_rate()
+Message-Id: <175797847576.2104956.7606973558357095186.b4-ty@baylibre.com>
+Date: Mon, 15 Sep 2025 16:21:15 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: spmi: Add Apple A11 and T2 compatible
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Sasha Finkelstein <fnkl.kernel@gmail.com>,
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Sven Peter <sven@kernel.org>, linux-kernel@vger.kernel.org,
- Janne Grunau <j@jannau.net>, Stephen Boyd <sboyd@kernel.org>,
- Neal Gompa <neal@gompa.dev>, devicetree@vger.kernel.org,
- asahi@lists.linux.dev
-References: <20250915-t8015-spmi-v4-0-758620b5f2ae@gmail.com>
- <20250915-t8015-spmi-v4-1-758620b5f2ae@gmail.com>
- <175794440092.2724212.9818605948916059174.robh@kernel.org>
-Content-Language: en-US
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <175794440092.2724212.9818605948916059174.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3-dev-d7477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_161826_181707_6951C73F 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250915_162118_198300_2E2A8057 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +109,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Rob Herring (Arm) 於 2025/9/15 晚上9:53 寫道:
-> On Mon, 15 Sep 2025 09:52:24 +0800, Nick Chan wrote:
->> The SPMI bus found on Apple A11 and T2 SoCs are compatible with the
->> existing driver for t8103's spmi so add their compatibles.
->>
->> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
->> ---
->>  Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 5 ++++-
->>  1 file changed, 4 insertions(+), 1 deletion(-)
->>
->
-> Please add Acked-by/Reviewed-by tags when posting new versions. However,
-> there's no need to repost patches *only* to add the tags. The upstream
-> maintainer will do that for acks received on the version they apply.
->
-> If a tag was not added on purpose, please state why and what changed.
+On Thu, 10 Jul 2025 19:42:15 -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated in the clk framework in favor
+> of the determine_rate() clk ops, so let's go ahead and convert the
+> drivers in the arm32 subsystem using the Coccinelle semantic patch
+> posted below. I did a few minor cosmetic cleanups of the code in a
+> few cases.
+> 
+> Coccinelle semantic patch:
+> 
+> [...]
 
-As stated in cover letter, the tags are dropped in v4 because the dt-binding patch has changed
-significantly from v2. (really should be dropped in v3 though but that did not happen). And this
-is actually a different patch from v3, the only difference is a newline is no longer removed.
+Applied, thanks!
 
+[1/3] ARM: OMAP1: clock: convert from round_rate() to determine_rate()
+      commit: e2c0510935c5485a2dacfd13af3958536b9d138b
+[2/3] ARM: OMAP2+: clock: convert from round_rate() to determine_rate()
+      commit: bb676996ed583464504123721195e98a708fbba9
 
->
-> Missing tags:
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->
->
->
->
-Best,
-Nick Chan
+Best regards,
+-- 
+Kevin Hilman <khilman@baylibre.com>
+
 
