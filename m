@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F22CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 20:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A32CCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 21:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1P79r8EPY6QOOutvqCLk1HTvnVsg9hrJyQeTZ0MuLqo=; b=eyQpH9/TtBJb4E85vkdrhI3ObK
-	2XYETyxfJ4rUzDeqIo7LqwruFnntKycUHLqYOHXW5uS882qXZpku4/fwO/OQH7iXQx9MkuT41W+/Z
-	Gk3SV1q5UXR6SeA0OqW2vJ5sK98C/HYmp0/OFFrLYsDqVkj7H1U8iDsxTXIxWz5WlPogcnTCjjFiv
-	N/0xXW677Jnyfr9W3Znp12jhJlfPaB4ZtaDSXy/ew7e4u4wzh5V72ibFEmpPsP7dfJ1ZvQbqrK3W4
-	NWNTCIsR30T35dP484x4sedCtRoLAQJx1DdCtvds1iIbwvxovPB/8W/JCVJwIoI/eRz5xWQtU+i8z
-	JhGkLuug==;
+	bh=N4fsZlqgDn0s+Mqns2+SCWJmqdzbbo3yrekY+LSsELk=; b=mdU9mOuUBdGndq4SzhkxQjgCed
+	nueRu1bBkA9bRz9r4xaOfbnvH/xIURUgAls5tWp+gV4ldEiaEtUCc5z0ux52+7muuOKtjtYSv+ZFC
+	xVq81jXDO1qzN+1JH5UhcVDNnLZ9GNxfakY+RXiIG2zljqWX6+BdRWCSzSSNIjPiwr2REDf+T47sK
+	sfmzIQjvpZBve/kjnklqMz/VSGC2DS9YqZ58QjjL4NVCZCz9HskYsFU1Div1yeVVPZvR3OmcdkZmN
+	Z2fGpHmyR+hM4rPw0HFR9GF9Lj1qaeeh1kS+Urw4AcvI0IK25DBpG6CWn3qGrARzEJr6qh9W81bUG
+	Qdt+9mzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyFx0-00000005cXV-0tGD;
-	Mon, 15 Sep 2025 20:37:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyGKX-00000005eOm-3dpO;
+	Mon, 15 Sep 2025 21:01:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyFwy-00000005cX6-3GQI
+	id 1uyGKU-00000005eOF-1DVh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 20:37:25 +0000
+	Mon, 15 Sep 2025 21:01:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2854F43F1F;
-	Mon, 15 Sep 2025 20:37:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55DECC4CEF1;
-	Mon, 15 Sep 2025 20:37:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0761D41B70;
+	Mon, 15 Sep 2025 21:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC465C4CEF1;
+	Mon, 15 Sep 2025 21:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757968644;
-	bh=EZeBJvxuLKJ6o0huTr1hGLlMz25RgDl+itYYX5CuQyk=;
+	s=k20201202; t=1757970100;
+	bh=xX1+Xzo/jnAGqPyi6iInTfds1bV2ZowlmfSy9qbmmH0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q4vNRxSBfLX0vyLgaLf/3j9mJiqey8PykJkILYvLEoqn0LZbbxXwGFLLKAlhfGKfH
-	 viNEaSwB8afu1N/ESddNalwYBT2715MBF7An4urp8GWogV5Ymx9JiEs7tC9yfReVpr
-	 GJS/4SNShNH4IsNDet+7S9hEkPBbJ/BB87UWhGhNiMxxQnl+Bf0I1C5eJXEsx7IDB2
-	 wKFFB+u/eUa9nSkm34wKRDgOZIAHT45Z+SzZyFfQ7qO94myjMtLG0Qzgc/dzeE4ikc
-	 tolEkkaVBrMMhGeJBiHx6eN9TeGal7RL7SPvwL5ToJwLFAUgaX/1s53c9HwTLGg1so
-	 XmaexXo/kkwqQ==
-Date: Mon, 15 Sep 2025 21:37:17 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	b=hJkfs+JIKfs5Jf8AGEvLxosKPDC29qQYBhJpbj/7gDmI0w1JtX6lFdxC+EqxUjiur
+	 w4ConOZpT7DRJzawNlbc3+1s3G5WHKlGGp7v8MFu8uGlUFa+5BKydGw7uGCWqNuGgb
+	 tXKpxDwfkKoyjICqOIdo3nyAcumGzXLDH/JKwAE0nOzo3We8LIHST/uCQe8nQhy7YJ
+	 wXTj7Cye5eguUl8fUndI318DYAo0jjPL2GQMR3S7oAaB/psB/HgcKuJ/hfu7IOtRo8
+	 4t5Rv9dj7yHIBRs8G2lK9VE93Sso1E1T/NitRsT5w0Pv6RfHMPRazZNP0hFSybkkZJ
+	 7X33ctnoqRx0w==
+Date: Mon, 15 Sep 2025 16:01:39 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: =?iso-8859-1?Q?J=2E_Neusch=E4fer?= <j.ne@posteo.net>
+Cc: Conor Dooley <conor+dt@kernel.org>, linux-sunxi@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+	Samuel Holland <samuel@sholland.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 0/6] support FEAT_LSUI and apply it on futex
- atomic ops
-Message-ID: <aMh4_XzQqG2gZU_y@willie-the-truck>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <aMLmNnehYX6gqEIf@willie-the-truck>
- <aML3Ps1xeTCVCdTn@arm.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: sunxi: Add Amediatech X96Q
+Message-ID: <175797009935.3384023.4009992725320048640.robh@kernel.org>
+References: <20250912-x96q-v1-0-8471daaf39db@posteo.net>
+ <20250912-x96q-v1-1-8471daaf39db@posteo.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <aML3Ps1xeTCVCdTn@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250912-x96q-v1-1-8471daaf39db@posteo.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_133724_835737_C2A8AEDE 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20250915_140142_348911_F84DDDBB 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 11, 2025 at 05:22:22PM +0100, Catalin Marinas wrote:
-> On Thu, Sep 11, 2025 at 04:09:42PM +0100, Will Deacon wrote:
-> > On Sat, Aug 16, 2025 at 04:19:23PM +0100, Yeoreum Yun wrote:
-> > > Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-> > > previleged level to access to access user memory without clearing
-> > > PSTATE.PAN bit.
-> > > 
-> > > This patchset support FEAT_LSUI and applies in futex atomic operation
-> > > where can replace from ldxr/stlxr pair implmentation with clearing
-> > > PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
-> > > without clearing PSTATE.PAN bit.
-> > > 
-> > > (Sorry, I've sent wrongly for patch version 7 and resend it.
-> > >  Again, sorry for mail-boom).
-> > 
-> > I tried to review this but I can't find any details about FEAT_LSUI in
-> > the latest Arm ARM. Where should I be looking for the architecture spec?
+
+On Fri, 12 Sep 2025 01:52:09 +0200, J. Neuschäfer wrote:
+> The X96Q is a set-top box with an H313 SoC, AXP305 PMIC, 1 or 2 GiB RAM,
+> 8 or 16 GiB eMMC flash, 2x USB A, Micro-SD, HDMI, Ethernet, audio/video
+> output, and infrared input.
 > 
-> Unfortunately, it's just in the public xml at the moment. Hopefully
-> we'll get a release of the Arm ARM by the end of the year. Otherwise, in
-> the private 2024 arch spec. Not ideal though.
+>   https://x96mini.com/products/x96q-tv-box-android-10-set-top-box
+> 
+> Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
+> ---
+>  Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
 
-Ah, thanks, the xml is a *lot* better than nothing.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> If you'd rather wait until in turns up in the public spec, fine by me.
-
-As long as you're happy to continue helping with the review, I think
-it's fine.
-
-Cheers,
-
-Will
 
