@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF56ACAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D038CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=20oObnJIvq7bQNxp+IbofEnRTXIp9RDpEeStzhlTyxM=; b=uBznB+52reQ0LnhUzepjsdO8N8
-	14vHIu2f3q6z0h5FoLP7FFAsfzBgDudpnlJX7eJe8Ttz2MtN7xHiuGoruQD97LZt6SUgOEe8guCcg
-	eUg4AyO0ExNE84HiZVqzGWv4kYniGwif4vcwGsUqZReVBUj5PoGbDQtYK6rvs0FtYmdQ0q38PgYyL
-	gM3ukErxchEcIw98gOV9LvgqAFvKCCI+vrlJfadACF4M06fJvsPMG/amPsMZwcapYdq/Mmk+/vg+w
-	irlJS68t1KrGKUNy6K6LAuP9BeMAx3ayl5DCzZLJnVuLeWZCDW5wvwmfG578d1qrKrTxyVmtIzfHO
-	hx7Y8uGA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S9faGDZWW2YqAhxLNAxFuEwNHCM0+p4ax/3H4lPoBzs=; b=spLom/q8AxUvvNtoIIarw3JFpM
+	YJRpdlskAb6PvWrtVIwuKKNWSohQTsWAS6WHel4b/QbXohNhAxWn0zuntNrwS79AnziSuPhiERmkG
+	zWtUirvkCgq4xMpgXAc7DmwKFRXQ+FqATjfUl8x4X87+mV0TMfL7p1YqEPYAZfMy1Geuik/9vzah+
+	XVtsq9uPC8/tjzLgiVtEuWIPgnItGUCbGXaCu5nYNG7uWowLs6cjMaE7c+ZCmUm66bp6ol852JbRx
+	zlkeFqenRjh1nfd2TBpXD4AJuqucJr4fLr5M/KdmDK+PigkrAEXF6bPvGPWcAjnTIfHy8IrN2bonh
+	6l2+eUng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4Oq-00000003AR2-0gZX;
-	Mon, 15 Sep 2025 08:17:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy4Ot-00000003AS6-375L;
+	Mon, 15 Sep 2025 08:17:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4Oo-00000003AQL-2rG9
+	id 1uy4Oo-00000003AQJ-1Txt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:17:22 +0000
+	Mon, 15 Sep 2025 08:17:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D591E60195;
+	by sea.source.kernel.org (Postfix) with ESMTP id 978DF444D2;
 	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FD80C4CEF9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 70B48C4CEF1;
 	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1757924241;
-	bh=SdQHZDMCVCIf4yXCpwh6xj5ooQRTeCqnTuycX0e5QVw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=hqxbmE6gCIqv+98d7Bx6z8cZ2nNBT7mgN5GX3qUWc8if8m37Zd8US+5csMzF5OMpJ
-	 FEsEC/RJArQUxfh4cuFZuWvHJLdJFaurrjUSuv/tj0E2ZNKaRYKu7DHEDiqopmCPim
-	 vgN2uNYdTYpI9MvN/LGx2LhZ01rzlbwHuDz8aKEQdoIlXHGK3rMROvctAKsp5eTEju
-	 lWW2/vXfU+2gdJyltTVKgnhFqpiza1z6EFw5ucLE2FNHF+Mqw3MVuJKgzEvVd4p8uO
-	 6XAVLE+ODA9nYWP9wokOLJoJTvLLxJTAODgip0DZTjMs5WXUZjQuItGDBRJPcxuG7B
-	 FqPjiDvF+Ei9A==
+	bh=F/X+TtZHooGZVCVdoXlX23gyuHCMQDwSSkVtX3di3Hg=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=GV9RqtAc3SB8pgtHReS7bf1ET/E5vlZUVbYsXHtspijXoI45Txf5P71bCW1PTgJV3
+	 ex0yceO9ZS+ovvANqgyEHfA2Qj+1iAM6DXHZrjU8MczOnLdaRHjSKBj3K0rKEz9GQf
+	 9krMvdrr8vcMowZZT9Xs7F9IjBlFcNkDW3gwqB4SFlOCoN9qAT5g1NjZfrSVeRdYQx
+	 icJL5z60ZHfKeJvQCTjkAo4G5K2VGF+x8qlXmdPuyibktjmqLtE1A3WkITAL3lOGzw
+	 QH/EkozVXDMET64a3VJSdExZenU+NQYYtSE6NT693CXgaTgUqea8BcXoX8GKS4+pVr
+	 4CPy9LxgzY7IA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E0D4CAC58E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E10ACAC597;
 	Mon, 15 Sep 2025 08:17:21 +0000 (UTC)
 From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Mon, 15 Sep 2025 16:17:18 +0800
-Subject: [PATCH net v2 1/2] net: stmmac: est: Fix GCL bounds checks
+Subject: [PATCH net v2 0/2] net: stmmac: Minor fixes for stmmac EST
+ implementation
+Date: Mon, 15 Sep 2025 16:17:17 +0800
+Message-Id: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250915-qbv-fixes-v2-1-ec90673bb7d4@altera.com>
-References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
-In-Reply-To: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
+X-B4-Tracking: v=1; b=H4sIAI7Lx2gC/22Myw7CIBQFf6W5azG9pC9c+R+mC2xPLYlCBUI0D
+ f8u6drlnJmcnQK8QaBLtZNHMsE4W0CeKppWbR8QZi5MspZtrZjF+57EYj4IotHomhlDB/RU+s3
+ jECW/kUWksYyrCdH57/Gf+FB/rhKLWmBgqFb108LLVT8jvD5P7kVjzvkHWuVGd6gAAAA=
+X-Change-ID: 20250911-qbv-fixes-4ae64de86ee7
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -66,16 +69,20 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  Rohan G Thomas <rohan.g.thomas@altera.com>, 
  Matthew Gerlach <matthew.gerlach@altera.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1757924239; l=1340;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757924239; l=899;
  i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=HUAYKbtaVV7CCEfir5e4410D4ZIncaawEtn3kXUUXA0=;
- b=nYTLQKzxU0RExj8QRfyzQi45pvskNrqlgXE7azX/stBzmOcQXm//u60lh2AbIaP2zFrQzFKzO
- T7brkbXToO1Bd3aK6yoT/ytTZTdTiMx3Gt63WLur+WUAucOkfZdju6R
+ bh=F/X+TtZHooGZVCVdoXlX23gyuHCMQDwSSkVtX3di3Hg=;
+ b=bi6AtS44Cm+PAB1TLYBv/5mE8nemeFtjJHyyt2gUpKfTRwLORFKt6gXA8FrQeXWPi9muVBfYJ
+ Lh5o/Pnal8SCzk2Xrv11tNs0rwrZbC5HqjijLT6SOGWlDtKX5riau4o
 X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
  pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
 X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
  with auth_id=494
 X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_011722_418259_FB7FB8FD 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +98,32 @@ Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+This patchset includes following minor fixes for stmmac EST
+implementation:
+   1. Fix GCL bounds checks
+   2. Consider Tx VLAN offload tag length for maxSDU
 
-Fix the bounds checks for the hw supported maximum GCL entry
-count and gate interval time.
-
-Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
 Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Changes in v2:
+- Use GENMASK instead of BIT for clarity and consistency
+- Link to v1: https://lore.kernel.org/r/20250911-qbv-fixes-v1-0-e81e9597cf1f@altera.com
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 694d6ee1438197bd4434af6e9b78f022e94ff98f..9c84bde848263976cf08f286751ee09e2dbac09b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -981,7 +981,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 	if (qopt->cmd == TAPRIO_CMD_DESTROY)
- 		goto disable;
- 
--	if (qopt->num_entries >= dep)
-+	if (qopt->num_entries > dep)
- 		return -EINVAL;
- 	if (!qopt->cycle_time)
- 		return -ERANGE;
-@@ -1012,7 +1012,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 		s64 delta_ns = qopt->entries[i].interval;
- 		u32 gates = qopt->entries[i].gate_mask;
- 
--		if (delta_ns > GENMASK(wid, 0))
-+		if (delta_ns > GENMASK(wid - 1, 0))
- 			return -ERANGE;
- 		if (gates > GENMASK(31 - wid, 0))
- 			return -ERANGE;
+---
+Rohan G Thomas (2):
+      net: stmmac: est: Fix GCL bounds checks
+      net: stmmac: Consider Tx VLAN offload tag length for maxSDU
 
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 25 ++++++++++++++++-------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   |  4 ++--
+ 2 files changed, 20 insertions(+), 9 deletions(-)
+---
+base-commit: 5b5ba63a54cc7cb050fa734dbf495ffd63f9cbf7
+change-id: 20250911-qbv-fixes-4ae64de86ee7
+
+Best regards,
 -- 
-2.26.2
+Rohan G Thomas <rohan.g.thomas@altera.com>
 
 
 
