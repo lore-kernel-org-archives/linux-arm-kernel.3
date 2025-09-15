@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4664DCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74967CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2127IvOU+W9teI1LVtOHxQIfZ8EGR+aE9eomDCYRiDM=; b=l+kkYKjY96IdBKZ3QFTe66YdyE
-	40Lvz3jbNYjNgeUTdsOP48/sidoCQmuBvDw9oJb/iVJEQ5ob1UREez8Gr8Elfh1L1XW3TX9rqGd8i
-	snVsAev6+oDCAHmO2MBCmRCS2/D0MxRixWsdbLurnptnvQggd4Zli5ncEFRE0SqsR5AKpVZ7JfyCS
-	1raQDSr9z2lllwiUP9fz3vSaT66304ZrnL+VA+OzIKDCzSCgnJv+5v3qWHnAJa2VHHmds+DJTZxqU
-	V0aW69F5DhfiGedo434eZbtLeLTiSmWaCGIhGjUagOltuA8/hzMpX2MherHeG2FOPKeCcPjSwdGlW
-	FZpQEMrg==;
+	bh=8lysJ4vjIlplzoLG4Fb0Ul9ZBXmVUeGQ25aPi73WNlc=; b=y1BN5w46dilCVku6YVhTBuTYQf
+	FMNzzMTC8nV2vltPneDmS+lWhxgcShpK00rPXw2K1JtTo0nhG4aUyulD6q1PseBfZPpDkbkbM74gT
+	FxHTweOrsIipy5aJh01/DZdgC9QV6D9ty1nlaohzBYrFewoa3r6+RizvjIOIkVct+HGjIt8UX+bLB
+	Ic7gQTlCzYu0xfm0PIHB35KFpfYfv1mlT2IX3DtHzY8IXc6KO9vsB/qih2yj7hhGoGU8cLBFqKOol
+	GFQvDjH2BH0rg0dGm0WosVoHUgag0Mng8wCXrYjLJfF/r+j+k+fHd+OYKUVAEdn9Ho2CefZxuv7Nr
+	nCLrQbnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAOF-00000004kYi-3JvN;
-	Mon, 15 Sep 2025 14:41:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uyATs-00000004lXA-0Fgl;
+	Mon, 15 Sep 2025 14:47:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAOC-00000004kXu-3uJf;
-	Mon, 15 Sep 2025 14:41:11 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A17D36DF;
-	Mon, 15 Sep 2025 16:39:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1757947188;
-	bh=UCT0GiCK1YOW+PhYr1Pzbcbe42IkXxQYZBGZKDcKnug=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N2q0dBS2ofT7pUa8jiujbAVSOMtx8wdhwtbRZwtFcdSaOZ+MxGhLqK4oh3ntDZ8Ax
-	 FsDYMGCxuOsCmtbznoi9p6baEWTAK0Ij6QkkreAai3ITqpYLUHF1TxJbH++gbYj6vJ
-	 Ql8gIMnJ/8P6F8rg8UbitM6gzX48+/uUQxj15t/k=
-Date: Mon, 15 Sep 2025 17:40:40 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: kernel test robot <lkp@intel.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 5/8] media: v4l2-core: Introduce v4l2-params.c
-Message-ID: <20250915144040.GA8821@pendragon.ideasonboard.com>
-References: <20250820-extensible-parameters-validation-v4-5-30fe5a99cb1f@ideasonboard.com>
- <202508240704.AZwGXBaw-lkp@intel.com>
- <jhynzoppwi22vnrdzrvqixsbvntsli7sj2vtsxrevtmxluveps@q6yzgvlqmxxb>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <jhynzoppwi22vnrdzrvqixsbvntsli7sj2vtsxrevtmxluveps@q6yzgvlqmxxb>
+	id 1uyATp-00000004lWi-3hrM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 14:46:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3675A43D26;
+	Mon, 15 Sep 2025 14:46:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13EF8C4CEF1;
+	Mon, 15 Sep 2025 14:46:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757947617;
+	bh=CyVglRI5ZVYfdi1omWUfdZeAndsQqNtk+DYYex6U8O0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gxcAsXr5sbNBP/XE+n6/+UJ70miR4+MxSvokNDODJL14NkTf/GIA3PyoaHzpfjm8x
+	 joO8TU0WIbls6MtOWIRCkhQl6tVWiMokZ0Krw2iTAK3hhR0KsCLJkclPZChUuRypCm
+	 b/ngb47UpO/Gk4C5Q59CZdFNpiLG2uwxN8SjAMUGGKdY5OqbYGHuTHnQl3BZ6ReFpS
+	 lth6F6v1+/2kolRx43QeXjscXne9F0jbchqloPGvj84YAnMOLmDM+A7VLaywpjbmCS
+	 CXQ27rysmj9gXa2Z5tgqpNmtLrkwVPF//JGmG8m8D8rqMTSuuiwJZLJlkTp+ZcDbsN
+	 5sXWUkpA2gF2A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uyATm-00000006Pzm-3Sls;
+	Mon, 15 Sep 2025 14:46:54 +0000
+Date: Mon, 15 Sep 2025 15:46:54 +0100
+Message-ID: <86tt13bwo1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<wangwudi@hisilicon.com>,
+	<liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>,
+	<yuzenghui@huawei.com>,
+	Nianyao Tang <tangnianyao@huawei.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>
+Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
+In-Reply-To: <5a42235e-f0d9-bbae-7742-d25025878820@hisilicon.com>
+References: <20250909110615.129179-1-wangzhou1@hisilicon.com>
+	<86h5xbd8zp.wl-maz@kernel.org>
+	<f102058c-809d-e96e-9d96-1c1e14b36517@hisilicon.com>
+	<86wm5zc3af.wl-maz@kernel.org>
+	<5a42235e-f0d9-bbae-7742-d25025878820@hisilicon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, wangwudi@hisilicon.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com, yuzenghui@huawei.com, tangnianyao@huawei.com, jiangkunkun@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_074109_108483_0611CDD9 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250915_074657_958373_63869AB9 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +94,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 03:31:58PM +0200, Jacopo Mondi wrote:
-> Question for media maintainers...
+On Mon, 15 Sep 2025 15:06:35 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
 > 
-> I'm not sure how I should better handle this one
+> On 2025/9/15 20:23, Marc Zyngier wrote:
+> > On Wed, 10 Sep 2025 04:27:15 +0100,
+> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>
 > 
-> On Sun, Aug 24, 2025 at 07:16:21AM +0800, kernel test robot wrote:
-> > Hi Jacopo,
-> >
-> > kernel test robot noticed the following build errors:
-> >
-> > [auto build test ERROR on a75b8d198c55e9eb5feb6f6e155496305caba2dc]
-> >
-> > url:    https://github.com/intel-lab-lkp/linux/commits/Jacopo-Mondi/media-uapi-Introduce-V4L2-extensible-params/20250820-210503
-> > base:   a75b8d198c55e9eb5feb6f6e155496305caba2dc
-> > patch link:    https://lore.kernel.org/r/20250820-extensible-parameters-validation-v4-5-30fe5a99cb1f%40ideasonboard.com
-> > patch subject: [PATCH v4 5/8] media: v4l2-core: Introduce v4l2-params.c
-> > config: nios2-randconfig-002-20250824 (https://download.01.org/0day-ci/archive/20250824/202508240704.AZwGXBaw-lkp@intel.com/config)
-> > compiler: nios2-linux-gcc (GCC) 9.5.0
-> > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250824/202508240704.AZwGXBaw-lkp@intel.com/reproduce)
-> >
-> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > the same patch/commit), kindly add following tags
-> > | Reported-by: kernel test robot <lkp@intel.com>
-> > | Closes: https://lore.kernel.org/oe-kbuild-all/202508240704.AZwGXBaw-lkp@intel.com/
-> >
-> > All errors (new ones prefixed by >>):
-> >
-> >    nios2-linux-ld: drivers/media/v4l2-core/v4l2-params.o: in function `v4l2_params_buffer_validate':
-> >    v4l2-params.c:(.text+0x124): undefined reference to `vb2_plane_vaddr'
-> > >> v4l2-params.c:(.text+0x124): relocation truncated to fit: R_NIOS2_CALL26 against `vb2_plane_vaddr'
+> [...]
 > 
-> Clearly v4l2-params.c (now v4l2-isp.c) depends on VIDEOBUF2_CORE
+> >>>
+> >>> You are telling the ITS that it is allowed to go and access
+> >>> unspecified data (16 bit worth of translations). That's not
+> >>> acceptable. If you *have* to do that, then override the size in the
+> >>> driver code to actually allocate the corresponding memory.
+> >>
+> >> Then we have to override the ITT memory to 2 ^ 16 * 8 for one device
+> >> :(
+> > 
+> > But what's the alternative? Letting the ITS speculate in random
+> > memory, possibly under the control of userspace or a guest? I don't
+> > think that's acceptable.
 > 
-> Right now v4l2-params.c gets compiled in as part of the
-> videodev-objs Makefile target. IOW is not gated by a KConfig option.
+> Seems that only a bad device who could send an interrupt which is not be
+> declared may bring a problem here.
 > 
-> To select (or better, depend) on VIDEOBUF2_CORE I should guard
-> v4l2-params.c with a KConfig option so that I can 'depend on
-> VIDEOBUF2_CORE'. Drivers that use the v4l2-params.c helper would then
-> have to 'select V4L2_PARAMS` (or similar).
+> Not sure how dose userspace or a guest make a problem here?
 
-Make it V4L2_ISP :-)
+Assign a device to a guest, let it generate an MSI with an event-id
+that's in the correct range, observe it accessing the memory.
 
-> Is this the best approach or are there alternatives I might be missing ?
+All you need is to be in control of how the device generates MSIs.
 
-We don't want VIDEODEV depending on VB2. I think it also makes sense to
-have a separate Kconfig option for these helpers, are they will be used
-by a small number of drivers.
+> >>>> +#ifdef CONFIG_HISILICON_ERRATUM_162100803
+> >>>> +	{
+> >>>> +		.desc = "ITS: Hip09 erratum 162100803",
+> >>>> +		.iidr = 0x00051736,
+> >>>> +		.mask = 0xffffffff,
+> >>>> +		.init = its_enable_quirk_162100803,
+> >>>> +	},
+> >>>> +	{
+> >>>> +		.desc = "ITS: Hip10 erratum 162200807",
+> >>>> +		.iidr = 0x01051736,
+> >>>> +		.mask = 0xffffffff,
+> >>>> +		.init = its_enable_quirk_162100803,
+> >>>> +	},
+> >>>> +	{
+> >>>> +		.desc = "ITS: Hip10c erratum 162400807",
+> >>>> +		.iidr = 0x00061736,
+> >>>> +		.mask = 0xffffffff,
+> >>>> +		.init = its_enable_quirk_162100803,
+> >>>
+> >>> Can you try to merge these three entries and adjust the mask
+> >>> accordingly? mask=0xeffcffff should do the trick, assuming that you
+> >>> don't have any other hardware overlapping this.
+> >>
+> >> The iidrs are different, how to merge these entries?
+> > 
+> > By using the mask:
+> > 
+> > 	{
+> > 		.desc = "ITS: Hip10 erratum, will eat your vSGIs",
+> > 		.iidr = 0x01051736,
+> > 		.mask = 0xeffcffff,
+> > 		.init = its_enable_quirk_162100803,
+> > 	},
+> > 
+> > will match all three platforms, assuming I got the mask correctly.
+> 
+> iidrs are differet, so one iidr can not match all. e.g.
+> for iidr = 0x00061736, mask with 0xeffcffff will be 0x00041736, which
+> will not be 0x01051736.
 
-Make CONFIG_V4L2_ISP an option that drivers select, not depend on.
+Sorry, copy paste, and wrong mask. This works (I actually checked):
+
+	{
+		.desc = "ITS: Hip10 erratum, will eat your vSGIs",
+		.iidr = 0x00041736,
+		.mask = 0xfefcffff,
+		.init = its_enable_quirk_162100803,
+	},
+
+	M.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Without deviation from the norm, progress is not possible.
 
