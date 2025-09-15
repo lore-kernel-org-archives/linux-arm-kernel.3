@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6C4CA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41DCCAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLyCEbzxQQEJfo8dAIW/94ABYf3ZrDh6AMweKbvlPoU=; b=rn6FQPWYDKBHTJvKvHV6BZHppd
-	fzl1Nfa9zWUGlKI0xt3u5PBj+RNxu2WF+9So3dSBxmI74KB0noct6iEpkqc0W4G6pvn/FKBLFADPo
-	xpWlWn0tACiPAjcEYZ+qefkuqGYCLU7r3C+IZ7wXsRSRplYqIs9vd0Ej8SXW4wry8PX/A6yEsB+kw
-	FDSW/dZjkk5LPYdOkoRi29+WYrhvmY+7K+Fsh9hpvzBR/U+fXX/fiOFz8TMdBk8ukOnalhm9xZJCu
-	rtIr64RhWVcfXADk+OlDURtT5hKR6KlqboWF/lUaiDuUzFZS/k7w8CKeFhgPgrcbTIPf/OeSWjl2T
-	BKUpecLg==;
+	bh=7tpIkBM7a/o6PwHv3Plp/FdtJotbz2dwLqLoTIO02WA=; b=u9rdTNepSQS/bxTAPW4d9n9QoH
+	8yZNv1fyBWTAXWpkHLzDQAq1P81ffD+8Vs0Mj9G5BUHozHpnWdzHah0DZ3W3L+sLEpfwgYzYtZ1lm
+	E7MIg1a5yTcsPNVI3LhD0lq7dmWw+QlRUvIZEJwLhz5HezQzV1Ng90FX5idPZD+U5Dq8ye6uM/AWD
+	VblUNjFomDAk7dpR0a5EyeShhgPavkrdJjS1z5OCu8FYgVRy1xgGJkOjfbM4wW4wC8Sep90rfLP88
+	gdYt0JyRmhmWeor6CPGzhNBoYLgQvjn/SCFOQoZVYug6MxNsEk8CWBhnY8+Kz6Kn7PCvQqe4aLHZi
+	nxgluvWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0t2-00000002llk-223C;
-	Mon, 15 Sep 2025 04:32:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy0tm-00000002lue-3Vt9;
+	Mon, 15 Sep 2025 04:33:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0t1-00000002llZ-2Pcl
+	id 1uy0tk-00000002ltF-1K9G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 04:32:19 +0000
+	Mon, 15 Sep 2025 04:33:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A51D8601B4;
-	Mon, 15 Sep 2025 04:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9A62C4CEF1;
-	Mon, 15 Sep 2025 04:32:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F00764459D;
+	Mon, 15 Sep 2025 04:33:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3B5C4CEF1;
+	Mon, 15 Sep 2025 04:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757910738;
-	bh=eH3t+g3l6j6xyj0od6/hCedBiqBn+XE+EO0XkF8K1dM=;
+	s=k20201202; t=1757910783;
+	bh=pykA1A3/Zg0D/ZaZ6KglsvOLp4vC0LMedDVJjoQuhpw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AGQqKl5e3bU6pYfBP9cW3d7d5RsJY7OaPnm7UxS1kYfkpyfyJAsmjntTmj/3ZdgbP
-	 +PhdusC2lXVv5AYAmYLJyDD1bB3XMmuUKvV3FFFHsQFbO2+PXx89RbpbJAP9ZlhNz+
-	 4C6NC54Vc0WvtQW2lxpcxYsLkMMQCwHr4YZtSzXgbKwNHJzJQSGxu5jfxrcunvc/IM
-	 /liPdqDHK+JmY9AAfEfFaplnJ5bkiOWhKdnWSmQxd7okcZfMZgG1HSbHlzhXghD6dr
-	 PRcgQ22mkneOEO5fO8mF2s4Mm7DygSb00TYJw5UmCHq+UtnbotCiN3u9iyJU5v6XQZ
-	 jPulq9i/RGC6w==
-Message-ID: <88570467-9bb5-425d-ad9f-cada10e316eb@kernel.org>
-Date: Mon, 15 Sep 2025 06:32:13 +0200
+	b=EeEAJXcp//6Qb0FMBfCMiPMVoiiqCMa2329dXewXnCKIoi5MOma3r8T0jEawSr5Uu
+	 HQst3nHsv/qGEhvJTDMa+alyMRQ6/4K5g5c0g/xLm8SElEh40rUGrBHsXuTBDH6qJ8
+	 Rjs1IiZILiTOI7JA2g4MwYGrdbrAmWhzruKg/od84m7m8PnvdLYr+bXPc6yqK3I9RW
+	 rsRFrtEZlT0BNe3W3Z76Lf89k69YOiAMEd6g7SnKrs/20kio1QEIHbeOGwABL3wTKs
+	 YNzb4OASZJUt+hRS96Oi92FJq+qTBJAjAlEbB9pz47ABrwuwP/q63oZUObgUnfS806
+	 yttGaicxuhi/A==
+Message-ID: <9f255174-bfa4-4dfb-8c19-6488286fca21@kernel.org>
+Date: Mon, 15 Sep 2025 06:32:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/8] arm64: dts: exynos9610: Enable clock support
-To: Alexandru Chimac <alex@chimac.ro>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Alexandru Chimac <alexchimac@protonmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250915-exynos9610-clocks-v1-0-3f615022b178@chimac.ro>
- <20250915-exynos9610-clocks-v1-4-3f615022b178@chimac.ro>
+Subject: Re: [PATCH 3/3] arm64: dts: exynos: Add initial support for Samsung
+ Galaxy Tab S6 Lite (gta4xl)
+To: Alexandru Chimac <alex@chimac.ro>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>,
+ Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
+ <20250914-exynos9610-devicetree-v1-3-2000fc3bbe0b@chimac.ro>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250915-exynos9610-clocks-v1-4-3f615022b178@chimac.ro>
+In-Reply-To: <20250914-exynos9610-devicetree-v1-3-2000fc3bbe0b@chimac.ro>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250914_213304_406665_B8C80DFC 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +122,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2025 23:19, Alexandru Chimac wrote:
-> Add CMU (Clock Management Unit) nodes and required
-> fixed clocks.
+On 14/09/2025 22:44, Alexandru Chimac wrote:
+> Add initial support for the Samsung Galaxy Tab S6 Lite (SM-P610/P615):
+> 
+> - Framebuffer, through SimpleFB
+> - RAM
+> - Buttons
 > 
 > Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 > ---
->  arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts |   1 +
->  arch/arm64/boot/dts/exynos/exynos9610.dtsi       | 205 +++++++++++++++++++++++
+>  arch/arm64/boot/dts/exynos/Makefile              |  1 +
+>  arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts | 97 ++++++++++++++++++++++++
+>  2 files changed, 98 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+> index bdb9e9813e506de3a8ff6d1c3115382cca6ea9d9..8aacff968fa10d6b645bafe910c71fb65e8569f8 100644
+> --- a/arch/arm64/boot/dts/exynos/Makefile
+> +++ b/arch/arm64/boot/dts/exynos/Makefile
+> @@ -12,6 +12,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
+>  	exynos7885-jackpotlte.dtb	\
+>  	exynos850-e850-96.dtb		\
+>  	exynos8895-dreamlte.dtb		\
+> +	exynos9610-gta4xl.dtb		\
+>  	exynos9810-starlte.dtb		\
+>  	exynos990-c1s.dtb		\
+>  	exynos990-r8s.dtb               \
+> diff --git a/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts b/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f455af22ff872c6f07b9bcfc68b1ae1f45d0def3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
+> @@ -0,0 +1,97 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Galaxy Tab S6 Lite device tree
+> + *
+> + * Copyright (c) 2025, Alexandru Chimac <alexchimac@protonmail.com>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "exynos9610.dtsi"
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +
+> +/ {
+> +	compatible = "samsung,gta4xl", "samsung,exynos9610";
+> +	#address-cells = <2>;
+> +	#size-cells = <1>;
+> +
+> +	chosen {
+> +		#address-cells = <2>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		framebuffer0: framebuffer@ca000000 {
+> +			compatible = "simple-framebuffer";
+> +			memory-region = <&cont_splash_rmem>;
+> +			width = <1200>;
+> +			height = <2000>;
+> +			stride = <(1200 * 4)>;
+> +			format = "a8r8g8b8";
+> +		};
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x80000000 0x3AB00000>,
+> +		      <0x0 0xC0000000 0x20000000>,
+> +		      <0x0 0xE1900000 0x1E700000>,
 
-
-There is no such file, which means you did not explain the dependencies
-and this should not be separate patch at all. You must squash it.
+Lowercase hex everywhere.
 
 
 Best regards,
