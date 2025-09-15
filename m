@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CFECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CD6CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 16:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DP1EX41Sj96oKEwSm3MfFoxX9JfNAO0MnfCRTYo41rc=; b=KMm26MW1vkWiCBW/woB3NABsHV
-	d/nR1P9iaLay7BmjWo5wzjV7YBFH6TUVEkAV42QGhIUP0Grb0z2Agb3JqrW0HMUJCAk2RA/SOYSms
-	U9dVRi/4xrSxHgKmKo+n06s/ma5oFK1pub/yQqXvXeDowW5D5p8QkvQRZsRu6V9pR7DSFmmN9zDqx
-	cA4/+tyOJVzlG1eawWkZintxqOkisstc+9cTHKBAIxup4PZ/SQG86GuzgpzawtS3LMrTMEA4OUVif
-	uLnkjCisSdhHpD59mcD+VIIdKIPiUKtfBJELCJeyg7lbtJUODzccAJi8NRtfIkbJtXr4PANWU2mGV
-	+I/eDzgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5/VMURWFNJO1+OvPSg3PKhSSmMY2qHOmfcCrvRaSgM=; b=p4bvJVhjqpVxOSXMJfXTI3Cb23
+	WTdbUxrb22ufYxJ7wX/Sygkp7Y4Sxw3egrcOEIldDdydJZ7TmXqZOlsV+QqoU9oU6HC1OIwktUtd1
+	z07lK4B2NEz3FrgHuNSCWkaJ4zsJo3i4WdHPLbPcvnK7rw2uHGPq7ad8Xf1L/pVg12WKOYldkWImS
+	Rmumj118mjEE8Ug19jVCTc8ZD2As2rR0ao9xZGQjhiah39w3r9grMnBLi79Wo5ENsM7eWJR9/R3RD
+	1FMvZ4Jrgxj/cIjHV73vlM+n5S63E4q7F/Ffo8MFbd5nj5s6GXqmowKQQUNoO1Ka4dTDWfwKnV728
+	q/Wg9WYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCSO-00000005BJe-0Oux;
-	Mon, 15 Sep 2025 16:53:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyCUf-00000005Bjl-0LaP;
+	Mon, 15 Sep 2025 16:55:57 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyCSM-00000005BJ1-2jWN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 16:53:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2A9660202;
-	Mon, 15 Sep 2025 16:53:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0AA7C4CEF1;
-	Mon, 15 Sep 2025 16:53:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757955213;
-	bh=mr8xIGCKnB4G5+8TaKxfsscKPKoQFGfQ1GJ3Zixoh1c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C0t4FdCPYoAMS0qiePdSzxlUy4bYXgvPVm9AkkdzHGgMNB2ehUk20gtEjPgZPpsQ0
-	 XfToX+19n7fkRGseSXXsxkLj0bA5cIdR01fH40KBWHlnCCCHH+mFdgaxyHw0DtDEOq
-	 dZ52gcJayhVjEDVjxl64jdBE7aMgsO3ysiA7FB4pyAXQHEzFRWCXEJro+IIhxa2YOW
-	 jZ+joc7AMg2WHweYuJ0Y7ZxrL60gJO6p/NjrRZk4wtwRgsBAuYigbO4Almu5OCQ+2H
-	 62x/K4utH1BxPUNP/HfVt73xoIwGFPRd6qbOnrG7zN2gCj2HFepJ2cFM1jFPZ0zMKe
-	 CygUEu0mz6H1Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uyCSJ-00000006SZG-1Jin;
-	Mon, 15 Sep 2025 16:53:31 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Peter Collingbourne <pcc@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Update stale comment for sanitise_mte_tags()
-Date: Mon, 15 Sep 2025 17:53:28 +0100
-Message-Id: <175795518947.664776.2321133557894998741.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250915155234.196288-1-alexandru.elisei@arm.com>
-References: <20250915155234.196288-1-alexandru.elisei@arm.com>
+	id 1uyCUc-00000005Bj9-25rt;
+	Mon, 15 Sep 2025 16:55:55 +0000
+Received: from ideasonboard.com (mob-5-90-56-182.net.vodafone.it [5.90.56.182])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 82062B0B;
+	Mon, 15 Sep 2025 18:54:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1757955272;
+	bh=ScHNo7xeAxbc9qs152ZJaY9kt3AjpGFgAP5bYGwbDhM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c70sDKW0Y91oM30vf++vp2z4pVbkNOEdGBxrMH87+iYEavirzIxXtUCKhgFzwH/KH
+	 ivQOwVUa5MFYJGAYc2gUP6A0ScAbeK8jx6ft6jvJouGoxqtvgUx+q/8AkW3LX4d1VE
+	 TQ8R7eqIgg2YgosbNbUJkyuF4YlP8QN+qRW6CNj8=
+Date: Mon, 15 Sep 2025 18:55:44 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rkisp1: Improve frame sequence correctness on
+ stats and params buffers
+Message-ID: <rthpkuipbpbp2lv2ddmruwb7fmpkmtlsnx3q6kk7gaskzpdaar@5bk3r44f2mpo>
+References: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, alexandru.elisei@arm.com, pcc@google.com, catalin.marinas@arm.com, steven.price@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250915_095554_678250_BF0F67ED 
+X-CRM114-Status: GOOD (  33.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +69,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sep 2025 16:52:34 +0100, Alexandru Elisei wrote:
-> Commit c911f0d46879 ("KVM: arm64: permit all VM_MTE_ALLOWED mappings
-> with MTE enabled") allowed VM_SHARED VMAs in a VM with MTE enabled, so
-> remove the comment to the contrary.
-> 
-> Commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag initialisation")
-> removed the race that can lead to tags being zeroed more than once when
-> multiple threads attempt initialisation at the same time, so remove the
-> comment about mmap_lock too. Note that sanitise_mte_tags() was never called
-> with the mmap_lock held from user_mem_abort() and the race was prevented by
-> kvm->mmu_lock.
-> 
-> [...]
+Hi Stefan
 
-Applied to next, thanks!
+On Mon, Sep 08, 2025 at 11:41:48AM +0200, Stefan Klug wrote:
+> On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
+> handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
+> and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
+> commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
+> debugfs var for irq delay") a warning was added for that. There are two
+> cases where this condition can occur:
+>
+> 1. The v-sync and the frame-end belong to the same frame. This means,
+>    the irq was heavily delayed and the warning is likely appropriate.
+>
+> 2. The v-sync belongs to the next frame. This can happen if the vertical
+>    blanking between two frames is very short.
+>
+> The current code always handles case 1 although case 2 is in my
+> experience the more common case and happens in regular usage. This leads
 
-[1/1] KVM: arm64: Update stale comment for sanitise_mte_tags()
-      commit: 597f41e1743882db32f99dde062adbec29104586
+I would rather argue that 8524fa22fd2f is possibily wrong, and case 1)
+would imply the interrupt has been delayed for the whole frame
+duration (+ blanking), which seems unlikely to me ?
 
-Cheers,
+True we handle stats collection and parameters programming in irq
+context, which is less than ideal and could take time (I wonder if we
+should use a threaded irq, but that's a different problem)
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+If that's the case and we only should care about 2) would simply
+handling RKISP1_CIF_ISP_FRAME before RKISP1_CIF_ISP_V_START be enough ?
 
+> to incorrect sequence numbers on stats and params buffers which in turn
+> breaks the regulation in user space. Fix that by adding a frame_active
+> flag to distinguish between these cases and handle the start of frame
+> either at the beginning or at the end of the rkisp1_isp_isr().
+>
+> Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> ---
+>  .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
+>  .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
+>  2 files changed, 14 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> index ca952fd0829b..adf23416de9a 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> @@ -222,6 +222,7 @@ struct rkisp1_isp {
+>  	struct media_pad pads[RKISP1_ISP_PAD_MAX];
+>  	const struct rkisp1_mbus_info *sink_fmt;
+>  	__u32 frame_sequence;
+> +	bool frame_active;
+>  };
+>
+>  /*
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> index 8c29a1c9309a..1469075b2d45 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
+>  	}
+>
+>  	isp->frame_sequence = -1;
+> +	isp->frame_active = false;
+>
+>  	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+>
+> @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
+>   * Interrupt handlers
+>   */
+>
+> -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
+> +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
+>  {
+>  	struct v4l2_event event = {
+>  		.type = V4L2_EVENT_FRAME_SYNC,
+>  	};
+>
+> +	isp->frame_sequence++;
+> +	isp->frame_active = true;
+> +
+>  	event.u.frame_sync.frame_sequence = isp->frame_sequence;
+>  	v4l2_event_queue(isp->sd.devnode, &event);
+>  }
+> @@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
+>
+>  	/* Vertical sync signal, starting generating new frame */
+> -	if (status & RKISP1_CIF_ISP_V_START) {
+> -		rkisp1->isp.frame_sequence++;
+> -		rkisp1_isp_queue_event_sof(&rkisp1->isp);
+> +	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+> +		status &= ~RKISP1_CIF_ISP_V_START;
+> +		rkisp1_isp_sof(&rkisp1->isp);
+>  		if (status & RKISP1_CIF_ISP_FRAME) {
+>  			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
+>  			rkisp1->debug.irq_delay++;
+>  		}
+>  	}
+> +
+>  	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
+>  		/* Clear pic_size_error */
+>  		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
+> @@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  	if (status & RKISP1_CIF_ISP_FRAME) {
+>  		u32 isp_ris;
+>
+> +		rkisp1->isp.frame_active = false;
+>  		rkisp1->debug.complete_frames++;
+>
+>  		/* New frame from the sensor received */
+> @@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  		rkisp1_params_isr(rkisp1);
+>  	}
+>
+> +	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
 
+I think you can drop the  && !rkisp1->isp.frame_active because if you
+get here and 'status & RKISP1_CIF_ISP_V_START' it means that:
+
+1) frame_active was false and you have entered the above
+
+        if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+
+   and now the RKISP1_CIF_ISP_V_START bit in 'status' has been cleared
+   so you don't need to handle VSYNC here
+
+2) frame_active was true and you delayed handling V_START till here.
+   If also ISP_FRAME was set, frame_start has been set to false here
+   above. If ISP_FRAME was not set then it has been delivered by a
+   previous interrupt and then frame_start is false.
+
+So I guess it's enough to check if at this point RKISP1_CIF_ISP_V_START
+is still set in 'status' ?
+
+However, as said, it's seems unlikely to that your above 1) can
+happen. Have you ever hit a WARN() again with this patch applied ?
+
+> +		rkisp1_isp_sof(&rkisp1->isp);
+> +
+>  	return IRQ_HANDLED;
+>  }
+> --
+> 2.48.1
+>
+>
 
