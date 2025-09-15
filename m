@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41DCCAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC43CAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tpIkBM7a/o6PwHv3Plp/FdtJotbz2dwLqLoTIO02WA=; b=u9rdTNepSQS/bxTAPW4d9n9QoH
-	8yZNv1fyBWTAXWpkHLzDQAq1P81ffD+8Vs0Mj9G5BUHozHpnWdzHah0DZ3W3L+sLEpfwgYzYtZ1lm
-	E7MIg1a5yTcsPNVI3LhD0lq7dmWw+QlRUvIZEJwLhz5HezQzV1Ng90FX5idPZD+U5Dq8ye6uM/AWD
-	VblUNjFomDAk7dpR0a5EyeShhgPavkrdJjS1z5OCu8FYgVRy1xgGJkOjfbM4wW4wC8Sep90rfLP88
-	gdYt0JyRmhmWeor6CPGzhNBoYLgQvjn/SCFOQoZVYug6MxNsEk8CWBhnY8+Kz6Kn7PCvQqe4aLHZi
-	nxgluvWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jGd9kLzjDaoi+l0HOQu5KE2dhKkmGdqUdNlJgfKDaQ4=; b=AmwCujjYDXxAIPh6sPkdyAKNwG
+	C7hrnTg93LTV5nLrB3PKycZp4W4xxFH+ygtB23yTACYasxAywAt8G0tSD7MtK46SgqPyDhRrcygz0
+	8dCEnR5XFBeU6wDresrQKLGdQxyHX4QOVhFm8LKKNU1miGdIUEeNOXir6ecjNDy+Yu+V+lew2hgXQ
+	7ylG3Rk4ft82UN1cz5wfoOFTWS6DDUatnU4oAADdaw/VtcNSOgNuCx9AV4Yx2MjXUlO/kCSjJz0z8
+	R92md0pmlyeng2IGG5+FYOBHClvcunmTSHpQA1C6XRCrCk/Dt7wSqo0aYT1eQTLM8TrPeaAv6PpsX
+	JHs4PdzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0tm-00000002lue-3Vt9;
-	Mon, 15 Sep 2025 04:33:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uy0v7-00000002m5Q-1Vkl;
+	Mon, 15 Sep 2025 04:34:29 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0tk-00000002ltF-1K9G
+	id 1uy0v5-00000002m50-0vcG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 04:33:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F00764459D;
-	Mon, 15 Sep 2025 04:33:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3B5C4CEF1;
-	Mon, 15 Sep 2025 04:33:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757910783;
-	bh=pykA1A3/Zg0D/ZaZ6KglsvOLp4vC0LMedDVJjoQuhpw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EeEAJXcp//6Qb0FMBfCMiPMVoiiqCMa2329dXewXnCKIoi5MOma3r8T0jEawSr5Uu
-	 HQst3nHsv/qGEhvJTDMa+alyMRQ6/4K5g5c0g/xLm8SElEh40rUGrBHsXuTBDH6qJ8
-	 Rjs1IiZILiTOI7JA2g4MwYGrdbrAmWhzruKg/od84m7m8PnvdLYr+bXPc6yqK3I9RW
-	 rsRFrtEZlT0BNe3W3Z76Lf89k69YOiAMEd6g7SnKrs/20kio1QEIHbeOGwABL3wTKs
-	 YNzb4OASZJUt+hRS96Oi92FJq+qTBJAjAlEbB9pz47ABrwuwP/q63oZUObgUnfS806
-	 yttGaicxuhi/A==
-Message-ID: <9f255174-bfa4-4dfb-8c19-6488286fca21@kernel.org>
-Date: Mon, 15 Sep 2025 06:32:58 +0200
+	Mon, 15 Sep 2025 04:34:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1757910865;
+	bh=jGd9kLzjDaoi+l0HOQu5KE2dhKkmGdqUdNlJgfKDaQ4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=j9l6rePl1LUachlMBzH84pJ4kBHHVvbIl05HfsxlWo/BECrz1cj/oTJUcTE+mwMxJ
+	 1zhFaWpOsMOT+ws5vGcBytUoqpX60OAE2NGwm7D45vwRgVNN0oHUYMe/MVhyC4KyTz
+	 WDq4LX4lbyF+4K/MdLmV2a5A1ag5A27ZrLDtKbHgyBhHaS/1eNp1XLeS7bCD4Au4HZ
+	 Z5K6pTKPx4A9glzNAfLgQutJM+RqCu1DPmf9H3q+8nKyicoSF2LckL67+bC/qWSkN3
+	 ij1vnEAI/uYsdu3Q8/nv4/oQRdRwiZDEd1crElwzz5MlsqhSSMsGMvotAV+bRScjPa
+	 78Ag7Bu3F/cUA==
+Received: from [IPv6:2405:6e00:2430:fb15:b2b4:1872:3690:c682] (unknown [120.20.190.44])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 0452B64CF0;
+	Mon, 15 Sep 2025 12:34:21 +0800 (AWST)
+Message-ID: <ae46aa8e57d01208deb56a8fd01f26a9a0bf359b.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: Add NVIDIA VR144NVL board
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org,
+ krzk+dt@kernel.org, 	conor+dt@kernel.org, Andrew Lunn <andrew@lunn.ch>
+Cc: joel@jms.id.au, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, etanous@nvidia.com
+Date: Mon, 15 Sep 2025 14:04:19 +0930
+In-Reply-To: <f0b75151-d355-4d03-a356-dfbfb7a9e803@nvidia.com>
+References: <20250822203818.4062595-1-donalds@nvidia.com>
+	 <20250822203818.4062595-3-donalds@nvidia.com>
+	 <f9cd6015c47d390eef9c689d2cb4fcd301c4d123.camel@codeconstruct.com.au>
+	 <fcd64668-4232-4d7b-98ec-5326d40d19d7@nvidia.com>
+	 <f0b75151-d355-4d03-a356-dfbfb7a9e803@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: exynos: Add initial support for Samsung
- Galaxy Tab S6 Lite (gta4xl)
-To: Alexandru Chimac <alex@chimac.ro>, Alim Akhtar <alim.akhtar@samsung.com>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>,
- Tony Luck <tony.luck@intel.com>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20250914-exynos9610-devicetree-v1-0-2000fc3bbe0b@chimac.ro>
- <20250914-exynos9610-devicetree-v1-3-2000fc3bbe0b@chimac.ro>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250914-exynos9610-devicetree-v1-3-2000fc3bbe0b@chimac.ro>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_213304_406665_B8C80DFC 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250914_213427_463022_C22035C4 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,79 +76,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2025 22:44, Alexandru Chimac wrote:
-> Add initial support for the Samsung Galaxy Tab S6 Lite (SM-P610/P615):
-> 
-> - Framebuffer, through SimpleFB
-> - RAM
-> - Buttons
-> 
-> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
-> ---
->  arch/arm64/boot/dts/exynos/Makefile              |  1 +
->  arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts | 97 ++++++++++++++++++++++++
->  2 files changed, 98 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-> index bdb9e9813e506de3a8ff6d1c3115382cca6ea9d9..8aacff968fa10d6b645bafe910c71fb65e8569f8 100644
-> --- a/arch/arm64/boot/dts/exynos/Makefile
-> +++ b/arch/arm64/boot/dts/exynos/Makefile
-> @@ -12,6 +12,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
->  	exynos7885-jackpotlte.dtb	\
->  	exynos850-e850-96.dtb		\
->  	exynos8895-dreamlte.dtb		\
-> +	exynos9610-gta4xl.dtb		\
->  	exynos9810-starlte.dtb		\
->  	exynos990-c1s.dtb		\
->  	exynos990-r8s.dtb               \
-> diff --git a/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts b/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..f455af22ff872c6f07b9bcfc68b1ae1f45d0def3
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/exynos/exynos9610-gta4xl.dts
-> @@ -0,0 +1,97 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Galaxy Tab S6 Lite device tree
-> + *
-> + * Copyright (c) 2025, Alexandru Chimac <alexchimac@protonmail.com>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "exynos9610.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +
-> +/ {
-> +	compatible = "samsung,gta4xl", "samsung,exynos9610";
-> +	#address-cells = <2>;
-> +	#size-cells = <1>;
-> +
-> +	chosen {
-> +		#address-cells = <2>;
-> +		#size-cells = <1>;
-> +		ranges;
-> +
-> +		framebuffer0: framebuffer@ca000000 {
-> +			compatible = "simple-framebuffer";
-> +			memory-region = <&cont_splash_rmem>;
-> +			width = <1200>;
-> +			height = <2000>;
-> +			stride = <(1200 * 4)>;
-> +			format = "a8r8g8b8";
-> +		};
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x3AB00000>,
-> +		      <0x0 0xC0000000 0x20000000>,
-> +		      <0x0 0xE1900000 0x1E700000>,
+Hi Donald,
 
-Lowercase hex everywhere.
+On Wed, 2025-09-10 at 09:46 -0700, Donald Shannon wrote:
+> On 9/9/25 16:05, Donald Shannon wrote:
+> > On 9/3/25 00:07, Andrew Jeffery wrote:
+> >=20
+> > > Hi Donald,
+> > >=20
+> > > On Fri, 2025-08-22 at 13:38 -0700, Donald Shannon wrote:
+> > > > This is an Aspeed AST2600 based BMC board for the NVIDIA VR144NVL
+> > > > Platform.
+> > > >=20
 
+*snip*
 
-Best regards,
-Krzysztof
+> > > > +
+> > > > +&mdio0 {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 status =3D "okay";
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ethphy0: ethernet-phy@0 {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 compatible =3D "ethernet-phy-ieee802.3-c22";
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 reg =3D <0>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > +};
+> > > > +
+> > > > +&mac0 {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pinctrl-names =3D "default";
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 phy-mode =3D "rgmii-id";=20
+> > > Is this correct, in the context of the query here?
+> > >=20
+> > > https://lore.kernel.org/all/6a3d7eb4-c091-437f-98f8-2b8577e539a7@lunn=
+.ch/
+> > >=20
+> > > If not, please drop the node from the patch until the MAC driver is
+> > > fixed with respect to the RGMII delays.
+> > >=20
+> > > Andrew=20
+> >=20
+> > Hi Andrew,
+> >=20
+> > I will change this to alphabetical order.
+> >=20
+> > The extra space in our flash is for root of trust application. I will n=
+ote this in the next patch.
+> >=20
+> > I see that the ftgmac100 drivers do not use the phy-mode parameter so I=
+ will leave it out.
+> >=20
+> > Thanks,
+> > Don
+> >=20
+>=20
+> Hi Andrew,
+>=20
+> I am getting conflicting messages in my v3 patch series and want to confi=
+rm what the consensus
+> is for removing or keeping the unused phy-mode parameter.
+>=20
+
+The background is that there's been some concerns over phy-mode wrt to
+where the RGMII delays are inserted, and the impact on the phy
+configuration. My intent was that if you were unsure that you would
+remove the entire mac node rather than just the phy-mode property. That
+way there's no networking that can break when ASPEED sort out issues
+with the ftgmac100 driver. You would have to carry a downstream patch
+to add the node back for networking, but I feel that's an improvement
+on carrying the entire devicetree downstream.
+
+However:
+
+>  There is some inconsistency in
+> the existing dts-es as well.
+
+Yes, this is part of the problem.
+
+>=20
+> Our board phy implements tx and rx delay, so -id would be the appropriate=
+ one to use if we
+> decide to use it.
+
+Right, so long as there's no delay configured for the MAC in the SCU
+(see SCU340-35C) and networking functions for your board then I think
+it's fine to keep the node and specify `phy-mode =3D "rgmii-id";`. Any
+fixes to the driver shouldn't break that arrangement (as in this
+configuration it should deconfigure any delays for the MAC in the SCU).
+
+There's some good documentation here:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Doc=
+umentation/devicetree/bindings/net/ethernet-controller.yaml?h=3Dv6.16#n264
+
+and relevant discussion here:
+
+https://lore.kernel.org/all/f28736b5-f4e4-488e-8c9b-55afc7316c5e@lunn.ch/
+
+Sorry for the confusion.
+
+Andrew
 
