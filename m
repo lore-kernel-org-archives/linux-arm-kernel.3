@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51080CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 19:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFE1CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 20:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqadXdSW1D0YdX9y/VYCHcP9OLLjsnrvbDdXfqIeuyU=; b=0kpwlgofZosMF+al9ny74nqaG3
-	reQjiiGxJy0RdmXcuVlRMb7xKPkpjUDL/cdFlKLL8MO/I3UxFupKdPfQfJHTpt6Wac6WyFBwg0woz
-	SzRTKXgSDRTOzWRuN5NRx83PN6oGjwXnqw1wBo1gP5rsfoCx5IatF0/zYrjmQNxbiFkpyZzd5vxj/
-	qcu8a9qVRIYXZsCc2zrCGDhB+Ka22RBXwTEfiTpy/zgux/gsy/9HXHfvVr9V0yQY7yxfo1Iz93IA1
-	wUaB84F7EgTrWJE+19F367vAYF2bzegdAD7V9vz69JeVzWsR3ytOC3WM0L5uEYsXuuWI32xZtTHjR
-	2+DPitTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UrpmziZLfotMS5CEoKkLYKoC2t3idXqYLHnfrjpqSoM=; b=UET136TUkDZOKDfwUUU/TUR4sG
+	QQpcuNpibFAW7/V20z7K3kTW+XHcmsFqjymUCUXRGnBu6zw9WMTLXo7nSw0Pp3Kh0fzXKyvA1QhfJ
+	9cn0Qyihlbrnf0gDFYZRu4hQAbM92qFIQbV8gk4DmNFJfTEHSFVLxb/zTSrCq/Q7Lxrw7VE9mZzun
+	tlpvkyuXKr2hrQ78sojkEs0D4DCsF8xANvQfPcZDzZmKiA88nPSsFfdNjIjtTFsBVYjHizkZwUjSM
+	p2C1+8MxnbMxseI7k8NiiUnBnCsLJ2kg+omALsPY9wthxFK5DzBe7QFWhuWlb+4sHhupv6R8npRp6
+	Mzq9hgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyFH4-00000005Y80-0M9B;
-	Mon, 15 Sep 2025 19:54:06 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uyFfq-00000005bQJ-32P5;
+	Mon, 15 Sep 2025 20:19:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyFGz-00000005Y3n-1pkm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 19:54:02 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45df0cde41bso35025395e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 12:54:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1757966039; x=1758570839; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GqadXdSW1D0YdX9y/VYCHcP9OLLjsnrvbDdXfqIeuyU=;
-        b=cINsSg8LOS6s5LTfoe5UhsSJvkmpO+j+B8n21A5IOrPIcdJqWqyLS89a86o7wCLVbe
-         VjjY4a+yg1nHH85ahnlITLytJPl/vLI0UwcZeq0JvnYugNBJBoOFKlbGbtAED4YyM7lx
-         m2t33nMbg40fEdYbWTTT1bkEwsV2WGsu8MH0A=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757966039; x=1758570839;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GqadXdSW1D0YdX9y/VYCHcP9OLLjsnrvbDdXfqIeuyU=;
-        b=OIIuGTqT39/cXkjWmmXceTrH5DZsNSjI5Nw5agqaZR0oYC6ywXjZT44VUoi/Wzys8F
-         xjypzTiolrP/iW7xHcgloEKR+Y3werXX6DcZt1SqF4HNFhP5gaSzBTeiRRTj1y2BoDXj
-         vpsjYcTJ+BjwE1Pp8nXZ5djlRXS+wjdflvbcCAtMmK5ESli5QxT3y5zqCmi7YrXjcwZF
-         Btp0PoULAr6Yeu6TvEIZEZKvu8J2Qb9Q4rIre2OYZnTvCm5n69pyjoS8x1bc3FKRSeHi
-         lZAF/KwIMjlm02KUC2qwo7ccMmuGto8WEFYwMQbMyCHAr1MmEomUw/AmFdE2z0YoF8Qc
-         au5A==
-X-Forwarded-Encrypted: i=1; AJvYcCV0xuBEs2M86Im05+nL8T6Hyrjw8uLKEocr61+7F1nA2rD3otk1oKjuhecCW6ot7dv+OPzxhYsaTkzJNwmE+fE1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKQz0MKU3vCjKBFSe5b/dmeIvoIwuJfP1FOgY0Jy2EXfT6HSMn
-	s+CNPvkr+lnH2mNAo4GiGyjBAlVvuvvpFIXFgce2vjZdBOhtZMA6Cz7S9xXbkKwSbok=
-X-Gm-Gg: ASbGncvGRztc4aZKyf5jN74cz3YikebVVKG5aK3M9afB/ZeQRJIsQ2lcdH9azg4+s4Y
-	9a86RhC+dDduLpdvHvdpefxdsSIOm/h7QZNTPUAzZAPqP711hvTq40RdqyN8eE37QvADOZkMA+J
-	OUwmdHmvIum6QKLiGfgAicpFgzQTp4YKsE25YNQ462M/Ji1DecPgl9II/l3ej7Fiwyfqnh68TLq
-	AqplgAT7fyWzw7eoN7xe7g6FwbFJfcdZya2YipUt7b4KDYCTz8pezft2EDnjc0cBbU8whXfSyuw
-	fygiFpQtku3zcK2al86VumxS84jvKjIVlWwMQ/ihXqhLDjlFTh7mydIy+yyfMqul8jLbg27a/oh
-	76wlD6RemfR/hQpDgX2SviI6jsl0zRBdxcUtPDPMCUGHSADMazprSson+RBzkxTI=
-X-Google-Smtp-Source: AGHT+IFX174NiBczGaK/x3CIfQpHj6Pi6AzSfzk1fSmasGkNMFC1MAnI/pPMBLk/mLUpvLPRyiHwCA==
-X-Received: by 2002:a05:600c:4453:b0:459:dde3:1a55 with SMTP id 5b1f17b1804b1-45f211f2fbemr160469475e9.24.1757966039580;
-        Mon, 15 Sep 2025 12:53:59 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.230])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f32640f49sm530985e9.9.2025.09.15.12.53.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 12:53:59 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	imx@lists.linux.dev,
+	id 1uyFfp-00000005bQ7-0Br5;
+	Mon, 15 Sep 2025 20:19:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A87C60227;
+	Mon, 15 Sep 2025 20:19:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 938B5C4CEF1;
+	Mon, 15 Sep 2025 20:19:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757967579;
+	bh=XdJ7z/q77YUFL/QosenW4NKVcYFIhAWClP3csrjOEHE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EZqHnVo/0vRzL1QXtPlDyW6r5wT1/RXhbRcDV/QJDqD0XKxxh6MQ23H7OABUjt2mK
+	 Grlghu0fggLO5017FGMY4UIIxvlIlw2chH0Ewcql3s1kFY7kSsQF/Dok0LTC/Pn7Zf
+	 3sUgI+p7lztQaBlhl8AkNFbDPkkb0K81d14POIRd15kAeSGF1vrXFcIrZMs4mq9lC8
+	 EXdca9Wa7KqtgUoWWPR3OW8ms7veuUurvmEmkhaDlczzi35gKr1Auq82QGdyEWCW5y
+	 AL9iX3CsI1xr1ZxgQSD+eMF1SgbrDOh16/rSSIC/b67im/jRftRMPfjkeBERRhCUgl
+	 onhjUo0TpfT5Q==
+Date: Mon, 15 Sep 2025 15:19:38 -0500
+From: Rob Herring <robh@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Jakub Kicinski <kuba@kernel.org>,
+	devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	DENG Qingfang <dqfext@gmail.com>, Lee Jones <lee@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Eric Dumazet <edumazet@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Simon Horman <horms@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: [PATCH v3 6/6] Input: imx6ul_tsc - set glitch threshold by DTS property
-Date: Mon, 15 Sep 2025 21:53:08 +0200
-Message-ID: <20250915195335.1710780-7-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
-References: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>
+Subject: Re: [net-next PATCH v18 3/8] dt-bindings: mfd: Document support for
+ Airoha AN8855 Switch SoC
+Message-ID: <20250915201938.GA3326233-robh@kernel.org>
+References: <20250915104545.1742-1-ansuelsmth@gmail.com>
+ <20250915104545.1742-4-ansuelsmth@gmail.com>
+ <175795551518.2905345.11331954231627495466.robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_125401_491401_BBA680D6 
-X-CRM114-Status: GOOD (  17.90  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <175795551518.2905345.11331954231627495466.robh@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,97 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the glitch threshold previously hardcoded in the driver. The change
-is backward compatible.
+On Mon, Sep 15, 2025 at 12:01:47PM -0500, Rob Herring (Arm) wrote:
+> 
+> On Mon, 15 Sep 2025 12:45:39 +0200, Christian Marangi wrote:
+> > Document support for Airoha AN8855 Switch SoC. This SoC expose various
+> > peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+> > 
+> > It does also support i2c and timers but those are not currently
+> > supported/used.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> >  .../bindings/mfd/airoha,an8855.yaml           | 173 ++++++++++++++++++
+> >  1 file changed, 173 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+> > 
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml:
+> 	Error in referenced schema matching $id: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml
+> 	Tried these paths (check schema $id if path is wrong):
+> 	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+> 	/usr/local/lib/python3.13/dist-packages/dtschema/schemas/nvmem/airoha,an8855-efuse.yaml
+> 
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: soc@1 (airoha,an8855): efuse: {'compatible': ['airoha,an8855-efuse'], '#nvmem-cell-cells': 0, 'nvmem-layout': {'compatible': ['fixed-layout'], '#address-cells': 1, '#size-cells': 1, 'shift-sel-port0-tx-a@c': {'reg': [[12, 4]], 'phandle': 3}, 'shift-sel-port0-tx-b@10': {'reg': [[16, 4]], 'phandle': 4}, 'shift-sel-port0-tx-c@14': {'reg': [[20, 4]], 'phandle': 5}, 'shift-sel-port0-tx-d@18': {'reg': [[24, 4]], 'phandle': 6}, 'shift-sel-port1-tx-a@1c': {'reg': [[28, 4]], 'phandle': 7}, 'shift-sel-port1-tx-b@20': {'reg': [[32, 4]], 'phandle': 8}, 'shift-sel-port1-tx-c@24': {'reg': [[36, 4]], 'phandle': 9}, 'shift-sel-port1-tx-d@28': {'reg': [[40, 4]], 'phandle': 10}}} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml#"}
+> 	from schema $id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
+> Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: /example-0/mdio/soc@1/efuse: failed to match any schema with compatible: ['airoha,an8855-efuse']
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Why are we on v18 and still getting errors? I only review patches 
+without errors.
 
----
-
-Changes in v3:
-- Remove the final part of the description that refers to
-  implementation details in fsl,imx6ul-tsc.yaml.
-
-Changes in v2:
-- Replace patch ("dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
-  fsl,glitch-threshold") with ("dt-bindings: touchscreen: add
-  touchscreen-glitch-threshold-ns property"), making the previous property
-  general by moving it to touchscreen.yaml.
-- Rework "Input: imx6ul_tsc - set glitch threshold by DTS property" patch
-  to match changes made to the DTS property.
-- Move "Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros"
-  patch right after the patch fixing the typo.
-- Rework to match changes made to the DTS property.
-
- drivers/input/touchscreen/imx6ul_tsc.c | 26 ++++++++++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
-index e2c59cc7c82c..0d753aa05fbf 100644
---- a/drivers/input/touchscreen/imx6ul_tsc.c
-+++ b/drivers/input/touchscreen/imx6ul_tsc.c
-@@ -79,7 +79,7 @@
- #define MEASURE_SIG_EN		BIT(0)
- #define VALID_SIG_EN		BIT(8)
- #define DE_GLITCH_MASK		GENMASK(30, 29)
--#define DE_GLITCH_2		0x02
-+#define DE_GLITCH_DEF		0x02
- #define START_SENSE		BIT(12)
- #define TSC_DISABLE		BIT(16)
- #define DETECT_MODE		0x2
-@@ -98,6 +98,7 @@ struct imx6ul_tsc {
- 	u32 pre_charge_time;
- 	bool average_enable;
- 	u32 average_select;
-+	u32 de_glitch;
- 
- 	struct completion completion;
- };
-@@ -205,7 +206,7 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
- 	basic_setting |= AUTO_MEASURE;
- 	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
- 
--	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, DE_GLITCH_2);
-+	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, tsc->de_glitch);
- 	writel(debug_mode2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
- 
- 	writel(tsc->pre_charge_time, tsc->tsc_regs + REG_TSC_PRE_CHARGE_TIME);
-@@ -391,6 +392,7 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
- 	int tsc_irq;
- 	int adc_irq;
- 	u32 average_samples;
-+	u32 de_glitch;
- 
- 	tsc = devm_kzalloc(&pdev->dev, sizeof(*tsc), GFP_KERNEL);
- 	if (!tsc)
-@@ -513,6 +515,26 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
-+	err = of_property_read_u32(np, "touchscreen-glitch-threshold-ns",
-+				   &de_glitch);
-+	if (err) {
-+		tsc->de_glitch = DE_GLITCH_DEF;
-+	} else {
-+		u64 cycles;
-+		unsigned long rate = clk_get_rate(tsc->tsc_clk);
-+
-+		cycles = DIV64_U64_ROUND_UP((u64)de_glitch * rate, NSEC_PER_SEC);
-+
-+		if (cycles <= 0x3ff)
-+			tsc->de_glitch = 3;
-+		else if (cycles <= 0x7ff)
-+			tsc->de_glitch = 2;
-+		else if (cycles <= 0xfff)
-+			tsc->de_glitch = 1;
-+		else
-+			tsc->de_glitch = 0;
-+	}
-+
- 	err = input_register_device(tsc->input);
- 	if (err) {
- 		dev_err(&pdev->dev,
--- 
-2.43.0
-
+Rob
 
