@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74967CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC10CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8lysJ4vjIlplzoLG4Fb0Ul9ZBXmVUeGQ25aPi73WNlc=; b=y1BN5w46dilCVku6YVhTBuTYQf
-	FMNzzMTC8nV2vltPneDmS+lWhxgcShpK00rPXw2K1JtTo0nhG4aUyulD6q1PseBfZPpDkbkbM74gT
-	FxHTweOrsIipy5aJh01/DZdgC9QV6D9ty1nlaohzBYrFewoa3r6+RizvjIOIkVct+HGjIt8UX+bLB
-	Ic7gQTlCzYu0xfm0PIHB35KFpfYfv1mlT2IX3DtHzY8IXc6KO9vsB/qih2yj7hhGoGU8cLBFqKOol
-	GFQvDjH2BH0rg0dGm0WosVoHUgag0Mng8wCXrYjLJfF/r+j+k+fHd+OYKUVAEdn9Ho2CefZxuv7Nr
-	nCLrQbnA==;
+	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=; b=oTLLUV6sjciZbeu8CYpnlFR2Hb
+	cFyOco01T5zMcawNIH/IEk3a6l3Oc22V4ZEOn1h86OUnHXDxVvN2CwKADmoiLseTisr/k991aUtol
+	M2vTHExASBoqIzKnBDSU8a9IL/kwANDi7cbWGLDHpDKd8UZrKGR9bA+PDbPeSg3hEohtNMQcDZYoH
+	HWgrWf1kA8FOUP3wqIfhsGLrYg3tMnQM5YUYi4FBalthVMo3Yw4Eazv2AcUJglPp2vHZkL1/CCGJO
+	5KzgOqCBmYx0vpveAETb7vIEZaQJ9CmqdvicRkWWQ3N/jQ5PJ+4ACimoOC0Jsl/9DLypv+bTA4i+0
+	uwXZUIOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyATs-00000004lXA-0Fgl;
-	Mon, 15 Sep 2025 14:47:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyAUZ-00000004lgk-1f0a;
+	Mon, 15 Sep 2025 14:47:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyATp-00000004lWi-3hrM
+	id 1uyAUY-00000004lgQ-0JU6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 15 Sep 2025 14:47:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=; b=lN5ce+NnuMdg/3CAGx8BC0fTSc
+	U7ZYbVcxrg9cZrNFbd6uONUCUhQU174UY63n7ds3k4i10jJGrmB2fS3HfApz79fS5Q9Jo0Iajl/Up
+	pJGviBRuWb0AJ7N3QbULpD0InwNqpJZOsKqhx8ekHImfLVuI0RsbTVFaaDbD1N6FMNMh6DSd/FP7R
+	7YBFa730rhhBjEkInyXHKv2UfBj478a1W5UU+7OnfB1VPaQeb8mLHyLs7kbZ+FgjR4e4XCZAVOali
+	E1ryRITfSfLdU479IeAu5Mu0iQNsWAyAQLRfCXD6p3r/LGLvdlj3fFADr07w3X0Xq6Tg1LVF+hkif
+	OE+8iJfw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyAUU-000000072HK-3ioB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:46:58 +0000
+	Mon, 15 Sep 2025 14:47:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3675A43D26;
-	Mon, 15 Sep 2025 14:46:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13EF8C4CEF1;
-	Mon, 15 Sep 2025 14:46:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D8BF240E87;
+	Mon, 15 Sep 2025 14:47:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82B8BC4CEF1;
+	Mon, 15 Sep 2025 14:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757947617;
-	bh=CyVglRI5ZVYfdi1omWUfdZeAndsQqNtk+DYYex6U8O0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=gxcAsXr5sbNBP/XE+n6/+UJ70miR4+MxSvokNDODJL14NkTf/GIA3PyoaHzpfjm8x
-	 joO8TU0WIbls6MtOWIRCkhQl6tVWiMokZ0Krw2iTAK3hhR0KsCLJkclPZChUuRypCm
-	 b/ngb47UpO/Gk4C5Q59CZdFNpiLG2uwxN8SjAMUGGKdY5OqbYGHuTHnQl3BZ6ReFpS
-	 lth6F6v1+/2kolRx43QeXjscXne9F0jbchqloPGvj84YAnMOLmDM+A7VLaywpjbmCS
-	 CXQ27rysmj9gXa2Z5tgqpNmtLrkwVPF//JGmG8m8D8rqMTSuuiwJZLJlkTp+ZcDbsN
-	 5sXWUkpA2gF2A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uyATm-00000006Pzm-3Sls;
-	Mon, 15 Sep 2025 14:46:54 +0000
-Date: Mon, 15 Sep 2025 15:46:54 +0100
-Message-ID: <86tt13bwo1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zhou Wang <wangzhou1@hisilicon.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<wangwudi@hisilicon.com>,
-	<liuyonglong@huawei.com>,
-	<prime.zeng@hisilicon.com>,
-	<yuzenghui@huawei.com>,
-	Nianyao Tang <tangnianyao@huawei.com>,
-	Kunkun Jiang <jiangkunkun@huawei.com>
-Subject: Re: [PATCH] irqchip/gicv3-its: Add workaround for HIP09/HIP10/HIP10C erratum 162100803/162200807/162400807
-In-Reply-To: <5a42235e-f0d9-bbae-7742-d25025878820@hisilicon.com>
-References: <20250909110615.129179-1-wangzhou1@hisilicon.com>
-	<86h5xbd8zp.wl-maz@kernel.org>
-	<f102058c-809d-e96e-9d96-1c1e14b36517@hisilicon.com>
-	<86wm5zc3af.wl-maz@kernel.org>
-	<5a42235e-f0d9-bbae-7742-d25025878820@hisilicon.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, wangwudi@hisilicon.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com, yuzenghui@huawei.com, tangnianyao@huawei.com, jiangkunkun@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1757947654;
+	bh=isLYgistNjdaFJ+IvtazUqH5mG3/5S4jIQ9w4kszCSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D4wlMhtjYAOghN/Bw6VK9WtBE24NGMCF8oPJ9UZHSrMfKsq0/B3OdwmPRJ5yz1sGa
+	 OVjs4KV9tXx/GrndpwGtSpX48JUEtmtPKsZ5MbGv/LUPTizKZALqwjzGu68hOzB5ql
+	 FzXbyT1kXtp13oCs381JOyrWuZsJoBQ1XLv0n8ABkubTTcZuuiM2AYOM0ViN4MerAQ
+	 4VptVba9101kMNZ6kWvM9QXHn8hbA+JcFNVeucYKaF4NxAi5UCp3fD0SxzrBmMyZNx
+	 xky7ydLOm6XZ+ESqYeA6gQ8Jr0QLzQJu1SEJOQ0Zj/U6soM2QrlUeKptugAFYg0kGa
+	 6T1Qt47mcIgCw==
+Date: Mon, 15 Sep 2025 15:47:27 +0100
+From: Daniel Thompson <danielt@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: lee@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
+	jessica.zhang@oss.qualcomm.com, deller@gmx.de,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	airlied@gmail.com, simona@ffwll.ch, fnkl.kernel@gmail.com,
+	j@jannau.net, hdegoede@redhat.com, ilpo.jarvinen@linux.intel.com,
+	sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev,
+	support.opensource@diasemi.com, duje.mihanovic@skole.hr,
+	dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v2 06/15] backlight: Include <linux/of.h>
+Message-ID: <aMgm__4sUSKYxqDt@aspen.lan>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <20250715122643.137027-7-tzimmermann@suse.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715122643.137027-7-tzimmermann@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_074657_958373_63869AB9 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20250915_154739_182103_9D5517E2 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,90 +96,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sep 2025 15:06:35 +0100,
-Zhou Wang <wangzhou1@hisilicon.com> wrote:
-> 
-> On 2025/9/15 20:23, Marc Zyngier wrote:
-> > On Wed, 10 Sep 2025 04:27:15 +0100,
-> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
-> >>
-> 
-> [...]
-> 
-> >>>
-> >>> You are telling the ITS that it is allowed to go and access
-> >>> unspecified data (16 bit worth of translations). That's not
-> >>> acceptable. If you *have* to do that, then override the size in the
-> >>> driver code to actually allocate the corresponding memory.
-> >>
-> >> Then we have to override the ITT memory to 2 ^ 16 * 8 for one device
-> >> :(
-> > 
-> > But what's the alternative? Letting the ITS speculate in random
-> > memory, possibly under the control of userspace or a guest? I don't
-> > think that's acceptable.
-> 
-> Seems that only a bad device who could send an interrupt which is not be
-> declared may bring a problem here.
-> 
-> Not sure how dose userspace or a guest make a problem here?
+On Tue, Jul 15, 2025 at 02:24:43PM +0200, Thomas Zimmermann wrote:
+> Include <linux/of.h> to avoid dependency on backlight header to
+> include it.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Assign a device to a guest, let it generate an MSI with an event-id
-that's in the correct range, observe it accessing the memory.
-
-All you need is to be in control of how the device generates MSIs.
-
-> >>>> +#ifdef CONFIG_HISILICON_ERRATUM_162100803
-> >>>> +	{
-> >>>> +		.desc = "ITS: Hip09 erratum 162100803",
-> >>>> +		.iidr = 0x00051736,
-> >>>> +		.mask = 0xffffffff,
-> >>>> +		.init = its_enable_quirk_162100803,
-> >>>> +	},
-> >>>> +	{
-> >>>> +		.desc = "ITS: Hip10 erratum 162200807",
-> >>>> +		.iidr = 0x01051736,
-> >>>> +		.mask = 0xffffffff,
-> >>>> +		.init = its_enable_quirk_162100803,
-> >>>> +	},
-> >>>> +	{
-> >>>> +		.desc = "ITS: Hip10c erratum 162400807",
-> >>>> +		.iidr = 0x00061736,
-> >>>> +		.mask = 0xffffffff,
-> >>>> +		.init = its_enable_quirk_162100803,
-> >>>
-> >>> Can you try to merge these three entries and adjust the mask
-> >>> accordingly? mask=0xeffcffff should do the trick, assuming that you
-> >>> don't have any other hardware overlapping this.
-> >>
-> >> The iidrs are different, how to merge these entries?
-> > 
-> > By using the mask:
-> > 
-> > 	{
-> > 		.desc = "ITS: Hip10 erratum, will eat your vSGIs",
-> > 		.iidr = 0x01051736,
-> > 		.mask = 0xeffcffff,
-> > 		.init = its_enable_quirk_162100803,
-> > 	},
-> > 
-> > will match all three platforms, assuming I got the mask correctly.
-> 
-> iidrs are differet, so one iidr can not match all. e.g.
-> for iidr = 0x00061736, mask with 0xeffcffff will be 0x00041736, which
-> will not be 0x01051736.
-
-Sorry, copy paste, and wrong mask. This works (I actually checked):
-
-	{
-		.desc = "ITS: Hip10 erratum, will eat your vSGIs",
-		.iidr = 0x00041736,
-		.mask = 0xfefcffff,
-		.init = its_enable_quirk_162100803,
-	},
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
 
