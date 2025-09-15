@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73AC7CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 22:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC28CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 23:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTycPbHlQtDBtjOvMMJ3SZ6uhxSiX0nO4WaEP9DHCc4=; b=OMnHAfTS9oX2Te3HPpBP5S5+ps
-	f3Wxr5IAt2w0DZmOo/2ocFW0ilnlYSoBYwy7Tz/n+JWpBQadFjg0v9AKWwe0IsSmzZXjtXm6OzDkV
-	4+TK6zTqN+PRMqOVtqQHIxPFg9zwxNFRAqHbXWl3ld+/+6skpWNZZxFDWRNsNafZHqd+k8g09bI0k
-	HgghqKMgBi5UyDhXF5oTk1CpZFsM8TTV6CP5iUf5CDeAclJr2xbznEjPeggGMlgNJqWpN4yuPw2t4
-	mUIUa7zRjylgEXEH2bwxiZ7F9hmiT06hT5P8YeWLY0gUTv6CB+MwxAiEbD9e3lFhHJ9LIrDxaK0YL
-	Ysd7kE1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=; b=2IkfmKqYF6TyApt6knllrhTU12
+	qd4Ge6gRahY0IAT0Yf6gYzQ6414rA5ax6qpMS4kXMuWcLxgWLAlxTIEz16XaFfcsdNPQF6ymAcBjK
+	Bvmq3pyE09mmhrXbwg4OwOtBdhSiVUjFtPxN4/j4hTbbqfE3jtcKAxV+Ty07OerZb2vMxDeuG2Tx7
+	D311ETDUgDQLMvmTboENsfNbL90StMMxn7096lVsRaJceu7NDGYnHNW7UQiGmEI0aitufIEHosiOn
+	UJCaOde34BB8Gv/Sq32lm2roZ8o3ahoYtqWAHP5dofcRkPnZRom2ZhSSJBhD/VKMo7xOw6gm7Q+WC
+	AK2X8gDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyIAi-00000005qKd-0COM;
-	Mon, 15 Sep 2025 22:59:44 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1uyISq-00000005rvH-2gGx;
+	Mon, 15 Sep 2025 23:18:28 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyIAf-00000005qJj-3RBA
+	id 1uyISo-00000005ruW-0ZHw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 22:59:42 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-30ccea94438so3653731fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 15:59:41 -0700 (PDT)
+	Mon, 15 Sep 2025 23:18:27 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-777ea9fa8fdso1314863b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 16:18:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1757977180; x=1758581980; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=aTycPbHlQtDBtjOvMMJ3SZ6uhxSiX0nO4WaEP9DHCc4=;
-        b=WdFDasX5nUjga5+k5DDqLs76m05k66g9m0qVYr466fHynr109aucPwFK6aDZxLrUA5
-         GeFxIuXwOC3Qxt1X+MwQmeVC3MhuhEhRQ9B6aa0LMJlMArbJOImlchCE62wHJZDQfJrj
-         GOhxc4GVoWzmV6wciAaE0IOQd4C1h1m6oOsyqYdAn5xMgsLOofx2yZjWgqQRjW1RuBuy
-         wVbDtiJyNBB9UdlDB2d/QmGDC0Oj+7k1heVzkLMexMHHl9q2MRKjdUQCHWjw/F/Laxhb
-         dypjU0v2NL6BdULUhjCFeJpt13Tc2BhMaeGlFnF+dv9kCn24PjBYVbIMaJC6BoKNJd1S
-         Y6EA==
+        d=gmail.com; s=20230601; t=1757978305; x=1758583105; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=;
+        b=U4iFA1ZTJ8cX+L9GyAvnfURcLCZxLp7isFaC1fHF854UB0jnKSoTJkm9GzolaVDgGH
+         gVlUDlDMJ+kpvhT29dbGhQ3trOsWcIxkYH8jLu+zqB/VOPseC+IpS3L1Wvvd9mqeJKM1
+         eEIAoNTS1+g6UDStEDCXkZurJLEyP9TweLJ794Cbjw/8bAWwADEMh4a8/9xSTRrshUjY
+         ucpw4Q8n38q1CkhKz+rfySgfP9ta6CSk7+CFVLmzRi53F2sZdWJyvu9o5Q7QfiS0YZ43
+         w5Za3XCUITvbkA4PNFk1yS3mTH4NdTkzbWDJsf+GG6nIu5TsTqV2MOOtaLOIUg6wQJw5
+         4Naw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757977180; x=1758581980;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        d=1e100.net; s=20230601; t=1757978305; x=1758583105;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aTycPbHlQtDBtjOvMMJ3SZ6uhxSiX0nO4WaEP9DHCc4=;
-        b=k0PWs1rWbS8sWT1KlMsDAiDGAJrIiTeikcqpI6A34G7AKb4LKVJxYXKwkh0BOfYw5I
-         45Prd47PF56aRthxvaETjxMshEV8aXO9S8fxi4bUHJE4xB/9LDP9FjlYX/GQEMvBA45X
-         PNE8fxksOGTIpQXXvhFMGiHjKA93QwsaKYaKPxbPhqFUorOOeuY9JTcAllT7D/gdbUMp
-         UXfYsWucQqT34pFMg9XWba2Y6EGuLUqGjMYgWuQ3irUor5f5fwRf9vxiP6QHKezepDXR
-         gXohHRlc/+s6Z/PCZgJWDLS98e14NG+3YangF1wLEOeqQgFWHBi5fy6MAtZAP9x1iyLC
-         2SMg==
-X-Forwarded-Encrypted: i=1; AJvYcCXWcKmdA0hT34BW0VagEnOtC68Zp9t4y8CF/PaX1XozFSwSchc0uZOIoxMJ3KYUr0yQR9VQmawINxmfuCAbhNL7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyneTwwyZuSvS1WVXmJPD4BPwhR4ZfZ5no71Xi9zGihURKRCQcm
-	ZWrl9Nb43TR7nkbbzfAWCDjTdcvcQk6+3bUyqE1YfHn72y8q/hq0z550pcMRZj1l9Rc=
-X-Gm-Gg: ASbGncubkPCDTg/1o+M2mQ/0gVUMtaSYjIudp08dpiYJQ8SyYqop+oNXtMhiu2pbZ+w
-	5Bdrbb0ZRXzf1HhW+7Lv3yafMkcjY8Wky/3prWjOFSdUD6WVj8QuIPJwp10bnZCH5TfWLiMgFPg
-	Otke1di7CA25IP/qfb/SeIsT47mZZR7xGy5xE3zsoWqT38IMN1A3rwLKMIzBKIfRaoE5V+1JYtQ
-	2uDyExLFysrqkzKMx7HIohi5Nq1XT9Q4jJCOvA14lQok3vxZ3jZB0ugfc6NNF76dQNy+Svr+PQn
-	opEF2KWJO9qL53nKNcGqw3CxtZIV/Ph5qkdPvIDtiaOQZxu/hjBaMy+OM6VRXguyr2eV7Zn6YrK
-	H+W29qBQ=
-X-Google-Smtp-Source: AGHT+IHaizr3a2V9CFBUtFDTvOTqaJTANyOfH5v0JTyHH5V9DAauzxISXWz+PQumMIbWbikwaEyCPw==
-X-Received: by 2002:a05:6870:82aa:b0:301:a704:ef1c with SMTP id 586e51a60fabf-32e56bc4018mr7508892fac.25.1757977180618;
-        Mon, 15 Sep 2025 15:59:40 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3317d74fe33sm1565394fac.15.2025.09.15.15.59.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 15:59:40 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uyIAd-00000004YkX-1MrY;
-	Mon, 15 Sep 2025 19:59:39 -0300
-Date: Mon, 15 Sep 2025 19:59:39 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: thierry.reding@gmail.com, robin.murphy@arm.com, robh@kernel.org,
-	joro@8bytes.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, will@kernel.org,
-	jacob.pan@linux.microsoft.com, eric.auger@redhat.com,
-	code@tyhicks.com, eahariha@linux.microsoft.com,
-	vijayb@linux.microsoft.com, bboscaccy@linux.microsoft.com,
-	saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	lizhi.hou@amd.com, clement.leger@bootlin.com
-Subject: Re: [PATCH v4 4/4] drivers: iommu: refactor arm_smmu_get_resv_regions
-Message-ID: <20250915225939.GN882933@ziepe.ca>
-References: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
- <20250909154600.910110-5-shyamsaini@linux.microsoft.com>
- <20250909155847.GB882933@ziepe.ca>
- <20250915162842.GA23954@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+        bh=+l7LUQcajOsjM5wGJwbkfQJik4Yq7alB7BOereQy2VE=;
+        b=rLsSib+8YzwoJyNQwXK7BRlT3LQy3cOaRYA6VdZEZSCDGx2ERMi40F0mK4edFnL/A3
+         wkQLT55Ax9YCoFGq4Yy1VMQ4rRjRpTe3iP0UMQIjx4aNg4RllJvT/sWTK//NtuDqCguH
+         9A7ASXLNtd8BuZDzmzjgyVOAHmxPc49xchPidQODbK4Pi1PPDO3OF4q0yHeuq6lUdzkh
+         4HqfW8T9S2DM0aNziLTwv0+yCYNsjnySNiWKZWrqdk8XcQAMcEpX4vJ2RKOgeI8TatIY
+         vTTB5B1hQedzsvHoqg7Usz3ca+MBQScvJdm5fdpzZR072zGDs7BhHr80lsjoq0miOuio
+         EM6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWZMKef/GKbnLxY9SxZU2Tjybo4eFY9mH02xxCC9rkNH31wP3KZzWkKJ3HqPASgMMjoyKF8T0Kj9aU12jNtb0x9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0BYNcnZ6lM5TMmuO8pdNrrkRS1vxVeov8nqdruZnezL5gtmpm
+	HmWxEyoof9BgHVDfwkVjgbe+TmQNwci7vu/9hlF6osBrJr9QBZOsdYjK
+X-Gm-Gg: ASbGncvEqSNgqFSeUkARrsgTe1Q5JINUP1b+SQyeFXABWyTAjImzI5a8V/sjIfdYJKX
+	ItNHjPJopLAZilG4/EusglXDNMQnd1uWrPRzullOyE0gOr7NR/C+V8mIvt0pWd7clX0mzVc6jzb
+	ltxt+EUwz1yaqrsMaEGK2FhCKJyzm9Ul9aIla0O9BevQ7NRUemYx8N80TFsL9OKOIx615XNl9Bh
+	xUWjvYbDis6WtqUlT3QhtuN8quBHpAlvOAOTH5SImZPjqWvJWnj/UOJ45+7OyXvE6zjxML69uuw
+	m0VpJZgP0SgDbpEIqq2Bq73KobvKm8MPGqAWRMLRpF2QVUvvJDK+k02dd3niz7PQgkqwT09+BI1
+	KI7RAH8l2dIBnUZutyCFSudKUICVDy77fuTySBEPGXKJak3frE3ZqZw9XWKDG
+X-Google-Smtp-Source: AGHT+IEeWggDjh2aRCpx1suFPoqcxzvxrWOO8w9b7MPKM4IOfFG1MlxM/2ym7uq0iEUOJ01ZQNukyQ==
+X-Received: by 2002:a05:6a20:6a25:b0:247:55a7:695a with SMTP id adf61e73a8af0-266ed65b2b6mr265970637.15.1757978305237;
+        Mon, 15 Sep 2025 16:18:25 -0700 (PDT)
+Received: from [192.168.1.105] ([59.188.211.98])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ea0859e20sm324333a91.0.2025.09.15.16.18.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Sep 2025 16:18:24 -0700 (PDT)
+Message-ID: <2fb684e0-449b-4377-81a5-5be03cdf3e6c@gmail.com>
+Date: Tue, 16 Sep 2025 07:18:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] dt-bindings: spmi: Add Apple A11 and T2 compatible
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Sasha Finkelstein <fnkl.kernel@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Sven Peter <sven@kernel.org>, linux-kernel@vger.kernel.org,
+ Janne Grunau <j@jannau.net>, Stephen Boyd <sboyd@kernel.org>,
+ Neal Gompa <neal@gompa.dev>, devicetree@vger.kernel.org,
+ asahi@lists.linux.dev
+References: <20250915-t8015-spmi-v4-0-758620b5f2ae@gmail.com>
+ <20250915-t8015-spmi-v4-1-758620b5f2ae@gmail.com>
+ <175794440092.2724212.9818605948916059174.robh@kernel.org>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <175794440092.2724212.9818605948916059174.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250915162842.GA23954@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_155941_859190_9FF7580C 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250915_161826_181707_6951C73F 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,18 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 09:28:42AM -0700, Shyam Saini wrote:
-> > I'm comfortable with this side from the iommu perspective once you get
-> > agreement on the DT representation.
-> 
-> We haven’t heard back from the DT folks or Thierry. Do you think we
-> should wait a few more days for their feedback, or go ahead and send
-> v5 as an RFC instead?
 
-It is about normal to wait about another week and then ping them for
-feedback.
+Rob Herring (Arm) 於 2025/9/15 晚上9:53 寫道:
+> On Mon, 15 Sep 2025 09:52:24 +0800, Nick Chan wrote:
+>> The SPMI bus found on Apple A11 and T2 SoCs are compatible with the
+>> existing driver for t8103's spmi so add their compatibles.
+>>
+>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>> ---
+>>  Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 5 ++++-
+>>  1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>
+> Please add Acked-by/Reviewed-by tags when posting new versions. However,
+> there's no need to repost patches *only* to add the tags. The upstream
+> maintainer will do that for acks received on the version they apply.
+>
+> If a tag was not added on purpose, please state why and what changed.
 
-Don't send a RFC, you intend your work to be merged.
+As stated in cover letter, the tags are dropped in v4 because the dt-binding patch has changed
+significantly from v2. (really should be dropped in v3 though but that did not happen). And this
+is actually a different patch from v3, the only difference is a newline is no longer removed.
 
-Jason
+
+>
+> Missing tags:
+>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>
+>
+>
+>
+Best,
+Nick Chan
 
