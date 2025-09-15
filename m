@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E303CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F58CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 12:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXHXQj4UGcmKnWBUkQirE5z5w+eHHgyz+v/aNrmeWic=; b=P+aI0EO1AHB3r0fgpLsW6t2/b+
-	WmuqGnpNcJAQWtadyrDUdKsmbFO9eKadP7UljqGQhpSJeWC9JGHpKm8saOE4ccdCl6sLu/CPioAlK
-	0ysvhsrp7X6HRBFdYHjzT2SWrDKhAkqRYkgQB0sQGyq2cfmCBaPXaK2b7wsv/QhwtCnCS9sN7SFM0
-	+sTyXE2VLRBl+TT67Xem0IyYiLjNE/kzWeYvxizANTilwusvmhmzSiu0L8kzMN0YLVwPtNffE+vsA
-	MbLqSMvNdsim4dRbBvkCyvcR8YXRbDQoEkXmxWrGn9hlftKCpNgl+oTsQlUh/fxb9hux53FrzBgNJ
-	sCkNsYkw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uXYipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=b5p7ktfbtmseF6+XKKYGh/eRde
+	kRXsNRdRzXz+ClbZ0gERZiND7T56JhgOcAaoBr7AvPIt7Ao758v4MA1/okRv/Qw6MJKQXvRaFsQZv
+	EsmVicaY6mst2GUwWIpiV4dJi4OkEdnxcQ5Kkq6jouhPdxcK/fAQhX5ydVAgdAOT6my7swtqX/rAS
+	DWCif2PVpWlye37XtGJxxZV3pkgKYNLk1q0bFDDzBJk7gAIDB6IhR9CVutHtHxlKtKiTUaxjulYNM
+	vtH3Zd231Tfe8Hp3elNQ4MiOu79sp7Uf26DB94/UvZkmFeefyUSPjAbR0iyluXpegHv6B6IthKMfa
+	cQ+ApyhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7zl-000000044RJ-36I2;
-	Mon, 15 Sep 2025 12:07:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uy82A-000000044kz-0k5S;
+	Mon, 15 Sep 2025 12:10:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy7zk-000000044Qs-054G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 12:07:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B182A40827;
-	Mon, 15 Sep 2025 12:07:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BEAFC4CEF7;
-	Mon, 15 Sep 2025 12:07:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757938063;
-	bh=05ALcJgejdF5mIHtoaH3aZBVq91WR4W7mnRP5XLeWwk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oxZJ1u4nCXwsus+hEae+/D/Vw437CbHUh2kp/YLZ0ci7MTEurN46y3GQq8I54huSi
-	 +Jy6KObOJLT3Le8GSA8pW/jgdtbI7tzyYvoa52HVaLSsG6TorJxVY5h7PP20q2x7zq
-	 8R8zuSZZ97ppsiBXHAdLJzjVuZtvwfWNtTFnS+nReE5znOvrzS7SgBoOPGExPbF+zD
-	 74fYWwfxLk8/OQPYzvzMbl+Fh3q2NRxALAAkvTi0HEJZGuQkLJcrVtVGBeAwovhDgq
-	 FOXazbFpFcPtR7WMVbyGpW1E5gmcTZ9rPlR1mCzhLKKg/+0Dt2++uJdmcBA6aDwMqc
-	 1pn/IDVQcaX8Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uy7zh-00000006Mst-1Sx1;
-	Mon, 15 Sep 2025 12:07:41 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
+	id 1uy828-000000044kl-0mni;
+	Mon, 15 Sep 2025 12:10:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=uXYipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=IY5jgLbFVA/c0E6/l03Uz1V/i2
+	409PH3s0/9oQrEZVWdbNsSrrdQTa+LJdqa+U+TPh6Z1M2EXPPZsJBibQzaVhEu8NgDgvEIvtfSKcR
+	VyYyTML5/oeyxrFrcQ1xE+HTF34FIQQuAqpeVvffzmwizU5a0JXXxZbmKVNP28b7EDF4WL3ZozMCk
+	aVr2GopTBdIVe1a6ck9P/yhEV2T6RF7ND8vSveEp+QgBsTE5BMyBPdfw3lcmWQ2JMw3nM7G2KBFm2
+	zhl//liT+6lMLLSR4bm/gt46LHRMQ3QzjZZGQaCikSyHiGMDVI8XXuQ66xM9HQCy3OpOx7+f0bRwh
+	IpHxEUmg==;
+Received: from m16.mail.163.com ([117.135.210.5])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uy824-00000006yHu-1rLW;
+	Mon, 15 Sep 2025 12:10:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=uX
+	YipikAORq7rmSiXBAcddF/TDyI+Ck/jJ3ssPKAKWY=; b=EEBeOIh/Oflc6xA5cO
+	8ewa4chJ9vmkDiAP0WKltbkUE51T+ydUcJOSThGB7wYBC3BGFDNj3cmMSDBBI24M
+	K6YVLH18A0lDwF3Lk62/HSo6S16spdoIdjuY+AhMUJaQ3cJJhWS0MEXVRgJODkTO
+	N/KpT3GlRi7SB86gO4ylZNVW4=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3L8IEAshoNuutBQ--.65473S4;
+	Mon, 15 Sep 2025 20:09:41 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: tiffany.lin@mediatek.com,
+	andrew-ct.chen@mediatek.com,
+	yunfei.dong@mediatek.com,
+	mchehab@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	haoxiang_li2024@163.com,
+	hverkuil@kernel.org,
+	tzungbi@kernel.org,
+	jiasheng@iscas.ac.cn
+Cc: linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Mostafa Saleh <smostafa@google.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	perret@google.com,
-	keirf@google.com
-Subject: Re: [PATCH v2 0/2] Dump instructions on panic for pKVM/nvhe
-Date: Mon, 15 Sep 2025 13:07:36 +0100
-Message-Id: <175793804436.660835.10602448198623077028.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250909133631.3844423-1-smostafa@google.com>
-References: <20250909133631.3844423-1-smostafa@google.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH] media: mediatek: vcodec: Fix a reference leak in mtk_vcodec_fw_vpu_init()
+Date: Mon, 15 Sep 2025 20:09:38 +0800
+Message-Id: <20250915120938.177691-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, smostafa@google.com, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, perret@google.com, keirf@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CM-TRANSID: _____wD3L8IEAshoNuutBQ--.65473S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Ww1rWr4DKw4rAFWUGFWfXwb_yoW8GF4Dpr
+	s3Ka42kFyUJw1qvw18Zw4Uuay5Cr1SgrW8Cw13Zw1a9rnxXFWIqr1jy3WIqFZ7JFyvka43
+	Xrnaga4fCF4Fvr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_MKuUUUUUU=
+X-Originating-IP: [36.112.3.223]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbBEAnJbmjIAYMTQwAAsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_050744_076796_901B3037 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250915_131009_072273_ED6DA489 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +96,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Sep 2025 13:36:29 +0000, Mostafa Saleh wrote:
-> This small series, adds support for dumping the faulting instructions on
-> panic in pKVM and nvhe, similarly to what the kernel does as follow:
-> [   12.012126] kvm [190]: nVHE hyp BUG at: [<ffff8000811c5f64>] __kvm_nvhe_handle___kvm_vcpu_run+0x4/0x8!
-> [   12.015747] kvm [190]: Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE_STACKTRACE
-> [   12.016044] Code: a8c17bfd d50323bf d65f03c0 d503245f (d4210000)
-> [   12.016082] kvm [190]: Hyp Offset: 0xffeff6887fe00000
-> [   12.016325] Kernel panic - not syncing: HYP panic:
-> [   12.016325] PS:204023c9 PC:000f8978013c5f64 ESR:00000000f2000800
-> [   12.016325] FAR:fff00000c016e01c HPFAR:00000000010016e0 PAR:0000000000000000
-> 
-> [...]
+vpu_get_plat_device() increases the reference count of the returned
+platform device. However, when devm_kzalloc() fails, the reference
+is not released, causing a reference leak.
 
-Applied to next, thanks!
+Fix this by calling put_device() on fw_pdev->dev before returning
+on the error path.
 
-[1/2] KVM: arm64: Dump instruction on hyp panic
-      commit: 92b7624fe052ffb0b7b70d96cd514e02e91664a8
-[2/2] KVM: arm64: Map hyp text as RO and dump instr on panic
-      commit: 6f1ece1e868839cf81a28c77e19420ff57df7ecf
+Fixes: e25a89f743b1 ("media: mtk-vcodec: potential dereference of null pointer")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ .../media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Cheers,
-
-	M.
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
+index d7027d600208..1c94316f2d7d 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
+@@ -117,8 +117,10 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_vpu_init(void *priv, enum mtk_vcodec_fw_use
+ 		vpu_wdt_reg_handler(fw_pdev, mtk_vcodec_vpu_reset_enc_handler, priv, rst_id);
+ 
+ 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
+-	if (!fw)
++	if (!fw) {
++		put_device(&fw_pdev->dev);
+ 		return ERR_PTR(-ENOMEM);
++	}
+ 	fw->type = VPU;
+ 	fw->ops = &mtk_vcodec_vpu_msg;
+ 	fw->pdev = fw_pdev;
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.25.1
 
 
