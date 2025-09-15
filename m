@@ -4,74 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE09CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8BDCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 08:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vFSAIi/dtr4iuCKU0EIzf/ko8Mz2mAndxs8Ogn/B99w=; b=sggZE44T5j/c/HZmZyCuWIcCZy
-	WyA8pI7nXAotYAcB/pnJMJrAu3venZWpVjqK8MMUrJiiopZW57aRFKsGvOYYFT269zY+WbnsM1O1t
-	bWrYh8zyoGLBap39O/AlU+UxYDJQ+xbFYJjrK6ItcEJmrePY8jIrgmJT1OiTOU+OMzMFix0IGcow1
-	AWNh24KjzaINic/89pydM3kREneIOXiMS+4FnYJQhDUsStX9nKAnsjjiSlezl1KwQ/KCnOhEs9EON
-	/vHFsXpPWY0m75iQN4tkNN4/Sz0Js19q/Ps9YGyMTfeB+1T8ftZgLUSHM9UjjTfxnjdgdeOTfMxpp
-	fEWNF/vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u4LD9cbR87q9wxsWuZoHSJF8/fdAZRIkGTenx5oUXVM=; b=1SvYhXG6qgV/deG9Ugl8fDlUpL
+	MLuFnrr8gemG0sK/UOPFyCWnA7Bc9jhxptmHQwhASFtuHFdeWL9j5zaaDAO6wPvAxL8k531/jy76M
+	jEHdjq1l5ucgLdQXYijA3vJ5Urd3Obmfl60h+sBeD3Hu7zEJDwlQjBNHRhH/4N6zmPKHK816o+dzy
+	Flw25rdo8VZrLYkOijKDDUubPhxbnsVxIqeJpu6hFyc64ce5YfN9TVnGcKCVMOrPz6eqNV1d6f/Z3
+	umUj+uC0jvEt5BjN8ii8mYqV1a9aExliypTe0deJR0eknWLsGSBK0mjLlgB7Zzy9lY061oe+j/DtR
+	SvabJJ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4aj-00000003Cc1-2sMc;
-	Mon, 15 Sep 2025 08:29:41 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uy4bM-00000003Crk-317K;
+	Mon, 15 Sep 2025 08:30:20 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy4ah-00000003CaB-0Ukt
+	id 1uy4bK-00000003CqE-07gj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 08:29:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cQJ5S3xCKz2VRmg;
-	Mon, 15 Sep 2025 16:26:04 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id CA5B81402A5;
-	Mon, 15 Sep 2025 16:29:26 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 15 Sep 2025 16:29:26 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 15 Sep 2025 16:29:25 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <corbet@lwn.net>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<shuah@kernel.org>, <shameerali.kolothum.thodi@huawei.com>,
-	<linuxarm@huawei.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>,
-	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-To: Will Deacon <will@kernel.org>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
- <20250715081356.12442-6-yangyicong@huawei.com>
- <aL7Fgx__LeLfbDyU@willie-the-truck>
- <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
- <aMLvtpaCgRqPAU2Z@willie-the-truck> <20250912144736.00007673@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <666e3588-2e42-2275-f9ec-94ba0954bdc6@huawei.com>
-Date: Mon, 15 Sep 2025 16:29:25 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
-MIME-Version: 1.0
-In-Reply-To: <20250912144736.00007673@huawei.com>
+	Mon, 15 Sep 2025 08:30:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AQvVMeo8IxIT9qVl6eNRrff0hqzwBVHW1+i7GuH7tY1FXsT7XFxF0jh+WzG+V7MKKGV33nz0W98fTHFak+HjuG95F3I7W2KvVd8jTnd870rFdEvtoAINu3FQq5mEffE19LzgVHlWZ2FN6XCuWjLFHambgB4dRXgjwVZE1gb8VuzYOGkOiieJQdtSdyHYZUjuM8GH3ecYRwn2fjDEjG5utcgCSCUVyZO4pfu3Vg2Rb/ROFLmoA1iUL7f99AQjkXzuznSeSxAACk6dWh0fCn3d7w5AjCFxvHhKjy32kMXaad8VVGYrjnJtA3RSRCwk2gMZIp8/81BCscbhWoTCduFReQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u4LD9cbR87q9wxsWuZoHSJF8/fdAZRIkGTenx5oUXVM=;
+ b=XvYTod9V/0qD7ZtP45T8tctA3/lZE/URNSAL6cDu/ret6s37xj+wkeKTm6VklSE9LxvDTV0zqoFYNPqvUaEW7PeslKJLu877OdhNTWXJDqrnWl6rP9DiEt8S/Lg3e3r43i83zynNO52TLSjIKpxwD2orKfot9mNsl0IWMCb4V8nTm8xjWI7nl5Di/4bVV6ZtvjZlTUt9bJuW23jv/6e//1MlT4hUJFzwMuoEHzJk0oiCtvFpn55qjV17MjDxNLdWbOsWjCIY7PyQe9W2FyfFwsT9IgJAb1aeerHQQZ4NoPbfbfwnjaAHMYRweT/k8XkHttFaeK53d0VRNn6EfBwmLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u4LD9cbR87q9wxsWuZoHSJF8/fdAZRIkGTenx5oUXVM=;
+ b=jkBjcDFGKG7YILpv9UQPWxuzg8EjbdIzL5eM1jUgCIK+Phv6btq4zOFROAWOfnbSwfHIobtTDXDpVruCyQ0N2//YA9u+uGZOSJjMbADTxBZpMvj2y4KFt1lunYkSY7rj9kcMc/7nho5ue7LpkRCYWhhZz7O3492QKDK5jmEOs9H+W2vfiwbtvs1E7IzpO49XhBw+NoPkeZmAk9b1TN/wxI0F0FQx6AhrPZwR89eAnvfJYb4HhQwQMtnED8+MC4lbz2zIbaNhJnFKHd66jCEn6fn5tJJkDubZPm/S3yf9a33ua8PFSv2p/YqcJDfL5WCsAVnp7gp4SPm2fc+Msn2WRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI1PR04MB7181.eurprd04.prod.outlook.com (2603:10a6:800:12a::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Mon, 15 Sep
+ 2025 08:30:11 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
+ 08:30:11 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v4 0/5] clk: Support spread spectrum and use it in clk-scmi
+Date: Mon, 15 Sep 2025 16:29:34 +0800
+Message-Id: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAG7Ox2gC/33NQQ6CMBAF0KuYrq2ZFizgynsYF6WdkUYF0poGQ
+ 7i7hQ2aEJd/Mu//kQX0DgM77UbmMbrgujaFfL9jptHtDbmzKTMJ8gilkNw87jwEwyP6+VdwbUi
+ RQqptpVhivUdyw1J5uabcuPDq/HtZiGK+/imLggM3SApIgi0KOLdDfzDdk81VUa68ArHBZeLCg
+ s5LZYlQ/fLsi2+uZ4mTFQhFXqhai5VP0/QB7RImKywBAAA=
+X-Change-ID: 20250812-clk-ssc-version1-acf6f6efbd96
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Marco Felsch <m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1757925004; l=3955;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=J5itaEqqunD00+BEa5RkxRSc2ZFxgjVuzwpmYs0j44I=;
+ b=RSvB9rT+fOMu0shOtCmqLgUiXotA5OubnFxeRxex+9j178G9MDC+Icd5SJ6YazIKXEOjBvUAa
+ qguzqlbEUfvC4Hr8wBB2lH+esBQoNMu771yVdSHqYKhIHgS02RJjBV9
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG2PR01CA0115.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB7181:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f671fa6-d52b-4810-71bf-08ddf432162d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QXRsT2pWdjBJaUZGUHd3UkZTLzgvcjZXMFBUR2dDQkc4NHkyVkUvcWxnbmhL?=
+ =?utf-8?B?UmI1TDBHemRUK0ViSkN0ZU1Pa1lhMnRMRGRLYW1TZXV6MkkzMlQ1T2tjN2NX?=
+ =?utf-8?B?U1E2NnJhdFgyM2drN0F5TWdkMEplMmNrWHN0VTZ5ckVpNXdveXU0K2Z3eXJ0?=
+ =?utf-8?B?cmdHOXpoUmZ3TFZlSkpaaHVSL1RUZjl5dlk3WWNHbzZLZU5Ed0l0S2l5Wk50?=
+ =?utf-8?B?U2dqVEJNUndBT1RNKy9YckxkVzAvRXhjMnA1T1JkM3VDSWpReHRzNWtZejh1?=
+ =?utf-8?B?ZXlLL2FqT20rVGs4a1J6U1JldWErZS9HZlhMdGlNWkRPUnlJUzdnRXlmeVZB?=
+ =?utf-8?B?QjdKSmNXZEpHRlpRMWVyNG4xM3hsVkVUNG9BdENUMWhEK3h0ZDVnTkVNWUl1?=
+ =?utf-8?B?dmxpSjNGNWdCQmw1ZiswT2hXTHZOdXpOTk8zWEhvbDB5M1ZqaVlJWmdOeExi?=
+ =?utf-8?B?VG1qYUZzQ3hYZmxwbmhTbjY2bEdQSUxyZVpSemhIZEMwOXpPNDdjMFBoK0ty?=
+ =?utf-8?B?T3pzQytZOW0wcEJJYkNlK3dNWThWd3lNemFaS0ZMZDg4WnhJV2VpRHF4cWJ2?=
+ =?utf-8?B?ZzhMOUdiV0xCQmNSRUh4Z3BweitjbnJBWkJmdzlLUkpnZCtCaURBeHg4SHVZ?=
+ =?utf-8?B?TnBaUlpWMmhJUFBDdzIrRnI2Q0p5R25mS2V0VndCOUhTQlZYMW9KZVBpNTcz?=
+ =?utf-8?B?NzgwTjFNaGhKcUVkSzg4REtnY3QrT3ErUGRieTVSdWpiajJxSzZwL1NFYlBU?=
+ =?utf-8?B?ZGNwSFhLQS9Gd2tEelFlV1FNdG9IT3BUQUJQQW5tTlNCWWh6bGRUeTdPNjBE?=
+ =?utf-8?B?a1JNNkFGankzeHY2RW96K1JrQnpJYlcra2RsUFgxdzAyUE5yZVF4bE1rcHcw?=
+ =?utf-8?B?WjlySFBqVnF4L2FGbUI2N3lYejVmQ2tBMWdsdGRJSzNXZXlDK2tSQTBnb2F6?=
+ =?utf-8?B?Q24weUJXazhJcTlhdEh5WXZuenU1VUx5ODRZQ1QwcHJZWUNLOVpSS2pNKzd6?=
+ =?utf-8?B?UzlhQWdBSjZqQU5PQkFuYkpDOGJvQlJ4U0Z6eWtrRk1rOFNyejhwVWFQMGtl?=
+ =?utf-8?B?N3JHK05DZTJqRnovbEtEeEptbWZMR1puTTU2TGtBaXBXaHNNdGtVbFpJZTVK?=
+ =?utf-8?B?R3p0KzF6KytxNE1FRkJKNEdXMWwvd3hCdmZhNlNLTGZnOXYrS3pCMUdwTlZV?=
+ =?utf-8?B?T3YrdzVtWkd3YnNsT1lVTHg5K01rLzFHWGRvMWFDbk5meXU2eW9OZVM0Nkhl?=
+ =?utf-8?B?NjdxRERtYUJ3S1czZ3BBSjNwNEVsQW1IbVU0VXV2aUxrYXYrblV6dkZaOHF2?=
+ =?utf-8?B?VXo2eUFnQUNqdWtiN2EyTTlxdUZreDJmVGx4YzJzUjBiLzIrUEpUQ3grN1BX?=
+ =?utf-8?B?cTN0b0N6WDYvZ3ZHaXhUa0c4ZjNOV2Z6UU9WLys0WUFFOW1iSThqSTFFTXNS?=
+ =?utf-8?B?OWlSZUxTZjFXbDc4U2pXSmk5MWdEbTF6V0NQaHVjR3ovVGpwQUJVZWJ1UU9R?=
+ =?utf-8?B?VDlNSi9GdHNxUnJ3YlBrWEw2ekZpOGU1MDBsQ0NJZVVrOU1VVkpBdDVLcTcy?=
+ =?utf-8?B?STMxMW5wVnY1OU5wWW53NThneXFRUEZ5K29WUXQ3S0MxSkZ5bm1DMGtIVE1x?=
+ =?utf-8?B?SFE1WnJJamZEcy9TNnVzSDR0bitIaWFSZWxEMDRMeXdsSVplTUpHQ1ZlMXBZ?=
+ =?utf-8?B?UHA3WDYxQkxKalVuMnFWOU5VcWtuYmpEOU5QbkhjQWFYMCswRW1Ba0pBTmpB?=
+ =?utf-8?B?NGZWZXZYOUdFbHkzanE0QVVNZTlkUnJvQkFEQ3ViWm9lWGpFeGNwdTgrRHFN?=
+ =?utf-8?B?bGZPYWJpRGlCdE5IK0ZGMm1QdFFJanJ1N0JCa1M2VWUzSVBLbmpzb0MyRnN3?=
+ =?utf-8?B?dGxtR093S2VLN2xXTjQySGdZeFN5L0F0N3Y3YzBOWGVsL1poM1lMcDNSaXNo?=
+ =?utf-8?B?eWtuemV2bUoxQzN6Lyt6bitOVnk5QlRobm8vSSttL1hpL2VlMDRwSGhubXlD?=
+ =?utf-8?Q?3eoTQ7whNXh9+YMTncxYTrVf5wtC6g=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjZQYlFQcHFHVFN0WW43dzZCNk9LS0locjcxSGxTWmt4ZUdORzVmcjI1R1lq?=
+ =?utf-8?B?WEYyZ2lCNDl2WjZWaHo2ZWlLNk9MNUV3QzB2QmNVd1doNzFSZDVnV1d6UnV1?=
+ =?utf-8?B?M0MrQXBhblRrdXNYRHdYR216L0NpQU9XNmxybitXVDJGcS9ET0FKb1M3SjdW?=
+ =?utf-8?B?a3BpcTVMZ1pjM3VSZ1RsN2hIUExIZVA4ZVJTZlRSSUl0d0NxSmhsMktTd0Ur?=
+ =?utf-8?B?VGg1YWpLOFNZY3ZsV0hOM3JTZ0FJTkhTZGp0RDVZckhTWEFUNm85TmdKR1B1?=
+ =?utf-8?B?S1JUbGdEeUtHME9TNGY5S2dGWGtGWU1QSk5RL2FqVW80UWloOElDaEx4SXQ2?=
+ =?utf-8?B?aGNlaTliZmd4cUFIdEVKdU9DbUFaaU1CZml1dkV6alBnOS9oa0czaHpFT0JF?=
+ =?utf-8?B?OS9JbnlBQTYxSmlUU0s0WTRXUG1GT1Q5Rnptc05uMThheUNoc3l1d1F2RHd1?=
+ =?utf-8?B?RWFvSW81ZzdONnRTZnorY1ZJeGhBMVVINjZZY2ZSYnlRL0lRTnY1TTdVYkxp?=
+ =?utf-8?B?bmV2ZkRuclY5QUVLbnc3UGo3empYaEdoa25UTXlNTzNOSElReDNGTjVnMTIv?=
+ =?utf-8?B?VmtBZFFwZUR3TUR4Mlg5aGpoV1RCRlpOc1Fka1NGYk42QUhQQVRkRjRBQjhF?=
+ =?utf-8?B?WFUxV2E1aGJRWUl2Z091MjJ0RlBxT2FXcXlBQkF0NVJmV1p6YkhaY2dURXFi?=
+ =?utf-8?B?dTdNRHBhWUx5TnlPMy9EczZlaVkvRy9CaDQ4VUdSRi94ejlGYm5HMzVwK3J0?=
+ =?utf-8?B?VFlOZklFNVJxRUt2RUhjZkl0aGlCUmJhMWptTEFFM0NEUUFZNFFGKzJLUkU5?=
+ =?utf-8?B?TWNuUGpvNVh3dEgva094YjdETjJTWlVTVnBINGRLMXkyVmprVG1uMXpCYXJl?=
+ =?utf-8?B?ZGd1YU9LaVdQenI3YVFpb1h3eUpMNTkweFRtR1RyeUI4b2p0VTdHZjNRa1k5?=
+ =?utf-8?B?R0FVTEthTGIwLzRCUHlzVEtQbGpQTW5WTWhiVTFnbWtkV04xOS9BYy9uU1FT?=
+ =?utf-8?B?Vk5FeUY3b2NQcEIzd0xjazhwaFV5WEs2c3JIb0hKU1ZjM3ZmU2ZTTDVLM0t1?=
+ =?utf-8?B?aXI3dFkxMndIRy9pVlk5NFRWaU1uN0xSVnF4YmEyekRtaGQ3WVpjaC94ZzFr?=
+ =?utf-8?B?WUlVb1VvZDN6K01YWUd4ZXFUaFpSNzI5dDBLUlpKcyswZnlxUmh4Q0xBNmQz?=
+ =?utf-8?B?YS96VnZNcEJmQjdicDJ1SlZFVFd6ZmlmZGdSZmg3b0N2Q3R4Y09hSm5aQkZY?=
+ =?utf-8?B?bElXWC9vWHJRd0Zad0ptKzk2THd6ZGxWTk44dUNIRHBSTnRkRHhOY2pQYlJz?=
+ =?utf-8?B?Z0RGRHhaeU1SNzVMQ1dQY3EycXZuYTF6aG1SYkY3VG1HZThFWkFVc1laV2Uy?=
+ =?utf-8?B?dTNzL08vMzJSanE2QkcvNlYyQlR6QU5CUndMNVdMakJGOEZ6VjNQWVFQcmdW?=
+ =?utf-8?B?MmsrNWl1cDk1bDh4OFlxdmRHUkczUXB6LzlQV1BoZEFySTJTSEhtOEJKRGtD?=
+ =?utf-8?B?c1Z4MGF1M1N1V2R2VVlQUFYrV3lKYVAyMmhkcEpKR2duNVFHeDAvMi9abWUr?=
+ =?utf-8?B?aXpkeklxRkFOUjJOZW1NNW51WG9PUWcrYnVhVWw3VUdFUWZha05FNWpqUWFW?=
+ =?utf-8?B?eWRzaXRIVFBNZFU2SzlrTVBxdmdOT2tvd0czakZCSnB1bzJEcUxnWVJ2czky?=
+ =?utf-8?B?cjU3emJvS2EwbWkxODU5Zk9rR2xoTVBUOHh1aDByYmVGM1dGTEZadVpyNWhn?=
+ =?utf-8?B?NFlnRVh5eU1qbUV4bVhPL1Evc0wxMG9FODlRUmVyMldyTzBwTnBRcW9lRlZI?=
+ =?utf-8?B?bWtiTWZtM3dvQXJGbjd2SG1uTVJiQXdzc0JHKyt5eVZndUd1c2R2WmViR3dz?=
+ =?utf-8?B?SHpiTFM4dXU2QWswUFZTZFcwMGVpSDlWOUNNSnBQVHAxbVNNK2lvZVB5cDJm?=
+ =?utf-8?B?RmNJRlQvb1RpTWFRSDZZREdERUphd2F2dXlPOTdDeitaYTR3Y2poZE9nVTVl?=
+ =?utf-8?B?dHJ0S1ZGY2VOOFF6SHZWZkJXTWdGb2NDb2dvVGRUTDJxRFdHRDI5R1Qxa0Jv?=
+ =?utf-8?B?TVFtMy9lNHBuaENoSU1qUXdtRG5ES1ZHcEc2THFuWUZ5cDh6bnV6YllUNzNq?=
+ =?utf-8?Q?+vNeDk48F0TIf0jUrTsG8TTWl?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f671fa6-d52b-4810-71bf-08ddf432162d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 08:30:11.5401
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3S0xSU2XD/fuPYYmN9+npY2/NHbvmlmoDBe9EWWznA3UsuzJ2T8dNig/QP7VMJax40B3HPUU0zetWIs5vT0sgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7181
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_012939_475546_EA80883C 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20250915_013018_228795_61E0607D 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,82 +192,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/12 21:47, Jonathan Cameron wrote:
-> On Thu, 11 Sep 2025 16:50:14 +0100
-> Will Deacon <will@kernel.org> wrote:
-> 
->> On Tue, Sep 09, 2025 at 09:48:04AM +0800, Yicong Yang wrote:
->>> On 2025/9/8 20:01, Will Deacon wrote:  
->>>> On Tue, Jul 15, 2025 at 04:13:54PM +0800, Yicong Yang wrote:  
->>>>> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
->>>>> index 69d7afe56853..9e6db258ff48 100644
->>>>> --- a/Documentation/arch/arm64/elf_hwcaps.rst
->>>>> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
->>>>> @@ -435,6 +435,12 @@ HWCAP2_SME_SF8DP4
->>>>>  HWCAP2_POE
->>>>>      Functionality implied by ID_AA64MMFR3_EL1.S1POE == 0b0001.
->>>>>  
->>>>> +HWCAP3_LS64
->>>>> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
->>>>> +
->>>>> +HWCAP3_LS64_V
->>>>> +    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.  
->>>>
->>>> Given that these instructions only work on IMPLEMENTATION DEFINED memory
->>>> locations and aren't guaranteed to generate an abort if used elsewhere,
->>>> how is userspace supposed to know what to do with them?
->>>>   
->>>
->>> per ARM DDI0487 L.b section C3.2.6,
->>>
->>>   When the instructions access a memory type that is not one of the following,
->>>   a data abort for unsupported Exclusive or atomic access is generated...  
->>
->> That's about the memory _type_. I'm talking about a supported memory type
->> (e.g. writeback cacheable) but when the physical location doesn't support
->> the instruction. That's captured a little later in the same section:
->>
->>   | If the target memory location does not support the LD64B or ST64B
->>   | instructions, then one of the following behaviors occurs:
->>   |  * A stage 1 Data Abort, reported using the DFSC code of 0b110101,
->>   |    is generated.
->>   |  * The instruction performs the memory accesses, but the accesses
->>   |    are not single-copy atomic above the byte level
->>
->> and I think that's a bad interface to expose blindly to userspace solely
->> as a boolean hwcap.
-> Hi Will,
-> 
-> Nasty, so now I'm curious. Any thoughts on how to expose what regions it is appropriate
-> for?  I can think of various heavy weight options but wondering if there is a simple
-> solution.
-> 
+Since the assigned-clock-sscs property [1] has been accepted into the device
+tree schema, we can now support it in the Linux clock driver. Therefore,
+I’ve picked up the previously submitted work [2] titled “clk: Support
+spread spectrum and use it in clk-pll144x and clk-scmi.”
+As more than six months have passed since [2] was posted, I’m treating this
+patchset as a new submission rather than a v3.
 
-in my understanding the hwcap only describes the capabilities of the CPU but not
-the whole system. the users should make sure the function works as expected if the
-CPU supports it and they're going to use it. specifically the LS64 is intended for
-device memory only, so the user should take responsibility of using it on supported
-memory.
+- Introduce clk_set_spread_spectrum to set the parameters for enabling
+  spread spectrum of a clock.
+- Parse 'assigned-clock-sscs' and configure it by default before using the
+  clock. This property is parsed before parsing clock rate.
+- Enable this feature for clk-scmi on i.MX95.
 
-may raise the similar question if use other atomic instructions (e.g. LSE) on the
-memory does not support atomicity. find this restriction in ARM DDI0487 L.b section B2.2.6
+Because SCMI spec will not include spread spectrum as a standard
+extension, we still need to use NXP i.MX OEM extension.
 
-  Some system implementations might not support atomic instructions for all regions of the
-  memory
+[1] https://github.com/devicetree-org/dt-schema/pull/154
+[2] https://lore.kernel.org/all/20250205-clk-ssc-v2-0-fa73083caa92@nxp.com/
 
-and if perform atomic instruction on unsupported memory it's allowed to implement as
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Changes in v4:
+- Add R-b for patch 1 from Brian
+- Drop unecessary change in patch 4 Per Brian
+- Link to v3: https://lore.kernel.org/r/20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com
 
-  * The instruction generates a synchronous External abort.
-  * The instruction generates a System Error interrupt.
-  * The instruction generates an IMPLEMENTATION DEFINED MMU fault reported using the Data
-    Abort Fault status code of ESR_ELx.DFSC = 110101.
-  * The instruction is treated as a NOP.
-  * The instructions are performed, but there is no guarantee that the memory accesses were
-    performed atomically in regard to other agents that access memory. In this case, the
-    instruction might also generate a System Error interrupt.
+Changes in v3:
+- New patch 1 for dt-bindings per comment from Brian
+  https://lore.kernel.org/all/aLeEFzXkPog_dt2B@x1/
+  This might not be good to add a new dt-binding file in v3. But this is
+  quite a simple file that just has four macros to encode modulation
+  method. So hope this is fine for DT maintainers.
+- Add Brain's R-b for patch 2
+- New patch 3 to add Kunit test per Brain. Since Brain helped
+  draft part of the code, I added Co-developed-by tag from Brain.
+- Link to v2: https://lore.kernel.org/r/20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com
 
-if instruction performed without generate a SEI in the last implementation, it's quite similar
-to the condition of LS64.
+Changes in v2:
+- Simplify the code in patch 2 per Dan Carpenter and Brian Masney
+- Rebased to next-20250829
+- Link to v1: https://lore.kernel.org/r/20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com
 
-thanks.
+---
+Peng Fan (5):
+      dt-bindings: clock: Add spread spectrum definition
+      clk: Introduce clk_hw_set_spread_spectrum
+      clk: conf: Support assigned-clock-sscs
+      clk: Add KUnit tests for assigned-clock-sscs
+      clk: scmi: Support Spread Spectrum for NXP i.MX95
+
+ drivers/clk/Makefile                               |   6 +
+ drivers/clk/clk-conf.c                             |  69 ++++++++++++
+ drivers/clk/clk-scmi.c                             |  64 ++++++++++-
+ drivers/clk/clk.c                                  |  26 +++++
+ drivers/clk/clk_test.c                             | 121 ++++++++++++++++++++-
+ drivers/clk/kunit_clk_assigned_rates.h             |  10 ++
+ drivers/clk/kunit_clk_assigned_rates_multiple.dtso |   6 +
+ ...kunit_clk_assigned_rates_multiple_consumer.dtso |   6 +
+ drivers/clk/kunit_clk_assigned_rates_one.dtso      |   3 +
+ .../clk/kunit_clk_assigned_rates_one_consumer.dtso |   3 +
+ .../clk/kunit_clk_assigned_rates_u64_multiple.dtso |   6 +
+ ...t_clk_assigned_rates_u64_multiple_consumer.dtso |   6 +
+ drivers/clk/kunit_clk_assigned_rates_u64_one.dtso  |   3 +
+ .../kunit_clk_assigned_rates_u64_one_consumer.dtso |   3 +
+ drivers/clk/kunit_clk_assigned_sscs_null.dtso      |  16 +++
+ .../clk/kunit_clk_assigned_sscs_null_consumer.dtso |  20 ++++
+ drivers/clk/kunit_clk_assigned_sscs_without.dtso   |  15 +++
+ .../kunit_clk_assigned_sscs_without_consumer.dtso  |  19 ++++
+ drivers/clk/kunit_clk_assigned_sscs_zero.dtso      |  12 ++
+ .../clk/kunit_clk_assigned_sscs_zero_consumer.dtso |  16 +++
+ include/dt-bindings/clock/clock.h                  |  14 +++
+ include/linux/clk-provider.h                       |  22 ++++
+ include/linux/scmi_protocol.h                      |   5 +
+ 23 files changed, 464 insertions(+), 7 deletions(-)
+---
+base-commit: 8941e75c0f122fdd76dc54ed45c4ce917587e006
+change-id: 20250812-clk-ssc-version1-acf6f6efbd96
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
