@@ -4,162 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91055CAC58E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 03:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBCECA101F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 04:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gH1VjB2JE89jtmRbjrltnmsJ1i0Bh8P4cHnafjLWwRA=; b=S/LVr5XAg5CBaWo017M48hASA6
-	cR+T6DRUvvSHXSbPcSO1ad5PFyKQub7jZB73RDMnLKoX32djj60cA/W5rcV3+lRat8C5uWS1+vKjA
-	tAgJZf/eMOxOSd8CYHGfFFQ2e52K+UTEwUFU5ccEGxYwZES85qvmUUi72n+kgGA4CNvGs6hig4QvB
-	T3tbeCAFMYHL3qdGeQGTwIXqqm//Sw/m+lwcNWIu6FtueKLVcOd/LipKP/symeCucOHLCh2jQPTO9
-	a38EL/gdCPSFCVbt1tC0jgWxO+o1TWOIvPf+ryIjd23mEsO+SlLj79G+axbz729r2hO5EpIgR/ptl
-	vLTDG4kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=btKaJBlrNnrUR0+zJOQEy3Co8PN8ii1OF5xNJWEYFBk=; b=Zr3uMmL0lXjhj5wSFhvsCeMjEn
+	iaxuDtz4migYKs33Wn7GoFFS7V/GAG4B8btsW5GdWwVk/EmcpP6ltpeaTYwdV3mSQYJt3AhHuYeCs
+	CF0P5btqU+o6CdcqDU3/gqio0OxX7l4SEYvX6gDRoFyAjkSYSDMCOMwxcEFXt+sDa1IqoLR6/LqeH
+	YAJ6888GiQD6mFfp+/oFw4Yt0XmtX195bh3VpLdpYVgAXe52mQg5szqQbRcaCl0MV2cyn9biwu5K8
+	AFoqkEQ6iZkARVmbIhawim2GxKK8DKMnnSRy0XY2x2DqqQDvn+cxRswsm7FCI1F33+DXmQ2gLrP5G
+	j/j0VWhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0IZ-00000002huR-04Td;
-	Mon, 15 Sep 2025 03:54:39 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uy0VH-00000002jGJ-19dW;
+	Mon, 15 Sep 2025 04:07:47 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy0IV-00000002hpu-0bgk
+	id 1uy0VC-00000002jFT-1t5s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 03:54:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rRcJC9IozP2jlGRp2vQmejk+VPmX7fYOTDahPHFsvWVJI2EiYDS3e89mgapHGtr3+Ai16mCOoFaAph63DCjqMQZESNC/EkWsoO1qjmjsOH+i0TVeGNGqfDy3kUozX7nhLPY/YaegHi2PuniiMiAfN7CRVbdzdNiK2hS6rQZk8H8it8ITH13aICQ+8O/6B9a15S104QzPrnXVINamZW9ke7d6KYB8IoTr/qdmYZn14qd9o1sxcQpIvICEEir1R/IoYfzVXtexlkNCt9bIx3SlC1WTyGMGRUvkF1LHyEoRA9NZsxT37SsBRreK4AwmQqA2OFYx3gmRtySbsOdiqmkzrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gH1VjB2JE89jtmRbjrltnmsJ1i0Bh8P4cHnafjLWwRA=;
- b=ql1sStCCRpUzeWaiBgbKy3euhm7hrzDyBgeDGghVyvK+EXRy7tSlCxl0RhdXoKGv5PS3i4AFX0yeW8gkNrIKp/dapwjnIZ9T/eGzw6sx9vd8Q1q3YvPsZzQ+IqVASP5Np5d0SoVKHDWgYm0Ja4PFt43BiGm+j6g97qDKk9pqhI0xri+zws94Mbo3VJXjYK3nD+4F06xCobr5/vBELKc71R2y3/BhKG+YvcW1fVh2c3aJ4igoBxCN6qiQ4Ew+PGETDVecBHsMlaPB1204hxp4HPO35RBujdoyFMwy16TUyI9T/ruqU03eJB2xAuUZd2w9MTnuVf4cKrDPulOsCF7QOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gH1VjB2JE89jtmRbjrltnmsJ1i0Bh8P4cHnafjLWwRA=;
- b=hphexUliPhUsX/HYwE3NDdzTwVdd74c7FCb3P/ez4HhbauLkM6ZnS+x5/FON0HNUbhelgRNobZ2Zr/JURXb/Cy7rjy1B9R/0eO6hyn+XfgPg5L21ETQFA0Zj2dpp7V//yLIypVRR/zI7GR66dclGMr0kHr0SFOwDH4tgrIkWy9V8iOj7lY59FcnhMHdu/2z3NwNU3/21Yv5l7EekyZFu/xvV5ww+pLKBt3p4t+23K0RDuvCmKfcXKP7/5cfu1SOt5L/Z6ZNgoqQm3Sy63i4reAs4vPEjTcVtlxL2fcsENyaslqyLuT4mqHU9dGehiXdJuvsepNjegjgVggP3nh8A7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by DU2PR04MB8693.eurprd04.prod.outlook.com (2603:10a6:10:2dc::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.19; Mon, 15 Sep
- 2025 03:54:29 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
- 03:54:29 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v5 3/3] PCI: imx6: Add external reference clock mode support
-Date: Mon, 15 Sep 2025 11:53:48 +0800
-Message-Id: <20250915035348.3252353-4-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250915035348.3252353-1-hongxing.zhu@nxp.com>
-References: <20250915035348.3252353-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0046.apcprd02.prod.outlook.com
- (2603:1096:4:196::15) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Mon, 15 Sep 2025 04:07:45 +0000
+Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250915040736epoutp0484de184e448487ffdae9b514d923da0b~lWSe-yrEm0443504435epoutp04c
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 04:07:36 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250915040736epoutp0484de184e448487ffdae9b514d923da0b~lWSe-yrEm0443504435epoutp04c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1757909256;
+	bh=btKaJBlrNnrUR0+zJOQEy3Co8PN8ii1OF5xNJWEYFBk=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=hfFuUruAsZlkr8fXb8kb9pJVMcYmXdiNY1oIwltR5cC3S4YGpWpgxYy+Yx1zbEFyz
+	 Db5qw/hCacPEyetWWnNOq6jV4Hc3bEhDVG57+utO3eL1tO/Cw+Ah/sfI5RRpa529Vg
+	 khrGGNUGKzQni0MI3YodvNLyZ4reL/OJwVysoeko=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250915040736epcas2p118d7925c640c42f3435e05266b26f931~lWSeUBN5m2098120981epcas2p1b;
+	Mon, 15 Sep 2025 04:07:36 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.36.102]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cQBMC3Qbdz2SSKg; Mon, 15 Sep
+	2025 04:07:35 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250915040734epcas2p4746a8f668f570e362f65ae39cc9e11ef~lWSdKAssU0669406694epcas2p4K;
+	Mon, 15 Sep 2025 04:07:34 +0000 (GMT)
+Received: from asswp60 (unknown [10.229.9.60]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250915040734epsmtip10b64002befbd74060737ba3518b84b22~lWSdFILZ73237632376epsmtip1O;
+	Mon, 15 Sep 2025 04:07:34 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Henrik Grimler
+	<henrik@grimler.se>
+Cc: Shin Son <shin.son@samsung.com>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/3] Add exynosautov920 thermal support
+Date: Mon, 15 Sep 2025 13:07:12 +0900
+Message-ID: <20250915040715.486733-1-shin.son@samsung.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|DU2PR04MB8693:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50e2917c-44eb-4582-e152-08ddf40b9241
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LGEyTZnjjeaAAfqNnzn3p1WIx/w+Z7yQUwU8Pr6rh02zYZQvAWrmnRsmcBfr?=
- =?us-ascii?Q?zq1HsYtz7n33Dwvs9m3fvYMnzjVGsVd5h1vllCnJMY4w299YZKKPF0zg39Ag?=
- =?us-ascii?Q?/OyQyJUdwyY4ZIoTh2IzVFZQwWmU2u6L7RfeVomAzlvMY+SdYLqimHzmJPDt?=
- =?us-ascii?Q?pVvrOSAim76s2YI6dLToMefohoLHvtVgE9mneqaz6lYQSKrbS54mVdN2m3kG?=
- =?us-ascii?Q?JULpxSk7d4UohBWuxwjKnsAwTVbIVBaTALbpg5bnegp7TlxC1bP/5eLXoH8x?=
- =?us-ascii?Q?Scb6DqVI0v4Zo/8QR87esnEajmhs5j/H/sUG26gMW4sZ5OjGVow3+8+S9LR3?=
- =?us-ascii?Q?XnhS5aOdddKKnjPshiqieGt71CmFMYVfs2Pua8VEHRPhcyYImd8tBpkm4F1P?=
- =?us-ascii?Q?NvumNsHibau/j3zuwT1px98iQDpunz1hv56CRBJ6oK88aoymUp0UaoG4eGEi?=
- =?us-ascii?Q?v7hFWWABjI9Nalzb+aFd0Z3Y2i6U4LGd4k2wzNRLUubETfWeAZx2EsAe8HKN?=
- =?us-ascii?Q?MM/uIJu2SyreSeh/7BBLzbGYlSjObqxyj+wn3ZoiU/JdKs9lHfq37M9jBRAB?=
- =?us-ascii?Q?blNCgV61me4kcGGfJ8stc6I97STsszBTsx7bM0cSp/G35T4Slfgas+NmR4Jo?=
- =?us-ascii?Q?ldENqBZqqsd30PHW4EwK4GCQKZ2vPKtsjGiUNUdU/04vrP97+g4RVRpiPS3k?=
- =?us-ascii?Q?yH3yC9XuzT1deXgC/FrSYtk0qiOZ4ffoBzpEvdAoGJ4GjjHs8fyp3ImMhQql?=
- =?us-ascii?Q?PKWDACmI1AdqPoP2P6+lMzNlKxAQXkp2mWCbFhJ6gw02xmw1FfNp9s7V3pFQ?=
- =?us-ascii?Q?gmJMSQpHYrRkPTYwAkKFAvuKwJgVUOPh1qNK89Th3385Xsyczt0K/6sn89ID?=
- =?us-ascii?Q?fDAP9foSP2Rgl5AlN51kh3dTHhREofejYpDYN8BrSoqckQQvBgjzzQStoVIQ?=
- =?us-ascii?Q?sXlcX78ZNxQYgQkMlySoI+W1uvrliJlQ6wZ6RxcWmEFJWMUESietRVKTXswH?=
- =?us-ascii?Q?cQ3ShRFB7hHa4770ZSjnPvg8BujCRNVXMi1w1GCJORc1LN7QNFbRjO0z3sIp?=
- =?us-ascii?Q?uDZlxACUd9Skpms38bGINtJJEM4tG1qU4DKOH87dVxfSVhvis1Z6ofTiTsdg?=
- =?us-ascii?Q?3cHiPuwcozzWhWeCOto9Fg2P3c3fuUA5gGH123oI1pRSe+5Nk2pK1xpFcLIq?=
- =?us-ascii?Q?hbo6rjtj3mqjVlxcnHjhEapJQKvpYtosMZzHU1l3f7KhOqzy2rC3sAuhs3Nd?=
- =?us-ascii?Q?7h1oOu4G5vXokDsZ/qjJbkDH2ZnYbSDvqL7mtmlE+UUTiPG1OegpL/Pay/ou?=
- =?us-ascii?Q?98uSH9JBO0fyqoZZClElgLre1lBcVcFqziLWgsOJzTxDp2lpX9wNxA9oz35n?=
- =?us-ascii?Q?Oa3xf3J+cYacaRuEluGodC3I4FwvhKcy6fwPWLtL5cHR24jgxfFM1nBMW0SS?=
- =?us-ascii?Q?dZuazunbMonKrl4q5id/WqOQ3ZLb5JBSt8X+SRkuzlDzFMM3eaYgTalah2ZG?=
- =?us-ascii?Q?PeN2cFv/7H5Y/aE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QHslPXy8ADdqJsR98zgBW5E4I6kDiMiGDdGRShwPbGB1ksVi8wkN4GhapiXD?=
- =?us-ascii?Q?SCKHJn5RsQ2npnu0ww2EnKY29v7Hd1P42S+76LWVrCKSZ46FJw5I3xcFpf20?=
- =?us-ascii?Q?6gV/kC5YCNaUOupXCd6wDUc2dSeonoCnTzVEhEi9Uu1wnzKAXglfICjCpk+Z?=
- =?us-ascii?Q?7haQjqhydwNh9qkv24xm0IPSehAFMMYyJAZQ++hRRajn5AmaKQfGTGhAmaIz?=
- =?us-ascii?Q?/iLRZEdFdnbLUQbBwtNJ7+S0sanslgkQrpr20sS5SJyOc4VQ/UiXI5e38/hX?=
- =?us-ascii?Q?8Kp3iTHyEUeWlLTkZ5ibEZKH18lGDlXmhCzD2uJokPYt+eV9V0wtiOrYg/cG?=
- =?us-ascii?Q?8frOIkhnG2zzdOR/uJU93bHCg5hBsyLo2NonI9b9tWlDbK6Qr5ETvAvqYyPH?=
- =?us-ascii?Q?+QmmTzUMr/buABmP04Cf8YTzE0R4Z41PlefF7KlUH7DlmvkxIC/kz9Rr0nxd?=
- =?us-ascii?Q?k73oyEmcLNNUrdvV//FAqUxwBwZCLlIDcqC++pVx8+oZimgm6KjiRcDaQIJt?=
- =?us-ascii?Q?lcO5gcgqNaUA4X6zZkmPTSM3qJW3dZtNwzknEUqwDL4DxtExse3Sdjd7BeDL?=
- =?us-ascii?Q?+cn8rBSOau4Kctxuo9drw5fRbVSc4bYwF83W+3+UPCNLBfuOGuRGU+a48+g/?=
- =?us-ascii?Q?v5ur4ctIpFCK4MuWxSiisxczJ6rai0Zx6abQpD9QgWWPdi2fULDLytIbowRx?=
- =?us-ascii?Q?NXB5ec191Xi0KqO7KJd0yKfbQfs0IDxvdIG2KFkCjjqvUiMoEr8KgwXBW7qU?=
- =?us-ascii?Q?MVw1zgdu5ZoudhNs0HyYCyumDI6KDkQAIKksd7ok2HAnuIyDVz0Egj61jJuI?=
- =?us-ascii?Q?y6JhqDSXPkBPhwq//4sniOZAbuswm1XfdRm9NWsT1WhnyFHuzsig4pDoxU1t?=
- =?us-ascii?Q?4+cprNrFRxLwmTg0vNCChHtXCB9RQQMt99wAdRlYq8P6xLlBpd6krQ0SZN2W?=
- =?us-ascii?Q?Ua+9dN2fsww06vkLJXs7F0N/7T0p2IWWj5vjDCOvpJF+BAyyjC3hVK/O/UVI?=
- =?us-ascii?Q?Na/UU9dhMrGMSPJNGDm9qtXzWlyXeMiG0bVeuMmMp/S7TQ/rVPp30PdmMRbM?=
- =?us-ascii?Q?BEtvgw4nMX2AETGN9HhX5/pINiGFdn0VOl0+VVIcJ/YwWdD3ES6Knqg1ameX?=
- =?us-ascii?Q?1R2wr8WGwemqM1WsfStV9Km0fFWJ0sjsZulqVSU9ls6dX17iIbJEdVVpaDnC?=
- =?us-ascii?Q?Gvrgmuw1imO6tdhJKBAjcj2k3wB2qd5KkDCVrnf1oJIj9Kn3U8jaI9+ZFpW0?=
- =?us-ascii?Q?t9pUx7aAAyMYTAhs/13FWNiYv5osW0GK5wtTReBr8Bxw1/VCnaoZH93r0KBq?=
- =?us-ascii?Q?4mjTiyzyx/UMlCrENYHH8wlNhxCEDipGg8OyhJsJuYjZYaXEBnmCqfeqKSDO?=
- =?us-ascii?Q?rlFoLYwistwjD3YQBerAip1B3rK1TCmvwGuhBOI4gpaO+VIHDLT8OVOLTfX8?=
- =?us-ascii?Q?g2ukupJVqGr8i/1Jk5zENY4LbS4Te8zVMoDepwqCnK5WCvynd04lCRvUr0y8?=
- =?us-ascii?Q?Rpo9ALKJoHnHmKubgYrwXkxxVezp2GnZuByERVd9sOQKZQNpxXvcFfXOGuPM?=
- =?us-ascii?Q?+ER2PThiyMLS0Jfwhx49HAHSByb0GBa5aRR/mpww?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50e2917c-44eb-4582-e152-08ddf40b9241
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 03:54:29.3883
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8uTaRR0wmiDma1mU3Lt/r8z0bVByLIjvDjaIQ96OCs/N51yYZyOp9aZszKSalJ4LV6h+v4u0zGh8MAhppvTFtg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8693
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250915040734epcas2p4746a8f668f570e362f65ae39cc9e11ef
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250915040734epcas2p4746a8f668f570e362f65ae39cc9e11ef
+References: <CGME20250915040734epcas2p4746a8f668f570e362f65ae39cc9e11ef@epcas2p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_205435_193345_29C2D46B 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250914_210742_811110_4C3AC57B 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,76 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCI Express reference clock of i.MX9 PCIes might come from external
-clock source. Add the external reference clock mode support.
+This change merges the new exynosautov920-specific register definitions and
+timing parameters into the exynos-tmu driver, ensuring consistent behavior
+across all Exynos series. All new code paths have been tested on a
+exynosautov920 board and verified to correctly read temperatures and
+emulate behavior.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+Changes in v3:
+- Removed redundant commit message.
+- Rephrased the sentences to describe the hardware clearly.
+- Restricted sensor indices to V920.
+- Set #thermal-sensor-celss per variant.
+- Replaced 'additionalProperties' with 'unevaluatedProperties'.
+- Removed the duplicate #define and use the original.
+- Used lowercase hex in #define.
+- Simplified 'temp_to_code' and 'code_to_temp' to one computation
+  path by normalizing calib_temp.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 5a38cfaf989b..9309959874c0 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -149,6 +149,7 @@ struct imx_pcie {
- 	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
-+	bool			enable_ext_refclk;
- 	struct regmap		*iomuxc_gpr;
- 	u16			msi_ctrl;
- 	u32			controller_id;
-@@ -241,6 +242,8 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
- 
- static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
-+	bool ext = imx_pcie->enable_ext_refclk;
-+
- 	/*
- 	 * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
- 	 * Through Beacon or PERST# De-assertion
-@@ -259,13 +262,12 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			IMX95_PCIE_PHY_CR_PARA_SEL,
- 			IMX95_PCIE_PHY_CR_PARA_SEL);
- 
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_PHY_GEN_CTRL,
--			   IMX95_PCIE_REF_USE_PAD, 0);
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_SS_RW_REG_0,
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
-+			   ext ? IMX95_PCIE_REF_USE_PAD : 0,
-+			   IMX95_PCIE_REF_USE_PAD);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
- 			   IMX95_PCIE_REF_CLKEN,
--			   IMX95_PCIE_REF_CLKEN);
-+			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
- 
- 	return 0;
- }
-@@ -1600,7 +1602,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	struct imx_pcie *imx_pcie;
- 	struct device_node *np;
- 	struct device_node *node = dev->of_node;
--	int ret, domain;
-+	int i, ret, domain;
- 	u16 val;
- 
- 	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
-@@ -1651,6 +1653,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (imx_pcie->num_clks < 0)
- 		return dev_err_probe(dev, imx_pcie->num_clks,
- 				     "failed to get clocks\n");
-+	imx_pcie->enable_ext_refclk = true;
-+	for (i = 0; i < imx_pcie->num_clks; i++)
-+		if (strncmp(imx_pcie->clks[i].id, "ref", 3) == 0)
-+			imx_pcie->enable_ext_refclk = false;
- 
- 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
- 		imx_pcie->phy = devm_phy_get(dev, "pcie-phy");
+Changes in v2:
+- Replace the generic property with a vendor-specific one.
+- Added an indices property instead of ranges.
+- Shortened thermal node name and made them more generic.
+- Updated the indices logic accordingly after removing the ranges property.
+
+Shin Son (3):
+  dt-bindings: thermal: samsung: Add a hw-sensor-indices property
+  thermal: exynos_tmu: Support new hardware and update TMU interface
+  arm64: dts: exynosautov920: Add tmu hardware binding
+
+ .../thermal/samsung,exynos-thermal.yaml       |  40 ++-
+ .../boot/dts/exynos/exynosautov920-tmu.dtsi   |  97 ++++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |  31 ++
+ drivers/thermal/samsung/exynos_tmu.c          | 324 ++++++++++++++++--
+ 4 files changed, 453 insertions(+), 39 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+
 -- 
-2.37.1
+2.50.1
 
 
