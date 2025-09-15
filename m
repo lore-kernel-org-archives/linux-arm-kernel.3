@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2792CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9127ECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 14:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=37uU6dupYlnBUFfhVB2je6bcPxvtAGRd44OBf+N8R1U=; b=votF07TFD69z8DKKX0ZkNHtQTi
-	DFQfk7NA1JbnMW6X4WNAK/XQuQP1QCgR+isycDMWOniQlrI/O/y9SqJ5ErjGcHm6gtaLkAb6Tar4y
-	8xVKtPrHcqDdnERE70AcA5zOVeVsJWC3HUW1pn3noB7Liu1qSNzUNnPQ0vpWkqu4wE/J8Qp2xWjND
-	SvHMgg128CoVfz7fAogMNUVRjtdl/OmmyASM9s9x0eLNtA0PqY0Sjp4BgF2yOcQyTS/kPQHNV4WOd
-	jLiBRceq38XH6JScc7gEpfODq6QQqXVsiuh7govftNeBY4jdndCCmQTEG+1F7smN7HfO8+iE7HPB7
-	CmzybX3Q==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vFBUeJQ5a+uHKvs8LbRJuoDO2VW8hFCqZ+k5k7l4RLg=; b=zQ7OauXglIRAVkWpnnPfWEX/iw
+	nn2GWW//swg2A+6IUGSsAnL7aY6HmbYV1I43mNO1m3R1bQ/IoLu3jYloLlY4yOfkducqpKy/GjkJZ
+	1/rMv0s1F6a8vFkur0rrlTgYTLvZmffbRpdBWyRLEUB1SmYNtbjauFeqT90hSImK9QsjcEoDoQjxX
+	EcoiLhtUzyBJf1gOi0YfLZpoJhQav9APKGrKSXnJaTpXRR41anxVmlpX1zA8WYDTbE8ta8375vlfk
+	ZyLvwedJvKbuEe0iuqC+V4YGLjeDoQsOWdpJnnJ+V6AzuPKkWzKS0oAzVY5Ep1VMgWQLnXRfYHFqj
+	JWZhNOgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAK1-00000004jL0-0yly;
-	Mon, 15 Sep 2025 14:36:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyAK4-00000004jMT-3X22;
+	Mon, 15 Sep 2025 14:36:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyAJy-00000004jK1-1Uat
+	id 1uyAK3-00000004jLN-0dQP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 14:36:47 +0000
+	Mon, 15 Sep 2025 14:36:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2EBA641A52;
+	by tor.source.kernel.org (Postfix) with ESMTP id 79E726022B;
+	Mon, 15 Sep 2025 14:36:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8D1C4CEFD;
 	Mon, 15 Sep 2025 14:36:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6236C4CEF1;
-	Mon, 15 Sep 2025 14:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757947005;
-	bh=RLaJFRiH9fUacA+g8XK++lLAVHNIs8PaxaaH9y0/D68=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Cm8h8W+NHQQgUhYx7vuPgMU2GxX/rYcW6cDGMwdYtftGZM+ds2S4gGgbjvadMuJW7
-	 uZz0cIIRb13Y9XNXQ2fP+Kbeai4RTWs9XFrsDSCg1QrqimGWm2f6C2u70A1bnccP7W
-	 79OZAe5oGfLp6K7kRzxFjwwC4E5M/EOVJNlXODnpq7THhEyOk3D61bKy2eekpyWq2+
-	 Pi8dbMS52WvF/SCwrCRDLI/0U7MZjzsMOT9x0Zh+rynSjKen3EDQbD/0PMk6cTqtOx
-	 R/TzC+Tef7diO72p98ly74SUmGgETUy2IypawrudL66x3Uhe1XwzdDzLrdnKnHzGIH
-	 tKTGhk0/3ltrw==
+	s=k20201202; t=1757947010;
+	bh=lWTfUooKBHxRj0AEjDVG4lEODpzAtqXZGx+VDKCy+8o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MckR8/fOICHyGpMdP7LtuXaD9m96cYfzcCmQsxryAMOPioHH0m/K+3yQ8mU0Pd/ig
+	 u26n1AVBuug4htyBalPeF3YWVnwgZV1VtjUrAAZFsIJiWvSV+ZJwzx3mq0+6FRES1N
+	 S5DSqI0G+tYS5cZccM0cQ2uHVv/0iXf0oH8RnEF6aFtM0q4UCtfYnv4n5Zw4WOxONQ
+	 t//FFt2K3nF5lsck2ooxnXpIJ8Y6fdVoudj63DA48htOMMPRabWeWV0ioyOgKfIBmu
+	 H5OiBEmpi+hHa6ZurLsNoIswEOtghhG2TQXIavS6+CIbWl0IS5vVR1OabIakSTuXHL
+	 EK7CVWrF2PKYw==
 From: Michael Walle <mwalle@kernel.org>
 To: Frank Binns <frank.binns@imgtec.com>,
 	Matt Coster <matt.coster@imgtec.com>,
@@ -66,15 +66,14 @@ Cc: Andrew Davis <afd@ti.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH 0/3] drm/imagination: add AM62P/AM67A/J722S support
-Date: Mon, 15 Sep 2025 16:34:37 +0200
-Message-Id: <20250915143440.2362812-1-mwalle@kernel.org>
+Subject: [PATCH 1/3] dt-bindings: gpu: img: Add AM62P SoC specific compatible
+Date: Mon, 15 Sep 2025 16:34:38 +0200
+Message-Id: <20250915143440.2362812-2-mwalle@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250915143440.2362812-1-mwalle@kernel.org>
+References: <20250915143440.2362812-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_073646_414857_A5C880F1 
-X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AM62P and AM67A/J722S feature the same BXS-4 GPU as the J721S2.
-In theory, one have to just add the DT node. But it turns out, that
-the clock handling is not working. If I understood Nishan Menon
-correct, it is working on the J721S2 because there, the clock is
-shared, while on the AM62P the GPU has its own PLL.
-In the latter case, the driver will fail with a WARN() because the
-queried clock rate is zero due to a wrong cached value.
+The AM62P and the J722S features the same BXS-4 GPU as the J721S2. Add a
+new SoC specific compatible.
 
-This was tested on an AM67A.
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+---
+ Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-v1:
- - Don't set the clock to 800MHz in the soc dtsi. 800MHz is only
-   possible if the core voltage is 0.85V. Just use the hardware
-   default of 720MHz. A board device tree can set the 800MHz if
-   applicable. Thanks Nishan.
- - Also add the new compatible to a conditional in the DT schema.
-   Thanks Andrew.
- - Dropped the wrong of_clk_set_defaults() and instead disable
-   caching of the clock rate.
-
-RFC: https://lore.kernel.org/r/20250716134717.4085567-1-mwalle@kernel.org/
-
-Michael Walle (3):
-  dt-bindings: gpu: img: Add AM62P SoC specific compatible
-  clk: keystone: don't cache clock rate
-  arm64: dts: ti: add GPU node
-
- .../devicetree/bindings/gpu/img,powervr-rogue.yaml    |  2 ++
- .../arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 11 +++++++++++
- drivers/clk/keystone/sci-clk.c                        |  8 ++++++++
- 3 files changed, 21 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index c87d7bece0ec..a207a57c013b 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -28,6 +28,7 @@ properties:
+           - const: img,img-rogue
+       - items:
+           - enum:
++              - ti,am62p-gpu
+               - ti,j721s2-gpu
+           - const: img,img-bxs-4-64
+           - const: img,img-rogue
+@@ -140,6 +141,7 @@ allOf:
+           contains:
+             enum:
+               - ti,am62-gpu
++              - ti,am62p-gpu
+               - ti,j721s2-gpu
+     then:
+       properties:
 -- 
 2.39.5
 
