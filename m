@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D57CAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 03:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9095CAC587
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 03:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wpUJEfkdBkKRAwczqeGRWOLvBP7B0LPXqOrz9cHTX7w=; b=JS6hnn3sHbFKsqt/Eekb30MafN
-	E4u6H5bxbmUN1RBfVUMBVNL/zgH12efIQYMCKzYyX794gTfE9tRqcbipIWid3few/oc7C0Garzrgx
-	EiP2Xf1n/DVODDMLY8RNUyvp6LtveoC6q/NBUCDKVbZSK2l2hPs7Uo5v7gm8MkKzhSJAtW7qqSn74
-	Atmhi1mq4uvQlOiw5OiML5B5JsvnzR9pImJBYvkUVrxkmzoNs/XYto30KWsSb7sSf9y8YFAP4Pn3p
-	dQocbd0Fz0E7/Iu2pvMl9AIMWqY2IJg6toTKIudW/6yHdhe6n4RJn7PONsQf8f6kzGnDrpT+UWKPG
-	F3EZg3qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UasMIIZ3E32MTe7woVcw3Ib05QwAQ639eNSWF0UBJNk=; b=EPgdviHpJXi7Yq
+	0OgH56CQncb+AHswRzWFglCAM1aE5au5Lr7QJefs4UCHAAzeKHWIWNpJ8m+rRcrnTf0skCDtpKnO7
+	JSCrTJE0nwNoseT5osRr4O0annZl7wtXOaLQSUhjuS7GlDY5TBLZNH+LyAfogcEZ6lJ1kyTSbsC4n
+	mngtCag7YOIbizJQcHfcljGEBjF03VpXAd4nCbRDWrwKnCSMmpAYl6vn/h9AceYGXkSnBbLQEnmuX
+	E7c5ncYliWZropzJ2yIJHoOJkzUgp8QxTIQNw8KROCMYyB+EckQgdShbsWQ9WHbQUmtQWs8CMNi4z
+	vta1BGALlDaF5HM2GKXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxzTv-00000002bpH-3pr6;
-	Mon, 15 Sep 2025 03:02:19 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uxzUA-00000002bv5-1pHu;
+	Mon, 15 Sep 2025 03:02:34 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uxzTt-00000002bor-2i70;
-	Mon, 15 Sep 2025 03:02:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wpUJEfkdBkKRAwczqeGRWOLvBP7B0LPXqOrz9cHTX7w=; b=q1fQlkgbxn2h+zFqDxFnTbyhD7
-	rNIAbOO3pCYQXhkvXYW4ax5gA+6IUg2NwHuu55ahmvHrx55T1rHkc8mt3Fb5jb78ocCAFmPo3mUdp
-	yC1YLINp1ayfCPzuEMtqQ7TZq/WS0gzKB1/pq5KBPHyHQcgbvQ4B5N3iquvgEyz/OZFI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uxzTY-008OGE-Tm; Mon, 15 Sep 2025 05:01:56 +0200
-Date: Mon, 15 Sep 2025 05:01:56 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Kaison Deng <dkx@t-chip.com.cn>
-Cc: Rob Herring <robh@kernel.org>, Jimmy Hon <honyuenkwun@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Wayne Chou <zxf@t-chip.com.cn>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Add devicetree for the
- ROC-RK3588-RT
-Message-ID: <83b50c2a-bcbc-45cc-935b-af3bc910853c@lunn.ch>
-References: <cover.1757902513.git.dkx@t-chip.com.cn>
- <349c4226824efa52ceb14e3d8518c8bb5c7465fc.1757902513.git.dkx@t-chip.com.cn>
+	id 1uxzU7-00000002bri-1Isu;
+	Mon, 15 Sep 2025 03:02:32 +0000
+X-UUID: 67f54daa91e011f09eb0dd999d3936bf-20250914
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From; bh=UasMIIZ3E32MTe7woVcw3Ib05QwAQ639eNSWF0UBJNk=;
+	b=KZAXW/KKLWxNkL9baSueVtqfW28is/z6eoluULr20amMetfLxldEFPT0EM2/ZsHwtRtcNi2N6Susoxz2GlnGOhP4AJqmN7VDlpR4dobkIbZOSwbuPpMcUsOgS2WIrya6sRyYxA4KRrefzLTMxlbXHL4jVlEHPful2et05UYVhoA=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.4,REQID:f546ff11-373d-4f88-a03d-a877db61eb09,IP:0,UR
+	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:25
+X-CID-META: VersionHash:1ca6b93,CLOUDID:c8eb8c6c-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:5,IP:n
+	il,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LE
+	S:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 67f54daa91e011f09eb0dd999d3936bf-20250914
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 849249262; Sun, 14 Sep 2025 20:02:25 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 15 Sep 2025 11:02:19 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 15 Sep 2025 11:02:21 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v9 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+Date: Mon, 15 Sep 2025 11:01:59 +0800
+Message-ID: <20250915030212.22078-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <349c4226824efa52ceb14e3d8518c8bb5c7465fc.1757902513.git.dkx@t-chip.com.cn>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_200217_687946_5F9EDD5B 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250914_200231_353030_713B73F4 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy0>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_miim
-> +		     &gmac0_tx_bus2
-> +		     &gmac0_rx_bus2
-> +		     &gmac0_rgmii_clk
-> +		     &gmac0_rgmii_bus>;
-> +	status = "okay";
-> +};
-> +
-> +&gmac1 {
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy1>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_miim
-> +		     &gmac1_tx_bus2
-> +		     &gmac1_rx_bus2
-> +		     &gmac1_rgmii_clk
-> +		     &gmac1_rgmii_bus>;
-> +	status = "okay";
-> +};
+This series have the follow changing:
+Firstly fix some bugs, including resolution change handleing, stop
+streaming sw flow, fix buffer layout and clock setting to support multi-hw
+jpeg working and others.
+Secondly add mt8196 jpegdec and jpegenc compatible to support MT8196
+kernel driver.
+Lastly, Add smmu setting to support smmu and iommu at the same time.
 
-> +&mdio0 {
-> +	rgmii_phy0: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-id001c.c916";
-> +		reg = <0x1>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&rtl8211f_0_rst>;
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio3 RK_PC0 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
-> +
-> +&mdio1 {
-> +	rgmii_phy1: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-id001c.c916";
-> +		reg = <0x1>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&rtl8211f_1_rst>;
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
+This series has been tested with MT8196 tast test.
+Encoding and decoding worked for this chip.
 
-For these nodes only:
+Patches 1 fix jpeg hw count setting to support different chips.
+Patches 2 fix jpeg buffer payload setting to handle buffer
+size bug while resolution changed.
+Patches 3 fix jpeg dst buffer layout.
+Patches 4 fix multi-core stop streaming flow
+Patches 5 fix multi-core clk suspend/resume setting
+Patches 6 fix decoding buffer number setting timing issue
+Patches 7 fix decoding resolution change operation
+Patches 8 fix remove buffer operation
+Patches 9-11 Adds jpeg encoder and decoder compatible.
+Patches 12 add jpeg smmu sid setting.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+Changes compared with v8:
+--Rebased on top of the latest media tree
 
-    Andrew
+Changes compared with v7:
+--Rebased on top of the latest media tree
+
+Changes compared with v6:
+--Rebased on top of the latest media tree
+
+Changes compared with v5:
+--reorder the patches set.
+--fix commit message of patch 1-8.
+
+Changes compared with v4:
+--fix kernel robot build errors for patch 4.
+--add reviewer for patch 1 and patch 2.
+
+Changes compared with v3:
+--change patch subject of jpeg encoder and decoder compatible.
+
+Changes compared with v2:
+--refactor smmu sid setting function interface
+--Some modifications for patch v2's review comments.
+
+Changes compared with v1:
+--refine jpeg dt-bindings for MT8196
+--optimize software code to manage jpeg HW count
+--refactor smmu sid setting function interface
+--Some modifications for patch v1's review comments.
+
+Kyrie Wu (12):
+  media: mediatek: jpeg: fix jpeg hw count setting
+  media: mediatek: jpeg: fix jpeg buffer payload setting
+  media: mediatek: jpeg: fix jpeg buffer layout
+  media: mediatek: jpeg: fix stop streaming flow for multi-core
+  media: mediatek: jpeg: fix multi-core clk suspend and resume setting
+  media: mediatek: jpeg: fix decoding buffer number setting timing issue
+  media: mediatek: jpeg: fix decoding resolution change operation
+  media: mediatek: jpeg: fix remove buffer operation for multi-core
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec
+    compatible
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc
+    compatible
+  media: mediatek: jpeg: add jpeg compatible
+  media: mediatek: jpeg: add jpeg smmu sid setting
+
+ .../media/mediatek,mt8195-jpegdec.yaml        |   8 +-
+ .../media/mediatek,mt8195-jpegenc.yaml        |   8 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 170 +++++++++++++-----
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  21 ++-
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 112 +++++++++++-
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 112 +++++++++++-
+ 6 files changed, 376 insertions(+), 55 deletions(-)
+
+-- 
+2.45.2
+
 
