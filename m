@@ -4,136 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCD2CAC594
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3055CAC58E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/xuln62q5zfY1XqnOkzluoH/jhmqhYNwkmp3WpUxjM=; b=SKEZ/rw1poCa++1zItERK7Rwm5
-	S7cOkXfRAfYBEXkcZvWzWo01peQHnFxm/A6kNBPVWgTY2Ack6abzX05hiwGvuFLCWqhoLT3+AAgb+
-	B5e9eBBK8C1pYtRtc2nTtBYCdAQyfd3WSKAzQIhB2OJByacTx9cazmYQbhcT/TqOeYogoouNev5Tk
-	LHmGMhm3oY4RNaoydin6EpQKm31xHdFLMYRz6qDFYnXEwgaX/Ei3XW7nXobYUV0JGKzsTIXpoNHc8
-	Y+DbVcnQlS265uYeVWwsXOkc/1XBC7yaG8homgPxGbFLORHvN2F8gNkqy7pj2rZefWOPRBFXjsU7Y
-	oRD40VBA==;
+	bh=Xrx0EfT6GH6jFlkVO3Y55mn6U185la1UrvKWihG2MNY=; b=faXwPKBu9z5TOMjUw1y2WcXI5u
+	dzMhbFsjhcowYdIkuB58YllmBk5F+5gNwqJtiIXXKTRh4HZZ0uphCqOUWAEFLq4/ef9Irzb3p6XTP
+	Pv6MEhumtL34HnzX8Gy6aTMs6IRobjgCkjI8oVauS80m1MwOrqe55qrwON/FiRSQxrUGfHb5GamO2
+	kcp6HCUBg5iZj/TeJQeEoZrPpL5/oJXjpOxZOYurD7eBIpB27xcHW2J/6toIgOEvOhRyIsD1jgYfs
+	aHqs+UNyTnFmO3BUhZIUqwVbws9kpitt09ratkV+1tlv41MQY9Xt2Y4zs3dOG9JhJj8oZ1PnMPXBH
+	MN3EdPHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ii-00000002vTQ-0JpI;
-	Mon, 15 Sep 2025 06:29:48 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uy2qk-00000002wgJ-3QfY;
+	Mon, 15 Sep 2025 06:38:06 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ig-00000002vT6-2Lx0
+	id 1uy2qi-00000002wfL-3Knp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 06:29:47 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58EH2k6T008844;
-	Mon, 15 Sep 2025 06:29:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=M/xuln
-	62q5zfY1XqnOkzluoH/jhmqhYNwkmp3WpUxjM=; b=jaZLS26lBDtzg2fecSZHqg
-	vv5wXs+Q/QWPzoKutrrQc6JlTQgh9S++0kG1xYTEEhhACxrSaEwrVcmFNUrm5aqi
-	OtK0MYRXJHIvOwUxdJDVmGllntU+dWQ/n1X9T0qND7U13HpIsA/bx3E95xS6zSiA
-	G61SjiM2ehKgCwcxj/d9UyDG2/tPRNmRQ1Hbt9E+RCa/4Ymom5k7ti/+qmaBBf+f
-	VEyzVGOhzGaTidXPVx4X8SSv3dIj5Oxjs0qsGj5K8mF92mOvsSCfHnnElObmQvvm
-	y7XvEJjXSIurhHceuMaFZFx9Txg7BTX7q6CqqSlAH22dER7OpbB+bhODUu/v3N6w
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49509y0tk9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Sep 2025 06:29:00 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 58F6NRje019684;
-	Mon, 15 Sep 2025 06:29:00 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49509y0tk4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Sep 2025 06:29:00 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 58F2ZLlc029484;
-	Mon, 15 Sep 2025 06:28:58 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 495kb0n5uq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Sep 2025 06:28:58 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 58F6SuNA58458606
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 15 Sep 2025 06:28:56 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8B80F20043;
-	Mon, 15 Sep 2025 06:28:56 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5171820040;
-	Mon, 15 Sep 2025 06:28:54 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.136.34])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 15 Sep 2025 06:28:54 +0000 (GMT)
-Date: Mon, 15 Sep 2025 08:28:52 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: David Hildenbrand <david@redhat.com>,
-        Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        Mark Rutland <Mark.Rutland@arm.com>
-Subject: Re: [PATCH v2 0/7] Nesting support for lazy MMU mode
-Message-ID: <5a0818bb-75d4-47df-925c-0102f7d598f4-agordeev@linux.ibm.com>
-References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
- <20250908191602.61160a7990b9ea418de758c7@linux-foundation.org>
- <d1b4ff2a-052f-4556-91ae-273962edbed0@redhat.com>
- <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Mon, 15 Sep 2025 06:38:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VoMs2pmWhRFDRhnBMjsWboj42x1ld4ZJPyyvbRtppN0UOhP1ZLmkIk/DYCbNE9AmDyIJRLInq1UMxj7S8aoIgzuykkGhWD8UpIcIhyx2QDc91Mwbv+q4jHX2zSoWYWbe+BLXInnxQLluhY2gngJOdpXybNbIQWohARXDiobBl0M/0pO6a9ISmIpkXyTfX7p3afkUiEujFuuiWMO/3wxaGN2eQdhFrBFWku+uRxQvfBnojyX/yPjK5YW29a7wOoHcc4AhQM0NTs+DEiVV7zypojWdZsdik166B3azs2tBXV4eNtIHtcWN1p8g+WmTIHIO0EDNx7vYefLo1uBdn+m4WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Xrx0EfT6GH6jFlkVO3Y55mn6U185la1UrvKWihG2MNY=;
+ b=ani4iKd5I86VN7niY2jUneIIr4TDmAVNIVpdaTvx6nOhs4/c9YxFA5GM2bDi5nnnRaJjerAPn4LQj1IE37pj6NvPbRzmWG2VJGoLqQcqyRBA5pqIb6B90AD5Oh6P4ua6CQgfG6gTM2aLGpl0geeT7MUrFgKY7c4RDq3nlj9G5/JJ+bO373GHpDc8ZFAhkbWTtbDlfnBJjSepicAqQ1tOIDvjoILueHvihajDXQqoba4zXHeSGq/+bvU8PbRefDWiJAlSiZNjyw+4rO73Uo3lK5rNRpJsiyy4Bqsz4cI6y42iIPHE9U4lgHaO2znyvrNJe7rjVtQsE7/CA8Bj7LeDFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Xrx0EfT6GH6jFlkVO3Y55mn6U185la1UrvKWihG2MNY=;
+ b=m2nmr0Fy+jVHB6b4RnRbs2MdtrGMRaccGsO2dIscCL80GSZdi6rZTJQ3tISTIUVmo6ojn2VjY/8ugNt3e2yLrW75P2cTOT8cw+2M8t0O+eA+Uylu7EvXgVHLDdvSlccyqaqIFIv/W4RzSoJ+v669I1GZ+oPh0182Q1+WcPKjVc9ZPsK4iw1fPNQsWmVanxBgYn8NKYWDL8ERvT6YD5Q+ydKlg2wQN9QHp4jgt5IOkSzHTxc3hHPza2iL1JMGgojZkl2OdMUYa14LDfXTv9zyQ78fDXoiSIBhyUTyyOj3UkaMB+s6qh14iVth47yVJfYhbL0LJZrCQFtVWiC9tESF8g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI1PR04MB7167.eurprd04.prod.outlook.com (2603:10a6:800:12a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Mon, 15 Sep
+ 2025 06:37:58 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.010; Mon, 15 Sep 2025
+ 06:37:58 +0000
+Date: Mon, 15 Sep 2025 15:49:31 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
+Message-ID: <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
+References: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDAyMCBTYWx0ZWRfX4Cx2ngBEYL5c
- roZzmS41YuVlUSpSRef2KxL4WggODwY/soRMJpx2gg7kNLdYMyZvXNoqxYULYholGjNDiAVT4t6
- ukIUbG+OX0a4imqOK2lAsyx5041sIs8EVQMQ06NsJGnBzkaxygCee6tTvsutuzI9wnG+eg3PA/v
- F5e7gPnCVAvuDEchpnbMPDdE4TzdeZAArCZTLOmkY9Xd7mYwn00cbVETqAT3ckHgDdrWLphTxSN
- y5ALHiTawyw3ojSiUQHSaHqzU+geaiqg5gb2LGGBqmnxp5igHqNKf3fjoaJ0BgJ2I38Ya10WbMS
- bYUlmQ5btypMVlGwBcuKVUODKwIOxTQn2bBDW8olvvXBnB4V+w9kPSd+TVwMJmnqFMZo71QBQkH
- T1vGkEV/
-X-Authority-Analysis: v=2.4 cv=OPYn3TaB c=1 sm=1 tr=0 ts=68c7b22c cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=8nJEP1OIZ-IA:10 a=yJojWOMRYYMA:10 a=nkFB8puKy1KDrdvMtSoA:9
- a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
-X-Proofpoint-GUID: dbH_inTMwHRH6BHBdGMtY8_aObQAr3rR
-X-Proofpoint-ORIG-GUID: XMRhk7th-c6XacqgLmk45pWkcqEsR17O
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-15_02,2025-09-12_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 phishscore=0 suspectscore=0 spamscore=0
- bulkscore=0 malwarescore=0 impostorscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509130020
+In-Reply-To: <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR01CA0039.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB7167:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3eccddb-0bcc-45bb-26a0-08ddf42268cd
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|7416014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p+jQCjH15n9AFhe0WKsI34m42ucUts4Dxh/FfdRs+v4NX74rJRDRzRLHOa0U?=
+ =?us-ascii?Q?Wbp5Ap/qatr5YyaIuUHADULDbureNFSBE6t9I0s1FD9BCUKjWi8n+Kpx0z8i?=
+ =?us-ascii?Q?2r11TLXYyxdXrjsFC6mg1WJqticmj7EO9dv+6Pgg9Dh4hrHoskjJxiwylFkM?=
+ =?us-ascii?Q?qxqAUI7fv9lrSNvOOWDcwQUQSdHWD9Jc0QqChzLdHGlLpng+sEry1I4YIO85?=
+ =?us-ascii?Q?zkRAH37RfC58uHUw/4dsOBWqo3l1SxHZkZwWmAxdHh74PN8VzKrAzyUsQOFg?=
+ =?us-ascii?Q?DvyeSOcBhLH4yWMKOS/odAxVrftfq/HnNwnp3G3p61s/MVPMpWaHFR5vbqHj?=
+ =?us-ascii?Q?u29tB9h15RxtK08JjtdaCjOhPTiAIRRUxizwO7AZFlxBPfgj2xId+jCEErGA?=
+ =?us-ascii?Q?cBZyoTePJgS1hwEl5lAVCAldUqzxAnTkB4nb8FCbPWOIVHJFO2C/Y6LMDvOI?=
+ =?us-ascii?Q?v+cpgx31M1SEO0Wul8t3uaJUn5Jzb//3KyoXlpQI8ZUiCMdCAXEz2r9eH/Nh?=
+ =?us-ascii?Q?aRrqy4djMsYimHSslnX/5dchgVJLrvUoNr73IMYoQ9dbHM698P5AaZE6j+HT?=
+ =?us-ascii?Q?bnryBJpLTu8AGOichBOLRgr1+sLLzjA1RTrNeAe/aafYNzbomLsfzFr+EoNu?=
+ =?us-ascii?Q?OyCjF+rs7fDPjtNpplz7iTBas+3bpivYB5Pj8nmN4JzctX7drJYI0Jwj0efI?=
+ =?us-ascii?Q?Lf7PLXLDIE3TSthzl1KINgArWzh5mIB21l2l4NxFx+K+cByCr75JVRBQIJW6?=
+ =?us-ascii?Q?i6bkB8pM7xz2fw+XckAN5c5c5TSBbgADHDB2uMbOXjg/ejaZLBEv+Q2thKm3?=
+ =?us-ascii?Q?5m6DbuzaIcHYraOrsO8vOOE83v7iVUluVnN8M3CJaolodkt63huy4rGwbuKx?=
+ =?us-ascii?Q?fOnC6M0Q/NvOv+QmCMcFn8L6uyqZYZJ/6dxwd9I3L8SvJf7/IgtSqG5giv8D?=
+ =?us-ascii?Q?q7XcU/xPFhkVRz4F4D+dDGb2q/YjnKbtT52eDcSjR1Pa+8T1r7nQpE4UvcMJ?=
+ =?us-ascii?Q?NalN5RBwS3uV+IQIonVIysj4F8niQpHJN3XztA/9K06a5AVR1W/Yj3mCI5ZG?=
+ =?us-ascii?Q?2I4etLQmYwEdY0fQ12SXTutP5WRObbDR1H3W09mOp8OVAwdDe471TQGWKeRZ?=
+ =?us-ascii?Q?3iZUpsxkWbWJ13deNOSx+tt3kF6JwREzXm5wwqd+FIJPC0GvLvDYo5KOF6kh?=
+ =?us-ascii?Q?Sd3YUQ58q/dOlUWnp72pR/t1dm873nuBo78dK1Gz7sPOXwtEE0n+TASGLRTc?=
+ =?us-ascii?Q?heKTDinfIyNeLBRHRK9It7NSe2EryqpL1WFoQSBv1O5/kpBa8alRRzX6BNa/?=
+ =?us-ascii?Q?X6nqyuKuy8VljqlKbe5aqgjo/tRnPju7jI2+x/SlCSKHk4ek4K/+fHkBEgyk?=
+ =?us-ascii?Q?eAo4i5CajwLseFlxP+qg/tHKuRps85IoNhEJXXL+DgIfBs1LYAzNcP4WWHjd?=
+ =?us-ascii?Q?mxve6d0RGG//E8B/96vzfzUowLEu1Lcem6ZWFipuMpV2GQ4F5vp4sg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aIBDbAVcu0QW4hyNYGl0I7ATZ6eeMG3CG4Uu+ImuHx2FzH1cxnY9zAhPUnI2?=
+ =?us-ascii?Q?aECZFgzwvGvHO29jkvPrXxn4oCbHgPOah1Tp6yY8JZGkKo4iqok1AlJigCOT?=
+ =?us-ascii?Q?EafzuiIIJEVh4KOoz9p3+jIMK9bWQ+D709vT5egUti1xofHOoHGXcti8L3tj?=
+ =?us-ascii?Q?Csu7OLhEjdGlXqPG4SL1+BMhJIyS1OMcG574WGRjy+EzjO2WX/UCtgjtXJaq?=
+ =?us-ascii?Q?NcxcBb2Ohbohb3bfsSZwoetgq106Xvhob4scwPAH+5rxzHnPxRwEtzU5tu4x?=
+ =?us-ascii?Q?+cLy2zYNtlJa+XW/W/y+vBT5vHjW54KhU8/DhS1gZ7FzkO+YTO+lrfX8600k?=
+ =?us-ascii?Q?lEFoknC5070meL5QZGenPxpOkXqJW+SZQaY1N4cs+1ZJkJD4NWwW392v02a/?=
+ =?us-ascii?Q?6l6vTJpgtGxKuGKop0wKUWQ8xNqlS94XXN4bwYMRQqAsDmILHTkK43Ol3qQ/?=
+ =?us-ascii?Q?n3HGUJuayxIuNa1yMRcx3BY6O5cAqICWIBZwkgJbF6GrwYndaqs3/aoqUBmN?=
+ =?us-ascii?Q?4GYy17Xc+vWEZiTYG+rt2AVemRtTDE26MWd2I+6J0sSmPzyqril58UjGU9kC?=
+ =?us-ascii?Q?AIOlhcax/ip4QhZP8ZZ73iNH5eFdzrj3txyN/wKUWpO++Mi7Yg/MaQR1JD/1?=
+ =?us-ascii?Q?Gd/TXzg3SfDjfB2rigyMyJkMRVzEF8bmV36VKwk/fPo36hK5G1K+LLztFsfJ?=
+ =?us-ascii?Q?kT/jiD2rXfdOrTAxEg7obrio76V4K8yklt46U9X98VLnNC8u4ej1QflU40IT?=
+ =?us-ascii?Q?/aVDD777V3nmYgRzVxLoPCcZdwRU5dQao4yB7Ap/aCKVe6o4or07iVPCoip1?=
+ =?us-ascii?Q?uPUZwcZ5wVGJX7tA/XzG+TJcNg6zVwPdYhaMqdGLQM3KUclVRMxgto7Pgeba?=
+ =?us-ascii?Q?cWjX7aAXqR2SxWdBWFd1UJ6KOESEcEMU7cPctct+1EoOHG8b+NS3CtVRfKMm?=
+ =?us-ascii?Q?8+vHa7Ix3VgfD0A3Meia12zWC5BvqJP0RD3SL2ppjAWGGa/3fZzDuS1M2f33?=
+ =?us-ascii?Q?qYtI48jqEqCRKTZfMEfoD5s6WnX+1pxsAE03MjJMs6qxOei7MmDW6c6G4vTS?=
+ =?us-ascii?Q?9bvKiT1D0I2EMfxhkcjDmwzTyzdtroPD7wjcLCeEeiMfRUpfPVNvnyUSk/2F?=
+ =?us-ascii?Q?iBk70IEdXZ6xpCVrS0AyNPqPwqfbit20SkT/fdA2ZKb0+BiTH0y7eSn/Dmuj?=
+ =?us-ascii?Q?h6EpriVLaW5rpLt4jKwpOM6a5TyeaK54H3ikdUVdExozkjY6+05xhQ1o3kHg?=
+ =?us-ascii?Q?N+u6jGnubKRVaqhLo2rv/+E4YBrYv57IINujZbQ1JsZjElLc1kDUi0yJ+pTL?=
+ =?us-ascii?Q?FWohCJWjVYAcdKlXb5XmpHLjb1sRkv3P+q8AzB30UEKmXnMf5vZ9npEVX/2h?=
+ =?us-ascii?Q?4h6yEiZAM3pCYEzA1Pp6KECzCkV0auJ1xfk2h71kRyqP/FwsIE+yVOwmrbXz?=
+ =?us-ascii?Q?84EFT7EgjaKd41+zk8+F3RpDRlW2IyAly50fgTdTntY+vxrE082ef0O0wZrk?=
+ =?us-ascii?Q?G27ab+Wmo4+0pwJioR5FHgPVn/S011BhK7G4ICNyedFZwccBUl+sL83WPzFv?=
+ =?us-ascii?Q?rCbXejNNadDAVHSxdpVoaJnDnADW6owLYeuXqIVI?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3eccddb-0bcc-45bb-26a0-08ddf42268cd
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Sep 2025 06:37:58.4722
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9RoW7r4eMGrjLyZ1MssmOUdvxcYHZrrHw1NY6cQiIlwKqjzz3MVzAqjXedO9XxrAohbsAxqmeCGOSVcAu2KwFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250914_232946_600177_CC73C7C2 
-X-CRM114-Status: GOOD (  23.19  )
+X-CRM114-CacheID: sfid-20250914_233804_997610_6C184622 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,73 +168,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 05:25:27PM +0200, Kevin Brodsky wrote:
+On Sun, Sep 14, 2025 at 03:21:16PM +0300, Ivaylo Ivanov wrote:
+>Introduce a clocks management driver for exynos8890, providing clocks
+>for the peripherals of that SoC.
+>
+>As exynos8890 is the first SoC to have HWACG, it differs a bit from the
 
-Hi Kevin,
+Hardware Auto Clock Gating(HWACG), if I understand correctly.
 
-> Based on the outcome of the discussion with David on patch 2 [1p], there
-> is indeed an alternative approach that we should seriously consider. In
-> summary:
-> 
-> * Keep the API stateless, handle nesting with a counter in task_struct
-> * Introduce new functions to temporarily disable lazy_mmu without
-> impacting nesting, track that with a bool in task_struct (addresses the
-> situation in mm/kasan/shadow.c and possibly some x86 cases too)
-> * Move as much handling from arch_* to generic functions
-> 
-> What the new generic infrastructure would look like:
-> 
-> struct task_struct {
->     ...
-> #ifdef CONFIG_ARCH_LAZY_MMU
->     struct {
->         uint8_t count;
->         bool enabled; /* or paused, see below */
->     } lazy_mmu_state;
-> #endif
-> }
-> 
-> * lazy_mmu_mode_enable():
+>newer SoCs. Q-channel and Q-state bits are separate registers, unlike
+>the CLK_CON_GAT_* ones that feature HWACG bits in the same register
+>that controls manual gating. Hence, don't use the clk-exynos-arm64
+>helper, but implement logic that enforces manual gating according to
+>how HWACG is implemented here.
+>
+>Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>---
+> drivers/clk/samsung/Makefile         |    1 +
+> drivers/clk/samsung/clk-exynos8890.c | 8695 ++++++++++++++++++++++++++
+> 2 files changed, 8696 insertions(+)
+> create mode 100644 drivers/clk/samsung/clk-exynos8890.c
+>
+>diff --git a/drivers/clk/samsung/Makefile b/drivers/clk/samsung/Makefile
+>index b77fe288e..982dc7c64 100644
+>--- a/drivers/clk/samsung/Makefile
+>+++ b/drivers/clk/samsung/Makefile
+>@@ -22,6 +22,7 @@ obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7870.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7885.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos850.o
+>+obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos8890.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos8895.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos990.o
+> obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynosautov9.o
+>diff --git a/drivers/clk/samsung/clk-exynos8890.c b/drivers/clk/samsung/clk-exynos8890.c
+>new file mode 100644
+>index 000000000..670587bae
+>--- /dev/null
+>+++ b/drivers/clk/samsung/clk-exynos8890.c
+>@@ -0,0 +1,8695 @@
+>+// SPDX-License-Identifier: GPL-2.0-only
+>+/*
+>+ * Copyright (C) 2025 Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>+ * Author: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>+ *
+>+ * Common Clock Framework support for Exynos8890 SoC.
+>+ */
+>+
+>+#include <linux/clk-provider.h>
+>+#include <linux/mod_devicetable.h>
+>+#include <linux/of_address.h>
+>+#include <linux/of.h>
+>+#include <linux/platform_device.h>
+>+
+>+#include <dt-bindings/clock/samsung,exynos8890-cmu.h>
+>+
+>+#include "clk.h"
+>+
+>+/* NOTE: Must be equal to the last clock ID increased by one */
+>+#define TOP_NR_CLK	(CLK_GOUT_TOP_SCLK_PROMISE_DISP + 1)
+>+#define PERIS_NR_CLK	(CLK_GOUT_PERIS_SCLK_PROMISE_PERIS + 1)
+>+#define APOLLO_NR_CLK	(CLK_GOUT_APOLLO_SCLK_PROMISE_APOLLO + 1)
+>+#define AUD_NR_CLK	(CLK_GOUT_AUD_SCLK_I2S_BCLK + 1)
+>+#define BUS0_NR_CLK	(CLK_GOUT_BUS0_ACLK_TREX_P_BUS0 + 1)
+>+#define BUS1_NR_CLK	(CLK_GOUT_BUS1_ACLK_TREX_P_BUS1 + 1)
+>+#define CCORE_NR_CLK	(CLK_GOUT_CCORE_SCLK_PROMISE + 1)
+>+#define DISP0_NR_CLK	(CLK_GOUT_DISP0_OSCCLK_DP_I_CLK_24M + 1)
+>+#define DISP1_NR_CLK	(CLK_GOUT_DISP1_SCLK_PROMISE_DISP1 + 1)
+>+#define FSYS0_NR_CLK	(CLK_GOUT_FSYS0_SCLK_USBHOST20_REF_CLK + 1)
+>+#define FSYS1_NR_CLK	(CLK_GOUT_FSYS1_SCLK_PROMISE_FSYS1 + 1)
+>+#define G3D_NR_CLK	(CLK_GOUT_G3D_SCLK_ASYNCAXI_G3D + 1)
+>+#define MIF0_NR_CLK	(CLK_GOUT_MIF0_RCLK_DREX + 1)
+>+#define MIF1_NR_CLK	(CLK_GOUT_MIF1_RCLK_DREX + 1)
+>+#define MIF2_NR_CLK	(CLK_GOUT_MIF2_RCLK_DREX + 1)
+>+#define MIF3_NR_CLK	(CLK_GOUT_MIF3_RCLK_DREX + 1)
+>+#define MNGS_NR_CLK	(CLK_GOUT_MNGS_SCLK_PROMISE0_MNGS + 1)
+>+#define PERIC0_NR_CLK	(CLK_GOUT_PERIC0_SCLK_PWM + 1)
+>+#define PERIC1_NR_CLK	(CLK_GOUT_PERIC1_SCLK_UART5 + 1)
+>+
+>+/*
+>+ * As exynos8890 first introduced hwacg, cmu registers are mapped similarly
+>+ * to exynos7, with the exception of the new q-state and q-ch registers that
+>+ * can set the behavior of automatic gates.
+>+ */
+>+
+>+/* decoded magic number from downstream */
+>+#define QCH_EN_MASK		BIT(0)
+>+#define QCH_MASK		(GENMASK(19, 16) | BIT(12))
+>+#define QCH_DIS			(QCH_MASK | FIELD_PREP(QCH_EN_MASK, 0))
 
-This helper is parameter-free, assuming the MMU unit does not need any
-configuration other than turning it on/off. That is currently true, but
-(as I noted in my other mail) I am going to introduce a friend enable
-function that accepts parameters, creates an arch-specific state and
-uses it while the lazy mmu mode is active.
+Nit: align code.
 
-That does not impact your design (AFAICT), except one change below.
+>+
+>+/* q-channel registers offsets range */
+>+#define QCH_OFF_START		0x2000
+>+#define QCH_OFF_END		0x23ff
+>+
+>+/* q-state registers offsets range */
+>+#define QSTATE_OFF_START	0x2400
+>+#define QSTATE_OFF_END		0x2fff
 
->     if (!lazy_mmu_state.count) {
->         arch_enter_lazy_mmu_mode();
->         lazy_mmu_state.enabled = true;
->     }
->     lazy_mmu_state.count++;
-> 
-> * lazy_mmu_mode_disable():
->     lazy_mmu_count--;
->     if (!lazy_mmu_state.count) {
->         lazy_mmu_state.enabled = false;
->         arch_leave_lazy_mmu_mode();
->     } else {
->         arch_flush_lazy_mmu_mode();
->     }
-> 
-> * lazy_mmu_mode_pause():
->     lazy_mmu_state.enabled = false;
->     arch_leave_lazy_mmu_mode();
+Nit: Align.
 
-This needs to be arch_pause_lazy_mmu_mode(), otherwise the arch-specific
-state will be lost.
+>+
+>+/* check if the register offset is a QCH register */
+>+static bool is_qch_reg(unsigned long off)
+>+{
+>+	return off >= QCH_OFF_START && off <= QCH_OFF_END;
+>+}
+>+
+>+/* check if the register offset is a QSTATE register */
+>+static bool is_qstate_reg(unsigned long off)
+>+{
+>+	return off >= QSTATE_OFF_START && off <= QSTATE_OFF_END;
+>+}
+>+
+>+static void __init exynos8890_init_clocks(struct device_node *np,
+>+					  const struct samsung_cmu_info *cmu)
+>+{
+>+	const unsigned long *reg_offs = cmu->clk_regs;
+>+	size_t reg_offs_len = cmu->nr_clk_regs;
+>+	void __iomem *reg_base;
+>+	size_t i;
+>+
+>+	reg_base = of_iomap(np, 0);
+>+	if (!reg_base)
+>+		panic("%s: failed to map registers\n", __func__);
+>+
+>+	for (i = 0; i < reg_offs_len; ++i) {
+>+		void __iomem *reg = reg_base + reg_offs[i];
+>+		u32 val;
+>+
+>+		if (is_qch_reg(reg_offs[i])) {
+>+			val = QCH_DIS;
+>+			writel(val, reg);
+>+		} else if (is_qstate_reg(reg_offs[i])) {
+>+			val = 0;
+>+			writel(val, reg);
+>+		}
 
-> * lazy_mmu_mode_resume();
->     arch_enter_lazy_mmu_mode();
+This seems to disable qchannel and set qstate to 0 for disable HWACG.
+If this is true, a comment is preferred.
 
-Conversely, this needs to be arch_resume_lazy_mmu_mode(). And it can not
-be arch_enter_lazy_mmu_mode(), since a lazy_mmu_mode_resume() caller does
-not know the parameters passed to the lazy_mmu_mode_enable(...)-friend.
+>+	}
+>+
+>+	iounmap(reg_base);
+>+}
+>+
+>+/* ---- CMU_TOP ------------------------------------------------------------- */
+>+
+>+#define MIF_CLK_CTRL1						0x1084
+>+#define MIF_CLK_CTRL2						0x1088
+>+#define MIF_CLK_CTRL3						0x108C
+>+#define MIF_CLK_CTRL4						0x1090
+>+#define ACD_PSCDC_CTRL_0					0x1094
+>+#define ACD_PSCDC_CTRL_1					0x1098
+>+#define ACD_PSCDC_STAT						0x109C
+>+#define CMU_TOP_SPARE0						0x1100
+>+#define CMU_TOP_SPARE1						0x1104
+>+#define CMU_TOP_SPARE2						0x1108
+>+#define CMU_TOP_SPARE3						0x110C
 
->     lazy_mmu_state.enabled = true;
-...
+Some of the registers not aligned.
 
-Thanks!
+>+
+[...]
+>+static void __init exynos8890_cmu_top_init(struct device_node *np)
+>+{
+>+	exynos8890_init_clocks(np, &top_cmu_info);
+>+	samsung_cmu_register_one(np, &top_cmu_info);
+>+}
+>+
+>+/* Register CMU_TOP early, as it's a dependency for other early domains */
+>+CLK_OF_DECLARE(exynos8890_cmu_top, "samsung,exynos8890-cmu-top",
+>+	       exynos8890_cmu_top_init);
+
+Not sure you need to run Android GKI, without module built, this platform
+will not able to support GKI.
+
+It would be better to update to use platform drivers.
+
+>+
+>+/* ---- CMU_PERIS ---------------------------------------------------------- */
+>+
+>+#define QSTATE_CTRL_TMU				0x2474
+>+#define QSTATE_CTRL_CHIPID			0x2484
+>+#define QSTATE_CTRL_PROMISE_PERIS		0x2488
+
+Not aligned.
+
+>+
+>+
+>+/* Register CMU_PERIS early, as it's needed for MCT timer */
+>+CLK_OF_DECLARE(exynos8890_cmu_peris, "samsung,exynos8890-cmu-peris",
+>+	       exynos8890_cmu_peris_init);
+
+Same as above.
+
+>+
+>+/* ---- CMU_APOLLO --------------------------------------------------------- */
+>+
+>+/* Register Offset definitions for CMU_APOLLO (0x11900000) */
+>+#define APOLLO_PLL_LOCK				0x0000
+>+#define APOLLO_PLL_CON0				0x0100
+>+#define APOLLO_PLL_CON1				0x0104
+>+#define APOLLO_PLL_FREQ_DET			0x010C
+
+Not align.
+
+>+
+>+#define CLKOUT_CMU_AUD			0x0D00
+>+#define CLKOUT_CMU_AUD_DIV_STAT		0x0D04
+>+#define CLK_ENABLE_PDN_AUD		0x0E00
+>+#define AUD_SFR_IGNORE_REQ_SYSCLK	0x0F28
+
+Ditto.
+
+>+
+>+#define QCH_CTRL_TREX_D_BUS1		0x2000
+>+#define QCH_CTRL_FSYS0_D		0x2004
+>+#define QCH_CTRL_MFC0_D			0x2008
+>+#define QCH_CTRL_MFC1_D			0x200C
+>+#define QCH_CTRL_MSCL0_D		0x2010
+
+Ditto. Seems this was generated by tools, better to align all.
+
+>+
+>+
+>+
+>+static int __init exynos8890_cmu_init(void)
+>+{
+>+	return platform_driver_register(&exynos8890_cmu_driver);
+>+}
+>+core_initcall(exynos8890_cmu_init);
+
+So early initcall. Not sure about this. But I think devlink or defer probe
+could handle correctly for clock stuff. Not block the use of this, a
+comment would be preferred.
+
+Regards
+Peng
 
