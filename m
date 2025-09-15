@@ -4,59 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDEFCA101F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCD2CAC594
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 06:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Z5rFbBZ+FmeCHbnzHLqbkao1E1NCsoYmo8nWrZ0CL8=; b=P93s8sOMGz+I4Y1UgmgP4D0Z+W
-	Ki2tZXJ5K2KLilsajRg1M+uOviA+2MdP8h+WwlfaB5t3BXaZafRYQ35PM1yZqma8fzjhSSDdQ4KbP
-	sAD09ElcmlWXmxWHvUp2njIVAOHF1VSwCmI6kOXp0/H17pegSkxI0hwLM06R2z5DBYX2RoAUUeRYA
-	RrQlQjvuI7vq9Qe1AiHoiUHHim9vSv2ZAwZdP8ucGLJ46vsq7KtOjGNNnJ7oYLg/ZTlXY47qr9G2q
-	g6ZsIYpWtUs790JntNLOMIPFUKlnaProp5Kf3oWTa0sMCQl3ki7M3Vy+G5p8kXB1htiTJdNOf2+7E
-	P1jOnmgQ==;
+	bh=M/xuln62q5zfY1XqnOkzluoH/jhmqhYNwkmp3WpUxjM=; b=SKEZ/rw1poCa++1zItERK7Rwm5
+	S7cOkXfRAfYBEXkcZvWzWo01peQHnFxm/A6kNBPVWgTY2Ack6abzX05hiwGvuFLCWqhoLT3+AAgb+
+	B5e9eBBK8C1pYtRtc2nTtBYCdAQyfd3WSKAzQIhB2OJByacTx9cazmYQbhcT/TqOeYogoouNev5Tk
+	LHmGMhm3oY4RNaoydin6EpQKm31xHdFLMYRz6qDFYnXEwgaX/Ei3XW7nXobYUV0JGKzsTIXpoNHc8
+	Y+DbVcnQlS265uYeVWwsXOkc/1XBC7yaG8homgPxGbFLORHvN2F8gNkqy7pj2rZefWOPRBFXjsU7Y
+	oRD40VBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ey-00000002upB-0oOm;
-	Mon, 15 Sep 2025 06:25:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uy2ii-00000002vTQ-0JpI;
+	Mon, 15 Sep 2025 06:29:48 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy2ew-00000002uoj-2uxi;
-	Mon, 15 Sep 2025 06:25:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BCC96014D;
-	Mon, 15 Sep 2025 06:25:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49D65C4CEF1;
-	Mon, 15 Sep 2025 06:25:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757917552;
-	bh=YXcIhrbg/wc7/PC0yhFG/NxcxwFsfdkDJDbFz4bgiJo=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=NlJfJLF7m2EQcyHFVyI/13N9QUB8Cft+tGjjcwm2v4qFJzXXHZcfIRcaPOKWtEm3Q
-	 53a67rBuOs6EzCf1tJOPVATA/lku9Lqm64q8eQm0oyU8otM22h1qtPmBlYUfgazuIX
-	 s2vckc1AEmG1XLvcJp0hmMA/Z0NSoElXF3If2J5IitpCaJkxwRs7dmLWQiBYHlyyw0
-	 l1jdYhYCsltrJlJrNKjcaicpNUdONiCcNwwR+XNFL0yckEvExlW1ZK730jSMdIqkDT
-	 trxkfG+Vyyhz95CaL1S3lhlvuXn4oCm7QBaA2oPoNnjxHqU5OViT/BuZrjgR6hLbe7
-	 9oy4QSJJvrFdw==
-Date: Mon, 15 Sep 2025 00:25:52 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>
-cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, 
-    Mayuresh Chitale <mchitale@ventanamicro.com>, 
-    linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-    kvm-riscv@lists.infradead.org, Sean Christopherson <seanjc@google.com>
-Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
-In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
-Message-ID: <f740b716-6c8b-46a5-31ae-ecc37e766152@kernel.org>
-References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+	id 1uy2ig-00000002vT6-2Lx0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Sep 2025 06:29:47 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58EH2k6T008844;
+	Mon, 15 Sep 2025 06:29:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=M/xuln
+	62q5zfY1XqnOkzluoH/jhmqhYNwkmp3WpUxjM=; b=jaZLS26lBDtzg2fecSZHqg
+	vv5wXs+Q/QWPzoKutrrQc6JlTQgh9S++0kG1xYTEEhhACxrSaEwrVcmFNUrm5aqi
+	OtK0MYRXJHIvOwUxdJDVmGllntU+dWQ/n1X9T0qND7U13HpIsA/bx3E95xS6zSiA
+	G61SjiM2ehKgCwcxj/d9UyDG2/tPRNmRQ1Hbt9E+RCa/4Ymom5k7ti/+qmaBBf+f
+	VEyzVGOhzGaTidXPVx4X8SSv3dIj5Oxjs0qsGj5K8mF92mOvsSCfHnnElObmQvvm
+	y7XvEJjXSIurhHceuMaFZFx9Txg7BTX7q6CqqSlAH22dER7OpbB+bhODUu/v3N6w
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49509y0tk9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 15 Sep 2025 06:29:00 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 58F6NRje019684;
+	Mon, 15 Sep 2025 06:29:00 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49509y0tk4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 15 Sep 2025 06:29:00 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 58F2ZLlc029484;
+	Mon, 15 Sep 2025 06:28:58 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 495kb0n5uq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 15 Sep 2025 06:28:58 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 58F6SuNA58458606
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 15 Sep 2025 06:28:56 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8B80F20043;
+	Mon, 15 Sep 2025 06:28:56 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5171820040;
+	Mon, 15 Sep 2025 06:28:54 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.87.136.34])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 15 Sep 2025 06:28:54 +0000 (GMT)
+Date: Mon, 15 Sep 2025 08:28:52 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: David Hildenbrand <david@redhat.com>,
+        Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, Andreas Larsson <andreas@gaisler.com>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        Mark Rutland <Mark.Rutland@arm.com>
+Subject: Re: [PATCH v2 0/7] Nesting support for lazy MMU mode
+Message-ID: <5a0818bb-75d4-47df-925c-0102f7d598f4-agordeev@linux.ibm.com>
+References: <20250908073931.4159362-1-kevin.brodsky@arm.com>
+ <20250908191602.61160a7990b9ea418de758c7@linux-foundation.org>
+ <d1b4ff2a-052f-4556-91ae-273962edbed0@redhat.com>
+ <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <338ef811-1dab-4c4e-bc5f-8ebd8cb68435@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDAyMCBTYWx0ZWRfX4Cx2ngBEYL5c
+ roZzmS41YuVlUSpSRef2KxL4WggODwY/soRMJpx2gg7kNLdYMyZvXNoqxYULYholGjNDiAVT4t6
+ ukIUbG+OX0a4imqOK2lAsyx5041sIs8EVQMQ06NsJGnBzkaxygCee6tTvsutuzI9wnG+eg3PA/v
+ F5e7gPnCVAvuDEchpnbMPDdE4TzdeZAArCZTLOmkY9Xd7mYwn00cbVETqAT3ckHgDdrWLphTxSN
+ y5ALHiTawyw3ojSiUQHSaHqzU+geaiqg5gb2LGGBqmnxp5igHqNKf3fjoaJ0BgJ2I38Ya10WbMS
+ bYUlmQ5btypMVlGwBcuKVUODKwIOxTQn2bBDW8olvvXBnB4V+w9kPSd+TVwMJmnqFMZo71QBQkH
+ T1vGkEV/
+X-Authority-Analysis: v=2.4 cv=OPYn3TaB c=1 sm=1 tr=0 ts=68c7b22c cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=8nJEP1OIZ-IA:10 a=yJojWOMRYYMA:10 a=nkFB8puKy1KDrdvMtSoA:9
+ a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+X-Proofpoint-GUID: dbH_inTMwHRH6BHBdGMtY8_aObQAr3rR
+X-Proofpoint-ORIG-GUID: XMRhk7th-c6XacqgLmk45pWkcqEsR17O
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-15_02,2025-09-12_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 phishscore=0 suspectscore=0 spamscore=0
+ bulkscore=0 malwarescore=0 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509130020
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250914_232946_600177_CC73C7C2 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,36 +148,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 9 Sep 2025, Atish Patra wrote:
+On Fri, Sep 12, 2025 at 05:25:27PM +0200, Kevin Brodsky wrote:
 
-> SBI v3.0 specification[1] added two new improvements to the PMU chaper.
-> The SBI v3.0 specification is frozen and under public review phase as
-> per the RISC-V International guidelines. 
+Hi Kevin,
+
+> Based on the outcome of the discussion with David on patch 2 [1p], there
+> is indeed an alternative approach that we should seriously consider. In
+> summary:
 > 
-> 1. Added an additional get_event_info function to query event availablity
-> in bulk instead of individual SBI calls for each event. This helps in
-> improving the boot time.
+> * Keep the API stateless, handle nesting with a counter in task_struct
+> * Introduce new functions to temporarily disable lazy_mmu without
+> impacting nesting, track that with a bool in task_struct (addresses the
+> situation in mm/kasan/shadow.c and possibly some x86 cases too)
+> * Move as much handling from arch_* to generic functions
 > 
-> 2. Raw event width allowed by the platform is widened to have 56 bits
-> with RAW event v2 as per new clarification in the priv ISA[2].
+> What the new generic infrastructure would look like:
 > 
-> Apart from implementing these new features, this series improves the gpa
-> range check in KVM and updates the kvm SBI implementation to SBI v3.0.
+> struct task_struct {
+>     ...
+> #ifdef CONFIG_ARCH_LAZY_MMU
+>     struct {
+>         uint8_t count;
+>         bool enabled; /* or paused, see below */
+>     } lazy_mmu_state;
+> #endif
+> }
 > 
-> The opensbi patches have been merged. This series can be found at [3].
+> * lazy_mmu_mode_enable():
+
+This helper is parameter-free, assuming the MMU unit does not need any
+configuration other than turning it on/off. That is currently true, but
+(as I noted in my other mail) I am going to introduce a friend enable
+function that accepts parameters, creates an arch-specific state and
+uses it while the lazy mmu mode is active.
+
+That does not impact your design (AFAICT), except one change below.
+
+>     if (!lazy_mmu_state.count) {
+>         arch_enter_lazy_mmu_mode();
+>         lazy_mmu_state.enabled = true;
+>     }
+>     lazy_mmu_state.count++;
 > 
-> [1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc7/riscv-sbi.pdf 
-> [2] https://github.com/riscv/riscv-isa-manual/issues/1578
-> [3] https://github.com/atishp04/linux/tree/b4/pmu_event_info_v6
+> * lazy_mmu_mode_disable():
+>     lazy_mmu_count--;
+>     if (!lazy_mmu_state.count) {
+>         lazy_mmu_state.enabled = false;
+>         arch_leave_lazy_mmu_mode();
+>     } else {
+>         arch_flush_lazy_mmu_mode();
+>     }
 > 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> * lazy_mmu_mode_pause():
+>     lazy_mmu_state.enabled = false;
+>     arch_leave_lazy_mmu_mode();
 
-For the series:
+This needs to be arch_pause_lazy_mmu_mode(), otherwise the arch-specific
+state will be lost.
 
-Acked-by: Paul Walmsley <pjw@kernel.org>
+> * lazy_mmu_mode_resume();
+>     arch_enter_lazy_mmu_mode();
 
+Conversely, this needs to be arch_resume_lazy_mmu_mode(). And it can not
+be arch_enter_lazy_mmu_mode(), since a lazy_mmu_mode_resume() caller does
+not know the parameters passed to the lazy_mmu_mode_enable(...)-friend.
 
-- Paul
+>     lazy_mmu_state.enabled = true;
+...
 
-
+Thanks!
 
