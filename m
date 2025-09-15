@@ -4,158 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D38CAC593
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D327CAC593
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 11:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=; b=QooODRvjibRVYWZ+7tn6JR0w1N
-	x+Qiaww/JiXqRO8qVS2fxVCMxRjWB0Wob/QEA7uqfjuq516aeI8ffKuJ6mazgliCT5RZb/pYEqoYa
-	OvI+ITLPHzhmx/ysJhRkR8/NyIoPUDZ3Pui1LlHWVPVN/l8qN64KSXN+ahf6FxVmGbCOb46eKhSYE
-	qF3oK6h32ihCjriMAZmAv0I1w/BWx38o8tUC2T0HPbWiOh8lUhXimkk1oW9+1EEj75IC6/ZCEb7h3
-	QtbCZ9kO3KxfyXq1sHVKd+8y9rY+Whim5527/VT7IkTTqxW+k0koZZ8LuWHjgmbH0perzlGXb2Xnv
-	kLSr3Pkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yGVw+dkj5nfYxmjH5LY4ZgVFCM7KXPpME6hBvdzBkGc=; b=0hL3rmlCz4zaQIStwuDkxghBy9
+	JyowdeTufII6Bu4eutQRyynoVC1esJpE07CyvdRJT4aHpwfINnbMQPB7ptg8E3aKp867KxKEwDIPI
+	z3QXeWoo4C7l3H5jEDZGlACdA4INM/gSd4VIj8mujqD/CCrVES332P9LUe5etgl86s+KPS+99x7zq
+	UjNUIMzm5snTa1MtifwZ9ASslbU1XGPtnZhQAw5z9jLisNIhmiyWnyPniM591QkFcKJv4vLtmVjSG
+	Yfb7g6xBfxPjbUA+D2qYftN19kMbm8SYY5mh6UwQEo3A97RtfBRbnqvnk80wSJC03F+qk88yeyY2O
+	Mm1NVyZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy74F-00000003qOm-0nVI;
-	Mon, 15 Sep 2025 11:08:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uy76k-00000003qju-0lGq;
+	Mon, 15 Sep 2025 11:10:54 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uy74C-00000003qOL-0E5y
+	id 1uy76h-00000003qjZ-41QC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 11:08:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1757934494;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=;
-	b=JNnk92dYFgJElfnBnBeOarj2oQ0UzcK0+/DxveeopGkgov5szKGd88afkl9y72I9QxoDH5
-	3jIojxLhjFS7u3DxftlXEP9f3Jz9MBhhBcK1348gU+lNf7hX8mk1gI8NwnmtEDjihIGG/6
-	p0ReQ8TQuuj7js+bBueP8KBNgF68pug=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-656-vWDzMG2MP_SzDZzgGuz1Wg-1; Mon, 15 Sep 2025 07:08:13 -0400
-X-MC-Unique: vWDzMG2MP_SzDZzgGuz1Wg-1
-X-Mimecast-MFC-AGG-ID: vWDzMG2MP_SzDZzgGuz1Wg_1757934492
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ebbbd9a430so224243f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 04:08:13 -0700 (PDT)
+	Mon, 15 Sep 2025 11:10:53 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-24cca557085so344775ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 04:10:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1757934651; x=1758539451; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yGVw+dkj5nfYxmjH5LY4ZgVFCM7KXPpME6hBvdzBkGc=;
+        b=uP/p69FYeGErvZlxSqEyCRiXX5kFdx3l/WYF3FPlvmBYP1/MVVxSAtEIQ7yMRTwn3L
+         gH1cwnKkFdYrDmIt3VkWbOIt4CCqY0YJnGJFf+v7rsI//59zJq3vcmL6VDn3DC9Qk55a
+         9hg/cM1yJMmt8bY7MkgNyKukHXFm+id1Qs25fo1rRwEyy7O2su0N69CIPieD2SocrYKE
+         3uCRzXrjMFNSE5/dHKLpnEnCtL+yeDD0HXntoE1cNeQe0kRg6uP3WsWqCzqIeZpSr9QP
+         yXz1CrJUSxiqtZAKPU/fmZ8k9TOUhmSnNei8MRtBMvj4VdTJpZF+5OOP2rHw7z/JQisi
+         P3uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757934492; x=1758539292;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vO5Sx3qikY9rqKll7zfCyBLKJ3aOWWhA1Eq3H6Wln0s=;
-        b=bjkLhWvRMm+Z+OpHY4U/ReVvLCqBLvQgYn1jjS4k8avVeZW5iqySZyF8XUXCciJmq4
-         EO8OLvUgCQajsBfvnHCjOpZknrD4h3/QLOjsVD6CDdwF0K+pkwNOU8Lcm+Ah4uR50pmp
-         Aw7Gr9DQaCHmWmSQkDd4PrZ3htQT/B2DH8RRtTS7tb6d3pOP+TwRT7xz4nFoLsJuGsbI
-         XOkdj5wTHpKqZxkVL/Cm18Tuwq2J5MNQ02dHx2y6PJJOWJvudovTaFzeEhOrqPuknxII
-         WBBsIzsEYVIqI+paFWbCk63I43XUN6lF/CDU9Z5Xd9KdumQvMkPX2rkdHhmfFdEkIsyc
-         VSNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXuZ4DBmB/0xTKOX+sjRRH0N/qQHkU/7Wmaamt0C3dXbRrVWpiPs9sqJIGuCaxNPTXEjplvPmVysbRBYrS+b6EE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2XjQpTwxafQac8cIghwcH6pC9i+NlA5EMzdPuP37Mo+eJObEq
-	wHgu9uw7hgv2NjPXD8ks9w3uCR0+H3bUqzMaoCNOBAaJtRpXErod2+b1qAYJ54VGNf3f0GTRnka
-	gePIXSVWP9DA6qrQSdvfg105YxTCqKecvGj6UyYODh+hfhXGrn39Sz/NvtHVN6CyXhAZErI5qlG
-	Hm
-X-Gm-Gg: ASbGncvyDdJKW2bPPbpynRVm/HrxRTlfL427rRRSzJ9CFulcCwyc1CxeCbi7+Rs2Wfy
-	4/3NoSPjbdXnLZWszWkcVCFubeSRgvBWgNzzaZhF6Y/cRXpDA96k0RsIRcB9F3UbJZQ2VBKygOZ
-	yKuWogKqclozf/MqIAHfXhIcdOQZGqF9vu8ixhuifGMxEz0B0je1GuDZ2R2PF24fOaB5qKnpfUy
-	FJEf6X/IsQxyhGr5fn/qh/jN9FxecxQ145HGsk/XkNIYoczPFB6KqmNnltjH6HShxMD30cWAcrD
-	RnWLaMG4ntp8PL1/ygmpBl8fVnmp1/DotiqitnFI/fMeyNcAd42fzbfZa+cXyb1FrgqMqmIC4Rv
-	qxqPhv0qTk5RLB1ScRqqpDwmileB1SWQap2DCa4PHFFZ9192puD1W6EhuoR7dO+NtWzQ=
-X-Received: by 2002:a05:6000:2307:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-3e7657924f5mr9180924f8f.16.1757934492267;
-        Mon, 15 Sep 2025 04:08:12 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGctyRyrIadbxrhHerFpu4jtEM0UPvEhLZCrLT5sa+2qupDmvbeVcrVDByB23FbmDYJzWxMRQ==
-X-Received: by 2002:a05:6000:2307:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-3e7657924f5mr9180891f8f.16.1757934491798;
-        Mon, 15 Sep 2025 04:08:11 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd? (p200300d82f18f900e0ae65d58bf88cfd.dip0.t-ipconnect.de. [2003:d8:2f18:f900:e0ae:65d5:8bf8:8cfd])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e0153fbd5sm91804875e9.5.2025.09.15.04.08.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Sep 2025 04:08:11 -0700 (PDT)
-Message-ID: <8c51da7a-7370-4678-96a3-7cd6eaf0db62@redhat.com>
-Date: Mon, 15 Sep 2025 13:08:09 +0200
+        d=1e100.net; s=20230601; t=1757934651; x=1758539451;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yGVw+dkj5nfYxmjH5LY4ZgVFCM7KXPpME6hBvdzBkGc=;
+        b=v0uf1ojUkWSCOEOU1iFuEtvXzEZqIxtWusmD+u4tgDmWvag80shNVNwOAtYEN8CGIR
+         2sX/d2qOron26Ufw/137/LxyAYqQZhuBXOYAOByOCbwEH95OH3o38l7sS7iLnPLvDaHU
+         DJZy1B7WIRGzQ9WSXjlmuiGi+Z2CQbPSBeWl2UC9sZDuw9AiJyxiNne0H6v0cGTTCGFf
+         Iz6dc4BuOYZedFH97ajjKUTHOx9AbjBCGUckRMmFQhiP48/YpfHaXVmXDAvGiLN0sOrb
+         hrSRqIAf2xTEHvBQlprQHpamWvVpqwvcJp8oFR8fHG8qHgVvQ9ra/MvPo1MtiBWBkSlY
+         8Nyw==
+X-Forwarded-Encrypted: i=1; AJvYcCX82H3DZxXXctg0qoWAjBO5c9w4nWwT/uX5eramsd1zcrTIaDcNfZWfOwz/5pGp4L12oCOXsXF7cViDlSyJgiPR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3fKjjc216UEROfHXd6C3EKfapS2qBAxFSUSxpuSykvgXfkWpV
+	JgUu+lsQ93M78/KnRXNXwtHxJMG2AYpSNn1qbp36N0QBfssEjx8ZDpL6E0vZokZSHcxBjZshGFm
+	lAZneCw==
+X-Gm-Gg: ASbGncud7I5pRZRXVdm5nUCIYAJ+boFZi207wa0sHoK0syZYHx7WtqSAmr9nQ6g7Gmo
+	kwAUp1ar68k1QJqgcr7oUkGV+QNr3JQUm3jj47PYQPmrQptbrwUxVmIvKvPpB5oQfGEcFtEQHcv
+	GTSt8YIebaeqHtI3kW5JbOXJL2RjkcGDj+JUsY33GlIcJpSHfutuPR5fN4yHzpXG/GSU1l108HZ
+	AXjvswS9Xx+MDFALwXgF24In07JTmkY8r5vp4/rdnsv+ccHbhVYODGyJALZzPglGANLyzKYJgMd
+	N4TJX6GTGuT8RrXSWdG9DFZrVPSMrA8W4ZwDW0tVn1ubY6MfZJSJakxOsQ+QzUocilHAOsLsyOk
+	SiQk4rsaHv7Wq7mjtibpMKuAA31u+TJOjFvk6amz+2HBkuKBWFTSCPffzYkHUhA5bRzoxAsQblg
+	==
+X-Google-Smtp-Source: AGHT+IGldm5kVklLwWI+W0luGJJTP/Fy8rtLyArOHHmGPz2Td1ttKApb5Hb7I95Cb8Bwiryv5S6sUQ==
+X-Received: by 2002:a17:903:1b08:b0:24b:1b9d:58f1 with SMTP id d9443c01a7336-260a27af356mr6498255ad.17.1757934650882;
+        Mon, 15 Sep 2025 04:10:50 -0700 (PDT)
+Received: from google.com (23.178.142.34.bc.googleusercontent.com. [34.142.178.23])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-26175efc667sm64942635ad.112.2025.09.15.04.10.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Sep 2025 04:10:50 -0700 (PDT)
+Date: Mon, 15 Sep 2025 11:10:43 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mostafa Saleh <smostafa@google.com>,
+	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com
+Subject: Re: [PATCH v4 03/28] KVM: arm64: pkvm: Add pkvm_time_get()
+Message-ID: <aMf0M72p8AEEoTny@google.com>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-4-smostafa@google.com>
+ <aMA2ugNakqrA1Pg0@willie-the-truck>
+ <86frcvd3hb.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/2] mm: add spurious fault fixing support for huge
- pmd
-To: Huang Ying <ying.huang@linux.alibaba.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Anshuman Khandual
- <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Yin Fengwei <fengwei_yin@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
- <20250915032946.33203-2-ying.huang@linux.alibaba.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250915032946.33203-2-ying.huang@linux.alibaba.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CSonPF1dItiFmymy6fs0qBJHQurm2f9F2QImdvoPhZ8_1757934492
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <86frcvd3hb.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_040816_175686_EE5B70B5 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20250915_041052_018022_6D52F3FF 
+X-CRM114-Status: GOOD (  31.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,79 +109,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.09.25 05:29, Huang Ying wrote:
-> In the current kernel, there is spurious fault fixing support for pte,
-> but not for huge pmd because no architectures need it. But in the
-> next patch in the series, we will change the write protection fault
-> handling logic on arm64, so that some stale huge pmd entries may
-> remain in the TLB. These entries need to be flushed via the huge pmd
-> spurious fault fixing mechanism.
+On Tue, Sep 09, 2025 at 04:56:16PM +0100, Marc Zyngier wrote:
+> On Tue, 09 Sep 2025 15:16:26 +0100,
+> Will Deacon <will@kernel.org> wrote:
+> > 
+> > On Tue, Aug 19, 2025 at 09:51:31PM +0000, Mostafa Saleh wrote:
+> > > Add a function to return time in us.
+> > > 
+> > > This can be used from IOMMU drivers while waiting for conditions as
+> > > for SMMUv3 TLB invalidation waiting for sync.
+> > > 
+> > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> > > ---
+> > >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 ++
+> > >  arch/arm64/kvm/hyp/nvhe/setup.c        |  4 ++++
+> > >  arch/arm64/kvm/hyp/nvhe/timer-sr.c     | 33 ++++++++++++++++++++++++++
+> > >  3 files changed, 39 insertions(+)
 > 
-> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Yang Shi <yang@os.amperecomputing.com>
-> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-> Cc: Dev Jain <dev.jain@arm.com>
-> Cc: Barry Song <baohua@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> ---
+> [...]
+> 
+> > > +#define SEC_TO_US 1000000
+> > > +
+> > > +int pkvm_timer_init(void)
+> > > +{
+> > > +	timer_freq = read_sysreg(cntfrq_el0);
+> > > +	/*
+> > > +	 * TODO: The highest privileged level is supposed to initialize this
+> > > +	 * register. But on some systems (which?), this information is only
+> > > +	 * contained in the device-tree, so we'll need to find it out some other
+> > > +	 * way.
+> > > +	 */
+> > > +	if (!timer_freq || timer_freq < SEC_TO_US)
+> > > +		return -ENODEV;
+> > > +	return 0;
+> > > +}
+> > 
+> > Right, I think the frequency should be provided by the host once the arch
+> > timer driver has probed successfully. Relying on CNTFRQ isn't viable imo.
+> 
+
+Are platforms are using DT to change this value?
+Because I think TF-A mandates [1] this value to be set, from the docs:
+
+BL31 programs the CNTFRQ_EL0 register with the clock frequency of the
+system counter, which is provided by the platform. 
+
+Even the TF-A porting guide [2] mandates it to be set.
+
+> We can always patch the value in, à la kimage_voffset. But it really
+> begs the question: who is their right mind doesn't set CNTFRQ_EL0 to
+> something sensible? Why should we care about supporting such
+> contraption?
+> 
+> I'd be happy to simply disable KVM when CNTFRQ_EL0 is misprogrammed,
+> or that the device tree provides a clock frequency. Because there is
+> no good way to support a guest in that case.
+> 
+
+And even if someone choses not to use TF-A, IIUC, doesn't the aarch64
+linux boot protocol[3] mandate CNTFRQ must be programmed with the timer
+frequency? As per the doc:
+
+Before jumping into the kernel, the following conditions must be met:
 
 [...]
 
->   
->   int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
-> @@ -1857,7 +1861,20 @@ void huge_pmd_set_accessed(struct vm_fault *vmf)
->   	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
->   		goto unlock;
->   
-> -	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
-> +	if (!touch_pmd(vmf->vma, vmf->address, vmf->pmd, write)) {
-> +		/* Skip spurious TLB flush for retried page fault */
-> +		if (vmf->flags & FAULT_FLAG_TRIED)
-> +			goto unlock;
-> +		/*
-> +		 * This is needed only for protection faults but the arch code
-> +		 * is not yet telling us if this is a protection fault or not.
-> +		 * This still avoids useless tlb flushes for .text page faults
-> +		 * with threads.
-> +		 */
+- Architected timers
+  CNTFRQ must be programmed with the timer frequency and CNTVOFF must
+  be programmed with a consistent value on all CPUs.
 
-Can we instead just remove these comments and simplly say "see 
-handle_pte_fault()"
+Thanks,
+Praan
 
-> +		if (vmf->flags & FAULT_FLAG_WRITE)
-> +			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
-> +							 vmf->pmd);
-> +	}
-
-Okay, In the PTE case, we call flush_tlb_fix_spurious_fault() during 
-write faults if ptep_set_access_flags() returned "0".
-
-You are calling flush_tlb_fix_spurious_fault_pmd() during a write fault 
-when pmdp_set_access_flags() returned "0" as well.
-
-In general, LGTM, but I would just let touch_pmd() return the value of 
-pmdp_set_access_flags() instead and add a quick comment for touch_pmd() 
-what the return value means.
-
--- 
-Cheers
-
-David / dhildenb
-
+[1] https://trustedfirmware-a.readthedocs.io/en/latest/design/firmware-design.html
+[2] https://trustedfirmware-a.readthedocs.io/en/latest/porting-guide.html#function-plat-get-syscnt-freq2-mandatory
+[3] https://www.kernel.org/doc/Documentation/arm64/booting.txt
 
