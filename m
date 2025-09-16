@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61F3CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297A6CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PTX0fC9bIK340fBiAPl8js1dBSBKjx/FRBlnlo5L9NI=; b=WhktqppQwEnPx7J8VXTQXq73MN
-	a8t8GKs9o7ZYNQEZ11B4dMKB3GsehEhMLlG2V6jZB/dSBfzHKmCQTYNfo6HJgVGgeLoOq4c+cHIcB
-	o0EPuK/jXXILsCD+gibJUd0o8NYwRhs3p3fcq4kQ2NSPCDNW8n6mX0WSgkNC5LslS40IurPbNlEIZ
-	Sx7au8SA/YcM5i8vHthiyt6HD0BebNUyv2sZJRq0vDcVDn5e45sEI4r10NW7LI/yS1FK78weKveDy
-	fCk3S0VcECV+5p0gYVkZqHt2OGhtd2BL9cWjtA6wgQRLXf1PbS2dD71o3V6jo4QG4sCGMWAmPLAcM
-	C4Ty2LvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZTpmHXQDrDNu2omvxpv38G1z1jQL9k5zYwI+nHzzx2A=; b=KbaHOdWylElc3OMVfQ8kDFPuAA
+	HzgfZlp138SfMK7krE9c1q6qQmFHZimHl4yqcU9pYjk/5xDg6MsGIwPt8cX8ULTbarVfx8qu+pWoB
+	C9vtItTXpJ4hEdiTtQlFz65JvNP2NGuO3YQPGTRNx1S3nvebIzqayQSxzcGZpNfOBBcxPm7VxV4DO
+	Q19TBJ0OKyw21oFu+QcN0kdrEohxzMAeP4xFwTDMPjaIjSXv/tRs7wwCNMi92T96fHQ45qGDi5moU
+	kS6M4V7gss3o2bYjXQwamZqXubYnGvAgs4kD1vUu+qZGM/133tW4B8dcmkXZXkawjQ2GbOP5TMfTu
+	W3JiCXaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWyz-00000008BKn-04w6;
-	Tue, 16 Sep 2025 14:48:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uyX0k-00000008Bgo-22Fd;
+	Tue, 16 Sep 2025 14:50:26 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWyw-00000008BJr-19C4
+	id 1uyX0i-00000008BfJ-1OPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 14:48:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758034114; x=1789570114;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=ylED2QmG4z5jpT44UfsD5KLLNSkZmNlT7OtJh7WiFqk=;
-  b=Jzy35c3vMXFnCj7YOmJsjtN2YGOk+uFdKtK+GVmCZoHePUzx5z9EKYYV
-   sp3wNTE0zCylJxXCkCzi9wAhEFRLQ43K/Gd+br0nxF5et0VkS5EtcdY7U
-   jtJCj+6qAS0kUWRPiAABQlRkPhhs9bw4q4TOpX2TfBPvotWxy57L66y3h
-   ZNtaieIQpN/FZJOxTvf6dbvaHmjwLv7CD6LFQSEvxlScJEP5M0Hz18apv
-   ZR7dTXLWgFyZND0VEoUomrRrvn13ZNkgYAgqr55BzN0/OYCGs/fJiBzl8
-   yLHUlwcT1Xsi+tLYsCoEJdaKTwTNlZg/Nma9+Ka24TR3AYpqah9g6giTj
-   g==;
-X-CSE-ConnectionGUID: L6xQAWeqQP+7SzlmY7FqJQ==
-X-CSE-MsgGUID: Y8D2Qpz/SHG2ASa0mfu+2w==
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="213953799"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 07:48:33 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 16 Sep 2025 07:48:21 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 16 Sep 2025 07:48:18 -0700
-Message-ID: <36a37379-2ad1-40c5-9c7d-6e05ea74bf84@microchip.com>
-Date: Tue, 16 Sep 2025 16:48:18 +0200
+	Tue, 16 Sep 2025 14:50:25 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45f2f894632so58575e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:50:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1758034222; x=1758639022; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZTpmHXQDrDNu2omvxpv38G1z1jQL9k5zYwI+nHzzx2A=;
+        b=lfGA5vGRmi+kHxfUasV5PJYuW+5EFx55pZ/ec0He3OQ1Es0Px2I/AaPxKB05vVMFWl
+         S4uJS01yBiMxxzdXBL7SvvEGkJhT6nK8L8uaI1VWhLV9drDXb9MKkQmhHe/cACJsdUXR
+         WC/dSeaccd279bkt9mXucVt2jVwjQfGf09HehEAzIlsMBe6nlWhjOmn9S474kJScF6u/
+         87ZB2p9x1pgLj5kaGBBisLwZSFYPAOwZ1c90nSD8i64WpKzZp7QZe0gd3+0FgKCMfUi2
+         6XJO+hzk3vQ0XtMs2jxR1tqx4VJdO1jLtZpwLrognvu4h2DYN5f/JkokexSuirjZFU5P
+         2sog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758034222; x=1758639022;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZTpmHXQDrDNu2omvxpv38G1z1jQL9k5zYwI+nHzzx2A=;
+        b=NEtcnHgbxIb6c1EWzBGhEalBFDYa6jMROYTk8UGvCPoFBNQpIRZ5o5mO2e8mNa7sHt
+         LJ4Qf2NhF9+BcWjLuOcm2lNC8r4dY+qJTBInzFqwIiHjk4Eg2h1HgCx84EUjnPfF7q28
+         k2QU6YimY9LL+RQdAZlAr9ZF/v3FmjFEjIF9nff9rqeNFpANOA3te7j93zkefSWTbMT7
+         yT87HLJ1tlf3i38y6jCkgG2KLzHxo890oUdN3e0Axw+hC6sjH1hgs1tRtN232fPGZtHG
+         ez4wXjUHQMpuPp7+ivUQY4k3l27FHKOLAbdPTIF/ej9wByU/x3maDsTgTEue6GhxzHnM
+         vuIw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1W7PV3AmtjGjFTZyld2GJnF6POIKWQHWuc45tAFu8QZF8BNvje7dPsfOG/DJNY3n31/lvH1oJwLdLBHMvUaw3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUnioEZlwCEHm6uG6933gyHKSIdtCn3hAIsf86ggtoLm5LMdv+
+	uoI+aCYjzknev4v6t7DTWwLNLY3q10QgccUJwRIDhkefqgmU6tMwA6WyPAlyF7LvHQ==
+X-Gm-Gg: ASbGncuge4bKydMlQcGbWFXxs1xuYtau5LXeH7VXbFvRYfzL3x2NSKMD+WO14TsRz4k
+	qTg3VBnW900TFsCHtJTuFMYynkSUc7f7BgfGFbvlLVW8WoU/NFcDfDEIksPKncGqytqH4KX/px9
+	1hjQmWpnHAY0hV7F3L34b3Nv6CJC9EuoRLVF1ulIMb5DWDzEd0qxzeYLivC+13D6u2RDECO/vSJ
+	B5VbrZD0L5vGQ2EQJI/ojSSxElqM7pa/RD5v7w8elINPItn/S7X4j6kBTUIoBjRfH+ZNAiFvqRi
+	C/jUA4WZlpJP0xvrP6iWj2D4/F4ZBEbOcjFg+h/5gOIKYqUX1n5GztJNZ9atG0VwdeW4CIxuUlB
+	kvdqTqDpA6IXpR2LnaVg+BCT7z7SI2lQtRCoFDAKO876INeWFiAcrMgACUgAD6rnV5r0WPg==
+X-Google-Smtp-Source: AGHT+IHD9Kzax0Ca9B0Mi5gbzv7latmKARYeb9YTewjapsp5wcmK8hKO8yrvBqqgUSVFMKJVQNhyag==
+X-Received: by 2002:a05:600c:4689:b0:43d:409c:6142 with SMTP id 5b1f17b1804b1-45f320079e2mr1999085e9.0.1758034222192;
+        Tue, 16 Sep 2025 07:50:22 -0700 (PDT)
+Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f2a65e1b5sm123753115e9.4.2025.09.16.07.50.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 07:50:21 -0700 (PDT)
+Date: Tue, 16 Sep 2025 14:50:18 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 22/28] iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
+Message-ID: <aMl5Ku6ZbzTOuGh-@google.com>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-23-smostafa@google.com>
+ <aMQroI4NDu74PDGT@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] ARM: at91: pm: Remove 2.5V regulator
-To: <Ryan.Wanner@microchip.com>, <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alexandre.belloni@bootlin.com>, <linux@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <cover.1757519351.git.Ryan.Wanner@microchip.com>
- <a6785a40648b315a07152bca261a42bbf0f356af.1757519351.git.Ryan.Wanner@microchip.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <a6785a40648b315a07152bca261a42bbf0f356af.1757519351.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aMQroI4NDu74PDGT@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_074834_579320_47DEA398 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250916_075024_394466_7C197003 
+X-CRM114-Status: GOOD (  37.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,97 +106,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/09/2025 at 18:20, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On Fri, Sep 12, 2025 at 03:18:08PM +0100, Will Deacon wrote:
+> On Tue, Aug 19, 2025 at 09:51:50PM +0000, Mostafa Saleh wrote:
+> > Don’t allow access to the command queue from the host:
+> > - ARM_SMMU_CMDQ_BASE: Only allowed to be written when CMDQ is disabled, we
+> >   use it to keep track of the host command queue base.
+> >   Reads return the saved value.
+> > - ARM_SMMU_CMDQ_PROD: Writes trigger command queue emulation which sanitises
+> >   and filters the whole range. Reads returns the host copy.
+> > - ARM_SMMU_CMDQ_CONS: Writes move the sw copy of the cons, but the host can’t
+> >   skip commands once submitted. Reads return the emulated value and the error
+> >   bits in the actual cons.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 108 +++++++++++++++++-
+> >  1 file changed, 105 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > index 554229e466f3..10c6461bbf12 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+> > @@ -325,6 +325,88 @@ static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
+> >  	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
+> >  }
+> >  
+> > +static bool smmu_filter_command(struct hyp_arm_smmu_v3_device *smmu, u64 *command)
+> > +{
+> > +	u64 type = FIELD_GET(CMDQ_0_OP, command[0]);
+> > +
+> > +	switch (type) {
+> > +	case CMDQ_OP_CFGI_STE:
+> > +		/* TBD: SHADOW_STE*/
+> > +		break;
+> > +	case CMDQ_OP_CFGI_ALL:
+> > +	{
+> > +		/*
+> > +		 * Linux doesn't use range STE invalidation, and only use this
+> > +		 * for CFGI_ALL, which is done on reset and not on an new STE
+> > +		 * being used.
+> > +		 * Although, this is not architectural we rely on the current Linux
+> > +		 * implementation.
+> > +		 */
+> > +		WARN_ON((FIELD_GET(CMDQ_CFGI_1_RANGE, command[1]) != 31));
+> > +		break;
+> > +	}
+> > +	case CMDQ_OP_TLBI_NH_ASID:
+> > +	case CMDQ_OP_TLBI_NH_VA:
+> > +	case 0x13: /* CMD_TLBI_NH_VAA: Not used by Linux */
+> > +	{
+> > +		/* Only allow VMID = 0*/
+> > +		if (FIELD_GET(CMDQ_TLBI_0_VMID, command[0]) == 0)
+> > +			break;
+> > +		break;
+> > +	}
+> > +	case 0x10: /* CMD_TLBI_NH_ALL: Not used by Linux */
+> > +	case CMDQ_OP_TLBI_EL2_ALL:
+> > +	case CMDQ_OP_TLBI_EL2_VA:
+> > +	case CMDQ_OP_TLBI_EL2_ASID:
+> > +	case CMDQ_OP_TLBI_S12_VMALL:
+> > +	case 0x23: /* CMD_TLBI_EL2_VAA: Not used by Linux */
+> > +		/* Malicous host */
+> > +		return WARN_ON(true);
+> > +	case CMDQ_OP_CMD_SYNC:
+> > +		if (FIELD_GET(CMDQ_SYNC_0_CS, command[0]) == CMDQ_SYNC_0_CS_IRQ) {
+> > +			/* Allow it, but let the host timeout, as this should never happen. */
+> > +			command[0] &= ~CMDQ_SYNC_0_CS;
+> > +			command[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
+> > +			command[1] &= ~CMDQ_SYNC_1_MSIADDR_MASK;
+> > +		}
+> > +		break;
+> > +	}
+> > +
+> > +	return false;
+> > +}
+> > +
+> > +static void smmu_emulate_cmdq_insert(struct hyp_arm_smmu_v3_device *smmu)
+> > +{
+> > +	u64 *host_cmdq = hyp_phys_to_virt(smmu->cmdq_host.q_base & Q_BASE_ADDR_MASK);
+> > +	int idx;
+> > +	u64 cmd[CMDQ_ENT_DWORDS];
+> > +	bool skip;
+> > +
+> > +	if (!is_cmdq_enabled(smmu))
+> > +		return;
+> > +
+> > +	while (!queue_empty(&smmu->cmdq_host.llq)) {
+> > +		/* Wait for the command queue to have some space. */
+> > +		WARN_ON(smmu_wait_event(smmu, !smmu_cmdq_full(&smmu->cmdq)));
+> > +
+> > +		idx = Q_IDX(&smmu->cmdq_host.llq, smmu->cmdq_host.llq.cons);
+> > +		/* Avoid TOCTOU */
+> > +		memcpy(cmd, &host_cmdq[idx * CMDQ_ENT_DWORDS], CMDQ_ENT_DWORDS << 3);
+> > +		skip = smmu_filter_command(smmu, cmd);
+> > +		if (!skip)
+> > +			smmu_add_cmd_raw(smmu, cmd);
+> > +		queue_inc_cons(&smmu->cmdq_host.llq);
+> > +	}
 > 
-> Remove 2.5V regulator since enabling and disabling this regulator is no
-> longer supported.
+> Hmmm. There's something I'd not considered before here.
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-
-I take this one for at91-soc now. We will come back for the rest.
-
-Regards,
-   Nicolas
-
-> ---
->   arch/arm/mach-at91/pm_suspend.S | 29 -----------------------------
->   include/soc/at91/sama7-sfrbu.h  |  7 -------
->   2 files changed, 36 deletions(-)
+> Ideally, the data structures that are shadowed by the hypervisor would
+> be mapped as normal-WB cacheable in both the host and the hypervisor so
+> we don't have to worry about coherency and we get the performance
+> benefits from the caches. Indeed, I think that's how you've mapped
+> 'host_cmdq' above _however_ I sadly don't think we can do that if the
+> actual SMMU hardware isn't coherent.
 > 
-> diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
-> index 198236bdbbb3..36cae7b1a490 100644
-> --- a/arch/arm/mach-at91/pm_suspend.S
-> +++ b/arch/arm/mach-at91/pm_suspend.S
-> @@ -87,29 +87,6 @@ tmp3	.req	r6
->   
->   	.endm
->   
-> -/**
-> - * Set state for 2.5V low power regulator
-> - * @ena: 0 - disable regulator
-> - *	 1 - enable regulator
-> - *
-> - * Side effects: overwrites r7, r8, r9, r10
-> - */
-> -	.macro at91_2_5V_reg_set_low_power ena
-> -#ifdef CONFIG_SOC_SAMA7
-> -	ldr	r7, .sfrbu
-> -	mov	r8, #\ena
-> -	ldr	r9, [r7, #AT91_SFRBU_25LDOCR]
-> -	orr	r9, r9, #AT91_SFRBU_25LDOCR_LP
-> -	cmp	r8, #1
-> -	beq	lp_done_\ena
-> -	bic	r9, r9, #AT91_SFRBU_25LDOCR_LP
-> -lp_done_\ena:
-> -	ldr	r10, =AT91_SFRBU_25LDOCR_LDOANAKEY
-> -	orr	r9, r9, r10
-> -	str	r9, [r7, #AT91_SFRBU_25LDOCR]
-> -#endif
-> -	.endm
-> -
->   /*
->    * Set LPM
->    * @ena: 0 - disable LPM
-> @@ -1055,9 +1032,6 @@ save_mck:
->   
->   	at91_plla_disable
->   
-> -	/* Enable low power mode for 2.5V regulator. */
-> -	at91_2_5V_reg_set_low_power 1
-> -
->   	ldr	tmp3, .pm_mode
->   	cmp	tmp3, #AT91_PM_ULP1
->   	beq	ulp1_mode
-> @@ -1070,9 +1044,6 @@ ulp1_mode:
->   	b	ulp_exit
->   
->   ulp_exit:
-> -	/* Disable low power mode for 2.5V regulator. */
-> -	at91_2_5V_reg_set_low_power 0
-> -
->   	ldr	pmc, .pmc_base
->   
->   	at91_plla_enable
-> diff --git a/include/soc/at91/sama7-sfrbu.h b/include/soc/at91/sama7-sfrbu.h
-> index 76b740810d34..8cee48d1ae2c 100644
-> --- a/include/soc/at91/sama7-sfrbu.h
-> +++ b/include/soc/at91/sama7-sfrbu.h
-> @@ -18,13 +18,6 @@
->   #define		AT91_SFRBU_PSWBU_SOFTSWITCH	(1 << 1)	/* Power switch BU source selection */
->   #define		AT91_SFRBU_PSWBU_CTRL		(1 << 0)	/* Power switch BU control */
->   
-> -#define AT91_SFRBU_25LDOCR			(0x0C)		/* SFRBU 2.5V LDO Control Register */
-> -#define		AT91_SFRBU_25LDOCR_LDOANAKEY	(0x3B6E18 << 8)	/* Specific value mandatory to allow writing of other register bits. */
-> -#define		AT91_SFRBU_25LDOCR_STATE	(1 << 3)	/* LDOANA Switch On/Off Control */
-> -#define		AT91_SFRBU_25LDOCR_LP		(1 << 2)	/* LDOANA Low-Power Mode Control */
-> -#define		AT91_SFRBU_PD_VALUE_MSK		(0x3)
-> -#define		AT91_SFRBU_25LDOCR_PD_VALUE(v)	((v) & AT91_SFRBU_PD_VALUE_MSK)	/* LDOANA Pull-down value */
-> -
->   #define AT91_FRBU_DDRPWR			(0x10)		/* SFRBU DDR Power Control Register */
->   #define		AT91_FRBU_DDRPWR_STATE		(1 << 0)	/* DDR Power Mode State */
->   
+> We don't have a way to say things like "The STEs and CMDQ are coherent
+> but the CDs and Stage-1 page-tables aren't" so that means we have to
+> treat the shadowed structures populated by the host in the same way as
+> the host-owned structures that are consumed directly by the hardware.
+> Consequently, we should either be using non-cacheable mappings at EL2
+> for these structures or doing CMOs around the accesses.
 
+Thanks for catching that, I missed it, I think we can keep the host shared
+as cacheable, and use CMOs when accessing it, I will have a closer look.
+
+Thanks,
+Mostafa
+
+
+> 
+> Will
 
