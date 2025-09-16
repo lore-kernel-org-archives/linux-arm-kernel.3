@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7F5CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 01:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA07DCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 01:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEBeb6eiNAU0S3VD9iH4/omSWMUm2llE4vreq7Pw7vU=; b=hLl4mLZotlVhAXFJtskxD4QlbR
-	Vrz33vonIKUfZWxsQMr9wUVfeWUCgvBLiBFpfs0CiDvzr+OqF4ibWEhqD7b9EDAt9MaUv93goKwHt
-	6fFNe7YeaOsce9lHpMEvlvdfs18RFf9v2Ltp7WK9c/3rBcLgSevCsn5B30+SQtMWdPi7tyi+ahj0/
-	HJenymOkj+rg4Vqv5Wbr1q8oOoYmV4G8NKIrmbD5BPA9tQ0+7zvAB898p2GmBhr/ATl79RtE0GuDs
-	0p3FEydIcXCkZz0YWPPqvGIHEPSIugKlzWnxQ+Wcgr0uZkZqJp/DG0zpClkgvo21q/Vz4azxuUooB
-	PucwaEEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r40/9/byFQ5Kdho5bSZgFzvBLnr6GNZb9hi7qVjYjLk=; b=WmLJMJ1Tq/jvUF1pvrxY/1eDRt
+	jmJ0+UV7fdPJ+ghCq7i7CO2JEvZtbw0LrEHuZxrHGy6fdOSl2DJUIeKJAVv1IX0eRecnrj9k9qCG4
+	DQ2KLGgq2Cwhi5xGuXgMie/4u3Vn1eVyH/AnNj2kyHPT1XVbkyop6vr53T23c50YUKzs34PvRWFgp
+	kYMcrNLyin0xBN2Uqm3wMCqf/jgc0r2FPTFICWqmGmn3uB2RToy2uhVvOBFjDVlhvCX5A7OhgaKjl
+	AXbkw7Bsgkbn6/Gdy5BwWcgNabNJS+YR8gUtN8m4bcvI2T0EjbaXnlZgzoPC6p1tuPqFcJUaG+hy8
+	dPEU7aZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyKOU-0000000690r-3YTK;
-	Tue, 16 Sep 2025 01:22:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyKVg-000000069fR-0wA6;
+	Tue, 16 Sep 2025 01:29:32 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyKOS-00000006902-1Xt2
+	id 1uyKVd-000000069eG-3sFG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 01:22:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 187DF405A3;
-	Tue, 16 Sep 2025 01:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF4FC4CEF1;
-	Tue, 16 Sep 2025 01:22:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1757985722;
-	bh=ibKrn2mc/fR0T5tFKwJolutZB/nooDTAjYESNCRVuvA=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=u7uaZg3/QT6HzAHdYt6EPB6CyYkwTxBX235X92B+1a5Qn7l4ZcNt59scn7gJPKSYA
-	 zapGiBToT/OEDOVGchYetXRKlOXVfXV8Cz690RIWMyTKubenI4SSHIA9kfoy2IK6ft
-	 oSF2peswNX1FwnnU7MvcrG+0+87lGpYzRsD7Vm7RlXeXi+s1WlFjKP46lStrLy59mQ
-	 xpd58Hh5GcCdOv0xvsHFQmFbVPs0WSHtRMew796RJkExB192e4AosiDjbK6TzN3f5F
-	 ZUb2+9tf4Bhzcc01WIgqibpu6Wx41UiF680uMVUnWfDCgsH2pMn+E3X8idpq5VE0lC
-	 eTpWLyrEGr12w==
-Content-Type: text/plain; charset="utf-8"
+	Tue, 16 Sep 2025 01:29:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1757986004;
+	bh=r40/9/byFQ5Kdho5bSZgFzvBLnr6GNZb9hi7qVjYjLk=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=GbyOTn+8beVLVUek1GwkGtMa1kYvqAlmPmvxkbwG5zKuwVQrzhJUG9WzSPOm166F8
+	 4LOKptBret0Jrt3+PXKeoSReK3OkXaREWS0UhW1/TKsinPgyM7MdfTNTOCTWRRP4K2
+	 jkRQGsAEqAnu91I5KQqwRMfXq1Rzbwz68yU8wjUo=
+X-QQ-mid: esmtpgz16t1757985994tb691f01f
+X-QQ-Originating-IP: 9WqvNV5m81o9OAQGGCKKLjLtxMwpN1LWrrj43UnBIq8=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 16 Sep 2025 09:26:31 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13026834714890684059
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	David Wu <david.wu@rock-chips.com>
+Cc: sebastian.reichel@collabora.com,
+	ziyao@disroot.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH net-next] Revert "net: ethernet: stmmac: dwmac-rk: Make the clk_phy could be used for external phy"
+Date: Tue, 16 Sep 2025 09:26:28 +0800
+Message-ID: <0A3F1D1604FEE424+20250916012628.1819-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <212df54b-b3b8-454e-8d4b-e79bd9b69349@tuxon.dev>
-References: <cover.1752176711.git.Ryan.Wanner@microchip.com> <f3ef0275345578c504b41710c67bfe1238c44c21.1752176711.git.Ryan.Wanner@microchip.com> <212df54b-b3b8-454e-8d4b-e79bd9b69349@tuxon.dev>
-Subject: Re: [PATCH v3 01/32] clk: at91: pmc: add macros for clk_parent_data
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: varshini.rajendran@microchip.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, robh@kernel.org
-To: Ryan.Wanner@microchip.com, alexandre.belloni@bootlin.com, claudiu beznea <claudiu.beznea@tuxon.dev>, mturquette@baylibre.com, nicolas.ferre@microchip.com
-Date: Mon, 15 Sep 2025 18:21:49 -0700
-Message-ID: <175798570907.4354.6724058613129324221@lazor>
-User-Agent: alot/0.11
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: N5h2Wk9Y6/Jsi6D/v1xwNuWh6fW4STFXUTjYoJIM4VYjIyaP73E0q2z4
+	xJJBKrxB1ecHig9CObGuy/wD8iaM7jNKhoeQj8gQCbNthX1q+zUKhTOdJSnhypl5EZM/bHk
+	X97ZLtNgsLcTUtHOxuEXV8qswFvW0wQt4V+MTSnO64onE0JYE52kIZU7GlFptjc9WsTEmuq
+	pCnPs7w2kYx5+Lderh0Qgdocq0h70/oHhjezUM0dWSb8IYdTvZq36zGrXAB04gM0VrLmMah
+	zq5/ONPJ5oRqTq073TXcb5HiNT1kEvMXFSkmqq5XbQPoSU82M4hdXl3zoR5rIeRS7x0u7Nq
+	00kAMDUaXyvC+mzFpS6UvbtWwURuSxSfgY9R7BK2jCEIZmM4w8GODfamhuD3U0QGTr0fFu7
+	oaFv9SuG3urEx3Mrg7SwaHMB4BkYFaP12USuvuPRcqN6B3QMdIi2czXOUBMQZKWDE8tlvSv
+	ZvO0tFgFPIT4orPg04G4M3tt6HIwM54ELi7npIyJ/GOK4uOo5gy8QC74OaQudTnpNxwW8Ky
+	qAFcqUUuAz5exdZl3Mdb8bh2I7YJO/xtz2+mN2tHtgReuwhtg9wxGt6EZGiw/LOaPIJbiXk
+	KSQdhiDrKDk27gptwS9uNY7k4ewAEyJZyE7AQyvXr56p4VbQX0PndlWShiPJ899DF6mD23Y
+	Y1qgYugVtQbfSVjUBGDDHTK7BpoNzmHT5JabFjhOxw9CRkFQSZcqMwJWWuKcaCih4v97GjD
+	+bsHZS/7Vq3qyCvkPT65qqnVWoUPDPyHuDQwO3cneYfUZUeBDj4UPpuFZGtwXDUN6+tGQgn
+	LpYaR2GJBAe6mzCGqAnBf9GlDjHIu/Am0eel3tHnz1wv1q2uQ0ve2Zt1H6aJWjkSMGxdtXR
+	z/O5T98ObeXu5CGkfW8wm9tONcufmZr3gpGZUFvOz/MfjBPzhXryKmBhSIVJF3GsGJNFPZh
+	omV1KlRodRICPquH9XdxDVm0mnFMhRxpIesBZ+FPJGwNKag==
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_182204_426561_FCA4F005 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250915_182930_490665_77CC2AF4 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +103,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting claudiu beznea (2025-09-06 11:33:34)
-> On 7/10/25 23:06, Ryan.Wanner@microchip.com wrote:
-> > +})
-> > +
-> > +#define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ .hw =3D (h) })
->=20
-> Could you please update this one, something like:
->=20
-> #define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ \
->         .hw =3D (h), .name =3D NULL, .fw_name =3D NULL, .index =3D -1, \
-> }
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-If you're only using a struct clk_hw * then just use clk_hws member and
-not clk_parent_data member of struct clk_init_data.
+This reverts commit da114122b83149d1f1db0586b1d67947b651aa20.
+
+As discussed, the PHY clock should be managed by PHY driver instead
+of other driver like dwmac-rk.
+
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 266c53379236..49f92cd79aa8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1410,15 +1410,12 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+ 		clk_set_rate(plat->stmmac_clk, 50000000);
+ 	}
+ 
+-	if (plat->phy_node) {
++	if (plat->phy_node && bsp_priv->integrated_phy) {
+ 		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+ 		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+-		/* If it is not integrated_phy, clk_phy is optional */
+-		if (bsp_priv->integrated_phy) {
+-			if (ret)
+-				return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+-			clk_set_rate(bsp_priv->clk_phy, 50000000);
+-		}
++		if (ret)
++			return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
++		clk_set_rate(bsp_priv->clk_phy, 50000000);
+ 	}
+ 
+ 	return 0;
+-- 
+2.49.0
+
 
