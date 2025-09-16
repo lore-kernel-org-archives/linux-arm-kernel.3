@@ -4,80 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13146CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C93CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yqn5JrCHJ75qJ1M5wbwAacTEtJNDzbRenZ2g7NMAdTo=; b=PATihExgZHGSyJQ1mAaFeRv1SP
-	PWgTpaSapMliTWZFIQ1JacB7Eg3N/eBcc0SqTs/w15SS848DTTvEgKLmQCkg8v5BBzYT2HaV63HPa
-	KC615gQF59lVUO6lKmKK2+K3KYZWdrLxioaTkkicemSuF4wHmc3fjDvxEyB60ePhD3o+Y+jwTl3EF
-	prhqXRN8ucb5zj+5J3NiolFtBZEo7cXNnSGXlLtifUH/cuZLfZo/Cv3EO8kIkYgZa1EvediX8+NNa
-	9jDInjspRKObTQLEsY5g1cye3AS0d1nnnsSdC4lMk9VnDJrzJ6zr0AbOKd3IPNVHajKg787nFZO+l
-	MTJRpB2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lbbtKzeFvp5/FKIrb+z7YBTCcZNLR0Jl4TGhK9Ff7No=; b=g1AwTHmYGrgrqyu1dDt4id/CGQ
+	y3dG548k37VnH+51AEhlJB81tWjoZDdd2SONYExYlaaGI1V5RQPDHI52oW7bDEWNIhgAecaZva2L/
+	y1M0l7Hp/F0M1vW3MFQSSYT+Ucz9QSx48CBdesNtwlZgnhdFGLk/OCJ5yMGOfAaIYqXutn2LMNI5Z
+	NQYPnevQhKXMkkmAIGuVS55ul6sNBXGyiSI9dwxpeOsygb3FsZ/Kd5MWkvGAr5bF9EFPqLAkjN+gh
+	J2ACRYG1qcXMPm0yKP7kqDZHVBfzYgY0QMukxmy0rXZhlPWPrFDAJWxjPP01rpNK/UJd63jWuxnJ3
+	5mwA02lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydC8-00000009Can-311I;
-	Tue, 16 Sep 2025 21:26:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uydN2-00000009EDT-3TRv;
+	Tue, 16 Sep 2025 21:37:52 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydC6-00000009CYk-06wp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 21:26:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yqn5JrCHJ75qJ1M5wbwAacTEtJNDzbRenZ2g7NMAdTo=; b=UkeeZH1R0r6GOrXjtjlcsSa5hN
-	8r+6U0ofsRSJ9AucuPYHXQzMKdjNxKG9u5u/jZOQNCywIy2T87K61FOpMLFjEyJToJr/Jaem6m5In
-	X+xd99jiFR30B7SgjvPUV8Lj45/FSfTyOYMHlwI/iY4+ForcdbX8RTgKbAPni7CACH6V4vjEU1gYz
-	uxp8waAl7HY4H/qmwJvxJqV7VTDCsWK9perGAzIvkFxMvHodG4Si/66CAIG1miuCohS/V4QpLGT9c
-	CZS+hD3K1K8XJTWG5M/uE4MOSxOjLHwJfuXu/kdu20tGcCADvj73urgjIILfNfFJX14PWxqgocxXA
-	/sjxZhnQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43032)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uydBv-000000006JJ-0Z5P;
-	Tue, 16 Sep 2025 22:26:23 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uydBq-000000007za-2a30;
-	Tue, 16 Sep 2025 22:26:18 +0100
-Date: Tue, 16 Sep 2025 22:26:18 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	kernel test robot <lkp@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Nathan Chancellor <nathan@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
- __get_user_asm_dword()
-Message-ID: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk>
-References: <20250916163004.674341701@linutronix.de>
- <20250916163252.037251747@linutronix.de>
+	id 1uydN0-00000009EBE-3vv0;
+	Tue, 16 Sep 2025 21:37:52 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uydMh-000000005cc-1stf;
+	Tue, 16 Sep 2025 21:37:31 +0000
+Date: Tue, 16 Sep 2025 22:37:27 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Yu Jiaoliang <yujiaoliang@vivo.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Changqi Hu <changqi.hu@mediatek.com>,
+	Sam Shih <sam.shih@mediatek.com>,
+	Steven Liu <steven.liu@mediatek.com>,
+	John Crispin <john@phrozen.org>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3] serial: 8250_mtk: Enable baud clock and manage in runtime
+ PM
+Message-ID: <de5197ccc31e1dab0965cabcc11ca92e67246cf6.1758058441.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250916163252.037251747@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_142634_063412_CF4C7337 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_143750_977578_DFD992A4 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,17 +71,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 06:33:09PM +0200, Thomas Gleixner wrote:
-> When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM variant
-> for no real good reason. This prevents using get_user(u64) in generic code.
+Some MediaTek SoCs got a gated UART baud clock, which currently gets
+disabled as the clk subsystem believes it would be unused. This results in
+the uart freezing right after "clk: Disabling unused clocks" on those
+platforms.
 
-I'm sure you will eventually discover the reason when you start getting
-all the kernel build bot warnings that will result from a cast from a
-u64 to a pointer.
+Request the baud clock to be prepared and enabled during probe, and to
+restore run-time power management capabilities to what it was before commit
+e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock
+management") disable and unprepare the baud clock when suspending the UART,
+prepare and enable it again when resuming it.
 
-You're not the first to try implementing this.
+Fixes: e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock management")
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+v3: squash into single patch
+v2: add managing run-time PM in dedicated patch
 
+ drivers/tty/serial/8250/8250_mtk.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
+index b44de2ed7413..5875a7b9b4b1 100644
+--- a/drivers/tty/serial/8250/8250_mtk.c
++++ b/drivers/tty/serial/8250/8250_mtk.c
+@@ -435,6 +435,7 @@ static int __maybe_unused mtk8250_runtime_suspend(struct device *dev)
+ 	while
+ 		(serial_in(up, MTK_UART_DEBUG0));
+ 
++	clk_disable_unprepare(data->uart_clk);
+ 	clk_disable_unprepare(data->bus_clk);
+ 
+ 	return 0;
+@@ -445,6 +446,7 @@ static int __maybe_unused mtk8250_runtime_resume(struct device *dev)
+ 	struct mtk8250_data *data = dev_get_drvdata(dev);
+ 
+ 	clk_prepare_enable(data->bus_clk);
++	clk_prepare_enable(data->uart_clk);
+ 
+ 	return 0;
+ }
+@@ -475,13 +477,13 @@ static int mtk8250_probe_of(struct platform_device *pdev, struct uart_port *p,
+ 	int dmacnt;
+ #endif
+ 
+-	data->uart_clk = devm_clk_get(&pdev->dev, "baud");
++	data->uart_clk = devm_clk_get_enabled(&pdev->dev, "baud");
+ 	if (IS_ERR(data->uart_clk)) {
+ 		/*
+ 		 * For compatibility with older device trees try unnamed
+ 		 * clk when no baud clk can be found.
+ 		 */
+-		data->uart_clk = devm_clk_get(&pdev->dev, NULL);
++		data->uart_clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 		if (IS_ERR(data->uart_clk)) {
+ 			dev_warn(&pdev->dev, "Can't get uart clock\n");
+ 			return PTR_ERR(data->uart_clk);
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.51.0
 
