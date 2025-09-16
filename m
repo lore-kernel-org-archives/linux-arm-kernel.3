@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17B2CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 22:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C68CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 22:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0NhlOmwwkbZxCW85MLAxOa0IFUPYAvjNPwpAMzd4f7U=; b=BW3UkiJEXsnCGAttAhuBrzJmDK
-	kYjUYrAHpv/kl7O5zA4MHW9Mh9Nv1uP4oU0Qp/jPhmfOhPanr7Y6x5sq2A+uftctx9IxfHLGpyL2u
-	+tbTbm18cFAu/kfWft/0CxUR6cjqoiXSZg2PMzBebN+dm6/tMg2TCxnO398uXezrkjEo0BmtTvYsd
-	GKKDSdsoIRhPWZ/B/hbJdRHXsMCgo9d6/rfQfk0qvYAgJJ6c3Xw4zreVNroAEVABSWITGS3dhtych
-	nYEmXz81ZmXKnG7kkUhQyq5GrrSAz4aR8TZkU7IC+XbE5gF9nfRE5GjPHl29H1Fr4k5uoJfl4mqd8
-	YJT/ZXnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d6Ja7gN74jIaFJCh7E3Hv4bPB5sQNmEpCjuGsIoX0Dg=; b=0VJUZm5d5Gvtot0PSue0LR6qa5
+	4VuNG1glLd5Z/UuBqU50TF1+qaqI9866swvAMj2o+aBbpXsLkMyOUXl+AzRKoYC6T7bH7hNTngOdZ
+	jSymL6B8eoheDZv8CHZPsOyOtj3xVNynpPEabwmBh4msTR3/kz5H8u0R01aNR2n1C3QTr1vTETutq
+	UOHl2jaKEM6AF+6n2BDwcT6/zDiHdO4Mibvzc3X+Ytvn9nvRa6J/YUtgOw5pFKIXy2W9tqtGVdbun
+	uPKl4L+JpbQJ+NiMaSsdGrpOoflD5qWtII1VyRnIJ7+/fBazP2tZEUAeKc9pJE9WkT21dM+bQ5PVS
+	eeDEvC5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydne-00000009KaU-3vmr;
-	Tue, 16 Sep 2025 22:05:22 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydnb-00000009Ka7-42GS
+	id 1uye9f-00000009Of8-3fr6;
+	Tue, 16 Sep 2025 22:28:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uye9c-00000009Oe5-3rR1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 22:05:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=0NhlOmwwkbZxCW85MLAxOa0IFUPYAvjNPwpAMzd4f7U=; b=TmB0SquXq7T6jSiGvoN6t1GMKP
-	WCDhj8wDFT/A5PtG/BREIkNIGFYYAxh0o98TF9TGgB45iejGzcgjHgrDRf8QbExubYbvnSsGTo7iM
-	HkqW4BWHrciZDw7mdTmFDRUGMUNxD6s20rxchpp0SM9C518HluqC8mgPS09hTXWLXCuo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uydnP-008cU8-I7; Wed, 17 Sep 2025 00:05:07 +0200
-Date: Wed, 17 Sep 2025 00:05:07 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rebecca Cran <rebecca@bsdio.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-Message-ID: <cc00cc74-778f-45ae-b48f-be26c91f78c7@lunn.ch>
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-3-rebecca@bsdio.com>
- <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
- <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
- <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
- <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
- <3f5e82ec-d96e-4258-b117-9876313f5402@lunn.ch>
- <e9b0d9c8-9117-4c75-93a7-1c334d823d99@bsdio.com>
+	Tue, 16 Sep 2025 22:28:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 909E212FC;
+	Tue, 16 Sep 2025 15:27:53 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D3F533F673;
+	Tue, 16 Sep 2025 15:27:57 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: ryabinin.a.a@gmail.com,
+	glider@google.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	akpm@linux-foundation.org,
+	scott@os.amperecomputing.com,
+	jhubbard@nvidia.com,
+	pankaj.gupta@amd.com,
+	leitao@debian.org,
+	kaleshsingh@google.com,
+	maz@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	james.morse@arm.com,
+	ardb@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io,
+	david@redhat.com,
+	yang@os.amperecomputing.com
+Cc: kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v8 0/2] introduce kasan.write_only option in hw-tags
+Date: Tue, 16 Sep 2025 23:27:53 +0100
+Message-Id: <20250916222755.466009-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e9b0d9c8-9117-4c75-93a7-1c334d823d99@bsdio.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_150521_376469_2FD9784D 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250916_152805_088196_33A0D875 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +86,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 03:22:04PM -0600, Rebecca Cran wrote:
-> On 9/16/25 13:07, Andrew Lunn wrote:
-> 
-> > Now, it looks like all other aspeed-g5 boards also don't link to the
-> > PHY. But the driver does seem to support adding an 'mdio' node within
-> > the ethernet node, and listing the PHYs. Something like:
-> > 
-> >         mdio {
-> >                  #address-cells = <1>;
-> >                  #size-cells = <0>;
-> > 
-> >                  ethphy0: ethernet-phy@0 {
-> >                          reg = <0>;
-> >                  };
-> >          };
-> > 
-> > And then you can add a phy-handle to point to it.
-> > 
-> > Then the question is, did Aspeed mess up the RGMII delays for g5? You
-> > can try phy-mode = 'rgmii-id' and see if it works.
-> 
-> I can't get that to work, with either 'rgmii-id' or 'rgmii'.
-> 
-> It says "Failed to connect to phy".
+Hardware tag based KASAN is implemented using the Memory Tagging Extension
+(MTE) feature.
 
-That probably means i have the wrong reg value. Try 1, 2, ... 31.
+MTE is built on top of the ARMv8.0 virtual address tagging TBI
+(Top Byte Ignore) feature and allows software to access a 4-bit
+allocation tag for each 16-byte granule in the physical address space.
+A logical tag is derived from bits 59-56 of the virtual
+address used for the memory access. A CPU with MTE enabled will compare
+the logical tag against the allocation tag and potentially raise an
+tag check fault on mismatch, subject to system registers configuration.
 
-Or put a printk() in phy_find_first() to print the value of addr.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
 
-	Andrew
+Using this feature (FEAT_MTE_STORE_ONLY), introduce KASAN write-only mode
+which restricts KASAN check write (store) operation only.
+This mode omits KASAN check for read (fetch/load) operation.
+Therefore, it might be used not only debugging purpose but also in
+normal environment.
+
+This patch is based on v6.17-rc4.
+
+Patch History
+=============
+from v7 to v8:
+  - remove useless kasan_arg_write_only and integrate it with
+    kasan_flag_write_only.
+  - rebased to v6.17-rc6.
+  - https://lore.kernel.org/all/20250903150020.1131840-1-yeoreum.yun@arm.com/
+
+from v6 to v7:
+  - modify some comments on KASAN kunit test.
+  - rebased to v6.17-rc4.
+  - https://lore.kernel.org/all/20250901104623.402172-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - change macro name for KASAN kunit test.
+  - remove and restore useless line adding/removal.
+  - modify some comments on KASAN kunit test.
+  - https://lore.kernel.org/all/20250820071243.1567338-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - fix wrong allocation
+  - add small comments
+  - https://lore.kernel.org/all/20250818075051.996764-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - fix wrong condition
+  - https://lore.kernel.org/all/20250816110018.4055617-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - change MTE_STORE_ONLY feature as BOOT_CPU_FEATURE
+  - change store_only to write_only
+  - move write_only setup into the place other option's setup place
+  - change static key of kasan_flag_write_only to static boolean.
+  - change macro KUNIT_EXPECT_KASAN_SUCCESS to KUNIT_EXPECT_KASAN_FAIL_READ.
+  - https://lore.kernel.org/all/20250813175335.3980268-1-yeoreum.yun@arm.com/
+
+from v1 to v2:
+  - change cryptic name -- stonly to store_only
+  - remove some TCF check with store which can make memory courruption.
+  - https://lore.kernel.org/all/20250811173626.1878783-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (2):
+  kasan/hw-tags: introduce kasan.write_only option
+  kasan: apply write-only mode in kasan kunit testcases
+
+ Documentation/dev-tools/kasan.rst  |   3 +
+ arch/arm64/include/asm/memory.h    |   1 +
+ arch/arm64/include/asm/mte-kasan.h |   6 +
+ arch/arm64/kernel/cpufeature.c     |   2 +-
+ arch/arm64/kernel/mte.c            |  18 +++
+ mm/kasan/hw_tags.c                 |  45 ++++++-
+ mm/kasan/kasan.h                   |   7 +
+ mm/kasan/kasan_test_c.c            | 205 +++++++++++++++++++----------
+ 8 files changed, 215 insertions(+), 72 deletions(-)
+
+
+base-commit: f83ec76bf285bea5727f478a68b894f5543ca76e
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
