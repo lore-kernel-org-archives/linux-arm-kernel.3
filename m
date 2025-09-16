@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2B8CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7C7CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2+SwZ0bwQjXH66jDtqyAdMkDCSMWPucJICnj+Ww5OA=; b=Zdo4U0Z8bavHaPmxfGtQO785CH
-	4nq7m25ON+EOINkwHNZo7vWFBFCtJsTJsz7KqoDAO4mdXt/yfXOhQWEFKOTogaEvR1a8RGaQmhQDQ
-	0bdMq+otwoppjKSZYqr4p04mJP679CPW9gvu1krEQLV6yBy16vlDSv1DmqYWP6S9eXu5QteNeEgSo
-	n4jISjY9c2+3HlH6GNfyiaTG/v4p/FnE2Q9vtXTxiZD3rwlUCkWdtdRfL1Ci/D1fIWX7wADyPLS/+
-	1H4X4UT1Ec8i2k+y12ptJ6Arc53ExAYnvMisCC9Sz0VYf+BcBQMxgHRtcx52nkmZ/pM8XzUdcqCV8
-	E7lCfsrw==;
+	bh=7kajcMqwaZPXl9WMQuyq1uhakLYmxQULnsnl+OeX2b8=; b=l8sOyWws2IJrRzw+TkqyVfntzN
+	zg8czHxJQd86OiybzrxP4CB1mg+vgyRBoDLB/ixSogAOBFnQp24UT3ptjyc1ZvJjCXrC0yVomTTP7
+	IeURdMb8hs/wsLb2QMPssZvT6eylLJ5hL6F2X/zk+YbzU2rfh2MVZqRxh4gPrTrKJfo4At37KFMGc
+	uGYpBsqz7LYWdkfYJ54+kfTTyCQbE2A/Y5lKo3ZFXx9BN7UtQSaode6Sxp48TgT7gVedFxz/kSmgH
+	thOwNXaKGbTvpZ+CE+0SlGYmKdCbVb49vo5iH/sLoop1Pj+zRTZAY58XAkMbLmbadT3gnHzOCzHeE
+	KedtDE1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycFN-000000091CM-37TC;
-	Tue, 16 Sep 2025 20:25:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uycFO-000000091Dj-2o8G;
+	Tue, 16 Sep 2025 20:25:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEw-000000090ia-1s6T;
+	id 1uycEx-000000090kA-1Kof;
 	Tue, 16 Sep 2025 20:25:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BE7644D20;
+	by sea.source.kernel.org (Postfix) with ESMTP id DFC0944D56;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 31796C19422;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 976CEC2BCB0;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054325;
-	bh=PGC9RLyvUYb11AvcYKFthsR2RXxFjvbJW7ULzcMM1n4=;
+	bh=9/G5ZTxTD+BBqSrE/vwGnDJrgre4QIYgA6oTXtY5stk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WF/U+ilsuMpWThSrx1H0QFkgdZaMVWBGJlBSSTATkfxZT6q0ZKb4HEFTUEJ8bf3nk
-	 /k4vNhDzDpvL5piUH2exVhGXwpg+s+v9RNTKpicxPJd0y9eU3E78Bg3z2zRLns9qc+
-	 9WSeaaXRF3arHwwhkyaEtB+r9wVDxgtL/iQYNJtCx2Ryhcy4NG3OKtbaFjbA/qW56I
-	 so2OsPiqAPCn8xTAVqSBmuYU8dBFkHegK9FLvgeyX3VFjxSB78VL4MI7oZHBpfiyKR
-	 3kuLWgcwvQJyZbL0BTXDZSjIghucFTYPeSVBE+dIsOVQriJdJ7oqnKUmV9S4bY87Jf
-	 xREiIfqhBD1fQ==
+	b=ZHT/sSOTHa6bfD8o5gNbnFzThRXuOKzVKaCBbDd++aCO1eYwOQO3sx6i/8TQNdsRm
+	 CnItc8YCH+Hc/lqSokDvLem0ywUkeptdh4TyA7yKAxpHwd5jvO55giobsAt8iIQia7
+	 2j4AtVR/JuSKey5ESfUTcfeLy/3piMc78dssNL+4UnUSREhw77IiDGBzFN8AZj+H8W
+	 DS87xqFh7+KVEYlFCNwgO76XwqhZnIeNWaNzhdtHmHnFl774FsaJkWksqdgJcSkElH
+	 O7aHwpnMQ1DoBKVCeB10K/o9B/Uz9jSWUHW4Hc9UXo8BsOi3EtZxVn2xtQDqDVcqQG
+	 UnPsSqCCoGlew==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 216E8CAC5A0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DF7FCAC59D;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:01 +0700
-Subject: [PATCH 04/25] rtc: Add timestamp for the end of 2127
+Date: Wed, 17 Sep 2025 03:25:08 +0700
+Subject: [PATCH 11/25] dts: unisoc: rda8810pl: Enable clock/reset driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-4-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-11-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,19 +71,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=913;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1103;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=DzZHdJKZCRZsyIe84ay5pJ/2Z/eJ/DpBDRNQR5GG0kc=;
- b=TXUPCWPqfcmGpwTVgoZ/csRKglLlNBEzrYFxRh7ZQ//BPu6xMzaihEwxcAVhhtA00DbneF6R7
- Kv5Wv87ejuhBJCzOJ67wnp3h9v8C3HAnCIfUnZpMcrApewJyPWho9WA
+ bh=iisWV1yQIJV2H6A79OICiudNGMDM/d8wOSexhp4+9s4=;
+ b=Uvbh1qdCuPgMg2Cya3wHJFP9B0zxFrsqfkRbRH3160/AsRSPEzMZMlwk9yvCgAuRqcoJQnphz
+ LShcA3DOx1LBDlnxtXB3POz/cK5m8ZeoMMoHjCQKsqRFMuyqcxZ4qHk
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132526_533599_A884BB2F 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20250916_132527_470193_33925CDB 
+X-CRM114-Status: UNSURE (   9.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,26 +102,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-Some RTC (like MT2712 and RDA Micro) can handle until the end of
-the year 2127.
+Enable RDA8810PL Clock and Reset driver so we can use it for various
+subsystems.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- include/linux/rtc.h | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/include/linux/rtc.h b/include/linux/rtc.h
-index 95da051fb155dab4c8ec72ccae7b8e12a117a7f1..ec5828ccc7449388da2ab8bc757030e6795ace30 100644
---- a/include/linux/rtc.h
-+++ b/include/linux/rtc.h
-@@ -175,6 +175,7 @@ struct rtc_device {
- #define RTC_TIMESTAMP_END_2063		2966371199LL /* 2063-12-31 23:59:59 */
- #define RTC_TIMESTAMP_END_2079		3471292799LL /* 2079-12-31 23:59:59 */
- #define RTC_TIMESTAMP_END_2099		4102444799LL /* 2099-12-31 23:59:59 */
-+#define RTC_TIMESTAMP_END_2127		4985971199LL /* 2127-12-31 23:59:59 */
- #define RTC_TIMESTAMP_END_2199		7258118399LL /* 2199-12-31 23:59:59 */
- #define RTC_TIMESTAMP_END_9999		253402300799LL /* 9999-12-31 23:59:59 */
+diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+index 45a2fd3e04cea5aac4fb6b40a6b332ce3eee4f2c..1f7a6908d68367441e5dc865216cc7a5c39feb35 100644
+--- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
++++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+@@ -8,6 +8,7 @@
  
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/clock/rda,8810pl-apclk.h>
+ 
+ / {
+ 	compatible = "rda,8810pl";
+@@ -79,6 +80,13 @@ apb@20900000 {
+ 		#size-cells = <1>;
+ 		ranges = <0x0 0x20900000 0x100000>;
+ 
++		ap_syscon: syscon@0 {
++			compatible = "rda,8810pl-apsyscon", "syscon";
++			reg = <0x0 0x1000>;
++			#clock-cells = <1>;
++			#reset-cells = <1>;
++		};
++
+ 		timer@10000 {
+ 			compatible = "rda,8810pl-timer";
+ 			reg = <0x10000 0x1000>;
 
 -- 
 2.51.0
