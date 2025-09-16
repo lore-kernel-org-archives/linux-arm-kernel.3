@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C12BCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4070ECAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqnD61khl9JRDJtjgzdH3fut0T63WduvpR4NsqB116A=; b=LmLxbm1M9UQkk6UtqQ4SO0uDLm
-	D3eF9k0WCv3D+8ChrBvkPInt4HceyGqteCer5Rwsy1ohxaxTEaYRboSA5WuI8zm4mXl1flWmvatj5
-	wpnnxQwn1XCn4wkgTlKjxTp+EvH97+VI22pS22iSHNPxx0h5Aeew65HhZVPMchWd3gvm15irqxYpB
-	P0hRJrxyAUc+NgdwX/yog2LaC7RZjn4NRqEo2YAl1OP6HlXy7MtEvq4pLqmZiP4npIJmEFhpAjkQR
-	2x5U7LLo17sAo/8PpmBjQ9QUroLIMsURMAjUGYXquk23syFk7dCbHP8xOf7Xdf+7WGyqLgUlO0jmD
-	BnpdHLlg==;
+	bh=Bs5mDy7Zuv97v/UPl0EORzbWUngd5axp8ZvR7wrcouY=; b=wDXapGNQJEV4kpFGOtES9ZLS4l
+	Ap/rQQFeW0kKq2VEColYd1Gdl4eIdeGjich4XXg0HbGZDVYrgbpAG0CQIL2kLP4FkueuFt5+qgSlh
+	iB0XjNeUY3Txnba4SCHD46Pcy/LBUSH2Fc7oxExtZ97RmrJZx5s4cGqMedPEBoZGD5PVhVRsSjvVn
+	sFNoq3FWNo6nkuFxWdBeRg8WRd6Yu7WtcCSYuXXtb9ayAWhYxKhLcdcvwzwx2LuKST7XrxVgQi7gG
+	UsSCx6Zac91BqNe+GBEVp9XYYgsw2oohcHYxXAXW40Xsuj8YOx1nf3f71IdFUu3005YXYnDBAyN2y
+	0499oEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyd02-0000000991T-3L9g;
-	Tue, 16 Sep 2025 21:14:06 +0000
+	id 1uyd0D-00000009979-1XJA;
+	Tue, 16 Sep 2025 21:14:17 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyd00-0000000990m-0vrq
+	id 1uyd09-0000000994J-2JTi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 21:14:04 +0000
+	Tue, 16 Sep 2025 21:14:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A39B4601DD;
-	Tue, 16 Sep 2025 21:14:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 896B2C4CEF0;
-	Tue, 16 Sep 2025 21:14:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D459F601D9;
+	Tue, 16 Sep 2025 21:14:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6BB2C4CEF7;
+	Tue, 16 Sep 2025 21:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758057243;
-	bh=K6QIVOKKiauyeGJ2OmH64VPm/LdUrqJZS2Q1LLOKYHk=;
+	s=k20201202; t=1758057252;
+	bh=mdYINkvVyjXkwJO8jrP2q0vlKqEFRhWRoX7T6rQ9uck=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YKIC000t9zgbfhZj7Haafps3nC5ZbOvaN3gQFKr5R6Lqd4RbzZdb0HrvCHDmNoLyw
-	 o+G7sO56655SUxyyNL2VSezKtC7ciWy4oRTH7dBx5h4RDKdAME76WmsuKmapPMMeZd
-	 wjdCff6DPZm+d2CqZ6jzF0Vib3No5DcS7YmxijnzkmTXWAI+HWlpEAvSY3/j3XGU0r
-	 x9uFoJ7I5zsPSz+dCEjHU5bqKBl8YJsIiErG8VLnbXeF6f5wuToFav2iTlnxsO1C+Z
-	 WlRfTaDd1gM7/h/2KbW+g3rt7b1XK17FhckOIw5GfaGMTehrRtpyXjMnYAMRY+OuvV
-	 qpZaxU8I97xpg==
+	b=Yd8F8sR8UCELdsM0SIvQnVBVgVnJmAQWFEkv7W8vtwtK1ZfTV9360qia1e36CpT5+
+	 7R7hngo7AkjVfwVM1u9i1MSosbelkeulla58aIjMtXcmVKalw7/TXHz3ZHBsHz4P4S
+	 8U9/MGTrStqRV7IX8hdQBVVs1aBWbvylfz6K6VWnmzr3OcOZlbD7JJBOF5kUjJta1a
+	 iZ55ucTcLk+bL5d/2fVkQ7ID3iRx5+9u9WQ47gn3vbACtTNQP+myoiXFV3OAXtxvnA
+	 /DZ6rnB9hUOmAzRuh7qm2TZQwy6A7juO11MrHjIPuEW7ZhbkcfRA2M8LFRESF0c0K3
+	 PTdUMZuBsPZVA==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sam Edwards <cfsworks@gmail.com>
+To: catalin.marinas@arm.com,
+	Huang Shijie <shijie@os.amperecomputing.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
+	patches@amperecomputing.com,
+	cl@linux.com,
+	Shubhang@os.amperecomputing.com,
+	corbet@lwn.net,
+	paulmck@kernel.org,
+	akpm@linux-foundation.org,
+	rostedt@goodmis.org,
+	Neeraj.Upadhyay@amd.com,
+	bp@alien8.de,
+	ardb@kernel.org,
+	anshuman.khandual@arm.com,
+	suzuki.poulose@arm.com,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>
-Subject: Re: [PATCH v2 0/3] Type correctness cleanup for ARM64 MMU initialization
-Date: Tue, 16 Sep 2025 22:13:48 +0100
-Message-Id: <175805162005.266431.9349963404486851031.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	rdunlap@infradead.org
+Subject: Re: [PATCH v7 0/2] arm64: refactor the rodata=xxx
+Date: Tue, 16 Sep 2025 22:13:50 +0100
+Message-Id: <175805239499.269424.4665701509938991056.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250904005209.1494370-1-CFSworks@gmail.com>
-References: <20250904005209.1494370-1-CFSworks@gmail.com>
+In-Reply-To: <20250909033236.4099-1-shijie@os.amperecomputing.com>
+References: <20250909033236.4099-1-shijie@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -81,30 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Sep 2025 17:52:06 -0700, Sam Edwards wrote:
-> This is a small series of type correctness and readability improvements for
-> ARM64's MMU initialization code. When I first encountered this code, the heavy
-> use of u64 to represent both virtual and physical addresses made it difficult
-> to understand where the demarcations were. I made most of the changes in this
-> series while troubleshooting a different problem (fixed in a separate patch) to
-> make that boundary a little clearer. I am submitting it now in the hopes that
-> this will improve maintainability and readability for others.
+On Tue, 09 Sep 2025 11:32:34 +0800, Huang Shijie wrote:
+> >From Documentation/admin-guide/kernel-parameters.txt, we know that:
+>  rodata=	[KNL,EARLY]
+> 	on	Mark read-only kernel memory as read-only (default).
+> 	off	Leave read-only kernel memory writable for debugging.
+> 	full	Mark read-only kernel memory and aliases as read-only
+> 		[arm64]
 > 
 > [...]
 
-I must confess, I don't personally see a huge amount of value from these
-changes. However, I've probably just got used to things and so if this
-would've helped you understand the code when you first came across it
-recently then I think it's worth having.
-
 Applied to arm64 (for-next/mm), thanks!
 
-[1/3] arm64: mm: Cast start/end markers to char *, not u64
-      https://git.kernel.org/arm64/c/030b3ffbdac7
-[2/3] arm64: mm: Make map_fdt() return mapped pointer
-      https://git.kernel.org/arm64/c/c56aa9a67a08
-[3/3] arm64: mm: Represent physical memory with phys_addr_t and resource_size_t
-      https://git.kernel.org/arm64/c/b868fff5b10b
+[1/2] arm64: refactor the rodata=xxx
+      (no commit info)
+[2/2] arm64/Kconfig: Remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
+      https://git.kernel.org/arm64/c/bfbbb0d3215f
 
 Cheers,
 -- 
