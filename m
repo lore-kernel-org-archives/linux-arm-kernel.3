@@ -4,60 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4877DCAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A415CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0x4g40B8648bbU3/kOtBTIkHC1ZK0HoFNIKuNPpRxTY=; b=pthTW5AUiOE758MumoynAmUvny
-	dqAIqnCGIe0VeLkJxYYs9E1szkBxF3sevcCpA0jCnB0KcOA3rVoTbxbjNh3kU/ZqX+UbARjfOluIu
-	1HXEw63WdzgeT6rZgjNk4btzvQmf+Lk0C0SX4XqsICSmB15Bal2Qt/mW2C5ZzCKaTr4Z5v47JoiHq
-	UNXt5BiznrQSRFO+eVg1D2kS4Kv8vZpFnsQEN771FCH9QpJCIfXp2z06bTveAUrOo+mzzdZEaW09s
-	8UiXzNTSGm6tZu94QWfs0leNs7phMZviOLRaoUjivpaOjbxUnvr63NRxdEUyllP6dgoy//SHslfLc
-	8fH0o7zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a3K9HF74mxQXiOLLFFTSuE0GixIWTnEsWf8ibJCzoHw=; b=xruhFnpuiWSR2O/whzBCFFHBtG
+	29tvADvMBcZTB1+I7Gu5zMK1dKkprstPcWw6D4P/bp/tpFlgPbxRUIjO3R2AXz2AMmRWyb7l9r6iQ
+	Zr0fpGneQ7TeHN17QAwOkCcnxkHej6jZ33LptwYEnb1ySZSh5l6tKgb6q1S3Up/OB4r8xpSgw/gaq
+	5jvTrcZJg0IQRzJrkgdrQzKZsun/qaECmhpZnU4wREtv2N/ZXw3gB5GnzQheyjo/so6+4bA9WFwez
+	t4W8Na725vRYO/vY6pc1h2h727xZ4dThMQ6X0VBceXAiiOowWOEKY89bNvZGSEw4ubKdM/9lcvZJF
+	lLPIkNaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyX7D-00000008Cre-0FUY;
-	Tue, 16 Sep 2025 14:57:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyXD3-00000008E7G-2e1U;
+	Tue, 16 Sep 2025 15:03:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyX7C-00000008CrV-0uJO
+	id 1uyXD1-00000008E53-0ZDk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 14:57:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67D60601A3;
-	Tue, 16 Sep 2025 14:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC69C4CEEB;
-	Tue, 16 Sep 2025 14:57:01 +0000 (UTC)
-Date: Tue, 16 Sep 2025 15:56:59 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Will Deacon <will@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	yangyicong@hisilicon.com, maz@kernel.org, oliver.upton@linux.dev,
-	corbet@lwn.net, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, shuah@kernel.org,
-	shameerali.kolothum.thodi@huawei.com, linuxarm@huawei.com,
-	prime.zeng@hisilicon.com, xuwei5@huawei.com,
-	tangchengchang@huawei.com, wangzhou1@hisilicon.com
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-Message-ID: <aMl6u7xTDLhrZmqK@arm.com>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
- <20250715081356.12442-6-yangyicong@huawei.com>
- <aL7Fgx__LeLfbDyU@willie-the-truck>
- <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
- <aMLvtpaCgRqPAU2Z@willie-the-truck>
- <20250912144736.00007673@huawei.com>
- <666e3588-2e42-2275-f9ec-94ba0954bdc6@huawei.com>
+	Tue, 16 Sep 2025 15:03:08 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45f2acb5f42so18486475e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 08:03:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758034985; x=1758639785; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a3K9HF74mxQXiOLLFFTSuE0GixIWTnEsWf8ibJCzoHw=;
+        b=joMSh8RLd2Ux0W2Epa9bpM+7WN38TI3U8Ri/4DiXH7dCMrbPcegjNwnIeCNjwc+0Ef
+         45F/oFLbe6tAhQ++5xIyKPJIftP/H8V3atzAbpURX1vwq1HD3KpmOyr2qtBcsiUUlPnh
+         rCW/SPxgBOp8YLOgc49DlZl3RYfFmjUUeFQonfVP/VrXyirIcT7H+y5hW6kdPfni97er
+         gB00UyVBfaWpNK81USkne18RYVG7NtvgvRLywzDp0DNkIOw120MfGvBX8xzU7pTq1wNf
+         7s5kLW6Pd8LBD1/yaLQcFu+njumjyWvpy6BVAnnsTEXPR+Zl4ObVvnsHCjZSNexEgcdZ
+         GWfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758034985; x=1758639785;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a3K9HF74mxQXiOLLFFTSuE0GixIWTnEsWf8ibJCzoHw=;
+        b=b5XlpG5L/h85ra0t+3NpkjO1zgCIvSFawWNXqJSpEKYHB6UxOcWYL4UZiBqSQWNgD5
+         U1JeOJ2WLlZhwfOLGFFd6I3gDIzBiWal1HrucdaehgtnZt6eKp+2J7NSWpauVa7NgXZb
+         BXYtkMNlYNhXS99X59Eq99VCD0OeL27IvPNWEGHvhMtqR6Pw7w2G2nwwFPAud3xXSKNS
+         q6jILqdhAmm7FILV85mSXjBdKiOyAEjykUc44IcmwB3YzL6nUw2U/xRYsftmtamzvukN
+         993j65PVORgXJVcvs8yCRNINjloejim+Qh9tthZA+i/Sk4QexskJc4bAKVIwLQ4m7wnU
+         yIsg==
+X-Forwarded-Encrypted: i=1; AJvYcCU7t+6H3wh00ZUuBbiXpwvItD6CyA7PO/LKNpxJ0Qk8dPruDq70khPEztVQjTCivSt0xS7gRdG2vQN+80J7FPtp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw49GY1Z7M+z6bLisXmirN0oJytsMWKfcuM4M/XSflVoM4unMeK
+	18CWpiupJRrRhLDnOsa6cVp09wilQPJJ+7745o+1mGp62ylFQVlmZzez
+X-Gm-Gg: ASbGnctTQr45pzpgAPkw07eloZpo1bJKPaqXAd/LQb0IzdfXVKDftnYAPRjoxb9m0x9
+	3WDEbGlUl6TViTDOA/kd2IIrjxO9KGr9z/l9CLTwFXVEglvdBSNS7nvyUSKGfIiQi0Y5dKjn9rc
+	AesafcL5ecr5x0j7vJJeNUogdeaA4M/68KHHoqoEjRLP0ffF1yyYuQ0BZCg26AXiiOvNnbUo6Jj
+	M/EhKJHd8JpNECgWBf3CWKLzugUNG05yUFG6H/ooEaGI+uves67KJDiuR9SJaV0+qGTDbXQH516
+	o81PdBaj1l73+/wLUJDQHGEd/KSINLPNpEUCk3X3QtMGSdZwXJ7l1YHv2pzXC6bV9F/j9YvEEe9
+	OCUwp32MLeqW2QUGcYg2PjLg5qGW1g3fCuybosvPpkDlPJPyx/anVgiRzs2uv7vHXhjkENDZf5P
+	C2aA==
+X-Google-Smtp-Source: AGHT+IGjLufNti220Cb2/jo69dHoi79tKr9fu2kHOT12ewBTg4Sxo+8fUT0WB40XsjZIq8dDSZz06g==
+X-Received: by 2002:a05:600c:5487:b0:45b:47e1:ef7b with SMTP id 5b1f17b1804b1-45f32d49432mr30917625e9.17.1758034984912;
+        Tue, 16 Sep 2025 08:03:04 -0700 (PDT)
+Received: from biju.lan (host86-139-30-37.range86-139.btcentralplus.com. [86.139.30.37])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ecdc2deb20sm932154f8f.47.2025.09.16.08.03.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 08:03:04 -0700 (PDT)
+From: Biju <biju.das.au@gmail.com>
+X-Google-Original-From: Biju <biju.das.jz@bp.renesas.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Biju Das <biju.das.jz@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nishanth Menon <nm@ti.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Biju Das <biju.das.au@gmail.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v3 9/9] arm64: defconfig: Enable RZ/G3E USB3 PHY driver
+Date: Tue, 16 Sep 2025 16:02:45 +0100
+Message-ID: <20250916150255.4231-10-biju.das.jz@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250916150255.4231-1-biju.das.jz@bp.renesas.com>
+References: <20250916150255.4231-1-biju.das.jz@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <666e3588-2e42-2275-f9ec-94ba0954bdc6@huawei.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_080307_188169_91A0C939 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,90 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 04:29:25PM +0800, Yicong Yang wrote:
-> On 2025/9/12 21:47, Jonathan Cameron wrote:
-> > On Thu, 11 Sep 2025 16:50:14 +0100
-> > Will Deacon <will@kernel.org> wrote:
-> >> On Tue, Sep 09, 2025 at 09:48:04AM +0800, Yicong Yang wrote:
-> >>> per ARM DDI0487 L.b section C3.2.6,
-> >>>
-> >>>   When the instructions access a memory type that is not one of the following,
-> >>>   a data abort for unsupported Exclusive or atomic access is generated...  
-> >>
-> >> That's about the memory _type_. I'm talking about a supported memory type
-> >> (e.g. writeback cacheable) but when the physical location doesn't support
-> >> the instruction. That's captured a little later in the same section:
-> >>
-> >>   | If the target memory location does not support the LD64B or ST64B
-> >>   | instructions, then one of the following behaviors occurs:
-> >>   |  * A stage 1 Data Abort, reported using the DFSC code of 0b110101,
-> >>   |    is generated.
-> >>   |  * The instruction performs the memory accesses, but the accesses
-> >>   |    are not single-copy atomic above the byte level
+From: Biju Das <biju.das.jz@bp.renesas.com>
 
-Is this a new addition to the L.b release of the ARM ARM? Maybe it was
-there before in some other form (or a different place). At least it
-doesn't say "unpredictable".
+Enable the RZ/G3E USB3 PHY driver on the Renesas RZ/G3E SMARC EVK board.
 
-> >> and I think that's a bad interface to expose blindly to userspace solely
-> >> as a boolean hwcap.
-> > 
-> > Nasty, so now I'm curious. Any thoughts on how to expose what regions it is appropriate
-> > for?  I can think of various heavy weight options but wondering if there is a simple
-> > solution.
-> 
-> in my understanding the hwcap only describes the capabilities of the CPU but not
-> the whole system. the users should make sure the function works as expected if the
-> CPU supports it and they're going to use it. specifically the LS64 is intended for
-> device memory only, so the user should take responsibility of using it on supported
-> memory.
+Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+---
+v2->v3:
+ * No change.
+v1->v2:
+ * No change.
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-We have other cases like MTE where we avoid exposing the HWCAP to user
-if we know the memory system does not support MTE, though we intercepted
-this early and asked the (micro)architects to tie the CPU ID field to
-what the system supports.
-
-> may raise the similar question if use other atomic instructions (e.g. LSE) on the
-> memory does not support atomicity. find this restriction in ARM DDI0487 L.b section B2.2.6
-> 
->   Some system implementations might not support atomic instructions for all regions of the
->   memory
-
-With exclusives or atomics, we require that the general purpose (system)
-RAM supports the feature, otherwise Linux won't work properly (I don't
-think we specifically documented this but it would be fairly obvious
-when the kernel doesn't boot or user-space randomly crashes).
-
-> and if perform atomic instruction on unsupported memory it's allowed to implement as
-> 
->   * The instruction generates a synchronous External abort.
->   * The instruction generates a System Error interrupt.
->   * The instruction generates an IMPLEMENTATION DEFINED MMU fault reported using the Data
->     Abort Fault status code of ESR_ELx.DFSC = 110101.
->   * The instruction is treated as a NOP.
->   * The instructions are performed, but there is no guarantee that the memory accesses were
->     performed atomically in regard to other agents that access memory. In this case, the
->     instruction might also generate a System Error interrupt.
-> 
-> if instruction performed without generate a SEI in the last implementation, it's quite similar
-> to the condition of LS64.
-
-The difference is that we don't support Linux on such systems.
-
-Arguably, the use of LD/ST64B* is fairly specialised and won't be used
-on the general purpose RAM and by random applications. It needs a device
-driver to create the NC/Device mapping and specific programs/libraries
-to access it. I'm not sure the LS64 properties are guaranteed by the
-device alone or the device together with the interconnect. I suspect the
-latter and neither the kernel driver nor user space can tell. In the
-best case, you get a fault and realise the system doesn't work as
-expected. Worse is the non-atomicity with potentially silent corruption.
-
-So, to Will's point, the HWCAP is not sufficient for user space to make
-an informed decision on whether it can safely use the LS64 instructions.
-Can a (generic) device driver tell or do we need additional information
-in firmware tables to advertise the correct behaviour?
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 69bdb56a3d9e..14356d40f42f 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1650,6 +1650,7 @@ CONFIG_PHY_R8A779F0_ETHERNET_SERDES=y
+ CONFIG_PHY_RCAR_GEN3_PCIE=y
+ CONFIG_PHY_RCAR_GEN3_USB2=y
+ CONFIG_PHY_RCAR_GEN3_USB3=m
++CONFIG_PHY_RZ_G3E_USB3=m
+ CONFIG_PHY_ROCKCHIP_EMMC=y
+ CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
+ CONFIG_PHY_ROCKCHIP_INNO_USB2=y
 -- 
-Catalin
+2.43.0
+
 
