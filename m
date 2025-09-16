@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCC8CAC59D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C812CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YyPH1zteKRK/JsOAsgkVZz5/Hkqr11ZvI1xMXdLU8qQ=; b=wz7LWW0FhsWtTapoJEowWyVuzl
-	dn56RutJqFTrfmN6nzWk33/cPENlGGVeAGv2FT9xWlhvUHJ4wXniCQod7mhSxVyV9nbYFry/Gk1Lf
-	84h0AlADeLs+t9yuAfJQda4peQ0eFwPCf7P02SMWB+PugZYpWdgQmwrNZjmV46CGj5Pan73+D3DVY
-	fq2hSKNUUgZwclwvTAYRuf1/E/pVV891jI5KR+F16iV0Gdr8B+BRngfUsmI5NmlktW6fbY37aycRz
-	nqYx6cm9k4o51jVi6QQm51k4TIIblQ4H+BhK/twad/bWbdf3FR9ZYx3oiwx7FvIIh2YyD6QlHbOkw
-	gtylbfLA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C2ElPcuDb7GDFL0BugWYkt/VrkTvpyOiSK2rgTU3LY4=; b=kA8wZzGZV0NVuS+vBF2bq29DSy
+	f5lqczS1K58NPZAqSW5fu2WesPtrdVkdY0rIih/q3xRJaT3+QnlUcx/AmoLXLoBROlHv72U021ChF
+	M6AudD1qK9I3C/oAt8Mh0QIivDQbqaWG/bYkGYlY6bNc2UeSL5cVueFuC0gBBdw3xR8g665TC5diF
+	DuhDD1/+Ez1HyHILSHa8TTnleFV5q+zPmoSHwo4CbbwbHzxOQh3lcGiD+8a/F35jABpTAENlpekZn
+	83vABafNpaUVLXqlCn4cdyKwfecgrO/RQ8hOsWcFuyAjqdGylwwBbfp3XW/OImIoU/XzRUkbXPvi6
+	olGAQzeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEx-000000090lV-48fg;
+	id 1uycEx-000000090kT-20qO;
 	Tue, 16 Sep 2025 20:25:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEw-000000090iW-1XMM;
+	id 1uycEw-000000090iH-0yqI;
 	Tue, 16 Sep 2025 20:25:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C61A36022A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A46F601DD;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B570C2BC9E;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EC192C4CEF7;
+	Tue, 16 Sep 2025 20:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054325;
-	bh=p/pUs0MZFo/+qdpENMcLyBKM/numNqXrgeAhrFls3Eo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=X40rBasvR7PF9fN2qZQCQCcMCvK+/79psNEO7of+ZdYpkF69MAr0mnbIigzoHre2b
-	 jx9HjMjRyRSaCrimkK/eqqMxWdoW8v3CHPEww8hrQLkp3csUFfFeLLyCdqCcSvu6zI
-	 HWOA3QD+Ku2kR8Dj7zScHUzKEsTBPK+YbDobYP8GQmOebRUlZlvYmXKEXp/q0TX3Tl
-	 /QvOaZLAcZoPr92AEA3siTedj5AV3iHptxfTowEYaB1heIfj7/B49bp/Nkns7ifsEF
-	 x8qKh8xWD46Mbc8VfSb1g+8SGej7y5tanDSXVqUIxhCpLNSAFSz34bFs1DQJYUV3a/
-	 qEDMtb68I2Azw==
+	bh=QGD8kRGBo4syZf/wQP0MSt3nT94Hk5NSzVk+3pfI8QQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Bc/QtC1jTVGH93BHR0pPdFgnDWDiNw3YTMnrSYbNo5hzlhrYakGO1MUHm7c9t+0So
+	 ztRNowvJb/dEQgN01xDy/8axTbgwBjY4MTcgvysVORMpR4pDfdBQNXAaZz5oO+QfqT
+	 QUCysrVApvuz7qQ94K+Wk8t+qg3iynCibdG+TwwGV30GlvczfNFpFObHGfbTr2nDKQ
+	 H6tcPcxlgloeSlIOqmQ5xdrKhKoEqnQiPLp+PQrXHwNEWT8MV3f+v0vxVk2kzJ5dyp
+	 XPpV8tnYMJr7sKnPvmKh0knnUuzMSmkSjD6bMGB2vBXOpN/UVSa6rU6X++NSHnQ8zP
+	 YByqX4+RF81tA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 30ECFCAC598;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D56EBCAC598;
+	Tue, 16 Sep 2025 20:25:24 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:02 +0700
-Subject: [PATCH 05/25] dt-bindings: rtc: Add RDA Micro RDA8810PL RTC
+Subject: [PATCH 00/25] RDA8810PL Clock, RTC and MMC driver
+Date: Wed, 17 Sep 2025 03:24:57 +0700
+Message-Id: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-5-9ca9184ca977@mainlining.org>
-References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
-In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
+X-B4-Tracking: v=1; b=H4sIAJnHyWgC/x3MQQqAIBBA0avErBPUsrKrRAvJqQbCYgQJxLsnL
+ d/i/wwRmTDC3GRgTBTpDhWqbWA7XThQkK8GLbWRVg2CvZsmJZ9LeKaEHIV1Ro+qN3roDNTuYdz
+ p/Z/LWsoHMTLSk2MAAAA=
+X-Change-ID: 20250916-rda8810pl-drivers-9a5271452635
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -71,11 +73,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1198;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=3886;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=WXHBrmFovBDD+aODYzMgHF0ddvJv66eaBAA1wb46O10=;
- b=1AWpjOVHeC7A/fG05V5076Du73/ixlPO3tOlVdOzwByzDZgvNmGQVQIvJBjfRQdO6qHjcr8dk
- nUyBOunSsouDcKxdzeqOCwhm+B7f/3Zy6jwd0Awas0NtAUvq1ASF3OD
+ bh=QGD8kRGBo4syZf/wQP0MSt3nT94Hk5NSzVk+3pfI8QQ=;
+ b=9zchpSAFwjr+IQK2dMLrZvsWvEJuMCoEzZv1nMsFWfTxwY7t6r94fNp29tagymUqPmbGLtAjS
+ obpQLZLCJPKAv4jwBuj4UgTE75ucWgSclNMjDGj95eHLrisstZxh3Pc
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
@@ -96,54 +98,82 @@ Reply-To: dang.huynh@mainlining.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dang Huynh <dang.huynh@mainlining.org>
+This patch series aims to add support for Clock/Reset, Real-Time Clock and
+SDMMC on the RDA Micro RDA8810PL platform.
 
-Add documentation describing the RTC found in RDA8810PL SoC.
+It also adds Intelligent Flow Controller (IOW, a DMA controller) which is
+important for working with this MMC IP.
+
+Tested on the Orange Pi 2G-IOT.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- .../devicetree/bindings/rtc/rda,8810pl-rtc.yaml    | 30 ++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Dang Huynh (25):
+      ARM: dts: unisoc: rda8810pl: Add label to GPIO nodes
+      drivers: gpio: rda: Make IRQ optional
+      dt-bindings: gpio: rda: Make interrupts optional
+      rtc: Add timestamp for the end of 2127
+      dt-bindings: rtc: Add RDA Micro RDA8810PL RTC
+      rtc: Add driver for RDA Micro SoC
+      ARM: dts: unisoc: rda8810pl: Enable Real-Time Clock
+      ARM: dts: unisoc: rda8810pl: Enable ARM PMU
+      dt-bindings: clock: Add RDA Micro RDA8810PL clock/reset controller
+      drivers: clk: Add Clock and Reset Driver for RDA Micro RDA8810PL SoC
+      dts: unisoc: rda8810pl: Enable clock/reset driver
+      dts: unisoc: rda8810pl: Add OPP for CPU and define L2 cache
+      dts: unisoc: orangepi: Disable UART with no users
+      dt-bindings: power: reset: Add RDA Micro Modem Reset
+      power: reset: Add basic power reset driver for RDA8810PL
+      dts: unisoc: rda8810pl: Enable modem reset
+      drivers: gpio: rda: Make direction register unreadable
+      dt-bindings: dma: Add RDA IFC DMA
+      dmaengine: Add RDA IFC driver
+      dts: unisoc: rda8810pl: Enable IFC
+      dt-bindings: mmc: Add RDA SDMMC controller
+      mmc: host: Add RDA Micro SD/MMC driver
+      dts: unisoc: rda8810pl: Add SDMMC controllers
+      dts: unisoc: orangepi-2g: Enable SD Card
+      dts: unisoc: orangepi-i96: Enable SD Card
 
-diff --git a/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml b/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..3ceae294921cc3211cd775d9b3890393196faf82
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml
-@@ -0,0 +1,30 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/rda,8810pl-rtc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RDA Micro RDA8810PL Real Time Clock
-+
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
-+
-+properties:
-+  compatible:
-+    const: rda,8810pl-rtc
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    rtc@1a06000 {
-+      compatible = "rda,8810pl-rtc";
-+      reg = <0x1a06000 0x1000>;
-+    };
+ .../bindings/clock/rda,8810pl-apsyscon.yaml        |  44 ++
+ Documentation/devicetree/bindings/dma/rda,ifc.yaml |  42 +
+ .../devicetree/bindings/gpio/gpio-rda.yaml         |   3 -
+ Documentation/devicetree/bindings/mmc/rda,mmc.yaml |  91 +++
+ .../bindings/power/reset/rda,md-reset.yaml         |  36 +
+ .../devicetree/bindings/rtc/rda,8810pl-rtc.yaml    |  30 +
+ MAINTAINERS                                        |  30 +
+ .../boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts  |  24 +-
+ .../arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts |  24 +-
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi            | 115 ++-
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/rda/Kconfig                            |  14 +
+ drivers/clk/rda/Makefile                           |   2 +
+ drivers/clk/rda/clk-rda8810.c                      | 770 +++++++++++++++++++
+ drivers/dma/Kconfig                                |  10 +
+ drivers/dma/Makefile                               |   1 +
+ drivers/dma/rda-ifc.c                              | 450 +++++++++++
+ drivers/gpio/gpio-rda.c                            |   4 +-
+ drivers/mmc/host/Kconfig                           |  12 +
+ drivers/mmc/host/Makefile                          |   1 +
+ drivers/mmc/host/rda-mmc.c                         | 853 +++++++++++++++++++++
+ drivers/power/reset/Kconfig                        |   9 +
+ drivers/power/reset/Makefile                       |   1 +
+ drivers/power/reset/rda-reboot.c                   |  58 ++
+ drivers/rtc/Kconfig                                |  11 +
+ drivers/rtc/Makefile                               |   1 +
+ drivers/rtc/rtc-rda.c                              | 356 +++++++++
+ include/dt-bindings/clock/rda,8810pl-apclk.h       |  79 ++
+ include/dt-bindings/dma/rda-ifc.h                  |  28 +
+ include/linux/rtc.h                                |   1 +
+ 31 files changed, 3079 insertions(+), 23 deletions(-)
+---
+base-commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
+change-id: 20250916-rda8810pl-drivers-9a5271452635
 
+Best regards,
 -- 
-2.51.0
+Dang Huynh <dang.huynh@mainlining.org>
 
 
 
