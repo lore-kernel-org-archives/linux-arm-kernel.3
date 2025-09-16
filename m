@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E1BCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87467CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDQooxDkD5fz4sLWBIH6i0SDIPVUTbpTi303GssaIAI=; b=DKlCFkjvMWbQv6Ok+SEb+YUxzv
-	gpQfRF3jIsM1kps6O4Rkoq4+6dO7Zm1Cg6Gr4YEd6M9ghA6kya4X3NEveaavKQMldaWzaxkRZwrbr
-	GDjmmxZK5WKxEOE449kDl9om/kscFeEMe+jg+zJoPzcbchg9FfYzsRaTAAEafU9LgV5azS+Q8E+4y
-	A61Ao9l28E9/K0PiGfOrTAVBlW9jGMtc9/FxOQSYTaWl5CLcYmDLkcj9uVYEdOA0aNeHnXOaHZylY
-	ZClnAZTp+zsFGBrrFLqEz2DxyJNr2o7qTxE7fdCkBl2Z8mrhE0IYDCQQPIAkZ/8i2mzv0XV00zF39
-	6D2RD+Mw==;
+	bh=SfWHeFBkMHYJw5QiRGsKUIxVRqYkPAcQ5KBzj6Wt0do=; b=hBn2C6vbln46gDcZScGRkNFy2W
+	NJ9Pn11WGEO+PyZtaYPqKlpZfWZvCkLyxVk6SsWaYKqlAxpyb1qLynum0CgVj3vO9ioGn2U7S9s57
+	FCsuXAslh3ouOmLrwgNZ/7N/NjCqWs3IOR86XiQ+KOqc7H6mf7o2NyKc+oZDGzpH7tgzof04nZ7TH
+	m6p4WmytDzvcbq8WRWYj2JEB5FJhKeB8RH3Ma6I04iCvsghs/tl32EcIVdpsoG8ork929OK3hJrOM
+	Y180gzxt8Xy6TI8bao4bedyjYzsX+/y2C7c96/cLwG5hlMT2i8q7rw8pnGM2z+1aMc+RDu0YzpnCE
+	1nbfhEMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVtF-00000007xvP-2DC8;
-	Tue, 16 Sep 2025 13:38:37 +0000
-Received: from mail-qk1-f171.google.com ([209.85.222.171])
+	id 1uyVy6-00000007yUY-3rhO;
+	Tue, 16 Sep 2025 13:43:38 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVtD-00000007xuu-2FjE
+	id 1uyVy4-00000007yTh-1mQs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 13:38:36 +0000
-Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-826fe3b3e2bso340083385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 06:38:35 -0700 (PDT)
+	Tue, 16 Sep 2025 13:43:37 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45f30011eceso53825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 06:43:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1758030215; x=1758635015; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SfWHeFBkMHYJw5QiRGsKUIxVRqYkPAcQ5KBzj6Wt0do=;
+        b=EF0BeD6D1vC/qwCBS7OPRgWye7vANtetvEKZkO5JWi/k7zqTZgRYS1W76Y04t1OXm9
+         ZZpGN0XHhufWk2RIMpToxKx6UDfIrCdQRwdMtNkZPoFlxdM5m7fmZE4KxbrWIXECzH0V
+         TIl8ctP0s3rduR0b50uLkM0WGkxGU1rQaE7yQ90lMRYtkAA+YDBA6rGkEvufA3WIDQ+P
+         T+mcFL6SVB77gB3B+yvPjJ26G4eKkr0xp1aUODqY46RHumPJV78wLKfdBQiRuwFQke3l
+         8VpuA1auF/fb/GrVErNiqa3bN9M1lB4qZEnIbvoJbd632QN+JmHcdSQ3Hk5w5k7rhbsY
+         V9NA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758029913; x=1758634713;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aDQooxDkD5fz4sLWBIH6i0SDIPVUTbpTi303GssaIAI=;
-        b=Z0W+itrh6JOU6CkUV8FNRJyzqQifzE6H45m2mHdwgsWGqsFE8ODTjtnQYeBbK0Zchw
-         ehMNceH4Zoh4m1NZORmzMwy3mWWZOY2x8BNXOaqyyxNGLqjxyr+pPG+2aUac24l2A3y1
-         vYxN15+yy57rxPC6wx8g2I6+kFpnl3yGIin0ShWn7ggmDxLg9zxL9PTkDMY7x9taPKcX
-         aYUHWE26UVgP+d83jHc/wUTWDjJjE+x0Ey3sehkHPYiLZYPC6K3rEfVu4rEtibSq7tZT
-         +BoinQZmNXHh9TawJ8bRRAjVv2sOVNOVA5GS3W/KICZB2ajJlXWeZXzhbOCdPeMSLSsY
-         2c6g==
-X-Forwarded-Encrypted: i=1; AJvYcCUDw6h/MmkDoKlH2U0K5nmEXNJxpGucjc2dFAzl19kF3t7+CXygb8wOqOK5MEEa+UX6huda+J1c5FCK4HWRtHud@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRRoji8w4CFSSXMTtnWBXAQvrFeFZUrc8KiCAGIYHvG8AXvTpc
-	KJmOZbRSIJeF7RX2D7JkYS9y9yBIaF0xU31tWu/v6AJ05H3oXR0hW9evZQ7F7UDP
-X-Gm-Gg: ASbGnctMxMPGWIv6+kP4S00IVUjw2pPVi9DpErpSwLT4dDQj2bk1ugoqyrv4fXi1eEF
-	LUpxFTG4tve0oep1MOXJ3nMtEPos5T7FMzAWRq98qH7XPdKHWfmaV07lMHTQqoWmz1Oln41ZzQp
-	hvMx00e5mbFELy5oCbQ6a4FEhACDWVGjXN4EvRtLJM+J1N8NEhOLlGYSraOm3uo1npKlaNO9ZFO
-	IyJCvltFs0dtapYIDPHSqFucwNrgsLvk98xVrEg7+BtZbUiugtQT9e2BKiOmwE7V/K2/YIZx47y
-	RdVQtPuyOjCG6Mi7oqrwjAlqIuxeEjZkXXMf4LD4rnSa58ZK1b6XXXVUGm3sOkwTYJeETwz1/co
-	OkvhHmt+J55iOhfVhwKORFqzVLh350MuiABxNHjhkFjXUfRkyZexbu8aiWQ+A
-X-Google-Smtp-Source: AGHT+IEQevdhMH1v8bgnbro9iukkGsicPdjMRuothPk3GqgayTvwc8V7XcbcYxoRSOktZBL5aE7cmQ==
-X-Received: by 2002:a05:620a:a485:b0:809:8ef7:8546 with SMTP id af79cd13be357-824013d5ceemr2019682285a.75.1758029912759;
-        Tue, 16 Sep 2025 06:38:32 -0700 (PDT)
-Received: from mail-qv1-f45.google.com (mail-qv1-f45.google.com. [209.85.219.45])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-820ce19d151sm937328785a.50.2025.09.16.06.38.32
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Sep 2025 06:38:32 -0700 (PDT)
-Received: by mail-qv1-f45.google.com with SMTP id 6a1803df08f44-78393b448a1so19080236d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 06:38:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXXnRjTcIymfCHmQtLM4H6QNZnANVfHbXaHgHYwPW8oYf4ISMs9yD1dcF2jYY0JIgnWLNc4bp0bKQ0DK8Axbjcl@lists.infradead.org
-X-Received: by 2002:a05:6122:1d8c:b0:53b:174d:98f2 with SMTP id
- 71dfb90a1353d-54a16b20009mr5200853e0c.3.1758029474999; Tue, 16 Sep 2025
- 06:31:14 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758030215; x=1758635015;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SfWHeFBkMHYJw5QiRGsKUIxVRqYkPAcQ5KBzj6Wt0do=;
+        b=qyX02qeNlgIJHceTYiDP0T8HS2s/dRDEV/vxtMWHElUbU4NWDU+kir/TGDqkupbu4V
+         AxgQDUou3HRe8gA5QY5UN0VkUE3B9i1+PnEbrIo9zGi6TXnotRvSOQH4dF4M4OJPT2ld
+         klRZOiS/uoxqiwK43wOCNzNkNFEkM26gJcPymzA2N1DgWgJ3Nat3TixZjrOYBHXtg3g8
+         CE0hdm37GlEH2BSHM9S8S8Yy8hUVXLmUsDGQmDwCG5utU5R95iYxIpY+YprDroADWezP
+         +quSeJd6y/DWwJir65k1Gk25CdNbGz5nS3grjFR0GVxSr3C7aNNgExesqg+dbRuzht/2
+         6Deg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEjBQS/e/CNwSQ0f5SCdxTnGUD0UwJeFaY278XqIEU3wvQfgdYjBFH6LysQ4dX4CKt1th9KIh324lC5GvQJXLK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcUUbi9ohaU6Ug/wqYpkIGBA3od0imiYFWhUxUqb/RjgBnuy7m
+	v8tbS9DP+yU6wfmTBNTcl+oIRZPSj1TYI8pcziDu/lGXSXjhizmBoZy4XLFR8YLks29cPpfyK9f
+	c6RXzhA==
+X-Gm-Gg: ASbGnctPxZFquag3RDmmfQMpp5Qo9FfTvg0N+t2u2blIuY79B6Zt2dJ2jv0j/m6D+3R
+	5Aa5X73N2kW2Me7ga84OpD1wNu1v9od5vgJ6OVnBzFtAixaePHbijFVSdQtEW2MG3CesQDBK/Tg
+	TRw5JAIKVG75Pu/8/wsM2WHmj2A8LM8CtyHsZYf2uta6L7qgSqlw0y4j+fH62vsZ4hedRxalJ24
+	CNqjVaC05KcUj6/xoDlbjUV/rKNp6n1oSsjUDOtAX2RpoSjszUKoKM3BVLI+Zusy4WG7Bofnz0w
+	MNa6jxdiughtqqUA5mrZ0Zvte0iTVQB2AjxY2jNeGAE5YEjJKzzkkKO5qhD/essWn0CD0aHvGsE
+	uFxVWDmm4hi5psnUffSjN2hSiJK5l31H/G7yiZGGDMjOjempAq7Cf73vsgflCeUFxsXRALA==
+X-Google-Smtp-Source: AGHT+IHpXz7Rl+QKYOCiUh0stE/LvQiGqQu2cCoRgHmA+CQxnORb4ciGuF1F6j581pn63hwwkNtSVg==
+X-Received: by 2002:a05:600c:a10d:b0:45f:2940:d194 with SMTP id 5b1f17b1804b1-4601d6b4da8mr520345e9.2.1758030214403;
+        Tue, 16 Sep 2025 06:43:34 -0700 (PDT)
+Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e016b5a16sm223228305e9.12.2025.09.16.06.43.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 06:43:33 -0700 (PDT)
+Date: Tue, 16 Sep 2025 13:43:30 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com
+Subject: Re: [PATCH v4 02/28] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <aMlpghG9s3hl9G3Q@google.com>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-3-smostafa@google.com>
+ <aMcoYCcJXjN64cOE@google.com>
 MIME-Version: 1.0
-References: <20250908105901.3198975-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250908105901.3198975-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <aMlgg_QpJOEDGcEA@monster>
-In-Reply-To: <aMlgg_QpJOEDGcEA@monster>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 16 Sep 2025 15:31:04 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
-X-Gm-Features: AS18NWCih78Z1mvXR97O_iR6cJDURxsOD6O73Iub1rATQe0jxKnm2iY0iJuCAa8
-Message-ID: <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: dwmac-renesas-gbeth: Add
- support for RZ/T2H SoC
-To: Anders Roxell <anders.roxell@linaro.org>
-Cc: Prabhakar <prabhakar.csengg@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Russell King <linux@armlinux.org.uk>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aMcoYCcJXjN64cOE@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_063835_583090_5094A1E3 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20250916_064336_501793_EDA9DF30 
+X-CRM114-Status: GOOD (  38.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +107,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anders,
-
-On Tue, 16 Sept 2025 at 15:05, Anders Roxell <anders.roxell@linaro.org> wrote:
-> On 2025-09-08 11:59, Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC,
-> > where the GMAC is connected through a MIIC PCS. Introduce a new
-> > `has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
-> > handling is required.
-> >
-> > When enabled, the driver parses the `pcs-handle` phandle, creates a PCS
-> > instance with `miic_create()`, and wires it into phylink. Proper cleanup
-> > is done with `miic_destroy()`. New init/exit/select hooks are added to
-> > `plat_stmmacenet_data` for PCS integration.
-> >
-> > Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GBETH
-> > driver so the PCS support is always available.
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Sun, Sep 14, 2025 at 08:41:04PM +0000, Pranjal Shrivastava wrote:
+> On Tue, Aug 19, 2025 at 09:51:30PM +0000, Mostafa Saleh wrote:
+> > Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> > drivers can use that to protect the MMIO of IOMMU.
+> > The initial attempt to implement this was to have a new flag to
+> > "___pkvm_host_donate_hyp" to accept MMIO. However that had many problems,
+> > it was quite intrusive for host/hyp to check/set page state to make it
+> > aware of MMIO and to encode the state in the page table in that case.
+> > Which is called in paths that can be sensitive to performance (FFA, VMs..)
+> > 
+> > As donating MMIO is very rare, and we don’t need to encode the full state,
+> > it’s reasonable to have a separate function to do this.
+> > It will init the host s2 page table with an invalid leaf with the owner ID
+> > to prevent the host from mapping the page on faults.
+> > 
+> > Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> > stage-2 PTEs, as this can be triggered from recycle logic under memory
+> > pressure. There is no code relying on this, as all ownership changes is
+> > done via kvm_pgtable_stage2_set_owner()
+> > 
+> > For error path in IOMMU drivers, add a function to donate MMIO back
+> > from hyp to host.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > > ---
-> > v2->v3:
-> > - Dropped passing STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP flag in stmmac_flags
-> >   as it is always set for all the SoCs.
-> > - Updated Kconfig to include RZ/T2H and RZ/N2H.
-> >
-> > v1->v2:
-> > - No changes.
->
-> The following warning is seen when doing a defconfig build (make
-> defconfig) for arm64 on the Linux next-20250915 tag.
->
-> First seen on next-20250915
-> Good: next-20250912
-> Bad: next-20250915
->
-> Regression Analysis:
-> - New regression? yes
-> - Reproducibility? yes
->
-> Build regression: WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
->
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
->
-> This is the build warning:
-> WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
->   Depends on [n]: NETDEVICES [=y] && OF [=y] && (ARCH_RZN1 [=n] || COMPILE_TEST [=n])
->   Selected by [m]:
->   - DWMAC_RENESAS_GBETH [=m] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_STMICRO [=y] && STMMAC_ETH [=m] && STMMAC_PLATFORM [=m] && OF [=y] && (ARCH_RENESAS [=y] || COMPILE_TEST [=n])
->
-> WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
->   Depends on [n]: NETDEVICES [=y] && OF [=y] && (ARCH_RZN1 [=n] || COMPILE_TEST [=n])
->   Selected by [m]:
->   - DWMAC_RENESAS_GBETH [=m] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_STMICRO [=y] && STMMAC_ETH [=m] && STMMAC_PLATFORM [=m] && OF [=y] && (ARCH_RENESAS [=y] || COMPILE_TEST [=n])
-> I: config: PASS in 0:00:01.592356
+> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
+> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 64 +++++++++++++++++++
+> >  arch/arm64/kvm/hyp/pgtable.c                  |  9 +--
+> >  3 files changed, 68 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > index 52d7ee91e18c..98e173da0f9b 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > @@ -37,6 +37,8 @@ int __pkvm_host_share_hyp(u64 pfn);
+> >  int __pkvm_host_unshare_hyp(u64 pfn);
+> >  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+> >  int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot);
+> > +int __pkvm_host_donate_hyp_mmio(u64 pfn);
+> > +int __pkvm_hyp_donate_host_mmio(u64 pfn);
+> >  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+> >  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+> >  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 861e448183fd..c9a15ef6b18d 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot)
+> >  	return ret;
+> >  }
+> >  
+> > +int __pkvm_host_donate_hyp_mmio(u64 pfn)
+> > +{
+> > +	u64 phys = hyp_pfn_to_phys(pfn);
+> > +	void *virt = __hyp_va(phys);
+> > +	int ret;
+> > +	kvm_pte_t pte;
+> > +
+> > +	host_lock_component();
+> > +	hyp_lock_component();
+> > +
+> > +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
+> > +	if (ret)
+> > +		goto unlock;
+> > +
+> > +	if (pte && !kvm_pte_valid(pte)) {
+> > +		ret = -EPERM;
+> > +		goto unlock;
+> > +	}
+> > +
+> > +	ret = kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
+> > +	if (ret)
+> > +		goto unlock;
+> > +	if (pte) {
+> > +		ret = -EBUSY;
+> > +		goto unlock;
+> > +	}
+> 
+> I'm thinking of a situation where both of these checks might be
+> necessary.. The first check seems to confirm if the page being donated
+> isn't set up to trap in the hyp (i.e. the donor/host doesn't own the
+> page anymore). 
+> 
+> However, the second check seems to check if the pfn is already mapped
+> in the hyp's space. Is this check only to catch errorneous donations of
+> a shared page or is there something else?
 
-Thanks for your report!
+The first check confirms that the host kernel owns the page, so it can
+donate it.
+The second check checks that the hypervisor doesn't already have something
+mapped at this point.
 
-    config DWMAC_RENESAS_GBETH
-        depends on OF && (ARCH_RENESAS || COMPILE_TEST)
-        select PCS_RZN1_MIIC
+I can't find a case where this happens, I believe the second is mainly a
+debug check (similar to __pkvm_host_donate/share_hyp for normal memory.
 
-    config PCS_RZN1_MIIC
-        depends on ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G087 || COMPILE_TEST
 
-"ARCH_RENESAS" is wider than "ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G087".
-I would just change the latter to ARCH_RENESAS.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Mostafa
+> 
+> > +
+> > +	ret = pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE);
+> > +	if (ret)
+> > +		goto unlock;
+> > +	/*
+> > +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> > +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> > +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> > +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> > +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> > +	 */
+> > +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> > +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HYP));
+> > +unlock:
+> > +	hyp_unlock_component();
+> > +	host_unlock_component();
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +int __pkvm_hyp_donate_host_mmio(u64 pfn)
+> > +{
+> > +	u64 phys = hyp_pfn_to_phys(pfn);
+> > +	u64 virt = (u64)__hyp_va(phys);
+> > +	size_t size = PAGE_SIZE;
+> > +
+> > +	host_lock_component();
+> > +	hyp_lock_component();
+> > +
+> > +	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
+> > +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> > +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
+> > +	hyp_unlock_component();
+> > +	host_unlock_component();
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+> >  {
+> >  	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index c351b4abd5db..ba06b0c21d5a 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+> >  	kvm_pte_t *childp = NULL;
+> >  	bool need_flush = false;
+> >  
+> > -	if (!kvm_pte_valid(ctx->old)) {
+> > -		if (stage2_pte_is_counted(ctx->old)) {
+> > -			kvm_clear_pte(ctx->ptep);
+> > -			mm_ops->put_page(ctx->ptep);
+> > -		}
+> > -		return 0;
+> > -	}
+> > +	if (!kvm_pte_valid(ctx->old))
+> > +		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
+> >  
+> >  	if (kvm_pte_table(ctx->old, ctx->level)) {
+> >  		childp = kvm_pte_follow(ctx->old, mm_ops);
+> > -- 
+> 
+> Thanks
+> Praan
 
