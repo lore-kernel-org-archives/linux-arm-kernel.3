@@ -4,112 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42FECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74238CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=WUsWTxv9x3szy/TD1PlDIKZNvF
-	JTZqRDMmVsd1CHWHjD4HAo9V+wgT0Z7WqEuY5zkxq1ett0Q6u14aqBO9gCWBI6/bs7aMH0BiJ3E0i
-	830Rh9P6pylvyNUIUDZBfWEPXzdxk5SdffFrrI+6UjpjDbwnvhBA0xM5XeIcubd3h4Vn1uuoC2P5+
-	VtDifoEeR7IgBmzF0JOLmZY+cJmMs+Zsrzbb5wjNmtj3UvkIWUO/05HqDGEVuANtZxcFO/LwlSVtm
-	Na6v1elU3SgrNHjJhuplou48P2Fd/SGCs/G9jnEXi4CR+ixoLJdqmJsRIGfe87Qnwapji9CKIWDbV
-	y3JY/mLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y0K1aV4FFCVy6tHVmIng8iRt8o43RaEh9wu3QAChIZc=; b=nNw8xdmTVEpB9Oh/AfyHTmBqIJ
+	S846x/wGQD9nER5Eg9L6avJYRcHJDo//TOl1m2xTNIGpJ58H2GAQ6WkjSCaiFW8zf5xCQNW9mDgrl
+	drwtvSaUQ8E2/p4pbW7NUqvYswfh15hD6LKtz0YVlI1iMPQ5iC7Lbko5ffQ0+VolepWc31mRKIwu4
+	Vao8Hy2I/h037HZYErf6R7SO0mHccw5/TzAcnmrVlCX5hTgiYYP5NmnSRiDLIIMTwwxVCCjOXtdOl
+	WXUqChj0HQQlD9DLxTBlc2CvFzNjt5czjCzqScjlRSdO1SNjEraYk0Er18XyNY4Xr0/kA5OC28ePT
+	ZPb/HMQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyabH-00000008mmP-1EM4;
-	Tue, 16 Sep 2025 18:40:23 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1uyafZ-00000008nC1-1xC4;
+	Tue, 16 Sep 2025 18:44:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyabE-00000008mly-1o1H
+	id 1uyafX-00000008nBF-2ATC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 18:40:21 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id C43111D0000C;
-	Tue, 16 Sep 2025 14:40:18 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Tue, 16 Sep 2025 14:40:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1758048018;
-	 x=1758134418; bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=
-	A72gXSkGR0ORvvJLEj+Ni1ff0qwqAypaE89Y5WCvHx4uq9gD/Rzjc6dC0QtdPd2S
-	bShRP7eE4YfsKlJx0LiULmSWwH9RVKyGf0zNypohCKtx8oT2ArdHWKG+urxRLx+0
-	rD2Jo2dO9e7+c9HxwYIudgaP1fsTiQN/E5g2sXOD+BVPaUidJnD7LePkodbERBge
-	0Qa4fHYxahmfgxZiQrXyeopabno8R8uA610+bm6RBuNQQtjfl/xKhSC104V5Zi50
-	CMzaMhLxlzW1ACRmulu6ybnvrhxj7Rn/Rx5e3fVaO35F7m3Vi039cnMsc2rwHKpy
-	1Ow9AAcv3cb4LMzeVB1zsw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758048018; x=
-	1758134418; bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=S
-	OXR+xj22pRvPxQKbXam3zW08wSzLSxmsLqWBUgzTZUCG9YG+j61UVWoeqVNC3JnW
-	Zv0OFita/dUVv8GXnKdcJnmFubACZeOdsy2/WVPKUDfCyfScFgz+K9TjwmTDhF+D
-	r0p2JgXiMO6osFKIsdJYxdtYYflJ9VYZ4lrxWuLAL3y/jmDc4GJ5xDj8xnYyJm+g
-	b9XM2d38ioCKfrdGniGKSONtIV0umqtIpmyF8ZHCSB8iLXiEHu4qYV+GdgPP3hOM
-	S9YdDAOh/oQJNRuyxkH7bkORbakaN8WtJzifz6vNMgiz/NTQsQPCXnvBGwEHoDyj
-	wlR+5+YRVhlvkOWAUVkWw==
-X-ME-Sender: <xms:Ea_JaBrgswY1n3OgOf8uFsoFQ98tQRkSvjkd2onlrzCbzwHTFov6Mg>
-    <xme:Ea_JaC3isGkdjuavfDbgKACR0CWTYlLiInwCDzsIPumDu0CN2TO_eo7V_0v2iZciN
-    8LA3wy__4On34jdbxg>
-X-ME-Received: <xmr:Ea_JaA4mMjAr-dQna3dxZP4ppq3XCsyc-TbIAS5mHuoInirOXhvx1x8gXmfqJaLdoAT21C1f>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegudefudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptfgvsggvtggt
-    rgcuvehrrghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvg
-    hrnheplefhgeevleehieeuveduudfguedtieetteevhffgfffhhffhveffueegtdegkeek
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsg
-    gvtggtrgessghsughiohdrtghomhdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhm
-    thhpohhuthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhope
-    hrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprh
-    gtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopegrnhgurhgvfies
-    tghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthhtohepuggvvhhitggvth
-    hrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
-    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    eplhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrggsshdrohhrgh
-X-ME-Proxy: <xmx:Ea_JaGQBxJSwEfGRMTko09bVz5_-F0ZDOf4WfUEOBLqMTSRM3h30Xw>
-    <xmx:Ea_JaNWskqNpNikZwlmbx25ivU7o7NFWT53H4O7HR2ggKLW-rLN_eA>
-    <xmx:Ea_JaDGLob01pBVEoWx9dvDvzvCjCkOeO3uF2zDq8j_GyIs9pVvNmQ>
-    <xmx:Ea_JaIcbAdva1ahgGqMtAA2ZROdeuLJ7oVftUNTv0g9JxLZ66mnLzg>
-    <xmx:Eq_JaArmjObCc7S5hs6xJ2BjYjMdRd5SH6Sz5cuJ0iNcOKfraFnUqi3g>
-Feedback-ID: i5b994698:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 16 Sep 2025 14:40:16 -0400 (EDT)
-Message-ID: <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
-Date: Tue, 16 Sep 2025 12:40:15 -0600
+	Tue, 16 Sep 2025 18:44:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 91128601B3;
+	Tue, 16 Sep 2025 18:44:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179F7C4CEEB;
+	Tue, 16 Sep 2025 18:44:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758048286;
+	bh=ZzH/GAvYqKmV6By6U8xGb7aWR+qRSf/Tqk13YrnBzV0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CqP8rS4ixxBvX5q737icWXhhNkcbmE+0dzL4Bz72os3H2J7BTRLCdepUkdu/lOkvv
+	 faxnlBz1h+23DALmtOGoq9f7swIb4eWdeD0YgU8hX5iaUVCjSb0fE97ZzL0FiC9tz8
+	 11aqlj14HGI6AAANej5ay9Ft1My+1tJuHklHxgxT6IgPT7ZrKyTSgwjpSbfpLAiE1f
+	 bpVmUnpvLL3iQruwqrgFzLWUj/s4evyD7SOTbzujR2w6vGO9fqOFRHvH4n/vR7aBKi
+	 01JV3B9+/0va+o7YBnT25qfuvF2bcUwqkeCirDptJYozPF/UziNmUMpZMtnOOSI5Ys
+	 iM5gGqiTai20Q==
+Date: Tue, 16 Sep 2025 11:44:40 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	kernel test robot <lkp@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V2 2/6] kbuild: Disable asm goto on clang < 17
+Message-ID: <20250916184440.GA1245207@ax162>
+References: <20250916163004.674341701@linutronix.de>
+ <20250916163252.100835216@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-3-rebecca@bsdio.com>
- <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
- <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
- <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
-Content-Language: en-US
-From: Rebecca Cran <rebecca@bsdio.com>
-In-Reply-To: <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_114020_805466_EEEB937B 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250916163252.100835216@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,43 +80,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/15/25 18:37, Andrew Lunn wrote:
+Hi Thomas,
 
-> And does it have a PHY? On an MDIO bus? Unless i'm mistaken, you don't
-> describe the PHY, a phy-handle pointing to the PHY, and don't have
-> phy-mode = 'rgmii-id'.
+First of all, sorry you got bit by this issue.
 
-I've been trying to figure this out. Yes, it's connected to a PHY (an 
-RTL8211E).
+On Tue, Sep 16, 2025 at 06:33:11PM +0200, Thomas Gleixner wrote:
+> clang < 17 fails to use scope local labels with asm goto:
+> 
+>      {
+>      	__label__ local_lbl;
+> 	...
+> 	unsafe_get_user(uval, uaddr, local_lbl);
+> 	...
+> 	return 0;
+> 	local_lbl:
+> 		return -EFAULT;
+>      }
+> 
+> when two such scopes exist in the same function:
+> 
+>   error: cannot jump from this asm goto statement to one of its possible targets
 
-At the moment it's being detected by OpenBMC as:
+For the record, this is not specific to local labels, unique function
+labels could trigger this error as well, as demonstrated by Nick's test
+case:
 
-ftgmac100 1e680000.ethernet: Read MAC address 9c:6b:00:43:0b:bd from 
-device tree
-RTL8211E Gigabit Ethernet 1e680000.ethernet--1:00: attached PHY driver 
-(mii_bus:phy_addr=1e680000.ethernet--1:00, irq=POLL)
-ftgmac100 1e680000.ethernet eth1: irq 43, mapped at 7e548db4
-ftgmac100 1e680000.ethernet eth1: Link is Up - 1Gbps/Full - flow control 
-rx/tx
+https://github.com/ClangBuiltLinux/linux/issues/1886#issuecomment-1636342477
 
+> That prevents using local labels for a cleanup based user access mechanism.
 
-aspeed-g5.dtsi has:
+Indeed. This has only popped up a couple of times in the past couple of
+years and each time it has been easy enough to work around by shuffling
+the use of asm goto but as cleanup gets used in more places, this is
+likely to cause problems.
 
-mac1: ethernet@1e680000 {
-     compatible = "aspeed,ast2500-mac", "faraday,ftgmac100";
-     reg = <0x1e680000 0x180>;
-     interrupts = <3>;
-     clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>;
-     status = "disabled";
+> As there is no way to provide a simple test case for the 'depends on' test
+> in Kconfig, mark ASM goto broken on clang versions < 17 to get this road
+> block out of the way.
 
-};
+That being said, the commit title and message always references asm goto
+in the general sense but this change only affects asm goto with outputs.
+Is it sufficient to resolve the issues you were seeing? As far as I
+understand it, the general issue can affect asm goto with or without
+outputs but I assume x86 won't have any issues because the label is not
+used in __get_user_asm when asm goto with outputs is not supported?
 
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> ---
+> V2: New patch
+> ---
+>  init/Kconfig |    7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -96,9 +96,14 @@ config GCC_ASM_GOTO_OUTPUT_BROKEN
+>  	default y if GCC_VERSION >= 120000 && GCC_VERSION < 120400
+>  	default y if GCC_VERSION >= 130000 && GCC_VERSION < 130300
+>  
+> +config CLANG_ASM_GOTO_OUTPUT_BROKEN
+> +	bool
+> +	depends on CC_IS_CLANG
+> +	default y if CLANG_VERSION < 170000
 
-It doesn't define a PHY, but I presume I can't define one without it 
-conflicting with the definition of mac1.
+Assuming this change sticks, please consider including links to the
+original bug report and the fix in LLVM:
 
+  https://github.com/ClangBuiltLinux/linux/issues/1886
+  https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
 
--- 
-Rebecca Cran
-
+> +
+>  config CC_HAS_ASM_GOTO_OUTPUT
+>  	def_bool y
+> -	depends on !GCC_ASM_GOTO_OUTPUT_BROKEN
+> +	depends on !GCC_ASM_GOTO_OUTPUT_BROKEN && !CLANG_ASM_GOTO_OUTPUT_BROKEN
+>  	depends on $(success,echo 'int foo(int x) { asm goto ("": "=r"(x) ::: bar); return x; bar: return 0; }' | $(CC) -x c - -c -o /dev/null)
+>  
+>  config CC_HAS_ASM_GOTO_TIED_OUTPUT
+> 
 
