@@ -4,157 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5394ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CBACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=; b=LZC22glamtbb5XzP6dL2uhLn9o
-	/9X3+eh+4mIQ8wh2vTdJlpCGlS1MvbXHMhtrjKRm7JutmiTSY2in1Xa4PjWjWPpYq8jv3oOwgZOoN
-	7EXpCJMFbOnQ4PywgOx7O3tO7hP/KSlYRU3oDT4mL/wjnpHGpcqceDSVXpPfFHVF+8nn1lMBjIrZh
-	iDlLfc/RmpbYXcXcyDgRSqHzBSKzd4ThdsWFiVbLaMOmB7B9hPVLwIlYwSW/a/6atUvDMMDvZURIM
-	aBnjSmwnJIsRuObrHR7teHucLOC8MHgxgwxl773wMmdPT15MaQedT3oGHPdzT9RTCIJJ3Rg3szBVv
-	KxO2xktg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hckbd+PcfYT6lLDJsdquWicSeMadRx86e2DcprfjjbE=; b=Jf86kWgTccSacrmbBO4JXWTUL0
+	xpOdyzoLCuRIq1fqI5jhLS6JzmW/MvUsxsdq/QjSXMEAZhp2lBke+1sNovhjzebKr7dSUfuXyinWD
+	Pq/TtnwFdP1umhukpdH+D2GI6bZbq59qQpvyG7hW2IBjeMQ6Y+4TBK+DtaIo/AgA6qplZr/BwuQuJ
+	cT/XpW7z7kTMPkM1bPmsgGZMqtctwgb7f94OJwU2pPjhu6VRjuoh8WkG9qFnmXrh+O+C/hYVi+7rm
+	sNG6ukpyACxQuykRq+8bhq7uVZ3Smkwmmm/88tPaMU+SdBGn+WI2HWeTPBNefHdrr2011OfjjLfnb
+	DNRkNSGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY9K-00000008Nd3-2b82;
-	Tue, 16 Sep 2025 16:03:22 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY9H-00000008Nbl-3YMX
+	id 1uyYEv-00000008OiC-0kho;
+	Tue, 16 Sep 2025 16:09:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyYEs-00000008Ogp-0YhI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:03:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PEsZvtTPMUk6jr4wDPLCaZhOuzM4rqEOf9tOhKf1GK0wHhxdQhFPvbAH/YvPjlPVA0TNEwfL65xW251F2M2up3TyQ8Nod9YWdsMID8nPV8WLTJPz5n5x+wWMRXU38wUFskDqyCxG0MuxOwIA9F7fdg2QZJIcA5pZpHuDbhygzRVKI2otCRbzW3inFPgzjmqpnzXkgCUg01alXL1/Aohj+YmfrdGZnWvFod1s7KEYSvFTguL2E9q37WHk6LqKwlEGYr1tuj3LI91Z2OzYsSXkSaDIwfRGujFuKvXWzajJmG8dm0ntQ1qMgLGABFYZs6/eVcIDcDqMblIFVus/b5gWxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=;
- b=fYt2StS/4BuhCbZIRT/BzZCJ9JAlpIqRNmAGY8+dWnk/UX9BGVFrtqXh1lXLbNThrXOczhc2LDbG8cMk3yT5ukSpRkQbfTjfdEMMgiSK7bfYLQFxtqipqr4oCxqQDppWjr4JsTXGDO56lstN5zIKvUJ7jF0GSewfFOw8j8HLrIAwDMMPXmbwVri60p84olHDuxBH6yBMfn71N2s6xCGf73jR+X5nW8iT4cdKldwSVEjj9N1XqnyXmXK243dEt2kV32XxnGowlAIgH+aADhoqfCwya4mWu466WIEbtjC3eLA8kbdZDtSfuzKkv7x/xd9nG+uIwd5kzWrUVA/vARFgoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=;
- b=bjxtoCp/oXvcy2SPtyXxQHBtzFFq0VYlJJxSFudlIkYitRPUC0zL9iXQrMBDwxNg8zC12wt6FXmVhex35ekBqgpNW961rwcykf5LMgjPfPGbDjXRFbcyi6MaQYigghiIcFbbMWOecIGe18ohsgRZ4I2Dfw8XVWAaP0qsqdyWYj4zH6vk1X5WqP+twfBFHO8Og67IV4JFWsBlTMUu0Ryk4s20wIEgpS2JOCqrw6+Y9wEAFjREvuhraRxgIKtXyj+FOgJKTyevC8taCZM1Er3TtPNKhHwpOp+HzJ4hagx8jJOP3bjgjT8XEcMj7sPqsy9wW4Hqq84i58N+wAA7nz/fRQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DB8PR04MB7098.eurprd04.prod.outlook.com (2603:10a6:10:fd::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Tue, 16 Sep
- 2025 16:03:09 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9137.010; Tue, 16 Sep 2025
- 16:03:09 +0000
-Date: Tue, 16 Sep 2025 12:03:01 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
- glitch thresold
-Message-ID: <aMmKNYjxolrCb1yC@lizhi-Precision-Tower-5810>
-References: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
- <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
- <aMgjAjfydIbYexkE@lizhi-Precision-Tower-5810>
- <20250915-tinker-music-03cff49a41a7@spud>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915-tinker-music-03cff49a41a7@spud>
-X-ClientProxiedBy: PH8PR22CA0014.namprd22.prod.outlook.com
- (2603:10b6:510:2d1::29) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Tue, 16 Sep 2025 16:09:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55EFA2F;
+	Tue, 16 Sep 2025 09:08:55 -0700 (PDT)
+Received: from [10.57.4.241] (unknown [10.57.4.241])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 027E73F673;
+	Tue, 16 Sep 2025 09:09:01 -0700 (PDT)
+Message-ID: <6fbd24b2-3315-45e6-bff2-2c39e899e8f5@arm.com>
+Date: Tue, 16 Sep 2025 17:09:01 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DB8PR04MB7098:EE_
-X-MS-Office365-Filtering-Correlation-Id: 006e3724-2607-45c6-16ad-08ddf53a87bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J7U5jr3bFdIoVeF7KjB//5JoYLIHUdOmm99p4LgM444b7aFgBDlMRSHjtLEO?=
- =?us-ascii?Q?wfi58ABpfmV918ZBX9VYzUUxLweSFI4pbUd2ceixRdr5O6tIHxi7BVm5QoRw?=
- =?us-ascii?Q?W6kDyPf/fOM7SgoNT69IW4a95inV3lr91Qlxshau81V/GOlub42SllDekzTO?=
- =?us-ascii?Q?WGGZSMxCvGT0Lmf1FFF9awlut2ajjQ6RriE7fini/6DtZ8pfluq+0mYQ68Dn?=
- =?us-ascii?Q?QmwC7FJhMNm+eAXt/e/IgaH8/IRsX6/oFnxfccZP3lVKK8Zgfe8n9JF1OaIB?=
- =?us-ascii?Q?i8s+u246BE2Iri9viZkugeXFFrKDMbSj8oWrren6VGx4Il9cvd0pPfVMA7TH?=
- =?us-ascii?Q?YmLIQ8xtaYGhqPD+3sEQ8GZwoCNtBucXzmnCJm+ANfFAg6ceLEXtmoU6j1JS?=
- =?us-ascii?Q?x+FwVcUteSmY2Xv7rRb1+BKcjHa1jsCac8EBRSsiknFBuJSKgMmMCSxiAXrK?=
- =?us-ascii?Q?l6HEuXxlYjVHm6+gL2KV2tajjrrmBDvXOduVHkiQ0ncdQIoeZO+iz3t/Ha+K?=
- =?us-ascii?Q?UMaS+uRLYsFR4Px1yTRsK6k8bbfII3/wCI2iSQcw87x+FZS2crwKpU546dgw?=
- =?us-ascii?Q?bztscjZr/gicbnC4bx97Rj54/ozUTIlyRzyqs9FqzYZ54qq+qjnPipOU1HFX?=
- =?us-ascii?Q?lF6odRhlHt4mXRyMk+jd9+GU8XI2heCtFXB7DsUp4PqVkJZaQTQWrygIRSpr?=
- =?us-ascii?Q?orwY7Lk2wBIg9wnVYn3+Yj6qJoi9GEKAbPKCK6NXDTougc7HA2xXErRI4mJE?=
- =?us-ascii?Q?rRj8KcPd53FcBnYh/2QCckalla1whGKy38E5mnFW/e+hZ0dHdHTt5bt9HPbe?=
- =?us-ascii?Q?4YdCyAuKfPgN2LyHIlmbkfIi/odur9nNGg9ZJXymMy9QEIs8pACQD78CZK95?=
- =?us-ascii?Q?EbYrKOoTpaXA0nQ0VaYx6qcBnjZZM5KIT5Y5AJX20r8LgjxSWCKty8KPbxX5?=
- =?us-ascii?Q?odjFu9GZhs0KoRLUKXIYlX9j+6662C3UeFrK5bDFmiDyvvZmxECKseKs3ljd?=
- =?us-ascii?Q?CUWUqb7ypbtYpTdlGP50fOTYDzRMCpW1bT5VKz4Ns8ZewlNUtwd1MU6KxRjn?=
- =?us-ascii?Q?2i/GEZyEAfs0vN8oS/1J8AN5xbgUCV4oQnsWKOyHR93i2Bty5PQjRwdvSMOx?=
- =?us-ascii?Q?bYk/0oABurfBoUZFRfGk9w4ndlbD4/2MgxpYSOtfRbiNcXN3/nXGxYbY6eeq?=
- =?us-ascii?Q?L9XGebExeMr/5to0tr14g4K3/SCauZmqcvZ6gNTb23Z6a5nmVnxMKeheXZg2?=
- =?us-ascii?Q?wU6gqR3mlCCNir3M/LiVQkbKBuAwPx04gC3ov4b1aRB2zY2hTmkvQ7zJ6EVL?=
- =?us-ascii?Q?+6L8YulICrz7844wC04zzWjCw9hZ4WSRCC0aK/aHfMWb8bAUiynjdAm65sMK?=
- =?us-ascii?Q?KkOLLRAW3RTT2mT4pmur5aUNOFdCURQImEfecyah5+wUHZ7OBjRHczRkK2/3?=
- =?us-ascii?Q?qB1DHJZupgUHedT9OrdFH4rHfwDNLQLXNpNJOQD7WP4cyMoODH9kOA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Yovnb/KP1qUzSoHvkA0bTPK8AkTAXTM/KJGBz2yvd8JWDNn/eQos4sIJNEvs?=
- =?us-ascii?Q?f+R9taWpie3LhUErzZiaxjlfYM6BO/FJfSu02HR54J5fHXgku6RxazXGWlen?=
- =?us-ascii?Q?UQZhjHiBeX7umpPMzFFxtIgSFUqWA7op3zsW3Fww7pm7z5viQztQrL2ZkPH8?=
- =?us-ascii?Q?hBW+PkuTjS1FtHinbf+hTS0JSalnxaUpbOANnRPCCSwCbkzMQTQzNykzSXBF?=
- =?us-ascii?Q?r64Y4AQqltEMHGAPK9F0rz/PgvnOaNt2YQ9lFSbT6Q3fTH3PIjmUEfHU5BPD?=
- =?us-ascii?Q?YvKP6DbXCoI3J1XBnwJmTyukzX7G2nI8g8jlNBEKpOYWmRlGnaWJ4GmJIhAc?=
- =?us-ascii?Q?TTdUEqxXL/zK9dpc91RhSiLPduT1hNyv64D3i+kgTyyx7nn+3ygWaGcuBguy?=
- =?us-ascii?Q?2y9GAH20dQeEsyN2zAUE/i4hJOPJNN+WO3EzeCprIbQuIN6jjesCZhU4R0zs?=
- =?us-ascii?Q?k6jiQ+XprAGxgceZoAN/rxMo7ZxTqe+LwsjU+k9WkHLnkGsWaAN5yd22Ktoc?=
- =?us-ascii?Q?VkMtKoYNbpteApsLh10x7fbRbHXuvNtv31S6M8R6Uv07/fP1KskPiOUob3UK?=
- =?us-ascii?Q?TpY68OyluDmx7FNV9GkVKfrg2UcI4+I6vdD6eWPObbKqR9iFwNz8UyNPFuOm?=
- =?us-ascii?Q?GkhoTH9gF4bEGffWtPr/ICDxztxLfJNAnHQ1iPkCpjfJOSZan5ETG8Zj8jkK?=
- =?us-ascii?Q?q9nsFWAhYTg1GkwrCuGVZIkO8hlVuBz9NwkKRluGcAg7Xu7ZGVHkA/1Os5dI?=
- =?us-ascii?Q?2JdhlRwZ59QSf7uFvXuipOMxrQIeLvUiDTr4fWNq8g/g114zzbA22Yq+ihmB?=
- =?us-ascii?Q?KIRO9EqsfpbU11fE5MOjyJF9luL45/S4U41BBAOwULwHFTrGBLalY77y96GK?=
- =?us-ascii?Q?dIsdzWH792eizAuPScUUWIjMPRohpIge6ojkU/lsMbtD7EZTRMxIu8GQTk0I?=
- =?us-ascii?Q?eTXYwx6LC6H+/tdBgkoksZp+AOf1YPTCToaGO+mViPiO45PCqLknyIjYkg6k?=
- =?us-ascii?Q?0SRaUIGkXolQ25xQjX/NzUnm2GQSB/0ghw1kgNeFfg5dUs56LDZKv+a/Afgu?=
- =?us-ascii?Q?6oeOX6eaVBl4I8Mp62qV4CScUNatIo/q9BGI2G5eVWsuOpHZxtIGXVRbH021?=
- =?us-ascii?Q?uasa8ej0kR0KnZp0RJZoRXevi3nkCHcDQoDvWQcTL/WwxtnNJmgsYV32NRHr?=
- =?us-ascii?Q?VwUrMK7+qBcbCM/VYmbzextuulew6fBuzFvGRG7F880kucmHk0ufcbrd2Kvv?=
- =?us-ascii?Q?q+vJLRq2AtO4R8hfCtDGVlhwCgBGYxzjW6/v5LNY7/d4cW9OP0h8wqeiXGD5?=
- =?us-ascii?Q?TfbPBQro6ihKF0eUWV79ft9daNmDiPEn/AqnAPVrThc9Y5U3XdLUdwnHMP0C?=
- =?us-ascii?Q?IOXKqKMyjGMgJTvVBHyuyHz3zbXLR0MlAfUfirLci3PuGkGCUqTQs3w1vCWn?=
- =?us-ascii?Q?JoDr0GENhjjg5hkfar0tE1R+tnGTIZyMaEEa87dC/E9HWt38EN3p4y2bNw0y?=
- =?us-ascii?Q?6nAcfay9jfdrnuUlQ+1pJVRCSt1VBMLxuHUrF3kFTz3G1HVsJHLtKakoF5zX?=
- =?us-ascii?Q?hCAtkXhF79cX/A06vzBzGJ8OrPaMNG13IFUs0YVf?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 006e3724-2607-45c6-16ad-08ddf53a87bd
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 16:03:09.2277
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MlCIZ9ta9YkvahaZ1Rx46ejOn9WwIbg7nSHJPs3aiUXy2IDbiUgEp43RtxqXBtfdxzJoRBepjexNBhw3TmC36Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7098
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coresight: Fix possible deadlock in coresight_panic_cb
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Sean Anderson <sean.anderson@linux.dev>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ Linu Cherian <lcherian@marvell.com>, linux-kernel@vger.kernel.org,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ James Clark <james.clark@linaro.org>
+References: <20250912151314.3761026-1-sean.anderson@linux.dev>
+ <20250915095820.GH12516@e132581.arm.com>
+ <3e618117-96bd-44f3-bede-7cadfe0264dd@linux.dev>
+ <20250916160027.GK12516@e132581.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250916160027.GK12516@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_090319_886999_6756CAD5 
-X-CRM114-Status: GOOD (  31.31  )
+X-CRM114-CacheID: sfid-20250916_090906_255672_83A0207D 
+X-CRM114-Status: GOOD (  48.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,81 +70,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 06:42:13PM +0100, Conor Dooley wrote:
-> On Mon, Sep 15, 2025 at 10:30:26AM -0400, Frank Li wrote:
-> > On Sun, Sep 14, 2025 at 07:16:01PM +0200, Dario Binacchi wrote:
-> > > Support the touchscreen-glitch-threshold-ns property. Unlike the
-> > > generic description in touchscreen.yaml, this controller maps the
-> > > provided value to one of four discrete thresholds internally.
-> > >
-> > > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > > ---
-> > >
-> > > (no changes since v1)
-> > >
-> > >  .../input/touchscreen/fsl,imx6ul-tsc.yaml         | 15 +++++++++++++++
-> > >  1 file changed, 15 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> > > index 678756ad0f92..310af56a0be6 100644
-> > > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> > > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> > > @@ -62,6 +62,21 @@ properties:
-> > >      description: Number of data samples which are averaged for each read.
-> > >      enum: [ 1, 4, 8, 16, 32 ]
-> > >
-> > > +  touchscreen-glitch-threshold-ns:
-> > > +    description: |
-> > > +      Unlike the generic property defined in touchscreen.yaml, this
-> > > +      controller does not allow arbitrary values. Internally the value is
-> > > +      converted to IPG clock cycles and mapped to one of four discrete
-> > > +      thresholds exposed by the TSC_DEBUG_MODE2 register:
-> > > +
-> > > +        0: 8191 IPG cycles
-> > > +        1: 4095 IPG cycles
-> > > +        2: 2047 IPG cycles
-> > > +        3: 1023 IPG cycles
-> >
-> > you should use ns
-> >    enum:
-> >       - 1023
-> >       - 2047
-> >       - 4095
-> >       - 8191
-> >
-> > you can limit only 4 values, but unit have to ns. your driver map it to
-> > register value.
->
-> Looking at the driver change, I think Dario is already doing that. The
-> text here is just talking about how the controller doesn't support
-> anything other than these 4 glitch threshold and mapping must be done in
-> some way.
+On 16/09/2025 17:00, Leo Yan wrote:
+> On Mon, Sep 15, 2025 at 10:31:24AM -0400, Sean Anderson wrote:
+>> On 9/15/25 05:58, Leo Yan wrote:
+>>> On Fri, Sep 12, 2025 at 11:13:14AM -0400, Sean Anderson wrote:
+>>>> coresight_panic_cb is called with interrupts disabled during panics.
+>>>> However, bus_for_each_dev calls bus_to_subsys which takes
+>>>> bus_kset->list_lock without disabling IRQs. This may cause a deadlock.
+>>>
+>>> I would rephrase it to make it clearer for anyone reading it later:
+>>>
+>>>    coresight_panic_cb() is called during panics, which can preempt a flow
+>>>    that triggers exceptions (such as data or instruction aborts).
+>>
+>> I don't see what exceptions have to do with it. You can also panic
+>> during a regular interrupt.
+> 
+> The commit mentioned "without disabling IRQs" gives the impression that
+> the deadlock is caused by IRQ-unsafe locking, which might mislead into
+> thinking why the issue cannot be fixed with IRQ-safe locking.
+> 
+> Regardless of whether IRQs are disabled, and regardless of the context
+> (interrupt, bottom-half, or normal thread), the conditions for the
+> deadlock are only about:
+> 
+>    (a) The bus lock has been acquired;
+>    (b) A panic is triggered to try to acquire the same lock.
+> 
+> [...]
+> 
+>>> When I review this patch, I recognize we can consolidate panic notifier
+>>> in coresight-tmc-core.c, so we don't need to distribute the changes
+>>> into ETF and ETR drivers (sorry if I misled you in my previous reply).
+>>
+>> And this kind of thing is why I went with the straightforward fix
+>> initially. I do not want to bikeshed the extent that this gets removed.
+>> IMO the whole "panic ops" stuff should be done directly with the panic
+>> notifier, hence this patch. If you do not agree with that, then ack v2
+>> and send a follow up of your own to fix it how you see fit.
+> 
+> I would fix it in one go.
+> 
+> I agree with you that "the whole panic ops stuff should be done directly
+> with the panic". The only difference between us is that I would keep the
+> `panic_ops` callback. To me, this encapsulates panic callbacks into
+> different modules, to make the code more general.
+> 
+> Could you check if the drafted patch below looks good to you? If so, I
+> will send out a formal patch.
+> 
+> ---8<---
+> 
+>  From ea78dd22cbdd97f709c5991d5bd3be97be6e137e Mon Sep 17 00:00:00 2001
+> From: Sean Anderson <sean.anderson@linux.dev>
+> Date: Tue, 16 Sep 2025 16:03:58 +0100
+> Subject: [PATCH] coresight: Fix possible deadlock in coresight_panic_cb()
+> 
+> coresight_panic_cb() is called during a panic. It invokes
+> bus_for_each_dev(), which then calls bus_to_subsys() and takes the
+> 'bus_kset->list_lock'. If a panic occurs after the lock has been
+> acquired, it can lead to a deadlock.
+> 
+> Instead of using a common panic notifier to iterate the bus, this commit
+> directly registers the TMC device's panic notifier. This avoids bus
+> iteration and effectively eliminates the race condition that could cause
+> the deadlock.
 
-Thanks, but descripton is confused.
-"Unlike the generic property defined in touchscreen.yaml", which let me
-think value is 0..3, instead of ns.
+Well, if you are going that far, why not register the notifier from
+coresight-core ? We could always check the panic_ops->sync, and
+then register/unregister the callback. Add the notifer to the csdev.
+Otherwise, there is no point in keeping the panic_ops in
+coresight_device, it is just for the TMC device.
 
-Suggest Remove
+Suzuki
 
-"Unlike the generic property defined in touchscreen.yaml, this
-controller does not allow arbitrary values"
 
-Frank
->
-> > > +
-> > > +      Any value provided in device tree is converted to cycles and rounded
-> > > +      up to the next supported threshold, or to 8191 if above 4095.
->
-> This seems to be the implementation details of one particular driver,
-> and does not belong in a binding.
->
-> > > +
-> > >  required:
-> > >    - compatible
-> > >    - reg
-> > > --
-> > > 2.43.0
-> > >
 
+> 
+> Fixes: 46006ceb5d02 ("coresight: core: Add provision for panic callbacks")
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c  | 42 -------------------
+>   .../hwtracing/coresight/coresight-tmc-core.c  | 26 ++++++++++++
+>   drivers/hwtracing/coresight/coresight-tmc.h   |  2 +
+>   3 files changed, 28 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 3267192f0c1c..cb0cc8d77056 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -21,7 +21,6 @@
+>   #include <linux/property.h>
+>   #include <linux/delay.h>
+>   #include <linux/pm_runtime.h>
+> -#include <linux/panic_notifier.h>
+>   
+>   #include "coresight-etm-perf.h"
+>   #include "coresight-priv.h"
+> @@ -1566,36 +1565,6 @@ const struct bus_type coresight_bustype = {
+>   	.name	= "coresight",
+>   };
+>   
+> -static int coresight_panic_sync(struct device *dev, void *data)
+> -{
+> -	int mode;
+> -	struct coresight_device *csdev;
+> -
+> -	/* Run through panic sync handlers for all enabled devices */
+> -	csdev = container_of(dev, struct coresight_device, dev);
+> -	mode = coresight_get_mode(csdev);
+> -
+> -	if ((mode == CS_MODE_SYSFS) || (mode == CS_MODE_PERF)) {
+> -		if (panic_ops(csdev))
+> -			panic_ops(csdev)->sync(csdev);
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+> -static int coresight_panic_cb(struct notifier_block *self,
+> -			       unsigned long v, void *p)
+> -{
+> -	bus_for_each_dev(&coresight_bustype, NULL, NULL,
+> -				 coresight_panic_sync);
+> -
+> -	return 0;
+> -}
+> -
+> -static struct notifier_block coresight_notifier = {
+> -	.notifier_call = coresight_panic_cb,
+> -};
+> -
+>   static int __init coresight_init(void)
+>   {
+>   	int ret;
+> @@ -1608,20 +1577,11 @@ static int __init coresight_init(void)
+>   	if (ret)
+>   		goto exit_bus_unregister;
+>   
+> -	/* Register function to be called for panic */
+> -	ret = atomic_notifier_chain_register(&panic_notifier_list,
+> -					     &coresight_notifier);
+> -	if (ret)
+> -		goto exit_perf;
+> -
+>   	/* initialise the coresight syscfg API */
+>   	ret = cscfg_init();
+>   	if (!ret)
+>   		return 0;
+>   
+> -	atomic_notifier_chain_unregister(&panic_notifier_list,
+> -					     &coresight_notifier);
+> -exit_perf:
+>   	etm_perf_exit();
+>   exit_bus_unregister:
+>   	bus_unregister(&coresight_bustype);
+> @@ -1631,8 +1591,6 @@ static int __init coresight_init(void)
+>   static void __exit coresight_exit(void)
+>   {
+>   	cscfg_exit();
+> -	atomic_notifier_chain_unregister(&panic_notifier_list,
+> -					     &coresight_notifier);
+>   	etm_perf_exit();
+>   	bus_unregister(&coresight_bustype);
+>   }
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index 36599c431be6..108ed9daf56d 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -21,6 +21,7 @@
+>   #include <linux/slab.h>
+>   #include <linux/dma-mapping.h>
+>   #include <linux/spinlock.h>
+> +#include <linux/panic_notifier.h>
+>   #include <linux/pm_runtime.h>
+>   #include <linux/of.h>
+>   #include <linux/of_address.h>
+> @@ -769,6 +770,21 @@ static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
+>   			"Valid crash tracedata found\n");
+>   }
+>   
+> +static int tmc_panic_cb(struct notifier_block *nb, unsigned long v, void *p)
+> +{
+> +	struct tmc_drvdata *drvdata = container_of(nb, struct tmc_drvdata,
+> +						   panic_notifier);
+> +	struct coresight_device *csdev = drvdata->csdev;
+> +
+> +	if (coresight_get_mode(csdev) == CS_MODE_DISABLED)
+> +		return 0;
+> +
+> +	if (panic_ops(csdev))
+> +		panic_ops(csdev)->sync(csdev);
+> +
+> +	return 0;
+> +}
+> +
+>   static int __tmc_probe(struct device *dev, struct resource *res)
+>   {
+>   	int ret = 0;
+> @@ -885,6 +901,12 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>   		goto out;
+>   	}
+>   
+> +	if (panic_ops(drvdata->csdev)) {
+> +		drvdata->panic_notifier.notifier_call = tmc_panic_cb;
+> +		atomic_notifier_chain_register(&panic_notifier_list,
+> +					       &drvdata->panic_notifier);
+> +	}
+> +
+>   out:
+>   	if (is_tmc_crashdata_valid(drvdata) &&
+>   	    !tmc_prepare_crashdata(drvdata))
+> @@ -929,6 +951,10 @@ static void __tmc_remove(struct device *dev)
+>   {
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(dev);
+>   
+> +	if (panic_ops(drvdata->csdev))
+> +		atomic_notifier_chain_unregister(&panic_notifier_list,
+> +						 &drvdata->panic_notifier);
+> +
+>   	/*
+>   	 * Since misc_open() holds a refcount on the f_ops, which is
+>   	 * etb fops in this case, device is there until last file
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index cbb4ba439158..873c5427673c 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -243,6 +243,7 @@ struct tmc_resrv_buf {
+>    *		(after crash) by default.
+>    * @crash_mdata: Reserved memory for storing tmc crash metadata.
+>    *		 Used by ETR/ETF.
+> + * @panic_notifier: Notifier used to clean up during a panic
+>    */
+>   struct tmc_drvdata {
+>   	struct clk		*atclk;
+> @@ -273,6 +274,7 @@ struct tmc_drvdata {
+>   	struct etr_buf		*perf_buf;
+>   	struct tmc_resrv_buf	resrv_buf;
+>   	struct tmc_resrv_buf	crash_mdata;
+> +	struct notifier_block	panic_notifier;
+>   };
+>   
+>   struct etr_buf_operations {
 
 
