@@ -4,123 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8363ACAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E17CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RD+ta9axnzkY+q3MqSd9MuBTTuCWROaoN5jRYETLo/A=; b=XZR9OSido819L1njthL6/bBSYN
-	6UrasRqxnldxUcRcP33BeR1Sp/x4//c4nzEcBcBXeZzba7VxkGUFWo86J/a4eFNX45sb+K/Zn+S1F
-	P4ah2DCNFElQMqAsTRfXvIBfGgD9JtmiQX3r2zqpCIWV8haqam4Sd8cRYuRxfXOQWBhZVuMHu32FZ
-	AcptE2yAMuZHf0S9LwuJJUeso7O38MaGzYbN2FJI5B75H5iPK6aPoM9wn2PfFzQC+sfYoPmeC/3sF
-	I44qDmiNKaKLti40+qC7pd2R2tO1zkWdjUAKT8US7N46WDHdffKevkAmETZ3A4r+o/FLTg9tbN8Sf
-	zXrAcqxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZRMRnqP5BcL1SyniAQ/ZSsm0JYyiok3PqojrnOPb300=; b=uK8jEQXA5Jk7PpAX2eh3UA2S9b
+	f/Z4U78X5xm6t+Bqoc6d4XiJzCXjt84FDKQVcgtOaR8WzirU7lxNKEtjS3+RzYj+SkOPFFA/7JQ0J
+	SDlrTwh9BHKyqUL1f1qQxHDYQOiWLamq/hyiGA5CYuNBSrM80yucVmSkq9Izlnw/uGEJb82HFbD3c
+	d/4FuY+2puAlZpx86PHqw2JgPkob6AYriUGORRsGAIIXQjzLH/8rdV8qS2cBy/kzlO9NRrkCsygds
+	JOuOj2igTb4eFb3eFqAomDiWBIYvEiZU59W29NLJnVUL5/Kqy2rHwLoKvx7wTjX0J8g9yaSlMcZiL
+	/PKJSn2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQRd-000000074zp-4Ai1;
-	Tue, 16 Sep 2025 07:49:46 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uyQUO-000000075Sy-0iLd;
+	Tue, 16 Sep 2025 07:52:36 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQRb-000000074yV-2Oec
+	id 1uyQUL-000000075SY-2YX8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 07:49:45 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58G3pefj013763
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:49:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=RD+ta9axnzkY+q3MqSd9MuBT
-	TuCWROaoN5jRYETLo/A=; b=I7buFBULgQ7+QkaIef/7yOl7UguC+gMEx0Ij5vpV
-	Noh/LrnFwwOJtcf+6VAhT1I2Ma+zWJ5wCa2mlpeKUR45GfzCFteXlkm2SZijoNlq
-	nmpN88Nh4gzW4+KseiaXIgZYmKOFP7QJAJyy4YBIdDWvVD3b4gMUP6NcIhH5TXoW
-	u8JDn90KmJjpKdF1eb+qLmBr0anruvwnCxQyEuyb30dOVfuA+BPqS97An+Ircd6L
-	iFwMRSscsmJETgBzzHdRdoGQF/eZVKMRv4q9fomluj5u6+KlMX+Y4yF7uvFZsUoB
-	SGmhn5kVGk4FPdg40H93BFbupKJHiJKzzeKJql3Cod/NDQ==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 496x5as1wb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:49:41 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b4f86568434so3899523a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 00:49:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758008979; x=1758613779;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RD+ta9axnzkY+q3MqSd9MuBTTuCWROaoN5jRYETLo/A=;
-        b=IKTKgfclWKT2tvqXyCc1YTuzL5ccdlzjS/Q8oH1bTJNuJOCT1ORNIr1h2yiUUhTWyf
-         gaJnD8ReK7u1hfu+c4AuUHW7C5SkB5F4nlH16Ub0rUVgrk66BHHg6dr/IvjdW3n3e5XC
-         iS8nZ1XyscvNCtCxw5koiZ3ZQX6b4vdy1IbSbhXg/yP34vqIl3FM+K5hKi51fMJmX8Bq
-         a8JN8vuYRxnSxUIMIX2m9ELUnBRPUbiI4qtSlX5W7own9SC6PnfGXHOPpvD6TkXpzrML
-         WHyau3pzrUT2SZLIz5mcWZTHgVb9Whsx09X1EiUR63wVVy9+fSxyWHc41QSrGoFkc8Lk
-         NK+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUYTCUY08mmbVxaGblRIDCwUuo0J8qJy1eymGzgNOuFEWzFdVeQIj1fV6Shqri81TO8M7a+UPXasaN6yn5nvCat@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzup82yuzMRMhb6lQKzQAUTdfZ5ZzHzIFTLLJIiDqpm/7OM4p8X
-	EQkHdmFTbLH0ApSIlWwbgWAKmR/AtGMom8k01NXI0PlrdZycBFZGy1raMdvCDn7PSoUdQ80xH7y
-	VKGMwAk0Z50Zgr+C4p1cb3JLGwjXyjWPu9cavGl043xb4Zn4IeZBHTvzqugSUhlTRXmPLIblZmQ
-	CGPA==
-X-Gm-Gg: ASbGnct4bUi94XqF7msvhrudLfwDPI1xzWUhqx6gOquemIx99UehnT395KgG2UfUWP6
-	xGAwdhHKvNSe2wpRQrGWu8GfWqbOyGusy7i01AWWD2I2W/giNsnFfQZ7vIaGsxXMX8jrWVzCXIG
-	RWrBaOEPpw++53TqI04S9qXNgYPm+7JbmEECIX8/T/HDYOnfuNDAdlJvh+iVPfN28A5OW4bmciD
-	5pnWdph7sPJTJBoQBiXccloEpa1GX7umykTDcu7xrTSu67OD781Q6xKXMeXziY5MvkNmz6FyL5L
-	KIFGSiQcMpcBf9i+TbKHDFMR6175FaTqtLlhz+sPXcPDOXsKX2yOmAF+ixCirfBMOGE=
-X-Received: by 2002:a05:6a20:258a:b0:249:d4b0:5b2c with SMTP id adf61e73a8af0-2602aa8a4d8mr21370482637.14.1758008979095;
-        Tue, 16 Sep 2025 00:49:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEwdeHuLtMjTN5imzmMBdIsYKSIeC/AVXoqz2e7UTSBmIIvssIp5vod3+KGhF2DpoYErJqm1A==
-X-Received: by 2002:a05:6a20:258a:b0:249:d4b0:5b2c with SMTP id adf61e73a8af0-2602aa8a4d8mr21370433637.14.1758008978380;
-        Tue, 16 Sep 2025 00:49:38 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7762c225d2asm9332136b3a.65.2025.09.16.00.49.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 00:49:38 -0700 (PDT)
-Date: Tue, 16 Sep 2025 13:19:29 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
-        pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net,
-        david@redhat.com, mhocko@suse.com, tudor.ambarus@linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
-        jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
-        devicetree@vger.kernel.org
-Subject: Re: [RFC][PATCH v3 00/16] Introduce kmemdump
-Message-ID: <20250916074929.xiait75tbnbyjt4c@hu-mojha-hyd.qualcomm.com>
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250912150855.2901211-1-eugen.hristev@linaro.org>
-X-Proofpoint-GUID: Ct920RegfR42fQ1BC_cQiAROtX0JYPgV
-X-Proofpoint-ORIG-GUID: Ct920RegfR42fQ1BC_cQiAROtX0JYPgV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDAxMCBTYWx0ZWRfXzHgL4uMB48iC
- xCdr38XnkTjMwWcUtpr54ZaPU5t9Oj1ISXsIT5pXauOlHS7knl2qq3vIes128jz7sejt8SfUFqS
- 0omXNf6DFKNdGOoyEHZahNFdn5V3LLCQgzEJfW5C3vdH7x+7hpkRAaZA2/ntzBQCLW2mVKGIltw
- +v6tx9hzaHXvaA0KmWEy5NJRNuXmeuAdbDSF0L/Jh6tntKfgj2E/nFIcPHvDXA1CQVIhtg7dNrV
- FuV3ael7c7tATDEcjzrF8j42vg9ecHdmYILLUnOVa0GDeBhMjtnCfX8+AbNtopxd5483kCOa6d1
- E0tN09H6bHuoO8ThXn05u4QAATwxGD4t6PS7yy+hfFL/U2LnXFC8+jDKedi536WGAVlaLNBK9bM
- 0TG5DvKj
-X-Authority-Analysis: v=2.4 cv=WpQrMcfv c=1 sm=1 tr=0 ts=68c91696 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=Oh2cFVv5AAAA:8 a=VwQbUJbxAAAA:8
- a=KKAkSRfTAAAA:8 a=vnREMb7VAAAA:8 a=COk6AnOGAAAA:8 a=bLXd17yOAAAA:8
- a=1XWaLZrsAAAA:8 a=349LBZSuyFQcu3wEsZwA:9 a=CjuIK1q_8ugA:10
- a=bFCP_H2QrGi7Okbo017w:22 a=7KeoIwV6GZqOttXkcoxL:22 a=cvBusfyB2V15izCimMoJ:22
- a=TjNXssC_j7lpFel5tvFf:22 a=XOuVWTVwyKTMzSnUH6Op:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 clxscore=1015 impostorscore=0
- priorityscore=1501 adultscore=0 phishscore=0 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509160010
+	Tue, 16 Sep 2025 07:52:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758009154; x=1789545154;
+  h=date:from:to:cc:subject:message-id;
+  bh=yfZiIl7whEU01ZOxFeWJHqpm8xGr1vcQL2Nf+ZT8Was=;
+  b=N+0gPdCk6Sxs1ZNx9TwgYZSufRxqNfICMVxloPvgKk4akGVmQergOPLJ
+   +2mH063DNUI2LHsNHN8VlpyqO15CwWZX5Quax7RTsxU8+q9fSgTRa/mmx
+   MnTeaUkmbHsnQsYxN0rG5hZn4O9aur1ErcOdo1EEckT3D1n3vbSe5JDWt
+   DgShnW93mildUpePPDQpUXu2sjvgFBuN04SA0xf9fV4/wp5gbtiGm/1KX
+   wAGNNRHiPZXPMvArNOXczl/WMWW3GxJJ9ytqiWKz0ai3h+F2/bh5HpPJ3
+   XUO0FEmtE4EXP9RQRkbomlRDdPPGSCDP1HOkIEtqhkis7iMQdUyDfPrfp
+   w==;
+X-CSE-ConnectionGUID: E1nIXhs4Rpa7nvaB4UyqHw==
+X-CSE-MsgGUID: ZfGJeK0OSLqk5gKb6ZRh9g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11554"; a="59325526"
+X-IronPort-AV: E=Sophos;i="6.18,268,1751266800"; 
+   d="scan'208";a="59325526"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 00:52:33 -0700
+X-CSE-ConnectionGUID: sDj72HkWRfSCZe5k20Jtmg==
+X-CSE-MsgGUID: eoMT0pCDT9uhpHboT44f1g==
+X-ExtLoop1: 1
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 16 Sep 2025 00:52:31 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uyQUH-00004x-2V;
+	Tue, 16 Sep 2025 07:52:29 +0000
+Date: Tue, 16 Sep 2025 15:51:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/arm] BUILD SUCCESS
+ 9685b2975972640a98f682462ea0741757c13294
+Message-ID: <202509161542.LDvsQbTt-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_004943_736768_820CD9BC 
-X-CRM114-Status: GOOD (  52.20  )
+X-CRM114-CacheID: sfid-20250916_005233_789540_794DB212 
+X-CRM114-Status: UNSURE (   5.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,284 +81,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 06:08:39PM +0300, Eugen Hristev wrote:
-> kmemdump is a mechanism which allows the kernel to mark specific memory
-> areas for dumping or specific backend usage.
-> Once regions are marked, kmemdump keeps an internal list with the regions
-> and registers them in the backend.
-> Further, depending on the backend driver, these regions can be dumped using
-> firmware or different hardware block.
-> Regions being marked beforehand, when the system is up and running, there
-> is no need nor dependency on a panic handler, or a working kernel that can
-> dump the debug information.
-> The kmemdump approach works when pstore, kdump, or another mechanism do not.
-> Pstore relies on persistent storage, a dedicated RAM area or flash, which
-> has the disadvantage of having the memory reserved all the time, or another
-> specific non volatile memory. Some devices cannot keep the RAM contents on
-> reboot so ramoops does not work. Some devices do not allow kexec to run
-> another kernel to debug the crashed one.
-> For such devices, that have another mechanism to help debugging, like
-> firmware, kmemdump is a viable solution.
-> 
-> kmemdump can create a core image, similar with /proc/vmcore, with only
-> the registered regions included. This can be loaded into crash tool/gdb and
-> analyzed.
-> To have this working, specific information from the kernel is registered,
-> and this is done at kmemdump init time, no need for the kmemdump user to
-> do anything.
-> 
-> This version of the kmemdump patch series includes two backend drivers:
-> one is the Qualcomm Minidump backend, and the other one is the Debug Kinfo
-> backend for Android devices, reworked from this source here:
-> https://android.googlesource.com/kernel/common/+/refs/heads/android-mainline/drivers/android/debug_kinfo.c
-> written originally by Jone Chou <jonechou@google.com>
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
+branch HEAD: 9685b2975972640a98f682462ea0741757c13294  ARM: mach-hpe: Rework support and directory structure
 
-+Adding some pstore experts to bring this to their attention if this can
-be followed and if they find it useful.
+elapsed time: 1038m
 
-Is not a good idea to add pstore as one of the backend of kmemdump so that all
-the kmemdump captured data automatically flow in a separate record(section) in
-pstore(e.g.,ram) so that all user of pstore automatically benefit from kmemdump
-captured data and later kmemdump section from ramoops can be recovered from
-userspace in next boot and crash utility can be run on that.
+configs tested: 222
+configs skipped: 5
 
-              kmemdump captured data
-                |
-       ---------------------
-       |                   |
-       V                   V
-   Vendors firmware      pstore(ram)
-    backend               backend
-    (minidump)
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    clang-22
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    clang-19
+arc                              allyesconfig    gcc-15.1.0
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20250916    clang-22
+arc                   randconfig-001-20250916    gcc-8.5.0
+arc                   randconfig-002-20250916    clang-22
+arc                   randconfig-002-20250916    gcc-8.5.0
+arc                           tb10x_defconfig    gcc-15.1.0
+arm                              allmodconfig    clang-19
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                              allyesconfig    gcc-15.1.0
+arm                                 defconfig    clang-19
+arm                            mmp2_defconfig    gcc-15.1.0
+arm                       netwinder_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250916    clang-22
+arm                   randconfig-001-20250916    gcc-11.5.0
+arm                   randconfig-002-20250916    clang-22
+arm                   randconfig-003-20250916    clang-22
+arm                   randconfig-003-20250916    gcc-12.5.0
+arm                   randconfig-004-20250916    clang-22
+arm                           sama7_defconfig    gcc-15.1.0
+arm                        spear6xx_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20250916    clang-18
+arm64                 randconfig-001-20250916    clang-22
+arm64                 randconfig-002-20250916    clang-22
+arm64                 randconfig-003-20250916    clang-22
+arm64                 randconfig-004-20250916    clang-22
+csky                              allnoconfig    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    clang-19
+csky                  randconfig-001-20250916    clang-22
+csky                  randconfig-001-20250916    gcc-14.3.0
+csky                  randconfig-002-20250916    clang-22
+csky                  randconfig-002-20250916    gcc-11.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20250916    clang-22
+hexagon               randconfig-002-20250916    clang-22
+i386                             allmodconfig    clang-20
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    clang-20
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    clang-20
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20250916    clang-20
+i386        buildonly-randconfig-001-20250916    gcc-14
+i386        buildonly-randconfig-002-20250916    clang-20
+i386        buildonly-randconfig-002-20250916    gcc-14
+i386        buildonly-randconfig-003-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    gcc-14
+i386        buildonly-randconfig-005-20250916    clang-20
+i386        buildonly-randconfig-005-20250916    gcc-14
+i386        buildonly-randconfig-006-20250916    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250916    clang-20
+i386                  randconfig-002-20250916    clang-20
+i386                  randconfig-003-20250916    clang-20
+i386                  randconfig-004-20250916    clang-20
+i386                  randconfig-005-20250916    clang-20
+i386                  randconfig-006-20250916    clang-20
+i386                  randconfig-007-20250916    clang-20
+i386                  randconfig-011-20250916    gcc-14
+i386                  randconfig-012-20250916    gcc-14
+i386                  randconfig-013-20250916    gcc-14
+i386                  randconfig-014-20250916    gcc-14
+i386                  randconfig-015-20250916    gcc-14
+i386                  randconfig-016-20250916    gcc-14
+i386                  randconfig-017-20250916    gcc-14
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20250916    clang-18
+loongarch             randconfig-001-20250916    clang-22
+loongarch             randconfig-002-20250916    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-11.5.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250916    clang-22
+nios2                 randconfig-001-20250916    gcc-11.5.0
+nios2                 randconfig-002-20250916    clang-22
+nios2                 randconfig-002-20250916    gcc-8.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-14
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250916    clang-22
+parisc                randconfig-001-20250916    gcc-9.5.0
+parisc                randconfig-002-20250916    clang-22
+parisc                randconfig-002-20250916    gcc-13.4.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc                          allyesconfig    gcc-15.1.0
+powerpc               randconfig-001-20250916    clang-16
+powerpc               randconfig-001-20250916    clang-22
+powerpc               randconfig-002-20250916    clang-22
+powerpc               randconfig-003-20250916    clang-22
+powerpc64             randconfig-001-20250916    clang-22
+powerpc64             randconfig-002-20250916    clang-22
+powerpc64             randconfig-002-20250916    gcc-8.5.0
+powerpc64             randconfig-003-20250916    clang-22
+riscv                            allmodconfig    clang-22
+riscv                            allmodconfig    gcc-15.1.0
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                            allyesconfig    gcc-15.1.0
+riscv                               defconfig    gcc-14
+riscv                 randconfig-001-20250916    clang-22
+riscv                 randconfig-001-20250916    gcc-15.1.0
+riscv                 randconfig-002-20250916    gcc-10.5.0
+riscv                 randconfig-002-20250916    gcc-15.1.0
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    gcc-14
+s390                  randconfig-001-20250916    gcc-13.4.0
+s390                  randconfig-001-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-8.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20250916    gcc-15.1.0
+sh                    randconfig-002-20250916    gcc-15.1.0
+sh                           se7619_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-8.5.0
+sparc                 randconfig-002-20250916    gcc-15.1.0
+sparc                 randconfig-002-20250916    gcc-8.5.0
+sparc                       sparc32_defconfig    gcc-15.1.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20250916    gcc-11.5.0
+sparc64               randconfig-001-20250916    gcc-15.1.0
+sparc64               randconfig-002-20250916    clang-22
+sparc64               randconfig-002-20250916    gcc-15.1.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                               allyesconfig    gcc-14
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20250916    gcc-14
+um                    randconfig-001-20250916    gcc-15.1.0
+um                    randconfig-002-20250916    clang-19
+um                    randconfig-002-20250916    gcc-15.1.0
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250916    clang-20
+x86_64      buildonly-randconfig-001-20250916    gcc-14
+x86_64      buildonly-randconfig-002-20250916    clang-20
+x86_64      buildonly-randconfig-003-20250916    clang-20
+x86_64      buildonly-randconfig-004-20250916    clang-20
+x86_64      buildonly-randconfig-005-20250916    clang-20
+x86_64      buildonly-randconfig-006-20250916    clang-20
+x86_64                              defconfig    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250916    clang-20
+x86_64                randconfig-002-20250916    clang-20
+x86_64                randconfig-003-20250916    clang-20
+x86_64                randconfig-004-20250916    clang-20
+x86_64                randconfig-005-20250916    clang-20
+x86_64                randconfig-006-20250916    clang-20
+x86_64                randconfig-007-20250916    clang-20
+x86_64                randconfig-008-20250916    clang-20
+x86_64                randconfig-071-20250916    gcc-14
+x86_64                randconfig-072-20250916    gcc-14
+x86_64                randconfig-073-20250916    gcc-14
+x86_64                randconfig-074-20250916    gcc-14
+x86_64                randconfig-075-20250916    gcc-14
+x86_64                randconfig-076-20250916    gcc-14
+x86_64                randconfig-077-20250916    gcc-14
+x86_64                randconfig-078-20250916    gcc-14
+x86_64                               rhel-9.4    clang-20
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-8.5.0
+xtensa                randconfig-002-20250916    gcc-15.1.0
+xtensa                randconfig-002-20250916    gcc-8.5.0
 
-Thanks,
--Mukesh
-
-> 
-> *** History, motivation and available online resources ***
-> 
-> Initial version of kmemdump and discussion is available here:
-> https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
-> 
-> Kmemdump has been presented and discussed at Linaro Connect 2025,
-> including motivation, scope, usability and feasability.
-> Video of the recording is available here for anyone interested:
-> https://www.youtube.com/watch?v=r4gII7MX9zQ&list=PLKZSArYQptsODycGiE0XZdVovzAwYNwtK&index=14
-> 
-> Linaro blog on kmemdump can be found here:
-> https://www.linaro.org/blog/introduction-to-kmemdump/
-> 
-> The implementation is based on the initial Pstore/directly mapped zones
-> published as an RFC here:
-> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
-> 
-> The back-end implementation for qcom_minidump is based on the minidump
-> patch series and driver written by Mukesh Ojha, thanks:
-> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
-> 
-> The RFC v2 version with .section creation and macro annotation kmemdump
-> is available here:
-> https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
-> 
-> *** How to use kmemdump with minidump backend on Qualcomm platform guide ***
-> 
-> Prerequisites:
-> Crash tool compiled with target=ARM64 and minor changes required for usual crash
-> mode (minimal mode works without the patch)
-> A patch can be applied from here https://p.calebs.dev/49a048
-> This patch will be eventually sent in a reworked way to crash tool.
-> 
-> Target kernel must be built with :
-> CONFIG_DEBUG_INFO_REDUCED=n ; this will have vmlinux include all the debugging
-> information needed for crash tool.
-> 
-> Also, the kernel requires these as well:
-> CONFIG_KMEMDUMP, CONFIG_KMEMDUMP_COREIMAGE, and the backend
-> CONFIG_KMEMDUMP_QCOM_MINIDUMP_BACKEND
-> 
-> Kernel arguments:
-> Kernel firmware must be set to mode 'mini' by kernel module parameter
-> like this : qcom_scm.download_mode=mini
-> 
-> After the kernel boots, and qcom_minidump module is loaded, everything is ready for
-> a possible crash.
-> 
-> Once the crash happens, the firmware will kick in and you will see on
-> the console the message saying Sahara init, etc, that the firmware is
-> waiting in download mode. (this is subject to firmware supporting this
-> mode, I am using sa8775p-ride board)
-> 
-> Example of log on the console:
-> "
-> [...]
-> B -   1096414 - usb: init start
-> B -   1100287 - usb: qusb_dci_platform , 0x19
-> B -   1105686 - usb: usb3phy: PRIM success: lane_A , 0x60
-> B -   1107455 - usb: usb2phy: PRIM success , 0x4
-> B -   1112670 - usb: dci, chgr_type_det_err
-> B -   1117154 - usb: ID:0x260, value: 0x4
-> B -   1121942 - usb: ID:0x108, value: 0x1d90
-> B -   1124992 - usb: timer_start , 0x4c4b40
-> B -   1129140 - usb: vbus_det_pm_unavail
-> B -   1133136 - usb: ID:0x252, value: 0x4
-> B -   1148874 - usb: SUPER , 0x900e
-> B -   1275510 - usb: SUPER , 0x900e
-> B -   1388970 - usb: ID:0x20d, value: 0x0
-> B -   1411113 - usb: ENUM success
-> B -   1411113 - Sahara Init
-> B -   1414285 - Sahara Open
-> "
-> 
-> Once the board is in download mode, you can use the qdl tool (I
-> personally use edl , have not tried qdl yet), to get all the regions as
-> separate files.
-> The tool from the host computer will list the regions in the order they
-> were downloaded.
-> 
-> Once you have all the files simply use `cat` to put them all together,
-> in the order of the indexes.
-> For my kernel config and setup, here is my cat command : (you can use a script
-> or something, I haven't done that so far):
-> 
-> `cat memory/md_KELF1.BIN memory/md_Kvmcorein2.BIN memory/md_Kconfig3.BIN \
-> memory/md_Kmemsect4.BIN memory/md_Ktotalram5.BIN memory/md_Kcpu_poss6.BIN \
-> memory/md_Kcpu_pres7.BIN memory/md_Kcpu_onli8.BIN memory/md_Kcpu_acti9.BIN \
-> memory/md_Kjiffies10.BIN memory/md_Klinux_ba11.BIN memory/md_Knr_threa12.BIN \
-> memory/md_Knr_irqs13.BIN memory/md_Ktainted_14.BIN memory/md_Ktaint_fl15.BIN \
-> memory/md_Kmem_sect16.BIN memory/md_Knode_dat17.BIN memory/md_Knode_sta18.BIN \
-> memory/md_K__per_cp19.BIN memory/md_Knr_swapf20.BIN memory/md_Kinit_uts21.BIN \
-> memory/md_Kprintk_r22.BIN memory/md_Kprintk_r23.BIN memory/md_Kprb24.BIN \
-> memory/md_Kprb_desc25.BIN memory/md_Kprb_info26.BIN memory/md_Kprb_data27.BIN \
-> memory/md_Krunqueue28.BIN memory/md_Khigh_mem29.BIN memory/md_Kinit_mm30.BIN \
-> memory/md_Kinit_mm_31.BIN memory/md_Kunknown32.BIN memory/md_Kunknown33.BIN \
-> memory/md_Kunknown34.BIN  memory/md_Kunknown35.BIN memory/md_Kunknown36.BIN \
-> memory/md_Kunknown37.BIN memory/md_Kunknown38.BIN memory/md_Kunknown39.BIN \
-> memory/md_Kunknown40.BIN memory/md_Kunknown41.BIN memory/md_Kunknown42.BIN \
-> memory/md_Kunknown43.BIN memory/md_Kunknown44.BIN memory/md_Kunknown45.BIN \
-> memory/md_Kunknown46.BIN memory/md_Kunknown49.BIN  memory/md_Kunknown50.BIN \
-> memory/md_Kunknown51.BIN > ~/minidump_image`
-> 
-> Once you have the resulted file, use `crash` tool to load it, like this:
-> `./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image`
-> 
-> There is also a --minimal mode for ./crash that would work without any patch applied
-> to crash tool, but you can't inspect symbols, etc.
-> 
-> Once you load crash you will see something like this :
-> 
->       KERNEL: /home/eugen/linux-minidump/vmlinux  [TAINTED]
->     DUMPFILE: /home/eugen/new
->         CPUS: 8 [OFFLINE: 5]
->         DATE: Thu Jan  1 02:00:00 EET 1970
->       UPTIME: 00:00:22
->        TASKS: 0
->     NODENAME: qemuarm64
->      RELEASE: 6.17.0-rc5-next-20250910-00020-g7dfa02aeae7e
->      VERSION: #116 SMP PREEMPT Thu Sep 11 18:28:06 EEST 2025
->      MACHINE: aarch64  (unknown Mhz)
->       MEMORY: 34.2 GB
->        PANIC: ""
-> crash> log
-> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4b2]
-> [    0.000000] Linux version 6.17.0-rc5-next-20250910-00020-g7dfa02aeae7e (eugen@eugen-station) (aarch64-none-linux-gnu-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614, GNU ld (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 2.42.0.20240614) #116 SMP PREEMPT Thu Sep 11 18:28:06 EEST 2025
-> 
-> 
-> *** Debug Kinfo backend driver ***
-> I don't have any device to actually test this. So I have not.
-> I hacked the driver to just use a kmalloc'ed area to save things instead
-> of the shared memory, and dumped everything there and checked whether it is identical
-> with what the downstream driver would have saved.
-> So this synthetic test passed and memories are identical.
-> Anyone who actually wants to test this, feel free to reply to the patch.
-> I have also written a simple DT binding for the driver.
-> 
-> Thanks for everyone reviewing and bringing ideas into the discussion.
-> 
-> Eugen
-> 
-> Changelog since the v2 of the RFC:
-> - V2 available here : https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
-> - Removed the .section as requested by David Hildenbrand.
-> - Moved all kmemdump registration(when possible) to vmcoreinfo.
-> - Because of this, some of the variables that I was registering had to be non-static
-> so I had to modify this as per David Hildenbrand suggestion.
-> - Fixed minor things in the Kinfo driver: one field was broken, fixed some
-> compiler warnings, fixed the copyright and remove some useless includes.
-> - Moved the whole kmemdump from drivers/debug into mm/ and Kconfigs into mm/Kconfig.debug
-> and it's now available in kernel hacking, as per Randy Dunlap review
-> - Reworked some of the Documentation as per review from Jon Corbet
-> 
-> 
-> Changelog since the v1 of the RFC:
-> - V1 available here: https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
-> - Reworked the whole minidump implementation based on suggestions from Thomas Gleixner.
-> This means new API, macros, new way to store the regions inside kmemdump
-> (ditched the IDR, moved to static allocation, have a static default backend, etc)
-> - Reworked qcom_minidump driver based on review from Bjorn Andersson
-> - Reworked printk log buffer registration based on review from Petr Mladek
-> 
-> I appologize if I missed any review comments. I know there is still lots of work
-> on this series and hope I will improve it more and more.
-> Patches are sent on top of next-20250910
-> 
-> Eugen Hristev (16):
->   kmemdump: Introduce kmemdump
->   Documentation: Add kmemdump
->   kmemdump: Add coreimage ELF layer
->   Documentation: kmemdump: Add section for coreimage ELF
->   kernel/vmcore_info: Register dynamic information into Kmemdump
->   kmemdump: Introduce qcom-minidump backend driver
->   soc: qcom: smem: Add minidump device
->   init/version: Add banner_len to save banner length
->   genirq/irqdesc: Have nr_irqs as non-static
->   panic: Have tainted_mask as non-static
->   mm/swapfile: Have nr_swapfiles as non-static
->   printk: Register information into Kmemdump
->   sched: Add sched_get_runqueues_area
->   kernel/vmcoreinfo: Register kmemdump core image information
->   kmemdump: Add Kinfo backend driver
->   dt-bindings: Add Google Kinfo
-> 
->  Documentation/dev-tools/index.rst             |   1 +
->  Documentation/dev-tools/kmemdump.rst          | 139 +++++++
->  .../bindings/misc/google,kinfo.yaml           |  36 ++
->  MAINTAINERS                                   |  19 +
->  drivers/soc/qcom/smem.c                       |  10 +
->  include/linux/kmemdump.h                      | 130 +++++++
->  include/linux/printk.h                        |   1 +
->  init/version-timestamp.c                      |   1 +
->  init/version.c                                |   1 +
->  kernel/irq/irqdesc.c                          |   2 +-
->  kernel/panic.c                                |   2 +-
->  kernel/printk/printk.c                        |  47 +++
->  kernel/sched/core.c                           |  15 +
->  kernel/sched/sched.h                          |   2 +
->  kernel/vmcore_info.c                          | 149 ++++++++
->  mm/Kconfig.debug                              |   2 +
->  mm/Makefile                                   |   1 +
->  mm/kmemdump/Kconfig.debug                     |  53 +++
->  mm/kmemdump/Makefile                          |   6 +
->  mm/kmemdump/kinfo.c                           | 293 +++++++++++++++
->  mm/kmemdump/kmemdump.c                        | 234 ++++++++++++
->  mm/kmemdump/kmemdump_coreimage.c              | 222 +++++++++++
->  mm/kmemdump/qcom_minidump.c                   | 353 ++++++++++++++++++
->  mm/swapfile.c                                 |   2 +-
->  24 files changed, 1718 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/dev-tools/kmemdump.rst
->  create mode 100644 Documentation/devicetree/bindings/misc/google,kinfo.yaml
->  create mode 100644 include/linux/kmemdump.h
->  create mode 100644 mm/kmemdump/Kconfig.debug
->  create mode 100644 mm/kmemdump/Makefile
->  create mode 100644 mm/kmemdump/kinfo.c
->  create mode 100644 mm/kmemdump/kmemdump.c
->  create mode 100644 mm/kmemdump/kmemdump_coreimage.c
->  create mode 100644 mm/kmemdump/qcom_minidump.c
-> 
-> -- 
-> 2.43.0
-> 
-
--- 
--Mukesh Ojha
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
