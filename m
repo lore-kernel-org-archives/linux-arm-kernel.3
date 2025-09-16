@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C668CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BC4CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXaqcsYENogvAnvlB2KNNelAI84J4RkeUSRS8e50eXg=; b=k69qTQPrEZwashXanqvBRVpHSZ
-	UN/8TY+eZZiVocOuXlDYY+ACk8ZLKKpD3dyTDALcjDBp1xCsD2DtG0MuxUEWMbj+Sv0uqA5k0k/il
-	HQz6aYPAn0tanPlKfr0gKGS6QPpaIBw202OsxHrEKG8wQG7c99UgwVj/FRQHhcWOd92Anhfx0td8O
-	aL5brgjvX3DOENjs7dwaXe2qm0aUI+ebbAZOI44E8VDqa90r5cPbTuXXhVMaDGPWHWigJvzsO4yaF
-	SQ02mENl6MAKbsR/eJM4LbxCoArve1D4gZHAyFvtsJr5I3m1OThAaWFkJmSIwxivQgd8G2Rs2kPXr
-	DbzdEczg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vRXpQ+ai9/C9GVrqSxycaxv2rci2qAx9tiiUc+HntzY=; b=g78T65TI6borRnDrAAET/W824+
+	utHFbPFwcMA9ATAc3brb0yPRwpFjCuZ3RNlH+ZM8W4xBpevIct+0q85+Qm3B9Jzp0wrycFYle4SQd
+	IC8E0tYve4U8bMoBAamD8QyTd3wUnyjmpHVcSYZKEOiGe+A910kcv58iAAGi8R6IKZLpQyflDeynV
+	MLaDvb3CASGu9YwhEOqTIONE//aa3BajqNuzRrhbWxytPJFYclcORoEEEp+9MEqrjbTw0z8+8NxLd
+	fdwYJOoWLIpqMt9nxlVXm4dlRbIObKIxoPsBYih8NWIuTioV1VG/R0qC8rcJdKLAWsDgtRRgAekvp
+	40VZMShQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyb1s-00000008pbA-0Vjo;
-	Tue, 16 Sep 2025 19:07:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uybCr-00000008qdv-0wDN;
+	Tue, 16 Sep 2025 19:19:13 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyb1p-00000008pZ4-0QAE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 19:07:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EXaqcsYENogvAnvlB2KNNelAI84J4RkeUSRS8e50eXg=; b=L0qSGYez+AX/bZrlmzh1BNLW0E
-	EtKNdzLn0IOSUqLJ95hkAkKr/WHGXbRVqtBgnw6ggf6aJDSJttdau3MVJyP/oD0PcpfSqDKX7qm0E
-	CVa8efe7MTJIwxmBA6mnF+ERrenn5O8SrFw7wUx2vWKbMVm/U76tRW8JqQwbgcR5PZts=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uyb1b-008bIv-HR; Tue, 16 Sep 2025 21:07:35 +0200
-Date: Tue, 16 Sep 2025 21:07:35 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rebecca Cran <rebecca@bsdio.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-Message-ID: <3f5e82ec-d96e-4258-b117-9876313f5402@lunn.ch>
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-3-rebecca@bsdio.com>
- <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
- <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
- <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
- <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
+	id 1uybCp-00000008qdU-0NZU;
+	Tue, 16 Sep 2025 19:19:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758050348;
+	bh=1FFIc0vpeVt9VXVXNY5ecNtYOj5Qrah6JBWoxuGwpiU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=le81Am8pWXav/+PnA7BenD+9p1jTZ8O5TlfigdH2DK3P0T01gKhEiPUn/40BeHwku
+	 FAjWOhdAq7QMrv1zw0LyRZInYVCxzM7N5/j3OUXXwwJaTlI/2uGTA9MjmGiiMc7KjA
+	 4zkmQc9I1Llcae/J3jlewZUSETGGKwWVX4hVSkkeLqKA+Gxwg8BNQyokK3H7skHxRZ
+	 AUURGbSbVGohTY6fGnDRLB0894KYq7WknX9Dj/lcCzkImUzJ2lCaCsHW4YPZ8MnlwO
+	 x314oe3Bm6ErLiVJGUZqPXiDNSko0cG3uHAo2QPqLnKixHsYD7VN/0hkYJDRuAlytb
+	 UoxX7+B0EJuVg==
+Received: from [IPV6:2a05:1141:1fb:db00:1bb0:aff4:8ef4:466] (unknown [IPv6:2a05:1141:1fb:db00:1bb0:aff4:8ef4:466])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6643017E12AE;
+	Tue, 16 Sep 2025 21:19:07 +0200 (CEST)
+Message-ID: <ead8edf7-6ae3-46ab-ba3a-4b354e0491f7@collabora.com>
+Date: Tue, 16 Sep 2025 21:19:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 06/13] media: rockchip: add a driver for the rockchip
+ camera interface
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Mehdi Djait <mehdi.djait@bootlin.com>
+References: <20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com>
+ <20240220-rk3568-vicap-v10-6-62d8a7b209b4@collabora.com>
+ <3b4173cb-655d-48ea-b86a-a036f666cf40@linaro.org>
+ <23ccc744-745d-4a31-a79c-2d64bf1ed43d@collabora.com>
+ <82f447d1-89ae-450f-813e-02c3d8228895@linaro.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <82f447d1-89ae-450f-813e-02c3d8228895@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_120749_137457_9B26FA4A 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20250916_121911_287155_D09488B6 
+X-CRM114-Status: GOOD (  45.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +99,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 12:40:15PM -0600, Rebecca Cran wrote:
-> On 9/15/25 18:37, Andrew Lunn wrote:
+Hi Bryan,
+
+On 8/28/25 16:08, Bryan O'Donoghue wrote:
+> On 28/08/2025 12:03, Michael Riesch wrote:
+>> Hi Bryan,
+>>
+>> Thanks for your comments :-)
+>>
+>> On 8/26/25 08:21, Bryan O'Donoghue wrote:
+>>> On 19/08/2025 00:25, Michael Riesch via B4 Relay wrote:
+>>
+>> [...]
+>>
+>>>> +
+>>>> +static void rkcif_dvp_stop_streaming(struct rkcif_stream *stream)
+>>>> +{
+>>>> +    struct rkcif_device *rkcif = stream->rkcif;
+>>>> +    u32 val;
+>>>> +
+>>>> +    val = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
+>>>
+>>> This dvp_read stuff looks a bit funny to me, you have a lookup which can
+>>> return 0 for unknown registers.
+>>>
+>>> Probably not the case with a control register like this one but, for
+>>> argument sake if RKCIF_DVP_CTRL was not a valid register i.e.
+>>> rkcif_dvp_read() would return 0 and you'd still act on that data to
+>>> write back to an unkown register.
+>>
+>> ...which would then hit the same check in rkcif_dvp_write and simply
+>> return without writing anything. Also, the WARN_ON_ONCE in the lookup
+>> would complain and indicate that the driver developer made some mistake.
+>> I hope that the driver developer is thus nudged towards fixing the code
+>> they wrote.
+>>
+>>> Would you not be better off having say callbacks to contain cases where
+>>> registers are potentially not present
+>>>
+>>> ops->update_maybe_not_present_reg();
+>>>
+>>> followed by writes to registers that would alawys be there ?
+>>
+>> I'll think about that in more detail, but right now my thoughts are that
+>> if any of the registers below are not valid, this piece of hardware is
+>> pretty useless and there is something rotten in the driver. Thus, we
+>> complain loudly to the developer.
+> The developer is you though :)
 > 
-> > And does it have a PHY? On an MDIO bus? Unless i'm mistaken, you don't
-> > describe the PHY, a phy-handle pointing to the PHY, and don't have
-> > phy-mode = 'rgmii-id'.
+> Anyway seems a bit weird to me to return invalid registers, you trust
+> yourself right ?
+
+First of all: no, not one bit :-)
+
+But really this is just the consequence of having a lookup table (and we
+need this to account for the different variants). There is a chance that
+some invalid value comes along, and this assertion should warn about it,
+even if the chances of that happening are small.
+
+If we converted everything to HW variant specific callbacks, we would
+check whether the callback was NULL, right? Maybe consider this validity
+check as pendant to that.
+
+I gave this some thought as promised, but I still feel that looking up
+the register values but having the same code is more readable than
+having callbacks with the same code in principle but with different
+define names.
+
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
+>>>> +            val & (~RKCIF_CTRL_ENABLE_CAPTURE));
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTEN, 0x0);
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT, 0x3ff);
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_FRAME_STATUS, 0x0);
+>>>> +
+>>>> +    stream->stopping = false;
+>>>> +}
+>>>> +
+>>>> +static void rkcif_dvp_reset_stream(struct rkcif_device *rkcif)
+>>>> +{
+>>>> +    u32 ctl = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
+>>>> +
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
+>>>> +            ctl & (~RKCIF_CTRL_ENABLE_CAPTURE));
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL, ctl |
+>>>> RKCIF_CTRL_ENABLE_CAPTURE);
+>>>> +}
+>>>> +
+>>>> +static void rkcif_dvp_set_crop(struct rkcif_stream *stream, u16 left,
+>>>> u16 top)
+>>>> +{
+>>>> +    struct rkcif_device *rkcif = stream->rkcif;
+>>>> +    u32 val;
+>>>> +
+>>>> +    val = RKCIF_XY_COORD(left, top);
+>>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CROP, val);
+>>>> +}
+>>>> +
+>>>> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
+>>>> +{
+>>>> +    struct device *dev = ctx;
+>>>> +    struct rkcif_device *rkcif = dev_get_drvdata(dev);
+>>>> +    struct rkcif_stream *stream;
+>>>> +    u32 intstat, lastline, lastpix, cif_frmst;
+>>>> +    irqreturn_t ret = IRQ_NONE;
+>>>> +
+>>>> +    if (!rkcif->match_data->dvp)
+>>>> +        return ret;
+>>>
+>>> Wouldn't you be better off conditionally registering your ISR if
+>>> match_data->dvp is true instead ?
+>>
+>> As you have surely seen, the ISR is shared between all interfaces, i.e.,
+>> DVP and MIPI. Now the currently supported models all have a DVP and your
+>> suggestion would work. However, I think the RK3562 VICAP can be easily
+>> supported by this driver but does not feature a DVP (several MIPI
+>> interfaces, though). In this case match_data->dvp evaluates to false but
+>> still there is the need to register the ISR.
 > 
-> I've been trying to figure this out. Yes, it's connected to a PHY (an
-> RTL8211E).
+> Why not have separate ISRs then with shared code calling into a function ?
 > 
-> At the moment it's being detected by OpenBMC as:
+> An ISR in my mind should fire for hardware we have a clear idea about
+> and only do so in exceptional (pun intended) circumstances.
 > 
-> ftgmac100 1e680000.ethernet: Read MAC address 9c:6b:00:43:0b:bd from device
-> tree
-> RTL8211E Gigabit Ethernet 1e680000.ethernet--1:00: attached PHY driver
+> So I'd suggest two ISRs calling into whatever shared code you deem
+> necessary as opposed to NULL checking in your ISR.
 
-So what is probably happening is that the ftgmac100 is creating an
-MDIO bus. It does not matter if there is no node for it, it still
-creates the bus, and the PHYs on the bus are found. You should be able
-to see this in /sys/class/mdio_bus/. Then, since there is no
-phy-handle, it uses phy_find_first() to find the first PHY on the bus,
-and binds to that.
+I could imagine some nice code that calls devm_request_irq() several
+times with different callbacks, but that would be for the same IRQ, as
+there is exactly one hardware interrupt line for the VICAP including its
+IOMMU.
 
-Now, it looks like all other aspeed-g5 boards also don't link to the
-PHY. But the driver does seem to support adding an 'mdio' node within
-the ethernet node, and listing the PHYs. Something like:
+The devm_request_irq() calls would be moved to rkcif_capture_{mipi,dvp}
+then and the base interface struct underneath the respective MIPI or DVP
+interface will be passed as argument to the ISR callback.
 
-       mdio {
-                #address-cells = <1>;
-                #size-cells = <0>;
+Are you sure that we'll want to call devm_request_irq() several times
+for the very same HW IRQ?
 
-                ethphy0: ethernet-phy@0 {
-                        reg = <0>;
-                };
-        };
+>>>> +
+>>>> +    intstat = rkcif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
+>>>> +    cif_frmst = rkcif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
+>>>> +    lastline = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif,
+>>>> RKCIF_DVP_LAST_LINE));
+>>>> +    lastpix = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif,
+>>>> RKCIF_DVP_LAST_PIX));
+>>>> +
+>>>> +    if (intstat & RKCIF_INTSTAT_FRAME_END) {
+>>>> +        rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
+>>>> +                RKCIF_INTSTAT_FRAME_END_CLR |
+>>>> +                RKCIF_INTSTAT_LINE_END_CLR);
+>>>> +
+>>>> +        stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
+>>>> +
+>>>> +        if (stream->stopping) {
+>>>> +            rkcif_dvp_stop_streaming(stream);
+>>>> +            wake_up(&stream->wq_stopped);
+>>>> +            ret = IRQ_HANDLED;
+>>>> +            goto out;
+>>>> +        }
+>>>> +
+>>>> +        if (lastline != stream->pix.height) {
+>>>> +            v4l2_err(&rkcif->v4l2_dev,
+>>>> +                 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
+>>>> +                 intstat, cif_frmst, lastpix, lastline);
+>>>> +
+>>>> +            rkcif_dvp_reset_stream(rkcif);
+>>>> +        }
+>>>> +
+>>>> +        rkcif_stream_pingpong(stream);
+>>>> +
+>>>> +        ret = IRQ_HANDLED;
+>>>> +    }
+>>>> +out:
+>>>> +    return ret;
+>>>> +}
+>>>> +
+>>>> +int rkcif_dvp_register(struct rkcif_device *rkcif)
+>>>> +{
+>>>> +    struct rkcif_interface *interface;
+>>>> +    unsigned int streams_num;
+>>>> +    int ret;
+>>>> +
+>>>> +    if (!rkcif->match_data->dvp)
+>>>> +        return 0;
+>>>
+>>> If you don't register the device when match_data->dvp is false, then I
+>>> think you can relax the carry-on checks elsewhere on match_data->dvp,
+>>> not including dvp_unregister
+>>
+>> +1 I'll review all instances of this check.
+>>
+>>> The rest of the file as I breifly skim it looks OK to me, its a bit big
+>>> though.
+>>>
+>>> Would it be possible to break this patch up a little bit ? Might make it
+>>> easier for other reviewers to give an SoB for smaller chunks.
+>>
+>> I suppose what I could do is split this up into five patches, as the
+>> commit message already outlines:
+>>
+>> 1) add a basic driver (no-op skeleton only)
+>> 2) abstraction for the ping-pong scheme to allow for future extensions
+>> 3) abstraction for the INTERFACE and CROP parts to allow for future
+>>     extensions
+>> 4) support for the PX30 VIP
+>> 5) support for the RK3568 VICAP DVP
+>>
+>> Please note that in this case I would rework the patch for a final
+>> (this-time-really-final) time and drop this elaborate co-developed-by
+>> list, as the patch in question will then have nothing to do it all with
+>> anything what was before v2 of this series.
+> 
+> I'll leave that up to you, I'll still review your v11 but, a slightly
+> smaller single patch to digest would be appreciated.
 
-And then you can add a phy-handle to point to it.
+Working on that.
 
-Then the question is, did Aspeed mess up the RGMII delays for g5? You
-can try phy-mode = 'rgmii-id' and see if it works.
+Thanks and best regards,
+Michael
 
-    Andrew
+> 
+> ---
+> bod
+
 
