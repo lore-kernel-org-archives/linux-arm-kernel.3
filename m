@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70209CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8478CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XF3T4nBs0sA1ZYhwUsQTaa5y0TGq1rpcYRNrh7Ts0IU=; b=t7s3Q7YsElAoId0lSCVkVowab+
-	EfsFcPB1gzpl27aYVy8GaTB/T9DyEAzYDYNt36RHNuriD4/91JdTNULmzOCYaM5vnMN+1U4L0xkft
-	Izz8fOSz+m6LsdVhYhI3bLqzcy/gzQJvoD+e4jjl2C2uk29HDopI+LIPiKKhP4B0bLi+dXJCKF9pE
-	vo34oiRHgpBGteB6/o+MLIS87OYYuHJAWJhcybWAa24zjbNhtn6YruDT/XO0Uh5XUa/eEi4SUjKha
-	Gt6xdK8WofsKIWxAeUaWyc1Yv+p8b/Z6IRiKlgWom8+XFt2OT+soQc8vymQsHjAQPvKNmEEryDlPJ
-	VaikSR0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VcQ9Kkvp7wJHbQ0OytGHIFHVlqo7H5eGp53JOfIqSKs=; b=Qr+GoFd3yWNeaU/gUbibu+A5Nf
+	Rcr8HWR1fhIbj7QQLxS3xsiYdcn9XddxA0mP4zXl85lPvrQ3Q8Is+aeeUo11M5XwcG1Qr6GRlRuw9
+	kdS6feTuaWKn2g4UDSqL/MhusmpD7PDyNBqLjQX/7cNWkm6lixeCKKQ1LWKDRidYJOPnYizUo2YC0
+	pFdBEadPVd2gujrf/r+b148C8PxE7F7o9RrZY+Os8GZ7EBCA4RyR0FQeGnQMQg399Su0HBTvDLLdu
+	AIEv21RrAyI7oDRac74CC+xzg1Xm60+3OJK3x7LUb5f5aByVdxvARZKwcrIItg782DNkG/KV6qk6x
+	Fm+xGVdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySIu-00000007R6d-0Im9;
-	Tue, 16 Sep 2025 09:48:52 +0000
-Received: from mail-m49218.qiye.163.com ([45.254.49.218])
+	id 1uySUU-00000007S6u-45Vt;
+	Tue, 16 Sep 2025 10:00:50 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySIq-00000007R4j-0SrW;
-	Tue, 16 Sep 2025 09:48:49 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 22fa8c585;
-	Tue, 16 Sep 2025 17:48:42 +0800 (GMT+08:00)
-Message-ID: <0884990e-f349-49d5-804a-932125aca1cf@rock-chips.com>
-Date: Tue, 16 Sep 2025 17:48:41 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable DisplayPort for rk3588-evb2
-To: Quentin Schulz <quentin.schulz@cherry.de>, Chaoyi Chen
- <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
- FUKAUMI Naoki <naoki@radxa.com>, Jonas Karlman <jonas@kwiboo.se>,
- Peter Robinson <pbrobinson@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250916080802.125-1-kernel@airkyi.com>
- <50379c05-c8b7-4858-98ff-da7ebdc06863@cherry.de>
- <352856bb-76b6-4861-8a3f-80f94f7c7375@rock-chips.com>
- <72ddffd6-bd8f-418e-996d-70267d3ca7e4@cherry.de>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <72ddffd6-bd8f-418e-996d-70267d3ca7e4@cherry.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9951ed2ff003abkunm32f498e5d8bb91
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkNLTFZISUNDGh4eGUtLHxhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=R9/jhyaeiQNQfJtgCzehtt6RrRPLqn6tbG2q1oPYRF3wo6bnDdF36Zxb4k5z6khktrTZLIFBnpCb33wggPZkrqH7hg2ZckvlgacvyM9Silxk8STtUYD5H4b8htgOWTDhKQQPnEhufVsdA2F9Xfe9uApvqMsdKZwHSQN9WyGYt9w=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=XF3T4nBs0sA1ZYhwUsQTaa5y0TGq1rpcYRNrh7Ts0IU=;
-	h=date:mime-version:subject:message-id:from;
+	id 1uySUR-00000007S6G-3woY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 10:00:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758016848; x=1789552848;
+  h=date:from:to:cc:subject:message-id;
+  bh=g4gnqJ6giM7+Rn2CNt2oBJYGRPY/7iQH1Y0PfFtSbyM=;
+  b=i6RhtObFip875n+c7d81c5keXSISVbUScYhnKKU1868P/rjrlcXaQOw6
+   XINokNf6jFy43DVt/rdP8JuAaAttMZ9j0BUdUri5Argrw4UfIHckosBgi
+   NM+4sOwrtjM00DGNCTGxmLFqO8KSQu6fnxqiw5D0MVAtdAcOjRsbLPBzl
+   zRRYuG21jhgOz4oi5kmmseuDNiLyS41rt+bCknLhu5Qxl5Nk9+TeCY9Ma
+   MWh4a2gtHExq5tMQX/qKK/EEWBWwmiZ3yabBKRncEpeK/dheEE1qr/m5u
+   4Qo7LOLtxyzIrYof5auERVKjls+wwqH/qTatYmjaNJVXVRX1gejsWj4lI
+   Q==;
+X-CSE-ConnectionGUID: SAI6LXI6SuOfb/aSnP30aw==
+X-CSE-MsgGUID: Pg/FZ9lzSbC56vLbewA0HQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11554"; a="59336449"
+X-IronPort-AV: E=Sophos;i="6.18,268,1751266800"; 
+   d="scan'208";a="59336449"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 03:00:47 -0700
+X-CSE-ConnectionGUID: 62IIbxN3TcSlreZ88sVkSA==
+X-CSE-MsgGUID: BMllTFo4Rv2CkvCpTSISsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,268,1751266800"; 
+   d="scan'208";a="174452797"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 16 Sep 2025 03:00:45 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uySUM-0000Ar-1v;
+	Tue, 16 Sep 2025 10:00:42 +0000
+Date: Tue, 16 Sep 2025 18:00:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:drivers/optee] BUILD SUCCESS
+ dbc2868b7b57fb4caa8e44a69e882dcf8e8d59bf
+Message-ID: <202509161802.XKPlqwuY-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_024848_681583_B2714D26 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20250916_030048_016471_553AA580 
+X-CRM114-Status: UNSURE (   5.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,109 +83,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/16/2025 5:24 PM, Quentin Schulz wrote:
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git drivers/optee
+branch HEAD: dbc2868b7b57fb4caa8e44a69e882dcf8e8d59bf  optee: smc abi: dynamic protected memory allocation
 
-> On 9/16/25 11:18 AM, Chaoyi Chen wrote:
->> Hi Quentin,
->>
->> On 9/16/2025 4:41 PM, Quentin Schulz wrote:
->>> Hi Chaoyi Chen,
->>>
->>> On 9/16/25 10:08 AM, Chaoyi Chen wrote:
->>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>
->>>> The rk3588 evb2 board has a full size DisplayPort connector, enable
->>>> for it.
->>>>
->>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>> ---
->>>>   .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 39 +++++++++++++++++++
->>>>   1 file changed, 39 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts b/arch/ arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->>>> index 91fe810d38d8..0e5af61f66fe 100644
->>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->>>> @@ -25,6 +25,18 @@ chosen {
->>>>           stdout-path = "serial2:1500000n8";
->>>>       };
->>>>   +    dp-con {
->>>> +        compatible = "dp-connector";
->>>> +        label = "DP OUT";
->>>> +        type = "full size";
->>>
->>> This isn't valid according to the dt binding. It should be "full-size" instead.
->>
->> Will fix in v2.
->>
->>
->>>
->>>> +
->>>> +        port {
->>>> +            dp_con_in: endpoint {
->>>> +                remote-endpoint = <&dp0_out_con>;
->>>> +            };
->>>> +        };
->>>> +    };
->>>> +
->>>>       hdmi-con {
->>>>           compatible = "hdmi-connector";
->>>>           type = "a";
->>>> @@ -106,6 +118,24 @@ vcc5v0_usbdcin: regulator-vcc5v0-usbdcin {
->>>>       };
->>>>   };
->>>>   +&dp0 {
->>>> +    pinctrl-0 = <&dp0m0_pins>;
->>>> +    pinctrl-names = "default";
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>> +&dp0_in {
->>>> +    dp0_in_vp2: endpoint {
->>>> +        remote-endpoint = <&vp2_out_dp0>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&dp0_out {
->>>> +    dp0_out_con: endpoint {
->>>> +        remote-endpoint = <&dp_con_in>;
->>>> +    };
->>>> +};
->>>> +
->>>>   &gpu {
->>>>       mali-supply = <&vdd_gpu_s0>;
->>>>       sram-supply = <&vdd_gpu_mem_s0>;
->>>> @@ -916,6 +946,8 @@ &usb_host1_xhci {
->>>>   };
->>>>     &vop {
->>>> +    assigned-clocks = <&cru DCLK_VOP2_SRC>;
->>>> +    assigned-clock-parents = <&cru PLL_V0PLL>;
->>>
->>> This is surprising, the only other board which has the DP0 enabled (the CoolPi 4B) doesn't set these two.
->>>
->>> Does HDMI still work as well as it used to with these new properties? Why are those needed? Some context in the commit log or as a comment in the DT would be most welcome!
->>
->> Yes, HDMI and DP can work normally whether these new properties removed or not.
->>
->> The key point is that when using V0PLL, we can get more usable resolution because DP requires a precise clock. If V0PLL is not explicitly specified here, then dclk_vop2 (VP2) may be divided down on GPLL, CPLL, etc. In this case, only a few frequency points are available. In my case, when V0PLL is not used, only resolutions such as 1024x768 and 640x480 are available.
+elapsed time: 1169m
 
-Oh! This is because GPLL was not initialized to the correct frequency during the U-Boot stage. It should support typical frequencies such as 1080P (148.5M), 4K (594M) .
+configs tested: 237
+configs skipped: 6
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
->>
->> For HDMI, I think it will use clk_hdmiphy_pixel0/1 as clock parent which is provided by the HDMI PHY when it work on TMDS mode so that we don't need to set it .
->>
->
-> Considering the clocks are all internal to the SoC, shouldn't all you have explained be applicable to the CoolPi 4B too (and other boards with DP)? I'm trying to understand if we should add something similar to CoolPi 4B DTS as well?
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    clang-22
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    clang-19
+arc                              allyesconfig    gcc-15.1.0
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20250916    clang-22
+arc                   randconfig-001-20250916    gcc-8.5.0
+arc                   randconfig-002-20250916    clang-22
+arc                   randconfig-002-20250916    gcc-8.5.0
+arc                           tb10x_defconfig    gcc-15.1.0
+arm                              allmodconfig    clang-19
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                              allyesconfig    gcc-15.1.0
+arm                                 defconfig    clang-19
+arm                            mmp2_defconfig    gcc-15.1.0
+arm                       netwinder_defconfig    gcc-15.1.0
+arm                          pxa910_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250916    clang-22
+arm                   randconfig-001-20250916    gcc-11.5.0
+arm                   randconfig-002-20250916    clang-22
+arm                   randconfig-003-20250916    clang-22
+arm                   randconfig-003-20250916    gcc-12.5.0
+arm                   randconfig-004-20250916    clang-22
+arm                           sama7_defconfig    gcc-15.1.0
+arm                        spear6xx_defconfig    gcc-15.1.0
+arm                         wpcm450_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20250916    clang-18
+arm64                 randconfig-001-20250916    clang-22
+arm64                 randconfig-002-20250916    clang-22
+arm64                 randconfig-003-20250916    clang-22
+arm64                 randconfig-004-20250916    clang-22
+csky                              allnoconfig    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    clang-19
+csky                  randconfig-001-20250916    clang-22
+csky                  randconfig-001-20250916    gcc-14.3.0
+csky                  randconfig-002-20250916    clang-22
+csky                  randconfig-002-20250916    gcc-11.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20250916    clang-22
+hexagon               randconfig-002-20250916    clang-22
+i386                             allmodconfig    clang-20
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    clang-20
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    clang-20
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20250916    clang-20
+i386        buildonly-randconfig-001-20250916    gcc-14
+i386        buildonly-randconfig-002-20250916    clang-20
+i386        buildonly-randconfig-002-20250916    gcc-14
+i386        buildonly-randconfig-003-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    gcc-14
+i386        buildonly-randconfig-005-20250916    clang-20
+i386        buildonly-randconfig-005-20250916    gcc-14
+i386        buildonly-randconfig-006-20250916    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250916    clang-20
+i386                  randconfig-002-20250916    clang-20
+i386                  randconfig-003-20250916    clang-20
+i386                  randconfig-004-20250916    clang-20
+i386                  randconfig-005-20250916    clang-20
+i386                  randconfig-006-20250916    clang-20
+i386                  randconfig-007-20250916    clang-20
+i386                  randconfig-011-20250916    gcc-14
+i386                  randconfig-012-20250916    gcc-14
+i386                  randconfig-013-20250916    gcc-14
+i386                  randconfig-014-20250916    gcc-14
+i386                  randconfig-015-20250916    gcc-14
+i386                  randconfig-016-20250916    gcc-14
+i386                  randconfig-017-20250916    gcc-14
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20250916    clang-18
+loongarch             randconfig-001-20250916    clang-22
+loongarch             randconfig-002-20250916    clang-22
+m68k                             allmodconfig    clang-19
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    clang-19
+m68k                             allyesconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+m68k                            q40_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    clang-19
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                          eyeq5_defconfig    gcc-15.1.0
+mips                           ip32_defconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250916    clang-22
+nios2                 randconfig-001-20250916    gcc-11.5.0
+nios2                 randconfig-002-20250916    clang-22
+nios2                 randconfig-002-20250916    gcc-8.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-14
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250916    clang-22
+parisc                randconfig-001-20250916    gcc-9.5.0
+parisc                randconfig-002-20250916    clang-22
+parisc                randconfig-002-20250916    gcc-13.4.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc                          allyesconfig    gcc-15.1.0
+powerpc               randconfig-001-20250916    clang-16
+powerpc               randconfig-001-20250916    clang-22
+powerpc               randconfig-002-20250916    clang-22
+powerpc               randconfig-003-20250916    clang-22
+powerpc64             randconfig-001-20250916    clang-22
+powerpc64             randconfig-002-20250916    clang-22
+powerpc64             randconfig-002-20250916    gcc-8.5.0
+powerpc64             randconfig-003-20250916    clang-22
+riscv                            allmodconfig    clang-22
+riscv                            allmodconfig    gcc-15.1.0
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                            allyesconfig    gcc-15.1.0
+riscv                               defconfig    gcc-14
+riscv                 randconfig-001-20250916    clang-22
+riscv                 randconfig-001-20250916    gcc-15.1.0
+riscv                 randconfig-002-20250916    gcc-10.5.0
+riscv                 randconfig-002-20250916    gcc-15.1.0
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                          debug_defconfig    gcc-15.1.0
+s390                                defconfig    gcc-14
+s390                  randconfig-001-20250916    gcc-13.4.0
+s390                  randconfig-001-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-8.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20250916    gcc-15.1.0
+sh                    randconfig-002-20250916    gcc-15.1.0
+sh                           se7619_defconfig    gcc-15.1.0
+sh                           se7721_defconfig    gcc-15.1.0
+sparc                            alldefconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-8.5.0
+sparc                 randconfig-002-20250916    gcc-15.1.0
+sparc                 randconfig-002-20250916    gcc-8.5.0
+sparc                       sparc32_defconfig    gcc-15.1.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20250916    gcc-11.5.0
+sparc64               randconfig-001-20250916    gcc-15.1.0
+sparc64               randconfig-002-20250916    clang-22
+sparc64               randconfig-002-20250916    gcc-15.1.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                               allyesconfig    gcc-14
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20250916    gcc-14
+um                    randconfig-001-20250916    gcc-15.1.0
+um                    randconfig-002-20250916    clang-19
+um                    randconfig-002-20250916    gcc-15.1.0
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250916    clang-20
+x86_64      buildonly-randconfig-001-20250916    gcc-14
+x86_64      buildonly-randconfig-002-20250916    clang-20
+x86_64      buildonly-randconfig-003-20250916    clang-20
+x86_64      buildonly-randconfig-004-20250916    clang-20
+x86_64      buildonly-randconfig-005-20250916    clang-20
+x86_64      buildonly-randconfig-006-20250916    clang-20
+x86_64                              defconfig    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250916    clang-20
+x86_64                randconfig-002-20250916    clang-20
+x86_64                randconfig-003-20250916    clang-20
+x86_64                randconfig-004-20250916    clang-20
+x86_64                randconfig-005-20250916    clang-20
+x86_64                randconfig-006-20250916    clang-20
+x86_64                randconfig-007-20250916    clang-20
+x86_64                randconfig-008-20250916    clang-20
+x86_64                randconfig-071-20250916    gcc-14
+x86_64                randconfig-072-20250916    gcc-14
+x86_64                randconfig-073-20250916    gcc-14
+x86_64                randconfig-074-20250916    gcc-14
+x86_64                randconfig-075-20250916    gcc-14
+x86_64                randconfig-076-20250916    gcc-14
+x86_64                randconfig-077-20250916    gcc-14
+x86_64                randconfig-078-20250916    gcc-14
+x86_64                               rhel-9.4    clang-20
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-8.5.0
+xtensa                randconfig-002-20250916    gcc-15.1.0
+xtensa                randconfig-002-20250916    gcc-8.5.0
 
-Yes, I think this modification is necessary because some resolutions use special frequencies.
-
-
->
-> @Andy, you're the one who added support for DP to CoolPi 4B, without these properties, is there something we need to do there as well?
->
-> Thanks!
-> Quentin
->
->
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
