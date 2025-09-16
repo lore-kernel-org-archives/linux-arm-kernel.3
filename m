@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F9CCAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42FECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/IOeD97cZw/3AOz9Imf61cpUjU5FhFJdO7o24LfTip0=; b=DHLA1PuUm1swJ3r9CTt5JO5BQ2
-	EMO21A7kvGcIo7Y0wMbr5fvPgu6MmgU+FQyUwuFzLlR/dgbi99uZPMSOj7gb2IpPCwIfqPvsWrMlE
-	b1BYYRsy5A5Bj9lcrIzEmU7ZPQgBNUfFHSsoyKj+WoePu/rkmXVIibuABvuVztUjXSHS4o7JO0zH/
-	5UQCd3ctyErcC7P5zjqYP8I8NNcw9Y4uGRHN1z0izZ/3z2dxm3Qq+RI0WXlvWkt8Z4XvV85xFPAvW
-	R8Y37I7wvG+KrkMzZ+6jtrxwf/di4hQXRoIXl3QvLbx0Ya36hj7pmpjMUejkuy9uuGt6DlLi9rbed
-	TMt1bl2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=WUsWTxv9x3szy/TD1PlDIKZNvF
+	JTZqRDMmVsd1CHWHjD4HAo9V+wgT0Z7WqEuY5zkxq1ett0Q6u14aqBO9gCWBI6/bs7aMH0BiJ3E0i
+	830Rh9P6pylvyNUIUDZBfWEPXzdxk5SdffFrrI+6UjpjDbwnvhBA0xM5XeIcubd3h4Vn1uuoC2P5+
+	VtDifoEeR7IgBmzF0JOLmZY+cJmMs+Zsrzbb5wjNmtj3UvkIWUO/05HqDGEVuANtZxcFO/LwlSVtm
+	Na6v1elU3SgrNHjJhuplou48P2Fd/SGCs/G9jnEXi4CR+ixoLJdqmJsRIGfe87Qnwapji9CKIWDbV
+	y3JY/mLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyaWD-00000008lwi-1AV9;
-	Tue, 16 Sep 2025 18:35:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyabH-00000008mmP-1EM4;
+	Tue, 16 Sep 2025 18:40:23 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyaWA-00000008lvw-3PqG
+	id 1uyabE-00000008mly-1o1H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 18:35:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E355E43A2E;
-	Tue, 16 Sep 2025 18:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97714C4CEEB;
-	Tue, 16 Sep 2025 18:34:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758047702;
-	bh=0Y8Vr3AraQV82DBR8zHGaa4Zevj4KNfd9r6qP5JbGp0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QEj+1PqE2kTzK5pEFOvkzZz7HK+lpwKmVkFwbSQbw/+kwTOdxIDt+mCZHZDnbh4P9
-	 ZeRE8o7LaTsZpPef8AUn96IdwpABMmvWisAMZlElSgvGaQR6d5CCy+z9XM2lPW4VRM
-	 mmCp+iyckzTuspuVGzh1ENLePdlF4+XpLB3llxUGgFFxX2XHQTd5P1DyPnnFlsa5+C
-	 4o/Hua5mcMg9v0gVsuz36e5Q275RvfFOlCeqJnzGza7NVPstP7b5kCACcNhRuGfmNQ
-	 teQ0aLihmp5AhuAyrZcDklOGFXEqLM2JwQAcmJc/0Qa2qXNzDVpeGDrBzFer9TweOB
-	 wdZ+XQT2WMaOQ==
-Date: Tue, 16 Sep 2025 19:34:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
- glitch thresold
-Message-ID: <20250916-bonus-wildness-608ec9a83546@spud>
-References: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
- <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
- <aMgjAjfydIbYexkE@lizhi-Precision-Tower-5810>
- <20250915-tinker-music-03cff49a41a7@spud>
- <aMmKNYjxolrCb1yC@lizhi-Precision-Tower-5810>
+	Tue, 16 Sep 2025 18:40:21 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id C43111D0000C;
+	Tue, 16 Sep 2025 14:40:18 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Tue, 16 Sep 2025 14:40:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1758048018;
+	 x=1758134418; bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=
+	A72gXSkGR0ORvvJLEj+Ni1ff0qwqAypaE89Y5WCvHx4uq9gD/Rzjc6dC0QtdPd2S
+	bShRP7eE4YfsKlJx0LiULmSWwH9RVKyGf0zNypohCKtx8oT2ArdHWKG+urxRLx+0
+	rD2Jo2dO9e7+c9HxwYIudgaP1fsTiQN/E5g2sXOD+BVPaUidJnD7LePkodbERBge
+	0Qa4fHYxahmfgxZiQrXyeopabno8R8uA610+bm6RBuNQQtjfl/xKhSC104V5Zi50
+	CMzaMhLxlzW1ACRmulu6ybnvrhxj7Rn/Rx5e3fVaO35F7m3Vi039cnMsc2rwHKpy
+	1Ow9AAcv3cb4LMzeVB1zsw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758048018; x=
+	1758134418; bh=iVY8HlUwyupRngH0FEF59/2yMgyALkZJuEelqwsIa+U=; b=S
+	OXR+xj22pRvPxQKbXam3zW08wSzLSxmsLqWBUgzTZUCG9YG+j61UVWoeqVNC3JnW
+	Zv0OFita/dUVv8GXnKdcJnmFubACZeOdsy2/WVPKUDfCyfScFgz+K9TjwmTDhF+D
+	r0p2JgXiMO6osFKIsdJYxdtYYflJ9VYZ4lrxWuLAL3y/jmDc4GJ5xDj8xnYyJm+g
+	b9XM2d38ioCKfrdGniGKSONtIV0umqtIpmyF8ZHCSB8iLXiEHu4qYV+GdgPP3hOM
+	S9YdDAOh/oQJNRuyxkH7bkORbakaN8WtJzifz6vNMgiz/NTQsQPCXnvBGwEHoDyj
+	wlR+5+YRVhlvkOWAUVkWw==
+X-ME-Sender: <xms:Ea_JaBrgswY1n3OgOf8uFsoFQ98tQRkSvjkd2onlrzCbzwHTFov6Mg>
+    <xme:Ea_JaC3isGkdjuavfDbgKACR0CWTYlLiInwCDzsIPumDu0CN2TO_eo7V_0v2iZciN
+    8LA3wy__4On34jdbxg>
+X-ME-Received: <xmr:Ea_JaA4mMjAr-dQna3dxZP4ppq3XCsyc-TbIAS5mHuoInirOXhvx1x8gXmfqJaLdoAT21C1f>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegudefudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptfgvsggvtggt
+    rgcuvehrrghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvg
+    hrnheplefhgeevleehieeuveduudfguedtieetteevhffgfffhhffhveffueegtdegkeek
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsg
+    gvtggtrgessghsughiohdrtghomhdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhm
+    thhpohhuthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhope
+    hrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprh
+    gtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopegrnhgurhgvfies
+    tghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthhtohepuggvvhhitggvth
+    hrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
+    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
+    eplhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrggsshdrohhrgh
+X-ME-Proxy: <xmx:Ea_JaGQBxJSwEfGRMTko09bVz5_-F0ZDOf4WfUEOBLqMTSRM3h30Xw>
+    <xmx:Ea_JaNWskqNpNikZwlmbx25ivU7o7NFWT53H4O7HR2ggKLW-rLN_eA>
+    <xmx:Ea_JaDGLob01pBVEoWx9dvDvzvCjCkOeO3uF2zDq8j_GyIs9pVvNmQ>
+    <xmx:Ea_JaIcbAdva1ahgGqMtAA2ZROdeuLJ7oVftUNTv0g9JxLZ66mnLzg>
+    <xmx:Eq_JaArmjObCc7S5hs6xJ2BjYjMdRd5SH6Sz5cuJ0iNcOKfraFnUqi3g>
+Feedback-ID: i5b994698:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 16 Sep 2025 14:40:16 -0400 (EDT)
+Message-ID: <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
+Date: Tue, 16 Sep 2025 12:40:15 -0600
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rYWN0tYwjxMqonNZ"
-Content-Disposition: inline
-In-Reply-To: <aMmKNYjxolrCb1yC@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250911051009.4044609-1-rebecca@bsdio.com>
+ <20250911051009.4044609-3-rebecca@bsdio.com>
+ <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
+ <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+ <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
+Content-Language: en-US
+From: Rebecca Cran <rebecca@bsdio.com>
+In-Reply-To: <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_113506_896286_9564D360 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20250916_114020_805466_EEEB937B 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,95 +124,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 9/15/25 18:37, Andrew Lunn wrote:
 
---rYWN0tYwjxMqonNZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> And does it have a PHY? On an MDIO bus? Unless i'm mistaken, you don't
+> describe the PHY, a phy-handle pointing to the PHY, and don't have
+> phy-mode = 'rgmii-id'.
 
-On Tue, Sep 16, 2025 at 12:03:01PM -0400, Frank Li wrote:
-> On Mon, Sep 15, 2025 at 06:42:13PM +0100, Conor Dooley wrote:
-> > On Mon, Sep 15, 2025 at 10:30:26AM -0400, Frank Li wrote:
-> > > On Sun, Sep 14, 2025 at 07:16:01PM +0200, Dario Binacchi wrote:
-> > > > Support the touchscreen-glitch-threshold-ns property. Unlike the
-> > > > generic description in touchscreen.yaml, this controller maps the
-> > > > provided value to one of four discrete thresholds internally.
-> > > >
-> > > > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > > > ---
-> > > >
-> > > > (no changes since v1)
-> > > >
-> > > >  .../input/touchscreen/fsl,imx6ul-tsc.yaml         | 15 +++++++++++=
-++++
-> > > >  1 file changed, 15 insertions(+)
-> > > >
-> > > > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fs=
-l,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl=
-,imx6ul-tsc.yaml
-> > > > index 678756ad0f92..310af56a0be6 100644
-> > > > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6u=
-l-tsc.yaml
-> > > > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6u=
-l-tsc.yaml
-> > > > @@ -62,6 +62,21 @@ properties:
-> > > >      description: Number of data samples which are averaged for eac=
-h read.
-> > > >      enum: [ 1, 4, 8, 16, 32 ]
-> > > >
-> > > > +  touchscreen-glitch-threshold-ns:
-> > > > +    description: |
-> > > > +      Unlike the generic property defined in touchscreen.yaml, this
-> > > > +      controller does not allow arbitrary values. Internally the v=
-alue is
-> > > > +      converted to IPG clock cycles and mapped to one of four disc=
-rete
-> > > > +      thresholds exposed by the TSC_DEBUG_MODE2 register:
-> > > > +
-> > > > +        0: 8191 IPG cycles
-> > > > +        1: 4095 IPG cycles
-> > > > +        2: 2047 IPG cycles
-> > > > +        3: 1023 IPG cycles
-> > >
-> > > you should use ns
-> > >    enum:
-> > >       - 1023
-> > >       - 2047
-> > >       - 4095
-> > >       - 8191
-> > >
-> > > you can limit only 4 values, but unit have to ns. your driver map it =
-to
-> > > register value.
-> >
-> > Looking at the driver change, I think Dario is already doing that. The
-> > text here is just talking about how the controller doesn't support
-> > anything other than these 4 glitch threshold and mapping must be done in
-> > some way.
->=20
-> Thanks, but descripton is confused.
-> "Unlike the generic property defined in touchscreen.yaml", which let me
-> think value is 0..3, instead of ns.
->=20
-> Suggest Remove
->=20
-> "Unlike the generic property defined in touchscreen.yaml, this
-> controller does not allow arbitrary values"
+I've been trying to figure this out. Yes, it's connected to a PHY (an 
+RTL8211E).
 
-Yeah, I agree this should be removed. It's unlikely that /any/
-touchscreen will support completely arbitrary values, so stating it is
-redundant.
+At the moment it's being detected by OpenBMC as:
 
---rYWN0tYwjxMqonNZ
-Content-Type: application/pgp-signature; name="signature.asc"
+ftgmac100 1e680000.ethernet: Read MAC address 9c:6b:00:43:0b:bd from 
+device tree
+RTL8211E Gigabit Ethernet 1e680000.ethernet--1:00: attached PHY driver 
+(mii_bus:phy_addr=1e680000.ethernet--1:00, irq=POLL)
+ftgmac100 1e680000.ethernet eth1: irq 43, mapped at 7e548db4
+ftgmac100 1e680000.ethernet eth1: Link is Up - 1Gbps/Full - flow control 
+rx/tx
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMmtwwAKCRB4tDGHoIJi
-0vWEAP9UHTO+GfZtI6OXbDcxvcOVWmp8z5NqbCA7ni7xXVlEUwD8CF4puz+dHm6q
-a65TXq2kfo1U+B29pPxvngMosikvjA4=
-=Sldc
------END PGP SIGNATURE-----
+aspeed-g5.dtsi has:
 
---rYWN0tYwjxMqonNZ--
+mac1: ethernet@1e680000 {
+     compatible = "aspeed,ast2500-mac", "faraday,ftgmac100";
+     reg = <0x1e680000 0x180>;
+     interrupts = <3>;
+     clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>;
+     status = "disabled";
+
+};
+
+
+It doesn't define a PHY, but I presume I can't define one without it 
+conflicting with the definition of mac1.
+
+
+-- 
+Rebecca Cran
+
 
