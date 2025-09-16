@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7354CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83E4CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJpOTYwvDG3D2TIt6ZDHbyS4c1jReWTrO2eshfPm5Xg=; b=vfHeOIlhYbjPefibfs/UftpTLM
-	68T08HrrGz0cJzuS3Db3Nw6VQwz0jwevhpiq3V//0YmPApjuc6B8xSUl2CUhSgOna7rvrjMURXfik
-	IaUr7sNKKUiCDOgRSVAZZLX9zPySZyuvg7keKoc+T3zk+Swsbdys3tROMGqw7KX+/ddx3XTDfauNx
-	Nn+cv5Guw05waP1uYa3nuJJE3F1SJ/2kKz3Pi7puSYa1/eW3zIjn0/qh4kGkk5potUT4RoW5Gi5qn
-	gxsPoisSmgoZdTnjYghthVFpPporNWo2hGO0MboMjZ5AgAZdLwCII9CA+AQR6nweGeVWSluths0yU
-	c2hvunbw==;
+	bh=E2QNkuPIh3oIUXl11CfDWoh+QiGH+oWHok3UKODJPS0=; b=yKWKOrp+ST+6yYqYtNgaIuZ6jP
+	3OL3PyQPb0De0vcL5/eWQ8kkMhOwbzHWpt6hVYzAfXjvz8fOdS/zqpMcrOoTzdwtPRZ1bkaeCz4v7
+	mbZftXFRZsAbaLUzzS3zRygO6j9ncGNPAhVLYmnAkVGhpkOk4UGKGo4jbMq9oXPp9n/IR5k0uqKJd
+	/PtMygpzTv22c+xdSdgZW4H1MQ48LJNTyBzj40ZyghfETEKgJy5rRYfMx+BeAxzMtVFvLkc2AlW++
+	TMHzc62DswpiD43qZbu1lLqIumLj+Ulv/RoURbSYIabZmToUMZVMc1SGDp5nYp7cTLlW7wQr9yNp4
+	Z9bnV8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYIo-00000008PcH-2bjL;
-	Tue, 16 Sep 2025 16:13:10 +0000
+	id 1uyYPK-00000008RRo-2ztl;
+	Tue, 16 Sep 2025 16:19:54 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYIm-00000008Pb7-18Dl
+	id 1uyYPH-00000008RQI-2jHF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:13:09 +0000
+	Tue, 16 Sep 2025 16:19:53 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cR6LY5b0Tz6K9Hp;
-	Wed, 17 Sep 2025 00:10:13 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cR6VL2XSNz6K9LN;
+	Wed, 17 Sep 2025 00:16:58 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1C65D1402F1;
-	Wed, 17 Sep 2025 00:13:01 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id A9AFB1402F1;
+	Wed, 17 Sep 2025 00:19:45 +0800 (CST)
 Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 16 Sep
- 2025 18:13:00 +0200
-Date: Tue, 16 Sep 2025 17:12:59 +0100
+ 2025 18:19:44 +0200
+Date: Tue, 16 Sep 2025 17:19:43 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Marc Zyngier <maz@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -48,11 +48,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
 	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
 	<james.clark@linaro.org>
-Subject: Re: [PATCH v2 13/25] genirq: Factor-in percpu irqaction creation
-Message-ID: <20250916171259.000070d2@huawei.com>
-In-Reply-To: <20250915085702.519996-14-maz@kernel.org>
+Subject: Re: [PATCH v2 15/25] genirq: Update request_percpu_nmi() to take an
+ affinity
+Message-ID: <20250916171943.000032d6@huawei.com>
+In-Reply-To: <20250915085702.519996-16-maz@kernel.org>
 References: <20250915085702.519996-1-maz@kernel.org>
-	<20250915085702.519996-14-maz@kernel.org>
+	<20250915085702.519996-16-maz@kernel.org>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -61,9 +62,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_091308_452962_4B03F8BB 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_091951_980699_E97E9E0B 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sep 2025 09:56:50 +0100
+On Mon, 15 Sep 2025 09:56:52 +0100
 Marc Zyngier <maz@kernel.org> wrote:
 
-> Move the code creating a per-cpu irqaction into its own helper, so that
-> future changes to this code can be kept localised.
-> 
-> At the same time, fix the documentation which appears to say the wrong
-> thing when it comes to interrupts being automatically enabled
-> (percpu_devid interrupts never are).
+> Continue spreading the notion of affinity to the percpu interrupt
+> request code by updating the call sites that use request_percpu_nmi()
+> (all two of them) to take an affinity pointer. This pointer is
+> firmly NULL for now.
 > 
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
+A few fussy reviewer comments inline.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> ---
+>  arch/arm64/kernel/smp.c   |  2 +-
+>  drivers/perf/arm_pmu.c    |  4 +++-
+>  include/linux/interrupt.h |  4 ++--
+>  kernel/irq/manage.c       | 11 +++++++----
+>  4 files changed, 13 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 68cea3a4a35ca..6fb838eee2e7d 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -1094,7 +1094,7 @@ static void ipi_setup_sgi(int ipi)
+>  	irq = ipi_irq_base + ipi;
+>  
+>  	if (ipi_should_be_nmi(ipi)) {
+> -		err = request_percpu_nmi(irq, ipi_handler, "IPI", &irq_stat);
+> +		err = request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat);
+>  		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
+>  	} else {
+>  		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
+> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+> index 5c310e803dd78..de9eca2290a97 100644
+> --- a/drivers/perf/arm_pmu.c
+> +++ b/drivers/perf/arm_pmu.c
+> @@ -659,7 +659,9 @@ int armpmu_request_irq(int irq, int cpu)
+>  			irq_ops = &pmunmi_ops;
+>  		}
+>  	} else if (armpmu_count_irq_users(irq) == 0) {
+> -		err = request_percpu_nmi(irq, handler, "arm-pmu", &cpu_armpmu);
+> +		err = request_percpu_nmi(irq, handler, "arm-pmu",
+> +					 NULL,
+
+I was assuming this odd formatting was to help reduce churn in a later patch, but nope
+this whole block get replaced in patch 18.  So might as well move NULL up a line
+an have a cleaner intermediate state.
+
+> +					 &cpu_armpmu);
+>  
+>  		/* If cannot get an NMI, get a normal interrupt */
+>  		if (err) {
+> diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
+> index 52147d5f432b3..2134e7c08c169 100644
+> --- a/include/linux/interrupt.h
+> +++ b/include/linux/interrupt.h
+> @@ -197,8 +197,8 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
+>  }
+>  
+>  extern int __must_check
+> -request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+> -		   const char *devname, void __percpu *dev);
+> +request_percpu_nmi(unsigned int irq, irq_handler_t handler, const char *devname,
+Odd inconsistency in parameter naming devname/name
+
+Perhaps worth tidying that up whilst here. I only noticed because of the
+wrap comment below.
+
+
+> +		   const struct cpumask *affinity, void __percpu *dev_id);
+>  
+>  extern const void *free_irq(unsigned int, void *);
+>  extern void free_percpu_irq(unsigned int, void __percpu *);
+> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+> index 5f4c651677436..49c237aca2a70 100644
+> --- a/kernel/irq/manage.c
+> +++ b/kernel/irq/manage.c
+> @@ -2527,6 +2527,7 @@ EXPORT_SYMBOL_GPL(__request_percpu_irq);
+>   * @irq:	Interrupt line to allocate
+>   * @handler:	Function to be called when the IRQ occurs.
+>   * @name:	An ascii name for the claiming device
+> + * @affinity:	A cpumask describing the target CPUs for this interrupt
+>   * @dev_id:	A percpu cookie passed back to the handler function
+>   *
+>   * This call allocates interrupt resources for a per CPU NMI. Per CPU NMIs
+> @@ -2544,7 +2545,8 @@ EXPORT_SYMBOL_GPL(__request_percpu_irq);
+>   * will fail returning a negative value.
+>   */
+>  int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+> -		       const char *name, void __percpu *dev_id)
+> +		       const char *name,
+> +		       const struct cpumask *affinity, void __percpu *dev_id)
+
+This seems like an odd wrap and I can't immediately see it making more sense
+in later patches.
+
+>  {
+
+>  
+
 
