@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F66CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98681CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7mp/caSTPIEPf6hoSXlriF86pIwaa14P9mLa+kjnRdI=; b=0itPRFeUxe/WF6aubKgIcgViI9
-	PEa09PY5RdBNWqe1s1gMqjhQLnWlbZY9UvbU+p0xop4/bORN4imRDmQbYEgpCvTmn48449wN8GSD7
-	+eZ8517u8bher3VFKnPJefCvgUDTUUS5fzqBkVVMiH2AI364fN2/lBNhzVnScNAc1LKnEcpf8hBI5
-	DYvbojI267QuD37BQIKn33pG3nOVZUK5WeFjIyZQ3Z8V9McZxaKly6k7loGjD/IPuuB//fZslMweP
-	s1PfXv77Y3Xb1Fk7dqXIA32mzLNdpgNDBhNh5+TZiQVzpEOOYsdiI5V0gw615B0ZmKyeKBVHd1Tj8
-	NxXes3OA==;
+	bh=xR3Y4U+9jEsROKJfJw59rI/EkalzjoLUt+5BWaKi6Y8=; b=CvoKWB7eLt8gavpJX8/mey+tFG
+	iYMD5UfbRhKgzJoGuNUl2izO0h+3o4QUmxHTfjAxRSNHt4wzRae7ORsyZUiANdEPcyjH0pVS1qyIC
+	k97JaeACn9Jx3JE4fcisRBU1/rGtfNSCzUvnGo5Y4xS6QyneSnMIfZspUhOew9cQdGCPm0lj+66UV
+	HYRfc5QfZN1gBVZ3iSScQ1nrlaeifv4JdTD0qu4o0eacxNlctv1kJC8aSfKIni/htIdlX2C0wlog1
+	b+rIrMZu7FQYX/oA3VN2ORUAoPjPf0k+oWLe0FXr0KoIg41wLsb2vrRSL2OxxLQgtmFgBh+X7gQh7
+	IgljDQKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySje-00000007UNH-165V;
-	Tue, 16 Sep 2025 10:16:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uySmm-00000007Urc-40lO;
+	Tue, 16 Sep 2025 10:19:44 +0000
+Received: from mail-vs1-f52.google.com ([209.85.217.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySjc-00000007UN9-0gGX
+	id 1uySmk-00000007Uqm-0v0E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 10:16:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C86B60141;
-	Tue, 16 Sep 2025 10:16:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D2BC4CEEB;
-	Tue, 16 Sep 2025 10:16:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758017787;
-	bh=WnhgxGMR7wJ9/CFjtwaKsCL8RypUwh3juwnR8dXWu2s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dH5md1Y+HyrlWy7S+14VcOF8a9xKs+sWic8b1RoHGMfHcn3lMhEzwW/LGoK/j/wo4
-	 QYrDYop0aEPUCZpiD47VNWY7FxIxoR8b0SYND55zDBX+AsbJnKjBj2VpTeJdNzz1vQ
-	 l9QSN77tfPLONkwS7P65hh9H9VdPZVwtJje+28k5+0UkCcFpwY0tBohuLaRAz49XiC
-	 nA0we+gO5Poj9Jq7Z1D66qZ+0TLQze/lY1D7d7CznrXJvP8nROKd+I7O+EB6Yjqz4T
-	 YNv6JOGcFqV7GqsplRS2Kqi8/6y01j1TSVaGe84BbxWkCuyZ27V0PSCaMdZ6vdh0KP
-	 Ulb5X8XvPIioA==
-Date: Tue, 16 Sep 2025 11:16:21 +0100
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, broonie@kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	james.morse@arm.com, ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aMk49UZ1EiUu3-Y2@willie-the-truck>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <20250816151929.197589-5-yeoreum.yun@arm.com>
- <aMRQIeIdyiWVR8a0@arm.com>
- <aMfrR0vserl/hfZ3@e129823.arm.com>
- <aMhrscd1gz_syMtL@arm.com>
- <aMh4q4-xAPHnaOul@willie-the-truck>
- <aMkLb6jPiSbzeRWL@arm.com>
- <aMk1qxS3htyaTgEQ@e129823.arm.com>
+	Tue, 16 Sep 2025 10:19:43 +0000
+Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-557a2ba1e65so3578121137.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 03:19:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758017981; x=1758622781;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xR3Y4U+9jEsROKJfJw59rI/EkalzjoLUt+5BWaKi6Y8=;
+        b=YzW+6WVO1Qe9OmUSTyczle8YSdiNwTZzvRU2191zFawglHn0XGACQrMfvT+G5bd3sf
+         n5RmH5H98gE3Nlofg1vW+VEbGgSgRb354L8OFZkomYMhxWviN1Z15xE5sotLsbZRKqu4
+         HeLTs6Nt/u9PdO0k2WShrBgjhzlUjtvjqqA5Tr5lH/CtLHE2P0G1Bu1A+RlTrocdZUwb
+         4M3CP+xX4wtllapLQfPfJF1iucmA1QNGvvY+EODMWdQARHnXTO0BtPJXzY1zq49iYw+0
+         3vdx6z6LXaKOSvXlCQEf6w7CCHpZHX79GQY72sfDUXf8VaTiVWLurnT2ViZUNC1rjfwF
+         iCfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXBuUAEXqAk8bN/6U0IJCssZ4BSeVPBSRKb+nerIM7bUBNOxNOYqWet84OLM5sEoYD47ca8xrOSWhNvkc7bTlMN@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlb9JI2iDrikdiQFhLZfatEHLjV5gshfuKU+5RL3og5hiUW2YU
+	EzyT77S6OQaw8WAzZC0Ctx+amjZLC+LDQjBGOBjhnU02RKYlkaOY5xH8O1Y9+4Bp
+X-Gm-Gg: ASbGnctwhitXcEgC4r0HLELrrnJL8krpRj3Wbdap5PgNQLUhxjmSORndk5elEmqmuzs
+	kARt5rIFsie2fFQv1ruJw5gCKoFix/GPGIme3MhZJM3MmK412a0dS5IPAyK8S4ttyTky1+Sanua
+	cGLAm4UIkj0zFi9vghxp76Qv6axybc3oNKbEPM59i/82lboXxknMxJLkb2TUkB3LjXllF/RKcu3
+	TMW51q5bBcUhsq7RWsFuqxt+Bo4jdlE22Lji68xFMUNrDQJfF55ez2Gehmrw5ablhupnsdxTOt5
+	cWi2ri0mKE2FbMmvgV1Fspd2u/gFsDCFKgWQeyUEC1BvVvqUQ+3t1xFlHs9jO63y1dSMYt/mbMe
+	LJut9iJturj5A+ojWRnZZv/WsIOOd4OOw5GG3+Pkx9iUp4NSgQ9vFa/rKiSL7
+X-Google-Smtp-Source: AGHT+IE2Ueiej+HPc/dl/mHxXMNTqgSYWGUNkvxg43tRf8+yv4qxK+UUy4AFpIAzYV0dOwh6+nPwjQ==
+X-Received: by 2002:a05:6102:f07:b0:522:a762:8e5d with SMTP id ada2fe7eead31-5560a011ca5mr5538214137.13.1758017980654;
+        Tue, 16 Sep 2025 03:19:40 -0700 (PDT)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-55370649fe7sm3306288137.7.2025.09.16.03.19.39
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Sep 2025 03:19:40 -0700 (PDT)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-55785303d1fso2041558137.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 03:19:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUCRSKLAREDenGarv6RE9fZ9vaQSYT79UjxP7QCXXpWmZLCZ6UBIDZZTKUQMBR0lcopU0R+OGYzbhOEDl3kXNiK@lists.infradead.org
+X-Received: by 2002:a05:6102:374f:b0:524:4800:77a8 with SMTP id
+ ada2fe7eead31-5560908dc48mr5549412137.5.1758017979210; Tue, 16 Sep 2025
+ 03:19:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMk1qxS3htyaTgEQ@e129823.arm.com>
+References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com> <87qzw7i0k9.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <87qzw7i0k9.wl-kuninori.morimoto.gx@renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 16 Sep 2025 12:19:28 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVQTftuiPGw3j-u7bzScs=UmsFruCKvSq-t_=JuKmpB=Q@mail.gmail.com>
+X-Gm-Features: AS18NWAlUh-W1y7BXcMGcm9tJYfZlPplczM9NMOiyqYXewDD8MKxNGtLUFMdjw4
+Message-ID: <CAMuHMdVQTftuiPGw3j-u7bzScs=UmsFruCKvSq-t_=JuKmpB=Q@mail.gmail.com>
+Subject: Re: [PATCH v3 2/6] soc: renesas: Identify R-Car X5H
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, 
+	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>, 
+	John Garry <john.g.garry@oracle.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Leo Yan <leo.yan@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Rob Herring <robh@kernel.org>, 
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, Will Deacon <will@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_031942_265645_9765800B 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,71 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 11:02:19AM +0100, Yeoreum Yun wrote:
-> Hi,
-> > On Mon, Sep 15, 2025 at 09:35:55PM +0100, Will Deacon wrote:
-> > > On Mon, Sep 15, 2025 at 08:40:33PM +0100, Catalin Marinas wrote:
-> > > > On Mon, Sep 15, 2025 at 11:32:39AM +0100, Yeoreum Yun wrote:
-> > > > > So I think it would be better to keep the current LLSC implementation
-> > > > > in LSUI.
-> > > >
-> > > > I think the code would look simpler with LL/SC but you can give it a try
-> > > > and post the code sample here (not in a new series).
-> > >
-> > > If you stick the cas*t instruction in its own helper say, cmpxchg_user(),
-> > > then you can do all the shifting/masking in C and I don't reckon it's
-> > > that bad. It means we (a) get rid of exclusives, which is the whole
-> > > point of this and (b) don't have to mess around with PAN.
-> >
-> > We get rid of PAN toggling already since FEAT_LSUI introduces
-> > LDTXR/STTXR. But, I'm all for CAS if it doesn't look too bad. Easier
-> > I think if we do a get_user() of a u64 and combine it with the futex u32
-> > while taking care of CPU endianness. All in a loop. Hopefully the
-> > compiler is smart enough to reduce masking/or'ing to fewer instructions.
-> >
-> 
-> Sorry for my wrong previous email.
-> 
-> Here is what i intened with CAS operation:
-> 
-> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> index 1d6d9f856ac5..0aeda7ced2c0 100644
-> --- a/arch/arm64/include/asm/futex.h
-> +++ b/arch/arm64/include/asm/futex.h
-> @@ -126,6 +126,60 @@ LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
->  LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
->  LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-> 
-> +
-> +#define LSUI_CMPXCHG_HELPER(suffix, start_bit)                                 \
-> +static __always_inline int                                                     \
-> +__lsui_cmpxchg_helper_##suffix(u64 __user *uaddr, u32 oldval, u32 newval)      \
-> +{                                                                              \
-> +       int ret = 0;                                                            \
-> +       u64 oval, nval, tmp;                                                    \
-> +                                                                               \
-> +       asm volatile("//__lsui_cmpxchg_helper_" #suffix "\n"                    \
-> +       __LSUI_PREAMBLE                                                         \
-> +"      prfm    pstl1strm, %2\n"                                                \
-> +"1:    ldtr    %x1, %2\n"                                                      \
-> +"      mov     %x3, %x1\n"                                                     \
-> +"      bfi     %x1, %x5, #" #start_bit ", #32\n"                               \
-> +"      bfi     %x3, %x6, #" #start_bit ", #32\n"                               \
-> +"      mov     %x4, %x1\n"                                                     \
-> +"2:    caslt   %x1, %x3, %2\n"                                                 \
-> +"      sub     %x1, %x1, %x4\n"                                                \
-> +"      cbz     %x1, 3f\n"                                                      \
-> +"      mov     %w0, %w7\n"                                                     \
-> +"3:\n"                                                                         \
-> +"      dmb     ish\n"                                                          \
-> +"4:\n"                                                                         \
-> +       _ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)                                   \
-> +       _ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)                                   \
-> +       : "+r" (ret), "=&r" (oval), "+Q" (*uaddr), "=&r" (nval), "=&r" (tmp)    \
-> +       : "r" (oldval), "r" (newval), "Ir" (-EAGAIN)                            \
-> +       : "memory");                                                            \
+On Tue, 16 Sept 2025 at 04:38, Kuninori Morimoto
+<kuninori.morimoto.gx@renesas.com> wrote:
+> From: Duy Nguyen <duy.nguyen.rh@renesas.com>
+>
+> Add support for identifying the R-Car X5H SoC.
+>
+> [Kuninori: tidyup for upstreaming]
+>
+> Signed-off-by: Duy Nguyen <duy.nguyen.rh@renesas.com>
+> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
+> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-The vast majority of this can be written in C.
+Already commit 5284d0b09d1bdc69 ("soc: renesas: Identify R-Car X5H")
+in soc/for-next.
 
-Will
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
