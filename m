@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCA4CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB99CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wx0QdjxydDmrBFDNOoQQ5/uIBMbJD/oNitoYkWZcuC0=; b=4ND9ttWZH9/3dAFMCP/0E5q3qT
-	FQUD55IMKEHGIWc0Yiia7iasZ2haGv3QM4xJGdncDx9BdH7pS4g4NwdIMDBe+jx7y49ybmJT+DTvt
-	uBiGyYQl2dWAVDUfyrmyRUKo4yP2v/q5sExg3Zs5zbKgB3A82aAvv3tPwB6Hor2NSP9RLQizD0rUX
-	8hW+28xa0lB0ArikBZtMb+Y2Tb4oaqD3A/IzWZniECsKiod32Iq2E6WnAO9klO3435d2/LOhNHgxm
-	bjh7QPwRqE1JoRX4m3yfqxM+uJG57QQX4LHH0dRs2tnDgcVEDy8bRNP2n5aoBqn/n/HBQtztsL5jL
-	dNfUZhDQ==;
+	bh=AmwiWlv0Ck+IJdd3Cks26VCoCBj9MKGyMc1abZ8u9bc=; b=NbRLs29P4upab/k7xT/kU1ZF4J
+	7c3rwGTNogClkh2hXIcwTZVTGELTP4n65lld1ZLIr58BvSzENbbmIt/V47aVsy+xxVfHVHx6r/Zmg
+	t9oe7T73iM+8yr3L8G1rV1/RJyCXi9GuPpnsVw6tTp7BdlL7trTZQ2cjuG6jauCX9ruBnRctmB+v6
+	R1kuc9kseHA3cY1wzXTY9GzYF2diAUdB7bWXdvI3LmHt81jxRSTTNuJt8nsiFptOtfF8uBV2vJrCO
+	h80ENeQqM0OmHvTXfcR53MOhkAG/gtOqxkQEU/gP3O2PWNUWRpKqeBrg0qXL2Lktqe74Igmm/C55F
+	PvRWJb4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycO9-000000094et-2cIW;
-	Tue, 16 Sep 2025 20:34:57 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1uycWf-000000095oF-44Yi;
+	Tue, 16 Sep 2025 20:43:45 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycO7-000000094dR-1lXW;
-	Tue, 16 Sep 2025 20:34:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1758054802; bh=wx0QdjxydDmrBFDNOoQQ5/u
-	IBMbJD/oNitoYkWZcuC0=; b=QYC890JqZyfvPL4vqX1iuAz85TSGvZNs5qAS35MYC+22MBvW7W
-	iskQ/WenBh0sSTeuVw2g4lZHoYPoiv2GGsiFUWUKFSkU2zjwAoKIfhh6KCfgHkaD/kzS8GS68rS
-	5QxPQHc77pqj7NtCJnL98hSHNC/QK6suWUKMCY1iS34BYG6fYsZQ/3dpcvNdRz6I2AV2MVmHjwu
-	YuaU6JaX/xZbIKJ6+kGLuBOfuRai4gyokobGwnVBSAZFlMDcIGJhjDWqDCzz5y0qkraPWvzgro4
-	KM9+tBTzW+WGrtu1sDguiqrnfvt9vS5JK5S2VnGn8CNEa8jaBdqwZu+SFboo2ClciJw==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1758054802; bh=wx0QdjxydDmrBFDNOoQQ5/u
-	IBMbJD/oNitoYkWZcuC0=; b=5LVDcZRoMcSN9ktKl9Pg4tEUVZHPmNTbYq67qVDbHUTddPsvdm
-	Jrh1Ji00j9vzj2yndXJA43uiUpoeW80faoDg==;
-From: Dang Huynh <dang.huynh@mainlining.org>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org,
- linux-unisoc@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-rtc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 00/25] RDA8810PL Clock, RTC and MMC driver
-Date: Tue, 16 Sep 2025 20:33:16 +0000
-Message-ID: <14470724.O9o76ZdvQC@melttower>
-In-Reply-To: <2025091620264900a32db6@mail.local>
-References: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
- <2025091620264900a32db6@mail.local>
+	id 1uycWd-000000095nB-1lak
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 20:43:44 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758055421;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AmwiWlv0Ck+IJdd3Cks26VCoCBj9MKGyMc1abZ8u9bc=;
+	b=fHPtAqg+sMLZLZm4bRBdG+NiQpOen4eY6FYi8WhQrq19OvXZnf2i/z2g5rtCmo0qHGtLB+
+	SeT7RZAk5FllzyIV1UyDvSAMM994Ex8at8LZHYteYOaPRhs6lS+WvGOPmw655mWBH5clU5
+	IOjibH494K6t2MobsKztgrRJ+NAdU4Ff+eu5Rl49LjTLNTxsHPnvl5qHARxH/EEMdJEZiC
+	+WIu8Al2sjL+EXjE4Njq3tBtKpetXd2HHl3g1BotVyH8956ySuA60kl8n3BV759LfRhQK5
+	JOAXot8OcYRkSoxO6N1w9UO4uDCsuipPa8OMIdLEk0EAzGDgh8gH8jE56BBNlQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758055421;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AmwiWlv0Ck+IJdd3Cks26VCoCBj9MKGyMc1abZ8u9bc=;
+	b=WxlwnHu5OHd/bgNf03lRyfpAkm1XZWwyZSTeEMav+PPR2rXHI/bzmT7JiwFUd4uG6OVxel
+	xAvZFpDnubaIGQAw==
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Linus Torvalds
+ <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>,
+ kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
+ <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
+ Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V2 2/6] kbuild: Disable asm goto on clang < 17
+In-Reply-To: <20250916184440.GA1245207@ax162>
+References: <20250916163004.674341701@linutronix.de>
+ <20250916163252.100835216@linutronix.de> <20250916184440.GA1245207@ax162>
+Date: Tue, 16 Sep 2025 22:43:39 +0200
+Message-ID: <87ikhi9lhg.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_133455_598451_0B9D1037 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250916_134343_598978_74EFF35F 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,108 +82,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Nathan!
 
-On Tuesday, September 16, 2025 8:26:49=E2=80=AFPM Coordinated Universal Tim=
-e Alexandre=20
-Belloni wrote:
-> Hello,
->=20
-> On 17/09/2025 03:07:17+0700, Dang Huynh wrote:
-> > This patch series aims to add support for Clock/Reset, Real-Time Clock =
-and
-> > SDMMC on the RDA Micro RDA8810PL platform.
->=20
-> What are the dependencies between the various drivers? Ho< do you expect
-> the patches to be merged?
-The MMC driver depends on the clock controller (for getting APB2 rates) and=
-=20
-IFC for transferring data.
->=20
-> If the RTC patches are independent, please send them separately.
-They're independent. Noted.
->=20
-> > It also adds Intelligent Flow Controller (IOW, a DMA controller) which =
-is
-> > important for working with this MMC IP.
-> >=20
-> > Tested on the Orange Pi 2G-IOT.
-> >=20
-> > Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
-> > ---
-> >=20
-> > Dang Huynh (25):
-> >       ARM: dts: unisoc: rda8810pl: Add label to GPIO nodes
-> >       drivers: gpio: rda: Make IRQ optional
-> >       dt-bindings: gpio: rda: Make interrupts optional
-> >       rtc: Add timestamp for the end of 2127
-> >       dt-bindings: rtc: Add RDA Micro RDA8810PL RTC
-> >       rtc: Add driver for RDA Micro SoC
-> >       ARM: dts: unisoc: rda8810pl: Enable Real-Time Clock
-> >       ARM: dts: unisoc: rda8810pl: Enable ARM PMU
-> >       dt-bindings: clock: Add RDA Micro RDA8810PL clock/reset controller
-> >       drivers: clk: Add Clock and Reset Driver for RDA Micro RDA8810PL =
-SoC
-> >       dts: unisoc: rda8810pl: Enable clock/reset driver
-> >       dts: unisoc: rda8810pl: Add OPP for CPU and define L2 cache
-> >       dts: unisoc: orangepi: Disable UART with no users
-> >       dt-bindings: power: reset: Add RDA Micro Modem Reset
-> >       power: reset: Add basic power reset driver for RDA8810PL
-> >       dts: unisoc: rda8810pl: Enable modem reset
-> >       drivers: gpio: rda: Make direction register unreadable
-> >       dt-bindings: dma: Add RDA IFC DMA
-> >       dmaengine: Add RDA IFC driver
-> >       dts: unisoc: rda8810pl: Enable IFC
-> >       dt-bindings: mmc: Add RDA SDMMC controller
-> >       mmc: host: Add RDA Micro SD/MMC driver
-> >       dts: unisoc: rda8810pl: Add SDMMC controllers
-> >       dts: unisoc: orangepi-2g: Enable SD Card
-> >       dts: unisoc: orangepi-i96: Enable SD Card
-> > =20
-> >  .../bindings/clock/rda,8810pl-apsyscon.yaml        |  44 ++
-> >  Documentation/devicetree/bindings/dma/rda,ifc.yaml |  42 +
-> >  .../devicetree/bindings/gpio/gpio-rda.yaml         |   3 -
-> >  Documentation/devicetree/bindings/mmc/rda,mmc.yaml |  91 +++
-> >  .../bindings/power/reset/rda,md-reset.yaml         |  36 +
-> >  .../devicetree/bindings/rtc/rda,8810pl-rtc.yaml    |  30 +
-> >  MAINTAINERS                                        |  30 +
-> >  .../boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts  |  24 +-
-> >  .../arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts |  24 +-
-> >  arch/arm/boot/dts/unisoc/rda8810pl.dtsi            | 115 ++-
-> >  drivers/clk/Kconfig                                |   1 +
-> >  drivers/clk/Makefile                               |   1 +
-> >  drivers/clk/rda/Kconfig                            |  14 +
-> >  drivers/clk/rda/Makefile                           |   2 +
-> >  drivers/clk/rda/clk-rda8810.c                      | 770
-> >  +++++++++++++++++++ drivers/dma/Kconfig                               =
- |
-> >   10 +
-> >  drivers/dma/Makefile                               |   1 +
-> >  drivers/dma/rda-ifc.c                              | 450 +++++++++++
-> >  drivers/gpio/gpio-rda.c                            |   4 +-
-> >  drivers/mmc/host/Kconfig                           |  12 +
-> >  drivers/mmc/host/Makefile                          |   1 +
-> >  drivers/mmc/host/rda-mmc.c                         | 853
-> >  +++++++++++++++++++++ drivers/power/reset/Kconfig                     =
- =20
-> >  |   9 +
-> >  drivers/power/reset/Makefile                       |   1 +
-> >  drivers/power/reset/rda-reboot.c                   |  58 ++
-> >  drivers/rtc/Kconfig                                |  11 +
-> >  drivers/rtc/Makefile                               |   1 +
-> >  drivers/rtc/rtc-rda.c                              | 356 +++++++++
-> >  include/dt-bindings/clock/rda,8810pl-apclk.h       |  79 ++
-> >  include/dt-bindings/dma/rda-ifc.h                  |  28 +
-> >  include/linux/rtc.h                                |   1 +
-> >  31 files changed, 3079 insertions(+), 23 deletions(-)
-> >=20
-> > ---
-> > base-commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
-> > change-id: 20250916-rda8810pl-drivers-9a5271452635
-> >=20
-> > Best regards,
+On Tue, Sep 16 2025 at 11:44, Nathan Chancellor wrote:
+> First of all, sorry you got bit by this issue.
 
-Best regards,
-Dang
+The real annoying thing was that I could not makes sense of the error
+messages and when I started shuffling code around for analysis it got
+worse by failing reliably even with one instance or it exposed random
+other incomprehensible errors which did not help analysis either.
 
+Sh*t happens :)
+
+> On Tue, Sep 16, 2025 at 06:33:11PM +0200, Thomas Gleixner wrote:
+>> clang < 17 fails to use scope local labels with asm goto:
+>> 
+>>      {
+>>      	__label__ local_lbl;
+>> 	...
+>> 	unsafe_get_user(uval, uaddr, local_lbl);
+>> 	...
+>> 	return 0;
+>> 	local_lbl:
+>> 		return -EFAULT;
+>>      }
+>> 
+>> when two such scopes exist in the same function:
+>> 
+>>   error: cannot jump from this asm goto statement to one of its possible targets
+>
+> For the record, this is not specific to local labels, unique function
+> labels could trigger this error as well, as demonstrated by Nick's test
+> case:
+>
+> https://github.com/ClangBuiltLinux/linux/issues/1886#issuecomment-1636342477
+
+Ah! I somehow failed to find this one.
+
+I was actually trying to create a simple reproducer for using in the
+depends on $(success,echo...) magic and could not manage.
+
+The test case in the issue tracker is really helpful as it can be
+condensed into the obfuscated C-code contest format required for
+'depends on' checks. So we don't need the version number hack for
+detecting it. That's definitely preferred as it catches potential
+misbehaviour of later versions and of other compilers as well.
+
+I'll send out a revised patch to that effect later.
+
+>> That prevents using local labels for a cleanup based user access mechanism.
+>
+> Indeed. This has only popped up a couple of times in the past couple of
+> years and each time it has been easy enough to work around by shuffling
+> the use of asm goto but as cleanup gets used in more places, this is
+> likely to cause problems.
+
+Yes. I noticed that moving the label around or rearraning code slightly
+makes it go away or even worse, but that's not a real solution :)
+
+>> As there is no way to provide a simple test case for the 'depends on' test
+>> in Kconfig, mark ASM goto broken on clang versions < 17 to get this road
+>> block out of the way.
+>
+> That being said, the commit title and message always references asm goto
+> in the general sense but this change only affects asm goto with
+> outputs.
+
+Right, that's misleading.
+
+> Is it sufficient to resolve the issues you were seeing? As far as I
+> understand it, the general issue can affect asm goto with or without
+> outputs but I assume x86 won't have any issues because the label is not
+> used in __get_user_asm when asm goto with outputs is not supported?
+
+I haven't seen a problem with that yet. So yes, as things stand that
+seems to be a ASM_GOTO_OUTPUT issue.
+
+>> +config CLANG_ASM_GOTO_OUTPUT_BROKEN
+>> +	bool
+>> +	depends on CC_IS_CLANG
+>> +	default y if CLANG_VERSION < 170000
+>
+> Assuming this change sticks, please consider including links to the
+> original bug report and the fix in LLVM:
+>
+>   https://github.com/ClangBuiltLinux/linux/issues/1886
+>   https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
+
+Sure! That's indeed useful.
+
+Thanks,
+
+        tglx
 
