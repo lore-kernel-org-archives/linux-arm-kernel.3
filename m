@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236B5CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09DCCAC59D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKfn0qk9BReGcUTJap+WK6qM92aWHS3ugivYCTBHfGg=; b=Oh6THT5SJh7N3xXjVsLP7A3mhY
-	HTu+ZzPizjLB0u0kWkzRqntY5cKTOWE3SAzJHmPrBwVSd3iB/hjIhLuY+hIfdqq5n5IBqgu0eOOSM
-	5HZwGHqKX6d7t/PNwJ3gSaXK5io5qHUiu/KDE94PT0w7ZVcPd2dp5azFbmx9/C1K53EopTuaIRjTJ
-	gJHZ2LXooPyi1/qdgeL9twHUfh0p8k7vClKjWGQd4OwxmNdPQi1GT8/Ha1CzkrA6wxCUvtgXa+ry4
-	C8IaXTtFK93f/lHCekmsFjtJ1qfH8XbSw5q/Uwdz6bNWxhIZqXcniOLzIYgN/DRuRwbTLwYJ3NNsl
-	l5BV12UA==;
+	bh=Sk/DqyjMv0A3UVVYvJ/yeNt4S3pqiSnmbsaC9Y94afI=; b=kUTQtvGF4ZNzNoiVLilkqFo69g
+	99uw3dSsqX2nltmJh6pK86O6ELmTlZiyz285lsw+qbEmbZ4Egw99uIpaTCtSLOmSGIb7YoA6Wcma2
+	tRZuJyIlYWKadQ9nh32hoJ5/p6NRud4mgs9tG8m6Z6BQddK7rpxeA1HibgMgp27qhikKXHpvdnL5X
+	FQszuDaNwTgsrtVMYxQbjbM/+VkqLPV2HxuuKeLHzZ77M6oD6jU3ot+EJODrtkG1pSxPwgUcdT6QH
+	YEiGm1h0qSmeqwHh+6XQNkrxNbH99pqcwKUxXf1aowieKUg3jTCC5K+ps55H7ONsudLHT1iX8A+vd
+	sytfL0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycFZ-000000091Y1-1Ioo;
-	Tue, 16 Sep 2025 20:26:05 +0000
+	id 1uycFY-000000091WY-2pkE;
+	Tue, 16 Sep 2025 20:26:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycF1-000000090po-1JA0;
+	id 1uycF0-000000090lw-3Wqs;
 	Tue, 16 Sep 2025 20:25:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B917644D41;
+	by sea.source.kernel.org (Postfix) with ESMTP id A2E1644DFC;
 	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 83E3EC16AAE;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 71FE2C4AF4D;
 	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054326;
-	bh=D+uWf9FTrNZ5XT1lEEynxKDh80jQlO2m6fXZN2h5Ado=;
+	bh=egTQGUBp0zFp2qNCGSUCro/O1z1FHKCYNAt7sLfWf4g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=V20q9Xo0lEzJgC99QAWvPWoDp0uogcKMcJnek1L79qqlUGGQ261tuwpDhAOgLsEHm
-	 +/tF95jnMFPm2QpOSoV67ZI5lFw8xviG0H5ygJTmY/jIc0ayFm4qy1Smb92PdWOs3o
-	 ugJ9YsmRmOHAua+SedbO9iv1k+pAu9lHK1bAuIuFvLrPn0i8Ksix1FFXfUpJTH7ZPD
-	 aMe21cQVNlTDpyTi9OT/pOOrdJ1zjAZ+7hhWfI/pJhnP8GcjDuS33zNyDIjA8tDN8N
-	 wZGfAIbRYlpZ26df4gGH5HWGXsJ+uF3r8TxCMPNtqr8VEUk3KspQoASsUrTCH2Xs3J
-	 c+Csr1N5RV1QA==
+	b=PN8jXzDiDi9RozSEc6nSjwEzFHkYUrxdOnlOCyBKdZRd3FeqaHOj7f9TSeGhDbDPQ
+	 Bh+pruy+oFlyn8G66wx9fSMwzO3BB+TsMB1T/9ciN9wjtWYhURBu5oJ/ncynx4l4up
+	 GTXS36TSR0vmOTjHOo+AMpbGkL42nXNg5hK1n9q9mIc5qwtlQlHbpqUWPLThUsix5w
+	 MF5bqD6KbunnstwbY91QvngVbXPdwSBbTjFMBCf64FdwFNunRQMBm5M9If9iZmMPmr
+	 FBoeEHUqRWxzic7nngnRXOFUyf3NKkh5Y+HraPxrIF/9jR5Kre2Rs7pbkdgfhpDA5n
+	 5aZBo5+WDL+9w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72FF1CAC598;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 63D2BCAC5A0;
 	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:22 +0700
-Subject: [PATCH 25/25] dts: unisoc: orangepi-i96: Enable SD Card
+Date: Wed, 17 Sep 2025 03:25:21 +0700
+Subject: [PATCH 24/25] dts: unisoc: orangepi-2g: Enable SD Card
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-25-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-24-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,18 +71,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1432;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1448;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=qcvVxoXavmL/qbncOuYL4/AA9pp1j7YRntSv1snSw4A=;
- b=TmsiEoRuyNtRCinPmNRJPzsRLAOD+OfUVej7sM4TKuiv/lAlcCXOZO2yuj/YlaqpZKI2qoRoe
- gli9x6SUlcyCqeLBNQVNnFpfLrzGx9+fwjvYNgu+FokiMeRoJphyvZF
+ bh=iqvLAp/eBqg4tchfSTl6yDHm7EVu5zj7yTK/oizm9Es=;
+ b=QXCXdxinmO64Z8OEcHD6iLAWXpR3hIxrGFI6QsUVZCxUpj/VSQLgKvdaeJIkNysS7nwTiLnj9
+ xsF1lHezVDzAWUeqcnf8tySkrThcdRIcADq/RFZ6wAUb/o0O+FlLD6O
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132531_503335_9BF37FE6 
+X-CRM114-CacheID: sfid-20250916_132531_016631_1E809287 
 X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -103,17 +103,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 From: Dang Huynh <dang.huynh@mainlining.org>
 
 Since we have a SDMMC controller, we can use the SD card slot on the
-Orange Pi i96.
+Orange Pi 2G-IOT.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts | 20 ++++++++++++++++++++
+ .../boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts    | 20 ++++++++++++++++++++
  1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
-index a1d61ef138d12bb3ecb4b24513cc1a7dfbac3107..fbb7b5be62051627e80d940cb5e5ccff9047c13c 100644
---- a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
-+++ b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
+diff --git a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
+index 46ccb9ad510c0df142b845d6fc5633b69c2298dd..f6b1a1485645f5714cdf14447cbee50e28e3c076 100644
+--- a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
++++ b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
 @@ -6,6 +6,7 @@
  
  /dts-v1/;
