@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83E4CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16304CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2QNkuPIh3oIUXl11CfDWoh+QiGH+oWHok3UKODJPS0=; b=yKWKOrp+ST+6yYqYtNgaIuZ6jP
-	3OL3PyQPb0De0vcL5/eWQ8kkMhOwbzHWpt6hVYzAfXjvz8fOdS/zqpMcrOoTzdwtPRZ1bkaeCz4v7
-	mbZftXFRZsAbaLUzzS3zRygO6j9ncGNPAhVLYmnAkVGhpkOk4UGKGo4jbMq9oXPp9n/IR5k0uqKJd
-	/PtMygpzTv22c+xdSdgZW4H1MQ48LJNTyBzj40ZyghfETEKgJy5rRYfMx+BeAxzMtVFvLkc2AlW++
-	TMHzc62DswpiD43qZbu1lLqIumLj+Ulv/RoURbSYIabZmToUMZVMc1SGDp5nYp7cTLlW7wQr9yNp4
-	Z9bnV8Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D+vQbp7jP5IqLGlyYDm+9xM7jtIx14QFYA77kskEgwg=; b=G3aYYFkAMEE96J51LisKUBmX25
+	cx0UzRqyj4HvHIm11w5ybvgBRVYAFFgZgU6J9owv/Ax21xvZ8vCIrpNhh7adwAHTfRvVVAI06/f3n
+	DzPQc+22Ri+/rcKPP25TDyEk+b8D5GrjimWFOXdbNly8Tyo2vPilHZ5BCWA8neLs+9wpwjjqySzzw
+	VIqd8n8pMZS+g+GfdasUi9kJIdAsE1Bay37qStP/mjGoPh2wTNZ9mnMNEoT3paSQLl0IB61eKP3Be
+	Qw5Prgdiw6OVh3PepskTWKbxd9+jU/+Ky7y3UlQ8Jea7T5cjkWdMLyKJn9VgF3YM1E+pDI8dB95C9
+	8BW1xA6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYPK-00000008RRo-2ztl;
-	Tue, 16 Sep 2025 16:19:54 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uyYPs-00000008RYl-08mL;
+	Tue, 16 Sep 2025 16:20:28 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYPH-00000008RQI-2jHF
+	id 1uyYPp-00000008RY1-16Av
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:19:53 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cR6VL2XSNz6K9LN;
-	Wed, 17 Sep 2025 00:16:58 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id A9AFB1402F1;
-	Wed, 17 Sep 2025 00:19:45 +0800 (CST)
-Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 16 Sep
- 2025 18:19:44 +0200
-Date: Tue, 16 Sep 2025 17:19:43 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Mark
- Rutland" <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
-	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
-	<james.clark@linaro.org>
-Subject: Re: [PATCH v2 15/25] genirq: Update request_percpu_nmi() to take an
- affinity
-Message-ID: <20250916171943.000032d6@huawei.com>
-In-Reply-To: <20250915085702.519996-16-maz@kernel.org>
-References: <20250915085702.519996-1-maz@kernel.org>
-	<20250915085702.519996-16-maz@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- frapeml500008.china.huawei.com (7.182.85.71)
+	Tue, 16 Sep 2025 16:20:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758039626; x=1789575626;
+  h=date:from:to:cc:subject:message-id;
+  bh=4kvm0hDwpCBp8Bl5J6M9etLWFkFYm5gDm7ld0QtjWWM=;
+  b=lEW1t2y8/87aZAqjT+LQiN1feUHZkcbNMKJjTfJRlEMGchlGCi/3q5Mo
+   DIt5yZgrk/Hvf8so85XZRZIT+TH3UhCfT2NgyuRfzxxL376LxIlELw4uO
+   jXiycMr+KDkZvhLKrMuVNoRvafUQrPwDXBgsGFEXhoMmxr4HdI95TbKU7
+   RZfy25o/bJsrWE+H+6PcthfTml1KPK9zJW3E/TPu8lsdCX06+Fsb9HfH/
+   WF1vb305vxrRNdwKpnUVx7bxEPtjR7i9Doyvoa3Id+Hqs6enctMNq7+WH
+   ZWzaGnr0ibniVs8rK480KmTNd8DD5SI/mYFW0Q1ir24u75e+fhQferNGo
+   w==;
+X-CSE-ConnectionGUID: wFvGjzLJTyKATTU2Hz/Fkw==
+X-CSE-MsgGUID: QBMbhva9SVGQi9sIHieolg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11555"; a="71426275"
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="71426275"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 09:20:25 -0700
+X-CSE-ConnectionGUID: seXmKqZ+RZSIUFsnIKKyog==
+X-CSE-MsgGUID: AZOyrROERGut/Hoacrc9xQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="212140921"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 16 Sep 2025 09:20:24 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uyYPk-0000UJ-39;
+	Tue, 16 Sep 2025 16:20:20 +0000
+Date: Wed, 17 Sep 2025 00:20:08 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ a409fac1f74bae095605fda86d8f7083aa5b35a6
+Message-ID: <202509170051.zotJa8cA-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_091951_980699_E97E9E0B 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250916_092025_365496_1FCD8E2C 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,103 +83,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sep 2025 09:56:52 +0100
-Marc Zyngier <maz@kernel.org> wrote:
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: a409fac1f74bae095605fda86d8f7083aa5b35a6  ARM: dts: socionext: Drop "linux,spdif-dit" port node unit-address
 
-> Continue spreading the notion of affinity to the percpu interrupt
-> request code by updating the call sites that use request_percpu_nmi()
-> (all two of them) to take an affinity pointer. This pointer is
-> firmly NULL for now.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-A few fussy reviewer comments inline.
+elapsed time: 1475m
 
-> ---
->  arch/arm64/kernel/smp.c   |  2 +-
->  drivers/perf/arm_pmu.c    |  4 +++-
->  include/linux/interrupt.h |  4 ++--
->  kernel/irq/manage.c       | 11 +++++++----
->  4 files changed, 13 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 68cea3a4a35ca..6fb838eee2e7d 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -1094,7 +1094,7 @@ static void ipi_setup_sgi(int ipi)
->  	irq = ipi_irq_base + ipi;
->  
->  	if (ipi_should_be_nmi(ipi)) {
-> -		err = request_percpu_nmi(irq, ipi_handler, "IPI", &irq_stat);
-> +		err = request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat);
->  		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
->  	} else {
->  		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
-> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> index 5c310e803dd78..de9eca2290a97 100644
-> --- a/drivers/perf/arm_pmu.c
-> +++ b/drivers/perf/arm_pmu.c
-> @@ -659,7 +659,9 @@ int armpmu_request_irq(int irq, int cpu)
->  			irq_ops = &pmunmi_ops;
->  		}
->  	} else if (armpmu_count_irq_users(irq) == 0) {
-> -		err = request_percpu_nmi(irq, handler, "arm-pmu", &cpu_armpmu);
-> +		err = request_percpu_nmi(irq, handler, "arm-pmu",
-> +					 NULL,
+configs tested: 153
+configs skipped: 3
 
-I was assuming this odd formatting was to help reduce churn in a later patch, but nope
-this whole block get replaced in patch 18.  So might as well move NULL up a line
-an have a cleaner intermediate state.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-> +					 &cpu_armpmu);
->  
->  		/* If cannot get an NMI, get a normal interrupt */
->  		if (err) {
-> diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
-> index 52147d5f432b3..2134e7c08c169 100644
-> --- a/include/linux/interrupt.h
-> +++ b/include/linux/interrupt.h
-> @@ -197,8 +197,8 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
->  }
->  
->  extern int __must_check
-> -request_percpu_nmi(unsigned int irq, irq_handler_t handler,
-> -		   const char *devname, void __percpu *dev);
-> +request_percpu_nmi(unsigned int irq, irq_handler_t handler, const char *devname,
-Odd inconsistency in parameter naming devname/name
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                   randconfig-001-20250916    gcc-8.5.0
+arc                   randconfig-002-20250916    gcc-8.5.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                          pxa910_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250916    gcc-11.5.0
+arm                   randconfig-002-20250916    clang-22
+arm                   randconfig-003-20250916    gcc-12.5.0
+arm                   randconfig-004-20250916    clang-22
+arm                         wpcm450_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250916    clang-18
+arm64                 randconfig-002-20250916    clang-22
+arm64                 randconfig-003-20250916    clang-22
+arm64                 randconfig-004-20250916    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20250916    gcc-14.3.0
+csky                  randconfig-002-20250916    gcc-11.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon               randconfig-001-20250916    clang-22
+hexagon               randconfig-002-20250916    clang-22
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20250916    gcc-14
+i386        buildonly-randconfig-002-20250916    gcc-14
+i386        buildonly-randconfig-003-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    gcc-14
+i386        buildonly-randconfig-005-20250916    gcc-14
+i386        buildonly-randconfig-006-20250916    clang-20
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20250916    clang-18
+loongarch             randconfig-002-20250916    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+m68k                            q40_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                          eyeq5_defconfig    gcc-15.1.0
+mips                           ip32_defconfig    clang-22
+nios2                             allnoconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20250916    gcc-11.5.0
+nios2                 randconfig-002-20250916    gcc-8.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250916    gcc-9.5.0
+parisc                randconfig-002-20250916    gcc-13.4.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc               randconfig-001-20250916    clang-16
+powerpc               randconfig-002-20250916    clang-22
+powerpc               randconfig-003-20250916    clang-22
+powerpc64             randconfig-001-20250916    clang-22
+powerpc64             randconfig-002-20250916    gcc-8.5.0
+powerpc64             randconfig-003-20250916    clang-22
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    clang-22
+riscv                 randconfig-001-20250916    clang-22
+riscv                 randconfig-001-20250916    gcc-15.1.0
+riscv                 randconfig-002-20250916    gcc-10.5.0
+riscv                 randconfig-002-20250916    gcc-15.1.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                          debug_defconfig    gcc-15.1.0
+s390                                defconfig    clang-22
+s390                  randconfig-001-20250916    gcc-13.4.0
+s390                  randconfig-001-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-8.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-15.1.0
+sh                    randconfig-001-20250916    gcc-15.1.0
+sh                    randconfig-002-20250916    gcc-15.1.0
+sh                           se7721_defconfig    gcc-15.1.0
+sparc                            alldefconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-8.5.0
+sparc                 randconfig-002-20250916    gcc-15.1.0
+sparc                 randconfig-002-20250916    gcc-8.5.0
+sparc64                             defconfig    clang-20
+sparc64               randconfig-001-20250916    gcc-11.5.0
+sparc64               randconfig-001-20250916    gcc-15.1.0
+sparc64               randconfig-002-20250916    clang-22
+sparc64               randconfig-002-20250916    gcc-15.1.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+um                                  defconfig    clang-22
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20250916    gcc-14
+um                    randconfig-001-20250916    gcc-15.1.0
+um                    randconfig-002-20250916    clang-19
+um                    randconfig-002-20250916    gcc-15.1.0
+um                           x86_64_defconfig    clang-22
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250916    gcc-14
+x86_64      buildonly-randconfig-002-20250916    clang-20
+x86_64      buildonly-randconfig-003-20250916    clang-20
+x86_64      buildonly-randconfig-004-20250916    clang-20
+x86_64      buildonly-randconfig-005-20250916    clang-20
+x86_64      buildonly-randconfig-006-20250916    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                randconfig-001-20250916    clang-20
+x86_64                randconfig-002-20250916    clang-20
+x86_64                randconfig-003-20250916    clang-20
+x86_64                randconfig-004-20250916    clang-20
+x86_64                randconfig-005-20250916    clang-20
+x86_64                randconfig-006-20250916    clang-20
+x86_64                randconfig-007-20250916    clang-20
+x86_64                randconfig-008-20250916    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-15.1.0
+xtensa                randconfig-001-20250916    gcc-8.5.0
+xtensa                randconfig-002-20250916    gcc-15.1.0
+xtensa                randconfig-002-20250916    gcc-8.5.0
 
-Perhaps worth tidying that up whilst here. I only noticed because of the
-wrap comment below.
-
-
-> +		   const struct cpumask *affinity, void __percpu *dev_id);
->  
->  extern const void *free_irq(unsigned int, void *);
->  extern void free_percpu_irq(unsigned int, void __percpu *);
-> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-> index 5f4c651677436..49c237aca2a70 100644
-> --- a/kernel/irq/manage.c
-> +++ b/kernel/irq/manage.c
-> @@ -2527,6 +2527,7 @@ EXPORT_SYMBOL_GPL(__request_percpu_irq);
->   * @irq:	Interrupt line to allocate
->   * @handler:	Function to be called when the IRQ occurs.
->   * @name:	An ascii name for the claiming device
-> + * @affinity:	A cpumask describing the target CPUs for this interrupt
->   * @dev_id:	A percpu cookie passed back to the handler function
->   *
->   * This call allocates interrupt resources for a per CPU NMI. Per CPU NMIs
-> @@ -2544,7 +2545,8 @@ EXPORT_SYMBOL_GPL(__request_percpu_irq);
->   * will fail returning a negative value.
->   */
->  int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
-> -		       const char *name, void __percpu *dev_id)
-> +		       const char *name,
-> +		       const struct cpumask *affinity, void __percpu *dev_id)
-
-This seems like an odd wrap and I can't immediately see it making more sense
-in later patches.
-
->  {
-
->  
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
