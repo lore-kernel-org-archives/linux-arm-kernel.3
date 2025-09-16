@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF175CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAA7CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+ZLNq20gUlnf3bdwNOW2uRTHNHYyeqWixETQkP5DOA=; b=ThonVeFNt9CluRxHkGxLMyvKwb
-	DF1c0WrvXxP5pAwCqso7VYrbWAQdeZRW3yFB9sUsvcXiffDd+eucyfhS6KWG+QjRlpYwkTroGxgzn
-	Hv4jOThvODOznCSjmH0qt/kP780OSM92sxCjeDF3cU4QoUf0KXf50VXAQ5EZgNjx2rOzVxRaDb/ul
-	FnCb8EGgK3kHoDzgAoO4YydUemPjdovMrYBuiPVzHKM/Tw8R8HAxlDWi51+tOVE564wSKsObkQ1in
-	hQd9wYxLWnyJGcbrY1+xGHs0gyr67cqjVI3XxZBHOC2t7ht9H/P4DNwtLD1X6sG6wM+4xvDHnB8cO
-	uC7uKpQA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T5oNgRq/fTvr03Q9owxaLXDfdsQwrjKfP38pRyXacog=; b=QsHakKelNw184oLtYOViKXjkIm
+	XkpziFRJem7T4K9vhEUN3g8O7CYfQCKEZaHUpsFfQxY90lxLkBzRECncouF7V2KXzZ4B1kgTsy+EF
+	LsUYydqN1hZEt1zvzJljwCaUlztOa4/FnpHjUR5Ezp1jqgi0HwQCghB/kRrP7yoCixVusoChi+3wR
+	qMnHP6Z0rbpQgSBZPiZgiMi2Rh7JDeX/lxGR0to/CgYXwna33N63hw/ww9DdniqdPcGO3S0F6Zd/V
+	yByfFl2yixl6r4m2aiZBN0BkpF9t9sT0gdVXsmPhRA83dWyzMuQjc4i3oFbVD5LQJhc2IEryzyeBF
+	ZIo1+Klg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRpd-00000007LMu-0MX1;
-	Tue, 16 Sep 2025 09:18:37 +0000
-Received: from mail-m1973195.qiye.163.com ([220.197.31.95])
+	id 1uyRq4-00000007LVP-3hSr;
+	Tue, 16 Sep 2025 09:19:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRpa-00000007LLh-0C99;
-	Tue, 16 Sep 2025 09:18:35 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 22f959761;
-	Tue, 16 Sep 2025 17:18:22 +0800 (GMT+08:00)
-Message-ID: <352856bb-76b6-4861-8a3f-80f94f7c7375@rock-chips.com>
-Date: Tue, 16 Sep 2025 17:18:21 +0800
+	id 1uyRq3-00000007LUo-1kuC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 09:19:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BBDA6013B;
+	Tue, 16 Sep 2025 09:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68820C4CEEB;
+	Tue, 16 Sep 2025 09:19:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758014342;
+	bh=qB2g+ZKw2xWUvs4kudjzzew1W4c1a8eYuOTpRkQDpds=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Hk+ZZzlyxx3MGy8TLfOdkdC2u/ZQjIH5cGi7IH5AnKnDRtVqNnUeM84pRQPzJBujj
+	 VcOB3EKTNUAl74KNtprTUCeEkaBLLv5mxbgOOSJLh9QFzDCtHPrWZ7RvmV+XYrL9II
+	 LyZ0u1aliYpEr0TyAFAl7YiLaJ4SFHsNnhohg6l9RDHWx4tuZDgUZdXRRm2WBi+VA8
+	 johVPGHutqMY4WsNWQL7V+KqBBWMbPx2vs8gP5B4i+yAUeDCq/d1LW+1vfFWKOaAzm
+	 onjhGqRExD0Pe3Tab/o+c1OtCUI40hnEAMif/xNUPFnBhODNnK1jtXmcXJveLdY3qi
+	 k8BOG99C9SZAw==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH] of/irq: Add msi-parent check to of_msi_xlate()
+Date: Tue, 16 Sep 2025 11:18:58 +0200
+Message-ID: <20250916091858.257868-1-lpieralisi@kernel.org>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable DisplayPort for rk3588-evb2
-To: Quentin Schulz <quentin.schulz@cherry.de>, Chaoyi Chen
- <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
- FUKAUMI Naoki <naoki@radxa.com>, Jonas Karlman <jonas@kwiboo.se>,
- Peter Robinson <pbrobinson@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250916080802.125-1-kernel@airkyi.com>
- <50379c05-c8b7-4858-98ff-da7ebdc06863@cherry.de>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <50379c05-c8b7-4858-98ff-da7ebdc06863@cherry.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9951d168ea03abkunm555e9ccfd7dfc3
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUsZSlYZSE0YGkxPQhgaTUxWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=F+EKq4gg4qlo8nAJoc5lrQgMP4zh4inm470+Tn1Ez5Z1/jWE0eyReVlBcRVwLvs726xdBuUQJZ7PbENDGxdwldDSnJisgqnGREb7KNoUhIc55WLPns3O56z44O5S4NCjFNrJKbYS7ojCngYVMA212F9tRS6B4s+zQg0AzCUwUGA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=b+ZLNq20gUlnf3bdwNOW2uRTHNHYyeqWixETQkP5DOA=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_021834_616984_F5A1DB67 
-X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,92 +69,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+In some legacy platforms the MSI controller for a PCI host
+bridge is identified by an msi-parent property whose phandle
+points at an MSI controller node with no #msi-cells property,
+that implicitly means #msi-cells == 0.
 
-On 9/16/2025 4:41 PM, Quentin Schulz wrote:
-> Hi Chaoyi Chen,
->
-> On 9/16/25 10:08 AM, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> The rk3588 evb2 board has a full size DisplayPort connector, enable
->> for it.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> ---
->>   .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 39 +++++++++++++++++++
->>   1 file changed, 39 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> index 91fe810d38d8..0e5af61f66fe 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> @@ -25,6 +25,18 @@ chosen {
->>           stdout-path = "serial2:1500000n8";
->>       };
->>   +    dp-con {
->> +        compatible = "dp-connector";
->> +        label = "DP OUT";
->> +        type = "full size";
->
-> This isn't valid according to the dt binding. It should be "full-size" instead.
+For such platforms, mapping a device ID and retrieving the
+MSI controller node becomes simply a matter of checking
+whether in the device hierarchy there is an msi-parent property
+pointing at an MSI controller node with such characteristics.
 
-Will fix in v2.
+Add a helper function to of_msi_xlate() to check the msi-parent
+property in addition to msi-map and retrieve the MSI controller
+node (with a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to
+provide support for deviceID mapping and MSI controller node
+retrieval for such platforms.
 
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+ drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
+ 1 file changed, 35 insertions(+), 3 deletions(-)
 
->
->> +
->> +        port {
->> +            dp_con_in: endpoint {
->> +                remote-endpoint = <&dp0_out_con>;
->> +            };
->> +        };
->> +    };
->> +
->>       hdmi-con {
->>           compatible = "hdmi-connector";
->>           type = "a";
->> @@ -106,6 +118,24 @@ vcc5v0_usbdcin: regulator-vcc5v0-usbdcin {
->>       };
->>   };
->>   +&dp0 {
->> +    pinctrl-0 = <&dp0m0_pins>;
->> +    pinctrl-names = "default";
->> +    status = "okay";
->> +};
->> +
->> +&dp0_in {
->> +    dp0_in_vp2: endpoint {
->> +        remote-endpoint = <&vp2_out_dp0>;
->> +    };
->> +};
->> +
->> +&dp0_out {
->> +    dp0_out_con: endpoint {
->> +        remote-endpoint = <&dp_con_in>;
->> +    };
->> +};
->> +
->>   &gpu {
->>       mali-supply = <&vdd_gpu_s0>;
->>       sram-supply = <&vdd_gpu_mem_s0>;
->> @@ -916,6 +946,8 @@ &usb_host1_xhci {
->>   };
->>     &vop {
->> +    assigned-clocks = <&cru DCLK_VOP2_SRC>;
->> +    assigned-clock-parents = <&cru PLL_V0PLL>;
->
-> This is surprising, the only other board which has the DP0 enabled (the CoolPi 4B) doesn't set these two.
->
-> Does HDMI still work as well as it used to with these new properties? Why are those needed? Some context in the commit log or as a comment in the DT would be most welcome!
-
-Yes, HDMI and DP can work normally whether these new properties removed or not.
-
-The key point is that when using V0PLL, we can get more usable resolution because DP requires a precise clock. If V0PLL is not explicitly specified here, then dclk_vop2 (VP2) may be divided down on GPLL, CPLL, etc. In this case, only a few frequency points are available. In my case, when V0PLL is not used, only resolutions such as 1024x768 and 640x480 are available.
-
-For HDMI, I think it will use clk_hdmiphy_pixel0/1 as clock parent which is provided by the HDMI PHY when it work on TMDS mode so that we don't need to set it .
-
-I will add more comment in v2.
-
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index e7c12abd10ab..d0e2dfd0ee28 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -670,6 +670,35 @@ void __init of_irq_init(const struct of_device_id *matches)
+ 	}
+ }
+ 
++static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
++{
++	struct of_phandle_args msi_spec;
++	int ret;
++
++	/*
++	 * An msi-parent phandle with a missing or == 0 #msi-cells
++	 * property identifies a 1:1 ID translation mapping.
++	 *
++	 * Set the msi controller node if the firmware matches this
++	 * condition.
++	 */
++	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
++						  0, &msi_spec);
++	if (!ret) {
++		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
++			ret = -EINVAL;
++
++		if (!ret) {
++			/* Return with a node reference held */
++			*msi_node = msi_spec.np;
++			return 0;
++		}
++		of_node_put(msi_spec.np);
++	}
++
++	return ret;
++}
++
+ /**
+  * of_msi_xlate - map a MSI ID and find relevant MSI controller node
+  * @dev: device for which the mapping is to be done.
+@@ -677,7 +706,7 @@ void __init of_irq_init(const struct of_device_id *matches)
+  * @id_in: Device ID.
+  *
+  * Walk up the device hierarchy looking for devices with a "msi-map"
+- * property. If found, apply the mapping to @id_in.
++ * or "msi-parent" property. If found, apply the mapping to @id_in.
+  * If @msi_np points to a non-NULL device node pointer, only entries targeting
+  * that node will be matched; if it points to a NULL value, it will receive the
+  * device node of the first matching target phandle, with a reference held.
+@@ -691,12 +720,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
+ 
+ 	/*
+ 	 * Walk up the device parent links looking for one with a
+-	 * "msi-map" property.
++	 * "msi-map" or an "msi-parent" property.
+ 	 */
+-	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
++	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
+ 		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
+ 				"msi-map-mask", msi_np, &id_out))
+ 			break;
++		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
++			break;
++	}
+ 	return id_out;
+ }
+ 
+-- 
+2.48.0
 
 
