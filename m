@@ -4,167 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C3DCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 12:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A33ECAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 12:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jrG+bS1MWAaJcpyX2r0YtsEdWkvLlIftr4HaQsunZPE=; b=EjIESIm3KhQU6Jir6eM7u5bmG9
-	MFqe+MzkB84SsidnkrUEqtfopB91nWItZ5j5e4mUsrZmlH5MZUZiXxpPA3sxQUsKCLXQ8FNIuHWgU
-	v485HOxTTS7OlIvkdLHB5xuJz4ngeUl993f8WGfRbFBnx9SAcSzDh8j49sVKBqInZH20ZS9IsvAMd
-	0vKc1/TGe6NA6oRaXVaUv/RKqHa98a77ZwT1XqcrHrEcJTD2gwQfTIrd58qF8TK2nkNrmZqRMqEdv
-	oIpBb1N1fqkSU2fHEQJ5gQarVUij2HEgUzUndK0GCk7y/4gEk3JEHYjcFrOSOP1Vkh5YT/NL9pOH0
-	0gR0KZwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bpl9ugiqo+/G72vAFLZ0svH/aqOx0T30YzqazCycQ+8=; b=nRsHY2fXt5jP9aTHK8JQ3v76UP
+	PK4dmu3d/mhQOvUmSe6h7ajgUjyxkadqcrekBAbWy53XEf41i+KBeHZLIZXMyaXj8+aNa9UUlaedd
+	WwZYjTKWVacv32aK38GVCKFopsyLOyffYW22+M91xFWs4ulEBREKP6HJujBHUYsjNewSquU4M6Hrw
+	3pdEVZmGGN2gKnBiJIiyrKm7vmDZ1hk672VPK+lODZMmlVDpkYjFDiTShKanN/WhfU/ug03s5g1jn
+	/3pUFU39t46R2We3z4gh2b5LtK95q+3iYgpxRDY3Ir6hAQRlnGPJYS4QK0hs78qUyjNCFBM0Kni5v
+	CEWl8QTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyUrz-00000007n1P-1QrV;
-	Tue, 16 Sep 2025 12:33:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uyUve-00000007nRw-2Ppe;
+	Tue, 16 Sep 2025 12:37:02 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyUrv-00000007mzT-1Im1
+	id 1uyUvc-00000007nR1-29xj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 12:33:13 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GC9I5F002720;
-	Tue, 16 Sep 2025 14:33:04 +0200
-Received: from am0pr83cu005.outbound.protection.outlook.com (mail-westeuropeazon11010071.outbound.protection.outlook.com [52.101.69.71])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 495kjns805-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Sep 2025 14:33:03 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rE6Lj0s0z3CD1rbLKrW+/Tr2FyPvZnGCBGn9DX0Ovbuv52u0Wpoi1lqlJnU4SzoLl/L0Ysh/AYZ/62Bb5z6Jl6tUJbNTSXaYaDmIUmC5U9YlLJ3P+iinjuI68PhBT9g+F6cUztMyIm3Snyny70RaiNqPC0ScnUltYPAJqgV2e8p6N5ACJq9DI3J1MjQtiZNx8hktPUmVevw4yVzmb9nACRupHkYSUyifDEWR2g+BEypHtwd3ViWWqbET0aoEMyxPa6/i4EsSI1mbypWQWKY/oftorm+ByLCHh+KC83NpYXynrbI1Ls74Zbxm9fDrvmO6KUA+/hjWJD3qii4UQN14PQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jrG+bS1MWAaJcpyX2r0YtsEdWkvLlIftr4HaQsunZPE=;
- b=lCQlDJWNOkZvTvGOulF6tr8RDJoeWH1vXQFh20Z/TlNz+W+Kk1K9DvIT5w1Ij8l5Qh/J07LZIDT1YIBJZw5KUfmnasB0zhf1i3C/sIwj5PgL8zKceuR9Ejz6XD/Cl2Jvpw9EKEzptvOW/WBMGTfe5h8Rpl96Vct2jdcrx84T6hyDMkw5Hc3bbP65CEYvKT8cpE4H3SD0UvMe+swfk7MCQJJsVVd1D8BctCZrprU2wyboygvQzjkuCJIhADkEFKjvasy6LPoluib4kpsxXxV/Qy0hk3lCXRPm5WVGdFlZ7Xrtxrm+BKQ3BH8q7By73ZbkoxEBCBozL5SXJ8yg0sxb4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=renesas.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jrG+bS1MWAaJcpyX2r0YtsEdWkvLlIftr4HaQsunZPE=;
- b=R4HKNQqD86Ij2hGHu9LZs+4Ci5Wt2UDA02FLzxxLBTXqxTkCbAJ1xbKfQ7HX5mbJ3yH/oiE2ouJW0vEYjYB+8eYYWSVfXn+wkyPniIqiQ5SQ5j+mbDRmJG8i3jNmdsYqZcaNrP2NEkdcxz8sQA+hNJj1l/rH7/DIw+4H6R5VMJ4MXOH4cMsFXePeDB3kzKcTVCSX0Kpt88788Dphkmn7sDLkYbDIhyHGWox39Uf7llxQo2nA0r9WxJ+xAvfWSh5jPgv40kqmMYFmfRUYYlLAxuCKZjq+/2TBEe+8wwK5YLq1R3bSXnaqoavWMSlfwjTGs021e/VyOLVm+HVBFFWF4g==
-Received: from DB7PR03CA0080.eurprd03.prod.outlook.com (2603:10a6:10:72::21)
- by DU0PR10MB5194.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:346::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.19; Tue, 16 Sep
- 2025 12:33:01 +0000
-Received: from DB3PEPF0000885E.eurprd02.prod.outlook.com
- (2603:10a6:10:72:cafe::90) by DB7PR03CA0080.outlook.office365.com
- (2603:10a6:10:72::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9115.22 via Frontend Transport; Tue,
- 16 Sep 2025 12:33:01 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- DB3PEPF0000885E.mail.protection.outlook.com (10.167.242.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9137.12 via Frontend Transport; Tue, 16 Sep 2025 12:33:01 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 16 Sep
- 2025 14:25:56 +0200
-Received: from localhost (10.252.10.12) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 16 Sep
- 2025 14:33:00 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: <kuninori.morimoto.gx@renesas.com>,
-        Olivier Moysan
-	<olivier.moysan@foss.st.com>,
-        Arnaud Pouliquen
-	<arnaud.pouliquen@foss.st.com>,
-        Liam Girdwood <lgirdwood@gmail.com>,
-        "Mark
- Brown" <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai
-	<tiwai@suse.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>
-CC: <linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] ASoC: stm32: sai: manage context in set_sysclk callback
-Date: Tue, 16 Sep 2025 14:31:18 +0200
-Message-ID: <20250916123118.84175-1-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.10.12]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF0000885E:EE_|DU0PR10MB5194:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56d06d78-6ee7-4faf-90ad-08ddf51d2d15
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NqCpDxDtMgbs+oRJRYZNu5mi/gSfTpWSrqOdTy+kyUXjywzCjU3T2nS0W/ne?=
- =?us-ascii?Q?IkZVZJcMCm+/YdWO1qVuwE3BCVs6iQ86osnrVrAs1JONqj0zs1DB4reEeomQ?=
- =?us-ascii?Q?u/ykv+OQImjL7gr5XoGyQlSpXAEhlKKBFV/YXoE7HF0PLUJFWM8zsMe2Ndox?=
- =?us-ascii?Q?A79SR6Bav2cYLhxyh0U6grUBKUNfSqYwnn/M5RDcHBkXS7J95T6Jrxq4fqa/?=
- =?us-ascii?Q?ZG+QkF4Q57mSfSVtuTlNjiUXEBm1sLZPg8k9j6JeXiEyFfopSop0rX9mCYjj?=
- =?us-ascii?Q?pVj+dISYrecMDm0T1dp9mfs1vedmaOrAGjffL23fXC2t7wnRjMAbesmPl2Ve?=
- =?us-ascii?Q?6esuGxdePPK1zP81F3aXyC+NnSG2F2FlcbtzzWXtb6WsuFIwbzraO+YyxnUf?=
- =?us-ascii?Q?uJMMKMbC/oHLsTL1LtNbRLvrpubrCfGc9qVkd7HV+2jFJ/+cssE2+iEMj56p?=
- =?us-ascii?Q?STphrIvni6OWcviHbYU1LjqA7xU00RuNug2BcBkObhWOHueg7ww0SipsLUA1?=
- =?us-ascii?Q?hWwNSBIz6mmDJiYgOrRYZB35EZJhJntHzj5h0oEOl36UqYcRbAtLUWE28M+o?=
- =?us-ascii?Q?1mKCK9VnRKAWtZ2rK9pueoTOfL/REC5kwLsIurcza5V52lLjzXsKyOIOReph?=
- =?us-ascii?Q?QDmCXQHzbqfyBuO9siVWMR7b10WQCkR4p9pTItBQAQH2urqsU0rglccZa9fI?=
- =?us-ascii?Q?lvz6tftd0SV/cmxEHWdEK2RWInGbu3Dg/ZuvNqmYPg7DEBkrIEyhd0WGmQAY?=
- =?us-ascii?Q?nJUz8oDxBHeuy7U4WuBbe1J0hH5aoGQn61klNCJ4L5A3kAe3rWnD0668zVcI?=
- =?us-ascii?Q?iAqgfK1VQRRII2AWr6O20Et6CFvpTF36n16kB3mQmsFpI1GdpJhvZYPxsrGd?=
- =?us-ascii?Q?uV/kFY7Dn8KxOjxiAmFzApvkZwTHE/RY2fUejutiW0q7o3FQxCr0w73hL+LV?=
- =?us-ascii?Q?g1PaEdUOOAU2IHHHPoByf/Fzg5J4S1sDTVoyubti/Z6c3+4Pdx0IKUUiiyId?=
- =?us-ascii?Q?K4MX/28C1tafNzlpHUfl1q96gC7bGXDbLexoeIfoW3Y68dnTHh/d+RZKP/oN?=
- =?us-ascii?Q?SxzkMlq36LFpyw1dvFhivL6vbV0JrJWBfbp5BI+qOTIANGRINoLZpMvkDpdb?=
- =?us-ascii?Q?AMqSxQ1s1OdysOFZy06CX9s0m4zYwAG/O7SbXR/uPRtqDvkdDgAiGWDR3X8A?=
- =?us-ascii?Q?jAiTK8yjcd8jym3tNFtAn72jjsk+4aG7F8/LpnBfDErFP5HhGY9RB66jFUwt?=
- =?us-ascii?Q?qS2IKCPagRnIyTIH2/LH2Jig95cCRAToYOqtw5j/O6UiAyFm1b/zq2AdD86A?=
- =?us-ascii?Q?0LBfbS4RDgIJcQ8dPYteAz7GFwt6i1LYi3YyXBYLUEx0RgE3GpxPnNhECGrO?=
- =?us-ascii?Q?qgIaXj6fjLn+9mpixwNPJYhhE5tXoztYVDxIZ3px2E50Wt6VNsm007M4txnx?=
- =?us-ascii?Q?zbYdft3gvswe7ttEy+vjnzb1N6k5Y3A3qQylQ9BLmbv8cwUZky5ied32IS6r?=
- =?us-ascii?Q?1d95zpfwu/WxZ6f/1SiJQLxDujWnc4SdKvXt?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 12:33:01.4541
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56d06d78-6ee7-4faf-90ad-08ddf51d2d15
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885E.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB5194
-X-Authority-Analysis: v=2.4 cv=ObaYDgTY c=1 sm=1 tr=0 ts=68c958ff cx=c_pps a=rpDra4TIJV0i4HlMjvoxBg==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=8KI1uNhz6KsA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=8b9GpE9nAAAA:8 a=ZX3i2W64EGGOe3iA3tMA:9 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-GUID: Ea0aH1oXILXktavvW65pdVgWJg15KFQg
-X-Proofpoint-ORIG-GUID: Ea0aH1oXILXktavvW65pdVgWJg15KFQg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE0MDAwNSBTYWx0ZWRfXw1iDkRDUVND9 E6gKJfz3cle5Mna7yAhGvfe3Cd5xd6bxlL56HolGpJvw7ILVr5LoOlko9wxUAWS8c9pnKuCMrju k8fExN58ZfUEBYMDGaQ3KYU09Mw1jDnfPMNERV4FZ0X3YTzx5dL2lirEkQ1ekIlroCr0e9d1LB/
- Pc+26nHocaVlTpw1bKgqW/+XRdhVZU54dQ3DtLqzzzopVD4CwyXwPnnu//UR7Ij08izHYJ0CrwU lncWwHBIsDILAp8bDk+NAGISOu9HLnIu1G5G4oZxZpH21HUWrEtm3ggnZmzkyto18+SL3wrqtfl Nw9xqSUOW3gdAyZ35HUHoZZCv93likFqDItjueYVuuNGFzZtNATgucG6ojE7i0dDh6IJ0xZ83Bl 4PI0C5RB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 spamscore=0 phishscore=0
- suspectscore=0 priorityscore=1501 malwarescore=0 bulkscore=0 clxscore=1011
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2507300000
- definitions=main-2509140005
+	Tue, 16 Sep 2025 12:37:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758026221; x=1789562221;
+  h=date:from:to:cc:subject:message-id;
+  bh=QkDjdfhs9ERveMVFooTk3yn8+jpDUARPsYb4y46VDCQ=;
+  b=Xi9M2ck+Xb+tRbqHab1NNZRCalW6P1TKS+6ClvgMADais0cmrG6Rkzqo
+   LTofYJpvuT1NHEcRul6Sn/EZmppQRSvsV0Nbi6ZKP/frMWHO6FnR/Vn3e
+   MlLV/YkVx786ueB81ICC69LTE5G7KAnDnNc152yJAUYUiNO3kk2bDYZL8
+   KZRLULDTMXWx9eq3nbocYMdTQvwbzHrgfcbKUb0ZBSdZFlee5pWcqk+7d
+   ZHIMCc27DGULf1cicCEOYpahBd/I5OzmBqCjjiXjEVUgQQrT0mEMimg7m
+   if3+88qVE6Zy8ipjOQ894qWHHyJyu099Hia5QnA+wdcf8vPne1p25DVwi
+   A==;
+X-CSE-ConnectionGUID: vePXF+tLRzKRiTznIAGh1A==
+X-CSE-MsgGUID: BtNV8yokSbKR1MSy9USy4w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11554"; a="60171900"
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="60171900"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 05:37:00 -0700
+X-CSE-ConnectionGUID: cTttwXOxQo+huwwiNVAjtg==
+X-CSE-MsgGUID: P8Yzpo96SJSMxkGyXUsHJQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="179211194"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 16 Sep 2025 05:36:58 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uyUvY-0000Gr-2E;
+	Tue, 16 Sep 2025 12:36:56 +0000
+Date: Tue, 16 Sep 2025 20:35:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/defconfig] BUILD SUCCESS
+ 8193017c718201ffcc9a3cb6f379ee07182a7096
+Message-ID: <202509162044.TSgQQKHa-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_053311_957144_2E8859C9 
-X-CRM114-Status: GOOD (  26.89  )
+X-CRM114-CacheID: sfid-20250916_053700_589790_7E6AFD76 
+X-CRM114-Status: UNSURE (   5.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,129 +83,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mclk direction now needs to be specified in endpoint node with
-"system-clock-direction-out" property. However some calls to the
-set_sysclk callback, related to CPU DAI clock, result in unbalanced
-calls to clock API.
-The set_sysclk callback in STM32 SAI driver is intended only for mclk
-management. So it is relevant to ensure that calls to set_sysclk are
-related to mclk only.
-Since the master clock is handled only at runtime, skip the calls to
-set_sysclk in the initialization phase.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
+branch HEAD: 8193017c718201ffcc9a3cb6f379ee07182a7096  Merge tag 'imx-defconfig-6.18' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/defconfig
 
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+elapsed time: 1251m
 
----
+configs tested: 129
+configs skipped: 114
 
-Here is feedback regarding commit 5725bce709db1c001140d79398581e067e28c031
-ASoC: simple-card-utils: Unify clock direction by clk_direction
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-I have observed some impacts on the STM32 SAI driver behavior.
+tested configs:
+alpha                             allnoconfig    clang-22
+arc                               allnoconfig    clang-22
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                            mmp2_defconfig    gcc-15.1.0
+arm                       netwinder_defconfig    gcc-15.1.0
+arm                          pxa910_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250916    gcc-11.5.0
+arm                   randconfig-002-20250916    clang-22
+arm                   randconfig-003-20250916    gcc-12.5.0
+arm                   randconfig-004-20250916    clang-22
+arm                           sama7_defconfig    clang-22
+arm                        spear6xx_defconfig    clang-22
+arm                         wpcm450_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250916    clang-18
+arm64                 randconfig-002-20250916    clang-22
+arm64                 randconfig-003-20250916    clang-22
+arm64                 randconfig-004-20250916    clang-22
+csky                              allnoconfig    clang-22
+csky                  randconfig-001-20250916    clang-22
+csky                  randconfig-002-20250916    clang-22
+hexagon                           allnoconfig    clang-22
+hexagon               randconfig-001-20250916    clang-22
+hexagon               randconfig-002-20250916    clang-22
+i386        buildonly-randconfig-001-20250916    clang-20
+i386        buildonly-randconfig-002-20250916    clang-20
+i386        buildonly-randconfig-003-20250916    clang-20
+i386        buildonly-randconfig-004-20250916    clang-20
+i386        buildonly-randconfig-005-20250916    clang-20
+i386        buildonly-randconfig-006-20250916    clang-20
+i386                  randconfig-001-20250916    clang-20
+i386                  randconfig-002-20250916    clang-20
+i386                  randconfig-003-20250916    clang-20
+i386                  randconfig-004-20250916    clang-20
+i386                  randconfig-005-20250916    clang-20
+i386                  randconfig-006-20250916    clang-20
+i386                  randconfig-007-20250916    clang-20
+i386                  randconfig-011-20250916    gcc-14
+i386                  randconfig-012-20250916    gcc-14
+i386                  randconfig-013-20250916    gcc-14
+i386                  randconfig-014-20250916    gcc-14
+i386                  randconfig-015-20250916    gcc-14
+i386                  randconfig-016-20250916    gcc-14
+i386                  randconfig-017-20250916    gcc-14
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20250916    clang-22
+loongarch             randconfig-002-20250916    clang-22
+m68k                            q40_defconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                          eyeq5_defconfig    gcc-15.1.0
+mips                           ip32_defconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250916    clang-22
+nios2                 randconfig-002-20250916    clang-22
+openrisc                          allnoconfig    clang-22
+openrisc                            defconfig    gcc-14
+parisc                            allnoconfig    clang-22
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250916    clang-22
+parisc                randconfig-002-20250916    clang-22
+parisc64                            defconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc               randconfig-001-20250916    clang-22
+powerpc               randconfig-002-20250916    clang-22
+powerpc               randconfig-003-20250916    clang-22
+powerpc64             randconfig-001-20250916    clang-22
+powerpc64             randconfig-002-20250916    clang-22
+powerpc64             randconfig-003-20250916    clang-22
+riscv                             allnoconfig    clang-22
+riscv                               defconfig    gcc-14
+riscv                 randconfig-001-20250916    gcc-15.1.0
+riscv                 randconfig-002-20250916    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                          debug_defconfig    gcc-15.1.0
+s390                                defconfig    gcc-14
+s390                  randconfig-001-20250916    gcc-15.1.0
+s390                  randconfig-002-20250916    gcc-15.1.0
+sh                                  defconfig    gcc-14
+sh                    randconfig-001-20250916    gcc-15.1.0
+sh                    randconfig-002-20250916    gcc-15.1.0
+sh                           se7721_defconfig    gcc-15.1.0
+sparc                            alldefconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250916    gcc-15.1.0
+sparc                 randconfig-002-20250916    gcc-15.1.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20250916    gcc-15.1.0
+sparc64               randconfig-002-20250916    gcc-15.1.0
+um                                allnoconfig    clang-22
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20250916    gcc-15.1.0
+um                    randconfig-002-20250916    gcc-15.1.0
+um                           x86_64_defconfig    gcc-14
+x86_64      buildonly-randconfig-001-20250916    clang-20
+x86_64      buildonly-randconfig-002-20250916    clang-20
+x86_64      buildonly-randconfig-003-20250916    clang-20
+x86_64      buildonly-randconfig-004-20250916    clang-20
+x86_64      buildonly-randconfig-005-20250916    clang-20
+x86_64      buildonly-randconfig-006-20250916    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250916    clang-20
+x86_64                randconfig-002-20250916    clang-20
+x86_64                randconfig-003-20250916    clang-20
+x86_64                randconfig-004-20250916    clang-20
+x86_64                randconfig-005-20250916    clang-20
+x86_64                randconfig-006-20250916    clang-20
+x86_64                randconfig-007-20250916    clang-20
+x86_64                randconfig-008-20250916    clang-20
+x86_64                randconfig-071-20250916    gcc-14
+x86_64                randconfig-072-20250916    gcc-14
+x86_64                randconfig-073-20250916    gcc-14
+x86_64                randconfig-074-20250916    gcc-14
+x86_64                randconfig-075-20250916    gcc-14
+x86_64                randconfig-076-20250916    gcc-14
+x86_64                randconfig-077-20250916    gcc-14
+x86_64                randconfig-078-20250916    gcc-14
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+xtensa                randconfig-001-20250916    gcc-15.1.0
+xtensa                randconfig-002-20250916    gcc-15.1.0
 
-To accommodate the change introduced by this commit, I added the property
-"system-clock-direction-out" in the SAI device tree node.
-The SAI nodes typically look as follows:
-
-&sai2 {
-	sai2a: audio-controller@4400b004 {
-		#clock-cells = <0>;
-		clocks = <&rcc SAI2_K>;
-		clock-names = "sai_ck";
-		status = "okay";
-
-		sai2a_port: port {
-			sai2a_endpoint: endpoint {
-				mclk-fs = <256>;
-				system-clock-direction-out;
-			};
-		};
-	};
-};
-However, I noticed a change in the driver behavior:
-
-* Before the change:
-- Initialization:
-simple_init_dai() -> set_sysclk(id=0, freq=sai_ck freq, dir=out)
-	Calls clk_set_rate_exclusive()
-simple_util_shutdown() -> set_sysclk(id=0, freq=0, dir=out)
-	Calls clk_rate_exclusive_put() (releases the mclk clock)
-
-Comments:
-At initialization, the mclk rate is set with the kernel clock frequency.
-
-- Runtime:
-simple_util_hw_params() -> set_sysclk(id=0, freq=mclk freq, dir=out)
-
-Comments:
-At runtime, the mclk rate is set with the mclk clock frequency.
-
-* After the change:
-- Initialization:
-simple_init_dai() -> set_sysclk(id=0, freq=sai_ck freq, dir=out)
-	Calls clk_set_rate_exclusive()
-simple_util_shutdown() -> set_sysclk(id=0, freq=0, dir=in)
-	clk_rate_exclusive_put() NOT called (mclk clock is not released)
-
-Comments:
-The set_sysclk() is called with input direction, resulting in unbalanced
-calls. This seems to be an unexpected behavior.
-
-- Runtime:
-simple_util_hw_params() -> set_sysclk(id=0, freq=mclk freq, dir=out)
-
-This incorrect behavior made me realize that set_sysclk should not be
-called when the frequency corresponds to the kernel clock frequency.
-Here, the SAI driver needs a way to discriminate between the kernel clock
-and the master clock.
-
-I identified the following possibilities to achieve this:
-
-- Check execution context:
-Assuming the requested frequency is correct for mclk at runtime,
-the execution context may be used as a discriminator.
-The snd_soc_dai_stream_active() or snd_soc_card_is_instantiated() functions
-can help determine the execution context.
-For example, the following check can be added in STM32 SAI set_sysclk:
-
-if (!snd_soc_card_is_instantiated(cpu_dai->component->card))
-    return 0;
-
-This approach fixes the issue but looks more like a workaround.
-
-- Check clock direction:
-I expected the kernel clock to remain tagged as an input clock.
-I am not sure what the correct behavior is yet.
-This may have been a way to differentiate clocks in this particular case,
-but I don't think it is a robust method anyway.
-
-- Check clk_id:
-This seems the most relevant way to identify clocks.
-However, clk_id is still set to 0 in simple card set_sysclk calls,
-So, it does not seem to be a valid option at this time.
----
- sound/soc/stm/stm32_sai_sub.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 463a2b7d023b..0ae1eae2a59e 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -672,6 +672,14 @@ static int stm32_sai_set_sysclk(struct snd_soc_dai *cpu_dai,
- 	struct stm32_sai_sub_data *sai = snd_soc_dai_get_drvdata(cpu_dai);
- 	int ret;
- 
-+	/*
-+	 * The mclk rate is determined at runtime from the audio stream rate.
-+	 * Skip calls to the set_sysclk callback that are not relevant during the
-+	 * initialization phase.
-+	 */
-+	if (!snd_soc_card_is_instantiated(cpu_dai->component->card))
-+		return 0;
-+
- 	if (dir == SND_SOC_CLOCK_OUT && sai->sai_mclk) {
- 		ret = stm32_sai_sub_reg_up(sai, STM_SAI_CR1_REGX,
- 					   SAI_XCR1_NODIV,
--- 
-2.25.1
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
