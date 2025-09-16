@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B4FCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 00:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7F5CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 01:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJr+506HYavhLyAPNE14fMgJgbHbAikFhnzPhM0kVTM=; b=RLSQq1nuhXHPZ0bPPrX/NJRlNK
-	Ra9GQ4TAocDpgnLnkvQcEeM0ZkFxVJA2YweGOUKQsClqmehI+YIwdBJz++dXxgcAUIBH1rUUDTvQd
-	iB55b2ekJxpK/b3OPDHfI9sv9sDp1Mrvf/rMvOsNH3ehrzhZXmcSbfs/Fqbk3QI0W2/avKbB6pEha
-	urRVapdtJfUKXQ4nUEzvTmDBYWa7PHnG9twjovaujbUk7bnijvrHJ2feODbyHnnDLsy+va4z5ZHhR
-	Nc+2dwn4PwyXmxyJlMO1/1Bn/poqU3KgHpkunOby1yHp9TRv9sFOSZkq3kKAnQXI3L1TiH6WxxNob
-	3abQ3G4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dEBeb6eiNAU0S3VD9iH4/omSWMUm2llE4vreq7Pw7vU=; b=hLl4mLZotlVhAXFJtskxD4QlbR
+	Vrz33vonIKUfZWxsQMr9wUVfeWUCgvBLiBFpfs0CiDvzr+OqF4ibWEhqD7b9EDAt9MaUv93goKwHt
+	6fFNe7YeaOsce9lHpMEvlvdfs18RFf9v2Ltp7WK9c/3rBcLgSevCsn5B30+SQtMWdPi7tyi+ahj0/
+	HJenymOkj+rg4Vqv5Wbr1q8oOoYmV4G8NKIrmbD5BPA9tQ0+7zvAB898p2GmBhr/ATl79RtE0GuDs
+	0p3FEydIcXCkZz0YWPPqvGIHEPSIugKlzWnxQ+Wcgr0uZkZqJp/DG0zpClkgvo21q/Vz4azxuUooB
+	PucwaEEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyJhA-000000062t1-31hi;
-	Tue, 16 Sep 2025 00:37:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uyKOU-0000000690r-3YTK;
+	Tue, 16 Sep 2025 01:22:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyJh8-000000062sT-27vi
+	id 1uyKOS-00000006902-1Xt2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 00:37:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wJr+506HYavhLyAPNE14fMgJgbHbAikFhnzPhM0kVTM=; b=E2LjKSHHRSkxB/9Njm9q50MF83
-	5VIRQcjknoMGoSETEPmq1ef9Bm/AV5jPSVpEYvzAaLcUJXhg10I9yN6duT7TuNjN+S7adLuZLbRLy
-	tEvYLVQ0qxx+nfDYqjXvQHhOjUC17HFMHdR6O5up+6uOgNsk857c0y41t4QQwibbvQQA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uyJgs-008V93-Hj; Tue, 16 Sep 2025 02:37:02 +0200
-Date: Tue, 16 Sep 2025 02:37:02 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rebecca Cran <rebecca@bsdio.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-Message-ID: <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
-References: <20250911051009.4044609-1-rebecca@bsdio.com>
- <20250911051009.4044609-3-rebecca@bsdio.com>
- <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
- <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+	Tue, 16 Sep 2025 01:22:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 187DF405A3;
+	Tue, 16 Sep 2025 01:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF4FC4CEF1;
+	Tue, 16 Sep 2025 01:22:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757985722;
+	bh=ibKrn2mc/fR0T5tFKwJolutZB/nooDTAjYESNCRVuvA=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=u7uaZg3/QT6HzAHdYt6EPB6CyYkwTxBX235X92B+1a5Qn7l4ZcNt59scn7gJPKSYA
+	 zapGiBToT/OEDOVGchYetXRKlOXVfXV8Cz690RIWMyTKubenI4SSHIA9kfoy2IK6ft
+	 oSF2peswNX1FwnnU7MvcrG+0+87lGpYzRsD7Vm7RlXeXi+s1WlFjKP46lStrLy59mQ
+	 xpd58Hh5GcCdOv0xvsHFQmFbVPs0WSHtRMew796RJkExB192e4AosiDjbK6TzN3f5F
+	 ZUb2+9tf4Bhzcc01WIgqibpu6Wx41UiF680uMVUnWfDCgsH2pMn+E3X8idpq5VE0lC
+	 eTpWLyrEGr12w==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <212df54b-b3b8-454e-8d4b-e79bd9b69349@tuxon.dev>
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com> <f3ef0275345578c504b41710c67bfe1238c44c21.1752176711.git.Ryan.Wanner@microchip.com> <212df54b-b3b8-454e-8d4b-e79bd9b69349@tuxon.dev>
+Subject: Re: [PATCH v3 01/32] clk: at91: pmc: add macros for clk_parent_data
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: varshini.rajendran@microchip.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, robh@kernel.org
+To: Ryan.Wanner@microchip.com, alexandre.belloni@bootlin.com, claudiu beznea <claudiu.beznea@tuxon.dev>, mturquette@baylibre.com, nicolas.ferre@microchip.com
+Date: Mon, 15 Sep 2025 18:21:49 -0700
+Message-ID: <175798570907.4354.6724058613129324221@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_173718_542567_66D5D14C 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250915_182204_426561_FCA4F005 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,23 +72,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 06:26:04PM -0600, Rebecca Cran wrote:
-> On 9/11/25 08:09, Andrew Lunn wrote:
-> > There is no phy-handle here, and no mdio node in this file. What is
-> > the MAC connected to? Does it connect to the hosts Ethernet interface?
-> 
-> Yes, it's connected to one of the host's 10Gb Ethernet interfaces.
+Quoting claudiu beznea (2025-09-06 11:33:34)
+> On 7/10/25 23:06, Ryan.Wanner@microchip.com wrote:
+> > +})
+> > +
+> > +#define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ .hw =3D (h) })
+>=20
+> Could you please update this one, something like:
+>=20
+> #define AT91_CLK_PD_HW(h) ((struct clk_parent_data){ \
+>         .hw =3D (h), .name =3D NULL, .fw_name =3D NULL, .index =3D -1, \
+> }
 
-O.K. Maybe add a comment please.
-
-> > RGMII pinctrl is referenced here. This opens up the question about
-> > RGMII delays. What is this MAC connected to?
-> 
-> It's the AST2500 MAC2, connected to the management LAN ethernet port.
-
-And does it have a PHY? On an MDIO bus? Unless i'm mistaken, you don't
-describe the PHY, a phy-handle pointing to the PHY, and don't have
-phy-mode = 'rgmii-id'.
-
-	Andrew
+If you're only using a struct clk_hw * then just use clk_hws member and
+not clk_parent_data member of struct clk_init_data.
 
