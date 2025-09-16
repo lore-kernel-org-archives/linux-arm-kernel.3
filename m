@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A4ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50D3CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olnWIq+OwapinKQSei3WMLddEC1V65FPRmsbTw38D+w=; b=XeJsIvvywFJY9eLgOPNbC+759V
-	fIZiGm+ytWRZN6ugAPCXO0bz7Fxpm6WNynFmW7uZISCo6JETfzYFBpu5KEKTkiIlsereZ8Z0R2NpA
-	GBfUwRNHYNAcgE/98c49o+zy79CiGvwyTfnWwG6Z36VkEjjd5hJXVrvd8cqzhslyEw8vAiesxb7SV
-	Cyt7syd2hn89v7TRlONB0wgvL+wBztlBuD1u87PvB2Ms24H7gZME5YM1Y6MO+nyTDelRdvrWCjsnQ
-	sPLgXGxqCNGLOa65LLp9iAfeDONWsui7Y8sCRpSUiEH+dgvy88L6ySVCHwCbRGriRysqRKHBBgCeM
-	yV3iTk6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oxyKpGaevdX8qzFvWgJnjXddeL4fgWyDYB+tXskt0Mo=; b=n5RuW34FY0cfvX3hpPPIdWiaLr
+	sse0b3OxiWPv/feQbBvdlIlsFElml+PWM5+2paLuwd84Bl83ufYyIWJrDSFYLAjsIGkFmdLaAxbdD
+	hQJDK+G7j5OSBRfiQVNNLFZtzLfFdVej9/4doH9TEDwKKNj0ks+KJgvMkruid8++gEqJ7fMB0e2Lu
+	J4uuiybQex6/ygeqkTW/riPsy46jJ2hmXE9Y2q6CK9CL2bqAGGQAfbJKRUkHhboGpMWdUcg8aEtUC
+	8P2NBStROIgdCR34GzkDu8cGMO6b7Boo1tBdvZlMl4NUyO6dbLWu2bwM+hJTue1jrI3+ScE5FTtD7
+	95csMTGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybhY-00000008te5-31Tj;
-	Tue, 16 Sep 2025 19:50:56 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uyc1j-00000008ycn-3nF1;
+	Tue, 16 Sep 2025 20:11:47 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybhU-00000008tcL-0PvL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 19:50:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758052252; x=1789588252;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=3UJyCLoY5dPREBaSrlFem6hmMcJTO9i6OKzHiJPkUuA=;
-  b=tvS8Uc7E9kc9C4TazClveRbNuSXuwI4Imlt/KvGQuddLFacZl93nHxD6
-   V3kMd2aH47oCe00YUadGj6kao/GhG9nkiw2Jirk0JKHLpOz7mB6ft7AF+
-   wPKecclL4NgxOGfzlHJ9GvHCuy6GvipbNNyRxc/k+z+1lNTrwE2g6ys1M
-   KAJ61xhWNJBmZ6y7QsJkO98Vp0NBaP3hE4Pc6grxrmhzR8ri3sJmhfQmn
-   ELfPLmjRz0FvvTh8wkoZPPQFfhGWBrdV1qfSgB98fXkTU8WEO409gXTPW
-   w19z321vOK92A0/1hJzVzqwEnmmkbMeru9PuOabSvbIc8+uqxgOWWk64p
-   w==;
-X-CSE-ConnectionGUID: OpVEzCAsSoaW6AVT1s3wKQ==
-X-CSE-MsgGUID: LlSfIUPKQ720guNPTaoNVQ==
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="47129848"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 12:50:48 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 16 Sep 2025 12:50:17 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 16 Sep 2025 12:50:17 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <claudiu.beznea@tuxon.dev>, <sre@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <linux@armlinux.org.uk>
-CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>
-Subject: [PATCH v2 2/3] ARM: at91: PM: implement selection of LPM
-Date: Tue, 16 Sep 2025 12:50:31 -0700
-Message-ID: <98b7e9347fd15e45e2606d0e89f09095887079fc.1758051358.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1758051358.git.Ryan.Wanner@microchip.com>
-References: <cover.1758051358.git.Ryan.Wanner@microchip.com>
+	id 1uyc1g-00000008yb8-40Mw;
+	Tue, 16 Sep 2025 20:11:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1758053302; bh=oxyKpGaevdX8qzFvWgJnjXd
+	deL4fgWyDYB+tXskt0Mo=; b=D81tWIkXyJ82G+KN1ps5eQF2I4UGKqUNEoDzxjadAwW5e5TJxL
+	xCb4/7ziZYL5KVp0obAVsahMsHbbgvfdK5P4bqwG2T2PDVktlNgSZd1Ly9ydyA5TIEd+2x6RWxu
+	bgDOl7gvtwC2fBcg4dRfjDXx7sjoxVb0nTW3bZ8ooJwNJgEAbZ6c2Gp1mwrkccT6E5HKMWjhmAv
+	HmbCw98BuG/QhUB+joM9SRJ6UQH9RGOkrHlnBV0oiEP03BHVI2MJVpNJr2Xu4g+Cun9N1OGxR1g
+	i+P54a8bsCHN5PvI3OGd/aW1RdqTJKAZGNyn7arxXv3BAubYzGZ3+d1a7J+l58QylIA==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1758053302; bh=oxyKpGaevdX8qzFvWgJnjXd
+	deL4fgWyDYB+tXskt0Mo=; b=vN3Lu7A/HWa/cz9tiEIR0Jnq+N4EnamrtRNsC56oqRgBpVEuW+
+	EfAFWSOeXHo0Q0rl/0wPgy4PAUWRCkd3e/AQ==;
+From: Dang Huynh <dang.huynh@mainlining.org>
+Date: Wed, 17 Sep 2025 03:07:21 +0700
+Subject: [PATCH 04/25] rtc: Add timestamp for the end of 2127
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250917-rda8810pl-drivers-v1-4-74866def1fe3@mainlining.org>
+References: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
+In-Reply-To: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
+To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-rtc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+ dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_125052_210223_A740B821 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20250916_131145_133597_0641B2CA 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,318 +82,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea@microchip.com>
+Some RTC (like MT2712 and RDA Micro) can handle until the end of
+the year 2127.
 
-The LPM shutdown controller output could signal the transition to PM
-state for different devices connected on board. On different boards
-LPM could be connected to different devices (e.g. on SAMA7G5-EK REV4
-the LPM is connected to on main crystal oscillator, KSZ8081 PHY and
-to MCP16502 PMIC). Toggling LPM on BSR PM mode is done unconditionally
-and it helps PMIC to transition to a power saving mode. Toggling LPM
-on ULP0 and ULP1 should be done conditionally based on user defined
-wakeup sources, available wakeup source for PM mode and connections to
-SHDWC's LPM pin. On ULP0 any device could act as wakeup sources. On ULP1
-only some of the on SoC controllers could act as wakeup sources. For this
-the architecture specific PM code parses board specific LPM devices,
-check them against possible wakeup source (in case of ULP1) and tells
-assembly code to act properly on SHDWC's LPM pin.
-
-Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-[ryan.wanner@microchip.com: Fixed conflicts when applying.]
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- arch/arm/mach-at91/pm.c              | 96 +++++++++++++++++++++++++++-
- arch/arm/mach-at91/pm.h              |  1 +
- arch/arm/mach-at91/pm_data-offsets.c |  1 +
- arch/arm/mach-at91/pm_suspend.S      | 48 ++++++++++++--
- 4 files changed, 138 insertions(+), 8 deletions(-)
+ include/linux/rtc.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
-index 35058b99069c..40052b06d979 100644
---- a/arch/arm/mach-at91/pm.c
-+++ b/arch/arm/mach-at91/pm.c
-@@ -116,6 +116,7 @@ struct at91_pm_quirks {
-  * @config_shdwc_ws: wakeup sources configuration function for SHDWC
-  * @config_pmc_ws: wakeup srouces configuration function for PMC
-  * @ws_ids: wakup sources of_device_id array
-+ * @shdwc_np: pointer to shdwc node
-  * @bu: backup unit mapped data (for backup mode)
-  * @quirks: PM quirks
-  * @data: PM data to be used on last phase of suspend
-@@ -126,6 +127,7 @@ struct at91_soc_pm {
- 	int (*config_shdwc_ws)(void __iomem *shdwc, u32 *mode, u32 *polarity);
- 	int (*config_pmc_ws)(void __iomem *pmc, u32 mode, u32 polarity);
- 	const struct of_device_id *ws_ids;
-+	struct device_node *shdwc_np;
- 	struct at91_pm_bu *bu;
- 	struct at91_pm_quirks quirks;
- 	struct at91_pm_data data;
-@@ -243,6 +245,82 @@ static const struct of_device_id sam9x7_ws_ids[] = {
- 	{ /* sentinel */ }
- };
+diff --git a/include/linux/rtc.h b/include/linux/rtc.h
+index 95da051fb155dab4c8ec72ccae7b8e12a117a7f1..ec5828ccc7449388da2ab8bc757030e6795ace30 100644
+--- a/include/linux/rtc.h
++++ b/include/linux/rtc.h
+@@ -175,6 +175,7 @@ struct rtc_device {
+ #define RTC_TIMESTAMP_END_2063		2966371199LL /* 2063-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2079		3471292799LL /* 2079-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2099		4102444799LL /* 2099-12-31 23:59:59 */
++#define RTC_TIMESTAMP_END_2127		4985971199LL /* 2127-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2199		7258118399LL /* 2199-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_9999		253402300799LL /* 9999-12-31 23:59:59 */
  
-+static bool at91_pm_device_in_list(const struct platform_device *pdev,
-+				   const struct of_device_id *ids)
-+{
-+	struct platform_device *local_pdev;
-+	const struct of_device_id *match;
-+	struct device_node *np;
-+	int in_list = 0;
-+
-+	for_each_matching_node_and_match(np, ids, &match) {
-+		local_pdev = of_find_device_by_node(np);
-+		if (!local_pdev)
-+			continue;
-+
-+		put_device(&local_pdev->dev);
-+		if (pdev == local_pdev)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static int at91_pm_prepare_lpm(unsigned int pm_mode)
-+{
-+	struct platform_device *pdev;
-+	int ndevices, i, ret;
-+	struct of_phandle_args lpmspec;
-+
-+	if ((pm_mode != AT91_PM_ULP0 && pm_mode != AT91_PM_ULP1) ||
-+	    !soc_pm.shdwc_np)
-+		return 0;
-+
-+	ndevices = of_count_phandle_with_args(soc_pm.shdwc_np,
-+					      "microchip,lpm-connection", NULL);
-+	if (ndevices < 0)
-+		return 0;
-+
-+	soc_pm.data.lpm = 1;
-+	for (i = 0; i < ndevices; i++) {
-+		ret = of_parse_phandle_with_args(soc_pm.shdwc_np,
-+						 "microchip,lpm-connection",
-+						 NULL, i, &lpmspec);
-+		if (ret < 0) {
-+			if (ret == -ENOENT) {
-+				continue;
-+			} else {
-+				soc_pm.data.lpm = 0;
-+				return ret;
-+			}
-+		}
-+
-+		pdev = of_find_device_by_node(lpmspec.np);
-+		of_node_put(lpmspec.np);
-+		if (!pdev)
-+			continue;
-+
-+		if (device_may_wakeup(&pdev->dev)) {
-+			if (pm_mode == AT91_PM_ULP1) {
-+				/*
-+				 * ULP1 wake-up sources are limited. Ignore it if not
-+				 * in soc_pm.ws_ids.
-+				 */
-+				if (at91_pm_device_in_list(pdev, soc_pm.ws_ids))
-+					soc_pm.data.lpm = 0;
-+			} else {
-+				soc_pm.data.lpm = 0;
-+			}
-+		}
-+
-+		put_device(&pdev->dev);
-+		if (!soc_pm.data.lpm)
-+			break;
-+	}
-+
-+	return 0;
-+}
-+
- static int at91_pm_config_ws(unsigned int pm_mode, bool set)
- {
- 	const struct wakeup_source_info *wsi;
-@@ -481,10 +559,17 @@ static int at91_pm_begin(suspend_state_t state)
- 		soc_pm.data.mode = -1;
- 	}
- 
--	ret = at91_pm_config_ws(soc_pm.data.mode, true);
-+	ret = at91_pm_prepare_lpm(soc_pm.data.mode);
- 	if (ret)
- 		return ret;
- 
-+	ret = at91_pm_config_ws(soc_pm.data.mode, true);
-+	if (ret) {
-+		/* Revert LPM if any. */
-+		soc_pm.data.lpm = 0;
-+		return ret;
-+	}
-+
- 	if (soc_pm.data.mode == AT91_PM_BACKUP)
- 		soc_pm.bu->suspended = 1;
- 	else if (soc_pm.bu)
-@@ -1266,7 +1351,11 @@ static void __init at91_pm_modes_init(const u32 *maps, int len)
- 			AT91_PM_REPLACE_MODES(maps, SHDWC);
- 		} else {
- 			soc_pm.data.shdwc = of_iomap(np, 0);
--			of_node_put(np);
-+			/*
-+			 * np is used further on suspend/resume path so we skip the
-+			 * of_node_put(np) here.
-+			 */
-+			soc_pm.shdwc_np = np;
- 		}
- 	}
- 
-@@ -1669,7 +1758,8 @@ void __init sama7_pm_init(void)
- 		AT91_PM_STANDBY, AT91_PM_ULP0, AT91_PM_ULP1, AT91_PM_BACKUP,
- 	};
- 	static const u32 iomaps[] __initconst = {
--		[AT91_PM_ULP0]		= AT91_PM_IOMAP(SFRBU),
-+		[AT91_PM_ULP0]		= AT91_PM_IOMAP(SFRBU) |
-+					  AT91_PM_IOMAP(SHDWC),
- 		[AT91_PM_ULP1]		= AT91_PM_IOMAP(SFRBU) |
- 					  AT91_PM_IOMAP(SHDWC) |
- 					  AT91_PM_IOMAP(ETHC),
-diff --git a/arch/arm/mach-at91/pm.h b/arch/arm/mach-at91/pm.h
-index 50c3a425d140..5707ff6ff444 100644
---- a/arch/arm/mach-at91/pm.h
-+++ b/arch/arm/mach-at91/pm.h
-@@ -40,6 +40,7 @@ struct at91_pm_data {
- 	unsigned int pmc_mckr_offset;
- 	unsigned int pmc_version;
- 	unsigned int pmc_mcks;
-+	unsigned int lpm;
- };
- #endif
- 
-diff --git a/arch/arm/mach-at91/pm_data-offsets.c b/arch/arm/mach-at91/pm_data-offsets.c
-index 0ca5da66dc26..fb9651abdfdf 100644
---- a/arch/arm/mach-at91/pm_data-offsets.c
-+++ b/arch/arm/mach-at91/pm_data-offsets.c
-@@ -20,6 +20,7 @@ int main(void)
- 						 pmc_version));
- 	DEFINE(PM_DATA_PMC_MCKS,	offsetof(struct at91_pm_data,
- 						 pmc_mcks));
-+	DEFINE(PM_DATA_LPM,		offsetof(struct at91_pm_data, lpm));
- 
- 	return 0;
- }
-diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
-index 2e639f9ed648..b9b4208ff732 100644
---- a/arch/arm/mach-at91/pm_suspend.S
-+++ b/arch/arm/mach-at91/pm_suspend.S
-@@ -87,9 +87,30 @@ tmp3	.req	r6
- 
- 	.endm
- 
--	.macro at91_backup_set_lpm reg
-+/*
-+ * Set LPM
-+ * @ena: 0 - disable LPM
-+ *	 1 - enable LPM
-+ *
-+ * Side effects: overwrites r7, r8, r9
-+ */
-+	.macro at91_set_lpm ena
- #ifdef CONFIG_SOC_SAMA7
--	orr	\reg, \reg, #0x200000
-+	ldr	r7, .lpm
-+	cmp	r7, #1
-+	bne	21f
-+	ldr	r7, .shdwc
-+	cmp	r7, #0
-+	beq	21f
-+	mov	r8, #0xA5000000
-+	add	r8, #0x200000
-+	mov	r9, #\ena
-+	cmp	r9, #1
-+	beq	20f
-+	add	r8, #0x200000
-+20:
-+	str	r8, [r7]
-+21:
- #endif
- 	.endm
- 
-@@ -479,7 +500,7 @@ sr_dis_exit:
- 	ldr	tmp1, [pmc, #AT91_PMC_SR]
- 	str	tmp1, .saved_osc_status
- 	tst	tmp1, #AT91_PMC_MOSCRCS
--	bne	1f
-+	bne	7f
- 
- 	/* Turn off RC oscillator */
- 	ldr	tmp1, [pmc, #AT91_CKGR_MOR]
-@@ -493,6 +514,9 @@ sr_dis_exit:
- 	tst	tmp1, #AT91_PMC_MOSCRCS
- 	bne	2b
- 
-+	/* Enable LPM. */
-+7:	at91_set_lpm 1
-+
- 	/* Wait for interrupt */
- 1:	at91_cpu_idle
- 
-@@ -510,7 +534,9 @@ sr_dis_exit:
- 	wait_mckrdy tmp3
- 	b	6f
- 
--5:	/* Restore RC oscillator state */
-+5:	at91_set_lpm 0
-+
-+	/* Restore RC oscillator state */
- 	ldr	tmp1, .saved_osc_status
- 	tst	tmp1, #AT91_PMC_MOSCRCS
- 	beq	4f
-@@ -588,6 +614,9 @@ sr_dis_exit:
- 
- 	wait_mckrdy tmp3
- 
-+	/* Enable LPM */
-+	at91_set_lpm 1
-+
- 	/* Enter the ULP1 mode by set WAITMODE bit in CKGR_MOR */
- 	ldr	tmp1, [pmc, #AT91_CKGR_MOR]
- 	orr	tmp1, tmp1, #AT91_PMC_WAITMODE
-@@ -601,6 +630,9 @@ sr_dis_exit:
- 
- 	wait_mckrdy tmp3
- 
-+	/* Disable LPM. */
-+	at91_set_lpm 0
-+
- 	/* Enable the crystal oscillator */
- 	ldr	tmp1, [pmc, #AT91_CKGR_MOR]
- 	orr	tmp1, tmp1, #AT91_PMC_MOSCEN
-@@ -1054,7 +1086,9 @@ ulp_exit:
- 	ldr	r0, .shdwc
- 	mov	tmp1, #0xA5000000
- 	add	tmp1, tmp1, #0x1
--	at91_backup_set_lpm tmp1
-+#ifdef CONFIG_SOC_SAMA7
-+	orr	tmp1, tmp1, #0x200000
-+#endif
- 	str	tmp1, [r0, #0]
- .endm
- 
-@@ -1088,6 +1122,8 @@ ENTRY(at91_pm_suspend_in_sram)
- #ifdef CONFIG_SOC_SAMA7
- 	ldr	tmp1, [r0, #PM_DATA_PMC_MCKS]
- 	str	tmp1, .mcks
-+	ldr	tmp1, [r0, #PM_DATA_LPM]
-+	str	tmp1, .lpm
- #endif
- 
- 	/*
-@@ -1179,6 +1215,8 @@ ENDPROC(at91_pm_suspend_in_sram)
- #ifdef CONFIG_SOC_SAMA7
- .mcks:
- 	.word 0
-+.lpm:
-+	.word 0
- #endif
- .saved_mckr:
- 	.word 0
+
 -- 
-2.43.0
-
+2.51.0
 
