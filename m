@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BC4CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0107CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vRXpQ+ai9/C9GVrqSxycaxv2rci2qAx9tiiUc+HntzY=; b=g78T65TI6borRnDrAAET/W824+
-	utHFbPFwcMA9ATAc3brb0yPRwpFjCuZ3RNlH+ZM8W4xBpevIct+0q85+Qm3B9Jzp0wrycFYle4SQd
-	IC8E0tYve4U8bMoBAamD8QyTd3wUnyjmpHVcSYZKEOiGe+A910kcv58iAAGi8R6IKZLpQyflDeynV
-	MLaDvb3CASGu9YwhEOqTIONE//aa3BajqNuzRrhbWxytPJFYclcORoEEEp+9MEqrjbTw0z8+8NxLd
-	fdwYJOoWLIpqMt9nxlVXm4dlRbIObKIxoPsBYih8NWIuTioV1VG/R0qC8rcJdKLAWsDgtRRgAekvp
-	40VZMShQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qx7YYrgetF4H5quCDzF6vOAKEEG4E6d1i9dKJOKCGKI=; b=sJe2D0z7eYraTEQhpHVaDcMcDH
+	EmF+rSFTuC2VpuOevnz0owHGFzOAvPrSvsH+SEbDDoAG5fHQHZ9gk5UIbumiZnLXLA56LNDj0GEQN
+	LOhAUvjTm61AszlEouPqRxc9ow8GtFVzdK/+1R6J8RzTPIXkj4OaWE1itdCagWpXGFcpchJ0c1E3u
+	wSyGERjnoZ9HMAW3QVggp165ik/phRYZh5zI/hwkHqY6Zkjprs7MCKaZIH0SCQc3X1GomL0mxv4FE
+	6lRPiuvX/AOTPK1nP8Nt1vE+nmL+PGvVj5CmQ/J9Vy63mpfO1OMlgVpD6M5AWKuZT/ibXqPqG7A4P
+	OL1IUYcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybCr-00000008qdv-0wDN;
-	Tue, 16 Sep 2025 19:19:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uybJS-00000008rVr-0QsB;
+	Tue, 16 Sep 2025 19:26:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybCp-00000008qdU-0NZU;
-	Tue, 16 Sep 2025 19:19:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758050348;
-	bh=1FFIc0vpeVt9VXVXNY5ecNtYOj5Qrah6JBWoxuGwpiU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=le81Am8pWXav/+PnA7BenD+9p1jTZ8O5TlfigdH2DK3P0T01gKhEiPUn/40BeHwku
-	 FAjWOhdAq7QMrv1zw0LyRZInYVCxzM7N5/j3OUXXwwJaTlI/2uGTA9MjmGiiMc7KjA
-	 4zkmQc9I1Llcae/J3jlewZUSETGGKwWVX4hVSkkeLqKA+Gxwg8BNQyokK3H7skHxRZ
-	 AUURGbSbVGohTY6fGnDRLB0894KYq7WknX9Dj/lcCzkImUzJ2lCaCsHW4YPZ8MnlwO
-	 x314oe3Bm6ErLiVJGUZqPXiDNSko0cG3uHAo2QPqLnKixHsYD7VN/0hkYJDRuAlytb
-	 UoxX7+B0EJuVg==
-Received: from [IPV6:2a05:1141:1fb:db00:1bb0:aff4:8ef4:466] (unknown [IPv6:2a05:1141:1fb:db00:1bb0:aff4:8ef4:466])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6643017E12AE;
-	Tue, 16 Sep 2025 21:19:07 +0200 (CEST)
-Message-ID: <ead8edf7-6ae3-46ab-ba3a-4b354e0491f7@collabora.com>
-Date: Tue, 16 Sep 2025 21:19:06 +0200
+	id 1uybJP-00000008rUw-1xHb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 19:26:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EAF140B89;
+	Tue, 16 Sep 2025 19:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E148DC4CEEB;
+	Tue, 16 Sep 2025 19:25:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758050759;
+	bh=WbKVRAs3Wh+XR5dWt3YMr64WBRPzSYnPFa4jHASnGBY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FatPAe+Nj2ETnFOEPGAs4h+A7TEzxfSsUORrtPQperTVyE+gb/CrFO/kzFh3Licr0
+	 UPrXS/5YENcxjnnAicEivE5CnZ1ejKoeaaIJvNcNcLnieQkfYhlK+opI0pzLeQP1Ix
+	 49qrP4lRMxbXXlFgZwB9WZmpsTS0dSzt6LB0wrTIjpG1cUrZKlH2ohdW711ASfHlzB
+	 OABD75atGxGM6lHrs0AdJOVhuvwp0hymPtzETeR9KsAtjD9kP6K/o70fSihY4etXQ2
+	 Bp3bH3HjbDy8GiORtNPUnjlWanFfhBlG0WRqCcgRGx7Dzj2hMMW2EaPbXV6IdWKFKI
+	 Du9nV0OkVR2kQ==
+Date: Tue, 16 Sep 2025 20:25:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: Re: [PATCH v3 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
+ glitch thresold
+Message-ID: <20250916-auction-angelfish-0239691a54e5@spud>
+References: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
+ <20250915195335.1710780-5-dario.binacchi@amarulasolutions.com>
+ <aMmIZTMqr0rtiP6z@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 06/13] media: rockchip: add a driver for the rockchip
- camera interface
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Markus Elfring <Markus.Elfring@web.de>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Mehdi Djait <mehdi.djait@bootlin.com>
-References: <20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com>
- <20240220-rk3568-vicap-v10-6-62d8a7b209b4@collabora.com>
- <3b4173cb-655d-48ea-b86a-a036f666cf40@linaro.org>
- <23ccc744-745d-4a31-a79c-2d64bf1ed43d@collabora.com>
- <82f447d1-89ae-450f-813e-02c3d8228895@linaro.org>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <82f447d1-89ae-450f-813e-02c3d8228895@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Xdjz9h8Dzy3Z31w2"
+Content-Disposition: inline
+In-Reply-To: <aMmIZTMqr0rtiP6z@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_121911_287155_D09488B6 
-X-CRM114-Status: GOOD (  45.21  )
+X-CRM114-CacheID: sfid-20250916_122559_545902_A91311ED 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,227 +85,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bryan,
 
-On 8/28/25 16:08, Bryan O'Donoghue wrote:
-> On 28/08/2025 12:03, Michael Riesch wrote:
->> Hi Bryan,
->>
->> Thanks for your comments :-)
->>
->> On 8/26/25 08:21, Bryan O'Donoghue wrote:
->>> On 19/08/2025 00:25, Michael Riesch via B4 Relay wrote:
->>
->> [...]
->>
->>>> +
->>>> +static void rkcif_dvp_stop_streaming(struct rkcif_stream *stream)
->>>> +{
->>>> +    struct rkcif_device *rkcif = stream->rkcif;
->>>> +    u32 val;
->>>> +
->>>> +    val = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
->>>
->>> This dvp_read stuff looks a bit funny to me, you have a lookup which can
->>> return 0 for unknown registers.
->>>
->>> Probably not the case with a control register like this one but, for
->>> argument sake if RKCIF_DVP_CTRL was not a valid register i.e.
->>> rkcif_dvp_read() would return 0 and you'd still act on that data to
->>> write back to an unkown register.
->>
->> ...which would then hit the same check in rkcif_dvp_write and simply
->> return without writing anything. Also, the WARN_ON_ONCE in the lookup
->> would complain and indicate that the driver developer made some mistake.
->> I hope that the driver developer is thus nudged towards fixing the code
->> they wrote.
->>
->>> Would you not be better off having say callbacks to contain cases where
->>> registers are potentially not present
->>>
->>> ops->update_maybe_not_present_reg();
->>>
->>> followed by writes to registers that would alawys be there ?
->>
->> I'll think about that in more detail, but right now my thoughts are that
->> if any of the registers below are not valid, this piece of hardware is
->> pretty useless and there is something rotten in the driver. Thus, we
->> complain loudly to the developer.
-> The developer is you though :)
-> 
-> Anyway seems a bit weird to me to return invalid registers, you trust
-> yourself right ?
+--Xdjz9h8Dzy3Z31w2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-First of all: no, not one bit :-)
+On Tue, Sep 16, 2025 at 11:55:17AM -0400, Frank Li wrote:
+> On Mon, Sep 15, 2025 at 09:53:06PM +0200, Dario Binacchi wrote:
+> > Support the touchscreen-glitch-threshold-ns property. Unlike the
+> > generic description in touchscreen.yaml, this controller maps the
+> > provided value to one of four discrete thresholds internally.
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >
+> > ---
+> >
+> > Changes in v3:
+> > - Remove the final part of the description that refers to
+> >   implementation details.
+> >
+> >  .../bindings/input/touchscreen/fsl,imx6ul-tsc.yaml   | 12 ++++++++++++
+> >  1 file changed, 12 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,im=
+x6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx=
+6ul-tsc.yaml
+> > index 678756ad0f92..6214d8be5a99 100644
+> > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
+c.yaml
+> > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
+c.yaml
+> > @@ -62,6 +62,18 @@ properties:
+> >      description: Number of data samples which are averaged for each re=
+ad.
+> >      enum: [ 1, 4, 8, 16, 32 ]
+> >
+> > +  touchscreen-glitch-threshold-ns:
+> > +    description: |
+> > +      Unlike the generic property defined in touchscreen.yaml, this
+> > +      controller does not allow arbitrary values. Internally the value=
+ is
+> > +      converted to IPG clock cycles and mapped to one of four discrete
+> > +      thresholds exposed by the TSC_DEBUG_MODE2 register:
+> > +
+> > +        0: 8191 IPG cycles
+> > +        1: 4095 IPG cycles
+> > +        2: 2047 IPG cycles
+> > +        3: 1023 IPG cycles
+> > +
+>=20
+> You have to use ns here. You can caculate in driver to match to closed on=
+e.
 
-But really this is just the consequence of having a lookup table (and we
-need this to account for the different variants). There is a chance that
-some invalid value comes along, and this assertion should warn about it,
-even if the chances of that happening are small.
+That is what he is saying it is doing - "internally the value is
+converted to IPG clock cycles" and so on. Your repeated misunderstanding
+of this though points out that maybe the description is still lacking?
 
-If we converted everything to HW variant specific callbacks, we would
-check whether the callback was NULL, right? Maybe consider this validity
-check as pendant to that.
+Dario, how about:
+| The gitch threshold in nanoseconds. Drivers must convert this value to
+| IPG clock cycles and map it to one of the four discrete thresholds
+| exposed by the TSC_DEBUG_MODE2 register:
+|=20
+|         0: 8191 IPG cycles
+|         1: 4095 IPG cycles
+|         2: 2047 IPG cycles
+|         3: 1023 IPG cycles
+?=20
+I dropped the bit about arbitrary values, due to my comment on the other
+version a few mins ago.
 
-I gave this some thought as promised, but I still feel that looking up
-the register values but having the same code is more readable than
-having callbacks with the same code in principle but with different
-define names.
+--Xdjz9h8Dzy3Z31w2
+Content-Type: application/pgp-signature; name="signature.asc"
 
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
->>>> +            val & (~RKCIF_CTRL_ENABLE_CAPTURE));
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTEN, 0x0);
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT, 0x3ff);
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_FRAME_STATUS, 0x0);
->>>> +
->>>> +    stream->stopping = false;
->>>> +}
->>>> +
->>>> +static void rkcif_dvp_reset_stream(struct rkcif_device *rkcif)
->>>> +{
->>>> +    u32 ctl = rkcif_dvp_read(rkcif, RKCIF_DVP_CTRL);
->>>> +
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL,
->>>> +            ctl & (~RKCIF_CTRL_ENABLE_CAPTURE));
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CTRL, ctl |
->>>> RKCIF_CTRL_ENABLE_CAPTURE);
->>>> +}
->>>> +
->>>> +static void rkcif_dvp_set_crop(struct rkcif_stream *stream, u16 left,
->>>> u16 top)
->>>> +{
->>>> +    struct rkcif_device *rkcif = stream->rkcif;
->>>> +    u32 val;
->>>> +
->>>> +    val = RKCIF_XY_COORD(left, top);
->>>> +    rkcif_dvp_write(rkcif, RKCIF_DVP_CROP, val);
->>>> +}
->>>> +
->>>> +irqreturn_t rkcif_dvp_isr(int irq, void *ctx)
->>>> +{
->>>> +    struct device *dev = ctx;
->>>> +    struct rkcif_device *rkcif = dev_get_drvdata(dev);
->>>> +    struct rkcif_stream *stream;
->>>> +    u32 intstat, lastline, lastpix, cif_frmst;
->>>> +    irqreturn_t ret = IRQ_NONE;
->>>> +
->>>> +    if (!rkcif->match_data->dvp)
->>>> +        return ret;
->>>
->>> Wouldn't you be better off conditionally registering your ISR if
->>> match_data->dvp is true instead ?
->>
->> As you have surely seen, the ISR is shared between all interfaces, i.e.,
->> DVP and MIPI. Now the currently supported models all have a DVP and your
->> suggestion would work. However, I think the RK3562 VICAP can be easily
->> supported by this driver but does not feature a DVP (several MIPI
->> interfaces, though). In this case match_data->dvp evaluates to false but
->> still there is the need to register the ISR.
-> 
-> Why not have separate ISRs then with shared code calling into a function ?
-> 
-> An ISR in my mind should fire for hardware we have a clear idea about
-> and only do so in exceptional (pun intended) circumstances.
-> 
-> So I'd suggest two ISRs calling into whatever shared code you deem
-> necessary as opposed to NULL checking in your ISR.
+-----BEGIN PGP SIGNATURE-----
 
-I could imagine some nice code that calls devm_request_irq() several
-times with different callbacks, but that would be for the same IRQ, as
-there is exactly one hardware interrupt line for the VICAP including its
-IOMMU.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMm5wQAKCRB4tDGHoIJi
+0vFUAP4yvJ7JPgJWizlkXSyY13Kiampa5okOCrVuX+Hzqtd9jwD/W4hIs5K7jaew
+LxQ8Wc6U2dgRHKf+Px6HcnrGYoPcdwU=
+=7jYx
+-----END PGP SIGNATURE-----
 
-The devm_request_irq() calls would be moved to rkcif_capture_{mipi,dvp}
-then and the base interface struct underneath the respective MIPI or DVP
-interface will be passed as argument to the ISR callback.
-
-Are you sure that we'll want to call devm_request_irq() several times
-for the very same HW IRQ?
-
->>>> +
->>>> +    intstat = rkcif_dvp_read(rkcif, RKCIF_DVP_INTSTAT);
->>>> +    cif_frmst = rkcif_dvp_read(rkcif, RKCIF_DVP_FRAME_STATUS);
->>>> +    lastline = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif,
->>>> RKCIF_DVP_LAST_LINE));
->>>> +    lastpix = RKCIF_FETCH_Y(rkcif_dvp_read(rkcif,
->>>> RKCIF_DVP_LAST_PIX));
->>>> +
->>>> +    if (intstat & RKCIF_INTSTAT_FRAME_END) {
->>>> +        rkcif_dvp_write(rkcif, RKCIF_DVP_INTSTAT,
->>>> +                RKCIF_INTSTAT_FRAME_END_CLR |
->>>> +                RKCIF_INTSTAT_LINE_END_CLR);
->>>> +
->>>> +        stream = &rkcif->interfaces[RKCIF_DVP].streams[RKCIF_ID0];
->>>> +
->>>> +        if (stream->stopping) {
->>>> +            rkcif_dvp_stop_streaming(stream);
->>>> +            wake_up(&stream->wq_stopped);
->>>> +            ret = IRQ_HANDLED;
->>>> +            goto out;
->>>> +        }
->>>> +
->>>> +        if (lastline != stream->pix.height) {
->>>> +            v4l2_err(&rkcif->v4l2_dev,
->>>> +                 "bad frame, irq:%#x frmst:%#x size:%dx%d\n",
->>>> +                 intstat, cif_frmst, lastpix, lastline);
->>>> +
->>>> +            rkcif_dvp_reset_stream(rkcif);
->>>> +        }
->>>> +
->>>> +        rkcif_stream_pingpong(stream);
->>>> +
->>>> +        ret = IRQ_HANDLED;
->>>> +    }
->>>> +out:
->>>> +    return ret;
->>>> +}
->>>> +
->>>> +int rkcif_dvp_register(struct rkcif_device *rkcif)
->>>> +{
->>>> +    struct rkcif_interface *interface;
->>>> +    unsigned int streams_num;
->>>> +    int ret;
->>>> +
->>>> +    if (!rkcif->match_data->dvp)
->>>> +        return 0;
->>>
->>> If you don't register the device when match_data->dvp is false, then I
->>> think you can relax the carry-on checks elsewhere on match_data->dvp,
->>> not including dvp_unregister
->>
->> +1 I'll review all instances of this check.
->>
->>> The rest of the file as I breifly skim it looks OK to me, its a bit big
->>> though.
->>>
->>> Would it be possible to break this patch up a little bit ? Might make it
->>> easier for other reviewers to give an SoB for smaller chunks.
->>
->> I suppose what I could do is split this up into five patches, as the
->> commit message already outlines:
->>
->> 1) add a basic driver (no-op skeleton only)
->> 2) abstraction for the ping-pong scheme to allow for future extensions
->> 3) abstraction for the INTERFACE and CROP parts to allow for future
->>     extensions
->> 4) support for the PX30 VIP
->> 5) support for the RK3568 VICAP DVP
->>
->> Please note that in this case I would rework the patch for a final
->> (this-time-really-final) time and drop this elaborate co-developed-by
->> list, as the patch in question will then have nothing to do it all with
->> anything what was before v2 of this series.
-> 
-> I'll leave that up to you, I'll still review your v11 but, a slightly
-> smaller single patch to digest would be appreciated.
-
-Working on that.
-
-Thanks and best regards,
-Michael
-
-> 
-> ---
-> bod
-
+--Xdjz9h8Dzy3Z31w2--
 
