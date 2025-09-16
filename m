@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19941CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF6CCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a8a+63m1MgcaN138HnUFxZGDajMMoQlX/DDZk8V/OI8=; b=iF0fWJ2CgjOnyGZ23jNqcZgf5U
-	xXeJm1axzd+l4CPMhqlpUOWFA0WBVSI7LsVrysxnxoTS1xeuPDqyerDiME+hyiOfr98rVptZEZKME
-	EUrhAhzF0LnBszORG4PwrYq4ZJptP4QpECSnSSjpv6hfaDrXzq8H+zB93ma2BUjabNbeGk/KdK/Ie
-	w5OyqvvKoNL7QzP/am9bBCGhtS9+XSovKqsCS5/LJRmGBMieiteiAoN0bUQ7i9wx/+aNVyt+BFH5H
-	2HDvvUB+TmIM3g+frtb7UhhL48indNh0ll2UN4/JlC7MEoBN+Lb5gP+oIlwpwpQNm56CTTkfoDb9E
-	OotTiQEg==;
+	bh=/g6C2xeoYZcR11C03wza7tZcoXPOJ2hTv6IBjuqmnjI=; b=ftr75c6/+UXmJfrWYgnsYAsLbl
+	UeEB9GvKx5asw/m58CsEz6C94QmJSIlJY87EPxA80CgQS9cpIV5e1VMaqUlD5sCFUhzYgE+cTfr5/
+	UN+lMuTrGxR0xnFQbVWcBN+LNnQ9NyrmCL1MLQtoyeYQY4MQlbgqiAKAqqlyS7gPox0Pl8CRBECFP
+	ukNSCt+rlnuq71ghamdCxuScL94+3UaXRwpDgVpro+jmrIc6t3/9SbW2NnDjpLhCx6KBWrUoqkcGE
+	o/uvuOdD8eCdQ/7u9+YhZw/tyq/oQyESzGtq8ni+8lP4Tvhu8ndLSz+YBur4QvXGqCFBiSiW5hXyL
+	mz3u1NYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfZ-00000008IYu-2bVj;
-	Tue, 16 Sep 2025 15:32:37 +0000
-Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
+	id 1uyXhP-00000008JE6-3u37;
+	Tue, 16 Sep 2025 15:34:31 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfU-00000008IVg-1LCV
+	id 1uyXhL-00000008JCq-1lAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 15:32:33 +0000
-Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
-	by finn.localdomain with esmtp (Exim 4.95)
-	(envelope-from <tharvey@gateworks.com>)
-	id 1uyXfJ-00Aysu-CR;
-	Tue, 16 Sep 2025 15:32:21 +0000
-From: Tim Harvey <tharvey@gateworks.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 3/7] arm64: dts: imx8mp-venice-gw702x: reduce RGMII CLK drive strength
-Date: Tue, 16 Sep 2025 08:32:12 -0700
-Message-Id: <20250916153216.1042625-4-tharvey@gateworks.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250916153216.1042625-1-tharvey@gateworks.com>
-References: <20250916153216.1042625-1-tharvey@gateworks.com>
+	Tue, 16 Sep 2025 15:34:30 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cR5Ts2J1Zz6K9H6;
+	Tue, 16 Sep 2025 23:31:29 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 959C21402FC;
+	Tue, 16 Sep 2025 23:34:16 +0800 (CST)
+Received: from localhost (10.203.177.15) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 16 Sep
+ 2025 17:34:15 +0200
+Date: Tue, 16 Sep 2025 16:34:13 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Mark
+ Rutland" <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
+ Kannan" <saravanak@google.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
+	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
+	<james.clark@linaro.org>
+Subject: Re: [PATCH v2 05/25] irqchip/gic-v3: Add FW info retrieval support
+Message-ID: <20250916163413.000062f0@huawei.com>
+In-Reply-To: <20250915085702.519996-6-maz@kernel.org>
+References: <20250915085702.519996-1-maz@kernel.org>
+	<20250915085702.519996-6-maz@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_083232_356325_49006572 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_083427_751041_9C6C93B1 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,29 +77,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX8M Plus EQOS RGMII tracelength is less than 1in and does not
-require a x6 drive strength. Reduce the CLK drive strength to x1 for
-better emissions.
+On Mon, 15 Sep 2025 09:56:42 +0100
+Marc Zyngier <maz@kernel.org> wrote:
 
-Signed-off-by: Tim Harvey <tharvey@gateworks.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> Plug the new .get_info() callback into the GICv3 core driver,
+> using some of the existing PPI affinity handling infrastructure.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Hi Marc,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
-index a1232a4f8485..dd9eeb3479fd 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
-@@ -462,7 +462,7 @@ MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1		0x16
- 			MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2		0x16
- 			MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3		0x16
- 			MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x16
--			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x16
-+			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x0
- 		>;
- 	};
- 
--- 
-2.25.1
+Yet another trivial comment. It's one of those days it seems :)
+
+> ---
+>  drivers/irqchip/irq-gic-v3.c | 53 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 53 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index dbeb85677b08c..71c278ddd1e39 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -69,6 +69,8 @@ struct gic_chip_data {
+>  	bool			has_rss;
+>  	unsigned int		ppi_nr;
+>  	struct partition_desc	**ppi_descs;
+> +	struct partition_affinity *parts;
+> +	unsigned int		nr_parts;
+>  };
+>  
+>  #define T241_CHIPS_MAX		4
+> @@ -1796,11 +1798,58 @@ static int gic_irq_domain_select(struct irq_domain *d,
+>  	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
+>  }
+>  
+> +static int gic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
+> +{
+> +	const struct cpumask *mask = NULL;
+> +
+> +	info->flags = 0;
+> +	info->affinity = NULL;
+> +
+> +	/* ACPI is not capable of describing PPI affinity -- yet */
+> +	if (!is_of_node(fwspec->fwnode))
+> +		return 0;
+> +
+> +	/* If the specifier provides an affinity, use it */
+> +	if (fwspec->param_count == 4 && fwspec->param[3]) {
+> +		struct fwnode_handle *fw;
+> +
+> +		switch (fwspec->param[0]) {
+> +		case 1:			/* PPI */
+> +		case 3:			/* EPPI */
+> +			break;
+> +		default:
+> +			return 0;
+> +		}
+> +
+> +		fw = of_node_to_fwnode(of_find_node_by_phandle(fwspec->param[3]));
+
+of_node_to_fwnode() has a note that says it'll be removed in the merge window.
+It was enough of an oddity I wondered why it existed.
+
+Of course it did say it would be removed in the previous merge window and wasn't...
+Probably want of_fwnode_handle()
+
+
+
+> +		if (!fw)
+> +			return -ENOENT;
+> +
+> +		for (int i = 0; i < gic_data.nr_parts; i++) {
+> +			if (gic_data.parts[i].partition_id == fw) {
+> +				mask = &gic_data.parts[i].mask;
+> +				break;
+> +			}
+> +		}
+> +
+> +		if (!mask)
+> +			return -ENOENT;
+> +	} else {
+> +		mask = cpu_possible_mask;
+> +	}
+> +
+> +	info->affinity = mask;
+> +	info->flags = IRQ_FWSPEC_INFO_AFFINITY_VALID;
+> +
+> +	return 0;
+
 
 
