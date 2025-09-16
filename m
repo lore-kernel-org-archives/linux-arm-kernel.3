@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A50CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ADFCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vKGd3v+/MNTZFBly663z0CRc24GoxcHKINEmL/tLaUE=; b=Huedfuz681h7T3oH5UZtYkXHf7
-	Pf31QLGut3CkCVws2PPqSRG1wO59JFx3PQB9Ary0eY0wPM9o9Syjm2OrAJkAeH1gGyNbla3VPZ3xw
-	T+09pdhFhFgj71Kh41SkDFqxdnmJc6QnXToMHKbRFr+0Ni5DmVfYaX4z2cUH6AE9EGh2cAFD1PizR
-	cW+E/bdk9+bj3GvUg1fIokT5PCBZ8qo1UB663HhWl+k+vcy2qX92thL0GsnRhxq8oHRR5TkG5IF1x
-	GQOSCsAQRXxksWwHU4zM5I4Y6OA+L/gyrRnwDBNvdwBo71M4OBjOqxJw5/m+08ojICm5Iaw0O0pAz
-	bmOyVv2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PWZBDigLOa2cx6/5Tu47dZ4P+Y0RlDmXPQo5pmrJZ4k=; b=pIl+eWkhMRB5Ses25arajnXW2n
+	o5HzX2o9Wwr7hzX5E2CnY7wL3mDpUV/mNXUEEfPxne+XFJUu903C09UAUrJcPMF1JsibQp1HiYqVh
+	7Ea356sbQHvWXeH6y9yZRkWO2LwejHhGAq+wVNbf3LWIvTCpVBiB8qQVy3m8r9MVQ01svjZDiFasN
+	h9cMjCFOc+0UHupfrlYeLfG1oNLgKsQJXhdX/kWAKbvbfcV0cdNCN8TqgJADz0MU6YHVxp5MVLysO
+	EvwleeAf80L6OYC3wWaswIZrCBJOqremC1Rq6R6vpbQ2lMp9KsS4Nr5yrzVTrqf6PtWKEUqmc7oUi
+	/u6E7Cxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQrC-000000079S3-37vw;
-	Tue, 16 Sep 2025 08:16:10 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQr8-000000079RP-0Nto;
-	Tue, 16 Sep 2025 08:16:09 +0000
-X-UUID: 60f6482e92d511f09eb0dd999d3936bf-20250916
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=vKGd3v+/MNTZFBly663z0CRc24GoxcHKINEmL/tLaUE=;
-	b=JvebwpEc9DQL1i5ZpV+gvhvFltmlSGOqe2iA0co1i35kJb7GgUT2nvDUZg6e9L/KVztFTviAt8L/ySeg20w6Rk/nYy3OkROwzOTqsHIoKt1DZJ45CvrX//8z9oumtIWIrtvx3xxORYGJKkaJe8f5myK001cFG8TdiM4GqLz4jTU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:7fc7debf-6d10-4061-9423-a3c40ef6cda0,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:1ca6b93,CLOUDID:a9085fa9-24df-464e-9c88-e53ab7cf7153,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
-	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
-	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 60f6482e92d511f09eb0dd999d3936bf-20250916
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <tim.kuo@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 172188675; Tue, 16 Sep 2025 01:16:00 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 16 Sep 2025 16:15:56 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 16 Sep 2025 16:15:56 +0800
-From: Tim Kuo <Tim.Kuo@mediatek.com>
-To: Mark Brown <broonie@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Steven Liu <Steven.Liu@mediatek.com>, Sky Huang <Skylake.Huang@mediatek.com>,
-	Tim Kuo <Tim.Kuo@mediatek.com>
-Subject: [PATCH] spi: mt65xx: add dual and quad mode for standard spi device
-Date: Tue, 16 Sep 2025 16:15:15 +0800
-Message-ID: <20250916081515.324130-1-Tim.Kuo@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uyQzg-00000007AW2-0VPv;
+	Tue, 16 Sep 2025 08:24:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyQzd-00000007AUT-00jZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 08:24:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD4F912FC;
+	Tue, 16 Sep 2025 01:24:41 -0700 (PDT)
+Received: from [10.57.94.248] (unknown [10.57.94.248])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB8983F673;
+	Tue, 16 Sep 2025 01:24:46 -0700 (PDT)
+Message-ID: <46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com>
+Date: Tue, 16 Sep 2025 09:24:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+Content-Language: en-GB
+To: Huang Ying <ying.huang@linux.alibaba.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
+ <20250915032946.33203-3-ying.huang@linux.alibaba.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250915032946.33203-3-ying.huang@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_011606_172412_9540C08B 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250916_012453_142416_8FFA1C98 
+X-CRM114-Status: GOOD (  48.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +79,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Tim Kuo" <Tim.Kuo@mediatek.com>
+On 15/09/2025 04:29, Huang Ying wrote:
+> A multi-thread customer workload with large memory footprint uses
+> fork()/exec() to run some external programs every tens seconds.  When
+> running the workload on an arm64 server machine, it's observed that
+> quite some CPU cycles are spent in the TLB flushing functions.  While
+> running the workload on the x86_64 server machine, it's not.  This
+> causes the performance on arm64 to be much worse than that on x86_64.
+> 
+> During the workload running, after fork()/exec() write-protects all
+> pages in the parent process, memory writing in the parent process
+> will cause a write protection fault.  Then the page fault handler
+> will make the PTE/PDE writable if the page can be reused, which is
+> almost always true in the workload.  On arm64, to avoid the write
+> protection fault on other CPUs, the page fault handler flushes the TLB
+> globally with TLBI broadcast after changing the PTE/PDE.  However, this
+> isn't always necessary.  Firstly, it's safe to leave some stall
+> read-only TLB entries as long as they will be flushed finally.
+> Secondly, it's quite possible that the original read-only PTE/PDEs
+> aren't cached in remote TLB at all if the memory footprint is large.
+> In fact, on x86_64, the page fault handler doesn't flush the remote
+> TLB in this situation, which benefits the performance a lot.
+> 
+> To improve the performance on arm64, make the write protection fault
+> handler flush the TLB locally instead of globally via TLBI broadcast
+> after making the PTE/PDE writable.  If there are stall read-only TLB
+> entries in the remote CPUs, the page fault handler on these CPUs will
+> regard the page fault as spurious and flush the stall TLB entries.
+> 
+> To test the patchset, make the usemem.c from
+> vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
+> support calling fork()/exec() periodically.  To mimic the behavior of
+> the customer workload, run usemem with 4 threads, access 100GB memory,
+> and call fork()/exec() every 40 seconds.  Test results show that with
+> the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
+> flush functions reduces from ~50.5% to ~0.3% in perf profile.
 
-Mediatek SPI hardware natively supports dual and quad modes, and these
-modes are already enabled for SPI flash devices under spi-mem framework
-in MTK SPI controller spi-mt65xx. However, other SPI devices, such as
-touch panels, are limited to single mode because spi-mt65xx lacks SPI
-mode argument parsing from SPI framework for these SPI devices outside
-spi-mem framework.
+Overall, this looks like a simple and useful performance optimization - thanks!
+I'm running this through our performance regression suite to see if it spots any
+workloads where the change slows things down and will report once we have the
+results.
 
-This patch adds dual and quad mode support for these SPI devices by
-introducing a new API, mtk_spi_set_nbits, for SPI mode argument parsing.
+> 
+> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> Cc: Vlastimil Babka <vbabka@suse.cz>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+> Cc: Dev Jain <dev.jain@arm.com>
+> Cc: Barry Song <baohua@kernel.org>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> ---
+>  arch/arm64/include/asm/pgtable.h  | 14 ++++++++-----
+>  arch/arm64/include/asm/tlbflush.h | 33 +++++++++++++++++++++++++++++++
+>  arch/arm64/mm/fault.c             |  2 +-
+>  3 files changed, 43 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index abd2dee416b3..a9ed8c9d2c33 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+>  /*
+> - * Outside of a few very special situations (e.g. hibernation), we always
+> - * use broadcast TLB invalidation instructions, therefore a spurious page
+> - * fault on one CPU which has been handled concurrently by another CPU
+> - * does not need to perform additional invalidation.
+> + * We use local TLB invalidation instruction when reusing page in
+> + * write protection fault handler to avoid TLBI broadcast in the hot
+> + * path.  This will cause spurious page faults if stall read-only TLB
+> + * entries exist.
+>   */
+> -#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
+> +#define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
+> +	local_flush_tlb_page_nonotify(vma, address)
+> +
+> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
+> +	local_flush_tlb_page_nonotify(vma, address)
 
-Signed-off-by: Tim Kuo <Tim.Kuo@mediatek.com>
----
- drivers/spi/spi-mt65xx.c | 33 ++++++++++++++++++++++++++++++---
- 1 file changed, 30 insertions(+), 3 deletions(-)
+It's not really clear to me how important doing local tlb flushes for pmds is
+for the performance improvement? I'm guessing most of the win comes from the pte
+level? I suspect you have only added spurious pmd fault handling because the
+arm64 implementation of __ptep_set_access_flags() actually handles both pte and
+pmd levels?
 
-diff --git a/drivers/spi/spi-mt65xx.c b/drivers/spi/spi-mt65xx.c
-index 8a3c00c3af42..591740805740 100644
---- a/drivers/spi/spi-mt65xx.c
-+++ b/drivers/spi/spi-mt65xx.c
-@@ -563,6 +563,27 @@ static void mtk_spi_setup_packet(struct spi_controller *host)
- 	writel(reg_val, mdata->base + SPI_CFG1_REG);
- }
- 
-+inline u32 mtk_spi_set_nbit(u32 nbit)
-+{
-+	u32 ret = 0;
-+
-+	switch (nbit) {
-+	case SPI_NBITS_SINGLE:
-+		ret = 0x0;
-+		break;
-+	case SPI_NBITS_DUAL:
-+		ret = 0x1;
-+		break;
-+	case SPI_NBITS_QUAD:
-+		ret = 0x2;
-+		break;
-+	default:
-+		pr_info("unknown spi nbit mode, use single mode!");
-+		break;
-+	}
-+	return ret;
-+}
-+
- static void mtk_spi_enable_transfer(struct spi_controller *host)
- {
- 	u32 cmd;
-@@ -729,10 +750,16 @@ static int mtk_spi_transfer_one(struct spi_controller *host,
- 
- 	/* prepare xfer direction and duplex mode */
- 	if (mdata->dev_comp->ipm_design) {
--		if (!xfer->tx_buf || !xfer->rx_buf) {
-+		if (xfer->tx_buf && xfer->rx_buf) {
-+			reg_val &= ~SPI_CFG3_IPM_HALF_DUPLEX_EN;
-+		} else if (xfer->tx_buf) {
-+			reg_val |= SPI_CFG3_IPM_HALF_DUPLEX_EN;
-+			reg_val &= ~SPI_CFG3_IPM_HALF_DUPLEX_DIR;
-+			reg_val |= mtk_spi_set_nbit(xfer->tx_nbits);
-+		} else {
- 			reg_val |= SPI_CFG3_IPM_HALF_DUPLEX_EN;
--			if (xfer->rx_buf)
--				reg_val |= SPI_CFG3_IPM_HALF_DUPLEX_DIR;
-+			reg_val |= SPI_CFG3_IPM_HALF_DUPLEX_DIR;
-+			reg_val |= mtk_spi_set_nbit(xfer->rx_nbits);
- 		}
- 		writel(reg_val, mdata->base + SPI_CFG3_IPM_REG);
- 	}
--- 
-2.45.2
+Given the core kernel didn't previously have support for pmd spurious faults, I
+wonder if it would be simpler to drop the first patch and rejig
+__ptep_set_access_flags() so that it has a pgsize parameter and can
+differentiate based on that? I'm on the fence...
+
+If you do end up taking this approach, there is a style I introduced for
+hugetlb, where the function is suffixed with _anysz and it takes a pgsize param:
+
+int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+				  unsigned long address, pte_t *ptep,
+				  pte_t entry, int dirty, unsigned long pgsize);
+
+>  
+>  /*
+>   * ZERO_PAGE is a global shared page that is always zero: used
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+> index 18a5dc0c9a54..607b67d8f61b 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -282,6 +282,39 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+>  }
+>  
+> +static inline void __local_flush_tlb_page_nonotify_nosync(
+> +	struct mm_struct *mm, unsigned long uaddr)
+> +{
+> +	unsigned long addr;
+> +
+> +	dsb(nshst);
+> +	addr = __TLBI_VADDR(uaddr, ASID(mm));
+> +	__tlbi(vale1, addr);
+> +	__tlbi_user(vale1, addr);
+> +}
+> +
+> +static inline void local_flush_tlb_page_nonotify(
+> +	struct vm_area_struct *vma, unsigned long uaddr)
+> +{
+> +	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+> +	dsb(nsh);
+> +}
+> +
+> +static inline void __local_flush_tlb_page_nosync(
+> +	struct mm_struct *mm, unsigned long uaddr)
+> +{
+> +	__local_flush_tlb_page_nonotify_nosync(mm, uaddr);
+> +	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
+> +						(uaddr & PAGE_MASK) + PAGE_SIZE);
+> +}
+> +
+> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+> +					unsigned long uaddr)
+> +{
+> +	__local_flush_tlb_page_nosync(vma->vm_mm, uaddr);
+> +	dsb(nsh);
+> +}
+> +
+
+You're introducing more variants than you're actually using here. I think you
+just need local_flush_tlb_page() and local_flush_tlb_page_nonotify(); you could
+keep __local_flush_tlb_page_nonotify_nosync() and drop
+__local_flush_tlb_page_nosync() since it's not really adding much?
+
+But I'm also wondering if we should tidy up this API in general; we have local
+vs broadcast, sync vs nosync, notify vs nonotify. And page is really just a
+special case of a range. So perhaps it is better to rework the range API to take
+some flags and we can tidy up all of this. I know Will also posted an RFC to
+convert a lot of this to c functions, which should also be included. Not a
+blocker for this change, I don't think, but there should definitely be some
+follow up work to tidy it up. (I'm happy to take it on).
+
+>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>  					   unsigned long uaddr)
+>  {
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index d816ff44faff..22f54f5afe3f 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+>  
+>  	/* Invalidate a stale read-only entry */
+>  	if (dirty)
+> -		flush_tlb_page(vma, address);
+> +		local_flush_tlb_page(vma, address);
+
+Given this is called for both pmds and ptes, it's a bit of an abuse to flush a
+*page*. Yes it is architecturally safe, but it's not exactly self-documenting.
+If we pass in the pgsize (as per above) it could be optimized given we know the
+level and we only want to invalidate the last level. e.g. the local equivalent to:
+
+__flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, true, 2);
+
+or
+
+__flush_tlb_range(vma, address, address + PAGE_SIZE, PAGE_SIZE, true, 3);
+
+Again though, perhaps that is part of some follow up tidying work?
+
+
+contpte_ptep_set_access_flags() currently does a (broadcast) __flush_tlb_range()
+on the (pte_write(orig_pte) == pte_write(entry)) path. I think that should be
+changed to a local range invalidation to be consistent with this change.
+
+Thanks,
+Ryan
+
+>  	return 1;
+>  }
+>  
 
 
