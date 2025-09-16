@@ -4,201 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E43CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F2ACAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3o2nUNXj90ovoahy1KPSmuJCJUznpTbGjWHcnaBgpn0=; b=zous2NEte6HwwWhoFWIkYDGd9p
-	S2Y4blY3+OoKrvcXHoV7ONc2JwjSCMN0QxKdAP9TDmpAtYQDRqm/6awPTEXQh+Q4tfDpnlVjwb0wf
-	zh2KvM+WMFwn/shE0Yrva+qrh5bn6E46L7WTj36Mg5/4MIjQdSxR5LNg/hqvGwpGJfclgyDxwQLA/
-	O8AeQWPgidFwyUusmM+QGlpU47gE7l7A2NSWG+2HxSDOLOL/WzcoVYbyCisnu8drUxhiJ/ZmvhuIE
-	aSodqO/1ks/OkCsM3t42+iPRngXAcWQlwjkQPYafNXz/TMhQloDIoOb8SmgdBMoQIVKslZb4YW92q
-	/9Oe9d7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=; b=f4ENVSkeBCHbfIM/qW4MqQAxDq
+	6a/NR8WNeDP7Pir3ik5D0InnfTeiuy3G2VU6OE1875MOsou1Uq9JOrg8iWo7o6EC+oMux3r4cgE1n
+	qr/eKTh2y7nDMH4NQ3gCtNNaZ/zQR45Y8R7idLPsvNhcHQoxKR2suieQTa2Um4WspblhQLAEjZVlK
+	2A0JVe7gseSk8rata9SU+xzAoy7clMTjDOnhGGOi6N3mt09Y4GbkbJyonwCUgVZw+dAt0RLN6fyhT
+	Csf8GWLTAbVjmfBqPSpvi4juZtcxrebUPzFdLNglY9rX4urzp06Ud92Ox8Xf+N1R2rm2RUXjH3i+f
+	phMFL+GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWD3-000000080nt-3kJp;
-	Tue, 16 Sep 2025 13:59:05 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uyWFt-000000081FS-1chD;
+	Tue, 16 Sep 2025 14:02:01 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWD1-000000080n8-09FV
+	id 1uyWFq-000000081E9-2Uq6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 13:59:05 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=RefWmFZ0ssNpGSVg0KO2agmT2g+I5GIf10ZjyE2oKwaQxfkZxnUJzbDuvRBfT2sbnDjbUaityICeObbadQvUPET9c+9+CzCiHGKFzt3FUO3vlNXbLQpCWfteAdZRGw9heDCKDTT1RPwHwUOkO4BOk/SZdNdSt7AD4NKzKN0EQWSNX1MA5Qkg8VAmIQTF7JOm/TFxwLN7QzfLG2T4i2Gj7PsiiC/tV2vq6pYfdnMn4HyG2nKIUiLSkwlrv4oKOzB3GrcxFkcg4OKnhRgrejPuiLSkUiOl8Qxn5gXjC8DFxAYqch6fqkryF+dENHyhV+fS9tO9Z++O8hQQUYCBJ2W1jg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3o2nUNXj90ovoahy1KPSmuJCJUznpTbGjWHcnaBgpn0=;
- b=BAh9cEnyDvxkHo6EIIxrrv9vG9hKNaQG0JDNcskO03hIE+JcBJmPGboiIhB15QlhwMXgdirr95jI+tneHKixsSaA+R12KuoEwPEJLtOJb3mKJSTs9b2H7lXSPSZJCL9NkD6NKDtMBVVrE2heu13jJ7ZPIG1OjX7npyVwznkU3gh/WBZzwlfvJGmd7uPlMFHEbaWQJtjb06qejZ3WYaO1GB7a+/OUbadHUUV3Yx9wxndchPcnBaKbS3LSwNS2o6pUKMRRhy6jKVvg4IijYja+j2IBrISofj8GYLVUiv5PvZO6CHcPCj+JxLnAeZxeslcorz1XnvevpAaLkn3l4Ms6wQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3o2nUNXj90ovoahy1KPSmuJCJUznpTbGjWHcnaBgpn0=;
- b=a9yTMEkL7ks3k22SugYsDNJmxjpLAtZgJarU7iyN7+VF5ncj/weh7OZxhkP8V8e8IOm1qnU2I0JfI+lcl18TQg/26Ozj+hWqQgBXYXaL83yknOytrjCaZRTn5leUn6E7ul6Xy3KOiTQEI9zrix+WyJB05NZuV0Zm98jrd8jNX/M=
-Received: from AM0PR07CA0020.eurprd07.prod.outlook.com (2603:10a6:208:ac::33)
- by DU0PR08MB9509.eurprd08.prod.outlook.com (2603:10a6:10:44f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Tue, 16 Sep
- 2025 13:58:54 +0000
-Received: from AMS1EPF00000042.eurprd04.prod.outlook.com
- (2603:10a6:208:ac:cafe::a6) by AM0PR07CA0020.outlook.office365.com
- (2603:10a6:208:ac::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.12 via Frontend Transport; Tue,
- 16 Sep 2025 13:58:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS1EPF00000042.mail.protection.outlook.com (10.167.16.39) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.12
- via Frontend Transport; Tue, 16 Sep 2025 13:58:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VLVseIHpiNTS+8zWvT6lZd2kiybj3mdPDQrck0BjkT7NKy5oAhX540ZV4fcdrO+JziVw99ucEYOszI+U34x6UnR1b1pistOYIxMwuOV+XCP0cj28DB374CqDQ7ElHk/VmaWvvKaMjH+UoyenC6cygctoN+iEOKRD+kGuJE5n37nxrqEf9TIuwjVjwLVqCpg3Z/yS4xIlKegy/Nfz7sCQrLpcaP2A6MIYM2ZNYWD45tOYrQ1QuRSLvdHGWcj7Da4wW/CqTncXl3/mzI8FRjJOMpUPiZvRduQKWbsLB/Hm9NBri4dcDYeB1hGaa5zJTaJo9kko27lXAgVHz27GvSw3iQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3o2nUNXj90ovoahy1KPSmuJCJUznpTbGjWHcnaBgpn0=;
- b=ZJjsXQ5W4S3R23Hh8wEZ9aaNoK3+MI3OjbOQa5mzIIQK1dhzIqBFEDTtejbx0bvpqUoFmfq55LZQXwgW7ceFRNGnLrJjebM+UWECSVmreuG80yAqm+9cFzAuaoAUn8FdqSTrSk889W5tECjetwIj+MUiIhomD2NpFrv0CHPYXwjdJs6Z37si3JXm6dGHDIthg1kxBZX4dPIkrUTxi/fdLzuuxeQZS5XF0kSaUTs2zSyHAxhRZaQefe+n6rmu9svx6zjGt2rbFtFmPmIRLd/mofpozy7E/fbz3qkjWnN9gf1H10ePVRhqCPAio/wdEW/YUjdEVQ+1TAcoprADj8+Ojg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3o2nUNXj90ovoahy1KPSmuJCJUznpTbGjWHcnaBgpn0=;
- b=a9yTMEkL7ks3k22SugYsDNJmxjpLAtZgJarU7iyN7+VF5ncj/weh7OZxhkP8V8e8IOm1qnU2I0JfI+lcl18TQg/26Ozj+hWqQgBXYXaL83yknOytrjCaZRTn5leUn6E7ul6Xy3KOiTQEI9zrix+WyJB05NZuV0Zm98jrd8jNX/M=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS2PR08MB8975.eurprd08.prod.outlook.com
- (2603:10a6:20b:5fb::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.19; Tue, 16 Sep
- 2025 13:58:19 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9115.020; Tue, 16 Sep 2025
- 13:58:19 +0000
-Date: Tue, 16 Sep 2025 14:58:16 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aMls+MSR33BRrCMA@e129823.arm.com>
-References: <20250816151929.197589-5-yeoreum.yun@arm.com>
- <aMRQIeIdyiWVR8a0@arm.com>
- <aMfrR0vserl/hfZ3@e129823.arm.com>
- <aMhrscd1gz_syMtL@arm.com>
- <aMh4q4-xAPHnaOul@willie-the-truck>
- <aMkLb6jPiSbzeRWL@arm.com>
- <aMk1qxS3htyaTgEQ@e129823.arm.com>
- <aMlcf5oUNZU65u_I@J2N7QTR9R3.cambridge.arm.com>
- <aMllyaObyciHEEFX@e129823.arm.com>
- <aMlp_Covl57nnVoe@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMlp_Covl57nnVoe@J2N7QTR9R3.cambridge.arm.com>
-X-ClientProxiedBy: LO0P265CA0005.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:355::10) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 16 Sep 2025 14:01:59 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b07d4d24d09so322576066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:01:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758031316; x=1758636116; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=;
+        b=PooRtJGgj8sV3qZEyXFtksZ1R3kXNASE3BvyF6WyAdlokCcDLyutfsH5qyUfmnKWoI
+         DdL7UEkSBQJgNNelSrhrCgXiJyt/85LR4ubkEFdnLFJ06zPJRfgZNKNd/d0kz/LZjNzA
+         Kqq2ZClSrsSKkfc9YwQIBVeTvOWRNXOOV1laSeMlc9gCfG0HaXbLMJ4Sgk8tcOiKzkFb
+         ZbaEuZuRv8Ktu1YagLUEbz8DhdFnZSBelx+Im7+dI2nKrT1SaYGQT7NXCSy5qyMpYL4g
+         O6enXcT/Mj2d41RuNBMJW+tLlTD5kcItoX0xO5/xAvodY4qWU7lYhWfS5EV4kNG02TU3
+         HQ3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758031316; x=1758636116;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=;
+        b=xPl4Mpb9G2uTYsRv/zHqIcJAv2MwIOvpcV95EqkKISyFkfNiSQ2X4R06y02QwAY9EV
+         m+mETtLFsw+AigX36uECW9WFJW5Z/1NqB9tHccMSzvQOW/Y3VwohkiY9zD8YV8TQKWxu
+         pTU3/7ObE8UIQLm0jYYcRUlkbnJanWYHf48bjZWeMKK7DqtuJM3/dur/5r728mErHOHc
+         E7EiPg0iI/ciTCp2Cwt+wWypO46trPyQUAeF3ImhbJAApoz3/MTLomx1TktNy3vZfVS6
+         oGVsJtpHawpxLAYX9e2F76uZywpG+mHyYtTkQHakzD405xjuVNS6FEk4Dy1hPEOEqu5R
+         5BCg==
+X-Forwarded-Encrypted: i=1; AJvYcCWiiMoIOu5A2KdKmZBHhcG5hi4Hc4fmoIuRuu2KLnwabILwVgQQqqq99OPT3rbmoL6oXHxSlMVvlf77VKFAp/0W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIXwbCaxg5dGeTbOh0ppxh0/w4lgICY65XNIOU6wZeAGQx4tWc
+	bgVQAPOlvc44S0nVtHxCLeP6B/PnmjUEctKteo4L30KP81ZqH/cAwi4EJLG0NWXE/HTyn8ikDOs
+	e7O3mdiRYmmNeXmUQu+xLHWRHfSzh01M=
+X-Gm-Gg: ASbGncvLTtoLGm6OwMK9VjXNNoYfh6JmzZkNzUq/RzwdEg+HfWuOLK9OBlQuKqi36qb
+	gZqo6iacKs5m87m5wbVhnzP6CufYpoc8A9wWVGCREHhGjjqqMVfvHlVYMbT/SeCzQISgg0mckD7
+	Mcw9AUIABuZdVcyLeZWEoOWMDjForvRsRFomlkz3NDrQSDkHfl7T2FjGJ4AU5npOQaU2R4GXy2i
+	nHAvplA
+X-Google-Smtp-Source: AGHT+IF6Zy4nzr1OXuX8lE0GqEoG4kJn0jZymLRdcAOKhzS2jAVa02oHblL7nubcp0VuU3f+RU4UUOjge2+K+7voqcc=
+X-Received: by 2002:a17:907:9629:b0:afd:d994:7d1a with SMTP id
+ a640c23a62f3a-b07c3ada566mr1656686866b.63.1758031315726; Tue, 16 Sep 2025
+ 07:01:55 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS2PR08MB8975:EE_|AMS1EPF00000042:EE_|DU0PR08MB9509:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0fb129cd-4c18-4c44-a652-08ddf5292ba5
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?sAIfl2Fqyjc3y0y6CB7NsyQ0ERYl0Kk80wQGOXq+YoX/yQnKOAKTd7bq4xLf?=
- =?us-ascii?Q?Sxq3R4jqbzpjJTHhZsWlFhz22NXIIkQtFzMyiYSoqt4SNPxprkyATH5h17ni?=
- =?us-ascii?Q?FRIuXecTPc6mMIwr28wekaJhIBusMVwv3KpqCeZORFuKXa89lfvpfP7LEbsY?=
- =?us-ascii?Q?1379Kre+9uiKEhO9cjVGtDJxqZRkt2xYP6JNUt534gYMtefGrKl4U8m1ZfKQ?=
- =?us-ascii?Q?ixAzOiCVNwRCm5tN44VF4pzomDPNYVadaFmsHCz+oS+6lqrtkFSUMC1JlvEk?=
- =?us-ascii?Q?/Ohksfi0YceFGd8eTHfGI9YM7vDxIqDk/TWw1QmZ3Cl2HRdPDuZc0KydcaRs?=
- =?us-ascii?Q?I27Po43hgqrKDFcnP7s5C4fGldbPwcnifPx1CoqlPl+G3ekuV+AhEQc09rnv?=
- =?us-ascii?Q?EIWMMvovL94wUCjkPT3jKRVCVaEv3EkhHEFy88Ix3/DfQbEZDXcJSxIF5AsC?=
- =?us-ascii?Q?cbsQFhsfFtqE0RU+RZl48mj0xn642SlIAz2i1rjCly2J50085TdtUXDrf+lO?=
- =?us-ascii?Q?pUhMrKHcfJvR5W5xVbvTX8ovvw4Kifwh1dFm4A9IOuhDx3RS4DddvU8UBQzD?=
- =?us-ascii?Q?hsVQaHiuJn9FvUha65UKssByG3bES6Y8/x4dvTOCvVH1sqGEZ/eOGxAhz6cW?=
- =?us-ascii?Q?IhW6WCtamirKqEAsNGCZf6Z18BSHse7MMzCZbAG+eOP2eIAb2+PiyBSWPqMB?=
- =?us-ascii?Q?fGgmK1GQ6BlSJE3tM8Da3AjK+xlVVV5+rMKNDI2Lpf79rT5q3y/c+DiC+Xvn?=
- =?us-ascii?Q?A9PwKMwiciOCk03v32TCnpwZzbxZeEtjdHa9bG8LvjnYQBEbt6fuh8YlPIDq?=
- =?us-ascii?Q?zMLoMhNaYvC4bTmCeMhvxzFQuRBDq1S3kM+73UCb3xx3zIa20qblbaHQ8cp6?=
- =?us-ascii?Q?6mSqqpODUKd0anbUOwBwfkHINOOZpUdObLVunG7XjXg2mK75Dl6sxPw0QDb3?=
- =?us-ascii?Q?2yfBWWokuUwNqTGf19pZqhiFJHJnMdlbkEQoJXPp7WZf46YctLhZaX7bFhai?=
- =?us-ascii?Q?OsKbGp00ZfDx8UFW3tQHRqkkE8HfFhYz+K8GaEYeS1K1OCwfZqV+evPrJkFC?=
- =?us-ascii?Q?yYHkHBsyy2lwWBFOGfNZzg/z8/W046Bmm41eQ6W1Njdh8tIc6tRRgqZIgWa8?=
- =?us-ascii?Q?+PJV/OQFBUVeZzU2+ZR57igihWPG37S2x2i19FEcr4Xl1Uc/VaAgBdhgtuUg?=
- =?us-ascii?Q?DeGXrhwre0hJreSYmwVhUs7Hn/KbNxih0QHc/5oR5HHJqbE+sHdZiqIl9rP5?=
- =?us-ascii?Q?toiAYRNjlpCjDvtZvztvUYZnfrrdJleTFhIZpkJJrEdk4LHGH7E++SWzXWch?=
- =?us-ascii?Q?t1gyzeZaFO7e8yS2qwxBr5t/oaDxQ6qlAg6Crj6u1WisWJnGYYp+aZqrKpF0?=
- =?us-ascii?Q?fsN4S63IvBoTTE9kSvZAZW/Hz9Q2JBBpn+/t9MnmwYmsVKRubWMAiUPWIX+X?=
- =?us-ascii?Q?WTHvXCn03Qo=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8975
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000042.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: a9aa6544-7261-47a3-bdf0-08ddf5291778
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|14060799003|1800799024|36860700013|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NEJ8lL1HjsaX6QhBv3mSr1sqsf85N0zjIOEdd0SIw7JXJQ/iP3Sf1nYwj6tK?=
- =?us-ascii?Q?Mkpz6pddjfieTaqp31PnTHUHbIdp5mRXe8/hwHXuWhEGbdoulT8qMfOofhro?=
- =?us-ascii?Q?bZzEHMtsFZIxO/hEpvL7b1xcZImG5aweXGjdL7SW/lAbsmuWc+Ol/7Wr/1m+?=
- =?us-ascii?Q?b0m40UUPKHaBSYBVszjWbdImGnCRAVUVqfvrcLLSKDkJOzLMX3WTr4V94ddq?=
- =?us-ascii?Q?kilLW+9Vk3VmzxNBta4QRvDiF3wXbyD4BEPAy1lv2hH1lUNr4T86g94L+szL?=
- =?us-ascii?Q?9hr+I2x9ib/1zvpGZR4JPpoy2hYSoNMju5g+Jq1gRDkkDHM03G7XfYPcqKbg?=
- =?us-ascii?Q?kXYcduqxrxuIGCJO3VTENUgEhpjtIw9fJkzhCbbLxU2YyDz1Vd09mLbtPvou?=
- =?us-ascii?Q?7bwAV9mGcVTB8l3isJWsiUrWObBlgxHRCpLfywBmTXzg3utysbf2IvTn7/XT?=
- =?us-ascii?Q?NvJyEOwvb1nWTvmUqHmfd+Crp60Gk7DAEhfjYt9n5Mb3/Vkw/QDg46qql33g?=
- =?us-ascii?Q?Lb52aChe+szMDxlOMd373xGCXDjMTfQkQTG1Xi7cVJtIyPBAI85mG8kKQvvA?=
- =?us-ascii?Q?S6/bT5s2oGanaIAX3uKYuJyh0zZJh7yUzQPhxyTUVMztUnJfSjaHbVXWzrC0?=
- =?us-ascii?Q?hFvNFBM12EX0jAr3C7s7n81XXV05QdsDa9E2SeZhbFEOdIiuDKmOjvNMLBnV?=
- =?us-ascii?Q?8XyUq6wvIv6buCLBRmGuf53Pb6AakogpV0WdF6My/l29QW1JJlxeG41u1u4P?=
- =?us-ascii?Q?xzNcWX8crtLgiYY1uuzsUmzFP7HM+yjSZyYiYS0kOfDVDC+LmIHz0EJ71z/k?=
- =?us-ascii?Q?QjdVyQQtlEHM/ASKCB6+6xHuISpu9foeuvNfRg9CJUdo5mPlwH0PHdekXYlr?=
- =?us-ascii?Q?PMs4tW7Av7V+8SKY3rgtPZpzcb0HDUAZeuEhUntdKQ2ucozEy6h3i5OgOdpj?=
- =?us-ascii?Q?GiBjbCgxuBoZ1y8sqLR1LUyQsy3RP2sZ1C1adVeNBdNHuqSnWz0G6mNebV7c?=
- =?us-ascii?Q?oF2Ktp8hCOU/JZFuhN90cz38ur/Ui69kIByjHRFX2Os0aMf/j3fGm7/BsXc0?=
- =?us-ascii?Q?1Ql2HmQwpuknjbXydABNtRSZktp1KFRbDRcvsusvdUQOmXWdqOJ/yzLyq2Qy?=
- =?us-ascii?Q?GMQuJqHMEUOGrRjNCO86Pc+85IMvsRCP3ORsCbb6nwGt9SoFMcX+EAhGzPN1?=
- =?us-ascii?Q?wjsE6U0w9K5wlJB7kZzS1cCXIi3UOYY7ZChMn0iO9hFdl+u4vHzVCfKticaw?=
- =?us-ascii?Q?S0TKmF7GSLeJC81aiQbeTfzRVKalpK9KXMX8o2aa7kfyhxRm6FO2xtCyjSSH?=
- =?us-ascii?Q?HxgVQov1dEhOzISIiCB9g/3iv9sPnSlsyNYvTG4AAWkf3xTRWLfMUmXiLlSp?=
- =?us-ascii?Q?LQOe9D59Ln+7voPw++8DFtgq820pTVDi7HKzGccm/aUTv4EAqCrfV/YGq6Mg?=
- =?us-ascii?Q?F84CSWMk/MjDHi/nf5pmOY9KIogO3CSpvNQ5uoy/VpcIOBgpkt46I6954A9P?=
- =?us-ascii?Q?StyhFsScIf/Z2Low6XrK+mpRxb0f7sTbUemf?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(14060799003)(1800799024)(36860700013)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 13:58:53.0209
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0fb129cd-4c18-4c44-a652-08ddf5292ba5
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000042.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9509
+References: <20250908105901.3198975-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250908105901.3198975-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <aMlgg_QpJOEDGcEA@monster> <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 16 Sep 2025 15:01:28 +0100
+X-Gm-Features: AS18NWCVgZqFQH49bSZ6oVph3-y6Eo3LOyTc2vGW-dgo3A64cLzcN5-yV35knnc
+Message-ID: <CA+V-a8snd9Qeb_Fbj=_E6Y28EUV-ad+PO=cZcWrZ2F1_RwscGw@mail.gmail.com>
+Subject: Re: [PATCH net-next v3 3/3] net: stmmac: dwmac-renesas-gbeth: Add
+ support for RZ/T2H SoC
+To: Anders Roxell <anders.roxell@linaro.org>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Russell King <linux@armlinux.org.uk>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_065903_275897_F22ACCA8 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_070158_660366_8E3B29B2 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,122 +109,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Hi Andres and Geert,
 
-[...]
-> > > > diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> > > > index 1d6d9f856ac5..0aeda7ced2c0 100644
-> > > > --- a/arch/arm64/include/asm/futex.h
-> > > > +++ b/arch/arm64/include/asm/futex.h
-> > > > @@ -126,6 +126,60 @@ LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-> > > >  LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-> > > >  LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-> > > >
-> > > > +
-> > > > +#define LSUI_CMPXCHG_HELPER(suffix, start_bit)                                 \
-> > > > +static __always_inline int                                                     \
-> > > > +__lsui_cmpxchg_helper_##suffix(u64 __user *uaddr, u32 oldval, u32 newval)      \
-> > > > +{                                                                              \
-> > > > +       int ret = 0;                                                            \
-> > > > +       u64 oval, nval, tmp;                                                    \
-> > > > +                                                                               \
-> > > > +       asm volatile("//__lsui_cmpxchg_helper_" #suffix "\n"                    \
-> > > > +       __LSUI_PREAMBLE                                                         \
-> > > > +"      prfm    pstl1strm, %2\n"                                                \
-> > > > +"1:    ldtr    %x1, %2\n"                                                      \
-> > > > +"      mov     %x3, %x1\n"                                                     \
-> > > > +"      bfi     %x1, %x5, #" #start_bit ", #32\n"                               \
-> > > > +"      bfi     %x3, %x6, #" #start_bit ", #32\n"                               \
-> > > > +"      mov     %x4, %x1\n"                                                     \
-> > > > +"2:    caslt   %x1, %x3, %2\n"                                                 \
-> > > > +"      sub     %x1, %x1, %x4\n"                                                \
-> > > > +"      cbz     %x1, 3f\n"                                                      \
-> > > > +"      mov     %w0, %w7\n"                                                     \
-> > > > +"3:\n"                                                                         \
-> > > > +"      dmb     ish\n"                                                          \
-> > > > +"4:\n"                                                                         \
-> > > > +       _ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)                                   \
-> > > > +       _ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)                                   \
-> > > > +       : "+r" (ret), "=&r" (oval), "+Q" (*uaddr), "=&r" (nval), "=&r" (tmp)    \
-> > > > +       : "r" (oldval), "r" (newval), "Ir" (-EAGAIN)                            \
-> > > > +       : "memory");                                                            \
-> > > > +                                                                               \
-> > > > +       return ret;                                                             \
-> > > > +}
-> > > > +
-> > > > +LSUI_CMPXCHG_HELPER(lo, 0)
-> > > > +LSUI_CMPXCHG_HELPER(hi, 32)
-> > > > +
-> > > > +static __always_inline int
-> > > > +__lsui_cmpxchg_helper(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> > > > +{
-> > > > +       int ret;
-> > > > +       unsigned long uaddr_al;
-> > > > +
-> > > > +       uaddr_al = ALIGN_DOWN((unsigned long)uaddr, sizeof(u64));
-> > > > +
-> > > > +       if (uaddr_al != (unsigned long)uaddr)
-> > > > +               ret = __lsui_cmpxchg_helper_hi((u64 __user *)uaddr_al, oldval, newval);
-> > > > +       else
-> > > > +               ret = __lsui_cmpxchg_helper_lo((u64 __user *)uaddr_al, oldval, newval);
-> > > > +
-> > > > +       if (!ret)
-> > > > +               *oval = oldval;
-> > > > +
-> > > > +       return ret;
-> > > > +}
+On Tue, Sep 16, 2025 at 2:31=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Anders,
+>
+> On Tue, 16 Sept 2025 at 15:05, Anders Roxell <anders.roxell@linaro.org> w=
+rote:
+> > On 2025-09-08 11:59, Prabhakar wrote:
+> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > > >
-> > > I think Will expects that you do more of this in C, e.g. have a basic
-> > > user cmpxchg on a 64-bit type, e.g.
+> > > Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC=
+,
+> > > where the GMAC is connected through a MIIC PCS. Introduce a new
+> > > `has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
+> > > handling is required.
 > > >
-> > > /*
-> > >  * NOTE: *oldp is NOT updated if a fault is taken.
-> > >  */
-> > > static __always_inline int
-> > > user_cmpxchg64_release(u64 __usr *addr, u64 *oldp, u64 new)
-> > > {
-> > > 	int err = 0;
+> > > When enabled, the driver parses the `pcs-handle` phandle, creates a P=
+CS
+> > > instance with `miic_create()`, and wires it into phylink. Proper clea=
+nup
+> > > is done with `miic_destroy()`. New init/exit/select hooks are added t=
+o
+> > > `plat_stmmacenet_data` for PCS integration.
 > > >
-> > > 	asm volatile(
-> > > 	__LSUI_PREAMBLE
-> > > 	"1:	caslt	%x[old], %x[new], %[addr]\n"
-> > > 	"2:\n"
-> > > 	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-> > > 	: [addr] "+Q" (addr),
-> > > 	  [old] "+r" (*oldp)
-> > > 	: [new] "r" (new)
-> > > 	: "memory"
-> > > 	);
+> > > Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GB=
+ETH
+> > > driver so the PCS support is always available.
 > > >
-> > > 	return err;
-> > > }
+> > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com=
+>
+> > > ---
+> > > v2->v3:
+> > > - Dropped passing STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP flag in stmmac_fl=
+ags
+> > >   as it is always set for all the SoCs.
+> > > - Updated Kconfig to include RZ/T2H and RZ/N2H.
 > > >
-> > > That should be the *only* assembly you need to implement.
-> > >
-> > > Atop that, have a wrapper that uses get_user() and that helper above to
-> > > implement the 32-bit user cmpxchg, with all the bit manipulation in C:
+> > > v1->v2:
+> > > - No changes.
 > >
-> > Thanks for your suggestion. But small question.
-> > I think it's enough to use usafe_get_user() instead of get_user() in here
-> > since when FEAT_LSUI enabled, it doeesn't need to call
-> > uaccess_ttbr0_enable()/disable().
+> > The following warning is seen when doing a defconfig build (make
+> > defconfig) for arm64 on the Linux next-20250915 tag.
+> >
+> > First seen on next-20250915
+> > Good: next-20250912
+> > Bad: next-20250915
+> >
+> > Regression Analysis:
+> > - New regression? yes
+> > - Reproducibility? yes
+> >
+> > Build regression: WARNING: unmet direct dependencies detected for PCS_R=
+ZN1_MIIC
+> >
+> > Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> >
+> > This is the build warning:
+> > WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
+> >   Depends on [n]: NETDEVICES [=3Dy] && OF [=3Dy] && (ARCH_RZN1 [=3Dn] |=
+| COMPILE_TEST [=3Dn])
+> >   Selected by [m]:
+> >   - DWMAC_RENESAS_GBETH [=3Dm] && NETDEVICES [=3Dy] && ETHERNET [=3Dy] =
+&& NET_VENDOR_STMICRO [=3Dy] && STMMAC_ETH [=3Dm] && STMMAC_PLATFORM [=3Dm]=
+ && OF [=3Dy] && (ARCH_RENESAS [=3Dy] || COMPILE_TEST [=3Dn])
+> >
+> > WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
+> >   Depends on [n]: NETDEVICES [=3Dy] && OF [=3Dy] && (ARCH_RZN1 [=3Dn] |=
+| COMPILE_TEST [=3Dn])
+> >   Selected by [m]:
+> >   - DWMAC_RENESAS_GBETH [=3Dm] && NETDEVICES [=3Dy] && ETHERNET [=3Dy] =
+&& NET_VENDOR_STMICRO [=3Dy] && STMMAC_ETH [=3Dm] && STMMAC_PLATFORM [=3Dm]=
+ && OF [=3Dy] && (ARCH_RENESAS [=3Dy] || COMPILE_TEST [=3Dn])
+> > I: config: PASS in 0:00:01.592356
 >
-> Regardless of uaccess_ttbr0_enable() and uaccess_ttbr0_disable()
-> specifically, API-wise unsafe_get_user() is only supposed to be called
-> between user_access_begin() and user_access_end(), and there's some
-> stuff we probably want to add there (e.g. might_fault(), which
-> unsafe_get_user() lacks today).
+> Thanks for your report!
 >
-> Do we call those?
+>     config DWMAC_RENESAS_GBETH
+>         depends on OF && (ARCH_RENESAS || COMPILE_TEST)
+>         select PCS_RZN1_MIIC
+>
+>     config PCS_RZN1_MIIC
+>         depends on ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G087 || COMPI=
+LE_TEST
+>
+> "ARCH_RENESAS" is wider than "ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G0=
+87".
+> I would just change the latter to ARCH_RENESAS.
+>
+Thank you both. I'll create a patch updating it to use `ARCH_RENESAS`.
 
-Yes when you're available.
-As you mention, the difference seems might_fault(),
-But I'm not sure whether that would be a reason to validate to use
-get_user() instead of unsafe_get_user() taking a increase of instruction
-of "nop" -- uaccess_ttbr0_enable()/disable() in LSUI
-except the reason for DEUBG purpose.
-
---
-Sincerely,
-Yeoreum Yun
+Cheers,
+Prabhakar
 
