@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED136CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53014CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=; b=Jpmin/BtjQDitUftz1hjwdQLFl
-	luJiVRGgmAibfDXN5T7KH45KXStxvT5omRQhLYjwOYbDUtyhyv6KInEFYMAwIySQIctkY3UCJa7L8
-	6EKfKXm6H/Y31W0qVdrLdzYfCRdu6cOwum/AFHN83rmx1va7SMAbNU/sO5zqBJkHHg0O8a0oDbbe3
-	+OFYRUfuzHxqPad31ngd98Rywvu7N/mFOjWJ5onkHPms6BbecGtF5gILp+YeWk4vctmBsBx4rPA7L
-	sK1hPXCBbVs2LiMUKU/4381MtOKjKuSa5ip1WNcPESQzhvWr++aHOoJsgB/HNA3cx2Xy4tU2xyDuK
-	morszzXQ==;
+	bh=eC/sulH2mseeaiObNeLNUQGTpaf84l7yndW7viSPpP8=; b=Xf4sdW3LJBW4O/asdaAjUyqQR7
+	0mfJR1CM5Vz53V7P1KCf+BLRzWqBIgivRiOtGYFq29HVig/LsHG9LDPf5oWR4ERIK9Of59oteQV/S
+	5jViY+v+gffIXZVswWCLXhtRN8CTB88wg3zA0/hdpFBxk4JWtkWPIMlcn/zcJTlMsrM6bGWuPWr9D
+	xlHd8cnpd3ZeFIdTovnrptWdC6zDzwpTQDlNAC5N3iIEf7GZHgMYhUWVaNwEYjHnoKlufDc4RvFS1
+	58I2yH9csuX+P3+X1/wGL/AvHB9ggYNc7yq596YwMqfSz1uxnG7Fr0o8wnGYg0P5S1PirYtQGjvio
+	ogHmYH3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRek-00000007JPb-37OU;
-	Tue, 16 Sep 2025 09:07:22 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uyRfG-00000007JVj-0Wej;
+	Tue, 16 Sep 2025 09:07:54 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyReh-00000007JOo-42Er
+	id 1uyRfD-00000007JV2-2RN2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 09:07:21 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45f2c9799a3so13500155e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 02:07:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758013638; x=1758618438; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=;
-        b=B2aCllpmD4wZnyrkF6NRt8yKd5bPKKYceUGUVy59ElgK6ngmT9jZVIQhtBrJYq+KlP
-         gn9NFJXuZNp5BaExkzEnYr5n8/hgtFUVM4E4kA+ETyPxMoguZT8M8c1nFPTnmuKUhVON
-         3Sf8W57xtpKLTjbm9FygypfaFrd2nmXE3oUWu8cHl8JL7WOxSH8oTot6blRuFaZb76wx
-         2l2JXjfbkiyLCoQAkA+FvMKVuhBxr7O2dftdjcnjdbNr6tX/Pg4PtNlCAj6UarVnM9tp
-         3z+FsyVtTU/2cLIw9llZpwjn68M6WRbh+/m9dgCO1eyne7wL5AUcWHVqwe1MnIdZW1In
-         6hmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758013638; x=1758618438;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=;
-        b=pOGRIM1lscZDy350jYchDGqHq0mM5FUVsf53CgLdV+hvnPuOzs38i1ZgS0XehOm1Up
-         kqgmrUGKUcv6s58DJepJW3idIfg12Owk84lOu86pk86e0Mc7nfEFhkwDn5B3PSBrskBS
-         KRhPmquwrmO5NXPuWagq1JoenKg0PuF6Pv634ucWCDiQyeGpbDo57z5+QvzWQOCaQODw
-         FBR41f6Nw432USVlcao86vqN4gdjQrUJeNiTXshGjAROzwvtC7TMhSg3a00E2WffH//Y
-         O/j4aaQ5XXNJA2mM6msQOXYj1FhPyqBOvngZKtlApFLQWMA33MHTu/W93e5Fp7nOclhM
-         S3kg==
-X-Forwarded-Encrypted: i=1; AJvYcCUx3PhkGK3euMX+8Qw/00Gn04KWPMM1wKJmIIuPNv4S34PjihsGe8mJy0d4Senq1lgfpjHLzYzDHVsnmRQSc+63@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTrqYX4o6IFoftSdV1UpgtCqxsslxPsoXi10IqdOIff7Z2Z7Au
-	Aa5HolO3sFpvEnWd828AcUixb4DNFRNmEHr5FHxO0gzxwJSewVSYadGwhluRtQ==
-X-Gm-Gg: ASbGncuMCsS6md+WH3uwGVyR5QSsBrEhpuQkk7o5Xar80ELeR6B/2plR+FJRysb9npK
-	j6h1ndKTHrdU6PHFuC7IIauNCmnKqaLqmYkwlTDEOQWeXyp4rajsdWzL458eIhls9x2xGyQEkt4
-	6abAnydJcPt2m4eVLfQvOP1MBZmbvMc9V0NQwDZge+0SYAx8dTr+eVI3CjlEnCRsV+kT/bMavWv
-	59CAT2QAD3e4L5e2+bxtUnYgSBP7i66qfIAVKpy4SQKcjzFn8jlllxHSUXT4XPcqLvhnwASmojX
-	RtxitLyQiK+SkwIzNONSkVSmwE56ybyBB6JVfrDIx3J7TWtWRGtHdtE1E6dL9hAvzasc2zBWiKf
-	NPtynyVwPNi+62umSSChjBoxj8AFteu3HeReiRXTX1F1Zj0AnOJldkkDcol1aEi5hR2c1ao2B9f
-	g5ZgtYVcbxp46oSBqsODiwNjigcws=
-X-Google-Smtp-Source: AGHT+IEuR5WQEBjj4/xvD5G9A1WwnGivKz0/sMVmdKU1XiTsdSofMByYMjzCbnjKIX3aOCcY/494jg==
-X-Received: by 2002:a05:600c:1992:b0:456:fc1:c26d with SMTP id 5b1f17b1804b1-45f211c8437mr129293605e9.2.1758013637683;
-        Tue, 16 Sep 2025 02:07:17 -0700 (PDT)
-Received: from localhost (2a02-8440-7509-4cd6-9055-f88b-940e-15eb.rev.sfr.net. [2a02:8440:7509:4cd6:9055:f88b:940e:15eb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f32081248sm15568305e9.0.2025.09.16.02.07.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 02:07:17 -0700 (PDT)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Tue, 16 Sep 2025 11:07:10 +0200
-Subject: [PATCH v7] bus: firewall: move stm32_firewall header file in
- include folder
+	Tue, 16 Sep 2025 09:07:53 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58G97j121334931;
+	Tue, 16 Sep 2025 04:07:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758013665;
+	bh=eC/sulH2mseeaiObNeLNUQGTpaf84l7yndW7viSPpP8=;
+	h=From:To:CC:Subject:Date;
+	b=vysoebr9SxI1haSqG0XZJLoHLedO/UH1CHRUpD9cEVGKAq1lRmRAm867MGKL2IJEu
+	 QwNMAvPWO7xpT0mZoREShhL6fNxAPoAyXPToOk/tBgeTwnX48QYeOwkHqlgpgyOAUI
+	 h3nxiCgjCVonq9ENfBKawTMp87dPXvNzJ4PEGiw4=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58G97j5R4052228
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 16 Sep 2025 04:07:45 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 16
+ Sep 2025 04:07:45 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 16 Sep 2025 04:07:45 -0500
+Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58G97icV1377927;
+	Tue, 16 Sep 2025 04:07:44 -0500
+From: Paresh Bhagat <p-bhagat@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-am62d2-evm: Fix regulator properties
+Date: Tue, 16 Sep 2025 14:37:36 +0530
+Message-ID: <20250916090736.2299127-1-p-bhagat@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250916-b4-firewall-upstream-v7-1-6038cf1e61d8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAL0oyWgC/x3MSQqAMAxA0atI1ga0WK1eRVxUTTXgROoE4t0tL
- t/i/wc8CZOHKnpA6GTP6xJQxBF0o10GQu6DQSVKJ2WaY5uhY6HLThMem9+F7Iy9I6ONsSp1BkK
- 6CTm+/23dvO8HXeR4NGYAAAA=
-X-Change-ID: 20250916-b4-firewall-upstream-dfe8588a21f8
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-X-Mailer: b4 0.15-dev-dfb17
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_020720_024561_2F973609 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250916_020751_788018_96E1FA01 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,103 +83,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
+Fix missing supply for regulators TLV7103318QDSERQ1 and TPS22918DBVR.
+Correct padconfig and gpio for TLV7103318QDSERQ1.
 
-Other driver than rifsc and etzpc can implement firewall ops, such as
-rcc.
-In order for them to have access to the ops and type of this framework,
-we need to get the `stm32_firewall.h` file in the include/ folder.
+Reference Docs
+Datasheet - https://www.ti.com/lit/ug/sprujd4/sprujd4.pdf
+Schematics - https://www.ti.com/lit/zip/sprcal5
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+Fixes: 1544bca2f188e ("arm64: dts: ti: Add support for AM62D2-EVM")
+Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 ---
-This v7 is a subset of the v6 and other prior versions, splited to simplify
-the review and merging process.
 
-Changes in v7:
-- None
-- Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com/
----
- drivers/bus/stm32_etzpc.c                       | 3 +--
- drivers/bus/stm32_firewall.c                    | 3 +--
- drivers/bus/stm32_rifsc.c                       | 3 +--
- {drivers => include/linux}/bus/stm32_firewall.h | 0
- 4 files changed, 3 insertions(+), 6 deletions(-)
+Boot logs
+https://gist.github.com/paresh-bhagat12/9a4a1aec5119ceedb386743921432c91
 
-diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
-index 7fc0f16960be..4918a14e507e 100644
---- a/drivers/bus/stm32_etzpc.c
-+++ b/drivers/bus/stm32_etzpc.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/init.h>
-@@ -16,8 +17,6 @@
- #include <linux/platform_device.h>
- #include <linux/types.h>
- 
--#include "stm32_firewall.h"
--
- /*
-  * ETZPC registers
-  */
-diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
-index 2fc9761dadec..ef4988054b44 100644
---- a/drivers/bus/stm32_firewall.c
-+++ b/drivers/bus/stm32_firewall.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/bus/stm32_firewall_device.h>
- #include <linux/device.h>
- #include <linux/err.h>
-@@ -18,8 +19,6 @@
- #include <linux/types.h>
- #include <linux/slab.h>
- 
--#include "stm32_firewall.h"
--
- /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
- #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
- 
-diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
-index 4cf1b60014b7..643ddd0a5f54 100644
---- a/drivers/bus/stm32_rifsc.c
-+++ b/drivers/bus/stm32_rifsc.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/init.h>
-@@ -16,8 +17,6 @@
- #include <linux/platform_device.h>
- #include <linux/types.h>
- 
--#include "stm32_firewall.h"
--
- /*
-  * RIFSC offset register
-  */
-diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
-similarity index 100%
-rename from drivers/bus/stm32_firewall.h
-rename to include/linux/bus/stm32_firewall.h
+Tag used
+next-20250915
 
----
-base-commit: 46a51f4f5edade43ba66b3c151f0e25ec8b69cb6
-change-id: 20250916-b4-firewall-upstream-dfe8588a21f8
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Best regards,
---  
-Clément Le Goffic <legoffic.clement@gmail.com>
+diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+index 83af889e790a..d202484eec3f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+@@ -146,6 +146,7 @@ vdd_mmc1: regulator-4 {
+ 		regulator-name = "vdd_mmc1";
+ 		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_3v3_sys>;
+ 		regulator-boot-on;
+ 		enable-active-high;
+ 		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
+@@ -165,14 +166,16 @@ vcc_3v3_sys: regulator-5 {
+ 	};
+ 
+ 	vddshv_sdio: regulator-6 {
++		/* output of TLV7103318QDSERQ1 */
+ 		compatible = "regulator-gpio";
+ 		regulator-name = "vddshv_sdio";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&vddshv_sdio_pins_default>;
+ 		regulator-min-microvolt = <1800000>;
+ 		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_5v0>;
+ 		regulator-boot-on;
+-		gpios = <&main_gpio1 31 GPIO_ACTIVE_HIGH>;
++		gpios = <&main_gpio0 59 GPIO_ACTIVE_HIGH>;
+ 		states = <1800000 0x0>,
+ 			 <3300000 0x1>;
+ 		bootph-all;
+@@ -334,7 +337,7 @@ AM62DX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
+ 
+ 	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
+ 		pinctrl-single,pins = <
+-			AM62DX_IOPAD(0x1f4, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO1_31 */
++			AM62DX_IOPAD(0x00f0, PIN_INPUT, 7) /* (Y21) GPIO0_59 */
+ 		>;
+ 		bootph-all;
+ 	};
+-- 
+2.34.1
 
 
