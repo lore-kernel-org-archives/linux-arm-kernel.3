@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC5FCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2C8CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Cc:To:From:
+	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cpJuhZGzI3QGhOayyMTWyM+wjByjNRw0ML/+DSAO1bU=; b=ZnotQaz0YnYhKiWlG4WvjvwHJe
-	+moy2LDkycfi9EveCMwsLcgsOqsRr5BAJJl80CFWPMryo6siFjglfzlN/ka4pN/zpXfGc3/g6//Ep
-	dywSXJZjSWoRwLSNrKM4JWuy+DS23YZTPP67w3SAeWeiq/3iRUx7ysgvtE7kTFqnI9LfyuKB4Gv2p
-	nLdzQaLXX7vH+X+dEek741zodc9NOJIHnz2naSVQ5o62aPiVSAeg3ZqbCh3wBmXP9L3z3sZIGjqMX
-	3wE83iGT4rREIWflfzdY78dsRA/8XE2QVyNoNxzZVkwqVyS+uWLCXWAzrEM/oS/uaSl0DCoIn6BtL
-	rukVLdMg==;
+	bh=QAHJKycBV24FB7D+5sgN+DCQ8BtvYWGyoFjnG0jF1+Y=; b=noODsSYMaFIcBOQVWg/wUFw2Pk
+	zUyemTS2NDOTeAcPwDyqaZ6uBy9/TV1Srx6acLHqsUgLJir/Dhxu2XzEvrS20qi8nmiSPbJwFI4cS
+	7qlmchE0B4V4lvfOHEbfSbC1zH5kioS6eU+xeHIhW8pY7vZWz+w9o//jTkqgbUB3GRnu5vQvzuRPk
+	9JDgVd/mcOYUba5i4/Gn36dmDOttYKPrD0iPSRYme8DhqYG4aLCUBUl3x+jLb+xOIJfBSZOukgCf9
+	ohUqE4IYPVIu7laUNAOLBxtL5A0r47vrnOUGg5mlmkd1zLnj6Sb7lixT39t5dZcL6v6D6pW4L+1kO
+	QXktMVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYUi-00000008Sbk-1G4X;
-	Tue, 16 Sep 2025 16:25:28 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uyYcE-00000008TV5-2y93;
+	Tue, 16 Sep 2025 16:33:14 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYUf-00000008SZp-2462
+	id 1uyYcC-00000008TTy-0ZrS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:25:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758039926; x=1789575926;
-  h=date:from:to:cc:subject:message-id;
-  bh=ktNz1wRATraRDia5TJN4YwCftaQgJLgJac3xYKyOx6U=;
-  b=URT4Bu6sA4/qrpgn335DyIlCtARTJ439hvXvPz/RYHIwl6d/vYThtiRW
-   6SxPTw24rBOJPOVz5+gRJ9zjic9kVXqzAEkaOFk80HeIWHlqPWLPnDzfa
-   /BDp/ZdBtOvAAtdHZ0xpuMIiwjFDvMA6I+uAGonOhFF0WOHlNTHHsUvn8
-   Y3axGi7cPNe4pd+FaeqLoFPtbMdKBRTc8GP85vZev/G5BsnTOMRWhvksb
-   j7AkLvhq8gAPy5gG1AMR+PhNV8gqDHBXbL0BPV+E841JGd+m9HiDvFxnz
-   4HMZaN7Oz9zYiQnN20+PQ59C35cfDX0xEV6aqyKmuxNxU4DbXvY//rdFE
-   A==;
-X-CSE-ConnectionGUID: e+eNJEn6S3aiIg+khz8m8Q==
-X-CSE-MsgGUID: //jEeyfmTjKyQW2Tyjg60w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11555"; a="60019491"
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="60019491"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Sep 2025 09:25:25 -0700
-X-CSE-ConnectionGUID: keQ+Xz6iQgy0xy8NA8POzA==
-X-CSE-MsgGUID: BTCKur4GRz+co2c8UQEmYQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="175410916"
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 16 Sep 2025 09:25:23 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uyYUb-0000Uu-2F;
-	Tue, 16 Sep 2025 16:25:21 +0000
-Date: Wed, 17 Sep 2025 00:24:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- db20244d45571ba38fe4245e1b308209323a7321
-Message-ID: <202509170024.RoQdQm0G-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Tue, 16 Sep 2025 16:33:13 +0000
+Message-ID: <20250916163004.674341701@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758040388;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc; bh=QAHJKycBV24FB7D+5sgN+DCQ8BtvYWGyoFjnG0jF1+Y=;
+	b=GEhOLZYOHp5C638N6Rsuee1kTC0rYKv5bwoA67L0S28vT6AEFAilXoAXHK1RTjW5v8sMnN
+	Z4IjqkUEo6lHX0J4FSjUh24xozx+6NeydkTVGnuyE4WIuElD1ETs0oy2Wphr0XCukR6qSC
+	OWIDKIAMCaPcbgs0jNBkR1K2lvRx5UAkzcpyp3Fjsbj0jWd6Aet/dpcox2cEkyObElCw2v
+	Xv64gOHlSJyJKgKAmp2tqyqSORCna7OMkQEKQgsOKma1oFB4ZmyKr470EHX3f+aHwJHnZL
+	4uKaga73pYP/zymmuSbR0U0577bWYWRDcvE0jBJpJi5ioURaonJoD7Dc7/FV8g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758040388;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc; bh=QAHJKycBV24FB7D+5sgN+DCQ8BtvYWGyoFjnG0jF1+Y=;
+	b=sV7YXVNFf4kk3eGZA9fyUCDgJyEji7uiLDNlbiVtw2tZX9TqOBAQqt4Whov7Oat8X2WHOq
+	0ymKt0WYDEZYY9Dg==
+From: Thomas Gleixner <tglx@linutronix.de>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ kernel test robot <lkp@intel.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Nathan Chancellor <nathan@kernel.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+ x86@kernel.org,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Subject: [patch V2 0/6] uaccess: Provide and use scopes for user masked access
+Date: Tue, 16 Sep 2025 18:33:07 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_092525_580377_6BA8EC35 
-X-CRM114-Status: UNSURE (   5.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_093312_317912_BA2A051D 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,147 +79,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: db20244d45571ba38fe4245e1b308209323a7321  soc: document merges
+This is a follow up on the initial V1 to make the masked user access more
+accessible:
 
-elapsed time: 1480m
+   https://lore.kernel.org/r/20250813150610.521355442@linutronix.de
 
-configs tested: 127
-configs skipped: 4
+After reading through the discussions in the V1 thread, I sat down
+and thought about this some more.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+My initial reason to tackle this was that the usage pattern is tedious:
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    gcc-15.1.0
-arc                      axs103_smp_defconfig    gcc-15.1.0
-arc                   randconfig-001-20250916    gcc-8.5.0
-arc                   randconfig-002-20250916    gcc-8.5.0
-arc                        vdk_hs38_defconfig    gcc-15.1.0
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    gcc-15.1.0
-arm                          collie_defconfig    gcc-15.1.0
-arm                   randconfig-001-20250916    gcc-11.5.0
-arm                   randconfig-002-20250916    clang-22
-arm                   randconfig-003-20250916    gcc-12.5.0
-arm                   randconfig-004-20250916    clang-22
-arm                           sama7_defconfig    clang-22
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250916    clang-18
-arm64                 randconfig-002-20250916    clang-22
-arm64                 randconfig-003-20250916    clang-22
-arm64                 randconfig-004-20250916    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                  randconfig-001-20250916    gcc-14.3.0
-csky                  randconfig-002-20250916    gcc-11.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon               randconfig-001-20250916    clang-22
-hexagon               randconfig-002-20250916    clang-22
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20250916    gcc-14
-i386        buildonly-randconfig-002-20250916    gcc-14
-i386        buildonly-randconfig-003-20250916    clang-20
-i386        buildonly-randconfig-004-20250916    gcc-14
-i386        buildonly-randconfig-005-20250916    gcc-14
-i386        buildonly-randconfig-006-20250916    clang-20
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20250916    clang-18
-loongarch             randconfig-002-20250916    clang-22
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                  cavium_octeon_defconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                 randconfig-001-20250916    gcc-11.5.0
-nios2                 randconfig-002-20250916    gcc-8.5.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                generic-32bit_defconfig    gcc-15.1.0
-parisc                randconfig-001-20250916    gcc-9.5.0
-parisc                randconfig-002-20250916    gcc-13.4.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                          allyesconfig    clang-22
-powerpc               randconfig-001-20250916    clang-16
-powerpc               randconfig-002-20250916    clang-22
-powerpc               randconfig-003-20250916    clang-22
-powerpc64             randconfig-001-20250916    clang-22
-powerpc64             randconfig-002-20250916    gcc-8.5.0
-powerpc64             randconfig-003-20250916    clang-22
-riscv                            allmodconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    clang-22
-riscv                 randconfig-001-20250916    clang-22
-riscv                 randconfig-002-20250916    gcc-10.5.0
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    clang-22
-s390                  randconfig-001-20250916    gcc-13.4.0
-s390                  randconfig-002-20250916    gcc-8.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                                  defconfig    gcc-15.1.0
-sh                    randconfig-001-20250916    gcc-15.1.0
-sh                    randconfig-002-20250916    gcc-15.1.0
-sh                           se7721_defconfig    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250916    gcc-8.5.0
-sparc                 randconfig-002-20250916    gcc-8.5.0
-sparc64                             defconfig    clang-20
-sparc64               randconfig-001-20250916    gcc-11.5.0
-sparc64               randconfig-002-20250916    clang-22
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-14
-um                                  defconfig    clang-22
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20250916    gcc-14
-um                    randconfig-002-20250916    clang-19
-um                           x86_64_defconfig    clang-22
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250916    gcc-14
-x86_64      buildonly-randconfig-002-20250916    clang-20
-x86_64      buildonly-randconfig-003-20250916    clang-20
-x86_64      buildonly-randconfig-004-20250916    clang-20
-x86_64      buildonly-randconfig-005-20250916    clang-20
-x86_64      buildonly-randconfig-006-20250916    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250916    gcc-8.5.0
-xtensa                randconfig-002-20250916    gcc-8.5.0
+	if (can_do_masked_user_access())
+		from = masked_user_read_access_begin((from));
+	else if (!user_read_access_begin(from, sizeof(*from)))
+		return -EFAULT;
+	unsafe_get_user(val, from, Efault);
+	user_read_access_end();
+	return 0;
+Efault:
+	user_read_access_end();
+	return -EFAULT;
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+This obviously has some interesting ways to get it wrong and after a while
+I came to the conclusion that this really begs for a scope based
+implementation with automatic cleanup.
+
+After quite some frustrating fights with macro limitations, I finally came
+up with a scheme, which provides scoped guards for this.
+
+This allows to implement the above as:
+
+	scoped_masked_user_read_access(ptr, return -EFAULT,
+		scoped_get_user(val, ptr); );
+	return 0;
+
+The scope hides the masked user magic and ensures that the proper
+access_end() variant is invoked when leaving the scope.
+
+It provides a scope local fault label ('scope_fault:'), which has to
+be used by the user accesses within the scope. The label is placed
+before the exit code ('return -EFAULT' in the above example)
+
+The provided scoped_get/put_user() macros use 'scope_fault'
+internally, i.e. they expand to
+
+    unsafe_get/put_user(val, ptr, scope_fault)
+
+Obvioulsly nothing prevents using unsafe_get/put_user() within the scope
+and supplying a wrong label:
+
+	scoped_masked_user_read_access(ptr, return -EFAULT,
+		unsafe_get_user(val, ptr, fail); );
+	return 0;
+fail:
+	return -EFAULT;
+
+This bug is caught at least by clang, but GCC happily jumps outside the
+cleanup scope.
+
+Using a dedicated label is possible as long as it is within the scope:
+
+	scoped_masked_user_read_access(ptr, return -EFAULT, {
+		unsafe_get_user(*val, ptr, fail);
+		return 0;
+	fail:
+		*val = 99;
+	});
+	return -EFAULT;
+
+That example does not make a lot of sense, but at least it's correct :)
+
+In that case the error code 'return -EFAULT' is only used when the
+architecture does not support masked access and user_access_begin()
+fails. That error exit code must obviously be run _before_ the cleanup
+scope starts because user_access_begin() does not enable user access
+on failure.
+
+Unfortunately clang < version 17 has issues with scope local labels, which
+means that ASM goto needs to be disabled for clang < 17 to make this
+work. GCC seems to be doing fine (except for not detecting the above label
+scope bug).
+
+The user pointer 'ptr' is aliased with the eventually modified pointer
+within the scope, which means that the following would work correctly:
+
+	bool result = true;
+
+	scoped_masked_user_read_access(ptr, result = false,
+		scoped_get_user(val, ptr); );
+
+        if (!result) {
+	   	// ptr is unmodified even when masking modified it
+		// within the scope, so do_magic() gets the original
+		// value.
+		do_magic(ptr);
+	}
+
+Not sure whether it matters. The aliasing is not really required for the
+code to function and could be removed if there is a real argument against
+it.
+
+Looking at the compiler output for this scope magic.
+
+bool set_usr_val(u32 val, u32 *ptr)
+{
+	scoped_masked_user_read_access(ptr, return false,
+		scoped_get_user(val, ptr); );
+	return true;
+}
+
+On x86 with masked access and ASM goto supported clang-19 compiles
+it to:
+
+0000000000000b60 <set_usr_val>:
+ b60:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ b65:	48 b8 ef cd ab 89 67 	movabs $0x123456789abcdef,%rax
+ b6c:	45 23 01 
+ b6f:	48 39 c7             	cmp    %rax,%rsi
+ b72:	48 0f 47 f8          	cmova  %rax,%rsi
+ b76:	90                   	nop    // STAC	
+ b77:	90                   	nop
+ b78:	90                   	nop
+ b79:	31 c0                	xor    %eax,%eax
+ b7b:	89 37                	mov    %edi,(%rsi)
+ b7d:	b0 01                	mov    $0x1,%al
+ b7f:	90                   	nop    // scope_fault: CLAC
+ b80:	90                   	nop
+ b81:	90                   	nop
+ b82:	2e e9 00 00 00 00    	cs jmp b88 <set_usr_val+0x28>
+
+GCC 14 and 15 are not so smart and create an extra error exit for it:
+
+0000000000000bd0 <set_usr_val>:
+ bd0:	e8 00 00 00 00       	call   bd5 <set_usr_val+0x5>
+ bd5:	48 b8 ef cd ab 89 67 	movabs $0x123456789abcdef,%rax
+ bdc:	45 23 01 
+ bdf:	48 39 c6             	cmp    %rax,%rsi
+ be2:	48 0f 47 f0          	cmova  %rax,%rsi
+ be6:	90                   	nop    // STAC
+ be7:	90                   	nop
+ be8:	90                   	nop
+ be9:	89 3e                	mov    %edi,(%rsi)
+ beb:	90                   	nop    // CLAC
+ bec:	90                   	nop
+ bed:	90                   	nop
+ bee:	b8 01 00 00 00       	mov    $0x1,%eax
+ bf3:	e9 00 00 00 00       	jmp    bf8 <set_usr_val+0x28>
+ bf8:	90                   	nop    // scope_fault: CLAC
+ bf9:	90                   	nop
+ bfa:	90                   	nop
+ bfb:	31 c0                	xor    %eax,%eax
+ bfd:	e9 00 00 00 00       	jmp    c02 <set_usr_val+0x32>
+
+
+That said, the series implements the scope infrastructure and converts the
+existing users in futex, x86/futex and select over to the new scheme. So
+far it nicely held up in testing.
+
+The series applies on top of Linus tree and is also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git uaccess/masked
+
+Changes vs. V1:
+	- use scopes with automatic cleanup
+	- provide read/write/rw variants to accommodate PowerPC
+	- use the proper rw variant in the futex code
+	- avoid the read/write begin/end mismatch by implementation :)
+	- implement u64 user access for some shady ARM variant which lacks it
+
+Thanks,
+
+	tglx
+---
+Thomas Gleixner (6):
+      ARM: uaccess: Implement missing __get_user_asm_dword()
+      kbuild: Disable asm goto on clang < 17
+      uaccess: Provide scoped masked user access regions
+      futex: Convert to scoped masked user access
+      x86/futex: Convert to scoped masked user access
+      select: Convert to scoped masked user access
+
+---
+ arch/arm/include/asm/uaccess.h |   17 ++++
+ arch/x86/include/asm/futex.h   |   76 ++++++++------------
+ fs/select.c                    |   14 +--
+ include/linux/uaccess.h        |  151 +++++++++++++++++++++++++++++++++++++++++
+ init/Kconfig                   |    7 +
+ kernel/futex/futex.h           |   37 +---------
+ 6 files changed, 214 insertions(+), 88 deletions(-)
+
+
 
