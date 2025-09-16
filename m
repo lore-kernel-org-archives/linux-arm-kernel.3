@@ -4,88 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D57CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5394ECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y6QPXwMMmtmCDME6QdFmlLDUpPrRCqoavty9hcaYKdI=; b=Vg320dSyRztyguugEjJpLSLxFZ
-	fqSNh4kqYfv9j6MuABP2vFH7apuvHoeStrdgF5xsBwl8bZWSsoJL6/w93c71r9PqmFmb168OmGCMo
-	mfcLGbXmnGOzGgeh+5eGRyOjI/dewY1z+OZdZHfs6t67Uc/Ra2ldt90bZPLLKXBfHVlMP9rrzLHzk
-	SLb4p3HF2kCvQpSRVH+MVjlFnJhLp5li5AwyXuw11FAqhM7J7DRnkdjin0nIiCoOve46kq55+cvke
-	pVH/ECtQaSLamPiMg8B8wG0muZ7Cuhk1hjgY4AJiu14rU/0ruemQ5flfFQKFDZ6nfXRZJJk27ozP9
-	Buk6Autw==;
+	bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=; b=LZC22glamtbb5XzP6dL2uhLn9o
+	/9X3+eh+4mIQ8wh2vTdJlpCGlS1MvbXHMhtrjKRm7JutmiTSY2in1Xa4PjWjWPpYq8jv3oOwgZOoN
+	7EXpCJMFbOnQ4PywgOx7O3tO7hP/KSlYRU3oDT4mL/wjnpHGpcqceDSVXpPfFHVF+8nn1lMBjIrZh
+	iDlLfc/RmpbYXcXcyDgRSqHzBSKzd4ThdsWFiVbLaMOmB7B9hPVLwIlYwSW/a/6atUvDMMDvZURIM
+	aBnjSmwnJIsRuObrHR7teHucLOC8MHgxgwxl773wMmdPT15MaQedT3oGHPdzT9RTCIJJ3Rg3szBVv
+	KxO2xktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY6v-00000008Mwc-0Ndv;
-	Tue, 16 Sep 2025 16:00:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyY9K-00000008Nd3-2b82;
+	Tue, 16 Sep 2025 16:03:22 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY6t-00000008Mvy-3IDf
+	id 1uyY9H-00000008Nbl-3YMX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:00:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09553601A3;
-	Tue, 16 Sep 2025 16:00:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F699C4CEEB;
-	Tue, 16 Sep 2025 16:00:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758038450;
-	bh=HMPTLgr233HLTCdKhCopfRE55dgfVIBSIEdZyziNLKA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JF93v5NA60LOG+PgpudZNJuSz0LE5SKMq9WONOWpdNgGgMULwHA/hD7WOCgQ6JiBE
-	 UpNSaB+1M7drHO6EyDcVW6vI/BrBEWM7c+HPdRgCwSs8OYJFEfLAbF/xiZpePwBpUU
-	 qvulcDKdS9utjgPAJO/A+pxn8THi5lxMqq3RUNDaUdO/VAaIRm0bbl8N5OnyK8fzHa
-	 p+PfZNUXyuVIU9sTuxk7CWoG4vUr8092gOjcKfXK+l1zXc8IvgW4p8CVTM44XCmtIR
-	 vWibHJT7JQ/p2bDvFsGyfXaXPpiNhhhaPagYGl8haxnzpB7eG1fg90LqKddfc5XfmA
-	 ZwCPIyPRFUFRw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uyY6q-00000006mMO-1LSP;
-	Tue, 16 Sep 2025 16:00:48 +0000
-Date: Tue, 16 Sep 2025 17:00:47 +0100
-Message-ID: <86segm1j68.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Mark\
- Rutland" <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J.\
- Wysocki" <rafael@kernel.org>,
+	Tue, 16 Sep 2025 16:03:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PEsZvtTPMUk6jr4wDPLCaZhOuzM4rqEOf9tOhKf1GK0wHhxdQhFPvbAH/YvPjlPVA0TNEwfL65xW251F2M2up3TyQ8Nod9YWdsMID8nPV8WLTJPz5n5x+wWMRXU38wUFskDqyCxG0MuxOwIA9F7fdg2QZJIcA5pZpHuDbhygzRVKI2otCRbzW3inFPgzjmqpnzXkgCUg01alXL1/Aohj+YmfrdGZnWvFod1s7KEYSvFTguL2E9q37WHk6LqKwlEGYr1tuj3LI91Z2OzYsSXkSaDIwfRGujFuKvXWzajJmG8dm0ntQ1qMgLGABFYZs6/eVcIDcDqMblIFVus/b5gWxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=;
+ b=fYt2StS/4BuhCbZIRT/BzZCJ9JAlpIqRNmAGY8+dWnk/UX9BGVFrtqXh1lXLbNThrXOczhc2LDbG8cMk3yT5ukSpRkQbfTjfdEMMgiSK7bfYLQFxtqipqr4oCxqQDppWjr4JsTXGDO56lstN5zIKvUJ7jF0GSewfFOw8j8HLrIAwDMMPXmbwVri60p84olHDuxBH6yBMfn71N2s6xCGf73jR+X5nW8iT4cdKldwSVEjj9N1XqnyXmXK243dEt2kV32XxnGowlAIgH+aADhoqfCwya4mWu466WIEbtjC3eLA8kbdZDtSfuzKkv7x/xd9nG+uIwd5kzWrUVA/vARFgoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yw31PENNinYdnNFtS1wgxbhjPaUvreZrvu0B9Vmw3+Q=;
+ b=bjxtoCp/oXvcy2SPtyXxQHBtzFFq0VYlJJxSFudlIkYitRPUC0zL9iXQrMBDwxNg8zC12wt6FXmVhex35ekBqgpNW961rwcykf5LMgjPfPGbDjXRFbcyi6MaQYigghiIcFbbMWOecIGe18ohsgRZ4I2Dfw8XVWAaP0qsqdyWYj4zH6vk1X5WqP+twfBFHO8Og67IV4JFWsBlTMUu0Ryk4s20wIEgpS2JOCqrw6+Y9wEAFjREvuhraRxgIKtXyj+FOgJKTyevC8taCZM1Er3TtPNKhHwpOp+HzJ4hagx8jJOP3bjgjT8XEcMj7sPqsy9wW4Hqq84i58N+wAA7nz/fRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by DB8PR04MB7098.eurprd04.prod.outlook.com (2603:10a6:10:fd::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Tue, 16 Sep
+ 2025 16:03:09 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9137.010; Tue, 16 Sep 2025
+ 16:03:09 +0000
+Date: Tue, 16 Sep 2025 12:03:01 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	"Saravana\
- Kannan" <saravanak@google.com>,
-	Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau
-	<j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark
-	<james.clark@linaro.org>
-Subject: Re: [PATCH v2 01/25] irqdomain: Add firmware info reporting interface
-In-Reply-To: <20250916161438.00007ba0@huawei.com>
-References: <20250915085702.519996-1-maz@kernel.org>
-	<20250915085702.519996-2-maz@kernel.org>
-	<20250916161438.00007ba0@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
+ glitch thresold
+Message-ID: <aMmKNYjxolrCb1yC@lizhi-Precision-Tower-5810>
+References: <20250914171608.1050401-1-dario.binacchi@amarulasolutions.com>
+ <20250914171608.1050401-5-dario.binacchi@amarulasolutions.com>
+ <aMgjAjfydIbYexkE@lizhi-Precision-Tower-5810>
+ <20250915-tinker-music-03cff49a41a7@spud>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250915-tinker-music-03cff49a41a7@spud>
+X-ClientProxiedBy: PH8PR22CA0014.namprd22.prod.outlook.com
+ (2603:10b6:510:2d1::29) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DB8PR04MB7098:EE_
+X-MS-Office365-Filtering-Correlation-Id: 006e3724-2607-45c6-16ad-08ddf53a87bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J7U5jr3bFdIoVeF7KjB//5JoYLIHUdOmm99p4LgM444b7aFgBDlMRSHjtLEO?=
+ =?us-ascii?Q?wfi58ABpfmV918ZBX9VYzUUxLweSFI4pbUd2ceixRdr5O6tIHxi7BVm5QoRw?=
+ =?us-ascii?Q?W6kDyPf/fOM7SgoNT69IW4a95inV3lr91Qlxshau81V/GOlub42SllDekzTO?=
+ =?us-ascii?Q?WGGZSMxCvGT0Lmf1FFF9awlut2ajjQ6RriE7fini/6DtZ8pfluq+0mYQ68Dn?=
+ =?us-ascii?Q?QmwC7FJhMNm+eAXt/e/IgaH8/IRsX6/oFnxfccZP3lVKK8Zgfe8n9JF1OaIB?=
+ =?us-ascii?Q?i8s+u246BE2Iri9viZkugeXFFrKDMbSj8oWrren6VGx4Il9cvd0pPfVMA7TH?=
+ =?us-ascii?Q?YmLIQ8xtaYGhqPD+3sEQ8GZwoCNtBucXzmnCJm+ANfFAg6ceLEXtmoU6j1JS?=
+ =?us-ascii?Q?x+FwVcUteSmY2Xv7rRb1+BKcjHa1jsCac8EBRSsiknFBuJSKgMmMCSxiAXrK?=
+ =?us-ascii?Q?l6HEuXxlYjVHm6+gL2KV2tajjrrmBDvXOduVHkiQ0ncdQIoeZO+iz3t/Ha+K?=
+ =?us-ascii?Q?UMaS+uRLYsFR4Px1yTRsK6k8bbfII3/wCI2iSQcw87x+FZS2crwKpU546dgw?=
+ =?us-ascii?Q?bztscjZr/gicbnC4bx97Rj54/ozUTIlyRzyqs9FqzYZ54qq+qjnPipOU1HFX?=
+ =?us-ascii?Q?lF6odRhlHt4mXRyMk+jd9+GU8XI2heCtFXB7DsUp4PqVkJZaQTQWrygIRSpr?=
+ =?us-ascii?Q?orwY7Lk2wBIg9wnVYn3+Yj6qJoi9GEKAbPKCK6NXDTougc7HA2xXErRI4mJE?=
+ =?us-ascii?Q?rRj8KcPd53FcBnYh/2QCckalla1whGKy38E5mnFW/e+hZ0dHdHTt5bt9HPbe?=
+ =?us-ascii?Q?4YdCyAuKfPgN2LyHIlmbkfIi/odur9nNGg9ZJXymMy9QEIs8pACQD78CZK95?=
+ =?us-ascii?Q?EbYrKOoTpaXA0nQ0VaYx6qcBnjZZM5KIT5Y5AJX20r8LgjxSWCKty8KPbxX5?=
+ =?us-ascii?Q?odjFu9GZhs0KoRLUKXIYlX9j+6662C3UeFrK5bDFmiDyvvZmxECKseKs3ljd?=
+ =?us-ascii?Q?CUWUqb7ypbtYpTdlGP50fOTYDzRMCpW1bT5VKz4Ns8ZewlNUtwd1MU6KxRjn?=
+ =?us-ascii?Q?2i/GEZyEAfs0vN8oS/1J8AN5xbgUCV4oQnsWKOyHR93i2Bty5PQjRwdvSMOx?=
+ =?us-ascii?Q?bYk/0oABurfBoUZFRfGk9w4ndlbD4/2MgxpYSOtfRbiNcXN3/nXGxYbY6eeq?=
+ =?us-ascii?Q?L9XGebExeMr/5to0tr14g4K3/SCauZmqcvZ6gNTb23Z6a5nmVnxMKeheXZg2?=
+ =?us-ascii?Q?wU6gqR3mlCCNir3M/LiVQkbKBuAwPx04gC3ov4b1aRB2zY2hTmkvQ7zJ6EVL?=
+ =?us-ascii?Q?+6L8YulICrz7844wC04zzWjCw9hZ4WSRCC0aK/aHfMWb8bAUiynjdAm65sMK?=
+ =?us-ascii?Q?KkOLLRAW3RTT2mT4pmur5aUNOFdCURQImEfecyah5+wUHZ7OBjRHczRkK2/3?=
+ =?us-ascii?Q?qB1DHJZupgUHedT9OrdFH4rHfwDNLQLXNpNJOQD7WP4cyMoODH9kOA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Yovnb/KP1qUzSoHvkA0bTPK8AkTAXTM/KJGBz2yvd8JWDNn/eQos4sIJNEvs?=
+ =?us-ascii?Q?f+R9taWpie3LhUErzZiaxjlfYM6BO/FJfSu02HR54J5fHXgku6RxazXGWlen?=
+ =?us-ascii?Q?UQZhjHiBeX7umpPMzFFxtIgSFUqWA7op3zsW3Fww7pm7z5viQztQrL2ZkPH8?=
+ =?us-ascii?Q?hBW+PkuTjS1FtHinbf+hTS0JSalnxaUpbOANnRPCCSwCbkzMQTQzNykzSXBF?=
+ =?us-ascii?Q?r64Y4AQqltEMHGAPK9F0rz/PgvnOaNt2YQ9lFSbT6Q3fTH3PIjmUEfHU5BPD?=
+ =?us-ascii?Q?YvKP6DbXCoI3J1XBnwJmTyukzX7G2nI8g8jlNBEKpOYWmRlGnaWJ4GmJIhAc?=
+ =?us-ascii?Q?TTdUEqxXL/zK9dpc91RhSiLPduT1hNyv64D3i+kgTyyx7nn+3ygWaGcuBguy?=
+ =?us-ascii?Q?2y9GAH20dQeEsyN2zAUE/i4hJOPJNN+WO3EzeCprIbQuIN6jjesCZhU4R0zs?=
+ =?us-ascii?Q?k6jiQ+XprAGxgceZoAN/rxMo7ZxTqe+LwsjU+k9WkHLnkGsWaAN5yd22Ktoc?=
+ =?us-ascii?Q?VkMtKoYNbpteApsLh10x7fbRbHXuvNtv31S6M8R6Uv07/fP1KskPiOUob3UK?=
+ =?us-ascii?Q?TpY68OyluDmx7FNV9GkVKfrg2UcI4+I6vdD6eWPObbKqR9iFwNz8UyNPFuOm?=
+ =?us-ascii?Q?GkhoTH9gF4bEGffWtPr/ICDxztxLfJNAnHQ1iPkCpjfJOSZan5ETG8Zj8jkK?=
+ =?us-ascii?Q?q9nsFWAhYTg1GkwrCuGVZIkO8hlVuBz9NwkKRluGcAg7Xu7ZGVHkA/1Os5dI?=
+ =?us-ascii?Q?2JdhlRwZ59QSf7uFvXuipOMxrQIeLvUiDTr4fWNq8g/g114zzbA22Yq+ihmB?=
+ =?us-ascii?Q?KIRO9EqsfpbU11fE5MOjyJF9luL45/S4U41BBAOwULwHFTrGBLalY77y96GK?=
+ =?us-ascii?Q?dIsdzWH792eizAuPScUUWIjMPRohpIge6ojkU/lsMbtD7EZTRMxIu8GQTk0I?=
+ =?us-ascii?Q?eTXYwx6LC6H+/tdBgkoksZp+AOf1YPTCToaGO+mViPiO45PCqLknyIjYkg6k?=
+ =?us-ascii?Q?0SRaUIGkXolQ25xQjX/NzUnm2GQSB/0ghw1kgNeFfg5dUs56LDZKv+a/Afgu?=
+ =?us-ascii?Q?6oeOX6eaVBl4I8Mp62qV4CScUNatIo/q9BGI2G5eVWsuOpHZxtIGXVRbH021?=
+ =?us-ascii?Q?uasa8ej0kR0KnZp0RJZoRXevi3nkCHcDQoDvWQcTL/WwxtnNJmgsYV32NRHr?=
+ =?us-ascii?Q?VwUrMK7+qBcbCM/VYmbzextuulew6fBuzFvGRG7F880kucmHk0ufcbrd2Kvv?=
+ =?us-ascii?Q?q+vJLRq2AtO4R8hfCtDGVlhwCgBGYxzjW6/v5LNY7/d4cW9OP0h8wqeiXGD5?=
+ =?us-ascii?Q?TfbPBQro6ihKF0eUWV79ft9daNmDiPEn/AqnAPVrThc9Y5U3XdLUdwnHMP0C?=
+ =?us-ascii?Q?IOXKqKMyjGMgJTvVBHyuyHz3zbXLR0MlAfUfirLci3PuGkGCUqTQs3w1vCWn?=
+ =?us-ascii?Q?JoDr0GENhjjg5hkfar0tE1R+tnGTIZyMaEEa87dC/E9HWt38EN3p4y2bNw0y?=
+ =?us-ascii?Q?6nAcfay9jfdrnuUlQ+1pJVRCSt1VBMLxuHUrF3kFTz3G1HVsJHLtKakoF5zX?=
+ =?us-ascii?Q?hCAtkXhF79cX/A06vzBzGJ8OrPaMNG13IFUs0YVf?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 006e3724-2607-45c6-16ad-08ddf53a87bd
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 16:03:09.2277
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MlCIZ9ta9YkvahaZ1Rx46ejOn9WwIbg7nSHJPs3aiUXy2IDbiUgEp43RtxqXBtfdxzJoRBepjexNBhw3TmC36Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7098
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_090319_886999_6756CAD5 
+X-CRM114-Status: GOOD (  31.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +169,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Sep 2025 16:14:38 +0100,
-Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
-> 
-> On Mon, 15 Sep 2025 09:56:38 +0100
-> Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > Allow an irqdomain callback to report firmware-provided information
-> > that is otherwise not available in a generic way. This is reported
-> > using a new data structure (struct irq_fwspec_info).
-> > 
-> > This callback is optional and the only information that can be
-> > reported currently is the affinity of an interrupt. However, the
-> > containing structure is designed to be extensible, allowing other
-> > potentially relevant information to be reported in the future.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Hi Marc,
-> 
-> > ---
-> >  include/linux/irqdomain.h | 28 ++++++++++++++++++++++++++++
-> >  kernel/irq/irqdomain.c    | 32 +++++++++++++++++++++++++++-----
-> >  2 files changed, 55 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
-> > index 4a86e6b915dd6..34993bf8293c4 100644
-> > --- a/include/linux/irqdomain.h
-> > +++ b/include/linux/irqdomain.h
-> > @@ -44,6 +44,24 @@ struct irq_fwspec {
-> >  	u32			param[IRQ_DOMAIN_IRQ_SPEC_PARAMS];
-> >  };
-> >  
-> > +/**
-> > + * struct irq_fwspec_info - firmware provided IRQ information structure
-> > + *
-> > + * @fwspec:		Firmware-specific interrupt specifier
-> 
-> Not aligning with what is in the structure that I can see.
+On Mon, Sep 15, 2025 at 06:42:13PM +0100, Conor Dooley wrote:
+> On Mon, Sep 15, 2025 at 10:30:26AM -0400, Frank Li wrote:
+> > On Sun, Sep 14, 2025 at 07:16:01PM +0200, Dario Binacchi wrote:
+> > > Support the touchscreen-glitch-threshold-ns property. Unlike the
+> > > generic description in touchscreen.yaml, this controller maps the
+> > > provided value to one of four discrete thresholds internally.
+> > >
+> > > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> > > ---
+> > >
+> > > (no changes since v1)
+> > >
+> > >  .../input/touchscreen/fsl,imx6ul-tsc.yaml         | 15 +++++++++++++++
+> > >  1 file changed, 15 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> > > index 678756ad0f92..310af56a0be6 100644
+> > > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> > > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+> > > @@ -62,6 +62,21 @@ properties:
+> > >      description: Number of data samples which are averaged for each read.
+> > >      enum: [ 1, 4, 8, 16, 32 ]
+> > >
+> > > +  touchscreen-glitch-threshold-ns:
+> > > +    description: |
+> > > +      Unlike the generic property defined in touchscreen.yaml, this
+> > > +      controller does not allow arbitrary values. Internally the value is
+> > > +      converted to IPG clock cycles and mapped to one of four discrete
+> > > +      thresholds exposed by the TSC_DEBUG_MODE2 register:
+> > > +
+> > > +        0: 8191 IPG cycles
+> > > +        1: 4095 IPG cycles
+> > > +        2: 2047 IPG cycles
+> > > +        3: 1023 IPG cycles
+> >
+> > you should use ns
+> >    enum:
+> >       - 1023
+> >       - 2047
+> >       - 4095
+> >       - 8191
+> >
+> > you can limit only 4 values, but unit have to ns. your driver map it to
+> > register value.
+>
+> Looking at the driver change, I think Dario is already doing that. The
+> text here is just talking about how the controller doesn't support
+> anything other than these 4 glitch threshold and mapping must be done in
+> some way.
 
-Ah crap, I missed that one. I'll stash another fix for the next
-version.
+Thanks, but descripton is confused.
+"Unlike the generic property defined in touchscreen.yaml", which let me
+think value is 0..3, instead of ns.
 
-Thanks,
+Suggest Remove
 
-	M.
+"Unlike the generic property defined in touchscreen.yaml, this
+controller does not allow arbitrary values"
 
--- 
-Without deviation from the norm, progress is not possible.
+Frank
+>
+> > > +
+> > > +      Any value provided in device tree is converted to cycles and rounded
+> > > +      up to the next supported threshold, or to 8191 if above 4095.
+>
+> This seems to be the implementation details of one particular driver,
+> and does not belong in a binding.
+>
+> > > +
+> > >  required:
+> > >    - compatible
+> > >    - reg
+> > > --
+> > > 2.43.0
+> > >
+
+
 
