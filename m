@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F096CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489BCCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhmMdRL8qlR3Tvk3u8O3tOtlAqkQkVluaZ5zKHg+950=; b=ZiAW8vFQ6P6fizpUziMEkM4ESo
-	opclF72nryckOJIvukusjH3/qDhQvhrPZhdoy+l7BhRNK3WYoznZcDAgJuITrS4cnxnUJI3erPG4O
-	PkBMMZUbzWB6LEoLfGqBKt2l/AcKwtpb/yU5G1WDi2RSxzp3AJW1wVBymjkh2+9DaT8YExeGglVCU
-	gJ03d4uKxMCei+MWPit16y4v8eSnD1E66sy340qioiC2OwnwH4SHHHkK6pPmuoJs9BNwQGAe0f43E
-	ObzAdQ0bd8gaZMZ8J8BhGeDMH7eSIkdIU1LGi5xY7ABhk+AE/87sbrRF4KH1sPwt7S6Yk15DnlINX
-	mPmKBbOA==;
+	bh=CT4KnFMC9K253+uFB3sGHZvOxPtog/sC9euCmcEFSfI=; b=qatFKr3h9JNza2m+e064G/0CqE
+	x1cvJ/jq1VKLY3GpRfYdknQne0epQVcXgnRyTviM3KLv8/n2y2BFL61PyOkVZmoAGuqKnQhW1uSnr
+	7fnUudocwufj6UmL+e6BnT/CPJ/A8AOLJUbsoSHRc+3EbIYCB3k4tST/PtGGMZ0dLb3X2SGB1kEqy
+	y2PaRvqWLl/4IpBy8FHt3cVoAFzqrA5STyXWZr6QReKoYEXpmJ1wbzybQOvaCHFOpiSJp4/CCDYD0
+	Ux+38+rt1Sa77ZQUBM26n3fC5OFohYh9VK58vs70LuCJ/LVsvYl0W3wHY1YG/+9n9ci9TWR4voOpV
+	AGT8364A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWhR-000000087zC-0ZoZ;
-	Tue, 16 Sep 2025 14:30:29 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uyWlw-000000088yW-0542;
+	Tue, 16 Sep 2025 14:35:08 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWhO-000000087yW-0pxN
+	id 1uyWlu-000000088xC-1LnY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 14:30:27 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45f30011eceso58645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:30:25 -0700 (PDT)
+	Tue, 16 Sep 2025 14:35:07 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45f2f894632so57345e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:35:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758033024; x=1758637824; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fhmMdRL8qlR3Tvk3u8O3tOtlAqkQkVluaZ5zKHg+950=;
-        b=tIMociXO6PHfA7GkLoPX3EmQXbICqQzdx2v36BKFFwrY5Ca58acu2jKrL8vq2xUxiB
-         gonpx7uCRaxwxEQ7WlUifRFxMKioweEOuYqjtxhNFyZnGs4TVesY6rT0WkQXM8F+DowG
-         i1nusBnoHaQnxu3LqfZjsw7ysCETZfYyz8u6midItreriEpka0InsyoL2iEYqJODtMUG
-         aqMohBdGJBIoGUTLQBVCibazVrZ/6s8frFeiD59eMrN6GOMomrRq81Zmm7pIt9ngWakP
-         aORlr/CeW63DyoEoTGT7WQ/D3WJTNclLPc8KCFfzedWtwZlw4ZCGh+ECBrjXUQd/nTql
-         jzHA==
+        d=google.com; s=20230601; t=1758033304; x=1758638104; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CT4KnFMC9K253+uFB3sGHZvOxPtog/sC9euCmcEFSfI=;
+        b=vys1l9B9lE7dAfG3EPY+dcxJjEYRS+Fj0TzvZTKcPgBMAjYIwb3UN3X9PlX434Y79c
+         gTLC5yotz5myCoB18/cKv/c2URIk8njcYhvHCPJLgZRIZKynCRomWpnQFNrVLEqJfCI/
+         L3eUyQwWN8+ORbTj4+y9h7j/NdSeJ2noLXRbUZZ0KegNkH/9nUzkuWroqIqc8EANg03f
+         8y3TYOjQbbkIrOYl0ZjDeLJO+c0vXi/9hCcfEPDKcY6VJuQh2UCHCzuJN6xtJROCkRKE
+         tK/WLiqneM3iqhIx+9aoKC2jJIMNKgOETqJstfBcFenbALKbyrnvgsK0lW/IOm2/HKYl
+         gN9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758033024; x=1758637824;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fhmMdRL8qlR3Tvk3u8O3tOtlAqkQkVluaZ5zKHg+950=;
-        b=LvgguV+PuCSCzdExVCtzvDDX5Ge7ECVHc72sZPT0rqIu+g59nmOODIluXe173a802T
-         qQzp0BRIVr0YKv4WPiXESjfkhTgqFJnNkjIqoJX0a4aQRDJtlZMJex+imXauSKBfNilQ
-         6jFGunAAPHB/9GNgR1SV6IXVYnR+Ty6DHfHODVK2TcCpsXDl0Hm1HY65nr05LzDGyq+B
-         YIoJvj6hIjPtN+aTx+UYc/5TvCEpG3iKYmgP5ONfSUC37MWLOqkSWIbNPa07339Ewgky
-         2CtoBDzESdJeMYRXdG+5je+2n6Bh1/0mc/0xxgxDU5lfYGlb3h80rQ+smgrzKBJCuh9O
-         zJ3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXnd+KEDCAHM0WgN/rqfWGkL3kzJ9Gx25d5UTtRsEbflO5Jr/Ylrf6EjwjjjsYmiu9Fq2CDQFaHWEgIjOHwe98l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5GgqUy32csXyseguQ81QVYx2z9inRsahmfUJAkqVmUYmRrFBL
-	c3qngH/bHZZBrE5Wrw7IUYSH6zCFcxLdx6F09nYMf1Ib2hywE6K4gSfBGM0VluaHKg==
-X-Gm-Gg: ASbGncsi/dWuVzbZOjSjUgAWZyFGVwB5OLVP4phgfIayXRr/v4VWEGOI4AMO3W9TIDF
-	HKoIXkacldJN/1Y0QSIZe8eSO7nlzL9Q3Bclr6CyX88w9GexCjZjjXlUo9FgE9nj1dMQud1/OxA
-	jyWvy3hhNJV6Twoex/LtgbVe3eK9LciRWkT4H+i21F3RqpqqwqCOIZK1aBdY6gXvy5yHlM/aJXz
-	d5UGNHHB8c06LL/NTKdwyoC+cjsDzptyJEnIsKphXA6UNs6gSR1KXYuuJnK1B6pz7a1m4liOLeq
-	S0HQ06eXcD4TLRk+74CU8AvyYNHoO6trB37sIaBjJnbJ7X5K4PFSj45y0sQSx+fhkeukr9weF6V
-	51kX296tZ2dvDqmZOsRLixM+f7RYl7Sr4O22gXPAmuTMtlQsDCiUnBNS82WI/ut/PeV9QXgN9lu
-	mTZusYP15szM2OnaE=
-X-Google-Smtp-Source: AGHT+IGo1adSqugDdIZRQSzWcjgsYTglPxgYm/2Pf1a15n6l2x2VoKYdVxQeE+Hpg647GI1uAq/aog==
-X-Received: by 2002:a05:600c:8b35:b0:45a:2861:3625 with SMTP id 5b1f17b1804b1-45f320ea2dfmr1944965e9.4.1758033024087;
-        Tue, 16 Sep 2025 07:30:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758033304; x=1758638104;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CT4KnFMC9K253+uFB3sGHZvOxPtog/sC9euCmcEFSfI=;
+        b=RqPuhgMzU4a5bibRAlv83YniVcNo2GIfMYmmtl9T7dhsqJMq+AcqdL1ekEUcOQFHsP
+         oU0xAe0A960t4343+tzsBDdqj/K7DTLV1OM1WokSobDAr0wsZNw2Ys99r/P0liU66ppr
+         ljtzM4F5SmNB61M/ztwdP/TwyzwEaW9XD+B4twcj9LgAuC70wWq8+G7+vNThFf/Qhhek
+         d7+QRtOeO0qPT5kv73WwXNbAaeRRkWCI0pFy9X4rB4iQUBRjxOdRyt3LoYT8zYJZ/0tP
+         gNkj9+10y+YrQM8mVKPIdeOCGZ86Rhyy3g9ZRi+D2DjjmHKKSA29sXBINQD7IzHgAqR3
+         59Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhdy26XxruYO1SRiykbfalImZBzFlrWq2O9nNA2+UNZCHGiL5e0Iw55D90CeliaNpWUsnHJxnJzT0vzzgwh06J@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSP67J7jGTYQIZ/NHCqqb4zfbDU1gK7Nq253xTqIvPepBzogcy
+	pbMSwr5zbmuMZgKPRu+E6MbtEqFUwwOUrUZGpZfmcxRcfI6Df3o/0wHvRccdR9CTwg==
+X-Gm-Gg: ASbGnctcKA6beFZOfNGHrX4SkQdchE8wrlUVhdP6OhQ60DEfxx/oI3T55mqd3uMVj5M
+	Wf8iWxc9/Z4K+LE3Lg8iWgTyZwlJRnpk4oyGjVYREwm66kLUxyZaYrLVHK4x+aOjmRSqVyKgWlq
+	VtKPMfD/IyuMRwvHVGQWIMPsdpbO/fF7R9G02RoF6vPXDFL/ZSFXHSnR0skVp45BmYh4vHaYo0i
+	Zq7UBf7MjtNmcKx+wEtPRErouavXopq+HmnUIEMzBF19BBKY8bybcBrEUdXiCukOiI+tZN+Wel+
+	WXWZVAvTIEvwybeCj990ldVXNmjzpaRi3bXJgp5RUm3Gxc2HnnDXMieVNQWGEyhmEYna8mLiOAz
+	j0zc2kBHSK0K8FbWDj0qznyVf/1FtQNjguvjDgvQmRyuUfMRmqbDazQvbEHnRJbxgbGI16A==
+X-Google-Smtp-Source: AGHT+IECpwDExsg0Dr7B4qD1+CeVxxyJjTc2PPzhq2qhSmxiB4I92vX7At74X9XKcTLJsKMwvH5o1A==
+X-Received: by 2002:a05:600c:8b35:b0:45a:2861:3625 with SMTP id 5b1f17b1804b1-45f320ea2dfmr1951735e9.4.1758033304305;
+        Tue, 16 Sep 2025 07:35:04 -0700 (PDT)
 Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ecdc967411sm340062f8f.46.2025.09.16.07.30.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3e9cf04db65sm10884027f8f.3.2025.09.16.07.35.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 07:30:23 -0700 (PDT)
-Date: Tue, 16 Sep 2025 14:30:20 +0000
+        Tue, 16 Sep 2025 07:35:03 -0700 (PDT)
+Date: Tue, 16 Sep 2025 14:35:00 +0000
 From: Mostafa Saleh <smostafa@google.com>
-To: Will Deacon <will@kernel.org>
+To: Daniel Mentz <danielmentz@google.com>
 Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
 	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
 	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 14/28] iommu/arm-smmu-v3: Add KVM mode in the driver
-Message-ID: <aMl0fJJyV5sJKIKS@google.com>
+Subject: Re: [PATCH v4 16/28] iommu/arm-smmu-v3-kvm: Create array for hyp
+ SMMUv3
+Message-ID: <aMl1lCvuKQFfOhNb@google.com>
 References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-15-smostafa@google.com>
- <aMQlm9ucDtd5-15r@willie-the-truck>
+ <20250819215156.2494305-17-smostafa@google.com>
+ <CAE2F3rDc-4SirDDrQeZJQDqjdv67-QFfQhHfwyd+O6f5OsBSpw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aMQlm9ucDtd5-15r@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAE2F3rDc-4SirDDrQeZJQDqjdv67-QFfQhHfwyd+O6f5OsBSpw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_073026_258206_1DBBE081 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20250916_073506_366799_A25793F1 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,71 +107,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 02:52:27PM +0100, Will Deacon wrote:
-> On Tue, Aug 19, 2025 at 09:51:42PM +0000, Mostafa Saleh wrote:
-> > Add a file only compiled for KVM mode.
-> > 
-> > At the moment it registers the driver with KVM, and add the hook
-> > needed for memory allocation.
-> > 
-> > Next, it will create the array with available SMMUs and their
-> > description.
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h             |  4 +++
-> >  arch/arm64/kvm/iommu.c                        | 10 ++++--
-> >  drivers/iommu/arm/arm-smmu-v3/Makefile        |  1 +
-> >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 36 +++++++++++++++++++
-> >  4 files changed, 49 insertions(+), 2 deletions(-)
-> >  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index fcb4b26072f7..52212c0f2e9c 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -1678,4 +1678,8 @@ struct kvm_iommu_ops;
-> >  int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops);
-> >  size_t kvm_iommu_pages(void);
-> >  
-> > +#ifdef CONFIG_ARM_SMMU_V3_PKVM
-> > +size_t smmu_hyp_pgt_pages(void);
-> > +#endif
-> > +
-> >  #endif /* __ARM64_KVM_HOST_H__ */
-> > diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-> > index 5460b1bd44a6..0475f7c95c6c 100644
-> > --- a/arch/arm64/kvm/iommu.c
-> > +++ b/arch/arm64/kvm/iommu.c
-> > @@ -17,10 +17,16 @@ int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
-> >  
-> >  size_t kvm_iommu_pages(void)
-> >  {
-> > +	size_t nr_pages = 0;
-> > +
-> >  	/*
-> >  	 * This is called very early during setup_arch() where no initcalls,
-> >  	 * so this has to call specific functions per each KVM driver.
-> >  	 */
-> > -	kvm_nvhe_sym(hyp_kvm_iommu_pages) = 0;
-> > -	return 0;
-> > +#ifdef CONFIG_ARM_SMMU_V3_PKVM
-> > +	nr_pages = smmu_hyp_pgt_pages();
-> > +#endif
+On Tue, Sep 09, 2025 at 11:30:48AM -0700, Daniel Mentz wrote:
+> On Tue, Aug 19, 2025 at 2:55 PM Mostafa Saleh <smostafa@google.com> wrote:
+> >
+> > +               if (kvm_arm_smmu_array[i].mmio_size < SZ_128K) {
+> > +                       pr_err("SMMUv3(%s) has unsupported size(0x%lx)\n", np->name,
+> > +                              kvm_arm_smmu_array[i].mmio_size);
 > 
-> Rather than hard-code this here, I wonder whether it would be better to
-> have a default size for the IOMMU carveout and have the driver tells us
-> how much it needs later on when it probes. Then we could either free
-> any unused portion back to the host or return an error to the driver if
-> it wants more than we have.
+> Use format specifier %pOF to print device tree node.
+> If mmio_size is a size_t type, use format specifier %zx.
+> Align language of error message with kernel driver which prints "MMIO
+> region too small (%pr)\n".
 
-I can do that, we can set the default from a config or cmdline (or
-both).
+Thanks for catching that, I will fix it in v5.
+
+> I'm wondering if we should use kvm_err instead of pr_err.
+
+I am not sure, kvm_err seems to be used from core arch code only, but
+I don't see why not.
 
 Thanks,
 Mostafa
 
-> 
-> Will
-> 
 
