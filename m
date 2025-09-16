@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BFCCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED136CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvB9uFwSO71J5u5suf9LzDD3AAOVAFdkQHjXMqw5dYs=; b=FhDKGcmsADWGqI1OY2wXB3G/WY
-	M3WvT7iEbgGWq9kZyTx0I1DFMfnkNwgECpYZKAiaSPDv5wvV0C4OE/jyU4dXR9nJVyisL1WAmNvR1
-	2ZPg3hNYBSNww8ets0LlXoN07zqvauqjcQCIbtiOJzNUbsWgXnQ5xBGehb+aiElpb3MPs/fqc7iha
-	cwHNDRrwLZmJ0SCHT0dYFQzcvZcBGkafm/J6+Z27w5q3wsG3qkZpp0hixPIIxioDWpTNA0nkqGrPC
-	hPU398GN0KGk/rHG/GKo7FMsNuNyRxPPBlOcO31paaPF/uzUb1DDDvngO12EJENrZDsvJN93Uy1Oe
-	xUHqC6RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=; b=Jpmin/BtjQDitUftz1hjwdQLFl
+	luJiVRGgmAibfDXN5T7KH45KXStxvT5omRQhLYjwOYbDUtyhyv6KInEFYMAwIySQIctkY3UCJa7L8
+	6EKfKXm6H/Y31W0qVdrLdzYfCRdu6cOwum/AFHN83rmx1va7SMAbNU/sO5zqBJkHHg0O8a0oDbbe3
+	+OFYRUfuzHxqPad31ngd98Rywvu7N/mFOjWJ5onkHPms6BbecGtF5gILp+YeWk4vctmBsBx4rPA7L
+	sK1hPXCBbVs2LiMUKU/4381MtOKjKuSa5ip1WNcPESQzhvWr++aHOoJsgB/HNA3cx2Xy4tU2xyDuK
+	morszzXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRbs-00000007IpP-2cOT;
-	Tue, 16 Sep 2025 09:04:24 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uyRek-00000007JPb-37OU;
+	Tue, 16 Sep 2025 09:07:22 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRbq-00000007IoY-2NuD;
-	Tue, 16 Sep 2025 09:04:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758013447; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KphIoxkx3Cqj0qXKv+QONEdYHdi7TOxjXMeIFjDfloMVupb2o61pMUqjZ4bqfTOQhqGIbUK8DbxXjGqxV5x0TexDs9hNGMEDerN5hu6QXGL214QmPFbdz9IwyTXArIYA3WiNexkebwTvf4u6Vz9Oloa8Sh8ghlxeKCt8uTUG/aU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758013447; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vvB9uFwSO71J5u5suf9LzDD3AAOVAFdkQHjXMqw5dYs=; 
-	b=I/Gp8xb6pw6GnZQNdmmrEloJ+xsjI7JPL7JdONc0SPrqZE+QQDrTy2hnhmlIM1nhDbCwuqDBojz83VOKZ5+G4bBX6EKx2Bpi0HlKGZ6BTi5Rbq16jcH/wAruVDvzg/yWvtZBiyLWxyaPHSRhhhP+nriwk13Iu23ejuSz5brnzQs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758013447;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=vvB9uFwSO71J5u5suf9LzDD3AAOVAFdkQHjXMqw5dYs=;
-	b=VYZoQfhaOxFZl7gpYmtPRLiRUkgTVYFaa6Td3m/0wyTVx6ttkq5K7psZ/2urwqCL
-	XCWZCkcz0LaT7xSAjw86BWu2urnKCyzUilLfARa5y6dBH2nj21gyNG3u/ScGSxaBIr3
-	qzZSU3LkTgXPn83JtA/HRG2LCAODFg/qgxxD5yvE=
-Received: by mx.zohomail.com with SMTPS id 1758013446090111.71149807332927;
-	Tue, 16 Sep 2025 02:04:06 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Chia-I Wu <olvaffe@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 05/10] mailbox: add MediaTek GPUEB IPI mailbox
-Date: Tue, 16 Sep 2025 11:03:57 +0200
-Message-ID: <5236533.GXAFRqVoOG@workhorse>
-In-Reply-To: <CAPaKu7STDDp6D_fDGVfAKFrb5aWcxtwsT3nYtYDQQYCs7G9upA@mail.gmail.com>
-References: <20250912-mt8196-gpufreq-v2-0-779a8a3729d9@collabora.com>
- <8577914.T7Z3S40VBb@workhorse>
- <CAPaKu7STDDp6D_fDGVfAKFrb5aWcxtwsT3nYtYDQQYCs7G9upA@mail.gmail.com>
+	id 1uyReh-00000007JOo-42Er
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 09:07:21 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45f2c9799a3so13500155e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 02:07:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758013638; x=1758618438; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=;
+        b=B2aCllpmD4wZnyrkF6NRt8yKd5bPKKYceUGUVy59ElgK6ngmT9jZVIQhtBrJYq+KlP
+         gn9NFJXuZNp5BaExkzEnYr5n8/hgtFUVM4E4kA+ETyPxMoguZT8M8c1nFPTnmuKUhVON
+         3Sf8W57xtpKLTjbm9FygypfaFrd2nmXE3oUWu8cHl8JL7WOxSH8oTot6blRuFaZb76wx
+         2l2JXjfbkiyLCoQAkA+FvMKVuhBxr7O2dftdjcnjdbNr6tX/Pg4PtNlCAj6UarVnM9tp
+         3z+FsyVtTU/2cLIw9llZpwjn68M6WRbh+/m9dgCO1eyne7wL5AUcWHVqwe1MnIdZW1In
+         6hmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758013638; x=1758618438;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y2sIITgEDWZdcO/sXZ85Mvn3hZAdFIIPOJDbEun6R/M=;
+        b=pOGRIM1lscZDy350jYchDGqHq0mM5FUVsf53CgLdV+hvnPuOzs38i1ZgS0XehOm1Up
+         kqgmrUGKUcv6s58DJepJW3idIfg12Owk84lOu86pk86e0Mc7nfEFhkwDn5B3PSBrskBS
+         KRhPmquwrmO5NXPuWagq1JoenKg0PuF6Pv634ucWCDiQyeGpbDo57z5+QvzWQOCaQODw
+         FBR41f6Nw432USVlcao86vqN4gdjQrUJeNiTXshGjAROzwvtC7TMhSg3a00E2WffH//Y
+         O/j4aaQ5XXNJA2mM6msQOXYj1FhPyqBOvngZKtlApFLQWMA33MHTu/W93e5Fp7nOclhM
+         S3kg==
+X-Forwarded-Encrypted: i=1; AJvYcCUx3PhkGK3euMX+8Qw/00Gn04KWPMM1wKJmIIuPNv4S34PjihsGe8mJy0d4Senq1lgfpjHLzYzDHVsnmRQSc+63@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTrqYX4o6IFoftSdV1UpgtCqxsslxPsoXi10IqdOIff7Z2Z7Au
+	Aa5HolO3sFpvEnWd828AcUixb4DNFRNmEHr5FHxO0gzxwJSewVSYadGwhluRtQ==
+X-Gm-Gg: ASbGncuMCsS6md+WH3uwGVyR5QSsBrEhpuQkk7o5Xar80ELeR6B/2plR+FJRysb9npK
+	j6h1ndKTHrdU6PHFuC7IIauNCmnKqaLqmYkwlTDEOQWeXyp4rajsdWzL458eIhls9x2xGyQEkt4
+	6abAnydJcPt2m4eVLfQvOP1MBZmbvMc9V0NQwDZge+0SYAx8dTr+eVI3CjlEnCRsV+kT/bMavWv
+	59CAT2QAD3e4L5e2+bxtUnYgSBP7i66qfIAVKpy4SQKcjzFn8jlllxHSUXT4XPcqLvhnwASmojX
+	RtxitLyQiK+SkwIzNONSkVSmwE56ybyBB6JVfrDIx3J7TWtWRGtHdtE1E6dL9hAvzasc2zBWiKf
+	NPtynyVwPNi+62umSSChjBoxj8AFteu3HeReiRXTX1F1Zj0AnOJldkkDcol1aEi5hR2c1ao2B9f
+	g5ZgtYVcbxp46oSBqsODiwNjigcws=
+X-Google-Smtp-Source: AGHT+IEuR5WQEBjj4/xvD5G9A1WwnGivKz0/sMVmdKU1XiTsdSofMByYMjzCbnjKIX3aOCcY/494jg==
+X-Received: by 2002:a05:600c:1992:b0:456:fc1:c26d with SMTP id 5b1f17b1804b1-45f211c8437mr129293605e9.2.1758013637683;
+        Tue, 16 Sep 2025 02:07:17 -0700 (PDT)
+Received: from localhost (2a02-8440-7509-4cd6-9055-f88b-940e-15eb.rev.sfr.net. [2a02:8440:7509:4cd6:9055:f88b:940e:15eb])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f32081248sm15568305e9.0.2025.09.16.02.07.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 02:07:17 -0700 (PDT)
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Date: Tue, 16 Sep 2025 11:07:10 +0200
+Subject: [PATCH v7] bus: firewall: move stm32_firewall header file in
+ include folder
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250916-b4-firewall-upstream-v7-1-6038cf1e61d8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAL0oyWgC/x3MSQqAMAxA0atI1ga0WK1eRVxUTTXgROoE4t0tL
+ t/i/wc8CZOHKnpA6GTP6xJQxBF0o10GQu6DQSVKJ2WaY5uhY6HLThMem9+F7Iy9I6ONsSp1BkK
+ 6CTm+/23dvO8HXeR4NGYAAAA=
+X-Change-ID: 20250916-b4-firewall-upstream-dfe8588a21f8
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+X-Mailer: b4 0.15-dev-dfb17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_020422_648039_0F3F61DF 
-X-CRM114-Status: GOOD (  58.46  )
+X-CRM114-CacheID: sfid-20250916_020720_024561_2F973609 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,191 +106,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 16 September 2025 06:55:30 Central European Summer Time Chia-I =
-Wu wrote:
-> On Mon, Sep 15, 2025 at 6:34=E2=80=AFAM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
-> >
-> > On Saturday, 13 September 2025 00:11:10 Central European Summer Time Ch=
-ia-I Wu wrote:
-> > > On Fri, Sep 12, 2025 at 11:38=E2=80=AFAM Nicolas Frattaroli
-> > > <nicolas.frattaroli@collabora.com> wrote:
-> > > <snipped>
-> > > > +static irqreturn_t mtk_gpueb_mbox_thread(int irq, void *data)
-> > > > +{
-> > > > +       struct mtk_gpueb_mbox_chan *ch =3D data;
-> > > > +       int status;
-> > > > +
-> > > > +       status =3D atomic_cmpxchg(&ch->rx_status,
-> > > > +                               MBOX_FULL | MBOX_CLOGGED, MBOX_FULL=
-);
-> > > > +       if (status =3D=3D (MBOX_FULL | MBOX_CLOGGED)) {
-> > > > +               mtk_gpueb_mbox_read_rx(ch);
-> > > > +               writel(BIT(ch->num), ch->ebm->mbox_ctl + MBOX_CTL_I=
-RQ_CLR);
-> > > > +               mbox_chan_received_data(&ch->ebm->mbox.chans[ch->nu=
-m],
-> > > > +                                       ch->rx_buf);
-> > > Given what other drivers do, and how mtk_mfg consumes the data, we sh=
-ould
-> > >
-> > >   char buf[MAX_OF_RX_LEN]; //  MAX_OF_RX_LEN is 32; we can also
-> > > allocate it during probe
-> > >   mtk_gpueb_mbox_read_rx(ch);
-> > >   mbox_chan_received_data(..., buf);
-> > >
-> > > mtx_mfg makes a copy eventually anyway.
-> >
-> > We don't right now, at least not until after the callback returns.
-> > So we need to have the copy in the mtk_mfg callback, not after the
-> > completion. That's fine and I do want to do this as this is what
-> > the mailbox framework seems to expect clients to do.
-> >
-> > > We don't need to maintain any
-> > > extra copy.
-> > >
-> > > Then we might not need rx_status.
-> >
-> > We can probably get rid of it if we keep the per-channel
-> > interrupt handler. Otherwise, we may still need clogged,
-> > as we don't want to process interrupts on channels we have
-> > no user for.
-> >
-> > >
-> > > > +               atomic_set(&ch->rx_status, 0);
-> > > > +               return IRQ_HANDLED;
-> > > > +       }
-> > > > +
-> > > > +       return IRQ_NONE;
-> > > > +}
-> > > > +
-> > > > +static int mtk_gpueb_mbox_send_data(struct mbox_chan *chan, void *=
-data)
-> > > > +{
-> > > > +       struct mtk_gpueb_mbox_chan *ch =3D chan->con_priv;
-> > > > +       int i;
-> > > > +       u32 *values =3D data;
-> > > > +
-> > > > +       if (atomic_read(&ch->rx_status))
-> > > > +               return -EBUSY;
-> > > > +
-> > > > +       /*
-> > > > +        * We don't want any fancy nonsense, just write the 32-bit =
-values in
-> > > > +        * order. memcpy_toio/__iowrite32_copy don't work here, bec=
-ause fancy.
-> > > > +        */
-> > > > +       for (i =3D 0; i < ch->c->tx_len; i +=3D 4)
-> > > > +               writel(values[i / 4], ch->ebm->mbox_mmio + ch->c->t=
-x_offset + i);
-> > > > +
-> > > > +       writel(BIT(ch->num), ch->ebm->mbox_ctl + MBOX_CTL_IRQ_SET);
-> > > > +
-> > > > +       return 0;
-> > > > +}
-> > > > +
-> > > > +static int mtk_gpueb_mbox_startup(struct mbox_chan *chan)
-> > > > +{
-> > > > +       struct mtk_gpueb_mbox_chan *ch =3D chan->con_priv;
-> > > > +       int ret;
-> > > > +
-> > > > +       atomic_set(&ch->rx_status, 0);
-> > > > +
-> > > > +       ret =3D clk_enable(ch->ebm->clk);
-> > > > +       if (ret) {
-> > > > +               dev_err(ch->ebm->dev, "Failed to enable EB clock: %=
-pe\n",
-> > > > +                       ERR_PTR(ret));
-> > > > +               goto err_clog;
-> > > > +       }
-> > > > +
-> > > > +       writel(BIT(ch->num), ch->ebm->mbox_ctl + MBOX_CTL_IRQ_CLR);
-> > > > +
-> > > > +       ret =3D devm_request_threaded_irq(ch->ebm->dev, ch->ebm->ir=
-q, mtk_gpueb_mbox_isr,
-> > > > +                                       mtk_gpueb_mbox_thread, IRQF=
-_SHARED | IRQF_ONESHOT,
-> > > > +                                       ch->full_name, ch);
-> > > I don't think this warrants a per-channel irq thread.
-> > >
-> > > mbox_chan_received_data is atomic. I think wecan start simple with
-> > > just a devm_request_irq for all channels. mtk_gpueb_mbox_isr can
-> > >
-> > >   read bits from MBOX_CTL_RX_STS
-> > >   for each bit set:
-> > >     read data from rx
-> > >     mbox_chan_received_data
-> > >   write bits to MBOX_CTL_IRQ_CLR
-> > >
-> >
-> > I don't like this approach. It brings us back to having to process
-> > multiple channels per ISR, keep track of when the interrupt should
-> > be enabled and disabled based on how many channels are in use, and
-> > also is not in line with what e.g. omap-mailbox.c does.
-> >
-> > Remember that `mbox_chan_received_data` synchronously calls the
-> > mailbox client's rx_callback. In mediatek_mfg's case, this is
-> > fairly small, though with the request to not make the rx buffer
-> > persist beyond the rx_callback it will gain an additional memory
-> > copy. But we can't guarantee that someone isn't going to put a
-> > slow operation in the path. Sure, it's going to be atomic, but
-> > waiting for a spinlock is atomic and not something an ISR would
-> > enjoy. I don't think mailbox clients would expect that if they
-> > take their time they'll stall the interrupt handler for every
-> > other channel.
-> >
-> > So we'd keep the interrupt disabled for all channels until the
-> > client that received a message has processed it.
-> >
-> > I can see myself getting rid of the handler and just having the
-> > thread function as the bottom half, but I'd really like to keep
-> > the one-IRQ-request-per-channel thing I've got going now as it
-> > made the code a lot easier to reason about. However, doing this
-> > would mean the interrupt is re-enabled after the generic upper
-> > half, when all the business logic that needs to not run
-> > concurrently for an individual channel is in the bottom half.
-> >
-> > As far as I can tell, this would then mean we'd have to add
-> > some concurrency exclusion mechanism to the bottom half.
-> >
-> > Moving all the logic into the upper half handler function
-> > would make that handler somewhat longer, and I don't know
-> > if IRQF_ONESHOT masks the interrupt for all users of that
-> > IRQ number or just for those with that dev_id. If it's per
-> > dev_id, then I'm fine with moving stuff up there. But from
-> > my reading of the core IRQ handling code, that does not
-> > appear to be the case; one channel getting a reply would
-> > mask *all* channels of the mailbox until the upper half is
-> > completed, and if the upper half calls into a driver
-> > callback synchronously, that may take a hot minute.
-> >
-> > Put differently: Is there a problem with one thread per used
-> > channel, or are we going off vibes here? The way it currently
-> > works uses the shared interrupt to mark just that one channel
-> > as busy with rx_status before letting the IRQ for all channels
-> > be unmasked again, which seems ideal to me.
-> No, one thread per used channel can work. I can't say I like it, but I
-> also don't know the hw as well as you do.
->=20
+From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-Your knowledge is probably not far behind mine on this hardware :(
+Other driver than rifsc and etzpc can implement firewall ops, such as
+rcc.
+In order for them to have access to the ops and type of this framework,
+we need to get the `stm32_firewall.h` file in the include/ folder.
 
-I'll keep the per-channel thread for v3 for now, so that it's
-clearer as to how this will look. It'll also give us both an
-opportunity to run the code and add some measurements to see if
-this causes any problems, and to experiment with your proposed
-solution.
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+---
+This v7 is a subset of the v6 and other prior versions, splited to simplify
+the review and merging process.
 
-What I mainly am worried about is that if we go back to one IRQ
-for all channels, then we have to do our own "how many channels
-are enabled?" accounting to disable the IRQ later, because the
-enable_irq/disable_irq accounting works the opposite way where
-you can disable as many times as you want but your enables can't
-exceed disables + 1.
+Changes in v7:
+- None
+- Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com/
+---
+ drivers/bus/stm32_etzpc.c                       | 3 +--
+ drivers/bus/stm32_firewall.c                    | 3 +--
+ drivers/bus/stm32_rifsc.c                       | 3 +--
+ {drivers => include/linux}/bus/stm32_firewall.h | 0
+ 4 files changed, 3 insertions(+), 6 deletions(-)
 
-Kind regards,
-Nicolas Frattaroli
+diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+index 7fc0f16960be..4918a14e507e 100644
+--- a/drivers/bus/stm32_etzpc.c
++++ b/drivers/bus/stm32_etzpc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * ETZPC registers
+  */
+diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
+index 2fc9761dadec..ef4988054b44 100644
+--- a/drivers/bus/stm32_firewall.c
++++ b/drivers/bus/stm32_firewall.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/bus/stm32_firewall_device.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+@@ -18,8 +19,6 @@
+ #include <linux/types.h>
+ #include <linux/slab.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+ #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+ 
+diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+index 4cf1b60014b7..643ddd0a5f54 100644
+--- a/drivers/bus/stm32_rifsc.c
++++ b/drivers/bus/stm32_rifsc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * RIFSC offset register
+  */
+diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
+similarity index 100%
+rename from drivers/bus/stm32_firewall.h
+rename to include/linux/bus/stm32_firewall.h
 
+---
+base-commit: 46a51f4f5edade43ba66b3c151f0e25ec8b69cb6
+change-id: 20250916-b4-firewall-upstream-dfe8588a21f8
 
+Best regards,
+--  
+Clément Le Goffic <legoffic.clement@gmail.com>
 
 
