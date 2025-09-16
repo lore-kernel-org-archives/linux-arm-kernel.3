@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981E3CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C425CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INzFoqPIJJ4zIhDs1tk4/0Iv3QjJ1kD4uj5WDiJm1Q8=; b=z6J3946UQn+Tt3gCs9/MB1wpWj
-	OJCq93psrk6t/ZGNMpnmPbRBUPR28n1oYXJqTmct4PrIl2fqSVpu0CompCY7aTTRI9SJhjXCtfCDj
-	0aqjFsORFqu3vV4R7XoLbk+8UorxBnmo0OedMrq1ZRT+hH+YnNMN7eNGOLo6EZe8bXosrx7TAU9x2
-	/Gdggdp/PbsbNlYEqJtuws++NXmxmB0Yc2TpwvEQT3wInviBYnAedbdS80MTZfBFkggMJ+4WHKF3y
-	jL1+mF5dEfD0RHA2Ux2VM5Q+ltQ6QB17h7chtINHgwu8oLZc8SZfyEHC0xUk1mnLIKoue7LtyJJK2
-	6m4bEpaw==;
+	bh=qJMnFuQLWAt/wCKFl1W2XSEOrT4ORNYACWB6EQ01n1k=; b=KyA0tOgcWav1M6vin6wt0xF4Tn
+	cDNGehvxGNf1unqvkToFyoWx3+3UE052Wddn4VrnmSUsga8GWawUGZSiLTMGGnXZrSdBk4JCexvEx
+	7k+fhr1RdsojghC1azyeQDilDVk+ittdbgCbZX3W6zB2YtadS84VdhzKUUuZzKxBfRXWXUcTSbjHG
+	8BnQro4xoEwUH+DbdUz3BRaYOkV79z5Jx4mEs9qx4kIyulz244eg4gHyaIECWQqNIAJAUD9kaVlg0
+	HAeLy06GJQemP/D0Lxzh1UyfcCCMoNB5FEfnEpd94CF5MrSyKyR3Qn68J12VVIWG5I56c2z6gRLEQ
+	XnVtHwiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySxG-00000007XPO-32ET;
-	Tue, 16 Sep 2025 10:30:34 +0000
+	id 1uyTBc-00000007Zbp-2uZG;
+	Tue, 16 Sep 2025 10:45:24 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySxF-00000007XOz-16RK
+	id 1uyTBb-00000007Zbg-1a5V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 10:30:33 +0000
+	Tue, 16 Sep 2025 10:45:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93A74600AE;
-	Tue, 16 Sep 2025 10:30:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7148C4CEEB;
-	Tue, 16 Sep 2025 10:30:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C285A600AE;
+	Tue, 16 Sep 2025 10:45:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A44C4CEEB;
+	Tue, 16 Sep 2025 10:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758018632;
-	bh=SAAJtRVKcJwiJyR3IHIUauj/vRpTKvM8j3kpPYHSy0E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BHb+dGdyRn7Zj3bk8i+PMkTmR3IvnW/TifXFm9rRvMPO/ZaO5pXce+RHUf/AYLN5m
-	 ZFjrymyO4KJP39QuuWUan4ZWhzUkqkwGi9L4zGjQ69ZuV4LvnnIIwSrNtKWLRNpY/e
-	 9Xd2t3xgqXbIMDet89oXA17Hz7dxpGgF4MThYHz82vFlVmkJjQdOqewWp9Z9wFJ54n
-	 pnXV10t8OJNalk/7VJZnza0DYdlBgPBtnX0op5oV7wN8o5GrSxX4PYJarBoQ7GnYIE
-	 Y64YxNdJWhIDL6bVgnejuGZKtkQxB5z2PPwj9vNUeEMpXwlAu/yx+9N3bKoHMHLkeK
-	 HpbRHh1G/qxdQ==
-Date: Tue, 16 Sep 2025 11:30:26 +0100
-From: Will Deacon <will@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: catalin.marinas@arm.com, anshuman.khandual@arm.com,
-	quic_zhenhuah@quicinc.com, ryan.roberts@arm.com,
-	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com,
-	jthoughton@google.com
-Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
-Message-ID: <aMk8QhkumtEoPVTh@willie-the-truck>
-References: <20250723161827.15802-1-dev.jain@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250723161827.15802-1-dev.jain@arm.com>
+	s=k20201202; t=1758019522;
+	bh=DoMHpv5hxCJ6SlceuYF08FYrofkwsQdeayNjraFmhEk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gBAakvcCjgq2oS3wsInghchTT5cKoQBzEpqDxdVrrJv3e+T8RhSL4J2TBAd0OxPT7
+	 3OiXl013/Q0H535qAqag0FEXrMVd755U/yZlQpP4zABcyMxLli2mewsbt3usQpcZ+8
+	 n0VJztfRgxVnxMfZyi6WmggeeX5PjRYrl6iF63/CLunfzKUN4IB0QO1QGHGc091FqW
+	 3+gYhafBzZwtaoZOvjUfnt4TCDk3ZWYEPv/jzgFdR4XoOrT0jn+9BGXyA3IwfFkY5F
+	 rIA70kVHxfcLZhbqVokDi6DjynHgMBC2F5yU6quyS/ODIVJ0W8s1m8g9aV5lCt0Hrx
+	 ZdwZRGIp7nUnQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uyTBX-00000006gRs-2dkS;
+	Tue, 16 Sep 2025 10:45:19 +0000
+Date: Tue, 16 Sep 2025 11:45:15 +0100
+Message-ID: <86v7li1xs4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,	Adrian Hunter <adrian.hunter@intel.com>,	Alexander Shishkin <alexander.shishkin@linux.intel.com>,	Arnaldo Carvalho de Melo <acme@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,	Douglas Anderson <dianders@chromium.org>,	Geert Uytterhoeven <geert+renesas@glider.be>,	Ian Rogers <irogers@google.com>,	Ingo Molnar <mingo@redhat.com>,	James Clark <james.clark@linaro.org>,	Jiri Olsa <jolsa@kernel.org>,	John Garry <john.g.garry@oracle.com>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Leo Yan <leo.yan@linux.dev>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Mark Rutland <mark.rutland@arm.com>,	Mike Leach <mike.leach@linaro.org>,	Namhyung Kim <namhyung@kernel.org>,	Oliver Upton <oliver.upton@linux.dev>,	Peter Zijlstra <peterz@infradead.org>,	Rob Herring <robh@kernel.org>,	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,	Will Deacon <will@kernel.org>,	devicetree@vger.kernel.org,	linux-arm-kernel@lists.
+ infradead.org,	linux-perf-users@vger.kernel.org,	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
+In-Reply-To: <87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
+References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
+	<87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kuninori.morimoto.gx@renesas.com, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,101 +81,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dev,
+On Tue, 16 Sep 2025 03:38:47 +0100,
+Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
+> 
+> From: Hai Pham <hai.pham.ud@renesas.com>
+> 
+> Add initial DT support for R8A78000 (R-Car X5H) SoC.
+> 
+> [Kuninori: tidyup for upstreaming]
+> 
+> Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
+> Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
+> Signed-off-by: Minh Le <minh.le.aj@renesas.com>
+> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
+> Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
+> Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
+> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> ---
+>  arch/arm64/boot/dts/renesas/r8a78000.dtsi | 756 ++++++++++++++++++++++
+>  1 file changed, 756 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/renesas/r8a78000.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+> new file mode 100644
+> index 0000000000000..82e27ce39c127
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
 
-On Wed, Jul 23, 2025 at 09:48:27PM +0530, Dev Jain wrote:
-> @@ -1301,16 +1319,76 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  	}
->  
->  	table = pmd_offset(pudp, addr);
+[...]
+
+> +	soc: soc {
+> +		compatible = "simple-bus";
+> +		interrupt-parent = <&gic>;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
 > +
-> +	/*
-> +	 * Our objective is to prevent ptdump from reading a PMD table which has
-> +	 * been freed.  Assume that ptdump_walk_pgd() (call this thread T1)
-> +	 * executes completely on CPU1 and pud_free_pmd_page() (call this thread
-> +	 * T2) executes completely on CPU2. Let the region sandwiched by the
-> +	 * mmap_write_lock/unlock in T1 be called CS (the critical section).
-> +	 *
-> +	 * Claim: The CS of T1 will never operate on a freed PMD table.
-> +	 *
-> +	 * Proof:
-> +	 *
-> +	 * Case 1: The static branch is visible to T2.
-> +	 *
-> +	 * Case 1 (a): T1 acquires the lock before T2 can.
-> +	 * T2 will block until T1 drops the lock, so pmd_free() will only be
-> +	 * executed after T1 exits CS.
-> +	 *
-> +	 * Case 1 (b): T2 acquires the lock before T1 can.
-> +	 * The sequence of barriers issued in __flush_tlb_kernel_pgtable()
-> +	 * ensures that an empty PUD (via pud_clear()) is visible to T1 before
-> +	 * T1 can enter CS, therefore it is impossible for the CS to get hold
-> +	 * of the address of the isolated PMD table.
-> +	 *
-> +	 * Case 2: The static branch is not visible to T2.
-> +	 *
-> +	 * Since static_branch_enable() (via dmb(ish)) and mmap_write_lock()
-> +	 * have acquire semantics, it is guaranteed that the static branch
-> +	 * will be visible to all CPUs before T1 can enter CS. The static
-> +	 * branch not being visible to T2 therefore guarantees that T1 has
-> +	 * not yet entered CS .... (i)
-> +	 * The sequence of barriers via __flush_tlb_kernel_pgtable() in T2
-> +	 * implies that if the invisibility of the static branch has been
-> +	 * observed by T2 (i.e static_branch_unlikely() is observed as false),
-> +	 * then all CPUs will have observed an empty PUD ... (ii)
-> +	 * Combining (i) and (ii), we conclude that T1 observes an empty PUD
-> +	 * before entering CS => it is impossible for the CS to get hold of
-> +	 * the address of the isolated PMD table. Q.E.D
-> +	 *
-> +	 * We have proven that the claim is true on the assumption that
-> +	 * there is no context switch for T1 and T2. Note that the reasoning
-> +	 * of the proof uses barriers operating on the inner shareable domain,
-> +	 * which means that they will affect all CPUs, and also a context switch
-> +	 * will insert extra barriers into the code paths => the claim will
-> +	 * stand true even if we drop the assumption.
-> +	 *
-> +	 * It is also worth reasoning whether something can go wrong via
-> +	 * pud_free_pmd_page() -> __pmd_free_pte_page(), since the latter
-> +	 * will be called locklessly on this code path.
-> +	 *
-> +	 * For Case 1 (a), T2 will block until CS is finished, so we are safe.
-> +	 * For Case 1 (b) and Case 2, the PMD table will be isolated before
-> +	 * T1 can enter CS, therefore it is safe for T2 to operate on the
-> +	 * PMD table locklessly.
-> +	 */
+> +		prr: chipid@189e0044 {
+> +			compatible = "renesas,prr";
+> +			reg = <0 0x189e0044 0 4>;
+> +		};
+> +
+> +		/*
+> +		 * The ARM GIC-720AE - View 1
+> +		 *
+> +		 * see
+> +		 *	r19uh0244ej0052-r-carx5h.pdf
+> +		 *	- attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
+> +		 *	 - sheet [RT]
+> +		 *	  - line 619
 
-Although I can see that you put a lot of effort into this comment, I
-think we should just remove it. Instead, we should have a litmus test
-in the commit message and probably just some small comments here to
-explain e.g. why the mmap_read_lock() critical section is empty.
+Are these documents publicly available? If not, I don't think this
+helps much.
 
-I'm currently trying to put together a litmus test with James (cc'd) so
-maybe we can help you out with that part.
+> +		 */
+> +		gic: interrupt-controller@39000000 {
+> +			compatible = "arm,gic-v3";
+> +			#interrupt-cells = <3>;
+> +			#address-cells = <0>;
+> +			interrupt-controller;
+> +			reg = <0 0x39000000 0 0x20000>, // GICD
+> +			      <0 0x39080000 0 0x40000>; // GICR
 
-In the meantime...
+In v2, you indicated that your GIC was configured for GICv4.1, which
+implied 256kB frames for each redistributor. Here, you have either
+just enough space for 32 RDs for a GICv3, or 16 RDs for GICv4.
 
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index 421a5de806c6..65335c7ba482 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -283,6 +283,13 @@ void note_page_flush(struct ptdump_state *pt_st)
->  	note_page(pt_st, 0, -1, pte_val(pte_zero));
->  }
->  
-> +static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
-> +{
-> +	static_branch_enable(&arm64_ptdump_lock_key);
-> +	ptdump_walk_pgd(st, mm, NULL);
-> +	static_branch_disable(&arm64_ptdump_lock_key);
-> +}
+So either this is wrong, and you're missing half of the RD space, or
+v2 was wrong. Which one is it?
 
-What serialises the toggling of the static key here? For example, I can't
-see what prevents a kernel page-table dump running concurrently with a
-check_wx() and the key ending up in the wrong state.
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
 
-Either we need an additional lock or perhaps using
-static_branch_{inc,dec}() would work instead? I haven't thought too hard
-about that but it looks like we need _something_.
+No ITS? That seems... surprising.
 
-Will
+> +		};
+
+[...]
+
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts-extended = <&gic GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +				      <&gic GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +				      <&gic GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +				      <&gic GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+> +				      <&gic GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys",
+> +				  "hyp-virt";
+> +	};
+
+Why use interrupts-extended here? Everywhere else, you're using the
+basic interrupt specifier. Can't you move the interrupt-parent
+property to the top and simplify the timer (and everything else
+outside of the 'soc' node?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
