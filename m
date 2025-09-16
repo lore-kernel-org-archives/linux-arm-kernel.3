@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 665A5CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 22:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17B2CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 22:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0Ob/UE4RTVxiwS8RzGBBRyiZqvn0MV4NxGM4WOAL0E=; b=ZZp1hpKiblL4qDoTmGMhqEC0S/
-	FjDqdU/LJwq15PdWJF4cro1H9crqBk1pSnjdr/rTT6yoy5HsiAtKpvc09dDC3oqWh/kUlC44EAo2C
-	EmImIWeiw6hdVjEri6lnWUVquy/sFwymITeGgxf6GsLN8Y9p6mCZxkuwaDTDOJfLOFMFZE8WZ7i1p
-	Q5JQSDNj4Mj7E7285bP81XOc50p7oFujZwtzG/onDuALHYDS0HuhGIjWDGHNAuaGwDmTOMnUKbcsV
-	cgtNEzGoTQ/axuKONXrNT1bs3xGKJx9ck30mV4D0U3b/rtQHOIZMtXvkAQ3UeoZfawDO6Iy0rQ1Xo
-	wELWEdGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0NhlOmwwkbZxCW85MLAxOa0IFUPYAvjNPwpAMzd4f7U=; b=BW3UkiJEXsnCGAttAhuBrzJmDK
+	kYjUYrAHpv/kl7O5zA4MHW9Mh9Nv1uP4oU0Qp/jPhmfOhPanr7Y6x5sq2A+uftctx9IxfHLGpyL2u
+	+tbTbm18cFAu/kfWft/0CxUR6cjqoiXSZg2PMzBebN+dm6/tMg2TCxnO398uXezrkjEo0BmtTvYsd
+	GKKDSdsoIRhPWZ/B/hbJdRHXsMCgo9d6/rfQfk0qvYAgJJ6c3Xw4zreVNroAEVABSWITGS3dhtych
+	nYEmXz81ZmXKnG7kkUhQyq5GrrSAz4aR8TZkU7IC+XbE5gF9nfRE5GjPHl29H1Fr4k5uoJfl4mqd8
+	YJT/ZXnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydmA-00000009KPM-2Ig0;
-	Tue, 16 Sep 2025 22:03:50 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uydne-00000009KaU-3vmr;
+	Tue, 16 Sep 2025 22:05:22 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydm7-00000009KOd-3k79
+	id 1uydnb-00000009Ka7-42GS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 22:03:49 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b04ba58a84fso816295366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 15:03:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758060225; x=1758665025; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=o0Ob/UE4RTVxiwS8RzGBBRyiZqvn0MV4NxGM4WOAL0E=;
-        b=EreE5Jm3LibfG8xwkEZ3ZiAQTzdWa0ueYmqrt/SNn+eKAXr7FpTPsBHHTXAECRJLco
-         Swt+IkUTomzUTgCh7unWgA8cu3uKFeafR12Lfido9Wj9QKJ726NbGnMQTBptTh5+WEz9
-         zTr7dXwOrNbhkmcFTkGt8JJP+VgsgY/WP+IK5dMCAiwiVyFHqxm1PA5llFthI9MLeAXE
-         V4qfxUS+9N8OpPjZmuloSdO0Q3A325HeGBChgRXjLmKJzMuXpI0/RMh1VXHd5Bzz7dzv
-         H2W3RSVZbBMJGToQUd3dhQpquWm2NU8ChBvGy18zVSPn4NVGKZubBP9QsHdm553dq0ew
-         6dpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758060225; x=1758665025;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=o0Ob/UE4RTVxiwS8RzGBBRyiZqvn0MV4NxGM4WOAL0E=;
-        b=s1DQW5EzRLUHFBY2DAb7w9y/Lpu31I1eIcnioGBxX9mj0Al6nxuRASt4bCOsKIDE8L
-         /WzVrNzbt1XFRka+Y5CTRIi+ZazAOIjUjkJmQzGwyWNpwIBK2a48d3Lx0059zo13+m1k
-         yNeQfcTMwteoutD3v/RlKZrSWHKFXhzkgyhkpMuCl2CGXDy5lq20zkCeY5aXHToRKb+L
-         XtHn+TTMoGbsI0oY/VjDgVyNxH/M32weEVyyPfBduhpxOzJJIlPApB0Fg+YqycZ0vsmH
-         Tz1ysLVaXX/BNmqpR7kp6veyHsQaov7ui2vuOJfUClu5pVtBgmPgFdDgVZzQrHzrQY3C
-         a1wg==
-X-Forwarded-Encrypted: i=1; AJvYcCUT5S+8a9NERTmuU6PscsJ1wz1U7iPe4UublfAUNfLtenNsKdfTLd9bJFvi9GK6XbF5gWoXOww0cyclrTi+HCz+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcZJGcdx2dZINIE6rxoJtkxxS1/mSP5ipMeiEJR9/TgGoDGT6A
-	y8It4QF3XfiYtXC0B7uO58vocYFSv85WOUmmdRi1gpLWLnswSUz2414y
-X-Gm-Gg: ASbGncu/H4XkLFIz+Kj8j73louILTlavGTNUW5sBUz6yk3ksixAWINozUpfL80pMkHj
-	JPF928Z/nRMOC7EFi3WU/kkK5WJR7knoXZPkepSc+dV8tzrfmp4lMgnNMzX1A4+DIOJaxqaV9mr
-	DmAVvNWkaCedoX+YbnGQWWcG8yVVwmU4vrBc8nTe/ycKaxaEzN2xpxeeY+xPdy5xY2S5VKqGinQ
-	GmYgfhuYIMgfC/BlNkrityMmBtxjWwGNzpQvi1ulGcBhtBGcjyrKU+mWaEP4qVXFQi0hzbc9WXg
-	xQ4FQweNH6D7NUHg0V5al50rejiwbpAh39dt4TMg0aVBXoVmT+Qt3FB4mzBs93nCfyfWngWy4tj
-	GtOqcW9WpcPqyyUgvLa3W5qbxIVjFYoRb9zWtjo5nZkhA/UnN+Xt27ciZX0Yln6RezCqP
-X-Google-Smtp-Source: AGHT+IEQodNvL7Edth6QjxYHTIysPZRAz+uUM7UuZtp4kejKP8E79m/qDu+L/TqlV6RUd269kcVcYg==
-X-Received: by 2002:a17:907:9713:b0:b04:8358:26fa with SMTP id a640c23a62f3a-b1bc02f66ecmr1410466b.33.1758060225245;
-        Tue, 16 Sep 2025 15:03:45 -0700 (PDT)
-Received: from ?IPV6:2001:861:3385:e20:6384:4cf:52c5:3194? ([2001:861:3385:e20:6384:4cf:52c5:3194])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07b30da43esm1237094866b.14.2025.09.16.15.03.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Sep 2025 15:03:44 -0700 (PDT)
-Message-ID: <235312e0-b912-4e10-874a-e6364131aaee@gmail.com>
-Date: Wed, 17 Sep 2025 00:03:43 +0200
+	Tue, 16 Sep 2025 22:05:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=0NhlOmwwkbZxCW85MLAxOa0IFUPYAvjNPwpAMzd4f7U=; b=TmB0SquXq7T6jSiGvoN6t1GMKP
+	WCDhj8wDFT/A5PtG/BREIkNIGFYYAxh0o98TF9TGgB45iejGzcgjHgrDRf8QbExubYbvnSsGTo7iM
+	HkqW4BWHrciZDw7mdTmFDRUGMUNxD6s20rxchpp0SM9C518HluqC8mgPS09hTXWLXCuo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uydnP-008cU8-I7; Wed, 17 Sep 2025 00:05:07 +0200
+Date: Wed, 17 Sep 2025 00:05:07 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Rebecca Cran <rebecca@bsdio.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+Message-ID: <cc00cc74-778f-45ae-b48f-be26c91f78c7@lunn.ch>
+References: <20250911051009.4044609-1-rebecca@bsdio.com>
+ <20250911051009.4044609-3-rebecca@bsdio.com>
+ <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
+ <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+ <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
+ <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
+ <3f5e82ec-d96e-4258-b117-9876313f5402@lunn.ch>
+ <e9b0d9c8-9117-4c75-93a7-1c334d823d99@bsdio.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] STi device-tree display subsystem rework
-From: =?UTF-8?Q?Rapha=C3=ABl_Gallais-Pou?= <rgallaispou@gmail.com>
-To: Alain Volmat <alain.volmat@foss.st.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Patrice Chotard <patrice.chotard@foss.st.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20250717-sti-rework-v1-0-46d516fb1ebb@gmail.com>
-Content-Language: en-US, fr
-In-Reply-To: <20250717-sti-rework-v1-0-46d516fb1ebb@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e9b0d9c8-9117-4c75-93a7-1c334d823d99@bsdio.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_150347_949756_24658ECF 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250916_150521_376469_2FD9784D 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 17/07/2025 à 21:15, Raphael Gallais-Pou a écrit :
-> This serie aims to rework the display-subsystem node, which was
-> previously included directly within the SoC node.  This was wrong
-> because it is an abstraction and describes how IPs behave together, not
-> what the hardware is.  Instead, extract display-subsystem outside of the
-> SoC node, and let IPs describe their connections.  Doing so helps the
-> readability, and eases the understanding of the hardware.
+On Tue, Sep 16, 2025 at 03:22:04PM -0600, Rebecca Cran wrote:
+> On 9/16/25 13:07, Andrew Lunn wrote:
 > 
-> Several nodes have been renamed to stick to the generic names defined in
-> the device-tree specification.
+> > Now, it looks like all other aspeed-g5 boards also don't link to the
+> > PHY. But the driver does seem to support adding an 'mdio' node within
+> > the ethernet node, and listing the PHYs. Something like:
+> > 
+> >         mdio {
+> >                  #address-cells = <1>;
+> >                  #size-cells = <0>;
+> > 
+> >                  ethphy0: ethernet-phy@0 {
+> >                          reg = <0>;
+> >                  };
+> >          };
+> > 
+> > And then you can add a phy-handle to point to it.
+> > 
+> > Then the question is, did Aspeed mess up the RGMII delays for g5? You
+> > can try phy-mode = 'rgmii-id' and see if it works.
 > 
-> This series depends on another sent a few days ago.  It is not critical
-> though, since not having it only triggers warnings when building
-> deprecated device-trees.  Please see link below.
+> I can't get that to work, with either 'rgmii-id' or 'rgmii'.
 > 
-> Link: https://lore.kernel.org/lkml/20250714-sti-rework-v2-0-f4274920858b@gmail.com
-> 
-> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
-> ---
-> Raphael Gallais-Pou (4):
->        drm/sti: check dma_set_coherent_mask return value
->        drm/sti: make use of drm_of_component_probe
->        ARM: dts: sti: extract display subsystem out of soc
->        ARM: dts: sti: remove useless cells fields
-> 
-Hi,
+> It says "Failed to connect to phy".
 
-@Patrice
-Would you agree to make the device-tree patches go through drm-misc 
-instead of your tree ? So that the breaking change lands in -next in the 
-same time as the driver changes.
+That probably means i have the wrong reg value. Try 1, 2, ... 31.
 
-I will send another series to convert display subsystem bindings to DT 
-schema as soon as the series is merged.
+Or put a printk() in phy_find_first() to print the value of addr.
 
-@Alain
-Do you prefer to merge it yourself or you rather let me do it ?
-
-Best regards,
-Raphaël>   arch/arm/boot/dts/st/stih410.dtsi | 316 
-++++++++++++++++++++++----------------
->   drivers/gpu/drm/sti/sti_drv.c     |  18 +--
->   2 files changed, 192 insertions(+), 142 deletions(-)
-> ---
-> base-commit: b9a572f471993d3e8bf874fcb57f331d66650440
-> change-id: 20250401-sti-rework-b009551a362c
-> 
-> Best regards,
-
+	Andrew
 
