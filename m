@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA07DCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 01:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10303CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 01:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r40/9/byFQ5Kdho5bSZgFzvBLnr6GNZb9hi7qVjYjLk=; b=WmLJMJ1Tq/jvUF1pvrxY/1eDRt
-	jmJ0+UV7fdPJ+ghCq7i7CO2JEvZtbw0LrEHuZxrHGy6fdOSl2DJUIeKJAVv1IX0eRecnrj9k9qCG4
-	DQ2KLGgq2Cwhi5xGuXgMie/4u3Vn1eVyH/AnNj2kyHPT1XVbkyop6vr53T23c50YUKzs34PvRWFgp
-	kYMcrNLyin0xBN2Uqm3wMCqf/jgc0r2FPTFICWqmGmn3uB2RToy2uhVvOBFjDVlhvCX5A7OhgaKjl
-	AXbkw7Bsgkbn6/Gdy5BwWcgNabNJS+YR8gUtN8m4bcvI2T0EjbaXnlZgzoPC6p1tuPqFcJUaG+hy8
-	dPEU7aZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iO9IyLuu+6VJGjLqKGfdYZOIt/8+8VRDHAroqFcBXb8=; b=lZy2WbdtZ0BZ3ZTvApgEsfpKCk
+	dziuTrU43L+Zc6xzbyU3aepl2WKUf48+BDCi2y1qbbOA5dk+R1L9jIUtRm/GCPsiRl8UrhGyH+yIV
+	yetLybu9i+bNdNV8lwcD87A6jGEq2xrMahVrlKeBwH/xviWWiXmNHj2Qqg4QEF5EDEbWp3Z6X6EEN
+	6EaKakTTCOVXr173D589Fnk0lRqBCITNWWHoFOzgxiea1YlCF9y6qTSKrYt0gzEYsIqOpA2MjKctM
+	d/wHndygD7uKWgQE9IIqdnM14eRPlb109vRSPTx0tTroRpy6htJcA/Gtv2VY/H3jY+iyqvbFbqw6E
+	W8F/RAkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyKVg-000000069fR-0wA6;
-	Tue, 16 Sep 2025 01:29:32 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1uyKcD-00000006AY6-0Cmy;
+	Tue, 16 Sep 2025 01:36:17 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyKVd-000000069eG-3sFG
+	id 1uyKc9-00000006AWl-13Wf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 01:29:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1757986004;
-	bh=r40/9/byFQ5Kdho5bSZgFzvBLnr6GNZb9hi7qVjYjLk=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=GbyOTn+8beVLVUek1GwkGtMa1kYvqAlmPmvxkbwG5zKuwVQrzhJUG9WzSPOm166F8
-	 4LOKptBret0Jrt3+PXKeoSReK3OkXaREWS0UhW1/TKsinPgyM7MdfTNTOCTWRRP4K2
-	 jkRQGsAEqAnu91I5KQqwRMfXq1Rzbwz68yU8wjUo=
-X-QQ-mid: esmtpgz16t1757985994tb691f01f
-X-QQ-Originating-IP: 9WqvNV5m81o9OAQGGCKKLjLtxMwpN1LWrrj43UnBIq8=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 16 Sep 2025 09:26:31 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13026834714890684059
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	David Wu <david.wu@rock-chips.com>
-Cc: sebastian.reichel@collabora.com,
-	ziyao@disroot.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH net-next] Revert "net: ethernet: stmmac: dwmac-rk: Make the clk_phy could be used for external phy"
-Date: Tue, 16 Sep 2025 09:26:28 +0800
-Message-ID: <0A3F1D1604FEE424+20250916012628.1819-1-kernel@airkyi.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 16 Sep 2025 01:36:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1757986569; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=iO9IyLuu+6VJGjLqKGfdYZOIt/8+8VRDHAroqFcBXb8=;
+	b=T7JIJmEjpEH7Lm9ZSj+DsujVED+W3aNhS6guqnCtYWYGePM0tlQtLhIFqddKiP+6PJ0XRfoyBknDJvGZlldPiBhJU2reHKryHYdCuxZJ0VhD4/7/2l+ObFM2nlxYTGymTxoQk8c+UhmHAbi+QJOb6HZvtZ59Ju9lAUty6C+Hgxg=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0Wo6JU5v_1757986565 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 16 Sep 2025 09:36:06 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  Lorenzo
+ Stoakes <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,
+  Zi Yan <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
+  Ryan Roberts <ryan.roberts@arm.com>,  Yang Shi
+ <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
+ <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Barry Song
+ <baohua@kernel.org>,  Anshuman Khandual <anshuman.khandual@arm.com>,
+  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
+ <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
+ Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [RFC PATCH 1/2] mm: add spurious fault fixing support for huge pmd
+In-Reply-To: <8c51da7a-7370-4678-96a3-7cd6eaf0db62@redhat.com> (David
+	Hildenbrand's message of "Mon, 15 Sep 2025 13:08:09 +0200")
+References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
+	<20250915032946.33203-2-ying.huang@linux.alibaba.com>
+	<8c51da7a-7370-4678-96a3-7cd6eaf0db62@redhat.com>
+Date: Tue, 16 Sep 2025 09:36:03 +0800
+Message-ID: <87frcn6uws.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: N5h2Wk9Y6/Jsi6D/v1xwNuWh6fW4STFXUTjYoJIM4VYjIyaP73E0q2z4
-	xJJBKrxB1ecHig9CObGuy/wD8iaM7jNKhoeQj8gQCbNthX1q+zUKhTOdJSnhypl5EZM/bHk
-	X97ZLtNgsLcTUtHOxuEXV8qswFvW0wQt4V+MTSnO64onE0JYE52kIZU7GlFptjc9WsTEmuq
-	pCnPs7w2kYx5+Lderh0Qgdocq0h70/oHhjezUM0dWSb8IYdTvZq36zGrXAB04gM0VrLmMah
-	zq5/ONPJ5oRqTq073TXcb5HiNT1kEvMXFSkmqq5XbQPoSU82M4hdXl3zoR5rIeRS7x0u7Nq
-	00kAMDUaXyvC+mzFpS6UvbtWwURuSxSfgY9R7BK2jCEIZmM4w8GODfamhuD3U0QGTr0fFu7
-	oaFv9SuG3urEx3Mrg7SwaHMB4BkYFaP12USuvuPRcqN6B3QMdIi2czXOUBMQZKWDE8tlvSv
-	ZvO0tFgFPIT4orPg04G4M3tt6HIwM54ELi7npIyJ/GOK4uOo5gy8QC74OaQudTnpNxwW8Ky
-	qAFcqUUuAz5exdZl3Mdb8bh2I7YJO/xtz2+mN2tHtgReuwhtg9wxGt6EZGiw/LOaPIJbiXk
-	KSQdhiDrKDk27gptwS9uNY7k4ewAEyJZyE7AQyvXr56p4VbQX0PndlWShiPJ899DF6mD23Y
-	Y1qgYugVtQbfSVjUBGDDHTK7BpoNzmHT5JabFjhOxw9CRkFQSZcqMwJWWuKcaCih4v97GjD
-	+bsHZS/7Vq3qyCvkPT65qqnVWoUPDPyHuDQwO3cneYfUZUeBDj4UPpuFZGtwXDUN6+tGQgn
-	LpYaR2GJBAe6mzCGqAnBf9GlDjHIu/Am0eel3tHnz1wv1q2uQ0ve2Zt1H6aJWjkSMGxdtXR
-	z/O5T98ObeXu5CGkfW8wm9tONcufmZr3gpGZUFvOz/MfjBPzhXryKmBhSIVJF3GsGJNFPZh
-	omV1KlRodRICPquH9XdxDVm0mnFMhRxpIesBZ+FPJGwNKag==
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=ascii
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_182930_490665_77CC2AF4 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250915_183613_953477_475E522B 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +78,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Hi, David,
 
-This reverts commit da114122b83149d1f1db0586b1d67947b651aa20.
+Thanks for review!
 
-As discussed, the PHY clock should be managed by PHY driver instead
-of other driver like dwmac-rk.
+David Hildenbrand <david@redhat.com> writes:
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> On 15.09.25 05:29, Huang Ying wrote:
+>> In the current kernel, there is spurious fault fixing support for pte,
+>> but not for huge pmd because no architectures need it. But in the
+>> next patch in the series, we will change the write protection fault
+>> handling logic on arm64, so that some stale huge pmd entries may
+>> remain in the TLB. These entries need to be flushed via the huge pmd
+>> spurious fault fixing mechanism.
+>> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: David Hildenbrand <david@redhat.com>
+>> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+>> Cc: Vlastimil Babka <vbabka@suse.cz>
+>> Cc: Zi Yan <ziy@nvidia.com>
+>> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Yang Shi <yang@os.amperecomputing.com>
+>> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+>> Cc: Dev Jain <dev.jain@arm.com>
+>> Cc: Barry Song <baohua@kernel.org>
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Yicong Yang <yangyicong@hisilicon.com>
+>> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>> ---
+>
+> [...]
+>
+>>     int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct
+>> *src_mm,
+>> @@ -1857,7 +1861,20 @@ void huge_pmd_set_accessed(struct vm_fault *vmf)
+>>   	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
+>>   		goto unlock;
+>>   -	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
+>> +	if (!touch_pmd(vmf->vma, vmf->address, vmf->pmd, write)) {
+>> +		/* Skip spurious TLB flush for retried page fault */
+>> +		if (vmf->flags & FAULT_FLAG_TRIED)
+>> +			goto unlock;
+>> +		/*
+>> +		 * This is needed only for protection faults but the arch code
+>> +		 * is not yet telling us if this is a protection fault or not.
+>> +		 * This still avoids useless tlb flushes for .text page faults
+>> +		 * with threads.
+>> +		 */
+>
+> Can we instead just remove these comments and simplly say "see
+> handle_pte_fault()"
+
+Sure.
+
+>> +		if (vmf->flags & FAULT_FLAG_WRITE)
+>> +			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
+>> +							 vmf->pmd);
+>> +	}
+>
+> Okay, In the PTE case, we call flush_tlb_fix_spurious_fault() during
+> write faults if ptep_set_access_flags() returned "0".
+>
+> You are calling flush_tlb_fix_spurious_fault_pmd() during a write
+> fault when pmdp_set_access_flags() returned "0" as well.
+>
+> In general, LGTM, but I would just let touch_pmd() return the value of
+> pmdp_set_access_flags() instead and add a quick comment for
+> touch_pmd() what the return value means.
+
+Sure.
+
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 266c53379236..49f92cd79aa8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1410,15 +1410,12 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
- 		clk_set_rate(plat->stmmac_clk, 50000000);
- 	}
- 
--	if (plat->phy_node) {
-+	if (plat->phy_node && bsp_priv->integrated_phy) {
- 		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
- 		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
--		/* If it is not integrated_phy, clk_phy is optional */
--		if (bsp_priv->integrated_phy) {
--			if (ret)
--				return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
--			clk_set_rate(bsp_priv->clk_phy, 50000000);
--		}
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
-+		clk_set_rate(bsp_priv->clk_phy, 50000000);
- 	}
- 
- 	return 0;
--- 
-2.49.0
-
+Best Regards,
+Huang, Ying
 
