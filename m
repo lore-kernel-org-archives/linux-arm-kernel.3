@@ -4,78 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4203CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 17:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525CFCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 17:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oj13qCsPbEiz/uqA+9d/YnVZZZufrOk/feA6A13Bt0o=; b=Il+iYJWgMu4hcYTTlNxUcWHBvy
-	sTNefaREdW9O3BCYGBoAad9DhxfnckKA9R0YzL0oYawgCMUyIUc0KZ2anLlZInxpfzVFejzx17vwx
-	g6H4nVCVM2eMXUk+kSfz+2rN+SXWBJauPsvaS+dIlRyJ3jBEcyXJEuKng09zi/DFQWOdhSJ7Ene1G
-	YfVTAClFbbHv0ii+RGsWV35FiWXoNh0NOoPyfMc8eRdOScf2OgoZkFpga12zeX7GDaXWVIs9Hpjry
-	ra+3RWD+EVDAG5TItdDRmNdNOJVHiqxW/Q08FCo4p9l2NqrLRgo+c9I7jB0Btlr+63+SGO4l6URdw
-	kZuOm9Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=asmJMTOYWO6MF0j8LTYTYFskhlkUXWRnPY3+bCKiCFM=; b=2CjCswIw7isJCnnMb97iEO/Rvf
+	gIhhkxrKIQr2+dfYwJ6GeOhuWtCQsA3FnCbTa3+DmYsY+9q1m+jnbWl118igGIBWd+Mtkb9d9AoAx
+	AKRjLdpomu08Lv3EesSUH/9zjlDPgSlNLfyi00LVDOTt+VTubNn9OPZewvQsJhFaLsa6cYL5WkBdZ
+	Nw3MU1pTymjevzEPwqC6qR2JAgBeR6C6HSITF2d3287J0bEURir1NcSiH+f2VAkakYgR6I2mcejCw
+	Hnf+Zp7znGqO74FEc7i5RITMsBeuYdARI6ukQUY+K9Bz+KND5oFAiob8qrJwpq/cXegOFNILoOndZ
+	WXJtO5kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZaW-00000008dhT-3K86;
-	Tue, 16 Sep 2025 17:35:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uyZco-00000008eB1-2AoN;
+	Tue, 16 Sep 2025 17:37:54 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZaU-00000008dfS-1Kmh
+	id 1uyZcl-00000008e9V-25tt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 17:35:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758044130; x=1789580130;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Ix9BZEDU706zVBE7HUYL3TRWisPsGB6lyHix83FcTUg=;
-  b=zJzeSw+BKt0wDyQQ9dp5g0F2RGoFRDMUJKvve1LeOG5LffKH+xveEpft
-   Qf2D1EVWa+H6tb6LGMB3wvejsMSMcSyv/E4F+iKQwUbpydEX3sLFa5x2/
-   DDEzV6jD6W84cZ9Ary8Ud0x+m+mEk3xHq+sc6/WOMR/LPQUYyrTt+H/28
-   yfgYIBqeoTXLd+VpqKPIpkO7a9JfDVJgKzHyBlfrHKZ62UD0WIzxW9Wrn
-   72WyQwwrBcbKT1znjlM5cVn9rleEn6uA9bZ1mNphKGK94NP4z8UnW2nSn
-   NVr/EWVZ8P6E3lW30pX8Y8yqtMWBe6+52voIOxvkBbPqyJ8VqutB+jGki
-   A==;
-X-CSE-ConnectionGUID: 9gsFoYIUQd260MqKd1EmbQ==
-X-CSE-MsgGUID: hgZsQh8cTE28XQxvMyJx7Q==
-X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
-   d="scan'208";a="52418539"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 10:35:27 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 16 Sep 2025 10:35:06 -0700
-Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 16 Sep 2025 10:35:06 -0700
-Message-ID: <61cfc570-6632-4e14-9e2b-2bd5d2ce1690@microchip.com>
-Date: Tue, 16 Sep 2025 10:35:05 -0700
+	Tue, 16 Sep 2025 17:37:52 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GAgPBv010521
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 17:37:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=asmJMTOYWO6MF0j8LTYTYFsk
+	hlkUXWRnPY3+bCKiCFM=; b=XjSML6OUsA7YEzsSUp9jzWcCdOj2nMcPPedHkIu9
+	SiBG0MbFV6Eh9qVS+Xi9etlfsevozD7saVGyecfN/LKtlqdw1bGuB3a3EInXjH2B
+	dPbYiMHzMSydct75/ZBHqiqAc0JzK9XTfbWVBUYKb4uiVjkQ9EZYsVRIfbojdbw2
+	oflzVPFO8/qEfWOD91rhhvYmkL6vor2rSW+mTDuiagjZLfVjj7aVnwj4tdX6sKTF
+	DnoPQ0AcJyG3kDCZCNmn2+/akw+kwI3gA5vyKlAFzpbmERkFAcAIwufRc6qF5w/N
+	SJ6er7IRlPl+rAL/GMAAxSL5jceGigwoA/poIUa4/As7Fg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4951snsp6h-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 17:37:50 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b49666c8b8so110877461cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 10:37:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758044269; x=1758649069;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=asmJMTOYWO6MF0j8LTYTYFskhlkUXWRnPY3+bCKiCFM=;
+        b=u5vEufDdMU/h35gHoIgaP6M6RVolpxff+Q8iPoHt8U4JrgnvLLOvyoL6oBqRPAu+LM
+         UDSyrN9+ukC4MOpgBddS7E4+KC4Fq/KZNeeOrTt51DDlFASoqSgepxhsbiB1gbj5sv7L
+         MkBd+oBZQpvm3VcHAG1hr8B+aYGLgBaFAB5Co4kn4yRC7u5Cvre+wq2t8oyyD/K3yLUy
+         HiWh2HWehMPNrd+wm8b537SCz3kXVUeVZKXpwwtgD5xsVyy87VrU5f9o/P8h8rx6ky2T
+         qPXN7rLgHkGYOMGX2WjQRcs/TTIUVCMGFeMJxBaY0Y9Z80pgojY02O8P2EqxA3ltDxr4
+         noBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXyUjP19t6omYUvSTEnM7YZik7AHgqLcXicQdRDVTzyREand/YqMBRRxtBuISoaKHoxP5bpkprFAEzeNqH9qSmq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE3lMV574WHBKVFQqOc/nErfLd3f1wG9GzpHZiF1JKKihVgJTS
+	VOdhWSxAWpTzYfpAoBy787Wpp7WooctamBk6EWrveSosRJDhI7d17l3LjqgCGg4u//YLHjPSDgx
+	RQs2Suu8Cvo2Wct+0VgAWaUbPxSbLrztRY1sIzwptOKXpmY29GLisG7LNSgCLv1SXIrF1T/aFW8
+	UDGA==
+X-Gm-Gg: ASbGncveANBRIIdDpHSlGkiKwL7RJ7ReMjYg0o80MOa9YIidn4b1Nih4Ul+7uQDosNN
+	xMR1TBfhuZbN/lgC+vExTK3T5byBQUp0wsPsT5HGfC72hqJs0650zPBns+mAVEBv4abZlscsGbk
+	DXQcdrNtHMNLvMwrvSNA5LsqDu0kxDrEl+uVvSEv2X2wiat+3aAvdaHgmjXfi//5e+gEzAFBpsF
+	WsHkCEIqNI/Z34qEEWt0VMl9IpoYqdTcNHIKUGRZy6Z9m3ht/mWVR2pglQMClG4OWpkArQf0TGJ
+	oK+Jj6E1vRF0b90vKsrFhZ8M0T80UWn/GSi97I/O5p2e3gwKgnN+OOmhJH0Xk2q84KfXEeAuXpM
+	rKRLzfgY+aXQ1YzdPJ5w5j/hF7B/S5Is1n8je+Jqd2C7HS4Lemup/
+X-Received: by 2002:a05:622a:428d:b0:4b6:2336:7005 with SMTP id d75a77b69052e-4b77d08c1dfmr178883721cf.19.1758044269007;
+        Tue, 16 Sep 2025 10:37:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEINTEPiFvuj+G9ik9pEiQhi0J/sHmetYeMmXJ12N3mEWuP8rQExfbslVak9k+CMhjZMs47OA==
+X-Received: by 2002:a05:622a:428d:b0:4b6:2336:7005 with SMTP id d75a77b69052e-4b77d08c1dfmr178883081cf.19.1758044268385;
+        Tue, 16 Sep 2025 10:37:48 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-56e6460f61dsm4437835e87.113.2025.09.16.10.37.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 10:37:47 -0700 (PDT)
+Date: Tue, 16 Sep 2025 20:37:45 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org
+Subject: Re: [PATCH RESEND 0/2] drm/bridge: lontium-lt9611uxc: switch to
+ DRM_BRIDGE_OP_HDMI_AUDIO
+Message-ID: <3n5gjebxuafxgsl7yl6ife76cnfwblsggsp2kkcrbjjansbvi7@smi7zeexy5gy>
+References: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/32] clk: at91: clk-master: use clk_parent_data
-To: claudiu beznea <claudiu.beznea@tuxon.dev>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>
-CC: <varshini.rajendran@microchip.com>, <linux-clk@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robh@kernel.org>
-References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
- <4b404eaaab4062464a4142e95aaa76d5cba866f0.1752176711.git.Ryan.Wanner@microchip.com>
- <95e19f49-d0df-4d3f-bd7d-8b58b60f1f7a@tuxon.dev>
-From: Ryan Wanner <ryan.wanner@microchip.com>
-Content-Language: en-US
-In-Reply-To: <95e19f49-d0df-4d3f-bd7d-8b58b60f1f7a@tuxon.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=JO87s9Kb c=1 sm=1 tr=0 ts=68c9a06e cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=BgkF6ddApZc5WCf5u_gA:9 a=CjuIK1q_8ugA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-ORIG-GUID: L7y6jaEmk8dB5GBxJ-y8e5HS4tS55_Ee
+X-Proofpoint-GUID: L7y6jaEmk8dB5GBxJ-y8e5HS4tS55_Ee
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDA0MCBTYWx0ZWRfXwHwOyUnnrbPo
+ kxVVE3mZycmHrkbAAwba2GKp1nmCbN+F6vtWPUAQbJ4Y6f1POD4St3Oivx1BRzbGNWe//lPtQvS
+ b267A2RI2sXKVzK8GAliS+giU8yTJyM8dis1V1TzloY1zj+OA0n4OnFVKIwyze5q7YvKSmdBT4j
+ NlNSwepcOEzsCtl+cn4jL5lgfQ0O+Gyl+1yrP6fBTvZ/ipE2F8V3/i9OthXqVhB6r3BaERcP9W6
+ DXQpAsj/tgbQYaLiIVmmNXcEI5mTL/13EX3N5Q7M1eOjY2Yed8/lFvPeE8gygAt/wFnQ3qO2NJu
+ CFrkpeITvotZ/7lywREZqkmSjtnPyfg5pBCTjAFYwNdUZtmw5Q6WARpLMGJjQaC/mnBM/JiH6/e
+ AH+VCsTB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 spamscore=0 clxscore=1015 adultscore=0
+ malwarescore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509130040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_103530_650483_A28EE1D4 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20250916_103751_542506_8702858A 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,216 +149,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/6/25 11:36, claudiu beznea wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> On 7/10/25 23:07, Ryan.Wanner@microchip.com wrote:
->> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->>
->> Use struct clk_parent_data instead of struct parent_hw as this leads
->> to less usage of __clk_get_hw() in SoC specific clock drivers and simpler
->> conversion of existing SoC specific clock drivers from parent_names to
->> modern clk_parent_data structures.
->>
->> The md_slck name and index are added for the SAM9X75 SoC so the
->> clk-master can properly use parent_data.
->>
->> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> [ryan.wanner@microchip.com: Add clk-master changes to SAM9X75 and
->> SAMA7D65 SoCs. As well as add md_slck commit message.]
->> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
->> ---
->>   drivers/clk/at91/clk-master.c | 24 ++++++++++++------------
->>   drivers/clk/at91/pmc.h        |  6 +++---
->>   drivers/clk/at91/sam9x7.c     | 19 ++++++++++---------
->>   drivers/clk/at91/sama7d65.c   | 23 ++++++++++-------------
->>   drivers/clk/at91/sama7g5.c    | 29 +++++++++++++----------------
->>   5 files changed, 48 insertions(+), 53 deletions(-)
->>
->> diff --git a/drivers/clk/at91/clk-master.c b/drivers/clk/at91/clk-master.c
->> index 7a544e429d34..cc4f3beb51e5 100644
->> --- a/drivers/clk/at91/clk-master.c
->> +++ b/drivers/clk/at91/clk-master.c
->> @@ -473,7 +473,7 @@ static struct clk_hw * __init
->>   at91_clk_register_master_internal(struct regmap *regmap,
->>               const char *name, int num_parents,
->>               const char **parent_names,
->> -             struct clk_hw **parent_hws,
->> +             struct clk_parent_data *parent_data,
->>               const struct clk_master_layout *layout,
->>               const struct clk_master_characteristics *characteristics,
->>               const struct clk_ops *ops, spinlock_t *lock, u32 flags)
->> @@ -485,7 +485,7 @@ at91_clk_register_master_internal(struct regmap *regmap,
->>       unsigned long irqflags;
->>       int ret;
->>
->> -     if (!name || !num_parents || !(parent_names || parent_hws) || !lock)
->> +     if (!name || !num_parents || !(parent_names || parent_data) || !lock)
->>               return ERR_PTR(-EINVAL);
->>
->>       master = kzalloc(sizeof(*master), GFP_KERNEL);
->> @@ -494,8 +494,8 @@ at91_clk_register_master_internal(struct regmap *regmap,
->>
->>       init.name = name;
->>       init.ops = ops;
->> -     if (parent_hws)
->> -             init.parent_hws = (const struct clk_hw **)parent_hws;
->> +     if (parent_data)
->> +             init.parent_data = (const struct clk_parent_data *)parent_data;
->>       else
->>               init.parent_names = parent_names;
->>       init.num_parents = num_parents;
->> @@ -531,13 +531,13 @@ struct clk_hw * __init
->>   at91_clk_register_master_pres(struct regmap *regmap,
->>               const char *name, int num_parents,
->>               const char **parent_names,
->> -             struct clk_hw **parent_hws,
->> +             struct clk_parent_data *parent_data,
->>               const struct clk_master_layout *layout,
->>               const struct clk_master_characteristics *characteristics,
->>               spinlock_t *lock)
->>   {
->>       return at91_clk_register_master_internal(regmap, name, num_parents,
->> -                                              parent_names, parent_hws, layout,
->> +                                              parent_names, parent_data, layout,
->>                                                characteristics,
->>                                                &master_pres_ops,
->>                                                lock, CLK_SET_RATE_GATE);
->> @@ -546,7 +546,7 @@ at91_clk_register_master_pres(struct regmap *regmap,
->>   struct clk_hw * __init
->>   at91_clk_register_master_div(struct regmap *regmap,
->>               const char *name, const char *parent_name,
->> -             struct clk_hw *parent_hw, const struct clk_master_layout *layout,
->> +             struct clk_parent_data *parent_data, const struct clk_master_layout *layout,
->>               const struct clk_master_characteristics *characteristics,
->>               spinlock_t *lock, u32 flags, u32 safe_div)
->>   {
->> @@ -560,7 +560,7 @@ at91_clk_register_master_div(struct regmap *regmap,
->>
->>       hw = at91_clk_register_master_internal(regmap, name, 1,
->>                                              parent_name ? &parent_name : NULL,
->> -                                            parent_hw ? &parent_hw : NULL, layout,
->> +                                            parent_data, layout,
->>                                              characteristics, ops,
->>                                              lock, flags);
->>
->> @@ -812,7 +812,7 @@ struct clk_hw * __init
->>   at91_clk_sama7g5_register_master(struct regmap *regmap,
->>                                const char *name, int num_parents,
->>                                const char **parent_names,
->> -                              struct clk_hw **parent_hws,
->> +                              struct clk_parent_data *parent_data,
->>                                u32 *mux_table,
->>                                spinlock_t *lock, u8 id,
->>                                bool critical, int chg_pid)
->> @@ -824,7 +824,7 @@ at91_clk_sama7g5_register_master(struct regmap *regmap,
->>       unsigned int val;
->>       int ret;
->>
->> -     if (!name || !num_parents || !(parent_names || parent_hws) || !mux_table ||
->> +     if (!name || !num_parents || !(parent_names || parent_data) || !mux_table ||
->>           !lock || id > MASTER_MAX_ID)
->>               return ERR_PTR(-EINVAL);
->>
->> @@ -834,8 +834,8 @@ at91_clk_sama7g5_register_master(struct regmap *regmap,
->>
->>       init.name = name;
->>       init.ops = &sama7g5_master_ops;
->> -     if (parent_hws)
->> -             init.parent_hws = (const struct clk_hw **)parent_hws;
->> +     if (parent_data)
->> +             init.parent_data = (const struct clk_parent_data *)parent_data;
->>       else
->>               init.parent_names = parent_names;
->>       init.num_parents = num_parents;
->> diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
->> index d9a04fddb0b1..54d472276fc9 100644
->> --- a/drivers/clk/at91/pmc.h
->> +++ b/drivers/clk/at91/pmc.h
->> @@ -204,14 +204,14 @@ at91_clk_register_sam9x5_main(struct regmap *regmap, const char *name,
->>   struct clk_hw * __init
->>   at91_clk_register_master_pres(struct regmap *regmap, const char *name,
->>                             int num_parents, const char **parent_names,
->> -                           struct clk_hw **parent_hws,
->> +                           struct clk_parent_data *parent_data,
->>                             const struct clk_master_layout *layout,
->>                             const struct clk_master_characteristics *characteristics,
->>                             spinlock_t *lock);
->>
->>   struct clk_hw * __init
->>   at91_clk_register_master_div(struct regmap *regmap, const char *name,
->> -                          const char *parent_names, struct clk_hw *parent_hw,
->> +                          const char *parent_names, struct clk_parent_data *parent_data,
->>                            const struct clk_master_layout *layout,
->>                            const struct clk_master_characteristics *characteristics,
->>                            spinlock_t *lock, u32 flags, u32 safe_div);
->> @@ -220,7 +220,7 @@ struct clk_hw * __init
->>   at91_clk_sama7g5_register_master(struct regmap *regmap,
->>                                const char *name, int num_parents,
->>                                const char **parent_names,
->> -                              struct clk_hw **parent_hws, u32 *mux_table,
->> +                              struct clk_parent_data *parent_data, u32 *mux_table,
->>                                spinlock_t *lock, u8 id, bool critical,
->>                                int chg_pid);
->>
->> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
->> index eaae05ba21ad..945983f72140 100644
->> --- a/drivers/clk/at91/sam9x7.c
->> +++ b/drivers/clk/at91/sam9x7.c
->> @@ -739,7 +739,8 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->>   {
->>       struct clk_range range = CLK_RANGE(0, 0);
->>       const char *main_xtal_name = "main_xtal";
->> -     u8 main_xtal_index = 2;
->> +     const char *const md_slck_name = "md_slck";
->> +     u8 md_slck_index = 1, main_xtal_index = 2;
->>       struct pmc_data *sam9x7_pmc;
->>       const char *parent_names[9];
->>       void **clk_mux_buffer = NULL;
->> @@ -747,12 +748,12 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->>       struct regmap *regmap;
->>       struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
->>       struct clk_hw *td_slck_hw, *md_slck_hw, *usbck_hw;
->> -     struct clk_parent_data parent_data[2];
->> +     struct clk_parent_data parent_data[9];
->>       struct clk_hw *parent_hws[9];
->>       int i, j;
->>
->>       td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
->> -     md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
->> +     md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, md_slck_name));
-> 
-> Please use:
-> 
-> i = of_property_match_string(np, "clock-names", "md_slck");
-> if (i < 0)
->     return;
-> 
-> md_slck_name = of_clk_get_parent_name(np, i);
-> 
-> Same sama7d65, sama7g5.
+On Sun, Aug 03, 2025 at 02:53:50PM +0300, Dmitry Baryshkov wrote:
+> Use DRM HDMI audio helpers in order to implement HDMI audio support for
+> Lontium LT9611UXC bridge.
 
-For these SoCs the clk_hw struct is still needed since it is used later
-in the driver and not changed until a subsquent patch later in this
-series. Would it be better to hold this change untill then?
+It's been waiting a while, it got posted as a part of another series,
+but I think I'd like to apply this by the end of the week if nobody
+objects.
+
+A note regarding OP_HDMI vs OP_HDMI_AUDIO: there is really no point in
+going through the OP_HDMI other than bridging the HPD even to the HDMI
+audio through the framework code. The bridge driver doesn't implement
+atomic_check (on purpose), the mode_valid() check is also performed
+against a fixed table of modes handled by the firmware.
 
 > 
->>       main_xtal_hw = __clk_get_hw(of_clk_get_by_name(np, main_xtal_name));
->>
->>       if (!td_slck_hw || !md_slck_hw || !main_xtal_hw)
->> @@ -853,18 +854,18 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->>               }
->>       }
->>
->> -     parent_hws[0] = md_slck_hw;
->> -     parent_hws[1] = sam9x7_pmc->chws[PMC_MAIN];
->> -     parent_hws[2] = sam9x7_plls[PLL_ID_PLLA][PLL_COMPID_DIV0].hw;
->> -     parent_hws[3] = sam9x7_plls[PLL_ID_UPLL][PLL_COMPID_DIV0].hw;
->> +     parent_data[0] = AT91_CLK_PD_NAME(md_slck_name, md_slck_index);
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+> Dmitry Baryshkov (2):
+>       drm/bridge: add connector argument to .hpd_notify callback
+>       drm/bridge: lontium-lt9611uxc: switch to HDMI audio helpers
 > 
-> AT91_CLK_PD_NAME(md_slck_name);
+>  drivers/gpu/drm/bridge/lontium-lt9611uxc.c     | 125 ++++++++++---------------
+>  drivers/gpu/drm/display/drm_bridge_connector.c |   2 +-
+>  drivers/gpu/drm/meson/meson_encoder_hdmi.c     |   1 +
+>  drivers/gpu/drm/msm/dp/dp_display.c            |   3 +-
+>  drivers/gpu/drm/msm/dp/dp_drm.h                |   3 +-
+>  drivers/gpu/drm/omapdrm/dss/hdmi4.c            |   1 +
+>  include/drm/drm_bridge.h                       |   1 +
+>  7 files changed, 57 insertions(+), 79 deletions(-)
+> ---
+> base-commit: 024e09e444bd2b06aee9d1f3fe7b313c7a2df1bb
+> change-id: 20250718-lt9611uxc-hdmi-3dd96306cdff
 > 
-> Same sama7d65, sama7g5.
+> Best regards,
+> -- 
+> With best wishes
+> Dmitry
 > 
 
+-- 
+With best wishes
+Dmitry
 
