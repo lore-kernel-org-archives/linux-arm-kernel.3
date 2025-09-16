@@ -4,80 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99158CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85D6CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7awe7XzUSM9RqCZt0q0OUijjc6X6jEj50LJA+AeAGY=; b=skQMYfWZdVqvBTNie1rZ4KNgxe
-	dsdPF7kTZB3xL5Gi5QgRC3RSsbRvMyyl5eh0mYwwk7UQQUycDNqhHwelIudPLBVAVA/KDCgOJ9tZd
-	mgFwNa5X7ZQX69TyCfrRwitvREHUlSb4dBo6mZHBMXJ3+HCb4IdShCetBYS4A+6Ra654K2NVvLnH6
-	jAfCj1DaoC+JEf5Y3XBpytyy7Epua5NMINTLOo6tzdmwdvnRr8iHXh0jCWp7Vbkl5fejxksL8egSI
-	is1tAZLIgka8TsjI2GluOOvdg3pgQYRgCgXRvaprGAu46rjrYRPVc2i85eUjSqFN5gYYkwejXFhAJ
-	P54A3MwQ==;
+	bh=x3j83wHDIS74YVfrna8Vc0OqNUt+Xph3vH3jyuB8fuc=; b=XrQ8TfmRP6vmgCCkMTEGBkkRq2
+	dufgorLSP37ovmOZnh4DxdExU+t6jw3ArU6mxUGeumPfbWI83QA16fO+IGNWXX6PIiQBtPmRWB+Kf
+	S/LGp+0xin9EYclLogRM4EM+GCXx7P90Rtg2qGttG6blmzED5r5dukyy1tlCAP2FXFv1mx6+9eK7k
+	T54Segw8WQCRAklBWmu2k7u45p8B2Nilji8+XBKiaX5zmCiSn+Pb8X4NHIBMU8SF+btc3YcfpTV/d
+	ojz7r7Tvq2glSkC2MDcES9IXr31XyeuzjvYKUCmyd2mFQarrYmjutUuOSTVlx1ySFchaNhEK45saM
+	nIdFHKEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyW0B-00000007ywi-0goG;
-	Tue, 16 Sep 2025 13:45:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uyW76-00000007zj9-08Tp;
+	Tue, 16 Sep 2025 13:52:56 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyW0A-00000007ywI-0s3F
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 16 Sep 2025 13:45:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=G7awe7XzUSM9RqCZt0q0OUijjc6X6jEj50LJA+AeAGY=; b=B+6840ZibyyIE5eBeIfZRUjbSs
-	POvyD+TPS+jFjXHPfBPgU+LGYMqVkvvNFpKLtojvilLdNHjfZPTqgorl5mbYFXfdgdl8oDflkcCM8
-	XAhR4cL9wlA5FvnLYWh53F1/yXMv2uNtblfBIAqsShyOk25Z8cXXMfGgNIDqEulmwNkECRUB0pp1Z
-	grts8DIVrRyYoFzw+s6duzXpP+gbYI30lv2PjYY7ww1RKJfDS0jek5tfaOcBoHsHmyrJFx6yBOeBF
-	+F6Nyrev1hHm6TVNyD66dtKYNHhfM0irPgkzEm9CjCRDZ0bvI3I9Z8wDyU5+3JBtXJ/6evxMbCuCo
-	9gEG5g5Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyW06-00000007CeA-1X6O
+	id 1uyW73-00000007zi3-0DmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 13:45:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F3F6113E;
-	Tue, 16 Sep 2025 06:45:29 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0286D3F66E;
-	Tue, 16 Sep 2025 06:45:34 -0700 (PDT)
-Date: Tue, 16 Sep 2025 14:45:32 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aMlp_Covl57nnVoe@J2N7QTR9R3.cambridge.arm.com>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <20250816151929.197589-5-yeoreum.yun@arm.com>
- <aMRQIeIdyiWVR8a0@arm.com>
- <aMfrR0vserl/hfZ3@e129823.arm.com>
- <aMhrscd1gz_syMtL@arm.com>
- <aMh4q4-xAPHnaOul@willie-the-truck>
- <aMkLb6jPiSbzeRWL@arm.com>
- <aMk1qxS3htyaTgEQ@e129823.arm.com>
- <aMlcf5oUNZU65u_I@J2N7QTR9R3.cambridge.arm.com>
- <aMllyaObyciHEEFX@e129823.arm.com>
-MIME-Version: 1.0
+	Tue, 16 Sep 2025 13:52:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YBl2Kvl8cMT0XWwdiC1IYGOPXE716rofSpctAzCVKzM/QkGQF7s7naRt8t1Bob2spnQcDroVGMNwmcoD03AIMvw3InsCIFEKNwycHmVUagryP+zeOULb7u9YGHvD4XIaevcmFE1w/FN33fMLv90GCxa2OLEoMkDfdItsohe0KHaBCWS/G3jOv5KMxC4ZdnvsI2BnuWuNc70vxuyKqR0CcClZhl6K5Sor/PWz7BdjJv1qzGueudC1xoCMVPkjtas0TuiQbtwbAl9vObXEVQMk/J/rnkSxQPuXFXdYclCSvW5mY0RCt5vAPO7w29duC6YxB7Jvzp54gDl4NblqGuPOBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x3j83wHDIS74YVfrna8Vc0OqNUt+Xph3vH3jyuB8fuc=;
+ b=iOvSFgkKt8MWhRvTX5qFfs/l2J5ce/nbrGyWwNzkwZS+Ba7whRyVR8B31ymDzZJ3L9p2j6zN4Nmnq7aEDNRHXwjRqaU2qxoRmCZr5hp8sswEPy/p5Ig+4qiZAk5fcOYvDgwfW1XUo9Os0zCaAJ/bQ2z24hOkerI1qOYtOnXsL6mCPCLgUiMSs4kQ/nGc8qzWYNnC4Dh3h7pemf/wVVQB7pBOKO3Kyqvx04AHUrbmQSvvPcXFNujJDrWBygV6E/scTwPSVN9gfEJ3ZslVA8y44XAR2i25DnScuIxBv2+XGuuvSnwh7XiR1QraxLdu0Y4+aM/dNnXr2DenmwzEcfX2iA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x3j83wHDIS74YVfrna8Vc0OqNUt+Xph3vH3jyuB8fuc=;
+ b=sIrlRjk+/pMS58o0l/t8WBWPrv39GmpK+M4LIHzb5WiZ/zWHZxmw/EK0aFLgVPxjP9LQy/Uw8YzjHxN94DZAPiFAjUmoVQe7hOmAdwUHlX2JxKbGItap9Lcb0/7YrhdjUSsMCAD/m2J25/y8Me6gg6jangfm03lm5F+rq4zCRSOcBTC7Ia2dlL7lPwRBQgzvmrs5hnwneoF301eBl8NTeUS5cwG6lxuiudS5owR9WCqz/WAvEBo2uc/UL81D6IHGSEJJgNPpDU0jHSRWgEO3T6L+zNflAGbxyjNyAvwiB1sywz6sAk2GeitNew1lJkPM3eTQIbxepOfNbPb3EWSj/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13)
+ by SN7PR12MB7250.namprd12.prod.outlook.com (2603:10b6:806:2aa::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.22; Tue, 16 Sep
+ 2025 13:52:42 +0000
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632]) by PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632%2]) with mapi id 15.20.9115.022; Tue, 16 Sep 2025
+ 13:52:42 +0000
+Date: Tue, 16 Sep 2025 10:52:40 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Leon Romanovsky <leonro@nvidia.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>
+Subject: Re: [PATCH v3 1/4] dma-mapping: prepare dma_map_ops to conversion to
+ physical address
+Message-ID: <20250916135240.GD1086830@nvidia.com>
+References: <cover.1758006942.git.leon@kernel.org>
+ <f40855cc9733160c9ba842bf6e7cac58f0bf1dbb.1758006942.git.leon@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aMllyaObyciHEEFX@e129823.arm.com>
+In-Reply-To: <f40855cc9733160c9ba842bf6e7cac58f0bf1dbb.1758006942.git.leon@kernel.org>
+X-ClientProxiedBy: BN9PR03CA0679.namprd03.prod.outlook.com
+ (2603:10b6:408:10e::24) To PH7PR12MB5757.namprd12.prod.outlook.com
+ (2603:10b6:510:1d0::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5757:EE_|SN7PR12MB7250:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0637f2b6-4cae-4007-8626-08ddf5284e4f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RBysmrH89Hx+wb1U+fPHFCC75RoUeAdHyImJHbTsFOe+m/kCx5FLeQffU7d/?=
+ =?us-ascii?Q?KIGYPqVyFrdpu5683zHGrQqfAopqpSFULXbGTJxgs5sB7YA4G4xt+j3b/jr1?=
+ =?us-ascii?Q?v+QcLO9xCayPNiuFIQgqeFWB+eaTQ0MoDzVEYPEqPtp7gHSvQRgdV0vCkby3?=
+ =?us-ascii?Q?zvf2XjjeDU1gyjx42/TneRAgYIg6Z1lSAiY0uK0FV+J5pq/MYNPlH1nyg4An?=
+ =?us-ascii?Q?B9bQ/+ytEk8c3anku0yxf02SHicgiwdiXarnDHBqhBslEM4LK4Hyu49DA6Po?=
+ =?us-ascii?Q?2OFYyoooceGjIVmXZmvFg0RKtJfmqKtNPC0Uv2Wov20GuKdcqdsn32N1GCj5?=
+ =?us-ascii?Q?jvEkh1YQrlKHj5IaqVYXfI2NYxFPQVJJIt72i+ZG360rppLAaFQWIi3r7QPs?=
+ =?us-ascii?Q?KOmvk90UmTR70H9ltkzeYBo3EyyUADcaeBRcTGi3ar2A2LHxqmW1Jp4L4TON?=
+ =?us-ascii?Q?7myxweOdHNxF0QGkfnXpA+OrCufh2lUDe3zG6wV4Yt0CslMXBRCzOoUfNKvm?=
+ =?us-ascii?Q?xxcRPiffasnehj9B7AquzyAmnJ/Ipmckyt1fuCaqspRH1CquvnOJ2UCUgSjv?=
+ =?us-ascii?Q?+qLXmSV0fat86vUCLO1lQZhBtLpP1PUUnurv0+vHUJzn036JUVcDRf9cDv9E?=
+ =?us-ascii?Q?Ha64TlGW1GCvHqekeBkp5g3JcAjo4Duk6TN1mprf+V2z4aXOerTMIAzQkXP7?=
+ =?us-ascii?Q?2cEvKETJDYv0VO49K5kIqUTtJST9ynMuxZrKSQMnMsu6kQDZNp2nUwwO0d8V?=
+ =?us-ascii?Q?yb2QUTRgRiI4piboOwBZZ1ZYSyYrCZ/EgDrHXR8xS6QarXZJ5qNm3WXFrhyt?=
+ =?us-ascii?Q?v6uD0F3y4tUVJflNInpWeSqY+A3VhLVCd8XRF7Zy+SYN61QWpiqlTCoAx2uG?=
+ =?us-ascii?Q?jJaX/3vzr2VTOr4MsXUWvMkII716OIX7Sfg1ZbD/W2XkDccyz0qyA4cW6E6c?=
+ =?us-ascii?Q?yC5NxvXm6WenQWkDqLUT5uLPoz0WxjaOQzLbiUSzLKv+tP8J+pkxhDEsp4st?=
+ =?us-ascii?Q?tAeM8M5WrE5eWnJNdDicFlogVciPSvnrkgG6x378JRfzZrc2TBfN/SDIDjQ9?=
+ =?us-ascii?Q?1mqxeYDV4WzR3fnowf6fOu2DgMUOoG/iqkKPTM79xqI13pwfXUy8kcyaL+ip?=
+ =?us-ascii?Q?jgf+Q59w/tJzUBymi+tapgoL1ZtKhnLpqF4+jXn7sNVbBr+9q54CAzTHfBPB?=
+ =?us-ascii?Q?3swUKfxE8F+dF4NA4zAfkeLw0QQQYt+nIrpTPrTXxuMIwWMZ0h5IC1VRgCwq?=
+ =?us-ascii?Q?7y3zLj10L0yC4i+OBwMfBiuxi/QNa3F6lcPUv5TZLVYmnQx8jlfPmG+mqIKO?=
+ =?us-ascii?Q?7+rlrOcT5Nzqz1bc8DI9NYkVcqHEL7SVBo2cRZo0YZXCbas/112jdEhKVaz2?=
+ =?us-ascii?Q?ykEJKoltTL8SXcOA6rBQQxD8MTRLQvs03A7cs7LYwOq+iSeQRDX3UT+0kqte?=
+ =?us-ascii?Q?ISqGR+1QNJY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5757.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vav9pOa0D2yASlp8IUaZf0G+9at8REMkNB/2xMRPaX/slT8y8Nc42DvB18IS?=
+ =?us-ascii?Q?iZ7QH50oxElPYmZVJYHCfi5TnDnu7R27NGYtjrOGz3kVxR5LeK9vkPZHfp2Y?=
+ =?us-ascii?Q?88JbyXsawY+p5wFSy11rC0wYBLZb3maAqY8NBjug6f9BstCtX4rngN/J+G3w?=
+ =?us-ascii?Q?bOVl8CG+zVcY6GEUwtKwsXOY9WpA1ry3GwQqyyjkl24cBimph9S6IrVTLUQU?=
+ =?us-ascii?Q?Do9aVe0eXyD+sIhXMqzYn2PmFueixpM4/mRZ2iIF47Lf3zBegJdnwRp7B1p/?=
+ =?us-ascii?Q?pWf/NJaT7SMgZSXCGlImNdvGBzrQ+31rra36+ktMb8JHH2YsWm7Ihx6tGBtr?=
+ =?us-ascii?Q?E2a508FYdu8QWSVhSnJV3tFd/yXH629lEum0tf5i6SvQyhcCp6MgEYGyCbns?=
+ =?us-ascii?Q?2pK0NDUvA/gUgOL7ieMYyKRZlZ4lTtvBZ5uBLWa8DfC886FVazwOUZifyBbu?=
+ =?us-ascii?Q?trLuqwMDrPrEPjHPU/BJUjSpyc9mUGjCvDu9vhRnDx5j5wIjgkRzXAHsLXKO?=
+ =?us-ascii?Q?DnDLSde3x5ZVeeqQyeuddc7ZW3y6D9jx/qljJpVoM6flAwRn2z9NvrmXB8+T?=
+ =?us-ascii?Q?h/s3YqQGsCzWxPNXJt46osVlExV4rhoLK3MGFhEbt+FQQvJtPjFuAHOyvqhb?=
+ =?us-ascii?Q?b3CsQ4SzYJ2RICAMcI0dx5QBUphKZy6nSp+a+teozKdEVuf8TeUXQREIL1HC?=
+ =?us-ascii?Q?6enjfBexMCKqx60H3J4Yu7GD/BbPyrr/PE9jih+O/DFh6neaW4mJS9sOaEkl?=
+ =?us-ascii?Q?LGed6UIyCMFLi84rg9VyMUn6sVC1nztTEgQ0DxRhMd2sUmaRTnVO2WD0l5s2?=
+ =?us-ascii?Q?p7e0YS5ew/7edENjtU7YPhC6gsZQs3x1DMLaYXHmeXEx4g5ssQt/I+pJ7pNE?=
+ =?us-ascii?Q?3QbZxJnK3BpcdA9iTl/BQcYKqhM5paalt8DpHcikQfHdVv8m6IEc7dORCJ6z?=
+ =?us-ascii?Q?pNUMdNZBU9eKz733qZscNFXEiItqwYQjEuG3U7a/pVvYR2Cqefm9GYSjUez4?=
+ =?us-ascii?Q?GqX3RHf9l7SYbt4ZhCKB60Ay0MD8kgsFpLPeJvwyX5EKDsq8DpTL53oMENrU?=
+ =?us-ascii?Q?NU5VTrOMH9PFRU0Ma4cVef9Jtw9TCcplCmnDb9exhzwluweyXCcN/6s93uCm?=
+ =?us-ascii?Q?wasUCcYX/63fywZ20XOaNcJohqsfUn7gW2S30AgIlmaQyUK3AT/igHgFQ8WJ?=
+ =?us-ascii?Q?FLhaeiiDxr5db1HRO7bDQgXsmkryLYWU9qVBJG9qnbN5qyxh94TcGYnwLICN?=
+ =?us-ascii?Q?JPEqkzKc3ywGFONknc9bmWiq4QlxTyRMFIlCJcYgqlvdYgbf5qChRSZ5dE7v?=
+ =?us-ascii?Q?FeMhMVrNA8tW4hKTv8oU9YOPBrsfz5h9acLNYQvNeV46LFxVz+90yi/gQpdN?=
+ =?us-ascii?Q?IvDAl9vN++hno6AnNLqvpKu28jsh+Hv6EcWnZuxZs0ivrZbNyOYyIgfP1zSt?=
+ =?us-ascii?Q?/ETrOnrga2kXmWDYbUqxrRX6uNcNK93+mGnUNXHFVTkSXscQ5r5Kc5PPGSab?=
+ =?us-ascii?Q?DprEiQe8ljL/f9F5SmldEktiS2RCOfW10ZBCMrK8sKYS76b7kg0sAkV5uN5N?=
+ =?us-ascii?Q?Vx3b/H3wqNyidfsAjjWRW2b4iBNyk6Mw3RHGCMwc?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0637f2b6-4cae-4007-8626-08ddf5284e4f
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5757.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 13:52:42.2846
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D7wfNpMIUKNV6mHIVkLPmpTU05FCIwfebXZv/+4xt09DvGsnOVHmcgQ8ccNzyUlC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7250
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_144543_129261_3C16F820 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20250916_065253_093337_7C288277 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,114 +161,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 02:27:37PM +0100, Yeoreum Yun wrote:
-> Hi Mark,
+On Tue, Sep 16, 2025 at 10:32:04AM +0300, Leon Romanovsky wrote:
+> From: Leon Romanovsky <leonro@nvidia.com>
 > 
-> [...]
-> > > diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> > > index 1d6d9f856ac5..0aeda7ced2c0 100644
-> > > --- a/arch/arm64/include/asm/futex.h
-> > > +++ b/arch/arm64/include/asm/futex.h
-> > > @@ -126,6 +126,60 @@ LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-> > >  LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-> > >  LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-> > >
-> > > +
-> > > +#define LSUI_CMPXCHG_HELPER(suffix, start_bit)                                 \
-> > > +static __always_inline int                                                     \
-> > > +__lsui_cmpxchg_helper_##suffix(u64 __user *uaddr, u32 oldval, u32 newval)      \
-> > > +{                                                                              \
-> > > +       int ret = 0;                                                            \
-> > > +       u64 oval, nval, tmp;                                                    \
-> > > +                                                                               \
-> > > +       asm volatile("//__lsui_cmpxchg_helper_" #suffix "\n"                    \
-> > > +       __LSUI_PREAMBLE                                                         \
-> > > +"      prfm    pstl1strm, %2\n"                                                \
-> > > +"1:    ldtr    %x1, %2\n"                                                      \
-> > > +"      mov     %x3, %x1\n"                                                     \
-> > > +"      bfi     %x1, %x5, #" #start_bit ", #32\n"                               \
-> > > +"      bfi     %x3, %x6, #" #start_bit ", #32\n"                               \
-> > > +"      mov     %x4, %x1\n"                                                     \
-> > > +"2:    caslt   %x1, %x3, %2\n"                                                 \
-> > > +"      sub     %x1, %x1, %x4\n"                                                \
-> > > +"      cbz     %x1, 3f\n"                                                      \
-> > > +"      mov     %w0, %w7\n"                                                     \
-> > > +"3:\n"                                                                         \
-> > > +"      dmb     ish\n"                                                          \
-> > > +"4:\n"                                                                         \
-> > > +       _ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)                                   \
-> > > +       _ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)                                   \
-> > > +       : "+r" (ret), "=&r" (oval), "+Q" (*uaddr), "=&r" (nval), "=&r" (tmp)    \
-> > > +       : "r" (oldval), "r" (newval), "Ir" (-EAGAIN)                            \
-> > > +       : "memory");                                                            \
-> > > +                                                                               \
-> > > +       return ret;                                                             \
-> > > +}
-> > > +
-> > > +LSUI_CMPXCHG_HELPER(lo, 0)
-> > > +LSUI_CMPXCHG_HELPER(hi, 32)
-> > > +
-> > > +static __always_inline int
-> > > +__lsui_cmpxchg_helper(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> > > +{
-> > > +       int ret;
-> > > +       unsigned long uaddr_al;
-> > > +
-> > > +       uaddr_al = ALIGN_DOWN((unsigned long)uaddr, sizeof(u64));
-> > > +
-> > > +       if (uaddr_al != (unsigned long)uaddr)
-> > > +               ret = __lsui_cmpxchg_helper_hi((u64 __user *)uaddr_al, oldval, newval);
-> > > +       else
-> > > +               ret = __lsui_cmpxchg_helper_lo((u64 __user *)uaddr_al, oldval, newval);
-> > > +
-> > > +       if (!ret)
-> > > +               *oval = oldval;
-> > > +
-> > > +       return ret;
-> > > +}
-> >
-> > I think Will expects that you do more of this in C, e.g. have a basic
-> > user cmpxchg on a 64-bit type, e.g.
-> >
-> > /*
-> >  * NOTE: *oldp is NOT updated if a fault is taken.
-> >  */
-> > static __always_inline int
-> > user_cmpxchg64_release(u64 __usr *addr, u64 *oldp, u64 new)
-> > {
-> > 	int err = 0;
-> >
-> > 	asm volatile(
-> > 	__LSUI_PREAMBLE
-> > 	"1:	caslt	%x[old], %x[new], %[addr]\n"
-> > 	"2:\n"
-> > 	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-> > 	: [addr] "+Q" (addr),
-> > 	  [old] "+r" (*oldp)
-> > 	: [new] "r" (new)
-> > 	: "memory"
-> > 	);
-> >
-> > 	return err;
-> > }
-> >
-> > That should be the *only* assembly you need to implement.
-> >
-> > Atop that, have a wrapper that uses get_user() and that helper above to
-> > implement the 32-bit user cmpxchg, with all the bit manipulation in C:
+> Add new .map_phys() and .unmap_phys() callbacks to dma_map_ops as a
+> preparation to replace .map_page() and .unmap_page() respectively.
 > 
-> Thanks for your suggestion. But small question.
-> I think it's enough to use usafe_get_user() instead of get_user() in here
-> since when FEAT_LSUI enabled, it doeesn't need to call
-> uaccess_ttbr0_enable()/disable().
+> Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
+> ---
+>  include/linux/dma-map-ops.h | 7 +++++++
+>  kernel/dma/mapping.c        | 4 ++++
+>  2 files changed, 11 insertions(+)
 
-Regardless of uaccess_ttbr0_enable() and uaccess_ttbr0_disable()
-specifically, API-wise unsafe_get_user() is only supposed to be called
-between user_access_begin() and user_access_end(), and there's some
-stuff we probably want to add there (e.g. might_fault(), which
-unsafe_get_user() lacks today).
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Do we call those?
-
-Mark.
+Jason
 
