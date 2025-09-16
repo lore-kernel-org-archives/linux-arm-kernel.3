@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3943ECAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18FECAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXhs44zP+zPDOdDL3axzKI0wFvhakvJIM+J7/6dK2os=; b=tP3h9p4Ba/MCl7NBJCys0r78T1
-	RzBJc5DFGRKZXjY/PJPQadyRUPf1OtB/80tbUL9nyP6MeeLvdFAIoDLJhvOtt+O1sUirqkMNF231q
-	JWGkKcsDehCn/Y3S5gcS3UDiKVmy/8JUNSUXsOOr7KiZyK1MePQnZouJM+LXa7+78qal94E5qsxq7
-	Lilw3l8hw2jZZZaNmrvuAh/pnmay2xBLA2FbqUKvUK+sFdZqBzKzUBPvbLqzhGa3rtSTNu6byGvv+
-	4ZQktEjx3NjqR2k23Bc12AkOiub1KaIwBLvlIszv5e9OU/bhKaMm0kqR1vAF60ssYzcxlr1dSNHqz
-	vbe4YRMw==;
+	bh=jCwmY2pnMCIRz7dbQaD5vqCGF4sY0ycNRhCjd6QBLnI=; b=JbYnFrIir1CoOohhP8lGsXvSSj
+	MOnlMVeqY9DMt06/V8SX+604wLEJcJRxi/HQd4WIFBPraZ3o5uRdVppfRo6ANoGzHpHE4qrrOPFst
+	27xuPNzXMBrVc/cyyP/CWTJ6nCffm/ZVolM5rxQ2nagTgB8bB2a6uWI3sALNPhsBV8agT0qWefJmP
+	SeNHkoUkLutdFRQ8WfscXxh1pKYjaWZf3A4ws+9h8OgK+Lr6j/U557h4m/juEWoN53RWvm2MxDI6Y
+	0XLKzRKFx8DTMK3qwGv7zHxJ8yTe0yhlpVfGX9S2Hqq3BbnESEfxv9l4EoR3BanLmM+DaMZEnOQ2K
+	NJMfN6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycFQ-000000091H2-2tLX;
+	id 1uycFQ-000000091Fw-0YtQ;
 	Tue, 16 Sep 2025 20:25:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEy-000000090lx-2VIf;
+	id 1uycEx-000000090kG-23gx;
 	Tue, 16 Sep 2025 20:25:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1893F44D76;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0387244D0B;
 	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C537FC2BCC6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A4A68C2BC86;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054325;
-	bh=EegadZyE2ka3lqNPNKWfrSgt+VjG3SDvPe99w5hVinc=;
+	bh=RDpCXuNwW3F3KJj6jQvBGASBrt12FmdgYBI4SvuFthg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=TqjJmG2A2cB8ngo4ajZYfJfPMOULRsF5fOoBAUEkiwgNY4F+FZ8BLxj7ewB+GWcz0
-	 nCkyo4BZtNjh80Z1IoBu2Y5ocJGUGVMU0DqkV0nMKQGm/rUmk0yVMrYCbpXue27U6Z
-	 oktZfW0Qg1zrv3ndCM3+dY+9U+RyBpYOGU1iRPem8jfqa7hCKxFVY54M9u7h6xheDX
-	 dlvUQBNj8nUtlBaTWbIdhOtUBnlxn75aAGQFpCJYHW1BnnxYVFJ++IBJfPRvxLvGs+
-	 IfmyJ/v9X67Ke2B79rvjVMcyoDKN1kp8N61hTJOC+szpM94zN1FmGX11jZSi+GODFL
-	 xEU2XYSFcDWKg==
+	b=VxzdsYVHyAvZMHPfARysp6GnpbZGKIKAOSLH+/pcWfrhLRvw8CZeX4KnHfb/K1tX9
+	 LE82efrF2Fjxu3Fm/sD4iY5MI7Wqc7UEtrvz1mLbEtH/XNk6rIq7pFvjGXbqCjK//L
+	 nmMILf+OnZr6N/2F8f6DxmpoB68iWmkv2PZeNTuLKlyOA8JUcjAl4E2iaZzzzIqc7h
+	 l1GZGUn9BySXjQjcz92UWO1Eqp/7V4O1olgW1jJEdBu/c9dIAKtxd2gMrfmsuAqkjf
+	 L+kNV8bLWAu5gdX1uA3wymb1CkPqnBtu5MtUbnGeXEaJ5vRKoZEMk+wVUeCAVyqxsl
+	 t9yao+8SSno0w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B989BCAC59F;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CE81CAC5A0;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:11 +0700
-Subject: [PATCH 14/25] dt-bindings: power: reset: Add RDA Micro Modem Reset
+Date: Wed, 17 Sep 2025 03:25:09 +0700
+Subject: [PATCH 12/25] dts: unisoc: rda8810pl: Add OPP for CPU and define
+ L2 cache
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-14-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-12-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,19 +72,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1439;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1899;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=Qx3A0YEz2hiOBr1X7Hx7B2Yur/VncHTnIWLD5/fTYjI=;
- b=ZgRTCdZsa4zMPNeOMmGFLo6ICngX1GwmdnktW4A702PqmzxT6psP5W8kdNHEKlVW88+WFP8Gv
- ElMMuGq68W5A4Nx++rKEmZFCTm3eK1x3SrQ1TYSmUBZhC4BLDLaBhGC
+ bh=GGuxO6sraElHWuAQ/FHMGYb5YyRNyQdi3IohZFnJO8o=;
+ b=45yf1gKixsaK1bkMYGoKRUqzU4uJvxee7LDvXHPDAXh0W7cXAZpeAuF2mOgWJyZNK24hfZKsM
+ GIqqJqEHIYuDn891fKiP8cE0LCeJJW/uSiFgTzEbed0Tkmppo8BGIdV
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132528_793319_8D90B1A1 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250916_132527_645297_DCC74C26 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +102,84 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-Add documentation describing the RDA Micro modem reset controller
+Add available frequency table came from downstream kernel, this
+ensures that the CPU clock can be dynamically tuned.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- .../bindings/power/reset/rda,md-reset.yaml         | 36 ++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi | 52 +++++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/reset/rda,md-reset.yaml b/Documentation/devicetree/bindings/power/reset/rda,md-reset.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..6d09bc8ee6b257aec9d2c4738d285490044003ea
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/reset/rda,md-reset.yaml
-@@ -0,0 +1,36 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/reset/rda,md-reset.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+index 1f7a6908d68367441e5dc865216cc7a5c39feb35..299b29e4df6e0a04c5769a568eba73ed1684a9e5 100644
+--- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
++++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+@@ -16,6 +16,54 @@ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+ 
++	/*
++	 * There are two frequency table for CPU.
++	 *
++	 * "High" table is used when operating in normal mode
++	 * "Low" table is used when operating in power saving mode
++	 */
++	cpu_high_opp_table: opp-table-0 {
++		compatible = "operating-points-v2";
++		opp-shared;
 +
-+title: RDA Micro Modem Reset
++		opp-329333333 {
++			opp-hz = /bits/ 64 <329333333>;
++		};
 +
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
++		opp-395200000 {
++			opp-hz = /bits/ 64 <395200000>;
++		};
 +
-+description:
-+  The modem has a reset register that can be used to fully reset the board.
++		opp-494000000 {
++			opp-hz = /bits/ 64 <494000000>;
++		};
 +
-+  To do that, a magic value needs to be written to unprotect the register,
-+  then the soft reset register can be used.
++		opp-988000000 {
++			opp-hz = /bits/ 64 <988000000>;
++		};
++	};
 +
-+properties:
-+  compatible:
-+    const: rda,md-reset
++	cpu_low_opp_table: opp-table-1 {
++		compatible = "operating-points-v2";
++		opp-shared;
 +
-+  reg:
-+    maxItems: 1
++		opp-266666666 {
++			opp-hz = /bits/ 64 <266666666>;
++		};
 +
-+required:
-+  - compatible
-+  - reg
++		opp-320000000 {
++			opp-hz = /bits/ 64 <320000000>;
++		};
 +
-+additionalProperties: false
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++		};
 +
-+examples:
-+  - |
-+    reset-controller@1a00000 {
-+      compatible = "rda,md-reset";
-+      reg = <0x1a00000 0x4>;
-+    };
++		opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++		};
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -24,6 +72,10 @@ cpu@0 {
+ 			device_type = "cpu";
+ 			compatible = "arm,cortex-a5";
+ 			reg = <0x0>;
++			next-level-cache = <&l2>;
++
++			clocks = <&ap_syscon CLK_CPU>;
++			operating-points-v2 = <&cpu_high_opp_table>;
+ 		};
+ 	};
+ 
 
 -- 
 2.51.0
