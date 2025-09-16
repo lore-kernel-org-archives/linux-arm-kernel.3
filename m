@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79B4ECAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02721CAC59E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBqtPpbnDUHvMwRHYxo4B5W/PSfEHv5J64H6u5012lI=; b=rXRF7DsPhLLGTtXuPFKlYMgyth
-	9i8gk6y2qqg91fo3hF1a7dUL0vsrDvj2im8tVf8RNS++amlnAqdikvJ9+4+bV6G4gPkJ7fS4z8m9P
-	o42qkZTUtZgbWJQcv1hngDx5CDS8BjA6VDbi3dGp+nUjNDH3dRfTrXGnfWd7Ow4H8let9hATvalRX
-	rM7yzMMeTllHT9oEyQQElwbrRxK4o5B9N4GryTw/xJ0j3TBjcDdZJhwCrY/FprwIHb/dEMx40QJJQ
-	cUpS2uYymFHHhqyIfmtuDjboK1+spFn3vz9/kW9LQRsOAiaUcLfKyhfpCcVkR2BnRKtp0nNa1ziCZ
-	mmv0HTXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+yWYKxZUxDBZHMihl0imjeO80P1w6g7k5xbNhn3cOWk=; b=3Bgqja/OD2/0GzOjxsVk9A9Sba
+	B1PIjZpcIp+j4bZESaxn+9xdf6/gm5JspwaQZ3iR0DBrDa1VJQnJIzajOCGOp1SkiEPDxMei6VsXW
+	RCVi71Qt8zgT3kYaFbSOVVz+ip796lv9l4qoWaBE7hHpfns1WqwFtI7WqLHnZzxezgY0z9rIMf3IY
+	zcGICl9dVJ0NJhSyfYOks+q+InsaobXkBFGoMKNuKvfuOAIzcKkAlUAHh4Cb/BQ/Lzi3rVI2UIivA
+	rz/I/gJ5Z9j5WvEj6//u2OkxsYsEhLU2pDl9hnkq/zwTngNkKjAgg0/Z3FwEiSbJp1i6qTrw7Onj2
+	7nNeL5ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyPhf-00000006xyW-4069;
-	Tue, 16 Sep 2025 07:02:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyQAp-000000071FQ-3VHn;
+	Tue, 16 Sep 2025 07:32:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyPhd-00000006xyB-0RbT
+	id 1uyQAo-000000071FG-3rRw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 07:02:14 +0000
+	Tue, 16 Sep 2025 07:32:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 69D1F44AB5;
-	Tue, 16 Sep 2025 07:02:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C410DC4CEEB;
-	Tue, 16 Sep 2025 07:02:09 +0000 (UTC)
-Date: Tue, 16 Sep 2025 08:02:07 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, james.morse@arm.com,
-	ardb@kernel.org, scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v7 4/6] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aMkLb6jPiSbzeRWL@arm.com>
-References: <20250816151929.197589-1-yeoreum.yun@arm.com>
- <20250816151929.197589-5-yeoreum.yun@arm.com>
- <aMRQIeIdyiWVR8a0@arm.com>
- <aMfrR0vserl/hfZ3@e129823.arm.com>
- <aMhrscd1gz_syMtL@arm.com>
- <aMh4q4-xAPHnaOul@willie-the-truck>
+	by tor.source.kernel.org (Postfix) with ESMTP id 561D66013D;
+	Tue, 16 Sep 2025 07:32:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74C72C4CEEB;
+	Tue, 16 Sep 2025 07:32:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758007942;
+	bh=o4HjOjUl8KogcGYW9HXIKKgJvXaiisXNIkdpv7PUUcc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qwsRZjFEL7oK2mF1/WX2+iqlGcMXKwfk1Rw+BD2fsqiw8WO42F6gGF/crufiipUim
+	 4FZ6GYQZ28lU4DsQUOZFNbDQjPsLyhCC4nrJQdLYYSUdJil1ujEVKqw5taNIB9qUry
+	 KsAghOIXP57dQoLUFHsHkP30rCrpaOzgVn/1Voe0GXSCtDx38WNLRxpWvAkyPfqfUj
+	 2g/YWgrdlnsGTzjDaqYhK+a1NeMyRveZOJfEuvzBW6Bb80H6QEnnY9aPHhhZjchrEq
+	 eECx2NJf4BpIM81CPsbEq7hVSSo3VqVxPGI+fXibPFpa2FrG0RdK9+jH1vNLsFgoI3
+	 GIPGPw1uQ+dEg==
+From: Leon Romanovsky <leon@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH v3 0/4] Preparation to .map_page and .unmap_page removal
+Date: Tue, 16 Sep 2025 10:32:03 +0300
+Message-ID: <cover.1758006942.git.leon@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMh4q4-xAPHnaOul@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_000213_181222_087F574E 
-X-CRM114-Status: GOOD (  18.23  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +69,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 09:35:55PM +0100, Will Deacon wrote:
-> On Mon, Sep 15, 2025 at 08:40:33PM +0100, Catalin Marinas wrote:
-> > On Mon, Sep 15, 2025 at 11:32:39AM +0100, Yeoreum Yun wrote:
-> > > So I think it would be better to keep the current LLSC implementation
-> > > in LSUI.
-> > 
-> > I think the code would look simpler with LL/SC but you can give it a try
-> > and post the code sample here (not in a new series).
-> 
-> If you stick the cas*t instruction in its own helper say, cmpxchg_user(),
-> then you can do all the shifting/masking in C and I don't reckon it's
-> that bad. It means we (a) get rid of exclusives, which is the whole
-> point of this and (b) don't have to mess around with PAN.
+Changelog:
+v3:
+ * Rewrote the series to allow combination of .map_resource and .map_page
+   to one flow.
+ * Added two new patches to convert and remove .map_resource.
+v2: https://lore.kernel.org/all/cover.1752734252.git.leon@kernel.org/
+ * Added default "else" section without map_phys and map_page
+   callbacks (impossible).
+v1: https://lore.kernel.org/all/cover.1753003879.git.leon@kernel.org
+ * Changed "else if" instead of "if".
+v0: https://lore.kernel.org/all/cover.1752734252.git.leon@kernel.org
+---------------------------------------------------------------------
 
-We get rid of PAN toggling already since FEAT_LSUI introduces
-LDTXR/STTXR. But, I'm all for CAS if it doesn't look too bad. Easier
-I think if we do a get_user() of a u64 and combine it with the futex u32
-while taking care of CPU endianness. All in a loop. Hopefully the
-compiler is smart enough to reduce masking/or'ing to fewer instructions.
+This is followup to "dma-mapping: migrate to physical address-based API"
+series https://lore.kernel.org/all/cover.1757423202.git.leonro@nvidia.com
+
+Thanks
+
+Leon Romanovsky (4):
+  dma-mapping: prepare dma_map_ops to conversion to physical address
+  dma-mapping: convert dummy ops to physical address mapping
+  ARM: dma-mapping: Switch to physical address mapping callbacks
+  dma-mapping: remove unused mapping resource callbacks
+
+ arch/arm/mm/dma-mapping.c   | 98 +++++++++----------------------------
+ include/linux/dma-map-ops.h | 13 ++---
+ kernel/dma/dummy.c          | 13 +++--
+ kernel/dma/mapping.c        | 20 +++-----
+ 4 files changed, 43 insertions(+), 101 deletions(-)
 
 -- 
-Catalin
+2.51.0
+
 
