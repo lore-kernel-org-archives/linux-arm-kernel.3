@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA487CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E95ECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRPjWWXDxGrN6K9cpSWYN+tj1T9bKePyAb/ffWIWHbk=; b=s2uvWgSnn4GmpRoKTP0a8M5hx5
-	k+5u/Zz3nUv2RzGfpnlVnq8k02SmbElLN5w+SgMxJ7TIBHlpcKHbTB7Rb6Twp/lZnz0E0roL0CoeK
-	dMXtTDHc69P+lJLV4l5Ts1uAZlyG1doeNKZDnvQhGlJ4WCdYdEunDhKZ/5sivW+9IFUFRWtu44PdX
-	ynafh53u80W2Isv0PsFOhILsC/BIsaEAD7WxnJFtavYNUPEDGwMfEi4FDsWoA6YHFQlJt86Sk+59R
-	33/Ts7/MHCR61a4ANiajd3uud8MxjhBZ0vucFt0KuOjuj9g7qn4vGjgjL5K81YapACULCit1Lsm4P
-	SFl/sZ2g==;
+	bh=z+qI4h96/5omUNjpEqnB88ROvEQ7MRPtM8YHNenk4tY=; b=fxh5wgqvWT79h0fk4Jsn2jqeAZ
+	RekVvyhFwJk+yFS6LXWdD1uKYbAZiFBTYslW/gHWUFlx0RsvKbRTdG3mKR8duTHF7H5vNGdgyOUaw
+	Lm6faD35pW0KbIksb6+J4zLL7DUtl5uJI3UTj+4vTW8x8ZOMu6Vyi6F3QGNISe+d13aOmvr/vxfVI
+	A+e6mbl3XRjJuDV76VK36QN275KdhIj5xj0dlg/++P1nMQzrh8MN6LQV0he87OP9dUaLkKQq10zAv
+	rCUpVzWJZCRwdp3UejJxrbCz0cjOKrpORxh2TknUvWvQUTsqTZSZLFDILN3KmXgj1mxLPKvTadGTJ
+	0HVJg8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydZ5-00000009HGO-0S6W;
-	Tue, 16 Sep 2025 21:50:19 +0000
+	id 1uyddE-00000009IUs-0Y7K;
+	Tue, 16 Sep 2025 21:54:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uydZ3-00000009HF0-4AQV
+	id 1uyddD-00000009IUO-16J7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 21:50:18 +0000
+	Tue, 16 Sep 2025 21:54:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3BAA9601B3;
-	Tue, 16 Sep 2025 21:50:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7972C4CEEB;
-	Tue, 16 Sep 2025 21:50:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE0A9601E5;
+	Tue, 16 Sep 2025 21:54:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3EAAC4CEEB;
+	Tue, 16 Sep 2025 21:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758059416;
-	bh=ZQ5vXZCra2+RwJM46CnghsruiNCvFvmuzVBMwnQAxV8=;
+	s=k20201202; t=1758059674;
+	bh=4alxzrUdOK5CtjJJqQwPxV2gCyf0hBSdvjtFuyZab4E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+TrpXzUl2eTgi4QAIadZ/pNqv4SSebpKU3um6A7/anUcuUGYZyj9EL6D0IGTRP7l
-	 LGw9Vctspzd2wyYumY6+hlmE5QoNEyrVnAial2rZOdpr6lJ2kAfh0l4YBsjHEZPx75
-	 uqyKE07qlPxAeISvNqNsGLvGISga6JTeIVmT4nBWYhNyE5eUDLXu9mmj2DrMmAyFg8
-	 dkXAjw1NJS5PNR1FKKPpQBvzDmq2fVa4WxBysqzBwlYh8XiWX/MzgZVcNluuzMEW99
-	 xRLj940q2hWbWyuSkN/iWBNliBKT3Sw5fBuGq+8+9IZt49pC1glVE13Dd7fnXFtJ+z
-	 wx+sp4PwAsr6w==
-Date: Tue, 16 Sep 2025 14:50:11 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	kernel test robot <lkp@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2a 2/6] kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on clang
- < version 17
-Message-ID: <20250916215011.GA596283@ax162>
-References: <20250916163004.674341701@linutronix.de>
- <20250916163252.100835216@linutronix.de>
- <20250916184440.GA1245207@ax162>
- <87ikhi9lhg.ffs@tglx>
- <87frcm9kvv.ffs@tglx>
+	b=cqkHM2AElvFo1Vqq/Rh2bjQMcAEERYu7c5C2fACPhHmXNYCbIxyUddnL9b6n4fueV
+	 Fr4KCV1HLUM3XhpMAzkRRpctAFMhkU9kCzlcBtp1NS96Zzmi8ayiQxC/VU6qTP+LNO
+	 h/VdnaoSPV3ahJyHxZ8V1py3XzMkDN44689Sr1O3TkJMiCoYe0wQQCRiKBeOrViv4/
+	 ybymEkJ8FymTHWJ4F3csd2DYCNF4+DrBtr/KhnUL/Z30Oz3PZmLyBVyyT8WKeAcjp2
+	 xYrsD78cUbdHeMTYPIaw8SVweg7GaJO4dL/m7txn47ah4yk3/lsAAnbkE/tX7OPkZE
+	 ywa4zhpI+zP7w==
+Date: Tue, 16 Sep 2025 22:54:29 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] kselftest/arm64: Add lsfe to the hwcaps test
+Message-ID: <73cba923-facd-4c9a-a5dc-2413ef8b055c@sirena.org.uk>
+References: <20250818-arm64-lsfe-v3-0-af6f4d66eb39@kernel.org>
+ <20250818-arm64-lsfe-v3-3-af6f4d66eb39@kernel.org>
+ <aMnTm59nrA5lBxN5@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="p8SWN4j5J2YR9ElS"
 Content-Disposition: inline
-In-Reply-To: <87frcm9kvv.ffs@tglx>
+In-Reply-To: <aMnTm59nrA5lBxN5@willie-the-truck>
+X-Cookie: The people rule.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,109 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 10:56:36PM +0200, Thomas Gleixner wrote:
-> clang < 17 fails to use scope local labels with CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y:
-> 
->      {
->      	__label__ local_lbl;
-> 	...
-> 	unsafe_get_user(uval, uaddr, local_lbl);
-> 	...
-> 	return 0;
-> 	local_lbl:
-> 		return -EFAULT;
->      }
-> 
-> when two such scopes exist in the same function:
-> 
->   error: cannot jump from this asm goto statement to one of its possible targets
-> 
-> There are other failure scenarios. Shuffling code around slightly makes it
-> worse and fail even with one instance.
-> 
-> That issue prevents using local labels for a cleanup based user access
-> mechanism.
-> 
-> After failed attempts to provide a simple enough test case for the 'depends
-> on' test in Kconfig, the initial cure was to mark ASM goto broken on clang
-> versions < 17 to get this road block out of the way.
-> 
-> But Nathan pointed out that this is a known clang issue and indeed affects
-> clang < version 17 in combination with cleanup(). It's not even required to
-> use local labels for that.
-> 
-> The clang issue tracker has a small enough test case, which can be used as
-> a test in the 'depends on' section of CC_HAS_ASM_GOTO_OUTPUT:
-> 
-> void bar(void **);
-> void* baz();
 
-I would recommend
+--p8SWN4j5J2YR9ElS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-  void* baz(void);
+On Tue, Sep 16, 2025 at 10:16:11PM +0100, Will Deacon wrote:
+> On Mon, Aug 18, 2025 at 08:21:20PM +0100, Mark Brown wrote:
 
-here and in the actual test to preemptively harden against the
-possibility of a future where -Wstrict-prototypes is turned on as an
-error by default (as unlikely as this may be, it has been brought up
-before [1]), as I would not want this to get silently disabled.
+> > +	/* LDFADD H0, H0, [X0] */
+> > +	asm volatile(".inst 0x7c200000"
+> > +		     : "+r" (memp)
 
-> int  foo (void) {
->     {
-> 	    asm goto("jmp %l0"::::l0);
-> 	    return 0;
-> l0:
-> 	    return 1;
->     }
->     void *x __attribute__((cleanup(bar))) = baz();
->     {
-> 	    asm goto("jmp %l0"::::l1);
-> 	    return 42;
-> l1:
-> 	    return 0xff;
->     }
-> }
-> 
-> Add another dependency to config CC_HAS_ASM_GOTO_OUTPUT for it and use the
-> clang issue tracker test case for detection by condensing it to obfuscated
-> C-code contest format. This reliably catches the problem on clang < 17 and
-> did not show any issues on the non known to be broken GCC versions.
-> 
-> That test might be sufficient to catch all issues and therefore could
-> replace the existing test, but keeping that around does no harm either.
-> 
-> Thanks to Nathan for pointing to the relevant clang issue!
-> 
-> Suggested-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Nathan Chancellor <nathan@kernel.org>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1886
-> Link: https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
+> Doesn't this corrupt H0 without the compiler knowing? It's probably
+> easier to use STFADD.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Yeah, that's more correct and easier than specifying constraints.  In
+practice it should be safe as the compiler is unlikely to use FP in the
+instructions it generates and it's a caller saved register.  The program
+is in general not careful with constraints.
 
-> ---
-> V2a: Use the reproducer from llvm
-> V2: New patch
-> ---
->  init/Kconfig |    3 +++
->  1 file changed, 3 insertions(+)
-> 
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -99,7 +99,10 @@ config GCC_ASM_GOTO_OUTPUT_BROKEN
->  config CC_HAS_ASM_GOTO_OUTPUT
->  	def_bool y
->  	depends on !GCC_ASM_GOTO_OUTPUT_BROKEN
-> +	# Find basic issues
+> > +		     :
+> > +		     : "cc", "memory");
 
-Maybe "Detect basic support" or something like that? This is not really
-an "issues" test, more of a "does the compiler support it at all?" test
-if I understand correctly.
+> Why do you need the "cc" clobber?
 
->  	depends on $(success,echo 'int foo(int x) { asm goto ("": "=r"(x) ::: bar); return x; bar: return 0; }' | $(CC) -x c - -c -o /dev/null)
-> +	# Detect buggy clang, fixed in clang-17
-> +	depends on $(success,echo 'void b(void **);void* c();int f(void){{asm goto("jmp %l0"::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto("jmp %l0"::::l1);return 2;l1:return 1;}}' | $(CC) -x c - -c -o /dev/null)
->  
->  config CC_HAS_ASM_GOTO_TIED_OUTPUT
->  	depends on CC_HAS_ASM_GOTO_OUTPUT
+It's overkill.
+
+--p8SWN4j5J2YR9ElS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjJ3JQACgkQJNaLcl1U
+h9AdSwf+KQSnGogEd+URgYtj9MeVv6Hiw0FX45ZsYI85Bi0KOmP+Nu9Tw1jbTfsM
+JgVvX+UfLVkSnmDHbdvTT8KSJ92bCk7p8vm/liTHygyQmmYVXaQMoVNGLdkCngtH
+DcLWwf6FKzeJfp5wO1nM7PR36ITmX9H8DaTszOFPzbzpcy3VKkJ5xlhB27Lpehav
+NBfz3XpkdnZpyxwdE1fsHwiQE6tZC5uesLXRt7gDHrFk5jI4OhmMYSyg9PfR39f3
+Z7qrEp8pZM6JNQcHpkJu+W7KLwGe/AXXj2SYjAy0uHfciTEUYIQBwj9+vmY6NdYW
+8hTyvGXk1ls7EfGSbDIGjGSZOzKkAA==
+=0H3m
+-----END PGP SIGNATURE-----
+
+--p8SWN4j5J2YR9ElS--
 
