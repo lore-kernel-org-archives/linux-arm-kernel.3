@@ -4,106 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC4ACAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Sep 2025 23:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA65CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 00:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmfG0W1IgkOwpfZLkT8EPqhqG/KPrr8NPJycy9t8jkY=; b=1YGN1ZTA8S/XBKwm6nm9LTB/Xd
-	4PJLNN1xy8K7qNmRNgcSfRSKwj0pHZxbTrNrnMBEIuJ0yiadh3R7fjvqwKaX6IhMVD6jgIOeNWfSi
-	rw4eKj/b62GfB9J4wrVk6dU8c6bMlFaEeHFitCjG9lmdffEsDEzJeNLVUViiJ0DCb4JumZIejmoG8
-	LSHz/20AZZ+xJDsw4QZSFsVd8gGixC+KOEUuY3I5Zew4qCW1GdLTtdbMYMsqBmYAoJu/d2EeOdYG8
-	91wVcS6tQXO0Zrd0JXNDPIaQ5AQuEgsyy1eyTOpQSUIcmG1VdWenwOxPAxjMa3nWT/1ZcCzxX2TkY
-	jI/zz4hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMHUdaciQEUphG0YAP/vw1pJBdgfUfPJFNc+8L14fKw=; b=oxJgIUdhOO1/RO7AkCn0a9VaKq
+	GWtn56q+Hesi90vPPPukT3CTlAqFu7uwFTFg1HC4lU2sYq6M/zGZoe/babcEkw5x9OsYxHRSs68sH
+	CD2LvGF5LZT4YUh4VGCbjxDcCCWHXhPly13xwex8VbMlqrYRl0FFMdFoJsV3bGPaFxndrgEfM0WF/
+	c+pecm0s+aXGsAuSlb/5JuFWwqtOdjpC9ZXvAbLSMQ35ejrsX392R+l/GT5RQrCDdLJ0G1d6hJb1X
+	imPL55Oyd4MEtB6BK8+YsdZ5HHU+jYmJUrxk04PrkPz4ExyKwg0YNjApqpeDYSbItQtmxBSUUtVwl
+	ErRKSo7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyJ0t-00000005vxz-1oNu;
-	Mon, 15 Sep 2025 23:53:39 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uyJWQ-00000005zxT-0Udp;
+	Tue, 16 Sep 2025 00:26:14 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyJ0q-00000005vx4-09ss
+	id 1uyJWN-00000005zvB-03CH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Sep 2025 23:53:37 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45dec026c78so48991265e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Sep 2025 16:53:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1757980414; x=1758585214; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=BmfG0W1IgkOwpfZLkT8EPqhqG/KPrr8NPJycy9t8jkY=;
-        b=Es40T3SSM33dxvI/nyVtJZiumjILYFInU6pousuvw408htY7pWuxvhU8ADU0N4LwuZ
-         EwZIRijS5OAeS4XrvJbZtAep3w/LUSiaqpLGg3/Bl8SAQtowdx1FxZ0t5Adh1OffcYuB
-         V+ioYaYyUJrbL8zK/zu4Vlck7JW5Vwy0dTI0ABbGQ2sMjRqMWCpOcHTiLFHjhYBVtubh
-         PwGiZ4HNB3tQKhSjxNmTeOmq6SJ5aCwsllvDLCUh7qChDXw0Tbk/SP8dWqCwPFhk2MRg
-         0PtHeBXFCSQAYf4NMVQ13CfbaaA7kkucG9cBjxs/ayodDylbvo1A3d1H7flRytRvoL5L
-         R1ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1757980414; x=1758585214;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BmfG0W1IgkOwpfZLkT8EPqhqG/KPrr8NPJycy9t8jkY=;
-        b=mTWkDM64osGishyEW5mqzIBHLPx3qwWdDydOa49s7rL+ZI+QUHFC5B+ztECK1HihLl
-         dGxCUNEBId3h06T1nfV9+4vQZODnJjpSf182A8bcsum6PpGnEf/z1W38S95qD8JQVxlJ
-         jPHctHi0tv72I8XfBuPeuX1XmqQLxzmeCNRqfxo8mhvg4sHaNkDctCR4OY7EcxaMzI7q
-         uD/0vCYo7xz1AZ5/4ewcGRkEnRMyA8Xp8H98P7kWXZ8+t+gcWTNogF4wSOVPHRGFRr55
-         7Dtjc8uuqsgmW12FnMwCGWQPMRgWeQexgap+1mNYQXxWfOho2Z8c8PLFQIzirxlZuITP
-         KTiA==
-X-Forwarded-Encrypted: i=1; AJvYcCWOkuZbdFY3KsVS/hnPtQJl0zJ9C2XgLq0/exHv+1OZ+vmczgoOrnt06BFTs2FRqNfA0Z1r7eaAMXgBZhJyohpB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUB3xtcUdrdCfXWEnXflzmtoHOxD14COEVmoswQOaU0VRmo+Xw
-	57jl6o2SgpAQ6zMQxOsX/8F2npbFCWzq0PgYaWaI7veltVPIqCXa2yp0
-X-Gm-Gg: ASbGncvE/bci/rrN8K2X5xsCbtSjSU5+bpueGfs6gIqXwwrL1n0tAxC4P+AFIe8K2a3
-	Uf9aTkSZo5x9Mty9GbpvOwhHmOk4o5rRw/7nysZQPzUZATd0cY3dKlG4bDX5Wtd/+MZ8mVAS/jX
-	TrbNpnJ4qJF0BgPh/YmcRgQSR7PbjXG583779fjc0IAf/6y+0vY7c7MF/vHi8wiOSZFnXW47f/N
-	Bym97M0nrSjgXxY91YfXKWrRvqjo3XL+ikbMxwyJ8hjB11+WalFl4MFHOkN5AjGyvbYj7me5WW4
-	mBPHjXFg1rOUoerWs83vMqVyOAmvkGIrLDmNxOxfVS8y2kgyQXnY5kzys72pz5Ctp7USb3V44Ix
-	M/zd6vOyJwhW+nq40Ecs2vG67sgyh6sr7D8NPF9hNuaL3Knpla/6RNUHJsRq+D/smyYTTUw==
-X-Google-Smtp-Source: AGHT+IHLVAgIWoi+HRjIu3glVhna2GE9VgX3EjwtlAMYebMBvwok+xVV62qMLLci45mipK73hQudIA==
-X-Received: by 2002:a05:600c:4f83:b0:458:bf0a:6061 with SMTP id 5b1f17b1804b1-45f211f87c8mr150676285e9.24.1757980413716;
-        Mon, 15 Sep 2025 16:53:33 -0700 (PDT)
-Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f28c193f9sm118455135e9.2.2025.09.15.16.53.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Sep 2025 16:53:33 -0700 (PDT)
-Message-ID: <68c8a6fd.050a0220.26bdf7.871a@mx.google.com>
-X-Google-Original-Message-ID: <aMim97cvziXHysYI@Ansuel-XPS.>
-Date: Tue, 16 Sep 2025 01:53:27 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Jakub Kicinski <kuba@kernel.org>,
-	devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	DENG Qingfang <dqfext@gmail.com>, Lee Jones <lee@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>
-Subject: Re: [net-next PATCH v18 3/8] dt-bindings: mfd: Document support for
- Airoha AN8855 Switch SoC
-References: <20250915104545.1742-1-ansuelsmth@gmail.com>
- <20250915104545.1742-4-ansuelsmth@gmail.com>
- <175795551518.2905345.11331954231627495466.robh@kernel.org>
- <20250915201938.GA3326233-robh@kernel.org>
+	Tue, 16 Sep 2025 00:26:12 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 5693E14000F9;
+	Mon, 15 Sep 2025 20:26:07 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Mon, 15 Sep 2025 20:26:07 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1757982367;
+	 x=1758068767; bh=OMHUdaciQEUphG0YAP/vw1pJBdgfUfPJFNc+8L14fKw=; b=
+	h+6R8rQMQZMbVkvm/8OpxCafDntSB5HiLMPjv0ycnPhwN/XAwfDBVUkrz0xt43LZ
+	Cap4xH0Uz5G30lOf0prvtqtuCLpdbqE9vqIIcfpbkTt/N4MqpDjz2mNa9ECH3E5H
+	NYUKoD4VpumGD1d+Sh0qXw/W1SlxW/OWe8XgK8IUdC9eX2ekBXElAflsoIryeHrR
+	3eo1t2wWr7RamCdElyHbKH7u5DmgZAx4oNU7fr+IUicdcD78tJqOGNAowEv2AzJg
+	3UVLeiqkStup83o0YZZFTqnT3HK9q9dn2hmIoSsgCUvJz78YkCIoRKpQVUkHbem7
+	SMUJbMLZRjXl4M4uSSjtLA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1757982367; x=
+	1758068767; bh=OMHUdaciQEUphG0YAP/vw1pJBdgfUfPJFNc+8L14fKw=; b=g
+	Jnc1JZRxWDrJ/YxbKbUTXHzuXHnNO5Yst4vX2QRGSHGD1OSWjdmpFs63+e0Odi0I
+	/IPprkPLQKUSelb6qnejzjwE9IsG/kZ6e8+zN6xz7NoVV9FeY82mOyVMuOG1V6oI
+	XbN06nZFFjz3+Q2smFVTNqReeG6lH71C12yXp3XyUZAzM06PUd/mq51aihr8xFS8
+	OcmTfmlQ+Jb2/JKuN6zFyTzXx/UW1WToJyrPPkFKPMJYfu5wafrDczNpjYPNdQij
+	alClrGyMsU4R1Yav9JNJ+ix5pZLmnvLdESbzCNcooq03sTtXMKIV1Wm/MdqLl4Hk
+	dcx5darB4s6TF50ZFcymA==
+X-ME-Sender: <xms:nq7IaNC8LclF1Q39bRVq820D64NwFTSsMh9yGIhvRyzrKEuT9VgaAw>
+    <xme:nq7IaKtfp_9tdRuXbQSIcuNnTb674NdvHWGB_yot10CrGqw-J9kEPLDuNVssGVNjy
+    RPE5UXKxcfkZ7nuPqM>
+X-ME-Received: <xmr:nq7IaLTIDHMBwS5kjupfqID2xlaCGoENQr_iNK29R6HIYs7I2dCxvyyha1fN9qq7A1jMJdnY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdefledufecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptfgvsggvtggt
+    rgcuvehrrghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvg
+    hrnhephfekvdekvdfhtddvteehueeuleetjefhieehjeeuhfdtuddtvdeguddtkeevlefh
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsg
+    gvtggtrgessghsughiohdrtghomhdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhm
+    thhpohhuthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhope
+    hrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprh
+    gtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopegrnhgurhgvfies
+    tghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthhtohepuggvvhhitggvth
+    hrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
+    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
+    eplhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrggsshdrohhrgh
+X-ME-Proxy: <xmx:nq7IaBJmBF_j__0JuQ5MHQ-LYvwEytGwCYotXI2b9j_ksMMQ_egk6Q>
+    <xmx:nq7IaOve2U-arkChzWhmTL7q5MiUHiNFTmBFdiC33dB6UyVEtaPaEA>
+    <xmx:nq7IaI-iOU_nq89e4WIck3KrOlT1CYuxrI7QOLLGqxZ-LNXKTkYV8A>
+    <xmx:nq7IaI2CaYyDTUeKRkO7g5Xj7PEG49K-HuXlRy3fABbX7ctCrJ5toA>
+    <xmx:n67IaMD7FtHuDwd1vsvSnOTu6SLrJYS-MeUy0frF1-abbsf6-RuIAB5E>
+Feedback-ID: i5b994698:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 15 Sep 2025 20:26:05 -0400 (EDT)
+Message-ID: <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+Date: Mon, 15 Sep 2025 18:26:04 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915201938.GA3326233-robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250911051009.4044609-1-rebecca@bsdio.com>
+ <20250911051009.4044609-3-rebecca@bsdio.com>
+ <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
+Content-Language: en-US
+From: Rebecca Cran <rebecca@bsdio.com>
+In-Reply-To: <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_165336_105492_6E673272 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20250915_172611_451575_43582B33 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,51 +122,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 03:19:38PM -0500, Rob Herring wrote:
-> On Mon, Sep 15, 2025 at 12:01:47PM -0500, Rob Herring (Arm) wrote:
-> > 
-> > On Mon, 15 Sep 2025 12:45:39 +0200, Christian Marangi wrote:
-> > > Document support for Airoha AN8855 Switch SoC. This SoC expose various
-> > > peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
-> > > 
-> > > It does also support i2c and timers but those are not currently
-> > > supported/used.
-> > > 
-> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > > ---
-> > >  .../bindings/mfd/airoha,an8855.yaml           | 173 ++++++++++++++++++
-> > >  1 file changed, 173 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-> > > 
-> > 
-> > My bot found errors running 'make dt_binding_check' on your patch:
-> > 
-> > yamllint warnings/errors:
-> > 
-> > dtschema/dtc warnings/errors:
-> > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml:
-> > 	Error in referenced schema matching $id: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml
-> > 	Tried these paths (check schema $id if path is wrong):
-> > 	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
-> > 	/usr/local/lib/python3.13/dist-packages/dtschema/schemas/nvmem/airoha,an8855-efuse.yaml
-> > 
-> > /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: soc@1 (airoha,an8855): efuse: {'compatible': ['airoha,an8855-efuse'], '#nvmem-cell-cells': 0, 'nvmem-layout': {'compatible': ['fixed-layout'], '#address-cells': 1, '#size-cells': 1, 'shift-sel-port0-tx-a@c': {'reg': [[12, 4]], 'phandle': 3}, 'shift-sel-port0-tx-b@10': {'reg': [[16, 4]], 'phandle': 4}, 'shift-sel-port0-tx-c@14': {'reg': [[20, 4]], 'phandle': 5}, 'shift-sel-port0-tx-d@18': {'reg': [[24, 4]], 'phandle': 6}, 'shift-sel-port1-tx-a@1c': {'reg': [[28, 4]], 'phandle': 7}, 'shift-sel-port1-tx-b@20': {'reg': [[32, 4]], 'phandle': 8}, 'shift-sel-port1-tx-c@24': {'reg': [[36, 4]], 'phandle': 9}, 'shift-sel-port1-tx-d@28': {'reg': [[40, 4]], 'phandle': 10}}} should not be valid under {'description': "Can't find referenced schema: http://devicetree.org/schemas/nvmem/airoha,an8855-efuse.yaml#"}
-> > 	from schema $id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
-> > Documentation/devicetree/bindings/mfd/airoha,an8855.example.dtb: /example-0/mdio/soc@1/efuse: failed to match any schema with compatible: ['airoha,an8855-efuse']
-> 
-> Why are we on v18 and still getting errors? I only review patches 
-> without errors.
+On 9/11/25 08:09, Andrew Lunn wrote:
+> There is no phy-handle here, and no mdio node in this file. What is
+> the MAC connected to? Does it connect to the hosts Ethernet interface?
 
-Hi Rob,
+Yes, it's connected to one of the host's 10Gb Ethernet interfaces.
 
-the problem is that the MFD driver and the schema patch subset of this
-series has been picked separately and are now in linux-next.
+> RGMII pinctrl is referenced here. This opens up the question about
+> RGMII delays. What is this MAC connected to?
 
-I tried to make the bot happy by using base-commit but it doesn't seem
-to work. Any hint for this? 
+It's the AST2500 MAC2, connected to the management LAN ethernet port.
 
-The errors comes from the missing efuse schema.
 
 -- 
-	Ansuel
+
+Rebecca Cran
+
 
