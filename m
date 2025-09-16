@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26548CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4B4CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naxnlF8RW3uPyYwaOywJDf3OceUlrkorGyjKAmqFqDQ=; b=1Y+xxAx198vB3J41vyCWezyCb4
-	6vyNUjjlZ49D8nyHXDD8Nc0Y73iRZ1e+zi4LdVd8JPJJN+Gz+5hDNe8dH5vD1CDHL15OR0XPiRgYR
-	F91PTf7mmw93gJULlgW0PkvB/YHZMoKFWvM0DiybEfRHPeYfdynFwtwe9rCZscltuyIbog3YioDW2
-	Rut1TngBk3J5C/D9YeqfqwLecMZYdme+xVEUCu+uXUZkxQyFr2v7gka5Dl2T2qIDbgECKlaZbZ+BY
-	dgiW2vyzkwqqkFCELdxc/7XbMDEkurzAwG1TJlXskneOjWmwGlrtPVoJMOVL3riiVqw4GCU1klRUz
-	AnNNpO2g==;
+	bh=LAXPi8+KuwRaa3qx04ySFQpznpxpBD4ALEEO3wmFkAo=; b=PtNUx2C2jtBVRy8FxjYTgeBlQu
+	BezESDW9I3srXQqGXgbp2BX29cWRUf5w5TXEWdvDfAfDTh2L/lGnUKzkf6jGiCZmIMysNNcnch67V
+	uLYELIO3SbWbCxh5gIFzwtGq25rdT6PUMazqzgsRiUsghoqC7c4auHTVWbSG7OSvRogZCZWIy0h3W
+	1L76rCdbyE1i9MyudtCN5LOMV8QF8bDd7/dhu/DeRZ4iby7qrB6A+WXN8Yh5fITqV/EcAdctfnmy3
+	56SSZXbG8L3k7yjqIBV87sJsOfSYSM+88fWqyv47Fp0ZFP1GcmTppGqf4O3mezpwnFmfOVXcD0sGa
+	eZZq3+hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWMs-000000082q5-1xYt;
-	Tue, 16 Sep 2025 14:09:14 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uyWOY-000000083BT-40dV;
+	Tue, 16 Sep 2025 14:10:58 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWMq-000000082oo-1UdS
+	id 1uyWOW-000000083B1-1KZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 14:09:13 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45f2f894632so55265e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:09:11 -0700 (PDT)
+	Tue, 16 Sep 2025 14:10:57 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45f28aba94cso53925e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:10:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758031751; x=1758636551; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1758031854; x=1758636654; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=naxnlF8RW3uPyYwaOywJDf3OceUlrkorGyjKAmqFqDQ=;
-        b=S5NbGNlfYhH4RcwX7CeD2kWVJdc+nx2758iTkl5r97INz0IF5Cv2utHtMx0cI+Go/H
-         iq795uLBYtfUGP0wLe75XXicJa5fQjPJcmPimBjPhZiOCGjHT7isgbbzGqyQKtMup3vE
-         bWnzkQN4habq+jQTy5nlid7JtOSEtQYfGjKn7pQEr+HQqZoulGjYvToS4Y+/IBeYMKrH
-         /1uAcFZyBi0ozOaeZphyPjK0bljj5npU+21qqx2cp8Lnt9RqprdYfyogsyxDnbJncYq9
-         mvF7Woz7zIYLWIEDSyaUUyfe4UYaCbfwffgPZl25MtZ1SvqcPiMPkqVPdyjtDFEd3APH
-         0s7g==
+        bh=LAXPi8+KuwRaa3qx04ySFQpznpxpBD4ALEEO3wmFkAo=;
+        b=FiMAq6yxn9HS2NdIPdlS3z0Pjg9/gz7aEFJQqHJNeghovc/aq+oR9FCdZaweR4FbDg
+         I4QszTlPMfLuo0Uk0P/DI7ir6yP8a7tIIvGUKCcMfpff5EtmAELyAx/oEUJTK5Zo5WJr
+         zcvPPUMq9qyKFTEGnGj1sM+YsVAPPHkntNx/NMIt5LkPpDRmRwQACC9S559/cF9ATPg2
+         ITi4zMur1XOIAMqTDIGj+g9MP3A3v9wfU13DTmrFJQj1Mq2Tn7KB+SRSDGaPQx4509h5
+         BkY+39YR0mV/afApmLIC1ZvrA2sHoAVnB5Ggag5H1k6G9euJuKUA4dA9AWu9kyyH7PEb
+         AhSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758031751; x=1758636551;
+        d=1e100.net; s=20230601; t=1758031854; x=1758636654;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=naxnlF8RW3uPyYwaOywJDf3OceUlrkorGyjKAmqFqDQ=;
-        b=KJ5FFF+2ERZ0hpI0GWgR+UkbCD0WUXs+1cq9qmWZ5J3TIQDLzMbSUFSeTXiqbxrJdf
-         ySIYPZoM9Pe44xEtV5xBtNvyVVHU1rHWb5r0uxHulLBeDau7nOVqTuELIiwiW2KE0Kpw
-         PKkZt5gWyfoiVYFUZDSvBuwaUxJVR0wPA881x/fAtT1zatZGEj8m4JF9T5C5GsfS9zts
-         832YzOwZMKa9yvnFadtw+Mgm+t2eTJASqg9yLiCtUKvIWEUTz0aTywd5dnPl71mSrBzm
-         AuZYLpPKEwMyLC5YreiaLa8Uah97aUOCy8mmKLttj/gheBC2yUsey2LHFXeCOFRU3m+l
-         MJ+w==
-X-Forwarded-Encrypted: i=1; AJvYcCV+aYRJAttfbdiQbHJ1pSvxCXY3J9fYgtHXJFrU5wmGp+Ie212iUg1yW+U418e1+08H68y8RteTzWUUbAc4UAfW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdJBXHJgtQLcOkC7TEVURsFktfKOuBAB85ST3rf8n3aVYRgtM4
-	tnmu5oKIJgz46uT/O0cqys99efiMWklQWGaxrpi6QHh3KM/zCKKiUIV+h0KqFaQTfQ==
-X-Gm-Gg: ASbGncvDYxgAg2xombTBB8bx7DoVVLf8i0h0YNILoTI/rD8BKS3yRgbpafNTjRrxX3P
-	E7eDhvbR7GewizPijl8BZarsOzY5pv/qCvnFQgrzVb00lHFdsUjSbJqkfOwV27dzqQyBDCEgb0X
-	wU4OoNL/R8DO6ImAOnoo3LO/Xsa1N9p+rdJHuel58fNFh5piY95svqwV2u94vy1KX3jjYymZVDa
-	9WUblcD0cCooYDjHS+wiurBRiXlTLNC/kd6Z4Yh1fk5I8G6J1QwERnZMLPyQt+0G+b3NlZF+FoE
-	5jcxXoNGQ3BQbnoubzBb6fiPASNF8+X/furcoBiueLWPbcHoImPsCrttXILEtw/+kBn0zaesvYo
-	hvZ1uE46zzvUISINkgD25G7tdYnzkC6Ko+pHBF0SHuPINOKUnlJwKBzGcsfWTQv+q38QeCg==
-X-Google-Smtp-Source: AGHT+IHiAMHPDFkAjiAxoWmA+0eW1WUNEbjO+yxVuqDckIGe39OhDb7FDlwQGK8b0ego1xO8BRYMfQ==
-X-Received: by 2002:a05:600c:4689:b0:43d:409c:6142 with SMTP id 5b1f17b1804b1-45f320079e2mr1928645e9.0.1758031750409;
-        Tue, 16 Sep 2025 07:09:10 -0700 (PDT)
+        bh=LAXPi8+KuwRaa3qx04ySFQpznpxpBD4ALEEO3wmFkAo=;
+        b=grPccafqaxbe9sPWh6h8w5lWbzVb516fPItUKl/2vOdN9ex+g4t13Tbd2jvdFWPjDw
+         gEutpbjovy132wbprnM76iNureNBl6HF3UrvkE+BZUm7CIFHN8PhCz3iBkConGNecX1S
+         yUPkAePD8G9off83xDXmTSrTooagN4JA92sZAxoHk97i1fvrI7SNrxbW2sl6VyhasRUT
+         eNxo2M/5Z/y4dQbkmXNpEuRKjc06kJ9N7H4wLZRHh4rTI+cP5P80UAJrvtFk2U0qlS/a
+         nCGR+vaQNDXNTGc5o3LIlbK2kuIzQQZsv+CJ2+fgF6s5UPBs96EHg80BA0uSaLNJF2Vz
+         7LOg==
+X-Forwarded-Encrypted: i=1; AJvYcCUP+4WGEJMvuc7yFs+9v1fUcmzETcyN7fYiZD0KWxX8HVAKb2QuSCkaBigdspE8LYA155OWAZBsfl06vDY0pAXP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYQy8iWdameIc63yxbo92yWkXQ+41tJmfTjal3NkzrAGMsy+Rh
+	BqEWBNT1kOhUnyQwoyoy3Y5JMwgRfX0lky/1XuJBL5DpYAHArHVkAsin9LwmYL76gw==
+X-Gm-Gg: ASbGncs+AR/WXGiYEk3sXdj6CKmf8AoKKFwAzEBLYdTRDDhJC6OTsciZXYnm8DJV+/H
+	5WWOGfmLKPoXoItX056emj7PriRaOtj7wduz9pCDzKeVQK9gKP24XR/bd24dulOalbvCp2k8ZiH
+	6Uq/Lt0P8SMmLP5Dv6XqpkdDsrtDQxG1kFB9KLd2CqCNRmR/sDQVhP66GcgnZ/owtmYadH6XR5G
+	Emimy54k8We8p4M7woCUtljoWYRP+FRhAF9QnGWKAZ27x2PAong7275UX33dsFwjx/KnC6L1wUX
+	MMqCab1tuXfJW2zFVHsjcTDH4fz/5InrBHlmLqbtxn0A4FAqyeWz0gcm0Abmx/0FnKqWJbCraIu
+	8SnlGmJoKKt6CAUGg0jzqo4AU+ZTDi8SH2fXDcV4ojLVGKwU5le+8J2nmi+F/DDRMs7LkwjM0vy
+	AeOhU3
+X-Google-Smtp-Source: AGHT+IGcTe1ECO2GamWj51rf4zuyd3cbzaJnBRpBuslk+LBrCQjMJhqgUMk66hHXtNsu5/Krbmp77Q==
+X-Received: by 2002:a05:600c:3b85:b0:45c:b4fb:f0b3 with SMTP id 5b1f17b1804b1-45f3278c3admr1396305e9.3.1758031854210;
+        Tue, 16 Sep 2025 07:10:54 -0700 (PDT)
 Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45f32083729sm19395835e9.0.2025.09.16.07.09.09
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45e037c9d91sm219090395e9.20.2025.09.16.07.10.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 07:09:09 -0700 (PDT)
-Date: Tue, 16 Sep 2025 14:09:06 +0000
+        Tue, 16 Sep 2025 07:10:53 -0700 (PDT)
+Date: Tue, 16 Sep 2025 14:10:50 +0000
 From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
+To: Will Deacon <will@kernel.org>
 Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
 	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 04/28] iommu/io-pgtable-arm: Move selftests to a
- separate file
-Message-ID: <aMlvglecB0ZA2fmd@google.com>
+	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 06/28] iommu/arm-smmu-v3: Split code with hyp
+Message-ID: <aMlv6rLaZ80j33OV@google.com>
 References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-5-smostafa@google.com>
- <20250915164517.GL882933@ziepe.ca>
+ <20250819215156.2494305-7-smostafa@google.com>
+ <aMA4UpDgLDuiGYf8@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250915164517.GL882933@ziepe.ca>
+In-Reply-To: <aMA4UpDgLDuiGYf8@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_070912_403033_A1E1A409 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20250916_071056_371048_EF217B35 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 01:45:17PM -0300, Jason Gunthorpe wrote:
-> On Tue, Aug 19, 2025 at 09:51:32PM +0000, Mostafa Saleh wrote:
-> > Soon, io-pgtable-arm.c will be compiled as part of the KVM/arm64
-> > in the hypervisor object, which doesn't have many of the kernel APIs,
-> > as faux devices, printk...
+On Tue, Sep 09, 2025 at 03:23:14PM +0100, Will Deacon wrote:
+> On Tue, Aug 19, 2025 at 09:51:34PM +0000, Mostafa Saleh wrote:
+> > The KVM SMMUv3 driver would re-use some of the cmdq code inside
+> > the hypervisor, move these functions to a new common c file that
+> > is shared between the host kernel and the hypervisor.
 > > 
-> > We would need to factor this things outside of this file, this patch
-> > moves the selftests outside, which remove many of the kernel
-> > dependencies, which also is not needed by the hypervisor.
-> > Create io-pgtable-arm-kernel.c for that, and in the next patch
-> > the rest of the code is factored out.
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/Makefile        |   2 +-
+> >  .../arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c  | 114 ++++++++++++++
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 146 ------------------
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  44 ++++++
+> >  4 files changed, 159 insertions(+), 147 deletions(-)
+> >  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
+> > 
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> > index 493a659cc66b..1918b4a64cb0 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> > @@ -1,6 +1,6 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+> > -arm_smmu_v3-y := arm-smmu-v3.o
+> > +arm_smmu_v3-y := arm-smmu-v3.o arm-smmu-v3-common-hyp.o
+> >  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+> >  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
+> >  arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
+> > new file mode 100644
+> > index 000000000000..62744c8548a8
+> > --- /dev/null
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-hyp.c
+> > @@ -0,0 +1,114 @@
 > 
-> Please send this as a stand alone patch, it looks like a good idea.
+> Given that this thie is linked into both the kernel and the hypervisor
+> objects, I think I'd drop the '-hyp' part from the filename. Maybe
+> something like 'arm-smmu-v3-lib.c' instead?
 > 
-> Also please add the boiler plate to wrap the selftest into a kunit and
-> use the usual kunit machinery. We alredy have an kunit for
-> smmuv3, it can just add another file to that.
 
-Makes sense, I will do that (hopefully before the weekend)
+Yes, that makes more sense, will do that.
 
 Thanks,
 Mostafa
 
+> Let the bike-shedding begin!
 > 
-> Jason
+> Will
 
