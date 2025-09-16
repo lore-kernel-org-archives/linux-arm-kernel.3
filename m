@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525CFCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 17:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4869CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 17:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asmJMTOYWO6MF0j8LTYTYFskhlkUXWRnPY3+bCKiCFM=; b=2CjCswIw7isJCnnMb97iEO/Rvf
-	gIhhkxrKIQr2+dfYwJ6GeOhuWtCQsA3FnCbTa3+DmYsY+9q1m+jnbWl118igGIBWd+Mtkb9d9AoAx
-	AKRjLdpomu08Lv3EesSUH/9zjlDPgSlNLfyi00LVDOTt+VTubNn9OPZewvQsJhFaLsa6cYL5WkBdZ
-	Nw3MU1pTymjevzEPwqC6qR2JAgBeR6C6HSITF2d3287J0bEURir1NcSiH+f2VAkakYgR6I2mcejCw
-	Hnf+Zp7znGqO74FEc7i5RITMsBeuYdARI6ukQUY+K9Bz+KND5oFAiob8qrJwpq/cXegOFNILoOndZ
-	WXJtO5kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J7Yrac2PmNufTz+iqk5f3Mxi+CfukBzkGS3LmPSCGKo=; b=5C5LPQ/lQreMquEpg4WcEF4lcN
+	+kkIZkBYdhxZfQ7JcrNWgArXPtS4wV0sk+OiGRMjcA3im0FgSfmHcD/k5RXv+6YoITQo9nnzje1Es
+	A1Cfi5qdG3nQrVRM1JG3+7HotQ893sMUMXeFoj+nfCh3Op1L0izw0weG6TRG17xfdsf0oj1y/Ddfa
+	yEjmuDA1+H4wmbMqqNqPXi3tX2tXM5H/1RXUUvTIA9NicZe+dMR+nszKdu5ZJnhkxPT8qXGwXhRWh
+	c5Oqfm9cpAWLDji0RcZxMt/ON5Eu0SB/30MPrjSicnk6wNewOWOkX2uTx/HwiUTSMelF+GL7mjRM/
+	6oqS3dKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZco-00000008eB1-2AoN;
-	Tue, 16 Sep 2025 17:37:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uyZdN-00000008eMY-1XKF;
+	Tue, 16 Sep 2025 17:38:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyZcl-00000008e9V-25tt
+	id 1uyZdL-00000008eLX-0Gen
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 17:37:52 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GAgPBv010521
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 17:37:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=asmJMTOYWO6MF0j8LTYTYFsk
-	hlkUXWRnPY3+bCKiCFM=; b=XjSML6OUsA7YEzsSUp9jzWcCdOj2nMcPPedHkIu9
-	SiBG0MbFV6Eh9qVS+Xi9etlfsevozD7saVGyecfN/LKtlqdw1bGuB3a3EInXjH2B
-	dPbYiMHzMSydct75/ZBHqiqAc0JzK9XTfbWVBUYKb4uiVjkQ9EZYsVRIfbojdbw2
-	oflzVPFO8/qEfWOD91rhhvYmkL6vor2rSW+mTDuiagjZLfVjj7aVnwj4tdX6sKTF
-	DnoPQ0AcJyG3kDCZCNmn2+/akw+kwI3gA5vyKlAFzpbmERkFAcAIwufRc6qF5w/N
-	SJ6er7IRlPl+rAL/GMAAxSL5jceGigwoA/poIUa4/As7Fg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4951snsp6h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 17:37:50 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b49666c8b8so110877461cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 10:37:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758044269; x=1758649069;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=asmJMTOYWO6MF0j8LTYTYFskhlkUXWRnPY3+bCKiCFM=;
-        b=u5vEufDdMU/h35gHoIgaP6M6RVolpxff+Q8iPoHt8U4JrgnvLLOvyoL6oBqRPAu+LM
-         UDSyrN9+ukC4MOpgBddS7E4+KC4Fq/KZNeeOrTt51DDlFASoqSgepxhsbiB1gbj5sv7L
-         MkBd+oBZQpvm3VcHAG1hr8B+aYGLgBaFAB5Co4kn4yRC7u5Cvre+wq2t8oyyD/K3yLUy
-         HiWh2HWehMPNrd+wm8b537SCz3kXVUeVZKXpwwtgD5xsVyy87VrU5f9o/P8h8rx6ky2T
-         qPXN7rLgHkGYOMGX2WjQRcs/TTIUVCMGFeMJxBaY0Y9Z80pgojY02O8P2EqxA3ltDxr4
-         noBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXyUjP19t6omYUvSTEnM7YZik7AHgqLcXicQdRDVTzyREand/YqMBRRxtBuISoaKHoxP5bpkprFAEzeNqH9qSmq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE3lMV574WHBKVFQqOc/nErfLd3f1wG9GzpHZiF1JKKihVgJTS
-	VOdhWSxAWpTzYfpAoBy787Wpp7WooctamBk6EWrveSosRJDhI7d17l3LjqgCGg4u//YLHjPSDgx
-	RQs2Suu8Cvo2Wct+0VgAWaUbPxSbLrztRY1sIzwptOKXpmY29GLisG7LNSgCLv1SXIrF1T/aFW8
-	UDGA==
-X-Gm-Gg: ASbGncveANBRIIdDpHSlGkiKwL7RJ7ReMjYg0o80MOa9YIidn4b1Nih4Ul+7uQDosNN
-	xMR1TBfhuZbN/lgC+vExTK3T5byBQUp0wsPsT5HGfC72hqJs0650zPBns+mAVEBv4abZlscsGbk
-	DXQcdrNtHMNLvMwrvSNA5LsqDu0kxDrEl+uVvSEv2X2wiat+3aAvdaHgmjXfi//5e+gEzAFBpsF
-	WsHkCEIqNI/Z34qEEWt0VMl9IpoYqdTcNHIKUGRZy6Z9m3ht/mWVR2pglQMClG4OWpkArQf0TGJ
-	oK+Jj6E1vRF0b90vKsrFhZ8M0T80UWn/GSi97I/O5p2e3gwKgnN+OOmhJH0Xk2q84KfXEeAuXpM
-	rKRLzfgY+aXQ1YzdPJ5w5j/hF7B/S5Is1n8je+Jqd2C7HS4Lemup/
-X-Received: by 2002:a05:622a:428d:b0:4b6:2336:7005 with SMTP id d75a77b69052e-4b77d08c1dfmr178883721cf.19.1758044269007;
-        Tue, 16 Sep 2025 10:37:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEINTEPiFvuj+G9ik9pEiQhi0J/sHmetYeMmXJ12N3mEWuP8rQExfbslVak9k+CMhjZMs47OA==
-X-Received: by 2002:a05:622a:428d:b0:4b6:2336:7005 with SMTP id d75a77b69052e-4b77d08c1dfmr178883081cf.19.1758044268385;
-        Tue, 16 Sep 2025 10:37:48 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-56e6460f61dsm4437835e87.113.2025.09.16.10.37.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Sep 2025 10:37:47 -0700 (PDT)
-Date: Tue, 16 Sep 2025 20:37:45 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-Subject: Re: [PATCH RESEND 0/2] drm/bridge: lontium-lt9611uxc: switch to
- DRM_BRIDGE_OP_HDMI_AUDIO
-Message-ID: <3n5gjebxuafxgsl7yl6ife76cnfwblsggsp2kkcrbjjansbvi7@smi7zeexy5gy>
-References: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
+	Tue, 16 Sep 2025 17:38:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758044306; x=1789580306;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=qsVdbGbYrw2ppGmD7AyATaEWzKfxfbFDoOHdJUVDbvY=;
+  b=InZSmbULk2n9n6hTXaBawJWWOr0uQTiExv1OqDfXp+0ZnCs1bWxvmtu5
+   v1ASmn7TZpWn1JTV2megw5oFgBXpEctF6hyfYZusu927BOsyKkDtN5klP
+   ZY23Bch5+V+MlSyMOxGLbXYN7bpfcFjHvCbId0o8srsOOUWpyozLuVwD6
+   Xltqcam3Jwgy7K70HWQIMHadRFsUVK1C+uNExyQAx/2A8hluqwH1bTplq
+   Q/eFpHymCo7mchYDKtoW0CJEPFa/AzoKVi0tLXEXQGiv8dQB2TkyxXYX0
+   VYMXktWNGaHkPDUnvuW/Ck0sumKtFfRkmu3I3m8W8G15bpgAHumrGE8Go
+   Q==;
+X-CSE-ConnectionGUID: JwgJaeFzQrm7UxwC39IelA==
+X-CSE-MsgGUID: gmVKfSQqTDuKOqe8EMcG/w==
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="52418754"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 10:38:26 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 16 Sep 2025 10:38:08 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Tue, 16 Sep 2025 10:38:08 -0700
+Message-ID: <71d11cdb-345f-43c7-b764-5aa43cdf1e1c@microchip.com>
+Date: Tue, 16 Sep 2025 10:38:07 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=JO87s9Kb c=1 sm=1 tr=0 ts=68c9a06e cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=BgkF6ddApZc5WCf5u_gA:9 a=CjuIK1q_8ugA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: L7y6jaEmk8dB5GBxJ-y8e5HS4tS55_Ee
-X-Proofpoint-GUID: L7y6jaEmk8dB5GBxJ-y8e5HS4tS55_Ee
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDA0MCBTYWx0ZWRfXwHwOyUnnrbPo
- kxVVE3mZycmHrkbAAwba2GKp1nmCbN+F6vtWPUAQbJ4Y6f1POD4St3Oivx1BRzbGNWe//lPtQvS
- b267A2RI2sXKVzK8GAliS+giU8yTJyM8dis1V1TzloY1zj+OA0n4OnFVKIwyze5q7YvKSmdBT4j
- NlNSwepcOEzsCtl+cn4jL5lgfQ0O+Gyl+1yrP6fBTvZ/ipE2F8V3/i9OthXqVhB6r3BaERcP9W6
- DXQpAsj/tgbQYaLiIVmmNXcEI5mTL/13EX3N5Q7M1eOjY2Yed8/lFvPeE8gygAt/wFnQ3qO2NJu
- CFrkpeITvotZ/7lywREZqkmSjtnPyfg5pBCTjAFYwNdUZtmw5Q6WARpLMGJjQaC/mnBM/JiH6/e
- AH+VCsTB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 spamscore=0 clxscore=1015 adultscore=0
- malwarescore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509130040
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: microchip: sama7d65: Add GPIO buttons and LEDs
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-leds@vger.kernel.org>
+References: <20250909160842.392075-1-Ryan.Wanner@microchip.com>
+ <20250910-retake-attic-ac1fe3429a1e@thorsis.com>
+ <20250910-alkalize-overtime-930a59a7d169@thorsis.com>
+ <fa5d44ca-d1ea-4c72-a998-b10f098b25f8@microchip.com>
+ <20250911-breeder-hardness-d3ffa4bfbb6d@thorsis.com>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <20250911-breeder-hardness-d3ffa4bfbb6d@thorsis.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_103751_542506_8702858A 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20250916_103827_116714_D421C88E 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,46 +91,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 03, 2025 at 02:53:50PM +0300, Dmitry Baryshkov wrote:
-> Use DRM HDMI audio helpers in order to implement HDMI audio support for
-> Lontium LT9611UXC bridge.
-
-It's been waiting a while, it got posted as a part of another series,
-but I think I'd like to apply this by the end of the week if nobody
-objects.
-
-A note regarding OP_HDMI vs OP_HDMI_AUDIO: there is really no point in
-going through the OP_HDMI other than bridging the HPD even to the HDMI
-audio through the framework code. The bridge driver doesn't implement
-atomic_check (on purpose), the mode_valid() check is also performed
-against a fixed table of modes handled by the firmware.
-
+On 9/11/25 00:00, Alexander Dahl wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
-> Dmitry Baryshkov (2):
->       drm/bridge: add connector argument to .hpd_notify callback
->       drm/bridge: lontium-lt9611uxc: switch to HDMI audio helpers
+> Hello Ryan,
 > 
->  drivers/gpu/drm/bridge/lontium-lt9611uxc.c     | 125 ++++++++++---------------
->  drivers/gpu/drm/display/drm_bridge_connector.c |   2 +-
->  drivers/gpu/drm/meson/meson_encoder_hdmi.c     |   1 +
->  drivers/gpu/drm/msm/dp/dp_display.c            |   3 +-
->  drivers/gpu/drm/msm/dp/dp_drm.h                |   3 +-
->  drivers/gpu/drm/omapdrm/dss/hdmi4.c            |   1 +
->  include/drm/drm_bridge.h                       |   1 +
->  7 files changed, 57 insertions(+), 79 deletions(-)
-> ---
-> base-commit: 024e09e444bd2b06aee9d1f3fe7b313c7a2df1bb
-> change-id: 20250718-lt9611uxc-hdmi-3dd96306cdff
+> Am Wed, Sep 10, 2025 at 10:16:03AM -0700 schrieb Ryan Wanner:
+>> On 9/9/25 23:25, Alexander Dahl wrote:
+>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>
+>>> Hello Ryan,
+>>>
+>>> Am Wed, Sep 10, 2025 at 08:20:28AM +0200 schrieb Alexander Dahl:
+>>>> Hello Ryan,
+>>>>
+>>>> Am Tue, Sep 09, 2025 at 09:08:38AM -0700 schrieb Ryan.Wanner@microchip.com:
+>>>>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>>>>
+>>>>> Add the USER button as a GPIO input as well as add the LEDs and enable
+>>>>> the blue LED as a heartbeat.
+>>>>>
+>>>>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>>>> ---
+>>>>>  .../dts/microchip/at91-sama7d65_curiosity.dts | 49 +++++++++++++++++++
+>>>>>  1 file changed, 49 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+>>>>> index f091cc40a9f0..2fe34c59d942 100644
+>>>>> --- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+>>>>> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+>>>>> @@ -11,6 +11,7 @@
+>>>>>  #include "sama7d65-pinfunc.h"
+>>>>>  #include "sama7d65.dtsi"
+>>>>>  #include <dt-bindings/mfd/atmel-flexcom.h>
+>>>>> +#include <dt-bindings/input/input.h>
+>>>>>  #include <dt-bindings/pinctrl/at91.h>
+>>>>>
+>>>>>  / {
+>>>>> @@ -26,6 +27,42 @@ chosen {
+>>>>>             stdout-path = "serial0:115200n8";
+>>>>>     };
+>>>>>
+>>>>> +   gpio-keys {
+>>>>> +           compatible = "gpio-keys";
+>>>>> +
+>>>>> +           pinctrl-names = "default";
+>>>>> +           pinctrl-0 = <&pinctrl_key_gpio_default>;
+>>>>> +
+>>>>> +           button {
+>>>>> +                   label = "PB_USER";
+>>>>> +                   gpios = <&pioa PIN_PC10 GPIO_ACTIVE_LOW>;
+>>>>> +                   linux,code = <KEY_PROG1>;
+>>>>> +                   wakeup-source;
+>>>>> +           };
+>>>>> +   };
+>>>>> +
+>>>>> +   leds {
+>>>>> +           compatible = "gpio-leds";
+>>>>> +           pinctrl-names = "default";
+>>>>> +           pinctrl-0 = <&pinctrl_led_gpio_default>;
+>>>>> +
+>>>>> +           led-red {
+>>>>> +                   label = "red";
+>>>>> +                   gpios = <&pioa PIN_PB17 GPIO_ACTIVE_HIGH>; /* Conflict with pwm. */
+>>>>> +           };
+>>>>> +
+>>>>> +           led-green {
+>>>>> +                   label = "green";
+>>>>> +                   gpios = <&pioa PIN_PB15 GPIO_ACTIVE_HIGH>; /* Conflict with pwm. */
+>>>>> +           };
+>>>>> +
+>>>>> +           led-blue {
+>>>>> +                   label = "blue";
+>>>>> +                   gpios = <&pioa PIN_PA21 GPIO_ACTIVE_HIGH>;
+>>>>> +                   linux,default-trigger = "heartbeat";
+>>>>> +           };
+>>>>> +   };
+>>>>
+>>>> The label property is deprecated.  Please use the properties "color"
+>>>> and "function" for new boards.  See devicetree binding documentation
+>>>> for LEDs.
+>>>
+>>> From a quick glance, this seems to be an RGB-LED, so I would suggest
+>>> to not model it as three distinct LEDs, but make use of the
+>>> "leds-group-multicolor" feature, example:
+>>>
+>>>  59         multi-led {
+>>>  60                 compatible = "leds-group-multicolor";
+>>>  61                 color = <LED_COLOR_ID_RGB>;
+>>>  62                 function = LED_FUNCTION_INDICATOR;
+>>>  63                 leds = <&led_red>, <&led_green>, <&led_blue>;
+>>>  64         };
+>>
+>> I see, I was not aware of this feature. This would combine all of the
+>> LED pins into one RGB light correct, it seems from sysfs that this is
+>> the case.
 > 
-> Best regards,
-> -- 
-> With best wishes
-> Dmitry
+> The group-multicolor feature was merged for kernel v6.6 so it's still
+> quite new.  I tried this some time ago, so this is from memory only.
+> The three single color gpio leds are still visible in sysfs, but you
+> can not control them independently anymore, only through the sysfs
+> interface of that one multicolor led.
 > 
+>> Would having the default-trigger="heartbeat" still be allowed for the
+>> led-blue node or should that be moved into the multi-led node? From the
+>> bindings it seems that the default trigger is still in the gpio-led nodes.
+> 
+> Sorry, not sure here.  I put linux-leds in Cc, maybe someone over
+> there can answer.  If this does not fit how Microchip wants to handle
+> that LED on their boards I think that's fine, too.  Just wanted to
+> make people aware of the possibility.
 
--- 
-With best wishes
-Dmitry
+It does not fit very well how we want to handle the LEDs on this board
+as of right now. I am assuming it is fine for now to have these as
+individual LEDs?
+
+Best,
+Ryan>
+> Greets
+> Alex
+> 
+>>
+>> Best,
+>> Ryan
+>>>
+>>> Greets
+>>> Alex
+>>>
+>>>>
+>>>> Thanks and greetings
+>>>> Alex
+>>>>
+>>>>> +
+>>>>>     memory@60000000 {
+>>>>>             device_type = "memory";
+>>>>>             reg = <0x60000000 0x40000000>;
+>>>>> @@ -352,6 +389,18 @@ pinctrl_i2c10_default: i2c10-default {
+>>>>>             bias-pull-up;
+>>>>>     };
+>>>>>
+>>>>> +   pinctrl_key_gpio_default: key-gpio-default {
+>>>>> +           pinmux = <PIN_PC10__GPIO>;
+>>>>> +           bias-pull-up;
+>>>>> +   };
+>>>>> +
+>>>>> +   pinctrl_led_gpio_default: led-gpio-default {
+>>>>> +           pinmux = <PIN_PB15__GPIO>,
+>>>>> +                    <PIN_PB17__GPIO>,
+>>>>> +                    <PIN_PA21__GPIO>;
+>>>>> +           bias-pull-up;
+>>>>> +   };
+>>>>> +
+>>>>>     pinctrl_sdmmc1_default: sdmmc1-default {
+>>>>>             cmd-data {
+>>>>>                     pinmux = <PIN_PB22__SDMMC1_CMD>,
+>>>>> --
+>>>>> 2.43.0
+>>>>>
+>>>>>
+>>>>
+>>
+>>
+
 
