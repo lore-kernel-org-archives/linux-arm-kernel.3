@@ -4,79 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E54CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02F8CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxPtrRmU/hgbR36FcYWyNMdb1qYQ73ySD1foCqKr6wY=; b=4REzPxZJlsuHlwAurd5QVgF59B
-	+Ae2pYOxflSKWw3Yl3mkzzDk9RCdHS+yXxIQqnYJcTMfLHxhOqHY4c31ZwCj7lIGI6h2f10M2ma2V
-	JBhwCderS0xwl6y9b20X0SZ7m0xqnJddb8iXdHfC66o7FrLgZg+BFtieGooCaela0X9oBZb87lJvV
-	x04GA17oX2WCW7KiUQ3W7wNSM3Z22BUYkNIDls7fwNKI/DGYkfGjEVEgq3yNn7XFn7M7WDxWFHsw4
-	hbetn6/3THQA/JLAxiAsy6Gxp/ERab3k7nqvn54sAENvjapy1E38yvl03eVjAFoX3QZQ+FAPCfAhx
-	lK7/eJ3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L7Lr16FtYeEf4lJm2jk4iZNIWzC+0CrHYoAmKGMjjoQ=; b=lbuZLhVeULEa0a3VNTLmW5VUyh
+	z+EG+j6t5WIpeSLUez/gPO+y8B4Ny8+5pkLmgADpNQ8trfU+5Zb5AtsfzKb2hUOy/+7eGmi1w8wsl
+	Jd6Ylylqe6cTSAg2SLh08FCaRVzUGbzzoToFs42VEQfQr0J0Y0Ypk9yOibjulZ/Zo5YP2VSSRj7bJ
+	XJjQ02QsSS4Cu5B0/6nNsNqjO3LKNYVL3VE0USZSCgh4yQlGu3ZhsOc+90CMd/0DYkvYT8/cayzuH
+	7hXUmrggSqPSVuzyP3VEdsJVn9zO4agol1jF1nICFiJSS3mkm6b7EwHageilclZ7CVEdkaJ2TZaxW
+	amRCGgUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRR2-00000007GZV-2N5W;
-	Tue, 16 Sep 2025 08:53:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyRVP-00000007H25-2EEt;
+	Tue, 16 Sep 2025 08:57:43 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyRR1-00000007GZ5-0ehh
+	id 1uyRVN-00000007GzR-24uR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 08:53:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 07FE260143;
-	Tue, 16 Sep 2025 08:53:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D768C4CEEB;
-	Tue, 16 Sep 2025 08:53:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758012788;
-	bh=x1vfpZMTu0dHJho+pMOfAAm3yf/Mhb06EGt/9k5KZqM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YwR15Hw5jn3tFb4Mfe4A8rfByvNpFsa4+L4hIVpF8effWXB1RbJ6jp8ca77/XkJEi
-	 esAb/PiHMhyGHN8Ql1817x+/6PADODi1UGpNuwQwEFuexlS8y1PrWKTrKrXh7WYO4Q
-	 mWkau3c64o7aheV6n72emzl51Zr7T+3PGbjK6dJgbEJTF/GO7a+YKKjXxFgGhvhZkV
-	 CeJaXbT57laXYuNwKo7ZmoM368VqgT7EULizAf6Lpk/f9OiXvZFKAiFOe59YwKidp8
-	 50KCBZpAEnQacdlDqw0pIo2EDFnJi4Z3nr0ZMfE9ayZyus2d2VHj5xvdnLkLpx5krd
-	 V0oMxvmP8FNGQ==
-Date: Tue, 16 Sep 2025 09:53:00 +0100
-From: Will Deacon <will@kernel.org>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v3 3/6] arm64: cputype: Add Cortex-A720AE definitions
-Message-ID: <aMklbKwro2bSX76t@willie-the-truck>
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
- <87plbri0k3.wl-kuninori.morimoto.gx@renesas.com>
+	Tue, 16 Sep 2025 08:57:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IxvZKTlBVDsuNGB1WyYar3kKVEABJ5Cz0SUg3hQRXCh6XON2z+KOYkolsiy6WCFWH3jiBX6J5AZYIIWii9Xl8ZxTAHpRrrwF0JgdGzf5Rw61FlOKrbd4VJkl2GzBc+GthXohdMjfXhXvI2tOdyDU91il7tbwb+H+GD0Qt4QNq8kTviyfdWu60eC3SDfcPPo3iJsy8W+o6WuC9m0M8AJkeftPhGuNPYiQKWukWNEjyJV9kYQ7MBlPwFRHF4XoP9/6UtQJIWeQ4kV7jIrVj9GCVWBX+ICzVhCv158YHfUQ/HoeAQTNKPh5fPjpHkRfxtBs5z7T2uljD04Yr0oyIVTRnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L7Lr16FtYeEf4lJm2jk4iZNIWzC+0CrHYoAmKGMjjoQ=;
+ b=xv1P9WtM/bHD/ELPb6KQPZ3ZgSenAxrzg81EOc4JhT0YdWEtpxkxGkPsSfO1thBBxUi/k8VGWA4OlB7L6BiFnSq5ZEw04+6B5qkcc8m/aJzkYhpnBlpvo7Vq9cozm1BUdgrFUwJFR6qGAr0cd+zhYedNG8AbS+O/KXBw/M5L2Ya1Ul6NhQ6IFv8X05lIbc7DBdhQMHyhgMgHwR5vzqp9k/HldCU0BNWVT0QY2r26avvKf8KSzvG1eTvOWg+yqasZBFp4FkCX9JvrgNDX5itb8N3fG//1Exv2qB75LKHHfWSND2GGwFLG/TDkrcjZomdz0Eu8oHUb9THHazx9pcySVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L7Lr16FtYeEf4lJm2jk4iZNIWzC+0CrHYoAmKGMjjoQ=;
+ b=GdBUdckr0bswsxJ7zrKqhmaUhlttN6GSkebWynZ2wu/exdnVdPi3huGSKwhEpvnjsb9tXEDCtmf3oUcjwHYVsgJRgI3TdyB7lbsjzaDwD0UzGPa9rb7Y8t4BJ//HxB7P6PyLOyJrTLns/goIE513iu2ITxBBkVmbbu2chieGHIrCJvtIRf6BabXXX30j4Uc8Bebjf0/AyQUhTvsUmhh79uWDO1YoIyr+gOCyvu3o6kDyk5bZtEXnt3yiBMqs3lT6GTii0Eh3zZDPj9ZKkNKZNc8V62MwZn3EQPAjl9cvFTcGciuohakRhmdHzlgNPwzC8kHG51jwQgv5jsdHmEYAhg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by PA1PR04MB10416.eurprd04.prod.outlook.com (2603:10a6:102:446::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Tue, 16 Sep
+ 2025 08:57:33 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33%4]) with mapi id 15.20.9115.018; Tue, 16 Sep 2025
+ 08:57:33 +0000
+From: Haibo Chen <haibo.chen@nxp.com>
+Subject: [PATCH 0/2] few small change for flexspi setting in dts file
+Date: Tue, 16 Sep 2025 16:57:29 +0800
+Message-Id: <20250916-flexspi-dts-v1-0-61567f969165@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHkmyWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDS0Mz3bSc1IrigkzdlJJiXSOTxDSLJLOkNBMzCyWgjoKi1LTMCrBp0bG
+ 1tQCSg7WyXQAAAA==
+X-Change-ID: 20250916-flexspi-dts-24af8b6bf468
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Haibo Chen <haibo.chen@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758013066; l=851;
+ i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
+ bh=lozLWwKw8pey+U1Kp9yNzktLgdBVjX+YdVrJcw/5Q90=;
+ b=+KwMRUTUUG8aM487ey0jSiwSCb1/2sZYScFpvV+wkZYnT+gPDjSwq2veLEszxAC5QP33FIpMt
+ QlHYQeTkPKTCoKmvCb+M95wWQlQbUUtEIDwKeYkAZV/1JRsYC5F/WWa
+X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
+ pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
+X-ClientProxiedBy: MA5P287CA0001.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:176::10) To DU0PR04MB9496.eurprd04.prod.outlook.com
+ (2603:10a6:10:32d::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87plbri0k3.wl-kuninori.morimoto.gx@renesas.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|PA1PR04MB10416:EE_
+X-MS-Office365-Filtering-Correlation-Id: db7f508d-ea90-4974-25b5-08ddf4ff1315
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dGMyOXV0MnRMeDlKMDRBd293VXBkU3pvejJLdk1xeEJ0MnNoWHdSSm1FVjR5?=
+ =?utf-8?B?Y25PeFp5MFkrVWtWZ3ptR1ZjaVdpSWIycXFpRDV6dThURFVpVTFERnZYWXli?=
+ =?utf-8?B?bzFEbHNGODV5RHBhRDlqNXFhRk5WeVJJenNjRjVzYnY0SG1RMENVaVBjd2Y0?=
+ =?utf-8?B?dEZ0VzFpKzF6MmJDQUxSbWtORmMzQkVIVG1KNGlBNENBeUJFVkxUc1VUaXZS?=
+ =?utf-8?B?SVllK2hJVG1DNHlpR2dBOFBCSWN3OGl0RVlSWSt4aHN5VlhrcU5XQnpmRnc3?=
+ =?utf-8?B?TWFWK25ZKy81VTV1K09VaHJlQktNbTRPb3FTa0NHem1PSU54dTVDZ3R6UXpY?=
+ =?utf-8?B?UUhKZVVFVjI0MVpTVUF3aTJtRGxaWmpGeFUycjlhQk4vL1pZeGlaWlg1MUZC?=
+ =?utf-8?B?WVB2YkFlM0YxK3lDM3NPUG8xNGJkVGIvVTFsMW5FK0pWMUNmNDhzcjU0Ulgv?=
+ =?utf-8?B?OFUzeGc4clE0aWpaU251cXFGd1F2VHRjdkNwdDdKbmtnYW5NSUxJaW5UN2U4?=
+ =?utf-8?B?REdkWHI4RDZJeFdQQm1vWk53dkgwRzloaDJIWDNXV01ac1N1Uk5RMjUxeHFB?=
+ =?utf-8?B?WG8xajhpZmRZZlhIMlVYemFQKy9uVmd5VkZKSzAwMDlkdTZWUmNEUGNIdmUw?=
+ =?utf-8?B?ZmFzSUJ2VmF5RVBGV3AxR1pOREVyY1hmTE1SNmxxYWNveHFYWFdoL0xVWTlw?=
+ =?utf-8?B?bTdPaG9nVXc3MUxyM2V3RThmTFNQYkZMUytxSm9ydzQySmU5R1czYk9UeHJp?=
+ =?utf-8?B?MkFwRzRJT2NsSFE1MmhKVnBRVVkySjRrMGtrZWFnajczaGpWQXdCak90aHY4?=
+ =?utf-8?B?aHUwYWdwRktWdWkwVmRrSnNwUmRyVHlkV3lRTE9QUjMzK2xWaXZoK200KzMx?=
+ =?utf-8?B?dFJ4akt2UWQzdThhYnVWWmJQeFk1VDRES3VDaDh5QUpVYkVVbEVpenBrNEFh?=
+ =?utf-8?B?Z1h5TldRMkFmSUhuVXJwdTJVTVBUVVZSWFFOVVk2NGxkcEs4RjRidVZFcjB4?=
+ =?utf-8?B?cTA4RlVFdHNkaU83blZWa1FRZEUvU1pkd2lXVXAzKyttM2JvMm1acEtqalIv?=
+ =?utf-8?B?enkwcThnYUoyUzZEMENGRmcrWVl6L3JKeDFuMnRFYnAxZ3VuZ1dOaXM0Sy8z?=
+ =?utf-8?B?TnhqSnhZU0xSeE43NFBVa3Y0RmNXTERyQWE5cWtyLzBqaUsvc3BZVE5CRWdZ?=
+ =?utf-8?B?NlZqODRjV1B3ZjZNRHF4VHVLcTN4UWR4NWZqY1hHaXJCODI3aENmdTNGT3F1?=
+ =?utf-8?B?RGxUN3JESGE1OTFPV2tNRjVqb25SUUlwZmR2SG5HRHkrZVpYRzQrN2t1TFhO?=
+ =?utf-8?B?OENxRHp1aGpveEQ5NG45S2V2RCtmaENvNkRUQit1aUxGYjZHRnd0cnRPQ3h4?=
+ =?utf-8?B?VWJpSHZiUXgzdXJRVTlialdmWXZ5TkdmMXowRlEyanB2U2ZIRytaTzE5blpv?=
+ =?utf-8?B?dTdXSkRlZWVsRnlXRlg0bWhBaHloKytzTGZKM0xha2ZmbENlQ1dIY3dOdWta?=
+ =?utf-8?B?SDdrU0wwUVhKYk13QVZ1YzI1TzlxUTZqL256MGRlcmo3ek1mTUUrSm1lQlpT?=
+ =?utf-8?B?UStlUzNmUlhUSkpaNzJIc0R2NGFqZVBLN1grSCtOZTdObkMvZVZDY3FvalF0?=
+ =?utf-8?B?dVdOV2hGUzhpRDF4TkFMY0JwNnJxSDQzbGtmcXgxb1U4NjA4S0J4RUVYS0tY?=
+ =?utf-8?B?T0dsNk9yQm0rZDhZaGhtUElybnZyZ05CWFUxakFCcmlxSCsrUGxCdVBJMkhK?=
+ =?utf-8?B?bXg4aUtrMzZvMDFYUlk4YmtiTk1QbXN4UU9ZN04wdzlLcUhKN05ZQ3ZQVUho?=
+ =?utf-8?B?K20zMDZCOW9qRFBNWk56ZllDellyelZiSll0RWpmWERwVmdYb1VaNldISXMw?=
+ =?utf-8?B?OXZKNEgvN0ZzMTNHbjU3TmxScWFOcFE1NXAySDcxQ1pXQitnYm1ielZrZVJN?=
+ =?utf-8?B?UG1WVnZiVE1DZUtrVFBzaTFtdjBDdWhMZkNFRGR0UURUOFNNRUxOekZ6N3o1?=
+ =?utf-8?B?UUd0dm9EQzJRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S09MVlhBbjVleUYveFBLYUYrL3h0UzdSQXVmWFRzU2tQRUREV3Y4MDF4QWQ5?=
+ =?utf-8?B?dk1zVnZwbXdicUVWYm14TUs5Q2RBamNuR0RoWVBWYWIzeWtsQ3lhSGZURGRT?=
+ =?utf-8?B?VlYxZ1k3ZTBWMVQvMkdhVHZNRm9hMFJoaDk5VnpaMUtqSnd0NitCSTNxWVRr?=
+ =?utf-8?B?N1FBWDhlTmxJUHl1cUw4dzVwTGgrTVFLSFU4WWdlTTRlTGQzQnVuUGNMTXox?=
+ =?utf-8?B?V1dOWVNGWXdaWkEvQ1NPZUdLVDFRejFlei85bjJ4anI0b090ZXBPc0s1VWJo?=
+ =?utf-8?B?aVlNeTVFb0gxU2M4TmhVRlFDa1pqWXZVdnFwTFV3YlI1K01mZkRValJJSWdh?=
+ =?utf-8?B?NDRFSEN1VVhPZkJ4TmhidXdTUW5Hb0FyWTl1Z29hSkpUVHJMQU1CdDhGQzBR?=
+ =?utf-8?B?ZDVYNXYxMDVxNEMzd1Z3KzF0bUpGTXdCcjJFUy9jWU5GWnBNbTdzeGRTa0JK?=
+ =?utf-8?B?cThUZVp1RXhwRjg5U0l1QkJDTVVJZ1lqWTlub0t3TkRSa3Y5SW9iWHlVU0VU?=
+ =?utf-8?B?OCtNUHJER1YyeWdpMFl6aUlnWE9yRmxzU3R4dGZmN29oODExcTBhNExUUEVl?=
+ =?utf-8?B?cC9oU2Q4eW4wR2VkQjIwQkViSnhFUHZxamNsT1JDdVd6eklERGNJQzFQQ0Fu?=
+ =?utf-8?B?T1FIU3VzTUZpYmFoZzhYWTdvNjVHdzBMd3Eycm9QSVVNOVA2dUs1eVJhaTYz?=
+ =?utf-8?B?YVRNQ3d2ZXczMUFCTzFLakdXUXRORTgxWnlKenZrVlRYZ0dzeHQ3WTNVUXR4?=
+ =?utf-8?B?dzlSanVhN2xUWnAvZE5vRlNzNHVGdmdESytSbmdsbGdJbGh4WnV6Smtha1J1?=
+ =?utf-8?B?dGF0R3Z1STNVek9NTmFsZmpQcXhldEQ3c040UlJjQUhpUXdLOXFHVTYyeWR5?=
+ =?utf-8?B?U1l6cHcyR1VnQ3dWZG9HdVIxaVNTWTJEWDdYUDdvTndqUlFmdms5VjEyMGF0?=
+ =?utf-8?B?MEJnZnd5MVlrMWN2MzNJb0pISXdpUENPdnZITUpJN0FXWXBzenRZUFJydmpW?=
+ =?utf-8?B?bUZCbXVrZ1NFN05aTk9yZkVqTG9zTFIzaVBMeHlnQmkrWEJGc1MvYmM4NDRL?=
+ =?utf-8?B?ZVZvZkJjL3B5akZYTldXdTJSdDlZaHJRTzFZWDd3aUQyVGg3YWdva0RRRE1V?=
+ =?utf-8?B?Nkx0YUwycE9nVjFpNWhOTTR6amdlYjlnbjZtSzkreTZJaG5uZnVVeTQwWGxQ?=
+ =?utf-8?B?RHg0WjVyV2tXQnBYR2t0VGIyQUY2SmFjMHJXWGNHZElxUWY0MTIxQU1RNC9M?=
+ =?utf-8?B?bmJiRlNRMGFJUE5Cditkc1hpd284dkxUWlNmbm9FeEFodjNxd2x0UUltQ3Ex?=
+ =?utf-8?B?VkZsOW0yRFMxTW9RUUxTVFVSK3FwUFZHSGNGcHNnZWZpRjljQ29JMldjYmM3?=
+ =?utf-8?B?cDE5SEpTOFFLN3BKSkN4TitUZk9JZkxJVTB4Tzk0UzBPdVgvN2greHlSdzBr?=
+ =?utf-8?B?Ykhpekp5L0tZdnNJenhLZXFQRHhpeGZEQWlDQm5wMlJhblRxd0tuYThGbUhp?=
+ =?utf-8?B?Y2ZrbWxUc2NPc3UxSWw2ajQ0UmxJU2dLd3JVWGE1SlZiL2gxL0RSeGdqcU4w?=
+ =?utf-8?B?TjRPbEFZaDJLS1NJNnA4RE9LMmFndzc5QXhqMFNxQkc1WnZ5V3MvTGRETzdk?=
+ =?utf-8?B?RlpnM2kwczZCb1F6Z0lZSlM1NlkzS0R4ZEpFYTd0YmhXcGhBV1dzUXF6b2Vx?=
+ =?utf-8?B?Z244Um02UW14M0ppamd5SzlKRVVtdDB2V0F4aUc4dUpsSWIvQ0VCREh5UU90?=
+ =?utf-8?B?Nk5Bb0RhSU56QWEwOHFXNFNKZURMSS8wblI5UjZSUUtIakZ0cEJ6ZG9XdXk0?=
+ =?utf-8?B?dWlyWFFobXUrdWV4UEp5STJJQmlHOEo1OWo2WXczM0hyY1pVZlJPUXA2Q01N?=
+ =?utf-8?B?U3cxdVZDanZQeUdBR0Nmb3BMeEhaaDlHU3ZkTk8xd2ZLQ2ZsTzh4VnJGV3VK?=
+ =?utf-8?B?aFZJVHdxSkhEVDNHaXcxNXRYTSsxc1RyVHVTditGRFo4VzFWaXRaTmhpRFcv?=
+ =?utf-8?B?ZGxQQUpJVURwbHN0cDE1emZ5OWx0L1ZWYTZvdkI3SjVwL0tPTjFyWllxRFkr?=
+ =?utf-8?B?Y3M5T3hzY2lBUzFuOEJkT1ZUaFFVMjd6SXBaK2lGd2ZlVURGcjFSZmxDRWpj?=
+ =?utf-8?Q?bswBa1OusgtTqtUMjuvHqZx26?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: db7f508d-ea90-4974-25b5-08ddf4ff1315
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 08:57:33.3683
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aQ8BbhhbDuKdC2TbAJ9VVfYxoycBYKBquWT0HI8dlu7aWfgQ47yooKu2esvX1fxcKcdLZ/sQwxiHVC5/CbcOVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10416
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_015741_549732_14953294 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +189,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 02:38:36AM +0000, Kuninori Morimoto wrote:
-> Add cputype definitions for Cortex-A720AE.
-> This patch is assuming A720AE feature is same as A720.
-> 
-> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-> ---
->  arch/arm64/include/asm/cputype.h       | 2 ++
->  arch/arm64/kernel/cpu_errata.c         | 1 +
->  arch/arm64/kernel/proton-pack.c        | 1 +
->  tools/arch/arm64/include/asm/cputype.h | 2 ++
->  tools/perf/util/arm-spe.c              | 1 +
->  5 files changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index 661735616787e..b10eba7f52476 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -96,6 +96,7 @@
->  #define ARM_CPU_PART_NEOVERSE_V3	0xD84
->  #define ARM_CPU_PART_CORTEX_X925	0xD85
->  #define ARM_CPU_PART_CORTEX_A725	0xD87
-> +#define ARM_CPU_PART_CORTEX_A720AE	0xD89
->  #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
->  
->  #define APM_CPU_PART_XGENE		0x000
-> @@ -185,6 +186,7 @@
->  #define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
->  #define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
->  #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
-> +#define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
->  #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
->  #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
->  #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 59d723c9ab8f5..7ff6b49beaaff 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -531,6 +531,7 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A710),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
-> +	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C),
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index edf1783ffc817..f9a32dfde0067 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -884,6 +884,7 @@ static u8 spectre_bhb_loop_affected(void)
->  	static const struct midr_range spectre_bhb_k38_list[] = {
->  		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
->  		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
+PATCH1 adjust the compatible string to align with yaml
+PATCH2 limit the nor max frequency accroding to data sheet
 
-This needs an Ack from somebody at Arm who can confirm that (a) k38 is
-correct for A720AE and (b) that all versions of the CPU are affected.
+Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+---
+Haibo Chen (2):
+      arm64: dts: correct the flexspi compatible string to match with yaml
+      arm64: dts: imx8mm/mn/mp: limit the max frequency of spi nor chip
 
-> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-> index 139d5e87dc959..0192dc7ec9ca9 100644
-> --- a/tools/arch/arm64/include/asm/cputype.h
-> +++ b/tools/arch/arm64/include/asm/cputype.h
-> @@ -96,6 +96,7 @@
->  #define ARM_CPU_PART_NEOVERSE_V3	0xD84
->  #define ARM_CPU_PART_CORTEX_X925	0xD85
->  #define ARM_CPU_PART_CORTEX_A725	0xD87
-> +#define ARM_CPU_PART_CORTEX_A720AE	0xD89
->  #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
->  
->  #define APM_CPU_PART_XGENE		0x000
-> @@ -185,6 +186,7 @@
->  #define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
->  #define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
->  #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
-> +#define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
->  #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
->  #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
->  #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 8942fa598a84f..bda6f3554f7e6 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -555,6 +555,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
->  
->  static const struct midr_range common_ds_encoding_cpus[] = {
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
-> +	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C),
->  	MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dts       | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi      | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts       | 2 +-
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 2 +-
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+---
+base-commit: c3067c2c38316c3ef013636c93daa285ee6aaa2e
+change-id: 20250916-flexspi-dts-24af8b6bf468
 
-Please post tools/ patches separately as they are merged independently
-of the kernel changes.
+Best regards,
+-- 
+Haibo Chen <haibo.chen@nxp.com>
 
-Will
 
