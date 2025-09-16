@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D974DCAC59D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2B8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OabA8M/uyAkmMaWjHJMXzgbdMxlbXku0BV8iZjt4ayg=; b=PPVg7VqgN/K23CpnJRCkxR7eXF
-	UlQD466h77BQ1WVRCB+nOJef3obqTQJ+hqvF9c7dxIf0xk5Kx1aQOycKbfKKajPwunkKQWq8ziump
-	UUdNWYRn0sdII/KqnrE3+6teDCBu0GpZPlTJeZiAqCX/TVZIkgAfMMS+F/ehgwPDan8XQLjq8y9xW
-	tbRa/S0wBYCDppXi+pwyJBU4Ch+SfUCfWDLKy6CBtQm/Y7Du5RxFxUtEyI47wZyIxuSkPRG+rS+ss
-	xnbHKO2xd6iCMW7q+UZ+1wYsyyEsLp3DXsN9KYVrGp13BoHSAX1ADrcy/OzEH2BizUq5G1OZmYems
-	PGXFp2cA==;
+	bh=j2+SwZ0bwQjXH66jDtqyAdMkDCSMWPucJICnj+Ww5OA=; b=Zdo4U0Z8bavHaPmxfGtQO785CH
+	4nq7m25ON+EOINkwHNZo7vWFBFCtJsTJsz7KqoDAO4mdXt/yfXOhQWEFKOTogaEvR1a8RGaQmhQDQ
+	0bdMq+otwoppjKSZYqr4p04mJP679CPW9gvu1krEQLV6yBy16vlDSv1DmqYWP6S9eXu5QteNeEgSo
+	n4jISjY9c2+3HlH6GNfyiaTG/v4p/FnE2Q9vtXTxiZD3rwlUCkWdtdRfL1Ci/D1fIWX7wADyPLS/+
+	1H4X4UT1Ec8i2k+y12ptJ6Arc53ExAYnvMisCC9Sz0VYf+BcBQMxgHRtcx52nkmZ/pM8XzUdcqCV8
+	E7lCfsrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycF7-000000090un-16jP;
-	Tue, 16 Sep 2025 20:25:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uycFN-000000091CM-37TC;
+	Tue, 16 Sep 2025 20:25:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEw-000000090iq-30x6;
-	Tue, 16 Sep 2025 20:25:26 +0000
+	id 1uycEw-000000090ia-1s6T;
+	Tue, 16 Sep 2025 20:25:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEC2160238;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9BE7644D20;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78A3DC2BCC4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 31796C19422;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054325;
-	bh=s5jfml22S4HZXK96jIcDhIwNffw2qcJ0QY0RssdtAYg=;
+	bh=PGC9RLyvUYb11AvcYKFthsR2RXxFjvbJW7ULzcMM1n4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Birj6LfivaNjxqb8uCvp/d+CR1xUfaMr/nE+QUIambTVTGHnn8cCDzqmT4pGj1Pfu
-	 WKL6K68MdfVk1K/Wma+iBl8XbHykjT4D6/Rotfj0uLFRn2yLMFYaXlRzHA123sYELY
-	 vpOMj6KWEEedSp3OSnrm2/zhHGscp2bEI84xoV4NykeqhcWb8l8OcI7UF8P7Ub60DQ
-	 2PoZ9BLaxo9GDQ9B3WLuUPieOFYlYoyw2d7OIIb9KW269AEHOXKwlj+FLUYt6lWRGI
-	 io6TfrMkaogxPet+GDXEyVlsqojpzOufXEWzMtJpQNuh6yYF8Rwj6dMoTTN8KYvBpx
-	 gnfQNM9yHCtYw==
+	b=WF/U+ilsuMpWThSrx1H0QFkgdZaMVWBGJlBSSTATkfxZT6q0ZKb4HEFTUEJ8bf3nk
+	 /k4vNhDzDpvL5piUH2exVhGXwpg+s+v9RNTKpicxPJd0y9eU3E78Bg3z2zRLns9qc+
+	 9WSeaaXRF3arHwwhkyaEtB+r9wVDxgtL/iQYNJtCx2Ryhcy4NG3OKtbaFjbA/qW56I
+	 so2OsPiqAPCn8xTAVqSBmuYU8dBFkHegK9FLvgeyX3VFjxSB78VL4MI7oZHBpfiyKR
+	 3kuLWgcwvQJyZbL0BTXDZSjIghucFTYPeSVBE+dIsOVQriJdJ7oqnKUmV9S4bY87Jf
+	 xREiIfqhBD1fQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E18FCAC5A0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 216E8CAC5A0;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:06 +0700
-Subject: [PATCH 09/25] dt-bindings: clock: Add RDA Micro RDA8810PL
- clock/reset controller
+Date: Wed, 17 Sep 2025 03:25:01 +0700
+Subject: [PATCH 04/25] rtc: Add timestamp for the end of 2127
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-9-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-4-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -72,16 +71,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=3631;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=913;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=F0hJeg4vF8n1IM7OJY4KSBkC9cZRnfQ7Ctr7Iv83zwo=;
- b=W5aQqbp5wDQi2g8XC9wV9RV6i8ghSROwrftQm0G26e3EgJ7UwRgy8QFcZDW/kC8joRM4uC3Vz
- OnZu0YIn94TBd4gvxz2dnv/wUco20c3tMi/KuPVnqJ9wsl7lNQZzVrw
+ bh=DzZHdJKZCRZsyIe84ay5pJ/2Z/eJ/DpBDRNQR5GG0kc=;
+ b=TXUPCWPqfcmGpwTVgoZ/csRKglLlNBEzrYFxRh7ZQ//BPu6xMzaihEwxcAVhhtA00DbneF6R7
+ Kv5Wv87ejuhBJCzOJ67wnp3h9v8C3HAnCIfUnZpMcrApewJyPWho9WA
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_132526_533599_A884BB2F 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,150 +102,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-Add documentation describing the RDA8810PL Clock and Reset
-controller.
+Some RTC (like MT2712 and RDA Micro) can handle until the end of
+the year 2127.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- .../bindings/clock/rda,8810pl-apsyscon.yaml        | 44 ++++++++++++
- include/dt-bindings/clock/rda,8810pl-apclk.h       | 79 ++++++++++++++++++++++
- 2 files changed, 123 insertions(+)
+ include/linux/rtc.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..988b609403a96abc4964ab366daa6fec0514595c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/rda,8810pl-apsyscon.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RDA Micro RDA8810PL AP Clock Controller
-+
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rda,8810pl-apsyscon
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rda,8810pl-apclk.h>
-+
-+    ap_syscon: syscon@0 {
-+      compatible = "rda,8810pl-apsyscon", "syscon";
-+      reg = <0x0 0x1000>;
-+      #clock-cells = <1>;
-+      #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/rda,8810pl-apclk.h b/include/dt-bindings/clock/rda,8810pl-apclk.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..372358e72436a28c0775519f49626c9c5f4c6046
---- /dev/null
-+++ b/include/dt-bindings/clock/rda,8810pl-apclk.h
-@@ -0,0 +1,79 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
-+
-+#ifndef _DT_BINDINGS_CLK_RDA8810_H_
-+#define _DT_BINDINGS_CLK_RDA8810_H_
-+
-+/* soc clocks */
-+#define CLK_CPU 0
-+#define CLK_BUS 1
-+#define CLK_MEM 2
-+
-+#define CLK_USB 3
-+#define CLK_AXI 4
-+#define CLK_GCG 5
-+#define CLK_AHB1 6
-+#define CLK_APB1 7
-+#define CLK_APB2 8
-+
-+#define CLK_GPU 9
-+#define CLK_VPU 10
-+#define CLK_VOC 11
-+#define CLK_SFLSH 12
-+
-+#define CLK_UART1 13
-+#define CLK_UART2 14
-+#define CLK_UART3 15
-+
-+#define CLK_VOC2 16
-+#define CLK_EMMC 17
-+
-+#define CLK_COUNT (CLK_EMMC + 1)
-+
-+/* resets */
-+#define RST_CPU 0
-+
-+#define RST_AXI_VOC 1
-+#define RST_AXI_DMA 2
-+#define RST_AXI_CONNECT 3
-+#define RST_AXI_VPU 4
-+
-+#define RST_GCG_GOUDA 5
-+#define RST_GCG_CAMERA 6
-+#define RST_GCG_LCDC 7
-+
-+#define RST_AHB1_USBC 8
-+#define RST_AHB1_SPIFLASH 9
-+
-+#define RST_APB1_TIMER 10
-+#define RST_APB1_KEYPAD 11
-+#define RST_APB1_GPIO 12
-+#define RST_APB1_PWM 13
-+#define RST_APB1_AIF 14
-+#define RST_APB1_AUIFC 15
-+#define RST_APB1_I2C1 16
-+#define RST_APB1_I2C2 17
-+#define RST_APB1_I2C3 18
-+#define RST_APB1_COMREGS 19
-+#define RST_APB1_DMC 20
-+#define RST_APB1_DDRPHY_P 21
-+
-+#define RST_APB2_IFC 22
-+#define RST_APB2_UART1 23
-+#define RST_APB2_UART2 24
-+#define RST_APB2_UART3 25
-+#define RST_APB2_SPI1 26
-+#define RST_APB2_SPI2 27
-+#define RST_APB2_SPI3 28
-+#define RST_APB2_SDMMC1 29
-+#define RST_APB2_SDMMC2 30
-+#define RST_APB2_SDMMC3 31
-+#define RST_APB2_NAND 32
-+
-+#define RST_MEM_GPU 33
-+#define RST_MEM_VPU 34
-+#define RST_MEM_DMC 35
-+#define RST_MEM_DDRPHY_P 36
-+
-+#define RST_COUNT (RST_MEM_DDRPHY_P + 1)
-+
-+#endif /* _DT_BINDINGS_CLK_RDA8810_H_ */
+diff --git a/include/linux/rtc.h b/include/linux/rtc.h
+index 95da051fb155dab4c8ec72ccae7b8e12a117a7f1..ec5828ccc7449388da2ab8bc757030e6795ace30 100644
+--- a/include/linux/rtc.h
++++ b/include/linux/rtc.h
+@@ -175,6 +175,7 @@ struct rtc_device {
+ #define RTC_TIMESTAMP_END_2063		2966371199LL /* 2063-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2079		3471292799LL /* 2079-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2099		4102444799LL /* 2099-12-31 23:59:59 */
++#define RTC_TIMESTAMP_END_2127		4985971199LL /* 2127-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_2199		7258118399LL /* 2199-12-31 23:59:59 */
+ #define RTC_TIMESTAMP_END_9999		253402300799LL /* 9999-12-31 23:59:59 */
+ 
 
 -- 
 2.51.0
