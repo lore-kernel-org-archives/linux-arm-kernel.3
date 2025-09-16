@@ -4,140 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2F7CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1215CCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 08:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uRNnXJQeuXa4RjZ/hgAqaDL48ggOEmDjVhxxiZdCQ1c=; b=f6dBCUuIu8HFeLpmXkPNjOkxQD
-	fljXPRF6OFtmMRxDYdc17lDmMQd6mfp4cdgALQ4uIDYPhBg1bS8kX6nfxDB9cz3tulgk24ew+1Vpq
-	RieTl9A/Z9K+hDCwSxeU/E4RFeqk4Moa5qPWFMgkDnjXvfj9vV+TO+EDrK/0RMMSoO+Eo2Skrf+Pc
-	LST0HbaXnM/7OFxRETMTUtzmfEc8F336y68xwW+ztkUkcYHvUEimJ5PJngA3R5p5KINsTcMj+nHKg
-	U4xNM3FmkdZyS3ulGE3uzIisJyu4pCI9jrkGXEEJnzwdNcyow0Bq605gwxMY1NzUTXLl1gMs2jRR8
-	pd9Ngvnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ELo7Yf9qnfvBrAd/z2XcfhcEwruciIzwt5UCgre+TeQ=; b=iYoiW/I9/w7MR6PqxPlatz1sOl
+	2mFB4nNqHeT6Xx/NRp/+d0AqvC1S7p1nfaMpMA/5gE8gHjIjrd9AvZ5/BdDMUX5h/tTmyBsSYnkNi
+	E/Z1awE/VgdxyuX722UdRNft79nOsJTqal4eKr43HaAeAZP8oyoQOR2qKINEjD5gKPfWsO9I1yZqf
+	yBAUxC5qBaM7u0pdzTXmPiitfFZvJZavUIQ+PTWMwf5TZ0+Tvu18xan6cmckRkqDIprcfh9tZIfVa
+	i9MOm+mtCU9eoEAeK5Y+T/rerjp7DrvdhMrH2gaeKaqMY35BAOBL3rBHxGrwEgZXWEDh7JEKF/JnY
+	BzAyeJQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQmY-000000078Kr-0cqv;
-	Tue, 16 Sep 2025 08:11:22 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1uyQnG-000000078Xl-1MrY;
+	Tue, 16 Sep 2025 08:12:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQmV-000000078K2-1EPm
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 08:11:20 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 9BC99225E1;
-	Tue, 16 Sep 2025 08:11:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1758010277; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=uRNnXJQeuXa4RjZ/hgAqaDL48ggOEmDjVhxxiZdCQ1c=;
-	b=eK76GdGCrqzbzg4E9cOFHyrtzcP55R3/+IXiPIyc/ykxV/oDGvkNcFBnyrtwhsKzemeizo
-	tK3+i9fKSICZHvUkVReuL3c2uPUx6wL8ZP4XBb14JUqmSP39Oh7HN0X73mQOC83mmSFnFe
-	gvQCc/0R6UegCgGVfErHDOnhtK9eCA8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1758010277;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=uRNnXJQeuXa4RjZ/hgAqaDL48ggOEmDjVhxxiZdCQ1c=;
-	b=0d3ZNCPeeOXC6WSfhDKfkS6ruKRy9ZVWC86YtDKA2SDwmGryBPCtaeYFE5TUpn54DJHsQe
-	7L1JnczjennectBQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=aHSY5Aoo;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=021jsuaE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1758010276; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=uRNnXJQeuXa4RjZ/hgAqaDL48ggOEmDjVhxxiZdCQ1c=;
-	b=aHSY5AooXtS81XC54WJ1Lrl97BsOP0JTjCSeRb4Kr0vaQrcO6PXt9uJYH8HWDr5uaYpPOB
-	ol0bL0AhwdeHjn4l+97yKbya4DwN7ALzOt7GOVB9uakQvUE8cQswv9Ith3CVnvgFOOY0mA
-	VewKJDGTT+nDHJziFvrYNxyXrLCChrs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1758010276;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=uRNnXJQeuXa4RjZ/hgAqaDL48ggOEmDjVhxxiZdCQ1c=;
-	b=021jsuaEL1/2n02fIHwBaaWO+GAc+sNhcK/3pHuNE3BR2ImRKuEaHfh7390k/cdUVAa6af
-	31/0qMa2ICuFBQCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 996BA13A63;
-	Tue, 16 Sep 2025 08:11:15 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 3f4JI6MbyWjEGAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Tue, 16 Sep 2025 08:11:15 +0000
-From: Stanimir Varbanov <svarbanov@suse.de>
-To: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v3] net: cadence: macb: Add support for Raspberry Pi RP1 ethernet controller
-Date: Tue, 16 Sep 2025 11:10:59 +0300
-Message-ID: <20250916081059.3992108-1-svarbanov@suse.de>
-X-Mailer: git-send-email 2.47.0
+	id 1uyQnD-000000078WO-1awm;
+	Tue, 16 Sep 2025 08:12:04 +0000
+Received: from ideasonboard.com (mob-5-90-51-255.net.vodafone.it [5.90.51.255])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2226AEC1;
+	Tue, 16 Sep 2025 10:10:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1758010243;
+	bh=er6zXtoTiw8c9MS+Ncvtij5P2UtensvSwZETz1uW9OE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=wdfU+nZzDWn1ihybBVNW1Qg87qTxj3YEgYFLWLS5ZHS+38Rk17T4WQh9rXsBiDFRm
+	 56OWwjVT4Lm7xMLcVzAkuCYoPUqL89jwTtlDgeCBdhxx+i403V//Rc9hQqMRCSWOut
+	 52WUcxN3v/FkAtXRMZ95dy32/bmmet9vJBZ0menQ=
+Date: Tue, 16 Sep 2025 10:11:57 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rkisp1: Improve frame sequence correctness on
+ stats and params buffers
+Message-ID: <5hk62bt3jejd4boxtc67klu4zegypvdidt7kju6z2iohbhjeem@apm5bu7opcol>
+References: <20250908094200.48002-1-stefan.klug@ideasonboard.com>
+ <rthpkuipbpbp2lv2ddmruwb7fmpkmtlsnx3q6kk7gaskzpdaar@5bk3r44f2mpo>
+ <175800895207.653594.14948138348210533073@localhost>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt,netdev];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[microchip.com:email,tuxon.dev:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns]
-X-Rspamd-Queue-Id: 9BC99225E1
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <175800895207.653594.14948138348210533073@localhost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_011119_496601_B1D81517 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250916_011203_604490_BBA941B0 
+X-CRM114-Status: GOOD (  55.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,56 +71,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Hi Stefan
 
-The RP1 chip has the Cadence GEM block, but wants the tx_clock
-to always run at 125MHz, in the same way as sama7g5.
-Add the relevant configuration.
+On Tue, Sep 16, 2025 at 09:49:12AM +0200, Stefan Klug wrote:
+> Hi Jacopo,
+>
+> Thank you for the review.
+>
+> Quoting Jacopo Mondi (2025-09-15 18:55:44)
+> > Hi Stefan
+> >
+> > On Mon, Sep 08, 2025 at 11:41:48AM +0200, Stefan Klug wrote:
+> > > On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
+> > > handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
+> > > and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
+> > > commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
+> > > debugfs var for irq delay") a warning was added for that. There are two
+> > > cases where this condition can occur:
+> > >
+> > > 1. The v-sync and the frame-end belong to the same frame. This means,
+> > >    the irq was heavily delayed and the warning is likely appropriate.
+> > >
+> > > 2. The v-sync belongs to the next frame. This can happen if the vertical
+> > >    blanking between two frames is very short.
+> > >
+> > > The current code always handles case 1 although case 2 is in my
+> > > experience the more common case and happens in regular usage. This leads
+> >
+> > I would rather argue that 8524fa22fd2f is possibily wrong, and case 1)
+> > would imply the interrupt has been delayed for the whole frame
+> > duration (+ blanking), which seems unlikely to me ?
+>
+> I am not completely sure about that. I didn't hunt for that condition.
+> Note that RKISP1_CIF_ISP_FRAME comes before the blanking. So I could
+> imagine that this might occur for very small sensor crop rectangles at
+> high datarates.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
----
-changes in v3:
- - Added Reviewed-by and Acked-by tags.
- - Split the patch from the original series.
+Indeed, very short frame durations and minimum blankins might increase
+the likeliness of 1).
 
- drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Would be intersting to measure and compare with the time spent in IRQ,
+but it's quite an exercize.
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 36717e7e5811..260fdac46f4b 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -5135,6 +5135,17 @@ static const struct macb_config versal_config = {
- 	.usrio = &macb_default_usrio,
- };
- 
-+static const struct macb_config raspberrypi_rp1_config = {
-+	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
-+		MACB_CAPS_JUMBO |
-+		MACB_CAPS_GEM_HAS_PTP,
-+	.dma_burst_length = 16,
-+	.clk_init = macb_clk_init,
-+	.init = macb_init,
-+	.usrio = &macb_default_usrio,
-+	.jumbo_max_len = 10240,
-+};
-+
- static const struct of_device_id macb_dt_ids[] = {
- 	{ .compatible = "cdns,at91sam9260-macb", .data = &at91sam9260_config },
- 	{ .compatible = "cdns,macb" },
-@@ -5155,6 +5166,7 @@ static const struct of_device_id macb_dt_ids[] = {
- 	{ .compatible = "microchip,mpfs-macb", .data = &mpfs_config },
- 	{ .compatible = "microchip,sama7g5-gem", .data = &sama7g5_gem_config },
- 	{ .compatible = "microchip,sama7g5-emac", .data = &sama7g5_emac_config },
-+	{ .compatible = "raspberrypi,rp1-gem", .data = &raspberrypi_rp1_config },
- 	{ .compatible = "xlnx,zynqmp-gem", .data = &zynqmp_config},
- 	{ .compatible = "xlnx,zynq-gem", .data = &zynq_config },
- 	{ .compatible = "xlnx,versal-gem", .data = &versal_config},
--- 
-2.47.0
+>
+> >
+> > True we handle stats collection and parameters programming in irq
+> > context, which is less than ideal and could take time (I wonder if we
+> > should use a threaded irq, but that's a different problem)
+> >
+> > If that's the case and we only should care about 2) would simply
+> > handling RKISP1_CIF_ISP_FRAME before RKISP1_CIF_ISP_V_START be enough ?
+>
+> That was my first try. But it felt not right to run a whole
+> rkisp1_isp_isr() with frame_sequence being set to -1. And as I believe
 
+You mean for the first frame in case of both V_START and ISP_FRAME
+occour in the same irq ?
+
+> that there is at least a slight chance that 1) might occur, I'd prefer
+> frame_sequence to be 0 in that case.
+
+also because otherwise you would get stats and param buffers with
+sequence -1
+
+>
+> >
+> > > to incorrect sequence numbers on stats and params buffers which in turn
+> > > breaks the regulation in user space. Fix that by adding a frame_active
+> > > flag to distinguish between these cases and handle the start of frame
+> > > either at the beginning or at the end of the rkisp1_isp_isr().
+> > >
+> > > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> > > ---
+> > >  .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
+> > >  .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
+> > >  2 files changed, 14 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> > > index ca952fd0829b..adf23416de9a 100644
+> > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> > > @@ -222,6 +222,7 @@ struct rkisp1_isp {
+> > >       struct media_pad pads[RKISP1_ISP_PAD_MAX];
+> > >       const struct rkisp1_mbus_info *sink_fmt;
+> > >       __u32 frame_sequence;
+> > > +     bool frame_active;
+> > >  };
+> > >
+> > >  /*
+> > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > > index 8c29a1c9309a..1469075b2d45 100644
+> > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > > @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
+> > >       }
+> > >
+> > >       isp->frame_sequence = -1;
+> > > +     isp->frame_active = false;
+> > >
+> > >       sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+> > >
+> > > @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
+> > >   * Interrupt handlers
+> > >   */
+> > >
+> > > -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
+> > > +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
+> > >  {
+> > >       struct v4l2_event event = {
+> > >               .type = V4L2_EVENT_FRAME_SYNC,
+> > >       };
+> > >
+> > > +     isp->frame_sequence++;
+> > > +     isp->frame_active = true;
+> > > +
+> > >       event.u.frame_sync.frame_sequence = isp->frame_sequence;
+> > >       v4l2_event_queue(isp->sd.devnode, &event);
+> > >  }
+> > > @@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+> > >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
+> > >
+> > >       /* Vertical sync signal, starting generating new frame */
+> > > -     if (status & RKISP1_CIF_ISP_V_START) {
+> > > -             rkisp1->isp.frame_sequence++;
+> > > -             rkisp1_isp_queue_event_sof(&rkisp1->isp);
+> > > +     if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+> > > +             status &= ~RKISP1_CIF_ISP_V_START;
+> > > +             rkisp1_isp_sof(&rkisp1->isp);
+> > >               if (status & RKISP1_CIF_ISP_FRAME) {
+> > >                       WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
+> > >                       rkisp1->debug.irq_delay++;
+> > >               }
+> > >       }
+> > > +
+> > >       if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
+> > >               /* Clear pic_size_error */
+> > >               isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
+> > > @@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+> > >       if (status & RKISP1_CIF_ISP_FRAME) {
+> > >               u32 isp_ris;
+> > >
+> > > +             rkisp1->isp.frame_active = false;
+> > >               rkisp1->debug.complete_frames++;
+> > >
+> > >               /* New frame from the sensor received */
+> > > @@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+> > >               rkisp1_params_isr(rkisp1);
+> > >       }
+> > >
+> > > +     if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
+> >
+> > I think you can drop the  && !rkisp1->isp.frame_active because if you
+> > get here and 'status & RKISP1_CIF_ISP_V_START' it means that:
+> >
+> > 1) frame_active was false and you have entered the above
+> >
+> >         if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+> >
+> >    and now the RKISP1_CIF_ISP_V_START bit in 'status' has been cleared
+> >    so you don't need to handle VSYNC here
+> >
+> > 2) frame_active was true and you delayed handling V_START till here.
+> >    If also ISP_FRAME was set, frame_start has been set to false here
+> >    above. If ISP_FRAME was not set then it has been delivered by a
+> >    previous interrupt and then frame_start is false.
+> >
+> > So I guess it's enough to check if at this point RKISP1_CIF_ISP_V_START
+> > is still set in 'status' ?
+>
+> I think you are right. I can't come up with a sane condition where
+> frame_active==true and RKISP1_CIF_ISP_V_START is set and we *don't* want
+> to increase the frame count. I'll drop that condition.
+>
+> >
+> > However, as said, it's seems unlikely to that your above 1) can
+> > happen. Have you ever hit a WARN() again with this patch applied ?
+>
+> I don't remember seeing it again. But as noted above, I didn't try to
+> provoke it and took the "better safe than sorry" route. Could you go
+> with that?
+>
+
+Fine indeed..
+
+Could you please comment on the two VSYNC conditions ?
+Something like"
+
+	/*
+         * Vertical sync signal, starting generating new frame.
+         * Defer handling of vsync after ISP_FRAME if the we still have to
+         * complete the previous frame.
+         */
+	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+		status &= ~RKISP1_CIF_ISP_V_START;
+		rkisp1_isp_sof(&rkisp1->isp);
+		if (status & RKISP1_CIF_ISP_FRAME) {
+			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
+			rkisp1->debug.irq_delay++;
+		}
+	}
+
+        ...
+
+        /*
+         * Deferred handling of vsync if V_START and ISP_FRAME
+         * occurrend in the same irq.
+         */
+	if (status & RKISP1_CIF_ISP_V_START)
+		rkisp1_isp_sof(&rkisp1->isp);
+
+Up to you
+
+
+> Best regards,
+> Stefan
+>
+> >
+> > > +             rkisp1_isp_sof(&rkisp1->isp);
+> > > +
+> > >       return IRQ_HANDLED;
+> > >  }
+> > > --
+> > > 2.48.1
+> > >
+> > >
 
