@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A207CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16329CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qqkXzxxknXamH7BrZkFPAvijm4XBibdU4Q55tTWKGZk=; b=edYOJTzSZCmdooqfbs1/A2MWPN
-	9/PWSPr9NVMEztLpRZq9rrBtWfBEsVLzYcecoZS900vTM9RW+++zYms6UDrKaA/hjpCGFWFAUnfTD
-	+HVXB0j6YLM5McYPisNuvVirEmHRHM5ybU1Rw5sq86nHgFWd5CRws0bsA+gmrnp95u+XqqCmYgkBv
-	rH4ks0vtYOovEtCYx5cKH7ddU08gvklkXaRkhi1bP1kKBWUy5HCdjfYsfP6sMteG4UOcmfI4I2kSA
-	Hvyu6h4H9lYls15EXkN5ANla5xRf7e4XRMRH354FDKztRZRfNokzrDmpXf97teTz9yG5Nk7aNcn3C
-	osQ/o2eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k7yVpDBibw8MgL9pOd0pA+jApF8pwC6p5fo2RE4G194=; b=2SXpycpeWg+zS64ut7lM0oJ3vV
+	Fq2qHgSzXMF4c1iq8c2K2IeEvtDuBF2CgyTaFMkLgJQaWFvInoVK2dwibrBkOD77zVoSrpqnu2A2p
+	oe1gQQuoZ0+LbmCOv5EtK2pDOAEOU0NhHQTPk3hgGfSE1DDBtiAoSiJhzUSBu67ZSRlpDPeGhxVt0
+	GMdr5Ahj33QnC5lbDY6fqa6klCs65alKym/nyIaHCm1Z0mnvPhq2oSN697JJPpQtmTVBUou+I3MwE
+	I1RqDjxKBEb/BqWHmYcz4H8xJPcLBATJTq8WatZCRPi1UGxexnEZLlRQLiAP4zW0ssjPhHlhWZ25R
+	TFo0pQ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYuJ-00000008XSp-18e2;
-	Tue, 16 Sep 2025 16:51:55 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyYuG-00000008XRA-3UGC
+	id 1uyYxX-00000008Xpk-40Nx;
+	Tue, 16 Sep 2025 16:55:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyYxV-00000008XpF-1YpI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 16:51:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1758041508;
-	bh=lBF3mDXzti9+laxIzr4FHTuLqFzaAZ5MHcHfIKkRgqE=;
-	h=From:Date:Subject:To:Cc:From;
-	b=dfX7/PBYX9o6OmQQ5mVCPe1wVbVQoZ1oMUaQF+ooFBmySRUtb0+p3IeOSXqi02FSm
-	 utNVgiZS4SE4lAQvG70jNzpiwxY6GxcVRurvy7w/5tQGebavlbjK1c7z17g+qTfnOk
-	 rvkM5uJJlKrCdQGHCb12UuMrCQ5pty3EzcU32HJY=
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Tue, 16 Sep 2025 18:51:35 +0200
-Subject: [PATCH] kselftest/arm64/gcs/basic-gcs: Respect parent directory
- CFLAGS
+	Tue, 16 Sep 2025 16:55:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35FAB113E;
+	Tue, 16 Sep 2025 09:55:04 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C3D13F694;
+	Tue, 16 Sep 2025 09:55:11 -0700 (PDT)
+Date: Tue, 16 Sep 2025 17:55:10 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Sean Anderson <sean.anderson@linux.dev>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Linu Cherian <lcherian@marvell.com>, linux-kernel@vger.kernel.org,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	James Clark <james.clark@linaro.org>
+Subject: Re: [PATCH v3] coresight: Fix possible deadlock in coresight_panic_cb
+Message-ID: <20250916165510.GN12516@e132581.arm.com>
+References: <20250912151314.3761026-1-sean.anderson@linux.dev>
+ <20250915095820.GH12516@e132581.arm.com>
+ <3e618117-96bd-44f3-bede-7cadfe0264dd@linux.dev>
+ <20250916160027.GK12516@e132581.arm.com>
+ <6fbd24b2-3315-45e6-bff2-2c39e899e8f5@arm.com>
+ <20250916163840.GL12516@e132581.arm.com>
+ <8f426702-4897-4177-aeae-4fe2b7155fae@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250916-arm64-gcs-nolibc-v1-1-ee54aa65fc26@weissschuh.net>
-X-B4-Tracking: v=1; b=H4sIAJaVyWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDS0Mz3cSiXDMT3fTkYt28/JzMpGRd8xTDNAPjRKNE4+Q0JaC2gqLUtMw
- KsJHRsbW1ALPe7+ZiAAAA
-X-Change-ID: 20250916-arm64-gcs-nolibc-7d1f03a2a3cf
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
- Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Naresh Kamboju <naresh.kamboju@linaro.org>, 
- Linux Kernel Functional Testing <lkft@linaro.org>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758041507; l=2128;
- i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=lBF3mDXzti9+laxIzr4FHTuLqFzaAZ5MHcHfIKkRgqE=;
- b=k/GviUbM+MEMtaxixr3f1Or6Y88ToYlCi3Dv8wXkzwS729fUzQxmaGGkpeUfsWF8zi6QA6j/Q
- s2SOuEGp+WcDRb8GXPEQ0KPh6IS/WlK77QYakGkAydZD48tzEcrHQ0a
-X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
- pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8f426702-4897-4177-aeae-4fe2b7155fae@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_095153_043887_BE69DC41 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250916_095513_463497_4AB5C9F8 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +73,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-basic-gcs has it's own make rule to handle the special compiler
-invocation to build against nolibc. This rule does not respect the
-$(CFLAGS) passed by the Makefile from the parent directory.
-However these $(CFLAGS) set up the include path to include the UAPI
-headers from the current kernel.
-Due to this the asm/hwcap.h header is used from the toolchain instead of
-the UAPI and the definition of HWCAP_GCS is not found.
+On Tue, Sep 16, 2025 at 05:42:07PM +0100, Suzuki Kuruppassery Poulose wrote:
 
-Restructure the rule for basic-gcs to respect the $(CFLAGS).
-Also drop those options which are already provided by $(CFLAGS).
+[...]
 
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-Closes: https://lore.kernel.org/lkml/CA+G9fYv77X+kKz2YT6xw7=9UrrotTbQ6fgNac7oohOg8BgGvtw@mail.gmail.com/
-Fixes: a985fe638344 ("kselftest/arm64/gcs: Use nolibc's getauxval()")
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
----
- tools/testing/selftests/arm64/gcs/Makefile | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+> > > Well, if you are going that far, why not register the notifier from
+> > > coresight-core ?
+> > 
+> > I have thought this but gave up.
+> > 
+> > When register a panic's notifier, it does not provide an argument for
+> > passing a private data. So the code below uses container_of() to convert
+> > notifier block pointer to the TMC driver data, as a result, the code is
+> > specific to TMC driver.
+> 
+> notifier_block in csdev ?
 
-diff --git a/tools/testing/selftests/arm64/gcs/Makefile b/tools/testing/selftests/arm64/gcs/Makefile
-index d2f3497a9103fc12ebc90c7f4e33ab9b846c6c8a..1fbbf0ca1f0291d00882920eb2d1efbf99882ec1 100644
---- a/tools/testing/selftests/arm64/gcs/Makefile
-+++ b/tools/testing/selftests/arm64/gcs/Makefile
-@@ -14,11 +14,11 @@ LDLIBS+=-lpthread
- include ../../lib.mk
- 
- $(OUTPUT)/basic-gcs: basic-gcs.c
--	$(CC) -g -fno-asynchronous-unwind-tables -fno-ident -s -Os -nostdlib \
--		-static -include ../../../../include/nolibc/nolibc.h \
-+	$(CC) $(CFLAGS) -fno-asynchronous-unwind-tables -fno-ident -s -nostdlib -nostdinc \
-+		-static -I../../../../include/nolibc -include ../../../../include/nolibc/nolibc.h \
- 		-I../../../../../usr/include \
- 		-std=gnu99 -I../.. -g \
--		-ffreestanding -Wall $^ -o $@ -lgcc
-+		-ffreestanding $^ -o $@ -lgcc
- 
- $(OUTPUT)/gcs-stress-thread: gcs-stress-thread.S
- 	$(CC) -nostdlib $^ -o $@
+csdev is a common structure, some devices may never use the notifier.
 
----
-base-commit: 14a41628c470f4aa069075cdcf6ec0138b6cf1da
-change-id: 20250916-arm64-gcs-nolibc-7d1f03a2a3cf
+This is the reason I thought it is fine to put notifier into TMC's
+driver data, as this can meet current requirement perfectly.
 
-Best regards,
--- 
-Thomas Weißschuh <linux@weissschuh.net>
-
+Thanks,
+Leo
 
