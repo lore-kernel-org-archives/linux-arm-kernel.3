@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F2CCAC59F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49556CAC5A0
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0fHAE3B++7vPIWUw59myjDCPk+7GWM24JBNBMS+y7M=; b=XUanxS/OVghDjqGHjkAn0mywrY
-	+j+OKd+Kri7g7FkmW7yrbCaI1o1tRj9Xwo7AwNl4btJ1TOO1x+AQLzO8pteqGyHqVdHEHt/wcLIWS
-	rlkUNHQf+xKMjd7c6w/s5wQx2buJd3gEoFLZcFrIIUZhxd5PtXEoOwWTbCddpkpQ+ePmn7p4KAoW+
-	ZQQHD/p6ptmmC6Z9ZEfbWWkyW3i9jHwQPQe695NeXlUl7uiNCPHAq64TRmnzo3L4qUzKNciYQG4N7
-	vvritAhwvZGBoNRrcs/vkpbpAQLiTopt4ae4UqVFzZ5xJ8Uuc3MPBtpLwbBfx6XWYbAolvJaZDBiC
-	4krSfppg==;
+	bh=P0G1nHwWvoBgVqHJJ8KDF0ih2q77m+pFh56iElgY1+M=; b=MeG1iRlglXpwmfRQkOcNfMjOy6
+	aAvkIUOaTNbBiIz2X9ZyL1QsB6vHcwuxUbKhdydIIrZb1JitGYR1z71uLshRJCeW1sGeF18TVFj6s
+	j0r6uYS9TO3n0kPncfUgGSleTG9bWLIRzJikePZQ8BTrdA/JVeAwsTW+qwMigJR4LHKOBL/FONcEf
+	NK8zx8ML9TVdlCC0qFVYaLDRVZt+sZTEajQ21tFmjss96KvKOa1qw95l5LeeclIhTehEDHZtzxfdj
+	YoWXftC4tk2O1QWMDhEJnpLrneueCiFBKLmzmQCba+XhyJPw28a5Uff5D3J9nbFXx52+DbR/6b4ws
+	2YuZQGVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycFT-000000091M2-0AUE;
-	Tue, 16 Sep 2025 20:25:59 +0000
+	id 1uycFV-000000091Qc-2G5H;
+	Tue, 16 Sep 2025 20:26:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEw-000000090iJ-1sa9;
-	Tue, 16 Sep 2025 20:25:28 +0000
+	id 1uycEz-000000090k6-43Yz;
+	Tue, 16 Sep 2025 20:25:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90B9444D17;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 25CB5C4CEFF;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9876244DF0;
+	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 65186C4CEF0;
+	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758054325;
-	bh=xub1/tI9O5DTgQhmhRBbs4Xjsw6qwKviTq2SxNAQ5VM=;
+	s=k20201202; t=1758054326;
+	bh=cYZYP/uaZ0Z/omX0vz2UqaLnE+xmaYEf63AvynoutoE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=fcl4xDz1ZHp5+J8K8HjCWy3jmZaXLcIIwdfJFBIleSSBefPR3RHy+ZQxUO0sRA6fe
-	 fF4AW4NFW0VxJy6l1lYy0EM7Z/t5WqXyDlchlqYcVavBi0dvxncUhgtGTeMdFRVUyp
-	 KdUcPPHpjmmMz8UksyEbyFWty4ehkw05D1s22im+BUA191x0KwOXkd+S66zF5qPd27
-	 eQVEw1E0m7NY2hU8517TDEpLUUWKLyJv7NivdyTFGD5gJ+kSXgdNEeaM/p/fSdQsKi
-	 RMrReUg5FWlBW/WdHLdXLoRPYWLogCrGj8QDpo0ohoa0OVFRyT28akLURoTMJJMdUk
-	 x0EZCWfQ0uLFg==
+	b=CdmlZ+qGcOngd+lvNpEen5lhbh/dTmK2Q3Ty/eYlIEcqgFL6xAzwa4W/LfX34Hfx5
+	 3fBeqj5wi/oTkxuB+XEOsf+wr5Z5C3kDvwmAg/yySoVTPp1/wQFCi27WQye50Usgkv
+	 +iImavWZdMfORAQ2UjB1I4wc38wiikTwi59q2bVpn4+YW9pUHGUE/AAwM62rVqn94E
+	 WqlqiRZmqNjpFhUv/vr9EGKPedIsrCvfR5vRZB66wpqYcUT/+CzRRVuqprKSQpRlQZ
+	 7DYFjspfjwwxdE/TMkSzgMHv1n6y+KiF/8uT6fRAqtQaJ6IVtB73DOR4NjrTzrNzC/
+	 xw3Vv5VYA1S0A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 10F37CAC592;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5229ACAC59F;
+	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:00 +0700
-Subject: [PATCH 03/25] dt-bindings: gpio: rda: Make interrupts optional
+Date: Wed, 17 Sep 2025 03:25:20 +0700
+Subject: [PATCH 23/25] dts: unisoc: rda8810pl: Add SDMMC controllers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-3-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-23-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,19 +71,19 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=767;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1669;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=Ifgj24X3WuB4jA0+A119cFjcjAjN444atKSTzNtV5QI=;
- b=w5Dv0+XyivOW8fKisHFtboYipMhkeJG5JlSdgVYg9JCFW0dK+AUye0klaEHuhYZkbKF8yFV3d
- bbnf7sXd5NlDsF+1JmkU6i+0CfwfvX/taK6GSxR2IwyVaLwjD6ceHsT
+ bh=+rjfqyC6diLcCcMZpXzmNwIY3Xd0ao4URhi7mY7MeOo=;
+ b=g36+c8BMuiizyAkQU5g2SVhGELtdZOZL7VmLGm9NJ65TH2ylz89Z6tGkVFMsW4PUF6yXDm1fJ
+ gSr5M9xIH80CvABquDEQg1EdtLnBDMt1j/TqnDGY86xGtT9UTnG1g4P
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132526_515124_DBB3F60A 
-X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-CacheID: sfid-20250916_132530_273900_3CC84342 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,27 +102,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-The GPIO controller from the modem does not have an interrupt.
+Add SDMMC1 and 2 controllers for the RDA8810PL platform.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- Documentation/devicetree/bindings/gpio/gpio-rda.yaml | 3 ---
- 1 file changed, 3 deletions(-)
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-index 6ece555f074f84b396537917d7149d4061724dcc..dbb73b4d33ed39aa65024376b1af0c4e2fb896db 100644
---- a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-+++ b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-@@ -41,9 +41,6 @@ required:
-   - gpio-controller
-   - "#gpio-cells"
-   - ngpios
--  - interrupt-controller
--  - "#interrupt-cells"
--  - interrupts
+diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+index 4b3ae19e9da41ee9ffa76dd4fff01824c07ce045..e68f8330ce2c4750b6944612bee03b42694137e4 100644
+--- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
++++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+@@ -9,6 +9,7 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/clock/rda,8810pl-apclk.h>
++#include <dt-bindings/dma/rda-ifc.h>
  
- additionalProperties: false
+ / {
+ 	compatible = "rda,8810pl";
+@@ -199,6 +200,30 @@ uart1: serial@0 {
+ 			status = "disabled";
+ 		};
  
++		mmc1: mmc@50000 {
++			compatible = "rda,8810pl-mmc";
++			reg = <0x50000 0x1000>;
++			interrupts = <3 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ap_syscon CLK_APB2>;
++			clock-names = "apb";
++			resets = <&ap_syscon RST_APB2_SDMMC1>;
++			dmas = <&ifc IFC_SDMMC1_TX>, <&ifc IFC_SDMMC1_RX>;
++			dma-names = "tx", "rx";
++			status = "disabled";
++		};
++
++		mmc2: mmc@60000 {
++			compatible = "rda,8810pl-mmc";
++			reg = <0x60000 0x1000>;
++			interrupts = <4 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ap_syscon CLK_APB2>;
++			clock-names = "apb";
++			resets = <&ap_syscon RST_APB2_SDMMC2>;
++			dmas = <&ifc IFC_SDMMC2_TX>, <&ifc IFC_SDMMC2_RX>;
++			dma-names = "tx", "rx";
++			status = "disabled";
++		};
++
+ 		uart2: serial@10000 {
+ 			compatible = "rda,8810pl-uart";
+ 			reg = <0x10000 0x1000>;
 
 -- 
 2.51.0
