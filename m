@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A4DCAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19A8CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 09:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xbawwmBoJ+wZI7xS6DVzS80oa3hVLAsUDbr1E7VfLM=; b=YaEXHo4XgUF5QkXeHgYmGpQy2B
-	L8c7NRjgxv8mQFolIC8dbqM87DInwH2f/lKoPxdDZIlTV0ZyHBxigXKMy8u1x9CobAul6l+dAAuB1
-	pvM8IT4LbKX1sahEvaddsbSoSSaRJq0OlL7R0CTvnNWb2NT5A0jrVC9uQeZ9+AFkHtjwoKQfXkUD7
-	GbtfkBTTmPvSbQuk/8GTVsqaa9N6QhaBQconAQ8pSvPDPFdQyrCNd4dbCDGdaE8etO+iY5CwTRMd9
-	3HW1jqmik+/8rBc0t57EgGG3VtOFcJcUaftABIT8q/hlCLQcBHpQ1ksUkawN/loQOk9RC9WXAeaBQ
-	eb2C5YsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKriTgmYlGn91P6qgtECUepZvJEA2Di6BahJZ7SaZyQ=; b=3r2nGFZiiVJisp8bSVX06NTsty
+	Fw5D5xzj51vCoJG9xOUZPeimTecAm+I4EkSVmH9Ni0EbrRKeL1V5ArLXuenXrv06LbRM3iUKLKKvn
+	q05+xPuYIEyi2SpVsASi/WUirm/sNNVNfZwPgi+QwXTPnXVzYm1LAJaTIvvHyGvsnheSp9iJksaW6
+	DfMHc+4QK95lkYP7MfC7IX2JO7pIaW6eCP83oA9dXkcrG1tAKymnaL2w9BjmInw5rYNATPJNdtRMp
+	BKQ91wtC98D3O0BUhcjzfukqQFLtgdNEcU5IjM8TsR0YYVDy29BXJYShcJGxJCvG8DobCYOTf/ZmE
+	HkE51MvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySDU-00000007Q0K-3IlS;
-	Tue, 16 Sep 2025 09:43:16 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1uySGg-00000007QdW-1MFT;
+	Tue, 16 Sep 2025 09:46:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySDS-00000007Pzp-3Ocx
+	id 1uySGd-00000007Qcc-1sxW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 09:43:15 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-72ce9790ab3so35448637b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 02:43:14 -0700 (PDT)
+	Tue, 16 Sep 2025 09:46:33 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45ddc7d5731so36979885e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 02:46:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758015793; x=1758620593; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6xbawwmBoJ+wZI7xS6DVzS80oa3hVLAsUDbr1E7VfLM=;
-        b=b1tBZLFs+FHz3AYYAZqv3TbMNnm+jQfkif476YItZ3ZH3m6lhlvEvoxGHO8pUEwuUL
-         YH9WZEActY6XODWfXUkZ3GiKQwpir5MvlKj86qaiyNWXvmxpSNZr7ye60F0y0A7fNA5G
-         eAz5uL79sqWK6/VdVz+7vs9ba0EIUeoheu7sPt3xQKAo7ODr+jUJw7gFwJpZ48K8FG/U
-         SXmyK37KUeaG0+Z7a4fQdGFSCpVh/iL/Yty2LNFbEoR2uzF9e9OTYD6gpBc5W8X+vMXu
-         fGhI8Lg3GcDgq7dLKc/ajgHaZ1sxwK40RRfs2s8jrGSgbvYZxRWj3TlrlwimoqI1g556
-         N2KQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1758015989; x=1758620789; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EKriTgmYlGn91P6qgtECUepZvJEA2Di6BahJZ7SaZyQ=;
+        b=azIogIa41H9sd/OAS5Nv0rNnlWp/ysv3og9CUy39LEMQTFCwAtMEB2+Y+XJkL35p5l
+         DG6QOG6y4dIOYXh6bbNeYucCj0fODiWXBMgtxKY4Y3nzrRnXZEgfVdGhNhXWUgKTd7Vo
+         spYS6Rb798XhBlQAQLiOpL23gPmOMu6Hd7jVJwT0izkr7zDZVGbMu6JTUAlusNcazIne
+         JsV6uzNoqOa3JStaTQAotDyW3lSmKHb3QCAWvk1wHQR8rM0P/nXxwoomzXPShEqQlc5S
+         mAGlVV3JVPTs1+QapPIJT4r6eeGUOsFYVUtK178jG4racfR4afaz+HRrK0PK8Xj4gL2m
+         Wcpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758015793; x=1758620593;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6xbawwmBoJ+wZI7xS6DVzS80oa3hVLAsUDbr1E7VfLM=;
-        b=LEH9k4+f4RhjjVZTmBuKmNdFVFijap+Ksi08F3YM1/A9gqIa4WuHxjgDYT9PE/g1Fh
-         DURBOArVHFmuae5wtVe8/0ZDhqxl9h5izzHoRa80NhQ/uBLZAIoHIAZKw637AVzBtF2F
-         1O6R+4Gfd01F3t22mCUw9G85b/YlhlmSgR6q9vmsRiYUB3psPzXPyUrCRAKTBMzPabgF
-         5yDIQ4DFqog/ih4U1wA6ngN8PQc4sUbRAR+Jd3Z2P3L4g0YEtNo+rVT3Hgbs992InnaH
-         uJ7B62cxy871tq5UzV9rSzrD7sNgS3jcAi9OLlAH7qqbThwcOYMgMbYy8k73B1ePIClO
-         mhtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX10iqplmY3FiPNl4YqjHnS09Jj2t5wTziNBiGuuYpmB+VtxMRXxx+bmR0Yk53uBTv0yhookmHWUChWEleO7ARC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnF2fgIJ40aYZTctP/7o2TEkoTI7GyMzhys5I4Aw8Vf9vTxG6q
-	Laj1iO4KsY9vyKgAOOfzc8giYmFdTglCNi+0jWT83xkMrNUekUt6mmJ3fImDjaS+6N26WHQ4Kei
-	GM1+Cj1HS9t+e+39HpP8TTlXTbd5ZKHk=
-X-Gm-Gg: ASbGnctSYvFTJBQlsHfPBbEmpFVAwWXx8eClS72oQwDQH31wBh3c35BKInHInvj3ZqR
-	x1OrvLn034/aJNIO5RUt/0KzjtWlkFsC+m39QEnhG5pBR5zOkJFb90pigQoZwuPBpPzRqssz+EC
-	KKSstin6QQswO82V2PEdMDiskEFmnp2CfEjRK/llaQmNBOX5NNysJxLM1UGWMZHHwAXm6FAxp09
-	QkIUUuNHGGH5tE8reLKzhm1NieCGao=
-X-Google-Smtp-Source: AGHT+IHV/RX93XAmuJF2uL0N4vvl4pBykKHWOWIaKMzu4BBoHbE2JJaflos/7YY6pTURHoTpA1UgbNRwBPMZjCyfZfM=
-X-Received: by 2002:a05:690c:7088:b0:723:b16a:ce6 with SMTP id
- 00721157ae682-730659be315mr116536247b3.50.1758015793437; Tue, 16 Sep 2025
- 02:43:13 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758015989; x=1758620789;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EKriTgmYlGn91P6qgtECUepZvJEA2Di6BahJZ7SaZyQ=;
+        b=U7TfyBUxb/XQMjkeNctvvbM9ysQ8RL36rsQivKYZFeLga/CYTfunq9o6oniQr13eUj
+         PL4q0HZvzxEdyvcOjjfX4bISNU2LAZi+dFg2XEdO7E8D5c6VevVl8U6O2M22rDpdaemA
+         9yJ1zlGwljo5vZk1RbD2Uz+VWaG5HRRHh9wj320vJ1HSx5AeksiJJSXaF3wNdLVk0o4c
+         PcuzFlJI54m0xJwRxQDwHIRLuBik3qQVTVxjngCp9ozKt0kagpz1lnWGrwix3tNGOA1B
+         7nZbfNhjbISqLr4Bbjqypdpq1yJcXkt26cHvw9yeS4JhiRQ3SedvuafLPybr/AhLtlhf
+         HhDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUp9pLwwSu9aYplsHY03JgmTLF3xB98hUYcCfBtIjx6IOazEkaxV0rshT3rw4VPh3iGAP7nfJ/aP+ALyCq8smD8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwprurqQyrZCNwJrvkmUt8eT2FdvprWD6N09sAmi9nCkePh9HmZ
+	jR1bKlzDP9Y8eO32U+UDJyjV8NOjnzou++3FGDf5vqfgm8n3M83DOmGYpL+RupvVgQs=
+X-Gm-Gg: ASbGncued3ryGp1Vr0q4XG6YWnaybCGv0gWW/FqeEUQ7l2WHMIGR0B3orqmvYlKiNBX
+	LbInd3V4pIWtkJU//OrVskHwxwwcuk8PBNFMjw8TXGhpQeEJU6fpV5JbDSDk1JBBuU46TPa4FH+
+	miNcDzu4yitkoLjnH84mYWZaOs8U3ij5UH+0uGW8NfxcYXmuz8PCvsq5AkA9ETBBakbQWDGDaCb
+	v9F6d47m9xOjIvEerC2YsAuG18Wo1zznqda0aYnif4G2L2J/j5FCMymIJnEwFZKQgWk4O91OcWy
+	blmhSEAaURhXBAgBQ0xxhApuOLkJ39n3eqrniA23+X3kVfk/Io2Jaend2wTAfax7p9QJ548UxPW
+	ko5r8X6hKBa0HmwDC8EBJ
+X-Google-Smtp-Source: AGHT+IE8PXskyGCers87Y7NP0MSYZZPH7pEpN8IMr6HhZYRCkIe+WiPVCA8noQ//F0XdONjDZfZtNw==
+X-Received: by 2002:a05:600c:1c0e:b0:45f:2870:222e with SMTP id 5b1f17b1804b1-45f2a023010mr72082385e9.26.1758015989240;
+        Tue, 16 Sep 2025 02:46:29 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:a6cd:21af:56e0:521])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3e8b7b6ff8fsm13195432f8f.61.2025.09.16.02.46.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 02:46:28 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
+  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  Krzysztof Kozlowski
+ <krzysztof.kozlowski@linaro.org>,  Conor Dooley
+ <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 0/2] clk: amlogic: add video-related clocks for S4 SoC
+In-Reply-To: <66f130b4-88d7-46d2-9f66-9055896d445a@amlogic.com> (Chuan Liu's
+	message of "Tue, 16 Sep 2025 17:30:29 +0800")
+References: <20250916-add_video_clk-v5-0-e25293589601@amlogic.com>
+	<1j348mj0sw.fsf@starbuckisacylon.baylibre.com>
+	<66f130b4-88d7-46d2-9f66-9055896d445a@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Tue, 16 Sep 2025 11:46:28 +0200
+Message-ID: <1jwm5yhgqz.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-References: <20250916-flexspi-dts-v1-0-61567f969165@nxp.com> <20250916-flexspi-dts-v1-1-61567f969165@nxp.com>
-In-Reply-To: <20250916-flexspi-dts-v1-1-61567f969165@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 16 Sep 2025 06:42:54 -0300
-X-Gm-Features: AS18NWBOYsyflacEeUU1SMpoaGg-Ie2TjGzWnHyRp3ZhqTvzAQSB9G1WINvKAyg
-Message-ID: <CAOMZO5CTrGA19npaW+u0=V0nUV0nAqoH+p75L06yR28DVBGfYg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: dts: correct the flexspi compatible string to
- match with yaml
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_024314_853734_22B465E0 
-X-CRM114-Status: UNSURE (   8.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250916_024631_505200_E897BC0E 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,12 +109,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 5:57=E2=80=AFAM Haibo Chen <haibo.chen@nxp.com> wro=
-te:
->
-> According to Documentation/devicetree/bindings/spi/spi-nxp-fspi.yaml,
-> imx93/imx95 should use it's own compatible string and back compatible
-> with imx8mm.
+On Tue 16 Sep 2025 at 17:30, Chuan Liu <chuan.liu@amlogic.com> wrote:
 
-Nitpick: "fallback compatible"
+> Hi Jerome:
+>
+>
+> On 9/16/2025 3:47 PM, Jerome Brunet wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Tue 16 Sep 2025 at 10:06, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
+>>
+>>> This patch introduces new clock support for video processing components
+>>> including the encoder, demodulator and CVBS interface modules.
+>>>
+>>> The related clocks have passed clk-measure verification.
+>>>
+>>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+>>> ---
+>>> Changes in v5:
+>>> - Add Acked-by tags from Conor.
+>>> - Remove unnecessary flags as suggested by Jerome.
+>> The request was "in an another change" ? Why was this ignored ?
+>
+>
+> Sorry to bother you. I'll drop the flags for 's4_cts_encl_sel' in this
+> series and submit a separate patch later to remove CLK_SET_RATE_PARENT
+> from enci/encp/cdac/hdmitx clk_muxes. Is that ok?
+
+Why can't make it part of this series, as requested ?
+It does not seems that hard to do.
+
+This is another unnecessary revision and the community will have to
+review, because you ignored some feedback.
+
+As noted by Krzysztof, you really need to pay more attention to the time
+and effort other are spending reviewing your work.
+
+>
+>
+>>
+>>> - Link to v4: https://lore.kernel.org/r/20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com
+>>>
+>>> Changes in v4:
+>>> - Add Acked-by tags from Rob and Krzysztof.
+>>> - Fix compilation errors.
+>>> - Link to v3: https://lore.kernel.org/r/20250905-add_video_clk-v3-0-8304c91b8b94@amlogic.com
+>>>
+>>> Changes in v3:
+>>> - Rebase with Jerome's latest code base.
+>>> - Link to v2: https://lore.kernel.org/r/20250814-add_video_clk-v2-0-bb2b5a5f2904@amlogic.com
+>>>
+>>> Changes in v2:
+>>> - Removed lcd_an clock tree (previously used in meson series but obsolete in
+>>> newer chips).
+>>> - Removed Rob's 'Acked-by' tag due to dt-binding changes (Is it necessary?).
+>>> - Link to v1: https://lore.kernel.org/r/20250715-add_video_clk-v1-0-40e7f633f361@amlogic.com
+>>>
+>>> ---
+>>> Chuan Liu (2):
+>>>        dt-bindings: clock: add video clock indices for Amlogic S4 SoC
+>>>        clk: amlogic: add video-related clocks for S4 SoC
+>>>
+>>>   drivers/clk/meson/s4-peripherals.c                 | 206 ++++++++++++++++++++-
+>>>   .../clock/amlogic,s4-peripherals-clkc.h            |  11 ++
+>>>   2 files changed, 213 insertions(+), 4 deletions(-)
+>>> ---
+>>> base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
+>>> change-id: 20250715-add_video_clk-dc38b5459018
+>>>
+>>> Best regards,
+>> --
+>> Jerome
+
+-- 
+Jerome
 
