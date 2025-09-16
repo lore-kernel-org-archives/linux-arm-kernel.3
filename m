@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708CBCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BAACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WlrpMszuag375++3au3AQMumLE/Z1ZoZmJDjJqd8ieY=; b=DZFwRTvmzbQyUf+1jNPfsiGXqM
-	s8kq+AXWhgAYPwQxgCi2Yd//NCe6g7vMNKmuYiXeu1zdvSgqx3dMsp71UhE2DAlvn1/kmes+1LhD+
-	fvWr6dMHaqk46S/0ve9A70tXi70hEcVWiFXgnRAWuK5r6PYn4WYIYOj0XQctRxyEmMVvR8O/J1Zqe
-	3jpxsXxHuMANSK0XlC2KFIY+XX3iTxWU9MVWli2P9t+C2YpssEhCkfSF42qWCYDS+9zOk9tdpeRGt
-	8JWnUG1LwwliV204zhDLTjq6yob50rqkDlK37Zwc8IRV/iX9+/S2bQmw6KYnjgWpdty9kfL7yGtQX
-	FNtCHXcQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C2ElPcuDb7GDFL0BugWYkt/VrkTvpyOiSK2rgTU3LY4=; b=e92DMD66hbWaPN
+	o05sf0lKqXisERwg0iIy16awL5hkiSCfAEIg7G8vkdYAuNp25gtSubuiWfjVmGuySAes1hcxkH/JB
+	lSnTFxLRVNhtqAyQRFyQVRheVxAAal7ebHrDiDyXoLbpw1Kh3xLcjBBuqo2jUA/eHRaGacUJ5mBIA
+	o/ianH+uvjx4vDMEY/n+mxQe5A5b1B4LAQAUyzh5KwV0gqSB0721awJtoJvOVyi3EsGy54ZQ3DCt8
+	z3Ycb7sGPG0+U+n11DQZJW1QV0+UdzRwkpVr990jOJwGAmxemJMNPxbmXGnO1H34P6qaADrBiyl8f
+	/1i44xyxjOX7HCfldy8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyc22-00000008ykP-3gen;
-	Tue, 16 Sep 2025 20:12:06 +0000
+	id 1uyc2r-00000008z3n-24NA;
+	Tue, 16 Sep 2025 20:12:57 +0000
 Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyc20-00000008yjH-1prj;
-	Tue, 16 Sep 2025 20:12:05 +0000
+	id 1uyc2p-00000008z2K-1yca;
+	Tue, 16 Sep 2025 20:12:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=To:Message-Id:Subject:Date:From; t=1758053336; bh=WlrpMszuag375++3au3AQMu
-	mLE/Z1ZoZmJDjJqd8ieY=; b=GAvx5qwGFbxhNRkxwhc5JSYB1VRIMjT5ITBEWXUjVNyQ0BNZ7n
-	sPJRK49nsYSihF6htA0vNokgdRIR+nQd0zL96pFlmWIrCntfk8gd5ENYJKXzz0hxoB2VikAnAhM
-	pZFG08Xt/Aw1XeI2Ygsr5tq4QthZmwtGBBU3En3e3ezDluZx5QW73yYfSUWU3hpBrQDL9fBKirG
-	ReGGVxNrWIv22KM00QZaDIvPKsnL+PUP3+VPkjeLArQes/PIm5LGDaEN334/+3Q162yDD8Z9OVz
-	Sv+iSk9BiyPut/O3rwwaTq54MfwPbnUKeTZ1bw0Vta8J/i5rFf6L154KEr+qR+hTahQ==;
+	h=To:Message-Id:Date:Subject:From; t=1758053274; bh=C2ElPcuDb7GDFL0BugWYkt/
+	VrkTvpyOiSK2rgTU3LY4=; b=F1QIsViWv9H3CNrLHTcx/s1Ozszeb+qquwpUtz++nUQnnY6bKj
+	ezdrbyXwPCKt+xtaMuGTe5+K0ey5SqiF5BlYXt7t1B8Iyn/vODdS2aiQmj9kcDw0RkVdG+7r9yk
+	ka6cAn9xuFU5FRdBq1RmJRGlNEZYDkX1G4QBjBsYnbv10X4QvoiCF1SWspzqtK6e7f+E3Ti2YEK
+	jduCIW5omXXNcBa9eYSlk54eX3tsgOpoceX+dPIMwr6u4GeSsGRsY1kdJUJd8t4QCJw2JVulNZH
+	rMBC+jjvhZFDB9ZOo3fl3ZRqrq+u0eIbvAfwVgtJhxlYZ7PWkmvXU5wW04RWYutBiRQ==;
 DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=To:Message-Id:Subject:Date:From; t=1758053336; bh=WlrpMszuag375++3au3AQMu
-	mLE/Z1ZoZmJDjJqd8ieY=; b=UzO03XcRaN3wGrSqDtBkO/u7EMhC+mKUBkEupBvSBqMoLn/K9o
-	n56YX+PHZY+jiYPCh5W/1ggBp9Tr5ku7pFAw==;
+	h=To:Message-Id:Date:Subject:From; t=1758053274; bh=C2ElPcuDb7GDFL0BugWYkt/
+	VrkTvpyOiSK2rgTU3LY4=; b=zj2OQhKMLYaBsfr6zNxJpu0ngi64yyfXN8RIj98ciWChz/axPh
+	lXebYFA6fUg6+OUOvjJquJpVfpIWTYIY4aCA==;
 From: Dang Huynh <dang.huynh@mainlining.org>
-Date: Wed, 17 Sep 2025 03:07:26 +0700
-Subject: [PATCH 09/25] dt-bindings: clock: Add RDA Micro RDA8810PL
- clock/reset controller
+Subject: [PATCH 00/25] RDA8810PL Clock, RTC and MMC driver
+Date: Wed, 17 Sep 2025 03:07:17 +0700
+Message-Id: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-9-74866def1fe3@mainlining.org>
-References: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
-In-Reply-To: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
+X-B4-Tracking: v=1; b=H4sIAHXDyWgC/x3MQQqAIBBA0avErBPUsrKrRAvJqQbCYgQJxLsnL
+ d/i/wwRmTDC3GRgTBTpDhWqbWA7XThQkK8GLbWRVg2CvZsmJZ9LeKaEHIV1Ro+qN3roDNTuYdz
+ p/Z/LWsoHMTLSk2MAAAA=
+X-Change-ID: 20250916-rda8810pl-drivers-9a5271452635
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -66,8 +67,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_131204_619793_62678CDB 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250916_131255_650639_FFCF53E7 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,151 +83,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation describing the RDA8810PL Clock and Reset
-controller.
+This patch series aims to add support for Clock/Reset, Real-Time Clock and
+SDMMC on the RDA Micro RDA8810PL platform.
+
+It also adds Intelligent Flow Controller (IOW, a DMA controller) which is
+important for working with this MMC IP.
+
+Tested on the Orange Pi 2G-IOT.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- .../bindings/clock/rda,8810pl-apsyscon.yaml        | 44 ++++++++++++
- include/dt-bindings/clock/rda,8810pl-apclk.h       | 79 ++++++++++++++++++++++
- 2 files changed, 123 insertions(+)
+Dang Huynh (25):
+      ARM: dts: unisoc: rda8810pl: Add label to GPIO nodes
+      drivers: gpio: rda: Make IRQ optional
+      dt-bindings: gpio: rda: Make interrupts optional
+      rtc: Add timestamp for the end of 2127
+      dt-bindings: rtc: Add RDA Micro RDA8810PL RTC
+      rtc: Add driver for RDA Micro SoC
+      ARM: dts: unisoc: rda8810pl: Enable Real-Time Clock
+      ARM: dts: unisoc: rda8810pl: Enable ARM PMU
+      dt-bindings: clock: Add RDA Micro RDA8810PL clock/reset controller
+      drivers: clk: Add Clock and Reset Driver for RDA Micro RDA8810PL SoC
+      dts: unisoc: rda8810pl: Enable clock/reset driver
+      dts: unisoc: rda8810pl: Add OPP for CPU and define L2 cache
+      dts: unisoc: orangepi: Disable UART with no users
+      dt-bindings: power: reset: Add RDA Micro Modem Reset
+      power: reset: Add basic power reset driver for RDA8810PL
+      dts: unisoc: rda8810pl: Enable modem reset
+      drivers: gpio: rda: Make direction register unreadable
+      dt-bindings: dma: Add RDA IFC DMA
+      dmaengine: Add RDA IFC driver
+      dts: unisoc: rda8810pl: Enable IFC
+      dt-bindings: mmc: Add RDA SDMMC controller
+      mmc: host: Add RDA Micro SD/MMC driver
+      dts: unisoc: rda8810pl: Add SDMMC controllers
+      dts: unisoc: orangepi-2g: Enable SD Card
+      dts: unisoc: orangepi-i96: Enable SD Card
 
-diff --git a/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..988b609403a96abc4964ab366daa6fec0514595c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/rda,8810pl-apsyscon.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RDA Micro RDA8810PL AP Clock Controller
-+
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: rda,8810pl-apsyscon
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rda,8810pl-apclk.h>
-+
-+    ap_syscon: syscon@0 {
-+      compatible = "rda,8810pl-apsyscon", "syscon";
-+      reg = <0x0 0x1000>;
-+      #clock-cells = <1>;
-+      #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/rda,8810pl-apclk.h b/include/dt-bindings/clock/rda,8810pl-apclk.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..372358e72436a28c0775519f49626c9c5f4c6046
---- /dev/null
-+++ b/include/dt-bindings/clock/rda,8810pl-apclk.h
-@@ -0,0 +1,79 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
-+
-+#ifndef _DT_BINDINGS_CLK_RDA8810_H_
-+#define _DT_BINDINGS_CLK_RDA8810_H_
-+
-+/* soc clocks */
-+#define CLK_CPU 0
-+#define CLK_BUS 1
-+#define CLK_MEM 2
-+
-+#define CLK_USB 3
-+#define CLK_AXI 4
-+#define CLK_GCG 5
-+#define CLK_AHB1 6
-+#define CLK_APB1 7
-+#define CLK_APB2 8
-+
-+#define CLK_GPU 9
-+#define CLK_VPU 10
-+#define CLK_VOC 11
-+#define CLK_SFLSH 12
-+
-+#define CLK_UART1 13
-+#define CLK_UART2 14
-+#define CLK_UART3 15
-+
-+#define CLK_VOC2 16
-+#define CLK_EMMC 17
-+
-+#define CLK_COUNT (CLK_EMMC + 1)
-+
-+/* resets */
-+#define RST_CPU 0
-+
-+#define RST_AXI_VOC 1
-+#define RST_AXI_DMA 2
-+#define RST_AXI_CONNECT 3
-+#define RST_AXI_VPU 4
-+
-+#define RST_GCG_GOUDA 5
-+#define RST_GCG_CAMERA 6
-+#define RST_GCG_LCDC 7
-+
-+#define RST_AHB1_USBC 8
-+#define RST_AHB1_SPIFLASH 9
-+
-+#define RST_APB1_TIMER 10
-+#define RST_APB1_KEYPAD 11
-+#define RST_APB1_GPIO 12
-+#define RST_APB1_PWM 13
-+#define RST_APB1_AIF 14
-+#define RST_APB1_AUIFC 15
-+#define RST_APB1_I2C1 16
-+#define RST_APB1_I2C2 17
-+#define RST_APB1_I2C3 18
-+#define RST_APB1_COMREGS 19
-+#define RST_APB1_DMC 20
-+#define RST_APB1_DDRPHY_P 21
-+
-+#define RST_APB2_IFC 22
-+#define RST_APB2_UART1 23
-+#define RST_APB2_UART2 24
-+#define RST_APB2_UART3 25
-+#define RST_APB2_SPI1 26
-+#define RST_APB2_SPI2 27
-+#define RST_APB2_SPI3 28
-+#define RST_APB2_SDMMC1 29
-+#define RST_APB2_SDMMC2 30
-+#define RST_APB2_SDMMC3 31
-+#define RST_APB2_NAND 32
-+
-+#define RST_MEM_GPU 33
-+#define RST_MEM_VPU 34
-+#define RST_MEM_DMC 35
-+#define RST_MEM_DDRPHY_P 36
-+
-+#define RST_COUNT (RST_MEM_DDRPHY_P + 1)
-+
-+#endif /* _DT_BINDINGS_CLK_RDA8810_H_ */
+ .../bindings/clock/rda,8810pl-apsyscon.yaml        |  44 ++
+ Documentation/devicetree/bindings/dma/rda,ifc.yaml |  42 +
+ .../devicetree/bindings/gpio/gpio-rda.yaml         |   3 -
+ Documentation/devicetree/bindings/mmc/rda,mmc.yaml |  91 +++
+ .../bindings/power/reset/rda,md-reset.yaml         |  36 +
+ .../devicetree/bindings/rtc/rda,8810pl-rtc.yaml    |  30 +
+ MAINTAINERS                                        |  30 +
+ .../boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts  |  24 +-
+ .../arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts |  24 +-
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi            | 115 ++-
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/rda/Kconfig                            |  14 +
+ drivers/clk/rda/Makefile                           |   2 +
+ drivers/clk/rda/clk-rda8810.c                      | 770 +++++++++++++++++++
+ drivers/dma/Kconfig                                |  10 +
+ drivers/dma/Makefile                               |   1 +
+ drivers/dma/rda-ifc.c                              | 450 +++++++++++
+ drivers/gpio/gpio-rda.c                            |   4 +-
+ drivers/mmc/host/Kconfig                           |  12 +
+ drivers/mmc/host/Makefile                          |   1 +
+ drivers/mmc/host/rda-mmc.c                         | 853 +++++++++++++++++++++
+ drivers/power/reset/Kconfig                        |   9 +
+ drivers/power/reset/Makefile                       |   1 +
+ drivers/power/reset/rda-reboot.c                   |  58 ++
+ drivers/rtc/Kconfig                                |  11 +
+ drivers/rtc/Makefile                               |   1 +
+ drivers/rtc/rtc-rda.c                              | 356 +++++++++
+ include/dt-bindings/clock/rda,8810pl-apclk.h       |  79 ++
+ include/dt-bindings/dma/rda-ifc.h                  |  28 +
+ include/linux/rtc.h                                |   1 +
+ 31 files changed, 3079 insertions(+), 23 deletions(-)
+---
+base-commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
+change-id: 20250916-rda8810pl-drivers-9a5271452635
 
+Best regards,
 -- 
-2.51.0
+Dang Huynh <dang.huynh@mainlining.org>
 
