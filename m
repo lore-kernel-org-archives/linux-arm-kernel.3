@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A71CAC598
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4ECCAC59F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZMSps6hgFDIpP9RxgvUc7h5gme0+z9CSV4o5tWm9tg=; b=lHUFLecjcY8uj2nloflvdPaBg9
-	RCKMoQkhg3WAJybUTAt3WetIMrSRLTs/tLkPqNbUnPCNrmmQdNM1XyWZ6SiOVsbJ6+XRngGJIrpV2
-	9F8W3MfQExge/qOCCLnFMshiu+MD6wK65eFnBwbQwRJZDa0Jkszp4ZuYL0gIdCXXH1L8Vbmjv5faC
-	6y6lywSr0IFZP2mm7KanP1ig9VEWjBkzAtU5AC7xvLICMHspTbZybfeIOD3cCojoQZdEzk78kUS1v
-	3scis/K5auo72Xsc77ktXjZMVzB27FUNwK+uRnrodrwWITIzkPGccpm0MuYqzgyxzxO33Vv4e5HgU
-	qjGKKzqQ==;
+	bh=ALTZ4QuQxxo/1zFQ7x334/yIJ3V8hnW3OypZ6bvtG90=; b=jLTMQ2o3ryoFiqmDKR7hQNXX7f
+	ciFKQDliiicKNxWOQxoV5FO8QOL8b7835u3qERISz3YS5DO9dq3jB3pOHbAXnVzSDkCr/LgWP6fHM
+	WTLTGOVbCd2llTtkdLwXRQuMAWJDLa0FsiMx7k71sZBRnYOhO0MOCE1qB0QbHWjDvnFV5REWKYmAZ
+	ckQf8CIWj7MtxkWjsITGoT/G5WOL0zHvTZ4XID1TUf2GLgJ/DXgLrc1+o5ogu8INifWfYATLtcBiB
+	zzLo7iCK/PWyLuO3IzEkqvury6YOKHmIieA1zisH5C3kyW+vmjrn3/G7zYbR30jnzk6SWp0eQ4ekr
+	FflpUxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycF8-000000090wm-23va;
-	Tue, 16 Sep 2025 20:25:38 +0000
+	id 1uycF6-000000090uH-3fYB;
+	Tue, 16 Sep 2025 20:25:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEx-000000090jT-07rJ;
-	Tue, 16 Sep 2025 20:25:27 +0000
+	id 1uycEw-000000090ip-2Uab;
+	Tue, 16 Sep 2025 20:25:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5BFA660251;
-	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A674C4AF09;
-	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D787260232;
+	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 67AB2C116C6;
+	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758054326;
-	bh=B44iCTmbdkKyp2fHglpeuA0FgGRACa5ozdrUyEJewhg=;
+	s=k20201202; t=1758054325;
+	bh=e/qC+sVxQ9TrDHhG0wtazM84HxOMKYeszZU0EuODGJs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NAEBA1y1K4tD/khRpZK6HkipNJr1YfntYnA1W8a1MzEjPiEZDlIUbUrvu6Vu+pe0p
-	 dE4zzG04EM+hdn+JeTZRE7swY4dzT+d3zaZlfXt1w080wMyHCp0vmyNmcQfp1EpRk4
-	 +M5cgboJT5xIC7A1o9d3niTws0pIR9ymJ32HRLpSvJHNUrZoq77nijq2oVbdqcCnFX
-	 18h9UHBn499TLmGp8F2huiSkDw3kNFZHs2OGD4zQ9TR7ELKLZlLg2bYtnrgFtG4mkE
-	 PjuOKrBP49md3posUyZxios2JUQ0yCVcmx4UwALtpQvdrA7nF/kp1Haj/rVzLgd/N6
-	 8HwSnuIEXZLzw==
+	b=JQK0nw9SBa2eVYYGvCy8nmx53sGgdLx/FyORN5DzspfPQt24tLYQaFsC0MlDud1S2
+	 gIqO9nWVRE7MYLVeiI6LJTf5FbkB0ApYljJ1zvIGfwRTLJPEaxiPzTgsEHcEA5+i5C
+	 hOnnQENAY9wP8qMtTl9iyauSoX280tEPoDukO3TsmW+mw58CCW5/2kHl+QZ47IPoFf
+	 18lavy+cYon26CUGzTIpIOuny0U7Q9DCsvLl9N2C8Q5vTLX2Tpkdw2BdV7R7ugEyjC
+	 OPScv0AHz21XahXWoff39Uiin5vexBF9oDsNfFcuf7h8e5nCrLxpkS/oQd3oUqmh4A
+	 Wz1x4ynN10zRw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F3DD7CAC59F;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F238CAC592;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:15 +0700
-Subject: [PATCH 18/25] dt-bindings: dma: Add RDA IFC DMA
+Date: Wed, 17 Sep 2025 03:25:05 +0700
+Subject: [PATCH 08/25] ARM: dts: unisoc: rda8810pl: Enable ARM PMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-18-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-8-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,11 +71,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=2537;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=907;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=QY6MPTi+ZEpXp5sbdSrBjaqgS0Xhdu1ZPCH1WF+g14Y=;
- b=f+73zCYT5uq1k6ilgLXi33C+NRy7J+fTOa4N/swr6XCdLJaXbG/yOKqpUhJI3D/PqTqY8XU0k
- QkM4vE+PJ/5Cn0iUPmzJgeqVeko3jz25IKQyFfbLa/CoguJ6psdmMSc
+ bh=YAW/bGAZr0vX0B6I3xTMN5lJP76jY17Qpzu5kruaYow=;
+ b=Xx4eEf+AW3RfI/PbEY5JiaKmRAPppuTYEIz3HyHrxewzcQWqWGWhkO1ddTilsHUwqfkZstlrk
+ 2wL45PEan/qADgsP0ddnn6WAkTtuRkV+QW9c5fDgsFPwxfxBZIgttWj
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
@@ -98,97 +98,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-The Intelligent Flow Controller (IFC) is a scatter/gather DMA
-controller.
+The SoC uses a standard ARM PMU, enable it.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- Documentation/devicetree/bindings/dma/rda,ifc.yaml | 42 ++++++++++++++++++++++
- include/dt-bindings/dma/rda-ifc.h                  | 28 +++++++++++++++
- 2 files changed, 70 insertions(+)
+ arch/arm/boot/dts/unisoc/rda8810pl.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/dma/rda,ifc.yaml b/Documentation/devicetree/bindings/dma/rda,ifc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..3bb5932e8ff9404e3980eaef607efceb6d883bda
---- /dev/null
-+++ b/Documentation/devicetree/bindings/dma/rda,ifc.yaml
-@@ -0,0 +1,42 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/dma/rda,ifc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+index 609359aa91537168435934077e736b216adf50f4..45a2fd3e04cea5aac4fb6b40a6b332ce3eee4f2c 100644
+--- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
++++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
+@@ -6,6 +6,7 @@
+  * Copyright (c) 2018 Manivannan Sadhasivam
+  */
+ 
++#include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ 
+ / {
+@@ -25,6 +26,11 @@ cpu@0 {
+ 		};
+ 	};
+ 
++	pmu {
++		compatible = "arm,cortex-a5-pmu";
++		interrupts = <21 IRQ_TYPE_LEVEL_HIGH>;
++	};
 +
-+title: RDA Intelligent Flow Controller (IFC)
-+
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
-+
-+description: |
-+  RDA IFC is a DMA controller, it only supports scatter/gather lists.
-+
-+allOf:
-+  - $ref: dma-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: rda,8810pl-ifc
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#dma-cells":
-+    const: 1
-+    description:
-+      The cell corresponding to DMA request ID
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    ifc: dma-controller@f0000 {
-+      compatible = "rda,8810pl-ifc";
-+      reg = <0xf0000 0x1000>;
-+      #dma-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/dma/rda-ifc.h b/include/dt-bindings/dma/rda-ifc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..e075fe26158e834d1ae87b6dce61e41fb931add3
---- /dev/null
-+++ b/include/dt-bindings/dma/rda-ifc.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
-+
-+#ifndef __DT_BINDINGS_DMA_RDA_IFC_H__
-+#define __DT_BINDINGS_DMA_RDA_IFC_H__
-+
-+#define IFC_UART1_TX 0
-+#define IFC_UART1_RX 1
-+#define IFC_UART2_TX 2
-+#define IFC_UART2_RX 3
-+#define IFC_SPI1_TX 4
-+#define IFC_SPI1_RX 5
-+#define IFC_SPI2_TX 6
-+#define IFC_SPI2_RX 7
-+#define IFC_SPI3_TX 8
-+#define IFC_SPI3_RX 9
-+#define IFC_SDMMC1_TX 10
-+#define IFC_SDMMC1_RX 11
-+#define IFC_SDMMC2_TX 12
-+#define IFC_SDMMC2_RX 13
-+#define IFC_SDMMC3_TX 14
-+#define IFC_SDMMC3_RX 15
-+#define IFC_NFSC_TX 16
-+#define IFC_NFSC_RX 17
-+#define IFC_UART3_TX 18
-+#define IFC_UART3_RX 19
-+#define IFC_NO_REQUEST 20
-+
-+#endif /* __DT_BINDINGS_DMA_RDA_IFC_H__ */
+ 	sram@100000 {
+ 		compatible = "mmio-sram";
+ 		reg = <0x100000 0x10000>;
 
 -- 
 2.51.0
