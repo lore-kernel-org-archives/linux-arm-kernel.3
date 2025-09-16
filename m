@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6804CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 981E3CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 10:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1FWUIy12ESADGq4B/o282N3x/QgWaUFK1UozSJnDAM=; b=yJZ3v9Zogw+6IomXmn3bO9EyQM
-	UAlkGwvKNwiL/kueYcwiGHARvru6zeCIu6Kwrvv1J0Tfs1FGcQFl5IapmCqauL26zCutIBPj+u7iO
-	bgfc5UmcHezsHYoo9sf4zEIP949iTqRW7Rh36l03KPDxIJ7wcJMtTPtNFwyshMDuRBYXsBigIutYH
-	tVR2yWjVN7EhpIEuGLamNyxavVuCz/BbhTzi9o88+Aa2MkvHlWLdRbPBqc9dJtvfW/ucUv8pLYWcD
-	mYtIRaPcNa5n6e3YAKpck2KOb8t5hx+MjGQczJSXRIujq/TpPQN3Q9ddqCxbhDO1B4E/P7Jeo2pIp
-	g3nQHqZQ==;
+	bh=INzFoqPIJJ4zIhDs1tk4/0Iv3QjJ1kD4uj5WDiJm1Q8=; b=z6J3946UQn+Tt3gCs9/MB1wpWj
+	OJCq93psrk6t/ZGNMpnmPbRBUPR28n1oYXJqTmct4PrIl2fqSVpu0CompCY7aTTRI9SJhjXCtfCDj
+	0aqjFsORFqu3vV4R7XoLbk+8UorxBnmo0OedMrq1ZRT+hH+YnNMN7eNGOLo6EZe8bXosrx7TAU9x2
+	/Gdggdp/PbsbNlYEqJtuws++NXmxmB0Yc2TpwvEQT3wInviBYnAedbdS80MTZfBFkggMJ+4WHKF3y
+	jL1+mF5dEfD0RHA2Ux2VM5Q+ltQ6QB17h7chtINHgwu8oLZc8SZfyEHC0xUk1mnLIKoue7LtyJJK2
+	6m4bEpaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySuj-00000007WnK-2nwH;
-	Tue, 16 Sep 2025 10:27:57 +0000
-Received: from mail-ot1-f50.google.com ([209.85.210.50])
+	id 1uySxG-00000007XPO-32ET;
+	Tue, 16 Sep 2025 10:30:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uySuh-00000007Wlv-26ZE
+	id 1uySxF-00000007XOz-16RK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 10:27:56 +0000
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-74381e2079fso6283702a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 03:27:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758018474; x=1758623274;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D1FWUIy12ESADGq4B/o282N3x/QgWaUFK1UozSJnDAM=;
-        b=Cs999dl5YjcxJhRLykUlPXk31qkHEUvOf70zjLr5JXVKQHhV8wit6wWc7etgB0qTrw
-         vBt2/Y9uUk6Uv4IP/zHj85mnmNkcuPj00ZqaonggG2C+HAgYpDCC1O+DxEPlZGmBBaFD
-         RF8IE8erOtSKgvSMGmWX84jeVVABovbCfbFIVyvLyE1pwdaQHFnQfL7UBVqeTMDYMLm4
-         g1blGVm5VAVmioEX2EVfo6Emsx27K7yOXlNz219WGas8ucTUF+A/G37yJSpLaO/BX9sL
-         MMsGAKNexrEGlcTnqQTv4AmEDuCAqOIyKUv+sdrtFdDv9QX6ifbN3/yQLuLf+CLP0Vwk
-         b6JA==
-X-Forwarded-Encrypted: i=1; AJvYcCVWBwRIyRQ77irj3Mvn3F0DIKVWcOUbmBDmKfriHabQEEIZNj37TlZyvLPiH5amChw/4RJZLxc4UtdS7xIagtIE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWHsQdT7SMUlFnuVZE8M9GfXVrZCgapZ5VLfJDEQ8Dz0ifVbC9
-	nlKqzNCwBrlWRvxwFRcMHeMf8DiZuN3vWcUTeRM3nzw+vsPhrT+lJmyyUXTAY1OC
-X-Gm-Gg: ASbGncs+E43OWHVfssrBlgkeAomillbzw1pP0pY83S+BcIbxd7cMmRX6/w3QCMxDdKk
-	09qQixJ6x3W7V7RgYyOV+QQYVsQR1Oord9tRoEykgxUNzBo5QuCkfUfjYr7G6PAiuuJa6S0BY1F
-	bx+klkv2C3/SQXHHjR8p84O3kFa4u9W0qUfajxti6Enrx9lYzVnw1LUmKSw2U7yrJGwQw79n4Hl
-	UmTWRBc4QBiJw+vRCC4Rla0enPhljmofeML4/lGA76sn9/CcRO6yEIWJVga8sPRotbe4IoBuoOS
-	VuHGbqPji70K+xI93Iiai0VIGK5dlX1RZwQ29fJuv+gX7HrC4vo9U8ZCpEBESRHeqZvwGQZxS68
-	whPetdBaWXjHGRgXXK9g7ewOqJM34K7HWlG/juA28AcoHvi6u9swqPTFE9D/O
-X-Google-Smtp-Source: AGHT+IEbucCojl2nl7Ha3MyPNJ0ZzcqDMPbDydQ0NplCSCrtNbmnx3ogFhqgerbLnPkPQ5u2COZSeg==
-X-Received: by 2002:a05:6830:2814:b0:745:a385:4561 with SMTP id 46e09a7af769-75355bb9a46mr7443958a34.31.1758018474028;
-        Tue, 16 Sep 2025 03:27:54 -0700 (PDT)
-Received: from mail-oa1-f52.google.com (mail-oa1-f52.google.com. [209.85.160.52])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-75763558c88sm2148560a34.23.2025.09.16.03.27.53
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Sep 2025 03:27:53 -0700 (PDT)
-Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-33158d9dfc6so2154935fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 03:27:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVARgsj8mO3Ckqlk39XibJDb1ZDN0fVdKTS/Jfpma+b5Xq7baQDER3N2N+P/s7jiPkYQq0NXQPZucyX3MNYZonA@lists.infradead.org
-X-Received: by 2002:a05:6102:3ec6:b0:529:ee6c:6760 with SMTP id
- ada2fe7eead31-556091886d7mr5576842137.7.1758018092612; Tue, 16 Sep 2025
- 03:21:32 -0700 (PDT)
+	Tue, 16 Sep 2025 10:30:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 93A74600AE;
+	Tue, 16 Sep 2025 10:30:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7148C4CEEB;
+	Tue, 16 Sep 2025 10:30:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758018632;
+	bh=SAAJtRVKcJwiJyR3IHIUauj/vRpTKvM8j3kpPYHSy0E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BHb+dGdyRn7Zj3bk8i+PMkTmR3IvnW/TifXFm9rRvMPO/ZaO5pXce+RHUf/AYLN5m
+	 ZFjrymyO4KJP39QuuWUan4ZWhzUkqkwGi9L4zGjQ69ZuV4LvnnIIwSrNtKWLRNpY/e
+	 9Xd2t3xgqXbIMDet89oXA17Hz7dxpGgF4MThYHz82vFlVmkJjQdOqewWp9Z9wFJ54n
+	 pnXV10t8OJNalk/7VJZnza0DYdlBgPBtnX0op5oV7wN8o5GrSxX4PYJarBoQ7GnYIE
+	 Y64YxNdJWhIDL6bVgnejuGZKtkQxB5z2PPwj9vNUeEMpXwlAu/yx+9N3bKoHMHLkeK
+	 HpbRHh1G/qxdQ==
+Date: Tue, 16 Sep 2025 11:30:26 +0100
+From: Will Deacon <will@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: catalin.marinas@arm.com, anshuman.khandual@arm.com,
+	quic_zhenhuah@quicinc.com, ryan.roberts@arm.com,
+	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com,
+	jthoughton@google.com
+Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
+Message-ID: <aMk8QhkumtEoPVTh@willie-the-truck>
+References: <20250723161827.15802-1-dev.jain@arm.com>
 MIME-Version: 1.0
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com> <87o6rbi0jy.wl-kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <87o6rbi0jy.wl-kuninori.morimoto.gx@renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 16 Sep 2025 12:21:21 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVKhw3t6oJhWrdFCkpaXKL5EXxBAPtqiYSDPv5aDNiFkA@mail.gmail.com>
-X-Gm-Features: AS18NWA-CCVGKbHBzPrL9HA4tPoq9LGRxBm1encbDpHU-DmGUfLkgrDyZx8KuHI
-Message-ID: <CAMuHMdVKhw3t6oJhWrdFCkpaXKL5EXxBAPtqiYSDPv5aDNiFkA@mail.gmail.com>
-Subject: Re: [PATCH v3 4/6] dt-bindings: arm: cpus: Add Cortex-A720AE
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Ian Rogers <irogers@google.com>, 
-	Ingo Molnar <mingo@redhat.com>, James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>, 
-	John Garry <john.g.garry@oracle.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Leo Yan <leo.yan@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Rob Herring <robh@kernel.org>, 
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, Will Deacon <will@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Marc Zyngier <maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_032755_547786_2BCBE868 
-X-CRM114-Status: GOOD (  19.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250723161827.15802-1-dev.jain@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +72,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Morimoto-san,
+Hi Dev,
 
-On Tue, 16 Sept 2025 at 04:38, Kuninori Morimoto
-<kuninori.morimoto.gx@renesas.com> wrote:
-> Renesas R-Car Gen5 X5H uses Cortex-A720AE. Add compatibility for it.
->
-> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+On Wed, Jul 23, 2025 at 09:48:27PM +0530, Dev Jain wrote:
+> @@ -1301,16 +1319,76 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>  	}
+>  
+>  	table = pmd_offset(pudp, addr);
+> +
+> +	/*
+> +	 * Our objective is to prevent ptdump from reading a PMD table which has
+> +	 * been freed.  Assume that ptdump_walk_pgd() (call this thread T1)
+> +	 * executes completely on CPU1 and pud_free_pmd_page() (call this thread
+> +	 * T2) executes completely on CPU2. Let the region sandwiched by the
+> +	 * mmap_write_lock/unlock in T1 be called CS (the critical section).
+> +	 *
+> +	 * Claim: The CS of T1 will never operate on a freed PMD table.
+> +	 *
+> +	 * Proof:
+> +	 *
+> +	 * Case 1: The static branch is visible to T2.
+> +	 *
+> +	 * Case 1 (a): T1 acquires the lock before T2 can.
+> +	 * T2 will block until T1 drops the lock, so pmd_free() will only be
+> +	 * executed after T1 exits CS.
+> +	 *
+> +	 * Case 1 (b): T2 acquires the lock before T1 can.
+> +	 * The sequence of barriers issued in __flush_tlb_kernel_pgtable()
+> +	 * ensures that an empty PUD (via pud_clear()) is visible to T1 before
+> +	 * T1 can enter CS, therefore it is impossible for the CS to get hold
+> +	 * of the address of the isolated PMD table.
+> +	 *
+> +	 * Case 2: The static branch is not visible to T2.
+> +	 *
+> +	 * Since static_branch_enable() (via dmb(ish)) and mmap_write_lock()
+> +	 * have acquire semantics, it is guaranteed that the static branch
+> +	 * will be visible to all CPUs before T1 can enter CS. The static
+> +	 * branch not being visible to T2 therefore guarantees that T1 has
+> +	 * not yet entered CS .... (i)
+> +	 * The sequence of barriers via __flush_tlb_kernel_pgtable() in T2
+> +	 * implies that if the invisibility of the static branch has been
+> +	 * observed by T2 (i.e static_branch_unlikely() is observed as false),
+> +	 * then all CPUs will have observed an empty PUD ... (ii)
+> +	 * Combining (i) and (ii), we conclude that T1 observes an empty PUD
+> +	 * before entering CS => it is impossible for the CS to get hold of
+> +	 * the address of the isolated PMD table. Q.E.D
+> +	 *
+> +	 * We have proven that the claim is true on the assumption that
+> +	 * there is no context switch for T1 and T2. Note that the reasoning
+> +	 * of the proof uses barriers operating on the inner shareable domain,
+> +	 * which means that they will affect all CPUs, and also a context switch
+> +	 * will insert extra barriers into the code paths => the claim will
+> +	 * stand true even if we drop the assumption.
+> +	 *
+> +	 * It is also worth reasoning whether something can go wrong via
+> +	 * pud_free_pmd_page() -> __pmd_free_pte_page(), since the latter
+> +	 * will be called locklessly on this code path.
+> +	 *
+> +	 * For Case 1 (a), T2 will block until CS is finished, so we are safe.
+> +	 * For Case 1 (b) and Case 2, the PMD table will be isolated before
+> +	 * T1 can enter CS, therefore it is safe for T2 to operate on the
+> +	 * PMD table locklessly.
+> +	 */
 
-Thanks for your patch!
+Although I can see that you put a lot of effort into this comment, I
+think we should just remove it. Instead, we should have a litmus test
+in the commit message and probably just some small comments here to
+explain e.g. why the mmap_read_lock() critical section is empty.
 
-> --- a/Documentation/devicetree/bindings/arm/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/arm/cpus.yaml
-> @@ -148,6 +148,7 @@ properties:
->        - arm,cortex-a710
->        - arm,cortex-a715
->        - arm,cortex-a720
-> +      - arm,cortex-a720ae
->        - arm,cortex-a725
->        - arm,cortex-m0
->        - arm,cortex-m0+
+I'm currently trying to put together a litmus test with James (cc'd) so
+maybe we can help you out with that part.
 
-Already added in commit 0f356eb097c31471 ("dt-bindings: arm:
-Add Cortex-A320/A520AE/A720AE cores and PMU") in dt-rh/for-next
-(next-20250905 and later).
+In the meantime...
 
-Gr{oetje,eeting}s,
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index 421a5de806c6..65335c7ba482 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -283,6 +283,13 @@ void note_page_flush(struct ptdump_state *pt_st)
+>  	note_page(pt_st, 0, -1, pte_val(pte_zero));
+>  }
+>  
+> +static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
+> +{
+> +	static_branch_enable(&arm64_ptdump_lock_key);
+> +	ptdump_walk_pgd(st, mm, NULL);
+> +	static_branch_disable(&arm64_ptdump_lock_key);
+> +}
 
-                        Geert
+What serialises the toggling of the static key here? For example, I can't
+see what prevents a kernel page-table dump running concurrently with a
+check_wx() and the key ending up in the wrong state.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Either we need an additional lock or perhaps using
+static_branch_{inc,dec}() would work instead? I haven't thought too hard
+about that but it looks like we need _something_.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Will
 
