@@ -4,172 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4A3CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 02:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7464ECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 02:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:Subject:From:References:In-Reply-To:To:Message-ID:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ngh4hh8kof+NSerG7nT3yHEAmCqXmaJYhR4OnM6ngLw=; b=1v2j6QPNfzDQK+4FYPJe02PvDQ
-	nvRIrCMLvRshEgcFHGe0GYBKb2gOk2UKpBPtUzPYwVJCT56mmaEp9l+DvxMumqD8wuTgl1UPbx6Dq
-	WOUY/at7WLneBwYM3eOf0T43Bg57Gv5ebzRi74nukSnsY8G9ip6hHDGDT3I0iITHcYoZUqpCQ+Z4F
-	AwAW4dWZv6kXDvmAxd+DA2T/9WUoY9hxT75R5Fbf7HK9EiUKieE1NgXuePtmDLCnz1a5jp2TA8ecS
-	FcQkyb2qDJisQK9JOLPSvTvyXm1Umyr/1u2/KJQ+SNjsCBFAsTGSnKoFVjqyfk8f0pDAbxE86oC88
-	2viytd1w==;
+	bh=SGvPEh6adUQ9XEa0jZOHz7Ezb3Hwi7fsyJSW9ys+H8k=; b=RlLE7zrjKOC+lleaQFvMirg1Pd
+	c9eKLxelJYtXpDlNlY6SXan9ll2tFEjG31wYc6U0xYhdobhKHLtAIelopfRfWjLdbnvSKCHVHPgSh
+	5TFtJ9fi7nYoaasEYAWzX8rBvpWdP5jKiJz193cpJUHXAJsNILfYZx3rFuxpd0l5DugDRvylzWzHX
+	M9f5AYfZSUiqE4P8lMiqRCzCDfsqbwwalLApEm/AY8A0B8cNGTMezUtEhVMLS9Ir7WCFjBh6ZLcM6
+	I4fPupayOWLT5X2oEHr0L2H2ZrD4Uzd09SPLCRUtwX1rjhNGxIJgMFLmtqSENjc/BBf7HNe6oyd3K
+	hk7ORbfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyLaw-00000006W7z-48MM;
-	Tue, 16 Sep 2025 02:39:02 +0000
-Received: from mail-os0jpn01on20624.outbound.protection.outlook.com ([2a01:111:f403:201a::624] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1uyLkd-00000006Wzt-0A3L;
+	Tue, 16 Sep 2025 02:49:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyLap-00000006W2W-2hH5
+	id 1uyLka-00000006Wzh-3LAB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 02:38:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kG54y/skVP2q8EltvAuTtIO37cejn2846eVoVBJThgrOytmKFJwudHYqzSWlm/ncIBqpLcmi2G8+RHysrSrPnZcmUM22y38VHWsUrSEfFv3ISTFTBCiwTvLMyqapCHkdnnRgFIkkTgumPL06fJDrVfZQQDSXJdNwo9OlO8++/c0zIAmoU4N5Y38mcYf+nIjeF4da6XMeRw2EdS3TlTkRwNqRlP1lFNwQBKmueGMTM1s+/8C13EiFUv+Cu8bEjf4DsHizPJ5aPt8NREka5ljD4e8qd/U1SiBcwAlJa820n8X7dUqTttyEjvspX9MqPxWBDuZ5bCkOtWZ710xLZKuG3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ngh4hh8kof+NSerG7nT3yHEAmCqXmaJYhR4OnM6ngLw=;
- b=WANaqDEcYU1y0HESFO/IjHr17UyYRQCdF9QctrlBd9v6ctoxPNzoKdgSPzlompM9+YjTLxi/wxTAuCOrMcHKt3AXTbVLhly5m+u+U+ROQivOIvBn7sx4Q5FEMaN5rCufkS/20NJx2wKCZcHUZloQ33gxCrMcXRZIUa+6nFWvtX4qwVnCsm+StU8C9v6Le6pahelvAlD+lvwQN8U9icN2DvgGq3kydCPZCeWAKlpAIHCzJDv/AfvdBaWXpdkvmy/WA0xRdH3HVYr8SUBqQjH9f9zD/X3ZLsg+ePFeYOeKqPqmk7fLObWkCovBR3OX6uv/0bOtmnXYms1OFG0A+93uCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ngh4hh8kof+NSerG7nT3yHEAmCqXmaJYhR4OnM6ngLw=;
- b=Yk83QND2BbSb9UbgVHKR7lvYG0+NTkA85Bp2ljI+1gt3qnyXjKmVVgT3Wzc/fAlpzhSVkDTkj/veroArukNZkxjRt5ymoGo0kjmUBeItQMzYMFov95petomb4Ndh17I4MEs+mXLzaQaKYuKuQl2rCPZbx3h3sPQYV6nu54tyAmA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TY4PR01MB13477.jpnprd01.prod.outlook.com
- (2603:1096:405:1d7::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.22; Tue, 16 Sep
- 2025 02:38:53 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9115.020; Tue, 16 Sep 2025
- 02:38:53 +0000
-Message-ID: <87ldmfi0jn.wl-kuninori.morimoto.gx@renesas.com>
-To: "Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-In-Reply-To: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: [PATCH v3 6/6] arm64: dts: renesas: R8A78000: Add initial Ironhide support
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=US-ASCII
-Date: Tue, 16 Sep 2025 02:38:52 +0000
-X-ClientProxiedBy: TYCP286CA0371.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:79::7) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	Tue, 16 Sep 2025 02:49:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DFB7D60054;
+	Tue, 16 Sep 2025 02:48:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 644FAC4CEF1;
+	Tue, 16 Sep 2025 02:48:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1757990939;
+	bh=hJOD7/Gxus8N7T/NcIWI9aLJmKggbpx+22bjHzbhIMs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ogHSnETMdsDLnn8+t/s/0j0+1PwtHU+wjL2SkSHN5VLKbaTKgDy23lMiWuU15HQK+
+	 eyLydqI98LkI7qjq7bmexhtZuYxax/BgxLwFRs1bNkf2b46MTJVLBf3WobCAo0ZOw5
+	 OzQ5sYAqRbdNGPJzdW+dTC5B+Ud4is+2xZQQ4BJ3rDp7C5ffs4E0wBlQorDmDhZRsr
+	 RtYvTalyURMMmmaTr9E8OENKivW1PoQ5HV/AiCjvBd/X5MXvpepcj5qIPJThJLqiSg
+	 SfBO85uuPheejlvdxauWrPjTAh1VEM+uEA8iKjrtVeEQ+OWhKV6SurLAaeDnnfis25
+	 sc9VGnxqYteAg==
+Date: Mon, 15 Sep 2025 21:48:58 -0500
+From: Rob Herring <robh@kernel.org>
+To: Vikram Sharma <quic_vikramsa@quicinc.com>
+Cc: vladimir.zapolskiy@linaro.org, bryan.odonoghue@linaro.org,
+	mchehab@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	andersson@kernel.org, konradybcio@kernel.org,
+	hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, quic_nihalkum@quicinc.com,
+	quic_svankada@quicinc.com, linux-media@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: i2c: qcom-cci: Document qcs8300
+ compatible
+Message-ID: <20250916024858.GA3574831-robh@kernel.org>
+References: <20250912141134.2799078-1-quic_vikramsa@quicinc.com>
+ <20250912141134.2799078-2-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY4PR01MB13477:EE_
-X-MS-Office365-Filtering-Correlation-Id: 797ccfae-4b93-454e-42f8-08ddf4ca2cd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gRKqclphpYq36QG1sLl7L67DYLxMds/fFONOLKT9XxGGocTJtiviG3A+d8bo?=
- =?us-ascii?Q?NjJVq/SukbaYEigKJShYLcHoydQ93FtJgywOShvSg/BwRCNQiqZGO83/OWmV?=
- =?us-ascii?Q?w464Rd/fpkcER3GL8KuhLLM9QDr81N/hpZ7tlJSJAdw0WRZUn2OKZLujPS4H?=
- =?us-ascii?Q?qMFCNxqvt1xINnZ9pdijqoHCf2IWh98hPebEjs66lGsLd96iSwDzSgCO9I+N?=
- =?us-ascii?Q?3FxG4TF5hrjMcsHmi3Nwq3RBRnl/b+pH2/UFs7NdNqhvytk7mPicnvd0+jvM?=
- =?us-ascii?Q?WQbuBPhiuTkNr4EXDkmNtCDQNn2wNwB/gipGjUs/0XgRzupLbYPLc2ykqglB?=
- =?us-ascii?Q?Gmp6GFWOJjTlsrK+6yPLaV+u3fWnn54JbBQhW6EuK3uItdxI7cpMePIWokPe?=
- =?us-ascii?Q?2SKoZyzQNcZffKoF7slnzHHaItgth9UjIYlH6BysMUIU5z+yuIoGZbZwlr2W?=
- =?us-ascii?Q?rrkZPvt4kfvdqQij4VK6uKrxlWVkqoIVCNa1Fvw266I0CecMF+7ayF85OdFj?=
- =?us-ascii?Q?IMpsTD/NkYHqieiLsmNCrSGjLqGFNEYZjaAEp1edF1IAiu0w2S+gOs9psZ1h?=
- =?us-ascii?Q?xnTKokNmXKvZ94utKZgSdjDTulO05Dc1aLb3lz1ulPAQMvdVPkXdp+Xo127B?=
- =?us-ascii?Q?J7Y55CBxLCwKM1NWPeRkVtca7XmDkOv7i/TaZTVr9wVyUaTqh32gkLHEsFn6?=
- =?us-ascii?Q?iFSTqLyhqpGfT/AOv5UioED/vJhXHx6qTLIYsYliabvBDZea8JLLYfMEInuv?=
- =?us-ascii?Q?xD3TyfElhKEPXD5ZdufGItSu3dk0d88ZyzSEaLaCGMmcXYvqQRy1KFXPolMI?=
- =?us-ascii?Q?Hu9MmzYmioxl0SuyLgiBTsZEAsLahVsLB49otKDm6BsBYdiPQPcN0wONUJ3w?=
- =?us-ascii?Q?K/gdxJ+MMTGP6Z5Nl3SIvAy/YV81xkwO8wo4i8c+R6uyHEQHqGr0AA5Q3rSL?=
- =?us-ascii?Q?z5rfpeGqPIU43fRSKffBVfltsuCXxsRXHFa3yr1I/Jlov+hxGV8poS5mUWui?=
- =?us-ascii?Q?2wgt6zYvxapYgjQRnn2Z0EFOj2Nxw7oo4NTv2sfS9T+qEltof9r8vcFdSnkz?=
- =?us-ascii?Q?PY5e4H4aeA0GcWqcMkFWRY2HBSxBwTPNFyEjrrRalt4GwUu5yZ0VzmPQ17dE?=
- =?us-ascii?Q?ZmmiDOh7L2qjt+YGEUrSROcQPmaQ3H2Wknxv5K/ijcty9DG4ckz1V2Z8GN8W?=
- =?us-ascii?Q?3mX4H68Ue3ejtr1Q9b5sv7I5cssQS+Fgh9PoQqskgcG/0rdYMzvU0amTF+os?=
- =?us-ascii?Q?PgHarceOCW5+gPvjLN2LhSQMZM5xAyD5YizXn/WpHHdHzGnmU6d6+vPgmtyV?=
- =?us-ascii?Q?OKSXMolAVEkFvm5DoaybbjNC4s+XItBOTgPwC78lReyQdDz2IxzF0HUghZg7?=
- =?us-ascii?Q?3/+NzHGin9K0RRD8dT58Xn+CSSX7bL4uKdgXJwdr3sZjj2wEM6IWa8XrqaHL?=
- =?us-ascii?Q?n/eDhZWFoSE0weMhFVBJ7+JLAM4yeg+AekElc8Uy/odjOJbrIt8HiMzldP7N?=
- =?us-ascii?Q?R305zQ3UdbPWePY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+jvWEsem3B9CQzjrnLFvaJ+6JH7wqfETFv8HIgjaXuQAGVasAENXIZxAz7Hk?=
- =?us-ascii?Q?3dniDlRfJp2Q4/9xuiP+APdp0QErz+vpz/VtmTWfBPgz3HbPvPGiLOpdaM/C?=
- =?us-ascii?Q?D+13/wHeG4ftInFj3vr8LTZ+PAagNcuqvFEQDyItA6HL+0kiyqc0yoXFBTcV?=
- =?us-ascii?Q?lBcH89R9MGfuCzW9+P2jYCjrxGnCqHanqcrBcQMjwbSStBIyhnk1WA7AT5ce?=
- =?us-ascii?Q?BN80NUu2N0c45YPR/g0YISP3roq7t3/NCpJq56KGP5f2AotqiyVt4xtrIUXE?=
- =?us-ascii?Q?p53aiy9Ri43rJLxh3gIShGR6yNG7u3yX9tvKNmnE3Agx3kLkeEGY96oqTdLy?=
- =?us-ascii?Q?+pAQA1/m0q775TRBQuVS3ETJ+cImz/8ejR2bJVuwz24VTGwvZ3vQqiGUeb9/?=
- =?us-ascii?Q?yEhW0HqkxvVY6Mz1Yem2CINThdyEOfP5tglzuxry2dwjVYTlMLxgqrU5dnsb?=
- =?us-ascii?Q?aEqdlNVzM64MyMyWNVizpaUTXm3QTDwpd7hFOmG+2OiRoeXLCD2KLRZtdNL4?=
- =?us-ascii?Q?pCQF5USVhgdWbahDFxQa/4sUz3RNjHX/jcX8uFm9/b3IVau6/Zc5v6QmLZ84?=
- =?us-ascii?Q?0g9fETU9OYmfJ+ZgzKNM+cLPNRyKvM0iS6q3lSL/4e53uAK4An/nb/0SS943?=
- =?us-ascii?Q?wcq+GXJWkwniK+pi0dYaHe+Y+AB9Wb4x2vX0L3lTJVMOY9mNw+NntQsJ4KsK?=
- =?us-ascii?Q?1otPcyEhGwukuiOxW3O8Lrk2xI/WelGQRdzYRRKqoNYCSAycVroXebsviobm?=
- =?us-ascii?Q?wm74fWLW2Qaet/WzdxZkxn6yF6d6rOmAWg8ZHpFg+o1xomImRWFbY1rruv6q?=
- =?us-ascii?Q?zX1Me3Q/7Td0uJw2el03INyf7OwzX1KlPKp5fPG0lOuKZST0Gm/k/0IESVFX?=
- =?us-ascii?Q?fBwbPCPeCZZ/QeRKJOLB1W+ccf9dMYWfwlFUfqgdMrQQ1L5eUJdnsqEa2/FL?=
- =?us-ascii?Q?gcXbkhBm4hJV5tcKikxQ37SfuHUIxfe+g4ENyTAh0GAl430EZj02mojSoUne?=
- =?us-ascii?Q?d6VyCoxhPekRNi1KO0+nG3uEtCj077kaWukSSpriECLA+GcayxzMHZa23V91?=
- =?us-ascii?Q?oSGf9Y7kbAVz70qrpD4M1FwlYsyMTN1sJgPRP/BMEuhfIjxmxChBzMYUlHVD?=
- =?us-ascii?Q?yunbupJc9+AdekoCdF3FTMoIajbdEHNZkbM/6dzyZ8qVgN3+ff1APhyrGDjS?=
- =?us-ascii?Q?ZOFu3rBp1mplNZs0Eibmsp4YoCOwXXbZbFSXdrFZUbKh9ZW5rhy1vJXlg7cU?=
- =?us-ascii?Q?SPSwx9LY3kgAEFfe22+Fdzis5FH8k4RVX6KEQN8P825nV1aPd+S0H45ikudw?=
- =?us-ascii?Q?8/OGD7G5+RfSnyFR+zL4dgRxQ9LG4UJ5Tr1+OO5cQubmWS5WJhbaukGtiM0S?=
- =?us-ascii?Q?GQJu/WSrGqM4sZizWp0BrtyLzLpmyXrTmGytCWU+DNnIFCvVJbF0p5hWAhRB?=
- =?us-ascii?Q?PUvLajqIrn4ti/JrB6x89MicryVE55FPnXB43MeCuAu+jPxnG7EttKtKaWBi?=
- =?us-ascii?Q?3f+DCmuEssQ/pkg8OVTuQ309C9ajH6M2gxOR8Dx8FvF0cEj/8tvhz13ttIKv?=
- =?us-ascii?Q?NMpRui9QvZr3VW+yKAZ3pxRu2f1UYPSuHvIW1odT/aJe1ItPi/zv80w/sUWK?=
- =?us-ascii?Q?AIyTPy5kg9myqr3CTIrVfLQ=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 797ccfae-4b93-454e-42f8-08ddf4ca2cd3
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 02:38:53.0564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eD+8T4gyIBzOuho+VD9OLZCqxJ9UBLaza6FLf6aqTeKG8FHoyCUhr4soknTdOiRTdnuVIlnGDGfJiJvn287lEMeZpqXUqC6KyaKVkxsMBQTWr8gu+WXJfyC6dGeS7Edz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB13477
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250915_193855_736451_3ECDA0D4 
-X-CRM114-Status: GOOD (  16.58  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250912141134.2799078-2-quic_vikramsa@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,141 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hai Pham <hai.pham.ud@renesas.com>
+On Fri, Sep 12, 2025 at 07:41:32PM +0530, Vikram Sharma wrote:
+> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> 
+> Add device tree bindings for the CCI controller on the
+> Qualcomm QCS8300 SoC.
+> Introduce the "qcom,qcs8300-cci" compatible string.
 
-Add the initial support for Renesas X5H Ironhide board.
+Wrap commit messages at 72 chars. And explain how it's the same or 
+different from existing SoCs in the commit message. Don't explain the 
+diff. We can read that ourselves.
 
-Note: It is using "maxcpus" in bootargs to limit number of CPU, because
-SMP support is now under development. This limitation will be removed
-in the future.
-
-[Kuninori: tidyup for upstreaming]
-
-Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
-Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
-Signed-off-by: Takeshi Kihara <takeshi.kihara.df@renesas.com>
-Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
-Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
-Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
-Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
----
- arch/arm64/boot/dts/renesas/Makefile          |  2 +
- .../boot/dts/renesas/r8a78000-ironhide.dts    | 92 +++++++++++++++++++
- 2 files changed, 94 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index 6093d5f6e5489..a0b9307494608 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -124,6 +124,8 @@ dtb-$(CONFIG_ARCH_R8A77965) += r8a779m5-salvator-xs.dtb
- r8a779m5-salvator-xs-panel-aa104xd12-dtbs := r8a779m5-salvator-xs.dtb salvator-panel-aa104xd12.dtbo
- dtb-$(CONFIG_ARCH_R8A77965) += r8a779m5-salvator-xs-panel-aa104xd12.dtb
- 
-+dtb-$(CONFIG_ARCH_R8A78000) += r8a78000-ironhide.dtb
-+
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc.dtb
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc-cru-csi-ov5645.dtbo
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc-du-adv7513.dtbo
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-new file mode 100644
-index 0000000000000..29b7180cabbcd
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the Ironhide board
-+ *
-+ * Copyright (C) 2025 Renesas Electronics Corp.
-+ */
-+
-+/dts-v1/;
-+#include "r8a78000.dtsi"
-+
-+/ {
-+	model = "Renesas Ironhide board based on r8a78000";
-+	compatible = "renesas,ironhide", "renesas,r8a78000";
-+
-+	aliases {
-+		serial0 = &hscif0;
-+	};
-+
-+	chosen {
-+		/*
-+		 * REMOVE-ME
-+		 *
-+		 * It works 1 CPU core only for now. This limitation will be
-+		 * removed in future.
-+		 */
-+		bootargs = "maxcpus=1";
-+		stdout-path = "serial0:1843200n8";
-+	};
-+
-+	memory@60600000 {
-+		device_type = "memory";
-+		/* first 518MiB is reserved for other purposes. */
-+		reg = <0x0 0x60600000 0x0 0x5fa00000>;
-+	};
-+
-+	memory@1080000000 {
-+		device_type = "memory";
-+		reg = <0x10 0x80000000 0x0 0x80000000>;
-+	};
-+
-+	memory@1200000000 {
-+		device_type = "memory";
-+		reg = <0x12 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1400000000 {
-+		device_type = "memory";
-+		reg = <0x14 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1600000000 {
-+		device_type = "memory";
-+		reg = <0x16 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1800000000 {
-+		device_type = "memory";
-+		reg = <0x18 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1a00000000 {
-+		device_type = "memory";
-+		reg = <0x1a 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1c00000000 {
-+		device_type = "memory";
-+		reg = <0x1c 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1e00000000 {
-+		device_type = "memory";
-+		reg = <0x1e 0x00000000 0x1 0x00000000>;
-+	};
-+};
-+
-+&extal_clk {
-+	clock-frequency = <16666600>;
-+};
-+
-+&extalr_clk {
-+	clock-frequency = <32768>;
-+};
-+
-+&hscif0 {
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&scif_clk {
-+	clock-frequency = <26000000>;
-+};
--- 
-2.43.0
-
+> 
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+> index 1687b069e032..edd2e77d717b 100644
+> --- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+> +++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+> @@ -25,6 +25,7 @@ properties:
+>  
+>        - items:
+>            - enum:
+> +              - qcom,qcs8300-cci
+>                - qcom,sc7280-cci
+>                - qcom,sc8280xp-cci
+>                - qcom,sdm670-cci
+> @@ -223,6 +224,7 @@ allOf:
+>          compatible:
+>            contains:
+>              enum:
+> +              - qcom,qcs8300-cci
+>                - qcom,sm8550-cci
+>                - qcom,sm8650-cci
+>                - qcom,x1e80100-cci
+> -- 
+> 2.25.1
+> 
 
