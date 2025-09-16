@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C419ECAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53320CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oj/mQH6BSa8mD3VuZUyr+S2kA84ZpZ7y/bEhzZqw6dI=; b=amdStiGIHpn0QFIRd5aXy30kD6
-	P2WKCXGtraTKxOfPN7D92wdfHek0eCMOOFN+sx6b42KBHHRK74YB0D0/sVk7y652IerCwQhw9Dbz5
-	zm5jzimwcgnFXlcMHYFK/GSxLIPZ1m3GRsZixsYijOGjzdNre6v3TMFLR5aB8Qw+WZl3lxFMHA/Tm
-	DmHZLttwaYAZo2Ah7ptO8TxnVX3d+QQcjr9zON4W9R/9gzTYFnEEyBse3fmrz8pCl9DhrCPn2aRvx
-	Adw5LB9H4A1wQXZnIL1vUaIxS7eUAvjLpwlqXr6dJCHLJXyluTvcO1qq8WWUQaWSpHI2U7c3nCLiu
-	d/+vNpUg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3vWXDR4Bw3K6ogOZsU2geslEHpsCEVwdb6bLsGHvPvs=; b=YZCXVY2FMgHVI1i0KBJPBuj/R/
+	y2zIBSEdVxHtqM4jIQ0PoV7ExUBd7heAPYoO8DTsefqT9DYSFBIluy3ySK6I6HjYNfKcAv6ngzfsa
+	3O9dwx74Qzg+pzTRMxCsoWPpBBU4JtVtrhS78zlxSqfCvoRMVfGQo8789ozXdsky716OjqpSFbwp6
+	VWBezV/ME/mFC4qNrqNjVsUAowApr5fjiBblt6RkONANLwJpsCHjFL+5MqV3knFPO/Kkrt02m6kh5
+	T09LX7aXtwWVOxNjq2CSkhm6VY5FuqmwLzO1tto53bC8FWRe9bQrmHiPlUgq7wyOsZB4DfABKc8Vg
+	FLR+bW3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfV-00000008IWu-334p;
-	Tue, 16 Sep 2025 15:32:33 +0000
+	id 1uyXfZ-00000008IYX-1PB7;
+	Tue, 16 Sep 2025 15:32:37 +0000
 Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfT-00000008IV4-0Lia
+	id 1uyXfT-00000008IVI-3uk6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 15:32:32 +0000
+	Tue, 16 Sep 2025 15:32:33 +0000
 Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
 	by finn.localdomain with esmtp (Exim 4.95)
 	(envelope-from <tharvey@gateworks.com>)
-	id 1uyXfG-00Aysu-PP;
-	Tue, 16 Sep 2025 15:32:18 +0000
+	id 1uyXfI-00Aysu-Hn;
+	Tue, 16 Sep 2025 15:32:20 +0000
 From: Tim Harvey <tharvey@gateworks.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,15 +45,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 0/7] various imx8m*-venice dt fixupes
-Date: Tue, 16 Sep 2025 08:32:09 -0700
-Message-Id: <20250916153216.1042625-1-tharvey@gateworks.com>
+Subject: [PATCH 2/7] arm64: dts: imx8m{m,n,p}-venice: disable unused clk output for TI PHY
+Date: Tue, 16 Sep 2025 08:32:11 -0700
+Message-Id: <20250916153216.1042625-3-tharvey@gateworks.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250916153216.1042625-1-tharvey@gateworks.com>
+References: <20250916153216.1042625-1-tharvey@gateworks.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_083231_119971_9B5DEC35 
-X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-CacheID: sfid-20250916_083231_967600_A2153907 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,27 +71,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series contains various imx8m*-venice board dt fixups.
+Disable the unused refclk output for the TI DP83867 PHY used on
+Gateworks Venice boards.
 
-Tim Harvey (7):
-  arm64: dts: freescale: imx8mp-venice-gw7905-2x: remove duplicate
-    usdhc1 props
-  arm64: dts: imx8m{m,n,p}-venice: disable unused clk output for TI PHY
-  arm64: dts: imx8mp-venice-gw702x: reduce RGMII CLK drive strength
-  arm64: dts: imx8mm-venice-gw700x: reduce RGMII CLK drive strength
-  arm64: dts: imx8mm-venice-gw72xx: remove unused sdhc1 pinctrl
-  arm64: dts: imx8mp-venice-gw702x: remove off-board uart
-  arm64: dts: imx8mp-venice-gw702x: remove off-board sdhc1
+Signed-off-by: Tim Harvey <tharvey@gateworks.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts  | 1 +
+ arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts  | 1 +
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts  | 1 +
+ 5 files changed, 5 insertions(+)
 
- .../dts/freescale/imx8mm-venice-gw700x.dtsi   |  3 +-
- .../dts/freescale/imx8mm-venice-gw72xx.dtsi   | 11 ----
- .../dts/freescale/imx8mm-venice-gw7902.dts    |  1 +
- .../dts/freescale/imx8mn-venice-gw7902.dts    |  1 +
- .../dts/freescale/imx8mp-venice-gw702x.dtsi   | 54 +------------------
- .../dts/freescale/imx8mp-venice-gw72xx.dtsi   | 11 ----
- .../dts/freescale/imx8mp-venice-gw74xx.dts    |  1 +
- 7 files changed, 7 insertions(+), 75 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
+index 37db4f0dd505..baf46fe28133 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
+@@ -115,6 +115,7 @@ mdio {
+ 		ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0>;
++			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
+index c09b40fc6dec..468c7e993c52 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
+@@ -253,6 +253,7 @@ mdio {
+ 		ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0>;
++			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts b/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
+index a5f52f60169e..5aa0e2cd155e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
+@@ -248,6 +248,7 @@ mdio {
+ 		ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0>;
++			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
+index 303995a8adce..a1232a4f8485 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
+@@ -101,6 +101,7 @@ ethphy0: ethernet-phy@0 {
+ 			reg = <0x0>;
+ 			interrupt-parent = <&gpio3>;
+ 			interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
++			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
+index 12de7cf1e853..7662663ff5da 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
+@@ -228,6 +228,7 @@ mdio {
+ 		ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0x0>;
++			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+ 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
 -- 
 2.25.1
 
