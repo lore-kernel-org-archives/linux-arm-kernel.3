@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE8FCAC59D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F2CCAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pd4BdhsWpaUbdxIdHjqZDezfWoG7n7INUNedxp0/t2E=; b=PareVCZX5xXOl7uJQq5YlW/HT/
-	B0khx7kLNCvOau72qvxuugM4EO3RNZdeK0q8/rWkczaWH1ojzE7BkrW9hS07h2LmmD9ng1e8tFJVy
-	a/oNpnLUGDVwArr+zeMHD9m83eDFyJm9WZuB3040IU8cmtFIwRJ7Gz99Yoz/5t/5whItNyFR+d4Ee
-	DXVCKrmyF5PlT4R44aCRqHKg3ejJXeNekfXTzM/9XIHDYDRNrmTjp0N2b+5cvTFGip4s1vY7ZlVta
-	iJ5SAS2z9eKXUXWlEkfhQkgyeGIQTZJdN2mzHzsKaIJ2FAQjEuQ53SjKLKfKb3SYL7k1O6l6ZeXMB
-	78xXFaGw==;
+	bh=I0fHAE3B++7vPIWUw59myjDCPk+7GWM24JBNBMS+y7M=; b=XUanxS/OVghDjqGHjkAn0mywrY
+	+j+OKd+Kri7g7FkmW7yrbCaI1o1tRj9Xwo7AwNl4btJ1TOO1x+AQLzO8pteqGyHqVdHEHt/wcLIWS
+	rlkUNHQf+xKMjd7c6w/s5wQx2buJd3gEoFLZcFrIIUZhxd5PtXEoOwWTbCddpkpQ+ePmn7p4KAoW+
+	ZQQHD/p6ptmmC6Z9ZEfbWWkyW3i9jHwQPQe695NeXlUl7uiNCPHAq64TRmnzo3L4qUzKNciYQG4N7
+	vvritAhwvZGBoNRrcs/vkpbpAQLiTopt4ae4UqVFzZ5xJ8Uuc3MPBtpLwbBfx6XWYbAolvJaZDBiC
+	4krSfppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycFS-000000091Kr-2COf;
-	Tue, 16 Sep 2025 20:25:58 +0000
+	id 1uycFT-000000091M2-0AUE;
+	Tue, 16 Sep 2025 20:25:59 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEy-000000090m6-3UUc;
-	Tue, 16 Sep 2025 20:25:32 +0000
+	id 1uycEw-000000090iJ-1sa9;
+	Tue, 16 Sep 2025 20:25:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22C3444D7C;
-	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D1448C4CEFE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 90B9444D17;
+	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 25CB5C4CEFF;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758054325;
-	bh=gQdj+jO5OwYIixP+cClgewhJqb0eZSY9VuHBGl/18WU=;
+	bh=xub1/tI9O5DTgQhmhRBbs4Xjsw6qwKviTq2SxNAQ5VM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=o1edpLyFj5jxP8LHIX+jFCvGtEv5LIFI/FSqg1M15wy0SXuZffg2o/uIAP2QoS17I
-	 dBfEIgkeDRDLFtauo5sC4bYwgLky8VWwmoIlEdnzFCbA2FNRnrZt6tfGMsMRA/NLwt
-	 b0ZiYpWvTY1CldLM4pCvqdUKf0I4ze91LlkSoIdwjxorzZRqPM6eEXGtjk04ZCZZ/l
-	 8/rRaFiXFi5Nd0PA7K8r4UvyrzrFwXz37OjY/oUIumiLJb+bMJoxta1zXAy8c+PoJv
-	 jR4j9iZz+7TvhvW2/y1QYoNxb51HCmqhEq3aEtsBZYyUFHMP7mWOl9WgZqOSeRS3KH
-	 T32/ntpYPfGzA==
+	b=fcl4xDz1ZHp5+J8K8HjCWy3jmZaXLcIIwdfJFBIleSSBefPR3RHy+ZQxUO0sRA6fe
+	 fF4AW4NFW0VxJy6l1lYy0EM7Z/t5WqXyDlchlqYcVavBi0dvxncUhgtGTeMdFRVUyp
+	 KdUcPPHpjmmMz8UksyEbyFWty4ehkw05D1s22im+BUA191x0KwOXkd+S66zF5qPd27
+	 eQVEw1E0m7NY2hU8517TDEpLUUWKLyJv7NivdyTFGD5gJ+kSXgdNEeaM/p/fSdQsKi
+	 RMrReUg5FWlBW/WdHLdXLoRPYWLogCrGj8QDpo0ohoa0OVFRyT28akLURoTMJJMdUk
+	 x0EZCWfQ0uLFg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7395CAC59D;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 10F37CAC592;
 	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:25:12 +0700
-Subject: [PATCH 15/25] power: reset: Add basic power reset driver for
- RDA8810PL
+Date: Wed, 17 Sep 2025 03:25:00 +0700
+Subject: [PATCH 03/25] dt-bindings: gpio: rda: Make interrupts optional
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-15-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-3-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -72,19 +71,20 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=4260;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=767;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=HFlkcuGoP8mh0AtLbkenNjV8o+UREGJUxRrmMlpYY+8=;
- b=tDnwi027u0ZztdCHk9SEr/lKN0wXoeRqVTLuHk786MC7CkCmAPImsXjgN/ULbHg//6qHti8x6
- 8cGQKoU4pBQCo0nPOwWFQeuoR0ZX1cppWJGWEFpFHKUyjOi/YBYx5Y2
+ bh=Ifgj24X3WuB4jA0+A119cFjcjAjN444atKSTzNtV5QI=;
+ b=w5Dv0+XyivOW8fKisHFtboYipMhkeJG5JlSdgVYg9JCFW0dK+AUye0klaEHuhYZkbKF8yFV3d
+ bbnf7sXd5NlDsF+1JmkU6i+0CfwfvX/taK6GSxR2IwyVaLwjD6ceHsT
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132529_012305_5CCDC338 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250916_132526_515124_DBB3F60A 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,130 +102,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-This basic driver can only reboot, powering off requires the modem
-firmware which we don't have yet.
+The GPIO controller from the modem does not have an interrupt.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- MAINTAINERS                      |  6 +++++
- drivers/power/reset/Kconfig      |  9 +++++++
- drivers/power/reset/Makefile     |  1 +
- drivers/power/reset/rda-reboot.c | 58 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 74 insertions(+)
+ Documentation/devicetree/bindings/gpio/gpio-rda.yaml | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cbe2ab8af6dcd40dd1456d9df55673dace3c87b2..5ec24d8657bffb55c160947a930980e428c6a6b7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21399,6 +21399,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
- F:	drivers/clk/rda/clk-rda8810.c
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
+index 6ece555f074f84b396537917d7149d4061724dcc..dbb73b4d33ed39aa65024376b1af0c4e2fb896db 100644
+--- a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
++++ b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
+@@ -41,9 +41,6 @@ required:
+   - gpio-controller
+   - "#gpio-cells"
+   - ngpios
+-  - interrupt-controller
+-  - "#interrupt-cells"
+-  - interrupts
  
-+RDA MICRO MODEM RESET DRIVER
-+M:	Dang Huynh <dang.huynh@mainlining.org>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/power/reset/rda,md-reset.yaml
-+F:	drivers/power/reset/rda-reboot.c
-+
- RDA MICRO REAL TIME CLOCK DRIVER
- M:	Dang Huynh <dang.huynh@mainlining.org>
- S:	Maintained
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index 77ea3129c70806929f3c248667db42f05f5f1d27..de9b1afb94d14a5d23286ddb302af4107d649c12 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -205,6 +205,15 @@ config POWER_RESET_QNAP
+ additionalProperties: false
  
- 	  Say Y if you have a QNAP NAS.
- 
-+config POWER_RESET_RDA
-+	bool "RDA Micro Reset Driver"
-+	depends on ARCH_RDA
-+	help
-+	  This driver supports soft resetting RDA Micro boards by writing
-+	  magic values to the modem register.
-+
-+	  Say Y if you have a board with RDA Micro SoC.
-+
- config POWER_RESET_REGULATOR
- 	bool "Regulator subsystem power-off driver"
- 	depends on OF && REGULATOR
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index b7c2b5940be9971548a5527384d1931abff11c4c..14371230410dad2852489160f4fc23d8fd087d6e 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -22,6 +22,7 @@ obj-$(CONFIG_POWER_RESET_ODROID_GO_ULTRA_POWEROFF) += odroid-go-ultra-poweroff.o
- obj-$(CONFIG_POWER_RESET_PIIX4_POWEROFF) += piix4-poweroff.o
- obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
- obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
-+obj-$(CONFIG_POWER_RESET_RDA) += rda-reboot.o
- obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
- obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
- obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
-diff --git a/drivers/power/reset/rda-reboot.c b/drivers/power/reset/rda-reboot.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..d87b063ba67d847f8e869e50a6c01427b2866889
---- /dev/null
-+++ b/drivers/power/reset/rda-reboot.c
-@@ -0,0 +1,58 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025, Dang Huynh <dang.huynh@mainlining.org>
-+ *
-+ * Based on drivers/power/reset/msm-poweroff.c:
-+ * Copyright (c) 2013, The Linux Foundation. All rights reserved.
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/module.h>
-+#include <linux/reboot.h>
-+#include <linux/pm.h>
-+#include <linux/mfd/syscon.h>
-+
-+static void __iomem *rda_md_sysctrl;
-+
-+static int do_rda_reboot(struct sys_off_data *data)
-+{
-+	/* unprotect md registers */
-+	writel(0x00A50001, rda_md_sysctrl);
-+
-+	/* reset all */
-+	writel(0x80000000, rda_md_sysctrl + 4);
-+
-+	return NOTIFY_DONE;
-+}
-+
-+static int rda_reboot_probe(struct platform_device *pdev)
-+{
-+	rda_md_sysctrl = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(rda_md_sysctrl))
-+		return PTR_ERR(rda_md_sysctrl);
-+
-+	devm_register_sys_off_handler(&pdev->dev, SYS_OFF_MODE_RESTART,
-+				      128, do_rda_reboot, NULL);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id of_rda_reboot_match[] = {
-+	{ .compatible = "rda,md-reset", },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, of_rda_reboot_match);
-+
-+static struct platform_driver rda_reboot_driver = {
-+	.probe = rda_reboot_probe,
-+	.driver = {
-+		.name = "rda-reboot",
-+		.of_match_table = of_match_ptr(of_rda_reboot_match),
-+	},
-+};
-+builtin_platform_driver(rda_reboot_driver);
 
 -- 
 2.51.0
