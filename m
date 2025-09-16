@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95640CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F91FCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 13:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZaJWa0JCi+wm5lpEPZv4c4wFk88sPicWafUgoZpD9A=; b=uFhkDFPp2XBsFXd7IT22r86roy
-	xeb9g+gtasB0Qh+DkOuXZyZ7XlELPEUZwlKzmB1W31Rg7Z4vuutVwYVojZnPLqmnwy/uGydqGcbJp
-	g3nLP0S4xJM1vc8WTz7lN1qtOFWteMW5N75phWvRtiSc5QKSME9M9iCo/J3r/SGol2aLsr53G5E/i
-	RFSki7XpClsw4pckG+Woq38jWSFqSK4VGcGa7A+IfA4LftuuJeiPpuObXf5jZppBGxfN41w5ajpNj
-	pzc/VdS33T/IoZcjh9brgd52JU4VRsYzi1hmjYSmBVjZ0dGpQuQlG+qVEGodxt81esttedKft/6GY
-	OYsiPA+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ib09a/uzULTUP3ZLXwL02uoyXM3Yn6AyZlKW3rPZoDY=; b=pKQQISOX4d5v7nAVkmaSri3Jyy
+	4c2Zrbj6Dw4kE8F7L7OSEkqJZbzCW5R0rRUOJuTO3m+khMPflQCDDsPyLcgXVKdX5S8oys+G6NaUK
+	vJlj1rxn9pimTwiEslKPiSt1T/p79yoTrLPgmVTmhIK8vrdf8i39NxPfaT+M7jXKYabfD6lqVC5LN
+	hU4TUfFLGbmOS0lu7NuKLdZt5+kWmMbkVAVshOCIQBO5nD3n5pI+adYCQL93DaKNql5gWTkzbXhBW
+	8orwbMXePqUrbZ32sKdnjXy9ztagJ/m/d0z+ooPKEldGQ9hIrQVjEpcymY/xKQA2egcc0YRGw5qr2
+	jg0CC3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVZ4-00000007u3f-2Z73;
-	Tue, 16 Sep 2025 13:17:46 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uyVan-00000007uTF-2A2O;
+	Tue, 16 Sep 2025 13:19:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyVZ1-00000007u0p-0W1h
+	id 1uyVak-00000007uSL-0uvV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 13:17:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cR2Pp2WdlzRkJN;
-	Tue, 16 Sep 2025 21:12:46 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id C7BA91402EB;
-	Tue, 16 Sep 2025 21:17:23 +0800 (CST)
-Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
- (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 16 Sep
- 2025 21:17:22 +0800
-From: Zeng Heng <zengheng4@huawei.com>
-To: <james.morse@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
-	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
-	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <guohanjun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>, <zengheng4@huawei.com>
-Subject: [PATCH] arm_mpam: Try reading again if MPAM instance returns not ready
-Date: Tue, 16 Sep 2025 21:17:17 +0800
-Message-ID: <20250916131717.2980875-1-zengheng4@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250910204309.20751-7-james.morse@arm.com>
-References: <20250910204309.20751-7-james.morse@arm.com>
+	Tue, 16 Sep 2025 13:19:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758028770; x=1789564770;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=GCqjILCeKyNT+/Gxo+qzeEjfs57+lZtCCEoAb15K/7Q=;
+  b=n3zHmSOCT4l074ytm3AL8r+YFjroj0CiAlWgwVZiF2LJb4smkHa4+J7u
+   3WZsCGg9maQsMGRaEdaqATKy9ldVAL7lGvYmEIjeWJYlcBWjVZs7eXv6k
+   D/FRyM9c/FwNjGe2KLEQH5cw6zWyg9WW+62TgASBWjJkraOzgfXGgECgU
+   +dAPzT5G6GbpEiyrCCqYcHOGpMemwULWHpsjG7YmjQdUUb83aDpXyacPX
+   bPyvOaz8d5vDlUCJH18tflQORMCZeI+xxf0JGEce+GwjGeuLZ8pF8683G
+   2ZfeaoeklhRtto0lpBuzr0MscsI6ZgHOGTcaITpWylouBT2GV3/Jk3GHF
+   A==;
+X-CSE-ConnectionGUID: V/byoQjpSTeHg7RE9/pKtQ==
+X-CSE-MsgGUID: IY9Gcb90RGOMWsNzTufLXQ==
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="52399102"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 06:19:28 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 16 Sep 2025 06:19:15 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Tue, 16 Sep 2025 06:19:12 -0700
+Message-ID: <0695ca65-536c-48d9-ad1b-49452e67a6f9@microchip.com>
+Date: Tue, 16 Sep 2025 15:19:11 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.175.103.91]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] ARM: microchip: clk for 6.18 #1
+To: <sboyd@kernel.org>, <mturquette@baylibre.com>,
+	<linux-clk@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, SoC Team
+	<soc@kernel.org>
+CC: Linux Kernel list <linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, Claudiu
+ Beznea <claudiu.beznea@tuxon.dev>, <oe-kbuild-all@lists.linux.dev>,
+	<llvm@lists.linux.dev>, kbuild test robot <lkp@intel.com>
+References: <20250916080545.9310-1-nicolas.ferre@microchip.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250916080545.9310-1-nicolas.ferre@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_061743_550283_11B50A23 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250916_061930_481071_8DDAD302 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +91,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After updating the monitor configuration, the first read of the monitoring
-result requires waiting for the "not ready" duration before an effective
-value can be obtained.
+On 16/09/2025 at 10:05, nicolas.ferre@microchip.com wrote:
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+> 
+> Dear clock maintainers,
+> 
+> Here are the first clk changes for 6.18.
+> I don't think they have conflict with changes for the deprecated round_rate()
+> to determine_rate() topic.
+> They are in linux-next for a couple of days.
 
-Because a component consists of multiple MPAM instances, after updating the
-configuration of each instance, should wait for the "not ready" period of
-per single instance before the valid monitoring value can be obtained, not
-just wait for once interval per component.
+But... this series depends on this patch:
+https://lore.kernel.org/r/20250827145427.46819-4-nicolas.ferre@microchip.com
 
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
----
-It's fine to merge this patch directly into patch 7 of the responding
-patchset.
----
- drivers/resctrl/mpam_devices.c | 36 +++++++++++++++-------------------
- 1 file changed, 16 insertions(+), 20 deletions(-)
+Which will be part of a pull-request to-be-sent soon to arm-soc (which 
+is part of linux-next, so the build error doesn't appear there).
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 2962cd018207..e79a46646863 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1183,11 +1183,14 @@ static void __ris_msmon_read(void *arg)
- 	}
+Once the pull-request is done, do you prefer that I do an immutable 
+branch between CLK and ARM, that I queue this at91 PM patch into the clk 
+pull-request or that everything goes through arm-soc?
 
- 	*m->val += now;
-+	m->err = 0;
- }
+Thanks to the kbuild test bot.
+Regards,
+   Nicolas
 
- static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
- {
- 	int err, idx;
-+	bool read_again;
-+	u64 wait_jiffies;
- 	struct mpam_msc *msc;
- 	struct mpam_vmsc *vmsc;
- 	struct mpam_msc_ris *ris;
-@@ -1198,10 +1201,22 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-
- 		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
- 			arg->ris = ris;
-+			read_again = false;
-+again:
-
- 			err = smp_call_function_any(&msc->accessibility,
- 						    __ris_msmon_read, arg,
- 						    true);
-+			if (arg->err == -EBUSY && !read_again) {
-+				read_again = true;
-+
-+				wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
-+				while (wait_jiffies)
-+					wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
-+
-+				goto again;
-+			}
-+
- 			if (!err && arg->err)
- 				err = arg->err;
- 			if (err)
-@@ -1218,9 +1233,7 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
- int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
- 		    enum mpam_device_features type, u64 *val)
- {
--	int err;
- 	struct mon_read arg;
--	u64 wait_jiffies = 0;
- 	struct mpam_props *cprops = &comp->class->props;
-
- 	might_sleep();
-@@ -1237,24 +1250,7 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
- 	arg.val = val;
- 	*val = 0;
-
--	err = _msmon_read(comp, &arg);
--	if (err == -EBUSY && comp->class->nrdy_usec)
--		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
--
--	while (wait_jiffies)
--		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
--
--	if (err == -EBUSY) {
--		memset(&arg, 0, sizeof(arg));
--		arg.ctx = ctx;
--		arg.type = type;
--		arg.val = val;
--		*val = 0;
--
--		err = _msmon_read(comp, &arg);
--	}
--
--	return err;
-+	return _msmon_read(comp, &arg);
- }
-
- void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
---
-2.25.1
-
+> Please pull. Thanks, best regards,
+>    Nicolas
+> 
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+> 
+>    Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+> 
+> are available in the Git repository at:
+> 
+>    git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/clk-microchip-6.18
+> 
+> for you to fetch changes up to e3130c2a9a0c8e549e044e659be6f762a1b1f725:
+> 
+>    ARM: at91: remove default values for PMC_PLL_ACR (2025-09-15 16:24:25 +0200)
+> 
+> ----------------------------------------------------------------
+> Microchip clock updates for v6.18
+> 
+> This update includes:
+> - add one clock for sam9x75
+> - new meaning for MCR register field in clk-master
+> - use force-write to PLL update register to ensure
+>    reliable programming sequence
+> - update Analog Control Register (ACR) management to accommodate
+>    differences across SoCs
+> 
+> ----------------------------------------------------------------
+> Balamanikandan Gunasundar (1):
+>        clk: at91: sam9x7: Add peripheral clock id for pmecc
+> 
+> Cristian Birsan (2):
+>        clk: at91: add ACR in all PLL settings
+>        ARM: at91: remove default values for PMC_PLL_ACR
+> 
+> Nicolas Ferre (1):
+>        clk: at91: clk-sam9x60-pll: force write to PLL_UPDT register
+> 
+> Ryan Wanner (1):
+>        clk: at91: clk-master: Add check for divide by 3
+> 
+>   drivers/clk/at91/clk-master.c      |  3 ++
+>   drivers/clk/at91/clk-sam9x60-pll.c | 82 +++++++++++++++++------------------
+>   drivers/clk/at91/pmc.h             |  1 +
+>   drivers/clk/at91/sam9x60.c         |  2 +
+>   drivers/clk/at91/sam9x7.c          |  6 +++
+>   drivers/clk/at91/sama7d65.c        |  4 ++
+>   drivers/clk/at91/sama7g5.c         |  2 +
+>   include/linux/clk/at91_pmc.h       |  2 -
+>   8 files changed, 59 insertions(+), 43 deletions(-)
+> 
 
