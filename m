@@ -4,97 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F2ACAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE29CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 14:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=; b=f4ENVSkeBCHbfIM/qW4MqQAxDq
-	6a/NR8WNeDP7Pir3ik5D0InnfTeiuy3G2VU6OE1875MOsou1Uq9JOrg8iWo7o6EC+oMux3r4cgE1n
-	qr/eKTh2y7nDMH4NQ3gCtNNaZ/zQR45Y8R7idLPsvNhcHQoxKR2suieQTa2Um4WspblhQLAEjZVlK
-	2A0JVe7gseSk8rata9SU+xzAoy7clMTjDOnhGGOi6N3mt09Y4GbkbJyonwCUgVZw+dAt0RLN6fyhT
-	Csf8GWLTAbVjmfBqPSpvi4juZtcxrebUPzFdLNglY9rX4urzp06Ud92Ox8Xf+N1R2rm2RUXjH3i+f
-	phMFL+GA==;
+	bh=6X4Oo9dw265PURxeYMUaHsX4sLsJPuBPvb+0hPhB0tw=; b=NOM/Y6oStXQa4GTrBQLUEkw1TB
+	eBEsmJt/BsSXfsIFauIfDavMfLGkep6r7XrireEO03hZ5KQVivTc/+vZJmZdWKG3p+RzHc2aJG3A1
+	ZYGPvjA4DdYv/MPZaN2komKNuc9ign9xBROPR616ea7BUDwS7HQsThNycsmxYtcbdwygEUZMyTxBC
+	01vlWR7P2exWo4yFvI1wzxi7txqoVodhp/knsHo5hMSr9Y/lk3AAGcbeLu6397AKTJPSpg0Qr6yYo
+	4ynAjs7TMY1IrolmtKT/VCMsjsQeMeF8EpkHE7wwxe0f16uSQAKNcUjx7zyuvLlGkFYiZBiFzlnxA
+	+3/qPQHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWFt-000000081FS-1chD;
-	Tue, 16 Sep 2025 14:02:01 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uyWHY-000000081a1-18XH;
+	Tue, 16 Sep 2025 14:03:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyWFq-000000081E9-2Uq6
+	id 1uyWHX-000000081Zn-0IDV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 16 Sep 2025 14:03:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6X4Oo9dw265PURxeYMUaHsX4sLsJPuBPvb+0hPhB0tw=; b=fH95tRGrXHQMHsbIgFCuXh9T9C
+	uXsP9fMkgb8tVFYMY6rn2awrHDUCuRf9Sj41s3yqR81/HHDr+yAyERuqKtyUO7JdymdHxWt/jnUV1
+	ZxkeWqQ7lyi585TCgiHONP38EMyunrm7sdaWluErg7f/8h2d5H7OjnZXS59y/EvQtWcTMLfTxRe7A
+	nh05IQJOA/fGlf+7dUDJaO8w36UDskF5yOBxD/kV8UhFc/hYTXA8e+JQbk8Uuvgthcqyg8YHQXgWE
+	uCxpJfSSYgvkZtgU1UYBRCO2LE4djHUb2izWC49MF83QDGVWZNoyFnVCmXIKVOqVfsHTEjOKTdoE5
+	ou3npLfQ==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyWHT-00000007DEl-39p1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 14:01:59 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b07d4d24d09so322576066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:01:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758031316; x=1758636116; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=;
-        b=PooRtJGgj8sV3qZEyXFtksZ1R3kXNASE3BvyF6WyAdlokCcDLyutfsH5qyUfmnKWoI
-         DdL7UEkSBQJgNNelSrhrCgXiJyt/85LR4ubkEFdnLFJ06zPJRfgZNKNd/d0kz/LZjNzA
-         Kqq2ZClSrsSKkfc9YwQIBVeTvOWRNXOOV1laSeMlc9gCfG0HaXbLMJ4Sgk8tcOiKzkFb
-         ZbaEuZuRv8Ktu1YagLUEbz8DhdFnZSBelx+Im7+dI2nKrT1SaYGQT7NXCSy5qyMpYL4g
-         O6enXcT/Mj2d41RuNBMJW+tLlTD5kcItoX0xO5/xAvodY4qWU7lYhWfS5EV4kNG02TU3
-         HQ3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758031316; x=1758636116;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+1/wO2aa6vwf2RnAiZIcGlD55m2MeNlNGw0Ms6XcA88=;
-        b=xPl4Mpb9G2uTYsRv/zHqIcJAv2MwIOvpcV95EqkKISyFkfNiSQ2X4R06y02QwAY9EV
-         m+mETtLFsw+AigX36uECW9WFJW5Z/1NqB9tHccMSzvQOW/Y3VwohkiY9zD8YV8TQKWxu
-         pTU3/7ObE8UIQLm0jYYcRUlkbnJanWYHf48bjZWeMKK7DqtuJM3/dur/5r728mErHOHc
-         E7EiPg0iI/ciTCp2Cwt+wWypO46trPyQUAeF3ImhbJAApoz3/MTLomx1TktNy3vZfVS6
-         oGVsJtpHawpxLAYX9e2F76uZywpG+mHyYtTkQHakzD405xjuVNS6FEk4Dy1hPEOEqu5R
-         5BCg==
-X-Forwarded-Encrypted: i=1; AJvYcCWiiMoIOu5A2KdKmZBHhcG5hi4Hc4fmoIuRuu2KLnwabILwVgQQqqq99OPT3rbmoL6oXHxSlMVvlf77VKFAp/0W@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIXwbCaxg5dGeTbOh0ppxh0/w4lgICY65XNIOU6wZeAGQx4tWc
-	bgVQAPOlvc44S0nVtHxCLeP6B/PnmjUEctKteo4L30KP81ZqH/cAwi4EJLG0NWXE/HTyn8ikDOs
-	e7O3mdiRYmmNeXmUQu+xLHWRHfSzh01M=
-X-Gm-Gg: ASbGncvLTtoLGm6OwMK9VjXNNoYfh6JmzZkNzUq/RzwdEg+HfWuOLK9OBlQuKqi36qb
-	gZqo6iacKs5m87m5wbVhnzP6CufYpoc8A9wWVGCREHhGjjqqMVfvHlVYMbT/SeCzQISgg0mckD7
-	Mcw9AUIABuZdVcyLeZWEoOWMDjForvRsRFomlkz3NDrQSDkHfl7T2FjGJ4AU5npOQaU2R4GXy2i
-	nHAvplA
-X-Google-Smtp-Source: AGHT+IF6Zy4nzr1OXuX8lE0GqEoG4kJn0jZymLRdcAOKhzS2jAVa02oHblL7nubcp0VuU3f+RU4UUOjge2+K+7voqcc=
-X-Received: by 2002:a17:907:9629:b0:afd:d994:7d1a with SMTP id
- a640c23a62f3a-b07c3ada566mr1656686866b.63.1758031315726; Tue, 16 Sep 2025
- 07:01:55 -0700 (PDT)
+	Tue, 16 Sep 2025 14:03:41 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GAmwKL021429;
+	Tue, 16 Sep 2025 14:03:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	6X4Oo9dw265PURxeYMUaHsX4sLsJPuBPvb+0hPhB0tw=; b=X03ZJERAb6N+nykO
+	fRhY76URm/EZRth1agRZGE+rmcUE0A8iieizzc7LMY61aORwVFv4jx5sPQiqn8PM
+	LB3F3scF2PRfbAxdef75VtJFXwB9TUByWNjGmUdT9HDx3J/PPMSZQa17gJNT7w9O
+	ztT31JoyjV/2tAQ24qj3EwzKu8cWXpenI/qJSGPtMfXnS2YZsMBw4Ztm1jsQ6Wdm
+	UEMAanrQ4ZjdrwPXf17KUbxwLXBo9BVremMaIRqhOYxpwMh4kt8llEVyGD6YEdDg
+	Fp6Ehbjyrk7JBL1YqIFhuINTmzto00p3+U05za7REZLW+kP//hoDurAu/3cgrJ8K
+	VKyS1g==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 494yma92qj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 16 Sep 2025 14:03:26 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58GE3Ppj030456
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 16 Sep 2025 14:03:25 GMT
+Received: from [10.253.73.4] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Tue, 16 Sep
+ 2025 07:03:18 -0700
+Message-ID: <1e7d7066-fa0b-4ebc-8f66-e3208bb6f948@quicinc.com>
+Date: Tue, 16 Sep 2025 22:03:14 +0800
 MIME-Version: 1.0
-References: <20250908105901.3198975-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20250908105901.3198975-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <aMlgg_QpJOEDGcEA@monster> <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
-In-Reply-To: <CAMuHMdXWVXd5FauMYNq0yXgQa87F4Z9HcGOu2O_ercQg48GNoQ@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 16 Sep 2025 15:01:28 +0100
-X-Gm-Features: AS18NWCVgZqFQH49bSZ6oVph3-y6Eo3LOyTc2vGW-dgo3A64cLzcN5-yV35knnc
-Message-ID: <CA+V-a8snd9Qeb_Fbj=_E6Y28EUV-ad+PO=cZcWrZ2F1_RwscGw@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: dwmac-renesas-gbeth: Add
- support for RZ/T2H SoC
-To: Anders Roxell <anders.roxell@linaro.org>, Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Russell King <linux@armlinux.org.uk>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add required
+ "interconnect-cells" property
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Konrad Dybcio
+	<konrad.dybcio@oss.qualcomm.com>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        "Varadarajan
+ Narayanan" <quic_varada@quicinc.com>,
+        Georgi Djakov <djakov@kernel.org>, "Rob
+ Herring" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>,
+        Anusha Rao <quic_anusha@quicinc.com>,
+        "Manikanta Mylavarapu" <quic_mmanikan@quicinc.com>,
+        Devi Priya
+	<quic_devipriy@quicinc.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Richard
+ Cochran" <richardcochran@gmail.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
+        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_suruchia@quicinc.com>
+References: <20250909-qcom_ipq5424_nsscc-v5-0-332c49a8512b@quicinc.com>
+ <20250909-qcom_ipq5424_nsscc-v5-2-332c49a8512b@quicinc.com>
+ <20250912-nocturnal-horse-of-acumen-5b2cbd@kuoka>
+ <b7487ab1-1abd-40ca-8392-fdf63fddaafc@oss.qualcomm.com>
+ <0aa8bf54-50e4-456d-9f07-a297a34b86c5@linaro.org>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <0aa8bf54-50e4-456d-9f07-a297a34b86c5@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTEzMDAxOSBTYWx0ZWRfX+9fniE3pPWHB
+ OK1mPcvWK39tjQpXeg8MT+BqotrnwWTpPXA47FselkKhjNIKTmvcDr6saYw99d/BVXIJhsDfVHF
+ etU73HHUoARWi+cuEUe8kEn/BU/2eceCg7Dbb0SjbIcoVuKZE1W1IK8KPMGTthcJmUCAYXaTF1g
+ CmoetI2YNTVgs5IaaRvgpKChIoq4svHTMffGrXGdZIM0MujvmF6vY7J7V3QxNTTGFqDPzFmCGEI
+ FHPXtmj2Ll8giOhyYfxfJVLYTozy2RMuteHsZySMVg/01HkUkCTYqjMQEWhrDxlCKGaIePm2pnm
+ H8rVrDGCmQCoIF0paiVaQAAOxAw2TzK20GcvInI19G3+HEPn0mvLaecbopPySZGzt01qjn9umyu
+ 9KiSVr3P
+X-Authority-Analysis: v=2.4 cv=cdTSrmDM c=1 sm=1 tr=0 ts=68c96e2e cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10
+ a=gKVqG3yGxRJGUVRL1-wA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: LvqLRf81n_ETBpixAjO1G1xzpO7c-pka
+X-Proofpoint-GUID: LvqLRf81n_ETBpixAjO1G1xzpO7c-pka
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 priorityscore=1501 adultscore=0 suspectscore=0
+ bulkscore=0 impostorscore=0 spamscore=0 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509130019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_070158_660366_8E3B29B2 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20250916_150340_168778_FFABD6B3 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +156,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andres and Geert,
 
-On Tue, Sep 16, 2025 at 2:31=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
->
-> Hi Anders,
->
-> On Tue, 16 Sept 2025 at 15:05, Anders Roxell <anders.roxell@linaro.org> w=
-rote:
-> > On 2025-09-08 11:59, Prabhakar wrote:
-> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Extend the Renesas GBETH stmmac glue driver to support the RZ/T2H SoC=
-,
-> > > where the GMAC is connected through a MIIC PCS. Introduce a new
-> > > `has_pcs` flag in `struct renesas_gbeth_of_data` to indicate when PCS
-> > > handling is required.
-> > >
-> > > When enabled, the driver parses the `pcs-handle` phandle, creates a P=
-CS
-> > > instance with `miic_create()`, and wires it into phylink. Proper clea=
-nup
-> > > is done with `miic_destroy()`. New init/exit/select hooks are added t=
-o
-> > > `plat_stmmacenet_data` for PCS integration.
-> > >
-> > > Update Kconfig to select `PCS_RZN1_MIIC` when building the Renesas GB=
-ETH
-> > > driver so the PCS support is always available.
-> > >
-> > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com=
->
-> > > ---
-> > > v2->v3:
-> > > - Dropped passing STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP flag in stmmac_fl=
-ags
-> > >   as it is always set for all the SoCs.
-> > > - Updated Kconfig to include RZ/T2H and RZ/N2H.
-> > >
-> > > v1->v2:
-> > > - No changes.
-> >
-> > The following warning is seen when doing a defconfig build (make
-> > defconfig) for arm64 on the Linux next-20250915 tag.
-> >
-> > First seen on next-20250915
-> > Good: next-20250912
-> > Bad: next-20250915
-> >
-> > Regression Analysis:
-> > - New regression? yes
-> > - Reproducibility? yes
-> >
-> > Build regression: WARNING: unmet direct dependencies detected for PCS_R=
-ZN1_MIIC
-> >
-> > Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> >
-> > This is the build warning:
-> > WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
-> >   Depends on [n]: NETDEVICES [=3Dy] && OF [=3Dy] && (ARCH_RZN1 [=3Dn] |=
-| COMPILE_TEST [=3Dn])
-> >   Selected by [m]:
-> >   - DWMAC_RENESAS_GBETH [=3Dm] && NETDEVICES [=3Dy] && ETHERNET [=3Dy] =
-&& NET_VENDOR_STMICRO [=3Dy] && STMMAC_ETH [=3Dm] && STMMAC_PLATFORM [=3Dm]=
- && OF [=3Dy] && (ARCH_RENESAS [=3Dy] || COMPILE_TEST [=3Dn])
-> >
-> > WARNING: unmet direct dependencies detected for PCS_RZN1_MIIC
-> >   Depends on [n]: NETDEVICES [=3Dy] && OF [=3Dy] && (ARCH_RZN1 [=3Dn] |=
-| COMPILE_TEST [=3Dn])
-> >   Selected by [m]:
-> >   - DWMAC_RENESAS_GBETH [=3Dm] && NETDEVICES [=3Dy] && ETHERNET [=3Dy] =
-&& NET_VENDOR_STMICRO [=3Dy] && STMMAC_ETH [=3Dm] && STMMAC_PLATFORM [=3Dm]=
- && OF [=3Dy] && (ARCH_RENESAS [=3Dy] || COMPILE_TEST [=3Dn])
-> > I: config: PASS in 0:00:01.592356
->
-> Thanks for your report!
->
->     config DWMAC_RENESAS_GBETH
->         depends on OF && (ARCH_RENESAS || COMPILE_TEST)
->         select PCS_RZN1_MIIC
->
->     config PCS_RZN1_MIIC
->         depends on ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G087 || COMPI=
-LE_TEST
->
-> "ARCH_RENESAS" is wider than "ARCH_RZN1 || ARCH_R9A09G077 || ARCH_R9A09G0=
-87".
-> I would just change the latter to ARCH_RENESAS.
->
-Thank you both. I'll create a patch updating it to use `ARCH_RENESAS`.
 
-Cheers,
-Prabhakar
+On 9/12/2025 5:16 PM, Krzysztof Kozlowski wrote:
+> On 12/09/2025 11:13, Konrad Dybcio wrote:
+>> On 9/12/25 9:04 AM, Krzysztof Kozlowski wrote:
+>>> On Tue, Sep 09, 2025 at 09:39:11PM +0800, Luo Jie wrote:
+>>>> The Networking Subsystem (NSS) clock controller acts as both a clock
+>>>> provider and an interconnect provider. The #interconnect-cells property
+>>>> is mandatory in the Device Tree Source (DTS) to ensure that client
+>>>> drivers, such as the PPE driver, can correctly acquire ICC clocks from
+>>>> the NSS ICC provider.
+>>>>
+>>>> Although this property is already present in the NSS CC node of the DTS
+>>>> for CMN PLL for IPQ9574 SoC which is currently supported, it was previously
+>>>> omitted from the list of required properties in the bindings documentation.
+>>>> Adding this as a required property is not expected to break the ABI for
+>>>> currently supported SoC.
+>>>>
+>>>> Marking #interconnect-cells as required to comply with Device Tree (DT)
+>>>> binding requirements for interconnect providers.
+>>>
+>>> DT bindings do not require interconnect-cells, so that's not a correct
+>>> reason. Drop them from required properties.
+>>
+>> "Mark #interconnect-cells as required to allow consuming the provided
+>> interconnect endpoints"?
+> 
+> 
+> The point is they do not have to be required.
+
+The reason for adding this property as required is to enforce
+the DTS to define this important resource correctly. If this property
+is missed from the DTS, the client driver such as PPE driver will not
+be able to initialize correctly. This is necessary irrespective of
+whether these clocks are enabled by bootloader or not. The IPQ9574 SoC
+DTS defines this property even though the property was not marked as
+mandatory in the bindings, and hence the PPE driver is working.
+
+By now marking it as required, we can enforce that DTS files going
+forward for newer SoC (IPQ5424 and later) are properly defining this
+resource. This prevents any DTS misconfiguration and improves bindings
+validation as new SoCs are introduced.
+
+> 
+> Best regards,
+> Krzysztof
+
 
