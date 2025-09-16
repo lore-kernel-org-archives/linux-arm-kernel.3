@@ -4,154 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA67CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9B4CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 16:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRU1uJy4YVNqas2yL5aZiCpF9as/TITcPtWXQJgC0Xo=; b=HModyVm6kYRtyUwkMhdUp6X+lJ
-	QJeRNi0aG5yuqz/O6XGCu6396/7Hsy1Q4fDGaN3UJOc3kRpOqasxeggnVmgwVl/5niheusIFXxMcf
-	PAj7WQPeTU3pgGfagCn6z8gB943JyWm1MasqfC4GQ5Ivcu1q+XnVBo5UJe8I4nYk9h0sg92Vwha6r
-	GHyEAxych3RSTOqKlfo4WrdRXHoGeAupe/Q8HaXW6NFtLGJMFhwY2noMBWdslCF8umXCxWGMTterh
-	2eMbms8csyKtwWPC/nqyaH6neYYMPQLif/lLuaQiW0OLJSCGt2WX9yMCsggxtktgp84aLFyP+FpyR
-	5IXEZdOQ==;
+	bh=mXuM51DXgiOEPziSeq5lbRzYsExcQfoClmvs3Lrm+J0=; b=sJ8vtM2y5IhoxMzrigmBia74IQ
+	x6pD3QN9WlniDLD0Vcf7SN1NwcnyBBAmzsSVT9iZ7jgU/UjECZWuXhJcPauPQEEqweQxAAsCTrTCs
+	drashMI2btW47Yk9JumcK6NwSYwlmvgYHyyvlDn/lyrxzKPd7fHqqncd/M2hmpYfps9w3/H5THL91
+	noZh+s3os/Arh5XzrRb5NbSgfYOKBOED67j3JUDOrysc19jFGLQJI+dICnme++MwKUm2Cu0KVSF2C
+	5qg2AGZ05iaWZ1Z/VmTCyl43yuUoQlu8qG/K5o6LwyyRvW2nv787skvAjYt1rXxtXvQRCL2jJJ1oH
+	dg3RVBgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY1o-00000008M0g-2pR2;
-	Tue, 16 Sep 2025 15:55:36 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1uyY65-00000008Mgt-11Mw;
+	Tue, 16 Sep 2025 16:00:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyY1l-00000008Lzy-2dey
+	id 1uyY63-00000008Mfw-1r7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 15:55:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FBC8mUeSlq9rJIkw/XAR4M2KAMYgMQBVvei6FiY9gq0KhdebFPNHYfScFlyDVi+IYAWNHbWt8yv8vY8kHWN3ks7v4PSughM9hl/sA7cWbPic5zdl7zYZCZK2AKEDe+P4l/Pl2/TOPp4Sihc5d+J8rn30wr/ntszcJcwcNdqdZPI6YsOHATxDaqh4B7VZ5ugfOsN7w1560Nuf0dRL1So3VD4c5Gj+J66s1rpmIwABq5H3zaHClYBip5C4LT0DxgDbOb90ydnJ8GY+D3/GCO96rFQA79DiiUb37GS0+/AK8vexZx3WUPseIkuUV00QbJH1k6ImbRihI+gjQ71NxjIaQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mRU1uJy4YVNqas2yL5aZiCpF9as/TITcPtWXQJgC0Xo=;
- b=wKcD+qI0dP8/Nbu0aWH9gzVwSjBG2esUohik9l/jdH8wkBLWQlPGhuzywc3nRbE6L7AcooWAl0s1GcGMNJ5dPgh5LNYWAfE1Xv1SwBSn/5n75RdWHaQrS8BCyk/ly4xsqDqU2+ccciv0kythcYhUccR6rBaEiPQYzrt0BuUirtEfXHkzOoN5oOEn7gxzVzEYCP+VPMQFQ1zspuVVngG9krpuQN6Dy8fgbP8ucvfcfRx/qoJ2V7mZN8GOaFZz8WtaURxn2xgizrP9QkupJao3Aqi9lGyLb4/0pyjiTNDSKjfwFHa9UzRp/IZXxLSiSLcBn4UwAd7aqNvmBuoqvLZWbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mRU1uJy4YVNqas2yL5aZiCpF9as/TITcPtWXQJgC0Xo=;
- b=GJ7fBj9kmxFDi2ru0dOJ1c6gAj9FCo5tSD50329tG7eHIgeaQ48pdCYZDiioZ4GlH4Vocf9TVQYv7uYlQHumlhgBF4RIvw9R2zACpnNgkEcarz9CNqKASD29H9zp4vuae7bwqpVYAbJH3tDBqTgdtX43BiQcZCSNflwAFHxO6EBr35a8FI5C92Xr8wsBcQfar9gI1wXYmE0sTgcOvkfkJyIeftHNDOliK5NUqm4zJGIElIjz8Y7oeTrdlqZTkWfSPtI9vZnCvMRgY9wbKh/uCkTpL0rGMgshXdviKEriHPw4gA5NmYkHm9UR+Wkitge8NXp35AV67Yv+51/SOhpjIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DU2PR04MB9116.eurprd04.prod.outlook.com (2603:10a6:10:2f7::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.12; Tue, 16 Sep
- 2025 15:55:26 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9137.010; Tue, 16 Sep 2025
- 15:55:25 +0000
-Date: Tue, 16 Sep 2025 11:55:17 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Tue, 16 Sep 2025 15:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4BA6601F0;
+	Tue, 16 Sep 2025 15:59:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BF72C4CEEB;
+	Tue, 16 Sep 2025 15:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758038398;
+	bh=wr2tJyYlkR5y7T+xXW7Ilz7m2i0rIvhhJ50qSX15f1Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Bl1tovBv/A1b3dWFDjYnUvsI3AMmg0L1t0r51/nrQVCCpwzstVSwREiaJ4NPAT6Ij
+	 aCBROW6QSv6LBn/reHoTPN07KUpdK1eTLIX1wbpAxJYlGxs2pdSJs9uPzlT27yR/F0
+	 lBvNpc5z0rM1q2xJQXNF90n5FXiFyf+fD9WCG6pt/LIv83ILa87/6PAqEvUBKRvImp
+	 XYotFnLUUO/ranSYvN1o+U1QaMsgBiJqBVe+ATLpyWuOhemojZjcL8fZa+HGdg/FdH
+	 niss8SL/WuTI5EyOj3/xJqEozCvblDppJwo9/ktBg9K8cD0DaWAQ8KW3UpBs26pJar
+	 KmQU/zzJcmdVw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uyY5z-00000006mKg-36KG;
+	Tue, 16 Sep 2025 15:59:55 +0000
+Date: Tue, 16 Sep 2025 16:59:55 +0100
+Message-ID: <86tt121j7o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Mark\
+ Rutland" <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J.\
+ Wysocki" <rafael@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH v3 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
- glitch thresold
-Message-ID: <aMmIZTMqr0rtiP6z@lizhi-Precision-Tower-5810>
-References: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
- <20250915195335.1710780-5-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915195335.1710780-5-dario.binacchi@amarulasolutions.com>
-X-ClientProxiedBy: BYAPR03CA0028.namprd03.prod.outlook.com
- (2603:10b6:a02:a8::41) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DU2PR04MB9116:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0e4ddae-8a4d-47b0-cc37-08ddf539737b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|7416014|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eE9rLLpKgHHNpYhZQoAOYMpWSudn0fTExEQcKnCSNJhEd4H8pmLWu31wduWM?=
- =?us-ascii?Q?4P119ciJUhfVklctxPH3ijoiLXak9S9BXGgfp9WsHubaxuebr+TCIERuWwYr?=
- =?us-ascii?Q?fWx1i0bK9hOgSZVSwAZYH7H4RIOVMP0CQs48vkRB0FmhjEfFkM01Fr/lWqXS?=
- =?us-ascii?Q?0Ccv62BicRNZvAENiFa64bSQQbJT1W6DjLyTalH9TijsQrS/hNgB2v3Z0yHX?=
- =?us-ascii?Q?BXr1y+egrcQ5Sae61H/GHXQS5+7VKRjCy5jsKQDlErI2X+kNIBwv7VGjFXyv?=
- =?us-ascii?Q?7I12CZI3x7jlQ5sgaNDSJ0MZdwIHPZlh3UWsKEalGI6WiE0033FSeu3oepgG?=
- =?us-ascii?Q?agK0iY6m1i/nQFcMzxvBiv+5l61WgA5vyXdQKjz3MdUPGMtzxepgwI05uHUh?=
- =?us-ascii?Q?su/o1SMlOyzAG+3PcBZXC69ABuUGTERW7gVN7uZTK9RXKpI9hdK86VeA9Bt3?=
- =?us-ascii?Q?8VbAzHDgEJ0zRJcoDw7lG2VjTPvS/sqeoNiGO1o4bW+Kvzl/MV6l6CPv4tdl?=
- =?us-ascii?Q?jXX37pA9WwDczMIB8u4D1ySX+2b3mIXTvjA60ITjNG94CLnRNjmXxTrvevHC?=
- =?us-ascii?Q?hGiqNvI5fgjbCnma6fhSvuv9OzdAHiyybhXKQM02A0p7AVyp6elukKtoJPNw?=
- =?us-ascii?Q?qJskt1IfPHxT0KKd9DKgt8pXvdUqZmXBGt4fV0Asdbv+w0I/KYebt2UE9ayv?=
- =?us-ascii?Q?iGyPjw+mCYHuMet6WReLWAJLx61fbiW6Jx/9r5Cf0KcPSBYfZhlEOIjuRjnN?=
- =?us-ascii?Q?EkmEM9eppg67mru7hufMcidgk+k3CQ5nyR6MikcQ5N1WBSkHAqdXUd21kCux?=
- =?us-ascii?Q?SlSLR7NWEzpHvI63JIHcbui8ivfi4bLZ7ZE81oQ6ZsL/w8cDyY6T4CLpTI/Z?=
- =?us-ascii?Q?wLtvwtcx92b5hBtBv5L8VWwFUaD6gdx8E24hKRT7QOJvsSsbPsABkeaqHMk6?=
- =?us-ascii?Q?EU7yOevIITCN1ATWGGDF4FlXl7JITd5WkDWXONII/3zHK/LBJFlX2Nhqq2TX?=
- =?us-ascii?Q?CF/Rvgff2maP3LaUYwyS4S2a/aOmyJNdeEamJoYahSjeA3IlW4ZfGYZqNKxn?=
- =?us-ascii?Q?rexuHvcbMTytzFZd+cUkQ1pWY0ULdXzhkgrjlJRoq1/SLad+cz++rlRlJaGb?=
- =?us-ascii?Q?RoSue6gsWaKTDfZPfSWOXky1TsRMSXSxAM438vPktQHJEh8D+D8uyvvYd7bC?=
- =?us-ascii?Q?1Eq+mOZMwNck02nbt/5KTCEZ6g/TKrJa2a21SvKB2aWmtZHliYL906BVT7r2?=
- =?us-ascii?Q?i2lCkYPcF6G7d7zGdVN/CkvXEgjEjaROBAS2dnaxIjgCKmCLU/+gB/V6A7xp?=
- =?us-ascii?Q?8ZBTo8AhPE08Zy804FdAiMwVEwMznL2KUnyFKmDV+V368oVj4WbySzw1U5P1?=
- =?us-ascii?Q?J2hfmqsjENztt96WAaV6tW0YPDpxNPuwa6RTUhtiN81ybtdqfvqKT+U5do0Y?=
- =?us-ascii?Q?IPYbc4eO8ONX3l3+ypp3x9erAJbrwL8D6tp60ZjI1upIGABuQRZ4eQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(7416014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MF694b/Y30+f72PXj/rhuey970/mgSFZE6C3kiVezDiDVYJHHOUyVgLFxKxK?=
- =?us-ascii?Q?iUcUz0JAcIKqCPby5dmQ1NcgBFj3tvT+1kdpDoazUItmWfPc4vfzRPCiekbd?=
- =?us-ascii?Q?pbQb5dlvVjizj/xMcAtmizjWSWHLb+bKQ4PIPio4FFtuzGNHyPdOdo2bVPNt?=
- =?us-ascii?Q?ZyocQnRPFUynRBkIk06D0CtBE2e2VBNElkhFKHaqljX5YG2GnMsjtKy59Wwl?=
- =?us-ascii?Q?J9GhLrRcZPzXapXQrTOXaSfW/cYWmeDblmmHnDPJCWsv072QUZod3M04dqy8?=
- =?us-ascii?Q?EFVXvMJF8JJOpp6k7ceWBcJghVkDuS4tkDIQsrwEpIbuZsN0JBu2KiAHCBss?=
- =?us-ascii?Q?w/zyeq6kYXWQ6/kmSJecVURWQN5Y0idRu7yzt28GBjUTwhwqDRneGO4k7s1V?=
- =?us-ascii?Q?X+RZgEm+iv33tpgJf0NAeXgeN7rgTqs+hVWvGomV8KmGBUjtT0QSxmoaqbXt?=
- =?us-ascii?Q?NS2MWrUJ3Vp1KGqZxGV1qyJej8IsCupU3wz6oyTNdaf1H8YDQNzlpC0GmH40?=
- =?us-ascii?Q?D2gUy5T/2NQmOzCRoP1wFOZAqUBaakkUeWxXala8Y9G2qVrjaijzic7kx4LT?=
- =?us-ascii?Q?zsgR1u8e45G2Jw4F/EDefXEw8Dxc7cSnyDHkpvsECvCHMdeX9Y71PPRiFHcB?=
- =?us-ascii?Q?cQnrR+y03kndfpsBgfW0yg7h1yfVoSHyipjmPUDRKqbGT7L3VQvbddAxzaSG?=
- =?us-ascii?Q?2MU6G5aJ502suScYOqteiEVhGtogXw7vTRgf1H75enrIadHOsRnK5iSio7ft?=
- =?us-ascii?Q?AY2hQPDTET0S8ujkdNp6wosvXalWi4YMM9fJOh8xZpYZgy8wly1eyEDq3Ssv?=
- =?us-ascii?Q?ceYz4Uzl/uukHqmhWMpgtE/Rf9inLvWVjIGP0zGYfkJNlT3p9gxkYTBxAI/K?=
- =?us-ascii?Q?RzFJQlzHPUNgLHkDsiaWPOZrjwU3aBTzRFzU29knuVGZX/b5DI8bNL0yxf9k?=
- =?us-ascii?Q?auzMKJqYC8PPkrynj/ZVhjZVv3CLhkBlOIrzCP49Qi1kNc6ZWVe48CxNaxr0?=
- =?us-ascii?Q?zXPjFNnbcaA5D9jI+hKas17Gfb8FJytR6Mlv6ZXreTrQsCx4BLD20gv8pXAx?=
- =?us-ascii?Q?4iSMSR+dln6jUg476VrmMzaRbHj7y5924dHN9ui7Nz/D6Fd9Of0p+Bj7XpDG?=
- =?us-ascii?Q?uJGpT6Kb5U90NZkRNy/YhB0I2MYqAR/LsQbR05gzsf1XUynns//Apzi1kx68?=
- =?us-ascii?Q?N9IBDjXAlpp9aw4zG3LcY714Dsv2WVppXdZrgr0jxOrCNajSSnFQXQzDrQB5?=
- =?us-ascii?Q?uSnB64iXJC29aD8w11WZeXZVvXovgNGqCrg58UQDhEBJ8HaXld1NuS7mF2MI?=
- =?us-ascii?Q?r+7eugSNw0IFhYzi2aCMWN6MhvVkuivnfzNUDf2k7ZpB5lPHF2DkwwJwMb18?=
- =?us-ascii?Q?KmcZ7VHY28KI9k1PNG8Zm50U0YVtrfe0GrPFvTuc4SsdCW3H2YHYOlOHusbi?=
- =?us-ascii?Q?t9zlfcyFX3tuv4AEjzh17Y8F800k01WqVVBJZ4KsXbUT/l3ZEPVMXMvxw7cj?=
- =?us-ascii?Q?s0EiFCT9alHZhmgHAWjCCE4ZziyHMlVTg5DuxQBlqqqDPyO6lrItZRSf9PeZ?=
- =?us-ascii?Q?4tGg+WsWbSDROHybqSA7CYPA15MtVXbkAqoMmTUd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0e4ddae-8a4d-47b0-cc37-08ddf539737b
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 15:55:25.7901
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hT0MpY+n8iKmvA0fOAOr3SDxLr3Tv1a2/jQmsnLzU5oG/c27E5KmhBjh0dPJb2Fxf1sNxC5hYilHN9WqZKSCTA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9116
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_085533_668622_7CDFF01A 
-X-CRM114-Status: GOOD (  20.26  )
+	"Saravana\
+ Kannan" <saravanak@google.com>,
+	Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau
+	<j@jannau.net>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark
+	<james.clark@linaro.org>
+Subject: Re: [PATCH v2 05/25] irqchip/gic-v3: Add FW info retrieval support
+In-Reply-To: <20250916163413.000062f0@huawei.com>
+References: <20250915085702.519996-1-maz@kernel.org>
+	<20250915085702.519996-6-maz@kernel.org>
+	<20250916163413.000062f0@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,51 +100,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 09:53:06PM +0200, Dario Binacchi wrote:
-> Support the touchscreen-glitch-threshold-ns property. Unlike the
-> generic description in touchscreen.yaml, this controller maps the
-> provided value to one of four discrete thresholds internally.
->
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->
-> ---
->
-> Changes in v3:
-> - Remove the final part of the description that refers to
->   implementation details.
->
->  .../bindings/input/touchscreen/fsl,imx6ul-tsc.yaml   | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> index 678756ad0f92..6214d8be5a99 100644
-> --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
-> @@ -62,6 +62,18 @@ properties:
->      description: Number of data samples which are averaged for each read.
->      enum: [ 1, 4, 8, 16, 32 ]
->
-> +  touchscreen-glitch-threshold-ns:
-> +    description: |
-> +      Unlike the generic property defined in touchscreen.yaml, this
-> +      controller does not allow arbitrary values. Internally the value is
-> +      converted to IPG clock cycles and mapped to one of four discrete
-> +      thresholds exposed by the TSC_DEBUG_MODE2 register:
-> +
-> +        0: 8191 IPG cycles
-> +        1: 4095 IPG cycles
-> +        2: 2047 IPG cycles
-> +        3: 1023 IPG cycles
-> +
+On Tue, 16 Sep 2025 16:34:13 +0100,
+Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
+> 
+> On Mon, 15 Sep 2025 09:56:42 +0100
+> Marc Zyngier <maz@kernel.org> wrote:
+> 
+> > Plug the new .get_info() callback into the GICv3 core driver,
+> > using some of the existing PPI affinity handling infrastructure.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Hi Marc,
+> 
+> Yet another trivial comment. It's one of those days it seems :)
 
-You have to use ns here. You can caculate in driver to match to closed one.
+No worries, your trivial comments are far more interesting than some
+of the emails I'm otherwise getting.. ;-)
 
-Frank
+> 
+> > ---
+> >  drivers/irqchip/irq-gic-v3.c | 53 ++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 53 insertions(+)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> > index dbeb85677b08c..71c278ddd1e39 100644
+> > --- a/drivers/irqchip/irq-gic-v3.c
+> > +++ b/drivers/irqchip/irq-gic-v3.c
+> > @@ -69,6 +69,8 @@ struct gic_chip_data {
+> >  	bool			has_rss;
+> >  	unsigned int		ppi_nr;
+> >  	struct partition_desc	**ppi_descs;
+> > +	struct partition_affinity *parts;
+> > +	unsigned int		nr_parts;
+> >  };
+> >  
+> >  #define T241_CHIPS_MAX		4
+> > @@ -1796,11 +1798,58 @@ static int gic_irq_domain_select(struct irq_domain *d,
+> >  	return d == partition_get_domain(gic_data.ppi_descs[ppi_idx]);
+> >  }
+> >  
+> > +static int gic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
+> > +{
+> > +	const struct cpumask *mask = NULL;
+> > +
+> > +	info->flags = 0;
+> > +	info->affinity = NULL;
+> > +
+> > +	/* ACPI is not capable of describing PPI affinity -- yet */
+> > +	if (!is_of_node(fwspec->fwnode))
+> > +		return 0;
+> > +
+> > +	/* If the specifier provides an affinity, use it */
+> > +	if (fwspec->param_count == 4 && fwspec->param[3]) {
+> > +		struct fwnode_handle *fw;
+> > +
+> > +		switch (fwspec->param[0]) {
+> > +		case 1:			/* PPI */
+> > +		case 3:			/* EPPI */
+> > +			break;
+> > +		default:
+> > +			return 0;
+> > +		}
+> > +
+> > +		fw = of_node_to_fwnode(of_find_node_by_phandle(fwspec->param[3]));
+> 
+> of_node_to_fwnode() has a note that says it'll be removed in the merge window.
+> It was enough of an oddity I wondered why it existed.
 
->  required:
->    - compatible
->    - reg
-> --
-> 2.43.0
->
+Cargo culted, obviously. And yet another sign that I've been sitting
+on these patches for way too long...
+
+> Of course it did say it would be removed in the previous merge window and wasn't...
+> Probably want of_fwnode_handle()
+
+Thanks for the hint, I'll add that to v3.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
