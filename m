@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB195CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40021CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5L9pBNqP1/a01cLv5B834jjOpt05WIUMXdyt6mXTYsY=; b=4xbvsZ4VTb0iVZuWByGY40jDkn
-	g0JxzBDcNZZ1BWMsiCVbMp14B0LQhjD4yEKgc/juWnBPdCwvY2IghLnunhSnDUHvGSW/HxCioOP+6
-	A7FukhlNaaqJWmPYqBfcUQvKps9fDkFJEBGD4hLOAzQp7abEmQRMyzz/E03nS/4pgjQwE36f9dgmf
-	uER/ByuKlXLe0mZrllFIQxRIlKQx/d2emGS3LsCpqruoVwwgDvuM/lKBoX3+DSah0QgDd0524v7yR
-	qbHy8sxTFBfw+TDfNHxzRU6AenBpYSPB3R1ryXxFDChTOXossyBOd19HID+fy2AAh2lSvLFA3DbEW
-	mtZcRd4Q==;
+	bh=0xFsZI8OPS+4kV2H8RyqcgVFs/zzzOZHJrs+93uaEC4=; b=zhFcEqwcTObIy3fF1d+XoKaNPh
+	9hqh8qYyd7ro8XSBwgB76nac6ZQ6oVGTQJwcunlgJN2jPF6VBuVAMxqm/nB5Zuw6S6SOfzfoooKF3
+	myB2vrujA7q/ktuWSvNrYgg/Z7JIbc2t6UV1dEd8ToGA3WEXawCBX9m66CUUjdzMwNJePgeUkOrCZ
+	7WEIiJ4pjLkdSPHBIBGThbFCoB1u+j0mrvJv2Em4yMf4vZnfyBWw4+VMlNItOwfBTYzenVOihFcds
+	H+KeGrwYGYVfv441RXJ+ps7UZkKUvPWtMaJpH8nJrHpK1qrveXkgpYyF0FDCaW5qczNbDj4Hta5jD
+	bdw/NX4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybKe-00000008rhx-1wQ2;
-	Tue, 16 Sep 2025 19:27:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uybOU-00000008s2x-1h07;
+	Tue, 16 Sep 2025 19:31:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybKc-00000008rhT-2jGY
+	id 1uybOT-00000008s2W-1PRi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 19:27:14 +0000
+	Tue, 16 Sep 2025 19:31:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1235D601B3;
-	Tue, 16 Sep 2025 19:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966D0C4CEEB;
-	Tue, 16 Sep 2025 19:27:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79715601B3;
+	Tue, 16 Sep 2025 19:31:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1697BC4CEEB;
+	Tue, 16 Sep 2025 19:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758050833;
-	bh=SvkZnrjbq/9F17psAbb495EqR7oYJMGmVyT9vm58sw8=;
+	s=k20201202; t=1758051068;
+	bh=N49H9fou0UCpbCTf6jTtg2kx/FPk8dM2Ik20j+Oj/oc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=js4XbzbFp9Re2Q6jO01FPk9zXAX1E8lWkZQajgfn4JESITqYqcKPOwYNeJTNBkgra
-	 1OHurdgLt+TY+SkbTWIYwdiITROKwGsy3OuNqVX6DnDJ2c+s2leAYQArIqWzaj23AD
-	 bEQePVlxQBWbcF6/udOSI5phoGcDrmSEf92vqw3LbROQTIudGQB95RJQ4vE4rvd0qt
-	 mGJo7+qITyjv9/bHBZ+Px+wBhUE80M6+SMIX2vEWGt+gNEZTlkAIhdy6ruvhLTbJ7t
-	 5VPfb5c+Ir0YjBSz0zBEdM9r/f7l/NKBg2XOsGwFLofL2bPJ+yI1TinOTh1rOoCpG1
-	 6fXs8/60vRhBQ==
-Date: Tue, 16 Sep 2025 20:27:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: Re: [PATCH v3 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
- glitch thresold
-Message-ID: <20250916-envelope-depict-7c321fe12341@spud>
-References: <20250915195335.1710780-1-dario.binacchi@amarulasolutions.com>
- <20250915195335.1710780-5-dario.binacchi@amarulasolutions.com>
- <aMmIZTMqr0rtiP6z@lizhi-Precision-Tower-5810>
- <20250916-auction-angelfish-0239691a54e5@spud>
+	b=AlDQEdc09HmzC/9s1VCr8wF2BT2hvOdmrkUyhzvIQqlAdft1VDLtl5Ho1w4XzEihL
+	 8FGJo8hZJnyWVj0xRfE84U6wZ50Ji1FWF+kZ1o7PtJLb3HxZOmvfU7pbErjFyG4LcX
+	 Un2pOqeAhX5/Nn8T6HjAhV0AJ3hcopqnycaRB0hYiOwkKKC/qSHYy/WV4avw/wisrX
+	 Uf0mKamMoW34VAyRsuzsrBK/Wp5Zx917SXGKep2jYh7TGbuG2kJpj+fTFWwm56S9Fi
+	 uUTNIADkGV6RBGXVj0H+wNvDPN7Bx40u5EdY9iqS4wj9VEJTUW33iP//U0nT2wTVE4
+	 DnbICveY3izOw==
+Date: Tue, 16 Sep 2025 20:31:00 +0100
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com, corbet@lwn.net,
+	catalin.marinas@arm.com, akpm@linux-foundation.org,
+	scott@os.amperecomputing.com, jhubbard@nvidia.com,
+	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
+	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
+	james.morse@arm.com, ardb@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
+	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v7 1/2] kasan/hw-tags: introduce kasan.write_only option
+Message-ID: <aMm69C3IGuDHF248@willie-the-truck>
+References: <20250903150020.1131840-1-yeoreum.yun@arm.com>
+ <20250903150020.1131840-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="up2hkdYrwSZhILqz"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250916-auction-angelfish-0239691a54e5@spud>
+In-Reply-To: <20250903150020.1131840-2-yeoreum.yun@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,95 +79,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 03, 2025 at 04:00:19PM +0100, Yeoreum Yun wrote:
+> Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
+> raise of tag check fault on store operation only.
+> Introcude KASAN write only mode based on this feature.
 
---up2hkdYrwSZhILqz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Typo ^^
 
-On Tue, Sep 16, 2025 at 08:25:53PM +0100, Conor Dooley wrote:
-> On Tue, Sep 16, 2025 at 11:55:17AM -0400, Frank Li wrote:
-> > On Mon, Sep 15, 2025 at 09:53:06PM +0200, Dario Binacchi wrote:
-> > > Support the touchscreen-glitch-threshold-ns property. Unlike the
-> > > generic description in touchscreen.yaml, this controller maps the
-> > > provided value to one of four discrete thresholds internally.
-> > >
-> > > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> > >
-> > > ---
-> > >
-> > > Changes in v3:
-> > > - Remove the final part of the description that refers to
-> > >   implementation details.
-> > >
-> > >  .../bindings/input/touchscreen/fsl,imx6ul-tsc.yaml   | 12 ++++++++++=
-++
-> > >  1 file changed, 12 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,=
-imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,i=
-mx6ul-tsc.yaml
-> > > index 678756ad0f92..6214d8be5a99 100644
-> > > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-=
-tsc.yaml
-> > > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-=
-tsc.yaml
-> > > @@ -62,6 +62,18 @@ properties:
-> > >      description: Number of data samples which are averaged for each =
-read.
-> > >      enum: [ 1, 4, 8, 16, 32 ]
-> > >
-> > > +  touchscreen-glitch-threshold-ns:
-> > > +    description: |
-> > > +      Unlike the generic property defined in touchscreen.yaml, this
-> > > +      controller does not allow arbitrary values. Internally the val=
-ue is
-> > > +      converted to IPG clock cycles and mapped to one of four discre=
-te
-> > > +      thresholds exposed by the TSC_DEBUG_MODE2 register:
-> > > +
-> > > +        0: 8191 IPG cycles
-> > > +        1: 4095 IPG cycles
-> > > +        2: 2047 IPG cycles
-> > > +        3: 1023 IPG cycles
-> > > +
-> >=20
-> > You have to use ns here. You can caculate in driver to match to closed =
-one.
->=20
-> That is what he is saying it is doing - "internally the value is
-> converted to IPG clock cycles" and so on. Your repeated misunderstanding
-> of this though points out that maybe the description is still lacking?
->=20
-> Dario, how about:
-> | The gitch threshold in nanoseconds. Drivers must convert this value to
+> 
+> KASAN write only mode restricts KASAN checks operation for write only and
+> omits the checks for fetch/read operations when accessing memory.
+> So it might be used not only debugging enviroment but also normal
+> enviroment to check memory safty.
+> 
+> This features can be controlled with "kasan.write_only" arguments.
+> When "kasan.write_only=on", KASAN checks write operation only otherwise
+> KASAN checks all operations.
+> 
+> This changes the MTE_STORE_ONLY feature as BOOT_CPU_FEATURE like
+> ARM64_MTE_ASYMM so that makes it initialise in kasan_init_hw_tags()
+> with other function together.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+>  Documentation/dev-tools/kasan.rst  |  3 ++
+>  arch/arm64/include/asm/memory.h    |  1 +
+>  arch/arm64/include/asm/mte-kasan.h |  6 +++
+>  arch/arm64/kernel/cpufeature.c     |  2 +-
+>  arch/arm64/kernel/mte.c            | 18 ++++++++
+>  mm/kasan/hw_tags.c                 | 70 +++++++++++++++++++++++++++++-
+>  mm/kasan/kasan.h                   |  7 +++
+>  7 files changed, 104 insertions(+), 3 deletions(-)
 
-Or maybe instead of what I did here for the first sentence, yoink the text
-=66rom [3/6] instead and re-use it.
+[...]
 
-> | IPG clock cycles and map it to one of the four discrete thresholds
-> | exposed by the TSC_DEBUG_MODE2 register:
-> |=20
-> |         0: 8191 IPG cycles
-> |         1: 4095 IPG cycles
-> |         2: 2047 IPG cycles
-> |         3: 1023 IPG cycles
-> ?=20
-> I dropped the bit about arbitrary values, due to my comment on the other
-> version a few mins ago.
+> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
+> index 9a6927394b54..d5b5fb47d52b 100644
+> --- a/mm/kasan/hw_tags.c
+> +++ b/mm/kasan/hw_tags.c
+> @@ -41,9 +41,16 @@ enum kasan_arg_vmalloc {
+>  	KASAN_ARG_VMALLOC_ON,
+>  };
+>  
+> +enum kasan_arg_write_only {
+> +	KASAN_ARG_WRITE_ONLY_DEFAULT,
+> +	KASAN_ARG_WRITE_ONLY_OFF,
+> +	KASAN_ARG_WRITE_ONLY_ON,
+> +};
+> +
+>  static enum kasan_arg kasan_arg __ro_after_init;
+>  static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
+>  static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
+> +static enum kasan_arg_write_only kasan_arg_write_only __ro_after_init;
+>  
+>  /*
+>   * Whether KASAN is enabled at all.
+> @@ -67,6 +74,9 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_vmalloc);
+>  #endif
+>  EXPORT_SYMBOL_GPL(kasan_flag_vmalloc);
+>  
+> +/* Whether to check write accesses only. */
+> +static bool kasan_flag_write_only = false;
+> +
+>  #define PAGE_ALLOC_SAMPLE_DEFAULT	1
+>  #define PAGE_ALLOC_SAMPLE_ORDER_DEFAULT	3
+>  
+> @@ -141,6 +151,23 @@ static int __init early_kasan_flag_vmalloc(char *arg)
+>  }
+>  early_param("kasan.vmalloc", early_kasan_flag_vmalloc);
+>  
+> +/* kasan.write_only=off/on */
+> +static int __init early_kasan_flag_write_only(char *arg)
+> +{
+> +	if (!arg)
+> +		return -EINVAL;
+> +
+> +	if (!strcmp(arg, "off"))
+> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_OFF;
+> +	else if (!strcmp(arg, "on"))
+> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_ON;
+> +	else
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +early_param("kasan.write_only", early_kasan_flag_write_only);
+> +
+>  static inline const char *kasan_mode_info(void)
+>  {
+>  	if (kasan_mode == KASAN_MODE_ASYNC)
+> @@ -257,15 +284,28 @@ void __init kasan_init_hw_tags(void)
+>  		break;
+>  	}
+>  
+> +	switch (kasan_arg_write_only) {
+> +	case KASAN_ARG_WRITE_ONLY_DEFAULT:
+> +		/* Default is specified by kasan_flag_write_only definition. */
+> +		break;
+> +	case KASAN_ARG_WRITE_ONLY_OFF:
+> +		kasan_flag_write_only = false;
+> +		break;
+> +	case KASAN_ARG_WRITE_ONLY_ON:
+> +		kasan_flag_write_only = true;
+> +		break;
+> +	}
+> +
+>  	kasan_init_tags();
 
+I'm probably missing something here, but why have 'enum
+kasan_arg_write_only' at all? What stops you from setting
+'kasan_flag_write_only' directly from early_kasan_flag_write_only()?
 
+This all looks weirdly over-engineered, as though 'kasan_flag_write_only'
+is expected to be statically initialised to something other than 'false'.
 
---up2hkdYrwSZhILqz
-Content-Type: application/pgp-signature; name="signature.asc"
+>  	/* KASAN is now initialized, enable it. */
+>  	static_branch_enable(&kasan_flag_enabled);
+>  
+> -	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s)\n",
+> +	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s, write_only=%s)\n",
+>  		kasan_mode_info(),
+>  		str_on_off(kasan_vmalloc_enabled()),
+> -		str_on_off(kasan_stack_collection_enabled()));
+> +		str_on_off(kasan_stack_collection_enabled()),
+> +		str_on_off(kasan_arg_write_only));
 
------BEGIN PGP SIGNATURE-----
+It's also confusing, because now you appear to be passing the funny new
+'enum' type to str_on_off(), which expects a bool.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMm6DAAKCRB4tDGHoIJi
-0r+8AQCh1pvwS8dKmQpDjpCd2rHydQeIys66IYitwQfTMldZQwD/fMpbr0KvyaCW
-iM0erGHkx+tSkhIfbPbPTddxQMz+wwM=
-=0w/+
------END PGP SIGNATURE-----
-
---up2hkdYrwSZhILqz--
+Will
 
