@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40021CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4AACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xFsZI8OPS+4kV2H8RyqcgVFs/zzzOZHJrs+93uaEC4=; b=zhFcEqwcTObIy3fF1d+XoKaNPh
-	9hqh8qYyd7ro8XSBwgB76nac6ZQ6oVGTQJwcunlgJN2jPF6VBuVAMxqm/nB5Zuw6S6SOfzfoooKF3
-	myB2vrujA7q/ktuWSvNrYgg/Z7JIbc2t6UV1dEd8ToGA3WEXawCBX9m66CUUjdzMwNJePgeUkOrCZ
-	7WEIiJ4pjLkdSPHBIBGThbFCoB1u+j0mrvJv2Em4yMf4vZnfyBWw4+VMlNItOwfBTYzenVOihFcds
-	H+KeGrwYGYVfv441RXJ+ps7UZkKUvPWtMaJpH8nJrHpK1qrveXkgpYyF0FDCaW5qczNbDj4Hta5jD
-	bdw/NX4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zJyrWd++2CyEQ1DEtYR8yWrZNRnCvq4DMS3BL4be+io=; b=tsXdiw9xD7vJ+Cd/W6sNxgWO6O
+	ACfnx000gtBk21EfwKhNbSegakJEK7WJZfidcFlevwqrpTxwDfMICVT1cZG/bkTpEidIJvNlr6gYD
+	TuKGQdqk+vaLEDq6srJxILMznJ66JcczAYI73grWsw976xsi6nNlgRpTQPT7B6p7xvjvekl2jFvS0
+	TE7xVToF+Jwk+R4QjathjIe9H0ejTr+TUQWRMDsMLdKtUSQgSMiTtlS4r3Oi70y5u561+OkKfkl84
+	+3g7ffkZFHl+OF6IuiayNngFg6B2QXo7HefLXEmjewNcE9mOVwn2sMtP16YP7ZNyP/WGkIiYbve3V
+	IaXOJiYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybOU-00000008s2x-1h07;
-	Tue, 16 Sep 2025 19:31:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uybhV-00000008tcr-0RXm;
+	Tue, 16 Sep 2025 19:50:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uybOT-00000008s2W-1PRi
+	id 1uybhS-00000008tc3-0VzO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 19:31:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 79715601B3;
-	Tue, 16 Sep 2025 19:31:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1697BC4CEEB;
-	Tue, 16 Sep 2025 19:31:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758051068;
-	bh=N49H9fou0UCpbCTf6jTtg2kx/FPk8dM2Ik20j+Oj/oc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AlDQEdc09HmzC/9s1VCr8wF2BT2hvOdmrkUyhzvIQqlAdft1VDLtl5Ho1w4XzEihL
-	 8FGJo8hZJnyWVj0xRfE84U6wZ50Ji1FWF+kZ1o7PtJLb3HxZOmvfU7pbErjFyG4LcX
-	 Un2pOqeAhX5/Nn8T6HjAhV0AJ3hcopqnycaRB0hYiOwkKKC/qSHYy/WV4avw/wisrX
-	 Uf0mKamMoW34VAyRsuzsrBK/Wp5Zx917SXGKep2jYh7TGbuG2kJpj+fTFWwm56S9Fi
-	 uUTNIADkGV6RBGXVj0H+wNvDPN7Bx40u5EdY9iqS4wj9VEJTUW33iP//U0nT2wTVE4
-	 DnbICveY3izOw==
-Date: Tue, 16 Sep 2025 20:31:00 +0100
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com, corbet@lwn.net,
-	catalin.marinas@arm.com, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v7 1/2] kasan/hw-tags: introduce kasan.write_only option
-Message-ID: <aMm69C3IGuDHF248@willie-the-truck>
-References: <20250903150020.1131840-1-yeoreum.yun@arm.com>
- <20250903150020.1131840-2-yeoreum.yun@arm.com>
+	Tue, 16 Sep 2025 19:50:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758052250; x=1789588250;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Hseq//EDsBEnv5NDrY+cP9+6SHkGyS860cCT1WxT8j4=;
+  b=cyvCwONbk9xkMjaPMCwA8XtvpdRTXtsFEc/Bq+2NWQHmBL0dhWRgriaW
+   LBfjUUSXZ4SVFwXeH0SV7sqxoIJDbiM7V6MwunjD9/4oOvgae6VOUOtOt
+   CpbM6XStnmrCLyNT8/dfCbXDzAm1TCMyqG40zYKGUwEp2XYmyg9CwC0Sg
+   GyBSsf47G46pgG290Gk50eaUWeUfuPRuR5VM+eRQmLlDOTB7Do7mZ+49d
+   Zi5O/2xUznrxZf03mu4PZ4TrTgOwPc1qQdxG3M6a/AG/PpTTgxc98mWzv
+   Lqpz2hWjF918fxAJ2oUQACkqynKnxGIbUsVwSGBvwwwRUqFLlNsx0mVzU
+   A==;
+X-CSE-ConnectionGUID: OpVEzCAsSoaW6AVT1s3wKQ==
+X-CSE-MsgGUID: 8eDFBDG6T+uCphA8wzxghA==
+X-IronPort-AV: E=Sophos;i="6.18,269,1751266800"; 
+   d="scan'208";a="47129844"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Sep 2025 12:50:47 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 16 Sep 2025 12:50:16 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 16 Sep 2025 12:50:16 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <claudiu.beznea@tuxon.dev>, <sre@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <linux@armlinux.org.uk>
+CC: <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 0/3] AT91 Low Power Mode adjustments
+Date: Tue, 16 Sep 2025 12:50:29 -0700
+Message-ID: <cover.1758051358.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250903150020.1131840-2-yeoreum.yun@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_125050_401375_9F93F3B1 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,135 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 03, 2025 at 04:00:19PM +0100, Yeoreum Yun wrote:
-> Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
-> raise of tag check fault on store operation only.
-> Introcude KASAN write only mode based on this feature.
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Typo ^^
+This patch set adds the Low Power Mode pin feature to the SAMA7 SoCs.
 
-> 
-> KASAN write only mode restricts KASAN checks operation for write only and
-> omits the checks for fetch/read operations when accessing memory.
-> So it might be used not only debugging enviroment but also normal
-> enviroment to check memory safty.
-> 
-> This features can be controlled with "kasan.write_only" arguments.
-> When "kasan.write_only=on", KASAN checks write operation only otherwise
-> KASAN checks all operations.
-> 
-> This changes the MTE_STORE_ONLY feature as BOOT_CPU_FEATURE like
-> ARM64_MTE_ASYMM so that makes it initialise in kasan_init_hw_tags()
-> with other function together.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: Andrey Konovalov <andreyknvl@gmail.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> ---
->  Documentation/dev-tools/kasan.rst  |  3 ++
->  arch/arm64/include/asm/memory.h    |  1 +
->  arch/arm64/include/asm/mte-kasan.h |  6 +++
->  arch/arm64/kernel/cpufeature.c     |  2 +-
->  arch/arm64/kernel/mte.c            | 18 ++++++++
->  mm/kasan/hw_tags.c                 | 70 +++++++++++++++++++++++++++++-
->  mm/kasan/kasan.h                   |  7 +++
->  7 files changed, 104 insertions(+), 3 deletions(-)
+Changes v1 -> v2:
+- The 2.5v regulator has been removed as it has been applied.
+- Adjust the dt-binding to allow more than 1 phandle.
+- Adjust the commit message to explain better what the Low power mode
+  pin does.
+- Simplify the how the lpm pin property is parsed from the DT.
 
-[...]
+Claudiu Beznea (2):
+  ARM: at91: PM: implement selection of LPM
+  ARM: dts: at91: sama7g5ek: add microchip,lpm-connection on shdwc node
 
-> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
-> index 9a6927394b54..d5b5fb47d52b 100644
-> --- a/mm/kasan/hw_tags.c
-> +++ b/mm/kasan/hw_tags.c
-> @@ -41,9 +41,16 @@ enum kasan_arg_vmalloc {
->  	KASAN_ARG_VMALLOC_ON,
->  };
->  
-> +enum kasan_arg_write_only {
-> +	KASAN_ARG_WRITE_ONLY_DEFAULT,
-> +	KASAN_ARG_WRITE_ONLY_OFF,
-> +	KASAN_ARG_WRITE_ONLY_ON,
-> +};
-> +
->  static enum kasan_arg kasan_arg __ro_after_init;
->  static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
->  static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
-> +static enum kasan_arg_write_only kasan_arg_write_only __ro_after_init;
->  
->  /*
->   * Whether KASAN is enabled at all.
-> @@ -67,6 +74,9 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_vmalloc);
->  #endif
->  EXPORT_SYMBOL_GPL(kasan_flag_vmalloc);
->  
-> +/* Whether to check write accesses only. */
-> +static bool kasan_flag_write_only = false;
-> +
->  #define PAGE_ALLOC_SAMPLE_DEFAULT	1
->  #define PAGE_ALLOC_SAMPLE_ORDER_DEFAULT	3
->  
-> @@ -141,6 +151,23 @@ static int __init early_kasan_flag_vmalloc(char *arg)
->  }
->  early_param("kasan.vmalloc", early_kasan_flag_vmalloc);
->  
-> +/* kasan.write_only=off/on */
-> +static int __init early_kasan_flag_write_only(char *arg)
-> +{
-> +	if (!arg)
-> +		return -EINVAL;
-> +
-> +	if (!strcmp(arg, "off"))
-> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_OFF;
-> +	else if (!strcmp(arg, "on"))
-> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_ON;
-> +	else
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +early_param("kasan.write_only", early_kasan_flag_write_only);
-> +
->  static inline const char *kasan_mode_info(void)
->  {
->  	if (kasan_mode == KASAN_MODE_ASYNC)
-> @@ -257,15 +284,28 @@ void __init kasan_init_hw_tags(void)
->  		break;
->  	}
->  
-> +	switch (kasan_arg_write_only) {
-> +	case KASAN_ARG_WRITE_ONLY_DEFAULT:
-> +		/* Default is specified by kasan_flag_write_only definition. */
-> +		break;
-> +	case KASAN_ARG_WRITE_ONLY_OFF:
-> +		kasan_flag_write_only = false;
-> +		break;
-> +	case KASAN_ARG_WRITE_ONLY_ON:
-> +		kasan_flag_write_only = true;
-> +		break;
-> +	}
-> +
->  	kasan_init_tags();
+Varshini Rajendran (1):
+  dt-bindings: power: reset: atmel,sama5d2-shdwc: add lpm binding
 
-I'm probably missing something here, but why have 'enum
-kasan_arg_write_only' at all? What stops you from setting
-'kasan_flag_write_only' directly from early_kasan_flag_write_only()?
+ .../power/reset/atmel,sama5d2-shdwc.yaml      | 19 ++++
+ .../arm/boot/dts/microchip/at91-sama7g5ek.dts |  1 +
+ arch/arm/mach-at91/pm.c                       | 96 ++++++++++++++++++-
+ arch/arm/mach-at91/pm.h                       |  1 +
+ arch/arm/mach-at91/pm_data-offsets.c          |  1 +
+ arch/arm/mach-at91/pm_suspend.S               | 48 +++++++++-
+ 6 files changed, 158 insertions(+), 8 deletions(-)
 
-This all looks weirdly over-engineered, as though 'kasan_flag_write_only'
-is expected to be statically initialised to something other than 'false'.
+-- 
+2.43.0
 
->  	/* KASAN is now initialized, enable it. */
->  	static_branch_enable(&kasan_flag_enabled);
->  
-> -	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s)\n",
-> +	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s, write_only=%s)\n",
->  		kasan_mode_info(),
->  		str_on_off(kasan_vmalloc_enabled()),
-> -		str_on_off(kasan_stack_collection_enabled()));
-> +		str_on_off(kasan_stack_collection_enabled()),
-> +		str_on_off(kasan_arg_write_only));
-
-It's also confusing, because now you appear to be passing the funny new
-'enum' type to str_on_off(), which expects a bool.
-
-Will
 
