@@ -4,148 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B24CAC59B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D38CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 18:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0l5C1YT9sZtDykp/atqZH+Fe36CKjFKk4LI3/5mm9YI=; b=bZt7npeoyNeMOeq4BF061zRlGQ
-	xQ0tFRZtGU6niVOtT5gVGkja/ZmLMJ1suuVFq64xpD+6YlAGI/XPCAotu5G6scPuxsYZorofbBhmC
-	pXqu5BJ5gvZ1mabfoyE3+lsrnk3NSk/rdZujx2PNGYVGVkHBrKSlw191u98vJU/N78sqUrSZcTrw4
-	CeXR2sRhLGi9+ujkAA4Nx4dY4qhXjKXtF42e1BXuBjq8HnSHtpHsefxIQMxCfj+485jwdRAipwmXK
-	bnfKx28QLus8rDJbzUqCPgWrXx9m3wtFPjGs9e6hnyNopVhZOWD4CFFPe5sydy5knhADX2mTgmkF1
-	2W94YcsQ==;
+	bh=W1IJjyM9OVaQcEmkWiSOUFeaD6n08j4ucNHzBhm+qQk=; b=t2JhHrGhkW28x9UhVXRRyLvCy+
+	bVOkOVT4gIFnqVf48RARWycZ8p41dH1YTzyid1TCJVwEbnqSpmkZCifmy8HYr6A8g4eaY6IrvNg8X
+	wLcnC3Xw6TiBnDz0W3WajiZA/0p283CASUwy89hL6qA/RACFO9eTgf/PEqWkAl00Ws/XXDemb9B+6
+	gKH8TgNRkpE4hiFp/9CQYGmRXRYR/kVog7BAVo61m2fwM6LeCnqDmCi/36gcb51/AXcworeVNFp/O
+	eSCl0y0Ye0lFVj3M41h/iR6hH1/a8FHLmorNA7heyFmvUfPX0m/wBRcmaIYZfNzc+q7IGPxSt/g8b
+	NBioIDkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyahG-00000008nUY-0iyv;
-	Tue, 16 Sep 2025 18:46:34 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1uyajX-00000008ni1-0ayM;
+	Tue, 16 Sep 2025 18:48:55 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyahE-00000008nU9-1AxQ
+	id 1uyajV-00000008nhP-14qv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 18:46:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zWh9bvSmlH+GZIjINp4lqo5WzZiUbXU5YzU7xMWNjwVVpbF9JtfidiOQz/FLzVG01du5VwO/cxxEgy4ieN1ZrlQfb2mQvz+F/TS2OqJRQ6pL87g2qcod543OuMH1U0xXdajRbJqioCNViF0rFYtDo2udTVZJL2DegJBit+4DluqHK+RDNX11aeVsfbkhjMp00dUdU+O5BLQJWFCwLKJ3pjmtva9+rBKIz++vTxOeFMMy65EXN6DqKBPtx/Udp9lPvm3kBRNrMz+hPElDdRHNcq9agmL4/x7BIRcYRrwkQohDfCasxc4Fz9VdS4QRFoYTGw2FZDAgrTzAq7NNBkmSWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0l5C1YT9sZtDykp/atqZH+Fe36CKjFKk4LI3/5mm9YI=;
- b=Nqtjet6zRZkweV7d59CgXl2aDNxQnCtZdkwYzdA9jt9RI8l6EZhKOKWIe46JcmC4NkuwilQgS4w3l6FTz6XIqG2LPQvwx9WQzFwbpBNXgfXISIGfRZHCtDTrqxFSBpBEk5chjqJI51gvzq/HWFV1sBlv6WfQRBiZHU/u4jRhI9orl4PelDVvE56rKCpqwAwj6/tU41Uc+3nSQKDxUlMUfe+9yaTHblaoH+uuQaUlY+F+nvKW7BHiimAeKITiIZVPVZOgicE5YEPjuVyvSI4goc9zsxMqF/lhDm5LMCuetJi4TqBNajvi4G1JhHuXGbRCOVxyApxcsTZ9RxFl2aI/mA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0l5C1YT9sZtDykp/atqZH+Fe36CKjFKk4LI3/5mm9YI=;
- b=CR3sfK2X2eKJSNEnnPX5W0t3qVaaStwAe74EYGiGgtwkrve9SOP0JGr2/8QBVZmhJ+BsCPgUx4DbqUL04tvxesPYjgJAGCQ68WcKWWwEz9zPrVacLeGaRsUw2Xbm4bkhhNl91l1x3E+0jpZYC/JUZyabKb9el1eVeR67K/wCn3ncishKKVW7lxf+KBKmZf441Lyd0mrRuu2kbpXvxXB127naqtRIjquHJ8Zw8m/qkPUJ953IkPWOJsg/8FIjwvnkTLZPBNY1s6ISL9Z4V3Yep5uQoAZAc/zZrm7axYS/RYN+nAlEAezidAyo4xRWcc6/uUO36+RJbVeLg2VRC00HBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13)
- by BN5PR12MB9538.namprd12.prod.outlook.com (2603:10b6:408:2ac::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.22; Tue, 16 Sep
- 2025 18:46:20 +0000
-Received: from PH7PR12MB5757.namprd12.prod.outlook.com
- ([fe80::f012:300c:6bf4:7632]) by PH7PR12MB5757.namprd12.prod.outlook.com
- ([fe80::f012:300c:6bf4:7632%2]) with mapi id 15.20.9115.022; Tue, 16 Sep 2025
- 18:46:19 +0000
-Date: Tue, 16 Sep 2025 15:46:17 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Leon Romanovsky <leonro@nvidia.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH v3 3/4] ARM: dma-mapping: Switch to physical address
- mapping callbacks
-Message-ID: <20250916184617.GW1086830@nvidia.com>
-References: <cover.1758006942.git.leon@kernel.org>
- <5f96e44b1fb5d92a6a5f25fc9148a733a1a53b9d.1758006942.git.leon@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5f96e44b1fb5d92a6a5f25fc9148a733a1a53b9d.1758006942.git.leon@kernel.org>
-X-ClientProxiedBy: SN7PR04CA0105.namprd04.prod.outlook.com
- (2603:10b6:806:122::20) To PH7PR12MB5757.namprd12.prod.outlook.com
- (2603:10b6:510:1d0::13)
+	Tue, 16 Sep 2025 18:48:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758048524; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=hOuaNoXZZWfOlDgsV2mcJcyWbXI/sr+t0ff/wa0U7GsR+e0TVEgktNcbPzROFLZ2pAOQ6ZbgwGFPCp/zHVrO+DEMxaT5q9s1QWhHPwQROuBBIFJvIRf7yOEretvcV1X3lqMLj+/vmAQ/SR3M21vfuOyygmCZjxs+qSw9omg7wjs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1758048524; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=W1IJjyM9OVaQcEmkWiSOUFeaD6n08j4ucNHzBhm+qQk=; 
+	b=kzAxViRb7tuY3qv8/NQnlFlrN3pTBinQXT635SjNgoLkDaxb7hfr8mjrPScuiMioOGNM1vLXvu2QJPuoZN6eEcKPXZTIu9zyx+HFX8jghq+g1p7eubni4Wi7QflOcVwl630AbNVYG3xQq9VdnGk6HlYlG5hLmev5YmLWG/WOSCk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758048524;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=W1IJjyM9OVaQcEmkWiSOUFeaD6n08j4ucNHzBhm+qQk=;
+	b=Q3fPokB2GbhR+Ki4vWnQlVuwEGsS8+e7CSRgdDHTTQcMVPQbytMgCS54D0cOWQVa
+	mE8Tg7As2IUdbVHd29/Fag4+ZGZkxLRKF2+SK1uowiapF/WArH6my1D5CA4B8aAh1lf
+	dbv7WVwbQDPHZZ5gwNQa3Vk96OSU5zEuKR0V3KzM=
+Received: by mx.zohomail.com with SMTPS id 1758048522298948.311304452888;
+	Tue, 16 Sep 2025 11:48:42 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id BACAC180733; Tue, 16 Sep 2025 20:48:13 +0200 (CEST)
+Date: Tue, 16 Sep 2025 20:48:13 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
+	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
+	Stephen Boyd <swboyd@chromium.org>, Andre Draszik <andre.draszik@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	Elliot Berman <quic_eberman@quicinc.com>, Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v14 02/10] power: reset: reboot-mode: Add device tree
+ node-based registration
+Message-ID: <in6bqvemnscvuxbumpxogxiiav7odmsc3iazktifninh6iqen7@qwhrhdidcx7y>
+References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
+ <20250815-arm-psci-system_reset2-vendor-reboots-v14-2-37d29f59ac9a@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5757:EE_|BN5PR12MB9538:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d1c6cbb-ec54-439b-2c19-08ddf551533f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HF4GMlG8cXx+y5Kf0IfHsJMSSNIBr29hV1Uvhu0h6UwMrg7cUkL/sr3RRVwg?=
- =?us-ascii?Q?E5AHKQ+iQrXkTPT1OXT1UQ+/MYyLhoxCwSCjUaWwC8/XdtJy7HjrvzZhcJ31?=
- =?us-ascii?Q?3VunAwG30DGtOAcWpselIPqTBcHSlA2dTG4gNzDYSADnu/W3XlRMzW+jeqJT?=
- =?us-ascii?Q?mlfHPsVBm5bhe+EiE0CsySkOIuwqhA3axdQo6IKWFJzp+LmS4MBIcrhpTSxQ?=
- =?us-ascii?Q?+WBHE1WoZS6EohO8AcQCCCCBZlp56cOr3MpOr3L2fCO3pLFpTXW/QK5JMAEq?=
- =?us-ascii?Q?6hJ/POOcE2L5Oo4qYRrO4O9Ez+vNV6GrRiDRoeIbTYjOVTtX7SXOoYW6VV9B?=
- =?us-ascii?Q?0Vn/D7E84QtTBLMKbve+MEVcpDkLQsuqXPLc/ONiZq9KVP2tAdoWfAQ8DdKM?=
- =?us-ascii?Q?tK+pbO8mw7nRAKY/GubmtC4J/QbQRlUCW5T/ETZ7f7VhEGAMrQDOVBJNqy/B?=
- =?us-ascii?Q?lOXYi2BBBBqQQ+CB3IrQKc9AUgr7YTigdQqOOWBai4e3VQg9s395VbZdjmTc?=
- =?us-ascii?Q?FJoSOqZf11GMO7jZ3XRmBA2qiWhH2CP8ZmiZTDjJQmjWRuDpuHRFNH56pBLa?=
- =?us-ascii?Q?at6roN+eer1IB9unp1/1kETukt4dz/WNX8Ds0JBOy6YB6mXLOtEwpL7l6KsH?=
- =?us-ascii?Q?cCVuqBx7fpIQsj2Rg8pOgN97aUQ4iG9ehFeaELxsajeTGJJc6wxRMThSIVNm?=
- =?us-ascii?Q?9E7f+nM6nu4rnZJNBN0+g0kBAbgc4kiCZRx0S2jbK6CEMT57EY6vvz4BNqyC?=
- =?us-ascii?Q?bZe1aroPMNY10ex0MfWyndwOEK4cctL6QlB8jPdWWr/yso7Yu/fvAqp20iuB?=
- =?us-ascii?Q?akEMbA32i9WESMy1klFYhX3DQoSrX87DOtZ+483R9he92/IkMvaPuEVgIEaD?=
- =?us-ascii?Q?6EmH8ojAHA+IupN0Bn3MJrwBBE6DmqK11Kxoah2Z512X1O95IRPlvpTtCRzY?=
- =?us-ascii?Q?zGlGuftKHTnYjUXYVGxsW70c070dwJOqLJtzZ3qBYlPHhJIYXt8bdeox89B+?=
- =?us-ascii?Q?yKKbHwYLwQXihAHMExXtUFjqsU9/lKbGoUAQQx+3tvasvEfVfsiLAdp/xE9J?=
- =?us-ascii?Q?rPT6reOMNhmPLI9AVke+wwADq8EaFqBCne2K0VdbPQKeK90JBCL9peSgvK2M?=
- =?us-ascii?Q?APYiI+5wAdMIjg1ljmdmdTPLIpxe9Ox5M2b1Co1V48OBOGjLm/yAhgdrK3YH?=
- =?us-ascii?Q?fPKBTx8OqD+yJei5TsTHOYzM80jWFuzAc+wx+exQq1mw5JFDGJNUr7ulcvsC?=
- =?us-ascii?Q?cd9Qj5vnYZZbGT3KZWR0XfGuoiQh9BQtU9IOCdB9brRMx8kWx9A8u78NRoAg?=
- =?us-ascii?Q?q/v/GRdlVSFwxhgQKlElQNV48AExpFb+WWMva5INHUdnCKmUqBK5uBgy2gAn?=
- =?us-ascii?Q?zXqGeUXgP61QpFgM7eP2cxncSnb3GMjHZdbnpKNFg0SeqKwW3kVKiZFoWW+I?=
- =?us-ascii?Q?OFLu07P/kHo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5757.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JLZP2Zmr4VnYXqmmvOfPIj51rwg7AbGobfBWifw/YFObu6tBPIA56BfLSrTZ?=
- =?us-ascii?Q?sAPNTDkHWprP+2oA8rqHSZpVStEFwshxySlDMdrqK0ZEse0NDzjhnPOtKh+0?=
- =?us-ascii?Q?qvu8VFdr1qowjDwCGqtSju+l3nUmkYHWDO/Tj5xddqpiTqPJZUrpF6j5dF3D?=
- =?us-ascii?Q?DBHtrlbj5dPuLd2NkpKlZSCo6y62vq0X7bQQZDLo35IkDgAYizCvc3OCEraZ?=
- =?us-ascii?Q?xRhkFCEw2t4IaP5EDr6NS30HpXvO2r0kA/UQVL3WHn5OU9eWcuJWXnlsoPqY?=
- =?us-ascii?Q?PSjBBDNE5DDcrrIyj0Nk3jWGCUujTPOo+E3waYzKMHPiZUCBnyINC2xkxtOC?=
- =?us-ascii?Q?CJVj4SKckuw01giMTG1cpdUizDEuWVaD8gJR0lrh8w1X4ndHc449bIMb3PUV?=
- =?us-ascii?Q?G3ERGlTH0+IwBe1naz7y2wYswAZ8A5vEeixFlFmE+LeHubS+De3LjAKC4KCI?=
- =?us-ascii?Q?Xzzni1XlvyVxppkPKx5CBylqxbN/eTwb9aZfEWvsZiD4ZjUpE+2tfRLRE03H?=
- =?us-ascii?Q?7TPPAn/Y0eMpqyo/Ex/te27mzKw7I+fK6FYrA0Sjm0Tf8iGBBENVkZiBvJ+f?=
- =?us-ascii?Q?GECF9uLXOJ+tQhAGCN8iAe5eAia0DQzapPsVoBs5qxY5zmeDRYA/LiFFHPFS?=
- =?us-ascii?Q?0VbY1aAzAbUP2gqDbHYOR5noASdkxOm0saPujtM2XgF36VKFt3zIg+OCGYRQ?=
- =?us-ascii?Q?xvwAioErE3v05GPBk6gnlwH24RX0hZTxIxsP5RYwSN8cFaN+bZaiQ5RhunnY?=
- =?us-ascii?Q?eaChhZwvGu3jJYn3qf8AmOgUIwZnfdfYqbiS54ENAutgeuQcBkoaiXX7GaWL?=
- =?us-ascii?Q?VguMGvs2mEmHzNx5d1wzZbDLAestx2pJzyFtFeKWlRaTxoBHs4141ZOH0mqV?=
- =?us-ascii?Q?89SjC71t9BkjI/HO+FstRb0QPkI8laDSbaKeNFdwd8PDCV19KOkvSYu9zS6p?=
- =?us-ascii?Q?XucAGimEQwMfgU1HeUtzBC9sOQlQ1Nr4rOJ5sL8zf5aMNwecS2mJPoVQbkgA?=
- =?us-ascii?Q?oN9qNKHzWlwDsRFZsnGSQy/U7FCC0Td6RXQRZx2UFsaJi2aHNsVZ035VcibV?=
- =?us-ascii?Q?TQ+9/7VovlX8ibC7m4X7EiCaKjN6fgdMyboFMBWtT2VD3bG2EX1dMBQ+oXnX?=
- =?us-ascii?Q?V2BIs3NwVoaywsc4CpoDjH+IqoqVd9OQB+jJWu/EABjmXDQEhiHaXM9r3qxm?=
- =?us-ascii?Q?9j+5rayj/VSbHXorjmLSBDo7VKhES+kDp/cBP2e0rRPGriRGssBncIUXY3Xn?=
- =?us-ascii?Q?QJmngNOFpeio1EfPi7/lssg6W6QsF4EfAYE7kM+teGL+jR+pWHjTlkyJgn5M?=
- =?us-ascii?Q?bdjXcnme6Dn+ttXlIWaJwH+6Qv6rEDiU3MDXXQKV/8aQuWRWBVw/JI64mNY2?=
- =?us-ascii?Q?YutIULbBNEvVGKcsnnTkIZqNw6xk6wwdlw4cxLCIlAgor8tEV7ai5leFQg9a?=
- =?us-ascii?Q?/btHCPncXbXQnp8K1RK748bpovdctjkSPig8wpmGnVDth/qTFbj/0QDgN4D/?=
- =?us-ascii?Q?ne0X5W66fL/zkBowEads8HraCDit1JmVBju4ySTuVcPJVuhJFuqdMrs5XJAI?=
- =?us-ascii?Q?4LjGatX9SokxVO5+7CONvPZ3Lg2IJzvrLBrxIq/D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d1c6cbb-ec54-439b-2c19-08ddf551533f
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5757.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Sep 2025 18:46:19.6153
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JxGDM5vP+jg9Xx/NH8xlov/YAm900WCn8KtSt0nqy4ECF/DPHWB8bZ2Ucn8vbMza
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN5PR12MB9538
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="czj77t3nras3pevm"
+Content-Disposition: inline
+In-Reply-To: <20250815-arm-psci-system_reset2-vendor-reboots-v14-2-37d29f59ac9a@oss.qualcomm.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/258.4.7
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_114632_322101_018B54EE 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250916_114853_330044_7A21EED2 
+X-CRM114-Status: GOOD (  29.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,97 +97,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 10:32:06AM +0300, Leon Romanovsky wrote:
-> +	if (!dev->dma_coherent &&
-> +	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO)))
-> +		__dma_page_cpu_to_dev(phys_to_page(phys), offset, size, dir);
 
-I'd keep going and get rid of the page here too, maybe as a second
-patch in this series:
+--czj77t3nras3pevm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v14 02/10] power: reset: reboot-mode: Add device tree
+ node-based registration
+MIME-Version: 1.0
 
-diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-index 88c2d68a69c9ee..a84d12cd0ba4a9 100644
---- a/arch/arm/mm/dma-mapping.c
-+++ b/arch/arm/mm/dma-mapping.c
-@@ -624,16 +624,14 @@ static void __arm_dma_free(struct device *dev, size_t size, void *cpu_addr,
- 	kfree(buf);
- }
- 
--static void dma_cache_maint_page(struct page *page, unsigned long offset,
-+static void dma_cache_maint_page(phys_addr_t paddr,
- 	size_t size, enum dma_data_direction dir,
- 	void (*op)(const void *, size_t, int))
- {
--	unsigned long pfn;
-+	unsigned long pfn = paddr / PAGE_SIZE;
-+	unsigned int offset = paddr % PAGE_SIZE;
- 	size_t left = size;
- 
--	pfn = page_to_pfn(page) + offset / PAGE_SIZE;
--	offset %= PAGE_SIZE;
--
- 	/*
- 	 * A single sg entry may refer to multiple physically contiguous
- 	 * pages.  But we still need to process highmem pages individually.
-@@ -644,17 +642,17 @@ static void dma_cache_maint_page(struct page *page, unsigned long offset,
- 		size_t len = left;
- 		void *vaddr;
- 
--		page = pfn_to_page(pfn);
--
--		if (PageHighMem(page)) {
-+		if (PhysHighMem(pfn << PAGE_SHIFT)) {
- 			if (len + offset > PAGE_SIZE)
- 				len = PAGE_SIZE - offset;
- 
- 			if (cache_is_vipt_nonaliasing()) {
--				vaddr = kmap_atomic(page);
-+				vaddr = kmap_atomic_pfn(pfn);
- 				op(vaddr + offset, len, dir);
- 				kunmap_atomic(vaddr);
- 			} else {
-+				struct page *page = pfn_to_page(pfn);
-+
- 				vaddr = kmap_high_get(page);
- 				if (vaddr) {
- 					op(vaddr + offset, len, dir);
-@@ -662,7 +660,7 @@ static void dma_cache_maint_page(struct page *page, unsigned long offset,
- 				}
- 			}
- 		} else {
--			vaddr = page_address(page) + offset;
-+			vaddr = phys_to_virt(pfn) + offset;
- 			op(vaddr, len, dir);
- 		}
- 		offset = 0;
-@@ -676,14 +674,11 @@ static void dma_cache_maint_page(struct page *page, unsigned long offset,
-  * Note: Drivers should NOT use this function directly.
-  * Use the driver DMA support - see dma-mapping.h (dma_sync_*)
-  */
--static void __dma_page_cpu_to_dev(struct page *page, unsigned long off,
-+static void __dma_page_cpu_to_dev(phys_addr_t paddr,
- 	size_t size, enum dma_data_direction dir)
- {
--	phys_addr_t paddr;
-+	dma_cache_maint_page(paddr, size, dir, dmac_map_area);
- 
--	dma_cache_maint_page(page, off, size, dir, dmac_map_area);
--
--	paddr = page_to_phys(page) + off;
- 	if (dir == DMA_FROM_DEVICE) {
- 		outer_inv_range(paddr, paddr + size);
- 	} else {
+Hi,
 
-> +	if (!dev->dma_coherent &&
-> +	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
->  		page = phys_to_page(iommu_iova_to_phys(mapping->domain, iova));
->  		__dma_page_dev_to_cpu(page, offset, size, dir);
+On Fri, Aug 15, 2025 at 08:05:07PM +0530, Shivendra Pratap wrote:
+> The reboot-mode driver does not have a strict requirement for
+> device-based registration. It primarily uses the device's of_node
+> to read mode-<cmd> properties and the device pointer for logging.
+>=20
+> Remove the dependency on struct device and introduce support for
+> Device Tree (DT) node-based registration. This enables drivers
+> that are not associated with a struct device to leverage the
+> reboot-mode framework.
+>=20
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
 
-Same treatment here..
+Please use fwnode instead of device_node, so that the same thing
+can be used with non DT setups, if that becomes necessary. Otherwise
+LGTM.
 
-Looks Ok though, I didn't notice any pitfalls
+Greetings,
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+-- Sebastian
 
-Jason
+>  drivers/power/reset/reboot-mode.c | 37 ++++++++++++++++++++++++++-------=
+----
+>  include/linux/reboot-mode.h       |  2 +-
+>  2 files changed, 27 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/rebo=
+ot-mode.c
+> index 42bb99128ed3846d4bff62416dc31135ddeaeb90..9bb97bcd33cd3d58c75c791e9=
+b568024e810e5b0 100644
+> --- a/drivers/power/reset/reboot-mode.c
+> +++ b/drivers/power/reset/reboot-mode.c
+> @@ -3,13 +3,17 @@
+>   * Copyright (c) 2016, Fuzhou Rockchip Electronics Co., Ltd
+>   */
+> =20
+> +#define pr_fmt(fmt)	"reboot-mode: " fmt
+> +
+>  #include <linux/device.h>
+>  #include <linux/init.h>
+>  #include <linux/kernel.h>
+> +#include <linux/list.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/reboot.h>
+>  #include <linux/reboot-mode.h>
+> +#include <linux/slab.h>
+> =20
+>  #define PREFIX "mode-"
+> =20
+> @@ -75,17 +79,21 @@ static int reboot_mode_notify(struct notifier_block *=
+this,
+>  /**
+>   * reboot_mode_register - register a reboot mode driver
+>   * @reboot: reboot mode driver
+> + * @np: Pointer to device tree node
+>   *
+>   * Returns: 0 on success or a negative error code on failure.
+>   */
+> -int reboot_mode_register(struct reboot_mode_driver *reboot)
+> +int reboot_mode_register(struct reboot_mode_driver *reboot, struct devic=
+e_node *np)
+>  {
+>  	struct mode_info *info;
+> +	struct mode_info *next;
+>  	struct property *prop;
+> -	struct device_node *np =3D reboot->dev->of_node;
+>  	size_t len =3D strlen(PREFIX);
+>  	int ret;
+> =20
+> +	if (!np)
+> +		return -EINVAL;
+> +
+>  	INIT_LIST_HEAD(&reboot->head);
+>  	mutex_init(&reboot->rb_lock);
+> =20
+> @@ -94,28 +102,28 @@ int reboot_mode_register(struct reboot_mode_driver *=
+reboot)
+>  		if (strncmp(prop->name, PREFIX, len))
+>  			continue;
+> =20
+> -		info =3D devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
+> +		info =3D kzalloc(sizeof(*info), GFP_KERNEL);
+>  		if (!info) {
+>  			ret =3D -ENOMEM;
+>  			goto error;
+>  		}
+> =20
+>  		if (of_property_read_u32(np, prop->name, &info->magic)) {
+> -			dev_err(reboot->dev, "reboot mode %s without magic number\n",
+> -				info->mode);
+> -			devm_kfree(reboot->dev, info);
+> +			pr_err("reboot mode %s without magic number\n", info->mode);
+> +			kfree(info);
+>  			continue;
+>  		}
+> =20
+>  		info->mode =3D kstrdup_const(prop->name + len, GFP_KERNEL);
+>  		if (!info->mode) {
+>  			ret =3D  -ENOMEM;
+> +			kfree(info);
+>  			goto error;
+>  		} else if (info->mode[0] =3D=3D '\0') {
+>  			kfree_const(info->mode);
+> +			kfree(info);
+>  			ret =3D -EINVAL;
+> -			dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
+> -				prop->name);
+> +			pr_err("invalid mode name(%s): too short!\n", prop->name);
+>  			goto error;
+>  		}
+> =20
+> @@ -129,8 +137,11 @@ int reboot_mode_register(struct reboot_mode_driver *=
+reboot)
+>  	return 0;
+> =20
+>  error:
+> -	list_for_each_entry(info, &reboot->head, list)
+> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
+> +		list_del(&info->list);
+>  		kfree_const(info->mode);
+> +		kfree(info);
+> +	}
+> =20
+>  	mutex_unlock(&reboot->rb_lock);
+>  	return ret;
+> @@ -144,12 +155,16 @@ EXPORT_SYMBOL_GPL(reboot_mode_register);
+>  int reboot_mode_unregister(struct reboot_mode_driver *reboot)
+>  {
+>  	struct mode_info *info;
+> +	struct mode_info *next;
+> =20
+>  	unregister_reboot_notifier(&reboot->reboot_notifier);
+> =20
+>  	mutex_lock(&reboot->rb_lock);
+> -	list_for_each_entry(info, &reboot->head, list)
+> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
+> +		list_del(&info->list);
+>  		kfree_const(info->mode);
+> +		kfree(info);
+> +	}
+>  	mutex_unlock(&reboot->rb_lock);
+> =20
+>  	return 0;
+> @@ -178,7 +193,7 @@ int devm_reboot_mode_register(struct device *dev,
+>  	if (!dr)
+>  		return -ENOMEM;
+> =20
+> -	rc =3D reboot_mode_register(reboot);
+> +	rc =3D reboot_mode_register(reboot, reboot->dev->of_node);
+>  	if (rc) {
+>  		devres_free(dr);
+>  		return rc;
+> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
+> index b73f80708197677db8dc2e43affc519782b7146e..98f68f95c9e8460be23282c51=
+ef7fcbed73887bd 100644
+> --- a/include/linux/reboot-mode.h
+> +++ b/include/linux/reboot-mode.h
+> @@ -13,7 +13,7 @@ struct reboot_mode_driver {
+>  	struct mutex rb_lock;
+>  };
+> =20
+> -int reboot_mode_register(struct reboot_mode_driver *reboot);
+> +int reboot_mode_register(struct reboot_mode_driver *reboot, struct devic=
+e_node *np);
+>  int reboot_mode_unregister(struct reboot_mode_driver *reboot);
+>  int devm_reboot_mode_register(struct device *dev,
+>  			      struct reboot_mode_driver *reboot);
+>=20
+> --=20
+> 2.34.1
+>=20
+
+--czj77t3nras3pevm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmjJsO0ACgkQ2O7X88g7
++ppfBQ/9HMIqbVJuvwZzQo3EipYpGXXdP/CdOeC6oZnYrfQm8LfZS8TcF83agJhf
+CNUrAY2d3YH5Do+/xl+2KA2kgYHMgoDDX3f2/DWjpTadO5P7zW6vYcDNP0w0wR4S
+IdHfOPa5Ov0ybtsepYCFX5QlMzevP1Izppg76+ERDoWPSUCT9IT449rM8J7aRScT
+48JePKqtUCacNqV4zwEGcG7M2q8FVsv2xkpulVuF9XXicdSoQxvxeAMX+/E5HsWl
++2DAfSHs+gdGWrWacr9IYceQvCQUzb6nX69ax1Jqo0tGxY8CbO6dhQjw5OFpxnXt
+RqB7W0yenJ9fNtDSWd7UEv1OtWUtN9MLb5ZDvMcjpCWWHIP8oqL7IIUaXVESEDxg
+EhJ3/ekmVpdW2oIvOyDAsT294qBpiPsZngU2SweijEZrcYTpIrjqTM7eTzB6hQbL
+K2A+VAq8+4T6UBM6Dq9DJddGtKWyG86e6aUPnnwB2pzqRH0D9kYMpv72AF+7Kcx1
+HLmvKxQrF2wKvXINw8uSN1GokRWVZOeUt00dhiWjpXcXBd+xxf4vU5ZGeVZaLuBS
+gvMF93kzoC9QTcpjw/Qa/12NY2xTD4U0oqWOklNhVjWB5vgAeEV+EylpTsb9tFXq
+gD/QuzyhxxxjrG6t0jCLYsII8Jz+aibFgJK0RGzLK3ey9QzQ9Mc=
+=5SRf
+-----END PGP SIGNATURE-----
+
+--czj77t3nras3pevm--
 
