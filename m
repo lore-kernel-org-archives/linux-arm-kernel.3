@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4070ECAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13185CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bs5mDy7Zuv97v/UPl0EORzbWUngd5axp8ZvR7wrcouY=; b=wDXapGNQJEV4kpFGOtES9ZLS4l
-	Ap/rQQFeW0kKq2VEColYd1Gdl4eIdeGjich4XXg0HbGZDVYrgbpAG0CQIL2kLP4FkueuFt5+qgSlh
-	iB0XjNeUY3Txnba4SCHD46Pcy/LBUSH2Fc7oxExtZ97RmrJZx5s4cGqMedPEBoZGD5PVhVRsSjvVn
-	sFNoq3FWNo6nkuFxWdBeRg8WRd6Yu7WtcCSYuXXtb9ayAWhYxKhLcdcvwzwx2LuKST7XrxVgQi7gG
-	UsSCx6Zac91BqNe+GBEVp9XYYgsw2oohcHYxXAXW40Xsuj8YOx1nf3f71IdFUu3005YXYnDBAyN2y
-	0499oEsg==;
+	bh=D9KkZzfP1kLG2HMgkFNClkewl28TK1t7uwDMPjFtuHg=; b=buJ3z8KFOCiRxphh4jHpQXslot
+	BfwEp7IYep5d2AGWSX4kQ/96vnUyTzrJNBNpqGmORR/Hiw/bBCFhQ/nYQ1pPxzdZ7FDonI9y6jLH6
+	j4Nci8PGbx4ZyFnp/nTzpB7Y0MIx8JWveTl9DhMunw8f3BRWV3ho5eVBdNN8/IJmZbRyfDdy1C8TR
+	ZQPQcdxdVycR3yLQ7ivAJ1LHPgpVe2Qw7DPCBbWO9KEyFrwipSp1MPJ5KdUfDRNunNknRUtASMunN
+	9MCCr8WX5GDACkPShoK7yv5b+yqsdugWXsFnJD4PTnhhFzljDXN4Z6CfsDXxNxrFf/HoRr5ewCZw3
+	B2hMH+sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyd0D-00000009979-1XJA;
+	id 1uyd0D-0000000997h-2rbQ;
 	Tue, 16 Sep 2025 21:14:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyd09-0000000994J-2JTi
+	id 1uyd0B-0000000995B-0ze9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 21:14:13 +0000
+	Tue, 16 Sep 2025 21:14:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D459F601D9;
+	by sea.source.kernel.org (Postfix) with ESMTP id EC41243FE5;
+	Tue, 16 Sep 2025 21:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BC51C4CEEB;
 	Tue, 16 Sep 2025 21:14:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6BB2C4CEF7;
-	Tue, 16 Sep 2025 21:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758057252;
-	bh=mdYINkvVyjXkwJO8jrP2q0vlKqEFRhWRoX7T6rQ9uck=;
+	s=k20201202; t=1758057254;
+	bh=ZEX6epiYDS4/Irj1nhsUQcUfxGCRNCiyjKALsXvsM8k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yd8F8sR8UCELdsM0SIvQnVBVgVnJmAQWFEkv7W8vtwtK1ZfTV9360qia1e36CpT5+
-	 7R7hngo7AkjVfwVM1u9i1MSosbelkeulla58aIjMtXcmVKalw7/TXHz3ZHBsHz4P4S
-	 8U9/MGTrStqRV7IX8hdQBVVs1aBWbvylfz6K6VWnmzr3OcOZlbD7JJBOF5kUjJta1a
-	 iZ55ucTcLk+bL5d/2fVkQ7ID3iRx5+9u9WQ47gn3vbACtTNQP+myoiXFV3OAXtxvnA
-	 /DZ6rnB9hUOmAzRuh7qm2TZQwy6A7juO11MrHjIPuEW7ZhbkcfRA2M8LFRESF0c0K3
-	 PTdUMZuBsPZVA==
+	b=DAtbUKfwOJtwHY9Inm8sU+7/3dyYEgr0481WFZ5JSiVjt4/I+g8F/Kn2RK3sRoY2A
+	 CRfLXiil0gr9O60TdrSaMX9lwMWDAIWZYWHa2lTPa7B+Vi049/RzylkHqlXUF8T9RE
+	 ZqRXbsGPLBfL7xO4c7Jv+37uNfnDf5ZeadeM1RLEi+0W+0aGijhqBbhlqCPYoqJNdj
+	 7+onD/uAtFZaHz0gRom30rU5it4jDyiGsJgyWgLXwpx2A+QYl7E3SZ4Ji3JEYnsj5q
+	 V0YadLMsGhtO960hdQXShmdF4x92T2JuXJGr+K8aUMJn1qvPV4zJCFLve3Lt0GEBea
+	 3Kt4YyInSviKg==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	Huang Shijie <shijie@os.amperecomputing.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	patches@amperecomputing.com,
-	cl@linux.com,
-	Shubhang@os.amperecomputing.com,
-	corbet@lwn.net,
-	paulmck@kernel.org,
-	akpm@linux-foundation.org,
-	rostedt@goodmis.org,
-	Neeraj.Upadhyay@amd.com,
-	bp@alien8.de,
-	ardb@kernel.org,
-	anshuman.khandual@arm.com,
-	suzuki.poulose@arm.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	rdunlap@infradead.org
-Subject: Re: [PATCH v7 0/2] arm64: refactor the rodata=xxx
-Date: Tue, 16 Sep 2025 22:13:50 +0100
-Message-Id: <175805239499.269424.4665701509938991056.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	"Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] arm64/fpsimd: simplify sme_setup()
+Date: Tue, 16 Sep 2025 22:13:51 +0100
+Message-Id: <175805314947.272606.2121581069783124442.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250909033236.4099-1-shijie@os.amperecomputing.com>
-References: <20250909033236.4099-1-shijie@os.amperecomputing.com>
+In-Reply-To: <20250913000906.67086-1-yury.norov@gmail.com>
+References: <20250913000906.67086-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_141415_313532_DF1C499C 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Sep 2025 11:32:34 +0800, Huang Shijie wrote:
-> >From Documentation/admin-guide/kernel-parameters.txt, we know that:
->  rodata=	[KNL,EARLY]
-> 	on	Mark read-only kernel memory as read-only (default).
-> 	off	Leave read-only kernel memory writable for debugging.
-> 	full	Mark read-only kernel memory and aliases as read-only
-> 		[arm64]
+On Fri, 12 Sep 2025 20:09:05 -0400, Yury Norov (NVIDIA) wrote:
+> The function checks info->vq_map for emptiness right before calling
+> find_last_bit().
+> 
+> We can use the find_last_bit() output and save on bitmap_empty() call,
+> which is O(N).
+> 
 > 
 > [...]
 
-Applied to arm64 (for-next/mm), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/2] arm64: refactor the rodata=xxx
-      (no commit info)
-[2/2] arm64/Kconfig: Remove CONFIG_RODATA_FULL_DEFAULT_ENABLED
-      https://git.kernel.org/arm64/c/bfbbb0d3215f
+[1/1] arm64/fpsimd: simplify sme_setup()
+      https://git.kernel.org/arm64/c/19dd484cd19c
 
 Cheers,
 -- 
