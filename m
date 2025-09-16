@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE00CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3E6CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 21:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pj5Qf/1bxCFrPvhs0jRUa6YUBACyGl4rbZxu2Lu22Yo=; b=d2bjZgKU1bIxalq9P0ygNYqmbm
-	gLLa+d+LjknLoXz2LPV0kRy5szJJC9rCdZd0hI3iz0fg4/MSTIr6WjBJ/BLKJW/kz2HmGuDB/4IjH
-	D3zG5Ao/fIlYuxZgE1pJxOwEVD99P0d+FVMlHmcazVVOH+HoKBb9wQooxesdg+MeUP7/LvRbX5Ocn
-	83DzL4YU3ibhcYP1ldaRXPwaEbvBfdjvY9N0JGmxLtzSdBUijig1HPNg736gC9Ic2t6i5Y7ehhflg
-	DZMhaisGs01tWBnR18aVuFQfV+6iwwaR2I3MBH2Qh56HT1FsrDSpVGlILFbMLcZnUChZctGSvb8Bm
-	txX/yoYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RkMl8wwL4pC+LsYQ5A4zOMNBrFJOPdqLdsaI9ZVib78=; b=APyTTh+ypr3udhe/PvXspLkCYe
+	cIdx4CZOCnsXUupLzEkhRjYI5D+/L2a7eFIydu0dyUW8aqWG0g7+HplNEzrk+lBc9q2cAFVf8u/g6
+	fSDYjTMsSnCQf3zIasb1mUUebRgJ+qaoFgY2eje6GcBV1n/SXABoNxosipyrxhYJmmxsIX89TpRyR
+	gnAOjJwEVwcKurUFLgiZ6CjAvudwHMk6AnV0oLYUcQ63EypJxpsRpQULCu5wDYv8F9+e7qWl36yrM
+	grX0iWQrY4hqf6+YJpMH5LUOkn3RQZ+fVs9jhXZNAuGS694aMn3UpACVgHmtGcySSV2r4bQvPgLqm
+	B8FysHVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycwV-000000098bC-1vyr;
-	Tue, 16 Sep 2025 21:10:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uyczy-0000000990J-279k;
+	Tue, 16 Sep 2025 21:14:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycwS-000000098aM-1Vq6
+	id 1uyczx-0000000990A-0j6I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 21:10:25 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758057022;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pj5Qf/1bxCFrPvhs0jRUa6YUBACyGl4rbZxu2Lu22Yo=;
-	b=rzggNwY2vNIxBIBWhIM2eNT5/Wfp/pOEx3vtX/gpirUkPKVvJ0xOMkn1gIzyLdOdcJM/AD
-	LJ2HK4ybwmU0mn9P3gCiw4KAwCnEtKWMS9Sb/0qKfySh8hUCPH70rJAg5Vq0oS1Etq5y9s
-	fWaUbCSElmQMt6NX3zClcf91wEMcC1oZuAdCi/5IRA+Ig27XqQiW9KvpUqkD9NqXkHLd/0
-	Gd0n3URf4LrYUw8JAffVYVHTmdNOaBv3i4kwOMJvXw8NmVIpVwwAtKoaJo94DrP41+tyCK
-	c1/lgsIXQKLPw28SqA5WCxffxdnDK3zoAfFJs9W+tYUbrCs6XWPUEcEbL4SF7g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758057022;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pj5Qf/1bxCFrPvhs0jRUa6YUBACyGl4rbZxu2Lu22Yo=;
-	b=SDnxirkNQwaVrfSM04srsZSWToQc90VpYlu25/LRFyplMb/H/OpA4GODTfBkYO63u2m+3S
-	JVN0QitkAjbE61Dw==
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
- mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, Eugen Hristev <eugen.hristev@linaro.org>
-Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
-In-Reply-To: <20250912150855.2901211-10-eugen.hristev@linaro.org>
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
- <20250912150855.2901211-10-eugen.hristev@linaro.org>
-Date: Tue, 16 Sep 2025 23:10:21 +0200
-Message-ID: <87cy7q9k8y.ffs@tglx>
+	Tue, 16 Sep 2025 21:14:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DB7D601B3;
+	Tue, 16 Sep 2025 21:14:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C004C4CEEB;
+	Tue, 16 Sep 2025 21:13:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758057240;
+	bh=jInJWqCSD2tE4OmrvXDiyUixVS6RwmIj9RFok/Nmy5I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZImTrAYKUJQRO/o8tLpQjVUwBA+8cF+Vax3PQvKoQOhfsvMkIyvR9n1Ytu2GTvHu7
+	 Zux8k/Pzb61qlNms5ou8CaHFR32E6y2DIMr6UpWy/EegfFFt7bBm7BSQaXAH9LdjtC
+	 K5DBTGk3A7rpgA9OUSeEc8mjdHPolwgo6CH8ckSAf/txOOqTpqFPbKfNRrfxaiAfOe
+	 SXwc5stvlg+kjtrcioai6x97S12wiX52RkEmsfDP1MRPr5OM+Ikkkw33WgzQw57O3H
+	 yEPqltEWWL+tIZKEdMM3tgubPVPapbC0EIrS45xlzIN/gRQCXR0JiYgSU4lGHiSdER
+	 3B9HGygntElug==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] arm64: Support FEAT_LSFE (Large System Float Extension)
+Date: Tue, 16 Sep 2025 22:13:47 +0100
+Message-Id: <175804891321.3098971.7036072968418097022.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250818-arm64-lsfe-v3-0-af6f4d66eb39@kernel.org>
+References: <20250818-arm64-lsfe-v3-0-af6f4d66eb39@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_141024_537198_71FE377D 
-X-CRM114-Status: UNSURE (   6.21  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +81,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12 2025 at 18:08, Eugen Hristev wrote:
-> nr_irqs is required for debugging the kernel, and needs to be
-> accessible for kmemdump into vmcoreinfo.
+On Mon, 18 Aug 2025 20:21:17 +0100, Mark Brown wrote:
+> FEAT_LSFE is optional from v9.5, it adds new instructions for atomic
+> memory operations with floating point values.  We have no immediate use
+> for it in kernel, provide a hwcap so userspace can discover it and allow
+> the ID register field to be exposed to KVM guests.
+> 
+> 
 
-That's a patently bad idea.
+Applied first patch to arm64 (for-next/cpufeature), thanks!
 
-Care to grep how many instances of 'nr_irqs' variables are in the
-kernel?
+[1/3] arm64/hwcap: Add hwcap for FEAT_LSFE
+      https://git.kernel.org/arm64/c/220928e52cb0
 
-That name is way too generic to be made global.
+Cheers,
+-- 
+Will
 
-Thanks,
-
-        tglx
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
