@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53320CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65ED7CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 15:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vWXDR4Bw3K6ogOZsU2geslEHpsCEVwdb6bLsGHvPvs=; b=YZCXVY2FMgHVI1i0KBJPBuj/R/
-	y2zIBSEdVxHtqM4jIQ0PoV7ExUBd7heAPYoO8DTsefqT9DYSFBIluy3ySK6I6HjYNfKcAv6ngzfsa
-	3O9dwx74Qzg+pzTRMxCsoWPpBBU4JtVtrhS78zlxSqfCvoRMVfGQo8789ozXdsky716OjqpSFbwp6
-	VWBezV/ME/mFC4qNrqNjVsUAowApr5fjiBblt6RkONANLwJpsCHjFL+5MqV3knFPO/Kkrt02m6kh5
-	T09LX7aXtwWVOxNjq2CSkhm6VY5FuqmwLzO1tto53bC8FWRe9bQrmHiPlUgq7wyOsZB4DfABKc8Vg
-	FLR+bW3Q==;
+	bh=YY+rMMrs1YeBSx3m5qmZpM4dTZ2N7YTssLGu17/9OY8=; b=Eey9y9QCuJSMraFzxf7Am7WP0b
+	qXpWL1UkeiY1F9i5Vzbs/tvRcl6wjHTAAEV9L1fKwKMkHgcD+8/LwrOkEe8yU4Z0ZwtFgt5fSaO9p
+	Sf0JqWBVBp2esqc0cFsJB3CY89McOENY6TcJZ8I56/mxQF3nDj/zzTPTcW9r7s80EnZ48wHn9dutN
+	6FcWz5/+UvUc21WnZKlcv9QG5xAihfjCiCI2vGff6VG09fYE4JYmNhtF4UORKgwUDplFM1coROj6B
+	qfxOsrPC6Jt6Ow0rxLg+JohB+pASLzc3977MCIlfTmPPD4JW+NhWEsiOjmXrXAaRIoAaLmpGW20n2
+	lW0t8m6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfZ-00000008IYX-1PB7;
+	id 1uyXfZ-00000008IYC-0AS5;
 	Tue, 16 Sep 2025 15:32:37 +0000
 Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyXfT-00000008IVI-3uk6
+	id 1uyXfT-00000008IVH-3F9f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 15:32:33 +0000
+	Tue, 16 Sep 2025 15:32:32 +0000
 Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
 	by finn.localdomain with esmtp (Exim 4.95)
 	(envelope-from <tharvey@gateworks.com>)
-	id 1uyXfI-00Aysu-Hn;
-	Tue, 16 Sep 2025 15:32:20 +0000
+	id 1uyXfH-00Aysu-LY;
+	Tue, 16 Sep 2025 15:32:19 +0000
 From: Tim Harvey <tharvey@gateworks.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,17 +45,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH 2/7] arm64: dts: imx8m{m,n,p}-venice: disable unused clk output for TI PHY
-Date: Tue, 16 Sep 2025 08:32:11 -0700
-Message-Id: <20250916153216.1042625-3-tharvey@gateworks.com>
+Subject: [PATCH 1/7] arm64: dts: freescale: imx8mp-venice-gw7905-2x: remove duplicate usdhc1 props
+Date: Tue, 16 Sep 2025 08:32:10 -0700
+Message-Id: <20250916153216.1042625-2-tharvey@gateworks.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250916153216.1042625-1-tharvey@gateworks.com>
 References: <20250916153216.1042625-1-tharvey@gateworks.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_083231_967600_A2153907 
-X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-CacheID: sfid-20250916_083231_806278_DD8D680C 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,78 +71,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disable the unused refclk output for the TI DP83867 PHY used on
-Gateworks Venice boards.
+Remove the un-intended duplicate properties from usdhc1.
 
+Fixes: 0d5b288c2110e ("arm64: dts: freescale: Add imx8mp-venice-gw7905-2x")
 Signed-off-by: Tim Harvey <tharvey@gateworks.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi | 1 +
- arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts  | 1 +
- arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts  | 1 +
- arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi | 1 +
- arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts  | 1 +
- 5 files changed, 5 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
-index 37db4f0dd505..baf46fe28133 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw700x.dtsi
-@@ -115,6 +115,7 @@ mdio {
- 		ethphy0: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-index c09b40fc6dec..468c7e993c52 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-venice-gw7902.dts
-@@ -253,6 +253,7 @@ mdio {
- 		ethphy0: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts b/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
-index a5f52f60169e..5aa0e2cd155e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-venice-gw7902.dts
-@@ -248,6 +248,7 @@ mdio {
- 		ethphy0: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
-index 303995a8adce..a1232a4f8485 100644
+index cbf0c9a740fa..303995a8adce 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw702x.dtsi
-@@ -101,6 +101,7 @@ ethphy0: ethernet-phy@0 {
- 			reg = <0x0>;
- 			interrupt-parent = <&gpio3>;
- 			interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-index 12de7cf1e853..7662663ff5da 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-@@ -228,6 +228,7 @@ mdio {
- 		ethphy0: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0x0>;
-+			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 			ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 			tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+@@ -423,9 +423,6 @@ &usdhc1 {
+ 	bus-width = <4>;
+ 	non-removable;
+ 	status = "okay";
+-	bus-width = <4>;
+-	non-removable;
+-	status = "okay";
+ };
+ 
+ /* eMMC */
 -- 
 2.25.1
 
