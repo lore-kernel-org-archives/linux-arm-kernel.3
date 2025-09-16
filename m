@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81815CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C668CAC59B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 19:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AmLHLzUeV9VSK4+ZRmRQHJz37kpqz+83jxn06y7PIN0=; b=fJ2K9X22L1Syfsd6BMzRo/2UFU
-	Ww3ygLWEiSWQL1KFN77bNZqCRod62ZqNcnjvuKzmX5ZmocQWURrhMtZ2RM+GDZCAuJh11NaTDk4yY
-	WWKGLu1TN+nX/uOei4Q4IpDIp9Q1DGCd4OKV0bPWkTJq24CUqGmgtNalQ7ugEglBu8r4b2aGuVcnt
-	5wGKbxJxMcZGmpX76xfdoJ9v67xNgX+65x2eta6urufy0LtLEAXCohOXJw2CNyTN97eoHkpEDNG51
-	IRq0yFmAjoaJT+bbrmt9F5jN8DVxBm0iaTytjOMUlBfr3Z/FC1wVM1F6Off9mvwObWbO4w2Q7ndyt
-	cjmr8/mA==;
+	bh=EXaqcsYENogvAnvlB2KNNelAI84J4RkeUSRS8e50eXg=; b=k69qTQPrEZwashXanqvBRVpHSZ
+	UN/8TY+eZZiVocOuXlDYY+ACk8ZLKKpD3dyTDALcjDBp1xCsD2DtG0MuxUEWMbj+Sv0uqA5k0k/il
+	HQz6aYPAn0tanPlKfr0gKGS6QPpaIBw202OsxHrEKG8wQG7c99UgwVj/FRQHhcWOd92Anhfx0td8O
+	aL5brgjvX3DOENjs7dwaXe2qm0aUI+ebbAZOI44E8VDqa90r5cPbTuXXhVMaDGPWHWigJvzsO4yaF
+	SQ02mENl6MAKbsR/eJM4LbxCoArve1D4gZHAyFvtsJr5I3m1OThAaWFkJmSIwxivQgd8G2Rs2kPXr
+	DbzdEczg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyaxM-00000008p49-0Up5;
-	Tue, 16 Sep 2025 19:03:12 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uyb1s-00000008pbA-0Vjo;
+	Tue, 16 Sep 2025 19:07:52 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyaxK-00000008p3l-0EaN
+	id 1uyb1p-00000008pZ4-0QAE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Sep 2025 19:03:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758049380; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LSLQIrN4wdI567Qx4kfSQGcakSZxqqKWJ95JLo/WRlzYsTYxTudM/nY279cbR7BThDd86gKHoMOoMqVif9eWVV05HIugLmCyqtmMtmPRpv9vhcNlYc9QVAmxzOYRLSCL45cL9KawobAUTg87l7JS/rf7eyq1mFAfvEYh2CO3qao=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758049380; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=AmLHLzUeV9VSK4+ZRmRQHJz37kpqz+83jxn06y7PIN0=; 
-	b=nA6meiVA5PjXqY8j6DGtpCCFuHXidyQeZKsGw7ZXNXB/tuPey5D5hy59Y/11TQOrNn1oIOspCvfd3G9B9ZlgcGKBdgS8oPm1XTDcUVPj7SflSRkvsfAXRB8p/4hVVenrRV0AU4/tQH1P5VESh9Gd8P9dD10U0bQdS7Ttkiwlx50=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758049380;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=AmLHLzUeV9VSK4+ZRmRQHJz37kpqz+83jxn06y7PIN0=;
-	b=gsW460ix/8dOFJPUY4Tsyf/O/owKBsFYUTEfOYVngiD6lXOWjxUWK3q2QHkI7UmG
-	kfHM1J3VzZ0o0g6Jog1hxujJFWKWjbO2i23iX5Mg/BZ6jf6RVMjvUOtQxEPVBBFMk6I
-	qNlQQQvSrF/Z1BY2As9OIq3QV03ZZ61KQofxASKE=
-Received: by mx.zohomail.com with SMTPS id 1758049378526820.4472844737274;
-	Tue, 16 Sep 2025 12:02:58 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 8ADE9180733; Tue, 16 Sep 2025 21:02:41 +0200 (CEST)
-Date: Tue, 16 Sep 2025 21:02:41 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
-	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
-	Stephen Boyd <swboyd@chromium.org>, Andre Draszik <andre.draszik@linaro.org>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	Elliot Berman <quic_eberman@quicinc.com>, Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v14 05/10] power: reset: reboot-mode: Expose sysfs for
- registered reboot_modes
-Message-ID: <lgoahuqgoajuj352h7rnjfyeeyf24x45pj3qmidc6qqrc75vej@3hrblxle7uyk>
-References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
- <20250815-arm-psci-system_reset2-vendor-reboots-v14-5-37d29f59ac9a@oss.qualcomm.com>
+	Tue, 16 Sep 2025 19:07:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=EXaqcsYENogvAnvlB2KNNelAI84J4RkeUSRS8e50eXg=; b=L0qSGYez+AX/bZrlmzh1BNLW0E
+	EtKNdzLn0IOSUqLJ95hkAkKr/WHGXbRVqtBgnw6ggf6aJDSJttdau3MVJyP/oD0PcpfSqDKX7qm0E
+	CVa8efe7MTJIwxmBA6mnF+ERrenn5O8SrFw7wUx2vWKbMVm/U76tRW8JqQwbgcR5PZts=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uyb1b-008bIv-HR; Tue, 16 Sep 2025 21:07:35 +0200
+Date: Tue, 16 Sep 2025 21:07:35 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Rebecca Cran <rebecca@bsdio.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+Message-ID: <3f5e82ec-d96e-4258-b117-9876313f5402@lunn.ch>
+References: <20250911051009.4044609-1-rebecca@bsdio.com>
+ <20250911051009.4044609-3-rebecca@bsdio.com>
+ <58a092c5-5dd0-4718-831a-e25ecb184087@lunn.ch>
+ <5ccc4945-87f6-4325-b034-ca3f2f90257a@bsdio.com>
+ <74e68c53-2696-4f86-97d3-c0b0a74d4669@lunn.ch>
+ <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rvds47h6heygbawa"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250815-arm-psci-system_reset2-vendor-reboots-v14-5-37d29f59ac9a@oss.qualcomm.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/258.4.7
-X-ZohoMailClient: External
+In-Reply-To: <92bcdac9-44b1-4fc8-892a-01ef0ed0b7e0@bsdio.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_120310_140899_290EC6BD 
-X-CRM114-Status: GOOD (  29.19  )
+X-CRM114-CacheID: sfid-20250916_120749_137457_9B26FA4A 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,166 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 16, 2025 at 12:40:15PM -0600, Rebecca Cran wrote:
+> On 9/15/25 18:37, Andrew Lunn wrote:
+> 
+> > And does it have a PHY? On an MDIO bus? Unless i'm mistaken, you don't
+> > describe the PHY, a phy-handle pointing to the PHY, and don't have
+> > phy-mode = 'rgmii-id'.
+> 
+> I've been trying to figure this out. Yes, it's connected to a PHY (an
+> RTL8211E).
+> 
+> At the moment it's being detected by OpenBMC as:
+> 
+> ftgmac100 1e680000.ethernet: Read MAC address 9c:6b:00:43:0b:bd from device
+> tree
+> RTL8211E Gigabit Ethernet 1e680000.ethernet--1:00: attached PHY driver
 
---rvds47h6heygbawa
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v14 05/10] power: reset: reboot-mode: Expose sysfs for
- registered reboot_modes
-MIME-Version: 1.0
+So what is probably happening is that the ftgmac100 is creating an
+MDIO bus. It does not matter if there is no node for it, it still
+creates the bus, and the PHYs on the bus are found. You should be able
+to see this in /sys/class/mdio_bus/. Then, since there is no
+phy-handle, it uses phy_find_first() to find the first PHY on the bus,
+and binds to that.
 
-Hi,
+Now, it looks like all other aspeed-g5 boards also don't link to the
+PHY. But the driver does seem to support adding an 'mdio' node within
+the ethernet node, and listing the PHYs. Something like:
 
-On Fri, Aug 15, 2025 at 08:05:10PM +0530, Shivendra Pratap wrote:
-> Currently, there is no standardized mechanism for userspace to
-> discover which reboot-modes are supported on a given platform.
-> This limitation forces tools and scripts to rely on hardcoded
-> assumptions about the supported reboot-modes.
->=20
-> Create a class 'reboot-mode' and a device under it to expose a
-> sysfs interface to show the available reboot mode arguments to
-> userspace.
->=20
-> Provision the register function with an additional parameter to
-> get an explicit driver_name. Create the device using this
-> driver_name. For platform drivers, use the driver_name configured
-> in dev node.
->=20
-> This results in the creation of:
->   /sys/class/reboot-mode/<driver>/reboot_modes
->=20
-> This read-only sysfs file will exposes the list of supported
-> reboot modes arguments provided by the driver, enabling userspace
-> to query the list of arguments.
->=20
-> Align the clean up path to maintain backward compatibility for
-> existing reboot-mode based drivers.
->=20
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/power/reset/reboot-mode.c | 131 +++++++++++++++++++++++++++++++-=
-------
->  include/linux/reboot-mode.h       |   4 +-
->  2 files changed, 110 insertions(+), 25 deletions(-)
->=20
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/rebo=
-ot-mode.c
-> index ac81b8b0a9b7fc31f8ef21024333a050087ce90f..7ecab050e496af3e1cc01c1a4=
-614787707cb74b4 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -6,6 +6,7 @@
->  #define pr_fmt(fmt)	"reboot-mode: " fmt
-> =20
->  #include <linux/device.h>
-> +#include <linux/err.h>
->  #include <linux/init.h>
->  #include <linux/kernel.h>
->  #include <linux/list.h>
-> @@ -23,6 +24,8 @@ struct mode_info {
->  	struct list_head list;
->  };
-> =20
-> +static struct class *rb_class;
-> +
->  static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, cons=
-t char *cmd)
->  {
->  	const char *normal =3D "normal";
-> @@ -75,26 +78,121 @@ static int reboot_mode_notify(struct notifier_block =
-*this,
->  	return NOTIFY_DONE;
->  }
-> =20
-> +static void release_reboot_mode_device(struct device *dev, void *res);
-> +
-> +static ssize_t reboot_modes_show(struct device *dev, struct device_attri=
-bute *attr, char *buf)
-> +{
-> +	struct reboot_mode_driver **devres_reboot;
-> +	struct reboot_mode_driver *reboot;
-> +	struct mode_info *info;
-> +	ssize_t size =3D 0;
-> +
-> +	devres_reboot =3D devres_find(dev, release_reboot_mode_device, NULL, NU=
-LL);
-> +	if (!devres_reboot || !(*devres_reboot))
-> +		return -ENODATA;
-> +
-> +	reboot =3D *devres_reboot;
-> +	mutex_lock(&reboot->rb_lock);
-> +	list_for_each_entry(info, &reboot->head, list) {
-> +		size +=3D sprintf(buf + size, "%s ", info->mode);
+       mdio {
+                #address-cells = <1>;
+                #size-cells = <0>;
 
-sysfs_emit_at
+                ethphy0: ethernet-phy@0 {
+                        reg = <0>;
+                };
+        };
 
-> +	}
-> +	mutex_unlock(&reboot->rb_lock);
-> +
-> +	if (size) {
-> +		size +=3D sprintf(buf + size - 1, "\n");
+And then you can add a phy-handle to point to it.
 
-sysfs_emit_at
+Then the question is, did Aspeed mess up the RGMII delays for g5? You
+can try phy-mode = 'rgmii-id' and see if it works.
 
-> +		return size;
-> +	}
-> +
-> +	return -ENODATA;
-> +}
-> +static DEVICE_ATTR_RO(reboot_modes);
-> +
-> +static void release_reboot_mode_device(struct device *dev, void *res)
-> +{
-> +	struct reboot_mode_driver *reboot =3D *(struct reboot_mode_driver **)re=
-s;
-> +	struct mode_info *info;
-> +	struct mode_info *next;
-> +
-> +	unregister_reboot_notifier(&reboot->reboot_notifier);
-> +
-> +	mutex_lock(&reboot->rb_lock);
-> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
-> +		list_del(&info->list);
-> +		kfree_const(info->mode);
-> +		kfree(info);
-> +	}
-> +	mutex_unlock(&reboot->rb_lock);
-> +
-> +	device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
-> +}
-> +
-> +static int create_reboot_mode_device(struct reboot_mode_driver *reboot,
-> +				     const char *dev_name)
-
-Instead of adding more and more arguments to this, just add a name
-field to struct reboot_mode_driver.
-
-Greetings,
-
--- Sebastian
-
-> [...]
-
---rvds47h6heygbawa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmjJtEoACgkQ2O7X88g7
-+pqh5RAAiwcRD05/Qi5M1FQ+czBKYt0JywEwWfXl7Vbc0K5fbgDIkTNxJbWT0k7R
-aipONT1XttYqVqmIFTeVj9cT/THMn+c6hLvIZZXtCDxscGgmLJAYLP45alzRo//W
-55bEIMCJUzQY4xNqMxGtLWdO+DvTyhj3so90UungJV9uJcZB0RdUwWJu5AQqabrj
-muJNvAWCn8qJiAThahESDnzLfJOUsXuctNDMXpBU4EsGYyH0CcUtqSxF6hBaYK1j
-x6SJ4s6XGisYDoZ4Ao7/ENgM2kJoZELixzf+jSpGUHG+JXmI/yMSJcHXkEco6ID+
-DRE8lEJCsJ33sYVgmvav8JURJdP3A8Sl3FIq+03rigqLWOEem61wMG7FR4fQIo1t
-078rMHdXKW1B4FGFTxQ3utkbqKGZ3cXyoze52nKue8bJ19huPNf2rg8rCmzFHUEY
-dZ6N4cPkgC2ioJNP1kCthHFMHgNtaCJXfBaiz14/gUgpJ8EbR9aVob74LRKBevT2
-1usAzDEBQk0R5eqhfbfHY/vGafyzA6G1K9TLB6MK5U8HtNVCra7Zf5Khti0+jkdB
-FaG9LWZQLQrLlcNWcAEbkRJUirY7GSbJ9xpefSNKHS2TQPdHrFBfZMkCiXoZlqBR
-S/Ou5i+fpjZd5zXerOct4/4DGgJF2vciq4hb79bpcMtBviSawGs=
-=JZ25
------END PGP SIGNATURE-----
-
---rvds47h6heygbawa--
+    Andrew
 
