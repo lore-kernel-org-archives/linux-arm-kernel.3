@@ -4,53 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8F7CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8363ACAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 07:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5WpWRtK8ySNywc6vRa98PoYyByFQ95dBRMegxQcqflQ=; b=rrx/f4nszspjfQQH+Df0F8wHMA
-	OPXH3lT28nFqUZQWKf7CjIF0g1u2vSz9b4ZqkesxrzHcMWLzELmqd51SClOewcBW4bTxNweejkx7E
-	fpVamuBDuvdn0R+wSamsdCg0tdPvEn7UN7F4lpozlcVIl0M+l+xtT5iLizFko13Zw6o4uNL3gBzK+
-	fIshcH9yKw+zohqx03TdNvy08/WOyv+kYb2e4dzN/hK9onQYXMKk4LRFN9O7islPV30ud8vwqjDC7
-	nYoGalr+pj3lkUSj6dPFIWeISHvpsZWyDwONCAUD1WCf12cfnYaNa6wg1hXOFxJ6c+pq7ZG956zN5
-	XUnd6QLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RD+ta9axnzkY+q3MqSd9MuBTTuCWROaoN5jRYETLo/A=; b=XZR9OSido819L1njthL6/bBSYN
+	6UrasRqxnldxUcRcP33BeR1Sp/x4//c4nzEcBcBXeZzba7VxkGUFWo86J/a4eFNX45sb+K/Zn+S1F
+	P4ah2DCNFElQMqAsTRfXvIBfGgD9JtmiQX3r2zqpCIWV8haqam4Sd8cRYuRxfXOQWBhZVuMHu32FZ
+	AcptE2yAMuZHf0S9LwuJJUeso7O38MaGzYbN2FJI5B75H5iPK6aPoM9wn2PfFzQC+sfYoPmeC/3sF
+	I44qDmiNKaKLti40+qC7pd2R2tO1zkWdjUAKT8US7N46WDHdffKevkAmETZ3A4r+o/FLTg9tbN8Sf
+	zXrAcqxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQRF-000000074nt-0HXP;
-	Tue, 16 Sep 2025 07:49:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uyQRd-000000074zp-4Ai1;
+	Tue, 16 Sep 2025 07:49:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyQRC-000000074mZ-2NcS;
-	Tue, 16 Sep 2025 07:49:20 +0000
-Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:fcf9:6932:9f30:ab03])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CA1A2EC1;
-	Tue, 16 Sep 2025 09:47:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1758008876;
-	bh=0K2ndIPUcsxZYFawVHte97ZxYQVyku5PVXGa06xvoiE=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=a8A885MHl+p6S2+cVzoXH8JS+qsIpjE37+wwQdEtWw9MgrsfoU6JWWfhKvQ07DL7W
-	 iL+kAeb5HNTK8WQPJXTFRWJD8mQ+mZb6Ig/sCvHWSXb2NLhik22bpbpTFDHbxr0FZY
-	 /pjr39ew63H4+AmvyuvMSSYl96v1VbR01k4xxyXs=
-Content-Type: text/plain; charset="utf-8"
+	id 1uyQRb-000000074yV-2Oec
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Sep 2025 07:49:45 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58G3pefj013763
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:49:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=RD+ta9axnzkY+q3MqSd9MuBT
+	TuCWROaoN5jRYETLo/A=; b=I7buFBULgQ7+QkaIef/7yOl7UguC+gMEx0Ij5vpV
+	Noh/LrnFwwOJtcf+6VAhT1I2Ma+zWJ5wCa2mlpeKUR45GfzCFteXlkm2SZijoNlq
+	nmpN88Nh4gzW4+KseiaXIgZYmKOFP7QJAJyy4YBIdDWvVD3b4gMUP6NcIhH5TXoW
+	u8JDn90KmJjpKdF1eb+qLmBr0anruvwnCxQyEuyb30dOVfuA+BPqS97An+Ircd6L
+	iFwMRSscsmJETgBzzHdRdoGQF/eZVKMRv4q9fomluj5u6+KlMX+Y4yF7uvFZsUoB
+	SGmhn5kVGk4FPdg40H93BFbupKJHiJKzzeKJql3Cod/NDQ==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 496x5as1wb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 07:49:41 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b4f86568434so3899523a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 00:49:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758008979; x=1758613779;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RD+ta9axnzkY+q3MqSd9MuBTTuCWROaoN5jRYETLo/A=;
+        b=IKTKgfclWKT2tvqXyCc1YTuzL5ccdlzjS/Q8oH1bTJNuJOCT1ORNIr1h2yiUUhTWyf
+         gaJnD8ReK7u1hfu+c4AuUHW7C5SkB5F4nlH16Ub0rUVgrk66BHHg6dr/IvjdW3n3e5XC
+         iS8nZ1XyscvNCtCxw5koiZ3ZQX6b4vdy1IbSbhXg/yP34vqIl3FM+K5hKi51fMJmX8Bq
+         a8JN8vuYRxnSxUIMIX2m9ELUnBRPUbiI4qtSlX5W7own9SC6PnfGXHOPpvD6TkXpzrML
+         WHyau3pzrUT2SZLIz5mcWZTHgVb9Whsx09X1EiUR63wVVy9+fSxyWHc41QSrGoFkc8Lk
+         NK+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUYTCUY08mmbVxaGblRIDCwUuo0J8qJy1eymGzgNOuFEWzFdVeQIj1fV6Shqri81TO8M7a+UPXasaN6yn5nvCat@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzup82yuzMRMhb6lQKzQAUTdfZ5ZzHzIFTLLJIiDqpm/7OM4p8X
+	EQkHdmFTbLH0ApSIlWwbgWAKmR/AtGMom8k01NXI0PlrdZycBFZGy1raMdvCDn7PSoUdQ80xH7y
+	VKGMwAk0Z50Zgr+C4p1cb3JLGwjXyjWPu9cavGl043xb4Zn4IeZBHTvzqugSUhlTRXmPLIblZmQ
+	CGPA==
+X-Gm-Gg: ASbGnct4bUi94XqF7msvhrudLfwDPI1xzWUhqx6gOquemIx99UehnT395KgG2UfUWP6
+	xGAwdhHKvNSe2wpRQrGWu8GfWqbOyGusy7i01AWWD2I2W/giNsnFfQZ7vIaGsxXMX8jrWVzCXIG
+	RWrBaOEPpw++53TqI04S9qXNgYPm+7JbmEECIX8/T/HDYOnfuNDAdlJvh+iVPfN28A5OW4bmciD
+	5pnWdph7sPJTJBoQBiXccloEpa1GX7umykTDcu7xrTSu67OD781Q6xKXMeXziY5MvkNmz6FyL5L
+	KIFGSiQcMpcBf9i+TbKHDFMR6175FaTqtLlhz+sPXcPDOXsKX2yOmAF+ixCirfBMOGE=
+X-Received: by 2002:a05:6a20:258a:b0:249:d4b0:5b2c with SMTP id adf61e73a8af0-2602aa8a4d8mr21370482637.14.1758008979095;
+        Tue, 16 Sep 2025 00:49:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEwdeHuLtMjTN5imzmMBdIsYKSIeC/AVXoqz2e7UTSBmIIvssIp5vod3+KGhF2DpoYErJqm1A==
+X-Received: by 2002:a05:6a20:258a:b0:249:d4b0:5b2c with SMTP id adf61e73a8af0-2602aa8a4d8mr21370433637.14.1758008978380;
+        Tue, 16 Sep 2025 00:49:38 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7762c225d2asm9332136b3a.65.2025.09.16.00.49.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Sep 2025 00:49:38 -0700 (PDT)
+Date: Tue, 16 Sep 2025 13:19:29 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Eugen Hristev <eugen.hristev@linaro.org>
+Cc: kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
+        pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net,
+        david@redhat.com, mhocko@suse.com, tudor.ambarus@linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+        jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+        devicetree@vger.kernel.org
+Subject: Re: [RFC][PATCH v3 00/16] Introduce kmemdump
+Message-ID: <20250916074929.xiait75tbnbyjt4c@hu-mojha-hyd.qualcomm.com>
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <rthpkuipbpbp2lv2ddmruwb7fmpkmtlsnx3q6kk7gaskzpdaar@5bk3r44f2mpo>
-References: <20250908094200.48002-1-stefan.klug@ideasonboard.com> <rthpkuipbpbp2lv2ddmruwb7fmpkmtlsnx3q6kk7gaskzpdaar@5bk3r44f2mpo>
-Subject: Re: [PATCH] media: rkisp1: Improve frame sequence correctness on stats and params buffers
-From: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Tue, 16 Sep 2025 09:49:12 +0200
-Message-ID: <175800895207.653594.14948138348210533073@localhost>
-User-Agent: alot/0.12.dev8+g2c003385c862.d20250602
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+X-Proofpoint-GUID: Ct920RegfR42fQ1BC_cQiAROtX0JYPgV
+X-Proofpoint-ORIG-GUID: Ct920RegfR42fQ1BC_cQiAROtX0JYPgV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDAxMCBTYWx0ZWRfXzHgL4uMB48iC
+ xCdr38XnkTjMwWcUtpr54ZaPU5t9Oj1ISXsIT5pXauOlHS7knl2qq3vIes128jz7sejt8SfUFqS
+ 0omXNf6DFKNdGOoyEHZahNFdn5V3LLCQgzEJfW5C3vdH7x+7hpkRAaZA2/ntzBQCLW2mVKGIltw
+ +v6tx9hzaHXvaA0KmWEy5NJRNuXmeuAdbDSF0L/Jh6tntKfgj2E/nFIcPHvDXA1CQVIhtg7dNrV
+ FuV3ael7c7tATDEcjzrF8j42vg9ecHdmYILLUnOVa0GDeBhMjtnCfX8+AbNtopxd5483kCOa6d1
+ E0tN09H6bHuoO8ThXn05u4QAATwxGD4t6PS7yy+hfFL/U2LnXFC8+jDKedi536WGAVlaLNBK9bM
+ 0TG5DvKj
+X-Authority-Analysis: v=2.4 cv=WpQrMcfv c=1 sm=1 tr=0 ts=68c91696 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=yJojWOMRYYMA:10 a=Oh2cFVv5AAAA:8 a=VwQbUJbxAAAA:8
+ a=KKAkSRfTAAAA:8 a=vnREMb7VAAAA:8 a=COk6AnOGAAAA:8 a=bLXd17yOAAAA:8
+ a=1XWaLZrsAAAA:8 a=349LBZSuyFQcu3wEsZwA:9 a=CjuIK1q_8ugA:10
+ a=bFCP_H2QrGi7Okbo017w:22 a=7KeoIwV6GZqOttXkcoxL:22 a=cvBusfyB2V15izCimMoJ:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=XOuVWTVwyKTMzSnUH6Op:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-16_02,2025-09-12_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 adultscore=0 phishscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509160010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_004919_043461_6CF95AE6 
-X-CRM114-Status: GOOD (  44.13  )
+X-CRM114-CacheID: sfid-20250916_004943_736768_820CD9BC 
+X-CRM114-Status: GOOD (  52.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,185 +135,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+On Fri, Sep 12, 2025 at 06:08:39PM +0300, Eugen Hristev wrote:
+> kmemdump is a mechanism which allows the kernel to mark specific memory
+> areas for dumping or specific backend usage.
+> Once regions are marked, kmemdump keeps an internal list with the regions
+> and registers them in the backend.
+> Further, depending on the backend driver, these regions can be dumped using
+> firmware or different hardware block.
+> Regions being marked beforehand, when the system is up and running, there
+> is no need nor dependency on a panic handler, or a working kernel that can
+> dump the debug information.
+> The kmemdump approach works when pstore, kdump, or another mechanism do not.
+> Pstore relies on persistent storage, a dedicated RAM area or flash, which
+> has the disadvantage of having the memory reserved all the time, or another
+> specific non volatile memory. Some devices cannot keep the RAM contents on
+> reboot so ramoops does not work. Some devices do not allow kexec to run
+> another kernel to debug the crashed one.
+> For such devices, that have another mechanism to help debugging, like
+> firmware, kmemdump is a viable solution.
+> 
+> kmemdump can create a core image, similar with /proc/vmcore, with only
+> the registered regions included. This can be loaded into crash tool/gdb and
+> analyzed.
+> To have this working, specific information from the kernel is registered,
+> and this is done at kmemdump init time, no need for the kmemdump user to
+> do anything.
+> 
+> This version of the kmemdump patch series includes two backend drivers:
+> one is the Qualcomm Minidump backend, and the other one is the Debug Kinfo
+> backend for Android devices, reworked from this source here:
+> https://android.googlesource.com/kernel/common/+/refs/heads/android-mainline/drivers/android/debug_kinfo.c
+> written originally by Jone Chou <jonechou@google.com>
 
-Thank you for the review.
++Adding some pstore experts to bring this to their attention if this can
+be followed and if they find it useful.
 
-Quoting Jacopo Mondi (2025-09-15 18:55:44)
-> Hi Stefan
->=20
-> On Mon, Sep 08, 2025 at 11:41:48AM +0200, Stefan Klug wrote:
-> > On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
-> > handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
-> > and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
-> > commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
-> > debugfs var for irq delay") a warning was added for that. There are two
-> > cases where this condition can occur:
-> >
-> > 1. The v-sync and the frame-end belong to the same frame. This means,
-> >    the irq was heavily delayed and the warning is likely appropriate.
-> >
-> > 2. The v-sync belongs to the next frame. This can happen if the vertical
-> >    blanking between two frames is very short.
-> >
-> > The current code always handles case 1 although case 2 is in my
-> > experience the more common case and happens in regular usage. This leads
->=20
-> I would rather argue that 8524fa22fd2f is possibily wrong, and case 1)
-> would imply the interrupt has been delayed for the whole frame
-> duration (+ blanking), which seems unlikely to me ?
+Is not a good idea to add pstore as one of the backend of kmemdump so that all
+the kmemdump captured data automatically flow in a separate record(section) in
+pstore(e.g.,ram) so that all user of pstore automatically benefit from kmemdump
+captured data and later kmemdump section from ramoops can be recovered from
+userspace in next boot and crash utility can be run on that.
 
-I am not completely sure about that. I didn't hunt for that condition.
-Note that RKISP1_CIF_ISP_FRAME comes before the blanking. So I could
-imagine that this might occur for very small sensor crop rectangles at
-high datarates.
+              kmemdump captured data
+                |
+       ---------------------
+       |                   |
+       V                   V
+   Vendors firmware      pstore(ram)
+    backend               backend
+    (minidump)
 
->=20
-> True we handle stats collection and parameters programming in irq
-> context, which is less than ideal and could take time (I wonder if we
-> should use a threaded irq, but that's a different problem)
->=20
-> If that's the case and we only should care about 2) would simply
-> handling RKISP1_CIF_ISP_FRAME before RKISP1_CIF_ISP_V_START be enough ?
 
-That was my first try. But it felt not right to run a whole
-rkisp1_isp_isr() with frame_sequence being set to -1. And as I believe
-that there is at least a slight chance that 1) might occur, I'd prefer
-frame_sequence to be 0 in that case.
+Thanks,
+-Mukesh
 
->=20
-> > to incorrect sequence numbers on stats and params buffers which in turn
-> > breaks the regulation in user space. Fix that by adding a frame_active
-> > flag to distinguish between these cases and handle the start of frame
-> > either at the beginning or at the end of the rkisp1_isp_isr().
-> >
-> > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> > ---
-> >  .../platform/rockchip/rkisp1/rkisp1-common.h    |  1 +
-> >  .../media/platform/rockchip/rkisp1/rkisp1-isp.c | 17 +++++++++++++----
-> >  2 files changed, 14 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/d=
-rivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > index ca952fd0829b..adf23416de9a 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > @@ -222,6 +222,7 @@ struct rkisp1_isp {
-> >       struct media_pad pads[RKISP1_ISP_PAD_MAX];
-> >       const struct rkisp1_mbus_info *sink_fmt;
-> >       __u32 frame_sequence;
-> > +     bool frame_active;
-> >  };
-> >
-> >  /*
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/driv=
-ers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > index 8c29a1c9309a..1469075b2d45 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *=
-sd, int enable)
-> >       }
-> >
-> >       isp->frame_sequence =3D -1;
-> > +     isp->frame_active =3D false;
-> >
-> >       sd_state =3D v4l2_subdev_lock_and_get_active_state(sd);
-> >
-> > @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device=
- *rkisp1)
-> >   * Interrupt handlers
-> >   */
-> >
-> > -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
-> > +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
-> >  {
-> >       struct v4l2_event event =3D {
-> >               .type =3D V4L2_EVENT_FRAME_SYNC,
-> >       };
-> >
-> > +     isp->frame_sequence++;
-> > +     isp->frame_active =3D true;
-> > +
-> >       event.u.frame_sync.frame_sequence =3D isp->frame_sequence;
-> >       v4l2_event_queue(isp->sd.devnode, &event);
-> >  }
-> > @@ -1112,14 +1116,15 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
-> >       rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
-> >
-> >       /* Vertical sync signal, starting generating new frame */
-> > -     if (status & RKISP1_CIF_ISP_V_START) {
-> > -             rkisp1->isp.frame_sequence++;
-> > -             rkisp1_isp_queue_event_sof(&rkisp1->isp);
-> > +     if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)=
- {
-> > +             status &=3D ~RKISP1_CIF_ISP_V_START;
-> > +             rkisp1_isp_sof(&rkisp1->isp);
-> >               if (status & RKISP1_CIF_ISP_FRAME) {
-> >                       WARN_ONCE(1, "irq delay is too long, buffers migh=
-t not be in sync\n");
-> >                       rkisp1->debug.irq_delay++;
-> >               }
-> >       }
-> > +
-> >       if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
-> >               /* Clear pic_size_error */
-> >               isp_err =3D rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
-> > @@ -1138,6 +1143,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
-> >       if (status & RKISP1_CIF_ISP_FRAME) {
-> >               u32 isp_ris;
-> >
-> > +             rkisp1->isp.frame_active =3D false;
-> >               rkisp1->debug.complete_frames++;
-> >
-> >               /* New frame from the sensor received */
-> > @@ -1152,5 +1158,8 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
-> >               rkisp1_params_isr(rkisp1);
-> >       }
-> >
-> > +     if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)
->=20
-> I think you can drop the  && !rkisp1->isp.frame_active because if you
-> get here and 'status & RKISP1_CIF_ISP_V_START' it means that:
->=20
-> 1) frame_active was false and you have entered the above
->=20
->         if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)=
- {
->=20
->    and now the RKISP1_CIF_ISP_V_START bit in 'status' has been cleared
->    so you don't need to handle VSYNC here
->=20
-> 2) frame_active was true and you delayed handling V_START till here.
->    If also ISP_FRAME was set, frame_start has been set to false here
->    above. If ISP_FRAME was not set then it has been delivered by a
->    previous interrupt and then frame_start is false.
->=20
-> So I guess it's enough to check if at this point RKISP1_CIF_ISP_V_START
-> is still set in 'status' ?
+> 
+> *** History, motivation and available online resources ***
+> 
+> Initial version of kmemdump and discussion is available here:
+> https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
+> 
+> Kmemdump has been presented and discussed at Linaro Connect 2025,
+> including motivation, scope, usability and feasability.
+> Video of the recording is available here for anyone interested:
+> https://www.youtube.com/watch?v=r4gII7MX9zQ&list=PLKZSArYQptsODycGiE0XZdVovzAwYNwtK&index=14
+> 
+> Linaro blog on kmemdump can be found here:
+> https://www.linaro.org/blog/introduction-to-kmemdump/
+> 
+> The implementation is based on the initial Pstore/directly mapped zones
+> published as an RFC here:
+> https://lore.kernel.org/all/20250217101706.2104498-1-eugen.hristev@linaro.org/
+> 
+> The back-end implementation for qcom_minidump is based on the minidump
+> patch series and driver written by Mukesh Ojha, thanks:
+> https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
+> 
+> The RFC v2 version with .section creation and macro annotation kmemdump
+> is available here:
+> https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
+> 
+> *** How to use kmemdump with minidump backend on Qualcomm platform guide ***
+> 
+> Prerequisites:
+> Crash tool compiled with target=ARM64 and minor changes required for usual crash
+> mode (minimal mode works without the patch)
+> A patch can be applied from here https://p.calebs.dev/49a048
+> This patch will be eventually sent in a reworked way to crash tool.
+> 
+> Target kernel must be built with :
+> CONFIG_DEBUG_INFO_REDUCED=n ; this will have vmlinux include all the debugging
+> information needed for crash tool.
+> 
+> Also, the kernel requires these as well:
+> CONFIG_KMEMDUMP, CONFIG_KMEMDUMP_COREIMAGE, and the backend
+> CONFIG_KMEMDUMP_QCOM_MINIDUMP_BACKEND
+> 
+> Kernel arguments:
+> Kernel firmware must be set to mode 'mini' by kernel module parameter
+> like this : qcom_scm.download_mode=mini
+> 
+> After the kernel boots, and qcom_minidump module is loaded, everything is ready for
+> a possible crash.
+> 
+> Once the crash happens, the firmware will kick in and you will see on
+> the console the message saying Sahara init, etc, that the firmware is
+> waiting in download mode. (this is subject to firmware supporting this
+> mode, I am using sa8775p-ride board)
+> 
+> Example of log on the console:
+> "
+> [...]
+> B -   1096414 - usb: init start
+> B -   1100287 - usb: qusb_dci_platform , 0x19
+> B -   1105686 - usb: usb3phy: PRIM success: lane_A , 0x60
+> B -   1107455 - usb: usb2phy: PRIM success , 0x4
+> B -   1112670 - usb: dci, chgr_type_det_err
+> B -   1117154 - usb: ID:0x260, value: 0x4
+> B -   1121942 - usb: ID:0x108, value: 0x1d90
+> B -   1124992 - usb: timer_start , 0x4c4b40
+> B -   1129140 - usb: vbus_det_pm_unavail
+> B -   1133136 - usb: ID:0x252, value: 0x4
+> B -   1148874 - usb: SUPER , 0x900e
+> B -   1275510 - usb: SUPER , 0x900e
+> B -   1388970 - usb: ID:0x20d, value: 0x0
+> B -   1411113 - usb: ENUM success
+> B -   1411113 - Sahara Init
+> B -   1414285 - Sahara Open
+> "
+> 
+> Once the board is in download mode, you can use the qdl tool (I
+> personally use edl , have not tried qdl yet), to get all the regions as
+> separate files.
+> The tool from the host computer will list the regions in the order they
+> were downloaded.
+> 
+> Once you have all the files simply use `cat` to put them all together,
+> in the order of the indexes.
+> For my kernel config and setup, here is my cat command : (you can use a script
+> or something, I haven't done that so far):
+> 
+> `cat memory/md_KELF1.BIN memory/md_Kvmcorein2.BIN memory/md_Kconfig3.BIN \
+> memory/md_Kmemsect4.BIN memory/md_Ktotalram5.BIN memory/md_Kcpu_poss6.BIN \
+> memory/md_Kcpu_pres7.BIN memory/md_Kcpu_onli8.BIN memory/md_Kcpu_acti9.BIN \
+> memory/md_Kjiffies10.BIN memory/md_Klinux_ba11.BIN memory/md_Knr_threa12.BIN \
+> memory/md_Knr_irqs13.BIN memory/md_Ktainted_14.BIN memory/md_Ktaint_fl15.BIN \
+> memory/md_Kmem_sect16.BIN memory/md_Knode_dat17.BIN memory/md_Knode_sta18.BIN \
+> memory/md_K__per_cp19.BIN memory/md_Knr_swapf20.BIN memory/md_Kinit_uts21.BIN \
+> memory/md_Kprintk_r22.BIN memory/md_Kprintk_r23.BIN memory/md_Kprb24.BIN \
+> memory/md_Kprb_desc25.BIN memory/md_Kprb_info26.BIN memory/md_Kprb_data27.BIN \
+> memory/md_Krunqueue28.BIN memory/md_Khigh_mem29.BIN memory/md_Kinit_mm30.BIN \
+> memory/md_Kinit_mm_31.BIN memory/md_Kunknown32.BIN memory/md_Kunknown33.BIN \
+> memory/md_Kunknown34.BIN  memory/md_Kunknown35.BIN memory/md_Kunknown36.BIN \
+> memory/md_Kunknown37.BIN memory/md_Kunknown38.BIN memory/md_Kunknown39.BIN \
+> memory/md_Kunknown40.BIN memory/md_Kunknown41.BIN memory/md_Kunknown42.BIN \
+> memory/md_Kunknown43.BIN memory/md_Kunknown44.BIN memory/md_Kunknown45.BIN \
+> memory/md_Kunknown46.BIN memory/md_Kunknown49.BIN  memory/md_Kunknown50.BIN \
+> memory/md_Kunknown51.BIN > ~/minidump_image`
+> 
+> Once you have the resulted file, use `crash` tool to load it, like this:
+> `./crash --no_modules --no_panic --no_kmem_cache --zero_excluded vmlinux minidump_image`
+> 
+> There is also a --minimal mode for ./crash that would work without any patch applied
+> to crash tool, but you can't inspect symbols, etc.
+> 
+> Once you load crash you will see something like this :
+> 
+>       KERNEL: /home/eugen/linux-minidump/vmlinux  [TAINTED]
+>     DUMPFILE: /home/eugen/new
+>         CPUS: 8 [OFFLINE: 5]
+>         DATE: Thu Jan  1 02:00:00 EET 1970
+>       UPTIME: 00:00:22
+>        TASKS: 0
+>     NODENAME: qemuarm64
+>      RELEASE: 6.17.0-rc5-next-20250910-00020-g7dfa02aeae7e
+>      VERSION: #116 SMP PREEMPT Thu Sep 11 18:28:06 EEST 2025
+>      MACHINE: aarch64  (unknown Mhz)
+>       MEMORY: 34.2 GB
+>        PANIC: ""
+> crash> log
+> [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd4b2]
+> [    0.000000] Linux version 6.17.0-rc5-next-20250910-00020-g7dfa02aeae7e (eugen@eugen-station) (aarch64-none-linux-gnu-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614, GNU ld (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 2.42.0.20240614) #116 SMP PREEMPT Thu Sep 11 18:28:06 EEST 2025
+> 
+> 
+> *** Debug Kinfo backend driver ***
+> I don't have any device to actually test this. So I have not.
+> I hacked the driver to just use a kmalloc'ed area to save things instead
+> of the shared memory, and dumped everything there and checked whether it is identical
+> with what the downstream driver would have saved.
+> So this synthetic test passed and memories are identical.
+> Anyone who actually wants to test this, feel free to reply to the patch.
+> I have also written a simple DT binding for the driver.
+> 
+> Thanks for everyone reviewing and bringing ideas into the discussion.
+> 
+> Eugen
+> 
+> Changelog since the v2 of the RFC:
+> - V2 available here : https://lore.kernel.org/all/20250724135512.518487-1-eugen.hristev@linaro.org/
+> - Removed the .section as requested by David Hildenbrand.
+> - Moved all kmemdump registration(when possible) to vmcoreinfo.
+> - Because of this, some of the variables that I was registering had to be non-static
+> so I had to modify this as per David Hildenbrand suggestion.
+> - Fixed minor things in the Kinfo driver: one field was broken, fixed some
+> compiler warnings, fixed the copyright and remove some useless includes.
+> - Moved the whole kmemdump from drivers/debug into mm/ and Kconfigs into mm/Kconfig.debug
+> and it's now available in kernel hacking, as per Randy Dunlap review
+> - Reworked some of the Documentation as per review from Jon Corbet
+> 
+> 
+> Changelog since the v1 of the RFC:
+> - V1 available here: https://lore.kernel.org/lkml/20250422113156.575971-1-eugen.hristev@linaro.org/
+> - Reworked the whole minidump implementation based on suggestions from Thomas Gleixner.
+> This means new API, macros, new way to store the regions inside kmemdump
+> (ditched the IDR, moved to static allocation, have a static default backend, etc)
+> - Reworked qcom_minidump driver based on review from Bjorn Andersson
+> - Reworked printk log buffer registration based on review from Petr Mladek
+> 
+> I appologize if I missed any review comments. I know there is still lots of work
+> on this series and hope I will improve it more and more.
+> Patches are sent on top of next-20250910
+> 
+> Eugen Hristev (16):
+>   kmemdump: Introduce kmemdump
+>   Documentation: Add kmemdump
+>   kmemdump: Add coreimage ELF layer
+>   Documentation: kmemdump: Add section for coreimage ELF
+>   kernel/vmcore_info: Register dynamic information into Kmemdump
+>   kmemdump: Introduce qcom-minidump backend driver
+>   soc: qcom: smem: Add minidump device
+>   init/version: Add banner_len to save banner length
+>   genirq/irqdesc: Have nr_irqs as non-static
+>   panic: Have tainted_mask as non-static
+>   mm/swapfile: Have nr_swapfiles as non-static
+>   printk: Register information into Kmemdump
+>   sched: Add sched_get_runqueues_area
+>   kernel/vmcoreinfo: Register kmemdump core image information
+>   kmemdump: Add Kinfo backend driver
+>   dt-bindings: Add Google Kinfo
+> 
+>  Documentation/dev-tools/index.rst             |   1 +
+>  Documentation/dev-tools/kmemdump.rst          | 139 +++++++
+>  .../bindings/misc/google,kinfo.yaml           |  36 ++
+>  MAINTAINERS                                   |  19 +
+>  drivers/soc/qcom/smem.c                       |  10 +
+>  include/linux/kmemdump.h                      | 130 +++++++
+>  include/linux/printk.h                        |   1 +
+>  init/version-timestamp.c                      |   1 +
+>  init/version.c                                |   1 +
+>  kernel/irq/irqdesc.c                          |   2 +-
+>  kernel/panic.c                                |   2 +-
+>  kernel/printk/printk.c                        |  47 +++
+>  kernel/sched/core.c                           |  15 +
+>  kernel/sched/sched.h                          |   2 +
+>  kernel/vmcore_info.c                          | 149 ++++++++
+>  mm/Kconfig.debug                              |   2 +
+>  mm/Makefile                                   |   1 +
+>  mm/kmemdump/Kconfig.debug                     |  53 +++
+>  mm/kmemdump/Makefile                          |   6 +
+>  mm/kmemdump/kinfo.c                           | 293 +++++++++++++++
+>  mm/kmemdump/kmemdump.c                        | 234 ++++++++++++
+>  mm/kmemdump/kmemdump_coreimage.c              | 222 +++++++++++
+>  mm/kmemdump/qcom_minidump.c                   | 353 ++++++++++++++++++
+>  mm/swapfile.c                                 |   2 +-
+>  24 files changed, 1718 insertions(+), 3 deletions(-)
+>  create mode 100644 Documentation/dev-tools/kmemdump.rst
+>  create mode 100644 Documentation/devicetree/bindings/misc/google,kinfo.yaml
+>  create mode 100644 include/linux/kmemdump.h
+>  create mode 100644 mm/kmemdump/Kconfig.debug
+>  create mode 100644 mm/kmemdump/Makefile
+>  create mode 100644 mm/kmemdump/kinfo.c
+>  create mode 100644 mm/kmemdump/kmemdump.c
+>  create mode 100644 mm/kmemdump/kmemdump_coreimage.c
+>  create mode 100644 mm/kmemdump/qcom_minidump.c
+> 
+> -- 
+> 2.43.0
+> 
 
-I think you are right. I can't come up with a sane condition where
-frame_active=3D=3Dtrue and RKISP1_CIF_ISP_V_START is set and we *don't* want
-to increase the frame count. I'll drop that condition.
-
->=20
-> However, as said, it's seems unlikely to that your above 1) can
-> happen. Have you ever hit a WARN() again with this patch applied ?
-
-I don't remember seeing it again. But as noted above, I didn't try to
-provoke it and took the "better safe than sorry" route. Could you go
-with that?
-
-Best regards,
-Stefan
-
->=20
-> > +             rkisp1_isp_sof(&rkisp1->isp);
-> > +
-> >       return IRQ_HANDLED;
-> >  }
-> > --
-> > 2.48.1
-> >
-> >
+-- 
+-Mukesh Ojha
 
