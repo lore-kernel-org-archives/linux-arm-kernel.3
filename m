@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98E4CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A71CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Sep 2025 20:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DW1/S0HVtCpYcF972l1YzNF340ZyEzAGVm8BR6/or/8=; b=qiNI0g1H3As5GOAtCLr24Wid2a
-	VAEzD2bxOYOInMlKrgXs7gzl8MNccaUB8C1l/dGmz209lMuiCv9zqvXr/Kz5HVzQjvt5vgs8E4x65
-	1JTMfmdwq86If4SB5tKLIh+S5kJpg6FeSBfapKH0GAU8eclqEa81g9SBDsKmcYKdtc4FdquykPzuD
-	X42zNmWSbXrMvAlqferYdqmsTYyy7IjOtp5nGSanxocWTk/a5JTg3RSQD7106jh+WXkIGFxTBuVle
-	2AUyRN/vS+tHNiCyAhTSE1o3mcfrlbyYfi7amMZfJnrhIFddMkN5zW0RCWqtD+3EDnd9aHEpbeF7D
-	Uy7CPQ1Q==;
+	bh=CZMSps6hgFDIpP9RxgvUc7h5gme0+z9CSV4o5tWm9tg=; b=lHUFLecjcY8uj2nloflvdPaBg9
+	RCKMoQkhg3WAJybUTAt3WetIMrSRLTs/tLkPqNbUnPCNrmmQdNM1XyWZ6SiOVsbJ6+XRngGJIrpV2
+	9F8W3MfQExge/qOCCLnFMshiu+MD6wK65eFnBwbQwRJZDa0Jkszp4ZuYL0gIdCXXH1L8Vbmjv5faC
+	6y6lywSr0IFZP2mm7KanP1ig9VEWjBkzAtU5AC7xvLICMHspTbZybfeIOD3cCojoQZdEzk78kUS1v
+	3scis/K5auo72Xsc77ktXjZMVzB27FUNwK+uRnrodrwWITIzkPGccpm0MuYqzgyxzxO33Vv4e5HgU
+	qjGKKzqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycF7-000000090vP-2eBP;
-	Tue, 16 Sep 2025 20:25:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uycF8-000000090wm-23va;
+	Tue, 16 Sep 2025 20:25:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uycEv-000000090iF-3bcU;
-	Tue, 16 Sep 2025 20:25:26 +0000
+	id 1uycEx-000000090jT-07rJ;
+	Tue, 16 Sep 2025 20:25:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F8B944074;
-	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 00F17C4CEF9;
-	Tue, 16 Sep 2025 20:25:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5BFA660251;
+	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A674C4AF09;
+	Tue, 16 Sep 2025 20:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758054325;
-	bh=g8WKS6OWWxn2i9b93Vms3rDWq8kUvZxINbkSWPCdUAg=;
+	s=k20201202; t=1758054326;
+	bh=B44iCTmbdkKyp2fHglpeuA0FgGRACa5ozdrUyEJewhg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ngdC1s+8aKoELBX4ttC402zvWkjkBhpUXSFAfc8yZIPOIJQESQSAmr92qwfyf4ISL
-	 aV71PAQWX5zh/MDkk89hEAG6X1g5iO1KTkUznbCOZOFoQxfLcfOKLVFR93qLPdZoGU
-	 TfF+S8w5u/Ru+Hf758byUnWrjqdV1Gpk3rMef10MINTa/RUFAPPu4YFuBLM7wHjCN9
-	 4WSRAOnBUBR06RovRp6a8scMic+jYtIVJ0vTRod+T3bx9Aj/8iAsISJa8sdMSZtrGb
-	 BsFvzyES5fd9H8Wv8hmQ31rxJSFA+Em+eeGxOhJzdEYDzVY5D8/Oljd2fOxCXO/06R
-	 gITtXiOdLeB9w==
+	b=NAEBA1y1K4tD/khRpZK6HkipNJr1YfntYnA1W8a1MzEjPiEZDlIUbUrvu6Vu+pe0p
+	 dE4zzG04EM+hdn+JeTZRE7swY4dzT+d3zaZlfXt1w080wMyHCp0vmyNmcQfp1EpRk4
+	 +M5cgboJT5xIC7A1o9d3niTws0pIR9ymJ32HRLpSvJHNUrZoq77nijq2oVbdqcCnFX
+	 18h9UHBn499TLmGp8F2huiSkDw3kNFZHs2OGD4zQ9TR7ELKLZlLg2bYtnrgFtG4mkE
+	 PjuOKrBP49md3posUyZxios2JUQ0yCVcmx4UwALtpQvdrA7nF/kp1Haj/rVzLgd/N6
+	 8HwSnuIEXZLzw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E7723CAC59B;
-	Tue, 16 Sep 2025 20:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F3DD7CAC59F;
+	Tue, 16 Sep 2025 20:25:25 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Wed, 17 Sep 2025 03:24:58 +0700
-Subject: [PATCH 01/25] ARM: dts: unisoc: rda8810pl: Add label to GPIO nodes
+Date: Wed, 17 Sep 2025 03:25:15 +0700
+Subject: [PATCH 18/25] dt-bindings: dma: Add RDA IFC DMA
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-rda8810pl-drivers-v1-1-9ca9184ca977@mainlining.org>
+Message-Id: <20250917-rda8810pl-drivers-v1-18-9ca9184ca977@mainlining.org>
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 In-Reply-To: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,20 +71,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-mmc@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=1425;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758054322; l=2537;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=gehgcAARQ8SuL4G+2lQ4aVqQ18cLEbIKhDsg1ccbtlY=;
- b=vkVKhU4yFFQMGNx4j1vlk9SkqiDmkH60RhCQ7wo0S9uGQumeaKqLqNlS0OScNrteBhazOecZ8
- T9KNvTq6xRZAUqrRvG/mu3SAX3P636QQs8gFg7biuveiCHR5chOs6NK
+ bh=QY6MPTi+ZEpXp5sbdSrBjaqgS0Xhdu1ZPCH1WF+g14Y=;
+ b=f+73zCYT5uq1k6ilgLXi33C+NRy7J+fTOa4N/swr6XCdLJaXbG/yOKqpUhJI3D/PqTqY8XU0k
+ QkM4vE+PJ/5Cn0iUPmzJgeqVeko3jz25IKQyFfbLa/CoguJ6psdmMSc
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
  with auth_id=526
 X-Original-From: Dang Huynh <dang.huynh@mainlining.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_132525_943002_69B725DC 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +98,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-So we can add devices to these GPIO nodes for each board.
+The Intelligent Flow Controller (IFC) is a scatter/gather DMA
+controller.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- arch/arm/boot/dts/unisoc/rda8810pl.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/dma/rda,ifc.yaml | 42 ++++++++++++++++++++++
+ include/dt-bindings/dma/rda-ifc.h                  | 28 +++++++++++++++
+ 2 files changed, 70 insertions(+)
 
-diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-index f30d6ece49fb33d9c5c3ad9522c83bb8e4f8b488..6553fc102c6751696e75e4de614fc3428d182061 100644
---- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-+++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-@@ -39,7 +39,7 @@ modem@10000000 {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x10000000 0xfffffff>;
- 
--		gpioc@1a08000 {
-+		gpioc: gpioc@1a08000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x1a08000 0x1000>;
- 			gpio-controller;
-@@ -76,7 +76,7 @@ timer@10000 {
- 			interrupt-names = "hwtimer", "ostimer";
- 		};
- 
--		gpioa@30000 {
-+		gpioa: gpioa@30000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x30000 0x1000>;
- 			gpio-controller;
-@@ -87,7 +87,7 @@ gpioa@30000 {
- 			interrupts = <12 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
--		gpiob@31000 {
-+		gpiob: gpiob@31000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x31000 0x1000>;
- 			gpio-controller;
-@@ -98,7 +98,7 @@ gpiob@31000 {
- 			interrupts = <13 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
--		gpiod@32000 {
-+		gpiod: gpiod@32000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x32000 0x1000>;
- 			gpio-controller;
+diff --git a/Documentation/devicetree/bindings/dma/rda,ifc.yaml b/Documentation/devicetree/bindings/dma/rda,ifc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..3bb5932e8ff9404e3980eaef607efceb6d883bda
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/rda,ifc.yaml
+@@ -0,0 +1,42 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/rda,ifc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RDA Intelligent Flow Controller (IFC)
++
++maintainers:
++  - Dang Huynh <dang.huynh@mainlining.org>
++
++description: |
++  RDA IFC is a DMA controller, it only supports scatter/gather lists.
++
++allOf:
++  - $ref: dma-controller.yaml#
++
++properties:
++  compatible:
++    const: rda,8810pl-ifc
++
++  reg:
++    maxItems: 1
++
++  "#dma-cells":
++    const: 1
++    description:
++      The cell corresponding to DMA request ID
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    ifc: dma-controller@f0000 {
++      compatible = "rda,8810pl-ifc";
++      reg = <0xf0000 0x1000>;
++      #dma-cells = <1>;
++    };
+diff --git a/include/dt-bindings/dma/rda-ifc.h b/include/dt-bindings/dma/rda-ifc.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..e075fe26158e834d1ae87b6dce61e41fb931add3
+--- /dev/null
++++ b/include/dt-bindings/dma/rda-ifc.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
++
++#ifndef __DT_BINDINGS_DMA_RDA_IFC_H__
++#define __DT_BINDINGS_DMA_RDA_IFC_H__
++
++#define IFC_UART1_TX 0
++#define IFC_UART1_RX 1
++#define IFC_UART2_TX 2
++#define IFC_UART2_RX 3
++#define IFC_SPI1_TX 4
++#define IFC_SPI1_RX 5
++#define IFC_SPI2_TX 6
++#define IFC_SPI2_RX 7
++#define IFC_SPI3_TX 8
++#define IFC_SPI3_RX 9
++#define IFC_SDMMC1_TX 10
++#define IFC_SDMMC1_RX 11
++#define IFC_SDMMC2_TX 12
++#define IFC_SDMMC2_RX 13
++#define IFC_SDMMC3_TX 14
++#define IFC_SDMMC3_RX 15
++#define IFC_NFSC_TX 16
++#define IFC_NFSC_RX 17
++#define IFC_UART3_TX 18
++#define IFC_UART3_RX 19
++#define IFC_NO_REQUEST 20
++
++#endif /* __DT_BINDINGS_DMA_RDA_IFC_H__ */
 
 -- 
 2.51.0
