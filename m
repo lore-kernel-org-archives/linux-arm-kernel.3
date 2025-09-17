@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9FCCAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 22:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314D8CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 22:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=sJ+im9XneAdaKz9xDefvDnY5ZJQNie8g4V5BehOAq3o=; b=4HiX7BIuuWfLYY
-	MbHRPyYwb+vbLdzzNSrrLcTFZd4HRDatfkxrmAodHuLryAmkHGeN8PxIrM6Egjif2Z1ciqHufEmuI
-	/siXDvoAUNwNvvIEV71ATRxBEUhcUy/rlhrIFF4xTi9KfQlyW7B6TPKwtzQ4/6wJwdh7lgNsJDNxv
-	Rm2LWOW7X6QOGtqPARM0qF7UIC4DBZN6/tNDhZCoWJeocvV1S4UL2QqmhVDRQLmVvaHsjZyTsL46a
-	jsO4PWh7LMEZgcZ3RKcMmRJ7keefdlkeYt1DjCyD1mQZrFOXwyIpdDlYZMxHorUFFxJmYQM2T4EFZ
-	8GbqQ7D67zO61YYRhPGw==;
+	List-Owner; bh=AQEhGPAGapHSg5qquRV2E42XYlhXgDfD1VzKJMYPb3E=; b=qEqE4DvYQa07LL
+	ZjZse/cKmesHONHFSithIeIIgqzPmqwl4Ewj7J8cKkNjTn21UA5edM0PdF1LSp0ptfOSZSO+rDusa
+	ab7+Ps0QvOtkR1zbx9Fq3qg5zb++sgt3QYz+gd0C1WdEJ1++W7YfSZ4me2EvWPx2gY+pL1mdWwcLR
+	QV9NB1b1xA6BQMmTKOfgx7iY+OY9sIfGDa9ox6WM6+6yxQVdmQpmGCJpebnrc6ld3l1sbHwwbLwhS
+	qCtMWIQhAHr6XBofpplLnyaSGqIRzWaZGRn6bHa4lyhI2nhY+JWxovpvpY9oOjJ3y+Du/CI4hg1Jf
+	TFdl4np72sSnUvPCKF/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz0Ol-0000000FB7l-1SYj;
-	Wed, 17 Sep 2025 22:13:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uz0TR-0000000FCgO-46jj;
+	Wed, 17 Sep 2025 22:18:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz0Oj-0000000FB7P-1LE1
+	id 1uz0TQ-0000000FCfX-1JYL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 22:13:10 +0000
+	Wed, 17 Sep 2025 22:18:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A18C540989;
-	Wed, 17 Sep 2025 22:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C506C4CEE7;
-	Wed, 17 Sep 2025 22:13:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6387D60055;
+	Wed, 17 Sep 2025 22:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3043C4CEE7;
+	Wed, 17 Sep 2025 22:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758147188;
-	bh=nRhOXcIKGpSGtX2j3Z7sQdDPzcHkUdRka8dIo7+u2MM=;
+	s=k20201202; t=1758147479;
+	bh=fbdW+KLDFPxSjGQleOs2jS1S1g6p2m+vvMK1Y9c6Oso=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=BaKTMrT1udkFpO61y+Hb4PIDaqrTRP5+K4vQcHhu3ukTFmGGuFhiyBJFYJrcVQOb9
-	 Yp+FgtddGxOhXyXQ479M/AYNZAjCbF7W3oTzy0AOE7LQIGXEV+GEmcWss7f11dqTde
-	 JNK2/5fySEjH8S3B5iDRzx79wWjGU+JjbX1/h0WdEColE08kYHmT+nU2pIluwYB1rA
-	 T9p/acvm2s8Slk8W+oRgopfbQSJ05X8ixNAO+H8hVoF+SwQ8ZtxZMh8WOcFsE375Xf
-	 0IjqXKbOYV9D5j9+YmPhWEDZCPnelCPCPIGlzcyKHXk2KJ7XQMJREtdO/irULVANoL
-	 d9uVDvLmgJAFQ==
-Date: Wed, 17 Sep 2025 17:13:06 -0500
+	b=WiO9y55NLHOAOCK2KmkjN2HDDGG1i3ZDMfTVlWD/l7IniL/n/Hy0DW5q2oKUhsMQf
+	 D6WTIEo2Jpc+/pcaoe9kxfHk+Xl8UQDzhAYQn4HvLggUwJQHT62ZnMngLU0e0MiN+x
+	 wjI685uwrPsmZl9sM06ejL9L91e758An1sU/1efbR6q5EfEtNPFzo0qFzAHWp8f2sq
+	 41/EKx+3Hl6Mq5fxI2lHZ/S0MA1qGtWiEwVy4bgKPbYr48hqNGPu55/CJWRCmabGks
+	 EFOfN1DKIC/VClQNU8Sxw8ZWoUJEsiPTSUgU0G1BIZ3y68Sn+dtaneBPSPm8WKoVr7
+	 5WVI/lJhM+tMQ==
+Date: Wed, 17 Sep 2025 17:17:57 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Richard Zhu <hongxing.zhu@nxp.com>
 Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
@@ -52,16 +52,13 @@ Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
 	festevam@gmail.com, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/3] dt-bindings: PCI: dwc: Add one more reference
- clock
-Message-ID: <20250917221306.GA1878395@bhelgaas>
+Subject: Re: [PATCH v6 2/3] dt-bindings: pci-imx6: Add one more external
+ reference clock
+Message-ID: <20250917221757.GA1878979@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917045238.1048484-2-hongxing.zhu@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_151309_386302_6C93515E 
-X-CRM114-Status: GOOD (  17.49  )
+In-Reply-To: <20250917045238.1048484-3-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +73,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the subject, can you replace "one more" with something specific?
-E.g., maybe "Add external reference clock input" or similar?
+Update subject line similar to patch 1/3?
 
-On Wed, Sep 17, 2025 at 12:52:36PM +0800, Richard Zhu wrote:
-> Add one more reference clock "extref" for a reference clock that comes
-> from external crystal oscillator.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> index 34594972d8db..0134a759185e 100644
-> --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> @@ -105,6 +105,12 @@ properties:
->              define it with this name (for instance pipe, core and aux can
->              be connected to a single source of the periodic signal).
->            const: ref
-> +        - description:
-> +            Some dwc wrappers (like i.MX95 PCIes) have two reference clock
-> +            inputs, one from an internal PLL, the other from an off-chip crystal
-> +            oscillator. If present, 'extref' refers to a reference clock from
-> +            an external oscillator.
-> +          const: extref
->          - description:
->              Clock for the PHY registers interface. Originally this is
->              a PHY-viewport-based interface, but some platform may have
-> -- 
-> 2.37.1
-> 
+Also, I notice most binding commits include "PCI:", e.g.,
+
+  dt-bindings: PCI: brcm,stb-pcie: ...
+  dt-bindings: PCI: qcom: ...
+  dt-bindings: PCI: altera ...
+
+On Wed, Sep 17, 2025 at 12:52:37PM +0800, Richard Zhu wrote:
+> i.MX95 PCIes have two reference clock inputs: one from internal PLL,
+> the other from off chip crystal oscillator. Use extref clock name to be
+> onhalf of the reference clock comes from external crystal oscillator.
+
+Not sure what "onhalf" means.  Maybe it means something like this?
+
+  The "extref" clock refers to a reference clock from an external
+  crystal oscillator.
+
+Same issue in patch 3/3.
+
+> Add one more external reference clock for i.MX95 PCIes.
 
