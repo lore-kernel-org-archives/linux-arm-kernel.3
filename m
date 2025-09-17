@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004C8CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FE4CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKIi0oR0+vdozASxcRBulxOIRwwjLIxYBZkCUe8TJ5E=; b=B/scg0ICmxbY82uz6RHZROR8Bd
-	yLmvkzDygtQgTD0fSoPfnK1KOOLCSiVm1xme010OQgexwH47s7StjEM7AUteMPuj/3vpEUGNDHQRp
-	EasbuDaItc0HHVDwWmdfDtqDhuwWhwu3DzdicPwL2mNotlboBP12jJqXZCm/NfkiiX97vqj6JKxhd
-	hhsyc800sDCMtK5RZGGOEJwYSNckGEhc+1KfqpDuOmDHALsmYTLrsceHUfQjrExcOJRjzhnRNByMn
-	BWxBOVOHZ/GE+sQJdhvKVhjH9kJk7hRiFyr/G0Wyv9+OKLok1DRM0uiQNUcAMgW31kGfGFP8kzxwy
-	9fzQVYNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fe6MMyezrpEMFfpdK9szCBHQyXGkvJKTY5DNaPLALKM=; b=BkUrrlsKCFfcoqG2yaQ8NTR68Q
+	PguRCDsbu85vfpCjVuvJq51HaoJL4SbS/H5amUYtrG0TaeAMlTZv/kwQMPSmBjlr8WYlxGVctoM+W
+	QIfBOSyVrktPKuZJzHegwS7dSI/AIVnR4KCZtpDApYrACkyQxhbG5p2QXFPRJ8DkdxOys/i89N9GG
+	7Mtjpa2myDXpI8o9y47B2pBI0Q95r9AkZrRESL+S7jFJ67yPOX/nqTbokaN32yWYmbmTsMaXx572h
+	Oer8naLVfY7tfTlPxylaqDgtQY63unqv/SN5yTlhSl3VQFPZwC/ryZ0zpuSHbtYdU2nGmbnsB+7Ba
+	H/H2jpFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxBH-0000000E1Hs-0fo7;
-	Wed, 17 Sep 2025 18:47:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxBG-0000000E1H5-1WQU
+	id 1uyxMm-0000000E4Ow-1H9v;
+	Wed, 17 Sep 2025 18:58:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyxMi-0000000E4Nd-2JyI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 18:47:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A27AA6023C;
-	Wed, 17 Sep 2025 18:46:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D80B8C4CEF9;
-	Wed, 17 Sep 2025 18:46:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758134791;
-	bh=XfxdX33JVvC2rTvQ5qzTsTE9zaKknGx6DU8yDTlw1vc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aNjT3Y6D3/qxn1gVIjdWu1wmKpUJ75cLnWQZW5KkyFeUa2RuoBmflnQLROj5ScRUi
-	 0shpzP/bFN2lGdssCIYyhCQoiCTJr7oOxsSIaXEpUVwyFxKZaBgmvxCpIchv2qGKSC
-	 cKVAcQwYDSpLkadCHIDiGwRMr5q89qXgqFcju2yEmBuhvJyTO1ny6P22G+jZPFNQXn
-	 THWeEnnpNNn2+r0grhXtdz2fQf5epUzyaJcjvAyMstlC+87EE6XRDjMt0nhSC8F6pS
-	 oN4yUEJ3lET5bFqQ68P7buDUqyS3FvqQtjUNZQcP9ZXvoCSBTAzpI+AFay/cxTmLn9
-	 U8gbaYNT1eO5g==
-Date: Wed, 17 Sep 2025 21:46:25 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH v3 3/4] ARM: dma-mapping: Switch to physical address
- mapping callbacks
-Message-ID: <20250917184625.GA10800@unreal>
-References: <cover.1758006942.git.leon@kernel.org>
- <5f96e44b1fb5d92a6a5f25fc9148a733a1a53b9d.1758006942.git.leon@kernel.org>
- <20250916184617.GW1086830@nvidia.com>
- <20250917103644.GB6464@unreal>
- <20250917113248.GA1086830@nvidia.com>
- <20250917134128.GC6464@unreal>
- <20250917135819.GA1391379@nvidia.com>
+	Wed, 17 Sep 2025 18:58:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 285D52696;
+	Wed, 17 Sep 2025 11:58:43 -0700 (PDT)
+Received: from [10.57.80.26] (unknown [10.57.80.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ECE13F694;
+	Wed, 17 Sep 2025 11:58:49 -0700 (PDT)
+Message-ID: <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
+Date: Wed, 17 Sep 2025 19:58:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917135819.GA1391379@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, Dev Jain <dev.jain@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250829115250.2395585-1-ryan.roberts@arm.com>
+ <e722e49a-d982-4b58-98f7-6fef3d0a4468@arm.com>
+ <dd242f5b-8bbe-48e8-8d5f-be6a835a8841@arm.com>
+ <aeb76956-f980-417f-b4e7-fe0503bb5a2b@os.amperecomputing.com>
+ <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
+ <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
+ <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
+ <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
+ <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
+ <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
+ <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
+ <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
+ <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
+ <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
+ <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
+ <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
+ <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
+ <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_115852_677947_2B09CFD9 
+X-CRM114-Status: GOOD (  42.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +87,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 10:58:19AM -0300, Jason Gunthorpe wrote:
-> On Wed, Sep 17, 2025 at 04:41:28PM +0300, Leon Romanovsky wrote:
-> > On Wed, Sep 17, 2025 at 08:32:48AM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Sep 17, 2025 at 01:36:44PM +0300, Leon Romanovsky wrote:
-> > > > On Tue, Sep 16, 2025 at 03:46:17PM -0300, Jason Gunthorpe wrote:
-> > > > > On Tue, Sep 16, 2025 at 10:32:06AM +0300, Leon Romanovsky wrote:
-> > > > > > +	if (!dev->dma_coherent &&
-> > > > > > +	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO)))
-> > > > > > +		__dma_page_cpu_to_dev(phys_to_page(phys), offset, size, dir);
-> > > > > 
-> > > > > I'd keep going and get rid of the page here too, maybe as a second
-> > > > > patch in this series:
-> > > > 
-> > > > Thanks, it is always unclear how far to go with cleanups.
-> > > 
-> > > IMHO to maximally support what Matthew is working on I'd remove all
-> > > the struct page things and prefer the pfn/phys variations from the MM
-> > > side.
-> > 
-> > ok, my patches can be found here:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/leon/linux-rdma.git/log/?h=dmabuf-vfio
-> > 
-> > I converted "struct page" path from all archs with .map_page.
+On 17/09/2025 18:21, Yang Shi wrote:
 > 
-> Yeah, that's right, I would split this into a few series
 > 
-> This group is all fairly trivial stuff that didn't use the struct
-> page or virt address at all:
+> On 9/17/25 9:28 AM, Ryan Roberts wrote:
+>> Hi Yang,
+>>
+>> Sorry for the slow reply; I'm just getting back to this...
+>>
+>> On 11/09/2025 23:03, Yang Shi wrote:
+>>> Hi Ryan & Catalin,
+>>>
+>>> Any more concerns about this?
+>> I've been trying to convince myself that your assertion that all users that set
+>> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
+>> returned my vmalloc. I agree that if that is the contract and everyone is
+>> following it, then there is no problem here.
+>>
+>> But I haven't been able to convince myself...
+>>
+>> Some examples (these might intersect with examples you previously raised):
+>>
+>> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
+>> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
+>> rw_image.
 > 
->  MIPS/jazzdma
->  x86
->  vdpa
->  xen: swiotlb:  (though make a phys_to_xen_pfn() macro)
+> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
+> is actually RW, so it should be ok to miss the call. The later
+> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
+> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
+> the plain vmalloc() should be good enough.
 > 
-> I'd also drop the ATTR_MMIO checks from x86 and jazzdma
-> since the code is obviously fine with any phys.
+>>
+>> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
+>> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
+>> set_memory_*() is not called until much later on in module_set_memory(). Another
+>> error in the meantime could cause the memory to be vfreed before that point.
+> 
+> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
+> and data section. The code will set mod->mem[type].is_rox according to the type
+> of the section. It is true for text, false for data. Then set_memory_rox() will
+> be called later if it is true *after* insns are copied to the memory. So it is
+> still RW before that point.
+> 
+>>
+>> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
+>> set_memory_*() which might then fail to split prior to vfree.
+> 
+> Yes, all call sites check the return value and bail out if set_memory_*() failed
+> if I don't miss anything.
+> 
+>>
+>> But I guess as long as set_memory_*() is never successfully called for a
+>> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
+>> memory must still be RW at vfree-time, so this issue should be benign... I think?
+> 
+> Yes, it is true.
 
-It is not trivial as it sounds.
+So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
+only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
+is called at all, the first call MUST be for the whole range.
 
-Let's take as an example MIPS/jazzdma, should we call to vdma_alloc()
-in DMA_ATTR_MMIO case? or directly return "phys" as it is done in other
-architectures?
+If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
+set_memory_*() was never called, the worst that can happen is for both the
+set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
+enough memory. But that is safe because the memory was always RW. If
+set_memory_*() was called for the whole range and failed, it's the same as if it
+was never called. If it was called for the whole range and succeeded, then the
+split must have happened already and set_direct_map_invalid() and
+set_direct_map_default() will therefore definitely succeed.
+
+The only way this could be a problem is if someone vmallocs a range then
+performs a set_memory_*() on a sub-region without having first done it for the
+whole region. But we have not found any evidence that there are any users that
+do that.
+
+In fact, by that logic, I think alloc_insn_page() must also be safe; it only
+allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
+definition be covering the whole allocation; 1 page is the smallest amount that
+can be protected.
+
+So I agree we are safe.
+
 
 > 
-> vdpa can support ATTR_MMIO with the same iommu prot MMIO adjustment,
-> that would be a good additional patch.
+>>
+>> In summary this all looks horribly fragile. But I *think* it works. It would be
+>> good to clean it all up and have some clearly documented rules regardless. But I
+>> think that could be a follow up series.
+> 
+> Yeah, absolutely agreed.
+> 
+>>
+>>> Shall we move forward with v8?
+>> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
+>> it; there are a few other tidy ups in pageattr.c I want to make which I spotted.
+> 
+> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
+> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
+> Is it the cleanup you are supposed to do? 
 
-There is "bounce page" in VDPA, it sounds like swiotlb to me, which
-doesn't work with MMIO.
+I was also going to fix up the comment in change_memory_common() which is now stale.
+
+> And I also rebased it on top of
+> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
+> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
+> 
+>>
+>>> We can include the
+>>> fix to kprobes in v8 or I can send it separately, either is fine to me.
+>> Post it on list, and I'll also incorporate into the series.
+> 
+> I can include it in v8 series.
+> 
+>>
+>>> Hopefully we can make v6.18.
+>> It's probably getting a bit late now. Anyway, I'll aim to get v8 out tomorrow or
+>> Friday and we will see what Will thinks.
+> 
+> Thank you. I can post v8 today.
+
+OK great - I'll leave it all to you then - thanks!
 
 > 
-> Then there are more conversions that don't use struct page or va but
-> are not so trivial
+> Thanks,
+> Yang
 > 
-> alpha
-> parisc
+>>
+>> Thanks,
+>> Ryan
+>>
+>>> Thanks,
+>>> Yang
+>>>
 > 
-> Then the last ones sparc/power are quite complicated and do use
-> __va/etc.
-> 
-> Jason
-> 
+
 
