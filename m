@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65576CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 01:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A148BCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 01:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHucnKYbVBi1c/xXaMKNY8HoSa2YKSPX9bYJJSnLdSo=; b=a64mchfIKVCEn7kKUr0hlz/mnw
-	ZwywWYn0GUlBNh+OHgrJR2fz5covGWqjBg9UmHpFWWoafThM1nQRAwnLyX+v3JI8W1IBTZ23SZvXO
-	7QaenisbnDwkwIysY0eR4HRT3a9cJvTGcVFiygnLo9S9rCic7LfjPyU7OJdXqzRrvvIMOjZTLZOZR
-	WOH2tysVeohIabs0RTbQIgiEJQ8fiK9MQtod4pRNz4W05a0KvfbCWGu8og5dEYO/NcleWNBwlgh8S
-	H4EifizwW73wEalE0P++UJFtZZJlyT7yr0Wrk37NVCD78eEy4aX8Khjl+LnyQRPGzFq3jVu97v/Fy
-	BrX98vJQ==;
+	bh=KrAOL3c9xVKnq1MbA/N99Q0ZY7sw/OswbzJ6tMoQO4g=; b=UVJO899kXOojrUKleY2dY+FeOg
+	2dKUfAe7O3RBxi38cWl5app8d9QFHUZIt17gSEN8ObqivSaMsFwN2AEJ40lhGrPThwPB5LMOtqm5I
+	BiAbuB/GTdEN6g2q/CQoECKCvrHAhEWguIGFkRzhlR/ah1tdkdr+7CbsbjGzUjEJNg2TuP4cDddDp
+	LgRz8heOyVniG0bgSZvNfyRQcwHNCQ8avTrcECdxLZr4/niAKONM+5TtEAjV8Q63aKNMlDjHLYD+t
+	ACGoppGYZjRLDyMJCfmhgZY/iALLhq8pl1IK3kex6ePb9wGAGVsFpJgBoTTckJ1UGHD5PdBdbiGYA
+	WrFHbUtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyh86-00000009rxz-10xu;
-	Wed, 17 Sep 2025 01:38:42 +0000
+	id 1uyh8n-00000009s7k-2S96;
+	Wed, 17 Sep 2025 01:39:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyh85-00000009rxr-2WT5
+	id 1uyh8m-00000009s6i-144g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 01:38:41 +0000
+	Wed, 17 Sep 2025 01:39:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0D95601E5;
-	Wed, 17 Sep 2025 01:38:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E621CC4CEEB;
-	Wed, 17 Sep 2025 01:38:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE44F60202;
+	Wed, 17 Sep 2025 01:39:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24320C4CEEB;
+	Wed, 17 Sep 2025 01:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758073120;
-	bh=pABSfuwN68aYHQH+lAujDy8l8ti2r8Q8ufmwl6CLFow=;
+	s=k20201202; t=1758073163;
+	bh=iVUZW07jFSHQMRPtykqtDXh/HUsp65/tkxLn0bCk8jA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Sry4BLZ1FMuerbiq4P6eb+q7drU6EhdbxAmGvQ9qN4nLEs9AiFRnKkhlp0Q1unrRo
-	 uv9bareQhcjuaqpgc/AouK9rMJQPUkUDHbKc8mxVklp47D2uneFDp+KdjZ7eQyaKVA
-	 saPiq9equjjvKv2YTPuYQNf8ypBS0jWeKVbBb+g5oN7EJy3Vk2Wz4bMU2a19QpzAK8
-	 9vsH5qO64DgOUGgO61cWYh1aMrcOLj8WRhM592Dz5YvfsTsFndHi1IDqkfN1WDPJJs
-	 v1HoqK6mhLTGN8lSs4Qcf+rGGVqTuYERYdF3Va4W7lDhNcL2blHrppQgjkz+Zt/eKk
-	 Atp53/sx8sbRw==
-Message-ID: <cce6473e-4081-45cc-865c-c00ba20821ae@kernel.org>
-Date: Wed, 17 Sep 2025 10:38:37 +0900
+	b=Xdx7dNhCYqT6fNlR/7wgwb4rwFBAV9Dww4Xmm9f58cRsG3tow+eTZEZV/uaxyRbKQ
+	 ZEojsL6DZBzjoW6X+IIL0twjZzti7eKIdlPBV/uebuaftzTJqiuvn6LVCv8p6DFEqZ
+	 U4lWFUfW+TZzpqSV3Bn/gQ+11sQUzmF6ZrT/pbrmCt5akK1ZQkaIiH5qxz4ZFHiclL
+	 QFM+wnzHk1S6tRBj60vz/9AYyiYY9m482hs1PFRUy2dGOgfEWzjUm0MFCPXbautCYb
+	 7EVrr6pgj4ZJoafSbKKUo5MSoFB3tGzBLkwL7hzbU/q7Mvj9CMtzSwAKaDByFUc3U4
+	 mLr2CTVh3RvcQ==
+Message-ID: <6dba55ed-7b1e-4d33-a442-ae27556af02f@kernel.org>
+Date: Wed, 17 Sep 2025 10:39:21 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] dt-bindings: embedded-controller: add binding for
+Subject: Re: [PATCH v4 1/2] dt-bindings: embedded-controller: add Traverse
  Ten64 board controller
 To: Mathew McBride <matt@traverse.com.au>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
@@ -54,6 +54,7 @@ Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
 References: <20250917011940.9880-1-matt@traverse.com.au>
+ <20250917011940.9880-2-matt@traverse.com.au>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250917011940.9880-1-matt@traverse.com.au>
+In-Reply-To: <20250917011940.9880-2-matt@traverse.com.au>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,22 +118,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 17/09/2025 03:19, Mathew McBride wrote:
-> This series requires the "dt-bindings: mfd: Move embedded controllers to own
-> directory"[1] change which is in mfd-next for the 6.18 cycle.
+> Add device tree binding for the board (micro)controller on Ten64 family
+> boards[1].
 > 
-> Changes since v3:
-> - Move to the embedded-controller directory (which was created following
->   the last submission)
-> - Remove the extra paragraph in the dt-binding description field
-> - Const'ify the I2C endpoint address (only one I2C address is implemented in
->   hardware, 0x7e)
-> - Fix the description line of the fsl-ls1088a-ten64 patch (s/arm/arm64)
+> The schema is simple and is (presently) only consumed by U-Boot, but it
+> is possible nvmem, watchdog and other features could be described in
+> the future, as well as extension to future Traverse boards.
 > 
-> v3 series:
-> https://patchwork.ozlabs.org/project/devicetree-bindings/cover/20250821061115.18254-1-matt@traverse.com.au/
+> [1] https://ten64doc.traverse.com.au/hardware/microcontroller/
+> 
+> Signed-off-by: Mathew McBride <matt@traverse.com.au>
+> ---
 
-Please use lore links or just start using b4.
-https://www.linaro.org/blog/becoming-a-kernel-developer-part1-posting-your-first-patch/
+Where is explanation of reason of dropping tag?
 
 Best regards,
 Krzysztof
