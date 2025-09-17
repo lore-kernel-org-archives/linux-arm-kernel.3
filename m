@@ -4,104 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6555DCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58091CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFlgCXptLNgS0oUFv7P/jnH+n8Ia5ZxafQyZ/H5sxnA=; b=sw7THunxUiNIXa+vx+fWodJPmX
-	40ywe05thFHL4ZfD/K2E5b0U2ZTCYXrAgZS+xo56L5LhmOtA9jI7dw3JzoT7q6f4Zcyvgw9/4nqlI
-	4baQzqP1Y0pkNSeCYSoVhhvnrmOlfEB/1eU/HL4dMxau7TD2/AjSHG4H/FPoRPTad5WEAVRDp0AH2
-	MKEqrm6V7NsEqBAr5T0sC1o6ImNGWKYmJEpzjrikM5IHRMtjamW/DfWpkUDEjln3HiHTl3Q3IqAHc
-	wjFKkg0alFFbYkU38UcAUPBcOoN2emHLDKMvqlwO8hWhsrPsrTi33XxncHZwnvgfUW6Q52RvIIlTy
-	vNfOAUAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=; b=LjjGsFVhZMuTC025nkLVo+Lv40
+	RZXAXbfsZPnKFVYlffX0TmpbIQWcDw4pofZnXOmJYQdPanZQu6+knI7c/ex6X09O0CBQKds/YallF
+	vVFuoIPiHsZ8zdnpfxd8BiQkzCYb6d7ZJfWxAL7rlC6d9Z1DIIINifWKSgxJaoSv7Aw6Oe6X0mj1D
+	LTt8SKTbqkFye1gdxUJPVc/RTwggxmemqO0FbVrsGqgBAnUW4tPZrgMpYFjgzZAHbG7iBIoIPszzL
+	NUF9lhy9uj4B7CgL3E9ZRHl6QfDHBE1+0aVHKaIU8KYo7lxB9HTnDLVLYKuxTVoQAxo43YC+l3a/m
+	OBcWLjJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyp8E-0000000AvBi-2HLC;
-	Wed, 17 Sep 2025 10:11:22 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uypFD-0000000AwuV-2rmQ;
+	Wed, 17 Sep 2025 10:18:35 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyp8C-0000000Av9N-0dkH
+	id 1uypFB-0000000Awtn-12GN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 10:11:21 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45de5246dc4so14016655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:11:19 -0700 (PDT)
+	Wed, 17 Sep 2025 10:18:34 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-26799bf6a2eso28409985ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:18:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758103878; x=1758708678; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RFlgCXptLNgS0oUFv7P/jnH+n8Ia5ZxafQyZ/H5sxnA=;
-        b=NG6z1QLbz1boEgGuDGxjajYrCllA9V6zdLW2Js+TDgUhTcYO4XUop4harVwwlS/fWn
-         y6S0tymTXCHRMi++gGydI0hgAUtZpLDk7Cj1wSqC/oc7ef3hWKeTSR7WHCvkY9PjgLTQ
-         Z3rQXAUt58vKnrZOjKTJof+2KMEJ5QbDDl/p2tmS+zCbLI/MuVLOVSqA57Gdm7RUBipi
-         pMAXblxi/kyrFtYfApU3ppFQqowL+fhy3E8067YvYiYZzD+hI62nBO5uZRhNtc0HXr5R
-         vsZXNDH1Z6saws1huF4ouqi2lg1AS9DClT5wnjmEERRVaTw8u7YVzCAz9vjCOrSy9QWN
-         HNoQ==
+        d=gmail.com; s=20230601; t=1758104312; x=1758709112; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=;
+        b=Lp0Xwf6Dvt4a1C5scXer/iJl3SHn+4/43rFtn+KYtw3hKNyTvVX9CcoZGGWIENve71
+         tpY+NYodK2d1ZPMgK+NCbVcoWCaTk8nr39jBI+szr4VjtsIMC8g1RQOJf4VVMu92zUeG
+         /0oHYSIE4kFHd5KzqSjIwZe5LSrnZQ4RorBa65HgPsuD8oHx9JtvvINXvnkYUJB3G/j9
+         We8l4racdZa55PFfGQAGVAwZpmeCwEcb5I+Ylw2ppHe6mi3kiOsef78FIcDp0FvbhCzm
+         EJrm62g1BAwqaNeSesAT6VCR6SZahT3eS+IkOuwffux9t8ws0F5V0yRAN0KS7WcyGGui
+         5e8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758103878; x=1758708678;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RFlgCXptLNgS0oUFv7P/jnH+n8Ia5ZxafQyZ/H5sxnA=;
-        b=E0QFWYD7FhKYx6rTpOwgIHajfXidK7OK/6mbNlXzgMSLY6PNp+FGTY8GkHM/2/acjp
-         OgqayTeQCtNcxgLI4uSXKAaGpq9P1VAwcydp6pXpz9QadzXW44tRjYTuH8laoHYvEUdP
-         c0snw5viES4GO/WxjoIpnHhlfHo1TbsfdNfAOtJvU6iOD7rgVllx8ZIolOGL3/9YaMhV
-         u0dfcYpcnUWgc3gVbjmwN5P1WfvSeQrgCFU6G5/KEu86KZ0hPNeBVIiAodStwevrjdqJ
-         TZRqGY2jKnfMEfY01KK+PO3yemzd9xmvUBNl4ZvYdRTS+tPHLyu144sZxtwKNNTq8ZxW
-         8TPg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4jfyBUK/UuYysKR6TBfRR2sh8Jy0Wfoj0/VTBRathyQ9yiKFK5lU+/yDx1RZ/cruFGab0ds+WRgPrNi7mpnb5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyT9QzhYr9bVCio+IS7NSeETT/WHq8XAPaWk3u3vn9Br3vU/YMc
-	4riqnE95jCP8zcH10jZg8sSn2c0Mq/eAwNJ+wWKZX+jcE8L2qW6ZJnB0
-X-Gm-Gg: ASbGncuvK/bQ8501xNQgx3mRp0Q7Ts7tJ2gfAnK5T8s5fdUMtkjlg9DtpehRw4bmCjP
-	KCAsjPEUt5NguaH8LIag+TGCZarUTQfjsS07n2EipkLAcLDlhhXE1VN42XP4byUyJqlFM80rxee
-	nDOJWvtWHkSlefm5g9lh0Mt188n9YHhGoXgqunhUs15XYJ84WXIRe+XqlsDW1eV+FoOwoBxGVsk
-	D+DZmRNQkk7SU/BxAerXHVzFU7B3kjQFV2z71Xi36H5CgnlB2bYemUhbhlAGzcJO8/0VRfefmNV
-	JMZAvzsBaRZP//+FYmRW6felC8D5MOh+BnAFG/VccNHugTE+6Jf1S6Wt3AoofEj7xNZv0mTIUhG
-	lg8dUXLniaRgSdxI=
-X-Google-Smtp-Source: AGHT+IEGAWHbOGCVA8E1ghCrTfok0wf8HrSSu83uqpK5rtG+yvptJ+uZiWuJFaorxUfrNpWZkT3p1g==
-X-Received: by 2002:a05:6000:400e:b0:3e9:e2cf:cda2 with SMTP id ffacd0b85a97d-3ecdfa5ad4fmr599670f8f.8.1758103878166;
-        Wed, 17 Sep 2025 03:11:18 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:8bcc:b603:fee7:a273])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ece0fba34dsm1092120f8f.9.2025.09.17.03.11.14
+        d=1e100.net; s=20230601; t=1758104312; x=1758709112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=;
+        b=tGqY8nfbwNA6EUKwXssEN6ajWEnx6h1U69QBFqVmXHU4lwU6nWdrPgCyyDOLQmFyYj
+         7+MUQgLFURxo18xkDipA73e4o7FTSEN5V4xyhBC4b7A0X+wzKW8puOA/f1ZJdiM8AZCc
+         3JRQq5IS1SIgI6CAJQ7klBK6NSGrhdOurN+dVLgnzqlHr7kpjtZU1w0DAGXj0ycWDd1d
+         7aL2zf51LHAdWJS0L0J61VVllNr/9Y87Rk48VTyLhLNM0XT7CfQt/m0ikagHAQEDSMWi
+         jpO8CXLtLQGiGGTsroSb1ZRsjUcvgG/7xNMg0EQ2/qxQWqBLAyVZhCrCCnj5hXKL8m6g
+         2ziw==
+X-Forwarded-Encrypted: i=1; AJvYcCVxh1Hov8WLbTIyPYdtg4bZgSzsHd4oYq5AcXpSY3n7XzGK+645tov+9Ko5FJu/zRQXQKKQDX1TpjlAmjSCXHMg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4qmbZxwE6vZSVM6yfJsozqb5orHcLUtEyKwFlMDCStIWwGqk3
+	R8Vt+iqKmfwNzvaRU8D4Zm86nreHPkB3TztG4Pi+WRmEuthrVt6Czjdf
+X-Gm-Gg: ASbGncu+sndisvFBi1yAJpMOIKmrVxfnrihHWZZHoWdSeyER6A4/oZlZ9aLgc7aMVgZ
+	Fti1B4x0X+Pm7gdNV5HfD3kgmbVJoD0eDgZWcSim07ZaGw7IUmLnw4958x6ExxGeKM8bfs2lATR
+	TJtW7DGso8MElDd/dx3/LGXjLrSWrLEVpnmfkUDsuKpJljTeXIugzFan+p+PuEK5WFEXfK/04Ft
+	uCjNEFPKhJbTClQ4uhOO8HEESMiUnrmHrdER4FsTXi16ujyYyNp2g+9IyG+k4oBcT3ErvLR9JXZ
+	8PZYn7z4uZBML6wTyObS45AZOMAlXtXbiIZE6w0kCOvK+DV+pwfeCxEJrZ227dQT9k+CJSZVXyJ
+	ozMylPuScimMO467YLD6sagePFcAAuWfz4Lmt0PFfMpGYbUuFe7+rDUuInNUAEhguhhXtYa2lTO
+	MdcQt83zgxuU0CxiRx9sVBJIMMsHEg4t4oGQpB
+X-Google-Smtp-Source: AGHT+IF3QgCkXxslVB6+8cU4cYQ7hXjdu0fR318XHFqwWXVd5FRKAeNtm0+mTEJzK5nwiVQMB620Aw==
+X-Received: by 2002:a17:903:3585:b0:264:1afd:82e6 with SMTP id d9443c01a7336-26813cfb4fbmr18125285ad.53.1758104312186;
+        Wed, 17 Sep 2025 03:18:32 -0700 (PDT)
+Received: from eric-eric0420.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-267f4d286aesm28588755ad.63.2025.09.17.03.18.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 03:11:15 -0700 (PDT)
-Date: Wed, 17 Sep 2025 13:11:12 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+        Wed, 17 Sep 2025 03:18:31 -0700 (PDT)
+From: Peter Yin <peteryin.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v18 6/8] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-Message-ID: <20250917101112.555jzhzlmpkhgmh5@skbuf>
-References: <20250915104545.1742-1-ansuelsmth@gmail.com>
- <20250915104545.1742-7-ansuelsmth@gmail.com>
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Cc: peteryin.openbmc@gmail.com
+Subject: [PATCH v1 0/4] Revise Meta(Facebook) Harma BMC(AST2600)
+Date: Wed, 17 Sep 2025 18:18:21 +0800
+Message-ID: <20250917101828.2589069-1-peteryin.openbmc@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915104545.1742-7-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_031120_202313_7614D15B 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20250917_031833_283839_391E46E3 
+X-CRM114-Status: UNSURE (   8.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,9 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 12:45:42PM +0200, Christian Marangi wrote:
-> +static int an855_regmap_phy_reset_page(struct an8855_core_priv *priv,
-> +				       int phy) __must_hold(&priv->bus->mdio_lock)
+Summary:
+Revise linux device tree entry related to Meta(Facebook) Harma
+specific devices connected to BMC(AST2600) SoC.
 
-s/an855/an8855/ throughout this file.
+follow-up: https://lore.kernel.org/all/3a65d568540e9ca43d3bfc24cfe5f72d2bb12b3b.camel@codeconstruct.com.au/
+
+v1
+  - Patch 0001 - add new line between the child nodes
+  - Patch 0002 - use power-monitor instead of power-sensor
+  - Patch 0003 - dd sq52206 power monitor device
+  - Patch 0004 - dd retimer sgpio
+
+Base: tags/v6.17-rc3-39-g07d9df80082b
+
+Peter Yin (4):
+  ARM: dts: aspeed: harma: add new line between the child nodes
+  ARM: dts: aspeed: harma: use power-monitor instead of power-sensor
+  ARM: dts: aspeed: harma: add sq52206 power monitor device
+  ARM: dts: aspeed: harma: add retimer sgpio
+
+ .../dts/aspeed/aspeed-bmc-facebook-harma.dts  | 59 +++++++++++--------
+ 1 file changed, 36 insertions(+), 23 deletions(-)
+
+-- 
+2.43.0
+
 
