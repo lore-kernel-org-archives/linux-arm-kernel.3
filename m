@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61708CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 662E0CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YgQ1u8TXIPwB5gikKQCGFASO6bmBVfR87cbZTdgE0KE=; b=dfxWjXYR8MQos0daf04mAm5msO
-	LYv02uDVB5alj/NyGYwqOkolXaUwB17wtfLL9oQ8ffpnKWmikTB1qKJG4a7u3GBGf9gvrjLD+NNMI
-	DOX6BEEW3qELRvk8dshjuaJUOmXBwlOgfJi9cfVEgWqR7PMQxkEYLTmS6LBbnY7QMVdLnU+dX9oqE
-	g9AK5RDEtlBC6Ntuz6dSKvjqFKJO/mSEu662weZtXY2gEhZ1G8dMEVs4z6YQ5F6DacVkiaBSBvfnV
-	ZttcaWTT8LtPswaDA/YaRtfmRla/X39DpbUDYAmHt2cC66V+M+z1NjK5lmK9s9nm9c7yhe7h1hTkR
-	vQvB8nrg==;
+	bh=B3fU+OW1aHvFOhKqWGc4QBtk4YHBAS6m3X0BGR7nsbs=; b=2Ie9S2eUtUH32V2ZxW8Ny5Qqth
+	UgR6MvJCVI4z9cr9oXThr7VITSfllKZOFJkWjVnUYgdMwNWg6GNFHgEX2WqTtj4tF8AXTX/+JH3Qy
+	HTk3fznYU2okdm9GRg7nPzWw0T4GcjiNv2NmqbIV4Mg3XNmqti+omx3p4vIwRAGE+TAHd/l604wHh
+	d/VBVx5XjDPpi729cMu1wPwfdZFSNbxGn7vJJP0t0ge+OxwvHolHaedWXBdqI9/RaZKCQsCVuUQJ7
+	zksUrhCPG4YKTjAGHL6u+c7xEJWWqwB5a1UHOImRXus2WxGEsBSS+vpmYGZEi4fuXTD7ayY2/bLII
+	gSFy2O+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrCn-0000000BJI4-3PPx;
-	Wed, 17 Sep 2025 12:24:13 +0000
+	id 1uyrCv-0000000BJQ4-1LcA;
+	Wed, 17 Sep 2025 12:24:21 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrCh-0000000BJCx-3pFZ;
-	Wed, 17 Sep 2025 12:24:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758111834; cv=none; 
+	id 1uyrCr-0000000BJKm-0BWh;
+	Wed, 17 Sep 2025 12:24:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758111842; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=NKLexEr7AJLZ0/b8937VhVppN9TmQHQVr6fM0zJzzlgAjq8LZZXPp5T6zO+LDX5Qn/p/sJkMCs8Ax5iavyvVkDnc6P2Er0t44C+6TAJhicCidb48jD0rrYkWEU20dnGW6en/CMsDORVREq0ynGcnEtAIioaAHJAYiyyJCitAgQc=
+	b=Q68E3Z19CmGATN2uXRmC/UWrwhm3IQhTTkcYcFlWhU3jeeY+MXiI1/D6MCOGNIQJOMe59TmfLyH5obGGMXtOOgRaeGz79SBAiHu5joWYvB1d4h/9Abr/HTrQA2Zv75/IfE/PN4BQgvUoZ7XAtk8s6NvpaN7FwBamnfoBYRCicXU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758111834; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=YgQ1u8TXIPwB5gikKQCGFASO6bmBVfR87cbZTdgE0KE=; 
-	b=RpVOTNHwAKPwamnIRJ6C13mFP2PJZUI7NOsKPN1UDYHD7T2N9E5n3IywkwR14SJhUnuIGRaHvKZ3oU4SrmqjnhxMPljVIKNdC60dztjvG3RcFw7YoKirf1RUe5Mz2SQ1ynJy7KwrnIzrLVWJOj8VZGcupCQwkmaG9+6XOyrmbwQ=
+	t=1758111842; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=B3fU+OW1aHvFOhKqWGc4QBtk4YHBAS6m3X0BGR7nsbs=; 
+	b=cBCmp/5y3FwpTboHp4WHkTa10Jlrh9Wr8xRPR9MYmdbyEND779kTlW8KIvam+x4hDnOIyieuzofaMydG/5lS2hItnKb0RmPfaU8Oq07qoAExgvy7BRexJSHHeiqsTq+P6qf5J8Bq6vwLd1EGRuwEJHU/zXs8Yj5bgbz8USdRmAc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758111834;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758111842;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=YgQ1u8TXIPwB5gikKQCGFASO6bmBVfR87cbZTdgE0KE=;
-	b=YShtF36kV71aKi9+JCwVxqWAipFlmF4bBznV97zLh5XAJak0XOdfvXqbLm2scdL7
-	5l7hBDx0vDqbXEeQuhlKLgONSC6qsL9UWWVOxmgUzfriwynmku9NuQoNi02zNaWRH5X
-	gB4dCAfu5ohTadrV2IWZwb7lWFlU9HbKrTOdWsCE=
-Received: by mx.zohomail.com with SMTPS id 1758111833136461.8065563339446;
-	Wed, 17 Sep 2025 05:23:53 -0700 (PDT)
+	bh=B3fU+OW1aHvFOhKqWGc4QBtk4YHBAS6m3X0BGR7nsbs=;
+	b=WyKfIQWiUq9iiu9lK+TVXojrP2088W+GOrFWjeKvC+UlQ5u5uvKUcXP5yHm5E1ph
+	8WfokkFKjgTFX3MhBYYjhyr4ulg3UlJ8grlmcqB60X1lakXt+fsySKpHA5O1fgqrtv5
+	gW5QUByC/uvyi0TvN7B17Nzh6YTLM1TMX5P3ST5A=
+Received: by mx.zohomail.com with SMTPS id 1758111840208937.3337263629903;
+	Wed, 17 Sep 2025 05:24:00 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 17 Sep 2025 14:22:39 +0200
-Subject: [PATCH v3 08/10] drm/panthor: devfreq: add pluggable devfreq
- providers
+Date: Wed, 17 Sep 2025 14:22:40 +0200
+Subject: [PATCH v3 09/10] drm/panthor: add no_clocks soc_data member for
+ MT8196
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-mt8196-gpufreq-v3-8-c4ede4b4399e@collabora.com>
+Message-Id: <20250917-mt8196-gpufreq-v3-9-c4ede4b4399e@collabora.com>
 References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
 In-Reply-To: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -77,8 +77,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_052408_082384_813486EF 
-X-CRM114-Status: GOOD (  29.24  )
+X-CRM114-CacheID: sfid-20250917_052417_125125_D326E62C 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,392 +93,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some devices, devfreq is not controlled directly by DT OPPs and the
-common clock framework, but through an external devfreq driver. To
-permit this type of usage, add the concept of devfreq providers.
+While panthor does not try to do anything untoward with the core clock
+outside of increasing its enable/disable count, the spirit of using DT
+to describe hardware, not what drivers need, informs us that on the
+MT8196, panthor should work without one, as the true owner of the clocks
+in this case is the performance-domain.
 
-Devfreq providers for panthor register themselves with panthor as a
-provider. panthor then gets whatever device is pointed at on its
-performance-domains property, finds the registered devfreq provider for
-it, and uses its registered devfreq ops. It wraps those operations by
-passing the provider ops the provider's struct device, as opposed to the
-panthor device.
-
-Providers can choose to omit overloading some operations. In that case,
-panthor's own implementation is used. The only exception is the exit
-operation, which panthor does not use, and the wrapper only gets
-registered if a provider needs it.
-
-Should the probe order work out such that panthor probes before the
-devfreq provider is finished probing and registering itself, then we
-just defer the probe after adding a device link.
+Add a boolean to the soc_data struct that tells panthor whether on any
+given SoC, it can leave even the core clock NULL. Set it to true for the
+MT8196 soc_data instance.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/panthor/panthor_devfreq.c | 190 ++++++++++++++++++++++++++----
- drivers/gpu/drm/panthor/panthor_devfreq.h |  47 ++++++++
- 2 files changed, 212 insertions(+), 25 deletions(-)
+ drivers/gpu/drm/panthor/panthor_device.c | 3 +++
+ drivers/gpu/drm/panthor/panthor_device.h | 3 +++
+ drivers/gpu/drm/panthor/panthor_drv.c    | 1 +
+ 3 files changed, 7 insertions(+)
 
-diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
-index 118da7cbb3c809e4aabfef7d20914e61c2b62555..1f10724e2f08df09b52fa1a27ffe9cfd49994b09 100644
---- a/drivers/gpu/drm/panthor/panthor_devfreq.c
-+++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-@@ -4,6 +4,7 @@
- #include <linux/clk.h>
- #include <linux/devfreq.h>
- #include <linux/devfreq_cooling.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_opp.h>
+diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/panthor/panthor_device.c
+index c7033d82cef55c940adc8434231cac6c5a20c288..581901a8e64fdb0946f20af593489fefde1cc05f 100644
+--- a/drivers/gpu/drm/panthor/panthor_device.c
++++ b/drivers/gpu/drm/panthor/panthor_device.c
+@@ -43,6 +43,9 @@ static int panthor_gpu_coherency_init(struct panthor_device *ptdev)
  
-@@ -34,6 +35,12 @@ struct panthor_devfreq {
- 	/** @last_busy_state: True if the GPU was busy last time we updated the state. */
- 	bool last_busy_state;
- 
-+	/**
-+	 * @panthor_devfreq_provider: the used performance-domain controller
-+	 * through which devfreq callbacks are passed onto, or NULL if none.
-+	 */
-+	struct panthor_devfreq_provider *provider;
+ static int panthor_clk_init(struct panthor_device *ptdev)
+ {
++	if (ptdev->soc_data && ptdev->soc_data->no_clocks)
++		return 0;
 +
- 	/**
- 	 * @lock: Lock used to protect busy_time, idle_time, time_last_update and
- 	 * last_busy_state.
-@@ -44,6 +51,19 @@ struct panthor_devfreq {
- 	spinlock_t lock;
+ 	ptdev->clks.core = devm_clk_get(ptdev->base.dev, NULL);
+ 	if (IS_ERR(ptdev->clks.core))
+ 		return dev_err_probe(ptdev->base.dev,
+diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/panthor/panthor_device.h
+index f32c1868bf6d782d99df9dbd0babcea049c917e0..cc8485afdaf865edc89a36823ba75c588a040e0b 100644
+--- a/drivers/gpu/drm/panthor/panthor_device.h
++++ b/drivers/gpu/drm/panthor/panthor_device.h
+@@ -40,6 +40,9 @@ struct panthor_soc_data {
+ 
+ 	/** @asn_hash: ASN_HASH values when asn_hash_enable is true. */
+ 	u32 asn_hash[3];
++
++	/** @no_clocks: True if clock control is external, not by panthor. */
++	bool no_clocks;
  };
  
-+static LIST_HEAD(panthor_devfreq_providers);
-+static DEFINE_MUTEX(panthor_devfreq_providers_lock);
-+
-+int panthor_devfreq_register_provider(struct panthor_devfreq_provider *prov)
-+{
-+	guard(mutex)(&panthor_devfreq_providers_lock);
-+
-+	list_add(&prov->node, &panthor_devfreq_providers);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(panthor_devfreq_register_provider);
-+
- static void panthor_devfreq_update_utilization(struct panthor_devfreq *pdevfreq)
- {
- 	ktime_t now, last;
-@@ -59,12 +79,26 @@ static void panthor_devfreq_update_utilization(struct panthor_devfreq *pdevfreq)
- 	pdevfreq->time_last_update = now;
- }
- 
-+static void panthor_devfreq_exit(struct device *dev)
-+{
-+	struct panthor_device *ptdev = dev_get_drvdata(dev);
-+	struct panthor_devfreq_provider *provider = ptdev->devfreq->provider;
-+
-+	if (provider && provider->exit)
-+		provider->exit(provider->dev);
-+}
-+
- static int panthor_devfreq_target(struct device *dev, unsigned long *freq,
- 				  u32 flags)
- {
-+	struct panthor_device *ptdev = dev_get_drvdata(dev);
-+	struct panthor_devfreq_provider *provider = ptdev->devfreq->provider;
- 	struct dev_pm_opp *opp;
- 	int err;
- 
-+	if (provider && provider->target)
-+		return provider->target(provider->dev, freq, flags);
-+
- 	opp = devfreq_recommended_opp(dev, freq, flags);
- 	if (IS_ERR(opp))
- 		return PTR_ERR(opp);
-@@ -87,6 +121,7 @@ static int panthor_devfreq_get_dev_status(struct device *dev,
- {
- 	struct panthor_device *ptdev = dev_get_drvdata(dev);
- 	struct panthor_devfreq *pdevfreq = ptdev->devfreq;
-+	struct panthor_devfreq_provider *provider = pdevfreq->provider;
- 	struct devfreq_dev_profile *p = pdevfreq->devfreq->profile;
- 	unsigned long irqflags;
- 	int ret;
-@@ -97,32 +132,42 @@ static int panthor_devfreq_get_dev_status(struct device *dev,
- 
- 	spin_lock_irqsave(&pdevfreq->lock, irqflags);
- 
--	panthor_devfreq_update_utilization(pdevfreq);
-+	if (provider && provider->get_dev_status) {
-+		ret = provider->get_dev_status(provider->dev, status);
-+	} else {
-+		panthor_devfreq_update_utilization(pdevfreq);
- 
--	status->total_time = ktime_to_ns(ktime_add(pdevfreq->busy_time,
--						   pdevfreq->idle_time));
-+		status->total_time = ktime_to_ns(ktime_add(pdevfreq->busy_time,
-+							   pdevfreq->idle_time));
- 
--	status->busy_time = ktime_to_ns(pdevfreq->busy_time);
-+		status->busy_time = ktime_to_ns(pdevfreq->busy_time);
- 
--	panthor_devfreq_reset(pdevfreq);
-+		panthor_devfreq_reset(pdevfreq);
-+	}
- 
- 	spin_unlock_irqrestore(&pdevfreq->lock, irqflags);
- 
--	drm_dbg(&ptdev->base, "busy %lu total %lu %lu %% freq %lu MHz\n",
--		status->busy_time, status->total_time,
--		status->busy_time / (status->total_time / 100),
--		status->current_frequency / 1000 / 1000);
-+	if (!ret)
-+		drm_dbg(&ptdev->base, "busy %lu total %lu %lu %% freq %lu MHz\n",
-+			status->busy_time, status->total_time,
-+			status->busy_time / (status->total_time / 100),
-+			status->current_frequency / 1000 / 1000);
- 
--	return 0;
-+	return ret;
- }
- 
- static int panthor_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
- {
- 	struct panthor_device *ptdev = dev_get_drvdata(dev);
-+	struct panthor_devfreq_provider *provider = ptdev->devfreq->provider;
-+	int ret = 0;
- 
--	*freq = clk_get_rate(ptdev->clks.core);
-+	if (provider && provider->get_cur_freq)
-+		ret = provider->get_cur_freq(provider->dev, freq);
-+	else
-+		*freq = clk_get_rate(ptdev->clks.core);
- 
--	return 0;
-+	return ret;
- }
- 
- static struct devfreq_dev_profile panthor_devfreq_profile = {
-@@ -133,7 +178,51 @@ static struct devfreq_dev_profile panthor_devfreq_profile = {
- 	.get_cur_freq = panthor_devfreq_get_cur_freq,
+ /**
+diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
+index 4d59d94c353c3ca76f4b98a411c8f8284efafd08..3583ec955a85fe6e383839ec2bde017e1c6a995c 100644
+--- a/drivers/gpu/drm/panthor/panthor_drv.c
++++ b/drivers/gpu/drm/panthor/panthor_drv.c
+@@ -1687,6 +1687,7 @@ ATTRIBUTE_GROUPS(panthor);
+ static const struct panthor_soc_data soc_data_mediatek_mt8196 = {
+ 	.asn_hash_enable = true,
+ 	.asn_hash = { 0xb, 0xe, 0x0, },
++	.no_clocks = true,
  };
  
--int panthor_devfreq_init(struct panthor_device *ptdev)
-+static int panthor_devfreq_use_provider(struct panthor_device *ptdev,
-+					struct panthor_devfreq_provider *provider)
-+{
-+	struct devfreq_dev_profile *p = &panthor_devfreq_profile;
-+	struct device *dev = ptdev->base.dev;
-+	unsigned int i;
-+	int ret = 0;
-+
-+	ptdev->devfreq->provider = provider;
-+
-+	if (provider->exit)
-+		p->exit = panthor_devfreq_exit;
-+
-+	for (i = 0; i < provider->num_opps; i++) {
-+		ret = dev_pm_opp_add_dynamic(dev, provider->opp_table[i]);
-+		if (ret) {
-+			DRM_DEV_ERROR(dev, "Couldn't add OPP %u: %pe\n", i, ERR_PTR(ret));
-+			return ret;
-+		}
-+	}
-+
-+	p->max_state = provider->num_opps;
-+
-+	if (provider->num_opps)
-+		ptdev->fast_rate = provider->opp_table[provider->num_opps - 1]->freq;
-+
-+	return ret;
-+}
-+
-+static int panthor_devfreq_init_provider(struct panthor_device *ptdev,
-+					 struct device *provider_dev)
-+{
-+	struct panthor_devfreq_provider *prov;
-+
-+	guard(mutex)(&panthor_devfreq_providers_lock);
-+
-+	list_for_each_entry(prov, &panthor_devfreq_providers, node) {
-+		if (prov->dev == provider_dev)
-+			return panthor_devfreq_use_provider(ptdev, prov);
-+	}
-+
-+	return -EPROBE_DEFER;
-+}
-+
-+static int panthor_devfreq_init_of(struct panthor_device *ptdev)
- {
- 	/* There's actually 2 regulators (mali and sram), but the OPP core only
- 	 * supports one.
-@@ -142,20 +231,12 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
- 	 * the coupling logic deal with voltage updates.
- 	 */
- 	static const char * const reg_names[] = { "mali", NULL };
--	struct thermal_cooling_device *cooling;
- 	struct device *dev = ptdev->base.dev;
--	struct panthor_devfreq *pdevfreq;
- 	struct dev_pm_opp *opp;
- 	unsigned long cur_freq;
- 	unsigned long freq = ULONG_MAX;
- 	int ret;
- 
--	pdevfreq = drmm_kzalloc(&ptdev->base, sizeof(*ptdev->devfreq), GFP_KERNEL);
--	if (!pdevfreq)
--		return -ENOMEM;
--
--	ptdev->devfreq = pdevfreq;
--
- 	ret = devm_pm_opp_set_regulators(dev, reg_names);
- 	if (ret) {
- 		if (ret != -EPROBE_DEFER)
-@@ -168,10 +249,6 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
- 	if (ret)
- 		return ret;
- 
--	spin_lock_init(&pdevfreq->lock);
--
--	panthor_devfreq_reset(pdevfreq);
--
- 	cur_freq = clk_get_rate(ptdev->clks.core);
- 
- 	/* Regulator coupling only takes care of synchronizing/balancing voltage
-@@ -229,6 +306,61 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
- 
- 	dev_pm_opp_put(opp);
- 
-+	return 0;
-+}
-+
-+static int panthor_devfreq_init_platform(struct panthor_device *ptdev)
-+{
-+	struct device_node *pcnode;
-+	struct platform_device *pdev;
-+	struct device_link *link;
-+	int ret;
-+
-+	pcnode = of_parse_phandle(ptdev->base.dev->of_node,
-+				  "performance-domains", 0);
-+	if (!pcnode)
-+		return -EINVAL;
-+
-+	pdev = of_find_device_by_node(pcnode);
-+	of_node_put(pcnode);
-+	if (!pdev)
-+		return -ENODEV;
-+
-+	link = device_link_add(ptdev->base.dev, &pdev->dev,
-+			       DL_FLAG_PM_RUNTIME | DL_FLAG_STATELESS);
-+	if (!link) {
-+		dev_err(ptdev->base.dev, "failed to add device link\n");
-+		return -ENODEV;
-+	}
-+
-+	ret = panthor_devfreq_init_provider(ptdev, &pdev->dev);
-+	if (ret)
-+		return dev_err_probe(ptdev->base.dev, ret,
-+				     "failed to initialize devfreq provider\n");
-+
-+	DRM_DEV_INFO(ptdev->base.dev, "initialized devfreq provider %s\n",
-+		     dev_name(&pdev->dev));
-+
-+	return 0;
-+}
-+
-+int panthor_devfreq_init(struct panthor_device *ptdev)
-+{
-+	struct thermal_cooling_device *cooling;
-+	struct device *dev = ptdev->base.dev;
-+	struct panthor_devfreq *pdevfreq;
-+	int ret;
-+
-+	pdevfreq = drmm_kzalloc(&ptdev->base, sizeof(*ptdev->devfreq), GFP_KERNEL);
-+	if (!pdevfreq)
-+		return -ENOMEM;
-+
-+	ptdev->devfreq = pdevfreq;
-+
-+	spin_lock_init(&pdevfreq->lock);
-+
-+	panthor_devfreq_reset(pdevfreq);
-+
- 	/*
- 	 * Setup default thresholds for the simple_ondemand governor.
- 	 * The values are chosen based on experiments.
-@@ -236,6 +368,14 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
- 	pdevfreq->gov_data.upthreshold = 45;
- 	pdevfreq->gov_data.downdifferential = 5;
- 
-+	if (!of_property_present(dev->of_node, "performance-domains"))
-+		ret = panthor_devfreq_init_of(ptdev);
-+	else
-+		ret = panthor_devfreq_init_platform(ptdev);
-+
-+	if (ret)
-+		return ret;
-+
- 	pdevfreq->devfreq = devm_devfreq_add_device(dev, &panthor_devfreq_profile,
- 						    DEVFREQ_GOV_SIMPLE_ONDEMAND,
- 						    &pdevfreq->gov_data);
-diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.h b/drivers/gpu/drm/panthor/panthor_devfreq.h
-index f8e29e02f66cb3281ed4bb4c75cda9bd4df82b92..777045d406242f46dea376bccb999bfc11f92a7a 100644
---- a/drivers/gpu/drm/panthor/panthor_devfreq.h
-+++ b/drivers/gpu/drm/panthor/panthor_devfreq.h
-@@ -10,6 +10,51 @@ struct thermal_cooling_device;
- struct panthor_device;
- struct panthor_devfreq;
- 
-+struct panthor_devfreq_provider {
-+	/** @dev: device pointer to the provider device */
-+	struct device *dev;
-+
-+	/**
-+	 * @opp_table: table of unique OPPs, sorted from lowest frequency to
-+	 * highest.
-+	 */
-+	struct dev_pm_opp_data **opp_table;
-+
-+	/** @num_opps: number of entries in @opp_table. */
-+	unsigned int num_opps;
-+
-+	/**
-+	 * @target: &struct devfreq_dev_profile "target" callback to wrap,
-+	 * optional. Falls back to panthor internal implementation if absent.
-+	 * Passes @dev as the first parameter, not panthor's device.
-+	 */
-+	int (*target)(struct device *dev, unsigned long *freq, u32 flags);
-+
-+	/**
-+	 * @get_dev_status: &struct devfreq_dev_profile "get_dev_status" callback
-+	 * to wrap, optional. Falls back to panthor internal implementation if
-+	 * absent. Passes @dev as the first parameter, not panthor's device.
-+	 */
-+	int (*get_dev_status)(struct device *dev,
-+			      struct devfreq_dev_status *stat);
-+
-+	/**
-+	 * @get_cur_freq: &struct devfreq_dev_profile "get_dev_status" callback
-+	 * to wrap, optional. Falls back to panthor internal implementation if
-+	 * absent. Passes @dev as the first parameter, not panthor's device.
-+	 */
-+	int (*get_cur_freq)(struct device *dev, unsigned long *freq);
-+
-+	/**
-+	 * @exit:  &struct devfreq_dev_profile "exit" callback to wrap, optional.
-+	 * Falls back to not registering one an exit function at all if absent.
-+	 * Passes @dev as the first parameter, not panthor's device.
-+	 */
-+	void (*exit)(struct device *dev);
-+
-+	struct list_head node;
-+};
-+
- int panthor_devfreq_init(struct panthor_device *ptdev);
- 
- void panthor_devfreq_resume(struct panthor_device *ptdev);
-@@ -20,4 +65,6 @@ void panthor_devfreq_record_idle(struct panthor_device *ptdev);
- 
- unsigned long panthor_devfreq_get_freq(struct panthor_device *ptdev);
- 
-+int panthor_devfreq_register_provider(struct panthor_devfreq_provider *prov);
-+
- #endif /* __PANTHOR_DEVFREQ_H__ */
+ static const struct of_device_id dt_match[] = {
 
 -- 
 2.51.0
