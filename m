@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A1CCAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D16CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mUFFv50bhb2+00GyqpEZHNIfyXG+VUi75AZvpEX7DOM=; b=PSuRQG8YMEyGcYrOauzXu5BJup
-	ChIIIogc8rnUTW/0fR/QqRb7qpaHHdM5tr51/eF/npqzNWPkyVbxO5mu9+JWbBwNoF+Q6tmvbOhiI
-	63UY/DDfVToBSatP8vf9nv7oyYtJ9bVrMw/0oyqfgWA5lr0rhRnZwB6027RcXet0AE4fo2qvI0o78
-	LlyUWBhZBErjFf29MBlLLnblvZxG38MgxgqdQFIeQJk2nGriNHGvi8ayrf8OIuIQ8EmAS1H8IedkB
-	IxgMtT1Lf8C2uLrowkWyf52JwPPB4d5+gnRbSEOp0H4sWzNpZi1iKKwYJz7XUWTLtpQUIVuULa7l5
-	ElFZUCpQ==;
+	bh=iD5XRAIh8ZnG5RNR+0CHEjQTjHzJYwsVX6odeQU8TkY=; b=Uliaxos1+KmEO8ljmqOB4gRZuj
+	QPdeZrfFrgWlVQc6LPRUP0qL7x2WutfWmzC79q6k2VyM+hnvzPvPGAJrg948IDzLiQ/b6zoP2Lsuz
+	TvJbARgLMg4Ahbgn7TAdRRpW1myADu3a+T30k6iTFh4eFnBusgEfnRZgTCQZJbDmES19NcAGASegM
+	KqtMuSr1852qNQF8fcCPP9OqWpPQLqyjKEadBFgvlSq73pnCIe/otCaa5dxlBzIOqEnl+r21oYOXB
+	DPuaiyGNcfHeQCeZxb+XJf5agc5LyjRY5txfmkhU2WIXBtyiKV/EHVdRj9fp3uAkl2p+K74SsM1k6
+	Rt/boKig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyskO-0000000ByUz-1AJh;
-	Wed, 17 Sep 2025 14:03:00 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uyskQ-0000000ByaZ-3YcW;
+	Wed, 17 Sep 2025 14:03:02 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjY-0000000BxCI-1JA6
+	id 1uysjb-0000000BxHO-1ljw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:09 +0000
+	Wed, 17 Sep 2025 14:02:13 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117723;
+	s=2020; t=1758117725;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mUFFv50bhb2+00GyqpEZHNIfyXG+VUi75AZvpEX7DOM=;
-	b=25tRyX7MK/yc1747HtA5vxS6y/LfwSpeLcAuZtpf5RG1mH6HSA7Z0CBkKx6h4fLVKJgG+i
-	gzs16Dj7Oqh9qL5b96kEPaap7sNRCNVH32um1VNUGmpCBrHGyNZJ08QXkjiFDFodmkVlWZ
-	mLVIQdB3q+8PyoCtB0JUkIUaLBgWQOhXbNTf2n7PiIstBuyjhPlTNoLHpETAnszd3ptqXF
-	m/8ZmT5IACI4nY9JYHML4/CLRtkqfsnuWbFAw6zEh8PTj3C9IOyorjp3uEvd+hXJYMIUlx
-	2st4cCerZ5AEWNevtqdyZ5hdb45mvcnwOp5xPWnAHgbTGM778njcXb/bqWJ7HQ==
+	bh=iD5XRAIh8ZnG5RNR+0CHEjQTjHzJYwsVX6odeQU8TkY=;
+	b=Fv+oJLZudSYYx0bKw3Rs8g4CNOG8TApAStMsQbjBjfOoOee1yYJ0a6qrkX6MJTdSoWHaAK
+	QD+wmyYbK+gKiXYLJxk+WKuzCV6uHoCH8xXfbfANikSAwfRvsV7Wr+6x8rlGYJPv4oO9Eq
+	Dh+UWkNzbmIGMBIL2ufc6/VO+b7toRgMPeYk+H+BmI2UFvm1yZwXSrNvFDLdTc+wLU9IsN
+	MbMQjrs1ffkLuamKdo/n3CqGYIVzODCeTOKjsKLl5QYNu14ETmj4Lg23YOpjENF5iU+jxx
+	BgQYKyAhAE0N1UNW0v5HOcgY3CehjETgZkQfmBJGUCr8zdF/wQs+pIE1SJD4WQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117724;
+	s=2020e; t=1758117725;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mUFFv50bhb2+00GyqpEZHNIfyXG+VUi75AZvpEX7DOM=;
-	b=QLiWyBdR2rg3zkPbtErOOuSNp2bFt7wDVXrC/RZUHhbaL4Nb+7QmKT2gwUZVr4UAiKIiOg
-	LkjjO8SrN5k4YjAg==
-Date: Wed, 17 Sep 2025 16:00:21 +0200
-Subject: [PATCH v3 19/36] random: vDSO: only access vDSO datapage after
- random_init()
+	bh=iD5XRAIh8ZnG5RNR+0CHEjQTjHzJYwsVX6odeQU8TkY=;
+	b=H+/D/bbAGIqMUobSU/LyYlPC/D8u5ZzXijCtLrzXNcBiXxMNtlpDzVIVuyTn7WaMKyuujc
+	4rL4w1DugwGV7dAA==
+Date: Wed, 17 Sep 2025 16:00:24 +0200
+Subject: [PATCH v3 22/36] vdso/datastore: Drop inclusion of
+ linux/mmap_lock.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-19-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-22-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -84,16 +84,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=2363;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=767;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=eZ1dDq0MfGenTPjQNZP07/Jb7BnP3IgLLLQRjIR+5Yw=;
- b=ulpG5t+QjFlzrCh0/hSQNTxQqa9rMe5B8ib8Z7QwM7aJKgiEMuj9UWYwV+0f5PlWBhjJFPUE3
- 925uYZxoSJiBEVKqLWte5Jf7eE+g+uEwfp8mMAfyQm4a+qXjG1JHGH6
+ bh=AbqD71g4iOTfOxEE3MjW4Dru2mugsjt5pocRndo4f0o=;
+ b=jsqBFarezTjaKQ5mFQ58J1HNvxhOpJrKM6OIEXgDaDP5lqUn/+NOGqhdw7Tgx8DyJjJZ+B7RE
+ 8pgtQexE13iA2r5BphZq5aoH/AuZ+0U4vgHB+jrfVycDFPQ1X9311hQ
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070208_538633_604ECC5A 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250917_070211_683409_4835643E 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,74 +109,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upcoming changes to the generic vDSO library will mean that the vDSO
-datapage will not yet be usable during early boot.
+This header is unnecessary and together with some upcoming changes would
+introduce compiler warnings.
 
-Introduce a static key which prevents early accesses.
-
+Link: https://lore.kernel.org/lkml/20250916-mm-rcuwait-v1-1-39a3beea6ec3@linutronix.de/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/char/random.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ lib/vdso/datastore.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 73c53a4fb949bfd2ed723fa3cec3fe0d066a7fa3..8970645463ceae0dadb75825a3cb0df3ef1e982e 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -88,6 +88,11 @@ static DEFINE_STATIC_KEY_FALSE(crng_is_ready);
- static DECLARE_WAIT_QUEUE_HEAD(crng_init_wait);
- static struct fasync_struct *fasync;
- static ATOMIC_NOTIFIER_HEAD(random_ready_notifier);
-+#ifdef CONFIG_VDSO_GETRANDOM
-+static DEFINE_STATIC_KEY_FALSE(random_vdso_is_ready);
-+#else
-+DECLARE_STATIC_KEY_FALSE(random_vdso_is_ready);
-+#endif
+diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
+index 2cca4e84e5b5e7686d6a2b42b41af4f399cc5261..7377fcb6e1dfe31d02ffcae371fdf9da069ae4c1 100644
+--- a/lib/vdso/datastore.c
++++ b/lib/vdso/datastore.c
+@@ -1,7 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-only
  
- /* Control how we warn userspace. */
- static struct ratelimit_state urandom_warning =
-@@ -252,6 +257,9 @@ static void random_vdso_update_generation(unsigned long next_gen)
- 	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
- 		return;
- 
-+	if (!static_branch_likely(&random_vdso_is_ready))
-+		return;
-+
- 	/* base_crng.generation's invalid value is ULONG_MAX, while
- 	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
- 	 * former to arrive at the latter. Use smp_store_release so that this
-@@ -274,6 +282,9 @@ static void random_vdso_set_ready(void)
- 	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
- 		return;
- 
-+	if (!static_branch_likely(&random_vdso_is_ready))
-+		return;
-+
- 	WRITE_ONCE(vdso_k_rng_data->is_ready, true);
- }
- 
-@@ -925,6 +936,9 @@ void __init random_init(void)
- 	_mix_pool_bytes(&entropy, sizeof(entropy));
- 	add_latent_entropy();
- 
-+	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
-+		static_branch_enable(&random_vdso_is_ready);
-+
- 	/*
- 	 * If we were initialized by the cpu or bootloader before jump labels
- 	 * or workqueues are initialized, then we should enable the static
-@@ -934,8 +948,10 @@ void __init random_init(void)
- 		crng_set_ready(NULL);
- 
- 	/* Reseed if already seeded by earlier phases. */
--	if (crng_ready())
-+	if (crng_ready()) {
- 		crng_reseed(NULL);
-+		random_vdso_set_ready();
-+	}
- 
- 	WARN_ON(register_pm_notifier(&pm_notifier));
- 
+ #include <linux/linkage.h>
+-#include <linux/mmap_lock.h>
+ #include <linux/mm.h>
+ #include <linux/time_namespace.h>
+ #include <linux/types.h>
 
 -- 
 2.51.0
