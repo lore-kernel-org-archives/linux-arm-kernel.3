@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3752ACAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DB1CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1MPp9mvjRQ3LKkWTe5ANeWphDNzNCcQyTak/yvHDjd4=; b=ENuH8tQngM4S3p
-	6x0qzqUccqkw4xXqmpKCGALtEbAdOBEQ4GhjhtenGkduCU9pk1+jPKosTY9A/KojtPrijqIVf6CNj
-	zaFC9eqhC8zqfwpDnfCm6mkURQrwGIfRL8P+B4PpVdUakYNxLZZcSVxjB/4uhQH1B/AsiOzCtqyHR
-	J6TQIlmWXxitf0yHPG0snpFlw+a0jom+A7RKgC67lTVG7e7J5dlUEXpekowZYtCzeOXD0Z4gd5yqb
-	mEYFSqgLdJ1S/DTxBbnlr1D0Tm+VqdtM1/G420/szv+rHkPBIi7xyFD1vmdE4b5qgWVP2NIK5lCrO
-	v7Zb9DBw0h31T+iDWgmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=; b=To3r3Ab9bu6u6IWvJw7oTohvr5
+	kfoYAiJOeoE7TIJTzKNvmYeGKSnlVLqF1oqWKlPjhaKLmb4ESB/FKjQnYYU3dedHWfWzhp2iMPGwq
+	izVYbTyzF/Ryr2jlZB1DpkYYEiFSfZxwV7CRUzHIpAiHqEYWXE9I3sBirdIXXFIQ5HMJ8dwUki0d6
+	dPl5egYXRuFJOw5GBofxwmGtPQruDI7cZcJjRqUF+8iqTfVd0WByuLVwsIqyO/qMouCuNPeTUnKwX
+	o5nagElzD2r/6DL5puI71UdnWBzuN65b88xQHaVjPwQw/i6r+3llLpZa9pjoTLVGIKpjI1YFkYEOK
+	Fl0/qGow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyspe-0000000C3SL-2hlg;
-	Wed, 17 Sep 2025 14:08:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uysrN-0000000C4Lo-2paB;
+	Wed, 17 Sep 2025 14:10:13 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyspc-0000000C3RV-23Bb
+	id 1uysrK-0000000C4JQ-3x6S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:08:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D730444DF8
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 14:08:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C003C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 14:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758118103;
-	bh=lXCWglnUt90yI4aRsoMOta6ojCYjUYZrQfBXDrQOyNM=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=KXrXHs/g1qw/613j5auhUt3GIPp/QsjHcbCOjwPwoByTRaQfe1HCwKpmUuEvRLM5P
-	 ieAavHzuBLh5oRok+jpEDvm9ZuacjnuqhBa8cvZkI15sQsKj+m7VLNAXraT817uh3h
-	 hKQZlNeEgDIhIMQbQ0+ezLdyb9KnqeC1GZrnxlYRZNTrP2NrXtihrDz0Q1Bu+tr9Y1
-	 eMfCLYldKd/dveVkVrDggkTvfopSbs8uyofOjTe8UH9ftwYQMvOoDdEmxk2t0pQJ3U
-	 AAejCD24iU+BEer8SCaDe5evgQp78RlAQ3LdRekoLNzURBMNRTvM6+d/TNxQMv1yn+
-	 wuym0xuDm8ZSg==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3601013024aso6922021fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:08:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXW1L5mzF0jqrfP6CPWkhpXfL6P0BpeWfKVkMDWyF0+PBv0gbyjSJdHff7nas722V/TvdacNYSj/IUj5NRJjUAi@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVqCNFTP3Xcny2RGGqfe85WLdS+WCLRr8ZLNoEH7Vpn4niVdpZ
-	e7ZJy4XPejCuWR28glegBZ27OpRMN7+PlIZFG8WeTUiDUw4IUtWGVtIvHuGwm+JipZiaP2pjZxt
-	JVnBDKtxKpmr8R5WcGNsZDWC0BA9y9vQ=
-X-Google-Smtp-Source: AGHT+IGqdaQ8C9lVtjuyq3Lst//zIEIlnNEWTnnZW0oeQInZavtI2ovFzZs+fzDjBgh6Oll2QYo+R+KbyOIjgKRKfDM=
-X-Received: by 2002:a2e:a484:0:b0:338:7f3:a740 with SMTP id
- 38308e7fff4ca-35f6093b1aamr6295401fa.7.1758118101743; Wed, 17 Sep 2025
- 07:08:21 -0700 (PDT)
+	Wed, 17 Sep 2025 14:10:12 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758118208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=;
+	b=ZKpSI+WPydnrumYQ7gxnajAs+lz48YaqiNN3+WhYNwWXlUic0xCBsG6f6GfE8taQbHcIgJ
+	h7Kh1tpSx++CpIjdk2mOz5C8qrezCvij4Bk8iMJhmpa16eSQBcomARzZeXmkJinMK6glwU
+	/UoCFWaheNWZeinES9gkwAgNZHQGwrhZjReOwblCiBhi00hbE5NYnMlrnONnM1S91JYtLJ
+	5CckReOcFW3rJ1+heNZD7lLCRl+2mHJx7WPMA6JZ7bGl0gGxnrhAb0Qs6EzKVgYT+Ot1sw
+	h1UyJfZDjAyn+2j60JTop8cvG2RTrlkVsVVpCCok6p2oOoIhbLO/tvfT4Jfbiw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758118208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=;
+	b=TbymsR0+lk/yBTMUwla0JPYo6VaReyftRSNu6ml7UoTThH0F5HVkZGBsfwFUiwKRK5kBjM
+	+sfN3Y9Q7FzbGVAw==
+To: David Hildenbrand <david@redhat.com>, Eugen Hristev
+ <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
+ pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
+In-Reply-To: <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com>
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+ <20250912150855.2901211-10-eugen.hristev@linaro.org> <87cy7q9k8y.ffs@tglx>
+ <87a52u9jyl.ffs@tglx> <8df2cf28-c15e-4692-a127-6a5c966a965e@linaro.org>
+ <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com>
+Date: Wed, 17 Sep 2025 16:10:07 +0200
+Message-ID: <87v7lh891c.ffs@tglx>
 MIME-Version: 1.0
-References: <20250913101349.3932677-3-wens@kernel.org> <20250917070020.728420-1-amadeus@jmu.edu.cn>
-In-Reply-To: <20250917070020.728420-1-amadeus@jmu.edu.cn>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 17 Sep 2025 22:08:10 +0800
-X-Gmail-Original-Message-ID: <CAGb2v640r+TwB7O+UAB9PehZ2FaXDjhVerK6j_CZ2+caJoJ9zA@mail.gmail.com>
-X-Gm-Features: AS18NWACYa7boO8HaxahcwxNgufh9JCYIxjbMd7TaIvgTTRgZ9eVfnU6RZmksT8
-Message-ID: <CAGb2v640r+TwB7O+UAB9PehZ2FaXDjhVerK6j_CZ2+caJoJ9zA@mail.gmail.com>
-Subject: Re: [PATCH net-next v6 2/6] net: stmmac: Add support for Allwinner
- A523 GMAC200
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: andre.przywara@arm.com, andrew+netdev@lunn.ch, conor+dt@kernel.org, 
-	davem@davemloft.net, devicetree@vger.kernel.org, edumazet@google.com, 
-	jernej@kernel.org, krzk+dt@kernel.org, kuba@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org, pabeni@redhat.com, 
-	robh@kernel.org, samuel@sholland.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070824_548734_06A68907 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250917_071011_122086_49891A9B 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +79,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Wed, Sep 17, 2025 at 3:00=E2=80=AFPM Chukun Pan <amadeus@jmu.edu.cn> wro=
-te:
+On Wed, Sep 17 2025 at 09:16, David Hildenbrand wrote:
+> On 17.09.25 07:43, Eugen Hristev wrote:
+>> On 9/17/25 00:16, Thomas Gleixner wrote:
+>>> I pointed you to a solution for that and just because David does not
+>>> like it means that it's acceptable to fiddle in subsystems and expose
+>>> their carefully localized variables.
 >
-> Hi,
->
-> I tested this on Radxa Cubie A5E and there seems to be a small issue:
->
-> When VLAN_8021Q is enabled (CONFIG_VLAN_8021Q=3Dy), down the eth1 interfa=
-ce:
->
-> ~ # ifconfig eth1 down
-> [   96.695463] dwmac-sun55i 4510000.ethernet eth1: Timeout accessing MAC_=
-VLAN_Tag_Filter
-> [   96.703356] dwmac-sun55i 4510000.ethernet eth1: failed to kill vid 008=
-1/0
->
-> Is this a known issue?
+> It would have been great if we could have had that discussion in the 
+> previous thread.
 
-I don't have 802.1q enabled so I didn't see this.
+Sorry. I was busy with other stuff and did not pay attention to that
+discussion.
 
-Can you provide the base commit you applied the patches to?
+> Some other subsystem wants to have access to this information. I agree 
+> that exposing these variables as r/w globally is not ideal.
 
+It's a nono in this case. We had bugs (long ago) where people fiddled
+with this stuff (I assume accidentally for my mental sanity sake) and
+caused really nasty to debug issues. C is a horrible language to
+encapsulate stuff properly as we all know.
 
-Thanks
-ChenYu
+> I raised the alternative of exposing areas or other information through 
+> simple helper functions that kmemdump can just use to compose whatever 
+> it needs to compose.
+>
+> Do we really need that .section thingy?
+
+The section thing is simple and straight forward as it just puts the
+annotated stuff into the section along with size and id and I definitely
+find that more palatable, than sprinkling random functions all over the
+place to register stuff.
+
+Sure, you can achieve the same thing with an accessor function. In case
+of nr_irqs there is already one: irq_get_nr_irqs(), but for places which
+do not expose the information already for real functional reasons adding
+such helpers just for this coredump muck is really worse than having a
+clearly descriptive and obvious annotation which results in the section
+build.
+
+The charm of sections is that they don't neither extra code nor stubs or
+ifdeffery when a certain subsystem is disabled and therefore no
+information available.
+
+I'm not insisting on sections, but having a table of 2k instead of
+hundred functions, stubs and whatever is definitely a win to me.
+
+Thanks,
+
+        tglx
 
