@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB548CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50269CAC59D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBxKHfRCGcE5Q/eepg5aPjxUu8diqcOmzAvEs6SS1gU=; b=4NX5qsyuIKSNlqcJjjdI2tSnU6
-	Rh1OYfDe+Er+r3ieXuAt0qM0wiOkfSeregOtA7aPF06wXq7J4jAX+61AvFa7p8knZMC6UsjfSXIVz
-	h1sumyOYzPrNaa6FMb1UEq9ajN5nCQYQWTZHeJ3bJLurq+Y5M0NtSYZwtAzrNuIg2Zk63sfdfXEe2
-	x1MA09P2XaabMcusLeARmt/XCoKtPKUPgmtf/I8CbWOwj6xx8Ah7r721mDEmjXIdSjabc67J/uCok
-	XFepgs/kQ4f5LeOwGjV/Br7geyhRgraxF/9cJKOIXdatFDYFrQtKHFZQbJNzNm4huVPC9pHoLvvqS
-	7pDOgtwA==;
+	bh=/ZxtDJ8NDcYS0cSetpXt7raMXbyInlYYiFA0w5yReZ0=; b=iR3ZJfnW7aLXST6TYkl1SkIYjP
+	KQmIfFEaIdTfnrjtXtsc7W533P7h4+bjtXkkcT67iiChCkS5TE//UphY7ItvP6mxcquZ/DHSySby2
+	57sBzSlOVGm9/n9+da/WbLCGA31ImcBlILD4EEIKKTJi5hCxs2XYCMs0d69Kf4HEf/e8AnJ9xOSdG
+	SZ//FmuK6Gnqqs0GPs2bGiQjbY2CapKaFrvysHrvC9bLwebAsXwumvYR2zZBlVQfzzmdyMCxZokn0
+	RA/7sd+68Fz2hXJ7H15podcWQhFzDmuz+CE5Sq/mdqHbDXdOLn5dJhtIYA+QZUsNpT6XaDqNs37xb
+	H29AcgpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt6z-0000000CCob-3gQ4;
-	Wed, 17 Sep 2025 14:26:21 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uyt70-0000000CCpS-1ofq;
+	Wed, 17 Sep 2025 14:26:22 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt6t-0000000CCho-1jWp;
-	Wed, 17 Sep 2025 14:26:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=XBxKHfRCGcE5Q/eepg5aPjxUu8diqcOmzAvEs6SS1gU=; b=iPeTG/S7BlbqBcsqvb6s5BzW8C
-	+K5i7IF5xnqnky7+WluHCxzTVYLW/nX5SZ4xz1RRqfPrwlRCIPUb2l7VwS8EZtUMDFXIBh3I1HiUV
-	v6hOiPZ6kgUyWn/QyT7HAVCmge5ATcGHua9nehvN3uHnUDWteZpHXyEn6D5RGt1RDNxDKovDDrJIc
-	gJg9Nsh5XBjMoTJjI3znoDVX2LidNsR2MS/d43s+VfKZ+LKV3CvGmQqADqCP5zowN84MEkKpPt0q3
-	zY+XFX1H7akSvKHeWA5keKDUxePGwWuDjYuqh8Al6wqSXQWXEdYAh1OLPVtTVu1XKLDVFvdfAi6sP
-	fktAFmTw==;
-Received: from i53875a9d.versanet.de ([83.135.90.157] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uyt6e-0000pg-Tg; Wed, 17 Sep 2025 16:26:00 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Ed Wildgoose <lists@wildgooses.com>, Dragan Simic <dsimic@manjaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] rockchip: dts: Enable UART DMA by adding default dma-names
- property
-Date: Wed, 17 Sep 2025 16:25:59 +0200
-Message-ID: <4007782.fW5hKsROvD@diego>
-In-Reply-To: <7c8576e3d9fc73ba45830833f5281706@manjaro.org>
-References: <20250917114932.25994-1-lists@wildgooses.com>
- <20250917114932.25994-3-lists@wildgooses.com>
- <7c8576e3d9fc73ba45830833f5281706@manjaro.org>
+	id 1uyt6x-0000000CClc-12jU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Sep 2025 14:26:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/ZxtDJ8NDcYS0cSetpXt7raMXbyInlYYiFA0w5yReZ0=; b=vr0eQWPgmDBkic8/GVQiu43zFP
+	uc/rYJqtnhoAciwrfHu+jkE3Ox8j2JAlJfTbQ//7gO9xX2bnoIFPZYxUgxHeulz+hKj56q+1r29E3
+	7Lk5XS9KE3VP41UrUye2FWA5ucMVt6cF/H8fkRLCseZYqDZNlkZSkz43uCc3DwmJB10uN9LEffXGD
+	vGYXokojPtUciD2QFQ4ZfTUAxF6BihQsZjLSG+TMWEji9mdGYre38hjcPP5xyGLMV/fwkix62hy7j
+	YyrFUnU92vsZK12eC4FE8kEhqUv1mwAn6cN9K1zvhn7ySvBjKs+wbjEOo1A5HdsSpoRpm3cCCbriP
+	sGt/buQQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44676)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uyt6l-000000004Ti-01AJ;
+	Wed, 17 Sep 2025 15:26:07 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uyt6h-000000000Fo-2Qq3;
+	Wed, 17 Sep 2025 15:26:03 +0100
+Date: Wed, 17 Sep 2025 15:26:03 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	UNGLinuxDriver@microchip.com, jacob.e.keller@intel.com,
+	Robert Marko <robert.marko@sartura.hr>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] net: sparx5/lan969x: Add support for ethtool
+ pause parameters
+Message-ID: <aMrE-9rtW20A9Xnj@shell.armlinux.org.uk>
+References: <20250917-802-3x-pause-v1-1-3d1565a68a96@microchip.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917-802-3x-pause-v1-1-3d1565a68a96@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_072616_645235_882A3620 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250917_072619_292924_77DDDF22 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,46 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 17. September 2025, 14:22:52 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Dragan Simic:
-> Hello Ed,
->=20
-> On 2025-09-17 13:49, Ed Wildgoose wrote:
-> > Kernel appears to need a dma-names set for DMA to actually enable. Set=
-=20
-> > a
-> > default dma-names property for all UARTs defined in the base=20
-> > rk356x-base
-> > dtsi
-> >=20
-> > This is tested on a Radxa Zero 3W (which has 5x UARTs) and removes the
-> > warnings and enables DMA on this platform
->=20
-> Thanks for the patches.
->=20
-> We should (still) stay away from defining the "dma-names" property
-> at the SoC level, because doing that causes serious issues in certain
-> cases.  Thus, I'd suggest that this patch is dropped, and that the
-> "dma-names" property is defined instead at the board level, where
-> it's needed and tested to work as expected.
->=20
-> Please see commit bf6f26deb0e8 (arm64: dts: rockchip: Add dma-names
-> to uart1 on quartz64-b, 2024-06-28) for further explanation.
->=20
-> If/when the underlying issues are debugged and resolved, we can get
-> back to defining the "dma-names" property at the SoC level.
+On Wed, Sep 17, 2025 at 01:49:43PM +0200, Daniel Machon wrote:
+> Implement get_pauseparam() and set_pauseparam() ethtool operations for
+> Sparx5 ports.  This allows users to query and configure IEEE 802.3x
+> pause frame settings via:
+> 
+> ethtool -a ethX
+> ethtool -A ethX rx on|off tx on|off autoneg on|off
+> 
+> The driver delegates pause parameter handling to phylink through
+> phylink_ethtool_get_pauseparam() and phylink_ethtool_set_pauseparam().
+> 
+> The underlying configuration of pause frame generation and reception is
+> already implemented in the driver; this patch only wires it up to the
+> standard ethtool interface, making the feature accessible to userspace.
+> 
+> Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 
-And apart from the whole stability thing, on a number of socs the pl330
-dma controller has more possible sources for dma operations than it
-has available channels ... and right now the driver does not support
-handling this.
+It is nice to see drivers not having to implement complicated code
+to add support for pause configuration!
 
-So you can (and if I remember correctly we did) end up with some uart
-requesting dma channels (and not needing them) and then sound not
-getting any.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
+Thanks!
 
-Heiko
-
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
