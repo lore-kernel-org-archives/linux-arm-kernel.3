@@ -4,152 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06015CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F7FCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xk7LbCHuAHz9sYLYX2UR8hcdpnMrmhmh3sli36HAZhM=; b=RrEPv7uuIMXb/k3dTmhqroY9tt
-	yRsKydEJMLMqdGx57xR3wrBEbeO/oImnYcpuIcNxpviuTHDWxKDhbTdG1LLVK6C1q0QA4uS5gqu4k
-	da/CkbEWPvFF+JjJI6Kgqq1te8fdC3dmTObs+XBU8tmCt3n6a2p82b0TnuOpDvVXa2j6rlijdRbRQ
-	PHBgQzgnrNm0AMn+A13Jqs2Z2ZRWPwLHzmJ/hd7QkNkyv9mGCwDTqmWT1vvbyUCP0RtytE1LTaf5J
-	hNzW6ogk3fUgffMKAMokzjVnWPmRqeF33wowahHUykA8jJShJZfnV/c7gqsW5JcqMRLf50e4UQ+hF
-	EmAMogfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ign5Rvn1nrFDYbDVfbmxV7M+H+jM3AW8cIlkron9MVw=; b=tFuirwILtK5E1G
+	F22pxZ145JXqsnhzBgKIV2P9hFVvZnZWPF34Nm894kX8nLF8Y3yJnJuCZV2DhkwD6HD32j99sgEL/
+	s/OAZwy/sN2d2jHme+M45YZIpL5p/rQSpogaRe6zzc/ppYlFwcK8mSW6e29oh5i7tv8J5jMzeD06N
+	rIVgCmFRwDt8Ad3g9FgFDnRM2p4iSejrTqhE5RtflxV1mwSaRXisJVCZCYHbN6uVDKFH5/vG+nIm+
+	cOxR1Jox4tPyFYrHpBbjOV0iLwXBEbnPjmBOhDtgQcEcuPn/+vHo4Q+IL3lEgFrW1E/xoG9wta+tT
+	K7AKSZv75L2BFdyd2kUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytJL-0000000CIzu-2wyO;
-	Wed, 17 Sep 2025 14:39:07 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uytJx-0000000CJIA-09hp;
+	Wed, 17 Sep 2025 14:39:45 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytJJ-0000000CIyF-2vtq
+	id 1uytJu-0000000CJGZ-15Ba
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:39:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B6/xoIY8zCrT+HBo8P8QYruF438YGWlg5amu/jEygWm/6v6EErBPxqQ7E0t00QlzwyQ3crTrCVIt8J/KINpz/+NDnnxgCoIAWWbHN6+BF+2RgFbA2oFadlX8PnJgkyZhgIbh4vtj6t2tcFfmAoKz02CZs1EjqjIRxrctygTJz95joll9JUYyrA/5s7NRSlUr0q04xUx1/yRMLFp5vFeMsDJ6jWExIMsMoTqEDUkeHZjZh2aAvlrZX4Tt51BjyDiCKyJv3Iz4NnYH1ars4EsVUESXr48UHN4HyqagPuFB5/CEvtg62PXLIvuBMCP70M3TbIWxuZcGIjozfr/o3A3Q8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xk7LbCHuAHz9sYLYX2UR8hcdpnMrmhmh3sli36HAZhM=;
- b=SBIYCP4K8fPhjFn4PvzpFYx43/g5f1YtUbERke1g5bpalVurYqkAjRKPyjUKeMylifLb7TmS9DZNuEy22MO6tYA2rR1u/yvHcei3PevMRlMkUKvps+CSaciTNdlqBl9Rq+BKG3Z+rOQPHMCYAbdvJZ8Y1tfCPLmBBinJqlH1mzugzkhPW/pE9QMhpWyQjG1W+SvuWohF6GgjLq+l069Chh1PeB0jI1GyOEiyM2iB/0i9R/JUwHX7gB9D1u5Cz99wtAaQ4jQnnWoOm6F8va1SDgGg4nlu7PayqbodGqkBShmBZ+Q3B0tM4VFSCF/tE02dRL18UtWmN0RhgrpteFxIhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xk7LbCHuAHz9sYLYX2UR8hcdpnMrmhmh3sli36HAZhM=;
- b=kdKI7dA32XP4Yioghq14G9EDUiMmHgX0S6ZKWMn73dHfGN7hiVX2gI/gX4pwaw+ab31y4chjh335m+pVrN0rzWBoQt/ZMEVUuBUoTCYNGoJ2Dh38QOyjSMx3pbOuhhW//ZUWkE3On7ziQ6cNMbcaCmwuoZ162W6GEcBxjrMymXbKA1RdFB+wE3ZwQTCZ7FWSYhnBfo65nG0Xh76sWfyemaW1QAEZHesrApYXYnB2pM4DgOF5T6VSUssTesXNJ72Qwp8HFZv3ETUd0bivnHWVKMdwTkqoHw0pbOWCyWoJkiddkrZYUTJUAu8rKzR9/A67okP2/rbah5a1Hqqwfvm+nA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by DBBPR04MB7628.eurprd04.prod.outlook.com (2603:10a6:10:204::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
- 2025 14:39:02 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 14:39:02 +0000
-Date: Wed, 17 Sep 2025 10:38:54 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/6] remoteproc: imx_rproc: Use devm_rproc_add() helper
-Message-ID: <aMrH/ic5wc4cyHCs@lizhi-Precision-Tower-5810>
-References: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
- <20250917-imx_rproc_c2-v1-6-00ce23dc9c6e@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917-imx_rproc_c2-v1-6-00ce23dc9c6e@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0267.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::32) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 17 Sep 2025 14:39:43 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-62f7bcde405so2066940a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:39:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758119980; x=1758724780; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ign5Rvn1nrFDYbDVfbmxV7M+H+jM3AW8cIlkron9MVw=;
+        b=ZJRy6qcN7X1aSF2ufrRDesMeSL89hlhDDCOV0bhHdyRsgjxsOOUWaAE+Ueh9FRqTNY
+         AD3U/30TJCJMmURKDyIDX/tRBVTL+PjEP5pIKjv9g1IAI0spyFPbFEUTcEq26MjqlFiz
+         QcGlcDx8/ojJHh9T2d8xhvhgnE7gF4QOyDnsFOPvWrTWs69kbhnF9uT9W8DWFBwZ4O4/
+         IQkmEMvzL9s1BWe27l5kXjLFgjY1RQJEFktwCc68EJPFrCakBbQb20BnyPh4mal31Ofy
+         1cSURwCKRPgvT0hzP2Vk96Sd/zEGmDkCEk1mNXVu7uThMob+YzSqAzL8Vn5gV4Toha+b
+         sipQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758119980; x=1758724780;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ign5Rvn1nrFDYbDVfbmxV7M+H+jM3AW8cIlkron9MVw=;
+        b=ZmQ4PXJUPGp98pTC8FxWZ3VKXO+tbFMegvqYtWSMmqgr3yKxDaJa2gxfX8eJKTCXo3
+         LHaL8t/z6+Z4DG7Rxy+aWO0IKjXBLSGItOH9NdDePdgRmXMg50AVcRR4A8l6sPm6JyF/
+         DVuVnIPHhBCuxdJZtCJLRJE8HTBlVYic94GfOdCIQaqP0nV42nnWnP7nxhOqgb9NiFZz
+         LenQjiH94yIjfEjChtnVBhpab7w/gBpIQwXzXw+LtpXfmv0bD5AftdMqS7ozrItvS9ac
+         7y0suBj0Hgm40tYGm3PbR626zWHo2cOrRUyonDjxui7RfsovI5XjpuY1mZ3i0ijMJZ+P
+         qwsA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLm7JthDzfDUHSZK9cZxEXAOmUnlzKcM/3GWMnQcjJQHMTffbfopJUjIS2w8wGyyHSSVNlOY3/Pteb+rbP9YuW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk/h9fJEKd7Dg2EA1tFE4KBlC3KdCTRIZZ/IOafwqo7y+ivQRI
+	Oqw34Tc9YR3LcxjBgQusHBzA0tWLzX1Mwx+Am8fKCaOgUMB+X+KP2Upvv8YEhIPKd3Y=
+X-Gm-Gg: ASbGncsPE3jlqULWymmRwwHwXQL3ov8x315pny/LySUAOHi3x4OiuNQZ/e3J5yLlAbI
+	kWpg+KscAYrJlyULfhflKmjnjSNdzzOnYumXOQ2+rBidd33iUhDOZ8bpBOV2GqEHKkd99mOla+u
+	FYIOmG9CuVBGdi3/Yt5MsYgcKR0tbPmpJ/FvWVMGR55CiQbNCse22NrRbuUUQAVDun5FKbNPGdU
+	hUhZPxGTrInRa5jEUueUdiFUJR4ZdZ8Z/PG6JvNQPP0KPhNcWyKlQSkH2Tuoz9uX/xQZovxpy2i
+	rtnSn4W4NZgFltjyycAaEoKsW1vAOYAwZYGjpLoYw7CvYoYksCPuMSZPTXrmS87dH5kbkTWc3dB
+	B53PmXTClRDILES6TTnvzfnKpjCo/uYQhrhA3O0zg1CB0KHJVEiidMIeeShdb7UZPJmgszBVPvI
+	aB4htF6I2GoSV1
+X-Google-Smtp-Source: AGHT+IFF8kxUes3UFZ/iPcURSxsxpGZGbUCV4rgSf6BC8Nw9XulL9xf8WQpD9qjmrn6KbrUO3AOgrw==
+X-Received: by 2002:a05:6402:23c2:b0:62a:91d5:8844 with SMTP id 4fb4d7f45d1cf-62f84231fcamr2655601a12.21.1758119979856;
+        Wed, 17 Sep 2025 07:39:39 -0700 (PDT)
+Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-62f317bf9f0sm7112464a12.49.2025.09.17.07.39.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 07:39:39 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH RESEND v5 0/2] Samsung S2MPG10 PMIC MFD-based drivers
+Date: Wed, 17 Sep 2025 15:39:31 +0100
+Message-Id: <20250917-s2mpg10-v5-0-9f9c9c4a44d9@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DBBPR04MB7628:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33cec598-40a1-43b7-6bdf-08ddf5f7f253
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jhS7blzc5z/eKnWDvP/Nlo8FKjVqlAyE7dFxkjVSq6z6I3yrwb3gne2mdKHY?=
- =?us-ascii?Q?3w9cs+zaPwOFBEdeNVvu7jtJdPDC0Zxv3iAAIr3RoTs1DHHQ85i5gOEAhpqp?=
- =?us-ascii?Q?6Ee7kvaT2LWWyc9HaWXwL/YXO14LoXF6iNfZZWHD+nQyKGt9gFbL+aMN35K7?=
- =?us-ascii?Q?zECLvTR9FQy4cFRqrlaCaARMS5nsFQtdbg3yMAuBXtN/xpzDXx2jXV9zbOzy?=
- =?us-ascii?Q?SS+v3mWhtmKwoOllazYZ2cdW358ai6ASrfomUpdCv4gPeze4efP0yw/RYZtF?=
- =?us-ascii?Q?FSB693TSwChhuBEde4JR1Imh8s0zOAAgDxPKYmLw4jUmqvJZmrrrkOx8O8KV?=
- =?us-ascii?Q?ETulTMIWTqpGZvZRrEVjRtKBqFr2JIKmSIGs0E5CyWvpOW4DLHjgzwchQ8aH?=
- =?us-ascii?Q?5750K4UXHmNJL55oR1G4KZKVHFCd55hQDIT0i/VTazN+IKEmCKHARqdl9y8c?=
- =?us-ascii?Q?xKF5eIU45f9KIgCoIm2aIv+t6Efw7FD52FBB5vecjMXSGcgyfJzJk+iLy6/u?=
- =?us-ascii?Q?H69DEy8QCjWuHTOFxADIB9u1ThyCpgmbhYy1WxJuKQFY/flm0w/HYvaaC5ru?=
- =?us-ascii?Q?o8E8NN/DTgNOOhdb7F1+x1LaVxQAE7QQlPeHEDIZGX23NFb2uIimvsMpJM21?=
- =?us-ascii?Q?R/FD3l2FZKf8fVsp+9mlx361T5nAkp6DLxMjmwn3iUKz00xKtpWijW3miLsN?=
- =?us-ascii?Q?6A2acJx/4CWpkYVmDGgKqZFqwwiVqzuhckN6oG1Ecmy/bQTxY16ILBuk2z8e?=
- =?us-ascii?Q?LKTcBGs1xMq0wkk6nZJOfLK89OL72H7A7srJpAxOc83In0S9clal7DFCgN/F?=
- =?us-ascii?Q?POnvmrxqKbdZ+72zqwnW6LNiw6S1wqO0xP5S4g56O+UXbEsdDGO2g2QwZNsN?=
- =?us-ascii?Q?3Ky+LWAi8/gtSgHyDKrXhM88Rfqdgw2BLWwua2zJYNEJuBzBH9lSz1x3o2VJ?=
- =?us-ascii?Q?iSKNCP4eye2GZ4w3QL9ukEW8XBIFxxD72kgduISv3ExBOYDuEudWBMLAeTek?=
- =?us-ascii?Q?SM95TKLp6CyQTDSlvaxxXcZ4+KWE7UUG+Vmn795f1EJ2K0AN0VFhxfrMlz6u?=
- =?us-ascii?Q?Nn1pfUvRKfx233Igf2v+xMB0kJkjTSYKmLEcp9dNAZm2ds2a4gNMzXF87h35?=
- =?us-ascii?Q?UDjsr12tAfpZ51oqAnDlbXK48V2fSXlFLhgtBpAmDoB86q4lf8Ldlz0cLELd?=
- =?us-ascii?Q?rf7CIAE6Q5KXyeLFpu/fQONSC1XnFupZXl4ZbdcU1mFtJLrz2v3ZPotj0OU3?=
- =?us-ascii?Q?e/PyHa2WWUtoahRdDTzDCPmz1zdfk7JvoYcfv15bbH7/wkZrj6kQNzhK2gnc?=
- =?us-ascii?Q?YmSADRg4zrezvSGMo7I+ottqVIwMGeUvfMrf2OlU5NNeJQeh6EvX4p+PsDm+?=
- =?us-ascii?Q?7FP6g3bxLWMVC0wGUDQZhstecBnYAF7VGfYHkZKmS+zPD2gq/2EGZ3KMbWKX?=
- =?us-ascii?Q?PS8B5Mu+Mg2i2CJddDeWHLF/RRHNtpKJ7OUw0cft4uCbLXCenAm6ig=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PSWI6y4jAtGFzA+4stTLsp+XsjUpmlx6y+4TUnu8HLgn/oBe4s8/kpSRP/3J?=
- =?us-ascii?Q?84AYBr6z9GsXQaMXKIvF4vp8uKrRKbj+e9q9/k6PVlYjwmKv31xBchTU0r7A?=
- =?us-ascii?Q?B7nyPfGN62KcwwWLnGHROH0yQH5zENKlIkMtT/Ep5h+wpIgD+sMGivCS+WDF?=
- =?us-ascii?Q?7cXx6EvoU28D6hDBmoqckVup1Jt2gu/ULL1p8rHpMtvYwCyHfn7WzKeSuwd3?=
- =?us-ascii?Q?5A+THTb/D/ERHhFAX0yMXcadsTg2nPjqihXwj2ODO9kveos6PS8jLORvYVpC?=
- =?us-ascii?Q?JDxBgrE5dJdQAbLSeouj9fFugO12UNaMyvLGEWrL9uDsf3Rr7nAww0oSV+Vg?=
- =?us-ascii?Q?UQKdgILCpdzObMrBghQ8da9LBDKfSzLdmarelBiKb8Ctvy28wODKSJkJImqp?=
- =?us-ascii?Q?Lx0f4YQg9LMhyweH6/LpkrBXcbZZoCHQpUR+psZhkn/k5ca98o6W/8W/Cw02?=
- =?us-ascii?Q?rRa7nSKB5MG0YSEsF+tAi8FOY2ZpK+GvMq4k5sLTWVS0cUcZtz5sVtLK0CRl?=
- =?us-ascii?Q?hqPdOMPvYATjsbpqrJhCtsWyV91IwPi6pQcmVRKESaxbCuFqLC5sBGYlPzDg?=
- =?us-ascii?Q?Rv493DEKc7KyBi/Q9YkrYVl3kM3up3oHFh2h/betpZP5javn8/wxRv8PdoWj?=
- =?us-ascii?Q?zDHeeN1wYInYeU1mBQ3NwDxe9JOtHxbW9epgCmbXUZ3M0xOEM+2naF9yA/az?=
- =?us-ascii?Q?hnmbb1e6DXjMhutT4j8+XlyXPQ+ylk1NOq62R/cCzgtXQ1ZzAu5CAfq78uOf?=
- =?us-ascii?Q?Ch4Xi95yaxY154QoD11u/ScIARmsUIT/WSnXhIyZ+igIQWMWjXX1+zpL65SV?=
- =?us-ascii?Q?UrO0KspyARAb5txw2hjFDIo2aMuvRp+FBAjQHx4mWc2v8+xBwA5qVBpv1Nf6?=
- =?us-ascii?Q?RshnKpD0y5B6pmnA1h/V73donetSZXsmM2ZeoMVbYvtj9sR68bfOeSNvVLY7?=
- =?us-ascii?Q?rFsRwXPR6AjbN1RFDV9M2gSNo7dfyptfkoASDT1EEle48nR5/iKc6N+nJQ1Q?=
- =?us-ascii?Q?jRu4qnqadBpr9KxEcDob7fR1nefxY8Jl6dAJJDM18hOTc7Hq3xBh3W0g4agZ?=
- =?us-ascii?Q?7acef9FuBfuyTj2UQ6gILrqCFS2t+Ks4msBrAcm3VZneT/qF/f9ARwr2M8GF?=
- =?us-ascii?Q?gsP003CWo4mFdUpl8Ts8TWZTuFzzBnQSX/oAitiaLwvVZY4IdUSmOuGiuOZo?=
- =?us-ascii?Q?pvMJ2yOK7S7HmginLxv8ePKuQYPZIrgT10Vm/evN4GCcRViB94WX0n8TDu1r?=
- =?us-ascii?Q?3tmRYpWforlqVY/0KcwANRkufWz3lSsqJZziEYfOqiLv4T3tVJzCUrs1FaQI?=
- =?us-ascii?Q?Aditi34j+2FRV4Tov40asFPU+Kr3gorIanu1p5m55iTn7KJbjQMFBVheLlqG?=
- =?us-ascii?Q?ozmVVt5r/lmJtrdP++62eJ8edS5ctN1jT9Xv8UJo8cd2gWh+g03Q2BS2lpd4?=
- =?us-ascii?Q?Z2C2OCOYQr0pnnQPt6WrWhmrBuqIN/bgwIcMbcSJRJu9dbcCwhwvNLgPBFX0?=
- =?us-ascii?Q?9zgLScDRZUXzXyllhHkgL5UMObBwA7t748jqDh2qlcbN4ik/N3oFk0S2YrSM?=
- =?us-ascii?Q?CMte14QzxR+YeSOvOviy8FqOQNuCAXqkBPn43u00?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33cec598-40a1-43b7-6bdf-08ddf5f7f253
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 14:39:02.8818
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D64ccE5bTA9ci+Pfk8VxCxWQrddnliDOdEAkR2yUDxT6P4jO1aSETSZK33VUnPfvzZdOOaOAdH4/jvYthMW4ZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7628
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+To: Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_073905_738568_69CC8BFC 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250917_073942_336243_47EEA707 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,59 +110,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 09:19:18PM +0800, Peng Fan wrote:
-> Replace manual rproc_add() and cleanup logic with devm_rproc_add(), which
-> ties the remoteproc lifecycle to the device's lifecycle. This simplifies
-> error handling and ensures proper cleanup.
->
-> With no need to invoke rproc_del(), the remove() ops could be removed.
->
-> No functional changes.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+Original cover letter further down.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This is a resend of two patches from the original series that haven't
+been merged yet. That series was merged except for the attached two
+patches here. Other than rebasing against next-20250729 there are no
+changes to them.
 
->  drivers/remoteproc/imx_rproc.c | 10 +---------
->  1 file changed, 1 insertion(+), 9 deletions(-)
->
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index a53ff186d218f54123e1ce740b0277a6fe95a902..694fbbb2f34061de22a3a815f8a6114159585f9e 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -1149,20 +1149,13 @@ static int imx_rproc_probe(struct platform_device *pdev)
->  			return dev_err_probe(dev, ret, "Failed to add devm disable pm action\n");
->  	}
->
-> -	ret = rproc_add(rproc);
-> +	ret = devm_rproc_add(dev, rproc);
->  	if (ret)
->  		return dev_err_probe(dev, ret, "rproc_add failed\n");
->
->  	return 0;
->  }
->
-> -static void imx_rproc_remove(struct platform_device *pdev)
-> -{
-> -	struct rproc *rproc = platform_get_drvdata(pdev);
-> -
-> -	rproc_del(rproc);
-> -}
-> -
->  static const struct imx_rproc_plat_ops imx_rproc_ops_arm_smc = {
->  	.start		= imx_rproc_arm_smc_start,
->  	.stop		= imx_rproc_arm_smc_stop,
-> @@ -1288,7 +1281,6 @@ MODULE_DEVICE_TABLE(of, imx_rproc_of_match);
->
->  static struct platform_driver imx_rproc_driver = {
->  	.probe = imx_rproc_probe,
-> -	.remove = imx_rproc_remove,
->  	.driver = {
->  		.name = "imx-rproc",
->  		.of_match_table = imx_rproc_of_match,
->
-> --
-> 2.37.1
->
+Lee, I think Stephen's intention was to get these two merged via the
+MFD tree please.
+
+Original cover letter:
+----------------------
+
+This series adds initial support for the Samsung S2MPG10 PMIC using the
+MFD framework. This is a PMIC for mobile applications and is used on
+the Google Pixel 6 and 6 Pro (oriole / raven).
+
+*** dependency note ***
+
+To compile, this depends on the Samsung ACPM driver in Linux next with
+the following additional patches:
+https://lore.kernel.org/all/20250324-acpm-atomic-v2-0-7d87746e1765@linaro.org/
+https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linaro.org/
+https://lore.kernel.org/all/20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org/
+
+*** dependency note end ***
+
++++ Kconfig update +++
+
+There is a Kconfig symbol update in this series, because the existing
+Samsung S2M driver has been split into core and transport (I2C & ACPM)
+parts. CONFIG_MFD_SEC_CORE is now truly a core driver, and
+the I2C code that was part of it is now enabled via CONFIG_MFD_SEC_I2C.
+
+This was necessary because unlike the other S2M PMICs, S2MPG10 doesn't
+talk via I2C, but via the Samsung ACPM firmware.
+
++++ Kconfig update end +++
+
+This series must be applied in-order, due to interdependencies of some
+of the patches. There are also various cleanup patches to the S2M
+drivers. I've kept them ordered as:
+  * DT bindings (patches 1 ... 3)
+  * s2m mfd prep for adding S2MPG10 support (patches 4 ... 7)
+  * split S2M mfd driver into s2m-core and s2m-i2c, including the
+    kconfig symbol update (patch 8)
+  * S2MPG10 core driver (patch 9)
+  * s2m mfd driver cleanup patches (patches 10 ... 23)
+  * S2MPG10 clock driver (patch 24)
+  * s2m RTC prep for adding S2MPG10 (patch 25 ... 26)
+  * S2MPG10 RTC driver (patch 27)
+  * s2m RTC cleanup patches (patches 28 ... 31)
+
+I realise these are many, but since some prep-work was required to be
+able to add S2MPG anyway, I wanted to get the cleanup patches in as
+well :-) Let me know if I should postpone them to a later date instead.
+
+The S2MPG10 includes buck converters, various LDOs, power meters, RTC,
+clock outputs, and additional GPIOs interfaces.
+
+This series adds support in the top-level device driver, and for the
+RTC and clock. Importantly, having the RTC driver allows to do a proper
+reset of the system. Drivers or driver updates for the other components
+will be added in future patches.
+
+This will need a DT update for Oriole / Raven to enable this device. I
+will send that out separately.
+
+Cheers,
+Andre'
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+Changes in v5:
+- just a rebase & resend of the last two remaining patches
+- no other changes
+- Link to v4: https://lore.kernel.org/r/20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org
+
+Changes in v4:
+- various updates to sec-acpm (patch 9, Lee)
+- cache enum type in patch 25 (Krzysztof)
+- collect tags
+- Link to v3: https://lore.kernel.org/r/20250403-s2mpg10-v3-0-b542b3505e68@linaro.org
+
+Changes in v3:
+- Krzysztof:
+  - keep 'regulators' subnode required even for s2mpg10
+  - drop '$ref' and 'unevaluatedProperties' from pmic subnode, use
+    'additionalProperties' instead
+  - add some regulators to examples since s2mpg10 requires them as of
+    v3
+- sec-acpm:
+  - use an enum for struct sec_acpm_bus_context::type
+  - consistent name space for all functions sec_pmic_acpm_... to be
+    similar to i2c and consistent in this file
+- Link to v2: https://lore.kernel.org/r/20250328-s2mpg10-v2-0-b54dee33fb6b@linaro.org
+
+Changes in v2:
+- Rob:
+  - make PMIC node a child of ACPM, and all related changes (binding,
+    driver)
+- Krzysztof:
+  - merge defconfig updates into patch changing the symbols (patch 8)
+  - split MODULE_AUTHOR update into a separate patch
+  - better alignment fix (patch 11)
+  - merge two s2dos05/s2mpu05 related patches into one (patch 14)
+- myself:
+  - keep PMIC DT parsing in core, not in transport driver
+  - several updates in sec-acpm.c, see separate entries in patch 9
+  - fix typo in patch 17
+  - collect tags
+- Link to v1: https://lore.kernel.org/r/20250323-s2mpg10-v1-0-d08943702707@linaro.org
+
+---
+André Draszik (2):
+      dt-bindings: clock: samsung,s2mps11: add s2mpg10
+      clk: s2mps11: add support for S2MPG10 PMIC clock
+
+ Documentation/devicetree/bindings/clock/samsung,s2mps11.yaml | 1 +
+ drivers/clk/clk-s2mps11.c                                    | 8 ++++++++
+ 2 files changed, 9 insertions(+)
+---
+base-commit: 54efec8782214652b331c50646013f8526570e8d
+change-id: 20250321-s2mpg10-ef5d1ebd3043
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
+
 
