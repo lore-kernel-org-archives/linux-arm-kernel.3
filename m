@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FAF4CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3373DCAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7ZqalwnvjICi7kuOiOIafiliCtJGxrARFdp8W4lXxY=; b=srG2hh7AgxfeuDd67vyUFkhKx+
-	llMANNQRWhEekWN9Yejaj2xYPbtY78t7eUHpEdSSGXp4Pxea8SYSqesmpaQoBaT6DbKTW/XLna4wS
-	/1pHVLnkz12Q6VIfRTkPjgUSyq+S8snuhL7ZQriMsyF8jTUGGDNVB4Q7TJ62IkamiFlIVbuy9//6Y
-	1XwI4chA+wTC+D2fGC1+uI4yvPR33JnGUqmCZf8ocDWQZhROpDEEadNg5aZQIkRt0XPLcEggsvpPx
-	e9XveegLQQa64XOWrcqYPtJ+DKtmvNnxFxzMMXhHbHcCQEmoRgu1xQej7BMUSkM2B24ynicIIGhXS
-	t3ASSd7w==;
+	bh=3DeNgzPX6ggMfk3MAISgLOKpvtvUWXdjB1QYEHlkKms=; b=wf2/6gC/olDcE2clINrhw5v/HY
+	RdKr+lVTYF2vEnzGoT1zbBMIqhrzXTNxovuGgiO48TufXw3XI13ZQY88464rCN7jWfHu8gFn80jR+
+	n+/19dFZemxEGhwWJdu/T25bSciHIUi1X1HY24r5Cuc+LzHp3HJW7w4ylhECdkYuzC2ilFhiinhCl
+	YKwbcnBs0IX1Lua+xGdDEwMZZHNmf/7bwG9dKe423PCBODh24ktmOz9fp5OXXiNUBVd6yx+9DU4Nr
+	gq5mWk5UhIzXxgksvbTm8gY2aH5aEnz0RjgoC2ovNZuo+00T16XliXMB/eJzMVrACQ92qvKSHH1No
+	tpHdguMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv4E-0000000DBuC-3tUu;
-	Wed, 17 Sep 2025 16:31:38 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uyv5f-0000000DCYq-3aGx;
+	Wed, 17 Sep 2025 16:33:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv4C-0000000DBrC-1XNI
+	id 1uyv5f-0000000DCYe-1t6v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:31:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=t7ZqalwnvjICi7kuOiOIafiliCtJGxrARFdp8W4lXxY=; b=lqNmbubTKYTpthGWHPykLNREkq
-	a6h0sXLqwZcvzf1kHFi8/4wqRzTLPZ5t4JG0CX4Ax83EBEIolNl3BmwHrN5NmNiZX671xdmPJSgH2
-	nFtq7ceA+M5n1PeBvkOVPFNvRXxDrq8tYVBobWZmNDyHpKQmZ158OQtCadM+oLJDaOmnk77cmCPYl
-	IFMBaQIdpJj0yuWqNpTnxRkrKexCbJs00Ef7dR2v3QxXq/JjrV8aDwIZKLzlbVv7iTPkFIPpFwXkb
-	d6e9GNwiy2bH5R5G8dIxQjEYUZwXZcz8KvO6Swi1xoMfVcDOTSVBZeIUeAISi+cACfrpX4OE/tHJs
-	d90qzIPw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49908)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uyv3v-000000005BG-32EF;
-	Wed, 17 Sep 2025 17:31:19 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uyv3s-000000000LJ-1mOb;
-	Wed, 17 Sep 2025 17:31:16 +0100
-Date: Wed, 17 Sep 2025 17:31:16 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/4] net: stmmac: stm32: add WoL from PHY
- support
-Message-ID: <aMriVDAgZkL8DAdH@shell.armlinux.org.uk>
-References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
- <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
+	Wed, 17 Sep 2025 16:33:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84FE16023D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:33:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F180C4CEFF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:33:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758126786;
+	bh=kKL/L+I3zsHPh3CySBs0NwNoG6xv18j00aP3GrBEXns=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=byficK7SMdbNqCt8qDue6jkVGfFA0zVMGLz2oN3p5iX8uF2YDd0q1otjKJ3U6DuUF
+	 Q1EqSfdTH4wxw/rize5/jH+qnxrqDt/2s0uFKKbeMo+P1qdN779Dk65VMBLwpDWU1y
+	 8nl7Fr5JUF16RyRALwfBhoXD7ZVQDLUpkXSzPn7T672mmBwbhpyXIV/phkiiVdCR5m
+	 NVg2liqXJqIButavkSTYgzr1iKgQKMvoGjnIhQ2NFo0yFidl6Sw7spTXQLGTSyVDAM
+	 qCBBVv0k0dAu33msshV4jLPy87V7RDYFc/vXZ2z9636k4fU9ojG392koy51HWdxk+D
+	 mVxqp5LbWSEog==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-56088927dcbso12162e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 09:33:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVdMrcqbvrfu4Z0xfWAH+7faOFKSZjm403heneDtzv36d0DIY7vD8Qgd+TJS2aV34lmW8QfAfL50mql08dTP/HH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDByvATAUUGls0HuR/Ps8ume/v5PQTm6BXayzFsyFfVOTpa2Sj
+	5v7YEOHfSC1kyV/4JKsCKjvkxTEQsFrgosXyUyq/23cJtw04w4tZ0LHNI+X6im/qe3ek0rSUrJx
+	K1UZrENOF4wpEsvFijHhqbU0bIf3x9h4=
+X-Google-Smtp-Source: AGHT+IGkxd8CfmvOgxOlzUd2WBWMRN3KAVklJLyRUEqXRjAdq6Oylda7wBiSlm11ND9H/fuMGe8uQFz5PDqzdmmiqH8=
+X-Received: by 2002:a05:6512:4601:b0:569:a257:acca with SMTP id
+ 2adb3069b0e04-5779b9bec2emr837666e87.32.1758126784374; Wed, 17 Sep 2025
+ 09:33:04 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_093136_409146_BCF62C7B 
-X-CRM114-Status: GOOD (  29.50  )
+References: <20250915160819.140019-1-ebiggers@kernel.org> <20250917153529.GA45754@quark>
+In-Reply-To: <20250917153529.GA45754@quark>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 17 Sep 2025 18:32:53 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGWZ5iVjOq_wPihCvSrPzg84up2uc85b04-kogr06zr-g@mail.gmail.com>
+X-Gm-Features: AS18NWDKkMpHMPVrfCSxPSR1GAt9QZdsUGm2zA3q8XBTy6lhROgcqYD7BkYXAg4
+Message-ID: <CAMj1kXGWZ5iVjOq_wPihCvSrPzg84up2uc85b04-kogr06zr-g@mail.gmail.com>
+Subject: Re: [PATCH v2 0/6] Optimize fsverity using 2-way interleaved SHA-256 hashing
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, fsverity@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>, Mikulas Patocka <mpatocka@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,146 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 05:36:37PM +0200, Gatien Chevallier wrote:
-> If the "st,phy-wol" property is present in the device tree node,
-> set the STMMAC_FLAG_USE_PHY_WOL flag to use the WoL capability of
-> the PHY.
-> 
-> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-> index 77a04c4579c9dbae886a0b387f69610a932b7b9e..6f197789cc2e8018d6959158b795e4bca46869c5 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
-> @@ -106,6 +106,7 @@ struct stm32_dwmac {
->  	u32 speed;
->  	const struct stm32_ops *ops;
->  	struct device *dev;
-> +	bool phy_wol;
->  };
->  
->  struct stm32_ops {
-> @@ -433,6 +434,8 @@ static int stm32_dwmac_parse_data(struct stm32_dwmac *dwmac,
->  		}
->  	}
->  
-> +	dwmac->phy_wol = of_property_read_bool(np, "st,phy-wol");
-> +
->  	return err;
->  }
->  
-> @@ -557,6 +560,8 @@ static int stm32_dwmac_probe(struct platform_device *pdev)
->  	plat_dat->bsp_priv = dwmac;
->  	plat_dat->suspend = stm32_dwmac_suspend;
->  	plat_dat->resume = stm32_dwmac_resume;
-> +	if (dwmac->phy_wol)
-> +		plat_dat->flags |= STMMAC_FLAG_USE_PHY_WOL;
+On Wed, 17 Sept 2025 at 17:35, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> On Mon, Sep 15, 2025 at 11:08:13AM -0500, Eric Biggers wrote:
+> > This series is targeting libcrypto-next.  It can also be retrieved from:
+> >
+> >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256_finup_2x-v2
+> >
+> > This series adds support for 2-way interleaved SHA-256 hashing to
+> > lib/crypto/, implements it for arm64 and x86_64, and makes fsverity use
+> > it.  This significantly improves fsverity performance on many CPUs.
+> >
+> > Later patches will make dm-verity use this optimization as well.
+> >
+> > Changed in v2:
+> > - Made the new arm64 assembly compatible with CONFIG_CPU_BIG_ENDIAN=y.
+> > - Omitted sha256_finup_2x() from pre-boot environments.
+> > - Made alloc_guarded_buf() assert that the allocation succeeded.
+> > - Minor tweaks to comments and whitespace.
+> >
+> > Eric Biggers (6):
+> >   lib/crypto: sha256: Add support for 2-way interleaved hashing
+> >   lib/crypto: arm64/sha256: Add support for 2-way interleaved hashing
+> >   lib/crypto: x86/sha256: Add support for 2-way interleaved hashing
+> >   lib/crypto: tests: Add tests and benchmark for sha256_finup_2x()
+> >   fsverity: Remove inode parameter from fsverity_hash_block()
+> >   fsverity: Use 2-way interleaved SHA-256 hashing when supported
+> >
+> >  fs/verity/enable.c              |  12 +-
+> >  fs/verity/fsverity_private.h    |   2 +-
+> >  fs/verity/hash_algs.c           |   3 +-
+> >  fs/verity/verify.c              | 175 ++++++++++++---
+> >  include/crypto/sha2.h           |  28 +++
+> >  lib/crypto/arm64/sha256-ce.S    | 284 +++++++++++++++++++++++-
+> >  lib/crypto/arm64/sha256.h       |  37 ++++
+> >  lib/crypto/sha256.c             |  71 +++++-
+> >  lib/crypto/tests/sha256_kunit.c | 184 ++++++++++++++++
+> >  lib/crypto/x86/sha256-ni-asm.S  | 368 ++++++++++++++++++++++++++++++++
+> >  lib/crypto/x86/sha256.h         |  39 ++++
+> >  11 files changed, 1147 insertions(+), 56 deletions(-)
+>
+> FYI, applied to https://git.kernel.org/pub/scm/fs/fsverity/linux.git/log/?h=for-next
+>
+> I decided to use the fsverity tree instead of the libcrypto one.  There
+> are no dependencies on other libcrypto changes for 6.18, and this makes
+> it easier to do a separate pull request.
+>
+> Also, as always, reviews and acks would be appreciated!  Note that I
+> dropped the reviews and acks that were on the original crypto_shash
+> version from earlier this year, due to changes in the patches.  The
+> high-level idea is still the same, though.  If people could
+> re-review/ack this latest version, that would be great.  Thanks,
+>
 
-I would much rather we found a different approach, rather than adding
-custom per-driver DT properties to figure this out.
+I looked at this the other day but forgot to reply.
 
-Andrew has previously suggested that MAC drivers should ask the PHY
-whether WoL is supported, but this pre-supposes that PHY drivers are
-coded correctly to only report WoL capabilities if they are really
-capable of waking the system. As shown in your smsc PHY driver patch,
-this may not be the case.
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
-Given that we have historically had PHY drivers reporting WoL
-capabilities without being able to wake the system, we can't
-implement Andrew's suggestion easily.
-
-The only approach I can think that would allow us to transition is
-to add:
-
-static inline bool phy_can_wakeup(struct phy_device *phy_dev)
-{
-	return device_can_wakeup(&phy_dev->mdio.dev);
-}
-
-to include/linux/phy.h, and a corresponding wrapper for phylink.
-This can then be used to determine whether to attempt to use PHY-based
-Wol in stmmac_get_wol() and rtl8211f_set_wol(), falling back to
-PMT-based WoL if supported at the MAC.
-
-So, maybe something like:
-
-static u32 stmmac_wol_support(struct stmmac_priv *priv)
-{
-	u32 support = 0;
-
-	if (priv->plat->pmt && device_can_wakeup(priv->device)) {
-		support = WAKE_UCAST;
-		if (priv->hw_cap_support && priv->dma_cap.pmt_magic_frame)
-			support |= WAKE_MAGIC;
-	}
-
-	return support;
-}
-
-static void stmmac_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
-{
-	struct stmmac_priv *priv = netdev_priv(dev);
-	int err;
-
-	/* Check STMMAC_FLAG_USE_PHY_WOL for legacy */
-	if (phylink_can_wakeup(priv->phylink) ||
-	    priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL) {
-		err = phylink_ethtool_get_wol(priv->phylink, wol);
-		if (err != 0 && err != -EOPNOTSUPP)
-			return;
-	}
-
-	wol->supported |= stmmac_wol_support(priv);
-
-	/* A read of priv->wolopts is single-copy atomic. Locking
-	 * doesn't add any benefit.
-	 */
-	wol->wolopts |= priv->wolopts;
-}
-
-static int stmmac_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
-{
-	struct stmmac_priv *priv = netdev_priv(dev);
-	u32 support, wolopts;
-	int err;
-
-	wolopts = wol->wolopts;
-
-	/* Check STMMAC_FLAG_USE_PHY_WOL for legacy */
-	if (phylink_can_wakeup(priv->phylink) ||
-	    priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL) {
-		struct ethtool_wolinfo w;
-
-		err = phylink_ethtool_set_wol(priv->phylink, wol);
-		if (err != -EOPNOTSUPP)
-			return err;
-
-		/* Remove the WoL modes that the PHY is handling */
-		if (!phylink_ethtool_get_wol(priv->phylink, &w))
-			wolopts &= ~w.wolopts;
-	}
-
-	support = stmmac_wol_support(priv);
-
-	mutex_lock(&priv->lock);
-	priv->wolopts = wolopts & support;
-	device_set_wakeup_enable(priv->device, !!priv->wolopts);
-	mutex_unlock(&priv->lock);
-
-	return 0;
-}
-
-... and now I'm wondering whether this complexity is something that
-phylink should handle internally, presenting a mac_set_wol() method
-to configure the MAC-side WoL settings. What makes it difficult to
-just move into phylink is the STMMAC_FLAG_USE_PHY_WOL flag, but
-that could be a "force_phy_wol" flag in struct phylink_config as
-a transitionary measure... so long as PHY drivers get fixed.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Happy to see that this finally landed!
 
