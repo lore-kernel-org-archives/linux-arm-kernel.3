@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2676CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A6ECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPP9Vl6NqhaMU3EPY2zVx+QbBHXXovM2n/lYKSxXZDQ=; b=DwXh0GMnGZmadfSyZozl6SJDsl
-	LmV4XXWVOKO2y8Dxijkxoow4QXOwpP8ZMYED01QnsUTuiQ+5UukAhGXTTi6NH8N7H4Ceh8UpGkaOG
-	4RGXJh5bm7mI/1+VdUD1Au1kRGuRZRHeci6uCql4HUDLmeLSYhE0frftjoCH2UR+AkVAbnGQG81Mk
-	qok8t667F3TSda2XgAzw+SqkROhwizzFUlKMfmTM/cvnU0/w2fnmwdSu92gCaH0XD+jS1S73gDdDA
-	UnXscrdMGWPue0JHVVd0eUodpNXLYrAVrgevA3YuF/ctlkesMRXdj4Tk0g6ReK8IH6Z1239fNoGZ5
-	siFqkcyQ==;
+	bh=dCz4bFinyR1BieLUIHZQZV0TDdidYv9V2bEcGI7xH7o=; b=ZWvLd9ILU2oIg/UrwyL6LOgbd0
+	0i2RquwVqcgKyxhzX+IQA+tvPoQ/8Na1vpRKd08CEif3dQieZH+jBB0rxlAXBMMF5EGESyEPOxRCP
+	LGoYWhyX9tykYwHj0b1wXph9KOs7mMGxFoiUfb4BQxKB0O1qjDX6NhcCLjTd7Cn5zUK0o8/GisgUJ
+	fMaiWnoq1TV7ujkNxc5q5I8lZa7etX6b0DDfJfGjzV7PobdqMWzwsvZu8K19ScMRnppRDWbnSv5ZU
+	chz8MhBD9gMFy54j20Mnd6aYVy1qcdO1/Fh8TpCPx5JbenLaJadDguv+umBWA+8sJpCOrRZGtv9xY
+	XLltAdJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytDG-0000000CFjW-1nSd;
-	Wed, 17 Sep 2025 14:32:50 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1uytDQ-0000000CFqw-2v09;
+	Wed, 17 Sep 2025 14:33:00 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytDE-0000000CFi1-0stq
+	id 1uytDN-0000000CFn2-3dSF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:32:49 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-ea3f6ac31d7so2766772276.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:32:47 -0700 (PDT)
+	Wed, 17 Sep 2025 14:32:59 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-ea5c1a18acfso719532276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:32:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758119567; x=1758724367; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1758119577; x=1758724377; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=EPP9Vl6NqhaMU3EPY2zVx+QbBHXXovM2n/lYKSxXZDQ=;
-        b=LAMprJAXB8Ugc2AMJ4HAoG99DFuD0B9qm1bBjy2BuGCWGs29r5jjMdOK09GRslB9d0
-         oDJslLJwbvjiVGbc7Y9Mloc+W6ZynxvTUj0WGR1k7vometSil5AahdjWM7aMV1/1em3f
-         1wPag7ixntEHXWzOvi6h0IZQIldmfbmyf5fvnwuFIQ+hFGARBLOayw7sMMO4m7sslNbo
-         1zrJOQWCCWS4zupCHv5xqnj2PeBTm68liHKuQ7rzNJFGDYsJDG7YtMvvIFO2PRYWoRHP
-         Mkq4hghTGlOA65TN2Ivh+E/H3ZicTP16k7mR6l7FfDAOLBfBkQm3/hTROOLRFwLqHrMB
-         orfQ==
+        bh=dCz4bFinyR1BieLUIHZQZV0TDdidYv9V2bEcGI7xH7o=;
+        b=dS38sl9jjM8pCb7gOpPvArFE+v9RYHQcz1Th9rRzVEukTSTsS+yNnBLqjMY0hsDDkZ
+         7RvAH6+gO1Rt4aZm9tY9Fx6KTjevNTqQuE7LUFdeP4gplui/eE9bsRxVtiy3L/L4f3n1
+         uSnP7fSaJz9B2hLWLBfSFqxmwyOQpp02uFY1H4tNlaiVzU8nOumnxe6RoJDs25+wAtMJ
+         4xgxVyBZmCINGrHcWTGYxAGS+5oJ558fRUmqU+nMRstXCN84RLqqc8YUBQOhkhoBYnxU
+         WeHbNTNSfSEJ2yaIsaX6Z1H0b24te8yoWtJTqX3Xq69azSMLNjG/gk+W4K1LeMDZSRBX
+         ykeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758119567; x=1758724367;
+        d=1e100.net; s=20230601; t=1758119577; x=1758724377;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EPP9Vl6NqhaMU3EPY2zVx+QbBHXXovM2n/lYKSxXZDQ=;
-        b=tW1IvbGJ9prtX2FkSsJiY/2G3y16f735mbzdabFL0cy45GPNKEccEclVSKVXMyEH61
-         gzzMX2a2azrt0mtDkDPWbd2AhZIaFFfBe3kBpY+0vbLlz1Js0qIn67Z2iFqDycyFItRp
-         11wTNx6JIoC4Wxpfgt0sGGLSx6USLW0ngL8ujcxG4uRxVk6JLdHz29JKQmO7q3wHJSxF
-         gj1T4aPa0fxO6sAqPS853XWkGKllyi6WnHbONLcsEnjjriEHhy4IPD8bfNsZHtlJb3ny
-         GPF14wQH6sEXx2mvWOSWUGNi3Gbx4xis/fgQDACg+eNfUpakjlbCejl6+lWq+0TqUI4P
-         g9ow==
-X-Forwarded-Encrypted: i=1; AJvYcCVRYYcY2Mw8GB1UByooRIObmvlsnqcvQyAu/ys0OfJ/WpodF6DHEEjG9o0xVruOkB4xQ7K3CuY9F6q/X1Jiznui@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuDjVlgXtxJY/+B+FgQFG9E3zGckkKLN6t11kCuZESNHDRlOHt
-	JArdteDheyoz4oPBl9E6RgeO4OD+xN0MSdwF1Ntw1wuvujB7MxX2Rsnebjv/P58sK24JTR2/woG
-	tZB9oUYMHOuSHqfj8eFHFHkT74OU3dSd6lAjQzp26vg==
-X-Gm-Gg: ASbGnctvKxz+XDIT95GTXkatR7lRuCcVGwzAFwkdKSBK/ttSyQR3lWZHmSwbvJSgkJM
-	5hKq+h2pVkLxVwml6Vdv+t3Spvj2FjEyzPfbfcev5nF5wpSyxhOyByrWSJszzpTXlIn1dxoH7vg
-	KFXVsoEktTqUaYRpfT0WmjOa3uzUUxOixs8Acp3ouiwAntKF3k7EXKZkHsdxFOTEUIs9/Gq0WQq
-	xmrxtYi
-X-Google-Smtp-Source: AGHT+IF8958qtxMgepRmmh01erhzEe2CCKMaB8p0aTdmbEk0KITYYPXFKjQVfYFyDlneSgtW8sFxeX7TRTnXN5JBV/c=
-X-Received: by 2002:a05:6902:6c1b:b0:ea3:d667:affd with SMTP id
- 3f1490d57ef6-ea5c06c1586mr1899822276.53.1758119566841; Wed, 17 Sep 2025
- 07:32:46 -0700 (PDT)
+        bh=dCz4bFinyR1BieLUIHZQZV0TDdidYv9V2bEcGI7xH7o=;
+        b=pPdsW9CcCC9j4ZZPYPBb97n2dqiv5Ya1dGgCEqtzi6E1ORJaM1lK0Vscp/VLK8DG+3
+         zBXZHuIdhWvsoX2xkf/EJjcZBb18kdIN+rcByQYSjy5GChqVCTujdi2ulfGhShkSErba
+         pfGjdz0XKw17a3mbx3HAmKqygA/jOJTwVniGKt6rVm22Y+dG+w/DiU1D8KTXqCwTW4As
+         RnRzep+AcljAA0a/wDPTaH4XG5gAIh+66rqLW3lMionX73Nar7+Opqo9xQTP+mQQ/Sxw
+         Xk3v93t9nxijWsfRRU8dUy/2Cj94PHSI/l9zej7AmrI1CF/Gg19G8WZCSZS8G2Gy8t9l
+         vfBg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7IVACH76YrOuvfYRE9LDpm3N9L6SANuBGiq6dN+EhY0O8KU5mPcTFnr54eUxSxGBVqEvFlls6wihkcI8yTsue@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHR7OxP3B1fkR52TOPLNqOu2lQrhJdMzfVWkIKpBJnpccyRFgO
+	ARgfA5hN4PAGt9dGd243tzESucGb2n+3KCpftAgg8S96USNxleoCd2KwEWW/naKaCr2hDS2x9s/
+	eJvB2XuBETHYw8uiADDMo6RItKIG9gD9NRaDRr3abZA==
+X-Gm-Gg: ASbGncsIBXrXPrzY0S1BxxzMjy5ggF+SBpI7epWa5yy4ar5isQYkM8mCArlnGNATewG
+	n2GDcFNkTZTLff7D5/S1XJZY/ApdTtDThQB/KGVdjFY7DNYe7roRfJLJAPbeI1ZaptfJmnMMIbH
+	lJNZUYT4T3F5/KrcByPsJYXQvX9GsI5arQtDdHE1t1Nk7QfdD+GnqQBXe+MMtBcmPSLGKw5XQJZ
+	rvd/qSt
+X-Google-Smtp-Source: AGHT+IGYd75X0Qf3WTxoJJzFk2/YdrBkHI2rWEVx/WssCazdqocK2S+85yiq6AsUYraILKbckm2rz5VkDvdIi7Gceg0=
+X-Received: by 2002:a05:6902:124c:b0:ea5:c97c:3182 with SMTP id
+ 3f1490d57ef6-ea5c97c50bcmr1102726276.36.1758119576502; Wed, 17 Sep 2025
+ 07:32:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250810-pmdomain-round-rate-v1-1-1a90dbacdeb6@redhat.com> <aMasUV14w0Dc1ki0@redhat.com>
-In-Reply-To: <aMasUV14w0Dc1ki0@redhat.com>
+References: <20250915083317.2885761-1-mikko.rapeli@linaro.org>
+In-Reply-To: <20250915083317.2885761-1-mikko.rapeli@linaro.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 17 Sep 2025 16:32:11 +0200
-X-Gm-Features: AS18NWC-l2ZajfsWo9MjcYD2GJjmouYf3pDYfF1nnijLrVzTzi40JFoPMgBPLz8
-Message-ID: <CAPDyKFosHY_aVP3EdzXJj4=DvZCPfC5c80oSwTEeyyV-7MRQJA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: mediatek: airoha: convert from round_rate() to determine_rate()
-To: Brian Masney <bmasney@redhat.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Wed, 17 Sep 2025 16:32:20 +0200
+X-Gm-Features: AS18NWBqAAb3pOa1iLGjs8mbJODRThiYyAWA34gbcKMC5sx254a7Jh6zE5vInCA
+Message-ID: <CAPDyKFpR+uueS16P7OZi6-1NVrEyPbizuSnMHWMyROfqzPjarg@mail.gmail.com>
+Subject: Re: [PATCH v4 0/4] enable ROCKCHIP_PM_DOMAINS
+To: Mikko Rapeli <mikko.rapeli@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_073248_257401_0E86238B 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250917_073257_908005_0C68C060 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 14 Sept 2025 at 13:51, Brian Masney <bmasney@redhat.com> wrote:
->
-> Hi Ulf,
->
-> On Sun, Aug 10, 2025 at 06:16:19PM -0400, Brian Masney wrote:
-> > The round_rate() clk ops is deprecated, so migrate this driver from
-> > round_rate() to determine_rate() using the Coccinelle semantic patch
-> > appended to the "under-the-cut" portion of the patch.
-> >
-> > Note that prior to running the Coccinelle,
-> > airoha_cpu_pmdomain_clk_round() was renamed to
-> > airoha_cpu_pmdomain_clk_round_rate().
-> >
-> > Signed-off-by: Brian Masney <bmasney@redhat.com>
->
-> Would it be possible to get this picked up for v6.18? I'd like to remove
-> this API from drivers/clk in v6.19.
++ Heiko
 
-Sorry for the delay, applied for next, thanks!
+On Mon, 15 Sept 2025 at 10:33, Mikko Rapeli <mikko.rapeli@linaro.org> wrote:
+>
+> Hi,
+>
+> MMC_DW_ROCKCHIP needs ROCKCHIP_PM_DOMAINS before MMC is detected
+> on Rockchip rk3399 rockpi4b and similar devices. Make this dependency
+> more visible, or the default with ARCH_ROCKCHIP if possible.
+>
+> v4: fixed Kconfig whitespace, added select REGMAP_MMIO to MMC_LOONGSON2
+>     instead of disabling COMPILE_TEST
+>
+> v3: use "default ARCH_ROCKCHIP" in ROCKCHIP_PM_DOMAINS as suggested
+>     by Arnd Bergmann <arnd@arndb.de>, enable more MMC drivers for
+>     COMPILE_TEST and remove MMC_LOONGSON2 which doesn't link,
+>     remove PM dependency as suggested by
+>     Geert Uytterhoeven <geert@linux-m68k.org>
+>     https://lore.kernel.org/linux-mmc/aMQv1V49xa_MThGq@nuoska/T/#md2b3252f9dce14f3f79a493c426f2761cba1dc25
+>
+> v2: changed from "depend on" in MMC driver to "select" as default
+>     on ARCH_ROCKCHIP as suggested by Ulf and Heiko
+>     https://marc.info/?i=20250912084112.2795848-1-mikko.rapeli%20()%20linaro%20!%20org
+>
+> v1: https://lore.kernel.org/linux-mmc/20250911144313.2774171-1-mikko.rapeli@linaro.org/
+>
+> Mikko Rapeli (4):
+>   pmdomain: rockchip: enable ROCKCHIP_PM_DOMAINS with ARCH_ROCKCHIP
+>   mmc: add COMPILE_TEST to multiple drivers
+>   mmc: select REGMAP_MMIO with MMC_LOONGSON2
+>   ARM: rockchip: remove REGULATOR conditional to PM
+>
+>  arch/arm/mach-rockchip/Kconfig    |  2 +-
+>  drivers/mmc/host/Kconfig          | 10 ++++++----
+>  drivers/pmdomain/rockchip/Kconfig |  1 +
+>  3 files changed, 8 insertions(+), 5 deletions(-)
+>
+
+Patch 1 applied for next to my pmdomain tree. Patch 2 and 3 applied
+for next on my mmc tree. Thanks!
+
+Heiko, can you pick up patch 4 via your Rockchip tree? Or if you
+prefer me to pick it, I can funnel it via my pmdomain tree. Let me
+know please.
 
 Kind regards
 Uffe
