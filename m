@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB4BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57CFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kBm03YF4fkTxys1lViLnlFdoP0+saJR11T1jGTXQpCM=; b=1k0k4/RYtYjJX8
-	ilLqJNpjayHVJI9nvnurRp2YCkywdwwEoWKcaE+CMSsZM2wzEYPLoh7qOCObGSS/jPau+OZd8CD9R
-	d7s27ARiTD9bLNZ3Impgttzx53TqJoZ1MQibqQkQJJQka3t+Z0aAsp/Iy1ZCsCdBtlgTBhd8Bd7Sa
-	1PkU2g7WkWQoy4v+oojKUhJVkG7mkBxMEg8hDMEM3h94RdWS2rmbFCFq0TiIQ+tK+oRWAsHHWn37r
-	0TEgntX+6qvNNXaHBD5PPfGJcIPPE5axx+vh1twbjrfbHpMoIs4rKaZUwm0/woXFauMcjeYYhONz4
-	fEwJKuU7V9SiR+fB80Iw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IQx+mwF16Ws2c3BMSABJS0KO6FKXd3VLzeSfwnur18Y=; b=LsDN/+wt3qDRglFZWyTltcCzaW
+	WhcybRmJhk014SmkYq1L2hqcBmVKJVIRk0AOEhZ2urzgi+gq/TIQcvenisHqQ3u/Xaj6nCpSRJxbe
+	JS6ESENMaLOfjZNLVcOVf2UIMOb9QD6GL6W/ShGSUFRgrszmjrLqg1Qf+rbPiiPAO92UFLmXuswIP
+	4f6Z4wnzH4KZ1fG+9mN0+JXLEv/rlmROhXUA0cMtH8gD7ERpa0WlvqOb+OMpCcLvZOcid2Uyz78p0
+	0CdIoQLzrMNYzgi9e6IsLSNyKzn88gmmELFviAPoDMTmLfc4BDl/FBusEX0Uub//tzWZjv9mMNANZ
+	iReuGyYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyhYN-00000009uMW-1U1O;
-	Wed, 17 Sep 2025 02:05:51 +0000
+	id 1uyhYQ-00000009uO1-2jAw;
+	Wed, 17 Sep 2025 02:05:54 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyhYK-00000009uLZ-3BMt
+	id 1uyhYM-00000009uLZ-2PWt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 02:05:50 +0000
+	Wed, 17 Sep 2025 02:05:51 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 17 Sep
- 2025 10:05:39 +0800
+ 2025 10:05:40 +0800
 Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 17 Sep 2025 10:05:39 +0800
+ Transport; Wed, 17 Sep 2025 10:05:40 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
 To: ryan_chen <ryan_chen@aspeedtech.com>, Michael Turquette
 	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
@@ -46,16 +46,20 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Michael Turquette
  Lemarchand" <romlem@google.com>, William Kennington <wak@google.com>, "Yuxiao
  Zhang" <yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
 	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
-Subject: [PATCH v14 0/3] Add support for AST2700 clk driver
-Date: Wed, 17 Sep 2025 10:05:36 +0800
-Message-ID: <20250917020539.3690324-1-ryan_chen@aspeedtech.com>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v14 1/3] dt-bindings: clock: ast2700: modify soc0/1 clock define
+Date: Wed, 17 Sep 2025 10:05:37 +0800
+Message-ID: <20250917020539.3690324-2-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250917020539.3690324-1-ryan_chen@aspeedtech.com>
+References: <20250917020539.3690324-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_190548_801577_1C6A809B 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250916_190550_614768_0FDC11D9 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,147 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series is add clk driver for AST2700.
+-add SOC0_CLK_AHBMUX:
+add SOC0_CLK_AHBMUX for ahb clock source divide.
+mpll->
+      ahb_mux -> div_table -> clk_ahb
+hpll->
 
-AST2700 is the 8th generation of Integrated Remote Management Processor
-introduced by ASPEED Technology Inc. Which is Board Management controller
-(BMC) SoC family. AST2700 have two SoC connected, one is SoC0, another
-is SoC1, it has it's own scu, this driver inlcude SCU0 and SCU1 driver.
+-new add clock:
+ SOC0_CLK_MPHYSRC: UFS MPHY clock source.
+ SOC0_CLK_U2PHY_REFCLKSRC: USB2.0 phy clock reference source.
+ SOC1_CLK_I3C: I3C clock source.
 
-v14:
-- patch (3/3) : remove duplcate Signed-off-by.
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ include/dt-bindings/clock/aspeed,ast2700-scu.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-v13:
-- clk-ast2700.c
- - remove unnecessary ().
- - refine ast2700_soc1_configure_i3c_clk to be easy readable.
-
-v12:
--fix mistakes commit message Acked-by:Krzysztof Kozlowski
-<krzysztof.kozloski@linaro.org> to Acked-by: Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org>
-
-v11:
--update patch(1/3) commit message subject prefix dt-binding: to dt-bindings:
-
-v10:
--aspeed,ast2700-scu.h:
--add SOC0_CLK_AHBMUX, SOC0_CLK_MPHYSRC, SOC0_CLK_U2PHY_REFCLKSRC,
- SOC1_CLK_I3C.
--clk-ast2700.c
--add #include <linux/auxiliary_bus.h>
--remove #include <soc/aspeed/reset-aspeed.h>
--use devm_auxiliary_device_create replace aspeed_reset_controller_register
--reset-aspeed.c:
--remove aspeed_reset_unregister_adev, aspeed_reset_adev_release,
- aspeed_reset_controller_register.
--compatible name change reset_aspeed.reset0/1 -> clk_ast2700.reset0/1
--remove reset-aspeed.h
-
-v9:
--aspeed,ast2700-scu.h: no change.
-add more clear commit description.
--clk-ast2700.c:
-add inlcude bitfield.h
-remove redundant clk_parent_data soc0_mpll_div8/soc0_ahb/uart13clk/
-uart14clk/uart15clk/uart16clk/soc1_ahb/d_clk_sels
-
-v8:
--aspeed,ast2700-scu.h: remove no use soc0 clock, add new clock
--clk-ast2700.c: remove include <linux/auxiliary_bus.h>,
-include <linux/clk-provider.h>, include <linux/of_address.h>
--clk-ast2700.c: add include <linux/mod_devicetable.h>
--clk-ast2700.c: modify include <soc/aspeed/reset-aspeed.h> order before
-dt-bindings
--clk-ast2700.c: modify define to be tabbed out space
--clk-ast2700.c: add union struct for each clk type
-	union {
-		struct ast2700_clk_fixed_factor_data factor;
-		struct ast2700_clk_fixed_rate_data rate;
-		struct ast2700_clk_gate_data gate;
-		struct ast2700_clk_div_data div;
-		struct ast2700_clk_pll_data pll;
-		struct ast2700_clk_mux_data mux;
-	} data;
--clk-ast2700.c: modify clk_data = device_get_match_data(dev);
--clk-ast2700.c: modify builtin_platform_driver_probe to 
-arch_initcall(clk_ast2700_init)
--clk-ast2700.c: ast2700_clk_hw_register_hpll explain: scu010[4:2],
-scu010[4:2] = 010, hpll force 1.8Ghz
-scu010[4:2] = 011, hpll force 1.7Ghz
-scu010[4:2] = 110, hpll force 1.2Ghz
-scu010[4:2] = 111, hpll force 800Mhz
-others depend on hpll parameter register setting.
-
-v7:
--reset-aspeed.h: fix declare static inline aspeed_reset_controller_register
-if the function is not used.
-
-v6:
--patch-2: add reset-aspeed.h
--reset-aspeed: add include cleanup.h for guard()
--reset-aspeed: change ids name clk_aspeed to reset_aspeed
--reset-aspeed: move aspeed_reset_controller_register,
-aspeed_reset_adev_release, aspeed_reset_unregister_adev from clk-ast2700.c
--reset-aspeed: drop base check, since it check in clk-ast2700.c
--clk-ast2700: sync each gate name from *clk to *clk-gate name.
--clk-ast2700: add CLK_GATE_ASPEED to diff clk_hw_register_gate and
-ast2700_clk_hw_register_gate.
-
-v5:
--patch-2 Kconfig: add select AUXILIARY_BUS
--reset-aspeed: #define to_aspeed_reset(p) turn into static inline function.
--reset-aspeed: modify spin_lock_irqsave to guard(spinlock_irqsave)
--reset-aspeed: remove unnecessary parentheses.
--clk-ast2700: use <linux/units.h> and refrain from define clk
-
-v4:
--yaml: keep size-cells=<1>.
--merge clk,reset dt binding header with yaml the same patch.
--rename clk,reset dt binding header to aspeed,ast2700-scu.h
--reset-aspeed: update tables tabs sapces to consistent spaces.
--reset-aspeed: remove no use dev_set_drvdata.
--clk-ast2700: modify reset_name to const int scu in struct clk_data.
--clk-ast2700: use scu number in clk_data generate reset_name for reset
- driver register.
--clk-ast2700: fix pll number mix up scu0,scu1.
--clk-ast2700: update dt-binding clock include file.
-
-v3:
--yaml: v2 missing send yaml patch, v3 add.
--yaml: drop 64bits address example.
--yaml: add discription about soc0 and soc1
--dt-bindings: remove (), *_NUMS, reserved.
--dt-bindings: remove dulipated define number.
--dt-bindings: merge clk and reset to be one patch.
--reset-aspeed: add auxiliary device for reset driver.
--clk-ast2700: modify reset to be auxiliary add.
--clk-ast2700: modify to be platform driver.
--clk-ast2700: modify each clk to const clk array.
-
-v2:
--yaml: drop 64bits address example.
--yaml: add discription about soc0 and soc1
--dt-bindings: remove (), *_NUMS, reserved.
--dt-bindings: remove dulipated define number
--clk-ast2700: drop WARN_ON, weird comment.
-
-Ryan Chen (3):
-  dt-bindings: clock: ast2700: modify soc0/1 clock define
-  reset: aspeed: register AST2700 reset auxiliary bus device
-  clk: aspeed: add AST2700 clock driver
-
- drivers/clk/Kconfig                           |    8 +
- drivers/clk/Makefile                          |    1 +
- drivers/clk/clk-ast2700.c                     | 1139 +++++++++++++++++
- drivers/reset/Kconfig                         |    7 +
- drivers/reset/Makefile                        |    1 +
- drivers/reset/reset-aspeed.c                  |  253 ++++
- .../dt-bindings/clock/aspeed,ast2700-scu.h    |    4 +
- 7 files changed, 1413 insertions(+)
- create mode 100644 drivers/clk/clk-ast2700.c
- create mode 100644 drivers/reset/reset-aspeed.c
-
+diff --git a/include/dt-bindings/clock/aspeed,ast2700-scu.h b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+index 63021af3caf5..bacf712e8e04 100644
+--- a/include/dt-bindings/clock/aspeed,ast2700-scu.h
++++ b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+@@ -68,6 +68,9 @@
+ #define SCU0_CLK_GATE_UFSCLK	53
+ #define SCU0_CLK_GATE_EMMCCLK	54
+ #define SCU0_CLK_GATE_RVAS1CLK	55
++#define SCU0_CLK_U2PHY_REFCLKSRC 56
++#define SCU0_CLK_AHBMUX			57
++#define SCU0_CLK_MPHYSRC		58
+ 
+ /* SOC1 clk */
+ #define SCU1_CLKIN		0
+@@ -159,5 +162,6 @@
+ #define SCU1_CLK_GATE_PORTCUSB2CLK	84
+ #define SCU1_CLK_GATE_PORTDUSB2CLK	85
+ #define SCU1_CLK_GATE_LTPI1TXCLK	86
++#define SCU1_CLK_I3C				87
+ 
+ #endif
 -- 
 2.34.1
 
