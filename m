@@ -4,61 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F2ACAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD89BCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GN2oW3Vha1TGHz1+0kWkrH9SeR8aT1llvHpXanq9kIw=; b=nBoFWbIQrxgZyEBdptz0tycacg
-	I9Die/zTNSAJxzg87jTelqwICVhn/K3JsyBakGONmdVTLhDRQhxNlZcgqtgoVhFzRibFwYKefQ5u1
-	p3c4gJuEoON5mwxhiz/VzYtgU6PPfEU6JOFH2+oE3pmmziBO/jgsFbSunGKsITlIBY0zRulmlia5J
-	lGJhh412/drGFadJS4whMSYdMfmHZFzqSjWILqeb/C4xv8dZunNG0bU+Sq+Xl6vTDHvIskviTC+e7
-	7LEQIjSq9bIn47cPsW6UdEmUfzsNPW4cdzNvZ+qneCo1L75rBhM89lBe+FXps7hohfCXBrSYZ0Dcd
-	nyH1RuaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2fXWnAcwy4QY30y7K29mOFLIbpOkUW2fwS3ybjf2ArY=; b=DNhkHZ7qTecz32MWKltSL/pneE
+	dGTD5mznL/rWkyM6H5K0k1C02cvjHpysWRUHmrpGufqCMB3aWIQz4YQ2Cp+xhA3scRB+wdXcvr8Oe
+	STwMSIH8B0M2rSDG0ScQpS4NEqCHh4LOQDKWY8RUVV8Hy1RdDB6Lr6JtapcFMeIoegBQsDNPkeQlF
+	H2oV2++Hvh1cev3nXQrxNtBHfWQ9vUknzFElw28MU0f4ttwiKCMgDvIwi6TQ7gWRkJiBXlMt+eP12
+	rasECpXeO2OK7yHEgkszhGZswhW+Zui3YC9StvcoIc35QcicK2Vr7/cpWS1T8qVAtpI93LpCQ+zVd
+	N7pU+vpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt1e-0000000CA13-1BrV;
-	Wed, 17 Sep 2025 14:20:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyt1v-0000000CA9Z-2iSN;
+	Wed, 17 Sep 2025 14:21:07 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt1d-0000000CA0Q-0bOy
+	id 1uyt1q-0000000CA5P-1E7s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:20:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 622296023C;
-	Wed, 17 Sep 2025 14:20:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFC0C4CEE7;
-	Wed, 17 Sep 2025 14:20:44 +0000 (UTC)
-Date: Wed, 17 Sep 2025 15:20:42 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: yangyicong@hisilicon.com, Will Deacon <will@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>, maz@kernel.org,
-	oliver.upton@linux.dev, corbet@lwn.net,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	shuah@kernel.org, shameerali.kolothum.thodi@huawei.com,
-	linuxarm@huawei.com, prime.zeng@hisilicon.com, xuwei5@huawei.com,
-	tangchengchang@huawei.com, wangzhou1@hisilicon.com
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-Message-ID: <aMrDuieMX9WL4jkB@arm.com>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
- <20250715081356.12442-6-yangyicong@huawei.com>
- <aL7Fgx__LeLfbDyU@willie-the-truck>
- <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
- <aMLvtpaCgRqPAU2Z@willie-the-truck>
- <20250912144736.00007673@huawei.com>
- <666e3588-2e42-2275-f9ec-94ba0954bdc6@huawei.com>
- <aMl6u7xTDLhrZmqK@arm.com>
- <0dfe5781-7ca7-7d9f-b099-b20da5e10a1b@huawei.com>
+	Wed, 17 Sep 2025 14:21:06 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58HDofBc019816;
+	Wed, 17 Sep 2025 16:20:52 +0200
+Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011024.outbound.protection.outlook.com [52.101.65.24])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 497fxgv7xb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 Sep 2025 16:20:52 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eF6UdREvVCXfMucWSpFYzdzuvegrOs1F1gOjRVcUM8bGAtR09xdzUdU/1qCQVhD6665O5Qa/5oS7GljBXW2aIwyJ/JUKa/80g5je+N5fHWCOIn3yCIIqaquYrCxfxnAwVPlGAacpj7JMNwP9Z7D9dpL2JaXwlYXv/0widte9/gTmfiMqrvnoEEzotWpMxDz+iRvTZP4Mbo5KGzQf0BWSxb2uewy5wXuVHn9gxbBz3Oxg+SFY39odCRnTU0ItfAPVs8Yhdzg6mYTEOc54gDI90KWj9IvxT29DrpLoEC/Zx4s4a0jGnOjA38pX1O75YXZZ1V2Y34dPSejfMzNlL8fFhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2fXWnAcwy4QY30y7K29mOFLIbpOkUW2fwS3ybjf2ArY=;
+ b=xPgTj4EnXUGDQoIUdYVsFXXvGOmPPF1enNSvhtQvaefk1ED6AjZUv8C5yC/3+gmvTtkdiM/pM5lhoQN/LwpcLL52tRCbT030ZBJNILxVE3OuIMm3yMp5ZizpLJBdAorxaVeiBKhGoT2QXvA/I4qXyAYU7VuiX5YhPOzRoV5VC6bXFvQ2sFPyxhp738AxLlczJuoSj5C495TJA60XfPiPdBVDEjGWFATvTOQZ55ZM3an/St5dcksAezP1qxSVbOMs3jutwxvGQcUUPONLrct7x2gKJkvIq6Y3CDkDx5uzlolConbhIGwPrhFJKSAXsVds0Z7HHlfpjcv8JpmqLyKZrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.43) smtp.rcpttodomain=renesas.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2fXWnAcwy4QY30y7K29mOFLIbpOkUW2fwS3ybjf2ArY=;
+ b=QnNlqHsstu88oeKVfN78rfr1h4zxT/AxMn8G86wqb2Khc5CKaNvycsWEjV5CrUCEyked3881HbVyGu4xoHJInt/NNW/13M1xfqaP0rA3Fc6bWu7Wj0xr1+IX0UeYyghYqTFOJh8x7RaAG2Sb1IgOMBG61DRqKzsk7e2V8RIuDRgDxwXohrXGjrqihQHRhdE/9cvY0en0QkEZLKhRHbGqosZB43ZUZI0GlHWD2C3q/h4s67HvYDOzPQoAv+dFyvF/BQtaED1K/wUFpyyK6VK1aScIp5Kn0W9H0+ErOKfOhi9rqtxSO7ENkOC23xxskqlm0sidUJ8/K3dgOeY1ed3zwg==
+Received: from DU2PR04CA0244.eurprd04.prod.outlook.com (2603:10a6:10:28e::9)
+ by FRWPR10MB9254.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:d10:179::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
+ 2025 14:20:48 +0000
+Received: from DB1PEPF000509E3.eurprd03.prod.outlook.com
+ (2603:10a6:10:28e:cafe::8e) by DU2PR04CA0244.outlook.office365.com
+ (2603:10a6:10:28e::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.13 via Frontend Transport; Wed,
+ 17 Sep 2025 14:20:48 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.43; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.43) by
+ DB1PEPF000509E3.mail.protection.outlook.com (10.167.242.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Wed, 17 Sep 2025 14:20:47 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 17 Sep
+ 2025 16:18:22 +0200
+Received: from [10.252.19.234] (10.252.19.234) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 17 Sep
+ 2025 16:20:46 +0200
+Message-ID: <a9725bfd-a2b8-4343-83f2-d18908029ea0@foss.st.com>
+Date: Wed, 17 Sep 2025 16:20:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0dfe5781-7ca7-7d9f-b099-b20da5e10a1b@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: stm32: sai: manage context in set_sysclk callback
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+CC: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Jaroslav Kysela
+	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <linux-sound@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250916123118.84175-1-olivier.moysan@foss.st.com>
+ <87ms6taph0.wl-kuninori.morimoto.gx@renesas.com>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <87ms6taph0.wl-kuninori.morimoto.gx@renesas.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.19.234]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509E3:EE_|FRWPR10MB9254:EE_
+X-MS-Office365-Filtering-Correlation-Id: a187dd9a-1bdd-4446-1b9e-08ddf5f5657d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VkRCR1RSSVhYTFhIK0s1Q2VuK2gyRkNVeE1ZOEcvRnVZR1A3emtnRW1XSXpF?=
+ =?utf-8?B?bTAwd2JEVlNqL3VnOVlFWmlSV0cvYTlYWFZkVm1WY1R6WlhlOWxyR2pPTDNq?=
+ =?utf-8?B?T3pQNENRWHVrUjNyQ2l5aHZRTjVtaCt4Z1NLWG55OUZielFQNlZCaGI5Tk9M?=
+ =?utf-8?B?aHJHb0ZvOXloN25ybFEyUnhWalY2Y3JSMWpMdC9uOEIzdlBLVHByRHN2Vzlv?=
+ =?utf-8?B?SDJiUUQ5dzJ6anUwUXRpeEJjTHJXOW5BTTdBbGswT3R6ZFVuNmxXRm1WK01k?=
+ =?utf-8?B?UHlzcllUR0RJaDNZQmp3VjFtanBnMkVHZGg4dGMySzVhUW5MVGJGWkF3a2E4?=
+ =?utf-8?B?Z2xVdmhZRVNJYTMyOTlrWHM3bTY2MTB2cEpoSUZsS0ljU0FSSFhxVFh5SFJq?=
+ =?utf-8?B?TzlKcFUzdWhoTDltT1JwRitVRlByYjRuNFNUQVp5QnhtOTlEY01qa1EvTFJW?=
+ =?utf-8?B?bHJJS3N5Wk16SDhjVVhVamtpekN6SHdKZFFtbllxQnRod0d0clZ6a0hXa1dX?=
+ =?utf-8?B?TXBvQklVU1Zud1NzdHlLb3M0SlF0MGRlb0Q3ZmE1VklxdmZJRzBGSStna0wx?=
+ =?utf-8?B?cm1HT3QrbHBXZ2hnUDg5cGg4WktuUGI1Njl3NmFHM04rQmJySUpPbjZiNjkr?=
+ =?utf-8?B?Wkdkb1pVQWQ1Um5uQnJNOXIrblFVUmR4bHJKTXdHMVZmQUptQTY2SnArUHUz?=
+ =?utf-8?B?K3RCbUFwcHI2eTFwWEp1MkRVbnA1VmRmTERBemhFQ05RclNuMmJBNEpBT1hq?=
+ =?utf-8?B?Ti9BYStGTG11TVAzR2k3MmpEUXkrV1loV1lWYWc2K0RrQkpDWFpXVnJUVXVM?=
+ =?utf-8?B?M3BvQkNYbTl0SUo1OHovNWpveXRnMVkzWXFHRDBXNFVRYXk4Rko5dlVseGpJ?=
+ =?utf-8?B?dTdLRGNETnVsSDlmcG9BMEx1bFlCT1hGdzIrVjZZRzltUGl3NFR2M1lSZTht?=
+ =?utf-8?B?UHZvQW9hTnEwWWFGZGFxNmpBSkRIakYvQ2V5ejB6TDRVK3dsN0l0aDNZcnpN?=
+ =?utf-8?B?TnhzTHF4TWlQWXAwZ1AzWWY1eWxFMCtzVDQvTnJ4NWo5ejRUUGJmazM5N3Q2?=
+ =?utf-8?B?TVVxVjBqc1RoMUphT1llSFRjK3BKRkMwYWg0UDZwR2JKeXJBTHBTU2Z3dXBx?=
+ =?utf-8?B?WWNPWTdMdFVIMllFQ1p6b2o4N3Rab2dCTUZJczVoNm9UMGQvYWprNmRGdmYz?=
+ =?utf-8?B?VFZMRHVXY096VVR4REhJdmxtMGFNdjJ5MElNTC9NMWgvTU02dWNtaFpFVUJR?=
+ =?utf-8?B?aCtJbmkrMGZZQ3Vrb0ZtdmRKNFZPMVYzMUFoQ0cyQXc3Q2hBMTdNcWtVRTFB?=
+ =?utf-8?B?alRmR3NQb0Y1eno0UndjclluZC8yVXVlR1ZwUGhjTDNiZjVMWk5nM0NQT0Rw?=
+ =?utf-8?B?Y2l5NkdCSVI2cFd3ek51T2I2VWFndE51WjdyWU5iVVJwTXg4RTlxbG5oY3dN?=
+ =?utf-8?B?dEtJbC9EVDZhbkYvWTZEVXVKenJTeDJBZmJ6eGJJaFVlazBmbmRCRTlEWk5I?=
+ =?utf-8?B?ZnNsTHJwZFg2RStJbzRYNTl3bXVydXBKRmpNOHVIb0ZSc1VKdEFNMmFDd2FK?=
+ =?utf-8?B?amlJNWxxa2NUN1o2dTVRUVlUazA1NEpxUnZrTnBpWkJCby8yOGQzNFJLOU5P?=
+ =?utf-8?B?Y2pNamJ2WS8yS2UyR2Nqd1FaQk5LaVJJSzdmbUJQbktRcncvVEpSTFJDUXZD?=
+ =?utf-8?B?SHRSWE8vNTlHZDdxcnJlNGtNd2ljcXJxRFlFbWJIWHQ0djU4bGVKdy80T3Y1?=
+ =?utf-8?B?dTFwOUxONm5Gd3RzbDRBRFJNNlpyY2t2MXNuUWo2eXlNbytxWHFzckRzOGR3?=
+ =?utf-8?B?QmhyZ0liUGUxUUlKKzNQS3ppQ2tBWXRFYmJFWFVVQkg5VHRaTnA3bTRITFFJ?=
+ =?utf-8?B?SWo3NTNXaXN6QlQ0Wm5wYmRLckpXMTRmclNWOVZTVzlLdzF2ems0NnRCK0pL?=
+ =?utf-8?B?dktteE41N1BBZUZmMHZjVTVVeDJ0VE5XWWt3aFdqUXB5NUtBRHBQNnNQeXY5?=
+ =?utf-8?B?QldFNnlYbXlwV1dROXk1QWxGbFRyMkZwVlp0dlU5Slp1enNDa3dpd1FJWlVN?=
+ =?utf-8?Q?qzCJIi?=
+X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 14:20:47.3705
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a187dd9a-1bdd-4446-1b9e-08ddf5f5657d
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E3.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR10MB9254
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX/iF0vQFtHLeI 5NTZ+nyv9LFHwdTLN0zpgkf2w0Ihku5tPAXUs3YWGYL9LwTe3bA0NQeahYUtpAKnd7BRotCFGMU 5I+O6gMvymi8NdZXrmE+MT0zIGkLcaDnISSUrNw7kHC9wBm48DyTAnogwa3bU3HQgOa1LfxpfrF
+ JDPuglkRKhB33syEOd40/4mEKyG+XtGuD/UPjGGVNgnn5o319L58/6+O2aOHdkUir3CK2H+Z2fE yPF+z3yfV23hiXrcUYVYwEpr5oGqva6uE0FlRLORWC+BARo+BoubrB+9Fz81fBk8SjmvQjo2ahT Avp1H5Qq/taIY3wAjWk2BvyDlDxR8GqImdZh42DSB6vT+QzXUMIaJ+jd6NizSenW+g/gKvA4Bv4 HpLL2JF3
+X-Proofpoint-ORIG-GUID: kxZtXdqFilDc6Lm_9nLKaXdFnWvOFzhT
+X-Authority-Analysis: v=2.4 cv=aJLwqa9m c=1 sm=1 tr=0 ts=68cac3c4 cx=c_pps a=jAp52Qr6e1vdGvI99yDuOQ==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=tmmfVvVmf_gA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=tbB4qTXv7ZqPBi31GnQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: kxZtXdqFilDc6Lm_9nLKaXdFnWvOFzhT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-17_01,2025-09-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0 suspectscore=0
+ bulkscore=0 clxscore=1015 malwarescore=0 adultscore=0 priorityscore=1501
+ phishscore=0 spamscore=0 classifier=typeunknown authscore=0 authtc=
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509160202
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_072102_633368_59B1404B 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +189,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 11:51:20AM +0800, Yicong Yang wrote:
-> On 2025/9/16 22:56, Catalin Marinas wrote:
-> > On Mon, Sep 15, 2025 at 04:29:25PM +0800, Yicong Yang wrote:
-> >> in my understanding the hwcap only describes the capabilities of the CPU but not
-> >> the whole system. the users should make sure the function works as expected if the
-> >> CPU supports it and they're going to use it. specifically the LS64 is intended for
-> >> device memory only, so the user should take responsibility of using it on supported
-> >> memory.
-> > 
-> > We have other cases like MTE where we avoid exposing the HWCAP to user
-> > if we know the memory system does not support MTE, though we intercepted
-> > this early and asked the (micro)architects to tie the CPU ID field to
-> > what the system supports.
+Hi Kuninori,
+
+On 9/17/25 02:32, Kuninori Morimoto wrote:
 > 
-> but we lack the same identification mechanism as CPU for the memory system, so it's just a
-> restriction for the hardware vendor that if certain feature is not supported for the whole
-> system (SoC) then do not advertise it in the CPU's ID field. otherwise i think we're currently
-> doing in the manner that if capability mismatch or cannot work as expected together then a
-> errata/workaround is used to disable the feature or add some workaround on this certain
-> platform.
+> Hi Olivier
 > 
-> this is also the case for LS64 but a bit more complex, since it involves the completer outside
-> the SoC (the device) and could be a hotplug one (PCIe). from the SoC part we can restrict to
-> advertise the feature only if it's fully supported (what we've already done on our hardware).
-
-That's good to know. Hopefully other vendors do the same.
-
-I think the ARM ARM would benefit from a note here that the system
-designers should not advertise this if the interconnect does not support
-it. I can raise this internally.
-
-> > Arguably, the use of LD/ST64B* is fairly specialised and won't be used
-> > on the general purpose RAM and by random applications. It needs a device
-> > driver to create the NC/Device mapping and specific programs/libraries
-> > to access it. I'm not sure the LS64 properties are guaranteed by the
-> > device alone or the device together with the interconnect. I suspect the
-> > latter and neither the kernel driver nor user space can tell. In the
-> > best case, you get a fault and realise the system doesn't work as
-> > expected. Worse is the non-atomicity with potentially silent corruption.
+> Thank you for your feedback
 > 
-> will be the latter one, both interconnect and the target device need to
-> support it. but I think the driver developer (kernel driver or userspace
-> driver) must have knowledge about the support status, otherwise they
-> should not use it.
-[...]
-> my thoughts is that the driver developer should have known whether their
-> device support it or not if going to use this. the information in the
-> firmware table should be fine for platform devices, but cannot describe
-> information for hotpluggable ones like PCIe endpoint devices which may
-> not be listed in a firmware table.
+>> Here is feedback regarding commit 5725bce709db1c001140d79398581e067e28c031
+>> ASoC: simple-card-utils: Unify clock direction by clk_direction
+> (snip)
+>> To accommodate the change introduced by this commit, I added the property
+>> "system-clock-direction-out" in the SAI device tree node.
+> (snip)
+>> * Before the change:
+>> - Initialization:
+>> simple_init_dai() -> set_sysclk(id=0, freq=sai_ck freq, dir=out)
+>> 	Calls clk_set_rate_exclusive()
+>> simple_util_shutdown() -> set_sysclk(id=0, freq=0, dir=out)
+>> 	Calls clk_rate_exclusive_put() (releases the mclk clock)
+> 
+> Here, about "Before the change". Does this "change" mean "before adding
+> system-clock-direction-out" or "before commit 5725bce709db1..." ?
+> 
 
-There's a risk of such instructions ending up in more generic
-copy_to/from_io implementations but it's not much we can do other than
-not enabling the feature at all.
+Oh yes, I mean both in fact. Namely, before having the commit and the 
+system-clock-direction-out property. Typically, I tested on a v6.10 and 
+on a v6.17 (or later) where I noticed a change in the SAI driver behavior.
 
-So, I think a HWCAP bit is useful but we need (a) clarification that the
-CPUID field won't be set if the system doesn't support it and (b)
-document the Linux bit that it's a per-device capability even if the
-CPU/system supports it (the HWCAP is only a prerequisite to be able to
-use the instructions; the driver can fall back to non-atomic ops, maybe
-with a DGH if it helps performance).
+>> * After the change:
+>> - Initialization:
+>> simple_init_dai() -> set_sysclk(id=0, freq=sai_ck freq, dir=out)
+>> 	Calls clk_set_rate_exclusive()
+>> simple_util_shutdown() -> set_sysclk(id=0, freq=0, dir=in)
+>> 	clk_rate_exclusive_put() NOT called (mclk clock is not released)
+> 
+> Hmm...
+> If it was latest kernel, and if you added "system-clock-direction-out" in DT,
+> dir should be "out" in my understanding. dir=in means it doesn't have
+> "system-clock-direction-out".
+> 
+> And, dir will not be changed (out/in) in init / shutdown.
+> Are these same DAI ? Both "struct snd_soc_dai" and "struct simple_util_dai"
+> have "*name". Could you please double-check it ?
+> 
 
-An alternative would have been for the kernel driver to communicate to
-the user that the device supports the 64-byte atomic accesses but I'm
-not aware of any fairly generic way to do this.
+I did supplementary checks, keeping only one DAI and adding additional 
+traces. It seems I reached a wrong conclusion regarding the cause of 
+unbalanced calls. Sorry for the confusion.
+Looking at the traces (see below), initially, we had one call with the 
+'in' direction (kernel clock frequency) and one call with the 'out' 
+direction.
+Now, both calls have the 'out' direction when the property 
+'system-clock-direction-out' is set. This seems more consistent with the 
+changes from commit 5725bce709db1.
+In my setup, the kernel clock is an input clock. Maybe it should be 
+tagged as an input clock. However, we have no 
+'system-clock-direction-in' property yet.
+Anyway, the patch in the STM32 SAI driver is still valid.
 
--- 
-Catalin
+v6.10
+
+simple_init_dai - dai: 0x110b6418, dai name: cs42l51-hifi,
+simple_init_dai - dai: 0x6204899f, dai name: 4400b004.audio-controller,
+stm32_sai_set_sysclk - dai: 0x6204899f, dai name: 
+4400b004.audio-controller, id: 0, freq: 29700000, dir: 0
+stm32_sai_set_sysclk - dai: 0x6204899f, dai name: 
+4400b004.audio-controller, id: 0, freq: 12288000, dir: 1
+stm32_sai_set_sysclk - dai: 0x6204899f, [set_rate] current freq: 0, 
+request freq: 12288000
+simple_util_shutdown - dai: 0x6204899f, dai name: 
+4400b004.audio-controller, dir: 0
+stm32_sai_set_sysclk - dai: 0x6204899f, dai name: 
+4400b004.audio-controller, id: 0, freq: 0, dir: 1
+stm32_sai_set_sysclk - dai: 0x6204899f, [put_rate]
+
+v6.17
+
+simple_init_dai - dai: 0xbca889eb, dai name: cs42l51-hifi,
+simple_init_dai - dai: 0x4c0382ed, dai name: 4400b004.audio-controller,
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 29700000, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [set_rate] current freq: 0, 
+request freq: 29700000
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 12288000, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [set_rate] current freq: 
+24573875, request freq: 12288000
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 12288000, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [set_rate] current freq: 
+24573875, request freq: 12288000
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 12288000, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [set_rate] current freq: 
+24573875, request freq: 12288000
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 12288000, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [set_rate] current freq: 
+24573875, request freq: 12288000
+simple_util_shutdown - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, dai name: 
+4400b004.audio-controller, id: 0, freq: 0, dir: 1
+stm32_sai_set_sysclk - dai: 0x4c0382ed, [put_rate]
+
+I hope this can be helpful.
+
+Thanks and Best regards
+Olivier
+
+> Thank you for your help !!
+> 
+> Best regards
+> ---
+> Kuninori Morimoto
 
