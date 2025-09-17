@@ -4,94 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1E41CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FBDCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cCN+5ugSUUmsFCI4Zftan76OLCmZ9PZ1nq+BR7QKqUQ=; b=AkJM0kIz2BphRHZ/FJA+KMWkaN
-	nc5rJY1kUtUlo/qHNvk2bxc2dWiL8x059zfxFfUnuuCGzP3OzP4J+5GjVKEUErHlwL//2lrDKIwUT
-	vap0EPWdgYDdDmocuPXbqyDU4lVK91653PECXjiiWM2dzLyt2GEl1N8OX+Ad3yX8nVyX9yair+Qln
-	VqUty49T/oQNahc6Dw2VCmHINjXcOsbmCWM4CyTrYswG9UnREv8v5nHHLyckXhRN7/GWTXjf2GA/L
-	neGWz6uyKU3NU3eziGOUv/4kOhXpmALSrGSAh2KxF8MFyU49EaFpdCW+MtHiuh3+JvoM/+zDok74I
-	MGYw8ZcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=; b=bYsmcoleaSFwRxts+h+dsq1FEv
+	SYJISc71qNfuqtYUl57k6EacVpLoOx0w2uOv7B3r0T7FPgA+ROXrJey6uA9YuXTs5RzkTwwZUZxUp
+	Z0ZVxm5oKZMhCui4aaWvS4IHTOizaPcslA7PXqaFKWDg/Iw1kYKxrqsiLQUcw9+BzumZiKHt0an2G
+	9zFBwqa93xei++FoUmoJuhdR8dV8cHiqYqclls5Jpz5hD559rtPB9imqqKQVgmStrN1KjulokM0ov
+	3FREJlDeQkWMgYJ3804l2/GU6Ux1t/KiuDvrn8iu5ppmkABm6Iil9uaCEIj6Qs++zCAkdhkKaSugk
+	DgXhJgew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiKm-0000000A1IS-2f95;
-	Wed, 17 Sep 2025 02:55:52 +0000
-Received: from mail-yb1-xb62.google.com ([2607:f8b0:4864:20::b62])
+	id 1uyiLo-0000000A1T0-07ft;
+	Wed, 17 Sep 2025 02:56:56 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiKk-0000000A1I7-0t6f
+	id 1uyiLl-0000000A1SH-0QAO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 02:55:51 +0000
-Received: by mail-yb1-xb62.google.com with SMTP id 3f1490d57ef6-ea5c1a18acfso102721276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 19:55:49 -0700 (PDT)
+	Wed, 17 Sep 2025 02:56:54 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GLaLQo008470
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:56:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=; b=YFlCENv6AgYkfjAQ
+	a96MRQT6oo/+q5qRjw3Tq5bQb93E2IHEwA62/okuhO7ckMBCljDhLDNyo+1kbB2F
+	u4yPy0web9fEENwi+GcwDfmnaB+A09pEM8V1RTpPh79AifibQWq4q7fkcUg9vurH
+	nj90HjiAGqdt0wH6v5VWB3nMqHkDnTBPj0CC/qsb1+OIg4o0AycvaMbT8Cb5atgp
+	m6Aii1bFHI6i30Qu8Jj/3HApW+pz9cSqREFGRHWaHX/Ny4b4IRQ4uD1QuSrdYxwv
+	Lt7hcXvgj7n6YG4vdDgvkW4+Xh+5/bItwz//zjHTnxP5/rwIbmZHW2wTNhwacSuY
+	EvJugQ==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 497fxxrnhe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:56:52 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2675d9ad876so34172835ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 19:56:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758077748; x=1758682548;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature
+        d=1e100.net; s=20230601; t=1758077811; x=1758682611;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cCN+5ugSUUmsFCI4Zftan76OLCmZ9PZ1nq+BR7QKqUQ=;
-        b=fLpgert59tU+5VlL4nuOE7dvhCpmwWKdUduIHSaz3HEMMUClpTPhbhRU7amRa2Chwm
-         WynCq+2cVbxAPTzZ8dzyAybfdrNyAGHCLneytGSTPR36fwn1y1qqa+Keaeu2nDFDR6eN
-         uDVJA9qI6Gz+hjZ6cCPrqnPUxWcK7z4rao14elDD/3OaZ0IhFTJX4FNugiHNvHtySW+6
-         K0y4voZaMGIslpEDJgvGRd4my8qKIA5DIG9pQfU0CddoneokcxmDVK41kiBsoxwEYO7H
-         p8HOgNI8PHp1H8cJdGd0Up2IrxOoIchFmYZ7p4SIyXaweWyiIxE8KwxnGXT1PzoBjiPJ
-         g9HQ==
-X-Gm-Message-State: AOJu0YwSLZ5P0Alr7hUkpMUmqUzAHQLg4JZm4Y2RcOCyh8ETXhRV6pyA
-	qcw5H+7N8sYYjgLDYxG8bhJvfBP3UvM/htANV/vOKOAqt/FohV0TuEgt8zNiuVDeGGmmwpi0cVY
-	b/mKjVQrP/CCQV0mdG5AffEgSRAmLZTHiqPkcb5z3wY2oBESM9QZVWKl0gJgjUTQJLXc849S8Ej
-	NLG5PRBbzJz5UqFOVI1fo/f29pzjQR6h+qFBp2aN+4d/NyjjSGcAX4oqvkwRyyq0et7CTgJk07l
-	a+hyt81xXd+mO9hvIkz006DSuQQzlM=
-X-Gm-Gg: ASbGncvkJhGmj/m2I4qVOO/nadPzpveXEVc3JWb5Ig7Bqyt7HXQGBvNK1UJhtBX0S2h
-	77JGTdjymn24il2oLZBZGliZF3AsuRjWkDZzTFrg3bnt4qBi8mipMtB7QYs13PNDnbQrLSLEJTN
-	VNJs1BB9Kx1Amnxc0Ncu+NHlKgRe3dfAh9RLD12IAcOgdy9o0ZBYTn5EEDtKbfbnEhWRvgwLyFv
-	w505blza857aI+iog2JL0n0Wy/kig+UslGgpdK1viAOYD5Jgwc+voKpl1r9wFkX0e+WoIT9+FEM
-	oyrQJAn4O1Bj4wcUqJsAg8S1WuBU9nbZbcxZT6T9HeNQ1xfz2o2ubV5ohlicnEr/YRrsruJw0ut
-	rEw70w3pTfmwPmEj1SrJMJFO3Gb5+2le29QoBNq2Izc7q7hjwFxe7VyKPXtaIM0rCzAkRXhpaMt
-	sc
-X-Google-Smtp-Source: AGHT+IEWHeJaloYIabTyDUsYhPmeXOw0a2C1kGDyZkPD5WrQ/1bvzbEaVAgcG+/uNqh34R3pFQtLSiGqVoXe
-X-Received: by 2002:a05:6902:4a8e:b0:e97:55f4:3ed3 with SMTP id 3f1490d57ef6-ea5c044dd1emr621131276.28.1758077747944;
-        Tue, 16 Sep 2025 19:55:47 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-25.dlp.protect.broadcom.com. [144.49.247.25])
-        by smtp-relay.gmail.com with ESMTPS id 3f1490d57ef6-ea5abe92179sm192166276.14.2025.09.16.19.55.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Sep 2025 19:55:47 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-72e98443055so72739107b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 19:55:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1758077747; x=1758682547; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=cCN+5ugSUUmsFCI4Zftan76OLCmZ9PZ1nq+BR7QKqUQ=;
-        b=aAj4b+6NI6Gsrdz2i3E35C6JCCk9gLAA+XbC9mh+8QPkLSWoTUOBWfaP3PPEpdovtL
-         zWQVPDVBbD6GP2nTviOM/f0infGm67Ab4VQiRX7flpgpDCVT3zOEOGGaN/hxKqVPPq7X
-         We84JmPSvK85AQkCvni9HfGyxE+EnYXNPtTR8=
-X-Received: by 2002:a05:690c:6a89:b0:71f:f24f:ccd9 with SMTP id 00721157ae682-738921618b8mr5384307b3.36.1758077747010;
-        Tue, 16 Sep 2025 19:55:47 -0700 (PDT)
-X-Received: by 2002:a05:690c:6a89:b0:71f:f24f:ccd9 with SMTP id
- 00721157ae682-738921618b8mr5384217b3.36.1758077746673; Tue, 16 Sep 2025
- 19:55:46 -0700 (PDT)
+        bh=Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=;
+        b=TEBGAJjFoRRjVqQ4z6aGnqo3KYiwFhwQsnjtMAA0Llj9D9D+BXqPw+urYbGfd2FD2A
+         skwt9qBPodz5FxKI/R8RrjSBhxDFrzF6NdfPJn7pz+PT1EBRyXoH+ox61LxRKvHViCDF
+         lf1rmMF6SQFLLTGP73X9PmAdHpV8n5ze5DSUlyK/c3+6HFwLf/s/GMMaWbInmTa+iF/M
+         JmDE/+kEYiukZ9+k9zfGqE+NFqOZGNP5DMlDqClaZBLPLqoKk5ai7OuVdqRsLIpWBJHY
+         e2W9pgS3LuANdyx4b9Lqn7/oCC5OzBG3m4pFOIjPO0U3nWC2VQn/i38Pd8uoRfweE16Z
+         ZV1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXrtZ79uR/dMs+ox2Lsjb9lHtMWCET2p+7eLaKFLfpaDoWSckUXgFpDuONcnxESqGJ3E5cefMZMU2/odCOEZnJs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxuzsjo9HruHb4P9MqsnLC8Ci1cgWZOOMfu+6gvrceUl+SeTj8G
+	f8NUgFIuHnKAj0emCrk3QAw+cK+LoeOC0eAsrq7kSobfZvy+PC5YNKdJEn1sqACTQ7SOPkW4gi3
+	CrU3FKh4Y8lOB/RAA/oG/kHm5nw2dYH2aVJ8Cr5n2bzZU2tLLpRdIn5PcZ0lKLM8Wvw5ycyF67I
+	LkHDeUnBXWaw==
+X-Gm-Gg: ASbGnctf51RotjYXSj9bhahyuBstmVHhgp7Qjvc73UsD9K1izzFYE7V/2zIOp3io+1T
+	YSjD0ulrzfoV3lloSk+JmcePV33XU0LTgjga2NxiiUy0K1Uvs2rpOy+NHYZ1e6/R2TjMuthbVGU
+	JS4mLrIOJF+rKCv9XsLdJsM+nXADM+qf33UJlfxHYyoINHrfpJBlUT5O8TXygnCEjR6bl5+scnD
+	fK0/LF7o+NRoptFFjFvJB2FJyaPtr2NSe07uqqObtNg4hHNfYAYQJwgQGX3fMHtIF52nd02hqEn
+	0IdYTtmpGgJwb8yZcBDGSxqxJFhCmD7OYR9sjeRmnxw3Y1FfjL6oaIKyWFBq3TZAkp4qC+VTv+/
+	fYw==
+X-Received: by 2002:a17:902:ecd1:b0:263:57e7:8950 with SMTP id d9443c01a7336-2681217f3e4mr7419655ad.19.1758077811094;
+        Tue, 16 Sep 2025 19:56:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGnnI/XlzVFKrLai7UAMi0WGqhx8P9VAhzfg83kdhSwUBWlQHiBGFrNpl+Fk25QwPynEZGuDw==
+X-Received: by 2002:a17:902:ecd1:b0:263:57e7:8950 with SMTP id d9443c01a7336-2681217f3e4mr7419235ad.19.1758077810577;
+        Tue, 16 Sep 2025 19:56:50 -0700 (PDT)
+Received: from [192.168.29.115] ([49.43.231.156])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-264c4e98f8csm87739605ad.108.2025.09.16.19.56.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Sep 2025 19:56:50 -0700 (PDT)
+Message-ID: <32d8329f-0d73-fb16-f12d-308e6ee6b45d@oss.qualcomm.com>
+Date: Wed, 17 Sep 2025 08:26:38 +0530
 MIME-Version: 1.0
-From: William Zhang <william.zhang@broadcom.com>
-Date: Tue, 16 Sep 2025 19:55:36 -0700
-X-Gm-Features: AS18NWC3d5fWVf088qWrOXptiwPeO1_wn4aNeZprGPgcE-ncwRtq9P9I5px9iH8
-Message-ID: <CAHi4H7FKjYf0c90qoN9bSORboru+S718-k1eJYh4pVoDcJPGHw@mail.gmail.com>
-Subject: armv7 R_ARM_PREL31 relocation out of range error when loading module
-To: Linux ARM List <linux-arm-kernel@lists.infradead.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Kursad Oney <kursad.oney@broadcom.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wenchung Su <wenchung.su@broadcom.com>, "song@kernel.org" <song@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v14 05/10] power: reset: reboot-mode: Expose sysfs for
+ registered reboot_modes
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
+ <20250815-arm-psci-system_reset2-vendor-reboots-v14-5-37d29f59ac9a@oss.qualcomm.com>
+ <lgoahuqgoajuj352h7rnjfyeeyf24x45pj3qmidc6qqrc75vej@3hrblxle7uyk>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <lgoahuqgoajuj352h7rnjfyeeyf24x45pj3qmidc6qqrc75vej@3hrblxle7uyk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfXwY4c+OpuaIet
+ UrsEQ8xfWojHiASaNbilQu13+NQJwiPdggtLbqNkpXuRCHjPulfvPIZtwosx8nHVahaGdt5ck/4
+ Z/M3vWgMlRuEsBHMc/igBo55Iw23nGNctMva2VY2u2KDbryOdakTQ4qdsxk90V9cc0DhF7ynfKt
+ DLeUlPcsF0RPrqzAV8JMn0yc9TpMpgXQEltXJNStWsQekMkuCzNb0h7y2GvWFSKaCYI1/4MNg49
+ AJ4Q/oGfYsUbfzZP22ZeOFr5FSi68IlC9NQWVH3Ezv2MRKGQeQ+2FIl8SqjqEOLGzTBFgAAVXAP
+ P8ibCyIHMWGmPhgT6BQ8v3FDDciJ2bQZ4d1leEJl3WtYsn7mqfHYBmE55ik6i7VtfXtqwZs+uzc
+ hTEQ1eIc
+X-Proofpoint-ORIG-GUID: eoDk9f-XTIdlH9G8asCKZjPxHCs1Gw8a
+X-Authority-Analysis: v=2.4 cv=KJZaDEFo c=1 sm=1 tr=0 ts=68ca2374 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=1kWWpRhd3BofgRIEiGpY3A==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=7WfyLBSIawAVH6obIBAA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-GUID: eoDk9f-XTIdlH9G8asCKZjPxHCs1Gw8a
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-16_02,2025-09-16_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 bulkscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509160202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_195550_287467_D6073023 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250916_195653_147617_03E1E8F0 
+X-CRM114-Status: GOOD (  26.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +156,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-We recently ran into the driver loading error resulting from
-apply_relocate function when it handle the R_ARM_PREL31 case in
-arch/arm/kernel/module.c:
-section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
-0x7fad5998)
 
-After some dig, it seems this issue is caused by this change:
-ac3b43283923 ("module: replace module_layout with module_memory")
+On 9/17/2025 12:32 AM, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Fri, Aug 15, 2025 at 08:05:10PM +0530, Shivendra Pratap wrote:
+>> Currently, there is no standardized mechanism for userspace to
+>> discover which reboot-modes are supported on a given platform.
+>> This limitation forces tools and scripts to rely on hardcoded
+>> assumptions about the supported reboot-modes.
+>>
+>> Create a class 'reboot-mode' and a device under it to expose a
+>> sysfs interface to show the available reboot mode arguments to
+>> userspace.
+>>
+>> Provision the register function with an additional parameter to
+>> get an explicit driver_name. Create the device using this
+>> driver_name. For platform drivers, use the driver_name configured
+>> in dev node.
+>>
+>> This results in the creation of:
+>>   /sys/class/reboot-mode/<driver>/reboot_modes
+>>
+>> This read-only sysfs file will exposes the list of supported
+>> reboot modes arguments provided by the driver, enabling userspace
+>> to query the list of arguments.
+>>
+>> Align the clean up path to maintain backward compatibility for
+>> existing reboot-mode based drivers.
+>>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>> ---
+>>  drivers/power/reset/reboot-mode.c | 131 +++++++++++++++++++++++++++++++-------
+>>  include/linux/reboot-mode.h       |   4 +-
+>>  2 files changed, 110 insertions(+), 25 deletions(-)
+>>
+>> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
+>> index ac81b8b0a9b7fc31f8ef21024333a050087ce90f..7ecab050e496af3e1cc01c1a4614787707cb74b4 100644
+>> --- a/drivers/power/reset/reboot-mode.c
+>> +++ b/drivers/power/reset/reboot-mode.c
+>> @@ -6,6 +6,7 @@
+>>  #define pr_fmt(fmt)	"reboot-mode: " fmt
+>>  
+>>  #include <linux/device.h>
+>> +#include <linux/err.h>
+>>  #include <linux/init.h>
+>>  #include <linux/kernel.h>
+>>  #include <linux/list.h>
+>> @@ -23,6 +24,8 @@ struct mode_info {
+>>  	struct list_head list;
+>>  };
+>>  
+>> +static struct class *rb_class;
+>> +
+>>  static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, const char *cmd)
+>>  {
+>>  	const char *normal = "normal";
+>> @@ -75,26 +78,121 @@ static int reboot_mode_notify(struct notifier_block *this,
+>>  	return NOTIFY_DONE;
+>>  }
+>>  
+>> +static void release_reboot_mode_device(struct device *dev, void *res);
+>> +
+>> +static ssize_t reboot_modes_show(struct device *dev, struct device_attribute *attr, char *buf)
+>> +{
+>> +	struct reboot_mode_driver **devres_reboot;
+>> +	struct reboot_mode_driver *reboot;
+>> +	struct mode_info *info;
+>> +	ssize_t size = 0;
+>> +
+>> +	devres_reboot = devres_find(dev, release_reboot_mode_device, NULL, NULL);
+>> +	if (!devres_reboot || !(*devres_reboot))
+>> +		return -ENODATA;
+>> +
+>> +	reboot = *devres_reboot;
+>> +	mutex_lock(&reboot->rb_lock);
+>> +	list_for_each_entry(info, &reboot->head, list) {
+>> +		size += sprintf(buf + size, "%s ", info->mode);
+> 
+> sysfs_emit_at
 
-I can see the necessity of this change but it seems it can cause this
-kind of error under certain configurations. In our particular case, we
-use the 2G/2G split and our armv7 board has 1GB ddr memory. This means
-the kernel lower memory is from 0x8000-0000 to 0xc000-0000 and vmalloc
-range is from 0xc000-0000 and above.
+ACK. will update.
 
-Before this module layout change, the module is loaded through two
-layout sections: core and init. The driver in the test is fairly big
-and core module layout(text, data, rodata, sections) can not fit into
-the 16MB MODULE memory so both text, data and rodata fallback to
-vmalloc range. But with this change, it will text, data and rodata one
-by one. So it ends up text in the MODULES memory but rodata is
-allocated in VMALLOC and the distance is more than 1GB hence we
-believe it causes the above error when R_ARM_PREL31 relocation can not
-support more than 1GB offset.
+> 
+>> +	}
+>> +	mutex_unlock(&reboot->rb_lock);
+>> +
+>> +	if (size) {
+>> +		size += sprintf(buf + size - 1, "\n");
+> 
+> sysfs_emit_at
 
-Since the default split is 1G/3G model, the distance between vmalloc
-and module memory is always below 1G so we won't see this issue. But
-it seems to us the problem is real when use 2G/2G split.
+ACK. will update.
 
-It appears the sections containing R_ARM_PREL31 in our driver are
-mostly in .ARM.exidx section. Some search shows this is used by ARM
-C++ exception handling but our driver does not use C++. Is there a way
-to disable such section for R_ARM_PREL31? If not, is there any
-workaround or fix to handle this run-time R_ARM_PREL31 relocation
-issue? The same apply_relocate function can handle R_ARM_JUMP24 out of
-range using PLTS. Can this apply to R_ARM_PREL31?
+> 
+>> +		return size;
+>> +	}
+>> +
+>> +	return -ENODATA;
+>> +}
+>> +static DEVICE_ATTR_RO(reboot_modes);
+>> +
+>> +static void release_reboot_mode_device(struct device *dev, void *res)
+>> +{
+>> +	struct reboot_mode_driver *reboot = *(struct reboot_mode_driver **)res;
+>> +	struct mode_info *info;
+>> +	struct mode_info *next;
+>> +
+>> +	unregister_reboot_notifier(&reboot->reboot_notifier);
+>> +
+>> +	mutex_lock(&reboot->rb_lock);
+>> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
+>> +		list_del(&info->list);
+>> +		kfree_const(info->mode);
+>> +		kfree(info);
+>> +	}
+>> +	mutex_unlock(&reboot->rb_lock);
+>> +
+>> +	device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
+>> +}
+>> +
+>> +static int create_reboot_mode_device(struct reboot_mode_driver *reboot,
+>> +				     const char *dev_name)
+> 
+> Instead of adding more and more arguments to this, just add a name
+> field to struct reboot_mode_driver.
 
-Thanks in advance for any suggestions/comments/fixes.
+ACK. will update.
 
-Regards,
-William
+thanks,
+Shivendra
 
