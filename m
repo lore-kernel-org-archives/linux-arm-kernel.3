@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA24CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA91CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMUt5T+5CR+WlLku5wcMnvLOTIoA1+WCVgZbOKG3mQM=; b=eVlYrbtoXx5gwEM7Hx6qEem+RX
-	HPpLl3QdontOIHeFbYh2+RFnYnf9BTuPWd7oVVHBSh2Y6CqwP6HAV08+GnFPRckVDtN+Ik57kFPeO
-	w7VNoM9T1pFw0VyoFhtjmiLA5oN3BIw0p5UkDngbjMSMh8dOgJkzkk1HjqdpI0PWQOx2ey40MSsN/
-	l28bRBLyohgZARrLY9hTa3aFkoXmEkhQb5orELlHz3qsJ+RFvOEbE2/swGYpKSGQrONw8PEJ46nzc
-	agK6qWthvs51FlMnPmS3VXmw6IKXwtdONf/ONUa4uxbIcAnkEehLNaFXFFnaUsYjkbT0xeN6m1UKY
-	VYPBCkKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UXGykCGQ86an+jiBCXOsI+KgOYzm8EHQAjzOF93pp8Q=; b=sxIyZUtqPru1yKutvSK1v656FE
+	JNlP0a4mdoX/75b1BaKJ4jpvXnkb0wtz1ZEvL6FTiSNE9nxL7ZTSD+Gw1LuuJ/FpWFvaBbMecnQhC
+	xvuk9NB7MZSSK1xCrHzSWIjS08bxLLaQS3/g6J7dk+6GKMYLK3WL76LMJxj7Lzm97nz37xVuQI60/
+	JSNE9glHh3ULmAtDbLEput4zlYBIxzS5RCM+gj6CkUGhFzyxUg5+iIwp3qLjwY1Tnw/HkybcRecLd
+	JDq6UiwCPAwlRt3YrzTIivuDZ4Kz4PyEVmXCLvmcvGSq/9UPb7ASRQ0GhamEIHiLlJ2H0Yh5tqmWX
+	Izm20PlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uynWS-0000000AdIP-22mj;
-	Wed, 17 Sep 2025 08:28:16 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uynWP-0000000AdHl-2fSr
+	id 1uynZi-0000000Adpr-3Lvt;
+	Wed, 17 Sep 2025 08:31:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uynZg-0000000AdpV-0ygn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 08:28:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758097694; x=1789633694;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MGVrxB/ZF16ux1N/bdvGH9wocGEyHCPQesgRGMarVsE=;
-  b=iOHyVUijTXnZn1yN7kP4xjl4JF6CauRgZqhnf/5g6GwYdi5LjSo+asyH
-   yUXEVIClhU3U2sNxDK78YXeK/lSCPL4doPfk9t2tCjLR0FYGeCuoK/FAe
-   fcOkvbvQzF4CfuLN4jdD/prHnOsmMdWgTyDmtHwWd/wgBc1QfYZ+XH5kc
-   y+8XTHmo2upiNmURO8e0jmjCb4Y21a2eVIyQcpqHIUwpfnUT13kfWidg5
-   7U3mkdDQrfyczBq7aA4m62qq2FyRH0et65HwW9cadaEa1QmUbPps4MZfN
-   5hsLutLua7gaqX2S687qp/aOkjaGLOLqv+6gHRRkd7XEobJ6GIB9gnUtA
-   A==;
-X-CSE-ConnectionGUID: He3ppFE4SIyjUXRxaBGf0w==
-X-CSE-MsgGUID: Tes6+nVUSemXyL/qEg3r+A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11555"; a="59440034"
-X-IronPort-AV: E=Sophos;i="6.18,271,1751266800"; 
-   d="scan'208";a="59440034"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Sep 2025 01:28:13 -0700
-X-CSE-ConnectionGUID: CHw4gGA6QPKatRWEth28wg==
-X-CSE-MsgGUID: ahFwTMAYQ5aJ04VbMOIVBA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,271,1751266800"; 
-   d="scan'208";a="175957976"
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 17 Sep 2025 01:28:09 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uynWJ-0001GF-1J;
-	Wed, 17 Sep 2025 08:28:07 +0000
-Date: Wed, 17 Sep 2025 16:27:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
-	will@kernel.org, oleg@redhat.com, tglx@linutronix.de,
-	peterz@infradead.org, luto@kernel.org, kees@kernel.org,
-	wad@chromium.org, charlie@rivosinc.com, macro@orcam.me.uk,
-	deller@gmx.de, akpm@linux-foundation.org, ldv@strace.io,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, ruanjinjie@huawei.com
-Subject: Re: [PATCH -next v6 08/10] entry: Add
- arch_ptrace_report_syscall_entry/exit()
-Message-ID: <202509171609.V2opqAfm-lkp@intel.com>
-References: <20250916082611.2972008-9-ruanjinjie@huawei.com>
+	Wed, 17 Sep 2025 08:31:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D32F012FC;
+	Wed, 17 Sep 2025 01:31:26 -0700 (PDT)
+Received: from [10.1.31.40] (unknown [10.1.31.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 936693F673;
+	Wed, 17 Sep 2025 01:31:33 -0700 (PDT)
+Message-ID: <bee2351a-f264-4e3c-9c28-5dacc3605dba@arm.com>
+Date: Wed, 17 Sep 2025 09:31:32 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250916082611.2972008-9-ruanjinjie@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] coresight: Fix possible deadlock in coresight_panic_cb
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Sean Anderson <sean.anderson@linux.dev>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ Linu Cherian <lcherian@marvell.com>, linux-kernel@vger.kernel.org,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ James Clark <james.clark@linaro.org>
+References: <20250912151314.3761026-1-sean.anderson@linux.dev>
+ <20250915095820.GH12516@e132581.arm.com>
+ <3e618117-96bd-44f3-bede-7cadfe0264dd@linux.dev>
+ <20250916160027.GK12516@e132581.arm.com>
+ <a35e2d54-f1f5-4ae4-9daa-ae1f3a8a302b@linux.dev>
+ <20250916164854.GM12516@e132581.arm.com>
+ <42f1c98c-1432-47bb-9203-e878f011ff6e@linux.dev>
+ <20250916171702.GO12516@e132581.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250916171702.GO12516@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_012813_713441_948ECEB3 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250917_013136_316738_3223E24A 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,32 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+On 16/09/2025 18:17, Leo Yan wrote:
+> On Tue, Sep 16, 2025 at 12:51:11PM -0400, Sean Anderson wrote:
+>> On 9/16/25 12:48, Leo Yan wrote:
+>>> On Tue, Sep 16, 2025 at 12:14:40PM -0400, Sean Anderson wrote:
+>>>
+>>> [...]
+>>>
+>>>>> Could you check if the drafted patch below looks good to you? If so, I
+>>>>
+>>>> As stated above I disagree with a half-hearted removal. If you want to do that,
+>>>> then I will resend v2 done with an rcu list and you can make your own follow-up.
+>>>
+>>> It is fine to disagree, but please don't resend v2 :)
+>>>
+>>> We have plan to refactor locking in CoreSight driver, I will try my
+>>> best to avoid adding new lock unless with a strong reason.
+>>
+>> As said above it will be done with an rcu list, so no new lock.
+>>
+>> Or I can do this patch but stick the notifier block in csdev as suggested by Suzuki.
+> 
+> I am fine for adding the notifier block in csdev.
+> 
+> Suzuki, could you confirm if this is the right way to move forward?
 
-kernel test robot noticed the following build warnings:
+Yes, if we are planning to keep a csdev panic_ops, why not stick in the
+notifier there, rather than splitting it between core code and drivers.
 
-[auto build test WARNING on next-20250915]
+Suzuki
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jinjie-Ruan/arm64-ptrace-Split-report_syscall-into-report_syscall_enter-exit/20250916-163202
-base:   next-20250915
-patch link:    https://lore.kernel.org/r/20250916082611.2972008-9-ruanjinjie%40huawei.com
-patch subject: [PATCH -next v6 08/10] entry: Add arch_ptrace_report_syscall_entry/exit()
-config: i386-buildonly-randconfig-001-20250917 (https://download.01.org/0day-ci/archive/20250917/202509171609.V2opqAfm-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250917/202509171609.V2opqAfm-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509171609.V2opqAfm-lkp@intel.com/
 
-All warnings (new ones prefixed by >>):
 
->> Warning: kernel/entry/syscall-common.c:29 function parameter 'regs' not described in 'arch_ptrace_report_syscall_entry'
->> Warning: kernel/entry/syscall-common.c:115 function parameter 'regs' not described in 'arch_ptrace_report_syscall_exit'
->> Warning: kernel/entry/syscall-common.c:115 function parameter 'step' not described in 'arch_ptrace_report_syscall_exit'
+> 
+> Thanks,
+> Leo
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
