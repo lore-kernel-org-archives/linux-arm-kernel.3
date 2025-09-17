@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14D1CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4939CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LC5TOGsLtsfi/FRGJfxHFniJ02ofsxoSfeDbW3Nqt4U=; b=pfNZ8UqLKpcIDL8OjJvvNwIvp3
-	LM2DDyfQvuakB711bRR8Wj+td5VCmULHd4fAiRmCMrwESQglCEA1aupUXpztVqA/R8WbK4cb0YSps
-	+jObLGe2DLSo00PDOiSZ++3unUSeFv58hewy3Fmi90yIhUjlP35Uo32na0E0pcQhm4dCF+KJFWB6j
-	O3pdTFrZdF5+b0RJoR9MQ7CXsRvJrlBsKXBTUrWv1Mt60ER3ioroBqAKaXjFPs3Z1ufH7QdgVx9gk
-	gG9pguTo/e40oS5tgzBWc4ejBf2Mw9xYzKsPvQegMIvMpzbM6x9ZF9U/U7/4ZfB33z994TELrVvyW
-	QCfle65g==;
+	bh=9FWNWEDoLyrJezYCLTMLaBMOqJ5quLTzOi+G9/JXTUE=; b=FC68cBqmXUQDkoPVoshmbE5FJk
+	8dAJuh0cOLMejbS6UZp6fu7Z4YuyI5G3DsDju8XVClprhYn7ECA1iJhXjO5Z195nckd3X9ouMuNfm
+	d5QSW4OtYrWEzQYcb2+zERAzeCSd9tdb01oZC1i+4HSFdimUDUBfjLO+YOappx50efHBxiZffAPxY
+	ov8tXmoBz6MDNPd0ACB6RpXN3oefFoc4aCHfM2ifnKgwfDrEc9HAHFRxqqxogdIYCPJCg+IF91hVn
+	ae91+949wbTfGcVCHSGQ/5RmadubMSxicbGMlZp4e61zI0eyR0YYr8XDFdtE5BUiNW45ObGQZcMVa
+	M3iRThhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytaC-0000000CSIa-3QRa;
-	Wed, 17 Sep 2025 14:56:32 +0000
+	id 1uytaI-0000000CSOz-2VDu;
+	Wed, 17 Sep 2025 14:56:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyta8-0000000CSG2-1vhG
+	id 1uytaE-0000000CSKX-30CJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:56:29 +0000
+	Wed, 17 Sep 2025 14:56:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA8BA2696;
-	Wed, 17 Sep 2025 07:56:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BCF3267F;
+	Wed, 17 Sep 2025 07:56:23 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7A2C63F66E;
-	Wed, 17 Sep 2025 07:56:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 546EC3F66E;
+	Wed, 17 Sep 2025 07:56:28 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -60,18 +60,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v5 1/6] arm64: make SCTLR2_EL1 accessible
-Date: Wed, 17 Sep 2025 15:56:13 +0100
-Message-Id: <20250917145618.1232329-2-yeoreum.yun@arm.com>
+Subject: [PATCH v5 2/6] arm64: initialise SCTLR2_ELx register at boot time
+Date: Wed, 17 Sep 2025 15:56:14 +0100
+Message-Id: <20250917145618.1232329-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250917145618.1232329-1-yeoreum.yun@arm.com>
 References: <20250917145618.1232329-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_075628_551465_84D4B176 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_075634_847051_0BC11AA6 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +85,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the kernel runs at EL1, and yet is booted at EL2,
-HCRX_EL2.SCTLR2En must be set to avoid trapping SCTLR2_EL1 accesses
-from EL1 to EL2.
-
-Ensure this bit is set at the point of initialising EL2.
+The value of the SCTLR2_ELx register is UNKNOWN after reset.
+If the firmware initializes these registers properly, no additional
+initialization is required.
+However, in cases where they are not initialized correctly,
+initialize the SCTLR2_ELx registers during CPU/vCPU boot
+to prevent unexpected system behavior caused by invalid values.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/el2_setup.h | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/assembler.h   | 15 +++++++++++++++
+ arch/arm64/include/asm/el2_setup.h   |  7 +++++++
+ arch/arm64/include/asm/sysreg.h      |  5 +++++
+ arch/arm64/kernel/head.S             |  5 +++++
+ arch/arm64/kernel/hyp-stub.S         | 13 +++++++++++++
+ arch/arm64/kvm/hyp/nvhe/psci-relay.c |  3 +++
+ 6 files changed, 48 insertions(+)
 
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 23be85d93348..c25c2aed5125 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -738,6 +738,21 @@ alternative_endif
+ 	set_sctlr sctlr_el2, \reg
+ .endm
+ 
++/* Set SCTLR2_ELx to the @reg value. */
++.macro set_sctlr2_elx, el, reg, tmp
++	mrs_s	\tmp, SYS_ID_AA64MMFR3_EL1
++	ubfx	\tmp, \tmp, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
++	cbz	\tmp, .Lskip_sctlr2_\@
++	.if	\el == 2
++	msr_s	SYS_SCTLR2_EL2, \reg
++	.elseif	\el == 12
++	msr_s	SYS_SCTLR2_EL12, \reg
++	.else
++	msr_s	SYS_SCTLR2_EL1, \reg
++	.endif
++.Lskip_sctlr2_\@:
++.endm
++
+ 	/*
+ 	 * Check whether asm code should yield as soon as it is able. This is
+ 	 * the case if we are currently running in task context, and the
 diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 46033027510c..d9529dfc4783 100644
+index d9529dfc4783..2addf7c096fc 100644
 --- a/arch/arm64/include/asm/el2_setup.h
 +++ b/arch/arm64/include/asm/el2_setup.h
-@@ -57,10 +57,16 @@
-         /* Enable GCS if supported */
- 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
- 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
--	cbz	x1, .Lset_hcrx_\@
-+	cbz	x1, .Lskip_hcrx_GCSEn_\@
- 	orr	x0, x0, #HCRX_EL2_GCSEn
- 
--.Lset_hcrx_\@:
-+.Lskip_hcrx_GCSEn_\@:
-+	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
-+	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
-+	cbz	x1, .Lskip_hcrx_SCTLR2En\@
-+	orr	x0, x0, #HCRX_EL2_SCTLR2En
-+
-+.Lskip_hcrx_SCTLR2En\@:
- 	msr_s	SYS_HCRX_EL2, x0
- .Lskip_hcrx_\@:
+@@ -48,6 +48,12 @@
+ 	isb
  .endm
+ 
++.macro __init_sctlr2_el2
++	mov_q	x0, INIT_SCTLR2_EL2
++	set_sctlr2_elx	2, x0, x1
++	isb
++.endm
++
+ .macro __init_el2_hcrx
+ 	mrs	x0, id_aa64mmfr1_el1
+ 	ubfx	x0, x0, #ID_AA64MMFR1_EL1_HCX_SHIFT, #4
+@@ -411,6 +417,7 @@
+  */
+ .macro init_el2_state
+ 	__init_el2_sctlr
++	__init_sctlr2_el2
+ 	__init_el2_hcrx
+ 	__init_el2_timers
+ 	__init_el2_debug
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 6604fd6f33f4..8cf489d38724 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -868,6 +868,8 @@
+ #define INIT_SCTLR_EL2_MMU_OFF \
+ 	(SCTLR_EL2_RES1 | ENDIAN_SET_EL2)
+ 
++#define INIT_SCTLR2_EL2			UL(0)
++
+ /* SCTLR_EL1 specific flags. */
+ #ifdef CONFIG_CPU_BIG_ENDIAN
+ #define ENDIAN_SET_EL1		(SCTLR_EL1_E0E | SCTLR_ELx_EE)
+@@ -888,6 +890,8 @@
+ 	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
+ 	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
+ 
++#define INIT_SCTLR2_EL1			UL(0)
++
+ /* MAIR_ELx memory attributes (used by Linux) */
+ #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
+ #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
+@@ -1161,6 +1165,7 @@
+ 	msr	hcr_el2, \reg
+ #endif
+ 	.endm
++
+ #else
+ 
+ #include <linux/bitfield.h>
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index ca04b338cb0d..e42664246e15 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -276,6 +276,8 @@ SYM_INNER_LABEL(init_el1, SYM_L_LOCAL)
+ 	mov_q	x0, INIT_SCTLR_EL1_MMU_OFF
+ 	pre_disable_mmu_workaround
+ 	msr	sctlr_el1, x0
++	mov_q	x0, INIT_SCTLR2_EL1
++	set_sctlr2_elx	1, x0, x1
+ 	isb
+ 	mov_q	x0, INIT_PSTATE_EL1
+ 	msr	spsr_el1, x0
+@@ -308,6 +310,7 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+ 	isb
+ 
+ 	mov_q	x1, INIT_SCTLR_EL1_MMU_OFF
++	mov_q	x2, INIT_SCTLR2_EL1
+ 
+ 	mrs	x0, hcr_el2
+ 	and	x0, x0, #HCR_E2H
+@@ -315,11 +318,13 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+ 
+ 	/* Set a sane SCTLR_EL1, the VHE way */
+ 	msr_s	SYS_SCTLR_EL12, x1
++	set_sctlr2_elx	12, x2, x0
+ 	mov	x2, #BOOT_CPU_FLAG_E2H
+ 	b	3f
+ 
+ 2:
+ 	msr	sctlr_el1, x1
++	set_sctlr2_elx	1, x2, x0
+ 	mov	x2, xzr
+ 3:
+ 	mov	x0, #INIT_PSTATE_EL1
+diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+index 36e2d26b54f5..7a59725fdbb6 100644
+--- a/arch/arm64/kernel/hyp-stub.S
++++ b/arch/arm64/kernel/hyp-stub.S
+@@ -178,6 +178,19 @@ SYM_CODE_START_LOCAL(enter_vhe)
+ 	mov_q	x0, INIT_SCTLR_EL1_MMU_OFF
+ 	msr_s	SYS_SCTLR_EL12, x0
+ 
++	mrs_s	x0, SYS_ID_AA64MMFR3_EL1
++	ubfx	x0, x0, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
++	cbz	x0, .Lskip_sctlr2
++
++	// setup SCTLR2_EL2 from EL1
++	mrs_s	x0, SYS_SCTLR2_EL12
++	msr_s	SYS_SCTLR2_EL1, x0
++
++	// clean SCTLR2_EL1
++	mov_q	x0, INIT_SCTLR2_EL1
++	msr_s	SYS_SCTLR2_EL12, x0
++
++.Lskip_sctlr2:
+ 	mov	x0, xzr
+ 
+ 	eret
+diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+index c3e196fb8b18..df1180cad7f8 100644
+--- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
++++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+@@ -4,6 +4,7 @@
+  * Author: David Brazdil <dbrazdil@google.com>
+  */
+ 
++#include <asm/cpufeature.h>
+ #include <asm/kvm_asm.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+@@ -219,6 +220,8 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+ 		release_boot_args(boot_args);
+ 
+ 	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
++	if (cpus_have_final_cap(ARM64_HAS_SCTLR2))
++		write_sysreg_el1(INIT_SCTLR2_EL1, SYS_SCTLR2);
+ 	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+ 
+ 	__host_enter(host_ctxt);
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
