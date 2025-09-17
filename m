@@ -4,100 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F40CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 629EFCA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CESIdT/b5vC34F/eerVXaRdloEbeJeSQadVRXpn30xo=; b=SvDvnWjQzymXXceQO14X8aRqf1
-	hi6asfbEd0G9w9NoKOIvMNhokO9Qp/HJnd0pw/GoiSjDG7sqeqew0AA5NAcSQgJB8u1L1K0I7PdJI
-	Y55tl86fjnaum287/aboG/mGXFGJubzqGJ3zZv0qDdcCht+1LzU38Zg2kIm5dx7+Q4cGjiyQnOKun
-	/ag1GwI2o73OonEwN8QYev7PFKZR9ilDBr/6N9mvFoJviebaGo0ShgITKXoHO476vwygRrvznmHWh
-	hkUeEGSulbMnKn5Phopa1sDNwEs8qQsq17dG664T1+ty8Nf9WqHNsVUlKkykg5/7QozbpKMOiFTB5
-	ww2/yTJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZRj/4H91whAlv/2FSqyzU0rq195daF1/S6HV3aykM0k=; b=Fy0dk8FLvgo7Mley33X1nING+l
+	xWfCk5nC5jxH21oL9olL5fB+5aUajba+LmBsGXolpgobzNY56nrIlgjYqhc3dYcsoFp+pwUwY8Ooh
+	gSi0kh77fELvUT4UMLimNcJkoJnHXWtWQm/LP3d7ia1H5U7Ik9fWe6+BcOkRocyFhDPcGfhsNY/Tr
+	5DJOHgD7d6VCswJVc9KumorGhpfDHSWS50vDSCSKMuwXTyw2Ko3PCk58oAAgNc97RYLLScj+BbdtS
+	DNxBKS0h8R4PRlIIcSdBNlzoJeWpHhUhCrCu7gI1laK8wO06QQzdS6VzyPknwaSUCkweIdI+OZgr5
+	2pI38qDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqbe-0000000BAJN-0dMN;
-	Wed, 17 Sep 2025 11:45:50 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uyqgO-0000000BBJs-1Jnk;
+	Wed, 17 Sep 2025 11:50:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqbb-0000000BAIx-09EM
+	id 1uyqgL-0000000BBJ6-1l1F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 11:45:48 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58HBj7G91597639;
-	Wed, 17 Sep 2025 06:45:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758109507;
-	bh=CESIdT/b5vC34F/eerVXaRdloEbeJeSQadVRXpn30xo=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=c31U7ebFlqU6kZuPjeR3YrLRk3pu22idBxlSh8Qez5VPn+A9Pd896Vfs9dUFchjaq
-	 WQwPgC5USgoJu/BmU6RwfRFBd+IXgVYn/3y/Td1AAmKwptbKrDi3dYpM36blp2qNPj
-	 QyUxKkARwRsEFJiJufjePXpCFZiDDPIr7n+JX6Ro=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58HBj6CM2312628
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 17 Sep 2025 06:45:06 -0500
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 17
- Sep 2025 06:45:06 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 17 Sep 2025 06:45:06 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58HBivYL2975345;
-	Wed, 17 Sep 2025 06:44:58 -0500
-Message-ID: <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
-Date: Wed, 17 Sep 2025 17:14:57 +0530
+	Wed, 17 Sep 2025 11:50:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758109841; x=1789645841;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=BmWJ8dm6tF3d7RA48fjDGm1mzg7DGhaw55N9cwl8YL8=;
+  b=iDcyKBwG9tilaS217AxKN+RbSBW3m4IAwOXBc/K6vhfH9wX/7WipyFu9
+   6Jcl5WRVuDpDMNMwbMjzYpPfYhgy25JMpJmcIQNl5eZEhPh03ScABrqqe
+   qahENTj5D300el2uh2qQyssKqKrm5mlqG0BwANCE+yXoJ+fttCG97bhP5
+   Q+7LXzQG87NwkD/HT/Th7zke70409pY0TbCrdwd4pmuVh0S1cswIKTGdJ
+   ZYlJQuqDKpKYnf+GZ0dxWyL0xddtXR7M3/YVvqPnPvCMigb8UX5KVlUZQ
+   cJ2Wkf1Usdtg4cS8EaAMB4dKXvMxidvRp1JGcD5SGNg9sdx6h2PHEQCBT
+   Q==;
+X-CSE-ConnectionGUID: xPqELcc0QeOcVfzESf+PTg==
+X-CSE-MsgGUID: lC9pw1FtSr+km1Jn39f1Nw==
+X-IronPort-AV: E=Sophos;i="6.18,271,1751266800"; 
+   d="scan'208";a="47157749"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Sep 2025 04:50:39 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 17 Sep 2025 04:50:23 -0700
+Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 17 Sep 2025 04:50:20 -0700
+From: Daniel Machon <daniel.machon@microchip.com>
+Date: Wed, 17 Sep 2025 13:49:43 +0200
+Subject: [PATCH net-next] net: sparx5/lan969x: Add support for ethtool
+ pause parameters
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 0/7] Add RPMSG Ethernet Driver
-To: Andrew Davis <afd@ti.com>, "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Jonathan Corbet
-	<corbet@lwn.net>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Mengyuan Lou
-	<mengyuanlou@net-swift.com>,
-        Lei Wei <quic_leiwei@quicinc.com>, Xin Guo
-	<guoxin09@huawei.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Fan Gong
-	<gongfan1@huawei.com>,
-        Lorenzo Bianconi <lorenzo@kernel.org>,
-        Parthiban
- Veerasooran <Parthiban.Veerasooran@microchip.com>,
-        Lukas Bulwahn
-	<lukas.bulwahn@redhat.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250911113612.2598643-1-danishanwar@ti.com>
- <8a20160e-1528-4d0e-9347-0561fc3426b4@ti.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <8a20160e-1528-4d0e-9347-0561fc3426b4@ti.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Message-ID: <20250917-802-3x-pause-v1-1-3d1565a68a96@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAFagymgC/x2MQQ6DMAwEv4J8rqXEUVToV6oeDJjiQ12UQBUJ8
+ fcGjqPdmR2yJJUMj2aHJD/N+rUK/tbAMLO9BXWsDOQous7fsXWEoeDCWxb0HY1TbCOFEKAqS5J
+ Jy5V7gsmKJmWFV116rvc+sQ3zmfuwGhzHHyPOYGR/AAAA
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, Russell King
+	<linux@armlinux.org.uk>
+CC: <jacob.e.keller@intel.com>, Robert Marko <robert.marko@sartura.hr>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_044547_272364_833222AE 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20250917_045041_527311_3C03E036 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,46 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Implement get_pauseparam() and set_pauseparam() ethtool operations for
+Sparx5 ports.  This allows users to query and configure IEEE 802.3x
+pause frame settings via:
 
-On 11/09/25 9:34 pm, Andrew Davis wrote:
-> On 9/11/25 6:36 AM, MD Danish Anwar wrote:
->> This patch series introduces the RPMSG Ethernet driver, which provides a
->> virtual Ethernet interface for communication between a host processor and
->> a remote processor using the RPMSG framework. The driver enables
->> Ethernet-like packet transmission and reception over shared memory,
->> facilitating inter-core communication in systems with heterogeneous
->> processors.
->>
-> 
-> This is neat and all but I have to ask: why? What does this provide
-> that couldn't be done with normal RPMSG messages? Or from a userspace
-> TAP/TUN driver on top of RPMSG?
-> 
+ethtool -a ethX
+ethtool -A ethX rx on|off tx on|off autoneg on|off
 
-This is different from RPMSG because here I am not using RPMSG to do the
-actual TX / RX. RPMSG is only used to share information (tx / rx
-offsets, buffer size, etc) between driver and firmware. The TX / RX
-happens in the shared memory. This implementation uses a shared memory
-circular buffer with head/tail pointers for efficient data passing
-without copies between cores.
+The driver delegates pause parameter handling to phylink through
+phylink_ethtool_get_pauseparam() and phylink_ethtool_set_pauseparam().
 
-> This also feels like some odd layering, as RPMSG sits on virtio, and
-> we have virtio-net, couldn't we have a firmware just expose that (or
-> would the firmware be vhost-net..)?
-> 
+The underlying configuration of pause frame generation and reception is
+already implemented in the driver; this patch only wires it up to the
+standard ethtool interface, making the feature accessible to userspace.
 
-PMSG sits on virtio, and we do have virtio-net but I am not trying to do
-ethernet communication over RPMSG. RPMSG is only used to exchange
-information between cores regarding the shared memory where the actual
-ethernet communication happens.
+Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+---
+ drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-> Andrew
-> 
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
+index 832f4ae57c83..049541eeaae0 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ethtool.c
+@@ -1212,6 +1212,22 @@ static int sparx5_get_ts_info(struct net_device *dev,
+ 	return 0;
+ }
+ 
++static void sparx5_get_pauseparam(struct net_device *dev,
++				  struct ethtool_pauseparam *pause)
++{
++	struct sparx5_port *port = netdev_priv(dev);
++
++	phylink_ethtool_get_pauseparam(port->phylink, pause);
++}
++
++static int sparx5_set_pauseparam(struct net_device *dev,
++				 struct ethtool_pauseparam *pause)
++{
++	struct sparx5_port *port = netdev_priv(dev);
++
++	return phylink_ethtool_set_pauseparam(port->phylink, pause);
++}
++
+ const struct ethtool_ops sparx5_ethtool_ops = {
+ 	.get_sset_count         = sparx5_get_sset_count,
+ 	.get_strings            = sparx5_get_sset_strings,
+@@ -1224,6 +1240,8 @@ const struct ethtool_ops sparx5_ethtool_ops = {
+ 	.get_eth_ctrl_stats     = sparx5_get_eth_mac_ctrl_stats,
+ 	.get_rmon_stats         = sparx5_get_eth_rmon_stats,
+ 	.get_ts_info            = sparx5_get_ts_info,
++	.get_pauseparam         = sparx5_get_pauseparam,
++	.set_pauseparam         = sparx5_set_pauseparam,
+ };
+ 
+ int sparx_stats_init(struct sparx5 *sparx5)
 
+---
+base-commit: 5e87fdc37f8dc619549d49ba5c951b369ce7c136
+change-id: 20250917-802-3x-pause-192df5852333
 
+Best regards,
 -- 
-Thanks and Regards,
-Danish
+Daniel Machon <daniel.machon@microchip.com>
 
 
