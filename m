@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09168CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5EECA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owWadpSv9H77ZxbKoBmofshhPRj3pGK/wIU+s8/EQVc=; b=iIFA8YXwy4O6Rrl4jy5tIFSme/
-	azsjqTiQJVgORmhegupmEw/G4Q8reaD7lytOz32iTIK/gXseo4UJrBfiwLndNG8ZroZk3pHo9jJBE
-	1jWigtZ3vvB3y/Jr65PltiG0HFbjY78YOiEiOOc+vYPiY6t4NODvUYhPDsUBYeOqesaFZVaIeQuWm
-	DmgtMhBD5SftpJ7TRrKPCOFUO9aVh/IbWVerBsGaYf9e/XgFnRsQ4cjVtVLKUzPFiVtrbY+3lFnOQ
-	tMu6K+pq+V/KQ82kfLFtRVlzW7zgwUCit5HzxiFftkl60xOmUOaiDv5Ihe+y/DYqGItWIgZYw5AOs
-	TJ5q2T7A==;
+	bh=b/dE4mp9T9g6U5Crnwn6t09oySveukwlgTiFOIkpsyE=; b=yZa3kQNCcXFZB56I8HAJ3mVDUc
+	+aNDJvMbZV9AVgpt1ZcwiqWttv8DPIVQxZMhGpBCgjc1gMsSOFQdx0B32dN6Xamj05Imz9Q6QHFpQ
+	nhuV8TB3lj7s290p4oVyP6IEKI24w2py9L3wfOhnLa1L+Kc5oErCRb42Uv2WnCSfxtGw73nRXfhQv
+	gwXKffzIhUiHY4PsRM2FarBwBQnlNMl/caRuAn+EcX8h0T9S2l+4yNIAtCho8rQTH6lTBPHGtqOQ5
+	aj64TXyf9mvPWnnYuPApHckUB33GWihH6U5oKkGdmOMBPc/8N35C3dMEv+XvwucSkjUT+DVU2oIlb
+	yTcPB+pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqyz-0000000BEp3-3po8;
-	Wed, 17 Sep 2025 12:09:57 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uyqzc-0000000BEzb-11Dg;
+	Wed, 17 Sep 2025 12:10:36 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqyx-0000000BEnY-0wZN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 12:09:56 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250917120943epoutp03d8d480172bd81ec1c9a0ca003b7f3ecc~mEJ-MkGub2628026280epoutp03f
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:09:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250917120943epoutp03d8d480172bd81ec1c9a0ca003b7f3ecc~mEJ-MkGub2628026280epoutp03f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758110983;
-	bh=owWadpSv9H77ZxbKoBmofshhPRj3pGK/wIU+s8/EQVc=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=WBNlnGOyvhvdURAbgVsc8eIroy5H8a2SRO75EfKSBc741Nklz9GuHlXwKhGkpBx7i
-	 NJ4PocbRepuBeZmxh6sDk2lkIC6+IfkVvFVtbwTWIqq00H9tVxmPrUcs4OBKvjsIBT
-	 IH6udZJYiSGrQ0QhlT51XCv96TJuZCZo1e68KdI4=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250917120942epcas5p357c123d3099e83bb132f2cf79da872fb~mEJ_a0QgV0694206942epcas5p3J;
-	Wed, 17 Sep 2025 12:09:42 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cRcyY23SNz3hhT4; Wed, 17 Sep
-	2025 12:09:41 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250917120940epcas5p2ccd8cbd489fe1634d9b176f1e8c01e79~mEJ85vD6F3174731747epcas5p26;
-	Wed, 17 Sep 2025 12:09:40 +0000 (GMT)
-Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250917120937epsmtip29e2450f342f91ad1dce9599cf91c9426~mEJ6DjSln1850718507epsmtip2N;
-	Wed, 17 Sep 2025 12:09:37 +0000 (GMT)
-From: "Inbaraj E" <inbaraj.e@samsung.com>
-To: "'Rob Herring'" <robh@kernel.org>
-Cc: <rmfrfs@gmail.com>, <laurent.pinchart@ideasonboard.com>,
-	<martink@posteo.de>, <kernel@puri.sm>, <mchehab@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <shawnguo@kernel.org>,
-	<s.hauer@pengutronix.de>, <kernel@pengutronix.de>, <festevam@gmail.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
-	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>,
-	<shradha.t@samsung.com>
-In-Reply-To: <20250829174638.GA1054721-robh@kernel.org>
-Subject: RE: [PATCH v3 1/7] dt-bindings: media: nxp: Add support for FSD SoC
-Date: Wed, 17 Sep 2025 17:39:35 +0530
-Message-ID: <024f01dc27cb$f167d370$d4377a50$@samsung.com>
+	id 1uyqzZ-0000000BEyH-1xGc;
+	Wed, 17 Sep 2025 12:10:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758111031;
+	bh=hAQ+KeN3VG0PfLLgQCMRkpaPl35eqWnQFwZD5PcHz08=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TYpfTG8XL04KY+XUYVK5Pt3SCSUH1lzm0/hI+mgoqyqL112T0nyZ6rLa8C25X+UWL
+	 iAAVy3iy+8cpCsXvrYWFgak7/mX8B+81nXiklDmwuU0PxzmQJRdJLEDYMLOoCeFB3P
+	 lVS4LfZU2Th2Qzf3j63PABPdxjFUHoxD02UdtvtTPSXkPnPEpeYejsYEEEa/rAX+fX
+	 kpE5h1nFpPE4FqkvYX6ytwMw8t8Q6k6Fvo1abiDIOx2iSYJmFAd13U8GeXnUR09u+V
+	 EgQhybbOQ5ehgsY3v7KYNzom+RDroDzs5A8UZNY4Xbz9wkiXh/cRIn8tDte3Hg1+IJ
+	 DNMSCBaqS7MWA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5909917E00EC;
+	Wed, 17 Sep 2025 14:10:30 +0200 (CEST)
+Message-ID: <27deb3bf-7b93-4049-b3a4-b0c9bfcb5c43@collabora.com>
+Date: Wed, 17 Sep 2025 14:10:29 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: dsp: mediatek: add mt8196 dsp
+ document
+To: "hailong.fan" <hailong.fan@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250917075336.5985-1-hailong.fan@mediatek.com>
+ <20250917075336.5985-2-hailong.fan@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250917075336.5985-2-hailong.fan@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIBSJFzUA8Lz5NCh/Whmc1GwVh24gH1qTvqAkLBkWsB/yoSjrQbSRSA
-Content-Language: en-in
-X-CMS-MailID: 20250917120940epcas5p2ccd8cbd489fe1634d9b176f1e8c01e79
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6
-References: <20250828085911.81266-1-inbaraj.e@samsung.com>
-	<CGME20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6@epcas5p1.samsung.com>
-	<20250828085911.81266-2-inbaraj.e@samsung.com>
-	<20250829174638.GA1054721-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_050955_578398_B6766885 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20250917_051033_668399_E9D3B333 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,167 +89,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-Thanks for the review
-
-
-> > +    description:
-> > +      Syscon used to hold and release the reset of MIPI D-PHY
+Il 17/09/25 09:53, hailong.fan ha scritto:
+> From: Hailong Fan <hailong.fan@mediatek.com>
 > 
-> Reset? Sounds like you should be using the reset binding.
+> Add device tree binding documentation for the MediaTek
+> MT8196 DSP. The DSP is used by the Sound Open Firmware
+> driver node and includes registers, clocks, memory regions,
+> and a mailbox for DSP communication.
+> 
+> Signed-off-by: Hailong Fan <hailong.fan@mediatek.com>
+> ---
+>   .../bindings/dsp/mediatek,mt8196-dsp.yaml     | 98 +++++++++++++++++++
+>   1 file changed, 98 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
+> new file mode 100644
+> index 000000000000..af0f9d71200f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dsp/mediatek,mt8196-dsp.yaml
+> @@ -0,0 +1,98 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dsp/mediatek,mt8196-dsp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek mt8196 DSP core
 
-The Tesla FSD Soc does not have a dedicated reset controller. Instead, we
-are using the
-system controller which is MMIO Space handled by syscon driver, to assert or
-de-assert the D-PHY
-reset. So, I prefer to use syscon.
+mt->MT (MT8196)
 
-> 
-> > +
-> >    phy-supply:
-> >      description: The MIPI D-PHY digital power supply
-> >
-> > @@ -93,7 +91,8 @@ properties:
-> >              properties:
-> >                data-lanes:
-> >                  description:
-> > -                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2
-data lines.
-> > +                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2
-data
-> > +                  lines.
-> 
-> Reformatting should be a separate patch.
+> +
+> +maintainers:
+> +  - Hailong Fan <hailong.fan@mediatek.com>
+> +
+> +description: |
 
-Sure, I'll add new patch in next patchset.
+Drop the colon |, you don't need it.
 
-> 
-> >                  minItems: 1
-> >                  items:
-> >                    - const: 1
-> > @@ -115,7 +114,6 @@ required:
-> >    - interrupts
-> >    - clocks
-> >    - clock-names
-> > -  - power-domains
-> >    - ports
-> >
-> >  additionalProperties: false
-> > @@ -124,20 +122,73 @@ allOf:
-> >    - if:
-> >        properties:
-> >          compatible:
-> > -          contains:
-> > -            const: fsl,imx7-mipi-csi2
-> > +          const: fsl,imx7-mipi-csi2
-> 
-> 'contains' was correct. It is more future proof when there is another SoC
-that
-> is backwards compatible with imx7.
 
-Sure, I'll add new patch in next patchset.
+> +  The MediaTek mt8196 SoC contains a DSP core used for advanced pre-
 
-> 
-> >      then:
-> > +      properties:
-> > +        clocks:
-> > +          items:
-> > +            - description: The peripheral clock (a.k.a. APB clock)
-> > +            - description: The external clock (optionally used as the
-pixel
-> > +                clock)
-> > +            - description: The MIPI D-PHY clock
-> > +        clock-names:
-> > +          items:
-> > +            - const: pclk
-> > +            - const: wrap
-> > +            - const: phy
-> > +        tesla,syscon-csis: false
-> > +        fsl,num-channels: false
-> 
-> blank line
+mt->MT (MT8196)
 
-Will remove in nextpatchset.
+Also document *which* DSP core this SoC contains. Specifically, say that this SoC
+contains a dual-core Cadence HiFi5 Audio Engine DSP - because this is what it is.
 
-> 
-> >        required:
-> > +        - power-domains
-> >          - phy-supply
-> >          - resets
-> > -    else:
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          const: fsl,imx8mm-mipi-csi2
-> > +    then:
-> >        properties:
-> >          clocks:
-> > -          minItems: 4
-> > +          items:
-> > +            - description: The peripheral clock (a.k.a. APB clock)
-> > +            - description: The external clock (optionally used as the
-pixel
-> > +                clock)
-> > +            - description: The MIPI D-PHY clock
-> > +            - description: The AXI clock
-> >          clock-names:
-> > -          minItems: 4
-> > +          items:
-> > +            - const: pclk
-> > +            - const: wrap
-> > +            - const: phy
-> > +            - const: axi
-> > +        tesla,syscon-csis: false
-> > +        fsl,num-channels: false
-> >          phy-supply: false
-> >          resets: false
-> 
-> blank line
-> 
-> > +      required:
-> > +        - power-domains
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          const: tesla,fsd-mipi-csi2
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          items:
-> > +            - description: The peripheral clock (a.k.a. APB clock)
-> > +            - description: The DMA clock
-> 
-> Wouldn't this be the same as the "AXI clock"?
+> +  and post-audio processing. This DSP is typically used by the Sound
+> +  Open Firmware (SOF) driver and requires registers, clocks, memory
+> +  regions, and a mailbox for communication.
 
-According to v4.3 manual it is DMA clock.
+..snip..
 
-> 
-> > +        clocks-names:
-> > +          items:
-> > +            - const: pclk
-> > +            - const: aclk
-> > +        phy-supply: false
-> > +        resets: false
-> > +        power-domains: false
-> 
-> blank line
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/mt8196-clk.h>
+> +    #include <dt-bindings/power/mt8196-power.h>
 
-Sure will remove in next patchset.
-> 
-> > +      required:
-> > +        - tesla,syscon-csis
-> > +        - fsl,num-channels
-> >
-> >  examples:
-> >    - |
-> > --
-> > 2.49.0
-> >
+Before including binding headers with the same names as downstream, refer to the
+series that are currently on the mailing lists, because that's what will ultimately
+get upstream.
+
+dt-bindings/clock/mediatek,mt8196-clock.h
+dt-bindings/power/mediatek,mt8196-power.h
+
+> +    adsp@1a000000 {
+> +        compatible = "mediatek,mt8196-dsp";
+> +        reg = <0x1a000000 0x5000>,
+> +              <0x1a210000 0x80000>,
+> +              <0x1a345000 0x300>,
+> +              <0x1a00f000 0x1000>;
+> +        reg-names = "cfg", "sram", "sec", "bus";
+> +        clocks = <&cksys_clk CLK_CK_ADSP_SEL>,
+> +                 <&cksys_clk CLK_CK_TCK_26M_MX9>,
+> +                 <&cksys_clk CLK_CK_ADSPPLL>;
+
+and use the upstream names for those clocks.
+
+<&topckgen CLK_TOP_ADSP>,
+<&clk26m>,
+<&apmixedsys CLK_APMIXED_ADSPPLL>,
+
+> +        clock-names = "audiodsp",
+> +                      "sys_clk",
+> +                      "adsppll";
+
+clock-names fit in one line; plus, please "sys-clk" instead.
+
+> +        power-domains = <&scpsys MT8196_POWER_DOMAIN_ADSP_TOP_DORMANT>;
+
+power-domains = <&spm MT8196_POWER_DOMAIN_ADSP_TOP_DORMANT>;
+
+> +        mboxes = <&adsp_mailbox0>, <&adsp_mailbox1>;
+> +        mbox-names = "rx", "tx";
+> +    };
 
 Regards,
-Inbaraj E
-
+Angelo
 
