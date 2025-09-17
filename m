@@ -4,127 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813CCCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 03:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D6CCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 03:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=; b=KnngKxPD0RnhB7tJrE6NqKTfCx
-	7Gy7GmliuHbJHDn6p0WiM66+yISDxuON4pUzT86tjjGL+GuLCjx8FbCSJSwuN1a3yKt45+ZPjtg48
-	LEOi48/l7ReMJCRchU1n27JT7pr9doHyUYVTDS1ZOh5T2ZzG+o6JIdunp4rD7vnvdomXDwY9n+ruv
-	fqZGaxNK1sk7iPLy5vAAZTEuS282uje1JRp0f0YNk+UYigIESU3mg7CRPmUMrIG+pgOU01130lGsa
-	3BrJRoEHl7LCtnmTmwHhX7gBsfCmbVVkA9drmYQ67DNYnlx/gbzGBouymMsMFrjF3VRGxj3TdOHp7
-	epmrqeZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zxbf2rsem9PANC2JoS2dYaDVI6O8Vrk2h5yt3UmXN9c=; b=bEvsBdjnV1Cm+EnLUxcvFst8HG
+	O+d7f/UwlooGaokXxJF4oHJJ3ItDcMHQNyzxfF9Wd0ayB4+OktOmDAdaEzymEYkzW4Lk7TpGaGyn9
+	fcxrvCycHRXdTaFm6ccifOv5PT+ONPWjZXitofYiyXEdW0zqQw06n8tD54n4ARDoxja1z2R8P+MU4
+	99wvny+ctdxx5xuCKjDLJbQ8UU9G4epVmYIHjAnS6VqpFAE60dLh76qkTcF+paGB1+P5krh8Cs+G7
+	akDmWxsUHYFnLxzX9fsSOeKBijGSJ/YHPdDGfUlvUxKL+JtPDKxPOL03CEgt1P8gpvrG2XmcLPG5w
+	6y9ghteQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiad-0000000A2ZA-2ZXp;
-	Wed, 17 Sep 2025 03:12:15 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uyjD0-0000000A6kf-0dNR;
+	Wed, 17 Sep 2025 03:51:54 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiab-0000000A2Yg-35Fj
+	id 1uyjCx-0000000A6hb-08J8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 03:12:15 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GLZtvt010412
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:12:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=; b=oGwtjH0Exgc4HJZ6
-	4LNgPy8k8wroe0yLplggfurthr8oAqn+Q5FKJ4OOs3YhWK5oqUa2JBku4nkVvU0i
-	cJMyidg0zNEdY520cjzriTQbt0TqdqNqr2WAP8bZUEDvUBlYXfjL3DcpsPpd40c4
-	/+W8LN8RH+Xzek48UJ3TraPDYOYWtbLh4GgwV/2uXEB9PeAZs/jFr6C3FhkehRXy
-	2mN2Qh+ObGJCWPmJJqTBCL43ZV2On770JPd+twZYZ3JTWixuyCgojwRbFPx3IQ2N
-	plMVPYcgdC2iGVnDL3c7BA2nmSolMByIediv0ySurzfJZ3DgERht8OkFvJheT90e
-	pepmUQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 497fxw8q2b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:12:11 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-267ac96f558so26802565ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 20:12:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758078731; x=1758683531;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=;
-        b=n+rEox3gxKDDW9LcFjPVKyPOgkRYZFBuB3GdaiEwcv8lqaMjvdMHnVEmCs+h5zIeN3
-         TjZVTo3YwnucpDHw3M7Dq1+VAXM9LMUAuHJL7mTZI1myMjzgWrP6UdRPI3t9J1/IEx6v
-         /zHvJj9YaxV2F61m6aGMSYGabhWtavVISHusHW3y0IQiCYbsRcKr1DCP+1wVwM7zby3r
-         sAehGTRWsIL0LjLfFjzw2ruLL/dqPAyxMRE8TH22U8cGGyi+1IjqmqumXDWC1BiJhrSs
-         1TgmTBccZ5Fop1GGBuR4HzzucWge9/pqQy33ffueO3qPwILSjaUBTN9QWC/IlbLnM5PZ
-         CihA==
-X-Forwarded-Encrypted: i=1; AJvYcCXZT5Zp18f460jWGVuZA6aiTi1jZ5+trWVP4hlmgx5LNeGUoiXPU92J63bONQ8NPYjF7hKY8levP1wwkb72Kfkb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhojnGGJPi+wL2nHatXOMJeOfcHZugl2uED5bFCsmPS3DSBU1R
-	6iDKdRjTXj0EWX7F0nuEWDCg5ci/qVk6Djjl4z6ztCeAfESM1B7S7cSUPSKpJ8xdbI0wCTwDEKQ
-	zsM7r+Ib+CBEDba3t4Q4jGt/CtrDO3HYqprn30dbleHHqputqbASdSXlnENl9v7MhLB751fWB3k
-	xg1A==
-X-Gm-Gg: ASbGnctHAGicvlADukGt7qF+qdLYg/3TM93h4S6pnOXFQ4g+CU8yYrPBXNT2aWpt8N+
-	4UVEj/2k7GBjJkFRAKWqfQFPyB1y2KhfNN5/WsHvSfN/SsiNhQ7JTGqINCx67GQpexs856rLNhB
-	0g7PgqOmGnPAAhqN9W6ey4ParwmxEQEtfr1j0+Nmu10n9xsI8yRINhDS6xh7QzXxcA1akO2gGR0
-	fJiLnruUsM6p+gD4PSX1vcacZteGdA8Tp5RKGnMcsk5zPxNyBUsrZRGb4ojsGaUTG1Ww6ZJut5K
-	34yMa+W76aZLd2bqmHmYYJNOc84jgQaf5V8MLMBsTZq02I1UZWw+jSUQVtvE+gaIxBRuEooKHcn
-	uxF+TwYHUUXUnxvT1ZeMJbY6xJHPVOLPqYZnOBGM=
-X-Received: by 2002:a17:903:b0b:b0:264:a34c:c6d with SMTP id d9443c01a7336-268137f2232mr5877145ad.37.1758078730938;
-        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHBCLcKRApHcGH30xII8GXUVK5/XOxilDiSXJooBQ2zL0Io8pE34P9hJiDzte0TVak6qxwcsA==
-X-Received: by 2002:a17:903:b0b:b0:264:a34c:c6d with SMTP id d9443c01a7336-268137f2232mr5876785ad.37.1758078730453;
-        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
-Received: from [10.133.33.235] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-25c36cc6abcsm176125835ad.16.2025.09.16.20.12.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
-Message-ID: <634a38d3-0a20-471d-bc39-44a822df00dd@oss.qualcomm.com>
-Date: Wed, 17 Sep 2025 11:12:04 +0800
+	Wed, 17 Sep 2025 03:51:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AuSnQ3z5/zCYb5voaWSfwc9Oc/uDqwjzFhNKhamNz+GqXSJdLiRAvzNJ8/6l82eVlBlwJZYMWGOEoL4T9nBFDPqP+w3taxgu4nAFag6dfFKLlbgaCs6ofDO0/GneKL6Xbw28a7hLPDaQy9RqXzDGLXZB8atySF5jN0i8EojIPvA9AxlaO/l1oyIm0huIGeui03uUJM6W0qDXlW6kA+r63EgcWW0N44THcvZpNzIGe2cKvUdaEqjGfLLpEq4bWITa+rJaPo3tQxLk1CNrKaaS3LdQFsIugnuELprGp/uryFeAI/c01/lJS4Zovo9yrvZRN6/Fc/msfqKSkG33lKIxCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zxbf2rsem9PANC2JoS2dYaDVI6O8Vrk2h5yt3UmXN9c=;
+ b=ir4vZo9qiJcgp2+5atp/ARp69+EXsPUf5OhV4aTKRW7sgl9TTkzUUVvwjvDODN4VkqbRWFkLDTKTy+xLs3MHaTynsI03Fz2DmaGXRW2TFTF0CmScT5U20JZc+nGHWRQisM5C/Fp7Ies4vupc+0nHoY7e/XSE8xxTsBu0sBHd9PPM/FJhcmTp1qCBKUd02kQJDf8cLFezY6tWjWhXr9E0IBJj+pW6p6Yqnh246O+d0UGYt/+FcLhWOpUJ+iLUBOMCVaOV3h3g4cmKSIPJ6A6kTY45OOvDx5U4koODeZ9bcjHHD2/BM79Y0GIQNV1Y9ROjQ4kiunnkltChWL+ay2S4uQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zxbf2rsem9PANC2JoS2dYaDVI6O8Vrk2h5yt3UmXN9c=;
+ b=ATssKLFr80Fsc94FLNWeu18wVBaB2DE3UoFA3BCGWyvbS6UDU80L1H+86UBVGaM2a+t9DQkStTFtYu7dHsTP4CDaISwMR+BFaQJmUFnA168b6ZSar8rms1LyKwoRadZCQBBSbEoTbG/mvbaSir5/V2pEX3fCp2GEMAcQm09vE9kxC/bd/9fstOpPSAdZzUsbUcytQTnsOTkpTpAx03AjQXlgczUtbWncq+1zGuvgl2k6bxG5xOnEWmC9ceaYtMT1mC7E/iEF0QjuKertOvHZO21wvHvJMmQBjajQcG1/2Fn9dLel2nsNJbcfPO4iJ+nLRynvj9TVsGdcPk8EBA9BgQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by AS8PR04MB7703.eurprd04.prod.outlook.com (2603:10a6:20b:23c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
+ 2025 03:51:36 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 03:51:36 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/3] PCI: imx6: Add external reference clock mode support
+Date: Wed, 17 Sep 2025 11:51:04 +0800
+Message-Id: <20250917035107.1003211-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0022.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:b8::7) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] coresight-tnoc: Add support for Interconnect TNOC
-To: Mike Leach <mike.leach@linaro.org>
-References: <20250831-itnoc-v4-0-f0fb0ef822a5@oss.qualcomm.com>
- <f9d3b3ec-dcf1-42ce-b925-70e5543771ed@oss.qualcomm.com>
- <CAJ9a7Vivhrx2zss_8Ti+QS1dzakp+4CrAsDj00RKojUaL_t7Sg@mail.gmail.com>
-Content-Language: en-US
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>, coresight@lists.linaro.org,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Leo Yan <leo.yan@arm.com>
-From: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
-In-Reply-To: <CAJ9a7Vivhrx2zss_8Ti+QS1dzakp+4CrAsDj00RKojUaL_t7Sg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=HbIUTjE8 c=1 sm=1 tr=0 ts=68ca270c cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
- a=EUspDBNiAAAA:8 a=WTqQPv3OPy9EuyCnVQMA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX/LHgxF+fcyXz
- /EKdYAbQrLsO6LhNUpanzf4SkETvwzxxdC80GThxogMIGU13FxS/AqZkrXGMVFI3Vk7dnYc4M+t
- 4d/Y57i96d9OVUKzcMz8Dn81QedQHw/tgRjR6MRY5x426ElL12MgSMssJNeKN9D+Xyl1OwicgV1
- M/Iq8Qr0ValyFwGb20GExCR7r3Ce5h9RyLEZb8kePZApp69UZaEYy6r2wTNU8hxWGejv+Te8bJL
- XyPzgMb1XUo/SDjYxvZ6fxCJLThyD2KVkPzLwzvPQLD0DGeM9+pjCQwBiBzy2QRPJdHIygH8kpk
- ifG1FmwpRcpeFJffGrVVjwlanRpx/iErfRQy1zkVIpmE0nQ4kqbWyvymymMJy7E/sD9Gtyx2osy
- IfyHQTpZ
-X-Proofpoint-GUID: 7I5cYvReSnyDZU_juFADtab9_Q9qLgbY
-X-Proofpoint-ORIG-GUID: 7I5cYvReSnyDZU_juFADtab9_Q9qLgbY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-16_02,2025-09-16_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
- adultscore=0 priorityscore=1501 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509160202
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|AS8PR04MB7703:EE_
+X-MS-Office365-Filtering-Correlation-Id: 106baa18-43b9-46a8-cf7e-08ddf59d7f39
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|52116014|376014|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kBH0XuXkYYek18fRqcGwLK04np7LV50OMWR4oIzkO+ZYZ7IxuXkSS8dSlDeX?=
+ =?us-ascii?Q?L/F9JEbmdTM7qGBd+qfLOot58zqdJC/hQrMXJEkWuvregvPHfERXWlNrnu0K?=
+ =?us-ascii?Q?GjYI+oWtQ5D4HoSrMGhzXv20KMQHdq17o5NCFXxk9/xZ4XRaVT332F73KCK1?=
+ =?us-ascii?Q?2d+VR+GiEUTCilT+voOPtMZ+ESD3TD5AF1ReulMMuTX0tPvLr4WQMyQFi8x3?=
+ =?us-ascii?Q?vtpkul2wK4JDYArgzFicaBqYEUkmds4BD4E5SU4TaYLLMmk0CsFcmLeHlFT/?=
+ =?us-ascii?Q?pOp2yCP0Jon6JpRz4iO7km7W4hN36C8ILB169WnzN1L0D8bk6CZV2883cjgW?=
+ =?us-ascii?Q?UrO51keGbcn+sLnToOQIc7l0U8tzTbD/pF3amzSDmddcTKOu0I0YZORBuN44?=
+ =?us-ascii?Q?TBAjV/K6TQ/Dhn3eDwNiaiYNSojhXERRmrNW3oATkyI0psJ357cUDOSnEhCR?=
+ =?us-ascii?Q?R7cw0+wLSN4VXuwjUtDTi8wCjoGjJyQiMrhbie4nUlz99JtmXjuylup+6R9G?=
+ =?us-ascii?Q?kvtRgoJTERhVCnGXyBH6XLm9uMMquTcKRw0oER/f4qCiBv1/xbng2+BZ36M/?=
+ =?us-ascii?Q?wlG2Q451xT5ASgB8507WC0MZWOynp29qcu7m/k5oDqcjO0PHLMai5aH5Yay3?=
+ =?us-ascii?Q?RGF+UC2JSAywlKnwySIcVvuzSHpbUT8X25pSukDbl4ufuIIsluop2FporhGQ?=
+ =?us-ascii?Q?H4JPiUw9TCWmQYV1Ukj1fWOej9P4RUdLe0V19CrgER2+EUW9w9DD4Hpl1ZIg?=
+ =?us-ascii?Q?73eliFs2+GnJpqJUaPx/GxASscaL/9UmKbzpIXADhkKUQTwNCK6A/OKD6feu?=
+ =?us-ascii?Q?oB9B/4iTEu27B43fZcLlPv6hJDCiLu65ZpKFlKjNuNMUCE+KzU8fPhizijiK?=
+ =?us-ascii?Q?b55W4hyqFl8/LSKNr8JlBty3V4eHE/CAWmfnAsaj/Z62kFZFhOnD+0sayroS?=
+ =?us-ascii?Q?BoIZ4k7hDMo/6ESE4dXqNVH7C2kW8nGaLa7pxoB3+YKJpoHhjzJOPxsrIqMC?=
+ =?us-ascii?Q?3F66d3xCyTr3K0jYiHoQapGyWuRsf4+v98SNBGNmG3P5ePNRsFz6+GKogRti?=
+ =?us-ascii?Q?SBrLZUWFJatlOq1dlJ67Hp5BJqwdGL3YnrtaUcxXxtE0FOB9h9oa/rEfvvwm?=
+ =?us-ascii?Q?YYHlWTp9FNfXrfXQSBh2WnyCyrSIjapet265ql+X4LSRboSg80D7CaKPUWJa?=
+ =?us-ascii?Q?9t1rYxGsNvygYxF1bgXnsFqEZkUVRPTzU9I959RB6Y186LCKthT48lao6Gth?=
+ =?us-ascii?Q?Jk0xSq0aBVP7vdcf2mpJLmz9FpcdPWuSpqfZWYFZZ2sXn7B1uAoeB+ecUX+r?=
+ =?us-ascii?Q?KFS6qp+a6+gsHFA0Bom0uKgbYg8jih9IYPyJ2sirKfBpGBRNUMtD2ZghLuBY?=
+ =?us-ascii?Q?tXj5E3QqMMtJgmHTiwXYnJAVbaTp8Uw8UFxzkLyUpYw0L5MqsCd6uoTiM3bx?=
+ =?us-ascii?Q?q/O9u8n9t9Bt4fhOafdhT8YslebtG6CF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(52116014)(376014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sYZhi/qU2NfrlYBhiBupAMlkYDZQEMOxVNt9vq+j+EXIwwshybN/N4cwTWRD?=
+ =?us-ascii?Q?QPWB7IwJPFb5fU8+6WYep/6IKmCMA94bFx1HiiFa0Uo4OCwo99yQPLoCdzOB?=
+ =?us-ascii?Q?Kp5eq4WGGQCgUIYtfTrs7fwhFZrQ+wTn8JxdscvNEAMfWF5QE/ILxfpOkGiq?=
+ =?us-ascii?Q?cFuCYhbUrxcmwAmFRqmZPruV3y8cl7s8E9KCuW+CrvtpXjC7nkmDQsDxLolD?=
+ =?us-ascii?Q?z3dLaWM5EhuSmWLEzjz/zunv3WKRLP02dSmaj5EroJ6xNXlbZ+EqkRF073/d?=
+ =?us-ascii?Q?wMwhrY5i7bSGCm0ofX6WaQLv1p5qflIuNJLlhZvrBG+oOKvoW/VENMQc4NlI?=
+ =?us-ascii?Q?IVyglPPXOkBvP8Yxev3gzWiPV39PJ++pVEqGSRKyFYHKky8kZbEAkd7YKqxp?=
+ =?us-ascii?Q?xYnljy/D9vJFH5jpMwgnXZNYjGBXbLpgPD/ksY0dK2pWoLTx0WB+j+50aPEi?=
+ =?us-ascii?Q?sYRGcgwCzMcYFLDKvFv6jrMbLu6q2n8P3CDl7yKI/wR+lKnEd11f+XTUjL5M?=
+ =?us-ascii?Q?8k6UhLXQdBkpbKkv3oS477c8LNW65L4cMO4jKYO6Wq6vPhwH45oXgVxHY4VS?=
+ =?us-ascii?Q?xu8EQn5K2QWg4sCAIj5/3w0ayV2zM17h9DF12Rx/nChW38f1JjN3paGGieWm?=
+ =?us-ascii?Q?9D4VXY9Y9Y1URrwq/ZOaXqi3gUMmHlJQNI/2rSCzRiTNmlWdVEKSSIpH5wW9?=
+ =?us-ascii?Q?LLn8nTMnFETSCN9ubVPa6NZ7Fama4xrCVaCK5VG33Y0AGgIIW1N9idewNlYy?=
+ =?us-ascii?Q?GV827aa4wofd/rn21s7ExAGljcKzD5CAqzt9oV0o3cpr3wt0+UVZI3C7YpXf?=
+ =?us-ascii?Q?LV3/j6qCEEmcwOuHzu07J5+YqJaehZZ0qzXhijM6V5z7Myc9HJmc2SWI+Z3W?=
+ =?us-ascii?Q?qiUUO1dj0UDs7cp12rsC+i0V2NVWGZ0xoqnG/Q/N5VQhsrNpyqSx0uvoU2kE?=
+ =?us-ascii?Q?w7mXfn08j/NAMwgHhQscAjzBUE/VSNXehem1MR5Z/xPViui0MP8OCOMMk0V0?=
+ =?us-ascii?Q?WsdkCrO7dbSiH4AGU4bijnC5TqHldwBo01AI7l9LGybx9nNlYoB3m8imYrBX?=
+ =?us-ascii?Q?MzxwMLdeW9g7T56fQuvdMiF1gZx4NmEquEE9ezE7ZfNU8jJDrhvZaov0iEin?=
+ =?us-ascii?Q?Fxae/e9r32e5vMVHQI8FtwNyjWkp/NClFDqy5OXMxLHCpdD2oof4R4Dts5zH?=
+ =?us-ascii?Q?XKEjPaGx0oJHocno9775KOsVO4ZtEOYNk0vtkjuQIkXWJ8QmZ6KN6SiSrrvo?=
+ =?us-ascii?Q?W1TxDwuCkZnjBDkdeakxA/MzZ4D81SfDQSNJdNxDXp2SLbYE4u/AEoIaZwSp?=
+ =?us-ascii?Q?WgfIZMyDiSvi/4dGtqQfUWTQoe2n1It2Kdb6BIl8+ISicmxPKdo0R8C9VOJP?=
+ =?us-ascii?Q?daFrm+5UHpjJ+RZIJB0TWz1G26t9tikJr1vRwYKvLhakLNYrq5vH1gWM2HUx?=
+ =?us-ascii?Q?k29UDEg/KJBUF/TrwwI6d2x6WKhamG+81x32Bbw9fz1LKvsQiHQZvHb135ED?=
+ =?us-ascii?Q?MXkXSpV9V9fA3puKliFHq1UwQfGs5rUBkYzHKxOEggZPhGlPvk97n+JFPZ6K?=
+ =?us-ascii?Q?FA7eSgdrh78/VAYcJrcRFgDOBAYLTZk8tNd03bya?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 106baa18-43b9-46a8-cf7e-08ddf59d7f39
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 03:51:36.2876
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sM3y0e/ZTbT4trgZJlIugSpmY5j+9DmvZ/4hdu8thuT9uFxe5hxjoa9+ebHvbuA+V5Jney7qxelm4Fs1Nrw+CA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7703
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_201213_784327_3B0DEF62 
-X-CRM114-Status: GOOD (  31.79  )
+X-CRM114-CacheID: sfid-20250916_205151_070678_4FB1DE9D 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,133 +169,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+i.MX95 PCIes have two reference clock inputs: one from internal PLL,
+the other from off chip crystal oscillator. Use extref clock name to be
+onhalf of the reference clock comes from external crystal oscillator.
 
+Add external reference clock mode support when extref clock is present.
 
-On 9/16/2025 9:00 PM, Mike Leach wrote:
-> Hi,
-> 
-> I'm a little confused as to precisely what this component is.
-> 
-> From the description in the DT - it appears to be very much like a
-> static trace funnel - multiple inputs, and a single output.
-> The DT describes the inputs as "Coresight Trace". What is meant here?
-> - if this is ATB trace then this component is identical to the
-> coresight trace funnel in functionality so should probably use the
-> normal CS static funnel driver.
-> 
-> However - if it does not appear on the AMBA bus - how are the
-> coresight management registers read - these are a mandatory
-> requirement in the CoreSight specification for any coresight
-> compatible component?
-> 
-> Thanks
-> 
-> Mike
-> 
+Main change in v6:
+- Refer to Krzysztof's comments, let i.MX95 PCIes has the "ref" clock
+  since it is wired actually, and add one more optional "extref" clock
+  for i.MX95 PCIes.
 
-Hi Mike,
+Main change in v5:
+- Update the commit message of first patch refer to Bejorn's comments.
+- Correct the typo error and update the description of property in the
+  first patch.
+https://lore.kernel.org/imx/20250915035348.3252353-1-hongxing.zhu@nxp.com/
 
-"Coresight Trace" means ATB trace, the Video TNOC in the following example is an interconnect TNOC.
-It is used to replace TPDA and Funnel. Compared to Funnel, it is easier to configure and only
-requires enabling once, without the need to enable each inport separately.
+Main change in v4:
+- Add one more reference clock "extref" to be onhalf the reference clock
+  that comes from external crystal oscillator.
+https://lore.kernel.org/imx/20250626073804.3113757-1-hongxing.zhu@nxp.com/
 
-it has "reg" parameter on DT, can use memory-map to read management registers.
+Main change in v3:
+- Update the logic check external reference clock mode is enabled or
+  not in the driver codes.
+https://lore.kernel.org/imx/20250620031350.674442-1-hongxing.zhu@nxp.com/
 
-  +------------------------+                +-------------------------+
-  | Video Subsystem        |                |Video Subsystem          |
-  |       +-------------+  |                |       +------------+    |
-  |       | Video TPDM  |  |                |       | Video TPDM |    |
-  |       +-------------+  |                |       +------------+    |
-  |            |           |                |              |          |
-  |            v           |                |              v          |
-  |   +---------------+    |                |        +-----------+    |
-  |   | Video funnel  |    |                |        |Video TNOC |    |
-  |   +---------------+    |                |        +-----------+    |
-  +------------|-----------+                +------------|------------+
-               |                                         |
-               v-----+                                   |
-+--------------------|---------+                         |
-|  Multimedia        v         |                         |
-|  Subsystem   +--------+      |                         |
-|              |  TPDA  |      |                         v
-|              +----|---+      |              +---------------------+
-|                   |          |              |   Aggregator  TNOC  |
-|                   |          |              +----------|----------+
-|                   +--        |                         |
-|                     |        |                         |
-|                     |        |                         |
-|              +------v-----+  |                         |
-|              |  Funnel    |  |                         |
-|              +------------+  |                         |
-+----------------|-------------+                         |
-                 |                                       |
-                 v                                       v
-      +--------------------+                    +------------------+
-      |   Coresight Sink   |                    |  Coresight Sink  |
-      +--------------------+                    +------------------+
+Main change in v2:
+- Fix yamllint warning.
+- Refine the driver codes.
+https://lore.kernel.org/imx/20250619091004.338419-1-hongxing.zhu@nxp.com/
 
-       Current Configuration                            TNOC
+[PATCH v6 1/3] dt-bindings: PCI: dwc: Add one more reference clock
+[PATCH v6 2/3] dt-bindings: pci-imx6: Add one more external reference
+[PATCH v6 3/3] PCI: imx6: Add external reference clock mode support
 
-This example is from the trace noce patch below:
-https://lore.kernel.org/all/20250710-trace-noc-v11-0-f849075c40b8@quicinc.com/
-
-> On Tue, 16 Sept 2025 at 03:35, yuanfang zhang
-> <yuanfang.zhang@oss.qualcomm.com> wrote:
->>
->> Hi Suzuki,
->>
->> Could this patch series be applied? Is there anything I need to update?
->>
->> thanks,
->> yuanfang.
->>
->> On 9/1/2025 2:58 PM, Yuanfang Zhang wrote:
->>> This patch series adds support for the Qualcomm CoreSight Interconnect TNOC
->>> (Trace Network On Chip) block, which acts as a CoreSight graph link forwarding
->>> trace data from subsystems to the Aggregator TNOC. Unlike the Aggregator TNOC,
->>> this block does not support aggregation or ATID assignment.
->>>
->>> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
->>> ---
->>> Changes in v4:
->>> - Fix unintended blank line removals in trace_noc_enable_hw.
->>> - Link to v3: https://lore.kernel.org/r/20250828-itnoc-v3-0-f1b55dea7a27@oss.qualcomm.com
->>>
->>> Changes in v3:
->>> - Add detail for changes in V2.
->>> - Remove '#address-cells' and '#size-cells' properties from in-ports field.
->>> - Fix comment indentation for packet description.
->>> - Link to v2: https://lore.kernel.org/r/20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com
->>>
->>> Changes in v2:
->>> - Removed the trailing '|' after the description in qcom,coresight-itnoc.yaml.
->>> - Dropped the 'select' section from the YAML file.
->>> - Updated node name to use a more generic naming convention.
->>> - Removed the 'items' property from the compatible field.
->>> - Deleted the description for the reg property.
->>> - Dropped clock-names and adjusted the order of clock-names and clocks.
->>> - Moved additionalProperties to follow the $ref of out-ports.
->>> - Change "atid" type from u32 to int, set it as "-EOPNOTSUPP" for non-AMBA device.
->>> - Link to v1: https://lore.kernel.org/r/20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com
->>>
->>> ---
->>> Yuanfang Zhang (3):
->>>       dt-bindings: arm: qcom: Add Coresight Interconnect TNOC
->>>       coresight-tnoc: add platform driver to support Interconnect TNOC
->>>       coresight-tnoc: Add runtime PM support for Interconnect TNOC
->>>
->>>  .../bindings/arm/qcom,coresight-itnoc.yaml         |  90 ++++++++++++++
->>>  drivers/hwtracing/coresight/coresight-tnoc.c       | 136 +++++++++++++++++++--
->>>  2 files changed, 215 insertions(+), 11 deletions(-)
->>> ---
->>> base-commit: 2b52cf338d39d684a1c6af298e8204902c026aca
->>> change-id: 20250815-itnoc-460273d1b80c
->>>
->>> Best regards,
->>
-> 
-> 
-
-
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml      |  3 +++
+Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml |  6 ++++++
+drivers/pci/controller/dwc/pci-imx6.c                          | 20 +++++++++++++-------
+3 files changed, 22 insertions(+), 7 deletions(-)
 
 
