@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E49CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 00:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81114CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 00:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f3BOUAOC5BBSUzUR9UtsPImbjbG+6cQqwnv17BoxB6I=; b=il9388QTDMHe0aY8fTe8TlFNXA
-	RbmwIJ01HS177vFht2UB/ULRZOrlyNDQnDP04u+GpaUnoOHBWppR4yb3aRZe48pFosS5n0FwEVx78
-	zxLCrzwJQIB3CCVs6/M49+L5c4arpW+uYxNB/WX36jdC86nIITXnaS9H7EBQrJSjHjLI08fidjyE8
-	LxcAQGpDQJ9w6bawnEog+CWBCieg4rWil6LKSrZLdU7dTD0YWlbCRX2qprGjHT5t/qGCsgpf4bHgK
-	lgLbQ6O3nMm7SGrduX6eInbiXxY4rAOdLR0zLruhZVNpwXtYPMjetaaRmoF0yEKtCRvAeJqme1jvd
-	Dml/0MGg==;
+	bh=8Aj7RB27LWtSRpZxFrbow5IqMb3a5D6oRZO8Bnqt5D4=; b=YjMBCtSqoPsfn767bKfS6b9GCO
+	oE3yPi6hECYQt2c/2qzpzCTp/FI5hLNwskWdVi2posi44Swfb5giVFUQw4nPBI6dBg+atsRCFGbeT
+	9raMFNJjwtwf0I3fMER8qHWOb7L5J091uvl/m5yfVUp/nRsoMG2VDnNZI1yaOygytX7iqWpHRLIs/
+	LB3BzxpqjD+3V4WIHKion7KKB8wJST4cCXbjbZWyVTOC9H8Dd2/hhU9FHw07+yjtTZpTot9LJ8FAp
+	MAXCIaRFm0LBlSspuLchEgGHZL87yCvdAt+Uas7SgtoifFpMMqlIWjnic9AZtvnY/i/+TgUVUmuuD
+	bvwlyWaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygD4-00000009kGN-33I2;
-	Wed, 17 Sep 2025 00:39:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uygDo-00000009kPa-31qx;
+	Wed, 17 Sep 2025 00:40:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygD3-00000009kG9-2DTJ;
-	Wed, 17 Sep 2025 00:39:45 +0000
+	id 1uygDn-00000009kP2-062B;
+	Wed, 17 Sep 2025 00:40:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E81B9600BB;
-	Wed, 17 Sep 2025 00:39:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 041E2C4CEEB;
-	Wed, 17 Sep 2025 00:39:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B0FB600BB;
+	Wed, 17 Sep 2025 00:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21D1C4CEEB;
+	Wed, 17 Sep 2025 00:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758069584;
-	bh=XpRGQVUfwE9GUgDDvrO1cy+4ECpglMkc+D0wvz7ix6s=;
+	s=k20201202; t=1758069629;
+	bh=zYlm+snaTYk5+EgxGCwKwJdiU83j+q1WnPgi8RKku64=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AD1RhqwaAcQYtyubAHOk/fK+A7EG5PyIL6bNRGmpdqGRCWle8tEtjEz7MzEcFs0x2
-	 0upZTB0ugEMx7pQjUUNh9mbNaQGyMispWMSI/Pi9TseaqC1dKO57Pl1f/5k0N+3+QL
-	 g3EyM8D2d/kYjXlbycFCGjqmzwoBiu4dK5EXJmwsZe/lp9N/jiDYSzJFjz5N+rxWmF
-	 AXRBQw+zJEGGadTnDN6uBVuffHrMorRQYL8WG+MVR0cib8QkB7A9z88wYl0FF0KUED
-	 E0qfCGEvvu9x9rmwiWKqRBvAKlkOb8BWUNcXR0L0BpRzudrWn3+EjRJ38tSrnFkrWj
-	 f8GtLcKj01qTQ==
-Message-ID: <577804ea-b2dc-4cb0-9773-415ac3699fab@kernel.org>
-Date: Wed, 17 Sep 2025 09:39:38 +0900
+	b=CPgR2AIEdCcqtyZHo64KFzRLiWXTpoFWNf9trVlgNb/xLFf6XeK/u0w5JlyB94ABK
+	 30iE3w7YqH7ZmQZo9zUn7yrHllVA9oU7Im4tjR2RCGjkr0fZ3G+Up/tqaEe0IvvC5w
+	 RqOWBkcr6lrmLYt9gBrxE1KMvXekGnxDWIQL1zC706uFcAuBUbaajnEov0mA+rwC/g
+	 ZQdazTUYgpt2PZ3BR1F41LpWsnny+VBgor1bj+vUMBRedpWweEjfmcChtisFyvZXAV
+	 Km0nMiOE2nxpKrkhkEfLDbkgEA4TiY9VDoXMG++YMFMtBEIco6aso4zADEOPNzQDz4
+	 yqkKShiZNytaQ==
+Message-ID: <988776f8-eed4-48b6-aadb-d110e84ad2a4@kernel.org>
+Date: Wed, 17 Sep 2025 09:40:24 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/25] ARM: dts: unisoc: rda8810pl: Add label to GPIO
- nodes
+Subject: Re: [PATCH 07/25] ARM: dts: unisoc: rda8810pl: Enable Real-Time Clock
 To: dang.huynh@mainlining.org, Manivannan Sadhasivam <mani@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij
@@ -64,7 +63,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org,
  linux-mmc@vger.kernel.org
 References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org>
- <20250917-rda8810pl-drivers-v1-1-9ca9184ca977@mainlining.org>
+ <20250917-rda8810pl-drivers-v1-7-9ca9184ca977@mainlining.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250917-rda8810pl-drivers-v1-1-9ca9184ca977@mainlining.org>
+In-Reply-To: <20250917-rda8810pl-drivers-v1-7-9ca9184ca977@mainlining.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -127,21 +126,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2025 22:24, Dang Huynh via B4 Relay wrote:
+On 17/09/2025 22:25, Dang Huynh via B4 Relay wrote:
 > From: Dang Huynh <dang.huynh@mainlining.org>
 > 
-> So we can add devices to these GPIO nodes for each board.
-
-No, it's pointless. Squash it with the user.
-
-Also, way you organized patchset is just making things complicated. DTS
-cannot be split all over it, like put randomly at the beginning, middle
-and at the end.
-
-Read DT submitting patches and maintainer soc rules.
-
+> The RDA8810PL has built-in RTC.
 > 
+> Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
+> ---
 
+DTS  cannot be in the middle of patchset. Please stop creating this fake
+dependencies.
 
 Best regards,
 Krzysztof
