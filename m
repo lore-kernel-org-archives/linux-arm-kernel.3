@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE736CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 06:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B96CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 06:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XOOn4WENZxp8nTHaDFBH5jDEWySuUUj5fymBHxHtSYU=; b=NHYZ8ro9iXGbbXMCT71WwyzYEO
-	by4kmbfOJAfdNd7FQFyVDs8xBsDrCqT7Khq66/tlu7+RaZ0dQFX+HXGzUjE2d9yxd3xWHfb/go6Go
-	TDwltmG1WBplKH+uHdn50cE2Qg1Xht2aYVUKviVa/4Oxz7BmXFeQaJT7KtxQm++ya5/imdHgFKZ3i
-	ihN7CIvr4Gj+hgBwl+RLy+8Cl7P1Q0f2xcbva2g+I4/374SKgMStMliCmMpAf/J2Xm1/E2pIxtEpt
-	is2B6ZlGfl8FrgEdJhz7SyXbaZA5J7DpL9ps/nRR9DeyBKdaWRffNoV6p2P8Pt/p3rvFn2rK0TO/X
-	AirRWELA==;
+	bh=IVMvvCgA6ljcoCpqlgL1xSnREs4/fST5OPFbRQTwtdA=; b=4pj7/KpqD75pEVSfpfY+rYqBUs
+	VZcRMjq+2Tp0RRr3pl+Bvr2wGwwFl/wIwPSKYO8ife7O250c5NvoV14gPucf5T3S+/E+bEYrP3A8t
+	6GSd26sgmixDaLPJwtnslq+wslKDJea0cr54uhVo8pKJbeLgLHvZJ07P9p1mKA/w4BOczMnDp4Isf
+	58CemqgcNcVB+g70cdOlWG6aO3NuzCMAXDUyIyu3951+mrSFzwlohfSfkJzCNJatQ/uDt97NACkZ7
+	8JjpgBMV9SKzYMJLvi+0eCgSdY6E9weEao0gJl+c7SkM/jkU0FaY6FXXg+uPcvGSQSSp0jqB1RsE9
+	lm0kcUvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyltC-0000000AMk2-0R96;
-	Wed, 17 Sep 2025 06:43:38 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uylzO-0000000ANGG-2bmo;
+	Wed, 17 Sep 2025 06:50:02 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uylt8-0000000AMj8-21oi
+	id 1uylzL-0000000ANFd-36XG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 06:43:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cRTj40Rg4ztTWG;
-	Wed, 17 Sep 2025 14:42:32 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0EAF5180B57;
-	Wed, 17 Sep 2025 14:43:26 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 17 Sep 2025 14:43:25 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 17 Sep 2025 14:43:25 +0800
-Subject: Re: [PATCH] arch_topology: move parse_acpi_topology() to common code
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-References: <20250917023007.97637-1-cuiyunhui@bytedance.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
-	<gregkh@linuxfoundation.org>, <rafael@kernel.org>, <dakr@kernel.org>,
-	<beata.michalska@arm.com>, <sumitg@nvidia.com>, <ptsm@linux.microsoft.com>,
-	<yangyicong@hisilicon.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <8863bbfb-326e-1914-4f97-0cc59558a602@huawei.com>
-Date: Wed, 17 Sep 2025 14:43:24 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 17 Sep 2025 06:50:01 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45b9814efbcso3518735e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 23:49:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1758091797; x=1758696597; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IVMvvCgA6ljcoCpqlgL1xSnREs4/fST5OPFbRQTwtdA=;
+        b=BcKawkJ2QHBOG4QoclGWyffroeZ3oI5yk+lsqJNg1UNXbvk1Ir+Y05keeWoIuQZAgN
+         fzoCMCHAwFgEcq6SKF0Jrzzt8+mWqywyBucZo9bR85a3jZLCzxwXGlsKiCwwnAZbQfgS
+         s3RcmaI+zze08Lab6hYQPvlFRA0XOpNf19/fmiSgw8wqsv1O+GBMNTnxAudgMI3mKbxg
+         v8oQDVi7nghNRzgQLkl5Q3/pBQmKGUTwdrC3PSlBS2VegWoVpOxjhs+m8eb6TReT+KxD
+         ks55/YOpBWZtYnMYCue/MlaxB+LpMo0KEiKUlM+N6qOCkNa08ufBkV87Ycqaj362Oay/
+         VEDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758091797; x=1758696597;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IVMvvCgA6ljcoCpqlgL1xSnREs4/fST5OPFbRQTwtdA=;
+        b=dxizozK3mj/XYVJ84yGjbJ4GGZpinA4IXIiFOcyORwiz+WU9hdceVkOaGTKUASamAF
+         BkzYVQGDv3S8gsdnJK02D/BjszbBMzNvSwA1DwUI5QXCylEZ6NN/JKW9Y64Yw6QdcbfJ
+         gwGM6YgwR0z3l7S8eQrv/JjIC0C2dqFI3+ffuX+GUIt0AlKUVBlQCn4vNVF7Fmi7Mc0W
+         kj5zWPDMlSRcIdsF1x43DG95w7smPztpknbvBhDSrn15kEANDMxO55b56rK+Uje36y2S
+         9Q331oVylCneuxKHJSFyVjqx29WO2KyxhzJIXILCF9BEGnQnGL22rC1YPGfSUcgYO6VI
+         6onw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNWvwoPTn2eCNPH3wxH217Moo/SkMRJHzFKIImQxLqEU4cbRTepHKBqg/CXcU5PrdJYzPOPfJuAUBVRK6ksIkY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwJWdBBBgKxrnb85LVjoQ9sN/q9Yx85mMWD1nfdJQmQhqoxwRk
+	K4x5a0oogr46qsBKduGR0ZCw3xFh0Dr6GfVA+YTgMNQ8C+UzjZTDYeXd8YOKdWwdbJo=
+X-Gm-Gg: ASbGncvzqoMs5gNlgZ1W3xooIH+1l/fnpML4KELajxtEHTwvdq59bf1un7Qb/8uofyU
+	dEnLBPBdtXAK5rowwQa+qwkgmDzJYHvXLQ8r9/i4vuXHyeAYyWoZXOtziX+Pwo2rU2JRYb+O+YQ
+	bZ8EpK68vzkYJZQayhMvg5bNsVOLGT8mNaXYOsgG5h63PeTuyKLYKIHZ2WtiG26GPShtDIueKii
+	KicG7RbLYqS/0FSuQW+Czo+Ax3XSDH9gXzVW3Ag7Emspmcq+zz3KtecFNWm6Apfc70z7kUS4hOV
+	eyzJLe44Vn2BLHtiWHT17LOWxSLS9nVDWPqJtHUJJ7ywr+VqZeiilEf0Ip2yuJOHgIKLQSbHwW/
+	PWZWXpo4HL8FCMHPYV8Np7GkBXlPLo2M=
+X-Google-Smtp-Source: AGHT+IEVFBb8u1kVGqedyodsw2F2aUQecKI0dQqbLqdRcPRySNRrawE71TWdhxxTWe9V1uTknu0h/Q==
+X-Received: by 2002:a05:600c:1d25:b0:45d:dc6c:9e30 with SMTP id 5b1f17b1804b1-461f94ae963mr9866535e9.14.1758091797412;
+        Tue, 16 Sep 2025 23:49:57 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.153])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-462d525fdb2sm983345e9.13.2025.09.16.23.49.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Sep 2025 23:49:56 -0700 (PDT)
+Message-ID: <d2c1d736-689b-452d-8031-2cf76288dca1@tuxon.dev>
+Date: Wed, 17 Sep 2025 09:49:55 +0300
 MIME-Version: 1.0
-In-Reply-To: <20250917023007.97637-1-cuiyunhui@bytedance.com>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/32] clk: at91: clk-master: use clk_parent_data
+To: Ryan Wanner <ryan.wanner@microchip.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com
+Cc: varshini.rajendran@microchip.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org
+References: <cover.1752176711.git.Ryan.Wanner@microchip.com>
+ <4b404eaaab4062464a4142e95aaa76d5cba866f0.1752176711.git.Ryan.Wanner@microchip.com>
+ <95e19f49-d0df-4d3f-bd7d-8b58b60f1f7a@tuxon.dev>
+ <61cfc570-6632-4e14-9e2b-2bd5d2ce1690@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <61cfc570-6632-4e14-9e2b-2bd5d2ce1690@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_234334_845454_CB6714E0 
-X-CRM114-Status: GOOD (  31.39  )
+X-CRM114-CacheID: sfid-20250916_234959_936116_EA09FCCB 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,248 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/17 10:30, Yunhui Cui wrote:
-> Currently, RISC-V lacks arch-specific registers for CPU topology
-> properties and must get them from ACPI. Thus, parse_acpi_topology()
-> is moved from arm64/ to drivers/ for RISC-V reuse.
-> 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  arch/arm64/kernel/topology.c  | 87 +----------------------------------
->  drivers/base/arch_topology.c  | 85 +++++++++++++++++++++++++++++++++-
->  include/linux/arch_topology.h |  6 +++
->  3 files changed, 91 insertions(+), 87 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 5d07ee85bdae4..55650db53b526 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -26,7 +26,7 @@
->  #include <asm/topology.h>
->  
->  #ifdef CONFIG_ACPI
-> -static bool __init acpi_cpu_is_threaded(int cpu)
-> +bool __init acpi_cpu_is_threaded(int cpu)
->  {
->  	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
->  
-> @@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
->  
->  	return !!is_threaded;
->  }
-> -
-> -struct cpu_smt_info {
-> -	unsigned int thread_num;
-> -	int core_id;
-> -};
-> -
-> -/*
-> - * Propagate the topology information of the processor_topology_node tree to the
-> - * cpu_topology array.
-> - */
-> -int __init parse_acpi_topology(void)
-> -{
-> -	unsigned int max_smt_thread_num = 1;
-> -	struct cpu_smt_info *entry;
-> -	struct xarray hetero_cpu;
-> -	unsigned long hetero_id;
-> -	int cpu, topology_id;
-> -
-> -	if (acpi_disabled)
-> -		return 0;
-> -
-> -	xa_init(&hetero_cpu);
-> -
-> -	for_each_possible_cpu(cpu) {
-> -		topology_id = find_acpi_cpu_topology(cpu, 0);
-> -		if (topology_id < 0)
-> -			return topology_id;
-> -
-> -		if (acpi_cpu_is_threaded(cpu)) {
-> -			cpu_topology[cpu].thread_id = topology_id;
-> -			topology_id = find_acpi_cpu_topology(cpu, 1);
-> -			cpu_topology[cpu].core_id   = topology_id;
-> -
-> -			/*
-> -			 * In the PPTT, CPUs below a node with the 'identical
-> -			 * implementation' flag have the same number of threads.
-> -			 * Count the number of threads for only one CPU (i.e.
-> -			 * one core_id) among those with the same hetero_id.
-> -			 * See the comment of find_acpi_cpu_topology_hetero_id()
-> -			 * for more details.
-> -			 *
-> -			 * One entry is created for each node having:
-> -			 * - the 'identical implementation' flag
-> -			 * - its parent not having the flag
-> -			 */
-> -			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-> -			entry = xa_load(&hetero_cpu, hetero_id);
-> -			if (!entry) {
-> -				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> -				WARN_ON_ONCE(!entry);
-> -
-> -				if (entry) {
-> -					entry->core_id = topology_id;
-> -					entry->thread_num = 1;
-> -					xa_store(&hetero_cpu, hetero_id,
-> -						 entry, GFP_KERNEL);
-> -				}
-> -			} else if (entry->core_id == topology_id) {
-> -				entry->thread_num++;
-> -			}
-> -		} else {
-> -			cpu_topology[cpu].thread_id  = -1;
-> -			cpu_topology[cpu].core_id    = topology_id;
-> -		}
-> -		topology_id = find_acpi_cpu_topology_cluster(cpu);
-> -		cpu_topology[cpu].cluster_id = topology_id;
-> -		topology_id = find_acpi_cpu_topology_package(cpu);
-> -		cpu_topology[cpu].package_id = topology_id;
-> -	}
-> -
-> -	/*
-> -	 * This is a short loop since the number of XArray elements is the
-> -	 * number of heterogeneous CPU clusters. On a homogeneous system
-> -	 * there's only one entry in the XArray.
-> -	 */
-> -	xa_for_each(&hetero_cpu, hetero_id, entry) {
-> -		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
-> -		xa_erase(&hetero_cpu, hetero_id);
-> -		kfree(entry);
-> -	}
-> -
-> -	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> -	xa_destroy(&hetero_cpu);
-> -	return 0;
-> -}
->  #endif
->  
->  #ifdef CONFIG_ARM64_AMU_EXTN
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 1037169abb459..65ec1f3d2bd28 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -823,12 +823,95 @@ void remove_cpu_topology(unsigned int cpu)
->  	clear_cpu_topology(cpu);
->  }
->  
-> +__weak bool __init acpi_cpu_is_threaded(int cpu)
-> +{
-> +	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
-> +
-> +	return !!is_threaded;
-> +
 
-acpi_pptt_cpu_is_thread() could return an error which shouldn't be
-regarded as a threaded cpu.
 
-> +}
-> +
-> +#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
-> +/*
-> + * Propagate the topology information of the processor_topology_node tree to the
-> + * cpu_topology array.
-> + */
->  __weak int __init parse_acpi_topology(void)
->  {
-> +	unsigned int max_smt_thread_num = 1;
-> +	struct cpu_smt_info *entry;
-> +	struct xarray hetero_cpu;
-> +	unsigned long hetero_id;
-> +	int cpu, topology_id;
-> +
-> +	if (acpi_disabled)
-> +		return 0;
-> +
-> +	xa_init(&hetero_cpu);
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		topology_id = find_acpi_cpu_topology(cpu, 0);
-> +		if (topology_id < 0)
-> +			return topology_id;
-> +
-> +		if (acpi_cpu_is_threaded(cpu)) {
-> +			cpu_topology[cpu].thread_id = topology_id;
-> +			topology_id = find_acpi_cpu_topology(cpu, 1);
-> +			cpu_topology[cpu].core_id   = topology_id;
-> +
-> +			/*
-> +			 * In the PPTT, CPUs below a node with the 'identical
-> +			 * implementation' flag have the same number of threads.
-> +			 * Count the number of threads for only one CPU (i.e.
-> +			 * one core_id) among those with the same hetero_id.
-> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
-> +			 * for more details.
-> +			 *
-> +			 * One entry is created for each node having:
-> +			 * - the 'identical implementation' flag
-> +			 * - its parent not having the flag
-> +			 */
-> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-> +			entry = xa_load(&hetero_cpu, hetero_id);
-> +			if (!entry) {
-> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> +				WARN_ON_ONCE(!entry);
-> +
-> +				if (entry) {
-> +					entry->core_id = topology_id;
-> +					entry->thread_num = 1;
-> +					xa_store(&hetero_cpu, hetero_id,
-> +						 entry, GFP_KERNEL);
-> +				}
-> +			} else if (entry->core_id == topology_id) {
-> +				entry->thread_num++;
-> +			}
-> +		} else {
-> +			cpu_topology[cpu].thread_id  = -1;
-> +			cpu_topology[cpu].core_id    = topology_id;
-> +		}
-> +		topology_id = find_acpi_cpu_topology_cluster(cpu);
-> +		cpu_topology[cpu].cluster_id = topology_id;
-> +		topology_id = find_acpi_cpu_topology_package(cpu);
-> +		cpu_topology[cpu].package_id = topology_id;
-> +	}
-> +
-> +	/*
-> +	 * This is a short loop since the number of XArray elements is the
-> +	 * number of heterogeneous CPU clusters. On a homogeneous system
-> +	 * there's only one entry in the XArray.
-> +	 */
-> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
-> +		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
-> +		xa_erase(&hetero_cpu, hetero_id);
-> +		kfree(entry);
-> +	}
-> +
-> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> +	xa_destroy(&hetero_cpu);
->  	return 0;
->  }
->  
-> -#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
->  void __init init_cpu_topology(void)
->  {
->  	int cpu, ret;
-> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> index d72d6e5aa2002..50d33b5a78ccd 100644
-> --- a/include/linux/arch_topology.h
-> +++ b/include/linux/arch_topology.h
-> @@ -70,6 +70,11 @@ struct cpu_topology {
->  	cpumask_t llc_sibling;
->  };
->  
-> +struct cpu_smt_info {
-> +	unsigned int thread_num;
-> +	int core_id;
-> +};
-> +
+On 9/16/25 20:35, Ryan Wanner wrote:
+>>>       td_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "td_slck"));
+>>> -     md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, "md_slck"));
+>>> +     md_slck_hw = __clk_get_hw(of_clk_get_by_name(np, md_slck_name));
+>> Please use:
+>>
+>> i = of_property_match_string(np, "clock-names", "md_slck");
+>> if (i < 0)
+>>     return;
+>>
+>> md_slck_name = of_clk_get_parent_name(np, i);
+>>
+>> Same sama7d65, sama7g5.
+> For these SoCs the clk_hw struct is still needed since it is used later
+> in the driver and not changed until a subsquent patch later in this
+> series. Would it be better to hold this change untill then?
 
-this is only used in parse_acpi_topology() and seems no reason to make it into
-the header.
+OK for me!
 
-otherwise looks good to me. most acpi topology building code is not arm64
-specific and make sense to make it common.
-
-thanks.
-
+Thank you,
+Claudiu
 
