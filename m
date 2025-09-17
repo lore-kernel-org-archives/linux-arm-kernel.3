@@ -4,44 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B573CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57A4CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RLa6G9UJgSbNRh8eQcPfSgL2TnZnQf2rjdNm5ck8/Kg=; b=c1bSED4zhAM48B4qNdgy89FK33
-	kslhuMHYtjiJKhSJls96K68DPfwedTisy6ct9ewvnleLiJJTsiPwrxt4vBwqOHZYFYlj/3q3uT3ow
-	33m6OlhBNYYNPylOKx8iluOAWsApri5/jFD+nQ0i/gjbalSCSwBMsTZHj2q+c7twjm7I1u2dMMWaH
-	8Eb4PKlgwaIPsunK+YMzhuxni9oyyqA97nTeDM9D+mneScnTxc3T330vgVxSCArDGHStHvvE2ryaW
-	kvt7N0IS3BqXSF6Edf38UECNjANPtDttM2vsFHzW2wiRRWx45yeB9eMkxDNP2ybLcKnXyvtDUEsrG
-	jnjARKaA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vCi46aNxpe/S9Nv64Q4e98064clLvyhFnA9J9Bslczs=; b=RgE34kWZ/pkSSO
+	72XDE7Jlf/HxH8aX45OKPliG6Q8Lj5/9nF6EdlueFcb8yVSzYVjAMsh/vqgTSQ9v5yPM4r27uqcav
+	dSbrzghiG7iWVvt9e7IhyN7RckRod/DXNkFsRSZv3qGjJw/ZtcA2OSzlYrwNI4naTwpYoERDmXQys
+	h8G0njef8iRx0ZEzrTZsj/6jpYIE8cgurPj+F0Ao46AhaT8Qx8PzdI0v765dM1rgUru1wQNF/uRKr
+	Wyh+q1zPQinADmuwmoGto6GHQRzQvs+5WO9a4FbRnXk5PC6P66bvWDcnGFqkWHQHpJaUic2Hv5dXY
+	c8g/THbDYpK3HMDmAruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywAT-0000000Dg3I-07ne;
-	Wed, 17 Sep 2025 17:42:09 +0000
+	id 1uywAX-0000000Dg7f-3grL;
+	Wed, 17 Sep 2025 17:42:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywAR-0000000Dg0R-0lTt
+	id 1uywAQ-0000000DfzZ-0IZy
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 17 Sep 2025 17:42:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3DE426B9;
-	Wed, 17 Sep 2025 10:41:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2D562696;
+	Wed, 17 Sep 2025 10:41:54 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5608A3F694;
-	Wed, 17 Sep 2025 10:42:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DD343F694;
+	Wed, 17 Sep 2025 10:42:01 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 17 Sep 2025 18:41:38 +0100
-Subject: [PATCH 1/2] coresight: trbe: Prevent overflow in PERF_IDX2OFF()
+Subject: [PATCH 0/2] perf: Fix overflow in PERF_IDX2OFF() for Arm SPE and
+ TRBE drivers
+Date: Wed, 17 Sep 2025 18:41:37 +0100
+Message-Id: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-fix_aux_trace_index-v1-1-e36a76ac6292@arm.com>
-References: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
-In-Reply-To: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
+X-B4-Tracking: v=1; b=H4sIANHyymgC/x2MQQqAIBAAvyJ7TtDQxL4SIWJb7cVCK4Tw70nHg
+ Zl5IWMizDCyFxI+lOmIDWTHIOw+bshpaQy96LWw0vCVivN3cVfyAR3FBQu3RunBqFWLQUIrz4R
+ N+6/TXOsHEUNqjWUAAAA=
+X-Change-ID: 20250917-fix_aux_trace_index-9745674f5061
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
@@ -52,16 +55,16 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758130921; l=966;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758130921; l=922;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=xznId6KLEjexVhy44PArHFtKkaLQrxQlKITeJniEfMw=;
- b=xm7EqYkG+5d5BnteZZCaYjnZng4eknZZdmbDF+4qbTnRmbX8O0oYWWZNZ524Yz6+MGMQaq42R
- A8hgQsIIvpdCneK9sYCcTau5oHci7VEb13RVQmcwjMCjNofM/d119GP
+ bh=7d6idTSBvkiqCwUiJ/luxxi9bE5VUTAm37cIjDh+ZzA=;
+ b=l1R2E0wH9AF+zWn77eji4SNZvlIIGpnYbl+xIy2V8F3ACCoxcbAm1QcrImRDRoMH34+wF7ewX
+ gwCmdpX6BpVASGS3IqfhOCW5XbZoPd+r27JfNEKkBhN9Om/ToECELvJ
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_104207_262549_ABA14076 
-X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-CacheID: sfid-20250917_104206_158629_5FD2E19D 
+X-CRM114-Status: UNSURE (   7.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,31 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cast nr_pages to unsigned long to avoid overflow when handling large
-AUX buffer sizes (>= 2 GiB).
+If the AUX buffer size is specified as 2 GiB or larger, the expression
+"(buf)->nr_pages << PAGE_SHIFT" may exceed 0x8000_0000. Since
+(buf)->nr_pages is a signed integer, the shift can overflow and produce
+a negative value. As a result, PERF_IDX2OFF() fails to work correctly.
 
-Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
+Fix this by casting (buf)->nr_pages to unsigned long before the shift,
+which allows PERF_IDX2OFF() to handle large buffers properly.
+
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
+Leo Yan (2):
+      coresight: trbe: Prevent overflow in PERF_IDX2OFF()
+      perf: arm_spe: Prevent overflow in PERF_IDX2OFF()
+
  drivers/hwtracing/coresight/coresight-trbe.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/perf/arm_spe_pmu.c                   | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+---
+base-commit: 5aca7966d2a7255ba92fd5e63268dd767b223aa5
+change-id: 20250917-fix_aux_trace_index-9745674f5061
 
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 8267dd1a2130d37d9507791620ea7bc8cbcd675c..8f426f94e32a15fd26e6c4e42385a5d93a7b7c1a 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -23,7 +23,8 @@
- #include "coresight-self-hosted-trace.h"
- #include "coresight-trbe.h"
- 
--#define PERF_IDX2OFF(idx, buf) ((idx) % ((buf)->nr_pages << PAGE_SHIFT))
-+#define PERF_IDX2OFF(idx, buf) \
-+	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
- 
- /*
-  * A padding packet that will help the user space tools
-
+Best regards,
 -- 
-2.34.1
+Leo Yan <leo.yan@arm.com>
 
 
