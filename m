@@ -4,103 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686CCCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CF3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BD0XefKDj9yNlwNGnApL1S2MWmUQptL4sGSYMNTzvM=; b=y3QzSkyyJ1JNvIX2fmxMXNtwiA
-	yTb6Qo9H98YE+rgR98pT7vPv7XZHlrHR3EhVath4Exj9TNbDrZJesC8JD8dJrhJsn6jxITdPut7eJ
-	6s6Ii80uSgD7RdVfQCFTXGLA9Ass1tvu9GlSXmuBZfm/5C3Xgk7hYOdPoT3Arpb152we5gb2DyTAE
-	nOFFiLPZAt1cKblNk3CmoWFTL9r5sss3nn61tL2dEkeW6lcpBUkdGeFQWfvlc75bGIgUryyWVwbXf
-	+Yk9UkkeyCFcVlrpZ3CAJxt8zRc4MoUTsCXDReIDYNPNdn5KZ5rtn+6iJesAGNpTmZYpYWWcMsGs5
-	Ruu5JLhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8gQVJn2m/YLKGXGlCZexJEle+1AqU7FTZYSKCZWwcME=; b=XP3H0nbZgGzs7HVE2FzsuvDmQl
+	UF8cpqOSOyRtYRA2yUqcBhB25nsJ0WNEu3k83e69pYIoc5gFBYAyrdRGqF9Ao73DJCWETQjIKdDVD
+	8YhsMLzih9Nw2m56+E58XIet4k7gOgSiARJRgn7CBr2rxb/PhzuHJE/jh4QyNXgsuIom03V8J2EzS
+	hyO/Cn157wJ3UU4FojgeNMih5BiEH4CHvV6onQdyMXGaeHN/WBqvxP50shpIRjgSRODW2CXjGjm34
+	VIYKQNmJuhxe7Iz1u+LgRWA6o5STasK/WR1WzQZi/7JzD9vCjFSz12Qu+lYOoMUkYrL59k4owAAm1
+	d7JXOnhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvAe-0000000DEwI-2Q4G;
-	Wed, 17 Sep 2025 16:38:16 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uyvEZ-0000000DGj0-3SFT;
+	Wed, 17 Sep 2025 16:42:19 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvAc-0000000DEtA-08BI
+	id 1uyvEW-0000000DGhb-3n2y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:38:15 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58HGbcFp1655272;
-	Wed, 17 Sep 2025 11:37:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758127058;
-	bh=6BD0XefKDj9yNlwNGnApL1S2MWmUQptL4sGSYMNTzvM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=q0ERZa5tqZqU4zCPUnv1rj/OdqwUCgq2yIoNfx9SuMVkU4OcYwD5RChM1gSOiaI+8
-	 LrbmZdc1KQIlqXwSZbu9NpLP2ShxIdOn0BwI4vqHo/975hH3Odtd+Fg+QrvMp+Wx50
-	 JH1pfcoft4byTIaa6aw1dQu6syisj9+1ccjnz7F8=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58HGbcDA1459556
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 17 Sep 2025 11:37:38 -0500
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 17
- Sep 2025 11:37:37 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 17 Sep 2025 11:37:37 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58HGbafA3364151;
-	Wed, 17 Sep 2025 11:37:36 -0500
-Message-ID: <65a98655-68a1-4bf9-b139-c4172f48dad4@ti.com>
-Date: Wed, 17 Sep 2025 11:37:36 -0500
+	Wed, 17 Sep 2025 16:42:18 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58HEIexf019087;
+	Wed, 17 Sep 2025 16:41:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=8gQVJn2m/YLKGXGlCZ
+	exJEle+1AqU7FTZYSKCZWwcME=; b=R0Kba0Y6PtkYRbUa2hOZjf/xrhzrrk7Nd9
+	5mFfsrIM2WF9d9oFP6Ll4/5vCjklpJnHUYMvJCWjVXbKAlem3DouyEX4H11Lm3FU
+	b8srfT3akmpHvI3HlFEppO2330TeVzbyupGCcH8XA7RFqbUyrEK5xIVFZgLgPQmP
+	04jon3IsFz0ZiZIVBgAB/nJRQB8ShMBg9Ywu/MHRBelH9sLoqoT7knOxEN8AZvln
+	/MNbc+92ykxxbeINQW2AwXDWlS4bJrjSzmbdw1G8g/16MxCOCiU7n41mmB4jqP79
+	2f3I0E26/fcbj9KgN5qk5/gIemKhngK4o3fHrV1ABVxJfek/Vnlw==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 497fx9ss5r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 17 Sep 2025 16:41:24 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 58HGNtJX027235;
+	Wed, 17 Sep 2025 16:41:23 GMT
+Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013052.outbound.protection.outlook.com [40.107.201.52])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 494y2ma1cg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 17 Sep 2025 16:41:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ywAYHnuNF2yO82AZa0TJyguoLJjIoEYArIor8U6mMTTfLQLuU2Ag5AFzL6nOmbr+0kd+pauSqODyUpkfDXX00K6CQy8ZyoAioZqqRCt5cMnPtVIT28JehQmcOMWYhd18WTigzCPwVmQdb97zLce06KytkTmP1CQgmj++daNqXBVT4n+YZD0vEVy3eoSzPyRxfrRsaJpSAIfHq1O+2Yhc24ssdcckWi1goQNRlPHS/NsltjmmA/hwVOOZV7pdFj5r32Xre7Wi+rHqo+HxCS1zpJdeL7HDS+Qc8y2GR7YY2jYVsUU3iZBjtRfQHYrR/euAGp0MCaSWFI9awTMhv0vkCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8gQVJn2m/YLKGXGlCZexJEle+1AqU7FTZYSKCZWwcME=;
+ b=b4bRdUP7DXBjEMT3OwwqXO9rBgVSkJ61EdRaKGY3ULcpV0gnwJ2mgow98MUkILIwyfT0gab3HCNgfK3SazadauvyfL07baHVkSuEv+oRD5ZNsX3H6+7rgm777uvLwe5Qoyu30+5hIUPLy9Ku7er8LibYFgQcKU+wYvB8Y3UHPeQgCFieXt3bzFstzm94jLjThtjXmOWaR1FRCEzRH65lEWxkrybV0mfwgXISwHDyIiJrDMuA6lNRdSVnSpdVIGRPOSWmqzY4fPniIZQLOEnD2NZpWAx18QArXuw/Lb9/54EPzOzGC/Cc8C3vJc22LVlrmMIRQQ93brG8I44AK5curA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8gQVJn2m/YLKGXGlCZexJEle+1AqU7FTZYSKCZWwcME=;
+ b=dWL1hC45/VXCD+txZZc2FA0/9zMaBYmuhRo5jftdnwKEpond+KW3zfdKKBCqnCfAsGlf4to9WjQcQusZKNzMTXJZZV/ArKeU4jq9u/TbFJ5FjynJftn5V52+oycr5XDkC3LKmN44uUn1458bVc1SwThOpCW4U3OYZ1gYprMRqsc=
+Received: from CH3PR10MB7329.namprd10.prod.outlook.com (2603:10b6:610:12c::16)
+ by SJ0PR10MB4752.namprd10.prod.outlook.com (2603:10b6:a03:2d7::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.19; Wed, 17 Sep
+ 2025 16:41:15 +0000
+Received: from CH3PR10MB7329.namprd10.prod.outlook.com
+ ([fe80::f238:6143:104c:da23]) by CH3PR10MB7329.namprd10.prod.outlook.com
+ ([fe80::f238:6143:104c:da23%7]) with mapi id 15.20.9115.018; Wed, 17 Sep 2025
+ 16:41:15 +0000
+Date: Thu, 18 Sep 2025 01:41:04 +0900
+From: Harry Yoo <harry.yoo@oracle.com>
+To: alexjlzheng@gmail.com
+Cc: mingo@redhat.com, tglx@linutronix.de, jroedel@suse.de,
+        linux@armlinux.org.uk, bp@alien8.de, dave.hansen@linux.intel.com,
+        x86@kernel.org, hpa@zytor.com, akpm@linux-foundation.org,
+        david@redhat.com, lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+        urezki@gmail.com, arnd@arndb.de, vincenzo.frascino@arm.com,
+        geert@linux-m68k.org, thuth@redhat.com, kas@kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-mm@kvack.org, joro@8bytes.org,
+        Jinliang Zheng <alexjlzheng@tencent.com>
+Subject: Re: [PATCH] mm: introduce ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to sync
+ kernel mapping conditionally
+Message-ID: <aMrkoBhIcP37YgyS@hyeyoo>
+References: <20250917154829.2191671-1-alexjlzheng@tencent.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917154829.2191671-1-alexjlzheng@tencent.com>
+X-ClientProxiedBy: SE2P216CA0076.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c6::10) To CH3PR10MB7329.namprd10.prod.outlook.com
+ (2603:10b6:610:12c::16)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 0/7] Add RPMSG Ethernet Driver
-To: MD Danish Anwar <danishanwar@ti.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
-	<nm@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero Kristo
-	<kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        Mengyuan Lou <mengyuanlou@net-swift.com>,
-        Lei Wei
-	<quic_leiwei@quicinc.com>, Xin Guo <guoxin09@huawei.com>,
-        Michael Ellerman
-	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
-        Lorenzo Bianconi
-	<lorenzo@kernel.org>,
-        Parthiban Veerasooran
-	<Parthiban.Veerasooran@microchip.com>,
-        Lukas Bulwahn
-	<lukas.bulwahn@redhat.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250911113612.2598643-1-danishanwar@ti.com>
- <8a20160e-1528-4d0e-9347-0561fc3426b4@ti.com>
- <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR10MB7329:EE_|SJ0PR10MB4752:EE_
+X-MS-Office365-Filtering-Correlation-Id: 33ea085d-2976-4f85-837d-08ddf60904d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tOnHpxJzJQkXtlNALLvaF2/2EKF9ps00fvJ+mkb8WCdtgd+sALHeIpS8oFX6?=
+ =?us-ascii?Q?rXYAHY2gOn/gu9SsYsUUuJ5RQpkbSpxL7cHo0+qcOGe6ykr5KMxWLPOTKq6g?=
+ =?us-ascii?Q?tp404Ih5FHB2wJ9Te07ehaxDJJ9Oc0tXnY79x2nSou44q6xyXED6Dtlrelpm?=
+ =?us-ascii?Q?faiTGFqSwKsQ9PBpyEKJ0OU393yvrzqhdlmSXXt93XhO6flgdmz3vXSQW0ut?=
+ =?us-ascii?Q?eKdwMTOhXJ5NopTxOyEWuuXjPBY9ZEnt47SzC+21kiaLrZg4dLqMtx6f7Zjd?=
+ =?us-ascii?Q?N0EGAPw9lJo2wdmeEWecoSqhW9nE5sEyHxvPR0swOXY/IX23qZLlbejVSbnK?=
+ =?us-ascii?Q?iTpn9ETL8OGjV52g2Ku6H4D8HKFPK1DEfsMf9YE4q1zaaiKIb37jlhQP0qu5?=
+ =?us-ascii?Q?1KW0P+O3XX2DDE3Oeghg/7CM7lcu3gZeOT6szPq3D9Yl0NVrd79hW5SUPYLJ?=
+ =?us-ascii?Q?S2Dj7CxR+h8yel/kSkC6eDajldyhACFrJIKhFeCv07/+N2gVycLr+KDFaG0x?=
+ =?us-ascii?Q?6fKVetH/BidL9j+LfeCDhQ4gjHHpbO17AUkaOXsGpccPUljm8/jlGzQW9IFU?=
+ =?us-ascii?Q?lqPsJuRoEbKmx5iiZRAijX1tkZZya/z7JJJkNXMpv2dWzH2Wqu2sUjaA/Ped?=
+ =?us-ascii?Q?c/AM1QdSO9IeuNmvdX79kl96OhtzBiYlH2JEW5Mr/ajQWIBecr8bfGXtYlMm?=
+ =?us-ascii?Q?VmM74h9+kF/aNhYbEBmT3rf+86wtP6aZYV349DyLgmKCpD6wtf/TNWFcfzF+?=
+ =?us-ascii?Q?Wasauv9Ip/8cfsQvD7sJ6ayWzZIba2XqQWDb8q2FlmWWNxiIdI7UMg3WnZae?=
+ =?us-ascii?Q?9tcg8az6H1RaxhYohvOIY3D70yPUzofviTbb6HJavBYE760FsHSiUVRG8WDA?=
+ =?us-ascii?Q?K8T5SvgC5Cpy3lqcK8DWJAbUin5S+vD5JKSC2qvVnjUsDhJkzzjzla36TQKM?=
+ =?us-ascii?Q?WHcoJ6ueYoThLr9/WHeknnhTAaiLQc7rmQ0CZ+LSsHgKU14BpJDImzI6AidG?=
+ =?us-ascii?Q?avs+ePz+GNKatZGDfrVvm//jm26Cx6eaBaXYgvPmnhePJ11ftm1/1/nq/2Yv?=
+ =?us-ascii?Q?J8SkhvMim84gaxA3ILlx9aVlm5HajiQgdQ5+EGWMB08AJ1kTNcQX7ccsV+Zm?=
+ =?us-ascii?Q?0x9M84q9ASpuf40adI2oEP6X+2zQOJFJROK392djotcZ3gJiNB/AXV3p/qAD?=
+ =?us-ascii?Q?AHhdL9lkMhM0fRtnwD5dqkSjcDgipuhMi0FahvLhR/R/jnN7i8WBIp/JSXT6?=
+ =?us-ascii?Q?zRGoxKZxuOdqy6GOPPWdSX4TMzwDo73Hu/Ygwm3FIQGT/nw9YJj6gCJNE8kA?=
+ =?us-ascii?Q?UzlTKqzOx0zadRbay97vCwywE6UGPuiK8yKsEsY4bAtTKQZKdepDgRtK9M7G?=
+ =?us-ascii?Q?2dNfN4lsIyuD6zB+AR44bZ106L1xlCgyYTxiM2CMSsv0n8YBBg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR10MB7329.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?230lhMBuAwQbv/p6ckkniH+VXkeSzBlYiwluJeGtGBFRU9gU50UH7Ns4d9G6?=
+ =?us-ascii?Q?ifMhgcqm08KD/h9Wq0YMJAfclOgdo6ujSSg1AB8nZLCH5n8YwvYR2YYbRHJ/?=
+ =?us-ascii?Q?jLzkqF/oHKDViCDV8Cte+zaPoojVg7p5UkbAwClzZmZ4czRpPVk/Va5LLxBC?=
+ =?us-ascii?Q?jC+GTQitGdeizP5s02ouG0S7BAuMPY8s7Yi583Eyt1SmK9O92IyBmcPwTFtW?=
+ =?us-ascii?Q?UG1PcwcACH93Iv3Sn/+812RKGc9mnsa90poyXetF3njwpD4RjPnWGkHN6kak?=
+ =?us-ascii?Q?Cbi707Qlwz1GwJSlGT3b2PjVgkuJQ8urVW+taHvJzpI1V/UCfhftgyXIN0Rt?=
+ =?us-ascii?Q?Q/z2UfRRiIvr+Bz7BLznniOrK5wYRqNS9oudGcwoYsLHnKJ8IIDu1vqdDyjv?=
+ =?us-ascii?Q?UzBLzvkCvmK5c1iblTCkVL44fedWg2gHFRzz8/S8bWQkSpUO81YJjuPhd6cM?=
+ =?us-ascii?Q?9dD3eApAAT3F7Bh1JXn7ouIMdE9sPSohfA4mn9n1xq5iaQ4vBJXKCENgFSuU?=
+ =?us-ascii?Q?7MfyEDvuxqJpdCpd+tnTJPE8ZmRNix6qEzsatvBhSBdcJCycaD6lITWBrtW7?=
+ =?us-ascii?Q?A3TSYOdibJzpHD0f8hpSnHEuZxW6vv10MaAEm+TZiKEPsMjMWEioPzhpB0Wh?=
+ =?us-ascii?Q?B1/0ZVM0qhFF72gXNYVpoaUaLQaeIZGQLyG5ZHu/gYBBdp0Ukc4L2SPWLoiV?=
+ =?us-ascii?Q?/AK5KllsaxqrC098HhYl7VgH4rkEnlUGyZ7TpTJiUL2WmQw2hErnn8UdVocn?=
+ =?us-ascii?Q?KClpSwbL4pjH6HHksAlm238GGbH9zck1szoBMW3ZOXmlgfMLH2+P/3vZmEpM?=
+ =?us-ascii?Q?bz1l5pmi3YIvedzcsKZhwc/ZkFaQy6iyGaU38F+tsdRuIkbbpCZOR1u4aEbE?=
+ =?us-ascii?Q?AmkZ9V0gzWJ4IZMyGN7SWbHVd83dX4PqAAM30FkwuMCSmb+EvlfxObpGpRWO?=
+ =?us-ascii?Q?G5/GlhJYeu1auW1e5ZtjDwCyc1C99ZvT/C/k/7Tw5+xbkyavHVsIXdVmDYxu?=
+ =?us-ascii?Q?Q3FOge1zooU63y/f6zopXMrdifeHthNiYT9ohRcYxWLmK5XeiwjLb4yKTajS?=
+ =?us-ascii?Q?y3iKxlpsPDMi0g8Buy405uk+1PpMXL6FiifBRZRssytklEKChjgWPzkSHV5Y?=
+ =?us-ascii?Q?45xSqf39MFZUGEtSipcUgU6tXO8neEvRbFB6DAE7VdoqqT983Njzvwq66nN4?=
+ =?us-ascii?Q?94JxI0azqbxvMKQBwZLdfeIGtsxnoCGlL6TnP3GqO9oT6XN75F0L2Nk7MYQN?=
+ =?us-ascii?Q?OahZsJ5ooGaQC9DoXLRjHbXyuynUqabo88munaJCfTRUppRVSHD4mWxWwfpK?=
+ =?us-ascii?Q?jANoGaQRHUHz/mVSHgnoqXZk/l26+yDrd3Glqa6i1C1jU27DFW/c9I6c4LIV?=
+ =?us-ascii?Q?sDBw1id0j0EX3q+HhOFSwJlNG9XFHqIiBNk5yFmgGp0ZWksPjpscHUnbIahK?=
+ =?us-ascii?Q?JueYXDSZjHWV+g0N4iLOikCjta1WkgpFU/a7TqsDz9LAp/ACj+vu+pckSHyc?=
+ =?us-ascii?Q?Pf9bDL8jwyZdgHEuypP1xXS4+nZG8Wg+hihu8d95A0zBnpFC/vAHAbhpujMK?=
+ =?us-ascii?Q?JwqAajyNbHSYweAPLvpMswkZvqH9tjRTbTtsskJH?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: BfG01FuEuEGl33uLkCbrL4AU/g+MTtxuzko7d1jV21V2CDkBm3sHU+b7l1VVyKTE5pIDiRDv6R4v/8215E+4f19xQZsaGGIueK0SRg1hpELd0Q1qhX8dqeJtkp8TwmSGwbrJqTNQzSxp9t2JhsPbDQyGVgDYoggiBB7aepAvVWzVVE1r7NK//2mriQUepvxHLWN80Qm408gGryowi8J4Hc6DK7ri2kRlBh8tA/IlLGRtgP3xOSLfCUI6DWzHSXcryrNxWDPobaeNsuIssDDmr8vf5ufxDIwQLZfk4AD6+DmoV39pnKUGd33WmXKZ8GrcH8+Ax4XYJfvlak3meAHzQmCW30eoL9OEiUyOmCAbOjHZV/JRrdvVibnqC/9naC8zovtvUAzaRCNCj+XU3YPeGGbmKZ7PFXKLlJkrvyhTIoe0hhV6sT1hIJ3hRhNwsnjw0jCTcSPnm2UxVDs18JsLbCRxo4duMV+jL1kNdDVmmuwzbBPoe3lL08o2sYAB5pkjCKnePQrR/clQhhDj1GpISbBtBprBCw6vcrFngGtbwQf3ExhZW/BghbJ7WWZHapUXySuU9me0+2oFlVkivtu+YudiZeCcR4ijDBuaEOEhEJk=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33ea085d-2976-4f85-837d-08ddf60904d0
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR10MB7329.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 16:41:15.4767
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VNSVvxCBpapcp1Ks0LGKDN78U1JKQu62SitQ93EsvoGa3R/9jRubWSI0BvG+pS95wB9ekWRBizQow1piigFBWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4752
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-17_01,2025-09-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 bulkscore=0
+ mlxlogscore=999 suspectscore=0 malwarescore=0 spamscore=0 phishscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2508110000 definitions=main-2509170163
+X-Proofpoint-ORIG-GUID: qI_YrX4uvg807SGt35pebMz3WId29vds
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX7U1mxwZMQXZH
+ yXHOz4h1C9wM9mVxKHF+WBUdn0MpXpEi7aDDCcopse7CMarQLJJzsyp5oLMUIS6pwU71/927+B6
+ lfjq+lpmjgk7c4dyqNdPAi/sdSV3y7UVGbsXI87BpAFNW4pYLihf59J0GeI3VPUfOqMZI7izVuP
+ GT8NY1ANehsWIh3Ir9glwtK6fAVyvhrMXSy0pvXldEMQKGirJx/YlLtxsL5l3Gp9DPPnuW137fk
+ 9KGWxzFV6ETnR7LrddHfOoTDAXqRp3b1Pu43+j+dBZB/f4JJKqp43Xecss/qzqg6JtD0GJ5CDR9
+ u0zVNBOT3Pw/s/+u9kgUbxNAebOx7DLVdSLKEf09ktbjukA0QjGKYTm7Qm8kKi7H952xbVUgMpt
+ UrVlC9CzdjlCpsWs2kbcsbR59aMvGg==
+X-Proofpoint-GUID: qI_YrX4uvg807SGt35pebMz3WId29vds
+X-Authority-Analysis: v=2.4 cv=C7vpyRP+ c=1 sm=1 tr=0 ts=68cae4b4 b=1 cx=c_pps
+ a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=GoEa3M9JfhUA:10 a=pGLkceISAAAA:8 a=GvQkQWPkAAAA:8
+ a=2aeQa92CUK-n9qrS0UAA:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:12083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_093814_162747_5A2A17DB 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20250917_094216_948528_5778453C 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,64 +210,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/17/25 6:44 AM, MD Danish Anwar wrote:
-> Hi Andrew,
+On Wed, Sep 17, 2025 at 11:48:29PM +0800, alexjlzheng@gmail.com wrote:
+> From: Jinliang Zheng <alexjlzheng@tencent.com>
 > 
-> On 11/09/25 9:34 pm, Andrew Davis wrote:
->> On 9/11/25 6:36 AM, MD Danish Anwar wrote:
->>> This patch series introduces the RPMSG Ethernet driver, which provides a
->>> virtual Ethernet interface for communication between a host processor and
->>> a remote processor using the RPMSG framework. The driver enables
->>> Ethernet-like packet transmission and reception over shared memory,
->>> facilitating inter-core communication in systems with heterogeneous
->>> processors.
->>>
->>
->> This is neat and all but I have to ask: why? What does this provide
->> that couldn't be done with normal RPMSG messages? Or from a userspace
->> TAP/TUN driver on top of RPMSG?
->>
+> After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for
+> vmalloc area"), we don't need to synchronize kernel mappings in the
+> vmalloc area on x86_64.
+
+Right.
+
+> And commit 58a18fe95e83 ("x86/mm/64: Do not sync vmalloc/ioremap
+> mappings") actually does this.
+
+Right.
+
+> But commit 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK
+> and arch_sync_kernel_mappings()") breaks this.
+
+Good point.
+
+> This patch introduces ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to avoid
+> unnecessary kernel mappings synchronization of the vmalloc area.
 > 
-> This is different from RPMSG because here I am not using RPMSG to do the
-> actual TX / RX. RPMSG is only used to share information (tx / rx
-> offsets, buffer size, etc) between driver and firmware. The TX / RX
-> happens in the shared memory. This implementation uses a shared memory
+> Fixes: 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK and arch_sync_kernel_mappings()")
 
-This is how RPMSG is supposed to be used, it is meant for small messages
-and signaling, bulk data should be send out-of-band. We have examples
-specifically showing how this should be done when using RPMSG[0], and our
-RPMSG backed frameworks do the same (like DSP audio[1] and OpenVX[2]).
+The commit is getting backported to -stable kernels.
 
-> circular buffer with head/tail pointers for efficient data passing
-> without copies between cores.
+Do you think this can cause a visible performance regression from
+user point of view, or it's just a nice optimization to have?
+(and any data to support?)
+
+> Signed-off-by: Jinliang Zheng <alexjlzheng@tencent.com>
+> ---
+>  arch/arm/include/asm/page.h                 | 3 ++-
+>  arch/x86/include/asm/pgtable-2level_types.h | 3 ++-
+>  arch/x86/include/asm/pgtable-3level_types.h | 3 ++-
+>  include/linux/pgtable.h                     | 4 ++++
+>  mm/memory.c                                 | 2 +-
+>  mm/vmalloc.c                                | 6 +++---
+>  6 files changed, 14 insertions(+), 7 deletions(-)
 > 
->> This also feels like some odd layering, as RPMSG sits on virtio, and
->> we have virtio-net, couldn't we have a firmware just expose that (or
->> would the firmware be vhost-net..)?
->>
-> 
-> PMSG sits on virtio, and we do have virtio-net but I am not trying to do
-> ethernet communication over RPMSG. RPMSG is only used to exchange
-> information between cores regarding the shared memory where the actual
-> ethernet communication happens.
-> 
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 0ba4f6b71847..cd2488043f8f 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -3170,7 +3170,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
+>  			break;
+>  	} while (pgd++, addr = next, addr != end);
+>  
+> -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
+> +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
+>  		arch_sync_kernel_mappings(start, start + size);
 
-Again nothing new here, virtio-net does control plane work though a
-message channel but the data plane is done using fast shared memory
-vqueues with vhost-net[3]. Using RPMSG would just be an extra unneeded
-middle layer and cause you to re-implement what is already done with
-virtio-net/vhost-net.
+But vmalloc is not the only user of apply_to_page_range()?
 
-Andrew
-
-[0] https://git.ti.com/cgit/rpmsg/rpmsg_char_zerocopy
-[1] https://github.com/TexasInstruments/rpmsg-dma
-[2] https://github.com/TexasInstruments/tiovx
-[3] https://www.redhat.com/en/blog/deep-dive-virtio-networking-and-vhost-net
-
->> Andrew
->>
-> 
-> 
-
+-- 
+Cheers,
+Harry / Hyeonggon
 
