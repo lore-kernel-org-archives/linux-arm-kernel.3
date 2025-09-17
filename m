@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF39ECAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C29CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVzdgwSjY1m2eB/+6IrSHhxwjzvA5U6gO4A1LIyu3+s=; b=47bDIqJMWG6s5n04KL86vTbUsC
-	8p/xTM+OxY0j/Iq6m20z3n5pqOhDyaagljQh8cEGN1p1O6k5Z/+e8VmwpnbWFwj0e7Iv1MSpWkHJS
-	UvBf0QLfKyo0AmRuqaJPX96wMWYX66qdHXzkmMyVAoD/YIVAXNXX61VCm+r7/S8P65pZpAOWqoa6V
-	FIPRyI5mKw/eB/72JdU/xXX5MsXXg1T29OUkc7LH6Mlo8zmHN1qGCGn2RDR2rhx6xNj9LGX0MUt8v
-	Oaq4p2Suouk/osKe5PFDOYgjDSwB72B9c4HJxR+uvoHzeBM5zwHEr8NadQOquO3kmBKO/1XyU8Zv5
-	rl/3MUIA==;
+	bh=4bAVQ7xzTmIVtjM3UYB4HE6Zzx4t7mj/lid4gyv+JD0=; b=aYDGp4znahR+4MHUSxRtcj1ofL
+	ydmamoVJOavPnrxCzwxQfj1hhVuMt41abuakzSlClSEi1wus7V6p6tnnYP0nSo5FlI8AMQDWBNB5D
+	Igobt3opU3hN/zVts+pYayoDu+Ora0x5txwJ7cRoqX8ZFl4Nh0YujvHE2gU+6dlRd5DjJETZdQwvU
+	5cf1SejPpewCEYjY6vIKoH9aS7IFnYZWXFPw0YYEqqu1TkSTHTL4ERh4Tmq6oRaPZsJZ7dotaMpuA
+	0+yVTwFWb0DXVYsLuVv4U6f5laK+35IFXwcH5KTv6CKgXGmnPzDigbeIvzaZtlkFJn5kiKwhoalHC
+	2OQHXGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzaN-0000000ErLp-3q34;
-	Wed, 17 Sep 2025 21:21:07 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1uyzaX-0000000ErTJ-1KSM;
+	Wed, 17 Sep 2025 21:21:17 +0000
+Received: from out-182.mta1.migadu.com ([95.215.58.182])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzaI-0000000ErJZ-0qCs
+	id 1uyzaQ-0000000ErNM-3meK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:21:03 +0000
+	Wed, 17 Sep 2025 21:21:12 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144059;
+	t=1758144068;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xVzdgwSjY1m2eB/+6IrSHhxwjzvA5U6gO4A1LIyu3+s=;
-	b=V+uxs9uv/m8JsLD0Wu4gayA22oacMWpVAqiBp88LAsHnT1rdd6CvXNOx2SBpoRQtqvtdFM
-	xLNv54e4ZRUEfbOA53Gs9YMtoGwJEmaz0y/MqSBmfTlCcQgnptVXgg0f44LAnNoHrieawF
-	58cQRRxbgY1Un4jVE8yTAMlFb7zimus=
+	bh=4bAVQ7xzTmIVtjM3UYB4HE6Zzx4t7mj/lid4gyv+JD0=;
+	b=QfGI0FR0Cl7Pke36kXSYjJP4XZb3avjny91cjvn+WPnNX2Bo0R/2fCpmtMYNI/P3MJPA+q
+	0jTqJHsUTTGeDq69IqN+TFu8VBGKLJZwDwZOBmhHuSj4sfLZsITnI/ObEdNIo1U72xGupa
+	hdY8rgwTG2NEZ8v/JIJ8CsDeFDJB1qs=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 01/13] KVM: arm64: selftests: Provide kvm_arch_vm_post_create() in library code
-Date: Wed, 17 Sep 2025 14:20:31 -0700
-Message-ID: <20250917212044.294760-2-oliver.upton@linux.dev>
+Subject: [PATCH 04/13] KVM: arm64: selftests: Add unsanitised helpers for VGICv3 creation
+Date: Wed, 17 Sep 2025 14:20:34 -0700
+Message-ID: <20250917212044.294760-5-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142102_384456_98CA7008 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250917_142111_099755_2EF93D75 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +78,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to compel the default usage of EL2 in selftests, move
-kvm_arch_vm_post_create() to library code and expose an opt-in for using
-MTE by default.
+vgic_v3_setup() has a good bit of sanity checking internally to ensure
+that vCPUs have actually been created and match the dimensioning of the
+vgic itself. Spin off an unsanitised setup and initialization helper so
+vgic initialization can be wired in around a 'default' VM's vCPU
+creation.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- .../testing/selftests/kvm/arm64/set_id_regs.c | 19 +++++--------------
- .../selftests/kvm/include/arm64/processor.h   |  2 ++
- .../selftests/kvm/lib/arm64/processor.c       | 13 +++++++++++++
- 3 files changed, 20 insertions(+), 14 deletions(-)
+ .../selftests/kvm/include/arm64/vgic.h        |  2 +
+ tools/testing/selftests/kvm/lib/arm64/vgic.c  | 50 ++++++++++++-------
+ 2 files changed, 35 insertions(+), 17 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 189321e96925..a2d367a2c93c 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -15,8 +15,6 @@
- #include "test_util.h"
- #include <linux/bitfield.h>
+diff --git a/tools/testing/selftests/kvm/include/arm64/vgic.h b/tools/testing/selftests/kvm/include/arm64/vgic.h
+index b858fa8195b4..688beccc9436 100644
+--- a/tools/testing/selftests/kvm/include/arm64/vgic.h
++++ b/tools/testing/selftests/kvm/include/arm64/vgic.h
+@@ -17,6 +17,8 @@
+ 	index)
  
--bool have_cap_arm_mte;
--
- enum ftr_type {
- 	FTR_EXACT,			/* Use a predefined safe value */
- 	FTR_LOWER_SAFE,			/* Smaller value is safe */
-@@ -568,7 +566,9 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
- 	uint64_t mte_frac;
- 	int idx, err;
+ bool kvm_supports_vgic_v3(void);
++int __vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
++void __vgic_v3_init(int fd);
+ int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
  
--	if (!have_cap_arm_mte) {
-+	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-+	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
-+	if (!mte) {
- 		ksft_test_result_skip("MTE capability not supported, nothing to test\n");
- 		return;
- 	}
-@@ -593,9 +593,6 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
- 	 * from unsupported (0xF) to supported (0).
- 	 *
- 	 */
--	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
--
--	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
- 	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
- 	if (mte != ID_AA64PFR1_EL1_MTE_MTE2 ||
- 	    mte_frac != ID_AA64PFR1_EL1_MTE_frac_NI) {
-@@ -750,14 +747,6 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
- 	ksft_test_result_pass("%s\n", __func__);
- }
- 
--void kvm_arch_vm_post_create(struct kvm_vm *vm)
--{
--	if (vm_check_cap(vm, KVM_CAP_ARM_MTE)) {
--		vm_enable_cap(vm, KVM_CAP_ARM_MTE, 0);
--		have_cap_arm_mte = true;
--	}
--}
--
- int main(void)
+ #define VGIC_MAX_RESERVED	1023
+diff --git a/tools/testing/selftests/kvm/lib/arm64/vgic.c b/tools/testing/selftests/kvm/lib/arm64/vgic.c
+index 661744c6532e..d0f7bd0984b8 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/vgic.c
++++ b/tools/testing/selftests/kvm/lib/arm64/vgic.c
+@@ -41,24 +41,11 @@ bool kvm_supports_vgic_v3(void)
+  * redistributor regions of the guest. Since it depends on the number of
+  * vCPUs for the VM, it must be called after all the vCPUs have been created.
+  */
+-int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
++int __vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
  {
- 	struct kvm_vcpu *vcpu;
-@@ -769,6 +758,8 @@ int main(void)
- 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES));
- 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_WRITABLE_IMP_ID_REGS));
+ 	int gic_fd;
+ 	uint64_t attr;
+-	struct list_head *iter;
+-	unsigned int nr_gic_pages, nr_vcpus_created = 0;
+-
+-	TEST_ASSERT(nr_vcpus, "Number of vCPUs cannot be empty");
+-
+-	/*
+-	 * Make sure that the caller is infact calling this
+-	 * function after all the vCPUs are added.
+-	 */
+-	list_for_each(iter, &vm->vcpus)
+-		nr_vcpus_created++;
+-	TEST_ASSERT(nr_vcpus == nr_vcpus_created,
+-			"Number of vCPUs requested (%u) doesn't match with the ones created for the VM (%u)",
+-			nr_vcpus, nr_vcpus_created);
++	unsigned int nr_gic_pages;
  
-+	test_wants_mte();
-+
- 	vm = vm_create(1);
- 	vm_enable_cap(vm, KVM_CAP_ARM_WRITABLE_IMP_ID_REGS, 0);
- 	vcpu = vm_vcpu_add(vm, 0, guest_code);
-diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index 255fed769a8a..8370fc94041d 100644
---- a/tools/testing/selftests/kvm/include/arm64/processor.h
-+++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -300,4 +300,6 @@ void smccc_smc(uint32_t function_id, uint64_t arg0, uint64_t arg1,
- /* Execute a Wait For Interrupt instruction. */
- void wfi(void);
+ 	/* Distributor setup */
+ 	gic_fd = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
+@@ -81,10 +68,39 @@ int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
+ 						KVM_VGIC_V3_REDIST_SIZE * nr_vcpus);
+ 	virt_map(vm, GICR_BASE_GPA, GICR_BASE_GPA, nr_gic_pages);
  
-+void test_wants_mte(void);
-+
- #endif /* SELFTEST_KVM_PROCESSOR_H */
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index eb115123d741..caed1998c7b3 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -653,3 +653,16 @@ void wfi(void)
- {
- 	asm volatile("wfi");
- }
-+
-+static bool request_mte;
-+
-+void test_wants_mte(void)
-+{
-+	request_mte = true;
+-	kvm_device_attr_set(gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
++	return gic_fd;
 +}
 +
-+void kvm_arch_vm_post_create(struct kvm_vm *vm)
++void __vgic_v3_init(int fd)
 +{
-+	if (request_mte && vm_check_cap(vm, KVM_CAP_ARM_MTE))
-+		vm_enable_cap(vm, KVM_CAP_ARM_MTE, 0);
++	kvm_device_attr_set(fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
+ 			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
 +}
+ 
+-	return gic_fd;
++int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
++{
++	unsigned int nr_vcpus_created = 0;
++	struct list_head *iter;
++	int fd;
++
++	TEST_ASSERT(nr_vcpus, "Number of vCPUs cannot be empty");
++
++	/*
++	 * Make sure that the caller is infact calling this
++	 * function after all the vCPUs are added.
++	 */
++	list_for_each(iter, &vm->vcpus)
++		nr_vcpus_created++;
++	TEST_ASSERT(nr_vcpus == nr_vcpus_created,
++		    "Number of vCPUs requested (%u) doesn't match with the ones created for the VM (%u)",
++		    nr_vcpus, nr_vcpus_created);
++
++	fd = __vgic_v3_setup(vm, nr_vcpus, nr_irqs);
++	if (fd < 0)
++		return fd;
++
++	__vgic_v3_init(fd);
++	return fd;
+ }
+ 
+ /* should only work for level sensitive interrupts */
 -- 
 2.47.3
 
