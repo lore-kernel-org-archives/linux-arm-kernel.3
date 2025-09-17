@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14575CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B66BCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLpJbJ4yoSDtOyQiA+uk/p+kb6cMa3lf/boDCjBlWz0=; b=w+tCDZJL6rXBUjQqwx0PV/eaXN
-	byeLI8KMeQKWCAN0OvBP9bOKptUZO9MMFOFaAG7mfYTqRWjayPPZ5i1Lpt3G9+uBmKyjnxRq6Fcvv
-	wAhtCFmATk/Mvo4pu/I27/U+RspKbjwUmF4gPCWbBAwBKVjlpc7wUEpYkkpnNSv2Urm8wHFzSlNZG
-	Xy31/GSNhAAdfSQqi3sv4D76yomx+5aHjo5hwKdCdWZmA/DlAL8hcT49fInM+QBmDo0caMY1YPR7s
-	Dch/RkazwkzhZIMoJIMyUlHdKHOvAWbbcbjj7RUu9mLeZXNO+HlTVmT9+8+w2buSk7ne06v8Ix4Iq
-	geZzvcIg==;
+	bh=j+biOGKKguDUuRUAhQ0+dLthYNe28/1HU1RGsMJffvw=; b=pRgVRKIDFaycoAffbfPXrp9ZeK
+	jeEa1MMcki2jPQSyfLx9Ao0Mi9YyXHL+Aa1+ShPdX6uo5kea8gqP31rFJ3MTCOFVgATn6rAO77Fr4
+	bNndhEjsD3ahWzi4Fh9RuIgF3lrhSx0+H1ARDjHXnfg31n0GU3OuIX1jZQoGLMWKQe5SLdSl3rDjT
+	GJzU1Yl6rpO1inof0nF5mBDJibJF1AZcnuag2LyYizgDglwkbKtjmrO9odllc9Xurd0y5kf2J1zPM
+	v0rLIrQQWVcbwZ1cc7v9azvIhPrsZDQWrBglhs5NFS0SL/iER3WoHJFocwEhm8Dff0/RZatObEb/q
+	MRdPhFpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyslG-0000000Bzrn-2Akf;
-	Wed, 17 Sep 2025 14:03:54 +0000
+	id 1uyslJ-0000000Bzvy-0Ae8;
+	Wed, 17 Sep 2025 14:03:57 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjm-0000000Bxbc-19Wg
+	id 1uysjn-0000000Bxcq-0mgo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:24 +0000
+	Wed, 17 Sep 2025 14:02:26 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1758117733;
@@ -34,27 +34,27 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nLpJbJ4yoSDtOyQiA+uk/p+kb6cMa3lf/boDCjBlWz0=;
-	b=C2hNNsVqqkQiPoKIVDBS8x6lJTa7oMQ5k7D54u/aSw0FQhCfWy88IPfH5gAYHCS48ThkUI
-	G3YqbX1xx52uMBKKgkYP2g5kq5fNG317gyPlBRT5goPXv08bV8RLgmRl/8jCqG0d0Avl8u
-	4O7TL/BkD1rzW4t2v+LJIyi3rmNAIdIjN1RPup4TsoDtssTg7n1DhSOgnpLLHIKed3sZ+j
-	kglKfJml/6HsJqzXUHJW8/W/eH5ObUaBiXR5Re8lFFFIcmmk9xU2upS1RnUYXLFlwwgjki
-	I/voIzq8wZ/vdCr9nCI2EkZbh6h4BpOxN3ZL40MaGmAWPn5iSmsMSe7aPciB9w==
+	bh=j+biOGKKguDUuRUAhQ0+dLthYNe28/1HU1RGsMJffvw=;
+	b=Q/ql4mj7Oqha+n1+zWFMHqf6AN0NJY+yf8D5vjlijtUN7GKN76OsAHWTo+9VOy/rJHZ2IT
+	4CYpfHnWdwKUM6nnKJFUpm6cpWO8kXH0qekaujtfqB+aCcrZkcxWkxzhqNXvxq6+fj0gIo
+	RUKT/fQAG1ob6HEmhcZl4wuTdlo6E7wWmVmiw3iAZz+HC29hRnAmUMCqNQSh5L/l9zq1+F
+	B0snSBWJgyLP//MeSZJdvLKbCEp3knyRLar+vKpkyeuXtXDCyAO84fQR1EAQsd7aoN2JM5
+	LKc46ePgxXh9T9KfnzDphlGm1SnT/VASy/e640MqttQAG+3jCvBZ8f78IKHFMw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1758117733;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nLpJbJ4yoSDtOyQiA+uk/p+kb6cMa3lf/boDCjBlWz0=;
-	b=wnVKE+KAnGIthJrBQSLwmmIME+YarESmoquyXQaRTd5T5xZk8Imo8IPrYwt/wz017Q8Y2G
-	RaSQS3JUShhRTaCA==
-Date: Wed, 17 Sep 2025 16:00:35 +0200
-Subject: [PATCH v3 33/36] sparc64: vdso2c: Remove symbol handling
+	bh=j+biOGKKguDUuRUAhQ0+dLthYNe28/1HU1RGsMJffvw=;
+	b=+t6hmZOfY/qlclhLwxtdQbKthvuYmaF5Oc4VwtZI8vjD3ivseTq1MjM9W5AWz+ifnnvfs1
+	VODjJJD3lU6k/XCg==
+Date: Wed, 17 Sep 2025 16:00:36 +0200
+Subject: [PATCH v3 34/36] sparc64: vdso: Implement clock_gettime64()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-33-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-34-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -83,16 +83,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=3432;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=3230;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=f4Pm1iBT2Cenk83Qq5TMSPoB/nyvwI1MW2gyBUgiLI8=;
- b=iOxuwiA/r72lhmby60u7A4UBDBHyoBd3lZHvKp5Musv9OqhM+XOtOYu/NMYLRg9yWtjwVKTwU
- 4dtaCO+ChNYA7+JM0i3GBx0znVTFNzjSomyEWYUXHxkYlBzJ3ajEJpv
+ bh=zMIzJ15FbxyFeuQIxSk4GNU8RIcZLfNhISbA3hu5yNQ=;
+ b=9BbtDwHAenbMghoU6tM/Syy/OgZuKlkxcwIxGWN87y87xZOmS4MtwmZNMkF8EXZ9HCyqVMysv
+ eVjBlZHre0vACPgZ5sMHt1rPiS2p/7jwHLAT08LAfIpGHsUqzEYgjgq
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070222_561272_1E290E73 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250917_070223_448403_98B78423 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,109 +107,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are no handled symbols left.
+To be y2038-safe, 32-bit userspace needs to explicitly call the 64-bit safe
+time APIs.
+
+Implement clock_gettime64() in the 32-bit vDSO.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/sparc/vdso/vdso2c.c | 10 ----------
- arch/sparc/vdso/vdso2c.h | 41 +----------------------------------------
- 2 files changed, 1 insertion(+), 50 deletions(-)
+ arch/sparc/include/asm/vdso/gettimeofday.h | 20 ++++++++++++++++++--
+ arch/sparc/vdso/vclock_gettime.c           |  8 ++++++++
+ arch/sparc/vdso/vdso32/vdso32.lds.S        |  2 ++
+ 3 files changed, 28 insertions(+), 2 deletions(-)
 
-diff --git a/arch/sparc/vdso/vdso2c.c b/arch/sparc/vdso/vdso2c.c
-index 70b14a436fe2297ab446f778ab0d43155c272421..e5c61214a0e285547ac57c9997542546464bde23 100644
---- a/arch/sparc/vdso/vdso2c.c
-+++ b/arch/sparc/vdso/vdso2c.c
-@@ -58,14 +58,6 @@
+diff --git a/arch/sparc/include/asm/vdso/gettimeofday.h b/arch/sparc/include/asm/vdso/gettimeofday.h
+index a35875fba45470ba961a7df3ae52bc17d2a4a4a0..b0c80c8a28bb71e16398ab38904ba826457ac71d 100644
+--- a/arch/sparc/include/asm/vdso/gettimeofday.h
++++ b/arch/sparc/include/asm/vdso/gettimeofday.h
+@@ -101,6 +101,8 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode, const struct vd
+ 	"f48", "f50", "f52", "f54", "f56", "f58", "f60", "f62",		\
+ 	"cc", "memory"
  
- const char *outfilename;
- 
--struct vdso_sym {
--	const char *name;
--	int export;
--};
--
--struct vdso_sym required_syms[] = {
--};
--
- __attribute__((format(printf, 1, 2))) __attribute__((noreturn))
- static void fail(const char *format, ...)
++#ifdef CONFIG_SPARC64
++
+ static __always_inline
+ long clock_gettime_fallback(clockid_t clock, struct __kernel_timespec *ts)
  {
-@@ -105,8 +97,6 @@ static void fail(const char *format, ...)
- #define PUT_BE(x, val)					\
- 	PBE(x, val, 64, PBE(x, val, 32, PBE(x, val, 16, LAST_PBE(x, val))))
- 
--#define NSYMS ARRAY_SIZE(required_syms)
--
- #define BITSFUNC3(name, bits, suffix) name##bits##suffix
- #define BITSFUNC2(name, bits, suffix) BITSFUNC3(name, bits, suffix)
- #define BITSFUNC(name) BITSFUNC2(name, ELF_BITS, )
-diff --git a/arch/sparc/vdso/vdso2c.h b/arch/sparc/vdso/vdso2c.h
-index ba0794659eb5af53b8c86b24f3221a5d0b3f74ab..bad6a0593f4ca293feca201a6343833268ad1cb8 100644
---- a/arch/sparc/vdso/vdso2c.h
-+++ b/arch/sparc/vdso/vdso2c.h
-@@ -17,11 +17,9 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
- 	unsigned long mapping_size;
- 	int i;
- 	unsigned long j;
--	ELF(Shdr) *symtab_hdr = NULL, *strtab_hdr;
-+	ELF(Shdr) *symtab_hdr = NULL;
- 	ELF(Ehdr) *hdr = (ELF(Ehdr) *)raw_addr;
- 	ELF(Dyn) *dyn = 0, *dyn_end = 0;
--	INT_BITS syms[NSYMS] = {};
--
- 	ELF(Phdr) *pt = (ELF(Phdr) *)(raw_addr + GET_BE(&hdr->e_phoff));
- 
- 	/* Walk the segment table. */
-@@ -72,38 +70,6 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
- 	if (!symtab_hdr)
- 		fail("no symbol table\n");
- 
--	strtab_hdr = raw_addr + GET_BE(&hdr->e_shoff) +
--		GET_BE(&hdr->e_shentsize) * GET_BE(&symtab_hdr->sh_link);
--
--	/* Walk the symbol table */
--	for (i = 0;
--	     i < GET_BE(&symtab_hdr->sh_size) / GET_BE(&symtab_hdr->sh_entsize);
--	     i++) {
--		int k;
--
--		ELF(Sym) *sym = raw_addr + GET_BE(&symtab_hdr->sh_offset) +
--			GET_BE(&symtab_hdr->sh_entsize) * i;
--		const char *name = raw_addr + GET_BE(&strtab_hdr->sh_offset) +
--			GET_BE(&sym->st_name);
--
--		for (k = 0; k < NSYMS; k++) {
--			if (!strcmp(name, required_syms[k].name)) {
--				if (syms[k]) {
--					fail("duplicate symbol %s\n",
--					     required_syms[k].name);
--				}
--
--				/*
--				 * Careful: we use negative addresses, but
--				 * st_value is unsigned, so we rely
--				 * on syms[k] being a signed type of the
--				 * correct width.
--				 */
--				syms[k] = GET_BE(&sym->st_value);
--			}
--		}
--	}
--
- 	if (!name) {
- 		fwrite(stripped_addr, stripped_len, 1, outfile);
- 		return;
-@@ -129,10 +95,5 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
- 	fprintf(outfile, "const struct vdso_image %s_builtin = {\n", name);
- 	fprintf(outfile, "\t.data = raw_data,\n");
- 	fprintf(outfile, "\t.size = %lu,\n", mapping_size);
--	for (i = 0; i < NSYMS; i++) {
--		if (required_syms[i].export && syms[i])
--			fprintf(outfile, "\t.sym_%s = %" PRIi64 ",\n",
--				required_syms[i].name, (int64_t)syms[i]);
--	}
- 	fprintf(outfile, "};\n");
+@@ -113,7 +115,20 @@ long clock_gettime_fallback(clockid_t clock, struct __kernel_timespec *ts)
+ 	return o0;
  }
+ 
+-#ifndef CONFIG_SPARC64
++#else /* !CONFIG_SPARC64 */
++
++static __always_inline
++long clock_gettime_fallback(clockid_t clock, struct __kernel_timespec *ts)
++{
++	register long num __asm__("g1") = __NR_clock_gettime64;
++	register long o0 __asm__("o0") = clock;
++	register long o1 __asm__("o1") = (long) ts;
++
++	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
++			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
++	return o0;
++}
++
+ static __always_inline
+ long clock_gettime32_fallback(clockid_t clock, struct old_timespec32 *ts)
+ {
+@@ -125,7 +140,8 @@ long clock_gettime32_fallback(clockid_t clock, struct old_timespec32 *ts)
+ 			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
+ 	return o0;
+ }
+-#endif
++
++#endif /* CONFIG_SPARC64 */
+ 
+ static __always_inline
+ long gettimeofday_fallback(struct __kernel_old_timeval *tv, struct timezone *tz)
+diff --git a/arch/sparc/vdso/vclock_gettime.c b/arch/sparc/vdso/vclock_gettime.c
+index 093a7ff4dafce1cf0af5af4c303bef86e159858a..1d9859392e4cfd285349cf9155ca1fc25d3a7b41 100644
+--- a/arch/sparc/vdso/vclock_gettime.c
++++ b/arch/sparc/vdso/vclock_gettime.c
+@@ -48,4 +48,12 @@ int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts)
+ int clock_gettime(clockid_t, struct old_timespec32 *)
+ 	__weak __alias(__vdso_clock_gettime);
+ 
++int __vdso_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts)
++{
++	return __cvdso_clock_gettime(clock, ts);
++}
++
++int clock_gettime64(clockid_t, struct __kernel_timespec *)
++	__weak __alias(__vdso_clock_gettime64);
++
+ #endif
+diff --git a/arch/sparc/vdso/vdso32/vdso32.lds.S b/arch/sparc/vdso/vdso32/vdso32.lds.S
+index 53575ee154c492f9503efdd8f995ac2a035203c7..a14e4f77e6f2222b855df27cc7a0d0a4f98bd4ac 100644
+--- a/arch/sparc/vdso/vdso32/vdso32.lds.S
++++ b/arch/sparc/vdso/vdso32/vdso32.lds.S
+@@ -17,6 +17,8 @@ VERSION {
+ 	global:
+ 		clock_gettime;
+ 		__vdso_clock_gettime;
++		clock_gettime64;
++		__vdso_clock_gettime64;
+ 		gettimeofday;
+ 		__vdso_gettimeofday;
+ 	local: *;
 
 -- 
 2.51.0
