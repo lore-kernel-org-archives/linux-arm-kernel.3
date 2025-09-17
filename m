@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB342CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696F3CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNeGfpQkD9fJ/pYJdJLVV0A/azvebw9X720XN2OXVKQ=; b=EMjNlITWqgvc9fnkKMsJe+2RfN
-	dwd6033+w4uU8MmDS9vkWejmCyTbnUItS6QaMxiEzc8PqJ10E+JrF8HhTFn6wrwVZC62f+CsiwvDi
-	4JFUmVWsW+j3cQP2g3jG19tS6s74YdsIyzxnAiaycgAiMq0xbHRt6v2s241rhpjmFT4lOUZve/vW5
-	pv5M4z+2UjW53bt10+7DB16PB+0KzEUYSXQqokkNPV7n7yT0k/9WgzE/wJdDkCOcc8SNiFJ3AVK6c
-	r+zm3v2he4PVOXt4d0Ms2Ts34PkjZteL3wGxY2AY6ERIiCzjBdLv+qfvFpff+ElKVb3oI6JIOQJyx
-	j/lbQq7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zgxBzCQCDvwwT1MdtXjPWMiw/X9+NdfomOMbxA0z+nk=; b=EeXMbzrJQEzRPfJpWEj25daWI2
+	JGXfX42nWX1VTeVhoVIv90b3vEiyiPBwpcLSKVDaoCmWRQMfUJMqV91PRwBMkRHSjErOD0lZxWAAA
+	4W6aykMNock/V34+jA+UpWFA7jCH2cLSDExes/pdeshTM/hiAWxlHm3u2+xu5VmQZKXwUjJBaxVgZ
+	3a0zxBY/YY3O/AmeBW72srzGtGpSsYeWmZzT0sWVD4nvRvDcY+/lZ4NP9KiwAXKMk7fuC6PZvWnsM
+	zlTaNtXwviUpVooiYpa/3UjJ8fkPjGUo924VWNApgVuckS+9/TQyl4xVOutu311DzSGz83X/IP8rb
+	iAbyngVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywp6-0000000DtYU-1nJo;
-	Wed, 17 Sep 2025 18:24:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uyx7N-0000000Dznw-1Lv9;
+	Wed, 17 Sep 2025 18:43:01 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywp3-0000000DtXJ-2LH7
+	id 1uyx7K-0000000DzmF-3wa2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 18:24:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758133445; x=1789669445;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=KQBYLBTGVcI6B/UU8+PuP9ANhqubXd++Fn247awfx+M=;
-  b=XuWCWs+NGCzRB+Uw9EdBGC0UXe+pkX29JdZC7Nk1wnaNCGw9mjxflYGS
-   tzJ/QfqCkPgUoRi8hJhYg+U0Kd/oefgfwxniL+3q6MVuVCbPmASTcU74z
-   vtp0MK/l0OAkzA/AwI4TwajIDtBdd2bNDpYKq0Ek5i8CkFzhpCX3t8Hql
-   wLSZkT1X2O1S4bxkb7KoBGUUVwcwiw27tSv3eWTt2s5GcholG6SrH03nd
-   nJ3e0Apdu3uiH6mOMKpJxDp2nSiy9Ye4H186d8Y6yJgpFIXM5ZROIgqxF
-   sL2GZqnfTSAgcDZgVTCEz/AlICvUGMytxJMR282TK0gcpR8VswD8iTWrn
-   Q==;
-X-CSE-ConnectionGUID: 5jJN7IFvSvKlx8qiM0vY4w==
-X-CSE-MsgGUID: RvhQqBJPShSHvESk7QwlQw==
-X-IronPort-AV: E=Sophos;i="6.18,272,1751266800"; 
-   d="scan'208";a="214017525"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Sep 2025 11:24:02 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 17 Sep 2025 11:23:40 -0700
-Received: from [10.12.48.170] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 17 Sep 2025 11:23:36 -0700
-Message-ID: <1a740af5-78c9-421f-a58a-fd4a2066493a@microchip.com>
-Date: Wed, 17 Sep 2025 20:23:35 +0200
+	Wed, 17 Sep 2025 18:43:00 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758134575;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgxBzCQCDvwwT1MdtXjPWMiw/X9+NdfomOMbxA0z+nk=;
+	b=31NPyURfNoC+Hp4DlCfka73PQbGe2AnSx5Lhwo3ZAk40OESvmsNtKLZX/mLN+gUMrsQ7Xj
+	oE1AJTAEi+EfVNjcJpgdtsMX+9eZeJVcd9Cxf9O9hoWMReNGVFq3KDq4HwFLvTJyTvpG0q
+	5tVYyYZKYPYmlYS1v+blGf4H505UHNUxr/5ykB0Z0b+1B0qOtFt2rLmkRPEIqCIw7dJu+t
+	CZNMJy4quCw5wPcBPT/ZONfgr9blUyWN2Tu7MkrKyaD2A2Bjm6turlQT2tLG4ftXi6KyEr
+	8wZRxR70OE05sJ5qLeKfeX3NfNnOjt+EX11TDmw61wq3ERRuxc6UzjUz9nzxiQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758134575;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zgxBzCQCDvwwT1MdtXjPWMiw/X9+NdfomOMbxA0z+nk=;
+	b=+0O3GflIeWtQKvcZ+4RGDE9CFHto6HOBWzA3hxU9BVVK3FujuWCVujUHWubIAY5CX/ouK9
+	VWtYg60SdwLM0iCw==
+To: David Hildenbrand <david@redhat.com>, Eugen Hristev
+ <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
+ pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org
+Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
+In-Reply-To: <7f4aa4c6-7b77-422b-9f7a-d01530c54bff@redhat.com>
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+ <20250912150855.2901211-10-eugen.hristev@linaro.org> <87cy7q9k8y.ffs@tglx>
+ <87a52u9jyl.ffs@tglx> <8df2cf28-c15e-4692-a127-6a5c966a965e@linaro.org>
+ <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com> <87v7lh891c.ffs@tglx>
+ <95ff36c2-284a-46ba-984b-a3286402ebf8@redhat.com>
+ <24d6a51d-f5f8-44d7-94cb-58b71ebf473a@linaro.org>
+ <7f4aa4c6-7b77-422b-9f7a-d01530c54bff@redhat.com>
+Date: Wed, 17 Sep 2025 20:42:54 +0200
+Message-ID: <87segk9az5.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] ARM: microchip: clk for 6.18 #1
-To: Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, SoC Team
-	<soc@kernel.org>, <linux-clk@vger.kernel.org>, <mturquette@baylibre.com>
-CC: Linux Kernel list <linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, Claudiu
- Beznea <claudiu.beznea@tuxon.dev>, <oe-kbuild-all@lists.linux.dev>,
-	<llvm@lists.linux.dev>, kbuild test robot <lkp@intel.com>
-References: <20250916080545.9310-1-nicolas.ferre@microchip.com>
- <0695ca65-536c-48d9-ad1b-49452e67a6f9@microchip.com>
- <175808457715.4354.11044142356915096975@lazor>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <175808457715.4354.11044142356915096975@lazor>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_112405_662872_FE6A6391 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250917_114259_122044_AE142102 
+X-CRM114-Status: GOOD (  39.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +85,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stephen,
-
-On 17/09/2025 at 06:49, Stephen Boyd wrote:
-> Quoting Nicolas Ferre (2025-09-16 06:19:11)
->> On 16/09/2025 at 10:05, nicolas.ferre@microchip.com wrote:
->>> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+On Wed, Sep 17 2025 at 17:18, David Hildenbrand wrote:
+> On 17.09.25 17:02, Eugen Hristev wrote:
+>> On 9/17/25 17:46, David Hildenbrand wrote:
+>>> On 17.09.25 16:10, Thomas Gleixner wrote:
+>>>> Sorry. I was busy with other stuff and did not pay attention to that
+>>>> discussion.
 >>>
->>> Dear clock maintainers,
->>>
->>> Here are the first clk changes for 6.18.
->>> I don't think they have conflict with changes for the deprecated round_rate()
->>> to determine_rate() topic.
->>> They are in linux-next for a couple of days.
->>
->> But... this series depends on this patch:
->> https://lore.kernel.org/r/20250827145427.46819-4-nicolas.ferre@microchip.com
->>
->> Which will be part of a pull-request to-be-sent soon to arm-soc (which
->> is part of linux-next, so the build error doesn't appear there).
->>
->> Once the pull-request is done, do you prefer that I do an immutable
->> branch between CLK and ARM, that I queue this at91 PM patch into the clk
->> pull-request or that everything goes through arm-soc?
-> 
-> Whatever is required to build the code should be included in the PR. If
-> the same commit goes into arm-soc tree that's OK, just make sure the
-> branches aren't broken if you checkout a commit anywhere along the
-> branch that is sent to clk or arm-soc trees. Broken includes
-> functionally broken.
+>>> I understand, I'm busy with too much stuff such that sometimes it might
+>>> be good to interrupt me earlier: "David, nooo, you're all wrong"
 
-Thanks for your quick response Stephen. v2 of the pull-request has just 
-been sent.
+I know that feeling.
 
-Best regards,
-   Nicolas
+>> The idea was to make "kmemdump" exactly this generic way to tag/describe
+>> the memory.
+>
+> That's probably where I got lost, after reading the cover letter 
+> assuming that this is primarily to program kmemdump backends, which I 
+> understood to just special hw/firmware areas, whereby kinfo acts as a 
+> filter.
+>
+>> If we would call it differently , simply dump , would it be better ?
+>> e.g. include linux/dump.h
+>> and then DUMP(var, size) ?
+>> 
+>> could we call it maybe MARK ? or TAG ?
+>> TAG_MEM(area, size)
+>
+> I'm wondering whether there could be any other user for this kind of 
+> information.
+>
+> Like R/O access in a debug kernel to these areas, exporting the 
+> ranges/names + easy read access to content through debugfs or something.
+>
+> Guess that partially falls under the "dump" category.
 
+I'd rather call it inspection.
+
+> Including that information in a vmcore info would probably allow to 
+> quickly extract some information even without the debug symbols around 
+> (I run into that every now and then).
+
+Correct.
+
+>> this would go to a separate section called .tagged_memory.
+
+That'd be confusing vs. actual memory tags, no?
+ 
+> Maybe just "tagged_memory.h" or sth. like that? I'm bad at naming, so I 
+> would let others make better suggestions.
+
+inspect.h :)
+
+I'm going to use 'inspect' as prefix for the thoughts below, but that's
+obviously subject to s/inspect/$BETTERNAME/g :)
+
+>> Then anyone can walk through the section and collect the data.
+>> 
+>> I am just coming up with ideas here.
+>> Could it be even part of mm.h instead of having a new header perhaps ?
+>> Then we won't need to include one more.
+>
+> I don't really have something against a new include, just not one that 
+> sounded like a very specific subsystem, not something more generic.
+
+Right. We really don't want to have five different mechanisms for five
+infrastructures which all allow to inspect kernel memory (life or
+dead) in one way or the other. The difference between them is mostly:
+
+   - Which subset of the information they expose for inspection
+
+   - The actual exposure mechanism: crash dump, firmware storage,
+     run-time snapshots in a filesystem, ....
+
+Having one shared core infrastructure to expose data to those mechanisms
+makes everyones life simpler.
+
+That obviously needs to collect the superset of data, but that's just a
+bit more memory consumed. That's arguably significantly smaller than
+supporting a zoo of mechanisms to register data for different
+infrastructures.
+
+I'm quite sure that at least a substantial amount of the required
+information can be collected at compile time in special section
+tables. The rest can be collected in runtime tables, which have the same
+format as the compile time section tables to avoid separate parsers.
+
+Let me just float some ideas here, how that might look like. It might be
+completely inpractical, but then it might be at least fodder for
+thoughts.
+
+As this is specific for the compiled kernel version you can define an
+extensible struct format for the table.
+
+struct inspect_entry {
+	unsigned long	properties;
+        unsigned int	type;
+        unsigned int	id;
+        const char	name[$MAX_NAME_LEN];
+	unsigned long	address;
+        unsigned long	length;
+        ....
+};
+
+@type
+       refers either to a table with type information, which describes
+       the struct in some way or just generate a detached compile time
+       description.
+
+@id
+       a unique id created at compile time or via registration at
+       runtime. Might not be required
+
+@name:
+       Name of the memory region. That might go into a separate table
+       which is referenced by @id, but that's up for debate.
+
+@address:
+@length:
+       obvious :)
+
+...
+        Whatever a particular consumer might require
+
+@properties:
+
+        A "bitfield", which allows to mark this entry as (in)valid for a
+        particular consumer.
+
+        That obviously requires to modify these properties when the
+        requirements of a consumer change, new consumers arrive or new
+        producers are added, but I think it's easier to do that at the
+        producer side than maintaining filters on all consumer ends
+        forever.
+
+Though I might be wrong as usual. IOW this needs some thoughts. :)
+
+The interesting engineering challenge with such a scheme is to come up
+with a annotation mechanism which is extensible.
+
+     Runtime is trivial as it just needs to fill in the new field in the
+     datastructure and all other runtime users have that zero
+     initialized automatically, if you get the mechanism correct in the
+     first place. Think in templates :)
+
+     Compile time is a bit more effort, but that should be solvable with
+     key/value pairs.
+
+     Don't even waste a thought about creating the final tables and
+     sections in macro magic. All the annotation macros have to do is to
+     emit the pairs in a structured way into discardable sections.
+
+     Those section are then converted in post processing into the actual
+     section table formats and added to the kernel image. Not a
+     spectacular new concept. The kernel build does this already today.
+
+     Just keep the compile time annotation macro magic simple and
+     stupid. It can waste 10k per entry at compile time and then let
+     postprocessing worry about downsizing and consolidation. Nothing to
+     see here :)
+
+Hope that helps.
+
+Thanks,
+
+        tglx
 
