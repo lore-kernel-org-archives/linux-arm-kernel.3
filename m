@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51715CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 095CACAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mo4OqzfGjmLC2N8F8wqwEshYuK+X6JdNA0FmDWCtBF8=; b=iD5jkb546HuG+J3FSLbkBz+Ig4
-	nWR8gRNy0jcXDnCxRxOnSAgOj/mXilsHM18u47qiuxp3YMIEgHnBpC87cjzCfgi1++Y2SrDmQxJ6T
-	z6PtrfdgkBRu7VtrIJHQsk1neFsDpBSH+hop2u1E2o299JRWu/mVElE5NX3fwC8k815jtlh9f5T57
-	D5U4wjTEqMr/DZRXQv/vEDsw/rPpOUhZdLMMwI/1Scvsn2OAjwoQy79hoRl7AJ7QdtdJHNSkJQQHB
-	HxktHTu3BlBVBKnlmusWhm+oEfxJEXbORrtgDPAtZZo+yVDPEfO6lN3Ypi7FQ0pOW3XY5NkjTPQgR
-	LRIfnOyg==;
+	bh=2g20CiixGKavOGLKNyQ2qkYwlpIzcS1YH+nuvzs7O38=; b=k+rdnCHpHlRpZZyP74QH08T3//
+	t6z7nxIm76qheXImziJcHbxMJYmYGILYrrzTQEs3pOj6bUlN1LabWEl8Uhg0HuB5zTxkrQCOH1Lx0
+	2Xcqcd3PnEesQ4ZCmU7FBBCEflbm0jJAM6/OHJmKpPasDQL6E3GhEoT5iEZIBpqHgg2nkBEaCwF+C
+	ZvEQKkQY9+4HTRKEQHB6pMVan0iXbPa5LvFdmFAGuUTcNRQudH0Lruxwk5Vf/1/8DtB4Q7YgvfHQe
+	ZJ/OUzRuxnAF3dV+0CUuNwUNuT7SsSibjqMlkqCzRhU4DDdUQIvp9zvcWMkghiYeSmQIhk/24OSXu
+	vKgBMsYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzbP-0000000EsJh-2Z1U;
-	Wed, 17 Sep 2025 21:22:11 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1uyzbU-0000000EsPp-2Xqd;
+	Wed, 17 Sep 2025 21:22:16 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzbJ-0000000Es8z-3Ziy
+	id 1uyzbO-0000000EsFn-2Tjk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:22:10 +0000
+	Wed, 17 Sep 2025 21:22:13 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144122;
+	t=1758144127;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mo4OqzfGjmLC2N8F8wqwEshYuK+X6JdNA0FmDWCtBF8=;
-	b=sWocmLbhjmzHXxx9/n9OktxXOouX5Z9bF0An0NYSKi5RsOhXwodpmX8rtwH0+GchLsqJgr
-	1iRTAEwfKvXgHw38Oyx1Ku/2byxp/NYEwQbIqpp9kzZ0/mBXC/BMmk3qmxSKnm4Cq6K/yZ
-	uiDQRKSV3p6avOqpTq/jv3ZWNReRaTA=
+	bh=2g20CiixGKavOGLKNyQ2qkYwlpIzcS1YH+nuvzs7O38=;
+	b=RkhveltuCLEdr/Ea1r66lo+1t+ofYHmhkUWjdn+WV1GH0eTmPX3/Q3jt8Rg2KNjstoG2tF
+	lMITCTvZQeOs1Afui8HT2h9Twd9tubC166CFfLRR2+aG6+t6BMmeqloHd+RS1CoS8sBt3l
+	VB4mtgsKvAXlpI/ehZUNXk9TLx5KLAY=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 10/13] KVM: arm64: selftests: Use the vCPU attr for setting nr of PMU counters
-Date: Wed, 17 Sep 2025 14:20:40 -0700
-Message-ID: <20250917212044.294760-11-oliver.upton@linux.dev>
+Subject: [PATCH 12/13] KVM: arm64: selftests: Enable EL2 by default
+Date: Wed, 17 Sep 2025 14:20:42 -0700
+Message-ID: <20250917212044.294760-13-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142206_224143_E80D1D60 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250917_142210_818615_BAB450B6 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,152 +78,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Configuring the number of implemented counters via PMCR_EL0.N was a bad
-idea in retrospect as it interacts poorly with nested. Migrate the
-selftest to use the vCPU attribute instead of the KVM_SET_ONE_REG
-mechanism.
+Take advantage of VHE to implicitly promote KVM selftests to run at EL2
+with only slight modification. Update the smccc_filter test to account
+for this now that the EL2-ness of a VM is visible to tests.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- .../selftests/kvm/arm64/vpmu_counter_access.c | 59 +++++++++----------
- 1 file changed, 28 insertions(+), 31 deletions(-)
+ tools/testing/selftests/kvm/arm64/smccc_filter.c   | 14 +++++++++++++-
+ .../selftests/kvm/include/arm64/processor.h        |  1 +
+ tools/testing/selftests/kvm/lib/arm64/processor.c  | 12 ++++++++++++
+ 3 files changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 2a8f31c8e59f..ae36325c022f 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -44,11 +44,6 @@ static uint64_t get_pmcr_n(uint64_t pmcr)
- 	return FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
- }
+diff --git a/tools/testing/selftests/kvm/arm64/smccc_filter.c b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+index a8e22d866ea7..1763b9d45400 100644
+--- a/tools/testing/selftests/kvm/arm64/smccc_filter.c
++++ b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+@@ -22,8 +22,20 @@ enum smccc_conduit {
+ 	SMC_INSN,
+ };
  
--static void set_pmcr_n(uint64_t *pmcr, uint64_t pmcr_n)
--{
--	u64p_replace_bits((__u64 *) pmcr, pmcr_n, ARMV8_PMU_PMCR_N);
--}
--
- static uint64_t get_counters_mask(uint64_t n)
++static bool test_runs_at_el2(void)
++{
++	struct kvm_vm *vm = vm_create(1);
++	struct kvm_vcpu_init init;
++
++	kvm_get_default_vcpu_target(vm, &init);
++	kvm_vm_free(vm);
++
++	return init.features[0] & BIT(KVM_ARM_VCPU_HAS_EL2);
++}
++
+ #define for_each_conduit(conduit)					\
+-	for (conduit = HVC_INSN; conduit <= SMC_INSN; conduit++)
++	for (conduit = test_runs_at_el2() ? SMC_INSN : HVC_INSN;	\
++	     conduit <= SMC_INSN; conduit++)
+ 
+ static void guest_main(uint32_t func_id, enum smccc_conduit conduit)
  {
- 	uint64_t mask = BIT(ARMV8_PMU_CYCLE_IDX);
-@@ -414,10 +409,6 @@ static void create_vpmu_vm(void *guest_code)
- 		.attr = KVM_ARM_VCPU_PMU_V3_IRQ,
- 		.addr = (uint64_t)&irq,
- 	};
--	struct kvm_device_attr init_attr = {
--		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
--		.attr = KVM_ARM_VCPU_PMU_V3_INIT,
--	};
+diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
+index f037c1bb8e63..b6b86e2cd59c 100644
+--- a/tools/testing/selftests/kvm/include/arm64/processor.h
++++ b/tools/testing/selftests/kvm/include/arm64/processor.h
+@@ -303,6 +303,7 @@ void wfi(void);
+ void test_wants_mte(void);
+ void test_disable_default_vgic(void);
  
- 	/* The test creates the vpmu_vm multiple times. Ensure a clean state */
- 	memset(&vpmu_vm, 0, sizeof(vpmu_vm));
-@@ -444,9 +435,7 @@ static void create_vpmu_vm(void *guest_code)
- 		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
- 		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
- 
--	/* Initialize vPMU */
- 	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &irq_attr);
--	vcpu_ioctl(vpmu_vm.vcpu, KVM_SET_DEVICE_ATTR, &init_attr);
- }
- 
- static void destroy_vpmu_vm(void)
-@@ -472,33 +461,28 @@ static void run_vcpu(struct kvm_vcpu *vcpu, uint64_t pmcr_n)
++bool vm_supports_el2(struct kvm_vm *vm);
+ static bool vcpu_has_el2(struct kvm_vcpu *vcpu)
+ {
+ 	return vcpu->init.features[0] & BIT(KVM_ARM_VCPU_HAS_EL2);
+diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+index 4339de2fc482..74324915b41e 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/processor.c
++++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+@@ -267,11 +267,23 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
  	}
  }
  
--static void test_create_vpmu_vm_with_pmcr_n(uint64_t pmcr_n, bool expect_fail)
-+static void test_create_vpmu_vm_with_nr_counters(unsigned int nr_counters, bool expect_fail)
- {
- 	struct kvm_vcpu *vcpu;
--	uint64_t pmcr, pmcr_orig;
-+	unsigned int prev;
-+	int ret;
- 
- 	create_vpmu_vm(guest_code);
- 	vcpu = vpmu_vm.vcpu;
- 
--	pmcr_orig = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
--	pmcr = pmcr_orig;
-+	prev = get_pmcr_n(vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0)));
- 
--	/*
--	 * Setting a larger value of PMCR.N should not modify the field, and
--	 * return a success.
--	 */
--	set_pmcr_n(&pmcr, pmcr_n);
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
--	pmcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
-+	ret = __vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+				     KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS, &nr_counters);
- 
- 	if (expect_fail)
--		TEST_ASSERT(pmcr_orig == pmcr,
--			    "PMCR.N modified by KVM to a larger value (PMCR: 0x%lx) for pmcr_n: 0x%lx",
--			    pmcr, pmcr_n);
-+		TEST_ASSERT(ret && errno == EINVAL,
-+			    "Setting more PMU counters (%u) than available (%u) unexpectedly succeeded",
-+			    nr_counters, prev);
- 	else
--		TEST_ASSERT(pmcr_n == get_pmcr_n(pmcr),
--			    "Failed to update PMCR.N to %lu (received: %lu)",
--			    pmcr_n, get_pmcr_n(pmcr));
-+		TEST_ASSERT(!ret, KVM_IOCTL_ERROR(KVM_SET_DEVICE_ATTR, ret));
-+
-+	vcpu_device_attr_set(vcpu, KVM_ARM_VCPU_PMU_V3_CTRL, KVM_ARM_VCPU_PMU_V3_INIT, NULL);
- }
- 
- /*
-@@ -513,7 +497,7 @@ static void run_access_test(uint64_t pmcr_n)
- 
- 	pr_debug("Test with pmcr_n %lu\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	/* Save the initial sp to restore them later to run the guest again */
-@@ -554,7 +538,7 @@ static void run_pmregs_validity_test(uint64_t pmcr_n)
- 	uint64_t set_reg_id, clr_reg_id, reg_val;
- 	uint64_t valid_counters_mask, max_counters_mask;
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, false);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, false);
- 	vcpu = vpmu_vm.vcpu;
- 
- 	valid_counters_mask = get_counters_mask(pmcr_n);
-@@ -608,7 +592,7 @@ static void run_error_test(uint64_t pmcr_n)
- {
- 	pr_debug("Error test with pmcr_n %lu (larger than the host)\n", pmcr_n);
- 
--	test_create_vpmu_vm_with_pmcr_n(pmcr_n, true);
-+	test_create_vpmu_vm_with_nr_counters(pmcr_n, true);
- 	destroy_vpmu_vm();
- }
- 
-@@ -626,12 +610,25 @@ static uint64_t get_pmcr_n_limit(void)
- 	return get_pmcr_n(pmcr);
- }
- 
-+static bool kvm_supports_nr_counters_attr(void)
++bool vm_supports_el2(struct kvm_vm *vm)
 +{
-+	bool supported;
++	const char *value = getenv("NV");
 +
-+	create_vpmu_vm(NULL);
-+	supported = !__vcpu_has_device_attr(vpmu_vm.vcpu, KVM_ARM_VCPU_PMU_V3_CTRL,
-+					    KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS);
-+	destroy_vpmu_vm();
++	if (value && *value == '0')
++		return false;
 +
-+	return supported;
++	return vm_check_cap(vm, KVM_CAP_ARM_EL2) && vm->arch.has_gic;
 +}
 +
- int main(void)
+ void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init)
  {
- 	uint64_t i, pmcr_n;
+ 	struct kvm_vcpu_init preferred = {};
  
- 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
- 	TEST_REQUIRE(kvm_supports_vgic_v3());
-+	TEST_REQUIRE(kvm_supports_nr_counters_attr());
+ 	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &preferred);
++	if (vm_supports_el2(vm))
++		preferred.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
  
- 	pmcr_n = get_pmcr_n_limit();
- 	for (i = 0; i <= pmcr_n; i++) {
+ 	*init = preferred;
+ }
 -- 
 2.47.3
 
