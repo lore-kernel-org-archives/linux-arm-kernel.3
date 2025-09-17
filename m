@@ -4,78 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F24DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22FFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfzAdmUZnQT+nmiiN7mfGjBmde5r2RVPcb/gr6FSSjg=; b=rdnwmpMOByTTZkaOOoQ7lzN6Tk
-	eMNAPr842AEtBf3ZaKwKjorjCOwaSs4k86EJXAjEZlywbvs2p/4Qkz2vcGK3zQuhIfXjhH2PgCUEs
-	E39U2DXKORoEJLI3hRwR+5lDathNJfSwApfrga39518Om+nTNZ34QQEhEhPBL+mjU83tU37afqXwC
-	bfbupF67vbhyqBaBgJF5MNLTaRMafs5IGKIHoINt2Qmb1C77kV7yry6ymn4/ijY9alDCKR87MVX4Q
-	DzjSSjZDonhvbHlSCWvaVUTmj0rhzDeMAi0EaRlnGLNPgCpG86YI08J80z+gC0Zp9dg02h33zUzIb
-	moTrcBTg==;
+	bh=IWZvP455P3/v+SuzQqYeBb+s8bvs6L1HZBup4WQ03ts=; b=lw30NpURjUmZMsftgV7iA6Gtts
+	5MGfOMc+zHIazpdH+RvOAP4Oappy/QD/GKy3jcOI7sgSoqJxqH6+UoHI5mzzapZZr788qz5gLUirw
+	/ELmHEHsK+f/D9k5dnx8ssMvowcHS7HImm/Lsr05Ao/AXCTC2rN2KHQ4UdfT/QXtsN+AYYTFYr1a9
+	a4l/8OLe2eRRrplOWaJmzjSgx5dUEmBv/xtB+21fUugF+A2avJFg3QxTm2b87KGiJqD0czvnhwO1B
+	eatGbMYZCuwwRpCNVKtZ2faU00/tTBVYa3odxzW5q0bNUAfAWDyninceh2UzxQ4Snf28gOJrVhZZY
+	XIibMYVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxZU-0000000E9Ya-24ZQ;
-	Wed, 17 Sep 2025 19:12:04 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1uyxZt-0000000EA50-2Hp9;
+	Wed, 17 Sep 2025 19:12:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxZQ-0000000E9R2-25tW
+	id 1uyxZr-0000000EA2R-3qSK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 17 Sep 2025 19:12:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=IWZvP455P3/v+SuzQqYeBb+s8bvs6L1HZBup4WQ03ts=; b=GFxo5v8Sg1vhMaAF/yPw2hsCdA
+	A7SK5gnxR6PssHfQRdB5y8DIL8W2c1X4kJgWGk+4FlxUwX06QKrwTtzOrq3oH0BQaoB6mcsQ8mXpn
+	dJUtI2DtALDZ365ctQUveGytcJnDDAh/lJClY8/XWhXxB/O8tjfTvLwDskMMG0amOrEOec5KipU7X
+	ln0WKLU0nCRehnhtT4jrP4qcgYdI9wZt5m/cgKuPgJTUFacfXH2xSAIR1Wl+vwKUuamZIHO1ehJm7
+	rwLIhGGTSlQEWL8tYXR0fzgAaOy+oYtPDEhuadW7He9Cu0wJre+/aa/ywfNxGucRi9Fz2xTWty+Xp
+	qnqUk9Tw==;
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyxZn-00000007UXP-1Wdc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:12:02 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45f2c1556aeso408075e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:11:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758136318; x=1758741118; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KfzAdmUZnQT+nmiiN7mfGjBmde5r2RVPcb/gr6FSSjg=;
-        b=nI3HLQ7XiZbHjNhQEydSSSbFgugEytkPdI7035aXMUJMUNC3civb5HkTGlnF+HAJlk
-         ZV+pPX4MmKNd2vZLrb8HPPVwM3VORqY2glk1eIL1zJ/LkpDiKKpARZjKFqIyznCYHY7P
-         csiloHhpR8b0ps+MsdfDsYcesj+HhWfEvLvlo6FvPY9Z+DDW+3QpfqOdYOJcbLfpZWuq
-         N4DPSLqplgB3j+YFH0EtAqLvcJeiG7jgkvM7Hsw9ZV9EPgk42TInbb5Nmam3gaSusqzv
-         oAqWo+7HqKedQKqQypYlm7ERfxWN6ilBzkHql5rGT2WEY1wW4YSM8au84o6sR0oGJqZ7
-         o20w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758136318; x=1758741118;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KfzAdmUZnQT+nmiiN7mfGjBmde5r2RVPcb/gr6FSSjg=;
-        b=oFE+itKJkLtylCvJuh63XsxC8OLF/SnBWzkYhw+MY11Ks9JJLz0oKVSZBNhLKWqPlw
-         YdhIWr7455ZRkTUV07tx+svp9XcD1vQ7LhQQHS7Lg2uTQr7Jujo3GNRQfH0Kr2wfmN0O
-         yYNRJEbca5CzydZ2+DBSDWqYxlG2RsGw1fZIqZ+h8JOxQh3D6OfBFiGLi0f+P2YtKU0k
-         yVPZbiYrt96SzW1x2z0/4YkjD5Nw5sBxs54LcCeuNT05Qtv26WIcr2IIB2usaPtjG0Iy
-         CyX2O51C8NXJVynXFuhhLMhKY/TmLSpkfZOqR8ga4BmaDctAW3oGhI92AXv+jL/PXdXw
-         Bcdg==
-X-Forwarded-Encrypted: i=1; AJvYcCXg53SBKnnW4boEGqimnapbsU0lp/qEt0iuOyIRbYRH9aFH8HZENIEgQEfm38ih3yGDw/oPneMy2CnJiU7/LM1M@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlD4kDMyqB3OuOtX9J83pnujRCDhzMiDltsPDYIcmt1MbkKMNt
-	WcUXU2q+jp6JoIPca9fiFYx0HWXxk1s+6+oUefLBv6bD3Qm+1Zi/WqBugWmNcaLmFaPMOV3txRw
-	MWvQSyQWGNTpjXg==
-X-Google-Smtp-Source: AGHT+IEMJRP4sg9BT5V4UpeM5P79U3ojtSeakMWm8SULvgvW6XkVpztKgO9ZPvtMWwSsYvJxOiDWZZ/JO0WHRA==
-X-Received: from wmsr5.prod.google.com ([2002:a05:600c:8b05:b0:459:7c15:15b9])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:548c:b0:45d:84ca:8a7 with SMTP id 5b1f17b1804b1-46202a0e8femr30570705e9.14.1758136317836;
- Wed, 17 Sep 2025 12:11:57 -0700 (PDT)
-Date: Wed, 17 Sep 2025 19:11:40 +0000
-In-Reply-To: <20250917191143.3847487-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20250917191143.3847487-1-smostafa@google.com>
-X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
-Message-ID: <20250917191143.3847487-4-smostafa@google.com>
-Subject: [PATCH v2 3/3] iommu/io-pgtable-arm-selftests: Use KUnit
-From: Mostafa Saleh <smostafa@google.com>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
-	praan@google.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 17 Sep 2025 19:12:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vnuEr8H67M1U3+dYpe5hw0Mmazzc3yeHsFDRJGpVlyp9n1uJOFAUm76QlV42ApYhCUggqjCo3NX6rWCl8JqqVBiToTURUizu/irK4Q8hoOfVQtzD6AmUtpMcP8M+uKObR4MY3iNiy2NemY7qMj+Rary4cf3bbCOwqbIb2TgaATFnZMg4WpTVLtt1t+UkWcsUYvQpAz4STNEU9wVd4192lOwCAwfmFmYattFjNYZyAniNZvrj4e/tYXse+b5Xf+j118Lvsn/w7r7KMOa8vJIYQGyEaie89qimUt5XHLAHhkyCll+KQB/PVlou6kxNO+zzRPmOL/i4kxCw2qoPXaXnug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IWZvP455P3/v+SuzQqYeBb+s8bvs6L1HZBup4WQ03ts=;
+ b=qA6akNtUiaAMdcc4PNI1VW5Jorx/kIMfG8+BWLpQA2JTn2alb3dj2QqfY36Cpq7PajmHneyA4tFkDWnOCc1N36DW7pdwHuCljgvkheg9OVbsurIt5697wo/wXKtgdUZNpsJZOW4ytmmPGzbsulnm0Ff9GTg7RKL8jvbLv/2yJ7zSE6nkHjtD5f6mWRFojKKLiKzuV4I6EG4yKkj+HR3DCUxNkqWR8WmV1g1iFVea3gpKcxsgcl7Rqg+KFooOCB8fLtPBBXllIId5oejxhnspepDYBUPzuWCeAHkG4aHUPmUwO5LBQQB4Q0y5Lv19id2E3tUtxlfcg5H9U6uhTpFu/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IWZvP455P3/v+SuzQqYeBb+s8bvs6L1HZBup4WQ03ts=;
+ b=EiA6de6n5TslhmFPhUqZrG6WSA7TiyoaRq1FKPc4tMyrL9WlrtSN4XKxK2+jZZ9uBdKb+0vmm1EvrNcwK38qRnIa7UWFJklDdI2Vy8Ra+wczO+myzQl2Zlt2PUm2lSoSIpSJ66LhcY3iWFT58NxeXEGALfjrkPY+klgm/Wi+ieDXvCYIbvb3z21ZrRbB/C2lgULmfdyODZgs7fXFyQVKr1micdY+J702viyVlvyuSqnuoQaXNxm8unHUEBl1B7RTgqbTer9po3Fnimzp9M5F6siSi+cKsNl3wL7M/FBkyk8/XhTw58P199ptdOOB0KIzeKSdkP+OJq3iEMIqOu/gDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13)
+ by SA1PR12MB6701.namprd12.prod.outlook.com (2603:10b6:806:251::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.23; Wed, 17 Sep
+ 2025 19:08:48 +0000
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632]) by PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632%2]) with mapi id 15.20.9115.022; Wed, 17 Sep 2025
+ 19:08:47 +0000
+Date: Wed, 17 Sep 2025 16:08:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>
+Subject: Re: [PATCH v3 3/4] ARM: dma-mapping: Switch to physical address
+ mapping callbacks
+Message-ID: <20250917190846.GE1391379@nvidia.com>
+References: <cover.1758006942.git.leon@kernel.org>
+ <5f96e44b1fb5d92a6a5f25fc9148a733a1a53b9d.1758006942.git.leon@kernel.org>
+ <20250916184617.GW1086830@nvidia.com>
+ <20250917103644.GB6464@unreal>
+ <20250917113248.GA1086830@nvidia.com>
+ <20250917134128.GC6464@unreal>
+ <20250917135819.GA1391379@nvidia.com>
+ <20250917184625.GA10800@unreal>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917184625.GA10800@unreal>
+X-ClientProxiedBy: YT4PR01CA0373.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:fd::15) To PH7PR12MB5757.namprd12.prod.outlook.com
+ (2603:10b6:510:1d0::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5757:EE_|SA1PR12MB6701:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd5f3ee3-7d99-4ff7-e802-08ddf61da14c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RdHE6PRN7YlTmK+j/RklCPVvtHI+vXM9vmj1hjzkZ2scrdi7LK2dBtMeumsU?=
+ =?us-ascii?Q?OkJlH4HEktLqyQs5KNbBc8WYiW21uJQUEy82uLkD11DA2Mr1921rSqk7co7U?=
+ =?us-ascii?Q?xctLGlors7xL8l7cC09g0rIndK612wjYqZPHABEGTOND7Cd5MJQxtot+dAOG?=
+ =?us-ascii?Q?GNn4ZAcJhqptqVoisJnvKDHUhJ44JKoG7NIjsRwA9ht357j5+jO4j2vonD4p?=
+ =?us-ascii?Q?vcSzsIekG6elhSyF7sBmHfAYD7kjapMcxv7jiPddU665XBliiHYmi4kOWLBb?=
+ =?us-ascii?Q?qv+lZmJwYywefCj2Jh7g/QniZRV3d/OYrhOBN1pgn69rl3dMqIvCsoha5mk7?=
+ =?us-ascii?Q?ff3DCFBrsa/YO2qnwv/gooCVuDWbqKj/0G50kGoWURVinCcIbryLojxTuN+f?=
+ =?us-ascii?Q?paVWrr71ihviVP7QI28DxVK0NBNah0JSemzIM0hvztUfChz+HKwI+PNSxP0g?=
+ =?us-ascii?Q?txO44Do8aK7Vpjz2ClBkEpClEXTMSo4BbhpPgmKO1H3eS6z3AbGHbG1sTuyb?=
+ =?us-ascii?Q?utL0QPzk1ttgXC5arDqMamN3sB9BwmnzilvK1jg4acNXp+Kj3iKmhbjkSTrc?=
+ =?us-ascii?Q?rvqeQ3LH7nQGO3ZUDSP/7NG3/lrbzLEYSNqP00QL0a1CNyygPObj7Sum+tlv?=
+ =?us-ascii?Q?bCcMnsdbgGkNeJeTKnk3ixW8NN+mjBJc2SMtB+gb8ddYnL9/3srJ2d6e/Aj0?=
+ =?us-ascii?Q?9gHzCGq56iYw01i8i5ev4REtSzn5qeDwu0VH9il0VVS1wVYaVApdkZRnGheb?=
+ =?us-ascii?Q?hW0AUsrFQyZpQBKcSQ8PQg7RLV21vWsyku+InRZP6k+1KzlraXLXwUQWB3HJ?=
+ =?us-ascii?Q?yyrqSbZHlRYi+3ck6rFSbIm4++bykK106l89ATPKhxIx5feOUJjZCDodNq9V?=
+ =?us-ascii?Q?N7s5avbKb88Icmr1GhplHVmFAtR50dNMLxIruszWBp3ds2W7ZnVKK8AqDvlL?=
+ =?us-ascii?Q?g7MTpzMAXEWPiolkAEL8wtDjPRBJG5s5i1SLBLRikIRkCQ/YYKTDnEkbKAaS?=
+ =?us-ascii?Q?4YMJnEV7WOkqU+Qj0vMeDuEa+Ka5MNaMMqHBSKs4iKpZlGqsnYCRqChvsrCB?=
+ =?us-ascii?Q?dFTnJVG0jSMX/3sqs1BrB1HMwS9JVuBAy5EtglJAIUjx00TNoLtPc/3XJU/T?=
+ =?us-ascii?Q?w61IgYlzzo56VBAUS4jRAEnzPrteXVsoKImXrKxugAnYRj+Fg/Ii/h9+ezda?=
+ =?us-ascii?Q?TEJTteT1PASmewgWTeAwxkg4XD0BawpJkTtLej+IyKTWnw32MTe++h4cd01B?=
+ =?us-ascii?Q?XOwR/uLRNh9Dovb25v6uR7kIm9TTFXRAR/KX4+M5TqS/ZOToD1s0dC7e9ctR?=
+ =?us-ascii?Q?yrDRFc+YEbNW8ExpSVhyZVmBtGE9wHfG6vUNa/OlEMD0JFaLK0jW0OBzaQEz?=
+ =?us-ascii?Q?AvOJHINRH6p67M3lhmkTJ74jZL/ImUcME2CpG/C+bLsTGW+JfA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5757.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xTspdmBcQhKxjBiqI/+iWk6vbRRONe4X2nhF6Rwa8BbiUAUWvheaE/LuQxsZ?=
+ =?us-ascii?Q?aTmmKJqVJ7MPHy5nlAT5P8R7YXBDiHEoz3OoSbL+PAumcwgRbRUWo9D9ogiK?=
+ =?us-ascii?Q?rpFC5FuRhmoL5ycQik3zSJ3f/Ky2yJnB62D+XryRuGGiftHm/Un7EFNbyeIg?=
+ =?us-ascii?Q?QPfFkX5K50+NEeJ65GxxllNNr7RZ3fQ7IX0KhCP4XPebrmuB+91pnxba75zy?=
+ =?us-ascii?Q?AesmH7vImdP6iJrOqHzO8RxM4IMzLwZlOoRvINHNGVWeFZR4YGmIdUd3CUN6?=
+ =?us-ascii?Q?hwF3Jt5dUQj8aB9Wm8QcHZjgqj/qW+m4KcnJqf3FAeZFgdTccoU5xwPmaZTv?=
+ =?us-ascii?Q?Ogf3+3znlNWX8EDxhhWgTj3lw4LRWGDca2W+xkCtC9mj8fqzeG6gizMAyZq4?=
+ =?us-ascii?Q?Vxl1NUpBLGPL9NeZoHqBdqoprCLXzXU1gS21XSda5Kxzr4sC9DnGR2udKWeH?=
+ =?us-ascii?Q?gmY/eimGcaoDdG4jKHjexDVjTmIB+Bql9X6o6mM5TsYuRj9SlsUXHVqdh6O/?=
+ =?us-ascii?Q?RCzI7DQkKSw4GdKvC9O0VsJQbWcKWBNquAwrjV12IAM/Rj8iqNUm43v8mQ3d?=
+ =?us-ascii?Q?0a4b5oaJVTn3TwubK4kauswpfDLgfukm+Ms120kuyodWOYs9Xup14Zceh/fY?=
+ =?us-ascii?Q?teusj8HuwvIyuOcP/qhu9CBF5r8DGeY81HszVGtz0BeQVcbz/09aBuXa6XVF?=
+ =?us-ascii?Q?diK42r4Y8LQkXw7UxN6TzWOAvEavshlIkhimBHhIyAxwkYnmVb2kGqsN2pbl?=
+ =?us-ascii?Q?H47ape8k59QKUEFw/6ZefRR16qGevbAn9eFjJF9rK43NgWiJtZADPuAxYh+R?=
+ =?us-ascii?Q?GmY/ZC/NPlKTwfSh5FBT1bn26Fl9kgYeJ9i3pzTinOzTZ2T9zzxQEVOccW9l?=
+ =?us-ascii?Q?LIygpd6/R5n848MhjoiDAzJxR2Yrb+FgHgdxX+LIdnRvr4Gzt3szY3TzOn47?=
+ =?us-ascii?Q?nGbAwazNj6kV0tEWdnOcvuF3vIi6hnEWpz2qxaM7HgtedMgUz8PSpCVG3v4k?=
+ =?us-ascii?Q?44zLU6L0B40C6KgdRXxunBMFTKBJ0LK7MD7uXbam6l2M1e9XmlHN3e7s+vH3?=
+ =?us-ascii?Q?5nrijpQkHe8Ajc5ubaOOlGYQikG1Xa+7Qha6apseTSzilLnW8xL+3DEbHOSj?=
+ =?us-ascii?Q?iWGFh+ifZv9yFhwDwqzrYb5sI7fK5jpSGr2rw384d1+ioi3G0mi7DkrK2jyo?=
+ =?us-ascii?Q?kKFcnXeIQ5hkmO50TofkZypCCx0eh9/itzuizzyHqYklmKNZ9yMJ8XH3CVSv?=
+ =?us-ascii?Q?58sI4Rii7S/jPckz49u1uYrYBeW2HPwyLcXmunPUfjhybVu7C4D9QJ/7fTDE?=
+ =?us-ascii?Q?tg1KSHqk5A8r1OhmRYwnKGCbJo39tvDdTcXucF3StTNKhQF8cDATmmQG9EU4?=
+ =?us-ascii?Q?GXNVmSKSXmqr9HHj7AWW7nkRLOM53kOu3UCIE0NMdyu5P3Wk5rVTrhKmEgd6?=
+ =?us-ascii?Q?oySYacS5ceJLsVwrD+0jWoGNjHfJP2CVUF61KMqBMwFhiv7i/jdEeqAN3si3?=
+ =?us-ascii?Q?VV62sC645y5XbnlghVhParz7rpl20Owu0YhRryQy1eOtseszdaki5wBtB0ZW?=
+ =?us-ascii?Q?HLNXGqSXcyiOCy0b5Jw=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd5f3ee3-7d99-4ff7-e802-08ddf61da14c
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5757.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 19:08:47.9216
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v9hf+rQ6RIyoYUqmvqNReayOqJiCIV0Jf8npOLg9jgPXXusawNl61gBcUX/jBejf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_121200_602713_743C5563 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20250917_201223_697852_F057C845 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,242 +179,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Integrate the selftests as part of kunit, this makes the test
-available through debugfs.
+On Wed, Sep 17, 2025 at 09:46:25PM +0300, Leon Romanovsky wrote:
+> Let's take as an example MIPS/jazzdma, should we call to vdma_alloc()
+> in DMA_ATTR_MMIO case?
 
-Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/Kconfig                    |  2 +-
- drivers/iommu/io-pgtable-arm-selftests.c | 93 +++++++++++++-----------
- 2 files changed, 51 insertions(+), 44 deletions(-)
+Yes, that is right, this is an iommu, so it has to be programmed.
 
-diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index 553522ef3ca9..f7e6d1db6ce6 100644
---- a/drivers/iommu/Kconfig
-+++ b/drivers/iommu/Kconfig
-@@ -42,7 +42,7 @@ config IOMMU_IO_PGTABLE_LPAE
- 
- config IOMMU_IO_PGTABLE_LPAE_SELFTEST
- 	tristate "LPAE selftests"
--	depends on IOMMU_IO_PGTABLE_LPAE
-+	depends on IOMMU_IO_PGTABLE_LPAE && KUNIT
- 	help
- 	  Enable self-tests for LPAE page table allocator. This performs
- 	  a series of page-table consistency checks during boot.
-diff --git a/drivers/iommu/io-pgtable-arm-selftests.c b/drivers/iommu/io-pgtable-arm-selftests.c
-index 5ac3e792c56d..cfff8eb78e04 100644
---- a/drivers/iommu/io-pgtable-arm-selftests.c
-+++ b/drivers/iommu/io-pgtable-arm-selftests.c
-@@ -6,6 +6,8 @@
-  *
-  * Author: Will Deacon <will.deacon@arm.com>
-  */
-+#include <kunit/device.h>
-+#include <kunit/test.h>
- #include <linux/device/faux.h>
- #include <linux/kernel.h>
- #include <linux/slab.h>
-@@ -39,25 +41,26 @@ static const struct iommu_flush_ops dummy_tlb_ops = {
- 	.tlb_add_page	= dummy_tlb_add_page,
- };
- 
--static void arm_lpae_dump_ops(struct io_pgtable_ops *ops)
-+static void arm_lpae_dump_ops(struct kunit *test, struct io_pgtable_ops *ops)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
- 
--	pr_err("cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
--		cfg->pgsize_bitmap, cfg->ias);
--	pr_err("data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
--		ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
--		ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
-+	kunit_err(test, "cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
-+		  cfg->pgsize_bitmap, cfg->ias);
-+	kunit_err(test, "data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
-+		  ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
-+		  ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
- }
- 
--#define __FAIL(ops, i)	({						\
--		WARN(1, "selftest: test failed for fmt idx %d\n", (i));	\
--		arm_lpae_dump_ops(ops);					\
--		-EFAULT;						\
-+#define __FAIL(test, ops, i)	({						\
-+		KUNIT_FAIL(test, "");						\
-+		kunit_err(test, "selftest: test failed for fmt idx %d\n", (i));	\
-+		arm_lpae_dump_ops(test, ops);					\
-+		-EFAULT;							\
- })
- 
--static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
-+static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- {
- 	static const enum io_pgtable_fmt fmts[] = {
- 		ARM_64_LPAE_S1,
-@@ -73,7 +76,7 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 		cfg_cookie = cfg;
- 		ops = alloc_io_pgtable_ops(fmts[i], cfg, cfg);
- 		if (!ops) {
--			pr_err("selftest: failed to allocate io pgtable ops\n");
-+			kunit_err(test, "selftest: failed to allocate io pgtable ops\n");
- 			return -ENOMEM;
- 		}
- 
-@@ -82,13 +85,13 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 		 * Empty page tables shouldn't provide any translations.
- 		 */
- 		if (ops->iova_to_phys(ops, 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		if (ops->iova_to_phys(ops, SZ_1G + 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		if (ops->iova_to_phys(ops, SZ_2G + 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		/*
- 		 * Distinct mappings of different granule sizes.
-@@ -101,16 +104,16 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 					   IOMMU_READ | IOMMU_WRITE |
- 					   IOMMU_NOEXEC | IOMMU_CACHE,
- 					   GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			/* Overlapping mappings */
- 			if (!ops->map_pages(ops, iova, iova + size, size, 1,
- 					    IOMMU_READ | IOMMU_NOEXEC,
- 					    GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			iova += SZ_1G;
- 		}
-@@ -121,18 +124,18 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 			size = 1UL << j;
- 
- 			if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			/* Remap full block */
- 			if (ops->map_pages(ops, iova, iova, size, 1,
- 					   IOMMU_WRITE, GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			iova += SZ_1G;
- 		}
-@@ -148,11 +151,11 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 				   IOMMU_READ | IOMMU_WRITE |
- 				   IOMMU_NOEXEC | IOMMU_CACHE,
- 				   GFP_KERNEL, &mapped))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 		if (mapped != size)
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 		if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		free_io_pgtable_ops(ops);
- 	}
-@@ -160,7 +163,7 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 	return 0;
- }
- 
--static int arm_lpae_do_selftests(void)
-+static void arm_lpae_do_selftests(struct kunit *test)
- {
- 	static const unsigned long pgsize[] = {
- 		SZ_4K | SZ_2M | SZ_1G,
-@@ -173,18 +176,19 @@ static int arm_lpae_do_selftests(void)
- 	};
- 
- 	int i, j, k, pass = 0, fail = 0;
--	struct faux_device *dev;
-+	struct device *dev;
- 	struct io_pgtable_cfg cfg = {
- 		.tlb = &dummy_tlb_ops,
- 		.coherent_walk = true,
- 		.quirks = IO_PGTABLE_QUIRK_NO_WARN,
- 	};
- 
--	dev = faux_device_create("io-pgtable-test", NULL, 0);
--	if (!dev)
--		return -ENOMEM;
-+	dev = kunit_device_register(test, "io-pgtable-test");
-+	KUNIT_EXPECT_NOT_ERR_OR_NULL(test, dev);
-+	if (IS_ERR_OR_NULL(dev))
-+		return;
- 
--	cfg.iommu_dev = &dev->dev;
-+	cfg.iommu_dev = dev;
- 
- 	for (i = 0; i < ARRAY_SIZE(pgsize); ++i) {
- 		for (j = 0; j < ARRAY_SIZE(address_size); ++j) {
-@@ -193,9 +197,9 @@ static int arm_lpae_do_selftests(void)
- 				cfg.pgsize_bitmap = pgsize[i];
- 				cfg.ias = address_size[k];
- 				cfg.oas = address_size[j];
--				pr_info("selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
--					pgsize[i], cfg.ias, cfg.oas);
--				if (arm_lpae_run_tests(&cfg))
-+				kunit_info(test, "selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
-+					   pgsize[i], cfg.ias, cfg.oas);
-+				if (arm_lpae_run_tests(test, &cfg))
- 					fail++;
- 				else
- 					pass++;
-@@ -203,17 +207,20 @@ static int arm_lpae_do_selftests(void)
- 		}
- 	}
- 
--	pr_info("selftest: completed with %d PASS %d FAIL\n", pass, fail);
--	faux_device_destroy(dev);
--
--	return fail ? -EFAULT : 0;
-+	kunit_info(test, "selftest: completed with %d PASS %d FAIL\n", pass, fail);
- }
- 
--static void arm_lpae_exit_selftests(void)
--{
--}
-+static struct kunit_case io_pgtable_arm_test_cases[] = {
-+	KUNIT_CASE(arm_lpae_do_selftests),
-+	{},
-+};
-+
-+static struct kunit_suite io_pgtable_arm_test = {
-+	.name = "io-pgtable-arm-test",
-+	.test_cases = io_pgtable_arm_test_cases,
-+};
-+
-+kunit_test_suite(io_pgtable_arm_test);
- 
--subsys_initcall(arm_lpae_do_selftests);
--module_exit(arm_lpae_exit_selftests);
- MODULE_DESCRIPTION("io-pgtable-arm library selftest");
- MODULE_LICENSE("GPL");
--- 
-2.51.0.384.g4c02a37b29-goog
+> or directly return "phys" as it is done in other
+> architectures?
 
+Which?
+
+> > vdpa can support ATTR_MMIO with the same iommu prot MMIO adjustment,
+> > that would be a good additional patch.
+> 
+> There is "bounce page" in VDPA, it sounds like swiotlb to me, which
+> doesn't work with MMIO.
+
+Oh OK, it eventually does call pfn_to_page().. This isn't the case I
+thought it was, there is another one that just routes to iommu_map
+
+Jason
 
