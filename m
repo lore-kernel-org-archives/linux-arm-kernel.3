@@ -4,174 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05031CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 04:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFDF9CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 04:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=; b=zTCwqSFf3fxUbMOS6CcwBk6ICR
-	gu09gCy/sb3BHVv1/QALj1O2mCGvAVACI/rCbuk1eFlNeXCTca50TqfnPVBach5uIQEob9WMHUH5J
-	j59q44nLqkFaEYm0xeZ5PeHbq0TUcz1eH+cZ9+B8a4zM49hb9ynzYeE1BcP3BIFxFiw+EzqwmODC3
-	7nJZqAsd/o3Jstw4XH1p0uZhR6HOUhNGO3zLaxXFdop3UlNWL5d0GBKlJsBg0d9xOU8SpcEu0HHFq
-	gqlrNtIl6z1Xf7QnPTSKopQ3kNonT7gAgW8z0ttXTce9nPUx8Fh4dIVpDzB6nECFeNA+bH3IPgpR8
-	4Ww3my1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6iKUJefCEfN6dN0bjyWGNmIlwawpbU6TIZlivM2qAv0=; b=4pzklc44FshEOpinXhdkS/r/E5
+	bOJp5ChfYH2toW+9PYedxOF8xEwU8a3e4dcMaeBdpddxhB64ptNhIT/hasQwMh/VdIeOAvjdw5Su3
+	ic/dFYHIx/2eL1anAZZjjU9ZG4ukaWn5qWysmEE1ZvngGCmAqC7l+leqoZ7Z+Daujd+nDCtKavLm+
+	vv8CYS/qqm8/W7ehJz+P/DgzDCAhXZS3SSw4uaKxy1nsslqhAKvXlBgpJeR37AbTkn11s3cmt9h/m
+	YXbG4vPhElg70iwGGqD1+h56eh0xOt4s062OEGlr6+uDUmHySjB6RrU4m3Os1V17RBVD/7x71F4NF
+	8CMT95Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyjTF-0000000A8cW-28xs;
-	Wed, 17 Sep 2025 04:08:41 +0000
-Received: from mail-os0jpn01on20609.outbound.protection.outlook.com ([2a01:111:f403:201a::609] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1uyk6x-0000000ABCW-00zB;
+	Wed, 17 Sep 2025 04:49:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyjTA-0000000A8bc-1LTD
+	id 1uyk6t-0000000ABB2-2VVH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 04:08:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AyAA0NQGCnMUoKxXs+uS14ydLS2esQlgUY7pWFEFH8YoqvzZSV+wjJ5ebsa0RHqmVBBYJyTwsXONqucroh2iLj8/aWSli3+0fNESFNd+l8uHSd2WZyCj3GsnsHfHCSiL8i4gHll/ZRgHX1IIKqwOC4G5zFClojuif6qdck1kNeGNRM9XEel1sbnNEISjKGhEifVWnMk9EljMm4Jm+7hO45+Xl30FWtDoTqH8E2zxM23gxRrx+VlE7EJBxy8ewc6Ji8cqkCuRjn8Qa6wrP9ymUKvcVSpAsIs2mSX1UKc2ni+0xZYcUxzgXTt2As07QV5D/GdbjDkDzd3UovvfLTzEUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=;
- b=xX1jyk98o+8Aax8451pIGCnhRKlVEtpY3iSg/AyfmwYiKizdAdKotCMEbioMsp+g9RwPmaEmIkYFBigy2dNj2hY7jBz8KVI2Mr8Qms5cXTXSesiM+VpAx6pX4b14fUNpKyQ5z9UxvL7KWZRRm+3OHXn03B8Sz9otYpQ4gVkjql87+RqWH1TIcPlUrAL1zaAfcHuJu8iZppxtlqN4rZV8Q5699MyBFF/HCS06gBYkAH+1nZTjylDXqqKINMN0/9YdmFAl8JYZpAwQtnF6odpz+L1mELV6svNTd4KSiGj3lflD+nEME2UfcDVHKpKWgkA1gU1O9MSDbVRj02o9VdIJ/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=;
- b=K7cTQTNGW9n5F3kKjEJnxMtHFbxYvYpSEMqrvBO9tx2UDWVrQXmNQmtYXdxSHi0lSJRWo8Odg7OC6itpc1iAQdZg01XMuo06rx7jSGCsS9UBIGlmgw2ey5lqOR0Zuu4s9pynHDyww7T3tl7Kklo0tPNVpbfi02+JxBcoHfOvjFg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TY4PR01MB14398.jpnprd01.prod.outlook.com
- (2603:1096:405:23c::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 17 Sep
- 2025 04:08:22 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 04:08:22 +0000
-Message-ID: <87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.
- infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
-In-Reply-To: <86v7li1xs4.wl-maz@kernel.org>
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
-	<87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
-	<86v7li1xs4.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=US-ASCII
-Date: Wed, 17 Sep 2025 04:08:21 +0000
-X-ClientProxiedBy: TY4PR01CA0084.jpnprd01.prod.outlook.com
- (2603:1096:405:36c::11) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	Wed, 17 Sep 2025 04:49:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 32ECC43286;
+	Wed, 17 Sep 2025 04:49:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00976C4CEF0;
+	Wed, 17 Sep 2025 04:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758084578;
+	bh=6iKUJefCEfN6dN0bjyWGNmIlwawpbU6TIZlivM2qAv0=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=kgixDBAV4DcV+vsxuyDQuN9mAKXk+Fwp1Rj7x5YjbvblULsWAjF/aqf4SdHA+PpDb
+	 xk6vGGX2Pdx3p0E6YVCaxuf9Npu0VVrTCj+g6jBSg4IS/a+GDGRM0aEzmu6edX0sb+
+	 TT0qZcVpdp0GVLpmFTHtS2mZjfEa8B03vsV1Kh5dlnL8V6JkVuZxgJJstbKNy4AUDl
+	 PJP3twPd6gCUe25poKni14DRAuiG/qn+PKKys2pNGF20j8V0BePISlvbx/+kDqj6GY
+	 NTzE0nbNhO6j5bAs55i9Ua3Eo4y5mz5bdi9u0ho52p1NplYz4sR4/DrcwyfKSj2soL
+	 eEeRl/PG2KFpQ==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY4PR01MB14398:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f5aa4ca-9cf1-48ed-5a1f-08ddf59fd74b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nfw/MyIsmLqSZbfSQ8O0UydX7vmrRWuDncTHWJVJ6L6FrzBbiaLfbR+/d8yG?=
- =?us-ascii?Q?CA2MYWDwTGQxTKCAvH8yStHcmIr7uRNa7o6pIfm5Lo/DIdAcpfBHx5figJRs?=
- =?us-ascii?Q?cx7Bvc9F7FeCoHid+9FoHxQTVnTQShmj7cS3mpVpJ9NGWmNkXnGZrnqCD4h1?=
- =?us-ascii?Q?taGk5iXqNZU9SOgi3XfgNY2ijukobqTqwOUXYtFpsLhX75Yz4TFxrpzzcaru?=
- =?us-ascii?Q?LqGXESbNETH+DCaCyLxEobcplLYUHjhi1V4F0vv40kSWx9hY6Qb5mtyZV7kL?=
- =?us-ascii?Q?JYxBcwazw0yHazgOloTAiCBwvW00WSkpyuQv824ZqpAwSGp4rDD2qUY4CkxE?=
- =?us-ascii?Q?HNEs2lEGYUsC2suQpN4WBI1q7dNkbHUNpCN2LxEyKvk6etjvDji6RPO0aR7p?=
- =?us-ascii?Q?TUgJ4e48VF4JQfacZdsP6H+W+bS/HuJ82rtCc2fqdczECktgLFCWAKovqdRo?=
- =?us-ascii?Q?pM41A8TecWpFp7G7ma3b+kTQf9oVwWL/dcRyDK+oPtt931BvxtfbnskotxTX?=
- =?us-ascii?Q?V4BuRxClBt+EYRUfZat/NUdlna+k1G1RecTRbNol9b0NC6DeZIn2yDSHKfu9?=
- =?us-ascii?Q?0adAsb02xKnUe2v0HGMn+zVfktfYi3P6m8ZU2Uw3iI0pCDgN07/jM4NRFCJP?=
- =?us-ascii?Q?qMOGLwQ94VyPrjtsyDyXrCeGi47pXhaVC5vuXUvvKO0cEYKm4GePYwhm6BB4?=
- =?us-ascii?Q?xilCRVpyCf83AnFQdznDdAMHfchAtFCSTRwOQcyAX4EaRnvc3sJqBhTBiU5f?=
- =?us-ascii?Q?F4ZcMfhyVgYWkUM5JA2U1JdQIGHmiQmnLOI6rm+2rRl3DPEkghSvoqX5ape3?=
- =?us-ascii?Q?IiPe6MeLdqX5tqStm6SpgZc0rky4UUDj56H+AOaoOzi1ujnoxkTlZZzbEahp?=
- =?us-ascii?Q?VclfL7ynhQ8sz0Ui5zQwu1OLPPG3y1siJE6GUDQwv3fNG05Y882F0+y1n8aN?=
- =?us-ascii?Q?xDLQ/8jSoZO8vLOzQuyYuPM3yNJ9GM3tBqIbmIQ3wH0/ikn/23ZG5z4RinjY?=
- =?us-ascii?Q?bayiYaIZ8TQn/VoGte23uPlzDgz66qPwVW2b2Bo5jHwq0s1BE7IkdTq30cxJ?=
- =?us-ascii?Q?WMLE+zJFsWJBifaqni1eT22DKVgf6rXrRIYxcCWZ+9YLhNeHQnaRq291MwPV?=
- =?us-ascii?Q?zHLaYtHojSYwGsx3eelibClPUYQhwGgPbzmr/yY20hRQpO+575KsK8FC7Fk/?=
- =?us-ascii?Q?setISkhFvihpffjrrrA9hEi26RJIurhduiysqmgZgrk0HOkOg6VbQMcyjMxf?=
- =?us-ascii?Q?AUMkaPowpSXc0QDTBCnNDln1+abrpL8DZu9F652gogJT2hytZeKLsarFeVBl?=
- =?us-ascii?Q?z5DX5ANKA54xs9KG1uLc16bH7ov0NyI+QloUAoJWxUdokWKVUmD0bBwYMcy4?=
- =?us-ascii?Q?ko4gMf6f7VLoy3KdzDEi+0ithO5Cgz6qU4gYpz59npAkYgjRQyMU/YuAjtTl?=
- =?us-ascii?Q?Mhl5GNcUNbBHbbkbTG6MZfhJVSpfTtdOXhfscWuL2OPl+ZdtFrdPjg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LnAQnUZg8mD+fViIygtcY8NdmwMbbxrhkArcm58pJQa8+QVKs/Tpd27meOL8?=
- =?us-ascii?Q?WGwHOje+IWfk+xSr+FoKX91PKTpxA9xiV0nrbl/pMzXm/esW3zH/BEjB1QlL?=
- =?us-ascii?Q?3EePSdxIvyDcFuRpy41EPkOLagSbbp+XQr4zlGoYCWLwm2N9dZY8aafEhFSX?=
- =?us-ascii?Q?CUh9NGxk4cpuQN1shZDhFr+rJySNHt6zeWm79ZXR8LNuIHeaAuVACvtu3HgY?=
- =?us-ascii?Q?cLKWhDt7VegjDCt6wL+COC2Fzl0p0NfBPhc0MwYqF5KoO14v21m0oG6UXaCF?=
- =?us-ascii?Q?zm9zWgQ51sETtP3viwvAnTnQeiy2qYpvJFk8xC7qhCZzs6QMW/a0ul/ky7YE?=
- =?us-ascii?Q?iHpqBWm6kKK2d7t4A6P/MW9dhZdkrwDzRUWxYxYZmYJNW8dBsU6SDUgOKzkA?=
- =?us-ascii?Q?iqcfB0jAfERp1wNKmyejRk3zwz0ISeZ+8eufE85kOpiYL5P3aeuIGAwyFkpM?=
- =?us-ascii?Q?26G/bDSgHCbTEU2eamLIxF8oGCh78/38aIrVmkbzRSm1vQbscXH0r4UWZg6X?=
- =?us-ascii?Q?0N69sxgroGsZ0syaoQ8Dp/D6L8mqt0tMvb2T3nxqRvhMELdNc6B3YfFYXg0d?=
- =?us-ascii?Q?Z+h3gKJETsh9Ad6FEImZfcw+MczevBxjhI/xrZbFW7AmxYVxhUtcEw1woZ4Y?=
- =?us-ascii?Q?G7SM5OAJW2kQxLR2aCuXiyIGh7vWTZ1pFy23YNWQlgsHDHtGpiqDeVKmt/U+?=
- =?us-ascii?Q?2NsVgdoMAgSSv6RQib0cclQMj1Px4ONGrgZi+j+NI1LkL2Kp+EPh1zZmxbLq?=
- =?us-ascii?Q?6QCY48vUu4p75JCkaYW51xWWSccUXpy3f7iGijUvKbM8ueUm2KFnVDVdlaPk?=
- =?us-ascii?Q?g6Z4wPtg+c+i+6ZaehUqR/TnTKHI5yJowlkUQoEqZoX2cud4tUOHmD7tmS6O?=
- =?us-ascii?Q?Ow9LvYh+oKw0qTA+QGGAo58XkV+A5j3dgtPq1Micap8/g07efTreBkUcSTAk?=
- =?us-ascii?Q?WoIkEyx4M4jknt5Joryrb7mnEkyi2J/f0tt3NnHDyHW3vugZlNlSgBkUxoH3?=
- =?us-ascii?Q?d3IRK2ZG5cz5Y2daM9FmnO8bvhKBMEoxYPWggoyt0j9Co2deXn6NhAK4PPq+?=
- =?us-ascii?Q?ug1+MBRa4AxHrLkkaoZTFca1g8dExfBfNjQdEAngNd3z047aRWe/qzbiZyjQ?=
- =?us-ascii?Q?u79i0ePewlhJYTYJKElbpBCdhr0f5A5LbSWMcngVRmuCHRLUgdgcw+HnkerX?=
- =?us-ascii?Q?iFnzCDOsFOorSWrN5SNmFIZSjDPBPeLAEMsB+RJmukqBGr8H4un9U4ob9OUz?=
- =?us-ascii?Q?/jw1dOfH2KYE0irGarJABVhKxM1UrA38AtoFvFAZ5MxWdonDc903wNf7OVjl?=
- =?us-ascii?Q?zLOhZkglVuJMhOg/muFYXl/wcdsb6BgVgvt3B14UFYBFy1MWscoh91cyO5Ra?=
- =?us-ascii?Q?IoP598f9csjRIkIYBQa+pYwYXlvBArw+rIcYVIkOEHqcBaLA3zS1E4DdZLlR?=
- =?us-ascii?Q?axdQdbui0wXOsQUIgiy+EOoJXdBOwstz1I+jgkSHiPlCnwu0jMRpEP1KNqlR?=
- =?us-ascii?Q?MzCav7OaXO/67gPiJEAQX+AwIrAtNLBF5/NH1Y/fCOi2DZqH15lgCf6wrLLo?=
- =?us-ascii?Q?h80L+6g/5xGfotM3ISJ6iAKclBH60ZFhfwhGh8hkZ8DFdu+rBtXY3c98xgaG?=
- =?us-ascii?Q?WbZfZwJ70vz+F/njS5c4TAM=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f5aa4ca-9cf1-48ed-5a1f-08ddf59fd74b
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 04:08:21.9796
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pKTkTAu4WxA24p7jrxebIe0bg2N9VNfXFiRaHL3VJLkWYkeTaaX0bZWKX9pQLTgNn+Z3F4QMHAhzciAcyVRS8mLcJ/HXS+NCGoP/DN37Si9jznTEm8PbOhVclCJ4CP9Y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB14398
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <0695ca65-536c-48d9-ad1b-49452e67a6f9@microchip.com>
+References: <20250916080545.9310-1-nicolas.ferre@microchip.com> <0695ca65-536c-48d9-ad1b-49452e67a6f9@microchip.com>
+Subject: Re: [GIT PULL] ARM: microchip: clk for 6.18 #1
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Linux Kernel list <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, oe-kbuild-all@lists.linux.dev, llvm@lists.linux.dev, kbuild test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>, Nicolas Ferre <nicolas.ferre@microchip.com>, SoC Team <soc@kernel.org>, linux-clk@vger.kernel.org, mturquette@baylibre.com
+Date: Tue, 16 Sep 2025 21:49:37 -0700
+Message-ID: <175808457715.4354.11044142356915096975@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_210836_598236_B831361A 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250916_214939_656794_24F81C3D 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,70 +71,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Quoting Nicolas Ferre (2025-09-16 06:19:11)
+> On 16/09/2025 at 10:05, nicolas.ferre@microchip.com wrote:
+> > From: Nicolas Ferre <nicolas.ferre@microchip.com>
+> >=20
+> > Dear clock maintainers,
+> >=20
+> > Here are the first clk changes for 6.18.
+> > I don't think they have conflict with changes for the deprecated round_=
+rate()
+> > to determine_rate() topic.
+> > They are in linux-next for a couple of days.
+>=20
+> But... this series depends on this patch:
+> https://lore.kernel.org/r/20250827145427.46819-4-nicolas.ferre@microchip.=
+com
+>=20
+> Which will be part of a pull-request to-be-sent soon to arm-soc (which=20
+> is part of linux-next, so the build error doesn't appear there).
+>=20
+> Once the pull-request is done, do you prefer that I do an immutable=20
+> branch between CLK and ARM, that I queue this at91 PM patch into the clk =
 
-Hi Marc
+> pull-request or that everything goes through arm-soc?
 
-> > +		/*
-> > +		 * The ARM GIC-720AE - View 1
-> > +		 *
-> > +		 * see
-> > +		 *	r19uh0244ej0052-r-carx5h.pdf
-> > +		 *	- attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
-> > +		 *	 - sheet [RT]
-> > +		 *	  - line 619
-> 
-> Are these documents publicly available? If not, I don't think this
-> helps much.
-
-You can get it if you are Renesas R-Car Consortium member.
-And, the datasheet is very complex, I don't think people can find it by
-himself without any hint.
-
-> > +		 */
-> > +		gic: interrupt-controller@39000000 {
-> > +			compatible = "arm,gic-v3";
-> > +			#interrupt-cells = <3>;
-> > +			#address-cells = <0>;
-> > +			interrupt-controller;
-> > +			reg = <0 0x39000000 0 0x20000>, // GICD
-> > +			      <0 0x39080000 0 0x40000>; // GICR
-> 
-> In v2, you indicated that your GIC was configured for GICv4.1, which
-> implied 256kB frames for each redistributor. Here, you have either
-> just enough space for 32 RDs for a GICv3, or 16 RDs for GICv4.
-> 
-> So either this is wrong, and you're missing half of the RD space, or
-> v2 was wrong. Which one is it?
-
-will fix in v4
-
-> > +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> 
-> No ITS? That seems... surprising.
-
-Will be added later
-
-> > +	timer {
-> > +		compatible = "arm,armv8-timer";
-> > +		interrupts-extended = <&gic GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> > +				      <&gic GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> > +				      <&gic GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> > +				      <&gic GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> > +				      <&gic GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-> > +		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys",
-> > +				  "hyp-virt";
-> > +	};
-> 
-> Why use interrupts-extended here? Everywhere else, you're using the
-> basic interrupt specifier. Can't you move the interrupt-parent
-> property to the top and simplify the timer (and everything else
-> outside of the 'soc' node?
-
-Will do in v4
-
-Thank you for your help !!
-
-Best regards
----
-Kuninori Morimoto
+Whatever is required to build the code should be included in the PR. If
+the same commit goes into arm-soc tree that's OK, just make sure the
+branches aren't broken if you checkout a commit anywhere along the
+branch that is sent to clk or arm-soc trees. Broken includes
+functionally broken.
 
