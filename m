@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D517DCAC5A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F027CAC59A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,50 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7aeGdc4h/xbTU28LGIZWy8TrSPx7BLpfWZuTxuR8H4=; b=IvhFpYERCFuBGV10soR3ZN9PKS
-	4qPojv8dril4RCoioJ3LvGBhDxZlDpCO9Kn94uY82/7klA6c4E+g65JxgDnZozg2huO8nXOyJr6tI
-	VQcQUZ6PMJa2BOnktVrxhn7aSn4FTW2jsKDlPeWyxavAsHNdRlbhQvJtK/0usCuymuM5g8ztMEF/I
-	XMPh69mFae4u+ZwwQxFFFBvCRi/HWtCJSUM2QTyCIOdRruj+LGRY3QgNYLirDnY/unZgLKRBOpl7n
-	hwb5ke0fva09NTJqppAmupx66MGdSEmSPyYBpveWRD5mqRZgPxF/4RMZPFylh7i2xggycP06pGD65
-	ILfJfW8w==;
+	bh=1PxhHEOEcArK+oJF4kg6dLM0PhcqAsLM/pkrtwhzyU8=; b=ihFQRamUMCfeKCtY39m51bMDmA
+	bOZmZfsbs8zS6jpZW18wX/Wbo5cBTd2XmqwHBNGGm8DO/pl7UsyTnkRJFsJDq1M2QhC6vFtjw/rMh
+	ze2AqIWgZS9ReQFrKnWIl8TzKRTKiWJ9TTrTLUpsvjSlRp0fjfs/tUiSDIhuHXHMXk0jfo8B5u3De
+	MOIoN7Ads6JPVHPk9izujmlF830XFtvY2AGeCctK/xPBQ/Hgu8XoGaUgYg3h62+1PgkcgmZSan9yV
+	XrcL/0QBnBRow81o6kmzaiIkA8eRCe2Efl5f8zkYMyNaNUtz/lGVOeqZ9FKkoreGb2+lYLUvwMfav
+	x9uuJ+ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyskQ-0000000ByZj-2CTW;
+	id 1uyskQ-0000000ByYy-0jl5;
 	Wed, 17 Sep 2025 14:03:02 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysja-0000000BxFH-0zUz
-	for linux-arm-kernel@lists.infradead.org;
+	id 1uysjb-0000000BxJ9-3QQ1
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 17 Sep 2025 14:02:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=1PxhHEOEcArK+oJF4kg6dLM0PhcqAsLM/pkrtwhzyU8=; b=KBt6OlYijAjRxCij/P6l5J9ef5
+	0A1fiv9mhDH8+H2I84IqzjcrJC7Ez6OaOB2KekLX3MQ/Z5a9ks0vSNC3/0RcByB57r8XX9h9qex4/
+	xRZfAfe2gEgI4RP/m/AUZz7uMH/iWm413yHdQfTdd7G0aDYK9veLFk/pb5udURP+AHpC34jgsgkEJ
+	0a+i0kK9gGqp7+qjMEQJCqwCmD3DbsVZOLczyrZul1918EH9qPwSBNQhxyObcYgvp/8B8DkkXKQGD
+	D5fcoNipcJ0lJshChsJmsIVFpkj3uJpQiI98VmKkhIb81JxwQUIdPM8KJrDl1EikJVSWKyB9RmPs/
+	zCMd0sdg==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uysjV-00000007Opf-3msC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Sep 2025 14:02:10 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117725;
+	s=2020; t=1758117722;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=P7aeGdc4h/xbTU28LGIZWy8TrSPx7BLpfWZuTxuR8H4=;
-	b=vYy29jAZQnRR5kkZwIC9/NqHVRT/v1e2p/cWs+5f7g7fNNC/qoT+53uKFSNXNXsKpN8B2E
-	m+3qCLLbTTZ4+Q96GqGryHaf5zSkRuKSrLOv7JNnwp/ax9lb75MCIt7UbsTlifunq53XTQ
-	B46ki2hXNpwpzRE1odnOnVvVzvtZoGaksRKLigLO3C4JTMPhUMIipfkhqk+D3ihmvMV4vl
-	Qgeomg1DaO3T2zUH8ztRienoHkEnpRBu2zZqtaT43Cw/vXV7Xeom7hcqtVDV/wqkpkDpmo
-	aRVRkGuzAn/IPoV9lK7w3+GPH9smyZ20TYSXiCbrIviD1Kg2xx7cUNP1q+dATw==
+	bh=1PxhHEOEcArK+oJF4kg6dLM0PhcqAsLM/pkrtwhzyU8=;
+	b=KXVTzeB1RPlsTnQnJRl4Ug/KrfPZsvG/7GefSlXXdGzZPU2NWXWZ17UXnyYbJHVTLIBzF9
+	xNqD33IxMIKd7qFYt/QyaJ1Cz1lV2HTsa4C5s2I6+cc8GaevZZX+rs1u3jHp0whbosvwwp
+	d5Xht3DZB8t4GHY/QLVx3hf2DF2wBaKlUGJskffoX6UbLkn/0N6DOOKyJ0CxsJU8IQzGR3
+	orUos3sGWZKnScCfAePyINI4o3Q0ovHjipVFdnmmf8Evq4qymgAy7/zHz4pKjlJYUEeDmu
+	C4/SD24nM2ZWV/Udhmy4jj2LhD1tt0xjKwYSl9HLntnMHEz7l/EvaMSsL15X0w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117725;
+	s=2020e; t=1758117722;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=P7aeGdc4h/xbTU28LGIZWy8TrSPx7BLpfWZuTxuR8H4=;
-	b=8rpn2BjnZVsb8tPf6dmKjqucj8fOf5/3u7+hCpbjStyZMv/tfE9fcq9R0uNWBv39P6QgxG
-	B3rJO306ctdpmgAw==
-Date: Wed, 17 Sep 2025 16:00:23 +0200
-Subject: [PATCH v3 21/36] vdso/datastore: Reduce scope of some variables in
- vvar_fault()
+	bh=1PxhHEOEcArK+oJF4kg6dLM0PhcqAsLM/pkrtwhzyU8=;
+	b=VdooGNZAtBORgp2YaI23hG/2RWG+89fRKztgrKPnovVzmaeSHKfMDq+ylT2vPWPRKLlLOp
+	HSJLLkewZKoJmgCA==
+Date: Wed, 17 Sep 2025 16:00:18 +0200
+Subject: [PATCH v3 16/36] random: vDSO: trim vDSO includes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-21-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-16-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -84,16 +98,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=1194;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=679;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=wJ2ZQvnRu7lReSnB3moga2OR6vDIxnQa442GGRRHccQ=;
- b=K0LFnuU1SD/ZvOVTq6nddMBtV2MFVwXdiwVEqfkJP7aZOr/CzMJ7BNdx4j5egkqUW+ECu+RO0
- nzTKkm9h79bBlr1IYgrhBtUrkRW+sWDBvTh59Nbyi6vQt3hEpQrsVjR
+ bh=RsrUyYXXhTUZc8iIYJpxbMPkDkRzyWPj4riAorZuqSs=;
+ b=SgvOer3x6V6AsfjzAtnHiIEePa9HZbBySOmMf6JRPwGbZayEPl64z9BsrTOKb6v5I2oPrFKbb
+ SdbYXypoVe+AASSQki04oVLoyanPliIPxU+NfCcimpnqM8g6PtscQTd
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070210_465509_5605ED29 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250917_150206_157020_700860A7 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +123,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These variables are only used inside a single branch.
-
-Move their declarations there.
+These includes are not used, remove them.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- lib/vdso/datastore.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/char/random.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-index a565c30c71a04ff4116c14f43f4450210eba99c5..2cca4e84e5b5e7686d6a2b42b41af4f399cc5261 100644
---- a/lib/vdso/datastore.c
-+++ b/lib/vdso/datastore.c
-@@ -41,8 +41,7 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			     struct vm_area_struct *vma, struct vm_fault *vmf)
- {
- 	struct page *timens_page = find_timens_vvar_page(vma);
--	unsigned long addr, pfn;
--	vm_fault_t err;
-+	unsigned long pfn;
- 
- 	switch (vmf->pgoff) {
- 	case VDSO_TIME_PAGE_OFFSET:
-@@ -54,6 +53,9 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			 * Fault in VVAR page too, since it will be accessed
- 			 * to get clock data anyway.
- 			 */
-+			unsigned long addr;
-+			vm_fault_t err;
-+
- 			addr = vmf->address + VDSO_TIMENS_PAGE_OFFSET * PAGE_SIZE;
- 			err = vmf_insert_pfn(vma, addr, pfn);
- 			if (unlikely(err & VM_FAULT_ERROR))
+diff --git a/drivers/char/random.c b/drivers/char/random.c
+index b8b24b6ed3fe436c8102968392278d5cb5544f06..3860ddd9527930780d5c13cd4742fbc3c27acc42 100644
+--- a/drivers/char/random.c
++++ b/drivers/char/random.c
+@@ -57,9 +57,7 @@
+ #include <crypto/chacha.h>
+ #include <crypto/blake2s.h>
+ #ifdef CONFIG_VDSO_GETRANDOM
+-#include <vdso/getrandom.h>
+ #include <vdso/datapage.h>
+-#include <vdso/vsyscall.h>
+ #endif
+ #include <asm/archrandom.h>
+ #include <asm/processor.h>
 
 -- 
 2.51.0
