@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1608ACAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2691BCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHSQ+RaFu0KBQqFTLVbeHlZC6n9bOFTaTq8CjHGDQOw=; b=qKl1Ygo9ViOuwyUVB6Bg2l/Nxb
-	WUp5y4Hrl1Vjg5yV8Q5JBnwhs9zcl5q9waa6dKUNrVe1sPkFzuaJsClKLPULp/wCOEnF5WCouiS1p
-	Rqar3zPuZphyIM92wjiO1yFQy4/ytq2uHw1G7qOxx4xVXHhNUib0hal7MXxiraq4ydWPKcPZ6Fkq+
-	Yn9NAdlANj+pK6tEYeC+xUjrHj6AJqBDMR6+VySArg7NyzB9uG2FrsRAUDPYdbKWDRuOzOhvJ1J2C
-	539PggV5m790qN3fz3oL9/SSLLJ/ELQHA89Ek8vPe0r3mJomtpZLkFNcAh+9YKEfrA8kZK+Z5JQ3m
-	ha0BfC9g==;
+	bh=oThadm21fEBgUmueHIYFCBoOqv4I0OZFwnRSNhY+FMM=; b=BorSB1fVO6POScNekMRvnPIJ4q
+	UJluZ45bzhVYQ4AXYjoj/NvsTJQlId+hxxUH9K0eU1QuAVbnHxoXwEzxalkTfqI/FhL6jSI3EnvSN
+	F0e/7zMLmvJFwFsAwRaJExd4TWXxz18Mlry+D1LlWqWydTDiQcTSwPj11cjdIr8ozr6lUMCyZ4+6g
+	QilIbfkp/P9KpgZ0gxr5YSRFl5sraysDEQ1t8Sxyab0knTXAzOF4LF7Tpsx+DFUIFWGYVwF/SoWzE
+	X3Q3rpah1t5SXFsojcPeBvL3u3Lg20vr6IymeG/4eEBKT7BreXOD4StcBACVjqB0Dcsu/8IT9XcNf
+	pu2Exf5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpt-0000000CaR5-21Bd;
-	Wed, 17 Sep 2025 15:12:45 +0000
+	id 1uytq3-0000000CafN-0nzN;
+	Wed, 17 Sep 2025 15:12:55 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpr-0000000CaK2-0kpJ;
-	Wed, 17 Sep 2025 15:12:44 +0000
+	id 1uytq0-0000000CaVf-2rl5;
+	Wed, 17 Sep 2025 15:12:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yHSQ+RaFu0KBQqFTLVbeHlZC6n9bOFTaTq8CjHGDQOw=; b=MKAuvQDtEtgNfMzhwzjV8r8xgP
-	MA40JSEfx2W+1qrr8SwP2ukornVJjksr1bNjlM2u8GrzNvFS2gnmrInqIPa3CIVQlBwasWSruJhtw
-	lF4RPM2ySN1xcB7urXSizeXm73q3+OIPrPaNIqji8HTilKukU4QQGGUkJ7F/2LPK6a12KSY7okHOK
-	iSwU6pzn1CjUQihhwZLDyjzHurthSlqDajFfhnzp2OGzbeKYZ0/eMOYs5xLXEXIE4TIgR6CNso4eC
-	gHQGuc+bX2AyjCm3lTupCItG1qU2yIzRMSz8Ldqy8gKzsfXRcvgMwFnp+Drl+m1dn/Kh1t4O6DufU
-	OpOF9rNQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58692 helo=rmk-PC.armlinux.org.uk)
+	bh=oThadm21fEBgUmueHIYFCBoOqv4I0OZFwnRSNhY+FMM=; b=lFv5bKHlEudVmnA4EZ2ln+tYdr
+	MmDXVFX3yWOudQVYFuf99vC00RJb4YsG7iyLyF7glum3ijhL++XV04I8VWyyrOR45t7tHnOvq6Pcz
+	1xn8pCp1DqYAtYzXc27o2P2u8vXxszL73N7VdGgVcVqklngBGFx13Q/0Igbup7dVm8EwkvsolPJbq
+	fvpdwHSV9yEKuMuHzplCyz58ijQZYAynHN9bP+UEuTRm7LJvSCODSQwDq9ZJdP9bbkSMZxLhhLgXW
+	HzEU4SxprsIpymeN9vGtJ8C74CktmRHu/gRr+dCvk+hwNw9c7qEHAzyFry0B3xwojGa+SY1R2ID+p
+	d5nbNOFw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35106 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uytpT-000000004kx-365Q;
-	Wed, 17 Sep 2025 16:12:19 +0100
+	id 1uytpX-000000004lG-40TF;
+	Wed, 17 Sep 2025 16:12:24 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uytpQ-00000006H2L-2Jzb;
-	Wed, 17 Sep 2025 16:12:16 +0100
+	id 1uytpV-00000006H2R-2nA6;
+	Wed, 17 Sep 2025 16:12:21 +0100
 In-Reply-To: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 References: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -81,17 +81,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Vladimir Zapolskiy <vz@mleia.com>
-Subject: [PATCH net-next 04/10] net: stmmac: ingenic: convert to use
+Subject: [PATCH net-next 05/10] net: stmmac: socfpga: convert to use
  phy_interface
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uytpQ-00000006H2L-2Jzb@rmk-PC.armlinux.org.uk>
-Date: Wed, 17 Sep 2025 16:12:16 +0100
+Message-Id: <E1uytpV-00000006H2R-2nA6@rmk-PC.armlinux.org.uk>
+Date: Wed, 17 Sep 2025 16:12:21 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_081243_223223_56D28AD8 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250917_081252_745296_E7B80B44 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,119 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwmac-ingenic uses only MII, RMII, GMII or RGMII interface modes, none
-of which require any kind of conversion between the MAC and external
-world. Thus, mac_interface and phy_interface will be the same.
+dwmac-socfpga uses MII, RMII, GMII, RGMII, SGMII and 1000BASE-X
+interface modes, and supports the Lynx PCS. The Lynx PCS will only be
+used for SGMII and 1000BASE-X modes, with the MAC programmed to use
+GMII or MII mode to talk to the PCS. This suggests that the Synopsys
+optional dwmac PCS is not present.
 
-Convert dwmac-ingenic to use phy_interface when determining the
-interface mode that the dwmac core should be configured to at reset,
-rather than mac_interface.
+None of the DTS files set "mac-mode", so mac_interface will be
+identical to phy_interface.
 
-Also convert the error prints to use phy_modes() and terminate with a
-newline so that we get a human readable string rather than a number for
-the interface mode.
+Convert dwmac-socfpga to use phy_interface when determining the
+interface mode rather than mac_interface.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-ingenic.c   | 25 +++++++++++--------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-index 15abe214131f..c1670f6bae14 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.c
-@@ -90,7 +90,7 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
- 	unsigned int val;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 01dd0cf0923c..354f01184e6c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -234,7 +234,7 @@ static int socfpga_dwmac_parse_data(struct socfpga_dwmac *dwmac, struct device *
  
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_MII:
- 		val = FIELD_PREP(MACPHYC_TXCLK_SEL_MASK, MACPHYC_TXCLK_SEL_INPUT) |
- 			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_MII);
-@@ -119,7 +119,8 @@ static int jz4775_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 		break;
- 
- 	default:
--		dev_err(mac->dev, "Unsupported interface %d", plat_dat->mac_interface);
-+		dev_err(mac->dev, "Unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
- 		return -EINVAL;
- 	}
- 
-@@ -131,13 +132,14 @@ static int x1000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ static int socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
  {
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
+-	return dwmac->plat_dat->mac_interface;
++	return dwmac->plat_dat->phy_interface;
+ }
  
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RMII:
- 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
- 		break;
- 
- 	default:
--		dev_err(mac->dev, "Unsupported interface %d", plat_dat->mac_interface);
-+		dev_err(mac->dev, "Unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
- 		return -EINVAL;
- 	}
- 
-@@ -150,14 +152,15 @@ static int x1600_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
- 	unsigned int val;
- 
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RMII:
- 		val = FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
- 		dev_dbg(mac->dev, "MAC PHY Control Register: PHY_INTERFACE_MODE_RMII\n");
- 		break;
- 
- 	default:
--		dev_err(mac->dev, "Unsupported interface %d", plat_dat->mac_interface);
-+		dev_err(mac->dev, "Unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
- 		return -EINVAL;
- 	}
- 
-@@ -170,7 +173,7 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
- 	unsigned int val;
- 
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RMII:
- 		val = FIELD_PREP(MACPHYC_MODE_SEL_MASK, MACPHYC_MODE_SEL_RMII) |
- 			  FIELD_PREP(MACPHYC_PHY_INFT_MASK, MACPHYC_PHY_INFT_RMII);
-@@ -178,7 +181,8 @@ static int x1830_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 		break;
- 
- 	default:
--		dev_err(mac->dev, "Unsupported interface %d", plat_dat->mac_interface);
-+		dev_err(mac->dev, "Unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
- 		return -EINVAL;
- 	}
- 
-@@ -191,7 +195,7 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	struct ingenic_mac *mac = plat_dat->bsp_priv;
- 	unsigned int val;
- 
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RMII:
- 		val = FIELD_PREP(MACPHYC_TX_SEL_MASK, MACPHYC_TX_SEL_ORIGIN) |
- 			  FIELD_PREP(MACPHYC_RX_SEL_MASK, MACPHYC_RX_SEL_ORIGIN) |
-@@ -221,7 +225,8 @@ static int x2000_mac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 		break;
- 
- 	default:
--		dev_err(mac->dev, "Unsupported interface %d", plat_dat->mac_interface);
-+		dev_err(mac->dev, "Unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
- 		return -EINVAL;
- 	}
- 
+ static void socfpga_sgmii_config(struct socfpga_dwmac *dwmac, bool enable)
 -- 
 2.47.3
 
