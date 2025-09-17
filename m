@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADFECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AFECAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=; b=vb1fkfticBZNSt6YNzYBsBDvn8
-	i0yjT3GuYm+vVxi6J2hZhJvXzB4NgXuSqBrL1POKRDUrMXR+E5YWfB+qHq6zrnjkOXM/GvtZkvnI7
-	9XM8/UI65gOeAt9/syMCSTxwd0s+LOfbcB2PWx5/hvS4++p8cg9sVDr6NmNt3IX9MmiuzbFtkROmh
-	4Hed50T+FliOA+5DQBLPgM3kOqf9Sdlh1GsxXFPQ8flUHkMdZj5W4+JNV2zldyUTyrvxwyKElqueU
-	xAv2p8LSRfSk5oewX4ThFgyPveA6JflaiU0cHg7GqlwXha1zdGtoDw6VzhHd4t4hoaL7cgc1g8/yp
-	Z5p70dRg==;
+	bh=XoUhSQnd7IfUTabpSDtGCH3l3cdjv1ByOw0labXn8P4=; b=Y/y3zlAmtl/v5N/K6asoD1hkxl
+	Z425CkYzGD9mybf2p9MR8XFunqLMT/xBiTk2G9jgz47TvKXsXQRIYIPRKA7l6mBvQBb9xtI88+h5h
+	B6wdu+lIxcEDa/qi4xnCpAZ4jfUH2eBvkRGTHe0c8vhAjXbKUZ2SXohHczkVf5PtXsfOd0v+LRH/x
+	n90gsudmeHh6Q3ViqgCuEJBVGlQZt1LF5cjszsIuAFVfDb1kLEDtuZVZMl/YiH4f10VCYkzqCmh9H
+	t1bIaZOWzX+b2wnWWqUKdYzYxC2UCephRX2WWyIITaO+ta5KwjrnntjO+mx8JXDnwe4lF/k4R+JVK
+	5T0exDKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyQe-0000000ETp1-2Wyo;
-	Wed, 17 Sep 2025 20:07:00 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uyyda-0000000EXkG-1TAR;
+	Wed, 17 Sep 2025 20:20:22 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyQc-0000000ETod-051u
+	id 1uyydX-0000000EXiT-2TVz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 20:06:59 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-25669596921so2307095ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 13:06:57 -0700 (PDT)
+	Wed, 17 Sep 2025 20:20:20 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45f2f894632so19725e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 13:20:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758139617; x=1758744417; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=;
-        b=c9YmyLL0e78QPI0wwjyv9rjL25xOdEaP17mvkyA5YY+k121Wpoha+zoq5Z/V+K1hA4
-         QuDMuGt8dE4ukCmwfhZyHmaxY6fv5ibUwwP2xzKED6O56wtcOjF33j62VYhKA4pD+H/s
-         rFKt0pmMGmongBdKbjozAEXVQHgCdvNwUZNr7tXLjOfKMcYSKdwlwhYOEsMJz9hE9iSV
-         mMP3wwCOGUMujcWm9SHh5VqzWkwIRN8/PHHe9TiOGkkZQ6CqQx87LDxWqfwjaVgquV4Y
-         TdI6FZ2bqpMY7m8iYuWy9Rki0VDIxMFumN6W0tOgid82GSRbNJ0KPKIeA3G6RN0oYqDn
-         tDrw==
+        d=google.com; s=20230601; t=1758140418; x=1758745218; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XoUhSQnd7IfUTabpSDtGCH3l3cdjv1ByOw0labXn8P4=;
+        b=ps5RczcO8+djBQtL+ZQNmll++4tpcptr0S2uVJhRQVRsDlX7NBBJ8Cp+iBetisSXHf
+         2CgwHiW6hG7k6V31uMhzIvjDBYyUSdk2ZvFft+1KFhdgDzhfsGMkq3lEqdRaOvMAU9q5
+         FFdmxDAixZ/yg+Y8eQlY4sR1h+Z6VHEoaNKf/P5Byu5TRKmk3gLuxD228ZklVqfW/etl
+         h3J+m3yWRypm2LlvzNioGMSbyiUs8NmfsAzKJo1/fOY1HK8urik37wv1sOinpy/l9m9/
+         ZeavFAytnjqGhbkxu5Y75fvHtcNiErpxQ4VBDbc+tjBd5hbkuh/l3e0LlDCDHbGe0TSv
+         3ctg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758139617; x=1758744417;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=;
-        b=mAa1LD0zwhHFVTfhsmOBj/T7go05vfJ/ib+QUefX3TkkeG2H9L/6BxzV95R697hwSa
-         yyRca9WiKgJeyFFAOKOyj5LRn/5WRC1W+oOrrEhBprVG65FDUsITpXbQMZwSSLV6wv4j
-         b1EFDcBEahb8xfUZqwcSWBsYFXiNcw/1A7khpNLZSGMq3SNQvnt7Ob/x8mdVVRHKrfMt
-         0qrAyqsQbqAB1Cp0WZ3XlVkJ8FYv39RGT3QJ0mn2l6pAYQQBpNA2zOaEyk/0J+/KkXJ6
-         Omv+e4woaORJNfOIy2NrBLdirU1QYCrNTGyKdM62ESdMakW3UOKKX+FxjmvpG1sa1Crf
-         h7Zw==
-X-Forwarded-Encrypted: i=1; AJvYcCVMv1JkbCl40UmipYio+zc6QazDMqNeQT/mI9tF+8ewS1FI9UjYVIoHI6R+fYXji2yx0JivwlUpy6ValsO8XTSB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvhoOTVvkIwfDJmQdjzJssNzDe1hw3CcA74SWtEheu4o144l4g
-	FjJsVoDvm/TEWhv7Y4Wu73IuM5MgHfM3P8zcecGaLU2SH5uYMStrSxXaIHc+Lw==
-X-Gm-Gg: ASbGncsPFCrBIfk2lTLiOexG5Rwh77q7k+Lpy6W+Xr/zVBSrA53XHzGrkZXdsasZB4j
-	nUNDj3LNzijf35GGFRI9d1WdZO9X4l7PBhvLaZUEZcpeRffglhJ51LprTMo1VOPMIOs3cI3x2MQ
-	fGNmUdPILhEKgWjHUDRCOuRn+VPdPbnczclS4KcE9b5G61uGcBgMewF49KixufNqS7CPpE9zyqN
-	Xp40frgN8OhQfEtqnh2n2lwgObgPHL23URbnGjxqIzwZ9yJo37K5utmuT+Ky9WXTrcbzwaMA9kF
-	SkuIpgZ4oiOe0fizQdG6r2RAyftfijmL4gZrsAixVM0eOyeuGNQIytLIfpY2E91DevScXJEDWZc
-	EuBhgYujkIyAZv6gtP4o4xKeK6Xdc1Z6Ml5IK1JU4TA==
-X-Google-Smtp-Source: AGHT+IH4ljt2vti7NSBWoLRl1Y3YBR7ak2BF6N3DsrRX2rCMF4AUdMIoGbFRGc1NosrFKmMz+WdEHw==
-X-Received: by 2002:a17:903:2c7:b0:264:567b:dd92 with SMTP id d9443c01a7336-26813e02d08mr43177195ad.52.1758139616771;
-        Wed, 17 Sep 2025 13:06:56 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:c3d9:b11c:3856:2d3a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2698035cd39sm3762225ad.146.2025.09.17.13.06.55
+        d=1e100.net; s=20230601; t=1758140418; x=1758745218;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XoUhSQnd7IfUTabpSDtGCH3l3cdjv1ByOw0labXn8P4=;
+        b=leVZ0rV/iB3R1lnhebupaDQ0s4Enev/NRh3SE2f6+awKqSXskKlhMOj3dwR0jqd7u0
+         seqRRG+wm1Ug9BwF9W4GsfF+jotpeaN0jLX974tyfqdUr0CcG6Qjp8Df3Z1FWkFmgCVP
+         POmAlB0OTEW9LI1n7IHV0nz+A9tm9LRZVv7Fmv39NxG1Uou/dL9zAXKYn6QrFIyUNSWH
+         AlR+wbKxwMrK7PQFs7KozjFPISrGJcwxKOKZcm4A6GEvGYErxUwMJA5bwPNuKZ1iz2Co
+         BU6CmCbAV2J9eFS9SRm46gCCM8AtjoMzhNp3gEuPDaQnlj8Y/BuLkldE0EvJi69i64qG
+         eeKw==
+X-Forwarded-Encrypted: i=1; AJvYcCW2yyfTdEZlO8GYHvEL4cQ0BSWXgWXgdsH28GXeHmeR16JHuI048lP//jbCLA7Hh1GbNXjQ/UFjKj37HyyCWSMk@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx3NO+XYOeMXBolwsxSNerW9V9qwhu04CVxYDx0x861aX+p4+5
+	d019fpzvENPqgSVnlWsfOrJpt5ikJ7Rb5yM0xZFiyzA4U9UNEYB2sNCqEFjq/RYpmw==
+X-Gm-Gg: ASbGncve9tnrZgAe14CxbV1jB6d7f3IZtj+5LZAywfGx+YWgxLv0xi1zW1zelFeH86a
+	8RUAljVOlqwLJoWL+Dn+spoYfbz35dHfZ/gT5h8BrpfjGMdFdyaW0K66mHel2OuXE1AuZ1wCvpo
+	W9q4G9OwAd+a8vzoCn8fm3I5jZXRQftH4lQ7zGiCd5lH+Ld4Rnhex+HNpIedGlkusAzI7s5np1L
+	NA2v9Bt/Re7SgkeWZTWP8nC7M0PBom4esN+PTpRC3LzUd75jGRC0zdFgZBAatdBiSlZMOZqd7HP
+	fcN3/44aJmJN44sCwjBO1777z1p7fLg+0tmisdK7FingZ0RvYWPOh626LhFojOUx6QM1PAzLf8p
+	vOv6JelMiAo4xSvu9ZvQW6L3yJ/S7ih4WgVmXg0VjFUHxNoQjOAbX22xIhWM+neSdXbkVv2f8nB
+	dylYzACiMmcWzN
+X-Google-Smtp-Source: AGHT+IGL88nN+OqGfm1HaJnu3LWbX2CcWRBICMmdu5JCioCD/g1gYZjfAdwJ3rB3P8WH9nqDGiZ/5Q==
+X-Received: by 2002:a05:600c:a404:b0:45b:9bcb:205 with SMTP id 5b1f17b1804b1-461e37283d8mr1338655e9.5.1758140417528;
+        Wed, 17 Sep 2025 13:20:17 -0700 (PDT)
+Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-464f0aac271sm9659905e9.3.2025.09.17.13.20.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 13:06:56 -0700 (PDT)
-Date: Wed, 17 Sep 2025 13:06:53 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] Input: s6sa552 - add a driver for the Samsung
- A552 touchscreen controller
-Message-ID: <zh2cvvhvdklwnrnhmzsgajk5ryk7gwd5sayde656ddysi53d7b@frw2ph3opmoe>
-References: <20250914134458.2624176-1-ivo.ivanov.ivanov1@gmail.com>
- <20250914134458.2624176-3-ivo.ivanov.ivanov1@gmail.com>
+        Wed, 17 Sep 2025 13:20:16 -0700 (PDT)
+Date: Wed, 17 Sep 2025 20:20:12 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
+	joro@8bytes.org, praan@google.com
+Subject: Re: [PATCH v2 1/3] iommu/io-pgtable-arm: Move selftests to a
+ separate file
+Message-ID: <aMsX_HafW3rLs5dQ@google.com>
+References: <20250917191143.3847487-1-smostafa@google.com>
+ <20250917191143.3847487-2-smostafa@google.com>
+ <20250917193818.GK1326709@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250914134458.2624176-3-ivo.ivanov.ivanov1@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250917193818.GK1326709@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_130658_068758_9F5BCEC7 
-X-CRM114-Status: GOOD (  27.12  )
+X-CRM114-CacheID: sfid-20250917_132019_648755_CE63A37E 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,224 +104,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ivaylo,
-
-On Sun, Sep 14, 2025 at 04:44:57PM +0300, Ivaylo Ivanov wrote:
-> The S6SA552 touchscreen is a capacitive multi-touch controller for
-> mobile use. It connects via i2c at the address 0x48.
+On Wed, Sep 17, 2025 at 04:38:18PM -0300, Jason Gunthorpe wrote:
+> On Wed, Sep 17, 2025 at 07:11:38PM +0000, Mostafa Saleh wrote:
+> > +static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
+> > +{
+> > +	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
+> > +	struct io_pgtable_cfg *cfg = &data->iop.cfg;
 > 
-> Introduce a basic driver, which can handle initialization, touch events
-> and power states.
+> Can be:
 > 
-> At least the firmware for this IC on Galaxy S7 differs from S6SY761
-> in register layout and bits, as well as some missing registers/functions,
-> for example for retrieving the max X/Y coordinates and the amount
-> of TX/RX channels.
+>        struct io_pgtable_cfg *cfg =
+>                &io_pgtable_ops_to_pgtable(pgtbl_ops)->cfg;
 
-I am not sure why you are using runtime PM in the driver, given that you
-enable it on probe and disable it in remove and otherwise do not touch.
+There are a bunch of other formatting issues here also, but I wanted to
+move the code as is, so with “--color-moved” you can see the exact
+difference, otherwise, it’s harder to review.
 
-If you want to use it then you should probably call runtime_pm_get() and
-runtime_pm_put() from open()/close() methods instead of toggling power
-directly.
+I can add a patch before to fix those + the printing as you suggested
+next.
 
-[...]
+> 
+> > +
+> > +	pr_err("cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
+> > +		cfg->pgsize_bitmap, cfg->ias);
+> > +	pr_err("data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
+> > +		ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
+> > +		ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
+> 
+> The entire struct arm_lpae_io_pgtable is exposed to a public header
+> just for this one print.. Seems undesirable.
+> 
+> Drop the print? Honestly, I prefer this, given the maturity let's not
+> compromise modularity to print someting nobody will ever read..
+> 
+> Alternatively call a kunit-only exported function to do the print
+> directly from ops so. smmuv3 has an example how to do that
+> 
+> Either way a precursor patch to adjust it will allow this patch to
+> avoid publishing most stuff.
 
-> +
-> +static void s6sa552_input_close(struct input_dev *dev)
-> +{
-> +	struct s6sa552_data *sdata = input_get_drvdata(dev);
-> +	int ret;
+I don’t have a strong opinion about this, but I am more inclined to
+keep the prints considering it’s a low-level test for the page table,
+and such parameters would be useful to understand the failures.
 
-	int error;
+Moving arm_lpae_dump_ops() to the core library will leak the kunit
+struct, but we can drop the kunit_err and rely on pr_err().
 
-> +
-> +	ret = i2c_smbus_write_byte(sdata->client, S6SA552_SENSE_OFF);
-> +	if (ret)
-> +		dev_err(&sdata->client->dev, "failed to turn off sensing\n");
-> +}
-> +
-> +static ssize_t s6sa552_sysfs_devid(struct device *dev,
-> +				   struct device_attribute *attr, char *buf)
-> +{
-> +	struct s6sa552_data *sdata = dev_get_drvdata(dev);
-> +
-> +	return sprintf(buf, "%#x\n", sdata->devid);
-> +}
-> +
-> +static DEVICE_ATTR(devid, 0444, s6sa552_sysfs_devid, NULL);
-> +
-> +static struct attribute *s6sa552_sysfs_attrs[] = {
-> +	&dev_attr_devid.attr,
-> +	NULL
-> +};
-> +ATTRIBUTE_GROUPS(s6sa552_sysfs);
-> +
-> +static int s6sa552_power_on(struct s6sa552_data *sdata)
-> +{
-> +	u8 buffer[S6SA552_EVENT_SIZE];
-> +	int ret;
+I know this is not relevant to this series, but the KVM driver will
+need to expose arm_lpae_io_pgtable anyway.
 
-	int error;
+>
+> > +/*
+> > + * Calculate the right shift amount to get to the portion describing level l
+> > + * in a virtual address mapped by the pagetable in d.
+> > + */
+> > +#define ARM_LPAE_LVL_SHIFT(l,d)						\
+> > +	(((ARM_LPAE_MAX_LEVELS - (l)) * (d)->bits_per_level) +		\
+> > +	ilog2(sizeof(arm_lpae_iopte)))
+> 
+> Didn't see this being used?
 
-Use "error" for storing error values from APIs that return negative or
-0. For APIs that also return real values "ret" is fine.
+Yes, my bad, I will move it and the other one back.
 
-> +
-> +	ret = regulator_bulk_enable(ARRAY_SIZE(sdata->regulators),
-> +				    sdata->regulators);
-> +	if (ret)
-> +		return ret;
-> +
-> +	msleep(140);
-> +
-> +	/* double check whether the touch is functional */
-> +	ret = i2c_smbus_read_i2c_block_data(sdata->client,
-> +					    S6SA552_READ_ONE_EVENT,
-> +					    S6SA552_EVENT_SIZE,
-> +					    buffer);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	if (buffer[0] != S6SA552_EVENT_TYPE_ACK ||
-> +	    buffer[1] != S6SA552_EVENT_ACK_BOOT) {
-> +		return -ENODEV;
-> +	}
-> +
-> +	ret = i2c_smbus_read_byte_data(sdata->client, S6SA552_BOOT_STATUS);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/* for some reasons the device might be stuck in the bootloader */
-> +	if (ret != S6SA552_BS_APPLICATION)
-> +		return -ENODEV;
-> +
-> +	/* enable touch functionality */
-> +	ret = i2c_smbus_write_byte_data(sdata->client,
-> +					S6SA552_TOUCH_FUNCTION, 0x01);
-> +	if (ret)
-> +		return ret;
-> +
-> +	mdelay(20); /* make sure everything is up */
-> +
-> +	return 0;
-> +}
-> +
-> +static int s6sa552_hw_init(struct s6sa552_data *sdata)
-> +{
-> +	u8 buffer[S6SA552_DEVID_SIZE];
-> +	int ret;
-> +
-> +	ret = s6sa552_power_on(sdata);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = i2c_smbus_read_i2c_block_data(sdata->client,
-> +					    S6SA552_DEVICE_ID,
-> +					    S6SA552_DEVID_SIZE,
-> +					    buffer);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	sdata->devid = get_unaligned_be16(buffer + 1);
-> +
-> +	return 0;
-> +}
-> +
-> +static void s6sa552_power_off(void *data)
-> +{
-> +	struct s6sa552_data *sdata = data;
-> +
-> +	disable_irq(sdata->client->irq);
-> +	regulator_bulk_disable(ARRAY_SIZE(sdata->regulators),
-> +			       sdata->regulators);
-> +}
-> +
-> +static int s6sa552_probe(struct i2c_client *client)
-> +{
-> +	struct s6sa552_data *sdata;
-> +	int err;
-> +
-> +	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C |
-> +						I2C_FUNC_SMBUS_BYTE_DATA |
-> +						I2C_FUNC_SMBUS_I2C_BLOCK))
-> +		return -ENODEV;
-> +
-> +	sdata = devm_kzalloc(&client->dev, sizeof(*sdata), GFP_KERNEL);
-> +	if (!sdata)
-> +		return -ENOMEM;
-> +
-> +	i2c_set_clientdata(client, sdata);
-> +	sdata->client = client;
-> +
-> +	sdata->regulators[S6SA552_REGULATOR_VDD].supply = "vdd";
-> +	sdata->regulators[S6SA552_REGULATOR_AVDD].supply = "avdd";
-> +	err = devm_regulator_bulk_get(&client->dev,
-> +				      ARRAY_SIZE(sdata->regulators),
-> +				      sdata->regulators);
-> +	if (err)
-> +		return err;
-> +
-> +	err = devm_add_action_or_reset(&client->dev, s6sa552_power_off, sdata);
-> +	if (err)
-> +		return err;
-> +
-> +	err = s6sa552_hw_init(sdata);
-> +	if (err)
-> +		return err;
-> +
-> +	sdata->input = devm_input_allocate_device(&client->dev);
-> +	if (!sdata->input)
-> +		return -ENOMEM;
-> +
-> +	sdata->input->name = S6SA552_DEV_NAME;
-> +	sdata->input->id.bustype = BUS_I2C;
-> +	sdata->input->open = s6sa552_input_open;
-> +	sdata->input->close = s6sa552_input_close;
-> +
-> +	input_set_abs_params(sdata->input, ABS_MT_POSITION_X, 0, S6SA552_MAX_X,
-> +			     0, 0);
-> +	input_set_abs_params(sdata->input, ABS_MT_POSITION_Y, 0, S6SA552_MAX_Y,
-> +			     0, 0);
-> +	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MAJOR, 0, 255, 0, 0);
-> +	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MINOR, 0, 255, 0, 0);
-> +	input_set_abs_params(sdata->input, ABS_MT_PRESSURE, 0, 255, 0, 0);
-> +
-> +	touchscreen_parse_properties(sdata->input, true, &sdata->prop);
-> +
-> +	if (!input_abs_get_max(sdata->input, ABS_X) ||
-> +	    !input_abs_get_max(sdata->input, ABS_Y)) {
-> +		dev_warn(&client->dev, "the axis have not been set\n");
-> +	}
-> +
-> +	err = input_mt_init_slots(sdata->input, S6SA552_TX_CHANNELS,
-> +				  INPUT_MT_DIRECT);
-> +	if (err)
-> +		return err;
-> +
-> +	input_set_drvdata(sdata->input, sdata);
-> +
-> +	err = input_register_device(sdata->input);
-> +	if (err)
-> +		return err;
-> +
-> +	err = devm_request_threaded_irq(&client->dev, client->irq, NULL,
-> +					s6sa552_irq_handler,
-> +					IRQF_TRIGGER_LOW | IRQF_ONESHOT,
+Thanks,
+Mostafa
 
-Do not hardcode trigger type, just use IRQF_ONESHOT.
-
-> +					"s6sa552_irq", sdata);
-> +	if (err)
-> +		return err;
-> +
-> +	pm_runtime_enable(&client->dev);
-> +
-> +	return 0;
-> +}
-
-Thanks.
-
--- 
-Dmitry
+> 
+> > +#define ARM_LPAE_GRANULE(d)						\
+> > +	(sizeof(arm_lpae_iopte) << (d)->bits_per_level)
+> 
+> Only used by the above print
+> 
+> > +#define ARM_LPAE_PGD_SIZE(d)						\
+> > +	(sizeof(arm_lpae_iopte) << (d)->pgd_bits)
+> 
+> Only used by the above print
+> 
+> > +#define ARM_LPAE_PTES_PER_TABLE(d)					\
+> > +	(ARM_LPAE_GRANULE(d) >> ilog2(sizeof(arm_lpae_iopte)))
+> 
+> Didn't see this being used?
+> 
+> > +typedef u64 arm_lpae_iopte;
+> 
+> Only used by the defines and the above print.
+> 
+> Jason
 
