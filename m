@@ -4,114 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8CFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C55FCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5mwCMXZll74MsKobdLnh2paEF22CAKr4juHWA93w7A=; b=ZB+XisniD32jKdQ9CmNJFPjvBq
-	7eJ8uRW13URuw9TUHt/EOCGcxEA+009JIh1UrPEHPjvpwE8Tgn2p6E6HQgB2Tl7MKjWzvMalmfSw4
-	/WT9MiNRjZPsKMfZqGGwbVrREf2qYlTbu40QkUtjf+hG/eWHkjEQXIxNv0eGpk7SEpjArU0OSS168
-	9WaBa3Qd5YSBuhd083Fhm7keTZVB8HH5aKxSPIazCuAibWniAtniaEkBqCNsrS2ch44htHOUlpV4k
-	pn7Hpu1gQ9FuhsaVFxRN/eZdD3iolJrYluJrxI8z06h8Vye22NRYs3AJKjGhYBOBeuQthgQdUXjnJ
-	+0ntJ7tQ==;
+	bh=d2rOtavN8Yu5wp1NcVsRpxDZLel/3IAuBK2KE2s78bs=; b=T7Yhbjr0pRaXF9LZdCnajV5Qjl
+	BUBk1l+6umyiTpqrraFYSCDLXDp0a0UA8xjxnHn7CWT8+nRSNWk9BpqfHMFzVJ33BZ3gOliLsNKbX
+	WiwRdumuTD49F2hDRyzusf5cKzTM0Ev1WDrLdhMCizHAtXUPopXVna2GgdYCkgLK2Bw4A1Dn44t9e
+	KJtYhrBHVCVS9P4OkoAxriFLf6XsE9bVM9IViRWgVgQm2Ld7MFJ93rfvY4CxUJ6HYUgqSAI5Dn2z2
+	4+ZjVOlaZf5WCaJv7/tcn2O6oJtXdiefiYaJ5SAZzIDT+ekYJrnHjJTEFOhwrPRbfwHNM7lyaEfeG
+	WOX+NvcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyttN-0000000Ccqv-0oJn;
-	Wed, 17 Sep 2025 15:16:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uytur-0000000CdZ1-2qjD;
+	Wed, 17 Sep 2025 15:17:53 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyttL-0000000Ccpm-40qK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 17 Sep 2025 15:16:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=j5mwCMXZll74MsKobdLnh2paEF22CAKr4juHWA93w7A=; b=pGQAtcieEBXhZd2AWFaZu7wm1a
-	nQlqnPGhrtrDKDy+ExgwDhLMHNX83KndBnAy0GVC3j7lb/E/x7/e/OeyhuxEquykW35sLtVUK2twn
-	BNbalD5uNZYNMsGCyqKdQouOoENp3CkHnoGvOewxgxSGY1CJy5o9zIq/17T1RcqikCWzV6zzu0ooD
-	q4v0gIJ1afvyjhig69oLlsz+10Nna36nDq8rfosvHudVvOb0yDTivBQPQ6C+m6NIx7240h3Bm0baY
-	PG7Fwe0SrPDuH0m20mGopJyC4vgm2R35P+H44PTNMs6k+PuoUKqCcsUvOY8kAmeyh2qnPINq1Cu1R
-	M3scFlbw==;
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyttI-00000007Q1u-3Z7R
+	id 1uytup-0000000CdXF-0e6T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:16:18 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-32e34f4735eso4127298a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:16:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1758122174; x=1758726974; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j5mwCMXZll74MsKobdLnh2paEF22CAKr4juHWA93w7A=;
-        b=il5d9TstfAoLWjWddd8tRvsppn2/Is/r+BgGDE7U3ZANROVNVpUukUTXr5iXRiPuNr
-         j5sSOQP45NDHBUrsN4A/CHC8dtvxzMR2oM8LyeqhienXoWOwuB38JVBlUHSQsTYopGNQ
-         QLS4YMIEA/8uRz0RM9oiArg0VhqmLQagNdVxTcANVao3sTvX1oGbaWAr46Up+SGcSp/V
-         eguGSyl+Qu4xa8ngd1FID8Z6iaszPgOaHgLQEKmaoA1yyCYVclgdOka0kFjm8I2EZzRY
-         ebKfGwLGNgiBUit3K7OdHbjDwrYX7qp5qgBbwL4BEm21wUjjAu7JL/2P4u697UaLxcy5
-         QNug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758122174; x=1758726974;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j5mwCMXZll74MsKobdLnh2paEF22CAKr4juHWA93w7A=;
-        b=oLsHo8V7WzuBfQFqdz6e1xMJgiXI1NyVDdLGbZBDruvuaVYZRkdP2MoJB0fHfBgXpK
-         ZlbvpIwxCX2tiF9IPKIVpDbhBia3oj4u2k9I2jxPeFpOuPdbzykSrPPItfeATaEJHKfq
-         f2ktBDYLKbzJxlszgCvmYfDAkbFpmvYTNJP/Zmx16hPaSZqXDJMH7nJfdjHBorxU8Ugo
-         NYLfZY26HaOxPiBDaXM9XuOB1jAwbH86oAA+UFaNnC4lmR9gd/OehtcGUN8imFu3NAZP
-         sWbtUcHxmtrY4l2edzhOd+fxjfzswUZ1IgturdsUaBYGtff+X8mHFjEmlL8Z+APJTOfv
-         hHAA==
-X-Forwarded-Encrypted: i=1; AJvYcCUNhs/XCZ5Eo2GTAHGz+rGz2CFAm1L+ylVroSTPAlsLVZnSFBdZOEhWGPSDgRARPN9o9B5AEo+U2Y1Up79tYD2+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBbAMHXYhNDYVUo98KdgOW/w22M5WfFnUYQKxUimhOf3ZlCja7
-	iBB7kKbS/UrCOSVHHXG4AoeqTg1FI9D+hpBMWEUpcERnAV2MP7P9eiAuWerZZSZWtcM=
-X-Gm-Gg: ASbGncsQ7S2vUbv1T0KFzeDbdLM36DFpwk9viZilVzZpUH2+MuVPC7uJHqSnCpIxHl4
-	I7XlG4gLTP9/s8L2T5ofQ0KKzzfGWZs1Pc1FyMo+pwEMfDkFFp1p420oIHQdXmkZgWypz6yEdCS
-	9YwHNbKdboeyD28pGqhWx9sQH//iZxjFxmEwglbYwVxdg9ADTcJQbEYseKYaEf9CwWPpJQ/jHCX
-	GINOXVKDhSh5yaJ3/Xn2j9UG44z0PV8hZuHbsoKqT7VdjEXFHQwP45Mw97iXfV0ta5Ie/afRwtW
-	nZDKJdIDaqMw6VpAJ+mB7ZTWWU1IAbj9lzB6NBBvqUT1fiiT+K4Kd0vea3siw0UzzQ4/aYDt
-X-Google-Smtp-Source: AGHT+IFT1177fnGaDPrsJvXBzm9YkFBr+A6b67xfQf6j5GBKuYGPXR9WdIUZ96yP+o/Tmx5sDbBqfQ==
-X-Received: by 2002:a17:90a:d44b:b0:330:3fb8:3884 with SMTP id 98e67ed59e1d1-3303fb83a3dmr2234532a91.16.1758122173999;
-        Wed, 17 Sep 2025 08:16:13 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b54ff1a22fdsm28695a12.0.2025.09.17.08.16.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 08:16:13 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uyttE-00000008NhG-2B33;
-	Wed, 17 Sep 2025 12:16:12 -0300
-Date: Wed, 17 Sep 2025 12:16:12 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Will Deacon <will@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 22/28] iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
-Message-ID: <20250917151612.GH1326709@ziepe.ca>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-23-smostafa@google.com>
- <aMQroI4NDu74PDGT@willie-the-truck>
- <20250915163858.GK882933@ziepe.ca>
- <aMl_5j8G3IGulAC6@google.com>
- <20250917123601.GA1326709@ziepe.ca>
- <aMrNTny9jgZJd_Ef@willie-the-truck>
+	Wed, 17 Sep 2025 15:17:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=d2rOtavN8Yu5wp1NcVsRpxDZLel/3IAuBK2KE2s78bs=; b=AXqMWWLOmPyRphOsbmVfXMxScx
+	BvFgiufLKJWsHtvi3uUbeWEc2oY0SA/fHNKXxM650FCV4woIljD4ramthXo4iNMBYhqK3UpJ8urAI
+	oNYWczNXp8U4ZI2MPeCdij3j7WPW5tN8oYv5wUaPNzUZYuG3/fYejTM4KsEMC/uuEhOzAum5lSUev
+	y6iVlG6nM9qom0+6IU8Skhg3J5m/d0bWYCArtFXZMmkqhVWA/O+xCZzKQQZ+KT81ZxGJ9KpLwqQ+l
+	ry/4hO5Nnr8PyWYjPO8CTax/TsxCv6qEdYqI4F2UHngp6KcQASfyK7LOAiiaLMzdejC+XOAwgT1jY
+	Mylix9gQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46120)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uytug-000000004qV-2pGK;
+	Wed, 17 Sep 2025 16:17:42 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uytud-000000000ID-028Q;
+	Wed, 17 Sep 2025 16:17:39 +0100
+Date: Wed, 17 Sep 2025 16:17:38 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	kernel test robot <lkp@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Nathan Chancellor <nathan@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
+ __get_user_asm_dword()
+Message-ID: <aMrREvFIXlZc1W5k@shell.armlinux.org.uk>
+References: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk>
+ <875xdhaaun.ffs@tglx>
+ <aMqCPVmOArg8dIqR@shell.armlinux.org.uk>
+ <87y0qd89q9.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aMrNTny9jgZJd_Ef@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <87y0qd89q9.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_161617_000936_0723F823 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250917_081751_185372_C7679808 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +94,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:01:34PM +0100, Will Deacon wrote:
-> On Wed, Sep 17, 2025 at 09:36:01AM -0300, Jason Gunthorpe wrote:
-> > On Tue, Sep 16, 2025 at 03:19:02PM +0000, Mostafa Saleh wrote:
-> > 
-> > > I think the fix for the problem Will mentioned is to just use CMOs
-> > > before accessing the host structures, so that should be simple.
-> > > If it turns to be more complicated, I am happy to drop the support
-> > > for non-coherent devices from this series and we can add it later.
-> > 
-> > I feel like it is easier/better to fix the driver to use cachable
-> > memory than to add CMOs to the pkvm side..
+On Wed, Sep 17, 2025 at 03:55:10PM +0200, Thomas Gleixner wrote:
+> On Wed, Sep 17 2025 at 10:41, Russell King wrote:
+> > On Wed, Sep 17, 2025 at 07:48:00AM +0200, Thomas Gleixner wrote:
+> >
+> > Putting together a simple test case, where the only change is making
+> > __gu_val an unsigned long long:
+> >
+> > t.c: In function ‘get_ptr’:
+> > t.c:40:15: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+> >    40 |         (x) = (__typeof__(*(ptr)))__gu_val;                             \
+> >       |               ^
+> > t.c:21:9: note: in expansion of macro ‘__get_user_err’
+> >    21 |         __get_user_err((x), (ptr), __gu_err, TUSER());                  \
+> >       |         ^~~~~~~~~~~~~~
+> > t.c:102:16: note: in expansion of macro ‘__get_user’
+> >   102 |         return __get_user(p, ptr);
+> >       |                ^~~~~~~~~~
+> >
+> > In order for the code you are modifying to be reachable, you need to
+> > build with CONFIG_CPU_SPECTRE disabled. This is produced by:
+> >
+> > int get_ptr(void **ptr)
+> > {
+> >         void *p;
+> >
+> >         return __get_user(p, ptr);
+> > }
 > 
-> Hmm, but for non-coherent SMMU hardware (which sadly exists in
-> production), I don't think there's a way for firmware to tell the driver
-> that it needs to issue CMOs for the page-tables and the CDs but not the
-> other in-memory data structures (e.g. STEs). I suppose we could do it in
-> some pKVM-specific way, but then that's not really helping anybody else.
+> Duh, yes. I hate get_user() and I did not notice, because the
+> allmodconfig build breaks early due to frame size checks, so I was too
+> lazy to find that config knob and built only a couple of things and an
+> artificial test case for u64.
+> 
+> But it actually can be solved solvable by switching the casting to:
+> 
+>     (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;
+> 
+> Not pretty, but after upping the frame size limit it builds an
+> allmodconfig kernel.
 
-Not sure I understand?
+For me, this produces:
 
-I mean to issue CMOs in the smmu driver consistently for everthing,
-page table, CD entry, STE, etc. Today it only does it for page table.
+get-user-test.c:41:16: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   41 |         (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;                \
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Make the driver consistently use cachable memory for everything
-instead of having two different ways to deal with incoherent HW.
+with arm-linux-gnueabihf-gcc (Debian 14.2.0-19) 14.2.0
 
-Jason
+Maybe you're using a different compiler that doesn't issue that warning?
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
