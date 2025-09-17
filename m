@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106DDCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53888CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=; b=CuEZthsvJ2ZrrIk/f+0Y69j+bn
-	seB2uXPKH1o8QUfDGyyFkYi/KbCyh4pIkA8WvTnuS72hubutjXJOlTphl1w/5LnqWsgt3cAsc7CqT
-	3NOoofFHspcexy0629vowt5mYWgVo7goJW0ZCMyRx75WckHUd7gvDYXjXGyOtxaMmm96E9p01QYLw
-	HnVqV7Jk7Egf7ROc2vYCN+5116uV7KPWCGiW1iEK42L9WT8qN7GBzrr4saf7CIqrF3/MQNPHidbbS
-	FpZmnrxEQ8s4nl0ASFQHIi1/KEQRASu4SS9yvjb3hMaw75bTawZ3yXP2hIebIKIDTvvOlPnRcyUFK
-	vAvEd6ug==;
+	bh=aBjunldszJKa9kxkki4ZD0ttlVITk4TPJEcTv+aAIME=; b=04U2TjLvegeT0TpBuEYUHPhJPj
+	QeFsv58oT35Bdqcld3hvn+xwmNZAwPT6WEZKKvdKR7OtoG1bt/o8y6yMB0R91xsrwPoCMYNMscpXD
+	mU8WzdNLfNZFQf8lEuuX61rykMkLnPhyzjeYW51Wjb8ovw46eCrVzU5CGuiqeqwivDZZ6ZxtvIpTD
+	0N5eQA+ljpr1enDB/SKwpa6P87yTN/z29Ki5KvjPeayOdu/7kre9j2iX1wlvvF2G0y2HMJ+pesmrw
+	B+CHHUUNuwnE8GJegNpIgTx7E4J2ifSQOvxJL/A5iIVmPFAUGp39B1Rf1KXH6BektBGVZIUa0Q1Ua
+	kbEBJgng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxmI-0000000EGAO-0HRu;
-	Wed, 17 Sep 2025 19:25:18 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uyxnt-0000000EGwT-26Rw;
+	Wed, 17 Sep 2025 19:26:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxmF-0000000EG63-2KNJ
+	id 1uyxnr-0000000EGva-3z3Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:25:16 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758137111;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=;
-	b=qkcCRMHlqbHlQ+ihneOeLgC3lXlZ2JlMNJ2yZEfGlusdIjCo0oigXFnfCKhmxcrLIaGEHC
-	TKIQ5ISc7+tUerqZm4t/8qO7gz97N2i842L5viLZniXWkaSReoccFIBsqTXmkb/3rV5Eau
-	YGCkQLHir6RWC9Io/b6Fffe1jWvkRW/HSDVm9tiMH0lMPsSao/U/ve2o83mgBXP+Agq2u0
-	1cum3TQ5wUc1kyv4Yx/3EemOQ7wKoghENrXWUaNhRrODD5ybGPZ1Q2SVUego7OLpmaIwWX
-	6eUxEcAGTMU9aquxGISRwa5aPLUkgJBmihhAkDJ1h+Y5u5+iPic+zOX6La64Yg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758137111;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=;
-	b=WE8/k5UVt+1BxyiG8k75FlR6g4D3mPotvXxc1ALxIcRhOa8husqwKlI6SkcAGLdqS/znDZ
-	LRpE13Qp647ioiCg==
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Nathan Chancellor
- <nathan@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Linus Torvalds
- <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>,
- kernel test robot <lkp@intel.com>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Darren Hart
- <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?An?=
- =?utf-8?Q?dr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
- __get_user_asm_dword()
-In-Reply-To: <aMrxF3AnFox0LH8V@shell.armlinux.org.uk>
-References: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk> <875xdhaaun.ffs@tglx>
- <aMqCPVmOArg8dIqR@shell.armlinux.org.uk> <87y0qd89q9.ffs@tglx>
- <aMrREvFIXlZc1W5k@shell.armlinux.org.uk> <20250917171424.GB1457869@ax162>
- <aMrxF3AnFox0LH8V@shell.armlinux.org.uk>
-Date: Wed, 17 Sep 2025 21:25:09 +0200
-Message-ID: <87ms6s990q.ffs@tglx>
+	Wed, 17 Sep 2025 19:26:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 285586024D;
+	Wed, 17 Sep 2025 19:26:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9256C4CEE7;
+	Wed, 17 Sep 2025 19:26:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758137214;
+	bh=rxQ5P0gTfpf4dmZ7B42QPAmEImAeP2nFA/KifuYjACM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tMhwH362ygjjwtnqhXiVywzh3oiDjnrB5XKf0gfMFk/qbDnOy0tJhMrLeVNSz0XX1
+	 nF/X6JJvntikX0l4b7OuOv8ibCjAfJCW1P/mzjf03kgBw5yyB1Xe9LqCX4tJIrrQhP
+	 CCnjdAC0Lwj4DN+Zhc95Puuo6k9iXc/Z5ppMcbB5miUh4+tesHDmssV1vs6JMMjtC1
+	 lNhyo4jJGo/wCqrT3pOeG/zRkLc9PKFy8x/WxX+5l8RJMh4wcwDkah8aMz8m2yHyGN
+	 9KAIkeZfXV2rUFurIu/vgS94QSZkilL6fF1cVfI7nqawQUtFWDX/rzQSwcDSUSD78B
+	 FcmkowUHZpt1g==
+Date: Wed, 17 Sep 2025 20:26:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: Re: [PATCH v4 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support
+ glitch thresold
+Message-ID: <20250917-unhidden-foothill-7c103245be1f@spud>
+References: <20250917080534.1772202-1-dario.binacchi@amarulasolutions.com>
+ <20250917080534.1772202-5-dario.binacchi@amarulasolutions.com>
+ <aMrc0GhVbpI38t3L@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_122515_732628_112BE9B9 
-X-CRM114-Status: GOOD (  16.97  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1WzqRwur55oUj4Vo"
+Content-Disposition: inline
+In-Reply-To: <aMrc0GhVbpI38t3L@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +82,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17 2025 at 18:34, Russell King wrote:
 
-> On Wed, Sep 17, 2025 at 10:14:24AM -0700, Nathan Chancellor wrote:
->> On Wed, Sep 17, 2025 at 04:17:38PM +0100, Russell King (Oracle) wrote:
->> > For me, this produces:
->> > 
->> > get-user-test.c:41:16: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
->> >    41 |         (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;                \
->> >       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> > 
->> > with arm-linux-gnueabihf-gcc (Debian 14.2.0-19) 14.2.0
->> > 
->> > Maybe you're using a different compiler that doesn't issue that warning?
->> 
->> Maybe because the kernel uses -fno-strict-aliasing, which presumably
->> turns off -Wstrict-aliasing?
->
-> Thanks, I'd forgotten to pick the -f flags for building the out of tree
-> test. Yes, that does work, but I wonder whether the powerpc 32-bit
-> approach with __long_type() that Christophe mentioned would be better.
-> That also appears to avoid all issues, and doesn't need the use of
-> the nasty __force, address-of and deref trick.
+--1WzqRwur55oUj4Vo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hmm. I just noticed that include/asm-generic/uaccess.h does exactly the
-same what I did with the per size case variables and that seems to be
-not subject to endless bot complaints either.
+On Wed, Sep 17, 2025 at 12:07:44PM -0400, Frank Li wrote:
+> On Wed, Sep 17, 2025 at 10:05:09AM +0200, Dario Binacchi wrote:
+> > Support the touchscreen-glitch-threshold-ns property.
+> >
+> > Drivers must convert this value to IPG clock cycles and map it to one of
+>=20
+> binding descript hardware, not drivers. So below sentence should be bette=
+r.
+>=20
+> "TSC only supports the four discrete thresholds, counted by IPG clock cyc=
+les.
+> See SC_DEBUG_MODE2 register."
+>=20
+> > the four discrete thresholds exposed by the TSC_DEBUG_MODE2 register:
+> >
+> >   0: 8191 IPG cycles
+> >   1: 4095 IPG cycles
+> >   2: 2047 IPG cycles
+> >   3: 1023 IPG cycles
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >
+> > ---
+> >
+> > Changes in v4:
+> > - Adjust property description following the suggestions of
+> >   Conor Dooley and Frank Li.
+> > - Update the commit description.
+> >
+> > Changes in v3:
+> > - Remove the final part of the description that refers to
+> >   implementation details.
+> >
+> >  .../bindings/input/touchscreen/fsl,imx6ul-tsc.yaml | 14 ++++++++++++++
+> >  1 file changed, 14 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,im=
+x6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx=
+6ul-tsc.yaml
+> > index 678756ad0f92..1975f741cf3d 100644
+> > --- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
+c.yaml
+> > +++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-ts=
+c.yaml
+> > @@ -62,6 +62,20 @@ properties:
+> >      description: Number of data samples which are averaged for each re=
+ad.
+> >      enum: [ 1, 4, 8, 16, 32 ]
+> >
+> > +  touchscreen-glitch-threshold-ns:
+> > +    description: |
+> > +      Minimum duration in nanoseconds a signal must remain stable
+> > +      to be considered valid.
+> > +
+> > +      Drivers must convert this value to IPG clock cycles and map
+> > +      it to one of the four discrete thresholds exposed by the
+> > +      TSC_DEBUG_MODE2 register:
+>=20
+> same as commit messsage, talk about hardware.
 
-But sure, the PPC trick is neat too. No strong preference, just that I'm
-leaning towards the per case split up as it's less obfuscated IMO.
+This is fine. It's a generic comment about what must be done with the
+property by software that helps people understand how to populate it.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks,
 
-        tglx
+> > +        0: 8191 IPG cycles
+> > +        1: 4095 IPG cycles
+> > +        2: 2047 IPG cycles
+> > +        3: 1023 IPG cycles
+> > +
+>=20
+> This case genenerally need enum 4 values, but it relates IPG frequency.
+> I have not idea how to restrict it base on clk frequency. May DT mainatai=
+ner
+> have idea.
+
+I don't see how you really can restrict it based on the frequency of a
+clock that can probably be varied at runtime.
+
+--1WzqRwur55oUj4Vo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMsLeQAKCRB4tDGHoIJi
+0lL5AQCLnyauVzJQEzihjVDX0KlDXBi1HSOzSRs+/oAZJqNsBAEA8sAFqz68gVZ5
+J9dWazzA8+lZXRKWTAXkUnsZSD9G7Ac=
+=6CrS
+-----END PGP SIGNATURE-----
+
+--1WzqRwur55oUj4Vo--
 
