@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF096CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63256CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o6w4t3UC27bwnN6JWA8ZdKSrOmat1bxK0b+u8I2fnrs=; b=HMzox+wP27TeRjSEHM+zcpjazd
-	Csnsol3IwXOlrnAAIVnZQbzcv+518RAScnQXehchFUSP5IPkMUuCKk4ViMGUR4VQPqbf7apRHOND1
-	K22QYXWzUl2Dpp0ssGAPb+8dyV2scJlnGnvOyxayuw4G3/9wvgrzbDjtnOe0TQpgVzzaNVJsDzKJ1
-	ntQqBFgKEmUb1C/Tj7BuVqwvbdpY47SM4gMYxo3ibdFEwZ8m88nh4sV6fEE08386Ip09FQ00FAl0x
-	Do7OXpjbB57oSB4GpXHcBiAT1VAdsV9mBGYmhgDILMs9jyOKYexwcQN9yaWgrt7lXKxFUSEhbNBRw
-	EX/lQgVw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=h6gMhIo47d9WsNfxBpcLs07zyXs6dnFVGGnce8aevz8=; b=3usVKVcRAFYz51
+	61u1HQWporOVARtLRizQrfRAe+zM56it80bsvqF/+GMRrHss6EBkb9juD19oRyHdbFEeSuhvSpE6N
+	ocKYj4rLvR45DvTGsXzSyWQ3Wgc9x8T1G0CrIIhgvLehk4CLXy8cJiAIxO5g4GK9R5BhNYrfhvd+6
+	3L2KoLMcPIep0q9qCx2QDrs6Rin1EA9hR3wc2ZaZdPvVodKT3N38iMq1RaSBReGhOXpF9ZODHxsPB
+	OS72iNkInBrlZMQ3SDsRgIk6te++3vfx0kJE+KLx2AUZXVnEgU7zEUAUStsXhHmkgbfah+wHywuhR
+	xDs2XFdo4AIARByyT64Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzKm-0000000ElFp-48EL;
-	Wed, 17 Sep 2025 21:05:00 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uyzXq-0000000Epzl-1R5M;
+	Wed, 17 Sep 2025 21:18:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzKj-0000000El9Q-3wp2
+	id 1uyzXo-0000000Epxb-2oOB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:04:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=o6w4t3UC27bwnN6JWA8ZdKSrOmat1bxK0b+u8I2fnrs=; b=jzmqQ6yIl7UUKBiq97RnIjKZj7
-	p34gFEmXC9MwDRV9+6uLT4qFjXNHIf76KL5Y84EFWs4Uce2LBIombd4RQtFq40iJbn+w9qMGhBElA
-	cU4fBSc1/vemnhXbuckLVN2/RGWKQr/p3rb9O2IsS03Toq0H5cgnRB7R52igr/ntkn8o=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uyzKX-008jg4-51; Wed, 17 Sep 2025 23:04:45 +0200
-Date: Wed, 17 Sep 2025 23:04:45 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Rebecca Cran <rebecca@bsdio.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
- ALTRAD8 BMC
-Message-ID: <8b5625a5-56bf-49bc-b4cf-82c60460db65@lunn.ch>
-References: <20250917180428.810751-1-rebecca@bsdio.com>
- <20250917180428.810751-3-rebecca@bsdio.com>
+	Wed, 17 Sep 2025 21:18:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AB1B060055;
+	Wed, 17 Sep 2025 21:18:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29A0DC4CEE7;
+	Wed, 17 Sep 2025 21:18:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758143907;
+	bh=Dkf08spIxA201bgB3U6VQQ/RiMff9Y1iizvcrMd6Ipw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=eAFvS4Ajgc6dGXw+wpqk+89BbU6NxbLokTy88t5guS8V8kgaePfP/jBJ9cMNWnzG/
+	 91uRTY7+56XLBLzDMi+MfWFAb3cKziHq8Op1EUnuPj7A5jt0cIc3zH1+MaH0t2bxoy
+	 M74PI70kJJ7TH38wdUF0G+WuPgFK81TNHc4Iypc1a+5+uKmFR4i3hTg55ScwFiEZ3j
+	 ZKFZaL31t7v6IGmdDn6taTUJugECvKCNJL3iIt0iPM53wtdsq9KCFY/mBl0oRNGXmD
+	 1SXJ1JaF5aAGcpUWX6X2mSPDX1qEd4rjAiduq1luH+E/zBu70acdYR1EGl4uJaJIga
+	 SwMvK40TkXXpg==
+Date: Wed, 17 Sep 2025 16:18:25 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
+	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
+Message-ID: <20250917211825.GA1874549@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917180428.810751-3-rebecca@bsdio.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_140457_994175_4A61C021 
-X-CRM114-Status: GOOD (  17.61  )
+In-Reply-To: <20250912141436.2347852-2-vincent.guittot@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,89 +73,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rebecca
+Suggest following convention for subject lines (run "git log --oneline
+Documentation/devicetree/bindings/pci/"), e.g.,
 
-> +// Connected to host Intel X550 (ALTRAD8UD-1L2T) or
-> +// Broadcom BCM57414 (ALTRAD8UD2-1L2Q) interface
-> +&mac0 {
+  dt-bindings: PCI: s32g: Add NXP PCIe controller
 
-Thanks for the comments.
+On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
+> Describe the PCIe controller available on the S32G platforms.
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rmii1_default>;
+> +        pcie0: pcie@40400000 {
+> +            compatible = "nxp,s32g3-pcie",
+> +                         "nxp,s32g2-pcie";
+> +            dma-coherent;
+> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> +                  /* RC configuration space, 4KB each for cfg0 and cfg1
+> +                   * at the end of the outbound memory map
+> +                   */
+> +                  <0x5f 0xffffe000 0x0 0x00002000>,
+> +                  <0x58 0x00000000 0x0 0x40000000>; /* 1GB EP addr space */
+> +                  reg-names = "dbi", "dbi2", "atu", "dma", "ctrl",
+> +                              "config", "addr_space";
+
+Looks like an indentation error.  Shouldn't "reg-names" and subsequent
+properties be aligned under "reg"?
+
+> +                  #address-cells = <3>;
+> +                  #size-cells = <2>;
+> +                  device_type = "pci";
+> +                  ranges =
+> +                  /* downstream I/O, 64KB and aligned naturally just
+> +                   * before the config space to minimize fragmentation
+> +                   */
+> +                  <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
+> +                  /* non-prefetchable memory, with best case size and
+> +                  * alignment
+> +                   */
+> +                  <0x82000000 0x0 0x00000000 0x58 0x00000000 0x7 0xfffe0000>;
 > +
-> +	clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
-> +		 <&syscon ASPEED_CLK_MAC1RCLK>;
-> +	clock-names = "MACCLK", "RCLK";
+> +                  nxp,phy-mode = "crns";
+
+If "nxp,phy-mode" goes with "phys", should it be adjacent to it?
+
+> +                  bus-range = <0x0 0xff>;
+> +                  interrupts =  <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>,
+> +                                <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
+> +                  interrupt-names = "link_req_stat", "dma", "msi",
+> +                                    "phy_link_down", "phy_link_up", "misc",
+> +                                    "pcs", "tlp_req_no_comp";
+> +                  #interrupt-cells = <1>;
+> +                  interrupt-map-mask = <0 0 0 0x7>;
+> +                  interrupt-map = <0 0 0 1 &gic 0 0 0 128 4>,
+> +                                  <0 0 0 2 &gic 0 0 0 129 4>,
+> +                                  <0 0 0 3 &gic 0 0 0 130 4>,
+> +                                  <0 0 0 4 &gic 0 0 0 131 4>;
+> +                  msi-parent = <&gic>;
 > +
-> +	use-ncsi;
-> +
-> +	nvmem-cells = <&eth0_macaddress>;
-> +	nvmem-cell-names = "mac-address";
-> +};
-> +
-> +// Connected to Realtek RTL8211E
-> +&mac1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
-> +
-> +	nvmem-cells = <&eth1_macaddress>;
-> +	nvmem-cell-names = "mac-address";
-> +};
-
-I see you did not manage to get phy-handle to work.
-
-The problem i have is the lack of phy-mode = "rgmii-id".
-
-Aspeed has a long history have getting phy-mode wrong. This has mainly
-affected 2600, but as far as i understand, this is a 2500?
-
-I've been pushing back on any 2600 DT using phy-mode = "rgmii". This
-is 99% of the time wrong, since it indicates that the PCB has extra
-long clock lines.
-
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
-
-What aspeed get wrong is that they configure the MAC to insert 2ns
-delay. And this is hidden way, in the bootloader. As a result,
-PHY_INTERFACE_MODE_RGMII gets passed to phy_connect(), when
-PHY_INTERFACE_MODE_RGMII_ID should be passed. Its a case of two wrongs
-combine to give a working system.
-
-I've been pushing aspeed to clean up this mess. And to do that, i've
-been rejecting DT with phy-mode = "rgmii". Most submissions has ended
-up dropping ethernet support, and are now twiddling their thumbs
-waiting for aspeed to cleanup the mess. Or anybody actually, there is
-enough public information anybody could fix it, and probably end up
-with a crate of beer/box of wine, etc.
-
-Now, it is slightly different here. You don't have a phy-mode at
-all. And all the other 2500 i looked at also don't have phy-mode
-properties. You are relying on
-
-        /* Default to RGMII. It's a gigabit part after all */
-        err = of_get_phy_mode(np, &phy_intf);
-        if (err)
-                phy_intf = PHY_INTERFACE_MODE_RGMII;
-
-This is equally wrong :-(
-
-Now, there was somebody who tried getting around my push back on 2600
-by simply deleting the phy-mode, and relying on this fallback code. I
-said don't do that. Its just going to cause more problems when the code
-gets cleaned up, and we have to remember there is an oddball platform.
-
-At the time, i did not know 2500 was different, and none of the DTs
-use phy-mode. So, i'm humming and harring. I set a precedent, no
-phy-mode should get a patch rejected. But this is 2500, not 2600.
-
-O.K. I will accept it, for 2500. Since none of the 2500 boards have
-it, this is not an oddball platform. If the cleanup breaks it, it will
-break all 2500 and that should get noticed pretty quickly.
-
-So, for these two nodes only:
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+> +                  num-lanes = <2>;
+> +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+> +        };
+> +    };
 
