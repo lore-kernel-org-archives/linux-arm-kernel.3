@@ -4,110 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832FCCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EED8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=; b=UuFt/1TkLru45WZIA23juYkIHO
-	p6BJHAFvV8Pc1zhAOLLh6oEPL+0IS1eS9xcyVX40boMwCTVcQucWjE88Tqu+GZjMZtRFQfbC8ioda
-	43nFK32FogTRvrMYM4BiDmWRum4Ky6CjLCBnOhFrSTrbx0jUNEzR0D3ipeZ+wdGXOe0NC5b1BYxbn
-	j+e3r7loE1/0efXhbLU9qww0zm1sDr1sMwft/TVWleti01CIYa7cQViWqxX2tYyQgsoAVCDKo3dB2
-	A+NsXXNSNTy9mauAFNyMUpfGdyKA0M0TRwKFysKi5KDe7rzeim+deTXSDTe41zk+7/lKn8+ZuSl9Q
-	iIWWd98A==;
+	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=; b=Sjuw4gT8m9cygTruhMdFHnzNm3
+	tsP711OnTXt4mQC4S0ePUmwdbjqv+zCwKzBcLsNdZA4qUo1IlqM/re0odUCz338vaFve9wwHkIiJu
+	SlpuxtGdhR0mwXB0bn6Kk3LOzv9nKkveXWxs5NDhp3cH331CVKEEaOqz2vJPM3hZN36gsThZGvUew
+	kdCsEP0FdHAxMj2E23Vvc+g9BZJ20R7y6I72Yv14xGT1N0YsjfLIE0V1dI4WfIASxJrAFIUYyUb7p
+	ThUrs5tbUrGaPI6tv9/HlfAiu2LglMzgZjSkr5Q9+25/uiZPZcU0nB7TFLFEziP3Fj9wmLjafovPO
+	sgxLneJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytxg-0000000Cek4-2IAf;
-	Wed, 17 Sep 2025 15:20:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uytyJ-0000000Cf3C-3fYE;
+	Wed, 17 Sep 2025 15:21:27 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytxf-0000000CejS-3aJa
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 17 Sep 2025 15:20:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=; b=ZQ/zvYk+mh+VWspk94oDq76qIf
-	/QjCR+yY3+LbF65u0R314uefaKSt3S0cfp3OVz7ltbMbX1Z5yFssX+LfYfM9EJiMnUusFhG9wK6Nd
-	pxJZZ3sDWxC6Bi5L295OzVoz++viPb0ntIrDJ/9R2eYypG8p788uXxn6jeTUbfH0Jycyojj/wwQQs
-	z1BybmNFZfSoKtlEUtQOfWRW1WJyYNTxNb9F6YK+Q1gRGaBpIHhF9ImX1MhR/FDBca24pxjLw0QW6
-	lMGm9JaUhop15LM5qcl/aCaZVt0iunjE1iuprOyH/TCRweKPv8W6c4/TaSnNeHyHwzDjPWGsRWEoE
-	jjJO6dgA==;
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytxc-00000007QJ0-3IDU
+	id 1uytyH-0000000Cf16-0BxM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:20:46 +0000
-Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-758a28587e5so3833713a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:20:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758122443; x=1758727243;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=;
-        b=OPp1i7llNuo4JSs98FAWlkz9zBlMVBF5wPPi/XdMyvrW78O1IhzWXMGaEYEbn7WsdD
-         P/kg1UzKJB+ZgJz0rSKt98DwdWeC199MXlphYRaSy+dlMmM1zUPdCu+uTd4wIo/B9VSw
-         u/U3ZH3xbDc2pXSmGvDcWhiLURT0eyZ2pcY8nUx97PmrnjPwoDhdoxefchFn+kBvyL2K
-         DDuvjIlq7cXBvi09dxgefCnaWsLbilfKjYCLF0Ns1+pwy6EEkdJg8lyA62ccoBpeR8Yt
-         Hr4/0nfwN/loxtLhXKwMyWCgcousc0Eie2IazpJASYmvUAYfcnSd+0rcJq8je2mqpUFt
-         hl1A==
-X-Forwarded-Encrypted: i=1; AJvYcCU4SwLjtAXNkaDSUi2/9nUzyVLArzHBXRSdtMxRO1BKepjvrkg8wHbLy6oWh+lwosd1+YL1KnEE3jmy8qhZIZOu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM8CWC7CCRyL830k1mSVpONkJporLDExsU9QhY4XHd1khuIL+P
-	UkfrXId/8tBy1L7DspQDqHakOYokMyQXZszxZldcANXHdKiUPPoDASqoQUFp3yCbsLc=
-X-Gm-Gg: ASbGncvA/Tm3gqD3GvxQxQ109Wk5LPfrqpjR2h24Fq7NWnEITTk80ubWdE7+rsW0hhX
-	ZIhp3Foo8P8QTZACziBpbEy+xLK6FNkXycZPv/vDtkJ+hMipc3tqBKOAuKxgSGzHC4yLu10Gl5g
-	vvdeU47xmrt2uEVo567uljvgZesEPsLOFHNV0BhE1KxUqh1jsovO9FEk3hYnMJK9tTRAAjz+uYZ
-	L9uwJpo+JCFEwI8Md1lRWdz5rza6krPGPkAtce4aCu1X6t/09I//BXNfi7C/+efGqkHAUB8anUx
-	wuIJeGsfx2wPO60o2D9ZUqhAVQzlbnbK5JSbHr07guMfn+JhHaBZUxd5cnEsWYhWCDAEBBvH4qt
-	+juJvc/cZCXd4naj+AA1yGs1DWBp8MWn9k4fFq7Hq7wxORRfhrF52ZRCuh712
-X-Google-Smtp-Source: AGHT+IHXwtcRb5aeJz+4MTyFH5x65Xm78n1Qno4d/70vAvQiFlc9NPX8EwX9rev/jyrOcHIRK0dpmQ==
-X-Received: by 2002:a05:6808:18a5:b0:437:e1b0:e969 with SMTP id 5614622812f47-43d50d736b3mr1068095b6e.40.1758122442687;
-        Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
-Received: from mail-ot1-f47.google.com (mail-ot1-f47.google.com. [209.85.210.47])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-43b82a7264asm4400574b6e.21.2025.09.17.08.20.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
-Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-758a28587e5so3833675a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVsrhWJSVfmzSzlMZ0cE2F5dZkwdycVBDNtkSbQZ0qKze58mIrcnlNoU28hKs7F7fW/chwlSxFeCz7LrNXqssPk@lists.infradead.org
-X-Received: by 2002:a05:6102:4414:b0:4e6:ddd0:96ff with SMTP id
- ada2fe7eead31-56d63efa012mr900359137.16.1758122046543; Wed, 17 Sep 2025
- 08:14:06 -0700 (PDT)
+	Wed, 17 Sep 2025 15:21:26 +0000
+Date: Wed, 17 Sep 2025 17:21:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758122483;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=;
+	b=3nhivmngd6+PmA3+eV33THTVRq9jhpe+HBt/O4eCUY3Xh5mSatPaAakAkLSiN/PgvcAopM
+	y0Vf/JBYg9oMJuBPbUW8p3kfUkXUykpOTcPsUyVMjVq1GXYPIMNETdFVpFy8Dq/WubWuCF
+	s78V7VLCyrlgSlUS4fRKO9Jc+yrd1jlMFKyXuxYp5AiWpIVOuskTy+86RTMbqukB7HkVfE
+	7tOkUXZcX2xRhQyZwhU66M/r+VdJA/P0eIRfDbHpsj4zJHjLjz1urRGJEwwhNOxhg3HUFu
+	gLLrhHi+vVShPn758ZvkO2UBIFtcaaRzj0ag6ZXNqRNipr1zS9Npoc4oLzCXjA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758122483;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=;
+	b=ob8EioHSqHCIf/3CBZz5Tz2bb9bzFkW7kWflQdESNktBSVsvxeZSnY6E6RONhA6DbGeGkn
+	5sDsyosGlBsU7rDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King <linux@armlinux.org.uk>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v3 07/36] powerpc/vdso: Explicitly include asm/cputable.h
+ and asm/feature-fixups.h
+Message-ID: <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
+References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
+ <20250917-vdso-sparc64-generic-2-v3-7-3679b1bc8ee8@linutronix.de>
+ <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
 MIME-Version: 1.0
-References: <87ecs5abp9.wl-kuninori.morimoto.gx@renesas.com> <877bxxabmr.wl-kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <877bxxabmr.wl-kuninori.morimoto.gx@renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 17 Sep 2025 17:13:55 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUaoBP1ZtJqc7rfqLXGETXpVYNcFfJf5xFBFSHG9mSB8Q@mail.gmail.com>
-X-Gm-Features: AS18NWDAtmJ2xaoQuGRsAt7Kwia2BPFHIJLsHQkXMzPf_Sxvg99Y761td_EKCiw
-Message-ID: <CAMuHMdUaoBP1ZtJqc7rfqLXGETXpVYNcFfJf5xFBFSHG9mSB8Q@mail.gmail.com>
-Subject: Re: [PATCH v4 4/5] arm64: dts: renesas: Add R8A78000 X5H DTs
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
-	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, 
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>, 
-	John Garry <john.g.garry@oracle.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Leo Yan <leo.yan@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Rob Herring <robh@kernel.org>, 
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, Will Deacon <will@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Marc Zyngier <maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_162044_950818_325FF0E8 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20250917_082125_225332_67604CEE 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,164 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Morimoto-san,
+On Wed, Sep 17, 2025 at 04:41:49PM +0200, Christophe Leroy wrote:
+> 
+> 
+> Le 17/09/2025 ‡ 16:00, Thomas Weiﬂschuh a Ècrit†:
+> > The usage of ASM_FTR_IFCLR(CPU_TR_ARCH_31) requires asm/cputable.h and
+> > asm/feature-fixups.h. Currently these headers are included transitively,
+> > but that transitive inclusion is about to go away.
+> 
+> Hum ...
+> 
+> That was unexpectedly added by commit 9c7bfc2dc21e ("powerpc/64s: Make
+> POWER10 and later use pause_short in cpu_relax loops")
+> 
+> In theory, vdso/ headers shouldn't include any headers outside of vdso/
 
-On Wed, 17 Sept 2025 at 07:31, Kuninori Morimoto
-<kuninori.morimoto.gx@renesas.com> wrote:
-> From: Hai Pham <hai.pham.ud@renesas.com>
->
-> Add initial DT support for R8A78000 (R-Car X5H) SoC.
->
-> [Kuninori: tidyup for upstreaming]
->
-> Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
-> Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
-> Signed-off-by: Minh Le <minh.le.aj@renesas.com>
-> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
-> Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
-> Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
-> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+I am aware. But this is the dependency as it exists today and I don't really
+want to make this series larger than it already is. This is by far not the
+only such layering violation in the vDSO headers. I have some patches prepared...
 
-Thanks for the update!
+> > Explicitly include the headers.
+> > 
+> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> > ---
+> >   arch/powerpc/include/asm/vdso/processor.h | 3 +++
+> >   1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/arch/powerpc/include/asm/vdso/processor.h b/arch/powerpc/include/asm/vdso/processor.h
+> > index 80d13207c5688d73954822aede2bbe2d0e05c054..42b64903bdf47cc5bd571fc3b5caed45e6358cb9 100644
+> > --- a/arch/powerpc/include/asm/vdso/processor.h
+> > +++ b/arch/powerpc/include/asm/vdso/processor.h
+> > @@ -4,6 +4,9 @@
+> >   #ifndef __ASSEMBLY__
+> 
+> __ASSEMBLY__ is replaced by __ASSEMBLER__ in powerpc-next in commit
+> 74db6cc331b0 ("powerpc: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi
+> headers")
 
-> index 0000000000000..6445f05de0563
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-> @@ -0,0 +1,755 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +/*
-> + * Device Tree Source for the R-Car X5H (R8A78000) SoC
-> + *
-> + * Copyright (C) 2025 Renesas Electronics Corp.
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +       compatible = "renesas,r8a78000";
-> +       #address-cells = <2>;
-> +       #size-cells = <2>;
-> +
-> +       cpus {
+Ack. I'll have to rebase this series after -rc1 in any case. Right now I am
+hoping to collect some Acks.
 
-> +               a720_0: cpu@0 {
-> +                       compatible = "arm,cortex-a720ae";
-> +                       reg = <0x0 0x0>;
-> +                       device_type = "cpu";
-> +                       next-level-cache = <&L2_CA720_0>;
-> +
-> +                       L2_CA720_0: cache-controller {
-
-As reported before, the cache nodes should be outside the CPU nodes.
-
-"make dtbs_check" would have reminded you:
-
-    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: cpu@0
-(arm,cortex-a720ae): Unevaluated properties are not allowed
-('cache-controller' was unexpected)
-            from schema $id: http://devicetree.org/schemas/arm/cpus.yaml#
-
-> +                               compatible = "cache";
-> +                               cache-level = <2>;
-
-Missing "cache-unified".
-
-"make dtbs_check":
-
-    arm64/boot/dts/renesas/r8a78000-ironhide.dtb: cache-controller
-(cache): 'cache-unified' is a required property
-            from schema $id: http://devicetree.org/schemas/cache.yaml#
-
-> +                               next-level-cache = <&L3_CA720_0>;
-> +                       };
-
-> +               };
-
-> +       soc: soc {
-> +               compatible = "simple-bus";
-> +               interrupt-parent = <&gic>;
-
-Marc asked to move interrupt-parent to the top, i.e. one level up...
-
-> +               #address-cells = <2>;
-> +               #size-cells = <2>;
-> +               ranges;
-> +
-> +               timer {
-
-... and please keep the timer node outside the soc node.
-
-"make dtbs_check":
-
-    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: soc
-(simple-bus): timer: 'ranges' is a required property
-            from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-
-> +                       compatible = "arm,armv8-timer";
-> +                       interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +                                    <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +                                    <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +                                    <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> +                                    <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-> +                       interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
-> +               };
-
-> +               scif0: serial@c0700000 {
-> +                       compatible = "renesas,scif-r8a78000", "renesas,scif";
-
-Missing "renesas,rcar-gen5-scif".
-
-"make dtbs_check":
-
-    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: serial@c0700000
-(renesas,scif-r8a78000): compatible: 'oneOf' conditional failed, one
-must be fixed:
-            ...
-            ['renesas,scif-r8a78000', 'renesas,scif'] is too short
-            ...
-            'renesas,rcar-gen5-scif' was expected
-            ...
-            from schema $id:
-http://devicetree.org/schemas/serial/renesas,scif.yaml#
-
-> +                       reg = <0 0xc0700000 0 0x40>;
-> +                       interrupts = <GIC_SPI 4074 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
-> +                       clock-names = "fck", "brg_int", "scif_clk";
-> +                       status = "disabled";
-> +               };
-
-> +               hscif0: serial@c0710000 {
-> +                       compatible = "renesas,hscif-r8a78000", "renesas,hscif";
-
-Missing "renesas,rcar-gen5-hscif".
-
-"make dtbs_check":
-
-arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: serial@c0710000
-(renesas,hscif-r8a78000): compatible: 'oneOf' conditional failed, one
-must be fixed:
-        ['renesas,hscif-r8a78000', 'renesas,hscif'] is too short
-        ...
-        'renesas,rcar-gen5-hscif' was expected
-        from schema $id:
-http://devicetree.org/schemas/serial/renesas,hscif.yaml#
-
-> +                       reg = <0 0xc0710000 0 0x60>;
-> +                       interrupts = <GIC_SPI 4078 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
-> +                       clock-names = "fck", "brg_int", "scif_clk";
-> +                       status = "disabled";
-> +               };
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> > +#include <asm/cputable.h>
+> > +#include <asm/feature-fixups.h>
+> > +
+> >   /* Macros for adjusting thread priority (hardware multi-threading) */
+> >   #ifdef CONFIG_PPC64
+> >   #define HMT_very_low()		asm volatile("or 31, 31, 31	# very low priority")
+> > 
+> 
 
