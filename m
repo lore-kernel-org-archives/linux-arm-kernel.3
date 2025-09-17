@@ -4,69 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3373DCAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686CCCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DeNgzPX6ggMfk3MAISgLOKpvtvUWXdjB1QYEHlkKms=; b=wf2/6gC/olDcE2clINrhw5v/HY
-	RdKr+lVTYF2vEnzGoT1zbBMIqhrzXTNxovuGgiO48TufXw3XI13ZQY88464rCN7jWfHu8gFn80jR+
-	n+/19dFZemxEGhwWJdu/T25bSciHIUi1X1HY24r5Cuc+LzHp3HJW7w4ylhECdkYuzC2ilFhiinhCl
-	YKwbcnBs0IX1Lua+xGdDEwMZZHNmf/7bwG9dKe423PCBODh24ktmOz9fp5OXXiNUBVd6yx+9DU4Nr
-	gq5mWk5UhIzXxgksvbTm8gY2aH5aEnz0RjgoC2ovNZuo+00T16XliXMB/eJzMVrACQ92qvKSHH1No
-	tpHdguMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6BD0XefKDj9yNlwNGnApL1S2MWmUQptL4sGSYMNTzvM=; b=y3QzSkyyJ1JNvIX2fmxMXNtwiA
+	yTb6Qo9H98YE+rgR98pT7vPv7XZHlrHR3EhVath4Exj9TNbDrZJesC8JD8dJrhJsn6jxITdPut7eJ
+	6s6Ii80uSgD7RdVfQCFTXGLA9Ass1tvu9GlSXmuBZfm/5C3Xgk7hYOdPoT3Arpb152we5gb2DyTAE
+	nOFFiLPZAt1cKblNk3CmoWFTL9r5sss3nn61tL2dEkeW6lcpBUkdGeFQWfvlc75bGIgUryyWVwbXf
+	+Yk9UkkeyCFcVlrpZ3CAJxt8zRc4MoUTsCXDReIDYNPNdn5KZ5rtn+6iJesAGNpTmZYpYWWcMsGs5
+	Ruu5JLhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv5f-0000000DCYq-3aGx;
-	Wed, 17 Sep 2025 16:33:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyvAe-0000000DEwI-2Q4G;
+	Wed, 17 Sep 2025 16:38:16 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv5f-0000000DCYe-1t6v
+	id 1uyvAc-0000000DEtA-08BI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:33:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84FE16023D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:33:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F180C4CEFF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:33:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758126786;
-	bh=kKL/L+I3zsHPh3CySBs0NwNoG6xv18j00aP3GrBEXns=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=byficK7SMdbNqCt8qDue6jkVGfFA0zVMGLz2oN3p5iX8uF2YDd0q1otjKJ3U6DuUF
-	 Q1EqSfdTH4wxw/rize5/jH+qnxrqDt/2s0uFKKbeMo+P1qdN779Dk65VMBLwpDWU1y
-	 8nl7Fr5JUF16RyRALwfBhoXD7ZVQDLUpkXSzPn7T672mmBwbhpyXIV/phkiiVdCR5m
-	 NVg2liqXJqIButavkSTYgzr1iKgQKMvoGjnIhQ2NFo0yFidl6Sw7spTXQLGTSyVDAM
-	 qCBBVv0k0dAu33msshV4jLPy87V7RDYFc/vXZ2z9636k4fU9ojG392koy51HWdxk+D
-	 mVxqp5LbWSEog==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-56088927dcbso12162e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 09:33:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVdMrcqbvrfu4Z0xfWAH+7faOFKSZjm403heneDtzv36d0DIY7vD8Qgd+TJS2aV34lmW8QfAfL50mql08dTP/HH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDByvATAUUGls0HuR/Ps8ume/v5PQTm6BXayzFsyFfVOTpa2Sj
-	5v7YEOHfSC1kyV/4JKsCKjvkxTEQsFrgosXyUyq/23cJtw04w4tZ0LHNI+X6im/qe3ek0rSUrJx
-	K1UZrENOF4wpEsvFijHhqbU0bIf3x9h4=
-X-Google-Smtp-Source: AGHT+IGkxd8CfmvOgxOlzUd2WBWMRN3KAVklJLyRUEqXRjAdq6Oylda7wBiSlm11ND9H/fuMGe8uQFz5PDqzdmmiqH8=
-X-Received: by 2002:a05:6512:4601:b0:569:a257:acca with SMTP id
- 2adb3069b0e04-5779b9bec2emr837666e87.32.1758126784374; Wed, 17 Sep 2025
- 09:33:04 -0700 (PDT)
+	Wed, 17 Sep 2025 16:38:15 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58HGbcFp1655272;
+	Wed, 17 Sep 2025 11:37:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758127058;
+	bh=6BD0XefKDj9yNlwNGnApL1S2MWmUQptL4sGSYMNTzvM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=q0ERZa5tqZqU4zCPUnv1rj/OdqwUCgq2yIoNfx9SuMVkU4OcYwD5RChM1gSOiaI+8
+	 LrbmZdc1KQIlqXwSZbu9NpLP2ShxIdOn0BwI4vqHo/975hH3Odtd+Fg+QrvMp+Wx50
+	 JH1pfcoft4byTIaa6aw1dQu6syisj9+1ccjnz7F8=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58HGbcDA1459556
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 17 Sep 2025 11:37:38 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 17
+ Sep 2025 11:37:37 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 17 Sep 2025 11:37:37 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58HGbafA3364151;
+	Wed, 17 Sep 2025 11:37:36 -0500
+Message-ID: <65a98655-68a1-4bf9-b139-c4172f48dad4@ti.com>
+Date: Wed, 17 Sep 2025 11:37:36 -0500
 MIME-Version: 1.0
-References: <20250915160819.140019-1-ebiggers@kernel.org> <20250917153529.GA45754@quark>
-In-Reply-To: <20250917153529.GA45754@quark>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 17 Sep 2025 18:32:53 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGWZ5iVjOq_wPihCvSrPzg84up2uc85b04-kogr06zr-g@mail.gmail.com>
-X-Gm-Features: AS18NWDKkMpHMPVrfCSxPSR1GAt9QZdsUGm2zA3q8XBTy6lhROgcqYD7BkYXAg4
-Message-ID: <CAMj1kXGWZ5iVjOq_wPihCvSrPzg84up2uc85b04-kogr06zr-g@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] Optimize fsverity using 2-way interleaved SHA-256 hashing
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, fsverity@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Mikulas Patocka <mpatocka@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 0/7] Add RPMSG Ethernet Driver
+To: MD Danish Anwar <danishanwar@ti.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>,
+        Jonathan Corbet <corbet@lwn.net>, Nishanth Menon
+	<nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero Kristo
+	<kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        Mengyuan Lou <mengyuanlou@net-swift.com>,
+        Lei Wei
+	<quic_leiwei@quicinc.com>, Xin Guo <guoxin09@huawei.com>,
+        Michael Ellerman
+	<mpe@ellerman.id.au>, Fan Gong <gongfan1@huawei.com>,
+        Lorenzo Bianconi
+	<lorenzo@kernel.org>,
+        Parthiban Veerasooran
+	<Parthiban.Veerasooran@microchip.com>,
+        Lukas Bulwahn
+	<lukas.bulwahn@redhat.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>
+CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>
+References: <20250911113612.2598643-1-danishanwar@ti.com>
+ <8a20160e-1528-4d0e-9347-0561fc3426b4@ti.com>
+ <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_093814_162747_5A2A17DB 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +115,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Sept 2025 at 17:35, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Mon, Sep 15, 2025 at 11:08:13AM -0500, Eric Biggers wrote:
-> > This series is targeting libcrypto-next.  It can also be retrieved from:
-> >
-> >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256_finup_2x-v2
-> >
-> > This series adds support for 2-way interleaved SHA-256 hashing to
-> > lib/crypto/, implements it for arm64 and x86_64, and makes fsverity use
-> > it.  This significantly improves fsverity performance on many CPUs.
-> >
-> > Later patches will make dm-verity use this optimization as well.
-> >
-> > Changed in v2:
-> > - Made the new arm64 assembly compatible with CONFIG_CPU_BIG_ENDIAN=y.
-> > - Omitted sha256_finup_2x() from pre-boot environments.
-> > - Made alloc_guarded_buf() assert that the allocation succeeded.
-> > - Minor tweaks to comments and whitespace.
-> >
-> > Eric Biggers (6):
-> >   lib/crypto: sha256: Add support for 2-way interleaved hashing
-> >   lib/crypto: arm64/sha256: Add support for 2-way interleaved hashing
-> >   lib/crypto: x86/sha256: Add support for 2-way interleaved hashing
-> >   lib/crypto: tests: Add tests and benchmark for sha256_finup_2x()
-> >   fsverity: Remove inode parameter from fsverity_hash_block()
-> >   fsverity: Use 2-way interleaved SHA-256 hashing when supported
-> >
-> >  fs/verity/enable.c              |  12 +-
-> >  fs/verity/fsverity_private.h    |   2 +-
-> >  fs/verity/hash_algs.c           |   3 +-
-> >  fs/verity/verify.c              | 175 ++++++++++++---
-> >  include/crypto/sha2.h           |  28 +++
-> >  lib/crypto/arm64/sha256-ce.S    | 284 +++++++++++++++++++++++-
-> >  lib/crypto/arm64/sha256.h       |  37 ++++
-> >  lib/crypto/sha256.c             |  71 +++++-
-> >  lib/crypto/tests/sha256_kunit.c | 184 ++++++++++++++++
-> >  lib/crypto/x86/sha256-ni-asm.S  | 368 ++++++++++++++++++++++++++++++++
-> >  lib/crypto/x86/sha256.h         |  39 ++++
-> >  11 files changed, 1147 insertions(+), 56 deletions(-)
->
-> FYI, applied to https://git.kernel.org/pub/scm/fs/fsverity/linux.git/log/?h=for-next
->
-> I decided to use the fsverity tree instead of the libcrypto one.  There
-> are no dependencies on other libcrypto changes for 6.18, and this makes
-> it easier to do a separate pull request.
->
-> Also, as always, reviews and acks would be appreciated!  Note that I
-> dropped the reviews and acks that were on the original crypto_shash
-> version from earlier this year, due to changes in the patches.  The
-> high-level idea is still the same, though.  If people could
-> re-review/ack this latest version, that would be great.  Thanks,
->
+On 9/17/25 6:44 AM, MD Danish Anwar wrote:
+> Hi Andrew,
+> 
+> On 11/09/25 9:34 pm, Andrew Davis wrote:
+>> On 9/11/25 6:36 AM, MD Danish Anwar wrote:
+>>> This patch series introduces the RPMSG Ethernet driver, which provides a
+>>> virtual Ethernet interface for communication between a host processor and
+>>> a remote processor using the RPMSG framework. The driver enables
+>>> Ethernet-like packet transmission and reception over shared memory,
+>>> facilitating inter-core communication in systems with heterogeneous
+>>> processors.
+>>>
+>>
+>> This is neat and all but I have to ask: why? What does this provide
+>> that couldn't be done with normal RPMSG messages? Or from a userspace
+>> TAP/TUN driver on top of RPMSG?
+>>
+> 
+> This is different from RPMSG because here I am not using RPMSG to do the
+> actual TX / RX. RPMSG is only used to share information (tx / rx
+> offsets, buffer size, etc) between driver and firmware. The TX / RX
+> happens in the shared memory. This implementation uses a shared memory
 
-I looked at this the other day but forgot to reply.
+This is how RPMSG is supposed to be used, it is meant for small messages
+and signaling, bulk data should be send out-of-band. We have examples
+specifically showing how this should be done when using RPMSG[0], and our
+RPMSG backed frameworks do the same (like DSP audio[1] and OpenVX[2]).
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> circular buffer with head/tail pointers for efficient data passing
+> without copies between cores.
+> 
+>> This also feels like some odd layering, as RPMSG sits on virtio, and
+>> we have virtio-net, couldn't we have a firmware just expose that (or
+>> would the firmware be vhost-net..)?
+>>
+> 
+> PMSG sits on virtio, and we do have virtio-net but I am not trying to do
+> ethernet communication over RPMSG. RPMSG is only used to exchange
+> information between cores regarding the shared memory where the actual
+> ethernet communication happens.
+> 
 
-Happy to see that this finally landed!
+Again nothing new here, virtio-net does control plane work though a
+message channel but the data plane is done using fast shared memory
+vqueues with vhost-net[3]. Using RPMSG would just be an extra unneeded
+middle layer and cause you to re-implement what is already done with
+virtio-net/vhost-net.
+
+Andrew
+
+[0] https://git.ti.com/cgit/rpmsg/rpmsg_char_zerocopy
+[1] https://github.com/TexasInstruments/rpmsg-dma
+[2] https://github.com/TexasInstruments/tiovx
+[3] https://www.redhat.com/en/blog/deep-dive-virtio-networking-and-vhost-net
+
+>> Andrew
+>>
+> 
+> 
+
 
