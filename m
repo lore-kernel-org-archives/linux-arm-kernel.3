@@ -4,76 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C79CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 04:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05031CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 04:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OosanDzc7y9FmoObCNvnIw8dRHPfcuMBjLphn7r/JXQ=; b=MrV5bDZGvmPGesmyjg+VYGhDEG
-	/Yut6lxcy7EndQVNnk9OEmWzFG2uMFPQYLdQpggNsrFBipv6jHszf8NlZIvfSvLtT0CjFulOeeD+j
-	2e0sS10uRjLsupR0khuFsy+4eAiHf8f45r2KW31Uq9Hgl8Vzpdl/vv7r53eEWnB0OCrwwJBdV9gED
-	AvuuyLRtMhQ1fG2R2aH2ppDYvwc0C3C80VKA6KTc356ewi1KBvIxELLUHLZZnhCBaLrisocDwnBLu
-	s9vgqieaoKckELU97H61xgUqp2YWN78NLpaPQFPg3zhRrg4hg+EcQkVQPStUhWs25yJJzghsb/Mux
-	x+4pe2ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=; b=zTCwqSFf3fxUbMOS6CcwBk6ICR
+	gu09gCy/sb3BHVv1/QALj1O2mCGvAVACI/rCbuk1eFlNeXCTca50TqfnPVBach5uIQEob9WMHUH5J
+	j59q44nLqkFaEYm0xeZ5PeHbq0TUcz1eH+cZ9+B8a4zM49hb9ynzYeE1BcP3BIFxFiw+EzqwmODC3
+	7nJZqAsd/o3Jstw4XH1p0uZhR6HOUhNGO3zLaxXFdop3UlNWL5d0GBKlJsBg0d9xOU8SpcEu0HHFq
+	gqlrNtIl6z1Xf7QnPTSKopQ3kNonT7gAgW8z0ttXTce9nPUx8Fh4dIVpDzB6nECFeNA+bH3IPgpR8
+	4Ww3my1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyjLt-0000000A84O-1JmB;
-	Wed, 17 Sep 2025 04:01:05 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uyjTF-0000000A8cW-28xs;
+	Wed, 17 Sep 2025 04:08:41 +0000
+Received: from mail-os0jpn01on20609.outbound.protection.outlook.com ([2a01:111:f403:201a::609] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyjLq-0000000A82w-0fF4
+	id 1uyjTA-0000000A8bc-1LTD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 04:01:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cRQ1F5VTGzRkQj;
-	Wed, 17 Sep 2025 11:56:17 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 537AA1402E9;
-	Wed, 17 Sep 2025 12:00:55 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 17 Sep 2025 12:00:55 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 17 Sep 2025 12:00:53 +0800
-CC: <yangyicong@hisilicon.com>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, <maz@kernel.org>, <oliver.upton@linux.dev>,
-	<corbet@lwn.net>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <shuah@kernel.org>,
-	<shameerali.kolothum.thodi@huawei.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <tangchengchang@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: Re: [PATCH v4 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-References: <20250715081356.12442-1-yangyicong@huawei.com>
- <20250715081356.12442-6-yangyicong@huawei.com>
- <aL7Fgx__LeLfbDyU@willie-the-truck>
- <5d2ba565-715b-9b17-951b-f805dde5988b@huawei.com>
- <aMLvtpaCgRqPAU2Z@willie-the-truck> <20250912144736.00007673@huawei.com>
- <666e3588-2e42-2275-f9ec-94ba0954bdc6@huawei.com> <aMl6u7xTDLhrZmqK@arm.com>
- <0dfe5781-7ca7-7d9f-b099-b20da5e10a1b@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <b63740fb-1f24-649c-4f18-46e4ffe5a41f@huawei.com>
-Date: Wed, 17 Sep 2025 12:00:53 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 17 Sep 2025 04:08:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AyAA0NQGCnMUoKxXs+uS14ydLS2esQlgUY7pWFEFH8YoqvzZSV+wjJ5ebsa0RHqmVBBYJyTwsXONqucroh2iLj8/aWSli3+0fNESFNd+l8uHSd2WZyCj3GsnsHfHCSiL8i4gHll/ZRgHX1IIKqwOC4G5zFClojuif6qdck1kNeGNRM9XEel1sbnNEISjKGhEifVWnMk9EljMm4Jm+7hO45+Xl30FWtDoTqH8E2zxM23gxRrx+VlE7EJBxy8ewc6Ji8cqkCuRjn8Qa6wrP9ymUKvcVSpAsIs2mSX1UKc2ni+0xZYcUxzgXTt2As07QV5D/GdbjDkDzd3UovvfLTzEUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=;
+ b=xX1jyk98o+8Aax8451pIGCnhRKlVEtpY3iSg/AyfmwYiKizdAdKotCMEbioMsp+g9RwPmaEmIkYFBigy2dNj2hY7jBz8KVI2Mr8Qms5cXTXSesiM+VpAx6pX4b14fUNpKyQ5z9UxvL7KWZRRm+3OHXn03B8Sz9otYpQ4gVkjql87+RqWH1TIcPlUrAL1zaAfcHuJu8iZppxtlqN4rZV8Q5699MyBFF/HCS06gBYkAH+1nZTjylDXqqKINMN0/9YdmFAl8JYZpAwQtnF6odpz+L1mELV6svNTd4KSiGj3lflD+nEME2UfcDVHKpKWgkA1gU1O9MSDbVRj02o9VdIJ/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9KXnaA4fPYax0vqiZpBjihK8gbvr6X74CumESaWPHS0=;
+ b=K7cTQTNGW9n5F3kKjEJnxMtHFbxYvYpSEMqrvBO9tx2UDWVrQXmNQmtYXdxSHi0lSJRWo8Odg7OC6itpc1iAQdZg01XMuo06rx7jSGCsS9UBIGlmgw2ey5lqOR0Zuu4s9pynHDyww7T3tl7Kklo0tPNVpbfi02+JxBcoHfOvjFg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by TY4PR01MB14398.jpnprd01.prod.outlook.com
+ (2603:1096:405:23c::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9094.22; Wed, 17 Sep
+ 2025 04:08:22 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 04:08:22 +0000
+Message-ID: <87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.
+ infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
+In-Reply-To: <86v7li1xs4.wl-maz@kernel.org>
+References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
+	<87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
+	<86v7li1xs4.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Wed, 17 Sep 2025 04:08:21 +0000
+X-ClientProxiedBy: TY4PR01CA0084.jpnprd01.prod.outlook.com
+ (2603:1096:405:36c::11) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-In-Reply-To: <0dfe5781-7ca7-7d9f-b099-b20da5e10a1b@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY4PR01MB14398:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f5aa4ca-9cf1-48ed-5a1f-08ddf59fd74b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nfw/MyIsmLqSZbfSQ8O0UydX7vmrRWuDncTHWJVJ6L6FrzBbiaLfbR+/d8yG?=
+ =?us-ascii?Q?CA2MYWDwTGQxTKCAvH8yStHcmIr7uRNa7o6pIfm5Lo/DIdAcpfBHx5figJRs?=
+ =?us-ascii?Q?cx7Bvc9F7FeCoHid+9FoHxQTVnTQShmj7cS3mpVpJ9NGWmNkXnGZrnqCD4h1?=
+ =?us-ascii?Q?taGk5iXqNZU9SOgi3XfgNY2ijukobqTqwOUXYtFpsLhX75Yz4TFxrpzzcaru?=
+ =?us-ascii?Q?LqGXESbNETH+DCaCyLxEobcplLYUHjhi1V4F0vv40kSWx9hY6Qb5mtyZV7kL?=
+ =?us-ascii?Q?JYxBcwazw0yHazgOloTAiCBwvW00WSkpyuQv824ZqpAwSGp4rDD2qUY4CkxE?=
+ =?us-ascii?Q?HNEs2lEGYUsC2suQpN4WBI1q7dNkbHUNpCN2LxEyKvk6etjvDji6RPO0aR7p?=
+ =?us-ascii?Q?TUgJ4e48VF4JQfacZdsP6H+W+bS/HuJ82rtCc2fqdczECktgLFCWAKovqdRo?=
+ =?us-ascii?Q?pM41A8TecWpFp7G7ma3b+kTQf9oVwWL/dcRyDK+oPtt931BvxtfbnskotxTX?=
+ =?us-ascii?Q?V4BuRxClBt+EYRUfZat/NUdlna+k1G1RecTRbNol9b0NC6DeZIn2yDSHKfu9?=
+ =?us-ascii?Q?0adAsb02xKnUe2v0HGMn+zVfktfYi3P6m8ZU2Uw3iI0pCDgN07/jM4NRFCJP?=
+ =?us-ascii?Q?qMOGLwQ94VyPrjtsyDyXrCeGi47pXhaVC5vuXUvvKO0cEYKm4GePYwhm6BB4?=
+ =?us-ascii?Q?xilCRVpyCf83AnFQdznDdAMHfchAtFCSTRwOQcyAX4EaRnvc3sJqBhTBiU5f?=
+ =?us-ascii?Q?F4ZcMfhyVgYWkUM5JA2U1JdQIGHmiQmnLOI6rm+2rRl3DPEkghSvoqX5ape3?=
+ =?us-ascii?Q?IiPe6MeLdqX5tqStm6SpgZc0rky4UUDj56H+AOaoOzi1ujnoxkTlZZzbEahp?=
+ =?us-ascii?Q?VclfL7ynhQ8sz0Ui5zQwu1OLPPG3y1siJE6GUDQwv3fNG05Y882F0+y1n8aN?=
+ =?us-ascii?Q?xDLQ/8jSoZO8vLOzQuyYuPM3yNJ9GM3tBqIbmIQ3wH0/ikn/23ZG5z4RinjY?=
+ =?us-ascii?Q?bayiYaIZ8TQn/VoGte23uPlzDgz66qPwVW2b2Bo5jHwq0s1BE7IkdTq30cxJ?=
+ =?us-ascii?Q?WMLE+zJFsWJBifaqni1eT22DKVgf6rXrRIYxcCWZ+9YLhNeHQnaRq291MwPV?=
+ =?us-ascii?Q?zHLaYtHojSYwGsx3eelibClPUYQhwGgPbzmr/yY20hRQpO+575KsK8FC7Fk/?=
+ =?us-ascii?Q?setISkhFvihpffjrrrA9hEi26RJIurhduiysqmgZgrk0HOkOg6VbQMcyjMxf?=
+ =?us-ascii?Q?AUMkaPowpSXc0QDTBCnNDln1+abrpL8DZu9F652gogJT2hytZeKLsarFeVBl?=
+ =?us-ascii?Q?z5DX5ANKA54xs9KG1uLc16bH7ov0NyI+QloUAoJWxUdokWKVUmD0bBwYMcy4?=
+ =?us-ascii?Q?ko4gMf6f7VLoy3KdzDEi+0ithO5Cgz6qU4gYpz59npAkYgjRQyMU/YuAjtTl?=
+ =?us-ascii?Q?Mhl5GNcUNbBHbbkbTG6MZfhJVSpfTtdOXhfscWuL2OPl+ZdtFrdPjg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LnAQnUZg8mD+fViIygtcY8NdmwMbbxrhkArcm58pJQa8+QVKs/Tpd27meOL8?=
+ =?us-ascii?Q?WGwHOje+IWfk+xSr+FoKX91PKTpxA9xiV0nrbl/pMzXm/esW3zH/BEjB1QlL?=
+ =?us-ascii?Q?3EePSdxIvyDcFuRpy41EPkOLagSbbp+XQr4zlGoYCWLwm2N9dZY8aafEhFSX?=
+ =?us-ascii?Q?CUh9NGxk4cpuQN1shZDhFr+rJySNHt6zeWm79ZXR8LNuIHeaAuVACvtu3HgY?=
+ =?us-ascii?Q?cLKWhDt7VegjDCt6wL+COC2Fzl0p0NfBPhc0MwYqF5KoO14v21m0oG6UXaCF?=
+ =?us-ascii?Q?zm9zWgQ51sETtP3viwvAnTnQeiy2qYpvJFk8xC7qhCZzs6QMW/a0ul/ky7YE?=
+ =?us-ascii?Q?iHpqBWm6kKK2d7t4A6P/MW9dhZdkrwDzRUWxYxYZmYJNW8dBsU6SDUgOKzkA?=
+ =?us-ascii?Q?iqcfB0jAfERp1wNKmyejRk3zwz0ISeZ+8eufE85kOpiYL5P3aeuIGAwyFkpM?=
+ =?us-ascii?Q?26G/bDSgHCbTEU2eamLIxF8oGCh78/38aIrVmkbzRSm1vQbscXH0r4UWZg6X?=
+ =?us-ascii?Q?0N69sxgroGsZ0syaoQ8Dp/D6L8mqt0tMvb2T3nxqRvhMELdNc6B3YfFYXg0d?=
+ =?us-ascii?Q?Z+h3gKJETsh9Ad6FEImZfcw+MczevBxjhI/xrZbFW7AmxYVxhUtcEw1woZ4Y?=
+ =?us-ascii?Q?G7SM5OAJW2kQxLR2aCuXiyIGh7vWTZ1pFy23YNWQlgsHDHtGpiqDeVKmt/U+?=
+ =?us-ascii?Q?2NsVgdoMAgSSv6RQib0cclQMj1Px4ONGrgZi+j+NI1LkL2Kp+EPh1zZmxbLq?=
+ =?us-ascii?Q?6QCY48vUu4p75JCkaYW51xWWSccUXpy3f7iGijUvKbM8ueUm2KFnVDVdlaPk?=
+ =?us-ascii?Q?g6Z4wPtg+c+i+6ZaehUqR/TnTKHI5yJowlkUQoEqZoX2cud4tUOHmD7tmS6O?=
+ =?us-ascii?Q?Ow9LvYh+oKw0qTA+QGGAo58XkV+A5j3dgtPq1Micap8/g07efTreBkUcSTAk?=
+ =?us-ascii?Q?WoIkEyx4M4jknt5Joryrb7mnEkyi2J/f0tt3NnHDyHW3vugZlNlSgBkUxoH3?=
+ =?us-ascii?Q?d3IRK2ZG5cz5Y2daM9FmnO8bvhKBMEoxYPWggoyt0j9Co2deXn6NhAK4PPq+?=
+ =?us-ascii?Q?ug1+MBRa4AxHrLkkaoZTFca1g8dExfBfNjQdEAngNd3z047aRWe/qzbiZyjQ?=
+ =?us-ascii?Q?u79i0ePewlhJYTYJKElbpBCdhr0f5A5LbSWMcngVRmuCHRLUgdgcw+HnkerX?=
+ =?us-ascii?Q?iFnzCDOsFOorSWrN5SNmFIZSjDPBPeLAEMsB+RJmukqBGr8H4un9U4ob9OUz?=
+ =?us-ascii?Q?/jw1dOfH2KYE0irGarJABVhKxM1UrA38AtoFvFAZ5MxWdonDc903wNf7OVjl?=
+ =?us-ascii?Q?zLOhZkglVuJMhOg/muFYXl/wcdsb6BgVgvt3B14UFYBFy1MWscoh91cyO5Ra?=
+ =?us-ascii?Q?IoP598f9csjRIkIYBQa+pYwYXlvBArw+rIcYVIkOEHqcBaLA3zS1E4DdZLlR?=
+ =?us-ascii?Q?axdQdbui0wXOsQUIgiy+EOoJXdBOwstz1I+jgkSHiPlCnwu0jMRpEP1KNqlR?=
+ =?us-ascii?Q?MzCav7OaXO/67gPiJEAQX+AwIrAtNLBF5/NH1Y/fCOi2DZqH15lgCf6wrLLo?=
+ =?us-ascii?Q?h80L+6g/5xGfotM3ISJ6iAKclBH60ZFhfwhGh8hkZ8DFdu+rBtXY3c98xgaG?=
+ =?us-ascii?Q?WbZfZwJ70vz+F/njS5c4TAM=3D?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f5aa4ca-9cf1-48ed-5a1f-08ddf59fd74b
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 04:08:21.9796
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pKTkTAu4WxA24p7jrxebIe0bg2N9VNfXFiRaHL3VJLkWYkeTaaX0bZWKX9pQLTgNn+Z3F4QMHAhzciAcyVRS8mLcJ/HXS+NCGoP/DN37Si9jznTEm8PbOhVclCJ4CP9Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB14398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_210102_530737_C1AA474F 
-X-CRM114-Status: GOOD (  51.04  )
+X-CRM114-CacheID: sfid-20250916_210836_598236_B831361A 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,138 +186,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/17 11:51, Yicong Yang wrote:
-> On 2025/9/16 22:56, Catalin Marinas wrote:
->> On Mon, Sep 15, 2025 at 04:29:25PM +0800, Yicong Yang wrote:
->>> On 2025/9/12 21:47, Jonathan Cameron wrote:
->>>> On Thu, 11 Sep 2025 16:50:14 +0100
->>>> Will Deacon <will@kernel.org> wrote:
->>>>> On Tue, Sep 09, 2025 at 09:48:04AM +0800, Yicong Yang wrote:
->>>>>> per ARM DDI0487 L.b section C3.2.6,
->>>>>>
->>>>>>   When the instructions access a memory type that is not one of the following,
->>>>>>   a data abort for unsupported Exclusive or atomic access is generated...  
->>>>>
->>>>> That's about the memory _type_. I'm talking about a supported memory type
->>>>> (e.g. writeback cacheable) but when the physical location doesn't support
->>>>> the instruction. That's captured a little later in the same section:
->>>>>
->>>>>   | If the target memory location does not support the LD64B or ST64B
->>>>>   | instructions, then one of the following behaviors occurs:
->>>>>   |  * A stage 1 Data Abort, reported using the DFSC code of 0b110101,
->>>>>   |    is generated.
->>>>>   |  * The instruction performs the memory accesses, but the accesses
->>>>>   |    are not single-copy atomic above the byte level
->>
->> Is this a new addition to the L.b release of the ARM ARM? Maybe it was
->> there before in some other form (or a different place). At least it
->> doesn't say "unpredictable".
->>
-> 
-> i think it's new in L.b. didn't find this is mentioned in K.a either.
-> 
->>>>> and I think that's a bad interface to expose blindly to userspace solely
->>>>> as a boolean hwcap.
->>>>
->>>> Nasty, so now I'm curious. Any thoughts on how to expose what regions it is appropriate
->>>> for?  I can think of various heavy weight options but wondering if there is a simple
->>>> solution.
->>>
->>> in my understanding the hwcap only describes the capabilities of the CPU but not
->>> the whole system. the users should make sure the function works as expected if the
->>> CPU supports it and they're going to use it. specifically the LS64 is intended for
->>> device memory only, so the user should take responsibility of using it on supported
->>> memory.
->>
->> We have other cases like MTE where we avoid exposing the HWCAP to user
->> if we know the memory system does not support MTE, though we intercepted
->> this early and asked the (micro)architects to tie the CPU ID field to
->> what the system supports.
->>
-> 
-> but we lack the same identification mechanism as CPU for the memory system, so it's just a
-> restriction for the hardware vendor that if certain feature is not supported for the whole
-> system (SoC) then do not advertise it in the CPU's ID field. otherwise i think we're currently
-> doing in the manner that if capability mismatch or cannot work as expected together then a
-> errata/workaround is used to disable the feature or add some workaround on this certain
-> platform.
-> 
-> this is also the case for LS64 but a bit more complex, since it involves the completer outside
-> the SoC (the device) and could be a hotplug one (PCIe). from the SoC part we can restrict to
-> advertise the feature only if it's fully supported (what we've already done on our hardware).
-> 
->>> may raise the similar question if use other atomic instructions (e.g. LSE) on the
->>> memory does not support atomicity. find this restriction in ARM DDI0487 L.b section B2.2.6
->>>
->>>   Some system implementations might not support atomic instructions for all regions of the
->>>   memory
->>
->> With exclusives or atomics, we require that the general purpose (system)
->> RAM supports the feature, otherwise Linux won't work properly (I don't
->> think we specifically documented this but it would be fairly obvious
->> when the kernel doesn't boot or user-space randomly crashes).
->>
-> 
-> yes the spec requires general purpose memory to support atomicity.
-> 
->   The architecture only requires that Conventional memory that is mapped in this way supports
->   this functionality
-> 
-> otherwise users should have knowledge whether the target memory agent support atomicity.
-> 
->>> and if perform atomic instruction on unsupported memory it's allowed to implement as
->>>
->>>   * The instruction generates a synchronous External abort.
->>>   * The instruction generates a System Error interrupt.
->>>   * The instruction generates an IMPLEMENTATION DEFINED MMU fault reported using the Data
->>>     Abort Fault status code of ESR_ELx.DFSC = 110101.
->>>   * The instruction is treated as a NOP.
->>>   * The instructions are performed, but there is no guarantee that the memory accesses were
->>>     performed atomically in regard to other agents that access memory. In this case, the
->>>     instruction might also generate a System Error interrupt.
->>>
->>> if instruction performed without generate a SEI in the last implementation, it's quite similar
->>> to the condition of LS64.
->>
->> The difference is that we don't support Linux on such systems.
->>
->> Arguably, the use of LD/ST64B* is fairly specialised and won't be used
->> on the general purpose RAM and by random applications. It needs a device
->> driver to create the NC/Device mapping and specific programs/libraries
->> to access it. I'm not sure the LS64 properties are guaranteed by the
->> device alone or the device together with the interconnect. I suspect the
->> latter and neither the kernel driver nor user space can tell. In the
->> best case, you get a fault and realise the system doesn't work as
->> expected. Worse is the non-atomicity with potentially silent corruption.
->>
-> 
-> will be the latter one, both interconnect and the target device need to
-> support it. but I think the driver developer (kernel driver or userspace
-> driver) must have knowledge about the support status, otherwise they
-> should not use it.
-> 
-> for general purpose ram currently we have fault mechenism to avoid ld/st64b
-> usage (there's maybe an exception if FEAT_LS64WB is supported, which is
-> introduced in the latest feature list but no spec describe it and allows
-> perform ld/st64b on memory with write-back attribute. but currently I have
-> no details about this feature from any public documents)
-> 
->> So, to Will's point, the HWCAP is not sufficient for user space to make
->> an informed decision on whether it can safely use the LS64 instructions.
->> Can a (generic) device driver tell or do we need additional information
->> in firmware tables to advertise the correct behaviour?
->>
-> 
-> my thoughts is that the driver developer should have known whether their
-> device support it or not if going to use this. the information in the
-> firmware table should be fine for platform devices, but cannot describe
-> information for hotpluggable ones like PCIe endpoint devices which may
-> not be listed in a firmware table.
-> 
 
-another option is that we drop the advertisement from the hwcap and cpuinfo
-and let user retrieve the CPU suppport from the ID reg directly or from the
-dmesg. does it make sense?
+Hi Marc
 
-thanks.
+> > +		/*
+> > +		 * The ARM GIC-720AE - View 1
+> > +		 *
+> > +		 * see
+> > +		 *	r19uh0244ej0052-r-carx5h.pdf
+> > +		 *	- attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
+> > +		 *	 - sheet [RT]
+> > +		 *	  - line 619
+> 
+> Are these documents publicly available? If not, I don't think this
+> helps much.
+
+You can get it if you are Renesas R-Car Consortium member.
+And, the datasheet is very complex, I don't think people can find it by
+himself without any hint.
+
+> > +		 */
+> > +		gic: interrupt-controller@39000000 {
+> > +			compatible = "arm,gic-v3";
+> > +			#interrupt-cells = <3>;
+> > +			#address-cells = <0>;
+> > +			interrupt-controller;
+> > +			reg = <0 0x39000000 0 0x20000>, // GICD
+> > +			      <0 0x39080000 0 0x40000>; // GICR
+> 
+> In v2, you indicated that your GIC was configured for GICv4.1, which
+> implied 256kB frames for each redistributor. Here, you have either
+> just enough space for 32 RDs for a GICv3, or 16 RDs for GICv4.
+> 
+> So either this is wrong, and you're missing half of the RD space, or
+> v2 was wrong. Which one is it?
+
+will fix in v4
+
+> > +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> 
+> No ITS? That seems... surprising.
+
+Will be added later
+
+> > +	timer {
+> > +		compatible = "arm,armv8-timer";
+> > +		interrupts-extended = <&gic GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> > +				      <&gic GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> > +				      <&gic GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> > +				      <&gic GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+> > +				      <&gic GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+> > +		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys",
+> > +				  "hyp-virt";
+> > +	};
+> 
+> Why use interrupts-extended here? Everywhere else, you're using the
+> basic interrupt specifier. Can't you move the interrupt-parent
+> property to the top and simplify the timer (and everything else
+> outside of the 'soc' node?
+
+Will do in v4
+
+Thank you for your help !!
+
+Best regards
+---
+Kuninori Morimoto
 
