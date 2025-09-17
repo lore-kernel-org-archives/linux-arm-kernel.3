@@ -4,124 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7595DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB903CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHdjN7iBFNd95rgW8CjggDWZQNqH0UFSGTpH0h/SiDE=; b=ZcKNFsO/y5YcNVSkOceto6sjL6
-	2HOU7ublq2kZb3iHuJgdq8+KOEHgOZdEk32b2mI4d9wUXmIaAVLGa1Pr3Y7tk1leLqK9TCw6y14GD
-	i2mDwqJp4TQ6S7moqDynGBjvMtElo6Q+BQseaNa9j3oHGrUelDj3+zedmkYDhCVTsKfd+bQXmLPS4
-	kayyLtqizvPGY+/C/kzuM4BQxQ9JtjFiPiirVv1+lSQK0GDrbSlwMACJuNxAGT41IM/O985MlqHaI
-	TLX01QkeJTUV2/COy1nYfdgYxaB4o4MG/zRozMqRQQmZHKoiOU7HQVYCWiFpwLSmJBrGUgREtf4Mq
-	1At+hq7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yt6z83GlSHfdWO3Jk22aFxzg1DF1zAm2bjGCaVuvjiM=; b=VGBTQTXoV7uVG8LJ2itN0ejtZp
+	zdZ91woChgJkAVfAJLpKexz7nCrgeZT1r76Lws37grGiIoOpdcLG2xD6+ii29xxJoEpw44458SSgs
+	v0kn77W3uaJbyJUNlusgB/HuB0MTT4qpG9zIauv7iRga4opHP7vTXzwMj1ngJ68YBZYUV1pLN3O7T
+	uagbzy32KhGR2UNhg04IMtZE34zd8SMaQU7L6g/4EpkORMbgT5ZXhLIIOzsEHapodztcvcWzMh3pQ
+	HDDk5OMvVp88WAyc9qRUMYtKsYBGrmNbz7dnM0o/BVMOQtYmha2ILF1I1s1tPd7fy2cYyC7NDTcm7
+	sMNV+/PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywWS-0000000DnxJ-2mk9;
-	Wed, 17 Sep 2025 18:04:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uywng-0000000Dt00-0DFu;
+	Wed, 17 Sep 2025 18:22:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywWN-0000000DntK-38Gu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 17 Sep 2025 18:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=WHdjN7iBFNd95rgW8CjggDWZQNqH0UFSGTpH0h/SiDE=; b=EKR1VAoT6HRXyTHC8ATSKnmdZB
-	RsfAp3/VQc7MxOEUZP9Q6DVl5jrDlOVeBssOdhYYFcZ/sPrf/XCf0B2zwE06OmWkzOWM+1NYlG+u5
-	zJfQc31+FZy3KsZCOSwSOt0DjFpbGbV53xN450QsO3yWey2sBCbELRPkzfIi+cUudsE3DGLlL1VRF
-	kd0L8QQO00nf2yZGYH3WyQu1zwRvrlT4UuSAwE+6q5kFOllGVdILvuvafT+pU6LSzh6NqA3EC6cfE
-	iBKWCfh7akYO7xppr2utE3pPQTttPG8VCBPUOWF84fQYv71SUEM8sCTV4vuvem7u0aOsUaKUikSHr
-	eFx5GvEA==;
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywWK-00000007U0E-0Qzn
+	id 1uywnd-0000000DszY-3eZa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 18:04:46 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id A886A1400074;
-	Wed, 17 Sep 2025 14:04:38 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 17 Sep 2025 14:04:38 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
-	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1758132278; x=
-	1758218678; bh=WHdjN7iBFNd95rgW8CjggDWZQNqH0UFSGTpH0h/SiDE=; b=w
-	DSB89Zm+0XXO/IOUpvCnwEk228XNx6cr8TxFH5lGbb+WfKt2n5lmYNSim27DzjEJ
-	3Ui2Ej5CjU06SavdHxS/EEwKX54/1/xgzxzFauxvXICMzCpL7PTBRKekjYObxTYL
-	rSiCGkLxTCcw7XLUFr2jaqTartHtnrPN86KaoeH8gRmL5Ou699oIiylxHxNLs3VT
-	tkLQyA1jDKGAv35xoZqHbAfKzUi54JD2ltqFV/isqzWbLhZpJuViVaAp1l4YjfJH
-	1GVbCpIJR32qX6LIjoC16uJja6zBG5d8kTf+4Fv+6dVpVj880g0dnaINLJ6FXmiF
-	nU8LMn6BW2z7W2iUkHJfw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1758132278; x=1758218678; bh=W
-	HdjN7iBFNd95rgW8CjggDWZQNqH0UFSGTpH0h/SiDE=; b=EkXS4VR2yLjQnpf+0
-	bUi+MnN7/q3hel46TliZuX+wFtAlFNFUdBvBS8b3KKaFZkGeUvtD7y8QRkLh37n6
-	ng9zXDjkyHo0yS2y5YnftJiqOc2w18aqEdcyM+suBgZN610ZxgNE8zYlMbicLl/K
-	PPHP8ft/uycA26hcvbcfTd4yuR+ST4TZ0QBn2MGmWzFx7bmdgY/FMNorErL7pZuI
-	EsGIMcw1tgzpPwQK8mOXaWOJ9Yyl7px0aEqwoXFFOKX8i6gy+k1Lysm08HhnBXaZ
-	hFOAf/jgsMAiPI1OOpzL2S8X5Lidu7V5GAymU13Q/m8yK0LmuzAQedoSYZ9dmpiF
-	5NaMQ==
-X-ME-Sender: <xms:NvjKaCROVSmEPNLiwhN4qXXU4Bn9Ejc_8t16tv7MBJOux95hUShbjw>
-    <xme:NvjKaG-4gU6ityPW4H4keAJ1ubseotd8HTX_tXwsgo6NWKHfw5eCWuPvemDr7C-Gz
-    co7UXkeR9_uJi5Ol6M>
-X-ME-Received: <xmr:NvjKaCisdP4dNez45gv63okIGE_kC6nCY-P2rSWncwc5Lm05anuQZI08YF9lbejz2A3PQnK2Qdbf>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeggeduvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeftvggsvggttggr
-    ucevrhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrh
-    hnpeegffeuueelvdeggfdvvdfgtedvudfhfeekudekieektddukeefteetieefvdelfeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvg
-    gttggrsegsshguihhordgtohhmpdhnsggprhgtphhtthhopedutddpmhhouggvpehsmhht
-    phhouhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhope
-    hkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodguthes
-    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtg
-    hpthhtoheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgt
-    phhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtph
-    htthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggr
-    ugdrohhrghdprhgtphhtthhopehlihhnuhigqdgrshhpvggvugeslhhishhtshdrohiilh
-    grsghsrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgv
-    rhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:NvjKaHZ2ildcYLzHmpniTT0GsTe4W94TInTIZssRTZlbiv1gsVRzSw>
-    <xmx:NvjKaH-x2Gc1iIUMOIPuQO9y1cqXwKFFVCtsu11TKyV7H-AWuG93jg>
-    <xmx:NvjKaJNDWvDjYO7x8-yBZJ4QNwXKwrPefK-1sLgwiYgBSmPogybDaw>
-    <xmx:NvjKaEGpp1_9Ho8l8ZGIRPmVlY3ZXu6fObagB5bGWO36nE5PPaANkA>
-    <xmx:NvjKaNgnNwgJRqLmyJQWA4iUxUwoYyImv48zxY_SlveeDn6a0sumol3H>
-Feedback-ID: i5b994698:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 17 Sep 2025 14:04:37 -0400 (EDT)
-From: Rebecca Cran <rebecca@bsdio.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Cc: Rebecca Cran <rebecca@bsdio.com>
-Subject: [PATCH v2 2/2] ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-Date: Wed, 17 Sep 2025 12:04:26 -0600
-Message-ID: <20250917180428.810751-3-rebecca@bsdio.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250917180428.810751-1-rebecca@bsdio.com>
-References: <20250917180428.810751-1-rebecca@bsdio.com>
+	Wed, 17 Sep 2025 18:22:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758133357; x=1789669357;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=2D1dA8/ICqE22MprhtcMFZ8x2OdHKcVhD8IYrqeaof4=;
+  b=CgIRMGaGfQ8ZSlSeMQkZ6Vv5hBjua6UOSKNcnUINdwOV/2safFDNV6hO
+   x573jmJVqJNzDLSvG1T0bIN9RLMwhu+Zl89IhTesd5DTLG6uolyw8jXhY
+   5FYxphJ4LR8GEBxFDlC74MB+o+XoQEnoRs5hxPzxEsqL0T/Ul/PguO4Ci
+   QpdYU4YBynHgcfiSFn/AGcZ3jVCrgfhXaiXwV/52lJ7K6TjV4a0XPD1Ji
+   TC2zdqK1RLSoG9Gsm1tQus1f6IsBeMmnv05UIdSpTZltb6CbusQMXsi+g
+   8+nb6lNom4EECDKLgjJiNWcDAH3/riL9vMB+GC6ni53gw76WMfSb9C6kS
+   g==;
+X-CSE-ConnectionGUID: 3YgLgpX/TcqRO1W0M7GsWA==
+X-CSE-MsgGUID: nADc49kwQoOhLFWErGL+TQ==
+X-IronPort-AV: E=Sophos;i="6.18,272,1751266800"; 
+   d="scan'208";a="278006773"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Sep 2025 11:22:33 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 17 Sep 2025 11:22:30 -0700
+Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 17 Sep 2025 11:22:27 -0700
+From: <nicolas.ferre@microchip.com>
+To: <sboyd@kernel.org>, <mturquette@baylibre.com>,
+	<linux-clk@vger.kernel.org>, <arm@kernel.org>, <soc@kernel.org>
+CC: Nicolas Ferre <nicolas.ferre@microchip.com>, Linux Kernel list
+	<linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, "Claudiu
+ Beznea" <claudiu.beznea@tuxon.dev>, <arnd@arndb.de>
+Subject: [GIT PULL v2] ARM: microchip: clk for 6.18 #1
+Date: Wed, 17 Sep 2025 20:21:18 +0200
+Message-ID: <20250917182150.93359-1-nicolas.ferre@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250916080545.9310-1-nicolas.ferre@microchip.com>
+References: <20250916080545.9310-1-nicolas.ferre@microchip.com>
 MIME-Version: 1.0
+Organization: microchip
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_190444_814592_FDA974B9 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250917_112238_084425_4162BCD7 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,667 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
-ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
----
- arch/arm/boot/dts/aspeed/Makefile                      |   1 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts | 633 ++++++++++++++++++++
- 2 files changed, 634 insertions(+)
+Dear clock maintainers,
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index aba7451ab749..6bffb7130839 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ampere-mtjefferson.dtb \
- 	aspeed-bmc-ampere-mtmitchell.dtb \
- 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
-+	aspeed-bmc-asrock-altrad8.dtb \
- 	aspeed-bmc-asrock-e3c246d4i.dtb \
- 	aspeed-bmc-asrock-e3c256d4i.dtb \
- 	aspeed-bmc-asrock-romed8hm3.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-new file mode 100644
-index 000000000000..ae3ddf5f6eb7
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-@@ -0,0 +1,633 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/dts-v1/;
-+
-+#include "aspeed-g5.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/i2c/i2c.h>
-+
-+/ {
-+	model = "ASRock ALTRAD8 BMC";
-+	compatible = "asrock,altrad8-bmc", "aspeed,ast2500";
-+
-+	aliases {
-+		serial4 = &uart5;
-+		i2c50 = &nvme1;
-+		i2c51 = &pcie4;
-+		i2c52 = &pcie5;
-+		i2c53 = &pcie6;
-+		i2c54 = &pcie7;
-+		i2c55 = &nvme3;
-+		i2c56 = &nvme2;
-+		i2c57 = &nvme0;
-+		i2c58 = &nvme4;
-+		i2c59 = &nvme5;
-+		i2c60 = &nvme6;
-+		i2c61 = &nvme7;
-+		i2c62 = &nvme8;
-+		i2c63 = &nvme9;
-+		i2c64 = &nvme10;
-+		i2c65 = &nvme11;
-+	};
-+
-+	chosen {
-+		stdout-path = "uart5:115200n8";
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels =	<&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
-+				<&adc 4> ,<&adc 5>, <&adc 6>, <&adc 7>,
-+				<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
-+				<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-system-fault {
-+			gpios = <&gpio ASPEED_GPIO(G,3) GPIO_ACTIVE_LOW>;
-+			label = "platform:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		led-enclosure-identify {
-+			gpios = <&gpio ASPEED_GPIO(G,0) GPIO_ACTIVE_LOW>;
-+			label = "platform:green:indicator";
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_INDICATOR;
-+		};
-+
-+		led-fan1-fault {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 0 GPIO_ACTIVE_LOW>;
-+			label = "fan1:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		led-fan2-fault {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 1 GPIO_ACTIVE_LOW>;
-+			label = "fan2:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		led-fan3-fault {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 2 GPIO_ACTIVE_LOW>;
-+			label = "fan3:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		led-fan4-fault {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 3 GPIO_ACTIVE_LOW>;
-+			label = "fan4:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+
-+		led-fan5-fault {
-+			retain-state-shutdown;
-+			default-state = "off";
-+			gpios = <&pca0 4 GPIO_ACTIVE_LOW>;
-+			label = "fan5:red:fault";
-+			color = <LED_COLOR_ID_RED>;
-+			function = LED_FUNCTION_FAULT;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		reg = <0x80000000 0x20000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		gfx_memory: framebuffer {
-+			compatible = "shared-dma-pool";
-+			size = <0x01000000>;
-+			alignment = <0x01000000>;
-+			reusable;
-+		};
-+
-+		vga_memory: framebuffer@9f000000 {
-+			no-map;
-+			reg = <0x9f000000 0x01000000>; /* 16M */
-+		};
-+
-+		video_engine_memory: jpegbuffer {
-+			compatible = "shared-dma-pool";
-+			size = <0x02000000>;	/* 32M */
-+			alignment = <0x01000000>;
-+			reusable;
-+		};
-+	};
-+};
-+
-+&adc {
-+	status = "okay";
-+};
-+
-+&fmc {
-+	flash@0 {
-+		label = "bmc";
-+		m25p,fast-read;
-+		spi-max-frequency = <50000000>;
-+#include "openbmc-flash-layout-64.dtsi"
-+	};
-+};
-+
-+&gfx {
-+	memory-region = <&gfx_memory>;
-+};
-+
-+&gpio {
-+	gpio-line-names =
-+	/*A0-A7*/	"","","","BMC_READY","","","","",
-+	/*B0-B7*/	"i2c-backup-sel","","","","","","","host0-shd-ack-n",
-+	/*C0-C7*/	"","","","","","","","",
-+	/*D0-D7*/	"POWER_BUTTON","POWER_OUT","RESET_BUTTON",
-+			"host0-sysreset-n","","","SYS_PWR_GD","",
-+	/*E0-E7*/	"","s0-vrd1-vddq0123-fault-l",
-+			"s0-vrd1-vddq4567-fault-l","s0-vrd0-vddc-fault-l",
-+			"s0-vrd3-p0v75-fault-l","","","",
-+	/*F0-F7*/	"","","SYS_ATX_PSON_L","","","","","",
-+	/*G0-G7*/	"id-led","id-button","","","UBOOT_READY",\
-+			"BMC_SALT2_L","","",
-+	/*H0-H7*/	"PS_PWROK","uart1-mode1","uart2-mode1","uart3-mode1",
-+			"uart4-mode1","","BMC_HB_LED","",
-+	/*I0-I7*/	"","","","","","","","",
-+	/*J0-J7*/	"s0-hightemp-n","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"","","","","","s0-spi-auth-fail-n","","",
-+	/*N0-N7*/	"","","","","","","","",
-+	/*O0-O7*/	"","","","","","","","",
-+	/*P0-P7*/	"","","CPLD_DISABLE_BMC","","","","","",
-+	/*Q0-Q7*/	"","","ext-hightemp-n","","","","",
-+			"CHASSIS_INTRUSION",
-+	/*R0-R7*/	"","","EXT_HIGHTEMP_L","spi0-program-sel","",
-+			"HWM_BAT_EN","","",
-+	/*S0-S7*/	"s0-vr-hot-n","","","BMC_SYSRESET_L","","","","",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"","","","","","","","",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","","","","","","","",
-+	/*Y0-Y7*/	"SIOS3","SIOS5","SIOPWREQ","SIOONCTRL","","","","",
-+	/*Z0-Z7*/	"","SIOPWRGD","","s0-rtc-lock","","","","",
-+	/*AA0-AA7*/	"RTC_INT","","","","","PMBUS_SEL_N","","",
-+	/*AB0-AB7*/	"host0-reboot-ack-n","s0-sys-auth-failure-n",
-+			"","","","","","",
-+	/*AC0-AC7*/	"s0-fault-alert","host0-ready","s0-overtemp-n",
-+			"","bmc-ok","host0-special-boot","presence-cpu0",
-+			"host0-shd-req-n";
-+};
-+
-+&i2c0 {
-+	bus-frequency = <100000>;
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		i2c-protocol;
-+	};
-+
-+};
-+
-+&i2c1 {
-+	bus-frequency = <100000>;
-+
-+	i2c-mux1@73 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x73>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		nvme1: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		pcie4: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		pcie5: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		pcie6: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		pcie7: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		nvme3: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		nvme2: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		nvme0: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+
-+	i2c-mux2@75 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x75>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		nvme4: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		nvme5: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		nvme6: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+		};
-+
-+		nvme7: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+		};
-+
-+		nvme8: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+		};
-+
-+		nvme9: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+		};
-+
-+		nvme10: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+		};
-+
-+		nvme11: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	bus-frequency = <100000>;
-+
-+	smpro@4f {
-+		compatible = "ampere,smpro";
-+		reg = <0x4f>;
-+	};
-+};
-+
-+&i2c3 {
-+	// PSU FRU
-+	eeprom@38 {
-+		compatible = "atmel,24c02";
-+		reg = <0x38>;
-+	};
-+};
-+
-+&i2c4 {
-+	bus-frequency = <100000>;
-+
-+	hardware-monitor@29 {
-+		compatible = "nuvoton,nct7802";
-+		reg = <0x29>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		channel@0 { /* LTD */
-+			reg = <0>;
-+		};
-+
-+		channel@1 { /* RTD1 */
-+				reg = <1>;
-+				sensor-type = "temperature";
-+				temperature-mode = "thermistor";
-+		};
-+
-+		channel@2 { /* RTD2 */
-+				reg = <2>;
-+				sensor-type = "temperature";
-+				temperature-mode = "thermal-diode";
-+		};
-+	};
-+
-+	temperature-sensor@4c {
-+		compatible = "nuvoton,w83773g";
-+		reg = <0x4c>;
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+};
-+
-+&i2c6 {
-+	bus-frequency = <100000>;
-+
-+	rtc@6f {
-+		compatible = "isil,isl1208";
-+		reg = <0x6f>;
-+	};
-+};
-+
-+&i2c7 {
-+	bus-frequency = <100000>;
-+
-+	// BMC FRU
-+	eeprom@57 {
-+		compatible = "atmel,24c128";
-+		reg = <0x57>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			eth0_macaddress: macaddress@3f88 {
-+				reg = <0x3f88 6>;
-+			};
-+
-+			eth1_macaddress: macaddress@3f80 {
-+				reg = <0x3f80 6>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c8 {
-+	bus-frequency = <100000>;
-+
-+	pca0: gpio@1c {
-+		compatible = "nxp,pca9557";
-+		reg = <0x1c>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio@0 {
-+			reg = <0>;
-+		};
-+
-+		gpio@1 {
-+			reg = <1>;
-+		};
-+
-+		gpio@2 {
-+			reg = <2>;
-+		};
-+
-+		gpio@3 {
-+			reg = <3>;
-+		};
-+
-+		gpio@4 {
-+			reg = <4>;
-+		};
-+
-+		gpio@5 {
-+			reg = <5>;
-+		};
-+
-+		gpio@6 {
-+			reg = <6>;
-+		};
-+
-+		gpio@7 {
-+			reg = <7>;
-+		};
-+	};
-+};
-+
-+&i2c9 {
-+	status = "okay";
-+};
-+
-+&i2c10 {
-+	status = "okay";
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+};
-+
-+&i2c12 {
-+	status = "okay";
-+};
-+
-+&i2c13 {
-+	bus-frequency = <100000>;
-+
-+	ssif-bmc@10 {
-+		compatible = "ssif-bmc";
-+		reg = <0x10>;
-+	};
-+};
-+
-+// Connected to host Intel X550 (ALTRAD8UD-1L2T) or
-+// Broadcom BCM57414 (ALTRAD8UD2-1L2Q) interface
-+&mac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rmii1_default>;
-+
-+	clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
-+		 <&syscon ASPEED_CLK_MAC1RCLK>;
-+	clock-names = "MACCLK", "RCLK";
-+
-+	use-ncsi;
-+
-+	nvmem-cells = <&eth0_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+};
-+
-+// Connected to Realtek RTL8211E
-+&mac1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
-+
-+	nvmem-cells = <&eth1_macaddress>;
-+	nvmem-cell-names = "mac-address";
-+};
-+
-+&pinctrl {
-+	aspeed,external-nodes = <&gfx &lhc>;
-+};
-+
-+&pwm_tacho {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm0_default
-+			&pinctrl_pwm1_default
-+			&pinctrl_pwm2_default
-+			&pinctrl_pwm3_default
-+			&pinctrl_pwm4_default
-+			&pinctrl_pwm5_default
-+			&pinctrl_pwm6_default
-+			&pinctrl_pwm7_default>;
-+
-+	fan@0 {
-+		reg = <0x00>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x00 0x08>;
-+	};
-+
-+	fan@1 {
-+		reg = <0x01>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x09>;
-+	};
-+
-+	fan@2 {
-+		reg = <0x02>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x02 0x0a>;
-+	};
-+
-+	fan@3 {
-+		reg = <0x03>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
-+	};
-+
-+	fan@4 {
-+		reg = <0x04>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0c>;
-+	};
-+
-+	fan@5 {
-+		reg = <0x05>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0d>;
-+	};
-+
-+	fan@6 {
-+		reg = <0x06>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x06 0x0e>;
-+	};
-+
-+	fan@7 {
-+		reg = <0x07>;
-+		aspeed,fan-tach-ch = /bits/ 8 <0x07 0x0f>;
-+	};
-+};
-+
-+&spi1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi1_default>;
-+
-+	flash@0 {
-+		m25p,fast-read;
-+		label = "pnor";
-+		spi-max-frequency = <100000000>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			code@400000 {
-+				reg = <0x400000 0x1C00000>;
-+				label = "pnor-code";
-+			};
-+
-+			tfa@400000 {
-+				reg = <0x400000 0x200000>;
-+				label = "pnor-tfa";
-+			};
-+
-+			uefi@600000 {
-+				reg = <0x600000 0x1A00000>;
-+				label = "pnor-uefi";
-+			};
-+		};
-+	};
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd1_default
-+			 &pinctrl_rxd1_default
-+			 &pinctrl_ncts1_default
-+			 &pinctrl_nrts1_default>;
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd2_default
-+			 &pinctrl_rxd2_default>;
-+};
-+
-+&uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd3_default
-+			 &pinctrl_rxd3_default>;
-+};
-+
-+&uart4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_txd4_default
-+			 &pinctrl_rxd4_default>;
-+};
-+
-+// The BMC's uart
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&vhub {
-+	status = "okay";
-+};
-+
-+&video {
-+	memory-region = <&video_engine_memory>;
-+};
+Here are the first clk changes for 6.18.
+I don't think they have conflict with changes for the deprecated round_rate()
+to determine_rate() topic.
+In this v2, I address the issue highlighted by 0-day robot: build issue. I
+added a patch that is already included as well in an pull-request to arm-soc:
+https://lore.kernel.org/linux-arm-kernel/20250916150328.27015-1-nicolas.ferre@microchip.com/
+
+v1 --> v2:
+- addition of the patch "ARM: at91: pm: save and restore ACR during PLL
+  disable/enable" as the first patch of the series to avoid build error if clk
+  tree is merged before arm-soc. Branch bisect-able. Exact same patch
+  in both trees.
+- a new tag (clk-microchip-6.18-2) is created and deployed for this
+  v2 pull-request
+
+Thanks, best regards,
+  Nicolas
+
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/clk-microchip-6.18-2
+
+for you to fetch changes up to 652b08afba69d5d26fe91098eb832b1bcc0f91c2:
+
+  ARM: at91: remove default values for PMC_PLL_ACR (2025-09-17 19:15:32 +0200)
+
+----------------------------------------------------------------
+Microchip clock updates for v6.18
+
+This update includes:
+- add one clock for sam9x75
+- new meaning for MCR register field in clk-master
+- use force-write to PLL update register to ensure
+  reliable programming sequence
+- update Analog Control Register (ACR) management to accommodate
+  differences across SoCs.
+- ACR management dependency with one ARM PM patch added beforehand
+
+----------------------------------------------------------------
+Balamanikandan Gunasundar (1):
+      clk: at91: sam9x7: Add peripheral clock id for pmecc
+
+Cristian Birsan (2):
+      clk: at91: add ACR in all PLL settings
+      ARM: at91: remove default values for PMC_PLL_ACR
+
+Nicolas Ferre (2):
+      ARM: at91: pm: save and restore ACR during PLL disable/enable
+      clk: at91: clk-sam9x60-pll: force write to PLL_UPDT register
+
+Ryan Wanner (1):
+      clk: at91: clk-master: Add check for divide by 3
+
+ arch/arm/mach-at91/pm_suspend.S    |  8 +++-
+ drivers/clk/at91/clk-master.c      |  3 ++
+ drivers/clk/at91/clk-sam9x60-pll.c | 82 +++++++++++++++++------------------
+ drivers/clk/at91/pmc.h             |  1 +
+ drivers/clk/at91/sam9x60.c         |  2 +
+ drivers/clk/at91/sam9x7.c          |  6 +++
+ drivers/clk/at91/sama7d65.c        |  4 ++
+ drivers/clk/at91/sama7g5.c         |  2 +
+ include/linux/clk/at91_pmc.h       |  2 -
+ 9 files changed, 66 insertions(+), 44 deletions(-)
+
 -- 
-2.47.3
-
+Nicolas Ferre
 
