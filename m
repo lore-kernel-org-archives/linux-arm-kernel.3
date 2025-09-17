@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE06CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64256CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEnEiqv8MrBrNggtOru79S+HEO6OQ8LMpOXpkEewXe0=; b=VYaRX4X7Wcn5IE3w0Bp9rw35Qu
-	b2aGgX+IndHd+neTr8HtdUaSHWmKZBvKien8FMj/4ZaeHGvlUoXpfzL+MyaQwEu55BAV8K5rgm/I/
-	mCouILaFxpKG+ZNzRB/JyqTo8riLxfTwVpIN+GKnpC6r8aRnUdN/CDJJUm3EXVFdPzRNPNwBwWozK
-	N3c4dPuiPVTkf+mpp9PFLJRGCfCNoB+npbQtlOd4gkzWUlFjqytirbZLqWmbXH0VZLrx5Xi/EidoF
-	vhY/rheaCSbjUqZv8ObGBVk0c6AUacEHhDOdlUmuW08Tk+Bv+zxqrMb+D5zZ3xg/4GFfWaj+0zyKF
-	GdTjH+Rg==;
+	bh=suvqYi7Eu2JdAj7tYa8WTDy2PVdaNF+ln8JKAwtH8xQ=; b=Kq62kwRsroI3tnZ/RuxNXrfPKy
+	ssgvElgNS6uPgYf+KRe6mF+RtJATQnO9rEInvCmXO16F6kd1vjO0IEqllX/eXBDXN2T83TVyWlzMF
+	9V9muym4Ze+xcKHqd318fde54xuiyB+qoS2zDi3/RFZGRMI0wWPvN70J2szLW409P3MM1s5UPdzk5
+	tKKp3rbG+3pneWYi21E977s5NKCe382s0VvLQDfQtBkwU+m5qrndjIc8G+6CNNhdS/kHUE8bejNMv
+	JBA7guV1GQr76nwVvMRCSZT7rNvuSk70vgqwyUuDsVmmmkMiBnTB3yu1FiBT+MbXGNa2Ch5t+gksp
+	QyfNmj2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyskS-0000000Byde-1X5V;
-	Wed, 17 Sep 2025 14:03:04 +0000
+	id 1uyskW-0000000BykV-1HWE;
+	Wed, 17 Sep 2025 14:03:08 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysje-0000000BxP5-2LpY
+	id 1uysjg-0000000BxSe-38NE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:16 +0000
+	Wed, 17 Sep 2025 14:02:21 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117728;
+	s=2020; t=1758117729;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tEnEiqv8MrBrNggtOru79S+HEO6OQ8LMpOXpkEewXe0=;
-	b=DBLCKt/k3dS7BWaT5fIk4eZieaA31cI16K7p+8qtu3RmYKOnJeteUFFhu1yS9VLEcYZYA1
-	zCWIv1MfoKxFmtsyDueA4/CKVv/HWmWFqZFlRG3hUIPMtBjw9WdbZgZWAHMqYzrMfaLIe+
-	KMNk2p6icqp7LniuzHYciSb80iTtdydkyj6xxHeGSP9KCCfUrk3Sy9zg+fI4gLOdIigzty
-	fnSwVnZz8324Z3y6fRBfRlfIXnx69sE1pC0+yqc2TB7AIZVqeNTQhEFvynXWdjUzAne/Xr
-	4ME+kTaZFOBFWlGldxm+smIH/rL5N4V5ZJ+d0mZchftJYEnAFmZfW4s4uCvr1w==
+	bh=suvqYi7Eu2JdAj7tYa8WTDy2PVdaNF+ln8JKAwtH8xQ=;
+	b=l6CZrt3mnOqHbyA1WnTplf8msmo7gFEPPS97FEUD+KlVHXHYFfINOVevXdA51GZABMgMNA
+	4L1F3bwZRZcNxEwBWLwUvS70v3Up6+g1EKAOrefBsHeobwoDz+7sGfWc93RH4nrJtVqoNh
+	a0XkG/B+3yPsMUdmpIiivAbZhHcKXMG0J3Y4IuwMLiN3E8+tQ1GzYHharSUqvk++jzV9Jz
+	LzP5lSEHEbwr6DWZk5FQH1Q5ud59siGQ6CEG/D3rfLdJ+FL2xIewDyfjNnJ+miMSPWYetX
+	kuB7Oq0V41+XreTUZknuEVIgi8VlfwvchC7y1Usj1GoH34jUM/F+fQQl5Ku0mg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117728;
+	s=2020e; t=1758117729;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tEnEiqv8MrBrNggtOru79S+HEO6OQ8LMpOXpkEewXe0=;
-	b=oV6NLZvVqW8nysBOg+Qtw63QqZ2f9SBNmWkvaz+/eBtuJk4wJZTfl3foKC/jZ//jZJC2rp
-	VEjq1L1LjmBYfFCw==
-Date: Wed, 17 Sep 2025 16:00:27 +0200
-Subject: [PATCH v3 25/36] sparc64: vdso: Link with -z noexecstack
+	bh=suvqYi7Eu2JdAj7tYa8WTDy2PVdaNF+ln8JKAwtH8xQ=;
+	b=ZSQ43HTkVQ5+vgm7v3N7BTaiCwJneqVWn1QBhcYIOxmQwRAp7xKJ8LOrwKXGlEHkrHNmqW
+	97vg65aooEhsIHDw==
+Date: Wed, 17 Sep 2025 16:00:29 +0200
+Subject: [PATCH v3 27/36] sparc64: vdso: Replace code patching with runtime
+ conditional
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-25-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-27-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,18 +83,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- Arnd Bergmann <arnd@kernel.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=1408;
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=11901;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=4jrKaNatrlS2U1eS/SPq1jK5+LqX9GNesaZnhV/t5C0=;
- b=5D05C1PiiGthWjXxTYFQYwCCXf051B2LPHkCKwscOyPOGzDY7E0en5oVCQyH1EGSdrZtKSAfX
- Bpy13R+3cWRCq0TqGfhLp7V37YgMsBK3+t2He9rMtxoApwdaVoHWWie
+ bh=QuvYyH7tg7ricAibVz21CQKEZ7poFH7t7TCI4sCE65g=;
+ b=29aTe3V1FEMhfA/jKmZFPOJqs+8Ll9AuYwdFe4/5NhKEdR3kpzajudcEscptnk+0HAzINPdbp
+ NqXPjGmVqYOAoECvGOuot9wK0911QjR4KXjPPsKmXlYxQYEovY6KMYG
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070214_845612_32EBCF52 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250917_070217_371100_87072938 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +108,424 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vDSO stack does not need to be executable. Prevent the linker from
-creating executable. For more background see commit ffcf9c5700e4 ("x86:
-link vdso and boot with -z noexecstack --no-warn-rwx-segments").
+The patching logic is unnecessarily complicated and stands in the way of
+the adoption of the generic vDSO framework.
 
-Also prevent the following warning from the linker:
-sparc64-linux-ld: warning: arch/sparc/vdso/vdso-note.o: missing .note.GNU-stack section implies executable stack
-sparc64-linux-ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+Replace it by a simple runtime switch, similar to other architectures.
 
-Suggested-by: Arnd Bergmann <arnd@kernel.org>
-Link: https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
-Fixes: 9a08862a5d2e ("vDSO for sparc")
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lore.kernel.org/lkml/87ecu9tfhw.ffs@tglx/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/sparc/vdso/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/sparc/vdso/vclock_gettime.c    | 112 +-------------------
+ arch/sparc/vdso/vdso.lds.S          |   2 -
+ arch/sparc/vdso/vdso32/vdso32.lds.S |   2 -
+ arch/sparc/vdso/vma.c               | 204 ------------------------------------
+ 4 files changed, 4 insertions(+), 316 deletions(-)
 
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index 1a4e585c91d7d03d8444cc2e4914fd10cd078fb8..2e911ccc9db71b2888ffc432d75ac8815ecce0f7 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -107,4 +107,4 @@ quiet_cmd_vdso = VDSO    $@
- 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
- 		       -T $(filter %.lds,$^) $(filter %.o,$^)
+diff --git a/arch/sparc/vdso/vclock_gettime.c b/arch/sparc/vdso/vclock_gettime.c
+index 79607804ea1b0f321215a9c4b5ead1edeb912e64..643608bffe13d904c5f77edd585b2e58277491fb 100644
+--- a/arch/sparc/vdso/vclock_gettime.c
++++ b/arch/sparc/vdso/vclock_gettime.c
+@@ -148,17 +148,11 @@ notrace static __always_inline u64 vgetsns(struct vvar_data *vvar)
+ 	u64 v;
+ 	u64 cycles;
  
--VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined
-+VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined -z noexecstack
+-	cycles = vread_tick();
+-	v = (cycles - vvar->clock.cycle_last) & vvar->clock.mask;
+-	return v * vvar->clock.mult;
+-}
+-
+-notrace static __always_inline u64 vgetsns_stick(struct vvar_data *vvar)
+-{
+-	u64 v;
+-	u64 cycles;
++	if (likely(vvar->vclock_mode == VCLOCK_STICK))
++		cycles = vread_tick_stick();
++	else
++		cycles = vread_tick();
+ 
+-	cycles = vread_tick_stick();
+ 	v = (cycles - vvar->clock.cycle_last) & vvar->clock.mask;
+ 	return v * vvar->clock.mult;
+ }
+@@ -183,26 +177,6 @@ notrace static __always_inline int do_realtime(struct vvar_data *vvar,
+ 	return 0;
+ }
+ 
+-notrace static __always_inline int do_realtime_stick(struct vvar_data *vvar,
+-						     struct __kernel_old_timespec *ts)
+-{
+-	unsigned long seq;
+-	u64 ns;
+-
+-	do {
+-		seq = vvar_read_begin(vvar);
+-		ts->tv_sec = vvar->wall_time_sec;
+-		ns = vvar->wall_time_snsec;
+-		ns += vgetsns_stick(vvar);
+-		ns = __shr64(ns, vvar->clock.shift);
+-	} while (unlikely(vvar_read_retry(vvar, seq)));
+-
+-	ts->tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
+-	ts->tv_nsec = ns;
+-
+-	return 0;
+-}
+-
+ notrace static __always_inline int do_monotonic(struct vvar_data *vvar,
+ 						struct __kernel_old_timespec *ts)
+ {
+@@ -223,26 +197,6 @@ notrace static __always_inline int do_monotonic(struct vvar_data *vvar,
+ 	return 0;
+ }
+ 
+-notrace static __always_inline int do_monotonic_stick(struct vvar_data *vvar,
+-						      struct __kernel_old_timespec *ts)
+-{
+-	unsigned long seq;
+-	u64 ns;
+-
+-	do {
+-		seq = vvar_read_begin(vvar);
+-		ts->tv_sec = vvar->monotonic_time_sec;
+-		ns = vvar->monotonic_time_snsec;
+-		ns += vgetsns_stick(vvar);
+-		ns = __shr64(ns, vvar->clock.shift);
+-	} while (unlikely(vvar_read_retry(vvar, seq)));
+-
+-	ts->tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &ns);
+-	ts->tv_nsec = ns;
+-
+-	return 0;
+-}
+-
+ notrace static int do_realtime_coarse(struct vvar_data *vvar,
+ 				      struct __kernel_old_timespec *ts)
+ {
+@@ -298,31 +252,6 @@ int
+ clock_gettime(clockid_t, struct __kernel_old_timespec *)
+ 	__attribute__((weak, alias("__vdso_clock_gettime")));
+ 
+-notrace int
+-__vdso_clock_gettime_stick(clockid_t clock, struct __kernel_old_timespec *ts)
+-{
+-	struct vvar_data *vvd = get_vvar_data();
+-
+-	switch (clock) {
+-	case CLOCK_REALTIME:
+-		if (unlikely(vvd->vclock_mode == VCLOCK_NONE))
+-			break;
+-		return do_realtime_stick(vvd, ts);
+-	case CLOCK_MONOTONIC:
+-		if (unlikely(vvd->vclock_mode == VCLOCK_NONE))
+-			break;
+-		return do_monotonic_stick(vvd, ts);
+-	case CLOCK_REALTIME_COARSE:
+-		return do_realtime_coarse(vvd, ts);
+-	case CLOCK_MONOTONIC_COARSE:
+-		return do_monotonic_coarse(vvd, ts);
+-	}
+-	/*
+-	 * Unknown clock ID ? Fall back to the syscall.
+-	 */
+-	return vdso_fallback_gettime(clock, ts);
+-}
+-
+ notrace int
+ __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+ {
+@@ -358,36 +287,3 @@ __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+ int
+ gettimeofday(struct __kernel_old_timeval *, struct timezone *)
+ 	__attribute__((weak, alias("__vdso_gettimeofday")));
+-
+-notrace int
+-__vdso_gettimeofday_stick(struct __kernel_old_timeval *tv, struct timezone *tz)
+-{
+-	struct vvar_data *vvd = get_vvar_data();
+-
+-	if (likely(vvd->vclock_mode != VCLOCK_NONE)) {
+-		if (likely(tv != NULL)) {
+-			union tstv_t {
+-				struct __kernel_old_timespec ts;
+-				struct __kernel_old_timeval tv;
+-			} *tstv = (union tstv_t *) tv;
+-			do_realtime_stick(vvd, &tstv->ts);
+-			/*
+-			 * Assign before dividing to ensure that the division is
+-			 * done in the type of tv_usec, not tv_nsec.
+-			 *
+-			 * There cannot be > 1 billion usec in a second:
+-			 * do_realtime() has already distributed such overflow
+-			 * into tv_sec.  So we can assign it to an int safely.
+-			 */
+-			tstv->tv.tv_usec = tstv->ts.tv_nsec;
+-			tstv->tv.tv_usec /= 1000;
+-		}
+-		if (unlikely(tz != NULL)) {
+-			/* Avoid memcpy. Some old compilers fail to inline it */
+-			tz->tz_minuteswest = vvd->tz_minuteswest;
+-			tz->tz_dsttime = vvd->tz_dsttime;
+-		}
+-		return 0;
+-	}
+-	return vdso_fallback_gettimeofday(tv, tz);
+-}
+diff --git a/arch/sparc/vdso/vdso.lds.S b/arch/sparc/vdso/vdso.lds.S
+index 629ab6900df7156fc18b450dc3bbfba1bbd20e65..f3caa29a331c58175b67ea60d7ac15cd467fe5ff 100644
+--- a/arch/sparc/vdso/vdso.lds.S
++++ b/arch/sparc/vdso/vdso.lds.S
+@@ -18,10 +18,8 @@ VERSION {
+ 	global:
+ 		clock_gettime;
+ 		__vdso_clock_gettime;
+-		__vdso_clock_gettime_stick;
+ 		gettimeofday;
+ 		__vdso_gettimeofday;
+-		__vdso_gettimeofday_stick;
+ 	local: *;
+ 	};
+ }
+diff --git a/arch/sparc/vdso/vdso32/vdso32.lds.S b/arch/sparc/vdso/vdso32/vdso32.lds.S
+index 218930fdff03d598d74a991657c109c3b15ce752..53575ee154c492f9503efdd8f995ac2a035203c7 100644
+--- a/arch/sparc/vdso/vdso32/vdso32.lds.S
++++ b/arch/sparc/vdso/vdso32/vdso32.lds.S
+@@ -17,10 +17,8 @@ VERSION {
+ 	global:
+ 		clock_gettime;
+ 		__vdso_clock_gettime;
+-		__vdso_clock_gettime_stick;
+ 		gettimeofday;
+ 		__vdso_gettimeofday;
+-		__vdso_gettimeofday_stick;
+ 	local: *;
+ 	};
+ }
+diff --git a/arch/sparc/vdso/vma.c b/arch/sparc/vdso/vma.c
+index bab7a59575e882d911c5d1b0903f45cec353aef0..582d84e2e5ba8932f39948bb0ca2678fc8f06a10 100644
+--- a/arch/sparc/vdso/vma.c
++++ b/arch/sparc/vdso/vma.c
+@@ -42,203 +42,6 @@ static struct vm_special_mapping vdso_mapping32 = {
+ 
+ struct vvar_data *vvar_data;
+ 
+-struct vdso_elfinfo32 {
+-	Elf32_Ehdr	*hdr;
+-	Elf32_Sym	*dynsym;
+-	unsigned long	dynsymsize;
+-	const char	*dynstr;
+-	unsigned long	text;
+-};
+-
+-struct vdso_elfinfo64 {
+-	Elf64_Ehdr	*hdr;
+-	Elf64_Sym	*dynsym;
+-	unsigned long	dynsymsize;
+-	const char	*dynstr;
+-	unsigned long	text;
+-};
+-
+-struct vdso_elfinfo {
+-	union {
+-		struct vdso_elfinfo32 elf32;
+-		struct vdso_elfinfo64 elf64;
+-	} u;
+-};
+-
+-static void *one_section64(struct vdso_elfinfo64 *e, const char *name,
+-			   unsigned long *size)
+-{
+-	const char *snames;
+-	Elf64_Shdr *shdrs;
+-	unsigned int i;
+-
+-	shdrs = (void *)e->hdr + e->hdr->e_shoff;
+-	snames = (void *)e->hdr + shdrs[e->hdr->e_shstrndx].sh_offset;
+-	for (i = 1; i < e->hdr->e_shnum; i++) {
+-		if (!strcmp(snames+shdrs[i].sh_name, name)) {
+-			if (size)
+-				*size = shdrs[i].sh_size;
+-			return (void *)e->hdr + shdrs[i].sh_offset;
+-		}
+-	}
+-	return NULL;
+-}
+-
+-static int find_sections64(const struct vdso_image *image, struct vdso_elfinfo *_e)
+-{
+-	struct vdso_elfinfo64 *e = &_e->u.elf64;
+-
+-	e->hdr = image->data;
+-	e->dynsym = one_section64(e, ".dynsym", &e->dynsymsize);
+-	e->dynstr = one_section64(e, ".dynstr", NULL);
+-
+-	if (!e->dynsym || !e->dynstr) {
+-		pr_err("VDSO64: Missing symbol sections.\n");
+-		return -ENODEV;
+-	}
+-	return 0;
+-}
+-
+-static Elf64_Sym *find_sym64(const struct vdso_elfinfo64 *e, const char *name)
+-{
+-	unsigned int i;
+-
+-	for (i = 0; i < (e->dynsymsize / sizeof(Elf64_Sym)); i++) {
+-		Elf64_Sym *s = &e->dynsym[i];
+-		if (s->st_name == 0)
+-			continue;
+-		if (!strcmp(e->dynstr + s->st_name, name))
+-			return s;
+-	}
+-	return NULL;
+-}
+-
+-static int patchsym64(struct vdso_elfinfo *_e, const char *orig,
+-		      const char *new)
+-{
+-	struct vdso_elfinfo64 *e = &_e->u.elf64;
+-	Elf64_Sym *osym = find_sym64(e, orig);
+-	Elf64_Sym *nsym = find_sym64(e, new);
+-
+-	if (!nsym || !osym) {
+-		pr_err("VDSO64: Missing symbols.\n");
+-		return -ENODEV;
+-	}
+-	osym->st_value = nsym->st_value;
+-	osym->st_size = nsym->st_size;
+-	osym->st_info = nsym->st_info;
+-	osym->st_other = nsym->st_other;
+-	osym->st_shndx = nsym->st_shndx;
+-
+-	return 0;
+-}
+-
+-static void *one_section32(struct vdso_elfinfo32 *e, const char *name,
+-			   unsigned long *size)
+-{
+-	const char *snames;
+-	Elf32_Shdr *shdrs;
+-	unsigned int i;
+-
+-	shdrs = (void *)e->hdr + e->hdr->e_shoff;
+-	snames = (void *)e->hdr + shdrs[e->hdr->e_shstrndx].sh_offset;
+-	for (i = 1; i < e->hdr->e_shnum; i++) {
+-		if (!strcmp(snames+shdrs[i].sh_name, name)) {
+-			if (size)
+-				*size = shdrs[i].sh_size;
+-			return (void *)e->hdr + shdrs[i].sh_offset;
+-		}
+-	}
+-	return NULL;
+-}
+-
+-static int find_sections32(const struct vdso_image *image, struct vdso_elfinfo *_e)
+-{
+-	struct vdso_elfinfo32 *e = &_e->u.elf32;
+-
+-	e->hdr = image->data;
+-	e->dynsym = one_section32(e, ".dynsym", &e->dynsymsize);
+-	e->dynstr = one_section32(e, ".dynstr", NULL);
+-
+-	if (!e->dynsym || !e->dynstr) {
+-		pr_err("VDSO32: Missing symbol sections.\n");
+-		return -ENODEV;
+-	}
+-	return 0;
+-}
+-
+-static Elf32_Sym *find_sym32(const struct vdso_elfinfo32 *e, const char *name)
+-{
+-	unsigned int i;
+-
+-	for (i = 0; i < (e->dynsymsize / sizeof(Elf32_Sym)); i++) {
+-		Elf32_Sym *s = &e->dynsym[i];
+-		if (s->st_name == 0)
+-			continue;
+-		if (!strcmp(e->dynstr + s->st_name, name))
+-			return s;
+-	}
+-	return NULL;
+-}
+-
+-static int patchsym32(struct vdso_elfinfo *_e, const char *orig,
+-		      const char *new)
+-{
+-	struct vdso_elfinfo32 *e = &_e->u.elf32;
+-	Elf32_Sym *osym = find_sym32(e, orig);
+-	Elf32_Sym *nsym = find_sym32(e, new);
+-
+-	if (!nsym || !osym) {
+-		pr_err("VDSO32: Missing symbols.\n");
+-		return -ENODEV;
+-	}
+-	osym->st_value = nsym->st_value;
+-	osym->st_size = nsym->st_size;
+-	osym->st_info = nsym->st_info;
+-	osym->st_other = nsym->st_other;
+-	osym->st_shndx = nsym->st_shndx;
+-
+-	return 0;
+-}
+-
+-static int find_sections(const struct vdso_image *image, struct vdso_elfinfo *e,
+-			 bool elf64)
+-{
+-	if (elf64)
+-		return find_sections64(image, e);
+-	else
+-		return find_sections32(image, e);
+-}
+-
+-static int patch_one_symbol(struct vdso_elfinfo *e, const char *orig,
+-			    const char *new_target, bool elf64)
+-{
+-	if (elf64)
+-		return patchsym64(e, orig, new_target);
+-	else
+-		return patchsym32(e, orig, new_target);
+-}
+-
+-static int stick_patch(const struct vdso_image *image, struct vdso_elfinfo *e, bool elf64)
+-{
+-	int err;
+-
+-	err = find_sections(image, e, elf64);
+-	if (err)
+-		return err;
+-
+-	err = patch_one_symbol(e,
+-			       "__vdso_gettimeofday",
+-			       "__vdso_gettimeofday_stick", elf64);
+-	if (err)
+-		return err;
+-
+-	return patch_one_symbol(e,
+-				"__vdso_clock_gettime",
+-				"__vdso_clock_gettime_stick", elf64);
+-	return 0;
+-}
+-
+ /*
+  * Allocate pages for the vdso and vvar, and copy in the vdso text from the
+  * kernel image.
+@@ -250,15 +53,8 @@ static int __init init_vdso_image(const struct vdso_image *image,
+ 	int cnpages = (image->size) / PAGE_SIZE;
+ 	struct page *dp, **dpp = NULL;
+ 	struct page *cp, **cpp = NULL;
+-	struct vdso_elfinfo ei;
+ 	int i, dnpages = 0;
+ 
+-	if (tlb_type != spitfire) {
+-		int err = stick_patch(image, &ei, elf64);
+-		if (err)
+-			return err;
+-	}
+-
+ 	/*
+ 	 * First, the vdso text.  This is initialied data, an integral number of
+ 	 * pages long.
 
 -- 
 2.51.0
