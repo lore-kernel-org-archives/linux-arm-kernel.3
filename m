@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE78CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96C6CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5HYADmHCX472sFeljJ9Tm65HKk4u8deCrxi12j+YTQ=; b=GO++bBbNZnCu/ZAupr0eWf2Apn
-	yKlVYmn4GYvYRr7dQ+OxHk0r3cHRATLb5F9vOmChMuFIZM/7IVGOLOuRhiG5NJM0uuEtPeRQvWU6A
-	QVrZe2IZS4OEDDAuduW/QQP+2YRpi+iFkhPlC+oj7lqGN+39G6QuDg6OfwqY+TFd0tDBpfy9il11T
-	kQf+x/tfsXtjIg43Hr1irCHVgSO78tCPGIcJ4QENEN1VTC2YoY5bt9crhxCICT9+osVv70VTNcuWv
-	ka4k7vD6mPr10osRtJXyHgWSN6JAL/YBIopc7evDb73Ynul3jpSqdfvJo1TJmgDBGsWLzjW4Mr3u/
-	1Lykc37Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=cn+PA3pp4H1jMyxkMP93w1hpd3bHpFTIKgV93PTzHCg=; b=4jVIwC8PYUlZNY
+	UIFA1FhgaavE55HWybVx/Ne+PGd6Ylx06X5ID2HzHJPZFbAK3kMeTmpf8EeNDlN97NGNLT2ilObsd
+	b+sMAudk3FQFuc1gSPyHM/Qbkb5Y0p5uUSB8vG3q9C+WcnSX/qVx/EMX2m05180dibgpg9ZNzSNKJ
+	A5IhdNK5QiJ4nBXojX/9q/w3xN7bBagAJ2kKKjKq8R1CLBTs+Bmm2VOJXV52ls4ibr/DW/B9h6Sl5
+	maalZZrTjYcxl5wagjA+88mtMa/5md17xCGsXxeyCADuaOuJG0Z0t/VmuvK8E0Dzx4gicmS5x7FlT
+	f29slr0I8vYugjzAF4kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzbV-0000000EsQv-0CxB;
-	Wed, 17 Sep 2025 21:22:17 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1uyzhc-0000000EvLK-2xyM;
+	Wed, 17 Sep 2025 21:28:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzbQ-0000000EsJS-2U09
+	id 1uyzhc-0000000EvKe-0J3X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:22:14 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144130;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K5HYADmHCX472sFeljJ9Tm65HKk4u8deCrxi12j+YTQ=;
-	b=N+00bxE7auTffIakMyFatSTKSK4vg3b/Zepi/ODAad0m7xiTZhSmGNl3DoGVDbp++eocmM
-	d25IDz1OTCyOE01XVnQIUXcvhV2WWnHCtNFNsw7Y18SUt2lPgDhutS2nCpdbDBOmAFcxd6
-	USqnrq+1kw6gj2YTjoAKjfLJOP4g3l4=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 13/13] KVM: arm64: selftests: Add basic test for running in VHE EL2
-Date: Wed, 17 Sep 2025 14:20:43 -0700
-Message-ID: <20250917212044.294760-14-oliver.upton@linux.dev>
-In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
-References: <20250917212044.294760-1-oliver.upton@linux.dev>
+	Wed, 17 Sep 2025 21:28:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B9FB601E9;
+	Wed, 17 Sep 2025 21:28:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92193C4CEE7;
+	Wed, 17 Sep 2025 21:28:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758144514;
+	bh=sXeuIQMjL3ij8K65U8iZCGwbM5nnx/S7lPAqmUslGis=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=bHvd1OUm79r3XEeX6f8axMNEa0NGPaqKHC9jl1m7C+c0nonFO2VZoF6uksqnhj59f
+	 4fUfAP+VPXo+8qfg+E/5sszwLGo572XdGdc++XSGEkZi2/iceZkeBB7gVzuCKAgX8P
+	 eeVrQjhLjrtUoMlHTmlEA8hoFRLL3jcvBYMw6FWP/+mHfgtn5q5R+ODbra9qR8z6Rr
+	 5BtBboj5xHGS9PaZNd4gK8GT9nntFNsfr9ySCGXyAHYsWxmagjBTRylsJG3vmqdxC6
+	 rdsHUjs0cQkCqlPepE7v2TZmrpvuFbRRg0QGPJlhUY+6x959gdEIyAQX5Ueh+gsRlM
+	 sq0tsUpoiYN3A==
+Date: Wed, 17 Sep 2025 16:28:33 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>,
+	Jingoo Han <jingoohan1@gmail.com>, chester62515@gmail.com,
+	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
+	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
+Message-ID: <20250917212833.GA1873293@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142212_807117_0A96BBB8 
-X-CRM114-Status: GOOD (  12.39  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e236uncj7qradf34elkmd2c4wjogc6pfkobuu7muyoyb2hrrai@tta36jq5fzsr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an embarrassingly simple selftest for sanity checking KVM's VHE EL2
-and test that the ID register bits are consistent with HCR_EL2.E2H being
-RES1.
+On Wed, Sep 17, 2025 at 10:41:08PM +0530, Manivannan Sadhasivam wrote:
+> On Tue, Sep 16, 2025 at 09:23:13AM GMT, Bjorn Helgaas wrote:
+> > On Tue, Sep 16, 2025 at 10:10:31AM +0200, Vincent Guittot wrote:
+> > > On Sun, 14 Sept 2025 at 14:35, Vincent Guittot
+> > > <vincent.guittot@linaro.org> wrote:
+> > > > On Sat, 13 Sept 2025 at 00:50, Bjorn Helgaas <helgaas@kernel.org> wrote:
+> > > > > On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
+> > > > > > Describe the PCIe controller available on the S32G platforms.
+> > 
+> > > > > > +                  num-lanes = <2>;
+> > > > > > +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
+> > > > >
+> > > > > num-lanes and phys are properties of a Root Port, not the host bridge.
+> > > > > Please put them in a separate stanza.  See this for details and
+> > > > > examples:
+> > > > >
+> > > > >   https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
+> > > >
+> > > > Ok, I'm going to have a look
+> > > 
+> > > This driver relies on dw_pcie_host_init() to get common resources like
+> > > num-lane which doesn't look at childs to get num-lane.
+> > > 
+> > > I have to keep num-lane in the pcie node. Having this in mind should I
+> > > keep phys as well as they are both linked ?
 
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- tools/testing/selftests/kvm/arm64/hello_el2.c | 58 +++++++++++++++++++
- 2 files changed, 59 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hello_el2.c
+> > Huh, that sounds like an issue in the DWC core.  Jingoo, Mani?
+> > 
+> > dw_pcie_host_init() includes several things that assume a single Root
+> > Port: num_lanes, of_pci_get_equalization_presets(),
+> > dw_pcie_start_link() are all per-Root Port things.
+> 
+> Yeah, it is a gap right now. We only recently started moving the DWC
+> platforms to per Root Port binding (like Qcom).
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 41b40c676d7f..5d59267d4089 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -156,6 +156,7 @@ TEST_GEN_PROGS_arm64 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_arm64 += arm64/aarch32_id_regs
- TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
- TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
-+TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-diff --git a/tools/testing/selftests/kvm/arm64/hello_el2.c b/tools/testing/selftests/kvm/arm64/hello_el2.c
-new file mode 100644
-index 000000000000..3c1f44e43f65
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/hello_el2.c
-@@ -0,0 +1,58 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * hello_el2 - Basic KVM selftest for VM running at EL2 with E2H=RES1
-+ *
-+ * Copyright 2025 Google LLC
-+ */
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall.h"
-+
-+#include <asm/sysreg.h>
-+
-+static void guest_code(void)
-+{
-+	u64 mmfr1 = read_sysreg_s(SYS_ID_AA64MMFR1_EL1);
-+	u64 mmfr4 = read_sysreg_s(SYS_ID_AA64MMFR4_EL1);
-+
-+	GUEST_ASSERT_EQ(get_current_el(), 2);
-+	GUEST_ASSERT(read_sysreg(hcr_el2) & HCR_EL2_E2H);
-+	GUEST_ASSERT_EQ(SYS_FIELD_GET(ID_AA64MMFR1_EL1, VH, mmfr1),
-+			ID_AA64MMFR1_EL1_VH_IMP);
-+	GUEST_ASSERT_EQ(SYS_FIELD_GET(ID_AA64MMFR4_EL1, E2H0, mmfr4),
-+			ID_AA64MMFR4_EL1_E2H0_NI_NV1);
-+
-+	GUEST_DONE();
-+}
-+
-+int main(void)
-+{
-+	struct kvm_vcpu_init init;
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+
-+	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
-+
-+	vm = vm_create(1);
-+
-+	kvm_get_default_vcpu_target(vm, &init);
-+	init.features[0] |= BIT(KVM_ARM_VCPU_HAS_EL2);
-+	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
-+	kvm_arch_vm_finalize_vcpus(vm);
-+
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_DONE:
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
-+	}
-+
-+	kvm_vm_free(vm);
-+	return 0;
-+}
--- 
-2.47.3
+Do you need num-lanes in the devicetree?
+dw_pcie_link_get_max_link_width() will read it from PCI_EXP_LNKCAP, so
+if that works maybe you can omit it from the binding?
 
+If you do need num-lanes in the binding, maybe you could make a Root
+Port parser similar to mvebu_pcie_parse_port() or
+qcom_pcie_parse_port() that would get num-lanes, the PHY, and
+nxp,phy-mode from a Root Port node?
+
+Then all this would be in one place, and if you set ->num_lanes there
+it looks like the DWC core wouldn't do anything with it.
 
