@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF546CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B07CCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=loCR1eKtWPQr2AOCV7oFDbaaSxP/4srZDyqT1RiPxjU=; b=2IkJoMj5ATRlCfo5/7irqCikON
-	jSA73lleTBlFcGhbftDeKrGQ4+fPqqbri5dlCJysIYEsZNvS5k4QwfWPxtLMfo2WZdSJ64QYN3PVT
-	K2zO34SWq505XvbJbNLEkDpIrXss/xvSZW3UPsbMTTMJem3IPJffWH6K2PoyZaMngzH/itd2D2t/R
-	JwKBdmAKgh3jI6zFoj7zr8mGgeTjdRJhmdVTFY9hDXY03u0Mj/uB7J96YODj9MPlurc/cpVKeS81L
-	+G4Bed2b8OQHuInORq4hAHuQiVkIAjdxWgjMAtW7MdVbQC7n9m8xihTyeR896+IpFsk4EEouHlZTG
-	cFgoUscw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0hPBJsMDSHhtjWW6Qz6GlIph0BIhPgebyqCeNJNb4o=; b=JCBhKia5AXfuujuOoPeMXMBcgU
+	cSi8Cc1Uj6+AvALWLk9PnDWptsU9hYoPWDDmfg+qcbFpZQtlvcQxgYtr4UHGjSrUastphhCGHoC/9
+	itcQHYoA8iwoec5hNAkSjl1TbGG2XDVj2YZosabIc3+XCL+caQ1bQjdTM5r39+srexG5MOFK+x98d
+	qUsXsEhuwKcAQLtbWcNBS+V7fd+EMVUlsonkSQfrd/x2DE1b7LTzotzbcrpqe8NH2wz1w7qN6encF
+	qHEQcj1ZvSTpZV9KlNz2T7jT/KsBCO7g3oq3NqqdklZ6XYg6Am60YmGS9fXWXYDCMZnvKP/NlzwXb
+	bRLo7ikQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy0D-0000000ELj0-2nfj;
-	Wed, 17 Sep 2025 19:39:41 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy0B-0000000ELia-0GmZ
+	id 1uyy1M-0000000EM0e-07nT;
+	Wed, 17 Sep 2025 19:40:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyy1J-0000000ELyo-0TEv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:39:40 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4b38d4de6d9so1193901cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:39:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1758137978; x=1758742778; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=loCR1eKtWPQr2AOCV7oFDbaaSxP/4srZDyqT1RiPxjU=;
-        b=hM7T9yafr6T26dOxxb+kyXBuBvA7ySSVVxQ8FRr7xJ5VWDQPZciO+0lv4FPcHW0MYK
-         2ASzgRmYmQYf2dIjk5ZFsZU9rBi1Y+KGbILJgVvS+T07jvURL0476nJk3p1rvpUK8cdy
-         Yhk+lndwmIueu+Sp5RAQWZoLzv2fPKHr9aXxRRWVC8WYLYKvvRVol14F7rd5yGak94ai
-         4XHpXyDc1SqqJ8R16akzMrRejE5RB2A6zrrJl0xC3pcbPsigFxZfcXwN1qaJTWGOal6k
-         1cv7Rf/GJ4TymsKEzi2f44XRGSOobOWiHKSnAhfTwTjQFCgjgnY10ZPFhOEw5q0cW1W/
-         9tkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758137978; x=1758742778;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=loCR1eKtWPQr2AOCV7oFDbaaSxP/4srZDyqT1RiPxjU=;
-        b=Qdx9BLyUW7s237YjFYvB62Kqh7fYPYwuzso1U8UMyNxoMCSSaWHCBoWsIgYALs/j6p
-         BliZwMIdEfAfGBmkZIGjf0QsJpZGbx18I97ftlJWZv6lN5CYn7QgV0l0MuI0W/eCN/gi
-         k7ldPW1XnMahpO4KTkn4TeMlA2zm9v3yxPBuqPRwKN/ApVMn/YNj9Yksb7kORuYRVV7g
-         /SbvC0MSXJtTdovVpKL8EgOaMjTnQoynGhMBsNTOT/sLsW7YTQsdfim8NPc6RkARz4h0
-         Qm+WQb8rtmZZiHMBjIK3Sd2bzzErLauZrPTO2qvfDZypxurxDw2tHVlgOO63mvXTk7kC
-         5BeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUFTOnLwsbLBUIti1YkHuerv3ExhcgBlXJhx6/VB8DjgQvWCS0YOcMVNswEXNAFTDTuT4F9dbLWAFljRy4NgaUu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpPndB6kqVBpCw/wAPY40HfTE0oScwspRZkBuzAW3Ldrl+bHvd
-	OyOiG9PPzIVWitXmHQI5d1aD8rs6OM3eu1F6n7TWBjdyGsduktgTnPUgiu16ERFzoEQ=
-X-Gm-Gg: ASbGncuFTSUZox4OmO5oFgMBTa/O+REnIeJJokMzpA72rwe6pCLlO9elDN/C1n4zxw0
-	ybUPwcBoXmxxczqQQ8M7gl0fEzIv+ZaXbzGvCsm90A4vufA77six2/BJFyrWule/m73W50nbehO
-	mVSZdcVi83IxzBfn45EByZRiXBudbrRnM5xUy9GupREAt8BNBDCHZzJ9TdvVMqlr68Z4OIY/FPW
-	OlFj/U5jYMB3+B7GP2umG0bgyfQWPYkM7KMMwTAiW8CCwNjSLMad3Q2q1BxbTjgryKnl7wJQjfA
-	t5CQCpsJDirwFFlBTvd9/WTJxn5BeLGjByMe7H3CmEN5gUQG7BHnaNeo4rhR3iQU8SUevLFFmhg
-	UHl4RmscbycM2y78JRIoC33vqG68EViqviuKOrxmqlBWs8qRYOBuhid4gVadz1mCaOsykxGON0p
-	IE7DS2Y33c/mM=
-X-Google-Smtp-Source: AGHT+IH8rddOOuj2183qpUVyyVFif6dJ3P2j8BhXdLVsUERS6zel3c3yU22dws8RNYbBXoaWy5oC5A==
-X-Received: by 2002:a05:622a:5e85:b0:4b4:eace:d0b4 with SMTP id d75a77b69052e-4ba655fa244mr47322681cf.16.1758137977567;
-        Wed, 17 Sep 2025 12:39:37 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4bda86b3cf7sm2702201cf.29.2025.09.17.12.39.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 12:39:37 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uyy08-00000008n9B-2ccZ;
-	Wed, 17 Sep 2025 16:39:36 -0300
-Date: Wed, 17 Sep 2025 16:39:36 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
-	joro@8bytes.org, praan@google.com
-Subject: Re: [PATCH v2 2/3] iommu/io-pgtable-arm-selftests: Modularize the
- test
-Message-ID: <20250917193936.GL1326709@ziepe.ca>
-References: <20250917191143.3847487-1-smostafa@google.com>
- <20250917191143.3847487-3-smostafa@google.com>
+	Wed, 17 Sep 2025 19:40:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 803762696;
+	Wed, 17 Sep 2025 12:40:38 -0700 (PDT)
+Received: from [10.57.80.26] (unknown [10.57.80.26])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F053F3F694;
+	Wed, 17 Sep 2025 12:40:44 -0700 (PDT)
+Message-ID: <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
+Date: Wed, 17 Sep 2025 20:40:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917191143.3847487-3-smostafa@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, Dev Jain <dev.jain@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250829115250.2395585-1-ryan.roberts@arm.com>
+ <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
+ <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
+ <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
+ <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
+ <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
+ <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
+ <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
+ <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
+ <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
+ <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
+ <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
+ <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
+ <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
+ <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
+ <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
+ <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_123939_109390_ADEABCD2 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250917_124049_241409_366C4502 
+X-CRM114-Status: GOOD (  41.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,19 +86,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 07:11:39PM +0000, Mostafa Saleh wrote:
-> Remove the __init constraint, as the test will be converted to KUnit,
-> it can run on-demand after later.
+On 17/09/2025 20:15, Yang Shi wrote:
 > 
-> Also, as KUnit can be a module, make this test modular.
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  drivers/iommu/Kconfig                    |  2 +-
->  drivers/iommu/io-pgtable-arm-selftests.c | 36 +++++++++++++++---------
->  2 files changed, 23 insertions(+), 15 deletions(-)
+> On 9/17/25 11:58 AM, Ryan Roberts wrote:
+>> On 17/09/2025 18:21, Yang Shi wrote:
+>>>
+>>> On 9/17/25 9:28 AM, Ryan Roberts wrote:
+>>>> Hi Yang,
+>>>>
+>>>> Sorry for the slow reply; I'm just getting back to this...
+>>>>
+>>>> On 11/09/2025 23:03, Yang Shi wrote:
+>>>>> Hi Ryan & Catalin,
+>>>>>
+>>>>> Any more concerns about this?
+>>>> I've been trying to convince myself that your assertion that all users that set
+>>>> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
+>>>> returned my vmalloc. I agree that if that is the contract and everyone is
+>>>> following it, then there is no problem here.
+>>>>
+>>>> But I haven't been able to convince myself...
+>>>>
+>>>> Some examples (these might intersect with examples you previously raised):
+>>>>
+>>>> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
+>>>> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
+>>>> rw_image.
+>>> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
+>>> is actually RW, so it should be ok to miss the call. The later
+>>> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
+>>> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
+>>> the plain vmalloc() should be good enough.
+>>>
+>>>> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
+>>>> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
+>>>> set_memory_*() is not called until much later on in module_set_memory().
+>>>> Another
+>>>> error in the meantime could cause the memory to be vfreed before that point.
+>>> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
+>>> and data section. The code will set mod->mem[type].is_rox according to the type
+>>> of the section. It is true for text, false for data. Then set_memory_rox() will
+>>> be called later if it is true *after* insns are copied to the memory. So it is
+>>> still RW before that point.
+>>>
+>>>> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
+>>>> set_memory_*() which might then fail to split prior to vfree.
+>>> Yes, all call sites check the return value and bail out if set_memory_*() failed
+>>> if I don't miss anything.
+>>>
+>>>> But I guess as long as set_memory_*() is never successfully called for a
+>>>> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
+>>>> memory must still be RW at vfree-time, so this issue should be benign... I
+>>>> think?
+>>> Yes, it is true.
+>> So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
+>> only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
+>> is called at all, the first call MUST be for the whole range.
+> 
+> Whether the default permission is RW or not depends on the type passed in by
+> execmem_alloc(). It is defined by execmem_info in arch/arm64/mm/init.c. For
+> ARM64, module and BPF have PAGE_KERNEL permission (RW) by default, but kprobes
+> is PAGE_KERNEL_ROX (ROX).
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Perhaps I missed it, but as far as I could tell the prot that the arch sets for
+the type only determines the prot that is set for the vmalloc map. It doesn't
+look like the linear map is modified at all... which feels like a bug to me
+since the linear map will be RW while the vmalloc map will be ROX... I guess I
+must have missed something...
 
-Jason
+> 
+>> If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
+>> set_memory_*() was never called, the worst that can happen is for both the
+>> set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
+>> enough memory. But that is safe because the memory was always RW. If
+>> set_memory_*() was called for the whole range and failed, it's the same as if it
+>> was never called. If it was called for the whole range and succeeded, then the
+>> split must have happened already and set_direct_map_invalid() and
+>> set_direct_map_default() will therefore definitely succeed.
+>>
+>> The only way this could be a problem is if someone vmallocs a range then
+>> performs a set_memory_*() on a sub-region without having first done it for the
+>> whole region. But we have not found any evidence that there are any users that
+>> do that.
+> 
+> Yes, exactly.
+> 
+>>
+>> In fact, by that logic, I think alloc_insn_page() must also be safe; it only
+>> allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
+>> definition be covering the whole allocation; 1 page is the smallest amount that
+>> can be protected.
+> 
+> Yes, but kprobes default permission is ROX.
+> 
+>>
+>> So I agree we are safe.
+>>
+>>
+>>>> In summary this all looks horribly fragile. But I *think* it works. It would be
+>>>> good to clean it all up and have some clearly documented rules regardless.
+>>>> But I
+>>>> think that could be a follow up series.
+>>> Yeah, absolutely agreed.
+>>>
+>>>>> Shall we move forward with v8?
+>>>> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
+>>>> it; there are a few other tidy ups in pageattr.c I want to make which I
+>>>> spotted.
+>>> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
+>>> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
+>>> Is it the cleanup you are supposed to do?
+>> I was also going to fix up the comment in change_memory_common() which is now
+>> stale.
+> 
+> Oops, I missed that in my v8. Please just comment for v8, I can fix it up later.
+
+Ahh no biggy. If there is a chance Will will take the series, let's not hold it
+up for a comment.
+
+> 
+> Thanks,
+> Yang
+> 
+> 
+>>
+>>> And I also rebased it on top of
+>>> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
+>>> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
+>>>
+>>>>> We can include the
+>>>>> fix to kprobes in v8 or I can send it separately, either is fine to me.
+>>>> Post it on list, and I'll also incorporate into the series.
+>>> I can include it in v8 series.
+>>>
+>>>>> Hopefully we can make v6.18.
+>>>> It's probably getting a bit late now. Anyway, I'll aim to get v8 out
+>>>> tomorrow or
+>>>> Friday and we will see what Will thinks.
+>>> Thank you. I can post v8 today.
+>> OK great - I'll leave it all to you then - thanks!
+>>
+>>> Thanks,
+>>> Yang
+>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+>>>>> Thanks,
+>>>>> Yang
+>>>>>
+> 
+
 
