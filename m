@@ -4,99 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A8CCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 09:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A93CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 09:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PlK2stUccurl04mbWawfAf/ha/VEIfyoutD9WxWnA1M=; b=ecFmLnRtGaWqyWFU8a/DHVep4E
-	QEPfUzJZL6rhsP13MOFfTD07a0M92HjsxIF4r4X6jzsikaMOCFrzY47qatOg8bA0RS4deD1MSXRji
-	X1yIvnxkm6o8a9cPLvX7s4sKapZvwK7giSL1H2nvst9Vi/9ZBXROktVkGZJ/9IgO99tnsHTSEZPFS
-	/2K4jt1LQqIe7Jq9yhSKXEv/BcrOuhDxbK2YyTIMFYB4Tv0SpHoiX8r4A+R2EGjKqn0s3MhNr4rC7
-	VdBS4uzSkMyP4u/8LvvX+I0z9R/Bmdsq8kQNarbhKil347caNyuKVCYVsb6vMdZ91HwVWhUPBFSZN
-	vkGsq3oQ==;
+	bh=o12PIdH5jrLINYaBDIAtrFJQyb2acUWsg9n32mRR/5k=; b=lyb39ljHWqL3JCOk03R/TlZOUM
+	ecc68G1LGkoP/fOXdGRy14I3g0sMSY3zBsWz8oAyuLajQquy7s6e7gStl63naoqyWMbDoZhG1c80N
+	ZLjLsBvIaeei/QOCwM9tcPXRPVWww/RvNzbpmi/J6HdHk+U+o/PSrEzEpei6hdAXsWmv3qxpVbp3d
+	4s5OdTPOvCe9MmwEJ3PP5YICNHqi9A9TWllLI3H+qdPBtg/eoyuLlegw40Yo+4pcGMg4ymPVhPTzb
+	ejBgVX1DoJL5uw7SGl5B4wTQLTueT81zTrzgGW/e4D7KiyCH2NUJEfMTMqbBZ6IHUz2TYWjF3KNqh
+	wQdfnzzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyoBg-0000000AkiL-1SRX;
-	Wed, 17 Sep 2025 09:10:52 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uyoSX-0000000AmlA-0X1e;
+	Wed, 17 Sep 2025 09:28:17 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyoBc-0000000Akh8-1Vj4
+	id 1uyoSU-0000000Amjh-32Ir
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 09:10:50 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45df0cde41bso46282195e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:10:47 -0700 (PDT)
+	Wed, 17 Sep 2025 09:28:16 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b0b0f5d3ee8so53178466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:28:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1758100246; x=1758705046; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PlK2stUccurl04mbWawfAf/ha/VEIfyoutD9WxWnA1M=;
-        b=h9U8CSKQpI2m2ZflSX3mB/MAy1UdC35NTDjeiheaMBRRr5EO/TVvJxJlbaX6aMfULW
-         0aouSFetRBHlIdd0oeHpcAQ1Oe+8fM99Nh3kwqjwK81kR/W86XDJLe5vnAOVj4T/LO1M
-         RrhHCschAkKveToLU8USf/ANKmC3HEz0SpBKPJ4uSNiTv5lScfSbySrmnSkSduEr/rm0
-         VhGsjL5fns5XFlNt/Ld7WaGNwdCvzVziPNt5n/AxWxrmq4Ptx6cCr6W1ZlKVwLk/XLsu
-         jL1Iw4ILbitGbH8xKot1wbBZR7HZgx6KA/bjWJfYuZxaDIK6yEyh1BV2bZlhVx4kHPnv
-         tfIw==
+        d=gmail.com; s=20230601; t=1758101292; x=1758706092; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=o12PIdH5jrLINYaBDIAtrFJQyb2acUWsg9n32mRR/5k=;
+        b=EKh25laDAAlkn30yqYU5seB83W76m7r6hEufr58me/qwKqBnWx/KVxInE9ym2C35y/
+         fKLj867S74oHkdDmAj+TJB0xYtAkKNNrLPTV1yy4j5T5ubueJUqc7nPLaA9wMW8KB0dI
+         QhPYMAyWgAtok16+UgvC1KTwcAX5vC4VIQ8insQOv/MN67dg0nKDXTaf8T66ounqVYGd
+         1cHufuHNEEDsayrc/vTv3J4MJu8mtTNfTcDFbRRbvrhoNyy9ecQUpbk4iwBK5kRPexNS
+         5Gzs04ZL/zrkfbWoyn+qwWOvS3LCbU34xU9x8M62Mdt4iiVhDqVkSG3aQYkNKC6cdhuS
+         UMSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758100246; x=1758705046;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1758101292; x=1758706092;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PlK2stUccurl04mbWawfAf/ha/VEIfyoutD9WxWnA1M=;
-        b=A2gh7KFKSReUm6LUwYeCIqwNcO46ZHJYsmBfTt2uj7+pVWiAcKonTpaV4uoNwfc15Q
-         E+9Ff8Hh36nle9A8HluYk5Dt3AwPHZ8+dCEhi1Oo0U64e0Q//+91FqlEmDVuPy6RDqDn
-         vCeUybmJgB4BuZrt3EXdqnRJHd7M+aYSJaiauxtxoZ36ZyZ5D3AAe1b6ts1lXJWBhgJQ
-         6aT2k3e/4Lf487Hmm5fisi2uX+N13k1lc+BwOQs/iAkh9+Fqrt62jq1dz6gmdKL9TWfj
-         KmvjJAI8aFJUKkDeOCKxzgvjnIL5rOqAB3vk63ts0/bNm9RnrmYzOnf88eFn3unnEP6R
-         KmoA==
-X-Forwarded-Encrypted: i=1; AJvYcCXMCDPL1NIdzBjWwKF1NWFydwUGowF2oEzvEPPeVEQaFD8T5iNaSm5kMuKz0U7w35PN1m9whaw1qBGMf+deU6yr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoO+L0gVDWPpdNJ1M1JSd+9lIwQ/4LGqLY7ri1CbXPSup7PcY/
-	22/3gdS0lyoxddXXgy4T0RjYsNb/wUcBifcgDVNWOsUYrdiT5ym2M8xUm7gTy1bDKAI=
-X-Gm-Gg: ASbGncsGQY2h7OgRK/2TtgHi2uJyKEs/ZFE9JBlByxWvxY+yYF5GBJAkkTI2o0Ata3n
-	Vfk3ccBHKCW5ZwZVNivWqX0NhTpbarrRs8OBa+CQBoHqQ0TUsmVMdZy7dMTVUnMeQtUIjdIVpcs
-	NGzlvpVFYZqUaSEVdJVzChkAyyxDde86tcHtr1lzPPPv499BSIz9BlQaxiNFkKw4CnSmuNQgd2K
-	nXtNsjy/IPCZ6avYiK9v1gFYwZTez3k8GzmUOZ1+DlFtQ7+t6+JTxOqckm14CPpfr+ZxPbgs163
-	8jmmW0CVWLfvAVRdJLrVdb3xhgliENlWAHLXpAGTGgcsg+jr8wYwpr06bJbIDNoMdm7UDBv/XnY
-	uOU/kBYbqBr2Kusn09eppmQ==
-X-Google-Smtp-Source: AGHT+IFPGc7ic+PrwXQdYuhF8XZWH7tHR3Wzubn/3T39N6UzWqLydVcD4Osfm3AnC6uPAm7ruqpt8A==
-X-Received: by 2002:a05:600c:1c87:b0:456:fc1:c26d with SMTP id 5b1f17b1804b1-46201f8aa4bmr12363615e9.2.1758100246219;
-        Wed, 17 Sep 2025 02:10:46 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:d458:6239:fdc1:d868])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45f32181a47sm37857465e9.1.2025.09.17.02.10.45
+        bh=o12PIdH5jrLINYaBDIAtrFJQyb2acUWsg9n32mRR/5k=;
+        b=m6DMY0MUDP67mlc8MDhxeAShOgRyqsV0TZFVivEdAbSpROd2LVGcf2pnQ4Tw+0QVsq
+         X3P+EalmRFe7pRDKFHISEv0nLBXbqFiDp7onXu1LtLFRlJEPDGEsglRWHzVoycTKc+uf
+         brvP6PsZQj5tuxOOF7PBFxkaefD2nZ40Yl0mRLciyWPJtjwT3AD5ShErQU2NEQGzp9GK
+         kjOkkQE+a/INyoF5TqBB1qVP2OEOA2zlcJhYpQE7JZEZVd7y73B09UD5aegO49qAFy+M
+         qrMzYBoljx5w43wmKMv9+mORmkF3jAUzvvNYYQoG8FJkS7nEexQN3UY1y31S8BsZ9CDo
+         ShFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtEMWSVcXJG1ZflPUvnNBpEipuIqE/wW+RQdMXujLaQTOstnZ0kmZ5DpGU4ypgqqWKjKGBd2XhkjZE0FIuEJ5U@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfVu0lbL9zhjhbh9okdLe9e/XaF54d/Zr+zl9CKVbEzKjTg0Oc
+	nEPVPZYBMqPr0EtMPxY9EVErZ5sRxbD4X6Y5vgzMYyQIlPBVPwfOTM6+
+X-Gm-Gg: ASbGncuKlIqehdhy4rc8YcTmy3XzwkoTNQPAYX0fODtEOIAuuQ1uXLhbsG4i1zrau1d
+	XIoe9w8k1g8EEyL6Uk7s+Tc+J4E22k91un6u5MCcSo9av3ZfPGy8jGDmFUR/+BNyQY9h8nkaiR8
+	ObXSv99kVcDXx9jlyGh3eQgJ1hzeELK3X3zlxlfP7o26Um+CvYxqCR83lFrUsw0f7aWdpn7YaPv
+	QOnNibXQJLfxjiEiKL9rElQ9RwVkWGV5VrsBmPsz+YxK7oLStGk82NouLz7wyDYvd3qxliq2Jq+
+	nCR2tgu6dkdglHu1uaZd4cOabUhcGUNFTbEno97uMYSspEpwU3jrV0wExqC45Xa81aCjetPKVyJ
+	es2XfLlhxbnsc7G4=
+X-Google-Smtp-Source: AGHT+IHvszT87WzP63vcOaexO/pLxfMWcRX57JUYYOxi6z+V5togEaPi0QjDbwzVUWpwnuisJKwZww==
+X-Received: by 2002:a17:907:7f9f:b0:b04:7b5b:850a with SMTP id a640c23a62f3a-b1bb5598e03mr85457666b.4.1758101292043;
+        Wed, 17 Sep 2025 02:28:12 -0700 (PDT)
+Received: from skbuf ([2a02:2f04:d005:3b00:8bcc:b603:fee7:a273])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b1c40fe2df8sm74103266b.18.2025.09.17.02.28.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 02:10:45 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
-  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-clk@vger.kernel.org,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>,  Conor Dooley
- <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 0/2] clk: amlogic: add video-related clocks for S4 SoC
-In-Reply-To: <91935087-0f0c-42ed-8ad6-f6312240413c@amlogic.com> (Chuan Liu's
-	message of "Wed, 17 Sep 2025 10:02:19 +0800")
-References: <20250916-add_video_clk-v5-0-e25293589601@amlogic.com>
-	<1j348mj0sw.fsf@starbuckisacylon.baylibre.com>
-	<66f130b4-88d7-46d2-9f66-9055896d445a@amlogic.com>
-	<1jwm5yhgqz.fsf@starbuckisacylon.baylibre.com>
-	<91935087-0f0c-42ed-8ad6-f6312240413c@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 17 Sep 2025 11:10:44 +0200
-Message-ID: <1jqzw5h2az.fsf@starbuckisacylon.baylibre.com>
+        Wed, 17 Sep 2025 02:28:10 -0700 (PDT)
+Date: Wed, 17 Sep 2025 12:28:07 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v18 0/8] net: dsa: Add Airoha AN8855 support
+Message-ID: <20250917092807.uui2qwva2sqbe6sp@skbuf>
+References: <20250915104545.1742-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250915104545.1742-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_021048_665229_0BD53201 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20250917_022814_802038_BB61BFAD 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,120 +114,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 17 Sep 2025 at 10:02, Chuan Liu <chuan.liu@amlogic.com> wrote:
+On Mon, Sep 15, 2025 at 12:45:36PM +0200, Christian Marangi wrote:
+> It's conceptually similar to mediatek switch but register and bits
+> are different. And there is massive list of register for the PCS
+> configuration.
+> Saddly for that part we have absolutely NO documentation currently.
 
-> On 9/16/2025 5:46 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On Tue 16 Sep 2025 at 17:30, Chuan Liu <chuan.liu@amlogic.com> wrote:
->>
->>> Hi Jerome:
->>>
->>>
->>> On 9/16/2025 3:47 PM, Jerome Brunet wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On Tue 16 Sep 2025 at 10:06, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
->>>>
->>>>> This patch introduces new clock support for video processing components
->>>>> including the encoder, demodulator and CVBS interface modules.
->>>>>
->>>>> The related clocks have passed clk-measure verification.
->>>>>
->>>>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->>>>> ---
->>>>> Changes in v5:
->>>>> - Add Acked-by tags from Conor.
->>>>> - Remove unnecessary flags as suggested by Jerome.
->>>> The request was "in an another change" ? Why was this ignored ?
->>>
->>> Sorry to bother you. I'll drop the flags for 's4_cts_encl_sel' in this
->>> series and submit a separate patch later to remove CLK_SET_RATE_PARENT
->>> from enci/encp/cdac/hdmitx clk_muxes. Is that ok?
->> Why can't make it part of this series, as requested ?
->> It does not seems that hard to do.
->
->
-> The topic of this patch series is "add video-related clocks," so I'm
-> concerned that patches adding or removing flags for other clocks might
-> be considered off-topic.
+Please add in the next revision a more convincing argument for not
+reusing the mt7530 driver control flow. Regmap fields can abstract a
+lot, and the driver can select a completely different phylink_pcs for
+different hardware.
 
-If that's the case, you could simply reply, stating your concerns
-instead of ignoring a comment which does not suit you.
+I don't see in the short change log included here any mentions related
+to the mt7530, but I'm not going to search the mailing lists since Nov
+2024 for any previous discussions about this...
 
-And yes, you should adapt the cover letter to explain what you are doing
+Also, let's try not to reach v20.. Please try to collect a full round of
+feedback from people who commented before when submitting a new version,
+pinging people if necessary. You want to make sure that their previous
+feedback was addressed.
 
->
-> In the next revision of this series, I will include a separate patch
-> to remove these flags and provide the appropriate commit message.
->
+> TEST: lan2: Multicast IPv4 to joined group                          [ OK ]
+> TEST: lan2: Multicast IPv4 to unknown group                         [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: lan2: Multicast IPv4 to unknown group, promisc                [ OK ]
+> TEST: lan2: Multicast IPv4 to unknown group, allmulti               [ OK ]
+> TEST: lan2: Multicast IPv6 to joined group                          [ OK ]
+> TEST: lan2: Multicast IPv6 to unknown group                         [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: lan2: Multicast IPv6 to unknown group, promisc                [ OK ]
+> TEST: lan2: Multicast IPv6 to unknown group, allmulti               [ OK ]
+> TEST: lan2: 1588v2 over L2 transport, Sync                          [ OK ]
+> TEST: lan2: 1588v2 over L2 transport, Follow-Up                     [ OK ]
+> TEST: lan2: 1588v2 over L2 transport, Peer Delay Request            [ OK ]
+> TEST: lan2: 1588v2 over IPv4, Sync                                  [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv4, Follow-Up                             [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv4, Peer Delay Request                    [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Sync                                  [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Follow-Up                             [FAIL]
+>         reception failed
+> TEST: lan2: 1588v2 over IPv6, Peer Delay Request                    [FAIL]
+>         reception failed
 
-Please start with that.
+Do you know why it won't receive PTP over IP? It seems strange, given it
+receives other IP multicast (even unregistered). Is it a hardware or a
+software drop? What port counters increment? Does it drop PTP over IP
+only on local termination, or does it also fail to forward it? What
+about the packet makes the switch drop it?
 
->
->>
->> This is another unnecessary revision and the community will have to
->> review, because you ignored some feedback.
->>
->> As noted by Krzysztof, you really need to pay more attention to the time
->> and effort other are spending reviewing your work.
->
->
-> I'm still a newcomer when it comes to upstreaming, and I'm not yet very
-> familiar with the rules and processes.
+> TEST: vlan_filtering=1 bridge: Multicast IPv6 to unknown group, promisc   [ OK ]
+> TEST: vlan_filtering=1 bridge: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> TEST: VLAN upper: Unicast IPv4 to primary MAC address               [ OK ]
+> TEST: VLAN upper: Unicast IPv4 to macvlan MAC address               [ OK ]
+> TEST: VLAN upper: Unicast IPv4 to unknown MAC address               [ OK ]
+> TEST: VLAN upper: Unicast IPv4 to unknown MAC address, promisc      [ OK ]
+> TEST: VLAN upper: Unicast IPv4 to unknown MAC address, allmulti     [ OK ]
+> TEST: VLAN upper: Multicast IPv4 to joined group                    [ OK ]
+> TEST: VLAN upper: Multicast IPv4 to unknown group                   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN upper: Multicast IPv4 to unknown group, promisc          [ OK ]
+> TEST: VLAN upper: Multicast IPv4 to unknown group, allmulti         [ OK ]
+> TEST: VLAN upper: Multicast IPv6 to joined group                    [ OK ]
+> TEST: VLAN upper: Multicast IPv6 to unknown group                   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN upper: Multicast IPv6 to unknown group, promisc          [ OK ]
+> TEST: VLAN upper: Multicast IPv6 to unknown group, allmulti         [ OK ]
+> TEST: VLAN upper: 1588v2 over L2 transport, Sync                    [ OK ]
+> TEST: VLAN upper: 1588v2 over L2 transport, Follow-Up               [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over L2 transport, Peer Delay Request      [ OK ]
+> TEST: VLAN upper: 1588v2 over IPv4, Sync                            [FAIL]
+>         reception failed
+> ;TEST: VLAN upper: 1588v2 over IPv4, Follow-Up                       [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv4, Peer Delay Request              [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Sync                            [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Follow-Up                       [FAIL]
+>         reception failed
+> TEST: VLAN upper: 1588v2 over IPv6, Peer Delay Request              [FAIL]
+>         reception failed
 
-That's just not true.
+The same thing happens with VLAN too...
 
-You have been doing that long enough and have been reminded time and time
-again not to ignore feedback. Continue doing so and you'll be ignored too.
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to joined group   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group, promisc   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group, allmulti   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to joined group   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group, promisc   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Sync   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Follow-Up   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Peer Delay Request   [ OK ]
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to joined group   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group, promisc   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group, allmulti   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to joined group   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group   [XFAIL]
+>         reception succeeded, but should have failed
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group, promisc   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Sync   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Follow-Up   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Peer Delay Request   [ OK ]
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+>         reception failed
+> TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+>         reception failed
 
-If you still feel "unfamiliar" with the rules and process, then you
-should read them again:
-
-https://docs.kernel.org/process/submitting-patches.html#respond-to-review-comments
-
-> I apologize for any inconvenience
-> this may have caused during this period, and I sincerely appreciate your
-> pointing out any issues with my patches.
->
->
->>
->>>
->>>>> - Link to v4: https://lore.kernel.org/r/20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com
->>>>>
->>>>> Changes in v4:
->>>>> - Add Acked-by tags from Rob and Krzysztof.
->>>>> - Fix compilation errors.
->>>>> - Link to v3: https://lore.kernel.org/r/20250905-add_video_clk-v3-0-8304c91b8b94@amlogic.com
->>>>>
->>>>> Changes in v3:
->>>>> - Rebase with Jerome's latest code base.
->>>>> - Link to v2: https://lore.kernel.org/r/20250814-add_video_clk-v2-0-bb2b5a5f2904@amlogic.com
->>>>>
->>>>> Changes in v2:
->>>>> - Removed lcd_an clock tree (previously used in meson series but obsolete in
->>>>> newer chips).
->>>>> - Removed Rob's 'Acked-by' tag due to dt-binding changes (Is it necessary?).
->>>>> - Link to v1: https://lore.kernel.org/r/20250715-add_video_clk-v1-0-40e7f633f361@amlogic.com
->>>>>
->>>>> ---
->>>>> Chuan Liu (2):
->>>>>         dt-bindings: clock: add video clock indices for Amlogic S4 SoC
->>>>>         clk: amlogic: add video-related clocks for S4 SoC
->>>>>
->>>>>    drivers/clk/meson/s4-peripherals.c                 | 206 ++++++++++++++++++++-
->>>>>    .../clock/amlogic,s4-peripherals-clkc.h            |  11 ++
->>>>>    2 files changed, 213 insertions(+), 4 deletions(-)
->>>>> ---
->>>>> base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
->>>>> change-id: 20250715-add_video_clk-dc38b5459018
->>>>>
->>>>> Best regards,
->>>> --
->>>> Jerome
->> --
->> Jerome
-
--- 
-Jerome
+And over bridge ports...
 
