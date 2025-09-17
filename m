@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EED8CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55E8CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=; b=Sjuw4gT8m9cygTruhMdFHnzNm3
-	tsP711OnTXt4mQC4S0ePUmwdbjqv+zCwKzBcLsNdZA4qUo1IlqM/re0odUCz338vaFve9wwHkIiJu
-	SlpuxtGdhR0mwXB0bn6Kk3LOzv9nKkveXWxs5NDhp3cH331CVKEEaOqz2vJPM3hZN36gsThZGvUew
-	kdCsEP0FdHAxMj2E23Vvc+g9BZJ20R7y6I72Yv14xGT1N0YsjfLIE0V1dI4WfIASxJrAFIUYyUb7p
-	ThUrs5tbUrGaPI6tv9/HlfAiu2LglMzgZjSkr5Q9+25/uiZPZcU0nB7TFLFEziP3Fj9wmLjafovPO
-	sgxLneJQ==;
+	bh=8bY/asBqVOnDWFE5LcHmnDOT5AoWMNTr7WSHO+9CO+k=; b=kyWWy0SBEhI7LNLvCAHrILoh2J
+	OcB17nU2VRIf32xt7oHN11du4APXVAJ76+JXpGRiOiLVtDrkg75taL8bymRvvtZcNUu9Bt8PRu6Mp
+	vbEnCJUq3PYS37HhXeEp8/Rt5GU+ifikrfkyOi1zgCIn/0G9WcRD6+dIypwi2RHyZEZk24n1HV67U
+	ghL8IPAXbhgpZCjtovjRpQDtRPI2jy33PrpQSTX+1zPrxhcItbVcU7S+ueiEmV2w1NXApGzDi1w7v
+	uNrYL2NbeSAxRg9Jhpmq5SXp1c8mm0rqc1uPYT66xVe6UgvTZaTPQGMLPDEvG7PatMcsj1zHqVjTp
+	a3pgJvRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytyJ-0000000Cf3C-3fYE;
-	Wed, 17 Sep 2025 15:21:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uyu1c-0000000CgEK-3UXK;
+	Wed, 17 Sep 2025 15:24:52 +0000
+Received: from mail-pf1-f174.google.com ([209.85.210.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytyH-0000000Cf16-0BxM
+	id 1uyu1a-0000000CgCC-2Kt8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:21:26 +0000
-Date: Wed, 17 Sep 2025 17:21:21 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758122483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=;
-	b=3nhivmngd6+PmA3+eV33THTVRq9jhpe+HBt/O4eCUY3Xh5mSatPaAakAkLSiN/PgvcAopM
-	y0Vf/JBYg9oMJuBPbUW8p3kfUkXUykpOTcPsUyVMjVq1GXYPIMNETdFVpFy8Dq/WubWuCF
-	s78V7VLCyrlgSlUS4fRKO9Jc+yrd1jlMFKyXuxYp5AiWpIVOuskTy+86RTMbqukB7HkVfE
-	7tOkUXZcX2xRhQyZwhU66M/r+VdJA/P0eIRfDbHpsj4zJHjLjz1urRGJEwwhNOxhg3HUFu
-	gLLrhHi+vVShPn758ZvkO2UBIFtcaaRzj0ag6ZXNqRNipr1zS9Npoc4oLzCXjA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758122483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U/sWpX1d0FqUQZmJaMW2nRnPQMp56EHFIU2k1H50MYU=;
-	b=ob8EioHSqHCIf/3CBZz5Tz2bb9bzFkW7kWflQdESNktBSVsvxeZSnY6E6RONhA6DbGeGkn
-	5sDsyosGlBsU7rDA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
-	Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
-	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Shuah Khan <shuah@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King <linux@armlinux.org.uk>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 07/36] powerpc/vdso: Explicitly include asm/cputable.h
- and asm/feature-fixups.h
-Message-ID: <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
-References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
- <20250917-vdso-sparc64-generic-2-v3-7-3679b1bc8ee8@linutronix.de>
- <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
+	Wed, 17 Sep 2025 15:24:52 +0000
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-772301f8ae2so6402294b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:24:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758122689; x=1758727489;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8bY/asBqVOnDWFE5LcHmnDOT5AoWMNTr7WSHO+9CO+k=;
+        b=HVP1zsNl4uJPmaYdwmieJrKzFwjgo7g/ILRqC/3zag4F/wyoV76cic0UcU5w5Og2Vg
+         qC9YoDGOEeJOvRSkSxQFog+nPSjCZZiiXMNrZShSlkzj4k/w15jGeUz4/fc5sWWO2Wje
+         1vz4jFXZx/EI00cLwcZVjBL5AWu1uRmdGfA9JkTdvskv7qpEvpWxVKtGqkjenLVBG5t6
+         kdGwOFntv+eoIvogDmEWUcWSPjqTHK4CZgLOhwE2E4Np1PD5nOh+e7jaHUteBzYcmzOc
+         7EdrC7PW4qCFsUcvTNqE8txtOXkVJzlFTx+NWCtSkIH6e28O5tihd5wxNm49fEq1B7JP
+         eVWg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9u+iwkvCeNP+FEHHK4C3YX7AvuUXVKpcKVJDacYz1Hm2pI9fZmiwSNqUeKLegLBCXDjaobLtuwK5EHLnINGkK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwbxpyQv8LuVFvVFARaBGH3hrmYlsGPIcmLyXgJjt8IsWIsM5m
+	DnEjQObrC7utLuFq6IehO1fGSdpp0E+gJElxEjLrQtTKFY1FaEhs8lu9xbvYJ/b4rAw=
+X-Gm-Gg: ASbGnctkBpd6d7bKvT9y+oEcrMOw8QeTpxyB2EKq5reLx4Vr+4X05RIjVqqc4QXQPkZ
+	WCTASaVJdlHDCbxzPV5dMFHLHxQx9FExa1hxwlHokkfk9DXVrqb8+jklfa7jV9dOp+KSyafiVtQ
+	ov4icmJk8M45t9Txnkt6RvfIrXJoI3shDwLpud8mWIrYY6ahoqBoqePeB/TucLfceslIIOjM7rn
+	jdk7oBTDUiJql/p5G6+kJC7O/BB2Xvb4vYpwTsbpZpgX054TtHVSgdzzC/BLQU1quO/eS5FoGRS
+	xuumvxLhLgiGYssSoQ5dSCME9yTYIV6OU0A/yci1vKM6sKs7nEFxS3Ji+f4j9TnevjonOptAwU9
+	6BWqIKtKLTwfgBBtJLs08
+X-Google-Smtp-Source: AGHT+IHJBEGVlWAkDnL7p8aPBmpzPuwLI6TVt47t7wf2wpFW3MFRt1QIyIXPCIevSu5aQ3ieTqwwuA==
+X-Received: by 2002:a05:6a20:2449:b0:24b:1a6d:298b with SMTP id adf61e73a8af0-27aa3cf5b6fmr3447692637.34.1758122689322;
+        Wed, 17 Sep 2025 08:24:49 -0700 (PDT)
+Received: from localhost ([71.212.208.158])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7760793b65dsm18800938b3a.9.2025.09.17.08.24.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 08:24:48 -0700 (PDT)
+From: Kevin Hilman <khilman@kernel.org>
+To: Michael Walle <mwalle@kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+ Matt Coster <matt.coster@imgtec.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>
+Cc: Andrew Davis <afd@ti.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, Michael
+ Walle <mwalle@kernel.org>
+Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
+In-Reply-To: <20250915143440.2362812-3-mwalle@kernel.org>
+References: <20250915143440.2362812-1-mwalle@kernel.org>
+ <20250915143440.2362812-3-mwalle@kernel.org>
+Date: Wed, 17 Sep 2025 08:24:47 -0700
+Message-ID: <7hv7lhp0e8.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_082125_225332_67604CEE 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20250917_082450_599646_2033DC9F 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +96,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:41:49PM +0200, Christophe Leroy wrote:
-> 
-> 
-> Le 17/09/2025 ‡ 16:00, Thomas Weiﬂschuh a Ècrit†:
-> > The usage of ASM_FTR_IFCLR(CPU_TR_ARCH_31) requires asm/cputable.h and
-> > asm/feature-fixups.h. Currently these headers are included transitively,
-> > but that transitive inclusion is about to go away.
-> 
-> Hum ...
-> 
-> That was unexpectedly added by commit 9c7bfc2dc21e ("powerpc/64s: Make
-> POWER10 and later use pause_short in cpu_relax loops")
-> 
-> In theory, vdso/ headers shouldn't include any headers outside of vdso/
+Michael Walle <mwalle@kernel.org> writes:
 
-I am aware. But this is the dependency as it exists today and I don't really
-want to make this series larger than it already is. This is by far not the
-only such layering violation in the vDSO headers. I have some patches prepared...
+> The TISCI firmware will return 0 if the clock or consumer is not
+> enabled although there is a stored value in the firmware. IOW a call to
+> set rate will work but at get rate will always return 0 if the clock is
+> disabled.
+> The clk framework will try to cache the clock rate when it's requested
+> by a consumer. If the clock or consumer is not enabled at that point,
+> the cached value is 0, which is wrong.
 
-> > Explicitly include the headers.
-> > 
-> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> >   arch/powerpc/include/asm/vdso/processor.h | 3 +++
-> >   1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/arch/powerpc/include/asm/vdso/processor.h b/arch/powerpc/include/asm/vdso/processor.h
-> > index 80d13207c5688d73954822aede2bbe2d0e05c054..42b64903bdf47cc5bd571fc3b5caed45e6358cb9 100644
-> > --- a/arch/powerpc/include/asm/vdso/processor.h
-> > +++ b/arch/powerpc/include/asm/vdso/processor.h
-> > @@ -4,6 +4,9 @@
-> >   #ifndef __ASSEMBLY__
-> 
-> __ASSEMBLY__ is replaced by __ASSEMBLER__ in powerpc-next in commit
-> 74db6cc331b0 ("powerpc: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi
-> headers")
+Hmm, it also seems wrong to me that the clock framework would cache a
+clock rate when it's disabled.  On platforms with clocks that may have
+shared management (eg. TISCI or other platforms using SCMI) it's
+entirely possible that when Linux has disabled a clock, some other
+entity may have changed it.
 
-Ack. I'll have to rebase this series after -rc1 in any case. Right now I am
-hoping to collect some Acks.
+Could another solution here be to have the clk framework only cache when
+clocks are enabled?
 
-> > +#include <asm/cputable.h>
-> > +#include <asm/feature-fixups.h>
-> > +
-> >   /* Macros for adjusting thread priority (hardware multi-threading) */
-> >   #ifdef CONFIG_PPC64
-> >   #define HMT_very_low()		asm volatile("or 31, 31, 31	# very low priority")
-> > 
-> 
+> Thus, disable the cache altogether.
+>
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
+> ---
+> I guess to make it work correctly with the caching of the linux
+> subsystem a new flag to query the real clock rate is needed. That
+> way, one could also query the default value without having to turn
+> the clock and consumer on first. That can be retrofitted later and
+> the driver could query the firmware capabilities.
+>
+> Regarding a Fixes: tag. I didn't include one because it might have a
+> slight performance impact because the firmware has to be queried
+> every time now and it doesn't have been a problem for now. OTOH I've
+> enabled tracing during boot and there were just a handful
+> clock_{get/set}_rate() calls.
+
+The performance hit is not just about boot time, it's for *every*
+[get|set]_rate call.  Since TISCI is relatively slow (involves RPC,
+mailbox, etc. to remote core), this may have a performance impact
+elsewhere too.  That being said, I'm hoping it's unlikely that
+[get|set]_rate calls are in the fast path.
+
+All of that being said, I think the impacts of this patch are pretty
+minimal, so I don't have any real objections.
+
+Reviewed-by: Kevin Hilman <khilman@baylibre.com>
+
+> ---
+>  drivers/clk/keystone/sci-clk.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+> index c5894fc9395e..d73858b5ca7a 100644
+> --- a/drivers/clk/keystone/sci-clk.c
+> +++ b/drivers/clk/keystone/sci-clk.c
+> @@ -333,6 +333,14 @@ static int _sci_clk_build(struct sci_clk_provider *provider,
+>  
+>  	init.ops = &sci_clk_ops;
+>  	init.num_parents = sci_clk->num_parents;
+> +
+> +	/*
+> +	 * A clock rate query to the SCI firmware will return 0 if either the
+> +	 * clock itself is disabled or the attached device/consumer is disabled.
+> +	 * This makes it inherently unsuitable for the caching of the clk
+> +	 * framework.
+> +	 */
+> +	init.flags = CLK_GET_RATE_NOCACHE;
+>  	sci_clk->hw.init = &init;
+>  
+>  	ret = devm_clk_hw_register(provider->dev, &sci_clk->hw);
+> -- 
+> 2.39.5
 
