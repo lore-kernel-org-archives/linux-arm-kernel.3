@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94250CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A26CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tA4gxlI4HFEqfMmCwKcvFRn/xh6mMAmbFPW/PJjH2g=; b=e+cbmaAS1aKzG4XVDCDmrl80RR
-	pv2oK3uDImwEuTXiHhJ9+c9B3x6/wZN5/wVki/KV4ZIo88pWQx0SO3G274TViKnIbZlhswZfiDyUt
-	J9geUKNDRk+x+fT5iZ6dTJaQEvToFujyMb7/xGhyEEbcfgzPM8iKwNhtmoANMwok1p1MRr6J3ZONp
-	8z+IPfp+1t8egtHr57dX6PCd+VcPP46vAXyWAcfJ5WPJqgHfKo++3YrXLmZ8CWUhZgyw3l2Yyz5tz
-	NTeg2+obYGkcBWoVqeDIFZqGvR8GP9YbOEm9uznBv9elJ7649Noq4KtjUymeXiOC3BoX3wHyfxEpa
-	VzUCj8BA==;
+	bh=re9XiQwZHyoGrJmwBRzeNqQiLmgFq6r4H1Yj73RZIV8=; b=04x1IXxkWYDg8geqUxQ9nRE5ze
+	4Zsxwm6zsKVI+mxSJbsN7U2RhAuz8I6BSeBX8zZD9bIzMGpeMTN18vsdw5K8PkupOXxZKgk6Xhvy0
+	2ubxXw5kmPpEEx76uygq0/lzUqEoHck2OD17DOdlg3CYm9gMpjgIXzjRpBLmtbEof0wHZN6kQO/6n
+	ka3dF5i/JJ1mvw3vCHSe/gS8C3KffohrgfsL/3SOtK/WPqFTPZhIaV1ea9QGiE4OAalYj1k100oMe
+	/fdM4x+A7sl3poicj2OsA7vJrdJwEbBiDmwXFOS4KObzeKsa69RCLNRLxYCldwLNp9V2ARUbwRuPj
+	h9wIKSIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvtT-0000000DY2z-0LF9;
-	Wed, 17 Sep 2025 17:24:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyw3D-0000000DcQs-0rpq;
+	Wed, 17 Sep 2025 17:34:39 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvtQ-0000000DY1A-476I
+	id 1uyw39-0000000DcLl-0HZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 17:24:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A59F74341A;
-	Wed, 17 Sep 2025 17:24:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F226AC4CEE7;
-	Wed, 17 Sep 2025 17:24:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758129872;
-	bh=4UoXPczKg9TI8gT2C8XoVlv2Ynl1q/uZ3VhRzWWWyL4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mhENdb70ih5gEPAaGFnU9gvOL5vnLYRihU/D1e97SBANv3lOG9ooDfnxdId2zkmRL
-	 /P6thmnX0eCCuNi/lvxGQkj9nr3VSv4mUr9aliqnlnnD7sNDR+GOZy3fQQDfEc/yce
-	 cBNxIkPUd/2YHXWpJD1ZJp9cx4yWAixjHilt9qTLg5E/XQiJogwZyiTuP3l7VyXz1z
-	 3ulFWme/QBIAOptneJigS3xJIGophNq4birSAF3ZI+OS0cAOleG+s7zxMxoMFGu5G6
-	 hvncvb8HMzSZg1XqmChn0bAgVbr60lrNuvupZSS6lLxHqoRUcruFa8rXLNqv9htg+G
-	 2ByyKb4ozUbdQ==
-Date: Wed, 17 Sep 2025 14:24:29 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Wed, 17 Sep 2025 17:34:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=re9XiQwZHyoGrJmwBRzeNqQiLmgFq6r4H1Yj73RZIV8=; b=wr9Pzivg4eMg+afHKT1BIf6dDL
+	Q4WjVxrBc0RMofwJb53n409SGCq035N3e91aPMXt47MwNYA9yEhewMvTDAR69hT5H45W1sktyPL4D
+	nJqQM5Ze4peqVjOJYjvdLJhMaWb3Hk1GCpwyB9MeUYULC+lsqJag91Fo2goJ8S/nDlWnRFIRs2VwB
+	OESogtTWXLz49g6qJ/ax/byne2afQNrq/7hNHyIxgElulMsYptKIy5JYhpyG62HfRP/fPgeKFMoGF
+	B5lry83DH8O6pkJ0/3cNDFq0lNh25J6Zb7iZkW/R5ofgIx9J0tmY0STZe4bZNS5Rlna7AUq2QWlkf
+	imnUJ98Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44040)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uyw2u-000000005Pd-0r9U;
+	Wed, 17 Sep 2025 18:34:20 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uyw2p-000000000Nu-3wy6;
+	Wed, 17 Sep 2025 18:34:15 +0100
+Date: Wed, 17 Sep 2025 18:34:15 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
 	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v6 00/12] perf: arm_spe: Armv8.8 SPE features
-Message-ID: <aMruzdTu74rZ0RZ9@x1>
-References: <20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org>
- <20250808123913.GD3420125@e132581.arm.com>
+	kernel test robot <lkp@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
+ __get_user_asm_dword()
+Message-ID: <aMrxF3AnFox0LH8V@shell.armlinux.org.uk>
+References: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk>
+ <875xdhaaun.ffs@tglx>
+ <aMqCPVmOArg8dIqR@shell.armlinux.org.uk>
+ <87y0qd89q9.ffs@tglx>
+ <aMrREvFIXlZc1W5k@shell.armlinux.org.uk>
+ <20250917171424.GB1457869@ax162>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250808123913.GD3420125@e132581.arm.com>
+In-Reply-To: <20250917171424.GB1457869@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_102433_041709_091A4214 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250917_103435_754149_7E0A2659 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 01:39:13PM +0100, Leo Yan wrote:
-> On Fri, Aug 08, 2025 at 12:22:57PM +0100, James Clark wrote:
-> > Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
-> > filtering, and SPE_FEAT_FDS data source filtering. The features are
-> > independent can be applied separately:
+On Wed, Sep 17, 2025 at 10:14:24AM -0700, Nathan Chancellor wrote:
+> On Wed, Sep 17, 2025 at 04:17:38PM +0100, Russell King (Oracle) wrote:
+> > For me, this produces:
 > > 
-> >   * Prerequisite sysreg changes - patch 1
-> >   * FEAT_SPEv1p4 - patches 2 - 3
-> >   * FEAT_SPE_EFT - patch 4
-> >   * FEAT_SPE_FDS - patches 5 - 9
-> >   * FEAT_SPE_FDS Perf tool changes - patches 10 - 12
+> > get-user-test.c:41:16: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+> >    41 |         (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;                \
+> >       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 > > 
-> > The first two features will work with old Perfs but a Perf change to
-> > parse the new config4 is required for the last feature.
+> > with arm-linux-gnueabihf-gcc (Debian 14.2.0-19) 14.2.0
+> > 
+> > Maybe you're using a different compiler that doesn't issue that warning?
 > 
-> I tested FEAT_SPE_EFT (xxx_filter_mask), inv_data_src_filter
-> and inv_event_filter, all of them work as expected.
-> 
-> Tested-by: Leo Yan <leo.yan@arm.com>
+> Maybe because the kernel uses -fno-strict-aliasing, which presumably
+> turns off -Wstrict-aliasing?
 
-Please let me know when I can merge the tools/perf bits.
+Thanks, I'd forgotten to pick the -f flags for building the out of tree
+test. Yes, that does work, but I wonder whether the powerpc 32-bit
+approach with __long_type() that Christophe mentioned would be better.
+That also appears to avoid all issues, and doesn't need the use of
+the nasty __force, address-of and deref trick.
 
-- Arnaldo
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
