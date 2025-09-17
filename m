@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B43CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E92CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1HMZ8HPzhthwzsrfdYr5/bwWLl4MCWuBGb8vk9/U2Q=; b=qC1+FWDaUwHkUgNbw8E9KJuqub
-	HNqrSNyZf90cdy/tL+0DAKFMZ0WKpqUc7JCzxY3jB9cRaK65fGLvdCmvuR5emgY5zms4y777kxRRD
-	CXc2TsoilVn9tYc2qoCT/niNZeuSFB+Vx/kdyyDoWOns+35Ako+/pxv8EtBZ/0vmIXwGxf36O+Efl
-	HjzZb846eOtzD4Y9vQY9rSB5BylrcKypgCVsEFVyTaiS7nbM9rmMGTH7ER00pmwUSYBLYTvPXUSLL
-	dbExrxqDEEC6LyteBasn+QtXJdjr6wM0Wkt/T2to8sCWGX3OZM56CJSuf63ds0TIau7jlxaLt8fI5
-	1rsNu5fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rx5V0/lZD/IdbtCuUfwjiSEO0Grpo0JaThAgFi8Wh8s=; b=lrSsOYzdQCUWVECefiqbNTZg9F
+	BXhd5PxDjG30Cyk4/fBUM1IaInpQOtEjPA/1hK0OL/1KofU3cb6uty+06ARZdqrcVDFpjDcOi6Ldn
+	M2oh1Tj6NwMJzQKuTaz66i0agWHH/P9uY/v+07+LqwWGm65iCR8zW/TNB4fA1btmn+HPxQ3oGDZDK
+	135kQ6HDAV0Eu777xn0NIy+lyxd33Muy6FGt8tDfGiV0fXLeCSP6FUGs3MKnLaoV6IFnsEjkMthO6
+	PylZi8gRZkN22xzhF+dWcpYw7tfwcqYythqgGT+M5FQHEew/wFamOCOeAgys4jZbQPsIghGmLlLLI
+	69Il4wdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywAY-0000000Dg8M-0kIb;
-	Wed, 17 Sep 2025 17:42:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywAS-0000000Dg2E-0HOx
+	id 1uywKH-0000000Dj7O-17tZ;
+	Wed, 17 Sep 2025 17:52:17 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uywKD-0000000Dj5A-1pRU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 17:42:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D86E726BC;
-	Wed, 17 Sep 2025 10:41:58 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D3803F694;
-	Wed, 17 Sep 2025 10:42:05 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 17 Sep 2025 18:41:39 +0100
-Subject: [PATCH 2/2] perf: arm_spe: Prevent overflow in PERF_IDX2OFF()
+	Wed, 17 Sep 2025 17:52:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=Rx5V
+	0/lZD/IdbtCuUfwjiSEO0Grpo0JaThAgFi8Wh8s=; b=FWgOARlfcC5bBkEhH7jG
+	ITFPFlwr1VAfDuV0hIVqbDeNRxa2v7Ycn5BBKxibO0KMk2WxPeWb494SJo3SZ4QE
+	RFClSWn1PObw0nS9NEb3t1IMYTqChz5GwKXqsFSu9j0TT3VWAwE6MN3au5m6mGpS
+	JD/p/ucC6a7lTlJguzmIG+T8RyBoUsUmd+Cy2Cg3AZdC4PTagMr5mrvyPECtqOUh
+	rSgilWdz3j4OR/4LUArMds+Rffk4gY60pYA2iLgddKm6DKEjeKNKUM0HjLkxrPzc
+	/OPXKoqjG0tih5tcmDLmR3lqI7P4yCJGfxt6ZBz/cgerHqnfaKm8oige/Ejgtbyi
+	sQ==
+Received: (qmail 3221545 invoked from network); 17 Sep 2025 19:52:03 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Sep 2025 19:52:03 +0200
+X-UD-Smtp-Session: l3s3148p1@Zdbn5AI/itEujnvK
+Date: Wed, 17 Sep 2025 19:52:02 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	"Liang,  Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
+Message-ID: <aMr1QjI8vfrP_fwD@shikoro>
+References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
+ <87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
+ <86v7li1xs4.wl-maz@kernel.org>
+ <87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
+ <86qzw51pmw.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-fix_aux_trace_index-v1-2-e36a76ac6292@arm.com>
-References: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
-In-Reply-To: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- Tamas Zsoldos <tamas.zsoldos@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758130921; l=1032;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=/9UdUZ9OJII8IHbRr4Maef/QuxaY9QyUmTQxAX7pvqg=;
- b=x0p7c5gNdLZczsCfpgoOfdRVsyQTPiTO8a7q3eclGz88s9gvUi3g63j/BIGmu+UrjcROmjZ+6
- UCpvygM7/WrALEAZljLPsga55AGq0wDkfpn8JHk/HzPcrAAruaPZDGS
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86qzw51pmw.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_104208_151390_F516C50B 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_105213_742251_C5B0FD4D 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +96,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cast nr_pages to unsigned long to avoid overflow when handling large
-AUX buffer sizes (>= 2 GiB).
 
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/perf/arm_spe_pmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> > And, the datasheet is very complex, I don't think people can find it by
+> > himself without any hint.
+> 
+> I guess we're just a bunch of inexperienced idiots unable to read a
+> TRM.
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 369e77ad5f13ffb490bf8f128fee5180d1254bc6..8f14cb324e018349fbe19c5c20d92a9cdcfd2e73 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -97,7 +97,8 @@ struct arm_spe_pmu {
- #define to_spe_pmu(p) (container_of(p, struct arm_spe_pmu, pmu))
- 
- /* Convert a free-running index from perf into an SPE buffer offset */
--#define PERF_IDX2OFF(idx, buf)	((idx) % ((buf)->nr_pages << PAGE_SHIFT))
-+#define PERF_IDX2OFF(idx, buf) \
-+	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
- 
- /* Keep track of our dynamic hotplug state */
- static enum cpuhp_state arm_spe_pmu_online;
+Please don't feel offended. Morimoto-san really has a point here. The
+datasheet available for us is currently in a very rough format with
+*lots* of attached documents with hard to grasp naming. I am dealing
+with R-Car datasheets for 10+ years now, and I do have a hard time
+finding the information I want with this one.
 
--- 
-2.34.1
+That being said, I agree to the point that it is not very helpful to
+reference such documentation upstream.
 
 
