@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EBACAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 01:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE79CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 01:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tq12pRtdmB+gysuIH+PKSklm1eoRKn+fCbhmqtPHAS4=; b=Lp0GlaxHQLXZE0xjklnv25Uumt
-	dIzV/hvqmhVDdbpjDAMrGkmXJEQVGaofjjhnU5WifvNGFqxrQbM9haXs9CnrGxmeXyS2ZhA+iLtH6
-	7GIL1cFlFZALKg59hQxDHkWXislnO4c/zSDgGaUv5TS0VkUHjxIuRxp9WwSUDVJXkJ5fswW/RIAbM
-	YZfYPYXTnfwmzH9NP9eD/ndG744FbXnLFNOV48imZkqVbqCUZsgYelHo9iMf4nGU/opA2XENApWbP
-	ibm+zJFv5oMPNT/u9yUVRnY0vCnhysKHAhYfdXy1YzWBXCeRUqW0SVLXJfOhmSCuVAlXED4LSK6j6
-	0w2CHP7Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=bqmenlmc8L86CbEW9VoE5rdRn0
+	gP0L/UPahPahay5D2hzvSCFw0ezlve2J1j6Fh+yxCKMHwrjo3yClvRP8/t1fUpNBVsGVOUkntu/2A
+	eymSxPY35nz0OqJS7kNunfaachVPybz1a70/myPqo0BxoY4HOg7ScvvNeA5cko/xBObJq4y0r/W+N
+	uHjS0SON1kCm8g2ZMs9231gkzm3sMMZBnK5mvaBPCMFucB7NwrLku9/vLHtThnrpL1lmVOkkb0Q6L
+	/93jTgp3sm3r8xXnzqrKrHc3/FDno/jjJABavt2bGlq9a+tOpeUDDTPy0HUtTWb95M+n9YT5j2UUN
+	NTAHZj7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygpx-00000009pFf-1yDp;
-	Wed, 17 Sep 2025 01:19:57 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1uygq5-00000009pJ1-1Giq;
+	Wed, 17 Sep 2025 01:20:05 +0000
+Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uygpt-00000009pE9-3voC
+	id 1uygpy-00000009pFN-0Mj4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 01:19:56 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 32C25EC021D;
-	Tue, 16 Sep 2025 21:19:50 -0400 (EDT)
+	Wed, 17 Sep 2025 01:19:59 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id BDD5414001C6;
+	Tue, 16 Sep 2025 21:19:56 -0400 (EDT)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Tue, 16 Sep 2025 21:19:50 -0400
+  by phl-compute-11.internal (MEProxy); Tue, 16 Sep 2025 21:19:56 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm3; t=1758071990; x=1758158390; bh=tq12pRtdmB
-	+gysuIH+PKSklm1eoRKn+fCbhmqtPHAS4=; b=cSxkQ6vDx15lCbXzTIm0Itpmgt
-	yVaXRaIldjPmanmt4MsdnmPdCRlyEpv4tw5FUpShxCHfCZDoEP7kKJt5sTOIgfGS
-	xETJvdyoMiQxPdt4boPryw3ULU1LTCg+gmfL3iVishPKYNmPrgfy7OjYRpCjfowt
-	w10Fap6mRI44EXJn0VXTNqLYRftpgmADm8a52SLOk9H2b1OYxBpSKbzKyhjqUOPO
-	jOmJ14NfD0/JvK42koHbX4sqn1ooXY66E164p4u7cYkyOCCxciviYBIxvCv62wRl
-	XBioLQjK3PMsS/AJUgxN6a+RoAJZvKSrIWRVwv+wbbY2VB9rpLPZ4mkSkktw==
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm3; t=1758071996; x=
+	1758158396; bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=G
+	Z7o7oBrPxp1aTccnBvCB30h/cLSe642B4TGFfIGld0pC8JOnqhbgkS6Gd59TAfgl
+	2l5Efeo3D7mb813VoxCA6y7Ott+RPWT+7Zdmy673k7/pC88LMmN9VTB0j9Pr+rRi
+	tImHSiVHgGAwWQ5su3vQrXxBMW3sAzWpiTddlsFohaIuNF5Faore1zVs+BIktd6E
+	RdaOEK8SDaCxpfA22RpQ7n12N+Tn2PT/4/TRZOuEmjr4murWucKei4z1OHhWWylI
+	x25Fozlsa6h5kJqfxz1vKFpXxuCngy9lGFHrITxRdY7Gk9BMNCerJO3m9+BcEo8l
+	PHHaodYyC1M6sPvanUNww==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1758071990; x=1758158390; bh=tq12pRtdmB+gysuIH+PKSklm1eoRKn+fCbh
-	mqtPHAS4=; b=VEmzU1W2TzmOPv2GeDCK8r03AAu1VA3IVqjxclv2hhFf111whit
-	RfYLj+svIAcgXPb1bxwjQOzIsOzZ4QMh5KvshXhdKgraE/RBG57l65fMAUl9olLj
-	PHwbu6ckjYbpSysiEgOKLXH0HeMiCS4/aVBfbkhTTbohvNtC78DjKX77GdGkyKzA
-	+o3TcCn/TZF/9yzdZtUipUt+oynlLWUO4XQG1isfi0qrX+QeGfH2iDDcP8TalYXa
-	fc8SfCFKGWVcsNcyQgX7iAQbVCTG0Jh61v0gK195uTehN5hkHUdDWIeWhK3d00Gg
-	yw4G5SfKEGykyIg/YTdvls+zvENgSlnKavg==
-X-ME-Sender: <xms:tQzKaPK5oYnRblu_VxCZNh0wT7bX6sRTHJoZVgMaxGBmwPaTmmeK1A>
-    <xme:tQzKaJ7oxrCr9d6EIfsNkb0MQXbS0R1UyhTu_4g5E2NG7ZsToIJ_TPqFKyu87qWUI
-    WNij2Xn8kv8s4_eCio>
-X-ME-Received: <xmr:tQzKaJffCqJ47n7xb0ZF43WdARhp6nzIOWSuug7RjHV-KvJqbi96HwiXpApUPFJkya0mHZ4GJNKbLtObA93fNaul9ImWk-LXo6DBSTsNGauwxTOq2CyvTzKrFrJAiSnfLh4_z8UYEDZlbo3L77sG6wLD_a8>
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1758071996; x=1758158396; bh=G
+	AZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=OiE5pUJBEVctG4j7p
+	yJch+eh6egGNWtyoOvmBPbpqBfyVnKLPLCFlEWiJ5PzUn5AZw5Um7oUNs2wGpr8j
+	a+sQOxkfA9ZwKikaFcFfouhzB/IxA23IXqz1Wacs2kMkhxy7e4OlhWrccL/YMSU7
+	49nBWk6PuOG7+tlizHso/7zkIPwD/ENuvmHnTsZl92lx+AI+lQjz1WRdLvljDz2i
+	n6vfiCEJbp/j5aYHLqBnoqd4Tf9T5wpqM8UPbKMlzbwSEgzaB5dfbmXAWBz3A3ZK
+	VYt66m631C5y9TSCLgAmFgwxDzUZHoDMGlietDYN+mSTUoNkCB08LM04JrJFMGPI
+	rxf6w==
+X-ME-Sender: <xms:vAzKaBkijQJGGIFjz1EF6YrMhK3T9os-qsg21GDRibmr3g81SW3Ekw>
+    <xme:vAzKaDlLiYJ_DliXWM5wnaKqL5J9ip7xlLHDwCOE3jT8pW8tTx9hUPw_HW72getlR
+    -A6Xlvlh6xeAGKALpo>
+X-ME-Received: <xmr:vAzKaJYdSufajFYwd9Kh21J-MOPER4UFlXB2YL92SHfP7PcF3oTnOKNqd0QmQVcp8hW1s645UgVmamkwyixRMnIPctIZVvEFmohhBNeOmuVb0BiGql3uSaoCLAB_5Kwstql-wIBTq316mfNuCJUTo6DOGzA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegvdduudcutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeforghthhgvficuofgt
-    uehrihguvgcuoehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruheqnecuggftrfgrth
-    htvghrnhepgfeuvdetvdelgfdtvdektdevvedvfefhgeffudevvedtjeehtdfhgeetleeg
-    ieelnecuffhomhgrihhnpehoiihlrggsshdrohhrghdpthhrrghvvghrshgvrdgtohhmrd
-    gruhdpkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghm
-    pehmrghilhhfrhhomhepmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghupdhnsggprh
-    gtphhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopeguvghvihgtvght
-    rhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrh
-    hmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthho
-    pehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvg
-    hrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdp
-    rhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplh
-    gvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrthhtsehtrhgrvhgvrhhsvgdr
-    tghomhdrrghu
-X-ME-Proxy: <xmx:tQzKaEGy1Fv0oisVFKfjCKA9DnPEykoEn554_i-Fzx8aA8OJ7EZf7g>
-    <xmx:tQzKaCQBL_E0u30SXNM-S9lDxub3TT0SZUZZMs5sVYHy6C4MbMpe-Q>
-    <xmx:tQzKaCYEurLaMylrHUvFj7QR9LACPNuP7ad9cXp4cJ7asDIPFnXtvg>
-    <xmx:tQzKaF2elxF53q4EEeNpBretzi1Sqc6r5mbG7wYWqT-ScQNY3b2yfg>
-    <xmx:tgzKaGgHvKDqCouhv2KH5ebbAiF6gzzEnQSvGYkoLcI73uzQFqhSoquI>
+    hrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforghthhgvficu
+    ofgtuehrihguvgcuoehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruheqnecuggftrf
+    grthhtvghrnhephfffueehtedukeevjedvieevffehjeeiteehhfefkeehgeffleefleej
+    udekgfevnecuffhomhgrihhnpehtrhgrvhgvrhhsvgdrtghomhdrrghunecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmhgrthhtsehtrhgrvhgv
+    rhhsvgdrtghomhdrrghupdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuth
+    dprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdp
+    rhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrg
+    guvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikh
+    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghu
+X-ME-Proxy: <xmx:vAzKaNQxifJ1xF7Qosw2lcFC5OCckOV4z94ramicOiEwLpaVhcjFlw>
+    <xmx:vAzKaLtkK1woThXD6pCA2oXkEkHVB7ISoCb4fdXvfg9R7wKjBe_UbA>
+    <xmx:vAzKaHEV3sJSqifKpSImPBtO3ATn5DxVmUZ6nbYKVu4-aDPvdz0wLA>
+    <xmx:vAzKaExdoFPtpejWyF7tU1piQKk76uz-TQ_zKpac1q_cu_r-_J_O6Q>
+    <xmx:vAzKaEfd6rPptWDN3TuJwSO4cTg16pOPxnX1NwufnzuxYDZs0m_Gr9hG>
 Feedback-ID: i426947f3:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 16 Sep 2025 21:19:46 -0400 (EDT)
+ 16 Sep 2025 21:19:53 -0400 (EDT)
 From: Mathew McBride <matt@traverse.com.au>
 To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -92,15 +93,18 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Lee Jones <lee@kernel.org>,
 	Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v4 0/2] dt-bindings: embedded-controller: add binding for Ten64 board controller
-Date: Wed, 17 Sep 2025 11:19:38 +1000
-Message-ID: <20250917011940.9880-1-matt@traverse.com.au>
+Subject: [PATCH v4 2/2] arm64: dts: ten64: add board controller binding
+Date: Wed, 17 Sep 2025 11:19:40 +1000
+Message-ID: <20250917011940.9880-3-matt@traverse.com.au>
 X-Mailer: git-send-email 2.45.1
+In-Reply-To: <20250917011940.9880-1-matt@traverse.com.au>
+References: <20250917011940.9880-1-matt@traverse.com.au>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_181954_573189_DD3CE9D6 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250916_181958_196627_AA8CF003 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,38 +119,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series requires the "dt-bindings: mfd: Move embedded controllers to own
-directory"[1] change which is in mfd-next for the 6.18 cycle.
+The board (micro)controller[1] is responsible for functions such as
+power supply sequencing, SoC reset as well as serial/MAC address storage,
+bootcount and scratch registers.
 
-Changes since v3:
-- Move to the embedded-controller directory (which was created following
-  the last submission)
-- Remove the extra paragraph in the dt-binding description field
-- Const'ify the I2C endpoint address (only one I2C address is implemented in
-  hardware, 0x7e)
-- Fix the description line of the fsl-ls1088a-ten64 patch (s/arm/arm64)
+There is currently no Linux kernel driver for this controller, however,
+there is a driver in U-Boot which utilises this binding.
 
-v3 series:
-https://patchwork.ozlabs.org/project/devicetree-bindings/cover/20250821061115.18254-1-matt@traverse.com.au/
+[1] https://ten64doc.traverse.com.au/hardware/microcontroller/
 
-More information on the board controller can be found here:
-https://ten64doc.traverse.com.au/hardware/microcontroller/
+Signed-off-by: Mathew McBride <matt@traverse.com.au>
+---
+ arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-There is no (presently) Linux kernel driver for this device, but
-it is used by U-Boot for functions such as reading out the MAC 
-and controlling some devices on the board.
-
-[1] https://lore.kernel.org/all/20250825081201.9775-2-krzysztof.kozlowski@linaro.org/
-
-Mathew McBride (2):
-  dt-bindings: embedded-controller: add Traverse Ten64 board controller
-  arm64: dts: ten64: add board controller binding
-
- .../traverse,ten64-controller.yaml            | 40 +++++++++++++++++++
- .../boot/dts/freescale/fsl-ls1088a-ten64.dts  |  4 ++
- 2 files changed, 44 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/embedded-controller/traverse,ten64-controller.yaml
-
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+index 3a11068f2212f..71765ec91745e 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+@@ -253,6 +253,10 @@ usbhub: usb-hub@2d {
+ 		reg = <0x2d>;
+ 	};
+ 
++	uc: board-controller@7e {
++		compatible = "traverse,ten64-controller";
++		reg = <0x7e>;
++	};
+ };
+ 
+ &i2c2 {
 -- 
 2.45.1
 
