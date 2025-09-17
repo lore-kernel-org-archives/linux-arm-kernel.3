@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96F1CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106DDCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B9bY8LkLWVpeRTueT+AQrRldMPFWGbnXdHepPnAE6bg=; b=wYdIwOjKug/irbZmj7sP0Ob9j/
-	lnU0GsU9QzeUT6Sn6lwKwnfe5oMq579nU86hDIJp+7ekhn+MY4QUw5BdKd9wUyjR7ewuryi2tY6YL
-	qrZ7YmnTBd8oLLeFwAF2FPhUFdTAn5zna30ag/zUNIK9Hj7h0l7zQFomC7bi9ouSf20Z3hPO94IAT
-	AbJ3SeSWFuNfmcgPVzruM/ABuKcPimMuH9wTjddj3LraJvJH0ijSlhUq91sVMZHnFjFzJsgvsHrs9
-	Y/WM7cVeULyinSY6kZE1iBX9luFlbU9idxRTQqy4oF4b/LGcwOWEScgls+salogCgKmF6owBwB9DX
-	gJ3YeSAQ==;
+	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=; b=CuEZthsvJ2ZrrIk/f+0Y69j+bn
+	seB2uXPKH1o8QUfDGyyFkYi/KbCyh4pIkA8WvTnuS72hubutjXJOlTphl1w/5LnqWsgt3cAsc7CqT
+	3NOoofFHspcexy0629vowt5mYWgVo7goJW0ZCMyRx75WckHUd7gvDYXjXGyOtxaMmm96E9p01QYLw
+	HnVqV7Jk7Egf7ROc2vYCN+5116uV7KPWCGiW1iEK42L9WT8qN7GBzrr4saf7CIqrF3/MQNPHidbbS
+	FpZmnrxEQ8s4nl0ASFQHIi1/KEQRASu4SS9yvjb3hMaw75bTawZ3yXP2hIebIKIDTvvOlPnRcyUFK
+	vAvEd6ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxk9-0000000EFNx-2Tw8;
-	Wed, 17 Sep 2025 19:23:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyxmI-0000000EGAO-0HRu;
+	Wed, 17 Sep 2025 19:25:18 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxk8-0000000EFNO-309u
+	id 1uyxmF-0000000EG63-2KNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:23:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CF476023C;
-	Wed, 17 Sep 2025 19:23:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD10C4CEE7;
-	Wed, 17 Sep 2025 19:22:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758136983;
-	bh=B9bY8LkLWVpeRTueT+AQrRldMPFWGbnXdHepPnAE6bg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VfesLqj88ovMJM1rM6zwayKbjkXOqiv/dyQ4YMIE+lwgfVizxq4oEVYmz7vP2ZUBV
-	 9bSnZF4yq7EluFAqnPRO7qiZZWaP3ucsKI4lnytjq5U5X9+z+RUaHG4C+IlF14smgl
-	 yCXkBdYlWULwu2EM0gd5vLWE0TPlOiLqHlpFC+601dBKvq72e7IAVc3tkGVWH5N0BM
-	 FkIAAkzfhrU0hGOWfzJt8tlgstGzkGdwA2TXqOBGfGSZCAS6uLLRHfIOdfKBxNKnkj
-	 5RzkA0o1SBvf5lUcxrB0wHz1NfdWrVM9yzQf0Iqft3M3QzyY4iWVYJFe/6E5oYCNfA
-	 Domg3ov07gi8A==
-Date: Wed, 17 Sep 2025 20:22:57 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v6 1/5] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
- i.MX8ULP compatible string
-Message-ID: <20250917-splendor-marxism-5b42f0cc670f@spud>
-References: <20250917-csi2_imx8ulp-v6-0-23a355982eff@nxp.com>
- <20250917-csi2_imx8ulp-v6-1-23a355982eff@nxp.com>
+	Wed, 17 Sep 2025 19:25:16 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758137111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=;
+	b=qkcCRMHlqbHlQ+ihneOeLgC3lXlZ2JlMNJ2yZEfGlusdIjCo0oigXFnfCKhmxcrLIaGEHC
+	TKIQ5ISc7+tUerqZm4t/8qO7gz97N2i842L5viLZniXWkaSReoccFIBsqTXmkb/3rV5Eau
+	YGCkQLHir6RWC9Io/b6Fffe1jWvkRW/HSDVm9tiMH0lMPsSao/U/ve2o83mgBXP+Agq2u0
+	1cum3TQ5wUc1kyv4Yx/3EemOQ7wKoghENrXWUaNhRrODD5ybGPZ1Q2SVUego7OLpmaIwWX
+	6eUxEcAGTMU9aquxGISRwa5aPLUkgJBmihhAkDJ1h+Y5u5+iPic+zOX6La64Yg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758137111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SqAQXggoclFDa2Uc+OS/GnqoBV+1bK3M22kzAETucqk=;
+	b=WE8/k5UVt+1BxyiG8k75FlR6g4D3mPotvXxc1ALxIcRhOa8husqwKlI6SkcAGLdqS/znDZ
+	LRpE13Qp647ioiCg==
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Nathan Chancellor
+ <nathan@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Linus Torvalds
+ <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>,
+ kernel test robot <lkp@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Darren Hart
+ <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?An?=
+ =?utf-8?Q?dr=C3=A9?= Almeida
+ <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
+ Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
+ __get_user_asm_dword()
+In-Reply-To: <aMrxF3AnFox0LH8V@shell.armlinux.org.uk>
+References: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk> <875xdhaaun.ffs@tglx>
+ <aMqCPVmOArg8dIqR@shell.armlinux.org.uk> <87y0qd89q9.ffs@tglx>
+ <aMrREvFIXlZc1W5k@shell.armlinux.org.uk> <20250917171424.GB1457869@ax162>
+ <aMrxF3AnFox0LH8V@shell.armlinux.org.uk>
+Date: Wed, 17 Sep 2025 21:25:09 +0200
+Message-ID: <87ms6s990q.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3gOtejRn2XFUqrqT"
-Content-Disposition: inline
-In-Reply-To: <20250917-csi2_imx8ulp-v6-1-23a355982eff@nxp.com>
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_122515_732628_112BE9B9 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 17 2025 at 18:34, Russell King wrote:
 
---3gOtejRn2XFUqrqT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> On Wed, Sep 17, 2025 at 10:14:24AM -0700, Nathan Chancellor wrote:
+>> On Wed, Sep 17, 2025 at 04:17:38PM +0100, Russell King (Oracle) wrote:
+>> > For me, this produces:
+>> > 
+>> > get-user-test.c:41:16: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+>> >    41 |         (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;                \
+>> >       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> > 
+>> > with arm-linux-gnueabihf-gcc (Debian 14.2.0-19) 14.2.0
+>> > 
+>> > Maybe you're using a different compiler that doesn't issue that warning?
+>> 
+>> Maybe because the kernel uses -fno-strict-aliasing, which presumably
+>> turns off -Wstrict-aliasing?
+>
+> Thanks, I'd forgotten to pick the -f flags for building the out of tree
+> test. Yes, that does work, but I wonder whether the powerpc 32-bit
+> approach with __long_type() that Christophe mentioned would be better.
+> That also appears to avoid all issues, and doesn't need the use of
+> the nasty __force, address-of and deref trick.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Hmm. I just noticed that include/asm-generic/uaccess.h does exactly the
+same what I did with the per size case variables and that seems to be
+not subject to endless bot complaints either.
 
---3gOtejRn2XFUqrqT
-Content-Type: application/pgp-signature; name="signature.asc"
+But sure, the PPC trick is neat too. No strong preference, just that I'm
+leaning towards the per case split up as it's less obfuscated IMO.
 
------BEGIN PGP SIGNATURE-----
+Thanks,
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMsKkQAKCRB4tDGHoIJi
-0vIXAP4qdNUMoU6s3FuP9N4PxLJBIPEjbbVI6iWrhBQus6CD4gEAmj5DYjCBn7Dy
-M4eTOl2YLYgtqjEPWGGm9HGE2xFHLAQ=
-=xNYR
------END PGP SIGNATURE-----
-
---3gOtejRn2XFUqrqT--
+        tglx
 
