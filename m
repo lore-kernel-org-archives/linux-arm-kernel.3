@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FFECAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B259ACAC59D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/8e/GULZLkbY2SV9gPrBKVaZQVK6Lb/vuZ4vBq4A+U=; b=lNEa+IlVpa7hdCOrR+jpEC6ad8
-	AyQYfkH2zY4DBNHwAxAJbd3AU21QfH4eEbfOxueGqDaIwW4up3MhWc9IhIDyOjLl1tci3/K7iS1sN
-	BOKMAlQ0qiAT6t8+XGeStBY1LD3nov0KuGjjm2NoyUdwdwELWQdJQELXqWSlbYshfixRfponmO8ep
-	0j4PlZtTSlgoJIMELTEZW8XO4zlM9Em5ARPCvII3coFwlhEnIwasNu/oL4bfVZe2g7L+9qWMuDDHp
-	ujkUunsTk/+QVF5Uf9TzaX9XxmOaneLnmLSDNgT64wQgbHuIhjql0aTv98pyWptPPgFMTd48jnoks
-	F8lV+naw==;
+	bh=qDFmKfhenLWr00mS36YiukwI1Iz1vHXJ1zZmpXBWwyA=; b=2nNdCfx9AXYUVlb5xuSuq5PXRZ
+	1jZbNXF0wJ4LURdDif/bxw2PRRmJWLLl9B6RXaPBqOf6ZM57pvflM0YjPM3DT44NOhXd+wuK5LUNq
+	n75GkbVNxz1V52FgMKefStYdm9s448omMxKNuQY3MTizZFV+Fmpf2IzgNFidCG2nB7p/Fgc4we+gY
+	8Nw3R938b9cUa3OE5wPsDHEHfD2dfG35TsRijFC1bBKOpb0b0VNli/w0fFhUQzTVDQjOGgK+ouQz9
+	b6lFXfoFSlhhZr292svQ2XLDPY+mkyO2kLsLtr+JrOh/kErYaRSfMfA8WsNQjTUckYepkEoby7Mft
+	E/FbUcnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjc-0000000BxO7-2xaz;
-	Wed, 17 Sep 2025 14:02:12 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uysjg-0000000BxUR-2rwV;
+	Wed, 17 Sep 2025 14:02:16 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjR-0000000Bx34-1Qfv
+	id 1uysjU-0000000Bx74-17S0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:04 +0000
+	Wed, 17 Sep 2025 14:02:06 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117719;
+	s=2020; t=1758117721;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=e/8e/GULZLkbY2SV9gPrBKVaZQVK6Lb/vuZ4vBq4A+U=;
-	b=0M+P3PmpIce/K5mkhQtBWdarwe/807C/GYa2EAdIEhf9IHNuH0tcTglUINrzWKC21scIjA
-	ML3xWDnFGUy3HN02f6LjV3WCg18mJntU/6pWgHUaE83gGbFPQ0yeGCIdyKYuIBEV5VOiJO
-	7D/NoN7uIWCZ2/c0F2qyPIFVvSVncz/eqdhhGPURVFmHbWdpvGXsDSYgG4Ca1t/qLtVjEs
-	R5UUlOeXfhYMmgOLXjflPBP3bFb274v9p4AysfLeutgqayqAQhUOpLpY6HLs56q26wSbmj
-	V67xwgi9wpBaM/zzigpLBisB3RgUfzReGjbp+RsOXy6i/NuLHUilYbxyDBON4g==
+	bh=qDFmKfhenLWr00mS36YiukwI1Iz1vHXJ1zZmpXBWwyA=;
+	b=0rW3gOSZnpwoHVHd0utoedO31TLqxtfzceRT417g+fA1jqVYAP//UasbNOlRWZoYJnoIkb
+	+eHHobJcI3zGiYYQjoGcBDcu7omVoWE6C0AuISF8O9BLfWZytBlRoTBZqx9Lh4w9bojy4v
+	j/Ze7qGxOZtaKJ7nUWi2xpdSXhQVilJPDCwtA8qm/nXSK9dU/An4xckZUOJ6iOaT+q63c2
+	7F70J5y7H7HYvXrohT10P2vR8E7ZXw45PA8bPMuFcRjNhWuJGRpyWLQ32oCSLPKveumV3p
+	3KvLuACJxhdZAScr3r95srL93VnhYzLynRrLWu3hZM8eIh/UiC5wPIW5zkrooA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117719;
+	s=2020e; t=1758117721;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=e/8e/GULZLkbY2SV9gPrBKVaZQVK6Lb/vuZ4vBq4A+U=;
-	b=p/pFgYvw3C+YfwYHSwrZWsgxR6G61dGXg4/GKlJuzYUP1iDLnGc8M3KwEV+FATz6COU36X
-	cOECE9gZXn7K78BA==
-Date: Wed, 17 Sep 2025 16:00:13 +0200
-Subject: [PATCH v3 11/36] random: vDSO: Add explicit includes
+	bh=qDFmKfhenLWr00mS36YiukwI1Iz1vHXJ1zZmpXBWwyA=;
+	b=cpHIHbMJCVLRPmUBQoiX3nJ1fwY9K2j+/H7gBc5kSHKOrZ16BL/Qny1rC/EkJDEmWhILTt
+	u4o5yubPLJM8nQBw==
+Date: Wed, 17 Sep 2025 16:00:17 +0200
+Subject: [PATCH v3 15/36] vdso/datapage: Trim down unnecessary includes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-11-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-15-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -83,17 +83,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=852;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=1441;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=dS/W7d4FY60Mh6k8eLp/LxU73p6qUpH8X3TNBWT0XHg=;
- b=kFTYWvygZYnVeuwN4hPB9RTDVAO4vpv9r4Y5ub8Rzw+OgCelx2Pjv6DGmHZqastHZS6cKj5Hj
- nk071b2Bdi+CASz/f5rKfdFHY+q98zVlVDgQXLeGW1m9LXJ4xdWgPxo
+ bh=+wSjZbA7LHbVuqtEJxYjhM/ccLdUpCaA0YlsOOkQqEI=;
+ b=XErtO8u+p9DkQu988NMV9LwxlAk3EkroXkOF7xHP4NqQA4O/zzEl+kvitYoCEiE2tqAJ7wpB/
+ tylbv+rHRqjDhcMLMD+oxXhUU6A1mLkLUPQoAbFmQDND1+z14J44pga
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070201_590518_EF97B973 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_070204_448557_532427A6 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +107,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Various used symbols are only visible through transitive includes.
-These transitive includes are about to go away.
+vdso/datapage.h includes a lot of headers which are not strictly necessary.
+Some of those headers include architecture-specific vDSO headers which
+prevent the usage of vdso/datapage.h in kernel code on architectures
+without an vDSO. This would be useful however to write generic code using
+IS_ENABLED(), for example in drivers/char/random.c.
 
-Explicitly include the necessary headers.
+Remove the unnecessary includes.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- lib/vdso/getrandom.c | 3 +++
- 1 file changed, 3 insertions(+)
+ include/vdso/datapage.h | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
-index 440f8a6203a69a6462aafee4ad8d5670cef6a353..7e29005aa208b498b68f16d3df80b048dce8ee21 100644
---- a/lib/vdso/getrandom.c
-+++ b/lib/vdso/getrandom.c
-@@ -7,8 +7,11 @@
- #include <linux/minmax.h>
- #include <vdso/datapage.h>
- #include <vdso/getrandom.h>
-+#include <vdso/limits.h>
- #include <vdso/unaligned.h>
-+#include <asm/barrier.h>
- #include <asm/vdso/getrandom.h>
-+#include <uapi/linux/errno.h>
- #include <uapi/linux/mman.h>
- #include <uapi/linux/random.h>
+diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
+index 752856b36a3abf82b849451e5d5233b1067b86f2..9021b9580be229b2001dd17bfbdc236ebda1cee7 100644
+--- a/include/vdso/datapage.h
++++ b/include/vdso/datapage.h
+@@ -4,24 +4,16 @@
  
+ #ifndef __ASSEMBLY__
+ 
+-#include <linux/compiler.h>
++#include <linux/types.h>
++
+ #include <uapi/linux/bits.h>
+ #include <uapi/linux/time.h>
+-#include <uapi/linux/types.h>
+-#include <uapi/asm-generic/errno-base.h>
+ 
+ #include <vdso/align.h>
+ #include <vdso/bits.h>
+ #include <vdso/cache.h>
+-#include <vdso/clocksource.h>
+-#include <vdso/ktime.h>
+-#include <vdso/limits.h>
+-#include <vdso/math64.h>
+ #include <vdso/page.h>
+-#include <vdso/processor.h>
+ #include <vdso/time.h>
+-#include <vdso/time32.h>
+-#include <vdso/time64.h>
+ 
+ #ifdef CONFIG_ARCH_HAS_VDSO_TIME_DATA
+ #include <asm/vdso/time_data.h>
 
 -- 
 2.51.0
