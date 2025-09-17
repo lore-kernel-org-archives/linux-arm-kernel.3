@@ -4,144 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06FBDCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813CCCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 03:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=; b=bYsmcoleaSFwRxts+h+dsq1FEv
-	SYJISc71qNfuqtYUl57k6EacVpLoOx0w2uOv7B3r0T7FPgA+ROXrJey6uA9YuXTs5RzkTwwZUZxUp
-	Z0ZVxm5oKZMhCui4aaWvS4IHTOizaPcslA7PXqaFKWDg/Iw1kYKxrqsiLQUcw9+BzumZiKHt0an2G
-	9zFBwqa93xei++FoUmoJuhdR8dV8cHiqYqclls5Jpz5hD559rtPB9imqqKQVgmStrN1KjulokM0ov
-	3FREJlDeQkWMgYJ3804l2/GU6Ux1t/KiuDvrn8iu5ppmkABm6Iil9uaCEIj6Qs++zCAkdhkKaSugk
-	DgXhJgew==;
+	bh=bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=; b=KnngKxPD0RnhB7tJrE6NqKTfCx
+	7Gy7GmliuHbJHDn6p0WiM66+yISDxuON4pUzT86tjjGL+GuLCjx8FbCSJSwuN1a3yKt45+ZPjtg48
+	LEOi48/l7ReMJCRchU1n27JT7pr9doHyUYVTDS1ZOh5T2ZzG+o6JIdunp4rD7vnvdomXDwY9n+ruv
+	fqZGaxNK1sk7iPLy5vAAZTEuS282uje1JRp0f0YNk+UYigIESU3mg7CRPmUMrIG+pgOU01130lGsa
+	3BrJRoEHl7LCtnmTmwHhX7gBsfCmbVVkA9drmYQ67DNYnlx/gbzGBouymMsMFrjF3VRGxj3TdOHp7
+	epmrqeZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiLo-0000000A1T0-07ft;
-	Wed, 17 Sep 2025 02:56:56 +0000
+	id 1uyiad-0000000A2ZA-2ZXp;
+	Wed, 17 Sep 2025 03:12:15 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyiLl-0000000A1SH-0QAO
+	id 1uyiab-0000000A2Yg-35Fj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 02:56:54 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GLaLQo008470
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:56:52 GMT
+	Wed, 17 Sep 2025 03:12:15 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58GLZtvt010412
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:12:12 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=; b=YFlCENv6AgYkfjAQ
-	a96MRQT6oo/+q5qRjw3Tq5bQb93E2IHEwA62/okuhO7ckMBCljDhLDNyo+1kbB2F
-	u4yPy0web9fEENwi+GcwDfmnaB+A09pEM8V1RTpPh79AifibQWq4q7fkcUg9vurH
-	nj90HjiAGqdt0wH6v5VWB3nMqHkDnTBPj0CC/qsb1+OIg4o0AycvaMbT8Cb5atgp
-	m6Aii1bFHI6i30Qu8Jj/3HApW+pz9cSqREFGRHWaHX/Ny4b4IRQ4uD1QuSrdYxwv
-	Lt7hcXvgj7n6YG4vdDgvkW4+Xh+5/bItwz//zjHTnxP5/rwIbmZHW2wTNhwacSuY
-	EvJugQ==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 497fxxrnhe-1
+	bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=; b=oGwtjH0Exgc4HJZ6
+	4LNgPy8k8wroe0yLplggfurthr8oAqn+Q5FKJ4OOs3YhWK5oqUa2JBku4nkVvU0i
+	cJMyidg0zNEdY520cjzriTQbt0TqdqNqr2WAP8bZUEDvUBlYXfjL3DcpsPpd40c4
+	/+W8LN8RH+Xzek48UJ3TraPDYOYWtbLh4GgwV/2uXEB9PeAZs/jFr6C3FhkehRXy
+	2mN2Qh+ObGJCWPmJJqTBCL43ZV2On770JPd+twZYZ3JTWixuyCgojwRbFPx3IQ2N
+	plMVPYcgdC2iGVnDL3c7BA2nmSolMByIediv0ySurzfJZ3DgERht8OkFvJheT90e
+	pepmUQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 497fxw8q2b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:56:52 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2675d9ad876so34172835ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 19:56:52 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:12:11 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-267ac96f558so26802565ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 20:12:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758077811; x=1758682611;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1758078731; x=1758683531;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ejs0DfeIgjCv+z5FoYBCuNGBcmoT875zmGQTHUFovnk=;
-        b=TEBGAJjFoRRjVqQ4z6aGnqo3KYiwFhwQsnjtMAA0Llj9D9D+BXqPw+urYbGfd2FD2A
-         skwt9qBPodz5FxKI/R8RrjSBhxDFrzF6NdfPJn7pz+PT1EBRyXoH+ox61LxRKvHViCDF
-         lf1rmMF6SQFLLTGP73X9PmAdHpV8n5ze5DSUlyK/c3+6HFwLf/s/GMMaWbInmTa+iF/M
-         JmDE/+kEYiukZ9+k9zfGqE+NFqOZGNP5DMlDqClaZBLPLqoKk5ai7OuVdqRsLIpWBJHY
-         e2W9pgS3LuANdyx4b9Lqn7/oCC5OzBG3m4pFOIjPO0U3nWC2VQn/i38Pd8uoRfweE16Z
-         ZV1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXrtZ79uR/dMs+ox2Lsjb9lHtMWCET2p+7eLaKFLfpaDoWSckUXgFpDuONcnxESqGJ3E5cefMZMU2/odCOEZnJs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxuzsjo9HruHb4P9MqsnLC8Ci1cgWZOOMfu+6gvrceUl+SeTj8G
-	f8NUgFIuHnKAj0emCrk3QAw+cK+LoeOC0eAsrq7kSobfZvy+PC5YNKdJEn1sqACTQ7SOPkW4gi3
-	CrU3FKh4Y8lOB/RAA/oG/kHm5nw2dYH2aVJ8Cr5n2bzZU2tLLpRdIn5PcZ0lKLM8Wvw5ycyF67I
-	LkHDeUnBXWaw==
-X-Gm-Gg: ASbGnctf51RotjYXSj9bhahyuBstmVHhgp7Qjvc73UsD9K1izzFYE7V/2zIOp3io+1T
-	YSjD0ulrzfoV3lloSk+JmcePV33XU0LTgjga2NxiiUy0K1Uvs2rpOy+NHYZ1e6/R2TjMuthbVGU
-	JS4mLrIOJF+rKCv9XsLdJsM+nXADM+qf33UJlfxHYyoINHrfpJBlUT5O8TXygnCEjR6bl5+scnD
-	fK0/LF7o+NRoptFFjFvJB2FJyaPtr2NSe07uqqObtNg4hHNfYAYQJwgQGX3fMHtIF52nd02hqEn
-	0IdYTtmpGgJwb8yZcBDGSxqxJFhCmD7OYR9sjeRmnxw3Y1FfjL6oaIKyWFBq3TZAkp4qC+VTv+/
-	fYw==
-X-Received: by 2002:a17:902:ecd1:b0:263:57e7:8950 with SMTP id d9443c01a7336-2681217f3e4mr7419655ad.19.1758077811094;
-        Tue, 16 Sep 2025 19:56:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGnnI/XlzVFKrLai7UAMi0WGqhx8P9VAhzfg83kdhSwUBWlQHiBGFrNpl+Fk25QwPynEZGuDw==
-X-Received: by 2002:a17:902:ecd1:b0:263:57e7:8950 with SMTP id d9443c01a7336-2681217f3e4mr7419235ad.19.1758077810577;
-        Tue, 16 Sep 2025 19:56:50 -0700 (PDT)
-Received: from [192.168.29.115] ([49.43.231.156])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-264c4e98f8csm87739605ad.108.2025.09.16.19.56.41
+        bh=bIG1bOtImKnLmFSkvvJht6cuFZCgJS/l0Y73y0ey89k=;
+        b=n+rEox3gxKDDW9LcFjPVKyPOgkRYZFBuB3GdaiEwcv8lqaMjvdMHnVEmCs+h5zIeN3
+         TjZVTo3YwnucpDHw3M7Dq1+VAXM9LMUAuHJL7mTZI1myMjzgWrP6UdRPI3t9J1/IEx6v
+         /zHvJj9YaxV2F61m6aGMSYGabhWtavVISHusHW3y0IQiCYbsRcKr1DCP+1wVwM7zby3r
+         sAehGTRWsIL0LjLfFjzw2ruLL/dqPAyxMRE8TH22U8cGGyi+1IjqmqumXDWC1BiJhrSs
+         1TgmTBccZ5Fop1GGBuR4HzzucWge9/pqQy33ffueO3qPwILSjaUBTN9QWC/IlbLnM5PZ
+         CihA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZT5Zp18f460jWGVuZA6aiTi1jZ5+trWVP4hlmgx5LNeGUoiXPU92J63bONQ8NPYjF7hKY8levP1wwkb72Kfkb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhojnGGJPi+wL2nHatXOMJeOfcHZugl2uED5bFCsmPS3DSBU1R
+	6iDKdRjTXj0EWX7F0nuEWDCg5ci/qVk6Djjl4z6ztCeAfESM1B7S7cSUPSKpJ8xdbI0wCTwDEKQ
+	zsM7r+Ib+CBEDba3t4Q4jGt/CtrDO3HYqprn30dbleHHqputqbASdSXlnENl9v7MhLB751fWB3k
+	xg1A==
+X-Gm-Gg: ASbGnctHAGicvlADukGt7qF+qdLYg/3TM93h4S6pnOXFQ4g+CU8yYrPBXNT2aWpt8N+
+	4UVEj/2k7GBjJkFRAKWqfQFPyB1y2KhfNN5/WsHvSfN/SsiNhQ7JTGqINCx67GQpexs856rLNhB
+	0g7PgqOmGnPAAhqN9W6ey4ParwmxEQEtfr1j0+Nmu10n9xsI8yRINhDS6xh7QzXxcA1akO2gGR0
+	fJiLnruUsM6p+gD4PSX1vcacZteGdA8Tp5RKGnMcsk5zPxNyBUsrZRGb4ojsGaUTG1Ww6ZJut5K
+	34yMa+W76aZLd2bqmHmYYJNOc84jgQaf5V8MLMBsTZq02I1UZWw+jSUQVtvE+gaIxBRuEooKHcn
+	uxF+TwYHUUXUnxvT1ZeMJbY6xJHPVOLPqYZnOBGM=
+X-Received: by 2002:a17:903:b0b:b0:264:a34c:c6d with SMTP id d9443c01a7336-268137f2232mr5877145ad.37.1758078730938;
+        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHBCLcKRApHcGH30xII8GXUVK5/XOxilDiSXJooBQ2zL0Io8pE34P9hJiDzte0TVak6qxwcsA==
+X-Received: by 2002:a17:903:b0b:b0:264:a34c:c6d with SMTP id d9443c01a7336-268137f2232mr5876785ad.37.1758078730453;
+        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
+Received: from [10.133.33.235] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-25c36cc6abcsm176125835ad.16.2025.09.16.20.12.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Sep 2025 19:56:50 -0700 (PDT)
-Message-ID: <32d8329f-0d73-fb16-f12d-308e6ee6b45d@oss.qualcomm.com>
-Date: Wed, 17 Sep 2025 08:26:38 +0530
+        Tue, 16 Sep 2025 20:12:10 -0700 (PDT)
+Message-ID: <634a38d3-0a20-471d-bc39-44a822df00dd@oss.qualcomm.com>
+Date: Wed, 17 Sep 2025 11:12:04 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v14 05/10] power: reset: reboot-mode: Expose sysfs for
- registered reboot_modes
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20250815-arm-psci-system_reset2-vendor-reboots-v14-0-37d29f59ac9a@oss.qualcomm.com>
- <20250815-arm-psci-system_reset2-vendor-reboots-v14-5-37d29f59ac9a@oss.qualcomm.com>
- <lgoahuqgoajuj352h7rnjfyeeyf24x45pj3qmidc6qqrc75vej@3hrblxle7uyk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/3] coresight-tnoc: Add support for Interconnect TNOC
+To: Mike Leach <mike.leach@linaro.org>
+References: <20250831-itnoc-v4-0-f0fb0ef822a5@oss.qualcomm.com>
+ <f9d3b3ec-dcf1-42ce-b925-70e5543771ed@oss.qualcomm.com>
+ <CAJ9a7Vivhrx2zss_8Ti+QS1dzakp+4CrAsDj00RKojUaL_t7Sg@mail.gmail.com>
 Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <lgoahuqgoajuj352h7rnjfyeeyf24x45pj3qmidc6qqrc75vej@3hrblxle7uyk>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>, coresight@lists.linaro.org,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Leo Yan <leo.yan@arm.com>
+From: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
+In-Reply-To: <CAJ9a7Vivhrx2zss_8Ti+QS1dzakp+4CrAsDj00RKojUaL_t7Sg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfXwY4c+OpuaIet
- UrsEQ8xfWojHiASaNbilQu13+NQJwiPdggtLbqNkpXuRCHjPulfvPIZtwosx8nHVahaGdt5ck/4
- Z/M3vWgMlRuEsBHMc/igBo55Iw23nGNctMva2VY2u2KDbryOdakTQ4qdsxk90V9cc0DhF7ynfKt
- DLeUlPcsF0RPrqzAV8JMn0yc9TpMpgXQEltXJNStWsQekMkuCzNb0h7y2GvWFSKaCYI1/4MNg49
- AJ4Q/oGfYsUbfzZP22ZeOFr5FSi68IlC9NQWVH3Ezv2MRKGQeQ+2FIl8SqjqEOLGzTBFgAAVXAP
- P8ibCyIHMWGmPhgT6BQ8v3FDDciJ2bQZ4d1leEJl3WtYsn7mqfHYBmE55ik6i7VtfXtqwZs+uzc
- hTEQ1eIc
-X-Proofpoint-ORIG-GUID: eoDk9f-XTIdlH9G8asCKZjPxHCs1Gw8a
-X-Authority-Analysis: v=2.4 cv=KJZaDEFo c=1 sm=1 tr=0 ts=68ca2374 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=1kWWpRhd3BofgRIEiGpY3A==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=7WfyLBSIawAVH6obIBAA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: eoDk9f-XTIdlH9G8asCKZjPxHCs1Gw8a
+X-Authority-Analysis: v=2.4 cv=HbIUTjE8 c=1 sm=1 tr=0 ts=68ca270c cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8
+ a=EUspDBNiAAAA:8 a=WTqQPv3OPy9EuyCnVQMA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX/LHgxF+fcyXz
+ /EKdYAbQrLsO6LhNUpanzf4SkETvwzxxdC80GThxogMIGU13FxS/AqZkrXGMVFI3Vk7dnYc4M+t
+ 4d/Y57i96d9OVUKzcMz8Dn81QedQHw/tgRjR6MRY5x426ElL12MgSMssJNeKN9D+Xyl1OwicgV1
+ M/Iq8Qr0ValyFwGb20GExCR7r3Ce5h9RyLEZb8kePZApp69UZaEYy6r2wTNU8hxWGejv+Te8bJL
+ XyPzgMb1XUo/SDjYxvZ6fxCJLThyD2KVkPzLwzvPQLD0DGeM9+pjCQwBiBzy2QRPJdHIygH8kpk
+ ifG1FmwpRcpeFJffGrVVjwlanRpx/iErfRQy1zkVIpmE0nQ4kqbWyvymymMJy7E/sD9Gtyx2osy
+ IfyHQTpZ
+X-Proofpoint-GUID: 7I5cYvReSnyDZU_juFADtab9_Q9qLgbY
+X-Proofpoint-ORIG-GUID: 7I5cYvReSnyDZU_juFADtab9_Q9qLgbY
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-16_02,2025-09-16_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 bulkscore=0 adultscore=0 impostorscore=0
- suspectscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ spamscore=0 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ adultscore=0 priorityscore=1501 phishscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509160202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_195653_147617_03E1E8F0 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20250916_201213_784327_3B0DEF62 
+X-CRM114-Status: GOOD (  31.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,133 +141,131 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/17/2025 12:32 AM, Sebastian Reichel wrote:
+On 9/16/2025 9:00 PM, Mike Leach wrote:
 > Hi,
 > 
-> On Fri, Aug 15, 2025 at 08:05:10PM +0530, Shivendra Pratap wrote:
->> Currently, there is no standardized mechanism for userspace to
->> discover which reboot-modes are supported on a given platform.
->> This limitation forces tools and scripts to rely on hardcoded
->> assumptions about the supported reboot-modes.
->>
->> Create a class 'reboot-mode' and a device under it to expose a
->> sysfs interface to show the available reboot mode arguments to
->> userspace.
->>
->> Provision the register function with an additional parameter to
->> get an explicit driver_name. Create the device using this
->> driver_name. For platform drivers, use the driver_name configured
->> in dev node.
->>
->> This results in the creation of:
->>   /sys/class/reboot-mode/<driver>/reboot_modes
->>
->> This read-only sysfs file will exposes the list of supported
->> reboot modes arguments provided by the driver, enabling userspace
->> to query the list of arguments.
->>
->> Align the clean up path to maintain backward compatibility for
->> existing reboot-mode based drivers.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
->>  drivers/power/reset/reboot-mode.c | 131 +++++++++++++++++++++++++++++++-------
->>  include/linux/reboot-mode.h       |   4 +-
->>  2 files changed, 110 insertions(+), 25 deletions(-)
->>
->> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
->> index ac81b8b0a9b7fc31f8ef21024333a050087ce90f..7ecab050e496af3e1cc01c1a4614787707cb74b4 100644
->> --- a/drivers/power/reset/reboot-mode.c
->> +++ b/drivers/power/reset/reboot-mode.c
->> @@ -6,6 +6,7 @@
->>  #define pr_fmt(fmt)	"reboot-mode: " fmt
->>  
->>  #include <linux/device.h>
->> +#include <linux/err.h>
->>  #include <linux/init.h>
->>  #include <linux/kernel.h>
->>  #include <linux/list.h>
->> @@ -23,6 +24,8 @@ struct mode_info {
->>  	struct list_head list;
->>  };
->>  
->> +static struct class *rb_class;
->> +
->>  static u64 get_reboot_mode_magic(struct reboot_mode_driver *reboot, const char *cmd)
->>  {
->>  	const char *normal = "normal";
->> @@ -75,26 +78,121 @@ static int reboot_mode_notify(struct notifier_block *this,
->>  	return NOTIFY_DONE;
->>  }
->>  
->> +static void release_reboot_mode_device(struct device *dev, void *res);
->> +
->> +static ssize_t reboot_modes_show(struct device *dev, struct device_attribute *attr, char *buf)
->> +{
->> +	struct reboot_mode_driver **devres_reboot;
->> +	struct reboot_mode_driver *reboot;
->> +	struct mode_info *info;
->> +	ssize_t size = 0;
->> +
->> +	devres_reboot = devres_find(dev, release_reboot_mode_device, NULL, NULL);
->> +	if (!devres_reboot || !(*devres_reboot))
->> +		return -ENODATA;
->> +
->> +	reboot = *devres_reboot;
->> +	mutex_lock(&reboot->rb_lock);
->> +	list_for_each_entry(info, &reboot->head, list) {
->> +		size += sprintf(buf + size, "%s ", info->mode);
+> I'm a little confused as to precisely what this component is.
 > 
-> sysfs_emit_at
-
-ACK. will update.
-
+> From the description in the DT - it appears to be very much like a
+> static trace funnel - multiple inputs, and a single output.
+> The DT describes the inputs as "Coresight Trace". What is meant here?
+> - if this is ATB trace then this component is identical to the
+> coresight trace funnel in functionality so should probably use the
+> normal CS static funnel driver.
 > 
->> +	}
->> +	mutex_unlock(&reboot->rb_lock);
->> +
->> +	if (size) {
->> +		size += sprintf(buf + size - 1, "\n");
+> However - if it does not appear on the AMBA bus - how are the
+> coresight management registers read - these are a mandatory
+> requirement in the CoreSight specification for any coresight
+> compatible component?
 > 
-> sysfs_emit_at
-
-ACK. will update.
-
+> Thanks
 > 
->> +		return size;
->> +	}
->> +
->> +	return -ENODATA;
->> +}
->> +static DEVICE_ATTR_RO(reboot_modes);
->> +
->> +static void release_reboot_mode_device(struct device *dev, void *res)
->> +{
->> +	struct reboot_mode_driver *reboot = *(struct reboot_mode_driver **)res;
->> +	struct mode_info *info;
->> +	struct mode_info *next;
->> +
->> +	unregister_reboot_notifier(&reboot->reboot_notifier);
->> +
->> +	mutex_lock(&reboot->rb_lock);
->> +	list_for_each_entry_safe(info, next, &reboot->head, list) {
->> +		list_del(&info->list);
->> +		kfree_const(info->mode);
->> +		kfree(info);
->> +	}
->> +	mutex_unlock(&reboot->rb_lock);
->> +
->> +	device_remove_file(reboot->reboot_dev, &dev_attr_reboot_modes);
->> +}
->> +
->> +static int create_reboot_mode_device(struct reboot_mode_driver *reboot,
->> +				     const char *dev_name)
+> Mike
 > 
-> Instead of adding more and more arguments to this, just add a name
-> field to struct reboot_mode_driver.
 
-ACK. will update.
+Hi Mike,
 
-thanks,
-Shivendra
+"Coresight Trace" means ATB trace, the Video TNOC in the following example is an interconnect TNOC.
+It is used to replace TPDA and Funnel. Compared to Funnel, it is easier to configure and only
+requires enabling once, without the need to enable each inport separately.
+
+it has "reg" parameter on DT, can use memory-map to read management registers.
+
+  +------------------------+                +-------------------------+
+  | Video Subsystem        |                |Video Subsystem          |
+  |       +-------------+  |                |       +------------+    |
+  |       | Video TPDM  |  |                |       | Video TPDM |    |
+  |       +-------------+  |                |       +------------+    |
+  |            |           |                |              |          |
+  |            v           |                |              v          |
+  |   +---------------+    |                |        +-----------+    |
+  |   | Video funnel  |    |                |        |Video TNOC |    |
+  |   +---------------+    |                |        +-----------+    |
+  +------------|-----------+                +------------|------------+
+               |                                         |
+               v-----+                                   |
++--------------------|---------+                         |
+|  Multimedia        v         |                         |
+|  Subsystem   +--------+      |                         |
+|              |  TPDA  |      |                         v
+|              +----|---+      |              +---------------------+
+|                   |          |              |   Aggregator  TNOC  |
+|                   |          |              +----------|----------+
+|                   +--        |                         |
+|                     |        |                         |
+|                     |        |                         |
+|              +------v-----+  |                         |
+|              |  Funnel    |  |                         |
+|              +------------+  |                         |
++----------------|-------------+                         |
+                 |                                       |
+                 v                                       v
+      +--------------------+                    +------------------+
+      |   Coresight Sink   |                    |  Coresight Sink  |
+      +--------------------+                    +------------------+
+
+       Current Configuration                            TNOC
+
+This example is from the trace noce patch below:
+https://lore.kernel.org/all/20250710-trace-noc-v11-0-f849075c40b8@quicinc.com/
+
+> On Tue, 16 Sept 2025 at 03:35, yuanfang zhang
+> <yuanfang.zhang@oss.qualcomm.com> wrote:
+>>
+>> Hi Suzuki,
+>>
+>> Could this patch series be applied? Is there anything I need to update?
+>>
+>> thanks,
+>> yuanfang.
+>>
+>> On 9/1/2025 2:58 PM, Yuanfang Zhang wrote:
+>>> This patch series adds support for the Qualcomm CoreSight Interconnect TNOC
+>>> (Trace Network On Chip) block, which acts as a CoreSight graph link forwarding
+>>> trace data from subsystems to the Aggregator TNOC. Unlike the Aggregator TNOC,
+>>> this block does not support aggregation or ATID assignment.
+>>>
+>>> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+>>> ---
+>>> Changes in v4:
+>>> - Fix unintended blank line removals in trace_noc_enable_hw.
+>>> - Link to v3: https://lore.kernel.org/r/20250828-itnoc-v3-0-f1b55dea7a27@oss.qualcomm.com
+>>>
+>>> Changes in v3:
+>>> - Add detail for changes in V2.
+>>> - Remove '#address-cells' and '#size-cells' properties from in-ports field.
+>>> - Fix comment indentation for packet description.
+>>> - Link to v2: https://lore.kernel.org/r/20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com
+>>>
+>>> Changes in v2:
+>>> - Removed the trailing '|' after the description in qcom,coresight-itnoc.yaml.
+>>> - Dropped the 'select' section from the YAML file.
+>>> - Updated node name to use a more generic naming convention.
+>>> - Removed the 'items' property from the compatible field.
+>>> - Deleted the description for the reg property.
+>>> - Dropped clock-names and adjusted the order of clock-names and clocks.
+>>> - Moved additionalProperties to follow the $ref of out-ports.
+>>> - Change "atid" type from u32 to int, set it as "-EOPNOTSUPP" for non-AMBA device.
+>>> - Link to v1: https://lore.kernel.org/r/20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com
+>>>
+>>> ---
+>>> Yuanfang Zhang (3):
+>>>       dt-bindings: arm: qcom: Add Coresight Interconnect TNOC
+>>>       coresight-tnoc: add platform driver to support Interconnect TNOC
+>>>       coresight-tnoc: Add runtime PM support for Interconnect TNOC
+>>>
+>>>  .../bindings/arm/qcom,coresight-itnoc.yaml         |  90 ++++++++++++++
+>>>  drivers/hwtracing/coresight/coresight-tnoc.c       | 136 +++++++++++++++++++--
+>>>  2 files changed, 215 insertions(+), 11 deletions(-)
+>>> ---
+>>> base-commit: 2b52cf338d39d684a1c6af298e8204902c026aca
+>>> change-id: 20250815-itnoc-460273d1b80c
+>>>
+>>> Best regards,
+>>
+> 
+> 
+
+
+
 
