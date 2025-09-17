@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26071CAC59F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4681ECAC59A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7mQY3qdCR3hvy95CDRctskrJV5Xhnq7AFeZGsJQX4o=; b=iMQaSUSlk7ACVCadkXpRZL487e
-	8k7x9p/judYE+pFVLg/YinqRTcOFgVAAKB44CvGzgGWaERLd/ymmjYuoq6RCXGIcTFhUq/UiankBo
-	DSQFxcwn0rO4SO/sAEnyMqiTrGbT8OOAbIK+V3nj/s39JIMhDuMS3A4iuIHHsAX/kYLW8KrGcjmFM
-	69ILPqbWcCmiaRGrdU2iazdc96FWYWl9MtgvU2ifGmTaNOFSBrRFmgsHPFehXzN9Dm3fD03A2X0RK
-	BO8OZy1SJuyCr+lyQzfAGMkSuQUpSZvBq0hmg+qdAUufGYjokcBpnKWdMABsoyxUMZA9zDWpvstvx
-	ByJNqkIA==;
+	bh=loMy4TUif8ykaDI5FK6KRKdzewryzSo9NF7v0gGWyiQ=; b=TPcSHYwBMpvOgZs7lDkrz+Lhty
+	3dAfCrocGgmu+RUv7ftQMvg66LeWNimB7DU4RK6t+shZ6D12+YG+TMOkkSDAGCOxmXvhvdAO2LqTN
+	jXWDd/K9SjQVSEdJZl4meQwS6DZn/y4bzHodMaiwjXJi4zCAQoYELp8v/6zM6e8WWRhd621+NbZ5H
+	T6++9I50sfO3Owib6Zvjxpf7Fc7xtWN35UJg9c2FyuJEvi3u0y5cZYS4GGME+gIhMtVD4xdBUEsJ8
+	XneqQ5o9WtycEJ/BIebEht0kab0FX+L/UY0DfqfH0luk+W0ltRjQYSyWAhc+hr5gOlcPIZ6wmicgo
+	LvbBZY/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzay-0000000Eros-1fG8;
-	Wed, 17 Sep 2025 21:21:44 +0000
-Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
+	id 1uyzax-0000000Ernr-3sLO;
+	Wed, 17 Sep 2025 21:21:43 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzav-0000000Erjj-0SO2
+	id 1uyzat-0000000ErhL-0yho
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:21:42 +0000
+	Wed, 17 Sep 2025 21:21:40 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144099;
+	t=1758144096;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=V7mQY3qdCR3hvy95CDRctskrJV5Xhnq7AFeZGsJQX4o=;
-	b=C+9i/VCsWpAwC29BijvaMaRZY8BDN8RoD1Jf0fHZrKGgoUW/G4mz5nTbMmdXIBFgh835/5
-	7csE2vGh4ValXeKKYVLM/68mC7ERszZ8/6Z/yGJh/04csuS+kdGczT9ugnDJc23YoIEGXK
-	Ase1WRq/DBJu+TCfjNhRJwC2fg3Ib/8=
+	bh=loMy4TUif8ykaDI5FK6KRKdzewryzSo9NF7v0gGWyiQ=;
+	b=hGuzkiCE37zZWKiNLcSTbrvIyvfllDCUQeghB17bTsvfJ+3j4Hj4a0IKn2uYjHxfdX/DDT
+	nLGY+q3R819cm3YtduFoSw/aA40NKLUXCNpxeDeorlq4lsv8JxRQt/t9dFmKy9ESVovyBq
+	4wvh909sf/MJzD0dHMzrTk8ch9De/eM=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 08/13] KVM: arm64: selftests: Select SMCCC conduit based on current EL
-Date: Wed, 17 Sep 2025 14:20:38 -0700
-Message-ID: <20250917212044.294760-9-oliver.upton@linux.dev>
+Subject: [PATCH 07/13] KVM: arm64: selftests: Provide helper for getting default vCPU target
+Date: Wed, 17 Sep 2025 14:20:37 -0700
+Message-ID: <20250917212044.294760-8-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142141_442148_621AD187 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250917_142139_438743_6E51F55F 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,128 +78,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HVCs are taken within the VM when EL2 is in use. Ensure tests use the
-SMC instruction when running at EL2 to interact with the host.
+The default vCPU target in KVM selftests is pretty boring in that it
+doesn't enable any vCPU features. Expose a helper for getting the
+default target to prepare for cramming in more features. Call
+KVM_ARM_PREFERRED_TARGET directly from get-reg-list as it needs
+fine-grained control over feature flags.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- tools/testing/selftests/kvm/arm64/hypercalls.c      |  2 +-
- tools/testing/selftests/kvm/arm64/kvm-uuid.c        |  2 +-
- tools/testing/selftests/kvm/arm64/psci_test.c       | 10 +++++-----
- .../testing/selftests/kvm/include/arm64/processor.h | 13 +++++++++++++
- tools/testing/selftests/kvm/steal_time.c            |  2 +-
- 5 files changed, 21 insertions(+), 8 deletions(-)
+ tools/testing/selftests/kvm/arm64/psci_test.c   |  2 +-
+ .../testing/selftests/kvm/arm64/smccc_filter.c  |  2 +-
+ .../selftests/kvm/arm64/vpmu_counter_access.c   |  4 ++--
+ tools/testing/selftests/kvm/get-reg-list.c      |  9 ++++++---
+ .../selftests/kvm/include/arm64/processor.h     |  2 ++
+ .../testing/selftests/kvm/lib/arm64/processor.c | 17 +++++++++++------
+ 6 files changed, 23 insertions(+), 13 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
-index 44cfcf8a7f46..bf038a0371f4 100644
---- a/tools/testing/selftests/kvm/arm64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
-@@ -108,7 +108,7 @@ static void guest_test_hvc(const struct test_hvc_info *hc_info)
- 
- 	for (i = 0; i < hvc_info_arr_sz; i++, hc_info++) {
- 		memset(&res, 0, sizeof(res));
--		smccc_hvc(hc_info->func_id, hc_info->arg1, 0, 0, 0, 0, 0, 0, &res);
-+		do_smccc(hc_info->func_id, hc_info->arg1, 0, 0, 0, 0, 0, 0, &res);
- 
- 		switch (stage) {
- 		case TEST_STAGE_HVC_IFACE_FEAT_DISABLED:
-diff --git a/tools/testing/selftests/kvm/arm64/kvm-uuid.c b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
-index af9581b860f1..b5be9133535a 100644
---- a/tools/testing/selftests/kvm/arm64/kvm-uuid.c
-+++ b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
-@@ -25,7 +25,7 @@ static void guest_code(void)
- {
- 	struct arm_smccc_res res = {};
- 
--	smccc_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, 0, 0, 0, 0, 0, 0, 0, &res);
-+	do_smccc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, 0, 0, 0, 0, 0, 0, 0, &res);
- 
- 	__GUEST_ASSERT(res.a0 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 &&
- 		       res.a1 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 &&
 diff --git a/tools/testing/selftests/kvm/arm64/psci_test.c b/tools/testing/selftests/kvm/arm64/psci_test.c
-index 0d4680da66d1..98e49f710aef 100644
+index cf208390fd0e..0d4680da66d1 100644
 --- a/tools/testing/selftests/kvm/arm64/psci_test.c
 +++ b/tools/testing/selftests/kvm/arm64/psci_test.c
-@@ -27,7 +27,7 @@ static uint64_t psci_cpu_on(uint64_t target_cpu, uint64_t entry_addr,
- {
- 	struct arm_smccc_res res;
+@@ -89,7 +89,7 @@ static struct kvm_vm *setup_vm(void *guest_code, struct kvm_vcpu **source,
  
--	smccc_hvc(PSCI_0_2_FN64_CPU_ON, target_cpu, entry_addr, context_id,
-+	do_smccc(PSCI_0_2_FN64_CPU_ON, target_cpu, entry_addr, context_id,
- 		  0, 0, 0, 0, &res);
+ 	vm = vm_create(2);
  
- 	return res.a0;
-@@ -38,7 +38,7 @@ static uint64_t psci_affinity_info(uint64_t target_affinity,
- {
- 	struct arm_smccc_res res;
+-	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
++	kvm_get_default_vcpu_target(vm, &init);
+ 	init.features[0] |= (1 << KVM_ARM_VCPU_PSCI_0_2);
  
--	smccc_hvc(PSCI_0_2_FN64_AFFINITY_INFO, target_affinity, lowest_affinity_level,
-+	do_smccc(PSCI_0_2_FN64_AFFINITY_INFO, target_affinity, lowest_affinity_level,
- 		  0, 0, 0, 0, 0, &res);
+ 	*source = aarch64_vcpu_add(vm, 0, &init, guest_code);
+diff --git a/tools/testing/selftests/kvm/arm64/smccc_filter.c b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+index eb5551d21dbe..a8e22d866ea7 100644
+--- a/tools/testing/selftests/kvm/arm64/smccc_filter.c
++++ b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+@@ -64,7 +64,7 @@ static struct kvm_vm *setup_vm(struct kvm_vcpu **vcpu)
+ 	struct kvm_vm *vm;
  
- 	return res.a0;
-@@ -48,7 +48,7 @@ static uint64_t psci_system_suspend(uint64_t entry_addr, uint64_t context_id)
- {
- 	struct arm_smccc_res res;
+ 	vm = vm_create(1);
+-	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
++	kvm_get_default_vcpu_target(vm, &init);
  
--	smccc_hvc(PSCI_1_0_FN64_SYSTEM_SUSPEND, entry_addr, context_id,
-+	do_smccc(PSCI_1_0_FN64_SYSTEM_SUSPEND, entry_addr, context_id,
- 		  0, 0, 0, 0, 0, &res);
+ 	/*
+ 	 * Enable in-kernel emulation of PSCI to ensure that calls are denied
+diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+index 36a3a8b4e0b5..2a8f31c8e59f 100644
+--- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
++++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+@@ -430,7 +430,7 @@ static void create_vpmu_vm(void *guest_code)
+ 	}
  
- 	return res.a0;
-@@ -58,7 +58,7 @@ static uint64_t psci_system_off2(uint64_t type, uint64_t cookie)
- {
- 	struct arm_smccc_res res;
- 
--	smccc_hvc(PSCI_1_3_FN64_SYSTEM_OFF2, type, cookie, 0, 0, 0, 0, 0, &res);
-+	do_smccc(PSCI_1_3_FN64_SYSTEM_OFF2, type, cookie, 0, 0, 0, 0, 0, &res);
- 
- 	return res.a0;
+ 	/* Create vCPU with PMUv3 */
+-	vm_ioctl(vpmu_vm.vm, KVM_ARM_PREFERRED_TARGET, &init);
++	kvm_get_default_vcpu_target(vpmu_vm.vm, &init);
+ 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
+ 	vpmu_vm.vcpu = aarch64_vcpu_add(vpmu_vm.vm, 0, &init, guest_code);
+ 	vcpu_init_descriptor_tables(vpmu_vm.vcpu);
+@@ -525,7 +525,7 @@ static void run_access_test(uint64_t pmcr_n)
+ 	 * Reset and re-initialize the vCPU, and run the guest code again to
+ 	 * check if PMCR_EL0.N is preserved.
+ 	 */
+-	vm_ioctl(vpmu_vm.vm, KVM_ARM_PREFERRED_TARGET, &init);
++	kvm_get_default_vcpu_target(vpmu_vm.vm, &init);
+ 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
+ 	aarch64_vcpu_setup(vcpu, &init);
+ 	vcpu_init_descriptor_tables(vcpu);
+diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
+index 91f05f78e824..f4644c9d2d3b 100644
+--- a/tools/testing/selftests/kvm/get-reg-list.c
++++ b/tools/testing/selftests/kvm/get-reg-list.c
+@@ -116,10 +116,13 @@ void __weak finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
  }
-@@ -67,7 +67,7 @@ static uint64_t psci_features(uint32_t func_id)
+ 
+ #ifdef __aarch64__
+-static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *init)
++static void prepare_vcpu_init(struct kvm_vm *vm, struct vcpu_reg_list *c,
++			      struct kvm_vcpu_init *init)
  {
- 	struct arm_smccc_res res;
+ 	struct vcpu_reg_sublist *s;
  
--	smccc_hvc(PSCI_1_0_FN_PSCI_FEATURES, func_id, 0, 0, 0, 0, 0, 0, &res);
-+	do_smccc(PSCI_1_0_FN_PSCI_FEATURES, func_id, 0, 0, 0, 0, 0, 0, &res);
++	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, init);
++
+ 	for_each_sublist(c, s)
+ 		if (s->capability)
+ 			init->features[s->feature / 32] |= 1 << (s->feature % 32);
+@@ -127,10 +130,10 @@ static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *ini
  
- 	return res.a0;
- }
+ static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm_vm *vm)
+ {
+-	struct kvm_vcpu_init init = { .target = -1, };
++	struct kvm_vcpu_init init;
+ 	struct kvm_vcpu *vcpu;
+ 
+-	prepare_vcpu_init(c, &init);
++	prepare_vcpu_init(vm, c, &init);
+ 	vcpu = __vm_vcpu_add(vm, 0);
+ 	aarch64_vcpu_setup(vcpu, &init);
+ 
 diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index 87f50efed720..f037c1bb8e63 100644
+index 5a4b29c1b965..87f50efed720 100644
 --- a/tools/testing/selftests/kvm/include/arm64/processor.h
 +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -359,4 +359,17 @@ static __always_inline u64 ctxt_reg_alias(struct kvm_vcpu *vcpu, u32 encoding)
- 
- void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init);
- 
-+static inline unsigned int get_current_el(void)
-+{
-+	return (read_sysreg(CurrentEL) >> 2) & 0x3;
-+}
-+
-+#define do_smccc(...)				\
-+do {						\
-+	if (get_current_el() == 2)		\
-+		smccc_smc(__VA_ARGS__);		\
-+	else					\
-+		smccc_hvc(__VA_ARGS__);		\
-+} while (0)
-+
- #endif /* SELFTEST_KVM_PROCESSOR_H */
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index cce2520af720..8edc1fca345b 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -118,7 +118,7 @@ static int64_t smccc(uint32_t func, uint64_t arg)
- {
- 	struct arm_smccc_res res;
- 
--	smccc_hvc(func, arg, 0, 0, 0, 0, 0, 0, &res);
-+	do_smccc(func, arg, 0, 0, 0, 0, 0, 0, &res);
- 	return res.a0;
+@@ -357,4 +357,6 @@ static __always_inline u64 ctxt_reg_alias(struct kvm_vcpu *vcpu, u32 encoding)
+ 	return KVM_ARM64_SYS_REG(alias);
  }
  
++void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init);
++
+ #endif /* SELFTEST_KVM_PROCESSOR_H */
+diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+index 311660a9f655..5ae65fefd48c 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/processor.c
++++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+@@ -267,19 +267,24 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
+ 	}
+ }
+ 
++void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init)
++{
++	struct kvm_vcpu_init preferred = {};
++
++	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &preferred);
++
++	*init = preferred;
++}
++
+ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
+ {
+ 	struct kvm_vcpu_init default_init = { .target = -1, };
+ 	struct kvm_vm *vm = vcpu->vm;
+ 	uint64_t sctlr_el1, tcr_el1, ttbr0_el1;
+ 
+-	if (!init)
++	if (!init) {
++		kvm_get_default_vcpu_target(vm, &default_init);
+ 		init = &default_init;
+-
+-	if (init->target == -1) {
+-		struct kvm_vcpu_init preferred;
+-		vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &preferred);
+-		init->target = preferred.target;
+ 	}
+ 
+ 	vcpu_ioctl(vcpu, KVM_ARM_VCPU_INIT, init);
 -- 
 2.47.3
 
