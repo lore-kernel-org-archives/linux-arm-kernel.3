@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F12CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36E6CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXWzH3AvD69Q8lI5Y0llzQzfFSEhsuV9TmtXsx0N6Y8=; b=FcrtHA31DjCOYb7Cb7LjIgn7mO
-	DiQNu+SjTI9YxCJe73I2HijIxaKVLrtEkw1MQXzLbztuTCVyJ8wzUmNotuui3Jyl4K5qXhxJAtnF/
-	rfnWFdOfqdaqM1ZWAT1fSu/4vTmfsN30HGe3XBySxbye8dcrYl9UNF2q3j7M3GmVQMB1MO+1V/mx5
-	1XB4rgmM0IhzjqW5iTh/j6kL74H9/DL3kzDt8J1uYi5iaTru+hGOs635wSwObPctWzp+l/R2oOcdY
-	VlWGmEkXcbxYfcAe4dODFNaPbXWwes27zezBBrHVSgwVMbVcs+8daOp2m559w++9HafPZfGYR7KCf
-	HEuOpLqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ngN4kxVQKLMv2TlOZWI2DrSijnc3KpLfGOwuclV4Snc=; b=ERlxAkzCRmYyXrCwKc+v+YE8Y9
+	W3UE6CWwFqEcMKLBd769QvqE8IUncWL2yz5zVPtaichJih2CNYjZ+AM2n32kB4Y20DylxS10ja7+2
+	2sZyrBTG5upDTYi06/KNFzquMIuItComcqU848/k2594V0//kV3mo5DFEr8crec0CMONAeM5yePw1
+	aHTlm3m2nMUJzqh9P3P0+sxkADCJAH+y7Rx5wtSLFMM0TnfbyXbrANdhBK01Jj0LDaicxrw+QReDS
+	ppAShop0xgqDGndDAiVUEbOWkPB2RZOfQnF2Y6fwVY3i/4oQhTL3gdTEARsw43OXcPZAlpJqpOASl
+	eMyA2JSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyslK-0000000Bzy6-2WF9;
-	Wed, 17 Sep 2025 14:03:58 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uyslN-0000000C02L-1rmM;
+	Wed, 17 Sep 2025 14:04:01 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjp-0000000Bxgh-1Zjo
+	id 1uysjs-0000000Bxl5-47kd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:28 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117734;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tXWzH3AvD69Q8lI5Y0llzQzfFSEhsuV9TmtXsx0N6Y8=;
-	b=WyIEv5kNEj9kmZtWOWeZFCCCY1bKbOwpQLdESGYzHr8aG+JimbdpiPhO+pYGXJ5hXnUmOC
-	nkDWFRp/Km9ncq1IUzarC6zSat13sCZFinKSZ6TJ4igvoAyZwcGPLFjc/X4xEPTO3btvvw
-	ndMOpmuthbyZu7XIQM7yN5qCw+OiSniKzriW2W3IWdIhqreAChd7jTIp3RkgAMQEdnfo13
-	Usp5z0uaapjAvRcSpMy6GjR0JEgkmOnr1+EedQA31VYdmhXb4xyImRuvHYPXAnOTtmZv3/
-	OfordU9WHIWzFvZehPLEXkZGw/8cjzTTQnZtmNk7vyesWkqywAm3i6Q42mHY5g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117734;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tXWzH3AvD69Q8lI5Y0llzQzfFSEhsuV9TmtXsx0N6Y8=;
-	b=1Ov3WBkd4ndEaUkbAYesP5lZZeKZBCW6v/dv4t+5HpDa4vpaLTKURbGvN8xeVceJNb0Lkn
-	HSsYPzwckq71LeCA==
-Date: Wed, 17 Sep 2025 16:00:38 +0200
-Subject: [PATCH v3 36/36] clocksource: drop include of asm/clocksource.h
- from linux/clocksource.h
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-36-3679b1bc8ee8@linutronix.de>
-References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
-In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Arnd Bergmann <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>, 
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
- Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
- "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>, 
- Shannon Nelson <sln@onemain.com>
-Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
- linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=681;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=z6rw8gc2i+vXaJlg660yiQKhkDkj7a8Qr+J2EFiBq9A=;
- b=RhaONrS37dhEX8d1wSADLLwBV5kdoZ8JXoywKJrRNnTRBnqPjh/4TWSHyfP00DxiPUP9Nzz7Y
- EkydccSCII3B3rLLld2L+tAc2+T/EDPK/KlwsHTX3SAToBbrIuL3HqZ
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+	Wed, 17 Sep 2025 14:02:30 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45e037fd142so55971095e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:02:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1758117745; x=1758722545; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ngN4kxVQKLMv2TlOZWI2DrSijnc3KpLfGOwuclV4Snc=;
+        b=xwxaN2vwPJw8w0NOKLY99Xw+t1wFPjWW6YBcPoxViguE1MYflam5E4ThUzBa6N7vIt
+         2iEoWuixIdETrMka8EbOAwVoEvI0q4qMqhEsJF16dW+KHTqEsVLqV9YUfuEz3bpNllWg
+         HmYT2fRivZwNfThfv0J1paZQZ+ZC+SnRtM6JMHoDhTb7gGTlx4BYYHk3K7H350H95Lzd
+         9Ws8NLRVreik+Zl2AsPh++uj2HVGCg5k+HR1iOVK3AS8YzVAF8eUWacHlsEAOlJGK6sb
+         GpWUP3bPtSfehLr/uWyxNgmJ26+jBrRlmkyCA6oikgwG9s5rji+2db5QBlS72TTbZtvz
+         kDdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758117745; x=1758722545;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ngN4kxVQKLMv2TlOZWI2DrSijnc3KpLfGOwuclV4Snc=;
+        b=LTkIfwExVil/jXiLy2Wk7k/BxCyaqVOjq9HVyTskJu4B2K71HyCWW7yTjIsltzkaSS
+         YFBc3YaqGg5H08FsdmzUTfOuku8O/gA4/7HmlpGwtItE2MnLrZ6xkUPlqH2pL/XY22aZ
+         PqmD+gaQDLF8sQyXFGoorhOEdZaljCwJID3RDXfYADN32PL8ltPMEcYZSgehDRsrkHVQ
+         kDJkR5fQznIYnCpU6DEbQ9trJ4lS12BFZQZfuBou5Eq9gjMDK2uwoLUGInkrcDQ9JpZr
+         X5lnO00FoCcD3c1jzUtByGYp6zuLvXTm2lW8d7uAqf3G929F8TbtQByV0Wi1QMxm7vQZ
+         ChTw==
+X-Forwarded-Encrypted: i=1; AJvYcCVD+ZdKPYpW7+CmIN2FTa0S2fLKW3MjKMfk+VCcw1XaCk3JEVWzaGvPMCjy2VpHjegEx9+JPM5Q4sJSJdR+bNwH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzU3j88Mu69m6x/MVlREYaHmEq3jBsCBc4y9VZwhvzOZHUF81dg
+	idjEuB/9hWQ+5xPLS6NU2yydSKqGkQbdLtwYctlY3jXZsDa7ckbgBbOwDCsxqvqIxRQkS+qffFy
+	2a6RP5r7W8vqczg==
+X-Google-Smtp-Source: AGHT+IFdG0Nhhw1O1UF5cygDkCqoxwKDzBO775bZilL9ZTcI8tzFDCdOk8xitUr+etVtXwIkoCMI0q6cwt5MfA==
+X-Received: from wmtk6.prod.google.com ([2002:a05:600c:c4a6:b0:45b:89e7:5038])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:354c:b0:45b:7aae:7a92 with SMTP id 5b1f17b1804b1-46205fa5930mr21477245e9.21.1758117745343;
+ Wed, 17 Sep 2025 07:02:25 -0700 (PDT)
+Date: Wed, 17 Sep 2025 14:02:01 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
+Message-ID: <20250917140216.2199055-1-smostafa@google.com>
+Subject: [PATCH 0/2] Move io-pgtable-arm selftest to KUnit
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
+	praan@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070225_802066_F048F82B 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_070229_074096_57D24E9E 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The same inclusion is already satisfied by vdso/clocksource.h.
+This is a small series to clean up the io-pgtable-arm library.
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- include/linux/clocksource.h | 4 ----
- 1 file changed, 4 deletions(-)
+The first patch was originally part of SMMUv3 KVM driver support[1],
+which was needed to factor out the kernel code from the io-pgtable-arm
+library, and based on Jason=E2=80=99s suggestion this can taken out as a cl=
+eanup
+and to converge to kunit.
 
-diff --git a/include/linux/clocksource.h b/include/linux/clocksource.h
-index 12d853b1883265cb47d93e33d8370e3957e7e695..afa03e9fb6f6c978099b33c07ec853b7a82fde84 100644
---- a/include/linux/clocksource.h
-+++ b/include/linux/clocksource.h
-@@ -25,10 +25,6 @@ struct clocksource_base;
- struct clocksource;
- struct module;
- 
--#if defined(CONFIG_GENERIC_GETTIMEOFDAY)
--#include <asm/clocksource.h>
--#endif
--
- #include <vdso/clocksource.h>
- 
- /**
+The first patch just moves the code to a new file with no other changes,
+so it can be easier to review it with =E2=80=9C--color-moved=E2=80=9D
 
--- 
-2.51.0
+The second patch registers the test using kunit, and converges some of
+the APIs, some notes about that:
+
+Dealing with __init:
+--------------------
+At the moment, all the test code and data are part of the init section.
+To avoid changing all the functions and data and removing them from the
+init section, we can rely on the kunit =E2=80=9Ckunit_test_init_section_sui=
+te=E2=80=9D
+to keep the test in the init section.
+That will make the results only available on debugfs (there is no
+possibility to run them after boot) unlike the SMMUv3 tests for example
+which can run on-demand.
+
+As the of results are saved in the kunit structs, they can=E2=80=99t be tag=
+ged
+as __init_data, instead they are be tagged to __refdata to avoid the
+modpost warning, as it=E2=80=99s guaranteed that kunit will only access the=
+ results,
+not the test after init.
+
+Instead, we can remove the __init constraint, and be able to run the tests
+on-demand, and possibly compile it as a module.
+
+Granularity of tests:
+---------------------
+To make the series easier to review, the series changes the test to run in
+kunit without making intrusive changes to the test itself.
+It=E2=80=99s possible to refactor the tests to have smaller granularity (al=
+though
+I think that would make it less efficient as we might create the same io-pg=
+table
+config multiple times) and integrate them in kunit as multiple tests, that
+change would be more intrusive, if you think that is the right approach,
+I can add a couple of more patches re-writing the tests.
+
+Other changes:
+--------------
+- Also, to make the test changes minimal, and fail messages similar, =E2=80=
+=9CKUNIT_FAIL=E2=80=9D
+  is used to fail all tests instead of using KUNIT specific assertions.
+
+- Instead of using faux device, we rely on kunit_device_register()
+
+- The WARN is removed when a test fails, as that doesn=E2=80=99t seem to be=
+ a pattern
+  used with kunit.
+
+
+A failure at the test with the new implementation look as
+[    2.115982]     # io_pgtable_arm_test_run: EXPECTATION FAILED at drivers=
+/iommu/io-pgtable-arm-selftests.c:94
+[    2.118381]     # io_pgtable_arm_test_run: selftest: test failed for fmt=
+ idx 0
+[    2.118501]     # io_pgtable_arm_test_run: cfg: pgsize_bitmap 0x40201000=
+, ias 32-bit
+[    2.118863]     # io_pgtable_arm_test_run: data: 3 levels, 0x20 pgd_size=
+, 12 pg_shift, 9 bits_per_level, pgd @ 00000000a15afb2d
+
+
+[1] https://lore.kernel.org/all/20250819215156.2494305-5-smostafa@google.co=
+m/
+
+
+Mostafa Saleh (2):
+  iommu/io-pgtable-arm: Move selftests to a separate file
+  iommu/io-pgtable-arm-selftest: Use KUnit
+
+ drivers/iommu/Kconfig                    |   2 +-
+ drivers/iommu/Makefile                   |   1 +
+ drivers/iommu/io-pgtable-arm-selftests.c | 223 +++++++++++++++++++++
+ drivers/iommu/io-pgtable-arm.c           | 243 -----------------------
+ drivers/iommu/io-pgtable-arm.h           |  41 ++++
+ 5 files changed, 266 insertions(+), 244 deletions(-)
+ create mode 100644 drivers/iommu/io-pgtable-arm-selftests.c
+
+--=20
+2.51.0.384.g4c02a37b29-goog
 
 
