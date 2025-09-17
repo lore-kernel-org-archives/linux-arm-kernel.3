@@ -4,111 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FEDCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7D9CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 02:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyciX4f4LOewx8ZMs5EWycT7ocOXWO8K7fpB0lHH+4k=; b=MGhMNFk4n/WxQ6jeZATX+2axj3
-	eMk8PKhyHUTnbu1gSI82cBg9UlwrlqQwxTixp4aYHRWH/XuKx3jwDfzJTQdhvhPygsNdHG3X4j51S
-	xEwAV4jVRO9CiaFPzr6uhfH7ewWkLQCezZ8fIVjMK2T+sDRC7AiFqlXLHnWyndsWV9u04dumoZAt4
-	fEIWEP1gMDWXRHxqx/ovkXQshPAI/L/XRSI0QUhvmY9SWBq3vwq2wSfQyn+711hHCtZK73LKYUOeI
-	WwIu8+BdUp43uO60sqmTXz8BKx1gAjcuZ3zhg6XvqLQyZ8+tV0Ri13XfxINOx0WUezw1DUPdvsBTA
-	kQousbHQ==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zbfOHx4kxbLSRlZnJMRy2JtVsUEGR5+lIot3ZCtU+0E=; b=Od/J6kKbuLOrjuENKLjPazbMqO
+	uo6UitkObrJ0hfOpn+Vl2FzImZPhqO0DAaA/Q+M8lveisk1gd/wI3ui4EYvH0FglMdh5WkWAinb/9
+	ioxyUHScG/mcepXVSVhPsL8mBm+2KOzIAUOr8aaHm+gx5lcVJv2Bu3TOmxwq6A6tPMbJNtbENMkSm
+	0UxCclVQ0tI3ipS03DEYs5NkE5nE0l9bPYXIpEW8i4T7T/efv1y4akf1PfjCN/g4TGbhvRmFNTX88
+	hrqpoKytA6ja4IV+oP++6iW9JW/4dlqF7km+mE6WldFRw50T2qBioegh1MgYaOlf8LXAaIUrcJ5O/
+	jWgx9WAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyhsl-00000009xfz-1xpQ;
-	Wed, 17 Sep 2025 02:26:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uyhw9-00000009y8K-02Qt;
+	Wed, 17 Sep 2025 02:30:25 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyhsj-00000009xfr-1xBb
+	id 1uyhw6-00000009y5u-1sGy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 02:26:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5FCF6023C;
-	Wed, 17 Sep 2025 02:26:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B270C4CEEB;
-	Wed, 17 Sep 2025 02:26:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758076012;
-	bh=WBYtinUfynMQdo7EUgi/v4l0p6ZLU2dBPFXS/wRAI48=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rnOX5kahyi1aWzXOlgg3Uq8FvVfMMCJ/WHPx0MgONJYo+4ZPZys9nvWY1dwuQd8su
-	 ZVvjrQNht2xOTi3qwZy8dQ56N9/F34dACuI86gdSMCsoYT5dZBPyG9+2RxqtQY2IPu
-	 2eLJqayuAOvIKuuM+CPPWxtk+NPIdU6lfWsowlm+C1/nEF7x0I6TWFZhjXxGhNJD6z
-	 N4MYKEoLctBPQpJ/pXMKHpORR/mPQPxF6y8t77lBXq9Mh+VG5qgjw6wYdNVdghpCAy
-	 WxkFVsVhxkZ7i5se0mzAKqZSsa5X4N1KWKU9ZWkdr14nxfBsx55VBfI6w+dtYvSJM5
-	 HAixpqkTaRQeQ==
-Message-ID: <f037c73d-e341-434e-9bee-92ebcb2da5c8@kernel.org>
-Date: Wed, 17 Sep 2025 11:26:48 +0900
+	Wed, 17 Sep 2025 02:30:23 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7726c7ff7e5so4917198b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Sep 2025 19:30:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758076217; x=1758681017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zbfOHx4kxbLSRlZnJMRy2JtVsUEGR5+lIot3ZCtU+0E=;
+        b=Io36DEQ/jqzH5rO+h3rMNP0/4IZVk3KaaEi/evwfJ+mTGCLZmuS/Tm0JHn7aQ2qE0Q
+         m4aiLccO0qtyU2DB6A/JHwHucDx6SAGLKBz7143I2TCkb19wbBXkDjMt4OUx/PRIE5FR
+         l5oEjgxK7yd1dHhxh1Qwd0UgjKJ0Sib7hgqqdLLysbcLt2KYOBVqfpu0eBDoV7b/MGry
+         QX7DvpcJV6UWwjOTyMP425GkVlAqr4MLf9NtZivS/VB0Qz80OExU9+yRC6YHSklNv1fI
+         SElLL5iRAzUjaEE7KmlDUebSizxKA7oUdvIXkNC7HKZmDN3sEjyClc4Einccsep0O9Hf
+         oEVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758076217; x=1758681017;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zbfOHx4kxbLSRlZnJMRy2JtVsUEGR5+lIot3ZCtU+0E=;
+        b=b1KEL4XpFiYSNaHS1K6ITPCEomyTYiZGwefZrDx+6NorrPigUW/5VckIzB4y4Dmr2l
+         yJyZvoZaVrslGf0yUkEOF9SAWeRAOoAd9djLZBdw8jYwwZmr4WIRQdjM6sDFuu3/O4Pe
+         IDt1RPhRmzl3XUkx3gZ/f7SJYPqempKCSzafWCH8msMhlUOFN6DB2vAyrCH5hesWgAaa
+         i64ujny4fCoWEmBxMO0Qcaqf6eoFFtuojw76PyuTbb8Es9dChR0x+3WvSaLQkAjVhGCE
+         t34B2bL18D4Z6YpLkPHz7/J9bafCdhAJ5pP9czvN3S7+JOV979X0keqbHM3S3tge0Maz
+         fVdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU7+AnAeEwfTcAJKd9Ul3anN5Wdol2LEKAhezsOWzySuVJmJq847Bs9rvdVfLHeuFpaNwDnlNsJqsDCbAsca7Op@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6636O32Wf7mjo+Dh3X0ysDEaRouiyLTNSYgari6fYiGZkw9Pu
+	6SlyuATLbbA/MFnbEnVzeuSPV4AjAFTpfkQUSfaedAroWpFLTMz9FKLntXPmREY2pRU=
+X-Gm-Gg: ASbGncsFmGSmfi1p8b8n5HxrCbMs6k7fzJ8qrS5oo/6GGXco+YZGtTvxtkTNFy55lJV
+	Wj4DfpOqjURN2Yz50jUIgvErAkqVVHcVEMm/K2rq0Ghe2NGopVNxKzsi5WJRej0ncelzZUvTbkk
+	XxcYp3YDS5jX75jUJFbK7prOUOi+eaSf3IScLuYPNQLoUhJj2w1dZlkLJGE8c34/KXpP2R8oGhP
+	A/q3U2h0dVoAam3/rrWImi9P8EMS+x1bU3CbkVRUMacBUYG0Rj93y6mghPSPhPi8S4Slh8QC+6A
+	ZUlQajoUyYXtIZcxHm31oO5XASDnZ4a33L6wnyIEMEepNEWYNswgpy4qiuU3O0RjKrsQU/bfyWn
+	fYExlf3ZUZYU6YBlYAkjAHl7dM9usx/MdnvUmyfW2PGWYcLpVixBdOCh4e3ue
+X-Google-Smtp-Source: AGHT+IHrVERgQmh7lAH6JDt1kYBBcduFHRx2UuVAjcsAgXlINws6Nn6ovQWKdf6zTTGNaVe31DCbfQ==
+X-Received: by 2002:a05:6a20:548d:b0:24f:f79d:66a8 with SMTP id adf61e73a8af0-27a96a993f3mr586251637.24.1758076217466;
+        Tue, 16 Sep 2025 19:30:17 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([61.213.176.10])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77607b1a031sm17829080b3a.57.2025.09.16.19.30.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 16 Sep 2025 19:30:17 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	sudeep.holla@arm.com,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	dakr@kernel.org,
+	beata.michalska@arm.com,
+	sumitg@nvidia.com,
+	ptsm@linux.microsoft.com,
+	cuiyunhui@bytedance.com,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arch_topology: move parse_acpi_topology() to common code
+Date: Wed, 17 Sep 2025 10:30:07 +0800
+Message-Id: <20250917023007.97637-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/5] clk: samsung: introduce exynos8890 clock driver
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250914122116.2616801-1-ivo.ivanov.ivanov1@gmail.com>
- <20250914122116.2616801-6-ivo.ivanov.ivanov1@gmail.com>
- <20250915074931.GD8224@nxa18884-linux.ap.freescale.net>
- <83128929-4daa-4dac-8162-e773af675438@kernel.org>
- <20250915113055.GA14420@nxa18884-linux.ap.freescale.net>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250915113055.GA14420@nxa18884-linux.ap.freescale.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250916_193022_670952_DB929F67 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +104,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 13:30, Peng Fan wrote:
-> On Mon, Sep 15, 2025 at 09:16:40AM +0200, Krzysztof Kozlowski wrote:
->> On 15/09/2025 09:49, Peng Fan wrote:
->>> [...]
->>>> +static void __init exynos8890_cmu_top_init(struct device_node *np)
->>>> +{
->>>> +	exynos8890_init_clocks(np, &top_cmu_info);
->>>> +	samsung_cmu_register_one(np, &top_cmu_info);
->>>> +}
->>>> +
->>>> +/* Register CMU_TOP early, as it's a dependency for other early domains */
->>>> +CLK_OF_DECLARE(exynos8890_cmu_top, "samsung,exynos8890-cmu-top",
->>>> +	       exynos8890_cmu_top_init);
->>>
->>> Not sure you need to run Android GKI, without module built, this platform
->>> will not able to support GKI.
->>
->> Why would anyone worry about GKI? We develop mainline kernel, not
->> Android kernel.
-> 
-> I understand this. But someone will have to update this to support module
-> built whether mainline or downstream tree, unless GKI is not in the plan.
+Currently, RISC-V lacks arch-specific registers for CPU topology
+properties and must get them from ACPI. Thus, parse_acpi_topology()
+is moved from arm64/ to drivers/ for RISC-V reuse.
 
-What Android, Windows or BSD people plan is outside of my scope. I am
-happy if someone wants to make it fully modular and actually TESTS it,
-so it works. It was not fully modular because of boot limitations long
-time ago, which maybe are solved maybe not.
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/arm64/kernel/topology.c  | 87 +----------------------------------
+ drivers/base/arch_topology.c  | 85 +++++++++++++++++++++++++++++++++-
+ include/linux/arch_topology.h |  6 +++
+ 3 files changed, 91 insertions(+), 87 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 5d07ee85bdae4..55650db53b526 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -26,7 +26,7 @@
+ #include <asm/topology.h>
+ 
+ #ifdef CONFIG_ACPI
+-static bool __init acpi_cpu_is_threaded(int cpu)
++bool __init acpi_cpu_is_threaded(int cpu)
+ {
+ 	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
+ 
+@@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+ 
+ 	return !!is_threaded;
+ }
+-
+-struct cpu_smt_info {
+-	unsigned int thread_num;
+-	int core_id;
+-};
+-
+-/*
+- * Propagate the topology information of the processor_topology_node tree to the
+- * cpu_topology array.
+- */
+-int __init parse_acpi_topology(void)
+-{
+-	unsigned int max_smt_thread_num = 1;
+-	struct cpu_smt_info *entry;
+-	struct xarray hetero_cpu;
+-	unsigned long hetero_id;
+-	int cpu, topology_id;
+-
+-	if (acpi_disabled)
+-		return 0;
+-
+-	xa_init(&hetero_cpu);
+-
+-	for_each_possible_cpu(cpu) {
+-		topology_id = find_acpi_cpu_topology(cpu, 0);
+-		if (topology_id < 0)
+-			return topology_id;
+-
+-		if (acpi_cpu_is_threaded(cpu)) {
+-			cpu_topology[cpu].thread_id = topology_id;
+-			topology_id = find_acpi_cpu_topology(cpu, 1);
+-			cpu_topology[cpu].core_id   = topology_id;
+-
+-			/*
+-			 * In the PPTT, CPUs below a node with the 'identical
+-			 * implementation' flag have the same number of threads.
+-			 * Count the number of threads for only one CPU (i.e.
+-			 * one core_id) among those with the same hetero_id.
+-			 * See the comment of find_acpi_cpu_topology_hetero_id()
+-			 * for more details.
+-			 *
+-			 * One entry is created for each node having:
+-			 * - the 'identical implementation' flag
+-			 * - its parent not having the flag
+-			 */
+-			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
+-			entry = xa_load(&hetero_cpu, hetero_id);
+-			if (!entry) {
+-				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+-				WARN_ON_ONCE(!entry);
+-
+-				if (entry) {
+-					entry->core_id = topology_id;
+-					entry->thread_num = 1;
+-					xa_store(&hetero_cpu, hetero_id,
+-						 entry, GFP_KERNEL);
+-				}
+-			} else if (entry->core_id == topology_id) {
+-				entry->thread_num++;
+-			}
+-		} else {
+-			cpu_topology[cpu].thread_id  = -1;
+-			cpu_topology[cpu].core_id    = topology_id;
+-		}
+-		topology_id = find_acpi_cpu_topology_cluster(cpu);
+-		cpu_topology[cpu].cluster_id = topology_id;
+-		topology_id = find_acpi_cpu_topology_package(cpu);
+-		cpu_topology[cpu].package_id = topology_id;
+-	}
+-
+-	/*
+-	 * This is a short loop since the number of XArray elements is the
+-	 * number of heterogeneous CPU clusters. On a homogeneous system
+-	 * there's only one entry in the XArray.
+-	 */
+-	xa_for_each(&hetero_cpu, hetero_id, entry) {
+-		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
+-		xa_erase(&hetero_cpu, hetero_id);
+-		kfree(entry);
+-	}
+-
+-	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+-	xa_destroy(&hetero_cpu);
+-	return 0;
+-}
+ #endif
+ 
+ #ifdef CONFIG_ARM64_AMU_EXTN
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 1037169abb459..65ec1f3d2bd28 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -823,12 +823,95 @@ void remove_cpu_topology(unsigned int cpu)
+ 	clear_cpu_topology(cpu);
+ }
+ 
++__weak bool __init acpi_cpu_is_threaded(int cpu)
++{
++	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
++
++	return !!is_threaded;
++
++}
++
++#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
++/*
++ * Propagate the topology information of the processor_topology_node tree to the
++ * cpu_topology array.
++ */
+ __weak int __init parse_acpi_topology(void)
+ {
++	unsigned int max_smt_thread_num = 1;
++	struct cpu_smt_info *entry;
++	struct xarray hetero_cpu;
++	unsigned long hetero_id;
++	int cpu, topology_id;
++
++	if (acpi_disabled)
++		return 0;
++
++	xa_init(&hetero_cpu);
++
++	for_each_possible_cpu(cpu) {
++		topology_id = find_acpi_cpu_topology(cpu, 0);
++		if (topology_id < 0)
++			return topology_id;
++
++		if (acpi_cpu_is_threaded(cpu)) {
++			cpu_topology[cpu].thread_id = topology_id;
++			topology_id = find_acpi_cpu_topology(cpu, 1);
++			cpu_topology[cpu].core_id   = topology_id;
++
++			/*
++			 * In the PPTT, CPUs below a node with the 'identical
++			 * implementation' flag have the same number of threads.
++			 * Count the number of threads for only one CPU (i.e.
++			 * one core_id) among those with the same hetero_id.
++			 * See the comment of find_acpi_cpu_topology_hetero_id()
++			 * for more details.
++			 *
++			 * One entry is created for each node having:
++			 * - the 'identical implementation' flag
++			 * - its parent not having the flag
++			 */
++			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
++			entry = xa_load(&hetero_cpu, hetero_id);
++			if (!entry) {
++				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
++				WARN_ON_ONCE(!entry);
++
++				if (entry) {
++					entry->core_id = topology_id;
++					entry->thread_num = 1;
++					xa_store(&hetero_cpu, hetero_id,
++						 entry, GFP_KERNEL);
++				}
++			} else if (entry->core_id == topology_id) {
++				entry->thread_num++;
++			}
++		} else {
++			cpu_topology[cpu].thread_id  = -1;
++			cpu_topology[cpu].core_id    = topology_id;
++		}
++		topology_id = find_acpi_cpu_topology_cluster(cpu);
++		cpu_topology[cpu].cluster_id = topology_id;
++		topology_id = find_acpi_cpu_topology_package(cpu);
++		cpu_topology[cpu].package_id = topology_id;
++	}
++
++	/*
++	 * This is a short loop since the number of XArray elements is the
++	 * number of heterogeneous CPU clusters. On a homogeneous system
++	 * there's only one entry in the XArray.
++	 */
++	xa_for_each(&hetero_cpu, hetero_id, entry) {
++		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
++		xa_erase(&hetero_cpu, hetero_id);
++		kfree(entry);
++	}
++
++	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++	xa_destroy(&hetero_cpu);
+ 	return 0;
+ }
+ 
+-#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+ void __init init_cpu_topology(void)
+ {
+ 	int cpu, ret;
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index d72d6e5aa2002..50d33b5a78ccd 100644
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -70,6 +70,11 @@ struct cpu_topology {
+ 	cpumask_t llc_sibling;
+ };
+ 
++struct cpu_smt_info {
++	unsigned int thread_num;
++	int core_id;
++};
++
+ #ifdef CONFIG_GENERIC_ARCH_TOPOLOGY
+ extern struct cpu_topology cpu_topology[NR_CPUS];
+ 
+@@ -88,6 +93,7 @@ void update_siblings_masks(unsigned int cpu);
+ void remove_cpu_topology(unsigned int cpuid);
+ void reset_cpu_topology(void);
+ int parse_acpi_topology(void);
++bool acpi_cpu_is_threaded(int cpu);
+ void freq_inv_set_max_ratio(int cpu, u64 max_rate);
+ #endif
+ 
+-- 
+2.39.5
+
 
