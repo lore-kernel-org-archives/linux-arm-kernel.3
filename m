@@ -4,160 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619D9CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 09:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C1CCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 09:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1J68fhB3luww5z5LAHChhRJGZ0ceyDULpuUS1jYVyM=; b=TxLCiyvAt5QPxlx/Kfl+ptBCih
-	WnT7OS68FUpOfuTVGwkYpesx3mAlH2On+wwpcaBjEwsKrAbNDk8V1K7YTaZ875oBivAK16MVnWUf/
-	xyoq6C8buexAfULOQWRaWwH+ABDqca2nxNYq1NlXNwhiqj+yT5uvYiAAZLewoAOv1ft85eYcvNim3
-	zZtv8By+YmnJCEFzxcNZIG6rJNEoX3jydHrRvE0jwYUq6b7gaiNZXlk1OeFJfF16QTdPoYnVj0VVV
-	JPbrgiPo2rJHPwAeHrBl0YGaF9c83Ncd0SJ5BC4XlAYlCJ3uqy0uRhD9hieG/n2qo8R+YvqHDSFlg
-	l6eU69Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5jQzjfISWXhmjsCWqCbC/EKcBa3nhvEnsbsmWDiienE=; b=bkvr/WZgrpwbcPBXpfj/GFbuDn
+	SqK1/8wv18l5nsQ+3LrJA5yeTNnxrTMs5Anl27845+6vo4KAwtRYRCrWoJGVDlMwov+35tVLlzGvt
+	mgMWiUHU0878IXBWb3HJyJHcnN0SHc+Ls2lDiNCT9sKLjZ9dE22XiJKnhcV59Nqb8tSAcmKHRFaN7
+	8qwwcBqHBkXcqMqVEuvQjlANRJDC/N60ye585HunuWWgD5e60vM3kwkFtUeGN5M1ZCqxn0O5Tel9j
+	vSknr0AyFydpAl21OPHOE65zMzmQ3Sn83APbvrpuMcjtKWSYlkXw7XptfWluxAJO6Oao+SXFzuGYX
+	XQjhMc0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyocY-0000000Aocv-05jr;
-	Wed, 17 Sep 2025 09:38:38 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uyoea-0000000Ap7a-2PuB;
+	Wed, 17 Sep 2025 09:40:44 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyocS-0000000AoXk-1UBv
+	id 1uyoeY-0000000Ap6H-32Lj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 09:38:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WZXCVBlz6xANbGhNSXNSx9M8dP1RCwnSObYIO0BPrQVyJHEfAOPCu0Ir3i2bQHX7IPkTA6YFeAIaZmGg9F/ubpDPAvjaaYCziZEQYg9eHUSaYSJeE+R6zGwhLuphHGw4FJ6/+sGfL6xGtrF4jgpaS+9fH1fix1YFfFeuCQAoglJRxFwYmzkd8qybcNIVoyiRnQ0EgHM0erNK7MCBBkGvOPYbWJXiiC/0KfDcvnhMDGxwcWSoXV5S+foqab0ObH9Jr5v7CM/2oAjQuERwyRg0TJ57ebKJCf3jXSB95kYvcRq/408UzgYaX/9fonOuguB5erPupk9pJ/H+egQ2y6b/Cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y1J68fhB3luww5z5LAHChhRJGZ0ceyDULpuUS1jYVyM=;
- b=RV0qbUEdwmuiJrGoU4WLY0msW3oP0c/eVDH72vWIGTPx2hKXV63yCd1pXBdg0vroj3pJq1NU87BGkEnahmvZEi9pgBOYHQB15NIRiGTxWYuxUMOF7NpEfT0On6Jwzb2TRm0U8Rxl5CkklcidQ8MdLtboD/EXIUcEWLYLpnwvDJ3hLOBBzILlroBOkkufd643WFTnqQuJ0TzfRd7mN0nOd8q3Gy4yApTm5Z3Pbn7ft7CM6VE0I5NqTHm2NFXG9l1E+txWTjV9ah6q7uBDk2BV92CZBx8imXNCHPTmZYg34Z7KNIHOgS76egBHMg1AhfNAwhQ9O+92khW6lVoJRfBTsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y1J68fhB3luww5z5LAHChhRJGZ0ceyDULpuUS1jYVyM=;
- b=WygEAJyS7hOC1tnCLCqMMz0uL7N6EHdrDBCUvffSE0A1bjA780XIuK1rx0JF1fHErNLaN7dtK1t+70nKUeWABqEb6CaYgwsI9QQpM5kPwVqYxqOuHG7ibSb5gqJnFitODkgioEWJu4ap20U4E/V3IslpYyGJcgHkZtDBEw8HynM60E+5lO7YgQpTd9vuFB8KN1CcuIKNVXCP7QIGbyPM4oRgyBiht7Nnanjd2gMf/vNFcz2boYxJDL+7IeD3Ru4LDRkzcmxVdwcIN2/NSoh9EoUzRRO6H5QlFlT4Vbz5HTg5KfKpVTuyoarlbbCZDpAMLNmUdBUw5diZSHkMJ9drSQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by VI1PR04MB7102.eurprd04.prod.outlook.com (2603:10a6:800:124::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
- 2025 09:38:30 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 09:38:30 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
+	Wed, 17 Sep 2025 09:40:43 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4619eb18311so4093375e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 02:40:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758102041; x=1758706841; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=5jQzjfISWXhmjsCWqCbC/EKcBa3nhvEnsbsmWDiienE=;
+        b=kctD+yQ64hwZleyqUyx4VqQcWCSlf/3JrIDaYYWz0kf/HGvwkOTLEUIJa2HnpCg1Qv
+         KVTZvzCQD6dT14EZ5OikNICLtQUGYeVfIWObxdQE0s7FSll+TUrman7fOS2ZcGbwkfnx
+         nc4BojK36TO/o1+WXxoInEDO9J/SCJBnU9GLB15upjyOTip0vL4eXYYUwkOFGoXixwrG
+         wG2hM7RUKtOdJXATok8YHjb4LTGgMApd7CUmW+/HWNLjTnj3SP0aPuuZ53pS6W+5NKbb
+         TBBsUtn6WSGp7yKg+9kh2Pjlyg+bGZOqhZAe2aBINnuLWvqEZX34jb3wUGGqct7nDP3y
+         84Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758102041; x=1758706841;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5jQzjfISWXhmjsCWqCbC/EKcBa3nhvEnsbsmWDiienE=;
+        b=jnlBFrL+9p7sdI3iH4NNMzJ6ckJLArAH3RGSBku1o3NlBmsaxYp8ZVkgKWo8vfMA+f
+         S2ZtciE/RDEwRU7cpDr9zibWODUPexV/cVCFXHTPCBU+Xh7FgCVzjwsKqg1T17pva7Tr
+         kg2STDKn2+rIT58Lww4exRfYi1vyoh+jjflio1v+7j9ZhifMPlZl0bTzHkBAOOFD+BXo
+         iyiJkfjuRG04kMJG5z9+/hiQNteyAFOsRwMJR8uqgr4FnSsQ0Y9w3BDiXkFeCNCl5wSd
+         hTTwKTphhZaWBgljLTdC0VjMLsWQsHsH2ReZ8/fXqU4NAATq1uCip3hjE2G+i86Y6Tvi
+         Cpew==
+X-Forwarded-Encrypted: i=1; AJvYcCWRU9Lmmen+guGWye2jJm9caUfFk8z8fT9oMpyKN4VwBoqQ0OpGcvZGdjRmKiIo6TQ0N1Sb2w0kiIYjV6kNrySb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKPAbVd7LNVYLG6e/9zeX67biQ+6apP5IGjsF9cmsdu0jtftF2
+	E1Yn34H8tSEdNCjdQIGJ7az82bwQQgv7Bi5N+EzfdR/RG+iPS/ARt5s4
+X-Gm-Gg: ASbGnct5RtFowm9qgaYMyti99kS6EIiZ0pR4SPEdk8xJoT7WiCmVxPkXb6vcp3EK8as
+	I/XtiLXZ6OwlD7466RJHhL4bpfgz2Ln+t3rO8XQFJO6hKHurzy/lkUehA7mBuavF7qNPYr4QmXb
+	y8thS822ozBmKkYZYrL5Li0g7aqEmNaMwElAhFcKxaPlwerfgeYf7Qtt64SbmVQKtcYBGG0wkaB
+	nysXjE9Zbyz3mpEc2VUQfKUmvLAlSot/Mo/9gS4ovYp5F1jDQlah+yJP/bfzM6+o+1AyNLbpG5d
+	xQSn8HDW+bxtTRWtvOazlrSwBwiOq9SCHoWu0y28FFZ6vtcw6Mf3x8jpwY3TZcy2rDhbuDqgzcl
+	LGwl5zG+2fSXKNfBKy4P5aA22zuXpmWZjg+TYDR5b1mIHKIER0W7dYrb2cjmA0keB8mveHQ==
+X-Google-Smtp-Source: AGHT+IG1Z5gfPhstZ8Qe0/f0tZQDFllaZrwj1CdOj/WzkKpXcRN9xT6g090i2kZL7HUgri/YALYN1g==
+X-Received: by 2002:a05:600c:190e:b0:45d:d9ca:9f8a with SMTP id 5b1f17b1804b1-46206655f96mr10607395e9.27.1758102040358;
+        Wed, 17 Sep 2025 02:40:40 -0700 (PDT)
+Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4613eb27f25sm30833585e9.23.2025.09.17.02.40.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 02:40:39 -0700 (PDT)
+Message-ID: <68ca8217.050a0220.81571.9fda@mx.google.com>
+X-Google-Original-Message-ID: <aMqCFMC3zeBPyOCQ@Ansuel-XPS.>
+Date: Wed, 17 Sep 2025 11:40:36 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v2 2/2] PCI: imx6: Add a method to handle CLKREQ# override active low
-Date: Wed, 17 Sep 2025 17:37:51 +0800
-Message-Id: <20250917093751.1520050-3-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250917093751.1520050-1-hongxing.zhu@nxp.com>
-References: <20250917093751.1520050-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0015.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:179::15) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next PATCH v18 0/8] net: dsa: Add Airoha AN8855 support
+References: <20250915104545.1742-1-ansuelsmth@gmail.com>
+ <20250917092807.uui2qwva2sqbe6sp@skbuf>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|VI1PR04MB7102:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16bf7caa-6f9e-4b3e-eab3-08ddf5cdf623
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RS85DmMGYjgoJg05r8yOIWoiVi5TSVGlp9ONR6Ou5AnJXWdNhzUMV4cAHuQn?=
- =?us-ascii?Q?JgbWPmq0S0gYaOL7cF7UWNQAWfz/D8URm83gSvtyGViThMh+TpgjAmUGjvsy?=
- =?us-ascii?Q?J/sYBTOzHlO1rfskpmwBlVLd7Y589jjLqjZW4n83ItxwwxbA0UHW1KZuyElz?=
- =?us-ascii?Q?cVMrBcQmYhsRLUJ7WP72crKwSo/1j/r2YRmuVHurhDxzAfYkUhpB+85Y6Z7G?=
- =?us-ascii?Q?Jl7DRSWsC+w+cJFzd8nOHR/EZilbyo14iz4IMDQM0QyNqzV+yfGktVMQqq+h?=
- =?us-ascii?Q?vBXfJDOe0qoTejPME3xN1yeftZhTXefiPMsXr1eQQGrT8hlxr8Ceify5zgJg?=
- =?us-ascii?Q?WUDEZzo7R9hyvidznxZUyeCiPwi+GaYLfbGuZCAIjmzcZy5qqYcbgMCaHfQX?=
- =?us-ascii?Q?B7q+1fP9MqsCn6/Joru+ce00w+srz7I65jqxBzmggU8PGvsKvSj+ulUci5Mj?=
- =?us-ascii?Q?IoW7f06lmkAl7rDDw2PlnKlYGt0yOPwZpGzTqmDgpYI0fuCDDCSpVM5TzjqP?=
- =?us-ascii?Q?YtOb3uFDqqRcmgTtds8hf9s1VDcC701uWDHVWNyb8Do3H8pDD/lGeIi+accw?=
- =?us-ascii?Q?cmB9q9VFPgvLZUtVMFccH1NNI+YGPcT43bJDhma9CQlHMQKQ0MXJ3ej/ne+C?=
- =?us-ascii?Q?gCBIAgHNq6eNCjvLULRAceH4qxs8QJ2cAOA3CpHksxokniWG7YcjyoJsPHvU?=
- =?us-ascii?Q?boX+3IOpfAghsBWT1XJEc2z25SwaTcgb8gSFoiZzJsO+d4J/BIB15F0QzBGH?=
- =?us-ascii?Q?32v9xb7rMXfB/NHeJ9z4V+qWWCmBEVZRkgkTHAZTpxznz8ge38pzZrSDENzK?=
- =?us-ascii?Q?rvaOZ2pZl94KEBDNtc63P9BgmsRPPvkELEd4qs352fUmCVzPbLJS95FpGnkK?=
- =?us-ascii?Q?5KDTCEEeCkDBMsYJ1LdwIC7Xq1wg4ENcwme0vYlyquNNYjfdTRXSSPTf1rDP?=
- =?us-ascii?Q?SPsqB+3U2alo/pL5z9SeZa0G46pP2za/PoTE/IF/RoWFObW3YVS3CzUYirUd?=
- =?us-ascii?Q?e2IDkwPggsVv5H/9Xc4PpBvwJnSpUHDak58AAJxb9pTRH2DnRPGsVHbUMCA0?=
- =?us-ascii?Q?DfygklmGS5sPo4MZege4rTm80v+T6b0Q1mgXUKv4nlPnX8+XRWR4s0XMfEyC?=
- =?us-ascii?Q?SIsYiUAzvYLGrRyt1gJs7eUQoPMDpFVBNMdC9p/i2Hd5/NPTEN/s5m0rBOzK?=
- =?us-ascii?Q?VFW44NUPTmP78Ic+l7CoPkH0GcTEZXxnUgJkw/L0RVlAkvOc9ht8p0+/XR62?=
- =?us-ascii?Q?X0ooc1Z7/QGBozpr2d+dBXa2A7OJ3Xgyn1JPdsTL/nxuhNj+5/5an9YD3kYp?=
- =?us-ascii?Q?LOdhp82hDQZ3smessxgrnvuiTwznduuZK4oE25SuLpzRZM48024alTMFfqvi?=
- =?us-ascii?Q?yzGjCRbRxIQB+BRctaPRKpfS99q0+weF/zyC/or5epmPkGS5zYOxavQYGeDx?=
- =?us-ascii?Q?G6t+aZe25I6u9W1dNjbw/dndzsU+GksGlNndT9diqB7KC802uKoPU7syCr2F?=
- =?us-ascii?Q?sXePdLLRKQorUB8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ektuybGtTLG5rUSNfZCdUogJiwk3Zy9a+oCaBfWHmfII1/ZaNCjQsgqAJYyw?=
- =?us-ascii?Q?xQzhiqekW+BizeidJixm3q0uo9ecEQ30Zk+8+CLBU2xTUVJ8DyOWQnYluq0e?=
- =?us-ascii?Q?as7TYksbDRaarf6e1axxylMIvRgpPStOG1HzNz1WH93eLSyUQemc7XFjA9ce?=
- =?us-ascii?Q?DfXcl2bfX1Y8nghkiKuem28xlKPexnY0sfJxFGBhAGgBIRwdGutpi4VSGK/o?=
- =?us-ascii?Q?ciHXyPiPeWBpRkAttIe3QSu8rzK9A/k1S9pG58eycx323/1UXnzDtxN3pWKw?=
- =?us-ascii?Q?ZU5T2jxbGzlCRq71cl8KHBV2gDUWLtTXgcfoj8Z9KAFZLzjp5neaj+ZxX6UG?=
- =?us-ascii?Q?BRNbT9ZWLaZqa0BIsWzlSltpTqPxsHts9tohaXGImWwBl93fOOvt2Ns4PE8T?=
- =?us-ascii?Q?sxg7pcdSIdnWiBgaLT6n58ipI86F7F/Cb8fCKEHZu9YhCZnqvXnBYRhQDYaB?=
- =?us-ascii?Q?FkwpJqdN4IbPrCiM2fnBgY9zKSJcUbpABsxKTnEjDxvDB++SlMfN26g1DlZs?=
- =?us-ascii?Q?IFaPydqNWiVWmQKkayaLE5K/rekHspA6xCd08lZ7KzaE820UWdprt+KYXlf2?=
- =?us-ascii?Q?gv4ieo5a6BBWaoNJEUWlXrDjtAnW+JTubCPOPr4TyR7U8foj/TWzB7QoEiBz?=
- =?us-ascii?Q?+5HDo/LlZswdMlNJRzJvj6aPPgVgZ9c8+j9jTfKArYGJjbLPJgsE9g/1Jc7H?=
- =?us-ascii?Q?ADCX2AmvtahCVF6T5bjBDggdb8u05RId0XFDnxtRVLK53NC8a8fM22TgqWho?=
- =?us-ascii?Q?vzlSKtxmNmXXXN/HDsyYodM+su7bvR2d+BMPEB3G3hG2vCVfjgC/rpUiDCs/?=
- =?us-ascii?Q?bjYg+WV7uea13gzIxfZQMLbqRxmniRwWO3JoJ9sdxUNS5WlwC7/bmXY2dbDQ?=
- =?us-ascii?Q?kpTioqMRvmXKD26+AYQd8EQBN4LwaV3avjrNmhfjVDUqT7kqO/YIiq4DSlEA?=
- =?us-ascii?Q?6EFBQRq0gImiu9I7PAvs8kwHd+6y+k7DZ8QE6Hxd4qGQ0RvU4I7H9KcI21pw?=
- =?us-ascii?Q?6hfTad6PS9QSDmz8y1c9OQuHfcGBPMUao5mG9/4VGB2oINqAM+1TIqTCkMLi?=
- =?us-ascii?Q?ewVe+oUr4GJOVGBWVFZbPQ1yQrc26ZYRTmkWDLQb8mqKl3PKdrJaS5ldjDX0?=
- =?us-ascii?Q?wwFv60+cKP4IGVeO67MxdsMrKHEYsq8hqGzpjtps2/NiKkg/pSZ6IiJgAQS5?=
- =?us-ascii?Q?s/jIgfyKBp+eun+beXqXjY269a3nRU7Yfqqmb0MyNc7pGC1hoGrSkMJt6oM4?=
- =?us-ascii?Q?g2Q1217RDvtCMXnZ+/Wid5O6846S+UEE4Qdt0sXQu5TTTPNd77orVXwY+FNq?=
- =?us-ascii?Q?mP/cR0jC6WwnuatUahRroJk37mcYvcKOdfqZvwLrBjLsZGpzLD5zf/qGJguK?=
- =?us-ascii?Q?VwrNf9nzFAd5KR6rkkElBwBfYmiaI5mHav7pRR/ACFiYloQktlOSWLlgzNIp?=
- =?us-ascii?Q?qpqIHplvBRxg6k7XulzmiO/eI30cxVj5N1TLCdewM2FRHD1yWKLgGWIhu/EC?=
- =?us-ascii?Q?mwqZcHBj3cm2t0UJhb9XeCuqih189wxZioVnSTJmMFoR3tHU5u5OkK55CQ1z?=
- =?us-ascii?Q?W1J7957j6YBnB6bPcpNmdykWHjIhSYZgMwDEkMaB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16bf7caa-6f9e-4b3e-eab3-08ddf5cdf623
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 09:38:30.5545
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fFjflwHYzyh+aPCQnA1S4ILyfJX2ArJGGndocXLDVjq41XVKjpIOBVjbT506b4V9n7wgpb4OKny6xhH1joltFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7102
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917092807.uui2qwva2sqbe6sp@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_023832_396978_D92CDD2C 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250917_024042_815662_0AA8CDF4 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,145 +116,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CLKREQ# is an open drain, active low signal that is driven low by
-the card to request reference clock.
+On Wed, Sep 17, 2025 at 12:28:07PM +0300, Vladimir Oltean wrote:
+> On Mon, Sep 15, 2025 at 12:45:36PM +0200, Christian Marangi wrote:
+> > It's conceptually similar to mediatek switch but register and bits
+> > are different. And there is massive list of register for the PCS
+> > configuration.
+> > Saddly for that part we have absolutely NO documentation currently.
+> 
+> Please add in the next revision a more convincing argument for not
+> reusing the mt7530 driver control flow. Regmap fields can abstract a
+> lot, and the driver can select a completely different phylink_pcs for
+> different hardware.
+> 
+> I don't see in the short change log included here any mentions related
+> to the mt7530, but I'm not going to search the mailing lists since Nov
+> 2024 for any previous discussions about this...
+>
 
-But the CLKREQ# maybe reserved on some old device, compliant with CEM
-r3.0 or before. Thus, this signal wouldn't be driven low by these old
-devices.
+Ok will add additional info.
 
-Since the reference clock controlled by CLKREQ# may be required by i.MX
-PCIe host too. To make sure this clock is ready even when the CLKREQ#
-isn't driven low by the card(e.x old cards described above), force
-CLKREQ# override active low for i.MX PCIe host during initialization.
+But In short the FDB and VLAN part are very different. The FDB logic to
+dump entry add and remove is entirely different.
 
-The CLKREQ# override can be cleared safely when supports-clkreq is
-present and PCIe link is up later. Because the CLKREQ# would be driven
-low by the card in this case.
+And the mt7530 itself is full of unrelated function (specific to the
+first revision of the mt7530 switch) so I have to move lots of code
+around.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 35 +++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+If asked I can do it but I have to also introduce lots of extra change.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 80e48746bbaf..a73632b47e2d 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -52,6 +52,8 @@
- #define IMX95_PCIE_REF_CLKEN			BIT(23)
- #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
- #define IMX95_PCIE_SS_RW_REG_1			0xf4
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
- #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
- 
- #define IMX95_PE0_GEN_CTRL_1			0x1050
-@@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
- 	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
- 	int (*core_reset)(struct imx_pcie *pcie, bool assert);
- 	int (*wait_pll_lock)(struct imx_pcie *pcie);
-+	void (*clr_clkreq_override)(struct imx_pcie *pcie);
- 	const struct dw_pcie_host_ops *ops;
- };
- 
-@@ -149,6 +152,7 @@ struct imx_pcie {
- 	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
-+	bool			supports_clkreq;
- 	struct regmap		*iomuxc_gpr;
- 	u16			msi_ctrl;
- 	u32			controller_id;
-@@ -267,6 +271,13 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			   IMX95_PCIE_REF_CLKEN,
- 			   IMX95_PCIE_REF_CLKEN);
- 
-+	/* Force CLKREQ# low by override */
-+	regmap_update_bits(imx_pcie->iomuxc_gpr,
-+			   IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL);
- 	return 0;
- }
- 
-@@ -1298,6 +1309,18 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
- 		regulator_disable(imx_pcie->vpcie);
- }
- 
-+static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-+{
-+	imx8mm_pcie_enable_ref_clk(imx_pcie, false);
-+}
-+
-+static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-+{
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL, 0);
-+}
-+
- static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -1322,6 +1345,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
- 		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
- 		dw_pcie_dbi_ro_wr_dis(pci);
- 	}
-+
-+	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
-+	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
-+		if (imx_pcie->drvdata->clr_clkreq_override)
-+			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
-+	}
- }
- 
- /*
-@@ -1745,6 +1774,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	pci->max_link_speed = 1;
- 	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
- 
-+	imx_pcie->supports_clkreq =
-+		of_property_read_bool(node, "supports-clkreq");
- 	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
- 	if (IS_ERR(imx_pcie->vpcie)) {
- 		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
-@@ -1873,6 +1904,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
- 		.init_phy = imx8mq_pcie_init_phy,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MM] = {
- 		.variant = IMX8MM,
-@@ -1883,6 +1915,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_off[0] = IOMUXC_GPR12,
- 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MP] = {
- 		.variant = IMX8MP,
-@@ -1893,6 +1926,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_off[0] = IOMUXC_GPR12,
- 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8Q] = {
- 		.variant = IMX8Q,
-@@ -1913,6 +1947,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.core_reset = imx95_pcie_core_reset,
- 		.init_phy = imx95_pcie_init_phy,
- 		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
-+		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MQ_EP] = {
- 		.variant = IMX8MQ_EP,
+> Also, let's try not to reach v20.. Please try to collect a full round of
+> feedback from people who commented before when submitting a new version,
+> pinging people if necessary. You want to make sure that their previous
+> feedback was addressed.
+> 
+> > TEST: lan2: Multicast IPv4 to joined group                          [ OK ]
+> > TEST: lan2: Multicast IPv4 to unknown group                         [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: lan2: Multicast IPv4 to unknown group, promisc                [ OK ]
+> > TEST: lan2: Multicast IPv4 to unknown group, allmulti               [ OK ]
+> > TEST: lan2: Multicast IPv6 to joined group                          [ OK ]
+> > TEST: lan2: Multicast IPv6 to unknown group                         [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: lan2: Multicast IPv6 to unknown group, promisc                [ OK ]
+> > TEST: lan2: Multicast IPv6 to unknown group, allmulti               [ OK ]
+> > TEST: lan2: 1588v2 over L2 transport, Sync                          [ OK ]
+> > TEST: lan2: 1588v2 over L2 transport, Follow-Up                     [ OK ]
+> > TEST: lan2: 1588v2 over L2 transport, Peer Delay Request            [ OK ]
+> > TEST: lan2: 1588v2 over IPv4, Sync                                  [FAIL]
+> >         reception failed
+> > TEST: lan2: 1588v2 over IPv4, Follow-Up                             [FAIL]
+> >         reception failed
+> > TEST: lan2: 1588v2 over IPv4, Peer Delay Request                    [FAIL]
+> >         reception failed
+> > TEST: lan2: 1588v2 over IPv6, Sync                                  [FAIL]
+> >         reception failed
+> > TEST: lan2: 1588v2 over IPv6, Follow-Up                             [FAIL]
+> >         reception failed
+> > TEST: lan2: 1588v2 over IPv6, Peer Delay Request                    [FAIL]
+> >         reception failed
+> 
+> Do you know why it won't receive PTP over IP? It seems strange, given it
+> receives other IP multicast (even unregistered). Is it a hardware or a
+> software drop? What port counters increment? Does it drop PTP over IP
+> only on local termination, or does it also fail to forward it? What
+> about the packet makes the switch drop it?
+> 
+
+From what they said there isn't any support for 1588v2 (PTP) on the Switch other
+than L2 (that I think they simply forward)
+
+I can ask more info on the topic, will also check what counters
+increment.
+
+> > TEST: vlan_filtering=1 bridge: Multicast IPv6 to unknown group, promisc   [ OK ]
+> > TEST: vlan_filtering=1 bridge: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> > TEST: VLAN upper: Unicast IPv4 to primary MAC address               [ OK ]
+> > TEST: VLAN upper: Unicast IPv4 to macvlan MAC address               [ OK ]
+> > TEST: VLAN upper: Unicast IPv4 to unknown MAC address               [ OK ]
+> > TEST: VLAN upper: Unicast IPv4 to unknown MAC address, promisc      [ OK ]
+> > TEST: VLAN upper: Unicast IPv4 to unknown MAC address, allmulti     [ OK ]
+> > TEST: VLAN upper: Multicast IPv4 to joined group                    [ OK ]
+> > TEST: VLAN upper: Multicast IPv4 to unknown group                   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN upper: Multicast IPv4 to unknown group, promisc          [ OK ]
+> > TEST: VLAN upper: Multicast IPv4 to unknown group, allmulti         [ OK ]
+> > TEST: VLAN upper: Multicast IPv6 to joined group                    [ OK ]
+> > TEST: VLAN upper: Multicast IPv6 to unknown group                   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN upper: Multicast IPv6 to unknown group, promisc          [ OK ]
+> > TEST: VLAN upper: Multicast IPv6 to unknown group, allmulti         [ OK ]
+> > TEST: VLAN upper: 1588v2 over L2 transport, Sync                    [ OK ]
+> > TEST: VLAN upper: 1588v2 over L2 transport, Follow-Up               [FAIL]
+> >         reception failed
+> > TEST: VLAN upper: 1588v2 over L2 transport, Peer Delay Request      [ OK ]
+> > TEST: VLAN upper: 1588v2 over IPv4, Sync                            [FAIL]
+> >         reception failed
+> > ;TEST: VLAN upper: 1588v2 over IPv4, Follow-Up                       [FAIL]
+> >         reception failed
+> > TEST: VLAN upper: 1588v2 over IPv4, Peer Delay Request              [FAIL]
+> >         reception failed
+> > TEST: VLAN upper: 1588v2 over IPv6, Sync                            [FAIL]
+> >         reception failed
+> > TEST: VLAN upper: 1588v2 over IPv6, Follow-Up                       [FAIL]
+> >         reception failed
+> > TEST: VLAN upper: 1588v2 over IPv6, Peer Delay Request              [FAIL]
+> >         reception failed
+> 
+> The same thing happens with VLAN too...
+> 
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to joined group   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group, promisc   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv4 to unknown group, allmulti   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to joined group   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group, promisc   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Sync   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Follow-Up   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over L2 transport, Peer Delay Request   [ OK ]
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=0 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to joined group   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group, promisc   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv4 to unknown group, allmulti   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to joined group   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group   [XFAIL]
+> >         reception succeeded, but should have failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group, promisc   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: Multicast IPv6 to unknown group, allmulti   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Sync   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Follow-Up   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over L2 transport, Peer Delay Request   [ OK ]
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Sync   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Follow-Up   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv4, Peer Delay Request   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Sync   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Follow-Up   [FAIL]
+> >         reception failed
+> > TEST: VLAN over vlan_filtering=1 bridged port: 1588v2 over IPv6, Peer Delay Request   [FAIL]
+> >         reception failed
+> 
+> And over bridge ports...
+
 -- 
-2.37.1
-
+	Ansuel
 
