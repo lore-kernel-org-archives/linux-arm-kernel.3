@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A19CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41129CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k5RPYj2govdLgAJsVUJ2S305q8KB/kIKY0e8R/KfmxA=; b=kyJgJxQrz5+brnst93rvpjjPdo
-	4ZyHzet53bG5LNyjlhnYrkf4rTsIG/WLkn+w9tnCCjcc/0yE1TQJGlm6O7NSxMWB12OmiwnqSGx+q
-	jNv/jF8htDdK7umw8fwtEjtFas4GVBhOVXVE2XxMn9x1ChnAqznt6cZjw2z/hJJIk+GvVn4Dh3Xay
-	nimCFKyxHytiB2hrBsrmZw7Hj02Y+CqLG7k8HGvDxTk8SWC/+TgDBxXRvhh++g4gT4u/qDehRZ8ay
-	iLp0631l+Kq0aceW8JJQAdMdjaKFUa15z2I0ats5txAq4aYCRC1LjoRv+jmTtwtX2Vli0vMWBQn+V
-	K+bS+AQw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BzLbMenZtftH89T106gmsuJ+uofhbnsg1l+2Ng0lErU=; b=ssTtAdKj/WYqDenNlHDRiBtv4v
+	TOwRnS921FEOh3b3/Edv2eKhZOTPVFY/C0joOrM1zqmf3WMSj/ekO78xqDw2QBeNU/gqyg0g+shIv
+	96bg+23bykF/MvexfNZcJtqgP1NpOI4BqPclynBMEfiRBxjZTfjH+4yATGwss+yH780ATWvkT5kEE
+	tRwIv+z4Packj173NoeotVPbnObiFG+FNr2/1OUgSss4b8xAFC3WJIY/GoG4rfaxqNOVM6T1a4nxB
+	gwFvgtig3K2vdxD3NqRd70R4HErn/qETx0VF9eUkl45sGn57GoRRJ8cGvhPEvh8x22iH6oMTZs/5q
+	56pI4P9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuOa-0000000Cs8h-3hPI;
-	Wed, 17 Sep 2025 15:48:36 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuOY-0000000Cs7B-3s8U
+	id 1uyuQa-0000000CsvE-3ZCq;
+	Wed, 17 Sep 2025 15:50:40 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyuQX-0000000Csse-1mHF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:48:36 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-25669596921so71304425ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:48:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758124114; x=1758728914; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5RPYj2govdLgAJsVUJ2S305q8KB/kIKY0e8R/KfmxA=;
-        b=i2KB9S52gpV6J6rKQxDHwl2JO219+SY6l5xO9i1aoG6Svej8UmFmSa8W1wN4JKhsVf
-         xABS7/JUHz18mxTzv3vv+hjYOYO8Y0n2BHvjLDiMXnWLL3s23/Z01NWXH2X7XzGEagtf
-         tjer2dRgQEE35Hgusz4LMzJ5Xa5j1gVDCEV4Chb0kvJyJymjhYc2eNG3VgLBfqEeRTeU
-         kyYKBRQf/PUAmT2NogpNtJGuJypPu8OwK9s7c2ilWksZo6BtVqAG9UIfeUwcu1gqWGH0
-         PBQyACensGoQB2u2b0F3/A53nP1uEXz7iv6nB4NkbIvOsenz4wqAKI/+MuL+LVJCaCID
-         Bp7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758124114; x=1758728914;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k5RPYj2govdLgAJsVUJ2S305q8KB/kIKY0e8R/KfmxA=;
-        b=L3EcRZDjiAs/lqjlbHAbuXA4n7wyY6O7MJ8rZzcVvBu2dUrw4kpDPxa/rC4iX7L+2s
-         77LllE8AwB2+wMngLDOpb/9QGdKLv9aNUJ5pAStwGfhRtEpuf2GWZOrrifT9v37UOZOa
-         Iaq3rkPWpZOVbIIkUvXBGxGkJvrCu3wPB3TZ+ybfPbt7jPCIDGfAtppeJRoIApg4g2Aj
-         +vrlwqy3bshUh63QC0ABKROFg8nZ9EjJgUoxu0+8K+mbItreiWwvCmEdBMO0ylMisDLV
-         nEIjKJ5T2uJhYiyGk8lIn1ZYJUD6pJVGVd7piJttepl2Fi0AJbiDE9PB3iWYYZk/0QAZ
-         YEsA==
-X-Forwarded-Encrypted: i=1; AJvYcCXsP22WdYL8CThloiF48MKfgBRMSfjdTTtoNB85hbZlDqTPxn7QFa4kGK7Xesw7g4uqIWuC/lKRlnriLnrIulH4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzBtHkr3auiLD1VGx/DsxExvrmmZt59lcHbdiNs41OMPFO1LVj
-	RU5DmRsm2CDltsT8XRfzjzd2xAHllXhj2eZq1BABPtPZ6D/4TAb8tr5G
-X-Gm-Gg: ASbGncvqyHWa+JpSrF5xbpdIvIXAPnNTdXBhD1RtmXZiHdQq2VFY4MmYQOsGgF2so+j
-	Y/FPEpBlN8WU8IZxiua74EDKZhlENf1c3WrII2iApLG4f5NWWIELK+x0q6KJMr93yYJS91WCxGF
-	qwRVO020ymAAjLpjxfVtFGkh1w01Ry7DaG2Ddv5wUKmPge6jh6x/4dueMOLLXmkNLwRzhFjB4Qw
-	uoDtu4nyT+7gjiJYWHH5VlMIJkSMezuaMMPfJ6n1UDdgHUR3lkx3Y5bJv0WltlotKrPUfskWC3g
-	4pYnhqZGPuK+k/isMNlTHv6iwqScZIHsx0KMiFPau0ZjeyPlaHbiw6/bAepi7IedXMzGs3mu9GZ
-	ycrNi5JWo18shHGSD9CgbOdvN3Y5D1PuPsw==
-X-Google-Smtp-Source: AGHT+IG+Qiac11pmTk0tCinNrp10vTINXiw2GLyFTb6yRHVut739dW6S796H6UTFDPxnHEvjt3sMJg==
-X-Received: by 2002:a17:903:19eb:b0:266:e8c3:4712 with SMTP id d9443c01a7336-26813f198d7mr36117175ad.58.1758124113638;
-        Wed, 17 Sep 2025 08:48:33 -0700 (PDT)
-Received: from VM-16-24-fedora.. ([43.153.32.141])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ea0f94005sm2569799a91.1.2025.09.17.08.48.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 08:48:33 -0700 (PDT)
-From: alexjlzheng@gmail.com
-X-Google-Original-From: alexjlzheng@tencent.com
-To: mingo@redhat.com,
-	tglx@linutronix.de,
-	jroedel@suse.de
-Cc: linux@armlinux.org.uk,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	akpm@linux-foundation.org,
-	david@redhat.com,
-	lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	urezki@gmail.com,
-	arnd@arndb.de,
-	vincenzo.frascino@arm.com,
-	geert@linux-m68k.org,
-	thuth@redhat.com,
-	kas@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Jinliang Zheng <alexjlzheng@tencent.com>
-Subject: [PATCH] mm: introduce ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to sync kernel mapping conditionally
-Date: Wed, 17 Sep 2025 23:48:29 +0800
-Message-ID: <20250917154829.2191671-1-alexjlzheng@tencent.com>
-X-Mailer: git-send-email 2.49.0
+	Wed, 17 Sep 2025 15:50:38 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cRjGc51W3z9sxb;
+	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id semPCKf2cGPh; Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cRjGc3ltzz9sxZ;
+	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 699538B76C;
+	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id sLjYwSuYZXNq; Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 38E3E8B767;
+	Wed, 17 Sep 2025 17:23:40 +0200 (CEST)
+Message-ID: <c4a281c7-e225-418f-95c3-8fa91073a6b4@csgroup.eu>
+Date: Wed, 17 Sep 2025 17:23:40 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/36] powerpc/vdso: Explicitly include asm/cputable.h
+ and asm/feature-fixups.h
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>,
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
+ <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>,
+ linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
+ <20250917-vdso-sparc64-generic-2-v3-7-3679b1bc8ee8@linutronix.de>
+ <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
+ <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_084834_966451_3A69F99B 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250917_085037_619284_9154F4EB 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,134 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jinliang Zheng <alexjlzheng@tencent.com>
 
-After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for
-vmalloc area"), we don't need to synchronize kernel mappings in the
-vmalloc area on x86_64.
 
-And commit 58a18fe95e83 ("x86/mm/64: Do not sync vmalloc/ioremap
-mappings") actually does this.
+Le 17/09/2025 à 17:21, Thomas Weißschuh a écrit :
+> On Wed, Sep 17, 2025 at 04:41:49PM +0200, Christophe Leroy wrote:
+>>
+>>
+>> Le 17/09/2025 à 16:00, Thomas Weißschuh a écrit :
+>>> The usage of ASM_FTR_IFCLR(CPU_TR_ARCH_31) requires asm/cputable.h and
+>>> asm/feature-fixups.h. Currently these headers are included transitively,
+>>> but that transitive inclusion is about to go away.
+>>
+>> Hum ...
+>>
+>> That was unexpectedly added by commit 9c7bfc2dc21e ("powerpc/64s: Make
+>> POWER10 and later use pause_short in cpu_relax loops")
+>>
+>> In theory, vdso/ headers shouldn't include any headers outside of vdso/
+> 
+> I am aware. But this is the dependency as it exists today and I don't really
+> want to make this series larger than it already is. This is by far not the
+> only such layering violation in the vDSO headers. I have some patches prepared...
+> 
+>>> Explicitly include the headers.
+>>>
+>>> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+>>> ---
+>>>    arch/powerpc/include/asm/vdso/processor.h | 3 +++
+>>>    1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/arch/powerpc/include/asm/vdso/processor.h b/arch/powerpc/include/asm/vdso/processor.h
+>>> index 80d13207c5688d73954822aede2bbe2d0e05c054..42b64903bdf47cc5bd571fc3b5caed45e6358cb9 100644
+>>> --- a/arch/powerpc/include/asm/vdso/processor.h
+>>> +++ b/arch/powerpc/include/asm/vdso/processor.h
+>>> @@ -4,6 +4,9 @@
+>>>    #ifndef __ASSEMBLY__
+>>
+>> __ASSEMBLY__ is replaced by __ASSEMBLER__ in powerpc-next in commit
+>> 74db6cc331b0 ("powerpc: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi
+>> headers")
+> 
+> Ack. I'll have to rebase this series after -rc1 in any case. Right now I am
+> hoping to collect some Acks.
+> 
+>>> +#include <asm/cputable.h>
+>>> +#include <asm/feature-fixups.h>
+>>> +
+>>>    /* Macros for adjusting thread priority (hardware multi-threading) */
+>>>    #ifdef CONFIG_PPC64
+>>>    #define HMT_very_low()		asm volatile("or 31, 31, 31	# very low priority")
+>>>
+>>
 
-But commit 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK
-and arch_sync_kernel_mappings()") breaks this.
 
-This patch introduces ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to avoid
-unnecessary kernel mappings synchronization of the vmalloc area.
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 
-Fixes: 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK and arch_sync_kernel_mappings()")
-Signed-off-by: Jinliang Zheng <alexjlzheng@tencent.com>
----
- arch/arm/include/asm/page.h                 | 3 ++-
- arch/x86/include/asm/pgtable-2level_types.h | 3 ++-
- arch/x86/include/asm/pgtable-3level_types.h | 3 ++-
- include/linux/pgtable.h                     | 4 ++++
- mm/memory.c                                 | 2 +-
- mm/vmalloc.c                                | 6 +++---
- 6 files changed, 14 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm/include/asm/page.h b/arch/arm/include/asm/page.h
-index ef11b721230e..764afc1d0aba 100644
---- a/arch/arm/include/asm/page.h
-+++ b/arch/arm/include/asm/page.h
-@@ -167,7 +167,8 @@ extern void copy_page(void *to, const void *from);
- #else
- #include <asm/pgtable-2level-types.h>
- #ifdef CONFIG_VMAP_STACK
--#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK		PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC	ARCH_PAGE_TABLE_SYNC_MASK
- #endif
- #endif
- 
-diff --git a/arch/x86/include/asm/pgtable-2level_types.h b/arch/x86/include/asm/pgtable-2level_types.h
-index 54690bd4ddbe..650b12c25c0c 100644
---- a/arch/x86/include/asm/pgtable-2level_types.h
-+++ b/arch/x86/include/asm/pgtable-2level_types.h
-@@ -18,7 +18,8 @@ typedef union {
- } pte_t;
- #endif	/* !__ASSEMBLER__ */
- 
--#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK		PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC	ARCH_PAGE_TABLE_SYNC_MASK
- 
- /*
-  * Traditional i386 two-level paging structure:
-diff --git a/arch/x86/include/asm/pgtable-3level_types.h b/arch/x86/include/asm/pgtable-3level_types.h
-index 580b09bf6a45..272d946a3c7d 100644
---- a/arch/x86/include/asm/pgtable-3level_types.h
-+++ b/arch/x86/include/asm/pgtable-3level_types.h
-@@ -27,7 +27,8 @@ typedef union {
- } pmd_t;
- #endif	/* !__ASSEMBLER__ */
- 
--#define ARCH_PAGE_TABLE_SYNC_MASK	PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK		PGTBL_PMD_MODIFIED
-+#define ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC	ARCH_PAGE_TABLE_SYNC_MASK
- 
- /*
-  * PGDIR_SHIFT determines what a top-level page table entry can map
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 2b80fd456c8b..53b97c5773ba 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1476,6 +1476,10 @@ static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned
- #define ARCH_PAGE_TABLE_SYNC_MASK 0
- #endif
- 
-+#ifndef ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC
-+#define ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC 0
-+#endif
-+
- /*
-  * There is no default implementation for arch_sync_kernel_mappings(). It is
-  * relied upon the compiler to optimize calls out if ARCH_PAGE_TABLE_SYNC_MASK
-diff --git a/mm/memory.c b/mm/memory.c
-index 0ba4f6b71847..cd2488043f8f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -3170,7 +3170,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
- 			break;
- 	} while (pgd++, addr = next, addr != end);
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
- 		arch_sync_kernel_mappings(start, start + size);
- 
- 	return err;
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 5edd536ba9d2..2fe2480de5dc 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -311,7 +311,7 @@ static int vmap_range_noflush(unsigned long addr, unsigned long end,
- 			break;
- 	} while (pgd++, phys_addr += (next - addr), addr = next, addr != end);
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
- 		arch_sync_kernel_mappings(start, end);
- 
- 	return err;
-@@ -484,7 +484,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
- 		vunmap_p4d_range(pgd, addr, next, &mask);
- 	} while (pgd++, addr = next, addr != end);
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
- 		arch_sync_kernel_mappings(start, end);
- }
- 
-@@ -629,7 +629,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
- 			break;
- 	} while (pgd++, addr = next, addr != end);
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
- 		arch_sync_kernel_mappings(start, end);
- 
- 	return err;
--- 
-2.49.0
 
 
