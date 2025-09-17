@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3938DCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841C8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjnpJe7OvNQx8BVFibgbqd6R/nPyOkeSAAUQxJENU28=; b=yRqtKLpDDUWM3QpRjOOo38DLXr
-	uFKAUQFV2pYVmjszcxnF0aHjBg0/76dL7rbjpO0zoR5eMr2RuN8iYz80qSkYH2xAcwQI0gQnIQQux
-	2WJwVWj9BLnev3z9xxDwD0MjnSS/I+TDwYsJYYePFd2e5pOFq10G7MyWDIrxURViiF7eTEYRCYiqu
-	nA5ai4VPUBYY6r6GOmdS4wVZRhbWoqM7YeUBBY520k0ggvHIkYyNHvyO+OMkhoVxrakDoWVCAaT8R
-	gBBdCRBMtJDwWynwrynR4uUyGDoEALAc/NviYhQ8e3R4ra56FT4cpPUeWjncWCm80izPvQfuuy5p8
-	Bu9cV00w==;
+	bh=Wu88w0WQBv/H8Yt6eHzILhHB8w3nr0GXl+tvtv/qAVE=; b=RDIXMs37e+OVi3qh5Y1d3FI0wh
+	lLyNBGikzyA/b6u1ZBhORm+qSKw86oPclpcTlMxqtAZJ7ltIqkCjDwxL0IlHS59r+sSXeKiHunKfp
+	8bWfhhmcWRt1bobzeUohnS5xFaTVz4F1ts9HidjnwUn10XbOhRCNA3Cwhm228RXbrRzZPd/nFjnmI
+	yP1PLdaPx3B1BfvGbQQOQ2tJQ+duiCHBWJUVopmCvqlEuVjvUmNUBKfOsykIxV/SbN8A+znZZhN9Y
+	u4orM1OpUciUvsBOM7XuAwj8q/0XPj84SRe9jX3d2cJrYAB9FD3nc4lgfp6GhYc1GfMpAJiCaQKSa
+	3DC7uRSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrD1-0000000BJWA-0vWW;
-	Wed, 17 Sep 2025 12:24:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uyrHA-0000000BKh2-0LZK;
+	Wed, 17 Sep 2025 12:28:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrCy-0000000BJSL-0hUM;
-	Wed, 17 Sep 2025 12:24:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758111850; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=efzNOgL8/i0qj5JM/vfzJI22nY5Q2On4qmuSJ7dZPfRzOQWIUFSlWNlPfDPoxNmK1mmTAA+kPKvIy5y/u1Qvj81DHz5zWRUTBvMcfe5I5S0ncRnHHrb2x51HNaYWMKUL0VR+WAm4LYeRXc51E78voAARnGXygtw4tLYNNbjSvS4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758111850; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gjnpJe7OvNQx8BVFibgbqd6R/nPyOkeSAAUQxJENU28=; 
-	b=gpVb4xepXc/gHiVDyvXwmm2V10ikLz46KYcbgIJklFqybv7MrfyeTvgkG3XyfXTmkRTySmEUyk/UrcgoAS14udMBYdJL3qkeSFghlRIrUh3WkE/u1hGKRweBVnPQJ6gL1224yFGLqjqFyskLHPVfyMGZ/TQ0PBNYGfDvL9yIIc4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758111850;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=gjnpJe7OvNQx8BVFibgbqd6R/nPyOkeSAAUQxJENU28=;
-	b=CugyvuxuKr3liHU26ij5S5ZigHC671Xpz/93aDxDgcPoJg+h9vrZER+eeSvnyZ2e
-	/+eeo3wyIb3tYdwFZnXjzHFY7+7SHvLB+nUpHd/kQpakRTMRkFDk13ECbg5DnDYRqE2
-	2sQcLSee+EBWlW5WZ9tIPfhV0gqo0J9YIK07gDIU=
-Received: by mx.zohomail.com with SMTPS id 1758111847514772.0305687016033;
-	Wed, 17 Sep 2025 05:24:07 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 17 Sep 2025 14:22:41 +0200
-Subject: [PATCH v3 10/10] drm/panthor: add support for MediaTek
- MFlexGraphics
+	id 1uyrH7-0000000BKg8-04i9;
+	Wed, 17 Sep 2025 12:28:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758112118;
+	bh=kG6GEcVZ0l9kvUrfy3YcmAI4g+04kyI1HBaezqj5omQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Pa4K39w4HrlTH97Ku3lyQMPNerlSMiN9bY2A5q7EJvLGZhmDEHYPuZFhFO73mKNb1
+	 w5nr8j9SZnIhDUi2N+6r/dIsEnGKfzgqdq3luBo9oOx0EWzVK2xKNI9zVQIQpmSCC8
+	 oPKGA7sIS3O5VgUXruDrHuaiNBkcNSvK94K/SFCjwRvrnKoTrrP3Nxzlesh/VSL4xp
+	 fkQEB56l0iKzAa2aovxFYZmJrSWv9pY1dd23dMYUPq6YR9v6iyV+SrsuH+l7OZfccx
+	 9+3HIKDO1A9j/CKqJjFj+BOn3+b5L83xZUpU7VzhaXs2gifHqLp0Rm+/VasAHHL3Y+
+	 W8cI6KqTC6BBw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9795517E0AC3;
+	Wed, 17 Sep 2025 14:28:37 +0200 (CEST)
+Message-ID: <ff2ef2b2-2f20-4b07-a1d3-f73cb7fae77c@collabora.com>
+Date: Wed, 17 Sep 2025 14:28:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] ASoC: SOF: MediaTek: Add mt8196 hardware support
+To: "hailong.fan" <hailong.fan@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250917075336.5985-1-hailong.fan@mediatek.com>
+ <20250917075336.5985-3-hailong.fan@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250917075336.5985-3-hailong.fan@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-mt8196-gpufreq-v3-10-c4ede4b4399e@collabora.com>
-References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
-In-Reply-To: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_052424_308673_F95BFE55 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20250917_052841_433801_4CCD9669 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,1009 +88,673 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek uses some glue logic to control frequency and power on some of
-their GPUs. This is best exposed as a devfreq driver, as it saves us
-from having to hardcode OPPs into the device tree, and can be extended
-with additional devfreq-y logic like more clever governors that use the
-hardware's GPUEB MCU to set frame time targets and power limits.
+Il 17/09/25 09:53, hailong.fan ha scritto:
+> From: Hailong Fan <hailong.fan@mediatek.com>
+> 
+> Add support of SOF on MediaTek mt8196 SoC.
+> MT8196 has a Cadence HiFi-5 DSP core that is responsible for running the
+> operating system and application programs. The IPC communication between
+> the AP and DSP is based on shared DRAM and mailbox interrupt.
+> 
+> Signed-off-by: Hailong Fan <hailong.fan@mediatek.com>
+> ---
+>   sound/soc/sof/mediatek/Kconfig                |   9 +
+>   sound/soc/sof/mediatek/Makefile               |   1 +
+>   sound/soc/sof/mediatek/mt8196/Makefile        |   3 +
+>   sound/soc/sof/mediatek/mt8196/mt8196-clk.c    |  98 +++
+>   sound/soc/sof/mediatek/mt8196/mt8196-clk.h    |  23 +
+>   sound/soc/sof/mediatek/mt8196/mt8196-loader.c |  60 ++
+>   sound/soc/sof/mediatek/mt8196/mt8196.c        | 556 ++++++++++++++++++
+>   sound/soc/sof/mediatek/mt8196/mt8196.h        | 124 ++++
+>   8 files changed, 874 insertions(+)
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/Makefile
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-clk.c
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-clk.h
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196-loader.c
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196.c
+>   create mode 100644 sound/soc/sof/mediatek/mt8196/mt8196.h
+> 
+> diff --git a/sound/soc/sof/mediatek/Kconfig b/sound/soc/sof/mediatek/Kconfig
+> index 4a2eddf6009a..36eb6f5c080b 100644
+> --- a/sound/soc/sof/mediatek/Kconfig
+> +++ b/sound/soc/sof/mediatek/Kconfig
+> @@ -42,4 +42,13 @@ config SND_SOC_SOF_MT8195
+>   	  Say Y if you have such a device.
+>   	  If unsure select "N".
+>   
+> +config SND_SOC_SOF_MT8196
+> +	tristate "SOF support for MT8196 audio DSP"
+> +	select SND_SOC_SOF_MTK_COMMON
+> +	depends on MTK_ADSP_IPC
+> +	help
+> +	  This adds support for Sound Open Firmware for MediaTek platforms
+> +	  using the mt8196 processors.
+> +	  Say Y if you have such a device.
+> +	  If unsure select "N".
+>   endif ## SND_SOC_SOF_MTK_TOPLEVEL
+> diff --git a/sound/soc/sof/mediatek/Makefile b/sound/soc/sof/mediatek/Makefile
+> index 29c5afb2f3d6..3e36d538679e 100644
+> --- a/sound/soc/sof/mediatek/Makefile
+> +++ b/sound/soc/sof/mediatek/Makefile
+> @@ -2,3 +2,4 @@
+>   obj-$(CONFIG_SND_SOC_SOF_MTK_COMMON) += mtk-adsp-common.o
+>   obj-$(CONFIG_SND_SOC_SOF_MT8195) += mt8195/
+>   obj-$(CONFIG_SND_SOC_SOF_MT8186) += mt8186/
+> +obj-$(CONFIG_SND_SOC_SOF_MT8196) += mt8196/
 
-Add this driver to the panthor subdirectory. It needs to live here as it
-needs to call into panthor's devfreq layer to register itself as a
-provider.
+..snip..
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/panthor/Kconfig        |  13 +
- drivers/gpu/drm/panthor/Makefile       |   2 +
- drivers/gpu/drm/panthor/mediatek_mfg.c | 946 +++++++++++++++++++++++++++++++++
- 3 files changed, 961 insertions(+)
+> diff --git a/sound/soc/sof/mediatek/mt8196/mt8196.c b/sound/soc/sof/mediatek/mt8196/mt8196.c
+> new file mode 100644
+> index 000000000000..079a0b303780
+> --- /dev/null
+> +++ b/sound/soc/sof/mediatek/mt8196/mt8196.c
+> @@ -0,0 +1,556 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright(c) 2025 MediaTek Inc. All rights reserved.
+> + * Author: Hailong Fan <hailong.fan@mediatek.com>
+> + */
+> +
+> +/*
+> + * Hardware interface for audio DSP on mt8196
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/firmware.h>
+> +#include <linux/io.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/of_reserved_mem.h>
+> +#include <linux/module.h>
+> +
+> +#include <sound/sof.h>
+> +#include <sound/sof/xtensa.h>
+> +#include "../../ops.h"
+> +#include "../../sof-of-dev.h"
+> +#include "../adsp_helper.h"
+> +#include "../mtk-adsp-common.h"
+> +#include "mt8196.h"
+> +#include "mt8196-clk.h"
+> +
+> +static void sof_reg_write_bits(struct snd_sof_dev *sdev, u32 bar, u32 offset, u32 value,
+> +			       u8 bits, u8 len)
+> +{
+> +	u32 mask, val;
+> +	int ret;
+> +
+> +	mask = GENMASK(len + bits - 1, bits);
+> +	val = (value << bits) & mask;
+> +
+> +	ret = snd_sof_dsp_update_bits(sdev, bar, offset, mask, val);
+> +	if (ret < 0)
+> +		dev_err(sdev->dev, "Failed to update DSP register: %d\n", ret);
+> +}
+> +
+> +static u32 reg_read_bits(struct snd_sof_dev *sdev, u32 bar, u32 offset, u8 bits, u8 len)
 
-diff --git a/drivers/gpu/drm/panthor/Kconfig b/drivers/gpu/drm/panthor/Kconfig
-index 55b40ad07f3b0779e0c434469ddc874ff74fde27..c4d2599c05df9e0e009b8e99b3d29c220269ca0d 100644
---- a/drivers/gpu/drm/panthor/Kconfig
-+++ b/drivers/gpu/drm/panthor/Kconfig
-@@ -21,3 +21,16 @@ config DRM_PANTHOR
- 
- 	  Note that the Mali-G68 and Mali-G78, while Valhall architecture, will
- 	  be supported with the panfrost driver as they are not CSF GPUs.
-+
-+config DRM_PANTHOR_MEDIATEK_MFG
-+	tristate "MediaTek MFlexGraphics Extensions for Panthor"
-+	depends on (DRM_PANTHOR && ARCH_MEDIATEK) || COMPILE_TEST
-+	select DEVFREQ_GOV_SIMPLE_ONDEMAND
-+	select PM_DEVFREQ
-+	select MTK_GPUEB_MBOX
-+	help
-+	  Support for power and clock control in Panthor for MediaTek
-+	  MFlexGraphics devices, such as the GPU on the MT8196 or MT6991 SoCs.
-+
-+	  These extensions are required for the GPU to work on these platforms,
-+	  as they control the glue logic that powers on the GPU.
-diff --git a/drivers/gpu/drm/panthor/Makefile b/drivers/gpu/drm/panthor/Makefile
-index 02db21748c125688d2ef20ed254b5ebd7ff642e4..e0ebfdfb20bd78e0003c860c86c040746248fb89 100644
---- a/drivers/gpu/drm/panthor/Makefile
-+++ b/drivers/gpu/drm/panthor/Makefile
-@@ -12,4 +12,6 @@ panthor-y := \
- 	panthor_mmu.o \
- 	panthor_sched.o
- 
-+obj-$(CONFIG_DRM_PANTHOR_MEDIATEK_MFG) += mediatek_mfg.o
-+
- obj-$(CONFIG_DRM_PANTHOR) += panthor.o
-diff --git a/drivers/gpu/drm/panthor/mediatek_mfg.c b/drivers/gpu/drm/panthor/mediatek_mfg.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..1b3220d721e91334522b4e158ac3e262dea19d49
---- /dev/null
-+++ b/drivers/gpu/drm/panthor/mediatek_mfg.c
-@@ -0,0 +1,946 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Driver for MediaTek MFlexGraphics Devices
-+ *
-+ * Copyright (C) 2025, Collabora Ltd.
-+ */
-+
-+#include <linux/atomic.h>
-+#include <linux/completion.h>
-+#include <linux/clk.h>
-+#include <linux/container_of.h>
-+#include <linux/devfreq.h>
-+#include <linux/iopoll.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_opp.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regulator/consumer.h>
-+
-+#include "panthor_devfreq.h"
-+
-+#define GPR_LP_STATE		0x0028
-+#define   EB_ON_SUSPEND		0x0
-+#define   EB_ON_RESUME		0x1
-+#define GPR_IPI_MAGIC		0x34
-+
-+#define RPC_PWR_CON		0x0504
-+#define   PWR_ACK_M		GENMASK(31, 30)
-+#define RPC_DUMMY_REG_2		0x0658
-+#define RPC_GHPM_CFG0_CON	0x0800
-+#define   GHPM_ENABLE_M		BIT(0)
-+#define   GHPM_ON_SEQ_M		BIT(2)
-+#define RPC_GHPM_RO0_CON	0x09A4
-+#define   GHPM_STATE_M		GENMASK(7, 0)
-+#define   GHPM_PWR_STATE_M	BIT(16)
-+
-+#define GF_REG_MAGIC			0x0000
-+#define GF_REG_GPU_OPP_IDX		0x0004
-+#define GF_REG_STK_OPP_IDX		0x0008
-+#define GF_REG_GPU_OPP_NUM		0x000c
-+#define GF_REG_STK_OPP_NUM		0x0010
-+#define GF_REG_GPU_OPP_SNUM		0x0014
-+#define GF_REG_STK_OPP_SNUM		0x0018
-+#define GF_REG_POWER_COUNT		0x001c
-+#define GF_REG_BUCK_COUNT		0x0020
-+#define GF_REG_MTCMOS_COUNT		0x0024
-+#define GF_REG_CG_COUNT			0x0028 /* CG = Clock Gate? */
-+#define GF_REG_ACTIVE_COUNT		0x002C
-+#define GF_REG_TEMP_RAW			0x0030
-+#define GF_REG_TEMP_NORM_GPU		0x0034
-+#define GF_REG_TEMP_HIGH_GPU		0x0038
-+#define GF_REG_TEMP_NORM_STK		0x003C
-+#define GF_REG_TEMP_HIGH_STK		0x0040
-+#define GF_REG_FREQ_CUR_GPU		0x0044
-+#define GF_REG_FREQ_CUR_STK		0x0048
-+#define GF_REG_FREQ_OUT_GPU		0x004C /* Guess: actual achieved freq */
-+#define GF_REG_FREQ_OUT_STK		0x0050 /* Guess: actual achieved freq */
-+#define GF_REG_FREQ_METER_GPU		0x0054 /* Seems unused, always 0 */
-+#define GF_REG_FREQ_METER_STK		0x0058 /* Seems unused, always 0 */
-+#define GF_REG_VOLT_CUR_GPU		0x005C /* in tens of microvolts */
-+#define GF_REG_VOLT_CUR_STK		0x0060 /* in tens of microvolts */
-+#define GF_REG_VOLT_CUR_GPU_SRAM	0x0064
-+#define GF_REG_VOLT_CUR_STK_SRAM	0x0068
-+#define GF_REG_VOLT_CUR_GPU_REG		0x006C /* Seems unused, always 0 */
-+#define GF_REG_VOLT_CUR_STK_REG		0x0070 /* Seems unused, always 0 */
-+#define GF_REG_VOLT_CUR_GPU_REG_SRAM	0x0074
-+#define GF_REG_VOLT_CUR_STK_REG_SRAM	0x0078
-+#define GF_REG_PWR_CUR_GPU		0x007C /* in milliwatts */
-+#define GF_REG_PWR_CUR_STK		0x0080 /* in milliwatts */
-+#define GF_REG_PWR_MAX_GPU		0x0084 /* in milliwatts */
-+#define GF_REG_PWR_MAX_STK		0x0088 /* in milliwatts */
-+#define GF_REG_PWR_MIN_GPU		0x008C /* in milliwatts */
-+#define GF_REG_PWR_MIN_STK		0x0090 /* in milliwatts */
-+#define GF_REG_LEAKAGE_RT_GPU		0x0094 /* Unknown */
-+#define GF_REG_LEAKAGE_RT_STK		0x0098 /* Unknown */
-+#define GF_REG_LEAKAGE_RT_SRAM		0x009C /* Unknown */
-+#define GF_REG_LEAKAGE_HT_GPU		0x00A0 /* Unknown */
-+#define GF_REG_LEAKAGE_HT_STK		0x00A4 /* Unknown */
-+#define GF_REG_LEAKAGE_HT_SRAM		0x00A8 /* Unknown */
-+#define GF_REG_VOLT_DAC_LOW_GPU		0x00AC /* Seems unused, always 0 */
-+#define GF_REG_VOLT_DAC_LOW_STK		0x00B0 /* Seems unused, always 0 */
-+#define GF_REG_OPP_CUR_CEIL		0x00B4
-+#define GF_REG_OPP_CUR_FLOOR		0x00B8
-+#define GF_REG_OPP_CUR_LIMITER_CEIL	0x00BC
-+#define GF_REG_OPP_CUR_LIMITER_FLOOR	0x00C0
-+#define GF_REG_OPP_PRIORITY_CEIL	0x00C4
-+#define GF_REG_OPP_PRIORITY_FLOOR	0x00C8
-+#define GF_REG_PWR_CTL			0x00CC
-+#define GF_REG_ACTIVE_SLEEP_CTL		0x00D0
-+#define GF_REG_DVFS_STATE		0x00D4
-+#define GF_REG_SHADER_PRESENT		0x00D8
-+#define GF_REG_ASENSOR_ENABLE		0x00DC
-+#define GF_REG_AGING_LOAD		0x00E0
-+#define GF_REG_AGING_MARGIN		0x00E4
-+#define GF_REG_AVS_ENABLE		0x00E8
-+#define GF_REG_AVS_MARGIN		0x00EC
-+#define GF_REG_CHIP_TYPE		0x00F0
-+#define GF_REG_SB_VERSION		0x00F4
-+#define GF_REG_PTP_VERSION		0x00F8
-+#define GF_REG_DBG_VERSION		0x00FC
-+#define GF_REG_KDBG_VERSION		0x0100
-+#define GF_REG_GPM1_MODE		0x0104
-+#define GF_REG_GPM3_MODE		0x0108
-+#define GF_REG_DFD_MODE			0x010C
-+#define GF_REG_DUAL_BUCK		0x0110
-+#define GF_REG_SEGMENT_ID		0x0114
-+#define GF_REG_POWER_TIME_H		0x0118
-+#define GF_REG_POWER_TIME_L		0x011C
-+#define GF_REG_PWR_STATUS		0x0120
-+#define GF_REG_STRESS_TEST		0x0124
-+#define GF_REG_TEST_MODE		0x0128
-+#define GF_REG_IPS_MODE			0x012C
-+#define GF_REG_TEMP_COMP_MODE		0x0130
-+#define GF_REG_HT_TEMP_COMP_MODE	0x0134
-+#define GF_REG_PWR_TRACKER_MODE		0x0138
-+#define GF_REG_OPP_TABLE_GPU		0x0314
-+#define GF_REG_OPP_TABLE_STK		0x09A4
-+#define GF_REG_OPP_TABLE_GPU_S		0x1034
-+#define GF_REG_OPP_TABLE_STK_S		0x16c4
-+#define GF_REG_LIMIT_TABLE		0x1d54
-+#define GF_REG_GPM3_TABLE		0x223C
-+
-+#define MFG_MT8196_E2_ID	0x101
-+#define GPUEB_SLEEP_MAGIC	0x55667788UL
-+#define GPUEB_SRAM_MAGIC	0xBABADADAUL
-+
-+#define GPUEB_TIMEOUT_US	10000UL
-+#define GPUEB_POLL_US		50
-+
-+#define MAX_OPP_NUM             70
-+
-+#define MBOX_MAX_RX_SIZE	32	/* in bytes */
-+
-+/*
-+ * This enum is part of the ABI of the GPUEB firmware. Don't change the
-+ * numbering, as you would wreak havoc.
-+ */
-+enum mtk_mfg_ipi_cmd {
-+	CMD_INIT_SHARED_MEM		= 0,
-+	CMD_GET_FREQ_BY_IDX		= 1,
-+	CMD_GET_POWER_BY_IDX		= 2,
-+	CMD_GET_OPPIDX_BY_FREQ		= 3,
-+	CMD_GET_LEAKAGE_POWER		= 4,
-+	CMD_SET_LIMIT			= 5,
-+	CMD_POWER_CONTROL		= 6,
-+	CMD_ACTIVE_SLEEP_CONTROL	= 7,
-+	CMD_COMMIT			= 8,
-+	CMD_DUAL_COMMIT			= 9,
-+	CMD_PDCA_CONFIG			= 10,
-+	CMD_UPDATE_DEBUG_OPP_INFO	= 11,
-+	CMD_SWITCH_LIMIT		= 12,
-+	CMD_FIX_TARGET_OPPIDX		= 13,
-+	CMD_FIX_DUAL_TARGET_OPPIDX	= 14,
-+	CMD_FIX_CUSTOM_FREQ_VOLT	= 15,
-+	CMD_FIX_DUAL_CUSTOM_FREQ_VOLT	= 16,
-+	CMD_SET_MFGSYS_CONFIG		= 17,
-+	CMD_MSSV_COMMIT			= 18,
-+	CMD_NUM				= 19,
-+};
-+
-+/*
-+ * This struct is part of the ABI of the GPUEB firmware. Changing it, or
-+ * reordering fields in it, will break things, so don't do it. Thank you.
-+ */
-+struct __packed mtk_mfg_ipi_msg {
-+	__le32 magic;
-+	__le32 cmd;
-+	__le32 target;
-+	/*
-+	 * Downstream relies on the compiler to implicitly add the following
-+	 * padding, as it declares the struct as non-packed.
-+	 */
-+	__le32 reserved;
-+	union {
-+		s32 __bitwise oppidx;
-+		s32 __bitwise return_value;
-+		__le32 freq;
-+		__le32 volt;
-+		__le32 power;
-+		__le32 power_state;
-+		__le32 mode;
-+		__le32 value;
-+		struct {
-+			__le64 base;
-+			__le32 size;
-+		} shared_mem;
-+		struct {
-+			__le32 freq;
-+			__le32 volt;
-+		} custom;
-+		struct {
-+			__le32 limiter;
-+			s32 __bitwise ceiling_info;
-+			s32 __bitwise floor_info;
-+		} set_limit;
-+		struct {
-+			__le32 target;
-+			__le32 val;
-+		} mfg_cfg;
-+		struct {
-+			__le32 target;
-+			__le32 val;
-+		} mssv;
-+		struct {
-+			s32 __bitwise gpu_oppidx;
-+			s32 __bitwise stack_oppidx;
-+		} dual_commit;
-+		struct {
-+			__le32 fgpu;
-+			__le32 vgpu;
-+			__le32 fstack;
-+			__le32 vstack;
-+		} dual_custom;
-+	} u;
-+};
-+
-+struct __packed mtk_mfg_ipi_sleep_msg {
-+	__le32 event;
-+	__le32 state;
-+	__le32 magic;
-+};
-+
-+/**
-+ * struct mtk_mfg_opp_entry - OPP table entry from firmware
-+ * @freq_khz: The operating point's frequency in kilohertz
-+ * @voltage_core: The operating point's core voltage in tens of microvolts
-+ * @voltage_sram: The operating point's SRAM voltage in tens of microvolts
-+ * @posdiv: exponent of base 2 for PLL frequency divisor used for this OPP
-+ * @voltage_margin: Number of tens of microvolts the voltage can be undershot
-+ * @power_mw: estimate of power usage at this operating point, in milliwatts
-+ *
-+ * This struct is part of the ABI with the EB firmware. Do not change it.
-+ */
-+struct __packed mtk_mfg_opp_entry {
-+	__le32 freq_khz;
-+	__le32 voltage_core;
-+	__le32 voltage_sram;
-+	__le32 posdiv;
-+	__le32 voltage_margin;
-+	__le32 power_mw;
-+};
-+
-+struct mtk_mfg_mbox {
-+	struct mbox_client cl;
-+	struct completion rx_done;
-+	struct mtk_mfg *mfg;
-+	struct mbox_chan *ch;
-+	void *rx_data;
-+};
-+
-+struct mtk_mfg {
-+	struct platform_device *pdev;
-+	struct clk *clk_eb;
-+	struct clk_bulk_data *gpu_clks;
-+	struct regulator_bulk_data *gpu_regs;
-+	void __iomem *rpc;
-+	void __iomem *gpr;
-+	void __iomem *sram;
-+	phys_addr_t sram_phys;
-+	unsigned int sram_size;
-+	unsigned int ghpm_en_reg;
-+	u32 ipi_magic;
-+	unsigned int num_opps;
-+	unsigned int num_unique_gpu_opps;
-+	struct dev_pm_opp_data *gpu_opps;
-+	struct dev_pm_opp_data *stack_opps;
-+	struct mtk_mfg_mbox *gf_mbox;
-+	struct mtk_mfg_mbox *slp_mbox;
-+	int last_opp;
-+	const struct mtk_mfg_variant *variant;
-+};
-+
-+struct mtk_mfg_variant {
-+	const char *const *clk_names;
-+	unsigned int num_clks;
-+	const char *const *regulator_names;
-+	unsigned int num_regulators;
-+	int (*init)(struct mtk_mfg *mfg);
-+};
-+
-+static inline void mtk_mfg_update_reg_bits(void __iomem *addr, u32 mask, u32 val)
-+{
-+	writel((readl(addr) & ~mask) | (val & mask), addr);
-+}
-+
-+static inline unsigned long mtk_mfg_read_gpu_freq(struct mtk_mfg *mfg)
-+{
-+	return readl(mfg->sram + GF_REG_FREQ_CUR_GPU) * 1000UL;
-+}
-+
-+static int mtk_mfg_eb_on(struct mtk_mfg *mfg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	u32 val;
-+	int ret;
-+
-+	/*
-+	 * If MFG is already on from e.g. the bootloader, we should skip doing
-+	 * the power-on sequence, as it wouldn't work without powering it off
-+	 * first.
-+	 */
-+	if ((readl(mfg->rpc + RPC_PWR_CON) & PWR_ACK_M) == PWR_ACK_M)
-+		return 0;
-+
-+	ret = readl_poll_timeout(mfg->rpc + RPC_GHPM_RO0_CON, val,
-+				 !(val & (GHPM_PWR_STATE_M | GHPM_STATE_M)),
-+				 GPUEB_POLL_US, GPUEB_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "timed out waiting for EB to power on\n");
-+		return ret;
-+	}
-+
-+	mtk_mfg_update_reg_bits(mfg->rpc + mfg->ghpm_en_reg, GHPM_ENABLE_M,
-+				GHPM_ENABLE_M);
-+
-+	mtk_mfg_update_reg_bits(mfg->rpc + RPC_GHPM_CFG0_CON, GHPM_ON_SEQ_M, 0);
-+	mtk_mfg_update_reg_bits(mfg->rpc + RPC_GHPM_CFG0_CON, GHPM_ON_SEQ_M,
-+				GHPM_ON_SEQ_M);
-+
-+	mtk_mfg_update_reg_bits(mfg->rpc + mfg->ghpm_en_reg, GHPM_ENABLE_M, 0);
-+
-+
-+	ret = readl_poll_timeout(mfg->rpc + RPC_PWR_CON, val,
-+				 (val & PWR_ACK_M) == PWR_ACK_M,
-+				 GPUEB_POLL_US, GPUEB_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "timed out waiting for EB power ack, val = 0x%X\n",
-+			val);
-+		return ret;
-+	}
-+
-+	ret = readl_poll_timeout(mfg->gpr + GPR_LP_STATE, val,
-+				 (val == EB_ON_RESUME),
-+				 GPUEB_POLL_US, GPUEB_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "timed out waiting for EB to resume, status = 0x%X\n", val);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mtk_mfg_eb_off(struct mtk_mfg *mfg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	struct mtk_mfg_ipi_sleep_msg msg = {
-+		.event = 0,
-+		.state = 0,
-+		.magic = GPUEB_SLEEP_MAGIC
-+	};
-+	u32 val;
-+	int ret;
-+
-+	ret = mbox_send_message(mfg->slp_mbox->ch, &msg);
-+	if (ret < 0) {
-+		dev_err(dev, "Cannot send sleep command: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	ret = readl_poll_timeout(mfg->rpc + RPC_PWR_CON, val,
-+				 !(val & PWR_ACK_M), GPUEB_POLL_US,
-+				 GPUEB_TIMEOUT_US);
-+
-+	if (ret)
-+		dev_err(dev, "timed out waiting for EB to power off, val=0x%08X\n",
-+			val);
-+
-+	return ret;
-+}
-+
-+static int mtk_mfg_send_ipi(struct mtk_mfg *mfg, struct mtk_mfg_ipi_msg *msg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	int ret;
-+
-+	msg->magic = mfg->ipi_magic;
-+
-+	ret = mbox_send_message(mfg->gf_mbox->ch, msg);
-+	if (ret < 0) {
-+		dev_err(dev, "Cannot send GPUFreq IPI command: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	wait_for_completion(&mfg->gf_mbox->rx_done);
-+
-+	msg = mfg->gf_mbox->rx_data;
-+
-+	if (msg->u.return_value < 0) {
-+		dev_err(dev, "IPI return: %d\n", msg->u.return_value);
-+		return -EPROTO;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mtk_mfg_init_shared_mem(struct mtk_mfg *mfg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	struct mtk_mfg_ipi_msg msg = {};
-+	int ret;
-+
-+	dev_dbg(dev, "clearing GPUEB sram, 0x%X bytes\n", mfg->sram_size);
-+	memset_io(mfg->sram, 0, mfg->sram_size);
-+
-+	msg.cmd = CMD_INIT_SHARED_MEM;
-+	msg.u.shared_mem.base = mfg->sram_phys;
-+	msg.u.shared_mem.size = mfg->sram_size;
-+
-+	ret = mtk_mfg_send_ipi(mfg, &msg);
-+	if (ret)
-+		return ret;
-+
-+	if (readl(mfg->sram) != GPUEB_SRAM_MAGIC) {
-+		dev_err(dev, "EB did not initialise SRAM correctly\n");
-+		return -EIO;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mtk_mfg_power_control(struct mtk_mfg *mfg, bool enabled)
-+{
-+	struct mtk_mfg_ipi_msg msg = {};
-+
-+	msg.cmd = CMD_POWER_CONTROL;
-+	msg.u.power_state = enabled ? 1 : 0;
-+
-+	return mtk_mfg_send_ipi(mfg, &msg);
-+}
-+
-+static int mtk_mfg_set_oppidx(struct mtk_mfg *mfg, int opp_idx)
-+{
-+	struct mtk_mfg_ipi_msg msg = {};
-+	int ret;
-+
-+	if (!mfg->gpu_opps || !mfg->stack_opps)
-+		return 0;
-+
-+	if (opp_idx >= mfg->num_opps)
-+		return -EINVAL;
-+
-+	if (mfg->last_opp == opp_idx)
-+		return 0;
-+
-+	msg.cmd = CMD_FIX_TARGET_OPPIDX;
-+	msg.u.oppidx = opp_idx;
-+
-+	ret = mtk_mfg_send_ipi(mfg, &msg);
-+	if (ret)
-+		return ret;
-+
-+	mfg->last_opp = opp_idx;
-+
-+	return 0;
-+}
-+
-+static int mtk_mfg_read_opp_tables(struct mtk_mfg *mfg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	struct mtk_mfg_opp_entry e = {};
-+	unsigned int i;
-+	unsigned long long last_freq;
-+
-+	mfg->num_opps = readl(mfg->sram + GF_REG_GPU_OPP_NUM);
-+	if (mfg->num_opps != readl(mfg->sram + GF_REG_STK_OPP_NUM)) {
-+		dev_err(dev, "OPP count of GPU and Stack differ, %u vs. %u\n",
-+			mfg->num_opps, readl(mfg->sram + GF_REG_STK_OPP_NUM));
-+		return -EINVAL;
-+	}
-+
-+	if (mfg->num_opps > MAX_OPP_NUM || mfg->num_opps == 0) {
-+		dev_err(dev, "OPP count (%u) out of range %u >= count > 0\n",
-+			mfg->num_opps, MAX_OPP_NUM);
-+		return -EINVAL;
-+	}
-+
-+	mfg->gpu_opps = devm_kcalloc(dev, mfg->num_opps,
-+				     sizeof(struct dev_pm_opp_data), GFP_KERNEL);
-+	if (!mfg->gpu_opps)
-+		return -ENOMEM;
-+
-+	mfg->stack_opps = devm_kcalloc(dev, mfg->num_opps,
-+				       sizeof(struct dev_pm_opp_data), GFP_KERNEL);
-+	if (!mfg->stack_opps)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < mfg->num_opps; i++) {
-+		memcpy_fromio(&e, mfg->sram + GF_REG_OPP_TABLE_GPU + i * sizeof(e),
-+			      sizeof(e));
-+		if (mem_is_zero(&e, sizeof(e))) {
-+			dev_err(dev, "ran into an empty GPU OPP at index %u\n",
-+				i);
-+			return -EINVAL;
-+		}
-+		mfg->gpu_opps[i].freq = e.freq_khz * 1000ULL;
-+		mfg->gpu_opps[i].u_volt = e.voltage_core * 10;
-+
-+		if (!last_freq || mfg->gpu_opps[i].freq != last_freq)
-+			mfg->num_unique_gpu_opps++;
-+
-+		last_freq = mfg->gpu_opps[i].freq;
-+	}
-+
-+	/*
-+	 * Unused at present; we currently use the same OPP index for both GPU
-+	 * core and GPU stack, and the way they contain duplicates seems to
-+	 * indicate that this is the way to go.
-+	 *
-+	 * Might still be useful if we want to expose finer-grained adjustments
-+	 * or better information about expected power draw.
-+	 */
-+	for (i = 0; i < mfg->num_opps; i++) {
-+		memcpy_fromio(&e, mfg->sram + GF_REG_OPP_TABLE_STK + i * sizeof(e),
-+			      sizeof(e));
-+		if (mem_is_zero(&e, sizeof(e))) {
-+			dev_err(dev, "ran into an empty GPU OPP at index %u\n",
-+				i);
-+			return -EINVAL;
-+		}
-+		mfg->stack_opps[i].freq = e.freq_khz * 1000ULL;
-+		mfg->stack_opps[i].u_volt = e.voltage_core * 10;
-+	}
-+
-+	return 0;
-+}
-+
-+static inline bool mtk_mfg_opp_idx_match(struct mtk_mfg *mfg, int idx,
-+					 unsigned long rate)
-+{
-+	if ((idx == mfg->num_opps - 1) && mfg->gpu_opps[idx].freq >= rate)
-+		return true;
-+
-+	if (mfg->gpu_opps[idx].freq >= rate && mfg->gpu_opps[idx + 1].freq < rate)
-+		return true;
-+
-+	return false;
-+}
-+
-+/**
-+ * mtk_mfg_get_closest_opp_idx - find OPP index for desired GPU frequency
-+ * @mfg: pointer to a &struct mtk_mfg driver instance
-+ * @gpu_rate: desired rate of the GPU core in Hz
-+ *
-+ * Given a desired target frequency for the GPU core, find the index of a
-+ * matching OPP, or the next higher OPP if no exact match is found, or the
-+ * maximum OPP for frequencies exceeding the maximum OPP's frequency.
-+ *
-+ * For duplicate OPP entries, chooses the highest OPP index, as in, the one
-+ * closest to the next lower frequency OPP.
-+ *
-+ * Returns -EINVAL on error, or the OPP index on success.
-+ */
-+static int mtk_mfg_get_closest_opp_idx(struct mtk_mfg *mfg, unsigned long gpu_rate)
-+{
-+	int r = mfg->num_opps - 1;
-+	int l = 0;
-+	int m;
-+
-+	if (!mfg->gpu_opps)
-+		return -EINVAL;
-+
-+	if (mfg->gpu_opps[0].freq <= gpu_rate)
-+		return 0;
-+
-+	while (l <= r) {
-+		m = l + (r - l) / 2;
-+		if (mtk_mfg_opp_idx_match(mfg, m, gpu_rate))
-+			return m;
-+		if (mfg->gpu_opps[m].freq >= gpu_rate) /* >= for dupes */
-+			l = m + 1;
-+		else
-+			r = m - 1;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int mtk_mfg_devfreq_target(struct device *dev, unsigned long *freq,
-+				  u32 flags)
-+{
-+	struct mtk_mfg *mfg = dev_get_drvdata(dev);
-+	int ret, opp;
-+
-+	opp = mtk_mfg_get_closest_opp_idx(mfg, *freq);
-+	if (opp < 0) {
-+		dev_err(dev, "Couldn't get closest OPP: %pe\n", ERR_PTR(opp));
-+		return opp;
-+	}
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret =  mtk_mfg_set_oppidx(mfg, opp);
-+	if (!ret)
-+		*freq = mtk_mfg_read_gpu_freq(mfg);
-+	else
-+		dev_err(dev, "Couldn't set OPP: %pe\n", ERR_PTR(ret));
-+
-+	pm_runtime_put(dev);
-+
-+	return ret;
-+}
-+
-+static int mtk_mfg_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
-+{
-+	struct mtk_mfg *mfg = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return ret;
-+
-+	*freq = mtk_mfg_read_gpu_freq(mfg);
-+
-+	pm_runtime_put(dev);
-+
-+	return 0;
-+}
-+
-+static const char *const mtk_mfg_mt8196_clk_names[] = {
-+	"core",
-+	"stack0",
-+	"stack1",
-+};
-+
-+static const char *const mtk_mfg_mt8196_regulators[] = {
-+	"core",
-+	"stack",
-+	"sram",
-+};
-+
-+static int mtk_mfg_mt8196_init(struct mtk_mfg *mfg)
-+{
-+	void __iomem *e2_base;
-+
-+	e2_base = devm_platform_ioremap_resource_byname(mfg->pdev, "hw-revision");
-+	if (IS_ERR(e2_base))
-+		return dev_err_probe(&mfg->pdev->dev, PTR_ERR(e2_base),
-+				     "Couldn't get hw-revision register\n");
-+
-+	if (readl(e2_base) == MFG_MT8196_E2_ID)
-+		mfg->ghpm_en_reg = RPC_DUMMY_REG_2;
-+	else
-+		mfg->ghpm_en_reg = RPC_GHPM_CFG0_CON;
-+
-+	return 0;
-+};
-+
-+static const struct mtk_mfg_variant mtk_mfg_mt8196_variant = {
-+	.clk_names = mtk_mfg_mt8196_clk_names,
-+	.num_clks = ARRAY_SIZE(mtk_mfg_mt8196_clk_names),
-+	.regulator_names = mtk_mfg_mt8196_regulators,
-+	.num_regulators = ARRAY_SIZE(mtk_mfg_mt8196_regulators),
-+	.init = mtk_mfg_mt8196_init,
-+};
-+
-+static void mtk_mfg_mbox_rx_callback(struct mbox_client *cl, void *mssg)
-+{
-+	struct mtk_mfg_mbox *mb = container_of(cl, struct mtk_mfg_mbox, cl);
-+
-+	if (mb->rx_data)
-+		mb->rx_data = memcpy(mb->rx_data, mssg, MBOX_MAX_RX_SIZE);
-+	complete(&mb->rx_done);
-+}
-+
-+static int mtk_mfg_init_mbox(struct mtk_mfg *mfg)
-+{
-+	struct device *dev = &mfg->pdev->dev;
-+	struct mtk_mfg_mbox *gf;
-+	struct mtk_mfg_mbox *slp;
-+
-+	gf = devm_kzalloc(dev, sizeof(*gf), GFP_KERNEL);
-+	if (!gf)
-+		return -ENOMEM;
-+
-+	slp = devm_kzalloc(dev, sizeof(*slp), GFP_KERNEL);
-+	if (!slp)
-+		return -ENOMEM;
-+
-+	gf->mfg = mfg;
-+	init_completion(&gf->rx_done);
-+	gf->cl.dev = dev;
-+	gf->cl.rx_callback = mtk_mfg_mbox_rx_callback;
-+	gf->cl.tx_tout = GPUEB_TIMEOUT_US / USEC_PER_MSEC;
-+	gf->rx_data = devm_kzalloc(dev, MBOX_MAX_RX_SIZE, GFP_KERNEL);
-+	if (!gf->rx_data)
-+		return -ENOMEM;
-+	gf->ch = mbox_request_channel_byname(&gf->cl, "gpufreq");
-+	if (IS_ERR(gf->ch))
-+		return PTR_ERR(gf->ch);
-+
-+	mfg->gf_mbox = gf;
-+
-+	slp->mfg = mfg;
-+	init_completion(&slp->rx_done);
-+	slp->cl.dev = dev;
-+	slp->cl.tx_tout = GPUEB_TIMEOUT_US / USEC_PER_MSEC;
-+	slp->cl.tx_block = true;
-+	slp->ch = mbox_request_channel_byname(&slp->cl, "sleep");
-+	if (IS_ERR(slp->ch))
-+		return PTR_ERR(slp->ch);
-+
-+	mfg->slp_mbox = slp;
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id mtk_mfg_of_match[] = {
-+	{ .compatible = "mediatek,mt8196-gpufreq", .data = &mtk_mfg_mt8196_variant },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, mtk_mfg_of_match);
-+
-+static int mtk_mfg_probe(struct platform_device *pdev)
-+{
-+	struct device_node *shmem __free(device_node);
-+	struct panthor_devfreq_provider *prov;
-+	struct mtk_mfg *mfg;
-+	struct device *dev = &pdev->dev;
-+	const struct mtk_mfg_variant *data = of_device_get_match_data(dev);
-+	struct resource res;
-+	int ret, i, j;
-+
-+	mfg = devm_kzalloc(dev, sizeof(*mfg), GFP_KERNEL);
-+	if (!mfg)
-+		return -ENOMEM;
-+
-+	prov = devm_kzalloc(dev, sizeof(*prov), GFP_KERNEL);
-+	if (!prov)
-+		return -ENOMEM;
-+
-+	prov->dev = dev;
-+	prov->get_cur_freq = mtk_mfg_devfreq_get_cur_freq;
-+	prov->target = mtk_mfg_devfreq_target;
-+
-+	mfg->pdev = pdev;
-+	mfg->variant = data;
-+
-+	dev_set_drvdata(dev, mfg);
-+
-+	mfg->gpr = devm_platform_ioremap_resource_byname(pdev, "gpr");
-+	if (IS_ERR(mfg->gpr))
-+		return dev_err_probe(dev, PTR_ERR(mfg->gpr),
-+				     "Could not retrieve GPR MMIO registers\n");
-+
-+	mfg->rpc = devm_platform_ioremap_resource_byname(pdev, "rpc");
-+	if (IS_ERR(mfg->rpc))
-+		return dev_err_probe(dev, PTR_ERR(mfg->rpc),
-+				     "Could not retrieve RPC MMIO registers\n");
-+
-+	mfg->clk_eb = devm_clk_get(dev, "eb");
-+	if (IS_ERR(mfg->clk_eb))
-+		return dev_err_probe(dev, PTR_ERR(mfg->clk_eb),
-+				     "Could not get 'eb' clock\n");
-+
-+	mfg->gpu_clks = devm_kcalloc(dev, data->num_clks, sizeof(*mfg->gpu_clks),
-+				     GFP_KERNEL);
-+	if (!mfg->gpu_clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < data->num_clks; i++)
-+		mfg->gpu_clks[i].id = data->clk_names[i];
-+
-+	ret = devm_clk_bulk_get(dev, data->num_clks, mfg->gpu_clks);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "couldn't get GPU clocks\n");
-+
-+	mfg->gpu_regs = devm_kcalloc(dev, data->num_regulators,
-+				     sizeof(*mfg->gpu_regs), GFP_KERNEL);
-+	if (!mfg->gpu_regs)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < data->num_regulators; i++)
-+		mfg->gpu_regs[i].supply = data->regulator_names[i];
-+
-+	ret = devm_regulator_bulk_get(dev, data->num_regulators, mfg->gpu_regs);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "couldn't get GPU regulators\n");
-+
-+	shmem = of_parse_phandle(dev->of_node, "shmem", 0);
-+	if (!shmem)
-+		return dev_err_probe(dev, -ENODEV, "Could not get 'shmem'\n");
-+
-+	ret = of_address_to_resource(shmem, 0, &res);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to get GPUEB shared memory\n");
-+
-+	mfg->sram = devm_ioremap(dev, res.start, resource_size(&res));
-+	if (!mfg->sram)
-+		return dev_err_probe(dev, -EADDRNOTAVAIL,
-+				     "failed to ioremap GPUEB sram\n");
-+	mfg->sram_size = resource_size(&res);
-+	mfg->sram_phys = res.start;
-+
-+	if (data->init) {
-+		ret = data->init(mfg);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Variant init failed\n");
-+	}
-+
-+	ret = clk_prepare_enable(mfg->clk_eb);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to turn on EB clock\n");
-+	mfg->ipi_magic = readl(mfg->gpr + GPR_IPI_MAGIC);
-+	/* Downstream does this, don't know why. */
-+	writel(0x0, mfg->gpr + GPR_IPI_MAGIC);
-+
-+	ret = mtk_mfg_init_mbox(mfg);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "Couldn't initialise mailbox\n");
-+		goto out;
-+	}
-+
-+	clk_disable_unprepare(mfg->clk_eb);
-+
-+	mfg->last_opp = -1;
-+
-+	devm_pm_runtime_enable(dev);
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to power on MFG\n");
-+
-+	ret = mtk_mfg_init_shared_mem(mfg);
-+	if (ret) {
-+		dev_err(dev, "Couldn't initialize EB SRAM: %pe\n", ERR_PTR(ret));
-+		goto out;
-+	}
-+
-+	ret = mtk_mfg_read_opp_tables(mfg);
-+	if (ret) {
-+		dev_err(dev, "Error reading OPP tables from EB: %pe\n",
-+			ERR_PTR(ret));
-+		goto out;
-+	}
-+
-+	/* gpu_opps may contain duplicates and is sorted the other way */
-+	prov->opp_table = devm_kmalloc_array(dev, mfg->num_unique_gpu_opps,
-+					     sizeof(*prov->opp_table), GFP_KERNEL);
-+	if (!prov->opp_table) {
-+		ret = -ENOMEM;
-+		goto out;
-+	}
-+
-+	prov->num_opps = mfg->num_unique_gpu_opps;
-+
-+	j = 0;
-+	for (i = mfg->num_opps - 1; i >= 0 && j < mfg->num_unique_gpu_opps; i--)
-+		if ((j == 0) || (mfg->gpu_opps[i].freq != prov->opp_table[j - 1]->freq))
-+			prov->opp_table[j++] = &mfg->gpu_opps[i];
-+
-+	ret = panthor_devfreq_register_provider(prov);
-+
-+out:
-+	pm_runtime_put(dev);
-+	return ret;
-+}
-+
-+static int mtk_mfg_suspend(struct device *dev)
-+{
-+	struct mtk_mfg *mfg = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = mtk_mfg_power_control(mfg, false);
-+	if (ret) {
-+		dev_err(dev, "power_control failed: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+	ret = mtk_mfg_eb_off(mfg);
-+	if (ret) {
-+		dev_err(dev, "eb_off failed: %pe\n", ERR_PTR(ret));
-+		return ret;
-+	}
-+	clk_bulk_disable_unprepare(mfg->variant->num_clks, mfg->gpu_clks);
-+	clk_disable_unprepare(mfg->clk_eb);
-+	ret = regulator_bulk_disable(mfg->variant->num_regulators, mfg->gpu_regs);
-+
-+	return ret;
-+}
-+
-+static int mtk_mfg_resume(struct device *dev)
-+{
-+	struct mtk_mfg *mfg = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = regulator_bulk_enable(mfg->variant->num_regulators,
-+				    mfg->gpu_regs);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(mfg->clk_eb);
-+	if (ret)
-+		goto err_disable_regulators;
-+
-+	ret = clk_bulk_prepare_enable(mfg->variant->num_clks, mfg->gpu_clks);
-+	if (ret)
-+		goto err_disable_eb_clk;
-+
-+	ret = mtk_mfg_eb_on(mfg);
-+	if (ret)
-+		goto err_disable_clks;
-+
-+	ret = mtk_mfg_power_control(mfg, true);
-+	if (ret)
-+		goto err_eb_off;
-+
-+	return 0;
-+
-+err_eb_off:
-+	mtk_mfg_eb_off(mfg);
-+err_disable_clks:
-+	clk_bulk_disable_unprepare(mfg->variant->num_clks, mfg->gpu_clks);
-+err_disable_eb_clk:
-+	clk_disable_unprepare(mfg->clk_eb);
-+err_disable_regulators:
-+	regulator_bulk_disable(mfg->variant->num_regulators, mfg->gpu_regs);
-+
-+	return ret;
-+}
-+
-+
-+static DEFINE_RUNTIME_DEV_PM_OPS(mtk_mfg_pm_ops,
-+				 mtk_mfg_suspend,
-+				 mtk_mfg_resume,
-+				 NULL);
-+
-+static struct platform_driver mtk_mfg_driver = {
-+	.driver = {
-+		.name = "panthor-mtk-mfg",
-+		.of_match_table = mtk_mfg_of_match,
-+		.pm = pm_ptr(&mtk_mfg_pm_ops),
-+	},
-+	.probe = mtk_mfg_probe,
-+};
-+module_platform_driver(mtk_mfg_driver);
-+
-+MODULE_SOFTDEP("pre: panthor");
-+MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-+MODULE_DESCRIPTION("MediaTek MFlexGraphics Extension for Panthor");
-+MODULE_LICENSE("GPL");
+For consistency, sof_reg_read_bits()
 
--- 
-2.51.0
+> +{
+> +	u32 target_bit_field, curr_value;
+> +
+> +	target_bit_field = GENMASK(len + bits - 1, bits);
+> +	curr_value = snd_sof_dsp_read(sdev, bar, offset);
+> +
+> +	return (curr_value & target_bit_field) >> bits;
+> +}
+> +
+> +static int mt8196_get_mailbox_offset(struct snd_sof_dev *sdev)
+> +{
+> +	return MBOX_OFFSET;
+> +}
+> +
+> +static int mt8196_get_window_offset(struct snd_sof_dev *sdev, u32 id)
+> +{
+> +	return MBOX_OFFSET;
+> +}
+> +
+> +static const struct mtk_adsp_ipc_ops dsp_ops = {
+> +	.handle_reply		= mtk_adsp_handle_reply,
+> +	.handle_request		= mtk_adsp_handle_request,
+> +};
+> +
+> +static int platform_parse_resource(struct platform_device *pdev, void *data)
+> +{
+> +	struct resource *mmio;
+> +	struct resource res;
+> +	struct device_node *mem_region;
+> +	struct device *dev = &pdev->dev;
+> +	struct mtk_adsp_chip_info *adsp = data;
+> +	int ret;
+> +
+> +	ret = of_reserved_mem_device_init(dev);
+> +	if (ret) {
+> +		dev_err(dev, "of_reserved_mem_device_init failed\n");
+> +		return ret;
+> +	}
+> +
+> +	mem_region = of_parse_phandle(dev->of_node, "memory-region", 1);
+> +	if (!mem_region) {
+> +		dev_err(dev, "no memory-region sysmem phandle\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	ret = of_address_to_resource(mem_region, 0, &res);
+> +	of_node_put(mem_region);
+> +	if (ret) {
+> +		dev_err(dev, "of_address_to_resource sysmem failed\n");
+> +		return ret;
+> +	}
+> +
+> +	adsp->pa_dram = (phys_addr_t)res.start;
+> +	if (adsp->pa_dram & DRAM_REMAP_MASK) {
+> +		dev_err(dev, "adsp memory(%#x) is not 4K-aligned\n",
+> +			(u32)adsp->pa_dram);
+> +		return -EINVAL;
+> +	}
+> +
+> +	adsp->dramsize = resource_size(&res);
+> +	if (adsp->dramsize < TOTAL_SIZE_SHARED_DRAM_FROM_TAIL) {
+> +		dev_err(dev, "adsp memory(%#x) is not enough for share\n",
+> +			adsp->dramsize);
+> +		return -EINVAL;
+> +	}
+> +
+> +	dev_dbg(dev, "dram pbase=%pa size=%#x\n", &adsp->pa_dram, adsp->dramsize);
+> +
+> +	mmio = platform_get_resource_byname(pdev, IORESOURCE_MEM, "cfg");
+> +	if (!mmio) {
+> +		dev_err(dev, "no ADSP-CFG register resource\n");
+> +		return -ENXIO;
+> +	}
+> +
+> +	adsp->va_cfgreg = devm_ioremap_resource(dev, mmio);
+> +	if (IS_ERR(adsp->va_cfgreg))
+> +		return PTR_ERR(adsp->va_cfgreg);
+> +
+> +	adsp->pa_cfgreg = (phys_addr_t)mmio->start;
+> +	adsp->cfgregsize = resource_size(mmio);
+> +
+> +	mmio = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sram");
+> +	if (!mmio) {
+> +		dev_err(dev, "no SRAM resource\n");
+> +		return -ENXIO;
+> +	}
+> +
+> +	adsp->pa_sram = (phys_addr_t)mmio->start;
+> +	adsp->sramsize = resource_size(mmio);
+> +
 
+Until there, this function is exactly the same as the one found in mt8195/mt8195.c
+except the one in mt8195 is better.....
+
+> +	dev_dbg(dev, "sram pbase=%pa size=%#x\n", &adsp->pa_sram, adsp->sramsize);
+> +
+> +	mmio = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sec");
+> +	if (!mmio) {
+> +		dev_err(dev, "no SEC register resource\n");
+> +		return -ENXIO;
+> +	}
+> +
+> +	adsp->va_secreg = devm_ioremap_resource(dev, mmio);
+> +	if (IS_ERR(adsp->va_secreg))
+> +		return PTR_ERR(adsp->va_secreg);
+> +
+> +	adsp->pa_secreg = (phys_addr_t)mmio->start;
+> +	adsp->secregsize = resource_size(mmio);
+> +
+> +	dev_dbg(dev, "secreg pbase=%pa size=%#x\n", &adsp->pa_secreg, adsp->secregsize);
+> +
+> +	mmio = platform_get_resource_byname(pdev, IORESOURCE_MEM, "bus");
+> +	if (!mmio) {
+> +		dev_err(dev, "no BUS register resource\n");
+> +		return -ENXIO;
+> +	}
+> +
+> +	adsp->va_busreg = devm_ioremap_resource(dev, mmio);
+> +	if (IS_ERR(adsp->va_busreg))
+> +		return PTR_ERR(adsp->va_busreg);
+> +
+> +	adsp->pa_busreg = (phys_addr_t)mmio->start;
+> +	adsp->busregsize = resource_size(mmio);
+> +
+> +	dev_dbg(dev, "busreg pbase=%pa, vbase=%pa, size=%#x\n", &adsp->pa_busreg,
+> +		&adsp->va_busreg, adsp->busregsize);
+> +
+
+...and until there, this function is exactly the same as the one found in mt8186.c
+
+So, please commonize the two and remove duplication from mt8186, mt8195 and mt8196.
+
+> +	return 0;
+> +}
+> +
+> +static void adsp_sram_power_on(struct snd_sof_dev *sdev)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ADSP_SRAM_CHANNEL_NUM; i++) {
+> +		sof_reg_write_bits(sdev, DSP_BUSREG_BAR, ADSP_SRAM_POOL_CON, 0, i, 1);
+> +		while (1) {
+> +			if (reg_read_bits(sdev, DSP_BUSREG_BAR, ADSP_SRAM_POOL_ACK, i, 1) == 0)
+> +				break;
+> +		}
+> +	}
+> +}
+> +
+> +static void adsp_sram_power_off(struct snd_sof_dev *sdev)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ADSP_SRAM_CHANNEL_NUM; i++) {
+> +		sof_reg_write_bits(sdev, DSP_BUSREG_BAR, ADSP_SRAM_POOL_CON, 1, i, 1);
+> +		while (1) {
+> +			if (reg_read_bits(sdev, DSP_BUSREG_BAR, ADSP_SRAM_POOL_ACK, i, 1) == 1)
+> +				break;
+> +		}
+> +	}
+> +}
+> +
+> +/*  Init the basic DSP DRAM address */
+> +static int adsp_memory_remap_init(struct snd_sof_dev *sdev, struct mtk_adsp_chip_info *adsp)
+> +{
+> +	u32 from, to;
+> +
+> +	from = adsp_remap_region_from(DRAM_PHYS_BASE_FROM_DSP_VIEW, DSP_DRAM_SIZE);
+> +	to = (u32)ADSP_REMAP_REGION_TO(adsp->pa_dram);
+> +
+> +	snd_sof_dsp_write(sdev, DSP_BUSREG_BAR, AUDIO_BUS_CFG_RSV_10, from);
+> +	snd_sof_dsp_write(sdev, DSP_BUSREG_BAR, DSP_C0_EMI_MAP_ADDR, to);
+> +
+> +	snd_sof_dsp_update_bits(sdev, DSP_BUSREG_BAR, AUDIO_BUS_CFG_BUS_REMAP_CTRL, 1, 1);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mt8196_run(struct snd_sof_dev *sdev)
+> +{
+> +	u32 adsp_bootup_addr;
+> +
+> +	adsp_bootup_addr = SRAM_PHYS_BASE_FROM_DSP_VIEW;
+> +	dev_dbg(sdev->dev, "HIFIxDSP boot from base : 0x%08X\n", adsp_bootup_addr);
+> +	mt8196_sof_hifixdsp_boot_sequence(sdev, adsp_bootup_addr);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mt8196_dsp_probe(struct snd_sof_dev *sdev)
+> +{
+
+This function is also duplicated between all of the currently supported mediatek
+platforms (mt8186, 8195 and 8196).
+
+> +	struct platform_device *pdev = to_platform_device(sdev->dev);
+> +	struct adsp_priv *priv;
+> +	int ret;
+> +
+> +	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	sdev->pdata->hw_pdata = priv;
+> +	priv->dev = sdev->dev;
+> +	priv->sdev = sdev;
+> +
+> +	priv->adsp = devm_kzalloc(&pdev->dev, sizeof(struct mtk_adsp_chip_info), GFP_KERNEL);
+> +	if (!priv->adsp)
+> +		return -ENOMEM;
+> +
+> +	ret = platform_parse_resource(pdev, priv->adsp);
+> +	if (ret)
+> +		return ret;
+> +
+> +	sdev->bar[SOF_FW_BLK_TYPE_IRAM] = devm_ioremap(sdev->dev,
+> +						       priv->adsp->pa_sram,
+> +						       priv->adsp->sramsize);
+> +	if (!sdev->bar[SOF_FW_BLK_TYPE_IRAM]) {
+> +		dev_err(sdev->dev, "failed to ioremap base %pa size %#x\n",
+> +			&priv->adsp->pa_sram, priv->adsp->sramsize);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	priv->adsp->va_sram = sdev->bar[SOF_FW_BLK_TYPE_IRAM];
+> +	dev_dbg(sdev->dev, "pa_sram %pa,va: %pa, size %#x\n",
+> +		&priv->adsp->pa_sram, &priv->adsp->va_sram, priv->adsp->sramsize);
+> +
+> +	sdev->bar[SOF_FW_BLK_TYPE_SRAM] = devm_ioremap(sdev->dev,
+> +						       priv->adsp->pa_dram,
+> +						       priv->adsp->dramsize);
+> +
+> +	if (!sdev->bar[SOF_FW_BLK_TYPE_SRAM]) {
+> +		dev_err(sdev->dev, "failed to ioremap base %pa size %#x\n",
+> +			&priv->adsp->pa_dram, priv->adsp->dramsize);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	priv->adsp->va_dram = sdev->bar[SOF_FW_BLK_TYPE_SRAM];
+> +
+> +	dev_dbg(sdev->dev, "pa_dram %pa, va: %pa, size %#x\n",
+> +		&priv->adsp->pa_dram, &priv->adsp->va_dram, priv->adsp->dramsize);
+> +
+> +	sdev->bar[DSP_REG_BAR] = priv->adsp->va_cfgreg;
+> +	sdev->bar[DSP_SECREG_BAR] = priv->adsp->va_secreg;
+> +	sdev->bar[DSP_BUSREG_BAR] = priv->adsp->va_busreg;
+> +
+> +	sdev->mmio_bar = SOF_FW_BLK_TYPE_SRAM;
+> +	sdev->mailbox_bar = SOF_FW_BLK_TYPE_SRAM;
+> +
+> +	/* set default mailbox offset for FW ready message */
+> +	sdev->dsp_box.offset = mt8196_get_mailbox_offset(sdev);
+> +
+> +	/* enable adsp clock before touching registers */
+> +	ret = mt8196_adsp_init_clock(sdev);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "mt8196_adsp_init_clock failed\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = mt8196_adsp_clock_on(sdev);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "mt8196_adsp_clock_on fail!\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = adsp_memory_remap_init(sdev, priv->adsp);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "adsp_memory_remap_init fail!\n");
+> +		return ret;
+> +	}
+> +
+> +	adsp_sram_power_on(sdev);
+> +
+> +	priv->ipc_dev = platform_device_register_data(&pdev->dev, "mtk-adsp-ipc",
+> +						      PLATFORM_DEVID_NONE,
+> +						      pdev, sizeof(*pdev));
+> +	if (IS_ERR(priv->ipc_dev)) {
+> +		ret = PTR_ERR(priv->ipc_dev);
+> +		dev_err(sdev->dev, "failed to create mtk-adsp-ipc device\n");
+> +		goto err_adsp_off;
+> +	}
+> +
+> +	priv->dsp_ipc = dev_get_drvdata(&priv->ipc_dev->dev);
+> +	if (!priv->dsp_ipc) {
+> +		ret = -EPROBE_DEFER;
+> +		dev_err(sdev->dev, "failed to get drvdata\n");
+> +		goto exit_pdev_unregister;
+> +	}
+> +
+> +	mtk_adsp_ipc_set_data(priv->dsp_ipc, priv);
+> +	priv->dsp_ipc->ops = &dsp_ops;
+> +
+> +	return 0;
+> +
+> +exit_pdev_unregister:
+> +	platform_device_unregister(priv->ipc_dev);
+> +err_adsp_off:
+> +	adsp_sram_power_off(sdev);
+> +	mt8196_adsp_clock_off(sdev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void mt8196_dsp_remove(struct snd_sof_dev *sdev)
+> +{
+> +	struct adsp_priv *priv = sdev->pdata->hw_pdata;
+> +
+> +	platform_device_unregister(priv->ipc_dev);
+> +	mt8196_sof_hifixdsp_shutdown(sdev);
+> +	adsp_sram_power_off(sdev);
+> +	mt8196_adsp_clock_off(sdev);
+> +}
+> +
+> +static int mt8196_dsp_shutdown(struct snd_sof_dev *sdev)
+> +{
+
+exactly the same as mt8186, 8195
+
+> +	return snd_sof_suspend(sdev->dev);
+> +}
+> +
+> +static int mt8196_dsp_suspend(struct snd_sof_dev *sdev, u32 target_state)
+> +{
+> +	struct adsp_priv *priv = sdev->pdata->hw_pdata;
+> +
+> +	snd_sof_dsp_update_bits(sdev, DSP_REG_BAR, ADSP_IO_CONFIG, ADSP_CLK_SEL, 0);
+> +	clk_set_parent(priv->clk[CLK_TOP_AUDIODSP], priv->clk[CLK_TOP_SYS_CLK]);
+> +	mt8196_sof_hifixdsp_shutdown(sdev);
+> +	adsp_sram_power_off(sdev);
+> +	mt8196_adsp_clock_off(sdev);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mt8196_dsp_resume(struct snd_sof_dev *sdev)
+> +{
+> +	int ret;
+> +	struct adsp_priv *priv = sdev->pdata->hw_pdata;
+> +
+> +	ret = mt8196_adsp_clock_on(sdev);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "mt8196_adsp_clock_on fail!");
+> +		return ret;
+> +	}
+> +
+> +	clk_set_parent(priv->clk[CLK_TOP_AUDIODSP], priv->clk[CLK_TOP_ADSPPLL]);
+> +	snd_sof_dsp_update_bits(sdev, DSP_REG_BAR, ADSP_IO_CONFIG, ADSP_CLK_SEL, BIT(31));
+> +	adsp_sram_power_on(sdev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mt8196_adsp_dump(struct snd_sof_dev *sdev, u32 flags)
+> +{
+> +	u32 dbg_pc, dbg_data, dbg_inst, dbg_ls0stat, dbg_status, faultinfo;
+> +
+> +	/* dump debug registers */
+> +	dbg_pc = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PDEBUGPC);
+> +	dbg_data = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PDEBUGDATA);
+> +	dbg_inst = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PDEBUGINST);
+> +	dbg_ls0stat = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PDEBUGLS0STAT);
+> +	dbg_status = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PDEBUGSTATUS);
+> +	faultinfo = snd_sof_dsp_read(sdev, DSP_REG_BAR, DSP_PFAULTINFO);
+> +
+> +	dev_info(sdev->dev, "adsp dump : pc %#x, data %#x, dbg_inst %#x,",
+> +		 dbg_pc, dbg_data, dbg_inst);
+> +	dev_info(sdev->dev, "ls0stat %#x, status %#x, faultinfo %#x",
+> +		 dbg_ls0stat, dbg_status, faultinfo);
+> +
+> +	mtk_adsp_dump(sdev, flags);
+> +}
+> +
+> +/*
+> + * DL_24CH, DL1, UL0, UL1, UL2 are registered as SOF FE, so creating the corresponding
+> + * SOF BE to complete the pipeline.
+> + */
+> +static struct snd_soc_dai_driver mt8196_dai[] = {
+> +{
+> +	.name = "SOF_DL_24CH",
+> +	.playback = {
+> +		.channels_min = CHAN_MIN,
+
+Just write 1 and 2 and remove that CHAN_MIN/CHAN_MAX definition from the header.
+Alternatively, always use the definition.
+
+Having a definition though is not worth it in this case imo.
+
+> +		.channels_max = CHAN_MAX,
+> +	},
+> +},
+> +{
+> +	.name = "SOF_DL1",
+> +	.playback = {
+> +		.channels_min = CHAN_MIN,
+> +		.channels_max = CHAN_MAX,
+> +	},
+> +},
+> +{
+> +	.name = "SOF_UL0",
+> +	.capture = {
+> +		.channels_min = 1,
+> +		.channels_max = 2,
+> +	},
+> +},
+> +{
+> +	.name = "SOF_UL1",
+> +	.capture = {
+> +		.channels_min = CHAN_MIN,
+> +		.channels_max = CHAN_MAX,
+> +	},
+> +},
+> +{
+> +	.name = "SOF_UL2",
+> +	.capture = {
+> +		.channels_min = CHAN_MIN,
+> +		.channels_max = CHAN_MAX,
+> +	},
+> +},
+> +};
+> +
+> +/* mt8196 ops */
+> +static const struct snd_sof_dsp_ops sof_mt8196_ops = {
+> +	/* probe and remove */
+> +	.probe		= mt8196_dsp_probe,
+> +	.remove		= mt8196_dsp_remove,
+> +	.shutdown	= mt8196_dsp_shutdown,
+> +
+> +	/* DSP core boot */
+> +	.run		= mt8196_run,
+> +
+> +	/* Block IO */
+> +	.block_read	= sof_block_read,
+> +	.block_write	= sof_block_write,
+> +
+> +	/* Mailbox IO */
+> +	.mailbox_read	= sof_mailbox_read,
+> +	.mailbox_write	= sof_mailbox_write,
+> +
+> +	/* Register IO */
+> +	.write		= sof_io_write,
+> +	.read		= sof_io_read,
+> +	.write64	= sof_io_write64,
+> +	.read64		= sof_io_read64,
+> +
+> +	/* ipc */
+> +	.send_msg		= mtk_adsp_send_msg,
+> +	.get_mailbox_offset	= mt8196_get_mailbox_offset,
+> +	.get_window_offset	= mt8196_get_window_offset,
+> +	.ipc_msg_data		= sof_ipc_msg_data,
+> +	.set_stream_data_offset = sof_set_stream_data_offset,
+> +
+> +	/* misc */
+> +	.get_bar_index	= mtk_adsp_get_bar_index,
+> +
+> +	/* stream callbacks */
+> +	.pcm_open	= sof_stream_pcm_open,
+> +	.pcm_hw_params	= mtk_adsp_stream_pcm_hw_params,
+> +	.pcm_pointer	= mtk_adsp_stream_pcm_pointer,
+> +	.pcm_close	= sof_stream_pcm_close,
+> +
+> +	/* firmware loading */
+> +	.load_firmware	= snd_sof_load_firmware_memcpy,
+> +
+> +	/* Firmware ops */
+> +	.dsp_arch_ops = &sof_xtensa_arch_ops,
+> +
+> +	/* DAI drivers */
+> +	.drv		= mt8196_dai,
+> +	.num_drv	= ARRAY_SIZE(mt8196_dai),
+> +
+> +	/* Debug information */
+> +	.dbg_dump = mt8196_adsp_dump,
+> +	.debugfs_add_region_item = snd_sof_debugfs_add_region_item_iomem,
+> +
+> +	/* PM */
+> +	.suspend	= mt8196_dsp_suspend,
+> +	.resume		= mt8196_dsp_resume,
+> +
+> +	/* ALSA HW info flags */
+> +	.hw_info =	SNDRV_PCM_INFO_MMAP |
+> +			SNDRV_PCM_INFO_MMAP_VALID |
+> +			SNDRV_PCM_INFO_INTERLEAVED |
+> +			SNDRV_PCM_INFO_PAUSE |
+> +			SNDRV_PCM_INFO_NO_PERIOD_WAKEUP,
+> +};
+> +
+> +static struct snd_sof_of_mach sof_mt8196_machs[] = {
+> +	{
+> +		.compatible = "mediatek,mt8196",
+> +		.sof_tplg_filename = "sof-mt8196.tplg",
+> +	},
+> +	{}
+> +};
+> +
+> +static const struct sof_dev_desc sof_of_mt8196_desc = {
+> +	.of_machines = sof_mt8196_machs,
+> +	.ipc_supported_mask	= BIT(SOF_IPC_TYPE_3),
+> +	.ipc_default		= SOF_IPC_TYPE_3,
+> +	.default_fw_path = {
+> +		[SOF_IPC_TYPE_3] = "mediatek/sof",
+> +	},
+> +	.default_tplg_path = {
+> +		[SOF_IPC_TYPE_3] = "mediatek/sof-tplg",
+> +	},
+> +	.default_fw_filename = {
+> +		[SOF_IPC_TYPE_3] = "sof-mt8196.ri",
+> +	},
+> +	.nocodec_tplg_filename = "sof-mt8196-nocodec.tplg",
+> +	.ops = &sof_mt8196_ops,
+> +};
+> +
+> +static const struct of_device_id sof_of_mt8196_ids[] = {
+> +	{ .compatible = "mediatek,mt8196-dsp", .data = &sof_of_mt8196_desc},
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sof_of_mt8196_ids);
+> +
+> +/* DT driver definition */
+> +static struct platform_driver snd_sof_of_mt8196_driver = {
+> +	.probe = sof_of_probe,
+> +	.remove = sof_of_remove,
+> +	.shutdown = sof_of_shutdown,
+> +	.driver = {
+> +	.name = "sof-audio-of-mt8196",
+> +		.pm = pm_ptr(&sof_of_pm),
+> +		.of_match_table = sof_of_mt8196_ids,
+> +	},
+> +};
+> +module_platform_driver(snd_sof_of_mt8196_driver);
+> +
+> +MODULE_LICENSE("Dual BSD/GPL");
+> +MODULE_DESCRIPTION("SOF support for MT8196 platforms");
+> +MODULE_IMPORT_NS("SND_SOC_SOF_XTENSA");
+> +MODULE_IMPORT_NS("SND_SOC_SOF_MTK_COMMON");
+> diff --git a/sound/soc/sof/mediatek/mt8196/mt8196.h b/sound/soc/sof/mediatek/mt8196/mt8196.h
+> new file mode 100644
+> index 000000000000..5d2e14827bc2
+> --- /dev/null
+> +++ b/sound/soc/sof/mediatek/mt8196/mt8196.h
+> @@ -0,0 +1,124 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
+> +/*
+> + * Copyright(c) 2025 MediaTek Inc. All rights reserved.
+> + * Author: Hailong Fan <hailong.fan@mediatek.com>
+> + */
+> +
+> +#ifndef __MT8196_H
+> +#define __MT8196_H
+
+Let's start using better definitions for those headers.
+
+#ifndef __SOF_MEDIATEK_MT8196_H
+#define __SOF_MEDIATEK_MT8196_H
+
+> +
+> +struct mtk_adsp_chip_info;
+> +struct snd_sof_dev;
+
+Regards,
+Angelo
 
