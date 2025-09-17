@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C141CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E16CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=abYjL49SciLzOaOA35f0uMdKGEjHBbwqKbxX7MVH+24=; b=yvBzKv17w2xx7y6xv7iBh9UmK/
-	i2xvg/NyhPpBH7nA1cAWdDkS6pqqdwcsvQjW13FE/3LAX1SgC/YLi9S2rzEisCrKABN3L8dh2O04t
-	B9gBAOI31cXYuu2vfDjY6k6EIMh2ueUoKgP0ystvevI0lLs4PZU7yeg/VQL+ZvTu6ruYb5qqkCaUJ
-	Ub8qkcgOi9O8/UlBDdYlD6V4sP/nIlsJGRUkYaFXQ2i3bh8UJfz51fZmCgYOm3nCj5MAZph/m8WDp
-	Vlf1cSp2bkrsuh7gCGrs8SBxhfSdWmP/NOCDs/OX2FbtlRNuewLCQwA/ui3su/vzuGC2uMVzxXp8P
-	43vsJ6Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIF3MVbv1JRX4vSWXKWjaHoubHOIQ4J2NRlPETBPwBc=; b=jiBD4141urp+qbdihuMa727UIl
+	b6J4TN4KRB5m+eescPQtmVju3/cZP8Qyvshla1lleY0yFBS21YFbXDoJUrx2NHT+I4v+28Kqg7HVN
+	Ta/H2TvmCZfFSq0ZZhzvP+2kPq24ZULSzyCOrjgyxC0H7SUgFeuoyH2BXh5FJwyAEAHLYpRBtq/BZ
+	6ZmHJykL6W+FFaR77yX0VdBOJiutE+vWoBUtX2TFuuXanZ3qbTmsKDIXHq/KXQl3lZG7ZfxVCuxdv
+	8dlr2eqaXgNj6PbIdEiKc/vUZqjP5sKxIDoraPAOfSmk6lOIkp/poxW4xnJalbdlnF3EnromPDGBc
+	ZsPytBYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uymxQ-0000000AX44-1DY4;
-	Wed, 17 Sep 2025 07:52:04 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1uymyt-0000000AXTy-19pI;
+	Wed, 17 Sep 2025 07:53:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uymxN-0000000AX3N-1JcR
+	id 1uymyq-0000000AXSQ-19IA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 07:52:02 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-323266cdf64so5480203a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 00:52:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758095520; x=1758700320; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=abYjL49SciLzOaOA35f0uMdKGEjHBbwqKbxX7MVH+24=;
-        b=MY9V0JyjsbB4+50/CdI6Sw3Hl19Y03WM4f2LG+y0rdjviD9Jp+1emfh94ZtHRdL4AB
-         lizu0dpObbhIVQZLZTOAdTj9OHMF7O9g5KUDeIQdvGOzNEZ8y71u2LSszucxfgV0RYk/
-         2p3hv/du5CHE32FNNkV101QCRZ0gWD34pYPwJ1APAH0scEqTOhZkgA6XhgXpCUockJH3
-         cx5j95bi0TxhxrxEWmWeHp1s3bYqe6aXd1GJIdjutuAAdTui7e5TPs3M/vc4OlhLzhBQ
-         YH7mEF8AMOvBOwjfqDv0cWjw/2qo3p1ZbeHQL+pwYlc0WXyIqf2SYgy/HiByY03SHoyI
-         Ujuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758095520; x=1758700320;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=abYjL49SciLzOaOA35f0uMdKGEjHBbwqKbxX7MVH+24=;
-        b=mAPW6lVMegv5CvXlYQwd+L4xvuN+mmf737RWbpyDQFBobpTd7pvNrHNnoA/dv7nHGK
-         koa2qOw0jgkIVrbHMlaRxF6gEGMlfK6OFDtRqCu6l5BQA3CKT9pVKmbZ6sTcT5f++tR1
-         suPKCbOSBXJhamq3P7Z/K52b5brPFC3TypjaO0mLX255syx4TTLOMoOu4serLumtH/O5
-         wqqQ8bFUG1ECfz5nWPlHWw6PMg0gfpG7ZmaM4yN84oAO83aXJqkOkKj0ckM+Jgin3O9+
-         UeWV6J3p2oLkQ+TU5fUOn6jiyxJ7+jdcpW5FSccOYIJRbRAAoFKD0yQseyiHYNYYAjVO
-         pJwA==
-X-Forwarded-Encrypted: i=1; AJvYcCVhjVN+TEve4yl9TUKq1wyaVz9mOzMVLvgY9OjLM4/m3DRZM6908eiA/ZA080/4FpmigY8Hs+/Pkfj8uelGCe8h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFryrPPStFLfdxHRe75/gsCiHnn9NkEVSjNtgrPcFKeXJxaqhS
-	fNqJki1a3J1myLZ0OFUamu4+kltnAXr8D71CBSnd8Pk2I5md9CE9E4PV
-X-Gm-Gg: ASbGnctxOGowJoauPN70XCFwa4YKaoUUxazywpmullx0/bzaGDp7FiFAV9wldWIZnWG
-	/5JkuBVZ8G+MvcZ5bvVf/FarQkVI1jaDPuNAte2JmsAEtkCPjixQgOG+e3NmOYIfipVkdQc9Mwg
-	8H+yNLlbmky32z55ld7xAuhGbmJNUpbi0N0jqPFXoOMgPfqxuX9J49zJb3ch1Y8mMkJXBAOh9cA
-	JpU7blpw92xZZxR8JJbusiIF8S54VejehF25Rz9OficgATrBUvFCyaEw/L/GeYJL3aouK8HCnkk
-	dmXmbQ8wis+C7YQshJbQH/B/rCqqfcybJ6wk8I1oIgIDJbwz6LDZWvbvwOEm9AOYBlYJmwcEPbL
-	DBuhvm6NuH0YKZ2CJZt//cvTa9V4g1nLRoVbB
-X-Google-Smtp-Source: AGHT+IHUW/wTOhIs1KEMt39SwXanfpFrThAcQacQ2rNisK/1xxjIdZlvOMm825vyXwIFErVxjOFrJQ==
-X-Received: by 2002:a17:90b:2c8c:b0:324:e96a:2ada with SMTP id 98e67ed59e1d1-32ee3f2ffefmr1335606a91.21.1758095520454;
-        Wed, 17 Sep 2025 00:52:00 -0700 (PDT)
-Received: from meta-device ([2001:b400:e359:6d3b:3881:d7b4:5e6b:c23a])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b54f6d51fdbsm253168a12.26.2025.09.17.00.51.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 00:52:00 -0700 (PDT)
-From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Wed, 17 Sep 2025 07:53:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CBF944CED;
+	Wed, 17 Sep 2025 07:53:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76070C4CEF7;
+	Wed, 17 Sep 2025 07:53:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758095611;
+	bh=rZD530C33pH+GWMHh31/6zyeGeoXK3zwG57zlNxdd7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cNM1z9hnO/tp4z5Bk9aOjAreEb+GhL7j4b7o/2L+q1cBzAYhyqVy8unTi9B31u9Pa
+	 VfCHGiFnsKiemO/jBp3XL0moGs6WrA5uPyybRlhOUG1PQ4JDRb6IVOirtLWwqFMmPz
+	 pOP9nz41hTctahm4XL4uCVXj255VaePscfnzr0VPu73TRJqYhvrHl75SV0pGzSBUrA
+	 fGgp85cNDmuzXvk+rb2FJb3INRCxDhx4ppcYDPU73yywF7sR4YJQPLwoR6g2BbKd5X
+	 icQ2kOHM4dgtbVRaMEhsd/y3osWPKfq7/+hn4GWpKhAxZrCfqZ0yroxbE8ulajy7Dk
+	 eR4cYfzxKGzng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uymym-00000006yJA-31N5;
+	Wed, 17 Sep 2025 07:53:28 +0000
+Date: Wed, 17 Sep 2025 08:53:27 +0100
+Message-ID: <86qzw51pmw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Will Deacon <will@kernel.org>,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] dt-bindings: arm: aspeed: add Meta Yosemite5 board
-Date: Wed, 17 Sep 2025 15:51:56 +0800
-Message-ID: <20250917075156.4043936-1-kevin.tung.openbmc@gmail.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	linux-arm-kernel@lists.
+ infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
+In-Reply-To: <87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
+References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
+	<87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
+	<86v7li1xs4.wl-maz@kernel.org>
+	<87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kuninori.morimoto.gx@renesas.com, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_005201_355726_BEB1AB90 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_005332_351021_42236C61 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +113,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the new compatibles used on Meta Yosemite5.
+On Wed, 17 Sep 2025 05:08:21 +0100,
+Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
+> 
+> 
+> Hi Marc
+> 
+> > > +		/*
+> > > +		 * The ARM GIC-720AE - View 1
+> > > +		 *
+> > > +		 * see
+> > > +		 *	r19uh0244ej0052-r-carx5h.pdf
+> > > +		 *	- attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
+> > > +		 *	 - sheet [RT]
+> > > +		 *	  - line 619
+> > 
+> > Are these documents publicly available? If not, I don't think this
+> > helps much.
+> 
+> You can get it if you are Renesas R-Car Consortium member.
 
-Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
----
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Given that statistically nobody outside of Renesas it a "member", the
+relevance of this document is pretty much nil.
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 456dbf7b5ec8..6f2b12f96bd6 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -89,6 +89,7 @@ properties:
-               - facebook,minerva-cmc
-               - facebook,santabarbara-bmc
-               - facebook,yosemite4-bmc
-+              - facebook,yosemite5-bmc
-               - ibm,blueridge-bmc
-               - ibm,everest-bmc
-               - ibm,fuji-bmc
+> And, the datasheet is very complex, I don't think people can find it by
+> himself without any hint.
+
+I guess we're just a bunch of inexperienced idiots unable to read a
+TRM.
+
+(eye roll...)
+
+> 
+> > > +		 */
+> > > +		gic: interrupt-controller@39000000 {
+> > > +			compatible = "arm,gic-v3";
+> > > +			#interrupt-cells = <3>;
+> > > +			#address-cells = <0>;
+> > > +			interrupt-controller;
+> > > +			reg = <0 0x39000000 0 0x20000>, // GICD
+> > > +			      <0 0x39080000 0 0x40000>; // GICR
+> > 
+> > In v2, you indicated that your GIC was configured for GICv4.1, which
+> > implied 256kB frames for each redistributor. Here, you have either
+> > just enough space for 32 RDs for a GICv3, or 16 RDs for GICv4.
+> > 
+> > So either this is wrong, and you're missing half of the RD space, or
+> > v2 was wrong. Which one is it?
+> 
+> will fix in v4
+> 
+> > > +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> > 
+> > No ITS? That seems... surprising.
+> 
+> Will be added later
+
+Why later? You're adding the GIC, add it all, not just a part of it.
+
+	M.
+
 -- 
-2.47.1
-
+Without deviation from the norm, progress is not possible.
 
