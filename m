@@ -4,69 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7004CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B58ACAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jUIJcVT/Ec3AwRa4wJ18smxL4fxzGF/Dm4hZdfMfRwI=; b=wRjTNn/u1oP088Epz6dwyqjIs5
-	y0KvbVMGTlXS3A8+vwLZjruLpYdM1GoxbclDAxassqKW6/FPoXogzezGyNV8iaylVl9FsjtFAFhqC
-	kbQNzvR8axeCfkF+afqbfjR2sJxjUKa6D47U8WA9sMFb1EJsr8uuTFPjhyskZgk92tI/94mlTH/jf
-	UFgpYQZRFudMcmipTOmXo6kzTf+v6AwHBJela8FIEI09n+24UX63jL3yebnvgWcApV0hSqmu0IjrA
-	vrXF9hVQTY320O/sodBemSb8PWcS5ZFxzgK6xafG1JhmrE6XNXMt4P9gWn90hIDyDDt8Boi9L5Bhp
-	P7PDNQRA==;
+	bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=; b=g2y3+qSaeXlgpjYxXMYutaWynF
+	8Ymq7OLPUYA3zcyUntfEo9o0nsjHdgWGTddxzS/qMnye1XfDwgZy0UMNr9trOBxi4vzear0CncWYT
+	nIgPZu5H23B1giFbglkFvQl68OGD68Svk6Y2zBNh7DwgOSvpuYAZYOHLJMSUbNrcYmuFkTB57sGtz
+	wzFAslEDX9aYuebB05g5heJkzsDDjVs2F+xb2Wc8/0q3qpHVZBpk2oTkkFg50ZJIm2/7vxEsVFRUq
+	drOKkIzeGEyYf7F/lAdRDQm3nr2ATsWXBo0l3/V0WhGuGEGiYH91ds5i8uhUnmttCsQsqMnwhxjw/
+	NdfxyRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy6k-0000000ENoP-2Zxq;
-	Wed, 17 Sep 2025 19:46:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyyK4-0000000ERdX-3C4r;
+	Wed, 17 Sep 2025 20:00:12 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy6i-0000000ENnA-49BA
+	id 1uyyK2-0000000ERbt-21nf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:46:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D55F7408E0;
-	Wed, 17 Sep 2025 19:46:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E866C4CEE7;
-	Wed, 17 Sep 2025 19:46:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758138382;
-	bh=nlmIOQC/VIb2m7wg0uPRuwlgDGUVlQnEQuPSzkaTTFM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rkrMcRDZdHdTGNjMH4Crcmt20fzR2339np4ZPNdTwitHH/orvZWQni6I50xBbpqkH
-	 5zRQ1tedhIuRV0YkJ4apRCfHsjgS9k1AtEtXh/ZItVhHAJnVjMGTjxCcHp440xk1Q8
-	 ISpIwvvgtQH769jGYNfBvClRYrrQuHRTLmMkXZvfsOw+SQSa+rtFEoJzSq8GMT0VjJ
-	 yUCH9g3UXGtPcfi6DqmBL/9FtRjlDxSwplKJyfx+q6RL1t0vxkShfIvfwuoIdbLakc
-	 DcwqaKYfV2GaSv7snc0R2mngQFoztdXYYA1XD04kggfItz5Y2F6Qnfnm23UXrR6NxQ
-	 QrOWKbvF6edlQ==
-Date: Wed, 17 Sep 2025 22:46:17 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH v3 3/4] ARM: dma-mapping: Switch to physical address
- mapping callbacks
-Message-ID: <20250917194617.GB10800@unreal>
-References: <cover.1758006942.git.leon@kernel.org>
- <5f96e44b1fb5d92a6a5f25fc9148a733a1a53b9d.1758006942.git.leon@kernel.org>
- <20250916184617.GW1086830@nvidia.com>
- <20250917103644.GB6464@unreal>
- <20250917113248.GA1086830@nvidia.com>
- <20250917134128.GC6464@unreal>
- <20250917135819.GA1391379@nvidia.com>
- <20250917184625.GA10800@unreal>
- <20250917190846.GE1391379@nvidia.com>
+	Wed, 17 Sep 2025 20:00:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VeoRdrub30gmrQ9gbM+afvJZxU6dQ4njaQGuvWhRGHR9MTHUklucbDYP/6rsRkKDSn9K/tpONn1Ox9JUjZLNsd32OQqcYK14bIGdppcbZzj7hnUeYQ1aYhkGAuTmvnXB3SNXHZYsQxF3cp3in2NN/oZQKiz0UDXaDWFRKemr0o+uHIsXPi6Qi1sZkzwK+UKMZJZ2hspN+YArMaGF6D0tBJBv2DeBpKdKF0KWA/UPO7lFYx2+pnBGrPrF36ipCetob27MMEAFMbN9rGCnhG7Ep96OVlkvI2Yh3azI6S1caVZDlShT4jZlNTeGn1NT2+w37e2I3uqw0Sar4EOmvYiTDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=;
+ b=UF6lW8tCCUCQaOorpWETWUHlGHAWFeHX/TobOcQgX00cUQLHlnpOyK0+0klhstLDqvys63eebIY4dY6AvkkNcqW48GbgdJDsiAviRcu6bZfKJ1NPpZWuvun8jh+ZbAPrpcOZ06S+PSZpKDfICVjTOza3aBJq1LigRMzoPOjVdEY5h70fo1MArbXgZ1UQFFSeIwz2eMOd+9d5ohrLVK4/SomZHuu6++dTTlgeUau2XRhGQJ79G72/h16xxKFM1pf0V4tWexlo6wYBNDeOXSmycq1weLJRZ9KN6/bMJOtCxZjRLER8khGdsf6G36yAFZcG6PE83G2JribdYHYZ9XofxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=;
+ b=pkxszzv2lNPqcmy2vyaLa6A7A4SIBLd6zLiUGsg0wUKdjxvwHm3tIUvBVd14omkHEDfEMSlbjoSDpG2w3Dt+uvH/n+Q8RArSbbR0mJcyU34CI2Pxvsqy8UXunAHbOibThQB2ihXDPZH/syYwDCn25Dc2eP7sOk0JmiWdVw/dHUs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ BL1PR01MB7771.prod.exchangelabs.com (2603:10b6:208:39a::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9115.21; Wed, 17 Sep 2025 19:59:59 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 19:59:59 +0000
+Message-ID: <e42e8b11-d86c-4164-9d6b-13cd34045570@os.amperecomputing.com>
+Date: Wed, 17 Sep 2025 12:59:52 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20250829115250.2395585-1-ryan.roberts@arm.com>
+ <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
+ <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
+ <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
+ <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
+ <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
+ <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
+ <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
+ <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
+ <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
+ <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
+ <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
+ <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
+ <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
+ <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
+ <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
+ <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
+ <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY5PR16CA0031.namprd16.prod.outlook.com
+ (2603:10b6:a03:1a0::44) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917190846.GE1391379@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BL1PR01MB7771:EE_
+X-MS-Office365-Filtering-Correlation-Id: 226940fb-e6fa-42a0-5721-08ddf624c6f3
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1ZEZ0JaWXZ5SnQ0YnFzZ2JhcXNWc21CNDJhSWY1WUVDNVNZdW5qeU1WcDN0?=
+ =?utf-8?B?bTFBeTVtbGJsWUZLN2JlRlNHY0hKWUdYR241amFnVlV6cHNoRmhPblVpckpZ?=
+ =?utf-8?B?dVN5VFZNbHVNQ2tzcmgyRHBsOVlXYjBpWEx1VGJJNms5c1JxRHZsTERreXU0?=
+ =?utf-8?B?MlF4WGtvL1BBK1AxdWMxclpCZHdBQTAzRUNOMlM5bVI2bFlaYUdvZ3d4RGNK?=
+ =?utf-8?B?eVFPUFJSdFRTUURrYi8wTzB2V2VPSVB1TWx2alN1Y1VxZlI2K3o2S3BtQ01U?=
+ =?utf-8?B?bjBHMHUxSXdCNzcxQXNPMXdFZnl2WUZRWGdRZWF0ZXpGbmJMYkZNelg4T1Vu?=
+ =?utf-8?B?bUVNL0h5NzZLS2dtUmJCNlZkLzhibUtpRDZ2aHRVajhwSEtiL2tkTzNwbWV3?=
+ =?utf-8?B?QnpXVlVHWDNUWkRyU054ckZxa1FLREovS1E5aE1LZ0VDZ3lMdWthallBMzRD?=
+ =?utf-8?B?K1hSNWhZMjJsS2Z6aDBjMHdPbWpDQ2wyenRVeTNxcjF0Sjh6OWNqbFJLcVFY?=
+ =?utf-8?B?Y1R0dFIvVVpacEZRUGZ0OElHb1VtWnFacnZJclZGd2hFQUZGZ00xTlBDemxX?=
+ =?utf-8?B?dndhQ1JQZGxSajEyZVNjSW16M2ZjMTNaZ05aM1Eyb283bTR6QVpFRGhFaktz?=
+ =?utf-8?B?aUtxNGRVUUZNSzUxRjZweUc0eW1MWXhUS3hJZW4zNDFTQ1pCemVxeHMyZ1Zv?=
+ =?utf-8?B?L1dmaGFtczd6cWxOVnVZUU9OMjlkbTVBdzdwOXBxMUdYOEllQ0I4VllLelNV?=
+ =?utf-8?B?NGNuQVQ4UVhJVld2ZXpmSGlxSlhmWWdOUG1pRkZSZ2tibmJaV2djRFoydzd5?=
+ =?utf-8?B?dTkrS1A4bW5sbDBNa2V1NnlabGxTSUdYcjNxOGExNlN4Z0RNNFNoNVBFNkMw?=
+ =?utf-8?B?S0E3UjJvSEVtM2pzcms1RkVqNDV2dHEyaG1yK0xmQWt1bDlCckRrRTI1Uy9I?=
+ =?utf-8?B?Y3czc0tiNzI4NTR5b1hCZHVJeEhUNUZsTk85NVp0QWJTaFJ4Q2swUEN4NC91?=
+ =?utf-8?B?aHF2eU5pK3lpdjdQRkFpSm1nSFBacEJNV09iRlJVWnNENWxhZDVEUmJURjZ0?=
+ =?utf-8?B?bWVvdGVRaGcxclRydGo3aGE0a24zanpqazlDK3g0Mk9nSmltdmNpdW01OHV0?=
+ =?utf-8?B?VDdyeng1QlJHOFBXVlpmMjN0WHQ5OFJTckhyUW9CQzA3MTc3RkNTbXk4TWxN?=
+ =?utf-8?B?TjdNZkhuSDlpeTI4Tk5Ycjg3eVh6TXEzYjhubHFSbW1sczl3eDVSUERPRjk1?=
+ =?utf-8?B?MEhTT2tsK0ZNRkNQNEFBTDJscXZzQXZPdDREcGhuSUR5NUtHSTh3QkxZNjlp?=
+ =?utf-8?B?VUs3aFl0K3BhcWRmV1N0ZDl5NjdGRGVDZVpFTGI3aVJBb2hjeFdnNmpzT1pV?=
+ =?utf-8?B?c1lRQktyR2JRTkhSUVcreXJmQzZoQWNPaFltdWlqTEUvdWw5Z1I5NVdlNjc0?=
+ =?utf-8?B?RThYZGhDZjloVVpzdlhBQlQwU1paOEJXN3R2OXZkeXZZdzVyVDh3aUJ0b1hr?=
+ =?utf-8?B?Um1rdkVkQXVmSWp0eWx6V3k4akM1clJWRXlwWFlrUC9mWXI4SW1uRjJIQlht?=
+ =?utf-8?B?OUhCMDJrS2VBTkk0MGZISHQ3Qy9MVHd3ODg2NzMrcHFPeHIvdy9QbHpkdzV6?=
+ =?utf-8?B?UERIOXI2a3M1UXRpbjRDSytUMEtiSmZtMG0zVmpTYjBRczhiWkU2WVQ1N2pB?=
+ =?utf-8?B?eUlMeXRrVlRrdno3Z2NHM0pPVVAxdXlCY2RSdlZLZUVCYkNXQUV0eGdFYk1L?=
+ =?utf-8?B?OHpqZ1FCa3dqLzRsUjBXTVptaGErbHZPTkZoTzN6YXBBRkI3WTdmd3hXazJG?=
+ =?utf-8?B?NDYwNlhITTZJSGc0dDZ4MU1EaEFVOU9lQUdPOUIwR2ZOV1NLV1NzUHF5SVFo?=
+ =?utf-8?B?VTE3YWZLM2NOVzhScWZKT3NRWWUyTkFzQmtHTmR3S2Q1Sm93S2plTmhzcGZz?=
+ =?utf-8?Q?jNFL0YiSuyU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NEdyOWJZTmRJbzVsdE80T29aNUt5OUtCVi84WEpUZkJlQjM5OFRjc1pDenhG?=
+ =?utf-8?B?VzdoektpbDA4dWZJUEEvNnlxOExncytIYnFVYjZ0NWd6T3Z6Z2hUWFpJTWN6?=
+ =?utf-8?B?ZVFoMjFjMllVTVVhTnNzYUE0UkgvRjNVSUlUSEplSTZHUHdBNy9JenBHR3Rm?=
+ =?utf-8?B?VVQwV3lXdVZmcmNLWURoc1VHaVgrbXBxcFBlTHpZbVVBbmJtd2F3c0ZZTEtz?=
+ =?utf-8?B?VTdaMUdsWmlIdVBhM1AxVkl2bjdtWGNMZ3dNSEJ6S3ZsNVBSeEdIQnNIUmVF?=
+ =?utf-8?B?eG1rSUhkbklaZlMvelZuYWV2YldjamZPamxYckpFYWJVaW9qN2pKTG9DbG5K?=
+ =?utf-8?B?Ylp1WW9PcWNieXJhbEpBT3pqbnNsMGNSSmZ0akFuOVp0QjYzTldiUEdvQXdL?=
+ =?utf-8?B?azNQS2tVeks0djRoalFPMzZPY09GWnhGbjJhVWlncmlPU3hvdW5nMnU4aG5D?=
+ =?utf-8?B?U3gyVmVtam9UM1ZpVTlUeTVBODlTNmZIV0laN3BCbkxDNnhMUW1KQXlrMTk5?=
+ =?utf-8?B?WHNHU3JaVjFsaG9Wa09qTG02RlM2aHdxaUFXRjVwZWZHTG9rYm9jdHk5cnFX?=
+ =?utf-8?B?UHVIcW9wazJuK3BhSHhkZ2JtUis4N2tqNU1HS2wrWEc3TlJTbVdBcmliVUxI?=
+ =?utf-8?B?eU53aHRyM0c2U3pKeFFMVHBvMFY3K1N2MmR4RjZEWkZlaWY4S21iNFpDSEFR?=
+ =?utf-8?B?SlIyWkM3K0dpR0hpOTN2dkxRbUVDUjdYRmpBeHlWcGFQYlM0N0EwaXY3M2pG?=
+ =?utf-8?B?RExhTU40aFlkTW5EcHRGVWtiUWhWbnFib2NKS29CNnY1SW9jOTBTTjBiVXhZ?=
+ =?utf-8?B?YjloNTB1RnFrQVMwMStFak9RYk14YytJR2FDbUx6SmZCNWVPSHlPUVg3djd0?=
+ =?utf-8?B?VC9FaC9aVjJCYTdXd2ZkWjUvV0p5MHNPRFUxQ3ZHcjdEbTVFY2RkYnJ4QUJH?=
+ =?utf-8?B?cWVEVDhaWjhJZm1ORUt3dmk4Y2ZKTkEzS29xQkJKOHJ1a3dMVk96SjVLWWp1?=
+ =?utf-8?B?aDhyUUR6UjNOOExGb0NYMmNtZGpxS2MvTU5raEEvUDg5STdJdDV1WEFEdWl4?=
+ =?utf-8?B?QldONTExNE9xUmlDcVA1dmpJV210UU9rai9jd0xGR3lVbC9hKzB2MDBqYXhD?=
+ =?utf-8?B?SFVPeStRcGc1azMwQk8xblRWQk9ZNEFkb0RUZGxrWFJZYlEzNjQ0dlU1a3NE?=
+ =?utf-8?B?VnFaN1JFc3Vsck5WQ1NmcE1oV3YvR25WQTRlNm45RlVjdThHbVFRZ3c4SlRH?=
+ =?utf-8?B?YXZaek9BdThqQzUxUDVHdGtoaVVDWmFMaVJxczQ4U2JvS2lRNGx2OUpTVU9x?=
+ =?utf-8?B?U3k1cFRuNm52V1BKMXVITnhlRzZmazgrZGJZZ3NIOVdtMndVcjFmTmFIUFYy?=
+ =?utf-8?B?YVJQNUtNdkt3bmw5a0g5ZXhnU2xPcDdRUnJoN1Q5anJzc3RldjRLcEhBaW9B?=
+ =?utf-8?B?cmFaSzZCT2JXWFdBWkZQS1NFNDVVNnJFRkVMVXFPNnFvUmJISi9ZUHVIQThx?=
+ =?utf-8?B?bXRnSzFLR3J4bEZsekU4Z3FJM1g2RCtYbmN0aTJzRVJmYlg1cmZQRmgyVVp0?=
+ =?utf-8?B?Z0JhMXdmUzFYMUtoV3QwaE53aUhiSEJGZUVZdE9jNklMUUVLZWswbmFRRUp2?=
+ =?utf-8?B?VUNsTUZJNStnMGFDZlFmQWdvVDNldU9odXNuNHBjMkhrcVhldTRVQVpZYzdG?=
+ =?utf-8?B?S1lSUU9NODFMazVPQm5LUi9XQVVJL3pUcTdiZ0NwSW1FSDVua0xibFE5ZE5n?=
+ =?utf-8?B?dGl4SnFvSFBtOTRaVG5IbldCSk9vTTJFb1hvODBpMlNyZFdFM0dGWWFBaTV4?=
+ =?utf-8?B?dXFzQUVXRFlGTVN2dnBJWHY0Y2NXV2NrVHRzc2d5S01JYlQ0Q3hjbzBWVjRj?=
+ =?utf-8?B?TnU1ZGdvWjhOZWxpcFhTbDMxMzJQdkZZNk4zN2liQkdKYk56SVk1anJMWU1h?=
+ =?utf-8?B?bkxKQWdDdG8wdGQ1bWM5TU05cEpqalFwL1RJaWdCY0Z4emxhdnVvM1hMeEdQ?=
+ =?utf-8?B?OHpjRkVsV29LSDJGZ2pxWkNXYmpVbTgwTVV2VHFGVk1tbEZWWXdKZ1NFcHdz?=
+ =?utf-8?B?V0pKbC94OXBpSDNIWFB0V0JsZFNzK0RGMG9uMTZzMHdMRlJ0SVVjOFllRXJm?=
+ =?utf-8?B?MHcxRHFrdk1BQlNGUytjb3ltNTQxVHIxSHBXWVB1bTRSU2VkWXF5QzAwQ1lY?=
+ =?utf-8?Q?rIBRZlHuKlZJLP1bbM+jS6g=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 226940fb-e6fa-42a0-5721-08ddf624c6f3
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 19:59:59.3608
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JIZgsmB7JBj8T7h577/O6Mp6Mqzb55qZi+u3lBeGUoCx/Htte2plDb8jtO6uMDxOh5wFdYaxWYJY7TDO5ZsJfdAglmEs/taLm7Y6bXwrICk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR01MB7771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_124625_064934_3DE929F2 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20250917_130010_534258_AAA6995F 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +200,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:08:46PM -0300, Jason Gunthorpe wrote:
-> On Wed, Sep 17, 2025 at 09:46:25PM +0300, Leon Romanovsky wrote:
-> > Let's take as an example MIPS/jazzdma, should we call to vdma_alloc()
-> > in DMA_ATTR_MMIO case?
-> 
-> Yes, that is right, this is an iommu, so it has to be programmed.
-> 
-> > or directly return "phys" as it is done in other
-> > architectures?
-> 
-> Which?
 
-XEN does that.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git/tree/drivers/xen/swiotlb-xen.c?h=dma-mapping-for-next#n395
+On 9/17/25 12:40 PM, Ryan Roberts wrote:
+> On 17/09/2025 20:15, Yang Shi wrote:
+>>
+>> On 9/17/25 11:58 AM, Ryan Roberts wrote:
+>>> On 17/09/2025 18:21, Yang Shi wrote:
+>>>> On 9/17/25 9:28 AM, Ryan Roberts wrote:
+>>>>> Hi Yang,
+>>>>>
+>>>>> Sorry for the slow reply; I'm just getting back to this...
+>>>>>
+>>>>> On 11/09/2025 23:03, Yang Shi wrote:
+>>>>>> Hi Ryan & Catalin,
+>>>>>>
+>>>>>> Any more concerns about this?
+>>>>> I've been trying to convince myself that your assertion that all users that set
+>>>>> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
+>>>>> returned my vmalloc. I agree that if that is the contract and everyone is
+>>>>> following it, then there is no problem here.
+>>>>>
+>>>>> But I haven't been able to convince myself...
+>>>>>
+>>>>> Some examples (these might intersect with examples you previously raised):
+>>>>>
+>>>>> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
+>>>>> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
+>>>>> rw_image.
+>>>> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
+>>>> is actually RW, so it should be ok to miss the call. The later
+>>>> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
+>>>> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
+>>>> the plain vmalloc() should be good enough.
+>>>>
+>>>>> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
+>>>>> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
+>>>>> set_memory_*() is not called until much later on in module_set_memory().
+>>>>> Another
+>>>>> error in the meantime could cause the memory to be vfreed before that point.
+>>>> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
+>>>> and data section. The code will set mod->mem[type].is_rox according to the type
+>>>> of the section. It is true for text, false for data. Then set_memory_rox() will
+>>>> be called later if it is true *after* insns are copied to the memory. So it is
+>>>> still RW before that point.
+>>>>
+>>>>> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
+>>>>> set_memory_*() which might then fail to split prior to vfree.
+>>>> Yes, all call sites check the return value and bail out if set_memory_*() failed
+>>>> if I don't miss anything.
+>>>>
+>>>>> But I guess as long as set_memory_*() is never successfully called for a
+>>>>> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
+>>>>> memory must still be RW at vfree-time, so this issue should be benign... I
+>>>>> think?
+>>>> Yes, it is true.
+>>> So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
+>>> only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
+>>> is called at all, the first call MUST be for the whole range.
+>> Whether the default permission is RW or not depends on the type passed in by
+>> execmem_alloc(). It is defined by execmem_info in arch/arm64/mm/init.c. For
+>> ARM64, module and BPF have PAGE_KERNEL permission (RW) by default, but kprobes
+>> is PAGE_KERNEL_ROX (ROX).
+> Perhaps I missed it, but as far as I could tell the prot that the arch sets for
+> the type only determines the prot that is set for the vmalloc map. It doesn't
+> look like the linear map is modified at all... which feels like a bug to me
+> since the linear map will be RW while the vmalloc map will be ROX... I guess I
+> must have missed something...
 
-static dma_addr_t xen_swiotlb_direct_map_resource(struct device *dev,
-						  phys_addr_t paddr,
-						  size_t size,
-						  enum dma_data_direction dir,
-						  unsigned long attrs)
-{
-	dma_addr_t dma_addr = paddr;
+Yes, it just sets the permission for vmalloc area. The set_memory_*() 
+must be called to change permission for direct map.
 
-	if (unlikely(!dma_capable(dev, dma_addr, size, false))) {
-		dev_err_once(dev,
-			     "DMA addr %pad+%zu overflow (mask %llx, bus limit %llx).\n",
-			     &dma_addr, size, *dev->dma_mask, dev->bus_dma_limit);
-		WARN_ON_ONCE(1);
-		return DMA_MAPPING_ERROR;
-	}
+>
+>>> If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
+>>> set_memory_*() was never called, the worst that can happen is for both the
+>>> set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
+>>> enough memory. But that is safe because the memory was always RW. If
+>>> set_memory_*() was called for the whole range and failed, it's the same as if it
+>>> was never called. If it was called for the whole range and succeeded, then the
+>>> split must have happened already and set_direct_map_invalid() and
+>>> set_direct_map_default() will therefore definitely succeed.
+>>>
+>>> The only way this could be a problem is if someone vmallocs a range then
+>>> performs a set_memory_*() on a sub-region without having first done it for the
+>>> whole region. But we have not found any evidence that there are any users that
+>>> do that.
+>> Yes, exactly.
+>>
+>>> In fact, by that logic, I think alloc_insn_page() must also be safe; it only
+>>> allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
+>>> definition be covering the whole allocation; 1 page is the smallest amount that
+>>> can be protected.
+>> Yes, but kprobes default permission is ROX.
+>>
+>>> So I agree we are safe.
+>>>
+>>>
+>>>>> In summary this all looks horribly fragile. But I *think* it works. It would be
+>>>>> good to clean it all up and have some clearly documented rules regardless.
+>>>>> But I
+>>>>> think that could be a follow up series.
+>>>> Yeah, absolutely agreed.
+>>>>
+>>>>>> Shall we move forward with v8?
+>>>>> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
+>>>>> it; there are a few other tidy ups in pageattr.c I want to make which I
+>>>>> spotted.
+>>>> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
+>>>> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
+>>>> Is it the cleanup you are supposed to do?
+>>> I was also going to fix up the comment in change_memory_common() which is now
+>>> stale.
+>> Oops, I missed that in my v8. Please just comment for v8, I can fix it up later.
+> Ahh no biggy. If there is a chance Will will take the series, let's not hold it
+> up for a comment.
 
-	return dma_addr;
-}
+Yeah, sure, thank you.
 
-> 
-> > > vdpa can support ATTR_MMIO with the same iommu prot MMIO adjustment,
-> > > that would be a good additional patch.
-> > 
-> > There is "bounce page" in VDPA, it sounds like swiotlb to me, which
-> > doesn't work with MMIO.
-> 
-> Oh OK, it eventually does call pfn_to_page().. This isn't the case I
-> thought it was, there is another one that just routes to iommu_map
-> 
-> Jason
-> 
+Yang
+
+>
+>> Thanks,
+>> Yang
+>>
+>>
+>>>> And I also rebased it on top of
+>>>> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
+>>>> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
+>>>>
+>>>>>> We can include the
+>>>>>> fix to kprobes in v8 or I can send it separately, either is fine to me.
+>>>>> Post it on list, and I'll also incorporate into the series.
+>>>> I can include it in v8 series.
+>>>>
+>>>>>> Hopefully we can make v6.18.
+>>>>> It's probably getting a bit late now. Anyway, I'll aim to get v8 out
+>>>>> tomorrow or
+>>>>> Friday and we will see what Will thinks.
+>>>> Thank you. I can post v8 today.
+>>> OK great - I'll leave it all to you then - thanks!
+>>>
+>>>> Thanks,
+>>>> Yang
+>>>>
+>>>>> Thanks,
+>>>>> Ryan
+>>>>>
+>>>>>> Thanks,
+>>>>>> Yang
+>>>>>>
+
 
