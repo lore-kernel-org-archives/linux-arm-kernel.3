@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D2CCAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D599CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6T4VrUGpHm4S2JBn1Suue/djS5Gq+TSaIJ2MAK8yATw=; b=laoQQeXG1PlWnTXAjKe3C/cjMw
-	zcHpoR/5bv9w3FprgIiwRoMsAgvhC++ZqKyOrccgm55pBDzCDfJbO9HAYzI17DuhmN78yV/RDcNFt
-	koU1hLZZXvWpT6ckFU5gJ5+/kxlIpJx5WY0TqVQRDH0yp2L3By8AYiZEhQiSvA07QIpmrxQ8mn6E9
-	6DKq6DV83q9TtfhfBRwlaGJxPResiJ6gpF8udmq2fl1pwyOV9V3JsScZNO9e0PQqLawPm7wy2OItY
-	cIBnlcadQTNiltN1tSGwafQNQqMLlxciZRrGm8t/IRiJgs1XuZVI8MWkOOtma/j90SQP5/w0dPZZr
-	bN0nrB0g==;
+	bh=VEWfwup8HkaFVKYNuzYL4Zw5tlWfBk4oey4f4O/y5yw=; b=z3k6VPEppmm4j/TWy4tUvThxrb
+	zpuy4SWgOzJtUCe0Pfp2r3HiWG5v/Xcko2J/Zr6+avEIGzpEt6dVYRQv8b09Ud3HO2INAxroTVvGy
+	nowdAlbdkKXlTZwVYYWjtw4iaIUqciJuFqVJhVqSOa/Y0bXqBr+JMYistmaoXLnA8QgT2zUm0QTeH
+	D87EvJBuVwF8pmSVk1h9CcymlU92qYDOPEnqdpN2It+O8MpoA1fuMgnASEMqIjw7w5CQ4SapFKu4Y
+	INWmXvE75PDgpAGLxCv4Ixd2qp+tq6LdNUpYeMbbKPtW5EiiNeNmp/KZL2VKYs4yhTAlM8OpfreEv
+	ti2/3L1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuw5-0000000D7TA-3qy1;
-	Wed, 17 Sep 2025 16:23:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uyuwY-0000000D7mv-18Q0;
+	Wed, 17 Sep 2025 16:23:42 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuw4-0000000D7SG-1l72
+	id 1uyuwW-0000000D7ke-0MgH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:23:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB90060239;
-	Wed, 17 Sep 2025 16:23:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65058C4CEE7;
-	Wed, 17 Sep 2025 16:23:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758126191;
-	bh=9WSFumWUM+iDYPWeZ4g7rzOwgg3/uhk4ULpV1IZjzl0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Kfzj1gnhpIZIlSPLY/n2BOgor5Q8F4ztJr6k1ThhlxR+9gsvxo33Its/rk0lxWDEa
-	 kQMdfrnrLDl4nFOaB8Rp1etdML05U2P1DIxf8tbpfbCHL7R5d7R9ZFVsR8H0uV7JhE
-	 BH+95ZqPe7PISfmGarbuBioxBTAXfUP7jg5saw4yLgYpNB6RwTgNaOYux39yx7hB3e
-	 FET/o+5vB5i3A9XWDEqsUualCOk6gxTzumiLMP1GbDQ9+6LOekeCvcQCOIXWug3AlP
-	 D6nvLVHTS0IJadn4FFX/GbvGR63mT/jj+VNRCG6b0DA1DZHMZh8lFc3v/K9PX4QOYa
-	 ALNAw4EYVBjPA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uyuw1-000000079gN-05oW;
-	Wed, 17 Sep 2025 16:23:09 +0000
-Date: Wed, 17 Sep 2025 17:23:08 +0100
-Message-ID: <86o6r9121f.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org"
-	<will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes
-	<Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 1/5] KVM: arm64: Allow ICC_SRE_EL2 accesses on a GICv5 host
-In-Reply-To: <20250828105925.3865158-2-sascha.bischoff@arm.com>
-References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
-	<20250828105925.3865158-2-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, tglx@linutronix.de, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 17 Sep 2025 16:23:41 +0000
+Date: Wed, 17 Sep 2025 09:23:22 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758126217;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VEWfwup8HkaFVKYNuzYL4Zw5tlWfBk4oey4f4O/y5yw=;
+	b=coS8lQSdLxDOzsi5y+YOpKTBPky/cJt2tuWoMiaNAWZnBCictOlfwr6AfiL/2Fj6Pjys0h
+	uWD4+wRSlAxbv5zGYGbqt00sceWNzJN35T67JXUeSfyn9kIA3UvmaIB5PPPvSM9u+F4hOF
+	tM5aAlI01f1Pxb2gIhgAdTySJxg3Ypo=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, ankita@nvidia.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [PATCH v1] KVM: arm64: Fix page leak in user_mem_abort()
+Message-ID: <aMrgeuZur2Zd6ybX@linux.dev>
+References: <20250917130737.2139403-1-tabba@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917130737.2139403-1-tabba@google.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_092340_395862_A0184152 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +70,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025 11:59:42 +0100,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Wed, Sep 17, 2025 at 02:07:37PM +0100, Fuad Tabba wrote:
+> The user_mem_abort() function acquires a page reference via
+> __kvm_faultin_pfn() early in its execution. However, the subsequent
+> checks for mismatched attributes between stage 1 and stage 2 mappings
+> would return an error code directly, bypassing the corresponding page
+> release.
 > 
-> The bet0 release of the GICv5 specification didn't include the
-> ICC_SRE_EL2 register as part of FEAT_GCIE_LEGACY. This was an
-> oversight, and support for this register has been added as of the bet1
-> release of the specification.
+> Fix this by storing the error and releasing the unused page before
+> returning the error.
 > 
-> Remove the guarding in the vGICv3 code that skipped the ICC_SRE_EL2
-> accesses for a GICv5 host. As a result of this change, it now becomes
-> possible to use nested virtualisation on a GICv5 host when running
-> legacy GICv3-based VMs.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Fixes: 6d674e28f642 ("KVM: arm/arm64: Properly handle faulting of device mappings")
+> Fixes: 2a8dfab26677 ("KVM: arm64: Block cacheable PFNMAP mapping")
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 
-I just remembered my promise from almost 3 weeks ago, and just posted
-this:
+Yikes, nice catch.
 
-https://lore.kernel.org/r/20250917161935.1630908-1-maz@kernel.org
-
-which kills two birds with one stone. I'll take it as a prefix to this
-series.
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 
 Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Oliver
 
