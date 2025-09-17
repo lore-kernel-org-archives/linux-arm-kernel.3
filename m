@@ -4,75 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FE4CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B35B4CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fe6MMyezrpEMFfpdK9szCBHQyXGkvJKTY5DNaPLALKM=; b=BkUrrlsKCFfcoqG2yaQ8NTR68Q
-	PguRCDsbu85vfpCjVuvJq51HaoJL4SbS/H5amUYtrG0TaeAMlTZv/kwQMPSmBjlr8WYlxGVctoM+W
-	QIfBOSyVrktPKuZJzHegwS7dSI/AIVnR4KCZtpDApYrACkyQxhbG5p2QXFPRJ8DkdxOys/i89N9GG
-	7Mtjpa2myDXpI8o9y47B2pBI0Q95r9AkZrRESL+S7jFJ67yPOX/nqTbokaN32yWYmbmTsMaXx572h
-	Oer8naLVfY7tfTlPxylaqDgtQY63unqv/SN5yTlhSl3VQFPZwC/ryZ0zpuSHbtYdU2nGmbnsB+7Ba
-	H/H2jpFQ==;
+	bh=aHCH0VCzsWU4m239VlHHtfDVtMJrBZLoOpM6kxyrkrM=; b=GxNcXJjvLeqO6bq6hi+3KthFxE
+	PDiNd64W+o6axQ0YmCmZyRQy+fYvxYK7uL2HUnjA7TR0Zy1uFVWf2zYGgAoPl4zf8zhnXQz0OXDJa
+	5yFxG5wsliRR2C7CpNVFLWEocB3SzSO+lFHQnBjCNf/Dy2SltVP2NsuEiAXpEMP5P6L0RJ1rl+zDu
+	l4yZLE9UbO/Vgf47kaMZti2UChVGEkRrDbDXObY1Ympb5xDQnYDU+jtQ5TlHr0ZpuNCHBtBK04Lzh
+	nmhjrOjoaR9xzr7PD28gOhtnblOzsKs7YyNuxsph+geT0bOuWmwbY0JUQWUsPqasrueHGyWpfPtW5
+	4jxc2g9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxMm-0000000E4Ow-1H9v;
-	Wed, 17 Sep 2025 18:58:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyxMi-0000000E4Nd-2JyI
+	id 1uyxRm-0000000E6Os-2Rd1;
+	Wed, 17 Sep 2025 19:04:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyxRk-0000000E6Nk-0chx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 18:58:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 285D52696;
-	Wed, 17 Sep 2025 11:58:43 -0700 (PDT)
-Received: from [10.57.80.26] (unknown [10.57.80.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9ECE13F694;
-	Wed, 17 Sep 2025 11:58:49 -0700 (PDT)
-Message-ID: <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
-Date: Wed, 17 Sep 2025 19:58:48 +0100
+	Wed, 17 Sep 2025 19:04:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758135843;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=aHCH0VCzsWU4m239VlHHtfDVtMJrBZLoOpM6kxyrkrM=;
+	b=GHK1ajhjLGVWVadVIFhJZ7+5tQhrQczoRsozozfdC9m22cEJUrgB/fc9oPtMa0iqowg26+
+	8RqkTueGPmowGqnu8iOp0T3SncDZEmP3rf79hQDQQ1kzo3gfXB5gn4cy6CDSzG5l2FvLLp
+	hvvKkARcio4blrFTOj9UQtH/b7e9Wp8=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-683-QcD0Qqw3NfSpWH99FJPnNA-1; Wed, 17 Sep 2025 15:04:00 -0400
+X-MC-Unique: QcD0Qqw3NfSpWH99FJPnNA-1
+X-Mimecast-MFC-AGG-ID: QcD0Qqw3NfSpWH99FJPnNA_1758135839
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3ecb79fe202so26968f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:03:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758135839; x=1758740639;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aHCH0VCzsWU4m239VlHHtfDVtMJrBZLoOpM6kxyrkrM=;
+        b=CQmkVtBsyCNliJNhgEA8bdYWJhNFEWco7I3CR2+UGHzLUeuSUAyW/cqpQAlpmbmdKy
+         oGHUETTFDeEizDsNCIDGld3HPn1dCRo3DEo8dw+/Yia0dtxWUN+/y7kFUTdlcMVw7QC1
+         RzsvBoX9FSt7HDvQPkKRLjoFvp9oNfs0iRUP+cYJ5Le8hru0jXhjClzs5BCnd/yQpq5j
+         S0R0LacNDp7eL1VeCRCN2U4PNSt1yjO8ZFmhimq6kxETCg5qrc4fJxG8l4V6U7paWc+A
+         C8NF9SFg8Vc23zcTBB5sABKu1NXdSnRVsxPbKDLJTafwL/EevlMdubgFvH0GIUnK1NP2
+         q/IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUaY99U3oRCMEAJC2pagR0nsoa1ea8pVuW57VKlk2/PzyXmZra8d3D4f5Gdb+P0DN2dcqY5+xfC1cyIUf9al6bm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcIspR03RyWZN0/y6Cv5b27EbXqm3I7UbkQmHcmeq0I/Y8kZIb
+	FnXtatmrfl0B0dsyH/Z9J2+3U95GiGsFpA7tQZSQjzaDezKK8T2WoDeZIZzhUniXzAmFFfBtgCF
+	k3PX6hr8JVp8Il0jkZ4jk5peOSdTdJGxOAlMe2YyTEyDeS5tdY9zKeQo3935/u0latKS4tueeHw
+	g6
+X-Gm-Gg: ASbGncton5TUnBM8A2scsGQejVYid0MTjcettun6Ytdx8VejLwH0LPA0vAzWecIXarq
+	CdSZWkJzuImqv3g2YJqa/IweTnvdSGHlNuakMZtYxXchzwAmAefTZN0Y+tf6wC0AYAlom7ArILo
+	FA5A0H590o7iABKJdvW5/xeSLJJlVfRLFTE68WUapmOEC3wSKIAELHIbm2TZpcTWbpYgHKIlfJ3
+	18khmpaXTY3Vg6cY66benhQcLp3STmVyjUpV0mFDvEhyy90noMdrhP/eERp/cyms+ufBXOZpjdB
+	xx4bevoUm5QxZVIz+2cJYeq0meqAWLaZ0+A06dIx08N7YMEOeMS2LtMNdByEWe+nAVoDU19bybT
+	YH4R01fB3dTCyTTUnwbFs1do3pwKc4gqPzVUA2IIZYgsLsWyphhKAPKvrxYbtNSyR
+X-Received: by 2002:a05:6000:200c:b0:3ec:d789:b35e with SMTP id ffacd0b85a97d-3ecdf9f3e2bmr2220748f8f.8.1758135838655;
+        Wed, 17 Sep 2025 12:03:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHH1jtQqXfA5qQMVLv888l0a3c36h370u+0P0yyGL+jfEOy01vR98KIIIx9Ov3RHgb7jlDtug==
+X-Received: by 2002:a05:6000:200c:b0:3ec:d789:b35e with SMTP id ffacd0b85a97d-3ecdf9f3e2bmr2220727f8f.8.1758135838182;
+        Wed, 17 Sep 2025 12:03:58 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f27:6d00:7b96:afc9:83d0:5bd? (p200300d82f276d007b96afc983d005bd.dip0.t-ipconnect.de. [2003:d8:2f27:6d00:7b96:afc9:83d0:5bd])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee073f3d68sm446010f8f.10.2025.09.17.12.03.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Sep 2025 12:03:56 -0700 (PDT)
+Message-ID: <f8d3c2d4-8399-4169-8527-3c87922f2ef1@redhat.com>
+Date: Wed, 17 Sep 2025 21:03:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, Dev Jain <dev.jain@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <e722e49a-d982-4b58-98f7-6fef3d0a4468@arm.com>
- <dd242f5b-8bbe-48e8-8d5f-be6a835a8841@arm.com>
- <aeb76956-f980-417f-b4e7-fe0503bb5a2b@os.amperecomputing.com>
- <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
- <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
- <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
- <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
- <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
- <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
- <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
- <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
- <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
- <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
- <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
- <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
- <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
- <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
+To: Thomas Gleixner <tglx@linutronix.de>,
+ Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
+ pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+ <20250912150855.2901211-10-eugen.hristev@linaro.org> <87cy7q9k8y.ffs@tglx>
+ <87a52u9jyl.ffs@tglx> <8df2cf28-c15e-4692-a127-6a5c966a965e@linaro.org>
+ <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com> <87v7lh891c.ffs@tglx>
+ <95ff36c2-284a-46ba-984b-a3286402ebf8@redhat.com>
+ <24d6a51d-f5f8-44d7-94cb-58b71ebf473a@linaro.org>
+ <7f4aa4c6-7b77-422b-9f7a-d01530c54bff@redhat.com> <87segk9az5.ffs@tglx>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <87segk9az5.ffs@tglx>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6WCcbzbil74T0aJni6skMYGq8VC78a6b1vPPE_36hsM_1758135839
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_115852_677947_2B09CFD9 
-X-CRM114-Status: GOOD (  42.74  )
+X-CRM114-CacheID: sfid-20250917_120404_257632_E4F95F50 
+X-CRM114-Status: GOOD (  44.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,139 +167,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2025 18:21, Yang Shi wrote:
 > 
+>>> this would go to a separate section called .tagged_memory.
 > 
-> On 9/17/25 9:28 AM, Ryan Roberts wrote:
->> Hi Yang,
->>
->> Sorry for the slow reply; I'm just getting back to this...
->>
->> On 11/09/2025 23:03, Yang Shi wrote:
->>> Hi Ryan & Catalin,
+> That'd be confusing vs. actual memory tags, no?
+
+Yeah, I came to the conclusion just after an upstream call we just had 
+about that topic (bi-weekly MM alignment session).
+
+I'm open for any suggestions that make it more generic. My first 
+instinct was "named memory regions".
+
+>   
+>> Maybe just "tagged_memory.h" or sth. like that? I'm bad at naming, so I
+>> would let others make better suggestions.
+> 
+> inspect.h :)
+> 
+> I'm going to use 'inspect' as prefix for the thoughts below, but that's
+> obviously subject to s/inspect/$BETTERNAME/g :)
+> 
+>>> Then anyone can walk through the section and collect the data.
 >>>
->>> Any more concerns about this?
->> I've been trying to convince myself that your assertion that all users that set
->> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
->> returned my vmalloc. I agree that if that is the contract and everyone is
->> following it, then there is no problem here.
+>>> I am just coming up with ideas here.
+>>> Could it be even part of mm.h instead of having a new header perhaps ?
+>>> Then we won't need to include one more.
 >>
->> But I haven't been able to convince myself...
->>
->> Some examples (these might intersect with examples you previously raised):
->>
->> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
->> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
->> rw_image.
+>> I don't really have something against a new include, just not one that
+>> sounded like a very specific subsystem, not something more generic.
 > 
-> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
-> is actually RW, so it should be ok to miss the call. The later
-> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
-> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
-> the plain vmalloc() should be good enough.
+> Right. We really don't want to have five different mechanisms for five
+> infrastructures which all allow to inspect kernel memory (life or
+> dead) in one way or the other. The difference between them is mostly:
 > 
->>
->> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
->> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
->> set_memory_*() is not called until much later on in module_set_memory(). Another
->> error in the meantime could cause the memory to be vfreed before that point.
+>     - Which subset of the information they expose for inspection
 > 
-> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
-> and data section. The code will set mod->mem[type].is_rox according to the type
-> of the section. It is true for text, false for data. Then set_memory_rox() will
-> be called later if it is true *after* insns are copied to the memory. So it is
-> still RW before that point.
+>     - The actual exposure mechanism: crash dump, firmware storage,
+>       run-time snapshots in a filesystem, ....
 > 
->>
->> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
->> set_memory_*() which might then fail to split prior to vfree.
+> Having one shared core infrastructure to expose data to those mechanisms
+> makes everyones life simpler.
 > 
-> Yes, all call sites check the return value and bail out if set_memory_*() failed
-> if I don't miss anything.
+> That obviously needs to collect the superset of data, but that's just a
+> bit more memory consumed. That's arguably significantly smaller than
+> supporting a zoo of mechanisms to register data for different
+> infrastructures.
 > 
->>
->> But I guess as long as set_memory_*() is never successfully called for a
->> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
->> memory must still be RW at vfree-time, so this issue should be benign... I think?
+> I'm quite sure that at least a substantial amount of the required
+> information can be collected at compile time in special section
+> tables. The rest can be collected in runtime tables, which have the same
+> format as the compile time section tables to avoid separate parsers.
 > 
-> Yes, it is true.
+> Let me just float some ideas here, how that might look like. It might be
+> completely inpractical, but then it might be at least fodder for
+> thoughts.
 
-So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
-only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
-is called at all, the first call MUST be for the whole range.
-
-If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
-set_memory_*() was never called, the worst that can happen is for both the
-set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
-enough memory. But that is safe because the memory was always RW. If
-set_memory_*() was called for the whole range and failed, it's the same as if it
-was never called. If it was called for the whole range and succeeded, then the
-split must have happened already and set_direct_map_invalid() and
-set_direct_map_default() will therefore definitely succeed.
-
-The only way this could be a problem is if someone vmallocs a range then
-performs a set_memory_*() on a sub-region without having first done it for the
-whole region. But we have not found any evidence that there are any users that
-do that.
-
-In fact, by that logic, I think alloc_insn_page() must also be safe; it only
-allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
-definition be covering the whole allocation; 1 page is the smallest amount that
-can be protected.
-
-So I agree we are safe.
-
+Thanks a bunch for writing all that down!
 
 > 
->>
->> In summary this all looks horribly fragile. But I *think* it works. It would be
->> good to clean it all up and have some clearly documented rules regardless. But I
->> think that could be a follow up series.
+> As this is specific for the compiled kernel version you can define an
+> extensible struct format for the table.
 > 
-> Yeah, absolutely agreed.
+> struct inspect_entry {
+> 	unsigned long	properties;
+>          unsigned int	type;
+>          unsigned int	id;
+>          const char	name[$MAX_NAME_LEN];
+> 	unsigned long	address;
+>          unsigned long	length;
+>          ....
+> };
 > 
->>
->>> Shall we move forward with v8?
->> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
->> it; there are a few other tidy ups in pageattr.c I want to make which I spotted.
+> @type
+>         refers either to a table with type information, which describes
+>         the struct in some way or just generate a detached compile time
+>         description.
 > 
-> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
-> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
-> Is it the cleanup you are supposed to do? 
+> @id
+>         a unique id created at compile time or via registration at
+>         runtime. Might not be required
 
-I was also going to fix up the comment in change_memory_common() which is now stale.
+We discussed that maybe one would want some kind of a "class" 
+description. For example we might have to register one pgdat area per 
+node. Giving each one a unique name might be impractical / unreasonable.
 
-> And I also rebased it on top of
-> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
-> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
-> 
->>
->>> We can include the
->>> fix to kprobes in v8 or I can send it separately, either is fine to me.
->> Post it on list, and I'll also incorporate into the series.
-> 
-> I can include it in v8 series.
-> 
->>
->>> Hopefully we can make v6.18.
->> It's probably getting a bit late now. Anyway, I'll aim to get v8 out tomorrow or
->> Friday and we will see what Will thinks.
-> 
-> Thank you. I can post v8 today.
+Still, someone would want to select / filter out all entries of the same 
+"class".
 
-OK great - I'll leave it all to you then - thanks!
+Just a thought.
 
 > 
-> Thanks,
-> Yang
+> @name:
+>         Name of the memory region. That might go into a separate table
+>         which is referenced by @id, but that's up for debate.
+
+Jup.
+
 > 
->>
->> Thanks,
->> Ryan
->>
->>> Thanks,
->>> Yang
->>>
+> @address:
+> @length:
+>         obvious :)
 > 
+> ...
+>          Whatever a particular consumer might require
+> 
+> @properties:
+> 
+>          A "bitfield", which allows to mark this entry as (in)valid for a
+>          particular consumer.
+> 
+>          That obviously requires to modify these properties when the
+>          requirements of a consumer change, new consumers arrive or new
+>          producers are added, but I think it's easier to do that at the
+>          producer side than maintaining filters on all consumer ends
+>          forever.
+
+Question would be if that is not up to a consumer to decide ("allowlist" 
+/ filter) by class or id, stored elsewhere.
+
+> 
+> Though I might be wrong as usual. IOW this needs some thoughts. :)
+> 
+> The interesting engineering challenge with such a scheme is to come up
+> with a annotation mechanism which is extensible.
+> 
+>       Runtime is trivial as it just needs to fill in the new field in the
+>       datastructure and all other runtime users have that zero
+>       initialized automatically, if you get the mechanism correct in the
+>       first place. Think in templates :)
+> 
+>       Compile time is a bit more effort, but that should be solvable with
+>       key/value pairs.
+> 
+>       Don't even waste a thought about creating the final tables and
+>       sections in macro magic. All the annotation macros have to do is to
+>       emit the pairs in a structured way into discardable sections.
+> 
+>       Those section are then converted in post processing into the actual
+>       section table formats and added to the kernel image. Not a
+>       spectacular new concept. The kernel build does this already today.
+> 
+>       Just keep the compile time annotation macro magic simple and
+>       stupid. It can waste 10k per entry at compile time and then let
+>       postprocessing worry about downsizing and consolidation. Nothing to
+>       see here :)
+
+Sounds interesting!
+
+-- 
+Cheers
+
+David / dhildenb
 
 
