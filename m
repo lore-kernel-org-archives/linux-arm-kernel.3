@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9D5CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD456CAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/vCiTZ3N3P7ShOU4paNexYZlCAZ7bWu+BU5oOPi+Y7g=; b=hh6jMX9Br2k/o/etdqLR0lMddv
-	eW2IRqKG+CIi7kAjsyVHLR6p/TYOI05wguINO1yZeO7l41K4S9M93OvnsBwRpw35WTisHb6IWE3Kf
-	HLra4lx9pyB8nCOUGd0yaDT3y2yD+x+HEZovFsVDPueYVmtV0WbEkwCab3R0Hb46PscIXQrb/eUFc
-	YO8fLENYLrVDIKfkQ1ebCJ1HT2lZmeVWpT9CkDKSWS9X/pCdHEQF9A3TEwgqW41X1TEPclAxKAK8x
-	v3TxCUVxZmGmfJVpTrJS/CwYwLMvzciTpgh2MqPd3nlIjW6uutbANO0qsQtfz9/FgmXqZSNIGeUj8
-	20Yv90xQ==;
+	bh=p2X+j5SJAMEREJd1w3t8TYTfU2tuNXV8TS1mq8smvaI=; b=o19xydxQAzab2z5kRUthaUv/NN
+	EamR3xBpiRuQWqPxuL6rWRJOKwoW0vdGobaTrvom1BAPrMRoKw4SJugk4pe+j60oyWNE91RUDY3l9
+	OT8mZB2Gx0XD6yAfnQXEsdXJJRr6DBBIyaovg8hTMnrPISayRPT1nX4z1vxUIuWk9fRuJw8aTJf3B
+	Z4VrD1j806HIxo+DoZnXlBP2JfuwjE2xnNAXug+NiGbxyw52a0RPjNZK1aHIX3wUnxgxOz5QT5VTu
+	gEJiqN0BcOBfpG4cPSVrj9n02lGgij3UI4i87sNKM7uXVRN5Zf13gH3XTG0v6/hbfjziOt6RGkWvT
+	nwXdbuhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9x-0000000AOCF-13lN;
-	Wed, 17 Sep 2025 07:00:57 +0000
+	id 1uymGf-0000000APnk-3sjB;
+	Wed, 17 Sep 2025 07:07:53 +0000
 Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9r-0000000AO8P-1cDl
+	id 1uymGc-0000000APmX-2qKA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 07:00:53 +0000
+	Wed, 17 Sep 2025 07:07:52 +0000
 Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250917070046epoutp0158c4b847c5dd5567c69b69c03af76cde~l-8QCauew1149511495epoutp01D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:00:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250917070046epoutp0158c4b847c5dd5567c69b69c03af76cde~l-8QCauew1149511495epoutp01D
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250917070744epoutp01ad6ba1324551f7a40c27f0c6d6410d3f~mACVIyOgS2141921419epoutp015
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:07:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250917070744epoutp01ad6ba1324551f7a40c27f0c6d6410d3f~mACVIyOgS2141921419epoutp015
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758092446;
-	bh=/vCiTZ3N3P7ShOU4paNexYZlCAZ7bWu+BU5oOPi+Y7g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QFMhEa2sWKII3lgNKD534UbFbCHYKceyDOejV/OFIvSWxLJbB+RAbU+q9b9eZP8J5
-	 VUtL0VfBV1yotttCOXkon6IwzJr1q6IDA00fZCvxHKTIq7cQxzczfc7Xm8cXByagrx
-	 rzcCWoZZk+ZQ+KPeI0b6nR0MYkZpIO9GtYn6lyyY=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250917070046epcas5p42fbee3393da460327da4513e759edfd5~l-8PYbXlg1695016950epcas5p4n;
-	Wed, 17 Sep 2025 07:00:46 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.86]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cRV652hTpz3hhT9; Wed, 17 Sep
-	2025 07:00:45 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250917070044epcas5p4562c860c2ff5a3f848a91aa619c3a610~l-8OGYbc62143621436epcas5p4A;
-	Wed, 17 Sep 2025 07:00:44 +0000 (GMT)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250917070041epsmtip10fe57999ad4f62cfcc5ef67bf230eb7a~l-8K5q-Ij2859728597epsmtip1e;
-	Wed, 17 Sep 2025 07:00:41 +0000 (GMT)
-From: Ravi Patel <ravi.patel@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
-	linus.walleij@linaro.org, robh@kernel.org, conor+dt@kernel.org
-Cc: tomasz.figa@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	ksk4725@coasia.com, pjsin865@coasia.com, gwk1013@coasia.com,
-	bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com,
-	lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
-	smn1196@coasia.com, shradha.t@samsung.com, swathi.ks@samsung.com,
-	kenkim@coasia.com, Ravi Patel <ravi.patel@samsung.com>
-Subject: [PATCH 2/2] pinctrl: samsung: Add ARTPEC-9 SoC specific
- configuration
-Date: Wed, 17 Sep 2025 12:30:04 +0530
-Message-ID: <20250917070004.87872-3-ravi.patel@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250917070004.87872-1-ravi.patel@samsung.com>
+	s=mail20170921; t=1758092864;
+	bh=p2X+j5SJAMEREJd1w3t8TYTfU2tuNXV8TS1mq8smvaI=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=RGWtcuUaLhY8WQoRtyFOqx/FJvfhMKjDYYPiIGcIN/rh/LOZiSE0ImM6Uz7pCYiSz
+	 7pwIjapvnQQrI1V11HFsyxt9lvlqFOgaXCJ6smnF/lygHilO0iyzaHcz3LyHrJEhPM
+	 ebnabodwTvetz6i9shXEWIpf0hNPG2O0ofuHlw/k=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250917070743epcas5p21e3006ddc5adb45dae44c3ad85d064da~mACT3guNG0339903399epcas5p2Y;
+	Wed, 17 Sep 2025 07:07:43 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cRVG61MTyz6B9m7; Wed, 17 Sep
+	2025 07:07:42 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250917070741epcas5p3f40ff9cf54757eef08a6faa7451f4e2b~mACSKitQP0859608596epcas5p3-;
+	Wed, 17 Sep 2025 07:07:41 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250917070737epsmtip204cd5a53ee83aea2bc9f33c333939bdd~mACOpKYWk2897628976epsmtip24;
+	Wed, 17 Sep 2025 07:07:37 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: 
+Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Wed, 17 Sep 2025 12:37:36 +0530
+Message-ID: <054e01dc27a1$c2011120$46033360$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250917070044epcas5p4562c860c2ff5a3f848a91aa619c3a610
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcB8lF0oAGjtHpaA19Hw4WzwQPd4IAUON4A
+Content-Language: en-in
+X-CMS-MailID: 20250917070741epcas5p3f40ff9cf54757eef08a6faa7451f4e2b
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
+cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250917070044epcas5p4562c860c2ff5a3f848a91aa619c3a610
-References: <20250917070004.87872-1-ravi.patel@samsung.com>
-	<CGME20250917070044epcas5p4562c860c2ff5a3f848a91aa619c3a610@epcas5p4.samsung.com>
+X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
+	<20250903073827.3015662-2-pritam.sutar@samsung.com>
+	<20250904-interesting-lovely-ringtail-38bbef@kuoka>
+	<000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
+	<87857202-b436-4476-9384-67566126d844@kernel.org> 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_000051_733984_E7B6EE5B 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20250917_000751_318309_E27CF586 
+X-CRM114-Status: GOOD (  28.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,101 +105,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SeonGu Kang <ksk4725@coasia.com>
+Hi Krzysztof,
 
-Add Axis ARTPEC-9 SoC specific configuration data to enable pinctrl.
 
-Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
----
- .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 49 +++++++++++++++++++
- drivers/pinctrl/samsung/pinctrl-samsung.c     |  2 +
- drivers/pinctrl/samsung/pinctrl-samsung.h     |  1 +
- 3 files changed, 52 insertions(+)
+> -----Original Message-----
+> From: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> Sent: 04 September 2025 03:52 PM
+> To: 'Krzysztof Kozlowski' <krzk=40kernel.org>
+> Cc: 'vkoul=40kernel.org' <vkoul=40kernel.org>; 'kishon=40kernel.org'
+> <kishon=40kernel.org>; 'robh=40kernel.org' <robh=40kernel.org>;
+> 'krzk+dt=40kernel.org' <krzk+dt=40kernel.org>; 'conor+dt=40kernel.org'
+> <conor+dt=40kernel.org>; 'alim.akhtar=40samsung.com'
+> <alim.akhtar=40samsung.com>; 'andre.draszik=40linaro.org'
+> <andre.draszik=40linaro.org>; 'peter.griffin=40linaro.org'
+> <peter.griffin=40linaro.org>; 'kauschluss=40disroot.org' <kauschluss=40di=
+sroot.org>;
+> 'ivo.ivanov.ivanov1=40gmail.com' <ivo.ivanov.ivanov1=40gmail.com>;
+> 'igor.belwon=40mentallysanemainliners.org'
+> <igor.belwon=40mentallysanemainliners.org>; 'm.szyprowski=40samsung.com'
+> <m.szyprowski=40samsung.com>; 's.nawrocki=40samsung.com'
+> <s.nawrocki=40samsung.com>; 'linux-phy=40lists.infradead.org' <linux-
+> phy=40lists.infradead.org>; 'devicetree=40vger.kernel.org'
+> <devicetree=40vger.kernel.org>; 'linux-kernel=40vger.kernel.org' <linux-
+> kernel=40vger.kernel.org>; 'linux-arm-kernel=40lists.infradead.org' <linu=
+x-arm-
+> kernel=40lists.infradead.org>; 'linux-samsung-soc=40vger.kernel.org' <lin=
+ux-
+> samsung-soc=40vger.kernel.org>; 'rosa.pila=40samsung.com'
+> <rosa.pila=40samsung.com>; 'dev.tailor=40samsung.com'
+> <dev.tailor=40samsung.com>; 'faraz.ata=40samsung.com'
+> <faraz.ata=40samsung.com>; 'muhammed.ali=40samsung.com'
+> <muhammed.ali=40samsung.com>; 'selvarasu.g=40samsung.com'
+> <selvarasu.g=40samsung.com>
+> Subject: RE: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
+dd
+> ExynosAutov920 HS phy compatible
+>=20
+> Hi Krzysztof,
+>=20
+> > -----Original Message-----
+> > From: Krzysztof Kozlowski <krzk=40kernel.org>
+> > Sent: 04 September 2025 03:12 PM
+> > To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> > Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> > krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
+> > andre.draszik=40linaro.org; peter.griffin=40linaro.org;
+> > kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
+> > igor.belwon=40mentallysanemainliners.org;
+> > m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
+> > phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
+> > kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
+> > linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
+> > dev.tailor=40samsung.com; faraz.ata=40samsung.com;
+> > muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
+> > Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy:
+> > add
+> > ExynosAutov920 HS phy compatible
+> >
+> > On 04/09/2025 09:51, Pritam Manohar Sutar wrote:
+> > > Hi Krzysztof,
+> > >
+> > >> -----Original Message-----
+> > >> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> > >> Sent: 04 September 2025 12:18 PM
+> > >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> > >> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
+> > >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.c=
+om;
+> > >> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
+> > >> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
+> > >> igor.belwon=40mentallysanemainliners.org;
+> > >> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
+> > >> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
+> > >> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
+> > >> linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
+> > >> dev.tailor=40samsung.com; faraz.ata=40samsung.com;
+> > >> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
+> > >> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-p=
+hy:
+> > >> add
+> > >> ExynosAutov920 HS phy compatible
+> > >>
+> > >> On Wed, Sep 03, 2025 at 01:08:22PM +0530, Pritam Manohar Sutar wrote=
+:
+> > >>> Document support for the USB20 phy found on the ExynosAutov920 SoC.
+> > >>> The
+> > >>> USB20 phy is functionally identical to that on the Exynos850 SoC,
+> > >>> so no driver changes are needed to support this phy. However, add
+> > >>> a dedicated compatible string for USB20 phy found in this SoC.
+> > >>>
+> > >>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> > >>
+> > >> You just dropped all tags without explaining why.
+> > >
+> > > Regretted inconvenience.
+> > >
+> > > There were significant changes in supplies' names in driver and
+> > > schemas (patch-set v8). This led to make changes in patch no 5.  And
+> > > review for these changes is needed.  Hence, removed RB tag in this pa=
+tch-
+> set.
+> > >
+> > > There was a ask for the same https://lore.kernel.org/linux-
+> >
+> phy/000401dc18cd=24ec02a1b0=24c407e510=24=40samsung.com/=23:=7E:text=3DLe=
+t%20me%
+> >
+> 20know%2C%20because%20of%20above%20changes%2C%20should%20be%20
+> >
+> removing%20your%20%0A%27reviewed%2Dby%27%20tag%20from%20patch%
+> > 201%20and%203.
+> > >
+> >
+> >
+> > Where in the changelog you explained why you dropped the tags?
+>=20
+> Along with supplies' names, there were similar commit messages for patch =
+no 1,
+> 3 as patch no 5 (v7). (though, they were explaining schema more than h/w)=
+.
+> Changed commit messages of the patch no 1, 3, 5 (v7) as per reference com=
+mits
+> and would like to get them reviewed again, so did not add RB for patch 1 =
+and 3,
+> which you had given RB (in v7).
+>=20
+> Forgot to add these details for dropping the RB tags in changelog.
+> Do I need to send v9 by retaining RB for patch 1 and 3?
+>=20
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-index 323487dfa8c2..5a64fb428142 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-@@ -1866,3 +1866,52 @@ const struct samsung_pinctrl_of_match_data artpec8_of_data __initconst = {
- 	.ctrl		= artpec8_pin_ctrl,
- 	.num_ctrl	= ARRAY_SIZE(artpec8_pin_ctrl),
- };
-+
-+/* pin banks of artpec9 pin-controller (FSYS0) */
-+static const struct samsung_pin_bank_data artpec9_pin_banks0[] __initconst = {
-+	ARTPEC_PIN_BANK_EINTG(8, 0x000, "gpf0", 0x00),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x020, "gpf1", 0x04),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x040, "gpe0", 0x08),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x060, "gpe1", 0x0c),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x080, "gpe2", 0x10),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x0a0, "gpe3", 0x14),
-+	ARTPEC_PIN_BANK_EINTG(2, 0x0c0, "gpe4", 0x18),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x0e0, "gps0", 0x1c),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x100, "gps1", 0x20),
-+	ARTPEC_PIN_BANK_EINTG(5, 0x120, "gpi0", 0x24),
-+};
-+
-+/* pin banks of artpec9 pin-controller (FSYS1) */
-+static const struct samsung_pin_bank_data artpec9_pin_banks1[] __initconst = {
-+	ARTPEC_PIN_BANK_EINTG(2, 0x000, "gpu0", 0x00),
-+};
-+
-+/* pin banks of artpec9 pin-controller (PERIC) */
-+static const struct samsung_pin_bank_data artpec9_pin_banks2[] __initconst = {
-+	ARTPEC_PIN_BANK_EINTG(8, 0x000, "gpa0", 0x00),
-+	ARTPEC_PIN_BANK_EINTG(8, 0x020, "gpa1", 0x04),
-+};
-+
-+static const struct samsung_pin_ctrl artpec9_pin_ctrl[] __initconst = {
-+	{
-+		/* pin-controller instance 0 FSYS0 data */
-+		.pin_banks	= artpec9_pin_banks0,
-+		.nr_banks	= ARRAY_SIZE(artpec9_pin_banks0),
-+		.eint_gpio_init	= exynos_eint_gpio_init,
-+	}, {
-+		/* pin-controller instance 1 FSYS1 data */
-+		.pin_banks	= artpec9_pin_banks1,
-+		.nr_banks	= ARRAY_SIZE(artpec9_pin_banks1),
-+		.eint_gpio_init	= exynos_eint_gpio_init,
-+	}, {
-+		/* pin-controller instance 2 PERIC data */
-+		.pin_banks	= artpec9_pin_banks2,
-+		.nr_banks	= ARRAY_SIZE(artpec9_pin_banks2),
-+		.eint_gpio_init	= exynos_eint_gpio_init,
-+	},
-+};
-+
-+const struct samsung_pinctrl_of_match_data artpec9_of_data __initconst = {
-+	.ctrl		= artpec9_pin_ctrl,
-+	.num_ctrl	= ARRAY_SIZE(artpec9_pin_ctrl),
-+};
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
-index c099195fc464..1d978443bd1b 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -1484,6 +1484,8 @@ static const struct of_device_id samsung_pinctrl_dt_match[] = {
- #ifdef CONFIG_PINCTRL_EXYNOS_ARM64
- 	{ .compatible = "axis,artpec8-pinctrl",
- 		.data = &artpec8_of_data },
-+	{ .compatible = "axis,artpec9-pinctrl",
-+		.data = &artpec9_of_data },
- 	{ .compatible = "google,gs101-pinctrl",
- 		.data = &gs101_of_data },
- 	{ .compatible = "samsung,exynos2200-pinctrl",
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/samsung/pinctrl-samsung.h
-index 3e8ef91d94a3..94334bd860ca 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.h
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
-@@ -382,6 +382,7 @@ struct samsung_pmx_func {
- 
- /* list of all exported SoC specific data */
- extern const struct samsung_pinctrl_of_match_data artpec8_of_data;
-+extern const struct samsung_pinctrl_of_match_data artpec9_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos2200_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos3250_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos4210_of_data;
--- 
-2.17.1
+Gentle Reminder.=20
+
+> >
+> > Best regards,
+> > Krzysztof
+>=20
+>=20
+> Thank you.
+>=20
+> Regards,
+> Pritam
+
+Thank you,
+
+Regards,
+Pritam
 
 
