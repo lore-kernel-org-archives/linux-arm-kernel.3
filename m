@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5296DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33858CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkSG5XV0WESq+mtpluxgeM6kPOWB2MiD2S+CfeQLrXQ=; b=JPCjBngz35jjWUUvR5t9cvtnUl
-	Cf0goVRoHhjscNl1fWtruNUd8S+wip0BGxKDmtZtrUtdidsN+A/A3I/MbNxpCpcM0Q+sRGBc0W8ij
-	YaDN+blG2t79EqVAGSzxN2HWM4nvaiD059IvCzX6v2QBbwGVfY+tjpse90l916R6XeEVV0xMsOpco
-	6xGI6Zngmfc1cK4VEsbV/9/3/xeGoVi9uDnnBMP5bQJQHYFGUDl/pmVNw4M1Mq9X+ECbm36bSnZXp
-	ZUBIz0H46eyVS+K02rpbRld6yw6xQTGhOv2briXqErJj5R4xNN3KT1WaXztKqx3CvpVKWmrJoayys
-	3vipXc3g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xQaG9cgnpD4jxSGMkxdZRu0RaG5eLQZzGG2BmDtUbIE=; b=w2zcjdjOxpeXkL
+	9/CBVHI1KMdxxQo/VrvCW1CtSA1sjsmZfkbt4Kt/MrDla9aE/HTjcqWc8KtaOhHt711phDK7xs7YM
+	1NZCr04YGLZvcgrFnMZVzUqrDl/pEhiCd88LM9ug3mGMfNDdqR5WXPQSRFPNcuER0/YjFRRt4bWrQ
+	tOFJnAjF65X1LE720z2eZPkusIaYWhoBOptKbVmKvbte38RBuAKzbLpFtFyCyLChRuy5lDKiCpWca
+	1iKpOJGEnJGtn4q+61gZivM2AMil7QCoUNad2+VE2rhvCLBYIvhCq6Vh1q+uxKpbWyIy4mQhzjjhz
+	JgMyeBOjLNDAhEpZFYyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv1N-0000000DACc-0ztb;
-	Wed, 17 Sep 2025 16:28:41 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
+	id 1uyv1V-0000000DAI1-2ZvO;
+	Wed, 17 Sep 2025 16:28:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyv1K-0000000DAAB-0nJd
+	id 1uyv1V-0000000DAHR-0C7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:28:39 +0000
-Date: Wed, 17 Sep 2025 09:28:29 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758126514;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rkSG5XV0WESq+mtpluxgeM6kPOWB2MiD2S+CfeQLrXQ=;
-	b=gWaA3rtHqmDYGaE1ikcrwoL+m0E/78Dn2bDd+cteCe5Z/laqq++zwngguJ8XmMFmY5Ulvc
-	Eo1m7vztx9kWL7R8g6ejHbgPUu48W8LzIe6hyimRcYCRLIR4HQLVKIiL9H3z0wnq/oKtzo
-	PsU0XBE+fSKknBMIF/dXM5/KYzQiAjg=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: Re: [PATCH] KVM: arm64: Don't access ICC_SRE_EL2 if GICv3 doesn't
- support v2 compatibility
-Message-ID: <aMrhrU8Khn0rfbMh@linux.dev>
-References: <20250917161935.1630908-1-maz@kernel.org>
+	Wed, 17 Sep 2025 16:28:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6FF6F60248
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:28:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20409C4CEFF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 16:28:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758126528;
+	bh=8WYWD+Yg3r5DNPBLtc+iIfIV8PKCZAmtTgmqbUSnjcw=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=nLaotlWDzcMTfulQNPk3qQwpCoGdwW9Kcqa5cYlubED+oDPVCoj0ub+tq7QnX8XHc
+	 Y1NfN2TiQphOkNi7+H9rT+5hbipIwghPNVqKexaaeAURhRdjhT/5rq1VCAIK2kDuS4
+	 zlTbPQzdha+c/T8TkRDx6Kz/Op92ojdw9W5ZLOSugg+FK5l6X+E20U96G0jTl+bfMx
+	 V0n6AsJsRDWwMJNn32OSP0DlDARr3uOIf9vxPBOfSS1cO4o/XTZimCwgIKbNLE7yJ7
+	 AT+GenebK92wJErPQ89tXCyhNQwGdW0xDkkd4G7N3qsf1qYUZwjxgkr2cx5k4wuCtU
+	 UKS1Xq0+hjztw==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-336dc57f562so71061fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 09:28:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXOBSRmzmImO/FqEuI6SUxOkpmKOwZuDvLuVywUWHQH3boAo5vE3mmEa88PsPr029jk/WjbSEO7dxR9cbn8596j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/fvDbdQ0jg1vD6u+uHKey9nP95Dwc7mnbqPGMVXvToVD8l1bB
+	2jfZ4KiC1MPzI4s95W7uJ/5iNstBw6qGqszTz7Eg3Ui1UJ3nfWGljpPFLB7Ul7XrfgJSAuQyt4X
+	SHx1g2H+xdwnV/xWtcwfbHQKCAHjgFA4=
+X-Google-Smtp-Source: AGHT+IHoBsplIvCjqYj/yd32eJ5y7UncFKdYSr9f2zWqIlD/MP5kkZiUcMymkpPWIbDco8wmroHbHHYIHkrfiSTkdT8=
+X-Received: by 2002:a05:651c:31ca:10b0:336:e22d:804a with SMTP id
+ 38308e7fff4ca-3617d39f44cmr216041fa.17.1758126526406; Wed, 17 Sep 2025
+ 09:28:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917161935.1630908-1-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_092838_503777_DF510256 
-X-CRM114-Status: GOOD (  31.06  )
+References: <20250913101349.3932677-3-wens@kernel.org> <20250917070020.728420-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20250917070020.728420-1-amadeus@jmu.edu.cn>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 18 Sep 2025 00:28:35 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64E+CEjnGmnnSyGhkFm=qHrpMeR+sLv_54qkmnKc1AvdQ@mail.gmail.com>
+X-Gm-Features: AS18NWCQ3OVkCviedj6oOCUdjxysf8UgGXGPw_nPV7UJfZIHedYkcadQwVeRPl4
+Message-ID: <CAGb2v64E+CEjnGmnnSyGhkFm=qHrpMeR+sLv_54qkmnKc1AvdQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v6 2/6] net: stmmac: Add support for Allwinner
+ A523 GMAC200
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: andre.przywara@arm.com, andrew+netdev@lunn.ch, conor+dt@kernel.org, 
+	davem@davemloft.net, devicetree@vger.kernel.org, edumazet@google.com, 
+	jernej@kernel.org, krzk+dt@kernel.org, kuba@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, netdev@vger.kernel.org, pabeni@redhat.com, 
+	robh@kernel.org, samuel@sholland.org, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,137 +83,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 05:19:35PM +0100, Marc Zyngier wrote:
-> We currently access ICC_SRE_EL2 at each load/put on VHE, and on each
-> entry/exit on nVHE. Both are quite onerous on NV, as this register
-> always traps.
-> 
-> We do this to make sure the EL1 guest doesn't flip between v2 and v3
-> behind our back. But all modern implementations have dropped v2,
-> and this is just overhead.
-> 
-> At the same time, the GICv5 spec has been fixed to allow access to
-> ICC_SRE_EL2 in legacy mode. Use this opportunity to replace the
-> GICv5 checks for v2 compat checks, with an ad-hoc static key.
-> 
-> Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+On Wed, Sep 17, 2025 at 3:00=E2=80=AFPM Chukun Pan <amadeus@jmu.edu.cn> wro=
+te:
+>
+> Hi,
+>
+> I tested this on Radxa Cubie A5E and there seems to be a small issue:
+>
+> When VLAN_8021Q is enabled (CONFIG_VLAN_8021Q=3Dy), down the eth1 interfa=
+ce:
+>
+> ~ # ifconfig eth1 down
+> [   96.695463] dwmac-sun55i 4510000.ethernet eth1: Timeout accessing MAC_=
+VLAN_Tag_Filter
+> [   96.703356] dwmac-sun55i 4510000.ethernet eth1: failed to kill vid 008=
+1/0
+>
+> Is this a known issue?
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+There's a comment above stmmac_vlan_rx_kill_vid:
 
-Thanks,
-Oliver
+/* FIXME: This may need RXC to be running, but it may be called with BH
+ * disabled, which means we can't call phylink_rx_clk_stop*().
+ */
 
-> ---
->  arch/arm64/kernel/image-vars.h  |  3 +++
->  arch/arm64/kvm/hyp/vgic-v3-sr.c | 25 +++++++++----------------
->  arch/arm64/kvm/vgic/vgic-v3.c   |  8 ++++++++
->  include/kvm/arm_vgic.h          |  1 +
->  4 files changed, 21 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-> index 714b0b5ec5ac4..5369763606e71 100644
-> --- a/arch/arm64/kernel/image-vars.h
-> +++ b/arch/arm64/kernel/image-vars.h
-> @@ -105,6 +105,9 @@ KVM_NVHE_ALIAS(__hyp_stub_vectors);
->  KVM_NVHE_ALIAS(vgic_v2_cpuif_trap);
->  KVM_NVHE_ALIAS(vgic_v3_cpuif_trap);
->  
-> +/* Static key indicating whether GICv3 has GICv2 compatibility */
-> +KVM_NVHE_ALIAS(vgic_v3_has_v2_compat);
-> +
->  /* Static key which is set if CNTVOFF_EL2 is unusable */
->  KVM_NVHE_ALIAS(broken_cntvoff_key);
->  
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index d81275790e69b..acd909b7f2257 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -295,12 +295,8 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
->  		}
->  	}
->  
-> -	/*
-> -	 * GICv5 BET0 FEAT_GCIE_LEGACY doesn't include ICC_SRE_EL2. This is due
-> -	 * to be relaxed in a future spec release, at which point this in
-> -	 * condition can be dropped.
-> -	 */
-> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-> +	/* Only disable SRE if the host implements the GICv2 interface */
-> +	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
->  		/*
->  		 * Prevent the guest from touching the ICC_SRE_EL1 system
->  		 * register. Note that this may not have any effect, as
-> @@ -329,19 +325,16 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
->  		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
->  	}
->  
-> -	/*
-> -	 * Can be dropped in the future when GICv5 spec is relaxed. See comment
-> -	 * above.
-> -	 */
-> -	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-> +	/* Only restore SRE if the host implements the GICv2 interface */
-> +	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
->  		val = read_gicreg(ICC_SRE_EL2);
->  		write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
-> -	}
->  
-> -	if (!cpu_if->vgic_sre) {
-> -		/* Make sure ENABLE is set at EL2 before setting SRE at EL1 */
-> -		isb();
-> -		write_gicreg(1, ICC_SRE_EL1);
-> +		if (!cpu_if->vgic_sre) {
-> +			/* Make sure ENABLE is set at EL2 before setting SRE at EL1 */
-> +			isb();
-> +			write_gicreg(1, ICC_SRE_EL1);
-> +		}
->  	}
->  
->  	/*
-> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-> index b9ad7c42c5b01..f1c153106c563 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
-> @@ -588,6 +588,7 @@ int vgic_v3_map_resources(struct kvm *kvm)
->  }
->  
->  DEFINE_STATIC_KEY_FALSE(vgic_v3_cpuif_trap);
-> +DEFINE_STATIC_KEY_FALSE(vgic_v3_has_v2_compat);
->  
->  static int __init early_group0_trap_cfg(char *buf)
->  {
-> @@ -697,6 +698,13 @@ int vgic_v3_probe(const struct gic_kvm_info *info)
->  	if (kvm_vgic_global_state.vcpu_base == 0)
->  		kvm_info("disabling GICv2 emulation\n");
->  
-> +	/*
-> +	 * Flip the static branch if the HW supports v2, even if we're
-> +	 * not using it (such as in protected mode).
-> +	 */
-> +	if (has_v2)
-> +		static_branch_enable(&vgic_v3_has_v2_compat);
-> +
->  	if (cpus_have_final_cap(ARM64_WORKAROUND_CAVIUM_30115)) {
->  		group0_trap = true;
->  		group1_trap = true;
-> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-> index 404883c7af6e8..9a6340d9c91e5 100644
-> --- a/include/kvm/arm_vgic.h
-> +++ b/include/kvm/arm_vgic.h
-> @@ -375,6 +375,7 @@ struct vgic_cpu {
->  
->  extern struct static_key_false vgic_v2_cpuif_trap;
->  extern struct static_key_false vgic_v3_cpuif_trap;
-> +extern struct static_key_false vgic_v3_has_v2_compat;
->  
->  int kvm_set_legacy_vgic_v2_addr(struct kvm *kvm, struct kvm_arm_device_addr *dev_addr);
->  void kvm_vgic_early_init(struct kvm *kvm);
-> -- 
-> 2.39.2
-> 
+So maybe this is a known issue? Looks like the comment was left by Russell.
+
+
+ChenYu
 
