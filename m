@@ -4,66 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C625CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832FCCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PgO4PwLadj9q2O3/9gbKEAJWdcbfyZ77b9J6iL9iQew=; b=fwxRf0eCTQXxwtBG+KCKXRWSli
-	Rl14v/E2GDn8lJCcIPKWenzP0dr9F/cw0pfPIpeBTZKHWbi8JAvuEa3tt98GxE5ItT/TqSA6xJFo+
-	x2srXkOivP42GTx/INsdGXvuX50G/K+ArFdkn9mnVNszsexbFBRJ28WPOwDypm3wVP7HOJxk3mgqI
-	KE7a05aFX8ua5+yN56z4/kOIc6JPjHzo9alPqu9eqe8wH6XtY+boC5eSOryBn1AXxpeltguTXv/XP
-	KFfV3ZPBvRJDaLc5wRcGtuCQsZVKLnY30wwvhu9pNM6RWXE7YDYgbqYIDox1YjNzVkFM/E3EKZoR7
-	hoZh+O6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=; b=UuFt/1TkLru45WZIA23juYkIHO
+	p6BJHAFvV8Pc1zhAOLLh6oEPL+0IS1eS9xcyVX40boMwCTVcQucWjE88Tqu+GZjMZtRFQfbC8ioda
+	43nFK32FogTRvrMYM4BiDmWRum4Ky6CjLCBnOhFrSTrbx0jUNEzR0D3ipeZ+wdGXOe0NC5b1BYxbn
+	j+e3r7loE1/0efXhbLU9qww0zm1sDr1sMwft/TVWleti01CIYa7cQViWqxX2tYyQgsoAVCDKo3dB2
+	A+NsXXNSNTy9mauAFNyMUpfGdyKA0M0TRwKFysKi5KDe7rzeim+deTXSDTe41zk+7/lKn8+ZuSl9Q
+	iIWWd98A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytwM-0000000Ce3w-3dEF;
-	Wed, 17 Sep 2025 15:19:26 +0000
-Received: from mail.simonwunderlich.de ([23.88.38.48])
+	id 1uytxg-0000000Cek4-2IAf;
+	Wed, 17 Sep 2025 15:20:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytwK-0000000Ce1P-1XUR;
-	Wed, 17 Sep 2025 15:19:25 +0000
-Received: from sven-desktop.home.narfation.org (p200300c5971bEfE00000000000000c00.dip0.t-ipconnect.de [IPv6:2003:c5:971b:efe0::c00])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with ESMTPSA id AF95AFA12C;
-	Wed, 17 Sep 2025 17:19:19 +0200 (CEST)
-From: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
-Date: Wed, 17 Sep 2025 17:18:22 +0200
-Subject: [PATCH] wifi: mt76: Fix DTS power-limits on little endian systems
+	id 1uytxf-0000000CejS-3aJa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 17 Sep 2025 15:20:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=; b=ZQ/zvYk+mh+VWspk94oDq76qIf
+	/QjCR+yY3+LbF65u0R314uefaKSt3S0cfp3OVz7ltbMbX1Z5yFssX+LfYfM9EJiMnUusFhG9wK6Nd
+	pxJZZ3sDWxC6Bi5L295OzVoz++viPb0ntIrDJ/9R2eYypG8p788uXxn6jeTUbfH0Jycyojj/wwQQs
+	z1BybmNFZfSoKtlEUtQOfWRW1WJyYNTxNb9F6YK+Q1gRGaBpIHhF9ImX1MhR/FDBca24pxjLw0QW6
+	lMGm9JaUhop15LM5qcl/aCaZVt0iunjE1iuprOyH/TCRweKPv8W6c4/TaSnNeHyHwzDjPWGsRWEoE
+	jjJO6dgA==;
+Received: from mail-ot1-f43.google.com ([209.85.210.43])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uytxc-00000007QJ0-3IDU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Sep 2025 15:20:46 +0000
+Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-758a28587e5so3833713a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:20:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758122443; x=1758727243;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tZ6rxnhh7QouGGcSBJApcqvcuY+RYoCVy1LFm/ChHAI=;
+        b=OPp1i7llNuo4JSs98FAWlkz9zBlMVBF5wPPi/XdMyvrW78O1IhzWXMGaEYEbn7WsdD
+         P/kg1UzKJB+ZgJz0rSKt98DwdWeC199MXlphYRaSy+dlMmM1zUPdCu+uTd4wIo/B9VSw
+         u/U3ZH3xbDc2pXSmGvDcWhiLURT0eyZ2pcY8nUx97PmrnjPwoDhdoxefchFn+kBvyL2K
+         DDuvjIlq7cXBvi09dxgefCnaWsLbilfKjYCLF0Ns1+pwy6EEkdJg8lyA62ccoBpeR8Yt
+         Hr4/0nfwN/loxtLhXKwMyWCgcousc0Eie2IazpJASYmvUAYfcnSd+0rcJq8je2mqpUFt
+         hl1A==
+X-Forwarded-Encrypted: i=1; AJvYcCU4SwLjtAXNkaDSUi2/9nUzyVLArzHBXRSdtMxRO1BKepjvrkg8wHbLy6oWh+lwosd1+YL1KnEE3jmy8qhZIZOu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM8CWC7CCRyL830k1mSVpONkJporLDExsU9QhY4XHd1khuIL+P
+	UkfrXId/8tBy1L7DspQDqHakOYokMyQXZszxZldcANXHdKiUPPoDASqoQUFp3yCbsLc=
+X-Gm-Gg: ASbGncvA/Tm3gqD3GvxQxQ109Wk5LPfrqpjR2h24Fq7NWnEITTk80ubWdE7+rsW0hhX
+	ZIhp3Foo8P8QTZACziBpbEy+xLK6FNkXycZPv/vDtkJ+hMipc3tqBKOAuKxgSGzHC4yLu10Gl5g
+	vvdeU47xmrt2uEVo567uljvgZesEPsLOFHNV0BhE1KxUqh1jsovO9FEk3hYnMJK9tTRAAjz+uYZ
+	L9uwJpo+JCFEwI8Md1lRWdz5rza6krPGPkAtce4aCu1X6t/09I//BXNfi7C/+efGqkHAUB8anUx
+	wuIJeGsfx2wPO60o2D9ZUqhAVQzlbnbK5JSbHr07guMfn+JhHaBZUxd5cnEsWYhWCDAEBBvH4qt
+	+juJvc/cZCXd4naj+AA1yGs1DWBp8MWn9k4fFq7Hq7wxORRfhrF52ZRCuh712
+X-Google-Smtp-Source: AGHT+IHXwtcRb5aeJz+4MTyFH5x65Xm78n1Qno4d/70vAvQiFlc9NPX8EwX9rev/jyrOcHIRK0dpmQ==
+X-Received: by 2002:a05:6808:18a5:b0:437:e1b0:e969 with SMTP id 5614622812f47-43d50d736b3mr1068095b6e.40.1758122442687;
+        Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
+Received: from mail-ot1-f47.google.com (mail-ot1-f47.google.com. [209.85.210.47])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-43b82a7264asm4400574b6e.21.2025.09.17.08.20.42
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
+Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-758a28587e5so3833675a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:20:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVsrhWJSVfmzSzlMZ0cE2F5dZkwdycVBDNtkSbQZ0qKze58mIrcnlNoU28hKs7F7fW/chwlSxFeCz7LrNXqssPk@lists.infradead.org
+X-Received: by 2002:a05:6102:4414:b0:4e6:ddd0:96ff with SMTP id
+ ada2fe7eead31-56d63efa012mr900359137.16.1758122046543; Wed, 17 Sep 2025
+ 08:14:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-fix-power-limits-v1-1-616e859a9881@simonwunderlich.de>
-X-B4-Tracking: v=1; b=H4sIAD3RymgC/x2M0QpAMBRAf0X32a2NZuZX5IG5uMVoE2r5d8vjq
- XNOhECeKUCTRfB0ceDdJZB5Bnbp3UzIY2IoRKGEkRonfvDYb/K48sZnQGVJ6MGYsqolpOzwlJx
- /2Xbv+wFkAL5+YgAAAA==
-X-Change-ID: 20250917-fix-power-limits-5ce07b993681
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- stable@vger.kernel.org, 
- "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4942; i=se@simonwunderlich.de;
- h=from:subject:message-id; bh=ec3UcGcmns+1WED33m/nQgJBe8h/K7vnYvuHF6DPz3A=;
- b=owGbwMvMwCXmy1+ufVnk62nG02pJDBmnLobVprIoe6yMlV3be/1Dd59l89vWxv7yudOeLuvsd
- WoqDWnsKGVhEONikBVTZNlzJf/8Zva38p+nfTwKM4eVCWQIAxenAEzkARfD/3B++1MMO6NOlM8Q
- O6fAHvLVKCckcaXHfY307MpdTn1ybYwMSwvv8Um4yXr8rTslfJSpsu9VXHt1nKTEkT3mOhdevp7
- MDgA=
-X-Developer-Key: i=se@simonwunderlich.de; a=openpgp;
- fpr=522D7163831C73A635D12FE5EC371482956781AF
+References: <87ecs5abp9.wl-kuninori.morimoto.gx@renesas.com> <877bxxabmr.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <877bxxabmr.wl-kuninori.morimoto.gx@renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 17 Sep 2025 17:13:55 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUaoBP1ZtJqc7rfqLXGETXpVYNcFfJf5xFBFSHG9mSB8Q@mail.gmail.com>
+X-Gm-Features: AS18NWDAtmJ2xaoQuGRsAt7Kwia2BPFHIJLsHQkXMzPf_Sxvg99Y761td_EKCiw
+Message-ID: <CAMuHMdUaoBP1ZtJqc7rfqLXGETXpVYNcFfJf5xFBFSHG9mSB8Q@mail.gmail.com>
+Subject: Re: [PATCH v4 4/5] arm64: dts: renesas: Add R8A78000 X5H DTs
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Douglas Anderson <dianders@chromium.org>, 
+	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, 
+	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>, 
+	John Garry <john.g.garry@oracle.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Leo Yan <leo.yan@linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	Namhyung Kim <namhyung@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Rob Herring <robh@kernel.org>, 
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, Will Deacon <will@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_081924_571084_3786A7E5 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250917_162044_950818_325FF0E8 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,138 +122,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The power-limits for ru and mcs and stored in the devicetree as bytewise
-array (often with sizes which are not a multiple of 4). These arrays have a
-prefix which defines for how many modes a line is applied. This prefix is
-also only a byte - but the code still tried to fix the endianness of this
-byte with a be32 operation. As result, loading was mostly failing or was
-sending completely unexpected values to the firmware.
+Hi Morimoto-san,
 
-Since the other rates are also stored in the devicetree as bytewise arrays,
-just drop the u32 access + be32_to_cpu conversion and directly access them
-as bytes arrays.
+On Wed, 17 Sept 2025 at 07:31, Kuninori Morimoto
+<kuninori.morimoto.gx@renesas.com> wrote:
+> From: Hai Pham <hai.pham.ud@renesas.com>
+>
+> Add initial DT support for R8A78000 (R-Car X5H) SoC.
+>
+> [Kuninori: tidyup for upstreaming]
+>
+> Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
+> Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
+> Signed-off-by: Minh Le <minh.le.aj@renesas.com>
+> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
+> Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
+> Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
+> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 
-Cc: stable@vger.kernel.org
-Fixes: 22b980badc0f ("mt76: add functions for parsing rate power limits from DT")
-Fixes: 273943f4abd4 ("wifi: mt76: Fix DTS power-limits on little endian systems")
-Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
----
- drivers/net/wireless/mediatek/mt76/eeprom.c | 37 +++++++++++++++++++----------
- 1 file changed, 24 insertions(+), 13 deletions(-)
+Thanks for the update!
 
-diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
-index a987c5e4eff6c6b0a014b4b069dc1259ffa82d31..6ce8e4af18fe53c10a0cb7290bf65962ce9cdde4 100644
---- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-@@ -253,6 +253,19 @@ mt76_get_of_array(struct device_node *np, char *name, size_t *len, int min)
- 	return prop->value;
- }
- 
-+static const s8 *
-+mt76_get_of_array_s8(struct device_node *np, char *name, size_t *len, int min)
-+{
-+	struct property *prop = of_find_property(np, name, NULL);
-+
-+	if (!prop || !prop->value || prop->length < min)
-+		return NULL;
-+
-+	*len = prop->length;
-+
-+	return prop->value;
-+}
-+
- struct device_node *
- mt76_find_channel_node(struct device_node *np, struct ieee80211_channel *chan)
- {
-@@ -294,7 +307,7 @@ mt76_get_txs_delta(struct device_node *np, u8 nss)
- }
- 
- static void
--mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
-+mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const s8 *data,
- 		       s8 target_power, s8 nss_delta, s8 *max_power)
- {
- 	int i;
-@@ -303,15 +316,14 @@ mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
- 		return;
- 
- 	for (i = 0; i < pwr_len; i++) {
--		pwr[i] = min_t(s8, target_power,
--			       be32_to_cpu(data[i]) + nss_delta);
-+		pwr[i] = min_t(s8, target_power, data[i] + nss_delta);
- 		*max_power = max(*max_power, pwr[i]);
- 	}
- }
- 
- static void
- mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
--			     const __be32 *data, size_t len, s8 target_power,
-+			     const s8 *data, size_t len, s8 target_power,
- 			     s8 nss_delta, s8 *max_power)
- {
- 	int i, cur;
-@@ -319,8 +331,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
- 	if (!data)
- 		return;
- 
--	len /= 4;
--	cur = be32_to_cpu(data[0]);
-+	cur = data[0];
- 	for (i = 0; i < pwr_num; i++) {
- 		if (len < pwr_len + 1)
- 			break;
-@@ -335,7 +346,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
- 		if (!len)
- 			break;
- 
--		cur = be32_to_cpu(data[0]);
-+		cur = data[0];
- 	}
- }
- 
-@@ -346,7 +357,7 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
- {
- 	struct mt76_dev *dev = phy->dev;
- 	struct device_node *np;
--	const __be32 *val;
-+	const s8 *val;
- 	char name[16];
- 	u32 mcs_rates = dev->drv->mcs_rates;
- 	u32 ru_rates = ARRAY_SIZE(dest->ru[0]);
-@@ -392,21 +403,21 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
- 
- 	txs_delta = mt76_get_txs_delta(np, hweight16(phy->chainmask));
- 
--	val = mt76_get_of_array(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
-+	val = mt76_get_of_array_s8(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
- 	mt76_apply_array_limit(dest->cck, ARRAY_SIZE(dest->cck), val,
- 			       target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-ofdm",
--				&len, ARRAY_SIZE(dest->ofdm));
-+	val = mt76_get_of_array_s8(np, "rates-ofdm",
-+				   &len, ARRAY_SIZE(dest->ofdm));
- 	mt76_apply_array_limit(dest->ofdm, ARRAY_SIZE(dest->ofdm), val,
- 			       target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-mcs", &len, mcs_rates + 1);
-+	val = mt76_get_of_array_s8(np, "rates-mcs", &len, mcs_rates + 1);
- 	mt76_apply_multi_array_limit(dest->mcs[0], ARRAY_SIZE(dest->mcs[0]),
- 				     ARRAY_SIZE(dest->mcs), val, len,
- 				     target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-ru", &len, ru_rates + 1);
-+	val = mt76_get_of_array_s8(np, "rates-ru", &len, ru_rates + 1);
- 	mt76_apply_multi_array_limit(dest->ru[0], ARRAY_SIZE(dest->ru[0]),
- 				     ARRAY_SIZE(dest->ru), val, len,
- 				     target_power, txs_delta, &max_power);
+> index 0000000000000..6445f05de0563
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+> @@ -0,0 +1,755 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/*
+> + * Device Tree Source for the R-Car X5H (R8A78000) SoC
+> + *
+> + * Copyright (C) 2025 Renesas Electronics Corp.
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +/ {
+> +       compatible = "renesas,r8a78000";
+> +       #address-cells = <2>;
+> +       #size-cells = <2>;
+> +
+> +       cpus {
 
----
-base-commit: b36d55610215a976267197ddc914902c494705d7
-change-id: 20250917-fix-power-limits-5ce07b993681
+> +               a720_0: cpu@0 {
+> +                       compatible = "arm,cortex-a720ae";
+> +                       reg = <0x0 0x0>;
+> +                       device_type = "cpu";
+> +                       next-level-cache = <&L2_CA720_0>;
+> +
+> +                       L2_CA720_0: cache-controller {
 
-Best regards,
+As reported before, the cache nodes should be outside the CPU nodes.
+
+"make dtbs_check" would have reminded you:
+
+    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: cpu@0
+(arm,cortex-a720ae): Unevaluated properties are not allowed
+('cache-controller' was unexpected)
+            from schema $id: http://devicetree.org/schemas/arm/cpus.yaml#
+
+> +                               compatible = "cache";
+> +                               cache-level = <2>;
+
+Missing "cache-unified".
+
+"make dtbs_check":
+
+    arm64/boot/dts/renesas/r8a78000-ironhide.dtb: cache-controller
+(cache): 'cache-unified' is a required property
+            from schema $id: http://devicetree.org/schemas/cache.yaml#
+
+> +                               next-level-cache = <&L3_CA720_0>;
+> +                       };
+
+> +               };
+
+> +       soc: soc {
+> +               compatible = "simple-bus";
+> +               interrupt-parent = <&gic>;
+
+Marc asked to move interrupt-parent to the top, i.e. one level up...
+
+> +               #address-cells = <2>;
+> +               #size-cells = <2>;
+> +               ranges;
+> +
+> +               timer {
+
+... and please keep the timer node outside the soc node.
+
+"make dtbs_check":
+
+    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: soc
+(simple-bus): timer: 'ranges' is a required property
+            from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+
+> +                       compatible = "arm,armv8-timer";
+> +                       interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +                                    <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +                                    <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +                                    <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+> +                                    <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+> +                       interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
+> +               };
+
+> +               scif0: serial@c0700000 {
+> +                       compatible = "renesas,scif-r8a78000", "renesas,scif";
+
+Missing "renesas,rcar-gen5-scif".
+
+"make dtbs_check":
+
+    arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: serial@c0700000
+(renesas,scif-r8a78000): compatible: 'oneOf' conditional failed, one
+must be fixed:
+            ...
+            ['renesas,scif-r8a78000', 'renesas,scif'] is too short
+            ...
+            'renesas,rcar-gen5-scif' was expected
+            ...
+            from schema $id:
+http://devicetree.org/schemas/serial/renesas,scif.yaml#
+
+> +                       reg = <0 0xc0700000 0 0x40>;
+> +                       interrupts = <GIC_SPI 4074 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
+> +                       clock-names = "fck", "brg_int", "scif_clk";
+> +                       status = "disabled";
+> +               };
+
+> +               hscif0: serial@c0710000 {
+> +                       compatible = "renesas,hscif-r8a78000", "renesas,hscif";
+
+Missing "renesas,rcar-gen5-hscif".
+
+"make dtbs_check":
+
+arch/arm64/boot/dts/renesas/r8a78000-ironhide.dtb: serial@c0710000
+(renesas,hscif-r8a78000): compatible: 'oneOf' conditional failed, one
+must be fixed:
+        ['renesas,hscif-r8a78000', 'renesas,hscif'] is too short
+        ...
+        'renesas,rcar-gen5-hscif' was expected
+        from schema $id:
+http://devicetree.org/schemas/serial/renesas,hscif.yaml#
+
+> +                       reg = <0 0xc0710000 0 0x60>;
+> +                       interrupts = <GIC_SPI 4078 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&dummy_clk_sgasyncd4>, <&dummy_clk_sgasyncd4>, <&scif_clk>;
+> +                       clock-names = "fck", "brg_int", "scif_clk";
+> +                       status = "disabled";
+> +               };
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
