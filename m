@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D78FCCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE0CCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=johQEkuNbQrdjmQdlUOVKyArng3H9v4mR/QU2tXlgqY=; b=p3wR4JKGUvy1t1sDGeP4UIVVNM
-	n3kRr+mlPFsJE+At07T2ZZbNVKzBgOtetBsloaADpOMsoXszehyHbZ3MvEn32OmsrlQRwHi3B8r6C
-	ILrFICR+s6nYx3WzAuJ2WX4EhBUKZ0MYYmF8bBesl71IQnV+BZDs2XEyds9L2xfJVYvujI7IvV1cc
-	MJdCq8MvOH0BSteu/8cetXuYRPxJwaQ1y0ozu6xaPjA/JTEFi3E2oAuydEHahsxG6shysONp7Ce/X
-	1X5N63f9/J2ogljl86e5NU5ClCwGuWpTOfHqohUgoAku+FrUvm6U7gBp9Er4feK7e3s4xdESKDHu/
-	pFjFwaGw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZaGycjt36+NJT+7JRNn303P5y+ponQJAIIaK3c+nUEw=; b=vC7ljYKvDQ1b2jYycHJhO1uk43
+	kP1wo0qKHTnjs0uEE+ut9Q1t4J3pNdoL7u4hyl+jgzu9A7dxMg0vWRH3E0nc1bhnk7jx5mqR8Udyw
+	ZIlj82MELnCMb4TuGSoV1pLVCtcAodB7wAFEqAd/s9QmLc9AMEJ7kGL02OjJvXYojEF4ui48wXAG8
+	7nRoeqJ3KEb0IDhCJozMziGzLU3VE5J3bsGWJh2FUK+fWx4FeWGh5rNaq6jJ4A61t+8cFGkBxT47Z
+	LhFA8kgMdjo3vDnKceptbCDxdS2MVz5he0BbnLVbIHfN9bV37weycg6ZQcia6PeKAPnydpdo9/MNT
+	1ENMMWEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyq2D-0000000B4tc-05Bo;
-	Wed, 17 Sep 2025 11:09:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyq23-0000000B4nS-1HaD
+	id 1uyq6X-0000000B60t-1ClG;
+	Wed, 17 Sep 2025 11:13:41 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyq6V-0000000B60V-0yox
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 11:09:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F3662696;
-	Wed, 17 Sep 2025 04:08:53 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 482BB3F66E;
-	Wed, 17 Sep 2025 04:08:59 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	ardb@kernel.org,
-	scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Wed, 17 Sep 2025 11:13:40 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b54f48ed1a5so322592a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 04:13:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1758107618; x=1758712418; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZaGycjt36+NJT+7JRNn303P5y+ponQJAIIaK3c+nUEw=;
+        b=qpdgYyEaUPtJQGfa7HLisDTlitJpX7eyLRuA2JDJNUcUVqdj/NpJR45rO+AAtH5pVE
+         epRMJdq5reOlEsI2MEpn3pgP5Rkjxe41f1niZuTebnths8QBMKkNzjIqB0Iy/Ybv8O/C
+         PRTIogULW7Y2+8zWOfWfcCKB5Rxb7GKGvmABmpJlCs0+f96TjwRGOE87R90tSWr4iN7U
+         Spmm1Hxi2+pNFsWx3niS/4om2nxy6Jt/A+S6VWv3xCYsUbbnkfl+muX+kMLI5CbVGEqs
+         6MzuZ9DKQb+S+zW2our7V6Zyw0aiIicZFZ6Q37pjmQ5G3djNr69YO0PqvWh75wMAsqx6
+         fPPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758107618; x=1758712418;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZaGycjt36+NJT+7JRNn303P5y+ponQJAIIaK3c+nUEw=;
+        b=JOgvHvEcqpJ+9m9/iVMjrUsi6Qx8ZjwEdVtkojZMBy5oD3ibfdN3D4Del7jZ5fj5SN
+         e9H1XQzCWSdDPEZlm39j3hWDuWSTEef2CnaWQdZlk38kmB49L7ldeMN78rIA2WovGw7o
+         K3Rjl9a9sqs0rYSM7JDmZ7SRiUrlei5n6Wolhqz8zV4EC9N75K4uip2BAbhSvZUe0AN5
+         E3sjpO9k/PX5hmgs840kk+SIAN80OGRJMTtbuOKjJdc8wEi+R4Otz/ZMHOAm0q5VqMCr
+         hfptcJ143UoLtwI1xAya9laZwGUxyIRjepQ3nhnjoiRlPI0OtQxE2x9PHEB1ybAqLUxw
+         YUOw==
+X-Forwarded-Encrypted: i=1; AJvYcCWuXDx9dtScuR6UGn+zJDnBfqWy1GZECV6qzdVVDQnFnCl0MqJlALK1ZeJXmOUKZp0btvRzJqvIT1za60dVfTfC@lists.infradead.org
+X-Gm-Message-State: AOJu0YymQaPO/q+g5Aia9+SFy/TJc3UtTQglj6aabkMwqqtE7F6ymzmg
+	0rj33uZS5wSijV1sL1tmCmn6ar34tYkZNm2MrrWRFDdyYeCCdur3CrFI3IsDp86Mt+w=
+X-Gm-Gg: ASbGncslWqj66yqwYN7a63g+2ZOjeDmcw9hoe/IDl5mda7e+6q6FZ5mr83WjbV33FT0
+	m80fKFlCABrabZrrLsyHjOu19/4AH2KcJaxfTksNkWCl7VIDN6GN4kM33zJPmUc92HdbuPUw7nX
+	BvtpSG+BYNTsXpajUZ9khWcWwtzppBRCdDdfIXr+16tC+D5y3ymnftEMbvb7c4S1TzEcCYGCMTN
+	sQl8SAkjxIYTyb04Etlv2lp5Bdr+xR58KEcc6hQEAQezZoB6Yub+bB1hnWf8EIQZIFhxs5xZQkc
+	kVIGYP1Y2AvAa8toboMa6jHI9Utl6+Jugk1NRBOFcEpQNOwkSc4L6AKwI3ECe+vWB9tK3UKAzQP
+	JVBAV4rzSnAJJ/LIulOvUquKJNmzPqPvlnpit2ywt+iSQVQSfEcjV5JCS
+X-Google-Smtp-Source: AGHT+IH6X33FWxaAtcbZuf8x752Ux8OoEIl6JrI53rne57TK5RbZLOWAhZftzg4xVFvnL1vFWW1L2Q==
+X-Received: by 2002:a17:903:2f03:b0:25c:e2c:6678 with SMTP id d9443c01a7336-268118b3ecdmr23173225ad.5.1758107618458;
+        Wed, 17 Sep 2025 04:13:38 -0700 (PDT)
+Received: from fedora (cpezg-94-253-146-122-cbl.xnet.hr. [94.253.146.122])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-267b4ae8808sm59079655ad.132.2025.09.17.04.13.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 04:13:37 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: p.zabel@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	lars.povlsen@microchip.com,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 4/5] arm64: futex: refactor futex atomic operation
-Date: Wed, 17 Sep 2025 12:08:37 +0100
-Message-Id: <20250917110838.917281-5-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250917110838.917281-1-yeoreum.yun@arm.com>
-References: <20250917110838.917281-1-yeoreum.yun@arm.com>
+	linux-arm-kernel@lists.infradead.org
+Cc: luka.perkov@sartura.hr,
+	benjamin.ryzman@canonical.com,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH 1/2] dt-bindings: reset: microchip: Add LAN969x support
+Date: Wed, 17 Sep 2025 13:12:35 +0200
+Message-ID: <20250917111323.60781-1-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_040903_444116_B0CDCC33 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250917_041339_276418_3B281F19 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,207 +107,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor futex atomic operations using ll/sc method with
-clearing PSTATE.PAN to prepare to apply FEAT_LSUI on them.
+LAN969x also uses the Microchip reset driver, so document its compatible.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- arch/arm64/include/asm/futex.h | 128 +++++++++++++++++++++------------
- 1 file changed, 82 insertions(+), 46 deletions(-)
+ Documentation/devicetree/bindings/reset/microchip,rst.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index bc06691d2062..f8cb674bdb3f 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -7,17 +7,21 @@
+diff --git a/Documentation/devicetree/bindings/reset/microchip,rst.yaml b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
+index f2da0693b05a..4d4dd47f830e 100644
+--- a/Documentation/devicetree/bindings/reset/microchip,rst.yaml
++++ b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
+@@ -23,6 +23,7 @@ properties:
+     enum:
+       - microchip,sparx5-switch-reset
+       - microchip,lan966x-switch-reset
++      - microchip,lan969x-switch-reset
  
- #include <linux/futex.h>
- #include <linux/uaccess.h>
-+#include <linux/stringify.h>
- 
- #include <asm/errno.h>
- 
- #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
- 
--#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
--do {									\
-+#define LLSC_FUTEX_ATOMIC_OP(op, insn)					\
-+static __always_inline int						\
-+__llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
- 	unsigned int loops = FUTEX_MAX_LOOPS;				\
-+	int ret, oldval, tmp;						\
- 									\
- 	uaccess_enable_privileged();					\
--	asm volatile(							\
-+	asm volatile("// __llsc_futex_atomic_" #op "\n"			\
- "	prfm	pstl1strm, %2\n"					\
- "1:	ldxr	%w1, %2\n"						\
- 	insn "\n"							\
-@@ -35,45 +39,103 @@ do {									\
- 	: "r" (oparg), "Ir" (-EAGAIN)					\
- 	: "memory");							\
- 	uaccess_disable_privileged();					\
--} while (0)
-+									\
-+	if (!ret)							\
-+		*oval = oldval;						\
-+									\
-+	return ret;							\
-+}
-+
-+LLSC_FUTEX_ATOMIC_OP(add, "add	%w3, %w1, %w5")
-+LLSC_FUTEX_ATOMIC_OP(or,  "orr	%w3, %w1, %w5")
-+LLSC_FUTEX_ATOMIC_OP(and, "and	%w3, %w1, %w5")
-+LLSC_FUTEX_ATOMIC_OP(eor, "eor	%w3, %w1, %w5")
-+LLSC_FUTEX_ATOMIC_OP(set, "mov	%w3, %w5")
-+
-+static __always_inline int
-+__llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	int ret = 0;
-+	unsigned int loops = FUTEX_MAX_LOOPS;
-+	u32 val, tmp;
-+
-+	uaccess_enable_privileged();
-+	asm volatile("//__llsc_futex_cmpxchg\n"
-+"	prfm	pstl1strm, %2\n"
-+"1:	ldxr	%w1, %2\n"
-+"	eor	%w3, %w1, %w5\n"
-+"	cbnz	%w3, 4f\n"
-+"2:	stlxr	%w3, %w6, %2\n"
-+"	cbz	%w3, 3f\n"
-+"	sub	%w4, %w4, %w3\n"
-+"	cbnz	%w4, 1b\n"
-+"	mov	%w0, %w7\n"
-+"3:\n"
-+"	dmb	ish\n"
-+"4:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
-+	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
-+	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
-+	: "memory");
-+	uaccess_disable_privileged();
-+
-+	if (!ret)
-+		*oval = val;
-+
-+	return ret;
-+}
-+
-+#define FUTEX_ATOMIC_OP(op)						\
-+static __always_inline int						\
-+__futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
-+{									\
-+	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-+}
-+
-+FUTEX_ATOMIC_OP(add)
-+FUTEX_ATOMIC_OP(or)
-+FUTEX_ATOMIC_OP(and)
-+FUTEX_ATOMIC_OP(eor)
-+FUTEX_ATOMIC_OP(set)
-+
-+static __always_inline int
-+__futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	return __llsc_futex_cmpxchg(uaddr, oldval, newval, oval);
-+}
- 
- static inline int
- arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *_uaddr)
- {
--	int oldval = 0, ret, tmp;
--	u32 __user *uaddr = __uaccess_mask_ptr(_uaddr);
-+	int ret;
-+	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
-+	uaddr = __uaccess_mask_ptr(_uaddr);
-+
- 	switch (op) {
- 	case FUTEX_OP_SET:
--		__futex_atomic_op("mov	%w3, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_set(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ADD:
--		__futex_atomic_op("add	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_add(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_OR:
--		__futex_atomic_op("orr	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_or(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ANDN:
--		__futex_atomic_op("and	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, ~oparg);
-+		ret = __futex_atomic_and(~oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_XOR:
--		__futex_atomic_op("eor	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_eor(oparg, uaddr, oval);
- 		break;
- 	default:
- 		ret = -ENOSYS;
- 	}
- 
--	if (!ret)
--		*oval = oldval;
--
- 	return ret;
- }
- 
-@@ -81,40 +143,14 @@ static inline int
- futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *_uaddr,
- 			      u32 oldval, u32 newval)
- {
--	int ret = 0;
--	unsigned int loops = FUTEX_MAX_LOOPS;
--	u32 val, tmp;
- 	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
- 	uaddr = __uaccess_mask_ptr(_uaddr);
--	uaccess_enable_privileged();
--	asm volatile("// futex_atomic_cmpxchg_inatomic\n"
--"	prfm	pstl1strm, %2\n"
--"1:	ldxr	%w1, %2\n"
--"	sub	%w3, %w1, %w5\n"
--"	cbnz	%w3, 4f\n"
--"2:	stlxr	%w3, %w6, %2\n"
--"	cbz	%w3, 3f\n"
--"	sub	%w4, %w4, %w3\n"
--"	cbnz	%w4, 1b\n"
--"	mov	%w0, %w7\n"
--"3:\n"
--"	dmb	ish\n"
--"4:\n"
--	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
--	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
--	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
--	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
--	: "memory");
--	uaccess_disable_privileged();
--
--	if (!ret)
--		*uval = val;
- 
--	return ret;
-+	return __futex_cmpxchg(uaddr, oldval, newval, uval);
- }
- 
- #endif /* __ASM_FUTEX_H */
+   reg:
+     items:
 -- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+2.51.0
 
 
