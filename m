@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE432CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 133F8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+cmBKge/SratwvlMhVUxHK0tIPiknByDO1rJuSXVm8=; b=MAKQThqMFKWs1B8TqgRaZnZUsu
-	uzv0RyoihI47n3OhrnTe2uebUCYjwhYZxCrl+U2NUBjKCu1goYxo2fOPSfhx4T8XJie+G4e5mg9rU
-	NnOpmcZFI5Xbjtlbq1j5qrm5c+EGIzKh+tF1tJsNgkGkD2Twt/ZSIEvmmsnxifSMLuVOF19w1DTWk
-	H5nt7EdPURGGZXRzzmYGH5BLhLtCB5lR1LqWRUzWZRDr+Z/q1vedQDBFHfMKtmAigAcFhZRXSKF/f
-	WofXdsYPWupLVHBT46F53xIJYeyg1814e5IXxqdaNJ+hlatgb8/4VuxK5DSG5dqJ08HzEqfe7RmZj
-	6mzO0OyQ==;
+	bh=ChcytkVLrz+IKUJS3Cck/qqHKiLa2YGrU2v03wuGGrM=; b=QNFFf3lwTwQ7hK4Ye5mbycxrV8
+	eZb85lzQ34nG09j4TqGRTAutqPSi/CCpgroJtt2jZ57NM+dHeqMzH8Xk+7QZLnJ4hjMs3j1PWlOHe
+	eNW5ec3qEeCKDsyGaH97tE/qtMpY0a3KF+HiDcEQn4sf0fazZpcprB+5tzsepz0HOkOO6RPKltkmw
+	TTKrHrIHq89P8HxHXdzDj26ak27iUrvG50WjNx9L9C9RRntg8Zat/MeSyiN7Zrhh0sXfhO7RdZ0Uk
+	d7NDQPjH6Pd5/b2GEeCdir02hZy42WlOIz9oET+TNWX4NXw1eujVs7kl7CFcXRKRK0JUtNXIKVtQF
+	wRrM5iKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytqD-0000000CauS-2CgT;
-	Wed, 17 Sep 2025 15:13:05 +0000
+	id 1uytqK-0000000Cb4b-3Tu5;
+	Wed, 17 Sep 2025 15:13:12 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytq9-0000000Cald-09PO;
-	Wed, 17 Sep 2025 15:13:03 +0000
+	id 1uytqE-0000000Casy-0IF1;
+	Wed, 17 Sep 2025 15:13:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/+cmBKge/SratwvlMhVUxHK0tIPiknByDO1rJuSXVm8=; b=SlmhqyFof6KqXA7fToZCjE25Yy
-	o0AAvTwle++S1quNnLBsSkVhKVvww69ySqa2zGCigqsKeUU4+QDxcPM0YEwby0YsWD731XCvcH+Kv
-	n/dhwMtpmSSh3rgoaDSuTloqwAJCi+Bp/mcQVlMvSX2TdsuxZKMWqTRz2YiGfAtFCZw28UJwl+q6M
-	7/1OwJ4c6nc5lFEjP9ZxcgtqNYDnMjSk6ZT9THhK3YELVE2MpJQFX19r67dL09CZ2nSsjq1V9o0bM
-	KXGLDeKjwHpbEIqiqk7XEmXeCfKqjJ2uzJH5+anhzui+PsRaGc5hHT3m4HTjJgLRTxhlCT2yM64wJ
-	Oeg6d9jg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35114 helo=rmk-PC.armlinux.org.uk)
+	bh=ChcytkVLrz+IKUJS3Cck/qqHKiLa2YGrU2v03wuGGrM=; b=mvFAhoOslfMXI6PpLYMlk+frsP
+	A5cengYY0t6QZcdChxdPgmGo+ipcwiIcPyi2US5P9uC3kBocp2y9pf2sPs6KqkmRVXIzzhNG87Mkb
+	iugRGz6jqqB9LyxbZEtthJlUPBsl/NIVom9Ks0mvfrrbh53EJqOpQzmb5/u4lMvIow8qD57kP4XIZ
+	x6xOYDqMRZGdfqtRANEiOpqoNx9UtoRESXyAffLyBt6F5kjpc9mfmbLwnfkvrwOk9s/QeklW+0Kj3
+	BQyLhO7rQezSrusw4pBk7Yg8+mKrLMNPa7mHN+9WbaUcHqkhsk3kx8TchCH4mPCGtiypxU0a6suV6
+	brzJOU8w==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:32780 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uytpf-000000004lf-3YNK;
-	Wed, 17 Sep 2025 16:12:32 +0100
+	id 1uytpq-000000004mN-0A9j;
+	Wed, 17 Sep 2025 16:12:42 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uytpa-00000006H2X-3GWx;
-	Wed, 17 Sep 2025 16:12:26 +0100
+	id 1uytpl-00000006H2k-08pH;
+	Wed, 17 Sep 2025 16:12:37 +0100
 In-Reply-To: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 References: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -81,17 +81,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Vladimir Zapolskiy <vz@mleia.com>
-Subject: [PATCH net-next 06/10] net: stmmac: starfive: convert to use
+Subject: [PATCH net-next 08/10] net: stmmac: sun8i: convert to use
  phy_interface
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uytpa-00000006H2X-3GWx@rmk-PC.armlinux.org.uk>
-Date: Wed, 17 Sep 2025 16:12:26 +0100
+Message-Id: <E1uytpl-00000006H2k-08pH@rmk-PC.armlinux.org.uk>
+Date: Wed, 17 Sep 2025 16:12:37 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_081301_110801_5F0CCF04 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250917_081306_189313_30A1291A 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwmac-starfive uses RMII or RGMII interface modes without any PCS,
-and selects the dwmac core accordingly using a register field with
-the same bit encoding as the core's phy_intf_sel_i signals.
+dwmac-sun8i supports MII, RMII and RGMII interface modes only. It
+is unclear whether the dwmac core interface is different from the
+one presented to the outside world.
 
-None of the DTS files set "mac-mode", so mac_interface will be
-identical to phy_interface.
+However, as none of the DTS files set "mac-mode", mac_interface will
+be identical to phy_interface.
 
-Convert dwmac-starfive to use phy_interface when determining the
-interface mode rather than mac_interface. Also convert the error
-prints to use phy_modes() so that we get a meaningful string rather
-than a number for the interface mode.
+Convert dwmac-sun8i to use phy_interface when determining the
+interface mode rather than mac_interface.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 2013d7477eb7..6938dd2a79b7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -38,7 +38,7 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
- 	unsigned int mode;
- 	int err;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 690f3650f84e..5d871b2cd111 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -974,7 +974,7 @@ static int sun8i_dwmac_set_syscon(struct device *dev,
+ 		}
+ 	}
  
--	switch (plat_dat->mac_interface) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RMII:
- 		mode = STARFIVE_DWMAC_PHY_INFT_RMII;
+-	switch (plat->mac_interface) {
++	switch (plat->phy_interface) {
+ 	case PHY_INTERFACE_MODE_MII:
+ 		/* default */
  		break;
-@@ -51,8 +51,8 @@ static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+@@ -989,7 +989,7 @@ static int sun8i_dwmac_set_syscon(struct device *dev,
  		break;
- 
  	default:
--		dev_err(dwmac->dev, "unsupported interface %d\n",
--			plat_dat->mac_interface);
-+		dev_err(dwmac->dev, "unsupported interface %s\n",
-+			phy_modes(plat_dat->phy_interface));
+ 		dev_err(dev, "Unsupported interface mode: %s",
+-			phy_modes(plat->mac_interface));
++			phy_modes(plat->phy_interface));
  		return -EINVAL;
  	}
  
