@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A59CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847FACAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DhA7HJ8bSiCtmLwjuEAGG4saVXDBqHPKx+e9XGDNdY=; b=FaGRtkYV/ET6ZAQbksm3VWrAzS
-	UyHWq2XQoGawwSOkBTB2Abz4CfjJDQUtpvlyr5z+03dg7r/HstENnui26XVXj+E5IDUX1UG6OKC2L
-	2wByLX7FZ7HGm1JgBuN/DLGidJWPgf3Bu1vQe4Z2r8PkW6MhtWyfdmXMQuYILpFqsmzKpwVAffHA/
-	I0n6rvtLKIT6m8IfUHnKgsgGR7fVtWvGrMOdArdM00njsspkeLon5RkTWx7TBZIs5flh1fPoc4FbO
-	4A/2bEZsrlbWd1RXYQZtivnuo4YwFD0T3L1o98QsOez1gfZohoMfFpopXkyY4/q/9e+eXxNjpv5KY
-	QZvP6A+g==;
+	bh=dAPQS/pmZO3nrOzg2YQNfWuFxc9alVN9Gxa03iD/mGc=; b=F7E0RT/BDH+9RX8lIN1kRxLl/C
+	GTut4omGKXy5Y+x4g7o8ykgw7UiQv3h0xh+KOHE1l0Ttj0LUTywZJae6i5Plihw9rro29uCv8rclX
+	xuB0DHoC2xfm52uFCtDQqPVrqN/t0M7XWHZC51NCpMPQY81uDXx3J0Voaskns5u4ntpITiIR6GGgD
+	1cOs8whYsE7zGJTa3wWrYyIwBWklwMNAT8P5i8Qy0ZD15ntub9K+zD8WoxOniqduKxOjvG1Ugyj5R
+	jEHvbOdMl/EL1womxfMpD4+mm2WL2BaoAXx5XcWZ9KXKe5qiSDjMYKdLmKaJZoFWNqr5zOCEbzf7R
+	1TGo1E/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyslB-0000000BzkL-2PRW;
-	Wed, 17 Sep 2025 14:03:49 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uysl9-0000000Bzhb-4C7w;
+	Wed, 17 Sep 2025 14:03:48 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjj-0000000BxWd-1DCT
+	id 1uysjX-0000000BxB9-0w2A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:22 +0000
+	Wed, 17 Sep 2025 14:02:08 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117731;
+	s=2020; t=1758117723;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7DhA7HJ8bSiCtmLwjuEAGG4saVXDBqHPKx+e9XGDNdY=;
-	b=gqM+v9f6QL9AuLgNqkYY9OGvmWz5lAdrXhO3BP4LFs66sFeZiVe8p0DuBg/wPovx+l9LzS
-	jndagPsoVkUZ4ErniWt2UBHP3ALDa6LDPYJu7oMdQp3GCFkRnfsoeS7efcDv9EPh0NHCfb
-	n3Vci2XSDba0CVoPiLVL9Gd/Rr+Nl6Fo48ZLCjobl7VsrKmNTc64iGf+cRAPJNs0HNxt6Y
-	jM4tx8L4thM3cq2e02OwRq73U4RWalFlfBRycffPf7caM2zsHizdfgUYZG+Lxm1StUYHjF
-	FP/B8K450SUDFYoXhSldqypgUOskk6hYEdB63ZdNE2nqKqg6/DDkX6IOp2QxaQ==
+	bh=dAPQS/pmZO3nrOzg2YQNfWuFxc9alVN9Gxa03iD/mGc=;
+	b=zYPaSxRJ4lOaU+afME3RUoIP/B6znDwRrzIAWU0sYKrnsdcbokWRrOY1y8J0hNF/nEhEgO
+	OI4y/UY6UorlxSs8T/SX0QixHyXnXUVZE4SWpN1RbcjP4UvIzm/A9tM1n2LBpdHTzkFRvI
+	a7f8PFLd335AS2kX3tg4fWx/1RZhCOiECJEX3VsijpP9aAApHE9xovZG59KEdIffuyYXF6
+	1o4508hgvz1T7kcPPFSpal7F7dWFTdTTdSEYGdWR+7OEJ4X0a74WQo8LxXAQ7baGP8TLFa
+	psKrHi2EKwCy7+ZfBzOplstP2PcDplUhX5xgAdJAZ7Kbr+A1igHl6nRLKIb3rA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117731;
+	s=2020e; t=1758117723;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7DhA7HJ8bSiCtmLwjuEAGG4saVXDBqHPKx+e9XGDNdY=;
-	b=N1thyuhbCws7l80qSuO0oYzjnJ3crb0kV6go9zD4JubbQtWBM2FraRI2EUoL4DA+fSDO8J
-	3SDNYbfN/bYLxSBQ==
-Date: Wed, 17 Sep 2025 16:00:32 +0200
-Subject: [PATCH v3 30/36] sparc64: vdso: Introduce vdso/processor.h
+	bh=dAPQS/pmZO3nrOzg2YQNfWuFxc9alVN9Gxa03iD/mGc=;
+	b=kDoFxiASOs9taiBNaPa+dXo9RmH38UVKgGClW3Op3KRfzYWFUSCHXJTOrS8sFu33OXzEQr
+	sTvU9eZ2GMOHOJBA==
+Date: Wed, 17 Sep 2025 16:00:20 +0200
+Subject: [PATCH v3 18/36] random: vDSO: split out datapage update into
+ helper functions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-30-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-18-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -83,16 +84,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=4619;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=3756;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=W3Gq92ehVoqjipEhukWFy/O5j4kKgL6JHT3M1VUfxs8=;
- b=ENmbZGjm89C5vPxpgJfzZDJ5gDNJ3DSyeF1YlcCsl1wOFoSYW+jY6FlcGQYTXmcP/lJDscWV8
- OzrQcmGB9C7AImuqVqCBS4LWPpi/D55n2GXxE4MHlTiyaqB1qXHKKNW
+ bh=41FpYFpeNVAvcW9qivCMlMgw50x3JGyoXtMbGlhmuLI=;
+ b=FmTFmc7E4Q0W1Lsek8lGyn15A4bZIxhBBu6p39eFJdEcjGLtHqh9C7BkoOdXyxSBKdbJKgWOB
+ s4aaq7e0CyaCb2qY6s4Lk9OZVwjHgIjew5zxD1sUN3HWexfuWuEQKSF
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070219_802366_A391E244 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250917_070207_405628_105CBB7A 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,129 +108,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic vDSO library expects a vdso/processor.h with an definition of
-cpu_relax().
-
-Split out cpu_relax() into this dedicated header.
+Some upcoming changes will introduce additional callers of them.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/sparc/include/asm/processor.h      |  3 +++
- arch/sparc/include/asm/processor_32.h   |  2 --
- arch/sparc/include/asm/processor_64.h   | 25 --------------------
- arch/sparc/include/asm/vdso/processor.h | 41 +++++++++++++++++++++++++++++++++
- 4 files changed, 44 insertions(+), 27 deletions(-)
+ drivers/char/random.c | 51 +++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 33 insertions(+), 18 deletions(-)
 
-diff --git a/arch/sparc/include/asm/processor.h b/arch/sparc/include/asm/processor.h
-index 18295ea625dd7271617c15caa003a173099dd4d0..e34de956519aaca0e9bf82a22000d9096f868968 100644
---- a/arch/sparc/include/asm/processor.h
-+++ b/arch/sparc/include/asm/processor.h
-@@ -1,6 +1,9 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef ___ASM_SPARC_PROCESSOR_H
- #define ___ASM_SPARC_PROCESSOR_H
-+
-+#include <asm/vdso/processor.h>
-+
- #if defined(__sparc__) && defined(__arch64__)
- #include <asm/processor_64.h>
- #else
-diff --git a/arch/sparc/include/asm/processor_32.h b/arch/sparc/include/asm/processor_32.h
-index ba8b70ffec085feb17de9050f37de98e0039f7c3..a074d313f4f80621c1bc42733529c6d9450b1275 100644
---- a/arch/sparc/include/asm/processor_32.h
-+++ b/arch/sparc/include/asm/processor_32.h
-@@ -91,8 +91,6 @@ unsigned long __get_wchan(struct task_struct *);
- extern struct task_struct *last_task_used_math;
- int do_mathemu(struct pt_regs *regs, struct task_struct *fpt);
+diff --git a/drivers/char/random.c b/drivers/char/random.c
+index b0b88c6f6a1afcdb770e39b7a64cb3408e33bd2c..73c53a4fb949bfd2ed723fa3cec3fe0d066a7fa3 100644
+--- a/drivers/char/random.c
++++ b/drivers/char/random.c
+@@ -246,6 +246,37 @@ static unsigned int crng_reseed_interval(void)
+ /* Used by crng_reseed() and crng_make_state() to extract a new seed from the input pool. */
+ static void extract_entropy(void *buf, size_t len);
  
--#define cpu_relax()	barrier()
++/* This updates the generation in the vDSO data page */
++static void random_vdso_update_generation(unsigned long next_gen)
++{
++	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
++		return;
++
++	/* base_crng.generation's invalid value is ULONG_MAX, while
++	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
++	 * former to arrive at the latter. Use smp_store_release so that this
++	 * is ordered with the write above to base_crng.generation. Pairs with
++	 * the smp_rmb() before the syscall in the vDSO code.
++	 *
++	 * Cast to unsigned long for 32-bit architectures, since atomic 64-bit
++	 * operations are not supported on those architectures. This is safe
++	 * because base_crng.generation is a 32-bit value. On big-endian
++	 * architectures it will be stored in the upper 32 bits, but that's okay
++	 * because the vDSO side only checks whether the value changed, without
++	 * actually using or interpreting the value.
++	 */
++	smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
++}
++
++/* This sets is_ready in the vDSO data page */
++static void random_vdso_set_ready(void)
++{
++	if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
++		return;
++
++	WRITE_ONCE(vdso_k_rng_data->is_ready, true);
++}
++
+ /* This extracts a new crng key from the input pool. */
+ static void crng_reseed(struct work_struct *work)
+ {
+@@ -272,22 +303,7 @@ static void crng_reseed(struct work_struct *work)
+ 	if (next_gen == ULONG_MAX)
+ 		++next_gen;
+ 	WRITE_ONCE(base_crng.generation, next_gen);
 -
- extern void (*sparc_idle)(void);
+-	/* base_crng.generation's invalid value is ULONG_MAX, while
+-	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
+-	 * former to arrive at the latter. Use smp_store_release so that this
+-	 * is ordered with the write above to base_crng.generation. Pairs with
+-	 * the smp_rmb() before the syscall in the vDSO code.
+-	 *
+-	 * Cast to unsigned long for 32-bit architectures, since atomic 64-bit
+-	 * operations are not supported on those architectures. This is safe
+-	 * because base_crng.generation is a 32-bit value. On big-endian
+-	 * architectures it will be stored in the upper 32 bits, but that's okay
+-	 * because the vDSO side only checks whether the value changed, without
+-	 * actually using or interpreting the value.
+-	 */
+-	if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+-		smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
++	random_vdso_update_generation(next_gen);
  
- #endif
-diff --git a/arch/sparc/include/asm/processor_64.h b/arch/sparc/include/asm/processor_64.h
-index 0a0d5c3d184c751d232a00e73357c0e345695a94..3de65ad6d78592013b1d1158a58497f3821d003c 100644
---- a/arch/sparc/include/asm/processor_64.h
-+++ b/arch/sparc/include/asm/processor_64.h
-@@ -182,31 +182,6 @@ unsigned long __get_wchan(struct task_struct *task);
- #define KSTK_EIP(tsk)  (task_pt_regs(tsk)->tpc)
- #define KSTK_ESP(tsk)  (task_pt_regs(tsk)->u_regs[UREG_FP])
- 
--/* Please see the commentary in asm/backoff.h for a description of
-- * what these instructions are doing and how they have been chosen.
-- * To make a long story short, we are trying to yield the current cpu
-- * strand during busy loops.
-- */
--#ifdef	BUILD_VDSO
--#define	cpu_relax()	asm volatile("\n99:\n\t"			\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     ::: "memory")
--#else /* ! BUILD_VDSO */
--#define cpu_relax()	asm volatile("\n99:\n\t"			\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     "rd	%%ccr, %%g0\n\t"	\
--				     ".section	.pause_3insn_patch,\"ax\"\n\t"\
--				     ".word	99b\n\t"		\
--				     "wr	%%g0, 128, %%asr27\n\t"	\
--				     "nop\n\t"				\
--				     "nop\n\t"				\
--				     ".previous"			\
--				     ::: "memory")
--#endif
--
- /* Prefetch support.  This is tuned for UltraSPARC-III and later.
-  * UltraSPARC-I will treat these as nops, and UltraSPARC-II has
-  * a shallower prefetch queue than later chips.
-diff --git a/arch/sparc/include/asm/vdso/processor.h b/arch/sparc/include/asm/vdso/processor.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..f7a9adc807f7c9a0444afa51aeb47649a9bdb079
---- /dev/null
-+++ b/arch/sparc/include/asm/vdso/processor.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _ASM_SPARC_VDSO_PROCESSOR_H
-+#define _ASM_SPARC_VDSO_PROCESSOR_H
-+
-+#include <linux/compiler.h>
-+
-+#if defined(__arch64__)
-+
-+/* Please see the commentary in asm/backoff.h for a description of
-+ * what these instructions are doing and how they have been chosen.
-+ * To make a long story short, we are trying to yield the current cpu
-+ * strand during busy loops.
-+ */
-+#ifdef	BUILD_VDSO
-+#define	cpu_relax()	asm volatile("\n99:\n\t"			\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     ::: "memory")
-+#else /* ! BUILD_VDSO */
-+#define cpu_relax()	asm volatile("\n99:\n\t"			\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     "rd	%%ccr, %%g0\n\t"	\
-+				     ".section	.pause_3insn_patch,\"ax\"\n\t"\
-+				     ".word	99b\n\t"		\
-+				     "wr	%%g0, 128, %%asr27\n\t"	\
-+				     "nop\n\t"				\
-+				     "nop\n\t"				\
-+				     ".previous"			\
-+				     ::: "memory")
-+#endif /* BUILD_VDSO */
-+
-+#else /* ! __arch64__ */
-+
-+#define cpu_relax()	barrier()
-+
-+#endif /* __arch64__ */
-+
-+#endif /* _ASM_SPARC_VDSO_PROCESSOR_H */
+ 	if (!static_branch_likely(&crng_is_ready))
+ 		crng_init = CRNG_READY;
+@@ -741,8 +757,7 @@ static void __cold _credit_init_bits(size_t bits)
+ 		if (static_key_initialized && system_unbound_wq)
+ 			queue_work(system_unbound_wq, &set_ready);
+ 		atomic_notifier_call_chain(&random_ready_notifier, 0, NULL);
+-		if (IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+-			WRITE_ONCE(vdso_k_rng_data->is_ready, true);
++		random_vdso_set_ready();
+ 		wake_up_interruptible(&crng_init_wait);
+ 		kill_fasync(&fasync, SIGIO, POLL_IN);
+ 		pr_notice("crng init done\n");
 
 -- 
 2.51.0
