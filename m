@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4E5CAC5A8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE258CAC5A9
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,49 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDshTHDdyOS+4oK6msGdvXtwIDG3+AYYE2weZr1dlWw=; b=LZqc8D6RbBHz0EbxKiN5bc4c7C
-	j+wl8U15JMYzjDxfT5QmDz6LluQ0TkVbDNGPRIWBtzdFxm5YasRoAMO+i5cdwiu1KEbbbdDY1ECZv
-	76kuSS16fZqkYuG1DSOo65lEt9jyAuamW/iYjNrqF336GBrGmK7NuKMZE3InglrCXTAvYGM0ImiC8
-	ltxuO5vXJApduvEBXOY//6HDgsPm6mh1mlwknt2FsChW10Vc2IyDyA66n9aa7pTvTUcDEgsJ51A2P
-	Z6Rpi8svkt/PJDbJkrP+pzw5qsgrNsArfh7HpGR624pZpBkskf+SNtEA5+2XeLZKFHUnSUdE3MC46
-	Jlj+8HaA==;
+	bh=mRNw6GkZZ0SOwENot0cflaJo5WOKKLsTLyEwUK24zow=; b=UfCWwovYmCVvf31n9dclZJ5UKt
+	xFA8dkhCVaVFYml7msXhFrwQzW46POpTJSom06G8lvpjmPGeZtG+dr2+Dkxc2uL08pSxA8esgOjkw
+	uLajBRtkWJZgYmrbxNjGKcwDelyVhIF/xZYfbKgl2RyeAA1dFLnR17MaOG48jXap7axRQGkof8pdV
+	1IIKs3RknSZVrsuB1bdojgKX7a0UdaBk20zcos/8cQn+p7gFEmJAImwRp/RrW8ClrS+tJJhV9f8sx
+	f9ITXbYZvfjoZ2+Q10Vcind8oi7cmaBciFuGQJVK42Qpo0cQPnNDtjF00ESkW5IzBSH3xDqu8DpPl
+	Fk+sBLWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyskR-0000000Bybe-126k;
-	Wed, 17 Sep 2025 14:03:03 +0000
+	id 1uyskT-0000000Byeb-02mb;
+	Wed, 17 Sep 2025 14:03:05 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysjc-0000000BxKa-2nmI
+	id 1uysjf-0000000BxQo-2cNI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:14 +0000
+	Wed, 17 Sep 2025 14:02:18 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117726;
+	s=2020; t=1758117729;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VDshTHDdyOS+4oK6msGdvXtwIDG3+AYYE2weZr1dlWw=;
-	b=ez6n5UPpSQ6ZNmJCDfByMelo2B56twKfod8kCsWJQ7H0Rg0ZW0/Ul0dS2w0TX1HFZvYyJM
-	mEusXN/bf0OLci8Tv/czFl+DWKUDKkEiNSC3oI7sU9+X9C4qrR2RTy//iNi6xTAGeWhR+8
-	N6HtEWYvlhpISUAf+PatIXLh47z14HottZvBLFYMLSlcUhulpHR9adRvn5VAMASBw6fC3J
-	1jqyzvLJKD+NC5UDF/wKQb4Ft7QAkt+cUiiwUG2z9Oamo3QHUzJJMkbOU+1wCEYo3W4/6S
-	4HdadsAXQrjt8cZPWE106Y3qZG9+ZxNyQoJ8u6ecTOpbRMpzjOyh6juy4dr3NQ==
+	bh=mRNw6GkZZ0SOwENot0cflaJo5WOKKLsTLyEwUK24zow=;
+	b=Z30Hwa++YpmdECroIgGLGo2qdagWua1+42J45XnVC49cul3KcaHrxdUhuIBDt3V6HVyw9C
+	x88vdcmNUH+OJGU/N36wEOa0fbSZhPDuG1A9ophk5d2oEXjvV+ErtH03aur3YOEmSJq05H
+	yrUWa94v4xD6JlJlYveDMSAGZz2bYTDERdBAVq5FJdApxjq9Eo4P5wTRB6cJccOQ71YjVQ
+	otSwetGTNZAeftVt5GIw0Gd/RSIhYYG9VmMDIp2lEWNuVjA+ZrAC3C96zv+KIXdcuxaOGe
+	tWprgkciuzV2udYjb1dIADelwFE05b/S6ia4nm2ZwKn6+icRQgRTcbN290SKCg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117726;
+	s=2020e; t=1758117729;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VDshTHDdyOS+4oK6msGdvXtwIDG3+AYYE2weZr1dlWw=;
-	b=rwGdc1qsu5S5j65PJ7t2hIXwy/yfQ7c2e3ZkcHB66LdLp6bgVTNqEuT/ekKgkLImxxJ9a2
-	y8SM6YWr76MjHxCQ==
-Date: Wed, 17 Sep 2025 16:00:25 +0200
-Subject: [PATCH v3 23/36] vdso/datastore: Map pages through struct page
+	bh=mRNw6GkZZ0SOwENot0cflaJo5WOKKLsTLyEwUK24zow=;
+	b=uny7uvHOBpJaQmiyNWgZDoVcJ/W4s4C4UJydeIXx+29V6CWnPmW/6D9xgUBg+G1HuhVrw6
+	/GPNUaUtapK0CQDQ==
+Date: Wed, 17 Sep 2025 16:00:28 +0200
+Subject: [PATCH v3 26/36] sparc64: vdso: Remove obsolete "fake section
+ table" reservation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-23-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-26-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -83,16 +84,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=3281;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=2564;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=h36fVH5emtVkv73ZElXIXZ6NtrpKkOFLq+ychKgkihU=;
- b=1Q87PG88XCaYX4KGyp+D/lWyMrgzA9tTWURtmpJ3RbXmhrluuZY5yKr1xn7icSsFx1nd1JDK8
- Kfy4uo7mq3hB2beBjRr5EjdOngk6IDs5iYv4FiU/CAfCeAodj3ikfdB
+ bh=8w72gLGme3rV9N/8xInoEUzLlu1u1Hn8GjckW/Fu+5Y=;
+ b=QgCYHWUCSKPu9lf4c4OeQFeEjv9jGji9gCgDezyDsZYodT0c3UE1Qh/8caZxZEy4/G9jAr3o+
+ +gt1ht2t+QnC4eIxVKBSv2ORSay29H8EfuooOZ1hluInrsoTIoX56qW
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070212_921180_EA5487AD 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250917_070215_923302_3ED27511 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,96 +108,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An upcoming change will allocate the datapages dynamically instead of as
-part of the kernel image. Such pages can only be mapped through
-'struct page' and not through PFNs.
+When the vDSO logic was copied from x86 to SPARC some unused remnants of
+the fake section handling were copied, too. In x86 the original fake
+section handling had already been removed incompletely in commit
+da861e18eccc ("x86, vdso: Get rid of the fake section mechanism").
+On x86 the reservation was only cleaned up in commit 24b7c77bbb24
+("x86/vdso: Remove obsolete "fake section table" reservation").
 
-Prepare for the dynamic allocation by mapping through 'struct page'.
+Remove the reservation for SPARC, too.
 
-VM_MIXEDMAP is necessary for the call to vmf_insert_page() in the timens
-prefault path to work.
-
+Fixes: 9a08862a5d2e ("vDSO for sparc")
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- lib/vdso/datastore.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+ arch/sparc/vdso/vdso-layout.lds.S | 21 ---------------------
+ arch/sparc/vdso/vdso2c.c          |  8 --------
+ 2 files changed, 29 deletions(-)
 
-diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
-index 7377fcb6e1dfe31d02ffcae371fdf9da069ae4c1..6e5feb4a95b85f5a1cbdced7cdeddc593fcbad40 100644
---- a/lib/vdso/datastore.c
-+++ b/lib/vdso/datastore.c
-@@ -39,14 +39,15 @@ struct vdso_arch_data *vdso_k_arch_data = &vdso_arch_data_store.data;
- static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			     struct vm_area_struct *vma, struct vm_fault *vmf)
+diff --git a/arch/sparc/vdso/vdso-layout.lds.S b/arch/sparc/vdso/vdso-layout.lds.S
+index d31e57e8a3bbffd3afb187cd631e2491fde64148..9e0804789d11696948f11be367480b530a1f18d9 100644
+--- a/arch/sparc/vdso/vdso-layout.lds.S
++++ b/arch/sparc/vdso/vdso-layout.lds.S
+@@ -4,16 +4,6 @@
+  * This script controls its layout.
+  */
+ 
+-#if defined(BUILD_VDSO64)
+-# define SHDR_SIZE 64
+-#elif defined(BUILD_VDSO32)
+-# define SHDR_SIZE 40
+-#else
+-# error unknown VDSO target
+-#endif
+-
+-#define NUM_FAKE_SHDRS 7
+-
+ SECTIONS
  {
--	struct page *timens_page = find_timens_vvar_page(vma);
--	unsigned long pfn;
-+	struct page *page, *timens_page;
-+
-+	timens_page = find_timens_vvar_page(vma);
+ 	/*
+@@ -47,19 +37,8 @@ SECTIONS
+ 		*(.bss*)
+ 		*(.dynbss*)
+ 		*(.gnu.linkonce.b.*)
+-
+-		/*
+-		 * Ideally this would live in a C file: kept in here for
+-		 * compatibility with x86-64.
+-		 */
+-		VDSO_FAKE_SECTION_TABLE_START = .;
+-		. = . + NUM_FAKE_SHDRS * SHDR_SIZE;
+-		VDSO_FAKE_SECTION_TABLE_END = .;
+ 	}						:text
  
- 	switch (vmf->pgoff) {
- 	case VDSO_TIME_PAGE_OFFSET:
- 		if (!IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY))
- 			return VM_FAULT_SIGBUS;
--		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
-+		page = virt_to_page(vdso_k_time_data);
- 		if (timens_page) {
- 			/*
- 			 * Fault in VVAR page too, since it will be accessed
-@@ -56,10 +57,10 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			vm_fault_t err;
+-	.fake_shstrtab	: { *(.fake_shstrtab) }		:text
+-
+-
+ 	.note		: { *(.note.*) }		:text	:note
  
- 			addr = vmf->address + VDSO_TIMENS_PAGE_OFFSET * PAGE_SIZE;
--			err = vmf_insert_pfn(vma, addr, pfn);
-+			err = vmf_insert_page(vma, addr, page);
- 			if (unlikely(err & VM_FAULT_ERROR))
- 				return err;
--			pfn = page_to_pfn(timens_page);
-+			page = timens_page;
- 		}
- 		break;
- 	case VDSO_TIMENS_PAGE_OFFSET:
-@@ -72,24 +73,25 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 		 */
- 		if (!IS_ENABLED(CONFIG_TIME_NS) || !timens_page)
- 			return VM_FAULT_SIGBUS;
--		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
-+		page = virt_to_page(vdso_k_time_data);
- 		break;
- 	case VDSO_RNG_PAGE_OFFSET:
- 		if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
- 			return VM_FAULT_SIGBUS;
--		pfn = __phys_to_pfn(__pa_symbol(vdso_k_rng_data));
-+		page = virt_to_page(vdso_k_rng_data);
- 		break;
- 	case VDSO_ARCH_PAGES_START ... VDSO_ARCH_PAGES_END:
- 		if (!IS_ENABLED(CONFIG_ARCH_HAS_VDSO_ARCH_DATA))
- 			return VM_FAULT_SIGBUS;
--		pfn = __phys_to_pfn(__pa_symbol(vdso_k_arch_data)) +
--			vmf->pgoff - VDSO_ARCH_PAGES_START;
-+		page = virt_to_page(vdso_k_arch_data) + vmf->pgoff - VDSO_ARCH_PAGES_START;
- 		break;
- 	default:
- 		return VM_FAULT_SIGBUS;
- 	}
+ 	.eh_frame_hdr	: { *(.eh_frame_hdr) }		:text	:eh_frame_hdr
+diff --git a/arch/sparc/vdso/vdso2c.c b/arch/sparc/vdso/vdso2c.c
+index dc81240aab6fd31a72b8a751cc2a4a821a3c4e4e..b97af5ec9f35c01f2a976b6213b1768b677ad231 100644
+--- a/arch/sparc/vdso/vdso2c.c
++++ b/arch/sparc/vdso/vdso2c.c
+@@ -61,8 +61,6 @@ const char *outfilename;
+ /* Symbols that we need in vdso2c. */
+ enum {
+ 	sym_vvar_start,
+-	sym_VDSO_FAKE_SECTION_TABLE_START,
+-	sym_VDSO_FAKE_SECTION_TABLE_END,
+ };
  
--	return vmf_insert_pfn(vma, vmf->address, pfn);
-+	get_page(page);
-+	vmf->page = page;
-+	return 0;
- }
+ struct vdso_sym {
+@@ -72,12 +70,6 @@ struct vdso_sym {
  
- const struct vm_special_mapping vdso_vvar_mapping = {
-@@ -101,7 +103,7 @@ struct vm_area_struct *vdso_install_vvar_mapping(struct mm_struct *mm, unsigned
- {
- 	return _install_special_mapping(mm, addr, VDSO_NR_PAGES * PAGE_SIZE,
- 					VM_READ | VM_MAYREAD | VM_IO | VM_DONTDUMP |
--					VM_PFNMAP | VM_SEALED_SYSMAP,
-+					VM_MIXEDMAP | VM_SEALED_SYSMAP,
- 					&vdso_vvar_mapping);
- }
+ struct vdso_sym required_syms[] = {
+ 	[sym_vvar_start] = {"vvar_start", 1},
+-	[sym_VDSO_FAKE_SECTION_TABLE_START] = {
+-		"VDSO_FAKE_SECTION_TABLE_START", 0
+-	},
+-	[sym_VDSO_FAKE_SECTION_TABLE_END] = {
+-		"VDSO_FAKE_SECTION_TABLE_END", 0
+-	},
+ };
  
+ __attribute__((format(printf, 1, 2))) __attribute__((noreturn))
 
 -- 
 2.51.0
