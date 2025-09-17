@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91671CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048D4CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 11:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9bFV4uRB2tIbn3I9TuN4z4orYHq4+oZFZCzuZjpOWY=; b=IoS8hGSBXDPKbeigTT5VQ26PoJ
-	/SLTvptlbRUGuK2ImwDR1pcyD8TJ4oJ4YzeglUpq0W23jf6+lPz/fMCJ2ZYrnQggcP4fmhdc7t+xx
-	uJ6F2MjmXbHkwrO2FWarf1nr0DaqlfNy46rjTj8uQ1qGRRSEiJivePORQ7frq3t7XEnEdl7G70cDs
-	EG8xRE7HTQYFV7pH/WXLoYxkcUbL+gNupgraO4Fz8hmv4zW3ZEC3eWwnx/kC6MptYrLA7nfbKN2Ve
-	3JfmJG93wQwJYHD3Nu7Tzz+RbMXZIfoXRi9yy3hK52GzJqp4bXllFZU5i2ZuJ1htBKHd84GIhw5Ab
-	bEssAKMg==;
+	bh=iLEYkzzPcsk/3f5i/jksjv2NR52bUlzkkOzUtfTFb8s=; b=jMlzAplEV3/eCA2ANBoXDjXPU1
+	VAsUhQZms4yKbIlTyqmjekCE8ZHYobC/wr3g6XulWumwg+RLDRjjmmIYMy44+1xZDaLCX+Vzum6Rm
+	nA9msKnioM06DY6z6Hny3T/+Vvw57ehK8X64ZFEWVJUHBnR2iNFo0HfnV9xlpdq9KoqfQLsISpSe6
+	XFmEcyTAgV340zjBEcbyR4FkagU+ABdd1RkZckqlWPEK7q6TCIx+32sibj5fYRknILhaP8YVJoPKt
+	7mGdxA8Eoj4EMTHaKX4BMUdhyAJ1/4GUROg3dBOUfzFriNHMjSNleHg5UZvYnP0+Uwpz2eIT+sOiC
+	ZPHiGvoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyq25-0000000B4pR-2rnn;
+	id 1uyq25-0000000B4oo-1bF8;
 	Wed, 17 Sep 2025 11:09:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyq1z-0000000B4m4-3WBg
+	id 1uyq1x-0000000B4kj-0rut
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 11:09:00 +0000
+	Wed, 17 Sep 2025 11:08:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFB2267F;
-	Wed, 17 Sep 2025 04:08:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3331426A4;
+	Wed, 17 Sep 2025 04:08:48 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE77B3F66E;
-	Wed, 17 Sep 2025 04:08:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 20EF23F66E;
+	Wed, 17 Sep 2025 04:08:54 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -50,17 +50,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 3/5] arm64: Kconfig: Detect toolchain support for LSUI
-Date: Wed, 17 Sep 2025 12:08:36 +0100
-Message-Id: <20250917110838.917281-4-yeoreum.yun@arm.com>
+Subject: [PATCH v8 2/5] KVM: arm64: expose FEAT_LSUI to guest
+Date: Wed, 17 Sep 2025 12:08:35 +0100
+Message-Id: <20250917110838.917281-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250917110838.917281-1-yeoreum.yun@arm.com>
 References: <20250917110838.917281-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_040859_921477_96750243 
-X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-CacheID: sfid-20250917_040857_281012_933CC69B 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,34 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-previleged level to access to access user memory without clearing
-PSTATE.PAN bit.
-It's enough to add CONFIG_AS_HAS_LSUI only because the code for LSUI uses
-individual `.arch_extension` entries.
+expose FEAT_LSUI to guest.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Acked-by: Marc Zyngier <maz@kernel.org>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- arch/arm64/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..89a1a3771ed5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2239,6 +2239,11 @@ config ARM64_GCS
- 
- endmenu # "v9.4 architectural features"
- 
-+config AS_HAS_LSUI
-+	def_bool $(as-instr,.arch_extension lsui)
-+	help
-+	  Supported by LLVM 20+ and binutils 2.45+.
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index b29f72478a50..abdf19ae250e 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1757,7 +1757,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 			val &= ~ID_AA64ISAR2_EL1_WFxT;
+ 		break;
+ 	case SYS_ID_AA64ISAR3_EL1:
+-		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
++		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX |
++		       ID_AA64ISAR3_EL1_LSUI;
+ 		break;
+ 	case SYS_ID_AA64MMFR2_EL1:
+ 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+@@ -3141,7 +3142,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 					ID_AA64ISAR2_EL1_APA3 |
+ 					ID_AA64ISAR2_EL1_GPA3)),
+ 	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
+-				       ID_AA64ISAR3_EL1_FAMINMAX)),
++				       ID_AA64ISAR3_EL1_FAMINMAX | ID_AA64ISAR3_EL1_LSUI)),
+ 	ID_UNALLOCATED(6,4),
+ 	ID_UNALLOCATED(6,5),
+ 	ID_UNALLOCATED(6,6),
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
