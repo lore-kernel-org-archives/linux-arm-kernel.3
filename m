@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E145CCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA7CCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QZdhtdKmHa4dcSzhRJFOXRlBZfjh3uIPp6tQ1wYV5bo=; b=WX+AuE7+gQlvggZDwW7K16OcaX
-	icpvv2ytNXS8HI8cPqj8UXG1lYJgoQJcelwLW1P8cWJlYArWvBDpCGB635xvLtQrlmjSjAM6xcZIr
-	pCVPu7rS9/jqy/HeB4RTohgb7QVEOyRxxHhXf5cKzBfaK3aGgi9MUGaRLhxpU482WifbMH87+H73m
-	/VIy2q6tmhC0MuFlSCgNI1NPQPPrPgIQeLZnoVT9yi7URm0g9fhk77u0qsCgSL4I3a+Y9oNroWkPa
-	dNMot47p0KUx5iz9JDnD+25QVs4ZE6V6zTfh+VOguhpK9whstXgshx4E4TaXHhyEXl4u5zYdaJXr8
-	CVmTLiAg==;
+	bh=FcZpdFTsQx4XQPl93WVZYPNC+JVBg+kNAvr/Y3iY98c=; b=iLDBqSqv3fzQIWp25nFytpOZRv
+	49A3k9NEzA7b19qMN0DIL8Isv1XjN5ZLg1nIloXdjWVvDG+7nuC6Z+4xZCPFdr7oxcHJISygRkEtD
+	5uIozAKR0C11G7aU7qBPaxymsu7JrVXFbynH0CYEAkiInJCT2GGzHhXZbiAPtNH1qba/OVY0uFFak
+	ML0F3qNM7CTe2xTLAD1x7V3aR6c+r/I4xKAW4DEGIiUyFGpsFnXiEOG0DqwU9iLn2ShMSNxP9gFxp
+	8VgCoe1JW9PNl06KxRmFScTLUieVse7RIQeYo45Z6nodT/s5BxFjgYoQTC+PU0Im8JgwOFoUYU5/o
+	CtyInFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyx8a-0000000E0NL-35eT;
-	Wed, 17 Sep 2025 18:44:16 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uyx8o-0000000E0Vx-2Iqy;
+	Wed, 17 Sep 2025 18:44:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyx8Y-0000000E0MB-3o1f
+	id 1uyx8n-0000000E0Us-1zQO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 18:44:16 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758134653;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QZdhtdKmHa4dcSzhRJFOXRlBZfjh3uIPp6tQ1wYV5bo=;
-	b=TXH1VgXhl9TJVLj2OH7Oa+fCy5KEUeSVC6i7C/B3Ch+CUD092lLvRy8+xwQTjJSvI/f5e/
-	eCeA/9+a0bV7sx0ApCME8sCLslc16fzzcvXWQZ69KshZDFeqfU75hwHdmZr4qRoDeUJfnV
-	9Nvgr5Lv5QN9HIQ2fRBqTfQeGJF+2Gs3D0qJRxGLtoyFEGkhf3MA/PsqA06mrLAr9+AjlH
-	Ts7pW6mp6BXFXIy6/0gYGmjzC3OgGy444zbBQKIPt+n8ivbeJN5ObybKfgMwVR4iZez9Ym
-	Qw2V7y+ci52ovVJ8vEvO6KZ+He1hJaLHm5MUQ9r1a9TJPSE5WSLv56nl/yZlrA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758134653;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QZdhtdKmHa4dcSzhRJFOXRlBZfjh3uIPp6tQ1wYV5bo=;
-	b=6+8bpede4VR2LubUInjqoSUX1qxsOYmZ26JvPspTyzYGmmDUQGN/m43/bFNknXNpngwOQc
-	ccNZYt4Gya//BQCA==
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: LKML <linux-kernel@vger.kernel.org>, Linus Torvalds
- <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>,
- kernel test robot <lkp@intel.com>, linux-arm-kernel@lists.infradead.org,
- Nathan Chancellor <nathan@kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2 1/6] ARM: uaccess: Implement missing
- __get_user_asm_dword()
-In-Reply-To: <aMrREvFIXlZc1W5k@shell.armlinux.org.uk>
-References: <aMnV-hAwRnLJflC7@shell.armlinux.org.uk> <875xdhaaun.ffs@tglx>
- <aMqCPVmOArg8dIqR@shell.armlinux.org.uk> <87y0qd89q9.ffs@tglx>
- <aMrREvFIXlZc1W5k@shell.armlinux.org.uk>
-Date: Wed, 17 Sep 2025 20:44:12 +0200
-Message-ID: <87plbo9awz.ffs@tglx>
-MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_114415_082828_925B1A5B 
-X-CRM114-Status: GOOD (  12.61  )
+	Wed, 17 Sep 2025 18:44:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90904601E9;
+	Wed, 17 Sep 2025 18:44:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33005C4CEE7;
+	Wed, 17 Sep 2025 18:44:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758134668;
+	bh=OLoxa48QuwEBcofnDByK3uh1SCi2Z/yYPHdY5JEg1PI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=f8PqONENfOsX3iVnNu8gzDMdRStH7GoSN2gCmJumNxzU3dDXCWnKNl4/l6kfWb4LF
+	 tMPEko7Uxgu1oKN9QLzKTPw3vzijJvwTniwwi1XZdP9ocASlZFr6Xv5fP2btY8LA1m
+	 08UDfu7ijq2Vcndt64HGPL6kxN573aML1YCymlHCdtJmkqdb16Kvz1DoDVXDJv0f0n
+	 xqqKHWVaim5WsMbsY/6tS6/0VpPFmbkMNYj8aYyZAqvlUooCSpwv6gyUzjsjlLHXSp
+	 1W8KCDyXYPB33CHdXqrE9EgkeAw6/Dkh2S3gpiOdgXY8Q/Un712FbTj7PGc7comhQi
+	 kqT+zU22sKBBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uyx8j-00000007Bv9-3g4d;
+	Wed, 17 Sep 2025 18:44:25 +0000
+Date: Wed, 17 Sep 2025 19:44:25 +0100
+Message-ID: <86ms6s2a2e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@linux.dev>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	K Poulose Suzuki <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Subject: Re: [PATCH] PMCR_EL0.N is RAZ/WI. At least a build failes in Ubuntu 22.04 LTS. Remove the set function.
+In-Reply-To: <0524084A-9E82-408A-9F22-369ED25E42E9@linux.dev>
+References: <867by4c4v1.wl-maz@kernel.org>
+	<3FEB4D87-EEAF-4A21-BCBC-291A4A7C2230@gmail.com>
+	<86348rdg5o.wl-maz@kernel.org>
+	<0524084A-9E82-408A-9F22-369ED25E42E9@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: itaru.kitayama@linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, itaru.kitayama@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +94,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17 2025 at 16:17, Russell King wrote:
-> On Wed, Sep 17, 2025 at 03:55:10PM +0200, Thomas Gleixner wrote:
->> But it actually can be solved solvable by switching the casting to:
->> 
->>     (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;
->> 
->> Not pretty, but after upping the frame size limit it builds an
->> allmodconfig kernel.
->
-> For me, this produces:
->
-> get-user-test.c:41:16: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
->    41 |         (x) = *(__force __typeof__(*(ptr)) *) &__gu_val;                \
->       |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->
-> with arm-linux-gnueabihf-gcc (Debian 14.2.0-19) 14.2.0
->
-> Maybe you're using a different compiler that doesn't issue that
-> warning?
+On Mon, 15 Sep 2025 22:31:31 +0100,
+Itaru Kitayama <itaru.kitayama@linux.dev> wrote:
+>=20
+>=20
+>=20
+> > On Sep 12, 2025, at 21:11, Marc Zyngier <maz@kernel.org> wrote:
+> >=20
+> > On Fri, 12 Sep 2025 12:33:39 +0100,
+> > Itaru Kitayama <itaru.kitayama@gmail.com> wrote:
+> >>=20
+> >>=20
+> >>=20
+> >>> On Sep 12, 2025, at 20:01, Marc Zyngier <maz@kernel.org> wrote:
+> >>>=20
+> >>> =EF=BB=BFOn Fri, 12 Sep 2025 09:27:40 +0100,
+> >>> Itaru Kitayama <itaru.kitayama@linux.dev> wrote:
+> >>>>=20
+> >>>> Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> >>>=20
+> >>> This isn't an acceptable commit message.
+> >>>=20
+> >>>> ---
+> >>>> Seen a build failure with old Ubuntu 22.04 LTS, while the latest rel=
+ease
+> >>>> has no build issue, a write to the bit fields is RAZ/WI, remove the
+> >>>> function.
+> >>>> ---
+> >>>> tools/testing/selftests/kvm/arm64/vpmu_counter_access.c | 6 ------
+> >>>> 1 file changed, 6 deletions(-)
+> >>>>=20
+> >>>> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c=
+ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >>>> index f16b3b27e32ed7ca57481f27d689d47783aa0345..56214a4430be90b3e1d8=
+40f2719b22dd44f0b49b 100644
+> >>>> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >>>> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> >>>> @@ -45,11 +45,6 @@ static uint64_t get_pmcr_n(uint64_t pmcr)
+> >>>>   return FIELD_GET(ARMV8_PMU_PMCR_N, pmcr);
+> >>>> }
+> >>>>=20
+> >>>> -static void set_pmcr_n(uint64_t *pmcr, uint64_t pmcr_n)
+> >>>> -{
+> >>>> -    u64p_replace_bits((__u64 *) pmcr, pmcr_n, ARMV8_PMU_PMCR_N);
+> >>>> -}
+> >>>> -
+> >>>> static uint64_t get_counters_mask(uint64_t n)
+> >>>> {
+> >>>>   uint64_t mask =3D BIT(ARMV8_PMU_CYCLE_IDX);
+> >>>> @@ -490,7 +485,6 @@ static void test_create_vpmu_vm_with_pmcr_n(uint=
+64_t pmcr_n, bool expect_fail)
+> >>>>    * Setting a larger value of PMCR.N should not modify the field, a=
+nd
+> >>>>    * return a success.
+> >>>>    */
+> >>>> -    set_pmcr_n(&pmcr, pmcr_n);
+> >>>>   vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0), pmcr);
+> >>>>   pmcr =3D vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_PMCR_EL0));
+> >>>>=20
+> >>>>=20
+> >>>=20
+> >>> So what are you fixing here? A build failure? A semantic defect?
+> >>> Something else? What makes this a valid change?
+> >>>=20
+> >>> Frankly, I have no idea.
+> >>>=20
+> >>> But KVM definitely allows PMCR_EL0.N to be written from userspace, and
+> >>> that's not going to change.
+> >>>=20
+> >>=20
+> >> Then I=E2=80=99ll drop this patch.
+> >=20
+> > I'm not asking you to drop it, I'm asking you to explain. If you found
+> > a problem, let's discuss it and fix it. But as it stands, you're not
+> > giving me much to go on.
+> >=20
+>=20
+> You are right, while the bit fields are write ignored, to be
+> consistent with the handling of other bit fields of the register,
+> I=E2=80=99m fully convinced that checking the write operation in the
+> vpmu_counter_access.c file should be kept.
 
-Yes :)
+The bit field is *not* ignored when written from userspace. That's how
+we configure the PMU if the guest runs at EL1.
 
-Was this with the one-line change or with the full conversion?
+> The build error I=E2=80=99ve seen with Ubuntu 22.04 LTS is below:
 
-Thanks,
+[snip]
 
-        tglx
+Can you please detail what compiler version this is? I'm unlikely to
+install an ancient version of Ubuntu, but I can pick the corresponding
+compiler version.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
