@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C660CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91A0CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t0Aw/ikfdZAzmeCUnWbRRZpCbzRiV+TMr1DdjVhlkr8=; b=ZVvxG2GC3URRiJoiB9gm0QAKiU
-	Nk8I5+BaLT5qslElOABrvlhsl8qTFWH+27X+NgBTK/KGQAXVxODK3CtsJuqTqhGVlMsvVfcUd29xd
-	g9DuU0kxcIJkxpQ5+t/AE59LI/HplYgi6Ng+sIfg9pGhxp7zmrNXlwX0cC1TrGCT5sBfFVLkBXMSZ
-	rU3MNfIAIfUKG7W0GrFn5JbxKmsPZb5Nd8WBLY/w8P05+5KA7WizAyhS51qiwY1QzWsAnuJsPxAEP
-	ve6FxzM9x4mlgfgHZ/LuulGUTUSRKHGLLlfXkYanEwzjKv9FJY0T/az6dLw3QBzvBzp7nz/FQQ3Oj
-	lCT4xZ5A==;
+	bh=W9ZjjcdDT4GQa9nWuADYSebHGQBW40rmclnxTg7FJyk=; b=t/mOlfsrY+QbAzENal0u90yaj6
+	ei/uW0OFKFVYwxh9rTiyYBtAa2Qto0c3T4EF4OS/3Sj+GnbAk2VUsoiM6j3sYjsRFZ++nMzjaWN2B
+	XPWCQcoC6PgiD3/xwOSt3bzybKQCGVyb7nDqCCW1715G+PYFc736KzWmdI+y+U+5KmSBr2ejLq6vs
+	+afCmTzWA0lGRGScLOks6139hMUG472XuopB5pv2bw3wVIrYpENyL67Q9RrOzoULyJXwaxmjal7Sd
+	j8/KZcIdhcqO/antooqPzPJLHgSl3Iq7A+uZbGJz74u1I7+YasobylUDRW5HUbFSKC8Xerq04kKwy
+	MVSemWYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyoM-0000000EanY-31n4;
-	Wed, 17 Sep 2025 20:31:30 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uyywq-0000000Edbz-1X5s;
+	Wed, 17 Sep 2025 20:40:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyoK-0000000EalY-10va
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 20:31:29 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45f30011eceso5255e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 13:31:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758141086; x=1758745886; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=t0Aw/ikfdZAzmeCUnWbRRZpCbzRiV+TMr1DdjVhlkr8=;
-        b=McVNRqkpM1rYwShrf1q5052Ic7MXO/5ALVjkDdYNqMOZ9IbbvxDR/tMp25fWWiDb2h
-         +/pdcXTHd3eO34gG9T7M4b0WaBZg3AyHym5dVOnzWUCFee3PQSTdkcVttKc9m0IAV2tY
-         /ZRcJojkY+REaU9IYUfp/P/H2n1nWTs6mMbTi/npTf6lqFtW9UdxgOg/sPSJgBxByRTL
-         B3A4qaZ2THrsWzUNqUonX2SKSCQiMmHXNSA1wCAP9pe0zYCUN07VNXSw/3mhU9bJSX43
-         gIzBX1RXOeCshDyPKvPoWfpg9Sgn8ynF67aMY7rrxJyZpvFk4aWCrWpvzQAjxqH3XOgp
-         s4TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758141086; x=1758745886;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t0Aw/ikfdZAzmeCUnWbRRZpCbzRiV+TMr1DdjVhlkr8=;
-        b=GAiq8/IqT+QjPmizBH6a+oWMONVa9X6G8DegJfHtsyrxndOmIoUY3cb8SPSWD9bARe
-         ldm7MAsd9sCb/eYDFHeI1U84UkfSQmcpRybwfNpt0ZMh3R3pNn/l4rMjk+2GO+QiVV7r
-         2FheJ/oHvN9lX7j9RXboGhog7qJrPlZlg447hZejZnCNMUyBhZ7nsRN1J+SySGhGQj9i
-         b7/ZcibSlT9iPlpSbSoBC87C73gaIbHiDMidT0FZp+H2a674X6KPnHXTfGg/RSWO5kTY
-         wKFiHmxFkYhk/Q1RcXLfOpiiOfGWUtwsXJteGNGND0gx5A6GImNYzQ9L8eAR5HFEV3dn
-         o0Eg==
-X-Forwarded-Encrypted: i=1; AJvYcCUT/X9TpbUxmbYO5uP1a2jLpRQfBdy953H00TqyvUuha7ExGS+MfBzjGbcPv183wpcDAMol/9I1erzLdnNXiWvA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVQlELbkKOM/veQcfWLcoL3xRyzH8Be+j/8WsLgqgMHtdiFiMF
-	K1fLx+kWBQ+x+an4z3yv2xQk+4cBhOAYSO+TdEdGrDZnxz5XvWx/pqLSHMt5GIN4sg==
-X-Gm-Gg: ASbGncuYHdZC3dX3y4D3Dch5Tn84P4WfwfTf81I1uZ2fDIShBu9GX18CMJf1adpxk8K
-	WGvA+L4jnJQIbNZRlNiJ4/7lBpzl6v47gA7WAQuU2YRZ/UXDK8dA8K+pFR/wlCihaikfjMsorxR
-	52Hm9fN2rdfXbPEax8FVAyIIphdCgYuop56nPygmk/CJnLQyQZ1dufOKsLX1J211iX9d3snWf29
-	wsghfiGUE6FoLhd59BZJLgLW3ufLXIvUVgVU+7FGAfGx1eorYrsTugWruaix+yUsPf0HE0FtqIP
-	mFTQuQHRrKUGl86RwMQUtTM+47EAy6itjpelrQQZ+x965iyTgjzEnDJBB2AHCczwM+O8hBylpal
-	dDm9Q/KPbqfJrpRmTU9j/HSKOGIGTozswA8Zq0fAAQSEwp8QZfQdDlzgZg9HhaF4+gSrQeG9S6I
-	i25dv0uaMDJ1r62mrfCgeTz0o=
-X-Google-Smtp-Source: AGHT+IGI+TRRIpc57be67hlvyGZzYort82ADBT/ieq1RpFHGCywCE3qx2LHW/vGr/9Ap+vWBFfN2VQ==
-X-Received: by 2002:a05:600c:8b55:b0:45a:2861:3625 with SMTP id 5b1f17b1804b1-462de4d0edamr1272285e9.4.1758141086300;
-        Wed, 17 Sep 2025 13:31:26 -0700 (PDT)
-Received: from google.com (157.24.148.146.bc.googleusercontent.com. [146.148.24.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-464f0aac271sm9969975e9.3.2025.09.17.13.31.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 13:31:25 -0700 (PDT)
-Date: Wed, 17 Sep 2025 20:31:22 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
-	joro@8bytes.org, praan@google.com
-Subject: Re: [PATCH v2 3/3] iommu/io-pgtable-arm-selftests: Use KUnit
-Message-ID: <aMsamiTEssyR1wsd@google.com>
-References: <20250917191143.3847487-1-smostafa@google.com>
- <20250917191143.3847487-4-smostafa@google.com>
- <20250917194454.GM1326709@ziepe.ca>
+	id 1uyywo-0000000Edaf-1BCR;
+	Wed, 17 Sep 2025 20:40:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA26444A89;
+	Wed, 17 Sep 2025 20:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAA3BC4CEE7;
+	Wed, 17 Sep 2025 20:40:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758141613;
+	bh=oWRF0e+JL1I2wWRpFWpkjtN2+s+6zaJH3zvzmrp0RGI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tYVjwLHHA/7Yhkh2KRc8XzIxzcxuNa8oalYYl6JthoyVK/yU844EsWgorjBU/tHzq
+	 Dp3lcKUMJVC4tYDPeJmNLaVEfLZlY+BULrfCYq4HB934D8gfnnpmG9b8hjJCQSorxR
+	 8lh3njPOHoKVcAs7Fflntx8gVgzYftF9Q1PQP4dcx8NAHs7GraVvSmD0q+CTO2a4gP
+	 YpP60W30bQj6wPvI3n8pK5MorPMhf3LNPhe58LwyfDl+6NtHKPuMLA2g8gH+5orgnD
+	 5exL6jNlX4bpNA864glMyxUuLmJf7Yv7pAzorrPVMk3buq24tL2PAFP0eDKjOMhxJ+
+	 09kXbsw/EALWA==
+Date: Wed, 17 Sep 2025 21:40:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Dang Huynh <dang.huynh@mainlining.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-unisoc@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mmc@vger.kernel.org
+Subject: Re: [PATCH 09/25] dt-bindings: clock: Add RDA Micro RDA8810PL
+ clock/reset controller
+Message-ID: <20250917-lividly-bargraph-2d3c036fe469@spud>
+References: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
+ <20250917-rda8810pl-drivers-v1-9-74866def1fe3@mainlining.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+GCP3T4o6WO3PNuz"
 Content-Disposition: inline
-In-Reply-To: <20250917194454.GM1326709@ziepe.ca>
+In-Reply-To: <20250917-rda8810pl-drivers-v1-9-74866def1fe3@mainlining.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_133128_312663_1C4D51D8 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20250917_134014_359736_7796F666 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +90,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:44:54PM -0300, Jason Gunthorpe wrote:
-> On Wed, Sep 17, 2025 at 07:11:40PM +0000, Mostafa Saleh wrote:
-> > Integrate the selftests as part of kunit, this makes the test
-> > available through debugfs.
-> > 
-> > Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  drivers/iommu/Kconfig                    |  2 +-
-> >  drivers/iommu/io-pgtable-arm-selftests.c | 93 +++++++++++++-----------
-> >  2 files changed, 51 insertions(+), 44 deletions(-)
-> > 
-> > diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-> > index 553522ef3ca9..f7e6d1db6ce6 100644
-> > --- a/drivers/iommu/Kconfig
-> > +++ b/drivers/iommu/Kconfig
-> > @@ -42,7 +42,7 @@ config IOMMU_IO_PGTABLE_LPAE
-> >  
-> >  config IOMMU_IO_PGTABLE_LPAE_SELFTEST
-> 
-> This should probably be renamed to xxx_KUNIT_TEST
 
-Will do.
+--+GCP3T4o6WO3PNuz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> >  	tristate "LPAE selftests"
-> > -	depends on IOMMU_IO_PGTABLE_LPAE
-> > +	depends on IOMMU_IO_PGTABLE_LPAE && KUNIT
-> 
-> I wonder if it should be:
-> 
->   	select IOMMU_IO_PGTABLE_LPAE
->   	depends on KUNIT
->         default KUNIT_ALL_TESTS
-> 
-> ?
-> 
-> At least the default should be there
+On Wed, Sep 17, 2025 at 03:07:26AM +0700, Dang Huynh wrote:
+> Add documentation describing the RDA8810PL Clock and Reset
+> controller.
+>=20
+> Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
+> ---
+>  .../bindings/clock/rda,8810pl-apsyscon.yaml        | 44 ++++++++++++
+>  include/dt-bindings/clock/rda,8810pl-apclk.h       | 79 ++++++++++++++++=
+++++++
+>  2 files changed, 123 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.=
+yaml b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..988b609403a96abc4964ab366=
+daa6fec0514595c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/rda,8810pl-apsyscon.yaml
+> @@ -0,0 +1,44 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/rda,8810pl-apsyscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RDA Micro RDA8810PL AP Clock Controller
+> +
+> +maintainers:
+> +  - Dang Huynh <dang.huynh@mainlining.org>
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: rda,8810pl-apsyscon
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rda,8810pl-apclk.h>
+> +
+> +    ap_syscon: syscon@0 {
 
-Makes sense, will do.
+Drop the ap_syscon label, since it is unused.
 
-> 
-> >  	help
-> >  	  Enable self-tests for LPAE page table allocator. This performs
-> >  	  a series of page-table consistency checks during boot.
-> 
-> "kunit tests" here as well
+> +      compatible =3D "rda,8810pl-apsyscon", "syscon";
+> +      reg =3D <0x0 0x1000>;
+> +      #clock-cells =3D <1>;
+> +      #reset-cells =3D <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/rda,8810pl-apclk.h b/include/dt-bi=
+ndings/clock/rda,8810pl-apclk.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..372358e72436a28c0775519f4=
+9626c9c5f4c6046
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/rda,8810pl-apclk.h
+> @@ -0,0 +1,79 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
+> +
+> +#ifndef _DT_BINDINGS_CLK_RDA8810_H_
+> +#define _DT_BINDINGS_CLK_RDA8810_H_
+> +
+> +/* soc clocks */
+> +#define CLK_CPU 0
+> +#define CLK_BUS 1
+> +#define CLK_MEM 2
+> +
+> +#define CLK_USB 3
+> +#define CLK_AXI 4
+> +#define CLK_GCG 5
+> +#define CLK_AHB1 6
+> +#define CLK_APB1 7
+> +#define CLK_APB2 8
+> +
+> +#define CLK_GPU 9
+> +#define CLK_VPU 10
+> +#define CLK_VOC 11
+> +#define CLK_SFLSH 12
+> +
+> +#define CLK_UART1 13
+> +#define CLK_UART2 14
+> +#define CLK_UART3 15
+> +
+> +#define CLK_VOC2 16
+> +#define CLK_EMMC 17
+> +
 
-Will do.
+> +#define CLK_COUNT (CLK_EMMC + 1)
 
-> 
-> > -subsys_initcall(arm_lpae_do_selftests);
-> 
-> Oh so it does drop the initcall, the coverletter is a bit confusing then.
+This is not permitted, if you need this define please add it to
+the driver directly.
 
-Yes, I will reword the cover letter.
+> +
+> +/* resets */
+> +#define RST_CPU 0
+> +
+> +#define RST_AXI_VOC 1
+> +#define RST_AXI_DMA 2
+> +#define RST_AXI_CONNECT 3
+> +#define RST_AXI_VPU 4
+> +
+> +#define RST_GCG_GOUDA 5
+> +#define RST_GCG_CAMERA 6
+> +#define RST_GCG_LCDC 7
+> +
+> +#define RST_AHB1_USBC 8
+> +#define RST_AHB1_SPIFLASH 9
+> +
+> +#define RST_APB1_TIMER 10
+> +#define RST_APB1_KEYPAD 11
+> +#define RST_APB1_GPIO 12
+> +#define RST_APB1_PWM 13
+> +#define RST_APB1_AIF 14
+> +#define RST_APB1_AUIFC 15
+> +#define RST_APB1_I2C1 16
+> +#define RST_APB1_I2C2 17
+> +#define RST_APB1_I2C3 18
+> +#define RST_APB1_COMREGS 19
+> +#define RST_APB1_DMC 20
+> +#define RST_APB1_DDRPHY_P 21
+> +
+> +#define RST_APB2_IFC 22
+> +#define RST_APB2_UART1 23
+> +#define RST_APB2_UART2 24
+> +#define RST_APB2_UART3 25
+> +#define RST_APB2_SPI1 26
+> +#define RST_APB2_SPI2 27
+> +#define RST_APB2_SPI3 28
+> +#define RST_APB2_SDMMC1 29
+> +#define RST_APB2_SDMMC2 30
+> +#define RST_APB2_SDMMC3 31
+> +#define RST_APB2_NAND 32
+> +
+> +#define RST_MEM_GPU 33
+> +#define RST_MEM_VPU 34
+> +#define RST_MEM_DMC 35
+> +#define RST_MEM_DDRPHY_P 36
+> +
 
-Thanks,
-Mostafa
+> +#define RST_COUNT (RST_MEM_DDRPHY_P + 1)
 
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> 
-> Jason
+Ditto here.
+
+--+GCP3T4o6WO3PNuz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMscpgAKCRB4tDGHoIJi
+0ps/AP4piHliUCDvEEUik0FH/7MzvmR63WJQrrnsPFPC3yOkfQD/Qx91k9Cbmdnw
+BKNMCt5IYsh65uJuh73HEVehqhuQzgA=
+=v+w9
+-----END PGP SIGNATURE-----
+
+--+GCP3T4o6WO3PNuz--
 
