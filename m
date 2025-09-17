@@ -4,178 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BBCCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCBFCA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6GjOo+TxTvi4lpaGbM/Hb/NzmRzZqIjE9wsvXvcCwtE=; b=pCT6RwtAm7jy/YI5p/r9f9dH42
-	wLprlOzei2a99gu2wgoKoDw85LI34P/Uy3jYIPfXp9NbI7Wm6vGStq7hrxxZP2WOek/w2zCAyyQU8
-	DWW0Kjw8djgREbxYw4zNM0f3cGAQQS91WWbz8lIcLGJgLbnGd8HJTAnlc0meN8IHI0h2O55bhdsha
-	29QAmZjxiEhHJEJsuQpcqPsxcfXlagnqaHNvx06Nd8kQ7Agivmoy/yK5UdhqEz5kB5jyXeFWnVX7O
-	2wWvIbPK4crVddnOrx3ZhrBe6rQObHAtX/x2TUfaLA8fWaFmhC4tfCCdqoYJ39v7tj1OBY51QSylh
-	gKYIlxvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=I363QpdwZwlQ876BU+P+93B+lnskOUgFb5tXAEx5RNw=; b=izRhKfVwEjwfUvGlDDBoDynlpC
+	YwQwCybGI3roqnVNxax8CgTwktSsjh6BE/ffjvE7mxTsrQJnGCyZj2gJWVelnkH8OiX1HYj6ca7KH
+	wnXQuvWA3hu4hSGF9uhmwkde0BsPukVRZNp317li0R5SqT43Y75uSUFvdrItVcLz6uhPwL6406hPX
+	493eI1AG/H29HzpP3wNKDPMrr1cEn92bOTiaep1tZQS8BIT7bJjjUvDBGIkE095Drfi8IjJmpW5fT
+	r2JWSncKk6aRn2heDRNSSu8p6F2EEBBXhwSVoxUO1vW/Upj9tc8X5QT5nWYRpiVs9M1fZ+6iEGQ8B
+	v7DoRmmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uynkl-0000000Afot-1WXR;
-	Wed, 17 Sep 2025 08:43:03 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uynrz-0000000Ah7u-2PTL;
+	Wed, 17 Sep 2025 08:50:31 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uynkb-0000000AfgI-2uzJ
+	id 1uynrv-0000000Ah7L-3Y2f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 08:42:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SBuNcx9XzzLRxK4JTWFvVJeJGQUJTGpL0+dL9YtOIoN4BHhgElZoIE0uc0PILKZV+2ON9FxyVfTi9fKk9lAgBHwn0SlsRGEUO27gxpGortgnVL331ImmQRsS1QdDTu2TXFXsddC5/ZzcMmWbarblOMUKRgOcaj+tnKa089Nqz4sTbXSjDnOas1YwbuprlR4hFlqah05mv6A+29IZ6XNcCOV8LO+tiKWFK1oT9/+q+Gs0utYOzRL9PiUL4zdlpha/w7wGJ6gamrtKT5fAYxz1x8PaE9wArvJOcWlVnblsPrko+xQ+I7/EE0vgy0KiHyHAj22tkKANhCTtcTTA/tki7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6GjOo+TxTvi4lpaGbM/Hb/NzmRzZqIjE9wsvXvcCwtE=;
- b=yPEvV55esblvr4aAsulKe473uzvxkMdoDMiU+Gducin05MOihByqq3AXDiZHhCzNYQs6f0Fi0ReeM1F5RgIjRy1dysIg+nI7MLg/zkH//Apr37+K8cYo9VCc2ZtFEyuzjSb4gS8Y4U0q9+GnQIwvYItXp/raPhb6wwocz6g6Z6r9w5BuMjY7Y+4WNOpYmtBFCgfA6tTpu2J8fMe1267izcejRVXni1BaxYMmnN8rCpbZsHOrRKgtaZWB07MCncFN8ck4guFy47mM7qfZ/eJGxtvxX+i2zWUiN12IQDCHSIAIH+aY2qVrGOOCMHb2ProBDhkF3rIAPqwdvb74DhJMiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6GjOo+TxTvi4lpaGbM/Hb/NzmRzZqIjE9wsvXvcCwtE=;
- b=P1v1s5f+0woDD8JoWwff22r5BnKk/xyeMpMnVn1mIeQs6Fe3+tyUTMLQLXNcSLjqKnM6MlOezTbjljNV9Ko3VQiGGaouzXborygs8HYFvVDGK3+bc79DZ4mAU77N7v3wcjDsS47K2ggPy7Xp/JdyH+3FIoffuh0xoWn4rTbxFRWGh0w/QuBp2aRKkCEf9rEo8ZkJRS+da0q0eBoEAA4KtzAofbTWmG+3UY1eaPIkzQGcF3A1aWhprqB5NYGL/z/sI8033zBe66nsVdKqI76AuAqtu/AMDfYQHv42Bu47PJO1r+ydVvvoRW7X7IOUt35Y4kHWLKmpeltebZytl8CcjQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
- by PA1PR04MB10818.eurprd04.prod.outlook.com (2603:10a6:102:48d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.12; Wed, 17 Sep
- 2025 08:42:49 +0000
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33%4]) with mapi id 15.20.9137.010; Wed, 17 Sep 2025
- 08:42:49 +0000
-From: Haibo Chen <haibo.chen@nxp.com>
-Date: Wed, 17 Sep 2025 16:42:30 +0800
-Subject: [PATCH v2 4/4] arm64: dts: imx8mp-evk: limit the max frequency of
- spi nor chip
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-flexspi-dts-v2-4-7e2a95e3cf4d@nxp.com>
-References: <20250917-flexspi-dts-v2-0-7e2a95e3cf4d@nxp.com>
-In-Reply-To: <20250917-flexspi-dts-v2-0-7e2a95e3cf4d@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Michael Walle <michael@walle.cc>, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>, 
- Marco Felsch <m.felsch@pengutronix.de>, Han Xu <han.xu@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Haibo Chen <haibo.chen@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758098561; l=1190;
- i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
- bh=AunRVSW5+ZYxqJD8K20yHWUfsZu246J0f4T7seDVsIk=;
- b=avffLXSo6Xl5V27hllnu9VjDe17r9mljC80UEDS18u0FzFUlLqhiH8Wb3GXfRGe21JXfXEdA4
- rlSEuDdBopNAbDUmn2Bm/q2xJgau4i9g/ZsOpb20IPPneCVLSoUDSr1
-X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
- pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
-X-ClientProxiedBy: SG2PR01CA0144.apcprd01.prod.exchangelabs.com
- (2603:1096:4:8f::24) To DU0PR04MB9496.eurprd04.prod.outlook.com
- (2603:10a6:10:32d::19)
+	Wed, 17 Sep 2025 08:50:30 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250917085022epoutp020da4ccb8812f3e8e5afde37ccc828557~mBb7yhMkP1717817178epoutp02I
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 08:50:22 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250917085022epoutp020da4ccb8812f3e8e5afde37ccc828557~mBb7yhMkP1717817178epoutp02I
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758099022;
+	bh=I363QpdwZwlQ876BU+P+93B+lnskOUgFb5tXAEx5RNw=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=sEGcmwfA6jVfUJOfPtZxEVLoszekoks9GAE8GmYi3SK6Hh87aypt4EEtC0/poJ+UX
+	 RjLqpbSK4iQ2DJVSU62eYwvJti3rvHn7qOQLA8DGixIMahLSVI9QU6xiYk8SvyKeXv
+	 +OPULuymE4H2VngVk9z001PIWnKXLTpmE11KG9yw=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250917085021epcas5p3d9f0d62fc1b2f731987f9f536db532e2~mBb7ApQ6k1728417284epcas5p3m;
+	Wed, 17 Sep 2025 08:50:21 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cRXXX23DGz2SSKZ; Wed, 17 Sep
+	2025 08:50:20 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250917085019epcas5p273ef86028a90e78ada55cde48a28a949~mBb5Yf87f0421204212epcas5p2C;
+	Wed, 17 Sep 2025 08:50:19 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250917085014epsmtip207bf6dd995b78fd7dac7ff0a0048bffd~mBb0pofzE2764627646epsmtip2M;
+	Wed, 17 Sep 2025 08:50:14 +0000 (GMT)
+From: Ravi Patel <ravi.patel@samsung.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	jesper.nilsson@axis.com, lars.persson@axis.com, mturquette@baylibre.com,
+	sboyd@kernel.org, alim.akhtar@samsung.com, s.nawrocki@samsung.com,
+	cw00.choi@samsung.com
+Cc: ravi.patel@samsung.com, ksk4725@coasia.com, smn1196@coasia.com,
+	linux-arm-kernel@axis.com, krzk@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	pjsin865@coasia.com, gwk1013@coasia.com, bread@coasia.com,
+	jspark@coasia.com, limjh0823@coasia.com, lightwise@coasia.com,
+	hgkim05@coasia.com, mingyoungbo@coasia.com, shradha.t@samsung.com,
+	swathi.ks@samsung.com, kenkim@coasia.com
+Subject: [PATCH 0/7] Add support for the Axis ARTPEC-9 SoC
+Date: Wed, 17 Sep 2025 14:19:57 +0530
+Message-ID: <20250917085005.89819-1-ravi.patel@samsung.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|PA1PR04MB10818:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2373a56c-26b9-4107-f550-08ddf5c62e62
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|376014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dkc2cTVpclBxRk1STGx0MUtSQW1MeWZ6cERJczFLeDIrTHhpWXZOMkJrS1JR?=
- =?utf-8?B?NnRuZFhMdjNxdExMSjJPQzhqanlPb2xTZmVFK1BZSW43NkkzZ21Od0hJZDJw?=
- =?utf-8?B?RXhBRjY4VUNUSkRuNUJsYmhRTDZ1RWFFeGQvendZTFRGV00vcEZlanZGdGY4?=
- =?utf-8?B?UTd5M1FNdCtvUlJCSnFEU2wxUzVYSk81OENVMTZDRmthMzBBbjNGREZBVjV6?=
- =?utf-8?B?cHhvZ1hpS2l0T2JvWWtiNVZ1NXY2c3ZwS1pvOVBDTUgvN0syU2lvR0VYdURj?=
- =?utf-8?B?M3pTVmxTMFQrMzg0VXRPTExKc3lyMGptUGFvRm9DT080WVE0WnBIOHFLWXFt?=
- =?utf-8?B?YTNWYStSWW5ndWJYQmRVZm42dnkvak1YQUNUVGcyN0E5T2RQd2ROSDRHVzhs?=
- =?utf-8?B?TjFSZVMrWmU5dXFPejIvbC9xK0ZMLzcxQjk5TC9EZGxocm9XTHZpZ0F4ejU5?=
- =?utf-8?B?VlR6WFVQUWI3bXdDdXZibjBQT2dwZHFmSm93S3d1ZGNaMDRPNXVld3pYWU90?=
- =?utf-8?B?cVdQQnp6N1liNnh3Q1N6ejVEc1J3L1ZsOXNIQVRaMUlMV0k1djVsbXFZY3Jv?=
- =?utf-8?B?L3FiV0x4c0JiQXhVM1praWZJeVorS2xQRnowMlZWUnZHVkRqZ0dpUnRFV3ZF?=
- =?utf-8?B?UE9YZU1jeXF6bDNhQXlSQ2hVV3dldXFGN3FraGpPeGhiNVVTWDNtRUY4eXUw?=
- =?utf-8?B?YXRRbFRaazBGVHNXV2ZTSjAyWm85bUxqUmE3YXRjeUVkWTR6WFM4N3NwYU96?=
- =?utf-8?B?OXYra0NncmdSb0I4RlhJZzU1NlQ4SUlLRkRZd2h1WmczdzdRM0xIWkgyQXp4?=
- =?utf-8?B?ZFRoSXVleXYvUDkyTUozSk5qWTZPU0E4bUkrRnlldWpodXkwL0R6cmltTHMy?=
- =?utf-8?B?WXdlRk1jYnhNcXNxM21LQnZhQ1Bhc2UxZnU2dmdYWU5pUU1YMVNVdFhMSnh4?=
- =?utf-8?B?Nmd3dEhuNjJGcW9HT1ZsWXFVNEJoa2NFc1pCTkg4Z0VxNVZlR3JlYkovRDVT?=
- =?utf-8?B?WW4yd21tTzRCNWZrM1BaenBpaW84dnBteEZ2R1VBRWw2QTBrYXJKL3c2aGZq?=
- =?utf-8?B?d2VKUHNFRnpLY1VWWXJDUDF6ZUdGOUVIK0Y0YWdCTnlhTi9XNjJaUVZpYThX?=
- =?utf-8?B?Wk1jc2pScEQxdHRQOGNqVEtQZWxMZnR5NU9Idzc0dnVVMlRNSFEwQ2p1c0Fv?=
- =?utf-8?B?RVBQUWdBUlNQOWsxYkZjWitPQm9SbUhCUFZFNGxzNEVMdkFXbjdJYmxGaVEr?=
- =?utf-8?B?Mm12SW9XNnFiSzNpME5SeFBhajBlclF6UmpLYlZQeDBUd1pNR3dJelBScjVu?=
- =?utf-8?B?VmpKczdUdU84eGw4SjhZZlhpT1BBaG9yNFUwelZ2eGlwQnpzVHNkRS8yZXB4?=
- =?utf-8?B?a3pQUGFCK282R2RDZjlrWndyS3N0QnZ2aEs5ZWt2dm1oK1ByVzE0NDdLNUZy?=
- =?utf-8?B?NXdHRm8ybmFnVnMvcE11S0JoM1JIdTI0eHFsK05NVzkrNlpOZTdUL3ZKM09P?=
- =?utf-8?B?MjJjU0JVcjg0eUVvSkZoQ3ZhNFdzVzg0ajF5YzFzamovdnNOK2lYeGk1a0Zi?=
- =?utf-8?B?cTV2OFcrc0xGeU51aW9UL2Z5VE1LREh0SSt4Y3RUTnJEa04zUm9ET09ER2FO?=
- =?utf-8?B?T2Nxei82RTMzajBBeW9wWEhocUE3UmE4Q2FlVGo3cnF0U0tLNWNBU0tKZmhl?=
- =?utf-8?B?SFZsbnRydmxScnk4UHpZRUpKZCs0dWJXSlRrZ2NlSE50NEpabzBndzJuZk4v?=
- =?utf-8?B?V0hNb1dHWGF5WWZCYlQyZFZiaXoxMVc3dDc1dEdCTW4zNjI0Y0FiZkY5a3RS?=
- =?utf-8?B?N2VIcXdvekdHVjgvY3FEMGVEb056U1czNjJlZHhtNVkrdTZtNDJFeGYvQ1Nn?=
- =?utf-8?B?RzM0dzNZMFp3MHljZXNleGt6ZnFVWENUZEh2QlBnWHFGb0pCaWVJMmErSHBM?=
- =?utf-8?B?SW8vZDY1T0FFRndQbDh5QVk0dFhuKzV5ZUhIVGZRbDVWeEd2VmpPWHNRNEVx?=
- =?utf-8?B?MkNNTVdZWmxJSmZVQnJESWhGMFFGTVZ6NVZEbWVxZmNoUGV5Tko2OTZHRGQz?=
- =?utf-8?Q?dA9C88?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cWVnZEFVZGlJRlNtcEZUbVJmc0dUcVB5WmVqY1RPMTBOeTNhRHN1aUEwdHA5?=
- =?utf-8?B?MkJINWFMWFhkeEpLejdnRzBackFNTkNxMFNqRGRvUjRmVjQzaStBMEgzTVUw?=
- =?utf-8?B?T1R6OEdTZmFCeG5VcERQekNPbkt3aWR3KzcyVjljVUFsVzhaQ2Q0NTZIUm9B?=
- =?utf-8?B?Q1VqdGNobDRqS1hLRXhRQlltY1FJalhQNVl6WnBYOTRYK08zTVZUUEE5Z1pB?=
- =?utf-8?B?MUg5bHp4VkdKb1pKL0JMc2M5NTdJbktrdFRlOHM1UVR5S01EaUtrWEg4STQr?=
- =?utf-8?B?YUNzZXptUjkwZHVaWVIvNkVDU1RsZFhWN3lZeFczdFExblRYeHVXWFZWRm9C?=
- =?utf-8?B?c2tqaXdlTXd2bjZ2TGJJWjZ2VTc1ZkhKVUU3a3Z5OStZWjQxV2poRjV6Y25u?=
- =?utf-8?B?eXpRcmhmanlQcHZEQUFHRldwMytGbjR0ak4zWlhuRWFKVXNqTXZnQ2NmRUhs?=
- =?utf-8?B?L0RCcURWc2g2OXgrM252dXhaV2cxVDlrM2lEcVJCcFFpN2hNZGc2V0VIR1lI?=
- =?utf-8?B?NHY3U05mQm9QTDZ2cUsxUTk3REFhbTRoMTFUT3dDZDdpdGJtQXF2RnJOUEgy?=
- =?utf-8?B?V2J1K0RQdzQ0cDhtdmpSbjhBWnZ3WUMyWm9meVVHb2gwc2hsc1gzZG5KT1Uz?=
- =?utf-8?B?UEFMYzhBZTIvRGZSNkVkWlpNWXJKaXhsbmpjSC9IYUd1YTBKRFJQRU1nY1g2?=
- =?utf-8?B?eVkxWEV2WHJRVWVPblprNEU4dURMYSs4ZXdzZGZVd1Vrci9zcURhMTQ2MnpG?=
- =?utf-8?B?ZjFjVFdNMXdNQXNBcGdpUlNXbkFCWm5nZ3J3aFg5RlVjbTE0M2g5bEdPek5G?=
- =?utf-8?B?dGxNbWVNdlM3aXEzb245VkxJbVhKSEN3ZEpzMG9NYW1qNFdKMjRERHdLbTR4?=
- =?utf-8?B?amRHMnBLZjJTWHZRZHRJY1pWQnlYUm5peXVIVUtLVmpvV0VZTFdLc1VoTWpL?=
- =?utf-8?B?M05Xa1RWMHpuUFY5NjdpR0I3azZLWkJvcC9WSjR2T2VjYVJGbThOWDhPTGRF?=
- =?utf-8?B?Q0FUUDdpNTlDM3E5elhXRVZ5S3RWb0ZsZDM1S0p6TnRJZ3JwSGF4M1RrRy9o?=
- =?utf-8?B?Nllsc3VsVWRFUG9wRmpsMDIxUklRcU9TaDRuMjF3WVFoMDlFR0VXNHk5Zkhp?=
- =?utf-8?B?NHhEY2pUakhFRkhFNFJoTVhTek9rd3ZGVVZPRmR0TVhzRHJvUlpqZ0xwbnBp?=
- =?utf-8?B?aEx2Wi9yL1J0R0Z3eUYzVnBUZnEyNHRSZExzc01GYVYwbDNXU2xhUXgzcnNt?=
- =?utf-8?B?aytMUkhSemRrSi9KRC9TVGl4di94TXV2VjVYdzdEY3dLbUNmN1MzN1BvQVdQ?=
- =?utf-8?B?WkdkTDB6YnN3V1lPZC8rL0M2YnF0SVhiSm11ZGJCOGFkZnFNMG9ORGt6eXU5?=
- =?utf-8?B?QjNTR2FqVDNJemJlOEFWbGZrdEhwQUxlRkh3czNOdXlqZ1ZXdElKQVk1VUlD?=
- =?utf-8?B?NzJlUHI0bTcrNlFPV3ZCTXhTcjVDbEVvUXFPbyt5YllNdWVJVFB5czFJYkRD?=
- =?utf-8?B?NkpPcWRjSmw1WTFuaW5CeHgzc2NlK3BjRWc0NUhPM1M4aFg0MGRxdE9FTGZx?=
- =?utf-8?B?NWNnZExtWFZ4U3BiVGc3b20yNkhwZm0vZnh0N2drUHQ3Z1p1VzcxK2YrUzhr?=
- =?utf-8?B?U1k5blFoOFkxMG1ITGxwdzdCR0V3alpPUko3UmpxRGl0cVVDcjhQZWs0TWtV?=
- =?utf-8?B?YWpZN05Nc2lHbFdLS0hpYjl1ZWYwTXl5ODcwemxuVEo5WWJ0QlJaN2V6R0Nk?=
- =?utf-8?B?bi9nRHFMNXlWZHYyWmJTeFlvQm5JTWNNeXVxeFh6UTJpMzJ1VTIxeU44MzF0?=
- =?utf-8?B?Z1NuamwvTGQvVHdkZk1HRVZLOFZIMFFBa05oUjhqQlg5U0xJbDFhNHB6Ry9T?=
- =?utf-8?B?bys4QkI3bWxUYktSOTRMRWkvbis5dDNiMkJockltcnRrcWJpWWVWS0t4L3dU?=
- =?utf-8?B?ajhYdXJaRk5yY01YbFhQUE1pRjJuOGI1UHVnUDVLcnk3THFKRG52cmNSTjYy?=
- =?utf-8?B?bEJoaHgvSldKQ0xBYkdCK2s2NFhQUmNRUlp4RUVMVENHL3phZ3FFcUI1WEo1?=
- =?utf-8?B?c0ZmS0NaT2REamVYaThKZEd3TmJmWkVYcWJXbURKMzRJUzBTendDYytwY2ZY?=
- =?utf-8?Q?cDrZxigBS6GXDoCcYuIkWNenL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2373a56c-26b9-4107-f550-08ddf5c62e62
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 08:42:48.9589
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ITq/nEtkt8ho7bSBfXXoQuWhMSIw2KPXnLG0QZ3BLmPjBwxsBuJKSKZlkOWFop4k2jRjG0WUY2ZsrBbUbo/ruQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10818
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250917085019epcas5p273ef86028a90e78ada55cde48a28a949
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250917085019epcas5p273ef86028a90e78ada55cde48a28a949
+References: <CGME20250917085019epcas5p273ef86028a90e78ada55cde48a28a949@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_014253_761415_C8FEB505 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250917_015029_332026_2CA8CC15 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,36 +97,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The spi nor on imx8mp evk board works under SDR mode, and
-driver use FlexSPIn_MCR0[RXCLKSRC] = 0x0 for SDR mode.
-According to the datasheet, there is IO limitation on this chip,
-the max frequency of such case is 66MHz, so add the limitation here
-to align with datasheet.
+Add basic support for the Axis ARTPEC-9 SoC which contains
+6-core Cortex-A55 CPU and other several IPs. This SoC is an
+Axis-designed chipset used in surveillance camera products.
 
-Refer to 3.8.12 FlexSPI timing parameters on page 72.
-https://www.nxp.com/webapp/sps/download/preDownload.jsp?render=true
+This ARTPEC-9 SoC has a variety of Samsung-specific IP blocks and
+Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
 
-Fixes: 7a2f7d763d94 ("arm64: dts: imx8mp-evk: enable fspi nor on imx8mp evk")
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This patch series includes below changes:
+- CMU (Clock Management Unit) driver and its bindings (patch #1 to #3)
+- PMU bindings (patch #4)
+- Basic Device Tree for ARTPEC-9 SoC and boards (patch #5 to #7)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-index 3730792daf5010213cbb9f6869a8110ea28eb48a..0b47d72cae9900ad53eed04c810a9ea8af795446 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-@@ -272,7 +272,7 @@ &flexspi {
- 	flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
--		spi-max-frequency = <80000000>;
-+		spi-max-frequency = <66000000>;
- 		spi-tx-bus-width = <1>;
- 		spi-rx-bus-width = <4>;
- 	};
+The patch series has been tested on the ARTPEC-9 EVB with
+Linux Samsung SoC tree (for-next branch) and intended
+to be merged via the `arm-soc` tree.
 
--- 
-2.34.1
+NOTE: This patch series is dependent on following floating patches:
+1. https://lore.kernel.org/all/20250917070004.87872-1-ravi.patel@samsung.com/T/#t
+2. https://lore.kernel.org/all/20250917071342.5637-1-ravi.patel@samsung.com/T/#u
+3. https://lore.kernel.org/all/20250917071311.1404-1-ravi.patel@samsung.com/T/#u
+
+GyoungBo Min (3):
+  dt-bindings: clock: Add ARTPEC-9 clock controller
+  clk: samsung: Add clock PLL support for ARTPEC-9 SoC
+  clk: samsung: artpec-9: Add initial clock support for ARTPEC-9 SoC
+
+Ravi Patel (2):
+  dt-bindings: arm: axis: Add ARTPEC-9 alfred board
+  arm64: dts: axis: Add ARTPEC-9 Alfred board support
+
+SungMin Park (2):
+  dt-bindings: samsung: exynos-pmu: Add compatible for ARTPEC-9 SoC
+  arm64: dts: exynos: axis: Add initial ARTPEC-9 SoC support
+
+ .../devicetree/bindings/arm/axis.yaml         |    6 +
+ .../bindings/clock/axis,artpec9-clock.yaml    |  232 ++++
+ .../bindings/soc/samsung/exynos-pmu.yaml      |    1 +
+ arch/arm64/boot/dts/exynos/axis/Makefile      |    3 +-
+ .../boot/dts/exynos/axis/artpec9-alfred.dts   |   36 +
+ .../boot/dts/exynos/axis/artpec9-pinctrl.dtsi |  115 ++
+ arch/arm64/boot/dts/exynos/axis/artpec9.dtsi  |  277 ++++
+ drivers/clk/samsung/Makefile                  |    1 +
+ drivers/clk/samsung/clk-artpec9.c             | 1224 +++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                 |  184 ++-
+ drivers/clk/samsung/clk-pll.h                 |   17 +
+ include/dt-bindings/clock/axis,artpec9-clk.h  |  195 +++
+ 12 files changed, 2282 insertions(+), 9 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec9-alfred.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec9-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
+ create mode 100644 drivers/clk/samsung/clk-artpec9.c
+ create mode 100644 include/dt-bindings/clock/axis,artpec9-clk.h
+
+--
+2.17.1
 
 
