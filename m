@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE21DCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE0DCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gRrOX+lH79lbk3CMWLiPCWajedhgVBao1TTFuyFRYcw=; b=c5mnbDWBKbaatzE8bOFbVG1RJo
-	XNjxHZVVIIwbKPtf8kp4kU/BMXviSsG+N8B4O3Sefm318NjS+6xnsfblSmtYqw+Ckr89NE8SKxQ1M
-	dgD09P8Yn+tMSelFbfBxYyJUf1cPZPF/TfJzUGPiAAqyDDJHi6VTl7qnT9zwcWpBo/DLc16JAM4We
-	AmocJKhr7yk2SpZaNuofd1YRWC7Sf76AWUSFemvIXVPW7oSYmSDmhjzV9N20OuPTGZSxCHw0VrU1X
-	p1O1yfhWHYKscnP9RANVAAZVMzYO39/bv4B7AWWM/vXfeRENW4R6RYiq7TZKkZ0fFlnhSoS3vlXOu
-	Cyv/OqNQ==;
+	bh=NrXU69xzkgvwPWnpud9gbDMjpFVZTCd84n7XEDFMSxQ=; b=V0UHUDl8aqFXsZhWCEmIOBxHkz
+	L83yJzg1V255pTQDr7VHkRN6iL/+IJpzb4Se9VESUQaQWJV3AlDd82ArbsomAJg3r+YuMUP9LVmnk
+	UxDTNW2YAjLCXfGJ6pS5Gvlb+g2O6jx5o9jjR94Pd0G6pKbchXOLh97Xu+4p0oJSfzPQdw1ryMIKo
+	3x78AiKXOoHQ44NVDum1l2hBe/azoLL7hp8WkEwtvvc75Zp0A+EgBCSPB+k9o/gQ7scqPyyarEiaQ
+	qn8KTBJk8h5vDBAE1VAmmFq/ri/4E4QLn9pKkzVf4Mn8bvhasEEstrQfxei1k8AuBDrnywy+Lv6bD
+	GtaRG5Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyp18-0000000AtaM-2IzR;
-	Wed, 17 Sep 2025 10:04:02 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uyp5G-0000000AuOs-1nhw;
+	Wed, 17 Sep 2025 10:08:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyp15-0000000AtZJ-3MCK
+	id 1uyp5D-0000000AuOO-2dIV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 10:04:01 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45de185c04aso7463195e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:03:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758103438; x=1758708238; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gRrOX+lH79lbk3CMWLiPCWajedhgVBao1TTFuyFRYcw=;
-        b=Tunk/izto7i6n3i6nHWzVPdrn8m/FDR7+aNCl34OO2+Bts22P7iakbvpvFOyKkKCkW
-         zYjO7sdmElaXUtJJ1McjxX2T7cZXE/MGJIRKNpeatvTv5T3GyNDm/sSXl7M8nOpQ8HgY
-         K1yac+FCxYbwxKYYnFFDAIFXD73i+jHKZg3JF4qgmerbctggRBTfkJRRwPTOiPFHvN82
-         u140wkqNk0GbzQLe/RO5cidi+XzsxsQLxZkSVlZk7wgbVe0dap5F/2gR8NIJM7bkKNrZ
-         DmdFGw7/NqEYbcmiimZjMK9y+eNgIxj+7BjXuXSlHk5WEngiHUTa9RDsOttbwcKkqknT
-         8soA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758103438; x=1758708238;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gRrOX+lH79lbk3CMWLiPCWajedhgVBao1TTFuyFRYcw=;
-        b=KnNNzpQrLF7B+8FS2kwrIJA3rrULs/Ba+aM2eWlTC+oAvJoVopUZN/ZfjWTqs06Cr5
-         FoMcoz6X9I0RzQx2m8joD0NVs+TE00m5EnAbi1CCUIjXmbsCUccgD3uGPD/hPbFVYQdt
-         gu6m9S2OkqkZX4EaJkBOjjkt8/LoVg6xc16QikCmBDw4l8D7JF62MVtwmWXUb7J/6EVC
-         uIDbSOtsUQC40ehLgFZ3dtuIKj/xtYgODD44tqTy8KGJi8HoSOG6+elBR9cmxiT0HWro
-         gFKZdH3Wc9U0mc9tED4o7TGVPub0ahDc8TRqKBRy3Fz278BwAETFasvlfK0a8KVM4eCw
-         fpMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUJ4iR8iStmAxv58/t2zDGxg17XN8PO/vlKX1VDZIGF04M+cE6djWXg1DwP6LQS+XtTn/UY0ktX6Yb4poVJm01U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/aTr0yGfEYvRB5NcPmzlUYj3smMopo2MD8PBMHBkyBkwH6hhR
-	6UUdNLhbD8Jc8k7IbAqmD7jIE/8vkZ4t/aF5uvUaNi/+NHdOzsWQbviG
-X-Gm-Gg: ASbGncu2E7Ba5y1zboJflOvp1loAklkJmumclts2Z9PtIfryt83orsGEeI4yPLLpoxC
-	j0eInifyzhtU7thRAP00ro3TUdMC7YaoFEULqB/9457ycH1KhG3FarWrUO/iBmAlzy0rUwvpiuA
-	xt7cb11iJOQLqjTrsUmMXUMRCF9V6wLDKdUz0tyCauJDWApEkPzB5dULibPhvobDpQOeSKkitmh
-	kO89w6ZFloDZCyUAHWuQB/TS4gKfzAry2Pkbzfo37d7qUrY2lyLyu+y+8ys/quHgPawL4OEVp8y
-	g/AJUva4ihAGq55OouLmdrajG8QzwtpNk051TZvuyIqVTe7RviZRPAJtMLM3CNpDC4VNyI11P24
-	6UoDkiax47YcGndk=
-X-Google-Smtp-Source: AGHT+IHLOG5YdNiWrI2g4iNSNygtK8lUMOKb4aBkIX2ORgpQKWdmRgP7R0dl64oEM0ngNwVEe1oh8Q==
-X-Received: by 2002:a05:600c:648a:b0:45f:27f4:47bc with SMTP id 5b1f17b1804b1-462074c52f0mr6761615e9.7.1758103437696;
-        Wed, 17 Sep 2025 03:03:57 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:8bcc:b603:fee7:a273])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46139e87614sm31032865e9.23.2025.09.17.03.03.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 03:03:57 -0700 (PDT)
-Date: Wed, 17 Sep 2025 13:03:53 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Wed, 17 Sep 2025 10:08:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91DBB44070;
+	Wed, 17 Sep 2025 10:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A77C4CEF0;
+	Wed, 17 Sep 2025 10:08:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758103692;
+	bh=2UJitnxHH4ITOpk1XyAJb3VMT4TKF/dbAik6uHRq8es=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ovJNpLtF4n+pjUrxXR2L10rGFPRCmARWfvMI5X0a6r826Alh0O8fuD+srvriol0UJ
+	 WRBUf4EkEfFTrELGrXFX5sOBpC70dg/IHX8C+xkPaLS2NeALteU18AXXHIR/F3Lh9T
+	 t9VYsSo8iUaZ92OEKuWj6qB07Nw5tzRs+ngR811nvwcnMdtIXpLQXPmdfPT0Stjzfr
+	 beS98qwrhSs5V0mE6ZEtlz7+wVPlHEoTpxbSAedZuh1E6wH0ivx6ow3ZRWlVA5L1qO
+	 yAscsMSqjmQzgIW4ZU0TI1xZkdnpFxwghGyYMcoXwP86PGucRtK+RmNFotqwywcMNt
+	 itYVQE6CpBFHQ==
+Date: Wed, 17 Sep 2025 15:38:04 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v18 4/8] net: dsa: tag_mtk: add Airoha variant
- usage of this TAG
-Message-ID: <20250917100353.dbjeh5eibkqdpz75@skbuf>
-References: <20250915104545.1742-1-ansuelsmth@gmail.com>
- <20250915104545.1742-1-ansuelsmth@gmail.com>
- <20250915104545.1742-5-ansuelsmth@gmail.com>
- <20250915104545.1742-5-ansuelsmth@gmail.com>
- <20250917093541.laeswsgzunu3avzp@skbuf>
- <68ca827c.050a0220.11f9b4.a3f0@mx.google.com>
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v19 4/6] dt-bindings: remoteproc: Add compatibility for
+ TEE support
+Message-ID: <aMqIhFdIqp5auH22@sumit-X1>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+ <20250625094028.758016-5-arnaud.pouliquen@foss.st.com>
+ <aMkqifHSdlCs4VjA@sumit-X1>
+ <62bdb238-7440-451b-84ef-79f846b10ba0@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <68ca827c.050a0220.11f9b4.a3f0@mx.google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <62bdb238-7440-451b-84ef-79f846b10ba0@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_030359_851428_07C324EF 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250917_030815_711590_4EAECDD1 
+X-CRM114-Status: GOOD (  47.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,19 +84,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 11:42:13AM +0200, Christian Marangi wrote:
-> On Wed, Sep 17, 2025 at 12:35:41PM +0300, Vladimir Oltean wrote:
-> > Unless the few tens of bytes saved matter on OpenWRT, I think this is
-> > overkill (and you went too far with my previous suggestion).
-> > Two Kconfig options are unnecessary from a maintainance point of view
-> > (and config NET_DSA_AN8855 isn't even selecting the correct one!).
-> > I suggest you register both tag drivers as part of CONFIG_NET_DSA_TAG_MTK,
-> > at least until the differences increase to justify a new option.
-> >
+On Tue, Sep 16, 2025 at 03:26:47PM +0200, Arnaud POULIQUEN wrote:
+> Hello Sumit,
 > 
-> Ok, was following the pattern done by the other. Will drop the
-> additional kconfig.
+> On 9/16/25 11:14, Sumit Garg wrote:
+> > Hi Arnaud,
+> > 
+> > First of all apologies for such a late review comment as previously I
+> > wasn't CCed or involved in the review of this patch-set. In case any of
+> > my following comments have been discussed in the past then feel free to
+> > point me at relevant discussions.
+> 
+> No worries, there are too many versions of this series to follow all the
+> past discussions. I sometimes have difficulty remembering all the
+> discussions myself :)
+> 
+> > 
+> > On Wed, Jun 25, 2025 at 11:40:26AM +0200, Arnaud Pouliquen wrote:
+> > > The "st,stm32mp1-m4-tee" compatible is utilized in a system configuration
+> > > where the Cortex-M4 firmware is loaded by the Trusted Execution Environment
+> > > (TEE).
+> > Having a DT based compatible for a TEE service to me just feels like it
+> > is redundant here. I can see you have also used a TEE bus based device
+> > too but that is not being properly used. I know subsystems like
+> > remoteproc, SCMI and others heavily rely on DT to hardcode properties of
+> > system firmware which are rather better to be discovered dynamically.
+> > 
+> > So I have an open question for you and the remoteproc subsystem
+> > maintainers being:
+> > 
+> > Is it feasible to rather leverage the benefits of a fully discoverable
+> > TEE bus rather than relying on platform bus/ DT to hardcode firmware
+> > properties?
+> 
+> The discoverable TEE bus does not works if the remoteproc is probed
+> before the OP-TEE bus, in such case  no possibility to know if the TEE
+> TA is not yet available or not available at all.
+> This point is mentioned in a comment in rproc_tee_register().
 
-tag_ocelot.c is another example which registers 2 taggers under the same
-Kconfig option.
+The reason here is that you are mixing platform and TEE bus for remoteproc
+driver. For probe, you rely on platform bus and then try to migrate to
+TEE bus via rproc_tee_register() is the problem here. Instead you should
+rather probe remoteproc device on TEE bus from the beginning.
+
+> 
+> Then, it is not only a firmware property in our case. Depending on the
+> compatible string, we manage the hardware differently. The same compatibles
+> are used in both OP-TEE and Linux. Based on the compatible, we can assign
+> memories, clocks, and resets to either the secure or non-secure context.
+> This approach is implemented on the STM32MP15 and STM32MP2x platforms.
+
+You should have rather used the DT property "secure-status" [1] to say
+the remoteproc device is being managed by OP-TEE instead of Linux. Then
+the Linux driver will solely rely on TEE bus to have OP-TEE mediated
+remoteproc device.
+
+[1] https://github.com/devicetree-org/dt-schema/blob/4b28bc79fdc552f3e0b870ef1362bb711925f4f3/dtschema/schemas/dt-core.yaml#L52
+
+> 
+> More details are available in the ST WIKI:
+> https://wiki.st.com/stm32mpu/wiki/OP-TEE_remoteproc_framework_overview#Device_tree_configuration
+> https://wiki.st.com/stm32mpu/wiki/Linux_remoteproc_framework_overview#Device_tree_configuration
+> 
+> > 
+> > > For instance, this compatible is used in both the Linux and OP-TEE device
+> > > trees:
+> > > - In OP-TEE, a node is defined in the device tree with the
+> > >    "st,stm32mp1-m4-tee" compatible to support signed remoteproc firmware.
+> > >    Based on DT properties, the OP-TEE remoteproc framework is initiated to
+> > >    expose a trusted application service to authenticate and load the remote
+> > >    processor firmware provided by the Linux remoteproc framework, as well
+> > >    as to start and stop the remote processor.
+> > > - In Linux, when the compatibility is set, the Cortex-M resets should not
+> > >    be declared in the device tree. In such a configuration, the reset is
+> > >    managed by the OP-TEE remoteproc driver and is no longer accessible from
+> > >    the Linux kernel.
+> > > 
+> > > Associated with this new compatible, add the "st,proc-id" property to
+> > > identify the remote processor. This ID is used to define a unique ID,
+> > > common between Linux, U-Boot, and OP-TEE, to identify a coprocessor.
+> > This "st,proc-id" is just one such property which can rather be directly
+> > probed from the TEE/OP-TEE service rather than hardcoding it in DT here.
+> Do you mean a topology discovery mechanism through the TEE remoteproc
+> service?
+> 
+> For the STM32MP15, it could work since we have only one remote processor.
+> However, this is not the case for the STM32MP25, which embeds both a
+> Cortex-M33 and a Cortex-M0.
+
+I rather mean here whichever properties you can currently dicovering via
+DT can rather be discovered by invoke command taking property name as input
+and value as output.
+
+> 
+> Could you please elaborate on how you see the support of multiple remote
+> processors without using an hardcoded identifier?
+
+By multiple remote processors, do you mean there can be multiple
+combinations of which remote processor gets managed via OP-TEE or not?
+
+> 
+> > I think the same will apply to other properties as well.
+> Could you details the other properties you have in mind?
+
+I think the memory regions including the resource table can also be
+probed directly from the TEE service too. Is there any other DT property
+you rely upon when remoteproc is managed via OP-TEE?
+
+-Sumit
 
