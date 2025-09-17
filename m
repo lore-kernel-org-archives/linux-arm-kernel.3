@@ -4,58 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E8ECAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60107CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQCmsx+q19QryaLAotidJn5GzikFHQ0lTjuulNLAXTM=; b=PLbB5qof7mWkcTHKPsQwon+oiH
-	tD4g+u1z7jr8cU2lDa4pXJBAOFG2ly/V8LriObSz2bgScGwnkxhVaVicCbOUNPss3ANBVOKUsv4ef
-	53lkjzX0P0Bh44C186muvTHXJkDALR2Qtpndaqqs+v/ymersiq3eyqOUc0ZOQlGbXSL6/2qaOku2d
-	d+v8hpSSaDqRY+88i3pUxuRz53ov2Mui2y40fSaZAgRP4BWWPZALPOtHsblSJieLmn6E+W4e9EBP0
-	d+hfzu0xIBL3wkb5wnfPjlhaEyMToF41Q+zVTlNx5n2QfgJkj77IM8m4VcBnJ9a1wEdP+m09ayxpN
-	R1t0JP5g==;
+	bh=4MH4S/fd6HrBR8TqlEf6sS9md7jjfhxMvJPQhybloik=; b=bG5FmfwILL2UthplmcqRr430Kz
+	zG5AbJGeVZgJuYGXLYvRh1s7ArQp5YyrFxd1rqyT+flExL+GoUzUe0pKKzLCkqWGseSp/dADdUG+T
+	+/09Re7tAtdvOY4EIsJEDKatrRPbPDcUZyiw6taUOaPLDuPb6tFpxv5pzn2EkJWgGZE0LdPLW/Ev9
+	J+UwjNR4CvV3N70QcMAqfEreKnOmHA2JQTH+JPkuXptLSjwU7MbQ/I2ef9nqbp60ig+3wDnfqDxVq
+	ekSC7vnvkYMMmVUsvZMlmT9OUYlohlJlruYPy0F//DkGxS0MfF0MAzQT7r3hq498ETtR+la+Y6tH9
+	OF/oTZ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt4y-0000000CBjq-2MDc;
-	Wed, 17 Sep 2025 14:24:16 +0000
-Received: from smtps.ntu.edu.tw ([140.112.2.142])
+	id 1uyt6J-0000000CCLq-3uCt;
+	Wed, 17 Sep 2025 14:25:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyt4v-0000000CBhS-0Gbc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:24:15 +0000
-Received: from wmail1.cc.ntu.edu.tw (wmail1.cc.ntu.edu.tw [140.112.2.161])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1uyt6G-0000000CCHr-3Pa0;
+	Wed, 17 Sep 2025 14:25:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758119134;
+	bh=gdQ4bVQx9UsfgOGWthahXwQYrBNrMjs0pw9DZQGxUVU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Um3WIhClnacJr72kepL51Jb68Z6nP193VKArJdLLLDO+57zbEiMA24rF69RpT4rG1
+	 /4/nyURj22/z2h8xSlC08eecHlawBsUoNFMHSJ0w1yU9stIMhvchJxiy+sIUGzX2fI
+	 Hby58O3agOef0ZXi3l1MZ1lJ3S5KrUrVCIUyEC5x/ctJFEzID1ZLuytvPtDBX6IYQ/
+	 Ib1G78e26a4x3RWEjHV8JFzEqCnvUjbrWC4NOuC93gWUZDMGdg3+0WY7YjAwwjl6Ni
+	 KT0GC/L6ePfl8fshgUywT3SE819dhSBguV34jB1VYLFlF5X0ZASXHcmtTkdVWWd96l
+	 oyXFp4qv1/bIA==
+Received: from [10.40.0.100] (185-251-200-65.lampert.tv [185.251.200.65])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 5BA1845D47;
-	Wed, 17 Sep 2025 22:23:49 +0800 (CST)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7AC0F17E0237;
+	Wed, 17 Sep 2025 16:25:33 +0200 (CEST)
+Message-ID: <f9f8fb39-51d5-415c-b2dd-3fd837252edb@collabora.com>
+Date: Wed, 17 Sep 2025 16:25:32 +0200
 MIME-Version: 1.0
-Date: Wed, 17 Sep 2025 22:23:49 +0800
-From: Bill Tsui <b10902118@ntu.edu.tw>
-To: Will Deacon <will@kernel.org>
-Cc: oleg@redhat.com, linux@armlinux.org.uk, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] arm64: ptrace: fix hw_break_set() by setting addr
- and ctrl together
-In-Reply-To: <dcb568c3dd5feb15890fa75e988e33bb@ntu.edu.tw>
-References: <20250824124317.390795-1-b10902118@ntu.edu.tw>
- <20250827014113.5852-1-b10902118@ntu.edu.tw>
- <20250827014113.5852-2-b10902118@ntu.edu.tw>
- <aL7y00ggniiCTpZS@willie-the-truck>
- <dcb568c3dd5feb15890fa75e988e33bb@ntu.edu.tw>
-User-Agent: Roundcube Webmail/1.4
-Message-ID: <0fd573cc044584f00976c410955ed486@ntu.edu.tw>
-X-Sender: b10902118@ntu.edu.tw
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 07/13] media: rockchip: add driver for mipi csi-2
+ receiver
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com>
+ <20240220-rk3568-vicap-v10-7-62d8a7b209b4@collabora.com>
+ <c5d8d527ca6194b606b5627e51abbb82ab6dd76c.camel@pengutronix.de>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <c5d8d527ca6194b606b5627e51abbb82ab6dd76c.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_072413_387475_FB24D50C 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250917_072537_007913_5214B730 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,208 +97,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following can reproduce the error for `arm64 compat` watchpoints
-(breakpoints follow the same logic). I realized that testing my patch
-can take time to set up from scratch, hoping this can facilitate the
-review process.
+Hi Philipp,
 
-There are three parts:
-1. watch_unaligned.c
-2. tracee.c
-3. compile & run
+On 8/25/25 12:37, Philipp Zabel wrote:
+> On Di, 2025-08-19 at 01:25 +0200, Michael Riesch via B4 Relay wrote:
+>> From: Michael Riesch <michael.riesch@collabora.com>
+>>
+>> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
+>> input port and one output port. It receives the data with the help
+>> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
+>> Rockchip RK3568 Video Capture (VICAP) block.
+>>
+>> Add a V4L2 subdevice driver for this unit.
+>>
+>> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+>> ---
+>>  MAINTAINERS                                    |   1 +
+>>  drivers/media/platform/rockchip/Kconfig        |   1 +
+>>  drivers/media/platform/rockchip/Makefile       |   1 +
+>>  drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
+>>  drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
+>>  drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 741 +++++++++++++++++++++++++
+>>  6 files changed, 763 insertions(+)
+>>
+> [...]
+>> diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+>> new file mode 100644
+>> index 000000000000..5658ffb60769
+>> --- /dev/null
+>> +++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
+>> @@ -0,0 +1,741 @@
+> [...]
+>> +static int rkcsi_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct rkcsi_device *csi_dev;
+>> +	int ret;
+>> +
+>> +	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
+>> +	if (!csi_dev)
+>> +		return -ENOMEM;
+>> +	csi_dev->dev = dev;
+>> +	dev_set_drvdata(dev, csi_dev);
+>> +
+>> +	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(csi_dev->base_addr))
+>> +		return PTR_ERR(csi_dev->base_addr);
+>> +
+>> +	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
+>> +	if (ret != RKCSI_CLKS_MAX)
+>> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+>> +	csi_dev->clks_num = ret;
+>> +
+>> +	csi_dev->phy = devm_phy_get(dev, NULL);
+>> +	if (IS_ERR(csi_dev->phy))
+>> +		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
+>> +				     "failed to get MIPI CSI PHY\n");
+>> +
+>> +	csi_dev->reset = devm_reset_control_array_get_exclusive(dev);
+> 
+> Why array? rockchip,rk3568-mipi-csi bindings specify a single reset.
 
-Basically, watch_unaligned runs tracee and set 1-byte watchpoints on it.
+Hm. Copy-paste issue, I guess. Good catch, thanks for pointing it out.
 
+Best regards,
+Michael
 
-1. watch_unaligned.c
+> 
+> regards
+> Philipp
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
-#include <errno.h>
-#include <sys/ptrace.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <linux/ptrace.h>
-#include <asm/ptrace.h>
-#include <sys/uio.h>
-#include <elf.h>
-#include <sys/uio.h>
-#include <asm/ptrace.h>
-
-#define MAX_WATCHPOINTS 4
-
-#define AARCH64_BREAKPOINT_EL0 2
-
-#define ENABLE 1
-
-typedef enum {
-     arm_hwbp_break = 0,
-     arm_hwbp_load = 1,
-     arm_hwbp_store = 2,
-     arm_hwbp_access = 3
-} arm_hwbp_type;
-
-void error_detach_close(pid_t pid, FILE* pipe, const char* msg) {
-     perror(msg);
-     ptrace(PTRACE_DETACH, pid, NULL, NULL);
-     pclose(pipe);
-}
-
-void watch_1byte(int pid, uint32_t addr) {
-     // Set hardware watchpoint on ARM64
-     // Use PTRACE_SETREGSET with NT_ARM_HW_WATCH for watchpoints
-     printf("Setting watchpoint at address 0x%x\n", addr);
-     struct user_hwdebug_state watch;
-     memset(&watch, 0, sizeof(watch));
-     watch.dbg_regs[0].addr = addr;
-     uint32_t size = 1;
-     uint32_t byte_mask = (1u << size) - 1u;
-     uint32_t type = arm_hwbp_access;
-     uint32_t priv = AARCH64_BREAKPOINT_EL0;
-     watch.dbg_regs[0].ctrl =
-         (byte_mask << 5) | (type << 3) | (priv << 1) | ENABLE;
-
-     struct iovec ioVec;
-     memset(&ioVec, 0, sizeof(ioVec));
-     ioVec.iov_base = &watch;
-     // According to lldb. Otherwise dbg_regs[16] will cause error
-     ioVec.iov_len = sizeof(watch.dbg_info) + sizeof(watch.pad) +
-                     (sizeof(watch.dbg_regs[0]) * MAX_WATCHPOINTS);
-
-     if (ptrace(PTRACE_SETREGSET, pid, NT_ARM_HW_WATCH, &ioVec) == -1) {
-         perror("PTRACE_SETREGSET");
-     } else {
-         printf("Watchpoint at address 0x%x set successfully\n", addr);
-     }
-     printf("---\n");
-}
-
-FILE* run_tracee(pid_t *pid, uint32_t *addr) {
-     // run tracee and get pid & addr
-     FILE *pipe = popen("./tracee", "r");
-     if (!pipe) {
-         perror("popen failed");
-         return NULL;
-     }
-
-     char line[64];
-     if (fgets(line, sizeof(line), pipe) == NULL) {
-         perror("read pid failed");
-     }
-     *pid = atoi(line);
-
-     if (fgets(line, sizeof(line), pipe) == NULL) {
-         perror("read addr failed");
-     }
-     *addr = strtoul(line, NULL, 0);
-
-     return pipe;
-}
-
-int main() {
-     pid_t pid;
-     uint32_t addr;
-
-     FILE *pipe = run_tracee(&pid, &addr);
-     if (!pipe) {
-         return 1;
-     }
-
-     printf("Attaching to PID %d\n", pid);
-     if (ptrace(PTRACE_ATTACH, pid, NULL, NULL) == -1) {
-         error_detach_close(pid, pipe, "ptrace(ATTACH)");
-         return 1;
-     }
-     printf("Attached\n\n");
-
-     int status = 0;
-     if (waitpid(pid, &status, 0) == -1) {
-         error_detach_close(pid, pipe, "waitpid");
-         return 1;
-     }
-
-     // The TEST
-
-     // watch non-4-byte aligned. (Fail)
-     watch_1byte(pid, addr);
-     // watch any 4-byte aligned. (Success)
-     watch_1byte(pid, 0);
-     // watch non-4-byte aligned again. (Success)
-     // because bp_len was previously set to 2 successfully
-     watch_1byte(pid, addr);
-
-     // continue and let it trigger, proving functionality
-     if (ptrace(PTRACE_CONT, pid, NULL, NULL) == -1) {
-         error_detach_close(pid, pipe,"ptrace(CONT)");
-         return 1;
-     }
-     if (waitpid(pid, &status, 0) == -1) {
-         error_detach_close(pid, pipe, "waitpid (after CONT)");
-         pclose(pipe);
-         return 1;
-     }
-     if (WIFSTOPPED(status)) {
-         printf("Watchpoint triggered, signal: %d\n", WSTOPSIG(status));
-         ptrace(PTRACE_CONT, pid, NULL, NULL);
-         ptrace(PTRACE_DETACH, pid, NULL, NULL);
-     }
-     pclose(pipe);
-     return 0;
-}
-
-
-2. tracee.c
-
-#include <stdio.h>
-#include <unistd.h>
-#include <stdint.h>
-
-int main() {
-     volatile int a = 42;
-     printf("%d\n%p\n", getpid(), (void*)((uintptr_t)&a + 1));
-     fflush(stdout);
-     while (1) {
-         a += 1;
-     }
-
-     return 0;
-}
-
-
-3. compile & run
-
-# 64-bit tracer
-aarch64-linux-gnu-gcc watch_unaligned.c -o watch_unaligned
-
-# 32-bit tracee
-arm-linux-gnueabi-gcc tracee.c -o tracee
-
-# run
-./watch_unaligned
-
-output:
-
-     Attaching to PID 325
-     Attached
-
-     Setting watchpoint at address 0xffacca39
-     PTRACE_SETREGSET: Invalid argument
-     ---
-     Setting watchpoint at address 0x0
-     Watchpoint at address 0x0 set successfully
-     ---
-     Setting watchpoint at address 0xffacca39
-     Watchpoint at address 0xffacca39 set successfully
-     ---
-     Watchpoint triggered, signal: 5
-
-Summary: the first watchpoint failed but should be supported since it 
-was
-successfully set and triggered just after addr 0x0 with length 1.
-
-Thanks,
-Bill
 
