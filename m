@@ -4,162 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 164A9CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 04:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69986CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 05:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niuZ49cO1YK9TFQYMdhK6iSzrhQpKAKEZNsFsw6fq4s=; b=PLgRv67280r0JXe7LsiaQc9BEJ
-	UeGba2WnynKVTtlCQWLCZABMkqB/zLgL2JhEIKAeeXRf38EUhZ4/c0/IspyNEtOinY68JQ4hyFYUs
-	9wM0BKN07YbUjbMmgxKNZySS4VlfQJKnnfBbTkteLz6cz/bA1OhHrdvjLJPDr1Qech5cO8uzj9nNJ
-	BrzpdU2WiEOJ22Nu0mvLhnzj2hjqCb6DegKbtymBC4YVjeBJiWKBEiw/LBVlo0YMcWuBXWp6NOiDq
-	HqMejD2/D5+IHt1/jMME6iGFm0EYV7/wO2s6EClv04IDrq9ojudXWlNwoqpXHIy8/aAZzxRa7bKd8
-	ciceORRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SE80BDLp7RGmNryQ1WRS/aK8000n2rtH3W8fQeIL/c4=; b=x+iXG+WtmpKSeP50XljMXRCJTQ
+	wPiTHmJgUmU9I2eOPsZrwq/D092W/6o0/QDYhYVLsigAQWVKG6K1C0JKNwp7x+2+pnDIhZbjC9gJH
+	FYxAqBileFSxEQx3kd0ie2Ex6ZArZ4UWIkqbxtwhxVlmLAh11cbr+ZrE82TaOFefJMXhjS+yz9RbC
+	VAf9gylNRFe8SqBmKW5y9PeyLnR20l9l3HZ0g/vt63ydu3hUOl08qxcA2K5zsSHq2Ti2EvlJyh/7u
+	MxguYEIlpNmHRAVIGXGyjijI6uLkhsn0gIgCQ0R5SYVScbdzrIgmsG9CT2HGqvkcHU61NB7JHcIlC
+	eVKMDJ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uykB4-0000000ABjR-4AQF;
-	Wed, 17 Sep 2025 04:53:58 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uykbd-0000000ADu9-32K7;
+	Wed, 17 Sep 2025 05:21:25 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uykAz-0000000ABeV-1jZX
+	id 1uykba-0000000ADte-0dvx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 04:53:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dVWN8Ygcx4zRHsk69KMXxuyGHSg9sUU2ZPP79tHKWtmPv6NIFoiz1SoPFWfO/WeUKT97ZePsEjOdifugLVigkDSkhYhj51Y7k0cCw4zDMwloD0/xRENLUkztyvFQy8sjPju7bVQYHlN13JvwUEYtG6CyoJZoJS/d0d2/YVpssrQwGi31Mojsm80uUu6l9OV2OL4YWFvUpsXKkEKLVauJ8I0zJ6xeL9rthYRjz0NLPKR6TtYQaa5O9ewKub91jNeTgB5x7M+qaKLNSYzfceKzl9jbtRZPHofHCBGTcAwshk15DwIWLp3twQOyXRyt+LE9tXBcyS6fqmYm7FXlf8cm3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=niuZ49cO1YK9TFQYMdhK6iSzrhQpKAKEZNsFsw6fq4s=;
- b=kf2WSuuI99mfrJOq2iEkEDHzRyQFudf2pxoV/omstqxXt4ul7SmuRdpPcx9j38+zeh3v/R4e6b7mIAkM5cHERmNmHyEjNQNSnW7FiLWuc8LoQWgcoESvFglxn/+tZlLawaPbHYjUgXVzrNPcwAYYMNxoSoPnh358wG6+mA3AkQw9MOvLtIq3nBXeuPOj5NuYKrwg0ewZvqCHf0KOFvqOJbLVX/uIbJcpYE/zLESH/YKWZyIrG/OxOggxLlsnvMy7xqu4W4ayreKQBWLsdMRCv4Uxr/eOb6cMCXOw5kPQRd6HTJpwaQmhnG+81Cca122NUrqMgoVnzSUVFmwQOeNwSg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=niuZ49cO1YK9TFQYMdhK6iSzrhQpKAKEZNsFsw6fq4s=;
- b=JghAKUYaRVoG7Z5Jr11bbxbdD1Cl+h3QAWwjjysyaB/b4mNPvIdheFifY4+m/9O5PH6hiZ6+3JDcV0s1BExzF5rBS/YxRsgrJ8NlNvIlqbLwaqX0qbAC7MjZA522fVNtO8/Nlfs/AwNF6DK87ggWjmEybhLVP6TNH9Fd934HpeZRY6JPcbhUuU5A8zV66xtbccUa9Wid6EIlsopgTTAy06a958VoLL4Utb5dcTTQUCk7+H0uHGO0ORKQ9jKo4ByhpVp4NnXzkF+gNoL6uLJPnsCrggB6btaCVe9RxLNvYF1mBRqkXOgC+MYA7aWvloKuDQjMldNRt0d8GBbqQTlfxw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PA1PR04MB10098.eurprd04.prod.outlook.com (2603:10a6:102:45b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.12; Wed, 17 Sep
- 2025 04:53:43 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 04:53:42 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v6 3/3] PCI: imx6: Add external reference clock mode support
-Date: Wed, 17 Sep 2025 12:52:38 +0800
-Message-Id: <20250917045238.1048484-4-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250917045238.1048484-1-hongxing.zhu@nxp.com>
-References: <20250917045238.1048484-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0172.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::28) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Wed, 17 Sep 2025 05:21:23 +0000
+Date: Tue, 16 Sep 2025 22:21:09 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758086477;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SE80BDLp7RGmNryQ1WRS/aK8000n2rtH3W8fQeIL/c4=;
+	b=ONlm1N7/v3ZoW6UPF24U6gmqobIOXl4WGiyNax4nAwwivsgr2dSV79bQR6u9ESl43ku3nZ
+	53b8dPxD+kQFT7ZZV4ccOemciEY1RJbAohR3/ZnqDL5Ea3GGFYybmHP2DKihpSBQW81qTe
+	ss43SrLNC0BFkB6kA8lhxDzWIyWJ0tA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Fix kvm_vcpu_{set,is}_be() to deal with EL2
+ state
+Message-ID: <aMpFRYarTozl7Q38@linux.dev>
+References: <20250916161103.1040727-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA1PR04MB10098:EE_
-X-MS-Office365-Filtering-Correlation-Id: 31b71237-e071-4e76-2abf-08ddf5a62d14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RlHzaTa8iHemdbuAbmoZka4V0V66ZM6iGjIlmGXcbTZIyhza1JsIpkAls9J8?=
- =?us-ascii?Q?b/cNGgMt0sHOKC0mU0jPmmD9ll8DGsPYFsuG1L/j0Kwx0sM7395Ea0SQug4u?=
- =?us-ascii?Q?tfEeRVro+3OfhyYdNqDIzd6uRbpje8PM/vqTx3YTu7cyTpmZPP2zleTuHjW6?=
- =?us-ascii?Q?Ikn7EBuy6zDfnUMt17XTGNe/4C6+sk2CP2lLBytFvp2aUefh3ni87NmObOZI?=
- =?us-ascii?Q?cIdsxihjqzsHIJPVKk9Uen5JqFoFha47MEc0xZhcA6QiTDwLF1NDSsSc525M?=
- =?us-ascii?Q?bj1t3TUqjuCbl9QSEv1MS+UjUCCo2c4dh6eubMF4sAaC6GAIFte5T7ahc8WE?=
- =?us-ascii?Q?+Bt+B4kyIYFt0jZxn1dEzTjwWaHU3MU2W/1qgyN0KLTncxYlTfYO34ZwIAAq?=
- =?us-ascii?Q?8Q6Mv4zE6zBPOfbo+YFCEpGjh3rqfaB7w6eZt9IPciGCfL5d/kq6cJPgHPuV?=
- =?us-ascii?Q?yhwaQ8PzsPqOWMdc7LRoax87mISM4pPpNLUU3JNeL/kmo1NQmJPTp/xWlPzm?=
- =?us-ascii?Q?5ffrQ/1WDVRkpEO2sIiRsOJGpnyZ/7K+PRrm1Xvx38/cQfQk+gojBwlX/wZR?=
- =?us-ascii?Q?I9Hwf9ApsPC+0eZcQEsUXLcAj8FJaAVDQjP36M3/wTYe19QOTJqonej4bQx+?=
- =?us-ascii?Q?I6Oomi1hJyvjt/86JS5av48HyUpHgn/qikZ1//zREWxDxuTJdd2/0BmPo/n2?=
- =?us-ascii?Q?OcYsGielXp5UY9EIILhSP9wqWZTlDSNIpruBlDdqbxf6Tx8r++3uHPxIFIJ0?=
- =?us-ascii?Q?n467ub3RlrKfb7pUkCZ/7sU8MIKReyzBpDorJjUrJZTxqukSwWKujVv+Um+k?=
- =?us-ascii?Q?bAieKjqsvxZnK7+W3CeMvkEXKpgBYLzZA03leeH90mB60v95vHqqrYJ/XHEM?=
- =?us-ascii?Q?uvthnkmawkD2SaZRXeIwja7GUNe6mJzxFoVxhP+fwW5JVKdNPlxYFxDysB0k?=
- =?us-ascii?Q?woPfLOFS1RpNePON4sxgn+ViCM2LUFyI/lIj9RdYIkROl8uMbGeGJnvpZuJH?=
- =?us-ascii?Q?u25NN9pwhQr6mkuxIB+A8ORSlVX4aGYaL4X2psH3Zm2E+FZCKmhJ0iNHKOqU?=
- =?us-ascii?Q?TPixQh2C+DqQEBqWeLsoo8hVBxEFw87M7OvzThndqywv7GGmJhFB+YnELMSk?=
- =?us-ascii?Q?4Cef+xLQVHjaOyPMtIznTs+zNSnSE1909E+3xR2s6yWzWMffLPw8wHsVExDd?=
- =?us-ascii?Q?GvvR/PshjU3w7oSxoGjOkfnbiF68xi+88vdXOsd4+FThWMzQeqASA2/p5jKb?=
- =?us-ascii?Q?C7WFIosCWVVPWhcEL5EPNllN7QqHIn3102lTUnSKfJXAR0VB4s7gtoMWmF9k?=
- =?us-ascii?Q?hTp1Fo8YEppYcfiffAU4xZUu2STkrqdGSKPWslPrX63sL/ZvTWeDkLbED6OS?=
- =?us-ascii?Q?b+T88ePqLlr348WORYUn8m6LlUdDthRqu4izMqY8+zPsC8SlygH0XJLJnk2c?=
- =?us-ascii?Q?676aTQl4ydMbG3p0TIbkk1Gcb8VTj2taTaBRw4YXu9/uB+2i+lx9BFYlAUTf?=
- =?us-ascii?Q?JoQ0nZjZ1JuTxEs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ybP96fb/cBPjFfFNXaBvEaqx1p3kDn6YavtQjcCx39HMSZyWYNS5ZTHH+WxP?=
- =?us-ascii?Q?2Pz157zubW5EB2kNEwESfTuBajBi4MTD74iM/46yapEA8K5SZF+IhfTUQYzo?=
- =?us-ascii?Q?7+cdJIxd3EtZmzYWWjeOPAsZWesQEecK8LKm3DvfX1aANF/YdH2c7Q1QJIte?=
- =?us-ascii?Q?013A/xgTgmQKJX2pNfp4v3biGTPSQRROgNXmiRt0RXv1qBzmrdMMpmQZ5jJZ?=
- =?us-ascii?Q?9Gj5A0GdXBJq1bnTM3+MV8wg9rTOprgcgA7TSHhCCvM7jajKeMWbIQQIeBLQ?=
- =?us-ascii?Q?aD8YevieOtO8nOTDvHPfa0Mjm+G+HAHHJySTm9AMJiWnhKDyWXe1MjEaNd+0?=
- =?us-ascii?Q?bSuJ64sqiaJSQrrvTwQzrKiC3FtLE3GxeWXnCDn1QAhQczTFN9w8+JHsaiQF?=
- =?us-ascii?Q?12aFqmKeNYnVzwA1myu4Tew5+n+B/lxeCsRjsMEQIK2OelOxQWSzTUerK7Kz?=
- =?us-ascii?Q?fBk14OM1T5O62hvEC+WMN3Z5UMkGwD0L/LVPkZl6ekvbfiAJ31UOCdHTgeYv?=
- =?us-ascii?Q?LDpvhaIsg1I83tqDLgNPvN4DN2sb2nlAHfN4fTExlfzV8B93uyO8HzXGkpNx?=
- =?us-ascii?Q?6QEiN+GquhJWfrefSxXwD9t17wtysqzFv4zoffQf+usi3xW4nZtr5Ysk0Fym?=
- =?us-ascii?Q?5qUpFwHIgwAAmSb/+jtE4ym+QrhnqS6WrcsQkuERsoKeaP6veg35xw7GmoqV?=
- =?us-ascii?Q?FvqDqcdE7WhYQhxThP3gzesFjy2spMyAG5K5ZXbXD6aIC723bvhNdU0RHyOH?=
- =?us-ascii?Q?YUTICHA1aPdkPv0kawE9g0j3LmI+CRyB6BNJm46hzKfBsvi66dYcP+9yjRys?=
- =?us-ascii?Q?va+dlz3ZD6YypdBcnjmDZoKYCxFMAta+BXH4gV9U+EZjmUsKYdthNKJ+Sntx?=
- =?us-ascii?Q?sXt6H207bIEHDbGZh7R0Q4h3qW6dVXL8g9rAgSykC62VmLS4fRNY+x0avYms?=
- =?us-ascii?Q?3vW3IesyPKe1zdUkaGFHxM8FVyQ9e6pXE5p0WlzJWDA00bIcpeJzqaGSRlfq?=
- =?us-ascii?Q?Xnlw5DR1Cygoj9/kDIPxSSIfj+EJv1owCmH1d2GG8QoCH/TSCyZVPCjtR+lz?=
- =?us-ascii?Q?PN2kVs6ETQZYobWJ3PdnoK4fUM9jOIHskYPkcJLuBzKX1uaApvakCyRJpMu0?=
- =?us-ascii?Q?AT4YxQKJP/V9bcayP9ubJSWmgHRVrmOvz745t3aqyXOi9/21ycWYFzhQ1ESr?=
- =?us-ascii?Q?8NQTcRJ9G5WnbRPSrhB6ul64E/AywnUq/VMksYOqUQ5tYZdx+ThroWpbcgEH?=
- =?us-ascii?Q?faopNLDUXtah8pE+zNJOerpVX4QCi3vFXH0ZCfM52ZHp86b4xDBwVnUP+6Zk?=
- =?us-ascii?Q?X6lkxYOoP9KEHPeDtoEd5yneoMDJNx2A/0Yz1CLKsDyzC8IeVHVH8UWj++l0?=
- =?us-ascii?Q?ym3+YhsjY4ftptLGwNNo/Lm9MxNpWIJXdU16Bpmnb7LWFJezsktwkFZhSrSd?=
- =?us-ascii?Q?+H0CKsIqtl6NToKPstwC6j7oH/chbtIIjOXTM8vlhKhrNrcdjR6eA+I8VirM?=
- =?us-ascii?Q?cgsRF8As1fBJDeZU8T8/mzXkfYFaLlwr2W7jDmVwzZDj7XVObYAmFL3FomnA?=
- =?us-ascii?Q?ODCfibp82YV907leCiJpV/Z29ebRUkiuTpQRzDjn?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31b71237-e071-4e76-2abf-08ddf5a62d14
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 04:53:42.8884
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ceG9OSviO7OSpEWJlcUAk+zwFo8M7J7bLN7FB65WRdddXAigQoODscGbRS4dsM7dDpn1NpOsHrY2YnI+H0QJWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10098
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250916161103.1040727-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_215353_456467_F770FFE6 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250916_222122_690696_B7B3BD00 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,79 +71,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX95 PCIes have two reference clock inputs: one from internal PLL,
-the other from off chip crystal oscillator. Use extref clock name to be
-onhalf of the reference clock comes from external crystal oscillator.
+On Tue, Sep 16, 2025 at 05:11:03PM +0100, Marc Zyngier wrote:
+> Nobody really cares about BE, but KVM currently only deals with
+> SCTLR_EL1 when evaluating or setting the endianness in PSCI,
+> meaning that we evaluate whatever the L2 state has been at some point.
+> 
+> Teach these primitives about SCTLR_EL2, and forget about BE...
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Add external reference clock mode support when extref clock is present.
+You know, I was about to say "don't we need to sanitise this?" although
+that seems to already be in place. Nice.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 80e48746bbaf..e2ca8b036253 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -149,6 +149,7 @@ struct imx_pcie {
- 	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
-+	bool			enable_ext_refclk;
- 	struct regmap		*iomuxc_gpr;
- 	u16			msi_ctrl;
- 	u32			controller_id;
-@@ -241,6 +242,8 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
- 
- static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
-+	bool ext = imx_pcie->enable_ext_refclk;
-+
- 	/*
- 	 * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
- 	 * Through Beacon or PERST# De-assertion
-@@ -259,13 +262,12 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			IMX95_PCIE_PHY_CR_PARA_SEL,
- 			IMX95_PCIE_PHY_CR_PARA_SEL);
- 
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_PHY_GEN_CTRL,
--			   IMX95_PCIE_REF_USE_PAD, 0);
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_SS_RW_REG_0,
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
-+			   ext ? IMX95_PCIE_REF_USE_PAD : 0,
-+			   IMX95_PCIE_REF_USE_PAD);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
- 			   IMX95_PCIE_REF_CLKEN,
--			   IMX95_PCIE_REF_CLKEN);
-+			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
- 
- 	return 0;
- }
-@@ -1606,7 +1608,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	struct imx_pcie *imx_pcie;
- 	struct device_node *np;
- 	struct device_node *node = dev->of_node;
--	int ret, domain;
-+	int i, ret, domain;
- 	u16 val;
- 
- 	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
-@@ -1657,6 +1659,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (imx_pcie->num_clks < 0)
- 		return dev_err_probe(dev, imx_pcie->num_clks,
- 				     "failed to get clocks\n");
-+	imx_pcie->enable_ext_refclk = false;
-+	for (i = 0; i < imx_pcie->num_clks; i++)
-+		if (strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
-+			imx_pcie->enable_ext_refclk = true;
- 
- 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
- 		imx_pcie->phy = devm_phy_get(dev, "pcie-phy");
--- 
-2.37.1
-
+Thanks,
+Oliver
 
