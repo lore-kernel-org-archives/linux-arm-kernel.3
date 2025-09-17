@@ -4,89 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41129CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2843CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BzLbMenZtftH89T106gmsuJ+uofhbnsg1l+2Ng0lErU=; b=ssTtAdKj/WYqDenNlHDRiBtv4v
-	TOwRnS921FEOh3b3/Edv2eKhZOTPVFY/C0joOrM1zqmf3WMSj/ekO78xqDw2QBeNU/gqyg0g+shIv
-	96bg+23bykF/MvexfNZcJtqgP1NpOI4BqPclynBMEfiRBxjZTfjH+4yATGwss+yH780ATWvkT5kEE
-	tRwIv+z4Packj173NoeotVPbnObiFG+FNr2/1OUgSss4b8xAFC3WJIY/GoG4rfaxqNOVM6T1a4nxB
-	gwFvgtig3K2vdxD3NqRd70R4HErn/qETx0VF9eUkl45sGn57GoRRJ8cGvhPEvh8x22iH6oMTZs/5q
-	56pI4P9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NzcIASX6MQvdQw/Z1fRytkXBMlH8XuDqlGIN6FANLEk=; b=rUrAXShZX25Rkmt6giS1FAbcYY
+	IfqrsGQteCry2c+UvqxQnNzwuBhJ0Eewg/Nhd3GovcPtFqZbRcjBDTVn+HUvvjb0t220d5BYFO/gg
+	/ctMzooVjx5LBVzQ7NshMRYap23enPP70DS6JtzWoqof+QRdYi4I7RXE/CnfvYMl3RPVtgYcHyhU9
+	5D0AuzsA0zkraHfNdCu+MocxxGbnx4FYEFaAYrpf2Yq/kjf0dr0YllqaSHCGI0MQHm+ADWFZXFDYJ
+	tz64hZDJp22wFy4OXL12fJ9zgRW95VPyXsEZPzjAGct48v4Log0jaBBtkIuuhZOVXOt2ZVw5eg3wO
+	sTUmhOEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuQa-0000000CsvE-3ZCq;
-	Wed, 17 Sep 2025 15:50:40 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuQX-0000000Csse-1mHF
+	id 1uyuTy-0000000CuuB-201r;
+	Wed, 17 Sep 2025 15:54:10 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyuTw-0000000Cusz-0avS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:50:38 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cRjGc51W3z9sxb;
-	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id semPCKf2cGPh; Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cRjGc3ltzz9sxZ;
-	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 699538B76C;
-	Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id sLjYwSuYZXNq; Wed, 17 Sep 2025 17:23:52 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 38E3E8B767;
-	Wed, 17 Sep 2025 17:23:40 +0200 (CEST)
-Message-ID: <c4a281c7-e225-418f-95c3-8fa91073a6b4@csgroup.eu>
-Date: Wed, 17 Sep 2025 17:23:40 +0200
+	Wed, 17 Sep 2025 15:54:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PCJvP+XEfafLrFtGSlkcwb87pBRJPo5gkL7bULRE9Acc7wTXlHmI5umkAu4TMkEV01smAEBOvDTlOtuT0MI5++9p1ayrHIu17rrHdNN2FnRww8wHwDK+vbbuSH5pHXd/kZFryH37ILN8oLMK0n6BsCSoTxBPiHTTIXODb0lxTU/Hy1Jh6t/WHideocP+5mE3OIeq84DZxEh5HHcqIatqjSbdW5rCzSxrGSpkjMUaXD/InoSwvRov/fJjMV09fKXx+gx0v2TNtNoxhsOHVxKpAbQJ74ZmovupD/MH8ry25S3ZQc6NrxC5AW0okXAn1xzcNSPqPAeMuV9SOpLYuzKtRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NzcIASX6MQvdQw/Z1fRytkXBMlH8XuDqlGIN6FANLEk=;
+ b=ytUP+ssz0a+9XZ3KMirplrvOsXfBLiuV/UyJqqqu3P0R/0NQocRvAa8HxMvfaMYp0Q91M7GtkqsPbKzMvg8CMzE6nPXghTHM6ERMMn8nvdNVaxgss2UeGq+KoiDzaB87PgoqfLchqpw4ACm5f229JaDQeEcOi1rCpJVmWOrx78EbBLlAIsuTd9aCfXMFSF/LqDZZZS9zoG1LEcrfciLjRpdMLbqMzDZ68jeoEGGBEjISVVtnkYj/24fYdjkX1BsxiPx3BGYHSok13AMcno8JZZOwbzxOA278Bl/BrJnHTX38WgimEwx/YVpBnvZ199LI2Pea7zKP8g+OFked29uHTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NzcIASX6MQvdQw/Z1fRytkXBMlH8XuDqlGIN6FANLEk=;
+ b=AuVSsEoz+dL69TAOGwizzxtKlvfa/JaQ9GTk4R7JWb5yNldGoBShQq4LxguZGnydSURv3VGDh5NYVTW+M3y6QECquIbdnMWrX/s5cx9E9NCk0C3P+JGKFF3NlBodcvnx6KVzxgbErzDxsnFjvlEL/sK+WN3X5xKuSvpkhkLzapFZ9lri1kNStOXWOJgB9m0AypD+Zf6i43+SdSDnyOtoCo4F7f2MQpHlf2TH0AC+y6QfmjhHldFVf437CiGzQuxwjzf/I7BuSZcO3dh/Fv6qqa0WTr5FqzWDHX0qC+CxoJm+1Ga6QsbTP4z8Dkbmp+ulZImXwD4p4wnixxwhdcVkXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GV4PR04MB11291.eurprd04.prod.outlook.com (2603:10a6:150:28f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
+ 2025 15:54:00 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 15:53:59 +0000
+Date: Wed, 17 Sep 2025 11:53:49 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v6 1/5] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <aMrZjcB4zDMw7s/G@lizhi-Precision-Tower-5810>
+References: <20250917-csi2_imx8ulp-v6-0-23a355982eff@nxp.com>
+ <20250917-csi2_imx8ulp-v6-1-23a355982eff@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917-csi2_imx8ulp-v6-1-23a355982eff@nxp.com>
+X-ClientProxiedBy: BYAPR05CA0080.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0::21) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/36] powerpc/vdso: Explicitly include asm/cputable.h
- and asm/feature-fixups.h
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
- <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>,
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
- <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Shannon Nelson <sln@onemain.com>,
- linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
- <20250917-vdso-sparc64-generic-2-v3-7-3679b1bc8ee8@linutronix.de>
- <41d100c5-4706-400e-a61a-46b068f1bc74@csgroup.eu>
- <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <20250917171207-1fad0416-7543-481c-a998-5881fab1714e@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV4PR04MB11291:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3e8b359-9b87-440a-e3dd-08ddf6026a99
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Rehgh52jRSI6pwfpXAUHn69rPhUWKmRmY+DoX/52qeR0mb8PUe+mBd34AsAZ?=
+ =?us-ascii?Q?jfCvP++FVYUoGcpK4TEkBGHEghAh8OjZ5eNWXUU4MEWRgixRljLcz6b4tToI?=
+ =?us-ascii?Q?c5dt5Nd8uklaAqW5uGKGAHRCAUcdg/dfECwGCdzGfAY6G8ZRTOcXFgOTqcmK?=
+ =?us-ascii?Q?ZucGGiDq17oNv6tzF/p25ZgjKQs6SClvm6XAZQAsOlvFwQDbBWFt8PJY1mOd?=
+ =?us-ascii?Q?oq2r2Y6gZu35TILnwg8Ke81dxgMn0ltCo5uu6CYYj0/3C9dapSxKq6kXIqux?=
+ =?us-ascii?Q?kZyxwHrbinrXDXbgZzUrgsIyrixwpger97KcBZpn69iNFZtx/47lV5JNfWFH?=
+ =?us-ascii?Q?kEcplLocIvuK/i8E/UjLNqNzb8HiETXCI1u0RVqCz/qm6hGqgpdutUwHTHuF?=
+ =?us-ascii?Q?S5SXpLgyYezcIh3nQTH+/f0bCnoTKcxehxGcLAMAel6yVQSr7hPgz9VUAvZS?=
+ =?us-ascii?Q?V8E6ECy677NsxQafytZmcneLXtioe7nnySgGs53j7GpYjfnRhi/QdtFge3ST?=
+ =?us-ascii?Q?HwIN4cIDpLktqvWJb0ZqOMNh7a7WDUXmsAIzUPmmx0JjNpBSF9emOc3j6He3?=
+ =?us-ascii?Q?khvsneIz7I5O+nh8oG6mA/JH2FqXJL+DaBpu+iYDYjjQ0GR09Ar1iKJbaR5L?=
+ =?us-ascii?Q?0xWpazpGPhfwpBGLc/arx24/bnnCP2ToINyXbyU0pI9PKMEpHytTiTnmVzB+?=
+ =?us-ascii?Q?7SFuFSzTtm/n8rSq6apy7lTeimoG4Ji96Y/AE1AfbhUZDPm3Cj6RjYKCFFXt?=
+ =?us-ascii?Q?eNDCIlzR+ymd3LAIunYkLnvxi4M8AioQR9HwFAfo4RmBbpvWUpJFScryLYLH?=
+ =?us-ascii?Q?ygb1K/o4VodQeNczyGxY+Zmbloh7NXpccfGwnYmfhV5JyBMQbQVOXJ0NRIDY?=
+ =?us-ascii?Q?arLXvUYGf+uKjOjQ378VY7I6GVVLarwQUMgP/6mpPMsjwt1B1tQLRvrKKL4O?=
+ =?us-ascii?Q?xJdzdnxqw7r+x9v4+lxuYz5ITNKreNx1AMxIFypFACx/uG3VXB/f+KWxGLjB?=
+ =?us-ascii?Q?mrGVKYRpr9mS6Qrl/ZfK3NmNm7y8pltIwqFS2FvdxXCPaCsdIozWK2gyGuum?=
+ =?us-ascii?Q?COwZZkcZnn2/50qJqrnTp7/XDUeoYUVPTFg5TDrg3RlKA3YTo0MHGc83jle6?=
+ =?us-ascii?Q?b5Yf6IcZUKf1npiu8SjwOlN8SEqe4B8rETjaTAPgkDwuBaVjvdfwyLRSASVd?=
+ =?us-ascii?Q?UJtkTg3eoaJWxV+xIAyLLIiV6+VDs7bs0YEbDyADkugIkkZbY+5Uq01lENPa?=
+ =?us-ascii?Q?6czXcIIAfYxDQrbxiubOeVtrLR5ga9nsALQtkzFf6jxvzjWot7TplAcSfZtb?=
+ =?us-ascii?Q?G8amw4/OuH1+BlSxzjNBhilFmK6hleI6c6n7rA+GLCNymLv/93KYv4CKbY04?=
+ =?us-ascii?Q?JGpIjK96UeRrf62GztyfP4dTnlGahvXiPX9v0+fB/JuPfq9yOpBwBiZvaMUX?=
+ =?us-ascii?Q?WyJsDxGxOEs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2g+rEPGFf7XWQvyV9+CbWV6Q/iTVjv7Sef2q4OyUeXm28cHJdNlOyGmVr9i0?=
+ =?us-ascii?Q?6OsOlu1nIQ4jR8Yo8wOb4zfRTHe05EPeKnJpPzXG/ejGhR2eZpLeWuUX6DOG?=
+ =?us-ascii?Q?N0yO8H9m535lMjEJBpvpuLNfVzlma3ot1yz9ytIEerZsVtGyBOjAIR2cnbYx?=
+ =?us-ascii?Q?Mm/WUw9Knu1l7seUdEYFj1NqGX0hje1sAKo8K2cdHP0s9XA5rIpoetBX9Zg9?=
+ =?us-ascii?Q?EzSBPDjCR3HX8JiLc21zPQlTgEbZdkn4iAwD8yh/VsXICmJXW8wpxL6zBguw?=
+ =?us-ascii?Q?eLgImIhRV85Kp06dH6nklEpE1s0sETAbTE+2y1UjNP8LK9tnN3mdLxNDats8?=
+ =?us-ascii?Q?CZ+28wV0e7baDFsYeMtuQwjHYgxk/o9/4IDaI+QdzRXQSLAQ77fAw+LZGNbV?=
+ =?us-ascii?Q?fyFgQewDOYnVtyTq+P9Nj30dPJNISvP1h0ydl0pXiIvfby+V0Mv8uAogd+nA?=
+ =?us-ascii?Q?TSdppq8Yn0JJXSppg39/+Pqqmpr1s5X5EYX7/aatbC4pB/zGbzq8gzh/sRxw?=
+ =?us-ascii?Q?jf7NFV4CGDpw/ZLPlyvGj9Pj2MKtrP8kjkWG0ez7uFqVs1yfav0mQikArx6Z?=
+ =?us-ascii?Q?zRP5MhDKAq3yTbp7sU37QXpCsvcOYYLN1qL1Stz62I+7AKpT3pQCn77cHBw0?=
+ =?us-ascii?Q?Bjw8R85qKzXFgTErrfFWgJUCZKAnHi09LG0qzw4b2OiLqJaERYO4vfBVnJen?=
+ =?us-ascii?Q?9mQx52Pm0LFBkB5//JDMCMSh13EzIBQCf5OmDskRJx8pAdm0H/y3m0K1QLiK?=
+ =?us-ascii?Q?F8MkwaqSd5PHeAwED8093VcjIR+esQem46yCcgRUggngKxI1bpvYTxDND/jr?=
+ =?us-ascii?Q?7fe5c5YeYF+tDD3r0maW/VgDrCLZMy1Jy76kOLMrcISgeJFSvXhg50lJ2H7U?=
+ =?us-ascii?Q?ypGigjoIdiDJImCf8rsMrNtXTbtLAnEdyGey6MSKQ/XMVaN3xJjUJ4AGmFS/?=
+ =?us-ascii?Q?pyLIf8L9NGiMQ6UxNN7oH45fHnkDpWkHMiaV1uyc6fo6RtA/eNuA7vAcqTwa?=
+ =?us-ascii?Q?lwlnJONq4Sgrm+az1cW8ebYON8JZ8k2SGTghZdpugWFXk5qRlmjFbW45fpcN?=
+ =?us-ascii?Q?XKktzS0623JmPTpqk9fUip8prTwRXJfRXggX/NpJyVyPRapuTBgLm3Lpcbck?=
+ =?us-ascii?Q?Yo65nO3xqNfp9e+mSxaFxApsDf8cGtbr1wbW87J14Vq5n+7rQAYcBLzrKA3p?=
+ =?us-ascii?Q?iUL3ruCkPDC/XzU+j0LK3y7GmUy+q8wzLS0do5ju+X8KqVhWZV6759QU+0gX?=
+ =?us-ascii?Q?2Km32cDpa0542ksUfnOmxMuvjISJyFpjSn5t36mb0m4JH0SpCAja9vHizibn?=
+ =?us-ascii?Q?J+Uo0N8AqvV8YYsUcYnpc+G3Wvf9lm74437Mgs2t+WlIpkvAq8uOU+4rGJWu?=
+ =?us-ascii?Q?32EtZmCFNDdG+5it+DalSWCyRIcJyWCr7tZi2ipzESyXjB1Izf0FroPCw/pV?=
+ =?us-ascii?Q?MYIQI8Acdkd8Pl+UedQqKimi65yK/YKNAEneazBxOJOaiWOi4Zvbqz/L3OHw?=
+ =?us-ascii?Q?w6/6gasecqH0imsu6qAL4e9BRqMJEvAmLNXwU4TAWjaJavlAty97dX3D0pTC?=
+ =?us-ascii?Q?6alRZzbepgQ8iZ0/E7VvFu7Hjqbz62gUqYW/K7/U?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3e8b359-9b87-440a-e3dd-08ddf6026a99
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 15:53:59.8538
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z3yQLGZTK9VhdmdX+ggC3o4+oaozjAxCBmN4SyL16oSDYJpkgYj994NPXsRn5lgjOvr68YpvEfaCzlXzuY/W+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_085037_619284_9154F4EB 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250917_085408_198669_0945A0E1 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +171,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 17, 2025 at 04:14:50PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+>
+> The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> present in the i.MX8QXP/QM, but i.MX8ULP CSI-2 controller needs pclk
+> clock as the input clock for its APB interface of Control and Status
+> register(CSR). So add compatible string fsl,imx8ulp-mipi-csi2 and
+> increase maxItems of Clocks (clock-names) to 4 from 3.  And keep the
+> same restriction for existing compatible.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
 
+There are long discussion at previous verison.
 
-Le 17/09/2025 à 17:21, Thomas Weißschuh a écrit :
-> On Wed, Sep 17, 2025 at 04:41:49PM +0200, Christophe Leroy wrote:
->>
->>
->> Le 17/09/2025 à 16:00, Thomas Weißschuh a écrit :
->>> The usage of ASM_FTR_IFCLR(CPU_TR_ARCH_31) requires asm/cputable.h and
->>> asm/feature-fixups.h. Currently these headers are included transitively,
->>> but that transitive inclusion is about to go away.
->>
->> Hum ...
->>
->> That was unexpectedly added by commit 9c7bfc2dc21e ("powerpc/64s: Make
->> POWER10 and later use pause_short in cpu_relax loops")
->>
->> In theory, vdso/ headers shouldn't include any headers outside of vdso/
-> 
-> I am aware. But this is the dependency as it exists today and I don't really
-> want to make this series larger than it already is. This is by far not the
-> only such layering violation in the vDSO headers. I have some patches prepared...
-> 
->>> Explicitly include the headers.
->>>
->>> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
->>> ---
->>>    arch/powerpc/include/asm/vdso/processor.h | 3 +++
->>>    1 file changed, 3 insertions(+)
->>>
->>> diff --git a/arch/powerpc/include/asm/vdso/processor.h b/arch/powerpc/include/asm/vdso/processor.h
->>> index 80d13207c5688d73954822aede2bbe2d0e05c054..42b64903bdf47cc5bd571fc3b5caed45e6358cb9 100644
->>> --- a/arch/powerpc/include/asm/vdso/processor.h
->>> +++ b/arch/powerpc/include/asm/vdso/processor.h
->>> @@ -4,6 +4,9 @@
->>>    #ifndef __ASSEMBLY__
->>
->> __ASSEMBLY__ is replaced by __ASSEMBLER__ in powerpc-next in commit
->> 74db6cc331b0 ("powerpc: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi
->> headers")
-> 
-> Ack. I'll have to rebase this series after -rc1 in any case. Right now I am
-> hoping to collect some Acks.
-> 
->>> +#include <asm/cputable.h>
->>> +#include <asm/feature-fixups.h>
->>> +
->>>    /* Macros for adjusting thread priority (hardware multi-threading) */
->>>    #ifdef CONFIG_PPC64
->>>    #define HMT_very_low()		asm volatile("or 31, 31, 31	# very low priority")
->>>
->>
+For refer:
+	https://lore.kernel.org/imx/20250903192142.GA10637@pendragon.ideasonboard.com/
 
+	compatible string "fsl,imx8qxp-mipi-csi2", has clock A, B, C
+        compatible string "fsl,imx8ulp-mipi-csi2", has clock A, B, C, D
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+	clock B is special one, driver need know clk-freqeuncy. Other
+clocks just enable/disable.
 
+	The program module is the same.
 
+	It is not important about if fsl,imx8ulp-mipi-csi2 need fallback
+to fsl,imx8qxp-mipi-csi2 since driver has to been updated, only one line
+additional change.
+
+	To keep simple and strangh forward, don't set fsl,imx8ulp-mipi-csi2
+fallback to fsl,imx8qxp-mipi-csi2.
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 41 ++++++++++++++++++++--
+>  1 file changed, 39 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> index 3389bab266a9adbda313c8ad795b998641df12f3..da3978da1cab75292ada3f24837443f7f4ab6418 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> @@ -20,6 +20,7 @@ properties:
+>        - enum:
+>            - fsl,imx8mq-mipi-csi2
+>            - fsl,imx8qxp-mipi-csi2
+> +          - fsl,imx8ulp-mipi-csi2
+>        - items:
+>            - const: fsl,imx8qm-mipi-csi2
+>            - const: fsl,imx8qxp-mipi-csi2
+> @@ -39,12 +40,16 @@ properties:
+>                       clock that the RX DPHY receives.
+>        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+>                       See the reference manual for details.
+> +      - description: pclk is clock for csr APB interface.
+> +    minItems: 3
+>
+>    clock-names:
+>      items:
+>        - const: core
+>        - const: esc
+>        - const: ui
+> +      - const: pclk
+> +    minItems: 3
+>
+>    power-domains:
+>      maxItems: 1
+> @@ -130,19 +135,51 @@ allOf:
+>          compatible:
+>            contains:
+>              enum:
+> -              - fsl,imx8qxp-mipi-csi2
+> +              - fsl,imx8ulp-mipi-csi2
+> +    then:
+> +      properties:
+> +        reg:
+> +          minItems: 2
+> +        resets:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clocks:
+> +          minItems: 4
+> +        clock-names:
+> +          minItems: 4
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx8qxp-mipi-csi2
+>      then:
+>        properties:
+>          reg:
+>            minItems: 2
+>          resets:
+>            maxItems: 1
+> -    else:
+> +        clocks:
+> +          maxItems: 3
+> +        clock-names:
+> +          maxItems: 3
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8mq-mipi-csi2
+> +    then:
+>        properties:
+>          reg:
+>            maxItems: 1
+>          resets:
+>            minItems: 3
+> +        clocks:
+> +          maxItems: 3
+> +        clock-names:
+> +          maxItems: 3
+>        required:
+>          - fsl,mipi-phy-gpr
+>
+>
+> --
+> 2.34.1
+>
 
