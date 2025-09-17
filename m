@@ -4,71 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F080CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB255CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1cwEzp++MXHheWvuUQbMtki7+6mgkNFLjSCBB8xlfLE=; b=mobS/ZMwEB3gpZYlu71X458VnK
-	MZqWilmLWE31obP1QNEGDHpNYp6bXIS0h0rQv66bqp3f/quyc2Wn4GZpmcLYwPjleaJ8Y/qDq+NGF
-	MukUlMLkIz/n2/IH8ww+kG+2Vb01uowYf14dhllWfmRyDs3DdnK4ODHKiMWLP9oZO3OJySbWKNcWg
-	0ToW+4tJMoSKFCWRxhsLLPlhaWKeBq1izSOdLJEg7ve5L6bq48aO0bF0Og0DgQ+qFt3czNDsQjEfA
-	fJB8LTcm6He1ZtgYqG2T3d2MMnqo5JehCxJEWrFbaOWTcIhj389IxNu4pPtc2T8RrLRX19KZZaZ1t
-	D4JCYKpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSHI9l9Nn9JPAal2F5/+RMfYX0DO6eCbjcUmfGnLxW0=; b=LvluHZpO5+X5xem/buXMloru55
+	v9qRmaPZxoWrmTp1ZE7hwrtdYVJloSNI1vLfo0Vh09LtJLfQOoOv9wIflIouJe4+9htFBGbiQ4+sN
+	Ak5f0wRE8y1L4yGZnS9VvymfhJSmhO+J2D46ZPwoNCySlGKfJt/nmtGKYCtqGUGAyGRzK0XTh7nIE
+	1OsWUBuPvalumVp4OhZb4jFIBPFCSz0hLiTXGFdKP7+GiuYmEjYdEbmKhYUZDfGZ8vjgkmrJMax6B
+	Jlb4EpJKZRfSROgZwud3v8pqxsWkxGaCu1IjDkMvhsUiQi0dIu+fL4yuA82o0ab1ppdTgwZoPCt1w
+	sfrXyi3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyusj-0000000D630-2CFd;
-	Wed, 17 Sep 2025 16:19:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uyuu7-0000000D6bo-4Bx4;
+	Wed, 17 Sep 2025 16:21:12 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyush-0000000D61E-1gnm
+	id 1uyuu5-0000000D6aq-2XaJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:19:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C8F643680;
-	Wed, 17 Sep 2025 16:19:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF6B1C4CEE7;
-	Wed, 17 Sep 2025 16:19:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758125982;
-	bh=yrT13gddazNWzpKILY32FF9cW6yTtx5tbKiQROUpzww=;
-	h=From:To:Cc:Subject:Date:From;
-	b=P1OkGDGYUrawyGfQ261kRY5ps7C0+2NkR62LcT52UTLl4mAwBBENJbAyilBIt6H6F
-	 2mhb3TN0HNN4j+9sWQI/klhEM01aC2grwBmohg+s1TXVtzNIMsBP4cQeoLaVk9i5m2
-	 aYRnmWToTCyHuDKFwF4ifIyQuCJ7bCMn7UF5j7KNwwwnxHIYD6XQxHvkaX/w0KhOhO
-	 Z1F7JRR2QOX/KgrhZP85YlBAq3ZnlxyD4mU2OeD+UqOc4lKxeWRS6xNOn561v6krJk
-	 vOtEpCRcU2v8Pn5M2LYOgNt6WQSRJSgC7wyYWSqqRQnRT4gAW+/ZF7NDYKSFLjLEFi
-	 EskLAL/yDbIGQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uyusd-000000079Zn-46Em;
-	Wed, 17 Sep 2025 16:19:40 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH] KVM: arm64: Don't access ICC_SRE_EL2 if GICv3 doesn't support v2 compatibility
-Date: Wed, 17 Sep 2025 17:19:35 +0100
-Message-Id: <20250917161935.1630908-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Wed, 17 Sep 2025 16:21:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NeBhxybuhK8kw/o8M9b9glQxHB1cYqEZoQdHnzZimkOFCpQr99v7MVTyG6KfvP56f/b0ft92dgTo5hFHJGNCE6+OWXjAkgDiITaLgRLoDKOy5tALBqovJr31ei7Gti+ojuip9wQf6/BE0wQXioH3NvwF8mEq6oPROCvahapl3CSXEY75jOXIMqy5+QztFtuwjkDdwo+A0ngqFSUwN23Z3GvOXY2D0YR3t++cyoC6XTM54EY2YqR2icqzPeIZpKKeI2EcjbJjmRdA0fWJwhQw9aHbK/43QNdddDYj9M9TeRLXgV2SFiYIkRpy+ApDjn0VpO5hmVvuW14ziIcQ/3OxNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YSHI9l9Nn9JPAal2F5/+RMfYX0DO6eCbjcUmfGnLxW0=;
+ b=NauiaTk9/hig7rrNRBepflXIxFQ/tovDyOWaDdVvjl9G7BWodQFYxBII6XTekdNTxnqWoA+4PYke07YalU8dESikiAA0A9V0Sdg3nxmf4/vrquehCtBr18qvWlS6Df1+7ja0yqFqZUA031OYYAwtNuwdCt9qxMEEN/31gz8T7isu2Y3crv084NzDeQ8B8w0CXBve/JkhixEBt9CJ9dyDrPg7m9vyyJc/3Sx/mNqt7ZqXgtS1iDiSR9esICaMBAjt+t4CpEejdhzYldulCXFygE75hQFrAGk6+Joy+lw5T4qzQflz4lMrRtitwwakzB/CjerKCfhnYXK3FLB0Q3qNGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YSHI9l9Nn9JPAal2F5/+RMfYX0DO6eCbjcUmfGnLxW0=;
+ b=RENMd7IMH1sQnmU7D8IuHZErlz12ouWQMPAKa5gQ38uzQgpeYBFi4n+w3aHLEalzxBkAoR6URtV30AQPZgpXlIO4SudDDgUGK6dLIrmfEUGnsicwUrF/KEObCUJONgTr1ctMg/oOd3mUrAfXA6br2EXN3bmsLlXSxFwvdVllQvQyU+VdmTjhfev29mFTl3JWVobvI0mfi6AX5Eilgf0QjVqD3RN50zopWTjzzWWFXMYeE76/oLPrB3RVY4PMOyb88+u0brcsjnBASyePT4fCcP6W1hw0x0M0oz/gpEN230+rlA+WppM5ue0+0awOdc6a+nFvuV5yXSP4J6flu3ShhA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by VI1PR04MB9859.eurprd04.prod.outlook.com (2603:10a6:800:1d9::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Wed, 17 Sep
+ 2025 16:21:03 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 16:21:03 +0000
+Date: Wed, 17 Sep 2025 12:20:56 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org
+Subject: Re: [PATCH v4 6/6] Input: imx6ul_tsc - set glitch threshold by DTS
+ property
+Message-ID: <aMrf6KBp290uzYgD@lizhi-Precision-Tower-5810>
+References: <20250917080534.1772202-1-dario.binacchi@amarulasolutions.com>
+ <20250917080534.1772202-7-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917080534.1772202-7-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: PH8P221CA0065.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::13) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, sascha.bischoff@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|VI1PR04MB9859:EE_
+X-MS-Office365-Filtering-Correlation-Id: 32d8e992-59d6-4363-8f67-08ddf6063286
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q9+qFpAdxF9NUfkPq7CAOeH44sfm8ZQ0s9/xpmuFaHKRGBY+Kf21iKnnwpVb?=
+ =?us-ascii?Q?QyxtfgA2tp8NP5w32yTztNKCszELv6hTeQT44RkYZAwWJnK5f3ahukHz66sJ?=
+ =?us-ascii?Q?yr+IvmtZSWNjkaCZkIiCN+Ox0tmZqJzaHFI4sr3IPTO2o+W1qHV9ba6C/hdt?=
+ =?us-ascii?Q?HghPagUpM5AdHG7g9EPZ3WtzMRezs3QoDc6GZ4FQa1MLPION4oi+NCWkAPRy?=
+ =?us-ascii?Q?dPB0T0rxQYbpWGVjjdMd6YhumQThm0N1H12Oj8YoKOSTHYEbjLMOABdhfK17?=
+ =?us-ascii?Q?qsXq8+0YtzRe+NfxaWucBglGO4ZLDv6rKY8d0NyRMumFNNsu8A0ZHBtf+40n?=
+ =?us-ascii?Q?Pxzllyt8vZm+Qp+wF8bavZBeAVgIC+vDubXFgk0KTyqj1+tzp7SWzd+8yWFy?=
+ =?us-ascii?Q?wqaJyBGq+WwBHF99DNazRE6/X74umhJpDGOnJ2LmO3gYKf5C8qHLSfik4M4O?=
+ =?us-ascii?Q?DmLtp3TKPSABZH4WjNf0ljwu6QXT/8sygbQ0gpyIAd42yyLiB2BF24uU6FQ/?=
+ =?us-ascii?Q?y6c9+rqXpZKg70KBNcwujNNPbfxWGxCSFeT/CaRASXh+HtbUMMu/NtWcALSz?=
+ =?us-ascii?Q?7tXz7JWX+H2jCgSS8cFve+OMNakSQydFa8Uo+X/dkfR9FGW3pjgUMgrb4t+i?=
+ =?us-ascii?Q?3l3vA+hY0e0wU4nQpRn0tW6c3nDJZtHWFFgthHileHMe2we5mSorUTCXrIwV?=
+ =?us-ascii?Q?A/rmX+VSsj8oCU9qarQTQII6RBn1RnBYf0VZ6S6jWWbjDApQmenUL8Kn0D3c?=
+ =?us-ascii?Q?mLAOA3vD4+gaxd631GFYNP8qcM5xvmVWk8h8NVX1RblOjCsRokvux5+D/ZRN?=
+ =?us-ascii?Q?2A6d3BoHph7NYtEKSW1SYrIXlmWEqs2EuZN3NYCoP/putd8cky4wwZU0/lBf?=
+ =?us-ascii?Q?+6nyvvTo9R4ZdJTmvuK77u92WYS0/xSdcexwZ4vhK5vdJiejZSLR2NkO/2o5?=
+ =?us-ascii?Q?veQj6sBm6erwpSZumxfu7tMEo0IpgZnQG9Z8sTVbG55LJX27rFgdKvbGRjYz?=
+ =?us-ascii?Q?0nveo+maKYBL7IamluBWkWLgiaNq8dW+o9LiLzh4R16MwCebDFSNNO7P1AAI?=
+ =?us-ascii?Q?WpSQFOfaJuJTqRVy5AimE4f8bDM4wfPE9GVw3tqH56TU9vTjZCAhZgFToHX0?=
+ =?us-ascii?Q?QJOGPAeNbGwSGf30QRBoDxISoq6KoxtGfuA3X0iSccpaapf90IeRail8flDK?=
+ =?us-ascii?Q?99jtyC3G2qwgNBJ6fFZ/Sq+j3KztsQbCOZjdclPUUa6oDeimTDVC7fZFjm6W?=
+ =?us-ascii?Q?c2D0v9DC3YRlqSwn0lE6JdorWpLuviTLwfVnUNRqMCQQzUTwuLwN8PAVhlwk?=
+ =?us-ascii?Q?1nbr+kgwAgHRYMtIAWV+oLkZcjdax4Lg/jaHnriGEmeOQ9miEwmZUIaMj4+r?=
+ =?us-ascii?Q?iwcqyxYAluNekRdsQ98UNb2wKMePHbGMOfPdCPV/Oaow2abheib+Na4znJsN?=
+ =?us-ascii?Q?ZTWi0BWy0XYRZn2p8nMIbWV4Hmvwobm9SjOgin8C/PrpFJElO49Vhg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XcPtsNga0ePPo0weQjKyFkY5EKMbTgw+iSrlLMOrwE5/QDLK4mN48jiaR5eP?=
+ =?us-ascii?Q?Mr95QCLixPkwCanTZQLLIuHLmOHX7EcxBmhidj4l25Ex8kN/8qcCrnjeu6y7?=
+ =?us-ascii?Q?m6sBGArnE+DcZ2DUF9K4T+/p9P9q86VPKd95hQDsM+SbVw2LjxO0Ko+hr17N?=
+ =?us-ascii?Q?LdMgw3gpiBxklcMdXwUaKvs9KKKrBrfCVZcPaUNVAxPsshW2Jmixv33BgvEy?=
+ =?us-ascii?Q?IH06+QJZ7RhrlgekV/speTvpR5fR5lveJZTfzxntrsxVuVfNLWw+3q9BPvY4?=
+ =?us-ascii?Q?njH1ngtIilYk2J7fV2GobhsWDUOJBcwMYSpuVCQ2R+NrI7lZhnjXVeI7bYBZ?=
+ =?us-ascii?Q?KFX+iPxNvjtqThyDNiCBUPdCuhxqKminuxrDsE7Jp2Yi6RKyV5ZnbLQ1hHM0?=
+ =?us-ascii?Q?RxA5pZB0n24JKINZcru4x+fVjvC2bsHtMt5X+eXLrTEHRR8CV5bTrjfzt7bK?=
+ =?us-ascii?Q?axMYXZl502MTSvnERUYAiYMpqQEccfLV4w262CEzTJVW8LzL6mRjjacYOBkE?=
+ =?us-ascii?Q?jPpgSHYFZgL3kJPEOxq2fxlJ4StMO+Vl/gyHePNIYluReNE6rfBe/u5Qi1ws?=
+ =?us-ascii?Q?nsYcctkvPI+QtUtDwBVNWQ9SG5OBNP4A3ElktPzzOAkkMdAe1rQ3WUaPuhwC?=
+ =?us-ascii?Q?POA1cagQnm7FsklORU0SZRBTGhUMxtZJuzxE4tmeV6cenrke1VXbrld5H6gD?=
+ =?us-ascii?Q?hTpEGsj6OLZEFNrXP+Yc1Jplk/oga1PH0Bquoln3IAwhnSLBBFRrfaH9rk3w?=
+ =?us-ascii?Q?lNhJt2LdIOXZ7WCNQ+iboOHhQT70UFtG9IVCYX8OZHwpstNW4Rrd/YSKrGmU?=
+ =?us-ascii?Q?ka8shCmOuibz35GoPM8me4FPdoOgVZJaNGjJ6oCjx0PYykcjfoNKNYWRd23S?=
+ =?us-ascii?Q?HGwfME04Qe297Owt7xul7Vks7ZdP5yXUoM+t6kMTZPUhAH3jQgqKlN1o13M0?=
+ =?us-ascii?Q?f5WhEFWZs1s6GNZAkdfwqZqu1PkH3w33r6zh8/HDuad1Wf6i0fxMT/2qdS6+?=
+ =?us-ascii?Q?xeBmsOMNMR1wiwYHq5RA2rew9STzv7FUOrbKV2qiqFd+3vpiKGdTJqs4agOW?=
+ =?us-ascii?Q?uJlVaJBAFS2qG9MIr13gKhSFXZXsXglkmqadqk1zvU5UCUmsIW83sIAxHONQ?=
+ =?us-ascii?Q?wy7RqVg2FmwepGpMTuhwumiAFFgoZoTGjIpan1h7SNIm0Efx4ysgd+nUb4+0?=
+ =?us-ascii?Q?eVSkXWpp59tS6vd/RVxijteIqffKQOKhyHfNwXJ3gvHvMXw2rews8ZgVjaQD?=
+ =?us-ascii?Q?j8IBA5nL6KMUe5zciHGL7WgCeoE49GdNc2egLHymLOFN0AqU7TKmmKsw6I6c?=
+ =?us-ascii?Q?yH5qYA3JuCcARH/+Pc43TxF2PqLZrPJfT+D1DiLPmZsKjwcs1PZM/uONFs56?=
+ =?us-ascii?Q?USy4ZSOhwSzQ5O+wH4dDaTKB9aQNI9qytuD/eJuoKRSwa2vfLZui7GVxbmed?=
+ =?us-ascii?Q?iyTqUJYy0s91ez3+9DxVNrWO2lPnbjddVlDUwMbP97m4LHS9A+XuNLHNWo0Y?=
+ =?us-ascii?Q?q9xYJXGpg7MRmvP3McUGxnys/xKUUziPwPgXQCveEvYtemzPO+mDEv0pk6vX?=
+ =?us-ascii?Q?ROkq8LoEsQXVZYnfZlgeOOj97lSjmPI8QRyNnDBR?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32d8e992-59d6-4363-8f67-08ddf6063286
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 16:21:03.6501
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6pBu6ycnesfKEwZvZ4WF8f2OKPU9GT3CRoBwMrPWWHeUJ8IZJX/U9NJS7dqGGDT4SqM4boHDUhnqxkC4Lt+V8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9859
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_091943_487333_894F1CA4 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20250917_092109_659425_E07E020C 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,127 +163,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently access ICC_SRE_EL2 at each load/put on VHE, and on each
-entry/exit on nVHE. Both are quite onerous on NV, as this register
-always traps.
+On Wed, Sep 17, 2025 at 10:05:11AM +0200, Dario Binacchi wrote:
+> Set the glitch threshold previously hardcoded in the driver. The change
+> is backward compatible.
 
-We do this to make sure the EL1 guest doesn't flip between v2 and v3
-behind our back. But all modern implementations have dropped v2,
-and this is just overhead.
+Set the glitch threshold by DTS property and keep the existing default
+behavior if the 'touchscreen-glitch-threshold-ns' not present.
 
-At the same time, the GICv5 spec has been fixed to allow access to
-ICC_SRE_EL2 in legacy mode. Use this opportunity to replace the
-GICv5 checks for v2 compat checks, with an ad-hoc static key.
-
-Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kernel/image-vars.h  |  3 +++
- arch/arm64/kvm/hyp/vgic-v3-sr.c | 25 +++++++++----------------
- arch/arm64/kvm/vgic/vgic-v3.c   |  8 ++++++++
- include/kvm/arm_vgic.h          |  1 +
- 4 files changed, 21 insertions(+), 16 deletions(-)
-
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 714b0b5ec5ac4..5369763606e71 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -105,6 +105,9 @@ KVM_NVHE_ALIAS(__hyp_stub_vectors);
- KVM_NVHE_ALIAS(vgic_v2_cpuif_trap);
- KVM_NVHE_ALIAS(vgic_v3_cpuif_trap);
- 
-+/* Static key indicating whether GICv3 has GICv2 compatibility */
-+KVM_NVHE_ALIAS(vgic_v3_has_v2_compat);
-+
- /* Static key which is set if CNTVOFF_EL2 is unusable */
- KVM_NVHE_ALIAS(broken_cntvoff_key);
- 
-diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-index d81275790e69b..acd909b7f2257 100644
---- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-+++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-@@ -295,12 +295,8 @@ void __vgic_v3_activate_traps(struct vgic_v3_cpu_if *cpu_if)
- 		}
- 	}
- 
--	/*
--	 * GICv5 BET0 FEAT_GCIE_LEGACY doesn't include ICC_SRE_EL2. This is due
--	 * to be relaxed in a future spec release, at which point this in
--	 * condition can be dropped.
--	 */
--	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-+	/* Only disable SRE if the host implements the GICv2 interface */
-+	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
- 		/*
- 		 * Prevent the guest from touching the ICC_SRE_EL1 system
- 		 * register. Note that this may not have any effect, as
-@@ -329,19 +325,16 @@ void __vgic_v3_deactivate_traps(struct vgic_v3_cpu_if *cpu_if)
- 		cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
- 	}
- 
--	/*
--	 * Can be dropped in the future when GICv5 spec is relaxed. See comment
--	 * above.
--	 */
--	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
-+	/* Only restore SRE if the host implements the GICv2 interface */
-+	if (static_branch_unlikely(&vgic_v3_has_v2_compat)) {
- 		val = read_gicreg(ICC_SRE_EL2);
- 		write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
--	}
- 
--	if (!cpu_if->vgic_sre) {
--		/* Make sure ENABLE is set at EL2 before setting SRE at EL1 */
--		isb();
--		write_gicreg(1, ICC_SRE_EL1);
-+		if (!cpu_if->vgic_sre) {
-+			/* Make sure ENABLE is set at EL2 before setting SRE at EL1 */
-+			isb();
-+			write_gicreg(1, ICC_SRE_EL1);
-+		}
- 	}
- 
- 	/*
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index b9ad7c42c5b01..f1c153106c563 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -588,6 +588,7 @@ int vgic_v3_map_resources(struct kvm *kvm)
- }
- 
- DEFINE_STATIC_KEY_FALSE(vgic_v3_cpuif_trap);
-+DEFINE_STATIC_KEY_FALSE(vgic_v3_has_v2_compat);
- 
- static int __init early_group0_trap_cfg(char *buf)
- {
-@@ -697,6 +698,13 @@ int vgic_v3_probe(const struct gic_kvm_info *info)
- 	if (kvm_vgic_global_state.vcpu_base == 0)
- 		kvm_info("disabling GICv2 emulation\n");
- 
-+	/*
-+	 * Flip the static branch if the HW supports v2, even if we're
-+	 * not using it (such as in protected mode).
-+	 */
-+	if (has_v2)
-+		static_branch_enable(&vgic_v3_has_v2_compat);
-+
- 	if (cpus_have_final_cap(ARM64_WORKAROUND_CAVIUM_30115)) {
- 		group0_trap = true;
- 		group1_trap = true;
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 404883c7af6e8..9a6340d9c91e5 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -375,6 +375,7 @@ struct vgic_cpu {
- 
- extern struct static_key_false vgic_v2_cpuif_trap;
- extern struct static_key_false vgic_v3_cpuif_trap;
-+extern struct static_key_false vgic_v3_has_v2_compat;
- 
- int kvm_set_legacy_vgic_v2_addr(struct kvm *kvm, struct kvm_arm_device_addr *dev_addr);
- void kvm_vgic_early_init(struct kvm *kvm);
--- 
-2.39.2
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+>
+> ---
+>
+> Changes in v4:
+> - Adjust property description fsl,imx6ul-tsc.yaml following the
+>   suggestions of Conor Dooley and Frank Li.
+>
+> Changes in v3:
+> - Remove the final part of the description that refers to
+>   implementation details in fsl,imx6ul-tsc.yaml.
+>
+> Changes in v2:
+> - Replace patch ("dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
+>   fsl,glitch-threshold") with ("dt-bindings: touchscreen: add
+>   touchscreen-glitch-threshold-ns property"), making the previous property
+>   general by moving it to touchscreen.yaml.
+> - Rework "Input: imx6ul_tsc - set glitch threshold by DTS property" patch
+>   to match changes made to the DTS property.
+> - Move "Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros"
+>   patch right after the patch fixing the typo.
+> - Rework to match changes made to the DTS property.
+>
+>  drivers/input/touchscreen/imx6ul_tsc.c | 26 ++++++++++++++++++++++++--
+>  1 file changed, 24 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
+> index e2c59cc7c82c..0d753aa05fbf 100644
+> --- a/drivers/input/touchscreen/imx6ul_tsc.c
+> +++ b/drivers/input/touchscreen/imx6ul_tsc.c
+> @@ -79,7 +79,7 @@
+>  #define MEASURE_SIG_EN		BIT(0)
+>  #define VALID_SIG_EN		BIT(8)
+>  #define DE_GLITCH_MASK		GENMASK(30, 29)
+> -#define DE_GLITCH_2		0x02
+> +#define DE_GLITCH_DEF		0x02
+>  #define START_SENSE		BIT(12)
+>  #define TSC_DISABLE		BIT(16)
+>  #define DETECT_MODE		0x2
+> @@ -98,6 +98,7 @@ struct imx6ul_tsc {
+>  	u32 pre_charge_time;
+>  	bool average_enable;
+>  	u32 average_select;
+> +	u32 de_glitch;
+>
+>  	struct completion completion;
+>  };
+> @@ -205,7 +206,7 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
+>  	basic_setting |= AUTO_MEASURE;
+>  	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
+>
+> -	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, DE_GLITCH_2);
+> +	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, tsc->de_glitch);
+>  	writel(debug_mode2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
+>
+>  	writel(tsc->pre_charge_time, tsc->tsc_regs + REG_TSC_PRE_CHARGE_TIME);
+> @@ -391,6 +392,7 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
+>  	int tsc_irq;
+>  	int adc_irq;
+>  	u32 average_samples;
+> +	u32 de_glitch;
+>
+>  	tsc = devm_kzalloc(&pdev->dev, sizeof(*tsc), GFP_KERNEL);
+>  	if (!tsc)
+> @@ -513,6 +515,26 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
+>  		return -EINVAL;
+>  	}
+>
+> +	err = of_property_read_u32(np, "touchscreen-glitch-threshold-ns",
+> +				   &de_glitch);
+> +	if (err) {
+> +		tsc->de_glitch = DE_GLITCH_DEF;
+> +	} else {
+> +		u64 cycles;
+> +		unsigned long rate = clk_get_rate(tsc->tsc_clk);
+> +
+> +		cycles = DIV64_U64_ROUND_UP((u64)de_glitch * rate, NSEC_PER_SEC);
+> +
+> +		if (cycles <= 0x3ff)
+> +			tsc->de_glitch = 3;
+> +		else if (cycles <= 0x7ff)
+> +			tsc->de_glitch = 2;
+> +		else if (cycles <= 0xfff)
+> +			tsc->de_glitch = 1;
+> +		else
+> +			tsc->de_glitch = 0;
+> +	}
+> +
+>  	err = input_register_device(tsc->input);
+>  	if (err) {
+>  		dev_err(&pdev->dev,
+> --
+> 2.43.0
+>
 
