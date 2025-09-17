@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C26DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BAFCAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZNcucLNP4mR46I0TWwPFtv0PUd9VAWxLOjNJ+Jrcyo=; b=nKBqZoEDbTn5jN5vgorTCMjHuv
-	D4lhSIDvLRy4DYh6G/43oWc1Ld6HNobsXd5E/Smn4v9+lJo2QxbvnLJeuwjh2mZmwCzcp4V4gA47J
-	JlaDpHn1EWHW4RPh/qnBt2WjeUoE3erwrC5yghxCnBsacNJjQVJa6uMS0PC58RYYhiu6tHMGBCsFv
-	gmVnKqyyUOrZscr78XcilhImyd5o2Zr4wnp7zzQV4BoPIYQadsdvTJkBZOBAY9lpiQxyZ2cLf/T4d
-	YIJkTYuHuvEBiKrUrd9y3pM8bDNmyim2vJfM/4q3JXHG9/1aaT3Fz+6RtkRf4FQqmlrV2lj4xxbXQ
-	RbxqyaIw==;
+	bh=AxbThdXsPUjCpRzh4ei+/qgxvUJKLTj6XnCfi+fWETo=; b=pGyMtCZBVsGEuJwZxfoNEG2CM/
+	BtKAUVfikjkgQJsmypY0M3Lkomms+FgU+WwrqMwkpj1zOtTbggWwzpkDGITBZXqw16YkwTOeegAMo
+	5x3EbXY3UJUT5l1B9TJqm/uHNQSgZxMam8snyGWCrwuRYIE1aqMUTevSTMs3hch94R2/oKe3Qlb8f
+	TRIXmttjpfYQS+cEfytnEwxfH6FkFFW2qIVdtbBvbcwFGSeQcg8pWMVfFrSV8APZki2LAG5loPpXq
+	IlBqCLTRQhrvBYb3ZE23FxOlBXFzdlFEuxgDjFHtVny15U5ECSk13yokPmsey1qSwaD4gpPgq3qPB
+	keMMXEHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvNA-0000000DKD5-2PvK;
-	Wed, 17 Sep 2025 16:51:12 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uyvUV-0000000DMWP-425b;
+	Wed, 17 Sep 2025 16:58:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvN8-0000000DKBL-16Vv
+	id 1uyvUV-0000000DMV8-0fR6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:51:11 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-45f2313dd86so19855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 09:51:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1758127868; x=1758732668; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4ZNcucLNP4mR46I0TWwPFtv0PUd9VAWxLOjNJ+Jrcyo=;
-        b=g3KXd1erZoMlOjZXdZf3vx6B4/fzykB9yUGk1n68aRNxgtUoD6o736mOxyvEPt7kfS
-         6P6jfrDJjTkGakOe0iLGDaalcImoApFPOrAmzfoT3dLpDol3xShD+Sr7/QCCYrvKbme1
-         d9O5orHKoByCw8pD5b8SdtynBKZ+6K0kKktlAnfIvIVBBDf4yy4FL1Ntr51pejDo4HcN
-         GIEPTEeBdlwd3fcjG88RrRhDV0WVAoG4QFoPK7NSct9Up1pqppOcC4n5hm+n7uoElZUG
-         ShiP3WO5TZhglT8qt0KQqEa4xUIgkk6ITyKnyrd1vraGBMWz+DNc6QRDZUe1kwWcrMPi
-         lWTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758127868; x=1758732668;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4ZNcucLNP4mR46I0TWwPFtv0PUd9VAWxLOjNJ+Jrcyo=;
-        b=Uean8k082wbNIQJijhKjsH3qSOopKfI1rGQnCGP0WMi7o5eiqWVjQY9e/G+5I8oIcY
-         Izf6MFFvMCmSvilEl0QnbLsMLwVUhgx39EhVob5EqZPmFA3IP3dWOUMUuUBZDWX1s3Qi
-         ipSGcquB5rnkknUj3tFTGKJ/ZrHLuAO0l9hqA3jLJT0OBv8CPaVZAnieyYZx1Ptm2wdA
-         0QtcdIpNQJadHQYX3OlLBfQiath3dfgqelXPu27zaIGpkal4jmG7rXGTzhb82+LrCbhf
-         iFvvQko1wt/iv9qs7UvZGSgH7ZUwHp17SYGzmfpkNbdTsO2Id/gkmCI3YmYoFYHkrtgD
-         WzNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVq7KkzgXsFSAjyCY25qxMygiMwcbsq1Ew60HcZWlgtammxyvKdCILreVN4QotDaHqvcyWl/ib5XlGS3Am6wsXq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUSV3swXlETq0xVY6B70CvcJueWAr8khI1vi6t0IHQa5dbQ/et
-	gypKGKBf+KK34RppZxM1wWFK3Kg89ySQdNGhTzI9EIKsTIAINox8BpbwIds7jy7ma7s=
-X-Gm-Gg: ASbGncvD0YYr+Y5nZ5awc1iPl7Ie0SizBpe2ImnpdID9Sd1usAqfE0n9pcZrtYPDq5T
-	qmaahYiyJHl/RbECOjBiHI8xdt0VpHeWy76It1tmi15mWVzYUiJjokW39mPNZZO7TZWI9Pd7fw0
-	F74UanmHfpd9JjjmohAiXtKO1D31ALl9F4JzaZTLUYM9MUXUQ9TFN1P18+JvkOvFfJzy4uoGvy9
-	D8KxcmN1tyzkr8Phpkd6BiVAWuweFYDWSpxgbU2KLGYqbihnY1hu+B/eO3qiyHw2F7MYidX9CB4
-	DqUxnghEHf42KBrwH6z/tDaQsm0RQ4Gf5dLcmLOFHejxsZeq8zSr3QWxughPoQDjEWbBNeyWvSt
-	X58k59/r7aRWlM4VUnblkXnw5WDqeuFI=
-X-Google-Smtp-Source: AGHT+IF1nrUouqCOeE6wDOtkdHMD2AWyWimjxHxsQ94F2pzaPGFfHQDSxdsvbeXDPczFHDXsujKBhw==
-X-Received: by 2002:a05:600c:3587:b0:45d:e285:c4c6 with SMTP id 5b1f17b1804b1-46207a83da5mr28634175e9.37.1758127868023;
-        Wed, 17 Sep 2025 09:51:08 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.153])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07411f4dsm64874f8f.26.2025.09.17.09.51.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Sep 2025 09:51:07 -0700 (PDT)
-Message-ID: <a59d7be5-f767-4ce5-9a88-5a9b340c6643@tuxon.dev>
-Date: Wed, 17 Sep 2025 19:51:06 +0300
+	Wed, 17 Sep 2025 16:58:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EC416023A;
+	Wed, 17 Sep 2025 16:58:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F097C4CEE7;
+	Wed, 17 Sep 2025 16:58:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758128326;
+	bh=cSC14ut31BTnaiIXpiotB6yDjSva7fSPUzTwWq0RIpo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YWEv/sB7YVloCJCT7uhXlZNtSBRNlBGaiIpZYsD4XjYFwvEss+xn1keJsseDB+9vu
+	 KoHEVhc82+dxEJ8XWPrKUpNc2GH1uUDEpgSCJ2XhSmcs0Hcdh6bDtA1AuX1cNPstKU
+	 O2TAd6FgX/upFELGhcjsLyE39EHY3c2OXkyCCyR2odcl5xV1AbkXMyKVtzzBcpD/Tf
+	 gqN41cNtdcERRu2lKUuK6w80GZ6BP3ONAwc3pbcpBG6juVFsHvqCZP4Z/gAFKEWCY7
+	 89vMG1Ujrsdgzp4tTyEzLtRsIcqnylIP58XRdK7hlrAELvwKYyP3uMfhOwcoC8MtId
+	 poWKubSS/UaLw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uyvUS-00000007AQw-0xFh;
+	Wed, 17 Sep 2025 16:58:44 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Jinqian Yang <yangjinqian1@huawei.com>
+Subject: [PATCH 1/8] KVM: arm64: Enforce absence of FEAT_FGT on FGT registers
+Date: Wed, 17 Sep 2025 17:58:33 +0100
+Message-Id: <20250917165840.1633412-2-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250917165840.1633412-1-maz@kernel.org>
+References: <20250917165840.1633412-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] ARM: at91: PM: implement selection of LPM
-To: Ryan.Wanner@microchip.com, sre@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, linux@armlinux.org.uk
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Claudiu Beznea <claudiu.beznea@microchip.com>
-References: <cover.1758051358.git.Ryan.Wanner@microchip.com>
- <98b7e9347fd15e45e2606d0e89f09095887079fc.1758051358.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <98b7e9347fd15e45e2606d0e89f09095887079fc.1758051358.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_095110_465559_C8A2459E 
-X-CRM114-Status: GOOD (  12.07  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, yangjinqian1@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +82,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/config.c | 201 +++++++++++++++++++++++++++-------------
+ 1 file changed, 137 insertions(+), 64 deletions(-)
 
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index da66c4a147752..42b834c82a20d 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -8,11 +8,16 @@
+ #include <asm/sysreg.h>
+ 
+ struct reg_bits_to_feat_map {
+-	u64		bits;
++	union {
++		u64	bits;
++		u64	*res0p;
++	};
+ 
+ #define	NEVER_FGU	BIT(0)	/* Can trap, but never UNDEF */
+ #define	CALL_FUNC	BIT(1)	/* Needs to evaluate tons of crap */
+ #define	FIXED_VALUE	BIT(2)	/* RAZ/WI or RAO/WI in KVM */
++#define	RES0_POINTER	BIT(3)	/* Pointer to RES0 value instead of bits */
++
+ 	unsigned long	flags;
+ 
+ 	union {
+@@ -28,9 +33,16 @@ struct reg_bits_to_feat_map {
+ 	};
+ };
+ 
+-#define __NEEDS_FEAT_3(m, f, id, fld, lim)		\
++struct reg_to_feat_map {
++	const char				*name;
++	const struct reg_bits_to_feat_map	feat_map;
++	const struct reg_bits_to_feat_map	*bit_feat_map;
++	const unsigned int			bit_feat_map_sz;
++};
++
++#define __NEEDS_FEAT_3(m, f, w, id, fld, lim)		\
+ 	{						\
+-		.bits	= (m),				\
++		.w	= (m),				\
+ 		.flags = (f),				\
+ 		.regidx	= IDREG_IDX(SYS_ ## id),	\
+ 		.shift	= id ##_## fld ## _SHIFT,	\
+@@ -39,28 +51,50 @@ struct reg_bits_to_feat_map {
+ 		.lo_lim	= id ##_## fld ##_## lim	\
+ 	}
+ 
+-#define __NEEDS_FEAT_2(m, f, fun, dummy)		\
++#define __NEEDS_FEAT_2(m, f, w, fun, dummy)		\
+ 	{						\
+-		.bits	= (m),				\
++		.w	= (m),				\
+ 		.flags = (f) | CALL_FUNC,		\
+ 		.fval = (fun),				\
+ 	}
+ 
+-#define __NEEDS_FEAT_1(m, f, fun)			\
++#define __NEEDS_FEAT_1(m, f, w, fun)			\
+ 	{						\
+-		.bits	= (m),				\
++		.w	= (m),				\
+ 		.flags = (f) | CALL_FUNC,		\
+ 		.match = (fun),				\
+ 	}
+ 
++#define __NEEDS_FEAT_FLAG(m, f, w, ...)			\
++	CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, w, __VA_ARGS__)
++
+ #define NEEDS_FEAT_FLAG(m, f, ...)			\
+-	CONCATENATE(__NEEDS_FEAT_, COUNT_ARGS(__VA_ARGS__))(m, f, __VA_ARGS__)
++	__NEEDS_FEAT_FLAG(m, f, bits, __VA_ARGS__)
+ 
+ #define NEEDS_FEAT_FIXED(m, ...)			\
+-	NEEDS_FEAT_FLAG(m, FIXED_VALUE, __VA_ARGS__, 0)
++	__NEEDS_FEAT_FLAG(m, FIXED_VALUE, bits, __VA_ARGS__, 0)
++
++#define NEEDS_FEAT_RES0(p, ...)				\
++	__NEEDS_FEAT_FLAG(p, RES0_POINTER, res0p, __VA_ARGS__)
+ 
+ #define NEEDS_FEAT(m, ...)	NEEDS_FEAT_FLAG(m, 0, __VA_ARGS__)
+ 
++#define FEAT_MAP(r, f, m)						\
++	{								\
++		.name			= #r,				\
++		.feat_map		= NEEDS_FEAT(~r##_RES0, f), 	\
++		.bit_feat_map		= m,				\
++		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
++	}
++
++#define FEAT_MAP_FGT(msk, m, f)						\
++	{								\
++		.name			= #msk,				\
++		.feat_map		= NEEDS_FEAT_RES0(&msk.res0, f),\
++		.bit_feat_map		= m,				\
++		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
++	}
++
+ #define FEAT_SPE		ID_AA64DFR0_EL1, PMSVer, IMP
+ #define FEAT_SPE_FnE		ID_AA64DFR0_EL1, PMSVer, V1P2
+ #define FEAT_BRBE		ID_AA64DFR0_EL1, BRBE, IMP
+@@ -320,7 +354,7 @@ static bool compute_hcr_e2h(struct kvm *kvm, u64 *bits)
+ 	return true;
+ }
+ 
+-static const struct reg_bits_to_feat_map hfgrtr_feat_map[] = {
++static const struct reg_bits_to_feat_map hfgrtr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HFGRTR_EL2_nAMAIR2_EL1	|
+ 		   HFGRTR_EL2_nMAIR2_EL1,
+ 		   FEAT_AIE),
+@@ -397,7 +431,12 @@ static const struct reg_bits_to_feat_map hfgrtr_feat_map[] = {
+ 			NEVER_FGU, FEAT_AA64EL1),
+ };
+ 
+-static const struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
++static const
++struct reg_to_feat_map hfgrtr_feat_map = FEAT_MAP_FGT(hfgrtr_masks,
++						      hfgrtr_bit_feat_map,
++						      FEAT_FGT);
++
++static const struct reg_bits_to_feat_map hfgwtr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HFGWTR_EL2_nAMAIR2_EL1	|
+ 		   HFGWTR_EL2_nMAIR2_EL1,
+ 		   FEAT_AIE),
+@@ -461,7 +500,12 @@ static const struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
+ 			NEVER_FGU, FEAT_AA64EL1),
+ };
+ 
+-static const struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
++static const
++struct reg_to_feat_map hfgwtr_feat_map = FEAT_MAP_FGT(hfgwtr_masks,
++						      hfgwtr_bit_feat_map,
++						      FEAT_FGT);
++
++static const struct reg_bits_to_feat_map hdfgrtr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HDFGRTR_EL2_PMBIDR_EL1	|
+ 		   HDFGRTR_EL2_PMSLATFR_EL1	|
+ 		   HDFGRTR_EL2_PMSIRR_EL1	|
+@@ -528,7 +572,12 @@ static const struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
+ 			NEVER_FGU, FEAT_AA64EL1)
+ };
+ 
+-static const struct reg_bits_to_feat_map hdfgwtr_feat_map[] = {
++static const
++struct reg_to_feat_map hdfgrtr_feat_map = FEAT_MAP_FGT(hdfgrtr_masks,
++						       hdfgrtr_bit_feat_map,
++						       FEAT_FGT);
++
++static const struct reg_bits_to_feat_map hdfgwtr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HDFGWTR_EL2_PMSLATFR_EL1	|
+ 		   HDFGWTR_EL2_PMSIRR_EL1	|
+ 		   HDFGWTR_EL2_PMSICR_EL1	|
+@@ -588,8 +637,12 @@ static const struct reg_bits_to_feat_map hdfgwtr_feat_map[] = {
+ 	NEEDS_FEAT(HDFGWTR_EL2_TRFCR_EL1, FEAT_TRF),
+ };
+ 
++static const
++struct reg_to_feat_map hdfgwtr_feat_map = FEAT_MAP_FGT(hdfgwtr_masks,
++						       hdfgwtr_bit_feat_map,
++						       FEAT_FGT);
+ 
+-static const struct reg_bits_to_feat_map hfgitr_feat_map[] = {
++static const struct reg_bits_to_feat_map hfgitr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HFGITR_EL2_PSBCSYNC, FEAT_SPEv1p5),
+ 	NEEDS_FEAT(HFGITR_EL2_ATS1E1A, FEAT_ATS1A),
+ 	NEEDS_FEAT(HFGITR_EL2_COSPRCTX, FEAT_SPECRES2),
+@@ -662,7 +715,12 @@ static const struct reg_bits_to_feat_map hfgitr_feat_map[] = {
+ 			NEVER_FGU, FEAT_AA64EL1),
+ };
+ 
+-static const struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
++static const
++struct reg_to_feat_map hfgitr_feat_map = FEAT_MAP_FGT(hfgitr_masks,
++						      hfgitr_bit_feat_map,
++						      FEAT_FGT);
++
++static const struct reg_bits_to_feat_map hafgrtr_bit_feat_map[] = {
+ 	NEEDS_FEAT(HAFGRTR_EL2_AMEVTYPER115_EL0	|
+ 		   HAFGRTR_EL2_AMEVTYPER114_EL0	|
+ 		   HAFGRTR_EL2_AMEVTYPER113_EL0	|
+@@ -704,6 +762,11 @@ static const struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
+ 		   FEAT_AMUv1),
+ };
+ 
++static const
++struct reg_to_feat_map hafgrtr_feat_map = FEAT_MAP_FGT(hafgrtr_masks,
++						       hafgrtr_bit_feat_map,
++						       FEAT_FGT);
++
+ static const struct reg_bits_to_feat_map hfgitr2_feat_map[] = {
+ 	NEEDS_FEAT(HFGITR2_EL2_nDCCIVAPS, FEAT_PoPS),
+ 	NEEDS_FEAT(HFGITR2_EL2_TSBCSYNC, FEAT_TRBEv1p1)
+@@ -1061,20 +1124,25 @@ static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
+ 			str, mask ^ ~res0);
+ }
+ 
++static u64 reg_feat_map_bits(const struct reg_bits_to_feat_map *map)
++{
++	return map->flags & RES0_POINTER ? ~(*map->res0p) : map->bits;
++}
++
++static void __init check_reg_feat_map(const struct reg_to_feat_map *r)
++{
++	check_feat_map(r->bit_feat_map, r->bit_feat_map_sz,
++		       ~reg_feat_map_bits(&r->feat_map), r->name);
++}
++
+ void __init check_feature_map(void)
+ {
+-	check_feat_map(hfgrtr_feat_map, ARRAY_SIZE(hfgrtr_feat_map),
+-		       hfgrtr_masks.res0, hfgrtr_masks.str);
+-	check_feat_map(hfgwtr_feat_map, ARRAY_SIZE(hfgwtr_feat_map),
+-		       hfgwtr_masks.res0, hfgwtr_masks.str);
+-	check_feat_map(hfgitr_feat_map, ARRAY_SIZE(hfgitr_feat_map),
+-		       hfgitr_masks.res0, hfgitr_masks.str);
+-	check_feat_map(hdfgrtr_feat_map, ARRAY_SIZE(hdfgrtr_feat_map),
+-		       hdfgrtr_masks.res0, hdfgrtr_masks.str);
+-	check_feat_map(hdfgwtr_feat_map, ARRAY_SIZE(hdfgwtr_feat_map),
+-		       hdfgwtr_masks.res0, hdfgwtr_masks.str);
+-	check_feat_map(hafgrtr_feat_map, ARRAY_SIZE(hafgrtr_feat_map),
+-		       hafgrtr_masks.res0, hafgrtr_masks.str);
++	check_reg_feat_map(&hfgrtr_feat_map);
++	check_reg_feat_map(&hfgwtr_feat_map);
++	check_reg_feat_map(&hfgitr_feat_map);
++	check_reg_feat_map(&hdfgrtr_feat_map);
++	check_reg_feat_map(&hdfgwtr_feat_map);
++	check_reg_feat_map(&hafgrtr_feat_map);
+ 	check_feat_map(hcrx_feat_map, ARRAY_SIZE(hcrx_feat_map),
+ 		       __HCRX_EL2_RES0, "HCRX_EL2");
+ 	check_feat_map(hcr_feat_map, ARRAY_SIZE(hcr_feat_map),
+@@ -1129,7 +1197,7 @@ static u64 __compute_fixed_bits(struct kvm *kvm,
+ 			match = idreg_feat_match(kvm, &map[i]);
+ 
+ 		if (!match || (map[i].flags & FIXED_VALUE))
+-			val |= map[i].bits;
++			val |= reg_feat_map_bits(&map[i]);
+ 	}
+ 
+ 	return val;
+@@ -1145,6 +1213,29 @@ static u64 compute_res0_bits(struct kvm *kvm,
+ 				    require, exclude | FIXED_VALUE);
+ }
+ 
++static u64 compute_reg_res0_bits(struct kvm *kvm,
++				 const struct reg_to_feat_map *r,
++				 unsigned long require, unsigned long exclude)
++				 
++{
++	u64 res0;
++
++	res0 = compute_res0_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
++				 require, exclude);
++
++	/*
++	 * If computing FGUs, don't take RES0 or register existence
++	 * into account -- we're not computing bits for the register
++	 * itself.
++	 */
++	if (!(exclude & NEVER_FGU)) {
++		res0 |= compute_res0_bits(kvm, &r->feat_map, 1, require, exclude);
++		res0 |= ~reg_feat_map_bits(&r->feat_map);
++	}
++
++	return res0;
++}
++
+ static u64 compute_fixed_bits(struct kvm *kvm,
+ 			      const struct reg_bits_to_feat_map *map,
+ 			      int map_size,
+@@ -1162,30 +1253,24 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
+ 
+ 	switch (fgt) {
+ 	case HFGRTR_GROUP:
+-		val |= compute_res0_bits(kvm, hfgrtr_feat_map,
+-					 ARRAY_SIZE(hfgrtr_feat_map),
+-					 0, NEVER_FGU);
+-		val |= compute_res0_bits(kvm, hfgwtr_feat_map,
+-					 ARRAY_SIZE(hfgwtr_feat_map),
+-					 0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hfgrtr_feat_map,
++					     0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hfgwtr_feat_map,
++					     0, NEVER_FGU);
+ 		break;
+ 	case HFGITR_GROUP:
+-		val |= compute_res0_bits(kvm, hfgitr_feat_map,
+-					 ARRAY_SIZE(hfgitr_feat_map),
+-					 0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hfgitr_feat_map,
++					     0, NEVER_FGU);
+ 		break;
+ 	case HDFGRTR_GROUP:
+-		val |= compute_res0_bits(kvm, hdfgrtr_feat_map,
+-					 ARRAY_SIZE(hdfgrtr_feat_map),
+-					 0, NEVER_FGU);
+-		val |= compute_res0_bits(kvm, hdfgwtr_feat_map,
+-					 ARRAY_SIZE(hdfgwtr_feat_map),
+-					 0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hdfgrtr_feat_map,
++					     0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hdfgwtr_feat_map,
++					     0, NEVER_FGU);
+ 		break;
+ 	case HAFGRTR_GROUP:
+-		val |= compute_res0_bits(kvm, hafgrtr_feat_map,
+-					 ARRAY_SIZE(hafgrtr_feat_map),
+-					 0, NEVER_FGU);
++		val |= compute_reg_res0_bits(kvm, &hafgrtr_feat_map,
++					     0, NEVER_FGU);
+ 		break;
+ 	case HFGRTR2_GROUP:
+ 		val |= compute_res0_bits(kvm, hfgrtr2_feat_map,
+@@ -1221,39 +1306,27 @@ void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *r
+ 
+ 	switch (reg) {
+ 	case HFGRTR_EL2:
+-		*res0 = compute_res0_bits(kvm, hfgrtr_feat_map,
+-					  ARRAY_SIZE(hfgrtr_feat_map), 0, 0);
+-		*res0 |= hfgrtr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hfgrtr_feat_map, 0, 0);
+ 		*res1 = HFGRTR_EL2_RES1;
+ 		break;
+ 	case HFGWTR_EL2:
+-		*res0 = compute_res0_bits(kvm, hfgwtr_feat_map,
+-					  ARRAY_SIZE(hfgwtr_feat_map), 0, 0);
+-		*res0 |= hfgwtr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hfgwtr_feat_map, 0, 0);
+ 		*res1 = HFGWTR_EL2_RES1;
+ 		break;
+ 	case HFGITR_EL2:
+-		*res0 = compute_res0_bits(kvm, hfgitr_feat_map,
+-					  ARRAY_SIZE(hfgitr_feat_map), 0, 0);
+-		*res0 |= hfgitr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hfgitr_feat_map, 0, 0);
+ 		*res1 = HFGITR_EL2_RES1;
+ 		break;
+ 	case HDFGRTR_EL2:
+-		*res0 = compute_res0_bits(kvm, hdfgrtr_feat_map,
+-					  ARRAY_SIZE(hdfgrtr_feat_map), 0, 0);
+-		*res0 |= hdfgrtr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hdfgrtr_feat_map, 0, 0);
+ 		*res1 = HDFGRTR_EL2_RES1;
+ 		break;
+ 	case HDFGWTR_EL2:
+-		*res0 = compute_res0_bits(kvm, hdfgwtr_feat_map,
+-					  ARRAY_SIZE(hdfgwtr_feat_map), 0, 0);
+-		*res0 |= hdfgwtr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hdfgwtr_feat_map, 0, 0);
+ 		*res1 = HDFGWTR_EL2_RES1;
+ 		break;
+ 	case HAFGRTR_EL2:
+-		*res0 = compute_res0_bits(kvm, hafgrtr_feat_map,
+-					  ARRAY_SIZE(hafgrtr_feat_map), 0, 0);
+-		*res0 |= hafgrtr_masks.res0;
++		*res0 = compute_reg_res0_bits(kvm, &hafgrtr_feat_map, 0, 0);
+ 		*res1 = HAFGRTR_EL2_RES1;
+ 		break;
+ 	case HFGRTR2_EL2:
+-- 
+2.39.2
 
-On 9/16/25 22:50, Ryan.Wanner@microchip.com wrote:
-> From: Claudiu Beznea <claudiu.beznea@microchip.com>
-> 
-> The LPM shutdown controller output could signal the transition to PM
-> state for different devices connected on board. On different boards
-> LPM could be connected to different devices (e.g. on SAMA7G5-EK REV4
-> the LPM is connected to on main crystal oscillator, KSZ8081 PHY and
-> to MCP16502 PMIC). Toggling LPM on BSR PM mode is done unconditionally
-> and it helps PMIC to transition to a power saving mode. Toggling LPM
-> on ULP0 and ULP1 should be done conditionally based on user defined
-> wakeup sources, available wakeup source for PM mode and connections to
-> SHDWC's LPM pin. On ULP0 any device could act as wakeup sources. On ULP1
-> only some of the on SoC controllers could act as wakeup sources. For this
-> the architecture specific PM code parses board specific LPM devices,
-> check them against possible wakeup source (in case of ULP1) and tells
-> assembly code to act properly on SHDWC's LPM pin.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-> [ryan.wanner@microchip.com: Fixed conflicts when applying.]
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
