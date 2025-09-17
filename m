@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4681ECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F58CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=loMy4TUif8ykaDI5FK6KRKdzewryzSo9NF7v0gGWyiQ=; b=TPcSHYwBMpvOgZs7lDkrz+Lhty
-	3dAfCrocGgmu+RUv7ftQMvg66LeWNimB7DU4RK6t+shZ6D12+YG+TMOkkSDAGCOxmXvhvdAO2LqTN
-	jXWDd/K9SjQVSEdJZl4meQwS6DZn/y4bzHodMaiwjXJi4zCAQoYELp8v/6zM6e8WWRhd621+NbZ5H
-	T6++9I50sfO3Owib6Zvjxpf7Fc7xtWN35UJg9c2FyuJEvi3u0y5cZYS4GGME+gIhMtVD4xdBUEsJ8
-	XneqQ5o9WtycEJ/BIebEht0kab0FX+L/UY0DfqfH0luk+W0ltRjQYSyWAhc+hr5gOlcPIZ6wmicgo
-	LvbBZY/w==;
+	bh=heQb+iYD8jR8m/89CClYw8LjpM8o65KodnM7TACOfHw=; b=wxG21NMt2We0v9VWbMZUPijx4M
+	m0T2kONk2Z/yfw6jQEW/OlqknD+G+H88TLkFq5hXW2PBvvRTBA6EB5XUq5JQmiZx+O0epXSag22Tt
+	zq+ZTLSoaRaNNh+c6pmefmjgsBHXAz1HJOKrLOMUKX/zz6OfahxTWgPeQhNeww1k3FEMjGS8SCzqC
+	YLFGaZVhF3VKEH7tOXdynJ0DmLUwZ7ikUZ1JE+Xls6bD+OlvglcMcVvKWmGZmtR5f9BSZ/2N8+YOL
+	XOuJp/yeMsVl7i7HDTDWvkj86OkDy4uFqLKgsvDREbFziWWjfhX8IwBDgcnF6MSM0Dx53aTHc/psi
+	/Wr8pTXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzax-0000000Ernr-3sLO;
-	Wed, 17 Sep 2025 21:21:43 +0000
-Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
+	id 1uyzb7-0000000ErzD-04O9;
+	Wed, 17 Sep 2025 21:21:53 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzat-0000000ErhL-0yho
+	id 1uyzay-0000000Erm0-3II0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:21:40 +0000
+	Wed, 17 Sep 2025 21:21:47 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144096;
+	t=1758144102;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=loMy4TUif8ykaDI5FK6KRKdzewryzSo9NF7v0gGWyiQ=;
-	b=hGuzkiCE37zZWKiNLcSTbrvIyvfllDCUQeghB17bTsvfJ+3j4Hj4a0IKn2uYjHxfdX/DDT
-	nLGY+q3R819cm3YtduFoSw/aA40NKLUXCNpxeDeorlq4lsv8JxRQt/t9dFmKy9ESVovyBq
-	4wvh909sf/MJzD0dHMzrTk8ch9De/eM=
+	bh=heQb+iYD8jR8m/89CClYw8LjpM8o65KodnM7TACOfHw=;
+	b=LhtXKQxygwRr6p80+WV16dRNpdzx6/AueMYGQg8fwzM98mzk+48gYIM2korn6AarU7T/pZ
+	rbPXAHQsr0y5aYuuNary7mcK107C5eO0VODxtcrZsERoxXwCassFYXqv+6a+r3DG+4N020
+	SOnwk1JThiZdjkGZI+aN2hRWmK1XI5A=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 07/13] KVM: arm64: selftests: Provide helper for getting default vCPU target
-Date: Wed, 17 Sep 2025 14:20:37 -0700
-Message-ID: <20250917212044.294760-8-oliver.upton@linux.dev>
+Subject: [PATCH 09/13] KVM: arm64: selftests: Use hyp timer IRQs when test runs at EL2
+Date: Wed, 17 Sep 2025 14:20:39 -0700
+Message-ID: <20250917212044.294760-10-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142139_438743_6E51F55F 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250917_142145_070595_49F51CDF 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,148 +78,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default vCPU target in KVM selftests is pretty boring in that it
-doesn't enable any vCPU features. Expose a helper for getting the
-default target to prepare for cramming in more features. Call
-KVM_ARM_PREFERRED_TARGET directly from get-reg-list as it needs
-fine-grained control over feature flags.
+Arch timer registers are redirected to their hypervisor counterparts
+when running in VHE EL2. This is great, except for the fact that the
+hypervisor timers use different PPIs. Use the correct INTIDs when that
+is the case.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- tools/testing/selftests/kvm/arm64/psci_test.c   |  2 +-
- .../testing/selftests/kvm/arm64/smccc_filter.c  |  2 +-
- .../selftests/kvm/arm64/vpmu_counter_access.c   |  4 ++--
- tools/testing/selftests/kvm/get-reg-list.c      |  9 ++++++---
- .../selftests/kvm/include/arm64/processor.h     |  2 ++
- .../testing/selftests/kvm/lib/arm64/processor.c | 17 +++++++++++------
- 6 files changed, 23 insertions(+), 13 deletions(-)
+ .../testing/selftests/kvm/arm64/arch_timer.c  |  6 ++---
+ .../kvm/arm64/arch_timer_edge_cases.c         |  6 ++---
+ .../selftests/kvm/include/arm64/arch_timer.h  | 24 +++++++++++++++++++
+ 3 files changed, 28 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/psci_test.c b/tools/testing/selftests/kvm/arm64/psci_test.c
-index cf208390fd0e..0d4680da66d1 100644
---- a/tools/testing/selftests/kvm/arm64/psci_test.c
-+++ b/tools/testing/selftests/kvm/arm64/psci_test.c
-@@ -89,7 +89,7 @@ static struct kvm_vm *setup_vm(void *guest_code, struct kvm_vcpu **source,
- 
- 	vm = vm_create(2);
- 
--	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	kvm_get_default_vcpu_target(vm, &init);
- 	init.features[0] |= (1 << KVM_ARM_VCPU_PSCI_0_2);
- 
- 	*source = aarch64_vcpu_add(vm, 0, &init, guest_code);
-diff --git a/tools/testing/selftests/kvm/arm64/smccc_filter.c b/tools/testing/selftests/kvm/arm64/smccc_filter.c
-index eb5551d21dbe..a8e22d866ea7 100644
---- a/tools/testing/selftests/kvm/arm64/smccc_filter.c
-+++ b/tools/testing/selftests/kvm/arm64/smccc_filter.c
-@@ -64,7 +64,7 @@ static struct kvm_vm *setup_vm(struct kvm_vcpu **vcpu)
- 	struct kvm_vm *vm;
- 
- 	vm = vm_create(1);
--	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	kvm_get_default_vcpu_target(vm, &init);
- 
- 	/*
- 	 * Enable in-kernel emulation of PSCI to ensure that calls are denied
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 36a3a8b4e0b5..2a8f31c8e59f 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -430,7 +430,7 @@ static void create_vpmu_vm(void *guest_code)
- 	}
- 
- 	/* Create vCPU with PMUv3 */
--	vm_ioctl(vpmu_vm.vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	kvm_get_default_vcpu_target(vpmu_vm.vm, &init);
- 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
- 	vpmu_vm.vcpu = aarch64_vcpu_add(vpmu_vm.vm, 0, &init, guest_code);
- 	vcpu_init_descriptor_tables(vpmu_vm.vcpu);
-@@ -525,7 +525,7 @@ static void run_access_test(uint64_t pmcr_n)
- 	 * Reset and re-initialize the vCPU, and run the guest code again to
- 	 * check if PMCR_EL0.N is preserved.
- 	 */
--	vm_ioctl(vpmu_vm.vm, KVM_ARM_PREFERRED_TARGET, &init);
-+	kvm_get_default_vcpu_target(vpmu_vm.vm, &init);
- 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
- 	aarch64_vcpu_setup(vcpu, &init);
- 	vcpu_init_descriptor_tables(vcpu);
-diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
-index 91f05f78e824..f4644c9d2d3b 100644
---- a/tools/testing/selftests/kvm/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/get-reg-list.c
-@@ -116,10 +116,13 @@ void __weak finalize_vcpu(struct kvm_vcpu *vcpu, struct vcpu_reg_list *c)
- }
- 
- #ifdef __aarch64__
--static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *init)
-+static void prepare_vcpu_init(struct kvm_vm *vm, struct vcpu_reg_list *c,
-+			      struct kvm_vcpu_init *init)
+diff --git a/tools/testing/selftests/kvm/arm64/arch_timer.c b/tools/testing/selftests/kvm/arm64/arch_timer.c
+index c753013319bc..d592a4515399 100644
+--- a/tools/testing/selftests/kvm/arm64/arch_timer.c
++++ b/tools/testing/selftests/kvm/arm64/arch_timer.c
+@@ -165,10 +165,8 @@ static void guest_code(void)
+ static void test_init_timer_irq(struct kvm_vm *vm)
  {
- 	struct vcpu_reg_sublist *s;
+ 	/* Timer initid should be same for all the vCPUs, so query only vCPU-0 */
+-	vcpu_device_attr_get(vcpus[0], KVM_ARM_VCPU_TIMER_CTRL,
+-			     KVM_ARM_VCPU_TIMER_IRQ_PTIMER, &ptimer_irq);
+-	vcpu_device_attr_get(vcpus[0], KVM_ARM_VCPU_TIMER_CTRL,
+-			     KVM_ARM_VCPU_TIMER_IRQ_VTIMER, &vtimer_irq);
++	ptimer_irq = vcpu_get_ptimer_irq(vcpus[0]);
++	vtimer_irq = vcpu_get_vtimer_irq(vcpus[0]);
  
-+	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, init);
-+
- 	for_each_sublist(c, s)
- 		if (s->capability)
- 			init->features[s->feature / 32] |= 1 << (s->feature % 32);
-@@ -127,10 +130,10 @@ static void prepare_vcpu_init(struct vcpu_reg_list *c, struct kvm_vcpu_init *ini
+ 	sync_global_to_guest(vm, ptimer_irq);
+ 	sync_global_to_guest(vm, vtimer_irq);
+diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+index 5c60262f4c2e..91906414a474 100644
+--- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
++++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+@@ -924,10 +924,8 @@ static void test_run(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
  
- static struct kvm_vcpu *vcpu_config_get_vcpu(struct vcpu_reg_list *c, struct kvm_vm *vm)
+ static void test_init_timer_irq(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
  {
--	struct kvm_vcpu_init init = { .target = -1, };
-+	struct kvm_vcpu_init init;
- 	struct kvm_vcpu *vcpu;
+-	vcpu_device_attr_get(vcpu, KVM_ARM_VCPU_TIMER_CTRL,
+-			     KVM_ARM_VCPU_TIMER_IRQ_PTIMER, &ptimer_irq);
+-	vcpu_device_attr_get(vcpu, KVM_ARM_VCPU_TIMER_CTRL,
+-			     KVM_ARM_VCPU_TIMER_IRQ_VTIMER, &vtimer_irq);
++	ptimer_irq = vcpu_get_ptimer_irq(vcpu);
++	vtimer_irq = vcpu_get_vtimer_irq(vcpu);
  
--	prepare_vcpu_init(c, &init);
-+	prepare_vcpu_init(vm, c, &init);
- 	vcpu = __vm_vcpu_add(vm, 0);
- 	aarch64_vcpu_setup(vcpu, &init);
- 
-diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index 5a4b29c1b965..87f50efed720 100644
---- a/tools/testing/selftests/kvm/include/arm64/processor.h
-+++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -357,4 +357,6 @@ static __always_inline u64 ctxt_reg_alias(struct kvm_vcpu *vcpu, u32 encoding)
- 	return KVM_ARM64_SYS_REG(alias);
+ 	sync_global_to_guest(vm, ptimer_irq);
+ 	sync_global_to_guest(vm, vtimer_irq);
+diff --git a/tools/testing/selftests/kvm/include/arm64/arch_timer.h b/tools/testing/selftests/kvm/include/arm64/arch_timer.h
+index bf461de34785..e2c4e9f0010f 100644
+--- a/tools/testing/selftests/kvm/include/arm64/arch_timer.h
++++ b/tools/testing/selftests/kvm/include/arm64/arch_timer.h
+@@ -155,4 +155,28 @@ static inline void timer_set_next_tval_ms(enum arch_timer timer, uint32_t msec)
+ 	timer_set_tval(timer, msec_to_cycles(msec));
  }
  
-+void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init);
-+
- #endif /* SELFTEST_KVM_PROCESSOR_H */
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 311660a9f655..5ae65fefd48c 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -267,19 +267,24 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
- 	}
- }
- 
-+void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init)
++static inline u32 vcpu_get_vtimer_irq(struct kvm_vcpu *vcpu)
 +{
-+	struct kvm_vcpu_init preferred = {};
++	u32 intid;
++	u64 attr;
 +
-+	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &preferred);
++	attr = vcpu_has_el2(vcpu) ? KVM_ARM_VCPU_TIMER_IRQ_HVTIMER :
++				    KVM_ARM_VCPU_TIMER_IRQ_VTIMER;
++	vcpu_device_attr_get(vcpu, KVM_ARM_VCPU_TIMER_CTRL, attr, &intid);
 +
-+	*init = preferred;
++	return intid;
 +}
 +
- void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
- {
- 	struct kvm_vcpu_init default_init = { .target = -1, };
- 	struct kvm_vm *vm = vcpu->vm;
- 	uint64_t sctlr_el1, tcr_el1, ttbr0_el1;
- 
--	if (!init)
-+	if (!init) {
-+		kvm_get_default_vcpu_target(vm, &default_init);
- 		init = &default_init;
--
--	if (init->target == -1) {
--		struct kvm_vcpu_init preferred;
--		vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &preferred);
--		init->target = preferred.target;
- 	}
- 
- 	vcpu_ioctl(vcpu, KVM_ARM_VCPU_INIT, init);
++static inline u32 vcpu_get_ptimer_irq(struct kvm_vcpu *vcpu)
++{
++	u32 intid;
++	u64 attr;
++
++	attr = vcpu_has_el2(vcpu) ? KVM_ARM_VCPU_TIMER_IRQ_HPTIMER :
++				    KVM_ARM_VCPU_TIMER_IRQ_PTIMER;
++	vcpu_device_attr_get(vcpu, KVM_ARM_VCPU_TIMER_CTRL, attr, &intid);
++
++	return intid;
++}
++
+ #endif /* SELFTEST_KVM_ARCH_TIMER_H */
 -- 
 2.47.3
 
