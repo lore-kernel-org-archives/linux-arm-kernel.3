@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B07CCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64383CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 19:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0hPBJsMDSHhtjWW6Qz6GlIph0BIhPgebyqCeNJNb4o=; b=JCBhKia5AXfuujuOoPeMXMBcgU
-	cSi8Cc1Uj6+AvALWLk9PnDWptsU9hYoPWDDmfg+qcbFpZQtlvcQxgYtr4UHGjSrUastphhCGHoC/9
-	itcQHYoA8iwoec5hNAkSjl1TbGG2XDVj2YZosabIc3+XCL+caQ1bQjdTM5r39+srexG5MOFK+x98d
-	qUsXsEhuwKcAQLtbWcNBS+V7fd+EMVUlsonkSQfrd/x2DE1b7LTzotzbcrpqe8NH2wz1w7qN6encF
-	qHEQcj1ZvSTpZV9KlNz2T7jT/KsBCO7g3oq3NqqdklZ6XYg6Am60YmGS9fXWXYDCMZnvKP/NlzwXb
-	bRLo7ikQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nETMo+04waFS4tfkt/oU/2PbphAdE89qyUaowMAocVw=; b=aAOcGl/Yhhy3VGgTJ6+GWE3gT0
+	iKW+O4Hqu0Lja8JffwZg6AygbxE2q055fK2seM4DYfKDJy1dCdrTItBqEVgI0WdGTCMiC5TbP/QVq
+	O1UywADPQyLrzePXK9AUoymPQEZlwYZTlJpE2fjND7ijcKPlP5SoMv+5dq1knQUwwpFYJZn5cMXGl
+	ZBYq0pT0mtRWZJaaiGzKHNoXyG3ClEKFXr3sXAyJHubHEvDyE+YotIXZp1zgt/TsEDJgVWVWO1dhV
+	B4oVB773ZIeV4fHtGeWJPKfFL1WbuEo+DxMqcKqlFCvlHcCNnYMw1RchBPUiZ1tY9XrClWY2rMFv/
+	3KcctTTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy1M-0000000EM0e-07nT;
-	Wed, 17 Sep 2025 19:40:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyy1J-0000000ELyo-0TEv
+	id 1uyy5L-0000000ENBX-0sM5;
+	Wed, 17 Sep 2025 19:44:59 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyy5I-0000000ENAI-35k1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 19:40:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 803762696;
-	Wed, 17 Sep 2025 12:40:38 -0700 (PDT)
-Received: from [10.57.80.26] (unknown [10.57.80.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F053F3F694;
-	Wed, 17 Sep 2025 12:40:44 -0700 (PDT)
-Message-ID: <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
-Date: Wed, 17 Sep 2025 20:40:43 +0100
+	Wed, 17 Sep 2025 19:44:57 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8117aef2476so20508385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:44:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1758138295; x=1758743095; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nETMo+04waFS4tfkt/oU/2PbphAdE89qyUaowMAocVw=;
+        b=PZXuFqS/dcopyhKz6I2UAgAxk7ysNKeAD5TyyrMj1mO1AIsoZ16OKiSqmpB9VMvYM1
+         PcemwDaqxbm5WpYjsmnu0qHuxpqZiaK3Nh9HAtyDY9YIeQYzse0Jjki3d6gU41fxi6cj
+         GQIAoC4nzuuLOSmo/d2Uxickh/TYAdWSNtOH5ZuzoCjWwRHACbGaCkavVgZZEEhWuJJ9
+         KdaXUZrgVggeD77waGPEGW+j/ITjwUbdozlVRw3L6IQcV3AXZJbKFBFv1UJZ+hjjFKzK
+         YLuW2wJnaqoSwfR3Y0uLMqLyrOSkC295BrvPF19q1X7O81EgqMTA+j09qt+hYgzA335/
+         Q+Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758138295; x=1758743095;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nETMo+04waFS4tfkt/oU/2PbphAdE89qyUaowMAocVw=;
+        b=lGQaYhEC7n43exrKMxCrcwgLQ2pOIbggIpnAR9Yyr0S0hHdMDT1LOhWrhZ+yKSNwD9
+         NYWHclKL+9rRBQ/Y1+4VSpok/SdlFACbeqbaVvvM5gskE3xBnjmTlCbIRKhUsbZ2cAQw
+         1y1fqaUhnfocKmR/vLZ+Bfh9NSBHKxr3ijP40CDl5TDGrrisbUmzU2roXPjIwdSbdz1p
+         foytrrYYTfGVMJfHuXB9B/xeJBhWrL5BTgPNb7Fw9pBtrqsCF7aF7OfGktEQvPN6i46e
+         4mg2OhmvfA18CDnDtEPPZnQdP0A4fBgwOeRtnmZ3UyG6nfv/KyO6yV/W3iR6a1UAfilQ
+         k9+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXVvr55B1E36R4wBqwFL41Z3HgHODH/e8WD86NCkRa9nY0R12iZtMHvA9wdvJWEoSoPFDscnS1b/IpHycBkRzbS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/wwg35uyL1t/Gn4byS9AhIqfYub2K6YZceMbPm6qKg522TSCc
+	khsIpjXHdmXi7N7hgEVnkcnNyJBSo1G1UmfzfAlURni+QZF/U1D/r8+f83lYLm44oS/FpmtpqjY
+	of7oO
+X-Gm-Gg: ASbGncvuApjT+EYR67fuRncWMsIeR99Lm4IaAkmOfKxNvkWNvSC7w1XorWQBMYCrfzJ
+	aK3E4ye9mKkF+9RtOog48TwHxNsOXSkFPV89qMJa2e04yV2zswrrg3lwZ2p0emi7PkxfGsQWRs0
+	Q+xuF36W89GgbTwEelE02b497e8Vi4lHpDAkNg9M0Cb/U6iNGme7EUmnjW62yZq5SJvKMU+gcRp
+	qTE08BGY1DRjGQoFF599IN/woyG7M/sUSCeDthRC2ntvKBIWLFPi0r/MLg0FNido1pDTOfzUZSv
+	fjWogNpt3Z/7jU4W4ydjMT6CcBODCbq5Sq/RN6hOcjty94Nhz/72e9fJyV0c9Mn70Jza3dltlTY
+	5cLaaIeqSwJFbiyXf+08g2HMLNrvxbk62ynFjD/05mjrIYh9j86HyLUlfuZHqITtGIwTTjCfcxY
+	kMObc=
+X-Google-Smtp-Source: AGHT+IFWc58Oz1xzWWA03oRckYRJXsuyaaVLiWkScgdlR7Du/xYkSuwaIG4g5CNkm13Bqx94hJ05Vw==
+X-Received: by 2002:a05:620a:28d6:b0:811:3f8a:24a6 with SMTP id af79cd13be357-83111e2b756mr414673885a.53.1758138295331;
+        Wed, 17 Sep 2025 12:44:55 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-83631a7fc2fsm32683485a.54.2025.09.17.12.44.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 12:44:54 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uyy5G-00000008nBQ-1aLu;
+	Wed, 17 Sep 2025 16:44:54 -0300
+Date: Wed, 17 Sep 2025 16:44:54 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
+	joro@8bytes.org, praan@google.com
+Subject: Re: [PATCH v2 3/3] iommu/io-pgtable-arm-selftests: Use KUnit
+Message-ID: <20250917194454.GM1326709@ziepe.ca>
+References: <20250917191143.3847487-1-smostafa@google.com>
+ <20250917191143.3847487-4-smostafa@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, Dev Jain <dev.jain@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
- <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
- <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
- <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
- <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
- <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
- <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
- <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
- <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
- <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
- <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
- <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
- <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
- <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
- <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
- <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917191143.3847487-4-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_124049_241409_366C4502 
-X-CRM114-Status: GOOD (  41.81  )
+X-CRM114-CacheID: sfid-20250917_124456_788866_E282FB7B 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,156 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2025 20:15, Yang Shi wrote:
+On Wed, Sep 17, 2025 at 07:11:40PM +0000, Mostafa Saleh wrote:
+> Integrate the selftests as part of kunit, this makes the test
+> available through debugfs.
 > 
+> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  drivers/iommu/Kconfig                    |  2 +-
+>  drivers/iommu/io-pgtable-arm-selftests.c | 93 +++++++++++++-----------
+>  2 files changed, 51 insertions(+), 44 deletions(-)
 > 
-> On 9/17/25 11:58 AM, Ryan Roberts wrote:
->> On 17/09/2025 18:21, Yang Shi wrote:
->>>
->>> On 9/17/25 9:28 AM, Ryan Roberts wrote:
->>>> Hi Yang,
->>>>
->>>> Sorry for the slow reply; I'm just getting back to this...
->>>>
->>>> On 11/09/2025 23:03, Yang Shi wrote:
->>>>> Hi Ryan & Catalin,
->>>>>
->>>>> Any more concerns about this?
->>>> I've been trying to convince myself that your assertion that all users that set
->>>> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
->>>> returned my vmalloc. I agree that if that is the contract and everyone is
->>>> following it, then there is no problem here.
->>>>
->>>> But I haven't been able to convince myself...
->>>>
->>>> Some examples (these might intersect with examples you previously raised):
->>>>
->>>> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
->>>> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
->>>> rw_image.
->>> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
->>> is actually RW, so it should be ok to miss the call. The later
->>> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
->>> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
->>> the plain vmalloc() should be good enough.
->>>
->>>> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
->>>> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
->>>> set_memory_*() is not called until much later on in module_set_memory().
->>>> Another
->>>> error in the meantime could cause the memory to be vfreed before that point.
->>> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
->>> and data section. The code will set mod->mem[type].is_rox according to the type
->>> of the section. It is true for text, false for data. Then set_memory_rox() will
->>> be called later if it is true *after* insns are copied to the memory. So it is
->>> still RW before that point.
->>>
->>>> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
->>>> set_memory_*() which might then fail to split prior to vfree.
->>> Yes, all call sites check the return value and bail out if set_memory_*() failed
->>> if I don't miss anything.
->>>
->>>> But I guess as long as set_memory_*() is never successfully called for a
->>>> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
->>>> memory must still be RW at vfree-time, so this issue should be benign... I
->>>> think?
->>> Yes, it is true.
->> So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
->> only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
->> is called at all, the first call MUST be for the whole range.
-> 
-> Whether the default permission is RW or not depends on the type passed in by
-> execmem_alloc(). It is defined by execmem_info in arch/arm64/mm/init.c. For
-> ARM64, module and BPF have PAGE_KERNEL permission (RW) by default, but kprobes
-> is PAGE_KERNEL_ROX (ROX).
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index 553522ef3ca9..f7e6d1db6ce6 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -42,7 +42,7 @@ config IOMMU_IO_PGTABLE_LPAE
+>  
+>  config IOMMU_IO_PGTABLE_LPAE_SELFTEST
 
-Perhaps I missed it, but as far as I could tell the prot that the arch sets for
-the type only determines the prot that is set for the vmalloc map. It doesn't
-look like the linear map is modified at all... which feels like a bug to me
-since the linear map will be RW while the vmalloc map will be ROX... I guess I
-must have missed something...
+This should probably be renamed to xxx_KUNIT_TEST
 
-> 
->> If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
->> set_memory_*() was never called, the worst that can happen is for both the
->> set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
->> enough memory. But that is safe because the memory was always RW. If
->> set_memory_*() was called for the whole range and failed, it's the same as if it
->> was never called. If it was called for the whole range and succeeded, then the
->> split must have happened already and set_direct_map_invalid() and
->> set_direct_map_default() will therefore definitely succeed.
->>
->> The only way this could be a problem is if someone vmallocs a range then
->> performs a set_memory_*() on a sub-region without having first done it for the
->> whole region. But we have not found any evidence that there are any users that
->> do that.
-> 
-> Yes, exactly.
-> 
->>
->> In fact, by that logic, I think alloc_insn_page() must also be safe; it only
->> allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
->> definition be covering the whole allocation; 1 page is the smallest amount that
->> can be protected.
-> 
-> Yes, but kprobes default permission is ROX.
-> 
->>
->> So I agree we are safe.
->>
->>
->>>> In summary this all looks horribly fragile. But I *think* it works. It would be
->>>> good to clean it all up and have some clearly documented rules regardless.
->>>> But I
->>>> think that could be a follow up series.
->>> Yeah, absolutely agreed.
->>>
->>>>> Shall we move forward with v8?
->>>> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
->>>> it; there are a few other tidy ups in pageattr.c I want to make which I
->>>> spotted.
->>> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
->>> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
->>> Is it the cleanup you are supposed to do?
->> I was also going to fix up the comment in change_memory_common() which is now
->> stale.
-> 
-> Oops, I missed that in my v8. Please just comment for v8, I can fix it up later.
+>  	tristate "LPAE selftests"
+> -	depends on IOMMU_IO_PGTABLE_LPAE
+> +	depends on IOMMU_IO_PGTABLE_LPAE && KUNIT
 
-Ahh no biggy. If there is a chance Will will take the series, let's not hold it
-up for a comment.
+I wonder if it should be:
 
-> 
-> Thanks,
-> Yang
-> 
-> 
->>
->>> And I also rebased it on top of
->>> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
->>> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
->>>
->>>>> We can include the
->>>>> fix to kprobes in v8 or I can send it separately, either is fine to me.
->>>> Post it on list, and I'll also incorporate into the series.
->>> I can include it in v8 series.
->>>
->>>>> Hopefully we can make v6.18.
->>>> It's probably getting a bit late now. Anyway, I'll aim to get v8 out
->>>> tomorrow or
->>>> Friday and we will see what Will thinks.
->>> Thank you. I can post v8 today.
->> OK great - I'll leave it all to you then - thanks!
->>
->>> Thanks,
->>> Yang
->>>
->>>> Thanks,
->>>> Ryan
->>>>
->>>>> Thanks,
->>>>> Yang
->>>>>
-> 
+  	select IOMMU_IO_PGTABLE_LPAE
+  	depends on KUNIT
+        default KUNIT_ALL_TESTS
 
+?
+
+At least the default should be there
+
+>  	help
+>  	  Enable self-tests for LPAE page table allocator. This performs
+>  	  a series of page-table consistency checks during boot.
+
+"kunit tests" here as well
+
+> -subsys_initcall(arm_lpae_do_selftests);
+
+Oh so it does drop the initcall, the coverletter is a bit confusing then.
+
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
