@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E939CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A9FCCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbUH+ytp/I7r/qS0bTCYNaSJzrM2N4H+oZ5XzytcBc8=; b=iKcxE6atxSLywLwivasmMk2o5K
-	gL3f7dlRjhuIfQNnWGbYxjjBzKWiAkHFQ7/GUYW11LmdkOn8XtrYsyb1NL//wPOTFdQ2OyTDePsr7
-	HVVEPbP7bC5BBIsKCPOrTnet9PjHTAjE0+guhwscCM/fGsZWG1BNsSBvKkN5Wfv30YcZKs22ngzhu
-	dQDHxe44zPbXXlHh8BRob6Pj9vZt62VN8MNFkM6cELY6lJVrwlFShrw2BWDjsr+l3hnNYygqmTHH/
-	JSEzpJsRwIj2Ywo1p9ZmHlHrSwfray0KrEYQj3NAfbHjubpeoee2c6WSR4U7EmPmOOqxgIqwGxxLm
-	OrECtBNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O1d4PdhmWXab487Qmnpyv/UQOdJgyUlVnXpcfDIvvio=; b=tn09zHgh3uDkzErSmh8Yz+WvkM
+	4pf1JI7SfM6zYl4EeIoYe49JDEhk6/7ZpZCRGRpPMO/EUP9dZaN2yLI/lEBPhkFxEvjsZqBOg43h2
+	Bd+SdnRsUzyqJSbcFrehfNZ5bNCo1Uya2y/x28zespEdR9aSsEY0BBueIqw+L125uiYKcH3UqyATZ
+	rYfpiETa24b2jsSE3HfIRBGyoP61Um397EGKe3IzavTeAypmMPI51HLvsVD7bjvwwWGArJnmrMaCn
+	2Pj+ryIap8kTa5VIW5OYhbGxfvcMoo7IyPqdFnoz8deCxDJZq8LIJzqvjy3QkRXbk5r0sjRRn0M9s
+	DXvRv4YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpg-0000000CaC6-2Oyt;
-	Wed, 17 Sep 2025 15:12:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uytpl-0000000CaIE-3fzv;
+	Wed, 17 Sep 2025 15:12:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpb-0000000Ca1l-0W6q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:12:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=SbUH+ytp/I7r/qS0bTCYNaSJzrM2N4H+oZ5XzytcBc8=; b=GI2hr8NUA/wBoWosZZr4g/4/8R
-	lh/GHsVJEfQBe1JCCzTQcDmOYfx8xG4Lb9qNRvwPqQmVv8MP8Qgy7rc/DDVgKctW/899gLrFqCP/t
-	VLGWtcNnnByIsFzV8Ahz0ux9ZpaNZ8sCdyE1SgnOcJj3s0pCJLVe4JZoNmBVJKweRSrM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uytpK-008hZD-5s; Wed, 17 Sep 2025 17:12:10 +0200
-Date: Wed, 17 Sep 2025 17:12:10 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v1 0/2] Add Meta (Facebook) Yosemite5 BMC (AST2600)
-Message-ID: <9bb9929a-8130-48da-983e-2901a7c3da36@lunn.ch>
-References: <20250917074812.4042797-1-kevin.tung.openbmc@gmail.com>
+	id 1uytpe-0000000Ca5d-3xxh;
+	Wed, 17 Sep 2025 15:12:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=O1d4PdhmWXab487Qmnpyv/UQOdJgyUlVnXpcfDIvvio=; b=Pqne3nUKJrbNd08WmRsH1VgjPS
+	crju6qG4wPTq54tK0iiV+OTGCt95Licg+PkwaNVjUswxmPex/LBzA2dXM3JHwWF7Ko323ejBpr4j4
+	ob0Tu4hRnpG3sGBgyFs8RxZJVBv0S6dkLI8437zZ9mQtKnaB44Gi4wFiUJ+QvdpUxxLlg/7OHfFWr
+	vxWHEWIV252pnqBdU47JAUBjFYYm4NbgaSUaiQI0+PxOoRoALKTHNpO710c9Z1jA8ytQ5wApimbGI
+	/+ipugw0VKzafNr3x0TFp7a84epvjUCqRmjbnQRzJO1t7JjiJjlwqIN5VybbnZyJtu/chRqvB1Rkj
+	1zrXrAwg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:58688 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1uytpM-000000004kW-33fd;
+	Wed, 17 Sep 2025 16:12:13 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1uytpL-00000006H2F-1o6b;
+	Wed, 17 Sep 2025 16:12:11 +0100
+In-Reply-To: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
+References: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <fustini@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>,
+	imx@lists.linux.dev,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Samuel Holland <samuel@sholland.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Vladimir Zapolskiy <vz@mleia.com>
+Subject: [PATCH net-next 03/10] net: stmmac: imx: convert to use phy_interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917074812.4042797-1-kevin.tung.openbmc@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1uytpL-00000006H2F-1o6b@rmk-PC.armlinux.org.uk>
+Date: Wed, 17 Sep 2025 16:12:11 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_081227_172965_FD889C5F 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250917_081230_991498_02A0477B 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +105,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 03:48:08PM +0800, Kevin Tung wrote:
-> Summary:
-> Add device tree for the Meta (Facebook) Yosemite5 compute node,
-> based on the AST2600 BMC.
-> 
-> The Yosemite5 platform provides monitoring of voltages, power,
-> temperatures, and other critical parameters across the motherboard,
-> CXL board, E1.S expansion board, and NIC components. The BMC also
-> logs relevant events and performs appropriate system actions in
-> response to abnormal conditions.
-> 
-> Kevin Tung (2):
->   dt-bindings: arm: aspeed: add Meta Yosemite5 board
->   ARM: dts: aspeed: yosemite5: Add Meta Yosemite5 BMC
+Checking the IMX8MP documentation, there is no requirement for a
+separate mac_interface mode definition. As mac_interface and
+phy_interface will be the same, use phy_interface internally rather
+than mac_interface.
 
-The threading between your patches are broken? How did you send them?
-git send-email? b4 send?
+Also convert the error prints to use phy_modes() so that we get a
+meaningful string rather than a number for the interface mode.
 
-	Andrew
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-imx.c   | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+index 80200a6aa0cb..4268b9987237 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+@@ -72,7 +72,7 @@ static int imx8mp_set_intf_mode(struct plat_stmmacenet_data *plat_dat)
+ 	struct imx_priv_data *dwmac = plat_dat->bsp_priv;
+ 	int val;
+ 
+-	switch (plat_dat->mac_interface) {
++	switch (plat_dat->phy_interface) {
+ 	case PHY_INTERFACE_MODE_MII:
+ 		val = GPR_ENET_QOS_INTF_SEL_MII;
+ 		break;
+@@ -88,8 +88,8 @@ static int imx8mp_set_intf_mode(struct plat_stmmacenet_data *plat_dat)
+ 		      GPR_ENET_QOS_RGMII_EN;
+ 		break;
+ 	default:
+-		pr_debug("imx dwmac doesn't support %d interface\n",
+-			 plat_dat->mac_interface);
++		pr_debug("imx dwmac doesn't support %s interface\n",
++			 phy_modes(plat_dat->phy_interface));
+ 		return -EINVAL;
+ 	}
+ 
+@@ -112,7 +112,7 @@ static int imx93_set_intf_mode(struct plat_stmmacenet_data *plat_dat)
+ 	struct imx_priv_data *dwmac = plat_dat->bsp_priv;
+ 	int val, ret;
+ 
+-	switch (plat_dat->mac_interface) {
++	switch (plat_dat->phy_interface) {
+ 	case PHY_INTERFACE_MODE_MII:
+ 		val = MX93_GPR_ENET_QOS_INTF_SEL_MII;
+ 		break;
+@@ -134,8 +134,8 @@ static int imx93_set_intf_mode(struct plat_stmmacenet_data *plat_dat)
+ 		val = MX93_GPR_ENET_QOS_INTF_SEL_RGMII;
+ 		break;
+ 	default:
+-		dev_dbg(dwmac->dev, "imx dwmac doesn't support %d interface\n",
+-			 plat_dat->mac_interface);
++		dev_dbg(dwmac->dev, "imx dwmac doesn't support %s interface\n",
++			phy_modes(plat_dat->phy_interface));
+ 		return -EINVAL;
+ 	}
+ 
+@@ -197,7 +197,7 @@ static int imx_dwmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+ {
+ 	struct imx_priv_data *dwmac = bsp_priv;
+ 
+-	interface = dwmac->plat_dat->mac_interface;
++	interface = dwmac->plat_dat->phy_interface;
+ 	if (interface == PHY_INTERFACE_MODE_RMII ||
+ 	    interface == PHY_INTERFACE_MODE_MII)
+ 		return 0;
+@@ -215,8 +215,8 @@ static void imx_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
+ 	plat_dat = dwmac->plat_dat;
+ 
+ 	if (dwmac->ops->mac_rgmii_txclk_auto_adj ||
+-	    (plat_dat->mac_interface == PHY_INTERFACE_MODE_RMII) ||
+-	    (plat_dat->mac_interface == PHY_INTERFACE_MODE_MII))
++	    (plat_dat->phy_interface == PHY_INTERFACE_MODE_RMII) ||
++	    (plat_dat->phy_interface == PHY_INTERFACE_MODE_MII))
+ 		return;
+ 
+ 	rate = rgmii_clock(speed);
+@@ -274,7 +274,7 @@ static int imx_dwmac_mx93_reset(struct stmmac_priv *priv, void __iomem *ioaddr)
+ 	value |= DMA_BUS_MODE_SFT_RESET;
+ 	writel(value, ioaddr + DMA_BUS_MODE);
+ 
+-	if (plat_dat->mac_interface == PHY_INTERFACE_MODE_RMII) {
++	if (plat_dat->phy_interface == PHY_INTERFACE_MODE_RMII) {
+ 		usleep_range(100, 200);
+ 		writel(RMII_RESET_SPEED, ioaddr + MAC_CTRL_REG);
+ 	}
+-- 
+2.47.3
+
 
