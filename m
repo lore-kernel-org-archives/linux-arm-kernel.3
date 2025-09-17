@@ -4,84 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E92CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4573DCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 18:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rx5V0/lZD/IdbtCuUfwjiSEO0Grpo0JaThAgFi8Wh8s=; b=lrSsOYzdQCUWVECefiqbNTZg9F
-	BXhd5PxDjG30Cyk4/fBUM1IaInpQOtEjPA/1hK0OL/1KofU3cb6uty+06ARZdqrcVDFpjDcOi6Ldn
-	M2oh1Tj6NwMJzQKuTaz66i0agWHH/P9uY/v+07+LqwWGm65iCR8zW/TNB4fA1btmn+HPxQ3oGDZDK
-	135kQ6HDAV0Eu777xn0NIy+lyxd33Muy6FGt8tDfGiV0fXLeCSP6FUGs3MKnLaoV6IFnsEjkMthO6
-	PylZi8gRZkN22xzhF+dWcpYw7tfwcqYythqgGT+M5FQHEew/wFamOCOeAgys4jZbQPsIghGmLlLLI
-	69Il4wdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/s4ouuFNoBuI7nWZK//YejGoR/hN/Tl4wiDM5ljkak=; b=RnKqMqxRp6igmXZRzWR2OGzXMv
+	kkKZGcR/ANTD3HZGoPlnDNtNdGVIfw4uRbQyxNCYrULR4c3ZdA1F5KMas4UYwgLIt/gfEKjNIHYao
+	OgAbqr49cXYvVR6g5kiAKcCZWwSMEDKNtXtXxUo7qb5hgdbTPhKcZBtBfqiKpO5U4vH1JLbnjRMgo
+	aYwwO1+bx+RXgNgYHawwQeh+y91XhNMYXF40nGXzol6Jkrz1432v5h+/oVZSnh83F9aBOvApczvYy
+	CjXPgBd4KGVCZvqaodeqAfaTMJYlXI4bagEX40ZkRFkptcUU6zeje3vymJ3hpLoI9XLDFc7K+Wpc0
+	W6YkUD/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywKH-0000000Dj7O-17tZ;
-	Wed, 17 Sep 2025 17:52:17 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uywKD-0000000Dj5A-1pRU
+	id 1uywUq-0000000DnCY-0bu8;
+	Wed, 17 Sep 2025 18:03:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uywUn-0000000DnB4-1j5k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 17:52:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=Rx5V
-	0/lZD/IdbtCuUfwjiSEO0Grpo0JaThAgFi8Wh8s=; b=FWgOARlfcC5bBkEhH7jG
-	ITFPFlwr1VAfDuV0hIVqbDeNRxa2v7Ycn5BBKxibO0KMk2WxPeWb494SJo3SZ4QE
-	RFClSWn1PObw0nS9NEb3t1IMYTqChz5GwKXqsFSu9j0TT3VWAwE6MN3au5m6mGpS
-	JD/p/ucC6a7lTlJguzmIG+T8RyBoUsUmd+Cy2Cg3AZdC4PTagMr5mrvyPECtqOUh
-	rSgilWdz3j4OR/4LUArMds+Rffk4gY60pYA2iLgddKm6DKEjeKNKUM0HjLkxrPzc
-	/OPXKoqjG0tih5tcmDLmR3lqI7P4yCJGfxt6ZBz/cgerHqnfaKm8oige/Ejgtbyi
-	sQ==
-Received: (qmail 3221545 invoked from network); 17 Sep 2025 19:52:03 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Sep 2025 19:52:03 +0200
-X-UD-Smtp-Session: l3s3148p1@Zdbn5AI/itEujnvK
-Date: Wed, 17 Sep 2025 19:52:02 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	"Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
-Message-ID: <aMr1QjI8vfrP_fwD@shikoro>
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
- <87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
- <86v7li1xs4.wl-maz@kernel.org>
- <87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
- <86qzw51pmw.wl-maz@kernel.org>
+	Wed, 17 Sep 2025 18:03:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5124B2696;
+	Wed, 17 Sep 2025 11:02:57 -0700 (PDT)
+Received: from [10.57.63.94] (unknown [10.57.63.94])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6EC53F673;
+	Wed, 17 Sep 2025 11:03:01 -0700 (PDT)
+Message-ID: <d73e5026-ccb0-4a19-9742-099a0443f878@arm.com>
+Date: Wed, 17 Sep 2025 19:02:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86qzw51pmw.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Enable use of all SMR groups when
+ running bare-metal
+To: Stephan Gerhold <stephan.gerhold@linaro.org>,
+ Will Deacon <will@kernel.org>
+Cc: Joerg Roedel <joro@8bytes.org>, Rob Clark <robin.clark@oss.qualcomm.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Johan Hovold <johan@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>, iommu@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250821-arm-smmu-qcom-all-smr-v1-1-7f5cbbceac3e@linaro.org>
+ <aMAkJ7CfPQuhvhfm@willie-the-truck> <aMBJNzXpQTMg4Ncs@linaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aMBJNzXpQTMg4Ncs@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_105213_742251_C5B0FD4D 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250917_110309_541711_954DB4BB 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,20 +70,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-> > And, the datasheet is very complex, I don't think people can find it by
-> > himself without any hint.
+On 2025-09-09 4:35 pm, Stephan Gerhold wrote:
+> On Tue, Sep 09, 2025 at 01:57:11PM +0100, Will Deacon wrote:
+>> On Thu, Aug 21, 2025 at 10:33:53AM +0200, Stephan Gerhold wrote:
+>>> Some platforms (e.g. SC8280XP and X1E) support more than 128 stream
+>>> matching groups. This is more than what is defined as maximum by the ARM
+>>> SMMU architecture specification. Commit 122611347326 ("iommu/arm-smmu-qcom:
+>>> Limit the SMR groups to 128") disabled use of the additional groups because
+>>> they don't exhibit the same behavior as the architecture supported ones.
+>>>
+>>> It seems like this is just another quirk of the hypervisor: When running
+>>> bare-metal without the hypervisor, the additional groups appear to behave
+>>> just like all others. The boot firmware uses some of the additional groups,
+>>> so ignoring them in this situation leads to stream match conflicts whenever
+>>> we allocate a new SMR group for the same SID.
+>>>
+>>> The workaround exists primarily because the bypass quirk detection fails
+>>> when using a S2CR register from the additional matching groups, so let's
+>>> perform the test with the last reliable S2CR (127) and then limit the
+>>> number of SMR groups only if we detect that we are running below the
+>>> hypervisor (because of the bypass quirk).
+>>>
+>>> Fixes: 122611347326 ("iommu/arm-smmu-qcom: Limit the SMR groups to 128")
+>>> Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
+>>> ---
+>>> I modified arm_smmu_find_sme() to prefer allocating from the SMR groups
+>>> above 128 (until they are all used). I did not see any issues, so I don't
+>>> see any indication that they behave any different from the others.
+>>> ---
+>>>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 27 +++++++++++++++++----------
+>>>   1 file changed, 17 insertions(+), 10 deletions(-)
+>>
+>> Is the existing workaround causing you problems somehow? Limiting the SMR
+>> groups to what the architecture allows still seems like the best bet to
+>> me unless there's a compelling reason to do something else.
+>>
 > 
-> I guess we're just a bunch of inexperienced idiots unable to read a
-> TRM.
+> Yes, the problem is the following (copied from commit message above):
+> 
+>> The boot firmware uses some of the additional groups, so ignoring them
+>> in this situation leads to stream match conflicts whenever we allocate
+>> a new SMR group for the same SID.
+> 
+> This happens e.g. in the following situation on SC8280XP when enabling
+> video decoding acceleration bare-metal without the hypervisor:
+> 
+>   1. The SMMU is already set up by the boot firmware before Linux is
+>      started, so some SMRs are already in use during boot. I added some
+>      code to dump them:
+> 
+>       arm-smmu 15000000.iommu: Found SMR0 <0xe0 0x0>
+>        ...
+>       arm-smmu 15000000.iommu: Found SMR8 <0x800 0x0>
+>       <unused>
+>       arm-smmu 15000000.iommu: Found SMR170 <0x2a22 0x400>
+>       arm-smmu 15000000.iommu: Found SMR171 <0x2a02 0x400>
+>        ...
+>       arm-smmu 15000000.iommu: Found SMR211 <0x400 0x3>
+> 
+>   2. We limit the SMRs to 128, so all the ones >= 170 just stay as-is.
+>      Only the ones < 128 are considered when allocating SMRs.
+> 
+>   3. We need to configure the following IOMMU for video acceleration:
+> 
+> 	video-firmware {
+> 		iommus = <&apps_smmu 0x2a02 0x400>;
+> 	};
+> 
+>   4. arm-smmu 15000000.iommu: Picked SMR 14 for SID 0x2a02 mask 0x400
+>      ... but SMR170 already uses that SID+mask!
+> 
+>   5. arm-smmu 15000000.iommu: Unexpected global fault, this could be serious
+>      arm-smmu 15000000.iommu: GFSR 0x80000004, GFSYNR0 0x0000000c, GFSYNR1 0x00002a02, GFSYNR2 0x00000000
+> 
+>      SMCF, bit[2] is set -> Stream match conflict fault
+>      caused by SID GFSYNR1 0x00002a02
+> 
+> With my patch this does not happen anymore. As I wrote, so far I have
+> seen no indication that the extra groups behave any different from the
+> standard ones defined by the architecture. I don't know why it was done
+> this way (rather than e.g. implementing the Extended Stream Matching
+> Extension), but we definitely need to do something with the extra SMRs
+> to avoid stream match conflicts.
 
-Please don't feel offended. Morimoto-san really has a point here. The
-datasheet available for us is currently in a very rough format with
-*lots* of attached documents with hard to grasp naming. I am dealing
-with R-Car datasheets for 10+ years now, and I do have a hard time
-finding the information I want with this one.
+I'm also a little wary of exposing more non-architectural stuff to the 
+main driver - could we not keep the existing logic and simply add an 
+extra loop at the end here to ensure any "extra" SMRs are disabled?
 
-That being said, I agree to the point that it is not very helpful to
-reference such documentation upstream.
-
+Thanks,
+Robin.
 
