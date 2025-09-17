@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFAFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26071CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMhvnhQYreEpSw4/nebuiGe96gEzDo6efwFyIU7Yj0s=; b=oPbpkrvOya2EIL+5ncgLYvtVZ7
-	SCdk9aScAmiAAKHVquZEYXrL0gbbwRDHpTug874Sn7Nv1aYPxXS44LqQ1nKZY995rOKNWgVlNUQb4
-	K0JkF1wFo31zo8RufuQTIwwPhOcBTXFCeVUPZnZgOmueiQbBHz/dzuaSzjTbQPmvsOo+PjkgkBglH
-	w304jkbvPMsn6/hx2k0zW6q4l3znCkhH/+NpKO0wN2TbWPRX6rPVTjwfPF+8oLoH5W6Kataa1ZH8O
-	SlFBJYDe3PaoRg+hSwgmIayBA043bx6Pz3BVHLzfMIbTYszEXZ1cznE2apktob9mCgh5AFSitQA0T
-	Zn2xh30A==;
+	bh=V7mQY3qdCR3hvy95CDRctskrJV5Xhnq7AFeZGsJQX4o=; b=iMQaSUSlk7ACVCadkXpRZL487e
+	8k7x9p/judYE+pFVLg/YinqRTcOFgVAAKB44CvGzgGWaERLd/ymmjYuoq6RCXGIcTFhUq/UiankBo
+	DSQFxcwn0rO4SO/sAEnyMqiTrGbT8OOAbIK+V3nj/s39JIMhDuMS3A4iuIHHsAX/kYLW8KrGcjmFM
+	69ILPqbWcCmiaRGrdU2iazdc96FWYWl9MtgvU2ifGmTaNOFSBrRFmgsHPFehXzN9Dm3fD03A2X0RK
+	BO8OZy1SJuyCr+lyQzfAGMkSuQUpSZvBq0hmg+qdAUufGYjokcBpnKWdMABsoyxUMZA9zDWpvstvx
+	ByJNqkIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzat-0000000ErjL-2KTB;
-	Wed, 17 Sep 2025 21:21:39 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1uyzay-0000000Eros-1fG8;
+	Wed, 17 Sep 2025 21:21:44 +0000
+Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzap-0000000EreK-1A1N
+	id 1uyzav-0000000Erjj-0SO2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:21:36 +0000
+	Wed, 17 Sep 2025 21:21:42 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144092;
+	t=1758144099;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XMhvnhQYreEpSw4/nebuiGe96gEzDo6efwFyIU7Yj0s=;
-	b=VErmrEAY8bDgU74c8WDBKvFDLIKBrnyf5QwrlZ2T70b7h560MEZhXQZsud1kNPupNJqQKb
-	SbUDOjesHJOc2DtRHgL2KN5sB0UyEGjcS0NNeax9ERJL6p/qq0N+ieW792GynE5XqPBHU7
-	4eRO/dgje2jaHzmh0ijzCU/4TePzZT0=
+	bh=V7mQY3qdCR3hvy95CDRctskrJV5Xhnq7AFeZGsJQX4o=;
+	b=C+9i/VCsWpAwC29BijvaMaRZY8BDN8RoD1Jf0fHZrKGgoUW/G4mz5nTbMmdXIBFgh835/5
+	7csE2vGh4ValXeKKYVLM/68mC7ERszZ8/6Z/yGJh/04csuS+kdGczT9ugnDJc23YoIEGXK
+	Ase1WRq/DBJu+TCfjNhRJwC2fg3Ib/8=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 06/13] KVM: arm64: selftests: Alias EL1 registers to EL2 counterparts
-Date: Wed, 17 Sep 2025 14:20:36 -0700
-Message-ID: <20250917212044.294760-7-oliver.upton@linux.dev>
+Subject: [PATCH 08/13] KVM: arm64: selftests: Select SMCCC conduit based on current EL
+Date: Wed, 17 Sep 2025 14:20:38 -0700
+Message-ID: <20250917212044.294760-9-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142135_467826_99A4CA8F 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250917_142141_442148_621AD187 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,180 +78,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_VHE has the somewhat nice property of implicitly redirecting EL1
-register aliases to their corresponding EL2 representations when E2H=1.
-Unfortunately, there's no such abstraction for userspace and EL2
-registers are always accessed by their canonical encoding.
-
-Introduce a helper that applies EL2 redirections to sysregs and use
-aggressive inlining to catch misuse at compile time. Go a little past
-the architectural definition for ease of use for test authors (e.g. the
-stack pointer).
+HVCs are taken within the VM when EL2 is in use. Ensure tests use the
+SMC instruction when running at EL2 to interact with the host.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- .../selftests/kvm/arm64/vpmu_counter_access.c |  4 +-
- .../selftests/kvm/include/arm64/processor.h   | 54 +++++++++++++++++++
- .../testing/selftests/kvm/include/kvm_util.h  |  3 ++
- .../selftests/kvm/lib/arm64/processor.c       | 19 +++----
- 4 files changed, 69 insertions(+), 11 deletions(-)
+ tools/testing/selftests/kvm/arm64/hypercalls.c      |  2 +-
+ tools/testing/selftests/kvm/arm64/kvm-uuid.c        |  2 +-
+ tools/testing/selftests/kvm/arm64/psci_test.c       | 10 +++++-----
+ .../testing/selftests/kvm/include/arm64/processor.h | 13 +++++++++++++
+ tools/testing/selftests/kvm/steal_time.c            |  2 +-
+ 5 files changed, 21 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 4a7e8e85a1b8..36a3a8b4e0b5 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -517,7 +517,7 @@ static void run_access_test(uint64_t pmcr_n)
- 	vcpu = vpmu_vm.vcpu;
+diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
+index 44cfcf8a7f46..bf038a0371f4 100644
+--- a/tools/testing/selftests/kvm/arm64/hypercalls.c
++++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
+@@ -108,7 +108,7 @@ static void guest_test_hvc(const struct test_hvc_info *hc_info)
  
- 	/* Save the initial sp to restore them later to run the guest again */
--	sp = vcpu_get_reg(vcpu, ARM64_CORE_REG(sp_el1));
-+	sp = vcpu_get_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SP_EL1));
+ 	for (i = 0; i < hvc_info_arr_sz; i++, hc_info++) {
+ 		memset(&res, 0, sizeof(res));
+-		smccc_hvc(hc_info->func_id, hc_info->arg1, 0, 0, 0, 0, 0, 0, &res);
++		do_smccc(hc_info->func_id, hc_info->arg1, 0, 0, 0, 0, 0, 0, &res);
  
- 	run_vcpu(vcpu, pmcr_n);
+ 		switch (stage) {
+ 		case TEST_STAGE_HVC_IFACE_FEAT_DISABLED:
+diff --git a/tools/testing/selftests/kvm/arm64/kvm-uuid.c b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
+index af9581b860f1..b5be9133535a 100644
+--- a/tools/testing/selftests/kvm/arm64/kvm-uuid.c
++++ b/tools/testing/selftests/kvm/arm64/kvm-uuid.c
+@@ -25,7 +25,7 @@ static void guest_code(void)
+ {
+ 	struct arm_smccc_res res = {};
  
-@@ -529,7 +529,7 @@ static void run_access_test(uint64_t pmcr_n)
- 	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
- 	aarch64_vcpu_setup(vcpu, &init);
- 	vcpu_init_descriptor_tables(vcpu);
--	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), sp);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SP_EL1), sp);
- 	vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pc), (uint64_t)guest_code);
+-	smccc_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, 0, 0, 0, 0, 0, 0, 0, &res);
++	do_smccc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, 0, 0, 0, 0, 0, 0, 0, &res);
  
- 	run_vcpu(vcpu, pmcr_n);
+ 	__GUEST_ASSERT(res.a0 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 &&
+ 		       res.a1 == ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 &&
+diff --git a/tools/testing/selftests/kvm/arm64/psci_test.c b/tools/testing/selftests/kvm/arm64/psci_test.c
+index 0d4680da66d1..98e49f710aef 100644
+--- a/tools/testing/selftests/kvm/arm64/psci_test.c
++++ b/tools/testing/selftests/kvm/arm64/psci_test.c
+@@ -27,7 +27,7 @@ static uint64_t psci_cpu_on(uint64_t target_cpu, uint64_t entry_addr,
+ {
+ 	struct arm_smccc_res res;
+ 
+-	smccc_hvc(PSCI_0_2_FN64_CPU_ON, target_cpu, entry_addr, context_id,
++	do_smccc(PSCI_0_2_FN64_CPU_ON, target_cpu, entry_addr, context_id,
+ 		  0, 0, 0, 0, &res);
+ 
+ 	return res.a0;
+@@ -38,7 +38,7 @@ static uint64_t psci_affinity_info(uint64_t target_affinity,
+ {
+ 	struct arm_smccc_res res;
+ 
+-	smccc_hvc(PSCI_0_2_FN64_AFFINITY_INFO, target_affinity, lowest_affinity_level,
++	do_smccc(PSCI_0_2_FN64_AFFINITY_INFO, target_affinity, lowest_affinity_level,
+ 		  0, 0, 0, 0, 0, &res);
+ 
+ 	return res.a0;
+@@ -48,7 +48,7 @@ static uint64_t psci_system_suspend(uint64_t entry_addr, uint64_t context_id)
+ {
+ 	struct arm_smccc_res res;
+ 
+-	smccc_hvc(PSCI_1_0_FN64_SYSTEM_SUSPEND, entry_addr, context_id,
++	do_smccc(PSCI_1_0_FN64_SYSTEM_SUSPEND, entry_addr, context_id,
+ 		  0, 0, 0, 0, 0, &res);
+ 
+ 	return res.a0;
+@@ -58,7 +58,7 @@ static uint64_t psci_system_off2(uint64_t type, uint64_t cookie)
+ {
+ 	struct arm_smccc_res res;
+ 
+-	smccc_hvc(PSCI_1_3_FN64_SYSTEM_OFF2, type, cookie, 0, 0, 0, 0, 0, &res);
++	do_smccc(PSCI_1_3_FN64_SYSTEM_OFF2, type, cookie, 0, 0, 0, 0, 0, &res);
+ 
+ 	return res.a0;
+ }
+@@ -67,7 +67,7 @@ static uint64_t psci_features(uint32_t func_id)
+ {
+ 	struct arm_smccc_res res;
+ 
+-	smccc_hvc(PSCI_1_0_FN_PSCI_FEATURES, func_id, 0, 0, 0, 0, 0, 0, &res);
++	do_smccc(PSCI_1_0_FN_PSCI_FEATURES, func_id, 0, 0, 0, 0, 0, 0, &res);
+ 
+ 	return res.a0;
+ }
 diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-index 8c066ba1deb5..5a4b29c1b965 100644
+index 87f50efed720..f037c1bb8e63 100644
 --- a/tools/testing/selftests/kvm/include/arm64/processor.h
 +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-@@ -303,4 +303,58 @@ void wfi(void);
- void test_wants_mte(void);
- void test_disable_default_vgic(void);
+@@ -359,4 +359,17 @@ static __always_inline u64 ctxt_reg_alias(struct kvm_vcpu *vcpu, u32 encoding)
  
-+static bool vcpu_has_el2(struct kvm_vcpu *vcpu)
+ void kvm_get_default_vcpu_target(struct kvm_vm *vm, struct kvm_vcpu_init *init);
+ 
++static inline unsigned int get_current_el(void)
 +{
-+	return vcpu->init.features[0] & BIT(KVM_ARM_VCPU_HAS_EL2);
++	return (read_sysreg(CurrentEL) >> 2) & 0x3;
 +}
 +
-+#define MAPPED_EL2_SYSREG(el2, el1)		\
-+	case SYS_##el1:				\
-+		if (vcpu_has_el2(vcpu))		\
-+			alias = SYS_##el2;	\
-+		break
-+
-+
-+static __always_inline u64 ctxt_reg_alias(struct kvm_vcpu *vcpu, u32 encoding)
-+{
-+	u32 alias = encoding;
-+
-+	BUILD_BUG_ON(!__builtin_constant_p(encoding));
-+
-+	switch (encoding) {
-+	MAPPED_EL2_SYSREG(SCTLR_EL2,		SCTLR_EL1);
-+	MAPPED_EL2_SYSREG(CPTR_EL2,		CPACR_EL1);
-+	MAPPED_EL2_SYSREG(TTBR0_EL2,		TTBR0_EL1);
-+	MAPPED_EL2_SYSREG(TTBR1_EL2,		TTBR1_EL1);
-+	MAPPED_EL2_SYSREG(TCR_EL2,		TCR_EL1);
-+	MAPPED_EL2_SYSREG(VBAR_EL2,		VBAR_EL1);
-+	MAPPED_EL2_SYSREG(AFSR0_EL2,		AFSR0_EL1);
-+	MAPPED_EL2_SYSREG(AFSR1_EL2,		AFSR1_EL1);
-+	MAPPED_EL2_SYSREG(ESR_EL2,		ESR_EL1);
-+	MAPPED_EL2_SYSREG(FAR_EL2,		FAR_EL1);
-+	MAPPED_EL2_SYSREG(MAIR_EL2,		MAIR_EL1);
-+	MAPPED_EL2_SYSREG(TCR2_EL2,		TCR2_EL1);
-+	MAPPED_EL2_SYSREG(PIR_EL2,		PIR_EL1);
-+	MAPPED_EL2_SYSREG(PIRE0_EL2,		PIRE0_EL1);
-+	MAPPED_EL2_SYSREG(POR_EL2,		POR_EL1);
-+	MAPPED_EL2_SYSREG(AMAIR_EL2,		AMAIR_EL1);
-+	MAPPED_EL2_SYSREG(ELR_EL2,		ELR_EL1);
-+	MAPPED_EL2_SYSREG(SPSR_EL2,		SPSR_EL1);
-+	MAPPED_EL2_SYSREG(ZCR_EL2,		ZCR_EL1);
-+	MAPPED_EL2_SYSREG(CONTEXTIDR_EL2,	CONTEXTIDR_EL1);
-+	MAPPED_EL2_SYSREG(SCTLR2_EL2,		SCTLR2_EL1);
-+	MAPPED_EL2_SYSREG(CNTHCTL_EL2,		CNTKCTL_EL1);
-+	case SYS_SP_EL1:
-+		if (!vcpu_has_el2(vcpu))
-+			return ARM64_CORE_REG(sp_el1);
-+
-+		alias = SYS_SP_EL2;
-+		break;
-+	default:
-+		BUILD_BUG();
-+	}
-+
-+	return KVM_ARM64_SYS_REG(alias);
-+}
++#define do_smccc(...)				\
++do {						\
++	if (get_current_el() == 2)		\
++		smccc_smc(__VA_ARGS__);		\
++	else					\
++		smccc_hvc(__VA_ARGS__);		\
++} while (0)
 +
  #endif /* SELFTEST_KVM_PROCESSOR_H */
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 3ab1fffbc3f2..11b6c5aa3f12 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -63,6 +63,9 @@ struct kvm_vcpu {
- 	struct kvm_run *run;
- #ifdef __x86_64__
- 	struct kvm_cpuid2 *cpuid;
-+#endif
-+#ifdef __aarch64__
-+	struct kvm_vcpu_init init;
- #endif
- 	struct kvm_binary_stats stats;
- 	struct kvm_dirty_gfn *dirty_gfns;
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index de77d9a7e0cd..311660a9f655 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -283,15 +283,16 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
- 	}
- 
- 	vcpu_ioctl(vcpu, KVM_ARM_VCPU_INIT, init);
-+	vcpu->init = *init;
- 
- 	/*
- 	 * Enable FP/ASIMD to avoid trapping when accessing Q0-Q15
- 	 * registers, which the variable argument list macros do.
- 	 */
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPACR_EL1), 3 << 20);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_CPACR_EL1), 3 << 20);
- 
--	sctlr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1));
--	tcr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1));
-+	sctlr_el1 = vcpu_get_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SCTLR_EL1));
-+	tcr_el1 = vcpu_get_reg(vcpu, ctxt_reg_alias(vcpu, SYS_TCR_EL1));
- 
- 	/* Configure base granule size */
- 	switch (vm->mode) {
-@@ -358,10 +359,10 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
- 	if (use_lpa2_pte_format(vm))
- 		tcr_el1 |= TCR_DS;
- 
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1), sctlr_el1);
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1), tcr_el1);
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL1), DEFAULT_MAIR_EL1);
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL1), ttbr0_el1);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SCTLR_EL1), sctlr_el1);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_TCR_EL1), tcr_el1);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_MAIR_EL1), DEFAULT_MAIR_EL1);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_TTBR0_EL1), ttbr0_el1);
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL1), vcpu->id);
- }
- 
-@@ -396,7 +397,7 @@ static struct kvm_vcpu *__aarch64_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id,
- 
- 	aarch64_vcpu_setup(vcpu, init);
- 
--	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), stack_vaddr + stack_size);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_SP_EL1), stack_vaddr + stack_size);
- 	return vcpu;
- }
- 
-@@ -466,7 +467,7 @@ void vcpu_init_descriptor_tables(struct kvm_vcpu *vcpu)
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index cce2520af720..8edc1fca345b 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -118,7 +118,7 @@ static int64_t smccc(uint32_t func, uint64_t arg)
  {
- 	extern char vectors;
+ 	struct arm_smccc_res res;
  
--	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL1), (uint64_t)&vectors);
-+	vcpu_set_reg(vcpu, ctxt_reg_alias(vcpu, SYS_VBAR_EL1), (uint64_t)&vectors);
+-	smccc_hvc(func, arg, 0, 0, 0, 0, 0, 0, &res);
++	do_smccc(func, arg, 0, 0, 0, 0, 0, 0, &res);
+ 	return res.a0;
  }
  
- void route_exception(struct ex_regs *regs, int vector)
 -- 
 2.47.3
 
