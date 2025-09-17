@@ -4,63 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379E7CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64CFCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1a76mUPcO8ns9YF9A2LMR/FDKI2TrOPgSqlo6j1FBU=; b=TBBKsdyHJQIesc2GwXr9Pqp18n
-	5L5qBbacZqLHU8NCTtS4/QehdtLeISpcCD0nHlY6JMFMDB6yxAtncyzt0X7dM7i/x802b6mIw8/wS
-	12A1K+aM22Bt9e69bNtkL8C94uGM/lbG3Np12Kbw2vN3JZFglQp+O0iGmZSHKiMqxQv6Wd7SfBDAh
-	JIalRiesnMBTyUMlYk7YWPK/FCti0EZV9WupWy03XRq5wcRgU6R+1v+lsa7vEnFs4YuCup2f6LTSn
-	HI6jiYXqO9g9zAQEgGgMdrHKgd88tERsvL4T4zNPtwX63eE1w3S1aiu8OtcKMCzuEFZQ80VqbXn+Z
-	rhFzxDKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8VtqdaZwVHR8A9mFz92Ryj3JcVImENwPazufVvRFT0k=; b=AVKnOA2nfuDL3DrckdVXVswTjv
+	KJAszEexfkxnS7TZuheh8SRKX0bGm0OG+Jz6TicQEvRPBQc+B4e11sQdat3uCVmZKGISpHXNGD3S4
+	8LhFB3QYiUMtLXT622znpuwioNOPX7X8Cyp+kqhFZ3gDsERPvDQL/bg3JWeSmOiLTWHxSmITXnaMl
+	0eq5Sl9vK1EGjtPCm9BWUebbKmgZQO5axoXQuBat/nRyMKz8w+PtcGjhdo59GsPMfZXAOVkc9wf8p
+	NGR3u51prMb23EVe48CtxOrS3T8cij8rZRGx9WB5Daf4DxZSYFgjqGzyq2f6JPBqj3LuuBJAn3PSg
+	ekXMNZYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuC0-0000000CkfR-0q0A;
-	Wed, 17 Sep 2025 15:35:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uyuDR-0000000ClTi-0PR8;
+	Wed, 17 Sep 2025 15:37:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyuBx-0000000Ckci-2w2H
+	id 1uyuDP-0000000ClSi-30O3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 17 Sep 2025 15:37:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=8VtqdaZwVHR8A9mFz92Ryj3JcVImENwPazufVvRFT0k=; b=PjieBAy0Y+Y1DYSFnimZE6PXiG
+	9Rim8z3lXrp+IOTisQSny79Ms3cOBTWA3GH0sleVicWaS8+j4/a3TFm84bQKF7mOXre03ekLJ46rD
+	AmTL6CEQM0jgb8JzJvhchDV030hn1aQUIq0+qehN02IUdAiVJLl/k80HulsSLASlHIT73KdxhzLfK
+	BeX/mGcd/ubcDmRoP3otJNxe9vJr4ZCWPp8XfAXohBH5FpwaVd1EWzicrWPOiZ4YaUspn5/8MG9Zp
+	m6KR7/WNgvkoRRZDO05BimIeTuv2Xp0oyjqyu3HG/ulTbslApecYkREz/HmAiPH+YpEcNnweR7hxl
+	mu5b1mMg==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uyuDL-00000007RTl-44Hh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 15:35:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE34D44F9B;
-	Wed, 17 Sep 2025 15:35:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8896DC4CEFB;
-	Wed, 17 Sep 2025 15:35:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758123332;
-	bh=nZQmPYQCP3V4ITomeSxoV+uy8f0B16OIffQH9A20qOs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mcMv7Zz6T6tGTriSDVWaKbFL6i2iWb3ourTAd4+bYfjU2Rexh0wG0hggzCTZG30cI
-	 YFYE9m65FmPgEBFhgNuUMwxPFkgkINiIf/1akmcMsjS60AlxQxun1i4uAWfO7JWGGf
-	 AJJXnIPxtDE6nCwIsK938pLgPaV0ob7Y0J105rmhUOMR6WzqtlXniKSUVHBaH69QaY
-	 B0vFcXp2RUtB4awYOsUkXqRxbQc3zSMKWRlH249br1ifFKx5091v8D/PK4gsdzXrku
-	 plfwG5WXHierR2Xvm/pWkEVUIxjfV8q8fp6PMObe0EQr9jI8RTbKwu/LEcjYZH9dzy
-	 cf1XDAMp4lE8Q==
-Date: Wed, 17 Sep 2025 10:35:29 -0500
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org, fsverity@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>, x86@kernel.org,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/6] Optimize fsverity using 2-way interleaved SHA-256
- hashing
-Message-ID: <20250917153529.GA45754@quark>
-References: <20250915160819.140019-1-ebiggers@kernel.org>
+	Wed, 17 Sep 2025 15:37:02 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58HFS1Pv014203;
+	Wed, 17 Sep 2025 17:36:47 +0200
+Received: from as8pr04cu009.outbound.protection.outlook.com (mail-westeuropeazon11011001.outbound.protection.outlook.com [52.101.70.1])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 497fxhmf5y-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 17 Sep 2025 17:36:47 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nR2T1Kz5dHBgPfgk7lpVz3FktGWmcknms7DUfgb8m3Bxss+5tg/KARKAmXFB2hswxHdLuEGGapNbsPCl7QW+RGkQjvKOY5EfpEStDs5MhOkP0+Kt3cVynO618ldpRrTCcQHCpybwgUvCX0cWTTFBK0YZ5vC4B/+Vc+iQeXSyGk7pDpkMFtlqiinhnzqGJ84TH/fXkhiUX4q6Ye51LY0sfkDJsZQmWuxWi3x4AMnHflcBiJPnTFDCNZS1ugCpeUwds1l2MOgYRZfCL6j/ifaaGljJC1jJ3ppopqo8sdIoHyQU745XFR3WU5rPSklhWVyU6GGUwBQ1fAyR1Dd2GtS9sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8VtqdaZwVHR8A9mFz92Ryj3JcVImENwPazufVvRFT0k=;
+ b=OyYXkxbuoLb1q4lXC3fpV9SCb18mS5VXytpfACfi79Q9HLXi1D2KFG6e+Ai/Fdx5FHX2hl/HMF2k6Gw5wfP772fliDVvkJepSxL6Ypcw2McHZ2w0c9Id+u1im9eEQsOlrAGgrQs++n3eKcoq/uVcoKkjmTqsxpzaOu+QivGTDR96VYjquIChh72TnO2hceknUi6QTOw4emtHEoeA0rC6XEcrq16AbaTNt7xutOUHzqXO3erJkfeRo3XDt3BSusQOqHF5vtIJI00ybEw47AlP83f8tsvO2NYqGehsbLnQEonsvCHi1hCqi/0rVAM+30XwVGhVuGAjdKbn049gtLWQHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.43) smtp.rcpttodomain=google.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8VtqdaZwVHR8A9mFz92Ryj3JcVImENwPazufVvRFT0k=;
+ b=Y8ON0pSHN4F0BC4zzzgIGEOMTLzseo/aYA1ZiqED5Dwz/mYTIt1mGYZQ2UB/3T5MOIO0Wz1+PJ5wWDstY651z12tiuziJrmks2kQoN7t5T3RhP6PbKi8KpXBUEuotqccZJ7NYpSxYo4j62fp5YVXqQoEADviqDQoLgIHWSHbxXxivdYQcwER4QpTvqZeOKO5L9U0jyqUCLysSixk6vnUErM8jv9fuN3VqFlark+2wmdJKtbdFfTD5MlcnQvJr2Jq3Yjx+mK58CcTxqm51/kw8RKjgg8V8i1u+Fa7DFPPNbvCyK7Wm5mv3IK82yxHIYTYAP0RWPVuwOM5eBN0AoS3zw==
+Received: from AS4P189CA0013.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::16)
+ by PAWPR10MB7224.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2e6::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.22; Wed, 17 Sep
+ 2025 15:36:43 +0000
+Received: from AM3PEPF0000A797.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d7:cafe::62) by AS4P189CA0013.outlook.office365.com
+ (2603:10a6:20b:5d7::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.13 via Frontend Transport; Wed,
+ 17 Sep 2025 15:36:39 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.43; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.43) by
+ AM3PEPF0000A797.mail.protection.outlook.com (10.167.16.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Wed, 17 Sep 2025 15:36:42 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 17 Sep
+ 2025 17:34:18 +0200
+Received: from localhost (10.48.87.141) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 17 Sep
+ 2025 17:36:42 +0200
+From: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Date: Wed, 17 Sep 2025 17:36:36 +0200
+Subject: [PATCH net-next v2 1/4] dt-bindings: net: document st,phy-wol
+ property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915160819.140019-1-ebiggers@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250917-wol-smsc-phy-v2-1-105f5eb89b7f@foss.st.com>
+References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
+In-Reply-To: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>,
+        Andrew Lunn <andrew@lunn.ch>,
+        "Heiner
+ Kallweit" <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        "Simon Horman" <horms@kernel.org>,
+        Tristram Ha <Tristram.Ha@microchip.com>,
+        "Florian Fainelli" <florian.fainelli@broadcom.com>
+CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Gatien Chevallier <gatien.chevallier@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF0000A797:EE_|PAWPR10MB7224:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9789a12e-38ac-474f-5399-08ddf60000b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cXJCU0ZzM1M2NFNmdTdNNWpqeFFsRUx5TGtON0FXYkpMTmpzNStwWi83eHNB?=
+ =?utf-8?B?T2tCbyswZFNjR1hpT0NER2srQ3U2UWk5YUo3ZTloeFkzRlB5bGRqZ2Z2TlZa?=
+ =?utf-8?B?Zm5IQVBldlo5T2NDTnhoQ1ZtQzhoQVRIK01wYUtIUHJZYTQ2YldBWGowUjlI?=
+ =?utf-8?B?eW1XNkhHR3FGWHBsWVVyQkRGM1hHK3kyOHJjWW54Y1IybFNodXFwaitUT1Fo?=
+ =?utf-8?B?YjY4UzB4NWxBYkMwNVlDVElFVzYrLzg1cHNIOHJqbFFmRnFxdmpkRXZ3YXBl?=
+ =?utf-8?B?V0M3aUQvOStsZkIvbXZzZVJxZVJudnRqb1l5bWkvMjM3NFp4dHBKSGF1RDBS?=
+ =?utf-8?B?bjNtRW4vSnpTOVd5dHgvQTFWMnZpWDhzY3J2VFR4NGFnV2xqQlEydFdYVmll?=
+ =?utf-8?B?dXdLS0Z5eE83cTYzVmNnY0E2ZHhqazZDRnlxOUwrekRoOVNiTmFWWU9nVWhP?=
+ =?utf-8?B?dThSOTBvcld2VXhtd01nVEM5RnJHZkVaZVoySEZLY1ZhTFRZeDFMMFVFK2Rk?=
+ =?utf-8?B?Rm0vTytyWXhlUGVYNFVlVVpodElzam5RUHluUm9FUHpRUU5OWGNjeTJPZldo?=
+ =?utf-8?B?SXJMOStWY0hxdkd2bG5lSHZpSzdRZ2FiZ3oyaVVMTER6SHp2RXJLMXp6SHl4?=
+ =?utf-8?B?TXZwcWNzZWUzdjIrM3JFOTg4TUxEUzQ0b0p6d0IwcjJ0VU9nZGpJTEdaMXho?=
+ =?utf-8?B?ZitMSE1yUnU3bFdOSUdyYkVGSENGL2poNHBPUTZSbER4dDkzdzhGWGdxMnB5?=
+ =?utf-8?B?S0RVQzAyREtSRTJ6bmtmc0M0VFU4aTh2VFg4Z3FmMGoxUmRYRWtic3Z3dzA2?=
+ =?utf-8?B?bDJ2L2RrTWV6UlpxNUtmVlg1NUdZQlhRMHd0cU14VngyR0J0VUdpR3BIREUv?=
+ =?utf-8?B?amJHR0E0eXRBQmtMcTVhSVE0SGxxcTZaYXpNT28rYmdQSm1EdjNUY1dQRVJr?=
+ =?utf-8?B?STcrUmo5MzJ1bWtVcjNBSk1ZOTl1cEVxcHpYa2E1ZGR3TWlidnRMVjFNUE1t?=
+ =?utf-8?B?VWF2YWlBSUZ1WkhtUWs3ekpISE1jOW9teW5jSGU1MFF6Zi9Fempmd0ZLb3Fz?=
+ =?utf-8?B?N2Q3bDZlQjF0a0ZpdFY5N0VIcUV4N2tJRmlIeHFzSTNLdGZOWHh3aWNucERW?=
+ =?utf-8?B?T09DVDhsYUY5ZEVISmRSUHpqYndkTUxqOE8wcm9mbHdkRUpVR01zMlpBQlNa?=
+ =?utf-8?B?NDFOdzlCR3pwZGJPV0hkM1hMSG13a2h0UGJXTExac3R1eW9uenpzZkxmM2Nk?=
+ =?utf-8?B?UVdoLysrVld2UjR2azN6Vmg4RzJEUGZoeUN3L3Y5Y3BRMmk3VTJGSW5aT3Br?=
+ =?utf-8?B?YnNpbnJydUJFOXBkbDZzc3ZLKzNiL0RpMEpvRVJuaS9KR1lOaVFuaWxSSGMx?=
+ =?utf-8?B?R21RUG9DallLaVN3UlFSVEtIMDl3cGI4ank5ai9jUE1hMHJoU05NWmtjWUta?=
+ =?utf-8?B?TVRmVDZ3QUZOYjdMWjZDS1d2ZDZFMXZpd2wxVjlCSDhJN1JTQ2FxNTN0SVQ4?=
+ =?utf-8?B?T0lSNHg3Nml4dCtrTGREY0lXQ01Za1NkM04zQndxMVEzOUU2MS9YR2tSUlRI?=
+ =?utf-8?B?OC9tS0lmZWVYdWhINFdGRWVFSndlWm5xeGpqNm00ek1TUFFLdThCZk4vdmZs?=
+ =?utf-8?B?S2o4TjhSS2VGUVZwTlBaeVR1TVZYaHIwVHlFNU9MdW5QRHNWTG80dTZTUGNV?=
+ =?utf-8?B?d2VNUjFvZ3JCVnpTQmY0VkN5aTZTTW5NZnNjS204K3Nmc3BXa2xsTGY1bGdn?=
+ =?utf-8?B?clQ5QU1ZUG10R0VsQmYrRG5KWERKSmZWaER0TEVkRDBIYkRCLytvMmdtWkpX?=
+ =?utf-8?B?aG56a0l6eS93ODNQYWgxSDlZYzB2K0NaOFhvSXl6OGt1eWtnYWE1Sld4YnhB?=
+ =?utf-8?B?ZmFOMG5yaHRUeGZiRk9VcGUrYm5yakhlK08ydk0vZHpZK3QwMWhKbFhPVFNB?=
+ =?utf-8?B?NHRqNUREZDFyMCtVYW9pT3kwVDZRQkpJTC90bk8zV0xwRDlnZ2hjTDU1SlYx?=
+ =?utf-8?B?NUxwYTk3YWV5NjNlSXovem1WM2tiRWVLN1E2YitjVk5BdFBQVjNEZXQxcE95?=
+ =?utf-8?B?MndNeFFXNEpYL0o2WDFlcnQvMzZzRmN2MVZJUT09?=
+X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 15:36:42.7807
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9789a12e-38ac-474f-5399-08ddf60000b4
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A797.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7224
+X-Authority-Analysis: v=2.4 cv=K9MiHzWI c=1 sm=1 tr=0 ts=68cad58f cx=c_pps a=EgRXHHxucc3bA2piCTy23A==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=8b9GpE9nAAAA:8 a=Rv3HoT1R5MKggpfMdocA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX7GNhssQjZRUf /7QqpwbUlJpcMBSR6lLvh+JdtPysephmA3xu8jeYPuiiXlCCC86Hw1yaTnMSltWXjm49ZIJ6xTi n05B1vZlp0HsR3CH/Qwr7xRqz+3SE84ZRVTwa8fSFBd0ITiz1z8KL6kAOYEQ2Dk5mcYCtQ2X+nS
+ kEfSjuIvU+bEWh4MT/73ZX+LBk8RxW7Yo3NHK/nBFNpIYkUktTbjaMSs/nArNnqHtNt2Rhb5Q5T HF5VxA58DOpO3PRvsJD1X97DoGsuRm+d/s+mepDLdn6TBZphe0JdIF14gd/tL6Qsc3XebgRgcoq lyYM2RGSTHCn0N2YT3RGhCfwLUxg3wGFiA7yfF02S1YsSIx2Hi0O5FRSysya/ZvqkucrRMLck+x r0rgmPS8
+X-Proofpoint-ORIG-GUID: O3yOP_57OCZqP9kL-f_Om--earhS7hov
+X-Proofpoint-GUID: O3yOP_57OCZqP9kL-f_Om--earhS7hov
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-17_01,2025-09-17_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=1501 adultscore=0
+ phishscore=0 bulkscore=0 malwarescore=0 spamscore=0 suspectscore=0
+ impostorscore=0 clxscore=1011 classifier=typeunknown authscore=0 authtc=
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509160202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_083533_801632_0567A667 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250917_163700_643830_43B9A0BD 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +216,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 11:08:13AM -0500, Eric Biggers wrote:
-> This series is targeting libcrypto-next.  It can also be retrieved from:
-> 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256_finup_2x-v2
-> 
-> This series adds support for 2-way interleaved SHA-256 hashing to
-> lib/crypto/, implements it for arm64 and x86_64, and makes fsverity use
-> it.  This significantly improves fsverity performance on many CPUs.
-> 
-> Later patches will make dm-verity use this optimization as well.
-> 
-> Changed in v2:
-> - Made the new arm64 assembly compatible with CONFIG_CPU_BIG_ENDIAN=y.
-> - Omitted sha256_finup_2x() from pre-boot environments.
-> - Made alloc_guarded_buf() assert that the allocation succeeded.
-> - Minor tweaks to comments and whitespace.
-> 
-> Eric Biggers (6):
->   lib/crypto: sha256: Add support for 2-way interleaved hashing
->   lib/crypto: arm64/sha256: Add support for 2-way interleaved hashing
->   lib/crypto: x86/sha256: Add support for 2-way interleaved hashing
->   lib/crypto: tests: Add tests and benchmark for sha256_finup_2x()
->   fsverity: Remove inode parameter from fsverity_hash_block()
->   fsverity: Use 2-way interleaved SHA-256 hashing when supported
-> 
->  fs/verity/enable.c              |  12 +-
->  fs/verity/fsverity_private.h    |   2 +-
->  fs/verity/hash_algs.c           |   3 +-
->  fs/verity/verify.c              | 175 ++++++++++++---
->  include/crypto/sha2.h           |  28 +++
->  lib/crypto/arm64/sha256-ce.S    | 284 +++++++++++++++++++++++-
->  lib/crypto/arm64/sha256.h       |  37 ++++
->  lib/crypto/sha256.c             |  71 +++++-
->  lib/crypto/tests/sha256_kunit.c | 184 ++++++++++++++++
->  lib/crypto/x86/sha256-ni-asm.S  | 368 ++++++++++++++++++++++++++++++++
->  lib/crypto/x86/sha256.h         |  39 ++++
->  11 files changed, 1147 insertions(+), 56 deletions(-)
+Add the  "st,phy-wol" to indicate the MAC to use the wakeup capability
+of the PHY instead of the MAC.
 
-FYI, applied to https://git.kernel.org/pub/scm/fs/fsverity/linux.git/log/?h=for-next
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+---
+ Documentation/devicetree/bindings/net/stm32-dwmac.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-I decided to use the fsverity tree instead of the libcrypto one.  There
-are no dependencies on other libcrypto changes for 6.18, and this makes
-it easier to do a separate pull request.
+diff --git a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+index 987254900d0da7aab81237f20b1540ad8a17bd21..985bd4c320b3e07fd1cd0aa398d6cce0b55a4e4d 100644
+--- a/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+@@ -121,6 +121,12 @@ properties:
+     minItems: 1
+     maxItems: 2
+ 
++  st,phy-wol:
++    description:
++      set this property to use the wakeup capability from the PHY, if supported, instead of the
++      MAC.
++    type: boolean
++
+ required:
+   - compatible
+   - clocks
 
-Also, as always, reviews and acks would be appreciated!  Note that I
-dropped the reviews and acks that were on the original crypto_shash
-version from earlier this year, due to changes in the patches.  The
-high-level idea is still the same, though.  If people could
-re-review/ack this latest version, that would be great.  Thanks,
+-- 
+2.35.3
 
-- Eric
 
