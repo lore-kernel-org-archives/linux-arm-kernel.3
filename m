@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B45DCAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F64CCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85bFuLCn2vDZp+RY4gcZa8Pm3XyrPemyQSpeZexw5jk=; b=caBIL+OcNzwRV6r/MQO/ch0BdC
-	0I+sSazkYtTd9pSS4sRPxb4H86AeUMLbTwOaa6BYKZmBweEUYgkoCrfMfIzZUM8q1BCDK5SUmn166
-	PVP4yohXt1MsKipQDwLtI2IGlj2tjA6fDOqIceLGHP8GDlM/4dAU2kVXG+FyKVN/cQP0TW7p5fzRO
-	WZnqlwgStTHIgajANSzQM5zk5YkFkGvbxAsMVEkNWmjPZDMyFnKRf7ySxze6HFp4n0FP7NDMRBfdC
-	7BhiLauG32yiw7b+BDZIrHwP81OyYv/4UYhZnwAbk7OIa3AijRdz4MBr/JDx+hwc2ovWYDEDkvUpv
-	CJRZ4ZcA==;
+	bh=EYMecdyw/WPKhDEpbSWdpbOuHu00vT+agsN45BlBJXw=; b=uMd3tGYvCQhO25/tXj5yvrWMUd
+	LoUIrnwBXpRVuEYGZNT9O27Vg23PI49y8ypVOOB0I2wxtu/RaWVcdi4H0BT0SNXqkAVfTa5FTVpiu
+	MjiISIfIz+lA8NzFhcxIl8AQNRHLp36Zy1j9l6lcUJzioBZgofbYpm60gtYHU2aoMTj5/7jUQM4Wb
+	gWrhbRPFV8JkkVaZu6eNvktLvkHLb/nlF8d250U61jOz6m6V/WgXcpAFYbPjG7hLki2Ix56QQZvbS
+	ipyeXfJumzmEGYYVTDEqbOaeUW90AaaRpNjwMopnj/KGdJlzejnDSeTmCH5nH9qpqUHDx4sonwyZ0
+	7E8BvR+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvF1-0000000DH3P-3yWp;
-	Wed, 17 Sep 2025 16:42:47 +0000
+	id 1uyvFa-0000000DHQz-1PtS;
+	Wed, 17 Sep 2025 16:43:22 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvF1-0000000DH2e-0maY
+	id 1uyvFY-0000000DHQJ-3EXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:42:47 +0000
+	Wed, 17 Sep 2025 16:43:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9AFF46023C;
-	Wed, 17 Sep 2025 16:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A6CDC4CEF7;
-	Wed, 17 Sep 2025 16:42:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3598160239;
+	Wed, 17 Sep 2025 16:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D063EC4CEE7;
+	Wed, 17 Sep 2025 16:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758127366;
-	bh=tay0VhD5lvvE7TcAMrCNkB2WpeKqaK2m2wjO/aE1OjE=;
+	s=k20201202; t=1758127399;
+	bh=xEyniTA6kZCCEt9/e6UwyCJ68SzkpPAahdVtJFbmuZ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SZIppzzo5MayZHJzCDBrDeGZAynhLZrzT9TdP++eP+kmmGfq1Fh0e/vQDB/VC0RbM
-	 56S8ixPzlHyVP2bx6nkepRRH0uBKXlQxp1zCaDxAwM+hFrBEoLvWloyU6XAPA4KSuB
-	 29C3GobBbcreJUu4vv/a3X5QstEs8jZPkYWiXy9uRESye2KWSo+OM8VAoAvHUhNrRS
-	 C7LLbPDJmSgAzdh/8nByaKulfqoQh9x5R7n4d+DZ7L/mTY852YozrfyzUdNO+9k3Uq
-	 BG/ALmSw/XDr5Vue9OhoYmdUopZwRH/8QAgUlP2swV7A+dQo7CBQqKBjkbRAGDR6Xh
-	 CLMLLRMUb/iMw==
+	b=RUH+jnNSUD01BZPB0ohKYtxvP/09yEgMEh5lTA2iUt1NmmNNvt3shU+MTPXf3Z3Cw
+	 Zu0iNoo4177A2PBUGvmMrunTOyhPMc3gI1veZQ7AkYuWqrU2FBtme71pVPOFjNvfcf
+	 34SUWY6Jz3h7Rpn6NFkj7UI4l6/EIg1MwzrRmvSoLjVIekt/8HFUe58w2h2h8e+z1f
+	 7bTrDuPzjmkZYjHIuykgvmnTL9ByhQhpGUteZoYs52Uz0trbAU1Tl+fHjYWH5fSwbr
+	 m0vmPvIqDPZprXjO//NCogrmte54tTjpNyH2ojcl+XIFxI/AYo2sVY8GJ4zhddT/M1
+	 TVmRJjGlprPtQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uyvEy-00000007ACn-0rbQ;
-	Wed, 17 Sep 2025 16:42:44 +0000
+	id 1uyvFV-00000007AF5-2f6j;
+	Wed, 17 Sep 2025 16:43:17 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: Fix kvm_vcpu_{set,is}_be() to deal with EL2 state
-Date: Wed, 17 Sep 2025 17:42:32 +0100
-Message-Id: <175812735031.1632717.2582315143939738044.b4-ty@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Fuad Tabba <tabba@google.com>
+Cc: oliver.upton@linux.dev,
+	ankita@nvidia.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Subject: Re: [PATCH v1] KVM: arm64: Fix page leak in user_mem_abort()
+Date: Wed, 17 Sep 2025 17:43:14 +0100
+Message-Id: <175812736819.1632848.17948994955088762874.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250916161103.1040727-1-maz@kernel.org>
-References: <20250916161103.1040727-1-maz@kernel.org>
+In-Reply-To: <20250917130737.2139403-1-tabba@google.com>
+References: <20250917130737.2139403-1-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, tabba@google.com, oliver.upton@linux.dev, ankita@nvidia.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,20 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Sep 2025 17:11:03 +0100, Marc Zyngier wrote:
-> Nobody really cares about BE, but KVM currently only deals with
-> SCTLR_EL1 when evaluating or setting the endianness in PSCI,
-> meaning that we evaluate whatever the L2 state has been at some point.
+On Wed, 17 Sep 2025 14:07:37 +0100, Fuad Tabba wrote:
+> The user_mem_abort() function acquires a page reference via
+> __kvm_faultin_pfn() early in its execution. However, the subsequent
+> checks for mismatched attributes between stage 1 and stage 2 mappings
+> would return an error code directly, bypassing the corresponding page
+> release.
 > 
-> Teach these primitives about SCTLR_EL2, and forget about BE...
-> 
+> Fix this by storing the error and releasing the unused page before
+> returning the error.
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: Fix kvm_vcpu_{set,is}_be() to deal with EL2 state
-      commit: 6515c612e79949b17ef4b8c4180c07bbeaf01e4d
+[1/1] KVM: arm64: Fix page leak in user_mem_abort()
+      commit: 5f9466b50c1b4253d91abf81780b90a722133162
 
 Cheers,
 
