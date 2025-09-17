@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBDECAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC49CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLjc6vgKJXwelgY/kFV/7fD4NVClmcvjL7QnlQQl+JY=; b=lQPE36+gkKXQBtoTcDDezzVYDk
-	ANycC0v4vUmVMDkRjwNW1mKLMnKAQD/Us1MckJL4J9JDv7dRU90YNKtjOuEo4FDJGIH+HXodq4tzg
-	BrME4HiRqoTcdBygRgsJybn6pcMDALvOlUAUKZ/KqAT/Izqv3isLhO89sfBcQPbGHbr7lwb1m9yaS
-	p0Gf/yS9o1HIceJSfgDgvWvcmmr5isPQXgCQIoA1oMSUjGFFKCb7sYmbPGOPOe212ytbAZy9774a8
-	Y27HN3TvoBDYrct7oO4bFXYHoMw0dz3OiUbT5o2ecmqaro4SqE/Nx55bXTNJBAIwhkuDKT9McUhhU
-	B00QNe7A==;
+	bh=rScmOcK/Kz2XNUOFOt6dJ286EcKY4tMZMYUqUQHpaYg=; b=2QB1Q7fddO2nNf6zG9vy2XpmSJ
+	VxmVx9/ikc3UHTXUVk5s3ySV+D5X+brEnpVKK2guJq4zixDHG4jhcmZ3AkU9RWm3zykgLKhP9pNgi
+	7kQmm5b44tKRUKUfZ1RRju7Fx6DoATY/4wDHlwPqx0SXOm93a1qfbMS3t0RFu20aGTEOjjoOXgZMK
+	6rTL5Le46ZU1el/cVTuz8wdAvQRfvOyfNApicoIDvuMRQY24qL4kR32vm3GFpb1RGbKA6a9ID401P
+	C0XhmHKmHV9h53R9tdLCdx3jdzAlHJAki7f+BTvMWJ4yoCBRhyzbdqnbk3hi7V6Uhndt9abIwv4Me
+	QdeNxz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzKL-0000000Ekhd-1LTt;
+	id 1uyzKL-0000000EkiL-2lWo;
 	Wed, 17 Sep 2025 21:04:33 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzKF-0000000EkcB-0yGe
+	id 1uyzKG-0000000Ekcf-0HvL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:04:28 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-77623a63dc5so1641366d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 14:04:26 -0700 (PDT)
+	Wed, 17 Sep 2025 21:04:29 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-78f15d5846dso2953726d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 14:04:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758143066; x=1758747866; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758143067; x=1758747867; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=OLjc6vgKJXwelgY/kFV/7fD4NVClmcvjL7QnlQQl+JY=;
-        b=OGvOc+ZuuRlzWe3vzuTqmQPDviyWPMOKvWaIhtcKeo/aZJIx8P2rY8w4mzurq7ujQM
-         i0Qs9G9+BfDXFwwEDKSQJZA30nYPzC9PTL+vZHjy2PzUPlF7ox6fFGUDM2jsDxAdH+xh
-         5tBAqYTr74vv9LM9pZ7MkqVbJ8ncbFfba2AqBujezIBD0wZtP/Mpf3ywv8icGZ6OkcdS
-         FZicWaeOiyK4eF9ehG7eH9Bx2X3kan9sm/IDN9kza0TrIci9XAa4uaky7ypDkK2/M/k5
-         qGm1yWPl0Vr9CuA7oUGQraAlxfCauWUSUw2aRmiMmrYP+60isOAXoWli95NqCfnGei9e
-         zAsA==
+        bh=rScmOcK/Kz2XNUOFOt6dJ286EcKY4tMZMYUqUQHpaYg=;
+        b=gB+gxyVoBqqXwcndMEbDYbdUtEVKLXcXkscCejUY/mVoEYgFMIFG0IMFpzLBCumCU7
+         2x30cDN+i/wZUrE74oS1ZFF6KLdonYkpwyKFqR1VqTprIDiuqY46Q2TAjVLQ3U+1B0Th
+         hACTphdJ825Q0fmfGbTPiGkdJ4qpODGlkle4Y7c71JSHlzSbBTl+ws9Hk/jwIP8lLibl
+         wvF4JcEHZXibUmhSD4qTzHSdlVlS8RzjJqG6i7RTuKTOsUwngut51Uq71B7NJq8yytt1
+         nmAMN7q1qKHiRBi3pFcd4xihjXw5xwH6Nbz/wEKaKMDhQV1rai6dR8nsYQnBvzG/V69E
+         ywMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758143066; x=1758747866;
+        d=1e100.net; s=20230601; t=1758143067; x=1758747867;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OLjc6vgKJXwelgY/kFV/7fD4NVClmcvjL7QnlQQl+JY=;
-        b=jT08+X5h965k2po+R+3SSON1W9lfS0/ZbGc22Q4uoQYoFGqmPjg93zPoNJtUcxW96u
-         pMhmZ0TRuRNKzWXpBlQ/z0unIoDgAFDNWrwcfiE8Ozuku6qgpnfcZayXIjx16HRpMLEr
-         PLz1V2gHJGr3GjRaEjPbEfiAxPCLK+p5pqQ7jvzrWQ084m0FC8vhdEKnlnM9V6wIZa74
-         F4zVZRfL7ZSiJ8X2l5WCa6wHUtJqCE5hTy0fSspp1qGpv34ibIxdwbttp6zKNZ20dgRE
-         N0xjhR6+bbzU3mkcVdJV2wzQ5ivQCnZtlfvdEXtRySqY8syN3nrKMjZ7FlznR6jNKcf9
-         5+vg==
-X-Forwarded-Encrypted: i=1; AJvYcCWq79b2IwAGRv5zl3zG0SZczrlfEoPDz+pzbt7fBzXI4fsFJ7gy2Z3NpUQ5nvGnNbuc21UAknuFH/uQzKN5xAgb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2FzfTLFOY1y6SsVCzlouK3WqVCvqMA/ES4zu6pknjHLKn5b1s
-	WbLNLWgKL0Lik6GVrHvDBZXo1TovxC2RtvUjhNlPE2SqFJy4gZ+2PWcU
-X-Gm-Gg: ASbGncsw7Ap3C+74mLKI3AwN0c/9rSuPDVu3+UlUc7Nz/GmswV6VU9Nix3E3c0v1ZOl
-	fE4GkZKJ57BGv4NCzlUQ2sgjAFIkk4Y/N9kzi5rF3SFun0QynT/+nGAvOXbWT9btvTBPbrjlvdp
-	WAZAlVrErgG8g8M5N6otqYRM2ofMUPkmnsf53XwvDuXq7MAM+uaoyDzpDuCSUVUDjejjKCjFfA3
-	dUkzCSOSndevoDdq/bNS1I6VTVxaFvHDUS3DnFdI2bsQoavp5fHhOOizE9h+aYXJar+WXOnzg9N
-	TB57VUR8II2uKr1GTzKc82CNOoy6qwKtRqF8tmY3OcB2xI2qQWWNl2GUzt0BRybccCmPNE+9mIp
-	J/RiOb3T0Xp1Yci0XCWZ2iS/s8NvMXqHSE99yY+dGpjt6M4klty/HUF4=
-X-Google-Smtp-Source: AGHT+IFrkfpjfpj4V1IzxwzgKJOiCNq9/t9HIBwNE2UrLVBPq1G0Uq+ssai2vuM9RqyWADLBL3pR8A==
-X-Received: by 2002:a05:6214:f6d:b0:76e:7c27:f040 with SMTP id 6a1803df08f44-78ecf20bc3cmr46716026d6.54.1758143065909;
-        Wed, 17 Sep 2025 14:04:25 -0700 (PDT)
+        bh=rScmOcK/Kz2XNUOFOt6dJ286EcKY4tMZMYUqUQHpaYg=;
+        b=rzjV7av6kXZy48BGRjWnK7YAlyteDX6e6vkgXDbDoLBz9INjEz6uVl5GqVZGmgnSVG
+         oWoledpDOyHhAGkj2bYAPKFDCoojgO1mTwO4cxMHbWOfXkBpe+gUmDrHBr/S+u02aB8b
+         c0rTqUlTq5TNd4LIpgxTzMumCvKH3B8OuT9pcSGTGme9JPqdWA7XFvtzQA8Bf/OmMnQb
+         POmgM2pHM6QqiI4lAOXFy7WYLA3pjPjHGR1EA2T0ixDMJHPfqOpyhyG7YJ1UjygW583W
+         b1+h4uclVVwUjwHl1Cobecqzv7rnikc+SXUxIJHblVeUhOZuJ0DCol8LgKBhfxwlO2x+
+         YIXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVVvkRPNCIG+blbO0q9tQ95JJBhrr3IOFLcbkPF8Z2L4RrZzPAJg0Bix5KpwsUn1RSZkbBF3ocCqMk/oRRMxcvA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5MjwkXke1yubVJD+onFQXBThR4DHihOV7BkoC3Pag0uzyrejI
+	7u8GxnVrDDuOEIEDT0VDxPKVhICD3YNHrkAFUZLcJaZbuyQMw3VIwAfT
+X-Gm-Gg: ASbGncvOe/lYorfsBZ63b4ZR98JNO6bYZqeg/Fx1DAnQ+EK35nySedSCRX0soMCQ/53
+	u0W1HdFn5dFtJBC01D5u9z5cw6lhjLDNOPyBpFkpyunQ9R/RWOAP42w+hVTo+eRnPMxSff+nM2t
+	MYIiVeO51GrHu/3ZdA5b6qPyHRjmUx628+sEUjEENgbflqAakavsnMBjjeU00KGa6z+tI/+pufx
+	kYAX9CfEcW+azLvIwUZ+CCJgvlM4S6GxK7Yg5WN5+HNgTCZhUUJTaPkXbRpp93QyQ4YfHKawqqX
+	1bpraP8aKZd9IwjAMFq5N42AgLgspXrAvNH0dOyIK1pQfkkT+Z+8B9J+PZxMhRKxv4zxWAI0DoO
+	5aVE8+5u3w+J4ISeYPTi06dXXITR8bReWRur3u/eR7eU2
+X-Google-Smtp-Source: AGHT+IExuzovxP8Zn5vlfq5BEJhcOcbH3jOSulS76F9O+uegFBEF1Mh7x8YWAUPDWU56s84wZ9djlw==
+X-Received: by 2002:a05:6214:5183:b0:77a:29ba:1b68 with SMTP id 6a1803df08f44-78ecf309395mr40268536d6.63.1758143066759;
+        Wed, 17 Sep 2025 14:04:26 -0700 (PDT)
 Received: from [127.0.0.1] ([51.8.152.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-793543ffae5sm1897226d6.53.2025.09.17.14.04.25
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-793543ffae5sm1897226d6.53.2025.09.17.14.04.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 14:04:25 -0700 (PDT)
+        Wed, 17 Sep 2025 14:04:26 -0700 (PDT)
 From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Wed, 17 Sep 2025 21:04:23 +0000
-Subject: [PATCH v3 3/7] dt-bindings: soc: samsung: Add Exynos990 USI
- compatible
+Date: Wed, 17 Sep 2025 21:04:24 +0000
+Subject: [PATCH v3 4/7] arm64: dts: exynos990: Add USI nodes for PERIC0 and
+ PERIC1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
+Message-Id: <20250917-perics-add-usinodes-v3-4-a3629e4666ef@gmail.com>
 References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
 In-Reply-To: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,17 +89,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Krzysztof Kozlowski <krzk@kernel.org>, linux-serial@vger.kernel.org, 
  linux-i2c@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758143062; l=951;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758143062; l=9012;
  i=wachiturroxd150@gmail.com; s=20250831; h=from:subject:message-id;
- bh=r2bRl4B4OF/qKIhdCBGgWHHiscJkRg/BHw+S8XdcwM0=;
- b=YwGiTLaTBVm47v5bQ1r7SxkCTmRNrDBm0v+/xK7ZoG2m3QWbczPFTXoj63VvdUma7/FMZZavm
- PNX+CL7qfzgAUhzJGU6eQe3/hjmT/WCuBfEKA95LyjY8PVKIYEYFIUp
+ bh=dpzH3ZgZfhAHeookD5eV+FtY/q5RImJCHodew0fPSVw=;
+ b=XR7xcpWVxcZIHpVBO57uE9viom3J0Pq6mzGf3veugSWl76SHxT7RB0V4yl4YmE5SRe8q1kGE8
+ vZshDF7HGEtBhwL6CU9L1xjGXHc52dMs2A8r9fHgEqKkm8xFhECio9+
 X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
  pk=3fZmF8+BzoNPhZuzL19/BkBXzCDwLBPlLqQYILU0U5k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_140427_283774_FB639408 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_140428_137576_124CF752 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,26 +113,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add samsung,exynos990-usi compatible string to the
-Universal Serial Interface (USI) bindings.
+Add USI nodes for PERIC0 and PERIC1 blocks.
+These nodes provide the base for serial communication controllers like
+I2C, SPI and UART.
 
 Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 ---
- Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/exynos/exynos990.dtsi | 247 ++++++++++++++++++++++++++++++
+ 1 file changed, 247 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-index c694926e56ef991965153b94d704fd53addb5cbe..4a719cea81f9d3c3b5296ba2d45b05dd014a1d9d 100644
---- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-@@ -39,6 +39,7 @@ properties:
-               - samsung,exynos2200-usi
-               - samsung,exynosautov9-usi
-               - samsung,exynosautov920-usi
-+              - samsung,exynos990-usi
-           - const: samsung,exynos850-usi
-       - enum:
-           - samsung,exynos850-usi
+diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+index f8e2a31b4b7519b83aa31deefbc40e5edbb8186a..1e09f3efe685748789ffd346cd914f9a8ba68f8b 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+@@ -272,6 +272,123 @@ pinctrl_peric0: pinctrl@10430000 {
+ 			interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
++		usi0: usi@105500c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105500c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_5>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_5>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x1004>;
++			status = "disabled";
++		};
++
++		usi1: usi@105700c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105700c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_7>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_7>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x100c>;
++			status = "disabled";
++		};
++
++		usi2: usi@105900c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105900c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_9>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_9>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x1014>;
++			status = "disabled";
++		};
++
++		usi3: usi@105b00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105b00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_11>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_11>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x101c>;
++			status = "disabled";
++		};
++
++		usi4: usi@105d00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105d00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_13>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_13>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x1024>;
++			status = "disabled";
++		};
++
++		usi5: usi@105f00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x105f00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_15>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_15>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x102c>;
++			status = "disabled";
++		};
++
++		usi13: usi@106300c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x106300c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_PCLK_3>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_IPCLK_3>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x103c>;
++			status = "disabled";
++		};
++
++		usi14: usi@106500c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x106500c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_PCLK_5>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_IPCLK_5>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x1044>;
++			status = "disabled";
++		};
++
++		usi15: usi@106700c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x106700c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_PCLK_7>,
++				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP1_IPCLK_7>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric0 0x104c>;
++			status = "disabled";
++		};
++
+ 		cmu_peric1: clock-controller@10700000 {
+ 			compatible = "samsung,exynos990-cmu-peric1";
+ 			reg = <0x10700000 0x8000>;
+@@ -295,6 +412,136 @@ pinctrl_peric1: pinctrl@10730000 {
+ 			interrupts = <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
++		usi6: usi@108a00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x108a00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_PCLK_10>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_IPCLK_10>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1018>;
++			status = "disabled";
++		};
++
++		usi7: usi@108c00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x108c00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_PCLK_12>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_IPCLK_12>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1020>;
++			status = "disabled";
++		};
++
++		usi8: usi@108e00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x108e00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_PCLK_14>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_IPCLK_14>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1028>;
++			status = "disabled";
++		};
++
++		usi9: usi@109000c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109000c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_0>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_0>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1030>;
++			status = "disabled";
++		};
++
++		usi10: usi@109200c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109200c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_2>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_2>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1038>;
++			status = "disabled";
++		};
++
++		usi11: usi@109400c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109400c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_4>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_4>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1040>;
++			status = "disabled";
++		};
++
++		usi12: usi@109c00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109c00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_12>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_12>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x2000>;
++			status = "disabled";
++		};
++
++		usi16: usi@109600c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109600c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_6>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_6>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1048>;
++			status = "disabled";
++		};
++
++		usi17: usi@109900c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109900c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_9>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_9>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x1050>;
++			status = "disabled";
++		};
++
++		usi18: usi@109e00c0 {
++			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
++			reg = <0x109e00c0 0x20>;
++			ranges;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_PCLK_14>,
++				 <&cmu_peric1 CLK_GOUT_PERIC1_TOP1_IPCLK_14>;
++			clock-names = "pclk", "ipclk";
++			samsung,sysreg = <&sysreg_peric1 0x2008>;
++			status = "disabled";
++		};
++
+ 		cmu_hsi0: clock-controller@10a00000 {
+ 			compatible = "samsung,exynos990-cmu-hsi0";
+ 			reg = <0x10a00000 0x8000>;
 
 -- 
 2.50.1
