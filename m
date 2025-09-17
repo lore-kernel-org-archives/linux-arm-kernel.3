@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E575CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 06:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4070CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 06:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JVNIaZ4JH7HykQzRQnvri/UwzfQxsqoKdmmeam2Dikk=; b=pOY3YorWZ2ZlJlUaQd3bPyyNck
-	mlXW1/hpnqfcKvJzrtYRKEcddCstp5IlB4lWAJSh9pSFGyN5rz3+vE+d35gr2BxRm5kWpoHbbSPa3
-	8Zizl1f/+nyLbQJMu3exYf9FiKUOH+ufABdIC53EQyzGLQINxIewB67SXoMwUSQ1GqrA3FZL4ZSzx
-	MG5kBeQ3ygQktLqH9RrtMrtvYZek64EngJFjb7TjTcxN8YGYB8A/0La5T17LLM23SiatVGg9EjabL
-	We0wDevmoaWNWanqTIHIVlXrXZSKlygS1/sQI0DTJjVRWdXadEegahRaU4zJqdqyLBQ5ydvoVWY5i
-	H4PAvDSw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4w5W/MMPZGwGI+oPjICg3mbkOqJguOS5uIj+YXij0E=; b=DI3SI4LYDPi/sMJNdkL4BpOtWQ
+	2NKvShA33TKw0pONW1pBWBzRnNxTuBozFf7gI3Gj5ND1dzpEgPX59b4JUTpI0xa3GT9OdCJeE3UDR
+	d8xLCtQyLbpXGobGkwUY9Ohw76UotoCTwrMZw/DRraveUmMUCzCfoAhykXZ6OqdAoeM1uN12cxftT
+	XcZjFwWSsIWe9eEruUujgg6fK1AM0Aa6SBkQw4LlsoxNQFPtgGIVnxaR7ZezcGKwjmUibkiZQlJNY
+	PHmUzSAgPoPa6DE3lu7mM/5Fr+9mKwLOpnT4e6QbKnoE5UARUOpggnvGNFTW/IfeqOKVv0z002bQe
+	NPbcA6Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uylj5-0000000AKwK-0YF4;
-	Wed, 17 Sep 2025 06:33:11 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1uyljH-0000000AL38-0ytK;
+	Wed, 17 Sep 2025 06:33:23 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uylj1-0000000AKtu-1xCB
+	id 1uyljE-0000000AL0H-2wv9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 06:33:09 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Wed, 17 Sep 2025 06:33:21 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1313E1F749;
-	Wed, 17 Sep 2025 06:33:04 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 48FD021EA4;
+	Wed, 17 Sep 2025 06:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1758090784; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=JVNIaZ4JH7HykQzRQnvri/UwzfQxsqoKdmmeam2Dikk=;
-	b=Q4f+VHKaoompE8sCs3n+zxgI/XEYtOpZlA4YT5StLBEi/63o4YlFNffoScvxbmNceIitYL
-	15pvWvcbNqyIeO4Ovw/30IH1ZFfzxzw6Bb2AUJI8gC9ILVOk3lgUtQ6uNPCfthwY+KhcX6
-	EepHWBbWWrF1NP187h+7qKKhJItXmoI=
+	t=1758090787; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/4w5W/MMPZGwGI+oPjICg3mbkOqJguOS5uIj+YXij0E=;
+	b=Pc/HPfMPF5szbrub54RWJyOdmSsA2Zli6PStEdwXXXi6ztVVMfqw6GyDhfnN8suG26heIz
+	XUaveSsCe5jxMJCUmTi7EnzU2jbO+Dx+gYqhS2YZteUDWUDvQXIM96AJt3jbbGRo87/bmI
+	0cXvLA/eKl1mYRjWmmLiJUVtaeppfdw=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1758090784;
+	s=susede2_ed25519; t=1758090787;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=JVNIaZ4JH7HykQzRQnvri/UwzfQxsqoKdmmeam2Dikk=;
-	b=ggQ3Lvy6Qu+iw4PQbRNNhDgJZI8lZZPaDBRoZjjB65xTDzhMe+4vkFyUxaUOdhvtkX7kKx
-	RkkSzdmNuGOmxFCw==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Q4f+VHKa;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ggQ3Lvy6
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/4w5W/MMPZGwGI+oPjICg3mbkOqJguOS5uIj+YXij0E=;
+	b=fikbHzwmfZH6c/8/6q6iKwHjajHaOrHBWI/hDFu6xp4P1rAVy5dDXeW4DK+69iU9aNd6Hu
+	QfuNaiE+gsjl8PCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1758090784; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=JVNIaZ4JH7HykQzRQnvri/UwzfQxsqoKdmmeam2Dikk=;
-	b=Q4f+VHKaoompE8sCs3n+zxgI/XEYtOpZlA4YT5StLBEi/63o4YlFNffoScvxbmNceIitYL
-	15pvWvcbNqyIeO4Ovw/30IH1ZFfzxzw6Bb2AUJI8gC9ILVOk3lgUtQ6uNPCfthwY+KhcX6
-	EepHWBbWWrF1NP187h+7qKKhJItXmoI=
+	t=1758090787; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/4w5W/MMPZGwGI+oPjICg3mbkOqJguOS5uIj+YXij0E=;
+	b=Pc/HPfMPF5szbrub54RWJyOdmSsA2Zli6PStEdwXXXi6ztVVMfqw6GyDhfnN8suG26heIz
+	XUaveSsCe5jxMJCUmTi7EnzU2jbO+Dx+gYqhS2YZteUDWUDvQXIM96AJt3jbbGRo87/bmI
+	0cXvLA/eKl1mYRjWmmLiJUVtaeppfdw=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1758090784;
+	s=susede2_ed25519; t=1758090787;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=JVNIaZ4JH7HykQzRQnvri/UwzfQxsqoKdmmeam2Dikk=;
-	b=ggQ3Lvy6Qu+iw4PQbRNNhDgJZI8lZZPaDBRoZjjB65xTDzhMe+4vkFyUxaUOdhvtkX7kKx
-	RkkSzdmNuGOmxFCw==
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/4w5W/MMPZGwGI+oPjICg3mbkOqJguOS5uIj+YXij0E=;
+	b=fikbHzwmfZH6c/8/6q6iKwHjajHaOrHBWI/hDFu6xp4P1rAVy5dDXeW4DK+69iU9aNd6Hu
+	QfuNaiE+gsjl8PCA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0EA701368D;
-	Wed, 17 Sep 2025 06:33:03 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3B84913A63;
+	Wed, 17 Sep 2025 06:33:06 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id KuFCAR9WymiIXwAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Wed, 17 Sep 2025 06:33:03 +0000
+	id OBlSDCJWymiIXwAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Wed, 17 Sep 2025 06:33:06 +0000
 From: Stanimir Varbanov <svarbanov@suse.de>
 To: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -97,46 +104,42 @@ Cc: Rob Herring <robh@kernel.org>,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH 0/4] Add watchdog support for bcm2712
-Date: Wed, 17 Sep 2025 09:32:29 +0300
-Message-ID: <20250917063233.1270-1-svarbanov@suse.de>
+Subject: [PATCH 3/4] mfd: bcm2835-pm: Add support for BCM2712
+Date: Wed, 17 Sep 2025 09:32:32 +0300
+Message-ID: <20250917063233.1270-4-svarbanov@suse.de>
 X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250917063233.1270-1-svarbanov@suse.de>
+References: <20250917063233.1270-1-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.51 / 50.00];
+X-Spamd-Result: default: False [-1.30 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
 	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
 	RCPT_COUNT_TWELVE(0.00)[22];
 	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FREEMAIL_CC(0.00)[kernel.org,broadcom.com,linaro.org,gmail.com,gmx.net,suse.com,raspberrypi.com,suse.de];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
 	RCVD_TLS_ALL(0.00)[];
 	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,broadcom.com,linaro.org,gmail.com,gmx.net,suse.com,raspberrypi.com,suse.de];
 	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
-	TAGGED_RCPT(0.00)[dt];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.net]
-X-Rspamd-Queue-Id: 1313E1F749
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250916_233307_796203_80265C3F 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250916_233320_884283_7613C891 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,39 +154,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The BCM2712 SoC has PM block but lacks the "asb" and "rpivid_asb"
+register spaces, and doesn't need clock(s).  Add a compatible
+string for bcm2712 to allow probe of bcm2835-wdt and
+bcm2835-power drivers.
 
-The following patch-set aims to:
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+---
+ drivers/mfd/bcm2835-pm.c | 1 +
+ 1 file changed, 1 insertion(+)
 
- * allow probe of bcm2835-wdt watchdog driver for bcm2712.
- * prepare bcm2835-power driver for enabling of v3d for bcm2712.
-
- - patch 1/4 is preparing bcm2835-power driver to be able to
-control GRAFX_V3D pm-domain. This is a prerequisite for the follow-up
-patch-set which will add a v3d DT node for bcm2712 (RPi5).
-
- - patches 2/4 and 3/4 are adding bcm2712-pm compatible in MFD driver
-and update the dt-bindings accordingly.
-
- - patch 4/4 is adding a watchdog DT node for bcm2712.
-
-Comments are welcome!
-
-regards,
-~Stan
-
-Stanimir Varbanov (4):
-  pmdomain: bcm: bcm2835-power: Prepare to support BCM2712
-  dt-bindings: soc: bcm: Add bcm2712 compatible
-  mfd: bcm2835-pm: Add support for BCM2712
-  arm64: dts: broadcom: bcm2712: Add watchdog DT node
-
- .../bindings/soc/bcm/brcm,bcm2835-pm.yaml     | 28 +++++++++++++++----
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |  9 ++++++
- drivers/mfd/bcm2835-pm.c                      |  1 +
- drivers/pmdomain/bcm/bcm2835-power.c          | 17 ++++++++---
- 4 files changed, 46 insertions(+), 9 deletions(-)
-
+diff --git a/drivers/mfd/bcm2835-pm.c b/drivers/mfd/bcm2835-pm.c
+index 3cb2b9423121..8bed59816e82 100644
+--- a/drivers/mfd/bcm2835-pm.c
++++ b/drivers/mfd/bcm2835-pm.c
+@@ -108,6 +108,7 @@ static const struct of_device_id bcm2835_pm_of_match[] = {
+ 	{ .compatible = "brcm,bcm2835-pm-wdt", },
+ 	{ .compatible = "brcm,bcm2835-pm", },
+ 	{ .compatible = "brcm,bcm2711-pm", },
++	{ .compatible = "brcm,bcm2712-pm", },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, bcm2835_pm_of_match);
 -- 
 2.47.0
 
