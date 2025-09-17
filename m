@@ -4,174 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EBECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 13:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EE8CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 13:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytNhmwKoq2hoUcrJyT9B+jeayMs1ISQPC5QX7UeAkc8=; b=xdJvFX6Wcj5jgVSswshoLIdRZO
-	sGfoefL9/cZVILzcrzhsdLxbRv3AE/2q1UHljMB5O0/B1RhUz5FWgWgHQ494HF05dzNjXwQF1iENI
-	vV8R+d7rCUVzqetYaI+lF87HU0SLySJFIRCUzVr15R9hVrvJKYTDWgTpSyXqQGT/no6aLmtLo6SiP
-	PuRoOiq28veJ/IX8qGGokg3KPKs1nG1cyOMuiHPjc8vyhTOyqsvIWRyFJ6x7VugWapYOv2XuFseCX
-	82TdM8ouzdpbUsVF6nkUFUiKE+tlaeYW3bl2PoAj7AFcmGANON1DCigfxT3rb4YZqw504ZeAmcbZD
-	lwmcr0kg==;
+	bh=QjnKuNKA4ji6kMyGHxtwUN6WBWnj7945LQCwoquyyQo=; b=oYtcC3GpiYPAlvT45FnZ9s+wLR
+	3B6EsjlVUlCIl4ek1H5EeBHTNAX3/H+rIX/KUnwL2AE8jh5+XXWAwLxdyYMLmrfLc2JhrBuRTLUIu
+	QEkE+9YGRaYKTCli1/lWpExyzuD5oxv/sFHp5JEzXvGu7Fdzw2i985RKt3ztS+Jqq8ZFHEPckDUSH
+	QuY1ShvQCELXvqMzXplj5bq5DE4/RgM0wLVJMwzE8S0vyVuq4DDVciJLLoi9Re9+7FbBbnL57D2OF
+	/xs/Uir6rtwaT0xsB01FVrWCY4Fy2WtjOmdGznKtPussRwScNFMxOUM8cut39oTx2Vj1CKGnY3Jmi
+	uwEY3GYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uys55-0000000Bdjf-068o;
-	Wed, 17 Sep 2025 13:20:19 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uysE8-0000000BhtU-3lcw;
+	Wed, 17 Sep 2025 13:29:40 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uys51-0000000BdTC-2Y5a
+	id 1uysE5-0000000Bhrz-49J9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 13:20:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dHXRQF1UOnoF08iUwDTyz82e0h/DtCSSt+OAxOjibXzsAxLYtnNDiV+ECxdBWf4Uw+mNkJ8SZtD0Z7DJet731OaNIYUmO9n7K4V+sW7aFPs4OXan6OprQw5cXPhpTlieOGmc1D6Bgf+xqUcVwDHD5QVjDPGgHqA5E/iOs2ZF5xA/SHo8oaGFqa7qga76vyckpSLzl+658bbPLwXKZbffDfmAcW0f5UhBzOezQg7Oki2Kmj2yNQ0FrWOWfU3INA/BB2YJAuYcRhoTDYvQG9F28JYK75aOxaa3W0krF6DBhpAb8n8xMJUGHz4sjH7xcR233dgPXbsUhD9Jq4X/Zvtw3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ytNhmwKoq2hoUcrJyT9B+jeayMs1ISQPC5QX7UeAkc8=;
- b=BRlR8dSCSuG/7ojjF3I8WpD6OtJt+qkiFILbTBx+P2eAfedcN5U+FcnUp3WQ/AH6YnedJncw0Ekuhs28j8MgO4c81bbTXp70oQfpL1L0NoPQwUOnsOTQYpGzquZ4/dpKhep3jWdyDDaQC6vP8NCii7Jz1oaoW6Qquplp6f3BsT3vkvcBL5ws1K35CHS00cCkmaisBijXPRbheNd9snrYTnwCvz3dvEjRghBaAWfnC6rI/o24/sNl5Ac+tjXNy9H9b6uG7eYh6PwOyVKX6Dg0l8HxDoNAPtoKsKgI+Fn4Aex/0+ei/BCdy6ksiVc0cC0Vylcc0B4uKRPgRrCYkCA41Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ytNhmwKoq2hoUcrJyT9B+jeayMs1ISQPC5QX7UeAkc8=;
- b=nUMyK/v6FbbRRYpr58UGNnAdQEzON9aWJGsz/AedpVnRokmEoNj5fGgM6eow99fcmtRTrdvHbMPxjCU6QpbsMvRDBT7NSwypFcDdVDBsVU6WrlSznZk37CWYjB3UVNJcGQ03COHxUu7Wja4QXTbsmIr6iPK6qgFlVG/GQUTCVmE1jbNhJ6bBqZvRwK58rHwekN95RIXAEGD4Yhkucu5XGiiT/ubrtM/2vQFI3qdRktSaW78nQ/R/WZCXheFxUI0Gpy+75w0GJuZToqECeSua597rdbi2fSlGOYI5gCMptI4osXyWdWzArcBtdUyNQb92fnxX7XZ03BGeHUCzd96dow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB9751.eurprd04.prod.outlook.com (2603:10a6:10:4ce::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Wed, 17 Sep
- 2025 13:20:05 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 13:20:05 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Wed, 17 Sep 2025 21:19:18 +0800
-Subject: [PATCH 6/6] remoteproc: imx_rproc: Use devm_rproc_add() helper
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250917-imx_rproc_c2-v1-6-00ce23dc9c6e@nxp.com>
-References: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
-In-Reply-To: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
- Hiago De Franco <hiago.franco@toradex.com>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758115170; l=1592;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=Uv5HmboUetc4ez8TfIwkqJtZysoxuBak7oX6CJuhJPQ=;
- b=0GRlqZycCm3A43/FuD2r8GcNKCrBED4QMiz+Bp8cA7aEBh6FOaYn1xROj/38IaUUbP2IjO99p
- bemMyBzJ9/ZAP0dVVEJ70j6UFyjiu0Ic02bdpbOXIkfnR5/1L8PqbWA
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG3P274CA0016.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::28)
- To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Wed, 17 Sep 2025 13:29:39 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-632e9c6b411so1966794d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 06:29:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758115776; x=1758720576; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=QjnKuNKA4ji6kMyGHxtwUN6WBWnj7945LQCwoquyyQo=;
+        b=P5ja0BB18JaOt9xNtUK493UF/eeFm5xXfokEbSUIrNJ/ckS+Dvb94SuXl4MOvtLKXC
+         EGra6sB3maDSt7W4qSUx6nJIfet8EtXh4wUgarxMAcY9jDS8IiqdJnoFycaCKQp84Ism
+         Apb2SfJVS9R5oH4X0CQwVVHQ/rXyeRAy0q38rPMjv1vGnGuITSwEeBqbtJUP8ekXhYuz
+         HbGXdvX5holcrfZecgkBSNvDvnY4X+gXLnnQu+uyzMpL1mqD1Sj+BqyyEGhw9JKoDVlv
+         8BC7ROOc34o50FuEHYQKuFDAUpefwv637pmIy1jzMMRLbhy9mOd/WgAhIX7H03B6dbQn
+         ywaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758115776; x=1758720576;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QjnKuNKA4ji6kMyGHxtwUN6WBWnj7945LQCwoquyyQo=;
+        b=a38X27w59Ikf/uOLl4xLzJsDbGqiLeaXswktgqj8NNV19WX7yEwFHnjqDJFr4VH3YJ
+         E+MZjquYVITodE0hptUGd0fgZiMlsX+tHOO29g7Hawf/5WbliIhnxGbbeed9LX/cOt6O
+         V94SShI3JhR1bsn/MyBEyi4L2VfWeoBYjXkkDMdYlwsGVQA57NE4ZLlPaNkflZDSrOJS
+         KZdEDskZXOszlNPzWGP321KPf+cHuSVw6QM/+miwNk95xLacexVATBI+0aYk/KTJjM7H
+         BFJlI4EI0AINjta+NMElL+wltdB09sNhup3MtD709vtsl1336OIcCKUN2IPe+h2Wh8I8
+         okUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxeNCWYR8hEhRLbo2rWreObFqDCZb8Y2+2QndbLkXQshtrtPRCigjkiFQjLQiMoQ4oYwG9LNaYceKpQsV6WrBa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz23eVHaPkpqFPuAzlXbZ+DVw42v6+F4w6mM9KtMzuL5o4WGbWB
+	73/CRdvqWQHxttyxmwIWrVbIp7BNO/beuExyPKFDZwD72Kvj1lrF+7CKSZbqXwQ0GCqWl9u7tq8
+	PEVFXAocQEk9kwWaUVjB7N2PxRnRrAZLg2/1gdti2AA==
+X-Gm-Gg: ASbGncsIPdAlXxGNKUUVNkx0N/8fjIb5Nq0+CsbTTQEGN4Z0ysyZDrorh8Q0w3j8Ga3
+	NeA9T8MZBsa4V9gsYHcUbLh0V35tXt0/1ts533rHx7TOal8aqIq2f+QtC6HURSmIJXpTLdElPTo
+	ba+UIaqHWLWHxunrT+lW6cqWG3w9kAvFPiOGm5Jz83cZcYWeJ4pMvc7IUAf+XgyZsQeO5ROPqw4
+	g1d9A3M
+X-Google-Smtp-Source: AGHT+IHuI5AyhviMUE8d04CZKMsxw84ERhd0y58MB1DDZatjUo51eJKV0sipZSi6vcJejXizNerBql3FasBKpx0EYU8=
+X-Received: by 2002:a05:690e:1241:b0:62d:9854:f1c3 with SMTP id
+ 956f58d0204a3-633b0731376mr1875395d50.33.1758115776183; Wed, 17 Sep 2025
+ 06:29:36 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB9751:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6a87671b-7754-43f7-5467-08ddf5ecea71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|19092799006|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L2JPOHppQURVOHdHeWtNSjMxRncybHZsbWJITHNQVitXRGVFbHNoTnRva0FN?=
- =?utf-8?B?MXIrNTEyNG1YSkthWk8zK2VML2xSRmtoN0pab3RDTDBHWmlpWm4zUTNXTk5D?=
- =?utf-8?B?Z2h2ZmlFaE5aNVlialJFRWhDb0lCZDdBa0I4dUNyV0Q2Nks1dVI2SnFpeEgy?=
- =?utf-8?B?WmhvdlBUN1RDVGlqMjNxdnZIeTFGNTYvb2NFa3NsS0lZTkY3d1hPOFNlcW1S?=
- =?utf-8?B?Q29PVG1TYjdHRC9Fcmp3ckpGYnRZM25jVHlvcFowOXRtaU1JaVJ6d3U5MTls?=
- =?utf-8?B?YVlad2JEcW1JMzhLYTBvSkNuTG5aenQxcWZybWlLOVhoWlhoQzUxeGIzSUgv?=
- =?utf-8?B?N1VDVTJyY24wd1hBZ3dlTG5ZVEpXeEltU2FtVDA0Y3RhL2h3eFI1dFpKSURl?=
- =?utf-8?B?L2plS29rM09XUjJEUmZqSmNJYjRnSW1tY0liNlJ4ZVErcjVpQlc3bjJmZWM0?=
- =?utf-8?B?RFpYTEg2RDR4S3JxbDd1S0JmaSttT0h1eGtxSE9VTG4vTm1FU2N0a1E2WHYx?=
- =?utf-8?B?d01KbkltMnp5QUxGTEE2M1RsQmQwNmJlbWFrUU5YaEpmdlpJdHVvQVlmd0xr?=
- =?utf-8?B?QkhnRmhGQ3lVNmU3NUJpQy8vMU5oNlcvZHZyQldiK2pxZFYvRUZZL2w2Q3k3?=
- =?utf-8?B?K2o1OHhTblJoLyt1V1NQYWVDMDM5T2FjV2JYSGFJUGJmaWgyVWRKMS9nN2Nw?=
- =?utf-8?B?MG04UUl5WUhkdWpUNG5aZlQrSWU5RWJCbUd5TUNqYnNsZHlkL2U0TmtnMkR5?=
- =?utf-8?B?aTc5WXRnWFBYNjRNUUs0bWFlTCtqOEZvRVo0L3JSVXhuZ2RkOFBVdGRRT3pU?=
- =?utf-8?B?NHlFa0l6N3VZbS9rNGZtemZkVG9aUGMzYnhUNS9zSkgwcFJEaDNXUGI2cENp?=
- =?utf-8?B?cHVWQ2kzeXZ3c2Q2UHNJdHJtQXVoSXJrQ0w3MEVwM2xIeEZISXh1cGdVOU93?=
- =?utf-8?B?T1A2UXlaY1NEVDdSNWthSG9SNzR1bVpCbGkxU0YwQlhKbGhGQWlTL1Z1Wkcy?=
- =?utf-8?B?OXltakpKUUJ6cWFWSHN0RHE4V2FjTXk5RzFnMU9GakhFeVJnS2krQ00rRDVs?=
- =?utf-8?B?ZEhqUGYxY3Y1czJpK29ibVNuZlBRcjJ3R0FXVVVRTFg4V0NJanRsdCtoY3JS?=
- =?utf-8?B?S1EvTUU2clNseW1sUEJUU1gyb3c0U0ZGeTludnFCelpGMGQ5Vm5KQ0EzUnhN?=
- =?utf-8?B?Mk1lOHdRZmNrK3diWHFWVWdBbzAxaVkwYUIxZXpsTitqNTE3RXBJQzZaeTN0?=
- =?utf-8?B?eG9XdVdTb0NRUFNXdHpuVXZCVVI1SytkV1E4YUFFOUJQR0dKWURoNHhuT1ZS?=
- =?utf-8?B?OUM5dTQwQWlQbytPL2FZdmFWWlVabEo3ZEpyT3VjcDZTVGVNNGVYcmxzUWx0?=
- =?utf-8?B?S3lPT0VyblVKZmVqL2pWV0REYUh6ZWp4M1pndFlLbFlOSHRYS3VxV3ZNNEZQ?=
- =?utf-8?B?c2xjWlUvbjhOTVZ5eTFlS3UvVy90TzZFVFNEc20yQjBZYUhmUG9uNDVORWZ3?=
- =?utf-8?B?bTNPdFp2c1o3Q21IOWkwTVZFVmRYVWFzSHZJcUQ2ZlJRQVJWTk5WVGFuaTJj?=
- =?utf-8?B?NnZ5TklOcnVYY1pQWDRmNDNUVFZsemptZjVtUFhBa1BaaWRVQlVIZ2hKYkNV?=
- =?utf-8?B?NXNPU3RQVUlCMlowVUdWQzc1V05vb1IvR2s2T2ZrYmxSWHlKUnRER2ZMUERv?=
- =?utf-8?B?cDRNTnNESXlrVEdiRWozaDBrY2pvTEJxMkhFaDBUdTZEQXhlekJUb2FMblNs?=
- =?utf-8?B?SHc1dDZ1ZG5ZdW15cFZoaGxpYnVoaFBOeSsxRjNUQVJrNFZneFdkdVdsMGYr?=
- =?utf-8?B?K29LWS9NeWEwR1RCQllUWDNWUkFuQUV2TU5MdmFFZ3llR1VkS1ZFVThNaFNv?=
- =?utf-8?B?T0JwRFhITmcyZGZRTjNtc1oxYk9RN0MzMWI2UFlmanBsRnUxeGxZY2RsaTlm?=
- =?utf-8?B?bW5KVWJzOUhLdVlVMkZidkQ2bUNwUWxKd0tLdFFtaTNhWnpzcTMzVW03b2JH?=
- =?utf-8?B?L1ZFU0l4MGdBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(19092799006)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WkRMMjhRbzhSRzg2T3R2UE11S3FiSklIRVZwVUFONzdsaGt1a3FtRENnQW84?=
- =?utf-8?B?elhxaUhwNjBMTEJFakc0c0RHV1Z0ZHBWV0psRXl3R01RcERxbjlMTG1VbDhi?=
- =?utf-8?B?c0hSMHA4RTliWVNPUW8razBHNGV5MWdSNVRDWFJ3NjArdk1udzdlb2VpbHZj?=
- =?utf-8?B?NFJJUy9xQ1lIRFpPRmtZK2swcHVhM0JjMzFadERHaXk2T0xhYXhISzNGVjJV?=
- =?utf-8?B?RE04bENURjVOVGl5UVN1N1FUK3cxMWlKMDNkaEkzQ0Ntdi9aV3RhdG43bElm?=
- =?utf-8?B?WkU1SWN1a2ZHV1ZGc1dhd3ZRUE54WWJSSUd5T1kySldNZFJDYzgzT0pYekRj?=
- =?utf-8?B?Mk1XSVZSa0M4RFJYdC9oekl6Q2YxLzRpOVRuei91WlhKMmhIOW9LZWZ4eEg5?=
- =?utf-8?B?UWtLeEFlciszRXZtUytDSUphQkpUM0I1cS9DTWJTQytTOWs0VVVMeXczb25t?=
- =?utf-8?B?Si8vOEc5T29GbTFHb2owUlVzVE4yckFvd1pGYmNreW5xTGZnd3dvNzJKTXE4?=
- =?utf-8?B?REg0TnZPU1hLTmdMYnkwUnlub3VWaUhxUVRiZzcvelR6MnlibmZQUmQwNEdo?=
- =?utf-8?B?TnIzdVRIOVo0RFZJSWhtU3J2MlA5SWhYTWtQRTQyWHRTVGdCdXdqSmdhNDFr?=
- =?utf-8?B?UnZxcTVzYXZwVXNTKzNjTFpQRnQyZHorODNQVGhIL1cvenFOM0tJSWt6c3Iw?=
- =?utf-8?B?N2N2ejlyTks2ZFpoOUNzNzZoc3doaFFKajM1WVNCcW9XS05Ob2lwWFg1VHJa?=
- =?utf-8?B?YnlMS09SdklkTlg2Z3c5aDd5MlhWM1VOa3VMamdSYzZoSWhOa3k4akR4cDZL?=
- =?utf-8?B?ekpLdXdZUzc3ZzdlZzdmYzFyem95R2FCeGtzT3p6M3JkUEpmWHVja3liaHh6?=
- =?utf-8?B?N1RMYmU2Vjl4blVSTDJaNTVpVU5hVnpTQkxGS0dHTklKM2pPQnNVcEdBNXMv?=
- =?utf-8?B?Ukk3SitZdXBPTjdwWXNOSzNrdmU2VkFQRVBWUzhjczY2M05qNjZqUkwxYUYz?=
- =?utf-8?B?NVIyMVFMb0FybEJ4ZVVrVjRTWTZRUGRJZHdWcklxR0lnMlhFb1BXR0JDQXo2?=
- =?utf-8?B?L0xiT0xidWlyaTdUZGR3VmJBMnp0M2t6QURadFVNdytIK1RJNWFNb3J5bWNX?=
- =?utf-8?B?c2tLT014VmRobGxjaUtoa0VUWWJRQ1NNSkFuYUgyZVcxNW1FeENpcytjZU5S?=
- =?utf-8?B?cTg1bUpkamZVWEllM2dKbEJpRHRtQXdXT3BqVHg1V2FIVU5PeGFvdjlQcW9v?=
- =?utf-8?B?RlA5YTRmRHVlN2N0empIRS9Jb2MwMFp5cGc3LzIrVVN2eEVkY1c5Y0FxRlVu?=
- =?utf-8?B?NVJ5bFZ6R0kyT0ZzdWlLMmJEZmVPZWo1cXBZWjc3YjhSM05DUlh5UG9XU0xS?=
- =?utf-8?B?Nk5TMnBiUUdueDlVK2d3cEJxZm5EOWQ2Nkw0anF1M3lEVWowTmppRUdmTCtK?=
- =?utf-8?B?N3dKcUZnSnVENUVwVmlKZkIwMDJFZmhhRDZFV3BVaXV4QUxMbzRmem5HUDZt?=
- =?utf-8?B?VzlOTS80R0lyNjFad2thcWhua0VVMlRXT1RLY0RCQjBPanZhazFyYmFsYlg4?=
- =?utf-8?B?QnZ3R094amFtQzJoTnJuckkrTHdRM1UyREhCdy9DbitFakpuK0V0eXJrMG1F?=
- =?utf-8?B?MVlZYnBZYmdhZmNpeHlmcGE4NTYwd3g2MU55enNDOEllbEVFa1ZkRVR6MTc5?=
- =?utf-8?B?UDJkR3QvVnR2bm9tOWZyQlB3L2FQTmRENU14N2xSNjl5MzBDWWNseGtZSXFU?=
- =?utf-8?B?Z05UQmRrV04zZHdxMTUwOU5UbUFoMTdxUGVDZTBnN3diUzFtaG9zVklHQnAw?=
- =?utf-8?B?WEw0OVdDb3pPZU03WGZpQlNuRG1SeExPNjczNngySDcyNUtmWGpJQ2xZaGIy?=
- =?utf-8?B?M21uOHBDMCt3UkduTThoT3VRQVlycWFLMTVCRnhwOHduTFZwUDArYThCdFpQ?=
- =?utf-8?B?d2NReGk4OW5pR0cycnREeTI2VENMVmZma25NUEFnUkFVQjhzUHl5UTFhOEZr?=
- =?utf-8?B?UEphR29iYkU4c0trc2NmQ0ZyYUR3VHRoc3AwemlhVE5LNTl4b2c4YlJmWExr?=
- =?utf-8?B?NzEvWWhkYTI3b0w4M3VUaFRVN0ZuZ1JudXN3NVdoQ3ViUlg5Ty9SWmJPT2tq?=
- =?utf-8?Q?PQ6EgteCGNEXmsRok2HDfZfpO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a87671b-7754-43f7-5467-08ddf5ecea71
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 13:20:05.2577
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: P4kPr5r5KqFn+x3FTYaJbzDP/ymCSLBPFjY7hYUhsfv4x/t/sG0r5Z7sDGePB4VFyp3PRTmRAQVCr4E4fQbL/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9751
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+In-Reply-To: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 17 Sep 2025 15:28:59 +0200
+X-Gm-Features: AS18NWAFYxfdM-z9P24XcfzEBx3NAZQo5nY3cbJlHEFPJOB1W-fi7_dweQlyxBc
+Message-ID: <CAPDyKFoi9KcsP5k84cSxuXNuMHmcf3a8emfOc6hMjGm_0FMk8w@mail.gmail.com>
+Subject: Re: [PATCH v3 00/10] MT8196 GPU Frequency/Power Control Support
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Chia-I Wu <olvaffe@gmail.com>, 
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_062015_730314_557EC116 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250917_062938_030532_0A01AB29 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,55 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace manual rproc_add() and cleanup logic with devm_rproc_add(), which
-ties the remoteproc lifecycle to the device's lifecycle. This simplifies
-error handling and ensures proper cleanup.
+On Wed, 17 Sept 2025 at 14:23, Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> This series introduces two new drivers to accomplish controlling the
+> frequency and power of the Mali GPU on MediaTek MT8196 SoCs.
+>
+> The reason why it's not as straightforward as with other SoCs is that
+> the MT8196 has quite complex glue logic in order to squeeze the maximum
+> amount of performance possible out of the silicon. There's an additional
+> MCU running a specialised firmware, which communicates with the
+> application processor through a mailbox and some SRAM, and is in charge
+> of controlling the regulators, the PLL clocks, and the power gating of
+> the GPU, all while also being in charge of any DVFS control.
+>
+> This set of drivers is enough to communicate desired OPP index limits to
+> the aforementioned MCU, referred to as "GPUEB" from here on out. The
+> GPUEB is still free to lower the effective frequency if the GPU has no
+> jobs going on at all, even when a higher OPP is set. There's also
+> several more powerful OPPs it seemingly refuses to apply. The downstream
+> chromeos kernel also doesn't reach the frequencies of those OPPs, so we
+> assume this is expected.
+>
+> The frequency control driver lives in panthor's subdirectory, as it
+> needs to pass panthor some data. I've kept the tie-in parts generic
+> enough however to not make this a complete hack; mediatek_mfg (the
+> frequency control driver) registers itself as a "devfreq provider" with
+> panthor, and panthor picks it up during its probe function (or defers if
+> mediatek_mfg is not ready yet, after adding a device link first).
+>
+> It's now generic enough to where I'll ponder about moving the devfreq
+> provider stuff into a header in include/, and moving mediatek_mfg into
+> the drivers/soc/ subdirectory, but there were enough changes so far to
+> warrant a v3 without a move or further struct renames added, so that I
+> can get feedback on this approach.
+>
+> The mailbox driver is a fairly bog-standard common mailbox framework
+> driver, just specific to the firmware that runs on the GPUEB.
 
-With no need to invoke rproc_del(), the remove() ops could be removed.
+I had a brief look at the series and it seems to me that the devfreq
+thing here, may not be the perfect fit.
 
-No functional changes.
+Rather than using a new binding  (#performance-domain-cells) to model
+a performance domain provider using devfreq, I think it could be more
+straightforward to model this using the common #power-domain-cells
+binding instead. As a power-domain provider then, which would be
+capable of scaling performance too. Both genpd and the OPP core
+already support this, though via performance-states (as indexes).
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/remoteproc/imx_rproc.c | 10 +---------
- 1 file changed, 1 insertion(+), 9 deletions(-)
+In fact, this looks very similar to what we have implemented for the
+Arm SCMI performance domain.
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index a53ff186d218f54123e1ce740b0277a6fe95a902..694fbbb2f34061de22a3a815f8a6114159585f9e 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -1149,20 +1149,13 @@ static int imx_rproc_probe(struct platform_device *pdev)
- 			return dev_err_probe(dev, ret, "Failed to add devm disable pm action\n");
- 	}
- 
--	ret = rproc_add(rproc);
-+	ret = devm_rproc_add(dev, rproc);
- 	if (ret)
- 		return dev_err_probe(dev, ret, "rproc_add failed\n");
- 
- 	return 0;
- }
- 
--static void imx_rproc_remove(struct platform_device *pdev)
--{
--	struct rproc *rproc = platform_get_drvdata(pdev);
--
--	rproc_del(rproc);
--}
--
- static const struct imx_rproc_plat_ops imx_rproc_ops_arm_smc = {
- 	.start		= imx_rproc_arm_smc_start,
- 	.stop		= imx_rproc_arm_smc_stop,
-@@ -1288,7 +1281,6 @@ MODULE_DEVICE_TABLE(of, imx_rproc_of_match);
- 
- static struct platform_driver imx_rproc_driver = {
- 	.probe = imx_rproc_probe,
--	.remove = imx_rproc_remove,
- 	.driver = {
- 		.name = "imx-rproc",
- 		.of_match_table = imx_rproc_of_match,
+If you have a look at the below, I think it should give you an idea of
+the pieces.
+drivers/pmdomain/arm/scmi_perf_domain.c
+drivers/firmware/arm_scmi/perf.c
+Documentation/devicetree/bindings/firmware/arm,scmi.yaml (protocol@13
+is the performance protocol).
 
--- 
-2.37.1
+That said, I don't have a strong opinion, but just wanted to share my
+thoughts on your approach.
 
+[...]
+
+Kind regards
+Uffe
 
