@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58091CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA5CCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 10:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=; b=LjjGsFVhZMuTC025nkLVo+Lv40
-	RZXAXbfsZPnKFVYlffX0TmpbIQWcDw4pofZnXOmJYQdPanZQu6+knI7c/ex6X09O0CBQKds/YallF
-	vVFuoIPiHsZ8zdnpfxd8BiQkzCYb6d7ZJfWxAL7rlC6d9Z1DIIINifWKSgxJaoSv7Aw6Oe6X0mj1D
-	LTt8SKTbqkFye1gdxUJPVc/RTwggxmemqO0FbVrsGqgBAnUW4tPZrgMpYFjgzZAHbG7iBIoIPszzL
-	NUF9lhy9uj4B7CgL3E9ZRHl6QfDHBE1+0aVHKaIU8KYo7lxB9HTnDLVLYKuxTVoQAxo43YC+l3a/m
-	OBcWLjJg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+kmbJPIKT2sQhA/vxVf0N7X2Z80CDuvnn3C+ZX1OUAE=; b=iC8fF+QtiHgPoK84Z8oDw6FCsn
+	vISBiM4OOcyUJTmUtgi1orsIP/+tqbx/Bg2CMmVG+aynXJ5Fy798r3A77088Xj74yl5DiJYXz2jx/
+	rCZ1afPwhXoW9PwTIV0I5vxXX58yGbYbV1BsShq3Aj8pQLUcVAxdC4EWRaAome/mqZvWOvwox0zR/
+	7pQFj5qQy9vxRFSki5btvYOQjsIu/nnpefNWl8YD3Xb0mot+uldbwyDYSJYWegIa8C26pKFcau/Sl
+	dHXsgWEW0FtdCbqlv0NgjFWxaLH7G22EmnaE7L3bf0RTAGLOa35WUvFEe7fC33VBfXFSoDhPsAw+P
+	vgBI3y2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uypFD-0000000AwuV-2rmQ;
-	Wed, 17 Sep 2025 10:18:35 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uypFG-0000000AwwC-45BK;
+	Wed, 17 Sep 2025 10:18:38 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uypFB-0000000Awtn-12GN
+	id 1uypFD-0000000AwuU-3NcP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 10:18:34 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-26799bf6a2eso28409985ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:18:32 -0700 (PDT)
+	Wed, 17 Sep 2025 10:18:36 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b4ee87cc81eso5748912a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 03:18:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758104312; x=1758709112; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=;
-        b=Lp0Xwf6Dvt4a1C5scXer/iJl3SHn+4/43rFtn+KYtw3hKNyTvVX9CcoZGGWIENve71
-         tpY+NYodK2d1ZPMgK+NCbVcoWCaTk8nr39jBI+szr4VjtsIMC8g1RQOJf4VVMu92zUeG
-         /0oHYSIE4kFHd5KzqSjIwZe5LSrnZQ4RorBa65HgPsuD8oHx9JtvvINXvnkYUJB3G/j9
-         We8l4racdZa55PFfGQAGVAwZpmeCwEcb5I+Ylw2ppHe6mi3kiOsef78FIcDp0FvbhCzm
-         EJrm62g1BAwqaNeSesAT6VCR6SZahT3eS+IkOuwffux9t8ws0F5V0yRAN0KS7WcyGGui
-         5e8A==
+        d=gmail.com; s=20230601; t=1758104315; x=1758709115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+kmbJPIKT2sQhA/vxVf0N7X2Z80CDuvnn3C+ZX1OUAE=;
+        b=Q063drpBVvOiHMSPI6X1nSRvI+NRZGFBXg79pu727x8tAwj6jCpnbEm5UYqloiLfx9
+         NLJDUzs2xKJkY7WK/OHXq/jM/9nXjHkEDKPVgzJFlb8lZ+dbl/+ccp8ypKq15WX+0OMQ
+         /hGJekdgvQlWZsjztbk5SUTmiUVioft6pXLb/NL81DbeB8cG1n1VPmU33heqtePVrNG7
+         xsGdnnUF7om+Js/0XkhNIg6S/uZ9By03++TNCmh3tBmD7lOQGDtwN3mGvwI4oOdA6hox
+         zniD77ppDi1cNvjyOSB0xaH/HwEck857sBoOr5hWVCh4RvKH742xy1XwRmOwbivniuj3
+         cL8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758104312; x=1758709112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jZgFdo56U5Rjwn/0fXd6egZkLqMBUY9dg2lSu0VhJvc=;
-        b=tGqY8nfbwNA6EUKwXssEN6ajWEnx6h1U69QBFqVmXHU4lwU6nWdrPgCyyDOLQmFyYj
-         7+MUQgLFURxo18xkDipA73e4o7FTSEN5V4xyhBC4b7A0X+wzKW8puOA/f1ZJdiM8AZCc
-         3JRQq5IS1SIgI6CAJQ7klBK6NSGrhdOurN+dVLgnzqlHr7kpjtZU1w0DAGXj0ycWDd1d
-         7aL2zf51LHAdWJS0L0J61VVllNr/9Y87Rk48VTyLhLNM0XT7CfQt/m0ikagHAQEDSMWi
-         jpO8CXLtLQGiGGTsroSb1ZRsjUcvgG/7xNMg0EQ2/qxQWqBLAyVZhCrCCnj5hXKL8m6g
-         2ziw==
-X-Forwarded-Encrypted: i=1; AJvYcCVxh1Hov8WLbTIyPYdtg4bZgSzsHd4oYq5AcXpSY3n7XzGK+645tov+9Ko5FJu/zRQXQKKQDX1TpjlAmjSCXHMg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4qmbZxwE6vZSVM6yfJsozqb5orHcLUtEyKwFlMDCStIWwGqk3
-	R8Vt+iqKmfwNzvaRU8D4Zm86nreHPkB3TztG4Pi+WRmEuthrVt6Czjdf
-X-Gm-Gg: ASbGncu+sndisvFBi1yAJpMOIKmrVxfnrihHWZZHoWdSeyER6A4/oZlZ9aLgc7aMVgZ
-	Fti1B4x0X+Pm7gdNV5HfD3kgmbVJoD0eDgZWcSim07ZaGw7IUmLnw4958x6ExxGeKM8bfs2lATR
-	TJtW7DGso8MElDd/dx3/LGXjLrSWrLEVpnmfkUDsuKpJljTeXIugzFan+p+PuEK5WFEXfK/04Ft
-	uCjNEFPKhJbTClQ4uhOO8HEESMiUnrmHrdER4FsTXi16ujyYyNp2g+9IyG+k4oBcT3ErvLR9JXZ
-	8PZYn7z4uZBML6wTyObS45AZOMAlXtXbiIZE6w0kCOvK+DV+pwfeCxEJrZ227dQT9k+CJSZVXyJ
-	ozMylPuScimMO467YLD6sagePFcAAuWfz4Lmt0PFfMpGYbUuFe7+rDUuInNUAEhguhhXtYa2lTO
-	MdcQt83zgxuU0CxiRx9sVBJIMMsHEg4t4oGQpB
-X-Google-Smtp-Source: AGHT+IF3QgCkXxslVB6+8cU4cYQ7hXjdu0fR318XHFqwWXVd5FRKAeNtm0+mTEJzK5nwiVQMB620Aw==
-X-Received: by 2002:a17:903:3585:b0:264:1afd:82e6 with SMTP id d9443c01a7336-26813cfb4fbmr18125285ad.53.1758104312186;
-        Wed, 17 Sep 2025 03:18:32 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758104315; x=1758709115;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+kmbJPIKT2sQhA/vxVf0N7X2Z80CDuvnn3C+ZX1OUAE=;
+        b=RBcVDXKRe19ZlqLzLxm6aUddGFexSdynMkRsZ7mefnimbWXGNhANRPrLC/0153vr0c
+         YWvn3cieM6KE8T4etDzgLCkxZN3OFQNiTec+ja0RQd9c6fBzgwpnTez7sXisgq8jcYDS
+         vbYUScWOosvRSei1utvbQn6/XU3lUaBNbOx6gSBHyF8UeQ1OFw+SNcmmGPUSPki6wLOm
+         lfpSBDSiG0tBq5dvnilaVAewstS1G7IRJhNh9uRBiOKfvS+GKSNArDETN3TD1VtQxvjH
+         ljwvN0kpsNkpFZk1avpKTuF4ojpKgkA+Z0sR2C2HD1dHQlwTQXSGzarS5i7a/943vCAB
+         37Nw==
+X-Forwarded-Encrypted: i=1; AJvYcCW/vrMGCqA1pxbBsCUfpLBQCJaYFuSoGB8phiXz1SzZHvTeuxZ/23cvwD63O8rPWS+swLkVYn8O2kaNb+wOw2FU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJvoLO7jk2VtrKb/Xkqt1xiQqjy/44IRheb3FDBbWC6+XDsXg8
+	aXWRHpc0Vd+38LwjqaZ6E2BGy+teVwbEIyreaHUNcbfEVm9/qgXaps2G
+X-Gm-Gg: ASbGncvX/uVTzAqb0XfMgJ8kB/0d2v7gfi60XayDysVKNf10yK0bRZ5BILjmI2fG1DU
+	loFTw+0fbznlKvWHs8jdHGIYVWl59MjqQeenNp/QytwwuJ7G8QrU2vx/3WbvoDYmmvyD7T4rv66
+	hQz2QhbsDEyCDlPKlu7L5KoKiVdi2VCIZrm06fqYfnL/iKWXz8s9n7kSZhu1OxqpCD3V5oJ+ymN
+	XWnsk2AH2iw8BD3eD6keWA/JSgNYjhB7A0Bk1O/Ye3yu1kPonqdMJAijMCpRUpVtgPxOoFaVGCu
+	NLWk0QFEkyj0/7ypygGTEpk2ZTnazwf5TN5ovN9a+fdjzhaUZ6SLUHiSUk8sbkYcFdK316MrHox
+	ctuDoDfNw8z8X3hHSJSKAigbUSZ0flPpevirBhnhsagC2ER8vVfiGFaI2Uq7Kbw7jwUwPx5S7B7
+	m+csilPa7N1V4DAhFlo6WPCjsY+w==
+X-Google-Smtp-Source: AGHT+IFiUe1D2qnklzbedzK9Brp0DgIaGignG75uAoJrTAq+Wmo3K/I8sMVvXmtJYvF52h0HPiTMlw==
+X-Received: by 2002:a17:902:fc86:b0:25c:2ed4:fd7f with SMTP id d9443c01a7336-2681390307emr21798845ad.42.1758104314805;
+        Wed, 17 Sep 2025 03:18:34 -0700 (PDT)
 Received: from eric-eric0420.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-267f4d286aesm28588755ad.63.2025.09.17.03.18.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-267f4d286aesm28588755ad.63.2025.09.17.03.18.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 03:18:31 -0700 (PDT)
+        Wed, 17 Sep 2025 03:18:34 -0700 (PDT)
 From: Peter Yin <peteryin.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,16 +81,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
 Cc: peteryin.openbmc@gmail.com
-Subject: [PATCH v1 0/4] Revise Meta(Facebook) Harma BMC(AST2600)
-Date: Wed, 17 Sep 2025 18:18:21 +0800
-Message-ID: <20250917101828.2589069-1-peteryin.openbmc@gmail.com>
+Subject: [PATCH v1 1/4] ARM: dts: aspeed: harma: add new line between the child nodes
+Date: Wed, 17 Sep 2025 18:18:22 +0800
+Message-ID: <20250917101828.2589069-2-peteryin.openbmc@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250917101828.2589069-1-peteryin.openbmc@gmail.com>
+References: <20250917101828.2589069-1-peteryin.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_031833_283839_391E46E3 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_031835_848627_7C16290B 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Summary:
-Revise linux device tree entry related to Meta(Facebook) Harma
-specific devices connected to BMC(AST2600) SoC.
+Add new line between the child nodes of imux28 to match DTS
+style.
 
-follow-up: https://lore.kernel.org/all/3a65d568540e9ca43d3bfc24cfe5f72d2bb12b3b.camel@codeconstruct.com.au/
+Signed-off-by: Peter Yin <peteryin.openbmc@gmail.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-v1
-  - Patch 0001 - add new line between the child nodes
-  - Patch 0002 - use power-monitor instead of power-sensor
-  - Patch 0003 - dd sq52206 power monitor device
-  - Patch 0004 - dd retimer sgpio
-
-Base: tags/v6.17-rc3-39-g07d9df80082b
-
-Peter Yin (4):
-  ARM: dts: aspeed: harma: add new line between the child nodes
-  ARM: dts: aspeed: harma: use power-monitor instead of power-sensor
-  ARM: dts: aspeed: harma: add sq52206 power monitor device
-  ARM: dts: aspeed: harma: add retimer sgpio
-
- .../dts/aspeed/aspeed-bmc-facebook-harma.dts  | 59 +++++++++++--------
- 1 file changed, 36 insertions(+), 23 deletions(-)
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
+index 23eaf47a38e8..41ae86180534 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
+@@ -524,26 +524,32 @@ power-sensor@20 {
+ 				compatible = "mps,mp5990";
+ 				reg = <0x20>;
+ 			};
++
+ 			power-monitor@61 {
+ 				compatible = "isil,isl69260";
+ 				reg = <0x61>;
+ 			};
++
+ 			power-monitor@62 {
+ 				compatible = "isil,isl69260";
+ 				reg = <0x62>;
+ 			};
++
+ 			power-monitor@63 {
+ 				compatible = "isil,isl69260";
+ 				reg = <0x63>;
+ 			};
++
+ 			power-monitor@64 {
+ 				compatible = "infineon,xdpe152c4";
+ 				reg = <0x64>;
+ 			};
++
+ 			power-monitor@66 {
+ 				compatible = "infineon,xdpe152c4";
+ 				reg = <0x66>;
+ 			};
++
+ 			power-monitor@68 {
+ 				compatible = "infineon,xdpe152c4";
+ 				reg = <0x68>;
 -- 
 2.43.0
 
