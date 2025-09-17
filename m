@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB74CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2548FCAC598
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXguhlFTPWzEFDkGuGbhfnet5wFn0zSdbLSaV0L44pw=; b=ZGnC/duKkM3hdhr/mYQKKYI0xJ
-	GGyLybZZqLpzxFxnsClxzNqGBd1ri0tmrpwZHRKoP5YwyNc6TzGamP3r/PhJVI1uAklcJzbEm3Csp
-	wT6M64kff3wJndhDDYWoyVf0i8yXzBTemqQP329wao715ivJc6GHtr+jtoZczgw+mS2fBYE7qnKZb
-	e4fLr+XfOC5ZptR92lg/TLhL4myj4FfUj1nDmUo+FKpzzp3yVV+tyQinkCwp4ubDZls0e+swazTCZ
-	QG+zBZSi3TqSniUkbTjF5Awjg7z4bkAwZ4BUwadiw5KBWU/O3S4iAU9UEz8TxEcnjCV6zjpeLRw9z
-	zL18grCw==;
+	bh=AjHTiR3TP8U/dHiplS5lbpj1CbW/m/2exj5qmUp/EYw=; b=OpGB0/1oXGnmriAtCnAA1Ztl79
+	JtIeRuQV+xZU4yHqxNXapV+1fTPlzOQvdH7xQc/UhFQM7pk0jvhsW7ezID/HV0rWUT+ACdhrEJ+y9
+	gemJLkk1ONkN0qbp/5VckDxiktYiuEtt+Vq2nHvqNQ9zeg4M0c/zGwSYipeeZ0uLnp9Xvpuds9Cwl
+	QTO3xkahfrkvSXXb5RnDJyB/ZFupxoEQBxCbSMWu6lTutHIWVdfIMRdgKZcpDKp8rHRAtegdfShSZ
+	NwgpMcJKD/vfiO8FNRw4FQpw7em3ApUUQ+uh1Yqx/kNfNjZ7eVMG1XwOB5aXcoQqS/su0p1G9SoOz
+	+fb0vWhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9h-0000000AO6f-3HG5;
-	Wed, 17 Sep 2025 07:00:41 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1uym9s-0000000AOA7-2kEU;
+	Wed, 17 Sep 2025 07:00:52 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9f-0000000AO5V-00UP
+	id 1uym9p-0000000AO7w-2kJr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 07:00:40 +0000
-Received: from localhost.localdomain (unknown [119.122.213.2])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 23172db05;
-	Wed, 17 Sep 2025 15:00:27 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: wens@kernel.org
-Cc: andre.przywara@arm.com,
-	andrew+netdev@lunn.ch,
-	conor+dt@kernel.org,
-	davem@davemloft.net,
-	devicetree@vger.kernel.org,
-	edumazet@google.com,
-	jernej@kernel.org,
-	krzk+dt@kernel.org,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	samuel@sholland.org,
-	wens@csie.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [PATCH net-next v6 2/6] net: stmmac: Add support for Allwinner A523 GMAC200
-Date: Wed, 17 Sep 2025 15:00:20 +0800
-Message-Id: <20250917070020.728420-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250913101349.3932677-3-wens@kernel.org>
-References: <20250913101349.3932677-3-wens@kernel.org>
+	Wed, 17 Sep 2025 07:00:51 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250917070043epoutp033f45ae03d45ce92c148ef6a8e27cba94~l-8NLldLh2280022800epoutp03S
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:00:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250917070043epoutp033f45ae03d45ce92c148ef6a8e27cba94~l-8NLldLh2280022800epoutp03S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758092443;
+	bh=AjHTiR3TP8U/dHiplS5lbpj1CbW/m/2exj5qmUp/EYw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=apvk//ViSB0zCF6zsMpNVzZVZyHpNrA/+oaJ65ozZXRLqo/ZLD7Dtf00GoLxIf/Zf
+	 tWJCS2PSNQzJok5g5PivQOs4Gl8JarJvnfD1cRcX0m6fLbxsG6CHAqJ/Pqj/ITfHhM
+	 MLgteyO/ALEJBtBgt0TOyvMuvXWp1zacUdA2ANZE=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250917070042epcas5p3c3921b9e9ea491fef55f93fc9a9c8eaa~l-8MUEMvw0930209302epcas5p3l;
+	Wed, 17 Sep 2025 07:00:42 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cRV615SWvz6B9m8; Wed, 17 Sep
+	2025 07:00:41 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d~l-8KqqV1y1470914709epcas5p4-;
+	Wed, 17 Sep 2025 07:00:41 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250917070037epsmtip1266105bf74f13d80d8ee8c783b60254d~l-8HD8Mh-2848728487epsmtip1-;
+	Wed, 17 Sep 2025 07:00:37 +0000 (GMT)
+From: Ravi Patel <ravi.patel@samsung.com>
+To: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
+	linus.walleij@linaro.org, robh@kernel.org, conor+dt@kernel.org
+Cc: tomasz.figa@gmail.com, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	ksk4725@coasia.com, pjsin865@coasia.com, gwk1013@coasia.com,
+	bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com,
+	lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+	smn1196@coasia.com, shradha.t@samsung.com, swathi.ks@samsung.com,
+	kenkim@coasia.com, Ravi Patel <ravi.patel@samsung.com>
+Subject: [PATCH 1/2] dt-bindings: pinctrl: samsung: Add compatible for
+ ARTPEC-9 SoC
+Date: Wed, 17 Sep 2025 12:30:03 +0530
+Message-ID: <20250917070004.87872-2-ravi.patel@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250917070004.87872-1-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9956797fa103a2kunm2e50bc1654ced5
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDS01JVhlLT09IGU1NHh1CHlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSFVJWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09LVUpLS1VLWQ
-	Y+
+X-CMS-MailID: 20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d
+References: <20250917070004.87872-1-ravi.patel@samsung.com>
+	<CGME20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_000039_235008_7CE7454E 
-X-CRM114-Status: UNSURE (   4.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_000050_183014_A279EC87 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,18 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: SeonGu Kang <ksk4725@coasia.com>
 
-I tested this on Radxa Cubie A5E and there seems to be a small issue:
+Document the compatible string for ARTPEC-9 SoC pinctrl block,
+which is similar to other Samsung SoC pinctrl blocks.
 
-When VLAN_8021Q is enabled (CONFIG_VLAN_8021Q=y), down the eth1 interface:
+Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
+Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+---
+ Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-~ # ifconfig eth1 down
-[   96.695463] dwmac-sun55i 4510000.ethernet eth1: Timeout accessing MAC_VLAN_Tag_Filter
-[   96.703356] dwmac-sun55i 4510000.ethernet eth1: failed to kill vid 0081/0
+diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
+index f1094d65e846..a2c16385bad3 100644
+--- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
+@@ -36,6 +36,7 @@ properties:
+   compatible:
+     enum:
+       - axis,artpec8-pinctrl
++      - axis,artpec9-pinctrl
+       - google,gs101-pinctrl
+       - samsung,s3c64xx-pinctrl
+       - samsung,s5pv210-pinctrl
+-- 
+2.17.1
 
-Is this a known issue?
-
-Thanks,
-Chukun
 
