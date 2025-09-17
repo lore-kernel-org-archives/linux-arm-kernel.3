@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2548FCAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EBAFCA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 07:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AjHTiR3TP8U/dHiplS5lbpj1CbW/m/2exj5qmUp/EYw=; b=OpGB0/1oXGnmriAtCnAA1Ztl79
-	JtIeRuQV+xZU4yHqxNXapV+1fTPlzOQvdH7xQc/UhFQM7pk0jvhsW7ezID/HV0rWUT+ACdhrEJ+y9
-	gemJLkk1ONkN0qbp/5VckDxiktYiuEtt+Vq2nHvqNQ9zeg4M0c/zGwSYipeeZ0uLnp9Xvpuds9Cwl
-	QTO3xkahfrkvSXXb5RnDJyB/ZFupxoEQBxCbSMWu6lTutHIWVdfIMRdgKZcpDKp8rHRAtegdfShSZ
-	NwgpMcJKD/vfiO8FNRw4FQpw7em3ApUUQ+uh1Yqx/kNfNjZ7eVMG1XwOB5aXcoQqS/su0p1G9SoOz
-	+fb0vWhg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=AM0BKLJaTM7gm/KQ3eSWc3YGrRvLsMW9oxGhBM3Pggo=; b=o/ugK6iqB01pgLlaBuBQo5Q8jA
+	lG+9pzcj/KscH7cAi0GLQxefJj8e3blZ0I4ypiCZXjCpW/YtczQ6W3cJjkcvLnqyknoS4AKnMjiOC
+	AhXz6YsTH/hUNMlfCkqDzM6u/exDSjD+jRVXkdQaVwbNuIaAEgmEaYM4H/LJCearj5vL9A1sBjKJG
+	GtoMCAx6GsUwYUqLJHnoL++MwZEA7NvKic/8Wb92iT+dkBuUyO0zEN8nJ1B5yxVq3pYNDevUtixII
+	OVq6T+E5LtY0S8kJxRtbiB/gnYe6ZWxMjbTdu+NMfCXaFRpHbk4SPwbu2tb/OaW4kiLMi5urMz7pd
+	mMkbp1eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9s-0000000AOA7-2kEU;
-	Wed, 17 Sep 2025 07:00:52 +0000
+	id 1uym9w-0000000AOBt-41j2;
+	Wed, 17 Sep 2025 07:00:56 +0000
 Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uym9p-0000000AO7w-2kJr
+	id 1uym9p-0000000AO7f-2kT8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 07:00:51 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250917070043epoutp033f45ae03d45ce92c148ef6a8e27cba94~l-8NLldLh2280022800epoutp03S
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:00:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250917070043epoutp033f45ae03d45ce92c148ef6a8e27cba94~l-8NLldLh2280022800epoutp03S
+	Wed, 17 Sep 2025 07:00:52 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250917070039epoutp03f18220c7bd56ebc38478b0ab7fd9730d~l-8JLG1yt2244722447epoutp03p
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:00:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250917070039epoutp03f18220c7bd56ebc38478b0ab7fd9730d~l-8JLG1yt2244722447epoutp03p
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758092443;
-	bh=AjHTiR3TP8U/dHiplS5lbpj1CbW/m/2exj5qmUp/EYw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=apvk//ViSB0zCF6zsMpNVzZVZyHpNrA/+oaJ65ozZXRLqo/ZLD7Dtf00GoLxIf/Zf
-	 tWJCS2PSNQzJok5g5PivQOs4Gl8JarJvnfD1cRcX0m6fLbxsG6CHAqJ/Pqj/ITfHhM
-	 MLgteyO/ALEJBtBgt0TOyvMuvXWp1zacUdA2ANZE=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	s=mail20170921; t=1758092439;
+	bh=AM0BKLJaTM7gm/KQ3eSWc3YGrRvLsMW9oxGhBM3Pggo=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=iAS0zb7b/I943lnmZ5aS4/wguApDbRItz9bepcIkeBS82U2nKRQvgE6ZynzKhzeN5
+	 35rf+XRIITZp9/n6EqszyV3g4qNuDJ/YtBld10CgvcM2ZwX1vPu7lS3WAwJk32bPtX
+	 A6CseMsnRpt41mFtGCmFb6Tz6KfZEkpa1R1SIl9M=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
 	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250917070042epcas5p3c3921b9e9ea491fef55f93fc9a9c8eaa~l-8MUEMvw0930209302epcas5p3l;
-	Wed, 17 Sep 2025 07:00:42 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cRV615SWvz6B9m8; Wed, 17 Sep
-	2025 07:00:41 +0000 (GMT)
+	20250917070038epcas5p3c8840218379d7def7226afe4033d733f~l-8IRGakU1163911639epcas5p3I;
+	Wed, 17 Sep 2025 07:00:38 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4cRV5x3V19z3hhTJ; Wed, 17 Sep
+	2025 07:00:37 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d~l-8KqqV1y1470914709epcas5p4-;
-	Wed, 17 Sep 2025 07:00:41 +0000 (GMT)
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250917070036epcas5p15db06286fc187651574b68ea4ebe5edb~l-8GzA2rX1715017150epcas5p1G;
+	Wed, 17 Sep 2025 07:00:36 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250917070037epsmtip1266105bf74f13d80d8ee8c783b60254d~l-8HD8Mh-2848728487epsmtip1-;
-	Wed, 17 Sep 2025 07:00:37 +0000 (GMT)
+	20250917070033epsmtip1c91fd7d614b95cf94cbdbd8cca6a51c6~l-8Dq6wMj2904729047epsmtip1H;
+	Wed, 17 Sep 2025 07:00:33 +0000 (GMT)
 From: Ravi Patel <ravi.patel@samsung.com>
 To: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
 	linus.walleij@linaro.org, robh@kernel.org, conor+dt@kernel.org
@@ -64,26 +64,23 @@ Cc: tomasz.figa@gmail.com, linux-arm-kernel@lists.infradead.org,
 	lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
 	smn1196@coasia.com, shradha.t@samsung.com, swathi.ks@samsung.com,
 	kenkim@coasia.com, Ravi Patel <ravi.patel@samsung.com>
-Subject: [PATCH 1/2] dt-bindings: pinctrl: samsung: Add compatible for
- ARTPEC-9 SoC
-Date: Wed, 17 Sep 2025 12:30:03 +0530
-Message-ID: <20250917070004.87872-2-ravi.patel@samsung.com>
+Subject: [PATCH 0/2] Add pinctrl support for the Axis ARTPEC-9 SoC
+Date: Wed, 17 Sep 2025 12:30:02 +0530
+Message-ID: <20250917070004.87872-1-ravi.patel@samsung.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250917070004.87872-1-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d
+X-CMS-MailID: 20250917070036epcas5p15db06286fc187651574b68ea4ebe5edb
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d
-References: <20250917070004.87872-1-ravi.patel@samsung.com>
-	<CGME20250917070041epcas5p4729ea496eee0c1ec2f4c234a63f71f7d@epcas5p4.samsung.com>
+X-CMS-RootMailID: 20250917070036epcas5p15db06286fc187651574b68ea4ebe5edb
+References: <CGME20250917070036epcas5p15db06286fc187651574b68ea4ebe5edb@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_000050_183014_A279EC87 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250917_000050_183359_F48A5907 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SeonGu Kang <ksk4725@coasia.com>
+Add pinctrl bindings and driver data for the Axis ARTPEC-9 SoC.
 
-Document the compatible string for ARTPEC-9 SoC pinctrl block,
-which is similar to other Samsung SoC pinctrl blocks.
+Axis ARTPEC-9 SoC contains 6-core Cortex-A55 CPU and other several IPs.
+This SoC is an Axis-designed chipset used in surveillance camera products.
 
-Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
----
- Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+This ARTPEC-9 SoC has a variety of Samsung-specific IP blocks and
+Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-index f1094d65e846..a2c16385bad3 100644
---- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
-@@ -36,6 +36,7 @@ properties:
-   compatible:
-     enum:
-       - axis,artpec8-pinctrl
-+      - axis,artpec9-pinctrl
-       - google,gs101-pinctrl
-       - samsung,s3c64xx-pinctrl
-       - samsung,s5pv210-pinctrl
--- 
+NOTE: These 2 patches has been separated from the original ARTPEC-9
+base patch series as the target branch is different.
+Target branch: Samsung pinctrl Linux kernel tree
+
+SeonGu Kang (2):
+  dt-bindings: pinctrl: samsung: Add compatible for ARTPEC-9 SoC
+  pinctrl: samsung: Add ARTPEC-9 SoC specific configuration
+
+ .../bindings/pinctrl/samsung,pinctrl.yaml     |  1 +
+ .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 49 +++++++++++++++++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c     |  2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h     |  1 +
+ 4 files changed, 53 insertions(+)
+
+--
 2.17.1
 
 
