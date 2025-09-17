@@ -4,70 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DB1CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D14CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=; b=To3r3Ab9bu6u6IWvJw7oTohvr5
-	kfoYAiJOeoE7TIJTzKNvmYeGKSnlVLqF1oqWKlPjhaKLmb4ESB/FKjQnYYU3dedHWfWzhp2iMPGwq
-	izVYbTyzF/Ryr2jlZB1DpkYYEiFSfZxwV7CRUzHIpAiHqEYWXE9I3sBirdIXXFIQ5HMJ8dwUki0d6
-	dPl5egYXRuFJOw5GBofxwmGtPQruDI7cZcJjRqUF+8iqTfVd0WByuLVwsIqyO/qMouCuNPeTUnKwX
-	o5nagElzD2r/6DL5puI71UdnWBzuN65b88xQHaVjPwQw/i6r+3llLpZa9pjoTLVGIKpjI1YFkYEOK
-	Fl0/qGow==;
+	bh=AfAB89Fjjpo1gwc1s+Lfb/YlXPMIzD+ARg53hmcmoqc=; b=TEnKzacTWsD5L74B61djQTXoHc
+	NOxFGlDm3xzO1YoKRJVhxthgO3TDv6FRMLlsYpW59GJRZ3i/826VbHcgGJF8pqC3XBk0RSLy8ECem
+	t7uLK4w3Jderwh8lSsgRPnZVZUVOxGmd0fq5enFhby2bqVrFAXlqchYCao8DyA/e887Sqm2V+91UX
+	oZ9KFcMJdE8RC7QsGERutdM6hQZ0Nh/B4ftNR7BrG0YcSK3HRuOs4l4271wv8dEcxTdI8wQ6XRHNt
+	+3oNiErFP52wn2V/AwSg/+GvFV9rx2CObE0cUEaUDjgaE4Z2En/gUXgFm/O1CvOM3Aiqn3vJrWmCs
+	KQ/tk1fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysrN-0000000C4Lo-2paB;
-	Wed, 17 Sep 2025 14:10:13 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uyssN-0000000C4z6-1I1K;
+	Wed, 17 Sep 2025 14:11:15 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysrK-0000000C4JQ-3x6S
+	id 1uyssK-0000000C4wH-1dIh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:10:12 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758118208;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=;
-	b=ZKpSI+WPydnrumYQ7gxnajAs+lz48YaqiNN3+WhYNwWXlUic0xCBsG6f6GfE8taQbHcIgJ
-	h7Kh1tpSx++CpIjdk2mOz5C8qrezCvij4Bk8iMJhmpa16eSQBcomARzZeXmkJinMK6glwU
-	/UoCFWaheNWZeinES9gkwAgNZHQGwrhZjReOwblCiBhi00hbE5NYnMlrnONnM1S91JYtLJ
-	5CckReOcFW3rJ1+heNZD7lLCRl+2mHJx7WPMA6JZ7bGl0gGxnrhAb0Qs6EzKVgYT+Ot1sw
-	h1UyJfZDjAyn+2j60JTop8cvG2RTrlkVsVVpCCok6p2oOoIhbLO/tvfT4Jfbiw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758118208;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=75mN+9VZdw4CLEq0UoX/nuXZgFL03Q5pomSFYWw9c2o=;
-	b=TbymsR0+lk/yBTMUwla0JPYo6VaReyftRSNu6ml7UoTThH0F5HVkZGBsfwFUiwKRK5kBjM
-	+sfN3Y9Q7FzbGVAw==
-To: David Hildenbrand <david@redhat.com>, Eugen Hristev
- <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
-In-Reply-To: <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com>
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
- <20250912150855.2901211-10-eugen.hristev@linaro.org> <87cy7q9k8y.ffs@tglx>
- <87a52u9jyl.ffs@tglx> <8df2cf28-c15e-4692-a127-6a5c966a965e@linaro.org>
- <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com>
-Date: Wed, 17 Sep 2025 16:10:07 +0200
-Message-ID: <87v7lh891c.ffs@tglx>
+	Wed, 17 Sep 2025 14:11:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uWiYYONKKGbJMPxnxqTBnKTihQ/iGQkjZl4KctvYDcqcz8yqdYj4eDB5o2l08qd44VrTa+efS6tX4cHb+X3UyiIubhyh6OF/XA9YHAuLFBCPQRwOLieKLuCDAY4UMV70CtgcZGK39tLvj37DNeCjHyyfLv6BpSmJaRlDi3/msF0L4S8Rlzw8PB6/Akc/tvV5u3RTdOoBmOj4Hc4rtL8dEVE2FACkamPFAmGGZnP5UqxokoZGpF5UTPxaab3BShPGkPZyPGe18IlpAp1XGKFnotalB7iwtrTiEeIznmtoEry2LaLWHOpcMLlseg6eFu85pP8ERVNYSkq3fyrUCqUZWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AfAB89Fjjpo1gwc1s+Lfb/YlXPMIzD+ARg53hmcmoqc=;
+ b=FarDiXE3dZb/0pfZEEH1vTluUdKq43fmQvaDARlBIVTWPdssuOF6EA9RpEVSVYdfUnw0dM4NUCd1Ylsg9WfffsxO0jWPRhS5mfKVDaosbEph+kef2zyAYnJUKXRbsCVOp4u9FkJnYlsD4Kcl+YMUEkVRmiomo4/T46SqbiGsn4mKBh7XvOZrP8hWefryaYX603B5MANPwT7/cfFMqFxZpWZtOecZD9iJO+iL6wHyAQsiG0iVkH2wkZzu9YB6eILMHIXAk40rxgnQIaD9nkkLh8nm8svVAIWQnBKApr/xprRVnsTTYY10CcZBz/vc8abnIlHNishtnvslbDy6QBBVJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AfAB89Fjjpo1gwc1s+Lfb/YlXPMIzD+ARg53hmcmoqc=;
+ b=ch3W1+vBsFd7pbkojLQ8eEWep1IfeuwQfDQHEj9EYbA479qcukgscZ1P9h17XZlKh2nPYLt9rNj1QotNX1fsDIK+8uZJ6kRTVk1Ndjmxu1xXxD8i86ELr9Fpr+6/GOtvRySk5eyXpkPgikJhNyc4bDKZfig+e/kTVdyM+g44EzISypVTENORL9CqbsMc0jmBZQKBWyRSA4jt001uA2MAY9p34/c7EUfxQZVDUV55Q61sAqkPNh57Q/vz6N/+kFQLxAahhaAM0ObY64O/U9Fx1x6jYRwPTsRtvlPUZPQi2ShYs/VbYZQk4lWfnE6q9lc6Pp2Ra2nh/BtLNZOI9JJl2w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV1PR04MB10656.eurprd04.prod.outlook.com (2603:10a6:150:20e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.12; Wed, 17 Sep
+ 2025 14:11:08 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 14:11:08 +0000
+Date: Wed, 17 Sep 2025 23:22:46 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Harini T <harini.t@amd.com>
+Cc: jassisinghbrar@gmail.com, michal.simek@amd.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	git@amd.com
+Subject: Re: [PATCH 2/3] mailbox: zynqmp-ipi: Fix out-of-bounds access in
+ mailbox cleanup loop
+Message-ID: <20250917152246.GD28673@nxa18884-linux.ap.freescale.net>
+References: <20250822045732.1068103-1-harini.t@amd.com>
+ <20250822045732.1068103-3-harini.t@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822045732.1068103-3-harini.t@amd.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR03CA0112.apcprd03.prod.outlook.com
+ (2603:1096:4:91::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10656:EE_
+X-MS-Office365-Filtering-Correlation-Id: dcdaaa31-8db8-4ff9-0f7d-08ddf5f40c69
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|19092799006|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X4I29jgtaIfxm8Vl2Hqygp1N+IfBXRKTPDD7835m8/9aPcqHWw32m8E3MYEw?=
+ =?us-ascii?Q?KcMdhAlZfkjMQfv/dnsQTh4JLe6s6nS5GykRz0df7P01s6Jq37qvwlnI/nXT?=
+ =?us-ascii?Q?jwqa+iwQKub/QOosabw2vMnFBWHuY+BKefmmQGaJhhvEBEzcS/XRUFN9+psc?=
+ =?us-ascii?Q?FA9dD3jKD5IHtuusfYzzLUuo9g/8MJ+1Xni91mWh2yMHsFl5n/ZsLRCnpTS/?=
+ =?us-ascii?Q?VJYmjTsLHX5fR3ilsjLM3CIOC2QX7ZH9KK76xkMOZN02/mMHM33MlA8GgNQe?=
+ =?us-ascii?Q?HHk7YJWvOzNZW4vLRxDXvm27DkrArMdwmUf6tMigPA2WkfgOA/K1Or4Pmvhh?=
+ =?us-ascii?Q?E19V+JarEK9KE91C++izB/UEAWWP5J2/gzEA50l5GnBF5TYdeQZO0yTt37he?=
+ =?us-ascii?Q?nVfyKAlhHp/pFCFJgJIN1TSdqs6NR1heI5tKf2s12EQZ2kXtOTf9U7QVPVSm?=
+ =?us-ascii?Q?8ZXh+2qbW8lztH8BQK+A0TL7Vq4Vhjaj+RhThWO137ytyhTzX/K5SGIWgYsl?=
+ =?us-ascii?Q?8Jc83Ei/MqewrwwzRPKkvi7SYmmTg7k2Qr651zJCueo2h2JLvaKTmdTujzld?=
+ =?us-ascii?Q?Wug1pSeBagVO7JavVb2W+I1giOZFvK0Z5A3Nv/pTDYcZeK+sk9iwmaNfU+ef?=
+ =?us-ascii?Q?ct7M1neevCxrkMmPmHb7cyp58J4fSsOjFZeuv272im6XYTkbYOjTWQiM12XE?=
+ =?us-ascii?Q?evqwa5fThrNhKTWoZ5vjsJecYg3oT6szGYCuDdG24qdmxQnMXIivScrQ2GmC?=
+ =?us-ascii?Q?jWJHpRUwe7SME6agh0sZPA8CnDfVedvEKB+tL2e0awW1CuYjvaDl2Eytb5vP?=
+ =?us-ascii?Q?Tex5xopGFF/gJ9zXgsZdoIspSSnXZgfi1rTZXcP56QQ2z3+HtIUAF4gJoGDH?=
+ =?us-ascii?Q?5pOSIvPKP5laabQ+/W6FsQNGRbsiS27EMONmREOs8CQNrchXMebC43sLf4fh?=
+ =?us-ascii?Q?gSGCN00Hh42InyO2VQ4+zZtRfW3e0OWxwJMVMog/J/gZKGFt9aslYjBKZesa?=
+ =?us-ascii?Q?zZ/DoapV0IX042m/acIjPIzAPcuIaJqyaN1JMbJDk/LZz+WUJTuVIofoWVwB?=
+ =?us-ascii?Q?ZGFNJX9uuxGXzRqGzB7cVTgdTltUStHsgMWx+Sc/kcOts5Cd1F7TqH2qtwWi?=
+ =?us-ascii?Q?EY0sJ3KXToQyR++mjJ5TiQmYr2zvnS1DfvOFJuCcVpf6lxF/Lhbln4J+T5x9?=
+ =?us-ascii?Q?wgv2Ds+vMKEaL/oxclaCUk4C35oFxg0k+VuvSlqlixJgz0luWrXeS9g6iCdS?=
+ =?us-ascii?Q?A9vswTzuTDZ9nQHJ4sLH1fmp5mHZc0zDF3lG65dqDuzjUi/ntwW2v/XMmIAJ?=
+ =?us-ascii?Q?jegmXrcLZVTUxP8a85C4l1H66JT/CDyAH9bw6Rga3O265oHnhDE7cxXZbySH?=
+ =?us-ascii?Q?WCDDl4rh1qnXWqewewYEr54w0sTDz30UA1G2IbHm0a5SFv40n022ZSIEjYWZ?=
+ =?us-ascii?Q?gN+F8Lzb7tb58VodrZ/ExfcBwUFeOhFrNizN6eyFpNGWWBweS4hZng=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(19092799006)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zURe60b0juuBsuwmFDv21H38RLtjkuE6dNDOUuoHU0rlkeaLjOPTDFQ9V8Uf?=
+ =?us-ascii?Q?LkKlL5+Y6/HOvtEhVa4zE7BcRHcjRMCj0ayA+OuitoH3EOZ+7qezYc5LdY/7?=
+ =?us-ascii?Q?3/LloyhVF/mZO+pipya7qdrKIsAZtBFW0Now+Cw351dLminHfAaIMwHKt/pA?=
+ =?us-ascii?Q?6aS+RDT2RvRLdgT1htVXt3fMFGyEDNe0oukG2TwIxc/tN5OFB0YRD33M3TOl?=
+ =?us-ascii?Q?ic2wrUlwMkGF0J4/2En9STFEZrVyW+yspzfyQE/VNN07H1PTZieggpIpn7qW?=
+ =?us-ascii?Q?s+x6M/C6905XGV+PRAZXRKrTNA6yoC4B18JVSbzNVEOydok1aph+t/MQMvrV?=
+ =?us-ascii?Q?plmtWxI+k/lNxLJJRiDgWP33DFkQzInf9AQ/m9TES+7/brKTDZ+0d5Z4shTZ?=
+ =?us-ascii?Q?RMgjE1ZLeMBq6e6o+Vx+GbT0AxFrY1MFeVcvzmdF8VRZmYqQjSOEzSm4ipbL?=
+ =?us-ascii?Q?CzgY7BwAyvaxfiFGurnRFqgrHpTFc8dwtrZ7Pb5rDrySHcN9cBzgVk4nH43h?=
+ =?us-ascii?Q?B42vnntfEBcXCGW6ZXPVVsFWqGfYANQ1J+mNBrfcgwIwkVql9s5M1fm//Ft/?=
+ =?us-ascii?Q?Bw3QO4yIg7BkcQx5racgp5txUnyepVrc60QCQ2zU93830V11utu+qjAIFpIG?=
+ =?us-ascii?Q?Ie0/LNYZ6W5BDIfDbYYt7C8z6+ey0dYpKZg66vTF0VNDI5zaJIUNcFFiWQn2?=
+ =?us-ascii?Q?aTuDevA/wiwScogAa/2o0/XpVgQmsYku3UIEQRFJPi3RoXYySxqWkU8pMhyQ?=
+ =?us-ascii?Q?Vb4LM2TO8wRmxDK51ug/Hc3+NSBG6sSPJX0VaTpH4YrALsQYkrKOWKgJB3gw?=
+ =?us-ascii?Q?A5jBfGlbK5Q0Wo2vb6k6JFv4e6Qk13YCO2/IX7Tg2jUYyWfrl9uyl1lR2bre?=
+ =?us-ascii?Q?JNydoMOh9Jmh8wfgzGplRkPRtfW/R/nVQwUhOYdUnJ1mnuv4XjOBTc+SUl71?=
+ =?us-ascii?Q?nuMutn7HfRu7TmE8It8uRNJMxSUp1XjNAuCsc1wSt8uk0758Ab4mJtp0nlK5?=
+ =?us-ascii?Q?luUIYeV0HEiJhFuT3IGBkqURt5afEf0rN++wPxBhtkY73i8eAP+WGT2PGqWD?=
+ =?us-ascii?Q?5lcz4sNT81Ym5WqCFFSxZN7OW1Jlqh9k/xrI+Dk71S+CPjWWgd1cR4qmxC37?=
+ =?us-ascii?Q?bR9wQaygNMixqhGNl8l0P3aFJMGwWlgOqFyaD3Im8XdVFUHl18/dK1zlMNs3?=
+ =?us-ascii?Q?Qg0taK1Vt6O9530EUuGbASkAWunPTOOcSwkZQIsVBQsq8uON0qK1ealBf8Sa?=
+ =?us-ascii?Q?pqqTw58cOrFKPc5MFkeUHYxVxIMuoU0WzMPDqG9Rh3Vc3lncjjg6pzr4NJAT?=
+ =?us-ascii?Q?Lz1p2D4IUnBK5JjSv2A5bKV3ppF7NlbFLgacOcZ5CJpf8iiyH4qhxK3muGpO?=
+ =?us-ascii?Q?Skus5cQwx6ZsrvgaiWyKwGeiYct5jvo8Rh5qNzWBCQSnq9+S86jMhFB0Mk+7?=
+ =?us-ascii?Q?oOXeQ/+mFaOiCfw2MoBbshq+8f21I+N9taxK7uAOcIR+HictMedJCDc1aZlP?=
+ =?us-ascii?Q?5aesxe1Dw7sQfG0t5uRevYETejRnlmCDv+RSZzcAg12frb95rFm/kFf4s/+y?=
+ =?us-ascii?Q?0F01xNVAE6JJy/PGMB3X5v0w8n5Co2AyFhHH0rfl?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dcdaaa31-8db8-4ff9-0f7d-08ddf5f40c69
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 14:11:08.8747
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sIolCEIDIM+tDipK6TuYIq3ywFACcs7J/JrfVguOZ9O2m8raITfYT7Fhk+UzxJUSno3uE12emGuz3w4FdyZ/Wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_071011_122086_49891A9B 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250917_071112_429473_B0155AAB 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +162,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17 2025 at 09:16, David Hildenbrand wrote:
-> On 17.09.25 07:43, Eugen Hristev wrote:
->> On 9/17/25 00:16, Thomas Gleixner wrote:
->>> I pointed you to a solution for that and just because David does not
->>> like it means that it's acceptable to fiddle in subsystems and expose
->>> their carefully localized variables.
+On Fri, Aug 22, 2025 at 10:27:31AM +0530, Harini T wrote:
+>Fix mailbox cleanup loop that accesses array out-of-bounds by starting
+>at num_boxes instead of numb_boxes-1 for 0-indexed arrays.
 >
-> It would have been great if we could have had that discussion in the 
-> previous thread.
 
-Sorry. I was busy with other stuff and did not pay attention to that
-discussion.
+Fix tag?
 
-> Some other subsystem wants to have access to this information. I agree 
-> that exposing these variables as r/w globally is not ideal.
-
-It's a nono in this case. We had bugs (long ago) where people fiddled
-with this stuff (I assume accidentally for my mental sanity sake) and
-caused really nasty to debug issues. C is a horrible language to
-encapsulate stuff properly as we all know.
-
-> I raised the alternative of exposing areas or other information through 
-> simple helper functions that kmemdump can just use to compose whatever 
-> it needs to compose.
+>Signed-off-by: Harini T <harini.t@amd.com>
+>---
+> drivers/mailbox/zynqmp-ipi-mailbox.c | 2 +-
+> 1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> Do we really need that .section thingy?
+>diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
+>index bdcc6937ee30..3b806d1f89bb 100644
+>--- a/drivers/mailbox/zynqmp-ipi-mailbox.c
+>+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
+>@@ -891,7 +891,7 @@ static void zynqmp_ipi_free_mboxes(struct zynqmp_ipi_pdata *pdata)
+> 		xlnx_mbox_cleanup_sgi(pdata);
+> 
+> 	i = pdata->num_mboxes;
+>-	for (; i >= 0; i--) {
+>+	for (i--; i >= 0; i--) {
 
-The section thing is simple and straight forward as it just puts the
-annotated stuff into the section along with size and id and I definitely
-find that more palatable, than sprinkling random functions all over the
-place to register stuff.
+I would avoid i-- as the 1st param in for loop.
 
-Sure, you can achieve the same thing with an accessor function. In case
-of nr_irqs there is already one: irq_get_nr_irqs(), but for places which
-do not expose the information already for real functional reasons adding
-such helpers just for this coredump muck is really worse than having a
-clearly descriptive and obvious annotation which results in the section
-build.
-
-The charm of sections is that they don't neither extra code nor stubs or
-ifdeffery when a certain subsystem is disabled and therefore no
-information available.
-
-I'm not insisting on sections, but having a table of 2k instead of
-hundred functions, stubs and whatever is definitely a win to me.
+i = pdata->num_mboxes - 1;
+or
+for (i = 0; i < pdata->num_mboxes; i++)
 
 Thanks,
+Peng
 
-        tglx
+> 		ipi_mbox = &pdata->ipi_mboxes[i];
+> 		if (device_is_registered(&ipi_mbox->dev))
+> 			device_unregister(&ipi_mbox->dev);
+>-- 
+>2.43.0
+>
 
