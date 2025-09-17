@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE19CCA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09168CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzRjl0wuxO05mFaAmxgC9m8FQ896f26iiNfacinIM/I=; b=UahLfci7IIWEuE67SZUlSGwWKU
-	2LfzCTU64b5fczvoQRTchdc22xPMFlpw2nolF6n+6kyjZzcyUVhU2azzakkYqwdNaDGdufZUSGdf8
-	7oVAXu2ANjbx132IxdZd7R7W3vW4ZVBDAnaLCB1YZRD4DHmWV39c8r5NNPIVGCPd/4qKyu/jfTtS1
-	Qty4L35ve+Jo4AMmPQigya9mBiujo+hrAQMyh7Nlrhhlh2q7v4n0A21VUtfs8Ro7Oi88dHJhGZnr/
-	Ur2iyyor2J2aIHzrKSETahUdUzb1fRjqFxVqWGg+W2PBawyQQ4o7BtGkazAgvTKOyfctqcZEDFrpY
-	e7N8UZ4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=owWadpSv9H77ZxbKoBmofshhPRj3pGK/wIU+s8/EQVc=; b=iIFA8YXwy4O6Rrl4jy5tIFSme/
+	azsjqTiQJVgORmhegupmEw/G4Q8reaD7lytOz32iTIK/gXseo4UJrBfiwLndNG8ZroZk3pHo9jJBE
+	1jWigtZ3vvB3y/Jr65PltiG0HFbjY78YOiEiOOc+vYPiY6t4NODvUYhPDsUBYeOqesaFZVaIeQuWm
+	DmgtMhBD5SftpJ7TRrKPCOFUO9aVh/IbWVerBsGaYf9e/XgFnRsQ4cjVtVLKUzPFiVtrbY+3lFnOQ
+	tMu6K+pq+V/KQ82kfLFtRVlzW7zgwUCit5HzxiFftkl60xOmUOaiDv5Ihe+y/DYqGItWIgZYw5AOs
+	TJ5q2T7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqwq-0000000BE9R-2lIQ;
-	Wed, 17 Sep 2025 12:07:44 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uyqyz-0000000BEp3-3po8;
+	Wed, 17 Sep 2025 12:09:57 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyqwk-0000000BE4k-432J;
-	Wed, 17 Sep 2025 12:07:40 +0000
-X-UUID: e3305e1c93be11f09eb0dd999d3936bf-20250917
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=RzRjl0wuxO05mFaAmxgC9m8FQ896f26iiNfacinIM/I=;
-	b=jHbDbfflYFXVLDYswj9M4IoMedHtwugDjp3yJh8LhZe3ZhuCofXWoE0pcq5FOAFi+uEZmLxK5hPpiQ8TYcWUWzRS7FHlyI1t/Qb6HP6QDKqE7KL65ISWs59gGqBlFabeAjAM22UALiXm2/MqwyDieVhtcBZtUL8+i4+TK6yiHzk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:7c0b0f2b-8746-40c4-82f3-f2063f38d21e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:1ca6b93,CLOUDID:c69566f8-ebfe-43c9-88c9-80cb93f22ca4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836,TC:-5,Content:0|15|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e3305e1c93be11f09eb0dd999d3936bf-20250917
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <friday.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 938536249; Wed, 17 Sep 2025 05:07:31 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 17 Sep 2025 20:07:28 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 17 Sep 2025 20:07:27 +0800
-From: Friday Yang <friday.yang@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rob Herring" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-CC: Friday Yang <friday.yang@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v11 1/2] dt-bindings: memory: mediatek: Add SMI reset and clamp for MT8188
-Date: Wed, 17 Sep 2025 20:07:16 +0800
-Message-ID: <20250917120724.8650-2-friday.yang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250917120724.8650-1-friday.yang@mediatek.com>
-References: <20250917120724.8650-1-friday.yang@mediatek.com>
+	id 1uyqyx-0000000BEnY-0wZN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Sep 2025 12:09:56 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250917120943epoutp03d8d480172bd81ec1c9a0ca003b7f3ecc~mEJ-MkGub2628026280epoutp03f
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 12:09:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250917120943epoutp03d8d480172bd81ec1c9a0ca003b7f3ecc~mEJ-MkGub2628026280epoutp03f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758110983;
+	bh=owWadpSv9H77ZxbKoBmofshhPRj3pGK/wIU+s8/EQVc=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=WBNlnGOyvhvdURAbgVsc8eIroy5H8a2SRO75EfKSBc741Nklz9GuHlXwKhGkpBx7i
+	 NJ4PocbRepuBeZmxh6sDk2lkIC6+IfkVvFVtbwTWIqq00H9tVxmPrUcs4OBKvjsIBT
+	 IH6udZJYiSGrQ0QhlT51XCv96TJuZCZo1e68KdI4=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250917120942epcas5p357c123d3099e83bb132f2cf79da872fb~mEJ_a0QgV0694206942epcas5p3J;
+	Wed, 17 Sep 2025 12:09:42 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4cRcyY23SNz3hhT4; Wed, 17 Sep
+	2025 12:09:41 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250917120940epcas5p2ccd8cbd489fe1634d9b176f1e8c01e79~mEJ85vD6F3174731747epcas5p26;
+	Wed, 17 Sep 2025 12:09:40 +0000 (GMT)
+Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250917120937epsmtip29e2450f342f91ad1dce9599cf91c9426~mEJ6DjSln1850718507epsmtip2N;
+	Wed, 17 Sep 2025 12:09:37 +0000 (GMT)
+From: "Inbaraj E" <inbaraj.e@samsung.com>
+To: "'Rob Herring'" <robh@kernel.org>
+Cc: <rmfrfs@gmail.com>, <laurent.pinchart@ideasonboard.com>,
+	<martink@posteo.de>, <kernel@puri.sm>, <mchehab@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <shawnguo@kernel.org>,
+	<s.hauer@pengutronix.de>, <kernel@pengutronix.de>, <festevam@gmail.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>,
+	<shradha.t@samsung.com>
+In-Reply-To: <20250829174638.GA1054721-robh@kernel.org>
+Subject: RE: [PATCH v3 1/7] dt-bindings: media: nxp: Add support for FSD SoC
+Date: Wed, 17 Sep 2025 17:39:35 +0530
+Message-ID: <024f01dc27cb$f167d370$d4377a50$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIBSJFzUA8Lz5NCh/Whmc1GwVh24gH1qTvqAkLBkWsB/yoSjrQbSRSA
+Content-Language: en-in
+X-CMS-MailID: 20250917120940epcas5p2ccd8cbd489fe1634d9b176f1e8c01e79
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6
+References: <20250828085911.81266-1-inbaraj.e@samsung.com>
+	<CGME20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6@epcas5p1.samsung.com>
+	<20250828085911.81266-2-inbaraj.e@samsung.com>
+	<20250829174638.GA1054721-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_050739_005516_BC51E2B8 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250917_050955_578398_B6766885 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,91 +101,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add 'resets' and 'reset-names' properties for SMI LARBs to support
-SMI reset operations.
-On the MediaTek platform, some SMI LARBs are directly connected to
-the SMI Common, while others are connected to the SMI Sub-Common,
-which in turn is connected to the SMI Common. The hardware block
-diagram can be described as follows.
+Hi Rob,
 
-             SMI-Common(Smart Multimedia Interface Common)
-                 |
-         +----------------+------------------+
-         |                |                  |
-         |                |                  |
-         |                |                  |
-         |                |                  |
-         |                |                  |
-       larb0       SMI-Sub-Common0     SMI-Sub-Common1
-                   |      |     |      |             |
-                  larb1  larb2 larb3  larb7       larb9
+Thanks for the review
 
-Signed-off-by: Friday Yang <friday.yang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Acked-by: Rob Herring <robh@kernel.org>
----
- .../mediatek,smi-common.yaml                  |  2 ++
- .../memory-controllers/mediatek,smi-larb.yaml | 19 +++++++++++++++++++
- 2 files changed, 21 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-index 0762e0ff66ef..3d98c08b2149 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
-@@ -40,6 +40,7 @@ properties:
-           - mediatek,mt8186-smi-common
-           - mediatek,mt8188-smi-common-vdo
-           - mediatek,mt8188-smi-common-vpp
-+          - mediatek,mt8188-smi-sub-common
-           - mediatek,mt8192-smi-common
-           - mediatek,mt8195-smi-common-vdo
-           - mediatek,mt8195-smi-common-vpp
-@@ -108,6 +109,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - mediatek,mt8188-smi-sub-common
-               - mediatek,mt8195-smi-sub-common
-     then:
-       required:
-diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-index 2e7fac4b5094..fc5feb2eac1f 100644
---- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-@@ -70,6 +70,12 @@ properties:
-     description: the hardware id of this larb. It's only required when this
-       hardware id is not consecutive from its M4U point of view.
+> > +    description:
+> > +      Syscon used to hold and release the reset of MIPI D-PHY
+> 
+> Reset? Sounds like you should be using the reset binding.
 
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: larb
-+
- required:
-   - compatible
-   - reg
-@@ -126,6 +132,19 @@ allOf:
-       required:
-         - mediatek,larb-id
+The Tesla FSD Soc does not have a dedicated reset controller. Instead, we
+are using the
+system controller which is MMIO Space handled by syscon driver, to assert or
+de-assert the D-PHY
+reset. So, I prefer to use syscon.
 
-+  - if:  # only for image, camera and ipe subsys
-+      properties:
-+        compatible:
-+          const: mediatek,mt8188-smi-larb
-+        mediatek,larb-id:
-+          enum:
-+            [ 9, 10, 11, 12, 13, 16, 17, 18, 19, 20 ]
-+
-+    then:
-+      required:
-+        - resets
-+        - reset-names
-+
- additionalProperties: false
+> 
+> > +
+> >    phy-supply:
+> >      description: The MIPI D-PHY digital power supply
+> >
+> > @@ -93,7 +91,8 @@ properties:
+> >              properties:
+> >                data-lanes:
+> >                  description:
+> > -                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2
+data lines.
+> > +                  Note that 'fsl,imx7-mipi-csi2' only supports up to 2
+data
+> > +                  lines.
+> 
+> Reformatting should be a separate patch.
 
- examples:
---
-2.46.0
+Sure, I'll add new patch in next patchset.
+
+> 
+> >                  minItems: 1
+> >                  items:
+> >                    - const: 1
+> > @@ -115,7 +114,6 @@ required:
+> >    - interrupts
+> >    - clocks
+> >    - clock-names
+> > -  - power-domains
+> >    - ports
+> >
+> >  additionalProperties: false
+> > @@ -124,20 +122,73 @@ allOf:
+> >    - if:
+> >        properties:
+> >          compatible:
+> > -          contains:
+> > -            const: fsl,imx7-mipi-csi2
+> > +          const: fsl,imx7-mipi-csi2
+> 
+> 'contains' was correct. It is more future proof when there is another SoC
+that
+> is backwards compatible with imx7.
+
+Sure, I'll add new patch in next patchset.
+
+> 
+> >      then:
+> > +      properties:
+> > +        clocks:
+> > +          items:
+> > +            - description: The peripheral clock (a.k.a. APB clock)
+> > +            - description: The external clock (optionally used as the
+pixel
+> > +                clock)
+> > +            - description: The MIPI D-PHY clock
+> > +        clock-names:
+> > +          items:
+> > +            - const: pclk
+> > +            - const: wrap
+> > +            - const: phy
+> > +        tesla,syscon-csis: false
+> > +        fsl,num-channels: false
+> 
+> blank line
+
+Will remove in nextpatchset.
+
+> 
+> >        required:
+> > +        - power-domains
+> >          - phy-supply
+> >          - resets
+> > -    else:
+> > +
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          const: fsl,imx8mm-mipi-csi2
+> > +    then:
+> >        properties:
+> >          clocks:
+> > -          minItems: 4
+> > +          items:
+> > +            - description: The peripheral clock (a.k.a. APB clock)
+> > +            - description: The external clock (optionally used as the
+pixel
+> > +                clock)
+> > +            - description: The MIPI D-PHY clock
+> > +            - description: The AXI clock
+> >          clock-names:
+> > -          minItems: 4
+> > +          items:
+> > +            - const: pclk
+> > +            - const: wrap
+> > +            - const: phy
+> > +            - const: axi
+> > +        tesla,syscon-csis: false
+> > +        fsl,num-channels: false
+> >          phy-supply: false
+> >          resets: false
+> 
+> blank line
+> 
+> > +      required:
+> > +        - power-domains
+> > +
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          const: tesla,fsd-mipi-csi2
+> > +    then:
+> > +      properties:
+> > +        clocks:
+> > +          items:
+> > +            - description: The peripheral clock (a.k.a. APB clock)
+> > +            - description: The DMA clock
+> 
+> Wouldn't this be the same as the "AXI clock"?
+
+According to v4.3 manual it is DMA clock.
+
+> 
+> > +        clocks-names:
+> > +          items:
+> > +            - const: pclk
+> > +            - const: aclk
+> > +        phy-supply: false
+> > +        resets: false
+> > +        power-domains: false
+> 
+> blank line
+
+Sure will remove in next patchset.
+> 
+> > +      required:
+> > +        - tesla,syscon-csis
+> > +        - fsl,num-channels
+> >
+> >  examples:
+> >    - |
+> > --
+> > 2.49.0
+> >
+
+Regards,
+Inbaraj E
 
 
