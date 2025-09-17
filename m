@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2549FCAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20435CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 15:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yL4Jk45sqLts/HACU8QhKLj5qhtjExvGIb6xotspnvs=; b=jnu8mX121spy0NjAOLPqwVV98U
-	1Nr1/U33a52l0NgLlENkPfnuJ6m8n9wifmfB2bDWCLaxikyNuevQ03QzCQcFUHOX+2mbMaLhcvJ7s
-	OGjqDnkQYnnl8aViGyw9mT45PdC0n+0SQxE2WrGvblIdqNKlKlbogz8QklVkr++pVRNx4/k08T/sZ
-	xKR5BDgT7aXSlBp1m4RIK7L5rcMMdW4fY1RUI1B2FXUMzZTB+6zpAUap9/lwAjUUqEX2crns3GZ4U
-	iHvi1y+2B6OhbztdYzPVTN8PBkg+JuBo7VboLsrk1nlW7HpHgOrZbPg4TTDm82sf8Zn0aD+0o3U3/
-	HpyZhrqw==;
+	bh=7ph+6qPy2QNKs5BgX9sm2D+uM01/NCEd/eq2joeWRxo=; b=L/5wIp+PFkXi/gjuP7/ek44Vse
+	LdckB54BQ8ZSF98yCzE1UPTe/xsamrntRvYA+/TNQt/+dg4c546+kL29xcDM6unzMx6cWicaDvYZJ
+	YymxJV2Fq0xxLkrSPXtYrOebw7EnWdVkbnJAwFFlryfmRE0MZrPXmxLC4nrgnudY9KrLTfBbihg7+
+	UWXgv9i5THE30E0+nS6AKqzSH6OOjbfLsk5PGuv4dWczVaaZRCRyYtFTYvD+8IYe26TaeShwWi4xW
+	cg2tIKSC7SJZzYdlXqiCkbR9uvAwACXjeP7VkysRkkEiUjWMZ21zKqErskTCLSdGWFEyVGmAsdSwO
+	QINg4ASg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpX-0000000Ca1K-2opQ;
-	Wed, 17 Sep 2025 15:12:23 +0000
+	id 1uytpb-0000000Ca5j-16aB;
+	Wed, 17 Sep 2025 15:12:27 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uytpV-0000000CZvR-1X36;
-	Wed, 17 Sep 2025 15:12:22 +0000
+	id 1uytpW-0000000CZyQ-2jxc;
+	Wed, 17 Sep 2025 15:12:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yL4Jk45sqLts/HACU8QhKLj5qhtjExvGIb6xotspnvs=; b=XvgiZMxPsDZi8tAosLbTB8USRC
-	T7x0p3I/klz5DPwpbFdJk7CDIyXGdk/68efzEal2nxvmPK4/oVO1sy0cEi0u4hO/cBQBHI3fhgE/I
-	KfjzsFUdyYuzbWzlqwi1MG4Ko/VBR3d9fXs+U6B0U3vxSgfel3STI7S9o397AgSvAUd1m5O6L0Pnt
-	C6/YRpKbLxC+JkH2wMQDMAtWt+YBXOPP2IAA9vSIHp4mYBZ0p+eCfFl6EtZG7t5UHKAeIyzmimA9o
-	XwJKdOgAjwGZGj1KsMcBM+wxzec4/KNniN0E/7Preyfgg+bNcASrq1PmdmSO2JSkVoq7R7m/7dSIL
-	GTZa9l8w==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36628 helo=rmk-PC.armlinux.org.uk)
+	bh=7ph+6qPy2QNKs5BgX9sm2D+uM01/NCEd/eq2joeWRxo=; b=oBVhKLo1YaiyOxQi76g8GribMm
+	EGCqGO6VkHYVszdRnJfnCifHuXV8F/PMqtHwZ9WvGNTdxV6DJP/kx1zx7s1JGzcQVoeid9N3M5ZQH
+	juhcaDg86+s3KL+8Fk5yKQ+sRbqTLFFOz/wxzxzXGvCv+DsPgtHr59usBcKwMNZI0WHKo9is5VznN
+	KtUCfT5pB0iVwXaa3b/rX+ybQbx/Ar1SlNyLyJ4wOQv1PnjuNdcbw0L4Yi8qwlwJWb7yeuaaCVQCE
+	KjRqjH5Stj1Cfods5ZDr1lFa2x2oQEqK2x1+DVhLB9tZxRLA9YhuRGEEBK0COxTssNO75lpee7fyV
+	KyFNaVLA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36642 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uytpC-000000004js-0dfg;
-	Wed, 17 Sep 2025 16:12:02 +0100
+	id 1uytpH-000000004k7-1Ja2;
+	Wed, 17 Sep 2025 16:12:07 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uytpB-00000006H23-0pRi;
-	Wed, 17 Sep 2025 16:12:01 +0100
+	id 1uytpG-00000006H29-1Ltk;
+	Wed, 17 Sep 2025 16:12:06 +0100
 In-Reply-To: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 References: <aMrPpc8oRxqGtVPJ@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -81,17 +81,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Vladimir Zapolskiy <vz@mleia.com>
-Subject: [PATCH net-next 01/10] net: stmmac: rework mac_interface and
- phy_interface documentation
+Subject: [PATCH net-next 02/10] net: stmmac: use phy_interface in
+ stmmac_check_pcs_mode()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uytpB-00000006H23-0pRi@rmk-PC.armlinux.org.uk>
-Date: Wed, 17 Sep 2025 16:12:01 +0100
+Message-Id: <E1uytpG-00000006H29-1Ltk@rmk-PC.armlinux.org.uk>
+Date: Wed, 17 Sep 2025 16:12:06 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_081221_405517_FA204D91 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250917_081222_695197_D52CA27C 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,73 +106,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on new research, it has come to light that the comment that I
-added in a014c35556b9 ("net: stmmac: clarify difference between
-"interface" and "phy_interface"") is not fully correct.
+In the majority, if not all cases, mac_interface and phy_interface
+are the same with the exception of some drivers that I have suggested
+only use phy_interface and set mac_interface to PHY_INTERFACE_MODE_NA.
 
-Update the comment to properly describe the difference between the two.
+The only two that currently set mac_interface to PHY_INTERFACE_MODE_NA
+are dwmac-loongson and dwmac-lpc18xx, neither of which use RGMII nor
+SGMII.
 
-All of the DTS files in the kernel tree do not mention the "mac-mode"
-property, which results in mac_interface and phy_interface being the
-same. Also, none of the platform glue drivers set mac_interface to
-anything but PHY_INTERFACE_MODE_NA. This means that for all the
-platforms known to mainline, mac_interface is either the same as
-phy_interface, or it is PHY_INTERFACE_MODE_NA.
+In order to phase out the use of mac_interface, we need to have a path
+for existing drivers so they can update to only using phy_interface
+without causing regressions.
 
-Thus, updating the definition for mac_interface in stmmac.h has no
-material effect on current uses known to mainline, but the change opens
-the door to cleaning up all uses.
+Therefore, in order to keep the "pcs" code working, we need to choose
+the STMMAC integrated PCS mode based on phy_interface if mac_interface
+is PHY_INTERFACE_MODE_NA.
+
+This will allow more drivers to set mac_interface to
+PHY_INTERFACE_MODE_NA without risking regressions.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- include/linux/stmmac.h | 30 ++++++++++++++++++++++--------
- 1 file changed, 22 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index e284f04964bf..f14f34ec6d5e 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -190,18 +190,32 @@ struct plat_stmmacenet_data {
- 	int bus_id;
- 	int phy_addr;
- 	/* MAC ----- optional PCS ----- SerDes ----- optional PHY ----- Media
--	 *       ^                               ^
--	 * mac_interface                   phy_interface
-+	 *                          ^            ^
-+	 *                    mac_interface phy_interface
- 	 *
--	 * mac_interface is the MAC-side interface, which may be the same
--	 * as phy_interface if there is no intervening PCS. If there is a
--	 * PCS, then mac_interface describes the interface mode between the
--	 * MAC and PCS, and phy_interface describes the interface mode
--	 * between the PCS and PHY.
-+	 * The Synopsys dwmac core only covers the MAC and an optional
-+	 * integrated PCS. Where the integrated PCS is used with a SerDes,
-+	 * e.g. for 1000base-X or Cisco SGMII, the connection between the
-+	 * PCS and SerDes will be TBI.
-+	 *
-+	 * Where the Synopsys dwmac core has been instantiated with multiple
-+	 * interface modes, these are selected via core-external configuration
-+	 * which is sampled when the dwmac core is reset. How this is done is
-+	 * platform glue specific, but this defines the interface used from
-+	 * the Synopsys dwmac core to the rest of the SoC.
-+	 *
-+	 * Where PCS other than the optional integrated Synopsys dwmac PCS
-+	 * is used, this counts as "the rest of the SoC" in the above
-+	 * paragraph.
-+	 *
-+	 * Thus, mac_interface is of little use inside the stmmac code;
-+	 * please do not use unless there is a definite requirement, and
-+	 * make sure to gain review feedback first.
- 	 */
- 	phy_interface_t mac_interface;
- 	/* phy_interface is the PHY-side interface - the interface used by
--	 * an attached PHY.
-+	 * an attached PHY or SFP etc. This is equivalent to the interface
-+	 * that phylink uses.
- 	 */
- 	phy_interface_t phy_interface;
- 	struct stmmac_mdio_bus_data *mdio_bus_data;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 8c8ca5999bd8..a23017a886f3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1120,6 +1120,9 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
+ {
+ 	int interface = priv->plat->mac_interface;
+ 
++	if (interface == PHY_INTERFACE_MODE_NA)
++		interface = priv->plat->phy_interface;
++
+ 	if (priv->dma_cap.pcs) {
+ 		if ((interface == PHY_INTERFACE_MODE_RGMII) ||
+ 		    (interface == PHY_INTERFACE_MODE_RGMII_ID) ||
 -- 
 2.47.3
 
