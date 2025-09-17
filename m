@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BE3CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B573CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 17:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfaDA7CQXN60ukH6yOKdYLgsngH3+y1yYWx6DIqTKjE=; b=L9Bui48Zs38jHImqR7sBnaMp2M
-	nrYAaBuMwxxPG4bgub2b+uSpl+iNnJcL5BHxX0z+gL9wzMlwwANM2wPTFAbw1ObFV1S+p2VOEUC/m
-	zJH6JTzNzGQgbSV9Lrc4WQoIVjCpOHqdbFtxGh10wvhbxZU9EZDNnWdFY8HeiJt7cMv5C2TIpWiFR
-	e4fqlVpiHS3hOkjf0MnQcRscroJx3dzg8OBTf72D1o+UI7v4KNDartScgQayDBxXWDuSdff/cP079
-	6VvZadZ2/uMDeRwYK+75ZOeUc2MSvWvbsxmU/UG7nJZLQ6Xv4hKNkZwUeULrDgDlqQSuf/e7wZdYo
-	ujNXvK/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RLa6G9UJgSbNRh8eQcPfSgL2TnZnQf2rjdNm5ck8/Kg=; b=c1bSED4zhAM48B4qNdgy89FK33
+	kslhuMHYtjiJKhSJls96K68DPfwedTisy6ct9ewvnleLiJJTsiPwrxt4vBwqOHZYFYlj/3q3uT3ow
+	33m6OlhBNYYNPylOKx8iluOAWsApri5/jFD+nQ0i/gjbalSCSwBMsTZHj2q+c7twjm7I1u2dMMWaH
+	8Eb4PKlgwaIPsunK+YMzhuxni9oyyqA97nTeDM9D+mneScnTxc3T330vgVxSCArDGHStHvvE2ryaW
+	kvt7N0IS3BqXSF6Edf38UECNjANPtDttM2vsFHzW2wiRRWx45yeB9eMkxDNP2ybLcKnXyvtDUEsrG
+	jnjARKaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyw6k-0000000DeT0-2zkm;
-	Wed, 17 Sep 2025 17:38:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyw6k-0000000DeSV-0sMu
+	id 1uywAT-0000000Dg3I-07ne;
+	Wed, 17 Sep 2025 17:42:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uywAR-0000000Dg0R-0lTt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 17:38:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EAE26023C;
-	Wed, 17 Sep 2025 17:38:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66919C4CEE7;
-	Wed, 17 Sep 2025 17:38:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758130697;
-	bh=98MNGnnkrUwGuRnrY4NUPpQAkwT8q3WuQcOsJRda4aQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TvqfBWTPGLdZeVCIgXIle3ePtwYbq6UowyG2ynmEUXEKrd5Y1YiEHfUTAfvPQLy4Y
-	 7S+Ocx49woz1T+7Herl71V/2KKRbjtYLgXu43Q1cNAa68rPIqAv6OwCEJGw1YSZ5g/
-	 dlKBnjYcTl0wpl+cC9iGfUIQdAWRpmJM08zC1/xEAEz7IDE2WLOP5JjgHdCZ4NZk7L
-	 24oR2MF9Uk1zEoUAvnOh1D9tWfsTi5EYoylUP66UXteeXE3zEFmbMk1pnfzI6VbNmD
-	 u3pekvuK9xzT+hG7lgIe83Z/7lUruCdBBxFZY4lnF7lc97BgQDULDEuDXJvYFXI+vs
-	 yyoV/pybI17Pw==
-Date: Wed, 17 Sep 2025 18:38:12 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
-	lars.povlsen@microchip.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	luka.perkov@sartura.hr, benjamin.ryzman@canonical.com
-Subject: Re: [PATCH 1/2] dt-bindings: reset: microchip: Add LAN969x support
-Message-ID: <20250917-paparazzi-hermit-3a4aa686add3@spud>
-References: <20250917111323.60781-1-robert.marko@sartura.hr>
+	Wed, 17 Sep 2025 17:42:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3DE426B9;
+	Wed, 17 Sep 2025 10:41:56 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5608A3F694;
+	Wed, 17 Sep 2025 10:42:03 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 17 Sep 2025 18:41:38 +0100
+Subject: [PATCH 1/2] coresight: trbe: Prevent overflow in PERF_IDX2OFF()
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZZrNlcphxvFNijN6"
-Content-Disposition: inline
-In-Reply-To: <20250917111323.60781-1-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250917-fix_aux_trace_index-v1-1-e36a76ac6292@arm.com>
+References: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
+In-Reply-To: <20250917-fix_aux_trace_index-v1-0-e36a76ac6292@arm.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ Tamas Zsoldos <tamas.zsoldos@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758130921; l=966;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=xznId6KLEjexVhy44PArHFtKkaLQrxQlKITeJniEfMw=;
+ b=xm7EqYkG+5d5BnteZZCaYjnZng4eknZZdmbDF+4qbTnRmbX8O0oYWWZNZ524Yz6+MGMQaq42R
+ A8hgQsIIvpdCneK9sYCcTau5oHci7VEb13RVQmcwjMCjNofM/d119GP
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_104207_262549_ABA14076 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Cast nr_pages to unsigned long to avoid overflow when handling large
+AUX buffer sizes (>= 2 GiB).
 
---ZZrNlcphxvFNijN6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Fixes: 3fbf7f011f24 ("coresight: sink: Add TRBE driver")
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-trbe.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-On Wed, Sep 17, 2025 at 01:12:35PM +0200, Robert Marko wrote:
-> LAN969x also uses the Microchip reset driver, so document its compatible.
->=20
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
->  Documentation/devicetree/bindings/reset/microchip,rst.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/reset/microchip,rst.yaml b=
-/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> index f2da0693b05a..4d4dd47f830e 100644
-> --- a/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> +++ b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> @@ -23,6 +23,7 @@ properties:
->      enum:
->        - microchip,sparx5-switch-reset
->        - microchip,lan966x-switch-reset
-> +      - microchip,lan969x-switch-reset
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130d37d9507791620ea7bc8cbcd675c..8f426f94e32a15fd26e6c4e42385a5d93a7b7c1a 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -23,7 +23,8 @@
+ #include "coresight-self-hosted-trace.h"
+ #include "coresight-trbe.h"
+ 
+-#define PERF_IDX2OFF(idx, buf) ((idx) % ((buf)->nr_pages << PAGE_SHIFT))
++#define PERF_IDX2OFF(idx, buf) \
++	((idx) % ((unsigned long)(buf)->nr_pages << PAGE_SHIFT))
+ 
+ /*
+  * A padding packet that will help the user space tools
 
-Driver patch makes a fallback compatible seem usable.
+-- 
+2.34.1
 
-> =20
->    reg:
->      items:
-> --=20
-> 2.51.0
->=20
-
---ZZrNlcphxvFNijN6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaMryBAAKCRB4tDGHoIJi
-0lF5APoCO2fpGBZ4T11tcyR1V+3vQvsaWXwe74qYjRS39jBoWwD/RTYl78Os46zO
-LOgCifCO7gUxjX+ibE/q2+B/LW3dLgE=
-=9R5e
------END PGP SIGNATURE-----
-
---ZZrNlcphxvFNijN6--
 
