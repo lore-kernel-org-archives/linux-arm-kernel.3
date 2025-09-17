@@ -4,188 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B58ACAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADFECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 20:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=; b=g2y3+qSaeXlgpjYxXMYutaWynF
-	8Ymq7OLPUYA3zcyUntfEo9o0nsjHdgWGTddxzS/qMnye1XfDwgZy0UMNr9trOBxi4vzear0CncWYT
-	nIgPZu5H23B1giFbglkFvQl68OGD68Svk6Y2zBNh7DwgOSvpuYAZYOHLJMSUbNrcYmuFkTB57sGtz
-	wzFAslEDX9aYuebB05g5heJkzsDDjVs2F+xb2Wc8/0q3qpHVZBpk2oTkkFg50ZJIm2/7vxEsVFRUq
-	drOKkIzeGEyYf7F/lAdRDQm3nr2ATsWXBo0l3/V0WhGuGEGiYH91ds5i8uhUnmttCsQsqMnwhxjw/
-	NdfxyRxQ==;
+	bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=; b=vb1fkfticBZNSt6YNzYBsBDvn8
+	i0yjT3GuYm+vVxi6J2hZhJvXzB4NgXuSqBrL1POKRDUrMXR+E5YWfB+qHq6zrnjkOXM/GvtZkvnI7
+	9XM8/UI65gOeAt9/syMCSTxwd0s+LOfbcB2PWx5/hvS4++p8cg9sVDr6NmNt3IX9MmiuzbFtkROmh
+	4Hed50T+FliOA+5DQBLPgM3kOqf9Sdlh1GsxXFPQ8flUHkMdZj5W4+JNV2zldyUTyrvxwyKElqueU
+	xAv2p8LSRfSk5oewX4ThFgyPveA6JflaiU0cHg7GqlwXha1zdGtoDw6VzhHd4t4hoaL7cgc1g8/yp
+	Z5p70dRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyK4-0000000ERdX-3C4r;
-	Wed, 17 Sep 2025 20:00:12 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1uyyQe-0000000ETp1-2Wyo;
+	Wed, 17 Sep 2025 20:07:00 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyyK2-0000000ERbt-21nf
+	id 1uyyQc-0000000ETod-051u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 20:00:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VeoRdrub30gmrQ9gbM+afvJZxU6dQ4njaQGuvWhRGHR9MTHUklucbDYP/6rsRkKDSn9K/tpONn1Ox9JUjZLNsd32OQqcYK14bIGdppcbZzj7hnUeYQ1aYhkGAuTmvnXB3SNXHZYsQxF3cp3in2NN/oZQKiz0UDXaDWFRKemr0o+uHIsXPi6Qi1sZkzwK+UKMZJZ2hspN+YArMaGF6D0tBJBv2DeBpKdKF0KWA/UPO7lFYx2+pnBGrPrF36ipCetob27MMEAFMbN9rGCnhG7Ep96OVlkvI2Yh3azI6S1caVZDlShT4jZlNTeGn1NT2+w37e2I3uqw0Sar4EOmvYiTDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=;
- b=UF6lW8tCCUCQaOorpWETWUHlGHAWFeHX/TobOcQgX00cUQLHlnpOyK0+0klhstLDqvys63eebIY4dY6AvkkNcqW48GbgdJDsiAviRcu6bZfKJ1NPpZWuvun8jh+ZbAPrpcOZ06S+PSZpKDfICVjTOza3aBJq1LigRMzoPOjVdEY5h70fo1MArbXgZ1UQFFSeIwz2eMOd+9d5ohrLVK4/SomZHuu6++dTTlgeUau2XRhGQJ79G72/h16xxKFM1pf0V4tWexlo6wYBNDeOXSmycq1weLJRZ9KN6/bMJOtCxZjRLER8khGdsf6G36yAFZcG6PE83G2JribdYHYZ9XofxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Wed, 17 Sep 2025 20:06:59 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-25669596921so2307095ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 13:06:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XML1A4ds/0Nmc7CI4clXC/wVjRZG3YM8lxyep1S8xOI=;
- b=pkxszzv2lNPqcmy2vyaLa6A7A4SIBLd6zLiUGsg0wUKdjxvwHm3tIUvBVd14omkHEDfEMSlbjoSDpG2w3Dt+uvH/n+Q8RArSbbR0mJcyU34CI2Pxvsqy8UXunAHbOibThQB2ihXDPZH/syYwDCn25Dc2eP7sOk0JmiWdVw/dHUs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- BL1PR01MB7771.prod.exchangelabs.com (2603:10b6:208:39a::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9115.21; Wed, 17 Sep 2025 19:59:59 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
- 19:59:59 +0000
-Message-ID: <e42e8b11-d86c-4164-9d6b-13cd34045570@os.amperecomputing.com>
-Date: Wed, 17 Sep 2025 12:59:52 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Ard Biesheuvel <ardb@kernel.org>, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250829115250.2395585-1-ryan.roberts@arm.com>
- <612940d2-4c8e-459c-8d7d-4ccec08fce0a@os.amperecomputing.com>
- <1471ea27-386d-4950-8eaa-8af7acf3c34a@arm.com>
- <f8cf1823-1ee9-4935-9293-86f58a9e2224@arm.com>
- <bf1aa0a4-08de-443f-a1a3-aa6c05bab38c@os.amperecomputing.com>
- <39c2f841-9043-448d-b644-ac96612d520a@os.amperecomputing.com>
- <d7cd4004-bacf-47b0-9cd8-f99125e02238@arm.com>
- <fe52a1d8-5211-4962-afc8-c3f9caf64119@os.amperecomputing.com>
- <8c363997-7b8d-4b54-b9b0-1a1b6a0e58ed@arm.com>
- <4aa4eedc-550f-4538-a499-504dc925ffc2@os.amperecomputing.com>
- <1cfda234-1339-4d83-bd87-b219fbd72664@arm.com>
- <55a79826-48e3-41c0-8dbd-b6398e7e49a6@os.amperecomputing.com>
- <92719b15-daf8-484f-b0db-72e23ae696ad@os.amperecomputing.com>
- <e86e2aa5-c66c-41a9-a56d-74451df0d105@arm.com>
- <f8898c87-8f49-4ef2-86ae-b60bcf67658c@os.amperecomputing.com>
- <047c0f7b-e46d-4a3f-8bc0-ce007eac36a7@arm.com>
- <45dc2746-153a-482d-954f-11fe1cd8d18e@os.amperecomputing.com>
- <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <3cbda17c-4c1c-4c04-a1fe-bd6ea6714de8@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY5PR16CA0031.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::44) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=gmail.com; s=20230601; t=1758139617; x=1758744417; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=;
+        b=c9YmyLL0e78QPI0wwjyv9rjL25xOdEaP17mvkyA5YY+k121Wpoha+zoq5Z/V+K1hA4
+         QuDMuGt8dE4ukCmwfhZyHmaxY6fv5ibUwwP2xzKED6O56wtcOjF33j62VYhKA4pD+H/s
+         rFKt0pmMGmongBdKbjozAEXVQHgCdvNwUZNr7tXLjOfKMcYSKdwlwhYOEsMJz9hE9iSV
+         mMP3wwCOGUMujcWm9SHh5VqzWkwIRN8/PHHe9TiOGkkZQ6CqQx87LDxWqfwjaVgquV4Y
+         TdI6FZ2bqpMY7m8iYuWy9Rki0VDIxMFumN6W0tOgid82GSRbNJ0KPKIeA3G6RN0oYqDn
+         tDrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758139617; x=1758744417;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nAoo4cL1dIYweQDzrk/O9/maigv0J12ua5s1T9IZZIQ=;
+        b=mAa1LD0zwhHFVTfhsmOBj/T7go05vfJ/ib+QUefX3TkkeG2H9L/6BxzV95R697hwSa
+         yyRca9WiKgJeyFFAOKOyj5LRn/5WRC1W+oOrrEhBprVG65FDUsITpXbQMZwSSLV6wv4j
+         b1EFDcBEahb8xfUZqwcSWBsYFXiNcw/1A7khpNLZSGMq3SNQvnt7Ob/x8mdVVRHKrfMt
+         0qrAyqsQbqAB1Cp0WZ3XlVkJ8FYv39RGT3QJ0mn2l6pAYQQBpNA2zOaEyk/0J+/KkXJ6
+         Omv+e4woaORJNfOIy2NrBLdirU1QYCrNTGyKdM62ESdMakW3UOKKX+FxjmvpG1sa1Crf
+         h7Zw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMv1JkbCl40UmipYio+zc6QazDMqNeQT/mI9tF+8ewS1FI9UjYVIoHI6R+fYXji2yx0JivwlUpy6ValsO8XTSB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvhoOTVvkIwfDJmQdjzJssNzDe1hw3CcA74SWtEheu4o144l4g
+	FjJsVoDvm/TEWhv7Y4Wu73IuM5MgHfM3P8zcecGaLU2SH5uYMStrSxXaIHc+Lw==
+X-Gm-Gg: ASbGncsPFCrBIfk2lTLiOexG5Rwh77q7k+Lpy6W+Xr/zVBSrA53XHzGrkZXdsasZB4j
+	nUNDj3LNzijf35GGFRI9d1WdZO9X4l7PBhvLaZUEZcpeRffglhJ51LprTMo1VOPMIOs3cI3x2MQ
+	fGNmUdPILhEKgWjHUDRCOuRn+VPdPbnczclS4KcE9b5G61uGcBgMewF49KixufNqS7CPpE9zyqN
+	Xp40frgN8OhQfEtqnh2n2lwgObgPHL23URbnGjxqIzwZ9yJo37K5utmuT+Ky9WXTrcbzwaMA9kF
+	SkuIpgZ4oiOe0fizQdG6r2RAyftfijmL4gZrsAixVM0eOyeuGNQIytLIfpY2E91DevScXJEDWZc
+	EuBhgYujkIyAZv6gtP4o4xKeK6Xdc1Z6Ml5IK1JU4TA==
+X-Google-Smtp-Source: AGHT+IH4ljt2vti7NSBWoLRl1Y3YBR7ak2BF6N3DsrRX2rCMF4AUdMIoGbFRGc1NosrFKmMz+WdEHw==
+X-Received: by 2002:a17:903:2c7:b0:264:567b:dd92 with SMTP id d9443c01a7336-26813e02d08mr43177195ad.52.1758139616771;
+        Wed, 17 Sep 2025 13:06:56 -0700 (PDT)
+Received: from google.com ([2620:15c:9d:2:c3d9:b11c:3856:2d3a])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2698035cd39sm3762225ad.146.2025.09.17.13.06.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 13:06:56 -0700 (PDT)
+Date: Wed, 17 Sep 2025 13:06:53 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, 
+	linux-samsung-soc@vger.kernel.org, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] Input: s6sa552 - add a driver for the Samsung
+ A552 touchscreen controller
+Message-ID: <zh2cvvhvdklwnrnhmzsgajk5ryk7gwd5sayde656ddysi53d7b@frw2ph3opmoe>
+References: <20250914134458.2624176-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250914134458.2624176-3-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BL1PR01MB7771:EE_
-X-MS-Office365-Filtering-Correlation-Id: 226940fb-e6fa-42a0-5721-08ddf624c6f3
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1ZEZ0JaWXZ5SnQ0YnFzZ2JhcXNWc21CNDJhSWY1WUVDNVNZdW5qeU1WcDN0?=
- =?utf-8?B?bTFBeTVtbGJsWUZLN2JlRlNHY0hKWUdYR241amFnVlV6cHNoRmhPblVpckpZ?=
- =?utf-8?B?dVN5VFZNbHVNQ2tzcmgyRHBsOVlXYjBpWEx1VGJJNms5c1JxRHZsTERreXU0?=
- =?utf-8?B?MlF4WGtvL1BBK1AxdWMxclpCZHdBQTAzRUNOMlM5bVI2bFlaYUdvZ3d4RGNK?=
- =?utf-8?B?eVFPUFJSdFRTUURrYi8wTzB2V2VPSVB1TWx2alN1Y1VxZlI2K3o2S3BtQ01U?=
- =?utf-8?B?bjBHMHUxSXdCNzcxQXNPMXdFZnl2WUZRWGdRZWF0ZXpGbmJMYkZNelg4T1Vu?=
- =?utf-8?B?bUVNL0h5NzZLS2dtUmJCNlZkLzhibUtpRDZ2aHRVajhwSEtiL2tkTzNwbWV3?=
- =?utf-8?B?QnpXVlVHWDNUWkRyU054ckZxa1FLREovS1E5aE1LZ0VDZ3lMdWthallBMzRD?=
- =?utf-8?B?K1hSNWhZMjJsS2Z6aDBjMHdPbWpDQ2wyenRVeTNxcjF0Sjh6OWNqbFJLcVFY?=
- =?utf-8?B?Y1R0dFIvVVpacEZRUGZ0OElHb1VtWnFacnZJclZGd2hFQUZGZ00xTlBDemxX?=
- =?utf-8?B?dndhQ1JQZGxSajEyZVNjSW16M2ZjMTNaZ05aM1Eyb283bTR6QVpFRGhFaktz?=
- =?utf-8?B?aUtxNGRVUUZNSzUxRjZweUc0eW1MWXhUS3hJZW4zNDFTQ1pCemVxeHMyZ1Zv?=
- =?utf-8?B?L1dmaGFtczd6cWxOVnVZUU9OMjlkbTVBdzdwOXBxMUdYOEllQ0I4VllLelNV?=
- =?utf-8?B?NGNuQVQ4UVhJVld2ZXpmSGlxSlhmWWdOUG1pRkZSZ2tibmJaV2djRFoydzd5?=
- =?utf-8?B?dTkrS1A4bW5sbDBNa2V1NnlabGxTSUdYcjNxOGExNlN4Z0RNNFNoNVBFNkMw?=
- =?utf-8?B?S0E3UjJvSEVtM2pzcms1RkVqNDV2dHEyaG1yK0xmQWt1bDlCckRrRTI1Uy9I?=
- =?utf-8?B?Y3czc0tiNzI4NTR5b1hCZHVJeEhUNUZsTk85NVp0QWJTaFJ4Q2swUEN4NC91?=
- =?utf-8?B?aHF2eU5pK3lpdjdQRkFpSm1nSFBacEJNV09iRlJVWnNENWxhZDVEUmJURjZ0?=
- =?utf-8?B?bWVvdGVRaGcxclRydGo3aGE0a24zanpqazlDK3g0Mk9nSmltdmNpdW01OHV0?=
- =?utf-8?B?VDdyeng1QlJHOFBXVlpmMjN0WHQ5OFJTckhyUW9CQzA3MTc3RkNTbXk4TWxN?=
- =?utf-8?B?TjdNZkhuSDlpeTI4Tk5Ycjg3eVh6TXEzYjhubHFSbW1sczl3eDVSUERPRjk1?=
- =?utf-8?B?MEhTT2tsK0ZNRkNQNEFBTDJscXZzQXZPdDREcGhuSUR5NUtHSTh3QkxZNjlp?=
- =?utf-8?B?VUs3aFl0K3BhcWRmV1N0ZDl5NjdGRGVDZVpFTGI3aVJBb2hjeFdnNmpzT1pV?=
- =?utf-8?B?c1lRQktyR2JRTkhSUVcreXJmQzZoQWNPaFltdWlqTEUvdWw5Z1I5NVdlNjc0?=
- =?utf-8?B?RThYZGhDZjloVVpzdlhBQlQwU1paOEJXN3R2OXZkeXZZdzVyVDh3aUJ0b1hr?=
- =?utf-8?B?Um1rdkVkQXVmSWp0eWx6V3k4akM1clJWRXlwWFlrUC9mWXI4SW1uRjJIQlht?=
- =?utf-8?B?OUhCMDJrS2VBTkk0MGZISHQ3Qy9MVHd3ODg2NzMrcHFPeHIvdy9QbHpkdzV6?=
- =?utf-8?B?UERIOXI2a3M1UXRpbjRDSytUMEtiSmZtMG0zVmpTYjBRczhiWkU2WVQ1N2pB?=
- =?utf-8?B?eUlMeXRrVlRrdno3Z2NHM0pPVVAxdXlCY2RSdlZLZUVCYkNXQUV0eGdFYk1L?=
- =?utf-8?B?OHpqZ1FCa3dqLzRsUjBXTVptaGErbHZPTkZoTzN6YXBBRkI3WTdmd3hXazJG?=
- =?utf-8?B?NDYwNlhITTZJSGc0dDZ4MU1EaEFVOU9lQUdPOUIwR2ZOV1NLV1NzUHF5SVFo?=
- =?utf-8?B?VTE3YWZLM2NOVzhScWZKT3NRWWUyTkFzQmtHTmR3S2Q1Sm93S2plTmhzcGZz?=
- =?utf-8?Q?jNFL0YiSuyU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NEdyOWJZTmRJbzVsdE80T29aNUt5OUtCVi84WEpUZkJlQjM5OFRjc1pDenhG?=
- =?utf-8?B?VzdoektpbDA4dWZJUEEvNnlxOExncytIYnFVYjZ0NWd6T3Z6Z2hUWFpJTWN6?=
- =?utf-8?B?ZVFoMjFjMllVTVVhTnNzYUE0UkgvRjNVSUlUSEplSTZHUHdBNy9JenBHR3Rm?=
- =?utf-8?B?VVQwV3lXdVZmcmNLWURoc1VHaVgrbXBxcFBlTHpZbVVBbmJtd2F3c0ZZTEtz?=
- =?utf-8?B?VTdaMUdsWmlIdVBhM1AxVkl2bjdtWGNMZ3dNSEJ6S3ZsNVBSeEdIQnNIUmVF?=
- =?utf-8?B?eG1rSUhkbklaZlMvelZuYWV2YldjamZPamxYckpFYWJVaW9qN2pKTG9DbG5K?=
- =?utf-8?B?Ylp1WW9PcWNieXJhbEpBT3pqbnNsMGNSSmZ0akFuOVp0QjYzTldiUEdvQXdL?=
- =?utf-8?B?azNQS2tVeks0djRoalFPMzZPY09GWnhGbjJhVWlncmlPU3hvdW5nMnU4aG5D?=
- =?utf-8?B?U3gyVmVtam9UM1ZpVTlUeTVBODlTNmZIV0laN3BCbkxDNnhMUW1KQXlrMTk5?=
- =?utf-8?B?WHNHU3JaVjFsaG9Wa09qTG02RlM2aHdxaUFXRjVwZWZHTG9rYm9jdHk5cnFX?=
- =?utf-8?B?UHVIcW9wazJuK3BhSHhkZ2JtUis4N2tqNU1HS2wrWEc3TlJTbVdBcmliVUxI?=
- =?utf-8?B?eU53aHRyM0c2U3pKeFFMVHBvMFY3K1N2MmR4RjZEWkZlaWY4S21iNFpDSEFR?=
- =?utf-8?B?SlIyWkM3K0dpR0hpOTN2dkxRbUVDUjdYRmpBeHlWcGFQYlM0N0EwaXY3M2pG?=
- =?utf-8?B?RExhTU40aFlkTW5EcHRGVWtiUWhWbnFib2NKS29CNnY1SW9jOTBTTjBiVXhZ?=
- =?utf-8?B?YjloNTB1RnFrQVMwMStFak9RYk14YytJR2FDbUx6SmZCNWVPSHlPUVg3djd0?=
- =?utf-8?B?VC9FaC9aVjJCYTdXd2ZkWjUvV0p5MHNPRFUxQ3ZHcjdEbTVFY2RkYnJ4QUJH?=
- =?utf-8?B?cWVEVDhaWjhJZm1ORUt3dmk4Y2ZKTkEzS29xQkJKOHJ1a3dMVk96SjVLWWp1?=
- =?utf-8?B?aDhyUUR6UjNOOExGb0NYMmNtZGpxS2MvTU5raEEvUDg5STdJdDV1WEFEdWl4?=
- =?utf-8?B?QldONTExNE9xUmlDcVA1dmpJV210UU9rai9jd0xGR3lVbC9hKzB2MDBqYXhD?=
- =?utf-8?B?SFVPeStRcGc1azMwQk8xblRWQk9ZNEFkb0RUZGxrWFJZYlEzNjQ0dlU1a3NE?=
- =?utf-8?B?VnFaN1JFc3Vsck5WQ1NmcE1oV3YvR25WQTRlNm45RlVjdThHbVFRZ3c4SlRH?=
- =?utf-8?B?YXZaek9BdThqQzUxUDVHdGtoaVVDWmFMaVJxczQ4U2JvS2lRNGx2OUpTVU9x?=
- =?utf-8?B?U3k1cFRuNm52V1BKMXVITnhlRzZmazgrZGJZZ3NIOVdtMndVcjFmTmFIUFYy?=
- =?utf-8?B?YVJQNUtNdkt3bmw5a0g5ZXhnU2xPcDdRUnJoN1Q5anJzc3RldjRLcEhBaW9B?=
- =?utf-8?B?cmFaSzZCT2JXWFdBWkZQS1NFNDVVNnJFRkVMVXFPNnFvUmJISi9ZUHVIQThx?=
- =?utf-8?B?bXRnSzFLR3J4bEZsekU4Z3FJM1g2RCtYbmN0aTJzRVJmYlg1cmZQRmgyVVp0?=
- =?utf-8?B?Z0JhMXdmUzFYMUtoV3QwaE53aUhiSEJGZUVZdE9jNklMUUVLZWswbmFRRUp2?=
- =?utf-8?B?VUNsTUZJNStnMGFDZlFmQWdvVDNldU9odXNuNHBjMkhrcVhldTRVQVpZYzdG?=
- =?utf-8?B?S1lSUU9NODFMazVPQm5LUi9XQVVJL3pUcTdiZ0NwSW1FSDVua0xibFE5ZE5n?=
- =?utf-8?B?dGl4SnFvSFBtOTRaVG5IbldCSk9vTTJFb1hvODBpMlNyZFdFM0dGWWFBaTV4?=
- =?utf-8?B?dXFzQUVXRFlGTVN2dnBJWHY0Y2NXV2NrVHRzc2d5S01JYlQ0Q3hjbzBWVjRj?=
- =?utf-8?B?TnU1ZGdvWjhOZWxpcFhTbDMxMzJQdkZZNk4zN2liQkdKYk56SVk1anJMWU1h?=
- =?utf-8?B?bkxKQWdDdG8wdGQ1bWM5TU05cEpqalFwL1RJaWdCY0Z4emxhdnVvM1hMeEdQ?=
- =?utf-8?B?OHpjRkVsV29LSDJGZ2pxWkNXYmpVbTgwTVV2VHFGVk1tbEZWWXdKZ1NFcHdz?=
- =?utf-8?B?V0pKbC94OXBpSDNIWFB0V0JsZFNzK0RGMG9uMTZzMHdMRlJ0SVVjOFllRXJm?=
- =?utf-8?B?MHcxRHFrdk1BQlNGUytjb3ltNTQxVHIxSHBXWVB1bTRSU2VkWXF5QzAwQ1lY?=
- =?utf-8?Q?rIBRZlHuKlZJLP1bbM+jS6g=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 226940fb-e6fa-42a0-5721-08ddf624c6f3
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 19:59:59.3608
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JIZgsmB7JBj8T7h577/O6Mp6Mqzb55qZi+u3lBeGUoCx/Htte2plDb8jtO6uMDxOh5wFdYaxWYJY7TDO5ZsJfdAglmEs/taLm7Y6bXwrICk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR01MB7771
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250914134458.2624176-3-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_130010_534258_AAA6995F 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250917_130658_068758_9F5BCEC7 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,154 +101,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ivaylo,
 
+On Sun, Sep 14, 2025 at 04:44:57PM +0300, Ivaylo Ivanov wrote:
+> The S6SA552 touchscreen is a capacitive multi-touch controller for
+> mobile use. It connects via i2c at the address 0x48.
+> 
+> Introduce a basic driver, which can handle initialization, touch events
+> and power states.
+> 
+> At least the firmware for this IC on Galaxy S7 differs from S6SY761
+> in register layout and bits, as well as some missing registers/functions,
+> for example for retrieving the max X/Y coordinates and the amount
+> of TX/RX channels.
 
-On 9/17/25 12:40 PM, Ryan Roberts wrote:
-> On 17/09/2025 20:15, Yang Shi wrote:
->>
->> On 9/17/25 11:58 AM, Ryan Roberts wrote:
->>> On 17/09/2025 18:21, Yang Shi wrote:
->>>> On 9/17/25 9:28 AM, Ryan Roberts wrote:
->>>>> Hi Yang,
->>>>>
->>>>> Sorry for the slow reply; I'm just getting back to this...
->>>>>
->>>>> On 11/09/2025 23:03, Yang Shi wrote:
->>>>>> Hi Ryan & Catalin,
->>>>>>
->>>>>> Any more concerns about this?
->>>>> I've been trying to convince myself that your assertion that all users that set
->>>>> the VM_FLUSH_RESET_PERMS also call set_memory_*() for the entire range that was
->>>>> returned my vmalloc. I agree that if that is the contract and everyone is
->>>>> following it, then there is no problem here.
->>>>>
->>>>> But I haven't been able to convince myself...
->>>>>
->>>>> Some examples (these might intersect with examples you previously raised):
->>>>>
->>>>> 1. bpf_dispatcher_change_prog() -> bpf_jit_alloc_exec() -> execmem_alloc() ->
->>>>> sets VM_FLUSH_RESET_PERMS. But I don't see it calling set_memory_*() for
->>>>> rw_image.
->>>> Yes, it doesn't call set_memory_*(). I spotted this in the earlier email. But it
->>>> is actually RW, so it should be ok to miss the call. The later
->>>> set_direct_map_invalid call in vfree() may fail, but set_direct_map_default call
->>>> will set RW permission back. But I think it doesn't have to use execmem_alloc(),
->>>> the plain vmalloc() should be good enough.
->>>>
->>>>> 2. module_memory_alloc() -> execmem_alloc_rw() -> execmem_alloc() -> sets
->>>>> VM_FLUSH_RESET_PERMS (note that execmem_force_rw() is nop for arm64).
->>>>> set_memory_*() is not called until much later on in module_set_memory().
->>>>> Another
->>>>> error in the meantime could cause the memory to be vfreed before that point.
->>>> IIUC, execmem_alloc_rw() is used to allocate memory for modules' text section
->>>> and data section. The code will set mod->mem[type].is_rox according to the type
->>>> of the section. It is true for text, false for data. Then set_memory_rox() will
->>>> be called later if it is true *after* insns are copied to the memory. So it is
->>>> still RW before that point.
->>>>
->>>>> 3. When set_vm_flush_reset_perms() is set for the range, it is called before
->>>>> set_memory_*() which might then fail to split prior to vfree.
->>>> Yes, all call sites check the return value and bail out if set_memory_*() failed
->>>> if I don't miss anything.
->>>>
->>>>> But I guess as long as set_memory_*() is never successfully called for a
->>>>> *sub-range* of the vmalloc'ed region, then for all of the above issues, the
->>>>> memory must still be RW at vfree-time, so this issue should be benign... I
->>>>> think?
->>>> Yes, it is true.
->>> So to summarise, all freshly vmalloc'ed memory starts as RW. set_memory_*() may
->>> only be called if VM_FLUSH_RESET_PERMS has already been set. If set_memory_*()
->>> is called at all, the first call MUST be for the whole range.
->> Whether the default permission is RW or not depends on the type passed in by
->> execmem_alloc(). It is defined by execmem_info in arch/arm64/mm/init.c. For
->> ARM64, module and BPF have PAGE_KERNEL permission (RW) by default, but kprobes
->> is PAGE_KERNEL_ROX (ROX).
-> Perhaps I missed it, but as far as I could tell the prot that the arch sets for
-> the type only determines the prot that is set for the vmalloc map. It doesn't
-> look like the linear map is modified at all... which feels like a bug to me
-> since the linear map will be RW while the vmalloc map will be ROX... I guess I
-> must have missed something...
+I am not sure why you are using runtime PM in the driver, given that you
+enable it on probe and disable it in remove and otherwise do not touch.
 
-Yes, it just sets the permission for vmalloc area. The set_memory_*() 
-must be called to change permission for direct map.
+If you want to use it then you should probably call runtime_pm_get() and
+runtime_pm_put() from open()/close() methods instead of toggling power
+directly.
 
->
->>> If those requirements are all met, then if VM_FLUSH_RESET_PERMS was set but
->>> set_memory_*() was never called, the worst that can happen is for both the
->>> set_direct_map_invalid() and set_direct_map_default() calls to fail due to not
->>> enough memory. But that is safe because the memory was always RW. If
->>> set_memory_*() was called for the whole range and failed, it's the same as if it
->>> was never called. If it was called for the whole range and succeeded, then the
->>> split must have happened already and set_direct_map_invalid() and
->>> set_direct_map_default() will therefore definitely succeed.
->>>
->>> The only way this could be a problem is if someone vmallocs a range then
->>> performs a set_memory_*() on a sub-region without having first done it for the
->>> whole region. But we have not found any evidence that there are any users that
->>> do that.
->> Yes, exactly.
->>
->>> In fact, by that logic, I think alloc_insn_page() must also be safe; it only
->>> allocates 1 page, so if set_memory_*() is subsequently called for it, it must by
->>> definition be covering the whole allocation; 1 page is the smallest amount that
->>> can be protected.
->> Yes, but kprobes default permission is ROX.
->>
->>> So I agree we are safe.
->>>
->>>
->>>>> In summary this all looks horribly fragile. But I *think* it works. It would be
->>>>> good to clean it all up and have some clearly documented rules regardless.
->>>>> But I
->>>>> think that could be a follow up series.
->>>> Yeah, absolutely agreed.
->>>>
->>>>>> Shall we move forward with v8?
->>>>> Yes; Do you wnat me to post that or would you prefer to do it? I'm happy to do
->>>>> it; there are a few other tidy ups in pageattr.c I want to make which I
->>>>> spotted.
->>>> I actually just had v8 ready in my tree. I removed pageattr_pgd_entry and
->>>> pageattr_pud_entry in pageattr.c and fixed pmd_leaf/pud_leaf as you suggested.
->>>> Is it the cleanup you are supposed to do?
->>> I was also going to fix up the comment in change_memory_common() which is now
->>> stale.
->> Oops, I missed that in my v8. Please just comment for v8, I can fix it up later.
-> Ahh no biggy. If there is a chance Will will take the series, let's not hold it
-> up for a comment.
+[...]
 
-Yeah, sure, thank you.
+> +
+> +static void s6sa552_input_close(struct input_dev *dev)
+> +{
+> +	struct s6sa552_data *sdata = input_get_drvdata(dev);
+> +	int ret;
 
-Yang
+	int error;
 
->
->> Thanks,
->> Yang
->>
->>
->>>> And I also rebased it on top of
->>>> Shijie's series (https://git.kernel.org/pub/scm/linux/kernel/git/arm64/
->>>> linux.git/commit/?id=bfbbb0d3215f) which has been picked up by Will.
->>>>
->>>>>> We can include the
->>>>>> fix to kprobes in v8 or I can send it separately, either is fine to me.
->>>>> Post it on list, and I'll also incorporate into the series.
->>>> I can include it in v8 series.
->>>>
->>>>>> Hopefully we can make v6.18.
->>>>> It's probably getting a bit late now. Anyway, I'll aim to get v8 out
->>>>> tomorrow or
->>>>> Friday and we will see what Will thinks.
->>>> Thank you. I can post v8 today.
->>> OK great - I'll leave it all to you then - thanks!
->>>
->>>> Thanks,
->>>> Yang
->>>>
->>>>> Thanks,
->>>>> Ryan
->>>>>
->>>>>> Thanks,
->>>>>> Yang
->>>>>>
+> +
+> +	ret = i2c_smbus_write_byte(sdata->client, S6SA552_SENSE_OFF);
+> +	if (ret)
+> +		dev_err(&sdata->client->dev, "failed to turn off sensing\n");
+> +}
+> +
+> +static ssize_t s6sa552_sysfs_devid(struct device *dev,
+> +				   struct device_attribute *attr, char *buf)
+> +{
+> +	struct s6sa552_data *sdata = dev_get_drvdata(dev);
+> +
+> +	return sprintf(buf, "%#x\n", sdata->devid);
+> +}
+> +
+> +static DEVICE_ATTR(devid, 0444, s6sa552_sysfs_devid, NULL);
+> +
+> +static struct attribute *s6sa552_sysfs_attrs[] = {
+> +	&dev_attr_devid.attr,
+> +	NULL
+> +};
+> +ATTRIBUTE_GROUPS(s6sa552_sysfs);
+> +
+> +static int s6sa552_power_on(struct s6sa552_data *sdata)
+> +{
+> +	u8 buffer[S6SA552_EVENT_SIZE];
+> +	int ret;
 
+	int error;
+
+Use "error" for storing error values from APIs that return negative or
+0. For APIs that also return real values "ret" is fine.
+
+> +
+> +	ret = regulator_bulk_enable(ARRAY_SIZE(sdata->regulators),
+> +				    sdata->regulators);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msleep(140);
+> +
+> +	/* double check whether the touch is functional */
+> +	ret = i2c_smbus_read_i2c_block_data(sdata->client,
+> +					    S6SA552_READ_ONE_EVENT,
+> +					    S6SA552_EVENT_SIZE,
+> +					    buffer);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (buffer[0] != S6SA552_EVENT_TYPE_ACK ||
+> +	    buffer[1] != S6SA552_EVENT_ACK_BOOT) {
+> +		return -ENODEV;
+> +	}
+> +
+> +	ret = i2c_smbus_read_byte_data(sdata->client, S6SA552_BOOT_STATUS);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	/* for some reasons the device might be stuck in the bootloader */
+> +	if (ret != S6SA552_BS_APPLICATION)
+> +		return -ENODEV;
+> +
+> +	/* enable touch functionality */
+> +	ret = i2c_smbus_write_byte_data(sdata->client,
+> +					S6SA552_TOUCH_FUNCTION, 0x01);
+> +	if (ret)
+> +		return ret;
+> +
+> +	mdelay(20); /* make sure everything is up */
+> +
+> +	return 0;
+> +}
+> +
+> +static int s6sa552_hw_init(struct s6sa552_data *sdata)
+> +{
+> +	u8 buffer[S6SA552_DEVID_SIZE];
+> +	int ret;
+> +
+> +	ret = s6sa552_power_on(sdata);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = i2c_smbus_read_i2c_block_data(sdata->client,
+> +					    S6SA552_DEVICE_ID,
+> +					    S6SA552_DEVID_SIZE,
+> +					    buffer);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	sdata->devid = get_unaligned_be16(buffer + 1);
+> +
+> +	return 0;
+> +}
+> +
+> +static void s6sa552_power_off(void *data)
+> +{
+> +	struct s6sa552_data *sdata = data;
+> +
+> +	disable_irq(sdata->client->irq);
+> +	regulator_bulk_disable(ARRAY_SIZE(sdata->regulators),
+> +			       sdata->regulators);
+> +}
+> +
+> +static int s6sa552_probe(struct i2c_client *client)
+> +{
+> +	struct s6sa552_data *sdata;
+> +	int err;
+> +
+> +	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C |
+> +						I2C_FUNC_SMBUS_BYTE_DATA |
+> +						I2C_FUNC_SMBUS_I2C_BLOCK))
+> +		return -ENODEV;
+> +
+> +	sdata = devm_kzalloc(&client->dev, sizeof(*sdata), GFP_KERNEL);
+> +	if (!sdata)
+> +		return -ENOMEM;
+> +
+> +	i2c_set_clientdata(client, sdata);
+> +	sdata->client = client;
+> +
+> +	sdata->regulators[S6SA552_REGULATOR_VDD].supply = "vdd";
+> +	sdata->regulators[S6SA552_REGULATOR_AVDD].supply = "avdd";
+> +	err = devm_regulator_bulk_get(&client->dev,
+> +				      ARRAY_SIZE(sdata->regulators),
+> +				      sdata->regulators);
+> +	if (err)
+> +		return err;
+> +
+> +	err = devm_add_action_or_reset(&client->dev, s6sa552_power_off, sdata);
+> +	if (err)
+> +		return err;
+> +
+> +	err = s6sa552_hw_init(sdata);
+> +	if (err)
+> +		return err;
+> +
+> +	sdata->input = devm_input_allocate_device(&client->dev);
+> +	if (!sdata->input)
+> +		return -ENOMEM;
+> +
+> +	sdata->input->name = S6SA552_DEV_NAME;
+> +	sdata->input->id.bustype = BUS_I2C;
+> +	sdata->input->open = s6sa552_input_open;
+> +	sdata->input->close = s6sa552_input_close;
+> +
+> +	input_set_abs_params(sdata->input, ABS_MT_POSITION_X, 0, S6SA552_MAX_X,
+> +			     0, 0);
+> +	input_set_abs_params(sdata->input, ABS_MT_POSITION_Y, 0, S6SA552_MAX_Y,
+> +			     0, 0);
+> +	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MAJOR, 0, 255, 0, 0);
+> +	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MINOR, 0, 255, 0, 0);
+> +	input_set_abs_params(sdata->input, ABS_MT_PRESSURE, 0, 255, 0, 0);
+> +
+> +	touchscreen_parse_properties(sdata->input, true, &sdata->prop);
+> +
+> +	if (!input_abs_get_max(sdata->input, ABS_X) ||
+> +	    !input_abs_get_max(sdata->input, ABS_Y)) {
+> +		dev_warn(&client->dev, "the axis have not been set\n");
+> +	}
+> +
+> +	err = input_mt_init_slots(sdata->input, S6SA552_TX_CHANNELS,
+> +				  INPUT_MT_DIRECT);
+> +	if (err)
+> +		return err;
+> +
+> +	input_set_drvdata(sdata->input, sdata);
+> +
+> +	err = input_register_device(sdata->input);
+> +	if (err)
+> +		return err;
+> +
+> +	err = devm_request_threaded_irq(&client->dev, client->irq, NULL,
+> +					s6sa552_irq_handler,
+> +					IRQF_TRIGGER_LOW | IRQF_ONESHOT,
+
+Do not hardcode trigger type, just use IRQF_ONESHOT.
+
+> +					"s6sa552_irq", sdata);
+> +	if (err)
+> +		return err;
+> +
+> +	pm_runtime_enable(&client->dev);
+> +
+> +	return 0;
+> +}
+
+Thanks.
+
+-- 
+Dmitry
 
