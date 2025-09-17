@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A357CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B437CAC59D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fcUtqAqNq9zNiLfjOOqbPQxTHmRKJGS3uRsgVVJuxY=; b=BBpG6+mxFoRrm2E0BTmnXCWkbY
-	xHtr9EwpXWqoFB8htT8KOWg0jJaH2JMtvYiE4Uh1aS29uUOLFpjte35jr1RG1dw1xYpHJ0w2sjP+J
-	C7hiV3kIjL/6nwNlmhe8BcC6VzqGpDvYbI3SvU9oPWyccuu4X2ImltWQEKYxy7eG1VQHLGb3oJzmt
-	+Jspra0GEYzGW92s5j96mbKdAde3a+E6sV2YZuonOd2oKHVyXDt0dy/63+1cUYBXJMByvq+w28K3X
-	YVFkaahK2g8XldlIthT9CbSyrIiy8xDNzgEY1d690CvKEZgG7GAx8oIx4P5aWmgzMcLhfDjhe/EXn
-	CU8ycpRQ==;
+	bh=POZFrusONajTLFLkFs2HnF8XKauea9T94Z4BB3b6VVw=; b=C5dXMVoghU5/XCJqVJEYwbSwT9
+	N8dbQqyIvQDXhAje1tL0Puwom6O8ngOLwfF+P2m50IsQm79MahGYfjEPOm2+K30VxWozoIWFc2rPt
+	ZzbfPhBQzqhi+bHxPjkTk/SUm2t0j3v1PUxcFWTsXatshP8ZoMhib3RDFZftQvGmWUWR0hg+GsVKL
+	Lg4jdxCPfDmPk447F0HBhwftBPW6mG4fYOMbCJf13teOOLxA9pGUzoAaLyzhlOGv4mNo3ZMqhAGUW
+	I7+vr6eAdVedTPcqjeRPcrwNjg8Ki5hLMknoke5bC9N9QGW5vY5OB7ZGd2GYF9Jbp6Ix0sq8XoyVO
+	2K1sfseQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyslC-0000000Bzlc-2QdJ;
-	Wed, 17 Sep 2025 14:03:50 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uyslH-0000000Bztq-2hot;
+	Wed, 17 Sep 2025 14:03:55 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysji-0000000BxVd-2HuM
+	id 1uysjo-0000000Bxef-0Vkp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:21 +0000
+	Wed, 17 Sep 2025 14:02:26 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758117730;
+	s=2020; t=1758117734;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3fcUtqAqNq9zNiLfjOOqbPQxTHmRKJGS3uRsgVVJuxY=;
-	b=VPK3S01/QaDX/NS/zo1/c4gDC9wIVwGh6De1Qlk4ykm+ASR/in5965WbpYo62ao6Nsy3cp
-	RxVyvbl/Etu2IcgRfdDY4fi6u9TuC/qFQSVtMZG3JNKZsN90sbreV36D38RF8dkVpLlaZ0
-	PCdGvXZSANZZY8Zmrlsfl8rwaBXsqxS5T1WZV/iJOv0ul74/c6bBJVt125SOyiNPDKtU/n
-	ZW4Ofh2L/XrJR8geK0d8zodRMPAEZHoW3FTROJe9P0qPvF2YrCGHaqA8dgMaQ+JbSNqsEy
-	oyaDT1VT27QjBA1o9PBjhQJHjWijkXhw3tYnehFBavu9ViwY1qgvqaEFfA6R9g==
+	bh=POZFrusONajTLFLkFs2HnF8XKauea9T94Z4BB3b6VVw=;
+	b=Cr3zNqeICek9+0xDY7i08RqKBKw/aWA2EcdO2i5uHLiyfwY8b7jI+717WRRJnGGE/SX93l
+	6SAgskt/O7ONrWQFgtWhaWylwRRw8EPj93FVEu76s/fpGsKM/+0vp8atklOLL9HSOEIAz0
+	n5Bvp/3RILx7o06m+GIndas71aapNrmodWWxyow5nx25AQtpXHxhCnMmOab5QPtZaibuEt
+	m4Xaxv+ZFGliEotUScLfsgkjuh/zbLy0Btv5J+0HlPiv7Hle8vh1XHkagWyf1Z7oAvf+9a
+	H8PUBiS4hSnMY1oFlEh8bnSf+um0JmSO5/Hrpr/PLuGp/Nhr2fzDiO5jYBhR8Q==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758117730;
+	s=2020e; t=1758117734;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3fcUtqAqNq9zNiLfjOOqbPQxTHmRKJGS3uRsgVVJuxY=;
-	b=yyCLK3S2mTypQaeGyNuOl4/z3RtLi9bgb2hvsyVXfiFYJMSxgcxgvrfpDPJ8YdUZMOcx0j
-	LUnJaja51g6qZmDw==
-Date: Wed, 17 Sep 2025 16:00:31 +0200
-Subject: [PATCH v3 29/36] sparc64: vdso: Move syscall fallbacks into header
+	bh=POZFrusONajTLFLkFs2HnF8XKauea9T94Z4BB3b6VVw=;
+	b=BDv196xNmhytdAKzpD9pOxfCk+prapDzEY4uXr3YUESg0l6dzYA7qW+YI3dx7SOdOOjd68
+	H0KOCRnnUKVpYBBA==
+Date: Wed, 17 Sep 2025 16:00:37 +0200
+Subject: [PATCH v3 35/36] clocksource: remove ARCH_CLOCKSOURCE_DATA
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-vdso-sparc64-generic-2-v3-29-3679b1bc8ee8@linutronix.de>
+Message-Id: <20250917-vdso-sparc64-generic-2-v3-35-3679b1bc8ee8@linutronix.de>
 References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -83,16 +83,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=5693;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758117712; l=1684;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=zqG3ZhrWjvVQygDuISThwjO4RZY1Wh1EOCm6935wGyA=;
- b=qYy+GeQpBEot2Sl4R/HherZP07TDdJoXLOp73A4M4DUW77/qDoG8u0NEHu1aM1qHuiJMf0vNB
- CR+qmzhho1RBW2HRTOOgQ+S6eh8TkioRAPnlX3k/CHs5lD5WFv4+h9d
+ bh=3DCfFJMQMpzmRW2bTQu93i8t9c0IdnU3shRaXcuZiPA=;
+ b=ASDs1ZMlNBaY+M2Dq5Rt6d8L42IVHd2de47pLglR/D8Y8wm7UDodKVbXvNhiaKIYKy3ca0ndh
+ vjmeBSKxGFgCD8QPUAIn3kNTIIkpgrCQHBcphwjoz/nYDK6kk+HQNcd
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070218_995437_BAC9D3CA 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250917_070224_427644_B1D3F807 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,174 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic vDSO libraries expected the syscall fallbacks in
-asm/vdso/gettimeofday.h. To prepare the adoption of the generic library,
-move the existing functions there.
+From: Arnd Bergmann <arnd@arndb.de>
 
-While at it, rename them so they match what the generic library expects.
+After sparc64, there are no remaining users of ARCH_CLOCKSOURCE_DATA
+and it can just be removed.
 
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: John Stultz <jstultz@google.com>
+[Thomas: drop sparc64 bits from the patch]
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/sparc/include/asm/vdso/gettimeofday.h | 50 +++++++++++++++++++++++++++++
- arch/sparc/vdso/vclock_gettime.c           | 51 ++----------------------------
- 2 files changed, 52 insertions(+), 49 deletions(-)
+ include/linux/clocksource.h | 6 +-----
+ kernel/time/Kconfig         | 4 ----
+ 2 files changed, 1 insertion(+), 9 deletions(-)
 
-diff --git a/arch/sparc/include/asm/vdso/gettimeofday.h b/arch/sparc/include/asm/vdso/gettimeofday.h
-index 31f6505d3ab5dde9e02eca6da9182e5fb91031c4..429dc080568f59145cc0bc696060adeb60ac177a 100644
---- a/arch/sparc/include/asm/vdso/gettimeofday.h
-+++ b/arch/sparc/include/asm/vdso/gettimeofday.h
-@@ -6,6 +6,9 @@
- #ifndef _ASM_SPARC_VDSO_GETTIMEOFDAY_H
- #define _ASM_SPARC_VDSO_GETTIMEOFDAY_H
+diff --git a/include/linux/clocksource.h b/include/linux/clocksource.h
+index 65b7c41471c390463770c2da13694e58e83b84ea..12d853b1883265cb47d93e33d8370e3957e7e695 100644
+--- a/include/linux/clocksource.h
++++ b/include/linux/clocksource.h
+@@ -25,8 +25,7 @@ struct clocksource_base;
+ struct clocksource;
+ struct module;
  
-+#include <uapi/linux/time.h>
-+#include <uapi/linux/unistd.h>
-+
- #include <linux/types.h>
- #include <asm/vvar.h>
- 
-@@ -75,4 +78,51 @@ static __always_inline u64 __arch_get_hw_counter(struct vvar_data *vvar)
- 		return vread_tick();
- }
- 
-+#ifdef	CONFIG_SPARC64
-+#define SYSCALL_STRING							\
-+	"ta	0x6d;"							\
-+	"bcs,a	1f;"							\
-+	" sub	%%g0, %%o0, %%o0;"					\
-+	"1:"
-+#else
-+#define SYSCALL_STRING							\
-+	"ta	0x10;"							\
-+	"bcs,a	1f;"							\
-+	" sub	%%g0, %%o0, %%o0;"					\
-+	"1:"
-+#endif
-+
-+#define SYSCALL_CLOBBERS						\
-+	"f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7",			\
-+	"f8", "f9", "f10", "f11", "f12", "f13", "f14", "f15",		\
-+	"f16", "f17", "f18", "f19", "f20", "f21", "f22", "f23",		\
-+	"f24", "f25", "f26", "f27", "f28", "f29", "f30", "f31",		\
-+	"f32", "f34", "f36", "f38", "f40", "f42", "f44", "f46",		\
-+	"f48", "f50", "f52", "f54", "f56", "f58", "f60", "f62",		\
-+	"cc", "memory"
-+
-+static __always_inline
-+long clock_gettime_fallback(clockid_t clock, struct __kernel_old_timespec *ts)
-+{
-+	register long num __asm__("g1") = __NR_clock_gettime;
-+	register long o0 __asm__("o0") = clock;
-+	register long o1 __asm__("o1") = (long) ts;
-+
-+	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
-+			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
-+	return o0;
-+}
-+
-+static __always_inline
-+long gettimeofday_fallback(struct __kernel_old_timeval *tv, struct timezone *tz)
-+{
-+	register long num __asm__("g1") = __NR_gettimeofday;
-+	register long o0 __asm__("o0") = (long) tv;
-+	register long o1 __asm__("o1") = (long) tz;
-+
-+	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
-+			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
-+	return o0;
-+}
-+
- #endif /* _ASM_SPARC_VDSO_GETTIMEOFDAY_H */
-diff --git a/arch/sparc/vdso/vclock_gettime.c b/arch/sparc/vdso/vclock_gettime.c
-index 16ac80982a00b9f965453b89a0cc111312baa9b2..e768c0b84b3420deab2f74335892d40a5b515ee7 100644
---- a/arch/sparc/vdso/vclock_gettime.c
-+++ b/arch/sparc/vdso/vclock_gettime.c
-@@ -13,38 +13,13 @@
-  */
- 
- #include <linux/kernel.h>
--#include <linux/time.h>
- #include <linux/string.h>
- #include <asm/io.h>
--#include <asm/unistd.h>
- #include <asm/timex.h>
+-#if defined(CONFIG_ARCH_CLOCKSOURCE_DATA) || \
+-    defined(CONFIG_GENERIC_GETTIMEOFDAY)
++#if defined(CONFIG_GENERIC_GETTIMEOFDAY)
  #include <asm/clocksource.h>
- #include <asm/vdso/gettimeofday.h>
- #include <asm/vvar.h>
+ #endif
  
--#ifdef	CONFIG_SPARC64
--#define SYSCALL_STRING							\
--	"ta	0x6d;"							\
--	"bcs,a	1f;"							\
--	" sub	%%g0, %%o0, %%o0;"					\
--	"1:"
--#else
--#define SYSCALL_STRING							\
--	"ta	0x10;"							\
--	"bcs,a	1f;"							\
--	" sub	%%g0, %%o0, %%o0;"					\
--	"1:"
+@@ -106,9 +105,6 @@ struct clocksource {
+ 	u64			max_idle_ns;
+ 	u32			maxadj;
+ 	u32			uncertainty_margin;
+-#ifdef CONFIG_ARCH_CLOCKSOURCE_DATA
+-	struct arch_clocksource_data archdata;
 -#endif
--
--#define SYSCALL_CLOBBERS						\
--	"f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7",			\
--	"f8", "f9", "f10", "f11", "f12", "f13", "f14", "f15",		\
--	"f16", "f17", "f18", "f19", "f20", "f21", "f22", "f23",		\
--	"f24", "f25", "f26", "f27", "f28", "f29", "f30", "f31",		\
--	"f32", "f34", "f36", "f38", "f40", "f42", "f44", "f46",		\
--	"f48", "f50", "f52", "f54", "f56", "f58", "f60", "f62",		\
--	"cc", "memory"
--
- /*
-  * Compute the vvar page's address in the process address space, and return it
-  * as a pointer to the vvar_data.
-@@ -64,28 +39,6 @@ notrace static __always_inline struct vvar_data *get_vvar_data(void)
- 	return (struct vvar_data *) ret;
- }
+ 	u64			max_cycles;
+ 	u64			max_raw_delta;
+ 	const char		*name;
+diff --git a/kernel/time/Kconfig b/kernel/time/Kconfig
+index 7c6a52f7836cef248e0949060b50baa293f446cf..fe33118770978682d0ff6c6e7990896f42703b50 100644
+--- a/kernel/time/Kconfig
++++ b/kernel/time/Kconfig
+@@ -9,10 +9,6 @@
+ config CLOCKSOURCE_WATCHDOG
+ 	bool
  
--notrace static long vdso_fallback_gettime(long clock, struct __kernel_old_timespec *ts)
--{
--	register long num __asm__("g1") = __NR_clock_gettime;
--	register long o0 __asm__("o0") = clock;
--	register long o1 __asm__("o1") = (long) ts;
+-# Architecture has extra clocksource data
+-config ARCH_CLOCKSOURCE_DATA
+-	bool
 -
--	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
--			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
--	return o0;
--}
--
--notrace static long vdso_fallback_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
--{
--	register long num __asm__("g1") = __NR_gettimeofday;
--	register long o0 __asm__("o0") = (long) tv;
--	register long o1 __asm__("o1") = (long) tz;
--
--	__asm__ __volatile__(SYSCALL_STRING : "=r" (o0) : "r" (num),
--			     "0" (o0), "r" (o1) : SYSCALL_CLOBBERS);
--	return o0;
--}
--
- notrace static __always_inline u64 vgetsns(struct vvar_data *vvar)
- {
- 	u64 v;
-@@ -184,7 +137,7 @@ __vdso_clock_gettime(clockid_t clock, struct __kernel_old_timespec *ts)
- 	/*
- 	 * Unknown clock ID ? Fall back to the syscall.
- 	 */
--	return vdso_fallback_gettime(clock, ts);
-+	return clock_gettime_fallback(clock, ts);
- }
- int
- clock_gettime(clockid_t, struct __kernel_old_timespec *)
-@@ -220,7 +173,7 @@ __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
- 		}
- 		return 0;
- 	}
--	return vdso_fallback_gettimeofday(tv, tz);
-+	return gettimeofday_fallback(tv, tz);
- }
- int
- gettimeofday(struct __kernel_old_timeval *, struct timezone *)
+ # Architecture has extra clocksource init called from registration
+ config ARCH_CLOCKSOURCE_INIT
+ 	bool
 
 -- 
 2.51.0
