@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C29CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D022CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 21:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4bAVQ7xzTmIVtjM3UYB4HE6Zzx4t7mj/lid4gyv+JD0=; b=aYDGp4znahR+4MHUSxRtcj1ofL
-	ydmamoVJOavPnrxCzwxQfj1hhVuMt41abuakzSlClSEi1wus7V6p6tnnYP0nSo5FlI8AMQDWBNB5D
-	Igobt3opU3hN/zVts+pYayoDu+Ora0x5txwJ7cRoqX8ZFl4Nh0YujvHE2gU+6dlRd5DjJETZdQwvU
-	5cf1SejPpewCEYjY6vIKoH9aS7IFnYZWXFPw0YYEqqu1TkSTHTL4ERh4Tmq6oRaPZsJZ7dotaMpuA
-	0+yVTwFWb0DXVYsLuVv4U6f5laK+35IFXwcH5KTv6CKgXGmnPzDigbeIvzaZtlkFJn5kiKwhoalHC
-	2OQHXGHA==;
+	bh=dTtS07MfviJyEaY+N9R7ajICJvCSMgvCSOy+KIG93PE=; b=QUQplVMWNqG9B8fCDuJOicE9Sv
+	OOd1lHpPI/LmSIjfwbC5/tOZS2cAcl5c3zn5HXzm0IEGy76SB4e/h5FB3AHebGdwa8hu5GxjxD+hB
+	LR0TXJaSh/JVLQ+VXxSxskLn6LIA2SRoVF+KNa/eUTcBgvS4KAtKTFySkttNAHG7TrgoMTjRWP006
+	6xVFYEfoNrnOvFidMHM72zLKV5skz56KmmOkMgbQM1sWLybgt5sMORGBzdZn3M0ze13irNU6i5JDE
+	V3W9GaT1M5A02q6TEm5BaWZbejLALw+E6pEF89A7aKv+b1+qj3pl8nnd6MqtNHfYYHB/aGIKyg4wj
+	rFlJDeJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzaX-0000000ErTJ-1KSM;
+	id 1uyzaX-0000000ErT2-04cp;
 	Wed, 17 Sep 2025 21:21:17 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyzaQ-0000000ErNM-3meK
+	id 1uyzaP-0000000ErLe-3Fd1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 21:21:12 +0000
+	Wed, 17 Sep 2025 21:21:11 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758144068;
+	t=1758144066;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4bAVQ7xzTmIVtjM3UYB4HE6Zzx4t7mj/lid4gyv+JD0=;
-	b=QfGI0FR0Cl7Pke36kXSYjJP4XZb3avjny91cjvn+WPnNX2Bo0R/2fCpmtMYNI/P3MJPA+q
-	0jTqJHsUTTGeDq69IqN+TFu8VBGKLJZwDwZOBmhHuSj4sfLZsITnI/ObEdNIo1U72xGupa
-	hdY8rgwTG2NEZ8v/JIJ8CsDeFDJB1qs=
+	bh=dTtS07MfviJyEaY+N9R7ajICJvCSMgvCSOy+KIG93PE=;
+	b=VTVEZUYzQHby6xuEAEJVK96hOMdAJF6djJ77NFyt6qrVxpMrgtMVX+RVvC7+wRlc8Twn9Q
+	6/D0qERl19yWqSEhklVuroPArxUrBnJNHoe/qP0jmuNr4OvTciCEJpb7I/AEzMeF6MxHzx
+	GzfUzHMFn1KVxDoP20x0XTCshn0AIt8=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 04/13] KVM: arm64: selftests: Add unsanitised helpers for VGICv3 creation
-Date: Wed, 17 Sep 2025 14:20:34 -0700
-Message-ID: <20250917212044.294760-5-oliver.upton@linux.dev>
+Subject: [PATCH 03/13] KVM: arm64: selftests: Add helper to check for VGICv3 support
+Date: Wed, 17 Sep 2025 14:20:33 -0700
+Message-ID: <20250917212044.294760-4-oliver.upton@linux.dev>
 In-Reply-To: <20250917212044.294760-1-oliver.upton@linux.dev>
 References: <20250917212044.294760-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_142111_099755_2EF93D75 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20250917_142110_003081_7AC573EC 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,104 +78,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vgic_v3_setup() has a good bit of sanity checking internally to ensure
-that vCPUs have actually been created and match the dimensioning of the
-vgic itself. Spin off an unsanitised setup and initialization helper so
-vgic initialization can be wired in around a 'default' VM's vCPU
-creation.
+Introduce a proper predicate for probing VGICv3 by performing a 'test'
+creation of the device on a dummy VM.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- .../selftests/kvm/include/arm64/vgic.h        |  2 +
- tools/testing/selftests/kvm/lib/arm64/vgic.c  | 50 ++++++++++++-------
- 2 files changed, 35 insertions(+), 17 deletions(-)
+ tools/testing/selftests/kvm/arm64/arch_timer.c        |  3 ++-
+ .../selftests/kvm/arm64/arch_timer_edge_cases.c       |  3 ++-
+ tools/testing/selftests/kvm/arm64/vgic_irq.c          |  3 ++-
+ tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c   |  4 ++--
+ .../testing/selftests/kvm/arm64/vpmu_counter_access.c |  3 +--
+ tools/testing/selftests/kvm/include/arm64/vgic.h      |  1 +
+ tools/testing/selftests/kvm/lib/arm64/vgic.c          | 11 +++++++++++
+ 7 files changed, 21 insertions(+), 7 deletions(-)
 
+diff --git a/tools/testing/selftests/kvm/arm64/arch_timer.c b/tools/testing/selftests/kvm/arm64/arch_timer.c
+index eeba1cc87ff8..aaf4285f832a 100644
+--- a/tools/testing/selftests/kvm/arm64/arch_timer.c
++++ b/tools/testing/selftests/kvm/arm64/arch_timer.c
+@@ -184,6 +184,8 @@ struct kvm_vm *test_vm_create(void)
+ 	unsigned int i;
+ 	int nr_vcpus = test_args.nr_vcpus;
+ 
++	TEST_REQUIRE(kvm_supports_vgic_v3());
++
+ 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+ 
+ 	vm_init_descriptor_tables(vm);
+@@ -205,7 +207,6 @@ struct kvm_vm *test_vm_create(void)
+ 
+ 	test_init_timer_irq(vm);
+ 	gic_fd = vgic_v3_setup(vm, nr_vcpus, 64);
+-	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3");
+ 
+ 	/* Make all the test's cmdline args visible to the guest */
+ 	sync_global_to_guest(vm, test_args);
+diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+index ce74d069cb7b..d349d80d8418 100644
+--- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
++++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+@@ -952,7 +952,6 @@ static void test_vm_create(struct kvm_vm **vm, struct kvm_vcpu **vcpu,
+ 
+ 	test_init_timer_irq(*vm, *vcpu);
+ 	gic_fd = vgic_v3_setup(*vm, 1, 64);
+-	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3");
+ 
+ 	sync_global_to_guest(*vm, test_args);
+ 	sync_global_to_guest(*vm, CVAL_MAX);
+@@ -1042,6 +1041,8 @@ int main(int argc, char *argv[])
+ 	/* Tell stdout not to buffer its content */
+ 	setbuf(stdout, NULL);
+ 
++	TEST_REQUIRE(kvm_supports_vgic_v3());
++
+ 	if (!parse_args(argc, argv))
+ 		exit(KSFT_SKIP);
+ 
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+index a09dd423c2d7..9fc9e8e44ecd 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+@@ -752,7 +752,6 @@ static void test_vgic(uint32_t nr_irqs, bool level_sensitive, bool eoi_split)
+ 	vcpu_args_set(vcpu, 1, args_gva);
+ 
+ 	gic_fd = vgic_v3_setup(vm, 1, nr_irqs);
+-	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3, skipping");
+ 
+ 	vm_install_exception_handler(vm, VECTOR_IRQ_CURRENT,
+ 		guest_irq_handlers[args.eoi_split][args.level_sensitive]);
+@@ -802,6 +801,8 @@ int main(int argc, char **argv)
+ 	int opt;
+ 	bool eoi_split = false;
+ 
++	TEST_REQUIRE(kvm_supports_vgic_v3());
++
+ 	while ((opt = getopt(argc, argv, "hn:e:l:")) != -1) {
+ 		switch (opt) {
+ 		case 'n':
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+index fc4fe52fb6f8..cc2b21d374af 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+@@ -215,8 +215,6 @@ static void setup_test_data(void)
+ static void setup_gic(void)
+ {
+ 	gic_fd = vgic_v3_setup(vm, test_data.nr_cpus, 64);
+-	__TEST_REQUIRE(gic_fd >= 0, "Failed to create GICv3");
+-
+ 	its_fd = vgic_its_setup(vm);
+ }
+ 
+@@ -374,6 +372,8 @@ int main(int argc, char **argv)
+ 	u32 nr_threads;
+ 	int c;
+ 
++	TEST_REQUIRE(kvm_supports_vgic_v3());
++
+ 	while ((c = getopt(argc, argv, "hv:d:e:i:")) != -1) {
+ 		switch (c) {
+ 		case 'v':
+diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+index a0c4ab839155..01f61657de45 100644
+--- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
++++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+@@ -436,8 +436,6 @@ static void create_vpmu_vm(void *guest_code)
+ 	vpmu_vm.vcpu = aarch64_vcpu_add(vpmu_vm.vm, 0, &init, guest_code);
+ 	vcpu_init_descriptor_tables(vpmu_vm.vcpu);
+ 	vpmu_vm.gic_fd = vgic_v3_setup(vpmu_vm.vm, 1, 64);
+-	__TEST_REQUIRE(vpmu_vm.gic_fd >= 0,
+-		       "Failed to create vgic-v3, skipping");
+ 
+ 	/* Make sure that PMUv3 support is indicated in the ID register */
+ 	dfr0 = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
+@@ -634,6 +632,7 @@ int main(void)
+ 	uint64_t i, pmcr_n;
+ 
+ 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
++	TEST_REQUIRE(kvm_supports_vgic_v3());
+ 
+ 	pmcr_n = get_pmcr_n_limit();
+ 	for (i = 0; i <= pmcr_n; i++) {
 diff --git a/tools/testing/selftests/kvm/include/arm64/vgic.h b/tools/testing/selftests/kvm/include/arm64/vgic.h
-index b858fa8195b4..688beccc9436 100644
+index c481d0c00a5d..b858fa8195b4 100644
 --- a/tools/testing/selftests/kvm/include/arm64/vgic.h
 +++ b/tools/testing/selftests/kvm/include/arm64/vgic.h
-@@ -17,6 +17,8 @@
+@@ -16,6 +16,7 @@
+ 	((uint64_t)(flags) << 12) | \
  	index)
  
- bool kvm_supports_vgic_v3(void);
-+int __vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
-+void __vgic_v3_init(int fd);
++bool kvm_supports_vgic_v3(void);
  int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
  
  #define VGIC_MAX_RESERVED	1023
 diff --git a/tools/testing/selftests/kvm/lib/arm64/vgic.c b/tools/testing/selftests/kvm/lib/arm64/vgic.c
-index 661744c6532e..d0f7bd0984b8 100644
+index 64e793795563..661744c6532e 100644
 --- a/tools/testing/selftests/kvm/lib/arm64/vgic.c
 +++ b/tools/testing/selftests/kvm/lib/arm64/vgic.c
-@@ -41,24 +41,11 @@ bool kvm_supports_vgic_v3(void)
-  * redistributor regions of the guest. Since it depends on the number of
-  * vCPUs for the VM, it must be called after all the vCPUs have been created.
-  */
--int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
-+int __vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
- {
- 	int gic_fd;
- 	uint64_t attr;
--	struct list_head *iter;
--	unsigned int nr_gic_pages, nr_vcpus_created = 0;
--
--	TEST_ASSERT(nr_vcpus, "Number of vCPUs cannot be empty");
--
--	/*
--	 * Make sure that the caller is infact calling this
--	 * function after all the vCPUs are added.
--	 */
--	list_for_each(iter, &vm->vcpus)
--		nr_vcpus_created++;
--	TEST_ASSERT(nr_vcpus == nr_vcpus_created,
--			"Number of vCPUs requested (%u) doesn't match with the ones created for the VM (%u)",
--			nr_vcpus, nr_vcpus_created);
-+	unsigned int nr_gic_pages;
+@@ -15,6 +15,17 @@
+ #include "gic.h"
+ #include "gic_v3.h"
  
- 	/* Distributor setup */
- 	gic_fd = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
-@@ -81,10 +68,39 @@ int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
- 						KVM_VGIC_V3_REDIST_SIZE * nr_vcpus);
- 	virt_map(vm, GICR_BASE_GPA, GICR_BASE_GPA, nr_gic_pages);
- 
--	kvm_device_attr_set(gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+	return gic_fd;
++bool kvm_supports_vgic_v3(void)
++{
++	struct kvm_vm *vm = vm_create_barebones();
++	int r;
++
++	r = __kvm_test_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
++	kvm_vm_free(vm);
++
++	return !r;
 +}
 +
-+void __vgic_v3_init(int fd)
-+{
-+	kvm_device_attr_set(fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
- 			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+}
- 
--	return gic_fd;
-+int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
-+{
-+	unsigned int nr_vcpus_created = 0;
-+	struct list_head *iter;
-+	int fd;
-+
-+	TEST_ASSERT(nr_vcpus, "Number of vCPUs cannot be empty");
-+
-+	/*
-+	 * Make sure that the caller is infact calling this
-+	 * function after all the vCPUs are added.
-+	 */
-+	list_for_each(iter, &vm->vcpus)
-+		nr_vcpus_created++;
-+	TEST_ASSERT(nr_vcpus == nr_vcpus_created,
-+		    "Number of vCPUs requested (%u) doesn't match with the ones created for the VM (%u)",
-+		    nr_vcpus, nr_vcpus_created);
-+
-+	fd = __vgic_v3_setup(vm, nr_vcpus, nr_irqs);
-+	if (fd < 0)
-+		return fd;
-+
-+	__vgic_v3_init(fd);
-+	return fd;
- }
- 
- /* should only work for level sensitive interrupts */
+ /*
+  * vGIC-v3 default host setup
+  *
 -- 
 2.47.3
 
