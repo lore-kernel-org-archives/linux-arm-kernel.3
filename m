@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A40CAC598
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 727C7CAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 08:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEKtnillVVFfRZ+5u504JAMAMZFI1GIHyIZay2lch2M=; b=WjnnR2+Gf9I6isuKk4/zJVfvLa
-	ZUtBf/oSfMAtoklRnTx31FFreY1HUICdMW9KHKUce6TRH+rPOgClfskiF9oUFP/vOVrG5EawCu5FX
-	y5VHCxlQLxEWdW3DVxmZPYo9qbOBpscszMouGplxe3Gnrs/PHFPEE+IhuRrhPRT8DPWn/4FcB7WhQ
-	r3oF/1q/pg0zAgqRH9wV/Jr+iif7egVpp+e1Mp/RLboKlrrpeSt1oPXzK+Fntq9iThq+H21yyf2rQ
-	Lf0J0DbD3h9O/jxrckrXJypRRJSLbLdHW23S4OnXTchcjxKyBs0ht+uaANpvCvZba9gbahvQjXC12
-	lHqZYl/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=; b=FOthFO1LVZNsrFDWVidNsOReCx
+	DgTKIl8mBocYgI7xu8ZNMq+yroDfFbgf666kcYhBuzOrDxpN7GnG48lG2omxhz/659+m4QzXivsNl
+	5ugbFtdFgGYHUZO/yACDhBhY6OPaCleBlh14v3xfhL7zeNkk2CtyNqOiB3Qa/r/t2gwFDCwUU15JC
+	2ZXBqWEPqKSTt6FUt2HnuRlujyMCViw1jHboXMQe76+R09SXMjtfq7UZ+PwP/lsbSeesQa5OeQ2z7
+	JfYAU5d6wBFQV9makmnFOuy+0ByuXNSVg0/Y2ygFpAdHxF9nuuxA0knmhvJRhV+MHo6zTMXVLlK71
+	J083LK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyn5J-0000000AYoO-2S3g;
-	Wed, 17 Sep 2025 08:00:13 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1uynAf-0000000AZKA-3jYy;
+	Wed, 17 Sep 2025 08:05:45 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyn5F-0000000AYmV-1wiz
+	id 1uynAa-0000000AZHn-3xMj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 08:00:11 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-573855e2afeso4036303e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 01:00:08 -0700 (PDT)
+	Wed, 17 Sep 2025 08:05:42 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b0415e03e25so806832966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 01:05:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758096007; x=1758700807; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UEKtnillVVFfRZ+5u504JAMAMZFI1GIHyIZay2lch2M=;
-        b=wa371OdbikxFSWQoWnby/6Vb2Je0KISq4S7XU3IOSGx46Shbk2r3fy2CdCkfQfUSgC
-         Cc4F7dJiwT+nLKtxmzX+9A4f9YlPoa/5jNZpu3l5C5QfByYycIlZzykQRGa0rxC4ngy+
-         1k9tyBc6ArVBZ4Rk+TzUEeqPwPFUlwm92p42kIpLWrifIFxoYnIrUuZeURmZxWEmbJQg
-         I9Pct7WDiBPHwxU+ntVVlRTnkohcMr22ndUxm3k1u53/AV1jFDVpH/1I5HVA8+CamhNi
-         P5NmsUt+FXS8Lmt6jhobdG+SZrik1iPeqVytt5r5dQzj5Lkr3TwzMIG2nyyuhJqrffaS
-         hSRw==
+        d=amarulasolutions.com; s=google; t=1758096339; x=1758701139; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=;
+        b=H2WBodoq5JnauPaqOTsx8peuoPTgsdTedcmoTyptSq6S5uQIvG88+/O14o4YDu1tYF
+         r/KfPJ/JSZIsn/mlLO92e1Me1kUkm4V4wo38KxqAHiPXIr0FpnWNSRvSkSThwcqh6ORd
+         iR8NHOOh22pUpDbe1fru7ul8MxSpVEYA0s9Hk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758096007; x=1758700807;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UEKtnillVVFfRZ+5u504JAMAMZFI1GIHyIZay2lch2M=;
-        b=naGpiHRG7Bt4YM+UlHnfXe/CEjfu73g4ywCmTF801s9+u+wwAkFnQ6TSe/GpLCQMUc
-         E6EXyvu+dXKPmCfrXY1OpR+DdrGbrCj9/BDhdxpz7q9+QwKwIor+W9uHc2wE8Z2DIiPO
-         4JSVGO2gjIccaY0gqLzW5ORdVKHp0dfAuXp+9xMR/dj560iEaluPZXVb9jwt24WcL2dw
-         UxhirSgoDaB8+ACXI2Pp0eXELrI/O9tJwVI5gC4fQDTsRrEUlKP/2L/n5b3AOmeW0jO1
-         Cd8Hdb9Fb+Bq1V9MZm6Y5TYjhpWuY2RMZxrxNx9MSdh7w/BkTlpb15Id/8312oiQoxAo
-         CMUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWVpy1KYcPziyNxOTeZ5DbyHTj6gtcQf5nxylNsY1AmXznEC3jL2/22Cy8/ckOPev8hR6xpVutyr5tXo0B9unWd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ3dUMDhSgeUuEsUb6q9nMvORtj0wB3/Y1zTTVVUjkwqdWTkBK
-	AS6BESVfjNWN3R8epAjOM7pfX0YCMKFvHhxlY6TGMEPwKfAPsJsIHGXqRHWJemFw7ZX2lKUUfva
-	zcoXMpvxIprR3IWlcJ0aC1TNmk2LGWtNq6uSnn5ulNA==
-X-Gm-Gg: ASbGncvu5IKY8j8OhF8ClxXwZd+otm4t711y+MYOc99Ea1hLiNjtvu03jfGxhRuuXDJ
-	BmHo5ZzmnliaW9Oow6Rp2q6K5YRRti6C/HSR19yhxN7PehPT06vUwG7PU8oiOsh9AbB8Yuo1aOo
-	xVbk3QSJe/z7ZZZ/G92W2vwiX8tlzOApw7W3EsYKX/RvBuStgvMV6rGe6AZt9NUFrKgwh6qEoma
-	WYAiIc=
-X-Google-Smtp-Source: AGHT+IFb7uT1amCYEcbDk/aG1gXDqhuVxynj2vweh0X8HkHwURxRRNA23Yw7fUXf7MR74tQK3DcqqGV4vVXMX6Mmtb8=
-X-Received: by 2002:a05:651c:1503:b0:35e:401e:a8a2 with SMTP id
- 38308e7fff4ca-35f653c888emr3283521fa.39.1758096006643; Wed, 17 Sep 2025
- 01:00:06 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 17 Sep 2025 04:00:03 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 17 Sep 2025 04:00:03 -0400
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-In-Reply-To: <20250917-rda8810pl-drivers-v1-17-9ca9184ca977@mainlining.org>
+        d=1e100.net; s=20230601; t=1758096339; x=1758701139;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=;
+        b=mkO2O4d6N6kOmAI8qwMxDMrgQ44lwX/tV5Q4MOpUipapeV+aVnhGaRZoh190kTdABY
+         zkji5c9t180MH4crnWUw+TW4Xc2kNvu0M9lZhP207KOF8VaNRP4wF64P7GB6TpABYHd/
+         2zaBms+9BNXv5P7l9Xh+I12+Lc1AZhHV37x1HcuSoEkk7GweWrl1BjIDlhgXPlqHSfyN
+         qQdPQXq3wTuRDV/pOQMtoMaYOuh1FUBXIr9Iu1pshxX0l8h3PVE5IXOy+J78xiXZLvBA
+         eD9jeIiHCAnEqXdDA2MZKTR4SYxcUndY4gA05RsRyWAgpN5qtOFmtD89hSMd8uC3wGzY
+         RsKw==
+X-Forwarded-Encrypted: i=1; AJvYcCVBwdm5GeI5hUhmSAS6SJoOwfOLbFfuCsAT8BN5Fjl3obQsLNd+865Kx+CNkpyatyLA17ZglOtL157Y3UGuJqY7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwT/OE7rVHokfaw6X+CefEIFXoHd7YE36N0pX7HKDY7Xo6kK4I2
+	wdrs8gG2OTnbsweUqgWaBoNQsyC73GqzdAJkC6qtF+3imEcy8r+w1EYlFp2QxDft5fw=
+X-Gm-Gg: ASbGncvDEpjUda7vktIChB2QHEvSW5Z7xylmLQEYIegoAQspQDuYYDDA/7GeslZyNXz
+	ii8RG01kSVWQpSMZAoGTUQv9CBEab8pZgJCrT/VUSycU1anz6e7evs6ebqEAC/UWkpL+iKZ7Q3Q
+	5mKwrnhqJrOpKdJ2PH1fp2XZFyWpJqTVmQ7hB1Dg4pXUrZCxEONDLwOFdLI2YqdgmoQM1YdN+8a
+	g56cszjDUFFcE3DHYpDBZoiuSzF3duCQvEy3f1YeGNT5zqT5vant3OE9BXG9IJvOH3gCAZm5Pal
+	udqjf0nGhCD9uJ/u95qmCcKpI+UZrZBE4heAXbsu6kY3uUE2c3hAfiqUY56hhI7abKPDvoQu/eQ
+	lsQOXuzwuHvFumrPcBHaHWc0iHCyxmwsDWvbyYy3Wj8ceST8hn0h489m2Db4=
+X-Google-Smtp-Source: AGHT+IHQZ9rc3jl/nR/PWKeSWOjOjcRVyHb+GabJ2P0Cvoe8YSOsLplNCUEtCcN7qWi0RlLMh58DoQ==
+X-Received: by 2002:a17:907:97ce:b0:b0a:aa7e:a193 with SMTP id a640c23a62f3a-b1bb559965emr139686566b.21.1758096339059;
+        Wed, 17 Sep 2025 01:05:39 -0700 (PDT)
+Received: from localhost.localdomain ([2001:b07:6474:ebbf:1215:4a13:8ee5:da2a])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b07e1aed5ffsm924936766b.81.2025.09.17.01.05.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 01:05:38 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Frank Li <Frank.Li@nxp.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: [PATCH v4 1/6] Input: imx6ul_tsc - fix typo in register name
+Date: Wed, 17 Sep 2025 10:05:06 +0200
+Message-ID: <20250917080534.1772202-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250917080534.1772202-1-dario.binacchi@amarulasolutions.com>
+References: <20250917080534.1772202-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-References: <20250917-rda8810pl-drivers-v1-0-9ca9184ca977@mainlining.org> <20250917-rda8810pl-drivers-v1-17-9ca9184ca977@mainlining.org>
-Date: Wed, 17 Sep 2025 04:00:03 -0400
-X-Gm-Features: AS18NWCZjow2-dnpLe_oaxtKdrNMg3nTySj8u9HPhpYEQB-s6-z3-oDqLWpwlyY
-Message-ID: <CAMRc=MeHQf_Oa2DRR0T7tum-Tuk3qPh5r5gimxGY3EXTyvoKZQ@mail.gmail.com>
-Subject: Re: [PATCH 17/25] drivers: gpio: rda: Make direction register unreadable
-To: dang.huynh@mainlining.org
-Cc: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dmaengine@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_010009_765702_00A60086 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250917_010540_992749_B5E683AC 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Sep 2025 22:25:14 +0200, Dang Huynh via B4 Relay
-<devnull+dang.huynh.mainlining.org@kernel.org> said:
-> From: Dang Huynh <dang.huynh@mainlining.org>
->
-> The register doesn't like to be read, this causes the SD Card
-> Card Detect GPIO to misbehaves in the OS.
->
+From: Michael Trimarchi <michael@amarulasolutions.com>
 
-Hi!
+Replace 'SETING' with 'SETTING'.
 
-Sorry but this message is unintelligible, please say precisely what is going
-on and why you need this and why it won't break existing users.
+Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Also: the title should be "gpio: rda: ...".
+---
 
-Bartosz
+(no changes since v2)
 
-> Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
-> ---
->  drivers/gpio/gpio-rda.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/gpio/gpio-rda.c b/drivers/gpio/gpio-rda.c
-> index b4db8553a2371ae407fdb7e681d0f82c4d9f74b7..56aaa9f33d29469dfb1bf86ed7b63c54b413c89c 100644
-> --- a/drivers/gpio/gpio-rda.c
-> +++ b/drivers/gpio/gpio-rda.c
-> @@ -245,7 +245,7 @@ static int rda_gpio_probe(struct platform_device *pdev)
->  		.clr = rda_gpio->base + RDA_GPIO_CLR,
->  		.dirout = rda_gpio->base + RDA_GPIO_OEN_SET_OUT,
->  		.dirin = rda_gpio->base + RDA_GPIO_OEN_SET_IN,
-> -		.flags = BGPIOF_READ_OUTPUT_REG_SET,
-> +		.flags = BGPIOF_READ_OUTPUT_REG_SET | BGPIOF_UNREADABLE_REG_DIR,
->  	};
->
->  	ret = gpio_generic_chip_init(&rda_gpio->chip, &config);
->
-> --
-> 2.51.0
->
->
->
+Changes in v2:
+- Add Reviewed-by tag of Frank Li.
+
+ drivers/input/touchscreen/imx6ul_tsc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
+index 6ac8fa84ed9f..c2c6e50efc54 100644
+--- a/drivers/input/touchscreen/imx6ul_tsc.c
++++ b/drivers/input/touchscreen/imx6ul_tsc.c
+@@ -55,7 +55,7 @@
+ #define ADC_TIMEOUT		msecs_to_jiffies(100)
+ 
+ /* TSC registers */
+-#define REG_TSC_BASIC_SETING	0x00
++#define REG_TSC_BASIC_SETTING	0x00
+ #define REG_TSC_PRE_CHARGE_TIME	0x10
+ #define REG_TSC_FLOW_CONTROL	0x20
+ #define REG_TSC_MEASURE_VALUE	0x30
+@@ -192,7 +192,7 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
+ 
+ 	basic_setting |= tsc->measure_delay_time << 8;
+ 	basic_setting |= DETECT_4_WIRE_MODE | AUTO_MEASURE;
+-	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETING);
++	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
+ 
+ 	writel(DE_GLITCH_2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
+ 
+-- 
+2.43.0
+
 
