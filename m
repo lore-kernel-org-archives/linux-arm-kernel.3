@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8630DCAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B45DCAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 16:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shQgo9HHRHtH1h5GrGkKJdxTrGZYUrn2Ymw4436jAn0=; b=oJWHUsc9C/zqceo3tPLBVC2e4z
-	jEBj2AOUrS9cs3yquXcaxP4rD0LHDtzfc9IcPQfLBCO3X7m1Zfcujdz69kipd6GdmKv4ilco8yoZv
-	gxRKUyPX5m9qUE56fAfiZ50oZW2KkHakAipZvbXTEtefNtB/4k7gtG1erej+nmoskNqsBBNNjhhV5
-	rnVcs2NuE6n3CFU1PzZn+DKsqY9O4uN2DQyXjZmj1/XpsI5Yr3/4HOR7vl1wQkP7AqQU1/wNZJV/c
-	UUDtyCQ+/wCWKzGCiNXookyRR5tM74wNqF6SgZSl0/r1/5VH5W/fns5JL77Mjp3QFCtz/0h4HWPaD
-	z1EPvFVA==;
+	bh=85bFuLCn2vDZp+RY4gcZa8Pm3XyrPemyQSpeZexw5jk=; b=caBIL+OcNzwRV6r/MQO/ch0BdC
+	0I+sSazkYtTd9pSS4sRPxb4H86AeUMLbTwOaa6BYKZmBweEUYgkoCrfMfIzZUM8q1BCDK5SUmn166
+	PVP4yohXt1MsKipQDwLtI2IGlj2tjA6fDOqIceLGHP8GDlM/4dAU2kVXG+FyKVN/cQP0TW7p5fzRO
+	WZnqlwgStTHIgajANSzQM5zk5YkFkGvbxAsMVEkNWmjPZDMyFnKRf7ySxze6HFp4n0FP7NDMRBfdC
+	7BhiLauG32yiw7b+BDZIrHwP81OyYv/4UYhZnwAbk7OIa3AijRdz4MBr/JDx+hwc2ovWYDEDkvUpv
+	CJRZ4ZcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvEj-0000000DGpt-2gIt;
-	Wed, 17 Sep 2025 16:42:29 +0000
+	id 1uyvF1-0000000DH3P-3yWp;
+	Wed, 17 Sep 2025 16:42:47 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyvEj-0000000DGp1-05Ic
+	id 1uyvF1-0000000DH2e-0maY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 16:42:29 +0000
+	Wed, 17 Sep 2025 16:42:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 337C660239;
-	Wed, 17 Sep 2025 16:42:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF2B3C4CEE7;
-	Wed, 17 Sep 2025 16:42:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9AFF46023C;
+	Wed, 17 Sep 2025 16:42:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A6CDC4CEF7;
+	Wed, 17 Sep 2025 16:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758127347;
-	bh=sDmYzAVvLUWz02x4KttZh7bEAnkvy0jlE24JN3RphD8=;
+	s=k20201202; t=1758127366;
+	bh=tay0VhD5lvvE7TcAMrCNkB2WpeKqaK2m2wjO/aE1OjE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Twr6BXe3WCu6jxGVx+sQE0MdQCydPBXeCkRNwPm12DNUXpQgMsaGRxeN242HdBfgs
-	 g5Fc7Zeg1VQtAVbgNwwk2772RbCSoxsfZZdbZFfOPACoyNPdH7A8Ysfmy1eADzPC/w
-	 LwJ8UEs0ozzRt3lK/0HWqqBWc3iVQ26KVHDKMjHpYuq7rwt29UP0OkpV7xHhfWExA7
-	 qxSRIGuo0PYJovFKeV0vwa6+xkUUwMEcXpXZsRfrpvqmu7QZ8TT3XGM0kizlwsL5Vq
-	 HmvvP6BqSZryj+7MnGKRW8OJmcZTvVb/820BXM4US5UL5uF/Tj1TI2A/2/X+gkN3ft
-	 4Z117DwucYWoQ==
+	b=SZIppzzo5MayZHJzCDBrDeGZAynhLZrzT9TdP++eP+kmmGfq1Fh0e/vQDB/VC0RbM
+	 56S8ixPzlHyVP2bx6nkepRRH0uBKXlQxp1zCaDxAwM+hFrBEoLvWloyU6XAPA4KSuB
+	 29C3GobBbcreJUu4vv/a3X5QstEs8jZPkYWiXy9uRESye2KWSo+OM8VAoAvHUhNrRS
+	 C7LLbPDJmSgAzdh/8nByaKulfqoQh9x5R7n4d+DZ7L/mTY852YozrfyzUdNO+9k3Uq
+	 BG/ALmSw/XDr5Vue9OhoYmdUopZwRH/8QAgUlP2swV7A+dQo7CBQqKBjkbRAGDR6Xh
+	 CLMLLRMUb/iMw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1uyvEf-00000007ACT-1qGd;
-	Wed, 17 Sep 2025 16:42:25 +0000
+	id 1uyvEy-00000007ACn-0rbQ;
+	Wed, 17 Sep 2025 16:42:44 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: nd <nd@arm.com>,
-	oliver.upton@linux.dev,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	yuzenghui@huawei.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	lpieralisi@kernel.org,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 0/5] KVM: arm64: GICv5 legacy (GCIE_LEGACY) NV enablement and cleanup
-Date: Wed, 17 Sep 2025 17:42:21 +0100
-Message-Id: <175812733344.1632579.17001899303582807634.b4-ty@kernel.org>
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Fix kvm_vcpu_{set,is}_be() to deal with EL2 state
+Date: Wed, 17 Sep 2025 17:42:32 +0100
+Message-Id: <175812735031.1632717.2582315143939738044.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250828105925.3865158-1-sascha.bischoff@arm.com>
-References: <20250828105925.3865158-1-sascha.bischoff@arm.com>
+In-Reply-To: <20250916161103.1040727-1-maz@kernel.org>
+References: <20250916161103.1040727-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, Sascha.Bischoff@arm.com, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, tglx@linutronix.de, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,32 +83,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025 10:59:41 +0000, Sascha Bischoff wrote:
-> This series enables nested virtualization for GICv3-based VMs on GICv5
-> hosts (w/ FEAT_GCIE_LEGACY) in KVM/arm64. In addition, it adds a CPU
-> capability to track support for FEAT_GCIE_LEGACY across all CPUs.
+On Tue, 16 Sep 2025 17:11:03 +0100, Marc Zyngier wrote:
+> Nobody really cares about BE, but KVM currently only deals with
+> SCTLR_EL1 when evaluating or setting the endianness in PSCI,
+> meaning that we evaluate whatever the L2 state has been at some point.
 > 
-> The series fixes ICC_SRE_EL2 access handling for GICv5 hosts (to match
-> the updated bet1+ specification [1]), and extends nested
-> virtualization support to vGICv3 guests running on compatible GICv5
-> systems. With these changes, it becomes possible to run with
-> kvm-arm.mode=nested, and these changes have been tested with three
-> levels of nesting on simulated hardware (Arm FVP).
+> Teach these primitives about SCTLR_EL2, and forget about BE...
+> 
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/5] KVM: arm64: Allow ICC_SRE_EL2 accesses on a GICv5 host
-      (no commit info)
-[2/5] KVM: arm64: Enable nested for GICv5 host with FEAT_GCIE_LEGACY
-      commit: d5a012af348d4d84287267547eb8637b937545af
-[3/5] arm64: cpucaps: Add GICv5 Legacy vCPU interface (GCIE_LEGACY) capability
-      commit: 7847f51189343b29a24ca7edafb60a9032d5acf8
-[4/5] KVM: arm64: Use ARM64_HAS_GICV5_LEGACY for GICv5 probing
-      commit: 754e43b09561f59dd04e0b8aafe4f5c9a71a4d1f
-[5/5] irqchip/gic-v5: Drop has_gcie_v3_compat from gic_kvm_info
-      commit: 5c5db9efe323dd0b0d7917dbe5b9c0999c95e79e
+[1/1] KVM: arm64: Fix kvm_vcpu_{set,is}_be() to deal with EL2 state
+      commit: 6515c612e79949b17ef4b8c4180c07bbeaf01e4d
 
 Cheers,
 
