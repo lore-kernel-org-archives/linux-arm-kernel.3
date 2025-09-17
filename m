@@ -4,78 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60713CAC599
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FACCAC599
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 14:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MbS5VM8JWBvxciJaUjLtcORna4KntSfvz669tBLnIuo=; b=zn9kS4s+hzY7kJcXsVZF4gDBrQ
-	dTARChKbhQpX4snV3RUGSmkYPVV4zbgmF4z5kIMDlp+iDyG5OhiQq2iho8mh4upqKBZG6KL3C/oiw
-	/DemAv8AfWteE3Jsc7s2gPuW/1Ta8WTYBNnnViVeEvmWKOGuPIzwfBfz6OSH6j4wsGmqnV+FxPptl
-	lAd3LeHvWDLd/tdGsZNDztPGKuLHq6J5OhHVHyuMgnRscP2BSp8zsb/Ay3+0Kbz8Yu7JCwmLpP0dC
-	FgRhC0/8wh/Opfc3BIp0wy45uJ2o4sMf6P4klNvOFwu3l3yndj+5A9E27XvXy+pcpqOvt4oEX3Spt
-	x7gAq00Q==;
+	bh=DVzTBm/tI9gVEFvDmpDxe/dtE35WzaS9lWXlcTQESCU=; b=vlJ2qpb1Y5gp5gvzukz4DYMfp/
+	6w7VLPsKqT92bzXkFWoBV2hzar9YuYC9xJ9fhmyNSZ74zgY64SlTu5JUZhE5sYJ7AcUEEtxUrjLI8
+	z4Kkuk3sG3baOwwMqv+23pWyKWW7jrxUszVcQOp6Ik04eohEvWHXO7oQSFrBTFNE6cYmOGjlALgaB
+	mdegrb17N5Po/9JroDMD8j+EqFYLh2b3SdX0sIGj6TSqS472K6Cl46xfdSI+nfnLcr5QKmfubQDsr
+	9EwQoPerxuMHJnnksuqfZ0SdVvXkE2XEVt5tvx0mLew/GytJA//g58a+TixhrnqW6uIREBIbddlZ3
+	dPF2KrYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyslV-0000000C0EG-1eET;
-	Wed, 17 Sep 2025 14:04:09 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1uysp0-0000000C39w-2A4n;
+	Wed, 17 Sep 2025 14:07:46 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uysk0-0000000BxyB-2N2u
+	id 1uysoy-0000000C36Y-2ZEH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 14:02:38 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b04827ca035so792146366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 07:02:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758117753; x=1758722553; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MbS5VM8JWBvxciJaUjLtcORna4KntSfvz669tBLnIuo=;
-        b=nA4LX87wGX7JkQan9PRsB7Y53Bia3HOFsdujYDZELd11lapY39aadKKt3Vk3SpoETq
-         /en1qSpauZNf6kxwlTxMpfuYqFziRi6jfsejExjS20vwglatBQaoeu9RtgKHOy0qVi6z
-         GSaJqIA9xrw3h0BtLSP8Ff7N17d1+eGF/xhoOrX++FC66BFDXW7aSCk24dy3WuTI/Mmi
-         7t3i8f1eW5u9HfQYng6io2PdPb6sNMnuO8PxJXfGg2ZN4bUjElWz0LMh7WHipGs4+/M+
-         CIvvRvT9zYeM0zV+wgerx+bttVHTfjGYREnlKQWEBbdh6NS0CKOEA+9kVtinppJx5lmf
-         eRaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758117753; x=1758722553;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MbS5VM8JWBvxciJaUjLtcORna4KntSfvz669tBLnIuo=;
-        b=hXSVsU+8zLH/h+lczr6DyVnYXZ5w4XYFg73QemXYk64EuMt3BtmSTJoKzV9aB14vUR
-         tRnFrJu5vnG/b8I0Qwup4p5p0JvZavhoxqnN2SVuD/hwxg2x8HB5EKA60Vl32tf7mEu+
-         FsNQhUFrWRnyCrHlIBJCucR2tYS5108i1rN6x9VDq5IURyK92b22qk+6NP3Ph4c7er1p
-         8lPNKSErfCCa9YRixLdlFSj2K/39aF5ZTSmcst4fAVHGIUwYwmd1EYPofZayOaUBrcLb
-         J1X5sqxf0rGfHwqyXUqffsicKX5levMBMUKaDNE5f3g4lEktMPFLvGB9eeMrgYo+Ze4q
-         6JgA==
-X-Forwarded-Encrypted: i=1; AJvYcCVMF/jclqdLyG2F9y7jdYI0a2zo1dZiG6J0mtJVn2xG5yWBkLehY5AzWewXNcXEsYDTvtcoQ/lAlGRPoHg2FW0Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWlZUegtRUSZg58eQgNwRrOwWx0u2QhxNETgGSG6xw+5jS48fr
-	3LhSb7OHXkGDtRX/YbqeUJlM5jPM9pEAIPOclu+57eR7M2GyGcRtvfbotiNyJ4kaG2DUbhRyyj8
-	v5KgFwIekIvSGJA==
-X-Google-Smtp-Source: AGHT+IE3jLGXIoEmh8JZSWjISt/98EKsWlH7hx945hGGOLLiBVFnNJMHLIN27ohSmsi4BE4MwPLjrgToCtD6zg==
-X-Received: from edben16.prod.google.com ([2002:a05:6402:5290:b0:62f:464a:b98b])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:3f0a:b0:b0c:6cae:51e3 with SMTP id a640c23a62f3a-b1bb8ca5382mr283095066b.35.1758117752675;
- Wed, 17 Sep 2025 07:02:32 -0700 (PDT)
-Date: Wed, 17 Sep 2025 14:02:03 +0000
-In-Reply-To: <20250917140216.2199055-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20250917140216.2199055-1-smostafa@google.com>
-X-Mailer: git-send-email 2.51.0.384.g4c02a37b29-goog
-Message-ID: <20250917140216.2199055-3-smostafa@google.com>
-Subject: [PATCH 2/2] iommu/io-pgtable-arm-selftest: Use KUnit
-From: Mostafa Saleh <smostafa@google.com>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
-	praan@google.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 17 Sep 2025 14:07:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mj0dnr9QdM49CDAyS9ARItjkOp4+lunlkQhkQ9LBRqAW8brZtNtZnStN9QUPIo2/wQYlco41IVjaXAVpnqIj34Vm88ckrKWBaaNjTF7CR+tjKeB1rduZXtoC5W6eiYucTvL6OBGYY1BKce7GkOhfVcShhALChDKAtFCapMbUDQrbdlK1i3mIg7Hr1mCTkhfLBERSckFbicDznYDafU4NsmJB9XHEVvdMRl71hVOB22OZZ7s9Lt/w7g117R3ZBG6ndjDxZpGvqQSu2Wr/u9VuRQouFNtJigVe+haedvM2OBblBblBMc1K8eWztrT2bHUdUdJnDgwgBKw2oDcnMtqQIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DVzTBm/tI9gVEFvDmpDxe/dtE35WzaS9lWXlcTQESCU=;
+ b=k2rAJwiMrdLS2tbzZ4UWUmO081NDCD+cQKvXDzyD5m53zwlpwEu5chrfgC7Ji+xTInu802N1xVUTBmg2M9H5H+CB7MOBGUUYbO1V9RyZuWj9Q5G2oQVjCIP/KZdkyErXJcEDnO4o3Nc2aSS6yPYclHw5KJCWjNJyTEZXv/3ujpdftY7HebMPcGUO4RlJrrE2S6uzzyIvAdPHKOROvrdKFkN3Jt2hWrs8vmh/88rc0op5xZkLKQpmDM0dV933XySaLRJzg712RSMAvgu58S5dRJpvtPEFkjSwj4zRFcJPNY3myMVY0eKJyID/5CaZX03DBcJTmHjSyJVLQEVUA+T+Hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DVzTBm/tI9gVEFvDmpDxe/dtE35WzaS9lWXlcTQESCU=;
+ b=fWVXhKSjma8DIDu8AgpUH1OLtV8M30YNv0p9Ve09r0g/QxR8e3BhOPkmSibfL6umb1Jxl8+KRYOLf1ViIcDM9KlNLTiMmBCxV6ZkcrXfvVKZ9zaMx5yOlpG9Ebw6rKqf5QPj+RzjM71HBnazTY/8CwFBpPqVI5iADe1MEalJ4z0cHhQqJ+zvth4qNvh7Xbx8P/YZ5IvGf92pf5uKP1KXd6TH81+X9QCwQ6sFswu2mYjqwcfgZ7uy8JEe6RRrUOgmz/j4CRjK89lrZDTHw+U80cE8pIk4pBqw5EhNVvwn1kBDV2kDv504GJCnpFdBKSMe0cTtYpYkwuenRVS5jYorUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV1PR04MB10656.eurprd04.prod.outlook.com (2603:10a6:150:20e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.12; Wed, 17 Sep
+ 2025 14:07:37 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Wed, 17 Sep 2025
+ 14:07:37 +0000
+Date: Wed, 17 Sep 2025 23:19:15 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Harini T <harini.t@amd.com>
+Cc: jassisinghbrar@gmail.com, michal.simek@amd.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	git@amd.com
+Subject: Re: [PATCH 1/3] mailbox: zynqmp-ipi: Remove redundant
+ mbox_controller_unregister() call
+Message-ID: <20250917151915.GC28673@nxa18884-linux.ap.freescale.net>
+References: <20250822045732.1068103-1-harini.t@amd.com>
+ <20250822045732.1068103-2-harini.t@amd.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822045732.1068103-2-harini.t@amd.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2P153CA0035.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::14) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10656:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8b45885-861f-45d3-220e-08ddf5f38e65
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|19092799006|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NkPV8ZZkuEKg4DzQN3yDW3fxFH45x2XIC/pw2HUk+kUR6/gcOhcW9/i8nRW+?=
+ =?us-ascii?Q?Jt0i8QZW8I4EqpS56H7TOkNfYCPddVRNkuMQRimxAdu/C4CrNqmgvhSPWzJ9?=
+ =?us-ascii?Q?mrsnEmoEQ5O0AEdT8eTBhsVmWMfMoH5RvZ7J6gAqQCwk8iUHIjvM9zfyCgZX?=
+ =?us-ascii?Q?mS1TwvVbu+6bmv+vawzlZPF7WRg70B7XUgvB0dE4Dn6HO2TdGmFSQKKmrcmz?=
+ =?us-ascii?Q?3MZGyP9zN25urpAOfvLTrYV0ikR3jsO8SZxwGKM4/QCHXe4QoRvpOToic9ye?=
+ =?us-ascii?Q?FBK7QKcbY2ik6/d9IVGj55DBIv6OEztQVwv7f8i2jUlUo2AprLfCfrBq6exQ?=
+ =?us-ascii?Q?6swX94W3UZgwznYrCptfGjXZhxwDNR+g2OiSMYUohUP6D6lpNT07zs+aS61u?=
+ =?us-ascii?Q?mdauU16Ty2sxwLgVhzrcuniJ1ilS06S8vT16AFbrQasq6Vv+E/NMLOIykyP+?=
+ =?us-ascii?Q?kqXLBMzAXjXIY+vmoz5RcKJRRhFIj9XcZOcqNq5XGK0ptBJvyZXii699XIfl?=
+ =?us-ascii?Q?r79KBuoriEqqQURnbX2LXuSzw9MCKq+2aC5G8v6vb3CZktFy/fj6bC2i+Lge?=
+ =?us-ascii?Q?JnrgWZU89q1q3HLBY+QQkE4XX1tkQhPlbepMUXHkLpzEeOpznOOdGXhkdHX/?=
+ =?us-ascii?Q?KMB5EX61HZ30xNfSyhyNDDkUrzswLrYCGn/Wsm3AF/NA8I4tBKhBkCO1FkfW?=
+ =?us-ascii?Q?MdLgfS+2MxHa0GH6RQLtB+FhBePzu/VYTm6teeITkOOXKq1ckNHqjwDSzU+h?=
+ =?us-ascii?Q?gP0FlJvSKi1sXRueCOKKkx6w4Mm+AuDcStYojPJhiMovPgj7qabhqX8N8pky?=
+ =?us-ascii?Q?5Rg3rcBt9rkaiaQgnp4SK0qs/+/QQUikTBS4smj+blRsjqTFxodImaoHb9Ro?=
+ =?us-ascii?Q?u0ueeH4nRb5Tik59e+BYK1EFPoW3h5xkTLzY9TtmAjckyTec2CtW38m9SLvR?=
+ =?us-ascii?Q?2ZA2EckgtyyqYz7SZt+/dSP5xO+ZagUivrzzIlr5ofOUIjcz47AhUmQDsDfQ?=
+ =?us-ascii?Q?R7ZGGaNprANYO7HyeOVubws1nAAhxAI0zNE97t7JktokX0GTANuXu3iFQeLD?=
+ =?us-ascii?Q?1DeuAhKYkv7/M9RgXuYNei7aSyoZMSKa/0F9aZ/4NTuWLNFXOBgWXLOM8E7e?=
+ =?us-ascii?Q?T0H6Z2gtPdJSZqKCliFTdaXGb8s0Co3lI4GBPRCXwtCBnWXPc5Usmao2riKe?=
+ =?us-ascii?Q?9vBdTifS7kWVB9dWM1dmrgw0Ijln6CC779kR1fhtCkuJSxqUf8QwCUQyRrNn?=
+ =?us-ascii?Q?Bt/NM4qh/23cjxykWKItpO5yyMTYNcM7aNb2vgxywzS6kjw5+wKkZ+YVu3WI?=
+ =?us-ascii?Q?zlH5RZS7YHs5pIaL9unAHCyKidrf1aKcnL+ox/2GOBjyfv8z39FVrNs+czeR?=
+ =?us-ascii?Q?QtPagM6LcPRV+gJbQup64+f7Sycj9p/0jtGGkeHmUiTdRNyUN1H1/sDznhyR?=
+ =?us-ascii?Q?Qs+CK3pUrWE594+LUSqgNevN5wSUlp2/Dps3EHAH52o75mV/09Jn2Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(19092799006)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?G49Zj6ZXHxCpa0NDjWa/sGMelwMNmFZ0911R825tXWw3d4t+hoHQ+5a5ZKeH?=
+ =?us-ascii?Q?Af4v3zjJT0q6fMc5dE0Zj4BNzfSk+5UtkJNQ+FjtHeZTZttIqFoQ8ECDUGBK?=
+ =?us-ascii?Q?Me0EnVtaL2bIyDKZqn8h6AGG4aGQrTJ3lCSLfHKBAcVcgUE3n2uYunGbbVrG?=
+ =?us-ascii?Q?AFveXUgf4m0enEvblpbKwgVkQ8V9OEJYBF1SKVlDocHNVsQ0pk1UKMHHNHoC?=
+ =?us-ascii?Q?3EuUHTHTNmFzWo2RoMEEW+YWZ6jF2K2803mLgHSm7T70QbWVE09V2/bYcYFw?=
+ =?us-ascii?Q?XPNCU8sgZfYI4z7JsH+p1Mrlo3MaJ0eLUGPIHClFuE02jeahP14T2nhnKFdA?=
+ =?us-ascii?Q?wndJz9NSP4Xi2rU8vYgzoCu7HWnMC/6DBr6Uc8mpVpFs9mwfdeVmmD5Z8H9V?=
+ =?us-ascii?Q?Y1D5p/ssBNyZohrHKrVeqEQ7Vsc/ZbB/hgEL8cuV3jR7nfJ4/aJqxOKje6N2?=
+ =?us-ascii?Q?lYg3iPzsoHKB8Wcz7IornjKRgizX2WAI4pJULbt7x697/mwCa51ViCuk+U8t?=
+ =?us-ascii?Q?651jM899q2WORggxGLlpbpwxsngndtl/GEC62bOX4++BDujjESa8OU2evVXZ?=
+ =?us-ascii?Q?C6O2GoI5C3d8Tt/QcMbSU1FIFrydlkxoKhA2WpO5HyXRObpn5c/ySRuvOLmO?=
+ =?us-ascii?Q?CYGzGmKkI1+WplvqMAntzqJvZHRCTEpEms0+WOJ/kWkQldh2vaBX65nLnoQt?=
+ =?us-ascii?Q?Yhntnrfg6Ci2OSryzznqhg5ZtBKEuR8kLAgEblwOitncSqoPpGNCEfbHarNJ?=
+ =?us-ascii?Q?1sTMRglOWSTevPenjUoPQHW45Uj48MkYWNVC/jD51lDp/mHMaqBB+cY9NwJN?=
+ =?us-ascii?Q?fhtlNgvhXEeDcxOaldIscdsus0QbRnbsFWQmAPY5L//X5v5iQrPUYAXNz2Bg?=
+ =?us-ascii?Q?pScLzHh/xCBvsJ6HbkHw9pE4r1Dxt66exB7MRMN6c2lUe1pzx5mUuGL6tM/E?=
+ =?us-ascii?Q?IPJhZYCrLLts9X0tBLbHNjBxVV3ZKueinetJgDuNAGmtIkfHz9r0FpTn543/?=
+ =?us-ascii?Q?BS+od9fcIz5EhO4AVM2RTowsO5kC4aMT9KeP6FRL5z+O/j+F+/Us7TsOtivb?=
+ =?us-ascii?Q?6j+s6PMBrFqV7PdSNO4RMe6LaxF/rXBLdjgfHzUadcDCiQDwxBr6xKlJdWhU?=
+ =?us-ascii?Q?8DsOQ8y9ALfYmuPwPg+6T7rucx0rU/8/8LxLNzDRvdXdjJkYPiW3v/CF0hj4?=
+ =?us-ascii?Q?Kl2QtbsbachrM74OagB0ETsUDS0oRBnoQE0AVT4v41+7kRb7n31FRAzVrFDE?=
+ =?us-ascii?Q?XhPTsYskOpG7TM99P5H2q71j/37qbESzcA1v9CiW5hFxVkdEU/BroLgKsYiC?=
+ =?us-ascii?Q?fEXg+DHr/Bj5c2SfZsEdVrGj5TzBLP4T860pFRVbPM2BC/3qGwx0RBHtt5ZU?=
+ =?us-ascii?Q?5mOMJ9e+KqrZF/6BpQs+97jGNwllgUm39XeNotNheP87bc9lNNih2D7bvOoL?=
+ =?us-ascii?Q?Vd09TbUZrFb5h6bizKqwmeLPMGzKp9Spanj/7bNhQAp0PLCknwVaXgE2ZX4g?=
+ =?us-ascii?Q?XhhyErQ7CdmDob37wGSWU/IZIFLypnZMziu6y78gJX4sTBta67wwc1E6dy17?=
+ =?us-ascii?Q?W2qAKvfCod03vABKH/BBndJ75qdVuLknbGJh7Fea?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8b45885-861f-45d3-220e-08ddf5f38e65
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Sep 2025 14:07:37.4526
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NjMKT9X+SBJLAILWfbmwq5a63lOzi/6J6sAfmiVS8b6P7ZXOC/Ywi/r61aAse5bfy8X/OvgS+V33kazWQ23PZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_070236_676626_5604B864 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20250917_070744_652642_0B5AF735 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,235 +162,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Integrate the selftests as part of kunit, this makes the results of
-the test available through debugfs later.
+On Fri, Aug 22, 2025 at 10:27:30AM +0530, Harini T wrote:
+>Remove redundant mbox_controller_unregister() call as
+>device_unregister() handles controller cleanup.
+>
 
-Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/Kconfig                    |  2 +-
- drivers/iommu/io-pgtable-arm-selftests.c | 90 ++++++++++++++----------
- 2 files changed, 52 insertions(+), 40 deletions(-)
+Should Fixes tag be added here?
 
-diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index 70d29b14d851..52c2fcb0e77f 100644
---- a/drivers/iommu/Kconfig
-+++ b/drivers/iommu/Kconfig
-@@ -42,7 +42,7 @@ config IOMMU_IO_PGTABLE_LPAE
- 
- config IOMMU_IO_PGTABLE_LPAE_SELFTEST
- 	bool "LPAE selftests"
--	depends on IOMMU_IO_PGTABLE_LPAE
-+	depends on IOMMU_IO_PGTABLE_LPAE && KUNIT=y
- 	help
- 	  Enable self-tests for LPAE page table allocator. This performs
- 	  a series of page-table consistency checks during boot.
-diff --git a/drivers/iommu/io-pgtable-arm-selftests.c b/drivers/iommu/io-pgtable-arm-selftests.c
-index f7746ff2c7a0..3775936d07c7 100644
---- a/drivers/iommu/io-pgtable-arm-selftests.c
-+++ b/drivers/iommu/io-pgtable-arm-selftests.c
-@@ -6,6 +6,8 @@
-  *
-  * Author: Will Deacon <will.deacon@arm.com>
-  */
-+#include <kunit/device.h>
-+#include <kunit/test.h>
- #include <linux/device/faux.h>
- #include <linux/kernel.h>
- #include <linux/slab.h>
-@@ -39,25 +41,26 @@ static const struct iommu_flush_ops dummy_tlb_ops __initconst = {
- 	.tlb_add_page	= dummy_tlb_add_page,
- };
- 
--static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
-+static void __init arm_lpae_dump_ops(struct kunit *test, struct io_pgtable_ops *ops)
- {
- 	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
- 	struct io_pgtable_cfg *cfg = &data->iop.cfg;
- 
--	pr_err("cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
--		cfg->pgsize_bitmap, cfg->ias);
--	pr_err("data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
--		ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
--		ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
-+	kunit_err(test, "cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
-+		  cfg->pgsize_bitmap, cfg->ias);
-+	kunit_err(test, "data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
-+		  ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
-+		  ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
- }
- 
--#define __FAIL(ops, i)	({						\
--		WARN(1, "selftest: test failed for fmt idx %d\n", (i));	\
--		arm_lpae_dump_ops(ops);					\
--		-EFAULT;						\
-+#define __FAIL(test, ops, i)	({						\
-+		KUNIT_FAIL(test, "");						\
-+		kunit_err(test, "selftest: test failed for fmt idx %d\n", (i));	\
-+		arm_lpae_dump_ops(test, ops);					\
-+		-EFAULT;							\
- })
- 
--static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
-+static int __init arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
- {
- 	static const enum io_pgtable_fmt fmts[] __initconst = {
- 		ARM_64_LPAE_S1,
-@@ -73,7 +76,7 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 		cfg_cookie = cfg;
- 		ops = alloc_io_pgtable_ops(fmts[i], cfg, cfg);
- 		if (!ops) {
--			pr_err("selftest: failed to allocate io pgtable ops\n");
-+			kunit_err(test, "selftest: failed to allocate io pgtable ops\n");
- 			return -ENOMEM;
- 		}
- 
-@@ -82,13 +85,13 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 		 * Empty page tables shouldn't provide any translations.
- 		 */
- 		if (ops->iova_to_phys(ops, 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		if (ops->iova_to_phys(ops, SZ_1G + 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		if (ops->iova_to_phys(ops, SZ_2G + 42))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		/*
- 		 * Distinct mappings of different granule sizes.
-@@ -101,16 +104,16 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 					   IOMMU_READ | IOMMU_WRITE |
- 					   IOMMU_NOEXEC | IOMMU_CACHE,
- 					   GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			/* Overlapping mappings */
- 			if (!ops->map_pages(ops, iova, iova + size, size, 1,
- 					    IOMMU_READ | IOMMU_NOEXEC,
- 					    GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			iova += SZ_1G;
- 		}
-@@ -121,18 +124,18 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 			size = 1UL << j;
- 
- 			if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			/* Remap full block */
- 			if (ops->map_pages(ops, iova, iova, size, 1,
- 					   IOMMU_WRITE, GFP_KERNEL, &mapped))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
--				return __FAIL(ops, i);
-+				return __FAIL(test, ops, i);
- 
- 			iova += SZ_1G;
- 		}
-@@ -148,11 +151,11 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 				   IOMMU_READ | IOMMU_WRITE |
- 				   IOMMU_NOEXEC | IOMMU_CACHE,
- 				   GFP_KERNEL, &mapped))
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 		if (mapped != size)
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 		if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
--			return __FAIL(ops, i);
-+			return __FAIL(test, ops, i);
- 
- 		free_io_pgtable_ops(ops);
- 	}
-@@ -160,7 +163,7 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 	return 0;
- }
- 
--static int __init arm_lpae_do_selftests(void)
-+static void __init io_pgtable_arm_test_run(struct kunit *test)
- {
- 	static const unsigned long pgsize[] __initconst = {
- 		SZ_4K | SZ_2M | SZ_1G,
-@@ -173,18 +176,19 @@ static int __init arm_lpae_do_selftests(void)
- 	};
- 
- 	int i, j, k, pass = 0, fail = 0;
--	struct faux_device *dev;
-+	struct device *dev;
- 	struct io_pgtable_cfg cfg = {
- 		.tlb = &dummy_tlb_ops,
- 		.coherent_walk = true,
- 		.quirks = IO_PGTABLE_QUIRK_NO_WARN,
- 	};
- 
--	dev = faux_device_create("io-pgtable-test", NULL, 0);
--	if (!dev)
--		return -ENOMEM;
-+	dev = kunit_device_register(test, "io-pgtable-test");
-+	KUNIT_EXPECT_NOT_ERR_OR_NULL(test, dev);
-+	if (IS_ERR_OR_NULL(dev))
-+		return;
- 
--	cfg.iommu_dev = &dev->dev;
-+	cfg.iommu_dev = dev;
- 
- 	for (i = 0; i < ARRAY_SIZE(pgsize); ++i) {
- 		for (j = 0; j < ARRAY_SIZE(address_size); ++j) {
-@@ -193,9 +197,9 @@ static int __init arm_lpae_do_selftests(void)
- 				cfg.pgsize_bitmap = pgsize[i];
- 				cfg.ias = address_size[k];
- 				cfg.oas = address_size[j];
--				pr_info("selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
--					pgsize[i], cfg.ias, cfg.oas);
--				if (arm_lpae_run_tests(&cfg))
-+				kunit_info(test, "selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
-+					   pgsize[i], cfg.ias, cfg.oas);
-+				if (arm_lpae_run_tests(test, &cfg))
- 					fail++;
- 				else
- 					pass++;
-@@ -203,9 +207,17 @@ static int __init arm_lpae_do_selftests(void)
- 		}
- 	}
- 
--	pr_info("selftest: completed with %d PASS %d FAIL\n", pass, fail);
--	faux_device_destroy(dev);
--
--	return fail ? -EFAULT : 0;
-+	kunit_info(test, "selftest: completed with %d PASS %d FAIL\n", pass, fail);
- }
--subsys_initcall(arm_lpae_do_selftests);
-+
-+static struct kunit_case io_pgtable_arm_test_cases[] __refdata = {
-+	KUNIT_CASE(io_pgtable_arm_test_run),
-+	{},
-+};
-+
-+static struct kunit_suite io_pgtable_arm_test = {
-+	.name = "io-pgtable-arm-test",
-+	.test_cases = io_pgtable_arm_test_cases,
-+};
-+
-+kunit_test_init_section_suite(io_pgtable_arm_test);
--- 
-2.51.0.384.g4c02a37b29-goog
+Not sure whether device_unregister to trigger devres managed
+mbox_controller_unregister would have any issue.
 
+>Signed-off-by: Harini T <harini.t@amd.com>
+>---
+> drivers/mailbox/zynqmp-ipi-mailbox.c | 7 ++-----
+> 1 file changed, 2 insertions(+), 5 deletions(-)
+>
+>diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
+>index 0c143beaafda..bdcc6937ee30 100644
+>--- a/drivers/mailbox/zynqmp-ipi-mailbox.c
+>+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
+>@@ -893,11 +893,8 @@ static void zynqmp_ipi_free_mboxes(struct zynqmp_ipi_pdata *pdata)
+> 	i = pdata->num_mboxes;
+> 	for (; i >= 0; i--) {
+> 		ipi_mbox = &pdata->ipi_mboxes[i];
+>-		if (ipi_mbox->dev.parent) {
+>-			mbox_controller_unregister(&ipi_mbox->mbox);
+>-			if (device_is_registered(&ipi_mbox->dev))
+>-				device_unregister(&ipi_mbox->dev);
+>-		}
+>+		if (device_is_registered(&ipi_mbox->dev))
+>+			device_unregister(&ipi_mbox->dev);
+
+The commit does not explain removing the check of ipi_mbox->dev.parent.
+But I think this change is valid.
+
+Regards
+Peng
+
+> 	}
+> }
+> 
+>-- 
+>2.43.0
+>
 
