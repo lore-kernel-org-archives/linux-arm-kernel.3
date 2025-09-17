@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DDBCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0931FCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 12:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vh4D3lz4qinchk1hC/kj6LCnkyHCrjcf/nEQajAoip8=; b=HJB/2KemBHLQQuOJpflUAdnT2g
-	9aLtjcdLVLRu602kn3y66y+JLcNw9XupqU+2z8nrNTE+tEHSWFaT1Wsv9U7vuWWFTkR0M8bK9cq4c
-	rmdTdqWt8TtOttEZOsW/q3DJlODiGqiRDxGZel50axe29bCz0be1sdczED1wDdNZIlzEJ83adsfzH
-	sgIXMKT438OSCWCO4zGbWvJx+Qx4DA3InB6R5pqpJ3wYNerGD+i7DH+FPg7V+po/pAoZlFNQKu2jH
-	p3wTaxQOCTAsL01Aawuok4H+1VC1PsouEhHs2guADEkROWohLA299iSeYA2m7bwGAXu9n1RpL0CpL
-	gpWUZuhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbd5QSeJiJ2oALW1ofOnwmv8bCD3xrTufxIhysCOQ80=; b=0VYr+UEEXwpigU0C5VIXBlCqJy
+	7ZpC+VhPMaxzdn0YrFum/j0y47TkICJ0XAs21SmFVxvOBaGuCp4jgPMKxbE0hyXXax0IBSzP18XSK
+	aJVT7RSgnGAa1+TVfZ18xVGYZybxXm8r+S1KAlu37ifhfx2wQvfi9Vq2PvTxOv1cD+9A/HbhaofeA
+	7/pZMC2zmC6HNJYxFHH+zB3QzNEF7uiMSH5RWzmZ676V6kHoBvLHGhcVLkOrF1SPmuNQJXlps0GY5
+	OviW3uhQNRUxb9gIg5tsG5rbsqnPxzzNsgovfb5anIbJt9GdfVTIVG89djq8ULfGkSr/bWoSGELmI
+	nCcsljfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrOK-0000000BLtT-2C4j;
-	Wed, 17 Sep 2025 12:36:08 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1uyrVi-0000000BNox-3ykO;
+	Wed, 17 Sep 2025 12:43:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uyrOH-0000000BLsl-1P96
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 12:36:07 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4b38d4de61aso65179851cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 05:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1758112564; x=1758717364; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vh4D3lz4qinchk1hC/kj6LCnkyHCrjcf/nEQajAoip8=;
-        b=pJMZ+DzfO1NtVKx6FIp2z4ywsOCHOtt4VC1V1xsvZxJafiganxvwU/lu0iYfocd5dG
-         TG+au7A6n9xjbqvcrB/2p94IqFSLo3hCMu5d6LGh+4MwnCJvy64uxas8/NCHR+gMsWgs
-         T8GQ/zyKyXMZM7zR8plFLHuqrqhLpvkmCAuVioW6sYaIJC+eGxyMsjm+ozqKcx9E6pgl
-         HdTN+28cs+EolKZVMFWbf3InTkFGONoE858Y4Hq3hGGPSOEUKg3de5YhytlHPKClVB5o
-         NMXU1IKUY1uObLT3yxwYFz/DPtsstvJeaMbUuFjunMlP7GOsG2iUS8iG279L5jOOrtAj
-         0i1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758112564; x=1758717364;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vh4D3lz4qinchk1hC/kj6LCnkyHCrjcf/nEQajAoip8=;
-        b=ikD8n3YJ5f93f/PXdghQeNmk6SOoNSe2y6Z7mmP51bzAOfzZx5DO4dYZAzTgs8bbxw
-         zH8TVCGvQPH9g7IEciTS7mSffVsq6VGxIqkw65Pr+nW0d/vypsrMwxcayFsy5ig4O70q
-         rcuNigFJvGrO21lMbT9pmR207f+1rveLXRyeI59tU7XWXfGsyq/PAbYzRwsuiofMZTSC
-         P4AbG4O6CORO0jYS2Q8Qadv5VDGErLES/RCaZw5HJpG6exK61zJrenNH8hk65x2Oxfea
-         +WSw1M0b4czA/FX0Pj2dE2cMFJByQHV5VeiM2lp74zJ2ViAHKPrqc86Qrlmzb8pFR3Dl
-         58gg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVDP4FMF7DMe45KgdRQuyb/J9C5AvRpFity/JGimSUXWChdJVBaDkginhztUeto/HMX/VLdZdw8XqQ+fhqmkvk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxofk76sAVrUeEewOubJIOPLaFBF3yT+JGqtM6a40loyDu9IzIo
-	uKFnQEv8JxOhij7UIJnzFJ60wNKEP0bXjDdM2405m+IlVFbl7s3fwonRZsDXr8MhlqA=
-X-Gm-Gg: ASbGncv0O6ecEOWv6M4vPxMWfPtlXcNB8gu3G0OaCWoOMlgqlWLgW1sd+wlEmEbcliK
-	6iBko8KzYU4PmaDypwEhq8eOpCmmUnK/VLHHcd8y73BGIUA7rrq9/32WdAopNXGAZGtmulYpsvA
-	JC7pgyE3asTzixR4FcKk8sdb6jfMucwgPE1pa6CW7+KEgpRk0IJH4irINgVWhRCTtUjlcfmvBDL
-	zMydZ0ErsYzabmrvKD5POUrHbuebtWtocFUOiRMB4WbWd+p/PrBckBExysUVMJkBZrBA61youjx
-	91kGAS5Imm0QnhAphDLQuN9i9T96VrER7KC/dUshciLkCgW+nkZbh5Pc1v+1FjwqVBneG3SV
-X-Google-Smtp-Source: AGHT+IEGvkvScyo54tTHL6/SrnC/aHIWG/EkopD8ichGedBCY62w/oSm7uSdoqmasg8xw4ohjLSyZw==
-X-Received: by 2002:a05:622a:4:b0:4b6:2ca5:2035 with SMTP id d75a77b69052e-4ba6c6b4280mr24104781cf.81.1758112563531;
-        Wed, 17 Sep 2025 05:36:03 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b7af2426a3sm34649061cf.37.2025.09.17.05.36.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 05:36:02 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uyrOD-00000005jqq-480E;
-	Wed, 17 Sep 2025 09:36:01 -0300
-Date: Wed, 17 Sep 2025 09:36:01 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 22/28] iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
-Message-ID: <20250917123601.GA1326709@ziepe.ca>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-23-smostafa@google.com>
- <aMQroI4NDu74PDGT@willie-the-truck>
- <20250915163858.GK882933@ziepe.ca>
- <aMl_5j8G3IGulAC6@google.com>
+	id 1uyrVg-0000000BNn7-37J0;
+	Wed, 17 Sep 2025 12:43:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758113022;
+	bh=f/DltGKx9pSF+Vy+y1ZLxi8tkefLICe4HyQIufxy04w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=S5ck+4lqyVEaw6X+IVc7RImLkxZ8jIdtgAFomf8EY48Pa3HILQXwxjm2TckX+mbq2
+	 cHHNPX0nflnhiuiofgtcBE9AGsclKEeQ3ouWgagveQPH4K3UM8F9gTrwnqmIN9TpEh
+	 +B7/jf8wIJRKJJIYlLX+dRMXbG/tJ+nKjGad/nPQn7J9DSZ5KGibQ0+3280T/qxSbn
+	 0i92rWwjMgsmP/czMsd7UspUbcxOzms1s3z8ArVeA6+F9MYZYbl5UIynhuLsTRgbgK
+	 LErt7RqYx3Bmjsl0QNBSxhdm24IggBRp4nRR/5JpT7GlenTB6GtUqDAt/tFP6jpgQJ
+	 ZMuh1G+SA9u7g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3EF3B17E10D3;
+	Wed, 17 Sep 2025 14:43:41 +0200 (CEST)
+Message-ID: <4522baca-7262-457c-94d4-326b660aad97@collabora.com>
+Date: Wed, 17 Sep 2025 14:43:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aMl_5j8G3IGulAC6@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 09/10] drm/panthor: add no_clocks soc_data member for
+ MT8196
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+ <20250917-mt8196-gpufreq-v3-9-c4ede4b4399e@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250917-mt8196-gpufreq-v3-9-c4ede4b4399e@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_053605_510272_E3357F6A 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250917_054344_967350_69724A7D 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,17 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 16, 2025 at 03:19:02PM +0000, Mostafa Saleh wrote:
+Il 17/09/25 14:22, Nicolas Frattaroli ha scritto:
+> While panthor does not try to do anything untoward with the core clock
+> outside of increasing its enable/disable count, the spirit of using DT
+> to describe hardware, not what drivers need, informs us that on the
+> MT8196, panthor should work without one, as the true owner of the clocks
+> in this case is the performance-domain.
+> 
+> Add a boolean to the soc_data struct that tells panthor whether on any
+> given SoC, it can leave even the core clock NULL. Set it to true for the
+> MT8196 soc_data instance.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-> I think the fix for the problem Will mentioned is to just use CMOs
-> before accessing the host structures, so that should be simple.
-> If it turns to be more complicated, I am happy to drop the support
-> for non-coherent devices from this series and we can add it later.
+The only doubt that I have here is about the "no_clocks" name, as it may be read
+as "number of clocks" ("no" is often used as "number").
 
-I feel like it is easier/better to fix the driver to use cachable
-memory than to add CMOs to the pkvm side..
+I don't really have any better name to suggest though, and the execution is right,
+so.....
 
-This way it will help qemu/etc as well.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Jason
+Cheers,
+Angelo
 
