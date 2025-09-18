@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DCACA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588E9CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kopJUYQDkU8ZwT3Pw52jOeZ/55xWnLcRkSfLDm+law=; b=btkLoBBBfSls1RpyW/t68i8fJo
-	lsYImmlmUInRyXPAZhqCJ05XnxKJU9aN2+Rs4S6RveE0r1UTls3asoqn4UKNqKXCcxs132aPUDFoq
-	9vBgvmNsT2IqGLNM2gjmk5nrK+MGyollDAveDTsW+8dWuWE7m5YxXWEMeljipy42YktgLu6C/aM7l
-	huHHUCztA1q+slMhijeqBPP/teaf3RMFWVaZaNgUaO4mIlJ2LtTKZoLD4g032NxlBTLmsQxSl1Xbb
-	J9r/7rXvBYZMChgl4RVhNoydAbIduB9j3XfjBMlKwheIhWalUtEwaa3bjFw481W7QTm3BtUS4fXb3
-	QAPPYLFg==;
+	bh=+jb1pRnQYPxbV6CCIi5ryq04r8KcK0UIvbIOR3Rk09w=; b=hPYKH29135fxJ03rJtJfG6mXas
+	1fdv7GB7j9UVixrWdXZuVWPpw6yE6WhUkDuNPLHATslMOK9ZMhVI5u88crMC5tQoabKCE+ikDG2Wc
+	/MvJZGsbf2LpSPos3WcWwuQgnTogNxL2ioHGyUB7uOim/pmzImYCoVxx/Vkoor58LaUp2q3kxZjZ7
+	Hr8xiKn85+fE/PQXHB1SM9p9wHk0rfs0PFyObDZU93G5VpVkHQEnRAQTmRBH+VE3Wwz5orVrhNdVn
+	xLn5YS5MYrzcBDWl4hNGrilXG/M0LQeVQHmBCHj4FPO9CdNUFXDeSCsPRUg8okBBoG0Mt4xk/ozok
+	KBEhj72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzJhp-00000000ums-25xI;
-	Thu, 18 Sep 2025 18:50:09 +0000
+	id 1uzJho-00000000ulT-1xlz;
+	Thu, 18 Sep 2025 18:50:08 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzJhf-00000000ufI-31U6;
+	id 1uzJhf-00000000uf6-1d6F;
 	Thu, 18 Sep 2025 18:49:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0789D60248;
-	Thu, 18 Sep 2025 18:49:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 800EFC19421;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9DF486026C;
+	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 17B7DC4AF13;
 	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758221398;
-	bh=65t1RPp0ka+Y5SQw4gZNb7wOM4Xg/4h5FQ+MMy0If5o=;
+	bh=KkndGZ2cFeTM19fVBhPaNoLbiQh6UVaVfyXkJUdBXsk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cPYRYtUxsRVr9TyEYjCtAQTqYPvJrV1iY9MI6vrjRkwS/ofN48fRnHmKGT2MPRLOX
-	 8+G8kJGwfWV4aaqZnUoR79jTLrXH9wC3uNTdABh5TW2aLaa1hdcmPX2502qAaqlz1y
-	 KOZ4/9SR648YUuTRIkWyrCHqwwTKxIs/64TmBhMQOZfJx9NcvHvvuxZjNYdeaumcc9
-	 RRm9kTWVHnUIwBEbKBQ07vlUQTmpUSg4+1i7RBP8RWQ15G2U/9Ho+8wToWa+iTo9Yj
-	 7yYZbXR7dGaRGMHGVEcAa21cE7q7XAzRSdVvHWnUXimqBTPu8bz1v9tJLeBjYUnJO1
-	 bOCeMGi+vT0aA==
+	b=q+G1lq5eX76T2uqv5/HptLwuHYisvdH2xVJ/ZCMJJY6xr2aJTQXo9pEOxrZnnjCIS
+	 4Jcyw/H5/f1UeJ0rIJ+Isukjgkqa6HA7uhIjZIn3KtTAJk8CS/F4A32JKiKo2NEBSj
+	 NjEjRSWTo/j1UwN6t5HQhkjaXOwZtYrFJrO186EFXZ8UeYsCKYC52J9VGlbkrnLrM9
+	 R1myopw6va0UYQlS1Aiiun+qE8l3JmQ3vz41yX+kjaWgjBbtd+/4ZCXsMNCfBYdtCh
+	 nG5Y1pYE8wXAmoaASW2Xp+nMDEYtmrAMLaXpt9fjKXmapvLMRRqfWQhXKAMTWv9FHN
+	 T7PiVg/UCQfWQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76D83CA1013;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F57CCAC59A;
 	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Fri, 19 Sep 2025 01:48:50 +0700
-Subject: [PATCH 10/10] ARM: dts: unisoc: rda8810pl: Add SDMMC controllers
+Date: Fri, 19 Sep 2025 01:48:44 +0700
+Subject: [PATCH 04/10] dt-bindings: mmc: Add RDA SDMMC controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250919-rda8810pl-mmc-v1-10-d4f08a05ba4d@mainlining.org>
+Message-Id: <20250919-rda8810pl-mmc-v1-4-d4f08a05ba4d@mainlining.org>
 References: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
 In-Reply-To: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, 
@@ -69,11 +69,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-mmc@vger.kernel.org, 
  linux-hardening@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758221395; l=5720;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758221395; l=2667;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=zi1lBIjsLiJ+MvStlhu52N5g0U+YipGaIL9gPvgvEPE=;
- b=l77vToHDcYswIc8WztAJWYO/+3IYOVrmTQlZnFRvjc0lKarYC0h4XR0hoxgA2q3ZB98uFJham
- quoNd+aQB2RCTuhZ8oSMEutdqzVeCxtTOtcZpguuNT9Z4JHuV24Oxly
+ bh=AsSx2jfyiIl9tD1PzUkU8B/80/dNLISAbs6T475/JWo=;
+ b=m1jZ5iiJdDLR2oNGhbZc1KvGaZ/RhK/lM0bAsauM7cx684WiuGLwZlK4HFh7moDg6YJ4FQU+R
+ ttMceldPwaYBD+EGfHCFOX0uBSgU42qv2H8yNPUABQPx0Skg+RH4jnz
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
@@ -96,213 +96,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-Add SDMMC1 and 2 controllers for the RDA8810PL platform and enable it
-on the Orange Pi i96 and 2G-IOT.
+Add documentation describing the SD/MMC controller in RDA Micro
+RDA8810PL SoC.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- .../boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts  | 20 +++++++++
- .../arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts | 20 +++++++++
- arch/arm/boot/dts/unisoc/rda8810pl.dtsi            | 47 ++++++++++++++++++++--
- 3 files changed, 83 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/mmc/rda,mmc.yaml | 92 ++++++++++++++++++++++
+ 1 file changed, 92 insertions(+)
 
-diff --git a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
-index 98e34248ae80b1fcd673ff01fe045db412d5bcc9..b462057ec0d1eb1877eb770afa6aced99efd84b7 100644
---- a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
-+++ b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-2g-iot.dts
-@@ -6,6 +6,7 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
- #include "rda8810pl.dtsi"
- 
- / {
-@@ -27,6 +28,13 @@ memory@80000000 {
- 		reg = <0x80000000 0x10000000>;
- 	};
- 
-+	vdd_sdmmc: regulator-fixed {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_sdmmc";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
+diff --git a/Documentation/devicetree/bindings/mmc/rda,mmc.yaml b/Documentation/devicetree/bindings/mmc/rda,mmc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..f3cda38abd66023ca9bc94d1c29df5ae9e211e7c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mmc/rda,mmc.yaml
+@@ -0,0 +1,92 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mmc/rda,mmc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	uart_clk: uart-clk {
- 		compatible = "fixed-clock";
- 		clock-frequency = <921600>;
-@@ -34,6 +42,18 @@ uart_clk: uart-clk {
- 	};
- };
- 
-+&mmc1 {
-+	status = "okay";
-+	no-sdio;
-+	no-mmc;
-+	bus-width = <4>;
-+	max-frequency = <30000000>;
-+	cd-gpios = <&gpiob 4 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&vdd_sdmmc>;
-+	rda,mclk-adj = /bits/ 8 <1>;
-+	rda,mclk-inv;
-+};
++title: RDA Micro SD/MMC Controller
 +
- &uart1 {
- 	status = "okay";
- 	clocks = <&uart_clk>;
-diff --git a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
-index 728f76931b995fdfc036b586f899b15a7f07528b..cf4b75f114b33b27fad0ead4951b15abb1f5cabd 100644
---- a/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
-+++ b/arch/arm/boot/dts/unisoc/rda8810pl-orangepi-i96.dts
-@@ -6,6 +6,7 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
- #include "rda8810pl.dtsi"
- 
- / {
-@@ -27,6 +28,13 @@ memory@80000000 {
- 		reg = <0x80000000 0x10000000>;
- 	};
- 
-+	vdd_sdmmc: regulator-fixed {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_sdmmc";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+	};
++allOf:
++  - $ref: mmc-controller.yaml
 +
- 	uart_clk: uart-clk {
- 		compatible = "fixed-clock";
- 		clock-frequency = <921600>;
-@@ -34,6 +42,18 @@ uart_clk: uart-clk {
- 	};
- };
- 
-+&mmc1 {
-+	status = "okay";
-+	no-sdio;
-+	no-mmc;
-+	bus-width = <4>;
-+	max-frequency = <30000000>;
-+	cd-gpios = <&gpiob 4 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&vdd_sdmmc>;
-+	rda,mclk-adj = /bits/ 8 <1>;
-+	rda,mclk-inv;
-+};
++maintainers:
++  - Dang Huynh <dang.huynh@mainlining.org>
 +
- &uart1 {
- 	status = "okay";
- 	clocks = <&uart_clk>;
-diff --git a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-index f30d6ece49fb33d9c5c3ad9522c83bb8e4f8b488..438be79a89060655e4a12edc6d3c42574748108b 100644
---- a/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-+++ b/arch/arm/boot/dts/unisoc/rda8810pl.dtsi
-@@ -7,6 +7,8 @@
-  */
- 
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/rda,8810pl-apclk.h>
-+#include <dt-bindings/dma/rda-ifc.h>
- 
- / {
- 	compatible = "rda,8810pl";
-@@ -39,7 +41,7 @@ modem@10000000 {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x10000000 0xfffffff>;
- 
--		gpioc@1a08000 {
-+		gpioc: gpioc@1a08000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x1a08000 0x1000>;
- 			gpio-controller;
-@@ -68,6 +70,13 @@ apb@20900000 {
- 		#size-cells = <1>;
- 		ranges = <0x0 0x20900000 0x100000>;
- 
-+		ap_syscon: syscon@0 {
-+			compatible = "rda,8810pl-apsyscon", "syscon";
-+			reg = <0x0 0x1000>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
++properties:
++  compatible:
++    items:
++      - enum:
++          - rda,8810pl-mmc
++      - const: rda,mmc
 +
- 		timer@10000 {
- 			compatible = "rda,8810pl-timer";
- 			reg = <0x10000 0x1000>;
-@@ -76,7 +85,7 @@ timer@10000 {
- 			interrupt-names = "hwtimer", "ostimer";
- 		};
- 
--		gpioa@30000 {
-+		gpioa: gpioa@30000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x30000 0x1000>;
- 			gpio-controller;
-@@ -87,7 +96,7 @@ gpioa@30000 {
- 			interrupts = <12 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
--		gpiob@31000 {
-+		gpiob: gpiob@31000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x31000 0x1000>;
- 			gpio-controller;
-@@ -98,7 +107,7 @@ gpiob@31000 {
- 			interrupts = <13 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
--		gpiod@32000 {
-+		gpiod: gpiod@32000 {
- 			compatible = "rda,8810pl-gpio";
- 			reg = <0x32000 0x1000>;
- 			gpio-controller;
-@@ -123,6 +132,30 @@ uart1: serial@0 {
- 			status = "disabled";
- 		};
- 
-+		mmc1: mmc@50000 {
-+			compatible = "rda,8810pl-mmc", "rda,mmc";
-+			reg = <0x50000 0x1000>;
-+			interrupts = <3 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ap_syscon CLK_APB2>;
-+			clock-names = "mclk";
-+			resets = <&ap_syscon RST_APB2_SDMMC1>;
-+			dmas = <&ifc IFC_SDMMC1_TX>, <&ifc IFC_SDMMC1_RX>;
-+			dma-names = "tx", "rx";
-+			status = "disabled";
-+		};
++  reg:
++    maxItems: 1
 +
-+		mmc2: mmc@60000 {
-+			compatible = "rda,8810pl-mmc", "rda,mmc";
-+			reg = <0x60000 0x1000>;
-+			interrupts = <4 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ap_syscon CLK_APB2>;
-+			clock-names = "mclk";
-+			resets = <&ap_syscon RST_APB2_SDMMC2>;
-+			dmas = <&ifc IFC_SDMMC2_TX>, <&ifc IFC_SDMMC2_RX>;
-+			dma-names = "tx", "rx";
-+			status = "disabled";
-+		};
++  interrupts:
++    maxItems: 1
 +
- 		uart2: serial@10000 {
- 			compatible = "rda,8810pl-uart";
- 			reg = <0x10000 0x1000>;
-@@ -136,6 +169,12 @@ uart3: serial@90000 {
- 			interrupts = <11 IRQ_TYPE_LEVEL_HIGH>;
- 			status = "disabled";
- 		};
++  clocks:
++    maxItems: 1
 +
-+		ifc: dma-controller@f0000 {
-+			compatible = "rda,8810pl-ifc", "rda,ifc";
-+			reg = <0xf0000 0x1000>;
-+			#dma-cells = <1>;
-+		};
- 	};
- 
- 	l2: cache-controller@21100000 {
++  clock-names:
++    const: mclk
++
++  resets:
++    maxItems: 1
++
++  dmas:
++    maxItems: 2
++
++  dma-names:
++    items:
++      - const: tx
++      - const: rx
++
++  rda,mclk-adj:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    description:
++      Some board need MCLK output to be delayed for the card to work.
++      If not present, MCLK output is not delayed.
++    minimum: 0
++    maximum: 255
++
++  rda,mclk-inv:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Some board need MCLK to be inverted for the card to work.
++      If not present, MCLK is not inverted.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - dmas
++  - dma-names
++  - vmmc-supply
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/clock/rda,8810pl-apclk.h>
++    #include <dt-bindings/dma/rda-ifc.h>
++    mmc@20950000 {
++      compatible = "rda,8810pl-mmc", "rda,mmc";
++      reg = <0x20950000 0x1000>;
++      interrupts = <3 IRQ_TYPE_LEVEL_HIGH>;
++      clocks = <&ap_syscon CLK_APB2>;
++      clock-names = "mclk";
++      resets = <&ap_syscon RST_APB2_SDMMC1>;
++      dmas = <&ifc IFC_SDMMC1_TX>, <&ifc IFC_SDMMC1_RX>;
++      dma-names = "tx", "rx";
++      vmmc-supply = <&vdd_sdmmc>;
++      rda,mclk-adj = /bits/ 8 <1>;
++      rda,mclk-inv;
++    };
++
++...
 
 -- 
 2.51.0
