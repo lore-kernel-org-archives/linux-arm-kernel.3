@@ -4,95 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6C6CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C6ECA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TEyYKH4qkqBCP6LUsqOTNG7YVoVZeon8od5MlA8LTKM=; b=VkoJ/dLScibKCv4R34WaERM9Lz
-	ZzVXz4aZXgEWMkr3KnTGSAGZTCmqwFagTHkprg5FKCHuYxEBetSOCHpH7vraRVKcC4yC0rnOfVxQS
-	g9kIx/qPL92+ZxLa1lTjqCtgWaV7t2JWJKFwA19Cvfy24bUASsU2dPzY5Xg9hCquXUkvxjIZ+y8XY
-	AB7ERZq7dlXtPQcUBlmE9cFo93wmg5nuiYAdiCB48w5eoQZGKh7w1QB21ImZKCu0HdpR+zC/mtdiR
-	EUYc0D6D7+j9/EBXqVuwFvHKIeZLcBjJc2luEFVye/i5hahpVcvKyUezia4spGHhzTbmvbRi4plZW
-	xJ+d/fuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aM9defDUbxftG1qhQP/TtclfqCxbcheJJLtqcFMRzU4=; b=lEqStNKo+xvYyb8KdbT4AfzNgs
+	8yvsBWlgPavUFcLQ2dm4Rvoq1VCpqjoabTKEFys805AAT2/oE1yOR1/F/UXN/XGnTxmdDR45JINrf
+	CRr4YM3qVEWIPXa2cifFhDr6//ZGktF1SBs3AX2mjs43aWveMK29I4tJfIf0K+VIgTNe9GZWXtyt0
+	PaBszO1NBHpZiJ99CbCEY1j7vLGXD7HwDC1WEHM1nObOqlfZCgZZDHVVk2IL3IeONCQo7cJVKpMm8
+	oaAOLEQNlTZQdHxu2HTtHI648QgtXmN3MDMc0O2vKKiNQRj6Tfbshkgd6DINb2eqkCo4e5drYD1uR
+	LXyqVPJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGgb-00000000RAG-2v1L;
-	Thu, 18 Sep 2025 15:36:41 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1uzGh0-00000000RNy-3g1R;
+	Thu, 18 Sep 2025 15:37:06 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGgZ-00000000R7Y-0iTX
+	id 1uzGgy-00000000RMR-1mUJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:36:40 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b0411b83aafso174975266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 08:36:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1758209797; x=1758814597; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TEyYKH4qkqBCP6LUsqOTNG7YVoVZeon8od5MlA8LTKM=;
-        b=JlnpPqBQ1mb23mD2XGtYh66wk3t+WFCfhGx7i0KLJ5uwECBcC1b63semIxOqA0pljV
-         6YuT3a7eZRoRh6MlZ/i+4FMr3HC8nY9b7BQRNCc7Rn6l4fRQGhAUiejcjAKz1yxPVPP+
-         eVpEx7HaC4ZvOqQLpzKfi4gwFa6cSlD9zQ8mM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758209797; x=1758814597;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TEyYKH4qkqBCP6LUsqOTNG7YVoVZeon8od5MlA8LTKM=;
-        b=E+tgfr9sH0H02boHjbJXPUP8cJPcCOrwmGbQsbb/qEjnPgfPrBd+GXo3IlomJxgOXv
-         SE3N/OpAmKqRpCB0fDC8zJtzgMT2cv3DR4aGUmM5aiEnJUkJCbUZyOxrUuQeIMLQMkOH
-         /xxrOHZYiuLmIfzSni/BDXN9IOL0fhLL2rZ+kWq9JcJ0Hl1i4l1/7Ea85Dsexz+MG1px
-         +W5hK1JlUVX5x+2XjSgr7hMfcdiJkI/AIw54A9fluaHdx5Ts76YLCYPigKchFg5PT9t+
-         6uTfdrbJ2rBPzrFcszD8qnCdsygCOptjEBLWOxq8zMjPebKDfYEmIv+Gy07K6BaHRrkF
-         CKow==
-X-Forwarded-Encrypted: i=1; AJvYcCWcxXAGmd42Z9tJQ3d1+aguyZfGOR0d1r71Jw9da9WH4XExx2iP2HutB8837A95AoLJ3aTRFK1cuXVA2I9H427z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdHnuzClLdDA9WjfJmVWNUvPyAnkOUX1n//aerOOki1pdx2wKO
-	g0uT9VFbs5dt0rlNbSKw44bdhZoHOWRco7K5viZV5aQP68kpXVdDGn3ybwbz4ZRVGJY=
-X-Gm-Gg: ASbGnctTKczpVg2E5RC+tZZr5bDbn6Y3QJeaSEh25eUHut+yAFCZpB77gtJh2reLuvO
-	/SrVmku1Iaa06iO9CQN8OfABgh/126JH7IeS1+p+IOldGHlxNmL44p6OIThNHw2fRNUG8VYgt/6
-	HvEuqqFhjtxX0qj8iGzbLDC/vSQgHh5C4bmDi81mLlpcvYinVrmuMmk4d+5tyjihcItzKBAT23G
-	2Qg3Njx8ZaslkkHGd2Be1hHLhci6effdnVs7v7npzNnwruZKOrLhF3HXWsLZS8RaATjJMyU1npH
-	DiT4B7arQJDkOixnufTgnqdiGkobNldcZ5yUzEXpdPNxZA8yLguKeip4QS+iVXFtyo6k5LIr2Gb
-	b4ngi/XP9jJGo3BFjN8riXdpkCG9BIO9e/7GBbA9fO1AUgUMOhDef9cr7ZLIe7QW2i+huQadosK
-	Kpwc+nKH8CdQzlTml3u+SAhOobl57mk/bS+qeX1qDiFqBhxlAtY3HbnpigxgKvUaVOLSB+Hr4yO
-	zKury5epOo=
-X-Google-Smtp-Source: AGHT+IGYaHFbg/1QCb5L+gBEaKgygAIv/jFGntbk+uDxzoL55Zp1d+zUktfDGz/HaUwuss8VFlD8jg==
-X-Received: by 2002:a17:907:2da5:b0:b0c:fdb7:4ddc with SMTP id a640c23a62f3a-b1bb0c43f6dmr683814966b.19.1758209796976;
-        Thu, 18 Sep 2025 08:36:36 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b1fd272026csm212430766b.102.2025.09.18.08.36.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Sep 2025 08:36:36 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thu, 18 Sep 2025 15:37:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=aM9defDUbxftG1qhQP/TtclfqCxbcheJJLtqcFMRzU4=; b=F7JJb73THAOqRK1K8GFdiT/8Ej
+	gj9W1dfgE4nWfaTkdI63AdaKD9zzZMlzAxOzu/aVmbYNPPczfMsbitvrzmw7CZnzqz/C9q3imUOni
+	DrjmmEfLd4yPeTmSp8UTMZiFZhZVOCF/DbW5nbpr95AdhrtzhSqzme+mDJkXUlfUxPsOgtLSizXEI
+	aKmM1UInF0ZFJyDXT4Q/TiHrZbxO+8cSKNzxhzXu4mZcNN4QEbc2pAfsUEqW1Dfh8v32Pv/wPfA9I
+	6e+qoV4lDUliCYjwrwt3A8JGGBM4o8WYYgFiQYMG0kH0PY/hQ7LWOjWw3XYtpBs06bmGxtzkqmwLx
+	q1UygtCQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43486)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uzGgg-000000001BG-1j6Y;
+	Thu, 18 Sep 2025 16:36:46 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uzGgc-000000001Hk-0d9w;
+	Thu, 18 Sep 2025 16:36:42 +0100
+Date: Thu, 18 Sep 2025 16:36:41 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH v4 3/5] dt-bindings: touchscreen: convert raspberrypi,firmware-ts bindings to json schema
-Date: Thu, 18 Sep 2025 17:36:08 +0200
-Message-ID: <20250918153630.2535208-3-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250918153630.2535208-1-dario.binacchi@amarulasolutions.com>
-References: <20250918153630.2535208-1-dario.binacchi@amarulasolutions.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Tristram Ha <Tristram.Ha@microchip.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/4] net: stmmac: stm32: add WoL from PHY
+ support
+Message-ID: <aMwnCWT5JFY4jstm@shell.armlinux.org.uk>
+References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
+ <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
+ <aMriVDAgZkL8DAdH@shell.armlinux.org.uk>
+ <72ad4e2d-42fa-41c2-960d-c0e7ea80c6ff@foss.st.com>
+ <aMwQKERA1p29BeKF@shell.armlinux.org.uk>
+ <64b32996-9862-4716-8d14-16c80c4a2b10@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <64b32996-9862-4716-8d14-16c80c4a2b10@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_083639_461782_A007904E 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250918_083704_463425_E596310C 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,110 +100,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Raspberry Pi firmware 7" touchscreen controller device tree
-binding to json-schema.
+On Thu, Sep 18, 2025 at 05:07:00PM +0200, Gatien CHEVALLIER wrote:
+> On 9/18/25 15:59, Russell King (Oracle) wrote:
+> >  > So no. In a situation like this, either we want to be in interrupt
+> > mode (in which case we have an interrupt), or the pin is wired to
+> > a power management controller and needs to be in PME mode, or it isn't
+> > wired.
+> > 
+> 
+> If you are in interrupt mode, plugging a cable would trigger a
+> system wakeup in low-power mode if the INTB/PMEB line is wired to a
+> power management controller and the WoL is enabled because we're no
+> longer in polling mode, wouldn't it?
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+What Andrew suggested, which is what I implemented for Realtek, other
+interrupts get disabled when we enter suspend:
 
----
+static int rtl8211f_suspend(struct phy_device *phydev)
+{
+...
+        /* If a PME event is enabled, then configure the interrupt for
+         * PME events only, disabling link interrupt. We avoid switching
+         * to PMEB mode as we don't have a status bit for that.
+         */
+        if (device_may_wakeup(&phydev->mdio.dev)) {
+                ret = phy_write_paged(phydev, 0xa42, RTL821x_INER,
+                                      RTL8211F_INER_PME);
 
-(no changes since v3)
+This disables all other interrupts when entering suspend _if_ WoL
+is enabled and only if WoL is enabled.
 
-Changes in v3:
-- Drop firmware-rpi node and use only touchscreen node to fix warnings
-  you can see in
-  https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
+If you're getting woken up when you unplug/replug the ethernet cable
+when WoL is disabled, that suggests you have something wrong in your
+interrupt controller - the wake-up state of the interrupt is managed
+by core driver-model code. I tested this on nVidia Jetson Xavier NX
+and if WoL wasn't enabled at the PHY, no wakeup occurred.
 
-Changes in v2:
-- Added in v2
+> You can argue that as per the Realtek 8211F datasheet:
+> "The interrupts can be individually enabled or disabled by setting or
+> clearing bits in the interrupt enable register INER". That requires
+> PHY registers handling when going to low-power mode.
 
- .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------
- .../touchscreen/raspberrypi,firmware-ts.yaml  | 40 +++++++++++++++++++
- 2 files changed, 40 insertions(+), 26 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
- create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+... which is what my patch does.
 
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-deleted file mode 100644
-index 2a1af240ccc3..000000000000
---- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-+++ /dev/null
-@@ -1,26 +0,0 @@
--Raspberry Pi firmware based 7" touchscreen
--=====================================
--
--Required properties:
-- - compatible: "raspberrypi,firmware-ts"
--
--Optional properties:
-- - firmware: Reference to RPi's firmware device node
-- - touchscreen-size-x: See touchscreen.txt
-- - touchscreen-size-y: See touchscreen.txt
-- - touchscreen-inverted-x: See touchscreen.txt
-- - touchscreen-inverted-y: See touchscreen.txt
-- - touchscreen-swapped-x-y: See touchscreen.txt
--
--Example:
--
--firmware: firmware-rpi {
--	compatible = "raspberrypi,bcm2835-firmware";
--	mboxes = <&mailbox>;
--
--	ts: touchscreen {
--		compatible = "raspberrypi,firmware-ts";
--		touchscreen-size-x = <800>;
--		touchscreen-size-y = <480>;
--	};
--};
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-new file mode 100644
-index 000000000000..697c508326b3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
-@@ -0,0 +1,40 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Raspberry Pi firmware based 7" touchscreen
-+
-+maintainers:
-+  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+
-+allOf:
-+  - $ref: touchscreen.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - raspberrypi,firmware-ts
-+
-+  firmware:
-+    description: Phandle to RPi's firmware device node.
-+
-+  touchscreen-size-x: true
-+  touchscreen-size-y: true
-+  touchscreen-inverted-x: true
-+  touchscreen-inverted-y: true
-+  touchscreen-swapped-x-y: true
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+
-+examples:
-+  - |
-+    touchscreen {
-+        compatible = "raspberrypi,firmware-ts";
-+        touchscreen-size-x = <800>;
-+        touchscreen-size-y = <480>;
-+    };
+> There are PHYs like the LAN8742 on which 3 pins can be configured
+> as nINT(equivalent to INTB), and 2 as nPME(equivalent to PMEB). The
+> smsc driver, as is, contains hardcoded nPME mode on the
+> LED2/nINT/nPME/nINTSEL pin. What if a manufacturer wired the power
+> management controller to the LED1/nINT/nPME/nINTSEL?
+> This is where the pinctrl would help even if I do agree it might be a
+> bit tedious at first. The pinctrl would be optional though.
+
+I'm not opposing the idea of pinctrl on PHYs. I'm opposing the idea
+of tying it into the WoL code in a way that makes it mandatory.
+Of course, if it makes sense for a PHY driver to do pinctrl stuff
+then go ahead - and if from that, the driver can work out that
+the PHY is wake-up capable, even better.
+
+What I was trying to say is that in such a case as the Realtek
+driver, I don't want to see pinctrl forced upon it unless there is
+a real reason and benefit, especially when there are simpler ways
+to do this.
+
+I also think that it would be helpful to add the wakeup-source
+property where PHYs are so capable even if the PHY driver doesn't
+need it for two reasons. 1. OS independence. 2. it's useful docs.
+3. just because our driver as it stands at whatever moment in time
+doesn't make use of it doesn't mean that will always be the case.
+(e.g., we may want to have e.g. phylib looking at that property.)
+
 -- 
-2.43.0
-
-base-commit: 8b789f2b7602a818e7c7488c74414fae21392b63
-branch: drop-touchscreen.txt
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
