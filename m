@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E28ECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BDBCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHj0mpG7Nw0F7COQxDFZsAbS72iBxT3uO42zLjThUaI=; b=usrf032TjqbFl+LH152iZeYu8n
-	gR8cgora4khOEXBOtYomeAsenI54TM+HCoPROHqYm3wPw8x34CLT7QXiiqaG/4RPPmr4UmWHebgIf
-	s2nM2xQoBv/t4qowW36w3LzRa02coGko/MTnOc7r9d34KTTBLeTbhK3nxxxfctSjeO7noq7KD+x1w
-	XI7x3r793ZuiWUAG6i+2Y45WRrhVGjt1BfCr2p6w/JQuUhWRErVJQ7LzLF9Zbxh+NK056NxvBgTHd
-	1oa6Is0Ek6Z3mhOzHBc6JFuomiPj/fL/vx5FnsJ6qsIdLxa2MWJDpvr/BNTzsC4iTDqqgcHonHL/W
-	ljqkLaZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=guufnJxMHX+tN8RHfY1HmpQASUrRjO2qHddI4BqquD4=; b=hi1pvXGHAhe9Eo
+	jfRs83yLqhbW6+Wh+Jg9kEmfZ84ty/hBu5rQTiPqKO3rO2XP0MWoDhLDYULMA4xpxmPUytRj06hVZ
+	T5cJxKhLN1Fvz6FJuYm4C2hK8RpBVNnb0c6dJlbehB8cQ6x9QL+L8faRlcbLkX16rgCuKURgv+8qb
+	AA4p9LSWsUVDLDXqb7RmMh/0PPf44JYq8eQNGpKS6XI7ZhCVHDi/mC5P+5YyaB3ET06JBQXtUXq92
+	+Hp6LJlWJIdwcMiZ0mkyfoA8OAItUX9pKJYgjZybCwqZFfBcaSV9JnWqkRat6fDZXhdwUFzTXWSdp
+	Soul3qb8fY8MrZFT7eVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAVW-0000000Gn2P-27Ks;
-	Thu, 18 Sep 2025 09:00:50 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.229.205.26])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAVT-0000000Gn1c-1yM3
+	id 1uzAWS-0000000GnCk-3aiQ;
+	Thu, 18 Sep 2025 09:01:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzAWR-0000000GnCW-3DVQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 09:00:49 +0000
-Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
-	by app1 (Coremail) with SMTP id TAJkCgAXLg8tystolpTUAA--.5232S2;
-	Thu, 18 Sep 2025 17:00:32 +0800 (CST)
-From: weishangjuan@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	vladimir.oltean@nxp.com,
-	rmk+kernel@armlinux.org.uk,
-	yong.liang.choong@linux.intel.com,
-	anthony.l.nguyen@intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	jan.petrous@oss.nxp.com,
-	jszhang@kernel.org,
-	inochiama@gmail.com,
-	0x1207@gmail.com,
-	boon.khai.ng@altera.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	lizhi2@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>
-Subject: [PATCH v7 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Date: Thu, 18 Sep 2025 17:00:26 +0800
-Message-Id: <20250918090026.3280-1-weishangjuan@eswincomputing.com>
-X-Mailer: git-send-email 2.31.1.windows.1
-In-Reply-To: <20250918085612.3176-1-weishangjuan@eswincomputing.com>
-References: <20250918085612.3176-1-weishangjuan@eswincomputing.com>
+	Thu, 18 Sep 2025 09:01:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 248F76013E;
+	Thu, 18 Sep 2025 09:01:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80CA4C4CEE7;
+	Thu, 18 Sep 2025 09:01:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758186106;
+	bh=5rMvlimJ4W4wdpXOBkk6k7g6cY89cXqZ2dvZK554a0U=;
+	h=From:Subject:Date:To:Cc:From;
+	b=fvtLc8mWA99MkR1KcXW1Izmu9ujGbv8e7xYbBtE60LDXg7JFhQ9ZmuwsHQpAc5rfO
+	 kG1xtFLR9dx/2DJUVSBGk/BNs6/+c+UQEMCXaTKph/Xbfr6w9MHu2AkGX0ZAlz7NFl
+	 B+2Uj88Ro5eR6Dsk4lvljcTdAGy36gCQ913SDe7/GBWyxfPrtDddJE6195A4bU62M3
+	 G6rNraF+R5zbSzR/p4/wuBtv8zAYWrjRNBlG8f/6Ib24cMDkBZfJqpqCSxDB2X2kBs
+	 613xR/1lzWhzq+uJ3bVEhuP9xdCnDVa14Cqi+Yo05XPHibzGZmU7oO/XgWWAHrMf81
+	 /8bcduPo4XRHg==
+From: Vincent Mailhol <mailhol@kernel.org>
+Subject: [PATCH 0/4] can: populate ndo_change_mtu() to prevent buffer
+ overflow
+Date: Thu, 18 Sep 2025 18:00:23 +0900
+Message-Id: <20250918-can-fix-mtu-v1-0-0d1cada9393b@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TAJkCgAXLg8tystolpTUAA--.5232S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxuFWDZFW5Jw18Wr4rAFW7CFg_yoWfKF4kpF
-	WkAa4YqrnrJF1fG3yrJF409as5Ka17KF1Y9ryfG3Z3XFZ0yryDZws5tFyYyFykJrykuw13
-	tw4UCFWxuFnI93DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26rWY6Fy7MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
-	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRJ8nYUUUUU
-X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_020047_676972_98A17273 
-X-CRM114-Status: GOOD (  21.06  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACjKy2gC/x2MQQqAIBAAvyJ7bsEVguwr0cF0qz1koRVB+Pek4
+ zDMvJA5CWfo1QuJb8myxwrUKPCriwujhMpgtGm1pQ69izjLg9t54dQaYuJAzlioxZG4qv82jKV
+ 86NIHbl0AAAA=
+X-Change-ID: 20250918-can-fix-mtu-b521e1ed1a29
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Oliver Hartkopp <socketcan@hartkopp.net>
+Cc: Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>, 
+ Akshay Bhat <akshay.bhat@timesys.com>, 
+ Wolfgang Grandegger <wg@grandegger.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Gerhard Bertelsmann <info@gerhard-bertelsmann.de>, 
+ Yasushi SHOJI <yashi@spacecubics.com>, 
+ =?utf-8?q?Remigiusz_Ko=C5=82=C5=82=C4=85taj?= <remigiusz.kollataj@mobica.com>, 
+ linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Vincent Mailhol <mailhol@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1393; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=5rMvlimJ4W4wdpXOBkk6k7g6cY89cXqZ2dvZK554a0U=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDBmnT2VySv215XKrFNlufMix5qL+53Wf9p0LSQzambRxC
+ d/uPU7bO0pZGMS4GGTFFFmWlXNyK3QUeocd+msJM4eVCWQIAxenAEyk4wIjwzwdy03yEWF7r/91
+ do/2FZNYwRHqnL9D2ogrevWtZzsVohn+Rzv28Yr+/3Gh9GNmZxWLiBLjufQ0br36fat9Mzf93c/
+ NCAA=
+X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,293 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shangjuan Wei <weishangjuan@eswincomputing.com>
+Four drivers, namely etas_es58x, hi311x, sun4i_can and mcba_usb forgot
+to populate their net_device_ops->ndo_change_mtu(). Because of that,
+the user is free to configure any MTU on these interfaces.
 
-Add Ethernet controller support for Eswin's eic7700 SoC. The driver
-implements hardware initialization, clock configuration, delay
-adjustment functions based on DWC Ethernet controller, and supports
-device tree configuration and platform driver integration.
+This can be abused by an attacker who could craft some skbs and send
+them through PF_PACKET to perform a buffer overflow of up to 247 bytes
+in each of these drivers.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
+This series contains four patches, one for each of the drivers, to add
+the missing ndo_change_mtu() callback. The descriptions contain
+detailed explanations of how the buffer overflow could be triggered.
+
+Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 230 ++++++++++++++++++
- 3 files changed, 242 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
+Vincent Mailhol (4):
+      can: etas_es58x: populate ndo_change_mtu() to prevent buffer overflow
+      can: hi311x: populate ndo_change_mtu() to prevent buffer overflow
+      can: sun4i_can: populate ndo_change_mtu() to prevent buffer overflow
+      can: mcba_usb: populate ndo_change_mtu() to prevent buffer overflow
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 67fa879b1e52..a13b15ce1abd 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -67,6 +67,17 @@ config DWMAC_ANARION
+ drivers/net/can/spi/hi311x.c                | 1 +
+ drivers/net/can/sun4i_can.c                 | 1 +
+ drivers/net/can/usb/etas_es58x/es58x_core.c | 3 ++-
+ drivers/net/can/usb/mcba_usb.c              | 1 +
+ 4 files changed, 5 insertions(+), 1 deletion(-)
+---
+base-commit: f83ec76bf285bea5727f478a68b894f5543ca76e
+change-id: 20250918-can-fix-mtu-b521e1ed1a29
 
- 	  This selects the Anarion SoC glue layer support for the stmmac driver.
-
-+config DWMAC_EIC7700
-+	tristate "Support for Eswin eic7700 ethernet driver"
-+	select CRC32
-+	select MII
-+	depends on OF && HAS_DMA && ARCH_ESWIN || COMPILE_TEST
-+	help
-+	  This driver supports the Eswin EIC7700 Ethernet controller,
-+	  which integrates Synopsys DesignWare QoS features. It enables
-+	  high-speed networking with DMA acceleration and is optimized
-+	  for embedded systems.
-+
- config DWMAC_INGENIC
- 	tristate "Ingenic MAC support"
- 	default MACH_INGENIC
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index b591d93f8503..f4ec5fc16571 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -14,6 +14,7 @@ stmmac-$(CONFIG_STMMAC_SELFTESTS) += stmmac_selftests.o
- # Ordering matters. Generic driver must be last.
- obj-$(CONFIG_STMMAC_PLATFORM)	+= stmmac-platform.o
- obj-$(CONFIG_DWMAC_ANARION)	+= dwmac-anarion.o
-+obj-$(CONFIG_DWMAC_EIC7700)	+= dwmac-eic7700.o
- obj-$(CONFIG_DWMAC_INGENIC)	+= dwmac-ingenic.o
- obj-$(CONFIG_DWMAC_IPQ806X)	+= dwmac-ipq806x.o
- obj-$(CONFIG_DWMAC_LPC18XX)	+= dwmac-lpc18xx.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-new file mode 100644
-index 000000000000..e2561a15f091
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -0,0 +1,230 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Eswin DWC Ethernet linux driver
-+ *
-+ * Copyright 2025, Beijing ESWIN Computing Technology Co., Ltd.
-+ *
-+ * Authors:
-+ *   Zhi Li <lizhi2@eswincomputing.com>
-+ *   Shuang Liang <liangshuang@eswincomputing.com>
-+ *   Shangjuan Wei <weishangjuan@eswincomputing.com>
-+ */
-+
-+#include <linux/platform_device.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/stmmac.h>
-+#include <linux/regmap.h>
-+#include <linux/of.h>
-+
-+#include "stmmac_platform.h"
-+
-+/* eth_phy_ctrl_offset eth0:0x100 */
-+#define EIC7700_ETH_TX_CLK_SEL		BIT(16)
-+#define EIC7700_ETH_PHY_INTF_SELI	BIT(0)
-+
-+/* eth_axi_lp_ctrl_offset eth0:0x108 */
-+#define EIC7700_ETH_CSYSREQ_VAL		BIT(0)
-+
-+/*
-+ * TX/RX Clock Delay Bit Masks:
-+ * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.1ns per bit)
-+ * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.1ns per bit)
-+ */
-+#define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
-+#define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
-+
-+#define EIC7700_MAX_DELAY_UNIT 0x7F
-+
-+static const char * const eic7700_clk_names[] = {
-+	"tx", "axi", "cfg",
-+};
-+
-+struct eic7700_qos_priv {
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct device *dev;
-+};
-+
-+static int eic7700_clks_config(void *priv, bool enabled)
-+{
-+	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-+	struct plat_stmmacenet_data *plat = dwc->plat_dat;
-+	int ret = 0;
-+
-+	if (enabled)
-+		ret = clk_bulk_prepare_enable(plat->num_clks, plat->clks);
-+	else
-+		clk_bulk_disable_unprepare(plat->num_clks, plat->clks);
-+
-+	return ret;
-+}
-+
-+static int eic7700_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	struct eic7700_qos_priv *dwc_priv;
-+	struct regmap *eic7700_hsp_regmap;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_phy_ctrl_regset;
-+	u32 eth_rxd_dly_offset;
-+	u32 eth_dly_param = 0;
-+	u32 delay_ps;
-+	int i, ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				"failed to get resources\n");
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-+				"dt configuration failed\n");
-+
-+	dwc_priv = devm_kzalloc(&pdev->dev, sizeof(*dwc_priv), GFP_KERNEL);
-+	if (!dwc_priv)
-+		return -ENOMEM;
-+
-+	dwc_priv->dev = &pdev->dev;
-+
-+	/* Read rx-internal-delay-ps and update rx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "rx-internal-delay-ps", &delay_ps)) {
-+		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+
-+		eth_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+		eth_dly_param |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
-+	} else {
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+			"missing required property rx-internal-delay-ps\n");
-+	}
-+
-+	/* Read tx-internal-delay-ps and update tx_clk delay */
-+	if (!of_property_read_u32(pdev->dev.of_node,
-+				  "tx-internal-delay-ps", &delay_ps)) {
-+		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+
-+		eth_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+		eth_dly_param |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
-+	} else {
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+			"missing required property tx-internal-delay-ps\n");
-+	}
-+
-+	eic7700_hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							     "eswin,hsp-sp-csr");
-+	if (IS_ERR(eic7700_hsp_regmap))
-+		return dev_err_probe(&pdev->dev,
-+				PTR_ERR(eic7700_hsp_regmap),
-+				"Failed to get hsp-sp-csr regmap\n");
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 1, &eth_phy_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_phy_ctrl_offset\n");
-+
-+	regmap_read(eic7700_hsp_regmap, eth_phy_ctrl_offset,
-+		    &eth_phy_ctrl_regset);
-+	eth_phy_ctrl_regset |=
-+		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
-+	regmap_write(eic7700_hsp_regmap, eth_phy_ctrl_offset,
-+		     eth_phy_ctrl_regset);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 2, &eth_axi_lp_ctrl_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_axi_lp_ctrl_offset\n");
-+
-+	regmap_write(eic7700_hsp_regmap, eth_axi_lp_ctrl_offset,
-+		     EIC7700_ETH_CSYSREQ_VAL);
-+
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 3, &eth_rxd_dly_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"can't get eth_rxd_dly_offset\n");
-+
-+	regmap_write(eic7700_hsp_regmap, eth_rxd_dly_offset,
-+		     eth_dly_param);
-+
-+	plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
-+	plat_dat->clks = devm_kcalloc(&pdev->dev,
-+				      plat_dat->num_clks,
-+				      sizeof(*plat_dat->clks),
-+				      GFP_KERNEL);
-+	if (!plat_dat->clks)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < ARRAY_SIZE(eic7700_clk_names); i++)
-+		plat_dat->clks[i].id = eic7700_clk_names[i];
-+
-+	ret = devm_clk_bulk_get_optional(&pdev->dev,
-+					 plat_dat->num_clks,
-+					 plat_dat->clks);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to get clocks\n");
-+
-+	plat_dat->clk_tx_i = stmmac_pltfr_find_clk(plat_dat, "tx");
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+	plat_dat->bsp_priv = dwc_priv;
-+	plat_dat->clks_config = eic7700_clks_config;
-+	dwc_priv->plat_dat = plat_dat;
-+
-+	ret = eic7700_clks_config(dwc_priv, true);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"error enable clock\n");
-+
-+	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+	if (ret) {
-+		eic7700_clks_config(dwc_priv, false);
-+		return dev_err_probe(&pdev->dev,
-+				ret,
-+				"Failed to driver probe\n");
-+	}
-+
-+	return ret;
-+}
-+
-+static void eic7700_dwmac_remove(struct platform_device *pdev)
-+{
-+	struct eic7700_qos_priv *dwc_priv = get_stmmac_bsp_priv(&pdev->dev);
-+
-+	stmmac_pltfr_remove(pdev);
-+	eic7700_clks_config(dwc_priv, false);
-+}
-+
-+static const struct of_device_id eic7700_dwmac_match[] = {
-+	{ .compatible = "eswin,eic7700-qos-eth" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, eic7700_dwmac_match);
-+
-+static struct platform_driver eic7700_dwmac_driver = {
-+	.probe  = eic7700_dwmac_probe,
-+	.remove = eic7700_dwmac_remove,
-+	.driver = {
-+		.name           = "eic7700-eth-dwmac",
-+		.pm             = &stmmac_pltfr_pm_ops,
-+		.of_match_table = eic7700_dwmac_match,
-+	},
-+};
-+module_platform_driver(eic7700_dwmac_driver);
-+
-+MODULE_AUTHOR("Zhi Li <lizhi2@eswincomputing.com>");
-+MODULE_AUTHOR("Shuang Liang <liangshuang@eswincomputing.com>");
-+MODULE_AUTHOR("Shangjuan Wei <weishangjuan@eswincomputing.com>");
-+MODULE_DESCRIPTION("Eswin eic7700 qos ethernet driver");
-+MODULE_LICENSE("GPL");
---
-2.17.1
+Best regards,
+-- 
+Vincent Mailhol <mailhol@kernel.org>
 
 
