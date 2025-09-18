@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122B4CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891C2CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VbD1sxSDS9HgxmbKipo19apLASux3Ny3iD53SYtQus=; b=CX+zZ5KYBjSzxqssw0xvED0Ef/
-	Q8lcf9jNmBPzYghSa5OrlcM9r6i2+31L5TTqKLVUNHIl61exgDR305HjZTHvGrBf6Zg6Z/MG3IFG+
-	KClp0nmVPygP2QuucPAxaXj0o+NSm7RjejBTOm2Mm7zV9WAt15BOw0ffoPbptEUnxaPdRIql9lhVO
-	YULS/YZSaAmKLNEgFb2aYCnu1CfE/11zyGxlfBXb3edf/SN1/UJnRZlMZVlKQB4xTMBMm7jrc/c17
-	oiRJLtWmbLgBfL0oU6P37gs6V8FoQsqGRx8burgxpA989vyK8YKdN9SXnv+0xNZz/rBXB5Rmezv7H
-	SHm6I3tg==;
+	bh=RXKHoZOMSp7OdT3Wau2OejlIRkeR/tUF6NYwfrL/gFc=; b=NM3kFi0FHkhGo3n4nNIw0aSzm8
+	y0wDdNZryO9BpZdswGdlSCCg+tJd09SBcT2DZ6/NVcxMnSKOe5e9vHmAHGxbmb75hWsV59SuKG0ZS
+	0xQVhfuH7NKWzFr68G7EuvwPTmVbPzERpwPf+uuRnAc7wQLJ5eaQzzKHIPfL/V210RNGFVkfOYb9e
+	irczwEAkT9oBoKNJNWy+rRjcyLb9VBjA1rA6TeN+8WAPqEGQ8q8h6bhBIbQ/AcVx0xd9VCelWXyWR
+	lNMDpzSerZ/qCL99iskNqWJCXQqPRiGm5ot6H5nNkvEwu0XpdOH8AktQYnfPM29VIVEBiGttvGbWT
+	oXwoISAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzE4T-0000000HRt1-24zN;
-	Thu, 18 Sep 2025 12:49:09 +0000
+	id 1uzE9T-0000000HSkr-2Mgn;
+	Thu, 18 Sep 2025 12:54:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzE4Q-0000000HRs4-3Exz
+	id 1uzE9Q-0000000HSj3-4AEu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 12:49:08 +0000
+	Thu, 18 Sep 2025 12:54:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0C1C1A2D;
-	Thu, 18 Sep 2025 05:48:57 -0700 (PDT)
-Received: from [10.1.33.171] (XHFQ2J9959.cambridge.arm.com [10.1.33.171])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D2453F673;
-	Thu, 18 Sep 2025 05:49:04 -0700 (PDT)
-Message-ID: <fb5818ec-dde9-4d53-ab0f-e28e5c2cab33@arm.com>
-Date: Thu, 18 Sep 2025 13:49:02 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E24D61A25;
+	Thu, 18 Sep 2025 05:54:05 -0700 (PDT)
+Received: from [192.168.20.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 828843F66E;
+	Thu, 18 Sep 2025 05:54:13 -0700 (PDT)
+Message-ID: <90c78c6d-2e73-44a6-b933-779477d15745@arm.com>
+Date: Thu, 18 Sep 2025 07:54:12 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Elide TLB flush in certain pte protection
- transitions
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, wangkefeng.wang@huawei.com, baohua@kernel.org,
- pjaroszynski@nvidia.com, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v7 4/7] arm64: probes: Add GCS support to bl/blr/ret
+To: linux-trace-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org, mhiramat@kernel.org, oleg@redhat.com,
+ peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, kan.liang@linux.intel.com,
+ thiago.bauermann@linaro.org, broonie@kernel.org, yury.khrustalev@arm.com,
+ kristina.martsenko@arm.com, liaochang1@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20250918103638.77282-1-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250918103638.77282-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
+References: <20250825033421.463669-1-jeremy.linton@arm.com>
+ <20250825033421.463669-5-jeremy.linton@arm.com>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <20250825033421.463669-5-jeremy.linton@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_054906_934649_1B09C379 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250918_055417_156371_CE366818 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,90 +72,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 11:36, Dev Jain wrote:
-> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
-> required for some cases, for example, when changing from PROT_NONE to
-> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
-> growing into the non-main heaps), and unsetting uffd-wp in a range.
+Hi,
+
+On 8/24/25 10:34 PM, Jeremy Linton wrote:
+> The arm64 probe simulation doesn't currently have logic in place
+> to deal with GCS and this results in core dumps if probes are inserted
+> at control flow locations. Fix-up bl, blr and ret to manipulate the
+> shadow stack as needed.
 > 
-> Therefore, implement pte_needs_flush() for arm64, which is already
-> implemented by some other arches as well.
+> While we manipulate and validate the shadow stack correctly, the
+> hardware provides additional security by only allowing GCS operations
+> against pages which are marked to support GCS. For writing there is
+> gcssttr() which enforces this, but there isn't an equivalent for
+> reading. This means that uprobe users should be aware that probing on
+> control flow instructions which require reading the shadow stack (ex:
+> ret) offers lower security guarantees than what is achieved without
+> the uprobe active.
 > 
-> Running a userspace program changing permissions back and forth between
-> PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
-> for the none->rw transition, I get a reduction from 3.2 microseconds to
-> 2.95 microseconds, giving an 8.5% improvement.
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 > ---
-> mm-selftests pass. Based on 6.17-rc6.
+>   arch/arm64/kernel/probes/simulate-insn.c | 44 +++++++++++++++++++-----
+>   1 file changed, 35 insertions(+), 9 deletions(-)
 > 
->  arch/arm64/include/asm/tlbflush.h | 29 +++++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 18a5dc0c9a54..4a566d589100 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -524,6 +524,35 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->  {
->  	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
->  }
-> +
-> +static inline bool __pte_flags_need_flush(pteval_t oldval, pteval_t newval)
-
-ptdesc_t is the preferred any-level type.
-
+> diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
+> index 09a0b36122d0..97ed4db75417 100644
+> --- a/arch/arm64/kernel/probes/simulate-insn.c
+> +++ b/arch/arm64/kernel/probes/simulate-insn.c
+> @@ -13,6 +13,7 @@
+>   #include <asm/traps.h>
+>   
+>   #include "simulate-insn.h"
+> +#include "asm/gcs.h"
+>   
+>   #define bbl_displacement(insn)		\
+>   	sign_extend32(((insn) & 0x3ffffff) << 2, 27)
+> @@ -49,6 +50,21 @@ static inline u32 get_w_reg(struct pt_regs *regs, int reg)
+>   	return lower_32_bits(pt_regs_read_reg(regs, reg));
+>   }
+>   
+> +static inline int update_lr(struct pt_regs *regs, long addr)
 > +{
-> +	pteval_t diff = oldval ^ newval;
+> +	int err = 0;
 > +
-> +	/* invalid to valid transition requires no flush */
-> +	if (!(oldval & PTE_VALID) || (oldval & PTE_PRESENT_INVALID))
-
-Is the PTE_PRESENT_INVALID really required? If the oldval was invalid, there
-can't be a TLB entry for it, so no flush is required; that's it, I think?
-
-In fact, PTE_PRESENT_INVALID is overlaid with PTE_NG; it only means
-PTE_PRESENT_INVALID when PTE_INVALID=0, so I think this is broken as is. Valid
-user-space PTEs always have PTE_NG set, so you will never flush.
-
-> +		return false;
-> +
-> +	/* Transition in the SW bits and access flag requires no flush */
-> +	diff &= ~(PTE_SWBITS_MASK | PTE_AF);
-
-Could you explain your thinking on why PTE_AF changes don't need a flush? I
-would have thought if we want to clear the access flag, that would definitely
-require a flush? Otherwise how would the MMU know to set the acccess bit on next
-access if it already has a TLB entry?
-
-> +
-> +	if (!diff)
-> +		return false;
-> +	return true;
-
-Perhaps just "return !!diff;" here?
-
-Thanks,
-Ryan
-
-
+> +	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
+> +		push_user_gcs(addr, &err);
+> +		if (err) {
+> +			force_sig(SIGSEGV);
+> +			return err;
+> +		}
+> +	}
+> +	procedure_link_pointer_set(regs, addr);
+> +	return err;
 > +}
 > +
-> +static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
-> +{
-> +	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
-> +}
-> +#define pte_needs_flush pte_needs_flush
+>   static bool __kprobes check_cbz(u32 opcode, struct pt_regs *regs)
+>   {
+>   	int xn = opcode & 0x1f;
+> @@ -107,9 +123,9 @@ simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs)
+>   {
+>   	int disp = bbl_displacement(opcode);
+>   
+> -	/* Link register is x30 */
+>   	if (opcode & (1 << 31))
+> -		set_x_reg(regs, 30, addr + 4);
+> +		if (update_lr(regs, addr + 4))
+> +			return;
+>   
+>   	instruction_pointer_set(regs, addr + disp);
+>   }
+> @@ -129,21 +145,31 @@ void __kprobes
+>   simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
+>   {
+>   	int xn = (opcode >> 5) & 0x1f;
+> +	int b_target = get_x_reg(regs, xn);
+
+Ugh, I was staring at this set and realized that this type is wrong, it 
+should be 'long'. I will send a patch once I sanity check it on 
+something that isn't a model.
+
+
+>   
+> -	/* update pc first in case we're doing a "blr lr" */
+> -	instruction_pointer_set(regs, get_x_reg(regs, xn));
+> -
+> -	/* Link register is x30 */
+>   	if (((opcode >> 21) & 0x3) == 1)
+> -		set_x_reg(regs, 30, addr + 4);
+> +		if (update_lr(regs, addr + 4))
+> +			return;
 > +
-> +static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
-> +{
-> +	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
-> +}
-> +#define huge_pmd_needs_flush huge_pmd_needs_flush
+> +	instruction_pointer_set(regs, b_target);
+>   }
+>   
+>   void __kprobes
+>   simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
+>   {
+> +	u64 ret_addr;
+> +	int err = 0;
+>   	int xn = (opcode >> 5) & 0x1f;
+> -
+> -	instruction_pointer_set(regs, get_x_reg(regs, xn));
+> +	unsigned long r_target = get_x_reg(regs, xn);
 > +
->  #endif
->  
->  #endif
+> +	if (user_mode(regs) && task_gcs_el0_enabled(current)) {
+> +		ret_addr = pop_user_gcs(&err);
+> +		if (err || ret_addr != r_target) {
+> +			force_sig(SIGSEGV);
+> +			return;
+> +		}
+> +	}
+> +	instruction_pointer_set(regs, r_target);
+>   }
+>   
+>   void __kprobes
 
 
