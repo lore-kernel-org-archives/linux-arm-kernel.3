@@ -4,95 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7CBDCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08F6CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FuCxKZOC5gMCxjvUIfysdvbKbIwAjaMklqaPwT6Cdlc=; b=tGu+8YPpmWOq+CfS9o2i7lvKYZ
-	VKup5k+2AXo04z+eepaPG2T8qI+nnsscQZAFgegxpNV/b86z+wgfrRG0j4HePDGsQzWiXs7iRYbQB
-	okqmA+nTJOaUCHqxoWG35BZz9CAEfPedeqFt9xhPpHR4/cJr+lsn0m7mpT+j1+UKkSohpV5bw3ctY
-	GTd0uIdbVLBXxxQwsYCP/w+SLmzSwxnlOHQlaTVJyD0HQrSscBTbmgc27tvm0IgHeX48RAb8duYcQ
-	0+OygpgXlJZyC/dWJbGXJQDsisj0J+8MqmCkG9CCplrUXxopHPJeg/rJTfYE6C9acKbmEOeEYl4Xx
-	H8kgio+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ss9FLqKgjaGRvIa2tVwjhwp8Qb1+yPSU/myK0/X5vs8=; b=obaw5K1ljQWy2jplFMguMoExRj
+	yVSvP+LeSNSt3QF3Z2lfdD2pCDeQh5jdRm3hOyWNxW8runhfeLD0oC1V71y5fvL1rLObtMKM5eb0H
+	dibB7xeJwPvaHgtj9jZ7RmDg5h+eGO0NUsFvfLLDBciKCpm1JRsGdjxdcy1M3/tGqshUNuhWrgx7u
+	JcujdToTcXzof0RaEvyuY0xGZ+fTbnp+qfYzFHNa6Naxowg61gRj1576VypfPUrU3QBKRwhQEGF4b
+	8OBg9EVomy7t5wLkxruzVlhRgSiN7GF0ZjF8AvtYifdSr4hV+Ifk11P6cEwFOebPIso/4QlT388nf
+	yBa5jpvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD9E-0000000HGgM-3I5v;
-	Thu, 18 Sep 2025 11:50:00 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uzDAy-0000000HGsL-0rBa;
+	Thu, 18 Sep 2025 11:51:48 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD9B-0000000HGey-1DTQ
+	id 1uzDAw-0000000HGrv-1VcB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:49:59 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250918114950epoutp04e5ca56921b4d8e0e7d4c4ab0fed22e97~mXh60_9990451404514epoutp04P
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:49:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250918114950epoutp04e5ca56921b4d8e0e7d4c4ab0fed22e97~mXh60_9990451404514epoutp04P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758196190;
-	bh=FuCxKZOC5gMCxjvUIfysdvbKbIwAjaMklqaPwT6Cdlc=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=TGWkFV+vyXk3M6D6IuqlvEcybwVaHrnNnW9UTGangKu78Dxid6hGC6Jp6+GP/8M4/
-	 K07WT+sAL/a7T+T93OpNKuIMJJCdbO2Vd0njOwz4MQ3Hb+pRUh8J12oYOcOwokCEJ2
-	 +M5oqwcj6WkE/+sf8JWveeiB8lg96xueIVHg6boM=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250918114949epcas5p4219721d84eadeb39ff7750e82a05c84f~mXh6Ld_2n0579905799epcas5p4a;
-	Thu, 18 Sep 2025 11:49:49 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cSDT863xpz6B9m9; Thu, 18 Sep
-	2025 11:49:48 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250918114947epcas5p1851912aadf4466cda635681b1a9fa798~mXh4OkerZ1378713787epcas5p1m;
-	Thu, 18 Sep 2025 11:49:47 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250918114943epsmtip210861e859c25dd4fcf3ce0fb14a9bf45~mXh0dCmTB3083330833epsmtip2O;
-	Thu, 18 Sep 2025 11:49:43 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <67c2b5c6-7559-4ae9-b2af-e839b6b8f4d5@kernel.org>
-Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Thu, 18 Sep 2025 17:19:41 +0530
-Message-ID: <007701dc2892$553aded0$ffb09c70$@samsung.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcB8lF0oAGjtHpaA19Hw4UBhGAZeAGHPhyts76/S3A=
-Content-Language: en-in
-X-CMS-MailID: 20250918114947epcas5p1851912aadf4466cda635681b1a9fa798
-X-Msg-Generator: CA
+	Thu, 18 Sep 2025 11:51:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ux1IEJYlXcYneXxJ+NsEK70LOVBorU38qaWNmZqbE22tPYACBqJS67ZJHAJCFm2+Q66QJOnmkATctNl3D4zNOU6j9am6n36NlNpgZhcl91Qiz7InqWl/lNTRng2jC5x9sSz/srT1OwaOvv357OXo+n0nVL6Qp1CFDzdIhtGSJ8HqylSWtr6F4J8cIODEOVffCEcP2CqZEKiEpfleb9+XME71qfFJiBabJ3XijdVEas+FYS5GDFI6JD1CF/4v5rjzcIimWqm1Wq4db06kQaqknby3zFLHtdysjl1V2XriJRABhy22lXtN+0AXtsrl4MHEYMviHIZAcRMdSdK8+qc4aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ss9FLqKgjaGRvIa2tVwjhwp8Qb1+yPSU/myK0/X5vs8=;
+ b=n9JyVFlCUFc7OpCnfuuaMJ1jCc0u5/WzwAXprYJG6iZSwnbOtXC8y7BI1GbXQAPlnmg+TJjWb2DgcNPcewDzlX6AD64t1pI3rqygC0YiUMSkaSTw1IE3xyisZhX7EqDM0R+avu5R1d6iL8AhPBTq5Sg+3v7iedkk3SL5ImVXn7CG4pkbKGCLb79tvNYoTvjcFE43BQQ84m0KnjHgXUs1ZFqsQc1vxg/AK8QtzgXzvKPwR9pmApjGEyIOIgMp+5wsoNCg09LOgq4u5DML6Sh9iJydKcJVEKfSBtLbv9eA8VjbAi8SluVL3gr5c6vIgU3jkYfns/f8wdWfC/qgM58C1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ss9FLqKgjaGRvIa2tVwjhwp8Qb1+yPSU/myK0/X5vs8=;
+ b=UKuxQR3HrOoVQE13alhjC09MOJry1ydeNTd1DZ5hv3fU+8NOBNyJI1mTpQ3wXAK9zyvtwoxBwUG14UKmT2uunw39LgeL1okvnFFHle0GZUiMeNJ0PGuPu0Vl89bwd8iLH2xF1rNlqlq4eucXNRzsbihIXVoiFXdDlkesJuVTy8snuOsF2v2Oaa4t9SKi4vwUw4/n2GjDirsic/Q/8K/qh9lY3PtCCMcHloNs/nCzKfW2nnPAyp0WvXajfLKqIqu3TPSJAGqAmLLc7uccj1hPe+D2+Dvg4pAnjG1Ws7vBO9tBJVQZTMDZaf3RxmXcEruar0smaGp7X/TBBbw4/qA57w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GVXPR04MB10450.eurprd04.prod.outlook.com (2603:10a6:150:1e6::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
+ 2025 11:51:34 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
+ 11:51:34 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH 0/5] remoteproc: imx_rproc: misc clean up
+Date: Thu, 18 Sep 2025 19:51:15 +0800
+Message-Id: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com>
 Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
-	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
-	<20250903073827.3015662-2-pritam.sutar@samsung.com>
-	<20250904-interesting-lovely-ringtail-38bbef@kuoka>
-	<000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
-	<87857202-b436-4476-9384-67566126d844@kernel.org>
-	<001001dc1d85$c0d56a60$42803f20$@samsung.com>
-	<67c2b5c6-7559-4ae9-b2af-e839b6b8f4d5@kernel.org>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADTyy2gC/3XN0QqCMBTG8VeRXbfYjmu6rnqPCNGzY+5CJzPEE
+ N+9KVERdfkd+P3PzAYKjgZ2TGYWaHSD810ccpcwbMruStzZuBkIOAgjNXftVIQ+eCwQOFSmtFm
+ eQ60si6QPVLtpy50vcTduuPlw3+qjXK9/QqPkgluFuiZVKiPTUzf1e/TtWn2S7AcRAglSiwY1v
+ cj6eYTPb98UIoVSC4IKRWbsmy7L8gDKFXDyFAEAAA==
+X-Change-ID: 20250916-imx_rproc_c2-2b9ad7882f4d
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758196288; l=1702;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=6DSMFhOLO163xNtDtKLJMLCMN09EW0L46C0soBDXYc8=;
+ b=GEs+S+SHdrCSeFYh81fS2iMoIO0lX7YSuHIOj7d7188VQvIuxZPWWg2MTREOoSLygXG9g69BJ
+ hbXBjL1WTN0BSFlIsS6ChXuc2WKT2XONLjJStsG0BQAQNOiP4Z8TYrC
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG2PR06CA0235.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10450:EE_
+X-MS-Office365-Filtering-Correlation-Id: be711604-9469-4a28-bc32-08ddf6a9b758
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bmNweUF3cVYyblI0QmV6R1hnRUhtemlUeUt2bmJoN2o0TnBFbEJtZzdoQTNm?=
+ =?utf-8?B?ZjRuL0Jnc3RHR1NjTm5pOEZiNGl0UE5OdEF2NlBWWWl2dWUybmNhbUZpV2Js?=
+ =?utf-8?B?TUw0ZnRSWE5WWWtUdk5RWkVkRFRvNjI0eWl3WGU3V1pjVFlQRFo1UVZGcGgz?=
+ =?utf-8?B?dVJTVmtueTVHam1STUNFSkoyQ01KTUFVS21qZXBpTWYwVGl4S1AzeG5BcmUy?=
+ =?utf-8?B?MklvNDVuZUpCRnREbC9VSjE3eDE0cXlNVHQrbmlhR29qdXNjNDgzd0ZRdk92?=
+ =?utf-8?B?ZjRHdHdIVHdianN5SStqSU1Jbk9zejdYV0U3emRYZExrSDlpOUlwMFdDNFVt?=
+ =?utf-8?B?UldMNk9UejY3N3pxdXdWb0lkYTQzVFJQTWZReFNwK0NDMXRFa3RNUEhHbmlD?=
+ =?utf-8?B?UXhzTmxTSXlsbmxBOTRBbVN2OFhhcklnU0pjRFNObDZYdlNJWCttZDdnUDdT?=
+ =?utf-8?B?Vk1CeGQ1bWt4Ry9WTllOV2RCaGswY1JoV05zUHIvZUVxcUR4ZUpGNFE0clpt?=
+ =?utf-8?B?MXJudk5sV2t1bHAxNTFueUIwN040ZWpzZG9iNzUxWDlPRnAwZkd2NWpRTHVt?=
+ =?utf-8?B?RFdQNlZGOWxqRnhUeHNaSFRGVmhFT2V3cDF3TUJmb0pkQ0FJeE1RWm5meU1Z?=
+ =?utf-8?B?YkJIejVCelZkT1FnTS9ndnI2Vzh2b3Q0VTFSVGdvRVlHYUIyMXBJUkVlUUpN?=
+ =?utf-8?B?cVVkUGVZVzdlTE8yT2dJYjkzWVkrN2F5b2RralFTbXdBeUM0bGgzdGU3S2tN?=
+ =?utf-8?B?MGsrcFQvbGp4T0FwY3JiVWdYc3hNd0JiMDRXcWNjU0lFMzRTMVZqaWY1VDFu?=
+ =?utf-8?B?dFBSOW9KQTM2bzZzZW96bWhXSG5HNDVCL29zNlNrd29UaWo3dEJmZGhLQmE3?=
+ =?utf-8?B?MEltTkl3VEE1UGZhOS9TRzR2Y0tpRFEydjd5TTZ3VGt6S042WVFVRXRDMG51?=
+ =?utf-8?B?aVA1ZGJ4OGliYnlXUFFkVGdkcjBjZHRUK3RuVU45dzhOeHlIUURRMjkrNk9n?=
+ =?utf-8?B?cG1oaFh0MjJ5Qml6Z3JrRFcyUWk4RmIyaWt3V1g4M3JtNjhlOEdsMDVGWVNN?=
+ =?utf-8?B?eUlwak1IeDF5SlIzUzZmc3ZrWTR0VlJzK1VHYWhEczd0Zllmb2xWVTNBL3gy?=
+ =?utf-8?B?QVRycHBQdVZabnlaNXRFR1Z0WFZXaVNjckROMGdQSG04dC9nQkFZMVhlNENC?=
+ =?utf-8?B?VHArRk1MUmhkbEhXL1RFeXQwMUw0ZjFOYWlGZUhhZWxlZjVrb202aE9EeHMz?=
+ =?utf-8?B?aTAwbGpFVjRmNkM5Wk5TTUxDZlVPbjdjY0Z1STVWQktEcWxCQWNFOGRwUWh6?=
+ =?utf-8?B?Z3RMTFRKRGFzNEw0dVBXU0g4S0lwdWcwVTdaMGd1dm4zRUxJMHBBTU1ybG53?=
+ =?utf-8?B?Qzg5QWlZRXovMGZkQk9OUEpjVS85SEdzUG9lZ3VBeER2bHdaQVB5U1BtOEt0?=
+ =?utf-8?B?RXdibDNYK01ZeDdoelRBT014TktxeGdyUmIzSjQ1NnhmUThCMm8xbFA2RnF0?=
+ =?utf-8?B?QW1jcVNDTU8wWHl6K3A3d2JjY2R6Q20veUVoenJDSVRHRUEweVBqSVN3NHAy?=
+ =?utf-8?B?bWg5TlBRMHU4YnQ1QlQzcVRhZUFHRlRuUGxiKzJpWTRxWmx5Q2V1MExwck5n?=
+ =?utf-8?B?UEw5RldyMmlEVGZFS21sMGRsYlFIVmdJZWZUT3hzMzlidmdvaFFSS1cyM0dl?=
+ =?utf-8?B?S3QzV1NncmdYRUUxT2V4eUFYd1B6RytoRktwNENpVmNYSm1vQlRnaUYzdzd3?=
+ =?utf-8?B?U1Npa1VBNm1mdGtLOHJkdk9FV2diMFV2TEZKL0o1b0VUQWw0TTBsQ085K1lk?=
+ =?utf-8?B?eVAyTWFMZlNiUmZUWHNVZTRkcFRoR2dKNGdIRTIzNXRjUlNtQm9Da3VjN000?=
+ =?utf-8?B?UnBlNElBSUVJTGpCZndaU3Y2a1c0aFZYZWxVbG5TbHlBY2RkaFF0Y3pMc1JI?=
+ =?utf-8?Q?dj/+nUwsIVw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVhwY2dBazE1Slo1RHUrQU1VcnBKY0JieFBpK2VjT0E0UE8zc04yMS9XTTNw?=
+ =?utf-8?B?OUJSMDRjYlNSeGRmcEFPeUw1WUV4T2RFYjcwL1FKZ1d3Y0V2c2lmc3RmNTBW?=
+ =?utf-8?B?WUEwWWlzaVlybjFWMHNaVE83VkNIMVdkdGxnOXN6cDhlQU05TUlBVjFaSEtG?=
+ =?utf-8?B?SWc0RlBhMmM1OHZsOUc4cEdUeWh6K2VrNHoyUXJKQUpWa2wzSURUakpBVjNw?=
+ =?utf-8?B?T3YvMWd0VVhDYzI0WlNuNkx2Tk9yYmptYjVLRlpxc0plang1aTdzNGE4VEE3?=
+ =?utf-8?B?T3lwMDFENWZXUnYzS0lyVVp0N2RocTljdGcyYTZUZTk3ME04QU8xVkZORTFx?=
+ =?utf-8?B?dFZ3emxZdDc4VWpjSXhuY283blJDZTNSMW1jaTVzL0hOSEg1V0hudnBaRk9E?=
+ =?utf-8?B?ZEN0M3RUeTQzWmRBemNONU1XOEt6UTNMUm5EbXQ1QVdXMEVzQWxmZkVlWVpw?=
+ =?utf-8?B?MHh1d3ZSTUxvdVhiKy9lMVNha3RXc3NGbmRpM1NjYlJnellHR0drcndyblpM?=
+ =?utf-8?B?QTRhZ2VGbmc5dDJPREVMR1lueGRCUitGeGh2L3RzbkhrdXErVTI3VzlIMUc2?=
+ =?utf-8?B?blZTcW9sRE5SdUZWZ1MyMC85eWVpdG5tS1gweDRCSUJUTVc2a0svTDhiMjRP?=
+ =?utf-8?B?YzBTeVdhdWd2M0FSQ0Fma2hwVkNQMFlyZ25TOGRVczNyVVV5OG1zR0kzcnFS?=
+ =?utf-8?B?K3ovdnFVMEhYVy9xckFXYnkrOWRMOTdYZnU1eHoraWtmK2sxcFJJQ3dMZzFV?=
+ =?utf-8?B?Y2FnclpVdWY5ajNtZFp5OHRHRzRCTEdVckZUSUFlbWRpV0M1K0NRZW9CUS9a?=
+ =?utf-8?B?QkxzVG1HMW5GSzBKVG04N0grWGRoMEd1bEFGRjhWYU5NSWljK09vMFV5Qmth?=
+ =?utf-8?B?RHhKd1NvN1l5QVJ6NWQ1Z2FuVWtJeWdYRmU4aG1lZEZaeG1LUFI1QXlZQ2hn?=
+ =?utf-8?B?bjZybWgvYXdnNWV4SHkxRmdWanVLdmU4SVBwY3oyYzl6QWdhelZxZUN6NUNl?=
+ =?utf-8?B?OGtvaFI2dElRdzU5VER0clQ5RFQ3UWtia1cydzlzeGY1ODV3dFJ6T0I5V0p6?=
+ =?utf-8?B?ZXMyc1pkVG4zZ1ZOZ3FEVzloNENFMkVKNG1ja0hXVy9tbVh1ckRIQWIrRVdj?=
+ =?utf-8?B?R3BqT3RXQUFYQzBlTFlWT3g5Nk9MS0Nxd0JYTk9LWHpnZ3pQYjVWRDM4WTFJ?=
+ =?utf-8?B?c1M1RmdwYjg3U0lQNDF5amNuMWlXS21XUHV6T0MxekpESTZUZUhCMmtoM2Yw?=
+ =?utf-8?B?OUxIalV2ZHNENzRSWStlT2ZPd0ZJZFFlMkVkNDlKSWJ4ZjFPYjdKRkwzaEd6?=
+ =?utf-8?B?OGpuTkpjbUt6elNMTTlWaEdiL1VXaTFMSGpPVEZ2TG1uQi9Fbk1HVHJFRGtQ?=
+ =?utf-8?B?SjFJZXJyeWZxZHlud1hmUWtxRG9uQzVVNDBIcUtTcTJwWk9lVWFnS3VjZy90?=
+ =?utf-8?B?UHlkL29Ea0NVTm0wcXpSbFFRd3ViY3Uvd09wcFhSbWlBaGZzWmllcWk5T1Bz?=
+ =?utf-8?B?ZjViM2NBWWQvTEVWekp4S1hGZ3hDaUhONFpVNGVNMjZOeW1WRW9xZU5sMzRJ?=
+ =?utf-8?B?RmNBdml4ajMwbVJ1SVVxL3N1cTFmbDlJcEtCeFNRY2hVY2d5UHNYVWJyUVpy?=
+ =?utf-8?B?VFVpQThPc2pBd042elUrWXFCVU1tLzUwVTJWRS9ZaG1hS3c2dytGcFhRWnJT?=
+ =?utf-8?B?RktmeStiN0RjT08wY0hwR2E3Z1VXenVnNVlDU0YzWFl4Uzd2ZzVPZVlPY3lS?=
+ =?utf-8?B?VWFQaklvZktNVjE0YnhJSWxuNlpkQWtXeDRBN2lWNElzUDBYVnNNYm9rU2Vq?=
+ =?utf-8?B?ZEh5M2xRWkZNMFZMblU3Tm5mNmdDTHFJODhHdFlEOVpyU0JISjJCYWc1SGlu?=
+ =?utf-8?B?cVhKMTBlekU3T0RzRVJwUDZORWoyQ0RsS05IN0U3dlhwc1p2VHNUVHBTd0dt?=
+ =?utf-8?B?b2g4QVpiMDVBRVhzU1prMnJtcllhTUY1ekFkdWw3L0V0aXphNWkva3R2MGN3?=
+ =?utf-8?B?c1hzanBNWktCemQ5NENkSEpVMENCaEVYQWlBS0pkYUtrczBieTlhRzg4ZVRh?=
+ =?utf-8?B?YTAzMHpNY0dBeUoxVFg2VGhVUUFsOFdOTnM5aVVKd3FoZmtNeHF0ZWRTZXI4?=
+ =?utf-8?Q?xJHJXa33CoP6iFgB5Md1rAOVY?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: be711604-9469-4a28-bc32-08ddf6a9b758
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 11:51:34.4671
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MWhdv1P4E1fqfGq9gz+vH1uvJlan2dzT7vWYLcK9qleAk3MWY6Hq7tnOI7qaBcC6mooCB1LptnlcWNiGaaPBYA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10450
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_044957_966884_CC946F70 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20250918_045146_405823_BAF0A0AA 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,136 +189,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+This is the 3rd series to cleanup the driver. This patchset is based
+on the 2nd patchset [1] for the clean-up
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 18 September 2025 08:13 AM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> andre.draszik=40linaro.org; peter.griffin=40linaro.org; kauschluss=40disr=
-oot.org;
-> ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.org;
-> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 HS phy compatible
->=20
-> On 04/09/2025 19:21, Pritam Manohar Sutar wrote:
-> > Hi Krzysztof,
-> >
-> >> -----Original Message-----
-> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> >> Sent: 04 September 2025 03:12 PM
-> >> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> >> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> >> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com=
-;
-> >> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
-> >> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> >> igor.belwon=40mentallysanemainliners.org;
-> >> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> >> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> >> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
-> >> linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
-> >> dev.tailor=40samsung.com; faraz.ata=40samsung.com;
-> >> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> >> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy=
-:
-> >> add
-> >> ExynosAutov920 HS phy compatible
-> >>
-> >> On 04/09/2025 09:51, Pritam Manohar Sutar wrote:
-> >>> Hi Krzysztof,
-> >>>
-> >>>> -----Original Message-----
-> >>>> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> >>>> Sent: 04 September 2025 12:18 PM
-> >>>> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> >>>> Cc: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> >>>> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.c=
-om;
-> >>>> andre.draszik=40linaro.org; peter.griffin=40linaro.org;
-> >>>> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> >>>> igor.belwon=40mentallysanemainliners.org;
-> >>>> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com; linux-
-> >>>> phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> >>>> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;
-> >>>> linux-samsung- soc=40vger.kernel.org; rosa.pila=40samsung.com;
-> >>>> dev.tailor=40samsung.com; faraz.ata=40samsung.com;
-> >>>> muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> >>>> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-p=
-hy:
-> >>>> add
-> >>>> ExynosAutov920 HS phy compatible
-> >>>>
-> >>>> On Wed, Sep 03, 2025 at 01:08:22PM +0530, Pritam Manohar Sutar wrote=
-:
-> >>>>> Document support for the USB20 phy found on the ExynosAutov920 SoC.
-> >>>>> The
-> >>>>> USB20 phy is functionally identical to that on the Exynos850 SoC,
-> >>>>> so no driver changes are needed to support this phy. However, add
-> >>>>> a dedicated compatible string for USB20 phy found in this SoC.
-> >>>>>
-> >>>>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> >>>>
-> >>>> You just dropped all tags without explaining why.
-> >>>
-> >>> Regretted inconvenience.
-> >>>
-> >>> There were significant changes in supplies' names in driver and
-> >>> schemas (patch-set v8). This led to make changes in patch no 5.  And
-> >>> review for these changes is needed.  Hence, removed RB tag in this pa=
-tch-
-> set.
-> >>>
-> >>> There was a ask for the same https://lore.kernel.org/linux-
-> >>
-> phy/000401dc18cd=24ec02a1b0=24c407e510=24=40samsung.com/=23:=7E:text=3DLe=
-t%20me%
-> >>
-> 20know%2C%20because%20of%20above%20changes%2C%20should%20be%20
-> >>
-> removing%20your%20%0A%27reviewed%2Dby%27%20tag%20from%20patch%
-> >> 201%20and%203.
-> >>>
-> >>
-> >>
-> >> Where in the changelog you explained why you dropped the tags?
-> >
-> > Along with supplies' names, there were similar commit messages for
-> > patch no 1, 3 as patch no 5 (v7). (though, they were explaining schema
-> > more than h/w). Changed commit messages of the patch no 1, 3, 5 (v7)
-> > as per reference commits and would like to get them reviewed again, so
-> > did not add RB for patch 1 and 3, which you had given RB (in v7).
->=20
-> I do not have time to review the same second time and I find such request=
- quite
-> a waste of my time. It's v8 so I am surprised to see it getting changed e=
-ven after
-> review.=09
->=20
+Patch 1: simplify clock enable logic
+Patch 2: Add a platform detach ops which will be easier to support new
+         platforms
+Patch 3: Enable runtime for all
+Patch 4: Drop method assignment
+Patch 5: Add an MAINTAINER entry for i.MX remoteproc drivers with
+         Daniel and me as maintainer
 
-OK, those were only commit message changes, so I am going to retain your=20
-RB tags for patch 1 and 3. Sorry about noise.
+This is the last patchset to do the clean up for imx_rproc.c.
+After imx_dsp_rproc.c moved to use platform ops with swith-case removed,
+the method entry from dcfg could be removed in the end.
 
-However, do you want me to send v9 by retaining RB tags in respective patch=
-es?
+Tested on
+i.MX8MP-EVK, i.MX8MM-EVK, i.MX93-11x11-EVK, i.MX8QXP-MEK, and i.MX8ULP-EVK.
 
->=20
-> Best regards,
-> Krzysztof
+Thanks to Daniel and Frank for the internal reviewing.
 
-Thank you,
+[1] https://lore.kernel.org/linux-remoteproc/CAEnQRZD=1hxMmR98qfpoH_RFFrSrYMQ6ithFkjyqVgtqWKB_+Q@mail.gmail.com/T/#mc08d4cbf10e913d9e680ed93f5467603be37228a
 
-Regards,
-Pritam
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (5):
+      remoteproc: imx_rproc: Simplify clock enable logic using dcfg flags
+      remoteproc: imx_rproc: Make detach operation platform-specific
+      remoteproc: imx_rproc: Enable PM runtime support unconditionally
+      remoteproc: imx_rproc: Remove the assignement to method
+      MAINTAINERS: Add an entry for i.MX remoteproc driver
+
+ MAINTAINERS                    |  8 ++++
+ drivers/remoteproc/imx_rproc.c | 85 +++++++++++++++++-------------------------
+ drivers/remoteproc/imx_rproc.h |  2 +
+ 3 files changed, 44 insertions(+), 51 deletions(-)
+---
+base-commit: 872c1e97ca571f8e1afff2659006a2948b9fb483
+change-id: 20250916-imx_rproc_c2-2b9ad7882f4d
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
 
