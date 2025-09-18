@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A96CAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2825CCAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/KVtvEeH1T1Q+n68GNL0fDu2XJlC4EVg9XWTz26K6E=; b=1KEBfWDkhmXFtI16eZj6R83O1D
-	/qoUg1RNG20vh3k/rgAVbbLTh5Hqq/kGiC5P9t2y417YJmlJK5eMXgcl40oDQS1XGsJBO2cXzKY5a
-	7oqvP+XjCOAbUC1xGd4KG6qv+gnsBhp5wwnq+OmxvbxvG9/na7QCfbG0Ezj2NZL1kzlrgFvH39lmH
-	RrTFUZ0s8DFvmJhBJEdpn81WJiRfCZO2S4KmflGKgTLQucMKNEzAlt9criXnxaktV7pJ82jxMZVdc
-	KA8PFGFBRqqSHR2mqeupofZa+unEQk8i95vin/e9Zpmc1RggOAcaIPF8/Zj/CbmDs+X2ZwC1Eo7U6
-	52SM5fHQ==;
+	bh=GACh2D2pXQ3TWuGrMWea50Im6d5e8m/XDV6uNV78uiU=; b=yluGGZmdy0cU4vLOfIYFSHdPxH
+	aKH4UoIdWdtetHYx+Cv8Jlu5d61l0Y21sDeaMG7RmBG/aBsT9gjYY/NFGmG8+xr01C8McxbGeLzQO
+	HwKh03xh00AfEV/Uqx7bfLTRFqaqyJJXQZIbnBh8maifi7dKo6qzZaoG4quti1X3WKdxJuE+qZY3+
+	2Vh22h14gZ4jYM3c3go1Eh2fSy5wKDSIapDq8I2oxYcsP3z4GF0XRf767pn4F7T3NDrBI1XbZlZFN
+	Elr+Ha7iB1ixFkNltjorU+yGnEnoK/xwUXw55vCfecHWGjKxZ6wjsPLKNdSd2lpe4SzGHfaAuaRhx
+	ZyZElNBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAWW-0000000GnEL-2pbj;
-	Thu, 18 Sep 2025 09:01:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzAWb-0000000GnGt-1Dk6;
+	Thu, 18 Sep 2025 09:01:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzAWU-0000000GnDB-0uaO
+	id 1uzAWZ-0000000GnFf-1ias
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 09:01:51 +0000
+	Thu, 18 Sep 2025 09:01:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7DDAB445E6;
-	Thu, 18 Sep 2025 09:01:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25FDEC4CEFB;
-	Thu, 18 Sep 2025 09:01:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D173A6020B;
+	Thu, 18 Sep 2025 09:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48F37C4CEE7;
+	Thu, 18 Sep 2025 09:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758186109;
-	bh=99bx0qqju2UEGVzQhTUbxA8T28JN+IzFGx/ISmPcSf4=;
+	s=k20201202; t=1758186114;
+	bh=mGSWa58npvsbMCZz/6vmp8p/XePk3TJBfYof7NGs8oU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kH+ibA9RimkNjlWOzcnxzqAitYkbqRM5/CJfNWkcORvEWN9WrfPs8ShwdVZHY0ET3
-	 DLo1QhJc6/oze4/74DjYNN8TRgrCK/l3COjFnV8n7+Cb0C76nbjjg5bLHij0GzSZ2h
-	 3TzKGnZ4WY4B3caZ7HLMNfTyU7WWFBW+sgPjl4rbvLNu3hQ7JEyvZH3WeEu3UqQGUC
-	 +lVV80yrpLw0iCThDxCePzELPZvmE9Qt7Qv1kzE1/HvHhjdShe+zyG+BCfqghLPFHg
-	 kCnA4lxvwsVx2dBT2BfC2qB6iPC/ajxONhI0ZVxe0xS4pkQ+TxtzURGaqrSW9DlEEr
-	 R0u3OoKCTs/pw==
+	b=LykDXyf9viuasSfBsno2kiu+GBRZ9k02IgoUx32ATpI36+DMYYge8IsVktJ9Y0hCh
+	 itVkhBj/FxyvYIGA/ZC66LiXHhEY+BCGEcLOG6DriQ7pntaLTQzj4mT9MFxuXrdZWR
+	 WTlQZ+3uh7vQZJciFKtbeaQAWg2Fj5Z3CKaHH9DV5J7ZDeO0BOJgzGqIQYA6AZVHbu
+	 KWkWpLNsRJtCOKlUzhICLsYmMJPHWa2AvjT1JqQAK0x8A3ZI5V0GAdmzBzy5aAuZnR
+	 Ms3juopOsxXJRCs9uV5hU1+6dquREhGtGXFRjkpIAe/5CmUGaA6xiBdTsK6cje+hEh
+	 6JCP5JTck0aAw==
 From: Vincent Mailhol <mailhol@kernel.org>
-Date: Thu, 18 Sep 2025 18:00:24 +0900
-Subject: [PATCH 1/4] can: etas_es58x: populate ndo_change_mtu() to prevent
+Date: Thu, 18 Sep 2025 18:00:26 +0900
+Subject: [PATCH 3/4] can: sun4i_can: populate ndo_change_mtu() to prevent
  buffer overflow
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250918-can-fix-mtu-v1-1-0d1cada9393b@kernel.org>
+Message-Id: <20250918-can-fix-mtu-v1-3-0d1cada9393b@kernel.org>
 References: <20250918-can-fix-mtu-v1-0-0d1cada9393b@kernel.org>
 In-Reply-To: <20250918-can-fix-mtu-v1-0-0d1cada9393b@kernel.org>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, 
@@ -66,17 +66,14 @@ Cc: Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  Vincent Mailhol <mailhol@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3267; i=mailhol@kernel.org;
- h=from:subject:message-id; bh=99bx0qqju2UEGVzQhTUbxA8T28JN+IzFGx/ISmPcSf4=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDBmnT+U6it09XHjp1J2k1U/PXLpx2WKK4Pf+wt9vFizWt
- tKrNly6rKOUhUGMi0FWTJFlWTknt0JHoXfYob+WMHNYmUCGMHBxCsBEinsZ/keu99z6r3fH53Xz
- J7b6aCTJxvsI/W2Yd9en/DqfW7nGEWGG36xXD6w/bl9nMtfX9BXD1goJ7rAF0u+3Lwn/m6bGmn2
- cjQMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2683; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=mGSWa58npvsbMCZz/6vmp8p/XePk3TJBfYof7NGs8oU=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDBmnTxWZTgw4VM999eMKhiW/mgPzTVdd92X5/OeGtJvF4
+ gvHcjqud5SyMIhxMciKKbIsK+fkVugo9A479NcSZg4rE8gQBi5OAZjIfQZGhv9126JX8G42aY3J
+ mbiI+0nZJbvFB699Tqvivdr3J7Ca8z8jwwTdeWUXmvIuqQQHsiS6Km2sXf3IRa/fUMf80IctX55
+ PZwEA
 X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
  fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_020150_308706_4AEC933E 
-X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,7 +93,7 @@ directly reach the xmit() function of a CAN driver. The only check
 which is performed by the PF_PACKET framework is to make sure that
 skb->len fits the interface's MTU.
 
-Unfortunately, because the etas_es58x driver does not populate its
+Unfortunately, because the sun4i_can driver does not populate its
 net_device_ops->ndo_change_mtu(), it is possible for an attacker to
 configure an invalid MTU by doing, for example:
 
@@ -105,7 +102,7 @@ configure an invalid MTU by doing, for example:
 After doing so, the attacker could open a PF_PACKET socket using the
 ETH_P_CANXL protocol:
 
-	socket(PF_PACKET, SOCK_RAW, htons(ETH_P_CANXL));
+	socket(PF_PACKET, SOCK_RAW, htons(ETH_P_CANXL))
 
 to inject a malicious CAN XL frames. For example:
 
@@ -123,57 +120,44 @@ malicious packet is able to go through can_dev_dropped_skb() checks:
 
   2. the length is a valid CAN XL length.
 
-And so, es58x_start_xmit() receives a CAN XL frame which it is not
-able to correctly handle and will thus misinterpret it as a CAN(FD)
-frame.
+And so, sun4ican_start_xmit() receives a CAN XL frame which it is not
+able to correctly handle and will thus misinterpret it as a CAN frame.
 
-This can result in a buffer overflow. For example, using the es581.4
-variant, the frame will be dispatched to es581_4_tx_can_msg(), go
-through the last check at the beginning of this function:
+This can result in a buffer overflow. The driver will consume cf->len
+as-is with no further checks on this line:
 
-	if (can_is_canfd_skb(skb))
-		return -EMSGSIZE;
-
-and reach this line:
-
-	memcpy(tx_can_msg->data, cf->data, cf->len);
+	dlc = cf->len;
 
 Here, cf->len corresponds to the flags field of the CAN XL frame. In
 our previous example, we set canxl_frame->flags to 0xff. Because the
-maximum expected length is 8, a buffer overflow of 247 bytes occurs!
+maximum expected length is 8, a buffer overflow of 247 bytes occurs a
+couple line below when doing:
+
+	for (i = 0; i < dlc; i++)
+		writel(cf->data[i], priv->base + (dreg + i * 4));
 
 Populate net_device_ops->ndo_change_mtu() to ensure that the
-interface's MTU can not be set to anything bigger than CAN_MTU or
-CANFD_MTU (depending on the device capabilities). By fixing the root
-cause, this prevents the buffer overflow.
+interface's MTU can not be set to anything bigger than CAN_MTU. By
+fixing the root cause, this prevents the buffer overflow.
 
-Fixes: 8537257874e9 ("can: etas_es58x: add core support for ETAS ES58X CAN USB interfaces")
+Fixes: 0738eff14d81 ("can: Allwinner A10/A20 CAN Controller support - Kernel module")
 Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
 ---
- drivers/net/can/usb/etas_es58x/es58x_core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/net/can/sun4i_can.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/can/usb/etas_es58x/es58x_core.c b/drivers/net/can/usb/etas_es58x/es58x_core.c
-index db1acf6d504cf37cec724d392c9f7fee2d1f6045..adc91873c083f968ff7571a5b0db5747988482c5 100644
---- a/drivers/net/can/usb/etas_es58x/es58x_core.c
-+++ b/drivers/net/can/usb/etas_es58x/es58x_core.c
-@@ -7,7 +7,7 @@
-  *
-  * Copyright (c) 2019 Robert Bosch Engineering and Business Solutions. All rights reserved.
-  * Copyright (c) 2020 ETAS K.K.. All rights reserved.
-- * Copyright (c) 2020-2022 Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-+ * Copyright (c) 2020-2025 Vincent Mailhol <mailhol@kernel.org>
-  */
- 
- #include <linux/unaligned.h>
-@@ -1977,6 +1977,7 @@ static const struct net_device_ops es58x_netdev_ops = {
- 	.ndo_stop = es58x_stop,
- 	.ndo_start_xmit = es58x_start_xmit,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+diff --git a/drivers/net/can/sun4i_can.c b/drivers/net/can/sun4i_can.c
+index 6fcb301ef611d0c8bdb8720aaa77dc78950123d6..53bfd873de9bdecaf6923049007f9efd71289dd3 100644
+--- a/drivers/net/can/sun4i_can.c
++++ b/drivers/net/can/sun4i_can.c
+@@ -768,6 +768,7 @@ static const struct net_device_ops sun4ican_netdev_ops = {
+ 	.ndo_open = sun4ican_open,
+ 	.ndo_stop = sun4ican_close,
+ 	.ndo_start_xmit = sun4ican_start_xmit,
 +	.ndo_change_mtu = can_change_mtu,
  };
  
- static const struct ethtool_ops es58x_ethtool_ops = {
+ static const struct ethtool_ops sun4ican_ethtool_ops = {
 
 -- 
 2.49.1
