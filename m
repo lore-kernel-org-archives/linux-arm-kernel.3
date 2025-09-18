@@ -4,178 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7794CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4172BCAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1hrD2EaAI8fLXMLR09RWk+LkneeQ74KzYGXe7ezNyc=; b=fSdzc74CfRqDovDiPSBoCQW/5g
-	uk1IWFFjfy5AS8R/AN1h3/zNARY7aldwrH0VjBUS7qT6LatVBtogJ+rnVXNOZDxJHQHwtUL5uHDBN
-	D+btJf6vs8fLldQLDteFsMVfSor985fo4AqmQJsblD0CqeSdOXcUOo5vIKLHkDgkovIzQt0Sz0BId
-	tvBsd8wdWVcpF8RBb/7wtDD1R3iQcDeP4ZqHDPk/m3qN/HnMYDHLoA1tp0MlmcSyX5KFylblFONo7
-	S7FrL6X3rX97jt2eFM5FS/u/8crCOtC0/msJp1UmRLGh92PLFXAQVk/E4Jl3QPwbiJs0kRukkjqIC
-	ENkIlEuQ==;
+	bh=qnr0lphwAKPLW5ksQ22GegXVi8xqGEBkRU1P4uUo9J0=; b=rsbUnE4WEL/+h2BxF4X81UBpM5
+	olrZEVJ3mvXS2H4ZiBnIFQdV9amf4ZdxH6QE+pOXWaGxhjZSxCKZQmAIx+9qT6TytnG0BIrjK14n2
+	bg4xui8ZaFqBk5Af0cHiPf0JI8MiO/a2DJTNniCGnPZCDjI6xu+5x+dlHsvPXpoAiXWR37ZjfIHgk
+	fmqlRV6rtGh94Wz9zIhyKiIee0xgxU3Z25HlJ8lL8pCQxYYxzoDlqE+/sd5TZ5/nwp9OkMxPKzH5U
+	wIXcLrXyge8td9WqLqeFWzzKbLBJS/1S3No7xTZcbZKu6CcAG3/sP0ZkvWK7KAcfCw6mhOfJg6eYi
+	9v3riLFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2Ne-0000000FlxJ-205O;
-	Thu, 18 Sep 2025 00:20:10 +0000
-Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1uz2XM-0000000FoGI-46HC;
+	Thu, 18 Sep 2025 00:30:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2Nb-0000000Fluu-13AI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 00:20:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tLpb8F1xmOSpP9gXvPCkGL5aR0KEPo74j3oYhbpnH0JZ1Zu6KWoV0c03S1w1oxiRrjbJI83oQMgGk+C0o+2yNOXHvdQQD2i7Ms0th8agCiT8OLaucco6zZzpD0nR1EKeta84ALLKL8yrcoygh+q8gt4AJBi7W8owRKDe+g38GaS0RrPBWR8cQwi9kABT7qwXbgjeVK5rlem5umh/dzq+tVXWiNB8D8zh19LHC3G+kLK0MgYdDM0r2hNU6XazE3q03n+O3ZmEXSFAI5DsLkO8Vj+QUBCqBkRwsIlhIdR9I3837OcmlP6hTYQYK6LKmmuckCFQnaf6GiNQ/TI1V+jcUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=V1hrD2EaAI8fLXMLR09RWk+LkneeQ74KzYGXe7ezNyc=;
- b=nf2YMWlbM+r3no3szuOd4W3X+JsG/tpgcyKLXl9gACA+CFzsSTGN5xy21OAsBfCirt/LznKd1zJfV46IE6XBn+fbkED/ASvkoceRaWYstwE5GQsqS5WBwr7mrc4muAOf6rmWBItB5mQteEmMoSfuR5pI3aU/a67g4y9snNWsKjFaIeqVoJMkhAt4yVPrvZOCngfNT9Ci6RwSKvo+qozPnTMmuL89xbuhnKa6QF7BiDGPIxeiTmghwPobh0rjO3l0uTtBZLscLe0SS31mgw5ga1bLKhh2JFH+c8BUUMoLzCZKXBSbjd8SQa1JUK56jqiIcRSdkQxGHluqLjbOJtz+MQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=V1hrD2EaAI8fLXMLR09RWk+LkneeQ74KzYGXe7ezNyc=;
- b=CahEq9A2v7EOOmol4J/tAPNsLZvJpb0nSEZDOSjOMmoYCBxzx2xsPgNUgI1KIYa29kn3h/syGwWbhLKdwtFagCnwiiVihXGTtn+x99Em2msLxJi3zfqUOWTIJiYc1p8Xj1TRsD0rqRYf9wPxwdJJnN+c55AGkfJo+/jPOdTUWL8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by OSCPR01MB15738.jpnprd01.prod.outlook.com
- (2603:1096:604:3cb::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Thu, 18 Sep
- 2025 00:20:00 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 00:20:00 +0000
-Message-ID: <87cy7opq6o.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	"Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 5/6] arm64: dts: renesas: Add R8A78000 X5H DTs
-In-Reply-To: <aMr1QjI8vfrP_fwD@shikoro>
-References: <87tt13i0lh.wl-kuninori.morimoto.gx@renesas.com>
-	<87ms6vi0js.wl-kuninori.morimoto.gx@renesas.com>
-	<86v7li1xs4.wl-maz@kernel.org>
-	<87h5x1afgr.wl-kuninori.morimoto.gx@renesas.com>
-	<86qzw51pmw.wl-maz@kernel.org>
-	<aMr1QjI8vfrP_fwD@shikoro>
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=US-ASCII
-Date: Thu, 18 Sep 2025 00:19:59 +0000
-X-ClientProxiedBy: TYCPR01CA0184.jpnprd01.prod.outlook.com
- (2603:1096:400:2b0::13) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	id 1uz2XL-0000000FoFk-1cO3;
+	Thu, 18 Sep 2025 00:30:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0FD5740994;
+	Thu, 18 Sep 2025 00:30:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83380C4CEE7;
+	Thu, 18 Sep 2025 00:30:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758155410;
+	bh=hqiBjDTMNtIZK2c3OUTgcHqbJVWmnljVpG2n/f/ZTiw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VCS0KNB3JWofqsgTN9Fg9b/3eTr0cJ7H3mJrjAJOl6uSnj4je1myzQ7Li018BoJEb
+	 N4xB82npcp7YCNnumNB4vo0ENuelxgjruP6jwc7nGt5iSTrBfaK9DhodP1pt/LrM9P
+	 6lBcn1GtEmqwQ6sHL4T0sRtoJg1pAhKNCY7JO8PcXT6CgOJmm2ZkISOTIwZDRKaRGS
+	 5XmPm4HU7t/r/JWe8QlhypHdRNQsxmllbCFPIR2qOeG/big3wIyeyxCQEMT2Se9CZP
+	 YQgNIGZQNLj665FfU3Xl6g8qGTYkqCyRIErGc7rjC+Xz1zEWyPERcXYnT5dhObBoTL
+	 2sysuT046nHIg==
+Date: Thu, 18 Sep 2025 09:30:09 +0900
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 01/10] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+Message-ID: <20250918-festive-chowchow-of-joy-5a51de@kuoka>
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+ <20250917-mt8196-gpufreq-v3-1-c4ede4b4399e@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|OSCPR01MB15738:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2661ca3a-9cc1-4ad4-3092-08ddf6491aba
-X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?V7kdkDf1DsxWKjXkV3tYhIbtZOdpYB9OyxbLTcPDuSjsg9rfCXMd9qAhH53I?=
- =?us-ascii?Q?GQ6RypCruo7Wk7jtflACJpZjgV/kl1RztBkMHTD5ZwV7jkb8PVgRgVNLMAlf?=
- =?us-ascii?Q?NzPezeVckns3CWvYSUAPPNCzEL5P3YzqYr8XHLtTv1xB5vJZK/9yqrNL2JI6?=
- =?us-ascii?Q?8QJnhQFrNr1K/1v+s7EYSGzcga1cje+Ca3vyWXsDIl79uU/U8IIq3SVqEP2H?=
- =?us-ascii?Q?RmWFtVBRApxqqHJpcLiD343i/i/BdyFsoYdKgGflP8gjsFFMcF8xBYmyuB77?=
- =?us-ascii?Q?v5NDrwCegUUIrEvGcAEFdqWXdg5Dw1n51mra+ydyk33GmZ5ZubxSFzWHxExV?=
- =?us-ascii?Q?E/+XwO5qpImqOUzdBXoQb857J89EYqGq6uUDI8ta8yCQLoK3ZokAzGeP9owl?=
- =?us-ascii?Q?Pf7HKgUnbu6Q+7BRXFIN880pXOgZJgpCmhM5HRwIhrNmGcVycw13+CwL0YWy?=
- =?us-ascii?Q?bSdwx1y/zzV585uJCRCZBN68rCf9dcd7+PFLzTyNOzC7+L/0r/dfL56PjZKp?=
- =?us-ascii?Q?t9XhBam/AMQbzjrv/VnQFbqPG5+4kS0ifdoxJMYuTpjWKZrYG07Phn5CpfTm?=
- =?us-ascii?Q?eWT2CXR3drosuiCqNiFejEiC2hJs53hX96TSLg0hCE/Uz+q0/TidDNwMisEx?=
- =?us-ascii?Q?zZT0jgF1a8+Lnt1a9NeDbrQXu3N58rGDn5a+4giPqkbuqUcHBE5i6amW4dd2?=
- =?us-ascii?Q?SEm4Wlt0LBdmFG1NnQE8umRvrfWgzT9BIRAGRVPjK1CKYjU6N0uxUYouW73p?=
- =?us-ascii?Q?Hu7i+uL9B7/s6wc1nKUkq+rJZs6Lza3m218Y++Fyc+vp+IACrfmqjbQgpchP?=
- =?us-ascii?Q?B+taZOTNPNauLQJjmpsAL1/BfYlBQQpbxJBY5Z/DIQT3ADqNXs35+zDV4JVf?=
- =?us-ascii?Q?CbFhhiTg3pqBQDGc6+lUFdvyA97dvPJL6TMHSQ9g2bSwTDx5jxzZvm9fJpmb?=
- =?us-ascii?Q?EibY2mxMF9ban5Ke/wh+k+gp3i0rArkNFmer/wnjlxxsbLi/qgeTNbpsmpek?=
- =?us-ascii?Q?UPUPGZ6FBIIF72AXcWsHLLs5W+LPpbiamM0mGwnbZ5gF2hxtiTqVpFagIuOt?=
- =?us-ascii?Q?Foc+SNDJQug+ESyRT31fmzGHHcHMKmJY9V4Rz7XlAMJ8Y09rcOM+ZgZhtBXD?=
- =?us-ascii?Q?j/Q7PLBGKuxiIfEa/oNe3rjfTH29JtwiLE/NLNLc5eo91pxWEmQPfS005t8b?=
- =?us-ascii?Q?c/6HAuWQq1eJqXzZKHnEgdPju1b4b/gWwcSXYC24wK4t5kttQryL+U9AEwED?=
- =?us-ascii?Q?CEDuIlOsdRowiFoRNuw1viOY3GJd9PQ69RZSj++gakpLdcHMe1HtgKyfMB9d?=
- =?us-ascii?Q?50ZP4XzSUQxeWIdEQYUpuLhasePMDLvTyY/1DMbSe+ZBXvMLiE1qU8uPu5RZ?=
- =?us-ascii?Q?QkYaShNwY1aLth2lNA+7DjmCS8Dl+KuD8BbF/N38cEw6XwKAYZXSTgTu2LkH?=
- =?us-ascii?Q?G0797co61gfKaoAvjkuK9gtKI2vB4jffpCGHjCIfNkv/ge2dOQYtwg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j48JXckX7QYVvqxi11w73NS4uf3WdHXPwvHuuSGP4/pqBHn63h9AdhzJaFGG?=
- =?us-ascii?Q?gW1cTDZTIHO/6w4eyPHHxLJimmtRgRjOYLgeJebp32OYt11Os5/cvPqYLTJX?=
- =?us-ascii?Q?TNSacNZFxXyII4nCe9SsEd95aB7gfEgNwQLoqCWOtufbR6dmhBiXM5oZaagV?=
- =?us-ascii?Q?ekHC+xbnZXu5WJDkeIBJh8PiSBaP2j8n2bFrUVzaTV/YVwx3czA+Ulyjb7E+?=
- =?us-ascii?Q?FmW8rASN7gz6DzavYK0pTueGs3GEC8slOnR3kPxj+M+UwQ1yMujivux2sKv3?=
- =?us-ascii?Q?SQjTgq70bXm4d+yEZR9p5kEnVl5azQaM4alEd67c6OwJZyAe+NBP6UDZK6rg?=
- =?us-ascii?Q?RQHoYjzjn7D3/IWTMHbioqGQw1zykEvGDR1/dnqiKoKRArxByKuvp/vH9vCj?=
- =?us-ascii?Q?Ta1ekNkpnQyQaGl1MBunsHJwvlcFCESmvrFQxp7rcwuqBlemK6XB99Jg2DCg?=
- =?us-ascii?Q?YnP2M0sfI+M1+ZvuQ8ywaacMonq0nH+J9ga4Uw/1fOOzpQ2p9TT30Gwk4eIX?=
- =?us-ascii?Q?98mnkU8j2hbVkzgR+8yjCfF8MQOGmxHKAtyVdU5Jj5YTkoiaRIwkM5e6254L?=
- =?us-ascii?Q?bToNQYV/qdMR3pzYSNGOf1su07LwhZoQ2lE5Cqi0ueRwm9xQhgFX7nCbQwxk?=
- =?us-ascii?Q?tHMjxGHp7ZvfZeaXveMEtvxNxEkim88EwhXMW8TAPYYEUz3+Vlu6Lcji7w5u?=
- =?us-ascii?Q?CU7zuRb5kdLhx2vS9ud0ybCKdqQfAdsDesKkp/RaOB0F9w0liw7pwA4Pg2xL?=
- =?us-ascii?Q?nNVTk78oqlA5hxZXyAPg8paC3kqc7yYSnF22ARbRW84AQXbSOAxpXHO+ldbL?=
- =?us-ascii?Q?JAJhHNM2pTP7PiclLFA6FfSo/izXjCQr4018DBG9h/PTxCdIfjfxM11bMe8s?=
- =?us-ascii?Q?FbISA95ozzqmdIDFMzZxFZan1HRH72dbrKUq7p+GeVUd+JVPv9gq4HGxwX9i?=
- =?us-ascii?Q?UM5NHra1+BbdJKDCkSkaTNi+zXQAGixH0ZxAOeMlpTcm9i1UliU3slxwbPYY?=
- =?us-ascii?Q?Ef9ihFIKF+fbWwyjmNbgF4hcnhOXt+9ZmbUiyVAm5Xrs9SSUnRl9FHBJMbY9?=
- =?us-ascii?Q?IrfOrAzhf4d2JD8HseRTcvfZDvXGsaLsMcqgkT+xaA9MFCUpuv0841EgY+GI?=
- =?us-ascii?Q?CAob6jvm0QIuO8pkb3RdjeBfismaDPgvs2/rXukyC4K+5STRtPCwHU6wsupE?=
- =?us-ascii?Q?Ksf0XZuhvf6BrMMLjeoMH3NGpzEOCG3dfunPKfVtjqpayb+q5+/ofNrDCLq4?=
- =?us-ascii?Q?PCI5a47enxODm1c23RKmDlhy/FwMrChdiA+Q1KTsgRDMNbwbCgOacOmp89oH?=
- =?us-ascii?Q?6urh5FLaD1DnPsbju+WfzIF97jrG8DvafG7bG4hEH5LdWP24UYgURYiYhaPp?=
- =?us-ascii?Q?ElJlE7E1bO9yaow57KNFoGioi7/Su7NCwHl9sp2fu/g52r9t9e/ey0JYpgXi?=
- =?us-ascii?Q?5k/++AJaLGkArkAG4ygA57/ATnZettgY9gXrNuJtbmcoreFmPv396HsvFD7R?=
- =?us-ascii?Q?5T4yMlsSShENy3qcO1dJhhqvgId71Leal9zgsg3OJUHlxJPA+CmGdBQ4clty?=
- =?us-ascii?Q?oO2kXufd1XkdHocj3rIHfA8+tZaPiW4z87vXiR3kOhCtvtx+DpG2949aN42E?=
- =?us-ascii?Q?I9tltCRG4XcDxjbppuzGiqE=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2661ca3a-9cc1-4ad4-3092-08ddf6491aba
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 00:19:59.9693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qOBN6vhPCRudU0n99dsJ3O3Z7REtc8Y/hIXxcD5jOFiMLw6BSv5lheeDlJYm6HRRnKTs2OnrwAqErf1M7KyAi8y5cZ0TommDQJLslDzvG4N2wlbKu7/9gaXvrS2QEiZ6
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB15738
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250917-mt8196-gpufreq-v3-1-c4ede4b4399e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_172007_284621_90DFD36C 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250917_173011_447160_FDAC820F 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,35 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Marc
-
-> > > And, the datasheet is very complex, I don't think people can find it by
-> > > himself without any hint.
-> > 
-> > I guess we're just a bunch of inexperienced idiots unable to read a
-> > TRM.
+On Wed, Sep 17, 2025 at 02:22:32PM +0200, Nicolas Frattaroli wrote:
+> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
+> control the power and frequency of the GPU.
 > 
-> Please don't feel offended. Morimoto-san really has a point here. The
-> datasheet available for us is currently in a very rough format with
-> *lots* of attached documents with hard to grasp naming. I am dealing
-> with R-Car datasheets for 10+ years now, and I do have a hard time
-> finding the information I want with this one.
+> It lets us omit the OPP tables from the device tree, as those can now be
+> enumerated at runtime from the MCU. It also means the mali GPU node
+> described in this binding does not have any clocks in this case, as all
+> clock control is delegated to the MCU.
 > 
-> That being said, I agree to the point that it is not very helpful to
-> reference such documentation upstream.
+> Add the mediatek,mt8196-mali compatible, and a performance-domains
+> property which points to the MCU's device tree node in this case. It's
+> required on mt8196 devices.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 32 ++++++++++++++++++++--
+>  1 file changed, 30 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..ccab2dd0ea852187e3ab75923e19739622b2b3b8 100644
+> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> @@ -38,7 +38,6 @@ properties:
+>        - const: gpu
+>  
+>    clocks:
+> -    minItems: 1
 
-In normal way, you can find GIC base address on datasheet as "0x38000000".
-But we need to use in Linux is "0x39000000", but it is not indicated, and
-there is no hint about it. You can find it in tons of attached documents
-as only 1 line.
+I don't understand why.
 
-Indeed the person who can get X5H datasheet is limited, but I believe
-that it doesn't mean hint-comment is not useful though.
+Best regards,
+Krzysztof
 
-Thank you for your help !!
-
-Best regards
----
-Kuninori Morimoto
 
