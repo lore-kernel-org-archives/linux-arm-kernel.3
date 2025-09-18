@@ -4,171 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400AECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3C3CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmjL/ihV8nH83nq+IwRnCZ0BbhKT8EB6qqrT440A+Qc=; b=Cw6zhqCH4zV0TnypdZ0T8wiOYB
-	XahZcLUIWtQI1fbIg73fhcSM+UHXhV7YcB5ozj7mF1gzbtM6B6mOTZ3/Tf6dpM3K7h0yYR8qmu9yA
-	SVhK+1dkSqNZbb1HSeJr0+5tumrQAtlH1WkvykP/0qXb1ktljKfrhUo4653hgnssqWLg5HavG+MOA
-	9R/XfrzGIImQQS08FL5t7WrFJDbgjidBY/4YJjHGpUuHNx56SBXmQzKR/WqB+SdL5SkS0us56CJv5
-	ShUdtSLhalK15+AnhM6TELaZlrosJl6vYo5y/HD1h11zuErHyHt6CqcbcEEZZ+3trk3braW+R3I25
-	wvS6d5Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XKi2ANJf0pGpoOCFlFTyH97hfPEdtvbxlpXuVoDZYjI=; b=Z8WyaXbEYoQLnKYCK/huKyJmjR
+	jP9xi+VZOjNMV7q31xeYAEERcyeHlgzcYIkqgkKiT2NFB/TggOokl9iFS07T/oS3qWiqCcIMa3djN
+	2rVHhP/0xAYz3kM8+Jky6Leq5OfRzGpYuScLfTnUrSfkc0aiCsnJViwItWGSXuunVwwSuFEHuICjA
+	1fiB/JaiyMgbygQXgAZvZpyZuSQjK6swte7EWp3ZGKSnCYoKnrx7SPppKL+gboZjxJ9Rs2zcGxppy
+	s+/ntI/nXKMM7Hcj2IlsUOfz3WA3023bjX6Gj9OU3ZAeFrLwmpgt4ia1pzV/dIbGMAshVEcI5X5qN
+	qLUpPpJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGD7-00000000GtJ-3G3y;
-	Thu, 18 Sep 2025 15:06:13 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1uzGE8-00000000H6k-0hzx;
+	Thu, 18 Sep 2025 15:07:16 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGD3-00000000Gqi-3AKR
+	id 1uzGE5-00000000H5R-05wE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:06:12 +0000
+	Thu, 18 Sep 2025 15:07:14 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58IDjG2n018046;
+	Thu, 18 Sep 2025 17:06:51 +0200
+Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011071.outbound.protection.outlook.com [52.101.65.71])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 497fxh1cag-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 18 Sep 2025 17:06:51 +0200 (MEST)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CJLDYFIZZx2InxHBfSOxztXj+6oHdcHHNYIymsBB23KkeJfkZDlssB317TB3xvRDCB/YnRASHyDr7NkIwyrUzVlSgx1TO659FyaFw4vbvYVLP5kxamAwXrSUw0MET0O7/AnSo/jPq4udxVPN0Q3i978y+cQzejL3DTf4nfOzmsxttfTe/V0ZyUvqF5lwkLrc61ICLkm3EQy6Lc8Qedm0IX+oeahFfgt2CqM9J5eP6BDzEomViOOOrLoIr1qffw6IJevmA6gSrDrWphaSUD1o3od9SteS02IUtIkVUYzyP4z1BSiI8MF19MeCoRKqRPAyHXnMcN4hN51YE/MrXyI4XA==
+ b=dt0nYZTRwS1E/A299u0Uu1u+vkfpF/xPf4Xg25RLO7dEO5PJt4Eyog2GoUgJxHQ/uGne+vLU2kWTX5EBdfRJ0ICPpiuAfYMpmY2nV0XNOCtmo9DIgtB0SR33QLRPSIc767jCFvmVIjhyjpH59+FLO5S25ridO5VWFzFnkrM7viKYqyMAusgqGeh6uDP9GwBMK2CueH8YhLGPdSDT4Uy3qcNpifP86AFdUHEOLfIf4lyxDl7UgOVWXMIvvJfy+pP95n+D/xgUy5VIYbHHMGSSzsbKk4xB9VqEbFhVI5uQQ2xF1AEznXuHhm2cBmUgGTsKcQ22SiFTaramZq8herWeuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xmjL/ihV8nH83nq+IwRnCZ0BbhKT8EB6qqrT440A+Qc=;
- b=qvSwoC1xxPLYstrhPnZwA8EfTPayFsKMoE4wZ0pKYmkQZNvjyuF6YqZluAbQ0ks81v/o2qQA7avA23RPv41J9SLVXK9sPRgTUdLh6DjtKMfXdaJHnc2tyoDzDBODCFhRmYSoqDeIteTwNU0o+dbL7VH6pwuLUVBKhUU00XNF6V2+Ym6FymKEc2HpVk5kW8XP00GSkRsoJr67HUqfb5awKdWhxKOlp/7iEPBNwwn3l6rkXnvpRGHVH/Ksiv+f+X5FEXLO11wlnGyTuF2mLeTWxHUr78lAJPAqZrG2Rm8DIJZ4mYAPAUgtt064XAXF8jECo21LjaabF/Z7VWvZLNXVsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ bh=XKi2ANJf0pGpoOCFlFTyH97hfPEdtvbxlpXuVoDZYjI=;
+ b=qye9j3SV+xPpRO+JSaiv9jk0HHmXhtTNfkG5MAp+nkEKWZSE3cCuOZXaW7rh0SJFIpAs7OAYnEnJc+QhExtCspZ71JxnxBLdzjRH1WUXMVnN9XQ6407NiTTjRSmGVVTceaSX1c97/FBAsA0awdwEgoUqpTxjauLUH5oLmXArVYZabltrWqP0sFdsiJrcCph6KxsnBIUIJbbvzl/rEhFronkhtF2m4gLMtvQJShkEA3An8KDvzo/N9wJ7WmYgG7gOad9qArL2j1H6SozSGItnuCMmKsPWdaLStKkAjnCPPBjxW6ahxmPAp9OjTc1IAyNRcicho2mMNLIXg8JTlhvnDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.44) smtp.rcpttodomain=armlinux.org.uk smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xmjL/ihV8nH83nq+IwRnCZ0BbhKT8EB6qqrT440A+Qc=;
- b=npHkftkZN/Mk2BWS8L2ZqL/b1bv66umlTFyy17nDsJ7UC0ZLNz0iSg0mkN35VTGuoQdo0m8zqWIj7SHLBMGAkS6hOQnktLFDQ1AfElhwElE0IDVkksWGsoBu2bljL8RNDEcLhS50IXCMkgHuhoCgw3AeCBzkP186WoqmP6QWKik=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH0PR01MB6326.prod.exchangelabs.com (2603:10b6:510:a::8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9137.13; Thu, 18 Sep 2025 15:06:01 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 15:06:01 +0000
-Message-ID: <22732cbe-20f8-4d1e-b086-e34d0f9bbb35@os.amperecomputing.com>
-Date: Thu, 18 Sep 2025 08:05:55 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/5] arm64: kprobes: call set_memory_rox() for kprobe
- page
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: will@kernel.org, ryan.roberts@arm.com, akpm@linux-foundation.org,
- david@redhat.com, lorenzo.stoakes@oracle.com, ardb@kernel.org,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
- <20250917190323.3828347-6-yang@os.amperecomputing.com>
- <aMv_nhEuCSHKp5J6@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aMv_nhEuCSHKp5J6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0100.namprd05.prod.outlook.com
- (2603:10b6:a03:334::15) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+ bh=XKi2ANJf0pGpoOCFlFTyH97hfPEdtvbxlpXuVoDZYjI=;
+ b=kPhn0/Db/IRhgsSUulKNsYDV5xWWmcmPB9bphbDMrw/pAoMD22X+uml0t+ZopNnD3Va5rlL+Fy2biQ9VslyDvYCYoBvzkrfmgGzdMnzArqB2ezmV6WXBCsPwSjt6ZOBkGdXO4fnmV8y6p2MQ0u78sZNUw6CpVtOX7xC5Bg1ehCQzYLx5BFwf7Napf5cldQhwUQ7z79PS8gFw8+UrRUUdFQ/tayRmdg45pCizWGtkvd9bjdWIJnVcPgaapaaXKRGgOFo/xsGESwwXJDfWlxIKIMBwuVhk0RasOaPul3w6JmU4HJ8U8dchgZ4EHvXInFGrVoo/f/PhN/hTJog+F71c8Q==
+Received: from DB8P191CA0010.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::20)
+ by GVXPR10MB9484.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:326::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Thu, 18 Sep
+ 2025 15:06:49 +0000
+Received: from DU6PEPF0000B620.eurprd02.prod.outlook.com
+ (2603:10a6:10:130:cafe::b0) by DB8P191CA0010.outlook.office365.com
+ (2603:10a6:10:130::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.14 via Frontend Transport; Thu,
+ 18 Sep 2025 15:06:49 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.44; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.44) by
+ DU6PEPF0000B620.mail.protection.outlook.com (10.167.8.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Thu, 18 Sep 2025 15:06:49 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 18 Sep
+ 2025 16:59:45 +0200
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 18 Sep
+ 2025 17:06:47 +0200
+Message-ID: <64b32996-9862-4716-8d14-16c80c4a2b10@foss.st.com>
+Date: Thu, 18 Sep 2025 17:07:00 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/4] net: stmmac: stm32: add WoL from PHY
+ support
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>,
+        Andrew Lunn <andrew@lunn.ch>,
+        "Heiner
+ Kallweit" <hkallweit1@gmail.com>,
+        Simon Horman <horms@kernel.org>,
+        Tristram
+ Ha <Tristram.Ha@microchip.com>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
+ <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
+ <aMriVDAgZkL8DAdH@shell.armlinux.org.uk>
+ <72ad4e2d-42fa-41c2-960d-c0e7ea80c6ff@foss.st.com>
+ <aMwQKERA1p29BeKF@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <aMwQKERA1p29BeKF@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB6326:EE_
-X-MS-Office365-Filtering-Correlation-Id: 804b2b98-8cb6-45c2-ea0d-08ddf6c4e120
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000B620:EE_|GVXPR10MB9484:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee7a88d4-e7fd-4091-4ac7-08ddf6c4fe06
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?amdBKzd0Vnl6Vlphd0FaTjB0eVNEdUNISXY1R1I0MDV3WFJpOFpPdHh1NXhH?=
- =?utf-8?B?ZUV1ei9uODMyMWpXN3BlcEJMQy9ocklRYnR0VW02am9SVUZ3YWNNMWlOTWpV?=
- =?utf-8?B?VXNZdUVPc3JNYjl3MWxLQ1NjSURIYlBmUWs4OEhsVUgvN1JXRS85RkRNWnZ0?=
- =?utf-8?B?aGhTN2s2cThROFdmdnRobzArcUplTTA5eG9wT1kyR2RsbktERWJtUUIrS0dY?=
- =?utf-8?B?SWVNQ1pPSTRiSVJQQnVtRGszS1ozcEZ3b1Bqb1hnVUo4Z1ZZZFAvVldKWnVG?=
- =?utf-8?B?cUVyQjQrbHRweXdsakRraFlxS0tHcmY4cDd0ejVJZ3B6YnludFdlcW83UjZn?=
- =?utf-8?B?U0g5OE1KZ2dYLzV3SE5tdjR4eS9FVmdnVlFTQ2J3SFBvYSt3L0ZCMFVkbGpW?=
- =?utf-8?B?VnZsL0hncnBnMVF4Q2xINURUbVBDVFJuR3N1UU80Q3RVRTMwMEZqTXRIUUZj?=
- =?utf-8?B?RmZsNDV6SUl4cjg3cDVCY2sxM0RmMkxERS9LbWN2VTZlekR6djNJOGxWZjlI?=
- =?utf-8?B?cW02TVo1V2lSVjZ1dm9jODFDeHZwczlnNnVQeTJ1Y2IzY3Rma1BXbGl1SlJW?=
- =?utf-8?B?cE1kcHgwQVZYN2FZQTJIbExCRlVxdG56YU1XYXhGRU1NaDF4TE43N1JCaThJ?=
- =?utf-8?B?ekxUR2ZZMk1KbzhPY1pLMXRDK3VWODBnV2dVakJYeTVPZGpxSlFkSFF3bTht?=
- =?utf-8?B?bTVRUjJzVHBJa21ta0VBOUtCbHlKTmlwdzJ6ZmtQZGI0emF6YXpZRTlmdnc3?=
- =?utf-8?B?WDV2SHJHV0gxK2xYcTdWV3lvamF3U1NDUGJtaFJpV0tEZzg2ZE95M0RpbzFU?=
- =?utf-8?B?U3dHZEczeU9JV2FLaGlXNHFBZGJFWm5DYmdGY0FjNDZVTlQya0JlekNvZEo4?=
- =?utf-8?B?LzB5TzlyaEY0dDZqbmNVMU4vZzhJekVZRmc0R2Vtck01cnR1M3EyZzNEMkhp?=
- =?utf-8?B?SlE2Wi9YQjFXdzkyQUtPTU5mUmttVVVKM2FWTktYZzI5WjhMYjVKMWxWL2xS?=
- =?utf-8?B?V1JoRDVZMzdRQTRaMnVwbVZlRi8waDRWRGUzNmZmckNwTHF1enIxaW5QMjJ3?=
- =?utf-8?B?SlFDbFdsU2NIazV4Sk5ZZU1GM1hQUTI0TWdNYVR6Y0lTbDRURFdObGt4K0U0?=
- =?utf-8?B?NVpCNXEzZ0VXSFRiS2RLa0tYMnRUbEJzaCsvb1E1bWFTMnorYUozeThrSmpC?=
- =?utf-8?B?T2syZ2xMQVR4MVNYZEhRN201WHRqTitjaDNEaCthdDNycXNrdkxJQlpMVC9K?=
- =?utf-8?B?cGR4cnJEZ0tFUnh5bS9kT1N3cU42U2lMd3ZHcDFQTHR3blRLaW4yYWRrZm9z?=
- =?utf-8?B?clZuN3ZXQmlCM3o1TmhDYkhMWndIZWRueVZ5SHlHRy9SL3QxZ1h6UUhNb216?=
- =?utf-8?B?K0YzaXVDdWtmYWxxMWdvUlIzcTB4WWJLYytEZEMwYUFwUzhtQ0kxV3pYVi9t?=
- =?utf-8?B?MVhmK25HSFphR1hhVHlLbG5sZVFJZ3AzSnZPaExxVnJxR2J6SE5DMWw1TzVM?=
- =?utf-8?B?cHFRaFI3Y0IzU1NjYU1KMG11MmxWVW95N1F4WE9rTDhIemJqN2U2ZHlyQy93?=
- =?utf-8?B?Q0ZuWm5xVWVuSHZWWk1RcmZHeE9JaEhuNFdqSkVnMVg5MDVjNzZiQktEY3pn?=
- =?utf-8?B?MXZ6azVSMS8rTGZuMW1Nd3ZRa1BGcFZkblRFRUpodDdBTmVlcXNUVTlkVjh3?=
- =?utf-8?B?OGtSK04vcUxNc3NadHEvQ0xzNXV5cXZTMzJsclVxaENRLzI2NlFvUS9pTUNt?=
- =?utf-8?B?b2dhWmVTNENWM1krZW0rV0dyVkZtVThZM0dPL05ZdEx6R1RJMXlScTAyYXBR?=
- =?utf-8?B?TWlycG5GZlV3UjdSMDRVVDd5d2FNa2luY0dOcmpHWUM5cmpMaWV0Y3dQb1Nt?=
- =?utf-8?B?OXdQWGdvbHdTRHpPTG95cWcybnBGUnR4dEZFUnlFMXFTbWlMZnMwWmNETU52?=
- =?utf-8?Q?3YCwVeeyKk0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c1E1TE9sRUZwVDV0ZzErMGY2b1Uxd2g1U3dEdzFlK2dmQ2lHTGQ2TjVDQWdJ?=
- =?utf-8?B?QUdIa2VDYWttb2Jhd05XVkMxQzFSbUk3TXRnV0lBalRGd0RtekRhYmpSVHVj?=
- =?utf-8?B?YXB2UmVpYUtrY0RFWG1jZmlTeUhZMWpKbytRYTBkSUprQzhDMGJYU3BsT3Fn?=
- =?utf-8?B?MktuWmNjQUd1T0h0WVN3UzNwdCtuOTBkVzl1QmtZYTNJNWZtVWdQN3FYLzZ4?=
- =?utf-8?B?UTU2SG5xb0RRL1NpSVErWGtuamN1d3lDd1ZsRkJvSEpSSG5odUg4Z014S1dk?=
- =?utf-8?B?M3ZYaGx5UVhwd3l5eHh3RzQrN2RQMG15bzNwa01iZ0c4OU5hTjVVbndueWtF?=
- =?utf-8?B?TkkxdFpCTGxlamlOQjVWT0FWaVRreTRnYkxDWEh2TG8xQ1hqYy9udytyeU5P?=
- =?utf-8?B?TjNzd1E1QmJpSkozMEhreFNwcm5xeFgwMFR3Zi9sVnRKVks2UXM1NHNSbktr?=
- =?utf-8?B?SGRzdzBOY0NWMzBySkdtdzJMYldGLzZuaTErOWZTVHI3dlZNVkZWZ3dYTjRP?=
- =?utf-8?B?NHRCWWNFaU5zYmhlTlhZNXdSS1NRUkxXUVh0NGM3NkZ5S0tjR2s4R0tGSXZ4?=
- =?utf-8?B?aGRLbThiVjRpT09ob2xNaTU0T2FsL1ZqZnd3Y01PYTdnRTdSbjN4UmF1S05X?=
- =?utf-8?B?dHVDeXFTUmFvOU1ZeGxXYW5vbVVRaVdIVk02ZGs0SCs3YU56UFRmWjVHZHRk?=
- =?utf-8?B?cXMzc3VpeU5VR2hCQzl2VWQrR1dMVFlMRk1DSDgwdXJTUlhDS3NOdGhNVzhI?=
- =?utf-8?B?cmxVeUY0cXNHV3p6OUJFWDNpVStLdGJ5UnJ1ckdqQ3NldmQ4OFZrZzVRMEtG?=
- =?utf-8?B?WTBabnBiaHVFSDlGcEdZM3FMRkJWN3ozV0JvSkY4dklhVXEwYWlsUzlkZENW?=
- =?utf-8?B?SkhKTDRJc2lYby9WYksxcHVlK2NodTJtRDdYcGFJOXF4d1hGcjFzeDEzbjRk?=
- =?utf-8?B?K2JaZGkxWHh3c0trcVh5KzA3dlgrWDl0L0RrTkdsUGs5blgxalJQdWRlRTZh?=
- =?utf-8?B?K0NOeVpVVXVuWGNXcWM2VEpISEVmOENKQjEzRFFYQWpMUlNlclVJUXVOTzJj?=
- =?utf-8?B?bmEyQXRtcXZ4SW4rRkloSkVaYWlyeCtZMjU1bWxIWThDeWx3N1Z6WGtzQ2JZ?=
- =?utf-8?B?UnFzSytobm0weWtvYXNGeDZaZU9LZGszdy93MjJGL29MOGZjSjBxcUJYRGRn?=
- =?utf-8?B?MW0rZ0xIVE9PV0JjSEpQazZuV09pUkZFNzRKaitGWVFBZGMwWndqd29aMGQw?=
- =?utf-8?B?N09YUjZLY3prWWxPMmNJWFhTbmF1VWpqL01RTnFBNFordlRBSjU1TEg4NTZz?=
- =?utf-8?B?TU1mOHBSWkxuTStwUDVHckN0NVE5dUtzWk5sK21IR29ncXhMbDA2MzNBc2pR?=
- =?utf-8?B?SWpERnBwalQ0dDQ2S2NUOWxFTVR2M1cycnM0b0o0RXhENS80UUxaSDgyeU9O?=
- =?utf-8?B?QnhqSkZodGdlVTVyNkdlcHFuWGFUSHNPbUhGNVhEN3NOVFl3U2tUdThHSGxQ?=
- =?utf-8?B?c09rb1haV0gxN2t5bXh1UUh1eEptcGJieVRTdjZybzZhdzk5aWFSdE90WC9H?=
- =?utf-8?B?c0IyQUlNTldSSHorOWpxMUZYdjUzZ3VhZ2lwcTRrUGtnZ1VaVDR4NmJyeGhn?=
- =?utf-8?B?Q1pJOVptQURXWHg1cllLcXI0WnkxWkZGUXVteWlOc0RvWmJ2SmtDbE1GaHRE?=
- =?utf-8?B?UG9CNXUvTEVRSE8xMDRBa3hGOHRPZFZObkJGRTM1UXpReWJWM3pBdXVqYU1q?=
- =?utf-8?B?K0dKbDd0U1FuRDJSYUF0UjVZVEZ6WmlZbmEzWHhlWGlvR3Y1ek5sVTlsMWJq?=
- =?utf-8?B?OXhaMHI4WjJtdTNRcERmNDh5V1NLalpyZW5vdDFTdVpSZ2tzU0xrL0NVendP?=
- =?utf-8?B?NDRSOWVnTFlrVksrSlhvWS9Tc2FSL2dyWDZReTNQcFV4cGg3Rk04cloyTUtD?=
- =?utf-8?B?TVBQL2lhQnJvRk81eTlTR1dobmMvU2hId0hCL21wekhiY3JxQ09pK0dMa05T?=
- =?utf-8?B?dEpxVzZ4YTMzNkJDT01aNkllUUNVbmxrWkdkWUNuaWw3ZCt0SnJBRFAzYnFD?=
- =?utf-8?B?ZFkzci9HbDZFQ3dpYjJ5TWNlTEQ4aGM0ZndJL1h5M3FQalY2eFVpVThMTlRG?=
- =?utf-8?B?Ty9FRHFZMmRRTnRJVmJZQ2FvbHVQRFFVcFdnanhUa2dmS3FDdHF4alBDMFIr?=
- =?utf-8?Q?wmwUaw+S/QheTLLkLknJyv0=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 804b2b98-8cb6-45c2-ea0d-08ddf6c4e120
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 15:06:00.9295
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eDAvSXVTS0gza2ptS0FnR0h1bUZRaVJacUVFaytIamYwUWNiOUh0YkNkbjdz?=
+ =?utf-8?B?bUpMK3M2anh4eElWNzA0bEdqdVdtQlhCb0drVSs1ZlMxcXo4Y2FHdmV0Y25t?=
+ =?utf-8?B?S0I2Qi9yQVNlemdXVE5GcmFmOG8zSnp3R0V2OUtWV1hSYlAzaW1VUi9vVVg3?=
+ =?utf-8?B?YWJmNEVaT2FmN3ZYa2lHZTlSMUdMYmJWM1YyTGNtWHZMWEx4M0s2UDVzOTdn?=
+ =?utf-8?B?QjFWSmRlTC92bGl4aGhLVi8zcXhjdXErTTVIMFl5R2c2STF6WFNJdCtKSXBR?=
+ =?utf-8?B?OHVmS2JZUTNaVlJyM3MxOWE4RXhERkJ6N2MvUTZETEN2K2VwRFdnenVHd1Zs?=
+ =?utf-8?B?b3d2OGpYbktzWGU0TWZXaWppVzZ4Vm9xa0UzUEFQWjA2UWlpb1pIZ0EraWY4?=
+ =?utf-8?B?bkgyZzR5R1AwcytBQmlHdVBBcVdmWHVYT1I2ZVpnK1V1dDh2eVZjTkRxQ2wr?=
+ =?utf-8?B?NTJyNGM5b0hjalkyQjNXWlNpWnFDN0QyRU5lVWVoNXltQWwxY2s0UE5GaWYv?=
+ =?utf-8?B?T20xYmRqWWRvTWhXTWFEcFp5NGxtUzR2cGFhL2o5ZmUwRzhXVUw5czBKckRw?=
+ =?utf-8?B?bDlzVlIrbGxORVBOa01VMHVWdDM3ZVJUN1dHcitmN2poTzF6cXdJazJSV1Q1?=
+ =?utf-8?B?YmorRUF3SGM3TkNZcHBYdHo2WUpLN3ZvV1pEekRFcEhYamk4WXhMMjNCSm9H?=
+ =?utf-8?B?REp6SE5TbDVnajl1Uk1tcURaOGhiMlF0SnRXbHdSellqbXd4VzZ4TkRNMCtW?=
+ =?utf-8?B?d2tnYm1VeVltQjRnVDhtTUFhN2w0MmxIbk1BcERxTWhCYnRMc2lqMnVZTTZs?=
+ =?utf-8?B?ZUV3QXIyVE5RWlZZYmo2YXlMbmI4VUFLeldPTGhsTHJ6Ym1MUythQSt1eDVi?=
+ =?utf-8?B?STMza3hVRlZycEgvNVVIYkxjWm9yNWRNM1cwYTEyd0lwbjZHM0lOL2daZmd4?=
+ =?utf-8?B?UWV3Q3gwTW9NdC9BQUcwZ3JOUVRrQkRZUFBJdmNsVTVJbVNsaUJqUm1vL1NG?=
+ =?utf-8?B?cEExOWRZRTZpRXFsTi9OZHQzVXJyL0JlRFNuUmdreWNIM1lFczN5bzMvY2c5?=
+ =?utf-8?B?UDg5TUU1TFJheFJiRzR1Yy96MDF4M25MKzdzVWxUUDl4UWt4aWt0UXlYRnJW?=
+ =?utf-8?B?c095QmY5SjJmQU5nVENFdERBbUZ3OUtXZlFqTFk4Uzc2S0VhNmNQL0JLTlln?=
+ =?utf-8?B?eURRR00yblRxTC80SStpY1JidnU0b2pGSnc2NVBzM1ZJRDdxdmZ5cWhvRUhG?=
+ =?utf-8?B?ancrdEwwbXJzQlJPMklFRmpRbGUxQ1NoSGpEam1WbzZpZXdjNFJTMmNMeDdU?=
+ =?utf-8?B?QVcyS3E5L1RyWVMxSWFjLzhDaTFEVnB4YjVKVzBETmIwU3FsVllZUnpBN25o?=
+ =?utf-8?B?S2VxdDhNNngyLytNZzJDT2ZHendLQTV2cmZtV1dHcEluc252Q3BrRnpzWnVX?=
+ =?utf-8?B?azQ2ZURQeWsySGpRQzZmRjdsdUQ2RXFBS0ZJTm5KbWFjOEQ0TkszL0EwQmpk?=
+ =?utf-8?B?alNiNFNha0tBejB0N1pMSHlYRzA0RE5qalkwWDV1Q0FlOWR1T05RNCtCQnBC?=
+ =?utf-8?B?Vk12WTAwZFJLQ0tXSVdKSzFlcVFHUmFLN3BqeGRGV1BlYk9nVmtOZjlXZnY3?=
+ =?utf-8?B?TkJSdTRzTkdqb0NyakkzQWhneWhsNDJ2NHdla2Y1SGl3ZFdhNWNSai9uL1dO?=
+ =?utf-8?B?cTVRM3h4OU1UcDNNTi91d2M0TStnYUsrS1QxRnB5Z1FQTXNXTklpdzFZbkNW?=
+ =?utf-8?B?VWJsS3YrVWZFSEd2SkxNaGNFSkVpd0FwWjUzTEY3V1c2SkdsVW00VitoaEVo?=
+ =?utf-8?B?MjZKWHJOdVk0RVFBT0VNbVRhekgwQUNyc1EvZGEzUFJRQ0FzY2sxbm9qbWFB?=
+ =?utf-8?B?TTJ4RjZ3RnBEakYzdUJTbTFQMmFpMjVoWk9PU0JXdTg1aWFMcGNrWS9tVUoz?=
+ =?utf-8?B?aVVWODY4UC9kKzdtSjlONnhLTVRpbDVGVjZzT2tmMXNBN0VOSWtYOE9yeVRt?=
+ =?utf-8?B?cGV1NGk5MmJURjE3cVRkSUp4RE1ERXZZc2JaZkdEMVcyUnJwUWZUUGZmcWNQ?=
+ =?utf-8?Q?Lh2eOO?=
+X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 15:06:49.1388
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /xWO2FXZg4eBUiE6KtZqa1e3aQev/J2iOcdEl+KoEQQuJHX2pG8+b8IGuUBV1jxpU2bR/v+lWlAg7VNdKQKy9t/68AwencgCkj3VSh7Ulxw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6326
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee7a88d4-e7fd-4091-4ac7-08ddf6c4fe06
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B620.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB9484
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX7ebfEQ1FjnT2 fZ9v6TgyNRiQ7H7Q2yGHvVYj90Ck8eqRaJ9uyhLb58Gu0MIOpAJwe/8aGxNZftIGSiAUZEfhLTW gd4udujLswm/9EqNzNHhc+/TqAHH4wSeVoOihhVNmMl1PwLJCtHHjQXGoVg3aPPCkA0/Yq0PTFL
+ ABwg/sz9RqcK4OgqE1h2JRJ6K9xpXs/JupwpZTu/zoZh1s3qBMuH14PUYTxn/4iXoBjqNByZfSw pkFlQtj3ePmTOxX9GS6RI/ro4czPKf6mLPXfYrYr8ZbXc0GDgPqtvrEuGrMv/BaqJYI/p0WZHS+ mG37+L92T8/sQNmz6SF58oZkPgev68jOYWJOc6Li7oU+9lPW95ISwToHRTOZpbL5mpzWPT1uROU 2NcNCO8I
+X-Proofpoint-ORIG-GUID: FCaxw_JlwIQ3SGjxOZSAJtw2wd1_2YyM
+X-Authority-Analysis: v=2.4 cv=aJLwqa9m c=1 sm=1 tr=0 ts=68cc200b cx=c_pps a=7WY7GTgoQuM1Lo32AUII8A==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=8b9GpE9nAAAA:8 a=sL_G-GOk0kdtY-0adKIA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: FCaxw_JlwIQ3SGjxOZSAJtw2wd1_2YyM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-18_01,2025-09-18_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0 suspectscore=0
+ bulkscore=0 clxscore=1015 malwarescore=0 adultscore=0 priorityscore=1501
+ phishscore=0 spamscore=0 classifier=typeunknown authscore=0 authtc=
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509160202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_080609_816013_1091961E 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250918_080713_481444_19A9F047 
+X-CRM114-Status: GOOD (  35.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,77 +209,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 9/18/25 5:48 AM, Catalin Marinas wrote:
-> On Wed, Sep 17, 2025 at 12:02:11PM -0700, Yang Shi wrote:
->> The kprobe page is allocated by execmem allocator with ROX permission.
->> It needs to call set_memory_rox() to set proper permission for the
->> direct map too. It was missed.
+On 9/18/25 15:59, Russell King (Oracle) wrote:
+> On Thu, Sep 18, 2025 at 02:46:54PM +0200, Gatien CHEVALLIER wrote:
+>> On 9/17/25 18:31, Russell King (Oracle) wrote:
+>>> On Wed, Sep 17, 2025 at 05:36:37PM +0200, Gatien Chevallier wrote:
+>>>> If the "st,phy-wol" property is present in the device tree node,
+>>>> set the STMMAC_FLAG_USE_PHY_WOL flag to use the WoL capability of
+>>>> the PHY.
+>>>>
+>>>> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+>>>> ---
+>>>>    drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c | 5 +++++
+>>>>    1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+>>>> index 77a04c4579c9dbae886a0b387f69610a932b7b9e..6f197789cc2e8018d6959158b795e4bca46869c5 100644
+>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.c
+>>>> @@ -106,6 +106,7 @@ struct stm32_dwmac {
+>>>>    	u32 speed;
+>>>>    	const struct stm32_ops *ops;
+>>>>    	struct device *dev;
+>>>> +	bool phy_wol;
+>>>>    };
+>>>>    struct stm32_ops {
+>>>> @@ -433,6 +434,8 @@ static int stm32_dwmac_parse_data(struct stm32_dwmac *dwmac,
+>>>>    		}
+>>>>    	}
+>>>> +	dwmac->phy_wol = of_property_read_bool(np, "st,phy-wol");
+>>>> +
+>>>>    	return err;
+>>>>    }
+>>>> @@ -557,6 +560,8 @@ static int stm32_dwmac_probe(struct platform_device *pdev)
+>>>>    	plat_dat->bsp_priv = dwmac;
+>>>>    	plat_dat->suspend = stm32_dwmac_suspend;
+>>>>    	plat_dat->resume = stm32_dwmac_resume;
+>>>> +	if (dwmac->phy_wol)
+>>>> +		plat_dat->flags |= STMMAC_FLAG_USE_PHY_WOL;
+>>>
+>>> I would much rather we found a different approach, rather than adding
+>>> custom per-driver DT properties to figure this out.
+>>>
+>>> Andrew has previously suggested that MAC drivers should ask the PHY
+>>> whether WoL is supported, but this pre-supposes that PHY drivers are
+>>> coded correctly to only report WoL capabilities if they are really
+>>> capable of waking the system. As shown in your smsc PHY driver patch,
+>>> this may not be the case.
 >>
->> And the set_memory_rox() guarantees the direct map will be split if it
->> needs so that set_direct_map calls in vfree() won't fail.
+>> So how can we distinguish whether a PHY that implements WoL features
+>> is actually able (wired) to wake up the system? By adding the
+>> "wakeup-source" property to the PHY node?
+> 
+> Andrew's original idea was essentially that if the PHY reports that it
+> supports WoL, then it's functional.
+> 
+> Sadly, that's not the case with many PHY drivers - the driver
+> implementers just considered "does this PHY have the ability to detect
+> WoL packets" and not "can this PHY actually wake the system."
+> 
+> Thankfully, all but one PHY driver does not use
+> device_set_wakeup_capable() - my recent patches for realtek look like
+> the first PHY driver to use this.
+> 
+> Thus, if we insist that PHY drivers use device_set_wakeup_capable()
+> to indicate that (a) they have WoL capability _and_ are really
+> capable of waking the system, we have a knob we can test for.
+> 
+> Sadly, there is no way to really know whether the interrupt that the
+> PHY is attached to can wake the system. Things get worse with PHYs
+> that don't use interrupts to wake the system. So, I would suggest
+> that, as we already have this "wakeup-source" property available for
+> _any_ device in DT, we start using this to say "on this system, this
+> PHY is connected to something that can wake the system up."
+> 
+
+Sure, seems fair.
+
+> See the past discussion when Realtek was being added - some of the
+> context there covers what I mention above.
+> 
+>> Therefore, only set the "can wakeup" capability when both the PHY
+>> supports WoL and the property is present in the PHY node?
+> 
+> Given that telling the device model that a device is wakeup
+> capable causes this to be advertised to userspace, we really do
+> not want devices saying that they are wakeup capable when they
+> aren't capable of waking the system. So I would say that a call
+> to device_set_wakeup_capable(dev, true) should _only_ be made if
+> the driver is 100% certain that this device really can, without
+> question, wake the platform.
+> 
+> If we don't have that guarantee, then we're on a hiding to nothing
+> and chaos will reign, MAC drivers won't work properly... but I would
+> suggest that's the price to be paid for shoddy implementation and
+> not adhering to a sensible approach such as what I outline above.
+> 
+>> However, this does not solve the actual static pin function
+>> configuration for pins that can, if correct alternate function is
+>> selected, generate interrupts, in PHY drivers.
 >>
->> Fixes: 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in alloc_insn_page")
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->>   arch/arm64/kernel/probes/kprobes.c | 12 ++++++++++++
->>   1 file changed, 12 insertions(+)
->>
->> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
->> index 0c5d408afd95..c4f8c4750f1e 100644
->> --- a/arch/arm64/kernel/probes/kprobes.c
->> +++ b/arch/arm64/kernel/probes/kprobes.c
->> @@ -10,6 +10,7 @@
->>   
->>   #define pr_fmt(fmt) "kprobes: " fmt
->>   
->> +#include <linux/execmem.h>
->>   #include <linux/extable.h>
->>   #include <linux/kasan.h>
->>   #include <linux/kernel.h>
->> @@ -41,6 +42,17 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
->>   static void __kprobes
->>   post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
->>   
->> +void *alloc_insn_page(void)
->> +{
->> +	void *page;
-> Nit: I'd call this 'addr'. 'page' makes me think of a struct page.
+>> It would be nice to be able to apply some kind of pinctrl to configure
+>> the PHY pins over the MDIO bus thanks to some kind of pinctrl hogging.
+>> This suggests modifying relevant PHY drivers and documentation to be
+>> able to handle an optional pinctrl.
+> 
+> How would that work with something like the Realtek 8821F which has
+> a single pin which can either signal interrupts (including a wake-up)
+> or be in PME mode, where it only ever signals a wake-up event.
+> Dynamically switching between the two modes is what got us into the
+> crazy situation where, when WoL was enabled on this PHY, phylib
+> stopped working because the pin was switched to PME mode, and we no
+> longer got link status interrupts. So one could enable WoL, plug in
+> an ethernet cable, and the kernel has no idea that the link has come
+> up.
+>  > So no. In a situation like this, either we want to be in interrupt
+> mode (in which case we have an interrupt), or the pin is wired to
+> a power management controller and needs to be in PME mode, or it isn't
+> wired.
+> 
 
-Sure.
+If you are in interrupt mode, plugging a cable would trigger a
+system wakeup in low-power mode if the INTB/PMEB line is wired to a
+power management controller and the WoL is enabled because we're no
+longer in polling mode, wouldn't it?
+I tested on the stm32mp135f-dk and it seems that's the case.
+Or in this case, maybe I should never describe an interrupt in the DT?
 
->
->> +
->> +	page = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
->> +	if (!page)
->> +		return NULL;
->> +	set_memory_rox((unsigned long)page, 1);
-> It's unfortunate that we change the attributes of the ROX vmap first to
-> RO, then to back to ROX so that we get the linear map changed. Maybe
-> factor out some of the code in change_memory_common() to only change the
-> linear map.
+You can argue that as per the Realtek 8211F datasheet:
+"The interrupts can be individually enabled or disabled by setting or
+clearing bits in the interrupt enable register INER". That requires
+PHY registers handling when going to low-power mode.
 
-I want to make sure I understand you correctly, you meant 
-set_memory_rox() should do:
+There are PHYs like the LAN8742 on which 3 pins can be configured
+as nINT(equivalent to INTB), and 2 as nPME(equivalent to PMEB). The
+smsc driver, as is, contains hardcoded nPME mode on the
+LED2/nINT/nPME/nINTSEL pin. What if a manufacturer wired the power
+management controller to the LED1/nINT/nPME/nINTSEL?
+This is where the pinctrl would help even if I do agree it might be a
+bit tedious at first. The pinctrl would be optional though.
 
-change linear map to RO (call a new helper, for example, 
-set_direct_map_ro())
-change vmap to ROX (call change_memory_common())
+On the other hand, if the pin is wired to a power management controller
+and configured in PMEB mode, then an interrupt cannot be described in
+the DT because the polling mode will be disabled and the PHY won't
+generate an interrupt on, let's say, a cable being plugged => no
+link as well (I had this issue on the stm32mp135f-dk board where
+the LED2/nINT/nPME/nINTSEL is wired to the power management
+controller and there is no other nINT-capable line wired).
 
-Is it correct?
+So it seems there are still some issues but I may be missing
+some elements here.
 
-If so set_memory_ro() should do the similar thing.
-
-And I think we should have the cleanup patch separate from this bug fix 
-patch because the bug fix patch should be applied to -stable release 
-too. Keeping it simpler makes the backport easier.
-
-Shall I squash the cleanup patch into patch #1?
-
-Thanks,
-Yang
-
->
-> Otherwise it looks fine.
->
-
+> Which it is can be easily identified.
+> 
+> $1. Is there an interrupt specified (Y/N) ?
+> $2. Is there a wakeup-source property (Y/N) ?
+> 
+> States:
+> $1  $2
+> *   N   we have no idea if an interrupt (if specified) can wake the
+>          system, or if there is other wiring from the PHY which might.
+> 	Legacy driver, or has no wake-up support. We have to fall back
+> 	on existing approaches to maintain compatibility and void
+> 	breaking userspace, which may suggest WoL is supported when it
+> 	isn't. For example, with stmmac, if STMMAC_FLAG_USE_PHY_WOL is
+> 	set, we must assume the PHY can wake the system in this case.
+> Y   Y   interrupt wakes the system, we're good for WoL
+> N   Y   non-interrupt method of waking the system, e.g. PME
+> 
+> I'd prefer not to go for a complicated solution to this, e.g. involving
+> pinctrl, when we don't know how many PHYs need this, because forcing
+> extra complexity on driver authors means we have yet more to review, and
+> I think it's fair to say that we're already missing stuff. Getting the
+> pinctrl stuff right also requires knowledge of the hardware, and is
+> likely something that reviewers can't know if it's correct or not -
+> because datasheets giving this information aren't publicly available.
+> 
+> So, I'm all in favour of "keep it damn simple, don't give people more
+> work, even if it looks nice in DT" here.
+> 
 
