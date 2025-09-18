@@ -4,113 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A820ACAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3E1CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=; b=GfzooelxHT6/RogBlEADHlHd63
-	1GTCBl1ffOQI4M1MI5aDS144LmRYJKPrDlPtV4ZA9z2ra7qDqmZQg3UwDtlZmEBktkwjhcjesbEQg
-	M5XrEZDubIb8EIUDf//OQ6HlgZEUx4MnlS5Yxkvb/vaoMRVe0sCY/npM9bWqhz3Ybp7ZEQq4F20+w
-	TY50sreAs66u5N6SYkd6aQPKb5+7hShzK8UjVLjKdx0UDUho0nZTsMx947I2keyjzFlsZZmf7rUH9
-	FGUf0qCYxcXHafFrPL3vfknYaOG9T2XCCwoJEblORq9lA66Ci1dLS9VnT7n7Wea4V5q+Ubfmi+bsb
-	8rq85keQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EAK9tXTa3lHyquO7eO2KC+SY99qbTBV5f0Kvt4/HzCM=; b=uDoYH0IZteXJFdc9dEPTlIxENS
+	to2RFDrXp+bHeGk1Mv2x0KUOE6jLAeY5WJIlzLEdWa4VvUmCgzOVeokIS9nbshBtmHJmqGLrTNFQh
+	DQ11OKIyYVFr6PuACEtGDRm9WFLfVlCNDsBngXjiT9GB9OAo6N+LuEMlBWE6d4czcEjdLF8hK7Pzt
+	Q0HafR4yko4wzBTSbKeYtOYMIexwZYqbpSmOOOYjUklOVv9orQETr+I+Qn1hqfv5B0mXdVV1tYIlp
+	BbpGMTkROTg0+gU5dGp9yaEfnnpmq/IW7y0xCVLpBkO/Db003eW8A1un/CBP4tc3lNIoeLPx0tBx6
+	oW3l23WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3Un-0000000FvrR-0pvL;
-	Thu, 18 Sep 2025 01:31:37 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uz3YD-0000000FwDQ-3GMQ;
+	Thu, 18 Sep 2025 01:35:09 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3Uk-0000000Fvqz-1rp2
+	id 1uz3YA-0000000FwCS-3wtV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 01:31:35 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b54ff31192aso279478a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 18:31:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758159093; x=1758763893; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=;
-        b=meTiFbI5Gun+QfBVIxIptu7hzgj9zrnqsH5tKgFpqcepyGRgFMjXgNG5XOiFEVb51q
-         3x4nIaMcqe5ORmGxzdXoyOuylZA3eg3MLnM9CzOiRSESF5pjH5Mbpq8rVLsqEk1K/bMD
-         kK1zd4nX4rCXaxRjIquIuI32jYVsgH4fU2NZ3IZF/whwL9p6HgN+Homj0lRNS1Y8eG/R
-         WcUc6oYHIUMGxYRaSNwFETT5MY5FbCgcUXlAC0GprY6GwgzT3Pou/qLQsI2RlI1eeB0A
-         IXZMuobeiguqH5EwAsqxXwIqHfiVtEMvbx7XjrXDUxk8C9LZ3XJ5Toc2E2co/0uwfjBe
-         3shw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758159093; x=1758763893;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=;
-        b=BTiBvlhzBpAuIwQ0YvBcS/7JMKJBnjfSGLy2dIeMxYg5UGz/9LP6Xf+wNDl+T1XEB4
-         ednxhvURSMAQyTUwvP0ZB313C/qAWoxJDus1dFfxIQV/XJf3u54+3Nk1bzaINalsZUqO
-         o6fO/qQLhHFSYuR62j0uUjS0EB6EMeskBoFti88IWpa6C8uE9CqxumfCuLFJdvOZ90ak
-         9rxkaUEMfhr/qCSDHXm4sroat82J9M1puFXF127C2l9uT5FSTFH9j6OWeDCo0d8o/7w1
-         ZFs75ZlpuYlk5Be2ijnshabIIeaoeFet4+sCdmP14UOIbA1Pi7wRDN16lGDc3wXt1ZyD
-         OhDw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPv8gukNmZEv8CwnQ4tIdF0SpC759IVNS58cElvseqBRt4a4XW0I203mZ9zkzF+rLuo9gmGUWa2kmW2KJYzGz7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyscowFZgNq4YbLYGGKh0ZYtpxpN1jeRKU/EbLXXRPZtwetsfi/
-	bUx7vYWBMUmMXCHMi/pXBvEpvurjgegkwTXWzXfMWNsVllNWudgIlf4t
-X-Gm-Gg: ASbGncua7oFWt+ZaXSTHRBZFefS+I3CC6JsQIL+pXcQB4w8c6T1nRQZcx2ZeWHgzRum
-	7UI6J3sbXbRZbA7aDwXwp9IIo9rjqfYtZmy+gdZlXJHB/qhmI91vAXSZCEXvtEV+fMCG5qMC4f3
-	BIJnRcPBjx8MV/HNWZD2W9U4i0rwQJ8amKYKIrJt9OsmNvkg0cTdLqdJTt1FQFSQGDV3BpJmDOF
-	ti3xFP0fgjX5cJv+IzPmiQR0twRBUuXeTIK+AIj1e5lM/QK55aUhv9qQNhkmo/Rbl8C/R7teOAs
-	SD9CfV3jPoQ8kQWa2BuK2yBcNHKaDn0fleIYCIwu2ILeblKg8PL8sU8dt0E4TJHR8EhufO8VvUE
-	IMW1AVW7jhNXSUxpR7Wt55cM7/af/LaOrrx/oDftv6LXib87DmSwGIAU4L0Y7V2w=
-X-Google-Smtp-Source: AGHT+IGyol2ICo5LkwOJQM5YrI/z89CMfK7noN15fH9mKTb1oN4Xwj7kuK4ucc0oFR/zcNay6QAzWQ==
-X-Received: by 2002:a17:903:2307:b0:248:7018:c739 with SMTP id d9443c01a7336-268139031a0mr60323995ad.28.1758159093380;
-        Wed, 17 Sep 2025 18:31:33 -0700 (PDT)
-Received: from VM-16-24-fedora.. ([43.153.32.141])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269803184d3sm7860915ad.116.2025.09.17.18.31.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 18:31:32 -0700 (PDT)
-From: Jinliang Zheng <alexjlzheng@gmail.com>
-X-Google-Original-From: Jinliang Zheng <alexjlzheng@tencent.com>
-To: harry.yoo@oracle.com
-Cc: Liam.Howlett@oracle.com,
-	akpm@linux-foundation.org,
-	alexjlzheng@gmail.com,
-	alexjlzheng@tencent.com,
-	arnd@arndb.de,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	david@redhat.com,
-	geert@linux-m68k.org,
-	hpa@zytor.com,
-	joro@8bytes.org,
-	jroedel@suse.de,
-	kas@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux@armlinux.org.uk,
-	lorenzo.stoakes@oracle.com,
-	mhocko@suse.com,
-	mingo@redhat.com,
-	rppt@kernel.org,
-	surenb@google.com,
-	tglx@linutronix.de,
-	thuth@redhat.com,
-	urezki@gmail.com,
-	vbabka@suse.cz,
-	vincenzo.frascino@arm.com,
-	x86@kernel.org
-Subject: Re: [PATCH] mm: introduce ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to sync kernel mapping conditionally
-Date: Thu, 18 Sep 2025 09:31:30 +0800
-Message-ID: <20250918013130.2425537-1-alexjlzheng@tencent.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <aMrkoBhIcP37YgyS@hyeyoo>
-References: <aMrkoBhIcP37YgyS@hyeyoo>
+	Thu, 18 Sep 2025 01:35:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GjGSYVxm01gdZHpdwsmcbJlJsiXYZ+B4LhECJgc7mK7H6rZ9VHuP6uSFQbhAh6LM5BlgnTgA5KUCP0KJ/T2REv2TO/wvFVHydtk3bLokincH2C5BaWWMckYuY4CJ/n8JN2irc3fdqAfVfor3Dn1I8OkeVceexujwQxWAQI0hHn6RbbmdbEeG9adCU53LqnTg4XUCD2uo4FC81ZEcjLyT+GEKOCks+fSKm/vzTabV+/sRGwHiB3rbLmcpr97E0nW37ggAjgLWcwKluCMqgqlI6MAzjz+g5WBNQ77nXQ1Vqkwf7U3CC3Cs7Clhf5l1c+ZYBBs5DW2hegAScyn/DuOiIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EAK9tXTa3lHyquO7eO2KC+SY99qbTBV5f0Kvt4/HzCM=;
+ b=Lhcshe/qMiZOkGGlgflflLuShg0rMTnWeFLt6nHzoWuy/r7L9ncmjrr1ng68Ra0Xh8Bamcp4tduLInG/3Lq/8sGNOZK9lzv5Gz2awx97tZW50ZmfFqksOOK0eftFGSrKMHcKTEhsJuTSNfKawJitxfqWzSQd8puSFtka2JoRQNS4/rR/4TG6AJpYR2dne8l5FWpBNJlpLsL4mvIS0v/g7fEa0hmni2avFNiE0JlS0+B6BgPstpvTdfli99Bq6+qyDFneqWsoicOTsmHjFIiJtX5KcDprshumHfpNz4tmxh++mh7CGW81WrRO4CMC0CtBp0AUv0xmCmqgyvgzWar9yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EAK9tXTa3lHyquO7eO2KC+SY99qbTBV5f0Kvt4/HzCM=;
+ b=nqk1dTRBDpReKwOqDZR6WlFlZ41Xkw1QGc3ENSQb8jTRuDcoob0dOz9mWcI0mD+JZYbDFfCSFjIf/BNH0+VLcwsh5h4zIh7fN14SEVrWlYIl3zPXKRrU1EUCzc66mvLMX442axxCr79VrDALCBLKpAGxyx2peswyMoL1BrzObIM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by TY3PR01MB10485.jpnprd01.prod.outlook.com
+ (2603:1096:400:311::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
+ 2025 01:34:41 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
+ 01:34:41 +0000
+Message-ID: <875xdgpmq6.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Olivier MOYSAN <olivier.moysan@foss.st.com>
+Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Liam Girdwood
+	<lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela
+	<perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linux-sound@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] ASoC: stm32: sai: manage context in set_sysclk callback
+In-Reply-To: <a9725bfd-a2b8-4343-83f2-d18908029ea0@foss.st.com>
+References: <20250916123118.84175-1-olivier.moysan@foss.st.com>
+	<87ms6taph0.wl-kuninori.morimoto.gx@renesas.com>
+	<a9725bfd-a2b8-4343-83f2-d18908029ea0@foss.st.com>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Thu, 18 Sep 2025 01:34:41 +0000
+X-ClientProxiedBy: TYCP286CA0170.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3c6::11) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY3PR01MB10485:EE_
+X-MS-Office365-Filtering-Correlation-Id: 38d91382-787f-449a-c7f4-08ddf6538a15
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RsnIk/WJS2qvfDnkkW5qPSxglmvZdyFDFYbM/ZAqE6umzgru7ALTpZhi0OSR?=
+ =?us-ascii?Q?Sig8Uq52J0TC/LAZmPinn7IgYeANXpHG/+rE9jqse+oEuegAQqivD92WzPhG?=
+ =?us-ascii?Q?E7NbeK53KP2E83w/3s5dv0e4geAaXaUWFRh9HxDKDJvYQyMJYDSEP67QsJRv?=
+ =?us-ascii?Q?0QXp0CPFI5dzaqbJNJZ5LCrCGJWig6Eo72rNKmFHCnummdFtMjteXmWO1BtW?=
+ =?us-ascii?Q?V+JwagJXZU9oNy11YEytlzaPCkx8i4/8Z2OW9pFX1vg8y/nvJzMi4JpR7bel?=
+ =?us-ascii?Q?Uj3Bz1QS2nZjFa8hLw5/WpjU9EhtpGd0dA/mUlF2tn/g8tfoKSSj79KQYy9i?=
+ =?us-ascii?Q?xnF4CpvGTb2HVLezHTypAFEA7torsHFG4L5cKw1Krv8i0t1/YDaI1q9HDxRw?=
+ =?us-ascii?Q?gUGBarGVUl2QTWCNB3EA/NUy+0QFxk0GxsVCUFaW1KffhlU2IT2JK1JbG4Iq?=
+ =?us-ascii?Q?AIW5x5eFSvTjEudbz7KG+kDjJl4xkILA71bBE0gi/Oi/VbWGnlFu2lOvUYT6?=
+ =?us-ascii?Q?7P693HiFzxKVvtIdZZduImraTky+Gu+S5Rt4rtOqOnNBd2oa9JnptxVMxbCM?=
+ =?us-ascii?Q?oBs2QyNDBHZlBs+b8kI16XBkOGUO6yYdFHUvSWvWUd0SK6lLkYdDnOniO8YG?=
+ =?us-ascii?Q?pV0dlcgp+bD9+dqLzkFPLpYcIp+UfzN4c1819Hrr6jZ9Hvxvw8eWfxBq6Y06?=
+ =?us-ascii?Q?DcAR7vlKJiSuFd/kcfsKKqn/FUPzwSnEgIP2XDq7OddeJOjog/ZF21HIaiWH?=
+ =?us-ascii?Q?EbbrAszbWiuXlDbns4fKSzbMLqnWOOGJZwTxOniHRXTTtK6MACG4U8BFxtKR?=
+ =?us-ascii?Q?LSjeJONXPxYkd9nhcMYcEoDeBs/3GpE3u4o3AvSUMfODw44mC8Wt7yoXXdnl?=
+ =?us-ascii?Q?S5mn7mO0P/E/eMI3DSaZ4Nv6r43JRlOYRFhCrG7P2iarOyHyGL6TsjPxK6ZP?=
+ =?us-ascii?Q?x+W+D7igZk6u4MrliPO9Pi+EqwsgSBnejaMyjhzwt5PIvmksx+DDfWfoqpay?=
+ =?us-ascii?Q?IAwqnWmM47ttlxVyic7aUi0KTv7DL8kGeslk1q3La6iiLle2ZSbO9QxzhWRO?=
+ =?us-ascii?Q?4qCgRiYiu0Z/k1EYfCxjqe2NzRFdwEHp2rcL6KDDYIm/jSTR4kcIS3wrEJmP?=
+ =?us-ascii?Q?KGCqGvbdbsQ3xKPQWMnEDv5BkLa0HmwJhpF0B7ETiKsSNNuS07lHVcehj5k3?=
+ =?us-ascii?Q?DcWM0oGo3oVA+H5q0mKbRY3ZkCOtBFM9pP2xVRq8+c4NSLKnV3JmJThultzd?=
+ =?us-ascii?Q?9FG2s3CIZ4L2hWJINApsm7lxId+y+Hkid0rcjcsTzVKl155HuX7bmW7H6d19?=
+ =?us-ascii?Q?IqnYS2bvau1b9WnCB2wD/MnU0uF0kImt/c8uB5pCupDQvUeeipQIDwc1+E8L?=
+ =?us-ascii?Q?zWowkRBEAmzeMqS6ekuMM/R6SJlIcU2Pvz3mbIh+OiiM8epiAJCt/sWuUfn0?=
+ =?us-ascii?Q?Ox0Er6CXkC3V68+Hzb13ZPOk72ifj/J76XmNP1tETS5OKLiTiqqoXA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lWChznFji6WwIZrsqxPI2nZtn7EWN67adCdbBB9dkn4XiFztN8m4Fxx98TUg?=
+ =?us-ascii?Q?lafjZSzxZsx2+RYRJ5My+Pcd3dJF3AcwX9a8Clp4dm6IxGaO07q20kqa/LQd?=
+ =?us-ascii?Q?O74mDT5dEVFnMj9XZQqDlpBY4hOUThvUlKihnzDeyPb81cANafbpFDlGQYf/?=
+ =?us-ascii?Q?jebqLyuwcxOjylAqPgxUb84Z8Ef96PtgRes6YinZS5BQfUn7aeYP6weqqbza?=
+ =?us-ascii?Q?O2FQ5NQ1eZlTe7fdbusRpr0gyVo8Pd9+qmN0qtsBCCX8zBGnP1n3d4iPKBwS?=
+ =?us-ascii?Q?4jTb5nmTIk9IDp8fD7rfHj1a2YEWt1pagDgCqQBWU+nt5I92Mh0gF0ToSxKi?=
+ =?us-ascii?Q?NJ8X+vrIxuZ1/8/HTqVTWCz1fs414ART6ppumtdQal+h2cuaMcChfc2zTymc?=
+ =?us-ascii?Q?D+Crqj2gTcxVB91IQEF7obye1ydipJXBt8pEJaw8oF1vYtJDNEr1PvgrLMkG?=
+ =?us-ascii?Q?gHeR8Jsd68pYypX1sVUpp6tCmXDrgVSt4hCStCPe2eFAE/UjOKMHiQpzedZ5?=
+ =?us-ascii?Q?If9HPMx5iLZLg0QnDPI3pXOo6AMF8XngR9K7uU0VP8ZhssjRxXaJT6drz7NX?=
+ =?us-ascii?Q?eqP0St/XIihaDG/MS9bcA3kdC2Uqw99VdToZ70YCLeDWaA8Q94jBeUEPb0GT?=
+ =?us-ascii?Q?/SDukp+y4rbqn5NNRpzHvGywvGHGJBAtjYNXKSl11nEoa/4L/pJZ6e5RAbgL?=
+ =?us-ascii?Q?89OUWjN8QQVOhLRt0f6JOTKYyztj7my2Ek6LoxvZPYBT2Q7hJBvc2YQKWbzs?=
+ =?us-ascii?Q?COeS45hiJPKFRIaYJpPkhbxJUqFMo/pdSz0hlN5EwUgB2hlzWeFCkYGSLako?=
+ =?us-ascii?Q?2iy57Nhpu9/epBCnl+KdmkUXe+eHgEbmktkFFw08jdxPQM8bAlAvs+aO+Yr/?=
+ =?us-ascii?Q?EFjDJq4FdvaXciOVc3QwHQX+TYvin4ebaiD+FQYXA0XPM5rqDyS4lz68CuXP?=
+ =?us-ascii?Q?GCgETssaIkPAgJ13ihYYt3LHot1DbqW+4l0OZXHcbC4Lp0cN6QvsMMoGnTew?=
+ =?us-ascii?Q?81I6uLfgbdt0WM1zT1JxAPy3WL89ouMj8bWOCcBgCBggeom+lPxEbqmdEzU+?=
+ =?us-ascii?Q?cEL/RgKdqXEBCum4QSnnLOXeJQny4W+IknnDKBahdlSnkt4oEbINXm6c98So?=
+ =?us-ascii?Q?f3khZjrhItUWI/aO9qm4hqYmJpZrGnaLUv4r1D68JOD6gPUHIkaGJmhrtGaA?=
+ =?us-ascii?Q?37pU1toSuKBZEqs5WyE6P9lTDwkFj3m98UhoScQ2L4fZMO0/DI14nVtFvqCM?=
+ =?us-ascii?Q?AH2z3WnXMn2EB2Jotu89cFTyN5tChTUumrWg0t4KfP53V3Wm60RbBTPcvmT0?=
+ =?us-ascii?Q?F+Ysq/pA44LLvmkv5byde2Nv+EavSuRlOnGIhIRFluSsYjUOESJa9HqnMvGp?=
+ =?us-ascii?Q?1fSK7+MdWaLcGbW5L10AVOXwnBhT3uvwzplRZFBQ3XHGKRmEziaLG1lg5RWl?=
+ =?us-ascii?Q?TYVLF9ogV5bf4poMyqCY1Czzl0dn7fXfuhvo/CkKIOXBm4TDsighRdPMEWxn?=
+ =?us-ascii?Q?AfUpy5r9Fqs6U3Ju5cIDhnxKvVG4riMb7YPpgB7jZZqxifMfwkHkebDgEr75?=
+ =?us-ascii?Q?sAW2evd13HseD2TaUqyc07tcvO4y5D+C+j83H4lbgrHuwvYA6pIeO6EkKXvm?=
+ =?us-ascii?Q?/Jf8jZvkRRiE1xqIw4NwQWg=3D?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38d91382-787f-449a-c7f4-08ddf6538a15
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 01:34:41.7649
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1Sizd2sPTg2741h8+FRbT34i229jNHj2CYRY7hbmH/1iKk579LBJEFTYiWk3KgUkoVCZ/nYceejj5N/xLbU/XQmz26B/tsXk1mIlxpq88gG1jDptjOzQ5Ek0vCIA9rXH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3PR01MB10485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_183134_495241_4F302B2F 
-X-CRM114-Status: GOOD (  26.01  )
+X-CRM114-CacheID: sfid-20250917_183507_014025_F1B925A2 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,77 +171,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sep 2025 01:41:04 +0900, harry.yoo@oracle.com wrote:
-> On Wed, Sep 17, 2025 at 11:48:29PM +0800, alexjlzheng@gmail.com wrote:
-> > From: Jinliang Zheng <alexjlzheng@tencent.com>
-> > 
-> > After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for
-> > vmalloc area"), we don't need to synchronize kernel mappings in the
-> > vmalloc area on x86_64.
-> 
-> Right.
-> 
-> > And commit 58a18fe95e83 ("x86/mm/64: Do not sync vmalloc/ioremap
-> > mappings") actually does this.
-> 
-> Right.
-> 
-> > But commit 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK
-> > and arch_sync_kernel_mappings()") breaks this.
-> 
-> Good point.
-> 
-> > This patch introduces ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to avoid
-> > unnecessary kernel mappings synchronization of the vmalloc area.
-> > 
-> > Fixes: 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK and arch_sync_kernel_mappings()")
-> 
-> The commit is getting backported to -stable kernels.
-> 
-> Do you think this can cause a visible performance regression from
-> user point of view, or it's just a nice optimization to have?
-> (and any data to support?)
 
-Haha, when I woke up in bed this morning, I suddenly realized that I
-might have pushed a worthless patch and wasted everyone's precious time.
+Hi Olivier
 
-Sorry for that. :-(
+Thank you for clarify the situation
 
-After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for vmalloc area"),
-pgd_alloc_track()/p4d_alloc_track() in vmalloc() and apply_to_range() may should
-always return a mask that does not contain PGTBL_PGD_MODIFIED (5 level pgtable)
-or PGTBL_P4D_MODIFIED (4 level pgtable), thereby bypassing the call to
-arch_sync_kernel_mappings(). Right?
+> Looking at the traces (see below), initially, we had one call with the 
+> 'in' direction (kernel clock frequency) and one call with the 'out' 
+> direction.
+(snip)
+> Now, both calls have the 'out' direction when the property 
+> 'system-clock-direction-out' is set. This seems more consistent with the 
+> changes from commit 5725bce709db1.
 
-thanks,
-Jinliang Zheng. :)
+Ah.. simple-card-utils calls snd_soc_dai_set_sysclk() from 3 functions
 
-> 
-> > Signed-off-by: Jinliang Zheng <alexjlzheng@tencent.com>
-> > ---
-> >  arch/arm/include/asm/page.h                 | 3 ++-
-> >  arch/x86/include/asm/pgtable-2level_types.h | 3 ++-
-> >  arch/x86/include/asm/pgtable-3level_types.h | 3 ++-
-> >  include/linux/pgtable.h                     | 4 ++++
-> >  mm/memory.c                                 | 2 +-
-> >  mm/vmalloc.c                                | 6 +++---
-> >  6 files changed, 14 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/mm/memory.c b/mm/memory.c
-> > index 0ba4f6b71847..cd2488043f8f 100644
-> > --- a/mm/memory.c
-> > +++ b/mm/memory.c
-> > @@ -3170,7 +3170,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
-> >  			break;
-> >  	} while (pgd++, addr = next, addr != end);
-> >  
-> > -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> > +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
-> >  		arch_sync_kernel_mappings(start, start + size);
-> 
-> But vmalloc is not the only user of apply_to_page_range()?
-> 
-> -- 
-> Cheers,
-> Harry / Hyeonggon
+	- simple_init_dai()
+	- simple_util_hw_params()
+	- simple_util_shutdown()
+
+but its "direction" is...
+
+Step0:
+	Before
+	a728f56094e7cf60a1dc0642fe86901d1a4dfb4e
+	 ("ASoC: make clock direction configurable in asoc-simple")
+
+	- simple_init_dai()		fixed: 0
+	- simple_util_hw_params()	fixed: SND_SOC_CLOCK_xx
+	- simple_util_shutdown()	fixed: SND_SOC_CLOCK_xx
+
+Step1:
+	After
+	a728f56094e7cf60a1dc0642fe86901d1a4dfb4e
+	 ("ASoC: make clock direction configurable in asoc-simple")
+
+	and before
+
+	5725bce709db1c001140d79398581e067e28c031
+	("ASoC: simple-card-utils: Unify clock direction by clk_direction")
+
+
+	- simple_init_dai()		dai->clk_direction
+	- simple_util_hw_params()	fixed: SND_SOC_CLOCK_xx
+	- simple_util_shutdown()	fixed: SND_SOC_CLOCK_xx
+
+Step2:
+	After
+	5725bce709db1c001140d79398581e067e28c031
+	("ASoC: simple-card-utils: Unify clock direction by clk_direction")
+
+	- simple_init_dai()		dai->clk_direction
+	- simple_util_hw_params()	dai->clk_direction
+	- simple_util_shutdown()	dai->clk_direction
+
+In Step0 and Step1, your dirver is called with both dir IN/OUT ?
+
+> In my setup, the kernel clock is an input clock. Maybe it should be 
+> tagged as an input clock. However, we have no 
+> 'system-clock-direction-in' property yet.
+> Anyway, the patch in the STM32 SAI driver is still valid.
+
+OK
+
+Or maybe reset simple_dai->sysclk somehow (not sure...) ?
+(simple_init_dai() will call snd_soc_dai_set_sysclk() if it has
+simple_dai->sysclk)
+
+Thank you for your help !!
+
+Best regards
+---
+Kuninori Morimoto
 
