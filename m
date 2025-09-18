@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F72CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD02CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8gHcAXRVnhX7bf/JMYlU0gKp9t3RAqFT2blU+b57cU=; b=Jj4Uu5UYknZ2WEYdHxArYI7k2l
-	baC7sFC6gauWWhfWoI9V/iAK2kECax5vtDafkK8GV34XSHpdQ39eL18CW0iU5VwUlHDzBuYb/c6QP
-	6+GSh39e7K6OJDkprDJzhFiwhzVS/NO3hUTTKuVOTBOMrBwVLVru6c5mTd9AmgbopJfAJfkCRPzEB
-	htKMkWKfRXHR6slkC4sbk8MjVhSf1bH1xpL451PZln9KhmxAWSztuKP/139pMH2HE4dp2YEzzMRsi
-	9yUc723/OXFZNPD3e5JV/CAvySe3qUfk6D9XKrDMsHvDoHoX5uUkSsPklpfcdIpMSZ90GLm7wb9tc
-	9pZuzwfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFt6YzhskfMz4G5ASFBcNJdSZpqtygY9kyuCw6Wbqgk=; b=00EoB/KECQQYqAMSC1A+uYYV8d
+	Hbco28HzoxlziA6OSW028xEgls3v6GbmrdHGAdae4NiSHjJ28L7UJbYq+ufQ5JzpbrCKb1vx7Dake
+	bRv3AqgTt0GlbJP2yQDRMqEoM8Twfh2ieMKkvNNrRGM2FASN582Lb6kD1AIis4wa4ACZMozJAjWC6
+	COFN/AEGXp46bEjqNhnPikvpnb7Ny3jvq7jmttzMhfPdy5MP2b5h4UX8Ve7QGRmue8gkfaIjI0yfL
+	llnfXGrc3lw8XqrBXoy/dynLPxevQq3SWMj2Znrrr8vDwJ4EtUXy0JvFw9zz8j+58cu4zFtK+RWgH
+	2QKK19cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGLc-00000000JTA-1Zb4;
-	Thu, 18 Sep 2025 15:15:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzGLm-00000000JcJ-34DV;
+	Thu, 18 Sep 2025 15:15:10 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGL8-00000000J37-2sMn
+	id 1uzGLh-00000000JX5-0JYj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:14:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20CEE6024D;
-	Thu, 18 Sep 2025 15:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5BCFC4CEFB;
-	Thu, 18 Sep 2025 15:14:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758208469;
-	bh=mHSphCkW3+4FibtzIPn4VoAtJ2QhcYOpjw7Naeo/RP4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fkvpkmktz62LTJQhjz0jCwOQFKd696tMff4TfrI6vmCLGuu6DMwKsDaixnkflpi0O
-	 MzG531wt0IWq9YHchcH/PcncT847XCeWkoxBrLCuE/1wI854QwrL8Yl062/HAvhz25
-	 bSq8H3V801X9co86Nj29PCNK8oegohvlZnA2b7dv/SvruLlmV/NGWmsCOxyHta0LmU
-	 T1X33k8abbgfn0rrCrGT6uSSD9Y5KGjDdjC0EiZ6SoZcEzUBISBMapZ+scrMk+QyAn
-	 /ngwhWEZArQMF23vJyEOKp9vBHRaOvY8JIeCFa+DdtRIMauXbpJSshAVh7R3Lz1upA
-	 lmtLoGBV8fLOA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uzGL6-00000007TmF-0to1;
-	Thu, 18 Sep 2025 15:14:28 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Jinqian Yang <yangjinqian1@huawei.com>
-Subject: [PATCH v2 10/10] KVM: arm64: Convert MDCR_EL2 RES0 handling to compute_reg_res0_bits()
-Date: Thu, 18 Sep 2025 16:14:02 +0100
-Message-Id: <20250918151402.1665315-11-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250918151402.1665315-1-maz@kernel.org>
-References: <20250918151402.1665315-1-maz@kernel.org>
+	Thu, 18 Sep 2025 15:15:06 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-723ad237d1eso10826107b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 08:15:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758208504; x=1758813304; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OFt6YzhskfMz4G5ASFBcNJdSZpqtygY9kyuCw6Wbqgk=;
+        b=ztk23syvwoaT8FTlWAq2aIPEypnFRx8wnLgGAwRIz66JzW1li+dWYtjCGEVGujwEqL
+         5g+RKY9ikwNchM4/ycmVRqCc3u3AuoiZxdrYQNW2Z3exP3SIcb4mpxM3krsZq5d3GHfi
+         1eO5P6LIdQlbCWxomVguosmvsZJXjfB+KjBbDClnfdTZvAVwSgtjNs8uvFKrWa7/tRKX
+         lLGA/pStQSC2WYIepnvPeYmyUGDq3yYCZMq94hgWGKTU9B73P9+3emdCQIpV1yK4zxWN
+         o2pAV9aSIbJQV43RMLDE3LzcFZJgF5xgL/v56Z8q+fnN3FCa1+3Azxfi7VsYX5rMKEdR
+         34Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758208504; x=1758813304;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OFt6YzhskfMz4G5ASFBcNJdSZpqtygY9kyuCw6Wbqgk=;
+        b=v1FaKABPcyZok8YzXCUId/1lxG69eyOxvD0MCxTnO0fGe1ZJLx2WdAf3IGmmzyUTND
+         jtN/zl/W77NmhDgGW7rBV+NacPkSY5auw3CasXKjYP3o9n20fDU1dyECJgCeG3U3GjPX
+         pn8yfEsRL+BSjm00Mp1KK4f0WXwsE8vaQGigNNZfeBqZsGB0C2T2NdSHPD817SyahAyx
+         p18TO0saMOvD/ptKgge4/6RPgwb52HFoUNe3usA/xw+phqvNvuRr+7xf7644R2D0yKfx
+         v5UyC2RoLZN7VXB/CBvEEB1ESiGuegd0CotodTQm6Unnqa1VEmQHrKgabkbiC4MiTE4d
+         q69A==
+X-Forwarded-Encrypted: i=1; AJvYcCWa8jMxywwCG/hNJucSRkj27ratjOi9gZaCt20iy91nLq0FRPXXFCmMemGIsYoI8mX57c58U9hX8BkgKWXhDT0n@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIPLc/oQ+77ep/J537P9JjZZR1rE2Gh8N/JTXF82njhhyewgLj
+	SLxBMOKVm9kBphzk/VyqG59/UFxGwFZ8UFy+lqnbhjVdOWRtVhj3/ztWo9SLBifR4O71sCrH2kI
+	NEFL3roDDOC8Zd3hJxmpbO27t5yJjq1tmqm3WFm2eUQ==
+X-Gm-Gg: ASbGncvzh30DWSB/f5e/7XZGV2iAr3KNQ6lFg3qLUmpBNw4a0BTVXdhzBPjK92t0e4Z
+	CkF0BuVCqaqtzMRGnBHSOQbrO6O1myxa60GxBZo4zVvzOME0m2v8zuQZbHpqNGJ6x7hqd/MqlOB
+	gMcMDI9s618TN14D0YAHkFcKDihX8orbhzVbkLLTQY0rRjcfQnBjE9a8d4glyhTuNKXxmStk8xC
+	neKtLnnfn6UFdPaKCDtAQVf5lo=
+X-Google-Smtp-Source: AGHT+IFWx6n1PzkYYp5utqUHYs3cajDfg2GyxSlUHuEjN16hnOdbRT6rrrmIdLRynF4h/+ErT5T1ASVcKks2d63Qrt8=
+X-Received: by 2002:a05:690c:7281:b0:731:6570:132 with SMTP id
+ 00721157ae682-73891b87069mr62837047b3.35.1758208503588; Thu, 18 Sep 2025
+ 08:15:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, yangjinqian1@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com> <20250902-pm-v3-3-ffadbb454cdc@nxp.com>
+In-Reply-To: <20250902-pm-v3-3-ffadbb454cdc@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 18 Sep 2025 17:14:27 +0200
+X-Gm-Features: AS18NWCdTZsclOkAHpdSQCQjKeMfCrt_EDcLieD3X8xYbm6A6ARROAgFxf2mSRY
+Message-ID: <CAPDyKFq1Coz4rbdam01s3pOCDa=Et2ePmf7niLSgOdjCbnEANg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] usb: chipidea: ci_hdrc_imx: Set out of band wakeup
+ for i.MX95
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, imx@lists.linux.dev, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_081505_140357_9BF28C98 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While MDCR_EL2 cannot be RES0, convert it to the same infrastructure
-anyway, as it make things cleaner.
+On Tue, 2 Sept 2025 at 05:33, Peng Fan <peng.fan@nxp.com> wrote:
+>
+> i.MX95 USB2 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
+> power domain(Digital logic) is off. There is still always on logic
+> have the wakeup capability which is out band wakeup capbility.
+>
+> So use device_set_out_band_wakeup for i.MX95 to make sure usb2 could
+> wakeup system even if HSIOMIX power domain is in off state.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 8 ++++++++
+>  include/linux/usb/chipidea.h       | 1 +
+>  2 files changed, 9 insertions(+)
+>
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index d7c2a1a3c2715967203b98c819fa864e06a00a32..a2b3f673dfc1183a02783bf6ef92f8570c6042cf 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -79,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
+>                 CI_HDRC_HAS_PORTSC_PEC_MISSED,
+>  };
+>
+> +static const struct ci_hdrc_imx_platform_flag imx95_usb_data = {
+> +       .flags = CI_HDRC_SUPPORTS_RUNTIME_PM | CI_HDRC_OUT_BAND_WAKEUP,
+> +};
+> +
+>  static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
+>         .flags = CI_HDRC_DISABLE_HOST_STREAMING,
+>  };
+> @@ -94,6 +98,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
+>         { .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
+>         { .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
+>         { .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
+> +       { .compatible = "fsl,imx95-usb", .data = &imx95_usb_data},
+>         { .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
+>         { /* sentinel */ }
+>  };
+> @@ -570,6 +575,9 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>
+>         device_set_wakeup_capable(dev, true);
+>
+> +       if (pdata.flags & CI_HDRC_OUT_BAND_WAKEUP)
+> +               device_set_out_band_wakeup(dev, true);
+> +
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/config.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+Based on my comment in patch1, I think we should set this flag from
+within a system suspend callback for the device in question.
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 7b5c5044d4f64..109d1edcd83d4 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1162,6 +1162,9 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
- 		   FEAT_AA64EL1),
- };
- 
-+static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
-+			      mdcr_el2_feat_map, FEAT_AA64EL2);
-+
- static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
- 				  int map_size, u64 res0, const char *str)
- {
-@@ -1204,8 +1207,7 @@ void __init check_feature_map(void)
- 	check_reg_desc(&sctlr2_desc);
- 	check_reg_desc(&tcr2_el2_desc);
- 	check_reg_desc(&sctlr_el1_desc);
--	check_feat_map(mdcr_el2_feat_map, ARRAY_SIZE(mdcr_el2_feat_map),
--		       MDCR_EL2_RES0, "MDCR_EL2");
-+	check_reg_desc(&mdcr_el2_desc);
- }
- 
- static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
-@@ -1417,8 +1419,7 @@ void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *r
- 		*res1 = SCTLR_EL1_RES1;
- 		break;
- 	case MDCR_EL2:
--		*res0 = compute_res0_bits(kvm, mdcr_el2_feat_map,
--					  ARRAY_SIZE(mdcr_el2_feat_map), 0, 0);
-+		*res0 = compute_reg_res0_bits(kvm, &mdcr_el2_desc, 0, 0);
- 		*res0 |= MDCR_EL2_RES0;
- 		*res1 = MDCR_EL2_RES1;
- 		break;
--- 
-2.39.2
+[...]
 
+Kind regards
+Uffe
 
