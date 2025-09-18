@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53EACAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Sep 2025 22:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCE3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYd/TAIPDLGCaoiYJkaP/m3jdjV6QQ0vaOxxHa0ZY9Q=; b=Zx6wR9XbU/vYCTZEgxNr4Bniyz
-	qquIbkDwYBz2haWWrkG4iFHw1Z2cFptLlk30c8YbWt7iz50rhob5/EkdIS3CYy98xs7h3lka9qrpW
-	Jjc0wgNjd3IRPokOal3d3UftSCql6PXbonIL5NAQONHSBD2Ksx1EJtiVbCQyCARi6ppGKkn8O/lQ/
-	IDrqPJeX7svAamxPt2mA99JIlRQO/A2ChYZfjpYa/csCgqA8/corgNEfb0YE502PmiljVf7qCkt9Y
-	ZIKCnW6krdUGfWebgNbOc7gibjsLhZYt/heWBzboRmjq0PhQBnl9rUGgUndb37aJIYBxUHYt4dFK8
-	IoLXALeQ==;
+	bh=uVrXSE3fW0k4KtBODe9pIe2QOg7Te3ZdLAQN9XFKHHk=; b=fFqXZhT3JZa/h9AC0znqQ3e+kE
+	IsFJoXovWF67PWX08AyDmjQzuA09tV82HibZykIExsWOR9wiQ7XV0pHNqCgMq8BOq0+VVp1g7/l/J
+	VfQS4n8KbnZ9FzSn6gxvJBPCBgQjVQ24NKrSM8Q4+D3uxFwv3laORhsPyDlt24D0D5HavhDbAFWnq
+	UD6w+5PRcMRxlWM5FghPdVTyVlBxz+aarXkO7A1qdhKc4pkBvpEI/l3GmeZxSflsCLxZ23rXuU5NK
+	gMvX8hbfK4rj8eC2giR5JMniIBH/kPIA5kUHWYqPPBtct4dQd6KqbT5L8vHo8OcgEc2AOXBGRYkeL
+	nhfiM82Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz12X-0000000FNRU-1T2w;
-	Wed, 17 Sep 2025 22:54:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uz25Q-0000000FgTX-2DVx;
+	Thu, 18 Sep 2025 00:01:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz12U-0000000FNOs-3DxT
+	id 1uz25O-0000000FgT7-2Uvx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Sep 2025 22:54:15 +0000
+	Thu, 18 Sep 2025 00:01:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFD8A40871;
-	Wed, 17 Sep 2025 22:54:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18268C4CEE7;
-	Wed, 17 Sep 2025 22:54:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C360C60008;
+	Thu, 18 Sep 2025 00:01:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DF7BC4CEE7;
+	Thu, 18 Sep 2025 00:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758149653;
-	bh=z5aUyn8esdedtU49mhVPTZw8U7IDxTGO/BUaAI/eVc0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sDDhwxbk05spzhEuUTjELdBpi/vcVfTquXJ0xQRksKIGXbGBQeo8hef4TMeDoMDGU
-	 BIpdgHAv8ULGeXAyb0p+7+bEV1Tf2NzDoUjJdbXXZU1OW1PwC76E62ALG8dHeg4FJH
-	 5weCZ5b/4Pl3wIMyMdwq4hpEwTVlP6kvgdsKoY+abl76cnVM17bmqgbTGKn5BRTTRf
-	 KyLv35rP+AxIajSR3Tl/rP4zxk4GELQYoQtSwyZz6KTVXvucSMSiS31t10zwWgtXBD
-	 YElcaWl/dAYvBZnF2wpsTBlMctgMm/0t1KVjZ6b+qkgXPH9wdSqj5gXNfQYEcqFfZi
-	 PhBbeDAFr/auw==
-Date: Wed, 17 Sep 2025 15:54:12 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Rohan G Thomas via B4 Relay
- <devnull+rohan.g.thomas.altera.com@kernel.org>
-Cc: rohan.g.thomas@altera.com, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <Jose.Abreu@synopsys.com>, Rohan G Thomas <rohan.g.thomas@intel.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Matthew
- Gerlach <matthew.gerlach@altera.com>, "Ng, Boon Khai"
- <boon.khai.ng@altera.com>
-Subject: Re: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-Message-ID: <20250917155412.7b2af4f1@kernel.org>
-In-Reply-To: <20250917154920.7925a20d@kernel.org>
-References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
-	<20250915-qbv-fixes-v2-2-ec90673bb7d4@altera.com>
-	<20250917154920.7925a20d@kernel.org>
+	s=k20201202; t=1758153676;
+	bh=1B3/y6mC3x0Gb7mESrjJVqtP5iKoAmAQvn0c34F3HYY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VDDVgE8BCfMQPQ6fqgNJCfqaNGdgmJyEgRe2ykUFgjSd+ZBzPU5ulEDRfLPZY86Ko
+	 VBoiy9cHUAM3MMEw8uNXmNL3NRNtBZKopg3noLfc9RmH89sPqGS1rj4X/hhDxhpxYb
+	 8rQWdHRhbHk0pepfxNSTpcM2TK6bSNcEnXAduDi35HgQOH7CbMuxBzzU6kii96TMlp
+	 gn5Qs8BYvAgJNsOVkPbKuJWS5cTAoXW4qAos6D90t14uWlZ7hct0mISncgCmy8oFOI
+	 GEOQ15U7PkofWvlykkzLAFBGRkXIK43wUoGVZ8qjWIMcXP6AFmFK5g5VgtHYjhh77U
+	 hDovHNlhfh57w==
+Message-ID: <0daf1bda-d0f2-45bb-a68b-2437ba0579e7@kernel.org>
+Date: Thu, 18 Sep 2025 09:01:11 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/7] dt-bindings: media: nxp: Add support for FSD SoC
+To: Inbaraj E <inbaraj.e@samsung.com>, 'Rob Herring' <robh@kernel.org>
+Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de,
+ kernel@puri.sm, mchehab@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ pankaj.dubey@samsung.com, ravi.patel@samsung.com, shradha.t@samsung.com
+References: <20250828085911.81266-1-inbaraj.e@samsung.com>
+ <CGME20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6@epcas5p1.samsung.com>
+ <20250828085911.81266-2-inbaraj.e@samsung.com>
+ <20250829174638.GA1054721-robh@kernel.org>
+ <024f01dc27cb$f167d370$d4377a50$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <024f01dc27cb$f167d370$d4377a50$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_155414_851390_FE97649C 
-X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Sep 2025 15:49:20 -0700 Jakub Kicinski wrote:
-> On Mon, 15 Sep 2025 16:17:19 +0800 Rohan G Thomas via B4 Relay wrote:
-> > From: Rohan G Thomas <rohan.g.thomas@altera.com>
-> > 
-> > On hardware with Tx VLAN offload enabled, add the VLAN tag
-> > length to the skb length before checking the Qbv maxSDU.
-> > Add 4 bytes for 802.1Q an add 8 bytes for 802.1AD tagging.
-> > 
-> > Fixes: c5c3e1bfc9e0 ("net: stmmac: Offload queueMaxSDU from tc-taprio")
-> > Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> > Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 25 ++++++++++++++++-------
-> >  1 file changed, 18 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index 8c8ca5999bd8ad369eafa0cd8448a15da55be86b..c06c947ef7764bf40291a556984651f4edd7cb74 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -4537,6 +4537,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
-> >  	bool has_vlan, set_ic;
-> >  	int entry, first_tx;
-> >  	dma_addr_t des;
-> > +	u32 sdu_len;
-> >  
-> >  	tx_q = &priv->dma_conf.tx_queue[queue];
-> >  	txq_stats = &priv->xstats.txq_stats[queue];
-> > @@ -4553,13 +4554,6 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
-> >  			return stmmac_tso_xmit(skb, dev);
-> >  	}
-> >  
-> > -	if (priv->est && priv->est->enable &&
-> > -	    priv->est->max_sdu[queue] &&
-> > -	    skb->len > priv->est->max_sdu[queue]){
-> > -		priv->xstats.max_sdu_txq_drop[queue]++;
-> > -		goto max_sdu_err;
-> > -	}
-> > -
-> >  	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
-> >  		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
-> >  			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
-> > @@ -4575,6 +4569,23 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
-> >  	/* Check if VLAN can be inserted by HW */
-> >  	has_vlan = stmmac_vlan_insert(priv, skb, tx_q);
-> >  
-> > +	sdu_len = skb->len;
-> > +	if (has_vlan) {
-> > +		/* Add VLAN tag length to sdu length in case of txvlan offload */
-> > +		if (priv->dev->features & NETIF_F_HW_VLAN_CTAG_TX)
-> > +			sdu_len += VLAN_HLEN;
-> > +		if (skb->vlan_proto == htons(ETH_P_8021AD) &&
-> > +		    priv->dev->features & NETIF_F_HW_VLAN_STAG_TX)
-> > +			sdu_len += VLAN_HLEN;  
+On 17/09/2025 21:09, Inbaraj E wrote:
+> Hi Rob,
 > 
-> Is the device adding the same VLAN tag twice if the proto is 8021AD?
-> It looks like it from the code, but how every strange..
+> Thanks for the review
 > 
-> In any case, it doesn't look like the driver is doing anything with 
-> the NETIF_F_HW_VLAN_* flags right? stmmac_vlan_insert() works purely
-> off of vlan proto. So I think we should do the same thing here?
-
-I suppose the double tagging depends on the exact SKU but first check
-looks unnecessary. Maybe stmmac_vlan_insert() should return the number
-of vlans it decided to insert?
-
-> > +	}
-> > +
-> > +	if (priv->est && priv->est->enable &&
-> > +	    priv->est->max_sdu[queue] &&
-> > +	    sdu_len > priv->est->max_sdu[queue]) {
-> > +		priv->xstats.max_sdu_txq_drop[queue]++;
-> > +		goto max_sdu_err;
-> > +	}
-> > +
-> >  	entry = tx_q->cur_tx;
-> >  	first_entry = entry;
-> >  	WARN_ON(tx_q->tx_skbuff[first_entry]);
-> >   
 > 
+>>> +    description:
+>>> +      Syscon used to hold and release the reset of MIPI D-PHY
+>>
+>> Reset? Sounds like you should be using the reset binding.
+> 
+> The Tesla FSD Soc does not have a dedicated reset controller. Instead, we
+> are using the
+> system controller which is MMIO Space handled by syscon driver, to assert or
+> de-assert the D-PHY
 
+
+But that's the reset controller, no?
+
+
+Best regards,
+Krzysztof
 
