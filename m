@@ -4,91 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEFDCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5104CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ocD8LP5kPQIQqlpWUmHZIyZiNchzokTrKlUIDulbyIg=; b=RmWZKlfPmPQOKIW/NmGCT5U6gP
-	1VJgNDktIMjhkUfDNLBzwEsyIFnDaW57xjitpE9Yws54rOjTZZZiAoPdAo/ssZJKs0SmRFENbhiTj
-	blGcOUZKZrtcIFLWfhNRtIzNm3alh9N5Wcb2IDPGgGYzn3xHtjoR8p/hhC6FfdFB+JD3EXtB44mea
-	1Hn8V40xeUo8R+WGXE8swFOQfZ4jP9YFPE4OgKn61be596Fwi3LuwWa1ti0+fuVLUqhhFw76NbIeW
-	Wo/Bx6N0pXKFp1IzxMvH5ZbjyGk1JrJrh2LZ/qQlFAfepfHMectXgnx9pHEsS7HcOasowuY9lUnEu
-	NGkNX84g==;
+	bh=DAYxgB8lIv1DHNu4xD8U3kG1jVIbjN/0r1y6HPZ0wc4=; b=V+NNoYdWW5CAwIna7kQ194e04m
+	Q8+o8jhWK6ksBFXZ+y5kI9Q+pflRGrYDmDXk1rYYr+pWgxgVEVYrip37XMzCOrgL+NXYNEYPrhzzG
+	gynX5c5SqwJETDa0zg8MviI33Lkwh2waE5nDYjfuAJiXfqYttu7AJOMQzj2AM/cJtXruClscjJt5o
+	l2N6Da44N3F5eyIAJ9/CXT5BgqVtbUvEi4VGuuJ0/fzdMD3Q6wx9wQ5Yg42uuPxeDbuNTvge8HeTs
+	5+rIDK1QrFaDMDqZhHV05LDKvRmfrlQKm3WHULV78chUv6gr5cGYexS7RB0st2xoMjHwxkz1bc1Hp
+	9IavSsQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGuR-00000000V6M-2eyZ;
-	Thu, 18 Sep 2025 15:50:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uzGwC-00000000Vii-1p2a;
+	Thu, 18 Sep 2025 15:52:48 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGuQ-00000000V5S-3fKA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 18 Sep 2025 15:50:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=ocD8LP5kPQIQqlpWUmHZIyZiNchzokTrKlUIDulbyIg=; b=Kva9/l7F/9quRSW2X8Nj2Hyczr
-	XFC7IHTVAG84GLj1tOJfc7UEfijYHWrLLiHYYWO2Xc9ECAb9RSxidTbX45f0U0wBsVOfrDUDFdD8k
-	8dAlSnnXRQSVR70mc7h6BsJEIYr3+OroFVVc0rgv3yYOICT3aL2oz5euqfmBJfb6FetedM9BkyBfI
-	+As7RQgFHbALz9yquVjIRJ86P6KYd2zii2XOMGW8bdEZfjhujFqMDeCAE8QNrLZXu/6rkzx/HKxcK
-	R3OT5UtO5inBkkwCfy/cd1ZQr2kaTwsl/jbYDKMZN7yJInhGxqyu5dmlWzhkhB/0P7L4sGU3TlkIr
-	diHsYgHQ==;
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGuN-00000007e39-37JZ
+	id 1uzGw9-00000000VhA-2CDb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:50:57 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cSKSP59dCz9sfw;
-	Thu, 18 Sep 2025 17:34:29 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id kCoeXJoTf93q; Thu, 18 Sep 2025 17:34:29 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cSKSP3td4z9sfv;
-	Thu, 18 Sep 2025 17:34:29 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6D0C28B775;
-	Thu, 18 Sep 2025 17:34:29 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id qRoFWfinmY1o; Thu, 18 Sep 2025 17:34:29 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B16A98B767;
-	Thu, 18 Sep 2025 17:34:28 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Herve Codina <herve.codina@bootlin.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Thu, 18 Sep 2025 15:52:46 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-62faeed4371so944770a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 08:52:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1758210763; x=1758815563; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DAYxgB8lIv1DHNu4xD8U3kG1jVIbjN/0r1y6HPZ0wc4=;
+        b=dNgLNWPDZ5WEr57y78sVZOinF7UblFtNFAL4w/YVAIZWwPzMzYNdYvSzgE9QzEVCT2
+         ejoLsTmYM8nmvf5jDTECEdII3BAmOsl1pSLJajXLhaE9t8xTrAQiqXlBaTpAKylgD32u
+         3iBSod4UT0qRRqVy0VhQ0eDscKuHH2eRgLGvI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758210763; x=1758815563;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DAYxgB8lIv1DHNu4xD8U3kG1jVIbjN/0r1y6HPZ0wc4=;
+        b=qO2kLkRw0n99vWn0kOEXE0B+NZD+I8cKhVSmlpc9YyQDa31NH4bcBiwn24NIk5+bIK
+         oOocpUCaTX4b956mgVU4jFsdPjn7D1IpMpGpCsRlYjcgpdqZA5vxk81+C6RV2ynZRw95
+         c9AXbe9ACwvmIRf+u0itkECyG2/2dWof3iFUzcGjHjOCYG0ihQNJa2M+hBvj2/pBV9rx
+         DLyj86sGRCJTLoxskvs9OVrzVWm14DQg+WuvaLz+9rljvHiaGdCzy1Cdl7fDT53I3x29
+         g62jvOE8f/gTA5It0NiNYo29QudJcv88j0jaEabrY52y4IcIwYRJ8sof+u58IspST9sj
+         4XPw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvyUYHXChYp1fuwZsWSPMu2s09nZhhTKLArMBKVBD+0XcfvJ3vnNg4KiIQaIN8mpi4s6qmw1+APqlVhnWeT3Dt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyL5wijBMTgFWs/c6tE3OtxAwy9N5fKbLH/ifze4vTEOZeF3Hi
+	tmXsJiYuDAiPUemdYtSG+3yOg2YZtnl3vK6tAhlRSwQJcjxzqHpKWs42OlXfZW73BHQ=
+X-Gm-Gg: ASbGnctaQ+ts5yL3XhEwohBKLlzqbUtBpQ5zCxBqFWJM/OYQNOcCFbSqxp56oGz9b6f
+	uEGZamrMzfNcUD9q1W+AnlOSFppUlsx+BSrolCLVrJ8BRDm/fkjgFgA179Ck6r4ouvBNiSL72Qo
+	T2uXd3LTzFlOERrB9PIUvZ9wvNYAtdvKllv49Ny7sBR7UXcamd3udGt6znz2k1GuhoPSTRKuV2g
+	5R9jhcW4VSXGxQ8EvPaOyTDciWKemL3t2AgZG79ynTBgbha8vIxT4WS+OsBZF94zS0A38kwFgVi
+	l2TWOjGwrvzYCiWWH2CowXQHm7QxWuM45auOOr1pTlIQ7KttP+ioHYAPItk2/eaUx+ocCsXJqwV
+	p3cSCGIw0iP3E73k2gmk3h4lujfnS/ykmG31nZOO8CitIXyw/+WqiaOXIYPYfcdluhyniKxU1Jw
+	wQMrCzuXEAnNvgNoKeAdzZ5lsvb4i5+MHRycockqMcftZroIEGQlbNW6zrrcfu+YmO3q3g6Ucpy
+	HyUJUwkrKY=
+X-Google-Smtp-Source: AGHT+IGEnllZKc46D2GPpX8tp6qlYesswGm+zRYFM4v7XWzLwEmIplTDvSQ6hbelWc77fsdE9AoPPA==
+X-Received: by 2002:a17:906:d145:b0:b1d:285d:185d with SMTP id a640c23a62f3a-b1d285d2b12mr512201366b.0.1758210763485;
+        Thu, 18 Sep 2025 08:52:43 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b23a1227bacsm60449766b.41.2025.09.18.08.52.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Sep 2025 08:52:43 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Frank Li <Frank.Li@nxp.com>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linuxppc-dev@lists.ozlabs.org,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Javier Carrasco <javier.carrasco@wolfvision.net>,
+	Jeff LaBundy <jeff@labundy.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: [PATCH RESEND v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of interrupts
-Date: Thu, 18 Sep 2025 17:34:07 +0200
-Message-ID: <cover.1758209158.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
+	linux-input@vger.kernel.org
+Subject: [PATCH v5 0/6] Input: imx6ul_tsc - set glitch threshold by dts property
+Date: Thu, 18 Sep 2025 17:52:28 +0200
+Message-ID: <20250918155240.2536852-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758209656; l=2459; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=Rw14QDBJonb5u5+cR6dROagBvXa3A1OgDpRn/q0SkpI=; b=2JOfAbtKY5oOgf9Q0u+gokAxci8wOnFAoh+mIaShgDQVavxJparyog9AWj22aslzf1HGZl38O HWCFs/nJPimDCioJkfe41o2WfF9P+cnlWCmlzbTpSKe9iPPewKLyxEu
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_165056_003157_47029A07 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250918_085245_597368_F5FE1DA6 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +112,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a RESEND of v3 sent one month ago, see:
-https://lore.kernel.org/all/cover.1754993232.git.christophe.leroy@csgroup.eu/
+The series allows setting the glitch threshold for the detected signal
+from a DTS property instead of a hardcoded value.
+In addition, I applied a patch that replaces opencoded masking and
+shifting, with BIT(), GENMASK(), FIELD_GET() and FIELD_PREP() macros.
 
-This series reduces significantly the amount of interrupts on
-fsl_qmc_audio device.
+I didn’t remove patches:
+ - 2/6 Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
+ - 1/6 Input: imx6ul_tsc - fix typo in register name
+even though they were accepted, to avoid generating conflicts detected
+by the kernel test robot.
 
-Patches 1 and 2 are preparatory patches.
-Patch 3 is the main change
-Patch 4 is a cleanup which is enabled by previous patch
+Changes in v5:
+- I didn’t remove patches:
+   - 2/6 Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
+   - 1/6 Input: imx6ul_tsc - fix typo in register name
+  even though they were accepted, to avoid generating conflicts detected
+  by the kernel test robot.
+
+Changes in v4:
+- Adjust property description fsl,imx6ul-tsc.yaml following the
+  suggestions of Conor Dooley and Frank Li.
 
 Changes in v3:
-- Properly check the buffer descriptor is unused (Patch 1, comment from Herve Codina)
-- Fixed copy/paste error (patch 2, comment from Herve Codina)
-- Fixed build failure (patch 2, comment from Herve Codina and Test robot)
+- Remove the final part of the description that refers to
+  implementation details in fsl,imx6ul-tsc.yaml.
 
 Changes in v2:
-- Don't remove UB bit (Patch 1, comment from Herve Codina)
-- Make sure audio channels are ordered on TDM bus (Patch 2, new patch, comment from Herve Codina)
-- Drop struct qmc_dai_chan  (patch 4, new patch)
+- Replace patch ("dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
+  fsl,glitch-threshold") with ("dt-bindings: touchscreen: add
+  touchscreen-glitch-threshold-ns property"), making the previous property
+  general by moving it to touchscreen.yaml.
+- Rework "Input: imx6ul_tsc - set glitch threshold by DTS property" patch
+  to match changes made to the DTS property.
+- Move "Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros"
+  patch right after the patch fixing the typo.
 
-Backgroup (copied from patch 3):
+Dario Binacchi (5):
+  Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
+  dt-bindings: touchscreen: add touchscreen-glitch-threshold-ns property
+  dt-bindings: touchscreen: fsl,imx6ul-tsc: support glitch thresold
+  ARM: dts: imx6ull-engicam-microgea-bmm: set touchscreen glitch
+    threshold
+  Input: imx6ul_tsc - set glitch threshold by DTS property
 
-In non-interleaved mode, several QMC channels are used in sync.
-More details can be found in commit 188d9cae5438 ("ASoC: fsl:
-fsl_qmc_audio: Add support for non-interleaved mode.")
-At the time being, an interrupt is requested on each channel to
-perform capture/playback completion, allthough the completion is
-really performed only once all channels have completed their work.
+Michael Trimarchi (1):
+  Input: imx6ul_tsc - fix typo in register name
 
-This leads to a lot more interrupts than really needed. Looking at
-/proc/interrupts shows ~3800 interrupts per second when using
-4 capture and 4 playback devices with 5ms periods while
-only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
-
-The QMC channels work in sync, the one started first is the one
-finishing first and the one started last is the one finishing last,
-so when the last one finishes it is guaranteed that the other ones are
-finished as well. Therefore only request completion processing on the
-last QMC channel.
-
-On my board with the above exemple, on a kernel started with
-'threadirqs' option, the QMC irq thread uses 16% CPU time with this
-patch while it uses 26% CPU time without this patch.
-
-Christophe Leroy (4):
-  soc: fsl: qmc: Only set completion interrupt when needed
-  ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
-  ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
-  ASoc: fsl: fsl_qmc_audio: Drop struct qmc_dai_chan
-
- drivers/soc/fsl/qe/qmc.c      |  44 +++++++++---
- sound/soc/fsl/fsl_qmc_audio.c | 125 +++++++++++++++-------------------
- 2 files changed, 87 insertions(+), 82 deletions(-)
+ .../input/touchscreen/fsl,imx6ul-tsc.yaml     |  14 ++
+ .../input/touchscreen/touchscreen.yaml        |   4 +
+ .../nxp/imx/imx6ull-engicam-microgea-bmm.dts  |   1 +
+ drivers/input/touchscreen/imx6ul_tsc.c        | 122 +++++++++++-------
+ 4 files changed, 97 insertions(+), 44 deletions(-)
 
 -- 
-2.49.0
+2.43.0
 
+base-commit: 8b789f2b7602a818e7c7488c74414fae21392b63
+branch: tsc_de_glitch
 
