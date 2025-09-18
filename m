@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5CDCAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200C3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+c9R8CaRz/+21Z+blc/MmKhdh6f69mQBm+iM+xPYL8=; b=IG7p2ggX3BcYu0VZu5QFbDWjWz
-	6YtOTN7NWT99+mgEs++4YGRs+rNKrKqs6XuhZfd+SZ/KKun+HZRi65XBJkmOKon3eeVjWuKmVKa60
-	PU1wwDY/woUzVw6V7+gFYX5NqoF8Fue8CqsOOKAlhmej+xcVT0by3L2e1FcJkYqKLukObmf+oVI8e
-	KlpbW49yLrHKE7X3LVLM9MwJ8pLoayfuD8Qq5Qahw/gOmS9hrBUvoXsNWNhfS380OhxOm+D7JfXZ1
-	VsP/EmAl7710t+QVkcp+g7GvzSFcgq9t+wO6SLMRZGqbyvz/b0x/AH5GVplBU8tTFLQhP+0VfIWHL
-	TrK0YjaA==;
+	bh=FgPmd7g144CNPMRyhF/gwAf8Le6z6n4G4zsclYRCCDE=; b=WdUxQ+dWslyzg6btXUAKnh6Mvw
+	oUorOdbMzZCMYQhayTAn3DykrAmsneqap8RhpgF5CfG6jEi5DZgujVn7pV1qlB6IpERs8FtNz2RHa
+	AyYI00FMg07QooVT84qWjZVtMul8AAmM0WZfcLwTq0qu2b/ny7ZgbXk5l2DCd4fu65MmkeNZUYvmd
+	uGN9uAVJpumn3m7QliR9gLOG1Sb4lhE0R3sVXjHAc9CXiOPybVYPcwUjb/ZxsiYd56+s7er8dCInT
+	qiQU7MrxFeCx8h+QNbntz0sRibkLeUMRvKv0on0nB1GOumYjfCfhOHl63EV7QHmYGA6kGBuZJHc9p
+	fXIXTVxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDcQ-0000000HNJE-2LUO;
-	Thu, 18 Sep 2025 12:20:10 +0000
+	id 1uzDcV-0000000HNLv-0iaA;
+	Thu, 18 Sep 2025 12:20:15 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDcO-0000000HNHf-23jR
+	id 1uzDcO-0000000HNHg-32dI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 12:20:09 +0000
+	Thu, 18 Sep 2025 12:20:10 +0000
 Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <jre@pengutronix.de>)
-	id 1uzDc7-0006mw-CD; Thu, 18 Sep 2025 14:19:51 +0200
+	id 1uzDc7-0006mw-Ea; Thu, 18 Sep 2025 14:19:51 +0200
 From: Jonas Rebmann <jre@pengutronix.de>
-Date: Thu, 18 Sep 2025 14:19:44 +0200
-Subject: [PATCH v2 1/3] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios
- property
+Date: Thu, 18 Sep 2025 14:19:45 +0200
+Subject: [PATCH v2 2/3] dt-bindings: arm: fsl: Add Protonic PRT8ML
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250918-imx8mp-prt8ml-v2-1-3d84b4fe53de@pengutronix.de>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250918-imx8mp-prt8ml-v2-2-3d84b4fe53de@pengutronix.de>
 References: <20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de>
 In-Reply-To: <20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de>
 To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
@@ -55,12 +54,12 @@ Cc: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
  linux-sound@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, Jonas Rebmann <jre@pengutronix.de>
 X-Mailer: b4 0.15-dev-7abec
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1177; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=fGRUWSeNNcgeqcHRkuxbrMGDyokBFOMlHiqs3FwB0qs=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsg4/ePJrkCxDh6hXAdHxx22zupJIW+iUxpya/46RTQfr
- +u0UKzvKGVhEONikBVTZIlVk1MQMva/blZpFwszh5UJZAgDF6cATGTDR4Z/luKnlwbwz5fb5SOh
- e1Tnz7ZTM2f9W2miMmvFrPgnytPu2TEyLNvzs7Xl2NYFV//06C19WJVYvFAi10dd6nqkhkC5VCE
- nMwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1127; i=jre@pengutronix.de;
+ h=from:subject:message-id; bh=XlKfsKtW3FVkpMAoRTgKAJoNasJl5xeOqrWbpeh/7Nk=;
+ b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsg4/ePp/KRtal9yvstzSXKnz2T0jinkzbz275fRjr+9V
+ TG2cbOmdJSyMIhxMciKKbLEqskpCBn7XzertIuFmcPKBDKEgYtTACYS9Zzhf/rny0fZquQF5//X
+ 5OST7ba63RJ30pPl7pfsX/MLtJo6Qxj+RxQeWxFhv/H2meBX+mvWr1azqr3+zUIi5MvE+J3h3Ja
+ n2AE=
 X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
  fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
@@ -68,8 +67,8 @@ X-SA-Exim-Mail-From: jre@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_052008_532608_91B56F75 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20250918_052008_759242_419AF921 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,35 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both the nxp,sja1105 and the nxp,sja1110 series feature an active-low
-reset pin, rendering reset-gpios a valid property for all of the
-nxp,sja1105 family.
+Add DT compatible string for Protonic PRT8ML board.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
 ---
- Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-index 9432565f4f5d..e9dd914b0734 100644
---- a/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-+++ b/Documentation/devicetree/bindings/net/dsa/nxp,sja1105.yaml
-@@ -32,6 +32,15 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  reset-gpios:
-+    description:
-+      A GPIO connected to the active-low RST_N pin of the SJA1105. Note that
-+      reset of this chip is performed via SPI and the RST_N pin must be wired
-+      to satisfy the power-up sequence documented in "SJA1105PQRS Application
-+      Hints" (AH1704) sec. 2.4.4. Connecting the SJA1105 RST_N pin to a GPIO is
-+      therefore discouraged.
-+    maxItems: 1
-+
-   spi-cpha: true
-   spi-cpol: true
- 
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 00cdf490b062..b135f6360733 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1106,6 +1106,7 @@ properties:
+               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
+               - gocontroll,moduline-display # GOcontroll Moduline Display controller
++              - prt,prt8ml             # Protonic PRT8ML
+               - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
+               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
+               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
 
 -- 
 2.51.0.178.g2462961280
