@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327C4CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913D6CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nip0yo5PTO//am3EC32D1CYwmKvaSNonQ+hXppsSyBA=; b=QgybhuRRC9e99BXd1FkLqi0BL+
-	QgyrivjV7OOllUYmGS3xnTA1mv5O/9f6BD1wB/KO/mMv9o+DtHoSI6yGlcAqbSmW+Ko1UY/t1NEHY
-	4CLT8yO5Mw6Edo8TzCzolrJH+szb6H3L7I55NhUtBqoWEJXFpOLNpg0Vhw38uJdxOPBCvRODWXodW
-	GFCEJ+UmDUGsh2Xnwk+mrn4FB4dSXUB9KqFrj6XosENnLuPBdj0mM2NQXbLnJjyxGkSPktIS8S2ay
-	FXYvoXGh6bCXdQ9BOypt9gv6fWqWFWMrnkg6o2SQUkK3Fz9GyCmdW+Y4gHDMOxWZpW+kDjQKXi8y0
-	wkb7Pr1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yIMwYMSnE8nDfuMUHS/9B89S1OitLWwePgV+euX79MM=; b=nw5f0IfclVMSe3jCBxkFHucj+N
+	LOvm4MMmTiPl9Fz9KK4wYpsGwflavbpONlZtvkDZW09Q0G1djxYXlV7p2O6LIsGR9lTKtsXSf9FNc
+	twusx/ftDF4xQYk8bzoeA4NchSNsVq4U3N9JT9nK6glBqvSEVItnWNp9CXaG69vi4DQsq7xfC0C5/
+	tVv1aEMUlWn0SNJ5xX1sGU2mUs8qhbqGZD2juCReM92xklyFFgIkoY58HJdpGkMyR2BEBTjOzYHDa
+	WtHpvxxQSdwBthQFh66LavOG2Cp1bv9ZK8oJ9jTH+R5TClRLRwrfIP1NnlguC4A7SAj1gwCg4oiHM
+	1qv4P+dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzC0U-0000000H6N0-08ZK;
-	Thu, 18 Sep 2025 10:36:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzC0Q-0000000H6Ma-3eaY
+	id 1uzC1a-0000000H6dl-42qF;
+	Thu, 18 Sep 2025 10:38:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzC1Y-0000000H6d4-2saC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 10:36:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 073451A25;
-	Thu, 18 Sep 2025 03:36:40 -0700 (PDT)
-Received: from MacBook-Pro.blr.arm.com (MacBook-Pro.blr.arm.com [10.164.18.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F1A4A3F673;
-	Thu, 18 Sep 2025 03:36:44 -0700 (PDT)
-From: Dev Jain <dev.jain@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: anshuman.khandual@arm.com,
-	wangkefeng.wang@huawei.com,
-	ryan.roberts@arm.com,
-	baohua@kernel.org,
-	pjaroszynski@nvidia.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dev Jain <dev.jain@arm.com>
-Subject: [PATCH] arm64/mm: Elide TLB flush in certain pte protection transitions
-Date: Thu, 18 Sep 2025 16:06:38 +0530
-Message-Id: <20250918103638.77282-1-dev.jain@arm.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Thu, 18 Sep 2025 10:38:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B7EF41B18;
+	Thu, 18 Sep 2025 10:38:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23865C4CEF7;
+	Thu, 18 Sep 2025 10:37:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758191880;
+	bh=3wLU6rYHf7utHzIANk8nK0heYOD/FcW8/1SsNTd/TNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A5E6Pp7WkZ6ZhzfTDXPr0l2+wqXgliX2Mp8KjhOeOsDgvGO2D75+jOAkhLYlyaQZ7
+	 N3O1DZMqrmt6Y5gLH4Y2TY1Gt5wiYzbJcI+o7VrWRC8SJVZAO+n4tfabmw3tQlFOMr
+	 SO2BMMzV75ta8jdULM9mL4kxIwvZOlPS0tBXY0z6iNkjk1Y7lttAzjyRSRKePXFqmp
+	 0ZBRQgfm62kGaevn1Z0irlM0Dj4tGtU3DkeYSmSjpfRdl5C9g61qyszcAcM03zkFqK
+	 e77E8mC1whTqazcK0cgZ5ZsNUNzgNAzmRpDX8S2oH5jY4kP3pg6yuasNTn9OpP+R/D
+	 E1Ocy/BjljNlA==
+Date: Thu, 18 Sep 2025 11:37:52 +0100
+From: Will Deacon <will@kernel.org>
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v5 3/7] tools: arm64: Add Cortex-A720AE definitions
+Message-ID: <aMvhAJ_NIgjGxuvA@willie-the-truck>
+References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
+ <87ikhgnun4.wl-kuninori.morimoto.gx@renesas.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87ikhgnun4.wl-kuninori.morimoto.gx@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_033650_945770_69CF2547 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_033800_745481_7E61C8B2 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,67 +94,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently arm64 does an unconditional TLB flush in mprotect(). This is not
-required for some cases, for example, when changing from PROT_NONE to
-PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
-growing into the non-main heaps), and unsetting uffd-wp in a range.
+On Thu, Sep 18, 2025 at 06:26:39AM +0000, Kuninori Morimoto wrote:
+> Add cputype definitions for Cortex-A720AE. These will be used for errata
+> detection in subsequent patches.
+> 
+> These values can be found in the Cortex-A720AE TRM:
+> 
+> https://developer.arm.com/documentation/102828/0001/
+> 
+> ... in Table A-187
+> 
+> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> ---
+>  tools/arch/arm64/include/asm/cputype.h | 2 ++
+>  tools/perf/util/arm-spe.c              | 1 +
+>  2 files changed, 3 insertions(+)
 
-Therefore, implement pte_needs_flush() for arm64, which is already
-implemented by some other arches as well.
+Acked-by: Will Deacon <will@kernel.org>
 
-Running a userspace program changing permissions back and forth between
-PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
-for the none->rw transition, I get a reduction from 3.2 microseconds to
-2.95 microseconds, giving an 8.5% improvement.
-
-Signed-off-by: Dev Jain <dev.jain@arm.com>
----
-mm-selftests pass. Based on 6.17-rc6.
-
- arch/arm64/include/asm/tlbflush.h | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 18a5dc0c9a54..4a566d589100 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -524,6 +524,35 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
- {
- 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
- }
-+
-+static inline bool __pte_flags_need_flush(pteval_t oldval, pteval_t newval)
-+{
-+	pteval_t diff = oldval ^ newval;
-+
-+	/* invalid to valid transition requires no flush */
-+	if (!(oldval & PTE_VALID) || (oldval & PTE_PRESENT_INVALID))
-+		return false;
-+
-+	/* Transition in the SW bits and access flag requires no flush */
-+	diff &= ~(PTE_SWBITS_MASK | PTE_AF);
-+
-+	if (!diff)
-+		return false;
-+	return true;
-+}
-+
-+static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
-+{
-+	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
-+}
-+#define pte_needs_flush pte_needs_flush
-+
-+static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
-+{
-+	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
-+}
-+#define huge_pmd_needs_flush huge_pmd_needs_flush
-+
- #endif
- 
- #endif
--- 
-2.30.2
-
+Will
 
