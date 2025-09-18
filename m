@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0C7CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D0FCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:50:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:To:From:Message-Id:Date:Content-Type:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpi76AE+F7Qa4uP9OqH5xZKI+wHeZRK1y+C6LV6S5c0=; b=4D+ElJAJqSxnS0Vy49x9ufsBtf
-	KgptLwyQb4W0qMpJ+r6pVmqLut6gCE+IGFh09uajnlpZCeLgIM8KOBs5YKigCxVUc0bVRENXFWWCf
-	kFPOXBAm1AA3IJNZ7l+v813XgjwkSZSFXvD/A3D3tWrfYxGq/J/FcC1lRDXiS7ReDoZBiI6/Gz7M/
-	9T87NohyCIMnr+uU4wqgXDnRTU7DsYSHZXrZ0NVVYn7f8ht+8Pu/mOv8eYHpI5Autel7Bp4Wr8Dwq
-	PjqxyhOVgpgcIrRSFDyjyx5ALP2gAJdW73Qshi2iy/RCy2ODRc87LgbXWiumQKBb7XKExERbZz+Qf
-	w+kcTQZw==;
+	bh=4QvrVpKr3XvQJhacreBCRwMf/Y0fEtVFjOpfHwi7nmM=; b=aNfGQ3j8X28UukcrP5cUQgjUYb
+	fcpXUTL16NBxFVVLXaDyCezGH9DKw1f3nLTpEcgjdyis0gfwfQIOgSLQfn3Z0qaU1RY7clwCsrOP8
+	xA3K/E4vMa2USXTRqhNDP97nVCK+dwM3aH5yHCJ18HznVmzOuB2PG3HlW9xkKmOa2TschMXhDW0T+
+	x6KKiNcBoVEBXS8zf4fZT9759/8RYgl2rwW6qMXLGHrQdzPHmBLWOSi4SPmNaSaR36A3sU2Kbjomb
+	ygHWXH5fYBKoQXGnOhRXf4eaLgnsR+caqMJqRUapdSoCYs3/kLB6tZXrKRJKuTLDiByTr/Wu2FWfc
+	krBYLstA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBFv-0000000GvUJ-0HUF;
-	Thu, 18 Sep 2025 09:48:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzBHR-0000000GvsZ-25yL;
+	Thu, 18 Sep 2025 09:50:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBFs-0000000GvTe-3aU7
+	id 1uzBHP-0000000GvsA-0ghd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 09:48:44 +0000
+	Thu, 18 Sep 2025 09:50:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FFEC6013E;
-	Thu, 18 Sep 2025 09:48:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7188FC4CEF1;
-	Thu, 18 Sep 2025 09:48:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70DCA41794;
+	Thu, 18 Sep 2025 09:50:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5010CC4CEE7;
+	Thu, 18 Sep 2025 09:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758188923;
-	bh=G6UtyHUyxSaifPv2pVQU3+E+zPh48AFOKmgPtR63JuY=;
-	h=Date:From:To:Subject:Cc:References:In-Reply-To:From;
-	b=J2b4bvnyCB1hOIq0nXuoaz4YXQ76vylR0qq8+ZZntww0EUcIRhx687K2XAdbMdTgr
-	 QeQtnxymNSkiun/Q3spIYBSNKEEmPm3qEy7jDuPQl7TjlGRtYqhK1X1Pvh7XjEe4pk
-	 E4xuBBs1RM/nBv1+c/vATpxZLzI55HDRO0oU0Z614tpBnWE3UDD1y1tx6GbbZmPqU6
-	 rmS00uFVndoqfgzG/GQZp1FNaaQjWCLdEaZpHhJoXmisC3ZerfslRUCjbJ4IVzB9Bc
-	 1jDxXIMKO40472hwo+RlGhlcqMY4LdO1830bAhfKVSGmCc4CfTIO7KVOfWeS0/JrJc
-	 KXWyjQ7VvXVGg==
-Content-Type: multipart/signed;
- boundary=1fecadb09047536cf39b2c2fe88ea2cebdc9c9ca55c9ebcbd19b674ed89b;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Thu, 18 Sep 2025 11:48:34 +0200
-Message-Id: <DCVTYCVUCXWH.LAMARC8K4UNU@kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Kevin Hilman" <khilman@kernel.org>, "Frank Binns"
- <frank.binns@imgtec.com>, "Matt Coster" <matt.coster@imgtec.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Nishanth Menon" <nm@ti.com>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>,
- "Santosh Shilimkar" <ssantosh@kernel.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>
-Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
-Cc: "Andrew Davis" <afd@ti.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>
-X-Mailer: aerc 0.16.0
-References: <20250915143440.2362812-1-mwalle@kernel.org>
- <20250915143440.2362812-3-mwalle@kernel.org> <7hv7lhp0e8.fsf@baylibre.com>
-In-Reply-To: <7hv7lhp0e8.fsf@baylibre.com>
+	s=k20201202; t=1758189018;
+	bh=LXlAjqvjLvki6S1N9v2AiSOCAG7MMsrq7HAkCVLpGQs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ie+pdK/eamOD5NCz0wTJ+wGenyQbMS0eSX9/zA+LGYU4fL6UCU5BWod9iMiAuSUkl
+	 DtQnvBGhqU+mqERsXp29tTDoQ2j9OHGsWLmxsoqaese7Je9hjGFAJGdNtR/zjFcrAQ
+	 kg5Q8Eishh/u9JkQp6cEuaEhPw9HCz8/7iFR2MwCnGzSKVnj5DO/UB1BJlFsUHqL8e
+	 yYhVAPUtoB+UiCLx+6ybGtyWgA6JNE/9JPIiBBvH2fZklsO1H5iR0FnPeQxb5eCF+v
+	 NT4b7awXgTb5AeEdLyQMUUA9uQ02P/PZnvmiCMkX1zqJ5WEZxLHxZ2kI468V93GQQg
+	 lhMgrpiknx/8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uzBHL-00000007NXy-42c3;
+	Thu, 18 Sep 2025 09:50:16 +0000
+Date: Thu, 18 Sep 2025 10:50:15 +0100
+Message-ID: <86ldmc144o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Tangnianyao <tangnianyao@huawei.com>
+Cc: <tglx@linutronix.de>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<guoyang2@huawei.com>,
+	<wangwudi@hisilicon.com>,
+	jiangkunkun <jiangkunkun@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<guozicheng3@hisilicon.com>
+Subject: Re: [PATCH] irqchip/gic-v4.1:Check whether indirect table is supported in allocate_vpe_l1_table
+In-Reply-To: <cae508d5-c846-5daf-a1b8-4014f14759e5@huawei.com>
+References: <20240122160607.1078960-1-tangnianyao@huawei.com>
+	<86sf2p91zt.wl-maz@kernel.org>
+	<5de3da53-9c0d-2a2d-876b-2181e540fa2f@huawei.com>
+	<86r0i98o0a.wl-maz@kernel.org>
+	<de3c10be-f4d4-75d0-bc70-0791e5217516@huawei.com>
+	<86v83fmn9l.wl-maz@kernel.org>
+	<cae508d5-c846-5daf-a1b8-4014f14759e5@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tangnianyao@huawei.com, tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, guoyang2@huawei.com, wangwudi@hisilicon.com, jiangkunkun@huawei.com, wangzhou1@hisilicon.com, guozicheng3@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_025019_242732_49649C37 
+X-CRM114-Status: GOOD (  47.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,85 +95,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---1fecadb09047536cf39b2c2fe88ea2cebdc9c9ca55c9ebcbd19b674ed89b
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-On Wed Sep 17, 2025 at 5:24 PM CEST, Kevin Hilman wrote:
-> Michael Walle <mwalle@kernel.org> writes:
->
-> > The TISCI firmware will return 0 if the clock or consumer is not
-> > enabled although there is a stored value in the firmware. IOW a call to
-> > set rate will work but at get rate will always return 0 if the clock is
-> > disabled.
-> > The clk framework will try to cache the clock rate when it's requested
-> > by a consumer. If the clock or consumer is not enabled at that point,
-> > the cached value is 0, which is wrong.
->
-> Hmm, it also seems wrong to me that the clock framework would cache a
-> clock rate when it's disabled.  On platforms with clocks that may have
-> shared management (eg. TISCI or other platforms using SCMI) it's
-> entirely possible that when Linux has disabled a clock, some other
-> entity may have changed it.
->
-> Could another solution here be to have the clk framework only cache when
-> clocks are enabled?
-
-It's not just the clock which has to be enabled, but also it's
-consumer. I.e. for this case, the GPU has to be enabled, until that
-is the case the get_rate always returns 0. The clk framework already
-has support for the runtime power management of the clock itself,
-see for example clk_recalc().
-
-> > Thus, disable the cache altogether.
+On Thu, 18 Sep 2025 03:56:04 +0100,
+Tangnianyao <tangnianyao@huawei.com> wrote:
+> 
+> 
+> 
+> On 5/15/2024 17:34, Marc Zyngier wrote:
+> > On Wed, 15 May 2024 09:56:10 +0100,
+> > Tangnianyao <tangnianyao@huawei.com> wrote:
+> >>
+> >>
+> >> On 1/22/2024 22:02, Marc Zyngier wrote:
+> >>> On Mon, 22 Jan 2024 13:13:09 +0000,
+> >>> Tangnianyao <tangnianyao@huawei.com> wrote:
+> >>>> On 1/22/2024 17:00, Marc Zyngier wrote:
+> >>>>> [Fixing the LKML address, which has bits of Stephan's address embedded
+> >>>>> in it...]
+> >>>>>
+> >>>>> On Mon, 22 Jan 2024 16:06:07 +0000,
+> >>>>> Nianyao Tang <tangnianyao@huawei.com> wrote:
+> >>>>>> In allocate_vpe_l1_table, when we fail to inherit VPE table from other
+> >>>>>> redistributors or ITSs, and we allocate a new vpe table for current common 
+> >>>>>> affinity field without checking whether indirect table is supported.
+> >>>>>> Let's fix it.
+> >>>>> Is there an actual implementation that doesn't support the indirect
+> >>>>> property for the VPE table? I know this is allowed for consistency
+> >>>>> with the original revision of the architecture, but I never expected
+> >>>>> an actual GICv4.1 implementation to be *that* bad.
+> >>>>>
+> >>>>> If that's the case, I'm a bit puzzled/worried.
+> >>>> I met this problem in a developing implementation and find it's allowed by GIC spec.
+> >>>> In such environment,  in a common affinity field with only redistributors and without
+> >>>> any ITS in it, forcing its_vpe_id_alloc to allocate a large vpeid(like 65000), and there
+> >>>> comes an error message "VPE IRQ allocation failure". It originally comes from
+> >>>> allocate_vpe_l2_table, reading GICR_VPROPBASER with GICR_VPROPBASER_4_1_SIZE=1
+> >>>> and GICR_VPROPBASER_4_1_INDIRECT=0.
+> >>> Really, you should get your HW engineers to fix their GIC
+> >>> implementation.  I'm OK with working around this issue for
+> >>> completeness, but shipping such an implementation would be a mistake.
+> >>>
+> >>> [...]
+> >>>
+> >>>> I have another question here. The max number of pages  for GITS_BASER
+> >>>> and GICR_VPROPBASER is different here, while GITS_BASER.Size is
+> >>>> bit[7:0] with max 256, and GICR_4_1_VPROPBASER.Size is bit[6:0] with max 128.
+> >>>> Kernel usually probe ITS basers first and then probe GICR_4_1_VPROPBASER in
+> >>>> a common affinity group. Maybe we need to check this in "inherit_vpe_l1_table_from_its" ?
+> >>> This is because GITS_BASER[] is generic (also works for devices and
+> >>> collections), while GICR_VPROPBASER is tailored to the VPE table which
+> >>> is usually smaller.
+> >>>
+> >>> I would expect that GICD_TYPER2.VID reports something that cannot
+> >>> result in something going wrong (in this case, the L1 allocation
+> >>> cannot be more than 128 pages).
+> >>>
+> >>> Overall, the kernel isn't a validation suite for the HW, and we expect
+> >>> it to have some level of sanity. So if none of this is in shipping HW
+> >>> but only in some model with crazy parameters, I don't think we should
+> >>> go out of our way to support it.
+> >>>
+> >>> Thanks,
+> >>>
+> >>> 	M.
+> >>>
+> >> Hi Marc,
+> >> Friendly ping. Do we have plan to fix this problem on kernel, or any other plan ?
+> > Hi Nianyao,
 > >
-> > Signed-off-by: Michael Walle <mwalle@kernel.org>
-> > ---
-> > I guess to make it work correctly with the caching of the linux
-> > subsystem a new flag to query the real clock rate is needed. That
-> > way, one could also query the default value without having to turn
-> > the clock and consumer on first. That can be retrofitted later and
-> > the driver could query the firmware capabilities.
+> > My earlier question still stand: is this something that affects a
+> > shipping implementation? If not, then I don't think we should support
+> > this upstream, as this doesn't seem like a realistic configuration.
 > >
-> > Regarding a Fixes: tag. I didn't include one because it might have a
-> > slight performance impact because the firmware has to be queried
-> > every time now and it doesn't have been a problem for now. OTOH I've
-> > enabled tracing during boot and there were just a handful
-> > clock_{get/set}_rate() calls.
->
-> The performance hit is not just about boot time, it's for *every*
-> [get|set]_rate call.  Since TISCI is relatively slow (involves RPC,
-> mailbox, etc. to remote core), this may have a performance impact
-> elsewhere too.
+> > If your employer has actually built this (which I still consider as a
+> > mistake), then we can add the workaround I suggested.
+> >
+> > Thanks,
+> >
+> > 	M.
+> >
+> Hi Marc,
+> 
+> For GIC4.1 of HIP09,HIP10,HIP10C, it only support one-level vcpu table and GITS_BASER<n>.Indirect
+> is RAZ/WI. It implements page size 16KB and entry size 32B,  each page support 512 vpe, and our
+> clients have requirement 1 or 2 pages at most, so it just supports flat page to simplify implementation.
+> 
+> Our designer has confirmed with ARM architect that we can waive this rule:
+> Quote from GIC spec 12.19.1 GITS_BASER<n> description, if the maximum width of the scaling factor
+> that is identified by GITS_BASER<n>.Type and the smallest page size that is supported result in a single
+> level table that requires multiple pages, then implementing this bit
+> as RAZ/WI is DEPRECATED.
 
-Yes of course. I have just looked what happened during boot and
-(short) after the boot. I haven't had any real application running,
-though, so that's not representative.
+I can read the spec just as well. Doesn't make it a good option.
 
-> That being said, I'm hoping it's unlikely that
-> [get|set]_rate calls are in the fast path.
->
-> All of that being said, I think the impacts of this patch are pretty
-> minimal, so I don't have any real objections.
->
-> Reviewed-by: Kevin Hilman <khilman@baylibre.com>
+> We have actually built this in HIP09,HIP10,HIP10C and would like to
+> fix this in kernel.
 
-Thanks!
+Isn't that the broken systems that can't even do vSGIs properly?
 
--michael
+> Can we merge the above bug-fix patch to kernel?  Or we need to fix with errata for HIP09,HIP10,HIP10C?
 
---1fecadb09047536cf39b2c2fe88ea2cebdc9c9ca55c9ebcbd19b674ed89b
-Content-Type: application/pgp-signature; name="signature.asc"
+Frankly, I've completely lost track of what this patch is doing. This
+has been going on for over 18 months, and you have been silent on the
+subject for over a year. What do you expect?
 
------BEGIN PGP SIGNATURE-----
+If you want anything to be done on this front, please repost a patch,
+and we'll review it again.
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaMvVcxIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/ieAwF+NhC0QChHEdPzBo2eq6c4gPSFFsfbpOZw
-yyhFNhdMeM/qzGsGyod+WUxyFBlyK3JRAYDoKCAopPEvlQH6lpl7sfIGHzNEl+Ii
-sNWwWzCJKZdbLMn4731FC8c/X9xYrCfTL8U=
-=CEaS
------END PGP SIGNATURE-----
+	M.
 
---1fecadb09047536cf39b2c2fe88ea2cebdc9c9ca55c9ebcbd19b674ed89b--
+-- 
+Without deviation from the norm, progress is not possible.
 
