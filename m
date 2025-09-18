@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3217CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 20:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDE2CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 20:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PByJ7k8MypBjr8KylepCawZGFe+rnZUkeGFV381LFME=; b=heWanc8D/I+ZODVtWRdMEt3x4d
-	QyQ6SjSFNgdg9tYDgI4s/VMvl7v2MsjHI4vwqULLlEUbxOw1i4CQqhsRUlYAa+0MMDvM5dWqo6Vb/
-	l4MbH4VK68rnlmfMd3zS+NOJzAg0NsNemJSrQsBdUW/cW+C7TMPnITiqofJ8vzklLPf5JIrw8Scc7
-	rXB4FI52F9LYHAdeWRP7x5DzcnlMXNsEc7pLBFk0OFzBp8COrO7D/Uzt07O+msdeKnbcY41/rupfp
-	nbON3gBtKj7WT+V4+rG6PeL4WgxDZ8Fv3t9Nm1yuUnXqMDGNb9U7UoJbsyFBzTOGHUenlB7dni1Ce
-	58UTh+WQ==;
+	bh=YboiNlJLrHuwno2dTNAWyyWHcEmx4DdrrYbhMW2x15E=; b=hWfaV5rQBid/nc+QgbH8/FOBcv
+	QRfgW6FLGQ8hBixd7yoA1kYK7ivUkXGjMczBMMftwwXfMAXRyhbFgmTOid4nhkTF6rTG4YEGksHs2
+	eytLjzaNh6F/qclkJ7oqb+taPrctRc4oYXLPqxxXY+GTdeIiOa/W3cq/JgXzXJrRfA+fjtGst7hPK
+	zYEecdrGGJ9wC/MDWTJDfJoWHCeSBVxg153g9RWZ3b3r6Hrn1wMCeFe3SoTdX13CAa3d0uSMOv8hI
+	DJRWGv55Gp78SW9i31RMoc8TNN/jD9mubaxzl2zUDDV3Uf08DWr7lTcr5htdCqY7BGaZGPlxV1s2d
+	9msAf2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzL6e-0000000160R-3Z2D;
-	Thu, 18 Sep 2025 20:19:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzLh1-000000019J5-43YE;
+	Thu, 18 Sep 2025 20:57:27 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzL6d-00000001600-1k7J
+	id 1uzLgz-000000019Il-1Gwc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 20:19:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8BAD7601D5;
-	Thu, 18 Sep 2025 20:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67BB3C4CEE7;
-	Thu, 18 Sep 2025 20:19:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758226790;
-	bh=5v643+f4mhCNNCitIuEUQGOWs/3qK3dOdQaqXP7H++4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c1TtGk9acaMHlhl0KnNwMmIZrnQ53Ie/77CghdF9h5mKWNNTrynrlDVej9cl6SlbK
-	 rKUGUQrMokaXsmp5tBp5dRYtlunEd1tzcwHZlhwBRdmjvmyGETbHRsJPANiXi9N5Vt
-	 5TJgn0hLF/ICqJ4d2uixvrAOp7R4K+nRoFQeISZ5JaCPp9dS9PTpxknVeb8Vjj1Sm4
-	 BuNCZTPhVTVLnCQ6sDpE01BlgX8WnBMVmQNPQa3HzRHOGkqIcn62VYnZcS6sWTj8tN
-	 Su1qCm7a1pAsKvJrq4wGAy1uwdyNskLZcYn/QvcZ25WDw8M/njUbzjbLNRKbJCzQPC
-	 B2SIqSKLAv7xw==
-Date: Thu, 18 Sep 2025 21:19:44 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Herve Codina <herve.codina@bootlin.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH RESEND v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of
- interrupts
-Message-ID: <d735d395-d56f-448e-8bfc-4fdc9bcffd9d@sirena.org.uk>
-References: <cover.1758209158.git.christophe.leroy@csgroup.eu>
+	Thu, 18 Sep 2025 20:57:26 +0000
+Date: Thu, 18 Sep 2025 13:57:13 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758229041;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YboiNlJLrHuwno2dTNAWyyWHcEmx4DdrrYbhMW2x15E=;
+	b=hMwX8QrH4fVXAwsA6C23vCpsbnXMcPQ5RT3fH0rwp8436N2NIRDg5prPa4eJl3ts0ENGgl
+	OnHiTWmb+Yba4LKkFNqLIietZ8lHLPmXh1JuiGOPdIJtj14t/ToyD4SSZmqzMts2ATW2cN
+	q31pKLvfhA9Rnm/xi0Hw7bSQ3xPvRAA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] KVM: arm64: Expose FEAT_LSFE to guests
+Message-ID: <aMxyKbnVjS35YuQi@linux.dev>
+References: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
+ <20250918-arm64-lsfe-v4-1-0abc712101c7@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OG03h1ZJQmsi4o6W"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1758209158.git.christophe.leroy@csgroup.eu>
-X-Cookie: Victory uber allies!
+In-Reply-To: <20250918-arm64-lsfe-v4-1-0abc712101c7@kernel.org>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_135725_487976_305E2A7B 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 18, 2025 at 08:42:06PM +0100, Mark Brown wrote:
+> FEAT_LSFE (Large System Float Extension), providing atomic floating point
+> memory operations, is optional from v9.5. This feature adds no new
+> architectural state, expose the relevant ID register field to guests so
+> they can discover it.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 
---OG03h1ZJQmsi4o6W
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+We also need a test in set_id_regs.c selftest for the writability of
+this new feature field.
 
-On Thu, Sep 18, 2025 at 05:34:07PM +0200, Christophe Leroy wrote:
-> This is a RESEND of v3 sent one month ago, see:
-> https://lore.kernel.org/all/cover.1754993232.git.christophe.leroy@csgroup.eu/
+Otherwise:
 
-That's a link to v2 which had substantial review comments and build
-issues...  I did actually go searching for v3 and didn't see similar
-there though.
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 
---OG03h1ZJQmsi4o6W
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjMaV8ACgkQJNaLcl1U
-h9CZvgf8CPU7RnocQ9l6sM8liGp/RotKn2IBpogMBPMA+/oJ0/jeIohYua1IvRlB
-LYkPh0mbBziixdS5LLfoaIUwuOA1yaXmQp1VNwQWY9ECun37kSxQI64up7mVJV4H
-5YMl9DNWJzDAEYBeVbKPIfZ7dykLyMd/d/63kRyz4LBaQE6s7eLArLZBcKdtuitu
-4oX7hZm6NoxmftnYwv3vcrtpcR72IulbhSEAWSCBazblbL3iay2O/Y8oyM2B274L
-1ndxpotDDaK+ghauhqvnJeSousc0gEmQ7GNa5085nl9zKj0aigIBKZa9zc9/JvLf
-6zbu7eCxY4m0Xv4b6uBM7Nz4QDAC+g==
-=xY/X
------END PGP SIGNATURE-----
-
---OG03h1ZJQmsi4o6W--
+Thanks,
+Oliver
 
