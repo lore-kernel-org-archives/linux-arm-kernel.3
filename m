@@ -4,162 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE835CAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 03:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C7DCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 03:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVnAftR3C0+s1NEQLgERq3QkJQ8SqbQnyrrWTVby2iw=; b=wz0XburEx5tO3eB9XIDt7RCKsY
-	YM4OLJW79BdxAqmnigAB8dlaEQhArIe+x77kGOwI5SlfVHMLFfWRaJgLmK4f4g62jCMk6kyDqVxAB
-	Gulk7iz5A/0cPX7+8JZYQzzpQ+t4WYI5/xn60RqWVXoblnKtHydZ42AHqMxw+4Ry8ELsscKKMYmXX
-	tiaL9ZivBS7wG8oaTh2YKoIl19bxSTe8XMlom+niB8jId6koztXEk/vYt0yGTwJ6YVYDwXZxj3OZ3
-	BjUxfzcIXezvSVow27E/uXy0/moCqQlegcb5lrQiQqXz79NV/Vr3Ge5s4rtH2hRnnfn9Ke6E8P7z4
-	53qr5GXg==;
+	bh=s3/5HzkQn/CeI2bopoX86uqRyljXPEsSE4o7WFp9P3M=; b=HZm5nYEFodRowLi5/vAWnojVcL
+	L7lG/qCul3OjtURN3TvOi8MkSb8u63l5GYyIGu1igHAT+1CN5m/UEclTLQVA1JshQXNeBK3Y5h94o
+	HIEDGkt2kr6Q2vX7kVi0r8M+08AL6Ke6UR9IPsNNJiea+Mo5XUF2SDEXFWf46ujEJUVMtN3wgQfkT
+	KZWrOIUIqGfsLs1OPuJhnWtoLlE6GzzQkMPKyh0iRWHs64TB5otTxbIHenoACqfgIMBCpdbTHmwrB
+	z1rHB1PsqH/MS5eyrUm4uwaPGTv/vzXFxSbd3bgMPxYu6Aot/Ujhs2ngL/oJE61cYvJgo//PdKe5R
+	iRwaAH+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz5Ie-0000000G80h-2x4v;
-	Thu, 18 Sep 2025 03:27:12 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uz5Rz-0000000G8yS-0fAb;
+	Thu, 18 Sep 2025 03:36:51 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz5Ia-0000000G7wb-1GZx
+	id 1uz5Ru-0000000G8xI-0AcS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 03:27:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nop6udBTzVE0Iqg/TzhgntPvFMJPzr3bGW+kiSoOdODmYlsXQ/aWBRihjBNHyIMpi21VagU1Z1vGUO270ivsXKImPRhQsrhhx5dmKhdwxHfu19kRzzLhFIg7Ux5lNE+Vtvt+37fqqbfAlIwtoZPnOQ+kwm9uy3YEQ8wbcB4fWX4vfwr0HirA69loXDomQKr/zJa2xdVvscTWswmp0yoZ40n3m37xyXakEvC+asZefVqH3Kvxey6Q+iSn5UpF+ar1Cfb1iRYat5duMOrRnQA0Q8rREvs0XSCfqxv8xIGuoDHRNaYS4B0vSXi/ZD2QI01iup7M9JrUgiB1Ek5dn4en7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EVnAftR3C0+s1NEQLgERq3QkJQ8SqbQnyrrWTVby2iw=;
- b=UD6/gQPm/OzTFB277G6Y99IZNV36YP1mT0dxyyGPnMIOYagRhe7zMyBrgVgI3o0GIK4LVL4WikofKRc2Hm7F4pPtefbnY6uPJW0FORI4gaDbhmLuUyaLlwiezVFO/kF5Y+aq97WnCqynWpnit5ADRFLLqGV3jsIjknM/kWusCNzXYLFvmP+wT4fuambWYE82Vrk636U6NUs7JBo9VHxP2CjClUMijfjvSq0ET891iGez3fMbZlXfPlr7Z2fgrcZoEuqXFVsMAl55VIzskNNbrtphwTKis01mG8LeSW6pewvooT9W4RgaQx4SsVIeTqSJxtNzWUtyn1yDvL9w6icnew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EVnAftR3C0+s1NEQLgERq3QkJQ8SqbQnyrrWTVby2iw=;
- b=VOcvesfWki96f2tsdGRObcROSC4QYRg4us7Tes+tc8f5itfOa8/6s5XMw2qBUU9Wh37clNU0jN7V0S208is4jSYnvJF3Et/hw77adeNJAJAyLhcG75ZAS0k/6dcnyDMVaqMEYgjwZlq6Rd5vutnkc+mqb48kek7pz6Ago5lNQtFQC2WGAUFslMzo8X0vwq+DMC9NBN/vygmtvI7uC1IRvDNSA/nspBkCjYJc2QSd8NNNIBI76fQSpq7aQmzgRuwfMFkyA0mWejDtpQrUvxJMYNfPzVFV6xDU4toBnpmGtyYaMMdTEL5+TClRjmsdkMzDExR+QcuiI0zySQLU6xC+bw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by DBAPR04MB7317.eurprd04.prod.outlook.com (2603:10a6:10:1b3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
- 2025 03:27:03 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 03:27:03 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v7 3/3] PCI: imx6: Add external reference clock input mode support
-Date: Thu, 18 Sep 2025 11:25:55 +0800
-Message-Id: <20250918032555.3987157-4-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250918032555.3987157-1-hongxing.zhu@nxp.com>
-References: <20250918032555.3987157-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0188.apcprd04.prod.outlook.com
- (2603:1096:4:14::26) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Thu, 18 Sep 2025 03:36:49 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250918033638epoutp0226abc99c0ce0d0bea93bc8401869936c~mQzTKjgeO2115821158epoutp02J
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 03:36:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250918033638epoutp0226abc99c0ce0d0bea93bc8401869936c~mQzTKjgeO2115821158epoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758166598;
+	bh=s3/5HzkQn/CeI2bopoX86uqRyljXPEsSE4o7WFp9P3M=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=kadCp3fmysdFYd9IBQjFuD+vHlcKWirFTHefZhaBLZaTEtAmyCTOr2xzsc01TQwlm
+	 w0KBoHWSA9RuMEBcwjYnplWsQEWiQKEfWXkwWUp73Y+GIPeTi8QOg90AFYzushZTVd
+	 vmv60O0Ioal09e5lo/pnzDzIKPMBaM6C6aJ1+kAw=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250918033637epcas5p1d9d51cc4ecd81b27034d872b75b01417~mQzSacz5M1915119151epcas5p1L;
+	Thu, 18 Sep 2025 03:36:37 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.95]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cS1X45D7rz6B9m7; Thu, 18 Sep
+	2025 03:36:36 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250918033636epcas5p4b3debeea3bf32662128d305b2883376f~mQzQ83BaZ2797427974epcas5p4Z;
+	Thu, 18 Sep 2025 03:36:36 +0000 (GMT)
+Received: from FDSFTE411 (unknown [107.122.81.184]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250918033632epsmtip28a31cc2e7c1a72b6d54f7708eb49c7e1~mQzNNeDoo2096320963epsmtip2s;
+	Thu, 18 Sep 2025 03:36:32 +0000 (GMT)
+From: "Ravi Patel" <ravi.patel@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <jesper.nilsson@axis.com>,
+	<lars.persson@axis.com>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<alim.akhtar@samsung.com>, <s.nawrocki@samsung.com>, <cw00.choi@samsung.com>
+Cc: <ksk4725@coasia.com>, <smn1196@coasia.com>, <linux-arm-kernel@axis.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <pjsin865@coasia.com>, <gwk1013@coasia.com>,
+	<bread@coasia.com>, <jspark@coasia.com>, <limjh0823@coasia.com>,
+	<lightwise@coasia.com>, <hgkim05@coasia.com>, <mingyoungbo@coasia.com>,
+	<shradha.t@samsung.com>, <swathi.ks@samsung.com>, <kenkim@coasia.com>
+In-Reply-To: <59d50dee-cd6a-4eab-860a-bf6d50d9bb0a@kernel.org>
+Subject: RE: [PATCH 0/7] Add support for the Axis ARTPEC-9 SoC
+Date: Thu, 18 Sep 2025 09:06:30 +0530
+Message-ID: <020801dc284d$6f555b50$4e0011f0$@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|DBAPR04MB7317:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d0079ac-0ce3-406d-e6de-08ddf6633c49
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dpCgJ951haRJ1txrdIYoo90QMNIUKEK66kKcafZmc22+JdDiYC7t6G2Ng1EN?=
- =?us-ascii?Q?HuQUEVVQvy2IIcB9yNlyBpsIlzcZWHzpr7p4Ql2T/8rngPdqpcHRWSao6kr7?=
- =?us-ascii?Q?81YFSE7dMrd+IzrsT1nBm9GIoobAvAE9yChmiCxgWO02r3SoZ9JOSh0lUwzM?=
- =?us-ascii?Q?dk+esh+LNluGzuI0eqBwMPHY4o6gwuH1apBFOrJ38zgPugqoEphlVdh8r5Z9?=
- =?us-ascii?Q?ij3oZHrkG0t/WYqI37KQbjQtUn4bCnSirdtB8u9TQeowXYUiab3ve3gEgmu3?=
- =?us-ascii?Q?I0KAenSldeIZnAS5GMOSoCCjWmLOyh9wBd3sJVkJJiwAaD3rTqNb96PLVeyR?=
- =?us-ascii?Q?RXGFzRCfW7P9ksZM74VXEk4agsLZsluKUUQU2Nukp2O7EcX8UPsaw6O3fFaD?=
- =?us-ascii?Q?S4rK9c/J0UgbExGQEjng6VtaRN4QBzqvVOJ+1x6tKVcJ8d56XqvBQscIUUsG?=
- =?us-ascii?Q?4otncKKbNn5FtJDi/FsGfOL7Riw5dEWgajn9yRsI+xGBCDbb+pYMBLniB9m4?=
- =?us-ascii?Q?BsujIa1x7ZmHFcxZIKmO0LD/SX7YYKJ8bk6gN2mKtJNTJmt6L+gSjAOUoG9z?=
- =?us-ascii?Q?UexWb33pfOcMgCuCi6DZx7iV7dFE2pb6JlGn6Diagb6QtjAVPldhpPaF4I4Y?=
- =?us-ascii?Q?FRb6CHerjkTCizkXwfES/8xhLkkUH+tKlxKtjSuVqgxd/x4klUs7Gshsytw2?=
- =?us-ascii?Q?o/FQuFsWagNUIApCwPX7mfzSIZexoDP5rJTxMGoGEmu8fbEUTlBKhANHk9E8?=
- =?us-ascii?Q?3wdQNA9CXJW0HpnHWRz3fsUS4jHfzmY2SBnpR6dH1ZyIDAqmQexH/8uIF4fy?=
- =?us-ascii?Q?pJtGIKRMrk8WwFN5bMGIcOhAezHy+IPMKsjC7VxXf9UBCKunKKPsPw8cGx9E?=
- =?us-ascii?Q?WXPnCTsJ1n+hBHhluSatJ2D/F8JedYMw+r3hpvwSJ6U82oHIGX/iJInhcqDs?=
- =?us-ascii?Q?R+vgFJ8r2jAwU5dVq1kzKJ84bA5gd8MJ73X18nzLQnHXNIdlOwJLLEwrmAOm?=
- =?us-ascii?Q?VO4d9bcauBeUr2Qc91cpViAZV5DWco/mt1TI61UXbKYrEq8KX4qVerqTseAD?=
- =?us-ascii?Q?vbRj0X1o1ClHm7ctpBl7LRkWucLQTpzZe0/4rfLNTlgZ/DFUyRB21zkb+HTN?=
- =?us-ascii?Q?gQ9/OJDIf/+RIOs658gbbJ4MKUiBP+S+rZjxK+GRxutrsDAGwe4fCbJnFMjI?=
- =?us-ascii?Q?ACGUQ0W4h1+YHBgUpYK1at8WCYDmQRPpz+dk9KRx203BAGs7/YHExfLskjhq?=
- =?us-ascii?Q?v2sJ/J0AqVfpPW2J4k5Mkurrrm56rnxWPkFjQBeZz3X8F1ATxRastX8pGNMZ?=
- =?us-ascii?Q?ZvAHrAnJw7sLVd2emQzpuPytdi2S+0z3orifyW49kZNOdyRo6IVmocesk2H1?=
- =?us-ascii?Q?PoNNLUybIDIndq/5hX8POqDkHEzKUFTrAx8bfJcvoOxVhjhNCSqWN/6KSUbU?=
- =?us-ascii?Q?75Bz8Va2f5u+fqMj/CE5VtDMIOiR+eSuYUcrn3AI+SIVQHS4i8l1fY21FnVh?=
- =?us-ascii?Q?FA9+trdZ0+9kXXQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6kokcqMidflR/QZeENA+dgPStxceZ2gxPqwPGK5s4GS4lnLKsCST/xknvrI2?=
- =?us-ascii?Q?t8ODj/HhsMJFK0YbnPpMwm65/VxwX9DjY1Culz4HvWFdvj19Efb1hM996fm8?=
- =?us-ascii?Q?PPR4OkS36si9LwMjICibGLG6RqSypmriFIWnh9wcvu83Ki61ItUyTvmT4gzx?=
- =?us-ascii?Q?zov9BSIXNH0EbYF8ggGh8KQ62Guf0JC9wxVmRd7q+IsnmMr3uKI6Ffzv54tx?=
- =?us-ascii?Q?2HiUTYC+d/vpR7sLbSvLE+tNWOuXEIj/l3VFc/ltW2nssfkh2VSFkYW1Cgw5?=
- =?us-ascii?Q?ZiFAJwar282HCzFkyzgG2XraspHEJNvbpUBYs0pSq2eU3Z20rKG+j9/FSRSZ?=
- =?us-ascii?Q?GZVdU62OgD4GK0uP7Airopvh7D9SBlkzcCSslpqx3W5L+YWmDMNLby1BlGs+?=
- =?us-ascii?Q?h0IE2IOJ4QDjyF3RqLSZSRAJEahSO5/FBWNSsq+ujmJD/C8X+2A/+x6FA7aK?=
- =?us-ascii?Q?vCrXx5suY/oa2/dXPP9kSAMFXGcO9zUyVEHofPNBRZqbblmmexHrSRjE8UU3?=
- =?us-ascii?Q?0gkPslvFfnyFWbgTaUVcdv4Nq6mvXa9fIURT48Ec4yiqzDAG/3gqmH+aTtAG?=
- =?us-ascii?Q?cP2MTXBpMXRHd4j7hioZShyrEgVMz2YFpLjiRfOwPVTn15PkupAfVb9aZWlx?=
- =?us-ascii?Q?lm/QlAYOzlbFQwtHIDPn+8/Lpg4oCw/ZdBllrZ4a/EqhAF8OIhG4Xp1JgDcv?=
- =?us-ascii?Q?WXGfJhaPzxNgMNrQLhP+RL5EBL6hzIE7/8YwWJTVdnSc8r3JTUcWVE0E3kZ8?=
- =?us-ascii?Q?+PAo4kYnZJrPxDqaqttApqAqaIYIM26wzuWe+4Xi4dfmeIWL+cTjRS2G4r21?=
- =?us-ascii?Q?P/C+P5dQCbjEgNBQk0xoUfTmVy6JiXINc53sm1dwsFUuU0fgO/ETEhgMna6O?=
- =?us-ascii?Q?Ke9e0GoOBnJFNRL0dZfo++qbitPpqRyj8zXA8bk7E0UU33sBJQkXL90kIEFY?=
- =?us-ascii?Q?n6pDn5WkMWN5pnCLOjARDjzmRvgCAL91KHLL0nRmuJjNfhpopgJfYte+K30C?=
- =?us-ascii?Q?7XG3ubhIhNdmKDetPcPrikcPcJUtmQipBJncP3Z/5/ikrfah556bm69RnxkZ?=
- =?us-ascii?Q?1wq+heJ9jrfPofJ0Kw7gsRPjSV2BJBBHcophHHxVHUGQDz0Qmf0iyGLolm53?=
- =?us-ascii?Q?UBAzHWCkYm4fOIGQD/SZ58KpikhqR94/W4ZAGc03CoS64GqKkHRdKAI/4I9m?=
- =?us-ascii?Q?pypfwUctzdeSoMIAayfcdJtOpDgF6SFIOWusx5v8f9PqqewHzZqTdU63koAm?=
- =?us-ascii?Q?Udd5CXEfHCgZLBqKQvm0qspDFNuwc/B4fxH5DViVxXi+RtNTa82HfD30GL+1?=
- =?us-ascii?Q?inHlpyc7vTBBTs2n6jiHS4tAMoi8aVAXJoasfocn0bMklu4nJZshm2r3EXfo?=
- =?us-ascii?Q?hG9jOzgJ8468gLYmoqhsUIIfvhFQ/YEwJirSq8tQBY1tlzvnKLXs7BRMWqkR?=
- =?us-ascii?Q?fLhA2EjnAhV22HNVRO0iyt615hy1yjOwdx3AvCRign+cpvn6gAjn1HjH2/XR?=
- =?us-ascii?Q?Joc4ip69xUXRICBM7RVD87vjhh8egcsAxFUWnmeFje/F+CRzGc2NXX/1AcCF?=
- =?us-ascii?Q?lir95APWHi/1SeXcnCA+4fFSTkJwIv4t46KqrBjV?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d0079ac-0ce3-406d-e6de-08ddf6633c49
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 03:27:03.1957
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jyUHFglbi9RMZfRIg/MfU6TS8pXSYk6ql3p+jGr6O5Ad78eMMBDKhzJc+i73QbAf5YIQsuyCgU/G45E0dc9syw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7317
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQLTcCpqrQuryqKp/HAeD2/j2cyERgGw+1i9ApJXu36yh53O0A==
+Content-Language: en-in
+X-CMS-MailID: 20250918033636epcas5p4b3debeea3bf32662128d305b2883376f
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250917085019epcas5p273ef86028a90e78ada55cde48a28a949
+References: <CGME20250917085019epcas5p273ef86028a90e78ada55cde48a28a949@epcas5p2.samsung.com>
+	<20250917085005.89819-1-ravi.patel@samsung.com>
+	<59d50dee-cd6a-4eab-860a-bf6d50d9bb0a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_202708_341071_C77E8DBF 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250917_203646_726044_F17C5731 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,79 +101,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX95 PCIes have two reference clock inputs: one from internal PLL, the
-other from off chip crystal oscillator. The "extref" clock refers to a
-reference clock from an external crystal oscillator.
 
-Add external reference clock input mode support for i.MX95 PCIes.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: 18 September 2025 06:35
+> To: Ravi Patel <ravi.patel@samsung.com>; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; jesper.nilsson@axis.com;
+> lars.persson@axis.com; mturquette@baylibre.com; sboyd@kernel.org; alim.akhtar@samsung.com; s.nawrocki@samsung.com;
+> cw00.choi@samsung.com
+> Cc: ksk4725@coasia.com; smn1196@coasia.com; linux-arm-kernel@axis.com; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+> linux-arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org; pjsin865@coasia.com;
+> gwk1013@coasia.com; bread@coasia.com; jspark@coasia.com; limjh0823@coasia.com; lightwise@coasia.com; hgkim05@coasia.com;
+> mingyoungbo@coasia.com; shradha.t@samsung.com; swathi.ks@samsung.com; kenkim@coasia.com
+> Subject: Re: [PATCH 0/7] Add support for the Axis ARTPEC-9 SoC
+> 
+> On 17/09/2025 17:49, Ravi Patel wrote:
+> > Add basic support for the Axis ARTPEC-9 SoC which contains
+> > 6-core Cortex-A55 CPU and other several IPs. This SoC is an
+> > Axis-designed chipset used in surveillance camera products.
+> >
+> > This ARTPEC-9 SoC has a variety of Samsung-specific IP blocks and
+> > Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
+> >
+> > This patch series includes below changes:
+> > - CMU (Clock Management Unit) driver and its bindings (patch #1 to #3)
+> > - PMU bindings (patch #4)
+> > - Basic Device Tree for ARTPEC-9 SoC and boards (patch #5 to #7)
+> >
+> > The patch series has been tested on the ARTPEC-9 EVB with
+> > Linux Samsung SoC tree (for-next branch) and intended
+> > to be merged via the `arm-soc` tree.
+> >
+> > NOTE: This patch series is dependent on following floating patches:
+> > 1. https://lore.kernel.org/all/20250917070004.87872-1-ravi.patel@samsung.com/T/#t
+> 
+> NAK, sorry, DTS cannot depend on the drivers. Please decouple the
+> dependencies.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 80e48746bbaf..e2ca8b036253 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -149,6 +149,7 @@ struct imx_pcie {
- 	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
-+	bool			enable_ext_refclk;
- 	struct regmap		*iomuxc_gpr;
- 	u16			msi_ctrl;
- 	u32			controller_id;
-@@ -241,6 +242,8 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
- 
- static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
-+	bool ext = imx_pcie->enable_ext_refclk;
-+
- 	/*
- 	 * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
- 	 * Through Beacon or PERST# De-assertion
-@@ -259,13 +262,12 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- 			IMX95_PCIE_PHY_CR_PARA_SEL,
- 			IMX95_PCIE_PHY_CR_PARA_SEL);
- 
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_PHY_GEN_CTRL,
--			   IMX95_PCIE_REF_USE_PAD, 0);
--	regmap_update_bits(imx_pcie->iomuxc_gpr,
--			   IMX95_PCIE_SS_RW_REG_0,
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
-+			   ext ? IMX95_PCIE_REF_USE_PAD : 0,
-+			   IMX95_PCIE_REF_USE_PAD);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
- 			   IMX95_PCIE_REF_CLKEN,
--			   IMX95_PCIE_REF_CLKEN);
-+			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
- 
- 	return 0;
- }
-@@ -1606,7 +1608,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	struct imx_pcie *imx_pcie;
- 	struct device_node *np;
- 	struct device_node *node = dev->of_node;
--	int ret, domain;
-+	int i, ret, domain;
- 	u16 val;
- 
- 	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
-@@ -1657,6 +1659,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (imx_pcie->num_clks < 0)
- 		return dev_err_probe(dev, imx_pcie->num_clks,
- 				     "failed to get clocks\n");
-+	imx_pcie->enable_ext_refclk = false;
-+	for (i = 0; i < imx_pcie->num_clks; i++)
-+		if (strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
-+			imx_pcie->enable_ext_refclk = true;
- 
- 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
- 		imx_pcie->phy = devm_phy_get(dev, "pcie-phy");
--- 
-2.37.1
+Ok, so you want patch #1 - #5 in separate series and #6 - #7 (DTS patches) in another series.
+Can you please review the patches, I will address review comments in v2 (if any) itself.
+
+> 
+> Maybe you wanted to point me where the bindings are, but then say so.
+
+Yes, these dependencies are for bindings related.
+
+Thanks,
+Ravi
+
+> 
+> 
+> > 2. https://lore.kernel.org/all/20250917071342.5637-1-ravi.patel@samsung.com/T/#u
+> > 3. https://lore.kernel.org/all/20250917071311.1404-1-ravi.patel@samsung.com/T/#u
+> 
+> I am dropping the patchset from my queue.
+> 
+> 
+> Best regards,
+> Krzysztof
 
 
