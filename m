@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3444ACA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5070CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TVT57U21vtvicjHkKiVZv5bhClPz9hNyRghzXRiiLXU=; b=JQdH3RIlgsClSSrae2bL1Tq/75
-	7tkQMrhgr0dYM0UlNqpSrfMp9N95ajzAtm2kzCIDxKWVDrZrTbGwK9vxlLrPdUnY/uk9VIOOSKtUH
-	1K/EAfnDBktgJ8wejaMaWLs6d6pH+aMYHUsxK1EtN8kEyMXF4zwLfOh6jFMFco01ZnpMN1INAxpwh
-	f0IhsxZk1M8cP4qM4IwvMjVdjWX5YkVKyzPJcQazlaQat57tmXV0KpYjdF1zf91VOP7WPe6VMj78X
-	icCKpiLCyhbMrA6GYkw55xvKgRnFdbEm1MRjhVWvg2yPjR+QkJKFi38BKlu/w2GjLNX8muyD/w1TQ
-	8YOJqWaA==;
+	bh=Ak8D4ewxAmt2mrMe4gZ32GJGlrTEsebf+7f/118zH7s=; b=dPW1xCgumeINLBlRdI+a2UG3eO
+	ROZRno+ZmcqmFTN7bByM5bRv0bqiQSOdGuH4Ts7wOFsTFrijD538ciSWxrrKUpsyepNbDQBWK801g
+	0iP8zFhfL1YpESy3FGFeKgNl5v6/GohRNfQ5yh7e1y5toLY8AU4AAeW+WbqpeSYtiM0t+nNARLKIF
+	Ss6F97Fs6QBmndK+t/Od21pMtZ3m8FRW5m9mub8KWnJMzLyR43CO7mBosvKrpNaTOrEsLAemjae56
+	BUarwPztT47svzPslKzs/2n6/QtCXAu+xXKQAa01Zw+CH11UmJPwAczGMN4oOgoMRqtaHOejjvono
+	D1r9ZGBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYU-0000000119k-0vcu;
-	Thu, 18 Sep 2025 19:44:34 +0000
+	id 1uzKYZ-000000011D8-07CV;
+	Thu, 18 Sep 2025 19:44:39 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYR-0000000118Q-2lal
+	id 1uzKYU-0000000119i-2KNt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 19:44:31 +0000
+	Thu, 18 Sep 2025 19:44:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 193726021D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 003DB60211;
+	Thu, 18 Sep 2025 19:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FCDFC4CEFA;
 	Thu, 18 Sep 2025 19:44:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66369C4CEF0;
-	Thu, 18 Sep 2025 19:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758224670;
-	bh=3YA+RKjt5eLwcy44RlCM6dNazad9TJ2w7e1lAKycE+4=;
+	s=k20201202; t=1758224673;
+	bh=UMBZVNHnp7TR0KnOMakwtyW6HfF9SvkIdo+R8of+svU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LsShNhSlOosgCCjv3ZZn1EVchSl3vU8pr8DxN45VfTpA5TG2NX6aNYeu9rPMq5DBg
-	 udxhVjXaA1OG9vRBXO6ooa13dAV140tSVHM84bLL29YKK+CfS5jAFtU304qGLreLuD
-	 0fcV0Z5wAlRxYX6CztaqfsoaovPvVn0IN0niD909yU01a1ebTtWyycg0U0Id17i1c3
-	 QJFjj93cWYLoSNwhwpVYJBWVL+cwittfC4Lt4tTACTKH+/nNUgvaRGpFb15Y+lXeAC
-	 /RDo3Sr/O1jJSP19VGLgtyY62tsYggT3lcx+iW6HMvLFGNRZVfimRTTmLpr5HNSbex
-	 d04r+4NOL9KnQ==
+	b=bUqtbVT+0haYvdTHb6blpWAGsyWfD6JaY7UKgBi4jOSopmDbJZHeCxFoFu+/fht0G
+	 N6gsaEeuXYxUNx19h3M20zlrQSQvN/OOpS7UNh+0vG8Atrw4GeFRl23UBOHHnD0OPN
+	 sQwQu96Xbick4kY2JWoZuAwyghOmjSAmasf/n/qttCnRE/bjEqTF8y+Bz4ODB2N9C8
+	 cf2einhRiGSWw5T0zRs9DOHxZkYqbWMyGqGFegKcqdGEBgQyjSYzcJcDgfXQnVdRt/
+	 HoYZmNvUfikhEe256UpFX4Y98kGQpyREMS0OqFmDyQuV64M0UU9+aiDL3PQGBwyc0o
+	 cezmwQxnZIilg==
 From: Mark Brown <broonie@kernel.org>
-Date: Thu, 18 Sep 2025 20:42:06 +0100
-Subject: [PATCH v4 1/2] KVM: arm64: Expose FEAT_LSFE to guests
+Date: Thu, 18 Sep 2025 20:42:07 +0100
+Subject: [PATCH v4 2/2] kselftest/arm64: Add lsfe to the hwcaps test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250918-arm64-lsfe-v4-1-0abc712101c7@kernel.org>
+Message-Id: <20250918-arm64-lsfe-v4-2-0abc712101c7@kernel.org>
 References: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
 In-Reply-To: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -60,15 +60,15 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-56183
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1325; i=broonie@kernel.org;
- h=from:subject:message-id; bh=3YA+RKjt5eLwcy44RlCM6dNazad9TJ2w7e1lAKycE+4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozGEXE5gzxW4DG9tsIWlE41BKvJvGpyQ63RKmO
- HOUNqzPdgaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMxhFwAKCRAk1otyXVSH
- 0F5vB/9btFoOAaaoJWCjjm7nW75Ob1/HiIkQfOGZ2fXHaFGNJBNqxyUxKlocd2E4VYhzrPXdqhn
- WIn8Be+Su4uKhY3qEuZkOxJHJ1popYnXrqdtq2PWVLZRlGKNHTWNNrpGRw9qeX2bsHnusJtACOu
- d9rkXvLKAX5t4K9pv4Khk652f8VCjBd7oIZWz2e1y+Vbiv/fHHyA6MvAodcFl88f5WX2Hge1Rvo
- GxtpOVwLqSv6J5I7gK1HmGsV3NPII5OmQoqD1w3g1jdrdK4D488GCMF4FYWs900EUPNlQHzu4IY
- eKEy/SfjPQLvbzN4fg1Zk71QJxkD0AeCRTjB1axR6IbenZlC
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1389; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=UMBZVNHnp7TR0KnOMakwtyW6HfF9SvkIdo+R8of+svU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozGEYpaN8KxqpqbIpix7Q/eUM4BVEie2c349je
+ H2Lt7wGNx2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMxhGAAKCRAk1otyXVSH
+ 0Ok9B/4v32pVhq4xEn2WtqPBqKENxP6kucAsLZtwxf5iwOSrCiG9KVi/6YaIAC1kx/sjTIVaD9L
+ mKEAYyfwg5c8BxtzTnuaHiK0R5mccV5TOEWPCLDMGeYsCfAVxI+uVBIUJ2Mbg7tyxUylzzmbwg6
+ 8Vn7mCxnstbDXzMVPy5OS73MNdRuJjzIsVe1dmV9cd1Fa/1eOBriDvdJYymtpApHcWiI5N0u5fJ
+ m+NBZORlDiLa9d86fk+c7KVVLr5ahog42FmW/pYrdJHXOkWKbtFlyrW0SuXfcxYsmX53b4Fa4iU
+ JF8LnIEBKNjJysOhlR0xW4jvKcBXNGNJdual7Un8QJbbKubP
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,38 +85,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_LSFE (Large System Float Extension), providing atomic floating point
-memory operations, is optional from v9.5. This feature adds no new
-architectural state, expose the relevant ID register field to guests so
-they can discover it.
+This feature has no traps associated with it so the SIGILL is not reliable.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ tools/testing/selftests/arm64/abi/hwcap.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 82ffb3b3b3cf..08e2cb94bff3 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1642,7 +1642,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
- 		break;
- 	case SYS_ID_AA64ISAR3_EL1:
--		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
-+		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_LSFE |
-+			ID_AA64ISAR3_EL1_FAMINMAX;
- 		break;
- 	case SYS_ID_AA64MMFR2_EL1:
- 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
-@@ -2991,6 +2992,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 					ID_AA64ISAR2_EL1_APA3 |
- 					ID_AA64ISAR2_EL1_GPA3)),
- 	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
-+				       ID_AA64ISAR3_EL1_LSFE |
- 				       ID_AA64ISAR3_EL1_FAMINMAX)),
- 	ID_UNALLOCATED(6,4),
- 	ID_UNALLOCATED(6,5),
+diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+index 002ec38a8bbb..0f9a64932481 100644
+--- a/tools/testing/selftests/arm64/abi/hwcap.c
++++ b/tools/testing/selftests/arm64/abi/hwcap.c
+@@ -17,6 +17,8 @@
+ #include <asm/sigcontext.h>
+ #include <asm/unistd.h>
+ 
++#include <linux/auxvec.h>
++
+ #include "../../kselftest.h"
+ 
+ #define TESTS_PER_HWCAP 3
+@@ -169,6 +171,18 @@ static void lse128_sigill(void)
+ 		     : "cc", "memory");
+ }
+ 
++static void lsfe_sigill(void)
++{
++	float __attribute__ ((aligned (16))) mem;
++	register float *memp asm ("x0") = &mem;
++
++	/* STFADD H0, [X0] */
++	asm volatile(".inst 0x7c20801f"
++		     : "+r" (memp)
++		     :
++		     : "memory");
++}
++
+ static void lut_sigill(void)
+ {
+ 	/* LUTI2 V0.16B, { V0.16B }, V[0] */
+@@ -762,6 +776,13 @@ static const struct hwcap_data {
+ 		.cpuinfo = "lse128",
+ 		.sigill_fn = lse128_sigill,
+ 	},
++	{
++		.name = "LSFE",
++		.at_hwcap = AT_HWCAP3,
++		.hwcap_bit = HWCAP3_LSFE,
++		.cpuinfo = "lsfe",
++		.sigill_fn = lsfe_sigill,
++	},
+ 	{
+ 		.name = "LUT",
+ 		.at_hwcap = AT_HWCAP2,
 
 -- 
 2.47.2
