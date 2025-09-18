@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD37CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA61CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kk2Hrw+IHUis21BiwjLiEv7+4Iu+IibQiFHb8JNRLIM=; b=x6bkdVnciWfvid5dGRnWr0SmfU
-	JzANuKJdcNG22Q2yYKHUJPZbbraKFgHad6+3fD6s1kZ/lesFjB22ohUZSedh0bFsKQ2ooNdinWk3X
-	+SVIpn3qkHbEqlVF09NXUnwxfjf7CPg3jjWGNUu6qg2NXV60Fs27bibicqB9lUEfGuDb4LjnBVoI7
-	18vbmOeI72CAVRlt75M0Ktb/pvXWernpW0fA95yZNEwXfGmyyYMRRFCAkXGxCajgsT2ZqF8y+uxrf
-	xf5NMg1KY365tRAGhIEGTy8I0I+DJYSH+q5Ge0YL6C0izkBUUmBSjWDro5VFnoI4S90E5fnGwHJJc
-	s93c0cJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9gsW+PCsFsbjhMHkw04UTWe5VphiwFtc+TNmvQSn+Gg=; b=fyrMlZY/0U6Rp6O64FZ/Qm7apM
+	0v3f011GT9Bb4rtdYQT6FqoFBWSKdJZC41/9mZloHCiAHt9cuhueUcufqQD/NnbvegwAVFhL/+cRg
+	IE6gl/Xyv6jjs9ebyP7/jz9mX/PZB3PQpM8rptxfpo3hakoSSLQcaMWg+sOpLsw6fj8hBeoLXNAUL
+	YHgcpKYdwc52aFyJBfI1PyyT72TlVAaU4yWr9fK2/Dnf9pr84uPOtWb4EaaEvLEmCyBl4JhE7d55L
+	/QC0vtFO9aT+jHowN284V/6COgHE25HxtDi9OlCfEDw+59+gpmcREIUAzBPMLZSBX/IrwvxglLJC4
+	BL21S0pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBB4-0000000Gubs-150E;
-	Thu, 18 Sep 2025 09:43:46 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1uzBDr-0000000Gv8L-3CSx;
+	Thu, 18 Sep 2025 09:46:39 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBB2-0000000GubT-189E
+	id 1uzBDo-0000000Gv75-40cb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 09:43:45 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-329b760080fso583598a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 02:43:43 -0700 (PDT)
+	Thu, 18 Sep 2025 09:46:38 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45df0cde41bso4312355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 02:46:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758188623; x=1758793423; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kk2Hrw+IHUis21BiwjLiEv7+4Iu+IibQiFHb8JNRLIM=;
-        b=WwdJ7OyPY1cc6DqhWg4gPrfUE2G7kQQ2D49FtVz6Cd2qJYgoW0wf02NgV7i9h2qPHw
-         u809sb39X/PrR2g6eVvLbqEVmSL0VcaPJULf2fJVUELC0GlEfkE1atn+/P1yTMIzLg9G
-         cV8maYA0zPldCJ1m1HLRRCWq4qJblDAJG5g0i2sWkBZ9pO/+zs4ROAO2dwc7v1s4dBKR
-         PZUwE8Js3llgUVAvDlkhKnRCWcRCUpyuZk8AZOHs783aPvIz8riUuEb2rDczqt+Ro1A4
-         A+pW8zOmMzkBvwUBPevv+hoHzRguWZ27h+JLonT5y8MlxNfUOymqfs2uurTCZf/hCO1U
-         p08g==
+        d=linaro.org; s=google; t=1758188795; x=1758793595; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9gsW+PCsFsbjhMHkw04UTWe5VphiwFtc+TNmvQSn+Gg=;
+        b=nShgDZiJaejQsqX9V7zr5aC2kab9LFoAZIHHc2nsLN4QoR8pVqUsGxMBuhQ0zFE1XS
+         bEvzCPoCS7eN9BPQgdggLJZSYm+KvyXqOQBf3BaJDPSglVmOoOOUwkblAcAFEVHfYAOi
+         4HWoyclRAGTJXUFajWov85fveCmcSFOd16wuhnBE+oCqwqq9eeYCeeSCKJL1Phh4mOVu
+         ZVCUgjilHWHKmuZiqeSNefPUdB/KQsj7HWJ8bQzc/dhaLA7lyuMBbcXW50qIemhYPa7e
+         WPljU8PkqZDmbmVhgwNKne48tv1jQGjJX+TzhQW+DDIUz4WoGHuj3iaF0WUkgEbAPvZg
+         LGRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758188623; x=1758793423;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kk2Hrw+IHUis21BiwjLiEv7+4Iu+IibQiFHb8JNRLIM=;
-        b=TcDJ2GzijwTQLshux7+7sjWnzbuRy7kn/mUZbwTdHXX7OxIdo51AZuES3CTWzpNg0d
-         R4MbKiz9HOwAwEqLDVs+vsEEpMWsfgPMyN5tP/o54uMA+TyJ9Ml8RUzVgBIIqARYEcFV
-         HuZR3x1Gc1m8kY5Q07iKztAusZLS4xfXOPdvmVGoRz94jZYH+sDNXWV6J8GTFJ+9lOBG
-         YrGtJ2N12UVUY5zPp2Y4zoQKmrca8cid2jmKLNFFaaT8SX/BgAURd2BRx+0El6LwgnFy
-         KtY9PoqERjSJKLNTzvG8dQB/i4dVsc/XRfp/aOC/NrksNwszYjY7VcgCqQ81JAN19+HO
-         4ZUw==
-X-Forwarded-Encrypted: i=1; AJvYcCWJMVvhUN8hnTMMfs5tBTLhDpGRsvpSZXkkl4N8xYJ1wsFoL9NQnWEXSRisnCKSzwVy5VzmKl3Uy6fz9xbHFWVT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj6i3+i8S0X0muXvluInA/UGaQbp8i48VWHWSgVcsp7//sHsXK
-	3JoIu3J4x8E7yeb1nPWXDInbnXmJ/UhzQA6/XaUhedK8sKZNWnhHsJgIL/Y+sQ==
-X-Gm-Gg: ASbGncuqWz7MU+KmCidXVLIoahoamoS6OJXMwhu3+EieILV+wMDvCW/YaWuxZJ90vx/
-	oXshc2OwYzuW/CtlacSLijuLDZPwcYB+kwpJhVdrFf4Ba3Oq2ByB0jkpMj9X1FpZwaGL98pbMHi
-	g+1OCJYWrIi6Bn5Pi+vh2XTRwFox4lM6aBmi2kw6Rtwo0111U2Gtni5zuJrTSkaW0avvUpLBZMw
-	2d3VZyMnMPxb1h0a95Yj79aReQTKHcLWGewZemmuko5/K6UpT9FBVIlrbuYiv3NWWr/KPdeHrtf
-	YmKTwr6TNWDlQMdyAt8My0qI9ZXm7txnOD7FXy301+jJbBuTxrHCp6ohibA5B6vNn1e4CWoAZW/
-	FbnhvJnJdLsnFkyk2GXPm1r6280mat2U9Tmyz9n6vIhUhgY9VpogLVXQ3qZNFM42f2AwDv+YzR8
-	E8KA==
-X-Google-Smtp-Source: AGHT+IEgGE0BeH1F+4LDtstgR4GzT3dQ/vnKSyQ7aIVQt/aTAyZb2ZsVJWml9L1MieY7rFzbad5a2A==
-X-Received: by 2002:a17:90b:4c12:b0:32e:5b07:15dd with SMTP id 98e67ed59e1d1-32ee3ec22b6mr6516497a91.1.1758188623083;
-        Thu, 18 Sep 2025 02:43:43 -0700 (PDT)
-Received: from [172.17.0.3] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ed276d2f8sm4886810a91.24.2025.09.18.02.43.40
+        d=1e100.net; s=20230601; t=1758188795; x=1758793595;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9gsW+PCsFsbjhMHkw04UTWe5VphiwFtc+TNmvQSn+Gg=;
+        b=V7h2hmctVikG+/qqtraT6khbEfxFYb2cFy64mvioU3PfWOC+zDV1xl1MlDFq2jY7My
+         WbYXHT2cDajff9Md6FU32739XKSwGu+ajuimhb3U29wJcwi3aMQTUlrRztSLfRGr0A+W
+         ntl7TinSLkpWi8EYt0xbcpFRb53P37kpecTydbAH0soyBB+JutWOdI5070slqkmrF/L8
+         JKDASs+nWf0XHcNNEmRbfNMC6v2bThct4YFjWCFpbJreLVm7ZJW55HlobLJH1L/OoP4w
+         IPL7NP0BvfALllsA5vAKTmYZNCeOhntIUmhhNgTVHa9YwDgkpwz/KeQrI2qC4LJ6Bg9a
+         qcDQ==
+X-Gm-Message-State: AOJu0YwYEXKRnDITiqPaUdagBG7sQSFBBBdg3G4KvM8caBfYdXh/yuT3
+	5TgCxuHPh0vzvnIth6uuhZuyAUm9ztDsvem8PEmmcwcbbP0/YJsbkmCUUgt//YTtb7BkPelbXqD
+	T8dS8
+X-Gm-Gg: ASbGncsXMiTVJ+FVCJGN7sXaZmjdF5wG7gf+Eu+Vynf9JfFfRBjOSqrU79m2juQ0yd9
+	xG/YRzV7fsKYH7GY1UKK1c7aU/uFt6tqZkLHgEQjLE8FJNbjU2uLHG6aLHsdrfrwyMHxMdvTdN2
+	wDKZYFxkXnimro21noVuN9C/gNgqOSPVhrdX57HM2G90OWu2P1Iua3agowtXL0tUef9oEAloCTb
+	ZpL/OuUE5sASKwCuT1aaH6OdVKj03koCa0wxtTByoIcD3ooFzTR51haN/GK0ObE6ejQAHky6zR1
+	JZSmSwH5RhwFTFI93MJHEZNCIL+Jm8/svx4KsYxXyK3LV8P78iBe5jG93RMYpNF5o2X7DZ3Ay/+
+	sDy8pMLMmSxBVXrps53FJOCU2WM4hVP05rmXKocTan1P71g==
+X-Google-Smtp-Source: AGHT+IHuFnfC6ktLvjXJO+7x5N4vkiVPVLA5AIqL0cjSQjLhFwmJLsbh7gFJcbm0i6DZHk1/dpehYA==
+X-Received: by 2002:a05:600c:354c:b0:459:dde3:1a55 with SMTP id 5b1f17b1804b1-46205cc8649mr56930195e9.24.1758188794619;
+        Thu, 18 Sep 2025 02:46:34 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4613d14d2b0sm76378985e9.13.2025.09.18.02.46.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Sep 2025 02:43:42 -0700 (PDT)
-From: Leo Wang <leo.jt.wang@gmail.com>
-Date: Thu, 18 Sep 2025 17:43:06 +0800
-Subject: [PATCH] ARM: dts: aspeed: clemente: add MCTP over I2C support
+        Thu, 18 Sep 2025 02:46:34 -0700 (PDT)
+Date: Thu, 18 Sep 2025 12:46:31 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [bug report] KVM: arm64: Dump instruction on hyp panic
+Message-ID: <aMvU9-6DpbTsN3W7@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250918-leo-dts-transceiver-v1-1-3e2580325edc@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACnUy2gC/x3MQQqEMAxG4atI1gZsZWD0KuKitL8zAamSiAjSu
- 1tcfov3bjKowGhsblKcYrLlCtc2FP8h/8CSqsl3/tMN7ssrNk6H8aEhW4ScUEaKvUMfvQsL1XJ
- XLHK912ku5QHFt0+wZQAAAA==
-X-Change-ID: 20250918-leo-dts-transceiver-edc31e3c21af
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- george.kw.lee@fii-foxconn.com, bruce.jy.hung@fii-foxconn.com, 
- leo.jt.wang@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758188620; l=2154;
- i=leo.jt.wang@gmail.com; s=20250618; h=from:subject:message-id;
- bh=nVDRdbCkjgVW2Hem9dJFdrSJ8lRD2Z2Fl11Ez5/qXTc=;
- b=gGwy/tJbdh92kaL3iGxdJ0l55f8lVj/pdra8VUU6oBnNsmqeDhiUPxiVekZn/UwIGlSAduWaT
- s65s9f5gLsNBz2gYwdLOzqRJ9FmS9d3xS2QLQLwQXoz1a7on5CCimYt
-X-Developer-Key: i=leo.jt.wang@gmail.com; a=ed25519;
- pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_024344_332464_3C93F792 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250918_024637_001037_1BF0B02C 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,86 +94,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable MCTP communication on the Meta Clemente BMC board:
+Hello Mostafa Saleh,
 
-- Add an MCTP I2C controller node at address 0x10 on I2C0
-- Mark selected I2C mux channels as MCTP controllers
-- Remove unused "i2c-mux-idle-disconnect" properties
+Commit 92b7624fe052 ("KVM: arm64: Dump instruction on hyp panic")
+from Sep 9, 2025 (linux-next), leads to the following Smatch static
+checker warning:
 
-This allows MCTP devices to be discovered and used for
-management communication on the Clemente platform.
+	arch/arm64/kernel/traps.c:219 die()
+	warn: variable dereferenced before check 'regs' (see line 217)
 
-Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+arch/arm64/kernel/traps.c
+    206 void die(const char *str, struct pt_regs *regs, long err)
+    207 {
+    208         int ret;
+    209         unsigned long flags;
+    210 
+    211         raw_spin_lock_irqsave(&die_lock, flags);
+    212 
+    213         oops_enter();
+    214 
+    215         console_verbose();
+    216         bust_spinlocks(1);
+    217         ret = __die(str, err, regs);
+                                      ^^^^
+Prior to this patch, Smatch used to assume that perhaps a NULL "regs"
+would make notify_die() return NOTIFY_STOP so maybe we didn't dereference
+it.  But now Smatch knows the dereference is unconditional.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-index a614f947dafc9a6628c3f3d45b62ff3ca9d2b618..a2f0ed6e7bbefbdcec33f7ddebdf2de62adec164 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-@@ -269,18 +269,23 @@ &gpio1 {
- 
- &i2c0 {
- 	status = "okay";
-+	multi-master;
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
- 
- 	i2c-mux@71 {
- 		compatible = "nxp,pca9546";
- 		reg = <0x71>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--		i2c-mux-idle-disconnect;
- 
- 		i2c0mux0ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+			mctp-controller;
- 		};
- 
- 		i2c0mux0ch1: i2c@1 {
-@@ -332,6 +337,7 @@ i2c0mux0ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+			mctp-controller;
- 		};
- 
- 		i2c0mux0ch3: i2c@3 {
-@@ -457,12 +463,12 @@ i2c-mux@75 {
- 		reg = <0x75>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
--		i2c-mux-idle-disconnect;
- 
- 		i2c0mux3ch0: i2c@0 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <0>;
-+			mctp-controller;
- 		};
- 
- 		i2c0mux3ch1: i2c@1 {
-@@ -514,6 +520,7 @@ i2c0mux3ch2: i2c@2 {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 			reg = <2>;
-+			mctp-controller;
- 		};
- 
- 		i2c0mux3ch3: i2c@3 {
+    218 
+--> 219         if (regs && kexec_should_crash(current))
+                    ^^^^
+Checked too late.
 
----
-base-commit: c65261717599d419e9c683d85f515d3ca2261549
-change-id: 20250918-leo-dts-transceiver-edc31e3c21af
+    220                 crash_kexec(regs);
+    221 
+    222         bust_spinlocks(0);
+    223         add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
+    224         oops_exit();
+    225 
+    226         if (in_interrupt())
+    227                 panic("%s: Fatal exception in interrupt", str);
+    228         if (panic_on_oops)
+    229                 panic("%s: Fatal exception", str);
+    230 
+    231         raw_spin_unlock_irqrestore(&die_lock, flags);
+    232 
+    233         if (ret != NOTIFY_STOP)
+    234                 make_task_dead(SIGSEGV);
+    235 }
 
-Best regards,
--- 
-Leo Wang <leo.jt.wang@gmail.com>
-
+regards,
+dan carpenter
 
