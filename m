@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8262DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9131BCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jR+A7Uu/fVTQb5UWFMNiXlUhRZWhnqwuxxW+iS73YwY=; b=g21FbO64TStzlwwUNTBEhQrpS/
-	eLRyfqxERE/au42udvYQTAznwpG8bdCQFZEcBfRCoBPWrJ1+E/hpToeyHNIgFePd9IGjToqaJib+8
-	l9mYCPI1KPblLcHou0ehTdI05xZL9VRr/r2GzaTHq0tSmHTfZe4IFzPeFagBH/Gh2ZgdfudvtgqM2
-	dRfnXnwtSdZGlmQ7hA2CtMu3OB7b9QiAfDuEKGHXElAOD5lpj+oSQKxBTn/0TZAZJ4AEvO4NrjmOB
-	ziuevRdbNte4m1PekbgADGpYYgRKpcByBy2hmPFIPxb5O1BQChGTYZ2/ebB0cPzb2SVmy+3+mfFxu
-	42s8Dg4Q==;
+	bh=U8OX71bdPSbFFllpGWydA5TyMn0kIQDJtLBUmQ/OccM=; b=AwkvxTbTbLRvzBO59Xgbf/FrxI
+	lv6rVgSPU9xaT7L13QqLzbi0nzIqSjkON/756u8FCmarR+gcdo3zNIyn27oqu0k8Pw4gMXOGmXQp0
+	iFzoTItHZNQy1oz4MNwh01/2XVdBGKBblP6wptUwRjsLR9ZlelykgZo4ikzN77AbTGI3o8836cRYk
+	D61+r05LC/iRNdctp4MIKm5pOHrgGcyCdS6hpXbguCpo0Q3PJ20eirvq56a5NDh7FxqzC4VB17nF+
+	JUglVrd+Uf4nyGro5rNTCfG/yfOJ+h489I+LXetulu641KIDXFOAWgY4iANCgMk9p+hmLA+OjZwvJ
+	x4uAX27g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4cM-0000000G3XA-2w8i;
-	Thu, 18 Sep 2025 02:43:30 +0000
+	id 1uz4dj-0000000G3kq-1Tnl;
+	Thu, 18 Sep 2025 02:44:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4cK-0000000G3WP-226d;
-	Thu, 18 Sep 2025 02:43:29 +0000
+	id 1uz4dg-0000000G3kO-2Zc9;
+	Thu, 18 Sep 2025 02:44:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8B11406E6;
-	Thu, 18 Sep 2025 02:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29E0AC4CEE7;
-	Thu, 18 Sep 2025 02:43:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 36AD74407A;
+	Thu, 18 Sep 2025 02:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F557C4CEE7;
+	Thu, 18 Sep 2025 02:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758163407;
-	bh=FAcw+FQV7zWtN4dnW973kFvdMmlphcacFHp3l6fofq8=;
+	s=k20201202; t=1758163492;
+	bh=gmkiK3s1/gLcqV4k8w9r+YtSB/LyO/zQX9W9hOf0los=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gro7LzcJP00FzEQ8tzw4+teFGIHP0ik+ncwYjWtteoFULAqIyq7Xf6fs5MAf3eSMV
-	 wDeckgiCv+7C+oWGb5DFO4vCoHCGCaW/9lvDBXqDDU1rM65tUdySFgNUw+TNk/5UPA
-	 /KiNTep48aMsSnc2guGiygUNjORi018ZntdVr1Vtph8s3XRD9tKAVyRyw8o9viOo0n
-	 dpJ8TQzkktx1UV0I52j0KhCywed6WKRGcn6J83mnrzVNtS6WCC3TZ6LrMtMcKols5E
-	 kX6ThFTBrHcsv59RCv/5MwHZ+/VBYbs3aSUX+9wrvPsESZmmcr7ABDhssEupSJSrPP
-	 VZt5ehN1nynlg==
-Message-ID: <67c2b5c6-7559-4ae9-b2af-e839b6b8f4d5@kernel.org>
-Date: Thu, 18 Sep 2025 11:43:22 +0900
+	b=N2kXPmj0CU+pY7oq2tH3jpZk6nA6BfZZ+dkhuIbwPKzSk5RIDlY6s28+b3u4Oft+z
+	 /tprtT3Qf7ZrcKYGPmsXZiQXyLDdQxUuOD/ckkGHMRGsg3HbW9m2O8lIT5Jl/GuuUL
+	 NhhmxonIrjN8PONoKz08jqhbFPygPUNELjMQXfG9rAXn2U9gY5YO/11cdXJF2NiJFm
+	 ILi3/w2mvyPhwcWXIRCQiBD89GwUKDIi68zbx896yGFYAO+Am4Mm+gBb66O44XMkpr
+	 szTGvO5lLW+4kIKIrCQqde6gOz9Wwiw+y9I9mwtrRifFxzPhjWRACYfPyqWuHxN8lI
+	 TrqpUqOaKizWA==
+Message-ID: <0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
+Date: Thu, 18 Sep 2025 11:44:46 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
  ExynosAutov920 HS phy compatible
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kauschluss@disroot.org,
- ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
- m.szyprowski@samsung.com, s.nawrocki@samsung.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ igor.belwon@mentallysanemainliners.org, m.szyprowski@samsung.com,
+ s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
  dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
@@ -61,10 +61,6 @@ Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
 References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
  <CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
  <20250903073827.3015662-2-pritam.sutar@samsung.com>
- <20250904-interesting-lovely-ringtail-38bbef@kuoka>
- <000001dc1d70$aebf7d80$0c3e7880$@samsung.com>
- <87857202-b436-4476-9384-67566126d844@kernel.org>
- <001001dc1d85$c0d56a60$42803f20$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <001001dc1d85$c0d56a60$42803f20$@samsung.com>
+In-Reply-To: <20250903073827.3015662-2-pritam.sutar@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_194328_571663_35AFC920 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250917_194452_700608_ADA9A62B 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,86 +127,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/09/2025 19:21, Pritam Manohar Sutar wrote:
-> Hi Krzysztof,
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 04 September 2025 03:12 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->> andre.draszik@linaro.org; peter.griffin@linaro.org; kauschluss@disroot.org;
->> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
->> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
->> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
->> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
->> ExynosAutov920 HS phy compatible
->>
->> On 04/09/2025 09:51, Pritam Manohar Sutar wrote:
->>> Hi Krzysztof,
->>>
->>>> -----Original Message-----
->>>> From: Krzysztof Kozlowski <krzk@kernel.org>
->>>> Sent: 04 September 2025 12:18 PM
->>>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>>> Cc: vkoul@kernel.org; kishon@kernel.org; robh@kernel.org;
->>>> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com;
->>>> andre.draszik@linaro.org; peter.griffin@linaro.org;
->>>> kauschluss@disroot.org; ivo.ivanov.ivanov1@gmail.com;
->>>> igor.belwon@mentallysanemainliners.org;
->>>> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
->>>> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->>>> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->>>> linux-samsung- soc@vger.kernel.org; rosa.pila@samsung.com;
->>>> dev.tailor@samsung.com; faraz.ata@samsung.com;
->>>> muhammed.ali@samsung.com; selvarasu.g@samsung.com
->>>> Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy:
->>>> add
->>>> ExynosAutov920 HS phy compatible
->>>>
->>>> On Wed, Sep 03, 2025 at 01:08:22PM +0530, Pritam Manohar Sutar wrote:
->>>>> Document support for the USB20 phy found on the ExynosAutov920 SoC.
->>>>> The
->>>>> USB20 phy is functionally identical to that on the Exynos850 SoC, so
->>>>> no driver changes are needed to support this phy. However, add a
->>>>> dedicated compatible string for USB20 phy found in this SoC.
->>>>>
->>>>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>>>
->>>> You just dropped all tags without explaining why.
->>>
->>> Regretted inconvenience.
->>>
->>> There were significant changes in supplies' names in driver and
->>> schemas (patch-set v8). This led to make changes in patch no 5.  And
->>> review for these changes is needed.  Hence, removed RB tag in this patch-set.
->>>
->>> There was a ask for the same https://lore.kernel.org/linux-
->> phy/000401dc18cd$ec02a1b0$c407e510$@samsung.com/#:~:text=Let%20me%
->> 20know%2C%20because%20of%20above%20changes%2C%20should%20be%20
->> removing%20your%20%0A%27reviewed%2Dby%27%20tag%20from%20patch%
->> 201%20and%203.
->>>
->>
->>
->> Where in the changelog you explained why you dropped the tags?
-> 
-> Along with supplies' names, there were similar commit messages 
-> for patch no 1, 3 as patch no 5 (v7). (though, they were explaining 
-> schema more than h/w). Changed commit messages of the 
-> patch no 1, 3, 5 (v7) as per reference commits and would like 
-> to get them reviewed again, so did not add RB for patch 1 and 3,
-> which you had given RB (in v7). 
+On 03/09/2025 16:38, Pritam Manohar Sutar wrote:
+> diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> index e906403208c0..8d8114eb5660 100644
+> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> @@ -34,6 +34,7 @@ properties:
+>        - samsung,exynos7870-usbdrd-phy
+>        - samsung,exynos850-usbdrd-phy
+>        - samsung,exynos990-usbdrd-phy
+> +      - samsung,exynosautov920-usbdrd-phy
+>  
+>    clocks:
+>      minItems: 1
+> @@ -110,6 +111,15 @@ properties:
+>    vddh-usbdp-supply:
+>      description: VDDh power supply for the USB DP phy.
+>  
+> +  dvdd-supply:
+> +    description: 0.75V power supply for the USB phy.
 
-I do not have time to review the same second time and I find such
-request quite a waste of my time. It's v8 so I am surprised to see it
-getting changed even after review.
+So this is existing dvdd-usb20-supply.
 
+Same for all of the rest.
 
 Best regards,
 Krzysztof
