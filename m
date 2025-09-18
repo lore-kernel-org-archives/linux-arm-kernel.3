@@ -4,198 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A630FCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B82BCAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/MjvYHgYLmAQgc80aUAL+t3IlU75iDgIwBDAx2oYCY=; b=dSZKzIypPS5TcfN8wKCFzk1cRl
-	HQTQR8C9X4zxQoiL196CSGHgB3Vm+MSk4fKwZ7Y8b71JM4+PlnR/VLQvL+jA2d5tS41ltNWLh+mRH
-	JeoG0T4jw+uiqy4xaGhreb6eoD2N4KWGO3bDvTuzC7xsM+6HA4ZDZK+0J4g8+h84XCH++6j43ChMv
-	9bRpsQGdNNoCuLNaROBUiokniroh551ITUOMniaU8cMz2ITd2zSYt37wqBV8l/WA8V34QYb1UCeI6
-	Nz9ZL5FAJIePlUaz1wOGyLWeklXcfhdbp0euY9+ZGBoSQE2+AuPjMVIM1mkrTYtX70j0QUVg2sGGm
-	ziAixXfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=; b=o+rBAIXpl5NrrLYFdGg05T+N0d
+	Sz3LDaerKTjMvgPa9vyAYbYWEd6Uj7UErDP3ybQPkPrh3c7ECc3UFwfqm01rEYRdx5A1NZaP4grv6
+	PSBeDcO3Tzil59/irRkb+ayTW31wyWkSUdcPmEGTIdFxUYYbMK3jq4t/VyswLrX6qU4GLIcELjGjW
+	19QCSoJYLrYtruwlIlK1GKk6wYxuMFUWKq9fOW8t4KXFuwsz9OxW4f2mM7r4GGva4Vfc36WdM9ZHd
+	G1OhVvTJQtttIzFWaRPEzp9sajPCPsHhoEEzy/pBPIPSTCCkd+simL09nD/E19ZchQO8c2V684QWg
+	6kzA9G9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz46G-0000000G079-3lLe;
-	Thu, 18 Sep 2025 02:10:20 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uz46x-0000000G0HE-3A8l;
+	Thu, 18 Sep 2025 02:11:03 +0000
+Received: from mail-pl1-x664.google.com ([2607:f8b0:4864:20::664])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz46D-0000000G06X-1E1U
+	id 1uz46u-0000000G0Fp-3g4n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 02:10:19 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58HM59Gt001828;
-	Thu, 18 Sep 2025 02:09:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=6/MjvYHgYLmAQgc80a
-	UAL+t3IlU75iDgIwBDAx2oYCY=; b=GYzTZU2oVfoEgvUjRfQlBnnqqCs2iafiK7
-	bM3O0mBrMD4dLUJCA8pub+owOl3GYpC2IcwaIhg1PPjgohEOmCj1j4uBmAP3dbkh
-	rVGSpU/Oo3R/FhaY1MzUSfTThWQIMxumMv3Tg0xIvjyHqNN7nvNelve2L0FSMeSd
-	ALNqZOB3OmEprWiA/rdO5GitLQ1J/0b/OAqSZxE6RP2+YfeWTdOai+Eyzhmr4/cb
-	9L8vPT3WsJ2V/gRPQXBmNY09H2lyc5ZeWnvTZqGOEQ6FkmQRFHPKOtO1GG1BJJHI
-	HbGksY9rJ2CqeY5FCLfFoqRPyq0MV/HnUx516T34Rd8mXM8wWG5w==
-Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 497fxd2ft3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 18 Sep 2025 02:09:39 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 58I0Ri2Z001461;
-	Thu, 18 Sep 2025 02:09:38 GMT
-Received: from byapr05cu005.outbound.protection.outlook.com (mail-westusazon11010025.outbound.protection.outlook.com [52.101.85.25])
-	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 494y2eqtej-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 18 Sep 2025 02:09:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pcHkf8dXw1ChUjwosqWmcsqLscpKsaVLuresJorzbHIB8lS11fHTma3IGPwY4xaDlANbeVWoJsCygmXCqIAG/3qHDYnNZMhwnr030aE1EWtcLCyMtW3gu7I/XB3Y8rdea9Y6OI/MSkL+zkEW46Efzbtp2SVngRbvKqncjVoSRUe2gRwLly7n0f+qfb7dKljboxAi+vvH/lES0zte/3YCsthzRhnikFEwVfMH3phtLHsOk0zR0OHX/lZEvXeiOxgkSCQoJB1DYCDg10Cc6CxfepYXr48g+asfvMYj9IKstFFp1fTQhKNb8TNfoz2Ia5t9aA+baSeAl2R8UpXNIrUYOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6/MjvYHgYLmAQgc80aUAL+t3IlU75iDgIwBDAx2oYCY=;
- b=nGRRvq0TfNTegEwBgRuMW+x0PG4SOXq7Lrur7q2SVj7IFY3TVKsavFwoRzhfI/o53H3S8JlSYP1p+7sjqFEPkDuLChJbpkFmgLKdNuq/O9Kg2HY0EKJNALlWiF6h+GYm42jYsXemvvn1fCkmAdPK6OXtB63M+B5w3wjGx62EAvN7rseOrgVcGW8t52VOq2+yWPgiG6RBdI29HGxR+2EeEGB9jpOYG3wIrjlhSNM/JD8DbTVgOYrgXrAfl6YmZqDGJPwcb45ftaK5TUJyhSXidb/DlFK3q8OSkGMqfwHzbsjuTla4wURP7wx83bwpisLdnqv1ynFkn+5I7RaNLDq9eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Thu, 18 Sep 2025 02:11:02 +0000
+Received: by mail-pl1-x664.google.com with SMTP id d9443c01a7336-266fa7a0552so4317585ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 19:11:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758161459; x=1758766259;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=;
+        b=eT0EXXDN6KBvZDwRIACvhChxaLVz583JpfXZQPcIcVqtQ7P9bTAnoS99JtRGZc2659
+         FCoPjKYn6O7jltUN7Pr0lOYk4NNCsHCrACfoxOGH3+Ewj4Z26oiHO8SxKWuX+5XHqHRM
+         KaLq3jNS/1iVx0NDdPmbDUKPI/LeJEng6qyCbRD14E76iROdjGRLFo5dvk6IqaVJ5eyD
+         zbm0kGq8qO1ENndoTh6DdngJsddtIMi+R6HzxnpqzkjSIkRuu2hjvcDARUVRG6FGfr87
+         vqGHabmMT0+EvyN8hwcaF80QHyowyvVJn7AaQbGGC3aspGTm/VBGHw7nyeVhevhsB0XJ
+         rlJQ==
+X-Gm-Message-State: AOJu0Yzv9TtyebJ/fiw2oU8vmKqdpl7wsSy0Xn6T/hkbzwUl5aXLycxa
+	X8jg4OJAmiXTWacGhKmbIzjbNsPiacnQIgiw4bQkLRpuiATQqHI9rNOfsVFeh0OfLHRYx/OYlgg
+	EvIgsNZHwRyzIBnZ7X2O1xeCKztIynF7SzA9VGxuiWiMxQx0kY2f2rIyz9eyULwPEontA3xyCWs
+	65v4NBrkqOcP2p+cTxzxt7chUl2jSgGBAf9PgczDPKtR8dWKaPDCSMmIy2nw0UmHe5iX/q08pds
+	KFmpkfQGDTdCZNyL8yLEmR9xNz8+s0=
+X-Gm-Gg: ASbGncvGUE+uRgtW3YjD51WZ4+WmaW1j2haPA798cla4y9sdH+5GuArNC/tiS7Iz/sw
+	nqz84UxJ2Ritb0F6FYWnctYHeMc+mfEmFKxutMH14zoI1h7xsRaHu5Or3tKjxCq+WNcMyWLpxGY
+	4ZG8wHym580frt5yaiAZxS6ZS25vKMK+7KFeZETKpK/YTe59AiRFY5baOUoZyfEqT5VNVGsqWgt
+	0CIXFMnnKP0qKXonheuHYnhFZpfLv80JmnqLzeNIpCNfYS/xYzj8HQ/a/+K5La7NjR0vyia1Z2W
+	qn+cYTysfsPJRV1FGUq0xkDS9a0DDP0CcWUZkHawDyXoOfmYvLbX2G3dGmdYFqNzmgc9ayaymwA
+	hS7Qycbn/oz0EhtX/khkZ9mG2xELDLmg+ZxFthyAxRrzZ9lX57g7j2KiL+XqFyMxJKGyMKUEchc
+	MK03E=
+X-Google-Smtp-Source: AGHT+IHbuAGxKeJHox5dXAt5UYERs/9WG/7RdwdCD3Wsj0aNTc0zpCWUC/KYTfjXLW5hdRzI2llRYB80CmJd
+X-Received: by 2002:a17:903:17c6:b0:269:74bf:f19a with SMTP id d9443c01a7336-26974bff7ddmr34329025ad.11.1758161459443;
+        Wed, 17 Sep 2025 19:10:59 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2698016828fsm969925ad.28.2025.09.17.19.10.59
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 17 Sep 2025 19:10:59 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-633bca544e8so227667d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 19:10:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6/MjvYHgYLmAQgc80aUAL+t3IlU75iDgIwBDAx2oYCY=;
- b=ZgTOdBdy0Migu+YqT7lmDw+kUZqVICVyR4AxeLMrPBTAE0PxwENP5sUUBBYp4ktOenREUXFxl8AkesrQiRyQPJJYNU2/Csk7J7epSTIqRW3XWqYC/iwbmK3YBa2C0hCbUwDry9y7IvvJ8HWFFbZuLuiFDnX3BUhQStaumaLc+Yo=
-Received: from CH3PR10MB7329.namprd10.prod.outlook.com (2603:10b6:610:12c::16)
- by CH3PR10MB6882.namprd10.prod.outlook.com (2603:10b6:610:14e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
- 2025 02:09:36 +0000
-Received: from CH3PR10MB7329.namprd10.prod.outlook.com
- ([fe80::f238:6143:104c:da23]) by CH3PR10MB7329.namprd10.prod.outlook.com
- ([fe80::f238:6143:104c:da23%7]) with mapi id 15.20.9115.018; Thu, 18 Sep 2025
- 02:09:36 +0000
-Date: Thu, 18 Sep 2025 11:09:23 +0900
-From: Harry Yoo <harry.yoo@oracle.com>
-To: Jinliang Zheng <alexjlzheng@gmail.com>
-Cc: Liam.Howlett@oracle.com, akpm@linux-foundation.org,
-        alexjlzheng@tencent.com, arnd@arndb.de, bp@alien8.de,
-        dave.hansen@linux.intel.com, david@redhat.com, geert@linux-m68k.org,
-        hpa@zytor.com, joro@8bytes.org, jroedel@suse.de, kas@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-mm@kvack.org, linux@armlinux.org.uk, lorenzo.stoakes@oracle.com,
-        mhocko@suse.com, mingo@redhat.com, rppt@kernel.org, surenb@google.com,
-        tglx@linutronix.de, thuth@redhat.com, urezki@gmail.com, vbabka@suse.cz,
-        vincenzo.frascino@arm.com, x86@kernel.org
-Subject: Re: [PATCH] mm: introduce ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to sync
- kernel mapping conditionally
-Message-ID: <aMtp0-mV5_33AgYt@hyeyoo>
-References: <aMrkoBhIcP37YgyS@hyeyoo>
- <20250918013130.2425537-1-alexjlzheng@tencent.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250918013130.2425537-1-alexjlzheng@tencent.com>
-X-ClientProxiedBy: SE2P216CA0097.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c2::16) To CH3PR10MB7329.namprd10.prod.outlook.com
- (2603:10b6:610:12c::16)
+        d=broadcom.com; s=google; t=1758161458; x=1758766258; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=;
+        b=iEXHwi1CH1+np4+yt/GBjPIL3oKgw4FsMPuo1IxclYFtHPKeylvzVgxvp7aDl5HR2Y
+         vMwqo8kBL2CoVTfjRgn9/WxhSmow5SuBH+atRXV3B6kfNOZliEVUeMTPvWy1xgi68TUj
+         u7kElXh6V7o1iwfhDP6MSgtB4YaeVbjJjatwE=
+X-Received: by 2002:a53:e945:0:b0:628:10ee:ab85 with SMTP id 956f58d0204a3-633b0637837mr2904927d50.3.1758161458118;
+        Wed, 17 Sep 2025 19:10:58 -0700 (PDT)
+X-Received: by 2002:a53:e945:0:b0:628:10ee:ab85 with SMTP id
+ 956f58d0204a3-633b0637837mr2904912d50.3.1758161457485; Wed, 17 Sep 2025
+ 19:10:57 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR10MB7329:EE_|CH3PR10MB6882:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f8a06c2-769e-43ae-b163-08ddf6586a4a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UBRaFG+gd7j7MHZ7GcfuhUHUBur4kcjOcOFwpHyM6KfIr7dvdCM1fJvCtMIy?=
- =?us-ascii?Q?+T+Qvd8NVj+Q5dEjNOm1kJFUfJkcsYt3Fe8cCUmmkL7LU5XCTkRENpnkEUjN?=
- =?us-ascii?Q?KI5Pk+sUg6xCsMCeAi4JgnRfRPhwOei3cPpAIG1qjrQtKnnt5hpTrB3esBoz?=
- =?us-ascii?Q?jZATUIPawPC4N1TCzXYi51FQIJ8JqcCGmh5W+jDO0bxhJJNIpAukw135+O1G?=
- =?us-ascii?Q?HOrI8RNpux5ewylLPt+o/rAI79oBxH3YW+aSCy32tkezrCg+GFAX7zCpy9bW?=
- =?us-ascii?Q?C2RLsaGkwGn5ihCjI8lhg08LbEhCY9qu5AJiuVGKv3M4m4yPQUspBYx908BG?=
- =?us-ascii?Q?e/UlwQumAi2y9y3rhbn1x5DsVEWQl7DbWFM+v4RTFqzZwQgRLNF37JVpLy+U?=
- =?us-ascii?Q?pTlW9SHvYSw15e0FRq9r2hvC7ZMeOmH1WAjkVH2kTKKMNViC/vzass6kMSDO?=
- =?us-ascii?Q?8EZjJ54brE3gJxxSDwMJZdH0KSslHAgxZiJYdj77u2CoJFSsxrcyWGTJmxHg?=
- =?us-ascii?Q?nZOcO5ywO4G8iUxY5Hw3Mg8AJin+hfl0PIK/j2NILSwQ4aSuCG996ODZge9l?=
- =?us-ascii?Q?a+evmz5VvwsIW3L/+6FRXjF5vmqyPVvIAckxkO2KxttPjPui4iFrWXstoLHS?=
- =?us-ascii?Q?IGDN1iUq8Af9JCqnjTQWlzat8JIWr/A9R4Ldw1vDwHu+uqPPBLpvrLj+fBYg?=
- =?us-ascii?Q?qv3QQ2CIKjCvMjv1Ji8oPyW2LEi93UJFShB40mN+K5Gr31rBlHbcxke+wlfo?=
- =?us-ascii?Q?GSET2HCZNdwIN1k9r+EhcBl4JUYWdV1/5uEs54gvPr4FPQrQV14CMFqvhSF4?=
- =?us-ascii?Q?HXf6/f55gw34bUrwJcZMvfZjBAnZHw+YUYdFBN+ujbiJaPsW4n8eCI8Cpyqw?=
- =?us-ascii?Q?J38hsuBoce0nLZ03E2yJ1i4+tAQ6iqiANNXMitTDABuSXvxcwiqsUK7rFmZN?=
- =?us-ascii?Q?DmHa1sdKVO71iwwUqr9YKAyD52Zuf7aBzoGNFKjGKOxS1BPnY3ftAeZ/jyFL?=
- =?us-ascii?Q?C6AnyR/DaDCOlkvvDGkY17PDVwJoy9uiRR67TBwAdGi2B22hthTWkDnL+QEG?=
- =?us-ascii?Q?IF9YzxcaJE+Hbk2DIsOF5VSZrJKJoyx4OwsSoq9XWW37CM73b/2ALvgK7Fz3?=
- =?us-ascii?Q?LFQ60UnHyJqSXvnB1hDFObrKycmxo3qMYA1OFky1US9LWG6fR8Kqr6sF9lp9?=
- =?us-ascii?Q?aotKXBD7Lv2B7ztbeFZfgGHMJxAo/JftciEQegb2UHpYDO1cr8FghXuMI2ZP?=
- =?us-ascii?Q?n725UNfBXi1G1Xq65BJ0W6e+/VxPIJRybiHaaPDtq61dswZb1ExCZ6rc6SBF?=
- =?us-ascii?Q?y3+fB0ALzbzrm4+nVb26ZxHdaPac93yDCU66mJkKvYixYuKnLd6X3PgjxfXN?=
- =?us-ascii?Q?pUoDn3z3fVHAzFolu1I/ufW1j/zIRSdiWm1mnUyzUOxsC7g4cA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR10MB7329.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3TxNaD/14T2Q9VbylUiegHqzO3msmmpj/sDZfP3TIfDLOnDTGgaZyPUB/6yH?=
- =?us-ascii?Q?mBbw26u7/fmvcZy5tGM8LzcQO49SKgsdNpdqPma/l3QHcDBNvMWlEKIGe8/C?=
- =?us-ascii?Q?sC8a66lwCFNSTZpkjlBJ+TXvlfnIGDfC+zMk2FsFsnch3u4BMK+nyBrMMHzH?=
- =?us-ascii?Q?9gyhrFRFay1wr10bEBnesbS1FViFjE6F2X1eI0bdZAscRybdq/qas9JpAGg8?=
- =?us-ascii?Q?pOCrt+paQa4KdAOEk7cnuwIXjdqUcZl4153kN3H+ycvj8CirEUGDZWPHPcHG?=
- =?us-ascii?Q?lbjNktI89UrXxdh3rmEroJft6Hvu4Ac3MFJngQeTG9t3Vdk+M50sFNEVQFgd?=
- =?us-ascii?Q?uaWpWIFj0D2VZZEFVHziJYYLC9cOuAxiuf6BvW/Osr3c4FCLLTqnF71tjJ0N?=
- =?us-ascii?Q?DKBBe5j2g/9ryUivvG4YJJiB+DFA2Gn7Mrethnto7hUIKSsNy4YfMchWBxj5?=
- =?us-ascii?Q?SjZnD5NF9t6q1eos5Glqt/4Lm/3h45Td+gwKNLGZJ7+wk2CDqlK8GKRuowbw?=
- =?us-ascii?Q?qVgBYTi3gDJJLzw0TIPmLtuRUoYrZ8ao9CFnrlZSjhTyuuwkeK+X8MOVxKUo?=
- =?us-ascii?Q?K3Str7DKK+njfxrRTpqGoQGppDHKJ2d8wbeQ17cq33s3mpQ9WC5DxxRXqx3d?=
- =?us-ascii?Q?q9PiC/uL7f0I77pEmKC9XUd1fZuDpVj716xme5pALNPXcaA9Pb/nGtprCLjg?=
- =?us-ascii?Q?l/pU/hd5XDXwq7xEzgrtS6GZoowmmgT1vwxyrotEr2e55VCjURLz1Qvf8YH2?=
- =?us-ascii?Q?lYWBBeMMeaQOnuP84P1ICRLCBAWx+IK9Wm4zGnqnH3k6lTHlBJlL8EZVHw+B?=
- =?us-ascii?Q?bo7rj5e5sfUDP3QD0Om+RH0IZiS90Ltq8w8GfynEbHc8XmC0qUH+BFuIj75z?=
- =?us-ascii?Q?CXmY/EzJFeJs8ow0PYjYFXESWRcCoz62HEfcQp8cEahSgFMZhQSV9111i2nD?=
- =?us-ascii?Q?WEzDfrM6X/5ibp1P5AmsR4a93jQdFTR77XLxnBEseGTOKh4ZL+WSXonPr4OJ?=
- =?us-ascii?Q?jTrPwMxV1aoAL68d9XEdLMJCBMipuKLZVZxy26g/QZrQW/2d18n5OgAewCma?=
- =?us-ascii?Q?H+68uylKnDT7SacaNaEprsInOs3RkJejcjMuS11DqX4SYh0wq3qvgVYQkqxc?=
- =?us-ascii?Q?Tq0MU5oIbrEppIkUmjZW7xpjZbuWiZ7amfrqaCH1Hay5sFpCraQDQlbNA5TQ?=
- =?us-ascii?Q?HuvThTblaQ1cDvjaV2nca2GRYNZnw7NvCDI4d99/SIFTnSxE/JBpvT9QRrxq?=
- =?us-ascii?Q?s4/PoNAdo47FGA0bYtTwB/cgKw2XY+2HgyXQT/PmzQsxTXxLOKMDYeLvAQfe?=
- =?us-ascii?Q?HMXcbmkoGhNAOJqdatAS5GbYMYcB14C1IdvL0Xyk1CcrZqBdAmsCxnofTZuv?=
- =?us-ascii?Q?UJ/NMi/wqrmXJM1RMoqG3ZVhLcFdUpXO4Y/oUtNotrzfm5Hkjjy0paa+DTdt?=
- =?us-ascii?Q?3KZZvsxg1GJAHoRAdQespPIS+ynacMqGaUYGYPzrvf9ED6MqtraDuVKnDYKP?=
- =?us-ascii?Q?ONvOWnThNB9+5vQiEt0UD3puVU1+Cli/s7pAV43k25HsgzoL5vqz7cjXzqf9?=
- =?us-ascii?Q?sxtMmQgkFGGkbp8yJ2lZrHQTEEOXxiSnJ35AHNxS?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: QjR3pNs6uK0zcdF8lhQJSKjj6+nOBcntluf1jm3lo/jziyPwAaBHygdkb8zQqC545taL+z5xRvB8yC6FBxfY5pUHtRp2Szz44XdBgda+vwt6iQH4XGRP8NHyd07m4j+XCjXOaYJqsZOpEa8uDqh2DG66GNxtvm//PCAkzXr0xskVFdfW8Wo922g1LIskVQn5ddRvbgVR8T9jAI82NxSIkmCiS9keNXEk9ZAFfInPxI7V7s6mloTTUPTT3nu61DTT7XCDqY6vWxVpOxLymRjFfYpwC1PIGm4bcFUZRDtsk9DSpu2n/1YStz95Qub4QjI7GXTJlato0y9v731ZFVfQEEmDN+jcZqY7eQ68DDn2y0Q63/Fv2JGOgv589WRr+lJiSgilnYs8m19gNhVdyDHxC+KQOjBAeRWWmS0TbWNODLpZjw8jxRJFV0b6TdzqGET9xDkxEl8NFWfLS67qCc4sxAj0xXp8npYBdHFmNA6Mle6hH47rwrw9FA+tHNh+rNGn5iYmzOKiJNlTO/A8Z5GdmmifrUkyHE8C9M0l5lQbdhOaS/CAbX6beA2ccXAFggw2LBXiPLJBWzp3+e++6XBE6I6mubJWaMtfzpTckJa/pMI=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f8a06c2-769e-43ae-b163-08ddf6586a4a
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR10MB7329.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 02:09:36.0700
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BZA91+Z1dCPlRVMvdJB/GM2J0GQZ7s3q4WZwY4SlFP5lUPkLhe61jfCJkj04zpIikC0aE2SIUYaJOnFPXFpZkQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB6882
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-17_01,2025-09-17_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 phishscore=0
- suspectscore=0 spamscore=0 mlxscore=0 adultscore=0 bulkscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2508110000 definitions=main-2509180017
-X-Proofpoint-GUID: iFZXDJ1861pb9jsbhu25wcau0XJwK1Yz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE2MDIwMiBTYWx0ZWRfX+Bnsxginjdtb
- Exbd2ovSbkiK3k5NH07JsI1r6XRUi1AqUc71mxcIrdXegfpsa5z5hUURm4bFhOc4P+ltKlpDG0E
- umT5ofmgnfp7/Xvm/eLnh4b86jQpcTyxqOf2axzgvFcyM+s8yEeqeYLj/SBMbwpc2BIrA+yesbF
- 2hFTHjt9u7XYMWKqGN4qqSzCBBMXwx7pYGHr+ifWPHy6sb/1yZvU/y5Vp/9zDusfrcKyCxGCFP+
- NyqoUhkEJlChZDvG9LNx5ZUkuFPsj5PofrrRLxHTwyGMfcftNBvznOzrP73Vtb8Nq41YPLPkVkb
- klP04IYd0N+6Pb8AeQPZja5vJibCXQQ4c38NpW71sOJgXIP3N7/AEVbzsnvcmzqVv62d6o3C7QA
- yT0+ciK6
-X-Authority-Analysis: v=2.4 cv=cerSrmDM c=1 sm=1 tr=0 ts=68cb69e3 cx=c_pps
- a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=GoEa3M9JfhUA:10 a=yPCof4ZbAAAA:8 a=pGLkceISAAAA:8
- a=GvQkQWPkAAAA:8 a=hxcxAv-qyI0tpPchHNAA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: iFZXDJ1861pb9jsbhu25wcau0XJwK1Yz
+References: <CAHi4H7FKjYf0c90qoN9bSORboru+S718-k1eJYh4pVoDcJPGHw@mail.gmail.com>
+ <CAMj1kXGnyNdq5pxY1kZwBr1n9idKvHU=tyCM0Wie5Ys3RkW3SA@mail.gmail.com>
+In-Reply-To: <CAMj1kXGnyNdq5pxY1kZwBr1n9idKvHU=tyCM0Wie5Ys3RkW3SA@mail.gmail.com>
+From: William Zhang <william.zhang@broadcom.com>
+Date: Wed, 17 Sep 2025 19:10:47 -0700
+X-Gm-Features: AS18NWCdzxOL839Zz2si502YE_GjpcTE_rbg3yE5Ev6-ckQ3PLZGbQiHFufhihs
+Message-ID: <CAHi4H7FcLZVJzGg5Q63MAJFPRDOp1c6507XUXyyz0ajJKdtk=w@mail.gmail.com>
+Subject: Re: armv7 R_ARM_PREL31 relocation out of range error when loading module
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Linux ARM List <linux-arm-kernel@lists.infradead.org>, 
+	Kursad Oney <kursad.oney@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Wenchung Su <wenchung.su@broadcom.com>, 
+	"song@kernel.org" <song@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_191017_448094_355DF529 
-X-CRM114-Status: GOOD (  31.53  )
+X-CRM114-CacheID: sfid-20250917_191100_946528_DD84D159 
+X-CRM114-Status: GOOD (  38.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,90 +113,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 09:31:30AM +0800, Jinliang Zheng wrote:
-> On Thu, 18 Sep 2025 01:41:04 +0900, harry.yoo@oracle.com wrote:
-> > On Wed, Sep 17, 2025 at 11:48:29PM +0800, alexjlzheng@gmail.com wrote:
-> > > From: Jinliang Zheng <alexjlzheng@tencent.com>
-> > > 
-> > > After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for
-> > > vmalloc area"), we don't need to synchronize kernel mappings in the
-> > > vmalloc area on x86_64.
-> > 
-> > Right.
-> > 
-> > > And commit 58a18fe95e83 ("x86/mm/64: Do not sync vmalloc/ioremap
-> > > mappings") actually does this.
-> > 
-> > Right.
-> > 
-> > > But commit 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK
-> > > and arch_sync_kernel_mappings()") breaks this.
-> > 
-> > Good point.
-> > 
-> > > This patch introduces ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to avoid
-> > > unnecessary kernel mappings synchronization of the vmalloc area.
-> > > 
-> > > Fixes: 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK and arch_sync_kernel_mappings()")
-> > 
-> > The commit is getting backported to -stable kernels.
-> > 
-> > Do you think this can cause a visible performance regression from
-> > user point of view, or it's just a nice optimization to have?
-> > (and any data to support?)
-> 
-> Haha, when I woke up in bed this morning, I suddenly realized that I
-> might have pushed a worthless patch and wasted everyone's precious time.
-> 
-> Sorry for that. :-(
+On Wed, Sep 17, 2025 at 3:11=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> wr=
+ote:
+>
+> On Wed, 17 Sept 2025 at 04:55, William Zhang <william.zhang@broadcom.com>=
+ wrote:
+> >
+> > Hi,
+> >
+> > We recently ran into the driver loading error resulting from
+> > apply_relocate function when it handle the R_ARM_PREL31 case in
+> > arch/arm/kernel/module.c:
+> > section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
+> > 0x7fad5998)
+> >
+> > After some dig, it seems this issue is caused by this change:
+> > ac3b43283923 ("module: replace module_layout with module_memory")
+> >
+> > I can see the necessity of this change but it seems it can cause this
+> > kind of error under certain configurations. In our particular case, we
+> > use the 2G/2G split and our armv7 board has 1GB ddr memory. This means
+> > the kernel lower memory is from 0x8000-0000 to 0xc000-0000 and vmalloc
+> > range is from 0xc000-0000 and above.
+> >
+> > Before this module layout change, the module is loaded through two
+> > layout sections: core and init. The driver in the test is fairly big
+> > and core module layout(text, data, rodata, sections) can not fit into
+> > the 16MB MODULE memory so both text, data and rodata fallback to
+> > vmalloc range. But with this change, it will text, data and rodata one
+> > by one. So it ends up text in the MODULES memory but rodata is
+> > allocated in VMALLOC and the distance is more than 1GB hence we
+> > believe it causes the above error when R_ARM_PREL31 relocation can not
+> > support more than 1GB offset.
+> >
+> > Since the default split is 1G/3G model, the distance between vmalloc
+> > and module memory is always below 1G so we won't see this issue. But
+> > it seems to us the problem is real when use 2G/2G split.
+> >
+> > It appears the sections containing R_ARM_PREL31 in our driver are
+> > mostly in .ARM.exidx section. Some search shows this is used by ARM
+> > C++ exception handling but our driver does not use C++. Is there a way
+> > to disable such section for R_ARM_PREL31? If not, is there any
+> > workaround or fix to handle this run-time R_ARM_PREL31 relocation
+> > issue? The same apply_relocate function can handle R_ARM_JUMP24 out of
+> > range using PLTS. Can this apply to R_ARM_PREL31?
+> >
+>
+> Hi William,
+>
+> Two options come to mind:
+>
+> 1) use the frame pointer for unwind information instead of the C++
+> exception metadata, i.e., enable CONFIG_UNWINDER_FRAME_POINTER
+>
+> 2) ensure that ARM.exidx sections are allocated from the same bucket
+> as the .text sections they annotate, e.g., something like the below
+>
+> --- a/arch/arm/kernel/module-plts.c
+> +++ b/arch/arm/kernel/module-plts.c
+> @@ -225,6 +225,11 @@
+>                         mod->arch.init.plt =3D s;
+>                 else if (s->sh_type =3D=3D SHT_SYMTAB)
+>                         syms =3D (Elf32_Sym *)s->sh_addr;
+> +#if defined(CONFIG_ARM_UNWIND) && !defined(CONFIG_VMSPLIT_3G)
+> +               else if (s->sh_type =3D=3D ELF_SECTION_UNWIND)
+> +                       s->sh_flags |=3D SHF_EXECINSTR;
+> +#endif
+> +
+>         }
+>
+>         if (!mod->arch.core.plt || !mod->arch.init.plt) {
 
-It's okay!
+Thank you Ard for your quick response!   We tried the option 1 and
+also tried with gcc -fno-unwind-tables option just for the driver,
+both do not generate any PRREL31 relocation and the driver can load
+successfully.
+But we have some tool that needs to use the unwind tables so option 2
+will be the right direction for us.
 
-> After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for vmalloc area"),
-> pgd_alloc_track()/p4d_alloc_track() in vmalloc() and apply_to_range() may should
-> always return a mask that does not contain PGTBL_PGD_MODIFIED (5 level pgtable)
-> or PGTBL_P4D_MODIFIED (4 level pgtable), thereby bypassing the call to
-> arch_sync_kernel_mappings(). Right?
+Applied your patch however it still reports the same error but from
+different section as we confirmed all the ARM.exidx sections are
+allocated from .text section.
+     mod_mem_type 0 execmem_type 0 base 0x7f3e8000 size 0x6eb000
+     mod_mem_type 1 execmem_type 4 base 0x7fad4000 size 0x9e000
+     mod_mem_type 2 execmem_type 4 base 0xc21a4000 size 0x3dd000
+     mod_mem_type 4 execmem_type 0 base 0x7f1ae000 size 0x1000
+     mod_mem_type 5 execmem_type 4 base 0x7fb73000 size 0x10c000
+     section 43 reloc 11360 sym '': relocation 42 out of range
+(0x7facca74 -> 0xc2580734)
 
-Yeah, I was confused about it too ;)
+This loc address  0x7facca74 is from the MOD_DATA memory based on mod
+mem allocation log above.
+I also print some extra info about the dstsect with
+    pr_err("dstsec name %s add %#lx size %u rel 0x%px rel offset %u\n",
+        strtab + dstsec->sh_name, dstsec->sh_addr, dstsec->sh_size,
+rel, rel->r_offset)
+and got this print out
+    dstsec name FUNCTION__.2 add 0x7fabd3c0 size 86912 rel 0xc33f931c
+rel offset 63156
 
-I think you're right. because vmalloc area is already populated,
-p4d_alloc_track() / pud_alloc_track() won't return
-PGTBL_PGD_MODIFIED or PGTBL_P4D_MODIFIED.
+FUNCTION__.2 is in the rodata section from the symbol table.
 
-> thanks,
-> Jinliang Zheng. :)
-> 
-> > 
-> > > Signed-off-by: Jinliang Zheng <alexjlzheng@tencent.com>
-> > > ---
-> > >  arch/arm/include/asm/page.h                 | 3 ++-
-> > >  arch/x86/include/asm/pgtable-2level_types.h | 3 ++-
-> > >  arch/x86/include/asm/pgtable-3level_types.h | 3 ++-
-> > >  include/linux/pgtable.h                     | 4 ++++
-> > >  mm/memory.c                                 | 2 +-
-> > >  mm/vmalloc.c                                | 6 +++---
-> > >  6 files changed, 14 insertions(+), 7 deletions(-)
-> > > 
-> > > diff --git a/mm/memory.c b/mm/memory.c
-> > > index 0ba4f6b71847..cd2488043f8f 100644
-> > > --- a/mm/memory.c
-> > > +++ b/mm/memory.c
-> > > @@ -3170,7 +3170,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
-> > >  			break;
-> > >  	} while (pgd++, addr = next, addr != end);
-> > >  
-> > > -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-> > > +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
-> > >  		arch_sync_kernel_mappings(start, start + size);
-> > 
-> > But vmalloc is not the only user of apply_to_page_range()?
-> > 
-> > -- 
-> > Cheers,
-> > Harry / Hyeonggon
-
--- 
-Cheers,
-Harry / Hyeonggon
+So looks like there is reference to ARM.exidx from the data/rodata
+section and that also need to be taken care of?
 
