@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542BBCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7117CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XibKYyB8nk5riR4qnhOFzfgg/dI0v3FkhOkL7BNvwgI=; b=pih8kxumro2l06G5CySdur4IFK
-	h0EeOfzwhoKHlj4MBCS9o8H1x3rcWJ3bFiJDS2dVGnnm0+b7ef43wGrMVw4vdAH9/4IIt2jrimCC5
-	scn3rRW3efnsulbt5LYTF3QQ5+vUNjFkigYRBmkEAvMuBzW0ZZCj63ANrgyYKvbiUQCXQRChdxa7G
-	cpvimcNQrxcV44RoBvlz7vsf1ZROlRjeCUT4gtt2btPQrz4z6s9BTAygIkQ7HfubOLAbK3+PHQWTd
-	AMaxbjHfjDJwjanuwGYBNB7T+oquf+Wj5/dZrKYrlv50Y39MsG+nMRYeoqwFD8CRp7wzkMqnX90oy
-	ymwwhx+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o6qpj5dO6JqT1sJImilQ9anmY7mh64RJpsBsVZ2KLxU=; b=Cwtf5aefbnCpglP3Tci4cHjaJ4
+	OgZ1aqUdB7twlk3SSpj3MEcRkdYGLKPHBUk1MxmmrlZ+SXxIDwfgVdyYlkz2B2ZoLCc9Ubgl3gbCx
+	uXxb6RZCW4o9UNTe5mj6CGCTQZY48qFUwEY/eBoKsVdDvcc70qRUGfl6b1iqJMB4pgQXbyqJKSSrJ
+	H66dGJa3+IEDHtMmPZadoMSelfX3aBKToO1aYCBz1SYyyzwTqy/CyP2o1misvJOL2bbRwFcMJ6Ihp
+	3Pko+ZX9BCOWiD/vX3O3WqINKvq8a+R6PwLrCwCY0HRxMC/owaZbr0WYTLkiMV0xEsGMO7XfcDg70
+	LanPaXCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDnq-0000000HPO2-1vm3;
-	Thu, 18 Sep 2025 12:31:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzDq6-0000000HPjU-1sKm;
+	Thu, 18 Sep 2025 12:34:18 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDno-0000000HPNq-1zwO
+	id 1uzDq4-0000000HPj7-04Iu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 12:31:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98DC96020F;
-	Thu, 18 Sep 2025 12:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABDBC4AF09;
-	Thu, 18 Sep 2025 12:31:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758198715;
-	bh=9YE8xRlSzp0qtaXULH+Q+S0tyjvcR7V5a6iVKARxGWY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QKhAH4sTdDcS42MZJjyQjOGuZgD3/4jy171TaLbjCTGU3FRaZc4/90465vNUoGnlV
-	 /gv1qZUHGvREwprA6mY4T0RuAFcIbLvJsqNe/lMntY+4WpUwwVymsoFERsgiQVBTnD
-	 Zp+OjcIaDNgtSSTVqX9enOeXx2njaLZJ/AO6dlLz9PMDBCzh7alQPxshl3UaOH6Psb
-	 ayRPpeoDbYC4okqeVsaBvb8s8dNs3q7awhNnOTKyjEYrgUFK4eSRnnqvXR1L2bjkkf
-	 bxydSLbYzzJYarwnd859HDu/IBnu0dQmK1qgZWogRAD99nR3eT91Cn4AEcY4ROpsNO
-	 nqo1EiabPe0Tw==
-Date: Thu, 18 Sep 2025 13:31:49 +0100
-From: Will Deacon <will@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, catalin.marinas@arm.com,
-	gshan@redhat.com, aneesh.kumar@kernel.org, sami.mujawar@arm.com,
-	sudeep.holla@arm.com, steven.price@arm.com
-Subject: Re: [PATCH v2 3/3] arm64: acpi: Enable ACPI CCEL support
-Message-ID: <aMv7tbA3JGd7ZcbW@willie-the-truck>
-References: <20250908223519.1759020-1-suzuki.poulose@arm.com>
- <20250908223519.1759020-4-suzuki.poulose@arm.com>
+	Thu, 18 Sep 2025 12:34:17 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-77b0a93e067so867597b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 05:34:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758198855; x=1758803655; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o6qpj5dO6JqT1sJImilQ9anmY7mh64RJpsBsVZ2KLxU=;
+        b=Z4hOHApruH6VTOaxBGUVdkARaPc0lrkSBTEGOuRXk4U3hT873t8bujF+ufCjPZzfjz
+         6S7u2e1pTGOZRlRkitgH8U4lze1+NXKxY36k6YKJJZ8c9Vb/Bj7YJcqF8jkkHu/eW931
+         75U4j5ayuwIUgaZb2ZduIzppOeCqBMiaXvZa+fVcetvy3d0l4+Exs3Mpy552vyHPoW/4
+         G2LBsvNGq1gYlNQQUDftX5+ABLdD/chc8doPXe31EqaswW+VaJFl2XL3VTZkHwzPY9bR
+         6zhbqp39JZiDWI1gP6XDS2lWMhCcBG2O8Me13Vm4l74HUc4PqQyC3zS7LW9G1JwDeL2U
+         VI3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758198855; x=1758803655;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o6qpj5dO6JqT1sJImilQ9anmY7mh64RJpsBsVZ2KLxU=;
+        b=PUlEOc0o7bYd/R7ZHorM/XTU5pN2cpZ0itgIYCa/X/Bd38IAPQqNTalP54Z06lDOtT
+         X1LcxDTZFZHSdeXPJDBVuOhvkHNleoEu9W6HEAzgF9KItaz0RcP0O85qoNN+oTI+7lrp
+         hnVLKkMxU+6/qlL+EyDgqSKW9Bnl7sHNirBcBAqC8wGJBEUGTNo8v1R4R5jpn9+mmqKt
+         BTF1CVd/81kBa8BpJJY2UMX0p5DHkmuN7MKDOWutLC8IZrfeeilzq5Nj2WXD+teTXo6D
+         RYzcQO19xHZ2SCmb3v3rDrxqRdW17oXXOcORysvNb5BZySwt6TpmqCaREjffJiWbtBBK
+         lFrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXoX8NH32FK5+e7/cVq7iNu6PytasYlUbtBWjT/9MSHKQoI5Ba5TihEJ2s7j4edIrCZYyNlAr0ztz2nsSBcKTYj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCiIN+RNsn5FI6eSbav6QCK+OtwyIA5IxeOHmAu5MTNd1G+E4m
+	yjoS4ST/nL7/F8WloTD/IqES4/3QbeygcsgodLhQBlzG8o1jhCASQ6DXW5udyLDVLSroyFPT1o1
+	qg3Peb24SndLUQaTqTMUXAwCS31m+89E=
+X-Gm-Gg: ASbGncvOLxGYlhwksXIzTu39m5YPHOcAHsN1L6mWt23qCbzms1qlo7kUDiBOiCaSIf3
+	wMo9sHbvzVRSo4h3e1vjstHeIbKO/ChWJMu5cyaMNIJC5Z8e8Ze/dzVZQNSYwL1q0RYGs+LBJTe
+	z0Opx05HR1Qt1wj9xreFXUHZoQD1CqulNjrTrt8r2FDGtJmLWLK8pCMe4rK80eOXWPN62qdFTCa
+	W3dgzof2Q2j34M5/br9Jo/enHOY02xc1PBbvLuAdJEMZ007bDDMUnq4hD1tvEhkXQ==
+X-Google-Smtp-Source: AGHT+IGnwyZAzgewsFS8BUxGi1+hNmSjaadWufVUdwqAGCS8aqyS2HM8fO6whTlbN/7oWRWldmq3iDfdXt1FIzoF+PM=
+X-Received: by 2002:a17:903:3c2f:b0:24c:f589:661 with SMTP id
+ d9443c01a7336-268118b963emr75488845ad.11.1758198855204; Thu, 18 Sep 2025
+ 05:34:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250908223519.1759020-4-suzuki.poulose@arm.com>
+References: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com> <20250918-imx_rproc_c2-v1-2-deec8183185f@nxp.com>
+In-Reply-To: <20250918-imx_rproc_c2-v1-2-deec8183185f@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 18 Sep 2025 15:36:33 +0300
+X-Gm-Features: AS18NWDAzLMXylSrWYdgmw06GR6oKayTLcqLKRKndzdOYMuF8YWkd9yOlAi8pkU
+Message-ID: <CAEnQRZD9XGSzYBYMF+0G9RtDo4y-RtX2n=5M9p8Osk3csYrbLA@mail.gmail.com>
+Subject: Re: [PATCH 2/5] remoteproc: imx_rproc: Make detach operation platform-specific
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_053416_055512_8EB4CCC4 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +99,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 11:35:19PM +0100, Suzuki K Poulose wrote:
-> Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
-> As per UEFI specifications NVS memory is reserved for Firmware use even
-> after exiting boot services. Thus map the region as read-only.
-> 
-> Cc: Sami Mujawar <sami.mujawar@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v1
->  - Map NVS region as read-only, update comment to clarify that the region
->    is reserved for firmware use.
-> 
-> ---
->  arch/arm64/kernel/acpi.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index 4d529ff7ba51..93b70f48a51f 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -360,6 +360,17 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
->  			prot = PAGE_KERNEL_RO;
->  			break;
->  
-> +		case EFI_ACPI_MEMORY_NVS:
-> +			/*
-> +			 * ACPI NVS marks an area reserved for use by the
-> +			 * firmware, even after exiting the boot service.
-> +			 * This may be used by the firmware for sharing dynamic
-> +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
-> +			 * as read-only.
-> +			 */
-> +			prot = PAGE_KERNEL_RO;
-> +			break;
-> +
+On Thu, Sep 18, 2025 at 2:52=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> Refactor the detach logic to support platform-specific implementations vi=
+a
+> the dcfg->ops->detach callback. Allow finer control over detach behavior
+> depending on the remote processor management method, and make it easier
+> to add detach support for new SoCs.
+>
+> The previous hardcoded SCU API detach logic is now moved into a dedicated
+> imx_rproc_scu_api_detach() function, and registered via the plat ops
+> structure. The generic imx_rproc_detach() now delegates to the
+> platform-specific handler if available.
+>
+> Also, the dcfg->method check with IMX_RPROC_SCU_API is removed.
+>
+> No functional changes.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Shouldn't this be merged with the other case handling read-only mappings?
-e.g. something like:
-
-		switch (region->type) {
-		case EFI_LOADER_CODE:
-		case EFI_LOADER_DATA:
-		case EFI_BOOT_SERVICES_CODE:
-		case EFI_BOOT_SERVICES_DATA:
-		case EFI_CONVENTIONAL_MEMORY:
-		case EFI_PERSISTENT_MEMORY:
-			if (memblock_is_map_memory(phys) ||
-			    !memblock_is_region_memory(phys, size)) {
-				pr_warn(FW_BUG "requested region covers kernel memory @ %pa\n", &phys);
-				return NULL;
-			}
-			/*
-			 * Mapping kernel memory is permitted if the region in
-			 * question is covered by a single memblock with the
-			 * NOMAP attribute set: this enables the use of ACPI
-			 * table overrides passed via initramfs, which are
-			 * reserved in memory using arch_reserve_mem_area()
-			 * below. As this particular use case only requires
-			 * read access, fall through to the R/O mapping case.
-			 */
-			fallthrough;
-
-		case EFI_RUNTIME_SERVICES_CODE:
-			/*
-			 * This would be unusual, but not problematic per se,
-			 * as long as we take care not to create a writable
-			 * mapping for executable code.
-			 */
-			fallthrough;
-
-		case EFI_ACPI_MEMORY_NVS:
-			/*
-			 * ACPI NVS marks an area reserved for use by the
-			 * firmware, even after exiting the boot service.
-			 * This may be used by the firmware for sharing dynamic
-			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
-			 * as read-only.
-			 */
-			prot = PAGE_KERNEL_RO;
-			break;
-
-
-With that, I'm happy to pick up the series (let me know if you want me
-to make the change above locally to save you a resend).
-
-Will
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
