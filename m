@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C034CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E780CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j7efdXg49cd0dO4HNsPgED93u6J0FRsteNdyMBWuRc0=; b=mc/pkSq4uSVRN1GZ6syYCybzcp
-	QfYC3/B9UrCEGrRqHk3yatA+701rh1AuW0wOyWJFCByS2dGSLNQTitqwiWgivUHLYOUW5hGLUvd2n
-	BFp3Zy9Sz7MI0FRqUvZQHJQ5p+WDbAJ9CL48x1zDnkaZF4EkL8G75fROBxB7iDFwS/RIKCYBNfiAg
-	6+iBl31h1v7wd/OsgctDTeq5vYGf9HSgkjXcNzT4Z/fNdDGr3Wy8t2bsdfmF1BGhXFY/k5yJLmGE3
-	J50fAh89K67GT3i6rsP5+Vp8bOibPXFdElIMKqSKjW1xWRBgfBU2dq4Iqx6HyA0Vs0cHw8+fZQVag
-	xRrrEYsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdBwxKzri0OQw38VbUMOYQyM7CHP69+AW6mu8BPrzwA=; b=flaHjiyTjN1UttTgIkRbYkRgEA
+	55oEB2mEFs+SpgYaqMwTclx9EXOzcy5IVHyTJTDptp+kpU3tfUtFkYvBu2434+3zH8gmBBKBpMjvh
+	E8qV9iy1iO6TKb7a8L/Kj235TGHfMQ33H4tOfr0dBG/dYVFwKGnyNhV+ANynlIxL9T0HWegm1aZMh
+	Dl7JGiinJD4EqpWaZuclix1IAH6uJKDkn2wYAJWqZYGtGvDUgAKyH/2mWYCcTJ2OdKMwgqs4jK6nM
+	4TkN+fxJwVjwj2uakIPUYJfmuTA8fQb1E6KRPHxCqJA06p78R4ghZ25z+XzHDISs9O6/TlFgmXc/5
+	1aYppozA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzF56-000000000Go-0Y3A;
-	Thu, 18 Sep 2025 13:53:52 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1uzF79-000000000WX-2S5l;
+	Thu, 18 Sep 2025 13:55:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzF54-000000000G3-164z
+	id 1uzF77-000000000WA-0rru
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 13:53:51 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b07ba1c3df4so179936766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 06:53:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758203628; x=1758808428; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=j7efdXg49cd0dO4HNsPgED93u6J0FRsteNdyMBWuRc0=;
-        b=sXyImLb1zFRMTTolWgpLmGN0VjFnfoG/hIa+W4H3AU2PZKPp+KdkCp1P82YU/04tWH
-         J4m/4We1rey2Goalb1ABIOs1+eXw16TjsuCe4gcA87F6bvVI2aKpNrQfKK0QWX9RjPa7
-         6vPhX//mZgrrbfSaoakfrLTvc8SxcdhUpd3j0w6Y+I25RqL10i31HlSpPxgcx2xDMkFi
-         H1//dXu69NgNuOGJp5PRm76flfqSui+LUHWwgz7yhleTRISIrkTsV7vw+ZS5ceUr9V+U
-         tOpLhPMRhI3nkaIqgmoC1AjwM9aeoJQZ4047VqhYnDjj8y3J7Ko2OXGegQwNz6s6gxjB
-         M+rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758203628; x=1758808428;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j7efdXg49cd0dO4HNsPgED93u6J0FRsteNdyMBWuRc0=;
-        b=tsFcFTu9ibGgsSTrfwSKxG6TZUPl8DEIprQG0oZdH9dzX9CTtSP94oN/axL02ckoVd
-         hhJUS0J8WUGD33e985TXIQTOuEetWg8gML7ngSYlVJA2tCST2XNeEc6DZUPXPh2aVSH/
-         oHLEh/n9iIwK5xvLNL+QAy/iW+WZDyAnwAc4sS/GAEvj/mCJMP3U4Djzyr/YRymjaGmy
-         JtyFUx4HmoFBQ9M8Uyyvi+tlptOa+/B0zNRctxBdw8hQAAxE9MBzw4qCJiWWwFA7NPmd
-         zRq73gU2VAoT05+8Bamw42BL5Y2kf6aCg8UMYHqm7uygMB0GOVJCkehli/X9HhG6mWcY
-         xBhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVCOW6NnVIJDOWw6WPN0LT69Js5tijSSB26rfD4AOPlfgatknF7rpjnMTDMHDfWgX9lw65pQkXp7JRRcN5T/QI8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW/qZsF3dxuMQOuysaodLCX+ZBe23grOdN9SUl0YDi8OeHeuGs
-	acbvvWJ5+JnjoirP8UkFqBjv1mxS80OeFKeyy4euUohkFqRJVZitikhly4GNFYL5z+0=
-X-Gm-Gg: ASbGncsFGQJhUQXnhjNaWbXTh1d6MbkluB72HoIqkcBkpvnXw2/qY49uBJo5PLSln6Q
-	ygYcO4nORqF3k0t+dAl28i1u9dqPcCXEg+CBAb0vw1L/RBPFyDVNUXfB8xHvtd1VCx/Ja0N9fNK
-	6ZbPBBlcv8Ty1DsJpx9DDIIIABxyFiisZByZyuxI2qzMgsiIcfOeGL3KiwmFmSkP5KH9gHupwSa
-	sn6hLVgNa6mY0Ctai6jG6dUlYghdUwfIpo9XW7yuJed79JUAgLeYm2SdUkMH10ZZhX0qpdZ1g1h
-	tmovioYcX2DtML3NO/uhxBc9/48BE6SzCFMACTUdqFtoAZxzC0ogw1cmM86cKsRDKcpyF58ovHN
-	wURyBF0Z3VXx6NARPiW/mB9aBsmhxyq2HwwNVj0omjQjjm2V5KEQ=
-X-Google-Smtp-Source: AGHT+IHnDWpjM1umgSyHsR6OREF3QxVVNfm6x8W+jII5XcXDsJKZeNe+EM7x++buErDbKkF9QmRQfw==
-X-Received: by 2002:a17:907:7e93:b0:b02:a093:eac9 with SMTP id a640c23a62f3a-b1bc1169518mr637192866b.53.1758203628349;
-        Thu, 18 Sep 2025 06:53:48 -0700 (PDT)
-Received: from [172.20.10.3] ([109.166.131.237])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b1fc5f44bbcsm203026466b.5.2025.09.18.06.53.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Sep 2025 06:53:47 -0700 (PDT)
-Message-ID: <c3ab4a21-183f-495a-b3b5-cc74b392eebc@linaro.org>
-Date: Thu, 18 Sep 2025 16:53:45 +0300
+	Thu, 18 Sep 2025 13:55:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D08DF429C3;
+	Thu, 18 Sep 2025 13:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8938DC4CEE7;
+	Thu, 18 Sep 2025 13:55:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758203756;
+	bh=G7/78i6RoQRQodPeKCJlvCChMtkjXdabJYnM8oOuRa8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WTCWsD6L7/v5r0aazrPV4ecf3YGy+0V6OCMU84LAqsRbFvd4h07tCGJfl4JcB7Iex
+	 q0EOF4zuSUAEnYPpTCabSIrITdqQATMaexeXvPifNm6R/b/oh3GW4AZ4b6XHjAwSsd
+	 jIQ44AM12/V1Et0YlNXrJnWEQR7Q8/hmk0nZzetqn0kSk2lk0UFq5GGyRsth1je6gZ
+	 QOCbB5Z17UW0ZPfMdsktxJe0fkQS9MzQV4kbpBEx0N2mRhkIX92Irr3txGNA/zoKpN
+	 FF9t2GH/t0d7U7Sy0qh3WibSWz4BwNB5Of8FvdVkTh/dHRSHF7V3AxUAOTc0aQpH2U
+	 zx6OijYZr3/ZA==
+Date: Thu, 18 Sep 2025 08:55:55 -0500
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] of/irq: Add msi-parent check to of_msi_xlate()
+Message-ID: <20250918135555.GA1540012-robh@kernel.org>
+References: <20250916091858.257868-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v3 09/16] genirq/irqdesc: Have nr_irqs as non-static
-To: Thomas Gleixner <tglx@linutronix.de>, David Hildenbrand
- <david@redhat.com>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
- <20250912150855.2901211-10-eugen.hristev@linaro.org> <87cy7q9k8y.ffs@tglx>
- <87a52u9jyl.ffs@tglx> <8df2cf28-c15e-4692-a127-6a5c966a965e@linaro.org>
- <2bd45749-e483-45ea-9c55-74c5ba15b012@redhat.com> <87v7lh891c.ffs@tglx>
- <95ff36c2-284a-46ba-984b-a3286402ebf8@redhat.com>
- <24d6a51d-f5f8-44d7-94cb-58b71ebf473a@linaro.org>
- <7f4aa4c6-7b77-422b-9f7a-d01530c54bff@redhat.com> <87segk9az5.ffs@tglx>
- <f8d3c2d4-8399-4169-8527-3c87922f2ef1@redhat.com> <87jz1w88zq.ffs@tglx>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <87jz1w88zq.ffs@tglx>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250916091858.257868-1-lpieralisi@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_065350_338538_929EB066 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20250918_065557_299703_CB83D4BE 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,99 +73,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 9/18/25 11:23, Thomas Gleixner wrote:
-> On Wed, Sep 17 2025 at 21:03, David Hildenbrand wrote:
->>> As this is specific for the compiled kernel version you can define an
->>> extensible struct format for the table.
->>>
->>> struct inspect_entry {
->>> 	unsigned long	properties;
->>>          unsigned int	type;
->>>          unsigned int	id;
->>>          const char	name[$MAX_NAME_LEN];
->>> 	unsigned long	address;
->>>          unsigned long	length;
->>>          ....
->>> };
->>>
->>> @type
->>>         refers either to a table with type information, which describes
->>>         the struct in some way or just generate a detached compile time
->>>         description.
->>>
->>> @id
->>>         a unique id created at compile time or via registration at
->>>         runtime. Might not be required
->>
->> We discussed that maybe one would want some kind of a "class" 
->> description. For example we might have to register one pgdat area per 
->> node. Giving each one a unique name might be impractical / unreasonable.
->>
->> Still, someone would want to select / filter out all entries of the same 
->> "class".
->>
->> Just a thought.
+On Tue, Sep 16, 2025 at 11:18:58AM +0200, Lorenzo Pieralisi wrote:
+> In some legacy platforms the MSI controller for a PCI host
+> bridge is identified by an msi-parent property whose phandle
+> points at an MSI controller node with no #msi-cells property,
+> that implicitly means #msi-cells == 0.
 > 
-> Right. As I said this was mostly a insta brain dump to start a
-> discussion. Seems it worked :)
+> For such platforms, mapping a device ID and retrieving the
+> MSI controller node becomes simply a matter of checking
+> whether in the device hierarchy there is an msi-parent property
+> pointing at an MSI controller node with such characteristics.
 > 
->>> @properties:
->>>
->>>          A "bitfield", which allows to mark this entry as (in)valid for a
->>>          particular consumer.
->>>
->>>          That obviously requires to modify these properties when the
->>>          requirements of a consumer change, new consumers arrive or new
->>>          producers are added, but I think it's easier to do that at the
->>>          producer side than maintaining filters on all consumer ends
->>>          forever.
->>
->> Question would be if that is not up to a consumer to decide ("allowlist" 
->> / filter) by class or id, stored elsewhere.
-> 
-> Yes, I looked at it the wrong way round. We should leave the filtering
-> to the consumers. If you use allow lists, then a newly introduced class
-> won't be automatically exposed everywhere.
-> 
-> Thanks,
-> 
->         tglx
+> Add a helper function to of_msi_xlate() to check the msi-parent
+> property in addition to msi-map and retrieve the MSI controller
+> node (with a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to
+> provide support for deviceID mapping and MSI controller node
+> retrieval for such platforms.
 
+Your line wrapping is a bit short.
 
-So, one direction to follow from this discussion is to have the
-inspection entry and inspection table for all these entries.
-Now, one burning question open for debate, is, should this reside into mm ?
-mm/inspect.h would have to define the inspection entry struct, and some
-macros to help everyone add an inspection entry.
-E.g. INSPECTION_ENTRY(my ptr, my size);
-and this would be used all over the kernel wherever folks want to
-register something.
-Now the second part is, where to keep all the inspection drivers ?
-Would it make sense to have mm/inspection/inspection_helpers.h which
-would keep the table start/end, some macros to traverse the tables, and
-this would be included by the inspection drivers.
-inspection drivers would then probe via any mechanism, and tap into the
-inspection table.
-I am thinking that my model with a single backend can be enhanced by
-allowing any inspection driver to access it. And further on, each
-inspection driver would register a notifier to be called when an entry
-is being created or not. This would mean N possible drivers connected to
-the table at the same time. ( if that would make sense...)
-Would it make sense for pstore to have an inspection driver that would
-be connected here to get different kinds of stuff ?
-Would it make sense to have some debugfs driver that would just expose
-to user space different regions ? Perhaps something similar with
-/proc/kcore but not the whole kernel memory rather only the exposed
-inspection entries.
-Now, for the dynamic memory, e.g. memblock_alloc and friends ,
-would it be interesting to have a flag e.g. MEMBLOCK_INSPECT, that would
-be used when calling it, and in the background, this would request an
-inspection_entry being created ? Or it makes more sense to call some
-function like inspect_register as a different call directly at the
-allocation point ?
+I had a look at who is parsing "msi-parent" themselves as that's 
+typically a recipe for doing it incorrectly ('interrupt-map' anyone). 
+Can we make iproc_pcie_msi_enable() use this? It's quite ugly reaching 
+into the GICv3 node...
 
-Feel free to throw your opinion at each of the above.
-Thanks for helping out !
+And perhaps irq-gic-its-msi-parent.c could use this? 
+
+And looks like pcie-layerscape-gen4 is leaking a node reference...
+
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sascha Bischoff <sascha.bischoff@arm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
+>  1 file changed, 35 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+> index e7c12abd10ab..d0e2dfd0ee28 100644
+> --- a/drivers/of/irq.c
+> +++ b/drivers/of/irq.c
+> @@ -670,6 +670,35 @@ void __init of_irq_init(const struct of_device_id *matches)
+>  	}
+>  }
+>  
+> +static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
+> +{
+> +	struct of_phandle_args msi_spec;
+> +	int ret;
+> +
+> +	/*
+> +	 * An msi-parent phandle with a missing or == 0 #msi-cells
+> +	 * property identifies a 1:1 ID translation mapping.
+> +	 *
+> +	 * Set the msi controller node if the firmware matches this
+> +	 * condition.
+> +	 */
+> +	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
+> +						  0, &msi_spec);
+> +	if (!ret) {
+> +		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
+> +			ret = -EINVAL;
+> +
+> +		if (!ret) {
+> +			/* Return with a node reference held */
+> +			*msi_node = msi_spec.np;
+> +			return 0;
+> +		}
+> +		of_node_put(msi_spec.np);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>  /**
+>   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
+>   * @dev: device for which the mapping is to be done.
+> @@ -677,7 +706,7 @@ void __init of_irq_init(const struct of_device_id *matches)
+>   * @id_in: Device ID.
+>   *
+>   * Walk up the device hierarchy looking for devices with a "msi-map"
+> - * property. If found, apply the mapping to @id_in.
+> + * or "msi-parent" property. If found, apply the mapping to @id_in.
+>   * If @msi_np points to a non-NULL device node pointer, only entries targeting
+>   * that node will be matched; if it points to a NULL value, it will receive the
+>   * device node of the first matching target phandle, with a reference held.
+> @@ -691,12 +720,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
+>  
+>  	/*
+>  	 * Walk up the device parent links looking for one with a
+> -	 * "msi-map" property.
+> +	 * "msi-map" or an "msi-parent" property.
+>  	 */
+> -	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
+> +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
+>  		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
+>  				"msi-map-mask", msi_np, &id_out))
+>  			break;
+> +		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
+> +			break;
+> +	}
+>  	return id_out;
+>  }
+>  
+> -- 
+> 2.48.0
+> 
 
