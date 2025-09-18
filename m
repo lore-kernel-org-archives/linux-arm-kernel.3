@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81EACAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41ACACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMU4MDOosyGUA9Yx4dv1d3vWL7pCcmggQai5fmTh0gI=; b=pOqudCE46Y6yeKulBBXXHo7d+3
-	zaHjAS9QpVcG18IBNEAu2UhlJrE46ZWLO+CkRRUBOB/JrQAqzK/sYqn9uXLjxSDdFjcFxxE+pM1Lh
-	cV+n/obvpzAycnSsjej9v43DtxLCLjLQync8Aquh7LUeJmHiyhA4uYuBFNvGxD8cf3cDGypQqVyXJ
-	pr86vf3J3ENzXanDTGUxiszOpq8Z8KKr2ZypLnAKkTgsFDbzXD7biJXrpQJnRdE4h9vS8CjTtcVdK
-	J3Zu5JId8UR0KS3YxyspUlK2hlqoLpMyG3FS74791jW0jFZh9jo6/X01gpc2PvBBSQxVA1lk5TqQ5
-	Jex26sTA==;
+	bh=7oNy9QkuVfOzMkFgXo7Ye5EoocJCEZK9za4vo0VAhr0=; b=Ek/pFkLG7fc+cuhT/TwO3GuLal
+	AfgY8DQ9oskqXiVsOzx7mL4oHycexgOzxJS8ReBDlV4qo0T73qmlVzpeleKcdFdspWc/2zdTvfair
+	iXG7Cq73aJ45VQungZYJLj0/Ksj8bc2FqUQhAHcZ4UROPKLmTz3T0272+thZ1dqI2c2sFPLCeuD3a
+	hvUQ26VRwfA+X99pIR89spC63XoudxzscOWX9ePgGfQHQPBg9A2N2gKb0CxxC/SFOc0N0ze/Hxkub
+	PPlTMtF0Em+7B1urdwJCiUfeNS7TJyqVyG6eyF8GcfjK1MmIRn4DeRIgih4Xc+bFaVUUXOM/DVkGk
+	pG3GU3jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHqd-00000000goE-2RFv;
-	Thu, 18 Sep 2025 16:51:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHqa-00000000gl7-1Hid
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 18 Sep 2025 16:51:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qMU4MDOosyGUA9Yx4dv1d3vWL7pCcmggQai5fmTh0gI=; b=SpZylVPqGQdWRFQ9WFqJVwKKZV
-	zGr2IEIjgpQp6xq8GsGJojorDZbKKb5OnsCzm5JZxHpk3dZMfG2b1vXcoykAI7RJM4h+PxGd8WYJ/
-	KmmrRd6NSSMZZvCnmVr0fLo1SgsdTmzQ5el22Q0BubGl4+da0oCh1cdde3HmKlN5HXxVA+7y40W+6
-	ZZV6OLKWYYKEU1mISMNTIB3LWEuGFPHRLZWX/NDh4sAiP9W4fKAF6Gb0q4UJAO36u/f1Y/M74y+ef
-	dLDU14TFFsXJaW9VrNI9fAH1yBPOBcsfR4vau077/siT7dRrga96fwes0DL/m0LjQeWJj8nSo9gXz
-	iXxGmslA==;
+	id 1uzHqj-00000000gt2-10qV;
+	Thu, 18 Sep 2025 16:51:13 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHqX-00000007fLI-2NPI
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzHqg-00000000gqO-3to1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:51:03 +0000
+	Thu, 18 Sep 2025 16:51:12 +0000
 Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cSLY40dDhz9sfv;
-	Thu, 18 Sep 2025 18:23:36 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4cSLsR0SvSz9sgS;
+	Thu, 18 Sep 2025 18:37:47 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id cKRlLQlZopKH; Thu, 18 Sep 2025 18:23:36 +0200 (CEST)
+	with ESMTP id c-Hjp8AA_eSf; Thu, 18 Sep 2025 18:37:46 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cSLY32MfTz9sfq;
-	Thu, 18 Sep 2025 18:23:35 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cSLsQ6Hsnz9sgR;
+	Thu, 18 Sep 2025 18:37:46 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3C6918B778;
-	Thu, 18 Sep 2025 18:23:35 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C0B908B776;
+	Thu, 18 Sep 2025 18:37:46 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id KjZhWxUqlsNG; Thu, 18 Sep 2025 18:23:35 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 80D3D8B776;
-	Thu, 18 Sep 2025 18:23:34 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: [PATCH v6 3/7] soc: fsl: qe: Drop legacy-of-mm-gpiochip.h header from GPIO driver
-Date: Thu, 18 Sep 2025 18:23:23 +0200
-Message-ID: <e8a5d2c5b72233bd36da7fecc0a551ca54d39478.1758212309.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1758212309.git.christophe.leroy@csgroup.eu>
-References: <cover.1758212309.git.christophe.leroy@csgroup.eu>
+	with ESMTP id OohEcxeSfQe1; Thu, 18 Sep 2025 18:37:46 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id EFF928B767;
+	Thu, 18 Sep 2025 18:37:45 +0200 (CEST)
+Message-ID: <bad14e16-0d1c-411a-8b3d-89d8df05b9b5@csgroup.eu>
+Date: Thu, 18 Sep 2025 18:37:45 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758212605; l=7404; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=e9P1hoN+HY9Rxao1ca5iWYSEWhtfCo2AeUitPGnj+o0=; b=40eCMf78XLHsXYk4sfOhPuF/a2MMGNJ13kM+yPseBa57hDBf+LS8nBb+aAsa6qU4fAVSs/2S3 ZjE4I04MM9FCKkvZoYp6QKbRQKplpN+E8HYXLirIzvA7az12O7hZx01
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of
+ interrupts
+To: Herve Codina <herve.codina@bootlin.com>, Qiang Zhao <qiang.zhao@nxp.com>,
+ Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+References: <cover.1758209158.git.christophe.leroy@csgroup.eu>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <cover.1758209158.git.christophe.leroy@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_175101_746621_BAF12883 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20250918_095111_153167_338246BD 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,210 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove legacy-of-mm-gpiochip.h header file. The above mentioned
-file provides an OF API that's deprecated. There is no agnostic
-alternatives to it and we have to open code the logic which was
-hidden behind of_mm_gpiochip_add_data(). Note, most of the GPIO
-drivers are using their own labeling schemas and resource retrieval
-that only a few may gain of the code deduplication, so whenever
-alternative is appear we can move drivers again to use that one.
 
-As a side effect this change fixes a potential memory leak on
-an error path, if of_mm_gpiochip_add_data() fails.
 
-[Text copied from commit 34064c8267a6 ("powerpc/8xx: Drop
-legacy-of-mm-gpiochip.h header")]
+Le 18/09/2025 à 17:34, Christophe Leroy a écrit :
+> This is a RESEND of v3 sent one month ago, see:
+> https://lore.kernel.org/all/cover.1754993232.git.christophe.leroy@csgroup.eu/
 
-Suggested-by: Bartosz Golaszewski <brgl@bgdev.pl>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
- arch/powerpc/platforms/Kconfig |  1 -
- drivers/soc/fsl/qe/gpio.c      | 51 ++++++++++++++++++----------------
- 2 files changed, 27 insertions(+), 25 deletions(-)
+Sorry for the noise, v3 was 
+https://lore.kernel.org/all/cover.1755504428.git.christophe.leroy@csgroup.eu/
+The resent is correct though, only this reference in the cover is wrong.
 
-diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
-index fea3766eac0f..5b689bd3ddf4 100644
---- a/arch/powerpc/platforms/Kconfig
-+++ b/arch/powerpc/platforms/Kconfig
-@@ -232,7 +232,6 @@ config QE_GPIO
- 	bool "QE GPIO support"
- 	depends on QUICC_ENGINE
- 	select GPIOLIB
--	select OF_GPIO_MM_GPIOCHIP
- 	help
- 	  Say Y here if you're going to use hardware that connects to the
- 	  QE GPIOs.
-diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
-index 04b44fc2bb58..c54154b404df 100644
---- a/drivers/soc/fsl/qe/gpio.c
-+++ b/drivers/soc/fsl/qe/gpio.c
-@@ -12,7 +12,6 @@
- #include <linux/spinlock.h>
- #include <linux/err.h>
- #include <linux/io.h>
--#include <linux/gpio/legacy-of-mm-gpiochip.h>
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/slab.h>
-@@ -24,7 +23,8 @@
- #define PIN_MASK(gpio) (1UL << (QE_PIO_PINS - 1 - (gpio)))
- 
- struct qe_gpio_chip {
--	struct of_mm_gpio_chip mm_gc;
-+	struct gpio_chip gc;
-+	void __iomem *regs;
- 	spinlock_t lock;
- 
- 	/* shadowed data register to clear/set bits safely */
-@@ -34,11 +34,9 @@ struct qe_gpio_chip {
- 	struct qe_pio_regs saved_regs;
- };
- 
--static void qe_gpio_save_regs(struct of_mm_gpio_chip *mm_gc)
-+static void qe_gpio_save_regs(struct qe_gpio_chip *qe_gc)
- {
--	struct qe_gpio_chip *qe_gc =
--		container_of(mm_gc, struct qe_gpio_chip, mm_gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 
- 	qe_gc->cpdata = ioread32be(&regs->cpdata);
- 	qe_gc->saved_regs.cpdata = qe_gc->cpdata;
-@@ -51,8 +49,8 @@ static void qe_gpio_save_regs(struct of_mm_gpio_chip *mm_gc)
- 
- static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	u32 pin_mask = PIN_MASK(gpio);
- 
- 	return !!(ioread32be(&regs->cpdata) & pin_mask);
-@@ -60,9 +58,8 @@ static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
- 
- static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 	u32 pin_mask = PIN_MASK(gpio);
- 
-@@ -83,9 +80,8 @@ static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- static int qe_gpio_set_multiple(struct gpio_chip *gc,
- 				unsigned long *mask, unsigned long *bits)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
--	struct qe_pio_regs __iomem *regs = mm_gc->regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 	int i;
- 
-@@ -111,13 +107,12 @@ static int qe_gpio_set_multiple(struct gpio_chip *gc,
- 
- static int qe_gpio_dir_in(struct gpio_chip *gc, unsigned int gpio)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
- 
--	__par_io_config_pin(mm_gc->regs, gpio, QE_PIO_DIR_IN, 0, 0, 0);
-+	__par_io_config_pin(qe_gc->regs, gpio, QE_PIO_DIR_IN, 0, 0, 0);
- 
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- 
-@@ -126,7 +121,6 @@ static int qe_gpio_dir_in(struct gpio_chip *gc, unsigned int gpio)
- 
- static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- {
--	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
- 	unsigned long flags;
- 
-@@ -134,7 +128,7 @@ static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
- 
--	__par_io_config_pin(mm_gc->regs, gpio, QE_PIO_DIR_OUT, 0, 0, 0);
-+	__par_io_config_pin(qe_gc->regs, gpio, QE_PIO_DIR_OUT, 0, 0, 0);
- 
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- 
-@@ -240,7 +234,7 @@ EXPORT_SYMBOL(qe_pin_free);
- void qe_pin_set_dedicated(struct qe_pin *qe_pin)
- {
- 	struct qe_gpio_chip *qe_gc = qe_pin->controller;
--	struct qe_pio_regs __iomem *regs = qe_gc->mm_gc.regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	struct qe_pio_regs *sregs = &qe_gc->saved_regs;
- 	int pin = qe_pin->num;
- 	u32 mask1 = 1 << (QE_PIO_PINS - (pin + 1));
-@@ -269,7 +263,6 @@ void qe_pin_set_dedicated(struct qe_pin *qe_pin)
- 
- 	iowrite32be(qe_gc->cpdata, &regs->cpdata);
- 	qe_clrsetbits_be32(&regs->cpodr, mask1, sregs->cpodr & mask1);
--
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
- }
- EXPORT_SYMBOL(qe_pin_set_dedicated);
-@@ -284,7 +277,7 @@ EXPORT_SYMBOL(qe_pin_set_dedicated);
- void qe_pin_set_gpio(struct qe_pin *qe_pin)
- {
- 	struct qe_gpio_chip *qe_gc = qe_pin->controller;
--	struct qe_pio_regs __iomem *regs = qe_gc->mm_gc.regs;
-+	struct qe_pio_regs __iomem *regs = qe_gc->regs;
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&qe_gc->lock, flags);
-@@ -301,7 +294,6 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 	struct device *dev = &ofdev->dev;
- 	struct device_node *np = dev->of_node;
- 	struct qe_gpio_chip *qe_gc;
--	struct of_mm_gpio_chip *mm_gc;
- 	struct gpio_chip *gc;
- 
- 	qe_gc = devm_kzalloc(dev, sizeof(*qe_gc), GFP_KERNEL);
-@@ -310,18 +302,29 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 
- 	spin_lock_init(&qe_gc->lock);
- 
--	mm_gc = &qe_gc->mm_gc;
--	gc = &mm_gc->gc;
-+	gc = &qe_gc->gc;
- 
--	mm_gc->save_regs = qe_gpio_save_regs;
-+	gc->base = -1;
- 	gc->ngpio = QE_PIO_PINS;
- 	gc->direction_input = qe_gpio_dir_in;
- 	gc->direction_output = qe_gpio_dir_out;
- 	gc->get = qe_gpio_get;
- 	gc->set = qe_gpio_set;
- 	gc->set_multiple = qe_gpio_set_multiple;
-+	gc->parent = dev;
-+	gc->owner = THIS_MODULE;
-+
-+	gc->label = devm_kasprintf(dev, GFP_KERNEL, "%pOF", np);
-+	if (!gc->label)
-+		return -ENOMEM;
-+
-+	qe_gc->regs = devm_of_iomap(dev, np, 0, NULL);
-+	if (IS_ERR(qe_gc->regs))
-+		return PTR_ERR(qe_gc->regs);
-+
-+	qe_gpio_save_regs(qe_gc);
- 
--	return of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
-+	return devm_gpiochip_add_data(dev, gc, qe_gc);
- }
- 
- static const struct of_device_id qe_gpio_match[] = {
--- 
-2.49.0
+Christophe
+
+> 
+> This series reduces significantly the amount of interrupts on
+> fsl_qmc_audio device.
+> 
+> Patches 1 and 2 are preparatory patches.
+> Patch 3 is the main change
+> Patch 4 is a cleanup which is enabled by previous patch
+> 
+> Changes in v3:
+> - Properly check the buffer descriptor is unused (Patch 1, comment from Herve Codina)
+> - Fixed copy/paste error (patch 2, comment from Herve Codina)
+> - Fixed build failure (patch 2, comment from Herve Codina and Test robot)
+> 
+> Changes in v2:
+> - Don't remove UB bit (Patch 1, comment from Herve Codina)
+> - Make sure audio channels are ordered on TDM bus (Patch 2, new patch, comment from Herve Codina)
+> - Drop struct qmc_dai_chan  (patch 4, new patch)
+> 
+> Backgroup (copied from patch 3):
+> 
+> In non-interleaved mode, several QMC channels are used in sync.
+> More details can be found in commit 188d9cae5438 ("ASoC: fsl:
+> fsl_qmc_audio: Add support for non-interleaved mode.")
+> At the time being, an interrupt is requested on each channel to
+> perform capture/playback completion, allthough the completion is
+> really performed only once all channels have completed their work.
+> 
+> This leads to a lot more interrupts than really needed. Looking at
+> /proc/interrupts shows ~3800 interrupts per second when using
+> 4 capture and 4 playback devices with 5ms periods while
+> only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
+> 
+> The QMC channels work in sync, the one started first is the one
+> finishing first and the one started last is the one finishing last,
+> so when the last one finishes it is guaranteed that the other ones are
+> finished as well. Therefore only request completion processing on the
+> last QMC channel.
+> 
+> On my board with the above exemple, on a kernel started with
+> 'threadirqs' option, the QMC irq thread uses 16% CPU time with this
+> patch while it uses 26% CPU time without this patch.
+> 
+> Christophe Leroy (4):
+>    soc: fsl: qmc: Only set completion interrupt when needed
+>    ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
+>    ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
+>    ASoc: fsl: fsl_qmc_audio: Drop struct qmc_dai_chan
+> 
+>   drivers/soc/fsl/qe/qmc.c      |  44 +++++++++---
+>   sound/soc/fsl/fsl_qmc_audio.c | 125 +++++++++++++++-------------------
+>   2 files changed, 87 insertions(+), 82 deletions(-)
+> 
 
 
