@@ -4,55 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA7CCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E88ACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xT01jm8M2HeKEr0vFkYwW8UybjwRjhTlEwa6HqPfnso=; b=e9HdPIlF1gU4y891tRajKCjMUy
-	CndNndZ9UQ8wIlRD4FNb0rEuHnSF7gwMgNRiWXo0TUF/Yabe5ktqpmHYq2Ato5cmKWxMy1IGICTRO
-	3Uv/fdIANBEzWXH44cJUGVlr8tHSA4aozAzPqaodkGLnuLnpFsxSDMvdlqUn7gtNEStQG1pGIOTzl
-	fNIdX/o/tAoHUELvsNaTe79WekiesOYmCgiYhRWqVaG0+p8VyZqF62m/OTe27Sor80LbabiSpHXzm
-	ZGbDoPB+EoDDG+rgI1+TGgXRztbpgrOyJvpAK/MGya8F8HuFRC3bsZcB3rOBFNboB4ThGkaWhlDtS
-	djv6idww==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T8wWwJQ6n85vQKF07cQclK7dX0TiA464A4GhASF01+0=; b=YVE9+xXTRESoFIx3+gx9ZJnP+2
+	zZY8wnGgHca4GsB9lBIx4UzVDj9fGjyH6vXAcxmCkk97YafDDCED7KLep14G3zG4ElNUtEmpSPcjR
+	fOtBx69ND8ffJGShfJz+k0HJAZW3OpcRLIrIjNhbCBJVPIBSskGpidDy7tFMjQLlTSoXyhYMx9+Wv
+	VMAXmkYM7BYfPyDWLJIOq8b+V0+owXDXr+V5msh7BV11u5Yr3v5dxsKoqztdf8k3D9pfEEF5XcoPK
+	Nv2xpPN4cyzs6eGKPoczItJDU//mqvmT9kS8FOXJrcaKvOBmx/G8cpKBJmO+cp9VXVLJNdF1ktjNR
+	qQaB+Diw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8SY-0000000GSoh-3MSk;
-	Thu, 18 Sep 2025 06:49:38 +0000
-Received: from wxsgout04.xfusion.com ([36.139.87.180])
+	id 1uz8TI-0000000GSz0-0Z73;
+	Thu, 18 Sep 2025 06:50:24 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8SV-0000000GSlD-3wzd
+	id 1uz8TE-0000000GSxS-3HVq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 06:49:37 +0000
-Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
-	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cS5mf5HH7zB72Kv;
-	Thu, 18 Sep 2025 14:47:46 +0800 (CST)
-Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
- wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
- Thu, 18 Sep 2025 14:49:16 +0800
-From: shechenglong <shechenglong@xfusion.com>
-To: <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <stone.xulei@xfusion.com>,
-	<chenjialong@xfusion.com>, <yuxiating@xfusion.com>, shechenglong
-	<shechenglong@xfusion.com>
-Subject: [PATCH] cpu: fix hard lockup triggered during stress-ng stress testing.
-Date: Thu, 18 Sep 2025 14:49:07 +0800
-Message-ID: <20250918064907.1832-1-shechenglong@xfusion.com>
-X-Mailer: git-send-email 2.38.0.windows.1
+	Thu, 18 Sep 2025 06:50:22 +0000
+Received: from localhost.localdomain (unknown [119.122.213.2])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 233a88a56;
+	Thu, 18 Sep 2025 14:50:15 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: wens@kernel.org
+Cc: amadeus@jmu.edu.cn,
+	andre.przywara@arm.com,
+	andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	davem@davemloft.net,
+	devicetree@vger.kernel.org,
+	edumazet@google.com,
+	jernej@kernel.org,
+	krzk+dt@kernel.org,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	samuel@sholland.org
+Subject: Re: [PATCH net-next v6 2/6] net: stmmac: Add support for Allwinner A523 GMAC200
+Date: Thu, 18 Sep 2025 14:50:06 +0800
+Message-Id: <20250918065006.476860-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <CAGb2v640r+TwB7O+UAB9PehZ2FaXDjhVerK6j_CZ2+caJoJ9zA@mail.gmail.com>
+References: <CAGb2v640r+TwB7O+UAB9PehZ2FaXDjhVerK6j_CZ2+caJoJ9zA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.82.130.100]
-X-ClientProxiedBy: wuxpheds03045.xfusion.com (10.32.131.99) To
- wuxpheds03048.xfusion.com (10.32.143.30)
+X-HM-Tid: 0a995b96860203a2kunmec52b10073125
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZGktDVh4dGEJPThlOThkYTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSFVJWVdZFhoPEhUdFFlBWU9LSFVKS0lIQkhCVUpLS1VKQk
+	tLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_234936_180800_160CACC5 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250917_235021_050323_3A5A1425 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,77 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Context of the Issue:
-In an ARM64 environment, the following steps were performed:
+Hi,
 
-1. Repeatedly ran stress-ng to stress the CPU, memory, and I/O.
-2. Cyclically executed test case pty06 from the LTP test suite.
-3. Added mitigations=off to the GRUB parameters.
+> I don't have 802.1q enabled so I didn't see this.
+>
+> Can you provide the base commit you applied the patches to?
 
-After 1–2 hours of stress testing, a hardlockup occurred,
-causing a system crash.
+Based on the latest linux-next, 20250917
+with these enabled configurations:
 
-Root Cause of the Hardlockup:
-Each time stress-ng starts, it invokes the /sys/kernel/debug/clear_warn_once
-interface, which clears the values in the memory section from __start_once
-to __end_once. This caused functions like pr_info_once() — originally
-designed to print only once — to print again every time stress-ng was called.
-If the pty06 test case happened to be using the serial module at that same
-moment, it would sleep in waiter.list within the __down_common function.
+CONFIG_IPV6=y
+CONFIG_STP=y
+CONFIG_GARP=y
+CONFIG_MRP=y
+CONFIG_BRIDGE=y
+CONFIG_VLAN_8021Q=y
+CONFIG_STMMAC_ETH=y
+CONFIG_STMMAC_PLATFORM=y
+CONFIG_DWMAC_SUN8I=y
+CONFIG_DWMAC_SUN55I=y
+CONFIG_PCS_XPCS=y
 
-After pr_info_once() completed its output using the serial module,
-it invoked the semaphore up() function to wake up the process waiting
-in waiter.list. This sequence triggered an A-A deadlock, ultimately
-leading to a hardlockup and system crash.
+[   38.818801] 8021q: adding VLAN 0 to HW filter on device eth1
 
-To prevent this, a local variable should be used to control and ensure
-the print operation occurs only once.
+When the interface is down:
+~ # ifconfig eth1 down
+[   69.181869] dwmac-sun55i 4510000.ethernet eth1: Timeout accessing MAC_VLAN_Tag_Filter
+[   69.189827] dwmac-sun55i 4510000.ethernet eth1: failed to kill vid 0081/0
 
-Hard lockup call stack:
-
-_raw_spin_lock_nested+168
-ttwu_queue+180 （rq_lock(rq, &rf); 2nd acquiring the rq->__lock）
-try_to_wake_up+548
-wake_up_process+32
-__up+88
-up+100
-__up_console_sem+96
-console_unlock+696
-vprintk_emit+428
-vprintk_default+64
-vprintk_func+220
-printk+104
-spectre_v4_enable_task_mitigation+344
-__switch_to+100
-__schedule+1028 (rq_lock(rq, &rf); 1st acquiring the rq->__lock)
-schedule_idle+48
-do_idle+388
-cpu_startup_entry+44
-secondary_start_kernel+352
-
-Signed-off-by: shechenglong <shechenglong@xfusion.com>
----
- arch/arm64/kernel/proton-pack.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index edf1783ffc81..f8663157e041 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -424,8 +424,10 @@ static bool spectre_v4_mitigations_off(void)
- 	bool ret = cpu_mitigations_off() ||
- 		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
- 
--	if (ret)
--		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
-+	static atomic_t __printk_once = ATOMIC_INIT(0);
-+
-+	if (ret && !atomic_cmpxchg(&__printk_once, 0, 1))
-+		pr_info("spectre-v4 mitigation disabled by command-line option\n");
- 
- 	return ret;
- }
--- 
-2.33.0
-
+Thanks,
+Chukun
 
