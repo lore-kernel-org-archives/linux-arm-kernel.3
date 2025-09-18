@@ -4,57 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0763CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3444ACA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vpn6ughdtbs5CdZckC05BiM21afrc6K6ej4dvdtTCzc=; b=XccV4pcQ8bjj35
-	un885DmkYglE+Wv4+fwD7dOrIdqkR9vq4WLhqFtd8LmSqv8Ioxdhr15nRphnE8OpSKxdqaJvvkaRh
-	D6zoKnFAwALktZ8YlATRsZbg2SpvmjIQTCW05ARPuWollOqmHUO7cKKFnpE/vKaOxOTdOydM30/bT
-	S/Da/tGaOoPcjU64+jpQQoSvjNqTy3OynacEsgUnYXMsMQh1B4ApdpDGUYu9mBGzd2tWSgTldqpWo
-	Pg6xNz7f+ihZuo7M90i/DJpiKHW6CBImHhNR29VHW0C5v1EVcYO2NEndudg2+lgXr4lj9vzSSXSpC
-	N/DJ8dXEBh5PjQDzctGw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TVT57U21vtvicjHkKiVZv5bhClPz9hNyRghzXRiiLXU=; b=JQdH3RIlgsClSSrae2bL1Tq/75
+	7tkQMrhgr0dYM0UlNqpSrfMp9N95ajzAtm2kzCIDxKWVDrZrTbGwK9vxlLrPdUnY/uk9VIOOSKtUH
+	1K/EAfnDBktgJ8wejaMaWLs6d6pH+aMYHUsxK1EtN8kEyMXF4zwLfOh6jFMFco01ZnpMN1INAxpwh
+	f0IhsxZk1M8cP4qM4IwvMjVdjWX5YkVKyzPJcQazlaQat57tmXV0KpYjdF1zf91VOP7WPe6VMj78X
+	icCKpiLCyhbMrA6GYkw55xvKgRnFdbEm1MRjhVWvg2yPjR+QkJKFi38BKlu/w2GjLNX8muyD/w1TQ
+	8YOJqWaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYQ-00000001189-3uUP;
-	Thu, 18 Sep 2025 19:44:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzKYU-0000000119k-0vcu;
+	Thu, 18 Sep 2025 19:44:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYO-0000000117k-2f44
+	id 1uzKYR-0000000118Q-2lal
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 19:44:29 +0000
+	Thu, 18 Sep 2025 19:44:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FC1F43B0D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 193726021D;
+	Thu, 18 Sep 2025 19:44:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66369C4CEF0;
 	Thu, 18 Sep 2025 19:44:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD07C4CEE7;
-	Thu, 18 Sep 2025 19:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758224668;
-	bh=/fyRtjX7Acq7Ib/RG2oDrAdMcjvCIkWa8I5Em83Gg64=;
-	h=From:Subject:Date:To:Cc:From;
-	b=PW3c6aFVxiQWITh6uQ/YoOHRKxxI3L9bEFBR6TwvzK3VAt9z2AzpTVgc/j+W6yO6W
-	 nkn16qJAv7CO+ycRjZIgiq+cT46fXqA5py/CN5FasGMgCtDWP9Ps4sN+6SGurZtyJN
-	 xNF3Y85SGQUlejYbaLp40z1mSwsmA+knuaFXPUdyrEWgfkJ5LhhC88g3FDGPObVPvr
-	 8E3GsSL1dOri2YE0qVPyK4iP+0LE/h7Au+Jx09CpfN2jouhrIOqyt+YanXECchgfrZ
-	 +p1NDzYH5oNYrJV48B1umx3nLZudUkiSvgwiP/atuE79dnBYbRmpjgH1tPaEwk1p44
-	 6uK4LkE1X7s7Q==
+	s=k20201202; t=1758224670;
+	bh=3YA+RKjt5eLwcy44RlCM6dNazad9TJ2w7e1lAKycE+4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=LsShNhSlOosgCCjv3ZZn1EVchSl3vU8pr8DxN45VfTpA5TG2NX6aNYeu9rPMq5DBg
+	 udxhVjXaA1OG9vRBXO6ooa13dAV140tSVHM84bLL29YKK+CfS5jAFtU304qGLreLuD
+	 0fcV0Z5wAlRxYX6CztaqfsoaovPvVn0IN0niD909yU01a1ebTtWyycg0U0Id17i1c3
+	 QJFjj93cWYLoSNwhwpVYJBWVL+cwittfC4Lt4tTACTKH+/nNUgvaRGpFb15Y+lXeAC
+	 /RDo3Sr/O1jJSP19VGLgtyY62tsYggT3lcx+iW6HMvLFGNRZVfimRTTmLpr5HNSbex
+	 d04r+4NOL9KnQ==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH v4 0/2] arm64: Support FEAT_LSFE (Large System Float
- Extension)
-Date: Thu, 18 Sep 2025 20:42:05 +0100
-Message-Id: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
+Date: Thu, 18 Sep 2025 20:42:06 +0100
+Subject: [PATCH v4 1/2] KVM: arm64: Expose FEAT_LSFE to guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAI5gzGgC/2XM3wqCMByG4VuRHbfYP+fWUfcRHej2m45MY4tRi
- PfeFMKkw++D551QhOAholMxoQDJRz8OeYhDgUxXDy1gb/NGjLCSSFbiOtylwH10gImixDitams
- YyuARwPnXGrtc8+58fI7hvbYTXd5vpvrNJIoJloqX1IjGVYKebxAG6I9jaNHSSWyzFeE7y7IFA
- 1YRrbVpxJ/lm1VU7SzPtnbSCSslNFzv7DzPH9T48Y0dAQAA
-X-Change-ID: 20250625-arm64-lsfe-0810cf98adc2
+Message-Id: <20250918-arm64-lsfe-v4-1-0abc712101c7@kernel.org>
+References: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
+In-Reply-To: <20250918-arm64-lsfe-v4-0-0abc712101c7@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -64,21 +60,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-56183
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1367; i=broonie@kernel.org;
- h=from:subject:message-id; bh=/fyRtjX7Acq7Ib/RG2oDrAdMcjvCIkWa8I5Em83Gg64=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozGEW5FyWseaqc8/F+wIiqySykyyfiEMwETJHD
- 3x47bVLit6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMxhFgAKCRAk1otyXVSH
- 0MnLB/sEOZMOHVacNMWbkkwuSaxy58fOnDcDG3q5SSd4PYa/uO6lM9ZG4SYsH1bv7w0L350Oml5
- /05e0opT3uGxlCmhQL2AcdMQF8bEw45kMI6pe7XDKC0oNu5sL0D1PSUP9psLPM82dsK5FszB87U
- gkisjR3K77ju9UxZbtP2bQJbRBg0FW1PeIv6K1gD9dwfEkEoVyqnKblRP6eQ4jyDHFwdqmHSbJF
- vMQ5uXgp+3m0gAibiPJuhNUt4umwF2ktg6gC/4y0SXM/0jEMC/rSycbv4smm0hAXYqvWGc6l2TR
- 8/IsnwQrH8X7xO1FsCqOpRQlONJtdgwaTwvbqLTp63iIfltT
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1325; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3YA+RKjt5eLwcy44RlCM6dNazad9TJ2w7e1lAKycE+4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozGEXE5gzxW4DG9tsIWlE41BKvJvGpyQ63RKmO
+ HOUNqzPdgaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaMxhFwAKCRAk1otyXVSH
+ 0F5vB/9btFoOAaaoJWCjjm7nW75Ob1/HiIkQfOGZ2fXHaFGNJBNqxyUxKlocd2E4VYhzrPXdqhn
+ WIn8Be+Su4uKhY3qEuZkOxJHJ1popYnXrqdtq2PWVLZRlGKNHTWNNrpGRw9qeX2bsHnusJtACOu
+ d9rkXvLKAX5t4K9pv4Khk652f8VCjBd7oIZWz2e1y+Vbiv/fHHyA6MvAodcFl88f5WX2Hge1Rvo
+ GxtpOVwLqSv6J5I7gK1HmGsV3NPII5OmQoqD1w3g1jdrdK4D488GCMF4FYWs900EUPNlQHzu4IY
+ eKEy/SfjPQLvbzN4fg1Zk71QJxkD0AeCRTjB1axR6IbenZlC
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_124428_725164_2C4C5DFC 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_LSFE is optional from v9.5, it adds new instructions for atomic
-memory operations with floating point values.  We have no immediate use
-for it in kernel, provide a hwcap so userspace can discover it and allow
-the ID register field to be exposed to KVM guests.
+FEAT_LSFE (Large System Float Extension), providing atomic floating point
+memory operations, is optional from v9.5. This feature adds no new
+architectural state, expose the relevant ID register field to guests so
+they can discover it.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes in v4:
-- Rebase onto arm64/for-next/cpufeature, note that both patches have
-  build dependencies on this.
-- Drop unneeded cc clobber in hwcap.
-- Use STRFADD as the instruction probed in hwcap.
-- Link to v3: https://lore.kernel.org/r/20250818-arm64-lsfe-v3-0-af6f4d66eb39@kernel.org
+ arch/arm64/kvm/sys_regs.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- Rebase onto v6.17-rc1.
-- Link to v2: https://lore.kernel.org/r/20250703-arm64-lsfe-v2-0-eced80999cb4@kernel.org
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 82ffb3b3b3cf..08e2cb94bff3 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1642,7 +1642,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
+ 		break;
+ 	case SYS_ID_AA64ISAR3_EL1:
+-		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
++		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_LSFE |
++			ID_AA64ISAR3_EL1_FAMINMAX;
+ 		break;
+ 	case SYS_ID_AA64MMFR2_EL1:
+ 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+@@ -2991,6 +2992,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 					ID_AA64ISAR2_EL1_APA3 |
+ 					ID_AA64ISAR2_EL1_GPA3)),
+ 	ID_WRITABLE(ID_AA64ISAR3_EL1, (ID_AA64ISAR3_EL1_FPRCVT |
++				       ID_AA64ISAR3_EL1_LSFE |
+ 				       ID_AA64ISAR3_EL1_FAMINMAX)),
+ 	ID_UNALLOCATED(6,4),
+ 	ID_UNALLOCATED(6,5),
 
-Changes in v2:
-- Fix result of vi dropping in hwcap test.
-- Link to v1: https://lore.kernel.org/r/20250627-arm64-lsfe-v1-0-68351c4bf741@kernel.org
-
----
-Mark Brown (2):
-      KVM: arm64: Expose FEAT_LSFE to guests
-      kselftest/arm64: Add lsfe to the hwcaps test
-
- arch/arm64/kvm/sys_regs.c                 |  4 +++-
- tools/testing/selftests/arm64/abi/hwcap.c | 21 +++++++++++++++++++++
- 2 files changed, 24 insertions(+), 1 deletion(-)
----
-base-commit: 220928e52cb03d223b3acad3888baf0687486d21
-change-id: 20250625-arm64-lsfe-0810cf98adc2
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.47.2
 
 
