@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E148BCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE082CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAwFBdszkBO6d7MbHepCgBJvepK+NBfoPcsBZLIJ4gg=; b=Z3rCEwv1K5HWDP79PPI6kuJ1dQ
-	t+Cl0KYAePLFu1HQQRFAoyAk422WiWGtIqTnEcrCiB0rPGDKWTNLgQFWEyCooqOWNiOYOf9mBcu5s
-	q+bzuiwZZwvUlYny2woj8qBViSpztuPbHhiGmeYsFcHBeaLaA4uryRzAuOiBt9F6wfWIUmQ+AsMry
-	N2P96IeL9cThDTAlmxTPwtVk4r3lnZ9EcDKE1XWXcPqbWfqEDNmYVTc/INX1kk+ahguajIVWBuL1h
-	Iewu7RlACXG0euyYXr/LTnb6zNoOaO73N6I93oVvmeI1SDS1RCJeWpJQUfJrJDs0BthGM8njtyGTR
-	ONJJujhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=; b=VnKJXFxDrMAI1LVZwGECDWngcT
+	QmBMx8UaupgXGaTAuwmV/I8pqmbYgyMUpvWrl7gtVy/HdIJ19HVt9U1Qt0KMJLy3rK8lfcyd2EwLJ
+	Og7O49EUqahbSOjQjZfF9Gg4N0ahiW27YDQKJUBe/8ZURLkvrfe5PUrYz47Cg83UJ2kwjq1sz/2aC
+	14wnVICqoXPAhxc8rFOqXi054b9aUj6W707BMp0vTwjnsRVnLs+UCc5TaPw+rblCXBlpjJq5qn29H
+	OU1J6soN/ne9sZl/FZnENYMWqxKMkZrHDeVjlQ8Hue9J455VEmLab4fgGRAoJz1/QGrZhtXuktDE/
+	b2ZxC+7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD4N-0000000HFhh-0ZOb;
-	Thu, 18 Sep 2025 11:44:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzD59-0000000HFqA-22Zx;
+	Thu, 18 Sep 2025 11:45:47 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD4K-0000000HFh6-1Lzb
+	id 1uzD57-0000000HFpW-33Pt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:44:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AFACB43BA2;
-	Thu, 18 Sep 2025 11:44:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A819AC4CEE7;
-	Thu, 18 Sep 2025 11:44:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758195895;
-	bh=QWckBIgmlhG9nD+7S9Y3qbN6qkWCXNxu5YXuWFjTx04=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d+UYznhCrKg0d5IG5hVOnmPVAM3kvmQX3yzneTIhT9kT2rFDwt+iClT/JG9aigoVJ
-	 ka+Q/c6aRuLm6mz0qXvVxpbpamVmWa0ZV1UHZYZPOM7js43tnnjolt5OjSX5De0sPh
-	 YFinjk8aE/JyjtnM7KbTPIsvVgRYkHct5PEKTD0FdbqRZaZipqFgV+naZIwkKHAoiK
-	 vDsu40MAy2EPXPZeWRgWoM1ZMtU3hk8oACDORfPQb7oFNui70fUiJL5ZAAtuKpI4o/
-	 IwH7xXY6T+zJ27AVcx+PHTSHIK7H3puCKUJLpV6BPRLRh/Tr+zApTBJi11+lpi+PMg
-	 1oQ4W1AQR5uOw==
-Date: Thu, 18 Sep 2025 12:44:50 +0100
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 0/8] arm64: Make EFI calls preemptible
-Message-ID: <aMvwstR28CDphk4J@willie-the-truck>
-References: <20250918103010.2973462-10-ardb+git@google.com>
- <CAMj1kXGndZxxe+u3st6FCebrdutUibspA7tJUpqGMgpj9UTFnA@mail.gmail.com>
+	Thu, 18 Sep 2025 11:45:46 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-62105d21297so1646803a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 04:45:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1758195943; x=1758800743; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=;
+        b=YYEZ6vicSZtxRq0QicSgXp7E46OGu1MlJwXZh5jS5nIXm3WdUu6fERhdT1QE0gDeZY
+         VRkL1HF0m3M66U7PAUfhnkUKoJLy03YL9OVSdAz8xuZKFkjnN03Gyf1cLbJC5IA7Roq1
+         LGBEmwLpNIvsSEXj99wuE8O7vImcB/RHDDsj+sylJA1fqgp4MvNgZQo6XQXcQUXH2oRq
+         obzu1Xo1uaTdQzqDXNjz0aq89Mm+MLmiQoJ2xLJ/WshqX0KFl2dA3+7QKPik1J/ZCSQK
+         g4B5BvRbg0rfSskAHxGHfHZjH6B2b6q/pHqBqmUsdZZlUyfo+HanJCB4PmZxR7L6TmR4
+         u4jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758195943; x=1758800743;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=;
+        b=DBahMGC+aJTrqgVlQCbJIYohuKyAGzIfVf50XvmCULikDjLNTjP3nQr/LQ4Yk9SBKv
+         WN45jzuImdtcTVeylrqoxf613ivbEoOqcxlRP7fXTXKnySVoJn4NPy1Yl6AzuHe9oU/u
+         KzcgnGpm1GzemlkxYE0G+3AL/Qhd6sSXJ4ZINBzL8ta1QGtj9WrZuzImizpecTXrm71e
+         WoZahdo1VY6PMVEVPSlLexFKA2CpUzktpNCvXSaUsVduvGG4XYWgv77UVILnF6En99hM
+         nnIQ0wcH+Xc9N5X6tCDaRj0nhXs6Ck272hmeAQJm1an5IxwyNOgGJ6Qnxj6GxC/08F4i
+         hV0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWcqnD/cdoJT2UctTxUFwHBbYudEtTgl2ApekEOcc1MHks7Ggw7rQdfpIINyZ/9AHoEHJHVGkxYvblVdK5MMpX/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4r/r8gJvGcwsxIkkZW092b9Pd8klDAkDUZGBSwlcEjlDOUHoE
+	bW0rupULJFkrs9+R9HLxYNYvH4P8/n6ReiiL5DjWJe4euEeZBTUrf/jCmvf1wwlj7Q5YFOPiPZd
+	MhaSZGgYQB33ivMA1hwqBROvg8JVzyw6Dj4q0KsDk5g==
+X-Gm-Gg: ASbGncuJXXsYx7vf2C8J9tw5jXE0urFCwfHjWbX86FrSDwYs2QTUMo1XRD7ANZslKEC
+	xLREuWcuiUWcju/PnJZGQy+onlNtchJivdMBiB/kJsPcbUKmhiIAdTf02QH5NFOYxUn2MOq1kAe
+	VXD9Sc3jUxXxmLrQ2g4n75YRSeJ9T1F4U4rlDqhddv1gIXIp4P1X+aqn52KtnW89GtpXsjyKGNc
+	SUTF+BvZj7hrsrG7oohhDflMNA=
+X-Google-Smtp-Source: AGHT+IHFids55hjFx9tAzd9HjZcFGiHI2LRl4FHiE0hZ24A9EqDyegxHm6xC2ZWRH8V+3GqUEFGFc0HVJ77f2C+o9Nk=
+X-Received: by 2002:a05:6402:5341:20b0:62f:a3ae:fedf with SMTP id
+ 4fb4d7f45d1cf-62fa3af0280mr2223555a12.34.1758195943526; Thu, 18 Sep 2025
+ 04:45:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXGndZxxe+u3st6FCebrdutUibspA7tJUpqGMgpj9UTFnA@mail.gmail.com>
+References: <20250917111323.60781-1-robert.marko@sartura.hr> <20250917-paparazzi-hermit-3a4aa686add3@spud>
+In-Reply-To: <20250917-paparazzi-hermit-3a4aa686add3@spud>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Thu, 18 Sep 2025 13:45:32 +0200
+X-Gm-Features: AS18NWA_6zldq5uxIKmy94PXw-Gq_9sPBdCM2sajgaSERKRbYRyea3BZcHITxFQ
+Message-ID: <CA+HBbNHS9TMd5u_Mysv21=nsqjeEb44oHFj06kS_hxkXZWutnw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: reset: microchip: Add LAN969x support
+To: Conor Dooley <conor@kernel.org>
+Cc: p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Steen.Hegelund@microchip.com, 
+	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com, 
+	lars.povlsen@microchip.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	luka.perkov@sartura.hr, benjamin.ryzman@canonical.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_044456_402386_71C3F619 
-X-CRM114-Status: GOOD (  31.18  )
+X-CRM114-CacheID: sfid-20250918_044545_787757_EF5D0EA9 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 01:33:48PM +0200, Ard Biesheuvel wrote:
-> On Thu, 18 Sept 2025 at 12:30, Ard Biesheuvel <ardb+git@google.com> wrote:
+On Wed, Sep 17, 2025 at 7:38=E2=80=AFPM Conor Dooley <conor@kernel.org> wro=
+te:
+>
+> On Wed, Sep 17, 2025 at 01:12:35PM +0200, Robert Marko wrote:
+> > LAN969x also uses the Microchip reset driver, so document its compatibl=
+e.
 > >
-> > From: Ard Biesheuvel <ardb@kernel.org>
+> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> > ---
+> >  Documentation/devicetree/bindings/reset/microchip,rst.yaml | 1 +
+> >  1 file changed, 1 insertion(+)
 > >
-> > The arm64 port permits the use of the baseline FP/SIMD register file in
-> > kernel mode, and no longer requires preemption to be disabled. Now that
-> > the EFI spec is being clarified to state that EFI runtime services may
-> > only use baseline FP/SIMD, the fact that EFI may code may use FP/SIMD
-> > registers (while executing at the same privilege level as the kernel) is
-> > no longer a reason to disable preemption when invoking them.
-> >
-> > This means that the only remaining reason for disabling preemption is
-> > the fact that the active mm is swapped out and replaced with efi_mm in a
-> > way that is hidden from the scheduler, and so scheduling is not
-> > supported currently. However, given that virtually all (*) EFI runtime
-> > calls are made from the efi_rts_wq workqueue, the efi_mm can simply be
-> > loaded into the workqueue worker kthread while the call is in progress,
-> > and this does not require preemption to be disabled.
-> >
-> > Note that this is only a partial solution in terms of RT guarantees,
-> > given that the runtime services execute at the same privilege level as
-> > the kernel, and can therefore disable interrupts (and therefore
-> > preemption) directly. But it should prevent scheduling latency spikes
-> > for EFI calls that simply take a long time to run to completion.
-> >
-> > Changes since v2:
-> > - Permit ordinary kernel mode FP/SIMD with IRQs disabled, so that the
-> >   special EFI case only deals with invocations in hardirq or NMI context
-> > - Disallow EFI runtime calls in hardirq or NMI context, so that the
-> >   special FP/SIMD handling for EFI can be dropped entirely
-> > - Use a mutex rather than a semaphore for the arm64 EFI runtime lock,
-> >   now that it is never trylock()ed in IRQ or NMI context.
-> >
-> > Changes since v1/RFC:
-> > - Disable uaccess for SWPAN before updating the preserved TTBR0 value
-> > - Document why disabling migration is needed
-> > - Rebase onto v6.17-rc1
-> >
-> > (*) only efi_reset_system() and EFI pstore invoke EFI runtime services
-> >     without going through the workqueue, and the latter only when saving
-> >     a kernel oops log to the EFI varstore
-> >
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Mark Brown <broonie@kernel.org>
-> >
-> > Ard Biesheuvel (8):
-> >   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
-> >   efi/runtime: Return success/failure from arch_efi_call_virt_setup()
-> >   efi/runtime: Deal with arch_efi_call_virt_setup() returning failure
-> 
-> Unless anyone objects, I am going to queue up these 3 patches ^^^ via
-> the EFI tree.
-> 
-> >   arm64/fpsimd: Permit kernel mode NEON with IRQs off
-> >   arm64/fpsimd: Drop special handling for EFI runtime services
-> >   arm64/efi: Use a mutex to protect the EFI stack and FP/SIMD state
-> >   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
-> >   arm64/efi: Call EFI runtime services without disabling preemption
-> >
-> 
-> ... so the rest can go in via the arm64 tree in the next cycle.
+> > diff --git a/Documentation/devicetree/bindings/reset/microchip,rst.yaml=
+ b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
+> > index f2da0693b05a..4d4dd47f830e 100644
+> > --- a/Documentation/devicetree/bindings/reset/microchip,rst.yaml
+> > +++ b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
+> > @@ -23,6 +23,7 @@ properties:
+> >      enum:
+> >        - microchip,sparx5-switch-reset
+> >        - microchip,lan966x-switch-reset
+> > +      - microchip,lan969x-switch-reset
+>
+> Driver patch makes a fallback compatible seem usable.
 
-I'm also happy to take the whole lot via arm64 this cycle, if you like?
-I reviewed it a while ago and was happy with it then.
+Hi Conor,
+Will respin to simply use the fallback compatible, that will avoid
+adding more compatibles to the driver
+for no reason.
 
-Up to you.
+But, can I ask what do you think about the
+microchip,lan969x-switch-reset compatible?
+Is lan969x fine or should I just make it lan9691 or like cause the
+whole series uses the same
+reset setup?
 
-Will
+Regards,
+Robert
+>
+> >
+> >    reg:
+> >      items:
+> > --
+> > 2.51.0
+> >
+
+
+
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
