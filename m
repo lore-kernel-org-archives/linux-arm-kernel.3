@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B94ACAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542BBCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ja6LsTNawGy4pmDnATZPCfzTVrsSk5wN9q0e+DceoU8=; b=3+DqZf8N155qIZ1+Lgi/wAR3uy
-	lBkPlwuYJYPxMparJt6N2qQNsfnEeU2zojRJSCEVRm4j3Xza6HR/zkys8EyDS0+e1KkkyWG+xRkeV
-	Ut5dMKgNgkXoLRPn2G+WNL2wddPt8JWTDNBG15s0JtaxWEYb299efC8TbfQVCd1RKASO72fJFrrca
-	4bp/nEDDmWRxlrFVjUua9+CgzZxAks8MLGzCfd97Fu/d8Ab2eJxpm/nKvffUCSGwZolUZtUXXP9sp
-	5jmn0/ZJ/UKoMI/OBxlrRkBj9PplnHvC3Ficd0i3IiKPObwOVgwCNCWsbyyRNkUd8vTgTwDlMdJoh
-	liYzQsPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XibKYyB8nk5riR4qnhOFzfgg/dI0v3FkhOkL7BNvwgI=; b=pih8kxumro2l06G5CySdur4IFK
+	h0EeOfzwhoKHlj4MBCS9o8H1x3rcWJ3bFiJDS2dVGnnm0+b7ef43wGrMVw4vdAH9/4IIt2jrimCC5
+	scn3rRW3efnsulbt5LYTF3QQ5+vUNjFkigYRBmkEAvMuBzW0ZZCj63ANrgyYKvbiUQCXQRChdxa7G
+	cpvimcNQrxcV44RoBvlz7vsf1ZROlRjeCUT4gtt2btPQrz4z6s9BTAygIkQ7HfubOLAbK3+PHQWTd
+	AMaxbjHfjDJwjanuwGYBNB7T+oquf+Wj5/dZrKYrlv50Y39MsG+nMRYeoqwFD8CRp7wzkMqnX90oy
+	ymwwhx+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDme-0000000HPGH-0RrJ;
-	Thu, 18 Sep 2025 12:30:44 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uzDnq-0000000HPO2-1vm3;
+	Thu, 18 Sep 2025 12:31:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDmc-0000000HPFw-0UcE
+	id 1uzDno-0000000HPNq-1zwO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 12:30:43 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-77ddfe29cccso133703b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 05:30:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758198641; x=1758803441; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ja6LsTNawGy4pmDnATZPCfzTVrsSk5wN9q0e+DceoU8=;
-        b=L0jvqy5yFXyqXC64vQ/ZHHp9vHg1UUUSPePXNBMX6QtuSXDhhHqFnAGwxSA0A0OE3p
-         M87TmL9BM/YudjUnTDbVJf1D4Vl3aKz/IdxR6XKA1eGhElQ9PO9JiLpC/x3M0N3+Ygwt
-         b5hOZ8BTWTPjsAoKVEG8GPHhT4d6qG4DwtF1+p9b/yLoaEQUWHu7REYpmT4gGk0cA29i
-         sZhbha7t1jQqYbm0uCJ5brabYBp/FK/2OIAOutx7wbODk1K+U230u0Ag0w98jVTVy6MI
-         n5Y4Ivh1SVUMmfA/4vi+vBwA/EN3SS+Xk1Gqi409Qq22+g35VAKfiw/QBvZOgZBJzVGS
-         7pgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758198641; x=1758803441;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ja6LsTNawGy4pmDnATZPCfzTVrsSk5wN9q0e+DceoU8=;
-        b=bur3mCxbiMcNF80ptDek9NPRYEzWF7ghyAYOefNKNl8d0QzCyHEiJW6+FQYELrZcsu
-         elQKneinDZow1gfXRIGlpmUT1eaJpIoMBmc7n3zO2s2GEcmZBdS6CMXcwhWgQF04SMir
-         ka31mDBuvi6wv2bMSkNhtdQAQpFXyYz34V3PUUVAdz2sZ4jEjwr5Krk1KQWUGKAYpA8m
-         jgxVaKVine3fzJOHy7yV0ff8RDEnK1gk716ySgDiJOfa7ubCpGRS0bykyfpHXRJziPqY
-         uCsgpNn/JQ8n9WvD8vAn95h1dA9g/7u1tLRO6QFHJUnELmcboFdnaneb8XB9I54yv3Iz
-         EjzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNFekEoPDsSWjj8m+LRN+h1Mqk5PrRiUeK9196yY0s8adXs7crQ5b8aJ4BNjOMrD6JFV+IpWxLGkGSWA5ZmDBG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvQ7aK4p9YWjC64hezMCBgsuKAW3nnnBMprrwiXZ1D/VSa6Jik
-	t5RcEFiz6ME5cuHKBkDbFQWgHvzTsD3KfYpiCNn1alax45+clYyPktdcqvLa1DXyG8XBVFcJtXK
-	i0QdXZLpHDktj3y51yTzZ+7HitsGb6eU=
-X-Gm-Gg: ASbGnct4qPyRzyR2PkPeqKRfxGrE7ACMKLvleuBLmxP8vJ23AAVYG3a6F/FhqH9vUJx
-	0y0W3q/uKeRfC0iF+GzDCmqA4+mDX6TeP2QQ6EQiSc9uG+PVXwKlX/8FO6dxmwDhIxvp/KHINRk
-	ap7J6UVUnQUl2KCebd6lhqHufTJDix/f1pndh+jhORzHZVpyVGojqvfAdqoR9VTMt+0m6CktBvt
-	u9maDCAniqCLCP0RpPGR3T5TvNn9UYjFqv3D3Y2MSoEZuaGVwu5fLgFp39FJnE+bA==
-X-Google-Smtp-Source: AGHT+IHfxVH6u3MLt6Uuih0vzSbpLygF4jPPQ9s8yqLw/oxh8/QW2NTZ+3Q+TitB6KAglFx0XO0/v8MormCOdtkYPDY=
-X-Received: by 2002:a17:902:d4c1:b0:266:702a:616b with SMTP id
- d9443c01a7336-2681228a5cbmr84479475ad.18.1758198641200; Thu, 18 Sep 2025
- 05:30:41 -0700 (PDT)
+	Thu, 18 Sep 2025 12:31:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 98DC96020F;
+	Thu, 18 Sep 2025 12:31:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABDBC4AF09;
+	Thu, 18 Sep 2025 12:31:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758198715;
+	bh=9YE8xRlSzp0qtaXULH+Q+S0tyjvcR7V5a6iVKARxGWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QKhAH4sTdDcS42MZJjyQjOGuZgD3/4jy171TaLbjCTGU3FRaZc4/90465vNUoGnlV
+	 /gv1qZUHGvREwprA6mY4T0RuAFcIbLvJsqNe/lMntY+4WpUwwVymsoFERsgiQVBTnD
+	 Zp+OjcIaDNgtSSTVqX9enOeXx2njaLZJ/AO6dlLz9PMDBCzh7alQPxshl3UaOH6Psb
+	 ayRPpeoDbYC4okqeVsaBvb8s8dNs3q7awhNnOTKyjEYrgUFK4eSRnnqvXR1L2bjkkf
+	 bxydSLbYzzJYarwnd859HDu/IBnu0dQmK1qgZWogRAD99nR3eT91Cn4AEcY4ROpsNO
+	 nqo1EiabPe0Tw==
+Date: Thu, 18 Sep 2025 13:31:49 +0100
+From: Will Deacon <will@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, catalin.marinas@arm.com,
+	gshan@redhat.com, aneesh.kumar@kernel.org, sami.mujawar@arm.com,
+	sudeep.holla@arm.com, steven.price@arm.com
+Subject: Re: [PATCH v2 3/3] arm64: acpi: Enable ACPI CCEL support
+Message-ID: <aMv7tbA3JGd7ZcbW@willie-the-truck>
+References: <20250908223519.1759020-1-suzuki.poulose@arm.com>
+ <20250908223519.1759020-4-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-References: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com> <20250918-imx_rproc_c2-v1-1-deec8183185f@nxp.com>
-In-Reply-To: <20250918-imx_rproc_c2-v1-1-deec8183185f@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 18 Sep 2025 15:32:58 +0300
-X-Gm-Features: AS18NWDb4GfzMHKRtymYoCSSIMdUKa-LQpWcaz1XI-CRyqhVc2xtdOdWO6gJCWo
-Message-ID: <CAEnQRZB2ZkcRirj1SZkfbsPHyyGr5PfnCDfv+ZuMu_Mj6XKBEQ@mail.gmail.com>
-Subject: Re: [PATCH 1/5] remoteproc: imx_rproc: Simplify clock enable logic
- using dcfg flags
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_053042_154673_937D358D 
-X-CRM114-Status: GOOD (  16.59  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250908223519.1759020-4-suzuki.poulose@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 2:51=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> Simplify the clock enable logic by removing the dedicated
-> imx_rproc_clk_enable() function and integrate the clock handling directly
-> into the probe function to simplify the code.
->
-> Add a new IMX_RPROC_NEED_CLKS flag in dcfg to indicate whether clock
-> management is required for a given SoC. Update probe logic to conditional=
-ly
-> enable clocks based on the new flag.
->
+On Mon, Sep 08, 2025 at 11:35:19PM +0100, Suzuki K Poulose wrote:
+> Add support for ACPI CCEL by handling the EfiACPIMemoryNVS type memory.
+> As per UEFI specifications NVS memory is reserved for Firmware use even
+> after exiting boot services. Thus map the region as read-only.
+> 
+> Cc: Sami Mujawar <sami.mujawar@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v1
+>  - Map NVS region as read-only, update comment to clarify that the region
+>    is reserved for firmware use.
+> 
+> ---
+>  arch/arm64/kernel/acpi.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+> index 4d529ff7ba51..93b70f48a51f 100644
+> --- a/arch/arm64/kernel/acpi.c
+> +++ b/arch/arm64/kernel/acpi.c
+> @@ -360,6 +360,17 @@ void __iomem *acpi_os_ioremap(acpi_physical_address phys, acpi_size size)
+>  			prot = PAGE_KERNEL_RO;
+>  			break;
+>  
+> +		case EFI_ACPI_MEMORY_NVS:
+> +			/*
+> +			 * ACPI NVS marks an area reserved for use by the
+> +			 * firmware, even after exiting the boot service.
+> +			 * This may be used by the firmware for sharing dynamic
+> +			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
+> +			 * as read-only.
+> +			 */
+> +			prot = PAGE_KERNEL_RO;
+> +			break;
+> +
 
-<snip>
+Shouldn't this be merged with the other case handling read-only mappings?
+e.g. something like:
 
-> -               return dev_err_probe(dev, ret, "failed to enable clks\n")=
-;
-> +       /* Remote core is under control of Linux or clock is not managed =
-by firmware */
+		switch (region->type) {
+		case EFI_LOADER_CODE:
+		case EFI_LOADER_DATA:
+		case EFI_BOOT_SERVICES_CODE:
+		case EFI_BOOT_SERVICES_DATA:
+		case EFI_CONVENTIONAL_MEMORY:
+		case EFI_PERSISTENT_MEMORY:
+			if (memblock_is_map_memory(phys) ||
+			    !memblock_is_region_memory(phys, size)) {
+				pr_warn(FW_BUG "requested region covers kernel memory @ %pa\n", &phys);
+				return NULL;
+			}
+			/*
+			 * Mapping kernel memory is permitted if the region in
+			 * question is covered by a single memblock with the
+			 * NOMAP attribute set: this enables the use of ACPI
+			 * table overrides passed via initramfs, which are
+			 * reserved in memory using arch_reserve_mem_area()
+			 * below. As this particular use case only requires
+			 * read access, fall through to the R/O mapping case.
+			 */
+			fallthrough;
 
-I see that you negate the comment from imx_rproc_clk_enable but with
-the negation
-OR becomes AND.
+		case EFI_RUNTIME_SERVICES_CODE:
+			/*
+			 * This would be unusual, but not problematic per se,
+			 * as long as we take care not to create a writable
+			 * mapping for executable code.
+			 */
+			fallthrough;
 
-So, the comment should be:
+		case EFI_ACPI_MEMORY_NVS:
+			/*
+			 * ACPI NVS marks an area reserved for use by the
+			 * firmware, even after exiting the boot service.
+			 * This may be used by the firmware for sharing dynamic
+			 * tables/data (e.g., ACPI CCEL) with the OS. Map it
+			 * as read-only.
+			 */
+			prot = PAGE_KERNEL_RO;
+			break;
 
-/* Handle clocks when remote core is under control of Linux AND the
-clocks are not managed by remote side  FW */
 
-Also, do we really need this flag?
-Shouldn't we just make a decision based on the fact that clk is in the
-device tree or not?
+With that, I'm happy to pick up the series (let me know if you want me
+to make the change above locally to save you a resend).
 
-> +       if (dcfg->flags & IMX_RPROC_NEED_CLKS) {
-> +               priv->clk =3D devm_clk_get_enabled(dev, NULL);
-> +               if (IS_ERR(priv->clk))
-> +                       return dev_err_probe(dev, PTR_ERR(priv->clk), "Fa=
-iled to enable clock\n");
+Will
 
