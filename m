@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED31CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFFFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NnlbipUC3BtCqbOzytdCCPdPTAzXEzDZ9KbLPbjkFP8=; b=Ki6QBBOJLvHCjtcSXcYsAPZmHA
-	Wjzz7awFFHzQk+zh8jtaJOX+ltCGJ/RyX6ehrdqIdG2d+V2h9t+O3+jn7HNovo6xraTiHmbjo//GD
-	LQH2QmTL2cUxTZktkQOmgu6w3WVnk35Ef+w0UxIaCSIaOg3OS0Ob25/NAU+i0Nq/IXudetXKqL7Lw
-	5wyusZgBRuJ7Bk4Lf2JCIkbQ0hyxF6LlapK3WMO/La1OSKcD5Nl2DVVtOrlaHrniWWhoPgS5xFqhQ
-	rswTf7/Ge5FBHF7yHnzQVdGMoUKmTLwNpk4Aw2pQ2Uz2ZZWblMjZ1TNi1s0nCFzcy5XDo8Zgsu//N
-	+Gmd0qYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oRwpANH20f3O41DZeZFj63uF99IcxizRzfbRD2S6WOw=; b=HKzjGHfqU8Wy/UaOZ1YCY0qeNp
+	V5IenK2Y4z80UAielOpErllksYhtpkNZylDeIck8EXDZffmt5CTBPkRz355ql1mDqDW/Symd7IUuZ
+	1VDdG+rZHBsIR3WWrpUJIiZXhyJgos5M3CWPuNOpgY++0n1mVt7Uub7y+wl0hClEVr2op05SOaF9Z
+	AuJiHCma4ruitgBnooLEEsq0LeqxRHsTsW0VWfR2+IAEpvRKMBpSHRw4lrl8OWLNjgh+268XEuBRs
+	z+GGgDP9Picwp4BLT0S75k4ESzPmwgUOxm6EQAqNi+kDWEq3AcXxlJJAKc4EIuhGo1fFPeSZhYp6Y
+	uXVcMHsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCo8-0000000HDVl-0CqR;
-	Thu, 18 Sep 2025 11:28:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzCp0-0000000HDmQ-3BpV;
+	Thu, 18 Sep 2025 11:29:06 +0000
+Received: from mail-m1973196.qiye.163.com ([220.197.31.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCo5-0000000HDUT-3vfx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:28:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2F27843CBA;
-	Thu, 18 Sep 2025 11:28:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E27C4CEE7;
-	Thu, 18 Sep 2025 11:28:07 +0000 (UTC)
-Date: Thu, 18 Sep 2025 12:28:05 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: shechenglong <shechenglong@xfusion.com>
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stone.xulei@xfusion.com,
-	chenjialong@xfusion.com, yuxiating@xfusion.com
-Subject: Re: [PATCH] cpu: fix hard lockup triggered during stress-ng stress
- testing.
-Message-ID: <aMvsxd8nHb5roC0o@arm.com>
-References: <20250918064907.1832-1-shechenglong@xfusion.com>
+	id 1uzCox-0000000HDkD-15Nd;
+	Thu, 18 Sep 2025 11:29:05 +0000
+Received: from [172.16.12.153] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 23446c063;
+	Thu, 18 Sep 2025 19:28:53 +0800 (GMT+08:00)
+Message-ID: <404b35bb-e32b-4830-8d34-d0cfd0a262ff@rock-chips.com>
+Date: Thu, 18 Sep 2025 19:28:52 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Enable DisplayPort for
+ rk3588-evb2
+To: Quentin Schulz <quentin.schulz@cherry.de>, Chaoyi Chen
+ <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
+ FUKAUMI Naoki <naoki@radxa.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Peter Robinson <pbrobinson@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250918062825.194-1-kernel@airkyi.com>
+ <ecc96b5a-2062-43f4-9959-b4e2b126d9f3@cherry.de>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <ecc96b5a-2062-43f4-9959-b4e2b126d9f3@cherry.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250918064907.1832-1-shechenglong@xfusion.com>
+X-HM-Tid: 0a995c959e2a03abkunmced0bb073b07de
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0kYTlYZTUNCSE9DTktNShhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=elkMJm4McaadIkkxl9fxLZoKq6Ze48UUrVlEjcI3WVLV40memdMgXm0I6AlCiX9ppEReD/3c/Nm7xJFq6PpWmPM2GkBysoDpOXA7mmd0Zi3S9um4ewP5ED4b9LA5oLOuzjAq6qC//pV6KmZVkqUt5oA+K/XdNzWO1RJv+q3qbuo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=oRwpANH20f3O41DZeZFj63uF99IcxizRzfbRD2S6WOw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_042810_013575_B65284C2 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20250918_042903_786458_5994182E 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,85 +81,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 02:49:07PM +0800, shechenglong wrote:
-> Context of the Issue:
-> In an ARM64 environment, the following steps were performed:
-> 
-> 1. Repeatedly ran stress-ng to stress the CPU, memory, and I/O.
-> 2. Cyclically executed test case pty06 from the LTP test suite.
-> 3. Added mitigations=off to the GRUB parameters.
-> 
-> After 1–2 hours of stress testing, a hardlockup occurred,
-> causing a system crash.
-> 
-> Root Cause of the Hardlockup:
-> Each time stress-ng starts, it invokes the /sys/kernel/debug/clear_warn_once
-> interface, which clears the values in the memory section from __start_once
-> to __end_once. This caused functions like pr_info_once() — originally
-> designed to print only once — to print again every time stress-ng was called.
-> If the pty06 test case happened to be using the serial module at that same
-> moment, it would sleep in waiter.list within the __down_common function.
-> 
-> After pr_info_once() completed its output using the serial module,
-> it invoked the semaphore up() function to wake up the process waiting
-> in waiter.list. This sequence triggered an A-A deadlock, ultimately
-> leading to a hardlockup and system crash.
-> 
-> To prevent this, a local variable should be used to control and ensure
-> the print operation occurs only once.
-> 
-> Hard lockup call stack:
-> 
-> _raw_spin_lock_nested+168
-> ttwu_queue+180 （rq_lock(rq, &rf); 2nd acquiring the rq->__lock）
-> try_to_wake_up+548
-> wake_up_process+32
-> __up+88
-> up+100
-> __up_console_sem+96
-> console_unlock+696
-> vprintk_emit+428
-> vprintk_default+64
-> vprintk_func+220
-> printk+104
-> spectre_v4_enable_task_mitigation+344
-> __switch_to+100
-> __schedule+1028 (rq_lock(rq, &rf); 1st acquiring the rq->__lock)
-> schedule_idle+48
-> do_idle+388
-> cpu_startup_entry+44
-> secondary_start_kernel+352
+Hi Quentin,
 
-Is the problem actually that we call the spectre v4 stuff on the
-switch_to() path (we can't change this) under the rq_lock() and it
-subsequently calls printk() which takes the console semaphore? I think
-the "once" aspect makes it less likely but does not address the actual
-problem.
+On 9/18/2025 6:39 PM, Quentin Schulz wrote:
+> Hi Chaoyi Chen,
+>
+> On 9/18/25 8:28 AM, Chaoyi Chen wrote:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> The rk3588 evb2 board has a full size DisplayPort connector, enable
+>> for it.
+>>
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> ---
+>>
+>> Changes in v2:
+>>
+>> - Link to V1: https://lore.kernel.org/all/20250916080802.125-1-kernel@airkyi.com/
+>> - Fix invalid DP connector type
+>> - Add more comment about dclk_vp2 parent clock
+>>
+>>   .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 48 +++++++++++++++++++
+>>   1 file changed, 48 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+>> index 91fe810d38d8..60ba6ac55b23 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+>> @@ -25,6 +25,18 @@ chosen {
+>>           stdout-path = "serial2:1500000n8";
+>>       };
+>>   +    dp-con {
+>> +        compatible = "dp-connector";
+>> +        label = "DP OUT";
+>> +        type = "full-size";
+>> +
+>> +        port {
+>> +            dp_con_in: endpoint {
+>> +                remote-endpoint = <&dp0_out_con>;
+>> +            };
+>> +        };
+>> +    };
+>> +
+>>       hdmi-con {
+>>           compatible = "hdmi-connector";
+>>           type = "a";
+>> @@ -106,6 +118,24 @@ vcc5v0_usbdcin: regulator-vcc5v0-usbdcin {
+>>       };
+>>   };
+>>   +&dp0 {
+>> +    pinctrl-0 = <&dp0m0_pins>;
+>> +    pinctrl-names = "default";
+>> +    status = "okay";
+>> +};
+>> +
+>> +&dp0_in {
+>> +    dp0_in_vp2: endpoint {
+>> +        remote-endpoint = <&vp2_out_dp0>;
+>> +    };
+>> +};
+>> +
+>> +&dp0_out {
+>> +    dp0_out_con: endpoint {
+>> +        remote-endpoint = <&dp_con_in>;
+>> +    };
+>> +};
+>> +
+>>   &gpu {
+>>       mali-supply = <&vdd_gpu_s0>;
+>>       sram-supply = <&vdd_gpu_mem_s0>;
+>> @@ -916,6 +946,17 @@ &usb_host1_xhci {
+>>   };
+>>     &vop {
+>> +    /*
+>> +     * If no dedicated PLL was specified, the GPLL would be automatically
+>> +     * assigned as the PLL source for dclk_vop2. As the frequency of GPLL
+>> +     * is 1188 MHz, we can only get typical clock frequencies such as
+>> +     * 74.25MHz, 148.5MHz, 297MHz, 594MHz.
+>> +     *
+>> +     * So here we set the parent clock of VP2 to V0PLL so that we can get
+>> +     * any frequency.
+>> +     */
+>> +    assigned-clocks = <&cru DCLK_VOP2_SRC>;
+>> +    assigned-clock-parents = <&cru PLL_V0PLL>;
+>
+> Are those board-specific? Considering the VOP and DP/HDMI/... controllers/PHYs are all internal to the SoC, would it make sense to have those specified in the SoC DTSI? I'm not familiar with the video output stack so maybe it doesn't apply here or is a bad idea, so I'm not actually asking for a change here, just asking a question :)
 
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index edf1783ffc81..f8663157e041 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -424,8 +424,10 @@ static bool spectre_v4_mitigations_off(void)
->  	bool ret = cpu_mitigations_off() ||
->  		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
->  
-> -	if (ret)
-> -		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
-> +	static atomic_t __printk_once = ATOMIC_INIT(0);
-> +
-> +	if (ret && !atomic_cmpxchg(&__printk_once, 0, 1))
-> +		pr_info("spectre-v4 mitigation disabled by command-line option\n");
->  
->  	return ret;
->  }
+Yep, they are board-specific. Because the V0PLL may be used for non-display applications.
 
-I think we should just avoid the printk() on the
-spectre_v4_enable_task_mitigation() path. Well, I'd remove it altogether
-from the spectre_v4_mitigations_off() as it's called on kernel entry as
-well. Just add a different way to print the status during kernel boot if
-there isn't one already, maybe an initcall.
 
+
+>
+> Cheers,
+> Quentin
+>
+>
 -- 
-Catalin
+Best,
+Chaoyi
+
 
