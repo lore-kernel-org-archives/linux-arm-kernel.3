@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA08CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444AFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 07:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DufheDXAcwKt13HIcOdT0J1PoqZ8mER4Cr9RgR82po=; b=aPp9ZtZi4mujiIiIJ1XTpTd1nt
-	LTY6xOq/4zjfoc4J+My3xjgWcN7ls1k5lu2kl6+iHzICL7WA/lvGVroD7DGYV/n6CIakw3zvVZE9I
-	244AQQTFMnC6qTRlMus2uP5NyJ46qD+l2/ngsok9uJ+tiRzYdJ00ZU321SBJvpWYPQckax14DXmso
-	5NurP5lU0JfTc6uj7PymRPivxeTLAaWTP0I8nxl07HervTy0DgY+9tY/CswBv05o/eXa2X8XNyslE
-	bUhKW3VlO53YUXmzP7opbH0s7wZmydIQP/DtIvD9TId5f9xuKcWZeCyDSwXeuEFcN8nFFQo1+xGew
-	5ahBWMVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TbHeSy+jX+aKGdzJ6PWKAT3NQckL7Kf5JvWuYvDZ0Fk=; b=NPu88Hz9Znltj32LFjM6pGPFYy
+	/jyOM5tmwPxanBq63yu+E1K/qGlCFxMPlc6ch1myotfOqFZOOVZCddFU4F9nf3Qg+j5hQGCC4UbFQ
+	sZBlfwkzvFvr//qC+0jQ9AwPysf1Vj36fVtAX3mtV7LEqarzhMVYximPNlaEkZCBLSlb28nFjygqc
+	4gHr6jo52NGGjTmgJaD7j/jZi1bnOdsVAD/OSYfJIr68Ga2Is0HEnWUXpK6c71JgDoJR09hMI7Hzk
+	q7QUbgjd3K+texljYX8OB+DFR4Q5ZqTUcf2VEVXzF1DW7kXEE+m2HfYrh6EWaDbvwVywwQcOHAq4s
+	YSoxedlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8YZ-0000000GThT-1Xfg;
-	Thu, 18 Sep 2025 06:55:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uz8cd-0000000GUE3-14l3;
+	Thu, 18 Sep 2025 07:00:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8YY-0000000GThN-1OTQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 06:55:50 +0000
+	id 1uz8cb-0000000GUDX-3mq7;
+	Thu, 18 Sep 2025 07:00:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93ECC601FC
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 06:55:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DFA5C4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 06:55:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49B3360010;
+	Thu, 18 Sep 2025 07:00:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1EDC4CEE7;
+	Thu, 18 Sep 2025 07:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758178549;
-	bh=5VZCPFcBb02PaX2Pb4NaxJfMwWgXxK+8Fm0rYfC7mCo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RDjqhAUjldsW07Ijl6Ytiz2S3/MTHNQuzlPFVZnoZFMpGa6sJudFYFfUsaSGtO4BR
-	 dnHQSU/GRR1nSXfxXCDEKbWsqFZO3YZYNy49eUNIdH8q81i4f47Hbb1km4jxv53p7h
-	 3iR4S4PbWGJ1zwREKBRmhYre0NtHkOU24Wyb7betxXUE5CUd4l6G0wRNx8QcxVJzDI
-	 xheg1/F4S04OUs5umUDW+v9I/rPN5kbkIIe3pZADeQYS0NLCvTsEdXIfPHIupXMrGF
-	 TZ5G0y79TXriSWW2sfQDkjXjPSGe8L5puI2MO6uBi7zXBHlzLJvhAzXKPk9NJif0Ts
-	 p4Q1AvYJPvLfg==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-55f78e3cdf9so780422e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 23:55:49 -0700 (PDT)
-X-Gm-Message-State: AOJu0YxXg+zlCzEjdgtV11TjBWYvch1H2fvCkWQNqAZsCYrlii1W0ghM
-	xgDwZ4GemCHIHPcwDKtduia4pq0iRhPr5YW1vap9ceeTn90g0M/3n420aMcBivUtonh3Pwo2ugC
-	/8riSc9iLc/CPOfkiK0LrOLLis3dw1N4=
-X-Google-Smtp-Source: AGHT+IG3qMFBjVRKHprkQ1goahVK+L5EvElqOHFhRyZmDROE2xweJlGMpSYniQAR1mY45hxX+o5/TC0Uyp8YgfGFhCA=
-X-Received: by 2002:a05:6512:ad4:b0:55f:6d6e:1e97 with SMTP id
- 2adb3069b0e04-5779c4811aemr1466545e87.52.1758178547547; Wed, 17 Sep 2025
- 23:55:47 -0700 (PDT)
+	s=k20201202; t=1758178801;
+	bh=GYQQZBRFtvo1wyXj5F3TK1koEo9eY7xeSRvG8LEDgI0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=d8grMfXRdRd3M9C9BtlejCL9yVW52ikV/pMYn+LBjuSxIFfD2fzW2IwFp57BMXb6y
+	 iCAGvdkM16oYI+dPYoIdEmUa6KBm3fNkvTrFQzrlteahCjfaWMXWKFonXhNfQuYFve
+	 p1ExhG2VOMbGyzYQaf+ltk6DzUsfHsS/2WNSCKC/1YnFdhh6Ajc2ezlZYrWjdnh8yo
+	 jrCzHi9wNGtcA/KHM+zk+GvbtuvSQBq+/9ZDS4LKKAJRCvHTim11/8arP4IEbd9GVi
+	 4peqAa/yJQxK7XbxhUoQPayr9L9xG6b5QBgx4VC6FkSZ0gq3f0uubq2DKyuCF/v8Th
+	 K3iNBia4v2Qwg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 18 Sep 2025 08:59:41 +0200
+Subject: [PATCH net-next] net: airoha: Fix PPE_IP_PROTO_CHK register
+ definitions
 MIME-Version: 1.0
-References: <CAHi4H7FKjYf0c90qoN9bSORboru+S718-k1eJYh4pVoDcJPGHw@mail.gmail.com>
- <CAMj1kXGnyNdq5pxY1kZwBr1n9idKvHU=tyCM0Wie5Ys3RkW3SA@mail.gmail.com> <CAHi4H7FcLZVJzGg5Q63MAJFPRDOp1c6507XUXyyz0ajJKdtk=w@mail.gmail.com>
-In-Reply-To: <CAHi4H7FcLZVJzGg5Q63MAJFPRDOp1c6507XUXyyz0ajJKdtk=w@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 18 Sep 2025 08:55:36 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFtrLgS2mp0Y++u06rv5XrKTu=h-LDZ=w-3fxJchCLZpQ@mail.gmail.com>
-X-Gm-Features: AS18NWCzAgOJjuI0wQSqq5IiTPB3kewVTe6JqW7zespWjXvhgZparlV5gtXVxkw
-Message-ID: <CAMj1kXFtrLgS2mp0Y++u06rv5XrKTu=h-LDZ=w-3fxJchCLZpQ@mail.gmail.com>
-Subject: Re: armv7 R_ARM_PREL31 relocation out of range error when loading module
-To: William Zhang <william.zhang@broadcom.com>
-Cc: Linux ARM List <linux-arm-kernel@lists.infradead.org>, 
-	Kursad Oney <kursad.oney@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Wenchung Su <wenchung.su@broadcom.com>, 
-	"song@kernel.org" <song@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250918-ppe_ip_proto_chk_ipv4_mask-fix-v1-1-df36da1b954c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANyty2gC/x3N2wqDMBCE4VeRvTbgsU19FZEQ7bQuUrMkIoL47
+ l28/P6LmZMSIiNRl50UsXPisCrKPKNp9usXht9qqoqqLV6lNSJwLE5i2IKb5kWxN+7n02I+fBg
+ Az3pE6+3Dko5IhOb7oB+u6w9dDuLXcAAAAA==
+X-Change-ID: 20250918-ppe_ip_proto_chk_ipv4_mask-fix-eee73be5a868
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,131 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sept 2025 at 04:11, William Zhang <william.zhang@broadcom.com> w=
-rote:
->
-> On Wed, Sep 17, 2025 at 3:11=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> =
-wrote:
-> >
-> > On Wed, 17 Sept 2025 at 04:55, William Zhang <william.zhang@broadcom.co=
-m> wrote:
-> > >
-> > > Hi,
-> > >
-> > > We recently ran into the driver loading error resulting from
-> > > apply_relocate function when it handle the R_ARM_PREL31 case in
-> > > arch/arm/kernel/module.c:
-> > > section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
-> > > 0x7fad5998)
-> > >
-> > > After some dig, it seems this issue is caused by this change:
-> > > ac3b43283923 ("module: replace module_layout with module_memory")
-> > >
-> > > I can see the necessity of this change but it seems it can cause this
-> > > kind of error under certain configurations. In our particular case, w=
-e
-> > > use the 2G/2G split and our armv7 board has 1GB ddr memory. This mean=
-s
-> > > the kernel lower memory is from 0x8000-0000 to 0xc000-0000 and vmallo=
-c
-> > > range is from 0xc000-0000 and above.
-> > >
-> > > Before this module layout change, the module is loaded through two
-> > > layout sections: core and init. The driver in the test is fairly big
-> > > and core module layout(text, data, rodata, sections) can not fit into
-> > > the 16MB MODULE memory so both text, data and rodata fallback to
-> > > vmalloc range. But with this change, it will text, data and rodata on=
-e
-> > > by one. So it ends up text in the MODULES memory but rodata is
-> > > allocated in VMALLOC and the distance is more than 1GB hence we
-> > > believe it causes the above error when R_ARM_PREL31 relocation can no=
-t
-> > > support more than 1GB offset.
-> > >
-> > > Since the default split is 1G/3G model, the distance between vmalloc
-> > > and module memory is always below 1G so we won't see this issue. But
-> > > it seems to us the problem is real when use 2G/2G split.
-> > >
-> > > It appears the sections containing R_ARM_PREL31 in our driver are
-> > > mostly in .ARM.exidx section. Some search shows this is used by ARM
-> > > C++ exception handling but our driver does not use C++. Is there a wa=
-y
-> > > to disable such section for R_ARM_PREL31? If not, is there any
-> > > workaround or fix to handle this run-time R_ARM_PREL31 relocation
-> > > issue? The same apply_relocate function can handle R_ARM_JUMP24 out o=
-f
-> > > range using PLTS. Can this apply to R_ARM_PREL31?
-> > >
-> >
-> > Hi William,
-> >
-> > Two options come to mind:
-> >
-> > 1) use the frame pointer for unwind information instead of the C++
-> > exception metadata, i.e., enable CONFIG_UNWINDER_FRAME_POINTER
-> >
-> > 2) ensure that ARM.exidx sections are allocated from the same bucket
-> > as the .text sections they annotate, e.g., something like the below
-> >
-> > --- a/arch/arm/kernel/module-plts.c
-> > +++ b/arch/arm/kernel/module-plts.c
-> > @@ -225,6 +225,11 @@
-> >                         mod->arch.init.plt =3D s;
-> >                 else if (s->sh_type =3D=3D SHT_SYMTAB)
-> >                         syms =3D (Elf32_Sym *)s->sh_addr;
-> > +#if defined(CONFIG_ARM_UNWIND) && !defined(CONFIG_VMSPLIT_3G)
-> > +               else if (s->sh_type =3D=3D ELF_SECTION_UNWIND)
-> > +                       s->sh_flags |=3D SHF_EXECINSTR;
-> > +#endif
-> > +
-> >         }
-> >
-> >         if (!mod->arch.core.plt || !mod->arch.init.plt) {
->
-> Thank you Ard for your quick response!   We tried the option 1 and
-> also tried with gcc -fno-unwind-tables option just for the driver,
-> both do not generate any PRREL31 relocation and the driver can load
-> successfully.
-> But we have some tool that needs to use the unwind tables so option 2
-> will be the right direction for us.
->
-> Applied your patch however it still reports the same error but from
-> different section as we confirmed all the ARM.exidx sections are
-> allocated from .text section.
->      mod_mem_type 0 execmem_type 0 base 0x7f3e8000 size 0x6eb000
->      mod_mem_type 1 execmem_type 4 base 0x7fad4000 size 0x9e000
->      mod_mem_type 2 execmem_type 4 base 0xc21a4000 size 0x3dd000
->      mod_mem_type 4 execmem_type 0 base 0x7f1ae000 size 0x1000
->      mod_mem_type 5 execmem_type 4 base 0x7fb73000 size 0x10c000
->      section 43 reloc 11360 sym '': relocation 42 out of range
-> (0x7facca74 -> 0xc2580734)
->
-> This loc address  0x7facca74 is from the MOD_DATA memory based on mod
-> mem allocation log above.
-> I also print some extra info about the dstsect with
->     pr_err("dstsec name %s add %#lx size %u rel 0x%px rel offset %u\n",
->         strtab + dstsec->sh_name, dstsec->sh_addr, dstsec->sh_size,
-> rel, rel->r_offset)
-> and got this print out
->     dstsec name FUNCTION__.2 add 0x7fabd3c0 size 86912 rel 0xc33f931c
-> rel offset 63156
->
-> FUNCTION__.2 is in the rodata section from the symbol table.
->
-> So looks like there is reference to ARM.exidx from the data/rodata
-> section and that also need to be taken care of?
+Fix typo in PPE_IP_PROTO_CHK_IPV4_MASK and PPE_IP_PROTO_CHK_IPV6_MASK
+register mask definitions. This is not a real problem since this
+register is not actually used in the current codebase.
 
-It looks like the ARM.exidx, which is now in .text (the first entry in
-your table), contains a reference to code that is emitted in .rodata
-rather than .text, and .rodata (mod_mem_type 2) is emitted in the
-vmalloc space, and is too far from .text.
+Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_regs.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-If FUNCTION__.2 is really a function, why is it in .rodata and not in .text=
-?
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 150c85995cc1a71d2d7eac58b75f27c19d26e2b5..e1c15c20be8e13197de743d9b590dc80058560a5 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -237,8 +237,8 @@
+ #define PPE_FLOW_CFG_IP4_TCP_FRAG_MASK		BIT(6)
+ 
+ #define REG_PPE_IP_PROTO_CHK(_n)		(((_n) ? PPE2_BASE : PPE1_BASE) + 0x208)
+-#define PPE_IP_PROTO_CHK_IPV4_MASK		GENMASK(15, 0)
+-#define PPE_IP_PROTO_CHK_IPV6_MASK		GENMASK(31, 16)
++#define PPE_IP_PROTO_CHK_IPV4_MASK		GENMASK(31, 16)
++#define PPE_IP_PROTO_CHK_IPV6_MASK		GENMASK(15, 0)
+ 
+ #define REG_PPE_TB_CFG(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x21c)
+ #define PPE_SRAM_TB_NUM_ENTRY_MASK		GENMASK(26, 24)
 
-In any case, the right way to solve this would be to ensure that all
-module sections are allocated in the vmalloc space if they cannot all
-fit into the module region. That is slightly tricky to implement
-correctly, but we could add a heuristic based on the module's overall
-size.
+---
+base-commit: 11bbcfb7668c6f4d97260f7caaefea22678bc31e
+change-id: 20250918-ppe_ip_proto_chk_ipv4_mask-fix-eee73be5a868
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
