@@ -4,72 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DC8CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6BBCAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaDExXeL/34UENiB9oEbazFZaj9laAcFWPbmwXdDets=; b=Rr5w54fwEptvvQEDeeFjh4WQcc
-	yGwZKZxiiM9q6VRIB80pO0wK0iCh4tF3JZORG8MgmIF+dBFppobv+AKDERnKPFIG8awUA7WFOrh/4
-	/6pWsidVgcCjtSWKempLtraKebxPXdQnwCz82hwW3+WrCeksV94Ae1d7pXipL9qs/O5RQssCh+ceG
-	B9B/7NtMDHx15bS7AQTBHrG3rMU9UCPtSiD68hr1xI7KNNDdLkfvriehh9I3jwcM5GdyrBsii6MjE
-	Qdy7WnLv39p2TiywuERBezxyXrqN/P6PENGCFyDXzcFHZ8lUUYgABllnlcHE/cHsaW9eN/ghe2GGd
-	OlRoJt+A==;
+	bh=ac0mCFyKpV2RKj/8Dy7fTHR9vKc1uE3yNVUs0KADz9I=; b=ujKfYkGbaOEHhpclwjQm0MELwa
+	LvLkPTEpwHxParEmTUZDV4Qw4ewnGqyfBDT6st1RMOVn/pIP8DgQ53If9zsuZIx4tNQFRolIzhSto
+	ZXD+kPROBOGb35a1xisJXyJMxZnbhm3nid60LBPibkxOyoCG5X/V+4AznJsik96eVHUpyiVnybG4a
+	rD8W4EIXdjvyO2DHlQ2kCsLRJf9Z8ChvD3640kPAGGIsOCamQMtwGl10eZSjwjbSDk3C2tvfEYCi7
+	0s2UWMVH7LYRuonmV4Ci5CIdQYb2zP0TYFxYNwR0xS033lYkqCi/k6Li/jw58ED04tKRVzGpDWyk7
+	2c40UqBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDJc-0000000HJgo-3oo6;
-	Thu, 18 Sep 2025 12:00:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzDK7-0000000HJpV-0yXX;
+	Thu, 18 Sep 2025 12:01:15 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDJa-0000000HJg9-3hlN
+	id 1uzDK4-0000000HJmf-2h8b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 12:00:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2180A43D2B;
-	Thu, 18 Sep 2025 12:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5567BC4CEE7;
-	Thu, 18 Sep 2025 12:00:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758196842;
-	bh=uaDExXeL/34UENiB9oEbazFZaj9laAcFWPbmwXdDets=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mDj3c0ImOBTRTsZRIde5ZCK1uAHycNbTl5sgkvFeIpdF/A8yKtzFyUj1Lo+LET/DL
-	 G8hTXbzye3PkKcwwep9JJ72BQAdirttpadB1/jkal6vpAWTWhRzRu1J2wwE+LxBkzo
-	 b1htL3aUhflHSRh0Z1oUqnYoJ+4Q+uvpj1ePUmW6ihPNfRs4eJ2Bkd+X+7UdBJ+jAY
-	 PhIFsaTsck/eo3+xsTGL8MeqcYieLWzhrLt/cRQnVUXY+H3T6klGJddQydEBP3vfzv
-	 B6RcFYtocMWIAnbUM2rJnhjMmkwgl0WNbCouEq1G7Sfcv70Co+fl6IvwCcQZgogdzg
-	 w8yDq0I01L5hQ==
-Date: Thu, 18 Sep 2025 13:00:36 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	David Spickett <david.spickett@arm.com>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	Luis Machado <luis.machado.foss@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 3/5] arm64/sme: Support disabling streaming mode via
- ptrace on SME only systems
-Message-ID: <8e99cb8a-cc9b-483c-9b71-22fd640cc1e0@sirena.org.uk>
-References: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
- <20250820-arm64-sme-ptrace-sme-only-v1-3-f7c22b2871f8@kernel.org>
- <aMvxkzg_LT4C4Quh@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bvjGEp7kODe4zFUz"
+	Thu, 18 Sep 2025 12:01:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XXBUKRsmTwKpLRHECdw0vBU+30Kyj9iS3oelz1o3z+8WNqwwajyMHz/+RoH3zsgl8dXFKfKTAOMxGFOFF9UlnokugpUBVKQJWj6wl74qffF07gOmau2P0bUrWNbG5DM+0HlYLUahx8XmbHVSqoK8MGwZOSjQbrTuOvLXX1yDvHwLP+rdtI/6kiLBEbh8ERbx1bivXQdTYMo9a14RViJ32zL6fflJWmx+K3zS/UBSMHz8iTdeEGmQl7916Gcd1tskaWm9xg4RUdj+M2JsLvKgzWc228b65beE3nLdwvvIUHlBWR+muAClWtXfU7yckWxXFBF12vYIJ3wt+LgmXVEAQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ac0mCFyKpV2RKj/8Dy7fTHR9vKc1uE3yNVUs0KADz9I=;
+ b=W16cbXUaWMAgYvD2sp7PFFLLg7cDZuYEG1protum/EuNn237tsO/BcW8VBN/OzJdtZiFuWaaQhs/zNS9TyJJOzp2dAC8AhrB0CgQhD+O9SalXgLYoWFsyXnfd6tikMR1+/zKeUM8pttvdsdfwnbhNMXtqaB8wgAUl7nhPwR3+dfwMNKQXsy4WJNvxTR30H4ra2p4rVt/SrnNVy6WN/a5OLzR5sKhJklQzqFWwRbBq5LxktKuUlvY6StHthB7l/9E4C7dWecCDSMHYoncJsCuxZnA8GZSvCv4Nd2WKQbaFvvaQHlT3lkfkVsRhpkuqWzSdIIQEFj8M4SDSgH2Mu5fWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ac0mCFyKpV2RKj/8Dy7fTHR9vKc1uE3yNVUs0KADz9I=;
+ b=HPfhK71/i0qNAHE2z2tkezBJNBQ43pzP5xUxTxg7jcfmP2KSI2sBvUgPtzZ/fzRhaDATKTIaaJZBqNt7e2BP99ieQ9TLGKFKWPCXGNFNPCM46sL6XYCImqij/AeXwna2FwLmX66TYqpPHfQcgEuPl7wjr3SAIJIoi5AWzZk8JlTEiCvL1hpgULlTixiiUpjTBB1n4LIHGGAXq+vkp1XUQtHNDAvAZiL6yieJZgxfoKdbsnqAwV+WzBLmB+Di70adTGdFKc7EdMt3TjsTPynNTZKgCLKmubsiec8S2oj5kZc78vjHBh/c/9lCnanptzfalWHDyrXO/+ZD/F0NLSQhPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM0PR04MB7028.eurprd04.prod.outlook.com (2603:10a6:208:19a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Thu, 18 Sep
+ 2025 12:00:57 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
+ 12:00:57 +0000
+Date: Thu, 18 Sep 2025 21:12:30 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Dhruva Gole <d-gole@ti.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	imx@lists.linux.dev, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] pmdomain: core: Introduce
+ device_set/get_out_band_wakeup()
+Message-ID: <20250918131230.GD9196@nxa18884-linux.ap.freescale.net>
+References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
+ <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
+ <20250918095950.h7wmz2qj5e6khtwr@lcpd911>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aMvxkzg_LT4C4Quh@willie-the-truck>
-X-Cookie: Victory uber allies!
+In-Reply-To: <20250918095950.h7wmz2qj5e6khtwr@lcpd911>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: MAXPR01CA0108.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::26) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB7028:EE_
+X-MS-Office365-Filtering-Correlation-Id: 766b5fe5-475e-4fa8-3772-08ddf6ab0713
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I2Uz2+0ozq9GE4b/crDhY/KVG/4B0JHNjiJdHmWTfom2Wp1cpj5kJjal81nI?=
+ =?us-ascii?Q?2deEddtAD5WR3RYe9/MasYHtvVbA7+4aP0tKT0mUFZZ+zlhV4AiFjiJdnyGx?=
+ =?us-ascii?Q?uvmN60c0z7/BQ3OUYaq4UD7EO9lfzPmYx7F1IrWQH73Vv1wr+VSaLviUhRC/?=
+ =?us-ascii?Q?zagZysS8CxgF8jzrvCIml7+DAhh+6eo+N1mY+uxgsc6k56TQp2zuG6MPw4Lo?=
+ =?us-ascii?Q?SjWAowE8vpg7RKr71s7/xQnkBhLTceG1bAqZ7UTPMFamLLSduux3ySscpIt0?=
+ =?us-ascii?Q?a+Tyf+Gqeh6CtKi88VHOs0oLWLTc9g1HH5kTueD05iuvxpceCZEhEZzwt5s7?=
+ =?us-ascii?Q?Iy/0gx9zSP6u0FCgYcSgaw41zjTwwYRxQ3oisRSrXFG3ykXU2hMNZF2V+hNd?=
+ =?us-ascii?Q?Jh2fPXRH26rFfGcVuT2k67p+KiERGHXgC7iOGtNQo2yuRNAFwp8i9U4fECeQ?=
+ =?us-ascii?Q?dP8JsSEtSa9Olba2QDhQ6HTbA9PQozsd/TYFSeeu/GpprNn6+SPEUXwsbPrZ?=
+ =?us-ascii?Q?LHabJtU6FqDNQEAmjwCSeasfg4PJg5o7iJWzqsmpiR/0ADFx6kcIV3yteBEf?=
+ =?us-ascii?Q?dPugjgbGWzNrCpvcpcIw24A4mb9r9FRzgcRmt/5oXnGqWNbAg3S4KZ/NsEOI?=
+ =?us-ascii?Q?jqK4NXa6T/+8wMgi5VXTVfhsIsEIrEdz3GR9DCDzHBsynJu9w2Nh2aUBZUrU?=
+ =?us-ascii?Q?gF3WcbbR8sl5V29uEzud/NMImtsW6xaE97JFqLF9B69WdTKQ8Ecta+qxxtMA?=
+ =?us-ascii?Q?0IbMMZUztibaEsuNKPWkCl0xZ/rfEVC+fm40Goei+jpHIyhva1gQF0V8GuTV?=
+ =?us-ascii?Q?u/v/V0oonxqqmpWPOvRnpqexD3cY9N6CQssLdGlxb6hsO3SO/CRE1zUuuvXK?=
+ =?us-ascii?Q?ektkRfDHycAJKGluKRry0bbVaHw89GuR5LAAHzI61LQndmyG8KI4XV9VVHQM?=
+ =?us-ascii?Q?9Pwi5qVqWVnoApZvezgrq7ars/PdDDddI6aM3fOyLzgK7BvyqksGcsCaRvXZ?=
+ =?us-ascii?Q?kS7xMyUD9jrxcbr+DJyjDFES1ojB+h5UTG72b9ACJF7TywXmv8hH70DisKeC?=
+ =?us-ascii?Q?ggr8aBJ1Gm09c++0FiCwo4pWuWDcdqjQxSMg1zFf4/D9jwrFJjWILD6BLpla?=
+ =?us-ascii?Q?KteaS506TpnVbybUREJSGlkcJZjgDPlkKC9dNEjY6e+ImknlQW15fCI3tVGg?=
+ =?us-ascii?Q?euxTxze8PGAu34DdbjWiNAXZt2/OdAjAaMr9e0/9xPrB9RgkHX1PJtyYgb7q?=
+ =?us-ascii?Q?q5c2jNfjpv2zPmWVWV6sxSCeJ16I9f3zCwVK/BBoTOp6RdcZaYGbE90b7Ur5?=
+ =?us-ascii?Q?a/8m6fHIf9Qr21uGAqMsj/Fxkif0+wy1FcKa1Zjb5f8u555dMRmDuPR/nfCn?=
+ =?us-ascii?Q?nuHY96kH0pjkkRw/oTnpW4HwKa5+hkKDYSZQIvz8w+QBh+p5ZCny7Iildccn?=
+ =?us-ascii?Q?PwAfVr+9gPoZwbbZ8pCKjl4QeQ4BOznT86SHJL+XmT7NngtHfl3uZA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uXxodyMRB85gHcvSijv3hROz0udSMto+Ncmk/L8bjU8Ri5Jq6RSyMkP4aPQ3?=
+ =?us-ascii?Q?HD39KTBoJQZlvIKm95oFueyDvLAxYxjPVGFZSDnioZsgg5BMdJj/AmGEM3zP?=
+ =?us-ascii?Q?BZJqhwyuDvIZxDF9pi24imaAf8heDnx4Ru+el5m/7DJWnaeMrDPyOtWESVcV?=
+ =?us-ascii?Q?fn+IaGUZ6ls7UCWsPYWAxTWOGKg1VIp6lr2Rvwgq368Kwc8uooDJGe6cogZH?=
+ =?us-ascii?Q?p6IurQyvOgxiuwRYJKws2EACehLvr8PozNQkDSDx+1QXWs11xsgNKfti68Yo?=
+ =?us-ascii?Q?fV2WscmXsR0yzfnDvMH1ZZH2yGpDLvXxW6vvmbeGWp0M2tA5mbzpaxisDjlp?=
+ =?us-ascii?Q?zD+4EnhEykr9b4OnV+zaeNSw5EIyy+xwttNubapNQQMuhgnjZowa5tdJv1aw?=
+ =?us-ascii?Q?83tinIP5KgVLnf5EhgLz3opVw0gLug6eqwmjO4g5ksnPSITFa2gOKAaY/Fjx?=
+ =?us-ascii?Q?QdAEesfo6LDAbt/mXcArniO3kWDgl49333L9bK/VjfoU0nrDrHcgtttHddFi?=
+ =?us-ascii?Q?a/iZno0Qw9JdKLmWYWBBW6/s1nqtKqHI6+SDmhfii8vUO3WK7rIUopBR7Txi?=
+ =?us-ascii?Q?r1VGTh7zqykpwXyPVi71JDph0SJE/g9VYWo9tyJhTwuJ4KIK6XaOk09lDmLi?=
+ =?us-ascii?Q?whw5IigDQ/XNGG2lrhwJ909X7kgfoTICFiUxbC4cOEicLJfOBhRctRQ6mscp?=
+ =?us-ascii?Q?IZ5aqzXvzLe4yOPwijPc7XXT7aVhakwXsjB316UCCTlk900wYE/vwCoFMp/g?=
+ =?us-ascii?Q?e2H8CLrZ3QsLLVFsNWrI73UujM2ckQew9lDJ/Xu7+sozH3JWTjp1G2CDVN/V?=
+ =?us-ascii?Q?ZbPyoS1P0xEGFbPZXagLcBDvvzZcN0dSTuzZQjk1WAteho9iVyiP9jjGecSb?=
+ =?us-ascii?Q?jYBERrCw9KEaKKdr/QxmGCck8t3EQBSgCzrhxdrZyUagfdyeJNg/jEj81dxv?=
+ =?us-ascii?Q?I/YdLx3sKcTJ30lX4MGSxuHIFeytnPitZv07/a5u5e5EI+yZbprtBVFcr9hG?=
+ =?us-ascii?Q?StwiQiN+bFTwPAmn7bFtFBLhLjyLrJEXC7Bitj1ynGH4HKi62eKddnu59PfA?=
+ =?us-ascii?Q?cPt6+xsipQUWgVFKsRhiP1C3v/GfRT2/t7q5HwflpKOnWQhCgjfmok3OxmZ6?=
+ =?us-ascii?Q?jCxTZhPpwmIIGxYykZpcumZoTn4ShNlyTp/FjIT0NhwU5q4gYwfCLqWJtKoX?=
+ =?us-ascii?Q?83hMsmxJ9tDx9vOcVFVXZZ64wjvbuP4+vyNOnIx9r7/n8njpyez0+J14+mkc?=
+ =?us-ascii?Q?FWVxI5Uq2pFAz78P4EnnU8hEMOBCIKCwOB+G8vga/YUy8MPc5WBurGOC2Hbx?=
+ =?us-ascii?Q?zawrXfg15vN+wlAnjohFtQ8wDsMl5OWYr45KLRatgDsm/gOX8j8agbho/6x0?=
+ =?us-ascii?Q?8Ade8Oi0JnSFVir5iNMhWkfs/6gFDUVb9Ikua7eypSE2Gf2lX7EGQhM25eDR?=
+ =?us-ascii?Q?IrocDe4dWHi6WEmLUe51mwojg4FwshJDJyHysMGq9wkUd4aVPkZyQQVjhGZV?=
+ =?us-ascii?Q?dCN55mGLBCHpOViQ52jfPguBRHsy0lJKZlArYW06h/qD/DSzLwLjyqd7US9x?=
+ =?us-ascii?Q?OcbuyttdWbAK0bHy0qm7ZSIHP4Kx1Oz4Bxg7Iui0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 766b5fe5-475e-4fa8-3772-08ddf6ab0713
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 12:00:57.7992
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QQKU4wmAH6OCVb27WsjlUPF+y15bakFr0FbMQLlX9y5A4mac+ZlLQvNExpNGaUtkGPFPdwK+TrBi6DFaK4YUyQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_050042_941300_798F7BA4 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250918_050112_688048_7BDB2B39 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +175,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dhruva,
 
---bvjGEp7kODe4zFUz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Thu, Sep 18, 2025 at 03:29:50PM +0530, Dhruva Gole wrote:
+>On Sep 02, 2025 at 11:33:00 +0800, Peng Fan wrote:
+>> For some cases, a device could still wakeup the system even if its power
+>> domain is in off state, because the device's wakeup hardware logic is
+>> in an always-on domain.
+>> 
+>> To support this case, introduce device_set/get_out_band_wakeup() to
+>> allow device drivers to control the behaviour in genpd for a device
+>> that is attached to it.
+>> 
+>
+>Thinking more into it, to me it seems like if the intent here is to only
+>allow the device drivers to figure out whether they should be or not be
+>executing the suspend/resume_noirqs then that can still be checked by
+>wisely using the device set_wakeup APIs in the driver itself.
+>
+>Not sure why this patch should be necessary for a
+>driver to execute the suspend_noirq or not. That decision can very well
+>be taken inside the driver's suspend resume_noirq hooks based on wakeup
+>capability and wake_enabled statuses.
 
-On Thu, Sep 18, 2025 at 12:48:35PM +0100, Will Deacon wrote:
+I should join today's SCMI meeting, but something else caught me (:
 
-> It would be good to have an Ack from the userspace side (GDB?) so that
-> we know that the minimal ABI change you're proposing is sufficient.
+Thanks for looking into this. 
 
-Yes, we need confirmation from the userspace side before this is merged.
-I've had some informal feedback from some of the Arm people that was
-positive but they needed to do some more thorough validation, and we
-need feedback from people outside Arm too.
+In genpd_suspend_finish, genpd_sync_power_off will be called if
+"(device_awake_path(dev) && genpd_is_active_wakeup(genpd))" is false.
+So if the device is enabled wakeup, the genpd will not be turned off because
+the check return true.
 
-> In the meantime, I'll pick up the first two selftests as they are
-> independent of this part.
+But to i.MX, if the device is configured as wakeup source, we still need to
+power off the power domain, because the device has out-of-band wakeup logic.
 
-Thanks.
+This patch is to make sure the power domain could be powered off in
+suspend flow and powered up in resume flow.
 
---bvjGEp7kODe4zFUz
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks,
+Peng
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjL9GMACgkQJNaLcl1U
-h9C86gf+OjW6SC1j2hLmMmr8tVWsSjMpw6sm0E+0BYO1sNqhyaVpq7tZ480kgRuG
-Zun/blkfFADtOYns4v0uejGuAgUPZh1rUd2PPsrpJXCgzIZ8l7ybYHSNcDp+O6sv
-4tvtC63ooo4Hw4so+ldcrx790Wm9hQbtdcCbCLrnr8E1mStPjGevJ2Dl4oczpS9Q
-59XgVlzbsimHPb6DgRPziNyjo/k9DGYMr+BRO/Ysqq5LLNde6X1bT1gpozjytV+h
-UgQr5UcnPjmwgBedNGnhPntpno5xXusX3pp7LH6AJUzWI9G+okL4dMIL91iwhk0I
-6vjx6PdurHVoAZHfRnaPgolpi6lnUw==
-=BfEc
------END PGP SIGNATURE-----
-
---bvjGEp7kODe4zFUz--
+>
+>Just a pseudo code:
+>```
+>driver_suspend_noirq () {
+>	if (device_may_wakeup()) {
+>		// do the sequence where the power domain might get turned off
+>		// but like you say device can do some out band wakeup
+>		return XXX;
+>	}
+>	// regular suspend sequence here... maybe inband wakeup config / clk
+>	// disable etc...
+>}
+> ```
+>
+>And something similar in resume_noirq?
+>
+>Just need to make sure that the probe func does the
+>device_set_wakeup_enable or capable stuff correctly as per your H/w and
+>wakeup requirements...
+>
+>
+>-- 
+>Best regards,
+>Dhruva Gole
+>Texas Instruments Incorporated
 
