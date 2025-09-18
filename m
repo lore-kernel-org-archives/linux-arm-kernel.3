@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588E9CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05ACCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jb1pRnQYPxbV6CCIi5ryq04r8KcK0UIvbIOR3Rk09w=; b=hPYKH29135fxJ03rJtJfG6mXas
-	1fdv7GB7j9UVixrWdXZuVWPpw6yE6WhUkDuNPLHATslMOK9ZMhVI5u88crMC5tQoabKCE+ikDG2Wc
-	/MvJZGsbf2LpSPos3WcWwuQgnTogNxL2ioHGyUB7uOim/pmzImYCoVxx/Vkoor58LaUp2q3kxZjZ7
-	Hr8xiKn85+fE/PQXHB1SM9p9wHk0rfs0PFyObDZU93G5VpVkHQEnRAQTmRBH+VE3Wwz5orVrhNdVn
-	xLn5YS5MYrzcBDWl4hNGrilXG/M0LQeVQHmBCHj4FPO9CdNUFXDeSCsPRUg8okBBoG0Mt4xk/ozok
-	KBEhj72w==;
+	bh=y08FxHfY7Xuz5yzBq1LBc71S9ItO79pb/vbfHtfZFok=; b=qplowaZDWm25Y3rw9PZA5+qKWZ
+	Z+0FHq3ABKTeXom3bUwkpmDXpMtpoVhzosXKFoZyGvbLAVkmtV0Nsn7hl5XCJJHvP+WAZUvF4axex
+	DaJMRrKD6ziK9UBlBISUpW+4NZ6bj2FK3R1XJumerXTNx8wiHYXnEHOLO+R5J0LRF2TTLoAUrkxxC
+	+YdL50e4ddrdcazWVblZmrnci5UMxghfxCWz90/qoxKwxdzFx056dlobzImC2Y3fXCo5wvXEWFH4W
+	k7MDziwxts3JGOVVux5tuPHKbPHcza/4akgbASrbpYRtj6CyE8Z6Bv57Kn89lRo0W2znQDOKRQ/ke
+	lZeZaaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzJho-00000000ulT-1xlz;
-	Thu, 18 Sep 2025 18:50:08 +0000
+	id 1uzJhp-00000000umL-0bTX;
+	Thu, 18 Sep 2025 18:50:09 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzJhf-00000000uf6-1d6F;
+	id 1uzJhf-00000000ufC-25Le;
 	Thu, 18 Sep 2025 18:49:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9DF486026C;
+	by tor.source.kernel.org (Postfix) with ESMTP id A11D56026E;
 	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 17B7DC4AF13;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B556C116B1;
 	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758221398;
-	bh=KkndGZ2cFeTM19fVBhPaNoLbiQh6UVaVfyXkJUdBXsk=;
+	bh=0toEdpgdrAHwzWBocpkLTIinw0pb9FWHXvtuM2MoRow=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=q+G1lq5eX76T2uqv5/HptLwuHYisvdH2xVJ/ZCMJJY6xr2aJTQXo9pEOxrZnnjCIS
-	 4Jcyw/H5/f1UeJ0rIJ+Isukjgkqa6HA7uhIjZIn3KtTAJk8CS/F4A32JKiKo2NEBSj
-	 NjEjRSWTo/j1UwN6t5HQhkjaXOwZtYrFJrO186EFXZ8UeYsCKYC52J9VGlbkrnLrM9
-	 R1myopw6va0UYQlS1Aiiun+qE8l3JmQ3vz41yX+kjaWgjBbtd+/4ZCXsMNCfBYdtCh
-	 nG5Y1pYE8wXAmoaASW2Xp+nMDEYtmrAMLaXpt9fjKXmapvLMRRqfWQhXKAMTWv9FHN
-	 T7PiVg/UCQfWQ==
+	b=mXTa/7ZTSyoRUPq0LQumllP2bsy6xtHw59fnlRGrCpAMMrQy4Uls6SEbrDebF3128
+	 YpCJ1745BR8ndtD5NrHPFLqZD56yFrg463l+6bPD7F3ty+ZC8Q9ei3PjQkEVxD8KEd
+	 yZ7nhF7sgZ3vLyKHqeXo0DuVFBEh+NUdy4XZ4BxklfDLOhcSlJz3e4twocACzX0PCN
+	 wcim4j1KWKTIqVnbKUuUz65L7FokbPceYxlodBk66B0/LiHvtNCdsfluXDHoXXUJGl
+	 +DkO1/0KzhaBKatU7mmbBoW21zDgo3tPmXfjRsR2y6xhXodHQji0MdbqW01qnlIV7Y
+	 NMAB2bTu2PQQQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F57CCAC59A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D1E0CAC5A7;
 	Thu, 18 Sep 2025 18:49:58 +0000 (UTC)
 From: Dang Huynh via B4 Relay <devnull+dang.huynh.mainlining.org@kernel.org>
-Date: Fri, 19 Sep 2025 01:48:44 +0700
-Subject: [PATCH 04/10] dt-bindings: mmc: Add RDA SDMMC controller
+Date: Fri, 19 Sep 2025 01:48:46 +0700
+Subject: [PATCH 06/10] gpio: rda: Make direction register unreadable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250919-rda8810pl-mmc-v1-4-d4f08a05ba4d@mainlining.org>
+Message-Id: <20250919-rda8810pl-mmc-v1-6-d4f08a05ba4d@mainlining.org>
 References: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
 In-Reply-To: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
 To: Manivannan Sadhasivam <mani@kernel.org>, 
@@ -69,11 +69,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org,
  dmaengine@vger.kernel.org, linux-mmc@vger.kernel.org, 
  linux-hardening@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758221395; l=2667;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758221395; l=985;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=AsSx2jfyiIl9tD1PzUkU8B/80/dNLISAbs6T475/JWo=;
- b=m1jZ5iiJdDLR2oNGhbZc1KvGaZ/RhK/lM0bAsauM7cx684WiuGLwZlK4HFh7moDg6YJ4FQU+R
- ttMceldPwaYBD+EGfHCFOX0uBSgU42qv2H8yNPUABQPx0Skg+RH4jnz
+ bh=VMMKg4HONUFRzO6+25FovvsxOlucUttBjgwEeb3Ns7Q=;
+ b=iAakQHayFHGXZ7IKRgsLgfpt3RDZjxa0+TASp4ZeKYUKatPRehTsYyn/QN0h83ue75flIlEEa
+ Z292tJSmrBCA/7rCRSbbK0qIuX2/EJRrE+U7wNAYUXGkbpIODs8+5p8
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-Endpoint-Received: by B4 Relay for dang.huynh@mainlining.org/20250917
@@ -96,112 +96,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dang Huynh <dang.huynh@mainlining.org>
 
-Add documentation describing the SD/MMC controller in RDA Micro
-RDA8810PL SoC.
+The register doesn't like to be read and would cause all the input
+to be switched to output.
+
+This causes the SD Card Detect GPIO to misbehaves in the OS and/or
+may cause hardware to malfunction.
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- Documentation/devicetree/bindings/mmc/rda,mmc.yaml | 92 ++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ drivers/gpio/gpio-rda.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mmc/rda,mmc.yaml b/Documentation/devicetree/bindings/mmc/rda,mmc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..f3cda38abd66023ca9bc94d1c29df5ae9e211e7c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mmc/rda,mmc.yaml
-@@ -0,0 +1,92 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mmc/rda,mmc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: RDA Micro SD/MMC Controller
-+
-+allOf:
-+  - $ref: mmc-controller.yaml
-+
-+maintainers:
-+  - Dang Huynh <dang.huynh@mainlining.org>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - rda,8810pl-mmc
-+      - const: rda,mmc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: mclk
-+
-+  resets:
-+    maxItems: 1
-+
-+  dmas:
-+    maxItems: 2
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+      - const: rx
-+
-+  rda,mclk-adj:
-+    $ref: /schemas/types.yaml#/definitions/uint8
-+    description:
-+      Some board need MCLK output to be delayed for the card to work.
-+      If not present, MCLK output is not delayed.
-+    minimum: 0
-+    maximum: 255
-+
-+  rda,mclk-inv:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description:
-+      Some board need MCLK to be inverted for the card to work.
-+      If not present, MCLK is not inverted.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - resets
-+  - dmas
-+  - dma-names
-+  - vmmc-supply
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/rda,8810pl-apclk.h>
-+    #include <dt-bindings/dma/rda-ifc.h>
-+    mmc@20950000 {
-+      compatible = "rda,8810pl-mmc", "rda,mmc";
-+      reg = <0x20950000 0x1000>;
-+      interrupts = <3 IRQ_TYPE_LEVEL_HIGH>;
-+      clocks = <&ap_syscon CLK_APB2>;
-+      clock-names = "mclk";
-+      resets = <&ap_syscon RST_APB2_SDMMC1>;
-+      dmas = <&ifc IFC_SDMMC1_TX>, <&ifc IFC_SDMMC1_RX>;
-+      dma-names = "tx", "rx";
-+      vmmc-supply = <&vdd_sdmmc>;
-+      rda,mclk-adj = /bits/ 8 <1>;
-+      rda,mclk-inv;
-+    };
-+
-+...
+diff --git a/drivers/gpio/gpio-rda.c b/drivers/gpio/gpio-rda.c
+index 7d20dbbb6ec41149a1dbf4d9ef9ac86449773c35..ae2efa22755986b5445fdb8d4f004d595c189590 100644
+--- a/drivers/gpio/gpio-rda.c
++++ b/drivers/gpio/gpio-rda.c
+@@ -245,7 +245,7 @@ static int rda_gpio_probe(struct platform_device *pdev)
+ 		.clr = rda_gpio->base + RDA_GPIO_CLR,
+ 		.dirout = rda_gpio->base + RDA_GPIO_OEN_SET_OUT,
+ 		.dirin = rda_gpio->base + RDA_GPIO_OEN_SET_IN,
+-		.flags = BGPIOF_READ_OUTPUT_REG_SET,
++		.flags = BGPIOF_READ_OUTPUT_REG_SET | BGPIOF_UNREADABLE_REG_DIR,
+ 	};
+ 
+ 	ret = gpio_generic_chip_init(&rda_gpio->chip, &config);
 
 -- 
 2.51.0
