@@ -4,83 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3194BCAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2461DCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cIQLYp/OHA3Nxqr2cofyCtvzhHUN2c6iuEuWJCGj1Kc=; b=Y01oqEwbKGgu0Ao6MNEmI6YN+q
-	RnxQSv4uqWxtqxZO+nzsg57u5U0GiT+i1fYncgnLdIKRXnQ7K6dQTLQjtDys36QUQ3IBLnW9fRb2x
-	ewkGn69XCBJ/Ma0gtTtU9bsubu5VsYlkMb3JqdhM/5v608O0i+taHT8Qw02bA3p7VFohJQ7xsaelz
-	GtpXf+fpUgG7AjlJ6hT5e4vz36PtCQ/ZOrtBYlNJo9mGA/0uMnHshrTvRf6q/TOuyd6V6+LIcV4MT
-	ZaU8ZTg3/yY/uOR44b0u15ObGd0l3jIsSMLJUMy+bQGcM7uNfefPymwV2C3w/JqPAymx8iObWUFT7
-	EK53iZcg==;
+	bh=Mc3fS2VWXE2pyubwdxP2DRybFy3WR+qfO+Q17V1dQbg=; b=I4pzEqnrn0PnlPEo/prrdLW9tV
+	UhHPLDu9YNqPTnls88EFX4GBdQ72tGJXE9k8Ka0KZqj5vi3wisawU28PvLvp46c4qtXeCDSsGf3WG
+	bQSh0fYUW3oy739+OtbBg2uRmBZsb51thPsWZ3sYV9AvUmawYm6tWGiAe7fjk4xCIj1NZ2vK4kdao
+	D1XHyblPc2gmRU8+SESPvQImLuiIy4kkHQ5N9z06weSyVflc2WyIKiIKH9Kq1CBGfMvJuPi0OaD+X
+	RRlp/NaUdR+s2ryNOrS6FV432l4jKhl2Sb+vO7EUFOPP1/LoNwIvefM0FFrrjV9Lqlp9AGUOlLXza
+	vVN3Mmfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2mY-0000000Frxh-3W6I;
-	Thu, 18 Sep 2025 00:45:54 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uz35X-0000000FtiO-2Ygi;
+	Thu, 18 Sep 2025 01:05:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2mU-0000000Frqm-2g2I;
-	Thu, 18 Sep 2025 00:45:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758156348;
-	bh=sqX5poYuBDuieqUSU013OH1LEJKefqNyHLAHWCY+yJw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XSJV6IB05RrqByozzoHqQHKp0Q6dZXA6RQlRx2GysJ7CiC+NuhaUEQ0kwaF834GIY
-	 67AQe1bV4OlH8WwYlZNUxngiN3MwpCH4h+FNdg1hQFAIxFybjOT8332Q19/4rNGh91
-	 ilSrZCE4liaTmH97TceN1kSyFSyEkL9uTZNHlVoecvqOPEN4AXUTLOZb3+4Uuef6kg
-	 hwMw5M9wZWUDVJqJOVfFEbarDmJVkPgYGGn3cQ6duv9FRaL4AzhCuubV2OwF45DVLt
-	 pBNyCJDDkVIHIcf1CmMP/PcJC+yPm2hEPlCtAJ099vEtP4UMUcCY4OmBw02NcUJhfk
-	 h8wbsEwl2sK6w==
-Received: from [127.0.1.1] (unknown [IPv6:2600:4041:5b1a:9400:62f0:406e:ac79:4a96])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 844C517E1389;
-	Thu, 18 Sep 2025 02:45:41 +0200 (CEST)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 17 Sep 2025 20:43:29 -0400
-Subject: [PATCH RFC v2 20/20] drm/vkms: Set post-blend color pipeline
- driver cap
+	id 1uz35U-0000000Fthp-2n7t
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Sep 2025 01:05:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C72A043A73;
+	Thu, 18 Sep 2025 01:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB3DFC4CEE7;
+	Thu, 18 Sep 2025 01:05:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758157527;
+	bh=K2vKOlj/LnRm8R3/PVr8lNG8eeHcjdyTPfADAPj9Jf8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=M+i3QqxqzASRQSApDZxomxjRIQu1K+CMyvJv5vHvFWwL6lniSMq+F3VJXeKPnoKrP
+	 mvwN50lITvHk3pfsc5tg8gmtvkjoNGohAO2KYx+pahEshxslNdCK6N+lfft8qFBSu6
+	 FwXTFqluSwv9m/AEg2R9RGs7M9QUx2hqLDbqC52VPWE1qtJsuwWoMoYgbe0mIAGcP+
+	 giwksq1CKMjEZxAKS0chHgO2B4scjfMb3TYOicupSJmBZ6BYWgrkgnnkxyy1DTvK93
+	 xXIn1iCivgC/uIR9qZhRfi0VzG7BSQa6KsFeJpFc3N8qQaJZbHUjsLng0uMs6TnKJU
+	 h6J7xlan8FRXg==
+Message-ID: <59d50dee-cd6a-4eab-860a-bf6d50d9bb0a@kernel.org>
+Date: Thu, 18 Sep 2025 10:05:21 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-20-ac4471b44758@collabora.com>
-References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
-In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org, 
- harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com, 
- pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com, 
- jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com, 
- agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org, 
- xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com, 
- quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, 
- marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com, 
- chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, 
- mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com, 
- leandro.ribeiro@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Simona Vetter <simona.vetter@ffwll.ch>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] Add support for the Axis ARTPEC-9 SoC
+To: Ravi Patel <ravi.patel@samsung.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, jesper.nilsson@axis.com, lars.persson@axis.com,
+ mturquette@baylibre.com, sboyd@kernel.org, alim.akhtar@samsung.com,
+ s.nawrocki@samsung.com, cw00.choi@samsung.com
+Cc: ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, pjsin865@coasia.com, gwk1013@coasia.com,
+ bread@coasia.com, jspark@coasia.com, limjh0823@coasia.com,
+ lightwise@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
+ shradha.t@samsung.com, swathi.ks@samsung.com, kenkim@coasia.com
+References: <CGME20250917085019epcas5p273ef86028a90e78ada55cde48a28a949@epcas5p2.samsung.com>
+ <20250917085005.89819-1-ravi.patel@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250917085005.89819-1-ravi.patel@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_174550_848296_149D0269 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250917_180528_755278_601D26DC 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +125,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the driver implements post-blend color pipelines, set the
-driver cap so they can be used from userspace.
+On 17/09/2025 17:49, Ravi Patel wrote:
+> Add basic support for the Axis ARTPEC-9 SoC which contains
+> 6-core Cortex-A55 CPU and other several IPs. This SoC is an
+> Axis-designed chipset used in surveillance camera products.
+> 
+> This ARTPEC-9 SoC has a variety of Samsung-specific IP blocks and
+> Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
+> 
+> This patch series includes below changes:
+> - CMU (Clock Management Unit) driver and its bindings (patch #1 to #3)
+> - PMU bindings (patch #4)
+> - Basic Device Tree for ARTPEC-9 SoC and boards (patch #5 to #7)
+> 
+> The patch series has been tested on the ARTPEC-9 EVB with
+> Linux Samsung SoC tree (for-next branch) and intended
+> to be merged via the `arm-soc` tree.
+> 
+> NOTE: This patch series is dependent on following floating patches:
+> 1. https://lore.kernel.org/all/20250917070004.87872-1-ravi.patel@samsung.com/T/#t
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- drivers/gpu/drm/vkms/vkms_drv.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+NAK, sorry, DTS cannot depend on the drivers. Please decouple the
+dependencies.
 
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-index e8472d9b6e3b2b5d6d497763288bf3dc6fde5987..4cc67a789d28288575235b7efc87bc5e45d668cc 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.c
-+++ b/drivers/gpu/drm/vkms/vkms_drv.c
-@@ -80,7 +80,8 @@ static void vkms_atomic_commit_tail(struct drm_atomic_state *old_state)
- }
- 
- static const struct drm_driver vkms_driver = {
--	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM,
-+	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM |
-+				  DRIVER_POST_BLEND_COLOR_PIPELINE,
- 	.fops			= &vkms_driver_fops,
- 	DRM_GEM_SHMEM_DRIVER_OPS,
- 	DRM_FBDEV_SHMEM_DRIVER_OPS,
+Maybe you wanted to point me where the bindings are, but then say so.
 
--- 
-2.50.1
 
+> 2. https://lore.kernel.org/all/20250917071342.5637-1-ravi.patel@samsung.com/T/#u
+> 3. https://lore.kernel.org/all/20250917071311.1404-1-ravi.patel@samsung.com/T/#u
+
+I am dropping the patchset from my queue.
+
+
+Best regards,
+Krzysztof
 
