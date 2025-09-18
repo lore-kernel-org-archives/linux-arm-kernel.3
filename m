@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E57CAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DCFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nm6vENR6VrJtnlwdEisu9IBZptXBw64Ucxa79ssZtZg=; b=Ub+OIuFCQOevtUvRL9TgEAvFfZ
-	x4khS5mjvh+NNqQIoM5wlp7Pg1psZzU9vPHJL84pGPyvvxkWVEDgNiVS1tLUju3/pj7gM0vQZcjyz
-	TKZ+0AaIUDtEVT90GB7rzCzykADghjuSJHWT97MFBpRBZB6+Bmtc+l5lWMrf8Qa5NGTOBv/bhzdlv
-	3gmI9XbcS6pLKymUgpRpFHgjgxgGXpsaoVaBpIeQPWHbh4GCZS+uAbNVFo2+/eZZNNtNjIibLT+oH
-	x+Nvy0t0KmkJ3q1DIpveplYQncF3v4MfH9jLCQQDKepPm/st7gm0jl/n8RgMnPFPGzwxXwpTipAoA
-	L7Tfp5fQ==;
+	bh=1357PM3+ZMUAg9oO+lGWc1UMAcJ1xf6yCwA2XkKUSeM=; b=lsOsdC+Bv38TAcduBNyKG+33py
+	0HUSKSZcVLWElc6gdD+86+Db1NHDg+XT2dVOig0B+TKia9buQwiMO8MdFhDG0ZGFZbi/zgwnTzaN7
+	Jfiuul+aKqoPCPMV3w5qNHXQA8SHxVdojUPyeK3W+N4MmNkpL20QuDVu73YDFXC+cgK6UE8s/TP2d
+	WliqUuvv8wlGeYkgUredWRamMnc1Cvr/j/UeZ+8iSQpWODEKiP02c8ahWRidADoecXp17EOS8GrMQ
+	+jWxPAPCeuMmr/bt2S7ashH/MajTfHwCkQj1H5rv5E+F8ThwaNjN2Tj9Mw5ZUFK7gXXQ9hBRfVjBB
+	UsIGksQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2kq-0000000Fq8A-2puv;
-	Thu, 18 Sep 2025 00:44:08 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uz2ky-0000000FqFB-0jRx;
+	Thu, 18 Sep 2025 00:44:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2ko-0000000Fq5G-1Xbo;
-	Thu, 18 Sep 2025 00:44:07 +0000
+	id 1uz2kv-0000000FqBU-2e8a;
+	Thu, 18 Sep 2025 00:44:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758156244;
-	bh=mf6juSKLniW5wlorSSAfNOP2rtqyBOQ0mzeNSGygAfY=;
+	s=mail; t=1758156251;
+	bh=WeBpK0TxWxaeusuiKUrlNAYzpp+FgFTVHhts2upFjps=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kMfbC2sBQnS3xAdpFzMtrPkxt4u0N0MK/4OvPWqGC1Xixi8I2pTEwXFzJeVD1ZCXP
-	 QQlOQ6xmlDhRvhW+bepjqJbRzLbav2nXNTVCo399JjnVF43zLhzS8FDeZXr4GjLVuN
-	 J23kum3PZjhxVaLEl6pY1mQ4O4bAKUoiyJAmnLKYotUYL7rRJrgHYoSRqQBb1uuarj
-	 bFxQOGDoMo2sH1wkYAAARS+D7woHAeryhxqdqjkV2LgpyAne2MVIwN3kbgRSarffHG
-	 ferjdMDxPf31VIvjj+MmrVbF8U4eQlOhiah+8QYYZEg3JOIx7Eg77u1ivnjyJ1Y5ax
-	 w3aVwcNXKFHdQ==
+	b=lIuTkLM9h4309I4joczakTWTQLaED3cqpmDOnXz5rIorlBEmHAwvFJeckzMKZeyoV
+	 LCdVU+v3g8hrZ6MlhP1Ws3ysJMFx7KC9fCUztBEJ4SZnlksqyWWIHicorUFVkPEkav
+	 9I0tEoR+oefSPewo1/iHOlsnfwBuM4b0z0v/8KTWFQ879wJB/Tpe/Z8Q64DTqtsoAV
+	 jjyxwWH5Dz/iO7mpiN1D/oSAFpeOUeJ4X9DQliQ6ybKoflrE+VfCVYBguplXL4t8O/
+	 c+tZgV9bUC/s+RsvqV1h3hiA2Dgrh7wdTbfLiAnAqBBqumqa5aKiuP54hEKIHFJhG6
+	 XB5q39QU79iUw==
 Received: from [127.0.1.1] (unknown [IPv6:2600:4041:5b1a:9400:62f0:406e:ac79:4a96])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 38A2F17E1067;
-	Thu, 18 Sep 2025 02:43:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A1FD317E0EB8;
+	Thu, 18 Sep 2025 02:44:04 +0200 (CEST)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 17 Sep 2025 20:43:15 -0400
-Subject: [PATCH RFC v2 06/20] drm: Introduce
- DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE
+Date: Wed, 17 Sep 2025 20:43:16 -0400
+Subject: [PATCH RFC v2 07/20] drm/atomic: Pass post_blend_color_pipeline
+ client cap to atomic check
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-6-ac4471b44758@collabora.com>
+Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-7-ac4471b44758@collabora.com>
 References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,8 +79,8 @@ Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
  Simona Vetter <simona.vetter@ffwll.ch>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_174406_570303_2B38D818 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250917_174413_815238_B906F871 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,188 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE which a DRM client
-can set to enable the usage of post-blend color pipelines instead of the
-now deprecated CRTC color management properties: "GAMMA_LUT",
-"DEGAMMA_LUT" and "CTM".
+Pass the state of the post-blend color pipeline client cap to the atomic
+state so that drivers can rely on it to enable color pipeline
+functionality and ignore the deprecated color management CRTC
+properties.
 
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/gpu/drm/drm_atomic_uapi.c   | 15 +++++++++++++++
- drivers/gpu/drm/drm_connector.c     |  1 +
- drivers/gpu/drm/drm_crtc_internal.h |  1 +
- drivers/gpu/drm/drm_ioctl.c         |  9 +++++++++
- drivers/gpu/drm/drm_mode_object.c   |  9 +++++++++
- include/drm/drm_file.h              |  7 +++++++
- include/uapi/drm/drm.h              | 19 +++++++++++++++++++
- 7 files changed, 61 insertions(+)
+ drivers/gpu/drm/drm_atomic_uapi.c |  1 +
+ include/drm/drm_atomic.h          | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
-index 063c142fd9b656e228cfc660d005a3fbb4640d32..f5125fa3fa28ff2a6ff07fd7cf07d4bdf77ab738 100644
+index f5125fa3fa28ff2a6ff07fd7cf07d4bdf77ab738..56a440a9390c7730c4c41b491f29b933a2bbb889 100644
 --- a/drivers/gpu/drm/drm_atomic_uapi.c
 +++ b/drivers/gpu/drm/drm_atomic_uapi.c
-@@ -452,6 +452,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
- 	} else if (property == config->prop_vrr_enabled) {
- 		state->vrr_enabled = val;
- 	} else if (property == config->degamma_lut_property) {
-+		if (file_priv->post_blend_color_pipeline) {
-+			drm_dbg_atomic(dev,
-+				"Setting DEGAMMA_LUT CRTC property not permitted with DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE client cap\n");
-+			return -EINVAL;
-+		}
- 		ret = drm_property_replace_blob_from_id(dev,
- 					&state->degamma_lut,
- 					val,
-@@ -460,6 +465,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
- 		state->color_mgmt_changed |= replaced;
- 		return ret;
- 	} else if (property == config->ctm_property) {
-+		if (file_priv->post_blend_color_pipeline) {
-+			drm_dbg_atomic(dev,
-+				"Setting CTM CRTC property not permitted with DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE client cap\n");
-+			return -EINVAL;
-+		}
- 		ret = drm_property_replace_blob_from_id(dev,
- 					&state->ctm,
- 					val,
-@@ -468,6 +478,11 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
- 		state->color_mgmt_changed |= replaced;
- 		return ret;
- 	} else if (property == config->gamma_lut_property) {
-+		if (file_priv->post_blend_color_pipeline) {
-+			drm_dbg_atomic(dev,
-+				"Setting GAMMA_LUT CRTC property not permitted with DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE client cap\n");
-+			return -EINVAL;
-+		}
- 		ret = drm_property_replace_blob_from_id(dev,
- 					&state->gamma_lut,
- 					val,
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 4d6dc9ebfdb5bc730b1aff7a184448af7b93f078..f58cfd2131139ff3e613adc4dbb9ddbedf724dc7 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -3440,6 +3440,7 @@ int drm_mode_getconnector(struct drm_device *dev, void *data,
- 	 */
- 	ret = drm_mode_object_get_properties(&connector->base, file_priv->atomic,
- 			file_priv->plane_color_pipeline,
-+			file_priv->post_blend_color_pipeline,
- 			(uint32_t __user *)(unsigned long)(out_resp->props_ptr),
- 			(uint64_t __user *)(unsigned long)(out_resp->prop_values_ptr),
- 			&out_resp->count_props);
-diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
-index e3dbdcbfa385b940ec0b5476adde6146fe4afde1..c53f154e5392a10c326c844b7321666275f9ac02 100644
---- a/drivers/gpu/drm/drm_crtc_internal.h
-+++ b/drivers/gpu/drm/drm_crtc_internal.h
-@@ -169,6 +169,7 @@ void drm_mode_object_unregister(struct drm_device *dev,
- 				struct drm_mode_object *object);
- int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
- 				   bool plane_color_pipeline,
-+				   bool post_blend_color_pipeline,
- 				   uint32_t __user *prop_ptr,
- 				   uint64_t __user *prop_values,
- 				   uint32_t *arg_count_props);
-diff --git a/drivers/gpu/drm/drm_ioctl.c b/drivers/gpu/drm/drm_ioctl.c
-index 01592d10e3465ddceddef94bc417f98d3ec12087..ea9600f5392f520a2b42ba7ef363d2f08ce19812 100644
---- a/drivers/gpu/drm/drm_ioctl.c
-+++ b/drivers/gpu/drm/drm_ioctl.c
-@@ -383,6 +383,15 @@ drm_setclientcap(struct drm_device *dev, void *data, struct drm_file *file_priv)
- 			return -EINVAL;
- 		file_priv->plane_color_pipeline = req->value;
- 		break;
-+	case DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE:
-+		if (!file_priv->atomic)
-+			return -EINVAL;
-+		if (req->value > 1)
-+			return -EINVAL;
-+		if (!drm_core_check_feature(dev, DRIVER_POST_BLEND_COLOR_PIPELINE))
-+			return -EINVAL;
-+		file_priv->post_blend_color_pipeline = req->value;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-diff --git a/drivers/gpu/drm/drm_mode_object.c b/drivers/gpu/drm/drm_mode_object.c
-index b45d501b10c868c6d9b7a5a8760eadbd7b372a6a..5e6c3de9456b997985142a68b9cef57771a58bdc 100644
---- a/drivers/gpu/drm/drm_mode_object.c
-+++ b/drivers/gpu/drm/drm_mode_object.c
-@@ -388,6 +388,7 @@ EXPORT_SYMBOL(drm_object_property_get_default_value);
- /* helper for getconnector and getproperties ioctls */
- int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
- 				   bool plane_color_pipeline,
-+				   bool post_blend_color_pipeline,
- 				   uint32_t __user *prop_ptr,
- 				   uint64_t __user *prop_values,
- 				   uint32_t *arg_count_props)
-@@ -416,6 +417,13 @@ int drm_mode_object_get_properties(struct drm_mode_object *obj, bool atomic,
- 				continue;
- 		}
+@@ -1660,6 +1660,7 @@ int drm_mode_atomic_ioctl(struct drm_device *dev,
+ 	state->acquire_ctx = &ctx;
+ 	state->allow_modeset = !!(arg->flags & DRM_MODE_ATOMIC_ALLOW_MODESET);
+ 	state->plane_color_pipeline = file_priv->plane_color_pipeline;
++	state->post_blend_color_pipeline = file_priv->post_blend_color_pipeline;
  
-+		if (!post_blend_color_pipeline && obj->type == DRM_MODE_OBJECT_CRTC) {
-+			struct drm_crtc *crtc = obj_to_crtc(obj);
-+
-+			if (prop == crtc->color_pipeline_property)
-+				continue;
-+		}
-+
- 		if (*arg_count_props > count) {
- 			ret = __drm_object_property_get_value(obj, prop, &val);
- 			if (ret)
-@@ -475,6 +483,7 @@ int drm_mode_obj_get_properties_ioctl(struct drm_device *dev, void *data,
- 
- 	ret = drm_mode_object_get_properties(obj, file_priv->atomic,
- 			file_priv->plane_color_pipeline,
-+			file_priv->post_blend_color_pipeline,
- 			(uint32_t __user *)(unsigned long)(arg->props_ptr),
- 			(uint64_t __user *)(unsigned long)(arg->prop_values_ptr),
- 			&arg->count_props);
-diff --git a/include/drm/drm_file.h b/include/drm/drm_file.h
-index 1a3018e4a537b3341acb50187d47371f6b781b9d..42b9a43baa18079af8ec2ea5b1484b23c497beb0 100644
---- a/include/drm/drm_file.h
-+++ b/include/drm/drm_file.h
-@@ -213,6 +213,13 @@ struct drm_file {
+ retry:
+ 	copied_objs = 0;
+diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+index 678708df9cdb90b4266127193a92183069f18688..8c42c584aefbf0034b2163d90538e80099b0dadb 100644
+--- a/include/drm/drm_atomic.h
++++ b/include/drm/drm_atomic.h
+@@ -482,6 +482,26 @@ struct drm_atomic_state {
  	 */
- 	bool plane_color_pipeline;
+ 	bool plane_color_pipeline : 1;
  
 +	/**
 +	 * @post_blend_color_pipeline:
 +	 *
-+	 * True if client understands post-blend color pipelines
++	 * Indicates whether this atomic state originated with a client that
++	 * set the DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE.
++	 *
++	 * Drivers and helper functions should use this to ignore legacy
++	 * properties that are incompatible with the drm_crtc COLOR_PIPELINE
++	 * behavior, such as:
++	 *
++	 *  - GAMMA_LUT
++	 *  - DEGAMMA_LUT
++	 *  - GAMMA_LUT_SIZE
++	 *  - CTM
++	 *
++	 * or any other driver-specific properties that might affect pixel
++	 * values.
 +	 */
-+	bool post_blend_color_pipeline;
++	bool post_blend_color_pipeline : 1;
 +
  	/**
- 	 * @was_master:
+ 	 * @colorops:
  	 *
-diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
-index c6c53e57958e951204154ce41a69696a6876f0e8..f9ac10b3e4876f71005a87dedefa4aed320566f0 100644
---- a/include/uapi/drm/drm.h
-+++ b/include/uapi/drm/drm.h
-@@ -927,6 +927,25 @@ struct drm_get_cap {
-  */
- #define DRM_CLIENT_CAP_PLANE_COLOR_PIPELINE	7
- 
-+/**
-+ * DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE
-+ *
-+ * If set to 1 the DRM core will allow setting the COLOR_PIPELINE
-+ * property on a &drm_crtc, as well as drm_colorop properties.
-+ *
-+ * Setting of these crtc properties will be rejected when this client
-+ * cap is set:
-+ * - GAMMA_LUT
-+ * - DEGAMMA_LUT
-+ * - CTM
-+ *
-+ * The client must enable &DRM_CLIENT_CAP_ATOMIC first.
-+ *
-+ * This client cap can only be set if the driver sets the corresponding driver
-+ * cap &DRM_CAP_POST_BLEND_COLOR_PIPELINE.
-+ */
-+#define DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE	8
-+
- /* DRM_IOCTL_SET_CLIENT_CAP ioctl argument type */
- struct drm_set_client_cap {
- 	__u64 capability;
 
 -- 
 2.50.1
