@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C6ECA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A303CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aM9defDUbxftG1qhQP/TtclfqCxbcheJJLtqcFMRzU4=; b=lEqStNKo+xvYyb8KdbT4AfzNgs
-	8yvsBWlgPavUFcLQ2dm4Rvoq1VCpqjoabTKEFys805AAT2/oE1yOR1/F/UXN/XGnTxmdDR45JINrf
-	CRr4YM3qVEWIPXa2cifFhDr6//ZGktF1SBs3AX2mjs43aWveMK29I4tJfIf0K+VIgTNe9GZWXtyt0
-	PaBszO1NBHpZiJ99CbCEY1j7vLGXD7HwDC1WEHM1nObOqlfZCgZZDHVVk2IL3IeONCQo7cJVKpMm8
-	oaAOLEQNlTZQdHxu2HTtHI648QgtXmN3MDMc0O2vKKiNQRj6Tfbshkgd6DINb2eqkCo4e5drYD1uR
-	LXyqVPJQ==;
+	bh=c8rhx9sLUwe7GJ//MVfib66PmIFyPDMc5Lp9jdquzjs=; b=sv34/9cPXBwtJcZmhtPws4jpY7
+	MTh3PvtMGFfqQmqAwWwrcscI4NGSdFGSWuyMLrypLsJ6fFOKbWGd12hy7Y31n1aKmqEjPL0pq2AlP
+	SsMs8wgqjMkOj1sH/hENGyxriUJH1hPY/U1OWwPkTF15b5txMZ6zupocCTAe9CoCsFuIoSU4E98Vt
+	CSaMVd9pThkmHGBF2PVA8Jz6b5Z6xQ9zWmckO/ZBUMvoW8l2eVLkXQ9EYLO98GfZCoMrl5rtTK0V9
+	PmTMSNVIxcdkjdDA9myI19gnuOA9rphLEUyrM3TKCgF96n4PkqpXNVV5i2Zmk9crZ/LnzujNA7vBT
+	L9FjFlOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGh0-00000000RNy-3g1R;
-	Thu, 18 Sep 2025 15:37:06 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uzGla-00000000SRk-2umr;
+	Thu, 18 Sep 2025 15:41:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGgy-00000000RMR-1mUJ
+	id 1uzGlY-00000000SRF-1nOS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:37:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=aM9defDUbxftG1qhQP/TtclfqCxbcheJJLtqcFMRzU4=; b=F7JJb73THAOqRK1K8GFdiT/8Ej
-	gj9W1dfgE4nWfaTkdI63AdaKD9zzZMlzAxOzu/aVmbYNPPczfMsbitvrzmw7CZnzqz/C9q3imUOni
-	DrjmmEfLd4yPeTmSp8UTMZiFZhZVOCF/DbW5nbpr95AdhrtzhSqzme+mDJkXUlfUxPsOgtLSizXEI
-	aKmM1UInF0ZFJyDXT4Q/TiHrZbxO+8cSKNzxhzXu4mZcNN4QEbc2pAfsUEqW1Dfh8v32Pv/wPfA9I
-	6e+qoV4lDUliCYjwrwt3A8JGGBM4o8WYYgFiQYMG0kH0PY/hQ7LWOjWw3XYtpBs06bmGxtzkqmwLx
-	q1UygtCQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43486)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uzGgg-000000001BG-1j6Y;
-	Thu, 18 Sep 2025 16:36:46 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uzGgc-000000001Hk-0d9w;
-	Thu, 18 Sep 2025 16:36:42 +0100
-Date: Thu, 18 Sep 2025 16:36:41 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Thu, 18 Sep 2025 15:41:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=c8rhx9sLUwe7GJ//MVfib66PmIFyPDMc5Lp9jdquzjs=; b=hDSt9EL/Z8uINZFYoPQPSYiXRR
+	+Am5vfBof0zN3CeKZY8cqXMJArisUz9QeKqGE+wfriBlxiLAtQ/fnI4XxNWu2cX//OjWczw0GDCoP
+	qADylRn8F6Z4YnvtIcT4xTrADIxKxJg06Pqi5nVDDYfN/5g4kydC3kBiHrcJ+3hiF3ec=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uzGlT-008qVe-BO; Thu, 18 Sep 2025 17:41:43 +0200
+Date: Thu, 18 Sep 2025 17:41:43 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Tristram Ha <Tristram.Ha@microchip.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/4] net: stmmac: stm32: add WoL from PHY
- support
-Message-ID: <aMwnCWT5JFY4jstm@shell.armlinux.org.uk>
-References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
- <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
- <aMriVDAgZkL8DAdH@shell.armlinux.org.uk>
- <72ad4e2d-42fa-41c2-960d-c0e7ea80c6ff@foss.st.com>
- <aMwQKERA1p29BeKF@shell.armlinux.org.uk>
- <64b32996-9862-4716-8d14-16c80c4a2b10@foss.st.com>
+	Frank Wunderlich <frank-w@public-files.de>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v2 3/4] arm64: dts: marvell: cn9132-clearfog: fix
+ multi-lane pci x2 and x4 ports
+Message-ID: <2589d2df-8482-4648-b63c-5a4a86f01fbb@lunn.ch>
+References: <20250911-cn913x-sr-fix-sata-v2-0-0d79319105f8@solid-run.com>
+ <20250911-cn913x-sr-fix-sata-v2-3-0d79319105f8@solid-run.com>
+ <9272b233-b710-4e57-b3ff-735f45c03c74@lunn.ch>
+ <dbb10e82-ae10-4987-900b-17d4f4b62099@solid-run.com>
+ <dedd4222-b2ba-4247-98b4-504b5c032f69@lunn.ch>
+ <eab0cc63-de1b-4b41-bcce-7a2308d4f446@solid-run.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <64b32996-9862-4716-8d14-16c80c4a2b10@foss.st.com>
+In-Reply-To: <eab0cc63-de1b-4b41-bcce-7a2308d4f446@solid-run.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_083704_463425_E596310C 
-X-CRM114-Status: GOOD (  30.29  )
+X-CRM114-CacheID: sfid-20250918_084148_465711_655F673A 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,76 +81,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 05:07:00PM +0200, Gatien CHEVALLIER wrote:
-> On 9/18/25 15:59, Russell King (Oracle) wrote:
-> >  > So no. In a situation like this, either we want to be in interrupt
-> > mode (in which case we have an interrupt), or the pin is wired to
-> > a power management controller and needs to be in PME mode, or it isn't
-> > wired.
-> > 
-> 
-> If you are in interrupt mode, plugging a cable would trigger a
-> system wakeup in low-power mode if the INTB/PMEB line is wired to a
-> power management controller and the WoL is enabled because we're no
-> longer in polling mode, wouldn't it?
+> >> The mvebu-comphy driver does not currently know how to pass correct
+> >> lane-count to ATF while configuring the serdes lanes.
+> > Why not just teach mvebu-comphy to pass the correct line-count? That
+> > sounds like the proper fix, and that makes the kernel independent of
+> > the bootloader.
 
-What Andrew suggested, which is what I implemented for Realtek, other
-interrupts get disabled when we enter suspend:
+> That would be a feature on the comphy driver, not a bug-fix backported
+> to stable. The core goal was to fix bugs found in Debian 13.
 
-static int rtl8211f_suspend(struct phy_device *phydev)
-{
-...
-        /* If a PME event is enabled, then configure the interrupt for
-         * PME events only, disabling link interrupt. We avoid switching
-         * to PMEB mode as we don't have a status bit for that.
-         */
-        if (device_may_wakeup(&phydev->mdio.dev)) {
-                ret = phy_write_paged(phydev, 0xa42, RTL821x_INER,
-                                      RTL8211F_INER_PME);
+It is not so simple.
 
-This disables all other interrupts when entering suspend _if_ WoL
-is enabled and only if WoL is enabled.
+https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
 
-If you're getting woken up when you unplug/replug the ethernet cable
-when WoL is disabled, that suggests you have something wrong in your
-interrupt controller - the wake-up state of the interrupt is managed
-by core driver-model code. I tested this on nVidia Jetson Xavier NX
-and if WoL wasn't enabled at the PHY, no wakeup occurred.
+  It must either fix a real bug that bothers people or just add a device ID
 
-> You can argue that as per the Realtek 8211F datasheet:
-> "The interrupts can be individually enabled or disabled by setting or
-> clearing bits in the interrupt enable register INER". That requires
-> PHY registers handling when going to low-power mode.
+Crashing at boot would be a real bug that bothers people, not just a
+new feature.
 
-... which is what my patch does.
+Lets see how big the patch is. If its 1000 lines of hard to understand
+code, it will probably be rejected for stable. If its 100 lines or
+less, it will likely be accepted.
 
-> There are PHYs like the LAN8742 on which 3 pins can be configured
-> as nINT(equivalent to INTB), and 2 as nPME(equivalent to PMEB). The
-> smsc driver, as is, contains hardcoded nPME mode on the
-> LED2/nINT/nPME/nINTSEL pin. What if a manufacturer wired the power
-> management controller to the LED1/nINT/nPME/nINTSEL?
-> This is where the pinctrl would help even if I do agree it might be a
-> bit tedious at first. The pinctrl would be optional though.
+It is also hard to argue the DT is wrong. It just describes the
+hardware. I assume the description is actually correct? The issue is
+the driver, not the description. Also, i assume this affects all
+boards using this SoC? Removing the nodes in one board 'fixes' one
+board. Fixing the driver fixes all boards...
 
-I'm not opposing the idea of pinctrl on PHYs. I'm opposing the idea
-of tying it into the WoL code in a way that makes it mandatory.
-Of course, if it makes sense for a PHY driver to do pinctrl stuff
-then go ahead - and if from that, the driver can work out that
-the PHY is wake-up capable, even better.
-
-What I was trying to say is that in such a case as the Realtek
-driver, I don't want to see pinctrl forced upon it unless there is
-a real reason and benefit, especially when there are simpler ways
-to do this.
-
-I also think that it would be helpful to add the wakeup-source
-property where PHYs are so capable even if the PHY driver doesn't
-need it for two reasons. 1. OS independence. 2. it's useful docs.
-3. just because our driver as it stands at whatever moment in time
-doesn't make use of it doesn't mean that will always be the case.
-(e.g., we may want to have e.g. phylib looking at that property.)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+    Andrew
 
