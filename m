@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305B1CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11755CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAV6+U9ykOwvp8+2HatYYts2BEiZRGxqVQPDnpRww3U=; b=0rjHTddqSV/vvLEtmmSNBUn5PE
-	mSeiApyRjyg7z2dx5V5n5nGNK8Mh5ZbGNpFo+QhrEjZCbO4K3/w7dVjJKlvrgZ/JlpQfSnpk10K4k
-	iqd0P5/X4gmFbhwh2n8THJR43Q4h388Hx3wK0FOdnwb8VtIQoRsf8pbwFa4rRBYdV5ArW21pa7A92
-	pt/PfIfe+2S4XXgg51swexcG56xRM2UpffMxxgnE8ll9ZB2tbno96wYuUNKi6GdkPvyKHLTMj/dyE
-	T7I+Ok/1kvBz5jhp0gpVSM247ZwTS7isMtbpjaInPaX8BHIlRczpVEuziks4oQ83yX5LSyZ/QioJV
-	Rw49By9g==;
+	bh=MCgJo7Iim2r1QY3epPnNwQa02OhmB0pJps80hKObtxM=; b=ULMgX79yL/Pr9RMiZLBLjuzTMc
+	2IbLsexvJ2mGNGt+4wVJsj8yB5nAYw8QpbSL+Dul8ol9l7hosUj1t4jEXlQVLhJUCyA/8jIV7VeD+
+	yx9xfPi8XKEqK5k5TLf6eCS6YUjSqjlS+4tMiAMRAW5a5z00F7B9E4IkuVgbyUMiFaYAkyEaaNuTz
+	HQ7hSZLZMjkaXsow5Akv4Oqhz7T2eD13LxaXgzlsq4UfwOgx9wXOJCUzS7GmOW0/3vfhTYamNMUsB
+	DM/fDUOCLzHikMZVCtxEKG+wlWWNFlYl147NxnAO0cAj5rnEbKiQ1MzuSxYEA9xBEaWnsbcGxmsrn
+	WqOueudQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBRB-0000000GxNc-3RRQ;
-	Thu, 18 Sep 2025 10:00:25 +0000
-Received: from mail-qt1-f177.google.com ([209.85.160.177])
+	id 1uzBS9-0000000Gxd9-2qoq;
+	Thu, 18 Sep 2025 10:01:25 +0000
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBR8-0000000GxM2-4Arf
+	id 1uzBS7-0000000Gxc9-2Qtb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 10:00:24 +0000
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-4b61161c35cso11453141cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 03:00:22 -0700 (PDT)
+	Thu, 18 Sep 2025 10:01:24 +0000
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-8e364003538so352334241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 03:01:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758189621; x=1758794421;
+        d=1e100.net; s=20230601; t=1758189682; x=1758794482;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gAV6+U9ykOwvp8+2HatYYts2BEiZRGxqVQPDnpRww3U=;
-        b=Nu0SzQu5ah+X38NSz+Dsl1rpmDzVUL0ZzOf3YS8wL4zJ+b6P4GAE2tl43ml7/nFp8x
-         J4UaqONf2LAwzWPJR2FRrWMc97ew78VhjdiASB6ZV8quYemipJDVtkjd8ZswFDCGJcKI
-         ps3CdubCIZypvuHNWfDTYp1bIVZcGa4S1dq4WCjursoCqXbv7pUg9eTHQM7iIVWFZrmO
-         R6D6YQGBdNueHaqXW8Azqov6ZBkdU6j5wUUlctANM/P2rNO9e9dcAeU0nmblGzWiJbuz
-         75aLxtFjP7MhH27tqhy8O3KYgrSLQAUdUW2Aa/q0+0aYs3QD1VIIzjAeTlSBX2HVCGcz
-         SbyA==
-X-Forwarded-Encrypted: i=1; AJvYcCVwwQERikDIsybElyDTHrGhUSC31HSzDUXVX4d7i/4r9Im5kElcEqD472dYhqK3l1ZHzSMuwESf0U3WM1Do8pj5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyuypBQgJaXHkNizMgMvAFBKl1xmv8E2kkdyLSp7Zd4zMZ3BPD
-	e0i+4vapHENSuT+VOpAt/dcWzpHtPPzaNG/vcic9goNGCdoAcVRPUCU53gjWT8A1
-X-Gm-Gg: ASbGncujSHzMsnLt9iahEUFZfow1JccS8oT8SF/AQLTef+Pe7ZR+Bhwjn3v9DWQPC56
-	rPYUZ6G03JCALD24/Z7B8PrguQI/WI9ow9BSUDhYEx+mhDUyteTU2kuMAW7kW5uCf/vq3GRZKcn
-	OzilXPJvtC19Uy+8k9s6zvQ4uDBfJKg+QpOV6mRoWNNZeSGffqzvcQKMlaTl/Xk8OYcMJtY1mYr
-	9b9BnuQ4wm/X0zpPdCncELrkK5/LJtgOaZvO9kT+novOw47CnjXsfFTM2hAEdpKJ5yQDXbE8fdS
-	efvskDQlMHOkpkXoXGDxH9Tb7Fd4eEv+Lvyd4gFDl8yco/2MMjSjaUWcCo5syJTm3gS+RKbj84q
-	GGf49tx84xRHsG6Ttecd51xjMVSfmUTihXlR/329rYzomHqkg3xq0RHB4bZCCkoC//p4DwRA0e1
-	So2XQgocc=
-X-Google-Smtp-Source: AGHT+IFcBmK4OlTuU0z25T5WwIGO0pcfc3uOG3Zw0gcVBlgBChm9Y/YjOPwqSPlvo1bmLf30XlI0tA==
-X-Received: by 2002:a05:622a:1f16:b0:4b5:ed9d:7bc5 with SMTP id d75a77b69052e-4ba66d15098mr65545531cf.19.1758189620207;
-        Thu, 18 Sep 2025 03:00:20 -0700 (PDT)
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com. [209.85.222.177])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4bda86b3a3csm12007601cf.34.2025.09.18.03.00.18
+        bh=MCgJo7Iim2r1QY3epPnNwQa02OhmB0pJps80hKObtxM=;
+        b=ZehzTdsTl3C91jnAxIAIOQfi+jB9PjwWF6jEiqU35BPEuwpUMjqhD5vAgTo0FK2Pow
+         gc1kJD3GX1TLtz7QcDfyCiKThqq6gvUpy7CT5+WZ+q/umgCx0o2eiXBNY93NqYSFOeeG
+         5lRygZ6w6ex2v/JqROqaEfKzVlNWIgCZ7+4G+e7CE0Foop3MR6TR8pqaoPmRV4U+DRtd
+         qv4bShPuBG14i5r71gbkU1ZgqQ9+OMDopdUZL47mz8YYogG3YojkjguZBhGRYK6CLc7d
+         sDmSFiQtzkMcp+nkLB7sKHG5bTYl23blJwYx2b4fs0SSZv9BoPx5I5tnuSNVJnexdQpe
+         j9cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXS7HtYNMBRKxP1T3t+oz89GClaITFTQG4LmSfhtIVisI9PqG6T2CiSx5brW8Hh7MPQGiRA7x5P0C7UMGwLfymC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSFwEHF2Nr/C2KirUZTz57l9732QyTF0mRzy6JAjiBxyEEloP1
+	kNckyYtgYFtrdu3NsB8qMxGVrWKwgj4xX30/vXoY6GVHlpD/bw+/PybYxM18vHWp
+X-Gm-Gg: ASbGncviYexn+BwB0SRsALa+gcx/JSdbXTegKJuHvJaElUcwX4yvyg04dMkd9pDzbg2
+	z2CfuTCugPNDqpiRZhZBZ6qOAWR4dgB7OqGyLywkcCekiWwtCMhyuBfdkptmBWf3bqQ16+uC0z+
+	xSaFR2nhY/8a8JtL07rhZejMMvz6ue7DloDV9gZNFkoqkhJp4+4PDDUJc+YFPZ0RLwVNqC3z3gz
+	ygRi8+yrX2JzpfqE42tMqfn0aSFFtJVULUU1aCaCXhaHPJH8WiFpRFbhohAi4gszyP6lXGHza2x
+	z5SPT/bVQliAJ+w91Fso5JJBhGdeO2UMX5g5N+mdWAhPkTEbnBV4sDaF/LCABmT/LvhedjootdG
+	Tu+ifwpYKLT3xriOAxjrTMgIzbH+bR0qK8AbUq097hET2uysR1IHRfDKNmldeD6rMaFY0NVkJQ1
+	FpJRs=
+X-Google-Smtp-Source: AGHT+IG/JlgX/f0xngi/AFMalgQEECmUWNK3MigkZj3ubZOHxzyMEvc4LzBZ3TswhPtEJX0ypVESTQ==
+X-Received: by 2002:a05:6102:8006:b0:522:826e:7bfe with SMTP id ada2fe7eead31-56d4d1eaa88mr1842430137.5.1758189682246;
+        Thu, 18 Sep 2025 03:01:22 -0700 (PDT)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-57a05ef52b3sm500545137.13.2025.09.18.03.01.22
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Sep 2025 03:00:19 -0700 (PDT)
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-80a6937c8c6so98060485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 03:00:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWw51MhIvrgRU6MQvERsHo7Fw7LNh55TuQLi3qrQjHWilzhkJay2ku7EZyv83lwfXhBPRqSovHdupQU+qrJpEb8@lists.infradead.org
-X-Received: by 2002:a05:6102:f96:b0:524:5653:81aa with SMTP id
- ada2fe7eead31-56d6a96ba24mr1974782137.27.1758189231483; Thu, 18 Sep 2025
- 02:53:51 -0700 (PDT)
+        Thu, 18 Sep 2025 03:01:22 -0700 (PDT)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-52dd67b03c8so548810137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 03:01:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWGJC+5RNe9/bhSm0KrGfn2vdt4Rnjvvic5THsaPohIEk603DEl1S+SrjKOCrsFENY21TMvD7COVWTLh9mADdCC@lists.infradead.org
+X-Received: by 2002:a05:6102:4b04:b0:4e5:ac0f:582c with SMTP id
+ ada2fe7eead31-56d51ca1fcdmr1779501137.13.1758189682008; Thu, 18 Sep 2025
+ 03:01:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com> <87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
+References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com> <87cy7onul5.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <87cy7onul5.wl-kuninori.morimoto.gx@renesas.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 18 Sep 2025 11:53:39 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU6KkM4+0tDzxNLQhWzBMs02vx=DTQ95D_-u+YYAcNgRg@mail.gmail.com>
-X-Gm-Features: AS18NWC_4v91tXzLLOBSlDGTfgVal7mv5u3w5QpZG0TVZ1CRDcwzHECf6Dh9qXk
-Message-ID: <CAMuHMdU6KkM4+0tDzxNLQhWzBMs02vx=DTQ95D_-u+YYAcNgRg@mail.gmail.com>
-Subject: Re: [PATCH v5 6/7] arm64: dts: renesas: Add R8A78000 X5H DTs
+Date: Thu, 18 Sep 2025 12:01:10 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU8+V-EbrSFF_f-pAm95zZLtV8mMjOFAGX+af2JO9Q0LQ@mail.gmail.com>
+X-Gm-Features: AS18NWABsRlKpDFFCpae_UW48HuvCqA9B-vtOkVv8ToG4xGXl4aYc_QckQPRgYY
+Message-ID: <CAMuHMdU8+V-EbrSFF_f-pAm95zZLtV8mMjOFAGX+af2JO9Q0LQ@mail.gmail.com>
+Subject: Re: [PATCH v5 7/7] arm64: dts: renesas: R8A78000: Add initial
+ Ironhide support
 To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -92,8 +93,8 @@ Cc: "Liang, Kan" <kan.liang@linux.intel.com>, Adrian Hunter <adrian.hunter@intel
 	Marc Zyngier <maz@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_030023_038995_F9127170 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20250918_030123_625523_6E4EAAAC 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,102 +111,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Morimoto-san,
 
+Thanks for your patch!
+
 On Thu, 18 Sept 2025 at 08:27, Kuninori Morimoto
 <kuninori.morimoto.gx@renesas.com> wrote:
 > From: Hai Pham <hai.pham.ud@renesas.com>
 >
-> Add initial DT support for R8A78000 (R-Car X5H) SoC.
+> Add the initial support for Renesas X5H Ironhide board.
+>
+> Note: It is using "maxcpus" in bootargs to limit number of CPU, because
+> SMP support is now under development. This limitation will be removed
+> in the future.
+
+You forgot to drop this paragraph.
+
 >
 > [Kuninori: tidyup for upstreaming]
 >
 > Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
 > Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
-> Signed-off-by: Minh Le <minh.le.aj@renesas.com>
-> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
+> Signed-off-by: Takeshi Kihara <takeshi.kihara.df@renesas.com>
 > Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
+> Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
 > Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
 > Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 
-Thanks for your patch!
-
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-
-> +       extalr_clk: extalr-clk {
-> +               compatible = "fixed-clock";
-> +               #clock-cells = <0>;
-> +               /* clock-frequency must be set on board */
-> +       };
-> +
-> +       /*
-> +        * In the early phase, there is no clock control support,
-> +        * so assume that the clocks are enabled by default.
-> +        * Therefore, dummy clocks are used.
-> +        */
-> +       dummy_clk_sgasyncd4: dummy-clk-sgasyncd4 {
-
-Please keep nodes sorted (alphabetically, by node name).
-
-> +               compatible = "fixed-clock";
-> +               #clock-cells = <0>;
-> +               clock-frequency = <266660000>;
-> +       };
-> +
-> +       dummy_clk_sgasyncd16: dummy-clk-sgasyncd16 {
-> +               compatible = "fixed-clock";
-> +               #clock-cells = <0>;
-> +               clock-frequency = <66666000>;
-> +       };
-
-> +       soc: soc {
-> +               compatible = "simple-bus";
-> +               #address-cells = <2>;
-> +               #size-cells = <2>;
-> +               ranges;
-> +
-> +               prr: chipid@189e0044 {
-> +                       compatible = "renesas,prr";
-> +                       reg = <0 0x189e0044 0 4>;
-> +               };
-> +
-> +               /*
-> +                * The ARM GIC-720AE - View 1
-> +                *
-> +                * see
-> +                *      r19uh0244ej0052-r-carx5h.pdf
-> +                *      - attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
-> +                *       - sheet [RT]
-> +                *        - line 619
-> +                */
-> +               gic: interrupt-controller@39000000 {
-> +                       compatible = "arm,gic-v3";
-> +                       #interrupt-cells = <3>;
-> +                       #address-cells = <0>;
-> +                       interrupt-controller;
-> +                       reg = <0 0x39000000 0 0x20000>,
-
-The DT bindings say the first region should be GICD (no mention of
-GICM), so shouldn't the size be 0x10000?
-See Table 21.9 "GIC-720AE Base address".
-
-> +                             <0 0x39080000 0 0x800000>;
-> +                       interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +               };
-> +
-> +               scif0: serial@c0700000 {
-> +                       compatible = "renesas,scif-r8a78000", "renesas,rcar-gen5-scif", "renesas,scif";
-
-Some lines are getting a bit long, but that is not something I cannot
-fix while applying...
-
-> +                       reg = <0 0xc0700000 0 0x40>;
-> +                       interrupts = <GIC_SPI 4074 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks = <&dummy_clk_sgasyncd16>, <&dummy_clk_sgasyncd16>, <&scif_clk>;
-> +                       clock-names = "fck", "brg_int", "scif_clk";
-> +                       status = "disabled";
-> +               };
-
-The rest LGTM.
+With the above fixed:
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
 Gr{oetje,eeting}s,
 
