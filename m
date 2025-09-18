@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A027CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2C0CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M93GVlkcKka2LY9OCUJg2tH+tSnNWBwTAftMb+Kx2VQ=; b=Z8DI09RSL+TEKa2N4F/xlE+sUK
-	6gF7pzzQwzRl3QdVVolkdQqEpBNQkloUYekPR/R2UsxAscZ5U3AdKIhA8QKP2SJz1TetfN7RInEYl
-	WxbENLGhxVSWlBpmRpGqVFuLo3xJKNixFAFW9WPmUhIhLqXUj6iWBZhKzpx2YIH8Tw8I49g8WHpRg
-	MogUcAhqZuCSFFQy7y/xqxzA9yeDHT9UOyvNE6UC4TLmkpgVrKPsq/yFvN6I0bTIeIZ9kfbcZ0X7j
-	Rzkdut1PNx7q1M/jfOTt0WPXqhqVRAnCTYhG14WvgTCWjgiVCs4zxsqHWlEPuC87cEgQBioX1bBpd
-	ObaA7QyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=33NI10JupNvzF5LVk088MZ+tWcPvXkOtTzuIPkgIQlE=; b=cO/P9bMqv5LUOajkkCNRFs9ZNU
+	WZnIA6nQlSNOipCfwUGU0cL045ZR7UxDh/wH9oYWgZOZM6y46yFjIsbCYt79TOPXCZlGqpuLzHl6v
+	6qPO/5rW0JiLyNGLXMeAiHY9Rm3mghvuu7WyS/B1PXBDe44lopPw0i3MlLDSgoH2llDSCg2aXqPwa
+	ClDoQ9l4RsBG924VC0utOw7oTOjh7+0gDFU4QR3iy+zGkq6qJ4AmkqTfR1sje6Y9QV6nG85np9gSL
+	BpbDxAO9najtZdrN1A/jUIx2B+viUWbVDyP5uGT/aT1DQCm80wR4+l/TBCYNnufFdXWywUNHdlDgu
+	slyA8sAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCbC-0000000HBqV-0AQ7;
-	Thu, 18 Sep 2025 11:14:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzCjf-0000000HCr8-02em;
+	Thu, 18 Sep 2025 11:23:35 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCb9-0000000HBqA-2tjX
+	id 1uzCjb-0000000HCVA-2lvf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:14:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18DCE403B9;
-	Thu, 18 Sep 2025 11:14:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226F6C4CEE7;
-	Thu, 18 Sep 2025 11:14:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758194083;
-	bh=uqKLQL0kXPlTW24rRLvkA6f101bLzhi+v2aTGmvoekQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hY2y7E8oPFC4GuWcczzwCap37MRRFfXocXGwF5tfiob6nWiwEGmnk3ou8Ag/L2fOj
-	 WNZP/y4IpK8Hr6/BlKZ9obj6KneJTH6b5m2Ms5TdqTMtv6QQt5S8m7tNeIM9FjxH+F
-	 +xfQF7JOPk9XX5JZHhd+klKP5TiksKlVnn3bJnbEXMO+f4WZx97XuDpArSLa8tvB1O
-	 dXARWNioqFc4PiD54+ZR3jVUYPKlbknmjL4sbyDa7u8PcqA6xUnBpyz5TbBnBjvDeq
-	 DzGNAQqOi/yaQe5eobFR50ynsaNQ/Wzt4IWOyXQRcSvGSFkndiCumN2Jfsv7YC9g/z
-	 uGkOtT69qz3+w==
-Date: Thu, 18 Sep 2025 12:14:37 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Herve Codina <herve.codina@bootlin.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Nicolin Chen <nicoleotsuka@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	linux-sound@vger.kernel.org, Qiang Zhao <qiang.zhao@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Takashi Iwai <tiwai@suse.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Jaroslav Kysela <perex@perex.cz>
-Subject: Re: [PATCH v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of
- interrupts
-Message-ID: <85ea3256-dd31-47b1-8e2d-a9d207b28fa0@sirena.org.uk>
-References: <cover.1755504428.git.christophe.leroy@csgroup.eu>
- <3d20d3ec-2f52-4cac-9c5c-fd2141a12a0b@csgroup.eu>
+	Thu, 18 Sep 2025 11:23:33 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758194484;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=33NI10JupNvzF5LVk088MZ+tWcPvXkOtTzuIPkgIQlE=;
+	b=OV2lcIeGO4gg71RHX8vqR+xJ1Kdl1nvhZ+LCImJeLBcA8n7apT6HhRPvU2oZ/VtqZ22kC1
+	hFfrqTVvTvdAlWllI+eBNmJhyZJ01qXoiwWkO5QvEwQrziAHrOnNXp5H3lwniaXxMVGkIR
+	juG1QjQX/mspF/P43V12sAub1fCG9LY=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: pxa: Return -EOPNOTSUPP instead of -EINVAL
+Date: Thu, 18 Sep 2025 13:21:02 +0200
+Message-ID: <20250918112102.64314-1-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1Rv2MdpZahqmMZwq"
-Content-Disposition: inline
-In-Reply-To: <3d20d3ec-2f52-4cac-9c5c-fd2141a12a0b@csgroup.eu>
-X-Cookie: Victory uber allies!
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_041447_758519_D75A5BFD 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250918_042331_836110_655C1D9F 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +72,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Return -EOPNOTSUPP from mmp_sspa_set_dai_sysclk() instead of -EINVAL for
+unsupported clock ids, and remove the obsolete comment.
 
---1Rv2MdpZahqmMZwq
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Replace other -ENOTSUPP returns with -EOPNOTSUPP to comply with SUSv4
+error code guidelines and silence multiple checkpatch warnings:
 
-On Thu, Sep 18, 2025 at 08:12:21AM +0200, Christophe Leroy wrote:
-> Hi Mark, Liam,
->=20
-> Le 18/08/2025 =E0 10:19, Christophe Leroy a =E9crit=A0:
-> > This series reduces significantly the amount of interrupts on
-> > fsl_qmc_audio device.
->=20
-> I can't see this series in linux-next.
->=20
-> I see in patchwork [1] that this series still has status 'NEW' but also
-> state 'archived'.
->=20
-> What is the way forward to get it applied for v6.18 ?
+  ENOTSUPP is not a SUSV4 error code, prefer EOPNOTSUPP
 
-Please don't send content free pings and please allow a reasonable time
-for review.  People get busy, go on holiday, attend conferences and so=20
-on so unless there is some reason for urgency (like critical bug fixes)
-please allow at least a couple of weeks for review.  If there have been
-review comments then people may be waiting for those to be addressed.
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ sound/soc/pxa/mmp-sspa.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-Sending content free pings adds to the mail volume (if they are seen at
-all) which is often the problem and since they can't be reviewed
-directly if something has gone wrong you'll have to resend the patches
-anyway, so sending again is generally a better approach though there are
-some other maintainers who like them - if in doubt look at how patches
-for the subsystem are normally handled.
+diff --git a/sound/soc/pxa/mmp-sspa.c b/sound/soc/pxa/mmp-sspa.c
+index 73f36c9dd35c..38815ca8f152 100644
+--- a/sound/soc/pxa/mmp-sspa.c
++++ b/sound/soc/pxa/mmp-sspa.c
+@@ -111,7 +111,7 @@ static int mmp_sspa_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
+ 	int ret = 0;
+ 
+ 	if (dev->of_node)
+-		return -ENOTSUPP;
++		return -EOPNOTSUPP;
+ 
+ 	switch (clk_id) {
+ 	case MMP_SSPA_CLK_AUDIO:
+@@ -121,8 +121,7 @@ static int mmp_sspa_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
+ 		break;
+ 	case MMP_SSPA_CLK_PLL:
+ 	case MMP_SSPA_CLK_VCXO:
+-		/* not support yet */
+-		return -EINVAL;
++		return -EOPNOTSUPP;
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -139,7 +138,7 @@ static int mmp_sspa_set_dai_pll(struct snd_soc_dai *cpu_dai, int pll_id,
+ 	int ret = 0;
+ 
+ 	if (dev->of_node)
+-		return -ENOTSUPP;
++		return -EOPNOTSUPP;
+ 
+ 	switch (pll_id) {
+ 	case MMP_SYSCLK:
+-- 
+2.51.0
 
---1Rv2MdpZahqmMZwq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjL6ZwACgkQJNaLcl1U
-h9D2swgAgTsZe6lJbstmvGT3sE8IM/SR5DbwYbMqquiSJfASLpWn6+IpQ9jey7dC
-rBQ/Kac/dqktoRic2n2MNciZbkk1DBkKn7U3giWJn+Lc2TEdF/2k3D8gIb0fTkOv
-pFy2ITzlJpnJe41HMTRLT0Y+2MmjTmLBp6H5mbExn9AJ5RtMcXxAMDfCB5pqSWQr
-nSzduldkPYgbVRrD+RbcTzbal6R/Rjkatm1QfAt5iy7K4cvZQmNIZEOrePIP/Mzm
-nt9+XFbYZHnCTxshgzhYuJBgsik6w211UWlWYuibWrlvWW/323RrN8l46amu67bJ
-Zkpxs4GJvx/WIEeyf0hmzc8A7/+Qqw==
-=xpzh
------END PGP SIGNATURE-----
-
---1Rv2MdpZahqmMZwq--
 
