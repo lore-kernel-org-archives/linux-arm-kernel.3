@@ -4,176 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2871CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCFECAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/IhTifv8vAn9CZVA21y8Tg6a/GWngpc6FZ/ousOckk=; b=kiseViD6cUJ+jBbIk+YMD9shm5
-	BX6Vr04Zh2PPVgLqMr0LFEdq0vW5Vk6iQYLcWRsBMQIhukTsvh1eTUN2GCcZlFP6wJEcL935Rft2O
-	ddqZJgQp+AOaBURKU2d2SlJyWIwS4GTIALpvvZkWg64sTz72yDcE1fQH5scZpXoNwN9bmwjfr5TKF
-	lESXXZHoDh4C2yFdyHYsOyTp/TJ+nV0fzdoHTSDxEaz8n+3FSAmGkzeMSpk6cn2tihedAgUCVGjiA
-	2BUf3+21B45lbaVaf8G7hWS/oSNSOgI6W2GVvSGVmnwyI44EkVgED2hIth+A/OMrt+BzttJRSNmPF
-	aY7TQIUA==;
+	bh=T6ZNh2CldpFkggR//+kh0/H5v/IH6zkdIqrXr1GpPBg=; b=DKlOmBsgEW27l+IPC99N9C5QFE
+	EBcwGa4JD/i4cBfqmF157+lsitfG2JfvOfQCAv8iKCiQ33WKsLQbUeZPyWc61Q3cTp0d/cPQv2KtT
+	OvxVbXU/Pp343bTeyAzHsBwRBUfzsD3Joi/kzSjSKAPbOqmYPp1X5LSS8k9Yru9vSD4a1kpugbqm+
+	gQLY6PEzZkKoX44Yyn74rX2+pRVeGoRMmISqfJGrFdOTM+iYcMEQRenUJvBmNUm5uEwpFp+sIPYxg
+	ZLjwP4YJdKkoBs9o5QN7G3o0PKo06L6Sn9TKS6Lbyfvcl5JMdV2kkaAJIBZ4wxWQw+c3NsBLpXpnu
+	43AkPGHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDBB-0000000HH0E-2Fty;
-	Thu, 18 Sep 2025 11:52:01 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uzDBL-0000000HH81-3zEX;
+	Thu, 18 Sep 2025 11:52:11 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDB7-0000000HGvv-4BNU
+	id 1uzDBF-0000000HH2z-0qS3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:51:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HIYY/aDAFDmqKTkW19IJb3XAHLqB2dtFZGjoKVh2jJR02U1L7tmXcuv0Zf/8KEu391RSMwlZ+Kd9KY2dVHBMVUo+bim6l9aTy6ySy4YZONMgwcp5I70XgW2UwvE38OkzsMtkgVTuO7HPVQXsOdlQsafx6mmABC+S+2nxg/JmroknPEWznjYhl5dTlIa80JrtjpOW/ZG6iE/y9BgJoDb1pP/pqwCvIKeyIunTWc+GmpJx4nLgWfUV5PpKKLPIoBDe8T1NPWsvetS4UlfuJroXVcx41c1PuenZXJ4wjX75ReKw+8IYnLGQg6LZ5LKp2CDhVwksCLOoIssznXJcyMnx9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P/IhTifv8vAn9CZVA21y8Tg6a/GWngpc6FZ/ousOckk=;
- b=uwNjem9SJ0ajJhHMqyb4teO/oRO8Ea38gzZcxpmZBboDCK2ybCnMJvRFz4bBj8Q8hL3WmPJZn4KlsUXYtBQ33l6U7FBuJpzOTsN29QlLyNNUKPjzP9gMPRJxEJQrmsaBUHyjcorBmC9qLWh2QmamgYuYg1upT+j9wUaXxrlpNFdG36UP/3TZ229PUaLYEwC4IRBupiS+gUjWmjZuTSkCn2SbpXByPP2CLOsP/LU4RzzEnD2zKdC8P8qzdbLqU18yktnP61Q1T3dcGvYYAPvA4jAa74zF2lW7s0CZRJDSeFcordPQlhrjYGJ4RpAcFCt/PcX8eVk0C7bHcLkfsdZBtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P/IhTifv8vAn9CZVA21y8Tg6a/GWngpc6FZ/ousOckk=;
- b=AUtrnZxrOI+dQtEQWmi1TbVb1UQfW1mGO49h9GW2Xo8T4fQd1zLMPLEAeNbfZn9oVlMgRA42Km2Vl4+UZ8mrP9+0C3eSaq8B9sqjzbVapKPgTwpV9HI8iY0wDEzI5mNN3mSu44BEz81wDrgKa1M2Bh/3yGbQzmgVY4+k/3Q5UiXpSy3OBYZ+in7u+XCfV1CokGuf/BIMjomxBpZY+Tmgo5BODT/9pBkTgaPOEiOEOT7HNBXfqOHFFJBEE5x1hkl03uMMcidYbs7nLWKtCSBWYvQoc1yMudUAVr2Hb+bczp/1+QChWTgzgq+VVnX/1Wl+aMoAIuBJQtwI3XEQ+1wFoQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GVXPR04MB10450.eurprd04.prod.outlook.com (2603:10a6:150:1e6::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
- 2025 11:51:54 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 11:51:54 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Thu, 18 Sep 2025 19:51:20 +0800
-Subject: [PATCH 5/5] MAINTAINERS: Add an entry for i.MX remoteproc driver
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250918-imx_rproc_c2-v1-5-deec8183185f@nxp.com>
-References: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com>
-In-Reply-To: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758196288; l=810;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=rnlYni1D2bDbaqIihc7eOvCsGmqEg07H7qemzxFCjms=;
- b=0HDG+ioirjjV19crT0NrKtFR+vYM0qOs+W2fzQpDClMU3y68sCJjs+WELKzT20LJsZ9Z2ki7r
- qGoQjCPU7srB3MFJXlcTaQpGmYssjpZHTR5aHMQPAqS+CfdQUSvkRmV
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR06CA0235.apcprd06.prod.outlook.com
- (2603:1096:4:ac::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 18 Sep 2025 11:52:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758196325; x=1789732325;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gRM5ebAAEf4TRIWQFHbcl8pLy8N7ldQhFRmgB1sHmKg=;
+  b=MQB+MfmvNoBEYl1Dyy5LRttRalj0lXZBxYXb2fvj5NiSVCwrqb+QrC5+
+   xXHY4Hw7UqHl96wpjD2HXLuii7pAgtb8pCX/3z+F1eF943ZfRPD5iZWsr
+   3pbFo2G3Av11omRiPxU7txIdQdO72qbxd4zza9bjFtWGYr5nd1UhMY/xM
+   qEjMKQpFJcufeBO5sFJ5S/atAGcTf+Zfx9mmtVnjqMLdD8yxd5pJE7y3N
+   U3AJ0pA+nKkd3wm5xCv5/080ptU9t5mwG0FTwvaH4qnO/G4f9lBmv+URi
+   r+BBjwmkRltzTwDgDROEDXQ9iskdQ96FitIPneNCZkxdNrLgGrs9YjqWe
+   g==;
+X-CSE-ConnectionGUID: SRb3HDIsTjmowrzUUmMc/Q==
+X-CSE-MsgGUID: AOvBqGd1QF+pNJw0JKt6wQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11556"; a="60454920"
+X-IronPort-AV: E=Sophos;i="6.18,274,1751266800"; 
+   d="scan'208";a="60454920"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2025 04:52:03 -0700
+X-CSE-ConnectionGUID: xpACrP6fTbC4WJ9LOd4WfQ==
+X-CSE-MsgGUID: RkJTVKFVTm6UUBTnBekyMw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,274,1751266800"; 
+   d="scan'208";a="206471603"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 18 Sep 2025 04:51:56 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uzDB4-0003D5-14;
+	Thu, 18 Sep 2025 11:51:54 +0000
+Date: Thu, 18 Sep 2025 19:51:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ravi Patel <ravi.patel@samsung.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com,
+	lars.persson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
+	alim.akhtar@samsung.com, s.nawrocki@samsung.com,
+	cw00.choi@samsung.com
+Cc: oe-kbuild-all@lists.linux.dev, ravi.patel@samsung.com,
+	ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
+	krzk@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	pjsin865@coasia.com, gwk1013@coasia.com, bread@coasia.com,
+	jspark@coasia.com, limjh0823@coasia.com, lightwise@coasia.com,
+	hgkim05@coasia.com, mingyoungbo@coasia.com, shradha.t@samsung.com,
+	swathi.ks@samsung.com
+Subject: Re: [PATCH 2/7] clk: samsung: Add clock PLL support for ARTPEC-9 SoC
+Message-ID: <202509181955.NgLJ2aBv-lkp@intel.com>
+References: <20250917085005.89819-3-ravi.patel@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10450:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f580f98-9f8a-448b-0cc9-08ddf6a9c32a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dTVGNUMxcTNyTnV4aHhQR2J3S3AyWXJBMHNpbnZORXhmM1h0cEVQMjlBVHBD?=
- =?utf-8?B?aDBySEtEQ1hMNWxSQnIwZlE4WDBmN1FnZkloOUhoS1pEMWE3c0Fpd1EyN3BQ?=
- =?utf-8?B?OTB1S2FMSU5Za3Uybytvb1puWkhkTHpBZk82N003MGMvbWcvK0I4dldYWXVY?=
- =?utf-8?B?eFZWSmw3c3pIeEtJVWJ6Tm5jN2diV0VFbHRQWjNsUnB6Snh6dTJkTGRyV2dB?=
- =?utf-8?B?eGpOd2RnUDJrTG42R1lpNTlkQ2x3dytTZWpKQm9uYzZOTFhtaVB1eEFkbHpM?=
- =?utf-8?B?WjlOaE5IMVZUQnFiRlprTTU0QmpIeVB5UEs2VlVMTmRPMVIrNW5ySnR2Z01z?=
- =?utf-8?B?WU5JSFc3MnovRmJud0p2aE1ubHg5TzBOVW9rL0VuTW5oYnRvL2ltaE03UHdC?=
- =?utf-8?B?Y2IwZXF3MTM3c05oaVZhUzhTTkhqSzNYL1Z5eGVyRXY5THlhRWlZVm1HTmdF?=
- =?utf-8?B?ZE5pSy93Y1V5cFVVdjNKOC9zdC9YVklzYmxTRkMzbFhsOE81WDN3UGRsNFZS?=
- =?utf-8?B?aUlVS1VHWjFqQWY5MHVQWndVenBXc3o5ZEU5NERnME5JRzBwWFhkYmFPSzls?=
- =?utf-8?B?aVdjKzBDcCtzdEVrUzVRN3FlZmRNemswM3duUzBUUkFWNWJycFlrdEVUSko3?=
- =?utf-8?B?TVRYd1NkMlZDN1NsNlU4SnI0Y0pnMlFZenJDN2JEVEVPQkRuZGY1TXphbTlq?=
- =?utf-8?B?dUxLekxoR2xLelcwdDBQRlY5Q1NYWlQxeTBGS2dXdXV0RkcxckIrVTB6NlRu?=
- =?utf-8?B?aW41dVVnOWFJY0czdkwwL2RTMVp0WjVSV0kvY2EweFE4WlcxZE95TUJkVzI0?=
- =?utf-8?B?VmlFYUVkSGtKL3AyeVBCNjZKalN5NTB2d2Y5TE5mM2NkK0FxWW5MMDg3NHFM?=
- =?utf-8?B?NU9vNjZJb2daTEt6R3RxYURsdE9QZ24vUlNuZllwMlg5ZjdSVk5ORG1mWGVF?=
- =?utf-8?B?NlN1cGo5cHdHUUVnMGZ0ZFlRZVM1Umt2UzVkRmptR205NTlZNm5TM003N1h0?=
- =?utf-8?B?K0RXTzJJSzFzWStJTlRrM0t4NXQyRzRjRnNrK1FGS1V2QWNvL2Z0WW94cUJM?=
- =?utf-8?B?SlJoUDR1V2E4MEU4UXVYMVM0Nm5aREdoZkZLM3VJa0x1RGNvOFFkajVsVk4r?=
- =?utf-8?B?YWIyUWJaY1hENHY1cS9oOWdxb2FXR2FwdDJucHV1NlNxODFOMXNUbG9hT1RF?=
- =?utf-8?B?cjVraHNOZldyWStmUUNYb3lUZlFzd21tSEx4NnV4NGdJZmJTVUJ2dmMzbzF6?=
- =?utf-8?B?c0RyNVVSc3k1YWNyb29xRkN5WGMzMDg2Q3oxRFB4QjZuOWhjcDRiWjNVU3Q4?=
- =?utf-8?B?MDJsaTQ4ZDJ0Q0hQNUswcWZIbzluLzFNTkFUR0h6NzhLUmxoVzFpUVloakMr?=
- =?utf-8?B?Y09RR29VWFhWUGtPcVpIVVhJUU40OUdhRGdvYmdXdHhjMzh6empLUm05NW9t?=
- =?utf-8?B?U0ttNjZMck5oTEVWdG83VXIrZlpiblMrMVA0bS8wOEhKMHpwOVE2ckVsazlF?=
- =?utf-8?B?Vkd3ekp4UFE2ZFdJRm5FQ1hnTU9kWFU3SXVIRHh5L2hOTngrclFTdXd0c1E4?=
- =?utf-8?B?cjZsTENpekZFZE9rQ05hdzJKK2Z0UlErTVdTWUJZSitBbjQyTGtaMWlHeXIw?=
- =?utf-8?B?ZW83WEFRdmtxTlNBTVZwdnEwc1dDVXBaUmpNM1dEdExmbjJEWTBRMHA3QmhK?=
- =?utf-8?B?akQwZG9qRld5eGN0Z0FBS25pL3RjQnZHSWFaRi8xRlAyL2RKell4ZzBrNVZx?=
- =?utf-8?B?MU1CYVpPalBsY3J6QjFnTnU3c0hJMkY4TUpLR1FQVmtaczZXa0RlaHZ2YnJI?=
- =?utf-8?B?VzhDeGhoajlyaksxbGpTZzFLRUI5MzFVMERtcmtBN0NEb3lQb1BjVnE1c1J5?=
- =?utf-8?B?YzB6TEM1MTNGMS95M2Q5ZXQvejdQSTUxVko4VFlBL0JaL2xNMEFEdkZOSDRL?=
- =?utf-8?B?M2QzTzRqUXJPSnV1aGRVRVRlcUFCMHVoeVR1U2wxVTJtVHI3MkF0cUs5WUpS?=
- =?utf-8?B?QzZldm1UbVNRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S1pqZm9lZnFrSHY0R0lrT2x5Q1BpM3pPSU5hR0VXNG1NaWJ4UnRLdUhhU0Ro?=
- =?utf-8?B?ZU9vWi94c25LWnpScGlnZ0pGcHlFbHlibFQxRlJ4NUNDZmxUS0hqT1A2eTNG?=
- =?utf-8?B?dEMrWi9YTzNGamxQdEZJYnowODArNnFGSFhiWDNNS1BmWmlGMG1RVEozazQx?=
- =?utf-8?B?eUQ1dDJRTm43bm5wUEtHK1krRlBqOFFJc3hSblJEd1VqVjhxWHYxdk9vR2RO?=
- =?utf-8?B?NURvRVNqaGNuYnFRUWFwTkNQMTl1Y2lrUmNNQmg0dTlMUDhwa1RYV0ZZNlkr?=
- =?utf-8?B?a3AvUjFjeUhGbkk4OTJmbktadjRYNEhwTGtzcTkxNFBoNWY1QmVRRnMrNWdT?=
- =?utf-8?B?bUNMRDE4cDJaZlp4Uk5WTmpWMysvZm9UcUF6bnpmcDAyMVREbFJ6aHVjLzRv?=
- =?utf-8?B?eDJKclZRcjJkWEh2OWtteVdPS0ZhSHlqWnc0SjBST3NzREZKZFVybEZZQzZk?=
- =?utf-8?B?MWw5cWRidDdrVEdIWnJ0TFhVNWRhM01JZ2haTklXa2FmM3o5TFVHdjBnTkZP?=
- =?utf-8?B?THhBaUVoL0E3M2VFSXdkOVU5MEMwN254Q1BIZEJKOVJMMmg0N2xJck1HNTZx?=
- =?utf-8?B?N1ZBY1VmNTVCK3VsSUR5ajhNeWI1SjFlNzhra1RReU1Qd3pDM2JpU1pObnZ3?=
- =?utf-8?B?MHZDVGRNdkFJaENuNXJBRXFzTHBWbGZ2OFpZS29wQzRsZlhwWXNXaUI0am9T?=
- =?utf-8?B?NTcyekpseUxOU2lyaEcxSk5TOFpwOUZzVFp2T3dvc3lkOEpmMTVFSjViUk1K?=
- =?utf-8?B?RUhqT09pYnhiWG5ETHk1WDJLVzdQQVFCRE5IL2o5cnNMaWV4Sk1sVjBOYnBG?=
- =?utf-8?B?ejVlcS9ZSjVESmNBUkc0dnVIeFVtRFFzdU15UUFSVlRFZUJjT0NXV1hNVnJC?=
- =?utf-8?B?RzJPRnUrdWJhZ1ppRjRnTkduU1lNMEdqL1B0RWVidUxiY052WURMK3dvdCtn?=
- =?utf-8?B?Q3MzTStoTVUzbTRUZkFvTHRGMnMzNXp6YUdwZ1JVbFlIeHpORUtSdlE4YUpC?=
- =?utf-8?B?VVBINVB6RmdPc2hiWUdtUkd2OGptUElBUVNTekVscUtZWUJ0TThSSkRlMDNU?=
- =?utf-8?B?dWtLT3IxZC9CSyt3VnFKOW1FNWxldTdTVFk1eDdMNm9wejF2K2N1ZGFKR25p?=
- =?utf-8?B?OEk3WVpRYkoxQ2R0Ry81US96N1NRdUZHNDNYV015SEwvZFAwcG93bHQ0bkwx?=
- =?utf-8?B?TnJ4NXpnOFpPWHBhYXB2WmNYSUQxbnZwNVVJZjhQMEI1QmVkUVRPUkdiSGFl?=
- =?utf-8?B?RjRkT0VITHEvOW13ZktuYlBVbEVScGtYeWgvek9tV05EUzVzYjJ5SzUvaWhN?=
- =?utf-8?B?OHZUQ295NVdlYW5xbmZuWTlEWmg5WUhaYVpnWlVIL04xMHFDemozMnkrNytP?=
- =?utf-8?B?OTg2anYxa2RLd3BCOFAwbVVDOTlmU3VrdkUvRklyd2FaTkhkSThmTnRzY3Jo?=
- =?utf-8?B?V09LTnpmTUh1MTVsTlNuMnBjRlBUZENxL0RnYlFmTmMvQ1Vlei9EMkMyQ2lw?=
- =?utf-8?B?RGIzZFd1TXIrWXI1Y0dsYXR5M3FKS1N3VzcvQUR3UmNydUJWc0R2c0ExSUZu?=
- =?utf-8?B?cmRMU0NNOTF3Nk9vdHdPVU1HNHZ0VU9WM0s3NGNPQm02UjA1TVNOU0ZGSnI0?=
- =?utf-8?B?S0ZQbE5SbHlkRCttRU5aVnlNUDlPZE8rWitrTndoSXFqRk9MOFg3bnpzNjd4?=
- =?utf-8?B?UlFINFBKNkRWaFNXdzc0Zjh0K3YxUUNBWXluVGtGcnJDNWNJSzlyVlJRNG1O?=
- =?utf-8?B?R0l1ZlBnWlJrMWlBc1A3a0NJbVVmakNsejFLcDdJdFYwWUNrRW9QY2FONWlw?=
- =?utf-8?B?eVlkdWJENTdTYk0xeEE3VHAyRU1MYWY5R3J6WnIzNGRqaVRDMVdiV3ZteFc1?=
- =?utf-8?B?b0xlQVVKelpDbTErejU4OWgvVEZaWk1Md2JBamw5M2xDc3JQZDdTa2JENStN?=
- =?utf-8?B?b243UVZ5UlBPeVNEUGg1TW94NE0zM3NQRjRSRnA4UUpXQk43MWFxS0xWOUdx?=
- =?utf-8?B?VEpsdEVmRFEvRktBQUdEM0RleUwyYzRoQXkxK3ZWK3Z3WktsMy9kWit1dkYv?=
- =?utf-8?B?NUtnK29Id3VRNjQrUThuZFRVd0NZV0RHM0NQeE1KclJuNGsvdWhjOXF5eDB1?=
- =?utf-8?Q?Gf7N/zzYpCdkGS+b/m10q9wAi?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f580f98-9f8a-448b-0cc9-08ddf6a9c32a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 11:51:54.2813
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s6QqNDAYIfLtRBkxFAq02UwCF2JAIxnBvNnpbsoJu/YaA6SgYn4j+LfoXMfYluJmJwmPrVPkMEFmde/TrEXfWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10450
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917085005.89819-3-ravi.patel@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_045158_045313_0C4618D0 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_045205_283938_8C7EA744 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,34 +98,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an entry for the i.MX remoteproc driver
+Hi Ravi,
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+kernel test robot noticed the following build errors:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index df319f9762b369a2746ee7f41334be9b57e7bf9b..0bf57317c6607d72020e1401540cdbc77b70c4ff 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -18508,6 +18508,14 @@ F:	Documentation/devicetree/bindings/clock/*imx*
- F:	drivers/clk/imx/
- F:	include/dt-bindings/clock/*imx*
- 
-+NXP i.MX REMOTEPROC DRIVERS
-+M:	Peng Fan <peng.fan@nxp.com>
-+M:	Daniel Baluta <daniel.baluta@nxp.com>
-+L:	linux-remoteproc@vger.kernel.org
-+L:	imx@lists.linux.dev
-+S:	Maintained
-+F:	drivers/remoteproc/imx*
-+
- NXP NETC TIMER PTP CLOCK DRIVER
- M:	Wei Fang <wei.fang@nxp.com>
- M:	Clark Wang <xiaoning.wang@nxp.com>
+[auto build test ERROR on krzk/for-next]
+[also build test ERROR on clk/clk-next next-20250917]
+[cannot apply to robh/for-next linus/master v6.17-rc6]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ravi-Patel/dt-bindings-clock-Add-ARTPEC-9-clock-controller/20250917-165346
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250917085005.89819-3-ravi.patel%40samsung.com
+patch subject: [PATCH 2/7] clk: samsung: Add clock PLL support for ARTPEC-9 SoC
+config: arm-s5pv210_defconfig (https://download.01.org/0day-ci/archive/20250918/202509181955.NgLJ2aBv-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250918/202509181955.NgLJ2aBv-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509181955.NgLJ2aBv-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   arm-linux-gnueabi-ld: drivers/clk/samsung/clk-pll.o: in function `samsung_a9fraco_recalc_rate':
+>> drivers/clk/samsung/clk-pll.c:1508:(.text+0xcc): undefined reference to `__aeabi_uldivmod'
+
+
+vim +1508 drivers/clk/samsung/clk-pll.c
+
+  1490	
+  1491	static unsigned long samsung_a9fraco_recalc_rate(struct clk_hw *hw,
+  1492							 unsigned long parent_rate)
+  1493	{
+  1494		struct samsung_clk_pll *pll = to_clk_pll(hw);
+  1495		u32 pll_con0, pll_con5;
+  1496		u64 mdiv, pdiv, sdiv, kdiv;
+  1497		u64 fvco = parent_rate;
+  1498	
+  1499		pll_con0 = readl_relaxed(pll->con_reg);
+  1500		pll_con5 = readl_relaxed(pll->con_reg + PLLA9FRACO_PLL_CON5_DIV_FRAC);
+  1501		mdiv = (pll_con0 >> PLLA9FRACO_MDIV_SHIFT) & PLLA9FRACO_MDIV_MASK;
+  1502		pdiv = (pll_con0 >> PLLA9FRACO_PDIV_SHIFT) & PLLA9FRACO_PDIV_MASK;
+  1503		sdiv = (pll_con0 >> PLLA9FRACO_SDIV_SHIFT) & PLLA9FRACO_SDIV_MASK;
+  1504		kdiv = (pll_con5 & PLLA9FRACO_KDIV_MASK);
+  1505	
+  1506		/* fvco = fref * (M + K/2^24) / p * (S+1) */
+  1507		fvco *= mdiv;
+> 1508		fvco = ((fvco << 24) + kdiv) / ((pdiv * (sdiv + 1)) << 24);
+  1509	
+  1510		return (unsigned long)fvco;
+  1511	}
+  1512	
 
 -- 
-2.37.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
