@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE082CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD2ECAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=; b=VnKJXFxDrMAI1LVZwGECDWngcT
-	QmBMx8UaupgXGaTAuwmV/I8pqmbYgyMUpvWrl7gtVy/HdIJ19HVt9U1Qt0KMJLy3rK8lfcyd2EwLJ
-	Og7O49EUqahbSOjQjZfF9Gg4N0ahiW27YDQKJUBe/8ZURLkvrfe5PUrYz47Cg83UJ2kwjq1sz/2aC
-	14wnVICqoXPAhxc8rFOqXi054b9aUj6W707BMp0vTwjnsRVnLs+UCc5TaPw+rblCXBlpjJq5qn29H
-	OU1J6soN/ne9sZl/FZnENYMWqxKMkZrHDeVjlQ8Hue9J455VEmLab4fgGRAoJz1/QGrZhtXuktDE/
-	b2ZxC+7w==;
+	bh=J+obiJfJYI5oqPmXtrY+2iu7IixSDRl/k/VLYoW8S/4=; b=odjzNKY3mwuFDINY50iEXijezY
+	d8VWoNR7H6T9PEvsLrSZOmBVs5YW3X5VrVAEL8Xx9Nsv6AhEKt7DxdSRWEUQGQuqExDvvXR7K68/0
+	3d2EfOVfYvXFIGQJkjoQHl+sYNdvYP1HWmqqBECcT6lbF2GgZARgi8c8e6zDiqibcw8CP/vPrkhLd
+	+jQDKD+XrzYvG4Sk1dKzMt/joPf7CQBI19Ric9MOnR5pot6gi8un0CInEkYHVbVFpkeWTzUxJ9nSm
+	NdOtsIIaT7tTSaNL2RcijARKQPh7jHPM8wXmDQxUA37wGhE534QprdZLZrAQ6uk4IFwwYecleWqgA
+	/zKt0EDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD59-0000000HFqA-22Zx;
-	Thu, 18 Sep 2025 11:45:47 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1uzD6i-0000000HG6b-40RU;
+	Thu, 18 Sep 2025 11:47:24 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD57-0000000HFpW-33Pt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:45:46 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-62105d21297so1646803a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 04:45:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1758195943; x=1758800743; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=;
-        b=YYEZ6vicSZtxRq0QicSgXp7E46OGu1MlJwXZh5jS5nIXm3WdUu6fERhdT1QE0gDeZY
-         VRkL1HF0m3M66U7PAUfhnkUKoJLy03YL9OVSdAz8xuZKFkjnN03Gyf1cLbJC5IA7Roq1
-         LGBEmwLpNIvsSEXj99wuE8O7vImcB/RHDDsj+sylJA1fqgp4MvNgZQo6XQXcQUXH2oRq
-         obzu1Xo1uaTdQzqDXNjz0aq89Mm+MLmiQoJ2xLJ/WshqX0KFl2dA3+7QKPik1J/ZCSQK
-         g4B5BvRbg0rfSskAHxGHfHZjH6B2b6q/pHqBqmUsdZZlUyfo+HanJCB4PmZxR7L6TmR4
-         u4jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758195943; x=1758800743;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ymLWBfJeHa+AAF5LWXk/aJtIpCAEk7N1D5WL9NzAOZw=;
-        b=DBahMGC+aJTrqgVlQCbJIYohuKyAGzIfVf50XvmCULikDjLNTjP3nQr/LQ4Yk9SBKv
-         WN45jzuImdtcTVeylrqoxf613ivbEoOqcxlRP7fXTXKnySVoJn4NPy1Yl6AzuHe9oU/u
-         KzcgnGpm1GzemlkxYE0G+3AL/Qhd6sSXJ4ZINBzL8ta1QGtj9WrZuzImizpecTXrm71e
-         WoZahdo1VY6PMVEVPSlLexFKA2CpUzktpNCvXSaUsVduvGG4XYWgv77UVILnF6En99hM
-         nnIQ0wcH+Xc9N5X6tCDaRj0nhXs6Ck272hmeAQJm1an5IxwyNOgGJ6Qnxj6GxC/08F4i
-         hV0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWcqnD/cdoJT2UctTxUFwHBbYudEtTgl2ApekEOcc1MHks7Ggw7rQdfpIINyZ/9AHoEHJHVGkxYvblVdK5MMpX/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4r/r8gJvGcwsxIkkZW092b9Pd8klDAkDUZGBSwlcEjlDOUHoE
-	bW0rupULJFkrs9+R9HLxYNYvH4P8/n6ReiiL5DjWJe4euEeZBTUrf/jCmvf1wwlj7Q5YFOPiPZd
-	MhaSZGgYQB33ivMA1hwqBROvg8JVzyw6Dj4q0KsDk5g==
-X-Gm-Gg: ASbGncuJXXsYx7vf2C8J9tw5jXE0urFCwfHjWbX86FrSDwYs2QTUMo1XRD7ANZslKEC
-	xLREuWcuiUWcju/PnJZGQy+onlNtchJivdMBiB/kJsPcbUKmhiIAdTf02QH5NFOYxUn2MOq1kAe
-	VXD9Sc3jUxXxmLrQ2g4n75YRSeJ9T1F4U4rlDqhddv1gIXIp4P1X+aqn52KtnW89GtpXsjyKGNc
-	SUTF+BvZj7hrsrG7oohhDflMNA=
-X-Google-Smtp-Source: AGHT+IHFids55hjFx9tAzd9HjZcFGiHI2LRl4FHiE0hZ24A9EqDyegxHm6xC2ZWRH8V+3GqUEFGFc0HVJ77f2C+o9Nk=
-X-Received: by 2002:a05:6402:5341:20b0:62f:a3ae:fedf with SMTP id
- 4fb4d7f45d1cf-62fa3af0280mr2223555a12.34.1758195943526; Thu, 18 Sep 2025
- 04:45:43 -0700 (PDT)
+	id 1uzD6g-0000000HG6C-39iT;
+	Thu, 18 Sep 2025 11:47:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758196040;
+	bh=6EKZDkdDj+TQTFKi29y3ENgReTXMEGTTC1s38Fo2/GA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aT13i7doY1WMx3ADOq+HzXsPl1jAKpBpEZI81nRRpR+YRkCVwTNVdH5tHrdUx3Ave
+	 c4g1Gvmj9RW3sKCGJM52hwcYc/6zn+zlK/Zd+zsC4hBX1vWPqf/EFswGkgsaDi+xhb
+	 +k4ZyVOf7h0E3WxBhGKhb8x20GmLSarNAv5g9/6+2zAS6XBJj7I3RmfHAdN6Fkghu8
+	 33DaoU50JzO5m0UplX3G/wEQZpt2qUBVdkwgWr9Q4P5pStpXl8UjqIWMQb9GPvE7fV
+	 Ew1wQ82nMzRp497XUEfegOK0EIk48nKPkU9MuQwkYliUnzpmPYQEU7nZhpOsTzxtXG
+	 aYenc45V8LhOQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0583E17E0B8C;
+	Thu, 18 Sep 2025 13:47:19 +0200 (CEST)
+Message-ID: <c31bc281-94d5-40b6-a9bd-76b41769f6e5@collabora.com>
+Date: Thu, 18 Sep 2025 13:47:19 +0200
 MIME-Version: 1.0
-References: <20250917111323.60781-1-robert.marko@sartura.hr> <20250917-paparazzi-hermit-3a4aa686add3@spud>
-In-Reply-To: <20250917-paparazzi-hermit-3a4aa686add3@spud>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Thu, 18 Sep 2025 13:45:32 +0200
-X-Gm-Features: AS18NWA_6zldq5uxIKmy94PXw-Gq_9sPBdCM2sajgaSERKRbYRyea3BZcHITxFQ
-Message-ID: <CA+HBbNHS9TMd5u_Mysv21=nsqjeEb44oHFj06kS_hxkXZWutnw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: reset: microchip: Add LAN969x support
-To: Conor Dooley <conor@kernel.org>
-Cc: p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Steen.Hegelund@microchip.com, 
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com, 
-	lars.povlsen@microchip.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	luka.perkov@sartura.hr, benjamin.ryzman@canonical.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] SPMI: MediaTek: Add support for multi-bus
+To: sboyd@kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, hsin-hsiung.wang@mediatek.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com
+References: <20250703115828.118425-1-angelogioacchino.delregno@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250703115828.118425-1-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_044545_787757_EF5D0EA9 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20250918_044722_965949_B13348E7 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 7:38=E2=80=AFPM Conor Dooley <conor@kernel.org> wro=
-te:
->
-> On Wed, Sep 17, 2025 at 01:12:35PM +0200, Robert Marko wrote:
-> > LAN969x also uses the Microchip reset driver, so document its compatibl=
-e.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  Documentation/devicetree/bindings/reset/microchip,rst.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/reset/microchip,rst.yaml=
- b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> > index f2da0693b05a..4d4dd47f830e 100644
-> > --- a/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> > +++ b/Documentation/devicetree/bindings/reset/microchip,rst.yaml
-> > @@ -23,6 +23,7 @@ properties:
-> >      enum:
-> >        - microchip,sparx5-switch-reset
-> >        - microchip,lan966x-switch-reset
-> > +      - microchip,lan969x-switch-reset
->
-> Driver patch makes a fallback compatible seem usable.
+Il 03/07/25 13:58, AngeloGioacchino Del Regno ha scritto:
+> Changes in v2:
+>   - Fixed indentation error in dt-bindings
+> 
+> This series adds basic support for multi-bus (multi-master) SPMI
+> controllers, as found in the MediaTek MT8196 Chromebook SoC and
+> the MediaTek MT6991 Dimensity 9400 Smartphone SoC, including RCS
+> interrupt handling and per-bus registration.
+> 
+> AngeloGioacchino Del Regno (5):
+>    dt-bindings: spmi: Add MediaTek MT8196 SPMI 2 Arbiter/Controllers
+>    spmi: mtk-pmif: Add multi-bus support for SPMI 2.0
+>    spmi: mtk-pmif: Keep spinlock until read is fully done
+>    spmi: mtk-pmif: Implement Request Capable Slave (RCS) interrupt
+>    spmi: mtk-pmif: Add support for MT8196 SPMI Controller
+> 
+>   .../bindings/spmi/mediatek,mt8196-spmi.yaml   | 138 +++++
+>   drivers/spmi/spmi-mtk-pmif.c                  | 471 +++++++++++++++---
+>   2 files changed, 530 insertions(+), 79 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/spmi/mediatek,mt8196-spmi.yaml
+> 
 
-Hi Conor,
-Will respin to simply use the fallback compatible, that will avoid
-adding more compatibles to the driver
-for no reason.
 
-But, can I ask what do you think about the
-microchip,lan969x-switch-reset compatible?
-Is lan969x fine or should I just make it lan9691 or like cause the
-whole series uses the same
-reset setup?
+Gentle ping on this series.
 
 Regards,
-Robert
->
-> >
-> >    reg:
-> >      items:
-> > --
-> > 2.51.0
-> >
-
-
-
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+Angelo
 
