@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781F7CAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:44:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A46CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GuRqLTivCJEK+3lstpIebDv0AXkfsOSfdGRF0Dn2QDk=; b=dKqt70ABIzTTg9tz6CMSLNm0bW
-	xmUi8GCXmnjDmZ0Kc1BfWJdLSkq2hPD1mak15odkz5Nd1BJtGKm0n8fy86VOVEceGLUtZcge5tOwC
-	Sg1i+cwcb92Zv67Ulf0+Hz+LhTUSpoqyMg6NYn1QlUzl8IcoptKubnYBBuvrv6UDZLM2YGhfJn/tS
-	coeU+iod2TKtwVXpJzZXQdJIVJww2mxXrAtwY5A44487ivT+VQXo8dHrezWH6ZsyayT11B9EZqsV+
-	PsGMpVjw8jVGHMKaPogPtC19sTwMty+46JYFxmP/bH5eRD/K0W55KVzUzgQgadlnLAi06AKKOh5Sp
-	aGOowy7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Doq25p+1DFVIRWlQc0G6ormH2onTHdI1vNqxrn+KXcE=; b=dhUlLvIS3ketvQq++NaHSBLsTC
+	c0Tuxn8FHbE91QVNsucAjvTmYTqi+JN/HS3xuRoUO9Ef1iw7vVwV+/7e2p1RkZuBxYy95FHebeF9J
+	Gl7BbdbuPD1ZBPvk1PlhwyMB/g9+f6GqLFcKG5i032byFlFkY1Wpd6jtPCXilwrVwDmtCCgrAyLRe
+	LRYLdgUuqVJ+tW7OBi1KWY9xXjCXUPTH2q1SEL9/9zff7EO5qqqCndVtifdtfztrczzgwfJNoXGsc
+	6UoB1b9suMOvKUvfgjWCzeQrWT9nIRngsTNjEj/SjaIJpqwgT+GAM/8qCcl4keeshrm+TJvrX86+6
+	iHWnu2HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3gl-0000000Fx3M-2Lag;
-	Thu, 18 Sep 2025 01:43:59 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1uz3ir-0000000FxPd-49C6;
+	Thu, 18 Sep 2025 01:46:09 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3gj-0000000Fx2Y-1hkR
+	id 1uz3io-0000000FxP5-47De
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 01:43:58 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-78393b4490cso3846736d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 18:43:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758159836; x=1758764636; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GuRqLTivCJEK+3lstpIebDv0AXkfsOSfdGRF0Dn2QDk=;
-        b=EjI7oVzgopYz6qaiIOA/xuJBnSQ0ORcGPr36G7PNtmg3/I7v/JlsNrPUbpHqhrOB8Z
-         69v32n5RHcGdRHd5270ZFoP9IEz+YB9RTweH74T62qoy3Y0iR6gzOaUuRSEh17eLWxOA
-         v+m+3rTpiRYQ1BUbGz1puYnMYwi2Lrk8fsiFs/fhoX8Nq18IlZXr/nE77NUe06r8aric
-         ZAKYzPRMJJ0pYRYbvLGEm5m3O6CaX8N1XVvb1SHhxR6Tgq7ebaF3YM/jQHntZ0mDdZe+
-         tRdsLI5DAbUVzgeuOG6nPf6Kj5RQEM89jCcKhmh6BEyb6pW99yQrEc4KxWQtslMjgrMH
-         2lww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758159836; x=1758764636;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GuRqLTivCJEK+3lstpIebDv0AXkfsOSfdGRF0Dn2QDk=;
-        b=xN0Ev0Rw1VCYA6CUaDDkC5mZQPsLKFZsIaEXGN4V6Yr/Fo3y7vgHV4xKg3BX0snrQV
-         +gdqArBD+e6DHwaQXOBF5zaYgl6yZ9WQaQPGCaohTg1FwKFqQH2DjEQNS5HvPz1iVFbN
-         UbOkH0/UoHfmblX+B2DjwCraSzlzelXLhkSjvckCzlwlG9hy48HdYeZFM4bkcAmOqtze
-         GaKW9Zs3jvSLwvx8Mwxt4/ITRS4rfSJQUNvgpXtkSuFlekCiOH6ncGgxZB3Hn20iUENk
-         jaXvNOTo0HpXX7NFMVKLwdi9vfqrIQ9xFEAWsKPU7KxYWwjFS+1/KEBoSyEl5Vjnuhwu
-         W7FQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVp2B4J6NQNmc7ahPa0B6XLFPxEfmNt9h/d+buPyREkQZMG0tWuF+W37h92dwvRvjlDGaF3Ef3vW8PZd2g96Smj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7JT/j6FU+Q2O/Me5Vxe7sp7hhTutL/QdDEgNGPdF0nPwqGept
-	hafnZK2JFd15Rg5sJ4X0PD6Y0TLioNVXoTFKbyUpy6WVejn3uLcEpYW1
-X-Gm-Gg: ASbGncsdsnE2oxXT+z6WACw4CrrwHWk5nEYp0LECkOpghFgbwkvFRsMseq92b06B2wR
-	gk0Y9Qkj/M884h/ETBnmq00p+M0xrcbJ/+scAIl2rOgVtz6tc6o3RaJl//2h22SL9kumGG3y4DI
-	jZZKgwph46xDoelmXLCdYVPidbeS20Ium9toUnmhuHsPU0Xg4VgekEcNSUf1j4vumYRdyp/mIeY
-	5NAG/EDO/FTapF/HLzY71NyxWGKZrr7Yol8tm0UWrfYqju/pq5EpnSqoGvDMoKzFcQ+5fm6B1Ne
-	zwif2fwKZSw8pT4ARjuOkfGgq4Rug/FewQcfLtPWlSZzROrw+RkY4jee2HfFTeR8IqCvTUgsJiO
-	oo+/RkKx8ATzHGz8bQoLJ3DCJj2WCBCGqMpRstAJQl+eimiW+FxtKPzxGITk=
-X-Google-Smtp-Source: AGHT+IEROA/m8D6W2SKvGkiml7WVml/VFJBm8Vna42pFHiXEvmWq8ZpLWaycYjvEyNUjVZ/JQLKZhQ==
-X-Received: by 2002:ad4:5ec5:0:b0:786:8f81:43e with SMTP id 6a1803df08f44-78eceb32c77mr33955806d6.33.1758159835923;
-        Wed, 17 Sep 2025 18:43:55 -0700 (PDT)
-Received: from rogerio-laptop.home ([184.148.194.86])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-79346930bbesm5191506d6.17.2025.09.17.18.43.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Sep 2025 18:43:55 -0700 (PDT)
-From: Rogerio Pimentel <rpimentel.silva@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	alexander.stein@ew.tq-group.com,
-	dario.binacchi@amarulasolutions.com,
-	marex@denx.de,
-	Markus.Niebel@tq-group.com,
-	y.moog@phytec.de,
-	joao.goncalves@toradex.com,
-	frieder.schrempf@kontron.de,
-	josua@solid-run.com,
-	francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rogerio Pimentel <rpimentel.silva@gmail.com>
-Subject: [PATCH 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-Date: Wed, 17 Sep 2025 21:40:53 -0400
-Message-Id: <20250918014053.696710-2-rpimentel.silva@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250918014053.696710-1-rpimentel.silva@gmail.com>
-References: <20250918014053.696710-1-rpimentel.silva@gmail.com>
+	Thu, 18 Sep 2025 01:46:08 +0000
+Date: Thu, 18 Sep 2025 10:45:51 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758159961;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Doq25p+1DFVIRWlQc0G6ormH2onTHdI1vNqxrn+KXcE=;
+	b=SdFDJG43Gg2xOHKStNM2G3t1zfMEJn8q/nCLMxuuojmrQU+IeUjSD+5NZqg5gBfGAs9eWV
+	moCt+yQvsQkKHWqOlRTWaTGEqc40rT28Q2++P52OSgOLJCzlQ8sRzzs9Ib9fTaez9NxouV
+	zSK6sR23IO6F6TriRgy5CY10IyJsKlQ=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Itaru Kitayama <itaru.kitayama@linux.dev>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Subject: Re: [PATCH 03/13] KVM: arm64: selftests: Add helper to check for
+ VGICv3 support
+Message-ID: <aMtkT9CC+lRH/vSD@vm4>
+References: <20250917212044.294760-1-oliver.upton@linux.dev>
+ <20250917212044.294760-4-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250917212044.294760-4-oliver.upton@linux.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_184357_473920_B40A9BF5 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250917_184607_165277_178F3134 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,404 +78,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
-SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
-32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
-display interfaces, camera connectors, and standard expansion headers.
+On Wed, Sep 17, 2025 at 02:20:33PM -0700, Oliver Upton wrote:
+> Introduce a proper predicate for probing VGICv3 by performing a 'test'
+> creation of the device on a dummy VM.
+> 
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  tools/testing/selftests/kvm/arm64/arch_timer.c        |  3 ++-
+>  .../selftests/kvm/arm64/arch_timer_edge_cases.c       |  3 ++-
+>  tools/testing/selftests/kvm/arm64/vgic_irq.c          |  3 ++-
+>  tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c   |  4 ++--
+>  .../testing/selftests/kvm/arm64/vpmu_counter_access.c |  3 +--
+>  tools/testing/selftests/kvm/include/arm64/vgic.h      |  1 +
+>  tools/testing/selftests/kvm/lib/arm64/vgic.c          | 11 +++++++++++
+>  7 files changed, 21 insertions(+), 7 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/arch_timer.c b/tools/testing/selftests/kvm/arm64/arch_timer.c
+> index eeba1cc87ff8..aaf4285f832a 100644
+> --- a/tools/testing/selftests/kvm/arm64/arch_timer.c
+> +++ b/tools/testing/selftests/kvm/arm64/arch_timer.c
+> @@ -184,6 +184,8 @@ struct kvm_vm *test_vm_create(void)
+>  	unsigned int i;
+>  	int nr_vcpus = test_args.nr_vcpus;
+>  
+> +	TEST_REQUIRE(kvm_supports_vgic_v3());
+> +
+>  	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+>  
+>  	vm_init_descriptor_tables(vm);
+> @@ -205,7 +207,6 @@ struct kvm_vm *test_vm_create(void)
+>  
+>  	test_init_timer_irq(vm);
+>  	gic_fd = vgic_v3_setup(vm, nr_vcpus, 64);
+> -	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3");
+>  
+>  	/* Make all the test's cmdline args visible to the guest */
+>  	sync_global_to_guest(vm, test_args);
+> diff --git a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+> index ce74d069cb7b..d349d80d8418 100644
+> --- a/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+> +++ b/tools/testing/selftests/kvm/arm64/arch_timer_edge_cases.c
+> @@ -952,7 +952,6 @@ static void test_vm_create(struct kvm_vm **vm, struct kvm_vcpu **vcpu,
+>  
+>  	test_init_timer_irq(*vm, *vcpu);
+>  	gic_fd = vgic_v3_setup(*vm, 1, 64);
+> -	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3");
+>  
+>  	sync_global_to_guest(*vm, test_args);
+>  	sync_global_to_guest(*vm, CVAL_MAX);
+> @@ -1042,6 +1041,8 @@ int main(int argc, char *argv[])
+>  	/* Tell stdout not to buffer its content */
+>  	setbuf(stdout, NULL);
+>  
+> +	TEST_REQUIRE(kvm_supports_vgic_v3());
+> +
+>  	if (!parse_args(argc, argv))
+>  		exit(KSFT_SKIP);
+>  
+> diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> index a09dd423c2d7..9fc9e8e44ecd 100644
+> --- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> +++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+> @@ -752,7 +752,6 @@ static void test_vgic(uint32_t nr_irqs, bool level_sensitive, bool eoi_split)
+>  	vcpu_args_set(vcpu, 1, args_gva);
+>  
+>  	gic_fd = vgic_v3_setup(vm, 1, nr_irqs);
+> -	__TEST_REQUIRE(gic_fd >= 0, "Failed to create vgic-v3, skipping");
+>  
+>  	vm_install_exception_handler(vm, VECTOR_IRQ_CURRENT,
+>  		guest_irq_handlers[args.eoi_split][args.level_sensitive]);
+> @@ -802,6 +801,8 @@ int main(int argc, char **argv)
+>  	int opt;
+>  	bool eoi_split = false;
+>  
+> +	TEST_REQUIRE(kvm_supports_vgic_v3());
+> +
+>  	while ((opt = getopt(argc, argv, "hn:e:l:")) != -1) {
+>  		switch (opt) {
+>  		case 'n':
+> diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+> index fc4fe52fb6f8..cc2b21d374af 100644
+> --- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+> +++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+> @@ -215,8 +215,6 @@ static void setup_test_data(void)
+>  static void setup_gic(void)
+>  {
+>  	gic_fd = vgic_v3_setup(vm, test_data.nr_cpus, 64);
+> -	__TEST_REQUIRE(gic_fd >= 0, "Failed to create GICv3");
+> -
+>  	its_fd = vgic_its_setup(vm);
+>  }
+>  
+> @@ -374,6 +372,8 @@ int main(int argc, char **argv)
+>  	u32 nr_threads;
+>  	int c;
+>  
+> +	TEST_REQUIRE(kvm_supports_vgic_v3());
+> +
+>  	while ((c = getopt(argc, argv, "hv:d:e:i:")) != -1) {
+>  		switch (c) {
+>  		case 'v':
+> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> index a0c4ab839155..01f61657de45 100644
+> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> @@ -436,8 +436,6 @@ static void create_vpmu_vm(void *guest_code)
+>  	vpmu_vm.vcpu = aarch64_vcpu_add(vpmu_vm.vm, 0, &init, guest_code);
+>  	vcpu_init_descriptor_tables(vpmu_vm.vcpu);
+>  	vpmu_vm.gic_fd = vgic_v3_setup(vpmu_vm.vm, 1, 64);
+> -	__TEST_REQUIRE(vpmu_vm.gic_fd >= 0,
+> -		       "Failed to create vgic-v3, skipping");
+>  
+>  	/* Make sure that PMUv3 support is indicated in the ID register */
+>  	dfr0 = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
+> @@ -634,6 +632,7 @@ int main(void)
+>  	uint64_t i, pmcr_n;
+>  
+>  	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_PMU_V3));
+> +	TEST_REQUIRE(kvm_supports_vgic_v3());
+>  
+>  	pmcr_n = get_pmcr_n_limit();
+>  	for (i = 0; i <= pmcr_n; i++) {
+> diff --git a/tools/testing/selftests/kvm/include/arm64/vgic.h b/tools/testing/selftests/kvm/include/arm64/vgic.h
+> index c481d0c00a5d..b858fa8195b4 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/vgic.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/vgic.h
+> @@ -16,6 +16,7 @@
+>  	((uint64_t)(flags) << 12) | \
+>  	index)
+>  
+> +bool kvm_supports_vgic_v3(void);
+>  int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
+>  
+>  #define VGIC_MAX_RESERVED	1023
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/vgic.c b/tools/testing/selftests/kvm/lib/arm64/vgic.c
+> index 64e793795563..661744c6532e 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/vgic.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/vgic.c
+> @@ -15,6 +15,17 @@
+>  #include "gic.h"
+>  #include "gic_v3.h"
+>  
+> +bool kvm_supports_vgic_v3(void)
+> +{
+> +	struct kvm_vm *vm = vm_create_barebones();
+> +	int r;
+> +
+> +	r = __kvm_test_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
+> +	kvm_vm_free(vm);
+> +
+> +	return !r;
+> +}
+> +
+>  /*
+>   * vGIC-v3 default host setup
+>   *
+> -- 
+> 2.47.3
+> 
 
-Based on the device tree found in the NXP repository at github
-https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
-board kernel mainline device tree.
+Oliver
+The arch_timer_edge_cases selftest does not return nor fails on FVP RevC.
+I boot the system with kvm-arm.mode=nested.
 
-This is a basic device tree supporting:
-
- - Quad Cortex-A53
- - 4GB LPDDR4 DRAM
- - PCA9450C PMIC with regulators
- - Two NXP PCAL6416 GPIO expanders
- - RGB LEDs via GPIO expander
- - I2C1, I2C2, I2C3 controllers
- - UART2 (console) and UART3 (with RTS/CTS)
- - USDHC3 (8-bit eMMC)
- - SNVS power key (onboard power button)
-
-Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- arch/arm64/boot/dts/freescale/imx8mp-frdm.dts | 351 ++++++++++++++++++
- 2 files changed, 352 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 525ef180481d..d861e576779a 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -206,6 +206,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-mate.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pro.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pulse.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-new file mode 100644
-index 000000000000..a10e458365c5
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-@@ -0,0 +1,351 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/dts-v1/;
-+
-+#include "imx8mp.dtsi"
-+
-+/ {
-+	model = "NXP i.MX8MPlus FRDM board";
-+	compatible = "fsl,imx8mp-frdm", "fsl,imx8mp";
-+
-+	chosen {
-+		stdout-path = &uart2;
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		red {
-+			label = "led-0";
-+			gpios = <&pcal6416 13 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		green {
-+			label = "led-1";
-+			gpios = <&pcal6416 14 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+		};
-+
-+		blue {
-+			label = "led-2";
-+			gpios = <&pcal6416 15 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0 0xc0000000>,
-+		      <0x1 0x00000000 0 0x40000000>;
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	status = "okay";
-+
-+	pmic@25 {
-+		compatible = "nxp,pca9450c";
-+		reg = <0x25>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pmic>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+
-+		regulators {
-+			BUCK1 {
-+				regulator-name = "BUCK1";
-+				regulator-min-microvolt = <720000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			reg_arm: BUCK2 {
-+				regulator-name = "BUCK2";
-+				regulator-min-microvolt = <720000>;
-+				regulator-max-microvolt = <1025000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+				nxp,dvs-run-voltage = <950000>;
-+				nxp,dvs-standby-voltage = <850000>;
-+			};
-+
-+			BUCK4 {
-+				regulator-name = "BUCK4";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3600000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			reg_buck5: BUCK5 {
-+				regulator-name = "BUCK5";
-+				regulator-min-microvolt = <1650000>;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			BUCK6 {
-+				regulator-name = "BUCK6";
-+				regulator-min-microvolt = <1045000>;
-+				regulator-max-microvolt = <1155000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO1 {
-+				regulator-name = "LDO1";
-+				regulator-min-microvolt = <1650000>;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO3 {
-+				regulator-name = "LDO3";
-+				regulator-min-microvolt = <1710000>;
-+				regulator-max-microvolt = <1890000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO5 {
-+				regulator-name = "LDO5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+
-+	pcal6416: gpio@20 {
-+		compatible = "nxp,pcal6416";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pcal6416_int>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "CSI1_nRST",
-+			"CSI2_nRST",
-+			"DSI_CTP_RST",
-+			"EXT_PWREN1",
-+			"CAN_STBY",
-+			"EXP_P0_5",
-+			"EXP_P0_6",
-+			"P0_7",
-+			"LVDS0_BLT_EN",
-+			"LVDS1_BLT_EN",
-+			"LVDS0_CTP_RST",
-+			"LVDS1_CTP_RST",
-+			"SPK_PWREN",
-+			"RLED_GPIO",
-+			"GLED_GPIO",
-+			"BLED_GPIO";
-+	};
-+
-+	pcal6416_1: gpio@21 {
-+		compatible = "nxp,pcal6416";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pcal6416_1_int>;
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "P0_0",
-+			"P0_1",
-+			"AUD_nINT",
-+			"RTC_nINTA",
-+			"USB1_SS_SEL",
-+			"USB2_PWR_EN",
-+			"SPI_EXP_SEL",
-+			"P0_7",
-+			"W2_HOST_WAKE_SD_3V3",
-+			"W2_HOST_WAKE_BT_3V3",
-+			"EXP_WIFI_BT_PDN_3V3",
-+			"EXP_BT_RST_3V3",
-+			"W2_RST_IND_3V3",
-+			"SPI_nINT_3V3",
-+			"KEYM_PCIE_nWAKE",
-+			"P1_7";
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	status = "okay";
-+};
-+
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	status = "okay";
-+};
-+
-+&snvs_pwrkey {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart3>;
-+	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&usdhc3 {
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
-+	assigned-clock-rates = <400000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	bus-width = <8>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_pmic: pmicgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03	0x000001c0
-+		>;
-+	};
-+
-+	pinctrl_pcal6416_int: pcal6416_int_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_READY_B__GPIO3_IO16	0x146
-+		>;
-+	};
-+
-+	pinctrl_pcal6416_1_int: pcal6416_1_int_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x146
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX	0x140
-+			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX	0x140
-+		>;
-+	};
-+
-+	pinctrl_uart3: uart3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX	0x140
-+			MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX	0x140
-+			MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS	0x140
-+			MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS	0x140
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x190
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d0
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d0
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d0
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d0
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d0
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x190
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x194
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d4
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d4
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d4
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d4
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d4
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x194
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x196
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d6
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d6
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d6
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d6
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d6
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x196
-+		>;
-+	};
-+};
--- 
-2.25.1
-
+Thanks,
+Itaru.
 
