@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EDCCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AE2CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+F4TaAJ1+I3lApf7Zbx5vaj8m+LuxzrlFuwgun2z2qg=; b=RLXR+/I4jXuoFmBv71izEF7Ag7
-	fMz2FCXnSy336FYn+TP231kGUDUKCbpBZpOSaZu6FwksITok/Zp6hmJcDIWXtWIQU0JY9+qij+AC7
-	Ow0Ab3v9ho92iOk7nphxf1E457T8yEm/pgfwPJeMmmqnM7F2qpa0lAuySezQ/jW5mP1bDdNXcv/Fd
-	D4cKK9y54Bc1y+8UwnWHglIfudXilN8RD5pF7hd8iX3kCSwK1om1s754E8hZuVdCzgE3ptT49hqoI
-	ceFW95nuuxsSPnTuhEYzWkQf87lH73QIB4X8GlXCUzyve/Fa2WZhxBjU5r4uiBjnk1AJ9JOCXeFkP
-	ksrZkWHg==;
+	bh=ninNeWEmz3Wj53O9s8gF8RXSPwXAfvqBAcR4jaHa4D8=; b=se4e0sxHgHa79NOCBadVKxs2Mb
+	gpncbYO+zqG/YSxC5jA33Ref8Q69APpXZOPafRJ50JzyWK1mRelBWTlN67xuZaygiOG37bawfg59K
+	kb+ar8JvhyShG/rwE54vdNZyZmwOo/0K/5c3e3sALth0uJKkGevRfbAeyAy7LpZGvnf4jtdLc3Qp5
+	/yskvj6BXM3/8rZSa1OyFhLVxCaTBz2br+1eF7LqgBExM5A4I3hWmT19Pa49j8YYdaTLp0lvGDRlD
+	FWezYEQjgQV+IRlGU8V6pwmRzh1PmhSs0rIwpn+LKOulXYsVR+3VivnZlVU+wy2Ekq7Xf+zP+oIma
+	+RsxantQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzH9o-00000000Yfd-0qwL;
-	Thu, 18 Sep 2025 16:06:52 +0000
+	id 1uzHL5-00000000aXg-3JZh;
+	Thu, 18 Sep 2025 16:18:31 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzH9l-00000000YeA-1J3Y;
-	Thu, 18 Sep 2025 16:06:51 +0000
+	id 1uzHL3-00000000aW5-1hAI;
+	Thu, 18 Sep 2025 16:18:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=+F4TaAJ1+I3lApf7Zbx5vaj8m+LuxzrlFuwgun2z2qg=; b=VoslzeLwepJmNzjMIsPuSVmsXt
-	V++kPbTcSCQW75otpc1HAvdiq4J1Rniab/l5JMYEG72uAk147fN/5Fs7Rb5PX1v6jASWgOMrVNXCu
-	tWl2TLPi4OuJlXdtmN95amPcIDonK64CvmXTX3KKasnbO2Ttt7WYAneSc9pTTaI1PvAUUzJfTvx0V
-	wyVrrQfpv4T25Mq/TTedTcN34tBQsXndl0u81m/lrpE6Z6PbTJsk1ZcIH9Hs1XzeHRO8PPgA3pp22
-	PyAjQZF8g1LIWPt6zhfgpWY4FWVovVItYSU4uB3vF7rxy+xT/mYuDv9LEdsvvDXkVNh6NvanSL72i
-	52jE1RoQ==;
+	References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:Cc;
+	bh=ninNeWEmz3Wj53O9s8gF8RXSPwXAfvqBAcR4jaHa4D8=; b=IzQ3gB5kMzVaoDZubjbNyvLEeH
+	Y8EdbjZaPEGufSFgqArSrQWsXjOqXDcS29gAZ0vIGFDLDkHN+tf/zsQhU0pD36a1MgA+ZpUDJE92u
+	TMd9BLoua4CEivJdq133lp8O5VUx88Rm8pLgrCW+KaT2T4U0tv5AceP3RTE96YEw4AX/19Ut89mPq
+	QxMBbt6IMKZAo30UAWTzK6I366Wcdo2yrHONbkGAv6g6foGiicswPvLocRMlPKepzB4l0xpe8PtKb
+	MGjZV2tx4y3/53XQaQvvjmhvVTIX1EnNlHLeuXy/69Z99/kyJBdLOYuiuRQETLMdTMvvbQS0U55Au
+	TKnxHl6Q==;
 Received: from i53875b0a.versanet.de ([83.135.91.10] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uzH9T-0001tG-MC; Thu, 18 Sep 2025 18:06:31 +0200
+	id 1uzHKw-0001xW-Pd; Thu, 18 Sep 2025 18:18:22 +0200
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+To: FUKAUMI Naoki <naoki@radxa.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>,
- Yao Zi <ziyao@disroot.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>,
- Chukun Pan <amadeus@jmu.edu.cn>, Yao Zi <ziyao@disroot.org>
-Subject: Re: [PATCH v2 1/3] dt-bindings: PCI: dwc: rockchip: Add RK3528 variant
-Date: Thu, 18 Sep 2025 18:06:30 +0200
-Message-ID: <2042643.CrzyxZ31qj@diego>
-In-Reply-To: <20250918153057.56023-2-ziyao@disroot.org>
-References: <20250918153057.56023-1-ziyao@disroot.org>
- <20250918153057.56023-2-ziyao@disroot.org>
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ed W <lists@wildgooses.com>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO3
+Date: Thu, 18 Sep 2025 18:18:22 +0200
+Message-ID: <2325560.3ZeAukHxDK@diego>
+In-Reply-To: <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
+References: <20250917114932.25994-1-lists@wildgooses.com>
+ <FBB5B30DE8FEABD7+59ee6f48-2ad1-45dd-8cf1-8b58a03513a9@radxa.com>
+ <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_090649_371281_5CD0876A 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250918_091829_449965_E8920087 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +73,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 18. September 2025, 17:30:55 Mitteleurop=C3=A4ische Sommerze=
-it schrieb Yao Zi:
-> RK3528 ships a PCIe Gen2x1 controller that operates in RC mode only.
-> Since the SoC has no separate MSI controller, the one integrated in the
-> DWC PCIe IP must be used, and thus its interrupt scheme is similar to
-> variants found in RK3562 and RK3576.
+Am Donnerstag, 18. September 2025, 17:23:04 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Ed W:
+> On 18/09/2025 05:53, FUKAUMI Naoki wrote:
+> > Hi Ed,
+> >
+> > Thank you very much for your work.
+> >
+> > On 9/17/25 20:49, Ed Wildgoose wrote:
+> >> The rk3566 has multiplexed pins and the uarts can be moved to a choice
+> >> of 2 pin groups. The default rk356x-base.dtsi appears to default to mu=
+x0
+> >> for all uarts, however, specific hardware might choose to implement
+> >> alternatives
+> >>
+> >> The Radxa zero 3 shows that is uses M1 for uarts:
+> >> - uart4
+> >> - uart5
+> >> - uart9
+> >>
+> >> These aren't normally enabled, but we should at least correct the
+> >> default pinctrl definitions. Without these changes there will be
+> >> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
+> >
+> > Sorry, but why do we need these definitions for disabled nodes?
+> >
+> > Or why don't we do similar definitions for nodes other than uart?
+> > For example, PWM12, I2S3, and SPI3 also use M1. Are they not related to=
+ SD/eMMC and therefore
+> > don't need to be defined?
+> >
+> > If users want to use UARTs on pin headers, they will refer to the corre=
+ct documentation[1] to
+> > determine which pins are UARTs and will of course write the correct pin=
+ctrl definition.
+> >
+> > [1] https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-inter=
+face#gpio-interface
+> >
+> > Best regards,
+> >
 >=20
-> Older BSP code claimed its integrated MSI controller supports only 8
-> MSIs[1], but this has been changed in newer BSP[2] and testing proves
-> the controller works correctly with more than 8 MSIs allocated,
-> suggesting the controller should be compatible with the RK3568 variant.
-> Let's document its compatible string.
 >=20
-> Link: https://github.com/rockchip-linux/kernel/blob/792a7d4273a5/drivers/=
-pci/controller/dwc/pcie-dw-rockchip.c#L1610-L1613 # [1]
-> Link: https://github.com/rockchip-linux/kernel/blob/1ba51b059f25/drivers/=
-pci/controller/dwc/pcie-dw-rockchip.c#L904-L906 # [2]
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Personally, and I'm saying this as a user who is technical enough to fix =
+the definitions, it took me
+> quite a few days to figure out what was wrong with the definitions and un=
+derstand the intricate tree
+> of dtsi includes, to finally figure out why I couldn't just do a "status =
+=3D "okay";" to enable the
+> UARTs... (which is roughly what is shown in several radxa supplied overla=
+ys to enable uarts on
+> various boards)
+>=20
+> So my vote would be to correctly define all the hardware for a given boar=
+d. Then users can simply do
+> a status=3D"okay" to enable and off they go.
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
+And I'd agree with that argument. Setting up the needed pinctrl settings
+for the peripherals described in the device documentation
+( https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface#g=
+pio-interface )
 
-This likely should to go through the PCI tree.
-(or needs an Ack from PCI maintainers, for me to pick it up)
+is the sensible thing to do. While keeping the peripherals itself disabled
+and for the user to decide which peripheral to enable.
 
 Heiko
-
 
 
 
