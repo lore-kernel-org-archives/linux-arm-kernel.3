@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A636CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C05BCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ILmjNxTIbvXBq6RdMryGh6o+wyr898K3QpyDh9bzxx0=; b=sarlmAT1Xb2ncLzvLtzui8qhRg
-	pReTkMAUwmJiCynDjds0232R63ruGLeCW0hlekHQCEXM86wZHLe9VIIfoBQ73e825LQRIqiV6++hQ
-	HGM+xxEzYhNu/V+jEoog3t//OdNdpQojwosrAIvNq2N4DQVHzke2EoT48G4C8AA82qtJ4GW0VEwDE
-	KTnykrWnrT/VMLL4GTXUgSQeVgqoEn2NLWHoKW282Tt7wE/5wGk+7dJG7ckVd+H+DP4oUHKQ63Scn
-	bvI8PJ9ZiWjpab3CMWsHOXbE5GNvNJQpiyd1A5qxdAF+DCn6ONltjn54MdvTriPMQT59yDU2cy0xv
-	xEvyl1uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FFLORDihYCicM5VZt7vNB80L4AErinlH5+UxIfqQxVw=; b=P9RYCjnIk00AZZkbXYiXuTr2KV
+	L1xqYqDyN+Ew5gDaurspfLiSq9qezrrZ7fIUBfNIRaqzpxHW5ba2B+wBG68gIsvyrCfyKTDFQCCJr
+	bu/s8w+en5at96mERN3/h3M6YbxGfQKfQf9ZTzP3xoIJztAblHCz3B/Ob4wqAJumWBnPJplRqanhb
+	ikjaWx+fcN5AsZhFQk7HMHm3bfNPmTP+ws1RWHAFrztzXmdThTfZGYxjCsOadLaF1Su+MQyBxjgli
+	qaXpq11GxC32x/GDmSStQyHGbwbAr3q5JyIQ4IS4CJ+wr5m2ae8Jcu69HHfJ9uKDIpKT8awjHZSnN
+	mmjgS+qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFKl-000000003N4-0Otu;
-	Thu, 18 Sep 2025 14:10:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzFKp-000000003Q1-1hVl;
+	Thu, 18 Sep 2025 14:10:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFKj-000000003MK-0veX
+	id 1uzFKm-000000003My-0K4N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 14:10:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67FB560052;
-	Thu, 18 Sep 2025 14:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE6CC4CEE7;
-	Thu, 18 Sep 2025 14:09:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758204600;
-	bh=Pi5T819TFc2iqtg/dEe1hcW6EHD16i+UrHXuy/WzDOY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N6hq4IZioMzxZVLrqPxIN1sDeyN1/MixcEr36decDtSa4WNTO48EIzoRtCfHURiTP
-	 XMufzHtXGUQWyG32ltphrXys4JlT2/nPQzRJUepSs7aIKZ4Dt/Ss1EyEAK8QkC8zc3
-	 vIl5lD0WF4qeZn8Z3KGVbFo72DRy50Klk5ZEVPZ2yeHGy8hIMfUDG6YgqbV6WFZxca
-	 4kV/RF3TSWU8WIaiPtXWJzI2gXYl0Crd2VqYcMMNL6jc66qQmehT4vZSRFKtxGw7Jr
-	 cRVkT6eGVn1SU0m0y41HUKDXp21LxO+guGGu3EyXnpZKW4XO6cr0Q6FOwPLQ0JkSJE
-	 62ET1qQlR3oRw==
-From: Leon Romanovsky <leon@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
-	iommu@lists.linux.dev,
-	Juergen Gross <jgross@suse.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	xen-devel@lists.xenproject.org
-Subject: [PATCH v4 0/6] Preparation to .map_page and .unmap_page removal
-Date: Thu, 18 Sep 2025 17:09:23 +0300
-Message-ID: <cover.1758203802.git.leon@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	Thu, 18 Sep 2025 14:10:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=FFLORDihYCicM5VZt7vNB80L4AErinlH5+UxIfqQxVw=; b=FhpXnzrZcb6mjDFRd2NdWQ823k
+	R1B/DN7Ol8sQnnusRoRVLVERXTDVPwq1oVqpGj/rKM/9/Z6+AG7R2cKBc/su7lPAwG4hsTsFPsI7e
+	yUg2SmC1Fb4dXcWWQwxNoOuGivGonRXsPgGFp6WWOJjmVD3NUrCfzObSrDiF1HqBRLgs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uzFKa-008pbw-Bz; Thu, 18 Sep 2025 16:09:52 +0200
+Date: Thu, 18 Sep 2025 16:09:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH v2 3/4] arm64: dts: marvell: cn9132-clearfog: fix
+ multi-lane pci x2 and x4 ports
+Message-ID: <dedd4222-b2ba-4247-98b4-504b5c032f69@lunn.ch>
+References: <20250911-cn913x-sr-fix-sata-v2-0-0d79319105f8@solid-run.com>
+ <20250911-cn913x-sr-fix-sata-v2-3-0d79319105f8@solid-run.com>
+ <9272b233-b710-4e57-b3ff-735f45c03c74@lunn.ch>
+ <dbb10e82-ae10-4987-900b-17d4f4b62099@solid-run.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <dbb10e82-ae10-4987-900b-17d4f4b62099@solid-run.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_071004_116035_F0AB8813 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,48 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changelog:
-v4:
- * Added Jason's ROB tags
- * Added "xen: swiotlb ..." patch to the list of patches which had .map_resource
- * Added extra patch "ARM: dma-mapping: Reduce ..." to remove struct
-   page as much as possible.
- * Added call to .map_phys/.unmap_phys to dma_common_*_pages() functions.
-v3: https://lore.kernel.org/all/cover.1758006942.git.leon@kernel.org
- * Rewrote the series to allow combination of .map_resource and
- * .map_page
-   to one flow.
- * Added two new patches to convert and remove .map_resource.
-v2: https://lore.kernel.org/all/cover.1752734252.git.leon@kernel.org/
- * Added default "else" section without map_phys and map_page
-   callbacks (impossible).
-v1: https://lore.kernel.org/all/cover.1753003879.git.leon@kernel.org
- * Changed "else if" instead of "if".
-v0: https://lore.kernel.org/all/cover.1752734252.git.leon@kernel.org
----------------------------------------------------------------------
+On Thu, Sep 18, 2025 at 10:46:03AM +0000, Josua Mayer wrote:
+> Am 12.09.25 um 00:12 schrieb Andrew Lunn:
+> > On Thu, Sep 11, 2025 at 08:28:06PM +0200, Josua Mayer wrote:
+> >> The mvebu-comphy driver does not currently know how to pass correct
+> >> lane-count to ATF while configuring the serdes lanes.
+> >>
+> >> This causes the system to hard reset during reconfiguration, if a pci
+> >> card is present and has established a link during bootloader.
+> >>
+> >> Remove the comphy handles from the respective pci nodes to avoid runtime
+> >> reconfiguration, relying solely on bootloader configuration - while
+> >> avoiding the hard reset.
+> >>
+> >> When bootloader has configured the lanes correctly, the pci ports are
+> >> functional under Linux.
+> > Does this require a specific bootloader? Can i use mainline grub or
+> > bareboot?
+> 
+> In this case it means U-Boot, i.e. before one would start grub.
+> 
+> I am never quite sure if in this situation I should say "firmware" instead ...
 
-This is followup to "dma-mapping: migrate to physical address-based API" series
-https://lore.kernel.org/all/cover.1757423202.git.leonro@nvidia.com
+What you failed to answer is my question about 'mainline'? Do i need a
+specific vendor u-boot, or can i just use mainline u-boot, or mainline
+bareboot.
 
-Thanks
+I personally like to replace the bootloader, because the one shipped
+with the board often has useful features disabled, or is old. If i do
+that, will the board work? I would much prefer the kernel makes no
+assumptions about the bootloader. You said:
 
-Leon Romanovsky (6):
-  dma-mapping: prepare dma_map_ops to conversion to physical address
-  dma-mapping: convert dummy ops to physical address mapping
-  ARM: dma-mapping: Reduce struct page exposure in arch_sync_dma*()
-  ARM: dma-mapping: Switch to physical address mapping callbacks
-  xen: swiotlb: Switch to physical address mapping callbacks
-  dma-mapping: remove unused mapping resource callbacks
+> The mvebu-comphy driver does not currently know how to pass correct
+> lane-count to ATF while configuring the serdes lanes.
 
- arch/arm/mm/dma-mapping.c   | 180 +++++++++++-------------------------
- drivers/xen/swiotlb-xen.c   |  63 ++++++-------
- include/linux/dma-map-ops.h |  13 +--
- kernel/dma/dummy.c          |  13 ++-
- kernel/dma/mapping.c        |  20 ++--
- kernel/dma/ops_helpers.c    |  12 ++-
- 6 files changed, 113 insertions(+), 188 deletions(-)
+Why not just teach mvebu-comphy to pass the correct line-count? That
+sounds like the proper fix, and that makes the kernel independent of
+the bootloader.
 
--- 
-2.51.0
-
+	Andrew
 
