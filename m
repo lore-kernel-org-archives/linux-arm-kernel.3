@@ -4,49 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7484FCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5C7CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3xhhxlrbbCxkzbwy8FbRQs0Th0Q0Jlv1xluCDf7EaA4=; b=b/4fvaqTSwr/nC+h4ZoreCH/6J
-	Xq835NRVjht6hTlXFM6Kh2zl/ggHLePZ1OG0I7e+vPqTOsYMFrKX1yxC1GeQUd8qM/wNt7DUAoOri
-	Gp4r4uy0ZtnAdhiTD1WjRdxafgtbbIhhAOpHLDX+c/HUTBEkhYC6P7ZuvNJg8QzS5pQ1bu1NevMG/
-	AblVwhJYSuzH1YHsbevjPfERVv/MswyVfAG344WMPN1auODRH4xXcUsYAk6pNmNViviZQSZxHYtaV
-	0CHAjxcsHLB4VxmrbS4HVev1xdCwrD0E6D0fXiBDJC3BOZhiPEMBeoLTl9TnwXry6RZYP7FPTbFrV
-	5+g3UE+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ChxvvI26hZI07uL6I6U4zLG64uov430MusmAXyujx4=; b=3WgfnGMdIa6MFfqFLcKl0gYlR0
+	Y9fBnD7UGOAFShyMpAnVhAH1VSqDsZHRp4BLo/fsxMlv/oL1IhQ6Ybmm9ugoYXG0du4tjExSDomux
+	G81I+jKm0a4+GWGegWVPbZXTbOMWRKdCTTNIPy2C3c6ceaxr9d9QBdrd11v32POY74lI4CJ34gC89
+	Cgt6ByVAvpkXh4+iga6+Uqrz5eQ18XHYu9sUJ/nZT8ed7QGdGE87AM3uaq66H0Y2SlthsP5lXHl81
+	tOyNHJ+aerSByOE08YXfdym+AGEv5Yhda+iuxBfNs5380wQt6w+dqO9G3FQSk22v3OztgsNhj05Ag
+	X3F4Rs5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGPP-00000000KyK-2TFq;
-	Thu, 18 Sep 2025 15:18:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzGQd-00000000LMZ-08KC;
+	Thu, 18 Sep 2025 15:20:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGPN-00000000Kxf-42nD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:18:54 +0000
+	id 1uzGQb-00000000LLU-0tNK;
+	Thu, 18 Sep 2025 15:20:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A4F0601BC;
-	Thu, 18 Sep 2025 15:18:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C602CC4CEE7;
-	Thu, 18 Sep 2025 15:18:51 +0000 (UTC)
-Date: Thu, 18 Sep 2025 16:18:49 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 2/2] arm64: tlbflush: Don't broadcast if mm was
- only active on local cpu
-Message-ID: <aMwi2TwPIut5Lr4Z@arm.com>
-References: <20250829153510.2401161-1-ryan.roberts@arm.com>
- <20250829153510.2401161-3-ryan.roberts@arm.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 84EBB601BC;
+	Thu, 18 Sep 2025 15:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA81C4CEE7;
+	Thu, 18 Sep 2025 15:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758208808;
+	bh=WtFvBNz1kJ7pD7bo4mQcWpsZ1ssTGarDzTz4XC7qwVU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=n49SMoE5Zt1WozM4r5I7FeD2ewGouOsP2e2IevUVtRyRC0LAPna1MaCaTClXqFwTj
+	 7wEJGLQk4Q9BT8ewfa8KTYJvri6JYRmfKnZlhJegGrrzWTORDKTzAsAKwJA4oJYfUj
+	 YZY7HQi4xeNpO34JScJdzKRisVDd5jyZTnaxFHbWgtRikFi81Y0onbNtZf8Xpsu4S7
+	 4x/IAMmM31spNaQbp0aNwomP8/86h/rm4k8ivzFLkXtPU7pG26flLaaKqVpZ7ftEq8
+	 Z+zye+fFsehsVlS5Zyv78mYcNT1sEBb2S6fSLi+HScdyx+7Eyuv3lJypyQ4C9rWVLm
+	 WE0TtZ3w/aG3w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CA139D0C28;
+	Thu, 18 Sep 2025 15:20:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250829153510.2401161-3-ryan.roberts@arm.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] drivers/perf: riscv: Remove redundant ternary operators
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175820880826.2459453.293698691705893286.git-patchwork-notify@kernel.org>
+Date: Thu, 18 Sep 2025 15:20:08 +0000
+References: <20250828122510.30843-1-liaoyuanhong@vivo.com>
+In-Reply-To: <20250828122510.30843-1-liaoyuanhong@vivo.com>
+To: Liao Yuanhong <liaoyuanhong@vivo.com>
+Cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev,
+ anup@brainfault.org, will@kernel.org, mark.rutland@arm.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,67 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 04:35:08PM +0100, Ryan Roberts wrote:
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index b2ac06246327..adf4fc26ddb6 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -214,9 +214,10 @@ static u64 new_context(struct mm_struct *mm)
->  
->  void check_and_switch_context(struct mm_struct *mm)
->  {
-> -	unsigned long flags;
-> -	unsigned int cpu;
-> +	unsigned int cpu = smp_processor_id();
->  	u64 asid, old_active_asid;
-> +	unsigned int active;
-> +	unsigned long flags;
->  
->  	if (system_supports_cnp())
->  		cpu_set_reserved_ttbr0();
-> @@ -251,7 +252,6 @@ void check_and_switch_context(struct mm_struct *mm)
->  		atomic64_set(&mm->context.id, asid);
->  	}
->  
-> -	cpu = smp_processor_id();
->  	if (cpumask_test_and_clear_cpu(cpu, &tlb_flush_pending))
->  		local_flush_tlb_all();
->  
-> @@ -262,6 +262,30 @@ void check_and_switch_context(struct mm_struct *mm)
->  
->  	arm64_apply_bp_hardening();
->  
-> +	/*
-> +	 * Update mm->context.active_cpu in such a manner that we avoid cmpxchg
-> +	 * and dsb unless we definitely need it. If initially ACTIVE_CPU_NONE
-> +	 * then we are the first cpu to run so set it to our id. If initially
-> +	 * any id other than ours, we are the second cpu to run so set it to
-> +	 * ACTIVE_CPU_MULTIPLE. If we update the value then we must issue
-> +	 * dsb(ishst) to ensure stores to mm->context.active_cpu are ordered
-> +	 * against the TTBR0 write in cpu_switch_mm()/uaccess_enable(); the
-> +	 * store must be visible to another cpu before this cpu could have
-> +	 * populated any TLB entries based on the pgtables that will be
-> +	 * installed.
-> +	 */
-> +	active = READ_ONCE(mm->context.active_cpu);
-> +	if (active != cpu && active != ACTIVE_CPU_MULTIPLE) {
-> +		if (active == ACTIVE_CPU_NONE)
-> +			active = cmpxchg_relaxed(&mm->context.active_cpu,
-> +						 ACTIVE_CPU_NONE, cpu);
-> +
-> +		if (active != ACTIVE_CPU_NONE)
-> +			WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_MULTIPLE);
-> +
-> +		dsb(ishst);
-> +	}
+Hello:
 
-I realised when we talked earlier that we can reset active_cpu on the
-slow path if we got a new ASID. I think it's best to do it in
-new_context().
+This patch was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
 
-The fork() case where the child may unnecessarily inherit the parent's
-active_cpu is already handled by init_new_context() in this patch.
+On Thu, 28 Aug 2025 20:25:09 +0800 you wrote:
+> For ternary operators in the form of "a ? true : false", if 'a' itself
+> returns a boolean result, the ternary operator can be omitted. Remove
+> redundant ternary operators to clean up the code.
+> 
+> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
+Here is the summary with links:
+  - drivers/perf: riscv: Remove redundant ternary operators
+    https://git.kernel.org/riscv/c/01dc937ac18d
+
+You are awesome, thank you!
 -- 
-Catalin
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
