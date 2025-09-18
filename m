@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F228CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E302CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRSBQn0CNOoDzG4Gu4SHtqbEqQelE3otNo87wDagxFE=; b=22cLrplZpoQ+DUvb754DRSvxCE
-	riaZnrwmxzYvSHyZrdoBWNokQV6WIP8fhPcdFYvO1BSigvJUJmwqJFMOXznH3EqGuTlfDlEEFg4TL
-	SaOKke5UFhQnaivMh5lX6MbLof46jCjhOxOmVAAY2sL6G2fnpz5uIBIzswFQqLPN4usu1W3WZ5VXe
-	C5YbG0Qb9JI/d/cYM9+Gm0blAG/LR9QFTlgKggVyTy2xYSDoLlCIUeff8hsPFYOHiJmVH46RtG1W/
-	mCJFgKTkyVAeKMrxkREfnFbp4LQ/BCBzYgJXRAsZ1DgzbQ62ipPrvOf736tXnGOzUade+w3L7ufyt
-	fVMUP6SQ==;
+	bh=Xxs58C2WtFJ0KGp6PCanbZVXzvtIrGauHJD1iwcYKoI=; b=0x65BwjXHKn/wMZLvxfeNs/frg
+	K3M/zfiPFJnRAyXnvWPDZ632VpOyA84Dj9HWwAHG7E7iLlK+0HOLrwB1qi2/Ojaw+nxODCbfKtuzx
+	Zd0Aw7BZDYtzkDzYzfKwDEx71gkdAQ8Z5AtJv9r+SxVTHthi1p4bOgN4gOKbONsuSBL9QfJwII8Jy
+	NHZFtTr/xhUpGGiMKvsEO7EydKUsmrMDFWTj3SBz9PdYSncW/rGOxQA0NF9jeaIDbNBm7iQtaShB4
+	ECbA25D3UbJrLZkTAGX0ETk26XLJFb0lZaXuonGFj5DwVmUgP8Ce8ut608g8AwDkDNBFMd4CL94Sp
+	MnEBoxTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBSI-0000000Gxg5-036E;
-	Thu, 18 Sep 2025 10:01:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzBde-0000000GzMo-3PLv;
+	Thu, 18 Sep 2025 10:13:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBSE-0000000GxeH-3ipr
+	id 1uzBdd-0000000GzLl-0Wbt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 10:01:32 +0000
+	Thu, 18 Sep 2025 10:13:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B83943746;
-	Thu, 18 Sep 2025 10:01:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0047C4CEF1;
-	Thu, 18 Sep 2025 10:01:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758189690;
-	bh=xZIRfI5Um819Cxzoa75KMsq+fWpcyT2KDlvZiPVOiiU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=iqyH4rWBACtteGABcOGNiyBIAuNLVlMjDqz93gMllRoyEaHqc4GAoQegOlcSQdf1N
-	 q3+gi3nKLgiQDGk0bR+i8gYfGVL0InJNqKjSEi7pxatS2kI75ZCkrgwZT2jsN1VVS+
-	 4GgYZfZr3ug+5THIDsm7gHLF9+NGrMWVHdIcyt8phzFONPlzsOiFLK32tLqskCr1H/
-	 Cf6k1wNNTq5qIqMQs7zsAaNdTtH5G8R/MeJdwEN+SNCmHAV59XNgpLmD5fLImRAEBy
-	 OQSR8FsPRXIOpFqzfJGvNcMRIsGVUAaorG4dr88Oalj1p6dY+a1qX47MgLUuC84UFE
-	 vUCnO3jaRHubA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uzBSB-00000007Nkh-1YoN;
-	Thu, 18 Sep 2025 10:01:27 +0000
-Date: Thu, 18 Sep 2025 11:01:26 +0100
-Message-ID: <86ikhg13m1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v5 6/7] arm64: dts: renesas: Add R8A78000 X5H DTs
-In-Reply-To: <87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
-References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
-	<87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kuninori.morimoto.gx@renesas.com, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_030130_970092_C56560A9 
-X-CRM114-Status: GOOD (  15.29  )
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E9726020B;
+	Thu, 18 Sep 2025 10:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86177C4CEE7;
+	Thu, 18 Sep 2025 10:13:12 +0000 (UTC)
+Date: Thu, 18 Sep 2025 11:13:10 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Huang, Ying" <ying.huang@linux.alibaba.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+Message-ID: <aMvbNvCsSxQjA2rq@arm.com>
+References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
+ <20250915032946.33203-3-ying.huang@linux.alibaba.com>
+ <46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com>
+ <87o6r833li.fsf@DESKTOP-5N7EMDA>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87o6r833li.fsf@DESKTOP-5N7EMDA>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-3rd resend in a matter of hours -- how about slowing down?
+On Thu, Sep 18, 2025 at 10:18:49AM +0800, Huang, Ying wrote:
+> Ryan Roberts <ryan.roberts@arm.com> writes:
+> > contpte_ptep_set_access_flags() currently does a (broadcast) __flush_tlb_range()
+> > on the (pte_write(orig_pte) == pte_write(entry)) path. I think that should be
+> > changed to a local range invalidation to be consistent with this change.
+> 
+> Yes.  This should be changed too.  However, it means we need a local
+> variant of __flush_tlb_range() and flush_tlb_mm().  Is it OK to
+> introduce them first and tidy up later?
 
-Also, dropping Shameer's bouncing email address from Cc. Surely you
-can fix your (enormous, and pretty random) Cc list?
-
-On Thu, 18 Sep 2025 07:27:26 +0100,
-Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
->
-
-[...]
-
-> +		/*
-> +		 * The ARM GIC-720AE - View 1
-> +		 *
-> +		 * see
-> +		 *	r19uh0244ej0052-r-carx5h.pdf
-> +		 *	- attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
-> +		 *	 - sheet [RT]
-> +		 *	  - line 619
-> +		 */
-> +		gic: interrupt-controller@39000000 {
-> +			compatible = "arm,gic-v3";
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <0>;
-> +			interrupt-controller;
-> +			reg = <0 0x39000000 0 0x20000>,
-> +			      <0 0x39080000 0 0x800000>;
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +		};
-
-I already asked for:
-
-- this comment to be dropped, as it serves zero purpose to the common
-  mortal
-
-- the ITS to be described. The HW has it, it has no dependency on
-  anything else, so there is no reason to omit it.
-
-So I'd suggest you slow down, and take the comments reviewers give you
-into account.
-
-Thanks,
-
-	M.
+If it's just for contpte, we'd never take the flush_tlb_mm() path. So we
+could instead add a specific local_flush_tlb_contpte_range().
 
 -- 
-Without deviation from the norm, progress is not possible.
+Catalin
 
