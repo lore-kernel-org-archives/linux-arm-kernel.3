@@ -4,63 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CFFCAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED31CCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ff5vkxEE2doyuxnUEokkLyv0nT2zebJTuiLb503dsM=; b=Nqnwl7axfNDsdNx0otkZdoe0Ps
-	7RqUa8sON4MaKPufcAgkG2WKkpbkiEu87on2Ln+lKyfkJm3tkrer6pnEZU6ntlDF4N9PFpxNFfHoN
-	eLYbvXJ3aq205PvtphX6kMWIS5kpZ7+Lcmih6SnRUc4JVzaORFMFtIASblDzseUDj8SjzxrxY6jPZ
-	T21fjKksKq7fhjZFlrvsOV4q5+JXROD4chHwK6z+gt6eGz92B8OAA50m+wGY5/ptFhNiSqqBBHDks
-	uQVa4ixx7+V85yL6nv05mCVLMCaYEPztitl5wAT+DCVxCBOrJ3S9zinzr7C07m3YdkgYNH8yPrkbc
-	HtEXuXrQ==;
+	bh=NnlbipUC3BtCqbOzytdCCPdPTAzXEzDZ9KbLPbjkFP8=; b=Ki6QBBOJLvHCjtcSXcYsAPZmHA
+	Wjzz7awFFHzQk+zh8jtaJOX+ltCGJ/RyX6ehrdqIdG2d+V2h9t+O3+jn7HNovo6xraTiHmbjo//GD
+	LQH2QmTL2cUxTZktkQOmgu6w3WVnk35Ef+w0UxIaCSIaOg3OS0Ob25/NAU+i0Nq/IXudetXKqL7Lw
+	5wyusZgBRuJ7Bk4Lf2JCIkbQ0hyxF6LlapK3WMO/La1OSKcD5Nl2DVVtOrlaHrniWWhoPgS5xFqhQ
+	rswTf7/Ge5FBHF7yHnzQVdGMoUKmTLwNpk4Aw2pQ2Uz2ZZWblMjZ1TNi1s0nCFzcy5XDo8Zgsu//N
+	+Gmd0qYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCnU-0000000HDKG-2r7r;
-	Thu, 18 Sep 2025 11:27:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzCo8-0000000HDVl-0CqR;
+	Thu, 18 Sep 2025 11:28:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCnT-0000000HDJY-0hNT
+	id 1uzCo5-0000000HDUT-3vfx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:27:31 +0000
+	Thu, 18 Sep 2025 11:28:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8380460245;
-	Thu, 18 Sep 2025 11:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F854C4CEEB;
-	Thu, 18 Sep 2025 11:27:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758194850;
-	bh=5QEZw9RNRk0Ahq+77CpxSjVPDT2KfPGtnFnDNhj6xoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h5zGTtsu1W9M0jWaxE9ILyjT/ckuehlLA/0hpKMWrGT7swQ5Ka93LFolWtBokBtIm
-	 dc6Cj23xIowaXTikI5NCF33jw/T7AqRzRMYNy5JgyKjMNG/EKHETeVA1b+uDnGE7FO
-	 rjKzZDCJ3t0h5/0cI8H2H+qV0M795NaFHzpuwOJkvuDKK7022WrdFCqPbufsDiIxQD
-	 zHWvm1ySLqnZhMRcGNDovEkYiY9cTyB5qHTc/CW8/XoZCkMEY1QmL1e+EbCzswGVMf
-	 JPKQVT3CYrZpS8LPwhxZiRAL156S2c9lL0mqPJ4BMM/O+CjAPInW/rGO3tMbbW8Iyv
-	 UIUsa0spCwjrQ==
-Date: Thu, 18 Sep 2025 16:57:20 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, 
-	Jingoo Han <jingoohan1@gmail.com>, chester62515@gmail.com, mbrugger@suse.com, 
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com, 
-	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
-Message-ID: <gejrg6oyzml3dwcsoqpusazlipceejvba4zkkg6gkghxdfryki@m5k4hz4pgrk2>
-References: <e236uncj7qradf34elkmd2c4wjogc6pfkobuu7muyoyb2hrrai@tta36jq5fzsr>
- <20250917212833.GA1873293@bhelgaas>
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F27843CBA;
+	Thu, 18 Sep 2025 11:28:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E27C4CEE7;
+	Thu, 18 Sep 2025 11:28:07 +0000 (UTC)
+Date: Thu, 18 Sep 2025 12:28:05 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: shechenglong <shechenglong@xfusion.com>
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stone.xulei@xfusion.com,
+	chenjialong@xfusion.com, yuxiating@xfusion.com
+Subject: Re: [PATCH] cpu: fix hard lockup triggered during stress-ng stress
+ testing.
+Message-ID: <aMvsxd8nHb5roC0o@arm.com>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250917212833.GA1873293@bhelgaas>
+In-Reply-To: <20250918064907.1832-1-shechenglong@xfusion.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_042810_013575_B65284C2 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +64,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 04:28:33PM -0500, Bjorn Helgaas wrote:
-> On Wed, Sep 17, 2025 at 10:41:08PM +0530, Manivannan Sadhasivam wrote:
-> > On Tue, Sep 16, 2025 at 09:23:13AM GMT, Bjorn Helgaas wrote:
-> > > On Tue, Sep 16, 2025 at 10:10:31AM +0200, Vincent Guittot wrote:
-> > > > On Sun, 14 Sept 2025 at 14:35, Vincent Guittot
-> > > > <vincent.guittot@linaro.org> wrote:
-> > > > > On Sat, 13 Sept 2025 at 00:50, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > > > > > On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
-> > > > > > > Describe the PCIe controller available on the S32G platforms.
-> > > 
-> > > > > > > +                  num-lanes = <2>;
-> > > > > > > +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > > > > >
-> > > > > > num-lanes and phys are properties of a Root Port, not the host bridge.
-> > > > > > Please put them in a separate stanza.  See this for details and
-> > > > > > examples:
-> > > > > >
-> > > > > >   https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
-> > > > >
-> > > > > Ok, I'm going to have a look
-> > > > 
-> > > > This driver relies on dw_pcie_host_init() to get common resources like
-> > > > num-lane which doesn't look at childs to get num-lane.
-> > > > 
-> > > > I have to keep num-lane in the pcie node. Having this in mind should I
-> > > > keep phys as well as they are both linked ?
+On Thu, Sep 18, 2025 at 02:49:07PM +0800, shechenglong wrote:
+> Context of the Issue:
+> In an ARM64 environment, the following steps were performed:
 > 
-> > > Huh, that sounds like an issue in the DWC core.  Jingoo, Mani?
-> > > 
-> > > dw_pcie_host_init() includes several things that assume a single Root
-> > > Port: num_lanes, of_pci_get_equalization_presets(),
-> > > dw_pcie_start_link() are all per-Root Port things.
-> > 
-> > Yeah, it is a gap right now. We only recently started moving the DWC
-> > platforms to per Root Port binding (like Qcom).
+> 1. Repeatedly ran stress-ng to stress the CPU, memory, and I/O.
+> 2. Cyclically executed test case pty06 from the LTP test suite.
+> 3. Added mitigations=off to the GRUB parameters.
 > 
-> Do you need num-lanes in the devicetree?
-> dw_pcie_link_get_max_link_width() will read it from PCI_EXP_LNKCAP, so
-> if that works maybe you can omit it from the binding?
+> After 1–2 hours of stress testing, a hardlockup occurred,
+> causing a system crash.
 > 
-
-'num-lanes' is an optional property. But we do need it to be specified in
-devicetree so that the drivers can set proper MLW, Link Width and Link Control
-settings if the default values are wrong.
-
-> If you do need num-lanes in the binding, maybe you could make a Root
-> Port parser similar to mvebu_pcie_parse_port() or
-> qcom_pcie_parse_port() that would get num-lanes, the PHY, and
-> nxp,phy-mode from a Root Port node?
+> Root Cause of the Hardlockup:
+> Each time stress-ng starts, it invokes the /sys/kernel/debug/clear_warn_once
+> interface, which clears the values in the memory section from __start_once
+> to __end_once. This caused functions like pr_info_once() — originally
+> designed to print only once — to print again every time stress-ng was called.
+> If the pty06 test case happened to be using the serial module at that same
+> moment, it would sleep in waiter.list within the __down_common function.
 > 
+> After pr_info_once() completed its output using the serial module,
+> it invoked the semaphore up() function to wake up the process waiting
+> in waiter.list. This sequence triggered an A-A deadlock, ultimately
+> leading to a hardlockup and system crash.
+> 
+> To prevent this, a local variable should be used to control and ensure
+> the print operation occurs only once.
+> 
+> Hard lockup call stack:
+> 
+> _raw_spin_lock_nested+168
+> ttwu_queue+180 （rq_lock(rq, &rf); 2nd acquiring the rq->__lock）
+> try_to_wake_up+548
+> wake_up_process+32
+> __up+88
+> up+100
+> __up_console_sem+96
+> console_unlock+696
+> vprintk_emit+428
+> vprintk_default+64
+> vprintk_func+220
+> printk+104
+> spectre_v4_enable_task_mitigation+344
+> __switch_to+100
+> __schedule+1028 (rq_lock(rq, &rf); 1st acquiring the rq->__lock)
+> schedule_idle+48
+> do_idle+388
+> cpu_startup_entry+44
+> secondary_start_kernel+352
 
-Yeah, we need to have a similar parser.
+Is the problem actually that we call the spectre v4 stuff on the
+switch_to() path (we can't change this) under the rq_lock() and it
+subsequently calls printk() which takes the console semaphore? I think
+the "once" aspect makes it less likely but does not address the actual
+problem.
 
-- Mani
+> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+> index edf1783ffc81..f8663157e041 100644
+> --- a/arch/arm64/kernel/proton-pack.c
+> +++ b/arch/arm64/kernel/proton-pack.c
+> @@ -424,8 +424,10 @@ static bool spectre_v4_mitigations_off(void)
+>  	bool ret = cpu_mitigations_off() ||
+>  		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
+>  
+> -	if (ret)
+> -		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
+> +	static atomic_t __printk_once = ATOMIC_INIT(0);
+> +
+> +	if (ret && !atomic_cmpxchg(&__printk_once, 0, 1))
+> +		pr_info("spectre-v4 mitigation disabled by command-line option\n");
+>  
+>  	return ret;
+>  }
+
+I think we should just avoid the printk() on the
+spectre_v4_enable_task_mitigation() path. Well, I'd remove it altogether
+from the spectre_v4_mitigations_off() as it's called on kernel entry as
+well. Just add a different way to print the status during kernel boot if
+there isn't one already, maybe an initcall.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Catalin
 
