@@ -4,88 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 329B1CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:42:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA7CCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uhTbUPVJFOyAmNdzQk98ubzkzQEcGMZ5ZsZfB0f+IFw=; b=eR/RZlXwadfXwjGM1kPfRY6ATL
-	I3VvXmAEAbomWjHh42c8SX53kCQnpwNrCK0NJJw80HpOO3H0gaaXwx4bOk2Zn33VixRWEQ6YdoQ0e
-	u/aZvuW1XZrqXEnBOa1b1H7xnFebRp/xyimkzcwVmOU2jPf+wIUYV2cp0FyECMof/fF2qWCt54+HE
-	KdTvV/QnIA8WandvsgoMZO4UNYrNPr4m1dZPoNRqP0YphaPeWH/MdCUxdX2hph9HlxcOoeTHHkk21
-	P8Uh2kKOZw5nBX1ZqcJhtameStCa/IA8TumIoQqy8uorjO+czLGKdDXPz8k5sQfvk+bjDJOZlgOB+
-	qQrJ7xRg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xT01jm8M2HeKEr0vFkYwW8UybjwRjhTlEwa6HqPfnso=; b=e9HdPIlF1gU4y891tRajKCjMUy
+	CndNndZ9UQ8wIlRD4FNb0rEuHnSF7gwMgNRiWXo0TUF/Yabe5ktqpmHYq2Ato5cmKWxMy1IGICTRO
+	3Uv/fdIANBEzWXH44cJUGVlr8tHSA4aozAzPqaodkGLnuLnpFsxSDMvdlqUn7gtNEStQG1pGIOTzl
+	fNIdX/o/tAoHUELvsNaTe79WekiesOYmCgiYhRWqVaG0+p8VyZqF62m/OTe27Sor80LbabiSpHXzm
+	ZGbDoPB+EoDDG+rgI1+TGgXRztbpgrOyJvpAK/MGya8F8HuFRC3bsZcB3rOBFNboB4ThGkaWhlDtS
+	djv6idww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8Kz-0000000GSFM-3mV1;
-	Thu, 18 Sep 2025 06:41:49 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uz8SY-0000000GSoh-3MSk;
+	Thu, 18 Sep 2025 06:49:38 +0000
+Received: from wxsgout04.xfusion.com ([36.139.87.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz8Kx-0000000GSEz-1PNH
+	id 1uz8SV-0000000GSlD-3wzd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 06:41:48 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2445806df50so5056605ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 23:41:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758177706; x=1758782506; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uhTbUPVJFOyAmNdzQk98ubzkzQEcGMZ5ZsZfB0f+IFw=;
-        b=I0YtE1JmYEgxElLEW63MHkuCg3qkkqryo0n+apsMTBayLVcejDK6EEObjNTOGYtVcG
-         dPHzWFrJ+V/FMWDEwlVd8axHzIJdCIkypUDTWToc6QeHUKpSxiADnf7PNn2yAFHLGxiQ
-         HDmgilqqUSyl1jtsU/VXwUyOaJ9TsaV8zbljga5Dif03YGw9WG8OPKXU6kif+qKG+eGN
-         86jA8SdttpGvBA6NdzofKxRrNz/ABtj81SAo2qI3scSKmMcjbMQHC24RevM5udT/Ul0C
-         /IX9ftNCggSaTjzNatqrF475qdgaKjEzCE+qegOr3gaePzCV62CeW+mOViZxiw28cHMe
-         0+Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758177706; x=1758782506;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uhTbUPVJFOyAmNdzQk98ubzkzQEcGMZ5ZsZfB0f+IFw=;
-        b=exObo8AcoHWZH49Csjf2YKB+4jJV/Mz/rvU9UiMw4+CuOdahxYICzfcLPzmI6DODbD
-         u3WCH6GPVptx+0fMki+sKPFaERlYBpawmMAQCazl5doE8yrHcwCKZh6f9mhJHOg9KVHd
-         9KfGTYpGbF4b4RDIBAZ5IMz9C2TtJ/L3zrHMeYYxf0MhtzJXBItzgLwWsplqv16YHdLt
-         yIwMzrHxEezMbbCmSxM09meEisX7LAeoWtpfvcITUW8KzLHNJC29Vy5OSbgjwgqD/nSA
-         D1g5mnyCnRG7AKRp/2KtdCjlA3QxAnDW/DEPrPR8h7fs7vB1IIFbbR0pyWxxK7bzncV+
-         3agw==
-X-Forwarded-Encrypted: i=1; AJvYcCXTQfUDUhO5OeaPuApzCJxEqi35S/zvAQu1aU2PuIB4+LD21MbM+CZ0izXQ3irextAragxcya0O2Z248HRoHrcR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqeZdDxG7wKtvazFBlrSqMKqMIO4iAlqfV2izZnpk1qJQPmTR7
-	J/Wde4XnN4DTq6dw1w9cvhaUbiA8AlqODzy3KsGeEuP6/nEJonHWtymmR+FXn97EdMbINSNBJae
-	bDv1Pjc/YTxSIfIqHOBs1Fc/Tzxr8P4M=
-X-Gm-Gg: ASbGncuVjS7+Xw2OevXmRIhYTOlTdGA8qvbpJj9omPYApkqTRYB11bxK8ssms5apRld
-	mHyNRTGKOBGZMBpxeDeCW4mOm+31v+pRJrd0Ks+Jv27LDklHQoCXgb0+h+gGreaPdleX1FLfyS1
-	sXXvYkmBQ1jFXPu71TG2vgFyPMfXNXUG5b/1l+nKBnZycNkBc4vKlGXrmg33HVhLoqoTQmjTAYz
-	d03ldLbkuE+oO9daASTIPZu3xkR79z46d/J21P6prhkAASyYnlKrfo=
-X-Google-Smtp-Source: AGHT+IEr8P+L0TJR3342JH9xYHQV3+Q0WGlxdbCLJmGp2Q+KPgwKRAcFBDBLv1ory2mNLCloivvxGbpVxzz0t7SLcf4=
-X-Received: by 2002:a17:902:8f8a:b0:248:ff5a:b768 with SMTP id
- d9443c01a7336-26811ba5363mr43004575ad.10.1758177706285; Wed, 17 Sep 2025
- 23:41:46 -0700 (PDT)
+	Thu, 18 Sep 2025 06:49:37 +0000
+Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cS5mf5HH7zB72Kv;
+	Thu, 18 Sep 2025 14:47:46 +0800 (CST)
+Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
+ wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
+ Thu, 18 Sep 2025 14:49:16 +0800
+From: shechenglong <shechenglong@xfusion.com>
+To: <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <stone.xulei@xfusion.com>,
+	<chenjialong@xfusion.com>, <yuxiating@xfusion.com>, shechenglong
+	<shechenglong@xfusion.com>
+Subject: [PATCH] cpu: fix hard lockup triggered during stress-ng stress testing.
+Date: Thu, 18 Sep 2025 14:49:07 +0800
+Message-ID: <20250918064907.1832-1-shechenglong@xfusion.com>
+X-Mailer: git-send-email 2.38.0.windows.1
 MIME-Version: 1.0
-References: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
-In-Reply-To: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Thu, 18 Sep 2025 09:43:52 +0300
-X-Gm-Features: AS18NWCPevQZqr-17ld4WpzvBigiHU7qwZn_PzyMsJ9Y7iuvJrnxcIFdLFQmdb8
-Message-ID: <CAEnQRZD=1hxMmR98qfpoH_RFFrSrYMQ6ithFkjyqVgtqWKB_+Q@mail.gmail.com>
-Subject: Re: [PATCH 0/6] remoteproc: imx_rproc: Use device managed API to
- clean up the driver
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.82.130.100]
+X-ClientProxiedBy: wuxpheds03045.xfusion.com (10.32.131.99) To
+ wuxpheds03048.xfusion.com (10.32.143.30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_234147_396019_4307D16B 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250917_234936_180800_160CACC5 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +67,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 4:33=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> This is the 2nd series to cleanup the driver.
->
-> Patch 1:
-> Fix the runtime usage. This is not critical bug fix, so it could be
-> defered to 6.18.
->
-> Patch 2-6:
-> Use devres managed API to cleanup the error handling path and remove path=
-.
->
-> Tested on
-> i.MX8MP-EVK, i.MX8MM-EVK, i.MX93-11x11-EVK, i.MX8QXP-MEK, and i.MX8ULP-EV=
-K.
->
-> There is still a 3rd patchset to do further cleanup. After this patchset
-> get reviewed, the 3rd patchset will be posted out to list.
->
-> Thanks to Daniel and Frank for the internal reviewing.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Context of the Issue:
+In an ARM64 environment, the following steps were performed:
 
-For the entire patchseries:
+1. Repeatedly ran stress-ng to stress the CPU, memory, and I/O.
+2. Cyclically executed test case pty06 from the LTP test suite.
+3. Added mitigations=off to the GRUB parameters.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+After 1–2 hours of stress testing, a hardlockup occurred,
+causing a system crash.
+
+Root Cause of the Hardlockup:
+Each time stress-ng starts, it invokes the /sys/kernel/debug/clear_warn_once
+interface, which clears the values in the memory section from __start_once
+to __end_once. This caused functions like pr_info_once() — originally
+designed to print only once — to print again every time stress-ng was called.
+If the pty06 test case happened to be using the serial module at that same
+moment, it would sleep in waiter.list within the __down_common function.
+
+After pr_info_once() completed its output using the serial module,
+it invoked the semaphore up() function to wake up the process waiting
+in waiter.list. This sequence triggered an A-A deadlock, ultimately
+leading to a hardlockup and system crash.
+
+To prevent this, a local variable should be used to control and ensure
+the print operation occurs only once.
+
+Hard lockup call stack:
+
+_raw_spin_lock_nested+168
+ttwu_queue+180 （rq_lock(rq, &rf); 2nd acquiring the rq->__lock）
+try_to_wake_up+548
+wake_up_process+32
+__up+88
+up+100
+__up_console_sem+96
+console_unlock+696
+vprintk_emit+428
+vprintk_default+64
+vprintk_func+220
+printk+104
+spectre_v4_enable_task_mitigation+344
+__switch_to+100
+__schedule+1028 (rq_lock(rq, &rf); 1st acquiring the rq->__lock)
+schedule_idle+48
+do_idle+388
+cpu_startup_entry+44
+secondary_start_kernel+352
+
+Signed-off-by: shechenglong <shechenglong@xfusion.com>
+---
+ arch/arm64/kernel/proton-pack.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index edf1783ffc81..f8663157e041 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -424,8 +424,10 @@ static bool spectre_v4_mitigations_off(void)
+ 	bool ret = cpu_mitigations_off() ||
+ 		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
+ 
+-	if (ret)
+-		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
++	static atomic_t __printk_once = ATOMIC_INIT(0);
++
++	if (ret && !atomic_cmpxchg(&__printk_once, 0, 1))
++		pr_info("spectre-v4 mitigation disabled by command-line option\n");
+ 
+ 	return ret;
+ }
+-- 
+2.33.0
+
 
