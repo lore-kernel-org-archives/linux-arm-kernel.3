@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA59BCAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A820ACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9Jjt7WIG30EfMyysMomZPghPo22dRWUV095XopjZOE=; b=mE+d+2/pscAQEueE5alXUvyF61
-	NX/0c8NKIL+X9LUDPEe3/guNslLwqdVxYiiX3QJSxmx/Do2BnkawYLo14x0LczGv1yQUUOqZSgSpb
-	hh7zBuJY4yLmzb4TTJ0q/OoPwNNvz/3c7WRkDFbmJVS/c9+yXlDKotEonAOKvQdjpOXGraX/RqRNL
-	8nQNqUrCTLa72JbcQGU6uodYu6APN3dsDxDqi/+VnUX1Z1FdlqNabuQxGNx/brq3mNGhkloGQ2KA2
-	181n+raWrFP7HAwoXKkI2sXuULfIFudBi0w3NSw02TbP5/dpCvDCPPrmeq4JxtZkzL3lGxUUmXM+4
-	nEwHt/HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=; b=GfzooelxHT6/RogBlEADHlHd63
+	1GTCBl1ffOQI4M1MI5aDS144LmRYJKPrDlPtV4ZA9z2ra7qDqmZQg3UwDtlZmEBktkwjhcjesbEQg
+	M5XrEZDubIb8EIUDf//OQ6HlgZEUx4MnlS5Yxkvb/vaoMRVe0sCY/npM9bWqhz3Ybp7ZEQq4F20+w
+	TY50sreAs66u5N6SYkd6aQPKb5+7hShzK8UjVLjKdx0UDUho0nZTsMx947I2keyjzFlsZZmf7rUH9
+	FGUf0qCYxcXHafFrPL3vfknYaOG9T2XCCwoJEblORq9lA66Ci1dLS9VnT7n7Wea4V5q+Ubfmi+bsb
+	8rq85keQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3Pk-0000000FvMN-1pVd;
-	Thu, 18 Sep 2025 01:26:24 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1uz3Un-0000000FvrR-0pvL;
+	Thu, 18 Sep 2025 01:31:37 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3Ph-0000000FvLS-4BPI
+	id 1uz3Uk-0000000Fvqz-1rp2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 01:26:23 +0000
-Date: Thu, 18 Sep 2025 10:25:58 +0900
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758158769;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k9Jjt7WIG30EfMyysMomZPghPo22dRWUV095XopjZOE=;
-	b=rRIIyGux9mwYO5LpVSAUqWij4Ha3iOEdouYkK3XvQqZqV8cEnVNY1iFTrIRvXDdd9ULYpK
-	m+xGg+O8Y2hLyQpPvrqkSg6Nd1k3z3Aw0lpRY80eWFpYCx4GbuzY8fjdO3CAVnL/NPZHwE
-	Eh/u5laOzMOZIlMyZxWutvygrwpbGdw=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Subject: Re: [PATCH 01/13] KVM: arm64: selftests: Provide
- kvm_arch_vm_post_create() in library code
-Message-ID: <aMtfpocXPg7mONac@vm4>
-References: <20250917212044.294760-1-oliver.upton@linux.dev>
- <20250917212044.294760-2-oliver.upton@linux.dev>
+	Thu, 18 Sep 2025 01:31:35 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b54ff31192aso279478a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 18:31:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758159093; x=1758763893; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=;
+        b=meTiFbI5Gun+QfBVIxIptu7hzgj9zrnqsH5tKgFpqcepyGRgFMjXgNG5XOiFEVb51q
+         3x4nIaMcqe5ORmGxzdXoyOuylZA3eg3MLnM9CzOiRSESF5pjH5Mbpq8rVLsqEk1K/bMD
+         kK1zd4nX4rCXaxRjIquIuI32jYVsgH4fU2NZ3IZF/whwL9p6HgN+Homj0lRNS1Y8eG/R
+         WcUc6oYHIUMGxYRaSNwFETT5MY5FbCgcUXlAC0GprY6GwgzT3Pou/qLQsI2RlI1eeB0A
+         IXZMuobeiguqH5EwAsqxXwIqHfiVtEMvbx7XjrXDUxk8C9LZ3XJ5Toc2E2co/0uwfjBe
+         3shw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758159093; x=1758763893;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eGu6jUV2+RT3PgqHH5oCw8Nh03q6VX9mmcyZQjqvWaA=;
+        b=BTiBvlhzBpAuIwQ0YvBcS/7JMKJBnjfSGLy2dIeMxYg5UGz/9LP6Xf+wNDl+T1XEB4
+         ednxhvURSMAQyTUwvP0ZB313C/qAWoxJDus1dFfxIQV/XJf3u54+3Nk1bzaINalsZUqO
+         o6fO/qQLhHFSYuR62j0uUjS0EB6EMeskBoFti88IWpa6C8uE9CqxumfCuLFJdvOZ90ak
+         9rxkaUEMfhr/qCSDHXm4sroat82J9M1puFXF127C2l9uT5FSTFH9j6OWeDCo0d8o/7w1
+         ZFs75ZlpuYlk5Be2ijnshabIIeaoeFet4+sCdmP14UOIbA1Pi7wRDN16lGDc3wXt1ZyD
+         OhDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPv8gukNmZEv8CwnQ4tIdF0SpC759IVNS58cElvseqBRt4a4XW0I203mZ9zkzF+rLuo9gmGUWa2kmW2KJYzGz7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyscowFZgNq4YbLYGGKh0ZYtpxpN1jeRKU/EbLXXRPZtwetsfi/
+	bUx7vYWBMUmMXCHMi/pXBvEpvurjgegkwTXWzXfMWNsVllNWudgIlf4t
+X-Gm-Gg: ASbGncua7oFWt+ZaXSTHRBZFefS+I3CC6JsQIL+pXcQB4w8c6T1nRQZcx2ZeWHgzRum
+	7UI6J3sbXbRZbA7aDwXwp9IIo9rjqfYtZmy+gdZlXJHB/qhmI91vAXSZCEXvtEV+fMCG5qMC4f3
+	BIJnRcPBjx8MV/HNWZD2W9U4i0rwQJ8amKYKIrJt9OsmNvkg0cTdLqdJTt1FQFSQGDV3BpJmDOF
+	ti3xFP0fgjX5cJv+IzPmiQR0twRBUuXeTIK+AIj1e5lM/QK55aUhv9qQNhkmo/Rbl8C/R7teOAs
+	SD9CfV3jPoQ8kQWa2BuK2yBcNHKaDn0fleIYCIwu2ILeblKg8PL8sU8dt0E4TJHR8EhufO8VvUE
+	IMW1AVW7jhNXSUxpR7Wt55cM7/af/LaOrrx/oDftv6LXib87DmSwGIAU4L0Y7V2w=
+X-Google-Smtp-Source: AGHT+IGyol2ICo5LkwOJQM5YrI/z89CMfK7noN15fH9mKTb1oN4Xwj7kuK4ucc0oFR/zcNay6QAzWQ==
+X-Received: by 2002:a17:903:2307:b0:248:7018:c739 with SMTP id d9443c01a7336-268139031a0mr60323995ad.28.1758159093380;
+        Wed, 17 Sep 2025 18:31:33 -0700 (PDT)
+Received: from VM-16-24-fedora.. ([43.153.32.141])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269803184d3sm7860915ad.116.2025.09.17.18.31.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Sep 2025 18:31:32 -0700 (PDT)
+From: Jinliang Zheng <alexjlzheng@gmail.com>
+X-Google-Original-From: Jinliang Zheng <alexjlzheng@tencent.com>
+To: harry.yoo@oracle.com
+Cc: Liam.Howlett@oracle.com,
+	akpm@linux-foundation.org,
+	alexjlzheng@gmail.com,
+	alexjlzheng@tencent.com,
+	arnd@arndb.de,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	david@redhat.com,
+	geert@linux-m68k.org,
+	hpa@zytor.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kas@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux@armlinux.org.uk,
+	lorenzo.stoakes@oracle.com,
+	mhocko@suse.com,
+	mingo@redhat.com,
+	rppt@kernel.org,
+	surenb@google.com,
+	tglx@linutronix.de,
+	thuth@redhat.com,
+	urezki@gmail.com,
+	vbabka@suse.cz,
+	vincenzo.frascino@arm.com,
+	x86@kernel.org
+Subject: Re: [PATCH] mm: introduce ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to sync kernel mapping conditionally
+Date: Thu, 18 Sep 2025 09:31:30 +0800
+Message-ID: <20250918013130.2425537-1-alexjlzheng@tencent.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <aMrkoBhIcP37YgyS@hyeyoo>
+References: <aMrkoBhIcP37YgyS@hyeyoo>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917212044.294760-2-oliver.upton@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_182622_471796_C7941A69 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20250917_183134_495241_4F302B2F 
+X-CRM114-Status: GOOD (  26.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,175 +125,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 02:20:31PM -0700, Oliver Upton wrote:
-> In order to compel the default usage of EL2 in selftests, move
-> kvm_arch_vm_post_create() to library code and expose an opt-in for using
-> MTE by default.
+On Thu, 18 Sep 2025 01:41:04 +0900, harry.yoo@oracle.com wrote:
+> On Wed, Sep 17, 2025 at 11:48:29PM +0800, alexjlzheng@gmail.com wrote:
+> > From: Jinliang Zheng <alexjlzheng@tencent.com>
+> > 
+> > After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for
+> > vmalloc area"), we don't need to synchronize kernel mappings in the
+> > vmalloc area on x86_64.
 > 
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  .../testing/selftests/kvm/arm64/set_id_regs.c | 19 +++++--------------
->  .../selftests/kvm/include/arm64/processor.h   |  2 ++
->  .../selftests/kvm/lib/arm64/processor.c       | 13 +++++++++++++
->  3 files changed, 20 insertions(+), 14 deletions(-)
+> Right.
 > 
-> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> index 189321e96925..a2d367a2c93c 100644
-> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> @@ -15,8 +15,6 @@
->  #include "test_util.h"
->  #include <linux/bitfield.h>
->  
-> -bool have_cap_arm_mte;
-> -
->  enum ftr_type {
->  	FTR_EXACT,			/* Use a predefined safe value */
->  	FTR_LOWER_SAFE,			/* Smaller value is safe */
-> @@ -568,7 +566,9 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
->  	uint64_t mte_frac;
->  	int idx, err;
->  
-> -	if (!have_cap_arm_mte) {
-> +	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-> +	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
-> +	if (!mte) {
->  		ksft_test_result_skip("MTE capability not supported, nothing to test\n");
->  		return;
->  	}
-> @@ -593,9 +593,6 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
->  	 * from unsupported (0xF) to supported (0).
->  	 *
->  	 */
-> -	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-> -
-> -	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
->  	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
->  	if (mte != ID_AA64PFR1_EL1_MTE_MTE2 ||
->  	    mte_frac != ID_AA64PFR1_EL1_MTE_frac_NI) {
-> @@ -750,14 +747,6 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
->  	ksft_test_result_pass("%s\n", __func__);
->  }
->  
-> -void kvm_arch_vm_post_create(struct kvm_vm *vm)
-> -{
-> -	if (vm_check_cap(vm, KVM_CAP_ARM_MTE)) {
-> -		vm_enable_cap(vm, KVM_CAP_ARM_MTE, 0);
-> -		have_cap_arm_mte = true;
-> -	}
-> -}
-> -
->  int main(void)
->  {
->  	struct kvm_vcpu *vcpu;
-> @@ -769,6 +758,8 @@ int main(void)
->  	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES));
->  	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_WRITABLE_IMP_ID_REGS));
->  
-> +	test_wants_mte();
-> +
->  	vm = vm_create(1);
->  	vm_enable_cap(vm, KVM_CAP_ARM_WRITABLE_IMP_ID_REGS, 0);
->  	vcpu = vm_vcpu_add(vm, 0, guest_code);
-> diff --git a/tools/testing/selftests/kvm/include/arm64/processor.h b/tools/testing/selftests/kvm/include/arm64/processor.h
-> index 255fed769a8a..8370fc94041d 100644
-> --- a/tools/testing/selftests/kvm/include/arm64/processor.h
-> +++ b/tools/testing/selftests/kvm/include/arm64/processor.h
-> @@ -300,4 +300,6 @@ void smccc_smc(uint32_t function_id, uint64_t arg0, uint64_t arg1,
->  /* Execute a Wait For Interrupt instruction. */
->  void wfi(void);
->  
-> +void test_wants_mte(void);
-> +
->  #endif /* SELFTEST_KVM_PROCESSOR_H */
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> index eb115123d741..caed1998c7b3 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -653,3 +653,16 @@ void wfi(void)
->  {
->  	asm volatile("wfi");
->  }
-> +
-> +static bool request_mte;
-> +
-> +void test_wants_mte(void)
-> +{
-> +	request_mte = true;
-> +}
-> +
-> +void kvm_arch_vm_post_create(struct kvm_vm *vm)
-> +{
-> +	if (request_mte && vm_check_cap(vm, KVM_CAP_ARM_MTE))
-> +		vm_enable_cap(vm, KVM_CAP_ARM_MTE, 0);
-> +}
+> > And commit 58a18fe95e83 ("x86/mm/64: Do not sync vmalloc/ioremap
+> > mappings") actually does this.
+> 
+> Right.
+> 
+> > But commit 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK
+> > and arch_sync_kernel_mappings()") breaks this.
+> 
+> Good point.
+> 
+> > This patch introduces ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC to avoid
+> > unnecessary kernel mappings synchronization of the vmalloc area.
+> > 
+> > Fixes: 6659d0279980 ("x86/mm/64: define ARCH_PAGE_TABLE_SYNC_MASK and arch_sync_kernel_mappings()")
+> 
+> The commit is getting backported to -stable kernels.
+> 
+> Do you think this can cause a visible performance regression from
+> user point of view, or it's just a nice optimization to have?
+> (and any data to support?)
+
+Haha, when I woke up in bed this morning, I suddenly realized that I
+might have pushed a worthless patch and wasted everyone's precious time.
+
+Sorry for that. :-(
+
+After commit 6eb82f994026 ("x86/mm: Pre-allocate P4D/PUD pages for vmalloc area"),
+pgd_alloc_track()/p4d_alloc_track() in vmalloc() and apply_to_range() may should
+always return a mask that does not contain PGTBL_PGD_MODIFIED (5 level pgtable)
+or PGTBL_P4D_MODIFIED (4 level pgtable), thereby bypassing the call to
+arch_sync_kernel_mappings(). Right?
+
+thanks,
+Jinliang Zheng. :)
+
+> 
+> > Signed-off-by: Jinliang Zheng <alexjlzheng@tencent.com>
+> > ---
+> >  arch/arm/include/asm/page.h                 | 3 ++-
+> >  arch/x86/include/asm/pgtable-2level_types.h | 3 ++-
+> >  arch/x86/include/asm/pgtable-3level_types.h | 3 ++-
+> >  include/linux/pgtable.h                     | 4 ++++
+> >  mm/memory.c                                 | 2 +-
+> >  mm/vmalloc.c                                | 6 +++---
+> >  6 files changed, 14 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/mm/memory.c b/mm/memory.c
+> > index 0ba4f6b71847..cd2488043f8f 100644
+> > --- a/mm/memory.c
+> > +++ b/mm/memory.c
+> > @@ -3170,7 +3170,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
+> >  			break;
+> >  	} while (pgd++, addr = next, addr != end);
+> >  
+> > -	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
+> > +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK_VMALLOC)
+> >  		arch_sync_kernel_mappings(start, start + size);
+> 
+> But vmalloc is not the only user of apply_to_page_range()?
+> 
 > -- 
-> 2.47.3
->
-
-Hi,
-On FVP RevC with the kernel your series applied, I see set_id_regs fails
-to execute.
-
-# ./arm64/set_id_regs
-Random seed: 0x6b8b4567
-TAP version 13
-1..102
-ok 1 ID_AA64DFR0_EL1_DoubleLock
-ok 2 ID_AA64DFR0_EL1_WRPs
-ok 3 ID_AA64DFR0_EL1_PMUVer
-ok 4 ID_AA64DFR0_EL1_DebugVer
-ok 5 # SKIP ID_DFR0_EL1_PerfMon on AARCH64 only system
-ok 6 # SKIP ID_DFR0_EL1_CopDbg on AARCH64 only system
-ok 7 ID_AA64ISAR0_EL1_RNDR
-ok 8 ID_AA64ISAR0_EL1_TLB
-ok 9 ID_AA64ISAR0_EL1_TS
-ok 10 ID_AA64ISAR0_EL1_FHM
-ok 11 ID_AA64ISAR0_EL1_DP
-ok 12 ID_AA64ISAR0_EL1_SM4
-ok 13 ID_AA64ISAR0_EL1_SM3
-ok 14 ID_AA64ISAR0_EL1_SHA3
-ok 15 ID_AA64ISAR0_EL1_RDM
-ok 16 ID_AA64ISAR0_EL1_TME
-ok 17 ID_AA64ISAR0_EL1_ATOMIC
-ok 18 ID_AA64ISAR0_EL1_CRC32
-ok 19 ID_AA64ISAR0_EL1_SHA2
-ok 20 ID_AA64ISAR0_EL1_SHA1
-ok 21 ID_AA64ISAR0_EL1_AES
-ok 22 ID_AA64ISAR1_EL1_LS64
-ok 23 ID_AA64ISAR1_EL1_XS
-ok 24 ID_AA64ISAR1_EL1_I8MM
-ok 25 ID_AA64ISAR1_EL1_DGH
-ok 26 ID_AA64ISAR1_EL1_BF16
-ok 27 ID_AA64ISAR1_EL1_SPECRES
-ok 28 ID_AA64ISAR1_EL1_SB
-ok 29 ID_AA64ISAR1_EL1_FRINTTS
-ok 30 ID_AA64ISAR1_EL1_LRCPC
-ok 31 ID_AA64ISAR1_EL1_FCMA
-ok 32 ID_AA64ISAR1_EL1_JSCVT
-ok 33 ID_AA64ISAR1_EL1_DPB
-ok 34 ID_AA64ISAR2_EL1_BC
-ok 35 ID_AA64ISAR2_EL1_RPRES
-ok 36 ID_AA64ISAR2_EL1_WFxT
-ok 37 ID_AA64PFR0_EL1_CSV3
-ok 38 ID_AA64PFR0_EL1_CSV2
-ok 39 ID_AA64PFR0_EL1_DIT
-ok 40 ID_AA64PFR0_EL1_SEL2
-ok 41 ID_AA64PFR0_EL1_GIC
-ok 42 ID_AA64PFR0_EL1_EL3
-ok 43 ID_AA64PFR0_EL1_EL2
-ok 44 ID_AA64PFR0_EL1_EL1
-ok 45 ID_AA64PFR0_EL1_EL0
-ok 46 ID_AA64PFR1_EL1_DF2
-ok 47 ID_AA64PFR1_EL1_CSV2_frac
-ok 48 ID_AA64PFR1_EL1_SSBS
-ok 49 ID_AA64PFR1_EL1_BT
-ok 50 ID_AA64MMFR0_EL1_ECV
-ok 51 ID_AA64MMFR0_EL1_EXS
-==== Test Assertion Failure ====
-  include/kvm_util.h:815: !ret
-    pid=897 tid=897 errno=22 - Invalid argument
-    sh: line 1: addr2line: command not found
-      KVM_SET_ONE_REG failed, rc: -1 errno: 22 (Invalid argument)
-
+> Cheers,
+> Harry / Hyeonggon
 
