@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC12CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22864CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 17:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXI3kM9yBU2NFSNS1reV27GNn49zaiScl2ch3IUevK8=; b=VWW9R2U8PAQce4dCbg2C9SLXM9
-	5MBlIdZ4p9cEDfrrnU/qUf6lUDGg2LjcX6i3Pr7PWIiqJaRiPvsgT5IgWzNCiDfAS0G3NPaDQNSa/
-	DBzqVrMyfQV/OC4XyNxynE/YPHbBOfVERwL1XaB+H3UxP3UbCf/atWvkI0XKf1ffuFg/BE8pA8zg7
-	HoaUTV2v5ledLGris3p9tJrxdlF1WVx1eIgdZiQsM82Yl8gPMeX+4+KzSl7utFJHzrWiY45zUhCE5
-	W9sidUnJmMfD+A05IyTNdrFI+bUIYOxsqYxeInv5bhhCzumgDijC4fwyeVB/xQb9Fdi3Dd03ILkLX
-	bfDfGyBQ==;
+	bh=bSfxh01A/9V8x+NQkrY16SwleAtQ6jhTOYLO4I06Grk=; b=eJyvvB59MVU5g81IpWTe/39R0z
+	vVXPqFIoTr7/dU/8C3N5PvMnTv/QEh4n7oQHVYYAcYgS82klD0UggijTwekVY/NCUt0kZ8EjlMBvs
+	FkZL1Mx9VXmVvqfwfCxR2C/OOzQkXnaIfbLiGa5/scwLy66pkfBmGyxvSSpJZnTzmxn0Cycbg1INE
+	1ypRR2rtqkt1w+B1CQCZY+GOShuhlod7VCwPFCFRl+XSZbl3mF5SbPvtbMXtYg1chWfnuX7a9omoR
+	pCSgNRF/JY0OqXp7kwq3QycRxF5uZRwyz826qy4VEo3VXNpgvdzdmqCwIn9ho/Qr2Hz2Hp8Y0xkD4
+	YkU6Q5vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHqi-00000000gsQ-3kcN;
-	Thu, 18 Sep 2025 16:51:12 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHqc-00000000gmN-0izR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:51:07 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cSLY20nLBz9sfk;
-	Thu, 18 Sep 2025 18:23:34 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id DC6pAqwuh5tc; Thu, 18 Sep 2025 18:23:34 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cSLY160R7z9sfj;
-	Thu, 18 Sep 2025 18:23:33 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id BBD638B776;
-	Thu, 18 Sep 2025 18:23:33 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id DYqBu_E8srgz; Thu, 18 Sep 2025 18:23:33 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id D63CA8B767;
-	Thu, 18 Sep 2025 18:23:32 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v6 1/7] soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
-Date: Thu, 18 Sep 2025 18:23:21 +0200
-Message-ID: <74d4a911a6d17eae7b94a8f30a4d24498a217e71.1758212309.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1758212309.git.christophe.leroy@csgroup.eu>
-References: <cover.1758212309.git.christophe.leroy@csgroup.eu>
+	id 1uzI46-00000000iXF-3hqn;
+	Thu, 18 Sep 2025 17:05:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzI46-00000000iX6-15n2;
+	Thu, 18 Sep 2025 17:05:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8150060211;
+	Thu, 18 Sep 2025 17:05:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B169C4CEE7;
+	Thu, 18 Sep 2025 17:04:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758215101;
+	bh=a2wSSef3Du0dV802ZRWP0K1ebOZ2r80wa7XHm8uoFPY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=diFY3vQavuiQRrhCNAu6iUYXj9I8H1JqETJeI/Akb9ajERj6Q65o/UpnlZsGB9rkF
+	 xcNbC1fXK1H9DtyoaQ8IlQah+TGK4dZJdBJ2SvU7Osr28nWZCyENuaODL9w3Dx3Q5a
+	 V1rPRNb67TiuJVEDDyxpFseFt8hrRtj5q+XiGsclBScvr3aHrS1w+egXswXLNwA5AI
+	 E7egT7+kNPmFotZGXGVuGLWJ4jCg/U3OCgS/FyGFsFhaMUm7N4xXRstHy9LRuaS3Bt
+	 sr2NkAIXGwo7VqkKOe2jeUVAJiW+amPjJqtmkfnqLX70CdkmuI+Y/em8M+pQrR1pme
+	 dgjuxyXaA1ITw==
+From: Mark Brown <broonie@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Tim Kuo <Tim.Kuo@mediatek.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Steven Liu <Steven.Liu@mediatek.com>, 
+ Sky Huang <Skylake.Huang@mediatek.com>
+In-Reply-To: <20250917055839.500615-1-Tim.Kuo@mediatek.com>
+References: <20250917055839.500615-1-Tim.Kuo@mediatek.com>
+Subject: Re: [PATCH v2] spi: mt65xx: add dual and quad mode for standard
+ spi device
+Message-Id: <175821509922.138184.639016042104046849.b4-ty@kernel.org>
+Date: Thu, 18 Sep 2025 18:04:59 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758212605; l=5183; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=G7scsgL+yrYA4D+2n/22/LhhZgPYYRLFCIoU4FAox1M=; b=65/ofNRoICaFrDJaLuae+CUguGjCMPj2TeU/+DM/ipRDBymnjuE1lMxVfJbnOEbS/w0Z3PfLY NrutJyTMFh2AgW1ounjp+1wosQbl9Iczz5pisy0QH7GbqYcL+KNjGY2
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_095106_385981_BCF68FC7 
-X-CRM114-Status: GOOD (  21.94  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-56183
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,200 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QUICC Engine provides interrupts for a few I/O ports. This is
-handled via a separate interrupt ID and managed via a triplet of
-dedicated registers hosted by the SoC.
+On Wed, 17 Sep 2025 13:58:39 +0800, Tim Kuo wrote:
+> Mediatek SPI hardware natively supports dual and quad modes, and these
+> modes are already enabled for SPI flash devices under spi-mem framework
+> in MTK SPI controller spi-mt65xx. However, other SPI devices, such as
+> touch panels, are limited to single mode because spi-mt65xx lacks SPI
+> mode argument parsing from SPI framework for these SPI devices outside
+> spi-mem framework.
+> 
+> [...]
 
-Implement an interrupt driver for it for that those IRQs can then
-be linked to the related GPIOs.
+Applied to
 
-The number of ports for which interrupts are supported depends on
-the microcontroller:
-- mpc8323 has 10 interrupts
-- mpc8360 has 28 interrupts
-- mpc8568 has 18 interrupts
-So add this information as data of the compatible.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
----
- drivers/soc/fsl/qe/Makefile      |   2 +-
- drivers/soc/fsl/qe/qe_ports_ic.c | 156 +++++++++++++++++++++++++++++++
- 2 files changed, 157 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/fsl/qe/qe_ports_ic.c
+Thanks!
 
-diff --git a/drivers/soc/fsl/qe/Makefile b/drivers/soc/fsl/qe/Makefile
-index ec8506e13113..901a9c40d5eb 100644
---- a/drivers/soc/fsl/qe/Makefile
-+++ b/drivers/soc/fsl/qe/Makefile
-@@ -11,4 +11,4 @@ obj-$(CONFIG_UCC_SLOW)	+= ucc_slow.o
- obj-$(CONFIG_UCC_FAST)	+= ucc_fast.o
- obj-$(CONFIG_QE_TDM)	+= qe_tdm.o
- obj-$(CONFIG_QE_USB)	+= usb.o
--obj-$(CONFIG_QE_GPIO)	+= gpio.o
-+obj-$(CONFIG_QE_GPIO)	+= gpio.o qe_ports_ic.o
-diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
-new file mode 100644
-index 000000000000..9715643d36a6
---- /dev/null
-+++ b/drivers/soc/fsl/qe/qe_ports_ic.c
-@@ -0,0 +1,156 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * QUICC ENGINE I/O Ports Interrupt Controller
-+ *
-+ * Copyright (c) 2025 Christophe Leroy CS GROUP France (christophe.leroy@csgroup.eu)
-+ */
-+
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/platform_device.h>
-+
-+/* QE IC registers offset */
-+#define CEPIER		0x0c
-+#define CEPIMR		0x10
-+#define CEPICR		0x14
-+
-+struct qepic_data {
-+	void __iomem *reg;
-+	struct irq_domain *host;
-+};
-+
-+static void qepic_mask(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static void qepic_unmask(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static void qepic_end(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+	unsigned int vec = (unsigned int)irqd_to_hwirq(d);
-+
-+	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
-+	case IRQ_TYPE_EDGE_FALLING:
-+		setbits32(data->reg + CEPICR, 1 << (31 - vec));
-+		return 0;
-+	case IRQ_TYPE_EDGE_BOTH:
-+	case IRQ_TYPE_NONE:
-+		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
-+		return 0;
-+	}
-+	return -EINVAL;
-+}
-+
-+static struct irq_chip qepic = {
-+	.name = "QEPIC",
-+	.irq_mask = qepic_mask,
-+	.irq_unmask = qepic_unmask,
-+	.irq_eoi = qepic_end,
-+	.irq_set_type = qepic_set_type,
-+};
-+
-+static int qepic_get_irq(struct irq_desc *desc)
-+{
-+	struct qepic_data *data = irq_desc_get_handler_data(desc);
-+	u32 event = in_be32(data->reg + CEPIER);
-+
-+	if (!event)
-+		return -1;
-+
-+	return irq_find_mapping(data->host, 32 - ffs(event));
-+}
-+
-+static void qepic_cascade(struct irq_desc *desc)
-+{
-+	generic_handle_irq(qepic_get_irq(desc));
-+}
-+
-+static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_hw_number_t hw)
-+{
-+	irq_set_chip_data(virq, h->host_data);
-+	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops qepic_host_ops = {
-+	.map = qepic_host_map,
-+};
-+
-+static int qepic_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct qepic_data *data;
-+	unsigned long nb;
-+	int irq;
-+
-+	nb = (unsigned long)of_device_get_match_data(dev);
-+	if (nb < 1 || nb > 32)
-+		return -EINVAL;
-+
-+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(data->reg))
-+		return PTR_ERR(data->reg);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	data->host = irq_domain_add_linear(dev->of_node, nb, &qepic_host_ops, data);
-+	if (!data->host)
-+		return -ENODEV;
-+
-+	irq_set_handler_data(irq, data);
-+	irq_set_chained_handler(irq, qepic_cascade);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id qepic_match[] = {
-+	{
-+		.compatible = "fsl,mpc8323-qe-ports-ic",
-+		.data = (void *)10,
-+	},
-+	{
-+		.compatible = "fsl,mpc8360-qe-ports-ic",
-+		.data = (void *)28,
-+	},
-+	{
-+		.compatible = "fsl,mpc8568-qe-ports-ic",
-+		.data = (void *)18,
-+	},
-+	{},
-+};
-+
-+static struct platform_driver qepic_driver = {
-+	.driver	= {
-+		.name		= "qe_ports_ic",
-+		.of_match_table	= qepic_match,
-+	},
-+	.probe	= qepic_probe,
-+};
-+
-+static int __init qepic_init(void)
-+{
-+	return platform_driver_register(&qepic_driver);
-+}
-+arch_initcall(qepic_init);
--- 
-2.49.0
+[1/1] spi: mt65xx: add dual and quad mode for standard spi device
+      commit: ab63e9910d2d3ea4b8e6c08812258a676defcb9c
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
