@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288BECA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27E7CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwnJ7MfncjQZZqEO7RPiB5wvlA6TdyUbKRJ/WpUXEpc=; b=ySeIZeCs0YF/hqli0YwQTxqK+i
-	l4Hse2x3wdIVIqhV3ts2NXxS0z/r30PRbHp2crFYQmhjvBmgNp6G06yGXLPN/3w+q9SwGS20Uw6lo
-	CkX9z503t6WtwwGFQOmFiFVpwFgs63i5s0UR+tQM4iS32fqyds7UmItsOIbyRsSPYNe2Ho8fGW3MJ
-	+f6D39KVzj+BFtEj4gv60LmDe2feVcjdocgkNkL1bE92MzS+pwXc3hIvIo8+MI9XnDChFmTAxuFRd
-	xeoNlUCBduul6iHz1Ap8NnB6FJmVhthoS9yMg0t2L8VW61faPHJ3UmHvdvdf83znks37/pBLxTLCz
-	hRu+7Mtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wZz0qyImp3qpF0kvQFeAmtJok1aH0Psjl7xeH4ERmMQ=; b=CW1Lo4icvy+mftg526oHLoSZUr
+	8WzP7fDq0Nf+WTwiOyORIivig4wazKwWRt13Hn1asyo2CGbvGy/ubAYXytT/dO1tuucBkxAGE4atL
+	Aan9bMfEsx1u512Cb3JuSvPJ+cHfx5S+uC6vvzMlZVSKjLfYoKFGzRtIy3YuQ9yyFVCblW0uKx2LG
+	5CtGPhxTTpWhzN5mxvVL56ZM3sRBEGNpWLM8TqmFtIzqburu3iCaRH2w/GtuD44cHpcoqSvYcziiN
+	RoiubNScZIWrTsOZrpauGkpVHXjBFD9kYdwGkI3aZ1025JibnV69iRXoW/rqe8qdw5Mab4HfGwVqX
+	c4RpAQvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFTc-000000006Fl-3UVb;
-	Thu, 18 Sep 2025 14:19:12 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1uzFUW-000000006ZN-1Rki;
+	Thu, 18 Sep 2025 14:20:08 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFTa-000000006EW-0dpp
+	id 1uzFUT-000000006XG-3nBT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 14:19:11 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-72ce9790ab3so8258967b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 07:19:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758205149; x=1758809949; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rwnJ7MfncjQZZqEO7RPiB5wvlA6TdyUbKRJ/WpUXEpc=;
-        b=yOl6BVaTEC650FAzdZdS8hLoOE+LKoMH5sh3oTfAHJq645d0PStoq+Ou3ocDmxdcxl
-         cmxyGldjBJyeJCI/RNDt1WRhWYzgGDjvr4G1VcxpNvEWReXKAgqKHU+YuD1h5pKiO1WU
-         +tlfLOJkRIYLozAmbypWRUEUG9KLgmEhCj6/9QbponcuNZXKN5puLwxp6kf4E5+5m5rG
-         OWhEp/16HFKGV7fyAAggOoTwFdqkvNTV59dD/bwjNn7rAePp7o5QBHRkr6vC3R7zbhUw
-         UtA8xVDpI3Zgz8DOyFJmgjYR7qG7qjKfHs8KHzMLgXYqRY/NpLQaedEoVbhFoXY7RY4a
-         C1xA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758205149; x=1758809949;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rwnJ7MfncjQZZqEO7RPiB5wvlA6TdyUbKRJ/WpUXEpc=;
-        b=gH2ZyFD9kswNnqM5Q+1aOYgmh9VqENKRMs9e2fIB57YQ/d1RYWgLmvYNgqScKKztrS
-         J+NcttVuieZofrQOu5coCoUrXUu2UPWuDyld1cRgaI0KXvbl4/LHi3eTZld9SyBH3WnO
-         nitkGpEWiVvY/eSBePtpz4x0JwJHJ7MAUE3X9bwu8kysI6tzPNrgXVqt56+VcGA+TylG
-         l/n3ZVgO6qUfbdrmqSc/kN6q92WIwa3w1VkJTls80qywCyAMnFC2L+6XrSR+tpzobMNI
-         iOFJGf7Uhz9stM62RppWVFO7qT2ylrZTER+0uAEI2cCbJvseY57flgt9ffCVs5i5kWo0
-         8jOg==
-X-Forwarded-Encrypted: i=1; AJvYcCV6fsdd0SOWZqmz3SZ14osYwcKBJMpi0FsowCVZ5kCuSOe7TbfDadQ27e9kw8FCBwaJDWknyzQ/BzzdFGG1ykLM@lists.infradead.org
-X-Gm-Message-State: AOJu0YysttR4IAvHrBDdbLV98kLAaJwyZPfWQyZkt2Z7FF3HzJGKBj+F
-	gHBJuv8/P566Tuuukv8D9QtQF0K4f7owhdSLcGcJC0bPnkk9h3bFwMEpzeD1ip+oNaPCbKFzbqw
-	uJ1gr8XOtEQFGfBhwW/0JmCMUGvsmB5/4WE+0MDLKHA==
-X-Gm-Gg: ASbGncvJI3heaP8bc9+nSkzuNCTyjO3ALZWLA6PIzHn5ocMlaAUxJNpGhRxGdBF3veX
-	clUoeucTd4Rh6DRd8u2qum21tKU90GZlmBGoEftMSJZY3bs/LfuIJqnxAtvo1Fcw03RyQ20MUvu
-	XLS1I5oFMNZPod81deqV8OxOhnXqt/HGVjqjTjRwoelLhwDw5q8msoU4Dtd2ZQW4tA3fA5uqiix
-	ektH4twcYjrNl7yLgTYpNvABaU=
-X-Google-Smtp-Source: AGHT+IFja2SGfrTtCyPdRJCCefTmrgo0mQhH1O6x561N6cabqmvG2QM8w3ohhfxToBTf2XJdX84zA191m+AeXdLVuso=
-X-Received: by 2002:a05:690c:3582:b0:735:8634:be68 with SMTP id
- 00721157ae682-73890cb0553mr52912587b3.23.1758205148353; Thu, 18 Sep 2025
- 07:19:08 -0700 (PDT)
+	Thu, 18 Sep 2025 14:20:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4cSHjZ34hkz13NNP;
+	Thu, 18 Sep 2025 22:15:46 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9BBAB1402CC;
+	Thu, 18 Sep 2025 22:19:57 +0800 (CST)
+Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 18 Sep 2025 22:19:57 +0800
+Received: from [10.67.146.137] (10.67.146.137) by
+ kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 18 Sep 2025 22:19:56 +0800
+Subject: Re: [PATCH] irqchip/gic-v4.1:Check whether indirect table is
+ supported in allocate_vpe_l1_table
+To: Marc Zyngier <maz@kernel.org>
+CC: <tglx@linutronix.de>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <guoyang2@huawei.com>,
+	<wangwudi@hisilicon.com>, jiangkunkun <jiangkunkun@huawei.com>,
+	<wangzhou1@hisilicon.com>, <guozicheng3@hisilicon.com>
+References: <20240122160607.1078960-1-tangnianyao@huawei.com>
+ <86sf2p91zt.wl-maz@kernel.org>
+ <5de3da53-9c0d-2a2d-876b-2181e540fa2f@huawei.com>
+ <86r0i98o0a.wl-maz@kernel.org>
+ <de3c10be-f4d4-75d0-bc70-0791e5217516@huawei.com>
+ <86v83fmn9l.wl-maz@kernel.org>
+ <cae508d5-c846-5daf-a1b8-4014f14759e5@huawei.com>
+ <86ldmc144o.wl-maz@kernel.org>
+From: Tangnianyao <tangnianyao@huawei.com>
+Message-ID: <4a17190d-3d02-9c8c-699e-62e5aff63f08@huawei.com>
+Date: Thu, 18 Sep 2025 22:19:56 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
 MIME-Version: 1.0
-References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com> <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
- <20250918095950.h7wmz2qj5e6khtwr@lcpd911> <20250918131230.GD9196@nxa18884-linux.ap.freescale.net>
- <20250918134039.zkpeqsbf6m2ymxvt@lcpd911>
-In-Reply-To: <20250918134039.zkpeqsbf6m2ymxvt@lcpd911>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 18 Sep 2025 16:18:32 +0200
-X-Gm-Features: AS18NWB-C7Q2eLiy5k262B4Ual4xN_o15_I0cJZ8lRcTd3E2RvJskp1XeHp2s5E
-Message-ID: <CAPDyKFrweJTBHfOOU5r8Lcfs-dsTj94A=JK8+jKDqwJ0jNfiQw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] pmdomain: core: Introduce device_set/get_out_band_wakeup()
-To: Peng Fan <peng.fan@oss.nxp.com>, Dhruva Gole <d-gole@ti.com>
-Cc: Peng Fan <peng.fan@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Pavel Machek <pavel@kernel.org>, Peter Chen <peter.chen@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, imx@lists.linux.dev, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <86ldmc144o.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+X-Originating-IP: [10.67.146.137]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq500001.china.huawei.com (7.202.195.224)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_071910_201434_052CA88E 
-X-CRM114-Status: GOOD (  41.85  )
+X-CRM114-CacheID: sfid-20250918_072006_293643_D932B40C 
+X-CRM114-Status: GOOD (  37.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,94 +86,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sept 2025 at 15:40, Dhruva Gole <d-gole@ti.com> wrote:
+
+
+On 9/18/2025 17:50, Marc Zyngier wrote:
+> On Thu, 18 Sep 2025 03:56:04 +0100,
+> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>
+>>
+>> On 5/15/2024 17:34, Marc Zyngier wrote:
+>>> On Wed, 15 May 2024 09:56:10 +0100,
+>>> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>>>
+>>>> On 1/22/2024 22:02, Marc Zyngier wrote:
+>>>>> On Mon, 22 Jan 2024 13:13:09 +0000,
+>>>>> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>>>>> On 1/22/2024 17:00, Marc Zyngier wrote:
+>>>>>>> [Fixing the LKML address, which has bits of Stephan's address embedded
+>>>>>>> in it...]
+>>>>>>>
+>>>>>>> On Mon, 22 Jan 2024 16:06:07 +0000,
+>>>>>>> Nianyao Tang <tangnianyao@huawei.com> wrote:
+>>>>>>>> In allocate_vpe_l1_table, when we fail to inherit VPE table from other
+>>>>>>>> redistributors or ITSs, and we allocate a new vpe table for current common 
+>>>>>>>> affinity field without checking whether indirect table is supported.
+>>>>>>>> Let's fix it.
+>>>>>>> Is there an actual implementation that doesn't support the indirect
+>>>>>>> property for the VPE table? I know this is allowed for consistency
+>>>>>>> with the original revision of the architecture, but I never expected
+>>>>>>> an actual GICv4.1 implementation to be *that* bad.
+>>>>>>>
+>>>>>>> If that's the case, I'm a bit puzzled/worried.
+>>>>>> I met this problem in a developing implementation and find it's allowed by GIC spec.
+>>>>>> In such environment,  in a common affinity field with only redistributors and without
+>>>>>> any ITS in it, forcing its_vpe_id_alloc to allocate a large vpeid(like 65000), and there
+>>>>>> comes an error message "VPE IRQ allocation failure". It originally comes from
+>>>>>> allocate_vpe_l2_table, reading GICR_VPROPBASER with GICR_VPROPBASER_4_1_SIZE=1
+>>>>>> and GICR_VPROPBASER_4_1_INDIRECT=0.
+>>>>> Really, you should get your HW engineers to fix their GIC
+>>>>> implementation.  I'm OK with working around this issue for
+>>>>> completeness, but shipping such an implementation would be a mistake.
+>>>>>
+>>>>> [...]
+>>>>>
+>>>>>> I have another question here. The max number of pages  for GITS_BASER
+>>>>>> and GICR_VPROPBASER is different here, while GITS_BASER.Size is
+>>>>>> bit[7:0] with max 256, and GICR_4_1_VPROPBASER.Size is bit[6:0] with max 128.
+>>>>>> Kernel usually probe ITS basers first and then probe GICR_4_1_VPROPBASER in
+>>>>>> a common affinity group. Maybe we need to check this in "inherit_vpe_l1_table_from_its" ?
+>>>>> This is because GITS_BASER[] is generic (also works for devices and
+>>>>> collections), while GICR_VPROPBASER is tailored to the VPE table which
+>>>>> is usually smaller.
+>>>>>
+>>>>> I would expect that GICD_TYPER2.VID reports something that cannot
+>>>>> result in something going wrong (in this case, the L1 allocation
+>>>>> cannot be more than 128 pages).
+>>>>>
+>>>>> Overall, the kernel isn't a validation suite for the HW, and we expect
+>>>>> it to have some level of sanity. So if none of this is in shipping HW
+>>>>> but only in some model with crazy parameters, I don't think we should
+>>>>> go out of our way to support it.
+>>>>>
+>>>>> Thanks,
+>>>>>
+>>>>> 	M.
+>>>>>
+>>>> Hi Marc,
+>>>> Friendly ping. Do we have plan to fix this problem on kernel, or any other plan ?
+>>> Hi Nianyao,
+>>>
+>>> My earlier question still stand: is this something that affects a
+>>> shipping implementation? If not, then I don't think we should support
+>>> this upstream, as this doesn't seem like a realistic configuration.
+>>>
+>>> If your employer has actually built this (which I still consider as a
+>>> mistake), then we can add the workaround I suggested.
+>>>
+>>> Thanks,
+>>>
+>>> 	M.
+>>>
+>> Hi Marc,
+>>
+>> For GIC4.1 of HIP09,HIP10,HIP10C, it only support one-level vcpu table and GITS_BASER<n>.Indirect
+>> is RAZ/WI. It implements page size 16KB and entry size 32B,  each page support 512 vpe, and our
+>> clients have requirement 1 or 2 pages at most, so it just supports flat page to simplify implementation.
+>>
+>> Our designer has confirmed with ARM architect that we can waive this rule:
+>> Quote from GIC spec 12.19.1 GITS_BASER<n> description, if the maximum width of the scaling factor
+>> that is identified by GITS_BASER<n>.Type and the smallest page size that is supported result in a single
+>> level table that requires multiple pages, then implementing this bit
+>> as RAZ/WI is DEPRECATED.
+> I can read the spec just as well. Doesn't make it a good option.
+It maybe a good option for clients that do not use many vpe?
+So we try to convinced ARM to waive this rule and received a positive response.
+
+>> We have actually built this in HIP09,HIP10,HIP10C and would like to
+>> fix this in kernel.
+> Isn't that the broken systems that can't even do vSGIs properly?
 >
-> Hi Peng,
+>> Can we merge the above bug-fix patch to kernel?  Or we need to fix with errata for HIP09,HIP10,HIP10C?
+> Frankly, I've completely lost track of what this patch is doing. This
+> has been going on for over 18 months, and you have been silent on the
+> subject for over a year. What do you expect?
 >
-> On Sep 18, 2025 at 21:12:30 +0800, Peng Fan wrote:
-> > Hi Dhruva,
-> >
-> > On Thu, Sep 18, 2025 at 03:29:50PM +0530, Dhruva Gole wrote:
-> > >On Sep 02, 2025 at 11:33:00 +0800, Peng Fan wrote:
-> > >> For some cases, a device could still wakeup the system even if its power
-> > >> domain is in off state, because the device's wakeup hardware logic is
-> > >> in an always-on domain.
-> > >>
-> > >> To support this case, introduce device_set/get_out_band_wakeup() to
-> > >> allow device drivers to control the behaviour in genpd for a device
-> > >> that is attached to it.
-> > >>
-> > >
-> > >Thinking more into it, to me it seems like if the intent here is to only
-> > >allow the device drivers to figure out whether they should be or not be
-> > >executing the suspend/resume_noirqs then that can still be checked by
-> > >wisely using the device set_wakeup APIs in the driver itself.
-> > >
-> > >Not sure why this patch should be necessary for a
-> > >driver to execute the suspend_noirq or not. That decision can very well
-> > >be taken inside the driver's suspend resume_noirq hooks based on wakeup
-> > >capability and wake_enabled statuses.
-> >
-> > I should join today's SCMI meeting, but something else caught me (:
+> If you want anything to be done on this front, please repost a patch,
+> and we'll review it again.
 >
-> It's alright, maybe see you in the next one ;)
+> 	M.
 >
-> >
-> > Thanks for looking into this.
-> >
-> > In genpd_suspend_finish, genpd_sync_power_off will be called if
-> > "(device_awake_path(dev) && genpd_is_active_wakeup(genpd))" is false.
-> > So if the device is enabled wakeup, the genpd will not be turned off because
-> > the check return true.
->
-> Umm I think this device_awake_path stuff is only going to be true when
-> someone calls device_set_wakeup_path, I don't think it is going to
-> return true for a wakeup_capable device. I know all these "wakeup"
-> terminology and APIs have become all too confusing :( , so maybe Ulf can
-> correct me.
+We have tested the last patch in our internal build and now aim to fix the open-source
+kernel to support our SoC. We hope to address this either through a community patch or an errata fix.
 
-The PM core checks device_may_wakeup() in device_suspend() and then
-sets dev->power.wakeup_path = true;
+I will repost the patch shortly. Thanks for your review.
 
-The device_set_awake_path() and device_awake_path(), is to allow
-drivers/subsystems to enforce its device to stay powered-on during
-system-wide suspend. This may be needed even if the device isn't
-configured to deliver system-wakeups.
-
-> I maybe misremembering, but I have seen in some cases where a driver may
-> have marked itself wakeup_capable but the suspend hooks still do get
-> called... So your concern about genpd_sync_power_off not being called
-> due to wakeup capable device driver may not be valid... Again please
-> feel to correct me if I am wrong.
-
-The system PM callbacks should get called no matter what.
-
-The problem Peng pointing out, is when genpd_suspend_noirq() (which
-calls genpd_finish_suspend()) is called for a device that is attached
-to a genpd, we may end up bailing out, preventing the power-off for
-its PM domain, while it may be perfectly fine to allow the PM domain
-to be powered-off.
-
-The particular code we are looking at, is in genpd_finish_suspend():
-
-        if (device_awake_path(dev) && genpd_is_active_wakeup(genpd))
-                return 0;
-
->
-> Did you also look at the wake IRQ stuff I mentioned?
-> In the path you're talking about it just checks
-> device_awake_path(dev) && genpd_is_active_wakeup(genpd)
-> However if the device irq is just marked as a wake IRQ, I don't think
-> that is checked anywhere in this path. So definitely if the IRQ of your
-> device is set as a wake IRQ, it will still get suspended and resumed as
-> usual and that's what you want right?
-
-The missing piece for the wake_irq, is to know whether the interrupt
-can be delivered via an out-band-powered-on-logic, thus without
-requiring the device to stay powered-on during system suspend.
-
-[...]
-
-Kind regards
-Uffe
+Nianyao Tang
 
