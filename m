@@ -4,140 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B43CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E758DCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUmgX2B3UJCU6551FpcKE7vie4hp0XhLCxqpMH41O7w=; b=TDFfA8+FCX4CZr0yV4melhYFIp
-	7nj1YMogiMywU7RvhOsuy2xrz0Rvx9TabLwUKuF73voaxIL3bEZ5UiXLT3o+m6vHzG+lKsXlv2jeH
-	6+GaWlWV/jaFNeExelB3AUhWKCwChfXV2GfvtROZy5ScUgjoZw/ciWjDzNM5rTCX76tbqLiV4PggN
-	7yHu7aX4Cb9NWFRKJpFZ21Fjf4ng+G9kHIgsBhOQY7g+XPGROeeAn/av+48ZDa7qyaA8dtr5gtK6I
-	8vlVrn3Keb+SbnNmUIfe+fKX2838KB8r9ZX+HfncX78N6Zp2sIWLOWjNBZ/aFEe/0v9t+60sh4vn2
-	rcLMfz6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D+Ro4psEeiRlIlSynQ5sWEq9jcxP1CKSXtwcVAI/7ZQ=; b=hCkHkqHu9NiZeSwJ47hj/x5h3q
+	ILDvnH/v1yZCppl95gsiUBpn8RnfC72yW4dvG1NRhztl3wQ0q+pvlxx+iUEJPmqcHX2U/vC1kn+ND
+	AR+xp0RT+g51Y0w7w1uG/jHPLABJIDdu+jaTGAN5q4YhuaXLl+zZEJeyxuxDm4KHpq0BuugeHSLB3
+	8Co67NKYflRgkl0I7LKaf/VCDlsfORvyuhz10cSZY/Zac+XcqngmawvY/RI6tCV4vTk6BJQsJpOUA
+	nMGHq3Kmp+56hNQ7F/7vMmHU5Xs+oC1xcfKFTW3eIAX4480Pf+tWORWgjrs4cZJlxp0fMvda/X198
+	lVpf9nLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzEeb-0000000HX4j-40ts;
-	Thu, 18 Sep 2025 13:26:29 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzEeW-0000000HX28-2adw
+	id 1uzEhZ-0000000HXrj-05S3;
+	Thu, 18 Sep 2025 13:29:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzEhV-0000000HXqm-3hwa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 13:26:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ocm/M4MDp9iBkqv0Ayg97waG+MGapYTM+RUlW3bKrTWyM+nFJofSmk1GUMiSGlewJEjWRjXI7hPRSSwefbOdmdBaf0zNIy52Sg8F6xTP2fJelwczGZD8Xy/Cl2DLjl7v+Wv+6cmzeEDIDJV3e2Awx36Mzkno26MuXFmDYgCBp2GBsW667K47DMMl4tzgsElWZzYbnl0gSXwabtHwQgIxVroXjf6KGesx7+8JJewi7JknTBHH4XO3GyB7Ys6b7E2uwkDDTTqRFZKtOyZI89/i9MpHTQLVc0yhcNppw6c5KhCEOUzWIFtSO2Do/5Xvq1h8EVo0RJAprcdOT79b6E9RdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vUmgX2B3UJCU6551FpcKE7vie4hp0XhLCxqpMH41O7w=;
- b=oQb6DSEv4advR9pyFuLWajvLmwHkxbBVYzG6fmSbGH7iKvS91BctSqzs3bfeMYTMJLyBdvZFa9H6XsU371oAFDXD8xQTO2FbmsSgX2VOQYiPZLSgZGV9ugMYJTs1nLH1Uk7TTd+84yBtqv+imlDIUCaPkgSEcbTC5fY15bu+3IjJfFGZ2sgGbgAu8GkItnk0lWixHP3wMsdjJyZFosndyIlAKFrAhy0OwDqxoJDhLfskxQxjTmqzmQ9WFPIZ+rOeWmHKr2+z2chVdQeRpiAYAOENb9vmxEaFSjHF3Pr/6CdGSsYXvTfY05HfF5toLIxKJuMrGgjhWIGpwFYYidq9cA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vUmgX2B3UJCU6551FpcKE7vie4hp0XhLCxqpMH41O7w=;
- b=b1cb1d8x41xA2iHr6MzHoBwA0eIMT7CZa4eWTbKpThPS9q68BH04TpbsWurUy/WJ9cH12kRo5H0q0KnwJhOET1X0zlnB7dAcjIYwkFCmqRWU1jnNn6YcRhJhfCH1Qk4eE2ZtV88m4cBd9FfmEdFxrJtBqfzi8h/zAzVt2FqXT+4Shm/fq4zW9RP7BCgOD3MOm3JX52RHsltIrbM8GpIcYNtriKmn2YDtMgXrkIJ0TwuW68cO40O3exCczzsW3l1A1yKkFTs+u/D2OfYRtM3O6J41UHv7z6DNYEaIkZpPUxNK+kQfdgYEBowTgt9yVNcpbivyUdFB5Kcg4Wym8o917Q==
-Received: from BYAPR05CA0008.namprd05.prod.outlook.com (2603:10b6:a03:c0::21)
- by CH0PR12MB8549.namprd12.prod.outlook.com (2603:10b6:610:182::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Thu, 18 Sep
- 2025 13:26:14 +0000
-Received: from SJ1PEPF000023CC.namprd02.prod.outlook.com
- (2603:10b6:a03:c0:cafe::ad) by BYAPR05CA0008.outlook.office365.com
- (2603:10b6:a03:c0::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.14 via Frontend Transport; Thu,
- 18 Sep 2025 13:26:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF000023CC.mail.protection.outlook.com (10.167.244.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9137.12 via Frontend Transport; Thu, 18 Sep 2025 13:26:14 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 18 Sep
- 2025 06:26:04 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 18 Sep 2025 06:26:04 -0700
-Received: from SDONTHINENI-DESKTOP.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Thu, 18 Sep 2025 06:26:03 -0700
-From: Shanker Donthineni <sdonthineni@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Shanker Donthineni
-	<sdonthineni@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>
-Subject: [PATCH 1/2] arm64: cputype: Add NVIDIA Olympus definitions
-Date: Thu, 18 Sep 2025 08:25:47 -0500
-Message-ID: <20250918132548.1141306-2-sdonthineni@nvidia.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250918132548.1141306-1-sdonthineni@nvidia.com>
-References: <20250918132548.1141306-1-sdonthineni@nvidia.com>
+	Thu, 18 Sep 2025 13:29:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8684A1A25;
+	Thu, 18 Sep 2025 06:29:19 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A8073F66E;
+	Thu, 18 Sep 2025 06:29:26 -0700 (PDT)
+Message-ID: <7eeb2adc-4936-4af2-a24b-b3a3ae09176f@arm.com>
+Date: Thu, 18 Sep 2025 14:29:24 +0100
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CC:EE_|CH0PR12MB8549:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2340d25a-8f37-4509-da2b-08ddf6b6f0de
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JZukpyMdmMfA4LewxQokCWE5ZMjt7CXjk7Xp560zC+G8aBBNYOJlX3isIfC1?=
- =?us-ascii?Q?3S+ww0zf4eo4vP77/1vNjut7qwTPp9XnQLKJiu4gQy7+K4HL/Xfg0HZjJ+X8?=
- =?us-ascii?Q?d+gqQfCIxS4QMXLgwgWl1eJ68ZF9pKbOCvq2zSLdpbBcWq0AAi79BHdPNYyF?=
- =?us-ascii?Q?WYFPE6EUb4zz+caFoij+DG128s0+iuocZKeAonomKMx8d49Lmwejx3Hj/dYK?=
- =?us-ascii?Q?NfMgW+giFXc0DGMehQSnPbDiyqNyZH/Ji6X0faTdeVyGamFhV38LlTs8+ORk?=
- =?us-ascii?Q?Ov/W4VdeluAiouwp6R54NLuEjdBr/TNLdgrBgSXj+eiy1CUSr323yz+O2a4V?=
- =?us-ascii?Q?r3wHWHKfSAvZWsZc++cXVfzJ0bUGf8GRmbvt0kiakIyPchHGMT8xOBbrUcB3?=
- =?us-ascii?Q?rZdEy3dGwo+AZTUHEOX8dWmKyx+Mk45T/k94mb6qXfKF9m9HQIvhynkfq03T?=
- =?us-ascii?Q?gD8WstMH3TK5G8nG/IeGF+HF/Z81AACZ+Icpp1ZWJpokFMHXFzSr+WOppbvE?=
- =?us-ascii?Q?j8/LDbLLuWNLPJ346vZa3mM5Vfo26ErMd0Yj35yUFQlW3bb6fMdrUKJHxda8?=
- =?us-ascii?Q?A2ONt6h28sIMjGH8iKJoJMsgVSX3fCIqwWs7fPaTFw0ItGkHAAeerOGarCpm?=
- =?us-ascii?Q?CV9njEzF/hhkUQ4f6G/rd4KtYgmJ6jP+zoPebNhO2dzu609n4OEqNi1n8k1N?=
- =?us-ascii?Q?h39AjcHMtaa3TH2iFpvksYTFLFtydPeqa9AKuhG5MuQ1d6R50XZSh+YMmZYa?=
- =?us-ascii?Q?9V42MZUVhdlzykzlUBbZSBTdzBXxrAo2ucC7KQAym7w1HyNsZk5jCpS+PjFZ?=
- =?us-ascii?Q?h3PU95k8q+MzbZHyEDNlA5xKShCnTiPwmgZeSGWgaYKletojebeSz9GuDkQt?=
- =?us-ascii?Q?tYQ2KJ+TCg0CwycwNCPozPE1H2RPJbmkVFd5sLolPKKsKsrTnhFIoeE7+UNY?=
- =?us-ascii?Q?VuRxA4po1/jxj2OqdZkJOCFfptzKZmZf+OeWK+0JwzqgNYFsrVLGiqzhGQt2?=
- =?us-ascii?Q?EcWVbn5TjfQeqKKbCncnJd/uj6ymMvNxhWFqH7V86veoYiwhD2Qca9YoLkOn?=
- =?us-ascii?Q?OVWEEQYfyEQSP5QazKoJX3D7mkz2vXav8hHJ9aGwB4QDYPoDTfxOKUJ2p9LW?=
- =?us-ascii?Q?3W9qLv6qNGLm7dSOEaGWfhju6/y4DHm4JrNo3bBld43onBBr5ud4Dmq+5XOb?=
- =?us-ascii?Q?6SePnfsb++zZtk4X0E0jA/RDyJfthnBGoHoDQQCXEihLKXLmJh6EUAsQph5T?=
- =?us-ascii?Q?Xb6iK/GV/inzsMFaApNlKZPwcJrQCVQ+KTB+wudGn++fNawOE3FSQXzehOre?=
- =?us-ascii?Q?PgSJ4qCwxT3JihejyGHqd23sgewcjEhRtT3D5OV1QnoFwR6YTdCQEXR4oAmw?=
- =?us-ascii?Q?Jr8MpzDni/YhtHP/GLu9h45y4Srh6VoqAXq49O1ghmVJBBiye3HDQQ3MT7NQ?=
- =?us-ascii?Q?8TsYfDdsu4HtFAq9d7af62anhLvqYZGP0BmjRsmdj/HxFoDxwcJcfVaTgGOJ?=
- =?us-ascii?Q?ljpxkLsgRbZeXzCfl2e2nrdTKHA1rM6YGKfR?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 13:26:14.1847
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2340d25a-8f37-4509-da2b-08ddf6b6f0de
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CC.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8549
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] coresight: tmc: refactor the tmc-etr mode setting
+ to avoid race conditions
+To: Yicong Yang <yangyicong@huawei.com>, Junhao He <hejunhao3@huawei.com>,
+ james.clark@arm.com, anshuman.khandual@arm.com, leo.yan@arm.com
+Cc: yangyicong@hisilicon.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxarm@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com
+References: <20250818080600.418425-1-hejunhao3@huawei.com>
+ <20250818080600.418425-3-hejunhao3@huawei.com>
+ <b68d0460-0af0-6824-b215-5b6af1e69260@huawei.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <b68d0460-0af0-6824-b215-5b6af1e69260@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_062624_662239_6F3BD22E 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_062930_006414_F38DFBC8 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,55 +69,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cpu part and model macro definitions for NVIDIA Olympus core.
+On 18/09/2025 10:15, Yicong Yang wrote:
+> On 2025/8/18 16:05, Junhao He wrote:
+>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
+>> in tmc_etr_enable_hw() is triggered sometimes:
+>>
+>>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
+>>   [..snip..]
+>>   Call trace:
+>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
+>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
+>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
+>>    coresight_enable_path+0x1c8/0x218 [coresight]
+>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
+>>    enable_source_store+0x58/0xa8 [coresight]
+>>    dev_attr_store+0x20/0x40
+>>    sysfs_kf_write+0x4c/0x68
+>>    kernfs_fop_write_iter+0x120/0x1b8
+>>    vfs_write+0x2c8/0x388
+>>    ksys_write+0x74/0x108
+>>    __arm64_sys_write+0x24/0x38
+>>    el0_svc_common.constprop.0+0x64/0x148
+>>    do_el0_svc+0x24/0x38
+>>    el0_svc+0x3c/0x130
+>>    el0t_64_sync_handler+0xc8/0xd0
+>>    el0t_64_sync+0x1ac/0x1b0
+>>   ---[ end trace 0000000000000000 ]---
+>>
+>> Since the sysfs buffer allocation and the hardware enablement is not
+>> in the same critical region, it's possible to race with the perf
+>>
+>> mode:
+>>    [sysfs mode]                   [perf mode]
+>>    tmc_etr_get_sysfs_buffer()
+>>      spin_lock(&drvdata->spinlock)
+>>      [sysfs buffer allocation]
+>>      spin_unlock(&drvdata->spinlock)
+>>                                   spin_lock(&drvdata->spinlock)
+>>                                   tmc_etr_enable_hw()
+>>                                     drvdata->etr_buf = etr_perf->etr_buf
+>>                                   spin_unlock(&drvdata->spinlock)
+>>   spin_lock(&drvdata->spinlock)
+>>   tmc_etr_enable_hw()
+>>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
+>>                                  the perf side
+>>    spin_unlock(&drvdata->spinlock)
+>>
+>> A race condition is introduced here, perf always prioritizes execution, and
+>> warnings can lead to concerns about potential hidden bugs, such as getting
+>> out of sync.
+>>
+>> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
+>> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
+>> enabled in a different mode, and simplily the setup and checks for "mode".
+>> To prevent race conditions between mode transitions.
+>>
+>> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function for ETR")
+>> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
+>> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
+>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> 
+> Tested by running perf and sysfs mode simultaneously, no warning reproduced.
+> 
+> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
+> 
+>> ---
+>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 80 ++++++++++---------
+>>   1 file changed, 42 insertions(+), 38 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index b07fcdb3fe1a..06c74717be19 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1263,7 +1263,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+>>   		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>>   	}
+>>   
+>> -	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
+>> +	if (drvdata->reading) {
+>>   		ret = -EBUSY;
+>>   		goto out;
+>>   	}
+>> @@ -1300,20 +1300,18 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>>   	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>>   
+>>   	/*
+>> -	 * In sysFS mode we can have multiple writers per sink.  Since this
+>> -	 * sink is already enabled no memory is needed and the HW need not be
+>> -	 * touched, even if the buffer size has changed.
+>> +	 * When two sysfs sessions race to acquire an idle sink, both may enter
+>> +	 * this function. We need to recheck if the sink is already in use to
+>> +	 * prevent duplicate hardware configuration.
+>>   	 */
+>> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+>> +	if (csdev->refcnt) {
+>>   		csdev->refcnt++;
+>>   		goto out;
+>>   	}
+>>   
+>>   	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
+>> -	if (!ret) {
+>> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
+>> +	if (!ret)
+>>   		csdev->refcnt++;
+>> -	}
+>>   
+>>   out:
+>>   	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>> @@ -1729,39 +1727,24 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>>   {
+>>   	int rc = 0;
+>>   	pid_t pid;
+>> -	unsigned long flags;
+>>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>   	struct perf_output_handle *handle = data;
+>>   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+>>   
+>> -	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>> -	 /* Don't use this sink if it is already claimed by sysFS */
+>> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+>> -		rc = -EBUSY;
+>> -		goto unlock_out;
+>> -	}
+>> -
+>> -	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
+>> -		rc = -EINVAL;
+>> -		goto unlock_out;
+>> -	}
+>> +	if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
+>> +		return -EINVAL;
+>>   
+>>   	/* Get a handle on the pid of the session owner */
+>>   	pid = etr_perf->pid;
+>>   
+>>   	/* Do not proceed if this device is associated with another session */
+>> -	if (drvdata->pid != -1 && drvdata->pid != pid) {
+>> -		rc = -EBUSY;
+>> -		goto unlock_out;
+>> -	}
+>> +	if (drvdata->pid != -1 && drvdata->pid != pid)
+>> +		return -EBUSY;
+>>   
+>> -	/*
+>> -	 * No HW configuration is needed if the sink is already in
+>> -	 * use for this session.
+>> -	 */
+>> +	/* The sink is already in use for this session */
+>>   	if (drvdata->pid == pid) {
+>>   		csdev->refcnt++;
+>> -		goto unlock_out;
+>> +		return rc;
+>>   	}
+>>   
+>>   	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
+>> @@ -1773,22 +1756,43 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>>   		csdev->refcnt++;
+>>   	}
+>>   
+>> -unlock_out:
+>> -	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>>   	return rc;
+>>   }
+>>   
+>>   static int tmc_enable_etr_sink(struct coresight_device *csdev,
+>>   			       enum cs_mode mode, void *data)
+>>   {
+>> -	switch (mode) {
+>> -	case CS_MODE_SYSFS:
+>> -		return tmc_enable_etr_sink_sysfs(csdev);
+>> -	case CS_MODE_PERF:
+>> -		return tmc_enable_etr_sink_perf(csdev, data);
+>> -	default:
+>> -		return -EINVAL;
+>> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +	int rc;
+>> +
+>> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
+>> +		if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
+>> +		    coresight_get_mode(csdev) != mode)
+>> +			return -EBUSY;
+>> +
+>> +		switch (mode) {
+>> +		case CS_MODE_SYSFS:
+>> +			if (csdev->refcnt) {
+>> +				/* The sink is already enabled */
+>> +				csdev->refcnt++;
+>> +				return 0;
+>> +			}
+>> +			coresight_set_mode(csdev, mode);
 
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
----
- arch/arm64/include/asm/cputype.h       | 2 ++
- tools/arch/arm64/include/asm/cputype.h | 2 ++
- 2 files changed, 4 insertions(+)
+Why are we spilling bits here in the common code for sysfs ? More on 
+this, see below.
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index b10eba7f52476..402e6c94bec3d 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -130,6 +130,7 @@
- 
- #define NVIDIA_CPU_PART_DENVER		0x003
- #define NVIDIA_CPU_PART_CARMEL		0x004
-+#define NVIDIA_CPU_PART_OLYMPUS		0x010
- 
- #define FUJITSU_CPU_PART_A64FX		0x001
- 
-@@ -222,6 +223,7 @@
- 
- #define MIDR_NVIDIA_DENVER MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_DENVER)
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
-+#define MIDR_NVIDIA_OLYMPUS MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_OLYMPUS)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
- #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 139d5e87dc959..45ec0d4fba71e 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -129,6 +129,7 @@
- 
- #define NVIDIA_CPU_PART_DENVER		0x003
- #define NVIDIA_CPU_PART_CARMEL		0x004
-+#define NVIDIA_CPU_PART_OLYMPUS		0x010
- 
- #define FUJITSU_CPU_PART_A64FX		0x001
- 
-@@ -220,6 +221,7 @@
- 
- #define MIDR_NVIDIA_DENVER MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_DENVER)
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
-+#define MIDR_NVIDIA_OLYMPUS MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_OLYMPUS)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
- #define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
--- 
-2.25.1
+>> +			break;
+>> +		case CS_MODE_PERF:
+>> +			return tmc_enable_etr_sink_perf(csdev, data);
+>> +		default:
+>> +			return -EINVAL;
+>> +		}
+>> +	}
+>> +
+>> +	rc = tmc_enable_etr_sink_sysfs(csdev);
+We now call the above function without the spinlock and the refcnt is
+managed with and without the spinlock by the users. This is problematic,
+with refcnt being a non-atomic type.
+
+Please fix. I don't see why we can't set the mode in
+tmc_enable_etr_sink_sysfs() with the locks held and
+reset the mode if we failed enable it properly.
+
+Suzuki
+
+
+>> +	if (rc) {
+>> +		scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
+>> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
+>>   	}
+>> +
+>> +	return rc;
+>>   }
+>>   
+>>   static int tmc_disable_etr_sink(struct coresight_device *csdev)
+>>
+
 
 
