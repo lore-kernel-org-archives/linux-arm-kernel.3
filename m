@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EE9CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DD1CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 01:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zSRwh1OGCLN4dqme9S9IA6D8yC9jUMoGnDnPQnGGE2M=; b=IwBQhS94XheXMftTAm8LsabIb5
-	sBMuhCSxu9l7GTReyTRzcJLIFDEiVrmKcO5vCstLIl1Z+wtcdjctpqLeg3rmw6TAYCsEMGbOtFNC7
-	VNJ6fzlnkq21edMp3RdCjorFpQ0hmcjrvSyKyZchlADTjj67XfuPbIPEbcBhN584YVKMGf1IzvXqy
-	u7EJMXBQJEQ0sitWzYhwqtU+nAg7QOcUQSQQNHA9smtjAQvFFUWiu0sxHlaSHD6KyONxHZiKXo9rP
-	AqRCWyRdFhNCNQUL0LP2SRMdaVlCeu8NOiPa3FYbOnERTlOISLJlxeM/2BV8d50oa/b/9/HuFgtaZ
-	bI0EPPtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IKNvdhWHFBO2LxeGbbJQCVnxFSJKdVJYeGTN3QpPNOg=; b=3cufRDvbkgFJt4gTOC3p8J/vN2
+	KbvApBN7iB2LClOJ2ud7w0Xo1C9p+j7HvfTdswUHn/48O2aGRadztIHmfRoGlsi922ymcVobo6ceX
+	p4EK96eAQGIGd5+G+g6uw7AMV5fye+5gvV20WrvxuYqg477XSxly9oUud3dtKkUAHZX5Mz+QRdooB
+	zaLZtUQPhXQ3Mb0yQAK+vR6PJvzK3fT9lQcviX3QeDrZyPxzJC3fks53OaEY3jcA1qCkbFEq2+mEi
+	yKOm8FlZkbIk24LqArIJH5d2QX1CyYjyfKg+qTr0FFwDDdpXOwoKPGxu2WuZ8VmjkmQiPv+2nvslN
+	1ORaA/qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3EH-0000000FuPU-2Z5W;
-	Thu, 18 Sep 2025 01:14:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uz3O3-0000000Fv6L-2Bc8;
+	Thu, 18 Sep 2025 01:24:39 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz3EF-0000000FuOn-03IW
+	id 1uz3O0-0000000Fv5y-2sjM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 01:14:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2D2943441;
-	Thu, 18 Sep 2025 01:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74863C4CEE7;
-	Thu, 18 Sep 2025 01:14:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758158070;
-	bh=g3c8XhEz0bPJ7eh9V+y3pI2GRwX8vp7wDlq6Xzmvofo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=mQTiS6cVe6C5naZ9M5DZ6pnoyBwC8juaDbIpaPSjcRH3Wk7A6jygwu7H09GU9dIla
-	 WjOUNunVqVuhjMT+MONnQxpQNf+ZPYP4wAnuTn8tZMy2fTVB2AwcYlz+c6NmGEerYM
-	 5IdwUWNU1g7mcI7D0/UblSwouph9m0SIm406U9RFaB3JlF6xJeGfN3UVIMMVIemQeN
-	 lI1GjEFs+vaxX8SJQh69XTyoX4dG5t6ZdoCPCK9v0YIy6oEGdqbuFvsAMvbWdk483N
-	 PycgCnHHXk90xgOGKGufygKDBk/zjjsjXx+AeclLN19O3k1kZA+xiRGIp0+BisYF3X
-	 mS8WLfropyk2Q==
-Date: Wed, 17 Sep 2025 20:14:28 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 18 Sep 2025 01:24:38 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-3318dd36a8fso521028fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 18:24:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758158674; x=1758763474; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IKNvdhWHFBO2LxeGbbJQCVnxFSJKdVJYeGTN3QpPNOg=;
+        b=h12OsYsdQgu06t5e9JBR0oABZkJa6YAkxl6kvwJdVsGf7wVlYaUlyExY3cmbryaaGz
+         hrEgh94cXROkVJyKLN6x4IBY6k4NM/KssO027vy50K13u5XuxquoRn022bWA4D3YsyCM
+         wKJF6Kugxrk1JRtF6H3R02GV1JUpCJCXcBeW4HEp4TCNuEqWqjh+rkg4CGpySYV8xkP3
+         MTEq65UMz4CFiC06KrKoP/1Wn59Oh/oMoratLKDj72rcgVJbJv24l0SCxeeau4D9JVK2
+         w55APTz00lvRf5ipxR9/wTkus5pRRR8OyH+dlhrADigSVhmcJ2d7B5HERurDpRdX5ceQ
+         uwAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758158674; x=1758763474;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IKNvdhWHFBO2LxeGbbJQCVnxFSJKdVJYeGTN3QpPNOg=;
+        b=aeP5mLLTBBeOBTUYCh2Oxa4AbOLFZCuu2ROWFes5Xq/8XlW34jl9H1kdVbIi47J+V6
+         7ag5mjAsUryTiG8zR6Z+XncXReTwkLJA7sT/I0b+jriCMSvnmh9HshWib7GTSjFIoyH1
+         dTG8jaDWGLLMoz7hpSEUK3CODSese+5WNVySxlQivnueEPhGu9G2N8WBLaFBVPAG0mnH
+         OvZlg0OEWrqGVGWE2i0T516/4Xlg7vahSAUJLjMq39Scb8bNGd8Lqgzbu/W0XnUe5a6T
+         isfsFCvUXR37wDEeXfoeOKnBHAUdp6h6CCR1Lo7qhrVQ7EzMR7yY8HhwVLqdJjXDUkNp
+         eulg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwHLd7+EOe9L5iPYHN2X9stLWimR81rlG6yyD1crqrdhSOIo9P50ggFtnKbmcZD0PLzm7LoCxE37/Cmm8mFLKH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyInKqpS2NbvLC4h4ZNIHmJldyrmsQV0hP170Ht6h3PNnMa3RPc
+	Q61DUV1pQ0Ev9w/VdyDMbtgfzZ1nyO7q+I3gnCJzJU30/qT1AxZhShaubf2+dhvAJx1mQXfc7t9
+	Q55+7Ha37nRzCcV54IyVPotKXIq0yskipaD8mSMVB9w==
+X-Gm-Gg: ASbGnctcdIvYpeVXxiOS26j4ISFHvZ0T/UEULgSxXPhwSlYJM9Y+q+uOy72W0vIH37s
+	YH88LTkDCxEuWipY0fGhSzCp60MbeHhNwDO2EUF4t5vBedHeefAtwH7UL/7yTxeW/HFGqKZpbb0
+	dk2P31MuBBmmA/dxWOFHdEaz4oUjiEWFS2dVvgknpWntpx+VTynDGGZae2kal+u58gyPnb8wNIN
+	vK0hUbFGqUW0e577fPiD7sjBEiOfLHs4bPxndT6HC5suDZLFQElrNnxPSI4
+X-Google-Smtp-Source: AGHT+IF7Jz86Ss5xUsOAka6ZfidlIbp3iI6MRj0U1kuwvACRXQMFNLJnzIbP5GFFnb6wKl3sDJlW0BNwASJHgNKIss4=
+X-Received: by 2002:a05:6871:7b85:b0:319:c3d3:21da with SMTP id
+ 586e51a60fabf-335be3b7fb8mr2433435fac.16.1758158674397; Wed, 17 Sep 2025
+ 18:24:34 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Joel Stanley <joel@jms.id.au>, linux-aspeed@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-To: Rebecca Cran <rebecca@bsdio.com>
-In-Reply-To: <20250917180428.810751-1-rebecca@bsdio.com>
-References: <20250917180428.810751-1-rebecca@bsdio.com>
-Message-Id: <175815739133.3885492.1346225052792549378.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] Add device tree for ASRock Rack ALTRAD8 BMC
+References: <20250917023007.97637-1-cuiyunhui@bytedance.com> <8863bbfb-326e-1914-4f97-0cc59558a602@huawei.com>
+In-Reply-To: <8863bbfb-326e-1914-4f97-0cc59558a602@huawei.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 18 Sep 2025 09:24:23 +0800
+X-Gm-Features: AS18NWC8xXQe0_3214vs8m1XMLOxfuglWltR5fxGmhMSH4Oe6OQuLiSS7oHdd1E
+Message-ID: <CAEEQ3wmbHuyVMpiU_zaxjgS-Tm8Ve=rDVLgY7qoA-ZBZjx_hJg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] arch_topology: move parse_acpi_topology()
+ to common code
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, 
+	gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
+	beata.michalska@arm.com, sumitg@nvidia.com, ptsm@linux.microsoft.com, 
+	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_181431_101346_BD62C5BE 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20250917_182436_936000_0340A352 
+X-CRM114-Status: GOOD (  35.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,150 +99,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Yicong,
 
-On Wed, 17 Sep 2025 12:04:24 -0600, Rebecca Cran wrote:
-> The ASRock Rack ALTRAD8 BMC is an Aspeed AST2500-based BMC for the
-> ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards with an Ampere Altra
-> processor. The BMC runs OpenBMC.
-> 
-> These patches add a device tree and binding for the BMC.
-> 
-> **Changes between v1 and v2**
-> 
-> - Reordered nodes to be in alphabetical order.
-> - Removed status lines.
-> - Fixed naming.
-> 
-> There are still several warnings from
-> make CHECK_DTBS=y ARCH=arm W=1 aspeed/aspeed-bmc-asrock-altrad8.dtb
-> I believe the only one which is reporting an issue in my dts file (as opposed
-> to included files) is the first, and that's because the code partition contains
-> the TF-A and UEFI areas. I couldn't see a way to suppress it.
-> 
-> aspeed-bmc-asrock-altrad8.dts:578.16-581.6: Warning (unique_unit_address_if_enabled): /ahb/spi@1e630000/flash@0/partitions/code@400000: duplicate unit-address (also used in node /ahb/spi@1e630000/flash@0/partitions/tfa@400000)
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/memory-controller@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2500-sdram-edac']
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/syscon@1e6e2000/p2a-control@2c: failed to match any schema with compatible: ['aspeed,ast2500-p2a-ctrl']
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2500-gfx', 'syscon']
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2400-timer']
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/pwm-tacho-controller@1e786000: failed to match any schema with compatible: ['aspeed,ast2500-pwm-tacho']
-> aspeed-bmc-asrock-altrad8.dtb: fan@0: aspeed,fan-tach-ch: b'\x00\x08' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@1: aspeed,fan-tach-ch: b'\x01\t' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@2: aspeed,fan-tach-ch: b'\x02\n' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@3: aspeed,fan-tach-ch: b'\x03\x0b' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@4: aspeed,fan-tach-ch: b'\x04\x0c' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@5: aspeed,fan-tach-ch: b'\x05\r' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@6: aspeed,fan-tach-ch: b'\x06\x0e' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: fan@7: aspeed,fan-tach-ch: b'\x07\x0f' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-> 	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: lpc@1e789000 (aspeed,ast2500-lpc-v2): reg-io-width: 4 is not of type 'object'
-> 	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: lpc@1e789000 (aspeed,ast2500-lpc-v2): lpc-snoop@90: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2500-lhc']
-> aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2500-ibt-bmc']
-> aspeed-bmc-asrock-altrad8.dtb: gpio@1c (nxp,pca9557): '#address-cells', '#size-cells', 'gpio@0', 'gpio@1', 'gpio@2', 'gpio@3', 'gpio@4', 'gpio@5', 'gpio@6', 'gpio@7' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', '^pinctrl-[0-9]+$'
-> 	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-> 
-> 
-> Rebecca Cran (2):
->   dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
->   ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-> 
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml |   1 +
->  arch/arm/boot/dts/aspeed/Makefile                        |   1 +
->  arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts   | 633 ++++++++++++++++++++
->  3 files changed, 635 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-> 
-> 
-> base-commit: 5aca7966d2a7255ba92fd5e63268dd767b223aa5
-> --
-> 2.47.3
-> 
-> 
-> 
+On Wed, Sep 17, 2025 at 2:43=E2=80=AFPM Yicong Yang <yangyicong@huawei.com>=
+ wrote:
+>
+> On 2025/9/17 10:30, Yunhui Cui wrote:
+> > Currently, RISC-V lacks arch-specific registers for CPU topology
+> > properties and must get them from ACPI. Thus, parse_acpi_topology()
+> > is moved from arm64/ to drivers/ for RISC-V reuse.
+> >
+> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > ---
+> >  arch/arm64/kernel/topology.c  | 87 +----------------------------------
+> >  drivers/base/arch_topology.c  | 85 +++++++++++++++++++++++++++++++++-
+> >  include/linux/arch_topology.h |  6 +++
+> >  3 files changed, 91 insertions(+), 87 deletions(-)
+> >
+> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.=
+c
+> > index 5d07ee85bdae4..55650db53b526 100644
+> > --- a/arch/arm64/kernel/topology.c
+> > +++ b/arch/arm64/kernel/topology.c
+> > @@ -26,7 +26,7 @@
+> >  #include <asm/topology.h>
+> >
+> >  #ifdef CONFIG_ACPI
+> > -static bool __init acpi_cpu_is_threaded(int cpu)
+> > +bool __init acpi_cpu_is_threaded(int cpu)
+> >  {
+> >       int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> >
+> > @@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+> >
+> >       return !!is_threaded;
+> >  }
+> > -
+> > -struct cpu_smt_info {
+> > -     unsigned int thread_num;
+> > -     int core_id;
+> > -};
+> > -
+> > -/*
+> > - * Propagate the topology information of the processor_topology_node t=
+ree to the
+> > - * cpu_topology array.
+> > - */
+> > -int __init parse_acpi_topology(void)
+> > -{
+> > -     unsigned int max_smt_thread_num =3D 1;
+> > -     struct cpu_smt_info *entry;
+> > -     struct xarray hetero_cpu;
+> > -     unsigned long hetero_id;
+> > -     int cpu, topology_id;
+> > -
+> > -     if (acpi_disabled)
+> > -             return 0;
+> > -
+> > -     xa_init(&hetero_cpu);
+> > -
+> > -     for_each_possible_cpu(cpu) {
+> > -             topology_id =3D find_acpi_cpu_topology(cpu, 0);
+> > -             if (topology_id < 0)
+> > -                     return topology_id;
+> > -
+> > -             if (acpi_cpu_is_threaded(cpu)) {
+> > -                     cpu_topology[cpu].thread_id =3D topology_id;
+> > -                     topology_id =3D find_acpi_cpu_topology(cpu, 1);
+> > -                     cpu_topology[cpu].core_id   =3D topology_id;
+> > -
+> > -                     /*
+> > -                      * In the PPTT, CPUs below a node with the 'ident=
+ical
+> > -                      * implementation' flag have the same number of t=
+hreads.
+> > -                      * Count the number of threads for only one CPU (=
+i.e.
+> > -                      * one core_id) among those with the same hetero_=
+id.
+> > -                      * See the comment of find_acpi_cpu_topology_hete=
+ro_id()
+> > -                      * for more details.
+> > -                      *
+> > -                      * One entry is created for each node having:
+> > -                      * - the 'identical implementation' flag
+> > -                      * - its parent not having the flag
+> > -                      */
+> > -                     hetero_id =3D find_acpi_cpu_topology_hetero_id(cp=
+u);
+> > -                     entry =3D xa_load(&hetero_cpu, hetero_id);
+> > -                     if (!entry) {
+> > -                             entry =3D kzalloc(sizeof(*entry), GFP_KER=
+NEL);
+> > -                             WARN_ON_ONCE(!entry);
+> > -
+> > -                             if (entry) {
+> > -                                     entry->core_id =3D topology_id;
+> > -                                     entry->thread_num =3D 1;
+> > -                                     xa_store(&hetero_cpu, hetero_id,
+> > -                                              entry, GFP_KERNEL);
+> > -                             }
+> > -                     } else if (entry->core_id =3D=3D topology_id) {
+> > -                             entry->thread_num++;
+> > -                     }
+> > -             } else {
+> > -                     cpu_topology[cpu].thread_id  =3D -1;
+> > -                     cpu_topology[cpu].core_id    =3D topology_id;
+> > -             }
+> > -             topology_id =3D find_acpi_cpu_topology_cluster(cpu);
+> > -             cpu_topology[cpu].cluster_id =3D topology_id;
+> > -             topology_id =3D find_acpi_cpu_topology_package(cpu);
+> > -             cpu_topology[cpu].package_id =3D topology_id;
+> > -     }
+> > -
+> > -     /*
+> > -      * This is a short loop since the number of XArray elements is th=
+e
+> > -      * number of heterogeneous CPU clusters. On a homogeneous system
+> > -      * there's only one entry in the XArray.
+> > -      */
+> > -     xa_for_each(&hetero_cpu, hetero_id, entry) {
+> > -             max_smt_thread_num =3D max(max_smt_thread_num, entry->thr=
+ead_num);
+> > -             xa_erase(&hetero_cpu, hetero_id);
+> > -             kfree(entry);
+> > -     }
+> > -
+> > -     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> > -     xa_destroy(&hetero_cpu);
+> > -     return 0;
+> > -}
+> >  #endif
+> >
+> >  #ifdef CONFIG_ARM64_AMU_EXTN
+> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.=
+c
+> > index 1037169abb459..65ec1f3d2bd28 100644
+> > --- a/drivers/base/arch_topology.c
+> > +++ b/drivers/base/arch_topology.c
+> > @@ -823,12 +823,95 @@ void remove_cpu_topology(unsigned int cpu)
+> >       clear_cpu_topology(cpu);
+> >  }
+> >
+> > +__weak bool __init acpi_cpu_is_threaded(int cpu)
+> > +{
+> > +     int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> > +
+> > +     return !!is_threaded;
+> > +
+>
+> acpi_pptt_cpu_is_thread() could return an error which shouldn't be
+> regarded as a threaded cpu.
+>
+> > +}
+> > +
+> > +#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+> > +/*
+> > + * Propagate the topology information of the processor_topology_node t=
+ree to the
+> > + * cpu_topology array.
+> > + */
+> >  __weak int __init parse_acpi_topology(void)
+> >  {
+> > +     unsigned int max_smt_thread_num =3D 1;
+> > +     struct cpu_smt_info *entry;
+> > +     struct xarray hetero_cpu;
+> > +     unsigned long hetero_id;
+> > +     int cpu, topology_id;
+> > +
+> > +     if (acpi_disabled)
+> > +             return 0;
+> > +
+> > +     xa_init(&hetero_cpu);
+> > +
+> > +     for_each_possible_cpu(cpu) {
+> > +             topology_id =3D find_acpi_cpu_topology(cpu, 0);
+> > +             if (topology_id < 0)
+> > +                     return topology_id;
+> > +
+> > +             if (acpi_cpu_is_threaded(cpu)) {
+> > +                     cpu_topology[cpu].thread_id =3D topology_id;
+> > +                     topology_id =3D find_acpi_cpu_topology(cpu, 1);
+> > +                     cpu_topology[cpu].core_id   =3D topology_id;
+> > +
+> > +                     /*
+> > +                      * In the PPTT, CPUs below a node with the 'ident=
+ical
+> > +                      * implementation' flag have the same number of t=
+hreads.
+> > +                      * Count the number of threads for only one CPU (=
+i.e.
+> > +                      * one core_id) among those with the same hetero_=
+id.
+> > +                      * See the comment of find_acpi_cpu_topology_hete=
+ro_id()
+> > +                      * for more details.
+> > +                      *
+> > +                      * One entry is created for each node having:
+> > +                      * - the 'identical implementation' flag
+> > +                      * - its parent not having the flag
+> > +                      */
+> > +                     hetero_id =3D find_acpi_cpu_topology_hetero_id(cp=
+u);
+> > +                     entry =3D xa_load(&hetero_cpu, hetero_id);
+> > +                     if (!entry) {
+> > +                             entry =3D kzalloc(sizeof(*entry), GFP_KER=
+NEL);
+> > +                             WARN_ON_ONCE(!entry);
+> > +
+> > +                             if (entry) {
+> > +                                     entry->core_id =3D topology_id;
+> > +                                     entry->thread_num =3D 1;
+> > +                                     xa_store(&hetero_cpu, hetero_id,
+> > +                                              entry, GFP_KERNEL);
+> > +                             }
+> > +                     } else if (entry->core_id =3D=3D topology_id) {
+> > +                             entry->thread_num++;
+> > +                     }
+> > +             } else {
+> > +                     cpu_topology[cpu].thread_id  =3D -1;
+> > +                     cpu_topology[cpu].core_id    =3D topology_id;
+> > +             }
+> > +             topology_id =3D find_acpi_cpu_topology_cluster(cpu);
+> > +             cpu_topology[cpu].cluster_id =3D topology_id;
+> > +             topology_id =3D find_acpi_cpu_topology_package(cpu);
+> > +             cpu_topology[cpu].package_id =3D topology_id;
+> > +     }
+> > +
+> > +     /*
+> > +      * This is a short loop since the number of XArray elements is th=
+e
+> > +      * number of heterogeneous CPU clusters. On a homogeneous system
+> > +      * there's only one entry in the XArray.
+> > +      */
+> > +     xa_for_each(&hetero_cpu, hetero_id, entry) {
+> > +             max_smt_thread_num =3D max(max_smt_thread_num, entry->thr=
+ead_num);
+> > +             xa_erase(&hetero_cpu, hetero_id);
+> > +             kfree(entry);
+> > +     }
+> > +
+> > +     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> > +     xa_destroy(&hetero_cpu);
+> >       return 0;
+> >  }
+> >
+> > -#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+> >  void __init init_cpu_topology(void)
+> >  {
+> >       int cpu, ret;
+> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topolog=
+y.h
+> > index d72d6e5aa2002..50d33b5a78ccd 100644
+> > --- a/include/linux/arch_topology.h
+> > +++ b/include/linux/arch_topology.h
+> > @@ -70,6 +70,11 @@ struct cpu_topology {
+> >       cpumask_t llc_sibling;
+> >  };
+> >
+> > +struct cpu_smt_info {
+> > +     unsigned int thread_num;
+> > +     int core_id;
+> > +};
+> > +
+>
+> this is only used in parse_acpi_topology() and seems no reason to make it=
+ into
+> the header.
 
+Okay, I'll update it in v2.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+>
+> otherwise looks good to me. most acpi topology building code is not arm64
+> specific and make sense to make it common.
+>
+> thanks.
+>
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 5aca7966d2a7255ba92fd5e63268dd767b223aa5
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250917180428.810751-1-rebecca@bsdio.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/memory-controller@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2500-sdram-edac']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/syscon@1e6e2000/p2a-control@2c: failed to match any schema with compatible: ['aspeed,ast2500-p2a-ctrl']
-arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2500-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2500-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2400-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/pwm-tacho-controller@1e786000: failed to match any schema with compatible: ['aspeed,ast2500-pwm-tacho']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@0: aspeed,fan-tach-ch: b'\x00\x08' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@1: aspeed,fan-tach-ch: b'\x01	' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@2: aspeed,fan-tach-ch: b'\x02
-' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@3: aspeed,fan-tach-ch: b'\x03\x0b' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@4: aspeed,fan-tach-ch: b'\x04\x0c' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@5: aspeed,fan-tach-ch: b'\x05
-' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@6: aspeed,fan-tach-ch: b'\x06\x0e' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: fan@7: aspeed,fan-tach-ch: b'\x07\x0f' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: lpc@1e789000 (aspeed,ast2500-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: lpc@1e789000 (aspeed,ast2500-lpc-v2): lpc-snoop@90: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2500-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2500-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: gpio@1c (nxp,pca9557): '#address-cells', '#size-cells', 'gpio@0', 'gpio@1', 'gpio@2', 'gpio@3', 'gpio@4', 'gpio@5', 'gpio@6', 'gpio@7' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
-
-
-
-
-
+Thanks,
+Yunhui
 
