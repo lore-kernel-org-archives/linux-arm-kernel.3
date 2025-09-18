@@ -4,57 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E758DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7F8CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 13:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+Ro4psEeiRlIlSynQ5sWEq9jcxP1CKSXtwcVAI/7ZQ=; b=hCkHkqHu9NiZeSwJ47hj/x5h3q
-	ILDvnH/v1yZCppl95gsiUBpn8RnfC72yW4dvG1NRhztl3wQ0q+pvlxx+iUEJPmqcHX2U/vC1kn+ND
-	AR+xp0RT+g51Y0w7w1uG/jHPLABJIDdu+jaTGAN5q4YhuaXLl+zZEJeyxuxDm4KHpq0BuugeHSLB3
-	8Co67NKYflRgkl0I7LKaf/VCDlsfORvyuhz10cSZY/Zac+XcqngmawvY/RI6tCV4vTk6BJQsJpOUA
-	nMGHq3Kmp+56hNQ7F/7vMmHU5Xs+oC1xcfKFTW3eIAX4480Pf+tWORWgjrs4cZJlxp0fMvda/X198
-	lVpf9nLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qPYv2m3jnaBv4/l/HZ0iG3MFsl4uuoIjun6WjOr6o18=; b=HlHVGVp8W9IIoXoTyRE7VBLCKS
+	o72c2AFV3o2loAA9infwxiMrjvcu4i+Kn1cgo8QYsF2t2kD1LSn9PQdbSIF7Kppa0c/VwcWnQ/Bqw
+	7GcScfPol8wiLKsnPnt+nU7BHrNlBsUq8rOpWpcoWYzct2L7uFh+w9QkQSmsvpewFXv9xMSE9ZWke
+	TYjuxcp+AGyZs/X++YOniskgCNFJI59GvgaIGEg1+2xZ91DeYdrP5Mz4URtWv2G4ZofCadfkXCVZ0
+	cfLqSmVMXJvgKe91UBJLLmAGgnXPxIUkaAT7g5OhAhNqHbMR030zoD8KtblHmNs4JBIproFDBTIMT
+	PI8lhqXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzEhZ-0000000HXrj-05S3;
-	Thu, 18 Sep 2025 13:29:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzEhV-0000000HXqm-3hwa
+	id 1uzEja-0000000HYIV-2Ge6;
+	Thu, 18 Sep 2025 13:31:38 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzEjX-0000000HYGc-0Qqd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 13:29:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8684A1A25;
-	Thu, 18 Sep 2025 06:29:19 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A8073F66E;
-	Thu, 18 Sep 2025 06:29:26 -0700 (PDT)
-Message-ID: <7eeb2adc-4936-4af2-a24b-b3a3ae09176f@arm.com>
-Date: Thu, 18 Sep 2025 14:29:24 +0100
+	Thu, 18 Sep 2025 13:31:36 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8112c7d196eso94881985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 06:31:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1758202293; x=1758807093; darn=lists.infradead.org;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=qPYv2m3jnaBv4/l/HZ0iG3MFsl4uuoIjun6WjOr6o18=;
+        b=auKBp4A2or9GQdWJj+v6QeES3DIfAhU9IjQj4/6LsNx2Akqa21EXcQ5nqAG68vpAOm
+         Gj4BQCw/FbAMmBQB3YTIjkGqD04O/9pA9qSrd2jHZJCvipjf16615ta+tbnGGlKYQDLU
+         x69+7A488z8t0SjWPE51fFqUEJ6ZGE7tcipsBPbtbEgdwVXpn4sE9s+GzwTl9hm7Ci/l
+         h9aFcYJyRKBCaYgyzpmN1oxWxTAhVphpQ8UXSjLAS+gzy3xHTno9OP56o79hYONxqvU5
+         V6sFndP72RouKjv1I7D5xQDH1egXOKdU+qGxZe8V2ylrQXX3oGtABr5UU/hwCFPl00Rs
+         vrxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758202293; x=1758807093;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qPYv2m3jnaBv4/l/HZ0iG3MFsl4uuoIjun6WjOr6o18=;
+        b=rxm8EyjA7KEcnGSJRXU2KMJtZSGX7jSDFuFe0cQR59dr3zmad9d00D0ZpW2gR39hrk
+         7qaIpskDpWDKNG1CKydJJljKLfV/wctaiPv4NPNSkI/iccH+uzBSuxi15yCEFZLBUP+2
+         c5aD3/GAVvxj1u/xPRkaKKB1yiBY79c5SNWLggg3vfUhFgm/t3pv1/agTZrwjt9/0/Dk
+         GFRvxLpeQ6gWh45D9dyKeL5bGoE9IXx0McX2rLPTNphXn2L8OWlwv0/Q6q0FA63VO403
+         cRAxlXNGyQ1BeWO7faqQMF6Zrb44FjZ9aQsqBBzjqXI0RFn4YnBCQ6mMlyNGtpczRvx4
+         diZg==
+X-Forwarded-Encrypted: i=1; AJvYcCUV88vUuYibVzux6Gl+8Qt0D06OMyj9zKBUEqvA9ZNiJbXMsvuTegmNZObZvY2f7C2y3iS9iCSi/thzzzXq6iT6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7fSYd2CwVcbWhjQbpKGunGpE5yeLoDr10FDs5xKVx9d6bhz0i
+	NN2Ki3gpVcGYU9PNjdwM+Uvrig8+lhumc8Cw5yDmTvd8m9nwIjU89GwsGwQoCwUyjJ4=
+X-Gm-Gg: ASbGncvOrBYqXymMtqcplw3Xt+nIXg/VpWVc/bEZx/IWVzNn6LGEUCmW1szjU/ZoyGL
+	rtmYMpcKNIRexcXrrILB0qGGeDsmI9LMFKIW2iri8U8mS2wLqrpRFU1brKkYOvMeM7C0fTBLOUc
+	/KCMf16NcjHEJRjIbLTphmafkp9HMPoF+goTVODhd3THf1Q1p4AsBPZKj5viC4GctQnI02mCkYO
+	Z0UOwHRCInFmFUvg+Ud5JF9Q51SRMLtivZs4XConBZIa+mpqzrhSs4uGFQNrmblhO970MgaEQ9h
+	7kYE7KKqGO2WiVC/eTWE0FkG9YnlqDGYgp5C/aoGEGce/3/5QATR8GlCostlRvg28Hpke8wWp2A
+	2HIK/z6m9ExfSczvL83DOiVuYTNziR+sB/NQgC7xnqXfPxESBaYk5u/jrOA==
+X-Google-Smtp-Source: AGHT+IEZMrFSL2BRRPxtTOKjAWDW7xdTVpOSqOm+sRqPhEGgZKYSOVPXEdh1+K0ZhOlHemb5x0jKfg==
+X-Received: by 2002:a05:620a:170f:b0:812:afec:d5b8 with SMTP id af79cd13be357-8311186d1f5mr581762485a.52.1758202292862;
+        Thu, 18 Sep 2025 06:31:32 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:10:aee0::5ac? ([2606:6d00:10:aee0::5ac])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4bda8998eafsm14022101cf.31.2025.09.18.06.31.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Sep 2025 06:31:32 -0700 (PDT)
+Message-ID: <3a9f613bfcc560281d7287ca2e411dadcac745b6.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 00/12] media: rkvdec: Add support for VDPU381 and
+ VDPU383
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Diederik de Haas <didi.debian@cknow.org>, Detlev Casanova
+	 <detlev.casanova@collabora.com>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, 	linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+Date: Thu, 18 Sep 2025 09:31:30 -0400
+In-Reply-To: <DCV98UFRGHAS.2DGZOEOVN9WNX@cknow.org>
+References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+	 <DCV98UFRGHAS.2DGZOEOVN9WNX@cknow.org>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ka8JQHJLRBiB88+7XTFU"
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-To: Yicong Yang <yangyicong@huawei.com>, Junhao He <hejunhao3@huawei.com>,
- james.clark@arm.com, anshuman.khandual@arm.com, leo.yan@arm.com
-Cc: yangyicong@hisilicon.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxarm@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com
-References: <20250818080600.418425-1-hejunhao3@huawei.com>
- <20250818080600.418425-3-hejunhao3@huawei.com>
- <b68d0460-0af0-6824-b215-5b6af1e69260@huawei.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <b68d0460-0af0-6824-b215-5b6af1e69260@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_062930_006414_F38DFBC8 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20250918_063135_377510_11E24E7F 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,228 +103,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 10:15, Yicong Yang wrote:
-> On 2025/8/18 16:05, Junhao He wrote:
->> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
->> in tmc_etr_enable_hw() is triggered sometimes:
->>
->>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->>   [..snip..]
->>   Call trace:
->>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->>    coresight_enable_path+0x1c8/0x218 [coresight]
->>    coresight_enable_sysfs+0xa4/0x228 [coresight]
->>    enable_source_store+0x58/0xa8 [coresight]
->>    dev_attr_store+0x20/0x40
->>    sysfs_kf_write+0x4c/0x68
->>    kernfs_fop_write_iter+0x120/0x1b8
->>    vfs_write+0x2c8/0x388
->>    ksys_write+0x74/0x108
->>    __arm64_sys_write+0x24/0x38
->>    el0_svc_common.constprop.0+0x64/0x148
->>    do_el0_svc+0x24/0x38
->>    el0_svc+0x3c/0x130
->>    el0t_64_sync_handler+0xc8/0xd0
->>    el0t_64_sync+0x1ac/0x1b0
->>   ---[ end trace 0000000000000000 ]---
->>
->> Since the sysfs buffer allocation and the hardware enablement is not
->> in the same critical region, it's possible to race with the perf
->>
->> mode:
->>    [sysfs mode]                   [perf mode]
->>    tmc_etr_get_sysfs_buffer()
->>      spin_lock(&drvdata->spinlock)
->>      [sysfs buffer allocation]
->>      spin_unlock(&drvdata->spinlock)
->>                                   spin_lock(&drvdata->spinlock)
->>                                   tmc_etr_enable_hw()
->>                                     drvdata->etr_buf = etr_perf->etr_buf
->>                                   spin_unlock(&drvdata->spinlock)
->>   spin_lock(&drvdata->spinlock)
->>   tmc_etr_enable_hw()
->>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->>                                  the perf side
->>    spin_unlock(&drvdata->spinlock)
->>
->> A race condition is introduced here, perf always prioritizes execution, and
->> warnings can lead to concerns about potential hidden bugs, such as getting
->> out of sync.
->>
->> To fix this, configure the tmc-etr mode before invoking enable_etr_perf()
->> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
->> enabled in a different mode, and simplily the setup and checks for "mode".
->> To prevent race conditions between mode transitions.
->>
->> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation function for ETR")
->> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
->> Closes: https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
->> Signed-off-by: Junhao He <hejunhao3@huawei.com>
-> 
-> Tested by running perf and sysfs mode simultaneously, no warning reproduced.
-> 
-> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
-> 
->> ---
->>   .../hwtracing/coresight/coresight-tmc-etr.c   | 80 ++++++++++---------
->>   1 file changed, 42 insertions(+), 38 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index b07fcdb3fe1a..06c74717be19 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -1263,7 +1263,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>   		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>   	}
->>   
->> -	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
->> +	if (drvdata->reading) {
->>   		ret = -EBUSY;
->>   		goto out;
->>   	}
->> @@ -1300,20 +1300,18 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->>   	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>   
->>   	/*
->> -	 * In sysFS mode we can have multiple writers per sink.  Since this
->> -	 * sink is already enabled no memory is needed and the HW need not be
->> -	 * touched, even if the buffer size has changed.
->> +	 * When two sysfs sessions race to acquire an idle sink, both may enter
->> +	 * this function. We need to recheck if the sink is already in use to
->> +	 * prevent duplicate hardware configuration.
->>   	 */
->> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->> +	if (csdev->refcnt) {
->>   		csdev->refcnt++;
->>   		goto out;
->>   	}
->>   
->>   	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->> -	if (!ret) {
->> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
->> +	if (!ret)
->>   		csdev->refcnt++;
->> -	}
->>   
->>   out:
->>   	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->> @@ -1729,39 +1727,24 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->>   {
->>   	int rc = 0;
->>   	pid_t pid;
->> -	unsigned long flags;
->>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>   	struct perf_output_handle *handle = data;
->>   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
->>   
->> -	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->> -	 /* Don't use this sink if it is already claimed by sysFS */
->> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->> -		rc = -EBUSY;
->> -		goto unlock_out;
->> -	}
->> -
->> -	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->> -		rc = -EINVAL;
->> -		goto unlock_out;
->> -	}
->> +	if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
->> +		return -EINVAL;
->>   
->>   	/* Get a handle on the pid of the session owner */
->>   	pid = etr_perf->pid;
->>   
->>   	/* Do not proceed if this device is associated with another session */
->> -	if (drvdata->pid != -1 && drvdata->pid != pid) {
->> -		rc = -EBUSY;
->> -		goto unlock_out;
->> -	}
->> +	if (drvdata->pid != -1 && drvdata->pid != pid)
->> +		return -EBUSY;
->>   
->> -	/*
->> -	 * No HW configuration is needed if the sink is already in
->> -	 * use for this session.
->> -	 */
->> +	/* The sink is already in use for this session */
->>   	if (drvdata->pid == pid) {
->>   		csdev->refcnt++;
->> -		goto unlock_out;
->> +		return rc;
->>   	}
->>   
->>   	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
->> @@ -1773,22 +1756,43 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->>   		csdev->refcnt++;
->>   	}
->>   
->> -unlock_out:
->> -	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>   	return rc;
->>   }
->>   
->>   static int tmc_enable_etr_sink(struct coresight_device *csdev,
->>   			       enum cs_mode mode, void *data)
->>   {
->> -	switch (mode) {
->> -	case CS_MODE_SYSFS:
->> -		return tmc_enable_etr_sink_sysfs(csdev);
->> -	case CS_MODE_PERF:
->> -		return tmc_enable_etr_sink_perf(csdev, data);
->> -	default:
->> -		return -EINVAL;
->> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->> +	int rc;
->> +
->> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
->> +		if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
->> +		    coresight_get_mode(csdev) != mode)
->> +			return -EBUSY;
->> +
->> +		switch (mode) {
->> +		case CS_MODE_SYSFS:
->> +			if (csdev->refcnt) {
->> +				/* The sink is already enabled */
->> +				csdev->refcnt++;
->> +				return 0;
->> +			}
->> +			coresight_set_mode(csdev, mode);
 
-Why are we spilling bits here in the common code for sysfs ? More on 
-this, see below.
+--=-ka8JQHJLRBiB88+7XTFU
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
->> +			break;
->> +		case CS_MODE_PERF:
->> +			return tmc_enable_etr_sink_perf(csdev, data);
->> +		default:
->> +			return -EINVAL;
->> +		}
->> +	}
->> +
->> +	rc = tmc_enable_etr_sink_sysfs(csdev);
-We now call the above function without the spinlock and the refcnt is
-managed with and without the spinlock by the users. This is problematic,
-with refcnt being a non-atomic type.
+Hi,
 
-Please fix. I don't see why we can't set the mode in
-tmc_enable_etr_sink_sysfs() with the locks held and
-reset the mode if we failed enable it properly.
+Le mercredi 17 septembre 2025 =C3=A0 19:34 +0200, Diederik de Haas a =C3=A9=
+crit=C2=A0:
+> Hi Detlev,
+>=20
+> On Fri Aug 8, 2025 at 10:03 PM CEST, Detlev Casanova wrote:
+> > These variants are found respectively in the RK3588 and RK3576 SoCs.
+> > This patch only adds support for H264 and H265 in both variants.
+>=20
+> I tested this on my Rock 5B (rk3588) with (ffmpeg and) mpv on Debian
+> Forky with sway and I was quite impressed with the results :-)
+>=20
+> In my earlier testing I found that the classic BBB video made for a
+> really good test video and it played REALLY well. The 1080p version in
+> both x264 and 8-bit x265 played without frame drops, although when
+> pressing 'I' to show video info over the video it dropped some frames.
+> But that never resulted in any visible artifacts.
+> On the 2160p version I did see quite a number of dropped frames, but
+> didn't notice any visual artifacts. Maybe that it got displayed on a
+> 1080p monitor had something to do with it?
 
-Suzuki
+Sounds like we have "correctness" with ok performance, so that is enough fo=
+r me
+to consider the patches. There is few things that are not implemented that =
+could
+explain lower performance compare to the downstream stuff, such as the lack=
+ of
+AFBC. It will hopefully come later, giving nice boost when doing GPU stream=
+ing.
 
+>=20
+> 10-bit encoded x265 files (still) resulted in a completely blue output,
+> but I have strong reasons to believe that's due to 'missing pieces' (ie
+> NV15 support) in the rest of the display pipeline.
 
->> +	if (rc) {
->> +		scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
->> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
->>   	}
->> +
->> +	return rc;
->>   }
->>   
->>   static int tmc_disable_etr_sink(struct coresight_device *csdev)
->>
+Its still quite early days for NV15 (and its derivatives) upstream of
+everything, so I would not block on that. It passes the tests when we read =
+back
+the pixels from CPU I believe.
 
+>=20
+> The displayed video seemed sharper and better then in my other tests.
+> I thought I did see an artifact around 5:50 when a big rock almost fell
+> on the little animal. Looking further, it appears to be an artifact in
+> the original video :-O (I saw it also on my AMD GPU on my amd64 system
+> and also when using software decoding).
+> The fact I only noticed it when testing this patch set is saying a lot
+> ... in a positive way! So I'm happy to provide my
 
+That's it, your video watching experience is now ruined for the rest of you=
+r
+life :-D
+
+>=20
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>=C2=A0 # Rock 5B
+
+thanks a lot for testing,
+Nicolas
+
+--=-ka8JQHJLRBiB88+7XTFU
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaMwJsgAKCRDZQZRRKWBy
+9IXzAQDaymJ1abHUHsMNbl/WYGVN2REm08PxhqTaHUsWwxU6ywEAy2qLFg4QWHSc
+KidAMEhUNpEK1hwZcicsIl92zBbgPgY=
+=H3qI
+-----END PGP SIGNATURE-----
+
+--=-ka8JQHJLRBiB88+7XTFU--
 
