@@ -4,67 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FBACAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A0ECAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxbRB5XWir6VmFp5xOaBmn7eG9P2Fj+zCnltu72Ma9U=; b=CJMeLruNalrDN2hjpwuzI0G5/D
-	Z4iWNX2RZ7yiDpbkfjr0UKavY0OhEqxjnYGc1KpswF67Rh2ERFCrK294+u9dmZHIjvJtcaAnEVhr0
-	A2+a9LhT4BY3AJ2kXg3Yf1HQfA15uILQziIXeLfbw7TnUIVU0VdALj2sgd27zPzj3v5UpYfMgcEMx
-	9WGEos2BTYvilGu/kcTueb0FFdn/FXrRp/zhhHLt3XAq5cgdv9Tp9AV2r1leH5v9Facp7UqcEntVh
-	+XJIH9dvs0KoD2e4EUCFZwDNS4W8PVwevSOsUBC2OjgjtUgCaYeWtBHe6eoAljlDDQcWzfP4KUhh2
-	U48D8dHg==;
+	bh=DMziIIQfQ8pupA94I4xz4HzrEti2gUZ4kKI38vZec1Q=; b=EOzCqi44EuH2Tg3jBlIqFo97kF
+	as7x8DTWnu6ICl4kAO4Vz7rvY7f7S/x/T6yv6B31K+hp4qBdBhot6bjzgBwyu6ssjky1y3cig3+/c
+	wmSFNaYZXLOS6sP8YeP8DKIgtCw3F0LdBEv7svjBGDF9tPg2IPH5tYJXMhVbHHMrhuwnQfZ/H/rJQ
+	/3JvSY4N8j3i3Rmqvo/CMaxXyOa+xOgOly98PxaT1l6AXHuC+X6zkwZqRLJX1rjNXIZ8ZG0QvdpnX
+	xfZs70U8vatatfYbP1TZUbK3216aL+qTJri10A81CJYsMDmfRuepBLBAjS2vqOMPlRMaHDZeHv0uP
+	BKKTOOTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4Ei-0000000G15B-2pyR;
-	Thu, 18 Sep 2025 02:19:04 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1uz4H2-0000000G1LR-0WcB;
+	Thu, 18 Sep 2025 02:21:28 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4Ee-0000000G142-4Ao6
+	id 1uz4Gz-0000000G1Kz-2DNf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 02:19:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1758161934; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=gxbRB5XWir6VmFp5xOaBmn7eG9P2Fj+zCnltu72Ma9U=;
-	b=e+l4LWVU37KdaT/s4GFUtGzEl65BJbbr4sGB8H3xy+qzJmov6NRTgbGVl0/S20qCVaa50LObg7O1bbFL1ImyS4B4xZCOha46LKnskiNZhnuXH8sXFmySVM14s0KWuayribwcFnSO2WJgRySoFdBF8copJaOwAYO7omSB9DXE0sg=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WoE51RN_1758161930 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 18 Sep 2025 10:18:51 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  David
- Hildenbrand <david@redhat.com>,  Lorenzo Stoakes
- <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
- <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Yang Shi
- <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
- <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Barry Song
- <baohua@kernel.org>,  Anshuman Khandual <anshuman.khandual@arm.com>,
-  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
- <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
- Fengwei <fengwei_yin@linux.alibaba.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linux-mm@kvack.org
-Subject: Re: [RFC PATCH 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-In-Reply-To: <46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com> (Ryan Roberts's
-	message of "Tue, 16 Sep 2025 09:24:45 +0100")
-References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
-	<20250915032946.33203-3-ying.huang@linux.alibaba.com>
-	<46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com>
-Date: Thu, 18 Sep 2025 10:18:49 +0800
-Message-ID: <87o6r833li.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Thu, 18 Sep 2025 02:21:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=py3714lcsPMbTsNcXxyS5lgC5zWar9R54GkhT7pPHwPNnX7JBGZD4z8COId4Ktdg/qSqQKGV75WCcb493ZzXtxKGAc3MP58A7kKiFgn3wfIU4VnLXh/FfFi9ReU3d8AfnOb163il7Wc6fWfysHRQv4mw/ww9Ql7lluUwuCJywJzkECGcRT8eFqoHLJsXoIcFfOhHqhcMigEUmch/Na6Mogs09HYl+oeoyFMPmCtzz+sGoALLxipw6WPwWy31eABJBjf2hl55qwTyEE3hGP3/6d7adoS3dpOyYtOtJsbFRX9yaR08utqV16PREyLUttSQvf4nkNLaaqgJW+9BN8pScw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DMziIIQfQ8pupA94I4xz4HzrEti2gUZ4kKI38vZec1Q=;
+ b=mVhaO8IYz6srCEw+17m5lBkjfPbILzB6i6Sjx/7IsbhIEgWh7xDJPKuDzZAyd3k5yDuPxZoNJz0qlAQkisi2iP0JfAfTBHfmRQ/kjwKUUzjDgYNwpPSed7UvtjZhwIS7KDsJ0UUkT1TohT4JKziNowogCOM7vFK7yTEEbB6PxdlJM6iw9DCP19013i1SPXPONzi7sW8or6t2uTK09FMO4LkzoL2lXP35Kn7/Q7g/guVxyu276djeZmOjhd27VrjbbmCQwDUOSxMthLQqjIRh8fxB4/BOOU7L+hj76bwVEoHF/EUMFrKY8+QNEFtGDzaoN1hZw+C2MQBq4mndLildHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DMziIIQfQ8pupA94I4xz4HzrEti2gUZ4kKI38vZec1Q=;
+ b=GTY+OUN9NBGAYwwGSnkTvxmwmf0VLjlCSWMNI52bhuMsExLW4DAjZGo65CMzfoJh3Vj6SjkDrWpvFsp3+ySkfgLBIgYj5xDWaeEwbovCHm/PQnp9djPRXBEmT4ZAA67h6BGiU5aOs+o8Yr9EMeTDURDhzfQBfvXDQN6KmtuVe6ZhKmYJ31lHKvORz0np2jEh/s9EgTF95tYNia75S2dDZ4PCpVIr5yUmKCD3Y1/yeD9QGuqQCVGEVKj24wl35fGJnR+xVy6CR6bMIonOOabxeNObIx1ExFBiZUt6nmbg7NL5wZA33h9rBwh8ovLo2QmeaMOx70Mo1bBTAGT2r7QCPw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by DM4PR03MB5999.namprd03.prod.outlook.com (2603:10b6:5:38a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Thu, 18 Sep
+ 2025 02:21:16 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%4]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
+ 02:21:16 +0000
+Message-ID: <071bc895-b26b-4f78-91c7-fd6d53a11e11@altera.com>
+Date: Thu, 18 Sep 2025 07:50:59 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: stmmac: est: Drop frames causing HLBS
+ error
+To: Jakub Kicinski <kuba@kernel.org>,
+ Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>
+References: <20250915-hlbs_2-v2-1-27266b2afdd9@altera.com>
+ <20250917153345.27598d55@kernel.org>
+Content-Language: en-US
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <20250917153345.27598d55@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0067.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::13) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|DM4PR03MB5999:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab416b2d-9a70-47de-b973-08ddf65a0b7c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?K2dFK1kySlYzb0tUR24wbEZIOG90N3htMU9HZGdVMTFMaW5lb3psL0toYmZp?=
+ =?utf-8?B?T1YyWkFiSUYyOUgrVUhjaEdxVWN3TGwxQ1Zhc3pGQWkzUlBqRTN1c3ZnZ2Uw?=
+ =?utf-8?B?YUJXT0lOTFJETFVVWXl0ZlY2K3lLRzlHR1YydlAydDUwMDcreTNvMjFsWGZt?=
+ =?utf-8?B?UmZLUGdnRVp3S3IvZ0RhbVBzenZYMEhtSURENHVINjQwNkdIUTNOV0dvNWdq?=
+ =?utf-8?B?V09Xa3FYQzdMVlQ2cmJxV3FsaDFRNExlQWt2ZzFscCtMWCtmNHhZcWlFbHU0?=
+ =?utf-8?B?cWhRUU1hSlVGY3d5WEpwWW90K0UrYmdRYWZTVjlVQTdlaS9JNFBkSE9Qb0cv?=
+ =?utf-8?B?OFVXdzcxRVJxTWFVb3NYcy9KcXZza3VvVHNqVlA3eXYwblBoN3JtMVY5dmU5?=
+ =?utf-8?B?eDA4OGtQZlpyWGxNWUY5VFdSUzA4dHZncDAzeEtUbWMwVXBMcXhuN1hMR3Np?=
+ =?utf-8?B?dVFDZVBld2lIa2JpRFMrNS9TUXBVOGlPbld0UXJod1A3WXphQytQUXR1a2pR?=
+ =?utf-8?B?ZUJIVHpTYjdUS1lRUGhTNm1DQkFWL1I2eGMxaGp4QVM3SEJac1Azc3JYQkJi?=
+ =?utf-8?B?M0JGdDFiNytwRFBXajJkeXVtWEgxNHlFc0V2WUNNcUZwSnV5VnZjM3RWaGFj?=
+ =?utf-8?B?bUxHWUE2bVhiM1dVZHNydGNDTGFrUzI2SWVoaDBkdExiZ2taN3puOFkrY2c3?=
+ =?utf-8?B?ZjRXVlhEL2hPcTJHWnEzTmxyRE92dUZsMnYyY1htb1IwcnFKWXFraTUwdVB3?=
+ =?utf-8?B?VDR3LzY5d05vaXhheGpYSEJzVXhjTEgzSEUzakdyWHdhZXcyN0VVTEE5enZ0?=
+ =?utf-8?B?RmpjRDJsUTRrNUZ5dVFTY0xFa3NObWhMY3FuOEdpWXBTMXVMMXdSZlV3NndF?=
+ =?utf-8?B?Tm1nUnNRZWVEckRDZHU1M3IrcWxMWlNzVHNpRENCODM0TlJPLzZFbmR3dkl4?=
+ =?utf-8?B?TkFhdTNCYlFsMjcva1dPZFEyWTJHTWZTWi8wSnVTZFovRzhEWHl5Mkl6c243?=
+ =?utf-8?B?MjY2L1p0TUpuYWN1L0FHYnQyVitOeGVLS25wK0FEV0daZmF3dnQrb3BxREh6?=
+ =?utf-8?B?Q1ZwbzB1YjhWNU04ci9Ba2poWitYNnJVeUVxTGpWeS9uWWNjTHhnV0d1V1M4?=
+ =?utf-8?B?TGtZeENoRE1SdzZDK0l0NEVtTDhnTzlES0VUV1JVMEMvczVDTGFBREMrc3hE?=
+ =?utf-8?B?ZWY4cW9ualN5OGJ4OWd0Y00xdmVHaEhwUkNwbjZTN3RublRZaDkwWWlodVk5?=
+ =?utf-8?B?SG05L2Rvc1l4RGUvR1I2UzJlWWI2cGpsUzBFMmN3cDZTUWNJdjlZN05EM0sx?=
+ =?utf-8?B?MmFGWUJkYm1Ga29IeVV1VGQ0ZHRCOGgzYXdtT1BNa1RONHEvUGp1cmNEQ1l0?=
+ =?utf-8?B?NFVsVGltVzZ4Mjg4eTNGaUNHbllTTFh5SExUODdLSzF5MEZHdEdjYnZsOEpq?=
+ =?utf-8?B?NDFFdHFqdEFXelNBYXYvQ3NLMnZ1YWJYbXJQTmRicEI5UnUwM3F5RmZxUjZk?=
+ =?utf-8?B?NU8rSzRmSVJDUFJndzg2M3pJWlhBeERzMXJGMy9qN2lxL0tJSHpwMUsvRVpp?=
+ =?utf-8?B?QmNCVlZqTndoSFR1c0JadGU5TjlRd2MyVlNMd1Via09GNHBhUTJieXl2UlZU?=
+ =?utf-8?B?cmtrM1E2WEhCK1EzcVNtbGVQN0hVU2Jhd3hGSU9pYXIwZldIU2pQNFEwNXRu?=
+ =?utf-8?B?TUQ3MFM4UDRMSXgyaHBnLy91TWh4MWNjcStsVmlldU9GMFhEdmhHMDR4YVRB?=
+ =?utf-8?B?ZWRlc1dEMGRKckpEOGZIQ3RFQ01wZzJrSmZPTzgyRjh1Q25BTjJGU2RyaWs1?=
+ =?utf-8?B?Rjl4R2R3eHdKY3ZkN1lpR3Q2elc2UHQyaVZXSXE0ZWVYZmh0dkZJWDJiWnJy?=
+ =?utf-8?B?eWt0b3FOeVp0RDJBK2dZMHpKbW5hWjVVVzVGNVZiVmdZSGoyRmRUV2V2cERx?=
+ =?utf-8?Q?Nce6WxoaHbc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YmlXUjhZU3N6VWhoK2JWNks2akhVeVpQZGJlVi9FRCtFbGJtRkFUM2hoVmZY?=
+ =?utf-8?B?UVlQT25RUTBxd2c0aVkzb3VOc2xWQ1BoaEFUNlF5dGppUnIvNCtoTzBJMzk4?=
+ =?utf-8?B?ZzNzSS9WK1dEVVNQKzZqT3Q2aFo4VTFUY1VXUGgwQkU1blZ0d1RSSzJaVm5D?=
+ =?utf-8?B?WXJRVW12MFBkeEpLeXpKL3ZVMzBCNTlXRTNPa0w0QkJYRkhQcjZScXFGUE4v?=
+ =?utf-8?B?cldZMFZMQ09QZHlUc1ZjTkNZUVh0eG5CMXlYa2J2ZzUxVWdWVVZyNm5mNHZl?=
+ =?utf-8?B?NVhzR0k2U01iTWVLckxFRUw5RXdXM3l4OVpna0g4UDVORzgwLy81WDk1c3V5?=
+ =?utf-8?B?QWdLZnE1M0J5KzM0RXRYNys5ZXZYY2pLanF0WFpscG50R3Y3cUI3RUtsamJ1?=
+ =?utf-8?B?ZmdBU0xZaFN2SFBoanVKaUNLcGdlbG5pQThSdWNSUmcvMUxRbms3OS81MHhx?=
+ =?utf-8?B?VW9aa2U0Z1J0L3lpaEYwYy9UdlplYnM4K1hza3Vtb05mS2tWbUgxekY5SXUx?=
+ =?utf-8?B?ZForQ24rYzRKUFhBeFZyRlpGNWNqQnhiWExiOXJadFNMcmdubC9SR3RDUVBK?=
+ =?utf-8?B?a0l0K01xZ2JmQ0lSKytlQWNWVi9aZktQVWxpWVpQYUZXcUZ2Q0VRekxBVWV2?=
+ =?utf-8?B?clR5Tm1LcWVlTkJvb3QxOGJYTUdreHlpMmNkSGJDUjJQaXNrTXdWb1ZYbXVE?=
+ =?utf-8?B?RUQyUWpuaDRSUE13K3Z2K253R0FXNVkvS3FNYU45eHNKeWJGdmdoVElXb1ZZ?=
+ =?utf-8?B?bmg2eUZkMzk0MCthaXhRSGtGN0NmWVBtLzk0cEF1SHlZY0FZek96SUxlVFBU?=
+ =?utf-8?B?RlFrUHlJckNUMko2b3NlbCtPcGtNblJ6enhMenN5cVJ2cGtYYkhadkcrQ3pw?=
+ =?utf-8?B?VE9pVDlaT1JIb25qbjhuN05oNzJqL2RpbEhkWWsvbWRqRmZ6R2kva2xwaUVY?=
+ =?utf-8?B?ZWQzU0ZZZ3QwOE9hb1VhM2RLQTZsY1RZQzYyaUNmYVdYQXZVZVV1SnJlK2xL?=
+ =?utf-8?B?WUw4SGMvT0NhTDRSQm5yLys0N3UrWlJ0OG1uTXV3NEZHdldOM3F6d3FVaEtQ?=
+ =?utf-8?B?ZzUrb1ZHVm56ZmRYSkExUEppSGpGWDZXOUkzdjFKUlVKNnFNdTI4MlpiTXpX?=
+ =?utf-8?B?TENjZVkzajM0ZFBTT0lNTXRLZlVXdzhJU0RjNjd2VmdJVnpHelEzSWRhSFp3?=
+ =?utf-8?B?T3p6TjRsb3E5b24vazd6QVovQ2xwKzlwcUlwRUlBVDd4UXdjbUZoVkhaQXpW?=
+ =?utf-8?B?dVdFVkxiNmJqTmhZUmF6a21QMjRaYWh1T3FDVkxDdURBdnp2UUJRNGxZaWty?=
+ =?utf-8?B?aDNjVEtlaU9HNGFud3N5VWZMZlY3cGdpaEp6WWM5bUdxK0ZMNFZTMG5lOHBs?=
+ =?utf-8?B?SktZUDk2Q1pKQ0RMWng0dFoza0VKeWd2dkhJVG5BVUdZdVNLeUpDbEQ5eWsz?=
+ =?utf-8?B?NDhadERaNjA2QjI4UFVydUxqVDhROWNSWlkrZE85dTh5UktSRjNPY3VWTU1V?=
+ =?utf-8?B?KytwTG8xaitwQXJBR2crSU5wKzJGc1BleG9JRXhvdkxrRUdYb05DVTh0b1No?=
+ =?utf-8?B?M0ZLSTVvVEM4MHl2WXYyN1JGMGhvS3crTVZLZ1FndTZRc2RwUlB5MTZ1U1Yz?=
+ =?utf-8?B?NnhmR2RSL0QyL3FUS2Y2eElEemwrMFJ6TGxQTUZTT1ZWR3FJU0E1SkU3VmtI?=
+ =?utf-8?B?dWFsOWVQdUhWaHFOYW0vR3lBRWkwMVZqYitheUI3dTluMm5DRURMaTE4ZGwv?=
+ =?utf-8?B?cVlFNWNZdXJZaHhxeGtRQ3crcjNxYXB6V0dZb2hjMHhRbWsxcDIySGFKVk5q?=
+ =?utf-8?B?eStSdzlmOXl6SUFlWjNBVzg2YW1wMzRrbmZBNHBtK3d2T3JDUFFhWDNKYnVV?=
+ =?utf-8?B?WmV5Wmt4SzRuMXVVL3ovRFNsOWZPc3RiODFDdHcvdElGVi9oYXVoVXJGUnp1?=
+ =?utf-8?B?NjY4Rlh4TEdJSHJBQmM0WVlYVzQ2bFNhMkJKMklQTmZGQTJlVytIak5ybkxu?=
+ =?utf-8?B?MXNoV1U0U1lqVXlkdm1Oc0ZtdzYwWkRNMGtTaytUZTZXVVd1b3Jka2tXSHE5?=
+ =?utf-8?B?Yko4UWhxU3JaSmtObWw2eVdYUHRONkJ1QytPdlhKT2Qvb2lHS1RxeUNpSWZz?=
+ =?utf-8?B?RmJGYjYrbkxIcXIrZHBKekNUZEpGVUlEMEw1NjZhVlErbG90OXcrV2I4bUxD?=
+ =?utf-8?B?U2c9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab416b2d-9a70-47de-b973-08ddf65a0b7c
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 02:21:16.0139
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pAEAtQApg+J7v/LiIuuw/ksaPVnVJARbxFYtAFft9nC0klMFFhszOXwY/rxXxZVGFfHHd9pTGHS1GIduHRNfnOrUb+uq49oFCVsKb/jeyI4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR03MB5999
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_191901_599288_709DE5E1 
-X-CRM114-Status: GOOD (  53.26  )
+X-CRM114-CacheID: sfid-20250917_192125_587283_1FAC22EB 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,238 +187,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+Hi Jakub,
 
-Thanks for reivew!
+Thanks for reviewing the patch.
 
-Ryan Roberts <ryan.roberts@arm.com> writes:
+On 9/18/2025 4:03 AM, Jakub Kicinski wrote:
+> On Mon, 15 Sep 2025 16:22:14 +0800 Rohan G Thomas via B4 Relay wrote:
+>> From: Rohan G Thomas <rohan.g.thomas@altera.com>
+>>
+>> Drop those frames causing HLBS error to avoid HLBS interrupt
+>> flooding and netdev watchdog timeouts due to blocked packets.
+>> Also add HLBS frame drops to taprio stats.
+> 
+> I think these should be two separate commits.
 
-> On 15/09/2025 04:29, Huang Ying wrote:
->> A multi-thread customer workload with large memory footprint uses
->> fork()/exec() to run some external programs every tens seconds.  When
->> running the workload on an arm64 server machine, it's observed that
->> quite some CPU cycles are spent in the TLB flushing functions.  While
->> running the workload on the x86_64 server machine, it's not.  This
->> causes the performance on arm64 to be much worse than that on x86_64.
->> 
->> During the workload running, after fork()/exec() write-protects all
->> pages in the parent process, memory writing in the parent process
->> will cause a write protection fault.  Then the page fault handler
->> will make the PTE/PDE writable if the page can be reused, which is
->> almost always true in the workload.  On arm64, to avoid the write
->> protection fault on other CPUs, the page fault handler flushes the TLB
->> globally with TLBI broadcast after changing the PTE/PDE.  However, this
->> isn't always necessary.  Firstly, it's safe to leave some stall
->> read-only TLB entries as long as they will be flushed finally.
->> Secondly, it's quite possible that the original read-only PTE/PDEs
->> aren't cached in remote TLB at all if the memory footprint is large.
->> In fact, on x86_64, the page fault handler doesn't flush the remote
->> TLB in this situation, which benefits the performance a lot.
->> 
->> To improve the performance on arm64, make the write protection fault
->> handler flush the TLB locally instead of globally via TLBI broadcast
->> after making the PTE/PDE writable.  If there are stall read-only TLB
->> entries in the remote CPUs, the page fault handler on these CPUs will
->> regard the page fault as spurious and flush the stall TLB entries.
->> 
->> To test the patchset, make the usemem.c from
->> vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
->> support calling fork()/exec() periodically.  To mimic the behavior of
->> the customer workload, run usemem with 4 threads, access 100GB memory,
->> and call fork()/exec() every 40 seconds.  Test results show that with
->> the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
->> flush functions reduces from ~50.5% to ~0.3% in perf profile.
->
-> Overall, this looks like a simple and useful performance optimization - thanks!
-> I'm running this through our performance regression suite to see if it spots any
-> workloads where the change slows things down and will report once we have the
-> results.
+Sure, I will do in the next version.
 
-Thanks!
+> 
+> Also are the HLBS and DFBS acronyms obvious to everyone who works
+> on TSN?
 
->> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: David Hildenbrand <david@redhat.com>
->> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
->> Cc: Vlastimil Babka <vbabka@suse.cz>
->> Cc: Zi Yan <ziy@nvidia.com>
->> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: Yang Shi <yang@os.amperecomputing.com>
->> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
->> Cc: Dev Jain <dev.jain@arm.com>
->> Cc: Barry Song <baohua@kernel.org>
->> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->> Cc: Yicong Yang <yangyicong@hisilicon.com>
->> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
->> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
->> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: linux-mm@kvack.org
->> ---
->>  arch/arm64/include/asm/pgtable.h  | 14 ++++++++-----
->>  arch/arm64/include/asm/tlbflush.h | 33 +++++++++++++++++++++++++++++++
->>  arch/arm64/mm/fault.c             |  2 +-
->>  3 files changed, 43 insertions(+), 6 deletions(-)
->> 
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index abd2dee416b3..a9ed8c9d2c33 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
->>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>  
->>  /*
->> - * Outside of a few very special situations (e.g. hibernation), we always
->> - * use broadcast TLB invalidation instructions, therefore a spurious page
->> - * fault on one CPU which has been handled concurrently by another CPU
->> - * does not need to perform additional invalidation.
->> + * We use local TLB invalidation instruction when reusing page in
->> + * write protection fault handler to avoid TLBI broadcast in the hot
->> + * path.  This will cause spurious page faults if stall read-only TLB
->> + * entries exist.
->>   */
->> -#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
->> +#define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
->> +	local_flush_tlb_page_nonotify(vma, address)
->> +
->> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
->> +	local_flush_tlb_page_nonotify(vma, address)
->
-> It's not really clear to me how important doing local tlb flushes for pmds is
-> for the performance improvement? I'm guessing most of the win comes from the pte
-> level? I suspect you have only added spurious pmd fault handling because the
-> arm64 implementation of __ptep_set_access_flags() actually handles both pte and
-> pmd levels?
->
-> Given the core kernel didn't previously have support for pmd spurious faults, I
-> wonder if it would be simpler to drop the first patch and rejig
-> __ptep_set_access_flags() so that it has a pgsize parameter and can
-> differentiate based on that? I'm on the fence...
->
-> If you do end up taking this approach, there is a style I introduced for
-> hugetlb, where the function is suffixed with _anysz and it takes a pgsize param:
->
-> int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
-> 				  unsigned long address, pte_t *ptep,
-> 				  pte_t entry, int dirty, unsigned long pgsize);
+Even though the term Head-Of-Line Blocking is obvious, the acronyms HLBS
+and DFBS are from the dwmac and dwxgmac databooks.
 
-From the performance point of view, local TLB flushes don't improve
-performance much.  At least in a test similar to the one above, we don't
-find observable improvement.
+HLBS => Head-Of-Line Blocking due to Scheduling
+DFBS => Drop Frames causing Scheduling Error
 
-From the design point of view, I personally prefer to use similar logic
-between PMD and PTE unless it hurts performance.  IMHO, less different
-logic means less mental overhead.  Do you agree?
+I’ll expand these acronyms in the next version for clarity.
 
->>  
->>  /*
->>   * ZERO_PAGE is a global shared page that is always zero: used
->> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->> index 18a5dc0c9a54..607b67d8f61b 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -282,6 +282,39 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
->>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->>  }
->>  
->> +static inline void __local_flush_tlb_page_nonotify_nosync(
->> +	struct mm_struct *mm, unsigned long uaddr)
->> +{
->> +	unsigned long addr;
->> +
->> +	dsb(nshst);
->> +	addr = __TLBI_VADDR(uaddr, ASID(mm));
->> +	__tlbi(vale1, addr);
->> +	__tlbi_user(vale1, addr);
->> +}
->> +
->> +static inline void local_flush_tlb_page_nonotify(
->> +	struct vm_area_struct *vma, unsigned long uaddr)
->> +{
->> +	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +	dsb(nsh);
->> +}
->> +
->> +static inline void __local_flush_tlb_page_nosync(
->> +	struct mm_struct *mm, unsigned long uaddr)
->> +{
->> +	__local_flush_tlb_page_nonotify_nosync(mm, uaddr);
->> +	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
->> +						(uaddr & PAGE_MASK) + PAGE_SIZE);
->> +}
->> +
->> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
->> +					unsigned long uaddr)
->> +{
->> +	__local_flush_tlb_page_nosync(vma->vm_mm, uaddr);
->> +	dsb(nsh);
->> +}
->> +
->
-> You're introducing more variants than you're actually using here. I think you
-> just need local_flush_tlb_page() and local_flush_tlb_page_nonotify(); you could
-> keep __local_flush_tlb_page_nonotify_nosync() and drop
-> __local_flush_tlb_page_nosync() since it's not really adding much?
-
-Sure.
-
-> But I'm also wondering if we should tidy up this API in general; we have local
-> vs broadcast, sync vs nosync, notify vs nonotify. And page is really just a
-> special case of a range. So perhaps it is better to rework the range API to take
-> some flags and we can tidy up all of this. I know Will also posted an RFC to
-> convert a lot of this to c functions, which should also be included. Not a
-> blocker for this change, I don't think, but there should definitely be some
-> follow up work to tidy it up. (I'm happy to take it on).
-
-This sounds goo to me.  Thanks for working on this!
-
->>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->>  					   unsigned long uaddr)
->>  {
->> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
->> index d816ff44faff..22f54f5afe3f 100644
->> --- a/arch/arm64/mm/fault.c
->> +++ b/arch/arm64/mm/fault.c
->> @@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
->>  
->>  	/* Invalidate a stale read-only entry */
->>  	if (dirty)
->> -		flush_tlb_page(vma, address);
->> +		local_flush_tlb_page(vma, address);
->
-> Given this is called for both pmds and ptes, it's a bit of an abuse to flush a
-> *page*. Yes it is architecturally safe, but it's not exactly self-documenting.
-> If we pass in the pgsize (as per above) it could be optimized given we know the
-> level and we only want to invalidate the last level. e.g. the local equivalent to:
->
-> __flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, true, 2);
->
-> or
->
-> __flush_tlb_range(vma, address, address + PAGE_SIZE, PAGE_SIZE, true, 3);
->
-> Again though, perhaps that is part of some follow up tidying work?
-
-This sounds good to me too.  And, Yes, I think this can be a follow up
-tidying work.
-
-> contpte_ptep_set_access_flags() currently does a (broadcast) __flush_tlb_range()
-> on the (pte_write(orig_pte) == pte_write(entry)) path. I think that should be
-> changed to a local range invalidation to be consistent with this change.
-
-Yes.  This should be changed too.  However, it means we need a local
-variant of __flush_tlb_range() and flush_tlb_mm().  Is it OK to
-introduce them first and tidy up later?
-
->>  	return 1;
->>  }
->>  
-
----
 Best Regards,
-Huang, Ying
+Rohan
 
