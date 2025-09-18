@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BB9CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 20:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FE9CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 20:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwExCvSRtITqTswr8DvPRQEChv2HZdcz8728vjxNyMs=; b=RiH2zIQmIonDWt4RYfXT00pIMM
-	5j572rahSSm8yzRn7Zu/BLaGQYOhuK/H8iaLXeA3GeoVDYjsY5HgBemikjCXW9eX5BMcUB8PPCX2S
-	8sytRQ4WfMhU+8/pN5gBfEsF43cBDtKKTCQV/6e9wXmiQgK3NmcPERgUTWyq+1uZTyWRnXGUTfLXM
-	5JXZSpqTveFhx6De+kYnW9aGxUIbFlsI57XSYP3AtzUW1bbUynh9GWdLsDgfCjHyrVp1fK0HryH1x
-	vLft9pkXPu11PhZnrca8aFqToWJgI0D1Q3kCAM+rnnXrLono91m1XTAtzYlrNYY7Xl/fsxtOGiX3z
-	Mc5/kaOA==;
+	bh=3RKC2cgY7V1PsSwCTky/Dq59BzaDz/xD/QenK71otSA=; b=qODEXDd5eVikp5GbQk9jiTDEx9
+	d7Spa+hO3BxVGh18yum7R/SrBhLJwHwlNMSMuJGww4y2P8Gz27Oa3YLyqdzruWvDiL4RJ4UmYBElK
+	WGzfWiW4Ha0dpXrGwMjb+0mP3ESqfZmh1N0rb7sqOzAQBaVuAxf3BKugf70FCxE8zEX0A47oQjFTJ
+	2lkK7RySw6Pqfg2/guY9wLV4KyCXX+SXR8I6X8k8GP3cK1h5ddsvtyqkn/11u1DQ5MWtx34OrUAIz
+	k/howlQxkM3gySI/5/8AzAvGfjiuGPS/ONV+2zKNG+Ni6FTW64FJpK68Bt8oyi1PZNKqOcJdYqyQe
+	muBu7PHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKvv-0000000146Y-18Ju;
-	Thu, 18 Sep 2025 20:08:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzKxa-000000014NZ-350R;
+	Thu, 18 Sep 2025 20:10:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKvt-0000000145h-2udN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 20:08:45 +0000
+	id 1uzKxZ-000000014NE-2c6Z;
+	Thu, 18 Sep 2025 20:10:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BADEC60211;
-	Thu, 18 Sep 2025 20:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34B15C4CEFB;
-	Thu, 18 Sep 2025 20:08:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B36F7601D5;
+	Thu, 18 Sep 2025 20:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 466C1C4CEF0;
+	Thu, 18 Sep 2025 20:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758226124;
-	bh=tMsV6oWM2CjVGDVuEwYMj2bcWme2aqNHw1loQMqwTJo=;
+	s=k20201202; t=1758226228;
+	bh=5pcBDDtxTATLmNQEKcdAreF3a0z7FlcBT6ZHksKiokU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JPkWjrvojGXkv4cPINpxX85btxAuaBJi2ORp1V99InC6wj69QkWH844eWH4qH57Bv
-	 VsHCym70JgFlA6ad7kjNAnNuUbIAFVyEdAY21FaWfy4pe4PhZwnmxFx5c+QusO085n
-	 Zavev77jGLnk4tDRyEXIKYa6w5mEHlmCWN640okSR3d5CUA6Z9sz1mYzF/l3pYqJkq
-	 JcrM06oBwcXecSTN8pnHq4peQ/sfVCyVu5osCsNiNBQ2tBPdHvkxVx4LRc1xHAWkMd
-	 XIhzWbMgZcXhnTMhZFVm2kV/+4XExuqidK5J7fAvUeyQ+jI0lDGPq6nhY4rXTv1CPp
-	 52oi8W/OYvPbw==
-Date: Thu, 18 Sep 2025 21:08:40 +0100
-From: Will Deacon <will@kernel.org>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	mark.rutland@arm.com, liaochang1@huawei.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: probes: Fix incorrect bl/blr address and register
- usage
-Message-ID: <aMxmyMRxRRRj9phu@willie-the-truck>
-References: <20250918175424.3483164-1-jeremy.linton@arm.com>
+	b=EjAC46Ty9qbzcurfbOA3uIZu1qywMfSw0++diAkbCwBUyrbdLPzFqYRoQLGZKV7yJ
+	 eoGbDzSzOrJlMZqJHgYZfdKE/FaqsHgKWkJxlDd8wqbO08MOCSy1iSSuZH85ZHceMs
+	 mKUMisVyOWL+D2hcqqVU0XAM2Q8imy0pNbWzCbDrgI4Gada2NjG1gJ7sv6hkG4QwU3
+	 zB9hJCKCgSIFwd588AgGXlSCZzagKISu+veUj0Z7S+dlOXHrly4tF5S2Hj30quCQ3E
+	 FcJckMvyWh4BZDcCnPqmJLcY7Il/1hztoNdQsSYrTBtObSMI3dLo+iPv+881vYj8zM
+	 kQ/j++g7axkNg==
+Date: Thu, 18 Sep 2025 15:10:27 -0500
+From: Rob Herring <robh@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 3/5] dt-bindings: touchscreen: convert
+ raspberrypi,firmware-ts bindings to json schema
+Message-ID: <20250918201027.GA2547040-robh@kernel.org>
+References: <20250918153630.2535208-1-dario.binacchi@amarulasolutions.com>
+ <20250918153630.2535208-3-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250918175424.3483164-1-jeremy.linton@arm.com>
+In-Reply-To: <20250918153630.2535208-3-dario.binacchi@amarulasolutions.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,39 +75,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 12:54:24PM -0500, Jeremy Linton wrote:
-> The pt_regs registers are 64-bit on arm64, and should be u64 when
-> manipulated. Correct this so that we aren't truncating the address
-> during br/blr sequences.
+On Thu, Sep 18, 2025 at 05:36:08PM +0200, Dario Binacchi wrote:
+> Convert Raspberry Pi firmware 7" touchscreen controller device tree
+> binding to json-schema.
 > 
-> Fixes: efb07ac534e2 ("arm64: probes: Add GCS support to bl/blr/ret")
-> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
 > ---
->  arch/arm64/kernel/probes/simulate-insn.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-> index 97ed4db75417..89fbeb32107e 100644
-> --- a/arch/arm64/kernel/probes/simulate-insn.c
-> +++ b/arch/arm64/kernel/probes/simulate-insn.c
-> @@ -145,7 +145,7 @@ void __kprobes
->  simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
->  {
->  	int xn = (opcode >> 5) & 0x1f;
-> -	int b_target = get_x_reg(regs, xn);
-> +	u64 b_target = get_x_reg(regs, xn);
->  
->  	if (((opcode >> 21) & 0x3) == 1)
->  		if (update_lr(regs, addr + 4))
-> @@ -160,7 +160,7 @@ simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
->  	u64 ret_addr;
->  	int err = 0;
->  	int xn = (opcode >> 5) & 0x1f;
-> -	unsigned long r_target = get_x_reg(regs, xn);
-> +	u64 r_target = get_x_reg(regs, xn);
+> (no changes since v3)
+> 
+> Changes in v3:
+> - Drop firmware-rpi node and use only touchscreen node to fix warnings
+>   you can see in
+>   https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
+> 
+> Changes in v2:
+> - Added in v2
+> 
+>  .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------
+>  .../touchscreen/raspberrypi,firmware-ts.yaml  | 40 +++++++++++++++++++
+>  2 files changed, 40 insertions(+), 26 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+>  create mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+> deleted file mode 100644
+> index 2a1af240ccc3..000000000000
+> --- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+> +++ /dev/null
+> @@ -1,26 +0,0 @@
+> -Raspberry Pi firmware based 7" touchscreen
+> -=====================================
+> -
+> -Required properties:
+> - - compatible: "raspberrypi,firmware-ts"
+> -
+> -Optional properties:
+> - - firmware: Reference to RPi's firmware device node
+> - - touchscreen-size-x: See touchscreen.txt
+> - - touchscreen-size-y: See touchscreen.txt
+> - - touchscreen-inverted-x: See touchscreen.txt
+> - - touchscreen-inverted-y: See touchscreen.txt
+> - - touchscreen-swapped-x-y: See touchscreen.txt
+> -
+> -Example:
+> -
+> -firmware: firmware-rpi {
+> -	compatible = "raspberrypi,bcm2835-firmware";
+> -	mboxes = <&mailbox>;
+> -
+> -	ts: touchscreen {
+> -		compatible = "raspberrypi,firmware-ts";
+> -		touchscreen-size-x = <800>;
+> -		touchscreen-size-y = <480>;
+> -	};
+> -};
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+> new file mode 100644
+> index 000000000000..697c508326b3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.yaml
+> @@ -0,0 +1,40 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/input/touchscreen/raspberrypi,firmware-ts.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Raspberry Pi firmware based 7" touchscreen
+> +
+> +maintainers:
+> +  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> +
+> +allOf:
+> +  - $ref: touchscreen.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - raspberrypi,firmware-ts
+> +
+> +  firmware:
+> +    description: Phandle to RPi's firmware device node.
 
-This part isn't really doing anything but it's probably worth being
-consistent with 'u64' anyway. I'll pick this up, thanks.
+       deprecated: true
 
-Will
+It should be a child node.
+
+> +
+> +  touchscreen-size-x: true
+> +  touchscreen-size-y: true
+> +  touchscreen-inverted-x: true
+> +  touchscreen-inverted-y: true
+> +  touchscreen-swapped-x-y: true
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +
+> +examples:
+> +  - |
+> +    touchscreen {
+> +        compatible = "raspberrypi,firmware-ts";
+> +        touchscreen-size-x = <800>;
+> +        touchscreen-size-y = <480>;
+> +    };
+> -- 
+> 2.43.0
+> 
+> base-commit: 8b789f2b7602a818e7c7488c74414fae21392b63
+> branch: drop-touchscreen.txt
 
