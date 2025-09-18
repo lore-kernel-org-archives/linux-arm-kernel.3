@@ -4,101 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B82BCAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FBACAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=; b=o+rBAIXpl5NrrLYFdGg05T+N0d
-	Sz3LDaerKTjMvgPa9vyAYbYWEd6Uj7UErDP3ybQPkPrh3c7ECc3UFwfqm01rEYRdx5A1NZaP4grv6
-	PSBeDcO3Tzil59/irRkb+ayTW31wyWkSUdcPmEGTIdFxUYYbMK3jq4t/VyswLrX6qU4GLIcELjGjW
-	19QCSoJYLrYtruwlIlK1GKk6wYxuMFUWKq9fOW8t4KXFuwsz9OxW4f2mM7r4GGva4Vfc36WdM9ZHd
-	G1OhVvTJQtttIzFWaRPEzp9sajPCPsHhoEEzy/pBPIPSTCCkd+simL09nD/E19ZchQO8c2V684QWg
-	6kzA9G9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gxbRB5XWir6VmFp5xOaBmn7eG9P2Fj+zCnltu72Ma9U=; b=CJMeLruNalrDN2hjpwuzI0G5/D
+	Z4iWNX2RZ7yiDpbkfjr0UKavY0OhEqxjnYGc1KpswF67Rh2ERFCrK294+u9dmZHIjvJtcaAnEVhr0
+	A2+a9LhT4BY3AJ2kXg3Yf1HQfA15uILQziIXeLfbw7TnUIVU0VdALj2sgd27zPzj3v5UpYfMgcEMx
+	9WGEos2BTYvilGu/kcTueb0FFdn/FXrRp/zhhHLt3XAq5cgdv9Tp9AV2r1leH5v9Facp7UqcEntVh
+	+XJIH9dvs0KoD2e4EUCFZwDNS4W8PVwevSOsUBC2OjgjtUgCaYeWtBHe6eoAljlDDQcWzfP4KUhh2
+	U48D8dHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz46x-0000000G0HE-3A8l;
-	Thu, 18 Sep 2025 02:11:03 +0000
-Received: from mail-pl1-x664.google.com ([2607:f8b0:4864:20::664])
+	id 1uz4Ei-0000000G15B-2pyR;
+	Thu, 18 Sep 2025 02:19:04 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz46u-0000000G0Fp-3g4n
+	id 1uz4Ee-0000000G142-4Ao6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 02:11:02 +0000
-Received: by mail-pl1-x664.google.com with SMTP id d9443c01a7336-266fa7a0552so4317585ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 19:11:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758161459; x=1758766259;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=;
-        b=eT0EXXDN6KBvZDwRIACvhChxaLVz583JpfXZQPcIcVqtQ7P9bTAnoS99JtRGZc2659
-         FCoPjKYn6O7jltUN7Pr0lOYk4NNCsHCrACfoxOGH3+Ewj4Z26oiHO8SxKWuX+5XHqHRM
-         KaLq3jNS/1iVx0NDdPmbDUKPI/LeJEng6qyCbRD14E76iROdjGRLFo5dvk6IqaVJ5eyD
-         zbm0kGq8qO1ENndoTh6DdngJsddtIMi+R6HzxnpqzkjSIkRuu2hjvcDARUVRG6FGfr87
-         vqGHabmMT0+EvyN8hwcaF80QHyowyvVJn7AaQbGGC3aspGTm/VBGHw7nyeVhevhsB0XJ
-         rlJQ==
-X-Gm-Message-State: AOJu0Yzv9TtyebJ/fiw2oU8vmKqdpl7wsSy0Xn6T/hkbzwUl5aXLycxa
-	X8jg4OJAmiXTWacGhKmbIzjbNsPiacnQIgiw4bQkLRpuiATQqHI9rNOfsVFeh0OfLHRYx/OYlgg
-	EvIgsNZHwRyzIBnZ7X2O1xeCKztIynF7SzA9VGxuiWiMxQx0kY2f2rIyz9eyULwPEontA3xyCWs
-	65v4NBrkqOcP2p+cTxzxt7chUl2jSgGBAf9PgczDPKtR8dWKaPDCSMmIy2nw0UmHe5iX/q08pds
-	KFmpkfQGDTdCZNyL8yLEmR9xNz8+s0=
-X-Gm-Gg: ASbGncvGUE+uRgtW3YjD51WZ4+WmaW1j2haPA798cla4y9sdH+5GuArNC/tiS7Iz/sw
-	nqz84UxJ2Ritb0F6FYWnctYHeMc+mfEmFKxutMH14zoI1h7xsRaHu5Or3tKjxCq+WNcMyWLpxGY
-	4ZG8wHym580frt5yaiAZxS6ZS25vKMK+7KFeZETKpK/YTe59AiRFY5baOUoZyfEqT5VNVGsqWgt
-	0CIXFMnnKP0qKXonheuHYnhFZpfLv80JmnqLzeNIpCNfYS/xYzj8HQ/a/+K5La7NjR0vyia1Z2W
-	qn+cYTysfsPJRV1FGUq0xkDS9a0DDP0CcWUZkHawDyXoOfmYvLbX2G3dGmdYFqNzmgc9ayaymwA
-	hS7Qycbn/oz0EhtX/khkZ9mG2xELDLmg+ZxFthyAxRrzZ9lX57g7j2KiL+XqFyMxJKGyMKUEchc
-	MK03E=
-X-Google-Smtp-Source: AGHT+IHbuAGxKeJHox5dXAt5UYERs/9WG/7RdwdCD3Wsj0aNTc0zpCWUC/KYTfjXLW5hdRzI2llRYB80CmJd
-X-Received: by 2002:a17:903:17c6:b0:269:74bf:f19a with SMTP id d9443c01a7336-26974bff7ddmr34329025ad.11.1758161459443;
-        Wed, 17 Sep 2025 19:10:59 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2698016828fsm969925ad.28.2025.09.17.19.10.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Sep 2025 19:10:59 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-633bca544e8so227667d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Sep 2025 19:10:58 -0700 (PDT)
+	Thu, 18 Sep 2025 02:19:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1758161458; x=1758766258; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fUrcDxxCfv/aOV5VPN+3PWJa5NNQRUIMJXWE72k63vY=;
-        b=iEXHwi1CH1+np4+yt/GBjPIL3oKgw4FsMPuo1IxclYFtHPKeylvzVgxvp7aDl5HR2Y
-         vMwqo8kBL2CoVTfjRgn9/WxhSmow5SuBH+atRXV3B6kfNOZliEVUeMTPvWy1xgi68TUj
-         u7kElXh6V7o1iwfhDP6MSgtB4YaeVbjJjatwE=
-X-Received: by 2002:a53:e945:0:b0:628:10ee:ab85 with SMTP id 956f58d0204a3-633b0637837mr2904927d50.3.1758161458118;
-        Wed, 17 Sep 2025 19:10:58 -0700 (PDT)
-X-Received: by 2002:a53:e945:0:b0:628:10ee:ab85 with SMTP id
- 956f58d0204a3-633b0637837mr2904912d50.3.1758161457485; Wed, 17 Sep 2025
- 19:10:57 -0700 (PDT)
+	d=linux.alibaba.com; s=default;
+	t=1758161934; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=gxbRB5XWir6VmFp5xOaBmn7eG9P2Fj+zCnltu72Ma9U=;
+	b=e+l4LWVU37KdaT/s4GFUtGzEl65BJbbr4sGB8H3xy+qzJmov6NRTgbGVl0/S20qCVaa50LObg7O1bbFL1ImyS4B4xZCOha46LKnskiNZhnuXH8sXFmySVM14s0KWuayribwcFnSO2WJgRySoFdBF8copJaOwAYO7omSB9DXE0sg=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WoE51RN_1758161930 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 18 Sep 2025 10:18:51 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  David
+ Hildenbrand <david@redhat.com>,  Lorenzo Stoakes
+ <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
+ <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Yang Shi
+ <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
+ <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Barry Song
+ <baohua@kernel.org>,  Anshuman Khandual <anshuman.khandual@arm.com>,
+  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
+ <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
+ Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [RFC PATCH 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+In-Reply-To: <46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com> (Ryan Roberts's
+	message of "Tue, 16 Sep 2025 09:24:45 +0100")
+References: <20250915032946.33203-1-ying.huang@linux.alibaba.com>
+	<20250915032946.33203-3-ying.huang@linux.alibaba.com>
+	<46dcddec-88a9-4b22-920c-8a3edeb2f027@arm.com>
+Date: Thu, 18 Sep 2025 10:18:49 +0800
+Message-ID: <87o6r833li.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-References: <CAHi4H7FKjYf0c90qoN9bSORboru+S718-k1eJYh4pVoDcJPGHw@mail.gmail.com>
- <CAMj1kXGnyNdq5pxY1kZwBr1n9idKvHU=tyCM0Wie5Ys3RkW3SA@mail.gmail.com>
-In-Reply-To: <CAMj1kXGnyNdq5pxY1kZwBr1n9idKvHU=tyCM0Wie5Ys3RkW3SA@mail.gmail.com>
-From: William Zhang <william.zhang@broadcom.com>
-Date: Wed, 17 Sep 2025 19:10:47 -0700
-X-Gm-Features: AS18NWCdzxOL839Zz2si502YE_GjpcTE_rbg3yE5Ev6-ckQ3PLZGbQiHFufhihs
-Message-ID: <CAHi4H7FcLZVJzGg5Q63MAJFPRDOp1c6507XUXyyz0ajJKdtk=w@mail.gmail.com>
-Subject: Re: armv7 R_ARM_PREL31 relocation out of range error when loading module
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Linux ARM List <linux-arm-kernel@lists.infradead.org>, 
-	Kursad Oney <kursad.oney@broadcom.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Wenchung Su <wenchung.su@broadcom.com>, 
-	"song@kernel.org" <song@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=ascii
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_191100_946528_DD84D159 
-X-CRM114-Status: GOOD (  38.06  )
+X-CRM114-CacheID: sfid-20250917_191901_599288_709DE5E1 
+X-CRM114-Status: GOOD (  53.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,107 +79,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 3:11=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> wr=
-ote:
->
-> On Wed, 17 Sept 2025 at 04:55, William Zhang <william.zhang@broadcom.com>=
- wrote:
-> >
-> > Hi,
-> >
-> > We recently ran into the driver loading error resulting from
-> > apply_relocate function when it handle the R_ARM_PREL31 case in
-> > arch/arm/kernel/module.c:
-> > section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
-> > 0x7fad5998)
-> >
-> > After some dig, it seems this issue is caused by this change:
-> > ac3b43283923 ("module: replace module_layout with module_memory")
-> >
-> > I can see the necessity of this change but it seems it can cause this
-> > kind of error under certain configurations. In our particular case, we
-> > use the 2G/2G split and our armv7 board has 1GB ddr memory. This means
-> > the kernel lower memory is from 0x8000-0000 to 0xc000-0000 and vmalloc
-> > range is from 0xc000-0000 and above.
-> >
-> > Before this module layout change, the module is loaded through two
-> > layout sections: core and init. The driver in the test is fairly big
-> > and core module layout(text, data, rodata, sections) can not fit into
-> > the 16MB MODULE memory so both text, data and rodata fallback to
-> > vmalloc range. But with this change, it will text, data and rodata one
-> > by one. So it ends up text in the MODULES memory but rodata is
-> > allocated in VMALLOC and the distance is more than 1GB hence we
-> > believe it causes the above error when R_ARM_PREL31 relocation can not
-> > support more than 1GB offset.
-> >
-> > Since the default split is 1G/3G model, the distance between vmalloc
-> > and module memory is always below 1G so we won't see this issue. But
-> > it seems to us the problem is real when use 2G/2G split.
-> >
-> > It appears the sections containing R_ARM_PREL31 in our driver are
-> > mostly in .ARM.exidx section. Some search shows this is used by ARM
-> > C++ exception handling but our driver does not use C++. Is there a way
-> > to disable such section for R_ARM_PREL31? If not, is there any
-> > workaround or fix to handle this run-time R_ARM_PREL31 relocation
-> > issue? The same apply_relocate function can handle R_ARM_JUMP24 out of
-> > range using PLTS. Can this apply to R_ARM_PREL31?
-> >
->
-> Hi William,
->
-> Two options come to mind:
->
-> 1) use the frame pointer for unwind information instead of the C++
-> exception metadata, i.e., enable CONFIG_UNWINDER_FRAME_POINTER
->
-> 2) ensure that ARM.exidx sections are allocated from the same bucket
-> as the .text sections they annotate, e.g., something like the below
->
-> --- a/arch/arm/kernel/module-plts.c
-> +++ b/arch/arm/kernel/module-plts.c
-> @@ -225,6 +225,11 @@
->                         mod->arch.init.plt =3D s;
->                 else if (s->sh_type =3D=3D SHT_SYMTAB)
->                         syms =3D (Elf32_Sym *)s->sh_addr;
-> +#if defined(CONFIG_ARM_UNWIND) && !defined(CONFIG_VMSPLIT_3G)
-> +               else if (s->sh_type =3D=3D ELF_SECTION_UNWIND)
-> +                       s->sh_flags |=3D SHF_EXECINSTR;
-> +#endif
-> +
->         }
->
->         if (!mod->arch.core.plt || !mod->arch.init.plt) {
+Hi, Ryan,
 
-Thank you Ard for your quick response!   We tried the option 1 and
-also tried with gcc -fno-unwind-tables option just for the driver,
-both do not generate any PRREL31 relocation and the driver can load
-successfully.
-But we have some tool that needs to use the unwind tables so option 2
-will be the right direction for us.
+Thanks for reivew!
 
-Applied your patch however it still reports the same error but from
-different section as we confirmed all the ARM.exidx sections are
-allocated from .text section.
-     mod_mem_type 0 execmem_type 0 base 0x7f3e8000 size 0x6eb000
-     mod_mem_type 1 execmem_type 4 base 0x7fad4000 size 0x9e000
-     mod_mem_type 2 execmem_type 4 base 0xc21a4000 size 0x3dd000
-     mod_mem_type 4 execmem_type 0 base 0x7f1ae000 size 0x1000
-     mod_mem_type 5 execmem_type 4 base 0x7fb73000 size 0x10c000
-     section 43 reloc 11360 sym '': relocation 42 out of range
-(0x7facca74 -> 0xc2580734)
+Ryan Roberts <ryan.roberts@arm.com> writes:
 
-This loc address  0x7facca74 is from the MOD_DATA memory based on mod
-mem allocation log above.
-I also print some extra info about the dstsect with
-    pr_err("dstsec name %s add %#lx size %u rel 0x%px rel offset %u\n",
-        strtab + dstsec->sh_name, dstsec->sh_addr, dstsec->sh_size,
-rel, rel->r_offset)
-and got this print out
-    dstsec name FUNCTION__.2 add 0x7fabd3c0 size 86912 rel 0xc33f931c
-rel offset 63156
+> On 15/09/2025 04:29, Huang Ying wrote:
+>> A multi-thread customer workload with large memory footprint uses
+>> fork()/exec() to run some external programs every tens seconds.  When
+>> running the workload on an arm64 server machine, it's observed that
+>> quite some CPU cycles are spent in the TLB flushing functions.  While
+>> running the workload on the x86_64 server machine, it's not.  This
+>> causes the performance on arm64 to be much worse than that on x86_64.
+>> 
+>> During the workload running, after fork()/exec() write-protects all
+>> pages in the parent process, memory writing in the parent process
+>> will cause a write protection fault.  Then the page fault handler
+>> will make the PTE/PDE writable if the page can be reused, which is
+>> almost always true in the workload.  On arm64, to avoid the write
+>> protection fault on other CPUs, the page fault handler flushes the TLB
+>> globally with TLBI broadcast after changing the PTE/PDE.  However, this
+>> isn't always necessary.  Firstly, it's safe to leave some stall
+>> read-only TLB entries as long as they will be flushed finally.
+>> Secondly, it's quite possible that the original read-only PTE/PDEs
+>> aren't cached in remote TLB at all if the memory footprint is large.
+>> In fact, on x86_64, the page fault handler doesn't flush the remote
+>> TLB in this situation, which benefits the performance a lot.
+>> 
+>> To improve the performance on arm64, make the write protection fault
+>> handler flush the TLB locally instead of globally via TLBI broadcast
+>> after making the PTE/PDE writable.  If there are stall read-only TLB
+>> entries in the remote CPUs, the page fault handler on these CPUs will
+>> regard the page fault as spurious and flush the stall TLB entries.
+>> 
+>> To test the patchset, make the usemem.c from
+>> vm-scalability (https://git.kernel.org/pub/scm/linux/kernel/git/wfg/vm-scalability.git).
+>> support calling fork()/exec() periodically.  To mimic the behavior of
+>> the customer workload, run usemem with 4 threads, access 100GB memory,
+>> and call fork()/exec() every 40 seconds.  Test results show that with
+>> the patchset the score of usemem improves ~40.6%.  The cycles% of TLB
+>> flush functions reduces from ~50.5% to ~0.3% in perf profile.
+>
+> Overall, this looks like a simple and useful performance optimization - thanks!
+> I'm running this through our performance regression suite to see if it spots any
+> workloads where the change slows things down and will report once we have the
+> results.
 
-FUNCTION__.2 is in the rodata section from the symbol table.
+Thanks!
 
-So looks like there is reference to ARM.exidx from the data/rodata
-section and that also need to be taken care of?
+>> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: David Hildenbrand <david@redhat.com>
+>> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+>> Cc: Vlastimil Babka <vbabka@suse.cz>
+>> Cc: Zi Yan <ziy@nvidia.com>
+>> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Yang Shi <yang@os.amperecomputing.com>
+>> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+>> Cc: Dev Jain <dev.jain@arm.com>
+>> Cc: Barry Song <baohua@kernel.org>
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Yicong Yang <yangyicong@hisilicon.com>
+>> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>> ---
+>>  arch/arm64/include/asm/pgtable.h  | 14 ++++++++-----
+>>  arch/arm64/include/asm/tlbflush.h | 33 +++++++++++++++++++++++++++++++
+>>  arch/arm64/mm/fault.c             |  2 +-
+>>  3 files changed, 43 insertions(+), 6 deletions(-)
+>> 
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index abd2dee416b3..a9ed8c9d2c33 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>>  
+>>  /*
+>> - * Outside of a few very special situations (e.g. hibernation), we always
+>> - * use broadcast TLB invalidation instructions, therefore a spurious page
+>> - * fault on one CPU which has been handled concurrently by another CPU
+>> - * does not need to perform additional invalidation.
+>> + * We use local TLB invalidation instruction when reusing page in
+>> + * write protection fault handler to avoid TLBI broadcast in the hot
+>> + * path.  This will cause spurious page faults if stall read-only TLB
+>> + * entries exist.
+>>   */
+>> -#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
+>> +#define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
+>> +	local_flush_tlb_page_nonotify(vma, address)
+>> +
+>> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
+>> +	local_flush_tlb_page_nonotify(vma, address)
+>
+> It's not really clear to me how important doing local tlb flushes for pmds is
+> for the performance improvement? I'm guessing most of the win comes from the pte
+> level? I suspect you have only added spurious pmd fault handling because the
+> arm64 implementation of __ptep_set_access_flags() actually handles both pte and
+> pmd levels?
+>
+> Given the core kernel didn't previously have support for pmd spurious faults, I
+> wonder if it would be simpler to drop the first patch and rejig
+> __ptep_set_access_flags() so that it has a pgsize parameter and can
+> differentiate based on that? I'm on the fence...
+>
+> If you do end up taking this approach, there is a style I introduced for
+> hugetlb, where the function is suffixed with _anysz and it takes a pgsize param:
+>
+> int __ptep_set_access_flags_anysz(struct vm_area_struct *vma,
+> 				  unsigned long address, pte_t *ptep,
+> 				  pte_t entry, int dirty, unsigned long pgsize);
+
+From the performance point of view, local TLB flushes don't improve
+performance much.  At least in a test similar to the one above, we don't
+find observable improvement.
+
+From the design point of view, I personally prefer to use similar logic
+between PMD and PTE unless it hurts performance.  IMHO, less different
+logic means less mental overhead.  Do you agree?
+
+>>  
+>>  /*
+>>   * ZERO_PAGE is a global shared page that is always zero: used
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index 18a5dc0c9a54..607b67d8f61b 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -282,6 +282,39 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+>>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+>>  }
+>>  
+>> +static inline void __local_flush_tlb_page_nonotify_nosync(
+>> +	struct mm_struct *mm, unsigned long uaddr)
+>> +{
+>> +	unsigned long addr;
+>> +
+>> +	dsb(nshst);
+>> +	addr = __TLBI_VADDR(uaddr, ASID(mm));
+>> +	__tlbi(vale1, addr);
+>> +	__tlbi_user(vale1, addr);
+>> +}
+>> +
+>> +static inline void local_flush_tlb_page_nonotify(
+>> +	struct vm_area_struct *vma, unsigned long uaddr)
+>> +{
+>> +	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+>> +	dsb(nsh);
+>> +}
+>> +
+>> +static inline void __local_flush_tlb_page_nosync(
+>> +	struct mm_struct *mm, unsigned long uaddr)
+>> +{
+>> +	__local_flush_tlb_page_nonotify_nosync(mm, uaddr);
+>> +	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
+>> +						(uaddr & PAGE_MASK) + PAGE_SIZE);
+>> +}
+>> +
+>> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+>> +					unsigned long uaddr)
+>> +{
+>> +	__local_flush_tlb_page_nosync(vma->vm_mm, uaddr);
+>> +	dsb(nsh);
+>> +}
+>> +
+>
+> You're introducing more variants than you're actually using here. I think you
+> just need local_flush_tlb_page() and local_flush_tlb_page_nonotify(); you could
+> keep __local_flush_tlb_page_nonotify_nosync() and drop
+> __local_flush_tlb_page_nosync() since it's not really adding much?
+
+Sure.
+
+> But I'm also wondering if we should tidy up this API in general; we have local
+> vs broadcast, sync vs nosync, notify vs nonotify. And page is really just a
+> special case of a range. So perhaps it is better to rework the range API to take
+> some flags and we can tidy up all of this. I know Will also posted an RFC to
+> convert a lot of this to c functions, which should also be included. Not a
+> blocker for this change, I don't think, but there should definitely be some
+> follow up work to tidy it up. (I'm happy to take it on).
+
+This sounds goo to me.  Thanks for working on this!
+
+>>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>>  					   unsigned long uaddr)
+>>  {
+>> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+>> index d816ff44faff..22f54f5afe3f 100644
+>> --- a/arch/arm64/mm/fault.c
+>> +++ b/arch/arm64/mm/fault.c
+>> @@ -235,7 +235,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+>>  
+>>  	/* Invalidate a stale read-only entry */
+>>  	if (dirty)
+>> -		flush_tlb_page(vma, address);
+>> +		local_flush_tlb_page(vma, address);
+>
+> Given this is called for both pmds and ptes, it's a bit of an abuse to flush a
+> *page*. Yes it is architecturally safe, but it's not exactly self-documenting.
+> If we pass in the pgsize (as per above) it could be optimized given we know the
+> level and we only want to invalidate the last level. e.g. the local equivalent to:
+>
+> __flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, true, 2);
+>
+> or
+>
+> __flush_tlb_range(vma, address, address + PAGE_SIZE, PAGE_SIZE, true, 3);
+>
+> Again though, perhaps that is part of some follow up tidying work?
+
+This sounds good to me too.  And, Yes, I think this can be a follow up
+tidying work.
+
+> contpte_ptep_set_access_flags() currently does a (broadcast) __flush_tlb_range()
+> on the (pte_write(orig_pte) == pte_write(entry)) path. I think that should be
+> changed to a local range invalidation to be consistent with this change.
+
+Yes.  This should be changed too.  However, it means we need a local
+variant of __flush_tlb_range() and flush_tlb_mm().  Is it OK to
+introduce them first and tidy up later?
+
+>>  	return 1;
+>>  }
+>>  
+
+---
+Best Regards,
+Huang, Ying
 
