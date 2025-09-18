@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B664ECAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 21:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939C0CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 21:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Y0sNVd3GAHSHUm5Ibv3CkKxAFhrKvaisyceuNyVelE=; b=NPBLifqJ2w1WNrq9oRSVOBf8hL
-	mWqUwgOuk31+YNee7pPLlbiLf89UbiqC2/Mbe9xAklMddifDC+EqSUyu9FvlUseIlMzEVCIY1+kgO
-	pJ6jRa89foQr2ZDFBbH6a+WtJ1xrbmW8ADfMn6eCdOzOHmO6aVoVmZzQG5NwRGkXMYzy/01hZ9wqL
-	5dGQTx77M/2QP3GptyxLsukcXNqggmjiBu3rSdZgRGrGNmU2XacDk7hON9YJ/8dh0KOMZKggGQlTy
-	vCRjz5WT7U2gbtZ4VGbCcxDTorl8SVG05kqgfIZfXIuCEmpECw4yOTfaajrBTJnj5JHtpIot1Xbzh
-	QHjYS8zQ==;
+	bh=eSP74IIL89adH6HobIomB2eLHNewKE5rXhBO/EQo/s8=; b=zn+E9F0gAT91Lh4e2khS8XS6Qk
+	7HvytpZmnd3ahwuHS9bZpTSzaSB/l2vMhibF03ch6tdy9U5kmOR2T7XX7o2KnBzd6VGmOslhRTSdw
+	zDxybo7jns5czJAXp/1rGNuA0oTArAofjfDAPFti9PJaOhIwZucXA44yY3Z4uCKj7fLpv1sfaQLt3
+	tEut0dXjiFAqCYTTvMs7pJ87YEnpAEt6jCQ3xQF//viIvjP9EljZrHgqaykb9rfqH0kUfR/rJNOkE
+	IQwCTzIjir1UhogOq2FnEND39L3YglhHdmNu0zW8E1HMHm9USPdm2no7hfhKMU4i9+0sBKknYCSHN
+	ciw7X7Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzM00-00000001Ct6-3U6k;
-	Thu, 18 Sep 2025 21:17:04 +0000
+	id 1uzM02-00000001Cvt-3ckk;
+	Thu, 18 Sep 2025 21:17:06 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzLzT-00000001CH9-0q3C
+	id 1uzLzT-00000001CBI-1l5g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 21:16:32 +0000
+	Thu, 18 Sep 2025 21:16:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1758230192; x=1789766192;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=fdvDSnlhCekCN9FzIZPS7s3nu6PC8FPbHxM35J6ZGKU=;
-  b=tc/KGIXZ1MGT61wL/K3Y0Btl5iwNybebggP9ROAjagsMAaDr/+Gt00vR
-   le07Ln14j5DQKFvOemSoDunLYVLYO/VKt+v1f2bIdsdeRKrCayg+XAjK/
-   pfrRATunczVo2H8NfC1GfLn/Tu2vHG+7wi4gjzX1qs6VjEvRpb5gW3BS8
-   rcmPj22nZWcEmhK3kxdgFop1N5Y7LBl6O/dp7BCo9un5OIrUe4iDDvZkg
-   7vr5SVofzMNZRV9k4GEmMMtbl46A9H4rmyFKzLfCNXpRN/yuT4WzkDUWP
-   gwoapEXx053NajPw64kon5w17nYNnG/Ps5wnCaa5gy+5m/1kXfAC4OSBd
+  bh=dtc6B1UvbIsG8HdKb8XJYGcqdo1EPUsmQ9nFCtQkpDM=;
+  b=GPVeFscemluYH/WfVlkFjQZCsojwZJv3TavgD+/0uMxnAMQAquwT0lZr
+   ucGnIcQJmFYq9AQxvWn9/7h4nvQ0dG+DaegkAbsC4+Lxoj5os0JGzMHcy
+   nvFarmOYW/p+K5TRqVTR7yhDayCSzsiTt8AwP2jtUYtgnYuOB1h/v+94O
+   QkSh3DYBM9xffqcux5F6aCT9YLf7j3lxrY54J4KITvvw+AQ3UhWd9f3yh
+   JKxcSjX+udfguFVRteBT6FZlWMskYS5naOvqh46dXdLLCews9TNJ7uMcH
+   Zg++JIJ/QVlSWbG07Vv5MrYG7B9FcnOMSWeXPgp65wLR0Z2GumTxDNFjN
    g==;
 X-CSE-ConnectionGUID: 31sRM3ybQuOqhqj3gb2ViA==
-X-CSE-MsgGUID: Dml2vJ7aQV6a8e9MD778wQ==
+X-CSE-MsgGUID: +v74NaneQRq7ezlDHErkgQ==
 X-IronPort-AV: E=Sophos;i="6.18,276,1751266800"; 
-   d="scan'208";a="278071389"
+   d="scan'208";a="278071391"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2025 14:16:25 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2025 14:16:26 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
  chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -60,9 +60,9 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<nicolas.ferre@microchip.com>
 CC: <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <varshini.rajendran@microchip.com>
-Subject: [PATCH v4 15/31] clk: at91: clk-audio-pll: add support for parent_hw
-Date: Thu, 18 Sep 2025 14:15:57 -0700
-Message-ID: <3b706a9f568c08a35f054ac574f47be6037de889.1758226719.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v4 16/31] clk: at91: clk-plldiv: add support for parent_hw
+Date: Thu, 18 Sep 2025 14:15:58 -0700
+Message-ID: <ab562d7a5492e45878aa3d4160ad9079571625b0.1758226719.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1758226719.git.Ryan.Wanner@microchip.com>
 References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_141631_287730_CB7824FC 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250918_141631_486904_C37E1259 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,179 +88,161 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Add support for parent_hw in audio pll clock drivers.
+Add support for parent_hw in plldiv clock driver.
 With this parent-child relation is described with pointers rather
 than strings making registration a bit faster.
 
-All the SoC based drivers that rely on clk-audio-pll were adapted
+All the SoC based drivers that rely on clk-plldiv were adapted
 to the new API change. The switch itself for SoCs will be done
 in subsequent patches.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- drivers/clk/at91/clk-audio-pll.c | 28 ++++++++++++++++++++--------
- drivers/clk/at91/dt-compat.c     |  6 +++---
- drivers/clk/at91/pmc.h           |  6 +++---
- drivers/clk/at91/sama5d2.c       |  6 +++---
- 4 files changed, 29 insertions(+), 17 deletions(-)
+ drivers/clk/at91/at91sam9g45.c |  2 +-
+ drivers/clk/at91/at91sam9n12.c |  2 +-
+ drivers/clk/at91/at91sam9x5.c  |  2 +-
+ drivers/clk/at91/clk-plldiv.c  | 11 +++++++----
+ drivers/clk/at91/dt-compat.c   |  2 +-
+ drivers/clk/at91/pmc.h         |  2 +-
+ drivers/clk/at91/sama5d2.c     |  2 +-
+ drivers/clk/at91/sama5d3.c     |  2 +-
+ drivers/clk/at91/sama5d4.c     |  2 +-
+ 9 files changed, 15 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/clk/at91/clk-audio-pll.c b/drivers/clk/at91/clk-audio-pll.c
-index a92da64c12e1..da9b2e699dcc 100644
---- a/drivers/clk/at91/clk-audio-pll.c
-+++ b/drivers/clk/at91/clk-audio-pll.c
-@@ -450,7 +450,8 @@ static const struct clk_ops audio_pll_pmc_ops = {
+diff --git a/drivers/clk/at91/at91sam9g45.c b/drivers/clk/at91/at91sam9g45.c
+index 3436a09a6e8a..cb98d22c2e30 100644
+--- a/drivers/clk/at91/at91sam9g45.c
++++ b/drivers/clk/at91/at91sam9g45.c
+@@ -139,7 +139,7 @@ static void __init at91sam9g45_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/at91sam9n12.c b/drivers/clk/at91/at91sam9n12.c
+index 80ccd4a49df3..34dd7645f964 100644
+--- a/drivers/clk/at91/at91sam9n12.c
++++ b/drivers/clk/at91/at91sam9n12.c
+@@ -165,7 +165,7 @@ static void __init at91sam9n12_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/at91sam9x5.c b/drivers/clk/at91/at91sam9x5.c
+index 6b8c755fefdf..37280852f086 100644
+--- a/drivers/clk/at91/at91sam9x5.c
++++ b/drivers/clk/at91/at91sam9x5.c
+@@ -187,7 +187,7 @@ static void __init at91sam9x5_pmc_setup(struct device_node *np,
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/clk-plldiv.c b/drivers/clk/at91/clk-plldiv.c
+index ba3a1839a96d..c5d0c6e27397 100644
+--- a/drivers/clk/at91/clk-plldiv.c
++++ b/drivers/clk/at91/clk-plldiv.c
+@@ -72,11 +72,11 @@ static const struct clk_ops plldiv_ops = {
  
  struct clk_hw * __init
- at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
--				 const char *parent_name)
-+				 const char *parent_name,
-+				 struct clk_parent_data *parent_data)
+ at91_clk_register_plldiv(struct regmap *regmap, const char *name,
+-			 const char *parent_name)
++			 const char *parent_name, struct clk_parent_data *parent_data)
  {
- 	struct clk_audio_frac *frac_ck;
- 	struct clk_init_data init = {};
-@@ -462,7 +463,10 @@ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
+ 	struct clk_plldiv *plldiv;
+ 	struct clk_hw *hw;
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	int ret;
+ 
+ 	plldiv = kzalloc(sizeof(*plldiv), GFP_KERNEL);
+@@ -85,8 +85,11 @@ at91_clk_register_plldiv(struct regmap *regmap, const char *name,
  
  	init.name = name;
- 	init.ops = &audio_pll_frac_ops;
--	init.parent_names = &parent_name;
+ 	init.ops = &plldiv_ops;
+-	init.parent_names = parent_name ? &parent_name : NULL;
+-	init.num_parents = parent_name ? 1 : 0;
 +	if (parent_data)
 +		init.parent_data = (const struct clk_parent_data *)parent_data;
 +	else
 +		init.parent_names = &parent_name;
- 	init.num_parents = 1;
++	init.num_parents = 1;
  	init.flags = CLK_SET_RATE_GATE;
  
-@@ -480,10 +484,11 @@ at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
- 
- struct clk_hw * __init
- at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
--				const char *parent_name)
-+				const char *parent_name,
-+				struct clk_parent_data *parent_data)
- {
- 	struct clk_audio_pad *apad_ck;
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	int ret;
- 
- 	apad_ck = kzalloc(sizeof(*apad_ck), GFP_KERNEL);
-@@ -492,7 +497,10 @@ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
- 
- 	init.name = name;
- 	init.ops = &audio_pll_pad_ops;
--	init.parent_names = &parent_name;
-+	if (parent_data)
-+		init.parent_data = (const struct clk_parent_data *)parent_data;
-+	else
-+		init.parent_names = &parent_name;
- 	init.num_parents = 1;
- 	init.flags = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
- 		CLK_SET_RATE_PARENT;
-@@ -511,10 +519,11 @@ at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
- 
- struct clk_hw * __init
- at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
--				const char *parent_name)
-+				const char *parent_name,
-+				struct clk_parent_data *parent_data)
- {
- 	struct clk_audio_pmc *apmc_ck;
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	int ret;
- 
- 	apmc_ck = kzalloc(sizeof(*apmc_ck), GFP_KERNEL);
-@@ -523,7 +532,10 @@ at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
- 
- 	init.name = name;
- 	init.ops = &audio_pll_pmc_ops;
--	init.parent_names = &parent_name;
-+	if (parent_data)
-+		init.parent_data = (const struct clk_parent_data *)parent_data;
-+	else
-+		init.parent_names = &parent_name;
- 	init.num_parents = 1;
- 	init.flags = CLK_SET_RATE_GATE | CLK_SET_PARENT_GATE |
- 		CLK_SET_RATE_PARENT;
+ 	plldiv->hw.init = &init;
 diff --git a/drivers/clk/at91/dt-compat.c b/drivers/clk/at91/dt-compat.c
-index 2c5faa3b1cfd..22bcaa3b28dd 100644
+index 22bcaa3b28dd..3285e3110b58 100644
 --- a/drivers/clk/at91/dt-compat.c
 +++ b/drivers/clk/at91/dt-compat.c
-@@ -43,7 +43,7 @@ static void __init of_sama5d2_clk_audio_pll_frac_setup(struct device_node *np)
- 
- 	parent_name = of_clk_get_parent_name(np, 0);
- 
--	hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name);
-+	hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name, NULL);
- 	if (IS_ERR(hw))
+@@ -724,7 +724,7 @@ of_at91sam9x5_clk_plldiv_setup(struct device_node *np)
+ 	if (IS_ERR(regmap))
  		return;
  
-@@ -69,7 +69,7 @@ static void __init of_sama5d2_clk_audio_pll_pad_setup(struct device_node *np)
- 
- 	parent_name = of_clk_get_parent_name(np, 0);
- 
--	hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name);
-+	hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name, NULL);
- 	if (IS_ERR(hw))
- 		return;
- 
-@@ -95,7 +95,7 @@ static void __init of_sama5d2_clk_audio_pll_pmc_setup(struct device_node *np)
- 
- 	parent_name = of_clk_get_parent_name(np, 0);
- 
--	hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name);
-+	hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name, NULL);
+-	hw = at91_clk_register_plldiv(regmap, name, parent_name);
++	hw = at91_clk_register_plldiv(regmap, name, parent_name, NULL);
  	if (IS_ERR(hw))
  		return;
  
 diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index b983e44b742a..37ef6f63de26 100644
+index 37ef6f63de26..db067177e6ef 100644
 --- a/drivers/clk/at91/pmc.h
 +++ b/drivers/clk/at91/pmc.h
-@@ -160,15 +160,15 @@ struct clk_hw *of_clk_hw_pmc_get(struct of_phandle_args *clkspec, void *data);
+@@ -246,7 +246,7 @@ at91_clk_register_pll(struct regmap *regmap, const char *name,
+ 		      const struct clk_pll_characteristics *characteristics);
+ struct clk_hw * __init
+ at91_clk_register_plldiv(struct regmap *regmap, const char *name,
+-			 const char *parent_name);
++			 const char *parent_name, struct clk_parent_data *parent_data);
  
  struct clk_hw * __init
- at91_clk_register_audio_pll_frac(struct regmap *regmap, const char *name,
--				 const char *parent_name);
-+				 const char *parent_name, struct clk_parent_data *parent_data);
- 
- struct clk_hw * __init
- at91_clk_register_audio_pll_pad(struct regmap *regmap, const char *name,
--				const char *parent_name);
-+				const char *parent_name, struct clk_parent_data *parent_data);
- 
- struct clk_hw * __init
- at91_clk_register_audio_pll_pmc(struct regmap *regmap, const char *name,
--				const char *parent_name);
-+				const char *parent_name, struct clk_parent_data *parent_data);
- 
- struct clk_hw * __init
- at91_clk_register_generated(struct regmap *regmap, spinlock_t *lock,
+ sam9x60_clk_register_div_pll(struct regmap *regmap, spinlock_t *lock,
 diff --git a/drivers/clk/at91/sama5d2.c b/drivers/clk/at91/sama5d2.c
-index bc62b9ed4ea0..d2af421abddc 100644
+index d2af421abddc..7904f2122ed7 100644
 --- a/drivers/clk/at91/sama5d2.c
 +++ b/drivers/clk/at91/sama5d2.c
-@@ -227,19 +227,19 @@ static void __init sama5d2_pmc_setup(struct device_node *np)
- 	sama5d2_pmc->chws[PMC_PLLACK] = hw;
- 
- 	hw = at91_clk_register_audio_pll_frac(regmap, "audiopll_fracck",
--					      "mainck");
-+					      "mainck", NULL);
+@@ -220,7 +220,7 @@ static void __init sama5d2_pmc_setup(struct device_node *np)
  	if (IS_ERR(hw))
  		goto err_free;
  
- 	hw = at91_clk_register_audio_pll_pad(regmap, "audiopll_padck",
--					     "audiopll_fracck");
-+					     "audiopll_fracck", NULL);
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
  	if (IS_ERR(hw))
  		goto err_free;
  
- 	sama5d2_pmc->chws[PMC_AUDIOPINCK] = hw;
+diff --git a/drivers/clk/at91/sama5d3.c b/drivers/clk/at91/sama5d3.c
+index 9d86c350a1e7..7f2ac8f648dd 100644
+--- a/drivers/clk/at91/sama5d3.c
++++ b/drivers/clk/at91/sama5d3.c
+@@ -166,7 +166,7 @@ static void __init sama5d3_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
  
- 	hw = at91_clk_register_audio_pll_pmc(regmap, "audiopll_pmcck",
--					     "audiopll_fracck");
-+					     "audiopll_fracck", NULL);
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+diff --git a/drivers/clk/at91/sama5d4.c b/drivers/clk/at91/sama5d4.c
+index 8491b1e0391d..7cda8032653e 100644
+--- a/drivers/clk/at91/sama5d4.c
++++ b/drivers/clk/at91/sama5d4.c
+@@ -181,7 +181,7 @@ static void __init sama5d4_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+-	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack");
++	hw = at91_clk_register_plldiv(regmap, "plladivck", "pllack", NULL);
  	if (IS_ERR(hw))
  		goto err_free;
  
