@@ -4,50 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B42CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FE7CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6XkDG2MBr6JDTs9mC4djXIW8BJr+M/bEaN2bZch/c0s=; b=jEna2bT20oZd1ciqxk+j/gNv7I
-	8aue0P181licVhPFOlsU/x3IIrR2XJeFtLAKuAYFlkrnMck23cr7tBAO5K7tGlpWHMYV7M8jY83Yp
-	MyppBPqITq1tmfRGpcDJt1ycsTbR2R+F+bjZqjyfHT4k5RSoFug0INEAp+i2eU4gGBB90rpQf9O+J
-	mMJAKZqxfGme3woVVYcXycBu3erILnEly0xK0r8crx3FyayMTxd4QZ7QRgJquBIpnxwazPj9d7/jZ
-	PUSvkaBDcI2vgTjWGLQjIdSY0kLkZFfcPFopCamEOfbZOXal0yYC1jhCeo1lU0BK1rkLG108FLdK9
-	98YteK5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MsDTPwAGkRwwpSnZNZWAW7/2Ey62GVABiWtEKo287Ow=; b=3SE+DHIu5HpK8B3P8Yqf/BdMNy
+	oo/UgrLnj/U6a2njtWTVUXBGrN+viHzJEesdmdv3Bt0srjehjWEUHR/cdlGYxnwPqmWNRHmO5OKJQ
+	PI9s9tqEt656mBLk29qjihraSZuCBxqe9VQpTY/mCaOzd514MsMzzECXJ7oVYPecV7xPMGVUhiBqv
+	PQINzA8qvXmS6fFQJhWaBRSspKGFlJu4vdO8Uz2VsgN3Aq8seTUopmugB58c0iKdeqxFIrYqWSN/g
+	eBaJ0cvr2ErNNTUnFGqU0idhh+WXFLyGHa28LSlPUcaZEeB6llyCbUGWCHWQ/Hgy7yZ9MRoZ+4mxA
+	EwMuqhFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHS4-00000000cYi-2EAy;
-	Thu, 18 Sep 2025 16:25:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHS1-00000000cXx-2jJ1
+	id 1uzHUK-00000000d38-1wLQ;
+	Thu, 18 Sep 2025 16:28:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzHUI-00000000d2X-28Ec
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:25:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79777176C;
-	Thu, 18 Sep 2025 09:25:32 -0700 (PDT)
-Received: from 010265703453.cambridge.arm.com (010265703453.cambridge.arm.com [10.1.33.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A7FB73F673;
-	Thu, 18 Sep 2025 09:25:39 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] perf/arm-cmn: Fix CMN S3 DTM offset
-Date: Thu, 18 Sep 2025 17:25:31 +0100
-Message-Id: <f1248eedc2d082c80f5299747acedc8decb94c70.1758212731.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 18 Sep 2025 16:28:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D45860207;
+	Thu, 18 Sep 2025 16:28:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 350C5C4CEE7;
+	Thu, 18 Sep 2025 16:27:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758212881;
+	bh=yGD3rd0ZgCpKN5/ib9YlnwYypPwsbITgq4CSUhmw/FQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QnarWw3FJUtrtOMP50yvc5UH8uSKNOmSqz96oPjewbjN4GGyf1nK0rJco3NxORKWA
+	 ewrgOof32hIj+7IAMSc6GZr/1ZWAWTcwoRcllf1KW6VOc8NfoYRz60Lul0ZJG+Xv+0
+	 QdBV4J4NTgPF/kM6/16lCvvH08fikSs5zC4QfozCk76r3XWKs+Ah0DE8qseg18A9ev
+	 HJbLQNC5hcof4gBI1qwxKy25wR2ZOjeyXIu51Lgxvv2AHpJ++b8wbP0q6lpMyYyU7d
+	 bXZs9QP7lJIhRCkucua/zIE+iD/ZrvZTSl3sEpdhH6iRmFc8YSeppuMypNSLjveZza
+	 YyNNrS7pHs3OQ==
+Date: Thu, 18 Sep 2025 17:27:56 +0100
+From: Simon Horman <horms@kernel.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Roger Quadros <rogerq@ti.com>, MD Danish Anwar <danishanwar@ti.com>,
+	Parvathi Pudi <parvathi@couthit.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Mohan Reddy Putluru <pmohan@couthit.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Basharath Hussain Khaja <basharath@couthit.com>,
+	"Andrew F. Davis" <afd@ti.com>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH net-next] net: ti: icssm-prueth: unwind cleanly in probe()
+Message-ID: <20250918162756.GA394836@horms.kernel.org>
+References: <aMvVagz8aBRxMvFn@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_092541_726045_C1137E46 
-X-CRM114-Status: GOOD (  12.16  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aMvVagz8aBRxMvFn@stanley.mountain>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,52 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CMN S3's DTM offset is different between r0px and r1p0, and it
-turns out this was not a error in the earlier documentation, but
-does actually exist in the design. Lovely.
+On Thu, Sep 18, 2025 at 12:48:26PM +0300, Dan Carpenter wrote:
+> This error handling triggers a Smatch warning:
+> 
+>     drivers/net/ethernet/ti/icssm/icssm_prueth.c:1574 icssm_prueth_probe()
+>     warn: 'prueth->pru1' is an error pointer or valid
+> 
+> The warning is harmless because the pru_rproc_put() function has an
+> IS_ERR_OR_NULL() check built in.  However, there is a small bug if
+> syscon_regmap_lookup_by_phandle() fails.  In that case we should call
+> of_node_put() on eth0_node and eth1_node.
+> 
+> It's a little bit easier to re-write this code to only free things which
+> we know have been allocated successfully.
+> 
+> Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-Cc: stable@vger.kernel.org
-Fixes: 0dc2f4963f7e ("perf/arm-cmn: Support CMN S3")
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/perf/arm-cmn.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Thanks Dan.
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 50695b95fbfd..6698f0ec94e9 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -65,7 +65,7 @@
- /* PMU registers occupy the 3rd 4KB page of each node's region */
- #define CMN_PMU_OFFSET			0x2000
- /* ...except when they don't :( */
--#define CMN_S3_DTM_OFFSET		0xa000
-+#define CMN_S3_R1_DTM_OFFSET		0xa000
- #define CMN_S3_PMU_OFFSET		0xd900
- 
- /* For most nodes, this is all there is */
-@@ -233,6 +233,9 @@ enum cmn_revision {
- 	REV_CMN700_R1P0,
- 	REV_CMN700_R2P0,
- 	REV_CMN700_R3P0,
-+	REV_CMNS3_R0P0 = 0,
-+	REV_CMNS3_R0P1,
-+	REV_CMNS3_R1P0,
- 	REV_CI700_R0P0 = 0,
- 	REV_CI700_R1P0,
- 	REV_CI700_R2P0,
-@@ -425,8 +428,8 @@ static enum cmn_model arm_cmn_model(const struct arm_cmn *cmn)
- static int arm_cmn_pmu_offset(const struct arm_cmn *cmn, const struct arm_cmn_node *dn)
- {
- 	if (cmn->part == PART_CMN_S3) {
--		if (dn->type == CMN_TYPE_XP)
--			return CMN_S3_DTM_OFFSET;
-+		if (cmn->rev >= REV_CMNS3_R1P0 && dn->type == CMN_TYPE_XP)
-+			return CMN_S3_R1_DTM_OFFSET;
- 		return CMN_S3_PMU_OFFSET;
- 	}
- 	return CMN_PMU_OFFSET;
--- 
-2.34.1
+I'm pretty sure I reviewed this code at some point.
+Sorry for not noticing this problem then.
 
+Reviewed-by: Simon Horman <horms@kernel.org>
+
+...
 
