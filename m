@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E37CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AA5CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=uA23VCJ9JGi+VW+Cm+Y1A1DnDT
-	8EOrqyh4zHJbTCvxck6Rjltpp9UF4/7nlm9BUrjQCTtABnUSuQtCw/cbpqHFbOKi+ZJPzgalwvnm2
-	DZpP+9lMlK2ghzGPvTdJckgyHBa8Sc1RPNXjmJaYo4MBYem/R9WUBA9cJENA8qY/zp4vgaGi+9Wux
-	JEfQqgONgZNMJH5ObO7uk+jA9qO9vboKyQUiwZ0Gp81FoDwdR9SCkrHYkzkCQ3euOw6lSRV2aN1TP
-	59dt4bwfGkrhaIEGySvuaX+puC+6SkvAJC5ChLbCdzDLC4YBSV5ttozi7W6ifBaO6VzIgv+vtPUpb
-	U5bGT3bA==;
+	bh=fNf5qnROH3zLmofq2B+JFY3WcJC+3yEgDpqycG51sUs=; b=DrR8F9viag1dMoToNCY6dpa3sn
+	fQOWynDkECClneLd+4I4EGGuGGH7qazydps5Cs9VdB6Fg+Ulobml8vAUUvDbIGfIP8GgYKshP3Ra7
+	+u7UR4BZXaR+4Fm1JKCyQcsZIDjuBHXAqEBCOWTZcjkJvPD8omvy2OmzrP9FifzY/Z7BEuusXUCNo
+	fhZ62xY/AxUULTsDhhIYHfIZxJ7MwPsrQA7XNqeF6GtBGTxtz8J8oMbjJJ8rLKSBUWI18aiI+PMLA
+	oTp4nD57DuO9V52U79JmderffhdFebt3VzS4xe/UtW25rGB24rpIMeKSnecwAqro3YFVDRc50fg1v
+	7RAWMGTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz7v5-0000000GOKf-3eTS;
-	Thu, 18 Sep 2025 06:15:03 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz7v0-0000000GOIv-2vGb
+	id 1uz80U-0000000GOw5-424p;
+	Thu, 18 Sep 2025 06:20:38 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uz80S-0000000GOvc-1FQd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 06:15:00 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.phl.internal (Postfix) with ESMTP id 81707EC023A;
-	Thu, 18 Sep 2025 02:14:57 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Thu, 18 Sep 2025 02:14:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1758176097; x=
-	1758262497; bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=D
-	MIErtSdGQsA8Zm7ALkGb0vERfSF3sDzEujzZETYjMRm8PIALsq94flKrswIi2a/A
-	UF9A/l85+CFRAZFsPcoHVKvManfDah0Ebt94bZRStr9UFgmiLr0MCHVh8QUVZnNp
-	WQY4Fvgq8MjCL0dUCGHIafMLFw/GczMnLBGhbpT5Br9w1I5hBGYJKMloYXERQxDn
-	eoNpm/5wv8LxgLXEkoKDgq5RzOi5JRPFXwoWYpbl3qN3pVZUcI2INZF5LaYEAbQ9
-	xL4cdd7P58TqPcnot0kPEfJGLmyPEFegFnrvmXt/wDAVnzFnfihninE5CYbJA70v
-	j1ut7FNWIZ3owJgiCy6Vw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1758176097; x=1758262497; bh=G
-	AZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=AeN/LF9hcZ0cLwJ13
-	5ONTkJFqEG1yRGw4kSVxydeAB/ZrTWjT/6Mwg/2cfQOCshwPg/DOKrRIg+6Z80yp
-	bItClD6V4N+nM6Fg8FWRBkbz9oKZ9q3T4Z6O4CytqQRFgAb94Is59Hvf9a09mMwl
-	NP9dE9Onl825HvFGrJzO6ZkW+X0yDMq+7njClNguAMlVvWgeTpp8RInJLW5NtCyR
-	rL5iupaj84Iq9/bG6SYoighzU0dEitEd3URPWW+bArhp1uU7YBH7W7AwW7PBX4Hl
-	EYE28zQ/D5BpxAfGl7ytuCZyFX33mcNmiwfIEDBWaKK4S7x7CKO9OnRtzjjQlLbz
-	314tQ==
-X-ME-Sender: <xms:YaPLaBVsLQHcihVDYLexymSFXy7NCcLBNtSzVBY-rYq-09mS7p1uhQ>
-    <xme:YaPLaIUzkasV_ob52O6wMxNLdz86_ankaTE0ogE9W4su5GmMGircR_WSwK6e6MJY9
-    XehKJBRg5fPdx0SDBs>
-X-ME-Received: <xmr:YaPLaPJNbIjNhgmZdg1kc_uqJumvXkDbEKVnpcln0jqjoohpD4flIlqTMHvPMMh_VMtP8M12WY6mqflRwvdLVTakBa9wXB9Ci_TrDDKCS2oR5Sg8avUa729GW-sA4zlI4Pl_AsqeJEVck8t0dD9Acuzklc4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegheehkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforghthhgvficu
-    ofgtuehrihguvgcuoehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruheqnecuggftrf
-    grthhtvghrnhephfffueehtedukeevjedvieevffehjeeiteehhfefkeehgeffleefleej
-    udekgfevnecuffhomhgrihhnpehtrhgrvhgvrhhsvgdrtghomhdrrghunecuvehluhhsth
-    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmhgrthhtsehtrhgrvhgv
-    rhhsvgdrtghomhdrrghupdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuth
-    dprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdp
-    rhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrg
-    guvggrugdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikh
-    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    epmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghu
-X-ME-Proxy: <xmx:YaPLaABxWqJE67P_sMLCdLD5pOahm6I-akTTNnAdIHTxs7O1GI03WA>
-    <xmx:YaPLaHfSlJuGRzTdHF-ZHZRU98_JM6QP8A-nseRJtZnRu7eYEAo_xQ>
-    <xmx:YaPLaH22qKw9JoZ1Dg0kCRuXJHCDcQU3KFT0bWkIt387_mJtQD-drA>
-    <xmx:YaPLaGi3p8qbOcphcpzeRRg8egCaQN1OHMF1QxLcElzTPfdK0dlNAw>
-    <xmx:YaPLaCN5QQHc1qD2P9FGBQQlZ5s2P4GKFrkV5Fjoo4rqjfYH5MsG5d-y>
-Feedback-ID: i426947f3:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 18 Sep 2025 02:14:54 -0400 (EDT)
-From: Mathew McBride <matt@traverse.com.au>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Shawn Guo <shawnguo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v5 2/2] arm64: dts: ten64: add board controller binding
-Date: Thu, 18 Sep 2025 16:14:41 +1000
-Message-ID: <20250918061441.5488-3-matt@traverse.com.au>
-X-Mailer: git-send-email 2.45.1
-In-Reply-To: <20250918061441.5488-1-matt@traverse.com.au>
-References: <20250918061441.5488-1-matt@traverse.com.au>
+	Thu, 18 Sep 2025 06:20:37 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cS4zq5Xdlz9sg0;
+	Thu, 18 Sep 2025 08:12:23 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id FbE0_hDQWI6h; Thu, 18 Sep 2025 08:12:23 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cS4zq4ZMvz9sfy;
+	Thu, 18 Sep 2025 08:12:23 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 88BFD8B76C;
+	Thu, 18 Sep 2025 08:12:23 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id wUtKhrQoSrmI; Thu, 18 Sep 2025 08:12:23 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C07208B767;
+	Thu, 18 Sep 2025 08:12:22 +0200 (CEST)
+Message-ID: <3d20d3ec-2f52-4cac-9c5c-fd2141a12a0b@csgroup.eu>
+Date: Thu, 18 Sep 2025 08:12:21 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of
+ interrupts
+To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>
+Cc: Herve Codina <herve.codina@bootlin.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Nicolin Chen <nicoleotsuka@gmail.com>,
+ Shengjiu Wang <shengjiu.wang@gmail.com>, linux-sound@vger.kernel.org,
+ Qiang Zhao <qiang.zhao@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Takashi Iwai <tiwai@suse.com>, Xiubo Li <Xiubo.Lee@gmail.com>,
+ Jaroslav Kysela <perex@perex.cz>
+References: <cover.1755504428.git.christophe.leroy@csgroup.eu>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <cover.1755504428.git.christophe.leroy@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_231458_806463_3950F503 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_232036_499390_70FB51B0 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +84,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board (micro)controller[1] is responsible for functions such as
-power supply sequencing, SoC reset as well as serial/MAC address storage,
-bootcount and scratch registers.
+Hi Mark, Liam,
 
-There is currently no Linux kernel driver for this controller, however,
-there is a driver in U-Boot which utilises this binding.
+Le 18/08/2025 à 10:19, Christophe Leroy a écrit :
+> This series reduces significantly the amount of interrupts on
+> fsl_qmc_audio device.
 
-[1] https://ten64doc.traverse.com.au/hardware/microcontroller/
+I can't see this series in linux-next.
 
-Signed-off-by: Mathew McBride <matt@traverse.com.au>
----
- arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+I see in patchwork [1] that this series still has status 'NEW' but also 
+state 'archived'.
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-index 3a11068f2212f..71765ec91745e 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-@@ -253,6 +253,10 @@ usbhub: usb-hub@2d {
- 		reg = <0x2d>;
- 	};
- 
-+	uc: board-controller@7e {
-+		compatible = "traverse,ten64-controller";
-+		reg = <0x7e>;
-+	};
- };
- 
- &i2c2 {
--- 
-2.45.1
+What is the way forward to get it applied for v6.18 ?
+
+Thanks
+Christophe
+
+[1] 
+https://patchwork.kernel.org/project/alsa-devel/patch/f0c5260651822e8003daf11c7a76921796517152.1755504428.git.christophe.leroy@csgroup.eu/
+
+> 
+> Patches 1 and 2 are preparatory patches.
+> Patch 3 is the main change
+> Patch 4 is a cleanup which is enabled by previous patch
+> 
+> Changes in v3:
+> - Properly check the buffer descriptor is unused (Patch 1, comment from Herve Codina)
+> - Fixed copy/paste error (patch 2, comment from Herve Codina)
+> - Fixed build failure (patch 2, comment from Herve Codina and Test robot)
+> 
+> Changes in v2:
+> - Don't remove UB bit (Patch 1, comment from Herve Codina)
+> - Make sure audio channels are ordered on TDM bus (Patch 2, new patch, comment from Herve Codina)
+> - Drop struct qmc_dai_chan  (patch 4, new patch)
+> 
+> Backgroup (copied from patch 3):
+> 
+> In non-interleaved mode, several QMC channels are used in sync.
+> More details can be found in commit 188d9cae5438 ("ASoC: fsl:
+> fsl_qmc_audio: Add support for non-interleaved mode.")
+> At the time being, an interrupt is requested on each channel to
+> perform capture/playback completion, allthough the completion is
+> really performed only once all channels have completed their work.
+> 
+> This leads to a lot more interrupts than really needed. Looking at
+> /proc/interrupts shows ~3800 interrupts per second when using
+> 4 capture and 4 playback devices with 5ms periods while
+> only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
+> 
+> The QMC channels work in sync, the one started first is the one
+> finishing first and the one started last is the one finishing last,
+> so when the last one finishes it is guaranteed that the other ones are
+> finished as well. Therefore only request completion processing on the
+> last QMC channel.
+> 
+> On my board with the above exemple, on a kernel started with
+> 'threadirqs' option, the QMC irq thread uses 16% CPU time with this
+> patch while it uses 26% CPU time without this patch.
+> 
+> Christophe Leroy (4):
+>    soc: fsl: qmc: Only set completion interrupt when needed
+>    ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
+>    ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
+>    ASoc: fsl: fsl_qmc_audio: Drop struct qmc_dai_chan
+> 
+>   drivers/soc/fsl/qe/qmc.c      |  44 +++++++++---
+>   sound/soc/fsl/fsl_qmc_audio.c | 125 +++++++++++++++-------------------
+>   2 files changed, 87 insertions(+), 82 deletions(-)
+> 
 
 
