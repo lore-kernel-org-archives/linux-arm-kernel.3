@@ -4,82 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B546CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12488CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+h5guwEJBXYPr6x/4BoU3yk32WsocIYZRObOc2SD7E=; b=s5l2nWWxYYaXrpYILHBwAg+263
-	mlVRBTUmZ2rW0WkldscB08pBNkDIjTPuF7IClLg/yrmhgtJiJPVI9SeMEAHzNtBMwt0TqbbRDicbr
-	8oUIp1CtcfPLz8bKb2pKVTXqGUd4OG+O8pcfoAjbnL7bpvFe4Lev11FfTW0WBHYzhEMnB4wXtrRQ3
-	jTkMCuBx7f8CkUibwMTbDSp3Gvogn1VU9y9wRAqfifOfZoRVoh3Ry1y0HGq8R9rhGvwrC4vrob3HQ
-	YEDCJywAu5gplOjnlaZVcwiu2UElfBVaFDzbJwKgG2VB7USZFwS+qztcS5AMlfpLAZ76GhR+eebmR
-	aBf8FOjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b3jtPOVR/Qh9IZ/OmR2ja7xClQUBdSd//rUxpdfZTIk=; b=JG6huVPnn9dZJgUsJCPcADa+RX
+	1SGJfuiG3Tyo1ldgO26gTtEMl6iMFFQMVIx76urDVGODap/iz3eAgiAimp/0c2Qsq+6GskPjyh0F9
+	SM8OrqmLrAZ5y7hrgW4Y/5Up26Xso/Bd2UY72gue0ZiaiwqFR5++rqAKMkCIHdptSnGc2MQhPUYZT
+	PFr5Lu6DXWGnYKJ+E92xr+Z0wPhW0bl79k6OYPpkJNc+Om+KtURqmoYNRgKUcCRZB6+hfCu/DWybA
+	I2lM+R88K16c26b7hSXWwCaIMQVqGERRU9jIFlbWS8bkfnc/ymwCtg7Fjq6pWsXwvZ4BK+OK9x4Tx
+	i2epA1gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFD2-000000001Vy-28ZQ;
-	Thu, 18 Sep 2025 14:02:04 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uzFJZ-0000000034i-2w84;
+	Thu, 18 Sep 2025 14:08:49 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFCz-000000001V1-32ZU;
-	Thu, 18 Sep 2025 14:02:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758204103; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nYwqjkuaJd7z0MOkUp0DgfN53CXjxJ8VD6pq4qgAghNfmvnA3vgnX5pK17ASOg1fr82DmoBQiEwzoIcEOU0kMcH/IXTOc3x4mOmsA1BE4UWokJ5VwMw3JbW0UIGi57KnolqmBLNbrQF08F9nxwd01FMcbj6E2CAqV15MVEGLk+s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758204103; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=D+h5guwEJBXYPr6x/4BoU3yk32WsocIYZRObOc2SD7E=; 
-	b=Cu5B0fFQGxjhlexh70bmK9sj0JsAbY8IHD9Sn6ukiIq6IIBUQ85Y7OgndtebASrN5nnDV54v8AUXQIN3AwUH8rQQhSs12nsRNRvVSOr+hsO/WCgXWFyUGK+tUKLwuoRVNCCi35FZC0QANVXWBuJVQoja3ApO8EM2o7hXGv3cCVM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758204103;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=D+h5guwEJBXYPr6x/4BoU3yk32WsocIYZRObOc2SD7E=;
-	b=hAogMFSPwKq/tEvbgDxEAdbZWwp+FACMmjl1d2HM2d9ucBx6Nct3HTBzQRdCcPX3
-	Q14+J4hiqYfWRQ+3mZzqx1+2bVa9ts2cpR1a2MFl28notvkZLDxQ8Zk3A2H/iVa1V7j
-	vMYYWOob+ruYusn+fJBEnGV4TP2+rk+mU3Mntpco=
-Received: by mx.zohomail.com with SMTPS id 1758204100007491.1116048037495;
-	Thu, 18 Sep 2025 07:01:40 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 01/10] dt-bindings: gpu: mali-valhall-csf: add
- mediatek,mt8196-mali variant
-Date: Thu, 18 Sep 2025 16:01:31 +0200
-Message-ID: <5749727.31r3eYUQgx@workhorse>
-In-Reply-To: <20250918-festive-chowchow-of-joy-5a51de@kuoka>
-References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
- <20250917-mt8196-gpufreq-v3-1-c4ede4b4399e@collabora.com>
- <20250918-festive-chowchow-of-joy-5a51de@kuoka>
+	id 1uzFJX-00000000333-3IUX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Sep 2025 14:08:48 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2697899a202so8391025ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 07:08:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758204527; x=1758809327; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=b3jtPOVR/Qh9IZ/OmR2ja7xClQUBdSd//rUxpdfZTIk=;
+        b=l/u/fdesx7HmGIlCmbo3Q3GzW6e/TqHYkEW8Zn9KdfDVsH5zHi1ZD3M76iwOXzJAwg
+         vFL3FTnjAY4N/khfKp3R57xEb8jx/oYywxWMjgcNlMJ86IACMXCJEDYXChklAOG4cEbF
+         Bdu1Do4hAUFag07oGEzLt1KY/gCo1Ve+6UMyuKUwQa+GS8xYsrNdEfwYMaEOFPGqaXUA
+         6cBLaH/L6k2fAhGQcVnEANQcfnpj9nKb3gYPGm+cPMj/gApzrd7U/OKxoRzHZ71kZOUW
+         WNXbmMqSAimmstG42ma5EFEfC0brUcMwGrAVAmEKyvnqe9Ps6oVqiN2dY5D1AHFm6yi5
+         JkNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758204527; x=1758809327;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=b3jtPOVR/Qh9IZ/OmR2ja7xClQUBdSd//rUxpdfZTIk=;
+        b=Pn/2cc92luMGmmqAdZJsuQpxho7AOoUabCBEBfDbH8CuTXWtv5xOLFqpXR3ce594VI
+         WsNxeW8ZPLE08guXNXnyJumKuf2EjJ+p5BNtHYmjSjFYED1HPqGyGG8ZamzesOspuKYf
+         McMfc1sISQ1uFIeFc0OuytIo0HMSw4sNoPn3dKZFSHVfcREjR5w81VYht22mmjOhfUek
+         JrJQka9MnGdtmUzDqBq5uKNSyX0SHXFE3YnmhNWMENCDHPQYcnUEn+EkBni3//BgNmWe
+         OXoSBxP7nvSnx+tTT6rTtAEp/rTEEiOlWyE1og81M4FVt4DKX2Vxfq20Bs8y2jEX7AFG
+         zNQA==
+X-Forwarded-Encrypted: i=1; AJvYcCW5GeLxRyk/HAsk6KqnSHE/Klpq2StkYheml1GVUyTfWiHR+08ujGDnfEHx6EhHLvZgZ+4CGfZrqAZBL2m13C6k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzq4tHfKRVuU2NBHWxGkPgOP66532DWXk1iy2Uhq3ez4VuG0iF+
+	BvKk7fpyRwvQlC4+FUun5IC1BbsEcpENbRibU1akgdssC77U0QgzNcM0
+X-Gm-Gg: ASbGnctlGP/SCgu3evA/LReGX89+sHzJ7h9jBS7PNogReIvLGDDFVoGLEuP3jlZdGIj
+	zXQSCZdGdaso4wjX0HX0aqXOor2OAZrhfnpmrL7D6/vmw5ushKA9tH+RxgISNJprE7SVc/ktsH9
+	eEJSd0uRujsal5tjlKBKcNqkO9T8nD5pD6unAQ3tYxldv5G5xJWdUAmNjFf7Nc+tPDsJmITUnp2
+	m+xDeHXfZ56rmHLzoMaJx+EQCc+cGhPRfvxEHdbgDZ/LsqXwmxwBLLPxD1X9O2baPsEDgueLU/l
+	4K7MeTPRRi9MKJLr3BvJCK+5D2KMiiQh/KULoo70Ha/ToIEkv9Qj9EigaSaDjT31x23QMrazCBG
+	3ZnqyBKPkRl5Qd9ADzLkjDjeprm+7BJpYYPZvDXK9iA==
+X-Google-Smtp-Source: AGHT+IHL4igJxg5AwA7L1D1p01uU/62u44PEnlUK/eOY3G/4bPrg+RD9PUmGGbiLH93nITnKJ0zvSg==
+X-Received: by 2002:a17:903:1212:b0:267:d7f8:405b with SMTP id d9443c01a7336-2697c6afddamr56831825ad.0.1758204525753;
+        Thu, 18 Sep 2025 07:08:45 -0700 (PDT)
+Received: from lgs.. ([2408:8417:e00:1e5d:70da:6ea2:4e14:821e])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269802e00b3sm27037455ad.90.2025.09.18.07.08.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Sep 2025 07:08:45 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH] ASoC: mediatek: mt8365: Add check for devm_kcalloc() in mt8365_afe_suspend()
+Date: Thu, 18 Sep 2025 22:07:58 +0800
+Message-ID: <20250918140758.3583830-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_070201_822121_3BFF542B 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20250918_070847_818448_58B0B096 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,58 +106,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 18 September 2025 02:30:09 Central European Summer Time Krzysztof Kozlowski wrote:
-> On Wed, Sep 17, 2025 at 02:22:32PM +0200, Nicolas Frattaroli wrote:
-> > The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
-> > control the power and frequency of the GPU.
-> > 
-> > It lets us omit the OPP tables from the device tree, as those can now be
-> > enumerated at runtime from the MCU. It also means the mali GPU node
-> > described in this binding does not have any clocks in this case, as all
-> > clock control is delegated to the MCU.
-> > 
-> > Add the mediatek,mt8196-mali compatible, and a performance-domains
-> > property which points to the MCU's device tree node in this case. It's
-> > required on mt8196 devices.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 32 ++++++++++++++++++++--
-> >  1 file changed, 30 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..ccab2dd0ea852187e3ab75923e19739622b2b3b8 100644
-> > --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> > @@ -38,7 +38,6 @@ properties:
-> >        - const: gpu
-> >  
-> >    clocks:
-> > -    minItems: 1
-> 
-> I don't understand why.
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
+devm_kcalloc() may fail. mt8365_afe_suspend() uses afe->reg_back_up
+unconditionally after allocation and writes afe->reg_back_up[i], which
+can lead to a NULL pointer dereference under low-memory conditions.
 
-I am executing a Convex hull algorithm on the 3D space of "dt-bindings
-maintainer opinions" to get a convex hull of acceptable dt-bindings
-choices where two different choices are functionally equivalent.
+Add a NULL check and bail out with -ENOMEM, making sure to disable the
+main clock via the existing error path to keep clock state balanced.
 
-With this additional opinion on the krzk axis, I now know that having
-the base properties accurate for the general case is not required if
-the per-compatible case sets the property to false anyway.
+Fixes: e1991d102bc2 ("ASoC: mediatek: mt8365: Add the AFE driver support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-I hope no two opinions are collinear, as this would surely be my
-undoing.
-
-You get to pick which axis (X, Y, Z) you are. Right-hand rule, of
-course.
-
-Kind regards,
-Nicolas Frattaroli
-
+diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
+index 10793bbe9275..9f398d1249ce 100644
+--- a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
++++ b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
+@@ -1971,22 +1971,26 @@ static int mt8365_afe_suspend(struct device *dev)
+ {
+ 	struct mtk_base_afe *afe = dev_get_drvdata(dev);
+ 	struct regmap *regmap = afe->regmap;
+-	int i;
++	int i, ret = 0;
+ 
+ 	mt8365_afe_enable_main_clk(afe);
+ 
+-	if (!afe->reg_back_up)
+-		afe->reg_back_up =
+-			devm_kcalloc(dev, afe->reg_back_up_list_num,
+-				     sizeof(unsigned int), GFP_KERNEL);
++	if (!afe->reg_back_up) {
++		afe->reg_back_up = devm_kcalloc(dev, afe->reg_back_up_list_num,
++						sizeof(unsigned int), GFP_KERNEL);
++		if (!afe->reg_back_up) {
++			ret = -ENOMEM;
++			goto out_disable_clk;
++		}
++	}
+ 
+ 	for (i = 0; i < afe->reg_back_up_list_num; i++)
+ 		regmap_read(regmap, afe->reg_back_up_list[i],
+ 			    &afe->reg_back_up[i]);
+-
++out_disable_clk:
+ 	mt8365_afe_disable_main_clk(afe);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static int mt8365_afe_resume(struct device *dev)
+-- 
+2.43.0
 
 
