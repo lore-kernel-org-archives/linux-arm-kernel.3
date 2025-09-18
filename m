@@ -4,170 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570FECAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3E0CAC59F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 02:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FbalUmeaGb8XuDJNjmxMbaJ6H6HtCe43Z9cPm0Nalg=; b=hk7qc9MFA+TMObBn0SFWs/ZlSB
-	4drWSQmltU/tv0Hl4ActnI9jeTC/faxBPjbLwQz0E48ZAVit7r4mHO2hZJUtuVXQgc79yu3nJrqrr
-	365ho66n6ZDrl0he9kXrwDqgHXdUSS4PcYp3xu+EdBKeE7mD7chjlM/xxYxwtdyDkhmkNfoYp1CtP
-	63TYnxli05oXpw+YbrdMEJjcAY4J4g2HTqtJCenlkHZpLXw6mPss24HrC4dmYWkLHRSYANpdgJabu
-	IcyLn9d0mI1e+ORIPpfLPc3T4twPU5Zr1lRecj9D9nZYzKYxp+da/rsV1E7ZDDSZlJj6bZhUYtnlD
-	5FQjAdAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3AP5nRqn8HiO7kWk2V0wNJy2RE6mlmulFDtaIJdCmRc=; b=thC/NrPP10tsRIT1GTW23aZc9s
+	veoLtBAyQeuroF6Dfne64yOGi64AbKVsVNys8Pxy9r7byW9L2TcO9k94si4Aa14nQRjm554tV+liq
+	PwL9s4i9Uy6K8lQs13KABl+YjM2FSQaM8a2RtQdOdI3K4Hm/Dqf/O+EHRVenib+HZr7Q1eoah1tJp
+	PxWnb5EXynUzauN2Cz03mDs3M1Cs1mrsdDHNlXbgB8aK99TV/1yQP3aLrS2y38bvMAvXq5b0wnO7Y
+	BFl693hT0rGsBN9G30BcLTkcrI0iYHcKV5sZXq/fET8FBykuV84T94O3yX+IOXrQT7Qw81yQ+ei9C
+	zzVTgxoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4fL-0000000G4Ae-0BJr;
-	Thu, 18 Sep 2025 02:46:35 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uz4ol-0000000G51c-0Ltv;
+	Thu, 18 Sep 2025 02:56:19 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz4fJ-0000000G49i-0ikJ
+	id 1uz4oh-0000000G515-23YO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 02:46:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GiwQiU02DsFpoHunreBIhBh70VakeRdaDllwhtIQMN9nljM2HsLC6pjd5XIUQngYcpvc4k4W1sE0v3fO092n835za4y8FGz4vhISHh3N8n8u00+BfWYrEBDgMJH9t4hNRmQrp4XOWbqqV8PY4ZdCMBzS62WVFx/YyFkpA/la+q0Di8fgfi7zEBOzfy6aNzJVNmVmEzfFn3OHGWnGHoovzBdnECGEZZrODGQ8iLVMOvcND3vuXylJpStLJBAJnwSUBV8WYQhnhoST1abJhDQvAnd+c53FVNF97AXinZKbt1M3dz4/51SOpBRx7+QYjv6zePl6if9SGAxHY2CSF9h4uw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/FbalUmeaGb8XuDJNjmxMbaJ6H6HtCe43Z9cPm0Nalg=;
- b=oZZCPRRIaWch6OyTXHSRjC4mZMKgeVs+uNU9Nb25Q79B4Ulm7uB5Z2CxYUMp1E9WVLtECcTr59oKOuLqjhz29Ug0wdNnhXzjS3NNs8gWMwGxMw9736HiUze7pl5dsvsWJeR1vSz4SHfguB/Do4DNPIGBWR86fgkEyS2KYaGL9lf+VwAIQ8gbCZHdbAwdAd1JwOosgrVX2YyXslstqqh6uOEgsA2Kdc22H0mh+yBodSBujhz+4PXXlNKdh3c9ghd3vNKpg8vK91VgU/Qw3PPsEzEz1GRlxzk+ibhRvy0Z1DGS/F0O3NbF3Mvmxl+FfwwILw2KAIbUSmi94iT6hpslAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/FbalUmeaGb8XuDJNjmxMbaJ6H6HtCe43Z9cPm0Nalg=;
- b=VipX1MNuDVS2DQStiQQMZAP0EQN7QMFdHK1RMCMgPXYz7uXu0SKFgLZLQsEqEOiqgrxPSvPNc7T9g/nwZvr8gek/HyauJrZ5MYiHbxrCjMuCT/P2AYWM7VSgiC/+MqrZ5GpK9s0FACvcHtmBKc3/QxIIfQ0hl6H721+J+eY2sXx2C8co38HFSiJJ5rrsrVbiGUyckK9aZCAtk25QfevW/3dDwX7LOUXFJj0JfkZPtYa751I8HHNOkl28x9eVXVQqBYrZjb8AL1/liSo8hZAsHNcljfXkF5QTjr85P86K5yXlARMA6iCXufhefxgwpor3ICZo8OIkjujJ4h2Wuy4ImA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20)
- by VE1PR04MB7423.eurprd04.prod.outlook.com (2603:10a6:800:1a0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.11; Thu, 18 Sep
- 2025 02:46:20 +0000
-Received: from DB8PR04MB7051.eurprd04.prod.outlook.com
- ([fe80::8f9d:4273:ea83:167a]) by DB8PR04MB7051.eurprd04.prod.outlook.com
- ([fe80::8f9d:4273:ea83:167a%6]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 02:46:20 +0000
-Message-ID: <548d6b53-f301-4977-ac68-a2241e45aa07@nxp.com>
-Date: Thu, 18 Sep 2025 10:47:51 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 17/39] drm/imx-dc: Switch to
- drm_atomic_get_new_crtc_state()
-To: Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org,
- =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250917-drm-no-more-existing-state-v4-0-5d4b9889c3c8@kernel.org>
- <20250917-drm-no-more-existing-state-v4-17-5d4b9889c3c8@kernel.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20250917-drm-no-more-existing-state-v4-17-5d4b9889c3c8@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR04CA0174.apcprd04.prod.outlook.com (2603:1096:4::36)
- To DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20)
+	Thu, 18 Sep 2025 02:56:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4cS0XW2bMKz13NhL;
+	Thu, 18 Sep 2025 10:51:55 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id E3FF3180B57;
+	Thu, 18 Sep 2025 10:56:05 +0800 (CST)
+Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 18 Sep 2025 10:56:05 +0800
+Received: from [10.67.146.137] (10.67.146.137) by
+ kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 18 Sep 2025 10:56:05 +0800
+Subject: Re: [PATCH] irqchip/gic-v4.1:Check whether indirect table is
+ supported in allocate_vpe_l1_table
+To: Marc Zyngier <maz@kernel.org>
+CC: <tglx@linutronix.de>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <guoyang2@huawei.com>,
+	<wangwudi@hisilicon.com>, jiangkunkun <jiangkunkun@huawei.com>,
+	<wangzhou1@hisilicon.com>, <guozicheng3@hisilicon.com>
+References: <20240122160607.1078960-1-tangnianyao@huawei.com>
+ <86sf2p91zt.wl-maz@kernel.org>
+ <5de3da53-9c0d-2a2d-876b-2181e540fa2f@huawei.com>
+ <86r0i98o0a.wl-maz@kernel.org>
+ <de3c10be-f4d4-75d0-bc70-0791e5217516@huawei.com>
+ <86v83fmn9l.wl-maz@kernel.org>
+From: Tangnianyao <tangnianyao@huawei.com>
+Message-ID: <cae508d5-c846-5daf-a1b8-4014f14759e5@huawei.com>
+Date: Thu, 18 Sep 2025 10:56:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB8PR04MB7051:EE_|VE1PR04MB7423:EE_
-X-MS-Office365-Filtering-Correlation-Id: f92d644e-f01f-4b5a-c87b-08ddf65d8bc8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VjQ0ajNKY2pLWU9KcDdlYmFONE1Cb2F4R1lCbmNWaWtMbHRWQVpPeHBEcEtB?=
- =?utf-8?B?Zmo1YnR6czlDdDh2ZitGN2tldXU4QzA4dkVzRlhVRnVXN0ErdEZXS0pDR0J1?=
- =?utf-8?B?RXNGNnZXUUpGaWZqcHBqYXdhOHNLMnUxMll2ejkwekgyUzVBRHp4MTZvY2xZ?=
- =?utf-8?B?TzJqUEczQzIyaktvcFdlRXZYREYrYXlLOUh5VnF0d3hGSVNMSGRKZ1F6SzRZ?=
- =?utf-8?B?MzZEK0lBdXRUZ3hlSVlOM0ROa2tTeEJlaEMwaThaaVpKdHF6eFNKajZYSlFr?=
- =?utf-8?B?akVOZ3cxVDVwQzhSNzdQTGx6WXpVQkU4R0c1M2FSRjBHd3p1OVNzeTBKN1kx?=
- =?utf-8?B?UnFJcFZrMUVEOXNGdkxNWlVVc2NtbXNwRnNuZTVqWjNxMW9xV0ZzOGp3cHZm?=
- =?utf-8?B?bkhmVjZBSUthbWw4bG5ZMmxyeWxKeE80UnJoY2xQWGgzTXV2NVlTSEU2TkdR?=
- =?utf-8?B?MDEwRERpV0dWUGVvaFNWanBnUkxyOUFpdmJpWC9sNmxCRjNGRTc1aEtrMlVJ?=
- =?utf-8?B?aXZWYTRhSnVSeC9BMHlLVXlZVXNqUXFpeDMySUR4dnBmMGhZVkRDeFZSQjVI?=
- =?utf-8?B?c21EOHJVWk1COUFWdWFZR0JIL05JQjVnU2Vrc3dRanRrMlp4SzFzSS84WDJK?=
- =?utf-8?B?ZDU0NlBwZUVGb3F2RUxzRDMrRUVyTXFhZXI3MEFYN0xBU3ZhYjJCMHQrUzEx?=
- =?utf-8?B?cW5ta0J6bitEa0xTRHVJbVpOSWErdFlWVk4zODVhZ0tqYmFxbXBGZ3V2L28v?=
- =?utf-8?B?cVRiUXlPTEdLMWp0TFRFckg1Y2k2d2Z3Zmo5REhCUVBpSTNvV0g3N2FtUzdP?=
- =?utf-8?B?MmE1eGxVczQzV245LzdNdGpLd1o0SXFpSHhIOWlTSDF0L2JQSDE2cnNBa0Fj?=
- =?utf-8?B?ZGx6OXBIbGd0eW5WK2NtMTNjM1VNUm9JMTNwTzh2SXI3Zmw2OFZ4NytCUlFm?=
- =?utf-8?B?c3EvTXZmVnRsaS9sa1p5QmVvTm44L2IvWkxMckxtMjJhOUR5dDR4YzBSbzEy?=
- =?utf-8?B?K1JMSjFPME84dW52emo0VHgxV2UyeHZjcWkwOXoyQ2ZFLzUwL09abFd3c3hH?=
- =?utf-8?B?TE85M25ibHFQekZpQkNDOTlQd0hTYVk4U1RncXYwdEI3U0JzV2hEOEFWSFEr?=
- =?utf-8?B?YmRJdW5oMGZMRWRSdzRJdFFRVUdUalpRN2ZVZmtGc29BQWd2Zm9mZlR3dEZY?=
- =?utf-8?B?WjNSV1pLS3FjRVpMb0dub2J1aFpLZE1mbGxkYXpzazJ0SFdTYjRsQjZIc21p?=
- =?utf-8?B?QXlZbm45NEpPTDZ6cHZRSXBaK3hIR2FnNTJkRVRzOGVnYzlCOTRoa1V1RWN1?=
- =?utf-8?B?TTZkOG1pZk1nYmdxS0VTeG1rS3FTaUlSa05QeXp2ZEVaLytXanlCQWFwcHha?=
- =?utf-8?B?NHR3NFVnR1hUYk1zU0Q1azVrdCtvYXpmdy9wRnZhMmJlczRtU0dsUTJjdURL?=
- =?utf-8?B?RHNPNmkyaU9YY1d1YnpzOStRY3Fwc0FOVE5FbjFKaTR6dE5YY01Lc0h5dmpO?=
- =?utf-8?B?bGFUYzN0V3I3YW9ibnd3UVpRcERibWJzYlI2SzJwV0YzQUlPZmQrbW80UnRI?=
- =?utf-8?B?eHFBOXhiUlg2OE4yS1hRY29TbHlnUGxIMTQvRXN6YjVpbUxOandQUmxyUXRp?=
- =?utf-8?B?RmNPdHhIaHJRTmZxakRoc1A3cFhia0lTZklPZ2QzTjhxWWZySFRHcTBVSVB3?=
- =?utf-8?B?SjFLbjA3TGl1bHhnUW5hYkh3dGhGTnJtTHYxQmR3MVYybDB1YWlPUWZ4OWZP?=
- =?utf-8?B?bUFUcVJqWm1EaGxVSFZrNE9iNEtPb2hWREEvYjNha3d4emZ2K3Vwbm5rbWp3?=
- =?utf-8?B?bUNTSTE5NDF1NFp4OWpJTnZ6OE03U1VKNWswVVhuR2dnWmpQYTFGSE5NRFpo?=
- =?utf-8?B?Z0t0R2R4YTRkakZiM3lheHFWbDVSSEJHb3hkaW9ZemNyL1BTOFpScS9od2Nq?=
- =?utf-8?Q?8MGbLOtEShg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB8PR04MB7051.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlpGZ2FuWjZ3WFpQdnlvZFlET0tpeHpEdGxISUdDRjZOZEdzc0JoOHhRcUg1?=
- =?utf-8?B?K1NTNnc2SDN1VW5aWFIvTkhFcldiTGdpTXYxejQ4TDVqQ1dmRmFhNGEwSnBN?=
- =?utf-8?B?VFpnQ3k1ZjkwdTZDMFZDL05vNHE5MTJDdG1UdEhrRjhCVng0MERTc1dBZGhR?=
- =?utf-8?B?ZEh6Y0dGb2xIVFVsUHBpOFliOE9hai9pOVBLaGlFVFZSQWF3cFFjQnBtYlpq?=
- =?utf-8?B?WnRWd0puSGxjVXpZNFJUZUJmZ29SV2dpa2l4QzFMemVIdHhyMmRuN21JNkdZ?=
- =?utf-8?B?NkY3blBiVWZ2QVR6NlNjc2w1N2gzMUp2aTJHY056Lzhqbk1kdGRyenJrRlJn?=
- =?utf-8?B?OHVYM0ZsOTYrVFV2OWhkNDJ1YWowSTU4SXhEU2FOd0hURm1tNk1PN0RlT1B4?=
- =?utf-8?B?YjZtQ1lGMmg1emxQdVh2b0tjUWFnZTJ6TGxsWnkrTjk1T3BISit2RFA3WXpB?=
- =?utf-8?B?ZThKZkE1eUgxcXlWdzY2SjFzL1VvY0N5anI4M2Q3aDZxb1ppVFl1RDIxdDFB?=
- =?utf-8?B?SHliTEJydTl2Q3dVcWxyQXd0eER4WE0vTmFYMVRMZHU1Q0hPY3JMckIwelY5?=
- =?utf-8?B?M3IxQmcweFh6cVA0MWxaQXZSL2RXZFZWS1FBeDlNcnZ1UGY0RmJOVUpicmFO?=
- =?utf-8?B?ZUNVUEFVZ0VWU25BVFhuaGVFTzhvV1pTK0J5ekRScnBWbys0Ynk3c0paL3Vr?=
- =?utf-8?B?aEd2SVZFZUZqb2FneGFOb2ZjVmFFdXZLTjVoZittT1VnMGpwRG1PNXRPUnZ5?=
- =?utf-8?B?cmtGM1NrUFJ4a0ppTWNUQjY2TERCNGdZSkUzVUp2ajY3WkE5NCtrSU03Q0N4?=
- =?utf-8?B?dVFUei9heDZIbURzTGhJUzZEUnd6SE1xRWVkeXRpYjdEeHc2UnNpaStkT0lz?=
- =?utf-8?B?d2dLaTE0Q0haY3FicWVzbG4yR2w2MzRzSGR6ODJoZmxQYjU1MXBLQWQxTUZh?=
- =?utf-8?B?b0ZLaXdSTEF2aG12RnQyRWxDdnFYamlHdnRyVVQyTGhiR3JES242Wk1EWWNR?=
- =?utf-8?B?YnowOWNwcU1LVno0SGhCK05xZmQ2bE5TeUxMWUhGZEU2bDE5Mm1lUzN0R0tD?=
- =?utf-8?B?d2Z4NHZYakd1dCtDRlpBSzRiTUJHSjBZK3NmK2ROY05uQlRhUjhSTXI1VVhl?=
- =?utf-8?B?MDNyTVV2S2M2UmE3MG95eFQxWStpSW5kR3BpcGo3TFdTSCs3T3U5V0lybW9S?=
- =?utf-8?B?ZGxzVDlNbGpHb2twSjJNSjlMRStzL0tvUzFGRDRhVTJMQVRoQXdNc1AvWUhL?=
- =?utf-8?B?RS81VU9rbnhXS2hkUTZHYzZhaUUzajRzMUZndzZkbmNyUUIrK2xVZUttMUpu?=
- =?utf-8?B?UndwdlJvT0lTa2xFTlFTWjV0YU1KUVAwdDNBWUZEVUVrQ3htellscjhkbzFP?=
- =?utf-8?B?R2NSUG05K0ZkMnRvekdaNVpjQ1lXZTUyTHJ1MEZic2RVL3QxcXlaRmVtbFY1?=
- =?utf-8?B?cVhRMFN0RmhtR2JBa3dYQ3FxMm44c2dmOC9xUVpDTU4ydXJCeHRhQnZqaC8v?=
- =?utf-8?B?TFZPVFkvdXN3cXRvWEhzM0srZnRUenlYNmVUbUx5bXlKZTM1eEN3RCs5emxo?=
- =?utf-8?B?QVcrS0ZGQlBNazhmOVdIUzdKOVhJQ0NoODYyRFpvUHRxOWhKdTVCaGRSdmZp?=
- =?utf-8?B?bUJaSEhqUnBZYU5uaVl4TjdBNVh4RnJCK3ErRENTUDN6eFlweG5tTm10SU9J?=
- =?utf-8?B?M2h0UWdzNHZNZ3NqV1ErUUhZemgzUXZSYjhIOG1nNzZmckVjWE55aStISzNt?=
- =?utf-8?B?YUFvcE5tMGErd201SUdSRlRvUk1kSHRmeDh2Q0o2MnlCQjNRRWdOSmJoSFda?=
- =?utf-8?B?RVZtdWhTVmpCbU5WcEFuVEhkbFFFbCtsLytYbVQ4K3Rjb1QzMWQremsxZDd5?=
- =?utf-8?B?MTNaSlhzNFRSNjZ2aVlSVmQ5a2dOSDdkV0xReTljWWdNaC9EdFl5ZnIzM3pj?=
- =?utf-8?B?bVZuK28zcndlQjJ5Q3l3UDR0cFB2WGVPeWFYNHZueDJ6UXpkM3lIZWNONVRK?=
- =?utf-8?B?VXo2OXRjc290Zk1sc09EcFJYK3JqMG1xeWRFTXg1YkdkMGw3dnYzb0JXVXpZ?=
- =?utf-8?B?bi9WQlJCQUxQYStKK2tPMkFDQ1dPS3lUd1ljL0JsVHpyVmxsLzFlVDFZb01v?=
- =?utf-8?Q?g7nme/OlCVOFHeqhEkb/dSdyD?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f92d644e-f01f-4b5a-c87b-08ddf65d8bc8
-X-MS-Exchange-CrossTenant-AuthSource: DB8PR04MB7051.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 02:46:20.0439
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 01BwYhEbG0sGMIeJ3Db5uQmBJeCxG87LF6ZmZpxIUegEkYRjHkXIXWkw0CB3CGXDXRALj/+J1H63Eb8H+OHmSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7423
+In-Reply-To: <86v83fmn9l.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Language: en-US
+X-Originating-IP: [10.67.146.137]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq500001.china.huawei.com (7.202.195.224)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_194633_204046_FF520223 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250917_195615_842781_44131403 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,28 +84,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/17/2025, Maxime Ripard wrote:
-> The imx-dc atomic_check implementation uses the deprecated
-> drm_atomic_get_existing_crtc_state() helper.
-> 
-> This hook is called as part of the global atomic_check, thus before the
-> states are swapped. The existing state thus points to the new state, and
-> we can use drm_atomic_get_new_crtc_state() instead.
-> 
-> Reviewed-by: Ville Syrjälä <ville.syrjala@linux.intel.com>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> ---
-> To: Liu Ying <victor.liu@nxp.com>
-> To: Shawn Guo <shawnguo@kernel.org>
-> To: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/gpu/drm/imx/dc/dc-plane.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
+
+On 5/15/2024 17:34, Marc Zyngier wrote:
+> On Wed, 15 May 2024 09:56:10 +0100,
+> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>
+>>
+>> On 1/22/2024 22:02, Marc Zyngier wrote:
+>>> On Mon, 22 Jan 2024 13:13:09 +0000,
+>>> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>>> On 1/22/2024 17:00, Marc Zyngier wrote:
+>>>>> [Fixing the LKML address, which has bits of Stephan's address embedded
+>>>>> in it...]
+>>>>>
+>>>>> On Mon, 22 Jan 2024 16:06:07 +0000,
+>>>>> Nianyao Tang <tangnianyao@huawei.com> wrote:
+>>>>>> In allocate_vpe_l1_table, when we fail to inherit VPE table from other
+>>>>>> redistributors or ITSs, and we allocate a new vpe table for current common 
+>>>>>> affinity field without checking whether indirect table is supported.
+>>>>>> Let's fix it.
+>>>>> Is there an actual implementation that doesn't support the indirect
+>>>>> property for the VPE table? I know this is allowed for consistency
+>>>>> with the original revision of the architecture, but I never expected
+>>>>> an actual GICv4.1 implementation to be *that* bad.
+>>>>>
+>>>>> If that's the case, I'm a bit puzzled/worried.
+>>>> I met this problem in a developing implementation and find it's allowed by GIC spec.
+>>>> In such environment,  in a common affinity field with only redistributors and without
+>>>> any ITS in it, forcing its_vpe_id_alloc to allocate a large vpeid(like 65000), and there
+>>>> comes an error message "VPE IRQ allocation failure". It originally comes from
+>>>> allocate_vpe_l2_table, reading GICR_VPROPBASER with GICR_VPROPBASER_4_1_SIZE=1
+>>>> and GICR_VPROPBASER_4_1_INDIRECT=0.
+>>> Really, you should get your HW engineers to fix their GIC
+>>> implementation.  I'm OK with working around this issue for
+>>> completeness, but shipping such an implementation would be a mistake.
+>>>
+>>> [...]
+>>>
+>>>> I have another question here. The max number of pages  for GITS_BASER
+>>>> and GICR_VPROPBASER is different here, while GITS_BASER.Size is
+>>>> bit[7:0] with max 256, and GICR_4_1_VPROPBASER.Size is bit[6:0] with max 128.
+>>>> Kernel usually probe ITS basers first and then probe GICR_4_1_VPROPBASER in
+>>>> a common affinity group. Maybe we need to check this in "inherit_vpe_l1_table_from_its" ?
+>>> This is because GITS_BASER[] is generic (also works for devices and
+>>> collections), while GICR_VPROPBASER is tailored to the VPE table which
+>>> is usually smaller.
+>>>
+>>> I would expect that GICD_TYPER2.VID reports something that cannot
+>>> result in something going wrong (in this case, the L1 allocation
+>>> cannot be more than 128 pages).
+>>>
+>>> Overall, the kernel isn't a validation suite for the HW, and we expect
+>>> it to have some level of sanity. So if none of this is in shipping HW
+>>> but only in some model with crazy parameters, I don't think we should
+>>> go out of our way to support it.
+>>>
+>>> Thanks,
+>>>
+>>> 	M.
+>>>
+>> Hi Marc,
+>> Friendly ping. Do we have plan to fix this problem on kernel, or any other plan ?
+> Hi Nianyao,
+>
+> My earlier question still stand: is this something that affects a
+> shipping implementation? If not, then I don't think we should support
+> this upstream, as this doesn't seem like a realistic configuration.
+>
+> If your employer has actually built this (which I still consider as a
+> mistake), then we can add the workaround I suggested.
+>
+> Thanks,
+>
+> 	M.
+>
+Hi Marc,
+
+For GIC4.1 of HIP09,HIP10,HIP10C, it only support one-level vcpu table and GITS_BASER<n>.Indirect
+is RAZ/WI. It implements page size 16KB and entry size 32B,  each page support 512 vpe, and our
+clients have requirement 1 or 2 pages at most, so it just supports flat page to simplify implementation.
+
+Our designer has confirmed with ARM architect that we can waive this rule:
+Quote from GIC spec 12.19.1 GITS_BASER<n> description, if the maximum width of the scaling factor
+that is identified by GITS_BASER<n>.Type and the smallest page size that is supported result in a single
+level table that requires multiple pages, then implementing this bit as RAZ/WI is DEPRECATED.
+
+We have actually built this in HIP09,HIP10,HIP10C and would like to fix this in kernel.
+Can we merge the above bug-fix patch to kernel?  Or we need to fix with errata for HIP09,HIP10,HIP10C?
+
+thanks for your opinions
+
+Nianyao Tang
+
+
 
