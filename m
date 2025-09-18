@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FE7CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65BF2CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsDTPwAGkRwwpSnZNZWAW7/2Ey62GVABiWtEKo287Ow=; b=3SE+DHIu5HpK8B3P8Yqf/BdMNy
-	oo/UgrLnj/U6a2njtWTVUXBGrN+viHzJEesdmdv3Bt0srjehjWEUHR/cdlGYxnwPqmWNRHmO5OKJQ
-	PI9s9tqEt656mBLk29qjihraSZuCBxqe9VQpTY/mCaOzd514MsMzzECXJ7oVYPecV7xPMGVUhiBqv
-	PQINzA8qvXmS6fFQJhWaBRSspKGFlJu4vdO8Uz2VsgN3Aq8seTUopmugB58c0iKdeqxFIrYqWSN/g
-	eBaJ0cvr2ErNNTUnFGqU0idhh+WXFLyGHa28LSlPUcaZEeB6llyCbUGWCHWQ/Hgy7yZ9MRoZ+4mxA
-	EwMuqhFg==;
+	bh=0ks/Dt/gG06zpcviyC2RmuMfALb4spkC/mj20Xhc7U4=; b=YEzQ+/a+zoB/bK1ICWhWK+O73r
+	y9zQ9XgMxDk/CkV+RlUFM05E1RZviLPtrEpt/09C9a3rRuhuA1qWxV7R8iTr6zI4ZqkV4kDk4Ozgc
+	1UWyRj4+cS0qB7H8gD1vpP1GBUn5A0Tr8/2J5BmDWfLhZBMrJph5Yzy4br3A8uYbXPX7Tthi2a3re
+	lv8pZkTw9seDGbyYX1TAoTWR7Y/I7V1qobX9/bieHk4am/JRIkTVp/C47HeXagXTMBE1XV7YTA7p0
+	kCgT79uZoIrE1YHw1Z09d4Jgi2GP9sQaS9XB+onWpxoQvIuRntx+U1SKgN64TtAq97ZQxZnygwesa
+	fheNXBcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHUK-00000000d38-1wLQ;
-	Thu, 18 Sep 2025 16:28:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzHZ1-00000000dlZ-1x21;
+	Thu, 18 Sep 2025 16:32:55 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHUI-00000000d2X-28Ec
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:28:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D45860207;
-	Thu, 18 Sep 2025 16:28:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 350C5C4CEE7;
-	Thu, 18 Sep 2025 16:27:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758212881;
-	bh=yGD3rd0ZgCpKN5/ib9YlnwYypPwsbITgq4CSUhmw/FQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QnarWw3FJUtrtOMP50yvc5UH8uSKNOmSqz96oPjewbjN4GGyf1nK0rJco3NxORKWA
-	 ewrgOof32hIj+7IAMSc6GZr/1ZWAWTcwoRcllf1KW6VOc8NfoYRz60Lul0ZJG+Xv+0
-	 QdBV4J4NTgPF/kM6/16lCvvH08fikSs5zC4QfozCk76r3XWKs+Ah0DE8qseg18A9ev
-	 HJbLQNC5hcof4gBI1qwxKy25wR2ZOjeyXIu51Lgxvv2AHpJ++b8wbP0q6lpMyYyU7d
-	 bXZs9QP7lJIhRCkucua/zIE+iD/ZrvZTSl3sEpdhH6iRmFc8YSeppuMypNSLjveZza
-	 YyNNrS7pHs3OQ==
-Date: Thu, 18 Sep 2025 17:27:56 +0100
-From: Simon Horman <horms@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Roger Quadros <rogerq@ti.com>, MD Danish Anwar <danishanwar@ti.com>,
-	Parvathi Pudi <parvathi@couthit.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Mohan Reddy Putluru <pmohan@couthit.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Basharath Hussain Khaja <basharath@couthit.com>,
-	"Andrew F. Davis" <afd@ti.com>,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH net-next] net: ti: icssm-prueth: unwind cleanly in probe()
-Message-ID: <20250918162756.GA394836@horms.kernel.org>
-References: <aMvVagz8aBRxMvFn@stanley.mountain>
+	id 1uzHYz-00000000dkz-2Rmi;
+	Thu, 18 Sep 2025 16:32:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=0ks/Dt/gG06zpcviyC2RmuMfALb4spkC/mj20Xhc7U4=; b=KoLiEW3a+FctGMCYTji6G0piKX
+	6+2sXpnGjpyCiB9GZ1aJLpE4MPYaT4SHrv8fw7rBSREmCDqF4nuUIBFZIIYmv+i3ReGtxZ8MGrp+s
+	j+YRd0HmYRcGKfIR/k6IHWq3t+jxGCnOm+ADllcYsPkFk37j3Kv81W5EGdi5YRAO43vk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uzHYr-008qze-89; Thu, 18 Sep 2025 18:32:45 +0200
+Date: Thu, 18 Sep 2025 18:32:45 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, ksummit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, imx@lists.linux.dev,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Richard Weinberger <richard@nod.at>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	David Hildenbrand <david@redhat.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
+	Andreas Larsson <andreas@gaisler.com>
+Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
+Message-ID: <f4154621-be77-4c08-89d4-ab931ac3df30@lunn.ch>
+References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
+ <20250917125951.GA1390993@nvidia.com>
+ <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
+ <ca6fc8dc-d1ee-41a8-a1c9-11ed2907207f@lunn.ch>
+ <ea6562f4-ec8c-4e99-98ec-000c25c34a3e@app.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aMvVagz8aBRxMvFn@stanley.mountain>
+In-Reply-To: <ea6562f4-ec8c-4e99-98ec-000c25c34a3e@app.fastmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_093253_619106_0C48DD7E 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +93,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 12:48:26PM +0300, Dan Carpenter wrote:
-> This error handling triggers a Smatch warning:
-> 
->     drivers/net/ethernet/ti/icssm/icssm_prueth.c:1574 icssm_prueth_probe()
->     warn: 'prueth->pru1' is an error pointer or valid
-> 
-> The warning is harmless because the pru_rproc_put() function has an
-> IS_ERR_OR_NULL() check built in.  However, there is a small bug if
-> syscon_regmap_lookup_by_phandle() fails.  In that case we should call
-> of_node_put() on eth0_node and eth1_node.
-> 
-> It's a little bit easier to re-write this code to only free things which
-> we know have been allocated successfully.
-> 
-> Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Do you know of any kirkwood machines beside the OpenBlocks A7
+> that have more than 512MB of RAM?
 
-Thanks Dan.
+No.
 
-I'm pretty sure I reviewed this code at some point.
-Sorry for not noticing this problem then.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
-
-...
+	Andrew
 
