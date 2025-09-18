@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F2FACAC59F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCEBCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xw55EW//d5j5K5CD5EC6iiUQ4IcFC7fLVXp+c52RlF8=; b=vlBCxbULTlFh8Woj8xyFoEKGWa
-	6wgDSgNEbBk4U7+zB+ubEx2tQXELKCIha2noS9/TqFpjVhgr33eooUwXMPvevRQnN03wmp4Fc0BHP
-	jnG6cqZD+W25x3k3Ls9yPvEuaPymbcIBzBLbpEJFCe4LzCBBu8PYhToaf2vs48n7jN/szC/T5Q21N
-	TmleanYfkysFKjz/DN8T9s0f6LT2E0cetgQH/77bit8uXvXlHCb/4HAwmGhpNmHxWgXMqJcNRuYyT
-	7MOKw6Juun0c3sRkMTHclIzI4v+PRZNnls0TJWjLI35gcFz7p7p3ZVpGroZIvPGjvn1EGNwRJMx7/
-	wHc6pDfg==;
+	bh=oq22QE0Ku/a45+pweyw7iXi2e0ePrqKJxQMidJHdsEU=; b=P7EWeP2yLfzbEiUdvD+dnaKZ6L
+	MES8CsHM1G8hQKSJHCp/zPaqQfZ9unZmqd4WaZamzVJYM+DGSGdZC9pk8Mmm4xwq51XH1/Nc6YyEP
+	cQdTM4HSWDWbJ6lBfzTECFq/fzuui48AubCRfhFA8v8n5s9rxtyqgxag92Hhx5vmXjthWyo1Tel6I
+	W3A899qoUIlpsUiJaiOxj6KD4h4qV1KGd8LGlOM3Zcue6a8qShM6wKUGNXttH1ivyemEUHVz1kStg
+	+NFOkMhnGoSsK296WymtVbtH56NmhpRTjDrbzi1R1wIrTTo8Ov+aoJGwzYFB8gGnV0thtfyYm+7P2
+	+WGhj/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2lw-0000000FrHC-0EcR;
-	Thu, 18 Sep 2025 00:45:16 +0000
+	id 1uz2m5-0000000FrRg-3878;
+	Thu, 18 Sep 2025 00:45:25 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2lt-0000000FrDr-3uMK;
-	Thu, 18 Sep 2025 00:45:15 +0000
+	id 1uz2m1-0000000FrMS-3JJF;
+	Thu, 18 Sep 2025 00:45:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758156312;
-	bh=AeLBQl03qAG/0Pv36jLJWBzJBntn596lkNvH2nd0VLc=;
+	s=mail; t=1758156319;
+	bh=hrg4K9aJusXrURZYZb3+I5lkB5k51QV3G7lrQkGG2a8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bYIDfJT00GucC0EwmTtTdzTFuVVPsx1f+fzkoTrJ45tOjz7pBaoS1to6gcapNZ1N6
-	 LOCpMYPZBy7n/VwxDztfDbH+mTq9iyZ5tyJ30yO8EKKE7P8YBU8IjkMxT9bRPWoRpy
-	 MXNo2n9h+7Ijh9rYK8UI4XF+nORZu2hUhyGXgAUL4DhPWnKhsXbWHAJN40rFyeqbLZ
-	 MGnGbPX5+RNj4Br+Xp8VOYx6O6oh7/Bg+wblfDXsoGXCVi3p5vW7yr/GNHPkkhQdmK
-	 7E8Y+vlmso5ggQnTX5I2bpXRmqOHNk8t5QKSobARKJWl0fu5aFK+Ui3Ih145jVb5q1
-	 SI2E/YkgjNe0g==
+	b=TbF2ZDWI2haHqxIzCLtHuRR7gts16RvJ75kYVBf5h3nu2W3fkUrAi2ZixSUX61zAP
+	 2ypMBEVj7lDCIHm7LGYOMG/vJ0vdQczwLa/PUwYwlbI6p9pvxB2UUE4wRhe+7AvSjF
+	 tL2sepBa8WarzRlIkpRXIEX1MPpwM3SndjxozmonFdUMfoDwmp3ZBCg4wYnqbZsxSD
+	 6okqdyPy9fLV4t2VVJMJmwj+ciD2EN2WrJmihDR3A6oZ2UGSHyV2RLb9eamejptsrB
+	 B1fnEMFgEQJ093PNeTi0BBj6F3+lh9vJWh6oMUh54KkSq0pT3dEBZUB5x6tCN7hv7T
+	 LpdnFIRL8VQxw==
 Received: from [127.0.1.1] (unknown [IPv6:2600:4041:5b1a:9400:62f0:406e:ac79:4a96])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9E9B417E130F;
-	Thu, 18 Sep 2025 02:45:04 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4A5F717E0EB8;
+	Thu, 18 Sep 2025 02:45:12 +0200 (CEST)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 17 Sep 2025 20:43:24 -0400
-Subject: [PATCH RFC v2 15/20] drm/mediatek: gamma: Support post-blend color
- pipeline API
+Date: Wed, 17 Sep 2025 20:43:25 -0400
+Subject: [PATCH RFC v2 16/20] drm/mediatek: Set post-blend color pipeline
+ driver cap
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-15-ac4471b44758@collabora.com>
+Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-16-ac4471b44758@collabora.com>
 References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,8 +79,8 @@ Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
  Simona Vetter <simona.vetter@ffwll.ch>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_174514_136314_430752DA 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250917_174522_017902_AD5A5011 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,226 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the gamma_set_color_pipeline DDP component function to allow
-configuring the gamma LUT through the post-blend color pipeline API.
-
-The color pipeline API uses a 32-bit long, rather than 16-bit long, LUT,
-so also update the functions to handle both cases.
-
-Also make sure to enable or disable the LUT function depending on
-whether the block should be bypassed or not.
+Now that the driver implements post-blend color pipelines, set the
+driver cap so they can be used from userspace.
 
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |   3 +-
- drivers/gpu/drm/mediatek/mtk_disp_drv.h   |   3 +-
- drivers/gpu/drm/mediatek/mtk_disp_gamma.c | 107 +++++++++++++++++++++++++-----
- 3 files changed, 94 insertions(+), 19 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index c873b527423f51733058cbc3d0ad2a719e26bfe1..d253906546506ecf1f1e2a23123b80e774e981ae 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -327,7 +327,8 @@ static const struct mtk_ddp_comp_funcs ddp_gamma = {
- 	.clk_enable = mtk_gamma_clk_enable,
- 	.clk_disable = mtk_gamma_clk_disable,
- 	.gamma_get_lut_size = mtk_gamma_get_lut_size,
--	.gamma_set = mtk_gamma_set,
-+	.gamma_set = mtk_gamma_set_legacy,
-+	.gamma_set_color_pipeline = mtk_gamma_set_color_pipeline,
- 	.config = mtk_gamma_config,
- 	.start = mtk_gamma_start,
- 	.stop = mtk_gamma_stop,
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_drv.h b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-index ac84cf579150fd0535c79f43ad5942f8d412d450..7795aa5bc057fc09597cbd582f04e4dc76d3ecba 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-@@ -58,7 +58,8 @@ void mtk_gamma_config(struct device *dev, unsigned int w,
- 		      unsigned int h, unsigned int vrefresh,
- 		      unsigned int bpc, struct cmdq_pkt *cmdq_pkt);
- unsigned int mtk_gamma_get_lut_size(struct device *dev);
--void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state);
-+void mtk_gamma_set_legacy(struct device *dev, struct drm_crtc_state *state);
-+void mtk_gamma_set_color_pipeline(struct device *dev, struct drm_color_lut32 *lut);
- void mtk_gamma_start(struct device *dev);
- void mtk_gamma_stop(struct device *dev);
- 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_gamma.c b/drivers/gpu/drm/mediatek/mtk_disp_gamma.c
-index 8afd15006df2a21f3f52fe00eca3c5501f4fb76a..dec9eeb53cb8539e49ecc1087e037645c792ee3d 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_gamma.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_gamma.c
-@@ -87,13 +87,34 @@ unsigned int mtk_gamma_get_lut_size(struct device *dev)
- 	return 0;
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index d5e6bab364143540e1f59df481b9a9d559c39199..73c0f448d7fcf25e473e2c3c6ddaaf28446570cf 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -611,7 +611,8 @@ static struct drm_gem_object *mtk_gem_prime_import(struct drm_device *dev,
  }
  
--static bool mtk_gamma_lut_is_descending(struct drm_color_lut *lut, u32 lut_size)
-+static bool mtk_gamma_lut_is_descending(void *lut, bool bits32, u32 lut_size)
- {
- 	u64 first, last;
- 	int last_entry = lut_size - 1;
-+	u32 lutr_first, lutg_first, lutb_first, lutr_last, lutg_last, lutb_last;
-+	struct drm_color_lut32 *lut32;
-+	struct drm_color_lut *lut16;
-+
-+	if (bits32) {
-+		lut32 = (struct drm_color_lut32 *)lut;
-+		lutr_first = lut32[0].red;
-+		lutg_first = lut32[0].green;
-+		lutb_first = lut32[0].blue;
-+		lutr_last = lut32[last_entry].red;
-+		lutg_last = lut32[last_entry].green;
-+		lutb_last = lut32[last_entry].blue;
-+	} else {
-+		lut16 = (struct drm_color_lut *)lut;
-+		lutr_first = lut16[0].red;
-+		lutg_first = lut16[0].green;
-+		lutb_first = lut16[0].blue;
-+		lutr_last = lut16[last_entry].red;
-+		lutg_last = lut16[last_entry].green;
-+		lutb_last = lut16[last_entry].blue;
-+	}
+ static const struct drm_driver mtk_drm_driver = {
+-	.driver_features = DRIVER_MODESET | DRIVER_GEM | DRIVER_ATOMIC,
++	.driver_features = DRIVER_MODESET | DRIVER_GEM | DRIVER_ATOMIC |
++			   DRIVER_POST_BLEND_COLOR_PIPELINE,
  
--	first = lut[0].red + lut[0].green + lut[0].blue;
--	last = lut[last_entry].red + lut[last_entry].green + lut[last_entry].blue;
-+	first = lutr_first + lutg_first + lutb_first;
-+	last = lutr_last + lutg_last + lutb_last;
- 
- 	return !!(first > last);
- }
-@@ -113,7 +134,7 @@ static bool mtk_gamma_lut_is_descending(struct drm_color_lut *lut, u32 lut_size)
-  *     - 12-bits LUT supported
-  *     - 10-its LUT not supported
-  */
--void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
-+static void mtk_gamma_set(struct device *dev, void *lut, bool bits32)
- {
- 	struct mtk_disp_gamma *gamma = dev_get_drvdata(dev);
- 	void __iomem *lut0_base = gamma->regs + DISP_GAMMA_LUT;
-@@ -121,19 +142,20 @@ void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
- 	u32 cfg_val, data_mode, lbank_val, word[2];
- 	u8 lut_bits = gamma->data->lut_bits;
- 	int cur_bank, num_lut_banks;
--	struct drm_color_lut *lut;
- 	unsigned int i;
--
--	/* If there's no gamma lut there's nothing to do here. */
--	if (!state->gamma_lut)
--		return;
-+	struct drm_color_lut32 *lut32;
-+	struct drm_color_lut *lut16;
- 
- 	num_lut_banks = gamma->data->lut_size / gamma->data->lut_bank_size;
--	lut = (struct drm_color_lut *)state->gamma_lut->data;
- 
- 	/* Switch to 12 bits data mode if supported */
- 	data_mode = FIELD_PREP(DISP_GAMMA_BANK_DATA_MODE, !!(lut_bits == 12));
- 
-+	if (bits32)
-+		lut32 = (struct drm_color_lut32 *)lut;
-+	else
-+		lut16 = (struct drm_color_lut *)lut;
-+
- 	for (cur_bank = 0; cur_bank < num_lut_banks; cur_bank++) {
- 
- 		/* Switch gamma bank and set data mode before writing LUT */
-@@ -146,10 +168,21 @@ void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
- 		for (i = 0; i < gamma->data->lut_bank_size; i++) {
- 			int n = cur_bank * gamma->data->lut_bank_size + i;
- 			struct drm_color_lut diff, hwlut;
-+			u32 lutr, lutg, lutb;
-+
-+			if (bits32) {
-+				lutr = lut32[n].red;
-+				lutg = lut32[n].green;
-+				lutb = lut32[n].blue;
-+			} else {
-+				lutr = lut16[n].red;
-+				lutg = lut16[n].green;
-+				lutb = lut16[n].blue;
-+			}
- 
--			hwlut.red = drm_color_lut_extract(lut[n].red, lut_bits);
--			hwlut.green = drm_color_lut_extract(lut[n].green, lut_bits);
--			hwlut.blue = drm_color_lut_extract(lut[n].blue, lut_bits);
-+			hwlut.red = drm_color_lut_extract(lutr, lut_bits);
-+			hwlut.green = drm_color_lut_extract(lutg, lut_bits);
-+			hwlut.blue = drm_color_lut_extract(lutb, lut_bits);
- 
- 			if (!gamma->data->lut_diff || (i % 2 == 0)) {
- 				if (lut_bits == 12) {
-@@ -162,13 +195,25 @@ void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
- 					word[0] |= FIELD_PREP(DISP_GAMMA_LUT_10BIT_B, hwlut.blue);
- 				}
- 			} else {
--				diff.red = lut[n].red - lut[n - 1].red;
-+				u32 lutr_prev, lutg_prev, lutb_prev;
-+
-+				if (bits32) {
-+					lutr_prev = lut32[n-1].red;
-+					lutg_prev = lut32[n-1].green;
-+					lutb_prev = lut32[n-1].blue;
-+				} else {
-+					lutr_prev = lut16[n-1].red;
-+					lutg_prev = lut16[n-1].green;
-+					lutb_prev = lut16[n-1].blue;
-+				}
-+
-+				diff.red = lutr - lutr_prev;
- 				diff.red = drm_color_lut_extract(diff.red, lut_bits);
- 
--				diff.green = lut[n].green - lut[n - 1].green;
-+				diff.green = lutg - lutg_prev;
- 				diff.green = drm_color_lut_extract(diff.green, lut_bits);
- 
--				diff.blue = lut[n].blue - lut[n - 1].blue;
-+				diff.blue = lutb - lutb_prev;
- 				diff.blue = drm_color_lut_extract(diff.blue, lut_bits);
- 
- 				if (lut_bits == 12) {
-@@ -191,7 +236,7 @@ void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
- 
- 	if (!gamma->data->has_dither) {
- 		/* Descending or Rising LUT */
--		if (mtk_gamma_lut_is_descending(lut, gamma->data->lut_size - 1))
-+		if (mtk_gamma_lut_is_descending(lut, bits32, gamma->data->lut_size - 1))
- 			cfg_val |= FIELD_PREP(GAMMA_LUT_TYPE, 1);
- 		else
- 			cfg_val &= ~GAMMA_LUT_TYPE;
-@@ -206,6 +251,34 @@ void mtk_gamma_set(struct device *dev, struct drm_crtc_state *state)
- 	writel(cfg_val, gamma->regs + DISP_GAMMA_CFG);
- }
- 
-+void mtk_gamma_set_legacy(struct device *dev, struct drm_crtc_state *state)
-+{
-+	struct drm_color_lut *lut = (struct drm_color_lut *)state->gamma_lut->data;
-+
-+	/* If there's no gamma lut there's nothing to do here. */
-+	if (!state->gamma_lut)
-+		return;
-+
-+	mtk_gamma_set(dev, lut, false);
-+}
-+
-+void mtk_gamma_set_color_pipeline(struct device *dev, struct drm_color_lut32 *lut)
-+{
-+	struct mtk_disp_gamma *gamma = dev_get_drvdata(dev);
-+	u32 cfg_val;
-+
-+	/* Configure block to be bypassed */
-+	if (!lut) {
-+		cfg_val = readl(gamma->regs + DISP_GAMMA_CFG);
-+		cfg_val &= ~GAMMA_LUT_EN;
-+		cfg_val |= GAMMA_RELAY_MODE;
-+		writel(cfg_val, gamma->regs + DISP_GAMMA_CFG);
-+		return;
-+	}
-+
-+	mtk_gamma_set(dev, lut, true);
-+}
-+
- void mtk_gamma_config(struct device *dev, unsigned int w,
- 		      unsigned int h, unsigned int vrefresh,
- 		      unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
+ 	.dumb_create = mtk_gem_dumb_create,
+ 	DRM_FBDEV_DMA_DRIVER_OPS,
 
 -- 
 2.50.1
