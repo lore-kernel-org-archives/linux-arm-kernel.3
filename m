@@ -4,77 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A06CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 04:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD65CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 04:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vw5q9DvjhhGOyeVfiHY3GKwPIlp0etaPTlu/iuodJus=; b=eNW1E7UuahbzKIRoKGdZC4pTPX
-	dgtmEO/dFZ/TbGjQIC1H5HAJyHxnX71L7E1bhwFq/CzJec/yAQKM+tTENKai/biUrHfl7PZB+p55D
-	kduy3r7CYlgVSjcHObZRLry0x8WeqlwtLE6hnQ3uAwFsmZdkbwYzNN1DFlhrb3rPQeWaLIH3MOmey
-	MjYBf2589b48DivUW3JRfOUsoxFH4xWQB9hMsYOjePBqfERaXpcYdwsBwa3rO87h2CoV065m4KdO/
-	wT9SSrYLi4+S2lVBEH7xQFas+7N147ezOeCAFRL7jcOcOtgXhWXWDyETSNOFAUCo7onZeyj0l/jqQ
-	w4LL1LjA==;
+	MIME-Version:Date:Content-Type:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjoYwSVJGH/4/3CIz33XQWk4DFhebgSGIEqkF/S4CfM=; b=k0Iws/gyqTXxkwJwn2e35ddckm
+	2mBdXtKwWjp4Epu/OWNglF3CONpLaknsTzWdIPy5F2lWSOEKWb9EpnVDU2pIiqkQWQN3AgheEOtYs
+	kuohJnYucj+2jxz++bnhX3CFmL+ixzSkSZQEtgOlwlqh3zF6Ufp3p2rT3dGAZVA3wfjGnmbHJRd8D
+	e1PfDgJJOS45v063vaI5APy5U5Yv7bW7CY3dEjO3W+BMmqjaFSJQ2rLPyoQeh+hCwbEgGAAdExrH2
+	JvPLkPfvh/W/I5RG/4pFOWNJ9kjWHqbjQT/f0/0/wsKjpE4qlZV3zE91NIc0BdtGD2TY1BTXV87Z6
+	7e1i4i5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz6en-0000000GFKh-2SZK;
-	Thu, 18 Sep 2025 04:54:09 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1uz6f4-0000000GFOH-0ggL;
+	Thu, 18 Sep 2025 04:54:26 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz6ej-0000000GFJ9-3erC;
-	Thu, 18 Sep 2025 04:54:07 +0000
-X-QQ-mid: zesmtpip2t1758171201td36bd396
-X-QQ-Originating-IP: ldqFtcIMZ+EgBaSl1BCRznrhOpJNPLuubIRCzJEENoI=
-Received: from [IPV6:240f:10b:7440:1:d0ed:66b8 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 18 Sep 2025 12:53:16 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16889541168818514109
-Message-ID: <FBB5B30DE8FEABD7+59ee6f48-2ad1-45dd-8cf1-8b58a03513a9@radxa.com>
-Date: Thu, 18 Sep 2025 13:53:15 +0900
+	id 1uz6f0-0000000GFME-2BsS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Sep 2025 04:54:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n5QzAvozFidlDQjnntiboAO8GfvgrTWrJ9xvnhrCCrYFdcRUc1USsn9C4+ewNLJPLXeUrRa8K4+3EtodxT7JYwE2GC0dIaw7R7QjHn96ENwlWegoKqTUt53Jov2m/Oly+wm9qK3pg9cRmmxfCuXhBAb6uQrhSt3V411CGa1rXXK00EQCLt5FoCgImeCM7Y8rA8VzINogiIs1TP5j+U45+DiEwK7jtpbXXLHHiDqp/kOYnnNWpKG0sQC51DZceX9veA9DgdZGGQV8Va26Y3esVs5gaJCo1EF1C2ItRY8wJjRoA/5lUwBn2OG+rpXeXuaLpFitTAaNvV4T8+Agvk2a/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tjoYwSVJGH/4/3CIz33XQWk4DFhebgSGIEqkF/S4CfM=;
+ b=JIN1KcKyypaPpC0SW5GJjCHQfNC6xXG7O3FTTSbfeWZw6TmJygrkimxYE0o534Ovdo95Reuz4HmQS57qCNjjyYyExkiIpfATjODjfjkZFftmCGWDCskh+hitXd0cpStcmeuYEBsFOl+iY0FoyL/JFUNoWTLnMG5rbmdz9sBTH7VApbR2lHCehZuBbPWPVGGmBZGjnAZXvi0/JL2MhdJ+kyPyo5iJl8XOUOyiVAddcUSspJyvKu8FZVrIjZdou//+RQ3doQDDJ0Bz2Jf3cckw5eVsiVl1nRwOgx45uZy2JaoTBjXTcS3xYw2scqp+YNBd6Cmwo1g57n6EJXHDh2cSTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tjoYwSVJGH/4/3CIz33XQWk4DFhebgSGIEqkF/S4CfM=;
+ b=oKbjFMydlNdpU1ItiG/DWiSD6k+RmmxN4VRBgf7wfXV6KOqwksSHbt3TA6c5RjpANuh4Mmwqf4MNVR5iAlE9w1Ro8uJ/NNHOSZLaxye5meEcvCZVLyHuLsYAPacRve0Qti8LdnMuSHj8MEfZz7mmtXlgfztV42/3I/yAJMMAZWA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by TYRPR01MB13965.jpnprd01.prod.outlook.com
+ (2603:1096:405:220::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
+ 2025 04:54:11 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
+ 04:54:11 +0000
+Message-ID: <87tt10nyx9.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Will Deacon <will@kernel.org>
+Cc: "Liang,  Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v4 1/5] arm64: cputype: Add Cortex-A725AE definitions
+In-Reply-To: <aMqitjILn1GomkXt@willie-the-truck>
+References: <87ecs5abp9.wl-kuninori.morimoto.gx@renesas.com>
+	<87bjn9abne.wl-kuninori.morimoto.gx@renesas.com>
+	<aMqitjILn1GomkXt@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Thu, 18 Sep 2025 04:54:10 +0000
+X-ClientProxiedBy: TYWPR01CA0032.jpnprd01.prod.outlook.com
+ (2603:1096:400:aa::19) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO
- 3
-To: Ed Wildgoose <lists@wildgooses.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917114932.25994-1-lists@wildgooses.com>
- <20250917114932.25994-2-lists@wildgooses.com>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20250917114932.25994-2-lists@wildgooses.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TYRPR01MB13965:EE_
+X-MS-Office365-Filtering-Correlation-Id: c2dc150a-8722-444b-95fc-08ddf66f6888
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4BHfNPS6NAwDH30pWJLU8Lds77px/NBmhGJe8pFGOQ7UABCepnHQYkVsiU/m?=
+ =?us-ascii?Q?BUpfyn/UTHWewxnVHnCB+RNFwEPtxEcl4WDeqW3pLu+yxmeznOPt5G4hHWGO?=
+ =?us-ascii?Q?q/8rTc1eB6N0G3KzY4rpI6WzdZo+cVzLZqhVPhPZ+GkxAAUbjwF0n4UnBsFt?=
+ =?us-ascii?Q?hmA9IufhXIuc2MIY9GC104uH6Q7RsGtixKKtSxQVGGbnHF97oFCZr69Prh8t?=
+ =?us-ascii?Q?+rUTh8cqQrdnwDk78bkVYAEmNqQwfMUmj/aulEdq+fxaKj5Emi+j1W9SOmqL?=
+ =?us-ascii?Q?1MuqOqFpTpZ4R4hWcrYTBxTPEQkF/dxtaYJFysfjZn3zD8I8vB4rAFMtvMVr?=
+ =?us-ascii?Q?atZN4Z1dEjuHWt5xdJ8EfXDW/v3VyIAEBTwMfwSyrbJiZGJufIW5gmQ+LPWZ?=
+ =?us-ascii?Q?sXMM56LkMqNwt+7ih/y4atg7Pl1IAWL8nb4wED5HeU+vBmQ3EO7yVVMocSUG?=
+ =?us-ascii?Q?HJb54bS50hjTlQ3Kh7JqAwxAif1TrLk8eboQKiOQgx8qJeWY55acMKbff3K9?=
+ =?us-ascii?Q?atsxN7ZEy/CE+UNcm9jxCH2qw3x3m68StKxJzDz31BSt0WsmI8PhZ6DqEbsH?=
+ =?us-ascii?Q?YHFfnXcElMTgX3r5nHai9gGmKT27CNi/zQ6ETJrD1OtpkPcU4RcWslx1JkO7?=
+ =?us-ascii?Q?QI9r2hDp8v0TgBR6ISMNx4SulC9C/Ca7pVkt682qum+O4R30L1z+E4Ufzfc6?=
+ =?us-ascii?Q?kKPz7d6vl12aDI+jUibYRVnIVpzX7d3wZkZdcke4e3chRe4bCXH7x0AoXrLe?=
+ =?us-ascii?Q?1c+xZCtrPEfqUTUzg54hCznsDhgVGvn/1uxKCjV9dbm0+pJljkJU4nToeKV/?=
+ =?us-ascii?Q?PQEDWBEqIHxgBXLiyvMgKBAw8FZUpOMyTWmFeDU9z5w4atja1U+q+nVhtfP4?=
+ =?us-ascii?Q?nO+dJ4Vi3DPVBxs+HeZ+vwbqACdzrQ2L7UsMPK2bZgDyWvbC+m439Ct+78hY?=
+ =?us-ascii?Q?wZeFMr+46IZObFDsNkJBEV73C2rzFyTMk7bfcNQFigTkeBhNIrg2eo9Nin7c?=
+ =?us-ascii?Q?81qNf510aBz9R7xdovr4sM+bc+dhPTFzn7wbQIptlkQ+aTUb/4D4coBPgTIk?=
+ =?us-ascii?Q?R9fTmY58t8N2jFQn6A7cS3pGNjG5GgvC0W1Z6D+w5Oh9T1JZT4OXPp6+Nq1I?=
+ =?us-ascii?Q?1ZQkqmGGstJLx5Gr5DU3quIAins4+OFvkAteksC/uM/qk2Bw+ml9YCib4Vff?=
+ =?us-ascii?Q?Plpatr634H4xJN1G/OXdSb/7gaWgcgYIdVJLkRQTclRiv6cTHfRtPO/PzPHP?=
+ =?us-ascii?Q?s5rJZt+R9U+vF+xSB7JCSDYKaqRAxumYWlkdJTonIQ2sZNykC5ODgncm8Sg4?=
+ =?us-ascii?Q?k4c2x6W8s77IC0ZsdQM5IlD6zTol8HMcqTni2yWq3GALlsWbYdhIPMB2wHkQ?=
+ =?us-ascii?Q?3VyTF17fbnhHy8+nf8in2nfp30SQ2jXz0zr/dLoair5COAyhyDui/XXXYwaq?=
+ =?us-ascii?Q?4/WH8J4T1HYgAz1HxayBKy/WJNnqwPd66Opg9HcouGKY0EjhNydvWGarC7M8?=
+ =?us-ascii?Q?uBedrl/uiWetQj8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?24y/N2E+thzbqrrAZKlRoy/adiw1eHwyVUtNPDTOuSDpp/3Zi/lMkKIqUbws?=
+ =?us-ascii?Q?3zqywGO5S9IfcEARaH6h0H0HuLIsVwcLMG4kzLMu8CU7Xeo1Nzd3e5tOAY8R?=
+ =?us-ascii?Q?gZEUYz4M62BXQ3naV5WuSgZDTSCeTYoDhHX4jtGEwaUSCJRLkq4/YeTaIKKP?=
+ =?us-ascii?Q?+p8aca1m5OpHOQ661NLkTDJxXrQlHj0iXRUFnMLAbTSlE3o6zvC46z7Tyc2G?=
+ =?us-ascii?Q?ib0UygJ2wMC/f9ihAbIscDqQjA+ZNMBjyN8aTPtYzAm4jRjQ1mjsLlJgcEyC?=
+ =?us-ascii?Q?1j5Wg5FbkfJIwjnK/12mmG1zPqNyYfUa4VDG66tz6DjbnWGDtuo2xA0VIZmQ?=
+ =?us-ascii?Q?RbnY2wL1lwmQZXaSubUqr0r43ahEe2TG2fUO5MjX8lN1DgJVP1O+Wb2ZA9Il?=
+ =?us-ascii?Q?2+CVLMiyWZMqzxnxYXpWVWRIUOA1biMGdhy/7Q2nO8YlQ4+JPQ3nHd4fCFpS?=
+ =?us-ascii?Q?W71FqwedlG/mVTyLSbWIyPRnMdl18M7y8bStkfGzsIpOdjHNEC/N4VPgCCZh?=
+ =?us-ascii?Q?9H0DpxhJleowh2KKjsNW/AM85rYKuNtK4O54SllyOBAKZBIiGGik1TfByt+b?=
+ =?us-ascii?Q?H78nQgZ+I5AB9lznG1+pgdL6SaUKTshYQG0BB3wpIfXjxTWmOWUqSDYVaLFt?=
+ =?us-ascii?Q?TKABfGrNS2sf3RaCfb0X3SenyOd6Vp8ry0qDPGxwZl0zc7kN3d/51pjz30GD?=
+ =?us-ascii?Q?KEmY+vaqPaV0SkszZW0wuKMhSz5SsHL0CAwPkLkl+B2L7C38GYcZgInbvzUR?=
+ =?us-ascii?Q?8lfYcgKa1aS5nluIMrKLLmCHzdIZ7jr1ueqjcWF8Si2jr27oBQrtS6JbsiKv?=
+ =?us-ascii?Q?S9/4wKQA+omdlNGfRwtpBcw+/C86t9rCkB9I0oC5qJtJ0Ps0WPw5WaToprSf?=
+ =?us-ascii?Q?cMkd5Keh2cAoKQ+z/F9T1Pn18NUTjI6ksRx5EEBfiDesm/kYKDU0Uk6y6/Pw?=
+ =?us-ascii?Q?IFQ8Xx26J60OBRIrA8JrouROwhjHqcTmIADRPsFGfBMmN1HDp9YImm/GiCOz?=
+ =?us-ascii?Q?jh0VqFJMZ5Tb5Q3NaJNQHP1owkqEtQYl4oI0/ovi6IquqXKt4uXdla8ipFfp?=
+ =?us-ascii?Q?/R3DRU8SCZ6lLQ/iRuEWxSI5i2L/w5/Sh9JBJQv+Vw0AWCG0CGdvHVvnUr5C?=
+ =?us-ascii?Q?3ditiCtg0nOTXcyz7mbM1RxXYpmUTtnSjm8NCim8BoAfrl5gjHb39WFL01FU?=
+ =?us-ascii?Q?6NdD434BmgKdO1eCpNh3LnqqRSHChWRjYYmg7bRKq6PAL9n0JGR8Sp3/RzDs?=
+ =?us-ascii?Q?MsqWd1DIdrNjSuPIf1a6eNCubbSfDz7jwkQptQqzT5Oc9tefOaXW1v8U4w3+?=
+ =?us-ascii?Q?3A4YPo4Vm9J71NHYlhFYrEhXcD1jjkyFkwOuWKTtl0B9d+csekOSL4szBrle?=
+ =?us-ascii?Q?a34WLndFP1hS7/NVe4AGxA+nPi48VSQVSGClZX5sNfJveEeHeXA7ZWAGP4CN?=
+ =?us-ascii?Q?q2KMcHzDyVXCoAsvMEMIXBemcNZtAX5u03pKEbXiY+Q2HRClYsEnMfOl9dN9?=
+ =?us-ascii?Q?n4JEeWW1/q5yfme9SCff+Q/f+Ta8Em92GjfFIHG5ERoROXVBffy+QvvN/w61?=
+ =?us-ascii?Q?KRUK41NS+f6mz6/shMt1a1dThqaiMrs3RWjWjz4di1aTcOapQkgijsvTgtiY?=
+ =?us-ascii?Q?JXF2iVl66d6zOmR5Ih9Q6rY=3D?=
 Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: OfaQ+Y0DiXSPHOPAZx8dtXZUGvx+pCqiXxJh/52cnVVTQVTaU5vvBQHe
-	TPSwle0VT3U0z1kOOqGviMfl0yEVBpkH5P6RFvZxalcal+KCxia6mF7MTxaooFymIF+iz04
-	/6JZYbthd2d0B6b4phnoGD5frNUreKsKGXoZfPdx9wRWg+mCDqL0U06uK4DxXbDBgWLL15k
-	FBXh2qgEqZXXEXkvsJvh2IkfzQGDYUIQcnZPFm7xsTWep9Eg8A90IiTd6GK8giA2FKE7gkx
-	AAeYd20mJ5GCVjcrcts6YuQJ2oxcyoI0xf6I2obxCFl9g0pFq//IA9+aHLybDQackWVbYOB
-	QTQT0SxUiNJ4oyPpncqN4fwhX1gLTflwTqjGhD2reaxFlZCBM1Ox7/oaIetpAOiZufT/ecE
-	D0fKxm4QrUqu4LyH93ttGX2b4cjun2+q1l6mYwMNFN+iH9rVoRoSAQFSgJV3w0Ivp3Oyi8L
-	DmpI95qLa1Dp8dNPeChwiwmJiiENCAczav2It3LEDw8Y93GGMQDAyeGtR5+u27MrhcFIqNR
-	v0moO0nw5YJbZxepfT7qs4Txop90FhsW2mGxLflSSVaX59WrMj0qDlPiL65IvTSXnP34EY3
-	W4mI+moudhoo7jabiIPCQm96rAdqxgzlI/29y1QSWokPMwuHwZp8UPAr4m/SqlnBCPA/4xm
-	nHkmCY+PqJiS+D9tMFSc6o+Zw/TQ8+QBA/Wta3G4XVi6MHqDW2VSjzc8HbApu8gEPQW/NIW
-	+ykdvrQ7ZJ71qIdRaJzht1hks2f+pd6cgJn15bw0JWKYKvZUXjXR/LYZCnA+pM3si6Gz5aZ
-	oRJc5wW9q54SGtvzzhRmvk7giQdXgrfEASo7STHFrtVEqeftbeyjei9fEt7qcI11LYN2Xyj
-	IkHG10wr1oVqYN9tP7HMWoBQ+WGsfjKsB1F0AM8fAph1rNyNJ7lQ8nhbQG+YjQhzizSgWHT
-	n2Mq/TLhooILZ3ebF1RJ/6R/x4UqgEOGC0N0NSHQNHGAu65Uxm/TYOhzvKUJGdk/zgxSyof
-	dZ6gX47GXjDyf/7RPKesSmAu65Q20=
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
-X-QQ-RECHKSPAM: 0
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c2dc150a-8722-444b-95fc-08ddf66f6888
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 04:54:11.3661
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l/z0iV0+vk/xTJNfuWsLtw51afXIWY1cWQjO5uUzcjBirE/cNkSALY/9WVsUEXLhFTpoE1/7kSUS+wC4LKWDV7QHZOHIKXQhiSMdwME+UOf5VshT1M9jxkTwzDZWRznQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13965
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_215406_609759_B4487AD7 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20250917_215422_803797_5478B936 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +187,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ed,
 
-Thank you very much for your work.
+Hi Will
 
-On 9/17/25 20:49, Ed Wildgoose wrote:
-> The rk3566 has multiplexed pins and the uarts can be moved to a choice
-> of 2 pin groups. The default rk356x-base.dtsi appears to default to mux0
-> for all uarts, however, specific hardware might choose to implement
-> alternatives
-> 
-> The Radxa zero 3 shows that is uses M1 for uarts:
-> - uart4
-> - uart5
-> - uart9
-> 
-> These aren't normally enabled, but we should at least correct the
-> default pinctrl definitions. Without these changes there will be
-> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
+Thank you for your feedback
 
-Sorry, but why do we need these definitions for disabled nodes?
+> > Add cputype definitions for Cortex-A725AE. These will be used for errata
+> > detection in subsequent patches.
+> > 
+> > These values can be found in the Cortex-A725AE TRM:
+> > 
+> > https://developer.arm.com/documentation/102828/0001/
+> > 
+> > ... in Table A-187
+> > 
+> > Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> > ---
+(snip)
+> You seem to have sent the same patch twice but in both cases you're adding
+> A720AE whereas the commit message says A725AE.
 
-Or why don't we do similar definitions for nodes other than uart?
-For example, PWM12, I2S3, and SPI3 also use M1. Are they not related to 
-SD/eMMC and therefore don't need to be defined?
+Grr indeed.
+Thank you for pointing it. Will fix in v5
 
-If users want to use UARTs on pin headers, they will refer to the 
-correct documentation[1] to determine which pins are UARTs and will of 
-course write the correct pinctrl definition.
 
-[1] 
-https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface#gpio-interface
+Thank you for your help !!
 
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> 
-> Signed-off-by: Ed Wildgoose <lists@wildgooses.com>
-> ---
->   .../boot/dts/rockchip/rk3566-radxa-zero-3.dtsi    | 15 +++++++++++++++
->   1 file changed, 15 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> index 1ee5d96a4..41b3c4403 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> @@ -492,6 +492,21 @@ &uart2 {
->   	status = "okay";
->   };
->   
-> +&uart4{
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart4m1_xfer>;
-> +};
-> +
-> +&uart5 {
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart5m1_xfer>;
-> +};
-> +
-> +&uart9 {
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart9m1_xfer>;
-> +};
-> +
->   &usb_host0_xhci {
->   	status = "okay";
->   };
-
+Best regards
+---
+Kuninori Morimoto
 
