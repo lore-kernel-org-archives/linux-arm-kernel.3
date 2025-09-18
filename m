@@ -4,172 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFF2CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3A2CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 06:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:Subject:From:References:In-Reply-To:To:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbmcPb6a+a5cj3S507EUNlHL0wbvWxj2ieYJ4zbjOHM=; b=VkekhiTKEiWhqsNc1rvVo6EtS9
-	KMYNj6UgsE3LhsFuE85fiM2Q72lmHNFlKoWQSIa47nNZZ3tXdwqnFxuBk5qbgjYqxmo03yIal8b2/
-	JJxKg7ylFGMzLT9V2YMlGoXSk9/mhM9R+PTfZJA9NXZq8h9Zee8KXe5q3QUHuTgljM63pXEivrg3G
-	ZXzg/OxCsvJeM9VXwfV8IgwDYsobMg/B82pDdkFbzJFv+6W9sB+61duxOMtqCX5NaEzNzrmZwhwQn
-	ttTOGkYmWS0l6kQ8rByUDvIVpn0xjB5Ni0oxcwiNhIIAF/S23riH+w5uFO6jaTxuk6H5MCWlWUay+
-	Vz9ZPQIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/2S6tDpoUZ1SIuOdhsW6HAwbv5zQFWfuXkE0KYiPT8I=; b=4zEHkzHcWV91FBvgVdZskvuFwd
+	sVgGfeYQBZlSvLyk8lIVFOhH5SjUL5SjP90bfC5F6a07ZFI6nXElDsA18mtJlsnIKl6LIHRALUJ0n
+	i2qM9hduXWhBIRt7GjQiv7ZZBxsXHt3UiWOPuy2ocaj3UNKTBgig7nBuMBlfsPKoZQ7x2A9M08csM
+	nFR0FQ1wSCh5uhL9mHtqsg+Ut+9SediecyQTosfQNjpUCBdVBalUDf+K/MQUohJ3AZgAXMBSvW5wS
+	1PExkaaURP2cZ16cnvDYqekrWnVJjZKdAU9o3NgJ/seBoB4KnB7SJU4Bgv9ras7lMeVxXiLVyvroE
+	4PlBYspw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz87Z-0000000GQ9U-0HLe;
-	Thu, 18 Sep 2025 06:27:57 +0000
-Received: from mail-japaneastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c405::] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1uz89W-0000000GQOB-3Wnk;
+	Thu, 18 Sep 2025 06:29:58 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz87W-0000000GQ87-28NQ
+	id 1uz89T-0000000GQMU-3D6t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 06:27:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GLTY7eK3GUd8y/XPqhsokxsnjwgGoI9LBqUvZtE9eKwkJVApzaGJCduMhdUWUlyic9CxsIelAMVvAXOXja/t6zIwbc659UWN9oOinbaVAJaCIGfvS7ql4PaqKlLP0ON9Ubjahw1igoihG2VaZkxOJwsm6VG5oD6cPrfgpCghU0osUvcN/dDITps27K/hzFaAn+mS4V6YoVw9PloyBPi2wm1ls6Xs0fYluws5q/qvrfb3bDuFG8sIoY8uVlVr5K4t3hE9G5kJGpC+xKyigjKCGf+zZZ84CwGpdubUmFVWER+nTAgInVkBtQByn8j1AXRa1Qserm2niflVCEfCJejL3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cbmcPb6a+a5cj3S507EUNlHL0wbvWxj2ieYJ4zbjOHM=;
- b=Ags9sKzCQi5/7MRlLFPXG0JtdMsn8agPWmsJxrWq0hkonVhKedFcpdtTlHngQfzUpDZWFcmJfk7fYEm7JyaWtJXMM/TnYGNWGrO359T3TTpdFIEDRHgyaiwnpSWPh8XmNKfyT3SFWpukt/du/iKshw0nBnEXn85D75WOq+KkxRuZIxbP6lhwn8vJW5tz/buk3J7MSy4Y5s0DolexxKCohYG1NWcnXzsY47lP7L/olrcSV8qHDxg56dTRpTFFIRv6Fcjc+mlIDjwQbx/W3E8IB1k3K9j9lx2vdQUSWiqyy45jTEFbjdccgSfiQpamGdLes2mBdUpLNIHsvJB7K49jgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cbmcPb6a+a5cj3S507EUNlHL0wbvWxj2ieYJ4zbjOHM=;
- b=W4r8UR/cBUmKYBji3H9CKInEOWNj9qrLTqDnstaPOQEoJyo2teY9ldGJ5UP8xHxCUZEO79+bPKy81HYrObomdv1D/PBBhsPo3We4r09z3eknMo0TtSQIMbFME5eSeOV6GHlqfaOs3qLN+BtCrRd7re/jAQYq5KfMeH/fkfTyX3s=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TY4PR01MB15939.jpnprd01.prod.outlook.com
- (2603:1096:405:2c8::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Thu, 18 Sep
- 2025 06:27:51 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9137.012; Thu, 18 Sep 2025
- 06:27:51 +0000
-Message-ID: <87cy7onul5.wl-kuninori.morimoto.gx@renesas.com>
-To: "Liang,  Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
+	Thu, 18 Sep 2025 06:29:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1758176918;
+	bh=/2S6tDpoUZ1SIuOdhsW6HAwbv5zQFWfuXkE0KYiPT8I=;
+	h=From:To:Subject:Date:Message-Id;
+	b=tvE7QzllHb28Z1dD6sToqcmx6puNPMjcypFTX8UfjpRQ6++JLSSq6hbDktEMNVyWN
+	 cZtygTtSehwoXN5HgMfFNt+NM43Jj/w0OFQ9/c3DklD1BxaxMrG90udcC47uTn8AXR
+	 jlSbRnxfSIGjqo9/r4o+z71oG5S2oKr59qYSA9Ds=
+X-QQ-mid: zesmtpsz8t1758176916t49f2e520
+X-QQ-Originating-IP: kounfVWLm9bYpqAv0zEPs9uq4bYOiCpyxYAp46ogmAE=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 18 Sep 2025 14:28:34 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13016871167258728996
+EX-QQ-RecipientCnt: 18
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Will Deacon <will@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-In-Reply-To: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
-References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: [PATCH v5 7/7] arm64: dts: renesas: R8A78000: Add initial Ironhide support
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=US-ASCII
-Date: Thu, 18 Sep 2025 06:27:50 +0000
-X-ClientProxiedBy: TY4PR01CA0032.jpnprd01.prod.outlook.com
- (2603:1096:405:2bd::13) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY4PR01MB15939:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6addeaae-5b95-4955-7b3c-08ddf67c7e30
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N4+Z5GilKD12trltWHEEgepHVUTwTkG/Fz5n7dmVC+EQnQvCLvhtJPXscJAE?=
- =?us-ascii?Q?Rt7VFWoTYlJtnYNkT5ARNCCDdqJNlQ8I4t8iccZYjZGfj50U72W89+c5nmst?=
- =?us-ascii?Q?wFeYqpCEeMlZ1eZRyAdiXodtbTnLNUcnkZgUaQ6T3BXjh7op26Ne8Y1uGsM0?=
- =?us-ascii?Q?ESRVWtPXZ4GXEdwv7IHNZpSjkDdK/iaSsiqZ+UMdYm+00L7M0MChY40lznr9?=
- =?us-ascii?Q?yU09VV/EpSeos6rHlkpNC99HveC39S3oYsysQfYLy3gKqCpCwnbtvP2lzvwj?=
- =?us-ascii?Q?aJatD2UfIO0YBmz7KGWiLjaWMsDX1pMAo3SjQirg3eWntKIbawljrjl9Uf6i?=
- =?us-ascii?Q?oCvs6Lob89AgEx63w2uUyvUjithTCg7Nm6rUYiNJC6t8C2dwGKvzSbm0NRDL?=
- =?us-ascii?Q?Cgc+CAG7bwBlvV3tRCObigNgcxWfFWcgm9irFy/kPaCfO553u0lPuJxL6uVL?=
- =?us-ascii?Q?ePahGf/+tVyyp69IwYaV3zFEQTWwyWFy/+FJDrvPY6H/7PsulYYQr9fYmi/h?=
- =?us-ascii?Q?ERk95hh1BLexORil+FhOV57bHH74mc/bfcZ6ginwUfA998V1HSO+gkx6pOpb?=
- =?us-ascii?Q?4Y1qsM4xxwjIE43Cj2zO3XCTJU9kxv9VYOYTiyKAwbYlpMwx79zzukMG8MGy?=
- =?us-ascii?Q?4WY1bK+SweQbwbvnlptNCJW8L67qigEmRx00ZytLhm1HlxxaoQpK8tgqCXw9?=
- =?us-ascii?Q?UubTe2V7SxpeHoYdYXe2XM9Gc9R8UEiDE2MpMlL/QzHOd7Ue2BQVJJDfQ3iF?=
- =?us-ascii?Q?0WzklicVMpJFKHOrJbQ8TSUjPb/s+t/SWhVjg/fWfcmDyF0AzuwoBAZf4ON7?=
- =?us-ascii?Q?O9oKslPoVyLCywPIqwtMo0CokKDWV1gopno+QfLPspqcahmLoG3ifcYn2ewn?=
- =?us-ascii?Q?o7ZZ/V9FUGDUJHYZzAPC5iDT0Mwc63oiQZBFhzg4QE2fnElaJh3GCjyPThX6?=
- =?us-ascii?Q?KWU0B6nbpBiJA6KumGUsj1HLvGh980aaCDjlCx85h97BU2O6EwODxdGWDJrs?=
- =?us-ascii?Q?RrPbYSOK/CMF0gmjyln7yszZzqUGKTt+WX1wiRnoreclg7pds3p66bi02JEG?=
- =?us-ascii?Q?XxrlsMtvEhVn4Zr9/k3qg4Ixdwdq1O4M21rTti/yuV0DxERHgKnJAW0TFGH+?=
- =?us-ascii?Q?jPlzVg+zRsVr824k9gtfo94AFGErLWnVBvnYyYaZ06yaRRPfZR813mpfm1FC?=
- =?us-ascii?Q?4a+WMObOgQ6QStYVEJD+gRbIHlqIY48lZ9ZZkMwkQtQaQLxFOxwPj8Fe9GPr?=
- =?us-ascii?Q?FUy54llNQMp952mXhVBmmCzuss5gOnHgD4a8YXk4CiMn4MFMTMW2A0idRjWj?=
- =?us-ascii?Q?V2EuGN+SgJ0uLui35rBs3i/z+F6JCk6wFLupfdK1rHDGAlCN2tgf2nffRihx?=
- =?us-ascii?Q?yM39MFDpJB+jQdTzVKsd5yEUOVeUdPWEGf10ovGAJ6bCujPDSFWUnG5b/32X?=
- =?us-ascii?Q?t+nq3leJ1WtknPIxUEbVk6hMdR/7cud+WXN7cfvimz/2AziZqiHJvWT+FKbm?=
- =?us-ascii?Q?qnIMjK98B6UkqeY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tIdrwNuPt7Ifs9CL+0nJ3zvKkTQT3m/d/7jqYQR4TnoGDQ3sar5/JtgbsnnV?=
- =?us-ascii?Q?k2UKS46kZFtKiwvQ+cQYzA/2dKrLgpHb6VCTqPM/+V1zhgprZLAUK0gs721a?=
- =?us-ascii?Q?bBfH4wzGAUWZUUj1pEE1U7bH70cLJkYAbfnkhSOaVNBYmLGQnUa23SpYmmqP?=
- =?us-ascii?Q?PeDuzfQBb9w/GtDVnBq3GO1/hkLLF3ZRpQA6xKfXzDb5Cn8EZkxVZfiaGKl9?=
- =?us-ascii?Q?ieUE8rd5NeAAH0mxQ5L1EAJPQUEyFvsBBjiEn1+rUYUCVgtMep4r7cnpfQvd?=
- =?us-ascii?Q?1SFxni4uPmx7/KnkT0Q8wQqlbKUDeSceXhizhOy0b5cFTvdzTy1b7pzbv3kf?=
- =?us-ascii?Q?mIZ9wDVNkGqzeK+tXtIE9z2zL/gnU56v+E3A9F2hJNo1N5mzcnFgspU5+RQh?=
- =?us-ascii?Q?hgShJ6Y+lzDb6A9prIaiMzDftUaFJ0Cwj/l09/DNwvXm3zsRchszGsgGyFlG?=
- =?us-ascii?Q?F+NkjfGa4ENVo9CkS7OKMPLIqZ7prXHQoo6PyAbQS4DB2kWtQsYQ9dedoPpr?=
- =?us-ascii?Q?EMF916xUf0pLmBLniVxk8z2sXxqF0ltgEIev7MBwBZbU5tYTG7IngBq2WFf3?=
- =?us-ascii?Q?f+KTv3Dqrc8GII+NhsfPuFfDLFSTsuqWWYLk0tLPMYVRIkRZN4BNBVeCfui8?=
- =?us-ascii?Q?6UdNl/EihM9DxV3NofacZvakkAJj9J2B7IOKbGgzYpyJQ5NMjXvb4JzI+YjA?=
- =?us-ascii?Q?MHCiZfGxrT6U5wiuua597oX8bSPx05QS2brAq0G/93NdBQ+7UCgPOLXM67JE?=
- =?us-ascii?Q?022OoxjiXtxPyyfXKayBpwh06QEvydrBmiyv6/8neYORHk9FU4pk9SwLiiaW?=
- =?us-ascii?Q?nCwEqfsWDVWBId+N0M6j5rHOcb4B/L9SH45toyS7veuJ6gpZxSKE6BejvxDR?=
- =?us-ascii?Q?7ZOhKd9hh6rDJiksazSO9T5DUk+xDq1+KrKR27U97HIQzzZG1QrQUWPMPx5t?=
- =?us-ascii?Q?Vki31SsEu/50nIZ90DcGb6bC04+ukmuCW1V4Te8dhan49Ym/e9mGBPsQva/8?=
- =?us-ascii?Q?/JjSQIz4zII93b16huzs4B6EIFgtJdfHKaiNCnkHhNavCcW5T6YoJQTT4ff+?=
- =?us-ascii?Q?59w0MfjM3e9F4iQnV4kcY8MH+sj4Bv/Re+mEBodOzdv4ovckdmKKZhK4TBQn?=
- =?us-ascii?Q?5hsRiyl63Fbz2BgyKFPpVKRwY9DgA2fjBpNYZD4N2wMKJuUeiSyKjhZIBV3k?=
- =?us-ascii?Q?2olk0mZnb8ENmzDjFHeQW/wdIR845XtE/34yB69JwOZ09LGTMC1CQ8YizHqk?=
- =?us-ascii?Q?3o4oa2yZsqtxWCQ65F2XGBn1NnNwmSAggRBqqz9M+FokyJv1EU1GRzKUBH5L?=
- =?us-ascii?Q?xBgr2UiLGD3KC9LuzREbv83qBSmIaSnI3LB8UDFcLQglF1pTPuB6/CzEJTIJ?=
- =?us-ascii?Q?bnwGZ86FJXWXQRv2tzAu5zlSl72gBdfM2y1Cf1jpfAs8iOUZ7gm+Kbi1qzjQ?=
- =?us-ascii?Q?Ol6hoYXsJuIm/aWBpcHoerTGTspcS9dbiK44gCAu/BJqqcHG5i3aqAhdArH/?=
- =?us-ascii?Q?RCZRPsHFnQEN1UG4HRC+Ipa2EdccVANLoucB0r8oUehmH4G+rMJRICqnFLaC?=
- =?us-ascii?Q?3GCWKrHFLVm1g9sUTVSMgt2OOlWQS0zDKTNkb5ShP+DxuRGQ6dxuKzY9wOAd?=
- =?us-ascii?Q?Q2T/P5H2ND+eoId4WeOF4Oo=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6addeaae-5b95-4955-7b3c-08ddf67c7e30
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Sep 2025 06:27:51.1633
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h9wboAD0lQDpgqUI8/KYSPtbd8Y9puqR9KGrhUBn8XCUEe3lfjQX80jbfv+mt7mLeVg3nVVWc6VFy58+D9OwuBnzpCvJqG6AI7rXBA8ZTYUOrciA5NoiQaPmutg6ZoJU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB15939
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: rockchip: Enable DisplayPort for rk3588-evb2
+Date: Thu, 18 Sep 2025 14:28:25 +0800
+Message-Id: <20250918062825.194-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: OQZoPFOgkfDqrDufRA+V/4VIitZvRaFXrHOKcTaU3cjuuk8k9GMTykhk
+	5iRSs8wb++mEKHBHSNB8dMtl5m5jmCAtnRu8WQcAmgK7fq4IgPr3aUReB+HUTX27nkqmAse
+	CymBb+UbvtOeawRirIp9w49Xb6Z6KWwwLUPW/RHNP7bTSeXDu7EWtilcc/CgXxWneKZq3c/
+	Ntd+WOw+YeRrFTolmIavifE99aHQw7hF+8Hnc/z9blnndnKroTuBJQvsp9XHy83wJlXKA5H
+	Paa+UXOuXsUCypkUlcj96ZlewF2+GRk0m90N0F5xaDKoZ0opfOIOFVXmepHMnF0T/5KPb3T
+	Mt52SJwouVvFgImUOYrKf7J1ZjsUuV6WsdxJJm3R6i8FFSiGcLso9/TCwyPrqjvScYJRXO7
+	enwFdpsXWfl0Fep4Q04QmojaqSbUcNYyly4vvst4o4dtATrYq4mTzZTJyVnE5mQIKE9NWwf
+	n46FJuJ5mu46MLAFndguWce9pgFw4I4nFkHFoc9dBGLK+GBnlzpvc57X8PEevOtIC0kX6/l
+	k5RzsS/kLDyRFY1yWdVHb1zRSRkrHYbEEE/2BRPi2jvlanAJ8zZ8dUdw83BsUgotwPL5INF
+	NwAd3Qa3Xy42WXJ5EuT4W1B4b84Cu14fEtdwy5UQ/XsIOJH7ogyEYipYjAldiEqFLdlkRWU
+	zbUikFR1k4qL+TLdZ4j5JqVVrD/lP5ndViEmP9LfZ1SXxnXC4JmWZAVVCvAi2UdxRpz4tUb
+	JD6oKEq/Y0pfYtZCLnqSl9XxeLdT1iWdobdqqif1GQZz91h+jDs/YF2+FmzW9bs1uQqv1zi
+	h08YxybnmcSyvhHkkNWO063A7j1LOQc5scl7YapTI8ddJQvYcRqbPLbxWFJyjmV9jsREQoR
+	QxgH/vXswmRE2fi4AowVQdO4cdOEAkYUO1ghlQ+ozRPT+bg964BM3IXT964ZTQl+X41Y9Oe
+	V8YfEwR6v9tfv12OeLJePbJVDnwGcW6kyZBJhkgawqqYwm20Dq6OmlGOXJEyL328q51YgXu
+	zcgI1HNw==
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_232754_557158_BF1715CE 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250917_232956_206726_E708EC70 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,134 +103,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hai Pham <hai.pham.ud@renesas.com>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Add the initial support for Renesas X5H Ironhide board.
+The rk3588 evb2 board has a full size DisplayPort connector, enable
+for it.
 
-Note: It is using "maxcpus" in bootargs to limit number of CPU, because
-SMP support is now under development. This limitation will be removed
-in the future.
-
-[Kuninori: tidyup for upstreaming]
-
-Signed-off-by: Hai Pham <hai.pham.ud@renesas.com>
-Signed-off-by: Vinh Nguyen <vinh.nguyen.xz@renesas.com>
-Signed-off-by: Takeshi Kihara <takeshi.kihara.df@renesas.com>
-Signed-off-by: Khanh Le <khanh.le.xr@renesas.com>
-Signed-off-by: Huy Bui <huy.bui.wm@renesas.com>
-Signed-off-by: Phong Hoang <phong.hoang.wz@renesas.com>
-Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
- arch/arm64/boot/dts/renesas/Makefile          |  2 +
- .../boot/dts/renesas/r8a78000-ironhide.dts    | 85 +++++++++++++++++++
- 2 files changed, 87 insertions(+)
- create mode 100644 arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
 
-diff --git a/arch/arm64/boot/dts/renesas/Makefile b/arch/arm64/boot/dts/renesas/Makefile
-index ccdf7aaeca13e..dde046a3f25c8 100644
---- a/arch/arm64/boot/dts/renesas/Makefile
-+++ b/arch/arm64/boot/dts/renesas/Makefile
-@@ -136,6 +136,8 @@ dtb-$(CONFIG_ARCH_R8A77965) += r8a779m5-salvator-xs.dtb
- r8a779m5-salvator-xs-panel-aa104xd12-dtbs := r8a779m5-salvator-xs.dtb salvator-panel-aa104xd12.dtbo
- dtb-$(CONFIG_ARCH_R8A77965) += r8a779m5-salvator-xs-panel-aa104xd12.dtb
+Changes in v2:
+
+- Link to V1: https://lore.kernel.org/all/20250916080802.125-1-kernel@airkyi.com/
+- Fix invalid DP connector type
+- Add more comment about dclk_vp2 parent clock
+
+ .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 48 +++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+index 91fe810d38d8..60ba6ac55b23 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
+@@ -25,6 +25,18 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
  
-+dtb-$(CONFIG_ARCH_R8A78000) += r8a78000-ironhide.dtb
++	dp-con {
++		compatible = "dp-connector";
++		label = "DP OUT";
++		type = "full-size";
 +
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc.dtb
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc-cru-csi-ov5645.dtbo
- dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043u11-smarc-du-adv7513.dtbo
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-new file mode 100644
-index 0000000000000..a721734fbd5d0
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-@@ -0,0 +1,85 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the Ironhide board
-+ *
-+ * Copyright (C) 2025 Renesas Electronics Corp.
-+ */
-+
-+/dts-v1/;
-+#include "r8a78000.dtsi"
-+
-+/ {
-+	model = "Renesas Ironhide board based on r8a78000";
-+	compatible = "renesas,ironhide", "renesas,r8a78000";
-+
-+	aliases {
-+		serial0 = &hscif0;
++		port {
++			dp_con_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
++			};
++		};
 +	};
 +
-+	chosen {
-+		stdout-path = "serial0:1843200n8";
-+	};
-+
-+	memory@60600000 {
-+		device_type = "memory";
-+		/* first 518MiB is reserved for other purposes. */
-+		reg = <0x0 0x60600000 0x0 0x5fa00000>;
-+	};
-+
-+	memory@1080000000 {
-+		device_type = "memory";
-+		reg = <0x10 0x80000000 0x0 0x80000000>;
-+	};
-+
-+	memory@1200000000 {
-+		device_type = "memory";
-+		reg = <0x12 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1400000000 {
-+		device_type = "memory";
-+		reg = <0x14 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1600000000 {
-+		device_type = "memory";
-+		reg = <0x16 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1800000000 {
-+		device_type = "memory";
-+		reg = <0x18 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1a00000000 {
-+		device_type = "memory";
-+		reg = <0x1a 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1c00000000 {
-+		device_type = "memory";
-+		reg = <0x1c 0x00000000 0x1 0x00000000>;
-+	};
-+
-+	memory@1e00000000 {
-+		device_type = "memory";
-+		reg = <0x1e 0x00000000 0x1 0x00000000>;
-+	};
-+};
-+
-+&extal_clk {
-+	clock-frequency = <16666600>;
-+};
-+
-+&extalr_clk {
-+	clock-frequency = <32768>;
-+};
-+
-+&hscif0 {
-+	uart-has-rtscts;
+ 	hdmi-con {
+ 		compatible = "hdmi-connector";
+ 		type = "a";
+@@ -106,6 +118,24 @@ vcc5v0_usbdcin: regulator-vcc5v0-usbdcin {
+ 	};
+ };
+ 
++&dp0 {
++	pinctrl-0 = <&dp0m0_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
-+&scif_clk {
-+	clock-frequency = <26000000>;
++&dp0_in {
++	dp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp0>;
++	};
++};
++
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&dp_con_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	sram-supply = <&vdd_gpu_mem_s0>;
+@@ -916,6 +946,17 @@ &usb_host1_xhci {
+ };
+ 
+ &vop {
++	/*
++	 * If no dedicated PLL was specified, the GPLL would be automatically
++	 * assigned as the PLL source for dclk_vop2. As the frequency of GPLL
++	 * is 1188 MHz, we can only get typical clock frequencies such as
++	 * 74.25MHz, 148.5MHz, 297MHz, 594MHz.
++	 *
++	 * So here we set the parent clock of VP2 to V0PLL so that we can get
++	 * any frequency.
++	 */
++	assigned-clocks = <&cru DCLK_VOP2_SRC>;
++	assigned-clock-parents = <&cru PLL_V0PLL>;
+ 	status = "okay";
+ };
+ 
+@@ -929,3 +970,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi0_in_vp0>;
+ 	};
+ };
++
++&vp2 {
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
++	};
 +};
 -- 
-2.43.0
+2.49.0
 
 
