@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D05FCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 21:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A81CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 21:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhRFq4UtJ1FWApnkqY6mEgaYN11X3Y0mXj4sL73koYk=; b=VKClWmVQiVo6/V55CwhQAw5jvY
-	2nuU9o9TEdYa2DWr5c9RCR1vIDIhW5sIZNyevbeHijBnXPLyCpoj3ydpcwraQiYG5hySg+yVKILXc
-	niILm9TuRB3oeeFTb5yJKiWfiwfCG3Kc+0P6aoSztjTVkFyyYuw/2nZVVNGCRV+N342bxTTS0IDRc
-	gr77rOu7jAL7e6sANoyTw0jabU5q2X52/vcrM473IfbdFzsTT3BnALIeM5OHB1HQIfbL3jMkQgQmB
-	TpmLalY5wbtLnO1b4Fg+JDeCW2DOZobmAbJAlUE2CTUbzOCNDsu1bD9ccDH0eBO2R6zrlYoWrif7i
-	UENqlWKg==;
+	bh=k5SxY4eLV+XlJAjlLOtp7aA1VeVzrx+BBK+bjPWc6ug=; b=oYQKd8FgJjA7th40MmETnifKaA
+	sy2U5x0rsl7zms11hCtGDDVF8UBexc4dpKaSSEwjL3hPWC/Cd7WPkcnKhT1XsuGFxQq9QzQkLzS4i
+	LxWdLWziC4Dp/aQ0l44gUyoe4I+UEcui1SB4V0J9+YVYlrLbnH6ufc/FaB/oiPzhhIxPkxlkvQI3g
+	yhkTtgXFOjlw+J5ZtRnsY95tpcylshViBxh0qzZ2/uODPRukfL/L+UTKK6i4f65teqHyZyIHZrMwz
+	r+7bcK3jE6f55PElRgXQPNWrBRsVQ9r0FCw1Ejb4sebFYmQq64FqOSpIW/Aa+51Zqn53m99fofm0H
+	oJ/ASdMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzLsp-00000001AVp-0hTW;
-	Thu, 18 Sep 2025 21:09:39 +0000
+	id 1uzLsv-00000001AYC-0zzm;
+	Thu, 18 Sep 2025 21:09:45 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzLsm-00000001AVN-0cHo;
-	Thu, 18 Sep 2025 21:09:37 +0000
+	id 1uzLsq-00000001AW9-2vlQ;
+	Thu, 18 Sep 2025 21:09:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=IhRFq4UtJ1FWApnkqY6mEgaYN11X3Y0mXj4sL73koYk=; b=mqdAqbuMhaX05+AVwIxaxZi0TB
-	htLdqDt30MiAqnjBZnHKqLauhIC1vFJ+3unudCP6cWxJr9zFi2uNnUxSjVHjRiReiT3/TK7EHOdZb
-	f0z5+XPJNg2kx3+N0nPkjjpB5UyoQYVk57Vsznj70YGQ8zUghwV9+k4KhQKblO/RtbXoEKg82aDRD
-	LhmYH4cqRM7qXCOwP6ce+fFgjd/Czsns7wf5zWvyw2eLT+PvRwVjbtb3Hb4goFS+ia5d+0WNrJgjC
-	saPGLtXUnj7S098virm7a0VhHbtt5BYjO+E4uEbZZr4EI3hHfE8zY8rQhQn93hP+/9h38SEy5elCX
-	mUaTg40g==;
+	bh=k5SxY4eLV+XlJAjlLOtp7aA1VeVzrx+BBK+bjPWc6ug=; b=Yt14HGzJJaKjLaUYuqWpsmWAjd
+	HNhfFwybW+Olkd1rOHpkqGvWLu+qkRmltdHX8xwSjFNen2ZeJqU9cdEkmFA4Zviq6IT/mH6YfeChX
+	nLySIfNaH5XVEM1YRdvJMQ9zxd6EQIOuENNrlq4e8NbELhlmW4IjqWt+KTuN9yG0t7VR2TkRI1mYv
+	9aG7fku5ICMC53+chkCHJxXomQxiM0qkpZsLhmOQQzxhnOa9WsbwNZjxAkY7l53OHvFFcrXaq8+8z
+	ciuur/0buAqjpiktXFXYQ8hz/OQrO+D7669LOP5mTqc5+RxN8reDgthwUzjSnxbQWSJty3bRvBpwc
+	9snIRUBg==;
 Received: from i53875b0a.versanet.de ([83.135.91.10] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uzLsk-0003SC-3D; Thu, 18 Sep 2025 23:09:34 +0200
+	id 1uzLsi-0003SC-GM; Thu, 18 Sep 2025 23:09:32 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: linux-pm@vger.kernel.org,
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	Mikko Rapeli <mikko.rapeli@linaro.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: Re: (subset) [PATCH v4 0/4] enable ROCKCHIP_PM_DOMAINS
-Date: Thu, 18 Sep 2025 23:09:22 +0200
-Message-ID: <175822973681.1568500.10556154418854538683.b4-ty@sntech.de>
+	devicetree@vger.kernel.org
+Subject: Re: (subset) [PATCH v3 0/3] arm64: dts: rockchip: Update Radxa E52C support
+Date: Thu, 18 Sep 2025 23:09:19 +0200
+Message-ID: <175822973677.1568500.17167345518361865477.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250915083317.2885761-1-mikko.rapeli@linaro.org>
-References: <20250915083317.2885761-1-mikko.rapeli@linaro.org>
+In-Reply-To: <20250901100027.164594-1-amadeus@jmu.edu.cn>
+References: <20250901100027.164594-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_140936_212260_A0215DE8 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_140940_740283_8E91F1FF 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +78,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 15 Sep 2025 11:33:13 +0300, Mikko Rapeli wrote:
-> MMC_DW_ROCKCHIP needs ROCKCHIP_PM_DOMAINS before MMC is detected
-> on Rockchip rk3399 rockpi4b and similar devices. Make this dependency
-> more visible, or the default with ARCH_ROCKCHIP if possible.
+On Mon, 01 Sep 2025 18:00:24 +0800, Chukun Pan wrote:
+> Changed from v3:
+>   Add vcc_3v3_pmu label to vcc_3v3_s3
 > 
-> v4: fixed Kconfig whitespace, added select REGMAP_MMIO to MMC_LOONGSON2
->     instead of disabling COMPILE_TEST
+> Changed from v2:
+>   Remove merged patches
+>   Remove VCC_3V3_PMU for Radxa E52C (new)
+>   Update pinctrl names for Radxa E52C (new)
+>   Update commit message for disabling display subsystem
 > 
 > [...]
 
 Applied, thanks!
 
-[4/4] ARM: rockchip: remove REGULATOR conditional to PM
-      commit: a1b20e062245571c128ec521c4df56ad1bff9bd0
+[2/3] arm64: dts: rockchip: remove vcc_3v3_pmu regulator for Radxa E52C
+      commit: 3edb9c95ffa60c029074804c39b35103a9fb4bfd
+[3/3] arm64: dts: rockchip: update pinctrl names for Radxa E52C
+      commit: cf311ff5e7b27c267c05279e26546fe74f46e5da
 
 Best regards,
 -- 
