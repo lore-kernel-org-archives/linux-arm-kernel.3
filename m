@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3517CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C066CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 15:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UaulywL3eivpOXSv5h6wxwlVTXQrybLiM63aZgH2KFs=; b=Ei9nutUj3MbiR22y2+H0mvfHWK
-	Ce4+qNtiqAWfBlom9P4NK8HTz5cYzvy58b6kJB9xzOmNnM9g9nDzsaKDiezOvjQhGywGFI0wb6Oeb
-	AphBpP5JzeaftsPh/IDpzaSh6fQNGh/C4JnBaH62vAzFMlrGhxrsyAmcK29WCbwIL2GXalBCheCaZ
-	+KOp5E7imggBEig4LosluHrhfL8tlQ/i8Pqcv8Ua7lw+HXiLlEqRCVxwZXu8mjYA8b9cfKBZD2nOn
-	885FUv1pSxtjmRM1FumSo/NBMmmiVD5q9cc/SNkSavpGxRYfi6rwuiA5yvizOxJgvYIUzZ4AsWx0W
-	yImPaZKw==;
+	bh=OEkdLktlDvN1oVUv5Lqzht+cyiipJS09AUc5YnCU0eU=; b=OYI2F+lSVq7cAb5r7jM7vFxag+
+	3avR/ben/Q6k8uggwQym+F0yK/qNHdjhA5jHRkPYRCzmzeCRoeuYymuDIM7zPuSjIKbVEwQjcnTol
+	mkqmU+bDDN7/fRHCxK8KODlC9wBEaHKqcxV+8n8+GYRA55GZfHVQLpn3WQZEqw3hKXI++eMlShURT
+	Qhlc3OuWOLBJcOod0FyPSTGOkyigikHn6A9lQN3weW+ByYMxBMZFmFcpYyDOxGnyHY63fK/HQtJEG
+	twW2vQK/wpW6HUrRVwXr5ImLb1AoQ01yhgEZPL4lcBb6i59YZmtRoLXs08Mfc/6Nibkd2rnu4iWGY
+	SIuqEXkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGG0-00000000HeO-1Ifd;
+	id 1uzGG0-00000000He1-01u2;
 	Thu, 18 Sep 2025 15:09:12 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzGFx-00000000HYM-0VzN
+	id 1uzGFu-00000000HZ5-2yfP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 15:09:10 +0000
+	Thu, 18 Sep 2025 15:09:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758208149; x=1789744149;
+  t=1758208146; x=1789744146;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=/mLGAizM4D0NKvOiayu53Ks5IeoiBFtYbwR9O/5P3ws=;
-  b=bCWrZ4o03bJmvYp1e9PkOGknow26lUimBQZwddQlkwxYfanS1sKQPRrE
-   Ry8wIdyZwXp5hQp1Y3GyNrdPwMneZmtji4vgoBamngkCK5fvdzjuuHKZZ
-   P56yiwOhsS7f9izE3ABYRdUxoYsqOStTQPXRDtJvpKsnHqLIhMXNJ9D9S
-   A/1DCyNXGKnlcPn9J5iMXHXJLwc8ArNlAYJ/1SmJvbHJETlRUjMCV+nS/
-   gO7ll+DJPBHWkOpLKQVFv9+0fkiVUCa8kPofngctu7ZxZf4zV+7s3JQa6
-   O1J9JQmUED3ZczbLCA+pn/gAthXS7cXZ/9hDF/svjnxTGDLDKoebVf7Eu
+  bh=4j8vRBELdW0QshfmtFprRBJA+qWBo/IXVvkjTX5z0Qk=;
+  b=JplNVxCig5esDpJYYp5NpWj9awgS+eKKuaLVpXa2kmYr8UxMRakJAJpu
+   kik2EiadSShUYv3wjeEz388Tpu3iNr3vKoJvR3dtslMC91YZtda/gHGyi
+   Ih48dYu68QNKpDKqDhUNLVY7Q7tAo379DBEx4FxZlceHBmUy+o/KzyeqO
+   eTH1CAW5cP1gw5EHIS97lxlsB7dL6BlCfXnZdS1eC0/h8Hq220IEbfJm5
+   0qvPBMU31GH1NFHSUGt9NdqqXG+k1TM74HiWX1nRE+wrTR9PP2z9+GEKu
+   1IgWA/9B1UJv8m5+iL9ZhOojiA1oQFGc+U9zdAmksL4OTXXAQTaQkph1q
    Q==;
 X-CSE-ConnectionGUID: ugeKBCocT/GeJhh6l5hQPQ==
-X-CSE-MsgGUID: kCLCrTZbQD2iFf1NNNj/Lg==
+X-CSE-MsgGUID: V29oNPwLRZ65zNFa1cLTlg==
 X-IronPort-AV: E=Sophos;i="6.18,275,1751266800"; 
-   d="scan'208";a="47215044"
+   d="scan'208";a="47215042"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2025 08:09:05 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Sep 2025 08:09:04 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 18 Sep 2025 08:08:43 -0700
+ 15.1.2507.58; Thu, 18 Sep 2025 08:08:39 -0700
 Received: from ROU-LL-M19942.mpu32.int (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 18 Sep 2025 08:08:40 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 18 Sep 2025 08:08:36 -0700
 From: Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Date: Thu, 18 Sep 2025 17:07:39 +0200
-Subject: [PATCH v2 5/5] ARM: configs: at91_dt_defconfig: enable GFX2D
- driver
+Date: Thu, 18 Sep 2025 17:07:38 +0200
+Subject: [PATCH v2 4/5] ARM: dts: microchip: sam9x7: Add GFX2D GPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250918-cpitchen-mainline_gfx2d-v2-5-6cfac9d56612@microchip.com>
+Message-ID: <20250918-cpitchen-mainline_gfx2d-v2-4-6cfac9d56612@microchip.com>
 References: <20250918-cpitchen-mainline_gfx2d-v2-0-6cfac9d56612@microchip.com>
 In-Reply-To: <20250918-cpitchen-mainline_gfx2d-v2-0-6cfac9d56612@microchip.com>
 To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
@@ -75,19 +74,18 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	Cyrille Pitchen <cyrille.pitchen@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=751;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=936;
  i=cyrille.pitchen@microchip.com; h=from:subject:message-id;
- bh=/mLGAizM4D0NKvOiayu53Ks5IeoiBFtYbwR9O/5P3ws=;
- b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ8YZhZSAPWcz1W++P2/y1OGSdTDnguSa3HbjhL+vS3trC
- u5mbHjRUcrCIMbFICumyHLozdbezOOvHtu9EpWCmcPKBDKEgYtTACZS/IORYbOS48lTTQ0VESz9
- KUu2H9m3ce9D3sfTHXZGuy/eYcMRlcnI8NmtiMPB7JDD/tpzT0tsln959KwogfNL1MTYvHsvb59
- 4wwQA
+ bh=4j8vRBELdW0QshfmtFprRBJA+qWBo/IXVvkjTX5z0Qk=;
+ b=owGbwMvMwCXmf6yzKqEsVIbxtFoSQ8YZhZQ37Nq75l3qvefYfzKjbPrzXxOk579ddPmukDzTu
+ vQXQi6fO0pZGMS4GGTFFFkOvdnam3n81WO7V6JSMHNYmUCGMHBxCsBEKmcw/DM+mvPU9k+2yc9/
+ 4onT3BmZZq/7ciiuWyw+n//s0S/XBZUY/kdqZYhHmyub1uqmz+tbeePZjsLQ2bJcG7ied3zbl77
+ DgRMA
 X-Developer-Key: i=cyrille.pitchen@microchip.com; a=openpgp;
  fpr=7A21115D7D6026585D0E183E0EF12AA1BFAC073D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_080909_244183_CA98CC40 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_080906_862963_48BE0D97 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GFX2D GPU is embedded in both SAM9X60 and SAM9X75; enable the
-driver to use it.
+Add support for the GFX2D GPU.
 
 Signed-off-by: Cyrille Pitchen <cyrille.pitchen@microchip.com>
 ---
- arch/arm/configs/at91_dt_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/microchip/sam9x7.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-index ff13e1ecf4bb9545d6d2210b2f3059e6807779a0..85e9b52152aec6746f660dd0c299cd5aa12ce2ea 100644
---- a/arch/arm/configs/at91_dt_defconfig
-+++ b/arch/arm/configs/at91_dt_defconfig
-@@ -144,6 +144,7 @@ CONFIG_VIDEO_OV2640=m
- CONFIG_VIDEO_OV7740=m
- CONFIG_DRM=y
- CONFIG_DRM_ATMEL_HLCDC=y
-+CONFIG_DRM_MICROCHIP_GFX2D=y
- CONFIG_DRM_MICROCHIP_LVDS_SERIALIZER=y
- CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_PANEL_EDP=y
+diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
+index 66c07e642c3e1a2272490ec311062dfdf291c1cc..d61a7e2da5b587bfe399fdb51dea4dd6c6b9e552 100644
+--- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
+@@ -271,6 +271,14 @@ AT91_XDMAC_DT_PERID(38))>,
+ 			status = "disabled";
+ 		};
+ 
++		gpu: gpu@f0018000 {
++			compatible = "microchip,sam9x7-gfx2d";
++			reg = <0xf0018000 0x4000>;
++			interrupts = <36 IRQ_TYPE_LEVEL_HIGH 0>;
++			clocks = <&pmc PMC_TYPE_PERIPHERAL 36>;
++			status = "disabled";
++		};
++
+ 		i2s: i2s@f001c000 {
+ 			compatible = "microchip,sam9x7-i2smcc", "microchip,sam9x60-i2smcc";
+ 			reg = <0xf001c000 0x100>;
 
 -- 
 2.48.1
