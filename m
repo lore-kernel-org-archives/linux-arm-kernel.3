@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EC4CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E5ACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXWxdVsz8OIqRG69WHkwh2MIuKL0/P8rJq4IPOyC4VY=; b=Zw6/LxYaDtaP62RKpMXHvHY7UT
-	cD/v15haFl9APPaGKgvPUQyYRLE7/JyFdPwk2LSBACEbkIatvuZO19FnS3NbcZGtnaWFPsJoQsET+
-	gvUEgV30sAJ1sJicrNlCHeTOQe5Y3SJvLBMvuM9mZao2lDQA95Jj+Suc+pvYX/1Yxg+sDFdBphkta
-	XVwx0ejwPKmj3/cxnvudxyHs7OTGE0NHHyKVXjVhqKFlwDqX9FVc5hDIxjBXmsGznWShIKKggJEgT
-	silaALoGzUGxi6mWQVUniKUSKVB6CeB2BMmL1xGjkj/VSkzrouaCUqj+PKN5oyJL6CrdtwrEsSsBE
-	64v57eYQ==;
+	bh=au0N8UjUCdJyaXYgEI+pwEcqeIAVB1l8ChmB40Jysug=; b=CDQMPD9M6uMzJwpZGLygVoxek7
+	a6zq7Pd6hP/e6bwbpATq9KXwForXDY227ouUSbBc8y9HkDqeyNv0RsZR9uB4nrfeVTlh/EPrM7ofe
+	A2mfEEZPUm/A9keozVc9UX1o6u2t33DWKl5NO37/xKdywFv8Jah/WbtlKuMan89qN2qe1DvR5dFwl
+	WwVcK4AI381PQJp3uON0pqdUfHS/y63YdqUr88yu/8G4ngTK72MIZc9R/G9tmnP0no2zxXMZjJa1N
+	OhPQbfAuj/L0SPegfWLLY6Jb+WXEsC45lRDlc0iB+fFTgtfMlU+slW01+/osqNxnqqhbsvIrk8zUo
+	hAxJe4ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzG5A-00000000EXt-3B9b;
-	Thu, 18 Sep 2025 14:58:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzG5P-00000000EcU-0G28;
+	Thu, 18 Sep 2025 14:58:15 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzG59-00000000EXB-3XMX
+	id 1uzG5M-00000000EaZ-2TO6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 14:57:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09DF0601D5;
-	Thu, 18 Sep 2025 14:57:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2CEC4CEE7;
-	Thu, 18 Sep 2025 14:57:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758207478;
-	bh=9ptbDgx9yP30JQpxvmB423ylAWuRrb/kCJRElL8M6vw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d3UZcSMD22E0ZDun9Js4sfb9Q7YO2pN4OwP/ARhsg4W9XplFc4V5HpaFVNce1vQNg
-	 zvyPJzQGxARz6drO1QKZwc0lDuj0oqMgbGFdOY7cUfhFLM8caCYMCpenLKJr/KRxod
-	 vkGrg9x5BZ6izYWXrUGrCkzYK2YYcgINJ8O/+1xGyXt32SlWBAtemljm7E0ZpUt7hB
-	 tJsuEOOLl+ixsfYK23QR41GUCz/XQFhYTYp3qoYPQbGQBn0k6/CmmF0O1zXatmxs6s
-	 Z6+3dPT0BgiwKpPoN+heHxgIJbgLwTBc0V5uqVsmVhKw9wsssQM9skdZRnNZHKdPsZ
-	 wdPv0t9HbPuxA==
-Date: Thu, 18 Sep 2025 15:57:48 +0100
-From: Will Deacon <will@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, linux-hardening@vger.kernel.org,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
-	Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Maxwell Bland <mbland@motorola.com>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pierre Langlois <pierre.langlois@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	x86@kernel.org
-Subject: Re: [RFC PATCH v5 00/18] pkeys-based page table hardening
-Message-ID: <aMwd7IJVECEy8mzf@willie-the-truck>
-References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
- <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
- <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
- <8f7b3f4e-bf56-4030-952f-962291e53ccc@arm.com>
+	Thu, 18 Sep 2025 14:58:14 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id 3f1490d57ef6-ea473582bcaso2603902276.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 07:58:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758207491; x=1758812291; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=au0N8UjUCdJyaXYgEI+pwEcqeIAVB1l8ChmB40Jysug=;
+        b=q6zRfNZvkuxvX5c7Indnz0vej3bkiBbeTrfxzn7qf+q4PtLgLfrq53Ha/jIB67NPA3
+         d2PrVvyHGzCjivR4amGSsTUcsatduoztmUcMXeUf7t3R+akDpkszBY54yWcIpM79tMXv
+         jDAdxV9Kp5tCV++i1GbHFmvTw4SuWIAvblxJPx+QCR7Fc2GTeNvs5ykPWXbNHry1QoBu
+         tvtW5eDfgRd4+2K45+L/H52+VHOXTCgwvX5n34p3J+SRdln4eCvS/zp/jvglEw8pBF8N
+         //pxZxxdniOMbY76MVolsE3HuMLf2H4+cv8kt/hwQgs/0d4yrZD89OFUmJPdcRhSrlN7
+         lwwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758207491; x=1758812291;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=au0N8UjUCdJyaXYgEI+pwEcqeIAVB1l8ChmB40Jysug=;
+        b=ldWHAM3bFvRqFwGtJcFsIBbflrSqCpLsw4Pv7hsv85behkuKZzAmRbje5ayV9FZKC1
+         DbUofqFc2JIbXwV0Eo4oL9iXcVkaRseMpJul1HrpHZpmr9J2pcdFxuhfscxHc89OtBo9
+         DX9jV77KIU7OKrWuZP9hQYwv8r3oeBO1QoMIgXkpStZPZ9OOFsnRsrVgbWcPGZ8o0oE9
+         1Y+GVzcVMt0SVxMZwiMV2x4tXl544Uty2OAscEs0/TAZ3t05CGipExjjOod6Nq3/Bdk0
+         oqwggAL1BfxxV6F7cnKjl+P+8F29U16LZZCCPYyrybNEHQYvgEoxJnvfWJ1xbvXhxt7G
+         arPA==
+X-Forwarded-Encrypted: i=1; AJvYcCUThExnHE9xcWclWGBYp0H0KgzQ+eO68ktrYzx4mYfHUcQiqHEAt0Otvlf9Pr9Y6/OwqLaKcrlraWPLPrzJnFIk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxiOTzCi7pXFSO+m2CDHZmAPB5xlh8RZdUypmDHlONiU0kd67h
+	SZI7dvD1vVHQDiVI0BBcmz0u+BynrT+sLUzRMaCenhIKZyksylXkksQEa1eQsgYiL+vd8HnjISi
+	b5hiwykd4EBqD9A5YjcrgmndTfzfiZfxjCw4aliHgVg==
+X-Gm-Gg: ASbGncsV27lIvXK8b13FKXktAhiE98l2BOoau4WCQfiB2gAlIYqGH2XDYaBHVnI4EYt
+	2tL/UZfWn38FfNhykpdZ5FUZnoLHFBBqyJq4dFI6+7gGtLJVS2t5+gZHQHZt7FsHaLg2DbU7SAa
+	FsrlnmKwtiOMMLyqnq1CmjCs9BCuSj7/patOakV3JRQbgKThU3z/MfSWcUwFPhzf89fyOp9pj5M
+	Q+WAtw9gcePZWkvK9JuoAyToPo=
+X-Google-Smtp-Source: AGHT+IFu/Hil6zUPihFVRvZ9DUy8R4zMDZj2S8OaE0GEEgl5Uq2FPzOER6rzX/6cmX1azbC/FOh27T6/OPOtiqBGMW4=
+X-Received: by 2002:a05:690e:2515:b0:633:bc86:a1d2 with SMTP id
+ 956f58d0204a3-634773d6120mr24947d50.0.1758207490799; Thu, 18 Sep 2025
+ 07:58:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8f7b3f4e-bf56-4030-952f-962291e53ccc@arm.com>
+References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com> <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
+In-Reply-To: <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 18 Sep 2025 16:57:34 +0200
+X-Gm-Features: AS18NWDnkEmKtjLXZgraEdCqo9-wmrIQesU05v7Yd2QIwo9qUnvKejYI9I4FOEI
+Message-ID: <CAPDyKFrui-Vr1rvE01w+n4ttWeUk4cmr2jqgqk0BWe98eQtkcg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] pmdomain: core: Introduce device_set/get_out_band_wakeup()
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Xu Yang <xu.yang_2@nxp.com>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, imx@lists.linux.dev, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_075812_662867_D98BAF43 
+X-CRM114-Status: GOOD (  27.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +99,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 04:15:52PM +0200, Kevin Brodsky wrote:
-> On 25/08/2025 09:31, Kevin Brodsky wrote:
-> >>> Note: the performance impact of set_memory_pkey() is likely to be
-> >>> relatively low on arm64 because the linear mapping uses PTE-level
-> >>> descriptors only. This means that set_memory_pkey() simply changes the
-> >>> attributes of some PTE descriptors. However, some systems may be able to
-> >>> use higher-level descriptors in the future [5], meaning that
-> >>> set_memory_pkey() may have to split mappings. Allocating page tables
-> >> I'm supposed the page table hardening feature will be opt-in due to
-> >> its overhead? If so I think you can just keep kernel linear mapping
-> >> using PTE, just like debug page alloc.
-> > Indeed, I don't expect it to be turned on by default (in defconfig). If
-> > the overhead proves too large when block mappings are used, it seems
-> > reasonable to force PTE mappings when kpkeys_hardened_pgtables is enabled.
-> 
-> I had a closer look at what happens when the linear map uses block
-> mappings, rebasing this series on top of [1]. Unfortunately, this is
-> worse than I thought: it does not work at all as things stand.
-> 
-> The main issue is that calling set_memory_pkey() in pagetable_*_ctor()
-> can cause the linear map to be split, which requires new PTP(s) to be
-> allocated, which means more nested call(s) to set_memory_pkey(). This
-> explodes as a non-recursive lock is taken on that path.
-> 
-> More fundamentally, this cannot work unless we can explicitly allocate
-> PTPs from either:
-> 1. A pool of PTE-mapped pages
-> 2. A pool of memory that is already mapped with the right pkey (at any
-> level)
-> 
-> This is where I have to apologise to Rick for not having studied his
-> series more thoroughly, as patch 17 [2] covers this issue very well in
-> the commit message.
-> 
-> It seems fair to say there is no ideal or simple solution, though.
-> Rick's patch reserves enough (PTE-mapped) memory for fully splitting the
-> linear map, which is relatively simple but not very pleasant. Chatting
-> with Ryan Roberts, we figured another approach, improving on solution 1
-> mentioned in [2]. It would rely on allocating all PTPs from a special
-> pool (without using set_memory_pkey() in pagetable_*_ctor), along those
-> lines:
-> 
-> 1. 2 pages are reserved at all times (with the appropriate pkey)
-> 2. Try to allocate a 2M block. If needed, use a reserved page as PMD to
-> split a PUD. If successful, set its pkey - the entire block can now be
-> used for PTPs. Replenish the reserve from the block if needed.
-> 3. If no block is available, make an order-2 allocation (4 pages). If
-> needed, use 1-2 reserved pages to split PUD/PMD. Set the pkey of the 4
-> pages, take 1-2 pages to replenish the reserve if needed.
-> 
-> This ensures that we never run out of PTPs for splitting. We may get
-> into an OOM situation more easily due to the order-2 requirement, but
-> the risk remains low compared to requiring a 2M block. A bigger concern
-> is concurrency - do we need a per-CPU cache? Reserving a 2M block per
-> CPU could be very much overkill.
-> 
-> No matter which solution is used, this clearly increases the complexity
-> of kpkeys_hardened_pgtables. Mike Rapoport has posted a number of RFCs
-> [3][4] that aim at addressing this problem more generally, but no
-> consensus seems to have emerged and I'm not sure they would completely
-> solve this specific problem either.
-> 
-> For now, my plan is to stick to solution 3 from [2], i.e. force the
-> linear map to be PTE-mapped. This is easily done on arm64 as it is the
-> default, and is required for rodata=full, unless [1] is applied and the
-> system supports BBML2_NOABORT. See [1] for the potential performance
-> improvements we'd be missing out on (~5% ballpark). I'm not quite sure
-> what the picture looks like on x86 - it may well be more significant as
-> Rick suggested.
+On Tue, 2 Sept 2025 at 05:33, Peng Fan <peng.fan@nxp.com> wrote:
+>
+> For some cases, a device could still wakeup the system even if its power
+> domain is in off state, because the device's wakeup hardware logic is
+> in an always-on domain.
+>
+> To support this case, introduce device_set/get_out_band_wakeup() to
+> allow device drivers to control the behaviour in genpd for a device
+> that is attached to it.
 
-Just as a data point, but forcing the linear map down to 4k would likely
-prevent us from being able to enable this on Android. We've measured a
-considerable (double digit %) increase in CPU power consumption for some
-real-life camera workloads when mapping the linear map at 4k granularity
-thanks to the additional memory traffic from the PTW.
+Would you mind trying to extend/clarify this commit-msg a bit more, to
+make the benefit more clear.
 
-At some point, KFENCE required 4k granularity for the linear map, but we
-fixed it. rodata=full requires 4k granularity, but there are patches to
-fix that too. So I think we should avoid making the same mistake from
-the start for this series.
+For example, today we may be wasting energy, by unnecessarily keeping
+PM domains powered-on during system-wide suspend, when a device has
+been enabled for system-wakeup...
 
-Will
+In regards to terminology, I would appreciate if we could use
+"system-wakeup" and "out-band system-wakeup logic" and "system-wide
+suspend".
+
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/pmdomain/core.c   |  6 ++++--
+>  include/linux/pm.h        |  1 +
+>  include/linux/pm_wakeup.h | 17 +++++++++++++++++
+
+Please split this into two separate patches.
+
+>  3 files changed, 22 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 0006ab3d078972cc72a6dd22a2144fb31443e3da..8e37758cea88a9ee051ad9fb13bdd3feb4f8745e 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -1549,7 +1549,8 @@ static int genpd_finish_suspend(struct device *dev,
+>         if (ret)
+>                 return ret;
+>
+> -       if (device_awake_path(dev) && genpd_is_active_wakeup(genpd))
+> +       if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
+> +           !device_get_out_band_wakeup(dev))
+>                 return 0;
+>
+>         if (genpd->dev_ops.stop && genpd->dev_ops.start &&
+> @@ -1604,7 +1605,8 @@ static int genpd_finish_resume(struct device *dev,
+>         if (IS_ERR(genpd))
+>                 return -EINVAL;
+>
+> -       if (device_awake_path(dev) && genpd_is_active_wakeup(genpd))
+> +       if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
+> +           !device_get_out_band_wakeup(dev))
+>                 return resume_noirq(dev);
+>
+>         genpd_lock(genpd);
+> diff --git a/include/linux/pm.h b/include/linux/pm.h
+> index cc7b2dc28574c24ece2f651352d4d23ecaf15f31..5b28a4f2e87e2aa34acc709e146ce729acace344 100644
+> --- a/include/linux/pm.h
+> +++ b/include/linux/pm.h
+> @@ -684,6 +684,7 @@ struct dev_pm_info {
+>         bool                    smart_suspend:1;        /* Owned by the PM core */
+>         bool                    must_resume:1;          /* Owned by the PM core */
+>         bool                    may_skip_resume:1;      /* Set by subsystems */
+> +       bool                    out_band_wakeup:1;
+>         bool                    strict_midlayer:1;
+>  #else
+>         bool                    should_wakeup:1;
+> diff --git a/include/linux/pm_wakeup.h b/include/linux/pm_wakeup.h
+> index c838b4a30f876ef5a66972d16f461cfba9ff2814..c461c7edef6f7927d696b7d18b59a6a1147f53a3 100644
+> --- a/include/linux/pm_wakeup.h
+> +++ b/include/linux/pm_wakeup.h
+> @@ -94,6 +94,16 @@ static inline void device_set_wakeup_path(struct device *dev)
+>         dev->power.wakeup_path = true;
+>  }
+>
+> +static inline void device_set_out_band_wakeup(struct device *dev, bool capable)
+> +{
+> +       dev->power.out_band_wakeup = capable;
+
+I suggest we drop the bool as in-parameter and just do:
+dev->power.out_band_wakeup = true;
+
+Moreover, I think we should clear the flag in device_prepare(), next
+to where dev->power.wakeup_path is cleared.
+
+This makes the behavior better aligned for users of these flags.
+
+> +}
+> +
+> +static inline bool device_get_out_band_wakeup(struct device *dev)
+
+Nitpick: I would rename this into device_out_band_wakeup(). At least
+the "get" part is a confusing in my opinion, as indicates there is
+reference taken too.
+
+> +{
+> +       return dev->power.out_band_wakeup;
+> +}
+> +
+>  /* drivers/base/power/wakeup.c */
+>  extern struct wakeup_source *wakeup_source_register(struct device *dev,
+>                                                     const char *name);
+> @@ -162,6 +172,13 @@ static inline bool device_wakeup_path(struct device *dev)
+>
+>  static inline void device_set_wakeup_path(struct device *dev) {}
+>
+> +static inline void device_set_out_band_wakeup(struct device *dev, bool capable) {}
+> +
+> +static inline bool device_get_out_band_wakeup(struct device *dev)
+> +{
+> +       return false;
+> +}
+> +
+>  static inline void __pm_stay_awake(struct wakeup_source *ws) {}
+>
+>  static inline void pm_stay_awake(struct device *dev) {}
+>
+> --
+> 2.37.1
+>
+
+Otherwise, from an overall functionality point of view, this makes sense to me!
+
+Kind regards
+Uffe
 
