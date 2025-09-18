@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B809CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB9ECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DUbn/wqWwuCR6HZ/LenGNGmR0LYQCTbBGnL69vaB1Y=; b=vr+pEEuWDIwkGgYQvPaPAmokOo
-	UJ3GoplZ26vzhguHsKoW32XGL+Q1ysTHjPZLVLwAjtq5dlftEzlJl4cYbMfgofKQaj/seuuQFja+D
-	gz4SPmrt6j8IC7SfL5HOnl+4hfls+Qr6U1ABjMuFyE7njqsBfj868k2oEx25ptTA0Xa+9QRAHBKj8
-	qAih+MWudkP/r5kB3dnfkeZBzx+RPDKx6Opysvs+EWsGgNMh6ONymwm39pnB4UEWI2Qp54+QNHyAu
-	Rgvw28lvI65aXfJcm0P/3plq8t+XRO4SIW7xctduEsJKppGz1r73opR+ilznhf0yvNSgfhaZkC8b/
-	JPKY67nw==;
+	bh=tQbUYnDklqtjGAZkvyvVyS1xwqkNeOegT58uBhLLnQk=; b=j8PtksjoIvruac5l0eOlHCijR1
+	q0Q9/2B07zhOMQezu7RiqmQUxHn7ZdmOu+gCUYYMkVK4cxqa6GQt+2mTuxNZz6+8rg+RBQvfT/o8q
+	fYWIvkaazFMKoi9mOHNGLru10JmkMpM8KmEZkbCpixYDjWnmLlpoYSdRHS/QGsqSmrcCOgutmxOWx
+	POOi4/nDXBrjCNhYK+cK4lSCDpn8oWy7/GPgmGd1I6p0xAA4rEqCbvnZK0489sWk89V0+oAtLvpUV
+	OzrBhnvjnp+Ffbwe3EZY+2gW6rnqaQfXRLw3wDzzsr4d5WazfObkI52wmW8ZF5H0UQBAp+zmEmcLA
+	4UtfBQXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2lV-0000000FqoB-0EIE;
-	Thu, 18 Sep 2025 00:44:49 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uz2lb-0000000FqvK-0clr;
+	Thu, 18 Sep 2025 00:44:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz2lP-0000000Fqgf-2EH5;
-	Thu, 18 Sep 2025 00:44:46 +0000
+	id 1uz2lX-0000000FqpA-2k1Q;
+	Thu, 18 Sep 2025 00:44:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758156281;
-	bh=1tGHh9D4SKDvEOmsISHVmpQ1zNxKTXUO5Zxk4dBMT/E=;
+	s=mail; t=1758156289;
+	bh=wN/Y3+uhPOPTYnZ+MKX1igI1SlXFFgW5cU2DrgN+pT8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=g312YVYfu09+uwmwFU7QBJm+XK9nAAXqkUpbMbVdfdo6ibFximu3Tqt0z41m/ZuCb
-	 e2RoDBpVYGRMaBtM2IOGTQ04gqY2OW5WKaTGZnEuWt7hIAllB7abjdt/Ef5PSJB7tl
-	 9iIfZP5fqmKR0Q1bM3L9QO/LGoVTGYb/6BEfI3V1yCAWdLjTrt5JR4W+p2POc1w6ty
-	 JaNbP6Qm4ZPBEJ0JRDoaBR25mYXPKqAq6fa7pMT/glRRIV46LoPbXpBbUnuSb8V3tW
-	 dMeuiKjJ4The2yyeJay3cb9PUAna6xUU/vkbvl3i+H//am5r8q3z6efJeWhvrrfmJ/
-	 yIEuILXanZPwQ==
+	b=mu48ew3SbUxjspIiN/XBMmjzibf8zkbqhf/CEoTkObxJX2V66hVLBsTm1PqBVZ+ci
+	 mhEjiwMW6BLzmYJvpMJMDcjv+DjL46YX7B7O5s2zIcYYCyIzBzpoN8oyxZ/nmfQUas
+	 ODEZRMcr/oItClvW5VWnRMxJ896SxqfGTfgmEUMoTs2jVzwWEOIPAPyNxFGGDpsRo2
+	 ZHg1j0LvC43PEmGKmCRKdOk2vS5EHw6DetwCjrLHgDFGHPE3TBiSCLXh4fGvBIKdxd
+	 WxBH0peLuqgxHSo1VKmnm7QV2YHUVRKDMA0Ed4Fn9M2PXy80hQirsUiz3/DO9UZor7
+	 Eza66KRKx2VPQ==
 Received: from [127.0.1.1] (unknown [IPv6:2600:4041:5b1a:9400:62f0:406e:ac79:4a96])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 12D7F17E0DC2;
-	Thu, 18 Sep 2025 02:44:34 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D864C17E1067;
+	Thu, 18 Sep 2025 02:44:41 +0200 (CEST)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Wed, 17 Sep 2025 20:43:20 -0400
-Subject: [PATCH RFC v2 11/20] drm/colorop: Export drm_colorop_cleanup() so
- drivers can extend it
+Date: Wed, 17 Sep 2025 20:43:21 -0400
+Subject: [PATCH RFC v2 12/20] drm/crtc: Track post-blend color pipeline
+ client cap in drm_crtc_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-11-ac4471b44758@collabora.com>
+Message-Id: <20250917-mtk-post-blend-color-pipeline-v2-12-ac4471b44758@collabora.com>
 References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,9 +79,8 @@ Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
  Simona Vetter <simona.vetter@ffwll.ch>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_174443_768612_5B6468A6 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250917_174452_116179_9CDD1E6D 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export drm_colorop_cleanup() so drivers subclassing drm_colorop can
-reuse this function in subclass cleanup routines.
+Some drivers, like VKMS, only have access to the drm_crtc_state but not
+the drm_atomic_state during composition of the output framebuffer. Store
+the state of the post-blend color pipeline client cap in the
+drm_crtc_state so those drivers can decide whether to look at the color
+pipeline or the legacy properties for the color management settings to
+apply.
 
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/gpu/drm/drm_colorop.c | 3 ++-
- include/drm/drm_colorop.h     | 1 +
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/drm_atomic.c | 1 +
+ include/drm/drm_crtc.h       | 8 ++++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-index b0c3216f4dac22f3408cbd537a20f38d03abc0a7..83deb2bc6f50fe030664548365d22de9b45f486b 100644
---- a/drivers/gpu/drm/drm_colorop.c
-+++ b/drivers/gpu/drm/drm_colorop.c
-@@ -187,7 +187,7 @@ static int drm_crtc_colorop_init(struct drm_device *dev,
-  *
-  * @colorop: The drm_colorop object to be cleaned
-  */
--static void drm_colorop_cleanup(struct drm_colorop *colorop)
-+void drm_colorop_cleanup(struct drm_colorop *colorop)
- {
- 	struct drm_device *dev = colorop->dev;
- 	struct drm_mode_config *config = &dev->mode_config;
-@@ -202,6 +202,7 @@ static void drm_colorop_cleanup(struct drm_colorop *colorop)
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index 6982c978dc530b838353ace60f748660c3b4524d..bbfa35c800240722785a6db440eb3d47ef9c8ed6 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -386,6 +386,7 @@ drm_atomic_get_crtc_state(struct drm_atomic_state *state,
+ 	state->crtcs[index].new_state = crtc_state;
+ 	state->crtcs[index].ptr = crtc;
+ 	crtc_state->state = state;
++	crtc_state->color_pipeline_enabled = state->post_blend_color_pipeline;
  
- 	kfree(colorop->state);
- }
-+EXPORT_SYMBOL(drm_colorop_cleanup);
+ 	drm_dbg_atomic(state->dev, "Added [CRTC:%d:%s] %p state to %p\n",
+ 		       crtc->base.id, crtc->name, crtc_state, state);
+diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+index df03637ca25abd45e96b5944229297f776fd046d..cb9eda6335e0d6728d99d67cc6916ad2d0e1d94e 100644
+--- a/include/drm/drm_crtc.h
++++ b/include/drm/drm_crtc.h
+@@ -282,6 +282,14 @@ struct drm_crtc_state {
+ 	 */
+ 	struct drm_colorop *color_pipeline;
  
- /**
-  * drm_colorop_pipeline_destroy - Helper for color pipeline destruction
-diff --git a/include/drm/drm_colorop.h b/include/drm/drm_colorop.h
-index e7d1e5e95a901b1bd91fd8580e2fcb367c0253ce..f7472ece00cdb09ae204d0c2339eb35c3246874e 100644
---- a/include/drm/drm_colorop.h
-+++ b/include/drm/drm_colorop.h
-@@ -375,6 +375,7 @@ static inline struct drm_colorop *drm_colorop_find(struct drm_device *dev,
- 	return mo ? obj_to_colorop(mo) : NULL;
- }
- 
-+void drm_colorop_cleanup(struct drm_colorop *colorop);
- void drm_colorop_pipeline_destroy(struct drm_device *dev);
- 
- int drm_crtc_colorop_curve_1d_lut_init(struct drm_device *dev, struct drm_colorop *colorop,
++	/**
++	 * @color_pipeline_enabled:
++	 *
++	 * Whether color management should be done based on the &color_pipeline
++	 * or the legacy color properties (&ctm, &gamma_lut and &degamma_lut).
++	 */
++	bool color_pipeline_enabled;
++
+ 	/**
+ 	 * @target_vblank:
+ 	 *
 
 -- 
 2.50.1
