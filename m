@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFFFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84E3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRwpANH20f3O41DZeZFj63uF99IcxizRzfbRD2S6WOw=; b=HKzjGHfqU8Wy/UaOZ1YCY0qeNp
-	V5IenK2Y4z80UAielOpErllksYhtpkNZylDeIck8EXDZffmt5CTBPkRz355ql1mDqDW/Symd7IUuZ
-	1VDdG+rZHBsIR3WWrpUJIiZXhyJgos5M3CWPuNOpgY++0n1mVt7Uub7y+wl0hClEVr2op05SOaF9Z
-	AuJiHCma4ruitgBnooLEEsq0LeqxRHsTsW0VWfR2+IAEpvRKMBpSHRw4lrl8OWLNjgh+268XEuBRs
-	z+GGgDP9Picwp4BLT0S75k4ESzPmwgUOxm6EQAqNi+kDWEq3AcXxlJJAKc4EIuhGo1fFPeSZhYp6Y
-	uXVcMHsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qDXJdIpbfvovbuOMVUAH9VpMCZDU7wfvaTpQt7M8sQc=; b=gA6yybwQ4MyFqoiJXAw+E0q4iX
+	CekMV7R1jmgST7JSPOIZ9OgtdpSSpIP0ZITEr1mWtBWN/fLBoxSef7mtaD1yNg9IhL/HttxHea8ZT
+	ra4klRtqHBrTqmHEYk3UAqd8Ru4aA4++Q5FmfmjmMl3OQK9BRFXCjwiQ3z4u1R91jimzdy8+YHmEq
+	yoj7DakHSMduDhIMiMlQsf0m296yQYlYge8zgwvIuXvRz3ombcNizFM+rXV/TocXzor2Euyrh9jdd
+	8zsqxIjKn58vEZLdIvXs3OZlrMfMpocxJanx/i9JQfv/0lJdakCUYxq8ZFl8xJFm+618hBlajN99C
+	jFtm9b3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCp0-0000000HDmQ-3BpV;
-	Thu, 18 Sep 2025 11:29:06 +0000
-Received: from mail-m1973196.qiye.163.com ([220.197.31.96])
+	id 1uzCtn-0000000HEGy-2dke;
+	Thu, 18 Sep 2025 11:34:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCox-0000000HDkD-15Nd;
-	Thu, 18 Sep 2025 11:29:05 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 23446c063;
-	Thu, 18 Sep 2025 19:28:53 +0800 (GMT+08:00)
-Message-ID: <404b35bb-e32b-4830-8d34-d0cfd0a262ff@rock-chips.com>
-Date: Thu, 18 Sep 2025 19:28:52 +0800
+	id 1uzCtm-0000000HEGc-169G
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Sep 2025 11:34:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ACD5B60207
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:34:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CACDC4CEFA
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:34:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758195241;
+	bh=sDruQ31RQWcxA9NQ6hpfjci9hEglxsgsiVScqoGOvCk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fVb35xF2JnZ5CrcL5/xgfPf9AAWIxH9atnakVT9ETUtGv74gLCtZtnmRc2CFvdQw8
+	 aUgH50kHDXv2DxukpJPGzpWnGsxsotjbpf77+vzvp9Ml1/agLX8heoCSGQA/X4p6+0
+	 hVm5ihb7yVv+f6Cs9MB8pseDN0FPgRfbuJyb4nt2fPYZEKJowWIsRAr/VzSvObLkKv
+	 qpebeKGfjakNjnjXqXxevqoxRIICnPWVk0rknnanpUzvzVGauE1RKnauSxnWVs+Ijk
+	 N4tJXCLmWLzMSAg1B1CEwueddeV/T38INbpCwLAgJlrtTgZw6AAp0D1FXJwwDoavZB
+	 ifGpjE3RZhqjg==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-57933d3e498so541677e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 04:34:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWqZrIPsHQs3Q+7yaWaIJjhCTjM0QN4JcpvREe2jgA3RMFhqGz6fys3E3qJmoY9uyDaroIGbceiDQ/u86lvV6g2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPfMP35E5JUpr2X/Hrtk622isXgangInX7msqAQAVSZLJ94i7i
+	q0qH/zeYJub5psrZuFB9W9GoPqMAAyvtJrVLux6PAPywGMYiX7fX6LlCegkE/me887XHnFzTIeg
+	ApbWd9MbMGhOgju2SyLhRMhmQZDyypIM=
+X-Google-Smtp-Source: AGHT+IHRO51P1kh8hrccEQ8EhjnKuluFz4Bw+DY0+jrlyrxJs/osMNkIFLqBmkEhBzI+UI7ewRamktzcJNUv/x12ltM=
+X-Received: by 2002:a05:6512:224b:b0:572:9791:203d with SMTP id
+ 2adb3069b0e04-577982850e7mr1582931e87.21.1758195239718; Thu, 18 Sep 2025
+ 04:33:59 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Enable DisplayPort for
- rk3588-evb2
-To: Quentin Schulz <quentin.schulz@cherry.de>, Chaoyi Chen
- <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
- FUKAUMI Naoki <naoki@radxa.com>, Jonas Karlman <jonas@kwiboo.se>,
- Peter Robinson <pbrobinson@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250918062825.194-1-kernel@airkyi.com>
- <ecc96b5a-2062-43f4-9959-b4e2b126d9f3@cherry.de>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <ecc96b5a-2062-43f4-9959-b4e2b126d9f3@cherry.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a995c959e2a03abkunmced0bb073b07de
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0kYTlYZTUNCSE9DTktNShhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=elkMJm4McaadIkkxl9fxLZoKq6Ze48UUrVlEjcI3WVLV40memdMgXm0I6AlCiX9ppEReD/3c/Nm7xJFq6PpWmPM2GkBysoDpOXA7mmd0Zi3S9um4ewP5ED4b9LA5oLOuzjAq6qC//pV6KmZVkqUt5oA+K/XdNzWO1RJv+q3qbuo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=oRwpANH20f3O41DZeZFj63uF99IcxizRzfbRD2S6WOw=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_042903_786458_5994182E 
-X-CRM114-Status: GOOD (  17.24  )
+References: <20250918103010.2973462-10-ardb+git@google.com>
+In-Reply-To: <20250918103010.2973462-10-ardb+git@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 18 Sep 2025 13:33:48 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGndZxxe+u3st6FCebrdutUibspA7tJUpqGMgpj9UTFnA@mail.gmail.com>
+X-Gm-Features: AS18NWBpKR-TPvng9fbMt92bDXPkedcwInqj0GFfa3493ydSnUglQQw7-ggQlLY
+Message-ID: <CAMj1kXGndZxxe+u3st6FCebrdutUibspA7tJUpqGMgpj9UTFnA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/8] arm64: Make EFI calls preemptible
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +82,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
-
-On 9/18/2025 6:39 PM, Quentin Schulz wrote:
-> Hi Chaoyi Chen,
+On Thu, 18 Sept 2025 at 12:30, Ard Biesheuvel <ardb+git@google.com> wrote:
 >
-> On 9/18/25 8:28 AM, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> The rk3588 evb2 board has a full size DisplayPort connector, enable
->> for it.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> ---
->>
->> Changes in v2:
->>
->> - Link to V1: https://lore.kernel.org/all/20250916080802.125-1-kernel@airkyi.com/
->> - Fix invalid DP connector type
->> - Add more comment about dclk_vp2 parent clock
->>
->>   .../boot/dts/rockchip/rk3588-evb2-v10.dts     | 48 +++++++++++++++++++
->>   1 file changed, 48 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> index 91fe810d38d8..60ba6ac55b23 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dts
->> @@ -25,6 +25,18 @@ chosen {
->>           stdout-path = "serial2:1500000n8";
->>       };
->>   +    dp-con {
->> +        compatible = "dp-connector";
->> +        label = "DP OUT";
->> +        type = "full-size";
->> +
->> +        port {
->> +            dp_con_in: endpoint {
->> +                remote-endpoint = <&dp0_out_con>;
->> +            };
->> +        };
->> +    };
->> +
->>       hdmi-con {
->>           compatible = "hdmi-connector";
->>           type = "a";
->> @@ -106,6 +118,24 @@ vcc5v0_usbdcin: regulator-vcc5v0-usbdcin {
->>       };
->>   };
->>   +&dp0 {
->> +    pinctrl-0 = <&dp0m0_pins>;
->> +    pinctrl-names = "default";
->> +    status = "okay";
->> +};
->> +
->> +&dp0_in {
->> +    dp0_in_vp2: endpoint {
->> +        remote-endpoint = <&vp2_out_dp0>;
->> +    };
->> +};
->> +
->> +&dp0_out {
->> +    dp0_out_con: endpoint {
->> +        remote-endpoint = <&dp_con_in>;
->> +    };
->> +};
->> +
->>   &gpu {
->>       mali-supply = <&vdd_gpu_s0>;
->>       sram-supply = <&vdd_gpu_mem_s0>;
->> @@ -916,6 +946,17 @@ &usb_host1_xhci {
->>   };
->>     &vop {
->> +    /*
->> +     * If no dedicated PLL was specified, the GPLL would be automatically
->> +     * assigned as the PLL source for dclk_vop2. As the frequency of GPLL
->> +     * is 1188 MHz, we can only get typical clock frequencies such as
->> +     * 74.25MHz, 148.5MHz, 297MHz, 594MHz.
->> +     *
->> +     * So here we set the parent clock of VP2 to V0PLL so that we can get
->> +     * any frequency.
->> +     */
->> +    assigned-clocks = <&cru DCLK_VOP2_SRC>;
->> +    assigned-clock-parents = <&cru PLL_V0PLL>;
+> From: Ard Biesheuvel <ardb@kernel.org>
 >
-> Are those board-specific? Considering the VOP and DP/HDMI/... controllers/PHYs are all internal to the SoC, would it make sense to have those specified in the SoC DTSI? I'm not familiar with the video output stack so maybe it doesn't apply here or is a bad idea, so I'm not actually asking for a change here, just asking a question :)
-
-Yep, they are board-specific. Because the V0PLL may be used for non-display applications.
-
-
-
+> The arm64 port permits the use of the baseline FP/SIMD register file in
+> kernel mode, and no longer requires preemption to be disabled. Now that
+> the EFI spec is being clarified to state that EFI runtime services may
+> only use baseline FP/SIMD, the fact that EFI may code may use FP/SIMD
+> registers (while executing at the same privilege level as the kernel) is
+> no longer a reason to disable preemption when invoking them.
 >
-> Cheers,
-> Quentin
+> This means that the only remaining reason for disabling preemption is
+> the fact that the active mm is swapped out and replaced with efi_mm in a
+> way that is hidden from the scheduler, and so scheduling is not
+> supported currently. However, given that virtually all (*) EFI runtime
+> calls are made from the efi_rts_wq workqueue, the efi_mm can simply be
+> loaded into the workqueue worker kthread while the call is in progress,
+> and this does not require preemption to be disabled.
 >
+> Note that this is only a partial solution in terms of RT guarantees,
+> given that the runtime services execute at the same privilege level as
+> the kernel, and can therefore disable interrupts (and therefore
+> preemption) directly. But it should prevent scheduling latency spikes
+> for EFI calls that simply take a long time to run to completion.
 >
--- 
-Best,
-Chaoyi
+> Changes since v2:
+> - Permit ordinary kernel mode FP/SIMD with IRQs disabled, so that the
+>   special EFI case only deals with invocations in hardirq or NMI context
+> - Disallow EFI runtime calls in hardirq or NMI context, so that the
+>   special FP/SIMD handling for EFI can be dropped entirely
+> - Use a mutex rather than a semaphore for the arm64 EFI runtime lock,
+>   now that it is never trylock()ed in IRQ or NMI context.
+>
+> Changes since v1/RFC:
+> - Disable uaccess for SWPAN before updating the preserved TTBR0 value
+> - Document why disabling migration is needed
+> - Rebase onto v6.17-rc1
+>
+> (*) only efi_reset_system() and EFI pstore invoke EFI runtime services
+>     without going through the workqueue, and the latter only when saving
+>     a kernel oops log to the EFI varstore
+>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Brown <broonie@kernel.org>
+>
+> Ard Biesheuvel (8):
+>   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
+>   efi/runtime: Return success/failure from arch_efi_call_virt_setup()
+>   efi/runtime: Deal with arch_efi_call_virt_setup() returning failure
 
+Unless anyone objects, I am going to queue up these 3 patches ^^^ via
+the EFI tree.
+
+>   arm64/fpsimd: Permit kernel mode NEON with IRQs off
+>   arm64/fpsimd: Drop special handling for EFI runtime services
+>   arm64/efi: Use a mutex to protect the EFI stack and FP/SIMD state
+>   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
+>   arm64/efi: Call EFI runtime services without disabling preemption
+>
+
+... so the rest can go in via the arm64 tree in the next cycle.
 
