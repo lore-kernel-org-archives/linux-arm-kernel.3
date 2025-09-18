@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFFECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DB2CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/AGNmAC56glR+B+7Q4WOktjgDkuqazxDDpw1pjp0yGg=; b=xmJv74F6FHRA8MYcqqXI7oW7vu
-	VliXWvhfQNU4hO6IvFvRocpOwGN+CzZGnzsRAopIdT3LF+wPkjuJ+yqKpqczsIZWyCnAeeSaPEGFs
-	YQ8fEG/6IyOwAXc5evXHPWeY4CCzpE/AnynHo/eKFeh2Y+XWaCUX8dSjPoovIPfWGQyXAXxxlJstj
-	5cwTS64fVC/8gitGfNh+5X11eXTsNoy5GU9ytj2SvxEkh9hxytZNt1ElACLwPa1MQAmhcSfxS/4AA
-	YEjNArZtTCFV8VvFW96YhSf7MvWHJQXfQCdhDnuHV7tuVAl1vlMRfOMhlgF5ZRrfsOgjI5MD5WeGB
-	1RnLRWxA==;
+	bh=8WyA4pBntWm79W0mCHTOeOlzwRnxGVQo8T7u5Xj965Y=; b=gDn7JKo0PjFvuubqFbIBJHjXZE
+	z7Cz4zDZzs4TqpOEkqRjrev+ls6teJws9J5sPkmCL/vVnx5DSzUh31A+o1lyFxjCSXZs9JDdv4aRJ
+	ezo7ndGk/f7Kpz9Mb9BJrL8NmDj3QYZZExdb6Bj9lotIGh5yi2rmFUgStLsgCLiOv4RUy+EE8iYcg
+	qb6u6Ju+6b6GyEvTBeurjm4w9JBbAIE+Gq5JkhC96nDZGnfaoA3DtHEUV4di5cmX+4fZUuuoTptB7
+	SAoZjZ3TDcIxNpMe4BYbii7BWKC0w1xj31t95r8EydquF49WvC6yvuOYpTWebyJhN5XoFFMbJ4SpE
+	CvSaekSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz268-0000000Fgcp-1ULR;
-	Thu, 18 Sep 2025 00:02:04 +0000
+	id 1uz2Hj-0000000FjtH-1fqL;
+	Thu, 18 Sep 2025 00:14:03 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz265-0000000Fgc1-3gS0
+	id 1uz2Hg-0000000Fjsw-3nie
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 00:02:02 +0000
+	Thu, 18 Sep 2025 00:14:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B73CC43C60;
-	Thu, 18 Sep 2025 00:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A941C4CEE7;
-	Thu, 18 Sep 2025 00:01:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 488B64409B;
+	Thu, 18 Sep 2025 00:14:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFBFFC4CEE7;
+	Thu, 18 Sep 2025 00:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758153720;
-	bh=58p2Xb4E9NbqINoSvmh4kesI2fGee6RlZEm5bhePd/8=;
+	s=k20201202; t=1758154440;
+	bh=hTr6J9VDHbXPhtYR1LDytW4f3i4cGpxo4JbO2JkTn5A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Iuv8owKqOWqDV7z4VtmsNxRVNKDF5cNNmCfWMA8qLZFNWtB98KdPrDi595vXMYmUJ
-	 rni7XQ431XGrQvHjoumBhC2seJjkjOGJx7ToZ0v8kKEVoXtGCKUAXWvMRlP7Sf1F47
-	 rZ3PahazBtIv1z9KZsRhgPBdQWgjzwTm/KSwNh4V8sF83oQatPnRCSQZPfo+heccaD
-	 6Iepur7QxIT/rC4IFBNwiHDvwk8vc90jFUW8X9+OCfbitLWBbYzTQ2MRg/20ecrE5h
-	 R3Bwxx1y4aMshcENXZREhAHf8G3L7Wwfd3oCAHAfWfYPVaySx/tjdNNnuTRRgJYs5p
-	 kPzia27PHIJ/w==
-Message-ID: <4b12915d-b12d-402e-b4d0-5c2bc7b7ca35@kernel.org>
-Date: Thu, 18 Sep 2025 09:01:55 +0900
+	b=nSfvdykW/QAagDbiqu+Jm+EIagRmz+5tOLyORVZH/4cVIex98I1WhXOaP/q4VuJZB
+	 /gZkXEjrouGFqrikMU81RrLmZq17xAameEOH50leGJ2SFEtnjzHA+puOG6oH65tg61
+	 EnhuBYIuNbuU4C8yXQNI+lsiKW6zgVwed8PWszlAq/HsYRI+k+byUAWSRRAwsb0Zw/
+	 Jm1jGaPesKjTF5dZweeMHoq73JFwmtxcBpYkbcYv8Ah/VRYPVIYIUW1HHIoOnmj3py
+	 jcZyZosunQ4HWZJpO8VD7aBELWXoh4UJc8GK8FWVR89UEAy9B6XjEQomY54yfHB0Ma
+	 Vs27wqAwxSxEg==
+Message-ID: <69ac620e-9f2c-4e46-ac93-59fc1b9829ba@kernel.org>
+Date: Thu, 18 Sep 2025 09:13:56 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] dt-bindings: media: fsd: Add CSIS video capture
- interface
-To: Inbaraj E <inbaraj.e@samsung.com>
-Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de,
- kernel@puri.sm, mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, pankaj.dubey@samsung.com,
- ravi.patel@samsung.com, shradha.t@samsung.com
-References: <20250828085911.81266-1-inbaraj.e@samsung.com>
- <CGME20250828085930epcas5p1719c7db08074bf1540dc85b71736a6c5@epcas5p1.samsung.com>
- <20250828085911.81266-3-inbaraj.e@samsung.com>
- <20250901-rousing-orange-crab-c05fdf@kuoka>
- <025001dc27cc$72be7b90$583b72b0$@samsung.com>
+Subject: Re: [PATCH v3 5/7] dt-bindings: serial: samsung: Add Exynos990 UART
+ compatible
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-i2c@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
+ <20250917-perics-add-usinodes-v3-5-a3629e4666ef@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <025001dc27cc$72be7b90$583b72b0$@samsung.com>
+In-Reply-To: <20250917-perics-add-usinodes-v3-5-a3629e4666ef@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250917_170201_964727_F8BFEEFA 
-X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-CacheID: sfid-20250917_171400_992843_F4045438 
+X-CRM114-Status: UNSURE (   7.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,20 +126,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2025 21:13, Inbaraj E wrote:
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/clock/fsd-clk.h>
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +
->>> +    csis0: csis@12641000 {
->>
->> Incorrect unit address.
+On 18/09/2025 06:04, Denzeel Oliva wrote:
+> Add samsung,exynos990-uart compatible string to the Samsung UART bindings.
 > 
-> Thanks for pointing out.
-> Unit address is correct. Address in reg is wrong here I'll fix in next patchset.
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/serial/samsung_uart.yaml | 1 +
 
-That's even worse, because it means the corresponding DTS was never tested.
+This should not be part of this patchset.
 
 Best regards,
 Krzysztof
