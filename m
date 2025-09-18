@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD60ECAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11ECCAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RELT8cm+CTOMxSgsE561hEFSBzHsg30PDo1zF6NnyI=; b=pAIrapNycXAtHTqwOfdn/1FUWY
-	UL+PZAcQIB16ZdzFBjofqGO7y9hMaPlBI7kLtRNYmcmRwbAzVulEu7+vXP5TK00Vv8aQKdZth/2ha
-	Q/B4XipgoPgHzF6G8CRCou7IWP91Zx0AGrx7yHmdAIFyAoAT/5yNt/s98YGWJGKSpB0CVtBfIVekc
-	tauD/K6ybr3D6OaMPwBUyRb2AaFO5c8HCbm8A5MXQupANUiioc1KFQ/LqYmk84EFg0vt0t0L9ohcu
-	NjkKpO5cCiUWHsVQ5dWSzrG61YnY2umF8B638FZa0FT2WYaCG+o4z18co0dhP3LkS7yoG8oN4WsbW
-	hbBS/WJw==;
+	bh=tOThQ1jAOLUYY2vDsnxKWr5sRzeq50o0dQty6fZ14rQ=; b=MGQ9stuxYxPcgNHSGqaXxMVjgp
+	O7BkJELvAedTRfy13YVBX7BMYcMzPlIBV9bjAae30LX8Y1JB8b8VVNVeLRgDc9PotGaW1OSQZ/uqh
+	EtmX9JxEXY8MCUNyDPaeGfxzppZJDLgpFyMmb86TtZdj/q9+/WMZdN5LbZROOndQyAjBMsJ7cWeeh
+	in5YsF0lCUVMUpsPPQ0w7P8pe82FhrgqjlzvlWsETYolQjrrH4jKtfFn44ppYFd+mrLsgtaSJ3miL
+	OQVenXREQESJRwsjcJ4kxbQmU+xnL4wnW0dggmOpr4Sefb37B7gPrJ5e6c90wDc2LaaHZD+CmhuhN
+	zx3edVPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD7g-0000000HGFi-2Sik;
-	Thu, 18 Sep 2025 11:48:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzD80-0000000HGNn-1cTv;
+	Thu, 18 Sep 2025 11:48:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzD7g-0000000HGFY-0XPN
+	id 1uzD7y-0000000HGMn-31tz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:48:24 +0000
+	Thu, 18 Sep 2025 11:48:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B33D6024C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:48:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A746C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:48:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D81A36020F;
+	Thu, 18 Sep 2025 11:48:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E8F7C4CEE7;
+	Thu, 18 Sep 2025 11:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758196103;
-	bh=RTUNOwYnHz3bm7fXFE054iF4e70EGE1OcyC40tA5Vwg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pyWGX9ekGA9wIniFXQFYd36XcgJrRczjKNwyyMmfLI/zXQSn8AXuByyOulFWaWWa2
-	 LKmbRBlz9rxzv8mhwGUh0Mqe44q4Ha6FbcXwkorZ3ncub5G7hydpe4seTfEwTCRR5t
-	 Sj7d58ma4J+FK1bCM1gyZqhuO3DapMdAf2R6NJr18ZEOnqzlQZLF3OHE9TeqmjCbT5
-	 qHZZiSuWt2HlAytQp4BUyj4myxGi8iOiJAK+JZyOMTUTxBcruVVG8/4dnalThfVYTU
-	 sxWpsK5jv0mdpbL8CcOxTCA/2g39qD5dUaTvIeML6yHlLkGWLElq32qlyWnFfRELjK
-	 mNzxy0PWmhiyg==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-579363a4602so513761e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 04:48:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX+CVih48LbYtJGnTwgasg3QKtLppzCNG4e5bVp8twVc3nMmdZwNYrby2PVrJuU8dM6HKxFW3G9p48zzCeeHNzT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxD2rxvXNKALJbgUCzTKuGjaWJSn+HZpFb1yfBM7Aa643x5SpF
-	3XbULJbw/WhPNQ7Q3b7DFM1b2/IoeTwch3oxjhekPXrDcoq20gijmHU4vtt8qmMO6dMGw8zSkmW
-	/BPJW6mwrZsiqIHJukjnJajAL/DNNCcc=
-X-Google-Smtp-Source: AGHT+IGF0M6CdiMEFapSpsuAEcu8LEGsyj1+Ha6uD9bZ+JbV0vSO/y4+K4BYQUjIeTJU4lG+5fWipTeDfHAPo6wMBJM=
-X-Received: by 2002:a05:6512:32c6:b0:55f:601d:a819 with SMTP id
- 2adb3069b0e04-5779a6604d4mr1758174e87.33.1758196101313; Thu, 18 Sep 2025
- 04:48:21 -0700 (PDT)
+	s=k20201202; t=1758196121;
+	bh=/GS2pi0BPhylD1m4PDk3EtPIv0KWtd8YNZ8MMg1pVkY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=afUQKMJe3SZLc6Bp48RNJW9wskTebguMeMhbdotT0nsxBGAcS1HoUw2x2+voUrCUL
+	 2hmNJ3tq26QDYQ84qBCcX6kBuH1IWQVDajTU+S1GAcHxBIy6wfV+ZCCqJSWdUta9RR
+	 Ge0px/b+idBZT2BMlCVCTw9myHppianrLaXtnHTbgEhSlFag2bxRGqmaCmWB8f8uLX
+	 Mh0srkBkFOp+1sbDwS80Ugnpk3zV6kQqaj6gcCkTNGk272pV/NsoBrJKsPsGHGqZCR
+	 P/GSwyvyLSip48Wh6Elz+LqNSRlTBZrGtsiwI7o8JMUlXiwZNoddrbJfa4CuSXJz9w
+	 iPf1DTrWIe2qA==
+Date: Thu, 18 Sep 2025 12:48:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Luis Machado <luis.machado.foss@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 3/5] arm64/sme: Support disabling streaming mode via
+ ptrace on SME only systems
+Message-ID: <aMvxkzg_LT4C4Quh@willie-the-truck>
+References: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+ <20250820-arm64-sme-ptrace-sme-only-v1-3-f7c22b2871f8@kernel.org>
 MIME-Version: 1.0
-References: <20250918103010.2973462-10-ardb+git@google.com>
- <CAMj1kXGndZxxe+u3st6FCebrdutUibspA7tJUpqGMgpj9UTFnA@mail.gmail.com> <aMvwstR28CDphk4J@willie-the-truck>
-In-Reply-To: <aMvwstR28CDphk4J@willie-the-truck>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 18 Sep 2025 13:48:10 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXF1AAE9sLvDR0YwjZ0pDcnGG4cwqcy6VadUF-jOa7GkJw@mail.gmail.com>
-X-Gm-Features: AS18NWCkpq6FAgVrtvz42UXpOw-zfg2xngxs2fJpZJ76gvKhtfUyxwhkKEjs2jU
-Message-ID: <CAMj1kXF1AAE9sLvDR0YwjZ0pDcnGG4cwqcy6VadUF-jOa7GkJw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/8] arm64: Make EFI calls preemptible
-To: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250820-arm64-sme-ptrace-sme-only-v1-3-f7c22b2871f8@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sept 2025 at 13:44, Will Deacon <will@kernel.org> wrote:
->
-> On Thu, Sep 18, 2025 at 01:33:48PM +0200, Ard Biesheuvel wrote:
-> > On Thu, 18 Sept 2025 at 12:30, Ard Biesheuvel <ardb+git@google.com> wrote:
-> > >
-> > > From: Ard Biesheuvel <ardb@kernel.org>
-> > >
-> > > The arm64 port permits the use of the baseline FP/SIMD register file in
-> > > kernel mode, and no longer requires preemption to be disabled. Now that
-> > > the EFI spec is being clarified to state that EFI runtime services may
-> > > only use baseline FP/SIMD, the fact that EFI may code may use FP/SIMD
-> > > registers (while executing at the same privilege level as the kernel) is
-> > > no longer a reason to disable preemption when invoking them.
-> > >
-> > > This means that the only remaining reason for disabling preemption is
-> > > the fact that the active mm is swapped out and replaced with efi_mm in a
-> > > way that is hidden from the scheduler, and so scheduling is not
-> > > supported currently. However, given that virtually all (*) EFI runtime
-> > > calls are made from the efi_rts_wq workqueue, the efi_mm can simply be
-> > > loaded into the workqueue worker kthread while the call is in progress,
-> > > and this does not require preemption to be disabled.
-> > >
-> > > Note that this is only a partial solution in terms of RT guarantees,
-> > > given that the runtime services execute at the same privilege level as
-> > > the kernel, and can therefore disable interrupts (and therefore
-> > > preemption) directly. But it should prevent scheduling latency spikes
-> > > for EFI calls that simply take a long time to run to completion.
-> > >
-> > > Changes since v2:
-> > > - Permit ordinary kernel mode FP/SIMD with IRQs disabled, so that the
-> > >   special EFI case only deals with invocations in hardirq or NMI context
-> > > - Disallow EFI runtime calls in hardirq or NMI context, so that the
-> > >   special FP/SIMD handling for EFI can be dropped entirely
-> > > - Use a mutex rather than a semaphore for the arm64 EFI runtime lock,
-> > >   now that it is never trylock()ed in IRQ or NMI context.
-> > >
-> > > Changes since v1/RFC:
-> > > - Disable uaccess for SWPAN before updating the preserved TTBR0 value
-> > > - Document why disabling migration is needed
-> > > - Rebase onto v6.17-rc1
-> > >
-> > > (*) only efi_reset_system() and EFI pstore invoke EFI runtime services
-> > >     without going through the workqueue, and the latter only when saving
-> > >     a kernel oops log to the EFI varstore
-> > >
-> > > Cc: Will Deacon <will@kernel.org>
-> > > Cc: Mark Rutland <mark.rutland@arm.com>
-> > > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > > Cc: Peter Zijlstra <peterz@infradead.org>
-> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > Cc: Mark Brown <broonie@kernel.org>
-> > >
-> > > Ard Biesheuvel (8):
-> > >   efi: Add missing static initializer for efi_mm::cpus_allowed_lock
-> > >   efi/runtime: Return success/failure from arch_efi_call_virt_setup()
-> > >   efi/runtime: Deal with arch_efi_call_virt_setup() returning failure
-> >
-> > Unless anyone objects, I am going to queue up these 3 patches ^^^ via
-> > the EFI tree.
-> >
-> > >   arm64/fpsimd: Permit kernel mode NEON with IRQs off
-> > >   arm64/fpsimd: Drop special handling for EFI runtime services
-> > >   arm64/efi: Use a mutex to protect the EFI stack and FP/SIMD state
-> > >   arm64/efi: Move uaccess en/disable out of efi_set_pgd()
-> > >   arm64/efi: Call EFI runtime services without disabling preemption
-> > >
-> >
-> > ... so the rest can go in via the arm64 tree in the next cycle.
->
-> I'm also happy to take the whole lot via arm64 this cycle, if you like?
-> I reviewed it a while ago and was happy with it then.
->
+On Wed, Aug 20, 2025 at 07:29:05PM +0100, Mark Brown wrote:
+> Currently it is not possible to disable streaming mode via ptrace on SME
+> only systems, the interface for doing this is to write via NT_ARM_SVE but
+> such writes will be rejected on a system without SVE support. Enable this
+> functionality by allowing userspace to write SVE_PT_REGS_FPSIMD format data
+> via NT_ARM_SVE with the vector length set to 0 on SME only systems. Such
+> writes currently error since we require that a vector length is specified
+> which should minimise the risk that existing software is relying on current
+> behaviour.
+> 
+> Reads are not supported since I am not aware of any use case for this and
+> there is some risk that an existing userspace application may be confused if
+> it reads NT_ARM_SVE on a system without SVE. Existing kernels will return
+> FPSIMD formatted register state from NT_ARM_SVE if full SVE state is not
+> stored, for example if the task has not used SVE. Returning a vector length
+> of 0 would create a risk that software would try to do things like allocate
+> space for register state with zero sizes, while returning a vector length of
+> 128 bits would look like SVE is supported. It seems safer to just not make
+> the changes to add read support.
+> 
+> It remains possible for userspace to detect a SME only system via the ptrace
+> interface only since reads of NT_ARM_SSVE and NT_ARM_ZA will succeed while
+> reads of NT_ARM_SVE will fail. Read/write access to the FPSIMD registers in
+> non-streaming mode is available via REGSET_FPR.
+> 
+> sve_set_common() already avoids allocating SVE storage when doing a FPSIMD
+> formatted write and allocating SME storage when doing a NT_ARM_SVE write so
+> we change the function to validate the new case and skip setting a vector
+> length for it.
+> 
+> The aim is to make a minimally invasive change, no operation that would
+> previously have succeeded will be affected, and we use a previously
+> defined interface in new circumstances rather than define completely new
+> ABI.
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  Documentation/arch/arm64/sve.rst |  5 +++++
+>  arch/arm64/kernel/ptrace.c       | 40 +++++++++++++++++++++++++++++++++-------
+>  2 files changed, 38 insertions(+), 7 deletions(-)
 
-I've made some major changes this time, so please double check that
-you're still ok with it.
+It would be good to have an Ack from the userspace side (GDB?) so that
+we know that the minimal ABI change you're proposing is sufficient.
 
-In particular, I've ripped out all of the special EFI handling in fpsimd.c
+In the meantime, I'll pick up the first two selftests as they are
+independent of this part.
+
+Will
 
