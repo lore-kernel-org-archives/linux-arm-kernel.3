@@ -4,128 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35665CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926A9CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fm4R8b6atPDjgItmLn3c75WIBp5VlWzcsZH4FVIt7ag=; b=OQPguGiCoEziZpwHVZ8PpPqvql
-	h/7jJlYnzReUERTwW/0SbOzJtxK08b/ydnLUhHqMh8+O1CeSH/tbKbvZD1O+DVdIFlPMud/EGNNnj
-	yobxsYZQ299+pPZwX05pNoFQX0gxmtD6+c9L5e7dGritJqNorp9UlcZ7JAKcNI/92y/du1mGIK5Oo
-	oeSUuj5/XYmXn+Ua6bsnb/PvGyE81mDdyTHTwozg+aEqQiE611AmLLqTiFm84uiPMV1cG69M6Ghoo
-	dP9ojHPRYFs7Hr7Z589zNq8h1ocGn0UZBfdhi1i796gzx/ZvY6LwfqW8MzBva1Ugwx/Bu+IATysu3
-	428BJIog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zMNCQB3IZJa1lenTGE4yLUo0+d2lJWLrI+MvU6M7hlo=; b=rSaHUWvD5pvUf0IXDpUvbchlOt
+	ZtauIxzzsnsJkwVYqkukXr/IpG9t0Me+CTet+vP0uUBkh5A2lzDJB51pkOMvs+dSRhHNQz4k9ES9g
+	Ecegd7BWq71NWP/bA8QTnJwNIi8N5APK6g2ib8tX4B/CVU4JmZO6aipg0xS4aQv1QkiA9xx6A7yhR
+	eJIfAJiCIMa7lYcGJGs6bFbJkqxen2H6zKjJEBwtLMY3by0CsK6uE7ByKLjiNyZdxIEZtX1V5oRjG
+	xcmpp0FnFNUH7nAd49Hubdq1jGc+TofWTgFY2mkaOQihkI9nVFM+c4mkZOvsHpPBCJUHQazQXXpQE
+	Myjzt0nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHLX-00000000ahY-3oIc;
-	Thu, 18 Sep 2025 16:18:59 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1uzHMh-00000000b2X-1dxH;
+	Thu, 18 Sep 2025 16:20:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHLU-00000000agD-1To7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:18:58 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id E9DB1EC030E;
-	Thu, 18 Sep 2025 12:18:54 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 18 Sep 2025 12:18:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1758212334;
-	 x=1758298734; bh=fm4R8b6atPDjgItmLn3c75WIBp5VlWzcsZH4FVIt7ag=; b=
-	hT3UzSYHqECruml9nJYhLaF2PeApMfKPsa2Kchq0gCzfeBYX32RBViapVaUovlLI
-	Txe/jjqieezrzrzA7uJYsDtvqVjCXXnC1LoBBhdcmSoOMaSrN5Fqt+5RD4WlTS+u
-	BKhECFDp11UJ471uauSho7G4oGR/BvOy/5lMipcEoJKhdbXiTwla7TTe3MuQrnYQ
-	KueeBTCWfI8OcXJS2UG9kae6uVbtlAF7CcZVk2LQ2vS/xIuZHiD0Lp9ICyNHy82r
-	40M21sNMmpSgYWUZzCPqKroJovjjCGbk7bJ6mlDgjqwo5fwELH5lepoBABDtgS9L
-	scjCSBoybymPnkbUAktH5Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758212334; x=
-	1758298734; bh=fm4R8b6atPDjgItmLn3c75WIBp5VlWzcsZH4FVIt7ag=; b=n
-	arD2chK72CMw+3XE4ZMyHoCXIAodtWOlFh+lygozTruGzTZh8h856redrTp47dRO
-	sXbFqPqDBwTwab9JjkqMOZqEpw8xcAx1CsSrhxGH9ZhJahklo+5B/YYA8F9qKGuK
-	wms91Otr8e2xctRFqgvVzfrtq2c8xTnxS+u/pW8oiV7Qo/b/JpZmiOHUmjZVqgw/
-	j7EXQHPtj5+QrGpRsg0kWk6VvAUAduP/2DL/i1mtAsRcQBIRbZU3Rh1twx82usbv
-	RgntitcMyx+XgxmuyvLSSVKNtRoybAgMqWlWzYvwXSnU7WaKl8QejTpIg2kBSi6W
-	CaYxaV9Q1r98Co569m6Gg==
-X-ME-Sender: <xms:7TDMaNodCGNeyIp-SBSrJ_TtgdGNi08_RHKQYU5GUMzQyGU2qL51sw>
-    <xme:7TDMaPqtNE5Wm9OwOTBTVsoBpq7nOqMcCYUvpQ-AcC442Pi0J8C_IlqeLqpTVtfET
-    Z4yar8_IO-zzD-k2lw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegieejlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeeggfejudejvdeijeeglefgtdfhudffieetfedugefhffekjeefhedtjeefjeetfeen
-    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohepfedtpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegthhgvshhtvghrrd
-    grrdhunhgrlhesrghrihhntgelrdgtohhmpdhrtghpthhtoheptghhrhhishhtohhphhgv
-    rdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopegrnhgurhgvrghssehgrg
-    hishhlvghrrdgtohhmpdhrtghpthhtohepghgvvghrthdorhgvnhgvshgrshesghhlihgu
-    vghrrdgsvgdprhgtphhtthhopegrlhgvgigrnhguvghrrdhsvhgvrhgulhhinhesghhmrg
-    hilhdrtghomhdprhgtphhtthhopehsvghrghhiohdrphgrrhgrtghuvghllhhoshesghhm
-    rghilhdrtghomhdprhgtphhtthhopehsuhhrvghnsgesghhoohhglhgvrdgtohhmpdhrtg
-    hpthhtohepfihilhhlhiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehirhgr
-    rdifvghinhihsehinhhtvghlrdgtohhm
-X-ME-Proxy: <xmx:7TDMaPbKt2WoXqHMwpanytM6BOnhzj_CQNwGh1PFIqubtDAyu5jB5Q>
-    <xmx:7TDMaGKxNLlBIr_WiBflz4DJZ5ui2U4YOwVgSsgJGQrpphOVta5LLQ>
-    <xmx:7TDMaG8COQwGxvO3AW0IJmLokZHWS06CKK-GHPM5ep7McMCa1__b0A>
-    <xmx:7TDMaNp9nu7518TclPj1lZvDtvnU_ezCWZtqceFpg9Flbxum44e-lg>
-    <xmx:7jDMaKcwFz32-9rZOzFDRZfXWP5Uej9dboxG4Bi3HNtAfR6kH7cYV8fc>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 7D7F370006D; Thu, 18 Sep 2025 12:18:53 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uzHMf-00000000b1f-0X5Q;
+	Thu, 18 Sep 2025 16:20:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:Cc;
+	bh=zMNCQB3IZJa1lenTGE4yLUo0+d2lJWLrI+MvU6M7hlo=; b=KrYRs1+0IXwH9rggfZxB6I0V6F
+	VAf+xYmNBz8d+HEdykNno5v245fcT0C+kM+zRG5hz/ikTomnlz+QfmjC/QS3kh82Ns/Cm8Dcc2XkG
+	BcdW/C0yUTbJd09PDkUBnNs94Uk59AofnJfc8m6KlJqO9byyHdqsv/xqN3iKGOmeHKHnaJ/AO0c00
+	HsOOsKYhs+HoG9QPh3WM/5xrKTChgnc6oAcXm0Z7ntp/ekW0yj6Wrmw3afS2y/uO6n7CYjtE4meUG
+	sfIAZEunYHPCiw3/TFbQZcmoibdlXCvn9ZUpaiO40k8b6JPPzt1EHFgJHwoKIKyP/4WbFoItXFUpe
+	Qyi5HrRQ==;
+Received: from i53875b0a.versanet.de ([83.135.91.10] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uzHMd-0001yb-F5; Thu, 18 Sep 2025 18:20:07 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ed Wildgoose <lists@wildgooses.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ed Wildgoose <lists@wildgooses.com>
+Subject: Re: [PATCH 0/2] arm64: dts: rockchip: fix dma and pinctrl defs v2
+Date: Thu, 18 Sep 2025 18:20:06 +0200
+Message-ID: <2424735.BjyWNHgNrj@diego>
+In-Reply-To: <20250918093246.15623-1-lists@wildgooses.com>
+References: <20250917114932.25994-1-lists@wildgooses.com>
+ <20250918093246.15623-1-lists@wildgooses.com>
 MIME-Version: 1.0
-X-ThreadId: AneuvEk2E7Kg
-Date: Thu, 18 Sep 2025 18:18:13 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: "Jason Gunthorpe" <jgg@nvidia.com>, ksummit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
- "Andreas Larsson" <andreas@gaisler.com>
-Message-Id: <ea6562f4-ec8c-4e99-98ec-000c25c34a3e@app.fastmail.com>
-In-Reply-To: <ca6fc8dc-d1ee-41a8-a1c9-11ed2907207f@lunn.ch>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <20250917125951.GA1390993@nvidia.com>
- <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
- <ca6fc8dc-d1ee-41a8-a1c9-11ed2907207f@lunn.ch>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_091856_871829_E4A30A03 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20250918_092009_165029_15A9F89D 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,44 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025, at 15:34, Andrew Lunn wrote:
->> * Marvell mv78xx0 and kirkwood (armv5 pj1) were fairly
->>   powerful in 2008 and could support at least 1GB of RAM,
->>   but I only found one machine (OpenBlocks A7) that does
->>   this. It's unclear if anyone is still updating kernels
->>   on this machine, but they could /probably/ use
->>   VMSPLIT_3G_OPT if they do.
->
-> If i remember correctly, there was a design issue with the OpenBlocks
-> A7, and it would not run with its full amount of memory. To get a
-> stable system you had to limit the RAM. I don't remember if that was
-> just with the NULL series, and it was fixed for mass production
-> devices, or they are all broken.
+Hi Ed,
 
-It's possible that the bug is in the exact bit of code that
-Jason was suggesting to have removed, if this was the last
-ARMv5 machine that actually tried to use highmem.
+Am Donnerstag, 18. September 2025, 11:32:44 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Ed Wildgoose:
+> Based on feedback, I reworked these patches. I've re-presented both as
+> I realise that one had invalid formatting (spaces vs tabs) and I've
+> moved the dma-names definition into the same board level dtsi. At this
+> point it seems reasonable to also squash the two patches, but feedback
+> appreciated?
+>=20
+> The default pinctrl definitions for the Radxa Zero 3W don't match the
+> datasheet. Possibly few people enable extra UARTs and hence it wasn't
+> noticed? I needed all 5 UARTs for a project and the first patch corrects
+> the pinctrl defs. Without this patch, enabling the extra UARTs causes
+> issues such as the MMC devices disappearing, due to collisions.
+>=20
+> Second patch adds a dma-names property, which appears to be a
+> pre-requisite for enabling DMA on the UARTs. I've applied this to the
+> board level dts as feedback suggested there could be unintended problems
+> if enabled across the complete rockchip dtsi.
+>=20
+> It's tested on my Zero 3W board and appears to function correctly and
+> DMA is reported as enabled.
 
-> I doubt there are any mv78xx0 machines left, why where never very
-> popular, but there are still Kirkwood NAS boxes around.
+housekeeping requests:
+=2D please don't attach new versions to an old thread, but instead
+  start a new thread
+=2D this is supposed to be v2, so patches should be named
+"[PATCH v2 0/2] ..." etc.
 
-https://github.com/1000001101000/Debian_on_Buffalo does support
-some variations of the Terastation Duo, and they were planning
-to do a DT conversion at some point, but I think there is not
-much hope of that ever happening now that Debian armel has had
-its last release, and I expect we can drop the entire platform
-soon.
+At least the cover-letter should contain a changelog what changed
+between versions.
 
-The reference system for mv78xx0 of course was the platform
-that Nico used for implementing highmem on, with a full 2GB
-of RAM. I think in the end this was around the same time
-as dove and then armada xp.
 
-> I keep mine up to date, put an LTS kernel on it once a year,
-> update to the latest debian sid.
+Heiko
 
-Do you know of any kirkwood machines beside the OpenBlocks A7
-that have more than 512MB of RAM?
 
-    Arnd
+
 
