@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AB7CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46BECA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 19:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDt0aZagELXwSkTdz82ubamN8Iov86wVWkejVlcjJIo=; b=VGuus3uON0ye+ZAbzu155zcJMl
-	qD5NOo7fWCDgNNJaSg7ZoCx1QC+x+88KIyHvGwCdi6pfRmgagPeK8mOfhDV2u0CpAqwyXJcxaMrZJ
-	Phn53MB4kxCmlUxx8FEGNwuUC5/D/UuUUWyxGtUA7k6dlyWdwxOqWS+iZzG4lE5ReyF/bcLZE+kD1
-	Uis3OWW9BxSU/VGL0YtFV2aybandQFl1VPHsIoMpXNlQmP+Ob3wRG488zJU9detyNJscqxOHjpd9D
-	c4gFv8+K7WLehDG7REMLgdSKVj+Oj1y3XwZtxb7sLra3eGqKZr7yYXrSSF8TDRBzflrz8hfuEtNWe
-	H5YYRc8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=si2yUjI1luwwtYdCqfyhBqaW9ko1+J9dQRYEbQ1BEgE=; b=ATPsNW5YfrTDZ4M3Av+3bVSJak
+	Diltu1XLDA5V3DBJytLhNe4kgcQXy3AlpeOoLDfh8wHZcmozGp26etUmwgZ6s+8uZgg8lWGscYOCH
+	newFEateCqszR/73mg9+cQXRW28NV4AmH2KZLYA1OZvJuHybLnrDGdZi2jxTmz4SlntbQwXyOPudn
+	zCNvruvtxCKDqSAm0s0O/jtWWXwZ27/eX3StsK19gFiFcT8Oo0zjuK1Q/myhaqvrJIY5+qmROIdr7
+	zGMsF1YySgWDGT/JEc/tIcxmO6G4kr3WGPrRBmJJNUYG9ooI/QxgbpDdWr+k6kxnt6PFl1LrrB6Wa
+	V3UuUO3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYe-000000011H0-1PWK;
-	Thu, 18 Sep 2025 19:44:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzKhe-000000012Xo-1PRm;
+	Thu, 18 Sep 2025 19:54:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzKYX-000000011Bb-1Kys
+	id 1uzKhc-000000012XU-0vzL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 19:44:38 +0000
+	Thu, 18 Sep 2025 19:54:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0910C43BB2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 19:44:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD443C4CEFA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 19:44:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D5BD5445C3;
+	Thu, 18 Sep 2025 19:53:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C61DC4CEE7;
+	Thu, 18 Sep 2025 19:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758224676;
-	bh=xDt0aZagELXwSkTdz82ubamN8Iov86wVWkejVlcjJIo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=A5FQPO83h0wKAhG07kgXFOaEJL6tYOKh2fngOkQril0hLbZZmjcXeUljfduKCCRtw
-	 iu5a7LRoSizH9mS7jRyB2aoEuKfAW9PjFckimlYt5jtT3qSKl61anUHL26sYTjXFZT
-	 iEptKin3FfZqNyqbg5AdBSIfuGaisOmRuyCeWERgZDK8djiEvFIqqhGzx5ZmgnhJg8
-	 FxJghXNarV6GlowxrFhVzePBJ0mkLauCqyFcpiK/Xo8mj+CwtboUr8mNg28+yE1Jbc
-	 PXocGgLKhGWeV/CYGp1LzcLaOEepB6683LUzRmsxcv/Fn8eX6s+tjsOKcymfBsCtOZ
-	 uFD1ZuZ6eY8lA==
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-62f277546abso2415295a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 12:44:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWJ2pLCnECT914Ezm/+gJhlvwwPaBeSwS7Qlss0NMJF1XAKtPUBHpglwFnyfbtd5Y/ABmx+CV9nfx6vmFRdd7+S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq7o/Kj++OvXDqdSq76c1qWlhfDMFSvU6GeLNll/lvbUGP0+XK
-	6uZ9J0RHqyw4Xyi1hsyK8QQeyBpwrAT6UgTJGVuELW8tHO6NifYFnK7vGlRQhfHs/iuO9sH3IpM
-	ch9Z5EDzWYWl2yTvvPAJDSbgekTeZ3w==
-X-Google-Smtp-Source: AGHT+IGAhcnuc0wpWw/s1p4UA6lxTrINGFr54H6UilY1ZtrPf2GcAEbRMuog4KleHa2rD/k9wiHS+9FlPpcBXhXUlUs=
-X-Received: by 2002:a17:906:6a1f:b0:b04:85f2:d26f with SMTP id
- a640c23a62f3a-b24ef6880fdmr46219566b.25.1758224675450; Thu, 18 Sep 2025
- 12:44:35 -0700 (PDT)
+	s=k20201202; t=1758225239;
+	bh=XPINndy9CqjB8RtVY9lpJ7pMHtnLQVCK9BiVb/6M/Yo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iLErXogfkcD7ZzKJgdDVzD4vRiwcx3YcxGVc2TWPITUnV9Hy9Xhse1y/HqN/FX9YX
+	 pjCf75S8I1ffvj7pk6POyioN6P4FxxiJOdhCTSEVR/lCrh3UehhAKMxY/kdMpa2jMo
+	 AsBKJTZAvCddMtAFgaA+5vrH71sf0v98OPn/tjbFckBpxniaUyhzt48BFDWoDPN+lN
+	 x50K7sD32TX7kQEhMcoTmpdHZg1iPacrdHGUS1+yI7vUS/ADHBJIwBZO/khOSBMZmN
+	 BEUMqJnfCCEGR4huLxKTgnKVmAAYymykUzWXO43lmDR7QFEC7ehwUkkpqr2Twq053m
+	 VFdyuicyKHxWw==
+Date: Thu, 18 Sep 2025 14:53:58 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-perf-users@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: arm: Add Arm C1 cores and PMUs
+Message-ID: <175822522990.2521066.13725879500851779588.robh@kernel.org>
+References: <20250915140508.2806590-1-robh@kernel.org>
 MIME-Version: 1.0
-References: <20250916091858.257868-1-lpieralisi@kernel.org>
- <20250918135555.GA1540012-robh@kernel.org> <aMwjcIS/rvxkSZdr@lpieralisi>
-In-Reply-To: <aMwjcIS/rvxkSZdr@lpieralisi>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 18 Sep 2025 14:44:23 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+XKT+HkE0W0BLKbQ76RtgBrKToLAVaWOy80mLkD=x0+A@mail.gmail.com>
-X-Gm-Features: AS18NWA_awGPL2y1OiG42_bMmJJc8tA99I270bH2QK0xh_S_5QTtemDGIGlw3EA
-Message-ID: <CAL_Jsq+XKT+HkE0W0BLKbQ76RtgBrKToLAVaWOy80mLkD=x0+A@mail.gmail.com>
-Subject: Re: [PATCH] of/irq: Add msi-parent check to of_msi_xlate()
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Marc Zyngier <maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250915140508.2806590-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_124437_401208_A988639B 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20250918_125400_280751_394BFD88 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 10:21=E2=80=AFAM Lorenzo Pieralisi
-<lpieralisi@kernel.org> wrote:
->
-> On Thu, Sep 18, 2025 at 08:55:55AM -0500, Rob Herring wrote:
-> > On Tue, Sep 16, 2025 at 11:18:58AM +0200, Lorenzo Pieralisi wrote:
-> > > In some legacy platforms the MSI controller for a PCI host
-> > > bridge is identified by an msi-parent property whose phandle
-> > > points at an MSI controller node with no #msi-cells property,
-> > > that implicitly means #msi-cells =3D=3D 0.
-> > >
-> > > For such platforms, mapping a device ID and retrieving the
-> > > MSI controller node becomes simply a matter of checking
-> > > whether in the device hierarchy there is an msi-parent property
-> > > pointing at an MSI controller node with such characteristics.
-> > >
-> > > Add a helper function to of_msi_xlate() to check the msi-parent
-> > > property in addition to msi-map and retrieve the MSI controller
-> > > node (with a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to
-> > > provide support for deviceID mapping and MSI controller node
-> > > retrieval for such platforms.
-> >
-> > Your line wrapping is a bit short.
-> >
-> > I had a look at who is parsing "msi-parent" themselves as that's
-> > typically a recipe for doing it incorrectly ('interrupt-map' anyone).
-> > Can we make iproc_pcie_msi_enable() use this? It's quite ugly reaching
-> > into the GICv3 node...
->
-> I am not sure I get what you mean here. Possibly iproc_pcie_msi_enable()
-> can reuse this patch's code if I extend it and make it a global function,
-> yes and somehow use that function to carry out the check for an
-> msi-parent property with no #msi-cells property or an #msi-cells =3D=3D 0=
-.
 
-I meant using of_msi_xlate() (or even of_msi_get_domain()).
+On Mon, 15 Sep 2025 09:05:07 -0500, Rob Herring (Arm) wrote:
+> Add the newly introduced Arm C1-Nano/Pro/Premium/Ultra core and PMU
+> compatible strings. These cores are part of the Lumex CSS. The new names
+> are replacing the long lived Cortex-A/X branding going forward.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/arm/cpus.yaml | 4 ++++
+>  Documentation/devicetree/bindings/arm/pmu.yaml  | 4 ++++
+>  2 files changed, 8 insertions(+)
+> 
 
-> Don't get what GICv3 node has to do with that though, sorry.
+Applied, thanks!
 
-Just trace what the code there does after it gets the MSI parent. I
-didn't study it too closely, but why is a iProc PCIe parsing GICv3 MSI
-stuff itself? There's either some missing feature in the
-irqchip/domain APIs or it's being dumb.
-
-Rob
 
