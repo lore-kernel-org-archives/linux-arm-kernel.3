@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A703CAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8DC8CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 12:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFCFqJJ2yYgftGOHrDOB1eCkuMcyYEeSx/3Uy2cezt4=; b=rVneANVQ3hdjyCeO6xRoQVKlhV
-	kfYD3pmTTJCnJ4jdTKpD3KQc8eJWsrIF1qAuto46elHvSSdDeVXbCPMCU++mMMT2iIyCWzwWS7rSV
-	mvqhL2IqIMY8mAWNWnhGjbvNR0pquObP0OkkhDs9Dp3o7XnOXPIb2dhyymdsSGAH61nfjzQG6O0o+
-	WudkFzoiZInRe/ua8oqqiUY7Z5LuD2dc8Kp0URQOMZhXwcqgUrX48dqkzY0TIOlWR8baJzMwpvWBV
-	NvTGInKo3cSzWZjuCOmHMF1k3Q6FWbdHBIestcmOVLZUIKJ8zPCnR5FFjGJbV4so7AmHBoIf1S4aA
-	lWVtYlCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uaDExXeL/34UENiB9oEbazFZaj9laAcFWPbmwXdDets=; b=Rr5w54fwEptvvQEDeeFjh4WQcc
+	yGwZKZxiiM9q6VRIB80pO0wK0iCh4tF3JZORG8MgmIF+dBFppobv+AKDERnKPFIG8awUA7WFOrh/4
+	/6pWsidVgcCjtSWKempLtraKebxPXdQnwCz82hwW3+WrCeksV94Ae1d7pXipL9qs/O5RQssCh+ceG
+	B9B/7NtMDHx15bS7AQTBHrG3rMU9UCPtSiD68hr1xI7KNNDdLkfvriehh9I3jwcM5GdyrBsii6MjE
+	Qdy7WnLv39p2TiywuERBezxyXrqN/P6PENGCFyDXzcFHZ8lUUYgABllnlcHE/cHsaW9eN/ghe2GGd
+	OlRoJt+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDH6-0000000HJ1L-2tN5;
-	Thu, 18 Sep 2025 11:58:08 +0000
-Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	id 1uzDJc-0000000HJgo-3oo6;
+	Thu, 18 Sep 2025 12:00:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDH3-0000000HIyZ-0Cb2
+	id 1uzDJa-0000000HJg9-3hlN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:58:07 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758196681;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sFCFqJJ2yYgftGOHrDOB1eCkuMcyYEeSx/3Uy2cezt4=;
-	b=G7ugUkXqxMUCE8FsjPJQ22Hre4q2kdem8h6hk/uCjbvJpROARfJIrnkpR2PvX1RIAGCr0S
-	EkqHK+glaXITYC8n6aXQwpimzX3qXHBrkbnQGQAzYxsQHlAJgBQwZEj/b0xou0S6N91qmP
-	rVTcAMISTLPphUqyYo8jAbLHn0mIbR4=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
-Subject: Re: [PATCH] ASoC: pxa: Return -EOPNOTSUPP instead of -EINVAL
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-In-Reply-To: <81926717-0884-4df5-aaf2-a938c58ce892@sirena.org.uk>
-Date: Thu, 18 Sep 2025 13:57:47 +0200
-Cc: Daniel Mack <daniel@zonque.org>,
- Haojian Zhuang <haojian.zhuang@gmail.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-sound@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <56ED1961-1092-46F7-B2B4-218AC279837E@linux.dev>
-References: <20250918112102.64314-1-thorsten.blum@linux.dev>
- <81926717-0884-4df5-aaf2-a938c58ce892@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 18 Sep 2025 12:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2180A43D2B;
+	Thu, 18 Sep 2025 12:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5567BC4CEE7;
+	Thu, 18 Sep 2025 12:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758196842;
+	bh=uaDExXeL/34UENiB9oEbazFZaj9laAcFWPbmwXdDets=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mDj3c0ImOBTRTsZRIde5ZCK1uAHycNbTl5sgkvFeIpdF/A8yKtzFyUj1Lo+LET/DL
+	 G8hTXbzye3PkKcwwep9JJ72BQAdirttpadB1/jkal6vpAWTWhRzRu1J2wwE+LxBkzo
+	 b1htL3aUhflHSRh0Z1oUqnYoJ+4Q+uvpj1ePUmW6ihPNfRs4eJ2Bkd+X+7UdBJ+jAY
+	 PhIFsaTsck/eo3+xsTGL8MeqcYieLWzhrLt/cRQnVUXY+H3T6klGJddQydEBP3vfzv
+	 B6RcFYtocMWIAnbUM2rJnhjMmkwgl0WNbCouEq1G7Sfcv70Co+fl6IvwCcQZgogdzg
+	 w8yDq0I01L5hQ==
+Date: Thu, 18 Sep 2025 13:00:36 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Spickett <david.spickett@arm.com>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	Luis Machado <luis.machado.foss@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 3/5] arm64/sme: Support disabling streaming mode via
+ ptrace on SME only systems
+Message-ID: <8e99cb8a-cc9b-483c-9b71-22fd640cc1e0@sirena.org.uk>
+References: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+ <20250820-arm64-sme-ptrace-sme-only-v1-3-f7c22b2871f8@kernel.org>
+ <aMvxkzg_LT4C4Quh@willie-the-truck>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bvjGEp7kODe4zFUz"
+Content-Disposition: inline
+In-Reply-To: <aMvxkzg_LT4C4Quh@willie-the-truck>
+X-Cookie: Victory uber allies!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_045805_784039_3C691CD2 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_050042_941300_798F7BA4 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18. Sep 2025, at 13:33, Mark Brown wrote:
-> On Thu, Sep 18, 2025 at 01:21:02PM +0200, Thorsten Blum wrote:
-> 
->> Return -EOPNOTSUPP from mmp_sspa_set_dai_sysclk() instead of -EINVAL for
->> unsupported clock ids, and remove the obsolete comment.
-> 
-> Why?
 
-The comment says "not supported yet", so returning -EOPNOTSUPP (or
--ENOTSUPP) reflects this more accurately than -EINVAL, unless I
-misunderstood something.
+--bvjGEp7kODe4zFUz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Feel free to ignore this patch if it's inconsistent with how other
-drivers handle this (I didn't check tbh).
+On Thu, Sep 18, 2025 at 12:48:35PM +0100, Will Deacon wrote:
 
-Thanks,
-Thorsten
+> It would be good to have an Ack from the userspace side (GDB?) so that
+> we know that the minimal ABI change you're proposing is sufficient.
 
+Yes, we need confirmation from the userspace side before this is merged.
+I've had some informal feedback from some of the Arm people that was
+positive but they needed to do some more thorough validation, and we
+need feedback from people outside Arm too.
+
+> In the meantime, I'll pick up the first two selftests as they are
+> independent of this part.
+
+Thanks.
+
+--bvjGEp7kODe4zFUz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjL9GMACgkQJNaLcl1U
+h9C86gf+OjW6SC1j2hLmMmr8tVWsSjMpw6sm0E+0BYO1sNqhyaVpq7tZ480kgRuG
+Zun/blkfFADtOYns4v0uejGuAgUPZh1rUd2PPsrpJXCgzIZ8l7ybYHSNcDp+O6sv
+4tvtC63ooo4Hw4so+ldcrx790Wm9hQbtdcCbCLrnr8E1mStPjGevJ2Dl4oczpS9Q
+59XgVlzbsimHPb6DgRPziNyjo/k9DGYMr+BRO/Ysqq5LLNde6X1bT1gpozjytV+h
+UgQr5UcnPjmwgBedNGnhPntpno5xXusX3pp7LH6AJUzWI9G+okL4dMIL91iwhk0I
+6vjx6PdurHVoAZHfRnaPgolpi6lnUw==
+=BfEc
+-----END PGP SIGNATURE-----
+
+--bvjGEp7kODe4zFUz--
 
