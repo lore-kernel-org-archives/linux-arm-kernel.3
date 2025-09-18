@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50915CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E19CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 14:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogTDAKycyeYau6M5ybIvF06Ijn8EFAb3yYrnyAb0SxU=; b=J/+iRaI6JRh7NwbXjBmGjGHCbc
-	l188Kd1tNhvn4oYUNynKoRSxO/83BLFiQRcVsWgLpDHLkeHH8gQjQTCJaw1ur2UQfpM26k3xK4EjP
-	qb9ABPVz317xZgfBZRdUE73e0/Mj6g6gj/wRsS8dL6HDgkPjTy+BZwqhxVn/3RRac1okLOcNVOyjS
-	uCmdjuPNsITW2CCG9uQl1z0kZUSAfBbogizfF2yMmJFDDeApYG+r2w2bgpCRTKtpv51Dm6rWeMA5d
-	2Bfe1H7YMjDy5c5WNa+XzCYxIcm80Lx9Z87lph7P5GiyB+wpBqNAdWj9jLtKKbwCRQGgmzZ5AEXqm
-	fGo29Pww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ScdLUi7Tz/pPrIV0NjyW4U23VIueAMMWyx8pCW4VZCI=; b=YQ8XN5DQEuPWFt96dCbX/pERWB
+	OmYACgQLiAiAwATsTqZHteSmFXCRa+dMeTf5H84lK/TI04t/2mddgvheHneaPmkd4eApSysru8Obs
+	yZfX84sIbLW/Z37QdFwIiSpAe7dE1vfRLpfxmhRBc10sVAq+aTAQEx9QRKRXqLVrufEU7id8/vEz5
+	7U0M2BG1S4rUfyDEm+smDz0V4S1XdV6MNL+D6UNkcFGyO3YlRaUY83Nxh6r95ZYGg74aPmOWCPRMY
+	4aA/PKAAYo8g0qKfynev2tamSs2LTW1dPg/Q99gqmXjRiEs01KhLxHetplINawn2XZFl8+zmwXTcp
+	Fh37EPxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFxq-00000000D0r-0vgp;
-	Thu, 18 Sep 2025 14:50:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzFzS-00000000DMR-2cpE;
+	Thu, 18 Sep 2025 14:52:06 +0000
+Received: from smtp15.bhosted.nl ([2a02:9e0:8000::26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzFxl-00000000Cye-1Klv
+	id 1uzFzQ-00000000DLJ-0YDd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 14:50:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBF6444BFB;
-	Thu, 18 Sep 2025 14:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F47FC4CEFC;
-	Thu, 18 Sep 2025 14:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758207020;
-	bh=EGsvc6/poxlYGOmwfkAkyjwqmGrwabohfckBDBt6qLU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=o+bu+FpcUsRQwpcYC/zXQMrb6yV0rewAe5nv6bCJ8jvkcQwdCwQkV7mQh9lhMXcPd
-	 +wc+TLvcaWSi63IPrP0Vfv58sODRhE2ECtkvnqkAl1hV2A4LMWZfyhfrE388/dk63j
-	 Sp7Igzr0wWoRS+5Dgp46WQYJJFO8SnaQjyQY7GcUbiLGpzgaifQqjcP2ubIfURyVRG
-	 LhhlY36oyZNgifNpCzj2j+2M/RJUo7Jpxc/MYIB5WI6vz/SzLuk7mJFNxenBuM4kUE
-	 CMIc2K31xXUaiCzMOZgXbBswj6svMZZRhOEZ+/JJjBuZZWKAt1ioJX8s7Z8Xg6KM8l
-	 MW94YzqGNOSkQ==
-Date: Thu, 18 Sep 2025 09:50:19 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
- "David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, 
- Andrew Lunn <andrew@lunn.ch>, David Jander <david@protonic.nl>, 
- Lucas Stach <l.stach@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Paolo Abeni <pabeni@redhat.com>, Fabio Estevam <festevam@gmail.com>, 
- Vladimir Oltean <olteanv@gmail.com>, Eric Dumazet <edumazet@google.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, Vladimir Oltean <vladimir.oltean@nxp.com>, 
- linux-sound@vger.kernel.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Oleksij Rempel <o.rempel@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org
-To: Jonas Rebmann <jre@pengutronix.de>
-In-Reply-To: <20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de>
+	Thu, 18 Sep 2025 14:52:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=protonic.nl; s=202111;
+	h=content-transfer-encoding:content-type:mime-version:references:in-reply-to:
+	 message-id:subject:cc:to:from:date:from;
+	bh=ScdLUi7Tz/pPrIV0NjyW4U23VIueAMMWyx8pCW4VZCI=;
+	b=kIabRhxvNKZM0EOI0x7ezn3kFDiHT7Qm8gIvQ0BYtJpuVmeKcBUdD0GswFJM4ppsDTAfe2nGvvNzW
+	 EXD8tBZpck/HdmqTgASPLT6zjPnhfW3/RUZoI4rvTNKJWHwAwbHtRCS6+DhaCeZlMw5IfwJYZIDLbv
+	 yFmJKLYi1x+eMUSaqnjmy9vIa1tanmteksbq2doEgc7rmR2DgCCx8crqZVfC+RlwGFmiNWbIBl4xWb
+	 9hNRV0yBO/HZHtotQkzznJ1DRPpbuM1Z29ahTt8cX/J5e94fqC11tRXXsFVnIUte9MEJLYq6n/Hq7j
+	 UdYFbNO1fjxZ0AANHx3zEmpP069LWnA==
+X-MSG-ID: 05ec3115-949f-11f0-9d65-00505681446f
+Date: Thu, 18 Sep 2025 16:51:56 +0200
+From: David Jander <david@protonic.nl>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Jonas Rebmann <jre@pengutronix.de>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Shengjiu Wang
+ <shengjiu.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Lucas Stach <l.stach@pengutronix.de>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
+Subject: Re: [PATCH v2 3/3] arm64: dts: add Protonic PRT8ML board
+Message-ID: <20250918165156.10e55b85@erd003.prtnl>
+In-Reply-To: <af554442-aeec-40d2-a35a-c7ee5bfcb99a@lunn.ch>
 References: <20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de>
-Message-Id: <175820686555.1653903.2952526182667328137.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] Mainline Protonic PRT8ML board
+	<20250918-imx8mp-prt8ml-v2-3-3d84b4fe53de@pengutronix.de>
+	<af554442-aeec-40d2-a35a-c7ee5bfcb99a@lunn.ch>
+Organization: Protonic Holland
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_075021_399929_89A471CD 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250918_075204_580905_4A845E44 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 18 Sep 2025 16:14:28 +0200
+Andrew Lunn <andrew@lunn.ch> wrote:
 
-On Thu, 18 Sep 2025 14:19:43 +0200, Jonas Rebmann wrote:
-> This series adds the Protonic PRT8ML device tree as well as some minor
-> corrections to the devicetree bindings used.
+> > +			port@4 {
+> > +				reg = <4>;
+> > +				ethernet = <&fec>;
+> > +				label = "cpu";
+> > +				phy-mode = "rgmii-id";
+> > +				rx-internal-delay-ps = <2000>;
+> > +				tx-internal-delay-ps = <2000>;
+> > +
+> > +				fixed-link {
+> > +					full-duplex;
+> > +					speed = <100>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&fec {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pinctrl_fec>;
+> > +	phy-mode = "rgmii"; /* switch inserts delay */
+> > +	rx-internal-delay-ps = <0>;
+> > +	tx-internal-delay-ps = <0>;
+> > +	status = "okay";
+> > +
+> > +	fixed-link {
+> > +		full-duplex;
+> > +		speed = <100>;
+> > +	};  
 > 
-> Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
-> ---
-> Changes in v2:
-> - Dropped "ASoC: dt-bindings: asahi-kasei,ak4458: Reference common DAI
->   properties", applied to broonie/sound for-next (Thanks, Mark)
-> - Updated description of the reset-gpios property in sja1105 binding to
->   address the issues of connecting this pin to GPIO (Thanks, Vladimir)
-> - Added the fec, switch and phy for RJ45 onboard ethernet after
->   successful testing
-> - Consistently use interrupts-extended
-> - Link to v1: https://lore.kernel.org/r/20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de
-> 
-> ---
-> Jonas Rebmann (3):
->       dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios property
->       dt-bindings: arm: fsl: Add Protonic PRT8ML
->       arm64: dts: add Protonic PRT8ML board
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
->  .../devicetree/bindings/net/dsa/nxp,sja1105.yaml   |   9 +
->  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->  arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts    | 500 +++++++++++++++++++++
->  4 files changed, 511 insertions(+)
-> ---
-> base-commit: ea21fa34164c9ea0a2a5b8714c7e36f54c7fb46e
-> change-id: 20250701-imx8mp-prt8ml-01be34684659
-> 
-> Best regards,
-> --
-> Jonas Rebmann <jre@pengutronix.de>
-> 
-> 
-> 
+> You have an RGMII interface, but you run it at 100Mbps? That might be
+> worth a comment somewhere to explain why.
 
+Yes, unfortunately the SJA1105Q does not support PAUSE frames, and the i.MX8MP
+FEC isn't able to sustain 1000Mbps (only about 400ish) due to insufficient
+internal bus bandwidth. It will generate PAUSE frames, but the SJA1105Q
+ignores these, leading to packet loss, which is obviously worse than
+restricting this link to 100Mbps. Ironically both chips are from the same
+manufacturer, yet are incompatible in this regard.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Best regards,
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit ea21fa34164c9ea0a2a5b8714c7e36f54c7fb46e
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de:
-
-arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dtb: codec@11 (asahi-kasei,ak4458): '#sound-dai-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/sound/asahi-kasei,ak4458.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dtb: isp@32e10000 (fsl,imx8mp-isp): 'power-domain-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-isp1.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dtb: isp@32e10000 (fsl,imx8mp-isp): power-domains: [[77, 6], [77, 1]] is too long
-	from schema $id: http://devicetree.org/schemas/media/rockchip-isp1.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dtb: isp@32e20000 (fsl,imx8mp-isp): 'power-domain-names' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-isp1.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dtb: isp@32e20000 (fsl,imx8mp-isp): power-domains: [[77, 6], [77, 4]] is too long
-	from schema $id: http://devicetree.org/schemas/media/rockchip-isp1.yaml#
-
-
-
-
-
+-- 
+David Jander
 
