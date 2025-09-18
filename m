@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01EB3CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 09:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8269CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 10:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3uhf87DrC/GqYd1AzAwWRkEB5wkIeXkNvqHSQcwwy4Q=; b=vieTuCwRNPnGar+SS0eFf7Upmh
-	JTJLtzn0PR5X0mlObFIZO8tEe7v2udvaZTChNLao2bXtSn6MCrSberrdlxIkkNg45nFnA5gSOazxD
-	sHU9xVQNVYoo5nj6Pp4QKIFjweUI1AqwNG3PxHB9m0oHiHlTMC5ADtwgL6biiu8/rAFgY+qOdBv7A
-	W1xtS6DCWnognY/2CElpLwvxG4Ltop2ENZhkb62NcEatcdx3+ACBREw7forwY4wJ2uWX1RiZWQp0q
-	7h29/4LPYYjRVGvHP5Rq+P2cRs9YjHBYGJ4k7V+gnEBK6pM7yAQeaj1JywoHXp3GAZobwChEZDq3v
-	uXHHaDNQ==;
+	bh=38CN86+v/N3yFeHrI8mpeV2lMrT0UcLaFt3ugTYePww=; b=R2FkZTJz86kr0IVnu1QWErXdpW
+	71HzwduxumG/1hyc1JSNNyPh19ruuqkI5BecRcio78M8WFdL8KCKYjPI4elcrrqK7ExvdffVFCnEy
+	Sg0SsarYsq0I7dkeT5D/DtVa5TQVkxwkoWuqFpUEhUbIRW2LkukWn+PzsDGlZ+sUZ58Q8ZqTKIOZQ
+	Su93/IPY6gsPL2s+GDv0dQ6mhSIW+zlXplHk5mZ+zsPnOOCTrjeSsSZBibPwpVPBrs+2cphQqp8XR
+	DFgBn/RbUArcY00pCfdCgmaHhnZ6+48cSkolQTW8/Tu3v8Wtg+uI5RMgNMHMrBipXcOwRjjMoWinN
+	tgVE6RgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBLf-0000000GwYv-0yEl;
-	Thu, 18 Sep 2025 09:54:43 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1uzBQq-0000000GxJy-28Z8;
+	Thu, 18 Sep 2025 10:00:04 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzBLc-0000000GwY8-2Lia
+	id 1uzBQn-0000000GxJL-2Ge4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 09:54:41 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-628f29d68ecso1370194a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 02:54:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758189279; x=1758794079; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3uhf87DrC/GqYd1AzAwWRkEB5wkIeXkNvqHSQcwwy4Q=;
-        b=Q0ZTxK0CYaLnquM12JfMomoe0UCHGYzsivVkDrCotryj66Tv2mBLyuSE+io4ZrSlaY
-         zs9fyLtuTHsZXWO2CntzWkhtXPka3iJXzUGxI3W5SiSQsmu3UF7Yta8ZMX3kc82qWeJk
-         2Tc3cX5fxDLh8DcNzHQd3/eg6u//Yg8RDVF85NhJeyQ2+Yy4FDbkOYzRHdIajG0b3JfC
-         1cSpA2AhfT8U92JGjyU2ZKiGAuQcGA0N0WqTnVTCBQqRVGfoj8OwtgXxfIfSssPlYNhB
-         5+2C5+FQeVrQCllS3xx0mqpNYhyI3nuQBhEVMqqC+7DckZCxPIoHNCadIiAcVrC4qXu0
-         YHiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758189279; x=1758794079;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3uhf87DrC/GqYd1AzAwWRkEB5wkIeXkNvqHSQcwwy4Q=;
-        b=vRXXg1yuS8AW9iPMvyfCt2VrI+b2WWBgz/t3U9r11DhUX3VMX/3Sip8F75WoJyLUye
-         5IZOkh05q8HEh8oKk/kAKrPJ81yQxiF7R10UfrwG+fohZQFISuGiw4dxgjErj48TC3OC
-         E6f65RUhOqxtBvsy/r882sO5fWxBtN0XSqAKl09fxygzzvTZNQeVEWlKR8vAaDIfIGTY
-         ++HrbRrvCU3Tn7QNMgeee93O9TlvzWtoQNrD7NN76wt+MZKtxOAb0I97yJ+C55I5Ab2s
-         dt7CdMmyla7VFtYiA0WVkJV2uIE1PJIrdzclM2nUY1yUkPv49HdF5gq7kxr9BtVDoX9N
-         hB4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUIL4hIcoYSlXs30AFj5gSvQfK07dtQJXL8lLC+UX+Gkx5zJp+/LFaBSLQYGZ6J+g2kGbIn3AMIhiE38NI+YYle@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6YwoJfok6DV+7g0UluiZ6jV83ytsh1YBhzqS7CMy0xa05eUSl
-	okFj6kLDOpwd+DpWIEVuqc0kGqq2AovVSspOPiDo2GQ8c2LKD/YKcMgTGlq/olvmTzbqq9/5NXa
-	YbgI4OCcyTWUdmIrHADAJ046NOiKlf7sA1RZDiPpxNw==
-X-Gm-Gg: ASbGncvhmPK33PwnpnzWoPjvhIEl1ildNWW5FNE11qgFRaIe77nkb5duJ1NghIu4JAf
-	TVhMghLIIuDw+RpyhZ6sljxLcRpUZhSfC5K5Qu3mrQI/o+uMmEiMcbVRr63NYpr8SRtvFHAI4QO
-	L9G/P9CF1IoHleOkeY3p9kprg/LC1vNPJxFKxOOZkTgileP43FCLusKfbFkePRbWkk44L+mSKSn
-	kEVvlkQ5MT9ynr/3TSLKhYCDk//A7SqN4GWJrU2tL6egLoWMsmm
-X-Google-Smtp-Source: AGHT+IE1zmv9oHlYf6BUBNOW+SUyz6ajjYN0b3+2pAlc66/NC3KjbbHlv5KbLza2QpbO9MoNOwx3daqo5CZgA0JV3IY=
-X-Received: by 2002:a05:6402:2115:b0:62f:7968:e1ca with SMTP id
- 4fb4d7f45d1cf-62f84798527mr4551388a12.38.1758189278612; Thu, 18 Sep 2025
- 02:54:38 -0700 (PDT)
+	Thu, 18 Sep 2025 10:00:02 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58I9xqX71721643;
+	Thu, 18 Sep 2025 04:59:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758189592;
+	bh=38CN86+v/N3yFeHrI8mpeV2lMrT0UcLaFt3ugTYePww=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=tsgj5salexCwGPpZCXDQDFIU1+Hr0BUPeO100cAx0k7uv3bkMyqjLbtZfon1aGGY3
+	 vZxWPSG+FkIFsunHQRfvFwJ3gDfKIN/qIduzHHRcPi8limvOKOu3QZa5mzYqTx9MhC
+	 15bPn/eNvj+Gj96Smuc0Ig7TRDH7LE1COliYUPp4=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58I9xqTX1465831
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 18 Sep 2025 04:59:52 -0500
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 18
+ Sep 2025 04:59:52 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 18 Sep 2025 04:59:52 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58I9xoAl683748;
+	Thu, 18 Sep 2025 04:59:51 -0500
+Date: Thu, 18 Sep 2025 15:29:50 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Peng Fan <peng.fan@nxp.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>,
+        "Rafael J. Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+        Pavel Machek
+	<pavel@kernel.org>, Peter Chen <peter.chen@kernel.org>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer
+	<s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>,
+        Xu Yang <xu.yang_2@nxp.com>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <imx@lists.linux.dev>, <arm-scmi@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/4] pmdomain: core: Introduce
+ device_set/get_out_band_wakeup()
+Message-ID: <20250918095950.h7wmz2qj5e6khtwr@lcpd911>
+References: <20250902-pm-v3-0-ffadbb454cdc@nxp.com>
+ <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
 MIME-Version: 1.0
-References: <e236uncj7qradf34elkmd2c4wjogc6pfkobuu7muyoyb2hrrai@tta36jq5fzsr> <20250917212833.GA1873293@bhelgaas>
-In-Reply-To: <20250917212833.GA1873293@bhelgaas>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 18 Sep 2025 11:54:26 +0200
-X-Gm-Features: AS18NWDHkrQ8kASDtWOuxujVdqn0GrRUTOJ77F2So0WyDmX2EIKvc-v29xTUv-g
-Message-ID: <CAKfTPtCizQ7nk3P4Dzi6uFewH5GcAnMakMt5=bK-Ykayp3t7XQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: pcie: Add the NXP PCIe controller
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, chester62515@gmail.com, 
-	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com, 
-	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250902-pm-v3-1-ffadbb454cdc@nxp.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_025440_618269_8CCD964C 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20250918_030001_777539_12BEDF26 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Sept 2025 at 23:28, Bjorn Helgaas <helgaas@kernel.org> wrote:
->
-> On Wed, Sep 17, 2025 at 10:41:08PM +0530, Manivannan Sadhasivam wrote:
-> > On Tue, Sep 16, 2025 at 09:23:13AM GMT, Bjorn Helgaas wrote:
-> > > On Tue, Sep 16, 2025 at 10:10:31AM +0200, Vincent Guittot wrote:
-> > > > On Sun, 14 Sept 2025 at 14:35, Vincent Guittot
-> > > > <vincent.guittot@linaro.org> wrote:
-> > > > > On Sat, 13 Sept 2025 at 00:50, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > > > > > On Fri, Sep 12, 2025 at 04:14:33PM +0200, Vincent Guittot wrote:
-> > > > > > > Describe the PCIe controller available on the S32G platforms.
-> > >
-> > > > > > > +                  num-lanes = <2>;
-> > > > > > > +                  phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > > > > >
-> > > > > > num-lanes and phys are properties of a Root Port, not the host bridge.
-> > > > > > Please put them in a separate stanza.  See this for details and
-> > > > > > examples:
-> > > > > >
-> > > > > >   https://lore.kernel.org/linux-pci/20250625221653.GA1590146@bhelgaas/
-> > > > >
-> > > > > Ok, I'm going to have a look
-> > > >
-> > > > This driver relies on dw_pcie_host_init() to get common resources like
-> > > > num-lane which doesn't look at childs to get num-lane.
-> > > >
-> > > > I have to keep num-lane in the pcie node. Having this in mind should I
-> > > > keep phys as well as they are both linked ?
->
-> > > Huh, that sounds like an issue in the DWC core.  Jingoo, Mani?
-> > >
-> > > dw_pcie_host_init() includes several things that assume a single Root
-> > > Port: num_lanes, of_pci_get_equalization_presets(),
-> > > dw_pcie_start_link() are all per-Root Port things.
-> >
-> > Yeah, it is a gap right now. We only recently started moving the DWC
-> > platforms to per Root Port binding (like Qcom).
->
-> Do you need num-lanes in the devicetree?
-> dw_pcie_link_get_max_link_width() will read it from PCI_EXP_LNKCAP, so
-> if that works maybe you can omit it from the binding?
+On Sep 02, 2025 at 11:33:00 +0800, Peng Fan wrote:
+> For some cases, a device could still wakeup the system even if its power
+> domain is in off state, because the device's wakeup hardware logic is
+> in an always-on domain.
+> 
+> To support this case, introduce device_set/get_out_band_wakeup() to
+> allow device drivers to control the behaviour in genpd for a device
+> that is attached to it.
+> 
 
-num-lane is not mandatory but we can have 1 or 2 lanes so should be
-able to restrict to only 1 lane for some platform
-the "num-lanes = <2>;" in the example is wrong as we don't need it in
-case of 2 lanes but only if we want to restrict to 1 lane
+Thinking more into it, to me it seems like if the intent here is to only
+allow the device drivers to figure out whether they should be or not be
+executing the suspend/resume_noirqs then that can still be checked by
+wisely using the device set_wakeup APIs in the driver itself.
 
->
-> If you do need num-lanes in the binding, maybe you could make a Root
-> Port parser similar to mvebu_pcie_parse_port() or
-> qcom_pcie_parse_port() that would get num-lanes, the PHY, and
-> nxp,phy-mode from a Root Port node?
->
-> Then all this would be in one place, and if you set ->num_lanes there
-> it looks like the DWC core wouldn't do anything with it.
+Not sure why this patch should be necessary for a
+driver to execute the suspend_noirq or not. That decision can very well
+be taken inside the driver's suspend resume_noirq hooks based on wakeup
+capability and wake_enabled statuses.
+
+Just a pseudo code:
+```
+driver_suspend_noirq () {
+	if (device_may_wakeup()) {
+		// do the sequence where the power domain might get turned off
+		// but like you say device can do some out band wakeup
+		return XXX;
+	}
+	// regular suspend sequence here... maybe inband wakeup config / clk
+	// disable etc...
+}
+ ```
+
+And something similar in resume_noirq?
+
+Just need to make sure that the probe func does the
+device_set_wakeup_enable or capable stuff correctly as per your H/w and
+wakeup requirements...
+
+
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
