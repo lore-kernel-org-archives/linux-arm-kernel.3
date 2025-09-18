@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24A4CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A027CCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BCt28Hl1d1yAQvcP+HSxWneHj3GqV+GLJ6lHGDVlH4A=; b=S/ijtyfQGO9ht0nfZVEDu4m0dG
-	G2dCTE6XmaatLlOWWwtB2NWoiukUFMKttR+YPUy5aKcDUFRa/Hr/QHo/TFMZnHNxjlmBS3Chi/K+P
-	T5CwA+aulaPLV2S6nRfvEXOk0BRuPPiyZQTzfb+/1REprZftZd1ZRthRomiFb3CLHoSIbrraxlobA
-	GYcWdZKHlEknkiwgzxRSm6/cCxYxhdZHkbxf0vKBEr6+12oHZAfqXl6QHV7vhg5IsVAVPud1pbkxq
-	pyW9nPgjKPLrcwN0P9BgIQcy1b4TZU0co7SJ7jPkCToKd0r9etQiou4prmj8iSvC7xPEeXDJWtdv8
-	0WviVRKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M93GVlkcKka2LY9OCUJg2tH+tSnNWBwTAftMb+Kx2VQ=; b=Z8DI09RSL+TEKa2N4F/xlE+sUK
+	6gF7pzzQwzRl3QdVVolkdQqEpBNQkloUYekPR/R2UsxAscZ5U3AdKIhA8QKP2SJz1TetfN7RInEYl
+	WxbENLGhxVSWlBpmRpGqVFuLo3xJKNixFAFW9WPmUhIhLqXUj6iWBZhKzpx2YIH8Tw8I49g8WHpRg
+	MogUcAhqZuCSFFQy7y/xqxzA9yeDHT9UOyvNE6UC4TLmkpgVrKPsq/yFvN6I0bTIeIZ9kfbcZ0X7j
+	Rzkdut1PNx7q1M/jfOTt0WPXqhqVRAnCTYhG14WvgTCWjgiVCs4zxsqHWlEPuC87cEgQBioX1bBpd
+	ObaA7QyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCTa-0000000HB1l-0YqX;
-	Thu, 18 Sep 2025 11:06:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzCbC-0000000HBqV-0AQ7;
+	Thu, 18 Sep 2025 11:14:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzCTY-0000000HB1b-3Uvc
+	id 1uzCb9-0000000HBqA-2tjX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:06:56 +0000
+	Thu, 18 Sep 2025 11:14:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E9F660207;
-	Thu, 18 Sep 2025 11:06:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C330FC4CEEB;
-	Thu, 18 Sep 2025 11:06:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 18DCE403B9;
+	Thu, 18 Sep 2025 11:14:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226F6C4CEE7;
+	Thu, 18 Sep 2025 11:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758193615;
-	bh=NpAPPFF/yuRMT+fZ+lNvZK5IuyxseW1m/ZM8WE7yyA4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jxDjo7Dlh4cat8V+DFX0tGwOab5YO0Mq5EbhkpwO8jTQm6fF0LCFC4v+NZspjwsXp
-	 G4FQUB6OOg+LGgkFU65eRPlJ4/xm41JkDMkBcQQMOSHgVLsckbToTS6L1PeOjYnfsw
-	 mxqtfoYVA2YqYapAih3FT4fR6g5/zOeVsRWEOEa5BlFA/V4Fp15MMg9UjGrkbllJw4
-	 pydcRWePrPjMSXj2uupkY4lZcJpYkeweVSi0LWDo/kh5V/chKnv0xFuSOiIT+V9ZYV
-	 MIGfrTt4ZV8+8cic9+L5iPB0FpeFOkCsOgqWa+T9Hyb0MaqJgsM7bicBBOMYxI+SfW
-	 rrQN+cHXmZelw==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Subject: Re: [PATCH] kselftest/arm64/gcs/basic-gcs: Respect parent directory CFLAGS
-Date: Thu, 18 Sep 2025 12:06:36 +0100
-Message-Id: <175812312276.1711921.12702494152718461208.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250916-arm64-gcs-nolibc-v1-1-ee54aa65fc26@weissschuh.net>
-References: <20250916-arm64-gcs-nolibc-v1-1-ee54aa65fc26@weissschuh.net>
+	s=k20201202; t=1758194083;
+	bh=uqKLQL0kXPlTW24rRLvkA6f101bLzhi+v2aTGmvoekQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hY2y7E8oPFC4GuWcczzwCap37MRRFfXocXGwF5tfiob6nWiwEGmnk3ou8Ag/L2fOj
+	 WNZP/y4IpK8Hr6/BlKZ9obj6KneJTH6b5m2Ms5TdqTMtv6QQt5S8m7tNeIM9FjxH+F
+	 +xfQF7JOPk9XX5JZHhd+klKP5TiksKlVnn3bJnbEXMO+f4WZx97XuDpArSLa8tvB1O
+	 dXARWNioqFc4PiD54+ZR3jVUYPKlbknmjL4sbyDa7u8PcqA6xUnBpyz5TbBnBjvDeq
+	 DzGNAQqOi/yaQe5eobFR50ynsaNQ/Wzt4IWOyXQRcSvGSFkndiCumN2Jfsv7YC9g/z
+	 uGkOtT69qz3+w==
+Date: Thu, 18 Sep 2025 12:14:37 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Herve Codina <herve.codina@bootlin.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicolin Chen <nicoleotsuka@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	linux-sound@vger.kernel.org, Qiang Zhao <qiang.zhao@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Takashi Iwai <tiwai@suse.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Jaroslav Kysela <perex@perex.cz>
+Subject: Re: [PATCH v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of
+ interrupts
+Message-ID: <85ea3256-dd31-47b1-8e2d-a9d207b28fa0@sirena.org.uk>
+References: <cover.1755504428.git.christophe.leroy@csgroup.eu>
+ <3d20d3ec-2f52-4cac-9c5c-fd2141a12a0b@csgroup.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1Rv2MdpZahqmMZwq"
+Content-Disposition: inline
+In-Reply-To: <3d20d3ec-2f52-4cac-9c5c-fd2141a12a0b@csgroup.eu>
+X-Cookie: Victory uber allies!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250918_041447_758519_D75A5BFD 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Sep 2025 18:51:35 +0200, Thomas Weißschuh wrote:
-> basic-gcs has it's own make rule to handle the special compiler
-> invocation to build against nolibc. This rule does not respect the
-> $(CFLAGS) passed by the Makefile from the parent directory.
-> However these $(CFLAGS) set up the include path to include the UAPI
-> headers from the current kernel.
-> Due to this the asm/hwcap.h header is used from the toolchain instead of
-> the UAPI and the definition of HWCAP_GCS is not found.
-> 
-> [...]
 
-Applied to arm64 (for-next/selftests), thanks!
+--1Rv2MdpZahqmMZwq
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[1/1] kselftest/arm64/gcs/basic-gcs: Respect parent directory CFLAGS
-      https://git.kernel.org/arm64/c/5b7bdc4402b1
+On Thu, Sep 18, 2025 at 08:12:21AM +0200, Christophe Leroy wrote:
+> Hi Mark, Liam,
+>=20
+> Le 18/08/2025 =E0 10:19, Christophe Leroy a =E9crit=A0:
+> > This series reduces significantly the amount of interrupts on
+> > fsl_qmc_audio device.
+>=20
+> I can't see this series in linux-next.
+>=20
+> I see in patchwork [1] that this series still has status 'NEW' but also
+> state 'archived'.
+>=20
+> What is the way forward to get it applied for v6.18 ?
 
-Cheers,
--- 
-Will
+Please don't send content free pings and please allow a reasonable time
+for review.  People get busy, go on holiday, attend conferences and so=20
+on so unless there is some reason for urgency (like critical bug fixes)
+please allow at least a couple of weeks for review.  If there have been
+review comments then people may be waiting for those to be addressed.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Sending content free pings adds to the mail volume (if they are seen at
+all) which is often the problem and since they can't be reviewed
+directly if something has gone wrong you'll have to resend the patches
+anyway, so sending again is generally a better approach though there are
+some other maintainers who like them - if in doubt look at how patches
+for the subsystem are normally handled.
+
+--1Rv2MdpZahqmMZwq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjL6ZwACgkQJNaLcl1U
+h9D2swgAgTsZe6lJbstmvGT3sE8IM/SR5DbwYbMqquiSJfASLpWn6+IpQ9jey7dC
+rBQ/Kac/dqktoRic2n2MNciZbkk1DBkKn7U3giWJn+Lc2TEdF/2k3D8gIb0fTkOv
+pFy2ITzlJpnJe41HMTRLT0Y+2MmjTmLBp6H5mbExn9AJ5RtMcXxAMDfCB5pqSWQr
+nSzduldkPYgbVRrD+RbcTzbal6R/Rjkatm1QfAt5iy7K4cvZQmNIZEOrePIP/Mzm
+nt9+XFbYZHnCTxshgzhYuJBgsik6w211UWlWYuibWrlvWW/323RrN8l46amu67bJ
+Zkpxs4GJvx/WIEeyf0hmzc8A7/+Qqw==
+=xpzh
+-----END PGP SIGNATURE-----
+
+--1Rv2MdpZahqmMZwq--
 
