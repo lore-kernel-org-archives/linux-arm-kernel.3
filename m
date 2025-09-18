@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCFECAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCDBCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 11:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6ZNh2CldpFkggR//+kh0/H5v/IH6zkdIqrXr1GpPBg=; b=DKlOmBsgEW27l+IPC99N9C5QFE
-	EBcwGa4JD/i4cBfqmF157+lsitfG2JfvOfQCAv8iKCiQ33WKsLQbUeZPyWc61Q3cTp0d/cPQv2KtT
-	OvxVbXU/Pp343bTeyAzHsBwRBUfzsD3Joi/kzSjSKAPbOqmYPp1X5LSS8k9Yru9vSD4a1kpugbqm+
-	gQLY6PEzZkKoX44Yyn74rX2+pRVeGoRMmISqfJGrFdOTM+iYcMEQRenUJvBmNUm5uEwpFp+sIPYxg
-	ZLjwP4YJdKkoBs9o5QN7G3o0PKo06L6Sn9TKS6Lbyfvcl5JMdV2kkaAJIBZ4wxWQw+c3NsBLpXpnu
-	43AkPGHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DN/3t4hL6cT5/e9+GaAketYE06VkieyzpyBena7YBAU=; b=TpAL5kIhz9xYi8CsHLtOhWxZRN
+	708nTY1tHC07nJhe8jmpx9Y5g+ioLu/B8S/mCNDVSn2pwNWDq5h+LqXFOQZkrEGZcZ97X9WKikIT+
+	T9iB+XvH8aCAsda+eAjfB/F8cQgGLJSLjFZVgDVW2PimwpH/dNMBegSiTQB5Ld40yUDKAvcFhr6N9
+	kl9wxf/Tq5IEJ2KLQ5lUQ5OZq4HX7YephI0WEzlq/Hbk4VyFDfD2lX7SAVaCLullMBLcKxnV3G2zz
+	G35bKoR0hRx0TqnbPALgpXnFofrHQHvhIPmwi9zFnr2YCvaGNKNs+Zp2iJjpfpCviXfva/TZ5eOFL
+	uKV4K56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDBL-0000000HH81-3zEX;
-	Thu, 18 Sep 2025 11:52:11 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uzDEU-0000000HHsf-0X7v;
+	Thu, 18 Sep 2025 11:55:26 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzDBF-0000000HH2z-0qS3
+	id 1uzDEQ-0000000HHph-3Mk7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 11:52:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758196325; x=1789732325;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gRM5ebAAEf4TRIWQFHbcl8pLy8N7ldQhFRmgB1sHmKg=;
-  b=MQB+MfmvNoBEYl1Dyy5LRttRalj0lXZBxYXb2fvj5NiSVCwrqb+QrC5+
-   xXHY4Hw7UqHl96wpjD2HXLuii7pAgtb8pCX/3z+F1eF943ZfRPD5iZWsr
-   3pbFo2G3Av11omRiPxU7txIdQdO72qbxd4zza9bjFtWGYr5nd1UhMY/xM
-   qEjMKQpFJcufeBO5sFJ5S/atAGcTf+Zfx9mmtVnjqMLdD8yxd5pJE7y3N
-   U3AJ0pA+nKkd3wm5xCv5/080ptU9t5mwG0FTwvaH4qnO/G4f9lBmv+URi
-   r+BBjwmkRltzTwDgDROEDXQ9iskdQ96FitIPneNCZkxdNrLgGrs9YjqWe
-   g==;
-X-CSE-ConnectionGUID: SRb3HDIsTjmowrzUUmMc/Q==
-X-CSE-MsgGUID: AOvBqGd1QF+pNJw0JKt6wQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11556"; a="60454920"
-X-IronPort-AV: E=Sophos;i="6.18,274,1751266800"; 
-   d="scan'208";a="60454920"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Sep 2025 04:52:03 -0700
-X-CSE-ConnectionGUID: xpACrP6fTbC4WJ9LOd4WfQ==
-X-CSE-MsgGUID: RkJTVKFVTm6UUBTnBekyMw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,274,1751266800"; 
-   d="scan'208";a="206471603"
-Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 18 Sep 2025 04:51:56 -0700
-Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uzDB4-0003D5-14;
-	Thu, 18 Sep 2025 11:51:54 +0000
-Date: Thu, 18 Sep 2025 19:51:32 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ravi Patel <ravi.patel@samsung.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, jesper.nilsson@axis.com,
-	lars.persson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
-	alim.akhtar@samsung.com, s.nawrocki@samsung.com,
-	cw00.choi@samsung.com
-Cc: oe-kbuild-all@lists.linux.dev, ravi.patel@samsung.com,
-	ksk4725@coasia.com, smn1196@coasia.com, linux-arm-kernel@axis.com,
-	krzk@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	pjsin865@coasia.com, gwk1013@coasia.com, bread@coasia.com,
-	jspark@coasia.com, limjh0823@coasia.com, lightwise@coasia.com,
-	hgkim05@coasia.com, mingyoungbo@coasia.com, shradha.t@samsung.com,
-	swathi.ks@samsung.com
-Subject: Re: [PATCH 2/7] clk: samsung: Add clock PLL support for ARTPEC-9 SoC
-Message-ID: <202509181955.NgLJ2aBv-lkp@intel.com>
-References: <20250917085005.89819-3-ravi.patel@samsung.com>
+	Thu, 18 Sep 2025 11:55:25 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250918115518epoutp011881cb5140722c9eb49199d4d663802c~mXmsZrqjb3273532735epoutp01t
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:55:18 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250918115518epoutp011881cb5140722c9eb49199d4d663802c~mXmsZrqjb3273532735epoutp01t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758196518;
+	bh=DN/3t4hL6cT5/e9+GaAketYE06VkieyzpyBena7YBAU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=S03ItJ3IQdQQwzdY9s7ASFakivQ36sIUWXwLO61w8ftRsN53Tb2NXDysnHj+lNj8J
+	 FWT2Q/YHjpqwMVS6gWSFjHJL6VFmuy/LWOi3HZQTEzz3ZvPuzdobYeajaewrFVsycQ
+	 AWrqjgDRZ7QVjAYQm7x54iHahcVH9gbU7xDXqUfw=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250918115517epcas5p3c7dd05a1fae6fff0ce95db44751deea8~mXmrZwiaW3121231212epcas5p3M;
+	Thu, 18 Sep 2025 11:55:17 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cSDbS4F1Hz2SSKb; Thu, 18 Sep
+	2025 11:55:16 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250918115516epcas5p14397d311bb7c6c1f2c0a60109d298bb7~mXmqAPTm12886628866epcas5p1E;
+	Thu, 18 Sep 2025 11:55:16 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250918115511epsmtip15cafde6c107dd91d89f11e8293e860e4~mXmmGGj6Y0665806658epsmtip1c;
+	Thu, 18 Sep 2025 11:55:11 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <vkoul@kernel.org>,
+	<kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>
+Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
+	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
+Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Thu, 18 Sep 2025 17:25:10 +0530
+Message-ID: <007801dc2893$18ed4a20$4ac7de60$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917085005.89819-3-ravi.patel@samsung.com>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcA7fJUJrQHWRvw
+Content-Language: en-in
+X-CMS-MailID: 20250918115516epcas5p14397d311bb7c6c1f2c0a60109d298bb7
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
+	<20250903073827.3015662-2-pritam.sutar@samsung.com>
+	<0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_045205_283938_8C7EA744 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250918_045523_496258_F749A94B 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,63 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ravi,
+Hi Krzysztof,
 
-kernel test robot noticed the following build errors:
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 18 September 2025 08:15 AM
+> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; vkoul=40kernel.org=
+;
+> kishon=40kernel.org; robh=40kernel.org; krzk+dt=40kernel.org;
+> conor+dt=40kernel.org; alim.akhtar=40samsung.com; andre.draszik=40linaro.=
+org;
+> peter.griffin=40linaro.org; kauschluss=40disroot.org;
+> ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.org;
+> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com
+> Cc: linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
+> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
+amsung-
+> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
+dd
+> ExynosAutov920 HS phy compatible
+>=20
+> On 03/09/2025 16:38, Pritam Manohar Sutar wrote:
+> > diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
+> phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
+> phy.yaml
+> > index e906403208c0..8d8114eb5660 100644
+> > --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> > +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> > =40=40 -34,6 +34,7 =40=40 properties:
+> >        - samsung,exynos7870-usbdrd-phy
+> >        - samsung,exynos850-usbdrd-phy
+> >        - samsung,exynos990-usbdrd-phy
+> > +      - samsung,exynosautov920-usbdrd-phy
+> >
+> >    clocks:
+> >      minItems: 1
+> > =40=40 -110,6 +111,15 =40=40 properties:
+> >    vddh-usbdp-supply:
+> >      description: VDDh power supply for the USB DP phy.
+> >
+> > +  dvdd-supply:
+> > +    description: 0.75V power supply for the USB phy.
+>=20
+> So this is existing dvdd-usb20-supply.
+>=20
+> Same for all of the rest.
+>=20
 
-[auto build test ERROR on krzk/for-next]
-[also build test ERROR on clk/clk-next next-20250917]
-[cannot apply to robh/for-next linus/master v6.17-rc6]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Yes, we have already discussed this and convergence was to use the=20
+conventions which are mentioned in the Data-book. So, I updated the=20
+supply names accordingly.=20
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ravi-Patel/dt-bindings-clock-Add-ARTPEC-9-clock-controller/20250917-165346
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250917085005.89819-3-ravi.patel%40samsung.com
-patch subject: [PATCH 2/7] clk: samsung: Add clock PLL support for ARTPEC-9 SoC
-config: arm-s5pv210_defconfig (https://download.01.org/0day-ci/archive/20250918/202509181955.NgLJ2aBv-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250918/202509181955.NgLJ2aBv-lkp@intel.com/reproduce)
+Please see the below communications for the same.=20
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509181955.NgLJ2aBv-lkp@intel.com/
+https://lore.kernel.org/linux-phy/83dc9435-5850-425d-b345-52e84ef9262c=40ke=
+rnel.org/
+https://lore.kernel.org/linux-phy/6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef=40ke=
+rnel.org/
 
-All errors (new ones prefixed by >>):
+> Best regards,
+> Krzysztof
 
-   arm-linux-gnueabi-ld: drivers/clk/samsung/clk-pll.o: in function `samsung_a9fraco_recalc_rate':
->> drivers/clk/samsung/clk-pll.c:1508:(.text+0xcc): undefined reference to `__aeabi_uldivmod'
+Thank you,
 
+Regards,
+Pritam
 
-vim +1508 drivers/clk/samsung/clk-pll.c
-
-  1490	
-  1491	static unsigned long samsung_a9fraco_recalc_rate(struct clk_hw *hw,
-  1492							 unsigned long parent_rate)
-  1493	{
-  1494		struct samsung_clk_pll *pll = to_clk_pll(hw);
-  1495		u32 pll_con0, pll_con5;
-  1496		u64 mdiv, pdiv, sdiv, kdiv;
-  1497		u64 fvco = parent_rate;
-  1498	
-  1499		pll_con0 = readl_relaxed(pll->con_reg);
-  1500		pll_con5 = readl_relaxed(pll->con_reg + PLLA9FRACO_PLL_CON5_DIV_FRAC);
-  1501		mdiv = (pll_con0 >> PLLA9FRACO_MDIV_SHIFT) & PLLA9FRACO_MDIV_MASK;
-  1502		pdiv = (pll_con0 >> PLLA9FRACO_PDIV_SHIFT) & PLLA9FRACO_PDIV_MASK;
-  1503		sdiv = (pll_con0 >> PLLA9FRACO_SDIV_SHIFT) & PLLA9FRACO_SDIV_MASK;
-  1504		kdiv = (pll_con5 & PLLA9FRACO_KDIV_MASK);
-  1505	
-  1506		/* fvco = fref * (M + K/2^24) / p * (S+1) */
-  1507		fvco *= mdiv;
-> 1508		fvco = ((fvco << 24) + kdiv) / ((pdiv * (sdiv + 1)) << 24);
-  1509	
-  1510		return (unsigned long)fvco;
-  1511	}
-  1512	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
