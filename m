@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2555CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4492CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 16:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezWvkj10KoVIpBI4Cr9l25pdbvabnrq1720umn5Jk6o=; b=JeqF6gIxvPeJzQjB0r+hTbN/gU
-	ClvauRN3buvYi/KMuOJLQufiUOWezbEbMq1lsaR35DBdTwXboD1taL5jsRw4CB2V+ML8NpURdmcYl
-	VSBXrofyhFjHJs7Y3hnrilrQJsdAbGLuuOy6+I4Qji0auGD3Z6Y0kUd5RmZJbqfS7AD+1GS61y65z
-	O5B4R6DUYH9A0QY3FONHYTIuzJfvcKKhKUB5MQVCIVEsMTSXWEJrAdr7xYuDNSTxrdFygmnRafw/z
-	oeSa4HYJ2jkQv+yXZp6uhvB0P/1Jy024wqZTDQIAjliLhlScSEQsUN6svVXuccDslOMJ+P8AYuRBG
-	yBQdUalg==;
+	bh=p11Y5JXmqdlFdSGugeLR1g3a70K+tYO61MErIJp98Ts=; b=tdFN6vsBne+fDAykFRLU9FQ1CR
+	g/j+WQ4Rs6aEHnONnhgk1/z5+rrzmloLzOgDPMvry/xluzXKQ4OUJQKpLHAbg3kK/E/M08u+jyTw9
+	NOeO0t4mFAO3IwaXYRWykdW/8Yv0LOVB4vlpZHaYP1BhMs/zMh1KOIJoF9KWiYnGbNyd41ekux7iY
+	xAshMbOEsgWNEw/oWcmy1Qi3JOjIeXfPX/JWQUxNjplidqWOUap8o6uUsEmahKfxKo8A/NMSb0c+g
+	gruRpA190ABne8U5oUU+GwUFCM88QyXHNplCvmwltQmuB/SE0FMerQbwyPgYmIrVpmbQjhMSiMGcQ
+	qDgubNPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHjE-00000000ewv-3YVA;
-	Thu, 18 Sep 2025 16:43:28 +0000
+	id 1uzHjJ-00000000f01-0Ypv;
+	Thu, 18 Sep 2025 16:43:33 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzHjB-00000000evp-3US8
+	id 1uzHjG-00000000ey1-31PH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 16:43:27 +0000
+	Thu, 18 Sep 2025 16:43:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6473D44C98;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CB4243C34;
+	Thu, 18 Sep 2025 16:43:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCD63C4CEE7;
 	Thu, 18 Sep 2025 16:43:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C074C4CEF0;
-	Thu, 18 Sep 2025 16:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758213805;
-	bh=cvU+rUTH7Fb+pH4bvUfM3aUE1C5EoH36lDNS95ZtEdk=;
+	s=k20201202; t=1758213810;
+	bh=h9r87sKSL8lye2f7s8CYcNKEjCq+sl5T4kGt0qLKA3k=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l/xfk4BrUMmyH7LB4Zm7NKYDcvd8wqK74Ud6aTjWsat/0bTFzu7ms7O9Yl8mpkpY3
-	 k6N/LnhSNvdzQe/jAM5usS4yjwwP8eYOO0IZrO6BKR3KYZwpYaNg4czg0hvdlZ4kaP
-	 Y9XnewD/PVXGgDEXoebIAC1WTqtWJAKOc1QvA8ESLO7QoZbZPRRmA0yx7aKwRm5XZY
-	 IW2JJx5gR868TfQdssmJKPXb3FEWacfaHRZeb0vq+V4yId54LFcK5uEz3ng03NrYQM
-	 iOP38txIEwQQI22JZbs+UqhZeSXQgwmNdfF3mfT2nQNBAxpSo6Yx5qVXiA1InAB22h
-	 5Jef6AAy9OvnQ==
+	b=OcLwB/3cK+Hq+E9fTHI2F7AqsGyYBmhJhVW+2ehxX2i9V5DZrqNfhwfCZjvaGOjbl
+	 rX2srpTymZHXqt3zFrM4lr5DXNUo2WDVcH/pxM+k3Cw2zZQ7cT/aUSHIhqHsVD+ZE2
+	 JcmwQRAkRTF1/7p7pVl8Et614GC2LXL/f9IdRyOg1HqOE0x11DS2MNuIBW6G6Bg900
+	 CBIW888sSRlyjQuskjphNYG5eD3tBVZmC/SFVp/BRJ8+DdqECfhaVw9Som8m/+SYL9
+	 eqORwm725/v2zzuTh2sOxoKf0D9Zysp/61f4NTK7l6aR+NF49JWgs84aZuLeuk/Z/v
+	 3GIAyc8byUKlg==
 From: Will Deacon <will@kernel.org>
-To: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Jonathan Corbet <corbet@lwn.net>,
+To: Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH] perf/dwc_pcie: Support counting multiple lane events in parallel
-Date: Thu, 18 Sep 2025 17:43:07 +0100
-Message-Id: <175819993397.3464193.5312337667087987176.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v8 00/12] perf: arm_spe: Armv8.8 SPE features
+Date: Thu, 18 Sep 2025 17:43:08 +0100
+Message-Id: <175820142456.3469431.6863967464115578024.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250828223519.2812844-1-ilkka@os.amperecomputing.com>
-References: <20250828223519.2812844-1-ilkka@os.amperecomputing.com>
+In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
+References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_094325_893208_F40F6997 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250918_094330_792955_8E2D200C 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 28 Aug 2025 15:35:19 -0700, Ilkka Koskinen wrote:
-> While Designware PCIe PMU allows to count only one time based event
-> at a time, it allows to count all the lane events simultaneously.
-> After the patch one is able to count a group of lane events:
+On Mon, 01 Sep 2025 13:40:29 +0100, James Clark wrote:
+> Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
+> filtering, and SPE_FEAT_FDS data source filtering. The features are
+> independent can be applied separately:
 > 
->   $  perf stat -e '{dwc_rootport/tx_memory_write,lane=1/,dwc_rootport/rx_memory_read,lane=0/}' dd if=/dev/nvme0n1 of=/dev/null bs=1M count=1
-> 
-> Earlier the events wouldn't have been counted successfully.
+>   * Prerequisite sysreg changes - patch 1
+>   * FEAT_SPEv1p4 - patches 2 - 3
+>   * FEAT_SPE_EFT - patch 4
+>   * FEAT_SPE_FDS - patches 5 - 9
+>   * FEAT_SPE_FDS Perf tool changes - patches 10 - 12
 > 
 > [...]
 
+I took the first 6 patches but 7 and 8 still need maintainer acks before
+I can pick up 9 as well.
+
 Applied to will (for-next/perf), thanks!
 
-[1/1] perf/dwc_pcie: Support counting multiple lane events in parallel
-      https://git.kernel.org/will/c/71396cfac97d
+[01/12] arm64: sysreg: Add new PMSFCR_EL1 fields and PMSDSFR_EL1 register
+        https://git.kernel.org/will/c/a7005ff2d0a5
+[02/12] perf: arm_spe: Support FEAT_SPEv1p4 filters
+        https://git.kernel.org/will/c/b4401403afb9
+[03/12] perf: arm_spe: Expose event filter
+        https://git.kernel.org/will/c/51b9f16697cd
+[04/12] perf: arm_spe: Add support for FEAT_SPE_EFT extended filtering
+        https://git.kernel.org/will/c/dad9603c5ea3
+[05/12] arm64/boot: Factor out a macro to check SPE version
+        https://git.kernel.org/will/c/510a8fa49dc1
+[06/12] arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
+        https://git.kernel.org/will/c/00d7a1af5ab5
 
 Cheers,
 -- 
