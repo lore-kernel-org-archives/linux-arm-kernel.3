@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 022DCCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C6BCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 18:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6AFtYNgzFlGUfnCDw9OHKWnsFrL+D8ATC1/qMSs/P0E=; b=TCxtP3jiHCd6k1noTfFPwNK7CQ
-	LB+TySEoJyfsKdggmksu24BSiFfy889kCcMBhg8HfUeVjYF1+aDZBWYa4lBH+nliB6oiWbMjWO89T
-	9LXk9OGXdP5KZhjBkjfNmzm8sdik02YPwj3K33i9qrnYw/y2t2PBJFipOevIEu3SgI1envfyIR3LV
-	I0kJj/m5NmdER+Pwp7CwiHiYSOm41ESpjRlXrc0NObbjJolQD7jztKf0ge/yB1rNa6cPlJgcHENI3
-	+LtfvGQ2WUOa/wAmM3TRsSZk92KPrZeebYAMip+cZMC3M1N3EQ0bpQTkAzdCLVelXDqq5H19xgPmp
-	zxtcmP5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t4/cCa5+Es3PK/YLYFtiDyhJrzARI0WStMwJlXvT8cw=; b=y8DHB4o57DJu2AisG0u/IVq6R0
+	onUO9NHpQjs8e8vhApDhmhYw4LKWlNSmRXZ3kDIsWT3ILD5gQZUI3Cu7HUx2HM9Cojvo44ih6CQJC
+	M1FIgGktXBZYn24OMJJ9uaVEIeHSVP2q1ZMQlVF03k7n7H7d8uO0pdDYlfE6Do8EoOyvgbaqaXhob
+	6E1D/jgtPiBtZlWM3eF6NTdTB/VEY+rT5QY1AkENgS8FjCD2UzIAwrJOnuGVLR0Ri2f+R5SHY0+/O
+	GdyzdZAJfz1vU1/s1tKIeJAMZO00Ei4Meec/OMQ1EhDjdz/IU7AFmCDiWbPbs3dqLSGm469UZ1bTT
+	kBvHRn2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzIwy-00000000pNy-2nkJ;
-	Thu, 18 Sep 2025 18:01:44 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1uzIyt-00000000pi0-0JtT;
+	Thu, 18 Sep 2025 18:03:43 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzIwv-00000000pNN-3fWV
+	id 1uzIyq-00000000phd-3efM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 18:01:42 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45f2c41c819so8383035e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 11:01:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758218498; x=1758823298; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6AFtYNgzFlGUfnCDw9OHKWnsFrL+D8ATC1/qMSs/P0E=;
-        b=O6K6b5MXzMLS2SyR1qBf79Rwe4EyPJR3Sy3MN2xSb6ZH2zuZvFEzHq9AubZV9ltRE0
-         rimENKc0wL/SdjgzFDqWeg9ylWia8SouG5w2+rugm5y9J83mueSc1ip0Uq2f2+wdIhEZ
-         wJN1fQUvT7fQZZhl/YgLu1QOKu/UPXYV+r4vnqhk87oayRBNVVcJoA7sCl5n+PDsRib7
-         VWee1Yy5w2y40qpKxH7Z6Q5C1sykjp97bVYRraVPV63e85SIZjFc1Yu2kyNOu/ZMeuON
-         iqZpmRZArngIz2uke+3gcOeibSN/tmpwjBKas5/+Zl6XkJCOSLiW/s1Biu5GBQ6Q6bob
-         dt3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758218498; x=1758823298;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6AFtYNgzFlGUfnCDw9OHKWnsFrL+D8ATC1/qMSs/P0E=;
-        b=Xv7FCU4vPrVfdq/eCr7uDOR05GPnR9Jjn3IhNq/fxvV0anF4FP6mNkH/HmPU4e6HaU
-         ht1bojnpBk6987XE3a5y6z9pB4j0kBxcluuRtB1fsnHuMJAICXskP7hRKc8f2y598sxy
-         682H5XukoRBI9VIrsfs2Iou0IoTLDfRpPVnVLEU6uM2pC5sKHzlptdQUQ/7bmN9TyVuA
-         30Yp/CLlhfIhQC0EF3YgpRYFyX3ayG1QHq42M/Ai6/gOfcGa09MpXBX1ZAKhaQ0jGfRX
-         bdZpbhhU0AqGiHf5MTuyMbp+SkFOIX2wyY+NIoqj0q0JWl3l3rD8kxUCo78JSTWeUx6j
-         IMvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqdQPnzQQvObTUFJtWOFaW3ISCcwry/aSdfsVCEWDVkmyy8xA03HIRJi/DDatwDLfVhZzMuOyULpRfsvhQctcw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN7Kg78m/wbnnR4Cz0/Fq5VaAgcSw0ykd5YkRoamWrIbS2EpDB
-	aTvZqDOQw+OUW5mY8WlKVY7K28LRLg8h2I7VoiMXvGv1uyQMYQQVPpAO1oAwMZwYaCSTULea9ga
-	za7Il9/AJb8M3myET+E2D2Q==
-X-Google-Smtp-Source: AGHT+IE0s3mgC68bYqXT2U/+o4HoYc6G5jDuhQVBgFNX5eIHGXZ+lKBwfO0ohqVmckXSTclutoo8kufdndZGfzQr
-X-Received: from wmqd2.prod.google.com ([2002:a05:600c:34c2:b0:45f:29ca:4f27])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4451:b0:459:db69:56bd with SMTP id 5b1f17b1804b1-467ead682c5mr1151005e9.20.1758218498702;
- Thu, 18 Sep 2025 11:01:38 -0700 (PDT)
-Date: Thu, 18 Sep 2025 19:00:49 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.0.470.ga7dc726c21-goog
-Message-ID: <20250918180050.2000445-1-vdonnefort@google.com>
-Subject: [PATCH] KVM: arm64: Validate input range for pKVM mem transitions
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, sebastianene@google.com, keirf@google.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 18 Sep 2025 18:03:42 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58II3JWD065125;
+	Thu, 18 Sep 2025 13:03:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758218599;
+	bh=t4/cCa5+Es3PK/YLYFtiDyhJrzARI0WStMwJlXvT8cw=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=r6kG6ZGg/ftlCggJnQ2jFUaA93cbiozpp4y5+kEMJ4pzrj78W3ZiPUtuS+pD61doL
+	 0gGfb8CNDDqIxpCpmvTZBobGnNwrl4zExEOebcL5sAhzVcp6VvfAIwMo7anYcYDA4a
+	 f9RzW5MQ/5+obpjSjsJ2R3n5YP0A2z85goCW0ww4=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58II3Ilj1732106
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 18 Sep 2025 13:03:18 -0500
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 18
+ Sep 2025 13:03:18 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 18 Sep 2025 13:03:18 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58II3HEI1277187;
+	Thu, 18 Sep 2025 13:03:17 -0500
+Date: Thu, 18 Sep 2025 23:33:16 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Michael Walle <mwalle@kernel.org>
+CC: Kevin Hilman <khilman@kernel.org>, Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster <matt.coster@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero Kristo
+	<kristo@kernel.org>,
+        Santosh Shilimkar <ssantosh@kernel.org>,
+        Michael
+ Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Andrew
+ Davis <afd@ti.com>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
+Message-ID: <20250918180316.nze5ak3m5pde44uz@lcpd911>
+References: <20250915143440.2362812-1-mwalle@kernel.org>
+ <20250915143440.2362812-3-mwalle@kernel.org>
+ <7hv7lhp0e8.fsf@baylibre.com>
+ <DCVTYCVUCXWH.LAMARC8K4UNU@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <DCVTYCVUCXWH.LAMARC8K4UNU@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_110141_922902_6D1CCB9A 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250918_110341_000352_B69849BE 
+X-CRM114-Status: GOOD (  46.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +106,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's currently no verification for host issued ranges in most of the
-pKVM memory transitions. The subsequent end boundary might therefore be
-subject to overflow and could evade the later checks.
+Hi Michael,
 
-Close this loophole with an additional range_is_valid() check on a per
-public function basis.
+On Sep 18, 2025 at 11:48:34 +0200, Michael Walle wrote:
+> On Wed Sep 17, 2025 at 5:24 PM CEST, Kevin Hilman wrote:
+> > Michael Walle <mwalle@kernel.org> writes:
+> >
+> > > The TISCI firmware will return 0 if the clock or consumer is not
+> > > enabled although there is a stored value in the firmware. IOW a call to
+> > > set rate will work but at get rate will always return 0 if the clock is
+> > > disabled.
+> > > The clk framework will try to cache the clock rate when it's requested
+> > > by a consumer. If the clock or consumer is not enabled at that point,
+> > > the cached value is 0, which is wrong.
+> >
+> > Hmm, it also seems wrong to me that the clock framework would cache a
+> > clock rate when it's disabled.  On platforms with clocks that may have
+> > shared management (eg. TISCI or other platforms using SCMI) it's
+> > entirely possible that when Linux has disabled a clock, some other
+> > entity may have changed it.
+> >
+> > Could another solution here be to have the clk framework only cache when
+> > clocks are enabled?
+> 
+> It's not just the clock which has to be enabled, but also it's
+> consumer. I.e. for this case, the GPU has to be enabled, until that
+> is the case the get_rate always returns 0. The clk framework already
+> has support for the runtime power management of the clock itself,
+> see for example clk_recalc().
 
-host_unshare_guest transition is already protected via
-__check_host_shared_guest(), while assert_host_shared_guest() callers
-are already ignoring host checks.
+Why did we move away from the earlier approach [1] again?
+[1] https://lore.kernel.org/all/20250716134717.4085567-3-mwalle@kernel.org/
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 8957734d6183..b156fb0bad0f 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -443,6 +443,11 @@ static bool range_is_memory(u64 start, u64 end)
- 	return is_in_mem_range(end - 1, &r);
- }
- 
-+static bool range_is_valid(u64 start, u64 end)
-+{
-+	return start < end;
-+}
-+
- static inline int __host_stage2_idmap(u64 start, u64 end,
- 				      enum kvm_pgtable_prot prot)
- {
-@@ -776,6 +781,9 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	void *virt = __hyp_va(phys);
- 	int ret;
- 
-+	if (!range_is_valid(phys, phys + size))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	hyp_lock_component();
- 
-@@ -804,6 +812,9 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- 	u64 virt = (u64)__hyp_va(phys);
- 	int ret;
- 
-+	if (!range_is_valid(phys, phys + size))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	hyp_lock_component();
- 
-@@ -887,6 +898,9 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages)
- 	u64 size = PAGE_SIZE * nr_pages;
- 	int ret;
- 
-+	if (!range_is_valid(phys, phys + size))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (!ret)
-@@ -902,6 +916,9 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
- 	u64 size = PAGE_SIZE * nr_pages;
- 	int ret;
- 
-+	if (!range_is_valid(phys, phys + size))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED);
- 	if (!ret)
-@@ -949,6 +966,9 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
- 	if (ret)
- 		return ret;
- 
-+	if (!range_is_valid(phys, phys + size))
-+		return -EINVAL;
-+
- 	ret = check_range_allowed_memory(phys, phys + size);
- 	if (ret)
- 		return ret;
+> 
+> > > Thus, disable the cache altogether.
+> > >
+> > > Signed-off-by: Michael Walle <mwalle@kernel.org>
+> > > ---
+> > > I guess to make it work correctly with the caching of the linux
+> > > subsystem a new flag to query the real clock rate is needed. That
+> > > way, one could also query the default value without having to turn
+> > > the clock and consumer on first. That can be retrofitted later and
+> > > the driver could query the firmware capabilities.
+> > >
+> > > Regarding a Fixes: tag. I didn't include one because it might have a
+> > > slight performance impact because the firmware has to be queried
+> > > every time now and it doesn't have been a problem for now. OTOH I've
+> > > enabled tracing during boot and there were just a handful
+> > > clock_{get/set}_rate() calls.
+> >
+> > The performance hit is not just about boot time, it's for *every*
+> > [get|set]_rate call.  Since TISCI is relatively slow (involves RPC,
+> > mailbox, etc. to remote core), this may have a performance impact
+> > elsewhere too.
+> 
+> Yes of course. I have just looked what happened during boot and
+> (short) after the boot. I haven't had any real application running,
+> though, so that's not representative.
 
-base-commit: 8b789f2b7602a818e7c7488c74414fae21392b63
+I am not sure what cpufreq governor you had running, but depending on the governor,
+filesystem, etc. cpufreq can end up potentially doing a lot more of
+the clk_get|set_rates which could have some series performance degradation
+is what I'm worried about. Earlier maybe the clk_get_rate part was
+returning the cached CPU freqs, but now it will each time go query the
+firmware for it (unnecessarily)
+
+I currently don't have any solid data to say how much of an impact
+for sure but I can run some tests locally and find out...
+
+> 
+> > That being said, I'm hoping it's unlikely that
+> > [get|set]_rate calls are in the fast path.
+> >
+> > All of that being said, I think the impacts of this patch are pretty
+> > minimal, so I don't have any real objections.
+> >
+> > Reviewed-by: Kevin Hilman <khilman@baylibre.com>
+> 
+> Thanks!
+> 
+> -michael
+
+
+
 -- 
-2.51.0.470.ga7dc726c21-goog
-
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
