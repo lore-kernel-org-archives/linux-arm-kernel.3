@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCE3CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFFECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Sep 2025 00:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVrXSE3fW0k4KtBODe9pIe2QOg7Te3ZdLAQN9XFKHHk=; b=fFqXZhT3JZa/h9AC0znqQ3e+kE
-	IsFJoXovWF67PWX08AyDmjQzuA09tV82HibZykIExsWOR9wiQ7XV0pHNqCgMq8BOq0+VVp1g7/l/J
-	VfQS4n8KbnZ9FzSn6gxvJBPCBgQjVQ24NKrSM8Q4+D3uxFwv3laORhsPyDlt24D0D5HavhDbAFWnq
-	UD6w+5PRcMRxlWM5FghPdVTyVlBxz+aarXkO7A1qdhKc4pkBvpEI/l3GmeZxSflsCLxZ23rXuU5NK
-	gMvX8hbfK4rj8eC2giR5JMniIBH/kPIA5kUHWYqPPBtct4dQd6KqbT5L8vHo8OcgEc2AOXBGRYkeL
-	nhfiM82Q==;
+	bh=/AGNmAC56glR+B+7Q4WOktjgDkuqazxDDpw1pjp0yGg=; b=xmJv74F6FHRA8MYcqqXI7oW7vu
+	VliXWvhfQNU4hO6IvFvRocpOwGN+CzZGnzsRAopIdT3LF+wPkjuJ+yqKpqczsIZWyCnAeeSaPEGFs
+	YQ8fEG/6IyOwAXc5evXHPWeY4CCzpE/AnynHo/eKFeh2Y+XWaCUX8dSjPoovIPfWGQyXAXxxlJstj
+	5cwTS64fVC/8gitGfNh+5X11eXTsNoy5GU9ytj2SvxEkh9hxytZNt1ElACLwPa1MQAmhcSfxS/4AA
+	YEjNArZtTCFV8VvFW96YhSf7MvWHJQXfQCdhDnuHV7tuVAl1vlMRfOMhlgF5ZRrfsOgjI5MD5WeGB
+	1RnLRWxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz25Q-0000000FgTX-2DVx;
-	Thu, 18 Sep 2025 00:01:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uz268-0000000Fgcp-1ULR;
+	Thu, 18 Sep 2025 00:02:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uz25O-0000000FgT7-2Uvx
+	id 1uz265-0000000Fgc1-3gS0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Sep 2025 00:01:18 +0000
+	Thu, 18 Sep 2025 00:02:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C360C60008;
-	Thu, 18 Sep 2025 00:01:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DF7BC4CEE7;
-	Thu, 18 Sep 2025 00:01:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B73CC43C60;
+	Thu, 18 Sep 2025 00:02:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A941C4CEE7;
+	Thu, 18 Sep 2025 00:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758153676;
-	bh=1B3/y6mC3x0Gb7mESrjJVqtP5iKoAmAQvn0c34F3HYY=;
+	s=k20201202; t=1758153720;
+	bh=58p2Xb4E9NbqINoSvmh4kesI2fGee6RlZEm5bhePd/8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VDDVgE8BCfMQPQ6fqgNJCfqaNGdgmJyEgRe2ykUFgjSd+ZBzPU5ulEDRfLPZY86Ko
-	 VBoiy9cHUAM3MMEw8uNXmNL3NRNtBZKopg3noLfc9RmH89sPqGS1rj4X/hhDxhpxYb
-	 8rQWdHRhbHk0pepfxNSTpcM2TK6bSNcEnXAduDi35HgQOH7CbMuxBzzU6kii96TMlp
-	 gn5Qs8BYvAgJNsOVkPbKuJWS5cTAoXW4qAos6D90t14uWlZ7hct0mISncgCmy8oFOI
-	 GEOQ15U7PkofWvlykkzLAFBGRkXIK43wUoGVZ8qjWIMcXP6AFmFK5g5VgtHYjhh77U
-	 hDovHNlhfh57w==
-Message-ID: <0daf1bda-d0f2-45bb-a68b-2437ba0579e7@kernel.org>
-Date: Thu, 18 Sep 2025 09:01:11 +0900
+	b=Iuv8owKqOWqDV7z4VtmsNxRVNKDF5cNNmCfWMA8qLZFNWtB98KdPrDi595vXMYmUJ
+	 rni7XQ431XGrQvHjoumBhC2seJjkjOGJx7ToZ0v8kKEVoXtGCKUAXWvMRlP7Sf1F47
+	 rZ3PahazBtIv1z9KZsRhgPBdQWgjzwTm/KSwNh4V8sF83oQatPnRCSQZPfo+heccaD
+	 6Iepur7QxIT/rC4IFBNwiHDvwk8vc90jFUW8X9+OCfbitLWBbYzTQ2MRg/20ecrE5h
+	 R3Bwxx1y4aMshcENXZREhAHf8G3L7Wwfd3oCAHAfWfYPVaySx/tjdNNnuTRRgJYs5p
+	 kPzia27PHIJ/w==
+Message-ID: <4b12915d-b12d-402e-b4d0-5c2bc7b7ca35@kernel.org>
+Date: Thu, 18 Sep 2025 09:01:55 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] dt-bindings: media: nxp: Add support for FSD SoC
-To: Inbaraj E <inbaraj.e@samsung.com>, 'Rob Herring' <robh@kernel.org>
+Subject: Re: [PATCH v3 2/7] dt-bindings: media: fsd: Add CSIS video capture
+ interface
+To: Inbaraj E <inbaraj.e@samsung.com>
 Cc: rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com, martink@posteo.de,
- kernel@puri.sm, mchehab@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- pankaj.dubey@samsung.com, ravi.patel@samsung.com, shradha.t@samsung.com
+ kernel@puri.sm, mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, pankaj.dubey@samsung.com,
+ ravi.patel@samsung.com, shradha.t@samsung.com
 References: <20250828085911.81266-1-inbaraj.e@samsung.com>
- <CGME20250828085926epcas5p1b82576210280fb44c6c7f02851da71c6@epcas5p1.samsung.com>
- <20250828085911.81266-2-inbaraj.e@samsung.com>
- <20250829174638.GA1054721-robh@kernel.org>
- <024f01dc27cb$f167d370$d4377a50$@samsung.com>
+ <CGME20250828085930epcas5p1719c7db08074bf1540dc85b71736a6c5@epcas5p1.samsung.com>
+ <20250828085911.81266-3-inbaraj.e@samsung.com>
+ <20250901-rousing-orange-crab-c05fdf@kuoka>
+ <025001dc27cc$72be7b90$583b72b0$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,9 +107,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <024f01dc27cb$f167d370$d4377a50$@samsung.com>
+In-Reply-To: <025001dc27cc$72be7b90$583b72b0$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250917_170201_964727_F8BFEEFA 
+X-CRM114-Status: UNSURE (   6.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,25 +128,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/09/2025 21:09, Inbaraj E wrote:
-> Hi Rob,
-> 
-> Thanks for the review
-> 
-> 
->>> +    description:
->>> +      Syscon used to hold and release the reset of MIPI D-PHY
+On 17/09/2025 21:13, Inbaraj E wrote:
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/clock/fsd-clk.h>
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +
+>>> +    csis0: csis@12641000 {
 >>
->> Reset? Sounds like you should be using the reset binding.
+>> Incorrect unit address.
 > 
-> The Tesla FSD Soc does not have a dedicated reset controller. Instead, we
-> are using the
-> system controller which is MMIO Space handled by syscon driver, to assert or
-> de-assert the D-PHY
+> Thanks for pointing out.
+> Unit address is correct. Address in reg is wrong here I'll fix in next patchset.
 
-
-But that's the reset controller, no?
-
+That's even worse, because it means the corresponding DTS was never tested.
 
 Best regards,
 Krzysztof
