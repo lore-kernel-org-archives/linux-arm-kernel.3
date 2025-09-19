@@ -4,157 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A64ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D586CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9dRhHSXL0wMw/ljVz3n2rP4K/yEet3akWmBDVqmHiU=; b=KOBUO42rnQqjqjkHBsmqL1h+Ul
-	TJD6l8GqtRgkzn710xZ2y5CfXMnKipWWfMLR/G23Iqqz2U9dqhyyRgyWC4iUiCPprw+HXxT5j+dz0
-	8bCKwH6MNJ5AQlDokwh2wdlsiHDm9u3lIMOyzzNUBtIzUlFHePC4dspSPNQrXCImJ3+0DU6tMc9I9
-	S0U+c3+P0mxsiq4TJDEaLxaXL60oN44wwM8IzArvQWvGMiPB3qdu6WiNw6LapietMspIjzpmW8jU/
-	JKMUqhW3FQGEB+XReQr5b9iuv6ABZa2TvKGiuLFLsoNlJqqvKJLzhC2wYVwvRbnHCMRfOcTF7Dsjm
-	LFuYAZLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LkQpaDIpCuNqvddytBmuD6MDMQYm1NodhkCLcp7FXu0=; b=3X/fpP24p5lqbFWujqFxA0+GmZ
+	Wm6iYdM/IJq0PNzI5BEmm1R1N+DPgOehndgZWJoBQATRt8Vy03L9QOATRMoUfF5rNaL4z7dGlJftA
+	JH8iBHT5QbPTkbtNVrFIwlAmPOelx4cj9FzUpRMFeDvZxm52AmsZoSvp/rKnMzQlCwM7PZWY0DTGT
+	IlKETo/9NHfSKLTqtK++EOiOEfPE3CG8vDBSFxaSXPpky6zH6BP5jpS/NCNmy9PQMx1ucUiKiY0qg
+	HhdT9IwIrSlthhr92leDMxKoCqWK+mKMBlz7uH5O79A91aKhL4VhyQ+VwRkOBSrapPQtD3g+QNFMf
+	D11u2fuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdFb-00000003Nfh-1tpJ;
-	Fri, 19 Sep 2025 15:42:19 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uzdGS-00000003Nqk-1Qjv;
+	Fri, 19 Sep 2025 15:43:12 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdFZ-00000003Nej-1quU
+	id 1uzdGQ-00000003Npt-2FWv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 15:42:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cOzP5bEYj4elSHhf32dvsIUXf4BRX113arVx4aBsd2GQiQEi1yiddPAa0k2UHeDCgo7AvJZCssO/2JAfUiYps2xFna4U5mqL2H3aF7wK61eDQ1DN7YYfjVfD/f3f3Yn+usTAb+GnsY5ptHwhLUwGZ9GtB22oOnbdJq9flLYZMUPvAhsaeKkkdCk1e/2ZROoFcg3DLL18uvJOHFAZ23p6R+dw72C+Ste+Xf7BhRsR2gIMrdmuzMZ9wAjqh40AnvHwsx58tVjHWynhcD2KnklnmPD6xueNuMyKjNhKEdmceU6Vxlh5YHskBy0rO1+v2Wdu85yD0j1XS4DlWIzeSJLZHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b9dRhHSXL0wMw/ljVz3n2rP4K/yEet3akWmBDVqmHiU=;
- b=yk9JP1bTP55ZOuRWZQGksaMS6wUL5S8rqTLZZHddul1ESkpZRx2Qur4kEzMW4kqbjsyiYYJsadA2+XQrIyxM5f4U2SXTyUjB/ogkekpQVg5b6eMduipfly88mPkVtsCMCwsSEdhTmqZddVEQ7Xc9COjcLP8Kx2uHqbjUB+f/EKsbTDknG/mRBbMFHaaO4co2Yt9QJaRONTENTIX0qOZwZtbzWfapr0kCBpp2Tl/v2NCI/Twavc7DLmll2lStSr3b+BWGkUcemJrjxyCHSP7PjuVFIwWjWXrh+a9WB2JX+ZRQOK5IHXOJuZ4rW9lnItmk/QYPIngJFDuY3u9eI/r26g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b9dRhHSXL0wMw/ljVz3n2rP4K/yEet3akWmBDVqmHiU=;
- b=aGN6HhD1jVIw1ogSduU1yZhlEkQACDstKP0jcSazGynd4gj92bUkj1Lvs4s2zMiIvq69XbGxUNygf+vTNv5gkfh+QBpQNd/ZuGTeEyw1fvb8sVsn/lMbaXixsJsms16Ob6ltXi8O4gvVBPmMa2KD4CAWXUvFjp7OQpiPwIBC1Gb2ny/guAanNnmzWZl3wJs8AUqLsdQrHdWoTyc6c/HopX/OmUTbfnwgABQejrF608PmVNHnxVhxp1RwaVYQbYNVH2zo9SlXPTrXj+g/ahpPijR86W+3Y+WSE0NbjDug6HGiXjBBLGHpfwVXe2yhVxYP9qj4k12oLfHfWcCkte/vRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM9PR04MB8456.eurprd04.prod.outlook.com (2603:10a6:20b:3df::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
- 2025 15:42:09 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
- 15:42:09 +0000
-Date: Fri, 19 Sep 2025 11:41:59 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 14/14] drm/imx: dc: Use prefetch engine
-Message-ID: <aM15xwZvPRw8WOCD@lizhi-Precision-Tower-5810>
-References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
- <20250704-imx8-dc-prefetch-v1-14-784c03fd645f@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704-imx8-dc-prefetch-v1-14-784c03fd645f@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0238.namprd03.prod.outlook.com
- (2603:10b6:a03:39f::33) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 19 Sep 2025 15:43:11 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45f2f10502fso15031195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 08:43:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758296588; x=1758901388; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LkQpaDIpCuNqvddytBmuD6MDMQYm1NodhkCLcp7FXu0=;
+        b=wKXzqDhfSzMPFUqLpxKJ8nUji9sRDUmLLXAs3EItOqDXn8k+w8vQivTbrILTyl/gk4
+         K33aF4u9gcZyDXaCGgS1VbJC0Nxs7VXRKK3Nk+bqDcXPiIXlBK6EoDkr+hqZocxSiTjx
+         jLAwMAezYVGqAQOKtTmLHq5YlvCHGfeSVuDzvSEhTvhPYxMAokty/mPrRgafKFivKoLA
+         Me6P0JhHsXSW2CehiVrkN8AbwmfhmiPtqS7/uLfa8e/rf8ItAuh9VhuexLStsiFyCTsz
+         hW4nTwAkiLDJP7c6lMCK899Svk8nhjJMLszK5D0Yiu5FR2AyaQ3kFv/n1ErkOVMjvWO3
+         fV5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758296588; x=1758901388;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LkQpaDIpCuNqvddytBmuD6MDMQYm1NodhkCLcp7FXu0=;
+        b=ZrieN2ZcNSIsJTjJ+qevKQzhzi2fDsNEiqJlP5ieJlgpUo8CyKqJdffG/463JZLSCc
+         /AnFkGO3S4c1WBViXFRMqkAe7f18NgsKbeTuCJ+2EOLC01IyhI3Wyiar8Lm82NyyWomz
+         w++X55ZOzK5KVCPNB+E04TWYyL31Yv7YoMiCzWyOftDjk+N1+pkjLb4DQGdrFtvkVAQu
+         wQMdwSNeHeuREVTSMXQVkXK8NpPA5fQZbLYA9azUmhOzWKv6/dKBvabU+IT6jCuRif/T
+         ROOpVbX4IUDHSV+FGtKDta0yVS5YV0ypoj64/dH/D/0zzgxOPrSsEKYIZLOW1+0Y6gcj
+         Kw2g==
+X-Forwarded-Encrypted: i=1; AJvYcCVF8MyknWAxgsNyhvI/OFEt3cyOZf9hfYm/DC6t25moOa+HBfaiXBRo/qjAQo+KVzhY3lRnQZYv4F2bzGz8hP40@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4Mb46gqnlK0q7ahAIdp3IQUlATm4aabCxiuWII19Y2Crdx4++
+	jwurXpzmcSFcvXv78R1aiNcGD2EA53Bn173QmY4uZo7NrOI7L+RFxM1ojEKC4A7qeHo=
+X-Gm-Gg: ASbGnct7I9IpNNsR0mGUQm+47qV5n2eCQx5UhFxsdTRGU9ZKpVT9yk42wg1wsXf5At7
+	OR7wM9nfr8KaAZCWtGjV2BuWHAHMpaXBwcXruZbsN1ejsfl1uU3xNXSMV3mTW59z7GbugctQgZf
+	A++/cHAd4i32FA8E6TjSQp8vS/k8vFqnSi08xaREzyYvrYfoRNaEk6t4LszUQq8KYzQc5ulEtes
+	2t9QIfAMdeSr0hVyLzNWTuaxAooV44JcFiCUem713ST092D1+ZUzPbWgpMXLNXI9qzUd7OIhBdn
+	UdlRPF+ri43EIKhZNF/0H8kO5DWi7IJwOShzb8+tr8QvkvZoTv5yRj0ri6nrTJ6y4xR1oI+nsSI
+	D23aB71FiupvoaavYdn8PbLGl3E6j35T8wWakHi1hplpzKjOfKh9gpOhCQcBhRFUX7xHX+eHx5R
+	HJnA==
+X-Google-Smtp-Source: AGHT+IFYvRcAmwC+mp+0+RFbvRArwGTpkTn3ZN8Wn5X+7lOF3PNWJMwXqY3LiyaPYA6nN2cvLS4FUw==
+X-Received: by 2002:a05:600c:8b86:b0:467:f71c:148 with SMTP id 5b1f17b1804b1-467f71c039emr31089465e9.33.1758296588420;
+        Fri, 19 Sep 2025 08:43:08 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:8ffd:205a:6719:49c1? ([2a05:6e02:1041:c10:8ffd:205a:6719:49c1])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ee15bfab67sm4605373f8f.43.2025.09.19.08.43.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Sep 2025 08:43:07 -0700 (PDT)
+Message-ID: <f9554814-e5b7-421d-bef8-92131b1cc840@linaro.org>
+Date: Fri, 19 Sep 2025 17:43:07 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM9PR04MB8456:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58fe4424-5722-44b8-1feb-08ddf793180f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gme6RwRfsdfWwbyt99eRKn3Lky5fHNmqI1S0sMLZkWL24n8h0Tmg4KJuaD+Z?=
- =?us-ascii?Q?4+ZtEAw0HJNUXKN6QZNRjJ0e2mfrcTMnpCp+m+0+nppkxSfgcqq7HgfRlfMA?=
- =?us-ascii?Q?ZXwnVLiaWWNxxTMzCtz23sp9l7cqihqBB0pWLA9LkYuuquMqHbei8Bz86gjW?=
- =?us-ascii?Q?ypI0UlnXyDJS6rsG44KGhr+iVh7IAC4xUkLxYgsjSBOhPY2jZBwvaGFQg6zm?=
- =?us-ascii?Q?V12V+TsGws0U+PMGaZhFe3nMl6MlSIVTljT3rb49oBXJ3uh3Sb7hkv052pQx?=
- =?us-ascii?Q?aliWSPYIVjPumWFnZ7lPcwvItGVo2CJCbuPRuJpP756mJ+LQVBYo/cIkApz6?=
- =?us-ascii?Q?nrQXzVfzbMg8KygxMlokLB91Hi3OghVks8N6Ox+FfnHSmlrxzI48m4s+z0AL?=
- =?us-ascii?Q?DTQRfGUA8YruSWET4f+M/172OvmEd+H06Sb33ONNmyqWX9kZpMav4oDkWq4B?=
- =?us-ascii?Q?KxRROA3cnnOvWLSV4hbRvD6ojl6oIa9VdhT0cfngV6OdIUKYCuIEtinFVu3G?=
- =?us-ascii?Q?+fHw4x4ll9zBrFrYh8b0M32IEEGJ44U8xsAYksyKO5EaI1bY9WkZBm1HKwf0?=
- =?us-ascii?Q?IHobi89Me6w+f+1xfKi7WKvZWtViihmlQIJD7z4qJmgjc0awDx+LjIFArmZ4?=
- =?us-ascii?Q?+1UStXTxGCZFG2cDKPv6f+DV4q6CeqMCLHR9QoBrXNlZOjbQs3q2uCgYIviA?=
- =?us-ascii?Q?f9dVfHi3ei5dEbcotqzKPf14Dyv6bK1zJb93Z3P8ifRGLnk8Xonxbob2EX8+?=
- =?us-ascii?Q?n8Eu9jKeHKxdejmEw5roqo717ypU6a9kZ6BqZLOdDgFD+ccKn/AK5bQ3jbTk?=
- =?us-ascii?Q?8UQPo+6K1lsPJcjmjpL32q1nE0mtRx3+TV8LEUe36I9JknZ13ICmty+sVC+M?=
- =?us-ascii?Q?wEGrKn9x8WThy7AM4zT991OTu1GQAmI3lhVhDJVyU/LlEZpq/nffa74tpCJS?=
- =?us-ascii?Q?v424WB1TbwZFgiF6eRggYdqgGjRm0UTtk/skGxLjsKjLYF5JjruPgtx36D+b?=
- =?us-ascii?Q?KyzALYkliGP4rYfaH7pHVcEVyFW5rbWAvqKgcdo7254qBCv9FK0rZ09wNTuN?=
- =?us-ascii?Q?OPzCbube0yVElL5zc35Op+y+c5T3OYZ2Gnq3qT7Aeby4+rcVI4l7rdKQ4/18?=
- =?us-ascii?Q?iazSejxlQLr3TSoCl3lvh74y8i57/xgAtuUhCoOKbJ/hIgZzxKu6gWAdlgeE?=
- =?us-ascii?Q?VtwFlug0JuQbR7XcrifQuEEbg1OmSkU5sDnQh7o9hmmzG7VVQtrjDg1i249u?=
- =?us-ascii?Q?bqGaW4Mv1JPDWfXFlcvoGDDMl1C03brDbK5pFNZfjlsJTwAfgiyxWaXD5BJH?=
- =?us-ascii?Q?RnJnzA7sDNL8l6lpZ4QbxeNtugvpLcWKUquS7bbWeZFsJBX3TyDlQoU4kNy+?=
- =?us-ascii?Q?WgNQ7RWDDAsmvFR4o945wtzzNIrv1CSx+WqtB6fR0CekjyfJBa7XyFQQuLSl?=
- =?us-ascii?Q?RN4gJZLYg6nu9LqSXxq0WZxPg6Z4YJL/wg5OI8g4NUEiMxlJnxXaQw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FHGfW+R8inU6fuM/SspmYVtzYXodnAEH5CBCnuvcFWsnYWWzsoBFPemiX5hP?=
- =?us-ascii?Q?JuobhPR2aHzjyTV/qjYGNPWIn8VJVVtaaBpXllmVR3PoS+ey2na/arjGHiGU?=
- =?us-ascii?Q?kpZuwlGxTt/btByvb9K2t8nXOG+azVscbSNIKiVENrmJyK6KvhC7Z0PNv0OU?=
- =?us-ascii?Q?dmqK81B20mOeCbuiPmaX4RRcmemicg3WojL2tjYTcuUNnexfK8ogckBDVlVg?=
- =?us-ascii?Q?pgN5UN776acopWNywOE+QRjqsKCC8MD9B58ai7qvxQF8xusEKMYTePAz5Sov?=
- =?us-ascii?Q?O3AYJ0AdcfRsGmS7rzYCk26ZfnaudegOok7ayw0Csy5eL7OboetkHkcDaEzz?=
- =?us-ascii?Q?rnWdukC+Dqx5crqvMZFvR68jxD6AxhFvAz4rb71hN6nP4gBQ4RDm2xDdkwTf?=
- =?us-ascii?Q?Eh1DczpR/q2k2s6lkyBM1nBAAr7PnL08+4nZWxgMTKP1ICYgvGF5/i3t9N5l?=
- =?us-ascii?Q?kRhcgjSWvVVKZPtHfLJbI4z3RfDhAYLNH1ejkwvR8kDLnvRtDtbVSfTo0fUg?=
- =?us-ascii?Q?AKDRWirGYwBo86rekTEYEgT9hGsG2tsPdwncccS7A4z9L1TtzaztioIIrYyS?=
- =?us-ascii?Q?95wgakEwAXavFXqsTNI0b5vWYM02d61cC67CemZqixtqLAHgH5z8mqhEGdqo?=
- =?us-ascii?Q?Sf0N2XaOA2/Txr4//gy66VPNy/gjJ6xDcT5//VfW0gLI97r4egdUZSyMYRMe?=
- =?us-ascii?Q?0dIK96MlotmNhF8TDI6lMFwnLWVXpnQxC8k33vqIpRBQX3GcYB01zHJkWoGi?=
- =?us-ascii?Q?OdOzzrcdRgu3IdTabjMjcyXzE09ICOtC0zDfV6q8NBMgnocxL9jXv0XymWdY?=
- =?us-ascii?Q?/AkWHTrwbsVdrQaKPuSs7T32plO1Z9JUBJs4V6stkHMUhL8q4wY0U+8Dsp7f?=
- =?us-ascii?Q?rYAMGQM1oA22NTMRawn63knQFckI+yt1CUqPGNy2LbU+Ey1dZPoI5JmHcMcd?=
- =?us-ascii?Q?T+TNHPMDbi5QU3rM26IBATQAuh14pDhgyvgO8ZOVRQ1ACJzda9cPLnyoLVt7?=
- =?us-ascii?Q?zlNYfjrUsc522dIqozGferazTVNwIuogBuQxTw3ZQVebSgB5i5tktIw/0qcN?=
- =?us-ascii?Q?3nev2uAo+ZBW49jd4KaRh7XSXotdRQ/oy58eMu6FX/VqAI9b92fQD8cbbhjz?=
- =?us-ascii?Q?oXOG3VwoLN1pvxOLraG8tXfojDkUv97SyWUwxnNFBkbM0jR9WoS/K7rxzXeg?=
- =?us-ascii?Q?xvun7vGbG+nRjmWaQnkqnbD2IU9qGa8jVb9GIDp+5HxRODOFvFP7E6YvA8Jy?=
- =?us-ascii?Q?t4zc5d6eIX+J/SVBAYDTc6+JAllQg4lgmTIezgSBQffo+XQogKyvR3rFxdPG?=
- =?us-ascii?Q?DYNU80RGhwLs3cfhLiPnS0P72tUXjzsbsBUcTCZvPZ9DzOi2vRXf6S2cbkCB?=
- =?us-ascii?Q?uSIAmrq9rEQ0191Jw8lkIsw/A527VPEM8x+5f+Fvlzp7oggauFUsN47I2XeJ?=
- =?us-ascii?Q?i6dK6h16UglbHYTGpKu7cDHr/LAX71TkHZDXeGC58Fz1nBAH2HtkLdmw34tF?=
- =?us-ascii?Q?j788UmXltkX7lE47OnlOAUjMe/OgXIpaLx74iQFcqghH45kWdy6oYm532aEX?=
- =?us-ascii?Q?ngbrx6wWLi9CF2WYs68=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58fe4424-5722-44b8-1feb-08ddf793180f
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 15:42:09.4978
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n26kJHJXEGJvJ2LAdIe3kXo5T2lq4YE62NxRWZCjS1W3OioPhC5ZNSk6nNbrUPTwrTz+Kq+PaKf+q9HsOX2m8w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8456
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] thermal: renesas: Add support for RZ/G3S
+To: Claudiu <claudiu.beznea@tuxon.dev>, rafael@kernel.org,
+ rui.zhang@intel.com, lukasz.luba@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+ magnus.damm@gmail.com, p.zabel@pengutronix.de
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, niklas.soderlund@ragnatech.se,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250810122125.792966-1-claudiu.beznea.uj@bp.renesas.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250810122125.792966-1-claudiu.beznea.uj@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_084217_626165_E3669A49 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20250919_084310_580210_E9E56CF7 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,166 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 05:04:01PM +0800, Liu Ying wrote:
-> One prefetch engine consists of one DPR channel and one or two PRGs.
-> Each PRG handles one planar in a pixel format.  Every FetchUnit used
-> by KMS may attach to a PRG and hence use a prefetch engine.  So, to
-> simplify driver code, always use prefetch engines for FetchUnits in
-> KMS driver and avoid supporting bypassing them.  Aside from configuring
-> and disabling a prefetch engine along with a FetchUnit for atomic
-> commits, properly disable the prefetch engine at boot and adapt burst
-> size/stride fixup requirements from PRG in FetchUnit driver.
->
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
->  drivers/gpu/drm/imx/dc/dc-crtc.c  | 139 +++++++++++++++++++++++++++++++++++---
->  drivers/gpu/drm/imx/dc/dc-fu.c    |  27 +++++++-
->  drivers/gpu/drm/imx/dc/dc-fu.h    |   2 +-
->  drivers/gpu/drm/imx/dc/dc-kms.h   |   5 ++
->  drivers/gpu/drm/imx/dc/dc-plane.c |  46 +++++++++++--
->  5 files changed, 197 insertions(+), 22 deletions(-)
->
-> diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
-> index 9e9e86cd5202bcb0bb4d5627dbcefcc3f4e2ead0..4c7aab360616cb1c84c31c83f16df703b1c2c6d7 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-crtc.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
-> @@ -25,6 +25,7 @@
->  #include <drm/drm_vblank.h>
->
->  #include "dc-de.h"
-> +#include "dc-dprc.h"
->  #include "dc-drv.h"
->  #include "dc-kms.h"
->  #include "dc-pe.h"
-> @@ -204,7 +205,13 @@ dc_crtc_atomic_flush(struct drm_crtc *crtc, struct drm_atomic_state *state)
->  				drm_atomic_get_old_crtc_state(state, crtc);
->  	struct drm_crtc_state *new_crtc_state =
->  				drm_atomic_get_new_crtc_state(state, crtc);
-> +	struct drm_plane_state *old_plane_state =
-> +			drm_atomic_get_old_plane_state(state, crtc->primary);
-> +	struct drm_plane_state *new_plane_state =
-> +			drm_atomic_get_new_plane_state(state, crtc->primary);
-> +	struct dc_plane *dc_plane = to_dc_plane(crtc->primary);
->  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
-> +	bool disabling_plane;
->  	int idx;
->
->  	if (drm_atomic_crtc_needs_modeset(new_crtc_state) ||
-> @@ -216,13 +223,40 @@ dc_crtc_atomic_flush(struct drm_crtc *crtc, struct drm_atomic_state *state)
->
->  	enable_irq(dc_crtc->irq_ed_cont_shdload);
->
-> -	/* flush plane update out to display */
-> -	dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
-> +	disabling_plane = drm_atomic_plane_disabling(old_plane_state,
-> +						     new_plane_state);
-> +
-> +	if (disabling_plane) {
-> +		unsigned long flags;
-> +
-> +		dc_crtc_dbg(crtc, "disabling plane\n");
-> +
-> +		/*
-> +		 * Don't relinquish CPU until DPRC REPEAT_EN is disabled and
-> +		 * sync is triggered.
-> +		 */
-> +		local_irq_save(flags);
-> +		preempt_disable();
-> +
-> +		DC_CRTC_WAIT_FOR_FRAMEGEN_FRAME_INDEX_MOVING(dc_crtc->fg);
-> +		dc_dprc_disable_repeat_en(dc_plane->fu->dprc);
-> +		/* flush plane update out to display */
-> +		dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
-> +
-> +		local_irq_restore(flags);
-> +		preempt_enable();
+On 10/08/2025 14:21, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> Hi,
+> 
+> This series adds thermal support for the Renesas RZ/G3S SoC.
+> 
+> Series is organized as follows:
+> - patches 1-2/4:	add thermal support for RZ/G3S
+> - patches 3-4/5:	add device tree support
+> 
+> Merge strategy, if any:
+> - patches 1-2/4 can go through the thermal tree
+> - patches 3-4/4 can go through the Renesas tree
 
-preempt_enable();
-local_irq_restore(flags);
+Applied patch 1,2
 
-look symmetry() with enter this sections.
+Thanks
 
-> +	} else {
-> +		/* flush plane update out to display */
-> +		dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
-> +	}
->
->  	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(ed_cont_shdload_done);
->
->  	disable_irq(dc_crtc->irq_ed_cont_shdload);
->
-> +	if (disabling_plane)
-> +		dc_dprc_disable(dc_plane->fu->dprc);
-> +
->  	DC_CRTC_CHECK_FRAMEGEN_FIFO(dc_crtc->fg);
->
->  	drm_dev_exit(idx);
-> @@ -320,14 +354,33 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_state *state)
->  	dc_crtc_queue_state_event(new_crtc_state);
->  }
->
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-...
-
-> +	struct drm_crtc_state *old_crtc_state =
-> +				drm_atomic_get_old_crtc_state(state, crtc);
->  	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
-> +	struct dc_plane *dc_plane = to_dc_plane(crtc->primary);
->  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
->  	int idx, ret;
->
->  	if (!drm_dev_enter(crtc->dev, &idx))
->  		goto out;
->
-> -	__dc_crtc_disable_fg(crtc);
-> +	enable_irq(dc_crtc->irq_dec_seqcomplete);
-> +
-> +	if (old_crtc_state->plane_mask)
-> +		__dc_crtc_disable_fg_along_with_dprc_repeat_en(crtc);
-> +	else
-> +		dc_fg_disable(dc_crtc->fg);
-> +
-> +	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
-> +	disable_irq(dc_crtc->irq_dec_seqcomplete);
-
-Are you sure irq is disabled when call this function?
-
-Frank
-> +
-> +	if (old_crtc_state->plane_mask)
-> +		dc_dprc_disable(dc_plane->fu->dprc);
-> +
->  	dc_fg_disable_clock(dc_crtc->fg);
->
->  	/* request pixel engine power-off as plane is off too */
-> @@ -373,7 +441,10 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_state *state)
->  void dc_crtc_disable_at_boot(struct drm_crtc *crtc)
->  {
->  	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
-> +	struct dc_plane *dc_plane = to_dc_plane(crtc->primary);
->  	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
-> +	enum dc_link_id ed_src, lb_sec;
-> +	bool disable_dprc = false;
->  	int ret;
->
->  	ret = pm_runtime_resume_and_get(dc_crtc->de->dev);
-...
-
->  	fu_ops->set_src_buf_dimensions(fu, DC_FETCHUNIT_FRAC0, src_w, src_h);
->  	fu_ops->set_fmt(fu, DC_FETCHUNIT_FRAC0, fb->format);
->  	fu_ops->set_framedimensions(fu, src_w, src_h);
-> @@ -161,6 +190,9 @@ dc_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_state *state)
->
->  	dc_plane_dbg(plane, "uses %s\n", fu_ops->get_name(fu));
->
-> +	dc_dprc_configure(fu->dprc, new_state->crtc->index, src_w, src_h,
-> +			  fb->pitches[0], fb->format, baseaddr, prefetch_start);
-> +
->  	dc_lb_pec_dynamic_prim_sel(lb, dc_cf_get_link_id(dplane->cf));
->  	dc_lb_pec_dynamic_sec_sel(lb, fu_ops->get_link_id(fu));
->  	dc_lb_mode(lb, LB_BLEND);
->
-> --
-> 2.34.1
->
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
