@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E153CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCFDCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kkHrMEWTroi5XQ5UGglMftMck4qCYCQpPf4gqWIwhrE=; b=QI84lPstLINAfJDeIda/ijFDab
-	2fSFIUHsBI140d5fzPpToe0xnCWDGZkAHspW6g+nP088KVrR2024XVTswHgFCUStXjLubXh1kom5A
-	gzKn15ZxzuUPtlxKZ7mNsybxMQTAR3+T+foLbQdLPXicd6hyxSMeZJLYzA3wMF4hYPo5fktRKfOPW
-	GlOM9TPSg3MlE3IQBwDf4p0jx4aTtBZfp3T047+622GJEuLxXJOTCOVouEcajOHpgPZS+XXiF+2x9
-	IL+ksIklcHJWM4DSDn2OwH0vhGRqYHRKwVjV406a1+5tQx6It6woGNOldWrOJtuqxj79qpqGTqPQS
-	zJD9OQ5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=; b=RSB6G89a7ybKj7U4xxcj66zK1+
+	iCTQcSQa5lkeFxNNofR6VKm1I86sUhDWnWxeaOOe3OovXssxjILp7tr74SHWB0JhKqRzgJfOp4fZb
+	gFRbLRYT+qZQS93WOCfsTIdGdBEjTjXxInh8beVLn6NRvnVoPGf7nT1+6n49cdyyr3ICQRlQ/yW7N
+	X5GCe3PT/38kDg6Cgo9dN9oyJJb0gJr3LcA2Ll6bJ/bey28zwMFI9SvWghHGXzsZ2H74KCCsufGxz
+	BiDJi4znL2qckQdx9ypRqu4y0RJyG14+4KIn2KLagkXb1UiZo8kiq9b0nKRTEftDKUqrfOnJgc9Rt
+	uHwxWHdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzY2w-00000002VGy-2p41;
-	Fri, 19 Sep 2025 10:08:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzY2u-00000002VGX-09VW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 10:08:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20E6D1692;
-	Fri, 19 Sep 2025 03:08:43 -0700 (PDT)
-Received: from [10.57.95.38] (unknown [10.57.95.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D058D3F673;
-	Fri, 19 Sep 2025 03:08:48 -0700 (PDT)
-Message-ID: <fc43aa07-d4ad-47d5-8381-61d4a9b8c467@arm.com>
-Date: Fri, 19 Sep 2025 11:08:47 +0100
+	id 1uzY3K-00000002VOl-2YQa;
+	Fri, 19 Sep 2025 10:09:18 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzY3I-00000002VNY-085Z;
+	Fri, 19 Sep 2025 10:09:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758276537; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dicK+OMv5QSBObbMGKfy67NokELvGMR5Dt3pkAgFCwmR0HW+On81ioV7ohXumzVu/eaQM7UXvhHA7W4ZNe2BV4j1TpZuh0liTGx8qdsl5T9qvUKxhaEsRjWIGKa6aIqonpMrf1p4wECVjV9nfmHdkdh0XsC1p6gxjfSe1mMLeog=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1758276537; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=; 
+	b=k7x7q+WrdnAYmBcNentlAQJjvI1RD35H4m7uNM+Cy16elyxAilArii+RRx0qMZbxWaiSZc26nJXty4iU/NNSWhUR2kJxfpjJ0EIDG92VjSXSY063L93Piu7wLot6YN3uG7UgWZWhsyyFumQF532RBWuA8ovV0c144ZYxLQJ0Bw8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758276537;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=;
+	b=PURFcqWFKfQGye1p389YNk/IIuiOGIj3TXvOyo0vc3xrmKkCfgrEwlwYhmtvcq+H
+	F9MIqfFjz87qRiLlB9XmBgGAv/7nDL78Ith2SlFaf+pRAQNbpFFpiTBlUajOZzuJroW
+	ylq0yngeWq6e8rOwe+JNbAJfbNFC4n5v9iy/sPIg=
+Received: by mx.zohomail.com with SMTPS id 1758276534307344.4153529447631;
+	Fri, 19 Sep 2025 03:08:54 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 01/10] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+Date: Fri, 19 Sep 2025 12:08:45 +0200
+Message-ID: <6970929.lOV4Wx5bFT@workhorse>
+In-Reply-To: <c210de74-6eb5-40a4-b87d-a4a5c3123e65@kernel.org>
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+ <5749727.31r3eYUQgx@workhorse>
+ <c210de74-6eb5-40a4-b87d-a4a5c3123e65@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>, catalin.marinas@arm.com,
- akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
- ardb@kernel.org, dev.jain@arm.com, scott@os.amperecomputing.com,
- cl@gentwo.org, Yang Shi <yang@os.amperecomputing.com>
-Cc: kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
- <175822779944.710258.10028837182267037801.b4-ty@kernel.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <175822779944.710258.10028837182267037801.b4-ty@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_030852_120062_7F2ABBF9 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250919_030916_095233_6656F8CA 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +94,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 22:10, Will Deacon wrote:
-> On Wed, 17 Sep 2025 12:02:06 -0700, Yang Shi wrote:
->> On systems with BBML2_NOABORT support, it causes the linear map to be mapped
->> with large blocks, even when rodata=full, and leads to some nice performance
->> improvements.
->>
->> Ryan tested v7 on an AmpereOne system (a VM with 12G RAM) in all 3 possible
->> modes by hacking the BBML2 feature detection code:
->>
->> [...]
+On Friday, 19 September 2025 06:28:54 Central European Summer Time Krzysztof Kozlowski wrote:
+> On 18/09/2025 23:01, Nicolas Frattaroli wrote:
+> > On Thursday, 18 September 2025 02:30:09 Central European Summer Time Krzysztof Kozlowski wrote:
+> >> On Wed, Sep 17, 2025 at 02:22:32PM +0200, Nicolas Frattaroli wrote:
+> >>> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
+> >>> control the power and frequency of the GPU.
+> >>>
+> >>> It lets us omit the OPP tables from the device tree, as those can now be
+> >>> enumerated at runtime from the MCU. It also means the mali GPU node
+> >>> described in this binding does not have any clocks in this case, as all
+> >>> clock control is delegated to the MCU.
+> >>>
+> >>> Add the mediatek,mt8196-mali compatible, and a performance-domains
+> >>> property which points to the MCU's device tree node in this case. It's
+> >>> required on mt8196 devices.
+> >>>
+> >>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> >>> ---
+> >>>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 32 ++++++++++++++++++++--
+> >>>  1 file changed, 30 insertions(+), 2 deletions(-)
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> >>> index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..ccab2dd0ea852187e3ab75923e19739622b2b3b8 100644
+> >>> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> >>> @@ -38,7 +38,6 @@ properties:
+> >>>        - const: gpu
+> >>>  
+> >>>    clocks:
+> >>> -    minItems: 1
+> >>
+> >> I don't understand why.
+> >>
+> >> Best regards,
+> >> Krzysztof
+> >>
+> >>
+> > 
+> > I am executing a Convex hull algorithm on the 3D space of "dt-bindings
+> > maintainer opinions" to get a convex hull of acceptable dt-bindings
+> > choices where two different choices are functionally equivalent.
+> > 
+> > With this additional opinion on the krzk axis, I now know that having
+> > the base properties accurate for the general case is not required if
+> > the per-compatible case sets the property to false anyway.
+> > 
+> > I hope no two opinions are collinear, as this would surely be my
+> > undoing.
+> > 
+> > You get to pick which axis (X, Y, Z) you are. Right-hand rule, of
+> > course.
 > 
-> Applied patches 1 and 3 to arm64 (for-next/mm), thanks!
 > 
-> [1/5] arm64: Enable permission change on arm64 kernel block mappings
->       https://git.kernel.org/arm64/c/a660194dd101
-> [3/5] arm64: mm: support large block mapping when rodata=full
->       https://git.kernel.org/arm64/c/a166563e7ec3
+> This piece of code is wrong and I could not deduce the reason. That's
+> why I asked why you need that change. If you intend to waste my time, I
+> will don't bother with this, but code is still wrong.
 > 
-> I also picked up the BBML allow-list addition (second patch) on
-> for-next/cpufeature.
+> Best regards,
+> Krzysztof
 > 
-> The fourth patch ("arm64: mm: split linear mapping if BBML2 unsupported
-> on secondary CPUs") has some really horrible conflicts. These are partly
-> due to some of the type cleanups on for-next/mm but I think mainly due
-> to Kevin's kpti rework that landed after -rc1.
 
-Thanks Will, although I'm nervous that without this patch, some platforms might
-not boot; Wikipedia tells me that there are some Google, Mediatek and Qualcomm
-SoCs that pair X4 CPUs (which is on the BBML2_NOABORT allow list) with A720
-and/or A520 (which are not). See previous mail at [1].
+The previous reply was in jest, I did not know that this was incorrect.
+That's because it has no effect; there is no option for a bare
+`arm,mali-valhall-csf` compatible with no other compatible preceding
+it right now as far as I can parse the binding (which in of itself
+seems wrong.) So minItems: 1 didn't do anything, because the RK3588
+compatible would override it anyway, and the mt8196 compatible would
+disable the property entirely.
 
-I'd be happy to rebase it if you can let me know the prefered base SHA/tree?
+Hence, this piece of code is not wrong, as it's functionally
+equivalent to what was already there. Unless that is my reasoning
+is erroneous, in which case I'd appreciate an explanation for how
+it is wrong, rather than having to argue why I think you think
+wrongly that it is wrong.
 
-[1]
-https://lore.kernel.org/linux-arm-kernel/11f84d00-8c76-402d-bbad-014a3542992f@arm.com/
+Kind regards,
+Nicolas Frattaroli
 
-Thanks,
-Ryan
-
-
-> 
-> So I think the best bet might be to leave that one for next time, if
-> that's ok?
-> 
-> Cheers,
 
 
