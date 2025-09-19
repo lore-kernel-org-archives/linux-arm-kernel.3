@@ -4,66 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16B8CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54657CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:References:Cc:To:From:Subject:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2pGtWcSWKwWcZihDX2ZMuxIBwZZUXKhEKn0www3qKQ=; b=xdMrBruKCUd1a8prQtN3txMc5q
-	dkgNRAfSSgXNHsTs+oDbP5red6UFoaxnh2CqNQIH1uDfFm9RuuODTFcFlrUoPZbZVXqMka7Q51VvD
-	yn/a1FEcUHkhWw/theV/cC0OUxpPCMvHmWUHZrQr3xV+9bnJXfm6l1VK6lX6UVtZD7hl5BMZkmVk+
-	05sO7nU2rGqJXYDnboA5LxPHNSZGBKRbyy9bQZKZYUQatm/48VH+Rpsgj+Bp80VdTQ9ZlDiCZFyWn
-	QEr8T6wHURFkzU6SnXSyP3TKoYU5BA9aHygkUUPDmF2p+2Ra2IGMMSM31iZ8dYxMGSREGv7aP/JF8
-	3WDqm1qA==;
+	bh=p81yK+o/h/+o94yvCinssbPqd0qkrixwF5iknpA4rmw=; b=ICcrS4dGocGaFa4rT9+GCQFA2n
+	BOYCGfus47S8LWLMY4t8k2TDMUN6gSadnntlC9GG2mfUEdcsslti3wlOhLLrRZZYrStaZNIE1Dpyj
+	szrELIyFxdkQfDkOixStOu8OwL3PaOCRmbrmU6yHRYBuUCcTBqvIk42meKSm2I/KSI2uE+docnsLV
+	NFUV7t+iTswTAoG7s5NRlG1HcU1WnycHTJ/EGXmehjjFrbyA/ynhcPZVzd4CRs6knnu6BrJuFmiTa
+	QxCBdvX0diGqXt6Bj7c0WiTwc1gxAkZhHa9qaOCHVkJfJQSOrHCaKGbfl9pkS0Xi/D0CtLnBKMklH
+	45BQBifg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXG3-00000002Lxy-10gs;
-	Fri, 19 Sep 2025 09:18:23 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1uzXGU-00000002M6e-0LA6;
+	Fri, 19 Sep 2025 09:18:50 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXFu-00000002Lu4-1vPH
+	id 1uzXGS-00000002M5A-0HeC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 09:18:16 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cSmyD5fxBzddJ4;
-	Fri, 19 Sep 2025 17:13:24 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 50BAE1402DB;
-	Fri, 19 Sep 2025 17:18:01 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 19 Sep 2025 17:17:56 +0800
-Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 19 Sep 2025 17:17:48 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>, <catalin.marinas@arm.com>,
-	<maz@kernel.org>, <broonie@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <wangkefeng.wang@huawei.com>, <baohua@kernel.org>,
-	<jonathan.cameron@huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
-	<linuxarm@huawei.com>, <yangyccccc@gmail.com>
-Subject: [PATCH RFC 2/2] arm64: atomics: add optimization support for implementations using near atomics
-Date: Fri, 19 Sep 2025 17:17:47 +0800
-Message-ID: <20250919091747.3702-3-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250919091747.3702-1-yangyicong@huawei.com>
-References: <20250919091747.3702-1-yangyicong@huawei.com>
+	Fri, 19 Sep 2025 09:18:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y+8TW6b2XdatmJXoGQal+SMVhxkl6ICT+59CYGMeqpKq32joSh3QoVezHHJ9edH2oDaVzhCBHgocEOFan9x8fs390+cU3c3JGQskxL9JsvfgHHPduYlFzBapy0v0Xwpmoc2WqntmPvM3cZMvVfo2oJSiAETNi0qUJXas4/EEenvIK3jxqOcNtxxr0I2EmxSst5m+w5EDB9Fy1dwXJew95yGRb3JtfrCmAEMWM/Ho81F2oF51lx1wEtn2F8JD60bbPy83dNr0EjAHzH7jjzHhATLa7stSA9qlQ20F4oeFl8HPNxmfPMNxU0PTvh3O149a/IDu//HBL7jmWhYpnYu5YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p81yK+o/h/+o94yvCinssbPqd0qkrixwF5iknpA4rmw=;
+ b=MESnKjquKhoKAq3LtPI2T+EdJOveL70ZoABBJcBstfoPdz3JJxiKZDPrushzrbZ72ActTQd6G1nxi/l6q+MpakH4Z20mysnCDfKER4u5eHVGRuU0X+E+dv17SM9omMkdvQGf0ORaiMhhp1XeD2Crn16ocWvI0xDXDgf6XJs8gImRLFJ1csWYxSn2oe0BbOuCNqV8Ji1hNkaS2Aa4btkLPAt5YM/SdEWwjnqQbz5wGnxB+n3ax3xQ7Gt89jAnFn9vSykwkp60fXdFIucuF8x4pJp9+EZx+J0NUAn9ZYi78RJGRhGP8XHu5tIOEdKQ3pCcjRebM5KKeOndj9V9pqgjUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p81yK+o/h/+o94yvCinssbPqd0qkrixwF5iknpA4rmw=;
+ b=gtiD4oQN35x1Y6ANJLwheXR/4Z9TS3rn5UV6ym3gbf6PHwuJ92WBSoicDcIkF7Q5ktHLecbxQJDfVmSkUlWU7gfLgzE79CPIi9oreQ/5m2j+BaJiPCQxIYJHXlKeA9qZR6itjw9O8sKqzbIZzF8GRWYuryspJLUK0jukqtHTRjwKvNVAx67FURbuTrGZIkqT1dIofkbUn+y267Q7YLmmKlJBvbEI088mAjyAQ9mG6cPxDxaUQeGjGd1BmiVJFL3H6a9qYN91/p2Zq+RXFNUt5sgikCkjTYyppExuN/IgdYkZu8+EZmdBqSxd71XpESgHyFdEs2NolmgnZXAPAdK8Xg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by GVXPR04MB10429.eurprd04.prod.outlook.com (2603:10a6:150:1da::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
+ 2025 09:18:39 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9137.012; Fri, 19 Sep 2025
+ 09:18:39 +0000
+Message-ID: <77840bf0-7dec-485b-a531-aa12b033ee45@nxp.com>
+Date: Fri, 19 Sep 2025 17:20:09 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/14] drm/imx: dc: Use prefetch engine
+From: Liu Ying <victor.liu@nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
+ <10a9b4e1-c777-4e63-86f6-134d6100d70a@nxp.com>
+Content-Language: en-US
+In-Reply-To: <10a9b4e1-c777-4e63-86f6-134d6100d70a@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+X-ClientProxiedBy: SI1PR02CA0009.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::10) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GVXPR04MB10429:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad331c55-fa8f-4392-5ece-08ddf75d84af
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Uk8xcnFKS3VBRXFXbnVNSmRGUGI2Q1BMbkRFZ0dIWjlVOWU3SWEydnk4MmVy?=
+ =?utf-8?B?T3Rqb2F3dkJTQ0Qyd25kUHRSQmZSUDk4V1JWTjJRWVV1ZG53eWVTU1BYM3pT?=
+ =?utf-8?B?c0xBSmkwenRkNHZ3bi9GamY0Y25NeWZMYUlnZy9oWUJWR0VWU0IrUUZSSDE0?=
+ =?utf-8?B?eUVNSDlTdG1sWXprSktmSjliWTY3RFJKbEF2Z3BTMXBVYzhob2xLVFFwdUd2?=
+ =?utf-8?B?YkdjbDI5em1yaXNtKzNVSzcrVTZEYUMrT3dqbUFlN2ljSDBMTUpzbjJCaEVh?=
+ =?utf-8?B?R3FqN2M4Umh3S1FZb00zYU9ydWZ1WCsrMzBBZVJ3cG4rZUhJakZNc1NjOTBt?=
+ =?utf-8?B?UUthL0hNNTlIOUlRbjZVdmVkTFZsTUlERnZsMlR6a1Z1VTc5bFo3cnVqb0ww?=
+ =?utf-8?B?Yk02ZWgyaUFRQ3NOanlTQ1VxQ05YU1dieis0eWdzbXZOTFdNanRkZVpvQ0pi?=
+ =?utf-8?B?eSszL3RiOVhxQWFEZnE3dkw5b2c5aVJCR1F3ZHN5SEYySEJtWGhRaStFVWY1?=
+ =?utf-8?B?TWs1OUVPVkcrdUFtdFZCbGs5dXVEY3FPeis5aFhqbGxnUmZScUZMM0VybGNY?=
+ =?utf-8?B?eDdJZDZ3SU45UEY5ZFMrT0NnYW56RlpMRmh1MHo2ZG4rTWpINjdpcTdxR0R4?=
+ =?utf-8?B?WGVvaktSeUZFTmFUMnRUSUtoTGE2UnhjVmV4UlR1Vk5hMi9vVXdEYk4vNjc4?=
+ =?utf-8?B?d1hlUlpETWFWMUN5dkhvYm1iVjNNYnRtRWNSOVBQZVFqUFNvVmp1QWJTZ20y?=
+ =?utf-8?B?NW55ZGczM2JsQkxTUk83VjJKRll2emVIRk9yLzVMajFFVnFlSnpBdjBSSXRp?=
+ =?utf-8?B?SGFkeDNQbGlqbzIyTFd0eGY3R1hydXkvL1AvQXJtendBQkp1Vzhjb1ViQy9m?=
+ =?utf-8?B?Y1dLVFlrT1VtUjF5TlVza3hMTFRMdVVtcEFZYTExZ3FKb1NEUmpmRjVxN1FX?=
+ =?utf-8?B?eHJJaDJnMXQzSWpMR01WdVVPclJRbm55Y3V0ZVlhRlBjYmo3MCtJa3pQSTV2?=
+ =?utf-8?B?b2NSdzZka0JCS2pGVzV1NUZuMkxGbWE2UnhSOFc0NmRSZFhEVUcxd1FGRXFO?=
+ =?utf-8?B?K2dJR2RRWHArS3NRQ1ZUVlRIbWZWdXRRblZYcGtaWHlNM0NnejVFc2Rxb3o3?=
+ =?utf-8?B?NUR6SmlUUk9sS3dRMngvb1J2QXhxYUhBTkdFaSthQ2JUbFlEZVFnYnphMHVE?=
+ =?utf-8?B?aWl6anRMQkFpSVFlTUR3NEg0TTVGcUVzcFREQ0plY3pnMzRSemdkeUM5V2NC?=
+ =?utf-8?B?V0wzeXhsazVQeWRYS0NOck5Xb04rb0RGZmV3cjFRTHN6MGYvZU9WdEx2Nm16?=
+ =?utf-8?B?ZGsvY3c0NnVYdE50dzNhSTBJeHp1Z2NXSmtod1VZbDFhd09mNGFqYzhMTHhv?=
+ =?utf-8?B?S1JPUEZseTdRY0s4cnBkMGc1a2VDRUkxK3V3UDVSNENJUG9zczZONkFzQTY5?=
+ =?utf-8?B?Tmw4YkVoVmxXMkhEOUN6Wkp1bllJSC95eEYxUHlHeE1EMjFzcW9uVmRvQ21R?=
+ =?utf-8?B?QnNJWk5wSmFSWGErRktMNWNkaHNwYVdGTEp6a05WRm5OWmxsTUFhcWlhaUVL?=
+ =?utf-8?B?bGF3ZDVaVUJUZXpPY1BEaFVaRVo3WjVVTGFmbS9rUXV2Tm5WYXdIVlphZlRE?=
+ =?utf-8?B?Mlg5YmxiWWdZZUg3MUhGZ3Q2eUpBOGthS1Z3U2pHT3J2b2I0NFA0RDFpWEY3?=
+ =?utf-8?B?WXFVN0hpVlpaeVZJMDc0LzVzSm91RzJJTjU4OFdsRVVtTGdkWnU1MFovdzls?=
+ =?utf-8?B?S1NlVXgvci9CSmlkcUgrQTZPbTIyRzZxMks1RkxEN3R3LzJQWnIxbE9PZ25N?=
+ =?utf-8?B?dXdJQk1jeVpZeDJKZEtoYVdJbkhXTWp2OHptaDIzeHRzb0JxL0EraVBHWllw?=
+ =?utf-8?B?ZVVWNFhwZzQvQ2U0THo4M0I3d214QnljUkYyK3hWbndPVmFVZnlaeGJ0ckFq?=
+ =?utf-8?Q?IUSuw0A/HRw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akZheDVzOFV4TlhtRjE0OTlZUlFwYVIxWStGSUEvVzBid081Q0NHVVIvZ0FG?=
+ =?utf-8?B?Z2VLK0IzRVdjU2FLM2FCc0NkSHpjZStkNDUzVHppQUtuM3p3MENHQ004d1hR?=
+ =?utf-8?B?NkF3ZHpGcStpM0VQemFHbzR0UGVJMG12Uy94ZGpKeGQ0WHptdkQ2WkFXeXNV?=
+ =?utf-8?B?SFMwdlZnaVJMZXNMckxua1VPRFFURnBZVU5sVHU1UVdOaWp1bkdLcFgyMy9w?=
+ =?utf-8?B?YzVxcE5EL2pvdXBIN3ZmMkN6RjByWG5oZkFZZnQ3dkhlZjFaeVBXK21WTTRs?=
+ =?utf-8?B?eGRIbWwzaDVTNUxRN1NjVllsRjdxYy9Vd0pvTGV1dC9FOXBpWUdaTC9iZUR4?=
+ =?utf-8?B?YWJTWnkzVUNsWGhyeHN5TFI4SUxEVm00eC9jaGcvbnJUcUdlaHFPcTE3SmFW?=
+ =?utf-8?B?QUJsVGpQZWEwK0dwM0dVaG15VndZcEwxOGIybDZFam9raHJJM0pobDVxdlRp?=
+ =?utf-8?B?YkZlZ1M3L3V1d3prSDdSTW1aOWlMbkdCNnlwMldlNFZXdDczbWx4b3VubjlL?=
+ =?utf-8?B?SUVBd09FelpJQTZIYkdtZGFRSE1YNTZGUVFhbXhWa01UNlVQUE4xRitQTVZu?=
+ =?utf-8?B?VWZjazlCeVBpWlc2RXo0eXJ5d212RzNwSTArQXBnbnlVL1d2K24rSHdVWERJ?=
+ =?utf-8?B?ejlXWWluK1NYb0E0ekJ4Mk5NR2Qxd1poc015ZVd5WkJtY3NqdzN1eTByc05F?=
+ =?utf-8?B?Q0VudHNTQ2R4dkxQVnNNaW1NOCtmNHFnWUpFekJ1L0l0WUhOTGRtdUc4N05F?=
+ =?utf-8?B?UDhIQkdNRENZakNoVWFQK01QRk1iSlR0UnlRYmdqVmVPQ0JNSVdXeTdkSFlW?=
+ =?utf-8?B?eFpNZXNnS2NPOWdFQ1c5YmtsWis5LzZvOThOWGl4MGYrOGsrV0IxVENYWXFM?=
+ =?utf-8?B?OEZCM292dlRGV0MrcEpwK3lBWnVLeXNrc0VUUTlVb0lKbHhFQnRXYTg2YW5k?=
+ =?utf-8?B?UCtaRW82QjRMZGZ5T0JyRnFZclovaEs0L3htZHprczVocEJub2Ywa3A3WTBy?=
+ =?utf-8?B?amFURXNGVS9pdlBrVXVpN2xRMVNSVDBnNHhUT3dyL3puK1g2US9teEhjVVRJ?=
+ =?utf-8?B?cEpaOGt2blNoQUVQOWdtZU1Hd2lWWlQxejcvd0hzQy9jT3lIMlFhR2ZBM1J4?=
+ =?utf-8?B?Y0E0UEduWjJXUXVKdmZ6ZTJhRmd4TGNIRnhHY1VjYTM4ZEtqS05ldnI4dVJC?=
+ =?utf-8?B?RU1WSnFBZmFyL0doMFlOTUZBUm9VOHhsRXNUQU4weFFlT1NBV0xhMjFVM1BK?=
+ =?utf-8?B?L3cwYll4TXRyUUFVWEVjV0sxMlV4emJUcmwwbExTdEN2dmtXeFRKeHRYVmhl?=
+ =?utf-8?B?cmNUSHA2bXpQZ1BUV1F1K2dXTjRiZitaR3JPQ1oxaS9jNzRmWEROMGVNRFN1?=
+ =?utf-8?B?a09EMVdKMWVhdzhVeGNtN0hPWjdPdVpsOHZoSWhkTzNxVFhDVm1GV1ZZVUhm?=
+ =?utf-8?B?MG9MdS9vQlpnM2VLU3JVb1BQdDZTQUhXcFpCeDR1aXZBVVdIMkJScGxaUndB?=
+ =?utf-8?B?Sk1keFU3U3AzZEsrL0xvb3UrUzAxc2liUjlMSFNCOGpPNWVhL0RaN3cwemxn?=
+ =?utf-8?B?eFd2YTdSeWJLVUJFVmNaUDRNQUxhNTJnSlRFdnNFYlpraVp6eCtlQXBkSXZE?=
+ =?utf-8?B?UlVtL2ZiT3NaQ1hBU3RkMmVVZC8wczRNMk4wRitYWStvSGxMd2drUURValhh?=
+ =?utf-8?B?SEhuVzByT2Y4UzNHNmxNeFpKUUZPNXZZQ1k5TkJkODFoSDc5MnNUSzVFelRU?=
+ =?utf-8?B?WjU5bnppRnhVSkt0R0tqRGJaeEtEUEFtZElGN285cnJwQXAwbGRCc3dvQ2Vu?=
+ =?utf-8?B?TEltTHFvbmQ0SzZXekhicVNQNmFRblRaVXZnckR1UWFFeUlKN2pKejhPRFND?=
+ =?utf-8?B?MVhCUmFOM2ZWZnpDU0xJVEFNa3BiejQrSFBYU1BzVHhYc0loL1NqUm5teWxD?=
+ =?utf-8?B?SGxjY2psN3JMRWZxb1JVK2tVcTdVSUhrcVV5UGcyaHpham1DeTNmNDVySURT?=
+ =?utf-8?B?MDQ5dCtYbU4xTWRhNGhNUW00a0tyeERQZmwxVEY1VnR5SFV5Ui93ZHhoUkpW?=
+ =?utf-8?B?UTBTT28ydWc2Vk1RSjFWZnpVUmV1UTByKzM3OGt0UzUyTHN3bnJjcURCUE41?=
+ =?utf-8?Q?GjciRnSIm2Fed54Rx7dEhKESx?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad331c55-fa8f-4392-5ece-08ddf75d84af
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 09:18:38.9939
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T2COtK1XyWQxEM1Y/2YjJv9cgwqCm92/mkeFLnTZHAWnFQkZL590QAYMEn2/TRX9nZaBD88A50jf227tT/+HGw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_021814_806914_78C8C0F6 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20250919_021848_103126_8CF903E7 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,262 +183,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+On 08/12/2025, Liu Ying wrote:
+> On 07/04/2025, Liu Ying wrote:
+>> Hi,
+>>
+>> This patch series aims to use prefetch engine in imx8-dc KMS driver.
+>>
+>> One prefetch engine consists of one DPR Channel(DPRC) and one or two
+>> Display Prefetch Resolve Gaskets(PRGs).  It prefetches data from
+>> DDR, resolves data in tile formats if needed and outputs the result
+>> data to FetchUnit(s).  When one PRG is used, a prefetch engine supports
+>> processing pixel formats with one planar, e.g., RGB formats.  When two
+>> are used, pixel formats with two planars are supported, e.g., NV12.
+>>
+>> For now, this patch series only supports prefetch engines with one PRG
+>> because it is enough for XRGB8888 which is the only pixel format
+>> supported by imx8-dc plane driver.  Two PRGs would be supported by
+>> future patches.
+>>
+>> Patch 1 and 2 add dt-bindings for DPRC and PRG.  They were reviewed
+>> by Rob[1][2].  I slightly modified the patches' commit message to use
+>> imperative mood.
+>>
+>> Patch 3 adds DPRC and PRG dt-binding files to MAINTAINERS.
+>>
+>> Patch 4 fixes FetchUnit dimensions as related to prefetch engine function.
+>>
+>> Patch 5 disables CRTC at boot if needed to support prefetch engine better.
+>>
+>> Patch 6 and 7 add PRG and DPRC drivers.
+>>
+>> Patch 8 to 13 do preparations before using prefetch engine in imx8-dc KMS
+>> driver.
+>>
+>> Patch 14 uses prefetch engine in imx8-dc KMS driver.
+>>
+>> [1] https://lore.kernel.org/lkml/20201207165945.GA430214@robh.at.kernel.org/
+>> [2] https://lore.kernel.org/lkml/20201207170206.GA434964@robh.at.kernel.org/
+>>
+>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>> ---
+>> Liu Ying (14):
+>>       dt-bindings: display: imx: Add i.MX8qxp/qm PRG binding
+>>       dt-bindings: display: imx: Add i.MX8qxp/qm DPR channel binding
+>>       MAINTAINERS: Add i.MX8qxp prefetch engine DT binding files
+>>       drm/imx: dc-fu: Fix dimensions
+>>       drm/imx: dc-crtc: Disable at boot
+>>       drm/imx: dc: Add PRG support
+>>       drm/imx: dc: Add DPR channel support
+>>       drm/imx: dc: Use TCON operation mode
+>>       drm/imx: dc-ed: Support getting source selection
+>>       drm/imx: dc-lb: Support getting secondary input selection
+>>       drm/imx: dc-ed: Drop initial source selection
+>>       drm/imx: dc-lb: Drop initial primary and secondary input selections
+>>       drm/imx: dc-fu: Get DPR channel
+>>       drm/imx: dc: Use prefetch engine
+>>
+>>  .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 +++++
+>>  .../bindings/display/imx/fsl,imx8qxp-prg.yaml      |  60 +++
+>>  MAINTAINERS                                        |   2 +
+>>  drivers/gpu/drm/imx/dc/Kconfig                     |   1 +
+>>  drivers/gpu/drm/imx/dc/Makefile                    |   6 +-
+>>  drivers/gpu/drm/imx/dc/dc-crtc.c                   | 191 +++++++-
+>>  drivers/gpu/drm/imx/dc/dc-de.h                     |   2 +
+>>  drivers/gpu/drm/imx/dc/dc-dprc.c                   | 499 +++++++++++++++++++++
+>>  drivers/gpu/drm/imx/dc/dc-dprc.h                   |  35 ++
+>>  drivers/gpu/drm/imx/dc/dc-drv.c                    |   7 +
+>>  drivers/gpu/drm/imx/dc/dc-drv.h                    |   5 +
+>>  drivers/gpu/drm/imx/dc/dc-ed.c                     |  27 +-
+>>  drivers/gpu/drm/imx/dc/dc-fl.c                     |   7 +-
+>>  drivers/gpu/drm/imx/dc/dc-fu.c                     |  49 +-
+>>  drivers/gpu/drm/imx/dc/dc-fu.h                     |  11 +-
+>>  drivers/gpu/drm/imx/dc/dc-fw.c                     |   7 +-
+>>  drivers/gpu/drm/imx/dc/dc-kms.h                    |   7 +
+>>  drivers/gpu/drm/imx/dc/dc-lb.c                     |  23 +-
+>>  drivers/gpu/drm/imx/dc/dc-pe.h                     |   2 +
+>>  drivers/gpu/drm/imx/dc/dc-plane.c                  |  46 +-
+>>  drivers/gpu/drm/imx/dc/dc-prg.c                    | 335 ++++++++++++++
+>>  drivers/gpu/drm/imx/dc/dc-prg.h                    |  39 ++
+>>  drivers/gpu/drm/imx/dc/dc-tc.c                     | 114 ++++-
+>>  23 files changed, 1545 insertions(+), 30 deletions(-)
+>> ---
+>> base-commit: 50c8770a42faf8b1c7abe93e7c114337f580a97d
+>> change-id: 20250703-imx8-dc-prefetch-028e306591c6
+>>
+>> Best regards,
+> 
+> Gentle ping.
 
-Atomic operations can be implemented in the CPU (near atomics) or
-in the interconnect or at the Subordinate holding the data (far
-atomics) [1]. The former one can be further optimized by prefetching
-the destination prior to the atomic operations, similar to the
-optimization for LL/SC operations mentioned in
-commit 0ea366f5e1b6 ("arm64: atomics: prefetch the destination word for write prior to stxr")
+Ping for review again.
 
-Add a kconfig ARM64_NEAR_ATOMICS_OPTIMIZATION for compile-in the
-optimization and a boot option arm64.near_atomics_optimization for
-enabling on platforms implemented as near atomics.
-
-Tested on a HIP09 server using `perf bench -r 100 futex all` which could
-stress the spinlock of the futex hash bucket:
-                        6.17-rc1 arm64.near_atomics_optimization
-futex/hash(ops/sec)	418742	415325	-0.82%
-futex/wake(ms)	        0.3954	0.3414	13.66%
-futex/wake-parallel(ms)	0.0063	0.0067	-6.35%
-(2nd validation)		0.0062	1.59%
-futex/requeue(ms)	0.156	0.1565	-0.32%
-futex/lock-pi(ops/sec)	103	104	0.97%
-
-For a single wake test for different threads number using `perf bench
--r 100 futex wake -t <threads>`:
-threads 6.17-rc1 arm64.near_atomics_optimization
-1	0.0021	 0.002	4.76%
-48	0.0907	 0.0761	16.10%
-96	0.185	 0.1561	15.62%
-160	0.3983	 0.3317	16.72%
-192	0.4834	 0.4308	10.88%
-256	0.6342	 0.5656	10.82%
-
-There're some variation for close numbers but overall results
-look positive. As for some more complex benchmarks like unixbench
-and tbench, results also appears to be positive.
-
-For unixbnech:
-                                       6.17-rc1 arm64.near_atomics_optimization
-Dhrystone 2 using register variables   6422.8	6427.8	0.08%
-Double-Precision Whetstone             1637.7	1637.7	0.00%
-Execl Throughput                       878.4	909.6	3.55%
-File Copy 1024 bufsize 2000 maxblocks  1586.4	1603.8	1.10%
-File Copy 256 bufsize 500 maxblocks    1022.6	1024.5	0.19%
-File Copy 4096 bufsize 8000 maxblocks  2770.9	2935.6	5.94%
-Pipe Throughput                        552	552.4	0.07%
-Pipe-based Context Switching           345.1	373.8	8.32%
-Process Creation                       394.5	410.5	4.06%
-Shell Scripts (1 concurrent)           1602.2	1674.1	4.49%
-Shell Scripts (8 concurrent)           5154.3	5382	4.42%
-System Call Overhead                   229.3	229.3	0.00%
-                                       ======================
-System Benchmarks Index Score	       1159.6	1190.3	2.65%
-
-For tbench:
-threads     6.17-rc1      arm64.near_atomics_optimization
-  1:        267.4067        279.8757 (    4.66%)
-  4:       1065.8133       1117.1133 (    4.81%)
-  8:       2107.9800       2236.3200 (    6.09%)
- 16:       4200.2300       4420.2733 (    5.24%)
- 32:       8065.9033       8388.0267 (    3.99%)
- 64:      14284.0333      14624.7000 (    2.38%)
-128:       7573.1800       8078.9900 (    6.68%)
-
-Though this will be beneficial for near atomic implementations in most
-cases tested, especially for the latency sensitive ones, I do observed
-regression for extreme test cases like locktorture, the throughput
-reduced 1~3% according to the test thread numbers.
-
-[1] https://developer.arm.com/documentation/102714/0100/Atomic-fundamentals
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- arch/arm64/Kconfig                  | 18 ++++++++++++++++
- arch/arm64/include/asm/atomic_lse.h | 32 +++++++++++++++++++++++++++++
- arch/arm64/kernel/cpufeature.c      | 26 +++++++++++++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- 4 files changed, 77 insertions(+)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..73b640f9d21b 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1925,6 +1925,24 @@ config ARM64_USE_LSE_ATOMICS
- 	  atomic routines. This incurs a small overhead on CPUs that do
- 	  not support these instructions.
- 
-+config ARM64_NEAR_ATOMICS_OPTIMIZATION
-+	bool "Optimization for near atomics implementation"
-+	depends on ARM64_USE_LSE_ATOMICS
-+	default n
-+	help
-+	  Atomic operations implemented in the CPU (near atomics) can be
-+	  optimized by prefetching the cacheline in prior to the atomic
-+	  operations. Choose this to compile the optimization in the kernel.
-+	  You still need to enable the optimization at boot time with CMDLINE
-+	  option arm64.near_atomics_optimization based on your system's
-+	  implementation.
-+
-+	  Say Y here to compile the optimization code. N if your system's
-+	  implementation is not near atomics or unknown. You may refer to
-+	  https://developer.arm.com/documentation/102714/0100/Atomic-fundamentals
-+	  for the basic principles of near atomics and far atomics on arm64
-+	  CHI based systems.
-+
- endmenu # "ARMv8.1 architectural features"
- 
- menu "ARMv8.2 architectural features"
-diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
-index cb38c2120595..3e5b3fa02d37 100644
---- a/arch/arm64/include/asm/atomic_lse.h
-+++ b/arch/arm64/include/asm/atomic_lse.h
-@@ -16,6 +16,10 @@ __lse_atomic_##op(int i, atomic_t *v)					\
- {									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	" #asm_op "	%w[i], %[v]\n"				\
- 	: [v] "+Q" (v->counter)						\
- 	: [i] "r" (i));							\
-@@ -41,6 +45,10 @@ __lse_atomic_fetch_##op##name(int i, atomic_t *v)			\
- 									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	" #asm_op #mb "	%w[i], %w[old], %[v]"			\
- 	: [v] "+Q" (v->counter),					\
- 	  [old] "=r" (old)						\
-@@ -123,6 +131,10 @@ __lse_atomic64_##op(s64 i, atomic64_t *v)				\
- {									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	" #asm_op "	%[i], %[v]\n"				\
- 	: [v] "+Q" (v->counter)						\
- 	: [i] "r" (i));							\
-@@ -148,6 +160,10 @@ __lse_atomic64_fetch_##op##name(s64 i, atomic64_t *v)			\
- 									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	" #asm_op #mb "	%[i], %[old], %[v]"			\
- 	: [v] "+Q" (v->counter),					\
- 	  [old] "=r" (old)						\
-@@ -230,6 +246,10 @@ static __always_inline s64 __lse_atomic64_dec_if_positive(atomic64_t *v)
- 
- 	asm volatile(
- 	__LSE_PREAMBLE
-+	ALTERNATIVE(
-+	"	nop\n",
-+	"	prfm	pstl1strm, %[v]\n",
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)
- 	"1:	ldr	%x[tmp], %[v]\n"
- 	"	subs	%[ret], %x[tmp], #1\n"
- 	"	b.lt	2f\n"
-@@ -253,6 +273,10 @@ __lse__xchg_case_##name##sz(u##sz new, volatile void *ptr)		\
- 									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	swp" #mb #sfx "\t%" #w "[new], %" #w "[old], %[v]\n"	\
- 	: [old] "=r" (old),						\
- 	  [v] "+Q" (*(u##sz *)ptr)					\
-@@ -289,6 +313,10 @@ __lse__cmpxchg_case_##name##sz(volatile void *ptr,			\
- {									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	cas" #mb #sfx "	%" #w "[old], %" #w "[new], %[v]\n"	\
- 	: [v] "+Q" (*(u##sz *)ptr),					\
- 	  [old] "+r" (old)						\
-@@ -331,6 +359,10 @@ __lse__cmpxchg128##name(volatile u128 *ptr, u128 old, u128 new)		\
- 									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
-+	ALTERNATIVE(							\
-+	"	nop\n",							\
-+	"	prfm	pstl1strm, %[v]\n",				\
-+	ARM64_HAS_NEAR_ATOM_OPT, CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION)\
- 	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
- 	: [old1] "+&r" (x0), [old2] "+&r" (x1),				\
- 	  [v] "+Q" (*(u128 *)ptr)					\
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9ad065f15f1d..021f9bed4671 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2520,6 +2520,24 @@ test_has_mpam_hcr(const struct arm64_cpu_capabilities *entry, int scope)
- 	return idr & MPAMIDR_EL1_HAS_HCR;
- }
- 
-+#ifdef CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION
-+
-+static bool near_atom_opt;
-+
-+static int __init early_near_atom_opt(char *p)
-+{
-+	return kstrtobool(p, &near_atom_opt);
-+}
-+early_param("arm64.near_atomics_optimization", early_near_atom_opt);
-+
-+static bool
-+has_near_atom_opt(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+	return near_atom_opt;
-+}
-+
-+#endif /* CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION */
-+
- static const struct arm64_cpu_capabilities arm64_features[] = {
- 	{
- 		.capability = ARM64_ALWAYS_BOOT,
-@@ -2580,6 +2598,14 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, ATOMIC, IMP)
- 	},
- #endif /* CONFIG_ARM64_LSE_ATOMICS */
-+#ifdef CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION
-+	{
-+		.desc = "Optimization for near atomics implementation",
-+		.capability = ARM64_HAS_NEAR_ATOM_OPT,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_near_atom_opt,
-+	},
-+#endif /* CONFIG_ARM64_NEAR_ATOMICS_OPTIMIZATION */
- 	{
- 		.desc = "Virtualization Host Extensions",
- 		.capability = ARM64_HAS_VIRT_HOST_EXTN,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index ef0b7946f5a4..75ffc451940d 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -44,6 +44,7 @@ HAS_HCX
- HAS_LDAPR
- HAS_LPA2
- HAS_LSE_ATOMICS
-+HAS_NEAR_ATOM_OPT
- HAS_MOPS
- HAS_NESTED_VIRT
- HAS_BBML2_NOABORT
 -- 
-2.24.0
-
+Regards,
+Liu Ying
 
