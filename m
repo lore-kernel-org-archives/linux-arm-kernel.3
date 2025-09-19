@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3651CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 19:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDD8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 19:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gy1Cwe3kFc9tkmIbIueoSIP6N6yz1yqU63v26XrbplQ=; b=ys1QRiCckCfd8T+1K3wDY5aiZT
-	ex+You7X/qF/CisIwh39xeFS77QHbN8PbQU9ln2uVNkK/Ux+MF6p03/W2OTZRD9vWJafeHc281AFh
-	vXGW/wq5mu1WC2f8Mg9PaSAKh3ZdJUsNZ2B/Hr+1W8fWUvMkSACFgQVCBqf7e9fOyFS+rJhkSFcRp
-	i02LQ57xe6Od/aUQLHZfoPvwZW15BbC0VRyM5S2u4JCWDfYR1qkadfg8QkfqdjAsM2wGxBKXy4QBa
-	mCAEW98SQ9X7bonyC6Ym7RD8o0PgpsLJzn/JlYAdE6GGeTkeUzymVmqdRByLluBqLG/mex2v8wb3T
-	Jt8oZPJg==;
+	bh=umDLzibyRODn1on2clrmBiY/yeDt8Ko37tfA+DwYKlQ=; b=gAXHzBVR9otUUW0293sw4pdcPI
+	R5KasE9Kgv7Ybk1+KXzYEaUlW7RF4MHb5zGkZ2Mb8dFivRcd8flXkUvLKqL9wwp6qcQstqV6sn5JJ
+	XalZW01+yBjvCZSjkSjTQki1t7vYK+JzmicdJW1rv/wQdfi46HnE847Zl3tzcTsVieAuLWNlt0rq0
+	cWHrlSeaJzrqndGubU69mjvvSQgkf6ItagoQT9eWlWndMsIcW7cQLaECwI7nkO9IJCgwf586cMvUE
+	6jIbYgTz+0WBLoPqx4w5/spzz0U0krrlwyHNPuXkt87BkvFpqRCJ9leCs/avzDreeGOMu0bF7Jm46
+	a9rx0P8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzgd2-00000003tO2-0cMA;
-	Fri, 19 Sep 2025 19:18:44 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uzgqK-00000003uLV-2l2P;
+	Fri, 19 Sep 2025 19:32:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzgd0-00000003tNO-1Z7p
+	id 1uzgqJ-00000003uLN-08NM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 19:18:43 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uzgcr-0004Qj-VG; Fri, 19 Sep 2025 21:18:33 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uzgcq-0029eE-2e;
-	Fri, 19 Sep 2025 21:18:32 +0200
-Received: from pengutronix.de (ip-185-104-138-125.ptr.icomera.net [185.104.138.125])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id B75A847520E;
-	Fri, 19 Sep 2025 19:18:29 +0000 (UTC)
-Date: Fri, 19 Sep 2025 21:18:21 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	Haibo Chen <haibo.chen@nxp.com>, linux-can@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 5/9] phy: phy-can-transceiver: Propagate return value
- of gpiod_set_value_cansleep
-Message-ID: <20250919-lovely-amethyst-bullmastiff-5cef8b-mkl@pengutronix.de>
-References: <20250909-can-v6-0-1cc30715224c@nxp.com>
- <20250909-can-v6-5-1cc30715224c@nxp.com>
+	Fri, 19 Sep 2025 19:32:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2BE4160140;
+	Fri, 19 Sep 2025 19:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07598C4CEF0;
+	Fri, 19 Sep 2025 19:32:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758310345;
+	bh=Q4PEuEuP9alXqKgQvbxJXKjAtS2HMA+4AJTY/GWd7HI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pgi9APbbq/5rG7Ho2J+TZJGVkq0W10UPMkV2zbAclCur7Yzs+JdYB0hM6X2u2i3HP
+	 IqxlioxzxNjshOFUgcQ6MMPJCvAm1L/aS8fva/rK3xgGEyv1evQY+lKGOv9iLfTJW+
+	 PmodCLjEoKLgErL9k0J4bO/3yv1SSWkFe38PBY8G6v/Ti+XS6AvZMOGkuOveTF/61c
+	 +ruGnQQS7vbuByVzAbe15qbNWNWgdpCd52SJWvCOW3mzTSbY8QTRmHjefxzkbfgJgQ
+	 Lv2QGTOJ7yKk3E2GWAVY4O9sPkWiY8EzWq8ZEl0ONR5VpUjaXk5bhB2EMCTF9O+Vkp
+	 8+PAuWAXcY94g==
+Date: Fri, 19 Sep 2025 14:32:21 -0500
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au,
+	Ard Biesheuvel <ardb@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH 0/5] arm64: Move kernel mode FPSIMD buffer to the stack
+Message-ID: <20250919193221.GB2249@quark>
+References: <20250918063539.2640512-7-ardb+git@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t6u4zda4cx5kdnck"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250909-can-v6-5-1cc30715224c@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_121842_414750_DAF113F6 
-X-CRM114-Status: GOOD (  13.39  )
+In-Reply-To: <20250918063539.2640512-7-ardb+git@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +73,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 18, 2025 at 08:35:40AM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Move the buffer for preserving/restoring the kernel mode FPSIMD state on a
+> context switch out of struct thread_struct, and onto the stack, so that
+> the memory cost is not imposed needlessly on all tasks in the system.
+> 
+> Patches #1 - #3 contains some prepwork so that patch #4 can tighten the
+> rules around permitted usage patterns of kernel_neon_begin() and
+> kernel_neon_end(). This permits #5 to provide a stack buffer to
+> kernel_neon_begin() transparently, in a manner that ensures that it will
+> remain available until after the associated call to kernel_neon_end()
+> returns.
+> 
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Kees Cook <keescook@chromium.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> 
+> Ard Biesheuvel (5):
+>   crypto/arm64: aes-ce-ccm - Avoid pointless yield of the NEON unit
+>   crypto/arm64: sm4-ce-ccm - Avoid pointless yield of the NEON unit
+>   crypto/arm64: sm4-ce-gcm - Avoid pointless yield of the NEON unit
+>   arm64/fpsimd: Require kernel NEON begin/end calls from the same scope
+>   arm64/fpsimd: Allocate kernel mode FP/SIMD buffers on the stack
+> 
+>  arch/arm64/crypto/aes-ce-ccm-glue.c |  5 +--
+>  arch/arm64/crypto/sm4-ce-ccm-glue.c | 10 ++----
+>  arch/arm64/crypto/sm4-ce-gcm-glue.c | 10 ++----
+>  arch/arm64/include/asm/neon.h       |  7 ++--
+>  arch/arm64/include/asm/processor.h  |  2 +-
+>  arch/arm64/kernel/fpsimd.c          | 34 +++++++++++++-------
+>  6 files changed, 34 insertions(+), 34 deletions(-)
 
---t6u4zda4cx5kdnck
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 5/9] phy: phy-can-transceiver: Propagate return value
- of gpiod_set_value_cansleep
-MIME-Version: 1.0
+This looks like the right decision: saving 528 bytes per task is
+significant.  528 bytes is a lot to allocate on the stack too, but
+functions that use the NEON registers are either leaf functions or very
+close to being leaf functions, so it should be okay.
 
-On 09.09.2025 13:40:15, Peng Fan wrote:
-> gpiod_set_value_cansleep might return failure, propagate the return value
-> of gpiod_set_value_cansleep to parent.
+The implementation is a bit unusual, though:
 
-Are there any expectations of the phy framework from the driver if the
-switch on or off fails? Do you have to roll back any changes in case of
-an error?
+   #define kernel_neon_begin()	do { __kernel_neon_begin(&(struct user_fpsimd_state){})
+   #define kernel_neon_end()	__kernel_neon_end(); } while (0)
 
-Marc
+It works, but normally macros don't start or end code blocks behind the
+scenes like this.  Perhaps it should be more like s390's
+kernel_fpu_begin(), where the caller provides the buffer that the
+registers are stored in?  
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---t6u4zda4cx5kdnck
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmjNrHoACgkQDHRl3/mQ
-kZwqYQf/c1/IXd7aRBuqdaMALPyXhUQLb5zDa8xv15HZudLAlb4N3ZCTwnOa8WuR
-6C1PiBoxg6JPbbcgfCADKc3ADq/+nxjr8fk1rU3bPf/9t3p+BNJFfX8jiwL7B42w
-X/Yt9MEtmxWaOBWeNXedyM4pFB2qT+GJncKrl6lBIjyjIRkhABKaiNyt/M/DFenK
-rA+xEFrZVljI5iLMktjI92K1FlNaRiaEyOvCSYrM33pHz8RQWPECEF0T4D9z9siI
-XPy/dP9YRUkUszZ1kp+vh//bd2I8Z1R7fwNBWZf+ZwLMISDDx/lt06ohQQwTcLgs
-fHVzHn541sJjrfMO6kikrs8r0W3FQg==
-=qpEC
------END PGP SIGNATURE-----
-
---t6u4zda4cx5kdnck--
+- Eric
 
