@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71945CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24FECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39Br2zJ6N21AM51+p0Pu7+qrwc/3pZIDCexOHBe3F24=; b=3TXMj9452ZkgK5yr4gXydU/rit
-	6DP3HkMKO+e4TvQY5pKNcAE2ibk9tHaSwAsIKxF7sGmvNsZ5zRWndUjvph161EUpNlQqDudYjiZAK
-	gpLEE5TUNaepGYr2Ff9SwERXb9uvNQbyoQhzGoHzLST/JKAPMCY91Hk+yWxQUNuEHklp4Y+kWN0OA
-	LsSt05nin1pDo3msmgPt+0+HCB7+lpEtQdWhIkzOCjnETzwLa2U1C8usfc/S1K4oogdwel6nj0E46
-	uHISETccopV/6/wWG5woCnxsvJ9xsQe9CW8Bc53oIYaD9F8ml2C//9W+TnJVpGVNy/MTa8yL+OZAZ
-	6HQjP7dg==;
+	bh=MjgzZqUkGZtW8y2Dj439Uyqecpqe2is3aaIjBO+I7Qk=; b=Jo6/FD/2W7kSILwJqb3AogF2Q9
+	f6/0ixsCz1Sr8JACs4R35/d5i0AHuStDTIiJNeeodBM8MwKZ/MA+b/az3J0PF5nGWE+w3F7MQX4uB
+	h4v83KuCcdPJ1lAggzn70sOsgmeHkr1D311mEN7P8U3N91ScCiOXSXGNMbIq7sPQB7S1jlA2VwiEZ
+	Yie8JMYfGh7Z2q9hH/ElBIpf9bDTGNSFEjf4l73scLAVPFBgrqrrCQMJ+gM+WV34DbxFUWL2bhgne
+	/l8s01qPwAq7UFtFWoNXqhCYomtArQ197kKLsqq96jdXxMoWwwbpNxI/p9SMWlGuoTzIiZi4O++NF
+	V4baIYsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaUC-00000002s6F-1Ekr;
-	Fri, 19 Sep 2025 12:45:12 +0000
+	id 1uzaUm-00000002sNj-31ju;
+	Fri, 19 Sep 2025 12:45:48 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaU9-00000002s3G-35HG
+	id 1uzaUk-00000002sMI-1Xxo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 12:45:11 +0000
+	Fri, 19 Sep 2025 12:45:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4D92F1A0F14;
-	Fri, 19 Sep 2025 12:45:08 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id EC3C21A0F14;
+	Fri, 19 Sep 2025 12:45:44 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1F872606A8;
-	Fri, 19 Sep 2025 12:45:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A8CE6102F1935;
-	Fri, 19 Sep 2025 14:45:00 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BFB0A606A8;
+	Fri, 19 Sep 2025 12:45:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C96C7102F1847;
+	Fri, 19 Sep 2025 14:45:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1758285906; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1758285942; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
-	bh=39Br2zJ6N21AM51+p0Pu7+qrwc/3pZIDCexOHBe3F24=;
-	b=MoJTAGnc5y72Blm478u0d+hw5TowFDR2Z8Ubq+oSfBuSFsVArQsbqVeAs+v//d+HfHxHQ0
-	Dic6/c12EEInQg8hpov1XlPVvS+mKIfHbQ/YejY85+5lj0sBqmTK70lMyYYDBiJJd8WyQ/
-	QprR4T6ub/xDtjF0GVPdYmyGQxweVSYPsFbhq2/JOx9wDD1RWl9UK1Oy3U2hfMVEW2IoKZ
-	7Ws5gkw4qppWLbMBmKVWK3wjDgZ6M1FufgbD1/0QptALdawsyVHWBzzCzhMx84GUQBiKvV
-	Tpl3sLbxUBiK9yAuTyx4LYI0B3h35N2J313djtU3gFRlFjwMOenYOHh/km9CJA==
-Message-ID: <e26063ca-ead1-495b-89f9-6d702f16994d@bootlin.com>
-Date: Fri, 19 Sep 2025 14:45:00 +0200
+	bh=MjgzZqUkGZtW8y2Dj439Uyqecpqe2is3aaIjBO+I7Qk=;
+	b=Koir+LBnjg3C1xEp5PjdUQfL00B/cbLDleIAal1uoGnhwdNosgmg14sO4nCSGniH+gOPOD
+	LDm5Xtvj5mCn5b9KR41MAMwkd291c3uyNL/O0AJvZPurFsn2GjMhduRl0RiQ5QYtCQnZxt
+	+drqZhWNRFQvVeJl2Vn30WtBAcnb3M+sfmyHqotcNT/xxCPyFZQzVkZKuHyduL+KzUdy4I
+	Q1e/dQaAHg4heZ4vQsAoytZd1Pi/IMDUn/fD5K/yF0tuvi9SDgodOB8NJGSq3pm/M9rGf3
+	8ashqkJto+jk0UtmCvCBzCH4j3LbFZMWSF1q+6n6v78FEdw3leKzUtshAfa4ag==
+Message-ID: <9ca5c4c2-0a73-4994-9f18-6dc88effe41b@bootlin.com>
+Date: Fri, 19 Sep 2025 14:45:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Louis Chauvet <louis.chauvet@bootlin.com>
-Subject: Re: [PATCH RFC v2 01/20] drm/crtc: Add color pipeline to CRTC state
+Subject: Re: [PATCH RFC v2 17/20] drm/vkms: Rename existing color pipeline
+ helpers to contain "pre_blend"
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -74,7 +75,7 @@ Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  Simona Vetter <simona.vetter@ffwll.ch>
 References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
- <20250917-mtk-post-blend-color-pipeline-v2-1-ac4471b44758@collabora.com>
+ <20250917-mtk-post-blend-color-pipeline-v2-17-ac4471b44758@collabora.com>
 Content-Language: en-US, fr
 Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
  xsFNBGCG5KEBEAD1yQ5C7eS4rxD0Wj7JRYZ07UhWTbBpbSjHjYJQWx/qupQdzzxe6sdrxYSY
@@ -130,13 +131,13 @@ Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
  wDN7ORknPndzxrq3CyB7b/Tk1e8Qx+6HU/pnMb4ZqwwMwZAMk24TZpsgg28o9MQiUNzad0h2
  gIszbeej9ryrtLHxMzyK8yKhHoI2i2ovxy5O+hsWeAoCPE9xwbqnAjLjOn4Jzd/pPovizrq/
  kUoX66YgvCuHfQMC/aBPLnVunZSP23J2CrkTrnsUzw==
-In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-1-ac4471b44758@collabora.com>
+In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-17-ac4471b44758@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_054509_916398_D233E382 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250919_054546_543589_D430AD4C 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,36 +155,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Le 18/09/2025 à 02:43, Nícolas F. R. A. Prado a écrit :
-> Add a color pipeline to the CRTC state to allow post-blend color
-> pipelines.
+> Rename the existing color pipeline helpers so they contain "pre_blend"
+> in the name to make them clearly distinguishable from the post-blend
+> helpers when they're introduced.
 > 
 > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 
 > ---
->   include/drm/drm_crtc.h | 8 ++++++++
->   1 file changed, 8 insertions(+)
+>   drivers/gpu/drm/vkms/vkms_colorop.c | 8 +++++---
+>   drivers/gpu/drm/vkms/vkms_drv.h     | 2 +-
+>   drivers/gpu/drm/vkms/vkms_plane.c   | 2 +-
+>   3 files changed, 7 insertions(+), 5 deletions(-)
 > 
-> diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
-> index caa56e039da2a748cf40ebf45b37158acda439d9..77c0c04a5910a2263923e06cf37535697e20e1c9 100644
-> --- a/include/drm/drm_crtc.h
-> +++ b/include/drm/drm_crtc.h
-> @@ -274,6 +274,14 @@ struct drm_crtc_state {
->   	 */
->   	struct drm_property_blob *gamma_lut;
+> diff --git a/drivers/gpu/drm/vkms/vkms_colorop.c b/drivers/gpu/drm/vkms/vkms_colorop.c
+> index 0191ac44dec0a9513e001b304f6ead32a96cdb8c..5924ae2bd40fc904048f99bc9b96308140709e25 100644
+> --- a/drivers/gpu/drm/vkms/vkms_colorop.c
+> +++ b/drivers/gpu/drm/vkms/vkms_colorop.c
+> @@ -14,7 +14,9 @@ static const u64 supported_tfs =
 >   
-> +	/**
-> +	 * @color_pipeline:
-> +	 *
-> +	 * The first colorop of the active color pipeline, or NULL, if no
-> +	 * color pipeline is active.
-> +	 */
-> +	struct drm_colorop *color_pipeline;
-> +
->   	/**
->   	 * @target_vblank:
->   	 *
+>   #define MAX_COLOR_PIPELINE_OPS 4
+>   
+> -static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_prop_enum_list *list)
+> +static int
+> +vkms_initialize_pre_blend_color_pipeline(struct drm_plane *plane,
+> +					 struct drm_prop_enum_list *list)
+>   {
+>   	struct drm_colorop *ops[MAX_COLOR_PIPELINE_OPS];
+>   	struct drm_device *dev = plane->dev;
+> @@ -96,13 +98,13 @@ static int vkms_initialize_color_pipeline(struct drm_plane *plane, struct drm_pr
+>   	return ret;
+>   }
+>   
+> -int vkms_initialize_colorops(struct drm_plane *plane)
+> +int vkms_initialize_pre_blend_colorops(struct drm_plane *plane)
+>   {
+>   	struct drm_prop_enum_list pipeline;
+>   	int ret;
+>   
+>   	/* Add color pipeline */
+> -	ret = vkms_initialize_color_pipeline(plane, &pipeline);
+> +	ret = vkms_initialize_pre_blend_color_pipeline(plane, &pipeline);
+>   	if (ret)
+>   		return ret;
+>   
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
+> index 55440ec6db5209741af1443d4e49e9471e6795c9..37ee569474223b2cf01e3cc0e4f119777533ae23 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.h
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
+> @@ -305,6 +305,6 @@ void vkms_writeback_row(struct vkms_writeback_job *wb, const struct line_buffer
+>   int vkms_enable_writeback_connector(struct vkms_device *vkmsdev, struct vkms_output *vkms_out);
+>   
+>   /* Colorops */
+> -int vkms_initialize_colorops(struct drm_plane *plane);
+> +int vkms_initialize_pre_blend_colorops(struct drm_plane *plane);
+>   
+>   #endif /* _VKMS_DRV_H_ */
+> diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
+> index db8d26810afa8d8fcab48a6db2e691255f26a8a6..8e63a07a7e1b0a350361d0b03b7911bfa9ce3dcc 100644
+> --- a/drivers/gpu/drm/vkms/vkms_plane.c
+> +++ b/drivers/gpu/drm/vkms/vkms_plane.c
+> @@ -232,7 +232,7 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
+>   					  DRM_COLOR_YCBCR_BT601,
+>   					  DRM_COLOR_YCBCR_FULL_RANGE);
+>   
+> -	vkms_initialize_colorops(&plane->base);
+> +	vkms_initialize_pre_blend_colorops(&plane->base);
+>   
+>   	return plane;
+>   }
 > 
 
 -- 
