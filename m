@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279CDCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 23:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D862CCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 23:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J9Rvarh4LqqCmcpJvwAG87MaFX2ZdBjqkJBlEcTS4no=; b=0ebD4jByCdOShSdPBRTPLlIaqI
-	EuUSAel0EJ2fwGgpcS+6bvoyZmWxm+yfBeWfJV6MkzL/MO+Sr0MR1BA+VOVmHc7tS1kswAIy1kwRM
-	NwEgOb/NgKRc38gPthkD04iiKJEs59xRFw5YLoP7cS5SQFVz8aV9pR2/9eUSOVRH9/mto9ZSTN6YL
-	A6x8cJ4ZRgFPbUjmY/Ly5a0qRUpvg7O3nb9g012KEG3oJq+C3jZ1DXMRVs33LtQfRwUaCB8G0Nfp3
-	H+qq0glrPg9OJowR8MRcB7rns6o30CBS92mpEfec6yrbJEkQ7UNi2XzaREP0XF9MUsOGWDZ46Zz/F
-	cFRVat9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KfKALAbjgmpFUExvcy5RcZ+OJFmwCOtZwZQBuvDSCqI=; b=feh7ZH9iv21ikg/j6g3xp5dLjy
+	CQ6AhS0UbcfnzRf0sfqskKeOMLehHAstBz+cdwPURErCIPntKwS4pGYFaXBgC6txDOmONtMrPe53F
+	CEp+5OlcBk0xpc0oRJuwgEnpBY340a5cNZ+cb24rMBJHI7nimxk6h3IeDrVCkAr6kpzrZzf6Dn+5z
+	qWZVnMHWUNdfb44Hc1PbbgilEK0evlzJvIOwSkgUZ3KdA0iusOEsaQi3VBfwVqvSHLb6cY7gK2YKt
+	wb4JfJygBcF4VoEBTNFiHaCpEmbhn1UpCRkhuOqWfkYFvF6+MT3kqRf/jlIVsow+6Sk/P/7g7EYsE
+	hZTOdVzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzkH3-00000004Iwx-0v0F;
-	Fri, 19 Sep 2025 23:12:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uzkIZ-00000004JFW-1OWf;
+	Fri, 19 Sep 2025 23:13:51 +0000
+Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.12.53.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzkGz-00000004IvY-2UJq
+	id 1uzkIX-00000004JEp-0wHo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 23:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758323532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=J9Rvarh4LqqCmcpJvwAG87MaFX2ZdBjqkJBlEcTS4no=;
-	b=cFL7XmD2TQML7PAa+32B9IrGM/aZr84c2UnlI4pD+6fp2nXetUd+wA0CAZjQyTplvX7Sq3
-	FUOs2TX+nq3kki/OTc/hoIC4Snji7JocCne1mxXLN4jfeYrpm68dm5syTmqjhBZvAJxrCD
-	BXMhifMaYjDAth+FFG8U+LqftOStL6g=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-czsshAHePYOwHALUbfW5aQ-1; Fri,
- 19 Sep 2025 19:12:09 -0400
-X-MC-Unique: czsshAHePYOwHALUbfW5aQ-1
-X-Mimecast-MFC-AGG-ID: czsshAHePYOwHALUbfW5aQ_1758323528
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0DA5519560B2;
-	Fri, 19 Sep 2025 23:12:07 +0000 (UTC)
-Received: from [172.20.26.51] (unknown [10.30.44.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 393C91800577;
-	Fri, 19 Sep 2025 23:12:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc6,
- upstream-arm-next, 506ba4ea)
-Date: Fri, 19 Sep 2025 23:12:06 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Fri, 19 Sep 2025 23:13:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1758323629; x=1789859629;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=KfKALAbjgmpFUExvcy5RcZ+OJFmwCOtZwZQBuvDSCqI=;
+  b=lX/e/bPMpu6PBguWUJzvv9Frb3RY2QOinBxXhnWFupzUJ3YhA1yMqLmW
+   fkcutSwj+Ry6WsBJD2zvV9AxQuvPvrVz3VHyDSb5pU3v/u7hluyyyFqzu
+   g2YUwcXmRlycbDI5Iuns48TyTzH1KSEaJPTPIVGYtQlS1XOTBWmt+HzIr
+   W/WiDseVUXUjTnoFsPUvlueKmOuGrRZ1fiStV9Z5va5MzfFSBpgsae/w2
+   2r3Yx3GdotPZ7RlROuYX42JuBTlXlQbn3d2UmIiGMJUvTDyNtKrrN8u09
+   9cDjbz5aocPLbkGuD/rnpRX8KVBXBxd5weCGOGIKjlFhiZSMBD/C6s0MF
+   g==;
+X-CSE-ConnectionGUID: svCWeSlkSVC/dSz++PPR0A==
+X-CSE-MsgGUID: h8bxUliVSJGGD7+tUhRflA==
+X-IronPort-AV: E=Sophos;i="6.18,279,1751241600"; 
+   d="scan'208";a="3213750"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Sep 2025 23:13:46 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [10.0.21.151:10324]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.53:2525] with esmtp (Farcaster)
+ id e14a9c00-d7d3-4833-b24c-5d2c4ebae526; Fri, 19 Sep 2025 23:13:46 +0000 (UTC)
+X-Farcaster-Flow-ID: e14a9c00-d7d3-4833-b24c-5d2c4ebae526
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 19 Sep 2025 23:13:45 +0000
+Received: from dev-dsk-ravib-2a-f2262d1b.us-west-2.amazon.com (10.169.187.85)
+ by EX19D032UWA003.ant.amazon.com (10.13.139.37) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 19 Sep 2025 23:13:45 +0000
+From: Ravi Kumar Bandi <ravib@amazon.com>
+To: <lpieralisi@kernel.org>, <mani@kernel.org>, <bhelgaas@google.com>,
+	<linux-pci@vger.kernel.org>
+CC: <kwilczynski@kernel.org>, <robh@kernel.org>, <michal.simek@amd.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] PCI: xilinx-xdma: Enable legacy interrupts
+Date: Fri, 19 Sep 2025 23:13:30 +0000
+Message-ID: <20250919231330.886-1-ravib@amazon.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <82537.125091919120900352@us-mta-607.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jNmOoRZ7rFen7dG0yz-VTE5W1znn4-ZKnW6pn-lZ1Tw_1758323528
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.169.187.85]
+X-ClientProxiedBy: EX19D044UWB002.ant.amazon.com (10.13.139.188) To
+ EX19D032UWA003.ant.amazon.com (10.13.139.37)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_161213_706147_EF78D427 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_161349_317269_2060B855 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Starting with kernel 6.6.0, legacy interrupts from PCIe endpoints
+do not flow through the Xilinx XDMA root port bridge because
+interrupts are not enabled after initializing the port.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+This issue is seen after XDMA driver received support for QDMA and
+underwent relevant code restructuring of old xdma-pl driver to
+xilinx-dma-pl (ref commit: 8d786149d78c).
 
-Tested-by: CKI Project <cki-project@redhat.com>
+This patch re-enables legacy interrupts to use with PCIe endpoints
+with legacy interrupts. Tested the fix on a board with two endpoints
+generating legacy interrupts. Interrupts are properly detected and
+serviced. The /proc/interrupts output shows:
+[...]
+32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+[...]
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+---
+ drivers/pci/controller/pcie-xilinx-dma-pl.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2050666388
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+index b037c8f315e4..cc539292d10a 100644
+--- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
++++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+@@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
+ 		return err;
+ 	}
+ 
++	/* Enable interrupts */
++	pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
++		   XILINX_PCIE_DMA_REG_IMR);
++	pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
++		   XILINX_PCIE_DMA_REG_IDRN_MASK);
++
+ 	return 0;
+ }
+ 
+-- 
+2.47.3
 
 
