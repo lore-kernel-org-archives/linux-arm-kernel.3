@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4978DCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 11:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA83ACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 11:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/rUH7jDim/iDoq9ZyeDizoMEUiPmn7/ATNJ2S1xOgM=; b=cZ0q19TKY7WTeMl6zquGgTfSmU
-	MI8l0IdrAyf+7jadFtysrtofSFA5wRuRPH1PNUhiZCwRztx2634rOpQjk2IZ0TzdQAusoVWlD/A45
-	dDCppAu8Ora1+7dwus7rbZ6STGaDNIGp8Un10+HC6jIPuOo8XyGj1mzLWf6oripeZAOfmLZzybQeb
-	Qp4o5q1MKHGdiFBauNdp8ecWLRQ/+T69Jy9gOeKmEiZ5tFhhDxCpHXfRb4gMsJrtYZgK/vdE3OK89
-	KSKRz2HlAyGTOgYOQJVNddh4BVIa05r361x/xkfBsYeYxgeezAoCDn4II+35hKjaZ7Ysoq+8Ul99C
-	MDyHPMEg==;
+	bh=tJ1bcB1s0zz3tgBDEHljOqaNE+5+x52FmyZ/wmPMdmw=; b=HO4vjXRnAPp2zCjRWcKJAlzoW4
+	wn57KlMfny6pUiPa7UhKSZWtKfgLLq2nCDO3E0uVq43eNGq21jRFSm4G+MciSCD1HClvvIXxT2dq4
+	9X2LJ4ThaPFPnfWAXEDaDhDwdSFyfwANsfEjI85DjF/A+Cp4hL7j/11FytXLMTSiaeAxjF/EBFWgc
+	+HStfIfj4Jl5topFBhFMyDCySEOxZFc+qz4J0WESXn0X/OtMHRPtQz+OQqI0Q4YTd77FB50/J8My8
+	hHrqWvFsITBUvphUW8Hv5XRw5Es0cFShHBeqzYnr1+eOu+2nDpqkooUpKesK09Af3dG3m+dPbWcUw
+	BuLz8mJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZMi-00000002i7L-1woC;
-	Fri, 19 Sep 2025 11:33:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzZOg-00000002iRT-3gjd;
+	Fri, 19 Sep 2025 11:35:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZMg-00000002i79-3Z2f
+	id 1uzZOf-00000002iQl-0Y9N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 11:33:22 +0000
+	Fri, 19 Sep 2025 11:35:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DF0E260053;
-	Fri, 19 Sep 2025 11:33:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF28C4CEF0;
-	Fri, 19 Sep 2025 11:33:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CC5E040868;
+	Fri, 19 Sep 2025 11:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6FACC4CEF0;
+	Fri, 19 Sep 2025 11:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758281601;
-	bh=60tCwws14AuRTFjXSEyQh2FegsOGpWR0H6cOtV+AU1s=;
+	s=k20201202; t=1758281724;
+	bh=8V/ME5FetuhSVUNdHBVPAq2YDWKI9klTf230RijzXoo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V5NAluUHjHtCOMCXJ4XwrXs4pzxwgex/sH+MaMTdYp/oCzjboGHROfXR3FRjc8ndF
-	 s96itkkalOZXQEcUq7lUR+jO6oFiqROlEWpduBktsh9dTUd4s8cpn3jhJcXL1Br77Z
-	 vFlYVtXPD/0sEnom513qD3tQ6gD7Z0p/xbX6OP/pjnVHsxQ+Y0e+rL18zP32spqHua
-	 FmUpsY8KM9uAFpayuLzH1dxO7K8CGMBAycEqaO5+ot5XRMvnrFcv4tAN5wydjYhks/
-	 COFZVxCOeSNJqiSxFs5tgFlkwVrhaOsd5z523Volgjc0h253cGVeK8fJ+WRVqPcIFv
-	 hGCCnyx5DrkIg==
-Date: Fri, 19 Sep 2025 12:33:16 +0100
+	b=AjT670faGCLl/hl2yw+AaBv0uZfKXVuSzZ1v7N4f2eiUHjVVkho9EAKbR+5PazVVj
+	 aM28J8HnJRxj6uxMdgPSFO4YpOVSDfaCK0sqjQFQV+RYZU/jh++3Am8SUEfT44I9io
+	 9UWTXZcg7ZxsMkGGyvdthYlDqHsIDE3EmsageVOSjh0U/ZLmDwDVGvocctIZjj8nCf
+	 lJpkc4VlgxtjrTtAmf/b09maMt1ydxNvpUx/9r9mDHVRPGaOx6GjcyseWVsJp5AFsJ
+	 8HBQJp0qYYctc+hmJ+WDtSHIdfMDipo2gHK+2ddPycJqFc8Y1RzRfUM7dpzKOvkDt3
+	 FtOzPc95o4KMw==
+Date: Fri, 19 Sep 2025 12:35:19 +0100
 From: Will Deacon <will@kernel.org>
 To: Ard Biesheuvel <ardb+git@google.com>
 Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -53,15 +53,18 @@ Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Peter Zijlstra <peterz@infradead.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v3 4/8] arm64/fpsimd: Permit kernel mode NEON with IRQs
- off
-Message-ID: <aM0_fHqDtDyhZ8L-@willie-the-truck>
+Subject: Re: [PATCH v3 6/8] arm64/efi: Use a mutex to protect the EFI stack
+ and FP/SIMD state
+Message-ID: <aM0_96QvR-hlYMJJ@willie-the-truck>
 References: <20250918103010.2973462-10-ardb+git@google.com>
- <20250918103010.2973462-14-ardb+git@google.com>
+ <20250918103010.2973462-16-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250918103010.2973462-14-ardb+git@google.com>
+In-Reply-To: <20250918103010.2973462-16-ardb+git@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_043525_194088_22416C13 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,87 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 12:30:15PM +0200, Ard Biesheuvel wrote:
+On Thu, Sep 18, 2025 at 12:30:17PM +0200, Ard Biesheuvel wrote:
 > From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> Currently, may_use_simd() will return false when called from a context
-> where IRQs are disabled. One notable case where this happens is when
-> calling the ResetSystem() EFI runtime service from the reboot/poweroff
-> code path. For this case alone, there is a substantial amount of FP/SIMD
-> support code to handle the corner case where a EFI runtime service is
-> invoked with IRQs disabled.
-> 
-> The only reason kernel mode SIMD is not allowed when IRQs are disabled
-> is that re-enabling softirqs in this case produces a noisy diagnostic
-> when lockdep is enabled. The warning is valid, in the sense that
-> delivering pending softirqs over the back of the call to
-> local_bh_enable() is problematic when IRQs are disabled.
-> 
-> While the API lacks a facility to simply mask and unmask softirqs
-> without triggering their delivery, disabling softirqs is not needed to
-> begin with when IRQs are disabled, given that softirqs are only every
-> taken asynchronously over the back of a hard IRQ.
-> 
-> So dis/enable softirq processing conditionally, based on whether IRQs
-> are enabled, and relax the check in may_use_simd().
+> Replace the spinlock in the arm64 glue code with a mutex, so that
+> the CPU can preempted while running the EFI runtime service.
 > 
 > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
->  arch/arm64/include/asm/simd.h |  2 +-
->  arch/arm64/kernel/fpsimd.c    | 16 ++++++++++------
->  2 files changed, 11 insertions(+), 7 deletions(-)
+>  arch/arm64/kernel/efi.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-> index 8e86c9e70e48..abd642c92f86 100644
-> --- a/arch/arm64/include/asm/simd.h
-> +++ b/arch/arm64/include/asm/simd.h
-> @@ -29,7 +29,7 @@ static __must_check inline bool may_use_simd(void)
->  	 */
->  	return !WARN_ON(!system_capabilities_finalized()) &&
->  	       system_supports_fpsimd() &&
-> -	       !in_hardirq() && !irqs_disabled() && !in_nmi();
-> +	       !in_hardirq() && !in_nmi();
+> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+> index 0d52414415f3..4372fafde8e9 100644
+> --- a/arch/arm64/kernel/efi.c
+> +++ b/arch/arm64/kernel/efi.c
+> @@ -166,15 +166,22 @@ asmlinkage efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f)
+>  	return s;
 >  }
 >  
->  #else /* ! CONFIG_KERNEL_MODE_NEON */
-> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-> index c37f02d7194e..96a226316d1f 100644
-> --- a/arch/arm64/kernel/fpsimd.c
-> +++ b/arch/arm64/kernel/fpsimd.c
-> @@ -225,10 +225,12 @@ static void fpsimd_bind_task_to_cpu(void);
->   */
->  static void get_cpu_fpsimd_context(void)
->  {
-> -	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> -		local_bh_disable();
-> -	else
-> +	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-> +		if (!irqs_disabled())
-> +			local_bh_disable();
-> +	} else {
->  		preempt_disable();
-> +	}
->  }
+> -static DEFINE_RAW_SPINLOCK(efi_rt_lock);
+> +static DEFINE_MUTEX(efi_rt_lock);
 >  
->  /*
-> @@ -240,10 +242,12 @@ static void get_cpu_fpsimd_context(void)
->   */
->  static void put_cpu_fpsimd_context(void)
+>  bool arch_efi_call_virt_setup(void)
 >  {
-> -	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> -		local_bh_enable();
-> -	else
-> +	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-> +		if (!irqs_disabled())
-> +			local_bh_enable();
+>  	if (!may_use_simd())
+>  		return false;
+>  
+> +	/*
+> +	 * This might be called from a non-sleepable context so try to take the
+> +	 * lock but don't block on it. This should never fail in practice, as
+> +	 * all EFI runtime calls are serialized under the efi_runtime_lock.
+> +	 */
+> +	if (WARN_ON(!mutex_trylock(&efi_rt_lock)))
+> +		return false;
 
-This is a little ugly, so I think a small comment summarising the
-penultimate paragraph of your commit message would help to explain the dance
-you're doing.
-
-With that:
-
-Acked-by: Will Deacon <will@kernel.org>
+If it will never fail in practice, why do we need the lock at all? Can we
+just assert that the efi_runtime_lock is held instead and rely on that?
 
 Will
 
