@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA9CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740E0CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AI+xJYubzU8xYbi5UOSxx5OYAN6NReD9lv4iQlpsxGI=; b=ty7d+D0MTXuyIXHyS4cO1fxB73
-	DBDCFgKaf+pOO2uxv8/4Ko4kGwCCYLJnu6cUm8RQQ58thQq0yg7UJkiNw8BfYkmn28ysXG8ggaUhL
-	0CNO1pB5DVGTH0YTKHL6kHr+3CK5Hiz4xbGn8pPvfzf0ZFmK4/cgvwndVTmjuj8N8D7726AzJi3HT
-	pjxiqxeNm91WcUxQJEk+LN1P+SXOVxM2GabrFSh5PJdvqUQ5YHhuxs0PILkJMC6PnMG/jo698yRT0
-	LSPT65vU/yii83WuCHLQmtyJ78PfKZS1F00APvLFBYDo+K0XqvACSHcNHDKt52KO7ukgtyLBPpwKf
-	lUI4Ao7Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ar0l6HaA8/XCFBrJEeQsM3m+hHZPoIWL3mHaPbJ+uUA=; b=hZuD7sS/5pbEcB64bGSjPbapKh
+	fsDAIhmMI1Q/UQ/tlQDzLvcW0UTDv8OgOsENfEAZrZBucmjggq9/xUmYQWZkVkd/a7zzWbtpdn6XP
+	cu/nclLK8R8msKQ5NpjBUA+k62MojO2DMzDGPQsqeuAG1aIToMrQfN19POXKSgE9kg/aMiIQQLX+4
+	hDNHBUBnB92KlBpRmgKFEJPM0bklBRN4Yfc11wtN70ZEPUQqG82n0RxtapznOfd8x09u+M3XqtWQt
+	KMqwUHkaluOpT+0deCYAiH18Nv+nREFTKo+Zc/tm2AonFXMgf5AJUwc4XYZU5ZiKLviSzQnosmHo1
+	Z2ww39ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdej-00000003TRC-17WA;
-	Fri, 19 Sep 2025 16:08:17 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzded-00000003TGA-1m1w
+	id 1uzdh0-00000003TpV-0uWY;
+	Fri, 19 Sep 2025 16:10:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzdgx-00000003Tp2-0AUh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 16:08:12 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758298028;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=AI+xJYubzU8xYbi5UOSxx5OYAN6NReD9lv4iQlpsxGI=;
-	b=YZ/lvbCEDGq2qugkxdT68KuY11ipuLPPS/lFfSPjzNYXQbBnxLGv/qQNdS0HhBnrusAwc/
-	Ee8zEynI1IJnWgQXZbcpHKEcQGKxNa269+HurkW7EqV/i36SZbEsNZXiOch/TUgsrbyEs0
-	uyD0P2izsG6sB1Ha9stJU2CY2MUce84=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Leo Yan <leo.yan@arm.com>,
-	Linu Cherian <lcherian@marvell.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v4 0/2] coresight: Fix possible deadlock in coresight_panic_cb
-Date: Fri, 19 Sep 2025 12:06:51 -0400
-Message-Id: <20250919160653.507109-1-sean.anderson@linux.dev>
+	Fri, 19 Sep 2025 16:10:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AE5E169C;
+	Fri, 19 Sep 2025 09:10:24 -0700 (PDT)
+Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 570503F66E;
+	Fri, 19 Sep 2025 09:10:27 -0700 (PDT)
+Message-ID: <4f523696-54ab-427d-974a-3c5ffb865fed@arm.com>
+Date: Fri, 19 Sep 2025 17:10:25 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/29] ACPI / PPTT: Add a helper to fill a cpumask from
+ a processor container
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-2-james.morse@arm.com>
+ <20250911114337.0000487e@huawei.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20250911114337.0000487e@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_090811_609779_D168F6E6 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_091035_181481_CF4F5662 
+X-CRM114-Status: GOOD (  46.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,28 +82,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This time with the notifier in csdev.
+Hi Jonathan,
 
-Changes in v4:
-- Fix fwnode leak in coresight_register error path
-- Move the panic notifier into csdev and restore the panic sync API
+On 11/09/2025 11:43, Jonathan Cameron wrote:
+> On Wed, 10 Sep 2025 20:42:41 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> The ACPI MPAM table uses the UID of a processor container specified in
+>> the PPTT to indicate the subset of CPUs and cache topology that can
+>> access each MPAM System Component (MSC).
+>>
+>> This information is not directly useful to the kernel. The equivalent
+>> cpumask is needed instead.
+>>
+>> Add a helper to find the processor container by its id, then walk
+>> the possible CPUs to fill a cpumask with the CPUs that have this
+>> processor container as a parent.
+>>
+>> CC: Dave Martin <dave.martin@arm.com>
+>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+> 
+> Hi James,
+> 
+> Sorry I missed v1.  Busy few weeks.
+> 
+> I think one resource leak plus a few suggested changes that
+> I'm not that bothered about.
 
-Changes in v3:
-- Rewrite patch to remove the panic sync API entirely
 
-Changes in v2:
-- Add a comment describing csdev_lock/list
-- Consolidate list removal in coresight_device_release
 
-Sean Anderson (2):
-  coresight: Fix fwnode leak in coresight_register error path
-  coresight: Fix possible deadlock in coresight_panic_cb
+>> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+>> index 54676e3d82dd..1728545d90b2 100644
+>> --- a/drivers/acpi/pptt.c
+>> +++ b/drivers/acpi/pptt.c
+>> @@ -817,3 +817,86 @@ int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>>  	return find_acpi_cpu_topology_tag(cpu, PPTT_ABORT_PACKAGE,
+>>  					  ACPI_PPTT_ACPI_IDENTICAL);
+>>  }
+> 
+>> +/**
+>> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
+>> + *                                       processor container
+>> + * @acpi_cpu_id:	The UID of the processor container.
+>> + * @cpus:		The resulting CPU mask.
+>> + *
+>> + * Find the specified Processor Container, and fill @cpus with all the cpus
+>> + * below it.
+>> + *
+>> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
+>> + * Container, they may exist purely to describe a Private resource. CPUs
+>> + * have to be leaves, so a Processor Container is a non-leaf that has the
+>> + * 'ACPI Processor ID valid' flag set.
+>> + *
+>> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
+>> + */
+>> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
+>> +{
+>> +	struct acpi_pptt_processor *cpu_node;
+>> +	struct acpi_table_header *table_hdr;
+>> +	struct acpi_subtable_header *entry;
+>> +	unsigned long table_end;
+>> +	u32 proc_sz;
+>> +
+>> +	cpumask_clear(cpus);
+>> +
+>> +	table_hdr = acpi_get_pptt();
+> 
+> This calls acpi_get_table() so you need to put it again or every call
+> to this leaks a reference count.  I messed around with DEFINE_FREE() for this
+> but it doesn't fit that well as the underlying call doesn't return the table.
+> This one does though so you could do a pptt specific one.  
+> 
+> Or just acpi_put_table(table_hdr); at exit path from this function.
 
- drivers/hwtracing/coresight/coresight-core.c | 69 ++++++++------------
- include/linux/coresight.h                    |  2 +
- 2 files changed, 28 insertions(+), 43 deletions(-)
+This is a strange one - you spotted it on your follow up email.
 
--- 
-2.35.1.1320.gc452695387.dirty
+
+>> +	if (!table_hdr)
+>> +		return;
+>> +
+>> +	table_end = (unsigned long)table_hdr + table_hdr->length;
+>> +	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
+>> +			     sizeof(struct acpi_table_pptt));
+
+> Hmm. Not related to this patch but I have no idea why acpi_get_pptt()
+> doesn't return a struct acpi_table_pptt as if it did this would be a simple
+> + 1 and not require those who only sometimes deal with ACPI code to go
+> check what that macro actually does!
+
+Looks like that would have a knock on effect for the types in:
+| topology_get_acpi_cpu_tag()
+| acpi_find_processor_node()
+| cache_setup_acpi_cpu()
+| fetch_pptt_node()
+
+... basically everywhere this file uses struct acpi_table_header...
+
+It's simpler to cast it here if you're keen on the '+1' approach, but this pattern is how
+this file does this. This is the same as acpi_pptt_leaf_node().
+
+
+>> +	proc_sz = sizeof(struct acpi_pptt_processor);
+
+
+> Maybe sizeof (*cpu_node) is more helpful to reader.
+
+(again, same as acpi_pptt_leaf_node())
+
+
+> Also shorter so you could do
+> 	while ((unsigned long)entry + sizeof(*cpu_node) <= table_end)
+> 
+>> +	while ((unsigned long)entry + proc_sz <= table_end) {
+>> +		cpu_node = (struct acpi_pptt_processor *)entry;
+> 
+> For me, assigning this before checking the type is inelegant.
+
+I agree, but when in pptt.c ...
+
+
+> but the nesting does get deep without it so I guess this is ok maybe, though
+> I wonder if better reorganized to combine a different bunch of conditions.
+> I think this is functionally identival.
+> 
+> 		if (entry->type == ACPI_PTT_TYPE_PROCESSOR) {
+> 			struct acpi_pptt_processor *cpu_node = 
+> 				(struct acpi_pptt_processor *)entry;
+> 			if ((cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) &&
+> 			    (!acpi_pptt_leaf_node(table_hdr, cpu_node) &&
+> 			    (cpu_node->acpi_processor_id == acpi_cpu_id)) {
+> 				acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+> 				break;
+> 		
+> 			}
+> 		}
+> 		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+> 				     entry->length);
+
+It is the same - I think this is better as it reduces the scope of cpu_node.
+
+
+> More generally I wonder if it is worth adding a for_each_acpi_pptt_entry() macro.
+> There is some precedence in drivers acpi such as for_each_nhlt_endpoint()
+
+When this series had support for ACPI PPI-Partitions there were more PPTT helpers and I
+had a function pointer based call_on_every_entry() kind of thing. Jeremy L though it
+obscured the flow. A custom for_each_ is probably better.
+
+I may float it as an RFC after these are done. I don't want to make this series any
+bigger. It certainly makes the users easier on the eye.
+| drivers/acpi/pptt.c | 43 +++++++++++++++----------------------------
+| 1 file changed, 15 insertions(+), 28 deletions(-)
+
+Stashed here for posterity:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git/commit/?h=pptt/for_each_pptt_entry/v0&id=353ceeba3d39c6b6a10eeb1a59c49649cdf719d8
+
+
+> That's probably material for another day though unless you think it brings
+> enough benefits to do it here.
+> 
+> 
+>> +		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
+>> +		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
+>> +			if (!acpi_pptt_leaf_node(table_hdr, cpu_node)) {
+>> +				if (cpu_node->acpi_processor_id == acpi_cpu_id) {
+>> +					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
+>> +					break;
+>> +				}
+>> +			}
+>> +		}
+>> +		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
+>> +				     entry->length);
+>> +	}
+>> +}
+>> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+>> index 1c5bb1e887cd..f97a9ff678cc 100644
+>> --- a/include/linux/acpi.h
+>> +++ b/include/linux/acpi.h
+>> @@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+>>  int find_acpi_cpu_topology_cluster(unsigned int cpu);
+>>  int find_acpi_cpu_topology_package(unsigned int cpu);
+>>  int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
+>> +void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+>>  #else
+>>  static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+>>  {
+>> @@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+>>  {
+>>  	return -EINVAL;
+>>  }
+>> +static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
+>> +						     cpumask_t *cpus) { }
+>>  #endif
+>>  
+>>  void acpi_arch_init(void);
+> 
 
 
