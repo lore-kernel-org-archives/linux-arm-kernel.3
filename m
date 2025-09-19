@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185EACAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79541CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pHZG9bcElhtMtIe02tLqtkF2uGVTgQcC3bk12Urlxs=; b=3K5NlXrjhMC9q1u8e+Xtnc6C+g
-	Be2LHXiVJxDsA3kep8fkdMPTtmWq+OTDx3zwhi/odXaY884ro4ZwmeNa/lIuSxEZc42pDz/duIXIs
-	MNGdNoFSqKAX+hcu6kQ6PMLpTQjPm9qTHHg7wax6Gbsq3Ay7FBzaOkKtNV9Z6yjEF+FXhi2l8KXeu
-	bC2FHUHJvMI8gWuwKcBEdWJy/edgnp+Vb8fdkur6oh3cGyjXVw0/+kGJnVWklGGZBrgt7gsI46S7B
-	AEKL6YhTh1mCHJ1yYHyPGDkA8SYAhXjnTtMrHccSZ+xvK9jaYP4h9blbfT1wU/HBcI/V/iCKDocTz
-	GMYNoxzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8n/0W6JHitUDwoMpFjg9k4Y2pN5WPpEih5itsKuiCZc=; b=ESurxVsgptLR8qrr1YYh38HCDm
+	8I1+ugov2QytOQ8SmvThxlps2PLEhgvlzIX55A+WFU6biYgHht8jSgTygym5tj+f0RmogYiAkWG7W
+	deblcM2Eq0DjA6d05sCIf2yQpnxanEN5jvL1DwOCZQ9dsPb+b84cNYO5TtEZQ8QSVqGN2zLVQSUwl
+	VPscyXcoMB7xoDpf7HB+tM7UtkP7mBvIok+Kd4nx5Yfm/FccHcscQVw9yh9YTIfNsL5Ipqmg6mJkN
+	1uupB6JTMh+2fBdd3i91fyYdldBHM0MOGp0u/CRsDVGSJhmzKfmLYfmenpTb5pxJjiBeULeQXQNAl
+	TMiL3hjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOiz-00000001Ux5-33K5;
-	Fri, 19 Sep 2025 00:11:41 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uzOls-00000001VJB-149F;
+	Fri, 19 Sep 2025 00:14:40 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOiw-00000001UvT-1gvO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 00:11:40 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7761dc1b36dso2894345b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Sep 2025 17:11:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758240697; x=1758845497; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pHZG9bcElhtMtIe02tLqtkF2uGVTgQcC3bk12Urlxs=;
-        b=IlMGW6tPvNpk3IW/km8vLsSnW471EIUdbYbWVXknuoRw0PEDTNWaohhCIg/+ANXNQK
-         RtsmVmDO7W+BkzT24gXDy6ap0Y2WrrsebjXXEp5GBNZxV0tTMylnTghlgkSyTNSDhBa9
-         uhqz6fgh91PIQO9V0P2cj8427tpakgAX+SWweY5aRa25/mY3YP3oZR5vEIpi5wuqLOZk
-         MJeZJoFggRxkRuZ7oubTzARYA1xOgVv6sb5RSCgqTd0mm+6GJmMgP4xZd9awrnz059+I
-         rjU23A7Br9iDmKiygeG4maB6y/Fx98yYZ8lvIg+k2oby3rZRgUZENccqis8sRu94Af+x
-         zE+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758240697; x=1758845497;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5pHZG9bcElhtMtIe02tLqtkF2uGVTgQcC3bk12Urlxs=;
-        b=rrZGK8ve7JNSWrL3S5JyWRZFTT5ie/xnRbd/gcR/rBtnIWZKHQbBhtXxthJ0dRJXs9
-         +3kwsqaDUQIHldIBz/u+ad5bd47zbXAk8F2xndxYDglpj7k90Dw4SXrxBJqTmgZ+wsO7
-         i4vTWFXzU9L7i6xLfKDxOW8MCuWo8mSMcZiloXXrAPlpMj/1NV/RdnI441qjEena+nuS
-         cgtL1h3dTKxihE/L2KosEqm3IvrV51XKNBpY2gNn/LHVvOxoB5enXLMzwPYIogsryGoY
-         2GkiODJSh/V3iuPeiEB6BiXZLDnbRBnJAmDQ2G/aPhSCwANHVJ/p55xxO7mDQ7qSGSCX
-         hq1g==
-X-Gm-Message-State: AOJu0Yxa16lRHAShBL0WrCZj4i6fp1yJOHVo0ZxBGH7wkKEywua9z/SN
-	Rr7AVzvBbC3TRMJRpbEx00NZr5vjoFT3I3iwQc3hvjSmmMpriYuzKbM5XeOQNAvSz1vrtjeoiZB
-	yNV3lQA==
-X-Google-Smtp-Source: AGHT+IHL6wVIYMVXo/qF+C7m2xAthhi9wrZHJ6iKg3qq/wSUNMfIVTHCzCbvYXSzkHH/AND/3vPqEr/ALak=
-X-Received: from pjyf16.prod.google.com ([2002:a17:90a:ec90:b0:330:75c7:341c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:99a8:b0:252:3c5e:45cc
- with SMTP id adf61e73a8af0-2925d5abc4cmr2117916637.19.1758240696687; Thu, 18
- Sep 2025 17:11:36 -0700 (PDT)
-Date: Thu, 18 Sep 2025 17:10:50 -0700
-In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.470.ga7dc726c21-goog
-Message-ID: <175824021167.1343722.9290387002572827825.b4-ty@google.com>
-Subject: Re: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Kan Liang <kan.liang@linux.intel.com>, 
-	Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>, 
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>
-Content-Type: text/plain; charset="utf-8"
+	id 1uzOlp-00000001VI2-1iFC;
+	Fri, 19 Sep 2025 00:14:39 +0000
+X-QQ-mid: zesmtpip3t1758240836tb58d29e6
+X-QQ-Originating-IP: m6WApfYMqy/M1U5G9blRrrjx+KT0iGx5rYj1EBrL7aY=
+Received: from [IPV6:240f:10b:7440:1:ce36:128f ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 19 Sep 2025 08:13:52 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3376898036188312182
+Message-ID: <F1C5CEF8D2933380+98b20449-12bb-4697-84e0-40fd8c2ed81f@radxa.com>
+Date: Fri, 19 Sep 2025 09:13:51 +0900
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO
+ 3
+To: Ed W <lists@wildgooses.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250917114932.25994-1-lists@wildgooses.com>
+ <20250917114932.25994-2-lists@wildgooses.com>
+ <FBB5B30DE8FEABD7+59ee6f48-2ad1-45dd-8cf1-8b58a03513a9@radxa.com>
+ <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: OAOHw7tUGLQOcxelNBtkTVWFdi8/NGrLMCDKXvFBpW4bo9CpAlddDcXD
+	aBeJWa76gD9H1h/5+gsuhYc3MdFNrjPMA8l7hWoLRInPb+7gsDVKbzbGdd8G4DILDa+3R5R
+	FVYCZnm/v53Ad1yswfmtcOaPNqXurdBrjFN4/MCbd1hWOrqSvHbp/csKVJltTFDzHQWThnX
+	8CjTfMxziQF5ybLPVWVOFLFaslYCySlN6A/sL9oTUB0bSOP+fLse/mvQUfbhbeTzmvGfUhj
+	o5y2fRQaCXHIqOKzsM0kR4VRXrnygpVjZnwyYaLsRjFxHcCdFxK1nW5ioh/nnUdTIvX4ag5
+	ZCeSs6gucfCFWtdN/regX2wXKvoebWhvN3ekTrGkHgCU60S315e9h8L50MOw2Jb/77UiXWW
+	hH3CypWLuFtJLjAN3sgm2d8Zs1lFl7Z6k73sQxahBpuUYjYfgrQJQkM6i0GdSQoboqik+bQ
+	lIOaiXDciSen9RACuxkcC0fCwsU0mPEEraveQLwY9OtUXgx3wCfc7KbCzqXbHxFS/E+GCTm
+	B2sOkQhMXHnERU+NfQ1yKVu9T8JM+hqy8emchfb3RvnhYOLYqCfvxw1bm1Ot3mnZ8LK3Me1
+	7mcVMjHz1c22+qoUcwp5S2ElLj+wqCA4h+pDcTFUS4Oblr1BUbpInGdkSjMlKt+cgnIzL/H
+	ZX1bbXvghralKOdGVjszj4CTc7UO0YxvO5QIOseMLkGzfQJ50Qk9++2NkWwK+5GyBQIuvl4
+	9R/8/seGPnGFTV/cSz+5w9qHprVVoCCYhRcKdB6FUg1Z81avqYxQ69kNWKaS5piLnzFP/D3
+	VNYIqqMvFIeATJ9NtL/AHgQnK03YkXJdrzo7lc8ddS9e5Uc273Em0QQKd/w/46vYHbF26mf
+	XkabuuraSUxWFds1iyJEV0OZRJYENAbINFuQYgwmiR6RO8zvHYXHR649DwWAof027az5g06
+	8UQ0RUsMmPYXp/MQqqg5KLZMrSOXsjFSQgXtBT2Rnpw1wLFQ/mXM7nJFiIYlORyn4w9lS0l
+	icoLXBpB0//wm33lio
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_171138_437026_830C6CD8 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250918_171437_962444_5B7EEF0B 
+X-CRM114-Status: GOOD (  28.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +91,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Aug 2025 12:56:22 -0700, Sean Christopherson wrote:
-> This series is based on the fastpath+PMU cleanups series[*] (which is based on
-> kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
-> I.e. if you only care about the perf changes, I would just apply on whatever
-> branch is convenient and stop when you hit the KVM changes.
+Hi Ed,
+
+On 9/19/25 00:23, Ed W wrote:
+> On 18/09/2025 05:53, FUKAUMI Naoki wrote:
+>> Hi Ed,
+>>
+>> Thank you very much for your work.
+>>
+>> On 9/17/25 20:49, Ed Wildgoose wrote:
+>>> The rk3566 has multiplexed pins and the uarts can be moved to a choice
+>>> of 2 pin groups. The default rk356x-base.dtsi appears to default to mux0
+>>> for all uarts, however, specific hardware might choose to implement
+>>> alternatives
+>>>
+>>> The Radxa zero 3 shows that is uses M1 for uarts:
+>>> - uart4
+>>> - uart5
+>>> - uart9
+>>>
+>>> These aren't normally enabled, but we should at least correct the
+>>> default pinctrl definitions. Without these changes there will be
+>>> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
+>>
+>> Sorry, but why do we need these definitions for disabled nodes?
+>>
+>> Or why don't we do similar definitions for nodes other than uart?
+>> For example, PWM12, I2S3, and SPI3 also use M1. Are they not related to SD/eMMC and therefore
+>> don't need to be defined?
+>>
+>> If users want to use UARTs on pin headers, they will refer to the correct documentation[1] to
+>> determine which pins are UARTs and will of course write the correct pinctrl definition.
+>>
+>> [1] https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface#gpio-interface
+>>
+>> Best regards,
+>>
+>> -- 
+>> FUKAUMI Naoki
+>> Radxa Computer (Shenzhen) Co., Ltd.
 > 
-> My hope/plan is that the perf changes will go through the tip tree with a
-> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
 > 
-> [...]
+> Personally, and I'm saying this as a user who is technical enough to fix the definitions, it took me
+> quite a few days to figure out what was wrong with the definitions and understand the intricate tree
+> of dtsi includes, to finally figure out why I couldn't just do a "status = "okay";" to enable the
+> UARTs... (which is roughly what is shown in several radxa supplied overlays to enable uarts on
+> various boards)
+> 
+> So my vote would be to correctly define all the hardware for a given board. Then users can simply do
+> a status="okay" to enable and off they go. Phrased another way, I can't see a disadvantage in doing
+> this, rather than leaving broken definitions in place which don't work correctly. Ideally I think
+> you should add at least the I2C defs as well, as that is something I would like to use for another
+> reason and haven't even got to the point of discovering that was broken?
+> 
+> I might also (gently) add that it was not easy to find all the documentation to fix this. I located
+> the datasheet for the Zero 3 via google (it's not obviously available on the wiki?), then there is
+> the reading through and I must admit I missed the multiplex difference the first few reads through.
+> Eventually I fed the docs into a LLM and it pointed out what I missed and we got there
 
-Applied a subset (roughtly 1/4) of the KVM patches to kvm-x86 misc, as the full
-thing is far too late for 6.18.  In a nutshell, all of the random prep work and
-cleanups that aren't directly related to mediated PMU support.
+In addition to docs.radxa.com, we also distribute some PDFs on the 
+following pages:
 
-I want to get "setup VMCS prior to kvm_x86_vendor_init()" in particular landed
-to establish the order of setup operations.  The in-progress CET series moves
-the _nested_ VMCS setup later, and I had a moment of panic that I was creating
-incompatible patches.
+  https://radxa.com/products/zeros/zero3e#downloads
+  https://radxa.com/products/zeros/zero3w#downloads
 
-[14/44] KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
-        https://github.com/kvm-x86/linux/commit/4687a2c4e6a6
-[15/44] KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
-        https://github.com/kvm-x86/linux/commit/e3d1f2826da6
+All information should be linked from the product pages (e.g. 
+https://radxa.com/products/zeros/zero3e), but if something is missing, 
+please report the issue by clicking "Report issue" at the bottom of each 
+page on docs.radxa.com.
 
-[17/44] KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
-        https://github.com/kvm-x86/linux/commit/51f34b1e650f
-
-[22/44] KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
-        https://github.com/kvm-x86/linux/commit/1e24bece2681
-[23/44] KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
-        https://github.com/kvm-x86/linux/commit/cdfed9370b96
-[24/44] KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic RECALC_INTERCEPTS
-        https://github.com/kvm-x86/linux/commit/6057497336bb
-[25/44] KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
-        https://github.com/kvm-x86/linux/commit/5a1a726e68ff
-[26/44] KVM: VMX: Add helpers to toggle/change a bit in VMCS execution controls
-        https://github.com/kvm-x86/linux/commit/2bff2edf69ed
-
-[29/44] KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
-        https://github.com/kvm-x86/linux/commit/30c0267f1581
-[30/44] KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
-        https://github.com/kvm-x86/linux/commit/9bae7a086394
-[31/44] KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to PMU v2+
-        https://github.com/kvm-x86/linux/commit/c49aa9837686
+Best regards,
 
 --
-https://github.com/kvm-x86/linux/tree/next
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> So in summary, I'm hoping you will adjust the (really very well structured! thanks!) dtsi include
+> tree to correctly define all hardware on each board so that we don't have a situation that every
+> user in the world needs to be a really decent level kernel tech just to use the board! Pretty please!
+> 
+> Thanks for listening
+> 
+> Ed W
+> 
+> 
+> 
+
 
