@@ -4,54 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4138CCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 04:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43120CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 04:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Qns5dn2dvno3ve6iqCYk8wqgCZmSxxATXCbyS5iFWU=; b=yXoiXlfSKoSH96mkOjikK4hGA5
-	IyxKsGlWtwyD5ARKWX+eSE3oz9hiMCrNnSfwFmL3Td2qGhlD2QWMvM0BYj+QK8jb1gOLDz8DXF1QF
-	HZSn6tFOppCg/bD+/1NoqOFBz8L2FKmQwqXcdCtcSQyNKhx+Hh/seuPL7yUIZc5RqMnySS3eviinA
-	ytVUGE20V6q2Mxkm74nKmCzVOhQVWwiU5X/NIqVxWQI9ZQgA1nb6JEZfFtYnqrEeUgt6M6IyGnHlt
-	bRMAmXkVBlxU7/z7820QSFjBl3NyLe2aS0nOAe5tSK8EdasWvK6wGYBtNBNS7E6oaZpJXMsgWBqpw
-	u71QtQ1w==;
+	bh=9CGvA3crNBtGR/GOvMHZu2CfRxZotB3NZBWf+Xm7cL4=; b=GM92mKZvmarLvtqLdRmPvQ5D4R
+	da9h8tNppv/wTCPGDfrJrNXoXqURVgJTJMCrjLK0l0H925dOALF9zk7KGxI9q3J4oaV2lHUux2u4l
+	ZAtOB2RarAHx+uey1TUH2Egk89BNRi5Kst3Taca2jbyx2T1YnNJXulQY8n4nV4VhB5JELFNAFaVQC
+	sGNYafcOcyjmdE2ShzB0vDod+AxxY/Rk5IZBTNFv8aeCaGypgHgcfzhBcDEcf0FMmJekQErluU56F
+	ZKpruU/7vn4GhIM3AiBa+CxKVHvvgu63G4crwPZbcXscOWse+p+QQf4bfua9R0jNft6rVMfHV4MX5
+	Y+ShDx/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzSJw-00000001mXA-0buX;
-	Fri, 19 Sep 2025 04:02:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzSJs-00000001mWp-38tr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 04:02:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F98C1758;
-	Thu, 18 Sep 2025 21:01:51 -0700 (PDT)
-Received: from [10.164.18.52] (MacBook-Pro.blr.arm.com [10.164.18.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 700843F673;
-	Thu, 18 Sep 2025 21:01:57 -0700 (PDT)
-Message-ID: <70958792-2d11-4fab-be78-e35434f2e524@arm.com>
-Date: Fri, 19 Sep 2025 09:31:54 +0530
+	id 1uzSk5-00000001nus-1HKA;
+	Fri, 19 Sep 2025 04:29:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzSk2-00000001nuM-3UI7;
+	Fri, 19 Sep 2025 04:29:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 741C8447E2;
+	Fri, 19 Sep 2025 04:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EC7BC4CEF0;
+	Fri, 19 Sep 2025 04:28:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758256141;
+	bh=BPmNRDunTtPkrxCpxbQ/GYyrPJg/8IsQ3qWIqttlIo8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b1kfQhR287O7htaKiXuIZMmrxDm/ASTPAwE4Bb/3Zho/A2vZ/2MJzN/k/2YZF7IRd
+	 WA41uB53cxwSE7r5aAjuoxiUGlSG/g7qCJ2TcTR8N9/PqJa6omkHLOvlHR4RwGLpwi
+	 fJJtKutSm0kjypZvURtd7e6lj6MbibZOP2sIX3s38hDGk4FOCaTDdhv1xIrkqw8VjU
+	 VJtCGGxk2qzH1PR3cz2Ct3WVMK0rdaefBU5hypwLWUgz8HhPv3QqymA8tbxS96N9r4
+	 ps/ai0d1EMVECAH3WQVBOAbqlZOxPeqDIASj5SCB8ZMmz/AqKoH61ZkTK7CBDKBTt4
+	 16J4FKOikaJpA==
+Message-ID: <c210de74-6eb5-40a4-b87d-a4a5c3123e65@kernel.org>
+Date: Fri, 19 Sep 2025 13:28:54 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH] arm64: kprobes: call set_memory_rox() for kprobe page
-To: Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20250918162349.4031286-1-yang@os.amperecomputing.com>
- <aMxAwDr11M2VG5XV@willie-the-truck>
+Subject: Re: [PATCH v3 01/10] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+ <20250917-mt8196-gpufreq-v3-1-c4ede4b4399e@collabora.com>
+ <20250918-festive-chowchow-of-joy-5a51de@kuoka>
+ <5749727.31r3eYUQgx@workhorse>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <aMxAwDr11M2VG5XV@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5749727.31r3eYUQgx@workhorse>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_210200_835234_DAF48068 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250918_212902_919741_BF1FFC52 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,64 +134,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 18/09/25 10:56 pm, Will Deacon wrote:
-> On Thu, Sep 18, 2025 at 09:23:49AM -0700, Yang Shi wrote:
->> The kprobe page is allocated by execmem allocator with ROX permission.
->> It needs to call set_memory_rox() to set proper permission for the
->> direct map too. It was missed.
+On 18/09/2025 23:01, Nicolas Frattaroli wrote:
+> On Thursday, 18 September 2025 02:30:09 Central European Summer Time Krzysztof Kozlowski wrote:
+>> On Wed, Sep 17, 2025 at 02:22:32PM +0200, Nicolas Frattaroli wrote:
+>>> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
+>>> control the power and frequency of the GPU.
+>>>
+>>> It lets us omit the OPP tables from the device tree, as those can now be
+>>> enumerated at runtime from the MCU. It also means the mali GPU node
+>>> described in this binding does not have any clocks in this case, as all
+>>> clock control is delegated to the MCU.
+>>>
+>>> Add the mediatek,mt8196-mali compatible, and a performance-domains
+>>> property which points to the MCU's device tree node in this case. It's
+>>> required on mt8196 devices.
+>>>
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 32 ++++++++++++++++++++--
+>>>  1 file changed, 30 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..ccab2dd0ea852187e3ab75923e19739622b2b3b8 100644
+>>> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>>> @@ -38,7 +38,6 @@ properties:
+>>>        - const: gpu
+>>>  
+>>>    clocks:
+>>> -    minItems: 1
 >>
->> Fixes: 10d5e97c1bf8 ("arm64: use PAGE_KERNEL_ROX directly in alloc_insn_page")
->> Cc: <stable@vger.kernel.org>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->> ---
->> v2: Separated the patch from BBML2 series since it is an orthogonal bug
->>      fix per Ryan.
->>      Fixed the variable name nit per Catalin.
->>      Collected R-bs from Catalin.
+>> I don't understand why.
 >>
->>   arch/arm64/kernel/probes/kprobes.c | 12 ++++++++++++
->>   1 file changed, 12 insertions(+)
+>> Best regards,
+>> Krzysztof
 >>
->> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
->> index 0c5d408afd95..8ab6104a4883 100644
->> --- a/arch/arm64/kernel/probes/kprobes.c
->> +++ b/arch/arm64/kernel/probes/kprobes.c
->> @@ -10,6 +10,7 @@
->>   
->>   #define pr_fmt(fmt) "kprobes: " fmt
->>   
->> +#include <linux/execmem.h>
->>   #include <linux/extable.h>
->>   #include <linux/kasan.h>
->>   #include <linux/kernel.h>
->> @@ -41,6 +42,17 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
->>   static void __kprobes
->>   post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
->>   
->> +void *alloc_insn_page(void)
->> +{
->> +	void *addr;
->> +
->> +	addr = execmem_alloc(EXECMEM_KPROBES, PAGE_SIZE);
->> +	if (!addr)
->> +		return NULL;
->> +	set_memory_rox((unsigned long)addr, 1);
->> +	return addr;
->> +}
-> Why isn't execmem taking care of this? It looks to me like the
-> execmem_cache_alloc() path calls set_memory_rox() but the
-> execmem_vmalloc() path doesn't?
+>>
+> 
+> I am executing a Convex hull algorithm on the 3D space of "dt-bindings
+> maintainer opinions" to get a convex hull of acceptable dt-bindings
+> choices where two different choices are functionally equivalent.
+> 
+> With this additional opinion on the krzk axis, I now know that having
+> the base properties accurate for the general case is not required if
+> the per-compatible case sets the property to false anyway.
+> 
+> I hope no two opinions are collinear, as this would surely be my
+> undoing.
+> 
+> You get to pick which axis (X, Y, Z) you are. Right-hand rule, of
+> course.
 
-Ryan has raised this issue here -
-https://lore.kernel.org/all/d4019be7-e24c-4715-a42a-4f1fc39a9bd4@arm.com/
 
->
-> It feels a bit bizarre to me that we have to provide our own wrapper
-> (which is identical to what s390 does). Also, how does alloc_insn_page()
-> handle the direct map alias on x86?
->
-> Will
->
+This piece of code is wrong and I could not deduce the reason. That's
+why I asked why you need that change. If you intend to waste my time, I
+will don't bother with this, but code is still wrong.
+
+Best regards,
+Krzysztof
 
