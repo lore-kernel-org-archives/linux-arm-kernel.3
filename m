@@ -4,86 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDD5CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64353CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1vCBrNiEKTyi9Q3k3Ml4hn7pfySJO9AiRtZz93HFOeM=; b=hsWq1Ql1cFq/B+mYMg4FLOzFSq
-	A0VsFR2YN7dCLizxUZDV9Dy8sdGCWmf+CqUUtWHjSf5esbABAUaU4mtp9zzLpyrltFsg3rLTH1NG3
-	HR6cRrU0YWwt45NoPm4mEofSLQ/4cTyFIXKe/MkVvt3R1WeiAuJnuXa1BNYMtpZwVuclGqxe1eh+/
-	fOATe40fEEWhp3NRL+xMKYzgYYXQZ2cSkl+D60KPpJFNU6EPIgdUjK2QDlWZso9GDTDJQFH2hfdZj
-	FgcFGeuENVsF8putzIw++F+vJRuLzGXYgN/X4PIyfLK6rRInRpOrCzDYMC/CW2Bwm8fym8uQIE8LZ
-	SWyazfsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X/FSLvV9szUdz17vKsyxov0TyTebx1I2D/abA+SQqjM=; b=knvakh75QTZAlb8WKK/0SHoy92
+	of7nVVpFZ9myv5baKhP0w8GFrVzzWVSNymzeuBQ00F7lKabh7xeCQoo0cN89OF/j14sU1ZksLXYTp
+	W3SZI8R3wEhxFg3Lyf7gCaG+jIN1i+DbNn0e2FdX8FWVnmuYfUJ3t/cqJYRVSZpF/oSvvrRDd72Nb
+	6hupBjZ6Z68cxin8RhzHnUdWiVRDo+WeoU3njW9WQkG3dlmNrjZgah6/sBu4FQdUBNm4kzYWqHwLX
+	NZXR/hmifh+v49NQQ2ORGBGUxyWoYcrAxekgAJK9B2oDWgjn+okmdImVEvERZJCHaqkGnRXpnG2LU
+	o77JqulA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWXC-00000002GG9-3NNm;
-	Fri, 19 Sep 2025 08:32:02 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uzWYm-00000002GX2-3GNh;
+	Fri, 19 Sep 2025 08:33:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWX9-00000002GEo-1FbI
+	id 1uzWYl-00000002GWr-1c03
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 08:32:00 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-570d0c280e4so2141276e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 01:31:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1758270717; x=1758875517; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1vCBrNiEKTyi9Q3k3Ml4hn7pfySJO9AiRtZz93HFOeM=;
-        b=kjrtdlQVsnyLtJrU0yt2qq5+FFiaSFFOkfLMQJZBao0xYwwwGUybdmL7sl90S5hm/N
-         QJzGMnoHmwFAxFsUNkUj7Z7v2s716l9Em5XGxGjtlsBrn7D1FWmopxLilxiH/4xNxqbE
-         4Kg+lx8/nfXHwa1L092j5YGh+Iz7kIvCIcw10=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758270717; x=1758875517;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1vCBrNiEKTyi9Q3k3Ml4hn7pfySJO9AiRtZz93HFOeM=;
-        b=qm3GMdpEmngOmqNHSQJsU/EviPu7j5WkoonVXUbs25BdpE/i4DAcv+u37VzIHSaq4o
-         QyWRzbpMR5EKhJXAK+pHGFE171yoNUn93OlsmI5/5+r8rkdI6cOTI/kymFspKVhHiCHW
-         OXj0vvFS1k7/I1lkKTWPy1qyiM3SQtG9n2LLzq8NhelKiXbrK59+MNGJxQdxwjDbyFst
-         9R7+nh1j/JHxn4TF410Rz4JBQuTbnuf8bBek0nq6jyfqigZeoFYLgJQm3Z5xw56cfgdn
-         HHHNFsget9A0PU5RvKzozcOnuRNwE9foHe3LphNl0WWjE0vvQr1y50LSDwNa4B2FaqhJ
-         YNPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVTT7rBMsprfOrXrv+5ae+y59o1TE87AUm2AgOY+3MCVJGwSQiJfwrz19NayOc2aXHvJLXDijKlERtgPS24VaO0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe4P7j/mhfi7NCDA31wC5lI9FgGsSm49Y+xXL5IBUVarxs6TTE
-	EERGfB8/47vMLnOu+6Hp2ecLemBLWqEn86Qc0KzE0oSDe4bQkBeFpch8izmR1w+VZ03eZf5ZR+U
-	ghpWejstQeduH+8EtFeZcp6LSP5YGoRnQTxIUhdPW
-X-Gm-Gg: ASbGncsKAVcxQQSecT2Ge3tlQxl5vsQmBkcNXtSD7Y/u6eDs/0QZOBwnUikGqeESiXo
-	wqQ2VFnRZNLHA4mEtTX3YpG8Cc8HGfy157WwMVTwJk2LJW1JRi2P+2c0XgQ2IcXWfxk8eYK+v3v
-	hkinR3Me0SlqZ+IxrttJ5zD11DL9dCpc7CbwaLpua1fkY7EO8BVOc23KXt+huTpjD0r0CTghVyU
-	4vaz3Pf7RTyttTaaKvQtTeuQgHo6Htx5XM=
-X-Google-Smtp-Source: AGHT+IGJyLApucLYoiVvLVyhVW2X95UA+hKEnkJWRx68Jso5l2IUFZ6Lp0yp/otlrkifX0mDYXdbFrB33I4Cq4SdXuY=
-X-Received: by 2002:a05:6512:308c:b0:55f:536f:e8a2 with SMTP id
- 2adb3069b0e04-579e3d2d463mr792114e87.53.1758270716503; Fri, 19 Sep 2025
- 01:31:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
- <20250822021217.1598-3-jjian.zhou@mediatek.com> <CABb+yY16DPJwVTHap4F6n5YJoOJzQLtqKiCQ-2MUm67pzF8uXg@mail.gmail.com>
-In-Reply-To: <CABb+yY16DPJwVTHap4F6n5YJoOJzQLtqKiCQ-2MUm67pzF8uXg@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 19 Sep 2025 16:31:44 +0800
-X-Gm-Features: AS18NWCHPPCOGpgOPgYhcar-Bfyg0XTAKO-xFCzjeyIm7xmJf4PNr7KosKW0NG8
-Message-ID: <CAGXv+5F-L2+4PGixx7OG2+vp2yXc_2885yMzqWtkQDwhxVAPxw@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Jjian Zhou <jjian.zhou@mediatek.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_013159_381083_DF54FA4B 
-X-CRM114-Status: GOOD (  18.15  )
+	Fri, 19 Sep 2025 08:33:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CFF3B60139;
+	Fri, 19 Sep 2025 08:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FBF8C4CEF0;
+	Fri, 19 Sep 2025 08:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758270817;
+	bh=A0OWMtvps1Wg81cMmbvIwQ/jjMHTw/+5L7NX69xhXOA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fgvr5Tsw8zrd1WdlGfdJXPxPaxz6hGIy23jAI0/LiOBdfXV+y332cCVDaA517TNDF
+	 ckFfXGne6LMAX+HeJENEo7QBgKiNxh9XOhzjbPjchnFB372o2qS7Hpr4WRViR2v5ib
+	 nbLzFLfuI3dJ+eMyGuTDpOq80f2btKmjpY09JzQQDaSXDWQIGVuypRf2OunlAZ0POX
+	 11zEwhyN/V9xYINHU84nN2gNPFHxC7OdwwSP5XKcF7ceMYVgskhbw0JXuYAWaj6r57
+	 zL5JNaczkthArdSdBwXjDJJBIthgPv1h3uwSsfImBtceXO0WZGzLbJlUrYRAiShvS/
+	 a2qe3xLxstq5g==
+Received: from 82-132-235-207.dab.02.net ([82.132.235.207] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uzWYf-00000007i2F-3pDh;
+	Fri, 19 Sep 2025 08:33:34 +0000
+Date: Fri, 19 Sep 2025 09:33:29 +0100
+Message-ID: <877bxuzvs6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ian Rogers <irogers@google.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Garry <john.g.garry@oracle.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v5 6/7] arm64: dts: renesas: Add R8A78000 X5H DTs
+In-Reply-To: <CAMuHMdVezqWxbFp9dd0WPJnNM+MvmQ9F0UA2Ru_BSV6-6VgOyA@mail.gmail.com>
+References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
+	<87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
+	<86ikhg13m1.wl-maz@kernel.org>
+	<CAMuHMdVezqWxbFp9dd0WPJnNM+MvmQ9F0UA2Ru_BSV6-6VgOyA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.235.207
+X-SA-Exim-Rcpt-To: geert@linux-m68k.org, kuninori.morimoto.gx@renesas.com, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +109,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 7:50=E2=80=AFAM Jassi Brar <jassisinghbrar@gmail.co=
-m> wrote:
->
-> On Thu, Aug 21, 2025 at 9:12=E2=80=AFPM Jjian Zhou <jjian.zhou@mediatek.c=
-om> wrote:
->
-> .....
->
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/slab.h>
-> > +
-> > +struct mtk_vcp_mbox_priv {
-> Maybe 'mtk_vcp_mbox' is a more appropriate name ?
->
-> > +       void __iomem *base;
-> > +       struct device *dev;
-> > +       struct mbox_controller mbox;
-> > +       const struct mtk_vcp_mbox_cfg *cfg;
-> > +       struct mtk_ipi_info ipi_recv;
->
-> Maybe also have "struct mbox_chan chan[1]; " so that you don't have to
-> allocate one during the probe.
+Hi Geert,
 
-> Also if you have  "struct mbox_controller mbox;" as the first member,
-> you could simply typecast that to get this structure.
-> Something like "struct mpfs_mbox" in mailbox-mpfs.c
+On Fri, 19 Sep 2025 07:52:38 +0100,
+Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 18 Sept 2025 at 12:01, Marc Zyngier <maz@kernel.org> wrote:
+> > On Thu, 18 Sep 2025 07:27:26 +0100,
+> > Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
+> > > +             /*
+> > > +              * The ARM GIC-720AE - View 1
+> > > +              *
+> > > +              * see
+> > > +              *      r19uh0244ej0052-r-carx5h.pdf
+> > > +              *      - attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
+> > > +              *       - sheet [RT]
+> > > +              *        - line 619
+> > > +              */
+> > > +             gic: interrupt-controller@39000000 {
+> > > +                     compatible = "arm,gic-v3";
+> > > +                     #interrupt-cells = <3>;
+> > > +                     #address-cells = <0>;
+> > > +                     interrupt-controller;
+> > > +                     reg = <0 0x39000000 0 0x20000>,
+> > > +                           <0 0x39080000 0 0x800000>;
+> > > +                     interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> > > +             };
+> >
+> > I already asked for:
+> >
+> > - this comment to be dropped, as it serves zero purpose to the common
+> >   mortal
+> 
+> What about using a different comment instead?
+> 
+>     /* Linux must use I/F Region 1 */
+> 
+> I.e. replace "View 1" by the above.
 
-I read somewhere that this way of subclassing is not recommended.
-Instead the base class should explicitly not be the first member.
-And then container_of() should be used.
+I definitely wouldn't mention Linux, as the DT is not specific to any
+particular OS. This is more about what block the main CPUs are allowed
+to use. Also, "View" is the term used in the TRM to describe the
+multiplexing of multiple GIC "instances" on a single GIC
+implementation in a mixed-criticality system, so keeping it makes more
+sense.
 
-I don't remember where I read this though. But I think the explicit
-container_of() is easier for understanding the intent.
+Something like:
 
-ChenYu
+	/* Application Processors manage View-1 of a GIC-720AE */
 
-> ....
-> > +
-> > +static struct mbox_chan *mtk_vcp_mbox_xlate(struct mbox_controller *mb=
-ox,
-> > +                                           const struct of_phandle_arg=
-s *sp)
-> > +{
-> > +       if (sp->args_count)
-> > +               return NULL;
-> > +
-> > +       return mbox->chans;
->
-> return &mbox->chans[0]   seems better.
->
-> thnx
+and the mention of the TRM and other spreadsheets dropped.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
