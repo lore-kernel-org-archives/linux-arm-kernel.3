@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9CFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7097CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edgPX+ZMRVJRPce4J9xc4JzLXJtK189YyGXqaQRiUYM=; b=OhdcnnLEDSNPpEKt14MWPuAmn6
-	v+3iE8wSSoGHn0yrCEUfq6HyXHor2LAJz1pqhkwpAcIr3j5xVQnhyTrDJ5T/4i+N4Ftm9ZJ/W/ZKc
-	3ChNXdZ+wVzT8PdhdUmmVht5w6SUNWRyIdvOyrKBOEq7GtNvUqIS52v0bAXp2Rge0G/5RLRPLKTdQ
-	HziP4eqCirPv8lqjSMwytiBW5dSBXsLwX7f7ikwZK288Q99cUUAkVoLdLTEDOYh1nZjqTenDZzgln
-	j593gtinhy/nLyX8vF++43ogrpn1RsSNDDxLrlOy0W1+g351yYULb3rn4rxmyxFymjX258wBxbpwc
-	L6vWvXFA==;
+	bh=IMHXkNbkhnV0s51Q5+h9NGZbjfcJdQCk+0MfP9hZRnU=; b=wDfrwAXTQ2buE4+1aPr2Ce4P5s
+	GCl1kcv4FZVh7pxsWF9lWuIo1tDvD1TH54+OoTlEiC9EfViinbsLMH4Lvr1iFXeH/6uCaO5yJ6t3l
+	t6xVBrck2DcRqDlNC46ZkvRhwXii3f7pnplkhr/epRHtnwFqc7Tr/Ca4/4k6jGpCKrndiK7yKWH7j
+	Wc4wClywhhoxA2uVEqfdEGLQ2oas+IBs5iZRmYEUFkPhCrH3ojO7KN+asmeQZQ9LJNFLHCBVelHB9
+	+2GzYH435rN2DCuathq3KNWYxBFJzbpPheflc7QwHjstyTCIWvxwqy3dJydm3dqthdOs+o9GjI0xG
+	CIm5U2Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaXW-00000002sxz-2lbO;
-	Fri, 19 Sep 2025 12:48:38 +0000
+	id 1uzaYq-00000002tCH-1EYL;
+	Fri, 19 Sep 2025 12:50:00 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaXT-00000002swI-1jPx
+	id 1uzaYn-00000002tBd-2g5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 12:48:37 +0000
+	Fri, 19 Sep 2025 12:49:59 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 5D4844E40D0C;
-	Fri, 19 Sep 2025 12:48:33 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 303C24E40D60;
+	Fri, 19 Sep 2025 12:49:56 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CBAC606A8;
-	Fri, 19 Sep 2025 12:48:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 387DC102F17F6;
-	Fri, 19 Sep 2025 14:48:18 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0318E606A8;
+	Fri, 19 Sep 2025 12:49:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B5839102F1D55;
+	Fri, 19 Sep 2025 14:49:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1758286110; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1758286194; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
-	bh=edgPX+ZMRVJRPce4J9xc4JzLXJtK189YyGXqaQRiUYM=;
-	b=pKb0WE2p9oZ+vyPQSrTFDsWToBhk1qI+JRFaAL2uYifaYBCiPYp5WW0jE2Ut87D1eU2Sl4
-	l3jNBhUv6Slqr5P8gIbv5fkhTGfGAu4Z/nBPM6GNOglhs6QtDsk855jKmHGt3pCjlFjtHC
-	BFA6D8N+FUvjsQwRcIIU/MmMEmXM54qN3dayg7O1OuCNWQQ+aFOUD8uoS/QD1/RpVVwTek
-	tGtfGN7hMLG+HlmUpY58mGNauTowpw9+LIF2oxqs9b09OmbLt/TBGvvjM3SoTXVqnJvBE1
-	P1cnfzlcIHk+l60Yol2+mqpqRtRZzpcKzlx6X4XrOnXYW0G13tDL+l63mvdkRA==
-Message-ID: <0f63d9e1-8ef6-4d1d-83dc-6666a256f81b@bootlin.com>
-Date: Fri, 19 Sep 2025 14:48:18 +0200
+	bh=IMHXkNbkhnV0s51Q5+h9NGZbjfcJdQCk+0MfP9hZRnU=;
+	b=xef+060LVl/U1v99txex5Kpn1STm3MFQUy2Or7GAgmV106XfsJQMOVSParN2Sn827ONhXG
+	YYhuJBRi1XHTtNthWM/Eev/9e1FmuxLjNqDaDKBGWSHv+1WUmT/rhR+QHmjIsW4vIFLciP
+	8l0RS0RCNu1qyboI+epLJEHdDzTSL8WKtGbtWEAcCT5JxX8Wivb/2kxb/yBs2UNIMOfktH
+	rna5orvh/BSMCb1AKXsZYp4oQcZppPfACUYn5jvW8VHaQjpfQExYyd2yJNZsJ+6lnyUKdh
+	CiWiLizRS/29huVDF0mMgDG36iFzwaTyg/QAP42EwWB32weK+6IyrsSUob6KZQ==
+Message-ID: <f59a91cb-dda0-4c39-a1b5-8a78fdc8abe4@bootlin.com>
+Date: Fri, 19 Sep 2025 14:49:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Louis Chauvet <louis.chauvet@bootlin.com>
-Subject: Re: [PATCH RFC v2 18/20] drm/vkms: Prepare
- pre_blend_color_transform() for post-blend pipelines
+Subject: Re: [PATCH RFC v2 20/20] drm/vkms: Set post-blend color pipeline
+ driver cap
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
@@ -75,7 +75,7 @@ Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  Simona Vetter <simona.vetter@ffwll.ch>
 References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
- <20250917-mtk-post-blend-color-pipeline-v2-18-ac4471b44758@collabora.com>
+ <20250917-mtk-post-blend-color-pipeline-v2-20-ac4471b44758@collabora.com>
 Content-Language: en-US, fr
 Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
  xsFNBGCG5KEBEAD1yQ5C7eS4rxD0Wj7JRYZ07UhWTbBpbSjHjYJQWx/qupQdzzxe6sdrxYSY
@@ -131,13 +131,13 @@ Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
  wDN7ORknPndzxrq3CyB7b/Tk1e8Qx+6HU/pnMb4ZqwwMwZAMk24TZpsgg28o9MQiUNzad0h2
  gIszbeej9ryrtLHxMzyK8yKhHoI2i2ovxy5O+hsWeAoCPE9xwbqnAjLjOn4Jzd/pPovizrq/
  kUoX66YgvCuHfQMC/aBPLnVunZSP23J2CrkTrnsUzw==
-In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-18-ac4471b44758@collabora.com>
+In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-20-ac4471b44758@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_054835_583290_C9566175 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20250919_054957_814848_0C50D4FF 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,49 +155,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Le 18/09/2025 à 02:43, Nícolas F. R. A. Prado a écrit :
-> As a preparatory step for supporting post-blend color pipelines in VKMS,
-> rename pre_blend_color_transform() to color_transform() and make it take
-> the first colorop instead of a plane state, so it can be shared by both
-> pre- and post-blend color pipeline code paths.
+> Now that the driver implements post-blend color pipelines, set the
+> driver cap so they can be used from userspace.
 > 
 > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 
 > ---
->   drivers/gpu/drm/vkms/vkms_composer.c | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
+>   drivers/gpu/drm/vkms/vkms_drv.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-> index 31b1dd3cd115d930ec3ed498403a8f44208d76c3..05e1551d6330e4dc14563d3a399b3544d11c6576 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.c
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-> @@ -189,13 +189,13 @@ static void apply_colorop(struct pixel_argb_s32 *pixel, struct drm_colorop *colo
->   	}
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
+> index e8472d9b6e3b2b5d6d497763288bf3dc6fde5987..4cc67a789d28288575235b7efc87bc5e45d668cc 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.c
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.c
+> @@ -80,7 +80,8 @@ static void vkms_atomic_commit_tail(struct drm_atomic_state *old_state)
 >   }
 >   
-> -static void pre_blend_color_transform(const struct vkms_plane_state *plane_state,
-> -				      struct line_buffer *output_buffer)
-> +static void color_transform(struct drm_colorop *first_colorop,
-> +			    struct line_buffer *output_buffer)
->   {
->   	struct pixel_argb_s32 pixel;
->   
->   	for (size_t x = 0; x < output_buffer->n_pixels; x++) {
-> -		struct drm_colorop *colorop = plane_state->base.base.color_pipeline;
-> +		struct drm_colorop *colorop = first_colorop;
->   
->   		/*
->   		 * Some operations, such as applying a BT709 encoding matrix,
-> @@ -449,7 +449,7 @@ static void blend_line(struct vkms_plane_state *current_plane, int y,
->   	 */
->   	current_plane->pixel_read_line(current_plane, src_x_start, src_y_start, direction,
->   				       pixel_count, &stage_buffer->pixels[dst_x_start]);
-> -	pre_blend_color_transform(current_plane, stage_buffer);
-> +	color_transform(current_plane->base.base.color_pipeline, stage_buffer);
->   	pre_mul_alpha_blend(stage_buffer, output_buffer,
->   			    dst_x_start, pixel_count);
->   }
+>   static const struct drm_driver vkms_driver = {
+> -	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM,
+> +	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM |
+> +				  DRIVER_POST_BLEND_COLOR_PIPELINE,
+>   	.fops			= &vkms_driver_fops,
+>   	DRM_GEM_SHMEM_DRIVER_OPS,
+>   	DRM_FBDEV_SHMEM_DRIVER_OPS,
 > 
 
 -- 
