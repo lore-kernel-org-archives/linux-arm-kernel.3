@@ -4,44 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86104CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DABCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vUvp0ttX3lOxjdOrvZsKvJKNpHHNusfF6naBdS8j1E8=; b=cGqP6I1ZoJuc8cAwg5r/FLYW0H
-	T7nwtPK5bGwPZ61WitrsvVfcyKdfIfz7L2eUXfeMQxrBWSQ1F94H2BEHkULWvhK80RNNq3a0yAsG2
-	gfoGznwXk0kQSWNH6AqKgHsOH7F3+VsO1IB1YID4i0gyGeMLYhCu5JTk6qnVahVdokYTe+3Cnj0Lj
-	27PtWhV5ch2M96OLDS9b0baf2WdNjvgMbvv/vILolvy1xOhgn+nHWw/32IGEKTdFawI3kCGAloB3W
-	Ph1mKU7rP9WmVIHEbvwXxHSDzzqKk9ffo/WMhpZT//uimRiBQjJosAHnRozMZG7L2u4LCd/0WqVxS
-	Fume5jQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8AGrTL1WME+MkjB7NmTfDtQhx+C8E273qhuMaHap5lc=; b=sxWD9M+d9uMyXN4HAJA96PR8kZ
+	Z21pl7W6ISuSemsPHG0FQvQpPYwaOnL/frp5vkvSkYdym8NvXqNE/J7aVGP3kzYNGK+LwdsZGc+kX
+	0MrOTqDd5JTPVXwB5rP7pdmKKA1ZZXtY38kA3NyzwR85OiXvShEabkeoswBnv5wD5AhAABNw8QikI
+	mAFD5bmnBarqBQQPv1l9D1r09LHbIGzwoqaAGFXncdvL3E6pbY2cdgqdmJ+sJghDvIn0ypi/7ciW5
+	7h5HuXTjEbJeDUCOrON4dd0iEfr8LYsxmO4/abOSXHfn8BSlepCaQWuJa3b3om4KlgdiT1ktKEvrV
+	ITQB3q/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzW2M-00000002BVB-3uf3;
-	Fri, 19 Sep 2025 08:00:10 +0000
-Received: from mail.fundixo.pl ([57.128.173.14])
+	id 1uzWCy-00000002CaG-3QSU;
+	Fri, 19 Sep 2025 08:11:08 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzW2L-00000002BUc-2L3k
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 08:00:10 +0000
-Received: by mail.fundixo.pl (Postfix, from userid 1002)
-	id 156CC50404; Fri, 19 Sep 2025 09:50:57 +0200 (CEST)
-Received: by mail.fundixo.pl for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 07:50:35 GMT
-Message-ID: <20250919084500-0.1.hr.49aep.0.ljdnjzq0y5@CyberCitadel.pl>
-Date: Fri, 19 Sep 2025 07:50:35 GMT
-From: "Marek Kucharski" <marek.kucharski@fundixo.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
-X-Mailer: mail.CyberCitadel.pl
+	id 1uzWCv-00000002CZj-3Mva;
+	Fri, 19 Sep 2025 08:11:08 +0000
+X-UUID: 2e7af842953011f09f706fa2197c6ceb-20250919
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=8AGrTL1WME+MkjB7NmTfDtQhx+C8E273qhuMaHap5lc=;
+	b=B+ZhD47ldAOLJZxc1X+5RWcrJ3jkjxgVKkATCx6ar15TWzllPatTbT3l64FnZ478LdJnOQ3lkkzju/cCsmRctXvXAi/7R9zHwwb6hjvYGF+P/IGwcWD2NLckRa7ZQNQmHXiOIOoqmRAx6HrN5qhghfPtYpK7EfKqcVSVzpsDG4c=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.4,REQID:3c1e70db-aedc-4d5c-ae1c-4f7fb2ab6f3a,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:1ca6b93,CLOUDID:e214bb6c-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2e7af842953011f09f706fa2197c6ceb-20250919
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <zhengnan.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2095047048; Fri, 19 Sep 2025 01:11:01 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 19 Sep 2025 16:10:58 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 19 Sep 2025 16:10:57 +0800
+From: Zhengnan Chen <zhengnan.chen@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zhengnan Chen
+	<zhengnan.chen@mediatek.com>
+Subject: [PATCH 0/2] MT8189 SMI SUPPORT
+Date: Fri, 19 Sep 2025 16:09:54 +0800
+Message-ID: <20250919081014.14100-1-zhengnan.chen@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_010009_728664_528D335D 
-X-CRM114-Status: UNSURE (   2.41  )
+X-CRM114-CacheID: sfid-20250919_011105_846728_E2E17F1C 
+X-CRM114-Status: UNSURE (   6.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -57,19 +88,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+Based on tag: next-20250919, linux-next/master
 
-Czy jest mo=C5=BCliwo=C5=9B=C4=87 nawi=C4=85zania wsp=C3=B3=C5=82pracy z =
-Pa=C5=84stwem?
+This patchset add mt8189 smi support.
 
-Z ch=C4=99ci=C4=85 porozmawiam z osob=C4=85 zajmuj=C4=85c=C4=85 si=C4=99 =
-dzia=C5=82aniami zwi=C4=85zanymi ze sprzeda=C5=BC=C4=85.
+zhengnan.chen (2):
+  dt-bindings: memory-controllers: mtk-smi: Add support for mt8189
+  memory: mtk-smi: Add mt8189 support
 
-Pomagamy skutecznie pozyskiwa=C4=87 nowych klient=C3=B3w.
+ .../mediatek,smi-common.yaml                  |  2 +
+ .../memory-controllers/mediatek,smi-larb.yaml |  3 ++
+ drivers/memory/mtk-smi.c                      | 44 +++++++++++++++++++
+ 3 files changed, 49 insertions(+)
 
-Zapraszam do kontaktu.
+-- 
+2.46.0
 
-
-Pozdrawiam
-Marek Kucharski
 
