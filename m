@@ -4,96 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B773ACAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22733CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=; b=re0dUUFQVCKCcZL7mx8znvOPuN
-	vRnkofrZ1u0WS/+CRdZPlSzYN0l5Lvf6LPILqKiIBjTrlfxru4JLVPM6CO48ZkzVDpjHhRXz+tnfR
-	VoqD9ujQXk8eDPVHU+x5gx39h5L5NnlrGWqQftL6QbcXmAsIfj1m1f1SDgLY3w33UEObX+jIsLNzi
-	39blPWKlSDfQ+dwZySS6UbEgvDJpQkjw8KIm/26Oea6OooYNARgeSTy6dWTOYU0x8O9ivRKbGTai4
-	O9/L0bDo3t0AH+2JR5Hd2zAwxGGbjD3jCPTT/2RBGfpambL1HLqOvPZFvH2Vcb3WZrVsJ58kPlfQn
-	gx1pDGqQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Efe4rm737IVA5IrTZlXXNX1ezcS5CUGeKrMwcf1ris=; b=nAp0HS28EwfNqMjlbfDp4R6nWW
+	PMy7E3Br3ANLH96Ibr23pqkTwM5Ve+Gs+F/QEgAKfnh6Y5j2wL72hCJDs4IeAmFTBnvdF7OCosara
+	FuZZC1DUK8zWi1cLltMa3kVstxQ0FudhIsxPsLl4Txv/7scaRl1idmUjKmTGyKvGmfgFu+1DBetv7
+	peuFArTW/+fYobebfPvSrcRjSiprz8FguO/TQ90Pr0pWcF5OY+ui7zr3aehTUVmqDl5Kiq10IVwq+
+	hrv6mBvcQU0Ur1ocsBVBsCwbqm1A/MdFpPlENO2EAIXLClCgJJr4JkDZfRr+uuMkGcHZvFTwoqZQC
+	KnIehQRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdOQ-00000003PFy-1nJh;
-	Fri, 19 Sep 2025 15:51:26 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdOO-00000003PF4-0dbB
+	id 1uzdPS-00000003PX3-3M8Q;
+	Fri, 19 Sep 2025 15:52:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzdPP-00000003PWE-3Lag
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 15:51:25 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46897c60e38so5529975e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 08:51:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758297082; x=1758901882; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=;
-        b=n7wQWFSMGl7jX8VozybuC8YV3FWvduLBln/D8qlyX0eQJWv8Tb+5SbgdXxVhzbMY00
-         Pw9ZczD5V8r9/Oo7sPQMyRbWJATdVKMG1DZEMdvtlyXME1e7fsT0IcAH7XERjCKpf4mf
-         XKAx5zyHuGBUFxGxGKenGAlc3F0wcRXipPfZLoQ7j+HpVvtVrp42RzhyPx015afMmLna
-         6jMug0oBunkd5FEBmZcSGk3FwoL+CQv0OPHfN3Y0YfgDgIUkSx6TMKpY2MpogFbm0V3O
-         pHSoHwEfCZ11b40CLDq63qpEaOoaWCisxMcfU03qSW/uF4MfaP2dAXn5H/Qd76xvgHui
-         iftw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758297082; x=1758901882;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=;
-        b=cIC2URbpMFpb2/1BpPaelXkRTsIRGgqnRJ2YvhJd9J89X5C76kJ1ASTrYxaMdfm2uo
-         EMyspb2bOBhBZP83ZESAzYdN9N9zYEKg3CpVLvlSRrp/LoQokJvKZ6ZPXgr1AZJHMGgR
-         3DHHQSdMG8q22b8tZKTfFogD+Uegc1tBuWG3jYjIcRpw71s7wa1Meu92dK4t1RsOMfjL
-         E/BBe2YmosOhwdc9PgYq+3REFDT5JqHFjf2BSQXxJpfRugEYfGlGU6tlBEg8Cvcek/dT
-         iaclbGAu2ambtV+XdzT2V9UMbEvM/vlepwx6cnlrdKvcS2ZbTctEIXOiSICc61lRShLN
-         1szw==
-X-Forwarded-Encrypted: i=1; AJvYcCVu0HNVJlCD49F4krPamLyMHjN8EugUThgi6WT1OyaikznhBPEWX1ed1i1X6bZByDcQ92B3HElSn1FcMda60phY@lists.infradead.org
-X-Gm-Message-State: AOJu0YytRV+pvhTqC0t3dqjnFi5DMqh9xc6rzicYd4R3Lms6WxQowrko
-	DzSjPZ98Md4WkET+Lf0oRuBlapTtSIwm1OPFjG1M798ZxJi4wFBjBucLA6PW/aEw/pU=
-X-Gm-Gg: ASbGncuS/GzDpb3pUMcTFsyd+lW/6vXkOOR9HwfdG1+EjnS3MPGOqFQVLQqujofpElP
-	r6z9gpFU7Aey4wxqS8RKJdqxFyyJ+Q/M1b0GyNMXM9KF/xLa2ScTzsg2cJKawvoaK0eoq2cXsma
-	p+TEf1RraXpniuijpDgPepnxNYs5C8JLpAVdJXFUVMp0kRaPZIx4i49yxB/Ci5yf+Ovphepg/NS
-	ifYQneuFcVSrnO51yO1VXsSrMumJLct/VNkYDkbYi8o6vsT0y40CRjFQ6GQkNLCvSN79p4PxirV
-	AMxPipHqj282KWVWbR5aBwkYOSsc7VDyGMP9gE25HXyguO5+uvJ49fytXMbeWyCM7dA5ohmo0xG
-	TjZqPKspAPZRSJrztwyet1TJsv8FX/9cwFHnUP+KYgvjFOq1FZAKNen/RL4hBs1qm8zorPljL1b
-	wgnQ==
-X-Google-Smtp-Source: AGHT+IEottwmKNmGH3CS9GghPYQKwlqbFMuq8pbSqNH1dciybusPD40QQuLbFVR/u9qMf8tPOI+eLA==
-X-Received: by 2002:a05:600c:350d:b0:45f:2843:e779 with SMTP id 5b1f17b1804b1-467ee3057d8mr35673815e9.8.1758297082008;
-        Fri, 19 Sep 2025 08:51:22 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:8ffd:205a:6719:49c1? ([2a05:6e02:1041:c10:8ffd:205a:6719:49c1])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-469bd07268csm13103315e9.14.2025.09.19.08.51.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Sep 2025 08:51:21 -0700 (PDT)
-Message-ID: <d9392dbc-806a-41df-8992-28c3d6132309@linaro.org>
-Date: Fri, 19 Sep 2025 17:51:20 +0200
+	Fri, 19 Sep 2025 15:52:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1322B169C;
+	Fri, 19 Sep 2025 08:52:19 -0700 (PDT)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 615E83F66E;
+	Fri, 19 Sep 2025 08:52:26 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Lixiang Mao <lixiang.mao@oss.qualcomm.com>,
+	Lixiang Mao <liximao@qti.qualcomm.com>
+Subject: [PATCH v2] firmware: arm_ffa: Add support for IMPDEF value in the memory access descriptor
+Date: Fri, 19 Sep 2025 16:52:16 +0100
+Message-Id: <20250919155216.34074-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] thermal: qoriq: add i.MX93 tmu support
-To: Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Alice Guo <alice.guo@nxp.com>, Frank Li <Frank.Li@nxp.com>
-References: <20250821-imx93_tmu-v4-0-6cf5688bf016@nxp.com>
- <20250821-imx93_tmu-v4-2-6cf5688bf016@nxp.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250821-imx93_tmu-v4-2-6cf5688bf016@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_085124_230317_3E998401 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20250919_085227_916659_BA8BDB89 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,139 +61,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2025 08:23, Jacky Bai wrote:
-> For Thermal monitor unit(TMU) used on i.MX93, the HW revision info read
-> from the ID register is the same the one used on some of the QorIQ
-> platform, but the config has some slight differance. Add i.MX93 compatible
-> string and corresponding code for it.
-> 
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> ---
->   - v4 changes:
->    - no
-> 
->   - v3 changes:
->    - use the drv data struct for match data and refine the code
->    - update the copyright
-> 
->   - v2 changes:
->    - use the compatible match data to identify the i.MX93 TMU variant
-> ---
->   drivers/thermal/qoriq_thermal.c | 18 +++++++++++++++++-
->   1 file changed, 17 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
-> index 01b58be0dcc64d14ca5e4bba654eed8f15e827fc..b2e634547271dcf512c714907baa162921d2d527 100644
-> --- a/drivers/thermal/qoriq_thermal.c
-> +++ b/drivers/thermal/qoriq_thermal.c
-> @@ -1,6 +1,7 @@
->   // SPDX-License-Identifier: GPL-2.0
->   //
->   // Copyright 2016 Freescale Semiconductor, Inc.
-> +// Copyright 2025 NXP
->   
->   #include <linux/clk.h>
->   #include <linux/err.h>
-> @@ -24,6 +25,7 @@
->   #define TMTMIR_DEFAULT	0x0000000f
->   #define TIER_DISABLE	0x0
->   #define TEUMR0_V2		0x51009c00
-> +#define TEUMR0_V21		0x55000c00
->   #define TMSARA_V2		0xe
->   #define TMU_VER1		0x1
->   #define TMU_VER2		0x2
-> @@ -66,6 +68,8 @@
->   						   */
->   #define REGS_V2_TEUMR(n)	(0xf00 + 4 * (n))
->   
-> +#define GET_TEUMR0(drvdata)	(drvdata && drvdata->teumr0 ? drvdata->teumr0 : TEUMR0_V2)
+FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
+memory access descriptor to allow any sender could to specify an its any
+custom value for each receiver. Also this value must be specified by the
+receiver when retrieving the memory region. The sender must ensure it
+informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
+such as a partition message.
 
-This is not adequate for code which will evolve. Please don't use this 
-macro.
+So the FF-A driver can use the message interfaces to communicate the value
+and set the same in the ffa_mem_region_attributes structures when using
+the memory interfaces.
 
->   /*
->    * Thermal zone data
->    */
-> @@ -73,12 +77,17 @@ struct qoriq_sensor {
->   	int				id;
->   };
->   
-> +struct tmu_drvdata {
-> +	u32 teumr0;
-> +};
-> +
->   struct qoriq_tmu_data {
->   	int ver;
->   	u32 ttrcr[NUM_TTRCR_MAX];
->   	struct regmap *regmap;
->   	struct clk *clk;
->   	struct qoriq_sensor	sensor[SITES_MAX];
-> +	const struct tmu_drvdata *drvdata;
+The driver ensure that the size of the endpoint memory access descriptors
+is set correctly based on the FF-A version.
 
-The drvdata pointer is not usually used.
+Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
+Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+---
+ drivers/firmware/arm_ffa/driver.c | 37 ++++++++++++++++++++++---------
+ include/linux/arm_ffa.h           | 16 ++++++++++++-
+ 2 files changed, 42 insertions(+), 11 deletions(-)
 
-	u32 model;
+v1->v2:
+	- Fix the size of EMAD in ffa_mem_desc_offset() and the loop
+	  increment in ffa_setup_and_transmit()
 
->   };
->   
->   static struct qoriq_tmu_data *qoriq_sensor_to_data(struct qoriq_sensor *s)
-> @@ -234,7 +243,7 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
->   		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
->   	} else {
->   		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
-> -		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
-> +		regmap_write(data->regmap, REGS_V2_TEUMR(0), GET_TEUMR0(data->drvdata));
-
-		
-	regmap_write(data->regmap, REGS_V2_TEUMR(0), data->model);
->   	}
->   
->   	/* Disable monitoring */
-> @@ -319,6 +328,8 @@ static int qoriq_tmu_probe(struct platform_device *pdev)
->   
->   	data->ver = (ver >> 8) & 0xff;
->   
-> +	data->drvdata = of_device_get_match_data(&pdev->dev);
-> +
->   	qoriq_tmu_init_device(data);	/* TMU initialization */
->   
->   	ret = qoriq_tmu_calibration(dev, data);	/* TMU calibration */
-> @@ -376,9 +387,14 @@ static int qoriq_tmu_resume(struct device *dev)
->   static DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
->   				qoriq_tmu_suspend, qoriq_tmu_resume);
->   
-> +static const struct tmu_drvdata imx93_data = {
-> +	.teumr0 = TEUMR0_V21,
-> +};
-> +
-
-Do the change for everyone
-
-static const struct tmu_drvdata imx8mq_data = {
-	.model = TEUMR0_V2,
-};
-
-static const struct tmu_drvdata qoriq_data = {
-	.model = TEUMR0_V2,
-};
-
->   static const struct of_device_id qoriq_tmu_match[] = {
->   	{ .compatible = "fsl,qoriq-tmu", },
->   	{ .compatible = "fsl,imx8mq-tmu", },
-> +	{ .compatible = "fsl,imx93-tmu", .data = &imx93_data },
->   	{},
->   };
->   MODULE_DEVICE_TABLE(of, qoriq_tmu_match);
-
-Thanks
-
-
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index cf6e44429ecd..b68cd9eb09ee 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -654,6 +654,26 @@ static u16 ffa_memory_attributes_get(u32 func_id)
+ 	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
+ }
+ 
++static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
++{
++	struct ffa_mem_region_attributes *ep_mem_access;
++
++	if (version > FFA_VERSION_1_1)
++		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
++}
++
++static void
++ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
++{
++	if (version <= FFA_VERSION_1_0) {
++		mem_region->ep_mem_size = 0;
++	} else {
++		mem_region->ep_mem_size = ffa_emad_size_get(version);
++		mem_region->ep_mem_offset = sizeof(*mem_region);
++		memset(mem_region->reserved, 0, 12);
++	}
++}
++
+ static int
+ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+ 		       struct ffa_mem_ops_args *args)
+@@ -672,27 +692,24 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+ 	mem_region->flags = args->flags;
+ 	mem_region->sender_id = drv_info->vm_id;
+ 	mem_region->attributes = ffa_memory_attributes_get(func_id);
+-	ep_mem_access = buffer +
+-			ffa_mem_desc_offset(buffer, 0, drv_info->version);
+ 	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
+ 					       drv_info->version);
+ 
+-	for (idx = 0; idx < args->nattrs; idx++, ep_mem_access++) {
++	for (idx = 0; idx < args->nattrs; idx++) {
++		ep_mem_access = buffer +
++			ffa_mem_desc_offset(buffer, idx, drv_info->version);
+ 		ep_mem_access->receiver = args->attrs[idx].receiver;
+ 		ep_mem_access->attrs = args->attrs[idx].attrs;
+ 		ep_mem_access->composite_off = composite_offset;
+ 		ep_mem_access->flag = 0;
+ 		ep_mem_access->reserved = 0;
++		ffa_emad_impdef_value_init(drv_info->version,
++					   ep_mem_access->impdef_val,
++					   args->attrs[idx].impdef_val);
+ 	}
+ 	mem_region->handle = 0;
+ 	mem_region->ep_count = args->nattrs;
+-	if (drv_info->version <= FFA_VERSION_1_0) {
+-		mem_region->ep_mem_size = 0;
+-	} else {
+-		mem_region->ep_mem_size = sizeof(*ep_mem_access);
+-		mem_region->ep_mem_offset = sizeof(*mem_region);
+-		memset(mem_region->reserved, 0, 12);
+-	}
++	ffa_mem_region_additional_setup(drv_info->version, mem_region);
+ 
+ 	composite = buffer + composite_offset;
+ 	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
+diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+index 0a0132c6ae3e..6e180fc0e68e 100644
+--- a/include/linux/arm_ffa.h
++++ b/include/linux/arm_ffa.h
+@@ -347,6 +347,7 @@ struct ffa_mem_region_attributes {
+ 	 * an `struct ffa_mem_region_addr_range`.
+ 	 */
+ 	u32 composite_off;
++	u8 impdef_val[16];
+ 	u64 reserved;
+ };
+ 
+@@ -426,10 +427,23 @@ struct ffa_mem_region {
+ #define CONSTITUENTS_OFFSET(x)	\
+ 	(offsetof(struct ffa_composite_mem_region, constituents[x]))
+ 
++static inline u32 ffa_emad_size_get(u32 ffa_version)
++{
++	u32 sz;
++	struct ffa_mem_region_attributes *ep_mem_access;
++
++	if (ffa_version <= FFA_VERSION_1_1)
++		sz = sizeof(*ep_mem_access) - sizeof(ep_mem_access->impdef_val);
++	else
++		sz = sizeof(*ep_mem_access);
++
++	return sz;
++}
++
+ static inline u32
+ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
+ {
+-	u32 offset = count * sizeof(struct ffa_mem_region_attributes);
++	u32 offset = count * ffa_emad_size_get(ffa_version);
+ 	/*
+ 	 * Earlier to v1.1, the endpoint memory descriptor array started at
+ 	 * offset 32(i.e. offset of ep_mem_offset in the current structure)
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+2.34.1
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
