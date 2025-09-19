@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22867CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9131CA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nOHjGCp/tMshJZjDqTlc+FUCfbGyYq8dKxKWrdS2BfY=; b=RSvJJItJjan05xzmD4dVFIt9Zb
-	GcCaoT8qvfNmBzewU0NDFpdBxU7MRRMrHwUUyJyDrRsNFWgbF4zaZsAYHfUQwWKpqyPMZo+WceOSR
-	YiHxwx/TMQxTUPEicc/X38vMjmcuLToQMiFY263r7K79eEBMrh5ZePaHDZZAWWp9uFNjRivtm/h5R
-	sbOs7uml/bF9uCU1yq26WWicoRis3ZciV8Y814++aHQEQn8Iqo0ozDt0pivdmYUw/8ASOyeeyz0mc
-	s828zi/DMtpfUB3UPX8nGeGorbPyqbAb+/2vXQdnESrraP/RQJhPVV5saJCbe0mFtC3JK8qcBmbwK
-	sg2OO9Qw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=geon0PTRUHbJhWtp221ijTyJuEfP8kVXnlAn8NqlvhU=; b=g3ZLgYB+99L2Sf+Jsa1sDg5lYe
+	IVM4DJF7Zp2/wF6s4d66yJlkfO16uKn/EAASWDyHVUUXbknro5k9abiVABudvqSc+x8G5yR1NKqd7
+	4PXziE/N0E7m4UMzTfFfvpEFRLtjkYUBJPeq71DE6vZ/l4atevbeb7XJmwCdc42H4ejWpXAZbMT3W
+	CH/IIIr0DroxLsf8lxcX6ls0mXLtnRVLRa4lm+o9+KtmxPj8mwc+io59TKDO4SpkKCR5QIDqE2c16
+	AQVaN+bA+sNXAjSbWChY25KQzLPFtvX2JjjbEZdDn1+VCPXr5zwRD7JCtwJrhlDdEOZzJfKuODgDG
+	1TzdYsCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOZ0-00000001Tsy-1A9T;
-	Fri, 19 Sep 2025 00:01:22 +0000
+	id 1uzOZ5-00000001TvE-3pu7;
+	Fri, 19 Sep 2025 00:01:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOYx-00000001TsA-0WTv
+	id 1uzOZ1-00000001Tt4-2AU4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 00:01:21 +0000
+	Fri, 19 Sep 2025 00:01:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D2FD1762;
-	Thu, 18 Sep 2025 17:01:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D3A11762;
+	Thu, 18 Sep 2025 17:01:14 -0700 (PDT)
 Received: from minigeek.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DE5D3F673;
-	Thu, 18 Sep 2025 17:01:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 51FE83F673;
+	Thu, 18 Sep 2025 17:01:20 -0700 (PDT)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lee Jones <lee@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -48,15 +48,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: [RFC PATCH 0/5] mfd: axp20x: program poly-phased regulators
-Date: Fri, 19 Sep 2025 01:00:15 +0100
-Message-ID: <20250919000020.16969-1-andre.przywara@arm.com>
+Subject: [RFC PATCH 2/5] mfd: axp20x: Refactor axp20x_is_polyphase_slave()
+Date: Fri, 19 Sep 2025 01:00:17 +0100
+Message-ID: <20250919000020.16969-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.4
+In-Reply-To: <20250919000020.16969-1-andre.przywara@arm.com>
+References: <20250919000020.16969-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_170119_241836_96D71EC4 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250918_170123_645380_6BDD3F73 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,109 +73,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Some X-Powers AXP PMICs allow to combine certain DC/DC rails together in
+a multi-phase fashion. So far we don't actively program those
+connections, but we detect the existing setup, and prevent the connected
+regulators from being re-programmed or turned off. At the moment this is
+done in a switch/case construct, listing the known regulator pairs for
+those PMICs supported.
 
-this series introduces support for X-Power AXP PMICs to actively control
-poly-phase configurations. Some AXP PMICs allow to join two or more voltage
-rails together, under the PMIC's control, to achieve higher currents and
-reduced ripple, by offsetting each rail's phase.
+To get rid of this ever growing code section, create a data structure
+that describes the relationship, and have generic code that iterates
+over the entries and checks for matches.
 
-So far we were just querying the active poly-phase configuration, as all
-boards were using the reset default setup, which matched the board's
-requirements. This information was just used to leave the coupled regulator
-alone, as its configuration is synchronised internally to the "leading"
-regulator.
+This not only cleans that function up and makes extensions much simpler,
+but also allows to reuse this information for the upcoming programming
+of those poly-phase setups.
 
-Now boards with the A523 family of SoCs often come with an AXP323
-dual-phase regulator, but use a single-phase reset default. However this
-regulator pair supplies the "big" CPU cluster, so definitely needs a
-dual-phase setup. Ignoring that leads to an immediate hang as soon as the
-cluster leaves the safe 792 MHz/900mv OPP.
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ drivers/regulator/axp20x-regulator.c | 91 ++++++++++++++--------------
+ 1 file changed, 45 insertions(+), 46 deletions(-)
 
-Looking at various datasheets of AXP PMICs reveals that there exist
-dual-phase, but also triple-phase setups, although the latter is only used
-by one PMIC at the moment. To be future proof, the following DT binding
-design is proposed:
-- The "x-powers,polyphased" property is introduced to list phandles of
-  regulators that are phased together. Only the lead regulator needs
-  to use that property:
-	regulators {
-		reg_dcdc1: dcdc1 {
-			regulator-always-on;
-			regulator-min-microvolt = <900000>;
-			regulator-max-microvolt = <1220000>;
-			regulator-name = "vdd-cpub";
-			x-powers,polyphased = <&reg_dcdc2>;
-		};
-
-		reg_dcdc2: dcdc2 {
-			/* dual-phased to DCDC1 */
-		};
-	};
-- If the "x-powers,polyphased" property exists, but the list is empty
-  (like a boolean property), the regulator will be removed from the
-  poly-phase setup, so the affected regulators become independent.
-- If the "x-powers,polyphased" property is absent, the existing poly-phase
-  configuration will not be touched. This preserves backwards compatibility
-  with the current situation.
-
-Some off-tree downstream patches use a temptingly simpler solution: the
-secondary rails just list a boolean property, to opt in to a poly-phase
-setup. Besides becoming slightly ambiguous in a true multiphase
-configuration, with three or more regulators involved, this has the big
-disadvantage of not being backwards compatible: a missing property might
-let the driver turn the poly-phase setup off, potentially breaking
-existing setups.
-The design proposed above avoids this problem by explicitly pointing out
-all participating regulator rails, at the cost of some more code
-complexity.
-
-This series introduces the DT binding changes in patch 1/5.
-Patch 2/5 refactors the current poly-phase *detection* code, to introduce
-a data structure describing the known pairs. This should be considered
-regardless of the rest of the patches, as a clean up.
-Patch 3/5 adds support for connecting dual-phase regulators, patch 4/5
-extends this to cover the one used tri-phase special case.
-The final patch adds the property to the A527/T527 board DTs that need it.
-
-This is a prerequisite for the upcoming DVFS support for the A523 family
-of SoCs, as all those boards so far require to actively enable the
-dual-phase bit.
-
-I am marking this as RFC, to get opinions on those questions:
-- Is the proposed DT binding a good solution? Shall the property name
-  be more generic? Is there an existing solution to this problem?
-- Is there a better, more generic way to describe poly-phased regulators
-  in a data structure? The one proposed in patch 2/5 just supports
-  dual-phased regulators, for simplicity.
-- Do we need support for the special-cased tri-phase setup, as seen in
-  patch 4/5? This is coded as some special case, but technically the
-  boards using this tri-phase setup (Allwinner A80 based boards) are
-  happy with the PMIC reset default.
-
-I would be grateful to get some feedback on this, so that we can push
-for a solution to eventually enable DVFS for the A523 family of SoCs.
-
-Based on v6.17-rc1.
-
-Cheers,
-Andre
-
-Andre Przywara (5):
-  dt-bindings: mfd: x-powers,axp152: Add polyphased property
-  mfd: axp20x: Refactor axp20x_is_polyphase_slave()
-  mfd: axp20x: Allow programming dual-phase regulator pairs
-  mfd: axp20x: Support tri-phase setup
-  arm64: dts: allwinner: a523: Mark dual-phased regulators
-
- .../bindings/mfd/x-powers,axp152.yaml         |  14 ++
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |   5 +-
- .../dts/allwinner/sun55i-h728-x96qpro+.dts    |   5 +-
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   |   5 +-
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts |   5 +-
- drivers/regulator/axp20x-regulator.c          | 190 ++++++++++++++----
- 6 files changed, 181 insertions(+), 43 deletions(-)
-
+diff --git a/drivers/regulator/axp20x-regulator.c b/drivers/regulator/axp20x-regulator.c
+index da891415efc0b..19c9a98d1835a 100644
+--- a/drivers/regulator/axp20x-regulator.c
++++ b/drivers/regulator/axp20x-regulator.c
+@@ -1481,70 +1481,69 @@ static int axp20x_set_dcdc_workmode(struct regulator_dev *rdev, int id, u32 work
+ 	return regmap_update_bits(rdev->regmap, reg, mask, workmode);
+ }
+ 
++struct dualphase_regulator {
++	int axp_id;
++	int reg1, reg2;
++	unsigned int polyphase_reg;
++	unsigned int bitmask;
++} dualphase_regulators[] = {
++	{ AXP323_ID, AXP313A_DCDC1, AXP313A_DCDC2,
++		AXP323_DCDC_MODE_CTRL2, BIT(1), },
++	{ AXP803_ID, AXP803_DCDC2, AXP803_DCDC3, AXP803_POLYPHASE_CTRL,
++		AXP803_DCDC23_POLYPHASE_DUAL, },
++	{ AXP803_ID, AXP803_DCDC5, AXP803_DCDC6, AXP803_POLYPHASE_CTRL,
++		AXP803_DCDC56_POLYPHASE_DUAL, },
++	/* AXP806's DCDC-A/B/C is a tri-phase regulator */
++	{ AXP806_ID, AXP806_DCDCD, AXP806_DCDCE, AXP806_DCDC_MODE_CTRL2,
++		AXP806_DCDCDE_POLYPHASE_DUAL, },
++	{ AXP813_ID, AXP803_DCDC2, AXP803_DCDC3, AXP803_POLYPHASE_CTRL,
++		AXP803_DCDC23_POLYPHASE_DUAL, },
++	{ AXP813_ID, AXP803_DCDC5, AXP803_DCDC6, AXP803_POLYPHASE_CTRL,
++		AXP803_DCDC56_POLYPHASE_DUAL, },
++	{ AXP15060_ID, AXP15060_DCDC2, AXP15060_DCDC3, AXP15060_DCDC_MODE_CTRL1,
++		AXP15060_DCDC23_POLYPHASE_DUAL_MASK, },
++	{ AXP15060_ID, AXP15060_DCDC4, AXP15060_DCDC6, AXP15060_DCDC_MODE_CTRL1,
++		AXP15060_DCDC46_POLYPHASE_DUAL_MASK, },
++};
++
+ /*
+  * This function checks whether a regulator is part of a poly-phase
+  * output setup based on the registers settings. Returns true if it is.
+  */
+ static bool axp20x_is_polyphase_slave(struct axp20x_dev *axp20x, int id)
+ {
++	struct dualphase_regulator *dpreg;
+ 	u32 reg = 0;
++	int i;
+ 
+-	/*
+-	 * Currently in our supported AXP variants, only AXP803, AXP806,
+-	 * AXP813 and AXP15060 have polyphase regulators.
+-	 */
+-	switch (axp20x->variant) {
+-	case AXP803_ID:
+-	case AXP813_ID:
+-		regmap_read(axp20x->regmap, AXP803_POLYPHASE_CTRL, &reg);
++	for (i = 0; i < ARRAY_SIZE(dualphase_regulators); i++) {
++		dpreg = &dualphase_regulators[i];
+ 
+-		switch (id) {
+-		case AXP803_DCDC3:
+-			return !!(reg & AXP803_DCDC23_POLYPHASE_DUAL);
+-		case AXP803_DCDC6:
+-			return !!(reg & AXP803_DCDC56_POLYPHASE_DUAL);
++		if (axp20x->variant != dpreg->axp_id)
++			continue;
++		/* Is this the second regulator from a dual-phase pair? */
++		if (id == dpreg->reg2) {
++			regmap_read(axp20x->regmap, dpreg->polyphase_reg, &reg);
++
++			return !!(reg & dpreg->bitmask);
+ 		}
+-		break;
++	}
+ 
+-	case AXP806_ID:
++	/*
++	 * DCDC-A/B/C can be configured either as a dual-phase (A+B) or
++	 * as a triple-phase regulator (A+B+C), but not in any other
++	 * combination. Treat this as a special case here.
++	 */
++	if (axp20x->variant == AXP806_ID) {
+ 		regmap_read(axp20x->regmap, AXP806_DCDC_MODE_CTRL2, &reg);
+-
+-		switch (id) {
+-		case AXP806_DCDCB:
++		if (id == AXP806_DCDCB)
+ 			return (((reg & AXP806_DCDCABC_POLYPHASE_MASK) ==
+ 				AXP806_DCDCAB_POLYPHASE_DUAL) ||
+ 				((reg & AXP806_DCDCABC_POLYPHASE_MASK) ==
+ 				AXP806_DCDCABC_POLYPHASE_TRI));
+-		case AXP806_DCDCC:
++		if (id == AXP806_DCDCC)
+ 			return ((reg & AXP806_DCDCABC_POLYPHASE_MASK) ==
+ 				AXP806_DCDCABC_POLYPHASE_TRI);
+-		case AXP806_DCDCE:
+-			return !!(reg & AXP806_DCDCDE_POLYPHASE_DUAL);
+-		}
+-		break;
+-
+-	case AXP15060_ID:
+-		regmap_read(axp20x->regmap, AXP15060_DCDC_MODE_CTRL1, &reg);
+-
+-		switch (id) {
+-		case AXP15060_DCDC3:
+-			return !!(reg & AXP15060_DCDC23_POLYPHASE_DUAL_MASK);
+-		case AXP15060_DCDC6:
+-			return !!(reg & AXP15060_DCDC46_POLYPHASE_DUAL_MASK);
+-		}
+-		break;
+-
+-	case AXP323_ID:
+-		regmap_read(axp20x->regmap, AXP323_DCDC_MODE_CTRL2, &reg);
+-
+-		switch (id) {
+-		case AXP313A_DCDC2:
+-			return !!(reg & BIT(1));
+-		}
+-		break;
+-
+-	default:
+-		return false;
+ 	}
+ 
+ 	return false;
 -- 
 2.46.4
 
