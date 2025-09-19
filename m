@@ -4,63 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2031ECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245AFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WX+3QVQrdEoBVgygNt/gvGVjG0i16otbvUqZM1g4YOE=; b=Knqy9Ashs8ul7kB58SaYxC66JM
-	cPvU9LXcRLS5A5QLEu2DzY/gmWE7SDw3zZ07y/2q2X/dWB+NayX00zSvIm7B6KFujC6LNve4vaN7C
-	kPrqnwSWSIE/awi37lFeLyCVvP+huefvOes9vMD8mjsyei8QibCrc+kLTLB1VqXzFd62Yo5dRZOte
-	kOmA6AR+MBkpG5hx71GVwEPseKZAw0cZAYSkhUqXljj0LsrvfsQcKXYIAwY02vNNBf2KdVqf+P+lj
-	leOpaZ2/VyGu0pfuPLIApkVpzpwshHDuvJBrcl+HZbYmrC+nvQ0HutzwouG/KsW9il0CGjmxJ96Xg
-	m+E3C7kw==;
+	bh=12MDBWYP5RzGA0C720lNDe4CjTlJOqeATF8h81bFfXQ=; b=z97NJP/BnE+vD6xXqy5tlJ3adW
+	rF781MpM+hEjBtV+9FFXxMHoYsDxP5wPCyPF01fLM7s2nhtsZQyDLjLVyOiOkfpeA0wyKcQpm1fBp
+	0z7DgR6rn2XPppdzTpvxLBoUla/CKTqoGc3LDO4BrM+QzqAj6hB+ZTsP9q2zIdu66MbQnMuTEPkxR
+	zm11ia4mCgZpiFyy/MMConFNsfohaH6fcOsk6s1zDXySx7Q/wAjttwyuqODkgnuK27vOZaMaotUrf
+	sxBLD49TF33kRYSc328HJSa+5zVy/EyeTlUaKL8SnE3DlY3oQCyvJYrUFyDWneOgVkMMx/M26lvT/
+	7IbCoH9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcyG-00000003Jc6-10aA;
-	Fri, 19 Sep 2025 15:24:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzczK-00000003K3c-0djp;
+	Fri, 19 Sep 2025 15:25:30 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcyE-00000003JbY-2wZE
+	id 1uzczI-00000003K2B-2oYi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 15:24:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 253B360194;
-	Fri, 19 Sep 2025 15:24:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B27C4CEF0;
-	Fri, 19 Sep 2025 15:24:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758295461;
-	bh=ABPSXlxAq7jRyiDCS/EVwlVL/meoOY0nO0Ad+jU4kDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DU3dHtFIBsAxB7Pt5UVMSZJt7VS4WcAeAutUWseQBKC3/LV2iFNdTkOSl/JwGx2i/
-	 sLZdGnErEYEAnsGyaijiiaZ6WDIOVntvtMC7lgCKAFrGN08e1if82OrLI+K3F7dmpO
-	 MLBQHh9Ijh22VanE3obrw/2WwaxYSWN3nwNB4Cu3c+AFaFgX6iNk5WStniMZxlCaAQ
-	 DDBhLjgbgo56vcWx/G2yobWmdru3hZbMEUfkasPAqnoC5ixr+oewGsXXV9oTTPY9PM
-	 keZff9OUrkv1q5YI9gzQkiqRnXErR7arzVhi76QCBOFtJ7n+GzOoVaz5akrRgRb9y8
-	 5XFW5AMSHhUNA==
-Date: Fri, 19 Sep 2025 10:24:14 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Fri, 19 Sep 2025 15:25:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q6YoABOr8HqXSnboLlKR+AvXpy8KtA3w8WHps4zb8Yf/09mPcPGLJ//RtYqOKGn+J987b5aMlw4W+VWZ94nfsRUUZ6qPOwUrx2l/kOEL+aBGPtqoeuRWay5FcsfKzFefQ9eUHkCYx1l2WpfAYMUtCecAAT15UgAiJZIfRey7hVIUye+tLy9XxsSU9deZhquDFTO9GQxEkqp3d8ARgJxbQPFNqBW9ATXMsj1/TkSdr00Qz431LdRswmdeSOm8XS2YH1aMH7SP/eA0LnIJcNpZ60IEFONWDkYQbqjdRSWvU7Jq0FoaEJS847Foqz5geEd2fzYNtQpoGAxEvId+SznDMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=12MDBWYP5RzGA0C720lNDe4CjTlJOqeATF8h81bFfXQ=;
+ b=I8TICSRVcS2pBjDdeS57zprFpIqMdnS5QRaqsUnJ//hyXqirwBfjbQ+K0NCSaeJYTXjmo2b9fdA1sHpw6RWoi4n0BfdaQj8am2+pIEY61ncazlESivnHDVWUBIJAq16bSaRvVP22bG5h472juybnqAORVDieteqWw1YZlDUIl7h7CPlkgTsVeEu8/HyPDgdgMRFEeHZVW0HpB7xy2EvXLzozn6fS/3Qcq0XmkhnCNV6niN7LGWImwL0tgbNjvAv2kIBinm1CDo2EtEVSU7fI/O3NAEXllL8o0zGhmt4z2bPtPJkMXxAPojwnilni9uzHG3ZKvEo5GhFlBufSujwQ+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=12MDBWYP5RzGA0C720lNDe4CjTlJOqeATF8h81bFfXQ=;
+ b=J1xHFiuvgT+qP8ZNkFgad/LrTkufYPp/xnepF77pBhBHzTHl4/JlmmkGjbSmTAeDjtgH4yWHE/pQf/1WYKLWUEPzDNdnfXH5dczvxBLe8p8pMAZwIx+qI+R3qQya2E+lSEtebFth0kKnyctgTchZbLdjbgPJ+typzu5Zp5/QIaIj3HSbbNY6gNdoP+LZxDIm6NOEgRp6VMYRMPq+tKnv5xA3WexRMvwavsCTifY+cpp8THklTZEHwsp26/UWCr5cNvSxcFY+8txMG9ClP/fZZBVNBdErbkvoG+HK5Km548UCU9j1iVwcZxKEFKCPUuw0dtOgfEuiaZKrkq9sc+5gvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PA1PR04MB10098.eurprd04.prod.outlook.com (2603:10a6:102:45b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
+ 2025 15:25:23 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
+ 15:25:22 +0000
+Date: Fri, 19 Sep 2025 11:25:17 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 7/7] dt-bindings: soc: fsl: qe: Add support of IRQ in
- QE GPIO
-Message-ID: <20250919152414.GB852815-robh@kernel.org>
-References: <cover.1758212309.git.christophe.leroy@csgroup.eu>
- <7269082e90d20cf2cb4c11ceb61e24f0520d0154.1758212309.git.christophe.leroy@csgroup.eu>
-MIME-Version: 1.0
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 09/14] drm/imx: dc-ed: Support getting source selection
+Message-ID: <aM113cxd3sLwEyD1@lizhi-Precision-Tower-5810>
+References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
+ <20250704-imx8-dc-prefetch-v1-9-784c03fd645f@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7269082e90d20cf2cb4c11ceb61e24f0520d0154.1758212309.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <20250704-imx8-dc-prefetch-v1-9-784c03fd645f@nxp.com>
+X-ClientProxiedBy: AM0PR03CA0047.eurprd03.prod.outlook.com (2603:10a6:208::24)
+ To PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA1PR04MB10098:EE_
+X-MS-Office365-Filtering-Correlation-Id: fca124c1-4f1f-41be-9050-08ddf790c02a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ah1VN07di/6K9wisQqS6yJPZhssCDpsFn2lmWivRCf0CHOCkGB2e3XUaLBv8?=
+ =?us-ascii?Q?k6mOtODaMdAhFkf5x52cdWAFEhsjhzew19ls61BNQmRhYpOfUTG7MWH0RhiT?=
+ =?us-ascii?Q?wkh41NPrwIBDnkHL57CEL1Ut0+5hfDNJFwe8bo3+/R8PIx7htYnPVHGtU3ge?=
+ =?us-ascii?Q?hpI/dJPOq15OtnhWfL0SgJdMFgJ0Sr0Kj6kvC5vtmgTnH4hPjJmBVwV1r2tM?=
+ =?us-ascii?Q?W7EKDZSk3ZITHrsbwDYZG/I5OgOLSWFpPr0SHT6HosSXA2H+wOZ1bOLXCeQc?=
+ =?us-ascii?Q?Bbey8bQyD/yIzEMphJy59ySCbedxcB9Op3yKuPS2zbvrmUIm+JkbkulM1qgq?=
+ =?us-ascii?Q?SHlo/hsdfLD28cvjJkmFRI+kTeH45oNcD1gAbG7aK5I4SVlsiKUhZ2Tv+xC3?=
+ =?us-ascii?Q?B1+LVhTu3jOSoSNxRgPIE5LcSfrcnzRQ4bIuQpsWnvO4sNnbc6Ngm205jwek?=
+ =?us-ascii?Q?vTAwRanv8lmxU5OWZ85dXEF4cQm6iYsxsBXNu2jab666iB33wPzo2HkQS0Da?=
+ =?us-ascii?Q?rOcAjjD9yyJHU08fW7BGbWv/1Xky/WqjnEgYG6/5eg/r0Xmw3te7DZh4DU6F?=
+ =?us-ascii?Q?UkgSlqVsTEUchbf3OzcTUkXlRpc63Kzymb579fKC5amb9FUiar9j5OaBkFzB?=
+ =?us-ascii?Q?IHk3QBlXbCF3TLBRwK4iw3sFwT8nRPrAr+5Skd7KLq4X/ivQRLtqm+RhwAnJ?=
+ =?us-ascii?Q?i4QmbkX8LLN+YNByfd2E0K+Vyy4/g7SWC1Hrx/Uny7mpOgadsZnwtojCL5Mr?=
+ =?us-ascii?Q?+xGfTKNrS/9YnVdJlnwMNREfvVmmEwOXcd316t/5X71E3BDlNXrc4stQm7p/?=
+ =?us-ascii?Q?yJvYwWn/v12zM+KR73P7CRv6ez/fGoSVQMQjB70+SKTfvCZUS7GtoRJT8QMO?=
+ =?us-ascii?Q?L4kzDVMFuWxrMFg2BUnYV0Q48zeev1AnS6SdkhJsVmhMAiED0VGgXxH5jVm7?=
+ =?us-ascii?Q?XCqzQ1LOGt8anu1/OtI0dAsK4qOC/EUIYMEvB0hb0adyc9ygOjB5e2tw8rUL?=
+ =?us-ascii?Q?gSVTP5SiSS33vi/KLLYnoqBqIh6XxoVS0ImyyFLe/LHHwUnzsKBqz+dRqizj?=
+ =?us-ascii?Q?b1EwHLHliO1MaZ6zZlW+wxmwZqH2zxg4x0PxC81YPA2ne6bzjkATOjzx1okm?=
+ =?us-ascii?Q?FBuKKOqAkGA+uAB8hlJunIHxmeZc8fkf3jP0EYbrusLJX0aLDeggb+1JmEQU?=
+ =?us-ascii?Q?TUXjFFsuysD4y74C+N91WJ1IVB1pzs6QD7WTg1cZ0U5nAGRxy5sMxx1i8u4T?=
+ =?us-ascii?Q?D51UgM1xFHa6O+xJWMXmEi9exj2sWS39Rqam21dPDh1lVbpKG42tWom53Ak3?=
+ =?us-ascii?Q?4/JgWsGkAPnIqruiYJrxO1RE18K1F+wXsA2NcCCOJ1VTPlyAYVwxELrd91U0?=
+ =?us-ascii?Q?k2KT6u7QDjVJsSiFWKz/6MQsQpQGi04KM0usDH9JxuWat1cRfFv6zST9LjsG?=
+ =?us-ascii?Q?34HDP+jZ5+rRKsdiqfqP0ZuGqeBpv+fiZ+gUDDUooBIS4upbaW3Szw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X02dZ6iBniy4eyavpeTdeoHP7YOex91up6EkMDxKShoMuB6dUkp2d8xEtJUw?=
+ =?us-ascii?Q?PBft9INpm6EKaQZ0D3Zvef5ZZwOoUJ+m5C/c+ALg7uQrj5IwaOMjSwSzjtNG?=
+ =?us-ascii?Q?naGGkxIEWc3LpP1vKqc0Qk0LV2p9wXjAeD1biFbdPlQbgAsBRrIrokBBgSeY?=
+ =?us-ascii?Q?KXmAepj1GFaQ7iOFBTRK91uySiJecBJs7UUJiuPAKtYTB+e0hX5BmBLA0VLw?=
+ =?us-ascii?Q?jRvqD3ikwja54kw6iidLcOlWDREmKd0I4dhDOgRfMKa3Qnu2S+aYvbNA9zeA?=
+ =?us-ascii?Q?1T3HjmUfQ2WOukU8qAnxlarKEjRwmoBNpNXaV01FAjOci3xYO72Ujii69nXa?=
+ =?us-ascii?Q?uVsowxlSW+LV8o5VXaQzUtlLTNmGYwI0k9oDFZgtCWbGXxn/TaYNa84myfgC?=
+ =?us-ascii?Q?HIR0r/22KtLObcVaigboILTA9uTnRA0R8bBWQcnouCWOmIXsVIiPVADikPKC?=
+ =?us-ascii?Q?50ew2yApSLyl25pIJ7GzvXw4UMLMoC/BecTVUtYo81VIttSOjb975r/o85Cq?=
+ =?us-ascii?Q?dHq2zv5gBWiEZYJDNLWKBtm/7Sl909WsxnBcsaXN66UYSkoBSNdA63+ClGNP?=
+ =?us-ascii?Q?HIszxHwF+xDnC55lcTnxBHwbjtDHGz9/NdVY6mSVM4o3USDGh5zDMXZlihik?=
+ =?us-ascii?Q?klZFdMX99N7tNG3A+T0Ub8bvLgBhSsUsRZe5BrRJjkL46lMDgEuTK0l7e7Pf?=
+ =?us-ascii?Q?+jYHx5subX/P/TTMj2n1j6UBUp8j5mQvNauz/9wwAj6ZzSqOnjdQvF2WoTjE?=
+ =?us-ascii?Q?tZXaSoLzdK5LcwBAJxeJkYZ71E/+HJbuWU01lvOBbZNyTKLntmcw9hwTJiIy?=
+ =?us-ascii?Q?yhtg5nWhBqYMxLQuw85kjhlsnMCHHLjDwPSkK9tR+cOIrspSwxqUdUAIRli2?=
+ =?us-ascii?Q?u4NixE/AD/0rjop59vZRQ2kPTSli+u30rhChhTgLevRJ1+HJqZYRS8XhRMhy?=
+ =?us-ascii?Q?Jn7K8XIOBPGuEyiidC2O2tPMNx0M9839833fP2RPPaO7knkMg4wFRySch7Da?=
+ =?us-ascii?Q?fvVxgU06WDtfRiKa+l+eIqS7miYPTM962BTr8olY7Jzud6eymdB6qAidlSSj?=
+ =?us-ascii?Q?r4N/X6EqxGTSXegbau77y0pUpRqVk6nDkBcxwA2PmYHSAX/3U+oAQ6WIESaA?=
+ =?us-ascii?Q?ZuZkQrFHFho6iXS9uNjzC9zRAzs4CY/W7oFwUYIc15E79kwA3cqf95pqx5SB?=
+ =?us-ascii?Q?Mtq3um+xEpBgq148OgyeHWcVXdOzLPbXp1t+GKPbU4Tu55euIqlELR8DP1VR?=
+ =?us-ascii?Q?7GufqkJ3hUb4ZAKos50S+EwjwVKgnJPyNNMvE1XTnvOw0EDYvXw6NIfMJhrS?=
+ =?us-ascii?Q?OO8k+OzwOrZnG+E7jNmW6ZUk8qzCIPXlvFQEMKHbdXA5BMWfowjB5cfHojk5?=
+ =?us-ascii?Q?Rpi0vqSoJsR3H26qtsrCvyxw9DuUYZ+CUWiRDwq0Zuy6mVjAW79IA/d3IUay?=
+ =?us-ascii?Q?yb8/ohgpeBA35/XkwndpDV7FyZ91KHGBgLDCvUKphXUT/Ifk0EB4b+y0zL+8?=
+ =?us-ascii?Q?jebbdukcXuvquCLbCWXy7pUyYOhe1ROfdnczDrudjTjkkNCb16pYs1VF+WQz?=
+ =?us-ascii?Q?2hUmU+Wr/jGJnDjDAaBOmvdouJo0ayROYBgOXVKW?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fca124c1-4f1f-41be-9050-08ddf790c02a
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 15:25:22.8956
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p1+L9wfVWVSzoh9c45e4STcujPC0nlKoeTD+Vnp66s0KKzCYDrE7yNHXikgrHv/JgZNymlMpW1QHxOYIuLz1kw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10098
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_082528_706878_C626AEC2 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,83 +168,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 06:23:27PM +0200, Christophe Leroy wrote:
-> In the QE, a few GPIOs have an associated IRQ to notify changes.
-> Add IRQ support to QE GPIO.
-> 
-> As not all GPIOs have an associated IRQ, the driver needs to know
-> to which GPIO corresponds each provided IRQ. This is provided via
-> multiple compatible properties:
-> 
-> 	compatible = "fsl,mpc8323-qe-pario-bank-a"
-> 	compatible = "fsl,mpc8323-qe-pario-bank-b"
-> 	compatible = "fsl,mpc8323-qe-pario-bank-c"
-> 
-> 	compatible = "fsl,mpc8360-qe-pario-bank-a"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-b"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-c"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-d"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-e"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-f"
-> 	compatible = "fsl,mpc8360-qe-pario-bank-g"
-> 
-> 	compatible = "fsl,mpc8568-qe-pario-bank-a"
-> 	compatible = "fsl,mpc8568-qe-pario-bank-b"
-> 	compatible = "fsl,mpc8568-qe-pario-bank-c"
-> 	compatible = "fsl,mpc8568-qe-pario-bank-d"
-> 	compatible = "fsl,mpc8568-qe-pario-bank-e"
-> 	compatible = "fsl,mpc8568-qe-pario-bank-f"
-> 
-> When not using IRQ and for banks having no IRQ (like bank D on mpc8323)
-> the origin compatible = "fsl,mpc8323-qe-pario-bank" is still valid.
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+On Fri, Jul 04, 2025 at 05:03:56PM +0800, Liu Ying wrote:
+> Add a helper to get ExtDst source selection.  This is needed by
+> disabling CRTC at boot in an upcoming commit which tries to get
+> the source selection.
+>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
->  .../gpio/fsl,mpc8323-qe-pario-bank.yaml       | 27 +++++++++++++++++--
->  1 file changed, 25 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> index 0dd9c0e6ca39..c34aeea119e0 100644
-> --- a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> @@ -14,6 +14,22 @@ properties:
->      items:
->        - enum:
->            - fsl,chip-qe-pario-bank
-> +          - fsl,mpc8323-qe-pario-bank-a
-> +          - fsl,mpc8323-qe-pario-bank-b
-> +          - fsl,mpc8323-qe-pario-bank-c
-> +          - fsl,mpc8360-qe-pario-bank-a
-> +          - fsl,mpc8360-qe-pario-bank-b
-> +          - fsl,mpc8360-qe-pario-bank-c
-> +          - fsl,mpc8360-qe-pario-bank-d
-> +          - fsl,mpc8360-qe-pario-bank-e
-> +          - fsl,mpc8360-qe-pario-bank-f
-> +          - fsl,mpc8360-qe-pario-bank-g
-> +          - fsl,mpc8568-qe-pario-bank-a
-> +          - fsl,mpc8568-qe-pario-bank-b
-> +          - fsl,mpc8568-qe-pario-bank-c
-> +          - fsl,mpc8568-qe-pario-bank-d
-> +          - fsl,mpc8568-qe-pario-bank-e
-> +          - fsl,mpc8568-qe-pario-bank-f
-
-Is this supposed to be mpc8569? I don't see any existing 
-"fsl,mpc8568-qe-pario-bank" compatibles.
-
-This breaks the ABI. If the OS relied on "fsl,mpc8360-qe-pario-bank" for 
-example, you just broke it.
-
-As the GPIO bank doesn't do any interrupt handling itself 
-(mask/unmask/ack), you can just do this (using 
-fsl,mpc8360-qe-pario-bank-a case):
-
-interrupt-map-mask = <0x1f 0>;
-interrupt-map = <15 0 &qepic 0>,
-                <16 0 &qepic 1>,
-                <29 0 &qepic 2>,
-                <30 0 &qepic 3>;
-
-And then a user of the GPIO interrupt just says "interrupts = <15 0>;".
-
-Rob
+>  drivers/gpu/drm/imx/dc/dc-ed.c | 26 ++++++++++++++++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-pe.h |  1 +
+>  2 files changed, 27 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/imx/dc/dc-ed.c b/drivers/gpu/drm/imx/dc/dc-ed.c
+> index 86ecc22d0a554bf3eced218df0312b513e10e179..b514790bb765329295553f89d16ee1167ef411dd 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-ed.c
+> +++ b/drivers/gpu/drm/imx/dc/dc-ed.c
+> @@ -150,6 +150,32 @@ void dc_ed_pec_src_sel(struct dc_ed *ed, enum dc_link_id src)
+>  	}
+>  }
+>
+> +int dc_ed_pec_src_sel_get(struct dc_ed *ed, enum dc_link_id *src)
+> +{
+> +	u32 val;
+> +
+> +	regmap_read(ed->reg_pec, PIXENGCFG_DYNAMIC, &val);
+> +
+> +	switch (val) {
+> +	case LINK_ID_NONE:
+> +	case LINK_ID_CONSTFRAME0:
+> +	case LINK_ID_CONSTFRAME4:
+> +	case LINK_ID_CONSTFRAME1:
+> +	case LINK_ID_CONSTFRAME5:
+> +	case LINK_ID_FETCHWARP2:
+> +	case LINK_ID_FETCHLAYER0:
+> +	case LINK_ID_LAYERBLEND0:
+> +	case LINK_ID_LAYERBLEND1:
+> +	case LINK_ID_LAYERBLEND2:
+> +	case LINK_ID_LAYERBLEND3:
+> +		*src = val;
+> +		dev_dbg(ed->dev, "get source selection: 0x%02x\n", val);
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+>  void dc_ed_pec_sync_trigger(struct dc_ed *ed)
+>  {
+>  	regmap_write(ed->reg_pec, PIXENGCFG_TRIGGER, SYNC_TRIGGER);
+> diff --git a/drivers/gpu/drm/imx/dc/dc-pe.h b/drivers/gpu/drm/imx/dc/dc-pe.h
+> index f5e01a6eb9e918516adfc89949665fdd2ff1e40e..0b81dc6b251c452e7ca72f1cd12af065bafaa198 100644
+> --- a/drivers/gpu/drm/imx/dc/dc-pe.h
+> +++ b/drivers/gpu/drm/imx/dc/dc-pe.h
+> @@ -85,6 +85,7 @@ void dc_cf_init(struct dc_cf *cf);
+>
+>  /* External Destination Unit */
+>  void dc_ed_pec_src_sel(struct dc_ed *ed, enum dc_link_id src);
+> +int dc_ed_pec_src_sel_get(struct dc_ed *ed, enum dc_link_id *src);
+>  void dc_ed_pec_sync_trigger(struct dc_ed *ed);
+>  void dc_ed_init(struct dc_ed *ed);
+>
+>
+> --
+> 2.34.1
+>
 
