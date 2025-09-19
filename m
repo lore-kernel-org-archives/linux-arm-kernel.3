@@ -4,127 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A31CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC8FCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGBIXWoQfciFg5TTWblokxBsiewcOE1bszsE8YzDKWM=; b=RclXIN5xeT3xhCyydy1IaHmBXz
-	Y0PUvS88+AhAs1ndtcAL6tvnx4fhCJbR4cszvr55K4V3o5FF94WSudLERSjAc+tcZRCAwzgEle1mk
-	mlJslbZCcB3G+UparNi5bYldrJim29Ol/TBAZ2QFtCVSjOTkhTrSHcCE9iWQHcqBUMwb32cXwYTRE
-	ZEynXosGfX/bJqx63AKymMBGZCfgBvvdsLDb/UezmjTz0SGAEorlEyuVujlJFyGnOfCkGLdBFSTj3
-	uwprt951Jut/pgeuJyZrfpd+MdkLUC5iyzSbHqFimnhd0Lfsxj/wXeVl4ELy/1gdM1vxvjV7KV3jJ
-	RmuBKYdg==;
+	bh=sZIH1+VId2V0kwfo2oejHmAl8OhAnfxz6ssL67G6sYs=; b=izUlpkh2qK4dyYldIoNeM6PI7P
+	7VmJDNH74zPJjmdza9he99liYeEROYQQOu8Q8ZM6YpsvkNNy86iZvdq1d73OlN4PGANO6RRptZjol
+	BmKYwU6NgKXDTLC24lH51b0khPk5l8XgiYgW95FzLqh6D9Dd0WaRwgCkdxtAB57bQDsrzE3lwP+j5
+	FHIet0xPtM7LLiv6rySukjeCPU82Rg9IzuLXK7JbpP/YoduGPRB/1OQS6dgWwOvOtJnwsVfuOSySV
+	v+Bggc/ZQB7NuaMHdehDTSVxsMQO6BMy8HMvPZzX915sWYIKQjWENb8WJhJ2ypX7iR5ZA7ORtQX5H
+	e5ncSisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzc0q-00000003713-1PYG;
-	Fri, 19 Sep 2025 14:23:00 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1uzc10-0000000377p-0jVy;
+	Fri, 19 Sep 2025 14:23:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzc0n-000000036yL-0ryR
+	id 1uzc0u-0000000373p-2rXw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 14:22:58 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 3BC477A0068;
-	Fri, 19 Sep 2025 10:22:53 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Fri, 19 Sep 2025 10:22:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1758291773;
-	 x=1758378173; bh=DGBIXWoQfciFg5TTWblokxBsiewcOE1bszsE8YzDKWM=; b=
-	3P7vtOxXTlRKZGWlZLsRFVQlQg4bj5SvQvb5v1zmryo4PCz5xUCZ/fSZUuL33qsW
-	2XFxpoh130HNWVqUH00GYFR2OLcWx0fbXjhyeBAR8yseNvBXLhN/0OOMJL6U3cy9
-	NOxQGScNJsPb3WM84wfJPFb4rdhDXJNr0eUbkkBFZAqgCNYQVkp1Eolbo7eGfx6T
-	UIhoCwGZmmCD2l9Vdt05U1amomaUxFZDiopcE8Uiha2UPEfSrnPL/cBLPrd/w2SK
-	AOAYXKR8GES89WQNC+kxfLcj7gP5oZndIPzi3FtUM0Qapm2gqlAC8zK00Iux7Czt
-	u3Hzk4X0b7bccGPCfsVDGQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758291773; x=
-	1758378173; bh=DGBIXWoQfciFg5TTWblokxBsiewcOE1bszsE8YzDKWM=; b=N
-	wEFh+Ehq8I5Ne8BUFO132THoMndwZ6szg6zS6b+qZvszYrP+sSryFfqlrr++t+re
-	52mUZjJS/MqYpcQK4IrqneI3Q+QV87n44m8BdrbXyltTFUsKqWVoFc7LxhztSzR1
-	/CyOnK6h4cAgGvOrrvZPqQ+kytQaKCIBFxaNl1m4svOmCOmwcwS8Yq4fdKJu928x
-	+iYoSc2Dwk0r2zFgWPLHA2uWyYEEbO2I/L1Q2EIYz5f60VEk6QPi921HwITH7WAh
-	xpt1386OGSe7LQJ7/CDBPPYMPl7W+ZdVVK91Q5wl7+/wWjKCPzRy6B5d7I5vClBH
-	kLIZeQgRg6fEx8N/FKj5Q==
-X-ME-Sender: <xms:O2fNaHPZsDEluqQ3K1xXVYzEPxMOHfVlGvrDBsZCIGFfPOnh7MIMIw>
-    <xme:O2fNaB8EpINHV6429QucyQqOJUWdlBgZRzftFfr0w1fqno7OIhXeVkca9g9sUwCxx
-    WJ4lzYGsR2mwvafSTA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegleeggecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeftddpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheptghhvghsthgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprh
-    gtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhr
-    tghpthhtoheprghnughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvg
-    gvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghn
-    uggvrhdrshhvvghrughlihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgih
-    hordhprghrrggtuhgvlhhlohhssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgv
-    nhgssehgohhoghhlvgdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrg
-    gurdhorhhgpdhrtghpthhtohepihhrrgdrfigvihhnhiesihhnthgvlhdrtghomh
-X-ME-Proxy: <xmx:O2fNaLcxJAwbyL7fF-hDxzqk5CnB_5srfmblzDObKefDa2_Yw3Nu9Q>
-    <xmx:O2fNaI_XmRHiAy2z_8UrPdVkq5oq8nmdQ4T2W7CdP781TiN2_pBACw>
-    <xmx:O2fNaJixEsf2I4UZLqtJvoBDqXbeFMrBT42lISbnoEN9uVt68m1a8w>
-    <xmx:O2fNaE_oeBhVK0r7xewR08-ipIjEJmwOjKy_oXBB5MOm1ZA557kJ_A>
-    <xmx:PWfNaL2dV5R9mOO8RHYelr4frobgiBB2zH1lISJhguP3OD7Lp1pVdNvG>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 04B80700098; Fri, 19 Sep 2025 10:22:51 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 19 Sep 2025 14:23:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 06B21601F6;
+	Fri, 19 Sep 2025 14:23:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5554C4CEF0;
+	Fri, 19 Sep 2025 14:23:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758291783;
+	bh=MfwfWkTjerbB+d0i0G5HNE7kmzRVIYGXEQB1Ikndv9k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Ix+5Ng0c5FySNsg5NyTGgDyZXSKOJoVks2r1a3pdh4TAmjDqenF/d02gxLt54YdXx
+	 ZQRhNpdGL26W7TlRy/7uNemM3pYEgibOnzl6bQu4FZ3rVEiKbEmngfKVPWAHYLM+Oh
+	 qlyonPjHkdOxhtyJybFwOeK4NmvzisXgHcRTYfyZbdUXUtnkn0TNN8Gws7MY6JdYP3
+	 ITsyHzAYKOcfyf4N9NTQxAyyQSM3CN9dLUkb4h+icuMYUlBzScChPaVA/9U94itbK3
+	 ey9jB1yIFk/I1R6hJ7bKg6s7Q2tc1CYNv0sKk/0IadPKpH7mmpZcf9ZmKjx+MEipKL
+	 7xOxyNA/aeODg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uzc0r-00000007noh-0mIt;
+	Fri, 19 Sep 2025 14:23:01 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: (subset) [PATCH v8 07/12] KVM: arm64: Add trap configs for PMSDSFR_EL1
+Date: Fri, 19 Sep 2025 15:22:57 +0100
+Message-ID: <175829175713.1763751.2418893976885655605.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-7-2e2738f24559@linaro.org>
+References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org> <20250901-james-perf-feat_spe_eft-v8-7-2e2738f24559@linaro.org>
 MIME-Version: 1.0
-X-ThreadId: AneuvEk2E7Kg
-Date: Fri, 19 Sep 2025 16:22:20 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>
-Cc: "Jason Gunthorpe" <jgg@nvidia.com>, ksummit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
- "Andreas Larsson" <andreas@gaisler.com>
-Message-Id: <547dcb81-434d-4910-aa7c-1d69019fcb3d@app.fastmail.com>
-In-Reply-To: <CAMuHMdVecUeLZ2LPpa457C0a=uduvDhQ4KZJx-++dEFJraRi3w@mail.gmail.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <20250917125951.GA1390993@nvidia.com>
- <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
- <CAMuHMdVecUeLZ2LPpa457C0a=uduvDhQ4KZJx-++dEFJraRi3w@mail.gmail.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_072257_721463_D6039CCF 
-X-CRM114-Status: GOOD (  14.14  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, leo.yan@arm.com, anshuman.khandual@arm.com, james.clark@linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,33 +100,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025, at 09:17, Geert Uytterhoeven wrote:
-> On Thu, 18 Sept 2025 at 15:13, Arnd Bergmann <arnd@arndb.de> wrote:
->> On Wed, Sep 17, 2025, at 14:59, Jason Gunthorpe wrote:
->> > On Tue, Sep 09, 2025 at 11:23:37PM +0200, Arnd Bergmann wrote:
->
->> * Microchip SAM9x7 is the newest ARMv5 chip, clearly does
->>   get kernel updates, and the only one I can think of with
->>   DDR3 support, but seems to be limited to 256MB total memory.
->
-> Are they limited to DDR3?
->
-> IIRC, someone (you? ;-) told me at ELCE that Microchip keeps on spinning
-> new variants of old SoCs, to accommodate the changing DDR landscape
-> and market.  So perhaps they also accept larger RAM sizes?
+On Mon, 01 Sep 2025 13:40:36 +0100, James Clark wrote:
+> SPE data source filtering (SPE_FEAT_FDS) adds a new register
+> PMSDSFR_EL1, add the trap configs for it. PMSNEVFR_EL1 was also missing
+> its VNCR offset so add it along with PMSDSFR_EL1.
+> 
+> 
 
-Yes, that was me. The previous SAM9x60 was released in 2020
-and I think that one was an upgrade to a smaller process node,
-raising the clock frequency to 600MHz and adding more modern
-peripherals, but I see now that this used the same SDRAM/LPDDR/DDR2
-memory controller as previous chips, with a limit of 128MB
-total DRAM.
+Applied to next, thanks!
 
-SAM9X7 in 2023 added DDR3 mode with up to 256MB according to
-the datasheet, no idea why they chose not to support more,
-since a 32-bit wide DDR3 bus should allow up to 1GB with two
-256Mbit x16 chips that are widely available, or even more using
-expensive 512Mbit x16 or 1Gbit x8 chips.
+[07/12] KVM: arm64: Add trap configs for PMSDSFR_EL1
+        commit: 557c82a4480719f64cf6530b5090001e9d908904
 
-       Arnd
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
