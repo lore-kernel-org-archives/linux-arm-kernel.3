@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FDDCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9ACCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iIsXmeXBASvSdxjCrSy3+hC1WH5KAa9OAr1ZLqLxSYA=; b=dOvaKuxdhx/pH6l0fysIzY7RVO
-	h9c5BsuH3xo2pkBFGHhZhUpS5vRwlzZME9Cq5rmNDTTqV90L4l4PaChY/gsNdC1n3Sx+FZxgiazo6
-	salToC6VqQQi1ouQRe9FyBUtCU93rUgRr9kMjT6kHWQVUCTrx3UfWaJfnzew4LY16X+aun3cn7PpY
-	hv77f9kwMt+CS4TnhvvcxJPuRPVY31HnE9h+vle4PGdSuD5TcaRPnAbTQ5K3YuKgXK0So8RihgaRH
-	QVz3dXZg8bfdRIsNxJGB8ARu7PAZeF1o0Yoo6BzYMmcrU8/ySKXFBoOyurKmKrKMDeyyxFW6AIjTW
-	Mwc5eXdA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i15/KrflUa/XniVgyh7BJVwgocqzsGkNUEVmmFg58SQ=; b=rB9kb3KgdZJ+D70YbfzGFMz38s
+	E8raNYQdYDQAUB5OPRwRvjAKGYeqosmu5DwthHi4UNikhwzJkTytpWvfrAQZpATE4FJWZwByi2t78
+	+04CAUSEpm0o5svh9n974CnRuxYYoZdaw5+YKMICDyPfwNImgHs69t32yQzsY4qhUV2Jj1nCITOrq
+	oHTqAoomWff5yH73xrl0xOdDy24PN+f6zZDANvcpSkRl//CtJ8fpfWTXxrSiRt8/rUUHcCJf5hxV7
+	/f/DIcses5s9mvUP0dTUq9fb1zb3dyVxtTT6NYD8KvO85Sv4wzxbq6DQJwdo4GMth3byJIXDXcPpm
+	55JH0jjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXXU-00000002Oh6-29C3;
-	Fri, 19 Sep 2025 09:36:24 +0000
+	id 1uzXXa-00000002Oix-0POb;
+	Fri, 19 Sep 2025 09:36:30 +0000
 Received: from mail.loongson.cn ([114.242.206.163])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXXR-00000002OgY-2uvc;
-	Fri, 19 Sep 2025 09:36:23 +0000
+	id 1uzXXW-00000002OhR-2LqV;
+	Fri, 19 Sep 2025 09:36:28 +0000
 Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Axz78RJM1omC0MAA--.24734S3;
-	Fri, 19 Sep 2025 17:36:18 +0800 (CST)
+	by gateway (Coremail) with SMTP id _____8BxWNEZJM1oqC0MAA--.26340S3;
+	Fri, 19 Sep 2025 17:36:25 +0800 (CST)
 Received: from linux.localdomain (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJDxbMEPJM1oMmufAA--.61162S2;
-	Fri, 19 Sep 2025 17:36:16 +0800 (CST)
+	by front1 (Coremail) with SMTP id qMiowJDxbMEPJM1oMmufAA--.61162S5;
+	Fri, 19 Sep 2025 17:36:24 +0800 (CST)
 From: Tiezhu Yang <yangtiezhu@loongson.cn>
 To: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Huacai Chen <chenhuacai@kernel.org>
@@ -41,32 +41,35 @@ Cc: loongarch@lists.linux.dev,
 	linux-efi@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/3] Only link libstub to final vmlinux
-Date: Fri, 19 Sep 2025 17:36:12 +0800
-Message-ID: <20250919093615.30235-1-yangtiezhu@loongson.cn>
+Subject: [PATCH v1 3/3] riscv: Only link libstub to final vmlinux
+Date: Fri, 19 Sep 2025 17:36:15 +0800
+Message-ID: <20250919093615.30235-4-yangtiezhu@loongson.cn>
 X-Mailer: git-send-email 2.42.0
+In-Reply-To: <20250919093615.30235-1-yangtiezhu@loongson.cn>
+References: <20250919093615.30235-1-yangtiezhu@loongson.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJDxbMEPJM1oMmufAA--.61162S2
+X-CM-TRANSID: qMiowJDxbMEPJM1oMmufAA--.61162S5
 X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
-	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
-	BjDU0xBIdaVrnRJUUUBCb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
-	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
-	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxV
-	AFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
-	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv
-	67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2
-	Ij64vIr41l4c8EcI0En4kS14v26r1Y6r17MxAqzxv26xkF7I0En4kS14v26r126r1DMxC2
-	0s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v26r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
-	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxU7_MaUUUUU
+X-Coremail-Antispam: 1Uk129KBj93XoW7Gw15Wr13Kw43AFWrCFW5twc_yoW8Jr1kpw
+	s8CF4jvrZ5urWrWa48X3y7W3y5Kws5XrZI9Fy8ArWUJrWrXwsrZrn8Ar42yFs3XFy8XFWf
+	Jw4fCF1rCF4UA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUk0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
+	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5McIj6I8E87Iv67AK
+	xVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2Ij64
+	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
+	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
+	x0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
+	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I
+	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2F4iUUUUU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_023622_078623_CFF2318B 
-X-CRM114-Status: UNSURE (   5.31  )
+X-CRM114-CacheID: sfid-20250919_023626_997675_77914C7A 
+X-CRM114-Status: UNSURE (   8.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,21 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initial aim is to fix the objtool warning on LoongArch,
-then do the similar thing for arm64 and riscv.
+Since the efistub functions are useless for stack unwinder, they can be
+ignored by objtool. No need to link libstub to the vmlinux.o, only link
+libstub to the final vmlinux. Otherwise, there may be objtool warnings
+when riscv supports objtool, this is to make consistent with the other
+archs that use libstub.
 
-Tiezhu Yang (3):
-  LoongArch: Only link libstub to final vmlinux
-  arm64: Only link libstub to final vmlinux
-  riscv: Only link libstub to final vmlinux
+Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
+Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+ arch/riscv/Makefile | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- Makefile                | 1 +
- arch/arm64/Makefile     | 5 ++++-
- arch/loongarch/Makefile | 5 ++++-
- arch/riscv/Makefile     | 5 ++++-
- scripts/link-vmlinux.sh | 5 ++---
- 5 files changed, 15 insertions(+), 6 deletions(-)
-
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index df57654a615e..cfd82b2c1bbf 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -173,7 +173,10 @@ boot-image-$(CONFIG_XIP_KERNEL)		:= xipImage
+ KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
+ 
+ libs-y += arch/riscv/lib/
+-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
++
++ifdef CONFIG_EFI_STUB
++KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
++endif
+ 
+ ifeq ($(KBUILD_EXTMOD),)
+ ifeq ($(CONFIG_MMU),y)
 -- 
 2.42.0
 
