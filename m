@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9755CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1494CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qQQVvpAmXSFXhkPIfMzRXcNKNt7LSya8fPUUSNlSXhk=; b=qv4K4YUh1MlZ/f+fPsEG7xXPM1
-	L9oDIqd2q5fR60Irf1SXljZjFD46GxtT1rUDTE5b7erV1Aq+QHZe/xjSIJWNzGRShrdvH1KCVf0MS
-	2SCqVXooQ3gRENfHmrlabyQMXDwL1stRQaj3YbVkkXXIFGZqedrTj2zWYJGvi0B5nTrmlovCn60l+
-	e0V6jNh4t0vBgDe9d9umNQga1NljfsQKsTF3bicNqxwe4SgLalpKhaBnZziUf9M0SI312E1u3zFqV
-	UP1szuj8X98FJDGJEDVDRfLKHCx+mQvD8HB9Ha6Yt4o4/Sn1UGcgv04j+f3/UeQC+nuwRG0m2K6wF
-	8PEeiuoA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OaA1KMEFvwi7CqCN6bGPnPZwlphJmodZ7dceuhxkMQI=; b=TPPpsq46O5RXbJ4OkMhLxfHHOn
+	mfZKlviTr7eGZ8/la8W3lkfcsuM70Jn7s0GXXVp/3X6m9YIk+asVRS6aIntT+2eoglaGNxcx6O6Wz
+	saBga5h8b6QWtalC55oWwuzWxeF+/rFq3H/WD27VbxQJd+BIQn/jZgLfn32XgxbSMgGqhr3uuVp8A
+	WWr2/KBvfmvoRYamQB0JH2ghs7b3MvgJ5w9PJ3KUC3aEice487xCWeVvfhBOtOXYQAUVeDVvoL3QN
+	S/5Ux0QisbKsKx6/it+pMOBOnzJ9FIbOHcnZqZy1EQLmqrW2mfwvKXsy5oufCDA/RmZQ/q2V3dkR2
+	q1/NjDLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzYM0-00000002ZOT-2c2v;
-	Fri, 19 Sep 2025 10:28:36 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzYLy-00000002ZMD-1F7Q
+	id 1uzYMK-00000002ZVE-3x4Z;
+	Fri, 19 Sep 2025 10:28:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzYMH-00000002ZTR-3P81
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 10:28:35 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-55f74c6d316so2223468e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 03:28:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758277712; x=1758882512; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qQQVvpAmXSFXhkPIfMzRXcNKNt7LSya8fPUUSNlSXhk=;
-        b=SBCRk0S4VI3tEElUe2zvzKJ/w7z3lMB1z7M1rYH8dQya6pzggU0IeR/yQ1cQYFlAVn
-         iDkg2IzjzWPxPghLhOjgO3PVoVOsjtrw+nek0ABNk0H0raZ7TveUTCGGTgKceGvw/RdM
-         rBSDneM/EMxieUdPQdYcBkNnF4rhsPLkqhrrwonZq7eI8/jJtKHvTC+scmMQQATX87Sp
-         sp9XVEvPyRv6Erqkdp7Q+gmE15TEYG8U0KOGFn8R+B3zZvxRAdrPiYV6mcUB/fAOolwJ
-         k8vdBpehFHvP5kdxNNEflmpwUSqPSQCKjLcGuPLl92Ln9gvR2Wlec8LeAualxaIKLJrv
-         xqmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758277712; x=1758882512;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qQQVvpAmXSFXhkPIfMzRXcNKNt7LSya8fPUUSNlSXhk=;
-        b=mRFQJv0W+fcMtOfCz5LcdvTOLOkfmVpE3Y+ESDU8iHJrY3FgiMoMZAcIAkuuL6ujc4
-         yh33+Ak5LNes/c5MXTAHqfYCQ4lw4HvGjyOHQlCS7g6/eCuSO/EeJVywzHqOWKCzhJDG
-         5pz5qCZgkcSjEveo6xE1Ayi6uSDIEjke2uFzlaHzGlzp5rmHgShkpfrXGclljIGIRcTP
-         1Xc58mNseWISRETbDlrhi7gZVP6cBzRHTqR49cselOhadtAPvwL7iXvi2lXQM0TjpLjC
-         geC15C9DvekxiehOJni9inWZ7FdEuxXrHTOoHTMpslJvdxi1z6YcVBTsQjB1xturdOK6
-         TZfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWU9QEBuPtYgA5vdoe2eB4p5vP2yQmT73uepiJqukZXj+zGbhpXyFqdWbSzRKRoatmSRlixNOYWRLhliTJAIdsj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkPPqNQEWKeig7XT1a6ePiAHFQQUqINhPogNvVIzOn6C17odbB
-	hB2nBpQnWgO006VcUqufP2Ui9VadPnz/Ric5x15rTShwY2L+UfC6lVD9S+yTEZopvLg=
-X-Gm-Gg: ASbGnct0TMfUJCCVkXs45YmVu+BOvAJem1N2kJRIFM6Y7cd0MbQiWXqYxLn1YJ/86H9
-	x9B3s7tFT31utNIeMODnAHrwXhSrCskfbbrXDppwf63gTCdHpH1XlF6rnkgVmWJw9VinAEs+AbL
-	miv1SQyYKKrVzj1/TPf/xFP/pnXJdVn3wRBkQpVaqhS1RFwFMjjrCXwevCvTB7v34eJlFiBDEsu
-	JptyS59c6ObeNCaY6iausR/pBNSWwFCkDJPcEDodCrcagK4sAatmxMz1MOn/C9HjKbqOECFXR0O
-	DD6HqoKlr/ToteyAyGeorRVoTlvEWj2McsIyYuJFY/9DJOHmCcjQWwNRuHKDDeBrcrgwUWsTXwI
-	Gt1TxO05l/BWU+ipYMdly09WuLqt4PPkYsRKmiN6OlU/g8txhvEPGiNwlE2tK1O01tPRF84Sf
-X-Google-Smtp-Source: AGHT+IETmUnQlGUARBZSFBOrd6464VLoS8WXVDGEarMvcetfBwFqWJjqKJS/dx8EIEPRIYxLAxnydg==
-X-Received: by 2002:a05:6512:79a:b0:55f:595f:9a3f with SMTP id 2adb3069b0e04-579e1c5f94amr819145e87.15.1758277712193;
-        Fri, 19 Sep 2025 03:28:32 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-578a9950683sm1280054e87.114.2025.09.19.03.28.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Sep 2025 03:28:31 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain fixes for v6.17-rc7
-Date: Fri, 19 Sep 2025 12:28:29 +0200
-Message-ID: <20250919102829.151957-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Fri, 19 Sep 2025 10:28:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5B41169C;
+	Fri, 19 Sep 2025 03:28:44 -0700 (PDT)
+Received: from [10.164.18.52] (MacBook-Pro.blr.arm.com [10.164.18.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B5D23F673;
+	Fri, 19 Sep 2025 03:28:49 -0700 (PDT)
+Message-ID: <839ac455-f954-428f-b1a7-89778c57ee8b@arm.com>
+Date: Fri, 19 Sep 2025 15:58:46 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, anshuman.khandual@arm.com,
+ quic_zhenhuah@quicinc.com, ryan.roberts@arm.com, kevin.brodsky@arm.com,
+ yangyicong@hisilicon.com, joey.gouly@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ david@redhat.com, mark.rutland@arm.com, urezki@gmail.com,
+ jthoughton@google.com
+References: <20250723161827.15802-1-dev.jain@arm.com>
+ <aMk8QhkumtEoPVTh@willie-the-truck> <aMrXBArFNLTdwWs3@willie-the-truck>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <aMrXBArFNLTdwWs3@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_032834_364649_0ADC57C7 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250919_032853_897161_039279E9 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +69,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
 
-Here's a pull-request with a couple of pmdomain fixes intended for v6.17-rc7.
-Details about the highlights are as usual found in the signed tag.
+On 17/09/25 9:13 pm, Will Deacon wrote:
+> On Tue, Sep 16, 2025 at 11:30:26AM +0100, Will Deacon wrote:
+>> I'm currently trying to put together a litmus test with James (cc'd) so
+>> maybe we can help you out with that part.
+> Here's what we came up with. There's not a good way to express the IPI
+> from kick_all_cpus_sync() but it turns out that the ISB from the TLB
+> invalidation is sufficient anyway. Does it make sense to you?
+>
+>
+> AArch64 ptdump
+> Variant=Ifetch
+> {
+> uint64_t pud=0xa110c;
+> uint64_t pmd;
+>
+> 0:X0=label:"P1:L0"; 0:X1=instr:"NOP"; 0:X2=lock; 0:X3=pud; 0:X4=pmd;
+>                      1:X1=0xdead;      1:X2=lock; 1:X3=pud; 1:X4=pmd;
+> }
+>   P0				| P1				;
+>   (* static_key_enable *)	| (* pud_free_pmd_page *)	;
+>   STR	W1, [X0]		| LDR	X9, [X3]		;
+>   DC	CVAU,X0			| STR	XZR, [X3]		;
+>   DSB	ISH			| DSB	ISH			;
+>   IC	IVAU,X0			| ISB				;
+>   DSB	ISH			|				;
+>   ISB				| (* static key *)		;
+> 				| L0:				;
+>   (* mmap_lock *)		| B	out1			;
+>   Lwlock:			|				;
+>   MOV	W7, #1			| (* mmap_lock *)		;
+>   SWPA	W7, W8, [X2]		| Lrlock:			;
+> 				| MOV	W7, #1			;
+> 				| SWPA	W7, W8, [X2]		;
+>   (* walk pgtable *)		|				;
+>   LDR	X9, [X3]		| (* mmap_unlock *)		;
+>   CBZ	X9, out0		| STLR	WZR, [X2]		;
+>   EOR	X10, X9, X9		|				;
+>   LDR	X11, [X4, X10]		| out1:				;
+> 				| EOR	X10, X9, X9		;
+>   out0:				| STR	X1, [X4, X10]		;
+>
+> exists (0:X8=0 /\ 1:X8=0 /\	(* Lock acquisitions succeed *)
+> 	0:X9=0xa110c /\		(* P0 sees the valid PUD ...*)
+> 	0:X11=0xdead)		(* ... but the freed PMD *)
+>
+>
+> Will
 
-Please pull this in!
+Is the syntax correct? I cannot use the herd7 command to run this.
 
-Kind regards
-Ulf Hansson
+Apart from that the test looks good to me.
 
-
-The following changes since commit c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9:
-
-  Linux 6.17-rc2 (2025-08-17 15:22:10 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc2
-
-for you to fetch changes up to 303010f4658cb134eb27cee88026fb5d065a48cd:
-
-  pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains powered-on (2025-09-11 12:36:55 +0200)
-
-----------------------------------------------------------------
-pmdomain core:
- - Restore behaviour for disabling unused PM domains and introduce the
-GENPD_FLAG_NO_STAY_ON configuration bit
-
-pmdomain providers:
- - renesas: Don't keep unused PM domains powered-on
- - rockchip: Fix regulator dependency with GENPD_FLAG_NO_STAY_ON
-
-----------------------------------------------------------------
-Geert Uytterhoeven (1):
-      pmdomain: renesas: rcar-sysc: Make rcar_sysc_onecell_np __initdata
-
-Ulf Hansson (5):
-      pmdomain: core: Restore behaviour for disabling unused PM domains
-      pmdomain: rockchip: Fix regulator dependency with GENPD_FLAG_NO_STAY_ON
-      pmdomain: renesas: rcar-sysc: Don't keep unused PM domains powered-on
-      pmdomain: renesas: rcar-gen4-sysc: Don't keep unused PM domains powered-on
-      pmdomain: renesas: rmobile-sysc: Don't keep unused PM domains powered-on
-
- drivers/pmdomain/core.c                   | 20 ++++++++++++++------
- drivers/pmdomain/renesas/rcar-gen4-sysc.c |  1 +
- drivers/pmdomain/renesas/rcar-sysc.c      |  3 ++-
- drivers/pmdomain/renesas/rmobile-sysc.c   |  3 ++-
- drivers/pmdomain/rockchip/pm-domains.c    |  2 +-
- include/linux/pm_domain.h                 |  7 +++++++
- 6 files changed, 27 insertions(+), 9 deletions(-)
 
