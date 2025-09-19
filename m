@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D95CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E2ECAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lWAQ3qjHXiKQYtyQNVwlmIX+cJpiI8WCcZJ8FfqtV7s=; b=dMCTZg2nvGkn7nb2hSszGWwGd5
-	SU4gPZR4dUblOK8KAnXnMi/zal52h/u13/QwiCqQQAfBfYY4/IXsmHWKdGCiLtviKegAxGTEaGPs5
-	QgbVN4juPe0u4xdHtrfgKUIQWR48pKBjLHWUAwZ5EwduU8FYCbNdS2vsg8mSttxOvuVk98KllgrVS
-	/ZCvZMAUsVij8vZLRaYgQkyvQ+b27o+CwsXShkELqkAQHoI0G9SjWL1OG2WL5ptDIDNouujOeR4BR
-	tjO9gg7m45doKyHiOS4+vELejg5tc+iuPTErMAhWC7bC+GG0PY+odZYTzJcpJYhX6eEsvsMVpvD2L
-	f5TCKgSA==;
+	bh=cxT6TPuVr6VNfT0qVSTFqMoTa3oTyrVPwrAlb7CQBJA=; b=vPxUTbRA+Sr1nekzP/6woiD2J2
+	BUVpm/33Dur4pPMBfILLej69ik71d8aJoqeB8xz8jdDLIIF6I2Eh9tH745ys71mzJztrQSrh2RTz4
+	t1tI3h9HGHRfCxSdhg6RedNbnKmYAw/ORwLPdxUjX/IzGmfTMlNEZcJFpEbeVemCqHl9EWOhOkol3
+	++e3hom1kyQQMbAF4oEj58ZZjn1DasaCmHpuSsFTSMdOCl41mLLaqFxIV4cXHB0Gjp4JytE4kvPRl
+	2KCGKA3zwW3gQc5TYajYLW1JHCZxSakCjIAAegFiP6zjIYoLD5IjmEkoAVWUA0l9f7wM/uoXIRTk2
+	zbhC2XvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzg2j-00000003nPS-1ipU;
-	Fri, 19 Sep 2025 18:41:13 +0000
+	id 1uzg5r-00000003nuS-1eau;
+	Fri, 19 Sep 2025 18:44:27 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzg2h-00000003nOy-126v
+	id 1uzg5p-00000003ntr-1TR5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 18:41:12 +0000
+	Fri, 19 Sep 2025 18:44:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BA2240B92;
-	Fri, 19 Sep 2025 18:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FB6DC4CEF0;
-	Fri, 19 Sep 2025 18:41:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F0B3944175;
+	Fri, 19 Sep 2025 18:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44870C4CEF9;
+	Fri, 19 Sep 2025 18:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758307270;
-	bh=mqexrFz3ljxCYgU9d7/KUR9s+3jMqD7nGXKxzXiThmI=;
+	s=k20201202; t=1758307464;
+	bh=TvNct0puZkUduc5sUbES816mFOXImptqyANagH2X/rg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iZWyLlKb88A2f3+kLfctcP2/Y4BvexTSu7W9DAeLIvJ7gftHAhfhfo5LiUR3ZiALN
-	 nt66Ejy9NOeXL9YiSmar23uHmkF8KNdR6opFO3tUt5vcVf63TOSTkdYCcUmXtjDn1d
-	 niAgXyt8GUqGe3oly8fNZgkrUSzqSsC6R/615HHO6463Dq6h+Q0q7ch6ojuBIpfVYL
-	 RpdNwmWTnhxCIaEd1NTat0zkYppGmrXYS68GSYBl6hEAzlVwHtjFj9VVTcf80vfRfd
-	 MEBk0N8/64nwjojGH7F1o3HTWoYx1kXnIRaVEvZ1PvYc3bmeYmXK0N0+IkaNmQ0c7e
-	 CzYyh3UzB1D5A==
-Date: Sat, 20 Sep 2025 00:10:59 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
-	qiang.yu@oss.qualcomm.com, mayank.rana@oss.qualcomm.com, thippeswamy.havalige@amd.com, 
-	shradha.t@samsung.com, quic_schintav@quicinc.com, inochiama@gmail.com, 
-	cassel@kernel.org, kishon@kernel.org, sergio.paracuellos@gmail.com, 
-	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v2 10/10] PCI: keystone: Add support to build as a
- loadable module
-Message-ID: <6nj2fkhxixpkneh7pdvyveu6ogpm5phbpvaw6cog3bshm5spfh@kb64rycphtft>
-References: <20250912122356.3326888-1-s-vadapalli@ti.com>
- <20250912122356.3326888-11-s-vadapalli@ti.com>
+	b=P3cUVJEJqWFBU7ww0WmUJbD83nfjVDNdDRJtPJeu4fS51UMblHAO+y1IiOgLm2w/t
+	 TUbpudm+KVhuUZBN44nNp+D8YU57QIok0SMUNjlWzyovX6d8n7Fv4r5utvbTcFzm80
+	 wsREd6wbVor91Lf68a/PZROm7ttTQdnfeGEjXJ3POhix1+nAinVdjzdkxQC+oRli2s
+	 VhBqmPEGC1qZJkDMLyBb2Z8h32wupJupI0gO+bMuua+R2hebikzvZwbHAWb/jmc24+
+	 3yf3+/nPuXtNraKM+5mpi0YKhXJ3duaJ7nikdVjjcFh09+FOmsu5zGh8YRQrhL79kt
+	 5Dw3rKMVLZaBA==
+Date: Fri, 19 Sep 2025 19:44:19 +0100
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, david@redhat.com,
+	lorenzo.stoakes@oracle.com, ardb@kernel.org, dev.jain@arm.com,
+	scott@os.amperecomputing.com, cl@gentwo.org,
+	Yang Shi <yang@os.amperecomputing.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+Message-ID: <aM2kg49jBia4VKYr@willie-the-truck>
+References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
+ <175822779944.710258.10028837182267037801.b4-ty@kernel.org>
+ <fc43aa07-d4ad-47d5-8381-61d4a9b8c467@arm.com>
+ <aM0-FQlepoxxGkRd@willie-the-truck>
+ <ceaf604f-8ad7-4e19-812e-7eeace10d835@arm.com>
+ <aM1E34lRjKg7nlRu@willie-the-truck>
+ <38fa4717-9105-4bca-a2cd-914afc109570@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250912122356.3326888-11-s-vadapalli@ti.com>
+In-Reply-To: <38fa4717-9105-4bca-a2cd-914afc109570@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_114111_329507_45252122 
-X-CRM114-Status: GOOD (  29.77  )
+X-CRM114-CacheID: sfid-20250919_114425_407846_33B3B8E4 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,115 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 05:46:21PM +0530, Siddharth Vadapalli wrote:
-> The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-> Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-> that the 'pci-keystone.c' driver depends upon have been exported for use,
-> enable support to build the driver as a loadable module.
+On Fri, Sep 19, 2025 at 01:00:49PM +0100, Ryan Roberts wrote:
+> On 19/09/2025 12:56, Will Deacon wrote:
+> > So how about we:
+> > 
+> >   - Remove X4 from the list
+> >   - I try harder to apply your patch for secondary CPUs...
+> >   - ... if I fail, we can apply it next time around
+> > 
+> > Sound reasonable?
 > 
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> v1: https://lore.kernel.org/r/20250903124505.365913-12-s-vadapalli@ti.com/
-> Changes since v1:
-> - Based on the feedback from Manivannan Sadhasivam <mani@kernel.org> at:
->   https://lore.kernel.org/r/2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5/
->   builtin_platform_driver() is being retained in the driver due to which
->   the change made in the v1 patch of replacing builtin_platform_driver()
->   with module_platform_driver() has been discarded in this patch.
-> 
->  drivers/pci/controller/dwc/Kconfig        |  6 +++---
->  drivers/pci/controller/dwc/pci-keystone.c | 22 ++++++++++++++++++++++
->  2 files changed, 25 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index 34abc859c107..46012d6a607e 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -482,10 +482,10 @@ config PCI_DRA7XX_EP
->  	  This uses the DesignWare core.
->  
->  config PCI_KEYSTONE
-> -	bool
-> +	tristate
->  
->  config PCI_KEYSTONE_HOST
-> -	bool "TI Keystone PCIe controller (host mode)"
-> +	tristate "TI Keystone PCIe controller (host mode)"
->  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
->  	depends on PCI_MSI
->  	select PCIE_DW_HOST
-> @@ -497,7 +497,7 @@ config PCI_KEYSTONE_HOST
->  	  DesignWare core functions to implement the driver.
->  
->  config PCI_KEYSTONE_EP
-> -	bool "TI Keystone PCIe controller (endpoint mode)"
-> +	tristate "TI Keystone PCIe controller (endpoint mode)"
->  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
->  	depends on PCI_ENDPOINT
->  	select PCIE_DW_EP
-> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> index e85942b4f6be..661e31b60a48 100644
-> --- a/drivers/pci/controller/dwc/pci-keystone.c
-> +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> @@ -17,6 +17,7 @@
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
->  #include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
->  #include <linux/msi.h>
->  #include <linux/of.h>
->  #include <linux/of_irq.h>
-> @@ -132,6 +133,7 @@ struct keystone_pcie {
->  	struct			device_node *msi_intc_np;
->  	struct irq_domain	*intx_irq_domain;
->  	struct device_node	*np;
-> +	struct gpio_desc	*reset_gpio;
->  
->  	/* Application register space */
->  	void __iomem		*va_app_base;	/* DT 1st resource */
-> @@ -1211,6 +1213,7 @@ static const struct of_device_id ks_pcie_of_match[] = {
->  	},
->  	{ },
->  };
-> +MODULE_DEVICE_TABLE(of, ks_pcie_of_match);
->  
->  static int ks_pcie_probe(struct platform_device *pdev)
->  {
-> @@ -1329,6 +1332,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
->  			dev_err(dev, "Failed to get reset GPIO\n");
->  		goto err_link;
->  	}
-> +	ks_pcie->reset_gpio = gpiod;
->  
->  	/* Obtain references to the PHYs */
->  	for (i = 0; i < num_lanes; i++)
-> @@ -1440,9 +1444,23 @@ static void ks_pcie_remove(struct platform_device *pdev)
->  {
->  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
->  	struct device_link **link = ks_pcie->link;
-> +	struct dw_pcie *pci = ks_pcie->pci;
->  	int num_lanes = ks_pcie->num_lanes;
-> +	const struct ks_pcie_of_data *data;
->  	struct device *dev = &pdev->dev;
-> +	enum dw_pcie_device_mode mode;
-> +
-> +	ks_pcie_disable_error_irq(ks_pcie);
-> +	data = of_device_get_match_data(dev);
-> +	mode = data->mode;
-> +	if (mode == DW_PCIE_RC_TYPE) {
-> +		dw_pcie_host_deinit(&pci->pp);
-> +	} else {
-> +		pci_epc_deinit_notify(pci->ep.epc);
-> +		dw_pcie_ep_deinit(&pci->ep);
-> +	}
->  
-> +	gpiod_set_value_cansleep(ks_pcie->reset_gpio, 0);
+> Yeah that works for me. Cheers!
 
-Can ks_pcie_remove() be called for a builtin_platform_driver?
+So after all that, the conflict was straightforward once I sat down and
+looked at it properly.
 
-- Mani
+Please can you check for-next/core? I forcefully triggered the
+repainting path in qemu and it booted without any problems.
 
--- 
-மணிவண்ணன் சதாசிவம்
+Will
 
