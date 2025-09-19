@@ -4,76 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701D9CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 02:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B98CCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 02:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+V1DCQf/rrV+XKw97eBFhyz+Gt8ZhtUSh4CAPiBjgIo=; b=fFwA3RJBOCzkD8MPrr7iA+wVgq
-	D1gDSkKPM0QVb9WWETQNblN9BRqexdL9Y/sYdcghifNbT1VEaqpklU9LMrjqR356Xm9i6w8JqZaNB
-	bSqzDN7/vFOMxDu50O1syKGECwdEB7QtGXsUXY6oZTW+80UCYfb/ZlQNxHKi2UxM7zHPUJ5zrhdus
-	PESyr/ynQ+LCsatpOAPG1IacLXzMt+YaX9r5Y9UB6bjr3+cn7UPp4If7NCVhcjFufQvh0UTZkZOb6
-	a2FpUZ0wpUL98jAXCitKq/qSc37zN9d36S2W60Od9Rf24W7a7N6GmEt+X98TGr/Cf4Ed7U1xTWf0/
-	XMrW9b3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XtqrJJtL0k+bKA2WF+nBCU1Z8Vl8iX4/f1floG3+tNQ=; b=hzUeXnAMS9N1bmYAhTTUEXGTO/
+	yZ6Nd00p2PVdr4IV5dNsTFqARq4AAoBY7E/xDJqPJFKZr20jl2XgJ68bPla5ait0PanwR0+p6BKab
+	AkGCwKE7t1LdUINshlCFI4yjCkCEYekYhYkG6g8wxEbP3DbpfhOXksGfNq83iTUpPKJ4aJBwKTkBk
+	4sHg9iyxPhNPCRhlNkOqJgYC0175FiU31Jm5P2VgkgcZevnCztkkcctt7S6goF4Qq0YCAo3JXCQi5
+	tD02daVqeKXz9vU0rzCxbfl/DgtsnEKisQwkye3ftJtRle0mMTev30Vd1tVgzGT9cUf6N/N0v13Pv
+	g7tsrqRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzQcB-00000001ewQ-3oSG;
-	Fri, 19 Sep 2025 02:12:47 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uzQr8-00000001gGl-0kcR;
+	Fri, 19 Sep 2025 02:28:14 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzQc9-00000001euv-0OQx;
-	Fri, 19 Sep 2025 02:12:47 +0000
-X-UUID: 1d48a68294fe11f0a52f393f94899d25-20250918
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=+V1DCQf/rrV+XKw97eBFhyz+Gt8ZhtUSh4CAPiBjgIo=;
-	b=BxWf6cn9sTgFsEGbnGfiOPT1nsiW+nDzOuqIJ6J6THNDAd++sYMNkG/ElZynhGLYNUwyL+BPUdN3QqK/hsgplN6O0/AjLxYBJZaqZwcHUJHRWwnOh0lOZ2gab5zO5mNYMnP7gtYUb0rNIRg6xnhWgkNGS116ZnQp6UFq8UBtimo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:e4eaa936-9905-49bd-9a4a-8fa8b1edaf22,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:1ca6b93,CLOUDID:7b6bb76c-8443-424b-b119-dc42e68239b0,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:1,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1d48a68294fe11f0a52f393f94899d25-20250918
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <ot_cathy.xu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 671645486; Thu, 18 Sep 2025 19:12:38 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 19 Sep 2025 10:12:35 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 19 Sep 2025 10:12:34 +0800
-From: Cathy Xu <ot_cathy.xu@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>, Axe
- Yang <Axe.Yang@mediatek.com>, Lei Xue <Lei.Xue@mediatek.com>, Cathy Xu
-	<ot_cathy.xu@mediatek.com>
-Subject: [PATCH] arm64: dts: mediatek: mt8189: Add pinmux macro header file
-Date: Fri, 19 Sep 2025 10:03:37 +0800
-Message-ID: <20250919020525.7904-1-ot_cathy.xu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1uzQr5-00000001gGR-3Vew
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Sep 2025 02:28:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a2WJa9hAXybUZcpC1pLvCv6Z6B/ZW2H173ZKHVvdWZUHPKedBXe65ZGMm97/zSLX38SQ1oPJmw1vKDPZd6bB+BnEfIpxzg1O6czQU3SKP+5Dhb6s9qDYGKj3/5U2GIDMSYUyE06EuYfDTNYYvgrdLfIvm2o9+9GmZgcgGT1GjrPbNgg9lcUBeT5fZsl6QUZgfmeSzwiVs4Prb2mbCko11ZocpkNK0Iw9xMZ28H/adHvt2xQyWXOL9dANhP0Cz6SC4Ui1fpj+WEC0J3BYMnt+5dh5eqGc+eQ3P0yToRWF0fh5IbTS2xAITvJcodWDuqV/bI8WUBT4VRlr1RU9lgZ3lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XtqrJJtL0k+bKA2WF+nBCU1Z8Vl8iX4/f1floG3+tNQ=;
+ b=R/zL6aSw6GbmarIFa9OaMumtm/nIZpfRw6mhX9cH51s1ZkeLuIYcAmnaX3jIIYw+kwenLNbX0rt75Ei49TwF8BEeLkriQ08xOYMsOZqMoW1cMzUBoZ8k8GuXn/b5JMfBcBdMtwaUR2/HA1nzYdhAHHpH+JWiM6mt6C/CVBABDYm7iywIiqQEc38o/deyKeiPJazL6Heps2Q4P+iqwzS6v4189hcSjRj7BhW0Z8bcpY3DfGw5uruFJGT8qoQ6x8Y/ISnlhXxCbqtiX/XkZ/Pce0EgG8EhEeUk+RONStEX75rdMg/YRMECym8HtNbNNpMLVMI4zUqyziUGD6sOyjnLLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XtqrJJtL0k+bKA2WF+nBCU1Z8Vl8iX4/f1floG3+tNQ=;
+ b=V7rexA2EiFWASQHWy7lrNASVUhZzRhjA5UgJBK7XzkCE5VvmHiaW6bVl5mXKPlVHrfCCISJdoYX9Emiy5DumdhOzlUJ+uHTzbv6bliHIFYXEjbf2+VFEF2eeHNsl1v4XKG248yCE/c6zjhTVQj7a9H3+dwvhMdlNGJ/F+XduLfIOon/HrtehIhp+ZdhJpmNCm3z+v94UwI8L3biLiorE+RKAJPdtSE/o0fr7ioh1ve1Ma0J/jkdNTtYoaf3J1FdwwIw5LWOi5lYF+SmEoC5ssYQVsCNC3iDsOMehBxSYFEG6Jn8+GpN2osTXM/I4h0GIYGgq6B2Q/PVFB6/WgymFYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by PAWPR04MB9743.eurprd04.prod.outlook.com (2603:10a6:102:384::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Fri, 19 Sep
+ 2025 02:28:03 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.9137.012; Fri, 19 Sep 2025
+ 02:28:03 +0000
+From: Joy Zou <joy.zou@nxp.com>
+Date: Fri, 19 Sep 2025 10:27:04 +0800
+Subject: [PATCH] arm64: dts: imx95-15x15-evk: add fan-supply property for
+ pwm-fan
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250919-b4-imx95-fan-v1-1-c9127bd975e9@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAHe/zGgC/1XMQQ7CIBCF4as0sxbD1BLBlfcwXVAKdhaFBgzBN
+ NxdbOLC5f+S9+2QbCSb4NbtEG2mRMG3wFMHZtH+aRnNraHnveAKJZsGRmtRgjntmdKXKxothXQ
+ C2mWL1lE5uMfYeqH0CvF96Bm/6w9S/1BGhk2Tg7HOTVzPd1+2swkrjLXWD0YvsIWmAAAA
+X-Change-ID: 20250918-b4-imx95-fan-9a371ca858f5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Joy Zou <joy.zou@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SI2PR02CA0041.apcprd02.prod.outlook.com
+ (2603:1096:4:196::20) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|PAWPR04MB9743:EE_
+X-MS-Office365-Filtering-Correlation-Id: f010ea80-8b1a-4372-1da8-08ddf72428a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c3IyRHlnUnlkc2o2c3Vmaks5U2g1cnVLcmtocC9taDdVemcyY00rbmw4eEdL?=
+ =?utf-8?B?amJUa1pING85ZzJkMkNaTDhqcTRvTVJScFlSOGxyOWZmSU9FQ0hiMmk4dEFv?=
+ =?utf-8?B?OVppWlhtOFl2c3Y3WUwwTjJRR2lqT3liY3BZZGxDb2FkUDBEWmc2YlJqVFgw?=
+ =?utf-8?B?dWpiNE5PRENmTk1TNVZzQzMvNXJoQUMwYlBKNFppUlJ5UFNMVlFCM1JkZXdW?=
+ =?utf-8?B?clZLU3ozNCtoMTNGZXRLQVY2MWJUaytsQUwzVEk5a2R3dW5tNkNFajVZdWI3?=
+ =?utf-8?B?MWxEcjlHWFlzdGM0SUhSMUhHajdCTmRBeHNISEdtWktBSkRKejdMQmI5RmZI?=
+ =?utf-8?B?N21aWC9QeHpSemRlUEFRblBlYm9aaCtzME02OXYxSUZrZVVrMGRzUGhuZEhP?=
+ =?utf-8?B?OC9uRWFxU2JNc29IV2hvSVV4THdscktWWXU0aUE2R3Q0UlpEVFoyd2JrVmRH?=
+ =?utf-8?B?d0dhSnFDNWd6Y1YvczBFUnByd2F2Y0dUdXRvZ0hWSkpjZ012S0xwVGxJOWpT?=
+ =?utf-8?B?cDdzdTYyY1pZcEdRZXNVcTFHb2s0aFlTR1liU2w0Qy91STlleE10TXF1eEhK?=
+ =?utf-8?B?TjNsYnl3TWltazBwSnpXN1dYTUdCMDQzSWVwbVdXTE0xRU5DL2RIN0VQc3lm?=
+ =?utf-8?B?eGpRMWkwQmZqdkUwdEhNMHRlSnA2bmR5VGZNTlJNTzF6d2lkcWdYNHdFckNF?=
+ =?utf-8?B?RXF5QXBsNFIyMEc4elFFbi8zTEt6WlRPTys2TC9kTnFKSmNJSjZDeTJuc3J5?=
+ =?utf-8?B?bzNjYTZOV1NScE1GeTNGU21RTUQvWHh0eGV5cXNCNWxDcUZzblF3Q29vNkM1?=
+ =?utf-8?B?RFVtTTRLSlNMNkxUZGZBMG9GYXcwVmlzcHVIVFdkTnJXODY5d1llSG1QMSs4?=
+ =?utf-8?B?TUdZTVIrSXlwKzlmYThWNDBmVUJBMHBNakFIWndZSUNEUFlZUGxQVFNOOW9k?=
+ =?utf-8?B?eW1JOTFCaXNwL2dBZU9jb1VJWEprajFuSFY5ZmRPUmJiRnlsL3NQeWJCL2J6?=
+ =?utf-8?B?ZlZPQkR4NnBzdmJrWnhGNkJGSkRsRE5FbzBzWEZ4T3NnS3NmM1V2NEpuYk9R?=
+ =?utf-8?B?TlF4MTRBSjVmRU5PZExGRElBQXhFM0d2QVIzMzhSNldWQUZGMi9aUGRPM285?=
+ =?utf-8?B?RU12U0Y1a2wwL2RtYWlKUjFnemFuV0w3R01zT2QrN29kQlFpaGdJeXpGOWly?=
+ =?utf-8?B?MHlTMG5zZTZMRCsxajY1SUlsK29ZU2lYNkNiRy9qb0tYYXZ5OUxVWFFraVhR?=
+ =?utf-8?B?emJudVhJZ0ZmdFA1dTIzTDJ2Q2J3aU1FeUc0bGJKSFFZWU9pSEkrM0o0SERs?=
+ =?utf-8?B?S1ZvaGpXMHNMSHE2VU5sRFJrK1pxd3UwU0hpZzlGODFVekkzZmlta3JUbEtE?=
+ =?utf-8?B?SklwcVJoWExDRitJWmQ4dmlNUjZqK2MvVDNuU05vNjNoMmJENW40QVFBam5M?=
+ =?utf-8?B?Szc3SndPaDZGSHEvRDFQblhRYklMLzRhTVZWdnlFb05DVEU2K1hHSnMzbysz?=
+ =?utf-8?B?MnY0L2NHczNzRHg1ellENUxKM0FsRVd0VjN0K1gzaHA0blJ4SmNvRE9OWS9H?=
+ =?utf-8?B?bmc3T2NnOXZXSkM2U2hBajlQVTNNNXJTcnJ5MDY0ZzFGWUQxWmg0aEFDcytB?=
+ =?utf-8?B?b2wwMXdjUFAxNWxYUzdsQ1gwYkd6RVBnZnlWSjdPMUVRNFBhRG5LZGZsUi8v?=
+ =?utf-8?B?VWNVbWpsNjczRkhuRmpNVHV3c05uWnAyWTd4VXFzVGhRekZ6YzFqais2bTdD?=
+ =?utf-8?B?ZmIrdFZJbGwvMFA2QkpJYnQzaEVCSitZYUFZV1QzdlBGc21zTFZiaWV4dmtX?=
+ =?utf-8?B?OGUwcXhXUTRkRHBhM3RZVHpjTFZGQ3grVWNxU3R3Mnd3OElhSG12UmRmUEQ5?=
+ =?utf-8?B?ZFcyV1Q2U3RraEZqUmpWaVRqd3lIdzljZlFOQVBnSjZBNHVvYzNDcHdwb1hr?=
+ =?utf-8?B?TE9MNWRRQzZXbzY4WHB2a09QK05na0dXcjk0eElXSXNNU2FpdkVpTkwrVW40?=
+ =?utf-8?B?TkJtV1BJSHlnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NndEV3hFbmowb2JFR1RCQzVvSzJ2RW1mYm02YUFpckErY1c5YlpvSWRlUXcr?=
+ =?utf-8?B?ZzBkc00zeStJTUlBNU1ob1V5Myt0eVBvaHdvbEVYUzBlNmxjU1VOOFIxQ3hH?=
+ =?utf-8?B?emNUT2gvTlU4bHdhUkQ1dHV5MGY1dFp5b2RBOEFhY0pwenYrQ0kybGZVT1Ix?=
+ =?utf-8?B?N0Z4VU5zRVpxczFiM2t2Ni9DUkNnaCtGY2pJSkZUakViUHo0Tkg0dE1NaDc1?=
+ =?utf-8?B?M2EzMDdMUW1MRjlpMEIyS0lrM0ZEUDd3UTdwM3l6bVVFZnJoMlA0bjUxRTdv?=
+ =?utf-8?B?K0N2eTNrTWNoYnBIcHFUbEl4aXlWa2MxbFZUQms3b25hQ3doVnQ0MVVGanJY?=
+ =?utf-8?B?VnZoSVBhMWtNSXVkdmFEc0MwZGZ6dFBGZWdMU201VXU3dXBYWk1pbW50SHZk?=
+ =?utf-8?B?NFNzUTFsYmZEZktpMjdYK2Z5b2Q3UDdpcm83QU52VjZjWmkvTWxrekIvMUcr?=
+ =?utf-8?B?Uld5N2c1ODBTNGR5UFd0SGdMa0ZxSy9UY1IvU3p1ZGRuSG93cXFmTnR3cjd6?=
+ =?utf-8?B?c1VlazBJOC9PNVI0b3p2am8vdFhHRHBTMVBDYXlmdk1uZnhWZ05uc0c3eTND?=
+ =?utf-8?B?NHlzR3VlYUNVWlRXVEhMZ2tTN2xjL3IwYWk4bEZsQytUZ0R2bmY0NmdTWnkx?=
+ =?utf-8?B?d01sRHhicmNsRE1XYS9MMnJEdUdTWm9YSDRBc0dDcEl2U25NVUxjcGxGTFN0?=
+ =?utf-8?B?clVzSmw0QVV3am9TV3hhNENKZ1RpdDZIVy9XRVZNS01CU1gyMFhEdE1PTWVK?=
+ =?utf-8?B?MzRvUENQejYrZmZ0b2RrdjdjVW51Ni9WUXJZR3B1QWZYQnJwMVBMODVqQXU5?=
+ =?utf-8?B?ZnJPRHlDRllWRzIydy9KSGxlMm1HR2hIWTJlSXNhNWw4NEFEY2NzYTBCWElQ?=
+ =?utf-8?B?NDlCWDRlQTZvMnowSkZ5aHl0OG90K0UyNUVsc2JGamx3d1FQbnVmUDVhRkxG?=
+ =?utf-8?B?bVpoNEF6Q3k3Y2hZbkhnWWc2MmxSZUoxaWgyc3JlMWgvNmxpazlFazhNMFZI?=
+ =?utf-8?B?WXVremNQc1M3TzhaT2IrcUdwa0xQSDdMTTRZcWMrTmpaQmZkdHNJRVJVQ3Vw?=
+ =?utf-8?B?TWRKay9ybGtGZlAvZTdNa05JTUNGWGhwRExhVldxWTZzOWYyZjkzUTdKOTBl?=
+ =?utf-8?B?WkpEcFh5RGZYUXF0a3MwQVFZTjZ0UW5abUFhQVJabjFQR1RJWXRpa3hxZGdF?=
+ =?utf-8?B?cUw0alZlNUhnSUQ5WHpyQ3FDSDUrQm0rOHBFR2p4bHkvM253bCt5MS9WWi83?=
+ =?utf-8?B?U0dNdS9UY3FHbEF0NUZJc3YvL1JNdmsySUJsZGgwZW1FOERIRzVmU2F2VzRF?=
+ =?utf-8?B?TFhXOXlTRXUvR3c2NHdNd203V2RqQUorYTM1bjg2c0tZUGxpWXliQ3FNU1hX?=
+ =?utf-8?B?bURrWEhvT2Jrclk2L3JWRnpTMk9ZZGRoMWJ2d2V2K1JSTDhISzdKQVBtaDBv?=
+ =?utf-8?B?ai8rZ0I2UkxMenZtbXJ4SmdJaUd0QXo3NjBtZ1lta0czUUdhUk5qcndHYjJB?=
+ =?utf-8?B?NUVHc2lXNWlsdERnSEF1Wkh2OC90RjhZQVIwSE5aRUd6WDUyMXd4V1pLekJG?=
+ =?utf-8?B?YnBqaVhMQjFDNEE0S1d6U05oR1NwRzloQ2JiNGk2OTQzdHdxQWtTRGozalJy?=
+ =?utf-8?B?bXE5TURiTVk1Z1RpK2FvY3IrSm9NY05JdEVQZEN2SmZ3UVRxQUVqTEV4cEpS?=
+ =?utf-8?B?eXNNbGlxVzBrRzc1eWIxN1lLb1RxN0I2S3FTNWwya1kya0twUS95Q3MwV29W?=
+ =?utf-8?B?RHdkNlBCRHpid0JBREQ0SVllbkRCNEtsUFFiTWRYZnBGRnIzTmJHdWlLanhj?=
+ =?utf-8?B?QlpSbW4xbzBPYWdhbTZydG9ibkxtZjhvcTlNZzNqYTVKSFoxNGV1TENWTExT?=
+ =?utf-8?B?NUJSUjNQUXVVT1k4M2Jpc1o0dWNGMXMzbEZOejB0bWdtM1RGTHlLK1ltZ1pO?=
+ =?utf-8?B?M1F1LzRGZTRzVC9sRFR6QWthc1NTVkljb29LVnBZS1RlOTZmTFhMS3BxUHVS?=
+ =?utf-8?B?MFIvYVNib2lqQXI0T0wraEJDWlVqYzBSZmdiMzcvb2VJViswamNuQ2tuU1dp?=
+ =?utf-8?B?TmdGMVlUdkx6eStsWmZnaFliRGMwck5YM1Q2YkZMajVjeUdWOUFPUUNrd241?=
+ =?utf-8?Q?j7zb/chNNG55ec2hN8V6Anxrz?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f010ea80-8b1a-4372-1da8-08ddf72428a7
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 02:28:03.0746
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k007Y/Yc5tuKBn00g+oGhClTx1bZRVBkPvmeeR1gZTuvulEV9al+09YvZlgU/4hj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_191245_183036_B60FB08B 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250918_192811_886678_36D5EAF1 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,1154 +183,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the pinctrl header file on MediaTek mt8189.
+Add fan-supply regulator to pwm-fan node to specify power source.
 
-Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+Fixes: e3e8b199aff8 ("arm64: dts: imx95: Add imx95-15x15-evk support")
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
 ---
-This patch is base on the patch series:
-https://patchwork.kernel.org/project/linux-mediatek/list/?series=981475
-[1] dt-bindings: pinctrl: mediatek: Add support for mt8189
-[2] arm64: dts: mediatek: mt8189: Add pinmux macro header file
-[3] pinctrl: mediatek: Add pinctrl driver on mt8189
-Since patch [1] and [3] of the series have already been merged, this
-patch(patch [2]) is being resent individually after modifications.
----
- arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h | 1125 +++++++++++++++++
- 1 file changed, 1125 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h b/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
-new file mode 100644
-index 000000000000..df69f50c267a
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8189-pinfunc.h
-@@ -0,0 +1,1125 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) 2025 MediaTek Inc.
-+ * Author: Lei Xue <lei.xue@mediatek.com>
-+ *         Cathy Xu <ot_cathy.xu@mediatek.com>
-+ */
-+
-+#ifndef __MT8189_PINFUNC_H
-+#define __MT8189_PINFUNC_H
-+
-+#include <dt-bindings/pinctrl/mt65xx.h>
-+
-+#define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
-+#define PINMUX_GPIO0__FUNC_TP_GPIO0_AO (MTK_PIN_NO(0) | 1)
-+#define PINMUX_GPIO0__FUNC_SPIM3_A_CSB (MTK_PIN_NO(0) | 2)
-+#define PINMUX_GPIO0__FUNC_I2SOUT0_MCK (MTK_PIN_NO(0) | 3)
-+#define PINMUX_GPIO0__FUNC_SCP_SPI0_CS (MTK_PIN_NO(0) | 4)
-+#define PINMUX_GPIO0__FUNC_CONN_BPI_BUS6 (MTK_PIN_NO(0) | 6)
-+#define PINMUX_GPIO0__FUNC_DBG_MON_A0 (MTK_PIN_NO(0) | 7)
-+
-+#define PINMUX_GPIO1__FUNC_GPIO1 (MTK_PIN_NO(1) | 0)
-+#define PINMUX_GPIO1__FUNC_TP_GPIO1_AO (MTK_PIN_NO(1) | 1)
-+#define PINMUX_GPIO1__FUNC_SPIM3_A_CLK (MTK_PIN_NO(1) | 2)
-+#define PINMUX_GPIO1__FUNC_I2SOUT0_BCK (MTK_PIN_NO(1) | 3)
-+#define PINMUX_GPIO1__FUNC_SCP_SPI0_CK (MTK_PIN_NO(1) | 4)
-+#define PINMUX_GPIO1__FUNC_CONN_BPI_BUS7 (MTK_PIN_NO(1) | 6)
-+#define PINMUX_GPIO1__FUNC_DBG_MON_A1 (MTK_PIN_NO(1) | 7)
-+
-+#define PINMUX_GPIO2__FUNC_GPIO2 (MTK_PIN_NO(2) | 0)
-+#define PINMUX_GPIO2__FUNC_TP_GPIO2_AO (MTK_PIN_NO(2) | 1)
-+#define PINMUX_GPIO2__FUNC_SPIM3_A_MO (MTK_PIN_NO(2) | 2)
-+#define PINMUX_GPIO2__FUNC_I2SOUT0_LRCK (MTK_PIN_NO(2) | 3)
-+#define PINMUX_GPIO2__FUNC_SCP_SPI0_MO (MTK_PIN_NO(2) | 4)
-+#define PINMUX_GPIO2__FUNC_CONN_BPI_BUS8 (MTK_PIN_NO(2) | 6)
-+#define PINMUX_GPIO2__FUNC_DBG_MON_A2 (MTK_PIN_NO(2) | 7)
-+
-+#define PINMUX_GPIO3__FUNC_GPIO3 (MTK_PIN_NO(3) | 0)
-+#define PINMUX_GPIO3__FUNC_TP_GPIO3_AO (MTK_PIN_NO(3) | 1)
-+#define PINMUX_GPIO3__FUNC_SPIM3_A_MI (MTK_PIN_NO(3) | 2)
-+#define PINMUX_GPIO3__FUNC_I2SOUT0_DO (MTK_PIN_NO(3) | 3)
-+#define PINMUX_GPIO3__FUNC_SCP_SPI0_MI (MTK_PIN_NO(3) | 4)
-+#define PINMUX_GPIO3__FUNC_CONN_BPI_BUS9 (MTK_PIN_NO(3) | 6)
-+#define PINMUX_GPIO3__FUNC_DBG_MON_A3 (MTK_PIN_NO(3) | 7)
-+
-+#define PINMUX_GPIO4__FUNC_GPIO4 (MTK_PIN_NO(4) | 0)
-+#define PINMUX_GPIO4__FUNC_TP_GPIO4_AO (MTK_PIN_NO(4) | 1)
-+#define PINMUX_GPIO4__FUNC_SPIM4_A_CSB (MTK_PIN_NO(4) | 2)
-+#define PINMUX_GPIO4__FUNC_I2SIN0_DI (MTK_PIN_NO(4) | 3)
-+#define PINMUX_GPIO4__FUNC_SCP_SPI1_CS (MTK_PIN_NO(4) | 4)
-+#define PINMUX_GPIO4__FUNC_CONN_BPI_BUS10 (MTK_PIN_NO(4) | 6)
-+#define PINMUX_GPIO4__FUNC_DBG_MON_A4 (MTK_PIN_NO(4) | 7)
-+
-+#define PINMUX_GPIO5__FUNC_GPIO5 (MTK_PIN_NO(5) | 0)
-+#define PINMUX_GPIO5__FUNC_TP_GPIO5_AO (MTK_PIN_NO(5) | 1)
-+#define PINMUX_GPIO5__FUNC_SPIM4_A_CLK (MTK_PIN_NO(5) | 2)
-+#define PINMUX_GPIO5__FUNC_I2SIN0_BCK (MTK_PIN_NO(5) | 3)
-+#define PINMUX_GPIO5__FUNC_SCP_SPI1_CK (MTK_PIN_NO(5) | 4)
-+#define PINMUX_GPIO5__FUNC_CONN_BPI_BUS11_OLAT0 (MTK_PIN_NO(5) | 6)
-+#define PINMUX_GPIO5__FUNC_DBG_MON_A5 (MTK_PIN_NO(5) | 7)
-+
-+#define PINMUX_GPIO6__FUNC_GPIO6 (MTK_PIN_NO(6) | 0)
-+#define PINMUX_GPIO6__FUNC_TP_GPIO6_AO (MTK_PIN_NO(6) | 1)
-+#define PINMUX_GPIO6__FUNC_SPIM4_A_MO (MTK_PIN_NO(6) | 2)
-+#define PINMUX_GPIO6__FUNC_I2SIN0_LRCK (MTK_PIN_NO(6) | 3)
-+#define PINMUX_GPIO6__FUNC_SCP_SPI1_MO (MTK_PIN_NO(6) | 4)
-+#define PINMUX_GPIO6__FUNC_CONN_BPI_BUS12_OLAT1 (MTK_PIN_NO(6) | 6)
-+#define PINMUX_GPIO6__FUNC_DBG_MON_A6 (MTK_PIN_NO(6) | 7)
-+
-+#define PINMUX_GPIO7__FUNC_GPIO7 (MTK_PIN_NO(7) | 0)
-+#define PINMUX_GPIO7__FUNC_TP_GPIO7_AO (MTK_PIN_NO(7) | 1)
-+#define PINMUX_GPIO7__FUNC_SPIM4_A_MI (MTK_PIN_NO(7) | 2)
-+#define PINMUX_GPIO7__FUNC_I2SIN0_MCK (MTK_PIN_NO(7) | 3)
-+#define PINMUX_GPIO7__FUNC_SCP_SPI1_MI (MTK_PIN_NO(7) | 4)
-+#define PINMUX_GPIO7__FUNC_CONN_BPI_BUS13_OLAT2 (MTK_PIN_NO(7) | 6)
-+#define PINMUX_GPIO7__FUNC_DBG_MON_A7 (MTK_PIN_NO(7) | 7)
-+
-+#define PINMUX_GPIO8__FUNC_GPIO8 (MTK_PIN_NO(8) | 0)
-+#define PINMUX_GPIO8__FUNC_TP_UTXD1_VLP (MTK_PIN_NO(8) | 1)
-+#define PINMUX_GPIO8__FUNC_SPIM5_A_CSB (MTK_PIN_NO(8) | 2)
-+#define PINMUX_GPIO8__FUNC_I2SOUT1_MCK (MTK_PIN_NO(8) | 3)
-+#define PINMUX_GPIO8__FUNC_VADSP_UTXD0 (MTK_PIN_NO(8) | 4)
-+#define PINMUX_GPIO8__FUNC_CONN_BPI_BUS14_OLAT3 (MTK_PIN_NO(8) | 6)
-+#define PINMUX_GPIO8__FUNC_DBG_MON_A8 (MTK_PIN_NO(8) | 7)
-+
-+#define PINMUX_GPIO9__FUNC_GPIO9 (MTK_PIN_NO(9) | 0)
-+#define PINMUX_GPIO9__FUNC_TP_URXD1_VLP (MTK_PIN_NO(9) | 1)
-+#define PINMUX_GPIO9__FUNC_SPIM5_A_CLK (MTK_PIN_NO(9) | 2)
-+#define PINMUX_GPIO9__FUNC_I2SOUT1_BCK (MTK_PIN_NO(9) | 3)
-+#define PINMUX_GPIO9__FUNC_VADSP_URXD0 (MTK_PIN_NO(9) | 4)
-+#define PINMUX_GPIO9__FUNC_CONN_BPI_BUS15_OLAT4 (MTK_PIN_NO(9) | 6)
-+#define PINMUX_GPIO9__FUNC_DBG_MON_A9 (MTK_PIN_NO(9) | 7)
-+
-+#define PINMUX_GPIO10__FUNC_GPIO10 (MTK_PIN_NO(10) | 0)
-+#define PINMUX_GPIO10__FUNC_TP_UCTS1_VLP (MTK_PIN_NO(10) | 1)
-+#define PINMUX_GPIO10__FUNC_SPIM5_A_MO (MTK_PIN_NO(10) | 2)
-+#define PINMUX_GPIO10__FUNC_I2SOUT1_LRCK (MTK_PIN_NO(10) | 3)
-+#define PINMUX_GPIO10__FUNC_SRCLKENAI0 (MTK_PIN_NO(10) | 4)
-+#define PINMUX_GPIO10__FUNC_CONN_BPI_BUS16_OLAT5 (MTK_PIN_NO(10) | 6)
-+#define PINMUX_GPIO10__FUNC_DBG_MON_A10 (MTK_PIN_NO(10) | 7)
-+
-+#define PINMUX_GPIO11__FUNC_GPIO11 (MTK_PIN_NO(11) | 0)
-+#define PINMUX_GPIO11__FUNC_TP_URTS1_VLP (MTK_PIN_NO(11) | 1)
-+#define PINMUX_GPIO11__FUNC_SPIM5_A_MI (MTK_PIN_NO(11) | 2)
-+#define PINMUX_GPIO11__FUNC_I2SOUT1_DO (MTK_PIN_NO(11) | 3)
-+#define PINMUX_GPIO11__FUNC_SRCLKENAI1 (MTK_PIN_NO(11) | 4)
-+#define PINMUX_GPIO11__FUNC_PWM_vlp (MTK_PIN_NO(11) | 5)
-+#define PINMUX_GPIO11__FUNC_DBG_MON_A11 (MTK_PIN_NO(11) | 7)
-+
-+#define PINMUX_GPIO12__FUNC_GPIO12 (MTK_PIN_NO(12) | 0)
-+#define PINMUX_GPIO12__FUNC_TP_UTXD1_VCORE (MTK_PIN_NO(12) | 1)
-+#define PINMUX_GPIO12__FUNC_UTXD3 (MTK_PIN_NO(12) | 2)
-+#define PINMUX_GPIO12__FUNC_CLKM0 (MTK_PIN_NO(12) | 3)
-+#define PINMUX_GPIO12__FUNC_CMFLASH0 (MTK_PIN_NO(12) | 4)
-+#define PINMUX_GPIO12__FUNC_ANT_SEL0 (MTK_PIN_NO(12) | 6)
-+#define PINMUX_GPIO12__FUNC_DBG_MON_B20 (MTK_PIN_NO(12) | 7)
-+
-+#define PINMUX_GPIO13__FUNC_GPIO13 (MTK_PIN_NO(13) | 0)
-+#define PINMUX_GPIO13__FUNC_TP_URXD1_VCORE (MTK_PIN_NO(13) | 1)
-+#define PINMUX_GPIO13__FUNC_URXD3 (MTK_PIN_NO(13) | 2)
-+#define PINMUX_GPIO13__FUNC_CLKM1 (MTK_PIN_NO(13) | 3)
-+#define PINMUX_GPIO13__FUNC_CMFLASH1 (MTK_PIN_NO(13) | 4)
-+#define PINMUX_GPIO13__FUNC_ANT_SEL1 (MTK_PIN_NO(13) | 6)
-+#define PINMUX_GPIO13__FUNC_DBG_MON_B21 (MTK_PIN_NO(13) | 7)
-+
-+#define PINMUX_GPIO14__FUNC_GPIO14 (MTK_PIN_NO(14) | 0)
-+#define PINMUX_GPIO14__FUNC_TP_UCTS1_VCORE (MTK_PIN_NO(14) | 1)
-+#define PINMUX_GPIO14__FUNC_UCTS3 (MTK_PIN_NO(14) | 2)
-+#define PINMUX_GPIO14__FUNC_CLKM2 (MTK_PIN_NO(14) | 3)
-+#define PINMUX_GPIO14__FUNC_CMFLASH2 (MTK_PIN_NO(14) | 4)
-+#define PINMUX_GPIO14__FUNC_ANT_SEL2 (MTK_PIN_NO(14) | 6)
-+#define PINMUX_GPIO14__FUNC_DBG_MON_B22 (MTK_PIN_NO(14) | 7)
-+
-+#define PINMUX_GPIO15__FUNC_GPIO15 (MTK_PIN_NO(15) | 0)
-+#define PINMUX_GPIO15__FUNC_TP_URTS1_VCORE (MTK_PIN_NO(15) | 1)
-+#define PINMUX_GPIO15__FUNC_URTS3 (MTK_PIN_NO(15) | 2)
-+#define PINMUX_GPIO15__FUNC_CLKM3 (MTK_PIN_NO(15) | 3)
-+#define PINMUX_GPIO15__FUNC_CMVREF0 (MTK_PIN_NO(15) | 4)
-+#define PINMUX_GPIO15__FUNC_ANT_SEL3 (MTK_PIN_NO(15) | 6)
-+#define PINMUX_GPIO15__FUNC_DBG_MON_B23 (MTK_PIN_NO(15) | 7)
-+
-+#define PINMUX_GPIO16__FUNC_GPIO16 (MTK_PIN_NO(16) | 0)
-+#define PINMUX_GPIO16__FUNC_PWM_0 (MTK_PIN_NO(16) | 1)
-+#define PINMUX_GPIO16__FUNC_UCTS2 (MTK_PIN_NO(16) | 2)
-+#define PINMUX_GPIO16__FUNC_DP_TX_HPD (MTK_PIN_NO(16) | 3)
-+#define PINMUX_GPIO16__FUNC_CMVREF1 (MTK_PIN_NO(16) | 4)
-+#define PINMUX_GPIO16__FUNC_MD32_0_GPIO0 (MTK_PIN_NO(16) | 5)
-+#define PINMUX_GPIO16__FUNC_ANT_SEL4 (MTK_PIN_NO(16) | 6)
-+#define PINMUX_GPIO16__FUNC_DBG_MON_B24 (MTK_PIN_NO(16) | 7)
-+
-+#define PINMUX_GPIO17__FUNC_GPIO17 (MTK_PIN_NO(17) | 0)
-+#define PINMUX_GPIO17__FUNC_PWM_1 (MTK_PIN_NO(17) | 1)
-+#define PINMUX_GPIO17__FUNC_URTS2 (MTK_PIN_NO(17) | 2)
-+#define PINMUX_GPIO17__FUNC_EDP_TX_HPD (MTK_PIN_NO(17) | 3)
-+#define PINMUX_GPIO17__FUNC_CMVREF2 (MTK_PIN_NO(17) | 4)
-+#define PINMUX_GPIO17__FUNC_MD32_1_GPIO0 (MTK_PIN_NO(17) | 5)
-+#define PINMUX_GPIO17__FUNC_PMSR_SMAP (MTK_PIN_NO(17) | 6)
-+#define PINMUX_GPIO17__FUNC_DBG_MON_B25 (MTK_PIN_NO(17) | 7)
-+
-+#define PINMUX_GPIO18__FUNC_GPIO18 (MTK_PIN_NO(18) | 0)
-+#define PINMUX_GPIO18__FUNC_CMFLASH0 (MTK_PIN_NO(18) | 1)
-+#define PINMUX_GPIO18__FUNC_CMVREF3 (MTK_PIN_NO(18) | 2)
-+#define PINMUX_GPIO18__FUNC_UTXD2 (MTK_PIN_NO(18) | 3)
-+#define PINMUX_GPIO18__FUNC_DISP_PWM1 (MTK_PIN_NO(18) | 4)
-+#define PINMUX_GPIO18__FUNC_I2SIN1_MCK (MTK_PIN_NO(18) | 5)
-+#define PINMUX_GPIO18__FUNC_MBISTREADEN_TRIGGER (MTK_PIN_NO(18) | 6)
-+#define PINMUX_GPIO18__FUNC_DBG_MON_A12 (MTK_PIN_NO(18) | 7)
-+
-+#define PINMUX_GPIO19__FUNC_GPIO19 (MTK_PIN_NO(19) | 0)
-+#define PINMUX_GPIO19__FUNC_CMFLASH1 (MTK_PIN_NO(19) | 1)
-+#define PINMUX_GPIO19__FUNC_CMVREF2 (MTK_PIN_NO(19) | 2)
-+#define PINMUX_GPIO19__FUNC_URXD2 (MTK_PIN_NO(19) | 3)
-+#define PINMUX_GPIO19__FUNC_USB_DRVVBUS_1P (MTK_PIN_NO(19) | 4)
-+#define PINMUX_GPIO19__FUNC_I2SIN1_BCK (MTK_PIN_NO(19) | 5)
-+#define PINMUX_GPIO19__FUNC_MBISTWRITEEN_TRIGGER (MTK_PIN_NO(19) | 6)
-+#define PINMUX_GPIO19__FUNC_DBG_MON_A13 (MTK_PIN_NO(19) | 7)
-+
-+#define PINMUX_GPIO20__FUNC_GPIO20 (MTK_PIN_NO(20) | 0)
-+#define PINMUX_GPIO20__FUNC_CMFLASH2 (MTK_PIN_NO(20) | 1)
-+#define PINMUX_GPIO20__FUNC_CMVREF1 (MTK_PIN_NO(20) | 2)
-+#define PINMUX_GPIO20__FUNC_UCTS2 (MTK_PIN_NO(20) | 3)
-+#define PINMUX_GPIO20__FUNC_PERSTN (MTK_PIN_NO(20) | 4)
-+#define PINMUX_GPIO20__FUNC_I2SIN1_LRCK (MTK_PIN_NO(20) | 5)
-+#define PINMUX_GPIO20__FUNC_DMIC0_DAT1 (MTK_PIN_NO(20) | 6)
-+#define PINMUX_GPIO20__FUNC_DBG_MON_A14 (MTK_PIN_NO(20) | 7)
-+
-+#define PINMUX_GPIO21__FUNC_GPIO21 (MTK_PIN_NO(21) | 0)
-+#define PINMUX_GPIO21__FUNC_CMFLASH3 (MTK_PIN_NO(21) | 1)
-+#define PINMUX_GPIO21__FUNC_CMVREF0 (MTK_PIN_NO(21) | 2)
-+#define PINMUX_GPIO21__FUNC_URTS2 (MTK_PIN_NO(21) | 3)
-+#define PINMUX_GPIO21__FUNC_CLKREQN (MTK_PIN_NO(21) | 4)
-+#define PINMUX_GPIO21__FUNC_I2SIN1_DI (MTK_PIN_NO(21) | 5)
-+#define PINMUX_GPIO21__FUNC_DMIC1_DAT1 (MTK_PIN_NO(21) | 6)
-+#define PINMUX_GPIO21__FUNC_DBG_MON_A15 (MTK_PIN_NO(21) | 7)
-+
-+#define PINMUX_GPIO22__FUNC_GPIO22 (MTK_PIN_NO(22) | 0)
-+#define PINMUX_GPIO22__FUNC_CMMCLK0 (MTK_PIN_NO(22) | 1)
-+#define PINMUX_GPIO22__FUNC_TP_GPIO4_AO (MTK_PIN_NO(22) | 2)
-+
-+#define PINMUX_GPIO23__FUNC_GPIO23 (MTK_PIN_NO(23) | 0)
-+#define PINMUX_GPIO23__FUNC_CMMCLK1 (MTK_PIN_NO(23) | 1)
-+#define PINMUX_GPIO23__FUNC_TP_GPIO5_AO (MTK_PIN_NO(23) | 2)
-+#define PINMUX_GPIO23__FUNC_SSPM_UTXD_AO_VLP (MTK_PIN_NO(23) | 3)
-+#define PINMUX_GPIO23__FUNC_PWM_vlp (MTK_PIN_NO(23) | 4)
-+#define PINMUX_GPIO23__FUNC_SRCLKENAI0 (MTK_PIN_NO(23) | 6)
-+
-+#define PINMUX_GPIO24__FUNC_GPIO24 (MTK_PIN_NO(24) | 0)
-+#define PINMUX_GPIO24__FUNC_CMMCLK2 (MTK_PIN_NO(24) | 1)
-+#define PINMUX_GPIO24__FUNC_TP_GPIO6_AO (MTK_PIN_NO(24) | 2)
-+#define PINMUX_GPIO24__FUNC_SSPM_URXD_AO_VLP (MTK_PIN_NO(24) | 3)
-+#define PINMUX_GPIO24__FUNC_WAKEN (MTK_PIN_NO(24) | 4)
-+#define PINMUX_GPIO24__FUNC_SPMI_P_TRIG_FLAG (MTK_PIN_NO(24) | 5)
-+#define PINMUX_GPIO24__FUNC_SRCLKENAI1 (MTK_PIN_NO(24) | 6)
-+
-+#define PINMUX_GPIO25__FUNC_GPIO25 (MTK_PIN_NO(25) | 0)
-+#define PINMUX_GPIO25__FUNC_LCM_RST (MTK_PIN_NO(25) | 1)
-+#define PINMUX_GPIO25__FUNC_DP_TX_HPD (MTK_PIN_NO(25) | 2)
-+#define PINMUX_GPIO25__FUNC_CMFLASH3 (MTK_PIN_NO(25) | 3)
-+#define PINMUX_GPIO25__FUNC_MD32_0_GPIO0 (MTK_PIN_NO(25) | 4)
-+#define PINMUX_GPIO25__FUNC_USB_DRVVBUS_2P (MTK_PIN_NO(25) | 5)
-+
-+#define PINMUX_GPIO26__FUNC_GPIO26 (MTK_PIN_NO(26) | 0)
-+#define PINMUX_GPIO26__FUNC_DSI_TE (MTK_PIN_NO(26) | 1)
-+#define PINMUX_GPIO26__FUNC_EDP_TX_HPD (MTK_PIN_NO(26) | 2)
-+#define PINMUX_GPIO26__FUNC_CMVREF3 (MTK_PIN_NO(26) | 3)
-+#define PINMUX_GPIO26__FUNC_MD32_1_GPIO0 (MTK_PIN_NO(26) | 4)
-+#define PINMUX_GPIO26__FUNC_USB_DRVVBUS_3P (MTK_PIN_NO(26) | 5)
-+
-+#define PINMUX_GPIO27__FUNC_GPIO27 (MTK_PIN_NO(27) | 0)
-+#define PINMUX_GPIO27__FUNC_DP_TX_HPD (MTK_PIN_NO(27) | 1)
-+#define PINMUX_GPIO27__FUNC_MBISTREADEN_TRIGGER (MTK_PIN_NO(27) | 2)
-+#define PINMUX_GPIO27__FUNC_MD32_0_GPIO0 (MTK_PIN_NO(27) | 3)
-+#define PINMUX_GPIO27__FUNC_TP_UCTS1_VCORE (MTK_PIN_NO(27) | 4)
-+#define PINMUX_GPIO27__FUNC_CMVREF4 (MTK_PIN_NO(27) | 5)
-+#define PINMUX_GPIO27__FUNC_EXTIF0_ACT (MTK_PIN_NO(27) | 6)
-+#define PINMUX_GPIO27__FUNC_ANT_SEL0 (MTK_PIN_NO(27) | 7)
-+
-+#define PINMUX_GPIO28__FUNC_GPIO28 (MTK_PIN_NO(28) | 0)
-+#define PINMUX_GPIO28__FUNC_EDP_TX_HPD (MTK_PIN_NO(28) | 1)
-+#define PINMUX_GPIO28__FUNC_MBISTWRITEEN_TRIGGER (MTK_PIN_NO(28) | 2)
-+#define PINMUX_GPIO28__FUNC_MD32_1_GPIO0 (MTK_PIN_NO(28) | 3)
-+#define PINMUX_GPIO28__FUNC_TP_URTS1_VCORE (MTK_PIN_NO(28) | 4)
-+#define PINMUX_GPIO28__FUNC_EXTIF0_PRI (MTK_PIN_NO(28) | 6)
-+#define PINMUX_GPIO28__FUNC_ANT_SEL1 (MTK_PIN_NO(28) | 7)
-+
-+#define PINMUX_GPIO29__FUNC_GPIO29 (MTK_PIN_NO(29) | 0)
-+#define PINMUX_GPIO29__FUNC_DISP_PWM0 (MTK_PIN_NO(29) | 1)
-+#define PINMUX_GPIO29__FUNC_MD32_1_TXD (MTK_PIN_NO(29) | 2)
-+#define PINMUX_GPIO29__FUNC_SSPM_UTXD_AO_VCORE (MTK_PIN_NO(29) | 3)
-+#define PINMUX_GPIO29__FUNC_USB_DRVVBUS_4P (MTK_PIN_NO(29) | 5)
-+
-+#define PINMUX_GPIO30__FUNC_GPIO30 (MTK_PIN_NO(30) | 0)
-+#define PINMUX_GPIO30__FUNC_DISP_PWM1 (MTK_PIN_NO(30) | 1)
-+#define PINMUX_GPIO30__FUNC_MD32_1_RXD (MTK_PIN_NO(30) | 2)
-+#define PINMUX_GPIO30__FUNC_SSPM_URXD_AO_VCORE (MTK_PIN_NO(30) | 3)
-+#define PINMUX_GPIO30__FUNC_PMSR_SMAP (MTK_PIN_NO(30) | 5)
-+#define PINMUX_GPIO30__FUNC_EXTIF0_GNT_B (MTK_PIN_NO(30) | 6)
-+#define PINMUX_GPIO30__FUNC_ANT_SEL2 (MTK_PIN_NO(30) | 7)
-+
-+#define PINMUX_GPIO31__FUNC_GPIO31 (MTK_PIN_NO(31) | 0)
-+#define PINMUX_GPIO31__FUNC_UTXD0 (MTK_PIN_NO(31) | 1)
-+#define PINMUX_GPIO31__FUNC_MD32_0_TXD (MTK_PIN_NO(31) | 2)
-+
-+#define PINMUX_GPIO32__FUNC_GPIO32 (MTK_PIN_NO(32) | 0)
-+#define PINMUX_GPIO32__FUNC_URXD0 (MTK_PIN_NO(32) | 1)
-+#define PINMUX_GPIO32__FUNC_MD32_0_RXD (MTK_PIN_NO(32) | 2)
-+
-+#define PINMUX_GPIO33__FUNC_GPIO33 (MTK_PIN_NO(33) | 0)
-+#define PINMUX_GPIO33__FUNC_UTXD1 (MTK_PIN_NO(33) | 1)
-+#define PINMUX_GPIO33__FUNC_VADSP_UTXD0 (MTK_PIN_NO(33) | 2)
-+#define PINMUX_GPIO33__FUNC_TP_UTXD1_VLP (MTK_PIN_NO(33) | 3)
-+#define PINMUX_GPIO33__FUNC_MD32_1_TXD (MTK_PIN_NO(33) | 4)
-+#define PINMUX_GPIO33__FUNC_CONN_BGF_UART0_TXD (MTK_PIN_NO(33) | 5)
-+#define PINMUX_GPIO33__FUNC_CONN_WIFI_TXD (MTK_PIN_NO(33) | 6)
-+
-+#define PINMUX_GPIO34__FUNC_GPIO34 (MTK_PIN_NO(34) | 0)
-+#define PINMUX_GPIO34__FUNC_URXD1 (MTK_PIN_NO(34) | 1)
-+#define PINMUX_GPIO34__FUNC_VADSP_URXD0 (MTK_PIN_NO(34) | 2)
-+#define PINMUX_GPIO34__FUNC_TP_URXD1_VLP (MTK_PIN_NO(34) | 3)
-+#define PINMUX_GPIO34__FUNC_MD32_1_RXD (MTK_PIN_NO(34) | 4)
-+#define PINMUX_GPIO34__FUNC_CONN_BGF_UART0_RXD (MTK_PIN_NO(34) | 5)
-+
-+#define PINMUX_GPIO35__FUNC_GPIO35 (MTK_PIN_NO(35) | 0)
-+#define PINMUX_GPIO35__FUNC_UTXD2 (MTK_PIN_NO(35) | 1)
-+#define PINMUX_GPIO35__FUNC_UCTS1 (MTK_PIN_NO(35) | 2)
-+#define PINMUX_GPIO35__FUNC_TP_UCTS1_VLP (MTK_PIN_NO(35) | 3)
-+#define PINMUX_GPIO35__FUNC_SSPM_UTXD_AO_VLP (MTK_PIN_NO(35) | 4)
-+#define PINMUX_GPIO35__FUNC_VADSP_UTXD0 (MTK_PIN_NO(35) | 5)
-+#define PINMUX_GPIO35__FUNC_CONN_BT_TXD (MTK_PIN_NO(35) | 6)
-+
-+#define PINMUX_GPIO36__FUNC_GPIO36 (MTK_PIN_NO(36) | 0)
-+#define PINMUX_GPIO36__FUNC_URXD2 (MTK_PIN_NO(36) | 1)
-+#define PINMUX_GPIO36__FUNC_URTS1 (MTK_PIN_NO(36) | 2)
-+#define PINMUX_GPIO36__FUNC_TP_URTS1_VLP (MTK_PIN_NO(36) | 3)
-+#define PINMUX_GPIO36__FUNC_SSPM_URXD_AO_VLP (MTK_PIN_NO(36) | 4)
-+#define PINMUX_GPIO36__FUNC_VADSP_URXD0 (MTK_PIN_NO(36) | 5)
-+
-+#define PINMUX_GPIO37__FUNC_GPIO37 (MTK_PIN_NO(37) | 0)
-+#define PINMUX_GPIO37__FUNC_UTXD3 (MTK_PIN_NO(37) | 1)
-+#define PINMUX_GPIO37__FUNC_UCTS0 (MTK_PIN_NO(37) | 2)
-+#define PINMUX_GPIO37__FUNC_TP_UTXD1_VCORE (MTK_PIN_NO(37) | 3)
-+#define PINMUX_GPIO37__FUNC_SSPM_UTXD_AO_VCORE (MTK_PIN_NO(37) | 4)
-+#define PINMUX_GPIO37__FUNC_MD32_0_TXD (MTK_PIN_NO(37) | 6)
-+#define PINMUX_GPIO37__FUNC_CONN_BGF_UART0_TXD (MTK_PIN_NO(37) | 7)
-+
-+#define PINMUX_GPIO38__FUNC_GPIO38 (MTK_PIN_NO(38) | 0)
-+#define PINMUX_GPIO38__FUNC_URXD3 (MTK_PIN_NO(38) | 1)
-+#define PINMUX_GPIO38__FUNC_URTS0 (MTK_PIN_NO(38) | 2)
-+#define PINMUX_GPIO38__FUNC_TP_URXD1_VCORE (MTK_PIN_NO(38) | 3)
-+#define PINMUX_GPIO38__FUNC_SSPM_URXD_AO_VCORE (MTK_PIN_NO(38) | 4)
-+#define PINMUX_GPIO38__FUNC_MD32_0_RXD (MTK_PIN_NO(38) | 6)
-+#define PINMUX_GPIO38__FUNC_CONN_BGF_UART0_RXD (MTK_PIN_NO(38) | 7)
-+
-+#define PINMUX_GPIO39__FUNC_GPIO39 (MTK_PIN_NO(39) | 0)
-+#define PINMUX_GPIO39__FUNC_JTMS_SEL1 (MTK_PIN_NO(39) | 1)
-+
-+#define PINMUX_GPIO40__FUNC_GPIO40 (MTK_PIN_NO(40) | 0)
-+#define PINMUX_GPIO40__FUNC_JTCK_SEL1 (MTK_PIN_NO(40) | 1)
-+
-+#define PINMUX_GPIO41__FUNC_GPIO41 (MTK_PIN_NO(41) | 0)
-+#define PINMUX_GPIO41__FUNC_JTDI_SEL1 (MTK_PIN_NO(41) | 1)
-+
-+#define PINMUX_GPIO42__FUNC_GPIO42 (MTK_PIN_NO(42) | 0)
-+#define PINMUX_GPIO42__FUNC_JTDO_SEL1 (MTK_PIN_NO(42) | 1)
-+
-+#define PINMUX_GPIO43__FUNC_GPIO43 (MTK_PIN_NO(43) | 0)
-+#define PINMUX_GPIO43__FUNC_JTRSTn_SEL1 (MTK_PIN_NO(43) | 1)
-+
-+#define PINMUX_GPIO44__FUNC_GPIO44 (MTK_PIN_NO(44) | 0)
-+#define PINMUX_GPIO44__FUNC_KPCOL0 (MTK_PIN_NO(44) | 1)
-+
-+#define PINMUX_GPIO45__FUNC_GPIO45 (MTK_PIN_NO(45) | 0)
-+#define PINMUX_GPIO45__FUNC_KPCOL1 (MTK_PIN_NO(45) | 1)
-+#define PINMUX_GPIO45__FUNC_TP_GPIO0_AO (MTK_PIN_NO(45) | 2)
-+#define PINMUX_GPIO45__FUNC_SRCLKENAI1 (MTK_PIN_NO(45) | 3)
-+#define PINMUX_GPIO45__FUNC_DBG_MON_A31 (MTK_PIN_NO(45) | 7)
-+
-+#define PINMUX_GPIO46__FUNC_GPIO46 (MTK_PIN_NO(46) | 0)
-+#define PINMUX_GPIO46__FUNC_KPROW0 (MTK_PIN_NO(46) | 1)
-+#define PINMUX_GPIO46__FUNC_TP_GPIO1_AO (MTK_PIN_NO(46) | 2)
-+
-+#define PINMUX_GPIO47__FUNC_GPIO47 (MTK_PIN_NO(47) | 0)
-+#define PINMUX_GPIO47__FUNC_KPROW1 (MTK_PIN_NO(47) | 1)
-+#define PINMUX_GPIO47__FUNC_TP_GPIO2_AO (MTK_PIN_NO(47) | 2)
-+#define PINMUX_GPIO47__FUNC_SRCLKENAI0 (MTK_PIN_NO(47) | 3)
-+#define PINMUX_GPIO47__FUNC_DBG_MON_A32 (MTK_PIN_NO(47) | 7)
-+
-+#define PINMUX_GPIO48__FUNC_GPIO48 (MTK_PIN_NO(48) | 0)
-+#define PINMUX_GPIO48__FUNC_WAKEN (MTK_PIN_NO(48) | 1)
-+#define PINMUX_GPIO48__FUNC_TP_GPIO3_AO (MTK_PIN_NO(48) | 2)
-+#define PINMUX_GPIO48__FUNC_SPMI_P_TRIG_FLAG (MTK_PIN_NO(48) | 3)
-+
-+#define PINMUX_GPIO49__FUNC_GPIO49 (MTK_PIN_NO(49) | 0)
-+#define PINMUX_GPIO49__FUNC_PERSTN (MTK_PIN_NO(49) | 1)
-+#define PINMUX_GPIO49__FUNC_MD32_0_GPIO0 (MTK_PIN_NO(49) | 2)
-+#define PINMUX_GPIO49__FUNC_UFS_MPHY_SCL (MTK_PIN_NO(49) | 3)
-+#define PINMUX_GPIO49__FUNC_ANT_SEL3 (MTK_PIN_NO(49) | 7)
-+
-+#define PINMUX_GPIO50__FUNC_GPIO50 (MTK_PIN_NO(50) | 0)
-+#define PINMUX_GPIO50__FUNC_CLKREQN (MTK_PIN_NO(50) | 1)
-+#define PINMUX_GPIO50__FUNC_MD32_1_GPIO0 (MTK_PIN_NO(50) | 2)
-+#define PINMUX_GPIO50__FUNC_UFS_MPHY_SDA (MTK_PIN_NO(50) | 3)
-+#define PINMUX_GPIO50__FUNC_ANT_SEL4 (MTK_PIN_NO(50) | 7)
-+
-+#define PINMUX_GPIO51__FUNC_GPIO51 (MTK_PIN_NO(51) | 0)
-+#define PINMUX_GPIO51__FUNC_SCP_SCL0 (MTK_PIN_NO(51) | 1)
-+#define PINMUX_GPIO51__FUNC_SCL0 (MTK_PIN_NO(51) | 2)
-+
-+#define PINMUX_GPIO52__FUNC_GPIO52 (MTK_PIN_NO(52) | 0)
-+#define PINMUX_GPIO52__FUNC_SCP_SDA0 (MTK_PIN_NO(52) | 1)
-+#define PINMUX_GPIO52__FUNC_SDA0 (MTK_PIN_NO(52) | 2)
-+
-+#define PINMUX_GPIO53__FUNC_GPIO53 (MTK_PIN_NO(53) | 0)
-+#define PINMUX_GPIO53__FUNC_SCP_SCL1 (MTK_PIN_NO(53) | 1)
-+#define PINMUX_GPIO53__FUNC_SCL1 (MTK_PIN_NO(53) | 2)
-+
-+#define PINMUX_GPIO54__FUNC_GPIO54 (MTK_PIN_NO(54) | 0)
-+#define PINMUX_GPIO54__FUNC_SCP_SDA1 (MTK_PIN_NO(54) | 1)
-+#define PINMUX_GPIO54__FUNC_SDA1 (MTK_PIN_NO(54) | 2)
-+
-+#define PINMUX_GPIO55__FUNC_GPIO55 (MTK_PIN_NO(55) | 0)
-+#define PINMUX_GPIO55__FUNC_SCL2 (MTK_PIN_NO(55) | 1)
-+#define PINMUX_GPIO55__FUNC_UFS_MPHY_SCL (MTK_PIN_NO(55) | 2)
-+#define PINMUX_GPIO55__FUNC_SSUSB_U2SIF_SCL (MTK_PIN_NO(55) | 3)
-+
-+#define PINMUX_GPIO56__FUNC_GPIO56 (MTK_PIN_NO(56) | 0)
-+#define PINMUX_GPIO56__FUNC_SDA2 (MTK_PIN_NO(56) | 1)
-+#define PINMUX_GPIO56__FUNC_UFS_MPHY_SDA (MTK_PIN_NO(56) | 2)
-+#define PINMUX_GPIO56__FUNC_SSUSB_U2SIF_SDA (MTK_PIN_NO(56) | 3)
-+
-+#define PINMUX_GPIO57__FUNC_GPIO57 (MTK_PIN_NO(57) | 0)
-+#define PINMUX_GPIO57__FUNC_SCL3 (MTK_PIN_NO(57) | 1)
-+#define PINMUX_GPIO57__FUNC_PCIE_PHY_I2C_SCL (MTK_PIN_NO(57) | 2)
-+#define PINMUX_GPIO57__FUNC_SSUSB_U2SIF_SCL_1P (MTK_PIN_NO(57) | 3)
-+
-+#define PINMUX_GPIO58__FUNC_GPIO58 (MTK_PIN_NO(58) | 0)
-+#define PINMUX_GPIO58__FUNC_SDA3 (MTK_PIN_NO(58) | 1)
-+#define PINMUX_GPIO58__FUNC_PCIE_PHY_I2C_SDA (MTK_PIN_NO(58) | 2)
-+#define PINMUX_GPIO58__FUNC_SSUSB_U2SIF_SDA_1P (MTK_PIN_NO(58) | 3)
-+
-+#define PINMUX_GPIO59__FUNC_GPIO59 (MTK_PIN_NO(59) | 0)
-+#define PINMUX_GPIO59__FUNC_SCL4 (MTK_PIN_NO(59) | 1)
-+#define PINMUX_GPIO59__FUNC_SSUSB_U3PHY_I2C_SCL (MTK_PIN_NO(59) | 2)
-+
-+#define PINMUX_GPIO60__FUNC_GPIO60 (MTK_PIN_NO(60) | 0)
-+#define PINMUX_GPIO60__FUNC_SDA4 (MTK_PIN_NO(60) | 1)
-+#define PINMUX_GPIO60__FUNC_SSUSB_U3PHY_I2C_SDA (MTK_PIN_NO(60) | 2)
-+
-+#define PINMUX_GPIO61__FUNC_GPIO61 (MTK_PIN_NO(61) | 0)
-+#define PINMUX_GPIO61__FUNC_SCL5 (MTK_PIN_NO(61) | 1)
-+#define PINMUX_GPIO61__FUNC_SSPXTP_U3PHY_I2C_SCL (MTK_PIN_NO(61) | 2)
-+
-+#define PINMUX_GPIO62__FUNC_GPIO62 (MTK_PIN_NO(62) | 0)
-+#define PINMUX_GPIO62__FUNC_SDA5 (MTK_PIN_NO(62) | 1)
-+#define PINMUX_GPIO62__FUNC_SSPXTP_U3PHY_I2C_SDA (MTK_PIN_NO(62) | 2)
-+
-+#define PINMUX_GPIO63__FUNC_GPIO63 (MTK_PIN_NO(63) | 0)
-+#define PINMUX_GPIO63__FUNC_SCL6 (MTK_PIN_NO(63) | 1)
-+
-+#define PINMUX_GPIO64__FUNC_GPIO64 (MTK_PIN_NO(64) | 0)
-+#define PINMUX_GPIO64__FUNC_SDA6 (MTK_PIN_NO(64) | 1)
-+
-+#define PINMUX_GPIO65__FUNC_GPIO65 (MTK_PIN_NO(65) | 0)
-+#define PINMUX_GPIO65__FUNC_SCL7 (MTK_PIN_NO(65) | 1)
-+
-+#define PINMUX_GPIO66__FUNC_GPIO66 (MTK_PIN_NO(66) | 0)
-+#define PINMUX_GPIO66__FUNC_SDA7 (MTK_PIN_NO(66) | 1)
-+
-+#define PINMUX_GPIO67__FUNC_GPIO67 (MTK_PIN_NO(67) | 0)
-+#define PINMUX_GPIO67__FUNC_SCL8 (MTK_PIN_NO(67) | 1)
-+
-+#define PINMUX_GPIO68__FUNC_GPIO68 (MTK_PIN_NO(68) | 0)
-+#define PINMUX_GPIO68__FUNC_SDA8 (MTK_PIN_NO(68) | 1)
-+
-+#define PINMUX_GPIO69__FUNC_GPIO69 (MTK_PIN_NO(69) | 0)
-+#define PINMUX_GPIO69__FUNC_SPIM0_CSB (MTK_PIN_NO(69) | 1)
-+#define PINMUX_GPIO69__FUNC_SCP_SPI0_CS (MTK_PIN_NO(69) | 2)
-+#define PINMUX_GPIO69__FUNC_SPM_JTAG_TMS_VCORE (MTK_PIN_NO(69) | 3)
-+#define PINMUX_GPIO69__FUNC_VADSP_JTAG0_TMS (MTK_PIN_NO(69) | 4)
-+#define PINMUX_GPIO69__FUNC_SPM_JTAG_TMS (MTK_PIN_NO(69) | 5)
-+#define PINMUX_GPIO69__FUNC_SSPM_JTAG_TMS_VLP (MTK_PIN_NO(69) | 6)
-+#define PINMUX_GPIO69__FUNC_SCP_JTAG0_TMS_VLP (MTK_PIN_NO(69) | 7)
-+
-+#define PINMUX_GPIO70__FUNC_GPIO70 (MTK_PIN_NO(70) | 0)
-+#define PINMUX_GPIO70__FUNC_SPIM0_CLK (MTK_PIN_NO(70) | 1)
-+#define PINMUX_GPIO70__FUNC_SCP_SPI0_CK (MTK_PIN_NO(70) | 2)
-+#define PINMUX_GPIO70__FUNC_SPM_JTAG_TCK_VCORE (MTK_PIN_NO(70) | 3)
-+#define PINMUX_GPIO70__FUNC_VADSP_JTAG0_TCK (MTK_PIN_NO(70) | 4)
-+#define PINMUX_GPIO70__FUNC_SPM_JTAG_TCK (MTK_PIN_NO(70) | 5)
-+#define PINMUX_GPIO70__FUNC_SSPM_JTAG_TCK_VLP (MTK_PIN_NO(70) | 6)
-+#define PINMUX_GPIO70__FUNC_SCP_JTAG0_TCK_VLP (MTK_PIN_NO(70) | 7)
-+
-+#define PINMUX_GPIO71__FUNC_GPIO71 (MTK_PIN_NO(71) | 0)
-+#define PINMUX_GPIO71__FUNC_SPIM0_MO (MTK_PIN_NO(71) | 1)
-+#define PINMUX_GPIO71__FUNC_SCP_SPI0_MO (MTK_PIN_NO(71) | 2)
-+#define PINMUX_GPIO71__FUNC_SPM_JTAG_TDI_VCORE (MTK_PIN_NO(71) | 3)
-+#define PINMUX_GPIO71__FUNC_VADSP_JTAG0_TDI (MTK_PIN_NO(71) | 4)
-+#define PINMUX_GPIO71__FUNC_SPM_JTAG_TDI (MTK_PIN_NO(71) | 5)
-+#define PINMUX_GPIO71__FUNC_SSPM_JTAG_TDI_VLP (MTK_PIN_NO(71) | 6)
-+#define PINMUX_GPIO71__FUNC_SCP_JTAG0_TDI_VLP (MTK_PIN_NO(71) | 7)
-+
-+#define PINMUX_GPIO72__FUNC_GPIO72 (MTK_PIN_NO(72) | 0)
-+#define PINMUX_GPIO72__FUNC_SPIM0_MI (MTK_PIN_NO(72) | 1)
-+#define PINMUX_GPIO72__FUNC_SCP_SPI0_MI (MTK_PIN_NO(72) | 2)
-+#define PINMUX_GPIO72__FUNC_SPM_JTAG_TDO_VCORE (MTK_PIN_NO(72) | 3)
-+#define PINMUX_GPIO72__FUNC_VADSP_JTAG0_TDO (MTK_PIN_NO(72) | 4)
-+#define PINMUX_GPIO72__FUNC_SPM_JTAG_TDO (MTK_PIN_NO(72) | 5)
-+#define PINMUX_GPIO72__FUNC_SSPM_JTAG_TDO_VLP (MTK_PIN_NO(72) | 6)
-+#define PINMUX_GPIO72__FUNC_SCP_JTAG0_TDO_VLP (MTK_PIN_NO(72) | 7)
-+
-+#define PINMUX_GPIO73__FUNC_GPIO73 (MTK_PIN_NO(73) | 0)
-+#define PINMUX_GPIO73__FUNC_SPIM1_CSB (MTK_PIN_NO(73) | 1)
-+#define PINMUX_GPIO73__FUNC_SCP_SPI1_CS (MTK_PIN_NO(73) | 2)
-+#define PINMUX_GPIO73__FUNC_SPM_JTAG_TRSTN_VCORE (MTK_PIN_NO(73) | 3)
-+#define PINMUX_GPIO73__FUNC_VADSP_JTAG0_TRSTN (MTK_PIN_NO(73) | 4)
-+#define PINMUX_GPIO73__FUNC_SPM_JTAG_TRSTN (MTK_PIN_NO(73) | 5)
-+#define PINMUX_GPIO73__FUNC_SSPM_JTAG_TRSTN_VLP (MTK_PIN_NO(73) | 6)
-+#define PINMUX_GPIO73__FUNC_SCP_JTAG0_TRSTN_VLP (MTK_PIN_NO(73) | 7)
-+
-+#define PINMUX_GPIO74__FUNC_GPIO74 (MTK_PIN_NO(74) | 0)
-+#define PINMUX_GPIO74__FUNC_SPIM1_CLK (MTK_PIN_NO(74) | 1)
-+#define PINMUX_GPIO74__FUNC_SCP_SPI1_CK (MTK_PIN_NO(74) | 2)
-+
-+#define PINMUX_GPIO75__FUNC_GPIO75 (MTK_PIN_NO(75) | 0)
-+#define PINMUX_GPIO75__FUNC_SPIM1_MO (MTK_PIN_NO(75) | 1)
-+#define PINMUX_GPIO75__FUNC_SCP_SPI1_MO (MTK_PIN_NO(75) | 2)
-+
-+#define PINMUX_GPIO76__FUNC_GPIO76 (MTK_PIN_NO(76) | 0)
-+#define PINMUX_GPIO76__FUNC_SPIM1_MI (MTK_PIN_NO(76) | 1)
-+#define PINMUX_GPIO76__FUNC_SCP_SPI1_MI (MTK_PIN_NO(76) | 2)
-+
-+#define PINMUX_GPIO77__FUNC_GPIO77 (MTK_PIN_NO(77) | 0)
-+#define PINMUX_GPIO77__FUNC_SPIM2_CSB (MTK_PIN_NO(77) | 1)
-+#define PINMUX_GPIO77__FUNC_PCM0_SYNC (MTK_PIN_NO(77) | 2)
-+#define PINMUX_GPIO77__FUNC_SSUSB_U2SIF_SCL (MTK_PIN_NO(77) | 3)
-+#define PINMUX_GPIO77__FUNC_DBG_MON_A27 (MTK_PIN_NO(77) | 7)
-+
-+#define PINMUX_GPIO78__FUNC_GPIO78 (MTK_PIN_NO(78) | 0)
-+#define PINMUX_GPIO78__FUNC_SPIM2_CLK (MTK_PIN_NO(78) | 1)
-+#define PINMUX_GPIO78__FUNC_PCM0_CLK (MTK_PIN_NO(78) | 2)
-+#define PINMUX_GPIO78__FUNC_SSUSB_U2SIF_SDA (MTK_PIN_NO(78) | 3)
-+#define PINMUX_GPIO78__FUNC_DBG_MON_A28 (MTK_PIN_NO(78) | 7)
-+
-+#define PINMUX_GPIO79__FUNC_GPIO79 (MTK_PIN_NO(79) | 0)
-+#define PINMUX_GPIO79__FUNC_SPIM2_MO (MTK_PIN_NO(79) | 1)
-+#define PINMUX_GPIO79__FUNC_PCM0_DO (MTK_PIN_NO(79) | 2)
-+#define PINMUX_GPIO79__FUNC_SSUSB_U2SIF_SCL_1P (MTK_PIN_NO(79) | 3)
-+#define PINMUX_GPIO79__FUNC_DBG_MON_A29 (MTK_PIN_NO(79) | 7)
-+
-+#define PINMUX_GPIO80__FUNC_GPIO80 (MTK_PIN_NO(80) | 0)
-+#define PINMUX_GPIO80__FUNC_SPIM2_MI (MTK_PIN_NO(80) | 1)
-+#define PINMUX_GPIO80__FUNC_PCM0_DI (MTK_PIN_NO(80) | 2)
-+#define PINMUX_GPIO80__FUNC_SSUSB_U2SIF_SDA_1P (MTK_PIN_NO(80) | 3)
-+#define PINMUX_GPIO80__FUNC_DBG_MON_A30 (MTK_PIN_NO(80) | 7)
-+
-+#define PINMUX_GPIO81__FUNC_GPIO81 (MTK_PIN_NO(81) | 0)
-+#define PINMUX_GPIO81__FUNC_IDDIG (MTK_PIN_NO(81) | 1)
-+#define PINMUX_GPIO81__FUNC_DBG_MON_B32 (MTK_PIN_NO(81) | 7)
-+
-+#define PINMUX_GPIO82__FUNC_GPIO82 (MTK_PIN_NO(82) | 0)
-+#define PINMUX_GPIO82__FUNC_USB_DRVVBUS (MTK_PIN_NO(82) | 1)
-+
-+#define PINMUX_GPIO83__FUNC_GPIO83 (MTK_PIN_NO(83) | 0)
-+#define PINMUX_GPIO83__FUNC_VBUSVALID (MTK_PIN_NO(83) | 1)
-+
-+#define PINMUX_GPIO84__FUNC_GPIO84 (MTK_PIN_NO(84) | 0)
-+#define PINMUX_GPIO84__FUNC_USB_DRVVBUS_1P (MTK_PIN_NO(84) | 1)
-+#define PINMUX_GPIO84__FUNC_DBG_MON_A16 (MTK_PIN_NO(84) | 7)
-+
-+#define PINMUX_GPIO85__FUNC_GPIO85 (MTK_PIN_NO(85) | 0)
-+#define PINMUX_GPIO85__FUNC_USB_DRVVBUS_2P (MTK_PIN_NO(85) | 1)
-+#define PINMUX_GPIO85__FUNC_DBG_MON_A17 (MTK_PIN_NO(85) | 7)
-+
-+#define PINMUX_GPIO86__FUNC_GPIO86 (MTK_PIN_NO(86) | 0)
-+#define PINMUX_GPIO86__FUNC_USB_DRVVBUS_3P (MTK_PIN_NO(86) | 1)
-+#define PINMUX_GPIO86__FUNC_DBG_MON_A18 (MTK_PIN_NO(86) | 7)
-+
-+#define PINMUX_GPIO87__FUNC_GPIO87 (MTK_PIN_NO(87) | 0)
-+#define PINMUX_GPIO87__FUNC_USB_DRVVBUS_4P (MTK_PIN_NO(87) | 1)
-+#define PINMUX_GPIO87__FUNC_CMVREF4 (MTK_PIN_NO(87) | 6)
-+#define PINMUX_GPIO87__FUNC_DBG_MON_A19 (MTK_PIN_NO(87) | 7)
-+
-+#define PINMUX_GPIO88__FUNC_GPIO88 (MTK_PIN_NO(88) | 0)
-+#define PINMUX_GPIO88__FUNC_PWRAP_SPI0_CSN (MTK_PIN_NO(88) | 1)
-+
-+#define PINMUX_GPIO89__FUNC_GPIO89 (MTK_PIN_NO(89) | 0)
-+#define PINMUX_GPIO89__FUNC_PWRAP_SPI0_CK (MTK_PIN_NO(89) | 1)
-+
-+#define PINMUX_GPIO90__FUNC_GPIO90 (MTK_PIN_NO(90) | 0)
-+#define PINMUX_GPIO90__FUNC_PWRAP_SPI0_MO (MTK_PIN_NO(90) | 1)
-+
-+#define PINMUX_GPIO91__FUNC_GPIO91 (MTK_PIN_NO(91) | 0)
-+#define PINMUX_GPIO91__FUNC_PWRAP_SPI0_MI (MTK_PIN_NO(91) | 1)
-+
-+#define PINMUX_GPIO92__FUNC_GPIO92 (MTK_PIN_NO(92) | 0)
-+#define PINMUX_GPIO92__FUNC_SRCLKENA0 (MTK_PIN_NO(92) | 1)
-+
-+#define PINMUX_GPIO93__FUNC_GPIO93 (MTK_PIN_NO(93) | 0)
-+#define PINMUX_GPIO93__FUNC_SRCLKENA1 (MTK_PIN_NO(93) | 1)
-+
-+#define PINMUX_GPIO94__FUNC_GPIO94 (MTK_PIN_NO(94) | 0)
-+#define PINMUX_GPIO94__FUNC_SCP_VREQ_VAO (MTK_PIN_NO(94) | 1)
-+
-+#define PINMUX_GPIO95__FUNC_GPIO95 (MTK_PIN_NO(95) | 0)
-+#define PINMUX_GPIO95__FUNC_RTC32K_CK (MTK_PIN_NO(95) | 1)
-+
-+#define PINMUX_GPIO96__FUNC_GPIO96 (MTK_PIN_NO(96) | 0)
-+#define PINMUX_GPIO96__FUNC_WATCHDOG (MTK_PIN_NO(96) | 1)
-+
-+#define PINMUX_GPIO97__FUNC_GPIO97 (MTK_PIN_NO(97) | 0)
-+#define PINMUX_GPIO97__FUNC_AUD_CLK_MOSI (MTK_PIN_NO(97) | 1)
-+
-+#define PINMUX_GPIO98__FUNC_GPIO98 (MTK_PIN_NO(98) | 0)
-+#define PINMUX_GPIO98__FUNC_AUD_SYNC_MOSI (MTK_PIN_NO(98) | 1)
-+
-+#define PINMUX_GPIO99__FUNC_GPIO99 (MTK_PIN_NO(99) | 0)
-+#define PINMUX_GPIO99__FUNC_AUD_DAT_MOSI0 (MTK_PIN_NO(99) | 1)
-+
-+#define PINMUX_GPIO100__FUNC_GPIO100 (MTK_PIN_NO(100) | 0)
-+#define PINMUX_GPIO100__FUNC_AUD_DAT_MOSI1 (MTK_PIN_NO(100) | 1)
-+
-+#define PINMUX_GPIO101__FUNC_GPIO101 (MTK_PIN_NO(101) | 0)
-+#define PINMUX_GPIO101__FUNC_AUD_DAT_MISO0 (MTK_PIN_NO(101) | 1)
-+
-+#define PINMUX_GPIO102__FUNC_GPIO102 (MTK_PIN_NO(102) | 0)
-+#define PINMUX_GPIO102__FUNC_AUD_DAT_MISO1 (MTK_PIN_NO(102) | 1)
-+
-+#define PINMUX_GPIO103__FUNC_GPIO103 (MTK_PIN_NO(103) | 0)
-+#define PINMUX_GPIO103__FUNC_I2SIN0_MCK (MTK_PIN_NO(103) | 1)
-+#define PINMUX_GPIO103__FUNC_SPIM3_B_CSB (MTK_PIN_NO(103) | 2)
-+#define PINMUX_GPIO103__FUNC_APU_JTAG_TMS (MTK_PIN_NO(103) | 3)
-+#define PINMUX_GPIO103__FUNC_SCP_JTAG0_TMS_VCORE (MTK_PIN_NO(103) | 4)
-+#define PINMUX_GPIO103__FUNC_CONN_WF_MCU_TMS (MTK_PIN_NO(103) | 5)
-+#define PINMUX_GPIO103__FUNC_SSPM_JTAG_TMS_VCORE (MTK_PIN_NO(103) | 6)
-+#define PINMUX_GPIO103__FUNC_IPU_JTAG_TMS (MTK_PIN_NO(103) | 7)
-+
-+#define PINMUX_GPIO104__FUNC_GPIO104 (MTK_PIN_NO(104) | 0)
-+#define PINMUX_GPIO104__FUNC_I2SIN0_BCK (MTK_PIN_NO(104) | 1)
-+#define PINMUX_GPIO104__FUNC_SPIM3_B_CLK (MTK_PIN_NO(104) | 2)
-+#define PINMUX_GPIO104__FUNC_APU_JTAG_TCK (MTK_PIN_NO(104) | 3)
-+#define PINMUX_GPIO104__FUNC_SCP_JTAG0_TCK_VCORE (MTK_PIN_NO(104) | 4)
-+#define PINMUX_GPIO104__FUNC_CONN_WF_MCU_TCK (MTK_PIN_NO(104) | 5)
-+#define PINMUX_GPIO104__FUNC_SSPM_JTAG_TCK_VCORE (MTK_PIN_NO(104) | 6)
-+#define PINMUX_GPIO104__FUNC_IPU_JTAG_TCK (MTK_PIN_NO(104) | 7)
-+
-+#define PINMUX_GPIO105__FUNC_GPIO105 (MTK_PIN_NO(105) | 0)
-+#define PINMUX_GPIO105__FUNC_I2SIN0_LRCK (MTK_PIN_NO(105) | 1)
-+#define PINMUX_GPIO105__FUNC_SPIM3_B_MO (MTK_PIN_NO(105) | 2)
-+#define PINMUX_GPIO105__FUNC_APU_JTAG_TDI (MTK_PIN_NO(105) | 3)
-+#define PINMUX_GPIO105__FUNC_SCP_JTAG0_TDI_VCORE (MTK_PIN_NO(105) | 4)
-+#define PINMUX_GPIO105__FUNC_CONN_WF_MCU_TDI (MTK_PIN_NO(105) | 5)
-+#define PINMUX_GPIO105__FUNC_SSPM_JTAG_TDI_VCORE (MTK_PIN_NO(105) | 6)
-+#define PINMUX_GPIO105__FUNC_IPU_JTAG_TDI (MTK_PIN_NO(105) | 7)
-+
-+#define PINMUX_GPIO106__FUNC_GPIO106 (MTK_PIN_NO(106) | 0)
-+#define PINMUX_GPIO106__FUNC_I2SIN0_DI (MTK_PIN_NO(106) | 1)
-+#define PINMUX_GPIO106__FUNC_SPIM3_B_MI (MTK_PIN_NO(106) | 2)
-+#define PINMUX_GPIO106__FUNC_APU_JTAG_TDO (MTK_PIN_NO(106) | 3)
-+#define PINMUX_GPIO106__FUNC_SCP_JTAG0_TDO_VCORE (MTK_PIN_NO(106) | 4)
-+#define PINMUX_GPIO106__FUNC_CONN_WF_MCU_TDO (MTK_PIN_NO(106) | 5)
-+#define PINMUX_GPIO106__FUNC_SSPM_JTAG_TDO_VCORE (MTK_PIN_NO(106) | 6)
-+#define PINMUX_GPIO106__FUNC_IPU_JTAG_TDO (MTK_PIN_NO(106) | 7)
-+
-+#define PINMUX_GPIO107__FUNC_GPIO107 (MTK_PIN_NO(107) | 0)
-+#define PINMUX_GPIO107__FUNC_I2SOUT0_MCK (MTK_PIN_NO(107) | 1)
-+#define PINMUX_GPIO107__FUNC_SPIM4_B_CSB (MTK_PIN_NO(107) | 2)
-+#define PINMUX_GPIO107__FUNC_APU_JTAG_TRST (MTK_PIN_NO(107) | 3)
-+#define PINMUX_GPIO107__FUNC_SCP_JTAG0_TRSTN_VCORE (MTK_PIN_NO(107) | 4)
-+#define PINMUX_GPIO107__FUNC_CONN_WF_MCU_TRST_B (MTK_PIN_NO(107) | 5)
-+#define PINMUX_GPIO107__FUNC_SSPM_JTAG_TRSTN_VCORE (MTK_PIN_NO(107) | 6)
-+#define PINMUX_GPIO107__FUNC_IPU_JTAG_TRST (MTK_PIN_NO(107) | 7)
-+
-+#define PINMUX_GPIO108__FUNC_GPIO108 (MTK_PIN_NO(108) | 0)
-+#define PINMUX_GPIO108__FUNC_I2SOUT0_BCK (MTK_PIN_NO(108) | 1)
-+#define PINMUX_GPIO108__FUNC_SPIM4_B_CLK (MTK_PIN_NO(108) | 2)
-+#define PINMUX_GPIO108__FUNC_EXTIF0_ACT (MTK_PIN_NO(108) | 3)
-+#define PINMUX_GPIO108__FUNC_SPM_JTAG_TMS_VCORE (MTK_PIN_NO(108) | 4)
-+#define PINMUX_GPIO108__FUNC_CLKM2 (MTK_PIN_NO(108) | 6)
-+#define PINMUX_GPIO108__FUNC_DBG_MON_A20 (MTK_PIN_NO(108) | 7)
-+
-+#define PINMUX_GPIO109__FUNC_GPIO109 (MTK_PIN_NO(109) | 0)
-+#define PINMUX_GPIO109__FUNC_I2SOUT0_LRCK (MTK_PIN_NO(109) | 1)
-+#define PINMUX_GPIO109__FUNC_SPIM4_B_MO (MTK_PIN_NO(109) | 2)
-+#define PINMUX_GPIO109__FUNC_EXTIF0_PRI (MTK_PIN_NO(109) | 3)
-+#define PINMUX_GPIO109__FUNC_SPM_JTAG_TCK_VCORE (MTK_PIN_NO(109) | 4)
-+#define PINMUX_GPIO109__FUNC_CLKM3 (MTK_PIN_NO(109) | 6)
-+#define PINMUX_GPIO109__FUNC_DBG_MON_A21 (MTK_PIN_NO(109) | 7)
-+
-+#define PINMUX_GPIO110__FUNC_GPIO110 (MTK_PIN_NO(110) | 0)
-+#define PINMUX_GPIO110__FUNC_I2SOUT0_DO (MTK_PIN_NO(110) | 1)
-+#define PINMUX_GPIO110__FUNC_SPIM4_B_MI (MTK_PIN_NO(110) | 2)
-+#define PINMUX_GPIO110__FUNC_EXTIF0_GNT_B (MTK_PIN_NO(110) | 3)
-+#define PINMUX_GPIO110__FUNC_SPM_JTAG_TDI_VCORE (MTK_PIN_NO(110) | 4)
-+#define PINMUX_GPIO110__FUNC_DBG_MON_A22 (MTK_PIN_NO(110) | 7)
-+
-+#define PINMUX_GPIO111__FUNC_GPIO111 (MTK_PIN_NO(111) | 0)
-+#define PINMUX_GPIO111__FUNC_DMIC0_CLK (MTK_PIN_NO(111) | 1)
-+#define PINMUX_GPIO111__FUNC_I2SIN1_MCK (MTK_PIN_NO(111) | 2)
-+#define PINMUX_GPIO111__FUNC_I2SOUT1_MCK (MTK_PIN_NO(111) | 3)
-+#define PINMUX_GPIO111__FUNC_SPM_JTAG_TDO_VCORE (MTK_PIN_NO(111) | 4)
-+#define PINMUX_GPIO111__FUNC_CONN_MIPI0_SDATA (MTK_PIN_NO(111) | 6)
-+#define PINMUX_GPIO111__FUNC_DBG_MON_A23 (MTK_PIN_NO(111) | 7)
-+
-+#define PINMUX_GPIO112__FUNC_GPIO112 (MTK_PIN_NO(112) | 0)
-+#define PINMUX_GPIO112__FUNC_DMIC0_DAT0 (MTK_PIN_NO(112) | 1)
-+#define PINMUX_GPIO112__FUNC_I2SIN1_BCK (MTK_PIN_NO(112) | 2)
-+#define PINMUX_GPIO112__FUNC_I2SOUT1_BCK (MTK_PIN_NO(112) | 3)
-+#define PINMUX_GPIO112__FUNC_SPM_JTAG_TRSTN_VCORE (MTK_PIN_NO(112) | 4)
-+#define PINMUX_GPIO112__FUNC_CONN_MIPI0_SCLK (MTK_PIN_NO(112) | 6)
-+#define PINMUX_GPIO112__FUNC_DBG_MON_A24 (MTK_PIN_NO(112) | 7)
-+
-+#define PINMUX_GPIO113__FUNC_GPIO113 (MTK_PIN_NO(113) | 0)
-+#define PINMUX_GPIO113__FUNC_DMIC1_CLK (MTK_PIN_NO(113) | 1)
-+#define PINMUX_GPIO113__FUNC_I2SIN1_LRCK (MTK_PIN_NO(113) | 2)
-+#define PINMUX_GPIO113__FUNC_I2SOUT1_LRCK (MTK_PIN_NO(113) | 3)
-+#define PINMUX_GPIO113__FUNC_PMSR_SMAP (MTK_PIN_NO(113) | 4)
-+#define PINMUX_GPIO113__FUNC_CONN_MIPI1_SDATA (MTK_PIN_NO(113) | 6)
-+#define PINMUX_GPIO113__FUNC_DBG_MON_A25 (MTK_PIN_NO(113) | 7)
-+
-+#define PINMUX_GPIO114__FUNC_GPIO114 (MTK_PIN_NO(114) | 0)
-+#define PINMUX_GPIO114__FUNC_DMIC1_DAT0 (MTK_PIN_NO(114) | 1)
-+#define PINMUX_GPIO114__FUNC_I2SIN1_DI (MTK_PIN_NO(114) | 2)
-+#define PINMUX_GPIO114__FUNC_I2SOUT1_DO (MTK_PIN_NO(114) | 3)
-+#define PINMUX_GPIO114__FUNC_CONN_MIPI1_SCLK (MTK_PIN_NO(114) | 6)
-+#define PINMUX_GPIO114__FUNC_DBG_MON_A26 (MTK_PIN_NO(114) | 7)
-+
-+#define PINMUX_GPIO115__FUNC_GPIO115 (MTK_PIN_NO(115) | 0)
-+#define PINMUX_GPIO115__FUNC_PCM0_CLK (MTK_PIN_NO(115) | 1)
-+#define PINMUX_GPIO115__FUNC_USB_DRVVBUS_1P (MTK_PIN_NO(115) | 2)
-+#define PINMUX_GPIO115__FUNC_PCIE_PHY_I2C_SCL (MTK_PIN_NO(115) | 3)
-+#define PINMUX_GPIO115__FUNC_SSUSB_U3PHY_I2C_SCL (MTK_PIN_NO(115) | 4)
-+#define PINMUX_GPIO115__FUNC_CMFLASH0 (MTK_PIN_NO(115) | 6)
-+#define PINMUX_GPIO115__FUNC_EXTIF0_ACT (MTK_PIN_NO(115) | 7)
-+
-+#define PINMUX_GPIO116__FUNC_GPIO116 (MTK_PIN_NO(116) | 0)
-+#define PINMUX_GPIO116__FUNC_PCM0_SYNC (MTK_PIN_NO(116) | 1)
-+#define PINMUX_GPIO116__FUNC_USB_DRVVBUS_2P (MTK_PIN_NO(116) | 2)
-+#define PINMUX_GPIO116__FUNC_PCIE_PHY_I2C_SDA (MTK_PIN_NO(116) | 3)
-+#define PINMUX_GPIO116__FUNC_SSUSB_U3PHY_I2C_SDA (MTK_PIN_NO(116) | 4)
-+#define PINMUX_GPIO116__FUNC_CMFLASH1 (MTK_PIN_NO(116) | 6)
-+#define PINMUX_GPIO116__FUNC_EXTIF0_PRI (MTK_PIN_NO(116) | 7)
-+
-+#define PINMUX_GPIO117__FUNC_GPIO117 (MTK_PIN_NO(117) | 0)
-+#define PINMUX_GPIO117__FUNC_PCM0_DI (MTK_PIN_NO(117) | 1)
-+#define PINMUX_GPIO117__FUNC_USB_DRVVBUS_3P (MTK_PIN_NO(117) | 2)
-+#define PINMUX_GPIO117__FUNC_DP_TX_HPD (MTK_PIN_NO(117) | 3)
-+#define PINMUX_GPIO117__FUNC_SSPXTP_U3PHY_I2C_SCL (MTK_PIN_NO(117) | 4)
-+#define PINMUX_GPIO117__FUNC_CMVREF0 (MTK_PIN_NO(117) | 6)
-+#define PINMUX_GPIO117__FUNC_EXTIF0_GNT_B (MTK_PIN_NO(117) | 7)
-+
-+#define PINMUX_GPIO118__FUNC_GPIO118 (MTK_PIN_NO(118) | 0)
-+#define PINMUX_GPIO118__FUNC_PCM0_DO (MTK_PIN_NO(118) | 1)
-+#define PINMUX_GPIO118__FUNC_USB_DRVVBUS_4P (MTK_PIN_NO(118) | 2)
-+#define PINMUX_GPIO118__FUNC_EDP_TX_HPD (MTK_PIN_NO(118) | 3)
-+#define PINMUX_GPIO118__FUNC_SSPXTP_U3PHY_I2C_SDA (MTK_PIN_NO(118) | 4)
-+#define PINMUX_GPIO118__FUNC_CMVREF1 (MTK_PIN_NO(118) | 6)
-+
-+#define PINMUX_GPIO119__FUNC_GPIO119 (MTK_PIN_NO(119) | 0)
-+#define PINMUX_GPIO119__FUNC_GBE_TXD3 (MTK_PIN_NO(119) | 1)
-+#define PINMUX_GPIO119__FUNC_DMIC0_CLK (MTK_PIN_NO(119) | 2)
-+#define PINMUX_GPIO119__FUNC_LVTS_FOUT (MTK_PIN_NO(119) | 3)
-+#define PINMUX_GPIO119__FUNC_CONN_BGF_MCU_TMS (MTK_PIN_NO(119) | 4)
-+#define PINMUX_GPIO119__FUNC_UDI_TMS (MTK_PIN_NO(119) | 5)
-+#define PINMUX_GPIO119__FUNC_ANT_SEL5 (MTK_PIN_NO(119) | 6)
-+#define PINMUX_GPIO119__FUNC_DBG_MON_B0 (MTK_PIN_NO(119) | 7)
-+
-+#define PINMUX_GPIO120__FUNC_GPIO120 (MTK_PIN_NO(120) | 0)
-+#define PINMUX_GPIO120__FUNC_GBE_TXD2 (MTK_PIN_NO(120) | 1)
-+#define PINMUX_GPIO120__FUNC_DMIC0_DAT0 (MTK_PIN_NO(120) | 2)
-+#define PINMUX_GPIO120__FUNC_LVTS_SDO (MTK_PIN_NO(120) | 3)
-+#define PINMUX_GPIO120__FUNC_CONN_BGF_MCU_TCK (MTK_PIN_NO(120) | 4)
-+#define PINMUX_GPIO120__FUNC_UDI_TCK (MTK_PIN_NO(120) | 5)
-+#define PINMUX_GPIO120__FUNC_ANT_SEL6 (MTK_PIN_NO(120) | 6)
-+#define PINMUX_GPIO120__FUNC_DBG_MON_B1 (MTK_PIN_NO(120) | 7)
-+
-+#define PINMUX_GPIO121__FUNC_GPIO121 (MTK_PIN_NO(121) | 0)
-+#define PINMUX_GPIO121__FUNC_GBE_TXD1 (MTK_PIN_NO(121) | 1)
-+#define PINMUX_GPIO121__FUNC_DMIC0_DAT1 (MTK_PIN_NO(121) | 2)
-+#define PINMUX_GPIO121__FUNC_LVTS_26M (MTK_PIN_NO(121) | 3)
-+#define PINMUX_GPIO121__FUNC_CONN_BGF_MCU_TDI (MTK_PIN_NO(121) | 4)
-+#define PINMUX_GPIO121__FUNC_UDI_TDI (MTK_PIN_NO(121) | 5)
-+#define PINMUX_GPIO121__FUNC_ANT_SEL7 (MTK_PIN_NO(121) | 6)
-+#define PINMUX_GPIO121__FUNC_DBG_MON_B2 (MTK_PIN_NO(121) | 7)
-+
-+#define PINMUX_GPIO122__FUNC_GPIO122 (MTK_PIN_NO(122) | 0)
-+#define PINMUX_GPIO122__FUNC_GBE_TXD0 (MTK_PIN_NO(122) | 1)
-+#define PINMUX_GPIO122__FUNC_DMIC1_CLK (MTK_PIN_NO(122) | 2)
-+#define PINMUX_GPIO122__FUNC_LVTS_SCF (MTK_PIN_NO(122) | 3)
-+#define PINMUX_GPIO122__FUNC_CONN_BGF_MCU_TDO (MTK_PIN_NO(122) | 4)
-+#define PINMUX_GPIO122__FUNC_UDI_TDO (MTK_PIN_NO(122) | 5)
-+#define PINMUX_GPIO122__FUNC_ANT_SEL8 (MTK_PIN_NO(122) | 6)
-+#define PINMUX_GPIO122__FUNC_DBG_MON_B3 (MTK_PIN_NO(122) | 7)
-+
-+#define PINMUX_GPIO123__FUNC_GPIO123 (MTK_PIN_NO(123) | 0)
-+#define PINMUX_GPIO123__FUNC_GBE_RXD3 (MTK_PIN_NO(123) | 1)
-+#define PINMUX_GPIO123__FUNC_DMIC1_DAT0 (MTK_PIN_NO(123) | 2)
-+#define PINMUX_GPIO123__FUNC_LVTS_SCK (MTK_PIN_NO(123) | 3)
-+#define PINMUX_GPIO123__FUNC_CONN_BGF_MCU_TRST_B (MTK_PIN_NO(123) | 4)
-+#define PINMUX_GPIO123__FUNC_UDI_NTRST (MTK_PIN_NO(123) | 5)
-+#define PINMUX_GPIO123__FUNC_ANT_SEL9 (MTK_PIN_NO(123) | 6)
-+#define PINMUX_GPIO123__FUNC_DBG_MON_B4 (MTK_PIN_NO(123) | 7)
-+
-+#define PINMUX_GPIO124__FUNC_GPIO124 (MTK_PIN_NO(124) | 0)
-+#define PINMUX_GPIO124__FUNC_GBE_RXD2 (MTK_PIN_NO(124) | 1)
-+#define PINMUX_GPIO124__FUNC_DMIC1_DAT1 (MTK_PIN_NO(124) | 2)
-+#define PINMUX_GPIO124__FUNC_LVTS_SDI (MTK_PIN_NO(124) | 3)
-+#define PINMUX_GPIO124__FUNC_CONN_WF_MCU_TMS (MTK_PIN_NO(124) | 4)
-+#define PINMUX_GPIO124__FUNC_SCP_JTAG0_TMS_VCORE (MTK_PIN_NO(124) | 5)
-+#define PINMUX_GPIO124__FUNC_ANT_SEL10 (MTK_PIN_NO(124) | 6)
-+#define PINMUX_GPIO124__FUNC_DBG_MON_B5 (MTK_PIN_NO(124) | 7)
-+
-+#define PINMUX_GPIO125__FUNC_GPIO125 (MTK_PIN_NO(125) | 0)
-+#define PINMUX_GPIO125__FUNC_GBE_RXD1 (MTK_PIN_NO(125) | 1)
-+#define PINMUX_GPIO125__FUNC_CLKM2 (MTK_PIN_NO(125) | 2)
-+#define PINMUX_GPIO125__FUNC_CONN_WF_MCU_TCK (MTK_PIN_NO(125) | 4)
-+#define PINMUX_GPIO125__FUNC_SCP_JTAG0_TCK_VCORE (MTK_PIN_NO(125) | 5)
-+#define PINMUX_GPIO125__FUNC_ANT_SEL11 (MTK_PIN_NO(125) | 6)
-+#define PINMUX_GPIO125__FUNC_DBG_MON_B6 (MTK_PIN_NO(125) | 7)
-+
-+#define PINMUX_GPIO126__FUNC_GPIO126 (MTK_PIN_NO(126) | 0)
-+#define PINMUX_GPIO126__FUNC_GBE_RXD0 (MTK_PIN_NO(126) | 1)
-+#define PINMUX_GPIO126__FUNC_CLKM3 (MTK_PIN_NO(126) | 2)
-+#define PINMUX_GPIO126__FUNC_CONN_WF_MCU_TDI (MTK_PIN_NO(126) | 4)
-+#define PINMUX_GPIO126__FUNC_SCP_JTAG0_TDI_VCORE (MTK_PIN_NO(126) | 5)
-+#define PINMUX_GPIO126__FUNC_ANT_SEL12 (MTK_PIN_NO(126) | 6)
-+#define PINMUX_GPIO126__FUNC_DBG_MON_B7 (MTK_PIN_NO(126) | 7)
-+
-+#define PINMUX_GPIO127__FUNC_GPIO127 (MTK_PIN_NO(127) | 0)
-+#define PINMUX_GPIO127__FUNC_GBE_TXC (MTK_PIN_NO(127) | 1)
-+#define PINMUX_GPIO127__FUNC_I2SIN1_MCK (MTK_PIN_NO(127) | 2)
-+#define PINMUX_GPIO127__FUNC_CONN_WF_MCU_TDO (MTK_PIN_NO(127) | 4)
-+#define PINMUX_GPIO127__FUNC_SCP_JTAG0_TDO_VCORE (MTK_PIN_NO(127) | 5)
-+#define PINMUX_GPIO127__FUNC_ANT_SEL13 (MTK_PIN_NO(127) | 6)
-+#define PINMUX_GPIO127__FUNC_DBG_MON_B8 (MTK_PIN_NO(127) | 7)
-+
-+#define PINMUX_GPIO128__FUNC_GPIO128 (MTK_PIN_NO(128) | 0)
-+#define PINMUX_GPIO128__FUNC_GBE_RXC (MTK_PIN_NO(128) | 1)
-+#define PINMUX_GPIO128__FUNC_I2SIN1_BCK (MTK_PIN_NO(128) | 2)
-+#define PINMUX_GPIO128__FUNC_CONN_WF_MCU_TRST_B (MTK_PIN_NO(128) | 4)
-+#define PINMUX_GPIO128__FUNC_SCP_JTAG0_TRSTN_VCORE (MTK_PIN_NO(128) | 5)
-+#define PINMUX_GPIO128__FUNC_ANT_SEL14 (MTK_PIN_NO(128) | 6)
-+#define PINMUX_GPIO128__FUNC_DBG_MON_B9 (MTK_PIN_NO(128) | 7)
-+
-+#define PINMUX_GPIO129__FUNC_GPIO129 (MTK_PIN_NO(129) | 0)
-+#define PINMUX_GPIO129__FUNC_GBE_RXDV (MTK_PIN_NO(129) | 1)
-+#define PINMUX_GPIO129__FUNC_I2SIN1_LRCK (MTK_PIN_NO(129) | 2)
-+#define PINMUX_GPIO129__FUNC_CONN_BGF_MCU_AICE_TMSC (MTK_PIN_NO(129) | 4)
-+#define PINMUX_GPIO129__FUNC_IPU_JTAG_TMS (MTK_PIN_NO(129) | 5)
-+#define PINMUX_GPIO129__FUNC_ANT_SEL15 (MTK_PIN_NO(129) | 6)
-+#define PINMUX_GPIO129__FUNC_DBG_MON_B10 (MTK_PIN_NO(129) | 7)
-+
-+#define PINMUX_GPIO130__FUNC_GPIO130 (MTK_PIN_NO(130) | 0)
-+#define PINMUX_GPIO130__FUNC_GBE_TXEN (MTK_PIN_NO(130) | 1)
-+#define PINMUX_GPIO130__FUNC_I2SIN1_DI (MTK_PIN_NO(130) | 2)
-+#define PINMUX_GPIO130__FUNC_CONN_BGF_MCU_AICE_TCKC (MTK_PIN_NO(130) | 4)
-+#define PINMUX_GPIO130__FUNC_IPU_JTAG_TCK (MTK_PIN_NO(130) | 5)
-+#define PINMUX_GPIO130__FUNC_ANT_SEL16 (MTK_PIN_NO(130) | 6)
-+#define PINMUX_GPIO130__FUNC_DBG_MON_B11 (MTK_PIN_NO(130) | 7)
-+
-+#define PINMUX_GPIO131__FUNC_GPIO131 (MTK_PIN_NO(131) | 0)
-+#define PINMUX_GPIO131__FUNC_GBE_MDC (MTK_PIN_NO(131) | 1)
-+#define PINMUX_GPIO131__FUNC_CLKM0 (MTK_PIN_NO(131) | 2)
-+#define PINMUX_GPIO131__FUNC_MBISTREADEN_TRIGGER (MTK_PIN_NO(131) | 3)
-+#define PINMUX_GPIO131__FUNC_CONN_BGF_UART0_TXD (MTK_PIN_NO(131) | 4)
-+#define PINMUX_GPIO131__FUNC_IPU_JTAG_TDI (MTK_PIN_NO(131) | 5)
-+#define PINMUX_GPIO131__FUNC_ANT_SEL17 (MTK_PIN_NO(131) | 6)
-+#define PINMUX_GPIO131__FUNC_DBG_MON_B12 (MTK_PIN_NO(131) | 7)
-+
-+#define PINMUX_GPIO132__FUNC_GPIO132 (MTK_PIN_NO(132) | 0)
-+#define PINMUX_GPIO132__FUNC_GBE_MDIO (MTK_PIN_NO(132) | 1)
-+#define PINMUX_GPIO132__FUNC_CLKM1 (MTK_PIN_NO(132) | 2)
-+#define PINMUX_GPIO132__FUNC_MBISTWRITEEN_TRIGGER (MTK_PIN_NO(132) | 3)
-+#define PINMUX_GPIO132__FUNC_CONN_BGF_UART0_RXD (MTK_PIN_NO(132) | 4)
-+#define PINMUX_GPIO132__FUNC_IPU_JTAG_TDO (MTK_PIN_NO(132) | 5)
-+#define PINMUX_GPIO132__FUNC_ANT_SEL18 (MTK_PIN_NO(132) | 6)
-+#define PINMUX_GPIO132__FUNC_DBG_MON_B13 (MTK_PIN_NO(132) | 7)
-+
-+#define PINMUX_GPIO133__FUNC_GPIO133 (MTK_PIN_NO(133) | 0)
-+#define PINMUX_GPIO133__FUNC_GBE_TXER (MTK_PIN_NO(133) | 1)
-+#define PINMUX_GPIO133__FUNC_GBE_AUX_PPS2 (MTK_PIN_NO(133) | 2)
-+#define PINMUX_GPIO133__FUNC_CONN_BT_TXD (MTK_PIN_NO(133) | 4)
-+#define PINMUX_GPIO133__FUNC_IPU_JTAG_TRST (MTK_PIN_NO(133) | 5)
-+#define PINMUX_GPIO133__FUNC_ANT_SEL19 (MTK_PIN_NO(133) | 6)
-+#define PINMUX_GPIO133__FUNC_DBG_MON_B14 (MTK_PIN_NO(133) | 7)
-+
-+#define PINMUX_GPIO134__FUNC_GPIO134 (MTK_PIN_NO(134) | 0)
-+#define PINMUX_GPIO134__FUNC_GBE_RXER (MTK_PIN_NO(134) | 1)
-+#define PINMUX_GPIO134__FUNC_GBE_AUX_PPS3 (MTK_PIN_NO(134) | 2)
-+#define PINMUX_GPIO134__FUNC_MCUPM_JTAG_TMS (MTK_PIN_NO(134) | 3)
-+#define PINMUX_GPIO134__FUNC_CONN_WF_MCU_AICE_TMSC (MTK_PIN_NO(134) | 4)
-+#define PINMUX_GPIO134__FUNC_APU_JTAG_TMS (MTK_PIN_NO(134) | 5)
-+#define PINMUX_GPIO134__FUNC_ANT_SEL20 (MTK_PIN_NO(134) | 6)
-+#define PINMUX_GPIO134__FUNC_DBG_MON_B15 (MTK_PIN_NO(134) | 7)
-+
-+#define PINMUX_GPIO135__FUNC_GPIO135 (MTK_PIN_NO(135) | 0)
-+#define PINMUX_GPIO135__FUNC_GBE_COL (MTK_PIN_NO(135) | 1)
-+#define PINMUX_GPIO135__FUNC_I2SOUT1_MCK (MTK_PIN_NO(135) | 2)
-+#define PINMUX_GPIO135__FUNC_MCUPM_JTAG_TCK (MTK_PIN_NO(135) | 3)
-+#define PINMUX_GPIO135__FUNC_CONN_WF_MCU_AICE_TCKC (MTK_PIN_NO(135) | 4)
-+#define PINMUX_GPIO135__FUNC_APU_JTAG_TCK (MTK_PIN_NO(135) | 5)
-+#define PINMUX_GPIO135__FUNC_ANT_SEL21 (MTK_PIN_NO(135) | 6)
-+#define PINMUX_GPIO135__FUNC_DBG_MON_B16 (MTK_PIN_NO(135) | 7)
-+
-+#define PINMUX_GPIO136__FUNC_GPIO136 (MTK_PIN_NO(136) | 0)
-+#define PINMUX_GPIO136__FUNC_GBE_INTR (MTK_PIN_NO(136) | 1)
-+#define PINMUX_GPIO136__FUNC_I2SOUT1_BCK (MTK_PIN_NO(136) | 2)
-+#define PINMUX_GPIO136__FUNC_MCUPM_JTAG_TDI (MTK_PIN_NO(136) | 3)
-+#define PINMUX_GPIO136__FUNC_CONN_WIFI_TXD (MTK_PIN_NO(136) | 4)
-+#define PINMUX_GPIO136__FUNC_APU_JTAG_TDI (MTK_PIN_NO(136) | 5)
-+#define PINMUX_GPIO136__FUNC_PWM_0 (MTK_PIN_NO(136) | 6)
-+#define PINMUX_GPIO136__FUNC_DBG_MON_B17 (MTK_PIN_NO(136) | 7)
-+
-+#define PINMUX_GPIO137__FUNC_GPIO137 (MTK_PIN_NO(137) | 0)
-+#define PINMUX_GPIO137__FUNC_GBE_AUX_PPS0 (MTK_PIN_NO(137) | 1)
-+#define PINMUX_GPIO137__FUNC_I2SOUT1_LRCK (MTK_PIN_NO(137) | 2)
-+#define PINMUX_GPIO137__FUNC_MCUPM_JTAG_TDO (MTK_PIN_NO(137) | 3)
-+#define PINMUX_GPIO137__FUNC_DP_TX_HPD (MTK_PIN_NO(137) | 4)
-+#define PINMUX_GPIO137__FUNC_APU_JTAG_TDO (MTK_PIN_NO(137) | 5)
-+#define PINMUX_GPIO137__FUNC_PWM_1 (MTK_PIN_NO(137) | 6)
-+#define PINMUX_GPIO137__FUNC_DBG_MON_B18 (MTK_PIN_NO(137) | 7)
-+
-+#define PINMUX_GPIO138__FUNC_GPIO138 (MTK_PIN_NO(138) | 0)
-+#define PINMUX_GPIO138__FUNC_GBE_AUX_PPS1 (MTK_PIN_NO(138) | 1)
-+#define PINMUX_GPIO138__FUNC_I2SOUT1_DO (MTK_PIN_NO(138) | 2)
-+#define PINMUX_GPIO138__FUNC_MCUPM_JTAG_TRSTN (MTK_PIN_NO(138) | 3)
-+#define PINMUX_GPIO138__FUNC_EDP_TX_HPD (MTK_PIN_NO(138) | 4)
-+#define PINMUX_GPIO138__FUNC_APU_JTAG_TRST (MTK_PIN_NO(138) | 5)
-+#define PINMUX_GPIO138__FUNC_PWM_2 (MTK_PIN_NO(138) | 6)
-+#define PINMUX_GPIO138__FUNC_DBG_MON_B19 (MTK_PIN_NO(138) | 7)
-+
-+#define PINMUX_GPIO139__FUNC_GPIO139 (MTK_PIN_NO(139) | 0)
-+#define PINMUX_GPIO139__FUNC_CONN_TOP_CLK (MTK_PIN_NO(139) | 1)
-+
-+#define PINMUX_GPIO140__FUNC_GPIO140 (MTK_PIN_NO(140) | 0)
-+#define PINMUX_GPIO140__FUNC_CONN_TOP_DATA (MTK_PIN_NO(140) | 1)
-+
-+#define PINMUX_GPIO141__FUNC_GPIO141 (MTK_PIN_NO(141) | 0)
-+#define PINMUX_GPIO141__FUNC_CONN_BT_CLK (MTK_PIN_NO(141) | 1)
-+
-+#define PINMUX_GPIO142__FUNC_GPIO142 (MTK_PIN_NO(142) | 0)
-+#define PINMUX_GPIO142__FUNC_CONN_BT_DATA (MTK_PIN_NO(142) | 1)
-+
-+#define PINMUX_GPIO143__FUNC_GPIO143 (MTK_PIN_NO(143) | 0)
-+#define PINMUX_GPIO143__FUNC_CONN_HRST_B (MTK_PIN_NO(143) | 1)
-+
-+#define PINMUX_GPIO144__FUNC_GPIO144 (MTK_PIN_NO(144) | 0)
-+#define PINMUX_GPIO144__FUNC_CONN_WB_PTA (MTK_PIN_NO(144) | 1)
-+
-+#define PINMUX_GPIO145__FUNC_GPIO145 (MTK_PIN_NO(145) | 0)
-+#define PINMUX_GPIO145__FUNC_CONN_WF_CTRL0 (MTK_PIN_NO(145) | 1)
-+
-+#define PINMUX_GPIO146__FUNC_GPIO146 (MTK_PIN_NO(146) | 0)
-+#define PINMUX_GPIO146__FUNC_CONN_WF_CTRL1 (MTK_PIN_NO(146) | 1)
-+
-+#define PINMUX_GPIO147__FUNC_GPIO147 (MTK_PIN_NO(147) | 0)
-+#define PINMUX_GPIO147__FUNC_CONN_WF_CTRL2 (MTK_PIN_NO(147) | 1)
-+
-+#define PINMUX_GPIO148__FUNC_GPIO148 (MTK_PIN_NO(148) | 0)
-+#define PINMUX_GPIO148__FUNC_CONN_WF_CTRL3 (MTK_PIN_NO(148) | 1)
-+
-+#define PINMUX_GPIO149__FUNC_GPIO149 (MTK_PIN_NO(149) | 0)
-+#define PINMUX_GPIO149__FUNC_CONN_WF_CTRL4 (MTK_PIN_NO(149) | 1)
-+
-+#define PINMUX_GPIO150__FUNC_GPIO150 (MTK_PIN_NO(150) | 0)
-+#define PINMUX_GPIO150__FUNC_SPINOR_CK (MTK_PIN_NO(150) | 1)
-+#define PINMUX_GPIO150__FUNC_DMIC0_CLK (MTK_PIN_NO(150) | 2)
-+#define PINMUX_GPIO150__FUNC_DP_TX_HPD (MTK_PIN_NO(150) | 3)
-+#define PINMUX_GPIO150__FUNC_PWM_0 (MTK_PIN_NO(150) | 4)
-+#define PINMUX_GPIO150__FUNC_CONN_BPI_BUS17_ANT0 (MTK_PIN_NO(150) | 5)
-+#define PINMUX_GPIO150__FUNC_LVTS_FOUT (MTK_PIN_NO(150) | 6)
-+#define PINMUX_GPIO150__FUNC_DBG_MON_B26 (MTK_PIN_NO(150) | 7)
-+
-+#define PINMUX_GPIO151__FUNC_GPIO151 (MTK_PIN_NO(151) | 0)
-+#define PINMUX_GPIO151__FUNC_SPINOR_CS (MTK_PIN_NO(151) | 1)
-+#define PINMUX_GPIO151__FUNC_DMIC0_DAT0 (MTK_PIN_NO(151) | 2)
-+#define PINMUX_GPIO151__FUNC_EDP_TX_HPD (MTK_PIN_NO(151) | 3)
-+#define PINMUX_GPIO151__FUNC_PWM_1 (MTK_PIN_NO(151) | 4)
-+#define PINMUX_GPIO151__FUNC_CONN_BPI_BUS18_ANT1 (MTK_PIN_NO(151) | 5)
-+#define PINMUX_GPIO151__FUNC_LVTS_SDO (MTK_PIN_NO(151) | 6)
-+#define PINMUX_GPIO151__FUNC_DBG_MON_B27 (MTK_PIN_NO(151) | 7)
-+
-+#define PINMUX_GPIO152__FUNC_GPIO152 (MTK_PIN_NO(152) | 0)
-+#define PINMUX_GPIO152__FUNC_SPINOR_IO0 (MTK_PIN_NO(152) | 1)
-+#define PINMUX_GPIO152__FUNC_DMIC0_DAT1 (MTK_PIN_NO(152) | 2)
-+#define PINMUX_GPIO152__FUNC_UTXD2 (MTK_PIN_NO(152) | 3)
-+#define PINMUX_GPIO152__FUNC_USB_DRVVBUS_1P (MTK_PIN_NO(152) | 4)
-+#define PINMUX_GPIO152__FUNC_CONN_BPI_BUS19_ANT2 (MTK_PIN_NO(152) | 5)
-+#define PINMUX_GPIO152__FUNC_LVTS_26M (MTK_PIN_NO(152) | 6)
-+#define PINMUX_GPIO152__FUNC_DBG_MON_B28 (MTK_PIN_NO(152) | 7)
-+
-+#define PINMUX_GPIO153__FUNC_GPIO153 (MTK_PIN_NO(153) | 0)
-+#define PINMUX_GPIO153__FUNC_SPINOR_IO1 (MTK_PIN_NO(153) | 1)
-+#define PINMUX_GPIO153__FUNC_DMIC1_CLK (MTK_PIN_NO(153) | 2)
-+#define PINMUX_GPIO153__FUNC_UCTS2 (MTK_PIN_NO(153) | 3)
-+#define PINMUX_GPIO153__FUNC_USB_DRVVBUS_2P (MTK_PIN_NO(153) | 4)
-+#define PINMUX_GPIO153__FUNC_CONN_BPI_BUS20_ANT3 (MTK_PIN_NO(153) | 5)
-+#define PINMUX_GPIO153__FUNC_LVTS_SCF (MTK_PIN_NO(153) | 6)
-+#define PINMUX_GPIO153__FUNC_DBG_MON_B29 (MTK_PIN_NO(153) | 7)
-+
-+#define PINMUX_GPIO154__FUNC_GPIO154 (MTK_PIN_NO(154) | 0)
-+#define PINMUX_GPIO154__FUNC_SPINOR_IO2 (MTK_PIN_NO(154) | 1)
-+#define PINMUX_GPIO154__FUNC_DMIC1_DAT0 (MTK_PIN_NO(154) | 2)
-+#define PINMUX_GPIO154__FUNC_URTS2 (MTK_PIN_NO(154) | 3)
-+#define PINMUX_GPIO154__FUNC_USB_DRVVBUS_3P (MTK_PIN_NO(154) | 4)
-+#define PINMUX_GPIO154__FUNC_CONN_BPI_BUS21_ANT4 (MTK_PIN_NO(154) | 5)
-+#define PINMUX_GPIO154__FUNC_LVTS_SCK (MTK_PIN_NO(154) | 6)
-+#define PINMUX_GPIO154__FUNC_DBG_MON_B30 (MTK_PIN_NO(154) | 7)
-+
-+#define PINMUX_GPIO155__FUNC_GPIO155 (MTK_PIN_NO(155) | 0)
-+#define PINMUX_GPIO155__FUNC_SPINOR_IO3 (MTK_PIN_NO(155) | 1)
-+#define PINMUX_GPIO155__FUNC_DMIC1_DAT1 (MTK_PIN_NO(155) | 2)
-+#define PINMUX_GPIO155__FUNC_URXD2 (MTK_PIN_NO(155) | 3)
-+#define PINMUX_GPIO155__FUNC_USB_DRVVBUS_4P (MTK_PIN_NO(155) | 4)
-+#define PINMUX_GPIO155__FUNC_DISP_PWM1 (MTK_PIN_NO(155) | 5)
-+#define PINMUX_GPIO155__FUNC_LVTS_SDI (MTK_PIN_NO(155) | 6)
-+#define PINMUX_GPIO155__FUNC_DBG_MON_B31 (MTK_PIN_NO(155) | 7)
-+
-+#define PINMUX_GPIO156__FUNC_GPIO156 (MTK_PIN_NO(156) | 0)
-+#define PINMUX_GPIO156__FUNC_MSDC0_DAT7 (MTK_PIN_NO(156) | 1)
-+
-+#define PINMUX_GPIO157__FUNC_GPIO157 (MTK_PIN_NO(157) | 0)
-+#define PINMUX_GPIO157__FUNC_MSDC0_DAT6 (MTK_PIN_NO(157) | 1)
-+
-+#define PINMUX_GPIO158__FUNC_GPIO158 (MTK_PIN_NO(158) | 0)
-+#define PINMUX_GPIO158__FUNC_MSDC0_DAT5 (MTK_PIN_NO(158) | 1)
-+
-+#define PINMUX_GPIO159__FUNC_GPIO159 (MTK_PIN_NO(159) | 0)
-+#define PINMUX_GPIO159__FUNC_MSDC0_DAT4 (MTK_PIN_NO(159) | 1)
-+
-+#define PINMUX_GPIO160__FUNC_GPIO160 (MTK_PIN_NO(160) | 0)
-+#define PINMUX_GPIO160__FUNC_MSDC0_RSTB (MTK_PIN_NO(160) | 1)
-+
-+#define PINMUX_GPIO161__FUNC_GPIO161 (MTK_PIN_NO(161) | 0)
-+#define PINMUX_GPIO161__FUNC_MSDC0_CMD (MTK_PIN_NO(161) | 1)
-+
-+#define PINMUX_GPIO162__FUNC_GPIO162 (MTK_PIN_NO(162) | 0)
-+#define PINMUX_GPIO162__FUNC_MSDC0_CLK (MTK_PIN_NO(162) | 1)
-+
-+#define PINMUX_GPIO163__FUNC_GPIO163 (MTK_PIN_NO(163) | 0)
-+#define PINMUX_GPIO163__FUNC_MSDC0_DAT3 (MTK_PIN_NO(163) | 1)
-+
-+#define PINMUX_GPIO164__FUNC_GPIO164 (MTK_PIN_NO(164) | 0)
-+#define PINMUX_GPIO164__FUNC_MSDC0_DAT2 (MTK_PIN_NO(164) | 1)
-+
-+#define PINMUX_GPIO165__FUNC_GPIO165 (MTK_PIN_NO(165) | 0)
-+#define PINMUX_GPIO165__FUNC_MSDC0_DAT1 (MTK_PIN_NO(165) | 1)
-+
-+#define PINMUX_GPIO166__FUNC_GPIO166 (MTK_PIN_NO(166) | 0)
-+#define PINMUX_GPIO166__FUNC_MSDC0_DAT0 (MTK_PIN_NO(166) | 1)
-+
-+#define PINMUX_GPIO167__FUNC_GPIO167 (MTK_PIN_NO(167) | 0)
-+#define PINMUX_GPIO167__FUNC_MSDC0_DSL (MTK_PIN_NO(167) | 1)
-+
-+#define PINMUX_GPIO168__FUNC_GPIO168 (MTK_PIN_NO(168) | 0)
-+#define PINMUX_GPIO168__FUNC_MSDC1_CMD (MTK_PIN_NO(168) | 1)
-+#define PINMUX_GPIO168__FUNC_CONN_WF_MCU_AICE_TMSC (MTK_PIN_NO(168) | 2)
-+#define PINMUX_GPIO168__FUNC_UCTS1 (MTK_PIN_NO(168) | 3)
-+#define PINMUX_GPIO168__FUNC_UDI_TMS (MTK_PIN_NO(168) | 4)
-+#define PINMUX_GPIO168__FUNC_SSPM_JTAG_TMS_VCORE (MTK_PIN_NO(168) | 5)
-+#define PINMUX_GPIO168__FUNC_MCUPM_JTAG_TMS (MTK_PIN_NO(168) | 6)
-+#define PINMUX_GPIO168__FUNC_CONN_BGF_MCU_TMS (MTK_PIN_NO(168) | 7)
-+
-+#define PINMUX_GPIO169__FUNC_GPIO169 (MTK_PIN_NO(169) | 0)
-+#define PINMUX_GPIO169__FUNC_MSDC1_CLK (MTK_PIN_NO(169) | 1)
-+#define PINMUX_GPIO169__FUNC_CONN_WF_MCU_AICE_TCKC (MTK_PIN_NO(169) | 2)
-+#define PINMUX_GPIO169__FUNC_URTS1 (MTK_PIN_NO(169) | 3)
-+#define PINMUX_GPIO169__FUNC_UDI_TCK (MTK_PIN_NO(169) | 4)
-+#define PINMUX_GPIO169__FUNC_SSPM_JTAG_TCK_VCORE (MTK_PIN_NO(169) | 5)
-+#define PINMUX_GPIO169__FUNC_MCUPM_JTAG_TCK (MTK_PIN_NO(169) | 6)
-+#define PINMUX_GPIO169__FUNC_CONN_BGF_MCU_TCK (MTK_PIN_NO(169) | 7)
-+
-+#define PINMUX_GPIO170__FUNC_GPIO170 (MTK_PIN_NO(170) | 0)
-+#define PINMUX_GPIO170__FUNC_MSDC1_DAT0 (MTK_PIN_NO(170) | 1)
-+#define PINMUX_GPIO170__FUNC_SPIM5_B_CSB (MTK_PIN_NO(170) | 2)
-+#define PINMUX_GPIO170__FUNC_UCTS2 (MTK_PIN_NO(170) | 3)
-+#define PINMUX_GPIO170__FUNC_UDI_TDI (MTK_PIN_NO(170) | 4)
-+#define PINMUX_GPIO170__FUNC_SSPM_JTAG_TDI_VCORE (MTK_PIN_NO(170) | 5)
-+#define PINMUX_GPIO170__FUNC_MCUPM_JTAG_TDI (MTK_PIN_NO(170) | 6)
-+#define PINMUX_GPIO170__FUNC_CONN_BGF_MCU_TDI (MTK_PIN_NO(170) | 7)
-+
-+#define PINMUX_GPIO171__FUNC_GPIO171 (MTK_PIN_NO(171) | 0)
-+#define PINMUX_GPIO171__FUNC_MSDC1_DAT1 (MTK_PIN_NO(171) | 1)
-+#define PINMUX_GPIO171__FUNC_SPIM5_B_CLK (MTK_PIN_NO(171) | 2)
-+#define PINMUX_GPIO171__FUNC_URTS2 (MTK_PIN_NO(171) | 3)
-+#define PINMUX_GPIO171__FUNC_UDI_TDO (MTK_PIN_NO(171) | 4)
-+#define PINMUX_GPIO171__FUNC_SSPM_JTAG_TDO_VCORE (MTK_PIN_NO(171) | 5)
-+#define PINMUX_GPIO171__FUNC_MCUPM_JTAG_TDO (MTK_PIN_NO(171) | 6)
-+#define PINMUX_GPIO171__FUNC_CONN_BGF_MCU_TDO (MTK_PIN_NO(171) | 7)
-+
-+#define PINMUX_GPIO172__FUNC_GPIO172 (MTK_PIN_NO(172) | 0)
-+#define PINMUX_GPIO172__FUNC_MSDC1_DAT2 (MTK_PIN_NO(172) | 1)
-+#define PINMUX_GPIO172__FUNC_SPIM5_B_MO (MTK_PIN_NO(172) | 2)
-+#define PINMUX_GPIO172__FUNC_UCTS3 (MTK_PIN_NO(172) | 3)
-+#define PINMUX_GPIO172__FUNC_UDI_NTRST (MTK_PIN_NO(172) | 4)
-+#define PINMUX_GPIO172__FUNC_SSPM_JTAG_TRSTN_VCORE (MTK_PIN_NO(172) | 5)
-+#define PINMUX_GPIO172__FUNC_MCUPM_JTAG_TRSTN (MTK_PIN_NO(172) | 6)
-+#define PINMUX_GPIO172__FUNC_CONN_BGF_MCU_TRST_B (MTK_PIN_NO(172) | 7)
-+
-+#define PINMUX_GPIO173__FUNC_GPIO173 (MTK_PIN_NO(173) | 0)
-+#define PINMUX_GPIO173__FUNC_MSDC1_DAT3 (MTK_PIN_NO(173) | 1)
-+#define PINMUX_GPIO173__FUNC_SPIM5_B_MI (MTK_PIN_NO(173) | 2)
-+#define PINMUX_GPIO173__FUNC_URTS3 (MTK_PIN_NO(173) | 3)
-+#define PINMUX_GPIO173__FUNC_CLKM0 (MTK_PIN_NO(173) | 4)
-+#define PINMUX_GPIO173__FUNC_PWM_2 (MTK_PIN_NO(173) | 5)
-+
-+#define PINMUX_GPIO174__FUNC_GPIO174 (MTK_PIN_NO(174) | 0)
-+#define PINMUX_GPIO174__FUNC_MSDC2_CMD (MTK_PIN_NO(174) | 1)
-+#define PINMUX_GPIO174__FUNC_CONN_BGF_MCU_AICE_TMSC (MTK_PIN_NO(174) | 2)
-+#define PINMUX_GPIO174__FUNC_UTXD1 (MTK_PIN_NO(174) | 3)
-+#define PINMUX_GPIO174__FUNC_VADSP_JTAG0_TMS (MTK_PIN_NO(174) | 4)
-+#define PINMUX_GPIO174__FUNC_SSPM_JTAG_TMS_VLP (MTK_PIN_NO(174) | 5)
-+#define PINMUX_GPIO174__FUNC_SPM_JTAG_TMS (MTK_PIN_NO(174) | 6)
-+#define PINMUX_GPIO174__FUNC_SCP_JTAG0_TMS_VLP (MTK_PIN_NO(174) | 7)
-+
-+#define PINMUX_GPIO175__FUNC_GPIO175 (MTK_PIN_NO(175) | 0)
-+#define PINMUX_GPIO175__FUNC_MSDC2_CLK (MTK_PIN_NO(175) | 1)
-+#define PINMUX_GPIO175__FUNC_CONN_BGF_MCU_AICE_TCKC (MTK_PIN_NO(175) | 2)
-+#define PINMUX_GPIO175__FUNC_URXD1 (MTK_PIN_NO(175) | 3)
-+#define PINMUX_GPIO175__FUNC_VADSP_JTAG0_TCK (MTK_PIN_NO(175) | 4)
-+#define PINMUX_GPIO175__FUNC_SSPM_JTAG_TCK_VLP (MTK_PIN_NO(175) | 5)
-+#define PINMUX_GPIO175__FUNC_SPM_JTAG_TCK (MTK_PIN_NO(175) | 6)
-+#define PINMUX_GPIO175__FUNC_SCP_JTAG0_TCK_VLP (MTK_PIN_NO(175) | 7)
-+
-+#define PINMUX_GPIO176__FUNC_GPIO176 (MTK_PIN_NO(176) | 0)
-+#define PINMUX_GPIO176__FUNC_MSDC2_DAT0 (MTK_PIN_NO(176) | 1)
-+#define PINMUX_GPIO176__FUNC_SRCLKENAI0 (MTK_PIN_NO(176) | 2)
-+#define PINMUX_GPIO176__FUNC_UTXD2 (MTK_PIN_NO(176) | 3)
-+#define PINMUX_GPIO176__FUNC_VADSP_JTAG0_TDI (MTK_PIN_NO(176) | 4)
-+#define PINMUX_GPIO176__FUNC_SSPM_JTAG_TDI_VLP (MTK_PIN_NO(176) | 5)
-+#define PINMUX_GPIO176__FUNC_SPM_JTAG_TDI (MTK_PIN_NO(176) | 6)
-+#define PINMUX_GPIO176__FUNC_SCP_JTAG0_TDI_VLP (MTK_PIN_NO(176) | 7)
-+
-+#define PINMUX_GPIO177__FUNC_GPIO177 (MTK_PIN_NO(177) | 0)
-+#define PINMUX_GPIO177__FUNC_MSDC2_DAT1 (MTK_PIN_NO(177) | 1)
-+#define PINMUX_GPIO177__FUNC_SRCLKENAI1 (MTK_PIN_NO(177) | 2)
-+#define PINMUX_GPIO177__FUNC_URXD2 (MTK_PIN_NO(177) | 3)
-+#define PINMUX_GPIO177__FUNC_VADSP_JTAG0_TDO (MTK_PIN_NO(177) | 4)
-+#define PINMUX_GPIO177__FUNC_SSPM_JTAG_TDO_VLP (MTK_PIN_NO(177) | 5)
-+#define PINMUX_GPIO177__FUNC_SPM_JTAG_TDO (MTK_PIN_NO(177) | 6)
-+#define PINMUX_GPIO177__FUNC_SCP_JTAG0_TDO_VLP (MTK_PIN_NO(177) | 7)
-+
-+#define PINMUX_GPIO178__FUNC_GPIO178 (MTK_PIN_NO(178) | 0)
-+#define PINMUX_GPIO178__FUNC_MSDC2_DAT2 (MTK_PIN_NO(178) | 1)
-+#define PINMUX_GPIO178__FUNC_UTXD3 (MTK_PIN_NO(178) | 3)
-+#define PINMUX_GPIO178__FUNC_VADSP_JTAG0_TRSTN (MTK_PIN_NO(178) | 4)
-+#define PINMUX_GPIO178__FUNC_SSPM_JTAG_TRSTN_VLP (MTK_PIN_NO(178) | 5)
-+#define PINMUX_GPIO178__FUNC_SPM_JTAG_TRSTN (MTK_PIN_NO(178) | 6)
-+#define PINMUX_GPIO178__FUNC_SCP_JTAG0_TRSTN_VLP (MTK_PIN_NO(178) | 7)
-+
-+#define PINMUX_GPIO179__FUNC_GPIO179 (MTK_PIN_NO(179) | 0)
-+#define PINMUX_GPIO179__FUNC_MSDC2_DAT3 (MTK_PIN_NO(179) | 1)
-+#define PINMUX_GPIO179__FUNC_URXD3 (MTK_PIN_NO(179) | 3)
-+#define PINMUX_GPIO179__FUNC_CLKM1 (MTK_PIN_NO(179) | 4)
-+#define PINMUX_GPIO179__FUNC_PWM_vlp (MTK_PIN_NO(179) | 5)
-+#define PINMUX_GPIO179__FUNC_TP_GPIO7_AO (MTK_PIN_NO(179) | 7)
-+
-+#define PINMUX_GPIO180__FUNC_GPIO180 (MTK_PIN_NO(180) | 0)
-+#define PINMUX_GPIO180__FUNC_SPMI_P_SCL (MTK_PIN_NO(180) | 1)
-+
-+#define PINMUX_GPIO181__FUNC_GPIO181 (MTK_PIN_NO(181) | 0)
-+#define PINMUX_GPIO181__FUNC_SPMI_P_SDA (MTK_PIN_NO(181) | 1)
-+
-+#define PINMUX_GPIO182__FUNC_GPIO182 (MTK_PIN_NO(182) | 0)
-+#define PINMUX_GPIO182__FUNC_DDR_PAD_RRESETB (MTK_PIN_NO(182) | 1)
-+
-+#endif /* __MT8189_PINFUNC_H */
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+index 148243470dd4ab03afdae949c8316f31467d1377..0953c25ef557684a3e78ef27a5e3f5aface33e3e 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+@@ -61,6 +61,7 @@ chosen {
+ 
+ 	fan0: pwm-fan {
+ 		compatible = "pwm-fan";
++		fan-supply = <&reg_vcc_12v>;
+ 		#cooling-cells = <2>;
+ 		cooling-levels = <64 128 192 255>;
+ 		pwms = <&tpm6 0 4000000 PWM_POLARITY_INVERTED>;
+
+---
+base-commit: ae2d20002576d2893ecaff25db3d7ef9190ac0b6
+change-id: 20250918-b4-imx95-fan-9a371ca858f5
+
+Best regards,
 -- 
-2.45.2
+Joy Zou <joy.zou@nxp.com>
 
 
