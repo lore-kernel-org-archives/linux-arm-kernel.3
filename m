@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2081ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D07CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 09:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=faCaSfjQV/nUBWX4PLGb3evLidx3wwNG/UDcGGYNXyw=; b=X7f+v3z62ejp530dyxaKy8/kv2
-	uWz9Ra5TKeC6PT8xex+NSes6X5tFCBHnCcP+aTakxSb06gOMkM2o3CQX3m1Rap85nmE50e4Ohe3B2
-	bAUXtPK1hYU/nF4ZJA2sRWxNnFpxwgrMuRkmXAcAKmR4s+s7JBqa4J7SE6nsZgZeQmwEnRVDacI3h
-	ntHlBCKxlCpKYz+HfqzNcdesmWkbpXcjfW9mFmhPDZNskkvcPr6EMZxAM13uj3Y+3JX1m3Ch7P88m
-	+b++2dNv4RN9R6k7ehKMqNzmUeLQxRF3np32esccQBpH51J/rIKX6gUqNTc73U+Cz4Q/q4T20Jrz4
-	Q8VLP6GA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBZPXFh9J0O7QytS2QYGvgTml2Z8qcvqKpyMc1vfI0w=; b=p9O7+j+AexPWA7IiDhhFr83c2P
+	Ha2SGF490XEZuGs/TAIEklYwsgRHBwHtuIXOgcKtwOxsQMzrrU1Q7ENEMv9wuJXAEVsxKlVMCLT2d
+	YOh8Hpt7YXCx3Y1T81nqTerC9lLtbd5uxif/AoQJI8Mi4QOeCPEs1jjZ6XPjq3v2p2JXEJjE53DGh
+	pcxkA0qVc6EiJX9eVt1+sJfp9wUY3rw/O4W3+ipEFO+0Wxao7OtM51GbBpm3dRpKHmJQSpNr+eIcU
+	C34fvJs1zxqjqE/nMWg4zMG3Mc2nnGNlsMtwHWRPEVTvdRUHGkm+4KuH2HW4C+a3lTxIYVJJzALBa
+	g26uX0lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXHR-00000002MJu-1v5o;
-	Fri, 19 Sep 2025 09:19:49 +0000
-Received: from out-172.mta1.migadu.com ([95.215.58.172])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzXHO-00000002MJD-2r30
+	id 1uzXKO-00000002Mcb-0757;
+	Fri, 19 Sep 2025 09:22:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzXKL-00000002Mc2-2LV9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 09:19:48 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758273583;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=faCaSfjQV/nUBWX4PLGb3evLidx3wwNG/UDcGGYNXyw=;
-	b=j3dYbaCGQYuhL/Q1WjQ3xPSB1175iMBQ4JqFDDfyEmlXDK9q6bcLYGZa/wJfZGZQHpff1y
-	P6d6l88TYdHSfsRscxeGvFduoeorVrd/v0xG9fBFsndOheUSMCDNQyYPkwvX4nRdtd0ZA5
-	cUAVsoCYSHor80619DheRoINq3RngeI=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] stm class: Remove unnecessary local variable in stm_write()
-Date: Fri, 19 Sep 2025 11:19:19 +0200
-Message-ID: <20250919091919.721014-1-thorsten.blum@linux.dev>
+	Fri, 19 Sep 2025 09:22:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C17E4169E;
+	Fri, 19 Sep 2025 02:22:38 -0700 (PDT)
+Received: from [10.163.44.14] (unknown [10.163.44.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F4963F66E;
+	Fri, 19 Sep 2025 02:22:43 -0700 (PDT)
+Message-ID: <554e507a-1a68-4ae9-9345-5aea0a81ba2b@arm.com>
+Date: Fri, 19 Sep 2025 14:52:40 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V4 2/2] arm64/sysreg: Replace TCR_EL1 field macros
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Mark Brown <broonie@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250907123000.414181-1-anshuman.khandual@arm.com>
+ <20250907123000.414181-3-anshuman.khandual@arm.com>
+ <aMv2J1hRQm_f4WAP@willie-the-truck>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aMv2J1hRQm_f4WAP@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_021947_347350_B0996F10 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_022249_644650_B92C87CF 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +69,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The local variable 'err' and the corresponding if check in stm_write()
-are unnecessary. Remove them.
+On 18/09/25 5:38 PM, Will Deacon wrote:
+> On Sun, Sep 07, 2025 at 06:00:00PM +0530, Anshuman Khandual wrote:
+>> This just replaces all used TCR_EL1 field macros with tools sysreg variant
+>> based fields and subsequently drops them from the header (pgtable-hwdef.h)
+>> and moves all required macros into KVM header (asm/kvm_arm.h) for continued
+>> usage in KVM.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> Changes in V4:
+>>
+>> - Dropped all unused TCR_XXX macros while moving into KVM header
+>>
+>>  arch/arm64/include/asm/assembler.h     |  6 +-
+>>  arch/arm64/include/asm/cputype.h       |  2 +-
+>>  arch/arm64/include/asm/kvm_arm.h       | 43 +++++++++++
+>>  arch/arm64/include/asm/mmu_context.h   |  4 +-
+>>  arch/arm64/include/asm/pgtable-hwdef.h | 98 +-------------------------
+>>  arch/arm64/include/asm/pgtable-prot.h  |  2 +-
+>>  arch/arm64/kernel/cpufeature.c         |  4 +-
+>>  arch/arm64/kernel/pi/map_kernel.c      |  8 +--
+>>  arch/arm64/kernel/vmcore_info.c        |  2 +-
+>>  arch/arm64/mm/proc.S                   | 36 ++++++----
+>>  tools/arch/arm64/include/asm/cputype.h |  2 +-
+> 
+> Please don't mix tools/ patches with arch patches. You probably want to keep
+> the KVM one separate as well.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/hwtracing/stm/core.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+Sure, will split these changes in the following order.
 
-diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
-index cdba4e875b28..f3814e4ecf23 100644
---- a/drivers/hwtracing/stm/core.c
-+++ b/drivers/hwtracing/stm/core.c
-@@ -602,17 +602,11 @@ static ssize_t notrace
- stm_write(struct stm_device *stm, struct stm_output *output,
- 	  unsigned int chan, const char *buf, size_t count, struct stm_source_data *source)
- {
--	int err;
--
- 	/* stm->pdrv is serialized against policy_mutex */
- 	if (!stm->pdrv)
- 		return -ENODEV;
- 
--	err = stm->pdrv->write(stm->data, output, chan, buf, count, source);
--	if (err < 0)
--		return err;
--
--	return err;
-+	return stm->pdrv->write(stm->data, output, chan, buf, count, source);
- }
- 
- static ssize_t stm_char_write(struct file *file, const char __user *buf,
--- 
-2.51.0
-
+- arm64 tool sysreg update for TCR_EL1
+- Tools header update for TCR_NFD0/1
+- Kernel update
+- KVM specific update i.e header macro movement
 
