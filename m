@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C225CCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 17:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5371ECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 17:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj/m644+t47KAw3LB4MKuqjLJmSbKJ/mTCXlvM4Q5NQ=; b=B8fOnr+ezNcxa/jZtMwi36Xvt+
-	TOpE0kT6z4gS9XYNQpo7eZGPlSwOx2CM67ze4scIZZDaBgQl5/nKUOAHmL1Awo1ZksMFcNQukAs5y
-	1PcLB/LtkBHDOyykACAMYKg0KrTgbFJ1e+aCoTiS0BfAgzdqYmpzXgRcFPjpAf0iQazqYQs5WjEKO
-	mROHjaHoSIyFFCStgBXmtOynLd7f764hypW1uSqumIfyFKXj9WV6AlinBey81qTpVq069uQmuq4BT
-	AWhd64qYyfLW+4FugYulj8HjvAhPrVkEVIBFs5W25LAhuIOYAaixqxIp0lqNxeL2yqh21vttWHkyp
-	szGMpM9w==;
+	bh=28A9uM4X7e2ZNVe8qhQ8fIkUj3C1V3V4fslqHjLnzfg=; b=jYEz4DAcaODer/rMhcvt5oyZxX
+	5rkqvNzVXVtMppfRvR/OWDbK2CJlFo30a5LwsV/9n3/YJdQ5nt3QFs0Qz9clOvlJKl6F9qBropjlO
+	jJ3YNNiB1VHuojXRVjsZ0HKE2bzG517x1zw//B7Y2tZf6v5d1evX6AlvFHWgy0H3Ux4fdm71cvK2f
+	Z3AZcsDLCL34Tn2KAz0u05IAu/X0zwFFjBYeaHuOH7rUPMTlS2oPStdh+Bbx0DmVsmy2gJ4Be6fAx
+	6Z/oMIouAcI792FxfOVzVsO+EvyNqztwRzqaUL6MK1+Vu/NqtiekWQV9GKEQjQkZeXE67q6X8cOLc
+	pOB5dPrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzeh5-00000003dkB-1zMK;
-	Fri, 19 Sep 2025 17:14:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzelg-00000003eMM-1q7k;
+	Fri, 19 Sep 2025 17:19:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzeh4-00000003djz-1TZa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 17:14:46 +0000
+	id 1uzele-00000003eM1-0nYN;
+	Fri, 19 Sep 2025 17:19:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EF8E601F6;
-	Fri, 19 Sep 2025 17:14:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10572C4CEF0;
-	Fri, 19 Sep 2025 17:14:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 704014401E;
+	Fri, 19 Sep 2025 17:19:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F8C4C4CEF0;
+	Fri, 19 Sep 2025 17:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758302085;
-	bh=Wj/m644+t47KAw3LB4MKuqjLJmSbKJ/mTCXlvM4Q5NQ=;
+	s=k20201202; t=1758302369;
+	bh=28A9uM4X7e2ZNVe8qhQ8fIkUj3C1V3V4fslqHjLnzfg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e4hS36ry+QYbSYYmEtLZeosWU3x0Z4itK8GmXtBAYYmaFmi9RH01gYERfiCdenb1a
-	 6RMyffkabKzw0nDDpwuf+qABO03smyYDKnWo7hjYYqUcVNcwlHOePxcMhVUq/syeQw
-	 gjOmUnXR8OB5rPg9JM5WMf6mL7JWUYFJkhm8T9zkeUOqbVRBazugRT6/Z8IAzjxkCq
-	 SLYm6CTTB78/e6ev5x1athG0v/oE/EIqfzgqaEqymCHjzCBSGb3mo/b+NF/WUxAp52
-	 6DvQ18Tc5iWXawdyjZJFskbv5Rr337R8hfrMcX1nIFvCBZlsPQXhiGFBB/nN3UqZ2X
-	 2uTGWDnRtCdgQ==
-Date: Fri, 19 Sep 2025 18:14:39 +0100
+	b=Iymj/G9D84B9WaNlTScmWaoN/OuOIZ0zHkTtCLhUvHvmcXXNRfZkG/+9l6FMnOGrz
+	 oad1I/J7yfBgF2A+A2bcmBabIpIE1nbTlEV2HGCz0mN9qHvFDzVkNq632CCTA/GSj4
+	 BvJDOwuRq67pNNhvgYyR657M+7nOA7HgnMeWHDnfb/kFLvzEl8LfNLivaJH4u4BcGM
+	 neoPY3+Grb3E3eGDu+9kbbnJa7ZQB704U8f6q/hDUy0zrIMFRyyXBdh+zjPLgMG9Sp
+	 ofSlngt/HlmgqRvz4rz9BjvUS4UxL4RQTVUu4dNiZc/9YWJZeu4zxOlQEwrvMLvwG5
+	 jrxjMw2fr+GzQ==
+Date: Fri, 19 Sep 2025 18:19:23 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Xu Yang <xu.yang_2@nxp.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, peter.chen@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	peng.fan@nxp.com, jun.li@nxp.com, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: usb: usbmisc-imx: add fsl,imx94-usbmisc
- compatible
-Message-ID: <20250919-anemia-repressed-9d8ea950ecaf@spud>
-References: <20250919071111.2558628-1-xu.yang_2@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH 2/4] dt-bindings: clock: nxp,imx95-blk-ctl: add support
+ for USB in HSIO Block Control
+Message-ID: <20250919-dedicate-dowry-cd9b408a66d0@spud>
+References: <20250919-usb-phy-alt-clk-support-v1-0-57c2a13eea1c@nxp.com>
+ <20250919-usb-phy-alt-clk-support-v1-2-57c2a13eea1c@nxp.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fEb/lBhoMoWNWi/F"
+	protocol="application/pgp-signature"; boundary="4FmryPusHC6DnCgr"
 Content-Disposition: inline
-In-Reply-To: <20250919071111.2558628-1-xu.yang_2@nxp.com>
+In-Reply-To: <20250919-usb-phy-alt-clk-support-v1-2-57c2a13eea1c@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_101930_247120_7DB2A190 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +87,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---fEb/lBhoMoWNWi/F
+--4FmryPusHC6DnCgr
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---fEb/lBhoMoWNWi/F
+--4FmryPusHC6DnCgr
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaM2PfwAKCRB4tDGHoIJi
-0s4+AQCbK/8AUsOWCz+3KwYXizsLQGg7i0VwKgSPMS9KpKNUvgEAht/haKKbsye2
-9I5raGzWfgrWOaZ+XbJyboPkFJS6pQs=
-=8lcc
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaM2QmwAKCRB4tDGHoIJi
+0hidAQDbsEO3QRwY4G2oIVCB5TSVdSmQWhyUOe76nIh68pLsPAD8D16pfZ5hXBSX
+oexTv2EHkYMIE3HIFguwNVJULkXCzAs=
+=IHUS
 -----END PGP SIGNATURE-----
 
---fEb/lBhoMoWNWi/F--
+--4FmryPusHC6DnCgr--
 
