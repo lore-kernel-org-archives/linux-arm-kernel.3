@@ -4,63 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D358CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9506CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=raGRLi7KUiHui4EIC3GAiX5YcJdKLWe9zemHQCJZ3iM=; b=hVxxAD5+NTmpPeplFru1vX994V
-	sq27SmeV5+HAKmTustadR8A2+50/eTGCNUGjDa7nbhEA4VE0gV6ZeklIM1YAgEBowUYUoZxwJzrOk
-	Lz8s4X0Cq8TpZmEUEtSq1cjR8EsNHRa8eO8kb1W8hiDYfEkemauREOHvXAV4YKU03zYPWBA+965Jn
-	7e2lIc+ATr/xrTinLvkEWQOPusL9F33mOra2ihTUzN3JS10e5fGArtKR7bCcniPhyof5ZbC+ZwNO0
-	fqNeB/0LUwBG7i6wZWKNmCkWPS7u4i+ED4oKNHkHOpmWACZGahR6DIbazVEHdiMtWPQQQY9lRCSh7
-	Pstx3kKw==;
+	bh=4x2JrOasC15lGjTDO2z7N5KBQQ1+w5H1EGrZtZKx/Bg=; b=UKBu0F/c2nyrvgartTaT+U+HM2
+	r/r8UFFPwVCdBHOlEkXnI2dvr3DDoRGK3RUZUEvzP69c+eDlrKQI4Lymp0ANGtOirg/A4GJtMstj7
+	r4PuQYvyj0IRPUsYsiKGA9pDtUWJhz6qRpawN9x/ALMSr8ihZpyFq6s+eoragv4BiQ7m3585A+rR+
+	eafo+VPaTPnucz6kcR5eVs7zpNcEYxYxR63C164b9Ov+OgSher8SnQsQofyvc9PNh2E17hUAaJpmr
+	T63+6nBgTvFdZ6Nc3KX7HQwfy3gDCvJQLI0zAHTYW402dbLx70HuBN3ms9fIF2ii8X1pgbHe1ORKG
+	Nv9NbJOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcSR-00000003D1j-3Apr;
-	Fri, 19 Sep 2025 14:51:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzcTH-00000003DEj-0S8I;
+	Fri, 19 Sep 2025 14:52:23 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcSP-00000003D15-2zc5
+	id 1uzcTF-00000003DDg-0TNy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 14:51:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0905B60194;
-	Fri, 19 Sep 2025 14:51:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99218C4CEF0;
-	Fri, 19 Sep 2025 14:51:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758293488;
-	bh=ltSbKh4n47FzGRqG8/CEVAcFRLma3NAxjpUJcx3cn0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MVYAu8fd2IftIHC95aUjjJiEO0whJ69qIM7P7FPm66q/1KYPBQZcRi+FQnrndtgO2
-	 bVpjt/Usk9yzCb9XU208L1bGvJEzZlx0yUYq8iyZNZIST/ARjUfNfSTKCHbW33xyL8
-	 Pn9VVgK0KUZr1uCxcTcSXz0H2J8JR4jVwaA9NCGHBHfJhzzVuykUUXGPCqM+x1TXNz
-	 E6qWOxQ8BfccX49o2P8koeGXZU32rRUplPa3YZclRuSwXkH1p5W+85e/gfb2NJ4O/9
-	 NA3VHk7zSBFOqO6G43f74qadqFJNYKBjn4u2OXR4IeVMfuC5kPK23SFq53iIK/NdoI
-	 8/uu0CSg55RLQ==
-Date: Fri, 19 Sep 2025 09:51:27 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 6/7] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT
- schema
-Message-ID: <20250919145127.GA852815-robh@kernel.org>
-References: <cover.1758212309.git.christophe.leroy@csgroup.eu>
- <5c4f831404857dd6eeefebe2ecdf2bb8ad503538.1758212309.git.christophe.leroy@csgroup.eu>
-MIME-Version: 1.0
+	Fri, 19 Sep 2025 14:52:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JiOtsTkOw5S06XHk8xHmTiAFCtujBrCrtrEEZWGw7zrTrc8c9M2xlJYe0KsHmmFjpR7n9inKOPrH7g/SU4zLf4ozXitDcCjCATcWoCmL/JC1x6GGsLEAW+24moBf8EIWOIlFAmcjs0TxBpGPu9Fcs89uaNl4UdysNOQgPQ4sFY69IkLAbvopPGskIkZJzp84bkgTconZ6g65pHCV833ZyQEts37HRJrxrNyNQK2VtTDmKJsX23+e7IHPLjbweBR7BVhjFkx6ay5rd9mK6+oLRQsiYayi7UUWKnkjNhkKMt28eDeitV0Cf+v/DwzXxN/O7hvp3kuyYIeV1E+H5n1nUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4x2JrOasC15lGjTDO2z7N5KBQQ1+w5H1EGrZtZKx/Bg=;
+ b=eXgu0iYX3bAHkgUEjW0edHkq/m082YHYMMVVpYxFTkqlQUfmZuK9rQlOyKzJcqzwnpG2NGLxUM9HfPpuSY8yPZxB+fZcT0qfemUSuzPtqtAfJmPzWfD3C/kPEp93J+0QM9cUY2PRAiUzj2tA4enxa4PJNJY2qKpqhKehwfUTcApzzN+G3Wyl4FUideldqMsm2SDiymQHzzIc2ws5mz5vpSUp2Atyik5ZOi9q4cBJH+2uurGPDdPjaDV3ZtAdUzT5RRg0idFvGaINkO+bpqhhawx/2K26FJ/iYxBFaj6xT4iHRma3nfZ9dy8O/1oxy6vFu1IALXDzo7BN2+rmFMOaTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4x2JrOasC15lGjTDO2z7N5KBQQ1+w5H1EGrZtZKx/Bg=;
+ b=X2DiJocTDUOrHTQ7Cg+XXCc1072BogL2APz0lhx2RX/OyfwxABCr4yec/hHbOLEyxFsz8iQgy6FBGZ6iKN1RcYkIzMntB3mr/6Snh7XS+mHCxXegc8xulX8ZrQeL6my9UKUMy7Gqj6vfSfxtoBf3X8ed/71Xu1hjPrByCSSfp6LVMm4A2utH6BsuJwIEbYMvg65IIifaJvC/XF68mPaHPq8osUuulQINpmfVMlgIFYJDyVuR56QFI+oDD7G9bFrG10agIB5BzoDTmt6hAQyszxPInOLbUXf+dMEnvVu1surCD8jIbG/bKMBNeD/P3HLlFW1BJ0qO25yptcMr18MJYg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Fri, 19 Sep
+ 2025 14:52:14 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
+ 14:52:13 +0000
+Date: Fri, 19 Sep 2025 10:52:05 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/5] remoteproc: imx_rproc: Remove the assignement to
+ method
+Message-ID: <aM1uFcNmSAUw3+//@lizhi-Precision-Tower-5810>
+References: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com>
+ <20250918-imx_rproc_c2-v1-4-deec8183185f@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5c4f831404857dd6eeefebe2ecdf2bb8ad503538.1758212309.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <20250918-imx_rproc_c2-v1-4-deec8183185f@nxp.com>
+X-ClientProxiedBy: PH0P220CA0030.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::30) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB8897:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72e33d6a-6f06-4674-17f0-08ddf78c1e91
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7y6qlQXxgAwgWwddDDzgL5IyqYEg4rPe3pJnJJYfkfvjxOglN3VrbxOjfYb+?=
+ =?us-ascii?Q?cw/cMNba2GYAytpThdP5U/dqulSK6IClV1sg89iD/fk48O0fFtlpxzWkWNDY?=
+ =?us-ascii?Q?/91pAnOcbmcTQ6+8fDVKSnmA1WPqPw+PQVh4npDDrENz5FqErGtrerWlxwyS?=
+ =?us-ascii?Q?X00Y8RXhhIx73jOoKFrSUp3FNMDCmnZl0bT7q8MQmvrw234xWFWTHNznVFSe?=
+ =?us-ascii?Q?cHaY5gE7deS77llNuRwSCp4Pi0KLEF79VCzyfsGoHuLa6sMjQ10IZfjOH6k1?=
+ =?us-ascii?Q?YtMwVSTZecqPpluKjWzojOmYYLu7e6BmuPGu248uteCZbFVvIiJWa0cUcaVx?=
+ =?us-ascii?Q?vswtSlJ5Et0rOcZYHLtITwNL7t+dDW5DnwP3Jk1EzWPawgkD5qamM0K08DH6?=
+ =?us-ascii?Q?XSFbXhZvfxQXsnAhoH/zllG9N0mz6iLWKZZLCupoyP1X4cTHRuhWWtFCXKoE?=
+ =?us-ascii?Q?NkUKl23/6ZVvY69w+1UCsvplHi0PF2iqfd47U/5MX4tqS1tC4Qf0WK/jwt3z?=
+ =?us-ascii?Q?VU84H7VBBaqfBw0DGg+meh5w/6tm0S1K4HgieJQWb+QYGT52hkJIgNeC9ElF?=
+ =?us-ascii?Q?qQXnfPDBrHb95cQq24bgsseZ8+BYLeWc4xiFKmgfdpT2JmfbLCHgGgTSO3uH?=
+ =?us-ascii?Q?ZU7ib8/zG9soOmg+fbfdjSRM7gXDDLtZbzUf6cR2iQFg/+kWibVyaV4piquu?=
+ =?us-ascii?Q?r9EU0qy8DXXpOsVLHZYJVF5lJk91IT8L1N+VlsUzHqzZ5tjUv+EM/bxzyPib?=
+ =?us-ascii?Q?b/YLmcUbGQ7sH7cbcFCn5oTVhgaI+38S/BiRyqhfB+dA7ggE6fLo0MG7lb3N?=
+ =?us-ascii?Q?CFXCDdIymzUxkq3nsco+gc6wHBk+mBLSZqfBoEh6fX8vwW1AoW9TaMjOCHiR?=
+ =?us-ascii?Q?izSBpuluL4z8lGaR4m5ZG/N/+/BSmcg+/jIGkNOyvCPBXLuea92AmsHPp2Mb?=
+ =?us-ascii?Q?C5pSoe1LDqSBjU+Kx4IAVhHPaoQ4tXx5yXRnPp8fN7kr50kt/DHxVdB1yqwN?=
+ =?us-ascii?Q?NZN6m4lT0ETZ3VDkMdAbOTY8sIvnYPh8ST6jidFdfddK3I88SFhgUGKnx2P3?=
+ =?us-ascii?Q?nE8XAOyEqxb2Hy8tTYpznN5me+T5xeWGM7p5gE/NlMzhRUUNaW3vLCo/CO+Q?=
+ =?us-ascii?Q?aeS/88CF88YuSb6sbpgIzCMgE2+qSOHgqwqLE7rhdGkm4erQdwu9M2J2zh/8?=
+ =?us-ascii?Q?bwDVVik4bnovDNy5eoz84fi1xJP+tM6wQ4n4c2BD0dLwwuK4DSOvxMAkZAfr?=
+ =?us-ascii?Q?G9F9wl6Sl5ZDbCsiFgXW8khb+5MGiS0A9PJI8/TTqL5QwZFux+wHZsTxoqCs?=
+ =?us-ascii?Q?tES7g1S3BQHCJ/VFco1K/S3Ft/XOyOUpsCgmTarKcPn7JE4CRwwm+qxT8hpr?=
+ =?us-ascii?Q?8zcrCK/IHE//aEO24kSBoA5qM+4CGnaKrWOXzmYHGVr4BTX3qQfS1f56RUdI?=
+ =?us-ascii?Q?VvNvFJnFnpCqMGOtFsXN4T/eJ1SjaZm5y7LWbN7bgn5Ny6gE4wIuoA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?e/f/nyg3jNoB2o5wk2OnOfjxlrq/kz1oCvQbSxIMBhaq5E5unMLPOOk97QdL?=
+ =?us-ascii?Q?630e5Od7X82U9iSSH8tKJkngkpeUCsnwnzdH3vGhzl8Jhrdn9W9dCp0j2h0r?=
+ =?us-ascii?Q?6KrEX45gQpp8Y4GGFTv9X2kBRibG0pPZYH8HhJCAZ5e6lAQelmm/nV+y73l4?=
+ =?us-ascii?Q?1RcsySdUSD0CGjYaIBEV0OhYFTYEwLd6e7NKGALTD4bkwxKwPm4n54aED7PL?=
+ =?us-ascii?Q?tH5tLy0CJAnWWt6AMfZaP6D83X6A7BLCWcsBahwYILzX/gPSQsZFEgasVmRQ?=
+ =?us-ascii?Q?JIHa0NObysX98PID1gAn8O4V2oQoPmSYxXS6k01Devx/m8TkiHYexuA5GY+p?=
+ =?us-ascii?Q?LQJH+CvW/5WmFZpgdtl28Xp7BBovYhxyPYUWweDXfA7VL/JHs+9jaWhIvk9T?=
+ =?us-ascii?Q?31VATwYChN1tGiv5Deo9YjBVk80TrcrNBHvv5lIr0VeONCCyaZKdbTYuqMHy?=
+ =?us-ascii?Q?kqsDOVbUxpf4e+fhZm1X1aJNQSsCPC0dpPfMZFotudRW9L5SxNp54l+0CkK3?=
+ =?us-ascii?Q?8qNhPFb73oA8M4WYPeBP0P5YtFNrne9qD+bVUNaGayrs+QUE3FEfpU2xtTtb?=
+ =?us-ascii?Q?aNUwaa9b/m3fHYwOsEAZzWQFrxNhta3K3vYkMDQIayr1ymQ5X5HqH0TwNiu/?=
+ =?us-ascii?Q?ILEdLzWqvuanClcub0R+5dYAE/DCkEgg23274Ifezd8e8U0zyYTDHOjiD0so?=
+ =?us-ascii?Q?pj+NmQ3sKqd8Na2YEF7Uv98llCLEONyFb4srg5xY6bOkK9JpnNGacFFlJtW3?=
+ =?us-ascii?Q?vuORJDASSn9qkMBXVbZdx89G4sij4pFNCK5S4r4GfgV9CRnL2ss0G+fn7VaQ?=
+ =?us-ascii?Q?7Pjztz74fMEcgT+eRPu9+po5/r7e4eDJ5WWTfr/LrkG5su9VY5M12ejdTMwx?=
+ =?us-ascii?Q?qcyXWCGH1SWLGHtpyf2CPx6R0qdPKZ03PDYTaM6xGDEY8DfNa/QhoLhNyEBJ?=
+ =?us-ascii?Q?4HwzXdSSlu0hTpZRiD+YvikkfzPost0UZuyjnevWnVoFoBACt+HIqwRnmXrt?=
+ =?us-ascii?Q?AvRB2Ci3ddRJsmQNom2RTNueAc54+6ggNMhCZ8bcoSaPstlZCDcsqSsDtGsI?=
+ =?us-ascii?Q?wDbIaFAL0Dzmbb0wzxYPE9ZYO2yfSv6fH3BvLviTRkKjhsAlThA7vuAGNi7R?=
+ =?us-ascii?Q?MoCh1m31Yvefm/amtrMCAuoyRSbYtvCsO1mCCZdczxK7O4Mksk/G/bf33OnP?=
+ =?us-ascii?Q?Bsrye2yPSHTfX9gZeSLPsvT4UCOSeZA8I3A6CSQjsqmPAl4kpvcSkIt09o4c?=
+ =?us-ascii?Q?Np2YaKWgmnCLAVNoyN2KIvzFB9IFgDTdiyQpMUA+dg5Ifu3vHQ+8Y0yVRRRr?=
+ =?us-ascii?Q?WgGRhZZFw9BSCeS+74McJ0SOV2/DcRAmFFKVcHeKiT1P+NEOP9+x6pL/8K+K?=
+ =?us-ascii?Q?s7EpnI9VvJ8yae9WdvM3VlpCo7U5QQ2Qs8TCFflsvjZhPYO8xKlXFcqKsZKs?=
+ =?us-ascii?Q?i4MOHAr0ytL2gxyey247h+ya46w6X7vsnIov+IKWzhVk3X8f06ppd7gKPVDu?=
+ =?us-ascii?Q?lXAB1MKRTg4ZGmUpJUJNiSOB8hRsIZQSplaPwOJHOp9bJKdrZx1ElhEDk3Td?=
+ =?us-ascii?Q?KVJ+s9Jl/gnrZnWd/os=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72e33d6a-6f06-4674-17f0-08ddf78c1e91
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 14:52:13.8210
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mkWawUhwlvttYTp8JFyfstemqNdq404GtEaVzFYFbrxy6EN1iwFHSLtH8vXWtLPpx6pFoFc4BghsxOfo7ZouOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8897
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_075221_161147_FAB33D44 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +164,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 06:23:26PM +0200, Christophe Leroy wrote:
-> Convert QE QPIO devicetree binding to DT schema.
+On Thu, Sep 18, 2025 at 07:51:19PM +0800, Peng Fan wrote:
+> There is no referring to the field method, it could be removed now.
+>
+> No functional changes.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Why is this in linux-next when it still needs review? Anything in 
-linux-next already gets removed from my review queue (patchwork), so 
-you're lucky I'm looking at it. It's also not tested probably for the 
-same reason that b4 couldn't figure out how to apply the series.
-
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> v6: Comments from Rob taken into account except the comment on fsl,<chip>-qe-pario-bank becoming fsl,chip-qe-pario-bank as I don't know what to do.
-> ---
->  .../gpio/fsl,mpc8323-qe-pario-bank.yaml       | 49 +++++++++++++++++++
->  .../bindings/soc/fsl/cpm_qe/qe/par_io.txt     | 26 +---------
->  2 files changed, 50 insertions(+), 25 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> new file mode 100644
-> index 000000000000..0dd9c0e6ca39
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/fsl/cpm_qe/fsl,mpc8323-qe-pario-bank.yaml#
-
-Did you test this? No, because this is wrong and the tools will tell you 
-so I don't have to.
-
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
-> +
-> +maintainers:
-> +  - Christophe Leroy <christophe.leroy@csgroup.eu>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - fsl,chip-qe-pario-bank
-
-You have to list out every <chip>. Lots of examples in the tree, but 
-like this:
-
-oneOf:
-  - items:
-      - enum:
-          - fsl,mpc8360-qe-pario-bank
-          - fsl,mpc8569-qe-pario-bank
-      - const: fsl,mpc8323-qe-pario-bank
-  - const: fsl,mpc8323-qe-pario-bank
-
-
-> +      - const: fsl,mpc8323-qe-pario-bank
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  gpio-controller: true
-> +
-> +  '#gpio-cells':
-> +    const: 2
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - gpio-controller
-> +  - '#gpio-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    gpio-controller@1400 {
-> +        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
-> +        reg = <0x1400 0x18>;
-> +        gpio-controller;
-> +        #gpio-cells = <2>;
-> +    };
-> +
-> +    gpio-controller@1460 {
-> +        compatible = "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-pario-bank";
-> +        reg = <0x1460 0x18>;
-> +        gpio-controller;
-> +        #gpio-cells = <2>;
-> +    };
-
-We don't need 2 examples of the same thing.
-
+>  drivers/remoteproc/imx_rproc.c | 10 ----------
+>  1 file changed, 10 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 69b57cb4b251d9fb65a23e139a1960bf29c175ed..46fe7c147ce01ee07a610341b85544b79baadd13 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -1170,7 +1170,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mn_mmio = {
+>  	.gpr_wait	= IMX8M_GPR22_CM7_CPUWAIT,
+>  	.att		= imx_rproc_att_imx8mn,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx8mn),
+> -	.method		= IMX_RPROC_MMIO,
+>  	.ops		= &imx_rproc_ops_mmio,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+> @@ -1178,7 +1177,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mn_mmio = {
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mn = {
+>  	.att		= imx_rproc_att_imx8mn,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx8mn),
+> -	.method		= IMX_RPROC_SMC,
+>  	.ops		= &imx_rproc_ops_arm_smc,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+> @@ -1190,7 +1188,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mq = {
+>  	.src_stop	= IMX7D_M4_STOP,
+>  	.att		= imx_rproc_att_imx8mq,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx8mq),
+> -	.method		= IMX_RPROC_MMIO,
+>  	.ops		= &imx_rproc_ops_mmio,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+> @@ -1198,27 +1195,23 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx8mq = {
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx8qm = {
+>  	.att            = imx_rproc_att_imx8qm,
+>  	.att_size       = ARRAY_SIZE(imx_rproc_att_imx8qm),
+> -	.method         = IMX_RPROC_SCU_API,
+>  	.ops		= &imx_rproc_ops_scu_api,
+>  };
+>
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx8qxp = {
+>  	.att		= imx_rproc_att_imx8qxp,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx8qxp),
+> -	.method		= IMX_RPROC_SCU_API,
+>  	.ops		= &imx_rproc_ops_scu_api,
+>  };
+>
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx8ulp = {
+>  	.att		= imx_rproc_att_imx8ulp,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx8ulp),
+> -	.method		= IMX_RPROC_NONE,
+>  };
+>
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx7ulp = {
+>  	.att		= imx_rproc_att_imx7ulp,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx7ulp),
+> -	.method		= IMX_RPROC_NONE,
+>  	.flags		= IMX_RPROC_NEED_SYSTEM_OFF,
+>  };
+>
+> @@ -1229,7 +1222,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx7d = {
+>  	.src_stop	= IMX7D_M4_STOP,
+>  	.att		= imx_rproc_att_imx7d,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx7d),
+> -	.method		= IMX_RPROC_MMIO,
+>  	.ops		= &imx_rproc_ops_mmio,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+> @@ -1241,7 +1233,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx6sx = {
+>  	.src_stop	= IMX6SX_M4_STOP,
+>  	.att		= imx_rproc_att_imx6sx,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx6sx),
+> -	.method		= IMX_RPROC_MMIO,
+>  	.ops		= &imx_rproc_ops_mmio,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+> @@ -1249,7 +1240,6 @@ static const struct imx_rproc_dcfg imx_rproc_cfg_imx6sx = {
+>  static const struct imx_rproc_dcfg imx_rproc_cfg_imx93 = {
+>  	.att		= imx_rproc_att_imx93,
+>  	.att_size	= ARRAY_SIZE(imx_rproc_att_imx93),
+> -	.method		= IMX_RPROC_SMC,
+>  	.ops		= &imx_rproc_ops_arm_smc,
+>  	.flags		= IMX_RPROC_NEED_CLKS,
+>  };
+>
+> --
+> 2.37.1
+>
 
