@@ -4,65 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C71CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F80DCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dh4du4vsaPqfCHYPftplLkvzA5buSajHOqIg8ax35ew=; b=kP9Tw2o08eD2xVhoZVlNjVNyoC
-	QSI9JZbMjabgoyjbtm9yl7gSa0npaDtCTCPt/xK13gPaOrjVCubAIVQQtlwYrsbofo9QLUmxU/PVJ
-	qGaHL600qL46NnW06QBafWiavm7qWuzVjdFSTFlAdtDH2XS9lbX7hiJDB29EmF2WECIxgBexy2MXp
-	SZbXksaKoXC/cdG5DerqsGEOzz/0c5nHLcmWUph+5CwzMMluKxtEiyY/ok5FiFNALa/n1qy9a0tvz
-	8djBJHx+V/5+qceI5lu6n9203+cBziL7O53x3SaAFlqxQ3rjwrlkvA/PCrSQISlRqTtPVXokvCirI
-	aMoYXQ7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/1g5tMQmVPFRJCQ3+SeEupEv5s5OFyxdK2wh+6wges=; b=OamOUjqhuVBCqY/6jNopzitCFo
+	YJadxkB8xoSzgghcxcBwitLdo4n+KxGnbpsXFDNb+7KlUXNXq0L8+f8N/nZS3rxVkuZUbytOZa2At
+	JtHtuffzQvCcE9uLN2NaWllNfiibQIt9qazR7VUIZ7ZypLlDL2T/3+dBIK9dsTKi6FUOQkukTdHdC
+	vjo3kS4/4R+nGZvn8OXsxAX1yu5kAjJA8BYtL3Ki8jOFhqKhBSNyuRn4pVhYQoYVX5myxFd4eMiwl
+	LX3iqf0FWx5gBnddk2zoqjqbC8NBQJ2dTcuePTM2UWWBe1WmAX7JQyVTfFrA9uKb0j9cDyKiNOrEz
+	EnsOhx8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaCe-00000002pER-0Vv6;
-	Fri, 19 Sep 2025 12:27:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzaRB-00000002quT-2zMB;
+	Fri, 19 Sep 2025 12:42:05 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaCd-00000002pEJ-0Z0G
+	id 1uzaR8-00000002qsa-1CmJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 12:27:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DC616013A;
-	Fri, 19 Sep 2025 12:27:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EE08C4CEF0;
-	Fri, 19 Sep 2025 12:26:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758284822;
-	bh=xvXVACMtVmjwR/uF2cNi1EvWp8KFjthvH+n7UtD4Q0c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JXOfoDECzJmSR0aLrQkfmubtR60hT208P4kJQ3WoagY6awJl/5QFfJ605CNITy/nj
-	 SU0KW2rbTGV59kC+5sllteeYDojIrvN9t/1UxOrKikovz1scgDqvOeATzE+8nb4LCi
-	 hMrH+xzoGbM2I2CaiLq2GOzmuxw/cOpgm7vvTb6r+4Vxo0fbcGYDBnJOJKHgW9m/9u
-	 dcQ6nLd8zESiZOgXgkz+P4rwaUCx5ttOl9OFMJTyTUyplQpUZMKkJbdDF0IVw124yA
-	 3e4uB3raA1Yc1u9CIq2bWDbfy1zGUZNOE2uDA3kCwZCArfSvWqf8+4QAQpU7RBTvlT
-	 o+9z1eomYSTOw==
-Date: Fri, 19 Sep 2025 13:26:56 +0100
-From: Will Deacon <will@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: catalin.marinas@arm.com, anshuman.khandual@arm.com,
-	quic_zhenhuah@quicinc.com, ryan.roberts@arm.com,
-	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com,
-	jthoughton@google.com
-Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
-Message-ID: <aM1MEF3pANiL3p2Z@willie-the-truck>
-References: <20250723161827.15802-1-dev.jain@arm.com>
- <aMk8QhkumtEoPVTh@willie-the-truck>
- <aMrXBArFNLTdwWs3@willie-the-truck>
- <839ac455-f954-428f-b1a7-89778c57ee8b@arm.com>
- <aM0yQwt3_8WuxBC2@willie-the-truck>
- <b93b0cca-04ac-402c-b522-cda8f39a52bc@arm.com>
+	Fri, 19 Sep 2025 12:42:03 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DDD424E40D6A;
+	Fri, 19 Sep 2025 12:41:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A285D606A8;
+	Fri, 19 Sep 2025 12:41:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 46D72102F1C98;
+	Fri, 19 Sep 2025 14:41:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1758285710; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
+	bh=1/1g5tMQmVPFRJCQ3+SeEupEv5s5OFyxdK2wh+6wges=;
+	b=M0A85OqPSdomJxkBrrfYF+huOuhvd8wTww1PfxyWE1Wj5/4/GYpOUbHlS1oMQpn/TCi6V3
+	nuLqXSYdqksIeTG4YAW/a04CDg2fhxliLkXtCPK3TM5KLVRhsUFV5iDvy4ZIFL4TQKTWoN
+	cQ2H8lZpYwWOWmoYszGGazJISCbjBGWTMxrYu1rl4FyahysPQ9zXpfumRLaD3kQHlnfXHp
+	22BOLNjQvOc7QZzLDKt588EEOPPdtZRUKDSjdZup5EzelbxUTchQGtTCv8BNKB6NsNgNOc
+	CfoN5ko8hef5sR68XuFEnsKfECMFc57/3IihvJGwL4Q37JAnL8MlBxzgRCNHHQ==
+Message-ID: <50ceaf05-f2ea-4c13-b294-5b3ca76d645b@bootlin.com>
+Date: Fri, 19 Sep 2025 14:41:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b93b0cca-04ac-402c-b522-cda8f39a52bc@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 07/20] drm/atomic: Pass post_blend_color_pipeline
+ client cap to atomic check
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com,
+ jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com,
+ agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
+ quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
+ marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, mcanal@igalia.com, kernel@collabora.com,
+ daniels@collabora.com, leandro.ribeiro@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+ <20250917-mtk-post-blend-color-pipeline-v2-7-ac4471b44758@collabora.com>
+Content-Language: en-US, fr
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-7-ac4471b44758@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_054202_455732_4A0C2451 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,91 +152,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 05:44:52PM +0530, Dev Jain wrote:
+
+
+Le 18/09/2025 à 02:43, Nícolas F. R. A. Prado a écrit :
+> Pass the state of the post-blend color pipeline client cap to the atomic
+> state so that drivers can rely on it to enable color pipeline
+> functionality and ignore the deprecated color management CRTC
+> properties.
 > 
-> On 19/09/25 4:29 pm, Will Deacon wrote:
-> > On Fri, Sep 19, 2025 at 03:58:46PM +0530, Dev Jain wrote:
-> > > On 17/09/25 9:13 pm, Will Deacon wrote:
-> > > > On Tue, Sep 16, 2025 at 11:30:26AM +0100, Will Deacon wrote:
-> > > > > I'm currently trying to put together a litmus test with James (cc'd) so
-> > > > > maybe we can help you out with that part.
-> > > > Here's what we came up with. There's not a good way to express the IPI
-> > > > from kick_all_cpus_sync() but it turns out that the ISB from the TLB
-> > > > invalidation is sufficient anyway. Does it make sense to you?
-> > > > 
-> > > > 
-> > > > AArch64 ptdump
-> > > > Variant=Ifetch
-> > > > {
-> > > > uint64_t pud=0xa110c;
-> > > > uint64_t pmd;
-> > > > 
-> > > > 0:X0=label:"P1:L0"; 0:X1=instr:"NOP"; 0:X2=lock; 0:X3=pud; 0:X4=pmd;
-> > > >                       1:X1=0xdead;      1:X2=lock; 1:X3=pud; 1:X4=pmd;
-> > > > }
-> > > >    P0				| P1				;
-> > > >    (* static_key_enable *)	| (* pud_free_pmd_page *)	;
-> > > >    STR	W1, [X0]		| LDR	X9, [X3]		;
-> > > >    DC	CVAU,X0			| STR	XZR, [X3]		;
-> > > >    DSB	ISH			| DSB	ISH			;
-> > > >    IC	IVAU,X0			| ISB				;
-> > > >    DSB	ISH			|				;
-> > > >    ISB				| (* static key *)		;
-> > > > 				| L0:				;
-> > > >    (* mmap_lock *)		| B	out1			;
-> > > >    Lwlock:			|				;
-> > > >    MOV	W7, #1			| (* mmap_lock *)		;
-> > > >    SWPA	W7, W8, [X2]		| Lrlock:			;
-> > > > 				| MOV	W7, #1			;
-> > > > 				| SWPA	W7, W8, [X2]		;
-> > > >    (* walk pgtable *)		|				;
-> > > >    LDR	X9, [X3]		| (* mmap_unlock *)		;
-> > > >    CBZ	X9, out0		| STLR	WZR, [X2]		;
-> > > >    EOR	X10, X9, X9		|				;
-> > > >    LDR	X11, [X4, X10]		| out1:				;
-> > > > 				| EOR	X10, X9, X9		;
-> > > >    out0:				| STR	X1, [X4, X10]		;
-> > > > 
-> > > > exists (0:X8=0 /\ 1:X8=0 /\	(* Lock acquisitions succeed *)
-> > > > 	0:X9=0xa110c /\		(* P0 sees the valid PUD ...*)
-> > > > 	0:X11=0xdead)		(* ... but the freed PMD *)
-> > > > 
-> > > > 
-> > > Is the syntax correct? I cannot use the herd7 command to run this.
-> > Weird, what happens? It runs for me:
-> > 
-> > $ herd7 -version
-> > 7.58+1, Rev: e39a86f5d59dee3174d08d9ab5b13155c75936fd
-> > 
-> > $ herd7 ptdump.litmus
-> > Test ptdump Allowed
-> > States 5
-> > 0:X8=0; 0:X9=0; 0:X11=0; 1:X8=0;
-> > 0:X8=0; 0:X9=0; 0:X11=0; 1:X8=1;
-> > 0:X8=0; 0:X9=659724; 0:X11=0; 1:X8=1;
-> > 0:X8=0; 0:X9=659724; 0:X11=57005; 1:X8=1;
-> > 0:X8=1; 0:X9=0; 0:X11=0; 1:X8=0;
-> > No
-> > Witnesses
-> > Positive: 0 Negative: 9
-> > Flag Assuming-common-inner-shareable-domain
-> > Condition exists (0:X8=0 /\ 1:X8=0 /\ 0:X9=659724 /\ 0:X11=57005)
-> > Observation ptdump Never 0 9
-> > Time ptdump 1.65
-> > Hash=238908ee9413a36507c61b92a31a366a
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> ---
+>   drivers/gpu/drm/drm_atomic_uapi.c |  1 +
+>   include/drm/drm_atomic.h          | 20 ++++++++++++++++++++
+>   2 files changed, 21 insertions(+)
 > 
-> I was using some other command :) yup this works.
+> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+> index f5125fa3fa28ff2a6ff07fd7cf07d4bdf77ab738..56a440a9390c7730c4c41b491f29b933a2bbb889 100644
+> --- a/drivers/gpu/drm/drm_atomic_uapi.c
+> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+> @@ -1660,6 +1660,7 @@ int drm_mode_atomic_ioctl(struct drm_device *dev,
+>   	state->acquire_ctx = &ctx;
+>   	state->allow_modeset = !!(arg->flags & DRM_MODE_ATOMIC_ALLOW_MODESET);
+>   	state->plane_color_pipeline = file_priv->plane_color_pipeline;
+> +	state->post_blend_color_pipeline = file_priv->post_blend_color_pipeline;
+>   
+>   retry:
+>   	copied_objs = 0;
+> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+> index 678708df9cdb90b4266127193a92183069f18688..8c42c584aefbf0034b2163d90538e80099b0dadb 100644
+> --- a/include/drm/drm_atomic.h
+> +++ b/include/drm/drm_atomic.h
+> @@ -482,6 +482,26 @@ struct drm_atomic_state {
+>   	 */
+>   	bool plane_color_pipeline : 1;
+>   
+> +	/**
+> +	 * @post_blend_color_pipeline:
+> +	 *
+> +	 * Indicates whether this atomic state originated with a client that
+> +	 * set the DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE.
+> +	 *
+> +	 * Drivers and helper functions should use this to ignore legacy
+> +	 * properties that are incompatible with the drm_crtc COLOR_PIPELINE
+> +	 * behavior, such as:
+> +	 *
+> +	 *  - GAMMA_LUT
+> +	 *  - DEGAMMA_LUT
+> +	 *  - GAMMA_LUT_SIZE
+> +	 *  - CTM
+> +	 *
+> +	 * or any other driver-specific properties that might affect pixel
+> +	 * values.
+> +	 */
+> +	bool post_blend_color_pipeline : 1;
+> +
+>   	/**
+>   	 * @colorops:
+>   	 *
+> 
 
-Nice.
+-- 
+--
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-> I'll try posting the next version today itself, but will you be
-> okay merging this if I post on Monday?
-
-On my desk 9am, Monday please!
-
-Joking aside: the sooner, the better but please make sure you've tested
-the new static key (inc/dec) stuff as I didn't look particularly deeply
-into it.
-
-Will
 
