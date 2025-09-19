@@ -4,98 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34F8CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C79CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DybTmKrBLOMD6vf+9QLzWDpmjWc+lV91VxrSnOsEhLY=; b=rDCbOTFn/qT5PnCFyc2XcoW4Si
-	EVfMWYzEtmnLS5d02lS7uL8gH9oR2UsAjTnas42kLD4YvaeMPhIq3/iKVAE85Lq4jBEKGKSKvZO+/
-	vYTcJ7q/nqGkw7q1HWOS27/oOHStgg57k3AAaZ2Dh63YgGdTJ9o73z9OXVu9Q0j+RKOzuNk+v5YJF
-	R2A/Y2hYN1oj8v1hVuOLHRVuFWfbY0zFVVFvfVrSKniEN5qZIcKiseP5ZgUIE8ZpPnai5enIIivua
-	7Jsh2Omgczlz0y2oUi8duBel8EPbaUQ95+3krX6kWR8cEa575ZBc0K4bUttqYERU+vLzbjWww01fQ
-	QVDR7KLw==;
+	bh=KZudJ7ialawhnjgOcRWYVWvYIbpYEAl6oAIQqQQBXEY=; b=jlk5PwqBh/zSvwsgZUJXbdbkcy
+	ERyMUO/IlVAd7CpIgIwEHvuour5JnJLBLbwM1bMuqjymTVDg3L7k9K+q2tzbUADR1FdUPlz0mn+ip
+	zqo/BYiTyF+iv07roh+hYSZxVqeML0aK9Gfi0zJftKnszGj606UBPw6ByqruSHka9ONJaJddcEMhc
+	eV7sdPmCoU5lLyf4VATEFpvc9aF1JmxpA7058n6oAiyLeULrUtoVFz8BwCWiSd4b+JShUUcr+tLdk
+	LXawCciUEZIs7tpBZxOBrkAXIbSD3nV4A2DEPUxdHjqQqtIbI4+Xak5L4BZmM/Ud1X3+8jvkDxxF8
+	Q6+/GqYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bf6-00000009dTM-3Dmc;
-	Mon, 22 Sep 2025 08:12:40 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1v0bg2-00000009e5B-2gtb;
+	Mon, 22 Sep 2025 08:13:38 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bf1-00000009dQC-3n1A
+	id 1v0bfz-00000009e2B-1Aam
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:12:37 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3ee155e0c08so2487741f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 01:12:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758528754; x=1759133554; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DybTmKrBLOMD6vf+9QLzWDpmjWc+lV91VxrSnOsEhLY=;
-        b=cdmD9zInDpfgdeZnLLVl0V+PG+4lHa+jIEWK5mmUzwYe143EKCgKSPy+fPfWm8EWC0
-         24lA3+wMamYeAH5as5z3bYwQXBnYxQdRtgs7DEqoD+9epXfvkAqt7EmSzoys0SamEaSc
-         P47wXPLQqWlGFroOE46awMFkEQwxJe31UNU9c4nAImegouiySVq4GnFwpdK3LtyUnVNK
-         SVka5ZXHgWNUEwYBqRpXfU8Mhv99Qh+kDXKjWyOmVxfDUqG/v5/3Tk9dMkFVP9K2Tda8
-         0A3wm7TXut4/vtC6NUDVkjp5lDyoImkLi5ffCT3L76pxELfJl2bhNOpZp82EsWQaj8ty
-         +fHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758528754; x=1759133554;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DybTmKrBLOMD6vf+9QLzWDpmjWc+lV91VxrSnOsEhLY=;
-        b=duq10TQc2vOSwZJkT/gl75/rWnB3PDnZF8dP6/Xhkqt9Phg5dTsWkYKITxgBRxLd6g
-         99hLdVReGBr8uL+94/IjVhTj8Zi8cTXabe5GYaTYGSjOLnFlIqFYzekV0dio4sX1eXOw
-         qZ/6KLBmRRCRMuTwJw3fPPt7xkYYwZiVyWf4dj+Tl639qp1Tkc8SRqlYU8+YAeg6lW/S
-         UiSc9vJ7FnKhFwkuiAqr4fySGmPqHlqlu6gi4b0W3uVALHHY1x9YnoJlCIn8IRJJbc3f
-         wbXmCa3aYaUijJJcujw+1Zb2biM9UrNRgGmIWIQVfVpOvmClc9aCy0c5t/pmbVFHhf+x
-         V35w==
-X-Forwarded-Encrypted: i=1; AJvYcCUP8gfzvHF829SJl/h5mZqjbrGeKdZ81jB/UDoU1s2tOEX9Q63f2VX2de9IfcNy8lt350yvE6Bbb/Bpyc2RGIwV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKwhwbNG0dLr7wUZe7kzagEUWtwE4S1D6swuXrw7xczvw26EmN
-	72atpkQdOinTxdqKKUfjyY6VXQtp/31ywRBIlxcrB7psbtkYIp+sJdgG
-X-Gm-Gg: ASbGncvUqAJz4iqd7EcRwxwoGMeqU0BAPpW6q6Vc+MdKqaQO+gR/Wq/x0ZgbuqXihqd
-	ILyeySwXgTgdvjoLfmaOMgBIClej33/spvfhf7gTfpSKPv9T819+yeQlqmwQ6rfmy/w1rIZvMIn
-	S3D8xVv/usbvZS53tr3Nwru+Cp+bg/WMSflvIaHLUxLgzPky58YtGKgDrDLwJXSnFgIQB42ty8+
-	y7GJvyhwlCQ+TXSKNdt/40pPb0iC6xOYVpqk5kPZiAuxWM7SEdraEQNwRW4I0yrZ9z8/sUkH6OV
-	m/oMfmVaKyvr1NlPpejoVgy6mEpw7fS3bUIqMt7h+ybct4Jf5BYuDALz0Xau/14VuTnyEeGfRE0
-	E9v5YD4F2IZmKqTFGWKN6cspNBEziPnu7WTl9Ra2eqSlC3jNEvjX7oaAYhArDp0oBmCbnMZjVxw
-	2YvtQLMuOrPaWdStgC
-X-Google-Smtp-Source: AGHT+IG7fGN4H1P92BRx3rITJwG9FHeCws+SAhbbvZLAva6UiKbmxu9K+H7jexOc/3MevB0fxM8y9A==
-X-Received: by 2002:a05:6000:2383:b0:3ee:15b4:8470 with SMTP id ffacd0b85a97d-3ee85e26b27mr11700859f8f.45.1758528753964;
-        Mon, 22 Sep 2025 01:12:33 -0700 (PDT)
-Received: from localhost (2a02-8440-750d-3377-171e-75f8-f2d4-2af8.rev.sfr.net. [2a02:8440:750d:3377:171e:75f8:f2d4:2af8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07412111sm18642688f8f.28.2025.09.22.01.12.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Sep 2025 01:12:33 -0700 (PDT)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Mon, 22 Sep 2025 10:12:20 +0200
-Subject: [PATCH v7 3/3] arm64: dts: st: set rcc as an access-controller
+	Mon, 22 Sep 2025 08:13:38 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0AD981A0E4A;
+	Mon, 22 Sep 2025 08:13:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C9CA860634;
+	Mon, 22 Sep 2025 08:13:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD69B102F1929;
+	Mon, 22 Sep 2025 10:13:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1758528808; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
+	bh=KZudJ7ialawhnjgOcRWYVWvYIbpYEAl6oAIQqQQBXEY=;
+	b=ROXK3J7C/3UTNRKmWQI6ZOyd6wiNiE0i1vduA1ziUHEKmu9EYqmvieWX4ycZBokgYydFbF
+	tuxVOqVhPefm1S09/x2+bI02prGkOGkPX4DDFQynDhMsRZBPiSTsYGLXjnJRprZHHSr5nI
+	6ddoKuMjwSGQ1UNA3lDRBw90BN+PJzUm/pVR1G8E5QsMS9hvAc8UET2mi3qqHB+lVNLZdU
+	m5+UEkMR257rXY6qrYp279cMFX2JYmm79GHn4yRx3D4XYA4NaJgl8L4cTs2cG/BPiwCSEb
+	xxgongJfAujl5NZP4VNUXgifndtlHffPhNMtk0DZUP39y9FJ0zQWJL8d8QPG8A==
+Message-ID: <5aaecb8b-08c6-4982-86c8-18ebb4544f4c@bootlin.com>
+Date: Fri, 19 Sep 2025 14:43:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH RFC v2 04/20] drm/crtc: Add COLOR_PIPELINE property
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com,
+ jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com,
+ agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
+ quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
+ marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, mcanal@igalia.com, kernel@collabora.com,
+ daniels@collabora.com, leandro.ribeiro@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+ <20250917-mtk-post-blend-color-pipeline-v2-4-ac4471b44758@collabora.com>
+Content-Language: en-US, fr
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-4-ac4471b44758@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250922-b4-rcc-upstream-v7-3-2dfc4e018f40@gmail.com>
-References: <20250922-b4-rcc-upstream-v7-0-2dfc4e018f40@gmail.com>
-In-Reply-To: <20250922-b4-rcc-upstream-v7-0-2dfc4e018f40@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-0dae4
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_011235_978263_5085BAAC 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250922_011335_931000_F895D1E7 
+X-CRM114-Status: GOOD (  27.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +151,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-RCC now implements firewall access ops to check the access to
-resources. Allow client nodes to query the RCC with one firewall ID.
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Le 18/09/2025 à 02:43, Nícolas F. R. A. Prado a écrit :
+> Add a COLOR_PIPELINE property to the CRTC to allow userspace to set a
+> post-blend color pipeline analogously to how pre-blend color pipelines
+> are set on planes.
+> 
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>   drivers/gpu/drm/drm_atomic_uapi.c | 49 +++++++++++++++++++++++++++++++++++----
+>   drivers/gpu/drm/drm_crtc.c        | 33 ++++++++++++++++++++++++++
+>   include/drm/drm_atomic_uapi.h     |  2 ++
+>   include/drm/drm_crtc.h            | 11 +++++++++
+>   4 files changed, 91 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+> index b7cc6945864274bedd21dd5b73494f9aae216888..063c142fd9b656e228cfc660d005a3fbb4640d32 100644
+> --- a/drivers/gpu/drm/drm_atomic_uapi.c
+> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+> @@ -287,6 +287,33 @@ drm_atomic_set_colorop_for_plane(struct drm_plane_state *plane_state,
+>   }
+>   EXPORT_SYMBOL(drm_atomic_set_colorop_for_plane);
+>   
+> +/**
+> + * drm_atomic_set_colorop_for_crtc - set colorop for crtc
+> + * @crtc_state: atomic state object for the crtc
+> + * @colorop: colorop to use for the crtc
+> + *
+> + * Helper function to select the color pipeline on a crtc by setting
+> + * it to the first drm_colorop element of the pipeline.
+> + */
+> +void
+> +drm_atomic_set_colorop_for_crtc(struct drm_crtc_state *crtc_state,
+> +				 struct drm_colorop *colorop)
+> +{
+> +	struct drm_crtc *crtc = crtc_state->crtc;
+> +
+> +	if (colorop)
+> +		drm_dbg_atomic(crtc->dev,
+> +			       "Set [COLOROP:%d] for [CRTC:%d:%s] state %p\n",
+> +			       colorop->base.id, crtc->base.id, crtc->name,
+> +			       crtc_state);
+> +	else
+> +		drm_dbg_atomic(crtc->dev,
+> +			       "Set [NOCOLOROP] for [CRTC:%d:%s] state %p\n",
+> +			       crtc->base.id, crtc->name, crtc_state);
+> +
+> +	crtc_state->color_pipeline = colorop;
+> +}
+> +EXPORT_SYMBOL(drm_atomic_set_colorop_for_crtc);
+>   
+>   /**
+>    * drm_atomic_set_crtc_for_connector - set CRTC for connector
+> @@ -396,8 +423,8 @@ static s32 __user *get_out_fence_for_connector(struct drm_atomic_state *state,
+>   }
+>   
+>   static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+> -		struct drm_crtc_state *state, struct drm_property *property,
+> -		uint64_t val)
+> +		struct drm_crtc_state *state, struct drm_file *file_priv,
+> +		struct drm_property *property, uint64_t val)
+>   {
+>   	struct drm_device *dev = crtc->dev;
+>   	struct drm_mode_config *config = &dev->mode_config;
+> @@ -406,7 +433,17 @@ static int drm_atomic_crtc_set_property(struct drm_crtc *crtc,
+>   
+>   	if (property == config->prop_active)
+>   		state->active = val;
+> -	else if (property == config->prop_mode_id) {
+> +	else if (property == crtc->color_pipeline_property) {
+> +		/* find DRM colorop object */
+> +		struct drm_colorop *colorop = NULL;
+> +
+> +		colorop = drm_colorop_find(dev, file_priv, val);
+> +
+> +		if (val && !colorop)
+> +			return -EACCES;
+> +
+> +		drm_atomic_set_colorop_for_crtc(state, colorop);
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 303abf915b8e..fbedf23def52 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -1677,6 +1677,7 @@ rcc: clock-controller@44200000 {
- 			reg = <0x44200000 0x10000>;
- 			#clock-cells = <1>;
- 			#reset-cells = <1>;
-+			#access-controller-cells = <1>;
- 			clocks = <&scmi_clk CK_SCMI_HSE>,
- 				<&scmi_clk CK_SCMI_HSI>,
- 				<&scmi_clk CK_SCMI_MSI>,
+I don't know if this is needed, but you added a warning/early return for 
+ctm/degamma_lut if file_priv->post_blend_color_pipeline is true.
+
+Does it make sense to add this?
+
+	if (!file_priv->post_blend_color_pipeline) {
+			drm_dbg_atomic(dev,
+				"Setting COLOR_PIPELINE property not permitted without 
+DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE client cap\n");
+			return -EINVAL;
+		}
+
+> +	} else if (property == config->prop_mode_id) {
+>   		struct drm_property_blob *mode =
+>   			drm_property_lookup_blob(dev, val);
+>   		ret = drm_atomic_set_mode_prop_for_crtc(state, mode);
+> @@ -487,6 +524,8 @@ drm_atomic_crtc_get_property(struct drm_crtc *crtc,
+>   		*val = 0;
+>   	else if (property == crtc->scaling_filter_property)
+>   		*val = state->scaling_filter;
+> +	else if (property == crtc->color_pipeline_property)
+> +		*val = (state->color_pipeline) ? state->color_pipeline->base.id : 0;
+>   	else if (crtc->funcs->atomic_get_property)
+>   		return crtc->funcs->atomic_get_property(crtc, state, property, val);
+>   	else {
+> @@ -1047,6 +1086,8 @@ int drm_atomic_get_property(struct drm_mode_object *obj,
+>   
+>   		if (colorop->plane)
+>   			WARN_ON(!drm_modeset_is_locked(&colorop->plane->mutex));
+> +		else if (colorop->crtc)
+> +			WARN_ON(!drm_modeset_is_locked(&colorop->crtc->mutex));
+>   
+>   		ret = drm_atomic_colorop_get_property(colorop,
+>   				colorop->state, property, val);
+> @@ -1204,7 +1245,7 @@ int drm_atomic_set_property(struct drm_atomic_state *state,
+>   		}
+>   
+>   		ret = drm_atomic_crtc_set_property(crtc,
+> -				crtc_state, prop, prop_value);
+> +				crtc_state, file_priv, prop, prop_value);
+>   		break;
+>   	}
+>   	case DRM_MODE_OBJECT_PLANE: {
+> diff --git a/drivers/gpu/drm/drm_crtc.c b/drivers/gpu/drm/drm_crtc.c
+> index 94e60cffd29972aa979ac2f1932be7a6a97f3ada..94238163ff1254c721df39c030bc99a31d3bb92a 100644
+> --- a/drivers/gpu/drm/drm_crtc.c
+> +++ b/drivers/gpu/drm/drm_crtc.c
+> @@ -1003,3 +1003,36 @@ drm_common_create_color_pipeline_property(struct drm_device *dev, struct drm_mod
+>   	kfree(all_pipelines);
+>   	return prop;
+>   }
+> +
+> +/**
+> + * drm_crtc_create_color_pipeline_property - create a new color pipeline
+> + * property
+> + *
+> + * @crtc: drm CRTC
+> + * @pipelines: list of pipelines
+> + * @num_pipelines: number of pipelines
+> + *
+> + * Create the COLOR_PIPELINE CRTC property to specify color pipelines on
+> + * the CRTC.
+> + *
+> + * RETURNS:
+> + * Zero for success or -errno
+> + */
+> +int drm_crtc_create_color_pipeline_property(struct drm_crtc *crtc,
+> +					    const struct drm_prop_enum_list *pipelines,
+> +					    int num_pipelines)
+> +{
+> +	struct drm_property *prop;
+> +
+> +	prop = drm_common_create_color_pipeline_property(crtc->dev,
+> +							 &crtc->base,
+> +							 pipelines,
+> +							 num_pipelines);
+> +	if (IS_ERR(prop))
+> +		return PTR_ERR(prop);
+> +
+> +	crtc->color_pipeline_property = prop;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(drm_crtc_create_color_pipeline_property);
+> diff --git a/include/drm/drm_atomic_uapi.h b/include/drm/drm_atomic_uapi.h
+> index 4363155233267b93767c895fa6085544e2277442..4dc191f6f929d73deee9812025c48275a33cf770 100644
+> --- a/include/drm/drm_atomic_uapi.h
+> +++ b/include/drm/drm_atomic_uapi.h
+> @@ -52,6 +52,8 @@ void drm_atomic_set_fb_for_plane(struct drm_plane_state *plane_state,
+>   				 struct drm_framebuffer *fb);
+>   void drm_atomic_set_colorop_for_plane(struct drm_plane_state *plane_state,
+>   				      struct drm_colorop *colorop);
+> +void drm_atomic_set_colorop_for_crtc(struct drm_crtc_state *crtc_state,
+> +				     struct drm_colorop *colorop);
+>   int __must_check
+>   drm_atomic_set_crtc_for_connector(struct drm_connector_state *conn_state,
+>   				  struct drm_crtc *crtc);
+> diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+> index 77c0c04a5910a2263923e06cf37535697e20e1c9..df03637ca25abd45e96b5944229297f776fd046d 100644
+> --- a/include/drm/drm_crtc.h
+> +++ b/include/drm/drm_crtc.h
+> @@ -1096,6 +1096,14 @@ struct drm_crtc {
+>   	 */
+>   	struct drm_property *scaling_filter_property;
+>   
+> +	/**
+> +	 * @color_pipeline_property:
+> +	 *
+> +	 * Optional "COLOR_PIPELINE" enum property for specifying
+> +	 * a color pipeline to use on the CRTC.
+> +	 */
+> +	struct drm_property *color_pipeline_property;
+> +
+>   	/**
+>   	 * @state:
+>   	 *
+> @@ -1331,5 +1339,8 @@ static inline struct drm_crtc *drm_crtc_find(struct drm_device *dev,
+>   
+>   int drm_crtc_create_scaling_filter_property(struct drm_crtc *crtc,
+>   					    unsigned int supported_filters);
+> +int drm_crtc_create_color_pipeline_property(struct drm_crtc *crtc,
+> +					     const struct drm_prop_enum_list *pipelines,
+> +					     int num_pipelines);
+>   bool drm_crtc_in_clone_mode(struct drm_crtc_state *crtc_state);
+>   #endif /* __DRM_CRTC_H__ */
+> 
 
 -- 
-2.43.0
+--
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
 
