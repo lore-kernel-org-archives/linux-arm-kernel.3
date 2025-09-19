@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FBDCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A242CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dPN44HoH56tLqp4jXzO9TkX2LAQSe5luvXf6lkxvxI=; b=nFO8KLbbEDy2vdD2wyS5RLM6/l
-	eoHqKs0wtej6EkWasTXpPcIoCwhRNziO+j9IgChHr6tL6GuTjOMG2vcoELitf6Zle7AMqlfwXe89f
-	ut9fRw24SqzLzMWd4z8miUQdidrQ8Lozad4+WsZ0AXoZYlN0XVb3jNynK5WkACbboOXotbkifcEml
-	LNXBIQk9da/wUssIP5wTIgTdVYIjnYHmTDJKahuSHB+F0ghYSTKdPYnfoYIBKiORaIth13A1MsDG6
-	bRGswHB85z6/GJ2+IX5SFGK0CBE0YL57flv0BbE6IBBMzB65dh5j3lVCaLam2KAST3V1C1EdkpZhG
-	uGjjNu+g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vgLTYHWYvFS6X1gJg4qSeHHQhl7ZBlr3FtTxte5x4t4=; b=U95s0KwyTp3QTeywrzWCc2apaI
+	XuKMnMg0F2YlP++wB2HqeMFzlp4IuLz9pjUJy+nY+D8vTD+bBqN6whaRkKVS6xXTH6GLRwVjVLgQD
+	PFz8K5opAo20LmUu/t4BJ68ga78K02L48SLHQa/VHSN73oV8hcCmdnhpxyjl4a+soBoaim1yGTwp4
+	hhw2bksMXZZmnVwpufMGHl0R/pMF1xrV6bkwi37FMdMtva5t204xLaiF52j/qQ2ru8KZ8S0hEloNx
+	k7KivnQx6eHKv/PpG/f+vHlSd5z3v7BAnLIWlPQv0KeNFOp+5rgfVVmW3SW0dIEuNnN8B7R8zWw7B
+	1ur05wQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzg0B-00000003myN-2RtV;
-	Fri, 19 Sep 2025 18:38:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzg2S-00000003nMr-0TLD;
+	Fri, 19 Sep 2025 18:40:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzg09-00000003mwh-117Q
+	id 1uzg2Q-00000003nMi-43j5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 18:38:34 +0000
+	Fri, 19 Sep 2025 18:40:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB77240C15;
-	Fri, 19 Sep 2025 18:38:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DD77C4CEF0;
-	Fri, 19 Sep 2025 18:38:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C43F60140;
+	Fri, 19 Sep 2025 18:40:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD823C4CEF0;
+	Fri, 19 Sep 2025 18:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758307112;
-	bh=g5XD20gFfrYjZGNjDgzk53Skqg5rf5+ZLWDimhdGRRQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tI2ZhMvSIF1eJc2Yzz5mRzFmeosSr+i9E2m7UPtkUCBrr/zfTPOWyIPbktNRpVjJr
-	 +uMODDpuw/f3KRCY+BVfTi5c2yAfHVCcg8einyftvYrJF98bmvJFNS4NusdFyQy8zn
-	 SQZilDuw3Tgrf09sZKtVwDFxIpMXSDOYoiRkCTEokyNksn5waxstRLsr5QX7zBP5MC
-	 hXkCd5/MPd/K2gcZuV799je9y3ES/dYq/q+TveH1WSm/Hiw/2+AKjGkue6Ey8QbWmP
-	 GytqAHSpd+Iji9+LtsU6VOfj9NTj14sBZg4GVi8LN+MMRq9utMjC0hMICsmdvwcXlA
-	 V/K83YFDRq8jQ==
+	s=k20201202; t=1758307253;
+	bh=FQnOFM1F0itW/iszcCGggYVZvZGYm+S4YRJE97YXAuM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hFvbuftl+RX1FitUodWKdQJVkUZeDhWzfgQYZqXBH0T/hjJTcJVF/LS3q9L3Orj+V
+	 2xCaZyeA3RwptHtIUvMvJK6crFzQ6md+no9slpm8Q/PrmhYZzP7YS/3qsOvrbKZl0N
+	 z9ODS3IPcXWpaFAWnqlIBEgUzX7PDRDuWnp3Yhn0aGe2Juz8sqRSS20dk/7zBiygiE
+	 UuXn790VKC3dL9Qh0xMIaFp1HVz40MqXOc7ACXsLff26x+m6Ux7U08HyiQ0SMzZf95
+	 9fWviNCcVnP0hjkHuYF5eTsymz9QxfWJo1rFF+NioNZd1jdPXVdF0ae2qH/cjYryU5
+	 uHqF+oXU2ZzfA==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev,
-	gshan@redhat.com,
-	aneesh.kumar@kernel.org,
-	sami.mujawar@arm.com,
-	sudeep.holla@arm.com,
-	steven.price@arm.com
-Subject: Re: [PATCH v3 0/3] arm64: realm: Add support for encrypted data from firmware
-Date: Fri, 19 Sep 2025 19:38:18 +0100
-Message-Id: <175827312255.1088160.4082411097275002683.b4-ty@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Guenter Roeck <linux@roeck-us.net>
+Subject: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
+Date: Fri, 19 Sep 2025 19:40:25 +0100
+Message-Id: <20250919184025.15416-1-will@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250918125618.2125733-1-suzuki.poulose@arm.com>
-References: <20250918125618.2125733-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_113833_316143_60BD1BA0 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sep 2025 13:56:15 +0100, Suzuki K Poulose wrote:
-> Confidential compute firmware may provide secret data via reserved memory regions
-> (e.g., ACPI CCEL, EFI Coco secret area). These must be ioremap'ed() as encrypted.
-> As of now, realm only maps "trusted devices" (RIPAS = RSI_RIPAS_DEV) as encrypted.
-> This series adds support for mapping areas that are protected
-> (i.e., RIPAS = RSI_RIPAS_RAM) as encrypted. Also, extrapolating that, we can map
-> anything that is not RIPAS_EMPTY as protected, as it is guaranteed to be "protected".
-> 
-> [...]
+Big-endian arm64 configurations are vanishingly rare, yet we still claim
+to support them in Linux despite very limited testing or visible
+interest. Supporting big-endian adds unnecessary burden to reviewers and
+contributors which, without any known active users, is hard to justify.
+For example, recent work to improve our futex routines and to implement
+nested virtualisation support is non-trivially complicated by having to
+support both big- and little-endianness.
 
-Applied to arm64 (for-next/cca), thanks!
+Back in 2019 [1], it was claimed that Huawei were using arm64 big-endian
+machines in their telecommunication products but I don't know whether
+that's still the case and certainly haven't seen any patch contributions
+to help support or maintain it.
 
-[1/3] arm64: realm: ioremap: Allow mapping memory as encrypted
-      https://git.kernel.org/arm64/c/fa84e534c3ec
-[2/3] arm64: Enable EFI secret area Securityfs support
-      https://git.kernel.org/arm64/c/9e8a3df3e7f7
-[3/3] arm64: acpi: Enable ACPI CCEL support
-      https://git.kernel.org/arm64/c/d02c2e45b1e7
+Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
+towards its removal.
 
-Cheers,
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Hanjun Guo <guohanjun@huawei.com>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Guenter Roeck <linux@roeck-us.net>
+Link: https://lore.kernel.org/linux-arm-kernel/73701e9f-bee1-7ae8-2277-7a3576171cd4@huawei.com/ [1]
+Signed-off-by: Will Deacon <will@kernel.org>
+---
+
+Cc'ing Guenter as a heads-up in case he needs to turn down his testing
+to avoid this causing a false regression report.
+
+Cc'ing Hanjun and Jonathan for clarity on the telecommunication
+situation.
+
+ arch/arm64/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a6..5ac670d41604 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1493,7 +1493,7 @@ choice
+ config CPU_BIG_ENDIAN
+ 	bool "Build big-endian kernel"
+ 	# https://github.com/llvm/llvm-project/commit/1379b150991f70a5782e9a143c2ba5308da1161c
+-	depends on AS_IS_GNU || AS_VERSION >= 150000
++	depends on (AS_IS_GNU || AS_VERSION >= 150000) && BROKEN
+ 	help
+ 	  Say Y if you plan on running a kernel with a big-endian userspace.
+ 
 -- 
-Will
+2.51.0.470.ga7dc726c21-goog
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
