@@ -4,157 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1EBCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF803CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0F0kWVp8WUFpVYipH6dGf+4Ikdnj8kgxay9EQyBs6s=; b=lZt2WGWONuNX5VvCxh76oS6eRE
-	HlR7rji78ZbwJnQ/3Iop9HNLCnvyFAnYBWMQeUVeG1F/JuUBNNiTcFWqZC81fU6/+F25z6Nd18WF3
-	4MzVL+JjIVwr2J4IwgRpB3saAPhEJhttts88PKkVRtA0xAf1J0AecmiNxvpJiQ0+Nm2JFDal2uAQS
-	urlGsRKQR+JNDML3NvDzCwVsG8TvzWSQM2++kA9t3iHJbuaOUtKK2I8/v65e8Ayf+1+b6ryujRYfH
-	XePoMrPBRu/iJpTho+bpJ+is4JA/qE5mhlGCQcBBT/GBT2qvzDJtRFCP/9tBqCP6RjPo9izQGDer5
-	HA7srnqg==;
+	bh=QK2nYFTHT+KpSlXE4qZHTuuO1xzq1cYHqgz67BqwHLI=; b=OxSbnleSvgpTSKOH9DrYNKMUBj
+	Fls7871gFiaCNVWbH7ZRm3cMjmvPLS4cIASAB8iy9c2T4PR8QW8/py0/l6sujGggS+F9p7+524gF4
+	becsoJYFE3U1GR+BDuTeHdWcMRiXLJgL9+oCmtk3L8LO0+Ew6vfEnqq3XdXRmC6gpOrpjTyXRWGZ/
+	Xs2dmiwz3TCPjPdTsKOP7o1q4/MxSWmyxhxX7QRFIa7VLjQ2AfZDw3nkWlqAwU9Pgf6YJm6NSeCsR
+	LY+dlKNkGXax7SR0PwuxSMgw7s5zhjdQXE5Twl6/ridcUhoOaXXyuOM7U/C6uH3ufod4P/o6o8bmI
+	5DKi47TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcqL-00000003IhB-3dli;
-	Fri, 19 Sep 2025 15:16:13 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uzct0-00000003J21-1gkF;
+	Fri, 19 Sep 2025 15:18:58 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzcqJ-00000003Ifp-1P4q
+	id 1uzcsy-00000003J1c-2zif
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 15:16:12 +0000
+	Fri, 19 Sep 2025 15:18:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cxalJgee/ZvH2b83xwD/IOLDNqXhfZVcNJu2xU1TEVKaZ1zoVwBZvj0l7POXv7/KboEgYll9gquvJRqzRx7AVxqSRl0NddsbH3b3O6oKFJwyZH2furBuFqRS4m3aWR/08/E+LSJu7X8UsDLXoaLhI7BCturCZbWhDXOr0dtIRY2CYYrLbgrKb39ZaMxqyyO/obFU2m32nXGh+o1N5bNXIX64LcgEcP2xyss9f8BoHTyxauDXVVBeJOYZ101jSzX/BvERWbEUI/gO/8Xb7SnmuxACiBxDkPI8j+B70qbaPjfvNVcSQJYhsqgy8EpGZt5+36rOT2fljK+YfphB7z8vtA==
+ b=wrXYES7tloy4GN7xmegmmq+QzIxvVMZuUUCrJfLLiY5FyFHXGmpCWwQK/Sir6EYKTPhoqCJ28nMmLpEPyHFw/lXu9Gv2qte/kCiiEigigaCsZuHF2xnDott96AnKEzjKt3jPvX74/Ck1v9/GRTI0a6e6+eDffdp9yRuYFHZwT7RMZh7eekW8seTvzW63oaaYQxYGP3cEl3Ymv3a/SS+yNRLtJQXs88ZjvCVK45xqkqjtxbu2VqPQukxSXWe8wo+ZMKpXMw7gKko8VI2eqAotu8EdK45FSTiuq36W+nOorSH/PdwKjy2LXhuLP3Rl0ZgEGpG/NEdxXCTOvTF2/4aY8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A0F0kWVp8WUFpVYipH6dGf+4Ikdnj8kgxay9EQyBs6s=;
- b=lWdj3I7GC8DbDRrQhR3GctZWE7UJJvF7Rn1lkHRZb7CwIstDAM3l1F/5dTe02VcZUXswjwvJ/9vT430nw+u/ZGxBZW8GcuK331MSICs4yPQuS3qJWlpUyo32Q045s0TwOKkqVSRJUFslvCGgPtMG27hjxe1JHex+Y6uuLRLdNtNkcsF2EpNK44Fh+79YXd/KZ6O9pYGpaphNumyNy8Eq+GGZ1Bdu+vfhl2o0Ytnl5fFriMWX/JUArE84bEtjbRjwtGcHJbm6QJkZc07uT7OWb8gI7Rtw36pcDOMx4Lb55J72fX2fuHsLZLAH+q4CpbfpqXouNUIKjBmDdWRxAKT6VQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=QK2nYFTHT+KpSlXE4qZHTuuO1xzq1cYHqgz67BqwHLI=;
+ b=VOQxOCmyHMpqGvd50TSk8KZuY8a5dONPg0iYjGKIbAzBO16k/i/N74BZBO4mXwG7TkxOL7Es+EALZK9xvsCH926TnUmze/9RX6wnuYBet36WVAgqC71G2abEWZ3SlpmaOE7BYQheK8olW+Y20IEq/DSnLOZaGIoscWLfFzZHh527vYvUrkSymXnAIvYLXxOyxjXjQfGKtckx9rBGVfdlKt1I7JISNNq+hXG/++cpbKHJjIKjcyl+hqu5JJS2MvuKDjx3idLuTEpUzHXYAqpL1xllv2zbFlzKoNN+I3TjwNREn8PG46o59fwbJ6g9dd5z9KdJzbnaQE4AnclFa4NZ/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=samsung.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A0F0kWVp8WUFpVYipH6dGf+4Ikdnj8kgxay9EQyBs6s=;
- b=OhbLc3F324YeW10rgIa8w7tBSVaLbgJMOxQ2ATvN/qignXMlj+nJ5x4CgFykcvgR/lagVJo4BWQDhg7fLIT7qe7ZDD9fiolIrBbKjFUqyXkQQESyP7zhK3hZwfqDV1Q3o04fCVM04iwoCGm6wMJjoubzRh9chtYLR/XsQYlPK8t+R36LVoAYfvXxc8nbIaaRVeJaBt8G4Q2R8QEhd7vjtU3puEWTisxLdNQsiaRNRTIlMygnrU0/ScG7Tze4R639oqA8wGkhKhKxbcIhUuGuidQcIiWyrp4nyr2xS9SkIa3k9h37LrRpgwSHK35dj/sotwS9gkCE9OTEGK+uYYIJLQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PA1PR04MB10964.eurprd04.prod.outlook.com (2603:10a6:102:490::20) with
+ bh=QK2nYFTHT+KpSlXE4qZHTuuO1xzq1cYHqgz67BqwHLI=;
+ b=VDi04SoHli8++kWiAWLzcEfnAVuAslj9P/bMvuOiYKK3yNHwJ7E2A8Sp0J5txKqIVoaEZkG+O81q5h+SLrVcQvMenmOBEKHfct4/jSWpdoQPLYWLYyqWR2c3ku+91lNt/+/cSLji3RctQh6HcJi4+tC6cb4jwZJmo0iIxQAqOeozlqYTpuNFVSSXR86n7zpy5aGhju+8twGtF7Uyd60rza7AP5ngM/b1NocIdHvsHpc47OQfajInsf/GG7uFWZeD9F0LYfbBE0v+HDCntt4FKFUYMjx9yglGxLunnQw+2AeF5/KfZqfmlOXIlcU81emfJh6Gi5uUl8xFSXNVD7jpGg==
+Received: from SJ0PR03CA0362.namprd03.prod.outlook.com (2603:10b6:a03:3a1::7)
+ by DS5PPFEC0C6BDA1.namprd12.prod.outlook.com (2603:10b6:f:fc00::668) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.14; Fri, 19 Sep
- 2025 15:16:04 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
- 15:16:04 +0000
-Date: Fri, 19 Sep 2025 11:15:56 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 07/14] drm/imx: dc: Add DPR channel support
-Message-ID: <aM1zrOdM1pj5jq/z@lizhi-Precision-Tower-5810>
-References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
- <20250704-imx8-dc-prefetch-v1-7-784c03fd645f@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250704-imx8-dc-prefetch-v1-7-784c03fd645f@nxp.com>
-X-ClientProxiedBy: PH8PR07CA0030.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::16) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+ 2025 15:18:45 +0000
+Received: from CO1PEPF000042AC.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1:cafe::76) by SJ0PR03CA0362.outlook.office365.com
+ (2603:10b6:a03:3a1::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.14 via Frontend Transport; Fri,
+ 19 Sep 2025 15:18:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CO1PEPF000042AC.mail.protection.outlook.com (10.167.243.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Fri, 19 Sep 2025 15:18:43 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Fri, 19 Sep
+ 2025 08:18:28 -0700
+Received: from localhost (10.126.230.35) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Fri, 19 Sep
+ 2025 08:18:27 -0700
+Date: Fri, 19 Sep 2025 18:17:23 +0300
+From: Leon Romanovsky <leonro@nvidia.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <iommu@lists.linux.dev>, Juergen Gross
+	<jgross@suse.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Russell King <linux@armlinux.org.uk>,
+	"Stefano Stabellini" <sstabellini@kernel.org>,
+	<xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH v4 5/6] xen: swiotlb: Switch to physical address mapping
+ callbacks
+Message-ID: <20250919151723.GG10800@unreal>
+References: <cover.1758203802.git.leon@kernel.org>
+ <997c0122a24c355b4d7ee353902041a7617f4c9e.1758203802.git.leon@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <997c0122a24c355b4d7ee353902041a7617f4c9e.1758203802.git.leon@kernel.org>
+X-Originating-IP: [10.126.230.35]
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA1PR04MB10964:EE_
-X-MS-Office365-Filtering-Correlation-Id: be42fe6d-aa96-4cae-53e4-08ddf78f7354
+X-MS-TrafficTypeDiagnostic: CO1PEPF000042AC:EE_|DS5PPFEC0C6BDA1:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1be5ae2f-3e5c-48be-c707-08ddf78fd25e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|7416014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Mmp8lgm2B345FAobK6vyBnBS2G+wXaxaLBhg7R35xqSY+0N0eo0Sxz+Rk2IG?=
- =?us-ascii?Q?QHRcwwsz6oK+5xybv0YOXzMhgPDSHlUbH7gFonn4ovXJG5Wmn7Cy5vM3Owzg?=
- =?us-ascii?Q?PzSX+cqqS7P2h+oo9CzsaF459OHbhgW6vTjzfseGbQdX3tzcCiHRpt5XxCWX?=
- =?us-ascii?Q?qbd8CT+kIVDB9pUWtm31XDkaW5M6l3tBI5N2HABb6TNd8R5W8x9ZyCDpAQhR?=
- =?us-ascii?Q?AjIOlFNgrZ2fo5aUg0JF2I/ebEY61RySci9viHfV0nnOIGU8bbHyjWrgUGuf?=
- =?us-ascii?Q?6G6ve6PEtwizvlStbQsQxKks3iRSDhoSi91tgRjwGWvHZMLu5PUBEiXkltyn?=
- =?us-ascii?Q?z6kyZnITjC0jh/2SCr1khQLSNGAsL9bp62BBDlmt8rpisuRVacdXnkgCdjs5?=
- =?us-ascii?Q?a6lr/NDlULOsYV98l5bAA+ogQbIJQEeaWe8kM3DWh3+operXovDBlJLLlPhG?=
- =?us-ascii?Q?4pb3SjyIW9spS4w7sJXFAeQvfF8Dtejtc/nqhHs3itMBKUefh8JAkofUuqPK?=
- =?us-ascii?Q?yEUMFUjbdEBMi3RxGMTUfU451ukWHRl69dwFbIn2lrBj4bVb4hSNnNgAOa/q?=
- =?us-ascii?Q?OKEH/z5O3yN+CzzXm29tdnZu47Z233VZI6ZeloUHe7TWsVnMa5P2S3kU2PMO?=
- =?us-ascii?Q?icXhioHdWlpBDuJ1PoqyrOqosNVM4ka6CubfpniRgvFtRJ+QDiynPOpkjhXm?=
- =?us-ascii?Q?eMgaL5rDI8kbySlwMzis3c5eiOFc1bDCJ461Al042egQZW0MAgDQ+UENjtHf?=
- =?us-ascii?Q?84fKpoZz0ucPNkhoeWiz5V6eEWcRYKgajClMYK7SxOw5TrbBewGQdmjyiItL?=
- =?us-ascii?Q?rS19mTHHFrCwI6+M9uD3NofXHYRmle3f8KjY936ZzxRLK6zVG2SE+D20kiVO?=
- =?us-ascii?Q?Af236vn5pyNTQHxizSN+hojDiXji3sqjV/GiXA+c/iDsTyE/qLad67JEUZ9K?=
- =?us-ascii?Q?nqBBgYyryy2+Zu/j5QK6U//w8oNGH513Ixy/W0NTG61FZycku8FgTJQhSo5z?=
- =?us-ascii?Q?uqhsvZbA8WVh8aABPWbaTViaA18G00xbNRPQuBJPimuZXqIOyde5gzs7uax7?=
- =?us-ascii?Q?4mS4xwcO4w+5O5PXelN8tby4hQTQ0UYVwabdLM7dGqzfkVAlMvfsy034Fm51?=
- =?us-ascii?Q?NgQd9vo/rMAFnBB957x5DklG0WL2uH840uAd58paIU1Sw9ejzYqG0L65bX+A?=
- =?us-ascii?Q?rnJSgED1mKpNFTd/n0/JCOxFK/9knQVnp7mEUFNdFGleO1btS4WQEXxFca51?=
- =?us-ascii?Q?gMx86VmtT3MDrrqrXeXRZGatgP3zrt32W5zd99rXqj2XyK7UDFPzy5K00uyX?=
- =?us-ascii?Q?N116WKJM5JZMxmgCq5VE+8+CsbNmvSD2pWRQZhzkiHHE7DPezgMjBVB1sOxG?=
- =?us-ascii?Q?/jo+XBMxNqydny5edk6QCSEUMv1C6u++X1uTuXPrVpUAwjixy7MzqAG0YWl2?=
- =?us-ascii?Q?O7KzUBHhU4UdbcIbE+Z7RrD7dKTD20QSZwikNmyYtgdDXHW8onilwQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pThVDbZ6YcrHsynY3HcGJlPWQF4wlAvCFyoAWq4lMMUHi0K0zIkhP8NCTXZ1?=
- =?us-ascii?Q?zO9/5nFkIwF67dgrRdmg8wZ56nSZHOSrWZxc0yMTEtLSRNKfLj1OAVn57R45?=
- =?us-ascii?Q?qXeb/GdIaZ5cSC+MXXTXJgS76P0raHKf0eKngypkhQaxVghJHf5VZJMaLopI?=
- =?us-ascii?Q?jV7BrqmztvH1Ct1ihry4e99QXnRPUYLRfc187DaXONW6oVzPpoL3TjtK43kB?=
- =?us-ascii?Q?qUIVaV4v3xyyIt1KC8hkmLmf+MJg5wU3kWhhWCie9hAm2w5fbsv8aEz3Jke7?=
- =?us-ascii?Q?SvshLvsuppNDdT1wBNudAY6yDNwA4LYnBsfoBASQ1gdSdbNEumuZhdl6qqSg?=
- =?us-ascii?Q?FKQnkV2MGWe8qY9bbcb8R8C65nC21kpHD1PvNZShAOAO2sk4dLxGR+4dR5Sg?=
- =?us-ascii?Q?J3ARr1t1rrMKwCYB0akVWgJGAXVqUGFpGFz1Ask6pwiGT/Ouc46bGH3+umrP?=
- =?us-ascii?Q?1W4PTp+D6JTpzHMGY3PVo8Xml0RMLPlNmy2LURx9ROBdCZeyKiQ4A8z3gi0G?=
- =?us-ascii?Q?OPhuRsYPOZr7lC0InvJEo2LwcwWDYDG1v6dM3iLaqjqTsaIwDjk5JFxnDnLL?=
- =?us-ascii?Q?/D1/9mzIYP8dwmOqgXlaw3saHSZ5MZ1tJxvwUbRmoZ+R1d1jwp2TdccmaFi/?=
- =?us-ascii?Q?0KbDmQLfIQR49X0CCBpT56kgQAkJ5eAyqzME1DQEnkH2l+zEtpeseYDZ/jRu?=
- =?us-ascii?Q?x1ciFaKokCbsf/RltjIZTwJZfGS0OyfyCtfzefCrFRTpBko4V0GBOxsTGUL2?=
- =?us-ascii?Q?wXgSqQ4LgTRRzld2hlkZq7ydFUK7k+hsfZrIArYyFkILuhWEURWwt9xxRCyG?=
- =?us-ascii?Q?K1aY/0IlfK7YZ5kVFDy5jq8MXxUCLxKeNZGM/xzFbyvT6knBW0dpgltSgwrE?=
- =?us-ascii?Q?OwbActDDiAN8XVhn0rHeRQUpFj0F14p+P2CMzhb5Jmaxgf3CiKkr9jesPfGT?=
- =?us-ascii?Q?jsYmKiO6Ye/1Zs0z+igGqw0HRf/Vsg5Zvah8K8kBFYbLzOD6wlUjERvol4yn?=
- =?us-ascii?Q?jPZ7EDrDNw+VJiy4DYqgmYfprmZ24EL6dTxMtCUlNoNoBbExlltgi81l6htj?=
- =?us-ascii?Q?9svophXewLzQHzUNm5BJ6UjOk1j8aYEp36hYA5cWnuWUl8fsQmWAzl/cPDke?=
- =?us-ascii?Q?RDGGf617jSMoeQROPjy7m2ndCTHp033NTbdhNvFhNXwXBd6xphHFLbPFNi3g?=
- =?us-ascii?Q?jWAsqXlzmty903eh9qO0W4IThmpLaDyZ9f2bQbm52I8Fqh5Nd4yW5X8fSg/V?=
- =?us-ascii?Q?Rcz1cVak0KSTsdma6egPtmn1qbkvLYqYeHJritWKm4IVcfqIV3Hb+f2KkyOv?=
- =?us-ascii?Q?uuoG2KGJ2tqCUeS/XfeDRIo7XonoNsTNgzkm9c6Bjh72m1Kgj3rLuR6xNTLe?=
- =?us-ascii?Q?uB3B8BvuFjgnCtIMqIONe/jfQjfadONLOUCXCaHdHE0b8sG8PMu5WnSH0s/c?=
- =?us-ascii?Q?MsVqrBAs8BMBvnIkn1F+WrrEo/rgVZ+IpnUy1iqpG82vLHM1WDXp+GpSgiTN?=
- =?us-ascii?Q?CN3l6gttaW5dPcBWggzaO6AHv0NOjqVu13sdOBFiE1Y6cwVU6+R062b3plrq?=
- =?us-ascii?Q?N+H9HMK6ZyLts/ao18MAcW17sLifiaWtC3a1ty24?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be42fe6d-aa96-4cae-53e4-08ddf78f7354
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 15:16:04.6310
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sInZGPm7TkDBijFXUj2OsW4w9zTsuWTb6mfZCqdO5HNrehIqFMYV81+AXn+z?=
+ =?us-ascii?Q?y8uybBsu3zJgsvgnuurYQOfebcdO2D6+KY1IgHS4ivDI0tcyUZxMWGiuXXIV?=
+ =?us-ascii?Q?kNGTQttFBPcSWZJRV902mPxTpxbSE5UnBaoLOczKHJJY4pzjTOMhZ/yf83G6?=
+ =?us-ascii?Q?ieBHDqepP4A2ZnHC9ioU3HsD1zHkZ8c9rjAwt+O1J5mabZk+nEokWYJhPLUn?=
+ =?us-ascii?Q?N0Y06rakyApRoCrYZQn8cncYHj7dIoyw3XDzeZkeiHMlSd7T9N14HQjRlCca?=
+ =?us-ascii?Q?6pLWBY21zrmZDbqKb0DhxY58f+kvRE9mzQXdYNjw3+pw55GuWBDM9l80mta9?=
+ =?us-ascii?Q?ILw8+MEXGRZAvJ2jZCfH/xevVGb7RNv14o/Cgpja3dekRBKHegXtKMvV6Qdj?=
+ =?us-ascii?Q?LHXrfYJKC11cNTAAh1CAnheArarPh5oSh+vmlaKw7ziJlJEin2AeHaK91aoI?=
+ =?us-ascii?Q?k1o9mw7aGiUotNfo3ruVRNTba/Kn26FGzQV69wuxBII53YNW4Ivagj/CfT6G?=
+ =?us-ascii?Q?+9Cn1L+6bHjf70o6vUKaDGrXIKJZGSjrKWmlcWSGQ4F43dnyvIROAre2SsEF?=
+ =?us-ascii?Q?Y3TU2Bc0Xig1ZyWIOt+snEDlHpx5F7pvXobgzbVcwTdisjUeybKp5fge4lg2?=
+ =?us-ascii?Q?0Apd8uF3qlcL93pJoO2upollt/dW4xYBA4koRjQOu4ghWjWBbyCi8UXVUiLr?=
+ =?us-ascii?Q?D6OT54DYq1CY37h2KM0xBsGg1zGisazBwO9Cn6nP+xecad2w7ClDLdqUUsx+?=
+ =?us-ascii?Q?6V8CYlIQulM1mqsdmPfcCnfZekGOlQigtPjU4qWmV1wD1UKqPAHx4Kjc59+i?=
+ =?us-ascii?Q?4k6AJSxCO+9g21RVMhOhpOfwyuBwLjx7dPtKnAYxOb0wtqXcsaTwKcRJ4chf?=
+ =?us-ascii?Q?Q3LQaUqM33ES6dbmO4rUW4ScLVX/X+QaZGOyJ9nOjj9RkVriM3luRSR8n8Rf?=
+ =?us-ascii?Q?1Ps2RIiqeNrXJsXL0C200CIwyM+BbC31VffDD8p8WrQk4LQhuXjxKBs5mYoS?=
+ =?us-ascii?Q?kpWfxANkbAiA2mgRzEe7ieMwT2KnrZ+tLK6dImAxdnhTbxJbskclhyZp8zYg?=
+ =?us-ascii?Q?ce4bI7QLKlp2KARFGcAd5P++K3e8/wCa+liDhI4lWIRn8frWLBPaQhlkq2qs?=
+ =?us-ascii?Q?9O9qryFwG3TwqorycZSsuYKC+dFkIjE/UYNqvdolOPT9TRtvJD1ibrZBKA0Z?=
+ =?us-ascii?Q?jqfuyIyMSAea672qiJj8nB0SK5z3mVkOSQevF74xlSSl+L31MDNMaHS25wtf?=
+ =?us-ascii?Q?iSt9wNYXBSwETv0iOWCNasyrti5Ff30JpWaMHnQOweu5ro5PcEt5Q1Ei+LGA?=
+ =?us-ascii?Q?RA6v1sH8IdXNEAVMRd+x2lY1foTNiBwV0kS9Mp/ZyB9MlOzZ0LLDO28Zdh4H?=
+ =?us-ascii?Q?OgxBtUyNYQan8697egRF7oxDTtmWdDfXdAhLzgNMbPXrOwgVZZu8Bys6YkJe?=
+ =?us-ascii?Q?FG14qkwjuy82E9+bjbAodLKfSt5C4mmvA4BSpKP8QtsXOAgJgIGGL7iBTPEQ?=
+ =?us-ascii?Q?dGxMnMjNTz4tI6XYAnYCSW6fe43JkmrC3GqU?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 15:18:43.6172
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VlFCKlD30Jfqo2TRW+kSFVQq3gy2NhCIZaOcOCzhJ4WxX6sAuX1CAWxAjMvLt0H843WcW21EK0zgrgcBb81jJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10964
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1be5ae2f-3e5c-48be-c707-08ddf78fd25e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AC.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPFEC0C6BDA1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_081611_528933_1EA1F14C 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20250919_081856_755053_C7A756D1 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,309 +152,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 04, 2025 at 05:03:54PM +0800, Liu Ying wrote:
-> Display Prefetch Resolve Channel(DPRC) is a part of a prefetch engine.
-> It fetches display data, transforms it to linear format and stores it
-> to DPRC's RTRAM.  PRG, as the other part of a prefetch engine, acts as
-> a gasket between the RTRAM controller and a FetchUnit.  Add a platform
-> driver to support the DPRC.
->
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+On Thu, Sep 18, 2025 at 05:09:28PM +0300, Leon Romanovsky wrote:
+> From: Leon Romanovsky <leonro@nvidia.com>
+> 
+> Combine resource and page mappings routines to one function
+> and remove .map_resource/.unmap_resource callbacks completely.
+> 
+> Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 > ---
->  drivers/gpu/drm/imx/dc/Kconfig   |   1 +
->  drivers/gpu/drm/imx/dc/Makefile  |   6 +-
->  drivers/gpu/drm/imx/dc/dc-dprc.c | 499 +++++++++++++++++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-dprc.h |  35 +++
->  drivers/gpu/drm/imx/dc/dc-drv.c  |   1 +
->  drivers/gpu/drm/imx/dc/dc-drv.h  |   1 +
->  drivers/gpu/drm/imx/dc/dc-prg.c  |  12 +
->  drivers/gpu/drm/imx/dc/dc-prg.h  |   4 +
->  8 files changed, 556 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/gpu/drm/imx/dc/Kconfig b/drivers/gpu/drm/imx/dc/Kconfig
-> index 415993207f2e3487f09602050fa9284fd0955cc7..507dc9a92d96be225cd9b10968a037dad286b327 100644
-> --- a/drivers/gpu/drm/imx/dc/Kconfig
-> +++ b/drivers/gpu/drm/imx/dc/Kconfig
+>  drivers/xen/swiotlb-xen.c | 63 ++++++++++++++++++---------------------
+>  1 file changed, 29 insertions(+), 34 deletions(-)
 
-...
+<...>
 
-> +		return false;
-> +
-> +	if (!dc_prg_stride_supported(dprc->prg, prg_stride, baddr))
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
-> +static int dc_dprc_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct resource *res;
-> +	void __iomem *base;
-> +	struct dc_dprc *dprc;
-> +	int ret, wrap_irq;
-
-If have new version, try keep reverse christmas tree order for nice look.
-
-> +
-> +	dprc = devm_kzalloc(dev, sizeof(*dprc), GFP_KERNEL);
-> +	if (!dprc)
-> +		return -ENOMEM;
-> +
-> +	ret = imx_scu_get_handle(&dprc->ipc_handle);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
-> +
-> +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	dprc->reg = devm_regmap_init_mmio(dev, base, &dc_dprc_regmap_config);
-> +	if (IS_ERR(dprc->reg))
-> +		return PTR_ERR(dprc->reg);
-> +
-> +	wrap_irq = platform_get_irq_byname(pdev, "dpr_wrap");
-> +	if (wrap_irq < 0)
-> +		return -ENODEV;
-> +
-> +	dprc->clk_apb = devm_clk_get(dev, "apb");
-> +	if (IS_ERR(dprc->clk_apb))
-> +		return dev_err_probe(dev, PTR_ERR(dprc->clk_apb),
-> +				     "failed to get APB clock\n");
-> +
-> +	dprc->clk_b = devm_clk_get(dev, "b");
-> +	if (IS_ERR(dprc->clk_b))
-> +		return dev_err_probe(dev, PTR_ERR(dprc->clk_b),
-> +				     "failed to get B clock\n");
-> +
-> +	dprc->clk_rtram = devm_clk_get(dev, "rtram");
-> +	if (IS_ERR(dprc->clk_rtram))
-> +		return dev_err_probe(dev, PTR_ERR(dprc->clk_rtram),
-> +				     "failed to get RTRAM clock\n");
-
-use clk bulk API will simple clock handlers code, include suspend/resume
-codes.
-
-Frank
-> +
-> +	ret = of_property_read_u32(np, "fsl,sc-resource", &dprc->sc_resource);
-> +	if (ret) {
-> +		dev_err(dev, "failed to get SC resource %d\n", ret);
-> +		return ret;
+> +	if (attrs & DMA_ATTR_MMIO) {
+> +		if (unlikely(!dma_capable(dev, phys, size, false))) {
+> +			dev_err_once(
+> +				dev,
+> +				"DMA addr %pad+%zu overflow (mask %llx, bus limit %llx).\n",
+> +				&dma_addr, size, *dev->dma_mask,
+> +				dev->bus_dma_limit);
+> +			WARN_ON_ONCE(1);
+> +			return DMA_MAPPING_ERROR;
+> +		}
+> +		return phys;
 > +	}
-> +
-> +	dprc->prg = dc_prg_lookup_by_phandle(dev, "fsl,prgs", 0);
-> +	if (!dprc->prg)
-> +		return dev_err_probe(dev, -EPROBE_DEFER,
-> +				     "failed to lookup PRG\n");
-> +
-> +	dc_prg_set_dprc(dprc->prg, dprc);
-> +
-> +	dprc->dev = dev;
-> +	spin_lock_init(&dprc->lock);
-> +
-> +	ret = devm_request_irq(dev, wrap_irq, dc_dprc_wrap_irq_handler,
-> +			       IRQF_SHARED, dev_name(dev), dprc);
-> +	if (ret < 0) {
-> +		dev_err(dev, "failed to request dpr_wrap IRQ(%d): %d\n",
-> +			wrap_irq, ret);
-> +		return ret;
-> +	}
-> +
-> +	dev_set_drvdata(dev, dprc);
-> +
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to enable PM runtime\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int dc_dprc_runtime_suspend(struct device *dev)
-> +{
-> +	struct dc_dprc *dprc = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(dprc->clk_rtram);
-> +	clk_disable_unprepare(dprc->clk_b);
-> +	clk_disable_unprepare(dprc->clk_apb);
-> +
-> +	return 0;
-> +}
-> +
-> +static int dc_dprc_runtime_resume(struct device *dev)
-> +{
-> +	struct dc_dprc *dprc = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(dprc->clk_apb);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable APB clock: %d\n", ret);
-> +		goto err1;
-> +	}
-> +
-> +	ret = clk_prepare_enable(dprc->clk_b);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable B clock: %d\n", ret);
-> +		goto err2;
-> +	}
-> +
-> +	ret = clk_prepare_enable(dprc->clk_rtram);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable RTRAM clock: %d\n", ret);
-> +		goto err3;
-> +	}
-> +
-> +	dc_dprc_reset(dprc);
-> +
-> +	/* disable all control IRQs and enable all error IRQs */
-> +	guard(spinlock_irqsave)(&dprc->lock);
-> +	regmap_write(dprc->reg, IRQ_MASK, IRQ_CTRL_MASK);
-> +
-> +	return 0;
-> +err3:
-> +	clk_disable_unprepare(dprc->clk_b);
-> +err2:
-> +	clk_disable_unprepare(dprc->clk_apb);
-> +err1:
-> +	return ret;
-> +}
-> +
-> +static const struct dev_pm_ops dc_dprc_pm_ops = {
-> +	RUNTIME_PM_OPS(dc_dprc_runtime_suspend, dc_dprc_runtime_resume, NULL)
-> +};
-> +
-> +static const struct of_device_id dc_dprc_dt_ids[] = {
-> +	{ .compatible = "fsl,imx8qxp-dpr-channel", },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +struct platform_driver dc_dprc_driver = {
-> +	.probe = dc_dprc_probe,
-> +	.driver = {
-> +		.name = "imx8-dc-dpr-channel",
-> +		.suppress_bind_attrs = true,
-> +		.of_match_table = dc_dprc_dt_ids,
-> +		.pm = pm_ptr(&dc_dprc_pm_ops),
-> +	},
-> +};
-> diff --git a/drivers/gpu/drm/imx/dc/dc-dprc.h b/drivers/gpu/drm/imx/dc/dc-dprc.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..f977858b57fec2f19775a97dc0baf011ca177c0b
-> --- /dev/null
-> +++ b/drivers/gpu/drm/imx/dc/dc-dprc.h
-> @@ -0,0 +1,35 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#ifndef __DC_DPRC_H__
-> +#define __DC_DPRC_H__
-> +
-> +#include <linux/device.h>
-> +#include <linux/types.h>
-> +
-> +#include <drm/drm_fourcc.h>
-> +
-> +struct dc_dprc;
-> +
-> +void dc_dprc_configure(struct dc_dprc *dprc, unsigned int stream_id,
-> +		       unsigned int width, unsigned int height,
-> +		       unsigned int stride,
-> +		       const struct drm_format_info *format,
-> +		       dma_addr_t baddr, bool start);
-> +
-> +void dc_dprc_disable_repeat_en(struct dc_dprc *dprc);
-> +
-> +void dc_dprc_disable(struct dc_dprc *dprc);
-> +
-> +void dc_dprc_disable_at_boot(struct dc_dprc *dprc);
-> +
-> +bool dc_dprc_rtram_width_supported(struct dc_dprc *dprc, unsigned int width);
-> +
-> +bool dc_dprc_stride_supported(struct dc_dprc *dprc,
-> +			      unsigned int stride, unsigned int width,
-> +			      const struct drm_format_info *format,
-> +			      dma_addr_t baddr);
-> +
-> +#endif
-> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
-> index 9bdcfc5aee976ef77bea6b3f6f3ac5f11249798f..17b9c4d0953d46be0a2cd276f06298d848fdcbdd 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-drv.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-drv.c
-> @@ -269,6 +269,7 @@ static struct platform_driver dc_driver = {
->  static struct platform_driver * const dc_drivers[] = {
->  	&dc_cf_driver,
->  	&dc_de_driver,
-> +	&dc_dprc_driver,
->  	&dc_ed_driver,
->  	&dc_fg_driver,
->  	&dc_fl_driver,
-> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
-> index 557e7d90e4ea8ca2af59027b3152163cf7f9a618..93a8ce4e7c314770b64ccb631628b7e79648c791 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-drv.h
-> +++ b/drivers/gpu/drm/imx/dc/dc-drv.h
-> @@ -74,6 +74,7 @@ int dc_plane_init(struct dc_drm_device *dc_drm, struct dc_plane *dc_plane);
->
->  extern struct platform_driver dc_cf_driver;
->  extern struct platform_driver dc_de_driver;
-> +extern struct platform_driver dc_dprc_driver;
->  extern struct platform_driver dc_ed_driver;
->  extern struct platform_driver dc_fg_driver;
->  extern struct platform_driver dc_fl_driver;
-> diff --git a/drivers/gpu/drm/imx/dc/dc-prg.c b/drivers/gpu/drm/imx/dc/dc-prg.c
-> index 9a1a312c0aeebf47bcf50ffa77971aa3bb431a12..bb6c47133e90f9bc5eb3fb0e30c3f338ec82213b 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-prg.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-prg.c
-> @@ -19,6 +19,7 @@
->  #include <linux/pm_runtime.h>
->  #include <linux/regmap.h>
->
-> +#include "dc-dprc.h"
->  #include "dc-prg.h"
->
->  #define SET			0x4
-> @@ -63,6 +64,7 @@ struct dc_prg {
->  	struct list_head list;
->  	struct clk *clk_apb;
->  	struct clk *clk_rtram;
-> +	struct dc_dprc *dprc;
->  };
->
->  static DEFINE_MUTEX(dc_prg_list_mutex);
-> @@ -217,6 +219,16 @@ dc_prg_lookup_by_phandle(struct device *dev, const char *name, int index)
->  	return NULL;
->  }
->
-> +void dc_prg_set_dprc(struct dc_prg *prg, struct dc_dprc *dprc)
-> +{
-> +	prg->dprc = dprc;
-> +}
-> +
-> +struct dc_dprc *dc_prg_get_dprc(struct dc_prg *prg)
-> +{
-> +	return prg->dprc;
-> +}
-> +
->  static int dc_prg_probe(struct platform_device *pdev)
->  {
->  	struct device *dev = &pdev->dev;
-> diff --git a/drivers/gpu/drm/imx/dc/dc-prg.h b/drivers/gpu/drm/imx/dc/dc-prg.h
-> index 6fd9b050bfa12334720f83ff9ceaf337e3048a54..f29d154f7de597b9d20d5e71303049f6f8b022d6 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-prg.h
-> +++ b/drivers/gpu/drm/imx/dc/dc-prg.h
-> @@ -32,4 +32,8 @@ bool dc_prg_stride_supported(struct dc_prg *prg,
->  struct dc_prg *
->  dc_prg_lookup_by_phandle(struct device *dev, const char *name, int index);
->
-> +void dc_prg_set_dprc(struct dc_prg *prg, struct dc_dprc *dprc);
-> +
-> +struct dc_dprc *dc_prg_get_dprc(struct dc_prg *prg);
-> +
->  #endif
->
-> --
-> 2.34.1
->
+
+This need to be fixed by the following change (dma_addr->phys):
+
+diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
+index 48936179c940b..ccf25027bec19 100644
+--- a/drivers/xen/swiotlb-xen.c
++++ b/drivers/xen/swiotlb-xen.c
+@@ -215,8 +215,8 @@ static dma_addr_t xen_swiotlb_map_phys(struct device *dev, phys_addr_t phys,
+                if (unlikely(!dma_capable(dev, phys, size, false))) {
+                        dev_err_once(
+                                dev,
+-                               "DMA addr %pad+%zu overflow (mask %llx, bus limit %llx).\n",
+-                               &dma_addr, size, *dev->dma_mask,
++                               "DMA addr %pa+%zu overflow (mask %llx, bus limit %llx).\n",
++                               &phys, size, *dev->dma_mask,
+                                dev->bus_dma_limit);
+                        WARN_ON_ONCE(1);
+                        return DMA_MAPPING_ERROR;
+
+Thanks
 
