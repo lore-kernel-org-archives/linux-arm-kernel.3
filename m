@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB452CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F85CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sze7ON4qmTfCIUSrLryhWAaJPsC5r0i+cIjo9nF08iY=; b=lelhnAl7W6twJ/FZkPxXkpY/O5
-	2zorFiniwzWlYaMiuw04oF99DO0jU8kmq78BrZClm3AgnF4QX02u/zYao7qBUD+ulcijGT7VoNDzD
-	1PyS8uRPw+19IWVYmicNSIW+x42vmPAEms4MW2b3HPTfLntSdCkfm9Cn7h/Ivpbqu3nLi7VcHvwVY
-	bLgYdxzk78u9ECeA/IF8BGTG/IetjvPD6gIYZ06LtqNA2mbO+XS6JPgRl8q+WigNrJ6PpxYWudcEh
-	VWAIL3yEJCfLwyMksYnsvWyxCVqHupntdB4eI3p4YhofSdU/mdT7WaOZ8XBxcTkKEre9BTp3Xd9ao
-	mQ8OWUGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rh5eguMgQOHmoTyzXzSs7aogeMT2P2/J0VUeUvWxnZ0=; b=s01f7gRsOb6WWYkL/7xaC1QE8P
+	k+AcCkJMtgVG/HPs16t8ft6MZvSwKQU157UEtuAeGz8eOq+Wlti13KQWVZjX/wCHU4gYcdBaap+k4
+	KOw+d/U/m6QTHSPY7VCkT53NteSMePPN3kX2ENtj8QjzExhZqoGjmj5WXHR/6h/xOHOxf6MOL/p0L
+	jwEGacaa310WVwzxSYQmd1d5tcF0Ms/biH9nwhRvAhrreABlue+APKz5nVqy/CcCcHNMk2TjAWN99
+	wtWr4ToAo4nVu8XiOCu07IxpDNeYfOkZqqhoqkKi/9SpJO8kEY6+G/D8yarOTHDVShUqKoXyHEKq7
+	4OKHgX9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZnO-00000002kv6-0Uwd;
-	Fri, 19 Sep 2025 12:00:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZnL-00000002kuE-0vJR
+	id 1uzZsJ-00000002lNT-0n3y;
+	Fri, 19 Sep 2025 12:06:03 +0000
+Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzZsG-00000002lKj-0yyQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 12:00:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3B35169C;
-	Fri, 19 Sep 2025 05:00:45 -0700 (PDT)
-Received: from [10.57.95.38] (unknown [10.57.95.38])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 92CAB3F673;
-	Fri, 19 Sep 2025 05:00:51 -0700 (PDT)
-Message-ID: <38fa4717-9105-4bca-a2cd-914afc109570@arm.com>
-Date: Fri, 19 Sep 2025 13:00:49 +0100
+	Fri, 19 Sep 2025 12:06:02 +0000
+Received: from wuxpheds03046.xfusion.com (unknown [10.32.128.186])
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cSrlQ0P8KzB8y5J;
+	Fri, 19 Sep 2025 20:04:18 +0800 (CST)
+Received: from wuxpheds03048.xfusion.com (10.32.143.30) by
+ wuxpheds03046.xfusion.com (10.32.128.186) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.1748.26;
+ Fri, 19 Sep 2025 20:05:39 +0800
+Received: from wuxpheds03048.xfusion.com ([fe80::36b8:d40d:4624:ad84]) by
+ wuxpheds03048.xfusion.com ([fe80::36b8:d40d:4624:ad84%12]) with mapi id
+ 15.02.2562.020; Fri, 19 Sep 2025 20:05:38 +0800
+From: shechenglong <shechenglong@xfusion.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: "will@kernel.org" <will@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, xulei <stone.xulei@xfusion.com>, chenjialong
+	<chenjialong@xfusion.com>, yuxiating <yuxiating@xfusion.com>
+Subject: =?utf-8?B?562U5aSNOiBbUEFUQ0hdIGNwdTogZml4IGhhcmQgbG9ja3VwIHRyaWdnZXJl?=
+ =?utf-8?Q?d_during_stress-ng_stress_testing.?=
+Thread-Topic: [PATCH] cpu: fix hard lockup triggered during stress-ng stress
+ testing.
+Thread-Index: AQHcKGhasfpFyT4DM0G5RpWWNk3BFbSYR6yAgAIiPGA=
+Date: Fri, 19 Sep 2025 12:05:38 +0000
+Message-ID: <2eeb109f50b34e628327972d1af57f5d@xfusion.com>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <aMvsxd8nHb5roC0o@arm.com>
+In-Reply-To: <aMvsxd8nHb5roC0o@arm.com>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.82.130.100]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, david@redhat.com,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, dev.jain@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org,
- Yang Shi <yang@os.amperecomputing.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
- <175822779944.710258.10028837182267037801.b4-ty@kernel.org>
- <fc43aa07-d4ad-47d5-8381-61d4a9b8c467@arm.com>
- <aM0-FQlepoxxGkRd@willie-the-truck>
- <ceaf604f-8ad7-4e19-812e-7eeace10d835@arm.com>
- <aM1E34lRjKg7nlRu@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aM1E34lRjKg7nlRu@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_050055_383418_A52682B2 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20250919_050600_860368_9496A183 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/09/2025 12:56, Will Deacon wrote:
-> On Fri, Sep 19, 2025 at 12:49:22PM +0100, Ryan Roberts wrote:
->> On 19/09/2025 12:27, Will Deacon wrote:
->>> On Fri, Sep 19, 2025 at 11:08:47AM +0100, Ryan Roberts wrote:
->>>> On 18/09/2025 22:10, Will Deacon wrote:
->>>>> On Wed, 17 Sep 2025 12:02:06 -0700, Yang Shi wrote:
->>>>>> On systems with BBML2_NOABORT support, it causes the linear map to be mapped
->>>>>> with large blocks, even when rodata=full, and leads to some nice performance
->>>>>> improvements.
->>>>>>
->>>>>> Ryan tested v7 on an AmpereOne system (a VM with 12G RAM) in all 3 possible
->>>>>> modes by hacking the BBML2 feature detection code:
->>>>>>
->>>>>> [...]
->>>>>
->>>>> Applied patches 1 and 3 to arm64 (for-next/mm), thanks!
->>>>>
->>>>> [1/5] arm64: Enable permission change on arm64 kernel block mappings
->>>>>       https://git.kernel.org/arm64/c/a660194dd101
->>>>> [3/5] arm64: mm: support large block mapping when rodata=full
->>>>>       https://git.kernel.org/arm64/c/a166563e7ec3
->>>>>
->>>>> I also picked up the BBML allow-list addition (second patch) on
->>>>> for-next/cpufeature.
->>>>>
->>>>> The fourth patch ("arm64: mm: split linear mapping if BBML2 unsupported
->>>>> on secondary CPUs") has some really horrible conflicts. These are partly
->>>>> due to some of the type cleanups on for-next/mm but I think mainly due
->>>>> to Kevin's kpti rework that landed after -rc1.
->>>>
->>>> Thanks Will, although I'm nervous that without this patch, some platforms might
->>>> not boot; Wikipedia tells me that there are some Google, Mediatek and Qualcomm
->>>> SoCs that pair X4 CPUs (which is on the BBML2_NOABORT allow list) with A720
->>>> and/or A520 (which are not). See previous mail at [1].
->>>
->>> I'd be surprised if these SoCs are booting on the X4 but who knows.
->>
->> Ahh. You can probably tell I'm a bit naive to some of this system level stuff...
->> I had assumed they would want to boot on the big CPU to reduce boot time.
-> 
-> One of the problems is that the boot CPU becomes CPU0 and that inevitably
-> means it ends up being responsible for a tonne of extra stuff (interrupts,
-> TZ, etc) and in many cases can't be offlined. So it's all a trade-off.
-> 
->>> Lemme have another look at applying the patch with fresh eyes, but I do
->>> wonder whether having X4 on the allow list really makes any sense. Are
->>> there any SoCs out there that _don't_ pair it with CPUs that aren't on
->>> the allow list? (apologies for the double negative).
->>
->> Hmm, that's a fair question. I'm not aware of any. So I guess the simplest
->> solution is to remove X4 from the allow list and ditch fourth patch.
-> 
-> That's probably a good idea but I have a horrible feeling we _are_ going
-> to need your patch once the errata start flying about :)
-> 
-> So how about we:
-> 
->   - Remove X4 from the list
->   - I try harder to apply your patch for secondary CPUs...
->   - ... if I fail, we can apply it next time around
-> 
-> Sound reasonable?
-
-Yeah that works for me. Cheers!
-
-> 
-> Will
-
+T2theSwgdW5kZXJzdG9vZC4gVGhhbmsgeW91ISBNYXkgSSBhc2sgd2hlbiB0aGUgZml4L3BhdGNo
+IGlzIGV4cGVjdGVkIHRvIGJlIGF2YWlsYWJsZT8NCg0KLS0tLS3pgq7ku7bljp/ku7YtLS0tLQ0K
+5Y+R5Lu25Lq6OiBDYXRhbGluIE1hcmluYXMgPGNhdGFsaW4ubWFyaW5hc0Bhcm0uY29tPiANCuWP
+kemAgeaXtumXtDogMjAyNeW5tDnmnIgxOOaXpSAxOToyOA0K5pS25Lu25Lq6OiBzaGVjaGVuZ2xv
+bmcgPHNoZWNoZW5nbG9uZ0B4ZnVzaW9uLmNvbT4NCuaKhOmAgTogd2lsbEBrZXJuZWwub3JnOyBs
+aW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtl
+cm5lbC5vcmc7IHh1bGVpIDxzdG9uZS54dWxlaUB4ZnVzaW9uLmNvbT47IGNoZW5qaWFsb25nIDxj
+aGVuamlhbG9uZ0B4ZnVzaW9uLmNvbT47IHl1eGlhdGluZyA8eXV4aWF0aW5nQHhmdXNpb24uY29t
+Pg0K5Li76aKYOiBSZTogW1BBVENIXSBjcHU6IGZpeCBoYXJkIGxvY2t1cCB0cmlnZ2VyZWQgZHVy
+aW5nIHN0cmVzcy1uZyBzdHJlc3MgdGVzdGluZy4NCg0KT24gVGh1LCBTZXAgMTgsIDIwMjUgYXQg
+MDI6NDk6MDdQTSArMDgwMCwgc2hlY2hlbmdsb25nIHdyb3RlOg0KPiBDb250ZXh0IG9mIHRoZSBJ
+c3N1ZToNCj4gSW4gYW4gQVJNNjQgZW52aXJvbm1lbnQsIHRoZSBmb2xsb3dpbmcgc3RlcHMgd2Vy
+ZSBwZXJmb3JtZWQ6DQo+IA0KPiAxLiBSZXBlYXRlZGx5IHJhbiBzdHJlc3MtbmcgdG8gc3RyZXNz
+IHRoZSBDUFUsIG1lbW9yeSwgYW5kIEkvTy4NCj4gMi4gQ3ljbGljYWxseSBleGVjdXRlZCB0ZXN0
+IGNhc2UgcHR5MDYgZnJvbSB0aGUgTFRQIHRlc3Qgc3VpdGUuDQo+IDMuIEFkZGVkIG1pdGlnYXRp
+b25zPW9mZiB0byB0aGUgR1JVQiBwYXJhbWV0ZXJzLg0KPiANCj4gQWZ0ZXIgMeKAkzIgaG91cnMg
+b2Ygc3RyZXNzIHRlc3RpbmcsIGEgaGFyZGxvY2t1cCBvY2N1cnJlZCwgY2F1c2luZyBhIA0KPiBz
+eXN0ZW0gY3Jhc2guDQo+IA0KPiBSb290IENhdXNlIG9mIHRoZSBIYXJkbG9ja3VwOg0KPiBFYWNo
+IHRpbWUgc3RyZXNzLW5nIHN0YXJ0cywgaXQgaW52b2tlcyB0aGUgDQo+IC9zeXMva2VybmVsL2Rl
+YnVnL2NsZWFyX3dhcm5fb25jZSBpbnRlcmZhY2UsIHdoaWNoIGNsZWFycyB0aGUgdmFsdWVzIA0K
+PiBpbiB0aGUgbWVtb3J5IHNlY3Rpb24gZnJvbSBfX3N0YXJ0X29uY2UgdG8gX19lbmRfb25jZS4g
+VGhpcyBjYXVzZWQgDQo+IGZ1bmN0aW9ucyBsaWtlIHByX2luZm9fb25jZSgpIOKAlCBvcmlnaW5h
+bGx5IGRlc2lnbmVkIHRvIHByaW50IG9ubHkgb25jZSDigJQgdG8gcHJpbnQgYWdhaW4gZXZlcnkg
+dGltZSBzdHJlc3Mtbmcgd2FzIGNhbGxlZC4NCj4gSWYgdGhlIHB0eTA2IHRlc3QgY2FzZSBoYXBw
+ZW5lZCB0byBiZSB1c2luZyB0aGUgc2VyaWFsIG1vZHVsZSBhdCB0aGF0IA0KPiBzYW1lIG1vbWVu
+dCwgaXQgd291bGQgc2xlZXAgaW4gd2FpdGVyLmxpc3Qgd2l0aGluIHRoZSBfX2Rvd25fY29tbW9u
+IGZ1bmN0aW9uLg0KPiANCj4gQWZ0ZXIgcHJfaW5mb19vbmNlKCkgY29tcGxldGVkIGl0cyBvdXRw
+dXQgdXNpbmcgdGhlIHNlcmlhbCBtb2R1bGUsIGl0IA0KPiBpbnZva2VkIHRoZSBzZW1hcGhvcmUg
+dXAoKSBmdW5jdGlvbiB0byB3YWtlIHVwIHRoZSBwcm9jZXNzIHdhaXRpbmcgaW4gDQo+IHdhaXRl
+ci5saXN0LiBUaGlzIHNlcXVlbmNlIHRyaWdnZXJlZCBhbiBBLUEgZGVhZGxvY2ssIHVsdGltYXRl
+bHkgDQo+IGxlYWRpbmcgdG8gYSBoYXJkbG9ja3VwIGFuZCBzeXN0ZW0gY3Jhc2guDQo+IA0KPiBU
+byBwcmV2ZW50IHRoaXMsIGEgbG9jYWwgdmFyaWFibGUgc2hvdWxkIGJlIHVzZWQgdG8gY29udHJv
+bCBhbmQgZW5zdXJlIA0KPiB0aGUgcHJpbnQgb3BlcmF0aW9uIG9jY3VycyBvbmx5IG9uY2UuDQo+
+IA0KPiBIYXJkIGxvY2t1cCBjYWxsIHN0YWNrOg0KPiANCj4gX3Jhd19zcGluX2xvY2tfbmVzdGVk
+KzE2OA0KPiB0dHd1X3F1ZXVlKzE4MCDvvIhycV9sb2NrKHJxLCAmcmYpOyAybmQgYWNxdWlyaW5n
+IHRoZSBycS0+X19sb2Nr77yJDQo+IHRyeV90b193YWtlX3VwKzU0OA0KPiB3YWtlX3VwX3Byb2Nl
+c3MrMzINCj4gX191cCs4OA0KPiB1cCsxMDANCj4gX191cF9jb25zb2xlX3NlbSs5Ng0KPiBjb25z
+b2xlX3VubG9jays2OTYNCj4gdnByaW50a19lbWl0KzQyOA0KPiB2cHJpbnRrX2RlZmF1bHQrNjQN
+Cj4gdnByaW50a19mdW5jKzIyMA0KPiBwcmludGsrMTA0DQo+IHNwZWN0cmVfdjRfZW5hYmxlX3Rh
+c2tfbWl0aWdhdGlvbiszNDQNCj4gX19zd2l0Y2hfdG8rMTAwDQo+IF9fc2NoZWR1bGUrMTAyOCAo
+cnFfbG9jayhycSwgJnJmKTsgMXN0IGFjcXVpcmluZyB0aGUgcnEtPl9fbG9jaykNCj4gc2NoZWR1
+bGVfaWRsZSs0OA0KPiBkb19pZGxlKzM4OA0KPiBjcHVfc3RhcnR1cF9lbnRyeSs0NA0KPiBzZWNv
+bmRhcnlfc3RhcnRfa2VybmVsKzM1Mg0KDQpJcyB0aGUgcHJvYmxlbSBhY3R1YWxseSB0aGF0IHdl
+IGNhbGwgdGhlIHNwZWN0cmUgdjQgc3R1ZmYgb24gdGhlDQpzd2l0Y2hfdG8oKSBwYXRoICh3ZSBj
+YW4ndCBjaGFuZ2UgdGhpcykgdW5kZXIgdGhlIHJxX2xvY2soKSBhbmQgaXQgc3Vic2VxdWVudGx5
+IGNhbGxzIHByaW50aygpIHdoaWNoIHRha2VzIHRoZSBjb25zb2xlIHNlbWFwaG9yZT8gSSB0aGlu
+ayB0aGUgIm9uY2UiIGFzcGVjdCBtYWtlcyBpdCBsZXNzIGxpa2VseSBidXQgZG9lcyBub3QgYWRk
+cmVzcyB0aGUgYWN0dWFsIHByb2JsZW0uDQoNCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQva2Vy
+bmVsL3Byb3Rvbi1wYWNrLmMgDQo+IGIvYXJjaC9hcm02NC9rZXJuZWwvcHJvdG9uLXBhY2suYyBp
+bmRleCBlZGYxNzgzZmZjODEuLmY4NjYzMTU3ZTA0MSANCj4gMTAwNjQ0DQo+IC0tLSBhL2FyY2gv
+YXJtNjQva2VybmVsL3Byb3Rvbi1wYWNrLmMNCj4gKysrIGIvYXJjaC9hcm02NC9rZXJuZWwvcHJv
+dG9uLXBhY2suYw0KPiBAQCAtNDI0LDggKzQyNCwxMCBAQCBzdGF0aWMgYm9vbCBzcGVjdHJlX3Y0
+X21pdGlnYXRpb25zX29mZih2b2lkKQ0KPiAgCWJvb2wgcmV0ID0gY3B1X21pdGlnYXRpb25zX29m
+ZigpIHx8DQo+ICAJCSAgIF9fc3BlY3RyZV92NF9wb2xpY3kgPT0gU1BFQ1RSRV9WNF9QT0xJQ1lf
+TUlUSUdBVElPTl9ESVNBQkxFRDsNCj4gIA0KPiAtCWlmIChyZXQpDQo+IC0JCXByX2luZm9fb25j
+ZSgic3BlY3RyZS12NCBtaXRpZ2F0aW9uIGRpc2FibGVkIGJ5IGNvbW1hbmQtbGluZSBvcHRpb25c
+biIpOw0KPiArCXN0YXRpYyBhdG9taWNfdCBfX3ByaW50a19vbmNlID0gQVRPTUlDX0lOSVQoMCk7
+DQo+ICsNCj4gKwlpZiAocmV0ICYmICFhdG9taWNfY21weGNoZygmX19wcmludGtfb25jZSwgMCwg
+MSkpDQo+ICsJCXByX2luZm8oInNwZWN0cmUtdjQgbWl0aWdhdGlvbiBkaXNhYmxlZCBieSBjb21t
+YW5kLWxpbmUgb3B0aW9uXG4iKTsNCj4gIA0KPiAgCXJldHVybiByZXQ7DQo+ICB9DQoNCkkgdGhp
+bmsgd2Ugc2hvdWxkIGp1c3QgYXZvaWQgdGhlIHByaW50aygpIG9uIHRoZQ0Kc3BlY3RyZV92NF9l
+bmFibGVfdGFza19taXRpZ2F0aW9uKCkgcGF0aC4gV2VsbCwgSSdkIHJlbW92ZSBpdCBhbHRvZ2V0
+aGVyIGZyb20gdGhlIHNwZWN0cmVfdjRfbWl0aWdhdGlvbnNfb2ZmKCkgYXMgaXQncyBjYWxsZWQg
+b24ga2VybmVsIGVudHJ5IGFzIHdlbGwuIEp1c3QgYWRkIGEgZGlmZmVyZW50IHdheSB0byBwcmlu
+dCB0aGUgc3RhdHVzIGR1cmluZyBrZXJuZWwgYm9vdCBpZiB0aGVyZSBpc24ndCBvbmUgYWxyZWFk
+eSwgbWF5YmUgYW4gaW5pdGNhbGwuDQoNCi0tDQpDYXRhbGluDQo=
 
