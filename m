@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F49CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77DACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6BIW6nk9VokxNdMUnaPbHqz+kXxqZQzHIR/NiggwLg=; b=fUDrQ1/n3P6dvuh048EeHCk1Rx
-	KPVWcdGb5VcWaJ4iYmGIqBr7AsCsqRyfn8gyxwBIXZsXfC71G+R4Sn/tfyE3BB1R7BqiA8mccCEJU
-	fdZJUigom/fGMQ1xNwq4r0MEMvmvz8hzwhxpWEIhlrzl310QzUzRykap+mEXojGQXMzzU9mwZKcGR
-	8OLXKJBMY729TbK8TbtT0n8z2bh/tojRIIDsEJ1P+c4M0vbEDrbhSsPsk4RC+vx7iJwUBPSWt2XOh
-	2fP8tZWpQnL+6fZG0jtNparAis87tYCI4lQesJVensmmxo3zvGcDviF1Cz6k/hHrq64aLiGE0hHdJ
-	GmOPFJXg==;
+	bh=WhIA505+XxPtES8+P6RPKgJ+oqFSRmR93CdSfYNTXeU=; b=xbCZfAGFXdmB2RLMemFEcGrzoz
+	9cX2ERtx6mj2F8WjnHt0N2Nc3h7NPvHmPOIPJygSacLx9ivZPrG2/yuyQduerrVZV7DSGWcK10+WA
+	+uuyB2+KQDyQDNEQpXix6Llegar5xjMIAxn3fu8zjLABBs31SoVFnbf8ha4pUxTUzalfhOE6ObcFW
+	s4oXPRtDIa1k7PbHWBB+Je6Q5Jpu5lRheo/kxBT+c9PToNNLMS7hWSaaDGTTW2LainW7Pin2pVpWr
+	5fvIgb8Rvp9KbUxFCPTYFKBM+h+DWZgc2ZLXmUMojB02sqaOwQDtMfVmShgWQsIwClnmlVU7Dukah
+	l9eMMMqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfss-00000003lbv-0Zdv;
-	Fri, 19 Sep 2025 18:31:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzfuZ-00000003lrt-2ETw;
+	Fri, 19 Sep 2025 18:32:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfsp-00000003lbJ-2jgi
+	id 1uzfuX-00000003lrn-2yW0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 18:31:00 +0000
+	Fri, 19 Sep 2025 18:32:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB8A1404B4;
-	Fri, 19 Sep 2025 18:30:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F83C4CEF0;
-	Fri, 19 Sep 2025 18:30:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB35D6013A;
+	Fri, 19 Sep 2025 18:32:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C725C4CEFA;
+	Fri, 19 Sep 2025 18:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758306658;
-	bh=VqGaXrsnHDB0BUTkmiNdMkMLAZVWdKAH/20+GH3zJ4c=;
+	s=k20201202; t=1758306764;
+	bh=VKgiU8c9iEOAvCN7BHO0m6A30oFDWlZgDPEVP3PArSQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qiTCts8ITuKje9k20xuiq9n+85M+xbls4wD13KoIdMwCL9Af3TTOit6LevDtelBCQ
-	 y8KdVdq5c+gWclkluTbPyEpvsfM2EYFiOjal41dTJUahi1kwuEuudZDJNY0aBqotrI
-	 Zo4YXug1FwXnGQYx8MRgXLUoxrwMmk4AnmvobngvYR05B/yFwWtXzL6Qj1v3iZR+bK
-	 XhenwT9qvFeYVMkz504Pnxj/C4IFhwWT+tgrWYeZLJyipVJzrTLY6GvGBqhO8jS+8Q
-	 qb7zUON53XmUNdIjypNaIdYWpKiSlUs9C/lxU5BXUW7gvpbT3rOexT3jQr4V7CTMUl
-	 UGUs33Pih9wsA==
-Date: Sat, 20 Sep 2025 00:00:47 +0530
+	b=N5lhDtP9xd3iTmU9NVqk1pzPriLedbqSXptHsIofMIkKODunPAhXUZkoAY3U+1sju
+	 OMNQK2S2UUlR4nVaPDlBvzz5ebfaSvbxoSS0ARHUUg7VXlU95wDlZNj44DI7bZ8wNY
+	 VJ84mbJLVqGyV9Yj41vRxfJlpiEg/78k6Y/gUratYiGjOiWlvN1QbeA2kmo4ZliyBu
+	 wLLBlJw33uGoy7tmGSQop7Dho3C5gE+knbIEvvcIYDoCzOD7hMG132RiM+akLSyUxy
+	 E4e8tcqLwvdv9w6wTcFA/o+/YP2YU9w6GDiT6LcRGDDKXtSN8Nq/6PJEvxuIToHIpt
+	 FMSBheSSAeuTw==
+Date: Sat, 20 Sep 2025 00:02:34 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Siddharth Vadapalli <s-vadapalli@ti.com>
 Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
@@ -53,19 +53,16 @@ Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
 	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
 	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v2 04/10] PCI: dwc: ep: Export
- dw_pcie_ep_raise_msix_irq() for pci-keystone
-Message-ID: <kb6jxzyihyuhd4qfvdtgxgopzgyymhsflqmheb3fribovdck23@ahswbufb23sv>
+Subject: Re: [PATCH v2 05/10] PCI: keystone: Add ks_pcie_free_msi_irq()
+ helper for cleanup
+Message-ID: <rbyukvvhzoch4p54usbrjpjlhd6qknhp2er6gfxhcj5lxpgrqh@5wnwiijn2g5f>
 References: <20250912122356.3326888-1-s-vadapalli@ti.com>
- <20250912122356.3326888-5-s-vadapalli@ti.com>
+ <20250912122356.3326888-6-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250912122356.3326888-5-s-vadapalli@ti.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_113059_712396_92FE165C 
-X-CRM114-Status: GOOD (  14.88  )
+In-Reply-To: <20250912122356.3326888-6-s-vadapalli@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 05:46:15PM +0530, Siddharth Vadapalli wrote:
-> The pci-keystone.c driver uses the 'dw_pcie_ep_raise_msix_irq()' helper.
-> In preparation for enabling the pci-keystone.c driver to be built as a
-> loadable module, export 'dw_pcie_ep_raise_msix_irq()'.
+On Fri, Sep 12, 2025 at 05:46:16PM +0530, Siddharth Vadapalli wrote:
+> Introduce the helper function ks_pcie_free_msi_irq() which will undo the
+> configuration performed by the ks_pcie_config_msi_irq() function. This will
+> be required for implementing a future helper function to undo the
+> configuration performed by the ks_pcie_host_init() function.
 > 
 > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-
-This patch could be merged with patch 2.
-
-- Mani
-
 > ---
 > 
-> v1: https://lore.kernel.org/r/20250903124505.365913-5-s-vadapalli@ti.com/
+> v1: https://lore.kernel.org/r/20250903124505.365913-6-s-vadapalli@ti.com/
 > No changes since v1.
 > 
->  drivers/pci/controller/dwc/pcie-designware-ep.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/pci/controller/dwc/pci-keystone.c | 25 +++++++++++++++++++++++
+>  1 file changed, 25 insertions(+)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> index 7f2112c2fb21..19571ac2b961 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> @@ -797,6 +797,7 @@ int dw_pcie_ep_raise_msix_irq(struct dw_pcie_ep *ep, u8 func_no,
->  
->  	return 0;
+> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> index d03e95bf7d54..81c3686688c0 100644
+> --- a/drivers/pci/controller/dwc/pci-keystone.c
+> +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> @@ -666,6 +666,31 @@ static void ks_pcie_intx_irq_handler(struct irq_desc *desc)
+>  	chained_irq_exit(chip, desc);
 >  }
-> +EXPORT_SYMBOL_GPL(dw_pcie_ep_raise_msix_irq);
 >  
->  /**
->   * dw_pcie_ep_cleanup - Cleanup DWC EP resources after fundamental reset
-> -- 
-> 2.43.0
-> 
+> +static void ks_pcie_free_msi_irq(struct keystone_pcie *ks_pcie)
+> +{
+> +	struct device_node *np = ks_pcie->np;
+> +	struct device_node *intc_np;
+> +	int irq_count, irq, i;
+> +
+> +	if (!IS_ENABLED(CONFIG_PCI_MSI))
+
+Isn't the CONFIG_PCI_KEYSTONE_HOST always depend on PCI_MSI?
+
+- Mani
 
 -- 
 மணிவண்ணன் சதாசிவம்
