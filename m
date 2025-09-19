@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCFDCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EF1CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=; b=RSB6G89a7ybKj7U4xxcj66zK1+
-	iCTQcSQa5lkeFxNNofR6VKm1I86sUhDWnWxeaOOe3OovXssxjILp7tr74SHWB0JhKqRzgJfOp4fZb
-	gFRbLRYT+qZQS93WOCfsTIdGdBEjTjXxInh8beVLn6NRvnVoPGf7nT1+6n49cdyyr3ICQRlQ/yW7N
-	X5GCe3PT/38kDg6Cgo9dN9oyJJb0gJr3LcA2Ll6bJ/bey28zwMFI9SvWghHGXzsZ2H74KCCsufGxz
-	BiDJi4znL2qckQdx9ypRqu4y0RJyG14+4KIn2KLagkXb1UiZo8kiq9b0nKRTEftDKUqrfOnJgc9Rt
-	uHwxWHdQ==;
+	bh=AaMJMX/umNULrcGEgKJlRZR7C4PD7YTrpkq40L4KBHc=; b=iDyx4+pNfYvqJ7H9nnOZzsPhRC
+	Usaq5HakxG8yKuU6J1P5JpkvD2dpXsUPJpTgEop/3ESCTfsRvKCzJJmyRoKOHZdFr1KwiNX0FpqJU
+	dImOUyiXiaD/4Vb6Hn59bdBiZGwGs6+2FqcjWVeB1FZvYMdHblePu+pUGTG45Xo5b41kkxc4x4rdj
+	XcJiTQNfQXyvu9B6JCXXAS84Hn1NUVBMQlywvrGqwjXjxkmfe47r8MbYA3ZReIamQzmXVWWjpVS5L
+	imGu+G2KC5sGM+4694fhNzjrl9KPeIttC19dH3f5Xi34EGFi5bayFsNrK3q6j57LArP29uZaYrh8W
+	WANBrczg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzY3K-00000002VOl-2YQa;
-	Fri, 19 Sep 2025 10:09:18 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uzYBM-00000002WOG-0Xkb;
+	Fri, 19 Sep 2025 10:17:36 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzY3I-00000002VNY-085Z;
-	Fri, 19 Sep 2025 10:09:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758276537; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=dicK+OMv5QSBObbMGKfy67NokELvGMR5Dt3pkAgFCwmR0HW+On81ioV7ohXumzVu/eaQM7UXvhHA7W4ZNe2BV4j1TpZuh0liTGx8qdsl5T9qvUKxhaEsRjWIGKa6aIqonpMrf1p4wECVjV9nfmHdkdh0XsC1p6gxjfSe1mMLeog=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758276537; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=; 
-	b=k7x7q+WrdnAYmBcNentlAQJjvI1RD35H4m7uNM+Cy16elyxAilArii+RRx0qMZbxWaiSZc26nJXty4iU/NNSWhUR2kJxfpjJ0EIDG92VjSXSY063L93Piu7wLot6YN3uG7UgWZWhsyyFumQF532RBWuA8ovV0c144ZYxLQJ0Bw8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758276537;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=7bikftOXJFrKd3xRGDKSA0neTFb/TpOhRE/473mVa+k=;
-	b=PURFcqWFKfQGye1p389YNk/IIuiOGIj3TXvOyo0vc3xrmKkCfgrEwlwYhmtvcq+H
-	F9MIqfFjz87qRiLlB9XmBgGAv/7nDL78Ith2SlFaf+pRAQNbpFFpiTBlUajOZzuJroW
-	ylq0yngeWq6e8rOwe+JNbAJfbNFC4n5v9iy/sPIg=
-Received: by mx.zohomail.com with SMTPS id 1758276534307344.4153529447631;
-	Fri, 19 Sep 2025 03:08:54 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>,
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 01/10] dt-bindings: gpu: mali-valhall-csf: add
- mediatek,mt8196-mali variant
-Date: Fri, 19 Sep 2025 12:08:45 +0200
-Message-ID: <6970929.lOV4Wx5bFT@workhorse>
-In-Reply-To: <c210de74-6eb5-40a4-b87d-a4a5c3123e65@kernel.org>
-References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
- <5749727.31r3eYUQgx@workhorse>
- <c210de74-6eb5-40a4-b87d-a4a5c3123e65@kernel.org>
+	id 1uzYBJ-00000002WNm-2ob5;
+	Fri, 19 Sep 2025 10:17:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:Cc;
+	bh=AaMJMX/umNULrcGEgKJlRZR7C4PD7YTrpkq40L4KBHc=; b=m97FghaklI6Mh+XLjeYg/ACj+Y
+	59uf6lQkpa4JFaU5j+EH/ZzQjNRhgbdhVreCHInAydmdAgSlJJfW4kKoRNHVYOpbp5FcNigPqgTfA
+	pCI/hl18DgxzPsWSlB3JUmD3PbKulXmf3dAMX/xHCUS+RryKRAhoSqjx+QH3ff/m9o8VwvuGUP+YH
+	nJUNBn2H0lkhvtS74t31UFhEaC0yV4bX36LO9x9qGeyvZBPNpRXTXYA/9+p22GGdbcQJo6b8nIs+Y
+	ADYHuy5ccq4UckYxaBuQCjxDGCm49OzOzGTU6NIqvxIcWEy4AuZYKrI6hjlVkQqsNWSb7hr3JRpd9
+	ZeV8SDlw==;
+Received: from i53875b0f.versanet.de ([83.135.91.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uzYBG-0007nN-9m; Fri, 19 Sep 2025 12:17:30 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Ed W <lists@wildgooses.com>,
+ FUKAUMI Naoki <naoki@radxa.com>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO3
+Date: Fri, 19 Sep 2025 12:17:29 +0200
+Message-ID: <1971910.g5d078U9FE@diego>
+In-Reply-To: <0DB47BC84E90B0E6+694b1274-4826-4ec1-9aa2-ca8aa790f61a@radxa.com>
+References: <20250917114932.25994-1-lists@wildgooses.com> <2325560.3ZeAukHxDK@diego>
+ <0DB47BC84E90B0E6+694b1274-4826-4ec1-9aa2-ca8aa790f61a@radxa.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_030916_095233_6656F8CA 
-X-CRM114-Status: GOOD (  34.55  )
+X-CRM114-CacheID: sfid-20250919_031733_739782_4DA703D0 
+X-CRM114-Status: GOOD (  32.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +72,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 19 September 2025 06:28:54 Central European Summer Time Krzysztof Kozlowski wrote:
-> On 18/09/2025 23:01, Nicolas Frattaroli wrote:
-> > On Thursday, 18 September 2025 02:30:09 Central European Summer Time Krzysztof Kozlowski wrote:
-> >> On Wed, Sep 17, 2025 at 02:22:32PM +0200, Nicolas Frattaroli wrote:
-> >>> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
-> >>> control the power and frequency of the GPU.
+Am Freitag, 19. September 2025, 01:57:57 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb FUKAUMI Naoki:
+> Hi Heiko, Ed,
+>=20
+> On 9/19/25 01:18, Heiko St=C3=BCbner wrote:
+> > Am Donnerstag, 18. September 2025, 17:23:04 Mitteleurop=C3=A4ische Somm=
+erzeit schrieb Ed W:
+> >> On 18/09/2025 05:53, FUKAUMI Naoki wrote:
+> >>> Hi Ed,
 > >>>
-> >>> It lets us omit the OPP tables from the device tree, as those can now be
-> >>> enumerated at runtime from the MCU. It also means the mali GPU node
-> >>> described in this binding does not have any clocks in this case, as all
-> >>> clock control is delegated to the MCU.
+> >>> Thank you very much for your work.
 > >>>
-> >>> Add the mediatek,mt8196-mali compatible, and a performance-domains
-> >>> property which points to the MCU's device tree node in this case. It's
-> >>> required on mt8196 devices.
+> >>> On 9/17/25 20:49, Ed Wildgoose wrote:
+> >>>> The rk3566 has multiplexed pins and the uarts can be moved to a choi=
+ce
+> >>>> of 2 pin groups. The default rk356x-base.dtsi appears to default to =
+mux0
+> >>>> for all uarts, however, specific hardware might choose to implement
+> >>>> alternatives
+> >>>>
+> >>>> The Radxa zero 3 shows that is uses M1 for uarts:
+> >>>> - uart4
+> >>>> - uart5
+> >>>> - uart9
+> >>>>
+> >>>> These aren't normally enabled, but we should at least correct the
+> >>>> default pinctrl definitions. Without these changes there will be
+> >>>> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
 > >>>
-> >>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> >>> ---
-> >>>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 32 ++++++++++++++++++++--
-> >>>  1 file changed, 30 insertions(+), 2 deletions(-)
+> >>> Sorry, but why do we need these definitions for disabled nodes?
 > >>>
-> >>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> >>> index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..ccab2dd0ea852187e3ab75923e19739622b2b3b8 100644
-> >>> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> >>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-> >>> @@ -38,7 +38,6 @@ properties:
-> >>>        - const: gpu
-> >>>  
-> >>>    clocks:
-> >>> -    minItems: 1
+> >>> Or why don't we do similar definitions for nodes other than uart?
+> >>> For example, PWM12, I2S3, and SPI3 also use M1. Are they not related =
+to SD/eMMC and therefore
+> >>> don't need to be defined?
+> >>>
+> >>> If users want to use UARTs on pin headers, they will refer to the cor=
+rect documentation[1] to
+> >>> determine which pins are UARTs and will of course write the correct p=
+inctrl definition.
+> >>>
+> >>> [1] https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-int=
+erface#gpio-interface
+> >>>
+> >>> Best regards,
+> >>>
 > >>
-> >> I don't understand why.
 > >>
-> >> Best regards,
-> >> Krzysztof
+> >> Personally, and I'm saying this as a user who is technical enough to f=
+ix the definitions, it took me
+> >> quite a few days to figure out what was wrong with the definitions and=
+ understand the intricate tree
+> >> of dtsi includes, to finally figure out why I couldn't just do a "stat=
+us =3D "okay";" to enable the
+> >> UARTs... (which is roughly what is shown in several radxa supplied ove=
+rlays to enable uarts on
+> >> various boards)
 > >>
-> >>
-> > 
-> > I am executing a Convex hull algorithm on the 3D space of "dt-bindings
-> > maintainer opinions" to get a convex hull of acceptable dt-bindings
-> > choices where two different choices are functionally equivalent.
-> > 
-> > With this additional opinion on the krzk axis, I now know that having
-> > the base properties accurate for the general case is not required if
-> > the per-compatible case sets the property to false anyway.
-> > 
-> > I hope no two opinions are collinear, as this would surely be my
-> > undoing.
-> > 
-> > You get to pick which axis (X, Y, Z) you are. Right-hand rule, of
-> > course.
-> 
-> 
-> This piece of code is wrong and I could not deduce the reason. That's
-> why I asked why you need that change. If you intend to waste my time, I
-> will don't bother with this, but code is still wrong.
-> 
-> Best regards,
-> Krzysztof
-> 
+> >> So my vote would be to correctly define all the hardware for a given b=
+oard. Then users can simply do
+> >> a status=3D"okay" to enable and off they go.
+> >=20
+> > And I'd agree with that argument. Setting up the needed pinctrl settings
+> > for the peripherals described in the device documentation
+> > ( https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interfa=
+ce#gpio-interface )
+> >=20
+> > is the sensible thing to do. While keeping the peripherals itself disab=
+led
+> > and for the user to decide which peripheral to enable.
+>=20
+> I'm not strongly opposed to this policy, but I thought if you're going=20
+> to do this, you should do it for everything, not just UARTs.
 
-The previous reply was in jest, I did not know that this was incorrect.
-That's because it has no effect; there is no option for a bare
-`arm,mali-valhall-csf` compatible with no other compatible preceding
-it right now as far as I can parse the binding (which in of itself
-seems wrong.) So minItems: 1 didn't do anything, because the RK3588
-compatible would override it anyway, and the mt8196 compatible would
-disable the property entirely.
+yes, exactly
+So patches for the other header peripherals welcome :-) .
 
-Hence, this piece of code is not wrong, as it's functionally
-equivalent to what was already there. Unless that is my reasoning
-is erroneous, in which case I'd appreciate an explanation for how
-it is wrong, rather than having to argue why I think you think
-wrongly that it is wrong.
+But still it's nice to do it in steps like this one, as it makes reviewing =
+easier.
 
-Kind regards,
-Nicolas Frattaroli
+
+Heiko
 
 
 
