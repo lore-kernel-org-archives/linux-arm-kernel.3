@@ -4,181 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E196CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259D5CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovqkR0UKdR/sN2rMZ/4i3G3rJU0T3m7HOdabe1r5GkM=; b=uDc8keL5xXG+iFOOVRdHI0dplb
-	wIeqfi2kRDoba9/vBHMZcg4iysAmMwCz6hLMAlm8R1m12bTaA2raEKxCBDp1ibAUHtw5YT9si64hy
-	Gol2NPKOKnJYBRLa+99DLV6hPmHoATI5BPfxm1JdnDl9r4PViUxaFsufQPdGCG9aqnhsCbtNSlKHG
-	kLRgSzQeLvBaHpIEJyApQz5A2bHwAja41C2Q9CvT8+DvHrPiNAZNO1ZunV/QKUVj+wi9Zo9tEZfo+
-	QETGeCZJyv/ycrsjYV+kJVPgF7kwbV1Ck96mp+x8L8PZE1e0qk3FmUSswHgxo6c+Jukht6XbjKA+X
-	yvBBOR2g==;
+	bh=HmN9JxObA4xvYdzKmgQyZRITEA6xcEiwos+25gfx/CI=; b=uUGUOX0q7kGXi3JWtJieVG+DXJ
+	IQkBDliE3+YBwaZrSOgpJ/2unrtvRa4EEdnwpwd8R15TE2QNYnXcDvCFqr3Br1hiypiKtzVPWIE/O
+	Aleg9eyJCe3U0poMzLdSHwvnZXAzdiyQp8bHziagknFHz8noE8aeUKOY1dIs2j4l8ixuyjLvRIZ2u
+	SLN8aurP1BqekuqTMIGweOCxkTLRaqTcFpb+yFIsamNN2CzWiMUrm7314iINhr93aIe6idPZ3KWVd
+	DWWmuk+uDoNiuVO8NyVOO6GUWnz6Tk5QAG3cYGLwVQ3bZszIuKL/pUhBsVLo+gjy6Y66sgVEK46sB
+	PYJMorhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzard-00000002wem-0ho7;
-	Fri, 19 Sep 2025 13:09:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uzaxG-00000002xIA-25s8;
+	Fri, 19 Sep 2025 13:15:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzarZ-00000002wdd-3FpZ
+	id 1uzaxD-00000002xHM-1PfM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 13:09:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758287359;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ovqkR0UKdR/sN2rMZ/4i3G3rJU0T3m7HOdabe1r5GkM=;
-	b=GLvHzBcnf0FZk+0oelgD1iPjAUez4FXW5V5NCkkrvV98RdAO7V8Kg752fEaruIfNMEMp4P
-	i+6OBJm7VyPbBn2XC0EVDpDGwhWRmeZDvhVAsG3JhS36YreJIRZ7C6OaViPARUMO+GqO6N
-	WXjRaaUsUMvriVjv7l4yju1XgsmPmPo=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-247-joZf49grNg2aLsEvbpuVgw-1; Fri, 19 Sep 2025 09:09:18 -0400
-X-MC-Unique: joZf49grNg2aLsEvbpuVgw-1
-X-Mimecast-MFC-AGG-ID: joZf49grNg2aLsEvbpuVgw_1758287357
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-45f2a1660fcso19507955e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 06:09:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758287357; x=1758892157;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ovqkR0UKdR/sN2rMZ/4i3G3rJU0T3m7HOdabe1r5GkM=;
-        b=dMjn34vdgFVN2o/E8DytEuZlYWXwYys/pv5aL+kadZYTFnpOZ2e/yqe0on6CL6tobp
-         hdZct1J/wGvKybEbzAV1fSM+/9fqMMHkUtbvSZrpxJcLBJZOCDaLhs0Y7mP73V9yPNDe
-         NH7DGGfupQjLZvrTOZ9R7O2fmj08EI+f3xV9HQMqJlbEKSd601SiQoOIKmP+jZ4YiEWs
-         kGlQPjm0VneK50am2KXh5bqnq8LfCic2H1IfVDN9y9bQk1Tqx2syhuM/EAG5V0w4OXQP
-         E6+xdvHLhWUmf/QmwcUin1BxAW0QDMy60nIuTivp/Kxt3NU66/IfRCtg/Z6Zkkizav0U
-         G5+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXreeTzkgueBCUuBRoZpcps6d5R0wCuLhPw6PJIrfl2pA+O0mXLvB77esmfhEm5j7Ptk5ZbfPbFHJZ04nmcwK4C@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSfQMro0vjtnpJmAHlv9QTWj+cHxEnsLGsrW+qhBnjBuwg+mDu
-	Yiw5MGjzFByFmazEeyfhG/Xe2wDXK4pdtCQFnfRs//eisfCSkzbD2rU2xTlf9K5pxqkHxKkHbQZ
-	OakfY1Q2j8akuo58dYWiPjH6PeemxxaRPNSLG5MZ/4UfU21/QhFT6JfBjEbV6h9nVrmzJFvKxbl
-	0k
-X-Gm-Gg: ASbGncuhxZz2ZquqV10E2rli3W6Exd0RYKgJf4XVreVAO/xL2B3JYRp7JVwCCXujzub
-	t3KgdInKibzBn46db3/lBNk22KGnzA2pzNrC7mbIkMBASlU4yCLtY8C/UUkA0+6WuedSJURr6ai
-	0cTz9LJufi10GT8jX4OOSODjvmn44fzhUZR8hOv0fIHwVwtKIcWBj++NgcRh8Y9bXm/iOQHCggK
-	SFRg3bSjvm/U5CbNLfX9DXiRVnEy4krW8TMSIC0Le36dwkSOT9ugTd+qSmHKyeGJCtM4/7MJAe7
-	SHaiWxbzaLDW9z0FK2u0TH31qipZQRQF35QDdGPYxXOaNjzxJ7Yzzhz+uqw2p6qTR2ktquc8jlc
-	lkdNquqzO2F7lf3IRffTGtuRMW+9uK4/fXEuDZY0uUHP11gy7fl5GW2C9UoGJryXxbMLq
-X-Received: by 2002:a05:600c:4f52:b0:468:9798:2043 with SMTP id 5b1f17b1804b1-46961fce431mr17004625e9.26.1758287356782;
-        Fri, 19 Sep 2025 06:09:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG4GRr8aem06VfxNDntrn8WqDyw/HDHqGfVNfE4MfkYd1AhW83MBNY5XfwK4pa+JSgBQolhAA==
-X-Received: by 2002:a05:600c:4f52:b0:468:9798:2043 with SMTP id 5b1f17b1804b1-46961fce431mr17004045e9.26.1758287356216;
-        Fri, 19 Sep 2025 06:09:16 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f23:5600:727b:b2f6:94a1:a51b? (p200300d82f235600727bb2f694a1a51b.dip0.t-ipconnect.de. [2003:d8:2f23:5600:727b:b2f6:94a1:a51b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3f1549285c9sm1179821f8f.52.2025.09.19.06.09.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Sep 2025 06:09:15 -0700 (PDT)
-Message-ID: <ca2106a3-4bb2-4457-81af-301fd99fbef4@redhat.com>
-Date: Fri, 19 Sep 2025 15:09:13 +0200
+	Fri, 19 Sep 2025 13:15:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9EE840692;
+	Fri, 19 Sep 2025 13:15:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9595AC4CEF5;
+	Fri, 19 Sep 2025 13:15:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758287710;
+	bh=Cmxn3fZATVDtlwX0ps6wKhNYpLOvAlnoFm75vvlWuI4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MQ9M/SjTFizAJohHgPCjKHLfelcw3VeSF7tfXhYf90LTCSdR6/LunaP4aTyr7jnXD
+	 16GJ+o3uJ9sYCdwz1df70kylmLwl247SJzcStBA2mX/jNwBIA1GK5cjhHO+MGcQ9ul
+	 /0ULYfUvOxjgG8bWaACqeAc4ngfgCk/wsIpyYVzla7MhV6rPhjsWA4PaJcOd1zRev5
+	 ezjnBdgpys8weFY6R/88R57029I9GRpan/f/lNlRpGdplRFDxhnACBYBxmeZJRhBeA
+	 TXoV/C7M41g5eG+bmO7PkqHB55jzl1pSnND9by0yL0ruK4zInI+NeQGFX5XZxmbhL9
+	 IasXQoAv0QyOg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uzaxA-00000007mgb-1XEv;
+	Fri, 19 Sep 2025 13:15:08 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Jinqian Yang <yangjinqian1@huawei.com>
+Subject: Re: [PATCH v2 00/10] KVM: arm64: Handle effective RES0 behaviour of undefined registers
+Date: Fri, 19 Sep 2025 14:15:05 +0100
+Message-ID: <175828769331.1762384.11349194735754864168.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250918151402.1665315-1-maz@kernel.org>
+References: <20250918151402.1665315-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/6] mm: remap unused subpages to shared zeropage when
- splitting isolated thp
-To: Lance Yang <lance.yang@linux.dev>
-Cc: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "usamaarif642@gmail.com" <usamaarif642@gmail.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "yuzhao@google.com" <yuzhao@google.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "corbet@lwn.net" <corbet@lwn.net>,
- =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>,
- "npache@redhat.com" <npache@redhat.com>, "rppt@kernel.org"
- <rppt@kernel.org>, "willy@infradead.org" <willy@infradead.org>,
- "kernel-team@meta.com" <kernel-team@meta.com>,
- "roman.gushchin@linux.dev" <roman.gushchin@linux.dev>,
- "hannes@cmpxchg.org" <hannes@cmpxchg.org>,
- "cerasuolodomenico@gmail.com" <cerasuolodomenico@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "ryncsn@gmail.com" <ryncsn@gmail.com>, "surenb@google.com"
- <surenb@google.com>, "riel@surriel.com" <riel@surriel.com>,
- "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>,
- =?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?=
- <chinwen.chang@mediatek.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- =?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "baohua@kernel.org" <baohua@kernel.org>,
- "kaleshsingh@google.com" <kaleshsingh@google.com>,
- "zhais@google.com" <zhais@google.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20240830100438.3623486-1-usamaarif642@gmail.com>
- <20240830100438.3623486-3-usamaarif642@gmail.com>
- <a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com>
- <434c092b-0f19-47bf-a5fa-ea5b4b36c35e@redhat.com>
- <CABzRoyYWQMFTGYgfC7N=cWMnL_+5Y05=jrMhFjBf1aKOGxzq5g@mail.gmail.com>
- <ebedc478-7519-4e30-854e-f6616a7647b0@redhat.com>
- <120445c8-7250-42e0-ad6a-978020c8fad3@linux.dev>
- <9d2c3e3e-439d-4695-b7c9-21fa52f48ced@redhat.com>
- <4cf41cd5-e93a-412b-b209-4180bd2d4015@linux.dev>
- <dfb303b9-151b-49ec-b7ef-691c71bd5385@linux.dev>
- <9395a9ca-d865-42d7-9ea1-8e693e4e38e0@linux.dev>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <9395a9ca-d865-42d7-9ea1-8e693e4e38e0@linux.dev>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: W7WZi4zqN2yFqZxgmjLVY3daaoXFZcaOM6Oga5gkO4E_1758287357
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, yangjinqian1@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_060921_961908_A00F20D9 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20250919_061511_424639_F1221314 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,201 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.09.25 14:19, Lance Yang wrote:
-> Hey David,
+On Thu, 18 Sep 2025 16:13:52 +0100, Marc Zyngier wrote:
+> [After yesterday's blunder, I'm reposting this, with proper commit
+>  messages, and having taken Oliver's feedback into account.]
 > 
-> I believe I've found the exact reason why KSM skips MTE-tagged pages ;p
+> When a feature is removed from a guest, we ensure that the trap and
+> control bits for that particular feature are made RES0.
 > 
->>
->>
->> On 2025/9/19 16:14, Lance Yang wrote:
->>>
->>>
->>> On 2025/9/19 15:55, David Hildenbrand wrote:
->>>>>> I think where possible we really only want to identify problematic
->>>>>> (tagged) pages and skip them. And we should either look into fixing
->>>>>> KSM
->>>>>> as well or finding out why KSM is not affected.
->>>>>
->>>>> Yeah. Seems like we could introduce a new helper,
->>>>> folio_test_mte_tagged(struct
->>>>> folio *folio). By default, it would return false, and architectures
->>>>> like
->>>>> arm64
->>>>> can override it.
->>>>
->>>> If we add a new helper it should instead express the semantics that
->>>> we cannot deduplicate.
->>>
->>> Agreed.
->>>
->>>>
->>>> For THP, I recall that only some pages might be tagged. So likely we
->>>> want to check per page.
->>>
->>> Yes, a per-page check would be simpler.
->>>
->>>>
->>>>>
->>>>> Looking at the code, the PG_mte_tagged flag is not set for regular THP.
->>>>
->>>> I think it's supported for THP per page. Only for hugetlb we tag the
->>>> whole thing through the head page instead of individual pages.
->>>
->>> Right. That's exactly what I meant.
->>>
->>>>
->>>>> The MTE
->>>>> status actually comes from the VM_MTE flag in the VMA that maps it.
->>>>>
->>>>
->>>> During the rmap walk we could check the VMA flag, but there would be
->>>> no way to just stop the THP shrinker scanning this page early.
->>>>
->>>>> static inline bool folio_test_hugetlb_mte_tagged(struct folio *folio)
->>>>> {
->>>>>      bool ret = test_bit(PG_mte_tagged, &folio->flags.f);
->>>>>
->>>>>      VM_WARN_ON_ONCE(!folio_test_hugetlb(folio));
->>>>>
->>>>>      /*
->>>>>       * If the folio is tagged, ensure ordering with a likely subsequent
->>>>>       * read of the tags.
->>>>>       */
->>>>>      if (ret)
->>>>>          smp_rmb();
->>>>>      return ret;
->>>>> }
->>>>>
->>>>> static inline bool page_mte_tagged(struct page *page)
->>>>> {
->>>>>      bool ret = test_bit(PG_mte_tagged, &page->flags.f);
->>>>>
->>>>>      VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
->>>>>
->>>>>      /*
->>>>>       * If the page is tagged, ensure ordering with a likely subsequent
->>>>>       * read of the tags.
->>>>>       */
->>>>>      if (ret)
->>>>>          smp_rmb();
->>>>>      return ret;
->>>>> }
->>>>>
->>>>> contpte_set_ptes()
->>>>>      __set_ptes()
->>>>>          __set_ptes_anysz()
->>>>>              __sync_cache_and_tags()
->>>>>                  mte_sync_tags()
->>>>>                      set_page_mte_tagged()
->>>>>
->>>>> Then, having the THP shrinker skip any folios that are identified as
->>>>> MTE-tagged.
->>>>
->>>> Likely we should just do something like (maybe we want better naming)
->>>>
->>>> #ifndef page_is_mergable
->>>> #define page_is_mergable(page) (true)
->>>> #endif
->>>
->>>
->>> Maybe something like page_is_optimizable()? Just a thought ;p
->>>
->>>>
->>>> And for arm64 have it be
->>>>
->>>> #define page_is_mergable(page) (!page_mte_tagged(page))
->>>>
->>>>
->>>> And then do
->>>>
->>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->>>> index 1f0813b956436..1cac9093918d6 100644
->>>> --- a/mm/huge_memory.c
->>>> +++ b/mm/huge_memory.c
->>>> @@ -4251,7 +4251,8 @@ static bool thp_underused(struct folio *folio)
->>>>
->>>>           for (i = 0; i < folio_nr_pages(folio); i++) {
->>>>                   kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->>>> -               if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>>> +               if (page_is_mergable(folio_page(folio, i)) &&
->>>> +                   !memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>>>                           num_zero_pages++;
->>>>                           if (num_zero_pages >
->>>> khugepaged_max_ptes_none) {
->>>>                                   kunmap_local(kaddr);
->>>> diff --git a/mm/migrate.c b/mm/migrate.c
->>>> index 946253c398072..476a9a9091bd3 100644
->>>> --- a/mm/migrate.c
->>>> +++ b/mm/migrate.c
->>>> @@ -306,6 +306,8 @@ static bool try_to_map_unused_to_zeropage(struct
->>>> page_vma_mapped_walk *pvmw,
->>>>
->>>>           if (PageCompound(page))
->>>>                   return false;
->>>> +       if (!page_is_mergable(page))
->>>> +               return false;
->>>>           VM_BUG_ON_PAGE(!PageAnon(page), page);
->>>>           VM_BUG_ON_PAGE(!PageLocked(page), page);
->>>>           VM_BUG_ON_PAGE(pte_present(ptep_get(pvmw->pte)), page);
->>>
->>> Looks good to me!
->>>
->>>>
->>>>
->>>> For KSM, similarly just bail out early. But still wondering if this
->>>> is already checked
->>>> somehow for KSM.
->>>
->>> +1 I'm looking for a machine to test it on.
->>
->> Interestingly, it seems KSM is already skipping MTE-tagged pages. My test,
->> running on a v6.8.0 kernel inside QEMU (with MTE enabled), shows no merging
->> activity for those pages ...
+> For example, SCTLR2_EL2 contains a large number of bits. For any
+> feature FEAT_FOO that is controlled by a bit FOO in SCTLR2_EL2, we
+> make sure that SCTLR2_EL2.FOO is RES0 if FEAT_FOO is not visible to
+> the guest.
 > 
-> KSM's call to pages_identical() ultimately leads to memcmp_pages(). The
-> arm64 implementation of memcmp_pages() in arch/arm64/kernel/mte.c contains
-> a specific check that prevents merging in this case.
-> 
-> try_to_merge_one_page()
-> 	-> pages_identical()
-> 		-> !memcmp_pages() Fails!
-> 		-> replace_page()
-> 
-> 
-> int memcmp_pages(struct page *page1, struct page *page2)
-> {
-> 	char *addr1, *addr2;
-> 	int ret;
-> 
-> 	addr1 = page_address(page1);
-> 	addr2 = page_address(page2);
-> 	ret = memcmp(addr1, addr2, PAGE_SIZE);
-> 
-> 	if (!system_supports_mte() || ret)
-> 		return ret;
-> 
-> 	/*
-> 	 * If the page content is identical but at least one of the pages is
-> 	 * tagged, return non-zero to avoid KSM merging. If only one of the
-> 	 * pages is tagged, __set_ptes() may zero or change the tags of the
-> 	 * other page via mte_sync_tags().
-> 	 */
-> 	if (page_mte_tagged(page1) || page_mte_tagged(page2))
-> 		return addr1 != addr2;
-> 
-> 	return ret;
-> }
-> 
-> IIUC, if either page is MTE-tagged, memcmp_pages() intentionally returns
-> a non-zero value, which in turn causes pages_identical() to return false.
+> [...]
 
-Cool, so we should likely just use that then in the shrinker code. Can 
-you send a fix?
+Applied to next, thanks!
 
+[01/10] KVM: arm64: Remove duplicate FEAT_{SYSREG128,MTE2} descriptions
+        commit: c3b3bbd160d2014a638d40bda17909a0afd85d09
+[02/10] KVM: arm64: Add reg_feat_map_desc to describe full register dependency
+        commit: 559442afea8812814135ec6fa33bc62c9d09f5c4
+[03/10] KVM: arm64: Enforce absence of FEAT_FGT on FGT registers
+        commit: 7d3a4d048925d52e5511d82e479cbdcf7354aa7c
+[04/10] KVM: arm64: Enforce absence of FEAT_FGT2 on FGT2 registers
+        commit: 338a41e83c3dab81573ac33bc30f0f36bd29cd78
+[05/10] KVM: arm64: Enforce absence of FEAT_HCX on HCRX_EL2
+        commit: c99d62771f63116ffe54636980414fc74ab3471c
+[06/10] KVM: arm64: Convert HCR_EL2 RES0 handling to compute_reg_res0_bits()
+        commit: efe5406c55fb3203028507555c7da2bb417a397c
+[07/10] KVM: arm64: Enforce absence of FEAT_SCTLR2 on SCTLR2_EL{1,2}
+        commit: f89763efe86cc05f8465c7eea85a76183f218c56
+[08/10] KVM: arm64: Enforce absence of FEAT_TCR2 on TCR2_EL2
+        commit: 4870a8c1d18897681b6f6a50288d0b6dd5e21e24
+[09/10] KVM: arm64: Convert SCTLR_EL1 RES0 handling to compute_reg_res0_bits()
+        commit: d2a1d78ce5962b01500d09b15e2a854768552d44
+[10/10] KVM: arm64: Convert MDCR_EL2 RES0 handling to compute_reg_res0_bits()
+        commit: ac53365990a19e808fde2758074ee31be65d1015
+
+Cheers,
+
+	M.
 -- 
-Cheers
+Without deviation from the norm, progress is not possible.
 
-David / dhildenb
 
 
