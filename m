@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9C7CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AA4CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRT5Nwn2wzURoZ8UuGQ3v7ArypGDz4ExisVSnJCpO/Y=; b=kUtRYf+drjW46j/LVI0+B5+QDW
-	/gCT1e3rzv74d3MZqtm2Q6LXcqmIwQrv+PWRzaBPdwB/m7WT1UYuFWPnm6Tlj8JNewwruuB1c93uL
-	e9yzfTkGFqv0ZmzZUUW7q7xbWzWhEfHrL2lMNZ9BfM76B3/qW98lZPDvWUfiTVNPHeXfO5JBhBZlb
-	Nd9twJ6UXCA88o8YYFV33hszQ9FuphQdM38ivv9tXGrHBHm0AR4nIIa315+9lwsN+a5sE34T8yn9s
-	iO9RU57skKLQ8ie/stYGNF76WhcQZ2I5kDy2Bm07tAcrNfu6neSg4kPHVWtr8Vy/stIGQUYw/E2Ft
-	gxt4R9fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BPo4HjkMFgO39a+MX+hYeJ430OqD0Ci6r9lG3FvD/3g=; b=cr7ESqFD2BU7RwmqRoKFgy5J2u
+	UunpYCFz6UfA/OEkgVAA9Su/EhOjBzNm1UXNB/VyaPzn4IV56BQ6Cax/tm5O4GWr3u1DqgzzqSZsA
+	UrU6d2wy9Rl1ucFDOVReFj6+f4wJ6DwGhSvHIvRI20VUt/Ey+zRggP1USbUIShPMasz990Gy1SAbX
+	OSrN/J6HuILZY8e+jvLmD19Ep9QxoarO9CLgYDSrhzS/1fNpNgyHBenBLe69iYyAtHid/h4AWCPmt
+	l2o4lprbQNRWRgkdpFNRXUK6Oc3LuYcL23zjdENhauLR4d+Yh4rphUACwMBsN5SXRPtykE2JcWDIk
+	BkL9rZoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzc1H-000000037N9-25ZG;
-	Fri, 19 Sep 2025 14:23:27 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uzc4m-000000038lq-16fQ;
+	Fri, 19 Sep 2025 14:27:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzc1C-000000037He-3Sl3
+	id 1uzc4j-000000038kq-1fgl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 14:23:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758291802; x=1789827802;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qurIkcqttoZIUncvhRG2Ez96lBIE03pACZ8DNjCjo6Y=;
-  b=W5PlB0NxHRmuQ/KzAc4cEsfgifm58KyijYMYafbU5rM3PYFTw6S2UD/+
-   zdEjZtxX2Wf+pjtwQtZN6KWvfDscI6vOcNzOJlrdIJu3FeCrgk9x1vkDo
-   0kExCa9NHLcPrFEp3t5XftmyJk4vu/Ccxn0K95Aa+0MpfB9gAczbWHZgN
-   emA6nk4EqrtrtjInsYmI3WHe5wdFcUIl8XKo8v/7AUVuzzKepudDX65jI
-   RpTPdEqfK5VLUknRTqgPBulEBBIh5ODMrEFuO3mWzkP0VrwMTq+bNMVVh
-   UuWbWhE1TH0ZvNTjSH+AMozqIM03EwhP90LK5a4X7TQRGpamTOXeUEhoN
-   Q==;
-X-CSE-ConnectionGUID: JybeGcZkTJ+KqZUxcYOinw==
-X-CSE-MsgGUID: 4qBXFe4MTX2xEanG6m6MKA==
-X-IronPort-AV: E=Sophos;i="6.18,278,1751266800"; 
-   d="scan'208";a="52616540"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Sep 2025 07:23:20 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 19 Sep 2025 07:22:15 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 19 Sep 2025 07:22:10 -0700
-Message-ID: <775e175a-6699-4b7b-a997-3d142fdf64e4@microchip.com>
-Date: Fri, 19 Sep 2025 16:22:10 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-To: Arnd Bergmann <arnd@arndb.de>, Jason Gunthorpe <jgg@nvidia.com>
-CC: <ksummit@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-mips@vger.kernel.org>, <linux-mm@kvack.org>, <imx@lists.linux.dev>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Richard Weinberger
-	<richard@nod.at>, Lucas Stach <l.stach@pengutronix.de>, Linus Walleij
-	<linus.walleij@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ankur Arora <ankur.a.arora@oracle.com>, David Hildenbrand <david@redhat.com>,
-	Mike Rapoport <rppt@kernel.org>, Lorenzo Stoakes
-	<lorenzo.stoakes@oracle.com>, Matthew Wilcox <willy@infradead.org>, Andrew
- Morton <akpm@linux-foundation.org>, "Liam R. Howlett"
-	<Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Suren
- Baghdasaryan <surenb@google.com>, Ira Weiny <ira.weiny@intel.com>, Nishanth
- Menon <nm@ti.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, "Chester A. Unal"
-	<chester.a.unal@arinc9.com>, Sergio Paracuellos
-	<sergio.paracuellos@gmail.com>, Andreas Larsson <andreas@gaisler.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <20250917125951.GA1390993@nvidia.com>
- <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+	Fri, 19 Sep 2025 14:27:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 17611436F3;
+	Fri, 19 Sep 2025 14:27:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E457EC4CEF0;
+	Fri, 19 Sep 2025 14:27:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758292020;
+	bh=DzaesBYWo5gYh/9yDXkynFQps02fTLxsraKzoj6MxuQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FyfwT/sPaHbrPC7jbD8zPDjbtinrUavFc01JHGHsrlxGCYZoAk3dSlt4B0k98G19h
+	 AJlMwtio9XIyhS9She0XqcMPpy2eeO3ILXWoExq5W3V2v20TQg0yqOu32316RpOVIj
+	 MLZZSEmVVdPwuiqy0bvaGMa/RcyIQjlJb5ntvEbGbRNqJITbwgoD5ugdJdR1gHEcMW
+	 X/i8aI15ZTAu2CPiqVEbcxr+79xWF+6PZvLBdaLb/7OH8B1288oKt9U+Mo7OzJua0Y
+	 LjM+b8oxQ5dwOXVLYw4LGhSL5rVek0uHulZH+ENvwFpg/6nmN6HPd6aattPbgob+pB
+	 66ete9HqSaF+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1uzc4g-00000007nub-3U8t;
+	Fri, 19 Sep 2025 14:26:58 +0000
+Date: Fri, 19 Sep 2025 15:26:58 +0100
+Message-ID: <871po2zff1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: syzbot <syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com>
+Cc: catalin.marinas@arm.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	syzkaller-bugs@googlegroups.com,
+	will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [syzbot] [kvmarm?] kernel BUG in kvm_s2_put_page
+In-Reply-To: <68cd66b0.050a0220.139b6.000f.GAE@google.com>
+References: <68cd66b0.050a0220.139b6.000f.GAE@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com, catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_072323_103951_3615812E 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_072701_486836_6AAD88C9 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,14 +91,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 at 15:12, Arnd Bergmann wrote:
-> * Microchip SAM9x7 is the newest ARMv5 chip, clearly does
->    get kernel updates, and the only one I can think of with
->    DDR3 support, but seems to be limited to 256MB total memory.
+On Fri, 19 Sep 2025 15:20:32 +0100,
+syzbot <syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com> wrote:
+> 
+> Hello,
+> 
+> syzbot found the following issue on:
+> 
+> HEAD commit:    62e68218ab58 Merge branch kvm-arm64/nv-debug into kvmarm-m..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git next
+> console output: https://syzkaller.appspot.com/x/log.txt?x=1551cf62580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=1b1bafe30fc85201
+> dashboard link: https://syzkaller.appspot.com/bug?extid=c41f3ddb8299a30a98b5
+> compiler:       Debian clang version 20.1.8 (++20250708123704+0de59a293f7a-1~exp1~20250708003721.134), Debian LLD 20.1.8
+> userspace arch: arm64
+> 
+> Unfortunately, I don't have any reproducer for this issue yet.
+> 
+> Downloadable assets:
+> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/fa3fbcfdac58/non_bootable_disk-62e68218.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/99c4e665c20d/vmlinux-62e68218.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/4204d63db4b5/Image-62e68218.gz.xz
+> 
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+c41f3ddb8299a30a98b5@syzkaller.appspotmail.com
+> 
+> raw: 01ffea8000000000 ffffc1ffc0807c48 ffffc1ffc080a888 0000000000000000
+> raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+> page dumped because: VM_BUG_ON_PAGE(page_ref_count(page) == 0)
+> ------------[ cut here ]------------
+> kernel BUG at ./include/linux/mm.h:1036!
+> Internal error: Oops - BUG: 00000000f2000800 [#1]  SMP
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 4079 Comm: syz.1.200 Not tainted syzkaller #0 PREEMPT 
+> Hardware name: linux,dummy-virt (DT)
+> pstate: 60402009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : put_page_testzero include/linux/mm.h:1036 [inline]
+> pc : folio_put_testzero include/linux/mm.h:1042 [inline]
+> pc : folio_put include/linux/mm.h:1359 [inline]
+> pc : put_page include/linux/mm.h:1429 [inline]
+> pc : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
+> lr : put_page_testzero include/linux/mm.h:1036 [inline]
+> lr : folio_put_testzero include/linux/mm.h:1042 [inline]
+> lr : folio_put include/linux/mm.h:1359 [inline]
+> lr : put_page include/linux/mm.h:1429 [inline]
+> lr : kvm_s2_put_page+0x374/0x3a0 arch/arm64/kvm/mmu.c:264
 
-It is indeed.
-No difficulty on this part of the product line ;-)
+This is likely caused by the S2 refcounting issue that has just been
+reverted in Linus' tree, and that is not in the kvmarm/next branch.
 
-Best regards,
-   Nicolas
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
