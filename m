@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C14DCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22DBCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zHbJPSMvsOP78z6ga6RIVApIcxEDtPuEjALt245kp7Y=; b=BzvEZs8qBCnyYp6QGnJ93NN48l
-	cQSxzj3lTEXn9V/n+CfJgNIsSmKqvMyB8kKsFXm3XB4wpdepzGf6v3W8PdqKmWSthAPKVLS68xLaW
-	d4GOzJP9jMl60RaNa0EuMW+FzOC78y75A0sSlIKNHw3KjnAu01Cuvu8QvKwROlxnUnhEhR6zkoJDF
-	zyW2I1Pfj88IHcynXRW8ABK+D+2aAWEHLGyN4sx7BJLjQ0RH58TYMQ65NZAZ1tYUx6PUf6pg+UOYw
-	q/R3iMA8NJjUZww0lYFLYeDTbGjKt2YR0lmxeHHIpsW/JTLn9YXQnuk1JxKUOsKTn3HLnBdJNmvth
-	9nQ6dSGg==;
+	bh=U69708f7mSsMqQCr+4LRBSNq6xCHOUAXMDWo6aNN4/M=; b=I+2PY9tU7QCjBGrWPMOHUzSmwU
+	ddF/G3ibHLNS1sbA21sPIUx1I5i+WqtJLz80KaFdxNsdduRwcF8YX5m29H5a9KHHTBx/0lr79p1Cj
+	BEQX5GYQ5/oSu7VfStKxae5FPp19aXMZ/XDNBlZbxcybrfPGBgntM501koSy2nbJoDXZCuhUOfaQ8
+	9QSggiSFiTFHgWhkPWGVovvc5kyErrN+njCEkG7u6zO+sQi576wjxGD6a7+5lQLpmwfM+9tX5eUOz
+	BI4XLbrX9ToPZVEFWbSS7BM+1lqq1gkAhQEjxlOuw3JKjbIO5pH5rNRPMnUXkGg8q6UUss54nVkSY
+	ut/8DO/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdhY-00000003U5m-22D7;
-	Fri, 19 Sep 2025 16:11:12 +0000
+	id 1uzdhr-00000003UHc-0a4C;
+	Fri, 19 Sep 2025 16:11:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdhM-00000003TyU-3Suy
+	id 1uzdhY-00000003U5T-2MBA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 16:11:02 +0000
+	Fri, 19 Sep 2025 16:11:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2527C1C01;
-	Fri, 19 Sep 2025 09:10:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 482A91C01;
+	Fri, 19 Sep 2025 09:11:03 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0508C3F66E;
-	Fri, 19 Sep 2025 09:10:54 -0700 (PDT)
-Message-ID: <63203733-d997-4805-9412-1daa71d786fe@arm.com>
-Date: Fri, 19 Sep 2025 17:10:53 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A6B63F66E;
+	Fri, 19 Sep 2025 09:11:06 -0700 (PDT)
+Message-ID: <334e0e8b-3f30-48b7-896f-0b31111d2b41@arm.com>
+Date: Fri, 19 Sep 2025 17:11:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/29] ACPI / PPTT: Find cache level by cache-id
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v2 06/29] ACPI / MPAM: Parse the MPAM table
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-acpi@vger.kernel.org,
  D Scott Phillips OS <scott@os.amperecomputing.com>,
@@ -49,24 +49,24 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
  Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-4-james.morse@arm.com> <aMLqUCRHebgh8HqQ@lpieralisi>
+ <20250910204309.20751-7-james.morse@arm.com>
+ <20250911141726.00002f0c@huawei.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <aMLqUCRHebgh8HqQ@lpieralisi>
+In-Reply-To: <20250911141726.00002f0c@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_091100_974404_C3FAB532 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20250919_091112_725218_A3C463B1 
+X-CRM114-Status: GOOD (  59.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,126 +81,434 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Hi Jonathan,
 
-On 11/09/2025 16:27, Lorenzo Pieralisi wrote:
-> On Wed, Sep 10, 2025 at 08:42:43PM +0000, James Morse wrote:
->> The MPAM table identifies caches by id. The MPAM driver also wants to know
->> the cache level to determine if the platform is of the shape that can be
->> managed via resctrl. Cacheinfo has this information, but only for CPUs that
->> are online.
->>
->> Waiting for all CPUs to come online is a problem for platforms where
->> CPUs are brought online late by user-space.
->>
->> Add a helper that walks every possible cache, until it finds the one
->> identified by cache-id, then return the level.
-
->> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
->> index 7af7d62597df..c5f2a51d280b 100644
->> --- a/drivers/acpi/pptt.c
->> +++ b/drivers/acpi/pptt.c
->> @@ -904,3 +904,65 @@ void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
->>  				     entry->length);
->>  	}
->>  }
->> +
->> +/*
->> + * find_acpi_cache_level_from_id() - Get the level of the specified cache
->> + * @cache_id: The id field of the unified cache
->> + *
->> + * Determine the level relative to any CPU for the unified cache identified by
->> + * cache_id. This allows the property to be found even if the CPUs are offline.
->> + *
->> + * The returned level can be used to group unified caches that are peers.
->> + *
->> + * The PPTT table must be rev 3 or later,
+On 11/09/2025 14:17, Jonathan Cameron wrote:
+> On Wed, 10 Sep 2025 20:42:46 +0000
+> James Morse <james.morse@arm.com> wrote:
 > 
-> * The PPTT table must be rev 3 or later.
+>> Add code to parse the arm64 specific MPAM table, looking up the cache
+>> level from the PPTT and feeding the end result into the MPAM driver.
+>>
+>> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
+>> the MPAM driver with optional discovered data.
 
-Fixed,
+> A few comments inline.  Note I've more or less completely forgotten
+> what was discussed in RFC 1 so I might well be repeating stuff that
+> you replied to then.  Always a problem for me with big complex patch sets!
+
+No worries - I'll have forgotten too. If we can't work it out, it should have had a comment.
 
 
->> + *
->> + * If one CPUs L2 is shared with another as L3, this function will return
->> + * an unpredictable value.
->> + *
->> + * Return: -ENOENT if the PPTT doesn't exist, the revision isn't supported or
->> + * the cache cannot be found.
->> + * Otherwise returns a value which represents the level of the specified cache.
->> + */
->> +int find_acpi_cache_level_from_id(u32 cache_id)
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> new file mode 100644
+>> index 000000000000..fd9cfa143676
+>> --- /dev/null
+>> +++ b/drivers/acpi/arm64/mpam.c
+> 
+> 
+>> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+>> +				    struct acpi_mpam_resource_node *res)
 >> +{
->> +	u32 acpi_cpu_id;
->> +	int level, cpu, num_levels;
->> +	struct acpi_pptt_cache *cache;
->> +	struct acpi_table_header *table;
->> +	struct acpi_pptt_cache_v1 *cache_v1;
->> +	struct acpi_pptt_processor *cpu_node;
+>> +	int level, nid;
+>> +	u32 cache_id;
 >> +
->> +	table = acpi_get_pptt();
->> +	if (!table)
->> +		return -ENOENT;
->> +
->> +	if (table->revision < 3)
->> +		return -ENOENT;
->> +
->> +	for_each_possible_cpu(cpu) {
->> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
->> +		if (!cpu_node)
->> +			return -ENOENT;
-> 
-> Same comment as in another patch - don't think you want to stop parsing
-> here.
-
-Yes - this is me throwing my hands up in the air at a nonsense firmware table.
-'continue' would be a try harder approach.
-
-
->> +		num_levels = acpi_count_levels(table, cpu_node, NULL);
->> +
->> +		/* Start at 1 for L1 */
->> +		for (level = 1; level <= num_levels; level++) {
->> +			cache = acpi_find_cache_node(table, acpi_cpu_id,
->> +						     ACPI_PPTT_CACHE_TYPE_UNIFIED,
->> +						     level, &cpu_node);
->> +			if (!cache)
->> +				continue;
->> +
->> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
->> +						cache,
->> +						sizeof(struct acpi_pptt_cache));
->> +
->> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
->> +			    cache_v1->cache_id == cache_id)
->> +				return level;
+>> +	switch (res->locator_type) {
+>> +	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+>> +		cache_id = res->locator.cache_locator.cache_reference;
+>> +		level = find_acpi_cache_level_from_id(cache_id);
+>> +		if (level <= 0) {
+>> +			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
+>> +			return -EINVAL;
 >> +		}
+>> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+>> +				       level, cache_id);
+>> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
+>> +		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
+>> +		if (nid == NUMA_NO_NODE)
+>> +			nid = 0;
+>> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+>> +				       255, nid);
+>> +	default:
+>> +		/* These get discovered later and treated as unknown */
+> 
+> are treated?
+
+Sure,
+
+
+>> +		return 0;
+>> +	}
+>> +}
+> 
+>> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+>> +				     struct platform_device *pdev,
+>> +				     u32 *acpi_id)
+>> +{
+>> +	char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1];
+>> +	bool acpi_id_valid = false;
+>> +	struct acpi_device *buddy;
+>> +	char uid[11];
+>> +	int err;
+>> +
+>> +	memset(&hid, 0, sizeof(hid));
+> 
+>  = {}; above and skip the memset.
+
+Sure,
+
+
+>> +	memcpy(hid, &tbl_msc->hardware_id_linked_device,
+>> +	       sizeof(tbl_msc->hardware_id_linked_device));
+>> +
+>> +	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+>> +		*acpi_id = tbl_msc->instance_id_linked_device;
+>> +		acpi_id_valid = true;
 >> +	}
 >> +
->> +	return -ENOENT;
+>> +	err = snprintf(uid, sizeof(uid), "%u",
+>> +		       tbl_msc->instance_id_linked_device);
+>> +	if (err >= sizeof(uid)) {
+>> +		pr_debug("Failed to convert uid of device for power management.");
+>> +		return acpi_id_valid;
+>> +	}
+>> +
+>> +	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
+>> +	if (buddy)
+>> +		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
+>> +
+>> +	return acpi_id_valid;
 >> +}
+> 
+>> +
+>> +static int __init acpi_mpam_parse(void)
+>> +{
+>> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct property_entry props[4]; /* needs a sentinel */
+
+> Perhaps move this and res into the loop and use = {};
+
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	int next_res, next_prop, err = 0;
+>> +	struct acpi_device *companion;
+>> +	struct platform_device *pdev;
+>> +	enum mpam_msc_iface iface;
+>> +	struct resource res[3];
+> 
+> Add a comment here or a check later on why this is large enough.
+
+These two are now in the loop and look like this:
+| 		/* pcc, nrdy, affinity and a sentinel */
+| 		struct property_entry props[4] = { 0 };
+| 		/* mmio, 2xirq, no sentinel. */
+|		struct resource res[3] = { 0 };
+
+
+>> +	char uid[16];
+>> +	u32 acpi_id;
+>> +
+>> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
+>> +		return 0;
+>> +
+>> +	if (table->revision < 1)
+>> +		return 0;
+>> +
+>> +	table_end = (char *)table + table->length;
+>> +
+>> +	while (table_offset < table_end) {
+>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +		table_offset += tbl_msc->length;
+>> +
+>> +		if (table_offset > table_end) {
+>> +			pr_debug("MSC entry overlaps end of ACPI table\n");
+>> +			break;
+
+> That this isn't considered an error is a bit subtle and made me wonder
+> if there was a use of uninitialized pdev (there isn't because err == 0)
+
+Its somewhat a philosophical arguement. I don't expect the kernel to have to validate
+these tables, they're not provided by the user and there quickly becomes a point where
+you have to trust them, and they have to be correct.
+At the other extreme is the asusmption the table is line-noise and we should check
+everything to avoid out of bounds accesses. Dave wanted the diagnostic messages on these.
+
+As this is called from an initcall, the best you get is an inexplicable print message.
+(what should we say - update your firmware?)
+
+
+Silently failing in this code is always safe as the driver has a count of the number of
+MSC, and doesn't start accessing the hardware until its found them all.
+(this is because to find the system wide minimum value - and its not worth starting if
+ its not possible to finish).
+
+
+> Why not return here?
+
+Just because there was no other return in the loop, and I hate surprise returns.
+
+I'll change it if it avoids thinking about how that platform_device_put() gets skipped!
+
+
+> 
+>> +		}
+>> +
+>> +		/*
+>> +		 * If any of the reserved fields are set, make no attempt to
+>> +		 * parse the MSC structure. This MSC will still be counted,
+>> +		 * meaning the MPAM driver can't probe against all MSC, and
+>> +		 * will never be enabled. There is no way to enable it safely,
+>> +		 * because we cannot determine safe system-wide partid and pmg
+>> +		 * ranges in this situation.
+>> +		 */
+
+> This is decidedly paranoid. I'd normally expect the architecture to be based
+> on assumption that is fine for old software to ignore new fields.  ACPI itself
+> has fairly firm rules on this (though it goes wrong sometimes :)
+
+Yeah - the MPAM table isn't properly structured as subtables. I don't see how they are
+going to extend it if they need to.
+
+The paranoia is that anything set in these reserved fields probably indicates something
+the driver needs to know about: a case in point is the way PCC was added.
+
+I'd much prefer we skip creation of MSC devices that have properties we don't understand.
+acpi_mpam_count_msc() still counts them - which means the driver never finds all the MSC,
+and never touches the hardware.
+
+MPAM isn't a critical feature, its better that it be disabled than make things worse.
+(the same attitude holds with the response to the MPAM error interrupt - reset everything
+ and pack up shop. This is bettern than accidentally combining important/unimportant
+ tasks)
+
+
+> I'm guessing there is something out there that made this necessary though so
+> keep it if you actually need it.
+
+It's a paranoid/violent reaction to the way PCC was added - without something like this,
+that would have led to the OS trying to map the 0 page and poking around in it - never
+likely to go well.
+
+Doing this does let them pull another PCC without stable kernels going wrong.
+Ultimately I think they'll need to replace the table with one that is properly structured.
+For now - this is working with what we have.
+
+
+>> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
+>> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
+>> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
+>> +			continue;
+>> +		}
+>> +
+>> +		if (!tbl_msc->mmio_size) {
+>> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
+>> +			continue;
+>> +		}
+>> +
+>> +		if (decode_interface_type(tbl_msc, &iface)) {
+>> +			pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
+>> +			continue;
+>> +		}
+>> +
+>> +		next_res = 0;
+>> +		next_prop = 0;
+>> +		memset(res, 0, sizeof(res));
+>> +		memset(props, 0, sizeof(props));
+>> +
+>> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
+> 
+> https://lore.kernel.org/all/20241009124120.1124-13-shiju.jose@huawei.com/
+> was a proposal to add a DEFINE_FREE() to clean these up.  Might be worth a revisit.
+> Then Greg was against the use it was put to and asking for an example of where
+> it helped.  Maybe this is that example.
+> 
+> If you do want to do that, I'd factor out a bunch of the stuff here as a helper
+> so we can have the clean ownership pass of a return_ptr().  
+> Similar to what Shiju did here (this is the usecase for platform device that
+> Greg didn't like).
+> https://lore.kernel.org/all/20241009124120.1124-14-shiju.jose@huawei.com/
+> 
+> Even without that I think factoring some of this out and hence being able to
+> do returns on errors and put the if (err) into the loop would be a nice
+> improvement to readability.
+
+If you think its more readable I'll structure it like that.
+
+
+>> +		if (!pdev) {
+>> +			err = -ENOMEM;
+>> +			break;
+>> +		}
+>> +
+>> +		if (tbl_msc->length < sizeof(*tbl_msc)) {
+>> +			err = -EINVAL;
+>> +			break;
+>> +		}
+>> +
+>> +		/* Some power management is described in the namespace: */
+>> +		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
+>> +		if (err > 0 && err < sizeof(uid)) {
+>> +			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
+>> +			if (companion)
+>> +				ACPI_COMPANION_SET(&pdev->dev, companion);
+>> +			else
+>> +				pr_debug("MSC.%u: missing namespace entry\n", tbl_msc->identifier);
+>> +		}
+>> +
+>> +		if (iface == MPAM_IFACE_MMIO) {
+>> +			res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
+>> +							       tbl_msc->mmio_size,
+>> +							       "MPAM:MSC");
+>> +		} else if (iface == MPAM_IFACE_PCC) {
+>> +			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>> +								tbl_msc->base_address);
+>> +			next_prop++;
+> 
+> Why the double increment? Needs a comment if that is right thing to do.
+
+That's a bug.
+I'll add some WARN_ON() when these are consumed as per your earlier suggestion.
+
+
+>> +		}
+>> +
+>> +		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+>> +		err = platform_device_add_resources(pdev, res, next_res);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
+>> +							tbl_msc->max_nrdy_usec);
+>> +
+>> +		/*
+>> +		 * The MSC's CPU affinity is described via its linked power
+>> +		 * management device, but only if it points at a Processor or
+>> +		 * Processor Container.
+>> +		 */
+>> +		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
+>> +			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
+>> +								acpi_id);
+>> +		}
+>> +
+>> +		err = device_create_managed_software_node(&pdev->dev, props,
+>> +							  NULL);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		/* Come back later if you want the RIS too */
+>> +		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
+>> +		if (err)
+>> +			break;
+>> +
+>> +		err = platform_device_add(pdev);
+>> +		if (err)
+>> +			break;
+>> +	}
+>> +
+>> +	if (err)
+>> +		platform_device_put(pdev);
+>> +
+>> +	return err;
+>> +}
+>> +
+>> +int acpi_mpam_count_msc(void)
+>> +{
+>> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
+>> +	char *table_end, *table_offset = (char *)(table + 1);
+>> +	struct acpi_mpam_msc_node *tbl_msc;
+>> +	int count = 0;
+>> +
+>> +	if (IS_ERR(table))
+>> +		return 0;
+>> +
+>> +	if (table->revision < 1)
+>> +		return 0;
+>> +
+>> +	table_end = (char *)table + table->length;
+
+> Trivial so feel free to ignore.
+> Perhaps should aim for consistency.  Whilst I prefer pointers for this stuff
+> PPTT did use unsigned longs.
+
+I prefer the pointers, and as it's a separate file, I don't think it needs to be
+concistent with PPTT.
+
+
+>> +
+>> +	while (table_offset < table_end) {
+>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
+>> +		if (!tbl_msc->mmio_size)
+>> +			continue;
+>> +
+>> +		if (tbl_msc->length < sizeof(*tbl_msc))
+>> +			return -EINVAL;
+>> +		if (tbl_msc->length > table_end - table_offset)
+>> +			return -EINVAL;
+>> +		table_offset += tbl_msc->length;
+>> +
+>> +		count++;
+>> +	}
+>> +
+>> +	return count;
+>> +}
+>> +
+
+> Could reorder to put acpi_mpam_parse and this use of it together?
+
+mpam_msc_driver_init() calls this from subsys_initcall() to know whether its worth
+registering the driver at all. Even with that fixed, its still potentially racy: once the
+first MSC has been platform_device_add()ed, I figure the driver can probe against that,
+and needs to know if this first MSC was the last one.
+acpi_mpam_count_msc() needs to be safe to race with acpi_mpam_parse().
+
+This could be forced far enough away in time by only registering the driver after
+subsys_initcall_sync() has completed - but the list of dependencies on those is ugly
+enough as it is.
+
+I'll add a comment:
+/**
+ * acpi_mpam_count_msc() - Count the number of MSC described by firmware.
+ *
+ * Returns the number of of MSC, or zero for an error.
+ *
+ * This can be called before or in parallel with acpi_mpam_parse().
+ */
+
+
+>> +/*
+>> + * Call after ACPI devices have been created, which happens behind acpi_scan_init()
+>> + * called from subsys_initcall(). PCC requires the mailbox driver, which is
+>> + * initialised from postcore_initcall().
+>> + */
+>> +subsys_initcall_sync(acpi_mpam_parse);
+
 >> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
->> index f97a9ff678cc..5bdca5546697 100644
+>> index c5fd92cda487..af449964426b 100644
 >> --- a/include/linux/acpi.h
 >> +++ b/include/linux/acpi.h
->> @@ -1565,6 +1566,10 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
->>  }
->>  static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
->>  						     cpumask_t *cpus) { }
->> +static inline int find_acpi_cache_level_from_id(u32 cache_id)
+>> @@ -221,6 +222,17 @@ void acpi_reserve_initial_tables (void);
+>>  void acpi_table_init_complete (void);
+>>  int acpi_table_init (void);
+>>  
+>> +static inline struct acpi_table_header *acpi_get_table_ret(char *signature, u32 instance)
 >> +{
->> +	return -EINVAL;
+>> +	struct acpi_table_header *table;
+>> +	int status = acpi_get_table(signature, instance, &table);
+>> +
+>> +	if (ACPI_FAILURE(status))
+>> +		return ERR_PTR(-ENOENT);
+>> +	return table;
+>> +}
+>> +DEFINE_FREE(acpi_table, struct acpi_table_header *, if (!IS_ERR(_T)) acpi_put_table(_T))
 
-> return -ENOENT;
+> I'd use if (!IS_ERR_OR_NULL(_T)) not because it is functionally necessary but
+> because it will let the compiler optimize this out if it can tell that in a given
+> path _T is NULL (I think it was Peter Z who pointed this out in a similar interface
+> a while back).
 
-Yes, same bug as before. Fixed.
+Makes sense,
 
-
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-
-Thanks - I think the change to ignoring unified caches and searching all types is
-substantive enough that I won't pick this up because of the changes for v3...
+> I'd like an opinion from Rafael on this in general.
 
 
 
