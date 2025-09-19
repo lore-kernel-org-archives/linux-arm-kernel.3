@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874A2CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0B8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 12:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EiVKkL22YbljXIkdVcER9mqBNCLAbO3Otj7ELKVqmVE=; b=wnCMS707YAG+Az6bAyB6mU6k8b
-	hdU3ZuLlgW9wTS2cNF1LOgPfIi75j7HP1LsE0AWozvc4X7JIdnm1RhysB+nN3Q6vBpMYHhylsLMUw
-	UTbQmC7adYhy5oZMUL0sXNU7Xdp0vBA/q9BED279t9DbyZf2vMbzZjx+EFbiypv8lZjDVc77S/v1s
-	E5ArChJFr/memSJ7IyM0EvOcgifU8NQP1+XduQMECflcf2E21BIK0y+7ZiHNpSu4mfSUo7TjXfLOY
-	j992U2WL4dl0OfCOlT5ncWoSUI6F9JYPcbqN/F+IPSgzIYnDIMT13yIP5cwsL/TtWP1khbVLg4Lll
-	LHlvD9dg==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gN1SHadTytzDX2xnmPwJ+DG1JmBdmDMrYOUijkOrwgE=; b=zU2HF9wZjZc5XNiWrd0YdpMFfc
+	4jNIfTIQB1Wfjh52qIiHov2+kSgeYZBYuj14y8aNTKzTm8Vv/OyabA3hjG2DReFuNiWYoDdpaek+j
+	ZTcY/GP9VcaQU6HBDFIsM0936LmOwaS4CW0j+ucQVwMdUPh7X7uAcX4nQ6+JwytPeX7wmlHcW/dBa
+	iS858Wm5c8+yt9ozIW1qSEwDDIVI/7T10BIonyCNcJAhsbJcQ6bJwmfdbQ1VkKSanx7jjrfXIQ06y
+	Mne1CwYGUG43lZGrONCRE/Ti5u9WcTI/j0cQ+GDTnu4CDgHotKA1DEjr2IlamgdQwLI+/QmRMxiV9
+	n+ErjKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uza5d-00000002nvH-1pS1;
-	Fri, 19 Sep 2025 12:19:49 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1uza9I-00000002oWF-07wy;
+	Fri, 19 Sep 2025 12:23:36 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uza5b-00000002nts-1yjx
+	id 1uza9E-00000002oUr-478v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 12:19:48 +0000
-Message-ID: <9395a9ca-d865-42d7-9ea1-8e693e4e38e0@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758284374;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EiVKkL22YbljXIkdVcER9mqBNCLAbO3Otj7ELKVqmVE=;
-	b=M5wUJJhGOKGalv8K65cSpDEtiAkwo7VxeOJE3XDf7FsY3sXohsexAOis/J4GO681ypJuJ7
-	ZhDFcFD2GZhk7ws4vP0mQDNRFfEFOunPk2f12QPiFu5iraacdY/1DdY5A7jTeqrCyb5fxR
-	82ubdEbzh3Ym39f3zPHEqae0+2V302w=
-Date: Fri, 19 Sep 2025 20:19:25 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH v5 2/6] mm: remap unused subpages to shared zeropage when
- splitting isolated thp
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-To: David Hildenbrand <david@redhat.com>
-Cc: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "usamaarif642@gmail.com" <usamaarif642@gmail.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "yuzhao@google.com" <yuzhao@google.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "corbet@lwn.net" <corbet@lwn.net>,
- =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>,
- "npache@redhat.com" <npache@redhat.com>, "rppt@kernel.org"
- <rppt@kernel.org>, "willy@infradead.org" <willy@infradead.org>,
- "kernel-team@meta.com" <kernel-team@meta.com>,
- "roman.gushchin@linux.dev" <roman.gushchin@linux.dev>,
- "hannes@cmpxchg.org" <hannes@cmpxchg.org>,
- "cerasuolodomenico@gmail.com" <cerasuolodomenico@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "ryncsn@gmail.com" <ryncsn@gmail.com>, "surenb@google.com"
- <surenb@google.com>, "riel@surriel.com" <riel@surriel.com>,
- "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>,
- =?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?=
- <chinwen.chang@mediatek.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- =?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "baohua@kernel.org" <baohua@kernel.org>,
- "kaleshsingh@google.com" <kaleshsingh@google.com>,
- "zhais@google.com" <zhais@google.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20240830100438.3623486-1-usamaarif642@gmail.com>
- <20240830100438.3623486-3-usamaarif642@gmail.com>
- <a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com>
- <434c092b-0f19-47bf-a5fa-ea5b4b36c35e@redhat.com>
- <CABzRoyYWQMFTGYgfC7N=cWMnL_+5Y05=jrMhFjBf1aKOGxzq5g@mail.gmail.com>
- <ebedc478-7519-4e30-854e-f6616a7647b0@redhat.com>
- <120445c8-7250-42e0-ad6a-978020c8fad3@linux.dev>
- <9d2c3e3e-439d-4695-b7c9-21fa52f48ced@redhat.com>
- <4cf41cd5-e93a-412b-b209-4180bd2d4015@linux.dev>
- <dfb303b9-151b-49ec-b7ef-691c71bd5385@linux.dev>
-In-Reply-To: <dfb303b9-151b-49ec-b7ef-691c71bd5385@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	Fri, 19 Sep 2025 12:23:34 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45df7e734e0so23235035e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 05:23:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1758284610; x=1758889410; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gN1SHadTytzDX2xnmPwJ+DG1JmBdmDMrYOUijkOrwgE=;
+        b=s0sOAtyd8nRaOulgj3j5778r7riQbSKNTDw7Bd9MFKLllZ1ZYRMWBxrmTyL1hpkCSb
+         TKlaQYZ8mECOvf5Qo0ip9LuQ58U3r/IHUjAfHgPBYN3taC/FMad5yz3ja9C/Yw/68u4k
+         LfKWO6eL/j23wj/D5gNZysczpfIyB6RxpZrKtc6Ed89tiUpj+majGcbN8xgScgjf+Bmo
+         uzQkHPAVpzDKDg3vdyo3vPV8MDUruhuBG02DWfuMEswbeT7YWZl0REX9pqCpIVF545dM
+         gYd7nvU/7SpGXnZYvXoEaHroRgPnZTIxWQmkNTvHbvkz8+sDyCcb6qY1RBRHCtrvrrlZ
+         t03A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758284610; x=1758889410;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gN1SHadTytzDX2xnmPwJ+DG1JmBdmDMrYOUijkOrwgE=;
+        b=CbdwgyFQUIbIKJ1VWLY9+8sWwLX35aaw0yoew19h0AG4SLYC3L8rtJltCbMJTbc3Xc
+         bF6LwpeiFQ49OhSQrKuyBg3NGHHaPlcxPsSPljI9hlXhxSYeZ+P+TtBqJLjFYIEZJJO4
+         LYu8h+uvZppqbaU3lPpDAGaRfIhnqcu3kVIY1O+ZFjkVAwzaEbNG/CfjF6O3yRo0Ywh3
+         piwbT4RC/ewISnV48IbGOhrH+w5K5UgfRkwMlt+cvN5+jdA5opgnPOu9m444O9TbZYAB
+         dEpCbAF8aTPqXs+YcpCeeqdQBPCdPQ6Lh9P8kYEzoHbhYajs7xQkGfaaI2aV9Yc2JqqT
+         feSQ==
+X-Gm-Message-State: AOJu0Ywox9l1jjlxMPLxSvAH/tIByJ/jiLqzX28DpAZAS0/XazS+60x2
+	G7iSAF54NE0SwFs9YUOaAuXv3WPHpPCPfkCRmWoDd3D2DzDc8zO8ivTuu0ZklnTQIxlCknrkkHS
+	dcqhzI/BaWsFJp76tw3hVH3U6tVPlzhnvYLbmT6M8yk3W9PifDmARo2NbGFheOdsF4Z4ct2bzZL
+	eee0rGbslVStfODTM7oxYWlR0r0kCnHihtclFVwyw3BSn0Qn8kyrMgq2zS1nks
+X-Google-Smtp-Source: AGHT+IEQ2BelZBee6Xq8HqG6PdmZYpVVhUtJSdBsldDA1DgWhRzBiM7FdRccvX4b8xCNlWRnu3NYYRZNVwo+
+X-Received: from wmbay30.prod.google.com ([2002:a05:600c:1e1e:b0:45b:83ff:5274])
+ (user=abarnas job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b05:b0:45f:2cd5:507c
+ with SMTP id 5b1f17b1804b1-467ebda8e6emr25752215e9.36.1758284610250; Fri, 19
+ Sep 2025 05:23:30 -0700 (PDT)
+Date: Fri, 19 Sep 2025 12:23:19 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.534.gc79095c0ca-goog
+Message-ID: <20250919122321.946462-1-abarnas@google.com>
+Subject: [PATCH 0/2] arm64: modules: Reject loading of malformed modules
+From: "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Dylan Hatch <dylanbhatch@google.com>, 
+	Mark Rutland <mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_051947_656161_7E7B7223 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20250919_052333_043338_D8595272 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,194 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey David,
+Hi,
 
-I believe I've found the exact reason why KSM skips MTE-tagged pages ;p
+Here are a couple of patches to reject the loading of malformed modules
+on arm64 when the SCS patching is only partially applied or we detect
+an alternative callback function used in the module text.
 
-> 
-> 
-> On 2025/9/19 16:14, Lance Yang wrote:
->>
->>
->> On 2025/9/19 15:55, David Hildenbrand wrote:
->>>>> I think where possible we really only want to identify problematic
->>>>> (tagged) pages and skip them. And we should either look into fixing 
->>>>> KSM
->>>>> as well or finding out why KSM is not affected.
->>>>
->>>> Yeah. Seems like we could introduce a new helper,
->>>> folio_test_mte_tagged(struct
->>>> folio *folio). By default, it would return false, and architectures 
->>>> like
->>>> arm64
->>>> can override it.
->>>
->>> If we add a new helper it should instead express the semantics that 
->>> we cannot deduplicate.
->>
->> Agreed.
->>
->>>
->>> For THP, I recall that only some pages might be tagged. So likely we 
->>> want to check per page.
->>
->> Yes, a per-page check would be simpler.
->>
->>>
->>>>
->>>> Looking at the code, the PG_mte_tagged flag is not set for regular THP.
->>>
->>> I think it's supported for THP per page. Only for hugetlb we tag the 
->>> whole thing through the head page instead of individual pages.
->>
->> Right. That's exactly what I meant.
->>
->>>
->>>> The MTE
->>>> status actually comes from the VM_MTE flag in the VMA that maps it.
->>>>
->>>
->>> During the rmap walk we could check the VMA flag, but there would be 
->>> no way to just stop the THP shrinker scanning this page early.
->>>
->>>> static inline bool folio_test_hugetlb_mte_tagged(struct folio *folio)
->>>> {
->>>>     bool ret = test_bit(PG_mte_tagged, &folio->flags.f);
->>>>
->>>>     VM_WARN_ON_ONCE(!folio_test_hugetlb(folio));
->>>>
->>>>     /*
->>>>      * If the folio is tagged, ensure ordering with a likely subsequent
->>>>      * read of the tags.
->>>>      */
->>>>     if (ret)
->>>>         smp_rmb();
->>>>     return ret;
->>>> }
->>>>
->>>> static inline bool page_mte_tagged(struct page *page)
->>>> {
->>>>     bool ret = test_bit(PG_mte_tagged, &page->flags.f);
->>>>
->>>>     VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
->>>>
->>>>     /*
->>>>      * If the page is tagged, ensure ordering with a likely subsequent
->>>>      * read of the tags.
->>>>      */
->>>>     if (ret)
->>>>         smp_rmb();
->>>>     return ret;
->>>> }
->>>>
->>>> contpte_set_ptes()
->>>>     __set_ptes()
->>>>         __set_ptes_anysz()
->>>>             __sync_cache_and_tags()
->>>>                 mte_sync_tags()
->>>>                     set_page_mte_tagged()
->>>>
->>>> Then, having the THP shrinker skip any folios that are identified as
->>>> MTE-tagged.
->>>
->>> Likely we should just do something like (maybe we want better naming)
->>>
->>> #ifndef page_is_mergable
->>> #define page_is_mergable(page) (true)
->>> #endif
->>
->>
->> Maybe something like page_is_optimizable()? Just a thought ;p
->>
->>>
->>> And for arm64 have it be
->>>
->>> #define page_is_mergable(page) (!page_mte_tagged(page))
->>>
->>>
->>> And then do
->>>
->>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->>> index 1f0813b956436..1cac9093918d6 100644
->>> --- a/mm/huge_memory.c
->>> +++ b/mm/huge_memory.c
->>> @@ -4251,7 +4251,8 @@ static bool thp_underused(struct folio *folio)
->>>
->>>          for (i = 0; i < folio_nr_pages(folio); i++) {
->>>                  kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->>> -               if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>> +               if (page_is_mergable(folio_page(folio, i)) &&
->>> +                   !memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>>                          num_zero_pages++;
->>>                          if (num_zero_pages > 
->>> khugepaged_max_ptes_none) {
->>>                                  kunmap_local(kaddr);
->>> diff --git a/mm/migrate.c b/mm/migrate.c
->>> index 946253c398072..476a9a9091bd3 100644
->>> --- a/mm/migrate.c
->>> +++ b/mm/migrate.c
->>> @@ -306,6 +306,8 @@ static bool try_to_map_unused_to_zeropage(struct 
->>> page_vma_mapped_walk *pvmw,
->>>
->>>          if (PageCompound(page))
->>>                  return false;
->>> +       if (!page_is_mergable(page))
->>> +               return false;
->>>          VM_BUG_ON_PAGE(!PageAnon(page), page);
->>>          VM_BUG_ON_PAGE(!PageLocked(page), page);
->>>          VM_BUG_ON_PAGE(pte_present(ptep_get(pvmw->pte)), page);
->>
->> Looks good to me!
->>
->>>
->>>
->>> For KSM, similarly just bail out early. But still wondering if this 
->>> is already checked
->>> somehow for KSM.
->>
->> +1 I'm looking for a machine to test it on.
-> 
-> Interestingly, it seems KSM is already skipping MTE-tagged pages. My test,
-> running on a v6.8.0 kernel inside QEMU (with MTE enabled), shows no merging
-> activity for those pages ...
+The SCS issue is largely theoretical. The code currently performs
+a "dry-run" (which we remove), and leave module code as-is if failed.
+However the latter issue was reported to crash the kernel at [1].
 
-KSM's call to pages_identical() ultimately leads to memcmp_pages(). The
-arm64 implementation of memcmp_pages() in arch/arm64/kernel/mte.c contains
-a specific check that prevents merging in this case.
+Patches based on v6.17-rc1.
 
-try_to_merge_one_page()
-	-> pages_identical()
-		-> !memcmp_pages() Fails!
-		-> replace_page()
+Thanks,
+Adrian
 
+[1] https://lore.kernel.org/all/20250807072700.348514-1-fanqincui@163.com/
 
-int memcmp_pages(struct page *page1, struct page *page2)
-{
-	char *addr1, *addr2;
-	int ret;
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Dylan Hatch <dylanbhatch@google.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
 
-	addr1 = page_address(page1);
-	addr2 = page_address(page2);
-	ret = memcmp(addr1, addr2, PAGE_SIZE);
+Adrian Barna=C5=9B (2):
+  arch: arm64: Fail module loading if dynamic SCS patching fails
+  arch: arm64: Reject modules with internal alternative callbacks
 
-	if (!system_supports_mte() || ret)
-		return ret;
+ arch/arm64/include/asm/alternative.h |  4 ++--
+ arch/arm64/include/asm/scs.h         |  2 +-
+ arch/arm64/kernel/alternative.c      | 15 ++++++++++-----
+ arch/arm64/kernel/module.c           | 14 ++++++++++----
+ arch/arm64/kernel/pi/map_kernel.c    |  2 +-
+ arch/arm64/kernel/pi/patch-scs.c     | 15 +++++++++++----
+ arch/arm64/kernel/pi/pi.h            |  2 +-
+ 7 files changed, 36 insertions(+), 18 deletions(-)
 
-	/*
-	 * If the page content is identical but at least one of the pages is
-	 * tagged, return non-zero to avoid KSM merging. If only one of the
-	 * pages is tagged, __set_ptes() may zero or change the tags of the
-	 * other page via mte_sync_tags().
-	 */
-	if (page_mte_tagged(page1) || page_mte_tagged(page2))
-		return addr1 != addr2;
+--=20
+2.51.0.534.gc79095c0ca-goog
 
-	return ret;
-}
-
-IIUC, if either page is MTE-tagged, memcmp_pages() intentionally returns
-a non-zero value, which in turn causes pages_identical() to return false.
-
-Cheers,
-Lance
 
