@@ -4,80 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C391BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 21:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C10CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 21:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s92tP4t5WFXZr2GKT9tyo2yphzIt1odXMwCHBG052no=; b=r7q0vVRTILugLGUmV/6mL+ltIa
-	cgzSZytjdRgM/Ta+C3VLq9NI6XfpG1A66XOJF7i3r9ONE/uFEeOZq2IiTx0tVB92LRHhMbfK7JlPx
-	4x0uwjHEKq19Dd6XWPDt58SvfEGPc8kDlK6UhhZXTZ8qJ8K1tTeZbaLvLFLHRbdNrmnwhUQBPSlNl
-	qVFUrAtnVX64hzENhIfxP3h3aA4cJgvLHf/yvwM3A2pl0nik1oScIdeAlUH8dPWxXGCLZI7taMU+R
-	HB5QOFP/It0o8gXiRxIwdndHnAxrszY35iuV7U/pmVkCMHgBHionzF/uaDWqU6KLLOLqe6n+XHNmG
-	pQwNpxew==;
+	bh=/ZQDb9So2gKQ/FkPvqKAWsxEXamgfK1EXFZjJht5XQI=; b=LhSYLBtAUlW40uyjqX4sz6mDTQ
+	cbQWMiDvmHatKI28iH+EfrLx66Ufdq99dVE+x7egvDrYHnHYccxxk2S/JDvJcYfBdIq3ghniMzyep
+	z6R0Pd8wTaF8M6NUcDTm918CNsHfeKxNsEisgd4a1cmO7SwQBTjwhekgojfnFsHAgCzm6buTaYPRe
+	x19E3OsXvrPrbA0+s4sAbHT889QXl8w9rGJK/i7dUefdcFi8gdutVUeUo2gDqDPXq80iQBF7x4eTN
+	rkS4ATANDhqW+vhAIyHUVXqpZjJIENuohtQyAlkCdDbUoiqoDj6kgfeB+vs2YqfkaiDw3rw4Mkie+
+	XLUSvwtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uziWS-000000044kj-42Eg;
-	Fri, 19 Sep 2025 21:20:04 +0000
-Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
+	id 1uzieB-000000045Ob-0151;
+	Fri, 19 Sep 2025 21:28:03 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uziWP-000000044jT-42fN
+	id 1uzie8-000000045NY-3Hm5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 21:20:03 +0000
-Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-4248b320541so3137795ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 14:20:01 -0700 (PDT)
+	Fri, 19 Sep 2025 21:28:02 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b47174b335bso310327a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 14:28:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1758316800; x=1758921600; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=s92tP4t5WFXZr2GKT9tyo2yphzIt1odXMwCHBG052no=;
-        b=QWy8LInPVyDLQVhGK1FKTtlEHi51Bz8+LExs67EUGwMY8LNlxm113EkFyX0uGMtZxo
-         Da2dRM+KwgMnMalk7/kSS6qfVlCRE9jwjCf4BY6CWHl/YoI6kxs93rROPljj0pXZpH9W
-         K58U0e2Wc0meeD7OBqh5OyM/c08GEXZ/HxuN/6e0bMie2u/md5YfPtagAXg77RemuDsi
-         wfHlPsZBsuPFlDZMM+yTeH+9EB/m72qWfXpz5X4eqo41W5C+DyqUsHZiqs7ROlWUnjWl
-         ZlOnPc5qdTvOnIrVMS4C/tlPddyBwOVmt71vbvAwRHa03HKu2k0Bt60dpX+B2Rov3jNi
-         8OXQ==
+        d=osandov-com.20230601.gappssmtp.com; s=20230601; t=1758317280; x=1758922080; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ZQDb9So2gKQ/FkPvqKAWsxEXamgfK1EXFZjJht5XQI=;
+        b=t7aIRkgRXNYN9LrKQD5+Zh/qFhEonP04a0Zzvo+QFWBCn59b218m6gCgQr/Ass8ylq
+         pU7RtzJ2MDrKYNayv0hkmNcTjNAKYAkIr9GTxCdS0U6US95ipXRy2DKBcIc0N8x9uLgE
+         5jRwH2vvfVYQkeGWNOWm9FrrczVtkUSMyZsbPcTAdTYYZwkOBnwl9l9LhLSSpEHsOzDw
+         94iGvj+m/88d82o0ox08qMXG8YS6Ga04QnR13JzeTRFJF6y2Yosg15cDjZKjO3WfxdYj
+         zFHoQacTYedifhmRczu94n6Qey6C9iOzNWFUvP8X8pDbbU8yLpXj9CpICcWC2fcwRxI4
+         nspA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758316800; x=1758921600;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=s92tP4t5WFXZr2GKT9tyo2yphzIt1odXMwCHBG052no=;
-        b=eSRvr0jPdZjiHoHuy1JxEkDh3IITiCRP6tM94uLI7tnBpD1u99WooKCrwKXsoEdVJw
-         d4naEfyhlfE95whi8C1H0gYwHxO/+6BnnZY7+lazO0NZ9RaUfWw3kyRrPb4ptvg1OuS7
-         wd6T2BcT9P9nIzFH+Cky9YyEbVMtj7Phg9ZRMWcgMI/bn0b/m0d1/oDF+9EUEQRrrzxP
-         5fTR2Ioqz+Sz5LQx8IC/Bixp0cFqYUdngWyLKCvWgTzVtSYjTvPpW0NlTmD5/jBYktop
-         7uKwvtrayKOg6p9kwyPLemOzTrgHe5KlmiYuZ8UnrqUWdkbvmW1ZjPjPKvwijEWgjiO9
-         pkcw==
-X-Forwarded-Encrypted: i=1; AJvYcCXnu9+fHfaUWypSPxqpJ0r8+kRgKRwKhggtqjEgiBFvVuFKL1huD/gEeWAcxidhsT34hGhpWIJ3sEmwKTcWoqcV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG5BkJ177YdQLlbh2LxIlXR4kn7iJ7BLGCQNIXoXT1Om8E+E85
-	c/6rljOjj10th9oCqWMrZal0W/Ag8JB/ubXetTV55CPe6GTT/sAMzZ1Sks7GID2NMAo=
-X-Gm-Gg: ASbGncuCDTLOd8nXriJsRYQOXyTUBeCtHEMVGeMLN8I9e7CCdHNlFeTr9toEKvo2rv/
-	5w58ewm5cZDla2x6vjrmSmGVSBU59W/QjKj1p6JWue/JNgX1BO8jGT+C5RpjkvjoQsPyrazaw5O
-	ouA5VrdVTMKvj1QYOEy/e+DZd2X+WiNn26OfDoVPzlmd87/qgmcmolFYyTaKNlo8xhzvAGWRU9P
-	5S4fGhT14sD7NJXXDxCubsxrtsidxEoGseh/GX76Tt7OJ0D6nhTZOWat241f/vPI1pFgOnJQuaX
-	U/bfwgWt5dQI0Z8rX5+IPp6QtO3ZmMYJWGWEY5aJl3qYtN9nGgv3WUlv4xNCoPaXj7kGpUyXydF
-	a+ighpbi6haMzBfJeOmJbWdFqjNbVir681jUxz4kqGHkGO/U5Qzv2OfuZLA==
-X-Google-Smtp-Source: AGHT+IGsqsYnhTXUsNgx0wZHnvpKnyrcoUJXU5jyFCHL/FXVHe31eOcLv4p90MIR2Gxa352P4Ejr1Q==
-X-Received: by 2002:a05:6e02:4813:b0:424:8650:17ba with SMTP id e9e14a558f8ab-424865019f7mr47008285ab.27.1758316800610;
-        Fri, 19 Sep 2025 14:20:00 -0700 (PDT)
-Received: from localhost (static-23-234-83-233.cust.tzulo.com. [23.234.83.233])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-53d56e41e3csm2599947173.71.2025.09.19.14.19.59
+        d=1e100.net; s=20230601; t=1758317280; x=1758922080;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/ZQDb9So2gKQ/FkPvqKAWsxEXamgfK1EXFZjJht5XQI=;
+        b=E40HtlDgmcErVPzSpYU9IfygzFGfmkcPGkxWnrDLp/8PkV8LnWLgynkK5+UtndO8im
+         vCpJCJaMbxi8R2EvkZQbotztirVaIxXFeNrlCCiU0qyhz+mpK5v5RcBwBde6btZbLtOY
+         vlWvt7VskDx3WHf/F8YPuhNbPkJNssWZVijC2zFTTP46gKp8Vfwcdv1x5bscwnZAyra3
+         hY79CFqxgBYlwCUt8oG2V7CkUILfi30SYnuxGv9F9hWaNmJP3VTU4nOvWnlhEYaSPEbQ
+         gSfZIx6R344vu52Do2Y3ci1NWmiDIsyKNJIJox8Qyry6dl9OyM/KYeYTXe+yr2JzShOp
+         ANEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGV+s5E4sNXUiwp3lwuNA+ebmGDlAvDM/Z3keojE0zVvvf1gdH+ER9CwTbHGskDqmAD3+g/olPtZ9gJzolNs1X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6CXIj9+r3ClrNrog1MDAjBlq5hx/u67UN65ItswO4lBMMenrG
+	8bmeTPEUnwyRrQdbv7YI8SmGVGXMGHyoVf0iA6me5xtZdkI52Dg/13G2hUTcP0dOEAA=
+X-Gm-Gg: ASbGncvSnw8IpSjMEnZp3Cr/1gn3lsCzfFFa6BzjEsKfPxKf/P5VjOMdh/QA03+AFXa
+	2+ai1xa+ShoP6J+btBQoo4+mlkq1HHmNouLunCtWkFkHFuCpsj+iLICkl6c5XYYx9QIwy2onWI9
+	0VcDHOVDEZ8MOpOCKLsWSFV4rgiG7jtwZaVBTDrw1fA6ggzD5OH/UfBH2u3JpZ/xuQSJM6d18Nw
+	zUeTFfBMzrhtSeRMtGiwSjukh7v3LBV5CPu/CRNMYv9yfwRw/yiSNuxRrtvkXSrtrqz0nZXKZnl
+	f0+Sza73hyOaIpxa7NhqQq7JlvUHWCPH9qp/gVirJi/IqiAk5UW6UiBMxcZC82RzwDQk2/cfdc4
+	EBvSRssmxSIQQUxWak5V4v7DnMjc=
+X-Google-Smtp-Source: AGHT+IFrLc3vg7pW3fKZ2PwyEo2/VqlPtOfTzZE+fhi6HGHFBrj8XYf3MbD8MvcP68Gv9K7iWYq3MA==
+X-Received: by 2002:a17:90b:4a46:b0:330:944e:4814 with SMTP id 98e67ed59e1d1-330983587e1mr3504387a91.5.1758317279731;
+        Fri, 19 Sep 2025 14:27:59 -0700 (PDT)
+Received: from telecaster.thefacebook.com ([2620:10d:c090:500::6:e352])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-330654bf948sm3247297a91.0.2025.09.19.14.27.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Sep 2025 14:20:00 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: soc@kernel.org
-Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: dts: ti: omap updates for v6.18
-Date: Fri, 19 Sep 2025 14:19:59 -0700
-Message-ID: <7hbjn6p2bk.fsf@baylibre.com>
+        Fri, 19 Sep 2025 14:27:59 -0700 (PDT)
+From: Omar Sandoval <osandov@osandov.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-debuggers@vger.kernel.org,
+	kernel-team@fb.com
+Subject: [PATCH v2] arm64: map [_text, _stext) virtual address range non-executable+read-only
+Date: Fri, 19 Sep 2025 14:27:51 -0700
+Message-ID: <93a6f8e47cce118493e250b719a927f517be12cf.1758316750.git.osandov@osandov.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_142002_011514_869FC63B 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250919_142800_837235_D194D708 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,51 +97,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
+From: Omar Sandoval <osandov@fb.com>
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+Since the referenced fixes commit, the kernel's .text section is only
+mapped starting from _stext; the region [_text, _stext) is omitted. As a
+result, other vmalloc/vmap allocations may use the virtual addresses
+nominally in the range [_text, _stext). This address reuse confuses
+multiple things:
 
-are available in the Git repository at:
+1. crash_prepare_elf64_headers() sets up a segment in /proc/vmcore
+   mapping the entire range [_text, _end) to
+   [__pa_symbol(_text), __pa_symbol(_end)). Reading an address in
+   [_text, _stext) from /proc/vmcore therefore gives the incorrect
+   result.
+2. Tools doing symbolization (either by reading /proc/kallsyms or based
+   on the vmlinux ELF file) will incorrectly identify vmalloc/vmap
+   allocations in [_text, _stext) as kernel symbols.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.18/dt-signed
+In practice, both of these issues affect the drgn debugger.
+Specifically, there were cases where the vmap IRQ stacks for some CPUs
+were allocated in [_text, _stext). As a result, drgn could not get the
+stack trace for a crash in an IRQ handler because the core dump
+contained invalid data for the IRQ stack address. The stack addresses
+were also symbolized as being in the _text symbol.
 
-for you to fetch changes up to 27322753c8b913fba05250e7b5abb1da31e6ed23:
+Fix this by bringing back the mapping of [_text, _stext), but now make
+it non-executable and read-only. This prevents other allocations from
+using it while still achieving the original goal of not mapping
+unpredictable data as executable. Other than the changed protection,
+this is effectively a revert of the fixes commit.
 
-  ARM: dts: omap: am335x-cm-t335: Remove unused mcasp num-serializer property (2025-09-05 14:37:57 -0700)
+Fixes: e2a073dde921 ("arm64: omit [_text, _stext) from permanent kernel mapping")
+Cc: stable@vger.kernel.org
+Signed-off-by: Omar Sandoval <osandov@fb.com>
+---
+Hi,
 
-----------------------------------------------------------------
-ARM: dts: ti: omap updates for v6.18
+We're working on our AArch64 stack tracing reliability in drgn [1], so I
+finally got back around to this patch from March [2]. I reworked it as
+Will suggested to map the range non-executable instead of leaving it
+unmapped.
 
-----------------------------------------------------------------
-Bruno Thomsen (1):
-      ARM: dts: am33xx-l4: fix UART compatible
+1: https://github.com/osandov/drgn/pull/547
+2: https://lore.kernel.org/all/ec2d02358eee53f095ad9a7d9c96af8f4d0d4eeb.1741636880.git.osandov@osandov.com/
 
-Jihed Chaibi (3):
-      ARM: dts: ti: omap: am335x-baltos: Fix ti,en-ck32k-xtal property in DTS to use correct boolean syntax
-      ARM: dts: ti: omap: omap3-devkit8000-lcd: Fix ti,keep-vref-on property to use correct boolean syntax in DTS
-      ARM: dts: omap: am335x-cm-t335: Remove unused mcasp num-serializer property
+Based on v6.17-rc6.
 
-Krzysztof Kozlowski (4):
-      ARM: dts: ti: omap4: Use generic "ethernet" as node name
-      ARM: dts: omap: dm814x: Split 'reg' per entry
-      ARM: dts: omap: dm816x: Split 'reg' per entry
-      ARM: dts: omap: Minor whitespace cleanup
+Thanks!
 
- arch/arm/boot/dts/ti/omap/am335x-baltos.dtsi               |  2 +-
- arch/arm/boot/dts/ti/omap/am335x-cm-t335.dts               |  2 --
- arch/arm/boot/dts/ti/omap/am335x-myirtech-myd.dts          |  4 ++--
- arch/arm/boot/dts/ti/omap/am335x-sl50.dts                  |  2 +-
- arch/arm/boot/dts/ti/omap/am33xx-l4.dtsi                   | 20 ++++++++++----------
- arch/arm/boot/dts/ti/omap/am33xx.dtsi                      |  8 ++++----
- arch/arm/boot/dts/ti/omap/am57xx-beagle-x15-common.dtsi    |  2 +-
- arch/arm/boot/dts/ti/omap/dm814x.dtsi                      |  8 ++++----
- arch/arm/boot/dts/ti/omap/dm816x.dtsi                      |  8 ++++----
- arch/arm/boot/dts/ti/omap/dra7-l4.dtsi                     | 14 +++++++-------
- arch/arm/boot/dts/ti/omap/dra71-evm.dts                    | 16 ++++++++--------
- arch/arm/boot/dts/ti/omap/omap3-devkit8000-common.dtsi     |  4 ++--
- arch/arm/boot/dts/ti/omap/omap3-devkit8000-lcd-common.dtsi |  2 +-
- arch/arm/boot/dts/ti/omap/omap3-sbc-t3517.dts              |  4 ++--
- arch/arm/boot/dts/ti/omap/omap4-sdp.dts                    |  2 +-
- arch/arm/boot/dts/ti/omap/omap4-var-om44customboard.dtsi   |  2 +-
- 16 files changed, 49 insertions(+), 51 deletions(-)
+ arch/arm64/kernel/pi/map_kernel.c |  6 ++++++
+ arch/arm64/kernel/setup.c         |  4 ++--
+ arch/arm64/mm/init.c              |  2 +-
+ arch/arm64/mm/mmu.c               | 14 +++++++++-----
+ 4 files changed, 18 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index 0f4bd7771859..a8d76d0354da 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -78,6 +78,12 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_offset, int root_level)
+ 	twopass |= enable_scs;
+ 	prot = twopass ? data_prot : text_prot;
+ 
++	/*
++	 * [_stext, _text) isn't executed after boot and contains some
++	 * non-executable, unpredictable data, so map it non-executable.
++	 */
++	map_segment(init_pg_dir, &pgdp, va_offset, _text, _stext, data_prot,
++		    false, root_level);
+ 	map_segment(init_pg_dir, &pgdp, va_offset, _stext, _etext, prot,
+ 		    !twopass, root_level);
+ 	map_segment(init_pg_dir, &pgdp, va_offset, __start_rodata,
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 77c7926a4df6..23c05dc7a8f2 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -214,7 +214,7 @@ static void __init request_standard_resources(void)
+ 	unsigned long i = 0;
+ 	size_t res_size;
+ 
+-	kernel_code.start   = __pa_symbol(_stext);
++	kernel_code.start   = __pa_symbol(_text);
+ 	kernel_code.end     = __pa_symbol(__init_begin - 1);
+ 	kernel_data.start   = __pa_symbol(_sdata);
+ 	kernel_data.end     = __pa_symbol(_end - 1);
+@@ -280,7 +280,7 @@ u64 cpu_logical_map(unsigned int cpu)
+ 
+ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ {
+-	setup_initial_init_mm(_stext, _etext, _edata, _end);
++	setup_initial_init_mm(_text, _etext, _edata, _end);
+ 
+ 	*cmdline_p = boot_command_line;
+ 
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index ea84a61ed508..0dd558613bd7 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -279,7 +279,7 @@ void __init arm64_memblock_init(void)
+ 	 * Register the kernel text, kernel data, initrd, and initial
+ 	 * pagetables with memblock.
+ 	 */
+-	memblock_reserve(__pa_symbol(_stext), _end - _stext);
++	memblock_reserve(__pa_symbol(_text), _end - _text);
+ 	if (IS_ENABLED(CONFIG_BLK_DEV_INITRD) && phys_initrd_size) {
+ 		/* the generic initrd code expects virtual addresses */
+ 		initrd_start = __phys_to_virt(phys_initrd_start);
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 183801520740..324b96e3632c 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -574,8 +574,8 @@ void __init mark_linear_text_alias_ro(void)
+ 	/*
+ 	 * Remove the write permissions from the linear alias of .text/.rodata
+ 	 */
+-	update_mapping_prot(__pa_symbol(_stext), (unsigned long)lm_alias(_stext),
+-			    (unsigned long)__init_begin - (unsigned long)_stext,
++	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
++			    (unsigned long)__init_begin - (unsigned long)_text,
+ 			    PAGE_KERNEL_RO);
+ }
+ 
+@@ -636,7 +636,7 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
+ static void __init map_mem(pgd_t *pgdp)
+ {
+ 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+-	phys_addr_t kernel_start = __pa_symbol(_stext);
++	phys_addr_t kernel_start = __pa_symbol(_text);
+ 	phys_addr_t kernel_end = __pa_symbol(__init_begin);
+ 	phys_addr_t start, end;
+ 	phys_addr_t early_kfence_pool;
+@@ -683,7 +683,7 @@ static void __init map_mem(pgd_t *pgdp)
+ 	}
+ 
+ 	/*
+-	 * Map the linear alias of the [_stext, __init_begin) interval
++	 * Map the linear alias of the [_text, __init_begin) interval
+ 	 * as non-executable now, and remove the write permission in
+ 	 * mark_linear_text_alias_ro() below (which will be called after
+ 	 * alternative patching has completed). This makes the contents
+@@ -710,6 +710,10 @@ void mark_rodata_ro(void)
+ 	WRITE_ONCE(rodata_is_rw, false);
+ 	update_mapping_prot(__pa_symbol(__start_rodata), (unsigned long)__start_rodata,
+ 			    section_size, PAGE_KERNEL_RO);
++	/* mark the range between _text and _stext as read only. */
++	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
++			    (unsigned long)_stext - (unsigned long)_text,
++			    PAGE_KERNEL_RO);
+ }
+ 
+ static void __init declare_vma(struct vm_struct *vma,
+@@ -780,7 +784,7 @@ static void __init declare_kernel_vmas(void)
+ {
+ 	static struct vm_struct vmlinux_seg[KERNEL_SEGMENT_COUNT];
+ 
+-	declare_vma(&vmlinux_seg[0], _stext, _etext, VM_NO_GUARD);
++	declare_vma(&vmlinux_seg[0], _text, _etext, VM_NO_GUARD);
+ 	declare_vma(&vmlinux_seg[1], __start_rodata, __inittext_begin, VM_NO_GUARD);
+ 	declare_vma(&vmlinux_seg[2], __inittext_begin, __inittext_end, VM_NO_GUARD);
+ 	declare_vma(&vmlinux_seg[3], __initdata_begin, __initdata_end, VM_NO_GUARD);
+-- 
+2.51.0
+
 
