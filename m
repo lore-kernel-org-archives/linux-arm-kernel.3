@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F242CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 11:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1984CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 11:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=He+6sdn61LRVIxrBafIW06DcfRvltNAdv31TV0CKGnQ=; b=Scc/51unSkl0zG+NI4Z/hk2SKa
-	8wGPWo28auTFMzYhvroOlgxRSmI/3kcmwhzWGUJW1uGWBJ65Jivxm2b27wGWl5OwZFbQbT9pxKMh0
-	ea98ibnoEi/Ozz1JAhwzTFUBQEpK4E69/VRaRyXPMWh6/cl02zc0qW6/9NgQ7UYMjxpe2J3tSlO1+
-	9lEBUB6SV8Ik2bC0bUWIdFPG8o7pcNz5sCbLAI0QCM6Umm1I2otjxd8RgzPKnhVMlqWthZMzqse/k
-	UFydRCtU2DONes2JKzku0ulFPGUW04I8erOmaJ9ub9+LapN/uWH5lOTndlSZOaExvxrQ2xbELIF5+
-	LXvhzjFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aIkiBvMA6JeWONNzDm5/DzBhYza7SWGDeRUB71fxshg=; b=Xc2OeGKI/lOoUZHsDBs8dRwecb
+	pLHE+2bMiFvRhNccDWrLxYbIqsPtBgJZjiUHcN1e2l1mmHYRfFFV6jB6kS0ztb6brsqZ5d4gRk948
+	txSuxsscjwqUWBe2WmgYkLfArS7uy+W13IRROZiKDyyNn60moVwuYgoyhVh+XKZeF8V7RDwqEkouT
+	hNJsUzf/ytOFWgokj98F/DY4h5bsqlk3AWO/MHl1Dgl2FV9ekQfp72AqVJd+1g/7F2rhLXwuw+BQk
+	4FhdhyeQ3iUP5zJNOHkWzUklE0wuqTmaZwfn3H4jgiqwX2tJWzU7shwzyj4ohPWNEEVeHmbOdZRmr
+	I9EmizKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZDi-00000002h8V-0bhT;
-	Fri, 19 Sep 2025 11:24:06 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uzZGv-00000002hXO-2p6L;
+	Fri, 19 Sep 2025 11:27:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzZDf-00000002h88-3swR
+	id 1uzZGu-00000002hXD-0v2e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 11:24:05 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-33082c95fd0so1318254a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 04:24:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758281043; x=1758885843; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=He+6sdn61LRVIxrBafIW06DcfRvltNAdv31TV0CKGnQ=;
-        b=FHh5DKKye8zCrBVBlsYkY/LC3BUt4gPviqVN9cDfvAYrDCC+/DDNZGUwu2w1Fm3WwM
-         E9IC9rPlJu2GZyzCH/+9uhAxCwgXERlQO1AIPT8PDNYrRzD7fQqFaPqHTEP0he0DvKEn
-         130RNJCeUEfl+Qpbb2gQGu2sixCEBiH68oF3nVl1wwIaon74dxLTlVJ2fUfO7G1F50L6
-         CiNzVT3C/UGun5qOAhZ7RU9IetJnF6S6OGcvbm7Mr9jrw2LZs03icFNr91L1baduoGxk
-         MfF+FoPlu9LQ0YsLaHPKuiMZUeUnOOIEi2hbtvuMLuZ1punrF9nSegy7x9kdIogS7nMX
-         hFCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758281043; x=1758885843;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=He+6sdn61LRVIxrBafIW06DcfRvltNAdv31TV0CKGnQ=;
-        b=K/xgSDKvKLxZQZsZiAxHrij07S7Eac6jmXS/oZMNFpijadpjhTdFsRZlU8vAw7+1b7
-         8fii5sInC2VUy4uIQSSlAIBKzwsMIOZY+b/XN3aJB++5rm174TNEkot0og8zQEYla1FN
-         LDRrmiOhtVs8it+m3x5mNgcsklVdV8GDOPjXtcvf44ZBIRzlxZWO3ZVEOtWnY8g8n+vd
-         aiYD29J+vwyx9hW6npfzGQ7XDcxbUC1WtZSe/o5jJLPz70ajF52bPRTxOIU0kKQ8poG8
-         IIvA2D0RRmnxeffiEi1W9DOota3P0g+bK4tTIUS9WDhpQJkWvV+/1I75ogOxQ8AklTLt
-         dRbg==
-X-Forwarded-Encrypted: i=1; AJvYcCXmaqa7RSXF0465VI1tYUcztv+Po4uEkCmclWgJtc4vR0Y8+/0cGlI9ynhV3cARSftkoEUOYBN9LoW/CPc5pnu9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTokTg1SeiSMbs+bocE9FvmGb+8UKRDXmQuQhOfKRD3H9HnOX0
-	RoObWKjqHNFJ55uFzxmkXYE+/LbZwUvw0LLdhzQBfR14IeeOblwIhv87njgD5Mnf1AZe8rqgRo+
-	zpqhgO55if3Mg+ZHekceR2fQOFoJCRJs=
-X-Gm-Gg: ASbGncvIlkhf7G9a15xnkG9MJJbFJ0RHNH57D2stT4sPL6a4wvKQZ5oHRhH1YHhFbBj
-	3k094pux+o3lQuprT4ZtauQxR4G0fHnbb+M0xNjnvq4SyIOgWXy47i39wsP3tCbptbp8a7UuZlI
-	FlZg68VXvh+xbXjesRlOrUtjvgXceqM/cNivExWyWbCJ4seXEx8AFz1ZVrB4vWjbiNQDOG3M0dd
-	Xqf/LP8nI/EtxT2FGF5B/7JikqVjq2hmxTE
-X-Google-Smtp-Source: AGHT+IGR+j53MtR7Ycbzac1nvh8/Xsimed1/N5Ir4au4nEDEE6nsTs+zulbhVQrxaMtQaq9Cc1ET2UPKXkixOlwNUv4=
-X-Received: by 2002:a17:90b:3a4f:b0:32b:d089:5c12 with SMTP id
- 98e67ed59e1d1-3309838e042mr3853941a91.33.1758281042999; Fri, 19 Sep 2025
- 04:24:02 -0700 (PDT)
+	Fri, 19 Sep 2025 11:27:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51AF860053;
+	Fri, 19 Sep 2025 11:27:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68C01C4CEF1;
+	Fri, 19 Sep 2025 11:27:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758281243;
+	bh=C7w7HkIT7yX2Ji+TqLNQ8VqWh4vuv3N2kHTkNH+vyH4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KyDFhaX0ckf5/YrwFt0U5X9+9yhz7wuK1xRDrQby4m9loYda/mWYsYv9SY59N4gJ6
+	 5d073ME7gJ1z9rA31EIzjFcxe4I3AVQIT/2NSGorRpYNEOtT+F8EhM2AZW46Dw/n0Z
+	 vaGYR9Xfm5JfGdqLNtiL2cnXXVqj1BrqYqoU5i4BKvOWzGv2Yd7B4cAICNJ5fC+Vc8
+	 uGGjcIe+DLFxmnd3I3SiLsEKP6g/IP4pH72Gg5RuodsraJis5EAIqdG5XWt1P3jcEV
+	 Huk4QRaOzR7e3qPnBSCwxW8/GHEjjU+k0tlGpa0pNjQEMA5kAEawmKxX5Pe+HA5fh7
+	 knPyNOYNgXPaA==
+Date: Fri, 19 Sep 2025 12:27:17 +0100
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, david@redhat.com,
+	lorenzo.stoakes@oracle.com, ardb@kernel.org, dev.jain@arm.com,
+	scott@os.amperecomputing.com, cl@gentwo.org,
+	Yang Shi <yang@os.amperecomputing.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v8 0/5] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+Message-ID: <aM0-FQlepoxxGkRd@willie-the-truck>
+References: <20250917190323.3828347-1-yang@os.amperecomputing.com>
+ <175822779944.710258.10028837182267037801.b4-ty@kernel.org>
+ <fc43aa07-d4ad-47d5-8381-61d4a9b8c467@arm.com>
 MIME-Version: 1.0
-References: <20250918-imx_rproc_c2-v1-0-deec8183185f@nxp.com> <20250918-imx_rproc_c2-v1-4-deec8183185f@nxp.com>
-In-Reply-To: <20250918-imx_rproc_c2-v1-4-deec8183185f@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 19 Sep 2025 14:26:19 +0300
-X-Gm-Features: AS18NWCk1Oc5eecL3-ZExUWvIBIypCHeXmF72jHYDkEXM6phwnZTdZT1871xqCc
-Message-ID: <CAEnQRZCByoFeuH0KyPbrt8T4pPyPwG1DBvrFQq82mD3KGPTuZQ@mail.gmail.com>
-Subject: Re: [PATCH 4/5] remoteproc: imx_rproc: Remove the assignement to method
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_042403_967766_3258488D 
-X-CRM114-Status: GOOD (  10.16  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fc43aa07-d4ad-47d5-8381-61d4a9b8c467@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 2:53=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> There is no referring to the field method, it could be removed now.
->
-> No functional changes.
+On Fri, Sep 19, 2025 at 11:08:47AM +0100, Ryan Roberts wrote:
+> On 18/09/2025 22:10, Will Deacon wrote:
+> > On Wed, 17 Sep 2025 12:02:06 -0700, Yang Shi wrote:
+> >> On systems with BBML2_NOABORT support, it causes the linear map to be mapped
+> >> with large blocks, even when rodata=full, and leads to some nice performance
+> >> improvements.
+> >>
+> >> Ryan tested v7 on an AmpereOne system (a VM with 12G RAM) in all 3 possible
+> >> modes by hacking the BBML2 feature detection code:
+> >>
+> >> [...]
+> > 
+> > Applied patches 1 and 3 to arm64 (for-next/mm), thanks!
+> > 
+> > [1/5] arm64: Enable permission change on arm64 kernel block mappings
+> >       https://git.kernel.org/arm64/c/a660194dd101
+> > [3/5] arm64: mm: support large block mapping when rodata=full
+> >       https://git.kernel.org/arm64/c/a166563e7ec3
+> > 
+> > I also picked up the BBML allow-list addition (second patch) on
+> > for-next/cpufeature.
+> > 
+> > The fourth patch ("arm64: mm: split linear mapping if BBML2 unsupported
+> > on secondary CPUs") has some really horrible conflicts. These are partly
+> > due to some of the type cleanups on for-next/mm but I think mainly due
+> > to Kevin's kpti rework that landed after -rc1.
+> 
+> Thanks Will, although I'm nervous that without this patch, some platforms might
+> not boot; Wikipedia tells me that there are some Google, Mediatek and Qualcomm
+> SoCs that pair X4 CPUs (which is on the BBML2_NOABORT allow list) with A720
+> and/or A520 (which are not). See previous mail at [1].
 
-Please mention that you are no longer require to provide .method with
-imx_rproc. We are still not
-removing the filed in imx_rproc_dcfg struct because is used with imx_dsp_rp=
-roc.
+I'd be surprised if these SoCs are booting on the X4 but who knows.
 
-With that,
+Lemme have another look at applying the patch with fresh eyes, but I do
+wonder whether having X4 on the allow list really makes any sense. Are
+there any SoCs out there that _don't_ pair it with CPUs that aren't on
+the allow list? (apologies for the double negative).
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Will
 
