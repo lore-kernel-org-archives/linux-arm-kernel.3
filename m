@@ -4,69 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D60CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02827CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 14:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=si5H+IWkg+luK65dXJLqql9A+DmaUFJ7vhyre8e/LCE=; b=D3R6o6dgCyfKJWIsIf4KiTNurr
-	KyckABzCOn73q30ry/DfCFjKtGLsweWSWmjghUiAIHHjA4ha8GTu/cM9ZI6hCgzRZQjCCrYXtc7x3
-	4g9V6fWZUa779gQa7E+XMjc0WoJElUeeY3J47Cew0VreoqId+IF16A8A/c5PUwqdMLDpxGZ2em8ap
-	mNnZG0NL6hUjdWZ2CsiO99ojOA+pbGZkVWiX1dWcYmG9fzghCsZ9WKkRW6BAH1e3xQ7qxeibUiU5N
-	r5zeZJYMVHUv30yeXTkT//9v7EvIhQXEO6YQ3yPqPPB/v2vGi512CxyPpJWLjplIF7ERboEuxv2RJ
-	MbtjP6PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EQ5T4+41W/4V7StdUWtOL2Qhltzg655cTeqA6T6LmJs=; b=z27uTj9e/n1g4sG/LiABibWwS0
+	RxwYTRn1rYjFcrmYe335iia0NZGAEYkzyoO8t6RxxK9fRSa6fSzEOg6ZGje6bhjq7x9t7NfFrDyjm
+	EHoa0f2zi3Pk2T3ZBW7gs4EsLnQhQEyjOxHy30xLOhyyVoLw5Q3IEtakAd9TM8c6KSVp41eNodfaT
+	yn2MgjkjhsXDBv7VSwfu+R0B6IQYf1p99wEWGxz233tnYgECbTSATsVLhNhrTlMnWUa7fAk1vFrK0
+	+G/YtYyWHGCFXg/AKqopHmbjFnWnKpk3jNk6XnoKLzn6QsVCXoksZ71KOUyCJbjl978/gcCglQsL1
+	wIOjDuBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzbeE-0000000337t-37oW;
-	Fri, 19 Sep 2025 13:59:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzbey-000000033Kf-1ZPR;
+	Fri, 19 Sep 2025 14:00:24 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzbeC-0000000337R-48I9
+	id 1uzbev-000000033J0-3kTy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 13:59:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6472A601F9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 13:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1235FC4CEFF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 13:59:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758290376;
-	bh=81q+MTaKBG8CfXjRMrYDmASQ3S/UvV9H34HP13VPEQQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GP5fByxuaEjXADf8m/MkJbtHV8GYlgKZs2keCDGTNOXPOSZc3Tx5Owtf9hgEYN7+u
-	 OwTu3fEhL4vpg9b8uXXIiEImyaPZ627LLu9ASwYEUUkuHXxJZ2UMdrAFxVtxTAdWd+
-	 8sgHsfjHDmhekexBpbYj9g/ba+DH/Gz1oVVeVjyqpbcEaSbaUKdp0PbHpTLn4OE6eX
-	 tMXpiHgZ8u7xm2nBjgVmATisDB6Ssd0ac/wySodHxhV/noJ8w9tt/TVMPNbZaxRQ7l
-	 osFkyN3BLG091FGY8RieUPc3bExcvB8j/0veZ3TtuWKBslcI/uZHt69okyRgg+XenE
-	 Iaj+xoMB27GcQ==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-57afc648b7dso228921e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 06:59:35 -0700 (PDT)
-X-Gm-Message-State: AOJu0Yy+ES+X2bpz/rBNZKRlUdu00rHnHRZVuhJWNaPn3IWbWQ8dwJo9
-	/8Dqrmt8LlGKS3Byq8gyf0lx8DaCjZwqq49oMzUF8Ch3QlSqfEMHb+kCtdqalvIK0GhZ6LHKz4v
-	rvysU+Ua3A4wxuJRWNdXHnHrQdg/tvRg=
-X-Google-Smtp-Source: AGHT+IE2JsaESq2LH0BwFhzGZicRptZYyiQAutqhKUmtEukYJlEAcmn6+ZMx9m5iDT8EwVZIVletlt8bWMjmPNl4PYY=
-X-Received: by 2002:ac2:4e0a:0:b0:56b:8c56:f590 with SMTP id
- 2adb3069b0e04-579e1b69156mr1267187e87.7.1758290374310; Fri, 19 Sep 2025
- 06:59:34 -0700 (PDT)
+	Fri, 19 Sep 2025 14:00:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SPeYMI14VpzGUFh+eylP7CSaY0Nxg303NbNsNZAgzTFLvRl1a2Cm0HhrfH5xqN0I8Gekk8jASvmmUyKyg8iXSiMH0VvzNSjwQ4ik2XEvNbbzRhx0+R5brcsy+rtiXRG22bwghQTpQrKVtg1gabcQC1jcD3qhL+UPiZUqDNT9vIRut1vDGPMQ63su96oAaGkm5D1QzZODmRcxcQ7FCrdroA8HabeYNweQxkiRaG+5lRwyJzSkZnVhoVJjuYfat0jN4BgKE7NdGuOn47GEdTCRYO+OSb634o7/YFtnW7S8fYB+ZN+legNMZSB9C7ZzJ+S6AsnEOGFP5IZaNJWQ/vtcJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EQ5T4+41W/4V7StdUWtOL2Qhltzg655cTeqA6T6LmJs=;
+ b=NddNatSTW9vZY6PdZS8/j1cMjo14XnLN+/6EA4y5qGlI8xLFsyAdHEjAYgPmwvQbdu9huz7egRgOiM3UYhKEegM/3p87z0a9M7CqviEJ9pxTETtgTEKYrzSkgwYiPDAqqPj9+nxj8zzNGDMYeOTch7c/FkU5AyD8AjPXXuvep44/qJyUWgTS49wkOE5+UrziI8EirDVPv4mHq5H4O5mHFLgSEaTb/pGrLu38x/+brKVnzL1yf6CEmSa7VbGtwhK/7slh47wzmEPMH9eSjC3Mux9hQMhycUvzUQJfkahOCbok/1e+zmtktvTPHFYqBqZXA26Dr9Z1MA00SAsEDbaCXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EQ5T4+41W/4V7StdUWtOL2Qhltzg655cTeqA6T6LmJs=;
+ b=szwD/i+XyJJMHPWmZxLggpqBwfC9JUhF+c7ckcXr1tw3BfPHje2ENFFhJIOfbtHYcSbQWTiGPc0ZHqUvAkZs68N/FWLtlsXBDtxSDdiqAwajvjPDabMNBWnJr6uJ7564g8JGWwRRzAPn7hO3aK+JnkWhP57Ra824gkHfwosS6YuwUGjAMdjF0lHbNxYv0lj8B55BlPA15tWKaLYvFC9jOp8kOVf9r7NiVL2GTrUW1qudgy5jaWzgaG7+LQfqjA66A1fgqxBFfT5m3c0HgtlaEopftAfWHi3lG61ldQi3YukDxidLmc9mllBgNMIU+GED1B0RGb3bCeZ9YZa4tDCrnw==
+Received: from DS7PR05CA0029.namprd05.prod.outlook.com (2603:10b6:5:3b9::34)
+ by SA1PR12MB7127.namprd12.prod.outlook.com (2603:10b6:806:29e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.13; Fri, 19 Sep
+ 2025 14:00:06 +0000
+Received: from DS1PEPF0001708F.namprd03.prod.outlook.com
+ (2603:10b6:5:3b9:cafe::9f) by DS7PR05CA0029.outlook.office365.com
+ (2603:10b6:5:3b9::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.15 via Frontend Transport; Fri,
+ 19 Sep 2025 14:00:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS1PEPF0001708F.mail.protection.outlook.com (10.167.17.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Fri, 19 Sep 2025 14:00:06 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 19 Sep
+ 2025 06:59:54 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Fri, 19 Sep
+ 2025 06:59:53 -0700
+Received: from build-shgarg-noble-20250919.internal (10.127.8.11) by
+ mail.nvidia.com (10.129.68.7) with Microsoft SMTP Server id 15.2.1544.14 via
+ Frontend Transport; Fri, 19 Sep 2025 06:59:52 -0700
+From: Shubhi Garg <shgarg@nvidia.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Alexandre
+ Belloni" <alexandre.belloni@bootlin.com>, Jonathan Hunter
+	<jonathanh@nvidia.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
+	<shgarg@nvidia.com>
+Subject: [PATCH v6 1/4] dt-bindings: rtc: Document NVIDIA VRS RTC
+Date: Fri, 19 Sep 2025 13:59:50 +0000
+Message-ID: <20250919135950.10403-1-shgarg@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250919122321.946462-1-abarnas@google.com> <20250919122321.946462-2-abarnas@google.com>
-In-Reply-To: <20250919122321.946462-2-abarnas@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 19 Sep 2025 15:59:21 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEVThBdH7H7NX+Ma8j0_85GevzczFgvvozK-TsqT2geFw@mail.gmail.com>
-X-Gm-Features: AS18NWBXGy-3dQXH8iKb7BJvegBRmMgS6hSgacUSgWyOsOJxDrJciKIzKDkVygo
-Message-ID: <CAMj1kXEVThBdH7H7NX+Ma8j0_85GevzczFgvvozK-TsqT2geFw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arch: arm64: Fail module loading if dynamic SCS
- patching fails
-To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF0001708F:EE_|SA1PR12MB7127:EE_
+X-MS-Office365-Filtering-Correlation-Id: c444b18d-cb7c-4e56-83b2-08ddf784d68f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TKq8dtJNuMhNpO0hkWfayLaEvpzGXwXQEp7tujHwg8eeZth982PmyYZ4Z1Yh?=
+ =?us-ascii?Q?4Hn4VEcmkTQ5PD+yxQ9OQZxkqxt4BeHY7KIOzRFDUm2rT8QdF4iEudxxXMkb?=
+ =?us-ascii?Q?IgZ1Z8N0x+2qcafCIDYIQqBEkTomwJsvK4pzZnV4DoSZQLRKR1Q1FiCk7Tgu?=
+ =?us-ascii?Q?4ChlZstrkkR17a3fS9hu0fpC3AYc5mHLUyW2Vgi9KsnjHV8sjpgkEoGEcJ1w?=
+ =?us-ascii?Q?qbZ7uJiwegMpNsfmbt3tl4/C6RSzrqjsZLeNAItDW5t8/8Z8Z0GdofaKVucP?=
+ =?us-ascii?Q?I/5OaC49UwgMAerEXvqh7jt7JqU7yCnFVdBZrPiw986lYIsUT0LmxFNAfVza?=
+ =?us-ascii?Q?USXFeMrfnXU+yauLGLq356gpRmc3FHLdb8RpHOhCZ35i45fxNUUvITNLWicx?=
+ =?us-ascii?Q?QebezsmwmFZJ7cluqGNdfYHb4SoGKT/R/PxhGuCNpLuIXqWmQOKK1NAKD7wK?=
+ =?us-ascii?Q?zVMPnyR4DWTq5584AbB7+43KlPOPYJV0yDoQuD16ROZsAM1+1Ymk+Roq3Dqq?=
+ =?us-ascii?Q?6WjjaJ1hq/1ycbxq0I98atIBSRp2AYs4HeIkOOHfwYFqnjHeVR4S/JuhQBgw?=
+ =?us-ascii?Q?pQeIggx+o+GcigOslP+GoT2R8Ya735BXETWyal6WolmtzdaNJUowfIrjJK1i?=
+ =?us-ascii?Q?4BSYoxqCqjkt8mGbCugfPMUntlExLbVHk1v/NCVA6FDAEEi2ViKrF9hNltU5?=
+ =?us-ascii?Q?9doc1KcOTGD7BZqH63WVqFV1YFGAkyjEYvcQGw5mOFdxtHly7RHfOVFKQvty?=
+ =?us-ascii?Q?yV7dbzQp67oO/PMiZBei07/4Rteyx8pf4y7IWIhzhcqwupBZGnsRALzrvz6D?=
+ =?us-ascii?Q?pgx2qwe0eIJYuPwtEaLuuiYySj0DQ3SRr9/4V2EkgYL5/WDdmjaAxq6jyPN6?=
+ =?us-ascii?Q?K4HPxDIQig2G3lixDNU/0JBNZqr1d8MXoFFL3rLElpSDjp88fHMYQpl8NJ7H?=
+ =?us-ascii?Q?OE7meL9cHGbnUxMVNKHW2PBgT153zM51ogS3XiZilScs68LUHKgNcKpRERUn?=
+ =?us-ascii?Q?RGQrKAnphfNxJq6nReUX0Y7YGm59ssgis0fL3KhxvSbbUcmQsj+lOZgWwX1i?=
+ =?us-ascii?Q?J2TLb+gegnhyK5uszW9jL/EqpRgB9ivYtyyijBlWxegCOWDqGh+02yZC2vfH?=
+ =?us-ascii?Q?AYyYN/H56kTbXwJ0uQOjsdG13I+Z4QS2byf/1Chrm0rlH2abyqABE43Ir8WV?=
+ =?us-ascii?Q?L9aMBdfxydDvcT1Dqb80KhOsWPxj7M0mTECcjLC6AiRBbsJnkbYtARPhJvBv?=
+ =?us-ascii?Q?ZjnrJZOpPsr4pcs9DIANLyWGC/iAp4nLjn5yDmilcZkn/NEaKYVQ4Y+ZCRVs?=
+ =?us-ascii?Q?0IPYC5MziwfACljBwufHvBhpxTeMQ2HFfMv9+frgqRaQPBm1fFfI7upg6ADU?=
+ =?us-ascii?Q?HjvlCsR8EOhNaGPkGxCoAJbXqrxktBuCaRVHH1xA1IoLaLOrFXLHt95XVlnp?=
+ =?us-ascii?Q?+WH4YixndKxL3NgkQ3olPCs3gYVajtj8R4KVrG9lLYPzKNCg7Q+uosQf6kTb?=
+ =?us-ascii?Q?9R+VulxxhYxIx0eFxjbkUvUys+cDhLgOpK+4?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 14:00:06.1948
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c444b18d-cb7c-4e56-83b2-08ddf784d68f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001708F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7127
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_070021_932320_BB7656DD 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +153,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add device tree bindings for NVIDIA VRS (Voltage Regulator Specification)
+RTC device. NVIDIA VRS is a Power Management IC (PMIC) that implements a
+power sequencing solution with I2C interface. The device includes RTC
+which provides functionality to get/set system time, retain system
+time across boot, wake system from suspend and shutdown state.
 
-On Fri, 19 Sept 2025 at 14:23, Adrian Barna=C5=9B <abarnas@google.com> wrot=
-e:
->
-> Disallow a module to load if SCS dynamic patching fails for its code. For
-> module loading, instead of running a dry-run to check for patching errors=
-,
-> try to run patching in the first run and propagate any errors so module
-> loading will fail.
->
-> Signed-off-by: Adrian Barna=C5=9B <abarnas@google.com>
-> ---
->  arch/arm64/include/asm/scs.h      |  2 +-
->  arch/arm64/kernel/module.c        |  6 ++++--
->  arch/arm64/kernel/pi/map_kernel.c |  2 +-
->  arch/arm64/kernel/pi/patch-scs.c  | 15 +++++++++++----
->  arch/arm64/kernel/pi/pi.h         |  2 +-
->  5 files changed, 18 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
-> index a76f9b387a26..ffcfcda87f10 100644
-> --- a/arch/arm64/include/asm/scs.h
-> +++ b/arch/arm64/include/asm/scs.h
-> @@ -53,7 +53,7 @@ enum {
->         EDYNSCS_INVALID_CFA_OPCODE              =3D 4,
->  };
->
-> -int __pi_scs_patch(const u8 eh_frame[], int size);
-> +int __pi_scs_patch(const u8 eh_frame[], int size, bool is_module);
->
+Supported platforms:
+- NVIDIA Jetson AGX Orin Developer Kit
+- NVIDIA IGX Orin Development Kit
+- NVIDIA Jetson Orin NX Developer Kit
+- NVIDIA Jetson Orin Nano Developer Kit
 
-Calling the parameter 'is_module' puts the policy in the SCS patching
-code, which now has to reason about how patching a module differs from
-patching other code.
+Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+---
 
-So I'd prefer to call this 'two_pass' or 'dry_run' or whatever, where
-setting it guarantees that when an error is returned, no function will
-be left in an inconsistent state.
+v6:
+- compatible name fixes to "nvidia,vrs-10"
+- changed dtb node name to pmic@3c
 
->  #endif /* __ASSEMBLY __ */
->
-> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-> index 40148d2725ce..5d6d228c6156 100644
-> --- a/arch/arm64/kernel/module.c
-> +++ b/arch/arm64/kernel/module.c
-> @@ -484,10 +484,12 @@ int module_finalize(const Elf_Ehdr *hdr,
->         if (scs_is_dynamic()) {
->                 s =3D find_section(hdr, sechdrs, ".init.eh_frame");
->                 if (s) {
-> -                       ret =3D __pi_scs_patch((void *)s->sh_addr, s->sh_=
-size);
-> -                       if (ret)
-> +                       ret =3D __pi_scs_patch((void *)s->sh_addr, s->sh_=
-size, true);
-> +                       if (ret) {
->                                 pr_err("module %s: error occurred during =
-dynamic SCS patching (%d)\n",
->                                        me->name, ret);
-> +                               return -ENOEXEC;
-> +                       }
->                 }
->         }
->
-> diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map=
-_kernel.c
-> index 0f4bd7771859..7187eda9e8a5 100644
-> --- a/arch/arm64/kernel/pi/map_kernel.c
-> +++ b/arch/arm64/kernel/pi/map_kernel.c
-> @@ -98,7 +98,7 @@ static void __init map_kernel(u64 kaslr_offset, u64 va_=
-offset, int root_level)
->
->                 if (enable_scs) {
->                         scs_patch(__eh_frame_start + va_offset,
-> -                                 __eh_frame_end - __eh_frame_start);
-> +                                 __eh_frame_end - __eh_frame_start, fals=
-e);
->                         asm("ic ialluis");
->
->                         dynamic_scs_is_enabled =3D true;
-> diff --git a/arch/arm64/kernel/pi/patch-scs.c b/arch/arm64/kernel/pi/patc=
-h-scs.c
-> index 55d0cd64ef71..78266fb1fa61 100644
-> --- a/arch/arm64/kernel/pi/patch-scs.c
-> +++ b/arch/arm64/kernel/pi/patch-scs.c
-> @@ -225,7 +225,7 @@ static int scs_handle_fde_frame(const struct eh_frame=
- *frame,
->         return 0;
->  }
->
-> -int scs_patch(const u8 eh_frame[], int size)
-> +int scs_patch(const u8 eh_frame[], int size, bool is_module)
->  {
->         int code_alignment_factor =3D 1;
->         bool fde_use_sdata8 =3D false;
-> @@ -276,12 +276,19 @@ int scs_patch(const u8 eh_frame[], int size)
->                                 return EDYNSCS_INVALID_CIE_SDATA_SIZE;
->                         }
->                 } else {
-> +                       /*
-> +                        * For loadable module instead of running a dry r=
-un try
-> +                        * to patch scs instruction in place and trigger =
-error
-> +                        * if failed, to prevent module loading.
-> +                        */
+v5:
+- moved device tree bindings from mfd to rtc
+- changed dtb node name to rtc@3c
+- changed compatible string to "nvidia,vrs10-rtc"
 
-Move this comment to the module loader, and explain why the two pass
-approach is not needed in this case.
+v4:
+- no changes
 
->                         ret =3D scs_handle_fde_frame(frame, code_alignmen=
-t_factor,
-> -                                                  fde_use_sdata8, true);
-> +                                                  fde_use_sdata8, !is_mo=
-dule);
->                         if (ret)
->                                 return ret;
-> -                       scs_handle_fde_frame(frame, code_alignment_factor=
-,
-> -                                            fde_use_sdata8, false);
-> +
-> +                       if (!is_module)
-> +                               scs_handle_fde_frame(frame, code_alignmen=
-t_factor,
-> +                                                    fde_use_sdata8, fals=
-e);
->                 }
->
->                 p +=3D sizeof(frame->size) + frame->size;
-> diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
-> index 46cafee7829f..4ccbba24fadc 100644
-> --- a/arch/arm64/kernel/pi/pi.h
-> +++ b/arch/arm64/kernel/pi/pi.h
-> @@ -27,7 +27,7 @@ extern pgd_t init_pg_dir[], init_pg_end[];
->  void init_feature_override(u64 boot_status, const void *fdt, int chosen)=
-;
->  u64 kaslr_early_init(void *fdt, int chosen);
->  void relocate_kernel(u64 offset);
-> -int scs_patch(const u8 eh_frame[], int size);
-> +int scs_patch(const u8 eh_frame[], int size, bool is_module);
->
->  void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
->                int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
-> --
-> 2.51.0.534.gc79095c0ca-goog
->
+v3:
+- fixed device tree node name to generic "pmic@3c"
+- fixed indentation
+
+v2:
+- fixed copyrights
+- updated description with RTC information
+- added status node in dtb node example
+
+ .../bindings/rtc/nvidia,vrs10-rtc.yaml        | 59 +++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/nvidia,vrs10-rtc.yaml
+
+diff --git a/Documentation/devicetree/bindings/rtc/nvidia,vrs10-rtc.yaml b/Documentation/devicetree/bindings/rtc/nvidia,vrs10-rtc.yaml
+new file mode 100644
+index 000000000000..e8f3c25607e0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/nvidia,vrs10-rtc.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/nvidia,vrs10-rtc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NVIDIA Voltage Regulator Specification Real Time Clock
++
++maintainers:
++  - Shubhi Garg <shgarg@nvidia.com>
++
++description:
++  NVIDIA VRS-10 (Voltage Regulator Specification) is a Power Management IC
++  (PMIC) that implements a power sequencing solution with I2C interface.
++  The device includes a real-time clock (RTC) with 32kHz clock output and
++  backup battery support, alarm functionality for system wake-up from
++  suspend and shutdown states, OTP memory for power sequencing configuration,
++  and an interrupt controller for managing VRS events.
++
++properties:
++  compatible:
++    const: nvidia,vrs-10
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        pmic@3c {
++            compatible = "nvidia,vrs-10";
++            reg = <0x3c>;
++            interrupt-parent = <&pmc>;
++            interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
++            interrupt-controller;
++            #interrupt-cells = <2>;
++        };
++    };
+-- 
+2.43.0
+
 
