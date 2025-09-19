@@ -4,159 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C7ACAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062B8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=; b=vbT4Nh0s0/WCEgXU28Y4srKDhg
-	O/SClHYzfRB6fjuNIyIsVYdR3QLevDD2CARiGTXO2tDfxnENBib+Lvmbf2xmRWmAZxkivfHpn9Y21
-	TxG3iyODxLPNq6OUVFToX83sbedSdxJMZZ+/iDgQ/jGi0eZwjXSM4KaFLJI+eu+vic2njwLq/SbxX
-	FWPt9CqGKADYLut1NeWs831PJVJsDWuRg8sNHEwKEzpqTFueuVYQAZvLP3MAmWSn39nbhB8eN0Bi2
-	o7xnfxiG3HV6xLM9eJB2z9pOyO9Qo+ez5pZ8U19xEJ/YwZwI8C5MICa5AvB1UapVXqGyQcu1jqm9b
-	q4aikcJA==;
+	bh=8QsXIafW/VgjsiAW8R+NVNQPndfw9x15UwH8DtlZ7N4=; b=zuqYAfurrXMLEbjU6KFtqn1kez
+	pLU/jveXhbI75j/AKxRFMvqNUnjwLBOK7X1RrdyNyupwnbBOR4PiN+bhazwIjhvVLSa2IpmLc7Xfs
+	z1iXRMQFwq9SWUmzLfhMA5C2Bo9dzs8N1LiaF+RIs2FkxsMlGFx6lkdwkoKN79e+xGf0R8TtY8p+y
+	d5F/JhtnSvEq3Zh9O7S4mdOoGwdIn+IsKDjPkM5FTtk8ved97nUpxk3u0XX/Padfcx5Mqa3pAWKei
+	zuMevmVpx5lbu0JxkUK/EUkfKBVPnd/DHhmAFZO7f1+cfqrbNlrqqftAb+hzYOwtfvs7sj/X/o2j7
+	2AhLSteA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWKe-00000002EF0-1pHX;
-	Fri, 19 Sep 2025 08:19:04 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uzWMj-00000002EYS-40Qe;
+	Fri, 19 Sep 2025 08:21:13 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWKb-00000002EDi-3Vxc
+	id 1uzWMh-00000002EXe-2pzk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 08:19:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w6w0FAXs0qxf0eckTuxzB+GDnJhw0E2PHhRVsaFE+v+9K8zbuUteIE7uOmU5QfPM7mSgJ02iIP9n5b/BfId2csg+4SjM4YizC65tuwzpFrNsTVt6zgMCOqPHKBnakCQNWKgQYhtGEaNQfn3FWeESbfefDyp37EaMFMZjBD/PLsjKnGyAEYXCQhRhLQLhDSH/lybT8A06eNVJ9YrInIkpkd8ckePWu0GxRCDqoERG5SLaVW4ZFoh4MGj9VvJhvKOmUK5AN+d460PF4L/6mh/+ft9x0yiEW+I+LfN2ojK8nfBH6y2qqRMjRnnj8NrXEjouhrpmYWuaKmp12KxfLSc78w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=;
- b=d2UBXafLFJHb3Pnyw2uj7mia9IoE/PzIWOrV5JrswJH2zO4zti3vlFdh3ei7xbA+A0bhHwNcqqwXw9Qkn6PK/bhPBv/bDUSNT2mVI76Ghm+HyibrH1IKSmsjyZlo0O0IsRLYqkXdmQQ6uQVAHTKtkPjEt3Z2YZN5tiYV9Mt2v1S9W53vmOmF7A0d40mfq8zjIGAyFHPoVqt1/Kbq4LtpFb5mgWkN809pBF+tl+JAPdIyv649W3OVqs8CXoSv/d7syuJUgALaCrokYRXPwWl8+4bt6bPoI+YvKe3IqvkhUNpjwhoQ5gP7xLWMiztDzhOo8rxygERNh+maB0WkryJvqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=;
- b=sxeuSdAnmZmVwgEt7qiuoWL6Jv3VOyP4TWAbXBXnN6iP/wIohgNqVZKh6kzVCFsetf1a4i6tcPbPo/kx60Rh3RMFTMsHc9jHkM+IqiXK3D/HoZROgj+LMJeEIxAkCexQ98uJoFPXNdJx7DxEKtdr4R+vycmSZ3PzmApFDD+afN04l4QkDzpL0FCP3PMShkJ/qkRXXXWBTHPjXmh0PVo2CuVHCQ4ViU4pmnR20MsN1Mm1SUmVJ1oYRA1w36yas0CjSzPvdu8+47G2NSLBttfy5IeHAHeVpCU4ElqvVUvpr9BuXHesd87yui6P4YvrhZPOEGyTx+UC7d3IB78cx0vFKQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB10545.eurprd04.prod.outlook.com (2603:10a6:800:270::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
- 2025 08:18:55 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
- 08:18:55 +0000
-Date: Fri, 19 Sep 2025 17:30:34 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Michael Walle <michael@walle.cc>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Frank Li <frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
-	Han Xu <han.xu@nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] arm64: dts: imx8mm-evk: limit the max frequency
- of spi nor chip
-Message-ID: <20250919093034.GK9196@nxa18884-linux.ap.freescale.net>
-References: <20250917-flexspi-dts-v2-0-7e2a95e3cf4d@nxp.com>
- <20250917-flexspi-dts-v2-3-7e2a95e3cf4d@nxp.com>
- <20250918090151.GB23028@nxa18884-linux.ap.freescale.net>
- <DCWLMKKUEALZ.CX4XNGWG80B8@walle.cc>
-Content-Type: text/plain; charset=unknown-8bit
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DCWLMKKUEALZ.CX4XNGWG80B8@walle.cc>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2P153CA0017.APCP153.PROD.OUTLOOK.COM (2603:1096::27) To
- PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+	Fri, 19 Sep 2025 08:21:13 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-31d8778ce02so2122823fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 01:21:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758270069; x=1758874869; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8QsXIafW/VgjsiAW8R+NVNQPndfw9x15UwH8DtlZ7N4=;
+        b=ToK7tzB7MSVM4jfBTqfy7IjSm0mPfH3ClvIgFGG+r9acPm/02i0W+6XsPTXaW0Jy48
+         7Kgv0W2PWgA5FRqp+lhyCVuHMKhpYucsBlrh6uMYq1qyQHQM45stPtPGCpbdqtg1K1d8
+         DuptHq9VmkqzrFgdGBW37thY038Qn9ZuTspoT7ubgRyNZAccKMBP7jTD84T/nRbHp8Hu
+         fvmTDdeKn9PqFM5PBCUmoSmrF8UX47fDga8he8QfRxSZzIxOFZ2P4vOKwHIUQ7tZYyRQ
+         4SfD112wcbg13U/4U5Itwll9WpFAigKhDANs8N+snvk4VdXYJHZsSybsvpEMmb4C6V4U
+         WKFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758270069; x=1758874869;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8QsXIafW/VgjsiAW8R+NVNQPndfw9x15UwH8DtlZ7N4=;
+        b=ZE6iZUlHZzrtlNn0Yw0JvVBw1MngRNmyaf/ETmjajxEQ5Su6z81CPa6ajp6Mj5CrJt
+         0tt/PPRb6fXTbxpzPtPq7LlDStM2Wg1Jkg15FPPIOwYuo19ncDiGyr/noZSSMyWVxmOp
+         f9N81WVRcDImbhX4vQ9Xr6jB0aRtQAnKwUH9rxIKoKibv7ed6NPboJu1qGMti4mjgfD3
+         TdmnAa7vA4J7W4Cz2X46nZFFBY5tzWE8rMxOU3OC/QSmehp3m4uQR08nEoLvM1Ggza8A
+         VAcjEH4sr9C656XrCllvx17YwkJiszjPdbPEmTSPfKYszi8Cou7Pkw7R0uHZQKFwyUxN
+         wodw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMAEOA2ikfi8LzYZzaX/s4TyKBgETzpvKPmbVcPOQ+86UA0OKjzNIRop3nROGE1vqDNTzZ+kl51d9CIV6Y1kq5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDU5kaKfI6iTx6f5xQXevUplKwthS6WILclwEaKLmRj+DPdOmt
+	djTBpezGo3ONXGfsLBTeliD2PCHtYboali10hRLNpOjj5in4EH+QZZaFUNaDIflqBbSEPbaXr35
+	PW5FNLVHmotYUlxZ8xVBoF5nZ8HrrVK+8Jwy/iY4oKA==
+X-Gm-Gg: ASbGncsAozvnxSOy7iPPI6jrMo4YZkJOgHA7y0MpBJd1GpAjKtj2MVgWAJRkxb19gtl
+	C7WwlIfObUhBGp5IiB2g6KwdWCapaG+CyqsXtnBc1j+fZknZqxwCVAO4lEAq78rQk6Y2hKaY4DH
+	P3+XqZJsXV8+vLTbMSHJbMswemKvefmedMs6t50pKUWtoFo42TERz9fBP0WeAHd04zksOfRaudW
+	NaYXQyuwCztRC/KgZNBxVA8
+X-Google-Smtp-Source: AGHT+IG8MDbvqP7Z4uWyY7mx1dKn5VSE519bcmC2q5LzQP4FKQ7wmAtEdn+NNJhyCmX4j0+2p86HK7q3nMtqcWjj7lk=
+X-Received: by 2002:a05:6871:408b:b0:30b:ae4c:2e82 with SMTP id
+ 586e51a60fabf-33bb5c70d8emr1442027fac.12.1758270069312; Fri, 19 Sep 2025
+ 01:21:09 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10545:EE_
-X-MS-Office365-Filtering-Correlation-Id: 956573c4-74ed-4fc4-b503-08ddf7552cca
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|19092799006|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z+/cszy5nxcYV+mtlQK2TkboWJA2r3vGPJmGUAfVLUUVC1TujtjH+7/n+2/R?=
- =?us-ascii?Q?r2bWSiHB8XejOaw8FKf3pwefwTiXYt48NB+3zJHevGTi83WZwYwmUlV+MMxJ?=
- =?us-ascii?Q?dEY9rWDiUuoRrxi+Dyi//hbhtImV/SmPxAsO8uJFrgGyjEALrbuFXdzBOTbT?=
- =?us-ascii?Q?zvQ33LnElNRHu9cB+gg1Zhcnsl/nQoz0t/qJ7b37mC0+56rjGX9N6Tfpzbbj?=
- =?us-ascii?Q?rozcW2+9gFLxbYcKE/NPBHgds9U9zq+Dclafb4v4B5ALcq0AeCa5eBODNb54?=
- =?us-ascii?Q?M7Gpi0gFS/er/gKMIvW2hC/ITeuyfoeGITYMCsnjc2p0/egr9LWUti/F3Iip?=
- =?us-ascii?Q?PFnmPQdrMmSdhCX41/4bZ41vlGcrjDU54qhp/s9iScEMxWOIQm4twa/cnEzG?=
- =?us-ascii?Q?YSyC0rHnApLzCgkvjOo+iebxORlZuoUkXBVK92X5RhZrJ9ufWOgyCzLGeT4n?=
- =?us-ascii?Q?xM0M0C1+xEJ4CNZboVBFqOxf/SqzGDSqYKNhwt3UQ3wFdi8Lqf3ssBObhmIO?=
- =?us-ascii?Q?MuGD37ixqfBo+khHG4RL5GmtprrkdE+55Qhr55c5XMQztGmBhj31m1jOptku?=
- =?us-ascii?Q?lRH8ZEgIJChzVIlkYn6ofJbN9mAxr04W00C7+joOpD1dW5oflxoFSLF5OKUT?=
- =?us-ascii?Q?eq7V5hrrf4OfqRV62ScLrpjj6kJpuSpMO4dhXSxJQaTUxHVt9vMhwY2Xb+Iq?=
- =?us-ascii?Q?/vvJ3v1KWvzWVHLdilqND+Y+0LqbYFyik0+xiENZeIP49wFGAtRtyzjohoxv?=
- =?us-ascii?Q?4qxO8KpXKfgpCRxPjXHDlCbQzQ4rALFaz4H0+WSXBiXQG2VXRTDtt1GeVlN8?=
- =?us-ascii?Q?I13e82PxA6qZCYU+GCeQ0tSA3WJPD+58If+hLgPU3bZMZeQcSl57UpoCtAvl?=
- =?us-ascii?Q?cDNFLGk6bstICJZNZspnzIHZ99JMRe08tXqHU6X9JIuv4V9a8tzeAbdAjwdO?=
- =?us-ascii?Q?WssMfTRl0ewe1oDl4rx1sKLTEi0g+tqcNSsQlGFiuDCLN8UOr1cK4Cl3LASC?=
- =?us-ascii?Q?2mXHFKsFF9O0hisMCaw+hV3h7MuRlNQoys+CoetAVnE9m7ITHYm+K6UC/FEL?=
- =?us-ascii?Q?gXxaXvxQiJRaYhngGTM8jKBxq1KFvOHdu6hHG3AVMK7Q6hlf+WzmFgirhww/?=
- =?us-ascii?Q?+nsEo17JzoZydS49/j+kpIS1kFdb6R6JhHSKYxpTeis9olMe+3rLjYuSUIVM?=
- =?us-ascii?Q?MFsHt+kWJIsCVBsIKeFLLBF/1No+rph0mdfmCxG3Yy1pfTtjTVKq5V+229WG?=
- =?us-ascii?Q?o2HM6n+VPOKekq8W43ewVgzQk9LM1043fNek7O3kxThXlNk1HG3KFaIjVqKu?=
- =?us-ascii?Q?wmvU2nCcjihgNQar5UKuFPrKBlbKtSzWSrSgE7gwxBq6HTvF2rKhQRCzRSdp?=
- =?us-ascii?Q?thfVhIDJqLtfYAlnt+st7TIZZJME3/2w5FXH6D/JrNpcKBJLuAm1qii+NdHM?=
- =?us-ascii?Q?lUBmAtbfbq4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4f5Gre9eeonYXtQvSdrRvOckYGT/9MH+yG+esAPEF5W1MsHE36N8F/+8V4FH?=
- =?us-ascii?Q?+COIfgPfeXrIBi1d164KumxqRrgu7YKasGBBa5a957YVKbSbwcLzlJA+YK+W?=
- =?us-ascii?Q?7obF16KpNCNnsWggJw/8IuatPJbE2ZA0OS4glFErmW6uZLfMqYnce8YsJikb?=
- =?us-ascii?Q?K0dhHxNIBBii0Gwcllr8rYPx8d+XnaOMSTtVRAqibr9hLX+uph5GdRFBxxuf?=
- =?us-ascii?Q?FtBPKbp34vILyLnB6wcth6KW+spzaEezR6G4G4GvaR3f1g3VKKZxPL5fFkT4?=
- =?us-ascii?Q?t6tqZLGL3Mo679zEMeNfrC0LTXO+zWKBuzpoLyPmtt0oy8BLKCK5zkOCSxr4?=
- =?us-ascii?Q?VxP4vUCIgW4vRCJqcGzZsXSfcHqiu8Rpld3WAQPZm/yn676KK4JvrYrS6Tjv?=
- =?us-ascii?Q?1YSMG0VgEF2gH6uPGuNwQe+7XclrpHQX0mdLBQjoeO8T+RVfWaStMY0jL8/W?=
- =?us-ascii?Q?fbYqzx+k3MWvpTOe43dt5nPXB+jgP9K5D+PQKivYZUIxoNvOGrks4GDESzVX?=
- =?us-ascii?Q?QntgC2tK5FgYoxnuDOda1IfxEUVroARjuznULbfPGxwQqqIhmqhHVusiOjer?=
- =?us-ascii?Q?zZXmlsL2gkE7YX3SAjojYw/PzJUGqWEjnsxk6H8N1vSrU/0PhFl9OFTNtg5Z?=
- =?us-ascii?Q?SYQoiZYReXnuTeRV2S7eITB7bjFAvBuWtye/YjRhQ0j/Q17PYSt5add5P3nZ?=
- =?us-ascii?Q?rtUqyZsNAFZ6WfYLy1glIdOSGFv+FpqxhD0l2nE8jy4CZ5GHN6olui2T7Rx9?=
- =?us-ascii?Q?nSZW0wQbO5ag+C7yKU2oUQKfhAZyfUkmmQ1sFeglF1YSzlTvvBc/3ErS0VRr?=
- =?us-ascii?Q?4BJ6HvXIlTR4rIWuJcKguTDZzZQETAFtYmEB+iwU/Ud/gtV9ucSTuwujMrFX?=
- =?us-ascii?Q?ui97VksHn9YzToi5Mrt+tPPyz/snUY1/eeXq9BPWik9tFShEGLN0nyeUaSb1?=
- =?us-ascii?Q?8HnHBGJon3yfoaZ+6Gi0pTLv4uWSh8jL24m55zACGMl5UFzydgysFd5T0WbJ?=
- =?us-ascii?Q?fCjcALsI9/x+k3dRewS4vE3e8pthI/vQo4NV+hQriPXFCcBRCCBTQM+DwnZL?=
- =?us-ascii?Q?75Lj6IAkKdl6Pvr3nre6ykEHIjwcKdFMIErPDkJN9HZARPHhY3A6xMX0Vudd?=
- =?us-ascii?Q?eZvV3NFyoL14QfL8d7arZeB14gWyWYjz/Odk2DRP1iYjL0ZqQBfWWw5pPT3+?=
- =?us-ascii?Q?esGj6ZRzmtZzIOvB2gAd9PYSoFNu5OEiF1xI1PunaNRVFabalAgt1vamn6zd?=
- =?us-ascii?Q?fisOZ1UfCZBCF/6E5sXjtcQR4Id7JK5olAl6lJ1GH3AVblqcKZUdvpN/WyLc?=
- =?us-ascii?Q?LAWU54Ybxwa7ArEwsDWHaQPHVsF464CdncUO0n4dOka1/egBIqbpJx1t+Tha?=
- =?us-ascii?Q?aIf3zmmxB0I3scJDaxCcs22QU6VBqI4vk3Gpb84+zCB9rRejFZl8/Tb0OiCV?=
- =?us-ascii?Q?QSUyFas9oncmFVfPei4hYo7fV36M0SE0CCGGcxqq1tv8OucKntqYyRtnKrK4?=
- =?us-ascii?Q?XsJ1clHPLR4v7gVctXgH7WaKV+uBYU/0xCWG9BYQ7C3HhcZ40QnphzS7urEE?=
- =?us-ascii?Q?Dt3tpXf7B7qtqY0077lmV0AQ2c5Jq9ukv985BcND?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 956573c4-74ed-4fc4-b503-08ddf7552cca
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 08:18:55.6113
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hQ4YSfq0woaqLtCHFFIY26QtUqIwd36on8PD+800my886h1iUgeDitDrfXYgQnB/Z9eMjOdH+gR/9w0isXDmSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10545
+References: <20250918014828.78383-1-cuiyunhui@bytedance.com> <0020389a-676c-74ab-b68f-cd0a44538980@huawei.com>
+In-Reply-To: <0020389a-676c-74ab-b68f-cd0a44538980@huawei.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 19 Sep 2025 16:20:57 +0800
+X-Gm-Features: AS18NWBQkKaaj0cbpRW_fkTB0QLgsS2b6FygBacmr9FG4kBe5HSnPtFCJ0Xdufg
+Message-ID: <CAEEQ3wnEF9BwJxMuHVteD_8-cWzkMEMw57o3KJFr6sEhjQ1vDA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2] arch_topology: move parse_acpi_topology()
+ to common code
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com, 
+	gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
+	beata.michalska@arm.com, sumitg@nvidia.com, ptsm@linux.microsoft.com, 
+	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_011901_880546_62BA8CE2 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20250919_012112_009861_3734B3C1 
+X-CRM114-Status: GOOD (  26.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,64 +99,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 09:29:41AM +0200, Michael Walle wrote:
->Hi,
->
->On Thu Sep 18, 2025 at 11:01 AM CEST, Peng Fan wrote:
->> On Wed, Sep 17, 2025 at 04:42:29PM +0800, Haibo Chen wrote:
->> >The spi nor on imx8mm evk board works under SDR mode, and
->> >driver use FlexSPIn_MCR0[RXCLKSRC] = 0x0 for SDR mode.
->> >According to the datasheet, there is IO limitation on this chip,
->> >the max frequency of such case is 66MHz, so add the limitation
->> >here to align with datasheet.
->> >
->> >Refer to 3.9.10 FlexSPI timing parameters on page 59.
->> >https://www.nxp.com/docs/en/data-sheet/IMX8MMIEC.pdf
->>
->> The SoC SDR mode max supports 66MHz, 133MHz. DDR mode max supports 33MHz and
->> 66MHz. Saying the driver now only use RXCLKSRC 0 to restrict the
->> device tree to 66MHz is not that correct.
->>
->> The SoC max frequency could be coded in driver per my understanding.
->
->Yes that is correct. The spi-max-frequency property is for the
->device, not the capabilities of the controller. I.e. the flash chip
->on the board.
->
->> For the QSPI-NOR chip, the spi-max-frequency should represent the NOR chip
->> frequency. But that chip supports SDR/DDR, so a new property
->> spi-ddr-max-frequency, if we take spi-max-frequency as the max NOR
->> CHIP SDR mode frequency?
->
->Which chip is it? I'm not sure that this is required because the
->supported modes might be in the SFDP data and we just support the
->8d8d8d mode backed by the JEDEC standard.
+Hi Yicong,
 
-MT25QU256ABA
-Clock frequency
-– 166 MHz (MAX) for all protocols in STR
-– 90 MHz (MAX) for all protocols in DTR
+On Thu, Sep 18, 2025 at 5:23=E2=80=AFPM Yicong Yang <yangyicong@huawei.com>=
+ wrote:
+>
+> On 2025/9/18 9:48, Yunhui Cui wrote:
+> > Currently, RISC-V lacks arch-specific registers for CPU topology
+> > properties and must get them from ACPI. Thus, parse_acpi_topology()
+> > is moved from arm64/ to drivers/ for RISC-V reuse.
+> >
+> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > ---
+> >  arch/arm64/kernel/topology.c  | 87 +---------------------------------
+> >  drivers/base/arch_topology.c  | 89 ++++++++++++++++++++++++++++++++++-
+> >  include/linux/arch_topology.h |  1 +
+> >  3 files changed, 90 insertions(+), 87 deletions(-)
+> >
+> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.=
+c
+> > index 5d07ee85bdae4..55650db53b526 100644
+> > --- a/arch/arm64/kernel/topology.c
+> > +++ b/arch/arm64/kernel/topology.c
+> > @@ -26,7 +26,7 @@
+> >  #include <asm/topology.h>
+> >
+> >  #ifdef CONFIG_ACPI
+> > -static bool __init acpi_cpu_is_threaded(int cpu)
+> > +bool __init acpi_cpu_is_threaded(int cpu)
+> >  {
+> >       int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> >
+> > @@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+> >
+> >       return !!is_threaded;
+> >  }
+> > -
+> > -struct cpu_smt_info {
+> > -     unsigned int thread_num;
+> > -     int core_id;
+> > -};
+> > -
+> > -/*
+> > - * Propagate the topology information of the processor_topology_node t=
+ree to the
+> > - * cpu_topology array.
+> > - */
+> > -int __init parse_acpi_topology(void)
+> > -{
+> > -     unsigned int max_smt_thread_num =3D 1;
+> > -     struct cpu_smt_info *entry;
+> > -     struct xarray hetero_cpu;
+> > -     unsigned long hetero_id;
+> > -     int cpu, topology_id;
+> > -
+> > -     if (acpi_disabled)
+> > -             return 0;
+> > -
+> > -     xa_init(&hetero_cpu);
+> > -
+> > -     for_each_possible_cpu(cpu) {
+> > -             topology_id =3D find_acpi_cpu_topology(cpu, 0);
+> > -             if (topology_id < 0)
+> > -                     return topology_id;
+> > -
+> > -             if (acpi_cpu_is_threaded(cpu)) {
+> > -                     cpu_topology[cpu].thread_id =3D topology_id;
+> > -                     topology_id =3D find_acpi_cpu_topology(cpu, 1);
+> > -                     cpu_topology[cpu].core_id   =3D topology_id;
+> > -
+> > -                     /*
+> > -                      * In the PPTT, CPUs below a node with the 'ident=
+ical
+> > -                      * implementation' flag have the same number of t=
+hreads.
+> > -                      * Count the number of threads for only one CPU (=
+i.e.
+> > -                      * one core_id) among those with the same hetero_=
+id.
+> > -                      * See the comment of find_acpi_cpu_topology_hete=
+ro_id()
+> > -                      * for more details.
+> > -                      *
+> > -                      * One entry is created for each node having:
+> > -                      * - the 'identical implementation' flag
+> > -                      * - its parent not having the flag
+> > -                      */
+> > -                     hetero_id =3D find_acpi_cpu_topology_hetero_id(cp=
+u);
+> > -                     entry =3D xa_load(&hetero_cpu, hetero_id);
+> > -                     if (!entry) {
+> > -                             entry =3D kzalloc(sizeof(*entry), GFP_KER=
+NEL);
+> > -                             WARN_ON_ONCE(!entry);
+> > -
+> > -                             if (entry) {
+> > -                                     entry->core_id =3D topology_id;
+> > -                                     entry->thread_num =3D 1;
+> > -                                     xa_store(&hetero_cpu, hetero_id,
+> > -                                              entry, GFP_KERNEL);
+> > -                             }
+> > -                     } else if (entry->core_id =3D=3D topology_id) {
+> > -                             entry->thread_num++;
+> > -                     }
+> > -             } else {
+> > -                     cpu_topology[cpu].thread_id  =3D -1;
+> > -                     cpu_topology[cpu].core_id    =3D topology_id;
+> > -             }
+> > -             topology_id =3D find_acpi_cpu_topology_cluster(cpu);
+> > -             cpu_topology[cpu].cluster_id =3D topology_id;
+> > -             topology_id =3D find_acpi_cpu_topology_package(cpu);
+> > -             cpu_topology[cpu].package_id =3D topology_id;
+> > -     }
+> > -
+> > -     /*
+> > -      * This is a short loop since the number of XArray elements is th=
+e
+> > -      * number of heterogeneous CPU clusters. On a homogeneous system
+> > -      * there's only one entry in the XArray.
+> > -      */
+> > -     xa_for_each(&hetero_cpu, hetero_id, entry) {
+> > -             max_smt_thread_num =3D max(max_smt_thread_num, entry->thr=
+ead_num);
+> > -             xa_erase(&hetero_cpu, hetero_id);
+> > -             kfree(entry);
+> > -     }
+> > -
+> > -     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> > -     xa_destroy(&hetero_cpu);
+> > -     return 0;
+> > -}
+> >  #endif
+> >
+> >  #ifdef CONFIG_ARM64_AMU_EXTN
+> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.=
+c
+> > index 1037169abb459..c22746b45d57a 100644
+> > --- a/drivers/base/arch_topology.c
+> > +++ b/drivers/base/arch_topology.c
+> > @@ -823,12 +823,99 @@ void remove_cpu_topology(unsigned int cpu)
+> >       clear_cpu_topology(cpu);
+> >  }
+> >
+> > +__weak bool __init acpi_cpu_is_threaded(int cpu)
+> > +{
+> > +     int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> > +
+> > +     return !!is_threaded;
+> > +}
+> > +
+>
+> you seem to miss the comment here in v1. acpi_pptt_cpu_is_thread() may re=
+turn
+> -ENOENT, in which case the CPU shouldn't be threaded?
 
-Current spi-max-frequency does not indicate it is STR or DDR.
+Oh, got it, okay.
 
-If device tree has spi-max-frequency as 166MHz, but driver configures
-the working mode as DDR, there might be issues. I not look into details
-on SFDP or 8d8d8d8d, so my understandings might be wrong.
+>
+> thanks.
 
 Thanks,
-Peng
-
->
->-michael
->
->> So if spi-max-frequency is the maximum NOR chip SDR frequency, the driver
->> should also be update dthat DDR mode is not supported as of now.
->>
->> Just my thoughts.
->>
->> Regards
->> Peng.
->
-
-
+Yunhui
 
