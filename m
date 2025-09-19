@@ -4,90 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F6BCA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 05:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3FFCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 05:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cOVCFF2nCbE19SZPw/VA1kNcNgANYwNnmTRqOX5doRM=; b=FsUnAka6mFTz57bYvJBsWmxTF9
-	yqFTY6MTZKekhDrmFatFt9ZM7n9oXOBLXEJDxrA06Bfk9ESNe3rmojFXjZ7roaUMs08+AqCN9Ye6C
-	RYUGFD/E8uJYGKyJowU7TApwwPtkJf6Y/tDVM2cmE2QyiLSwD2BntyPcDiQetUqVHVa4lafncvqOa
-	cSyMLtuskQtjOf6Gyp4rPoLM+3dKvSidtq99+grX1WKsiC6P8Uwr96bKszLLCZc3/ig2fjII7k618
-	fW2BukTHNUQHbI50MSs+rh5cC5xG+LS7jHi0yrITo5Kuvzu6UnqZP2bqjcnAqoeq+qUUARvCoBwm2
-	+lMtgA6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4/wcTCINr8rwfcISTbfAQjozgmFE5NOD6In7C/hVtCI=; b=EJgzrHWwC0HHWpdzw8WBd2u6P0
+	N/KWAHhu8GOLQDYVGSeveX7aWhJfiE0ZscV+PwVlkMjCvYx4++PS/YEUWNm15fFv7tCaViZZrCDxY
+	6kxRNgED2jtoU+ouFar68yUxaTo1uaB1JU9tZ+zTZiGBReFgLS/jELmkEqfsPMu2YivraYzsDpm3r
+	JbUHa7WmgPCwc2PJcPAyiglHtIgybhrmdv49xICwB3Wzu0DBGA/u9xc3jX1Zu/3XSfGxiqvDGtDEE
+	yb3b5XY+Nmo4JtKy6pkESZ4aS5Q9ZAhFwklM1PCW2v8lkBBIk68NkfOK+6ykJM5xsqjFTV8ST/q5h
+	Ig0wG1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzTN3-00000001q5j-3G4j;
-	Fri, 19 Sep 2025 05:09:21 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzTN1-00000001q4D-0pz4
+	id 1uzTSr-00000001qqx-1lsV;
+	Fri, 19 Sep 2025 05:15:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uzTSo-00000001qqX-1znf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 05:09:20 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uzTMW-0001ef-2U; Fri, 19 Sep 2025 07:08:48 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uzTMT-0023Em-1q;
-	Fri, 19 Sep 2025 07:08:45 +0200
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uzTMT-000Jiu-1I;
-	Fri, 19 Sep 2025 07:08:45 +0200
-Date: Fri, 19 Sep 2025 07:08:45 +0200
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: David Jander <david@protonic.nl>
-Cc: Andrew Lunn <andrew@lunn.ch>, Jonas Rebmann <jre@pengutronix.de>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Lucas Stach <l.stach@pengutronix.de>
-Subject: Re: [PATCH v2 3/3] arm64: dts: add Protonic PRT8ML board
-Message-ID: <aMzlXerFpsfdHnwB@pengutronix.de>
-References: <20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de>
- <20250918-imx8mp-prt8ml-v2-3-3d84b4fe53de@pengutronix.de>
- <af554442-aeec-40d2-a35a-c7ee5bfcb99a@lunn.ch>
- <20250918165156.10e55b85@erd003.prtnl>
- <7f1d9289-4102-4db9-a2bb-ff270e8871b7@lunn.ch>
- <20250918173347.28db5569@erd003.prtnl>
+	Fri, 19 Sep 2025 05:15:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EFC871758;
+	Thu, 18 Sep 2025 22:15:08 -0700 (PDT)
+Received: from [10.164.18.52] (MacBook-Pro.blr.arm.com [10.164.18.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8121A3F66E;
+	Thu, 18 Sep 2025 22:15:14 -0700 (PDT)
+Message-ID: <0968ad4d-8804-4d87-8e74-45ecf213b9d1@arm.com>
+Date: Fri, 19 Sep 2025 10:45:11 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250918173347.28db5569@erd003.prtnl>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Elide TLB flush in certain pte protection
+ transitions
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: anshuman.khandual@arm.com, wangkefeng.wang@huawei.com, baohua@kernel.org,
+ pjaroszynski@nvidia.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250918103638.77282-1-dev.jain@arm.com>
+ <fb5818ec-dde9-4d53-ab0f-e28e5c2cab33@arm.com>
+ <5f4037e3-7aaa-4919-9220-8989790c333b@arm.com>
+ <4b27bb1a-8279-416b-b84c-0b9ab7430a48@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <4b27bb1a-8279-416b-b84c-0b9ab7430a48@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_220919_244114_6CF83AE7 
-X-CRM114-Status: GOOD (  28.37  )
+X-CRM114-CacheID: sfid-20250918_221518_607173_3C02E65E 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +70,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 05:33:47PM +0200, David Jander wrote:
-> On Thu, 18 Sep 2025 17:04:55 +0200
-> Andrew Lunn <andrew@lunn.ch> wrote:
-> 
-> > > Yes, unfortunately the SJA1105Q does not support PAUSE frames, and the i.MX8MP
-> > > FEC isn't able to sustain 1000Mbps (only about 400ish) due to insufficient
-> > > internal bus bandwidth. It will generate PAUSE frames, but the SJA1105Q
-> > > ignores these, leading to packet loss, which is obviously worse than
-> > > restricting this link to 100Mbps. Ironically both chips are from the same
-> > > manufacturer, yet are incompatible in this regard.  
-> > 
-> > Thanks for the explanation. Maybe add a comment that the bandwidth is
-> > limited due to the lack of flow control resulting in packet loss in
-> > the FEC.
-> >
-> > Anything which looks odd deserves a comment, otherwise somebody will
-> > question it....
-> 
-> Yes! This is a golden tip. Ironically what I said above is incorrect. Sorry
-> for the noise.
-> 
-> Ftr: I wrote this DT about 4 years ago, so my memory failed me, and a comment
-> in the code would have saved me this embarrassment ;-)
-> 
-> The comment above applies to the i.MX6 SoC's which had this limitation. On the
-> i.MX8MP we had a different problem that also caused the SJA1105Q not to work
-> reliably at 1000Mbps either. We haven't been able to find the issue, but so far
-> this switch hasn't been able to work at 1000Mbps reliable on any platform,
-> possibly for different reasons in each case.
 
-May be it is doe to RGMII clock switching issue and the requirement to
-have specific silence time for proper clock frequency detection on the
-switch side?
+On 18/09/25 8:52 pm, Ryan Roberts wrote:
+> On 18/09/2025 16:04, Dev Jain wrote:
+>> On 18/09/25 6:19 pm, Ryan Roberts wrote:
+>>> On 18/09/2025 11:36, Dev Jain wrote:
+>>>> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
+>>>> required for some cases, for example, when changing from PROT_NONE to
+>>>> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
+>>>> growing into the non-main heaps), and unsetting uffd-wp in a range.
+>>>>
+>>>> Therefore, implement pte_needs_flush() for arm64, which is already
+>>>> implemented by some other arches as well.
+>>>>
+>>>> Running a userspace program changing permissions back and forth between
+>>>> PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
+>>>> for the none->rw transition, I get a reduction from 3.2 microseconds to
+>>>> 2.95 microseconds, giving an 8.5% improvement.
+>>>>
+>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>> ---
+>>>> mm-selftests pass. Based on 6.17-rc6.
+>>>>
+>>>>    arch/arm64/include/asm/tlbflush.h | 29 +++++++++++++++++++++++++++++
+>>>>    1 file changed, 29 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/
+>>>> tlbflush.h
+>>>> index 18a5dc0c9a54..4a566d589100 100644
+>>>> --- a/arch/arm64/include/asm/tlbflush.h
+>>>> +++ b/arch/arm64/include/asm/tlbflush.h
+>>>> @@ -524,6 +524,35 @@ static inline void arch_tlbbatch_add_pending(struct
+>>>> arch_tlbflush_unmap_batch *b
+>>>>    {
+>>>>        __flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+>>>>    }
+>>>> +
+>>>> +static inline bool __pte_flags_need_flush(pteval_t oldval, pteval_t newval)
+>>> ptdesc_t is the preferred any-level type.
+>> I keep forgetting this :)
+>>
+>>>> +{
+>>>> +    pteval_t diff = oldval ^ newval;
+>>>> +
+>>>> +    /* invalid to valid transition requires no flush */
+>>>> +    if (!(oldval & PTE_VALID) || (oldval & PTE_PRESENT_INVALID))
+>>> Is the PTE_PRESENT_INVALID really required? If the oldval was invalid, there
+>>> can't be a TLB entry for it, so no flush is required; that's it, I think?
+>>>
+>>> In fact, PTE_PRESENT_INVALID is overlaid with PTE_NG; it only means
+>>> PTE_PRESENT_INVALID when PTE_INVALID=0, so I think this is broken as is. Valid
+>>> user-space PTEs always have PTE_NG set, so you will never flush.
+>> Not sure I get you. The condition as I wrote means
+>>
+>> 1. If PTE_VALID is not set, then do not flush.
+>> 2. If PTE_VALID is set, *and* PTE_PRESENT_INVALID is set, then do not flush.
+>>
+>> So when you say "it only means PTE_PRESENT_INVALID when PTE_INVALID=0", the
+>> second condition meets that.
+> Sorry I meant PTE_VALID=0. Your second condition is wrong; PTE_PRESENT_INVALID
+> is only defined when PTE_VALID=0.
+>
+> Think about it; the PTE is valid from the HW's perspective if and only if
+> PTE_VALID=1. So that's the only condition that needs to be checked.
+>
+>
+> See this comment in the code for more info:
+>
+> /*
+>   * PTE_PRESENT_INVALID=1 & PTE_VALID=0 indicates that the pte's fields should be
+>   * interpreted according to the HW layout by SW but any attempted HW access to
+>   * the address will result in a fault. pte_present() returns true.
+>   */
+> #define PTE_PRESENT_INVALID	(PTE_NG)     /* only when !PTE_VALID */
 
-Or it is just artifact from iMX6 platform and it should be retested?
+Got it, thanks.
 
-Best Regards,
-Oleksij
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+>
+>>>> +        return false;
+>>>> +
+>>>> +    /* Transition in the SW bits and access flag requires no flush */
+>>>> +    diff &= ~(PTE_SWBITS_MASK | PTE_AF);
+>>> Could you explain your thinking on why PTE_AF changes don't need a flush? I
+>>> would have thought if we want to clear the access flag, that would definitely
+>>> require a flush? Otherwise how would the MMU know to set the acccess bit on next
+>>> access if it already has a TLB entry?
+>> You are correct, but AFAIK losing access bit information is not fatal, it will only
+>> mess with page aging. So potentially reclaim will lose some accuracy.
+> Sure, but it means that your change has a cost; reduced page aging accuracy.
+> That part of the change should at least be separated into its own commit and
+> probably backed up with performance numbers. Otherwise, I think we should retain
+> the original behaviour.
+
+You are right, I checked other callsites clearing the access bit and they do some
+sort of TLB maintenance. I'll drop this.
+
+>
+>
+>>>> +
+>>>> +    if (!diff)
+>>>> +        return false;
+>>>> +    return true;
+>>> Perhaps just "return !!diff;" here?
+>> Sure.
+>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>
+>>>> +}
+>>>> +
+>>>> +static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
+>>>> +{
+>>>> +    return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
+>>>> +}
+>>>> +#define pte_needs_flush pte_needs_flush
+>>>> +
+>>>> +static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
+>>>> +{
+>>>> +    return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
+>>>> +}
+>>>> +#define huge_pmd_needs_flush huge_pmd_needs_flush
+>>>> +
+>>>>    #endif
+>>>>      #endif
 
