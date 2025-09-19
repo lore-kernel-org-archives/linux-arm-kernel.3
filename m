@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE7BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F7ACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JrXP+Er95XRyZ504JanEx3HoJ/rZisZt2Q5h92w2jU=; b=dT2+H/zVGuDNs6GNhMPocr00u1
-	xcZrFTgXZer/afb0LzjLenwi2rLUFK7HNqHGhN61wjAUcW/IqMvttvTVZvnHWfHp07GfRkBMt52K1
-	ykKTLfln2klPAdvTS4CUC5nIhRnaWkN56iaono4wN9Ew3YBEAchFEk9inCE2dJwWeU//rew0DJDhv
-	jKZ5i8VwwHftUlgOFsoPLe5ks1M4uqDtcYgbKCkWgZCZ3C6TiRevf3nvz5WHob4M/3uvj+yGzR6+R
-	OPYiLCLPL1wUZr2JNP9fvJFhcBa9u0auhKJs/i5g7Iv61zYV5+J/mDLkJ/5txqvodP+rXjgTBWViz
-	vHyddVIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SeCN2avjte29nqWHR7pO3LU+pxIxD8Ku7K1GIsBVk0A=; b=iXk9MQ2L/GWWai1mQfZJ5rVaU6
+	WE/F4XiT9WcVhgdNJxfgWZBqsNnijpdMA1Oxvlm2SoV4LTUGzUOSIFIgsy6TlMBVmhalTGul6PFjZ
+	OlHMKypQVPSQdISl8HhxuiDCmv+ODJhBrtWSi4/QlWjScHeAdr9v1yXc5TxthQ90P2Nw9wplIe2Ek
+	aSeD6ae05cLodvZoP5nT6EsQ5hdLo5JsaxB39lz3w/h9Hz5BQZIwnxNuyee8urIdxno1g+iOLW6Ok
+	BCet1+3YUi/Kg731RpZrEomaCGE2J/Bx3Ds24uqozOWnU1cUoQwvsJ7CaW1WmwshOgDiPT8sp0ECH
+	CD1z0SYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdZl-00000003SPI-0iJU;
-	Fri, 19 Sep 2025 16:03:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzda9-00000003SUf-2Kxq;
+	Fri, 19 Sep 2025 16:03:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdZk-00000003SOx-0ahG
+	id 1uzda6-00000003SU8-3BJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 16:03:08 +0000
+	Fri, 19 Sep 2025 16:03:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49D9A60142;
-	Fri, 19 Sep 2025 16:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EA38C4CEF1;
-	Fri, 19 Sep 2025 16:03:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C24241820;
+	Fri, 19 Sep 2025 16:03:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36CEC4CEF1;
+	Fri, 19 Sep 2025 16:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758297787;
-	bh=/JrXP+Er95XRyZ504JanEx3HoJ/rZisZt2Q5h92w2jU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jjkTQ8JtJs0Xyy+aQM3zsH1Awb/CfBlumwAxr7MEWVPJ4QY2thL1HmfKTtXMedq3W
-	 cgisJV4p6tw7EE4XA7kooz5pcWhNawHYrfMfyGnlr52yPLeieHEMHpVCTqsbFdFzn8
-	 kvMkdkeL6Hd28sXV6ptjv8ZS2oJXPfLlEvldKmmtCvUiD9cU7WyHzMLfEsKCOkHY+h
-	 Jp3jqPhcyct4WE0nldynGAXaRFSMjaoDvSM0Hqx2d/JrToEcoiRoOORNFCUkfEYGSs
-	 VstG1EbpRqJ7KmLOqpWo0DOdEuTXsLQTjU6mDnsYwT349Ic6rA3hUPqNKiFKCPQqKN
-	 UjVrkXdwt4RHw==
-Date: Fri, 19 Sep 2025 17:03:00 +0100
+	s=k20201202; t=1758297810;
+	bh=lpomwfxtk9a4+r9bgZHNE22kfKHJ+s60q4CwLekgFe4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=gMlb4A8Egcyts/MtR5Mw8qBFv4iE/79CmfDyT5HtS+MBA+CAqAnbRrwuwchTk843f
+	 MP2A/1u4QocVvOjuTfBnW5FGSoxChq53xYw4ywv5Vy92rxHo+Ogl2oADs3ienzA0Cv
+	 TMYsYTeQ5GCj4ieQNAMhxKtUZmst7zb2APbrUAe5CzaddCPa4kQskDQEQue5EmpFal
+	 xAgytAAzSl9cxDudQLo3FJhVxOA4Sg3t0QAnea3RIklRNn7Q4D5QMHuPQIHQIEWXF1
+	 bUbDMF7tzwf7tHsIpQjCzfWexQi4O6rs9R0DQZchNfteXsShL47JjMIsbBNeIRxxGs
+	 9vaGXDMsLQtEw==
 From: Mark Brown <broonie@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au,
-	ebiggers@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH 2/5] crypto/arm64: sm4-ce-ccm - Avoid pointless yield of
- the NEON unit
-Message-ID: <eaf4c342-5ba0-4f05-b641-937d24d2a352@sirena.org.uk>
-References: <20250918063539.2640512-7-ardb+git@google.com>
- <20250918063539.2640512-9-ardb+git@google.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Dharma Balasubiramani <dharma.b@microchip.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Varshini Rajendran <varshini.rajendran@microchip.com>
+In-Reply-To: <20250908-microchip-qspi-v2-0-8f3d69fdd5c9@microchip.com>
+References: <20250908-microchip-qspi-v2-0-8f3d69fdd5c9@microchip.com>
+Subject: Re: [PATCH v2 0/5] Add QSPI support for sam9x7 and sama7d65 SoCs
+Message-Id: <175829780315.161854.16031631803406215563.b4-ty@kernel.org>
+Date: Fri, 19 Sep 2025 17:03:23 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tbed4sQ6qHeiGdFl"
-Content-Disposition: inline
-In-Reply-To: <20250918063539.2640512-9-ardb+git@google.com>
-X-Cookie: Don't read everything you believe.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-56183
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_090330_823549_CE6C30DD 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,39 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 08 Sep 2025 09:44:15 +0530, Dharma Balasubiramani wrote:
+> This patch series adds support for SAM9X7 and sama7d65 QSPI controller
+> along with the SoC-specific capabilities.
+> 
+> 
 
---tbed4sQ6qHeiGdFl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied to
 
-On Thu, Sep 18, 2025 at 08:35:42AM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->=20
-> Kernel mode NEON sections are now preemptible on arm64, and so there is
-> no need to yield it when calling APIs that may sleep.
->=20
-> Also, move the calls to kernel_neon_end() to the same scope as
-> kernel_neon_begin(). This is needed for a subsequent change where a
-> stack buffer is allocated transparently and passed to
-> kernel_neon_begin().
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Thanks!
 
---tbed4sQ6qHeiGdFl
-Content-Type: application/pgp-signature; name="signature.asc"
+[1/5] dt-bindings: spi: Document sam9x7 QSPI
+      commit: 68f6b403ee90293b6fa4eb094dcee79138b692b2
+[2/5] dt-bindings: spi: Define sama7d65 QSPI
+      commit: f3837edc05c66de0104041d3f300524773b46526
+[3/5] spi: atmel-quadspi: add padcalib, 2xgclk, and dllon capabilities
+      commit: 86d074921e34db6daaa7ea2976b1dfe7d507309b
+[4/5] spi: atmel-quadspi: add support for SAM9X7 QSPI controller
+      commit: 65a977d752d72a53d16ce32b85ef9db9b0747df6
+[5/5] spi: atmel-quadspi: Add support for sama7d65 QSPI
+      commit: 20253f806818e9a1657a832ebcf4141d0a08c02a
 
------BEGIN PGP SIGNATURE-----
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjNfrMACgkQJNaLcl1U
-h9Ceowf/Z3UzSwYIObGf9baV5ZQ75yhm3OUJTsQyFR2rSe2VG+cSKPV0rER22deq
-v09d6cECoYrSVHh1sAGAtEBPbMUkyviQmHupfGBysyGunMcxJKiwh6Vf1HRXSesz
-MXgnRuskEfvgWlBKcfJ3CL8PGe7oWxc/5OlC3E18Ld1RYB+i8p5yHc9z01FrF3om
-d1R/e3Nwg9Y1hApSzMW+WGmoh7OrIbO+UcrnO6QsFDu9W4Xo4sCCs4ASGMcpen8W
-c9CqyzYZqLpsLYVH0AjFs8f0Zi0GxAXSUsm9sZZRsY3F4aAMcLYm+GwcPa10EyPL
-Dujr4lWrw8NpWMqmt0yoRMZZCOOmcA==
-=qk93
------END PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
---tbed4sQ6qHeiGdFl--
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
