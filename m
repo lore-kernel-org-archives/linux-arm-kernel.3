@@ -4,148 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E73CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B773ACAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 15:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBHIFt/P2/P8hbgLGx6pR4yMO1ZWaYxaLE5ztNCEAis=; b=kb0ANVWdWYHBr5anA+XfkgOUaC
-	3ilW7SkufGnOsl9/CV8ZGcMibvf5KMdAFrnAuwvQVzYBmacjXycv96PNhwb5Qqji/T9EiEVM2HEbs
-	komSNg3uQkuFCEy9l95xs7BIcehU1xQjJcLlyoslS4ZzULziJz6SD0aT+SWQl+eMKOn5g+yGXdR73
-	08il/xSN+Eb2F3qhuJsBzcBpDNNLH8cTdEeJgE1vddaEeaNOqGZx6Eg9qHA/fiQ8XZNnPXUWF/71L
-	Pym3DOvnBRxtcEg4CjAgSN09rZjk7ZEaNhonvgXe6VPYiuEcm+oZhnqB/9Way7cqIqdzfTaBiz5Wh
-	tcXroVoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=; b=re0dUUFQVCKCcZL7mx8znvOPuN
+	vRnkofrZ1u0WS/+CRdZPlSzYN0l5Lvf6LPILqKiIBjTrlfxru4JLVPM6CO48ZkzVDpjHhRXz+tnfR
+	VoqD9ujQXk8eDPVHU+x5gx39h5L5NnlrGWqQftL6QbcXmAsIfj1m1f1SDgLY3w33UEObX+jIsLNzi
+	39blPWKlSDfQ+dwZySS6UbEgvDJpQkjw8KIm/26Oea6OooYNARgeSTy6dWTOYU0x8O9ivRKbGTai4
+	O9/L0bDo3t0AH+2JR5Hd2zAwxGGbjD3jCPTT/2RBGfpambL1HLqOvPZFvH2Vcb3WZrVsJ58kPlfQn
+	gx1pDGqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdIw-00000003OIP-0b8n;
-	Fri, 19 Sep 2025 15:45:46 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uzdOQ-00000003PFy-1nJh;
+	Fri, 19 Sep 2025 15:51:26 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzdIt-00000003OHu-1I7C
+	id 1uzdOO-00000003PF4-0dbB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 15:45:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JkCNSupkHb4pmsdTKq60IOpFTymwM1czRBrgPR0zc90hWrqerjIvBh9hqZKY4aUhXD5SNpVsoEgleNGlV4Y6XdO0LNWg/GwmXJgExQCkmncRB76u4cItUv6mqIsXXQ2kako1TMnD93PlHSe6pAGH4QGR7iofgoeTCq7jcBUXH3zoPe+aVNoc32mqZRbWKpMriKIoZFr+o5oKj03KDfDCxR2C3Z9nCFA0IoJjKkrSULZzsi9ItCEU+Sfd9RUhgyAmv/1VzrqZtQczqoyZ9OsdvOlx1EHZUWxUmcN6rijDF8qpWJf3Ys3u5y0EURsQ7MoHWFBaFzyAMuVnVcuPUzzncQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EBHIFt/P2/P8hbgLGx6pR4yMO1ZWaYxaLE5ztNCEAis=;
- b=tyTmNM3yLI1IMziXW85pyX9rZz9j82XeNC6mSwBsnK2+IQ8NZKuL13sinwXdLdnesASSTzDRymO6e6sj2HZOF9iOXzwTHSHyy/kHYs0tVRglWY1DCsEWqADm8ArwIIeVvWReZ+zNkkhrb+GUHUx8Z7F3SBUDLs1usk44ifdxYHt+jq6J7pX8WzFxiFBZHRqTU9FPUCCBvSn/dmQjJnQ8Je5bo3ABKDvqVvnFyDlMwD2cgdMpn2lsJP9DYI3HsY+oUGOVYltt2CZjDIEsa8YarBkbQ/0s2t75DbhGS5o+9TMTVmyuJ5luAA2wKQmt9oCIMzQ0rPAZbG0QCFP2FQn2UQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EBHIFt/P2/P8hbgLGx6pR4yMO1ZWaYxaLE5ztNCEAis=;
- b=BatBobeSMtFl7GC9IAjxNfK1VERrqC3e44kqaNzv2soRKbQmR/hxOKlAf/HqaM+OMec3QywhxgXg2b4a49kL8+P6uKPFL+YxcHySSVM/ZU1xqRVsaDOpuL0AQ+SHAwWN2chnsfowJMFXgSQsTIjojnG767fjITwe8IPl/djXOLtHdCQ4w17BeBmIlbwW9h7IwpaJPlt0XjqTExbIhYPJuRLAiIom9/PUIQPoHjvOXDSIPQS3BF9BZXA5SDhE/TbrOJx+uSQYgP2qPm5Fc006fsh2lU8cZVMx1UA3pLuJoVmz2f7vp5Enn4YdCWEgC+rWR/kK+URVZUuDAasCkoolZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM9PR04MB8456.eurprd04.prod.outlook.com (2603:10a6:20b:3df::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
- 2025 15:45:37 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
- 15:45:37 +0000
-Date: Fri, 19 Sep 2025 11:45:28 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, peter.chen@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	peng.fan@nxp.com, jun.li@nxp.com, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] usb: chipidea: imx: add USB support for i.MX94
-Message-ID: <aM16mDSAwi4GIUys@lizhi-Precision-Tower-5810>
-References: <20250919071111.2558628-1-xu.yang_2@nxp.com>
- <20250919071111.2558628-2-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250919071111.2558628-2-xu.yang_2@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0390.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::35) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 19 Sep 2025 15:51:25 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46897c60e38so5529975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 08:51:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758297082; x=1758901882; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=;
+        b=n7wQWFSMGl7jX8VozybuC8YV3FWvduLBln/D8qlyX0eQJWv8Tb+5SbgdXxVhzbMY00
+         Pw9ZczD5V8r9/Oo7sPQMyRbWJATdVKMG1DZEMdvtlyXME1e7fsT0IcAH7XERjCKpf4mf
+         XKAx5zyHuGBUFxGxGKenGAlc3F0wcRXipPfZLoQ7j+HpVvtVrp42RzhyPx015afMmLna
+         6jMug0oBunkd5FEBmZcSGk3FwoL+CQv0OPHfN3Y0YfgDgIUkSx6TMKpY2MpogFbm0V3O
+         pHSoHwEfCZ11b40CLDq63qpEaOoaWCisxMcfU03qSW/uF4MfaP2dAXn5H/Qd76xvgHui
+         iftw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758297082; x=1758901882;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mk5UbU1vmdkhvVI9gXoWyB4lbjlenJW2I4nrsVx97aE=;
+        b=cIC2URbpMFpb2/1BpPaelXkRTsIRGgqnRJ2YvhJd9J89X5C76kJ1ASTrYxaMdfm2uo
+         EMyspb2bOBhBZP83ZESAzYdN9N9zYEKg3CpVLvlSRrp/LoQokJvKZ6ZPXgr1AZJHMGgR
+         3DHHQSdMG8q22b8tZKTfFogD+Uegc1tBuWG3jYjIcRpw71s7wa1Meu92dK4t1RsOMfjL
+         E/BBe2YmosOhwdc9PgYq+3REFDT5JqHFjf2BSQXxJpfRugEYfGlGU6tlBEg8Cvcek/dT
+         iaclbGAu2ambtV+XdzT2V9UMbEvM/vlepwx6cnlrdKvcS2ZbTctEIXOiSICc61lRShLN
+         1szw==
+X-Forwarded-Encrypted: i=1; AJvYcCVu0HNVJlCD49F4krPamLyMHjN8EugUThgi6WT1OyaikznhBPEWX1ed1i1X6bZByDcQ92B3HElSn1FcMda60phY@lists.infradead.org
+X-Gm-Message-State: AOJu0YytRV+pvhTqC0t3dqjnFi5DMqh9xc6rzicYd4R3Lms6WxQowrko
+	DzSjPZ98Md4WkET+Lf0oRuBlapTtSIwm1OPFjG1M798ZxJi4wFBjBucLA6PW/aEw/pU=
+X-Gm-Gg: ASbGncuS/GzDpb3pUMcTFsyd+lW/6vXkOOR9HwfdG1+EjnS3MPGOqFQVLQqujofpElP
+	r6z9gpFU7Aey4wxqS8RKJdqxFyyJ+Q/M1b0GyNMXM9KF/xLa2ScTzsg2cJKawvoaK0eoq2cXsma
+	p+TEf1RraXpniuijpDgPepnxNYs5C8JLpAVdJXFUVMp0kRaPZIx4i49yxB/Ci5yf+Ovphepg/NS
+	ifYQneuFcVSrnO51yO1VXsSrMumJLct/VNkYDkbYi8o6vsT0y40CRjFQ6GQkNLCvSN79p4PxirV
+	AMxPipHqj282KWVWbR5aBwkYOSsc7VDyGMP9gE25HXyguO5+uvJ49fytXMbeWyCM7dA5ohmo0xG
+	TjZqPKspAPZRSJrztwyet1TJsv8FX/9cwFHnUP+KYgvjFOq1FZAKNen/RL4hBs1qm8zorPljL1b
+	wgnQ==
+X-Google-Smtp-Source: AGHT+IEottwmKNmGH3CS9GghPYQKwlqbFMuq8pbSqNH1dciybusPD40QQuLbFVR/u9qMf8tPOI+eLA==
+X-Received: by 2002:a05:600c:350d:b0:45f:2843:e779 with SMTP id 5b1f17b1804b1-467ee3057d8mr35673815e9.8.1758297082008;
+        Fri, 19 Sep 2025 08:51:22 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:8ffd:205a:6719:49c1? ([2a05:6e02:1041:c10:8ffd:205a:6719:49c1])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-469bd07268csm13103315e9.14.2025.09.19.08.51.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Sep 2025 08:51:21 -0700 (PDT)
+Message-ID: <d9392dbc-806a-41df-8992-28c3d6132309@linaro.org>
+Date: Fri, 19 Sep 2025 17:51:20 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM9PR04MB8456:EE_
-X-MS-Office365-Filtering-Correlation-Id: c380325c-8e52-4903-972c-08ddf7939421
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Mcfdc0cNei7ZAPVXOt4w5mtO2gGQpvJAVV0YOqoA5X3erSCT9HNzWLH2cLTN?=
- =?us-ascii?Q?XQZIBtiIhk3wYK8SYeiOacZzBeEhWcXiVFcIp3w84nB5u08iM9Kasp7DIzVv?=
- =?us-ascii?Q?Xjw8FQRoe4k9ntc7OMTOsjGA794N2QrXZaZMxacRZNXTJ2ykyLFG2Z8Zt9pW?=
- =?us-ascii?Q?z91iZ12cuCUgTvMsTznEUTcxMeiX4UhjxHyKPDqofcYCNA902yw6fuR4Gcp6?=
- =?us-ascii?Q?74e73U17NIWFlVbMm+OxuiiENngXhSNdGVBvMX3KowLUo5bZzFuhwsx1q9oB?=
- =?us-ascii?Q?+5dfUrlsT7z/QsLlvDjjlRDgKiIUo5lV08N6mS0jB/RA1E2hJN/eQzuaaC/I?=
- =?us-ascii?Q?WAb/HHX6++55JeotaZIKoW6GoDck+81DQCgVaW5XVCljHq9XHuV2IfWYHfNI?=
- =?us-ascii?Q?eRp9ecVEjmWq98JX8F97TpzMMkuDja8QbDXNvSwCMeAC0m/d/It87u3U1vky?=
- =?us-ascii?Q?u7RTelo0TmrtnGtZG6lVvz4bJNjXkGGrUg2w/pczPhHCDmSpuFNg5C8hUZpQ?=
- =?us-ascii?Q?FU/t3AOoqBtno+86UoshYVAz72tfDP0aC3XyL0u0dTJiPKljQ5zdP6aEiXwZ?=
- =?us-ascii?Q?4X6XlqjLZI7tCUiKTiPIvJ68Sl3VlM6sXIUJn1V/ltHD6wr+PPdrPEqpeNlF?=
- =?us-ascii?Q?rPafg6liOW+sbiJkLWM5Kc5tdL/j3c7vVRrZXwyQWcM5Vx8EMkAqc4+BE78a?=
- =?us-ascii?Q?WS1tLNQzMjY/8ckmaEklcqObNl+5Yl1tRT3Vsn/uECL3BaJdJn75Qo5IGIW4?=
- =?us-ascii?Q?3xvNOdwc8AjXU2flCKl1zyM6G0ygSeOf/L/3ejWxfVUshxPlZNDRh8jSgPpK?=
- =?us-ascii?Q?0x7dl7wE+RxPPVDrA9mL20aco19q07ns6NFBgofN2tGjoCDgyt7GP074QLSi?=
- =?us-ascii?Q?u4TrsB0t+i+GH4wyYVc5DvffgcqILPJ9zCyLVuJfuGbwh4tR06dnFnbWASSF?=
- =?us-ascii?Q?e1zFu1YyN71QaX/AgoKd/EfIBlXUgmy1yp+Dv1/D3ZjZBGlFL77XHzK37qbq?=
- =?us-ascii?Q?oMK2G1Zon7hN4sSssFr3M9kW6+dFofHvhlHLnuy4yNxQdTmpXpqXjS2kKDxO?=
- =?us-ascii?Q?OYVK6l0DX/ZiDs8qJfwf4/6APCMrSYK8F1ycKpD0TUaLB8iUOcO7iC2yZOpA?=
- =?us-ascii?Q?aa7xjJJv/lr8+YFpGAUa0GJTtAAMVVrmPczG7Kq1r/pmRiifwiFWtRCy1PhJ?=
- =?us-ascii?Q?q6XxhmqSmbZOUHm125ZgwDbKlriwO8Rq7yEbfveS6jaVhH+PTdNZ93JWGsBw?=
- =?us-ascii?Q?vgH2hh17smNQUfb6bRJkwb57DaX5NYXKt1Omas9avH/dUJs/VGfLFMbB6sra?=
- =?us-ascii?Q?+eVQxvgnp3juBh4XShOdgaL0Cwx5G3WkmLAELvT2AV+OHiRs1ehNEztdHFEp?=
- =?us-ascii?Q?MB0ohuG2kILmYHEHLOENagu0HDpQZ1R/+8g61MmtGoo6B/k+rRj9j+GmMti6?=
- =?us-ascii?Q?87NOCnIP27Iy6Vt0vBmgUphhFr2fLbDShHHWrxAZ7Ub/83qrXWXROw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cDLdj3bjw38BYyxzI/2B43Pq78puX5fjD3Tp9uuQAM8sh93xmIU97/yk6NCX?=
- =?us-ascii?Q?p0oa9k+KGUH86HLuGnk6cPLQgsVLzLnkhKm9ZYZ3jkG0GPGTIJk0E6tPOWMc?=
- =?us-ascii?Q?0nGpGYxqB9Zad5MRh7g+9JPLny8peyDM7P5wVzOZifXHT2yZY21VT2xXasxE?=
- =?us-ascii?Q?m27vKGM5s1IIf3j1HH3bRt9MHZeahvfm24QWh7AXgHdr/Ck/0KyduvpZXZfa?=
- =?us-ascii?Q?z4ICJouX9NwUuuYY/FOYrai80XMldfe76EowJ4UaJMLiA1beUlizXkZMDati?=
- =?us-ascii?Q?d1VZb8T2/OlRoGu7gnbx4WdDNgyzkJsue3GN27nHRzBzxagsIgqPDaXwFPYt?=
- =?us-ascii?Q?H3cOATyg+8VwDtXARW9tqbw8EZYZ42Qf1Jz7UgDDsE1FZESHUE5ETxaoJRkL?=
- =?us-ascii?Q?8XL1F1incO8i11v75JzEsyA5nbGxLnmJ4ZdYYQZVPzUEwPIjCJ3qNkgTBygL?=
- =?us-ascii?Q?VhSvxKMaH8IlHQFIwqIFdEQN7Ip9kBXLxl7L9lOHU3FvyXUwD+oRyx9wlLbB?=
- =?us-ascii?Q?EWWSRH1T+Ma28Kj9neDUuHf0WnjD3I3aSlODxsSNomRpC+uYG+mdUsLDweSX?=
- =?us-ascii?Q?1L0IAu6DXD6w0mk1rqE1QKyPCC/bk3giIkMuvj+T26lTixkMFX25BLWOMJB4?=
- =?us-ascii?Q?hhe+1Pom5JyuQ2ZjWZyX4Uy3rv9qwuaHy+kJV8YzwpFG+NNUxrhDK/f6ZWZH?=
- =?us-ascii?Q?FW7xE3Ks7CCC1T1j8M3JYC1GvqkJgyLF9NUV1e0sMQAgyTr0FRT1eIcLxWL+?=
- =?us-ascii?Q?UbHR02bUuW4pcqAF2V+aJMpJ5SF2dYGVp3xYR1g8aIhSxCAeIRdVwP7rS57+?=
- =?us-ascii?Q?so/1Jk/b8IDMNTSUkoNDcWVisVxnno3STFgsBlm0rXj2nvXDq3qVhP96k5bW?=
- =?us-ascii?Q?tburnTP6Js1SL6V8U82+t+BEKBPZP178qs2eJTZbmc88WS3PbQPm5VncgTNP?=
- =?us-ascii?Q?+rgiT3XBbKs7/mFSjNyFHqQm8UimqjY1VsPlghmfNs99mvebt82cL+p2HmI2?=
- =?us-ascii?Q?1v+/g4X8xn5XYuNVCSK8vX6pF/uFk+phUlpKxeO4F764R2LaXfd96Wm+/CzB?=
- =?us-ascii?Q?cPUc1YeI7ix0A/608GrT0F1zef8nHzGmSqxn5lV/zsaHFnLKt7cC0TpzNDaX?=
- =?us-ascii?Q?075ALTvL85LTSrjLL0Ndgp9aejwbrG1LYRDJ9GwG6CwNnLfkKRIXFtEI32h4?=
- =?us-ascii?Q?YdAYmYSmUoPeIDsFudVDJ+4EipVGcecRzbg+HhcwIjQ7YBI77RuQx4U6TcLE?=
- =?us-ascii?Q?e3cQ6iciMF8ocHQrXjY44bFgEvudo9G8eDlHXrqmpg9sknZJgjyVWUd4B1p4?=
- =?us-ascii?Q?Pf6JoHq0A9l7ntVpZLQ/zdLMm28Nj5I1+OCv0SDAYDmmMkgnK2hNkMXnJqvM?=
- =?us-ascii?Q?GIwiJUJUAGyPfe+o3ySLtPPvHIj8IcfsefkG+K+mm90kWV7wSHcUF739te8e?=
- =?us-ascii?Q?FV0lETwEeRk6U/jOtg/3hW4W6RfjB+II8NV/+Laje5jmdlFzz95KdkqztPjm?=
- =?us-ascii?Q?QA6ok+/K2wNNu15WFQMORBaprHbeDPybvcbQUZKzxVDA5rQuHsEMEUKfhhWs?=
- =?us-ascii?Q?5tpmF5+6avV9axcy7ogY3AWaKKNkE6uCJy4Fn+s+?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c380325c-8e52-4903-972c-08ddf7939421
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 15:45:37.4832
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ssgLWXi+DDlbIaNIIZiYjkDMHnHsfPJhlttbIJ1tVZWUU0DgkknLup6+VasKY81we8R/Y+Mb43n4Cz1zrdaKxg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8456
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] thermal: qoriq: add i.MX93 tmu support
+To: Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Alice Guo <alice.guo@nxp.com>, Frank Li <Frank.Li@nxp.com>
+References: <20250821-imx93_tmu-v4-0-6cf5688bf016@nxp.com>
+ <20250821-imx93_tmu-v4-2-6cf5688bf016@nxp.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250821-imx93_tmu-v4-2-6cf5688bf016@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_084543_349539_3554F608 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250919_085124_230317_3E998401 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,50 +108,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 03:11:11PM +0800, Xu Yang wrote:
-> Add new imx94_usbmisc_ops for i.MX94 due to it has same wakeup logic
-> as i.MX95, but it doesn't need workaround for ERR051725, so pullup
-> is not needed.
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
+On 21/08/2025 08:23, Jacky Bai wrote:
+> For Thermal monitor unit(TMU) used on i.MX93, the HW revision info read
+> from the ID register is the same the one used on some of the QorIQ
+> platform, but the config has some slight differance. Add i.MX93 compatible
+> string and corresponding code for it.
+> 
+> Signed-off-by: Alice Guo <alice.guo@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 > ---
->  drivers/usb/chipidea/usbmisc_imx.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
->
-> diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-> index b1418885707c..bb027d2bd700 100644
-> --- a/drivers/usb/chipidea/usbmisc_imx.c
-> +++ b/drivers/usb/chipidea/usbmisc_imx.c
-> @@ -1224,6 +1224,14 @@ static const struct usbmisc_ops imx7ulp_usbmisc_ops = {
->  	.power_lost_check = usbmisc_imx7d_power_lost_check,
->  };
->
-> +static const struct usbmisc_ops imx94_usbmisc_ops = {
-> +	.init = usbmisc_imx7d_init,
-> +	.set_wakeup = usbmisc_imx95_set_wakeup,
-> +	.charger_detection = imx7d_charger_detection,
-> +	.power_lost_check = usbmisc_imx7d_power_lost_check,
-> +	.vbus_comparator_on = usbmisc_imx7d_vbus_comparator_on,
+>   - v4 changes:
+>    - no
+> 
+>   - v3 changes:
+>    - use the drv data struct for match data and refine the code
+>    - update the copyright
+> 
+>   - v2 changes:
+>    - use the compatible match data to identify the i.MX93 TMU variant
+> ---
+>   drivers/thermal/qoriq_thermal.c | 18 +++++++++++++++++-
+>   1 file changed, 17 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
+> index 01b58be0dcc64d14ca5e4bba654eed8f15e827fc..b2e634547271dcf512c714907baa162921d2d527 100644
+> --- a/drivers/thermal/qoriq_thermal.c
+> +++ b/drivers/thermal/qoriq_thermal.c
+> @@ -1,6 +1,7 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   //
+>   // Copyright 2016 Freescale Semiconductor, Inc.
+> +// Copyright 2025 NXP
+>   
+>   #include <linux/clk.h>
+>   #include <linux/err.h>
+> @@ -24,6 +25,7 @@
+>   #define TMTMIR_DEFAULT	0x0000000f
+>   #define TIER_DISABLE	0x0
+>   #define TEUMR0_V2		0x51009c00
+> +#define TEUMR0_V21		0x55000c00
+>   #define TMSARA_V2		0xe
+>   #define TMU_VER1		0x1
+>   #define TMU_VER2		0x2
+> @@ -66,6 +68,8 @@
+>   						   */
+>   #define REGS_V2_TEUMR(n)	(0xf00 + 4 * (n))
+>   
+> +#define GET_TEUMR0(drvdata)	(drvdata && drvdata->teumr0 ? drvdata->teumr0 : TEUMR0_V2)
+
+This is not adequate for code which will evolve. Please don't use this 
+macro.
+
+>   /*
+>    * Thermal zone data
+>    */
+> @@ -73,12 +77,17 @@ struct qoriq_sensor {
+>   	int				id;
+>   };
+>   
+> +struct tmu_drvdata {
+> +	u32 teumr0;
 > +};
 > +
->  static const struct usbmisc_ops imx95_usbmisc_ops = {
->  	.init = usbmisc_imx7d_init,
->  	.set_wakeup = usbmisc_imx95_set_wakeup,
-> @@ -1481,6 +1489,10 @@ static const struct of_device_id usbmisc_imx_dt_ids[] = {
->  		.compatible = "fsl,imx8ulp-usbmisc",
->  		.data = &imx7ulp_usbmisc_ops,
->  	},
-> +	{
-> +		.compatible = "fsl,imx94-usbmisc",
-> +		.data = &imx94_usbmisc_ops,
-> +	},
->  	{
->  		.compatible = "fsl,imx95-usbmisc",
->  		.data = &imx95_usbmisc_ops,
-> --
-> 2.34.1
->
+>   struct qoriq_tmu_data {
+>   	int ver;
+>   	u32 ttrcr[NUM_TTRCR_MAX];
+>   	struct regmap *regmap;
+>   	struct clk *clk;
+>   	struct qoriq_sensor	sensor[SITES_MAX];
+> +	const struct tmu_drvdata *drvdata;
+
+The drvdata pointer is not usually used.
+
+	u32 model;
+
+>   };
+>   
+>   static struct qoriq_tmu_data *qoriq_sensor_to_data(struct qoriq_sensor *s)
+> @@ -234,7 +243,7 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
+>   		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
+>   	} else {
+>   		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
+> -		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
+> +		regmap_write(data->regmap, REGS_V2_TEUMR(0), GET_TEUMR0(data->drvdata));
+
+		
+	regmap_write(data->regmap, REGS_V2_TEUMR(0), data->model);
+>   	}
+>   
+>   	/* Disable monitoring */
+> @@ -319,6 +328,8 @@ static int qoriq_tmu_probe(struct platform_device *pdev)
+>   
+>   	data->ver = (ver >> 8) & 0xff;
+>   
+> +	data->drvdata = of_device_get_match_data(&pdev->dev);
+> +
+>   	qoriq_tmu_init_device(data);	/* TMU initialization */
+>   
+>   	ret = qoriq_tmu_calibration(dev, data);	/* TMU calibration */
+> @@ -376,9 +387,14 @@ static int qoriq_tmu_resume(struct device *dev)
+>   static DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
+>   				qoriq_tmu_suspend, qoriq_tmu_resume);
+>   
+> +static const struct tmu_drvdata imx93_data = {
+> +	.teumr0 = TEUMR0_V21,
+> +};
+> +
+
+Do the change for everyone
+
+static const struct tmu_drvdata imx8mq_data = {
+	.model = TEUMR0_V2,
+};
+
+static const struct tmu_drvdata qoriq_data = {
+	.model = TEUMR0_V2,
+};
+
+>   static const struct of_device_id qoriq_tmu_match[] = {
+>   	{ .compatible = "fsl,qoriq-tmu", },
+>   	{ .compatible = "fsl,imx8mq-tmu", },
+> +	{ .compatible = "fsl,imx93-tmu", .data = &imx93_data },
+>   	{},
+>   };
+>   MODULE_DEVICE_TABLE(of, qoriq_tmu_match);
+
+Thanks
+
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
