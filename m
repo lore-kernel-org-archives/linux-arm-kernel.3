@@ -4,79 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79541CA1013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BDCCA1013
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 00:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8n/0W6JHitUDwoMpFjg9k4Y2pN5WPpEih5itsKuiCZc=; b=ESurxVsgptLR8qrr1YYh38HCDm
-	8I1+ugov2QytOQ8SmvThxlps2PLEhgvlzIX55A+WFU6biYgHht8jSgTygym5tj+f0RmogYiAkWG7W
-	deblcM2Eq0DjA6d05sCIf2yQpnxanEN5jvL1DwOCZQ9dsPb+b84cNYO5TtEZQ8QSVqGN2zLVQSUwl
-	VPscyXcoMB7xoDpf7HB+tM7UtkP7mBvIok+Kd4nx5Yfm/FccHcscQVw9yh9YTIfNsL5Ipqmg6mJkN
-	1uupB6JTMh+2fBdd3i91fyYdldBHM0MOGp0u/CRsDVGSJhmzKfmLYfmenpTb5pxJjiBeULeQXQNAl
-	TMiL3hjg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vEGJRFKTNrsJE0HCbcK9vp/Iv76/uJJdZCX2X7FKaRs=; b=kTVYTOYicet/9cvQKvhT4gwbDE
+	DjOVspg8+rwhPTMjr3iyryu2/hemuIWSnjgHXnizK/JwWE3jM6nRdh7oAgSut/y8FG9RJ8HX73088
+	S2EVMz7ZTY/upfG/Ey4xMACz5ZaW3WlMsWxxC8qr8QXdLpf19W1Le4IKuAog6+F3UJ8Np4/8FZt2x
+	4SpaZhAEoTfws7YuPflwZeEpq5hJpzs3Tqh7Kfh6JxUBdErZuCTktxU8E++sWH53syYg62ylS3d4Q
+	IOq+xiqucRf9E32t2LgxuPaSk0qv0i9wKa7JTQuDstPDNLXsw/M20mKzAHrDEDnRfyLP6bvT6hNLE
+	wWPf+ayQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOls-00000001VJB-149F;
-	Fri, 19 Sep 2025 00:14:40 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1uzOnX-00000001VUO-3q1C;
+	Fri, 19 Sep 2025 00:16:23 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzOlp-00000001VI2-1iFC;
-	Fri, 19 Sep 2025 00:14:39 +0000
-X-QQ-mid: zesmtpip3t1758240836tb58d29e6
-X-QQ-Originating-IP: m6WApfYMqy/M1U5G9blRrrjx+KT0iGx5rYj1EBrL7aY=
-Received: from [IPV6:240f:10b:7440:1:ce36:128f ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 19 Sep 2025 08:13:52 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3376898036188312182
-Message-ID: <F1C5CEF8D2933380+98b20449-12bb-4697-84e0-40fd8c2ed81f@radxa.com>
-Date: Fri, 19 Sep 2025 09:13:51 +0900
+	id 1uzOnV-00000001VU3-2vW6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Sep 2025 00:16:23 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id E8F851400175;
+	Thu, 18 Sep 2025 20:16:19 -0400 (EDT)
+Received: from phl-imap-18 ([10.202.2.89])
+  by phl-compute-01.internal (MEProxy); Thu, 18 Sep 2025 20:16:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
+	 t=1758240979; x=1758327379; bh=vEGJRFKTNrsJE0HCbcK9vp/Iv76/uJJd
+	ZCX2X7FKaRs=; b=bQRgSfLfxYtxeK2ZY1mNg5iMzaMmb8PtsCSnTRIS5u9+/9F/
+	DRKlgR/9oRthRfpGe1UEEGF+Dxl+scqYzVGemCLPgUfDv0CG4DZKoEIKdy5SEq82
+	ybRnpPKs7qvtW4NIUjmBBRM9jfU9BRY48RDUeXZOkCm8QVNerhVrn6v8BkJIt732
+	9oi6K1hyO3nIjDWK9RhXH9TZ32Jhg5Cggfx29Z0kbTBNeL8YSv0hUKsFm3E6t+Q1
+	ZuKlWofVsYoXinEOAKPHe877+4MWD79s2kU+IZBC3g0pJdF75Ro+41R47Z0WoKgu
+	7QUozTf9PJvF/paYRrcWOFeRqNC54hRfgOGLXQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758240979; x=
+	1758327379; bh=vEGJRFKTNrsJE0HCbcK9vp/Iv76/uJJdZCX2X7FKaRs=; b=X
+	TzOJH8L0oYawVfbQtdJY/K7nPMTEMrCn32tzXzAu4zm5B3VDROTVlj+tKmJiwTEx
+	aROqItV4IGLA5MY3+yF3US40cy8h0RhtfcrvYjeeKCSba5Jatkat7k1rO3Z199Ta
+	OSVs2Ef+eiiNjF0OhAbD2ODdniPFrv2zAKJFZrmI8pSxv+WYU52mqj6zBwKGaFBn
+	y4ALaP/LS3uMH+xX4wjXgLtHD+0HtfGkNZeEcJ2J1LbDJGKLpnQS9UCYC7wdrBys
+	g84pWZ8IKX/wwHh0OmqjyM0PngKSuFo/DMak+5zJDEaRTp9OM6//uykN97RwzIgY
+	c564QtJ4iOmVwi75XmFBQ==
+X-ME-Sender: <xms:06DMaCbjYrQyeHtnlD6C5vM0U3hxJvrl9DrOcANoA0Jyukkb_xcE8A>
+    <xme:06DMaFb3LElbYUKxxGZD8CASwsm-KUoqM8cEVU5bHaVlaYcsQP5XROBa-L_jIqIh7
+    z0xjJXG24oV-9zd0Bc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdegjeejhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdforghthhgv
+    ficuofgtuehrihguvgdfuceomhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghuqeenuc
+    ggtffrrghtthgvrhhnpeffudeiledvtdekkeeuvdegheetveduvdeivdeuieeiheekleel
+    ueetffdvgeeikeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmhgrthhtsehtrhgrvhgvrhhs
+    vgdrtghomhdrrghupdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhr
+    iihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehs
+    hhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    fhhrrghnkhdrlhhisehngihprdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvse
+    hvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:06DMaAFzKQ1iBw3Ukqx8FgeJPd-kAiO33j-Rd8i8e4FspevVBh7kWQ>
+    <xmx:06DMaAEuqD2L2wg1U9MRAQhwv6nyvm6ISbGPt-rEVd01ZBJZKsoovg>
+    <xmx:06DMaL5ckNPCCxaOzyH5_otnq5lLPoBOscM1iEFkNopHB7TNr8tNOA>
+    <xmx:06DMaNwFEJKHrHYApVkJuupNarcT1ucEOZbDBR1BRry9rcz2oCrfQA>
+    <xmx:06DMaCUOoqjVkgr5-Zhs78YYBLZ7TmkM4Tnq7r1scgKG-Wm9teQbcBwG>
+Feedback-ID: i426947f3:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 6429E15C008C; Thu, 18 Sep 2025 20:16:19 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO
- 3
-To: Ed W <lists@wildgooses.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250917114932.25994-1-lists@wildgooses.com>
- <20250917114932.25994-2-lists@wildgooses.com>
- <FBB5B30DE8FEABD7+59ee6f48-2ad1-45dd-8cf1-8b58a03513a9@radxa.com>
- <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <adbc2396-d5f0-4dd6-a65e-0dd78a58b9a4@wildgooses.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-ThreadId: A_NFvKLCkkX-
+Date: Fri, 19 Sep 2025 10:14:53 +1000
+From: "Mathew McBride" <matt@traverse.com.au>
+To: "Frank Li" <Frank.li@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Shawn Guo" <shawnguo@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Lee Jones" <lee@kernel.org>
+Message-Id: <c757c692-2fd2-41fe-9499-bdd48a71f0a0@app.fastmail.com>
+In-Reply-To: <aMw3t691HHwCQc+g@lizhi-Precision-Tower-5810>
+References: <20250918061441.5488-1-matt@traverse.com.au>
+ <20250918061441.5488-2-matt@traverse.com.au>
+ <aMw3t691HHwCQc+g@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v5 1/2] dt-bindings: embedded-controller: add Traverse Ten64 board
+ controller
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: OAOHw7tUGLQOcxelNBtkTVWFdi8/NGrLMCDKXvFBpW4bo9CpAlddDcXD
-	aBeJWa76gD9H1h/5+gsuhYc3MdFNrjPMA8l7hWoLRInPb+7gsDVKbzbGdd8G4DILDa+3R5R
-	FVYCZnm/v53Ad1yswfmtcOaPNqXurdBrjFN4/MCbd1hWOrqSvHbp/csKVJltTFDzHQWThnX
-	8CjTfMxziQF5ybLPVWVOFLFaslYCySlN6A/sL9oTUB0bSOP+fLse/mvQUfbhbeTzmvGfUhj
-	o5y2fRQaCXHIqOKzsM0kR4VRXrnygpVjZnwyYaLsRjFxHcCdFxK1nW5ioh/nnUdTIvX4ag5
-	ZCeSs6gucfCFWtdN/regX2wXKvoebWhvN3ekTrGkHgCU60S315e9h8L50MOw2Jb/77UiXWW
-	hH3CypWLuFtJLjAN3sgm2d8Zs1lFl7Z6k73sQxahBpuUYjYfgrQJQkM6i0GdSQoboqik+bQ
-	lIOaiXDciSen9RACuxkcC0fCwsU0mPEEraveQLwY9OtUXgx3wCfc7KbCzqXbHxFS/E+GCTm
-	B2sOkQhMXHnERU+NfQ1yKVu9T8JM+hqy8emchfb3RvnhYOLYqCfvxw1bm1Ot3mnZ8LK3Me1
-	7mcVMjHz1c22+qoUcwp5S2ElLj+wqCA4h+pDcTFUS4Oblr1BUbpInGdkSjMlKt+cgnIzL/H
-	ZX1bbXvghralKOdGVjszj4CTc7UO0YxvO5QIOseMLkGzfQJ50Qk9++2NkWwK+5GyBQIuvl4
-	9R/8/seGPnGFTV/cSz+5w9qHprVVoCCYhRcKdB6FUg1Z81avqYxQ69kNWKaS5piLnzFP/D3
-	VNYIqqMvFIeATJ9NtL/AHgQnK03YkXJdrzo7lc8ddS9e5Uc273Em0QQKd/w/46vYHbF26mf
-	XkabuuraSUxWFds1iyJEV0OZRJYENAbINFuQYgwmiR6RO8zvHYXHR649DwWAof027az5g06
-	8UQ0RUsMmPYXp/MQqqg5KLZMrSOXsjFSQgXtBT2Rnpw1wLFQ/mXM7nJFiIYlORyn4w9lS0l
-	icoLXBpB0//wm33lio
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_171437_962444_5B7EEF0B 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20250918_171622_092542_AF07DC18 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,90 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ed,
+Hi Frank,
 
-On 9/19/25 00:23, Ed W wrote:
-> On 18/09/2025 05:53, FUKAUMI Naoki wrote:
->> Hi Ed,
->>
->> Thank you very much for your work.
->>
->> On 9/17/25 20:49, Ed Wildgoose wrote:
->>> The rk3566 has multiplexed pins and the uarts can be moved to a choice
->>> of 2 pin groups. The default rk356x-base.dtsi appears to default to mux0
->>> for all uarts, however, specific hardware might choose to implement
->>> alternatives
->>>
->>> The Radxa zero 3 shows that is uses M1 for uarts:
->>> - uart4
->>> - uart5
->>> - uart9
->>>
->>> These aren't normally enabled, but we should at least correct the
->>> default pinctrl definitions. Without these changes there will be
->>> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
->>
->> Sorry, but why do we need these definitions for disabled nodes?
->>
->> Or why don't we do similar definitions for nodes other than uart?
->> For example, PWM12, I2S3, and SPI3 also use M1. Are they not related to SD/eMMC and therefore
->> don't need to be defined?
->>
->> If users want to use UARTs on pin headers, they will refer to the correct documentation[1] to
->> determine which pins are UARTs and will of course write the correct pinctrl definition.
->>
->> [1] https://docs.radxa.com/en/zero/zero3/hardware-design/hardware-interface#gpio-interface
->>
->> Best regards,
->>
->> -- 
->> FUKAUMI Naoki
->> Radxa Computer (Shenzhen) Co., Ltd.
+On Fri, Sep 19, 2025, at 2:47 AM, Frank Li wrote:
+[snip]
+> > +properties:
+> > +  compatible:
+> > +    const: traverse,ten64-controller
+> > +
+> > +  reg:
+> > +    const: 0x7e
+> > +
 > 
-> 
-> Personally, and I'm saying this as a user who is technical enough to fix the definitions, it took me
-> quite a few days to figure out what was wrong with the definitions and understand the intricate tree
-> of dtsi includes, to finally figure out why I couldn't just do a "status = "okay";" to enable the
-> UARTs... (which is roughly what is shown in several radxa supplied overlays to enable uarts on
-> various boards)
-> 
-> So my vote would be to correctly define all the hardware for a given board. Then users can simply do
-> a status="okay" to enable and off they go. Phrased another way, I can't see a disadvantage in doing
-> this, rather than leaving broken definitions in place which don't work correctly. Ideally I think
-> you should add at least the I2C defs as well, as that is something I would like to use for another
-> reason and haven't even got to the point of discovering that was broken?
-> 
-> I might also (gently) add that it was not easy to find all the documentation to fix this. I located
-> the datasheet for the Zero 3 via google (it's not obviously available on the wiki?), then there is
-> the reading through and I must admit I missed the multiplex difference the first few reads through.
-> Eventually I fed the docs into a LLM and it pointed out what I missed and we got there
+> only have reg properties,  can you put to
+> Documentation/devicetree/bindings/trivial-devices.yaml
 
-In addition to docs.radxa.com, we also distribute some PDFs on the 
-following pages:
+I submitted a version of this binding as a trivial device a while ago (2023) and it was not accepted:
+https://lore.kernel.org/linux-devicetree/c44a73f0-5b34-c740-40c9-afb04bf1c6ab@linaro.org/
 
-  https://radxa.com/products/zeros/zero3e#downloads
-  https://radxa.com/products/zeros/zero3w#downloads
+Even if it were to be accepted today as a trivial-device, my concern is that we would end up with this schema again should we expose any functions of the device, for example, as an nvmem device.
 
-All information should be linked from the product pages (e.g. 
-https://radxa.com/products/zeros/zero3e), but if something is missing, 
-please report the issue by clicking "Report issue" at the bottom of each 
-page on docs.radxa.com.
-
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> So in summary, I'm hoping you will adjust the (really very well structured! thanks!) dtsi include
-> tree to correctly define all hardware on each board so that we don't have a situation that every
-> user in the world needs to be a really decent level kernel tech just to use the board! Pretty please!
-> 
-> Thanks for listening
-> 
-> Ed W
-> 
-> 
-> 
-
+Best Regards,
+Matt
 
