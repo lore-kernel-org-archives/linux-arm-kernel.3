@@ -4,90 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E9BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089E8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 16:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5T/xS++I1bJomI4Kci5V1It9kyGfSsYpAletpMKbjaU=; b=mJVoSppG1N3ki0YDp5xQY2MWkj
-	b0JiXi/TldQLxyegObRV6hw2Y5IEyWOkXn4Dm1Yu+Z7yOpf2DsSYtmbijX9SAXSKTlxRAvm+Sbx9Q
-	DAJTvBVUcXV/uFKnST/K6nC87UQKFhBLDKy8H2E02biNfM01t9/M6C+UwkB/0xYTBizIgy1N/qXun
-	n07qXnhuIXMcR3I/xHmjFRlS4CqWU1rpkxdy6/qX9uW6mSMuXoaQMXaUY5UmaIHc3Gfrc9dHSfy6b
-	u3kHbN8/fMc5iRL6VOKEwiQPefeA3EFzkPnK/deBnNrZumKP4XZI13ObFdbLjiR3/2RLy6Jf8YbkU
-	UW7TikGA==;
+	bh=U/knhkAXouYA6Xl6JtvTXAsRE/iUR0XbPvcQV+3XkA0=; b=U4PONeijGONWoNch2Fn12S2eIQ
+	lo3ugVujDUAo/6ZXwzbdGrfrPkYWZWBD639uhNJf3Pe4mccs/z4wb7lTrVBHmE3BNFv9rlNLdppHb
+	3icrVvvNe9fPzAwaqvxVzbOo8NWAyoGat09PZ5ipyB8z9OYphJM1JUekn20bCsrvNCXkDScUjyweh
+	uVZkGVJq2IWnTAPlj2cSG17REnjZrWxiBMXVGh+UD0BRQlqxzAAywYzu7IYdImDgWJl28B6w3VCSa
+	WzShOj3f8xU8ZwNS5XjwyNy4cO1+S/EwrItENGUFcwABhGn0EiMeKx5kpQPRO7xXVRCXgaHlXnNli
+	11vl7GyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uze27-00000003XHw-3Vc0;
-	Fri, 19 Sep 2025 16:32:27 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1uze6z-00000003XzM-2um4;
+	Fri, 19 Sep 2025 16:37:29 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uze24-00000003XEo-1mm6
+	id 1uze6w-00000003Xyd-3Kzu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 16:32:26 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-30cceb3be82so1932656fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 09:32:24 -0700 (PDT)
+	Fri, 19 Sep 2025 16:37:28 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3d118d8fa91so986644f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 09:37:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758299543; x=1758904343; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5T/xS++I1bJomI4Kci5V1It9kyGfSsYpAletpMKbjaU=;
-        b=jK8nXKuhS4p0H/Iufw8QfixFi5vNeZrXPMLV0GPsPPJJsWTN8i3JyBFc83p/AYrl+G
-         eu0kFvBAC0hE/Nr8s+yCoYhVnnguDnhUyU4gg7piyN80ibO81VEFFOEMyAA+cgK6lAV4
-         Vqz3uBDBDUnu337PTcMEqBs5msyi5KFUwlKxLPMGStX6gdCQm+sj+NYjzYE444U+WNZR
-         iZG06RWdgTboMkbdpzmBPsxKoNeruEZ0wVDlXWY/MSOsPdrvJkT6kdyR05H3KBTpsASk
-         pVwj549GyLc/hayqzn9zaQKdSm1G/VREQks029sIURoYc4GscSFCCp3K5qImN3QoQoyR
-         fdUw==
+        d=linaro.org; s=google; t=1758299845; x=1758904645; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U/knhkAXouYA6Xl6JtvTXAsRE/iUR0XbPvcQV+3XkA0=;
+        b=hnv1WCjUXu8zUsQF8oqQ8ovyy3gQIK++2BRDMabamXEAkBXeaZUSnqRLVMJn3TRPHN
+         OyiVlZNxGWOdMi4xn3Orb06dJG3zsDjfZqQi2P4WisDzetS9wGlv3cjHV12w4j4e9uFr
+         NkXKbliO/eTkXUpFJVXOI9tQtsuWJ/Xb8PB5K7sokiy3NdXVPBT7Y3vNMwVdu0ZoW3rR
+         ahYGn8mT10gmhnf9dUFdmfs4wfCJr9x8/8kvdPeXkBjAV9PTYstmZs/NAaP9DFxqOs+g
+         NwvKFwPfk7lgQxwTT4PrVCbIUA/jcfNhWy0NOiPXJCbbCu9bsmuHOTiJaXT2MtNPc1fi
+         EkHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758299543; x=1758904343;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5T/xS++I1bJomI4Kci5V1It9kyGfSsYpAletpMKbjaU=;
-        b=kQePtyxE+kRHckpfKO6n37K6CaexPuaWNVSv70WqG1YwTTdqzHeqLFTyiyYzO0vRbj
-         YSWuTys42OUPG1y+dtfj42UYUCseHU9ZrZTttfOBWxS2OOwgsoUwz6On5+bWVfhstAdj
-         TQ3WlNSAC/gtScUyBvlW+CnCY9CprvhMSuviI/29T3bV9G3ZGHsPWkKiyfAC35hkuNRl
-         9a3J0qe5XuRwgIp9htLUrLvnpFFA4EGc5zORzPQ+BWPq71oFtkwJC4bugbeKhd0oBkDy
-         ZAPfHpJrS7fFFUJUW1gtzXhD1wadAttcng1HQb2+7C9YSetMOnzSKI2q8ZGzDI63BYQd
-         RAng==
-X-Forwarded-Encrypted: i=1; AJvYcCVgAzpRiqpDH7unyuuhXGcUV0KAcNYzOLGhyeenlRklOlmtxUmF2IKVYtuW62F4jiHxBbFCZfifEt4bVdyT3dtX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzknhHJqJCm/RZcADH7Nv9ooVXKL2cEz3gBXibzTwBNgl+dU0RA
-	5ie2KYjEr3wiYnw5dAOr+uqY855GpH68f0YGyzJdU53l1t4BkX9uzmn7QEH3VKbXpvYkOGmA3Jk
-	seBwbhc8/Xo2fAw51a8qKTc7VZFy1VAI=
-X-Gm-Gg: ASbGncuiowBuxdJMshnu3lR61Q6vj+mvpYKLPrbjYfLkXqfFCyPGsG5Rj1njI/J21j7
-	C5umnnKGshd6qjA/wi1KPcxs9r5+OUcabdOknOvYuUqP+Uz8h+2PUG3wlm5nlPPCIkdF98Py0Rh
-	Ui5YgOkzG8BoHLFxPwWDEFjJ/24RcfqJkGL/Rl4SgCGjt4rL2DBoUNhWJVOEwcon2GgOX2FCsqR
-	MAlrVWx
-X-Google-Smtp-Source: AGHT+IFHybkxatf8JRVHGLWr4iZSJNFbs5kTvlDX9vCOD89cpbWHtSqK9/IcGzh8ZYPusuoWrz8jW9C/VxhnLM40hC8=
-X-Received: by 2002:a05:6870:d60f:b0:31d:63f9:b247 with SMTP id
- 586e51a60fabf-33bb5c70d83mr2082379fac.25.1758299543310; Fri, 19 Sep 2025
- 09:32:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758299845; x=1758904645;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=U/knhkAXouYA6Xl6JtvTXAsRE/iUR0XbPvcQV+3XkA0=;
+        b=LlS7d7v8Ak8nHnS4cURbSe8A519A89bdOBZBUwgH/irbydjtjZ4u5WGFLwe4m+IDoR
+         o/68I9kUMu0nqOY3p26753MvvUxPslVZAZJ7QPiXQjeuPNWcoGXhRGyHfKjDgG2k4QDp
+         nU7ZGo4SDnOnfcGlOJiqppiMWBAVh8mSUVRaF+6GshXoOkJAQv+Ew6Z+UiQGu0teYxKl
+         hYj5xful58xSzzpnCYxgoILTNecB98pB+aGZHMnXBPeAwPYYM5FQrmeeNpvv9TPfom7o
+         6gxqDOZO4OhdzfT8HkGKCZWhQ4pVpKJBzuVM9Q87P2aqypmioGhxYS8ztiU/24smCrcJ
+         v5Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXjrXsnIclSDT/+YLR4TNoMguqJEWx5MJREjV6HVdfctodajRX8hntIjySvuSreUnerI6+qmxpSI/KibFx8QkY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyFI4Nf3D+9FS9efMTMJPi0vnhrRd56U5z6HD0BkBHTKvgtYyF
+	PD5PXJ3cLJoIRDD9kZ4/JaLo9jKCefJmtPTW1Lmchi8NjvsCagtDy5bkBGKk/6q3X8w=
+X-Gm-Gg: ASbGncu0eLuCyLkt/DMif1KtEVmNl2CUSE4709Y//KBS98qpB2hrt1ZT1AZY8nYhfnE
+	kb6jBT1unHAXfdBvJpcz7CK8CPHbSJjGvIA3ASVuOiu+71Egn+fl7oUGtOVQEmOsjmWiEcwXpcM
+	FOcI4hF0xrZDm04vrj1JpxpPhs3V51JgImLd+3i45HGVyqHk5+vIVlBo6sWgf4SGrfPjlGETSB6
+	1Yrk0ACEAaceQWBovxhZT2ttwJI3YnZE4S3aYsd7MzjwtS0CBfDS/mi0fZuA2QIJrUEOKOuBwbH
+	/ctTE26E25rj8BATOXBOuPUvsFJZZMinzRKLHpTFO/h5oMAsmTftd/LHeX/MSBcDHXKVgetFSqD
+	3mscXfsGcmX2REPJ8bLPPRueNHKNB6MtagzeTWURNuNjcfyrc0RMPCwAP2W3jTfShdaDnMQk5UH
+	bntQ==
+X-Google-Smtp-Source: AGHT+IFLCUqUgGD2nd4xyiWXNaIfWMF8JqHjk07IMJDtnkFYT6wdV7TebvWGMsqzX6eS0i+DvItVtA==
+X-Received: by 2002:a05:6000:1ac8:b0:3ec:db87:ff53 with SMTP id ffacd0b85a97d-3ee16600969mr4237445f8f.12.1758299844844;
+        Fri, 19 Sep 2025 09:37:24 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:8ffd:205a:6719:49c1? ([2a05:6e02:1041:c10:8ffd:205a:6719:49c1])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ee0fbc7478sm8450648f8f.38.2025.09.19.09.37.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Sep 2025 09:37:24 -0700 (PDT)
+Message-ID: <71ad53ba-7b72-481f-9b62-1b268cbcd912@linaro.org>
+Date: Fri, 19 Sep 2025 18:37:23 +0200
 MIME-Version: 1.0
-References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
- <20250822021217.1598-3-jjian.zhou@mediatek.com> <CABb+yY16DPJwVTHap4F6n5YJoOJzQLtqKiCQ-2MUm67pzF8uXg@mail.gmail.com>
- <CAGXv+5F-L2+4PGixx7OG2+vp2yXc_2885yMzqWtkQDwhxVAPxw@mail.gmail.com>
-In-Reply-To: <CAGXv+5F-L2+4PGixx7OG2+vp2yXc_2885yMzqWtkQDwhxVAPxw@mail.gmail.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Fri, 19 Sep 2025 11:32:12 -0500
-X-Gm-Features: AS18NWAefeyCXylp5yJszotuZguszwXnzyqYVpM1xMwzFsIBtdJ2c5oL63b9Kvw
-Message-ID: <CABb+yY3N2=01yKJon25_6_vmihj09H=T9pLwzdGPrqY5h=hRFQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Jjian Zhou <jjian.zhou@mediatek.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/4] thermal: renesas: Add support for RZ/G3E
+To: John Madieu <john.madieu.xa@bp.renesas.com>, conor+dt@kernel.org,
+ geert+renesas@glider.be, krzk+dt@kernel.org, lukasz.luba@arm.com,
+ magnus.damm@gmail.com, mturquette@baylibre.com, robh@kernel.org,
+ rui.zhang@intel.com, sboyd@kernel.org, will@kernel.org
+Cc: biju.das.jz@bp.renesas.com, catalin.marinas@arm.com,
+ devicetree@vger.kernel.org, john.madieu@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ p.zabel@pengutronix.de, rafael@kernel.org
+References: <20250917170202.197929-1-john.madieu.xa@bp.renesas.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250917170202.197929-1-john.madieu.xa@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_093224_639862_06B7BD90 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250919_093726_843096_2E3116FB 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +107,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 3:31=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> On Fri, Sep 19, 2025 at 7:50=E2=80=AFAM Jassi Brar <jassisinghbrar@gmail.=
-com> wrote:
-> >
-> > On Thu, Aug 21, 2025 at 9:12=E2=80=AFPM Jjian Zhou <jjian.zhou@mediatek=
-.com> wrote:
-> >
-> > .....
-> >
-> > > +#include <linux/module.h>
-> > > +#include <linux/of.h>
-> > > +#include <linux/platform_device.h>
-> > > +#include <linux/slab.h>
-> > > +
-> > > +struct mtk_vcp_mbox_priv {
-> > Maybe 'mtk_vcp_mbox' is a more appropriate name ?
-> >
-> > > +       void __iomem *base;
-> > > +       struct device *dev;
-> > > +       struct mbox_controller mbox;
-> > > +       const struct mtk_vcp_mbox_cfg *cfg;
-> > > +       struct mtk_ipi_info ipi_recv;
-> >
-> > Maybe also have "struct mbox_chan chan[1]; " so that you don't have to
-> > allocate one during the probe.
->
-> > Also if you have  "struct mbox_controller mbox;" as the first member,
-> > you could simply typecast that to get this structure.
-> > Something like "struct mpfs_mbox" in mailbox-mpfs.c
->
-> I read somewhere that this way of subclassing is not recommended.
-> Instead the base class should explicitly not be the first member.
-> And then container_of() should be used.
->
-> I don't remember where I read this though. But I think the explicit
-> container_of() is easier for understanding the intent.
->
-And how does container_of() work ? :)
-typcasting the first member to its parent is the simplest form of container=
-_of.
+On 17/09/2025 19:01, John Madieu wrote:
+> This series adds support for the temperature sensor unit (TSU) found on the
+> Renesas RZ/G3E SoC.
+> 
+> The initial syscon patch [1] the series depends on has already been accepted.
+> 
+> Changes:
+> 
+> v9:
+>   * Remove driver-specific read/write indirection and use readl/writel
+>   * Use devm_mutex_init()
+>   * Switch to syscon_regmap_lookup_by_phandle_args()
 
--j
+
+Any more comments on the patches ?
+
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
