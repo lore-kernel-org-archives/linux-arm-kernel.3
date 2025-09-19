@@ -4,91 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A79FCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C7ACAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dc53JcOzdrcUIu2iVuDKY0KAeJ//x1/I8rOfO8TAJ0E=; b=nKZnc/oVqpO+4oSsLDbtlvxHxY
-	QwHZxNaUDbgiGg4avAZpqlG3aHWsNwPHNhcpzsHa98uDLf+4ypkvF7goZ+O3WNAuCoF4qR3/dPg12
-	8DR3Uy3y789ydBNZCzc+5WcsjzMYIKSUOG1+SSpL4H8zkn+vFs6fBwEbtT+llAoZqw4DB0BQeqR31
-	qBeQrNj+m9TM1mptDLoO/gKS6BZ9UtqkhjkjsYm71Ur85PH5NdZmLw1lBbwB0aqCa49rjFg4EjAah
-	x31fX7K2glzfuTmIQLbPzqmKsJ6cLM91Gwx4GaZX7XohQd/Sn5GGIv3QFAjFfYMyA1VjsCqiP2OAM
-	CdIeHPmg==;
+	bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=; b=vbT4Nh0s0/WCEgXU28Y4srKDhg
+	O/SClHYzfRB6fjuNIyIsVYdR3QLevDD2CARiGTXO2tDfxnENBib+Lvmbf2xmRWmAZxkivfHpn9Y21
+	TxG3iyODxLPNq6OUVFToX83sbedSdxJMZZ+/iDgQ/jGi0eZwjXSM4KaFLJI+eu+vic2njwLq/SbxX
+	FWPt9CqGKADYLut1NeWs831PJVJsDWuRg8sNHEwKEzpqTFueuVYQAZvLP3MAmWSn39nbhB8eN0Bi2
+	o7xnfxiG3HV6xLM9eJB2z9pOyO9Qo+ez5pZ8U19xEJ/YwZwI8C5MICa5AvB1UapVXqGyQcu1jqm9b
+	q4aikcJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWGF-00000002DQi-0YIa;
-	Fri, 19 Sep 2025 08:14:31 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
+	id 1uzWKe-00000002EF0-1pHX;
+	Fri, 19 Sep 2025 08:19:04 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWGB-00000002DPb-46AX
+	id 1uzWKb-00000002EDi-3Vxc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 08:14:30 +0000
-Message-ID: <4cf41cd5-e93a-412b-b209-4180bd2d4015@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758269664;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dc53JcOzdrcUIu2iVuDKY0KAeJ//x1/I8rOfO8TAJ0E=;
-	b=BmeGBByUETlTGTM2SzKN9sT+aElM0iDnr9NVCQ0Y4S5LyZS5qVFjUY0/ZQhQcjxmkujkwF
-	lcqoAIrEgGu+qx5juQO8M0lGpLChTPtWmm4PXKC8zXPXthowkvLtjPKwUnGPeV4fEL7kE5
-	GoVQEabwufMTPdzDfKN5emTG80lC0C8=
-Date: Fri, 19 Sep 2025 16:14:11 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH v5 2/6] mm: remap unused subpages to shared zeropage when
- splitting isolated thp
-Content-Language: en-US
-To: David Hildenbrand <david@redhat.com>
-Cc: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "usamaarif642@gmail.com" <usamaarif642@gmail.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "yuzhao@google.com" <yuzhao@google.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "corbet@lwn.net" <corbet@lwn.net>,
- =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>,
- "npache@redhat.com" <npache@redhat.com>, "rppt@kernel.org"
- <rppt@kernel.org>, "willy@infradead.org" <willy@infradead.org>,
- "kernel-team@meta.com" <kernel-team@meta.com>,
- "roman.gushchin@linux.dev" <roman.gushchin@linux.dev>,
- "hannes@cmpxchg.org" <hannes@cmpxchg.org>,
- "cerasuolodomenico@gmail.com" <cerasuolodomenico@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "ryncsn@gmail.com" <ryncsn@gmail.com>, "surenb@google.com"
- <surenb@google.com>, "riel@surriel.com" <riel@surriel.com>,
- "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>,
- =?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?=
- <chinwen.chang@mediatek.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- =?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "baohua@kernel.org" <baohua@kernel.org>,
- "kaleshsingh@google.com" <kaleshsingh@google.com>,
- "zhais@google.com" <zhais@google.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20240830100438.3623486-1-usamaarif642@gmail.com>
- <20240830100438.3623486-3-usamaarif642@gmail.com>
- <a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com>
- <434c092b-0f19-47bf-a5fa-ea5b4b36c35e@redhat.com>
- <CABzRoyYWQMFTGYgfC7N=cWMnL_+5Y05=jrMhFjBf1aKOGxzq5g@mail.gmail.com>
- <ebedc478-7519-4e30-854e-f6616a7647b0@redhat.com>
- <120445c8-7250-42e0-ad6a-978020c8fad3@linux.dev>
- <9d2c3e3e-439d-4695-b7c9-21fa52f48ced@redhat.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <9d2c3e3e-439d-4695-b7c9-21fa52f48ced@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Fri, 19 Sep 2025 08:19:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w6w0FAXs0qxf0eckTuxzB+GDnJhw0E2PHhRVsaFE+v+9K8zbuUteIE7uOmU5QfPM7mSgJ02iIP9n5b/BfId2csg+4SjM4YizC65tuwzpFrNsTVt6zgMCOqPHKBnakCQNWKgQYhtGEaNQfn3FWeESbfefDyp37EaMFMZjBD/PLsjKnGyAEYXCQhRhLQLhDSH/lybT8A06eNVJ9YrInIkpkd8ckePWu0GxRCDqoERG5SLaVW4ZFoh4MGj9VvJhvKOmUK5AN+d460PF4L/6mh/+ft9x0yiEW+I+LfN2ojK8nfBH6y2qqRMjRnnj8NrXEjouhrpmYWuaKmp12KxfLSc78w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=;
+ b=d2UBXafLFJHb3Pnyw2uj7mia9IoE/PzIWOrV5JrswJH2zO4zti3vlFdh3ei7xbA+A0bhHwNcqqwXw9Qkn6PK/bhPBv/bDUSNT2mVI76Ghm+HyibrH1IKSmsjyZlo0O0IsRLYqkXdmQQ6uQVAHTKtkPjEt3Z2YZN5tiYV9Mt2v1S9W53vmOmF7A0d40mfq8zjIGAyFHPoVqt1/Kbq4LtpFb5mgWkN809pBF+tl+JAPdIyv649W3OVqs8CXoSv/d7syuJUgALaCrokYRXPwWl8+4bt6bPoI+YvKe3IqvkhUNpjwhoQ5gP7xLWMiztDzhOo8rxygERNh+maB0WkryJvqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QLQNviM3ISijSfCR/zgBY7IrWypvwT6VWOGvXmPnx/w=;
+ b=sxeuSdAnmZmVwgEt7qiuoWL6Jv3VOyP4TWAbXBXnN6iP/wIohgNqVZKh6kzVCFsetf1a4i6tcPbPo/kx60Rh3RMFTMsHc9jHkM+IqiXK3D/HoZROgj+LMJeEIxAkCexQ98uJoFPXNdJx7DxEKtdr4R+vycmSZ3PzmApFDD+afN04l4QkDzpL0FCP3PMShkJ/qkRXXXWBTHPjXmh0PVo2CuVHCQ4ViU4pmnR20MsN1Mm1SUmVJ1oYRA1w36yas0CjSzPvdu8+47G2NSLBttfy5IeHAHeVpCU4ElqvVUvpr9BuXHesd87yui6P4YvrhZPOEGyTx+UC7d3IB78cx0vFKQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI2PR04MB10545.eurprd04.prod.outlook.com (2603:10a6:800:270::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
+ 2025 08:18:55 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
+ 08:18:55 +0000
+Date: Fri, 19 Sep 2025 17:30:34 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Michael Walle <michael@walle.cc>
+Cc: Haibo Chen <haibo.chen@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Frank Li <frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
+	Han Xu <han.xu@nxp.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] arm64: dts: imx8mm-evk: limit the max frequency
+ of spi nor chip
+Message-ID: <20250919093034.GK9196@nxa18884-linux.ap.freescale.net>
+References: <20250917-flexspi-dts-v2-0-7e2a95e3cf4d@nxp.com>
+ <20250917-flexspi-dts-v2-3-7e2a95e3cf4d@nxp.com>
+ <20250918090151.GB23028@nxa18884-linux.ap.freescale.net>
+ <DCWLMKKUEALZ.CX4XNGWG80B8@walle.cc>
+Content-Type: text/plain; charset=unknown-8bit
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <DCWLMKKUEALZ.CX4XNGWG80B8@walle.cc>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2P153CA0017.APCP153.PROD.OUTLOOK.COM (2603:1096::27) To
+ PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10545:EE_
+X-MS-Office365-Filtering-Correlation-Id: 956573c4-74ed-4fc4-b503-08ddf7552cca
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|376014|19092799006|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z+/cszy5nxcYV+mtlQK2TkboWJA2r3vGPJmGUAfVLUUVC1TujtjH+7/n+2/R?=
+ =?us-ascii?Q?r2bWSiHB8XejOaw8FKf3pwefwTiXYt48NB+3zJHevGTi83WZwYwmUlV+MMxJ?=
+ =?us-ascii?Q?dEY9rWDiUuoRrxi+Dyi//hbhtImV/SmPxAsO8uJFrgGyjEALrbuFXdzBOTbT?=
+ =?us-ascii?Q?zvQ33LnElNRHu9cB+gg1Zhcnsl/nQoz0t/qJ7b37mC0+56rjGX9N6Tfpzbbj?=
+ =?us-ascii?Q?rozcW2+9gFLxbYcKE/NPBHgds9U9zq+Dclafb4v4B5ALcq0AeCa5eBODNb54?=
+ =?us-ascii?Q?M7Gpi0gFS/er/gKMIvW2hC/ITeuyfoeGITYMCsnjc2p0/egr9LWUti/F3Iip?=
+ =?us-ascii?Q?PFnmPQdrMmSdhCX41/4bZ41vlGcrjDU54qhp/s9iScEMxWOIQm4twa/cnEzG?=
+ =?us-ascii?Q?YSyC0rHnApLzCgkvjOo+iebxORlZuoUkXBVK92X5RhZrJ9ufWOgyCzLGeT4n?=
+ =?us-ascii?Q?xM0M0C1+xEJ4CNZboVBFqOxf/SqzGDSqYKNhwt3UQ3wFdi8Lqf3ssBObhmIO?=
+ =?us-ascii?Q?MuGD37ixqfBo+khHG4RL5GmtprrkdE+55Qhr55c5XMQztGmBhj31m1jOptku?=
+ =?us-ascii?Q?lRH8ZEgIJChzVIlkYn6ofJbN9mAxr04W00C7+joOpD1dW5oflxoFSLF5OKUT?=
+ =?us-ascii?Q?eq7V5hrrf4OfqRV62ScLrpjj6kJpuSpMO4dhXSxJQaTUxHVt9vMhwY2Xb+Iq?=
+ =?us-ascii?Q?/vvJ3v1KWvzWVHLdilqND+Y+0LqbYFyik0+xiENZeIP49wFGAtRtyzjohoxv?=
+ =?us-ascii?Q?4qxO8KpXKfgpCRxPjXHDlCbQzQ4rALFaz4H0+WSXBiXQG2VXRTDtt1GeVlN8?=
+ =?us-ascii?Q?I13e82PxA6qZCYU+GCeQ0tSA3WJPD+58If+hLgPU3bZMZeQcSl57UpoCtAvl?=
+ =?us-ascii?Q?cDNFLGk6bstICJZNZspnzIHZ99JMRe08tXqHU6X9JIuv4V9a8tzeAbdAjwdO?=
+ =?us-ascii?Q?WssMfTRl0ewe1oDl4rx1sKLTEi0g+tqcNSsQlGFiuDCLN8UOr1cK4Cl3LASC?=
+ =?us-ascii?Q?2mXHFKsFF9O0hisMCaw+hV3h7MuRlNQoys+CoetAVnE9m7ITHYm+K6UC/FEL?=
+ =?us-ascii?Q?gXxaXvxQiJRaYhngGTM8jKBxq1KFvOHdu6hHG3AVMK7Q6hlf+WzmFgirhww/?=
+ =?us-ascii?Q?+nsEo17JzoZydS49/j+kpIS1kFdb6R6JhHSKYxpTeis9olMe+3rLjYuSUIVM?=
+ =?us-ascii?Q?MFsHt+kWJIsCVBsIKeFLLBF/1No+rph0mdfmCxG3Yy1pfTtjTVKq5V+229WG?=
+ =?us-ascii?Q?o2HM6n+VPOKekq8W43ewVgzQk9LM1043fNek7O3kxThXlNk1HG3KFaIjVqKu?=
+ =?us-ascii?Q?wmvU2nCcjihgNQar5UKuFPrKBlbKtSzWSrSgE7gwxBq6HTvF2rKhQRCzRSdp?=
+ =?us-ascii?Q?thfVhIDJqLtfYAlnt+st7TIZZJME3/2w5FXH6D/JrNpcKBJLuAm1qii+NdHM?=
+ =?us-ascii?Q?lUBmAtbfbq4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(376014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4f5Gre9eeonYXtQvSdrRvOckYGT/9MH+yG+esAPEF5W1MsHE36N8F/+8V4FH?=
+ =?us-ascii?Q?+COIfgPfeXrIBi1d164KumxqRrgu7YKasGBBa5a957YVKbSbwcLzlJA+YK+W?=
+ =?us-ascii?Q?7obF16KpNCNnsWggJw/8IuatPJbE2ZA0OS4glFErmW6uZLfMqYnce8YsJikb?=
+ =?us-ascii?Q?K0dhHxNIBBii0Gwcllr8rYPx8d+XnaOMSTtVRAqibr9hLX+uph5GdRFBxxuf?=
+ =?us-ascii?Q?FtBPKbp34vILyLnB6wcth6KW+spzaEezR6G4G4GvaR3f1g3VKKZxPL5fFkT4?=
+ =?us-ascii?Q?t6tqZLGL3Mo679zEMeNfrC0LTXO+zWKBuzpoLyPmtt0oy8BLKCK5zkOCSxr4?=
+ =?us-ascii?Q?VxP4vUCIgW4vRCJqcGzZsXSfcHqiu8Rpld3WAQPZm/yn676KK4JvrYrS6Tjv?=
+ =?us-ascii?Q?1YSMG0VgEF2gH6uPGuNwQe+7XclrpHQX0mdLBQjoeO8T+RVfWaStMY0jL8/W?=
+ =?us-ascii?Q?fbYqzx+k3MWvpTOe43dt5nPXB+jgP9K5D+PQKivYZUIxoNvOGrks4GDESzVX?=
+ =?us-ascii?Q?QntgC2tK5FgYoxnuDOda1IfxEUVroARjuznULbfPGxwQqqIhmqhHVusiOjer?=
+ =?us-ascii?Q?zZXmlsL2gkE7YX3SAjojYw/PzJUGqWEjnsxk6H8N1vSrU/0PhFl9OFTNtg5Z?=
+ =?us-ascii?Q?SYQoiZYReXnuTeRV2S7eITB7bjFAvBuWtye/YjRhQ0j/Q17PYSt5add5P3nZ?=
+ =?us-ascii?Q?rtUqyZsNAFZ6WfYLy1glIdOSGFv+FpqxhD0l2nE8jy4CZ5GHN6olui2T7Rx9?=
+ =?us-ascii?Q?nSZW0wQbO5ag+C7yKU2oUQKfhAZyfUkmmQ1sFeglF1YSzlTvvBc/3ErS0VRr?=
+ =?us-ascii?Q?4BJ6HvXIlTR4rIWuJcKguTDZzZQETAFtYmEB+iwU/Ud/gtV9ucSTuwujMrFX?=
+ =?us-ascii?Q?ui97VksHn9YzToi5Mrt+tPPyz/snUY1/eeXq9BPWik9tFShEGLN0nyeUaSb1?=
+ =?us-ascii?Q?8HnHBGJon3yfoaZ+6Gi0pTLv4uWSh8jL24m55zACGMl5UFzydgysFd5T0WbJ?=
+ =?us-ascii?Q?fCjcALsI9/x+k3dRewS4vE3e8pthI/vQo4NV+hQriPXFCcBRCCBTQM+DwnZL?=
+ =?us-ascii?Q?75Lj6IAkKdl6Pvr3nre6ykEHIjwcKdFMIErPDkJN9HZARPHhY3A6xMX0Vudd?=
+ =?us-ascii?Q?eZvV3NFyoL14QfL8d7arZeB14gWyWYjz/Odk2DRP1iYjL0ZqQBfWWw5pPT3+?=
+ =?us-ascii?Q?esGj6ZRzmtZzIOvB2gAd9PYSoFNu5OEiF1xI1PunaNRVFabalAgt1vamn6zd?=
+ =?us-ascii?Q?fisOZ1UfCZBCF/6E5sXjtcQR4Id7JK5olAl6lJ1GH3AVblqcKZUdvpN/WyLc?=
+ =?us-ascii?Q?LAWU54Ybxwa7ArEwsDWHaQPHVsF464CdncUO0n4dOka1/egBIqbpJx1t+Tha?=
+ =?us-ascii?Q?aIf3zmmxB0I3scJDaxCcs22QU6VBqI4vk3Gpb84+zCB9rRejFZl8/Tb0OiCV?=
+ =?us-ascii?Q?QSUyFas9oncmFVfPei4hYo7fV36M0SE0CCGGcxqq1tv8OucKntqYyRtnKrK4?=
+ =?us-ascii?Q?XsJ1clHPLR4v7gVctXgH7WaKV+uBYU/0xCWG9BYQ7C3HhcZ40QnphzS7urEE?=
+ =?us-ascii?Q?Dt3tpXf7B7qtqY0077lmV0AQ2c5Jq9ukv985BcND?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 956573c4-74ed-4fc4-b503-08ddf7552cca
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 08:18:55.6113
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hQ4YSfq0woaqLtCHFFIY26QtUqIwd36on8PD+800my886h1iUgeDitDrfXYgQnB/Z9eMjOdH+gR/9w0isXDmSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_011428_881594_3A966812 
-X-CRM114-Status: GOOD (  29.73  )
+X-CRM114-CacheID: sfid-20250919_011901_880546_62BA8CE2 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,141 +171,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/9/19 15:55, David Hildenbrand wrote:
->>> I think where possible we really only want to identify problematic
->>> (tagged) pages and skip them. And we should either look into fixing KSM
->>> as well or finding out why KSM is not affected.
+On Fri, Sep 19, 2025 at 09:29:41AM +0200, Michael Walle wrote:
+>Hi,
+>
+>On Thu Sep 18, 2025 at 11:01 AM CEST, Peng Fan wrote:
+>> On Wed, Sep 17, 2025 at 04:42:29PM +0800, Haibo Chen wrote:
+>> >The spi nor on imx8mm evk board works under SDR mode, and
+>> >driver use FlexSPIn_MCR0[RXCLKSRC] = 0x0 for SDR mode.
+>> >According to the datasheet, there is IO limitation on this chip,
+>> >the max frequency of such case is 66MHz, so add the limitation
+>> >here to align with datasheet.
+>> >
+>> >Refer to 3.9.10 FlexSPI timing parameters on page 59.
+>> >https://www.nxp.com/docs/en/data-sheet/IMX8MMIEC.pdf
 >>
->> Yeah. Seems like we could introduce a new helper,
->> folio_test_mte_tagged(struct
->> folio *folio). By default, it would return false, and architectures like
->> arm64
->> can override it.
-> 
-> If we add a new helper it should instead express the semantics that we 
-> cannot deduplicate.
-
-Agreed.
-
-> 
-> For THP, I recall that only some pages might be tagged. So likely we 
-> want to check per page.
-
-Yes, a per-page check would be simpler.
-
-> 
+>> The SoC SDR mode max supports 66MHz, 133MHz. DDR mode max supports 33MHz and
+>> 66MHz. Saying the driver now only use RXCLKSRC 0 to restrict the
+>> device tree to 66MHz is not that correct.
 >>
->> Looking at the code, the PG_mte_tagged flag is not set for regular THP.
-> 
-> I think it's supported for THP per page. Only for hugetlb we tag the 
-> whole thing through the head page instead of individual pages.
+>> The SoC max frequency could be coded in driver per my understanding.
+>
+>Yes that is correct. The spi-max-frequency property is for the
+>device, not the capabilities of the controller. I.e. the flash chip
+>on the board.
+>
+>> For the QSPI-NOR chip, the spi-max-frequency should represent the NOR chip
+>> frequency. But that chip supports SDR/DDR, so a new property
+>> spi-ddr-max-frequency, if we take spi-max-frequency as the max NOR
+>> CHIP SDR mode frequency?
+>
+>Which chip is it? I'm not sure that this is required because the
+>supported modes might be in the SFDP data and we just support the
+>8d8d8d mode backed by the JEDEC standard.
 
-Right. That's exactly what I meant.
+MT25QU256ABA
+Clock frequency
+– 166 MHz (MAX) for all protocols in STR
+– 90 MHz (MAX) for all protocols in DTR
 
-> 
->> The MTE
->> status actually comes from the VM_MTE flag in the VMA that maps it.
->>
-> 
-> During the rmap walk we could check the VMA flag, but there would be no 
-> way to just stop the THP shrinker scanning this page early.
-> 
->> static inline bool folio_test_hugetlb_mte_tagged(struct folio *folio)
->> {
->>     bool ret = test_bit(PG_mte_tagged, &folio->flags.f);
->>
->>     VM_WARN_ON_ONCE(!folio_test_hugetlb(folio));
->>
->>     /*
->>      * If the folio is tagged, ensure ordering with a likely subsequent
->>      * read of the tags.
->>      */
->>     if (ret)
->>         smp_rmb();
->>     return ret;
->> }
->>
->> static inline bool page_mte_tagged(struct page *page)
->> {
->>     bool ret = test_bit(PG_mte_tagged, &page->flags.f);
->>
->>     VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
->>
->>     /*
->>      * If the page is tagged, ensure ordering with a likely subsequent
->>      * read of the tags.
->>      */
->>     if (ret)
->>         smp_rmb();
->>     return ret;
->> }
->>
->> contpte_set_ptes()
->>     __set_ptes()
->>         __set_ptes_anysz()
->>             __sync_cache_and_tags()
->>                 mte_sync_tags()
->>                     set_page_mte_tagged()
->>
->> Then, having the THP shrinker skip any folios that are identified as
->> MTE-tagged.
-> 
-> Likely we should just do something like (maybe we want better naming)
-> 
-> #ifndef page_is_mergable
-> #define page_is_mergable(page) (true)
-> #endif
+Current spi-max-frequency does not indicate it is STR or DDR.
 
+If device tree has spi-max-frequency as 166MHz, but driver configures
+the working mode as DDR, there might be issues. I not look into details
+on SFDP or 8d8d8d8d, so my understandings might be wrong.
 
-Maybe something like page_is_optimizable()? Just a thought ;p
+Thanks,
+Peng
 
-> 
-> And for arm64 have it be
-> 
-> #define page_is_mergable(page) (!page_mte_tagged(page))
-> 
-> 
-> And then do
-> 
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index 1f0813b956436..1cac9093918d6 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -4251,7 +4251,8 @@ static bool thp_underused(struct folio *folio)
-> 
->          for (i = 0; i < folio_nr_pages(folio); i++) {
->                  kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
-> -               if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
-> +               if (page_is_mergable(folio_page(folio, i)) &&
-> +                   !memchr_inv(kaddr, 0, PAGE_SIZE)) {
->                          num_zero_pages++;
->                          if (num_zero_pages > khugepaged_max_ptes_none) {
->                                  kunmap_local(kaddr);
-> diff --git a/mm/migrate.c b/mm/migrate.c
-> index 946253c398072..476a9a9091bd3 100644
-> --- a/mm/migrate.c
-> +++ b/mm/migrate.c
-> @@ -306,6 +306,8 @@ static bool try_to_map_unused_to_zeropage(struct 
-> page_vma_mapped_walk *pvmw,
-> 
->          if (PageCompound(page))
->                  return false;
-> +       if (!page_is_mergable(page))
-> +               return false;
->          VM_BUG_ON_PAGE(!PageAnon(page), page);
->          VM_BUG_ON_PAGE(!PageLocked(page), page);
->          VM_BUG_ON_PAGE(pte_present(ptep_get(pvmw->pte)), page);
+>
+>-michael
+>
+>> So if spi-max-frequency is the maximum NOR chip SDR frequency, the driver
+>> should also be update dthat DDR mode is not supported as of now.
+>>
+>> Just my thoughts.
+>>
+>> Regards
+>> Peng.
+>
 
-Looks good to me!
-
-> 
-> 
-> For KSM, similarly just bail out early. But still wondering if this is 
-> already checked
-> somehow for KSM.
-
-+1 I'm looking for a machine to test it on.
 
 
