@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50372CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 03:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE8DCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 03:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LY00hGaHj82HQ41hMnhsfZ2aVqFf+c85vwEv6CG/hV8=; b=e0IG7zMb1jm8w0+Nol2UuC6sS4
-	G8pnfErYvB4MfUK8THNvuS3MP16xQGHRyDBsAN7b1FVaZD+6WGg42A7furcYy8Xx9hzmCekkrdGGE
-	WgMcV38M2MmiieDrUykAOgFsSb37IxjlGaikHp0pefqBfHF4JGGMOlm9O/NUZYrYVZ2dUycGb8jHj
-	NERHZcninqZwia+HTSQSZPP7gpaMLOscpHxu4dp2H+W4j3xVi4kaYB+UAgWghu5ZjgNexEj4wGoH+
-	IkJOUBjxuG15KxtoYjQXb1V6gOtQaecqSJyK0Rk9bsQsfWpzwuhVC6Bb/kgCqn/pw+fIhSXH9pT3y
-	tVA6UYkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rNtnHFH/1NisuY8nccM0/QffB5pWi6qHcDXaQBJZF18=; b=Auur2wzk5glrxf7iWckwaGCau5
+	FTdhyPshXZZqWBzIS5/lLvZVGg+FYT4fE1Cl49Bl344hlkRiDy5FocjsHqjA1j4UTFEOJRgQtHYkh
+	I2tfKLbCtRtnJqeY7XEtjgaoCGHFsQeoEyKulj7Huy9gWYCjKtUyMi0kbhcvqQMh1yJvfZptU8Gtz
+	qVDTbI2QhYcQzTqPQUsIxMF+aliYqPpLDcu0GWFIviHJ6lDbNOmRLGecZ5VQ8ulRWfnUbpIAdrcqo
+	EXFVNX1u6wiFVFYToOLfzifzLVQhe1mA6kmWtYPvrIHjd1FVlDu/0bokA3bnCP9DEoqXPlvYRc5t1
+	tBwZja1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzRoC-00000001jk8-3qHT;
-	Fri, 19 Sep 2025 03:29:16 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uzRsY-00000001kLG-2GcS;
+	Fri, 19 Sep 2025 03:33:46 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzRo9-00000001jhr-39eb
+	id 1uzRsV-00000001kKd-2sD1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 03:29:15 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58J3TAdj151745;
-	Thu, 18 Sep 2025 22:29:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758252550;
-	bh=LY00hGaHj82HQ41hMnhsfZ2aVqFf+c85vwEv6CG/hV8=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Qdl8Y53USuhdTiunKo6fQa1kmkalr2rwMIlXc+e+xwlV5rBVYStbd6KMRaqkCHIhI
-	 xvgDXGuzujZKGsbjZ8iwDAnsul5PLLeukW07Sn5byg23qn2vigU6kSMm8JWWygBACh
-	 cZ1qUMb3TGHrPnPTvihf5GiYt2b01ReLPnFgxCRM=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58J3TAsQ2029083
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 18 Sep 2025 22:29:10 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 18
- Sep 2025 22:29:10 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Sep 2025 22:29:10 -0500
-Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58J3T8mY1901500;
-	Thu, 18 Sep 2025 22:29:09 -0500
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
-        <s-ramamoorthy@ti.com>
-Subject: [PATCH 2/2] arm64: dts: ti: k3-am62d2-evm: Enable PMIC
-Date: Fri, 19 Sep 2025 08:58:06 +0530
-Message-ID: <20250919032806.707926-3-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250919032806.707926-1-p-bhagat@ti.com>
-References: <20250919032806.707926-1-p-bhagat@ti.com>
+	Fri, 19 Sep 2025 03:33:45 +0000
+X-UUID: 6a81237e950911f0b29709d653e92f7d-20250919
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:dec5a508-240c-4c0a-ad30-88249f5b3bae,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:6493067,CLOUDID:1dbd459edc4a7cb8f4dadc86968a2d0d,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:0|50,EDM:5,IP:nil
+	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
+	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 6a81237e950911f0b29709d653e92f7d-20250919
+Received: from mail.kylinos.cn [(10.44.16.175)] by mailgw.kylinos.cn
+	(envelope-from <liqiang01@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 723830363; Fri, 19 Sep 2025 11:33:32 +0800
+Received: from mail.kylinos.cn (localhost [127.0.0.1])
+	by mail.kylinos.cn (NSMail) with SMTP id 0BF80E009009;
+	Fri, 19 Sep 2025 11:33:32 +0800 (CST)
+X-ns-mid: postfix-68CCCF0A-47649798
+Received: from localhost.localdomain (unknown [10.42.20.41])
+	by mail.kylinos.cn (NSMail) with ESMTPA id 2371AE009008;
+	Fri, 19 Sep 2025 11:33:29 +0800 (CST)
+From: Li Qiang <liqiang01@kylinos.cn>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Li Qiang <liqiang01@kylinos.cn>
+Subject: [PATCH] arm64: add unlikely hint to MTE async fault check in el0_svc_common
+Date: Fri, 19 Sep 2025 11:33:27 +0800
+Message-Id: <20250919033327.1942730-1-liqiang01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_202913_882910_4361A25E 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250918_203344_064973_DE3A0CB6 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,125 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for TPS65224 PMIC family on wakeup I2C0 bus. This 
-device provides regulators (bucks and LDOs), along with GPIOs, 
-and monitors SOC's MCU error signal.
+Add unlikely() hint to the _TIF_MTE_ASYNC_FAULT flag check in
+el0_svc_common() since asynchronous MTE faults are expected to be
+rare occurrences during normal system call execution.
 
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+This optimization helps the compiler to improve instruction caching
+and branch prediction for the common case where no asynchronous
+MTE faults are pending, while maintaining correct behavior for
+the exceptional case where such faults need to be handled prior
+to system call execution.
+
+Signed-off-by: Li Qiang <liqiang01@kylinos.cn>
 ---
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 91 ++++++++++++++++++++++++
- 1 file changed, 91 insertions(+)
+ arch/arm64/kernel/syscall.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index 9a74df221f2a..155abd97b799 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -214,6 +214,14 @@ AM62DX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
- 		>;
- 		bootph-all;
- 	};
-+
-+	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_MCU_IOPAD(0x004c, PIN_INPUT, 0) /* (D13) WKUP_I2C0_SCL */
-+			AM62DX_MCU_IOPAD(0x0050, PIN_INPUT, 0) /* (E13) WKUP_I2C0_SDA */
-+		>;
-+		bootph-all;
-+	};
- };
- 
- /* WKUP UART0 is used for DM firmware logs */
-@@ -464,6 +472,89 @@ &main_i2c2 {
- 	status = "okay";
- };
- 
-+&wkup_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&wkup_i2c0_pins_default>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	tps65224: pmic@48 {
-+		compatible = "ti,tps65224-q1";
-+		reg = <0x48>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <31 IRQ_TYPE_EDGE_FALLING>;
-+		ti,primary-pmic;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		buck12-supply = <&vcc_3v3_sys>;
-+		buck3-supply = <&vcc_3v3_sys>;
-+		buck4-supply = <&vcc_3v3_sys>;
-+		ldo1-supply = <&vcc_3v3_sys>;
-+		ldo2-supply = <&vcc_3v3_sys>;
-+		ldo3-supply = <&vcc_3v3_sys>;
-+
-+		regulators {
-+			buck12: buck12 {
-+				regulator-name = "vdd_core";
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-name = "dvdd1v8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			buck4: buck4 {
-+				regulator-name = "vdds_ddr";
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			ldo1: ldo1 {
-+				regulator-name = "vdda_1v8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			ldo2: ldo2 {
-+				regulator-name = "dvdd3v3";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			ldo3: ldo3 {
-+				regulator-name = "vddr_core";
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+		};
-+	};
-+};
-+
- &sdhci0 {
- 	/* eMMC */
- 	non-removable;
--- 
-2.34.1
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index c442fcec6b9e..7eb13f4c87da 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -96,7 +96,7 @@ static void el0_svc_common(struct pt_regs *regs, int sc=
+no, int sc_nr,
+ 	 * (Similarly for HVC and SMC elsewhere.)
+ 	 */
+=20
+-	if (flags & _TIF_MTE_ASYNC_FAULT) {
++	if (unlikely(flags & _TIF_MTE_ASYNC_FAULT)) {
+ 		/*
+ 		 * Process the asynchronous tag check fault before the actual
+ 		 * syscall. do_notify_resume() will send a signal to userspace
+--=20
+2.25.1
 
 
