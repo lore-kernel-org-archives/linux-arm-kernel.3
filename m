@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3349BCAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 22:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41739CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 22:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JPVacn2PmZ4z0RLVYVdIubbfP3TwF2TL+jrZNbrpOZY=; b=ICsNQ3hj3G1/Jvvv2Q7+1KAbNo
-	Lm92QzjRcdiNM+gXbpb+b0dVYR+Kqk/aS1hqrQdq76LmnKuIMPZ50QaaL09Prug5D802phkfzV3pD
-	0lvntcx1X+zJurXKl5/6Skcx7GgszXaIbEkJjH3OH6wSBMjeGICg5FC42nx3olw8oWmDvB5KVV5MJ
-	J3H4dtL98cRF86pVQ5sTD6vxcpMxHBQbjov02gwDmQxMuY8lTS+Af/79otbjmYK0tahWroprs2bqN
-	7rBV5Xr/wt5xD1YUhCYeUgIYkgwnU7WpJtaDxFQGZI5O7ylpEEFpjraVd3EnlTSJW1S4NxvN7tXR3
-	wkVC/SAQ==;
+	bh=c10gttiRf4SwrPt9wISmA+SEZzX4oEt3NSpPnwS9bNc=; b=PmZcZocPRum+YUKGewlB+/Jupd
+	IbuESKeyI2s2poxQZsGX/oowPnJe1nKKrUfBrLz5KPNHlGxT3OpV7zk30IFt807+96KRXwimQOxV9
+	vYyMihL6lC2dCn5Ehgkr29EfbvoP4pljTvi3Mtplej4PwbRr4JEoBajsjlk6FvUQKf2uxwui7H99y
+	ftjIb+FU29rf/yqFFjeGx8Z5NoCPsjywBaHpSXngGwECfUBMRIXZVFR4jeYNhpEGfGlrQ3agxCBAg
+	mXaastn90LkXSHD79SMLVhBJzA1yRhwJJZbtZkeTjh1BrhWVoDOWovrh2fPJWIbjUs8LUtLs/cMPG
+	efFwhvOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzjaF-00000004Bw6-0zBR;
-	Fri, 19 Sep 2025 22:28:03 +0000
-Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
+	id 1uzjdu-00000004CEZ-3JTy;
+	Fri, 19 Sep 2025 22:31:50 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzjaC-00000004BvY-2Zvw
+	id 1uzjds-00000004CE3-0zv2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 22:28:02 +0000
-Date: Fri, 19 Sep 2025 15:27:52 -0700
+	Fri, 19 Sep 2025 22:31:49 +0000
+Date: Fri, 19 Sep 2025 15:31:41 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758320877;
+	t=1758321105;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=JPVacn2PmZ4z0RLVYVdIubbfP3TwF2TL+jrZNbrpOZY=;
-	b=wnp+UmoBpZAXPiLW7xIF+MCTKCUgSQe49oVMjUVwo32FGzBFzYThwgln/M/PavQ5rmsWHK
-	keJSMnkJTjwrtOWXId+jlkZhJivC4jle8gpL8K8e9N/ButtDNsdoPY87wCYwhUerRos2zj
-	qP8Yu+AhdtLPbcQIWoumXqdkKDX2UNI=
+	bh=c10gttiRf4SwrPt9wISmA+SEZzX4oEt3NSpPnwS9bNc=;
+	b=moW/wAEZCaFLtjdUpFOMoJ9WaiKHMnl5DCAHKBbwhzFtxozg6YXnTOu4k6uLrU3L5/gUOO
+	kSSPQUPJkuEVEEOiB+hgG7TbO/EK2e4hijkZ9a0WEfyh0JdOP/N0gYPDqb4i2hOm7Tb5pG
+	PONy+kddjYGuSUmiSTOLClct66G9H4w=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Marc Zyngier <maz@kernel.org>
@@ -44,18 +44,19 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 10/16] KVM: arm64: Allow use of S1 PTW for non-NV vcpus
-Message-ID: <aM3Y6DcAqhGJJer7@linux.dev>
+Subject: Re: [PATCH v2 14/16] KVM: arm64: Add S1 IPA to page table level
+ walker
+Message-ID: <aM3ZzSwdPsrz5wjI@linux.dev>
 References: <20250915114451.660351-1-maz@kernel.org>
- <20250915114451.660351-11-maz@kernel.org>
+ <20250915114451.660351-15-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250915114451.660351-11-maz@kernel.org>
+In-Reply-To: <20250915114451.660351-15-maz@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_152801_035366_BF2B2E8B 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250919_153148_420880_B013ED7C 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,67 +71,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 12:44:45PM +0100, Marc Zyngier wrote:
-> As we are about to use the S1 PTW in non-NV contexts, we must make
-> sure that we don't evaluate the EL2 state when dealing with the EL1&0
-> translation regime.
+On Mon, Sep 15, 2025 at 12:44:49PM +0100, Marc Zyngier wrote:
+> Use the filtering hook infrastructure to implement a new walker
+> that, for a given VA and an IPA, returns the level of the first
+> occurence of this IPA in the walk from that VA.
+> 
+> This will be used to improve our SEA syndrome reporting.
 > 
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  arch/arm64/kvm/at.c | 21 ++++++++++++++-------
->  1 file changed, 14 insertions(+), 7 deletions(-)
+>  arch/arm64/include/asm/kvm_nested.h |  2 +
+>  arch/arm64/kvm/at.c                 | 65 +++++++++++++++++++++++++++++
+>  2 files changed, 67 insertions(+)
 > 
+> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> index cce0e4cb54484..2be6c3de74e3d 100644
+> --- a/arch/arm64/include/asm/kvm_nested.h
+> +++ b/arch/arm64/include/asm/kvm_nested.h
+> @@ -353,6 +353,8 @@ struct s1_walk_result {
+>  
+>  int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  		       struct s1_walk_result *wr, u64 va);
+> +int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa,
+> +			     int *level);
+>  
+>  /* VNCR management */
+>  int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu);
 > diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> index 1230907d0aa0a..4f6686f59d1c4 100644
+> index c099bab30cb0d..117ce1ff5e767 100644
 > --- a/arch/arm64/kvm/at.c
 > +++ b/arch/arm64/kvm/at.c
-> @@ -108,8 +108,9 @@ static bool s1pie_enabled(struct kvm_vcpu *vcpu, enum trans_regime regime)
->  	case TR_EL20:
->  		return vcpu_read_sys_reg(vcpu, TCR2_EL2) & TCR2_EL2_PIE;
->  	case TR_EL10:
-> -		return  (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TCR2En) &&
-> -			(__vcpu_sys_reg(vcpu, TCR2_EL1) & TCR2_EL1_PIE);
-> +		return ((!vcpu_has_nv(vcpu) ||
-> +			 (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TCR2En)) &&
-> +			(__vcpu_sys_reg(vcpu, TCR2_EL1) & TCR2_EL1_PIE));
+> @@ -1578,3 +1578,68 @@ int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  
+>  	return 0;
+>  }
+> +
+> +struct desc_match {
+> +	u64	ipa;
+> +	int	level;
+> +};
+> +
+> +static int match_s1_desc(struct s1_walk_context *ctxt, void *priv)
+> +{
+> +	struct desc_match *dm = priv;
+> +	u64 ipa = dm->ipa;
+> +
+> +	/* Use S1 granule alignment */
+> +	ipa &= GENMASK(52, ctxt->wi->pgshift);
+> +
 
-Hmm, dealing with the effectiveness of bits gated by HCRX_EL2.xEN is a
-pain. Rather than open-coding this everywhere:
+Bit 51 again
 
-static bool __effective_tcr2_bit(struct kvm_vcpu *vcpu, enum trans_regime regime,
-				 unsigned int idx)
-{
-	bool bit;
-
-	if (tr != TR_EL10)
-		return vcpu_read_sys_reg(vcpu, TCR2_EL2) & BIT(idx);
-
-	bit = __vcpu_read_sys_reg(vcpu, TCR2_EL1) & BIT(idx);
-	if (vcpu_has_nv(vcpu))
-		bit &= (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TCR2En);
-
-	return bit;
-}
-
-static bool s1pie_enabled(struct kvm_vcpu *vcpu, enum trans_regime regime)
-{
-	return __effective_tcr2_bit(vcpu, regime, TCR2_EL1_PIE_SHIFT);
-}
-
-static void compute_s1poe(struct kvm_vcpu *vcpu, struct s1_walk_info *wi)
-{
-	if (!kvm_has_s1poe(vcpu->kvm)) {
-		wi->poe = wi->e0poe = false;
-		return;
-	}
-
-	wi->poe = __effective_tcr2_bit(vcpu, wi->regime, TCR2_EL1_POE_SHIFT);
-	if (wi->regime != TR_EL2)
-		wi->poe = __effective_tcr2_bit(vcpu, wi->regime, TCR2_EL1_E0POE_SHIFT);
-}
-
-Thoughts?
-
-Thanks,
-Oliver
+> +	/* Not the IPA we're looking for? Continue. */
+> +	if (ipa != ctxt->table_ipa)
+> +		return 0;
+> +
+> +	/* Note the level and interrupt the walk */
+> +	dm->level = ctxt->level;
+> +	return -EINTR;
+> +}
+> +
+> +int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa, int *level)
+> +{
+> +	struct desc_match dm = {
+> +		.ipa	= ipa,
+> +	};
+> +	struct s1_walk_info wi = {
+> +		.filter	= &(struct s1_walk_filter){
+> +			.fn	= match_s1_desc,
+> +			.priv	= &dm,
+> +		},
+> +		.regime	= TR_EL10,
+> +		.as_el0	= false,
+> +		.pan	= false,
+> +	};
+> +	struct s1_walk_result wr = {};
+> +	int ret;
+> +
+> +	ret = setup_s1_walk(vcpu, &wi, &wr, va);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* We really expect the S1 MMU to be on here... */
+> +	if (WARN_ON_ONCE(wr.level == S1_MMU_DISABLED)) {
+> +		*level = 0;
+> +		return 0;
+> +	}
+> +
+> +	/* Walk the guest's PT, looking for a match along the way */
+> +	ret = walk_s1(vcpu, &wi, &wr, va);
+> +	switch (ret) {
+> +	case -EINTR:
+> +		/* We interrupted the walk on a match, return the level */
+> +		*level = dm.level;
+> +		return 0;
+> +	case 0:
+> +		/* The walk completed, we failed to find the entry */
+> +		return -ENOENT;
+> +	default:
+> +		/* Any other error... */
+> +		return ret;
+> +	}
+> +}
+> -- 
+> 2.39.2
+> 
 
