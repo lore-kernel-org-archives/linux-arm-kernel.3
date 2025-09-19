@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59C4CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE83CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 10:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xb6Q+OzRywGDXGXbA8Gr0JQQ1+HjXfbarqU4DC56TAI=; b=Yt7NhPK9wSrcbBEV6EatlzJIhh
-	kqv7mADHm1Uq/AfLM7AnOGs7GY/Nd/KnrTh1Hk/8Srs400FIAoP/fQOcuWiJF8jkMbgIomgLp5g0g
-	02B0ABITfvKFRZNaP0s+b+debUOd4mFlg9J3IFfN+0XR1lU01Zgldn3leGTZTZEJbK9STjY8hg9lD
-	8b/FjDwK9UOgkxAwgUlhy6Hka/4i725nhb0HXqMDI8NSPB9c7F/j9UJ0bgdrhbKwaSYqFTuZSMcY0
-	VWNh62qarDE4kHEwLMRw7Zsk8j+HnDmsLHOWOocvUOz9x16FJPWH2jcJCjqh9s8zb3tfDHDtO/sqM
-	ojLGo/Gw==;
+	bh=WhpXIa44PXWsjs2uxeORCT8byyhIH3oxkQYJDXpg7eI=; b=R4ul7MBwh0wwuGgysKzw10EqTC
+	M37oYqZLXAsgBmlDQNq2jB1nvYrssvIS4mnEExosEo3h+TqOPwffSnHvjpsfHUoXKSS6XVxF9aVAI
+	2DZEoRLpErfCaZXB4diTaKU80slpKdRrONKb89oef4Qj4/jyBSKgTFRo9rr20qbb6/75HSY7TEpjD
+	+7sBWKWBs08wOIwcOLP0UaiaDJuaHUtXcue6lmGQrwN5J+f4eL9/02Da/rE52z5KlEg7228LmHb3u
+	yFwOQDCB/0MYDysWW+GzqGukUt2ShaNnA3hkbrEOFiBDKo49eu7GDHvkKn14p7ekZPZe5O/wJmIuE
+	6V/tfFyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzYcZ-00000002cuR-39FR;
-	Fri, 19 Sep 2025 10:45:43 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uzYkB-00000002dfZ-1k21;
+	Fri, 19 Sep 2025 10:53:35 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzYcW-00000002csE-17Zo
+	id 1uzYk8-00000002de0-39Gn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 10:45:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cSpwr00MDz1R93b;
-	Fri, 19 Sep 2025 18:42:19 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 91E7C1400F4;
-	Fri, 19 Sep 2025 18:45:26 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 19 Sep 2025 18:45:26 +0800
-Received: from [10.67.120.218] (10.67.120.218) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 19 Sep 2025 18:45:25 +0800
-Subject: Re: [PATCH v3 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-References: <20250818080600.418425-1-hejunhao3@huawei.com>
- <20250818080600.418425-3-hejunhao3@huawei.com>
- <b68d0460-0af0-6824-b215-5b6af1e69260@huawei.com>
- <7eeb2adc-4936-4af2-a24b-b3a3ae09176f@arm.com>
-CC: Yicong Yang <yangyicong@huawei.com>, Junhao He <hejunhao3@huawei.com>,
-	<james.clark@arm.com>, <anshuman.khandual@arm.com>, <leo.yan@arm.com>,
-	<yangyicong@hisilicon.com>, <coresight@lists.linaro.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<prime.zeng@hisilicon.com>
-From: hejunhao <hejunhao3@h-partners.com>
-Message-ID: <d7ee5f4b-80a5-be77-d064-fb05159ed503@h-partners.com>
-Date: Fri, 19 Sep 2025 18:45:25 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+	Fri, 19 Sep 2025 10:53:34 +0000
+Message-ID: <dfb303b9-151b-49ec-b7ef-691c71bd5385@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758279199;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WhpXIa44PXWsjs2uxeORCT8byyhIH3oxkQYJDXpg7eI=;
+	b=qSYExmxViT2E12srT6OQWReC8YdRSo2KFRn2DWjtAvYvVIyjqxrOdS4zegzCzFd0dCTWYY
+	FSyoAUpPigDRkODuI2z4KTcOxmP/rlQ7XAhhG5HTjOvgkcoGgJsuEz6s+ivTGmAzCqQwyu
+	ZWH56bQt9BjCCQCmDdrtFjEh9FVQXRM=
+Date: Fri, 19 Sep 2025 18:53:05 +0800
 MIME-Version: 1.0
-In-Reply-To: <7eeb2adc-4936-4af2-a24b-b3a3ae09176f@arm.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.218]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemn500004.china.huawei.com (7.202.194.145)
+Subject: Re: [PATCH v5 2/6] mm: remap unused subpages to shared zeropage when
+ splitting isolated thp
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+To: David Hildenbrand <david@redhat.com>
+Cc: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "usamaarif642@gmail.com" <usamaarif642@gmail.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "yuzhao@google.com" <yuzhao@google.com>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "corbet@lwn.net" <corbet@lwn.net>,
+ =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>,
+ "npache@redhat.com" <npache@redhat.com>, "rppt@kernel.org"
+ <rppt@kernel.org>, "willy@infradead.org" <willy@infradead.org>,
+ "kernel-team@meta.com" <kernel-team@meta.com>,
+ "roman.gushchin@linux.dev" <roman.gushchin@linux.dev>,
+ "hannes@cmpxchg.org" <hannes@cmpxchg.org>,
+ "cerasuolodomenico@gmail.com" <cerasuolodomenico@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "ryncsn@gmail.com" <ryncsn@gmail.com>, "surenb@google.com"
+ <surenb@google.com>, "riel@surriel.com" <riel@surriel.com>,
+ "shakeel.butt@linux.dev" <shakeel.butt@linux.dev>,
+ =?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?=
+ <chinwen.chang@mediatek.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ =?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>,
+ "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "baohua@kernel.org" <baohua@kernel.org>,
+ "kaleshsingh@google.com" <kaleshsingh@google.com>,
+ "zhais@google.com" <zhais@google.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20240830100438.3623486-1-usamaarif642@gmail.com>
+ <20240830100438.3623486-3-usamaarif642@gmail.com>
+ <a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com>
+ <434c092b-0f19-47bf-a5fa-ea5b4b36c35e@redhat.com>
+ <CABzRoyYWQMFTGYgfC7N=cWMnL_+5Y05=jrMhFjBf1aKOGxzq5g@mail.gmail.com>
+ <ebedc478-7519-4e30-854e-f6616a7647b0@redhat.com>
+ <120445c8-7250-42e0-ad6a-978020c8fad3@linux.dev>
+ <9d2c3e3e-439d-4695-b7c9-21fa52f48ced@redhat.com>
+ <4cf41cd5-e93a-412b-b209-4180bd2d4015@linux.dev>
+Content-Language: en-US
+In-Reply-To: <4cf41cd5-e93a-412b-b209-4180bd2d4015@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_034540_689537_45B330CF 
-X-CRM114-Status: GOOD (  33.95  )
+X-CRM114-CacheID: sfid-20250919_035332_945967_5E58DBB2 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,280 +104,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki
-
-thanks for the review
 
 
-On 2025/9/18 21:29, Suzuki K Poulose wrote:
-> On 18/09/2025 10:15, Yicong Yang wrote:
->> On 2025/8/18 16:05, Junhao He wrote:
->>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
->>> in tmc_etr_enable_hw() is triggered sometimes:
+On 2025/9/19 16:14, Lance Yang wrote:
+> 
+> 
+> On 2025/9/19 15:55, David Hildenbrand wrote:
+>>>> I think where possible we really only want to identify problematic
+>>>> (tagged) pages and skip them. And we should either look into fixing KSM
+>>>> as well or finding out why KSM is not affected.
 >>>
->>>   WARNING: CPU: 42 PID: 3911571 at 
->>> drivers/hwtracing/coresight/coresight-tmc-etr.c:1060 
->>> tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->>>   [..snip..]
->>>   Call trace:
->>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->>>    coresight_enable_path+0x1c8/0x218 [coresight]
->>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
->>>    enable_source_store+0x58/0xa8 [coresight]
->>>    dev_attr_store+0x20/0x40
->>>    sysfs_kf_write+0x4c/0x68
->>>    kernfs_fop_write_iter+0x120/0x1b8
->>>    vfs_write+0x2c8/0x388
->>>    ksys_write+0x74/0x108
->>>    __arm64_sys_write+0x24/0x38
->>>    el0_svc_common.constprop.0+0x64/0x148
->>>    do_el0_svc+0x24/0x38
->>>    el0_svc+0x3c/0x130
->>>    el0t_64_sync_handler+0xc8/0xd0
->>>    el0t_64_sync+0x1ac/0x1b0
->>>   ---[ end trace 0000000000000000 ]---
->>>
->>> Since the sysfs buffer allocation and the hardware enablement is not
->>> in the same critical region, it's possible to race with the perf
->>>
->>> mode:
->>>    [sysfs mode]                   [perf mode]
->>>    tmc_etr_get_sysfs_buffer()
->>>      spin_lock(&drvdata->spinlock)
->>>      [sysfs buffer allocation]
->>>      spin_unlock(&drvdata->spinlock)
->>> spin_lock(&drvdata->spinlock)
->>>                                   tmc_etr_enable_hw()
->>>                                     drvdata->etr_buf = 
->>> etr_perf->etr_buf
->>> spin_unlock(&drvdata->spinlock)
->>>   spin_lock(&drvdata->spinlock)
->>>   tmc_etr_enable_hw()
->>>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->>>                                  the perf side
->>>    spin_unlock(&drvdata->spinlock)
->>>
->>> A race condition is introduced here, perf always prioritizes 
->>> execution, and
->>> warnings can lead to concerns about potential hidden bugs, such as 
->>> getting
->>> out of sync.
->>>
->>> To fix this, configure the tmc-etr mode before invoking 
->>> enable_etr_perf()
->>> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
->>> enabled in a different mode, and simplily the setup and checks for 
->>> "mode".
->>> To prevent race conditions between mode transitions.
->>>
->>> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation 
->>> function for ETR")
->>> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
->>> Closes: 
->>> https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2-yangyicong@huawei.com/
->>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+>>> Yeah. Seems like we could introduce a new helper,
+>>> folio_test_mte_tagged(struct
+>>> folio *folio). By default, it would return false, and architectures like
+>>> arm64
+>>> can override it.
 >>
->> Tested by running perf and sysfs mode simultaneously, no warning 
->> reproduced.
+>> If we add a new helper it should instead express the semantics that we 
+>> cannot deduplicate.
+> 
+> Agreed.
+> 
 >>
->> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
+>> For THP, I recall that only some pages might be tagged. So likely we 
+>> want to check per page.
+> 
+> Yes, a per-page check would be simpler.
+> 
 >>
->>> ---
->>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 80 
->>> ++++++++++---------
->>>   1 file changed, 42 insertions(+), 38 deletions(-)
 >>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
->>> b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> index b07fcdb3fe1a..06c74717be19 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> @@ -1263,7 +1263,7 @@ static struct etr_buf 
->>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>           raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>       }
->>>   -    if (drvdata->reading || coresight_get_mode(csdev) == 
->>> CS_MODE_PERF) {
->>> +    if (drvdata->reading) {
->>>           ret = -EBUSY;
->>>           goto out;
->>>       }
->>> @@ -1300,20 +1300,18 @@ static int tmc_enable_etr_sink_sysfs(struct 
->>> coresight_device *csdev)
->>>       raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>         /*
->>> -     * In sysFS mode we can have multiple writers per sink. Since this
->>> -     * sink is already enabled no memory is needed and the HW need 
->>> not be
->>> -     * touched, even if the buffer size has changed.
->>> +     * When two sysfs sessions race to acquire an idle sink, both 
->>> may enter
->>> +     * this function. We need to recheck if the sink is already in 
->>> use to
->>> +     * prevent duplicate hardware configuration.
->>>        */
->>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>> +    if (csdev->refcnt) {
->>>           csdev->refcnt++;
->>>           goto out;
->>>       }
->>>         ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->>> -    if (!ret) {
->>> -        coresight_set_mode(csdev, CS_MODE_SYSFS);
->>> +    if (!ret)
->>>           csdev->refcnt++;
->>> -    }
->>>     out:
->>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>> @@ -1729,39 +1727,24 @@ static int tmc_enable_etr_sink_perf(struct 
->>> coresight_device *csdev, void *data)
->>>   {
->>>       int rc = 0;
->>>       pid_t pid;
->>> -    unsigned long flags;
->>>       struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>>       struct perf_output_handle *handle = data;
->>>       struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
->>>   -    raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>> -     /* Don't use this sink if it is already claimed by sysFS */
->>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>> -        rc = -EBUSY;
->>> -        goto unlock_out;
->>> -    }
->>> -
->>> -    if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->>> -        rc = -EINVAL;
->>> -        goto unlock_out;
->>> -    }
->>> +    if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
->>> +        return -EINVAL;
->>>         /* Get a handle on the pid of the session owner */
->>>       pid = etr_perf->pid;
->>>         /* Do not proceed if this device is associated with another 
->>> session */
->>> -    if (drvdata->pid != -1 && drvdata->pid != pid) {
->>> -        rc = -EBUSY;
->>> -        goto unlock_out;
->>> -    }
->>> +    if (drvdata->pid != -1 && drvdata->pid != pid)
->>> +        return -EBUSY;
->>>   -    /*
->>> -     * No HW configuration is needed if the sink is already in
->>> -     * use for this session.
->>> -     */
->>> +    /* The sink is already in use for this session */
->>>       if (drvdata->pid == pid) {
->>>           csdev->refcnt++;
->>> -        goto unlock_out;
->>> +        return rc;
->>>       }
->>>         rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
->>> @@ -1773,22 +1756,43 @@ static int tmc_enable_etr_sink_perf(struct 
->>> coresight_device *csdev, void *data)
->>>           csdev->refcnt++;
->>>       }
->>>   -unlock_out:
->>> -    raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>       return rc;
->>>   }
->>>     static int tmc_enable_etr_sink(struct coresight_device *csdev,
->>>                      enum cs_mode mode, void *data)
->>>   {
->>> -    switch (mode) {
->>> -    case CS_MODE_SYSFS:
->>> -        return tmc_enable_etr_sink_sysfs(csdev);
->>> -    case CS_MODE_PERF:
->>> -        return tmc_enable_etr_sink_perf(csdev, data);
->>> -    default:
->>> -        return -EINVAL;
->>> +    struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>> +    int rc;
->>> +
->>> +    scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
->>> +        if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
->>> +            coresight_get_mode(csdev) != mode)
->>> +            return -EBUSY;
->>> +
->>> +        switch (mode) {
->>> +        case CS_MODE_SYSFS:
->>> +            if (csdev->refcnt) {
->>> +                /* The sink is already enabled */
->>> +                csdev->refcnt++;
->>> +                return 0;
->>> +            }
->>> +            coresight_set_mode(csdev, mode);
->
-> Why are we spilling bits here in the common code for sysfs ? More on 
-> this, see below.
-
-This is to ensure that all operations on the mode are placed within a 
-spinlock critical section.
-If the above mode setting operation is removed, when the sysfs session 
-and the perf session
-enable the sink simultaneously, the sysfs session will release the 
-spinlock multiple times during
-the process of enabling the sink. The perf session can acquire the lock 
-at multiple points in time
-when the spinlock is released by sysfs and complete the entire sink 
-enabling process.
-Therefore, the sysfs session needs to check whether the sink is occupied 
-by perf each time
-before reacquiring the lock.
-
->
->>> +            break;
->>> +        case CS_MODE_PERF:
->>> +            return tmc_enable_etr_sink_perf(csdev, data);
->>> +        default:
->>> +            return -EINVAL;
->>> +        }
->>> +    }
->>> +
->>> +    rc = tmc_enable_etr_sink_sysfs(csdev);
-> We now call the above function without the spinlock and the refcnt is
-> managed with and without the spinlock by the users. This is problematic,
-> with refcnt being a non-atomic type.
->
-> Please fix. I don't see why we can't set the mode in
-> tmc_enable_etr_sink_sysfs() with the locks held and
-> reset the mode if we failed enable it properly.
->
-> Suzuki
-
-The internal of the `tmc_enable_etr_sink_sysfs()` function will acquire 
-a spinlock.
-It manages the `refcnt` within the spinlock context, ensuring that the 
-operation is safe.
-
-And tmc_enable_etr_sink_sysfs() will call tmc_etr_get_sysfs_buffer(), 
-the function
-`tmc_etr_get_sysfs_buffer()` will release the spinlock when allocating 
-the buffer, so
-it is not possible to move `tmc_enable_etr_sink_sysfs()` into the 
-context of the spinlock.
-
-Or is there another way to do it?
-
-Best regards,
-Junhao.
-
->
->
->>> +    if (rc) {
->>> +        scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock)
->>> +        coresight_set_mode(csdev, CS_MODE_DISABLED);
->>>       }
->>> +
->>> +    return rc;
->>>   }
->>>     static int tmc_disable_etr_sink(struct coresight_device *csdev)
+>>> Looking at the code, the PG_mte_tagged flag is not set for regular THP.
+>>
+>> I think it's supported for THP per page. Only for hugetlb we tag the 
+>> whole thing through the head page instead of individual pages.
+> 
+> Right. That's exactly what I meant.
+> 
+>>
+>>> The MTE
+>>> status actually comes from the VM_MTE flag in the VMA that maps it.
 >>>
->
->
->
-> .
->
+>>
+>> During the rmap walk we could check the VMA flag, but there would be 
+>> no way to just stop the THP shrinker scanning this page early.
+>>
+>>> static inline bool folio_test_hugetlb_mte_tagged(struct folio *folio)
+>>> {
+>>>     bool ret = test_bit(PG_mte_tagged, &folio->flags.f);
+>>>
+>>>     VM_WARN_ON_ONCE(!folio_test_hugetlb(folio));
+>>>
+>>>     /*
+>>>      * If the folio is tagged, ensure ordering with a likely subsequent
+>>>      * read of the tags.
+>>>      */
+>>>     if (ret)
+>>>         smp_rmb();
+>>>     return ret;
+>>> }
+>>>
+>>> static inline bool page_mte_tagged(struct page *page)
+>>> {
+>>>     bool ret = test_bit(PG_mte_tagged, &page->flags.f);
+>>>
+>>>     VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
+>>>
+>>>     /*
+>>>      * If the page is tagged, ensure ordering with a likely subsequent
+>>>      * read of the tags.
+>>>      */
+>>>     if (ret)
+>>>         smp_rmb();
+>>>     return ret;
+>>> }
+>>>
+>>> contpte_set_ptes()
+>>>     __set_ptes()
+>>>         __set_ptes_anysz()
+>>>             __sync_cache_and_tags()
+>>>                 mte_sync_tags()
+>>>                     set_page_mte_tagged()
+>>>
+>>> Then, having the THP shrinker skip any folios that are identified as
+>>> MTE-tagged.
+>>
+>> Likely we should just do something like (maybe we want better naming)
+>>
+>> #ifndef page_is_mergable
+>> #define page_is_mergable(page) (true)
+>> #endif
+> 
+> 
+> Maybe something like page_is_optimizable()? Just a thought ;p
+> 
+>>
+>> And for arm64 have it be
+>>
+>> #define page_is_mergable(page) (!page_mte_tagged(page))
+>>
+>>
+>> And then do
+>>
+>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>> index 1f0813b956436..1cac9093918d6 100644
+>> --- a/mm/huge_memory.c
+>> +++ b/mm/huge_memory.c
+>> @@ -4251,7 +4251,8 @@ static bool thp_underused(struct folio *folio)
+>>
+>>          for (i = 0; i < folio_nr_pages(folio); i++) {
+>>                  kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
+>> -               if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
+>> +               if (page_is_mergable(folio_page(folio, i)) &&
+>> +                   !memchr_inv(kaddr, 0, PAGE_SIZE)) {
+>>                          num_zero_pages++;
+>>                          if (num_zero_pages > khugepaged_max_ptes_none) {
+>>                                  kunmap_local(kaddr);
+>> diff --git a/mm/migrate.c b/mm/migrate.c
+>> index 946253c398072..476a9a9091bd3 100644
+>> --- a/mm/migrate.c
+>> +++ b/mm/migrate.c
+>> @@ -306,6 +306,8 @@ static bool try_to_map_unused_to_zeropage(struct 
+>> page_vma_mapped_walk *pvmw,
+>>
+>>          if (PageCompound(page))
+>>                  return false;
+>> +       if (!page_is_mergable(page))
+>> +               return false;
+>>          VM_BUG_ON_PAGE(!PageAnon(page), page);
+>>          VM_BUG_ON_PAGE(!PageLocked(page), page);
+>>          VM_BUG_ON_PAGE(pte_present(ptep_get(pvmw->pte)), page);
+> 
+> Looks good to me!
+> 
+>>
+>>
+>> For KSM, similarly just bail out early. But still wondering if this is 
+>> already checked
+>> somehow for KSM.
+> 
+> +1 I'm looking for a machine to test it on.
+
+Interestingly, it seems KSM is already skipping MTE-tagged pages. My test,
+running on a v6.8.0 kernel inside QEMU (with MTE enabled), shows no merging
+activity for those pages ...
 
 
