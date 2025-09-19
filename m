@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11477CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70C2CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkKZNZ2WF70GpVYBUaUs9g2BD2h2Uk87tq0zV1opUTg=; b=OnBVLJNF983ZIFTYeG9MvGUZR1
-	IN9Nh4RWlv2xlltlBnYkr29K315HzYpK76SpvqRG0O39ZBBtPSaAdGjlIM9dYLeLXivGxGsizQBVE
-	mwVYbv0mWMXf6uA36DVrtwXfm1vNjcMkDVMXWYYwaMOxVK4UnS0CjVbdPESth34U3yNOo0Ramiodn
-	B8vBwvyW0KDP2zoNIy5QEv30XnCNiHVVIJ3Aq2LwrDNJNwbUUc/ZyUTZ/yPPByq/cWgLdjNFs88Ep
-	HdkW8v2BFVJRsjf/wosyKjDCC2pnDoE8EtuenZkgpv8YOFjxRbq4em2qrHJMm5AVg0tuUEfgvcart
-	fTLW04qQ==;
+	bh=P+tk1VfFUOofOPLUQsU/UlXgqHr3TVygBRXFlzWo5xw=; b=yeTSO/CrE6Y2+PI08WCNDGrHct
+	91C/UFrV8A7L1L9LwvXXACiqdm1me/RJ23bruwcV+eUr3+Ze8fbOSGL7cY2MFJXFOiA+0s1mTFVKq
+	PSEHwzK+mXyOdwdTvaorkbisoJWLSRem1wqsUv+pisY7l6i0TWNRIbLJA8sCCfR32F8SqzoKs93YQ
+	Wiv8WE0uWr7tWy4lR1eHoIo9MSZB2JAN1xCB1x+nox9RQXZY+uNVrLc89UZl06+J4atVD8JB7FaEZ
+	/y/NgBw1/iI/t7+K00YIpSQkbIjOzkmM8V7J23HXYWcDYNEcvOkGlnCsneis+rXriqqvAn8O0YmoV
+	9lOQGm0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaxO-00000002xMG-47xW;
-	Fri, 19 Sep 2025 13:15:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzazi-00000002xoJ-2qwg;
+	Fri, 19 Sep 2025 13:17:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzaxN-00000002xLW-1IhT
+	id 1uzazg-00000002xmk-0EeM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 13:15:21 +0000
+	Fri, 19 Sep 2025 13:17:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF9236013A;
-	Fri, 19 Sep 2025 13:15:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65AC3C4CEF0;
-	Fri, 19 Sep 2025 13:15:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 68B334470F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 13:17:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49AD2C4CEFB
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 13:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758287720;
-	bh=f+KQxZ6ogJBRTh5AD6J/biKmMTTk229KHvOFfA3HFec=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jEf0PYZ2BZ+IxqPUYoOmHNBvKyHlg1FwjIvCCH5gR3kGJwFfwrVIHP+8e1mW72ueH
-	 stA/TZwA7ziDsk0zksCmbX/+kF3q266bguCE4F99XUjcT7t1q0waXkfkVdt5lqSUiM
-	 jYJVyLKtYaJtIoQPSgkB+af6f7QHMDUDjxxjVqASSsFED1Ie6qJw2bvolwICXVied8
-	 4mhBKKp7ii2gO9C99xFW5+ttRtRa4dpDZL7xQlrMZ9td6pklxYPgdcvQkG0sM6OitX
-	 azFvmIHI5cDkIViD+YMMPcc1IV6oO05FFQn5lZ7L2N7EM0qktDAWr4ZW0pLYGqyfvh
-	 oo6VctwpIxWVw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uzaxK-00000007mgw-0Kxn;
-	Fri, 19 Sep 2025 13:15:18 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: oliver.upton@linux.dev,
-	yuzenghui@huawei.com,
-	Jinqian Yang <yangjinqian1@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	liuyonglong@huawei.com,
-	wangzhou1@hisilicon.com
-Subject: Re: [PATCH v3 0/2] KVM: arm64: make EL2 feature fields writable in ID_AA64MMFR1_EL1
-Date: Fri, 19 Sep 2025 14:15:15 +0100
-Message-ID: <175828771292.1762581.13961318453079156132.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250911114621.3724469-1-yangjinqian1@huawei.com>
-References: <20250911114621.3724469-1-yangjinqian1@huawei.com>
+	s=k20201202; t=1758287863;
+	bh=P+tk1VfFUOofOPLUQsU/UlXgqHr3TVygBRXFlzWo5xw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=WuRwWgr5OhXq/DI7H37tILKtu1xg7sB/EO6Yjny2mVVgfLEyLMI62qgnuW7KBbaHC
+	 InL2lCbxz7IZgFZQ4yiU7b1GvhowypVCUQ3zMJZkG/2ljsDkLrQSrcUhcz4gfLj0KZ
+	 UuAw2BkI9pOnd3YuchbWvuebtBqsir2K4CWrioOHeDStwglbk2VveaBhrXGkbClk6p
+	 HMg5lfyIj/5N/hGGJf84ntT9oBqb43X+NDXEunzf0zvzlaOpDA3RZzJ3rNXE4cB2tJ
+	 i35sga197zXI/AOoe9NYZePNZEgUC86IS0CcTqWMdTXuXSr4Lxh+w0taGzKZU8ZJay
+	 P7tI1DXlWYfsA==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-336d84b58edso18445771fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 06:17:43 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwZtNEKZ5oofAiD8AoQKtEBwt2I7ugX9JLbAPLopmIe2WazhTdc
+	p5FN8AklbrXjfvcIXJPGSpfTyB5U5fZDv2whra0Zg32Fzfongw6Nggwq80D/ehpmEHwgqcWTgwO
+	+B3Rh3NVSEm6UwzQ9RSCMqF2vBPFRLN8=
+X-Google-Smtp-Source: AGHT+IFNLf++kbEIzx0OThSpG6tJqnAviAc6B/6DY8ZrvAETXBFW5NgJWfZTYT0yTkTslywqHEe3WA/DssvPTebSj54=
+X-Received: by 2002:a05:651c:435a:10b0:338:735:8a79 with SMTP id
+ 38308e7fff4ca-36413c2c413mr8029421fa.1.1758287861610; Fri, 19 Sep 2025
+ 06:17:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, yuzenghui@huawei.com, yangjinqian1@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, liuyonglong@huawei.com, wangzhou1@hisilicon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20250919122321.946462-1-abarnas@google.com>
+In-Reply-To: <20250919122321.946462-1-abarnas@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 19 Sep 2025 15:17:29 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGe=HR7EvMs8D=7Uvr4Vhr7fXp56YQ9A10xdF1V1M71zw@mail.gmail.com>
+X-Gm-Features: AS18NWDEaphGD0PnhTnMmMFn4cfpLzT-Is82GGDvSOsC9sPyIGDQ62hIiSlVl0M
+Message-ID: <CAMj1kXGe=HR7EvMs8D=7Uvr4Vhr7fXp56YQ9A10xdF1V1M71zw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] arm64: modules: Reject loading of malformed modules
+To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_061744_110459_E8FF2A75 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +83,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Sep 2025 19:46:19 +0800, Jinqian Yang wrote:
-> Allow userspace to downgrade EL2 features (TWED, HCX) to ensure VM live
-> migration compatibility between hosts with varying feature support.
-> 
-> Although ID_AA64MMFR1_EL1.VH is an EL2 feature, it is still kept as non-
-> writable in userspace. When FEAT_E2H0 is not implemented, HCR_EL2.E2H is
-> res1. When E2H=1, EL2 operates in VHE mode. In this case, if userspace
-> modifies the VH bit to 0, the Guest's kernel will still run in vEL2, leading
-> to inconsistency.
-> 
-> [...]
+Hello Adrian,
 
-Applied to next, thanks!
+On Fri, 19 Sept 2025 at 14:23, Adrian Barna=C5=9B <abarnas@google.com> wrot=
+e:
+>
+> Hi,
+>
+> Here are a couple of patches to reject the loading of malformed modules
+> on arm64 when the SCS patching is only partially applied or we detect
+> an alternative callback function used in the module text.
+>
+> The SCS issue is largely theoretical. The code currently performs
+> a "dry-run" (which we remove), and leave module code as-is if failed.
+> However the latter issue was reported to crash the kernel at [1].
+>
 
-[1/2] KVM: arm64: Make ID_AA64MMFR1_EL1.{HCX, TWED} writable from userspace
-      commit: 1a0b2bf6ff11d2e0438f3a7d1d299339edab96e8
-[2/2] KVM: arm64: selftests: Test writes to ID_AA64MMFR1_EL1.{HCX, TWED}
-      commit: be8c9192eaeee21fdaacd72ad4ba992b9e42377b
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+Why are you fixing this largely theoretical issue along with the
+callback alternatives patching? The referenced thread only talks about
+the latter, right?
 
