@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBD8CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AA9CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYelWx50Z6ZFoqvuH3SnrsBA9SoBu2/C8F6gLHongwI=; b=Kti+Sm5+K9Pqqj2rj7rPKZ0Keu
-	Bo9nMCp04+F+IKuz6ZZvdEOa1QixZK1AwGBEeA5qnVfzw1XRJEC1M3xc+QVF8tLeADGv2LGVPdoaQ
-	DVFVQun/ckIEoDNmGKPm/7Faeg7aguIu2fyndlpT5Cq96VCbUhc6Q+TfUmkkWTg3zmo4E+vCNJpua
-	CCJSdUbrAkHOaZyf/n9jTNxEEVDMFd3P0qTjyoEfSuUOewh765ACb4XH5LWWr7yn9XxgESPNRre5l
-	NE8NKeq6sJQT1tEWqkoIp73XS63NJJ5hu3MHk8W6xfzx9Oz8XbeJGxZXVtyauZUJWspkL+ZXau3/H
-	PPoaeVTw==;
+	bh=FKHBJECgnLGdAWc/mgGZevJsXfPn2RfYBVUXXlCznPU=; b=w2UZvYpgviujgx2j13ZVbD994X
+	9v/lcCNQQ+wNQfeeLIKe9nVHWXrF17Ag1ol1FSm2nN+Od2394YQW3x27go3u+tLKMkh07Hkzwtgat
+	hI52MkPNsMTsqJbVYBuVaJCV4pT0O+UtdMsgcTxnjCph4iMaz3pMPE4aIjts1aHA/JzjvM82+e41V
+	38JYbLoaoGcGDpLMgXcEra3BLJCJuq++sakEUZbQNG8Lc+hYDuhLLN4njtctk50PKRlFyy/HWrT7s
+	e7s3EH1Z6sc4utCSEclajiYcYAQ0b/2pGimHU6kslSl7lDEWF3oBvINEyntU+vN+WPro+WuHze3vA
+	OLw2okcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfxL-00000003mBr-0Mu6;
-	Fri, 19 Sep 2025 18:35:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uzfxX-00000003mFc-3vIL;
+	Fri, 19 Sep 2025 18:35:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfxI-00000003mBA-3QSA;
-	Fri, 19 Sep 2025 18:35:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758306920; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=htG9dmLjIm0MG2EAmEP+UrylffFxxizBi0dVjBCvRmBURsoNR8MsxJEFhYRutXp0Fysgs5mJKW7LfTA5S/FAV2whT6yUFacOAcZlhHvoYl+10VZS/sx90FewlnYaoq68DudIs3X+V2TBk685Gg5Ygd4AqsgFdxZuC8fbBbvziQ4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758306920; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=dYelWx50Z6ZFoqvuH3SnrsBA9SoBu2/C8F6gLHongwI=; 
-	b=KoRWFVnAJBHxlBFqLIUDk52BG3W7aMbzso37/jhmFISHK4UId+Rl0cj8jZ5+jJNzepmRHLWRnFzFDVyzzp+/MKuPSovrns7RNliKv6pjUAIB5kNchHQm28Etg6gP92ZPsXeD4Hu2i4bo5ErBFpvAYAVwKzvqxIAorGctH1UX47Y=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758306920;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=dYelWx50Z6ZFoqvuH3SnrsBA9SoBu2/C8F6gLHongwI=;
-	b=YV9ytXFotHoYhZPB6OmOKBkk7wp37V53wLcLRgPnQ7jQ5ctaacXRy15U7vNqy6Rx
-	2tYGRW4dTr3xn1cHgAvvUGPovYReGbHaciguqaBHCJnXyrdSjYm3sJvVl+V9vZp6yik
-	s2lEVJE5pOef9f3Q4VKNXQg1quHIJA9IltV8iLrg=
-Received: by mx.zohomail.com with SMTPS id 1758306917364249.0348507446621;
-	Fri, 19 Sep 2025 11:35:17 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 1DCFD1805C8; Fri, 19 Sep 2025 20:35:12 +0200 (CEST)
-Date: Fri, 19 Sep 2025 20:35:12 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Diederik de Haas <didi.debian@cknow.org>, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	kernel@collabora.com
-Subject: Re: [PATCH v2 3/3] dt-bindings: thermal: rockchip: tighten grf
- requirements
-Message-ID: <wtwdpqi4tk3ixzmrvdyv2aguf6pjlmnz6q5gvhlajl2hk6mdys@fmkugriedhqe>
-References: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org>
- <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
- <20250820-await-chomp-9812902c0f74@spud>
+	id 1uzfxV-00000003mF0-3D11
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Sep 2025 18:35:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4994243237;
+	Fri, 19 Sep 2025 18:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8416C4CEF7;
+	Fri, 19 Sep 2025 18:35:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758306949;
+	bh=oo7MnNncuxbbEuJjYzS+KOutOdZkuh1LO0HXaCxkr0c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IdrwFbGNBg+mcvrizzNAt938gwJnXeswj9demaxuYxuALGgDanebsnojheH/LeTzJ
+	 9zpYxwBE4U4OObrIalWu5Azd0xgXyIe7ef5TUkP9SXKVp+Dm6iabs9fPwjGAL54A6l
+	 zvPlmsCPiHxpeVc75UBZzAaSRhSe480HrH60JEfrG5qPZc0uCIvKKTx+47NF/0++0D
+	 akeE47J1lxg4PC9L9ZJTxuUfImYiQl4JK4sh5BC2NQR8p08XW1frHb+DOOxi0arqtQ
+	 GP6UCIKLk4gfk5efeBDwblvyTTWLJ/CqFpZCoKhJo4rMMkmI4xO5H5tafJQwa55POk
+	 t79asfELyLhKg==
+Date: Sat, 20 Sep 2025 00:05:38 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	qiang.yu@oss.qualcomm.com, mayank.rana@oss.qualcomm.com, thippeswamy.havalige@amd.com, 
+	shradha.t@samsung.com, quic_schintav@quicinc.com, inochiama@gmail.com, 
+	cassel@kernel.org, kishon@kernel.org, sergio.paracuellos@gmail.com, 
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 06/10] PCI: keystone: Add ks_pcie_free_intx_irq()
+ helper for cleanup
+Message-ID: <7sbyvk6vyrbyox5ghvhokrv67r2el4s4f6k42aygmfo3rltj27@6v5pjxbhdl5w>
+References: <20250912122356.3326888-1-s-vadapalli@ti.com>
+ <20250912122356.3326888-7-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z6crpzxibzcnj3de"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250820-await-chomp-9812902c0f74@spud>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/258.269.22
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250912122356.3326888-7-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_113536_894189_C8498240 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20250919_113549_848966_5870DF35 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +80,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 12, 2025 at 05:46:17PM +0530, Siddharth Vadapalli wrote:
+> Introduce the helper function ks_pcie_free_intx_irq() which will undo the
+> configuration performed by the ks_pcie_config_intx_irq() function. This
+> will be required for implementing a future helper function to undo the
+> configuration performed by the ks_pcie_host_init() function.
+> 
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
---z6crpzxibzcnj3de
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 3/3] dt-bindings: thermal: rockchip: tighten grf
- requirements
-MIME-Version: 1.0
+Please squash all patches introducing new helpers.
 
-Hi,
+- Mani
 
-On Wed, Aug 20, 2025 at 08:48:23PM +0100, Conor Dooley wrote:
-> On Wed, Aug 20, 2025 at 07:40:49PM +0200, Sebastian Reichel wrote:
-> > Instead of having an optional rockchip,grf property, forbid using it on
-> > platforms without registers in a GRF being needed for thermal monitoring
-> > and make it mandatory on the platforms actually needing it.
->=20
-> I am assuming that "needing it" means that it was actually mandatory but
-> the binding was just missing the required required entry. If so
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> 
+> v1: https://lore.kernel.org/r/20250903124505.365913-7-s-vadapalli@ti.com/
+> No changes since v1.
+> 
+>  drivers/pci/controller/dwc/pci-keystone.c | 29 +++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> index 81c3686688c0..074566fb1d74 100644
+> --- a/drivers/pci/controller/dwc/pci-keystone.c
+> +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> @@ -745,6 +745,35 @@ static int ks_pcie_config_msi_irq(struct keystone_pcie *ks_pcie)
+>  	return ret;
+>  }
+>  
+> +static void ks_pcie_free_intx_irq(struct keystone_pcie *ks_pcie)
+> +{
+> +	struct device_node *np = ks_pcie->np;
+> +	struct device_node *intc_np;
+> +	int irq_count, i;
+> +	u32 val;
+> +
+> +	/* Nothing to do if INTx Interrupt Controller does not exist */
+> +	intc_np = of_get_child_by_name(np, "legacy-interrupt-controller");
+> +	if (!intc_np)
+> +		return;
+> +
+> +	/* irq_count should be non-zero. Else, ks_pcie_host_init would have failed. */
+> +	irq_count = of_irq_count(intc_np);
+> +
+> +	/* Disable all legacy interrupts */
+> +	for (i = 0; i < PCI_NUM_INTX; i++) {
+> +		val = ks_pcie_app_readl(ks_pcie, IRQ_ENABLE_SET(i));
+> +		val &= ~INTx_EN;
+> +		ks_pcie_app_writel(ks_pcie, IRQ_ENABLE_SET(i), val);
+> +	}
+> +
+> +	irq_domain_remove(ks_pcie->intx_irq_domain);
+> +	for (i = 0; i < irq_count; i++)
+> +		irq_set_chained_handler(ks_pcie->intx_host_irqs[i], NULL);
+> +
+> +	of_node_put(intc_np);
+> +}
+> +
+>  static int ks_pcie_config_intx_irq(struct keystone_pcie *ks_pcie)
+>  {
+>  	struct device *dev = ks_pcie->pci->dev;
+> -- 
+> 2.43.0
+> 
 
-I just noticed, that I never replied: The GRF configuration is
-required for proper functionality as far as I can tell. Technically
-it might be skipped, if the bootloader already configured the
-registers correctly. but I don't think this is something anyone wants
-to rely on and with the same argument we could describe almost any
-resource as optional :) The upstream kernel DT always had the GRF
-specified for these platforms (and thus most likely has never been
-tested without it).
-
-Greetings,
-
--- Sebastian
-
->=20
-> >=20
-> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> > ---
-> >  .../devicetree/bindings/thermal/rockchip-thermal.yaml     | 15 +++++++=
-++++++++
-> >  1 file changed, 15 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal=
-=2Eyaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> > index 573f447cc26ed7100638277598b0e745d436fd01..9fa5c4c49d76e3a689f3179=
-7875124e7fb30d3df 100644
-> > --- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> > +++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> > @@ -119,6 +119,21 @@ required:
-> >    - resets
-> > =20
-> >  allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> > +              - rockchip,px30-tsadc
-> > +              - rockchip,rk3366-tsadc
-> > +              - rockchip,rk3399-tsadc
-> > +              - rockchip,rk3568-tsadc
-> > +    then:
-> > +      required:
-> > +        - rockchip,grf
-> > +    else:
-> > +      properties:
-> > +        rockchip,grf: false
-> >    - if:
-> >        not:
-> >          properties:
-> >=20
-> > --=20
-> > 2.50.1
-> >=20
-
-
-
---z6crpzxibzcnj3de
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmjNolcACgkQ2O7X88g7
-+prySQ/+Plmvb6VuG/3iqahgjq/5DSN+60ggmi/i0BADm5v2odvaNmggYliwfw6+
-xjNfvblePAiRBF5bIfp8PYoBDmoOR1l56cVxPmtg90/UOA6Q8ZbGoPZGLoMWmANx
-3WoqzlXwRG6yXus0PTlKarXalAbSShc5wXkN+KgscOGdIxx5XXhGwjUSWVdiuy8q
-L0q5fBR1uYU6QHNUGNzM/H6GEPylQHbApFj2UEkQm4cb1QvSEq9I2HJ8bV+yOfhv
-0WmIk0fzyVn5FREYCVT+DQmd7Z3VRcWHtwgtXIzonxJIRLmJJWwl2iLTSPBulWYN
-EKAIHiqq4ak6FI/COHHid8czjM0/Tk7oMlDPkk8gJT9SgPzwvwR+xeLrOI+Nyk2f
-aBqBUTL7Y+LfrOe3I4TA2ljQtD7qL2oDixqqf/cTIR7Mk9R83A5Zem3R4qdyGvOt
-FoFbQ4mcmhqYeXxglKyDExMuxUC5vxcAL/fq2KFl+aNWX2Adzue3Kkjow0NMeQA+
-3880RR6Pn+tU2RikQvBhwk5WG6CTcPjgH5PgzzBZ4N8zhUARf8/J1bctqaCMYBiV
-XSWG1x+3Rtsxq0DHZVR640Ly89r9BWMTQxH5UKNhbrGmXum0V1RUerIT132ew7M8
-5afmV/udl4nk7VNzgkip02aBFKkpaLCGAk03LWDs0U0rPgksp4s=
-=9GvR
------END PGP SIGNATURE-----
-
---z6crpzxibzcnj3de--
+-- 
+மணிவண்ணன் சதாசிவம்
 
