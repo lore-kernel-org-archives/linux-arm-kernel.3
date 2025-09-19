@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9AACAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 19:11:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3651CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 19:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0Br7sLv5VqlyNL14Kif14CANatVeJSxFXH2SbFcSsI=; b=JFp8YElSfbK3IzjjasebaPd60o
-	jbfufRI9puKCP+NPyRoGq4a6eMc++x/d3MMlFGvCE/LXEo4U/ZC1QTXwHoPH7KT0NVO0dX3lta/Qf
-	F6WzqSMQd35g3VZp0oA13InaSclFDINoewvqmVjeEglgJFgTwSh2i7A+3qaMt10VBtkO3bdMq+XR+
-	78TdFgm4r7YeMXKCeNm48qjyHmbwm6wTPaj9Hj7R7ihqHYopvh2DF+HM0Pl9rTWf8vYRZ0N+PVMXV
-	yuu4flhKecdR9KYMHeTAiZJQ0bTlW2Q3lN4+M6U+C8wLlOX4FBrMAi/Iw5u8NYYNptUAKCvgnL5Si
-	GqBkSfJg==;
+	bh=gy1Cwe3kFc9tkmIbIueoSIP6N6yz1yqU63v26XrbplQ=; b=ys1QRiCckCfd8T+1K3wDY5aiZT
+	ex+You7X/qF/CisIwh39xeFS77QHbN8PbQU9ln2uVNkK/Ux+MF6p03/W2OTZRD9vWJafeHc281AFh
+	vXGW/wq5mu1WC2f8Mg9PaSAKh3ZdJUsNZ2B/Hr+1W8fWUvMkSACFgQVCBqf7e9fOyFS+rJhkSFcRp
+	i02LQ57xe6Od/aUQLHZfoPvwZW15BbC0VRyM5S2u4JCWDfYR1qkadfg8QkfqdjAsM2wGxBKXy4QBa
+	mCAEW98SQ9X7bonyC6Ym7RD8o0PgpsLJzn/JlYAdE6GGeTkeUzymVmqdRByLluBqLG/mex2v8wb3T
+	Jt8oZPJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzgW6-00000003sVm-1HU2;
-	Fri, 19 Sep 2025 19:11:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzgd2-00000003tO2-0cMA;
+	Fri, 19 Sep 2025 19:18:44 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzgW4-00000003sUa-0E5T
+	id 1uzgd0-00000003tNO-1Z7p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 19:11:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C637435FD;
-	Fri, 19 Sep 2025 19:11:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57AF7C4CEF0;
-	Fri, 19 Sep 2025 19:11:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758309091;
-	bh=VA957fqzlDUIJlLOTxEp72yvsjTf9q7cFUI/AjmEfG0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=mUs1oLsDhZr2QPdPuNJZ2Oyqzt1nwopOjtz5r0UkIOd+YFq8ODtBlLj3ZULm5z0T7
-	 7ddXNXFp26bWmICTSql9YcHjZZ6K/u/5ZEwBYlsyVqHhIDHXXybUpL4oZUjCQweKQu
-	 5DGp7UXWH9EOCrVcuKVUMQzHBq3UdeZ/r/OWQxC/fiSej+B5LLh1cAzl32LejtLoWA
-	 tdBTvMn2dg7GovsYI893FFzN70DS1yrYKdOZh4IBuNEfadfy3b4/ZZnIRgWWbJWeDI
-	 olLLwBUiDClEeEhTaVy9OZMKHLc4DxgOsxgz5n2+Hbp8RLYB4J/5bpuZf/AOkgPo8M
-	 7kJ37OjW8iTRQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADB539D0C20;
-	Fri, 19 Sep 2025 19:11:31 +0000 (UTC)
-Subject: Re: [GIT PULL] pmdomain fixes for v6.17-rc7
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20250919102829.151957-1-ulf.hansson@linaro.org>
-References: <20250919102829.151957-1-ulf.hansson@linaro.org>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <20250919102829.151957-1-ulf.hansson@linaro.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc2
-X-PR-Tracked-Commit-Id: 303010f4658cb134eb27cee88026fb5d065a48cd
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 46d2affdfbb92c383325dec35cef9abe844eda05
-Message-Id: <175830909046.3669786.15257917459583423602.pr-tracker-bot@kernel.org>
-Date: Fri, 19 Sep 2025 19:11:30 +0000
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
+	Fri, 19 Sep 2025 19:18:43 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uzgcr-0004Qj-VG; Fri, 19 Sep 2025 21:18:33 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uzgcq-0029eE-2e;
+	Fri, 19 Sep 2025 21:18:32 +0200
+Received: from pengutronix.de (ip-185-104-138-125.ptr.icomera.net [185.104.138.125])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id B75A847520E;
+	Fri, 19 Sep 2025 19:18:29 +0000 (UTC)
+Date: Fri, 19 Sep 2025 21:18:21 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Aswath Govindraju <a-govindraju@ti.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+	Haibo Chen <haibo.chen@nxp.com>, linux-can@vger.kernel.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 5/9] phy: phy-can-transceiver: Propagate return value
+ of gpiod_set_value_cansleep
+Message-ID: <20250919-lovely-amethyst-bullmastiff-5cef8b-mkl@pengutronix.de>
+References: <20250909-can-v6-0-1cc30715224c@nxp.com>
+ <20250909-can-v6-5-1cc30715224c@nxp.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="t6u4zda4cx5kdnck"
+Content-Disposition: inline
+In-Reply-To: <20250909-can-v6-5-1cc30715224c@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_121132_121891_B986E00F 
-X-CRM114-Status: UNSURE (   5.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250919_121842_414750_DAF113F6 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 19 Sep 2025 12:28:29 +0200:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc2
+--t6u4zda4cx5kdnck
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 5/9] phy: phy-can-transceiver: Propagate return value
+ of gpiod_set_value_cansleep
+MIME-Version: 1.0
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/46d2affdfbb92c383325dec35cef9abe844eda05
+On 09.09.2025 13:40:15, Peng Fan wrote:
+> gpiod_set_value_cansleep might return failure, propagate the return value
+> of gpiod_set_value_cansleep to parent.
 
-Thank you!
+Are there any expectations of the phy framework from the driver if the
+switch on or off fails? Do you have to roll back any changes in case of
+an error?
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--t6u4zda4cx5kdnck
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmjNrHoACgkQDHRl3/mQ
+kZwqYQf/c1/IXd7aRBuqdaMALPyXhUQLb5zDa8xv15HZudLAlb4N3ZCTwnOa8WuR
+6C1PiBoxg6JPbbcgfCADKc3ADq/+nxjr8fk1rU3bPf/9t3p+BNJFfX8jiwL7B42w
+X/Yt9MEtmxWaOBWeNXedyM4pFB2qT+GJncKrl6lBIjyjIRkhABKaiNyt/M/DFenK
+rA+xEFrZVljI5iLMktjI92K1FlNaRiaEyOvCSYrM33pHz8RQWPECEF0T4D9z9siI
+XPy/dP9YRUkUszZ1kp+vh//bd2I8Z1R7fwNBWZf+ZwLMISDDx/lt06ohQQwTcLgs
+fHVzHn541sJjrfMO6kikrs8r0W3FQg==
+=qpEC
+-----END PGP SIGNATURE-----
+
+--t6u4zda4cx5kdnck--
 
