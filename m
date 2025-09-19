@@ -4,97 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64353CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8F8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 08:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/FSLvV9szUdz17vKsyxov0TyTebx1I2D/abA+SQqjM=; b=knvakh75QTZAlb8WKK/0SHoy92
-	of7nVVpFZ9myv5baKhP0w8GFrVzzWVSNymzeuBQ00F7lKabh7xeCQoo0cN89OF/j14sU1ZksLXYTp
-	W3SZI8R3wEhxFg3Lyf7gCaG+jIN1i+DbNn0e2FdX8FWVnmuYfUJ3t/cqJYRVSZpF/oSvvrRDd72Nb
-	6hupBjZ6Z68cxin8RhzHnUdWiVRDo+WeoU3njW9WQkG3dlmNrjZgah6/sBu4FQdUBNm4kzYWqHwLX
-	NZXR/hmifh+v49NQQ2ORGBGUxyWoYcrAxekgAJK9B2oDWgjn+okmdImVEvERZJCHaqkGnRXpnG2LU
-	o77JqulA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b1oNcD4+nzoLbd2M82chohHbVGr1Po00vTR5OkWCBJ4=; b=L3p4GofNoLPY5A9M4YHbzWT+fB
+	3ML5vjcuzOT/ZvU31mxdWGzvbtQbTAOsp/T4akUmzjvSErgKESfzKrB4offACSThWufJmBmrItvS7
+	HRt/+nhS0L2aU1rYs1CFlhcj4tIxZBLzSPL0GOIzjFMrS3hDtlwSXgJ7pZncoG21q2RFrEnD0xD2H
+	SqqNp8jqZmuhNf02R/ys38IkLba0cL2+RCjNy8TPX/mufPx6ywBjT8BXIuMTgs1Ouan0P6nQcw98e
+	DiftEXI8rtvANfTFlmDasZDh+DDFDpTw2lbz6YXPfgToGAzr+uKPDbyXvsCIbbKXBO3Ei1TLxMIRZ
+	rGpllvnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWYm-00000002GX2-3GNh;
-	Fri, 19 Sep 2025 08:33:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzWtC-00000002IuL-36Tu;
+	Fri, 19 Sep 2025 08:54:46 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzWYl-00000002GWr-1c03
+	id 1uzWt9-00000002Itq-1PW2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 08:33:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CFF3B60139;
-	Fri, 19 Sep 2025 08:33:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FBF8C4CEF0;
-	Fri, 19 Sep 2025 08:33:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758270817;
-	bh=A0OWMtvps1Wg81cMmbvIwQ/jjMHTw/+5L7NX69xhXOA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=fgvr5Tsw8zrd1WdlGfdJXPxPaxz6hGIy23jAI0/LiOBdfXV+y332cCVDaA517TNDF
-	 ckFfXGne6LMAX+HeJENEo7QBgKiNxh9XOhzjbPjchnFB372o2qS7Hpr4WRViR2v5ib
-	 nbLzFLfuI3dJ+eMyGuTDpOq80f2btKmjpY09JzQQDaSXDWQIGVuypRf2OunlAZ0POX
-	 11zEwhyN/V9xYINHU84nN2gNPFHxC7OdwwSP5XKcF7ceMYVgskhbw0JXuYAWaj6r57
-	 zL5JNaczkthArdSdBwXjDJJBIthgPv1h3uwSsfImBtceXO0WZGzLbJlUrYRAiShvS/
-	 a2qe3xLxstq5g==
-Received: from 82-132-235-207.dab.02.net ([82.132.235.207] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uzWYf-00000007i2F-3pDh;
-	Fri, 19 Sep 2025 08:33:34 +0000
-Date: Fri, 19 Sep 2025 09:33:29 +0100
-Message-ID: <877bxuzvs6.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v5 6/7] arm64: dts: renesas: Add R8A78000 X5H DTs
-In-Reply-To: <CAMuHMdVezqWxbFp9dd0WPJnNM+MvmQ9F0UA2Ru_BSV6-6VgOyA@mail.gmail.com>
-References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
-	<87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
-	<86ikhg13m1.wl-maz@kernel.org>
-	<CAMuHMdVezqWxbFp9dd0WPJnNM+MvmQ9F0UA2Ru_BSV6-6VgOyA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.235.207
-X-SA-Exim-Rcpt-To: geert@linux-m68k.org, kuninori.morimoto.gx@renesas.com, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 19 Sep 2025 08:54:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cSmWY2dmpztTJ4;
+	Fri, 19 Sep 2025 16:53:45 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 02DB7180464;
+	Fri, 19 Sep 2025 16:54:39 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 19 Sep 2025 16:54:38 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 19 Sep 2025 16:54:38 +0800
+CC: <yangyicong@hisilicon.com>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <wangyushan12@huawei.com>, <hejunhao3@h-partners.com>
+Subject: Re: [PATCH v6 3/3] MAINTAINERS: Remove myself from HiSilicon PMU
+ maintainers
+To: Will Deacon <will@kernel.org>
+References: <20250814091622.23269-1-yangyicong@huawei.com>
+ <20250814091622.23269-4-yangyicong@huawei.com>
+ <aMwOjne-iiFCdo9n@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <b476874a-8b09-5777-98c8-dc1efaa23a31@huawei.com>
+Date: Fri, 19 Sep 2025 16:54:37 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
+MIME-Version: 1.0
+In-Reply-To: <aMwOjne-iiFCdo9n@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_015443_540157_A45C1AB7 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,63 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
-
-On Fri, 19 Sep 2025 07:52:38 +0100,
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On 2025/9/18 21:52, Will Deacon wrote:
+> On Thu, Aug 14, 2025 at 05:16:22PM +0800, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> Remove myself as I'm leaving HiSilicon and not suitable for maintaining
+>> this. Thanks for the journey.
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  MAINTAINERS | 1 -
+>>  1 file changed, 1 deletion(-)
 > 
-> Hi Marc,
+> Thanks, Yicong, for all your contributions to the perf drivers and help
+> with reviewing over the years.
 > 
-> On Thu, 18 Sept 2025 at 12:01, Marc Zyngier <maz@kernel.org> wrote:
-> > On Thu, 18 Sep 2025 07:27:26 +0100,
-> > Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
-> > > +             /*
-> > > +              * The ARM GIC-720AE - View 1
-> > > +              *
-> > > +              * see
-> > > +              *      r19uh0244ej0052-r-carx5h.pdf
-> > > +              *      - attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
-> > > +              *       - sheet [RT]
-> > > +              *        - line 619
-> > > +              */
-> > > +             gic: interrupt-controller@39000000 {
-> > > +                     compatible = "arm,gic-v3";
-> > > +                     #interrupt-cells = <3>;
-> > > +                     #address-cells = <0>;
-> > > +                     interrupt-controller;
-> > > +                     reg = <0 0x39000000 0 0x20000>,
-> > > +                           <0 0x39080000 0 0x800000>;
-> > > +                     interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> > > +             };
-> >
-> > I already asked for:
-> >
-> > - this comment to be dropped, as it serves zero purpose to the common
-> >   mortal
+
+my pleasure. learnt a lot and happy to help. lots of fun :)
+
+> We will miss you :(
 > 
-> What about using a different comment instead?
-> 
->     /* Linux must use I/F Region 1 */
-> 
-> I.e. replace "View 1" by the above.
 
-I definitely wouldn't mention Linux, as the DT is not specific to any
-particular OS. This is more about what block the main CPUs are allowed
-to use. Also, "View" is the term used in the TRM to describe the
-multiplexing of multiple GIC "instances" on a single GIC
-implementation in a mixed-criticality system, so keeping it makes more
-sense.
+thanks. hopefully will still work with you and the community :)
 
-Something like:
+thanks.
 
-	/* Application Processors manage View-1 of a GIC-720AE */
-
-and the mention of the TRM and other spreadsheets dropped.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
