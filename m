@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1D3CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 05:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EB7CAC5AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 05:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSXv9MtMB5lO2sv9lOCTrZsJ/p1Q4KH4kHig4fmSXgk=; b=Ip2qE44WergDsaXsA4pCS9nOQ+
-	j96+8zo/I+077J3NQyfpCR3uKX0KP61A7I0+hxZoUTDOC4lyC6SzL59u+2+7j47jKLsoXJ4cWRHGq
-	hpzv33pBdoWGHsMgVikx44xqWLbuNvhYYvUX7PDIlzKt0nxOavPUFVYXPZP7vxuRVNyq1D7UqQr7M
-	slYCl8y7F7y0Pd4q5ZidXuu+ATLEp437kErHeyhBM8z/in1lhqWEghYA0YoWTyAHE1gs4UZeF9TJ1
-	QmXJAMQsyOqcTEHfv37vvNIb+E7JpNEqGG2cHA54UPiEz8qX8H0wRt1ez+cI1xhMXGl7xxvuMJrwd
-	pEkeVnYg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UzWKRP56Pm41Dofvf30R8mkt87hyupLBy4proUpu/OM=; b=4N0Yrf4kZWMTMarI3YYvh4uPsH
+	Og+UmwUOQBUpJFp5olwobSqGWuZAzMK0nfVo06q9c4H3W7+psdiQ9vB/cE8qKx7hpTU9yyRtCddy8
+	59AEji53B2nlsxLyZCfrYN36CJkB1evBRSFFjN8GxIs3alqmA8WoU17ivdhHVhtU72n1PwMVbNnvF
+	jeE+UzCKHcZZ7LTY+U+O+lpKFfXuKv6cCbWeKZYrhtpSUpOaIJU9sjPMg3lpiYCfkS10Su3jLJvIm
+	I5CbUfG9EdyxJFU5oV5skNwbzKllxzLU2WXbEoD0cQHV6BEqoz3tvFXSKsV9frKqkMsUq97JZPqyS
+	cSfYvVJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzU9K-00000001u3t-1Y8P;
+	id 1uzU9K-00000001u49-2jkV;
 	Fri, 19 Sep 2025 05:59:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzU9H-00000001u2q-3XqD;
+	id 1uzU9H-00000001u2p-3XnL;
 	Fri, 19 Sep 2025 05:59:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEB516021D;
+	by tor.source.kernel.org (Postfix) with ESMTP id DD22860140;
 	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 91F59C4CEF7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 80730C4CEF0;
 	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758261550;
-	bh=QLoUf6MbemExweEkSHZ6Cs4Fo/cev8YIR8uKZymd67k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=DdmmGPmg3TR3TMfxLtnLjyVcgG9cVOkyMT+JFYcLGXFUlyF1fl4JODVB8CF+VTHXK
-	 F9ExPLXTcQNzAbSun1YmtzOxc+VouR635zPDG0pVePHDRIHDOvzi9ZZZVYL5fu4RLC
-	 iBJgGBFBI6AbE13rqU7/kCXUFZ7z3V7dxU4Ljkv0OQ2KMBZUkLglxrWAxTBeSestrI
-	 hUefAAbJsKFsxUQ/jHTSvFFyQc2pV9XDWvHooqRrVDsW8m3jqWR2lF2rLMuUJMPpeD
-	 fLLjwS2Hb7+yXhhd3QQ0vXwBX4bLW/2ob86U+aXmdZsCkm7PtyeLRqY60sL8/9d8eb
-	 0NJyA/08sSyiw==
+	bh=ARN6P9/X424zlXLiKTbeILtanwkQtWd4O4u45ktBDnM=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=R/qUzZBHIsxOOMKjnRckwsYr37MOnatD+425r/3bMIPTdPagxJds5RmoXdQ1t7PSw
+	 VKC4ys+4Uc9nL8IE8GblocuztHLnidGyWn+8wb1a19Hlb+dz6TDoeQyv2we8B05JEU
+	 u1BFt8RduSHsac4/Qy8o8L0oHtV5TsnoV4ydfE4FxogDz0D3c2M4V7sflb0sX/Gk30
+	 fgIFe2FaZzjgQP5En/DtRwdZjk6xGCa9JI4dq8+nh6fTSBS/zxAxvOeQlVtUu3RwOD
+	 0w8Q1STDbdNCMp/PAJSrRasbDvrE4wPofWtXcP+AFKlIJGDYIYMy5rDycGS1U5k3Xd
+	 jaP8moY3eVaxw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 81091CAC5A8;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BC39CAC592;
 	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Fri, 19 Sep 2025 13:58:59 +0800
-Subject: [PATCH v6 1/3] dt-bindings: clock: add video clock indices for
- Amlogic S4 SoC
+Subject: [PATCH v6 0/3] clk: amlogic: add video-related clocks for S4 SoC
+Date: Fri, 19 Sep 2025 13:58:58 +0800
+Message-Id: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250919-add_video_clk-v6-1-fe223161fb3f@amlogic.com>
-References: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
-In-Reply-To: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIACPxzGgC/3XPzWoCMRSG4VuRrBs5+TmZpKveRxHJzxkNVVNmJ
+ LTI3LvRjTKjyy/wvIdc2EhDppF9ri5soJrHXE5tmI8Vi3t/2hHPqW0mQSJ0ArlPaVtzorKNhx+
+ eorIBNToQljXzO1Cf/+69703b+zyey/B/z1dxe31XqoID10Bdb5TqlRFf/ngouxzXsRzZrVXlw
+ 1uh5142H4IM6LGXDvTSq4d3sLivmrcKdHQi2OBeeP3s3dzr5pEggki6894uPT55YeYemyeJ0im
+ 0zsDs/9M0XQHF8HpArAEAAA==
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,11 +69,11 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758261548; l=1277;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758261548; l=1984;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=oFTBK7GmWCd1bTbEyxd9lw2QoXtneH1SDFph2xdcxG4=;
- b=qgOii3kCYety9Xap68/0E6rPikg6BVV+MXY2JSJ82KyPp0Vw9nm3HCAFXsY+3VabzegaeHx4p
- P0bxD3847auCuNMQOyYEvyTNeronrG/nAohEiE3pqXV7p+ioBRh4M0x
+ bh=ARN6P9/X424zlXLiKTbeILtanwkQtWd4O4u45ktBDnM=;
+ b=XXP6mQSo6VYw2td4KrrELnplOge6oWnhKcSZSb+u2Xr4OOmy2ahWYAZ3efQOYgziW+ySI+p7C
+ kh9uYnVngwBDttGGcI1ZdGpcOzEN8UVV20TQpALs/I9Lf+4KyV+HqZ7
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
@@ -92,42 +94,56 @@ Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chuan Liu <chuan.liu@amlogic.com>
+This patch introduces new clock support for video processing components
+including the encoder, demodulator and CVBS interface modules.
 
-Add indices for video encoder, demodulator and CVBS clocks.
+The related clocks have passed clk-measure verification.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Some potentially unsafe flag configurations were identified in other
+video clocks, and they are cleaned up as part of this patch series.
+
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Changes in v6:
+- Split the flag removal changes for video clocks into a separate patch.
+- Link to v5: https://lore.kernel.org/r/20250916-add_video_clk-v5-0-e25293589601@amlogic.com
 
-diff --git a/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h b/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-index 861a331963ac..b0fc549f53e3 100644
---- a/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-+++ b/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-@@ -232,5 +232,16 @@
- #define CLKID_HDCP22_SKPCLK_SEL		222
- #define CLKID_HDCP22_SKPCLK_DIV		223
- #define CLKID_HDCP22_SKPCLK		224
-+#define CLKID_CTS_ENCL_SEL		225
-+#define CLKID_CTS_ENCL			226
-+#define CLKID_CDAC_SEL			227
-+#define CLKID_CDAC_DIV			228
-+#define CLKID_CDAC			229
-+#define CLKID_DEMOD_CORE_SEL		230
-+#define CLKID_DEMOD_CORE_DIV		231
-+#define CLKID_DEMOD_CORE		232
-+#define CLKID_ADC_EXTCLK_IN_SEL		233
-+#define CLKID_ADC_EXTCLK_IN_DIV		234
-+#define CLKID_ADC_EXTCLK_IN		235
- 
- #endif /* _DT_BINDINGS_CLOCK_AMLOGIC_S4_PERIPHERALS_CLKC_H */
+Changes in v5:
+- Add Acked-by tags from Conor.
+- Remove unnecessary flags as suggested by Jerome.
+- Link to v4: https://lore.kernel.org/r/20250909-add_video_clk-v4-0-5e0c01d47aa8@amlogic.com
 
+Changes in v4:
+- Add Acked-by tags from Rob and Krzysztof.
+- Fix compilation errors.
+- Link to v3: https://lore.kernel.org/r/20250905-add_video_clk-v3-0-8304c91b8b94@amlogic.com
+
+Changes in v3:
+- Rebase with Jerome's latest code base.
+- Link to v2: https://lore.kernel.org/r/20250814-add_video_clk-v2-0-bb2b5a5f2904@amlogic.com
+
+Changes in v2:
+- Removed lcd_an clock tree (previously used in meson series but obsolete in
+newer chips).
+- Removed Rob's 'Acked-by' tag due to dt-binding changes (Is it necessary?).
+- Link to v1: https://lore.kernel.org/r/20250715-add_video_clk-v1-0-40e7f633f361@amlogic.com
+
+---
+Chuan Liu (3):
+      dt-bindings: clock: add video clock indices for Amlogic S4 SoC
+      clk: amlogic: add video-related clocks for S4 SoC
+      clk: amlogic: remove potentially unsafe flags from S4 video clocks
+
+ drivers/clk/meson/s4-peripherals.c                 | 206 ++++++++++++++++++++-
+ .../clock/amlogic,s4-peripherals-clkc.h            |  11 ++
+ 2 files changed, 213 insertions(+), 4 deletions(-)
+---
+base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
+change-id: 20250715-add_video_clk-dc38b5459018
+
+Best regards,
 -- 
-2.42.0
+Chuan Liu <chuan.liu@amlogic.com>
 
 
 
