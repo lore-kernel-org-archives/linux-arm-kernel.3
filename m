@@ -4,79 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50441CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 05:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58215CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 06:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8DmGgfxuiL5fw3ayM2SPlLOgGWfe4gMBe7IWwk74NwA=; b=MZQ+ECKKZK0yCmK98ThqpxZQYB
-	Zn+HZMGnOKiNz+al7/QBheF9BEKNXuSOPUC28BLCHY0wqDpP0vrMFsjorLea7a3Ik3ID0bvxdjLqV
-	hnNI6bOB8FjcOlgqdyCeROQzwO2Jy94DtLDI18D83+KloLvSq412NP43LEaIocTpD7QJoX5PfXLn4
-	Pz5XEBWedjXTh1SWvvPxXI4hBa6EEN0i4Qugi+xuVstX6ATgT9X0HHRvT9Q3VBptl2g0Np0h30QYk
-	uJ7soyNVf8+922o4KuxBgGVcJpJC1J6aFdu7/4VqRX6sGcFP/czh+qB4Mj7faIYqqpuMYIea0r79I
-	rsMRdvXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WCtiPRAizwteKPLrtiCImmvhUZ1pljaEC5nBm1a6eEA=; b=vqllqhTE3lOz+8bbaz8tS60Qh7
+	jcyF2+b3tLVCA4Y2JlbFu8ORzoJAWgUVEnnPvQMBZeoV+rvTWuwNJmVLlciUIotDkywTtsRZvH6N+
+	yV3CPSlerOstq3URznY9CafBuXl3730dHEdhzu+sEN8VDkkYLW5O6MI5GekAyzCD3tUsDGVZ+1KA6
+	ncP8PdJuPR+sC5oYDpOQG0nB1W8omc1MSCEufew/9X/e5HgUJLNT3UqV0UmKBaGv1B3w/sJ1FUyON
+	5In/SImqSA9+Vu1Nnnr+Y7Ife/0JVAwfKpeBiBUuPZH0K6lBIq0fPBU2yCTjA42tJhecndWRV0UVl
+	EvMsmNZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzU9S-00000001u9g-4821;
-	Fri, 19 Sep 2025 05:59:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uzUZ1-00000001w7J-2YqB;
+	Fri, 19 Sep 2025 06:25:47 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzU9J-00000001u2t-2Zrd;
-	Fri, 19 Sep 2025 05:59:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB30144D29;
-	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A5C31C4AF0B;
-	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758261550;
-	bh=VPHrTQDDEYO21a94I8JiwUQGWbVLi46Ixi6m9z/mf5I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=QJOkbXP29P7Lk6a3p/1oTDd6ha3eRZF6Mt5yUSLV/xE4PYLWrH7tZSgsnoI3uSU1O
-	 aDOrg8l4HWh80L3yBw6dgYyi0CVdh78TL1nqbq32ol/A0TDuH4nOjWF7qrb2n+YuKH
-	 LxmaPB0ND7Fq6BgCqZDxnafdHIsAWSIazarWuAFww20yGeTcz3u9EimHrmxTDKMQ3s
-	 VArAMbehHvGc8ETGBZ1oXIEapdyCWKVzZ4+GOT9VuetcWp1voQCZan9ofHjmECXd7Z
-	 6j5qUiV9T4J4oD/5zGswSRKNlzbBIMzlv5cMyGzoYxz0/fNIv2s0Kj2rfRYrPo35x9
-	 Zju1lolxygUxQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 91DE5CAC5A5;
-	Fri, 19 Sep 2025 05:59:10 +0000 (UTC)
-From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Fri, 19 Sep 2025 13:59:00 +0800
-Subject: [PATCH v6 2/3] clk: amlogic: add video-related clocks for S4 SoC
+	id 1uzUYz-00000001w6k-0kze
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Sep 2025 06:25:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LEVG8T/4hs6JcCaxJUq1+1r1Qr3OwXILCDtoO1vjTwvbCIsIY0adLNJDxoY6mzxwmczJmdSXrsESOfP2clfMvtKj/gFWCU72pmP/ICS/HkXZORR8aauuYRjsqeOp8RrzLD6QL4RWMbnGmeNc+T2oulFwYIokzOTqQ1nQ6VdR/sfjtrTv6W+Iae62IX1qb0ShBTSfWlBnQqKwoyN2ryRBeuoA0iDKzjI8yV7SfsfnzaxLb9JsYtbY3jV9mXtFLf4dDkPTlF3j4bhCIL94DkxuTFqdacM4VySp59ZkF2PIT5DQQdTsZFS+/C5kJ7ag76u5g7yc2Mljf/eM2eW5LbT1YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WCtiPRAizwteKPLrtiCImmvhUZ1pljaEC5nBm1a6eEA=;
+ b=Wk4QGwhCuY1IAkGJ9rfjRzrjcLwILLJrNyf1Qc7GWOSzJ00eWIndNPjPme4/SFZHKkqlYqS64o2r7KQjTgeIs4vv7J5xrDqtf0YS15cwuw1gjLUcPLww5Rg5f616A4mF4Pvgu+HbYlIuo5GA1SkGGba5Nl2F5qGsuPE64+MsOwKYtlpyhkFiC5355vKu54i1qZFQZ5tQRH6GUJaxAZ1Q0O9oWKBMseMRreGn6H+SYtsNPKS6aZeHUD/KIxcH/44y+l0y84bGijd87ljsZz/3aPjNLrXAB1qtXRJtXh5lfrWYFMllFdnygIb6vxyV/kRlaNqFGxJ8E8rH01+nWsfKww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WCtiPRAizwteKPLrtiCImmvhUZ1pljaEC5nBm1a6eEA=;
+ b=CcDYz/RAT9ThwNiXL9MKgnU7tO+8H/cIaMgv7Oj9Ns23z0v+YdDnpXr/debyMlSPanZvXJ8yt/C5187h00i98MJW8rKTOOJbAjajA7RN0nWX4WEBG6dSbJWyj+Aztsrp/x6Br289q7tuHgLxyG/m3/RBs+nz/O14yi6RXDmkddnPRgOZlUUUg9ayl8smcoxB4U31VdXQ2UrwJ2Yyb5/tRoFLdHV3E/X/109CAdIrDyvsGWGa2kafhSp6xi9EKQ4Nfe6rwow/QR109GhnQgzUM58EkHVJ1YYd66YS5s850bc5FuRvPXxd4cyYDh4JE8hSxJITUQWVVenId5zjMBulsw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AM9PR04MB7540.eurprd04.prod.outlook.com (2603:10a6:20b:283::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.16; Fri, 19 Sep
+ 2025 06:25:36 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%4]) with mapi id 15.20.9137.015; Fri, 19 Sep 2025
+ 06:25:36 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+To: gregkh@linuxfoundation.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	jun.li@nxp.com
+Cc: linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: usb: dwc3-imx8mp: dma-range is required only for imx8mp
+Date: Fri, 19 Sep 2025 14:25:34 +0800
+Message-Id: <20250919062534.2443959-1-xu.yang_2@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0007.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::8)
+ To DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250919-add_video_clk-v6-2-fe223161fb3f@amlogic.com>
-References: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
-In-Reply-To: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Chuan Liu <chuan.liu@amlogic.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758261548; l=7108;
- i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=Q4yUJrrH7nm8dR16U53oyYIkqzh2f0kcV3s4j1jZIus=;
- b=oob6e/DY3vATqWvRmwF3Rcn9uIPkMSOFx209c8+xqPfO8cN7TrIf261YquhKnhpwT1liqT4aq
- vXmPZE9hdHABRvkFs900ymrXnLEEfsJezkAwUGk5XygDsVlKIcSFXAw
-X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
- pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
-X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
- auth_id=203
-X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AM9PR04MB7540:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed01b9b9-c1de-43c5-9370-08ddf74557ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZdR0XKPbusVOnoAClsIk1I1KQPy77LDqu3HmbJ6RznDZlEG7VAv8emZ4mv+a?=
+ =?us-ascii?Q?sfBB+tOcP/rbfT7W3Ar+PLIH9s0ccoG7i5tfsL0luNAzn+Zd/W9dbgW9iUhe?=
+ =?us-ascii?Q?TK45ZErIYoAP5RfY/bTrrRnFM1FurNauHQwFKgmhos8b/yb1cUJ0ESjnto0f?=
+ =?us-ascii?Q?AHfmi6g4Lkw+rMTK3ec4Mwxt+4lNGA1Jm5jIiQMXmuWnQZ6mPfBkkQKXJw5v?=
+ =?us-ascii?Q?zdb6wIRlg6tvU+hWEsqCgncLi4mhmuPORctaB97ogLp5wxu/1YDP+w3CTENu?=
+ =?us-ascii?Q?GIeY0ghA4xorjKcZfaSI3GdH2KPw3boIWbE6rt4g80NBwkNDDAKqm/ZDXDHH?=
+ =?us-ascii?Q?nvpL6CMLE8g9BjlmwfGvl3mZL86Mj7mSjlle9BiSo6h5Lua1nQsuKiBKEROg?=
+ =?us-ascii?Q?ftAxQ4KzRhTwG4g52OIoy/DlfD56Stwmu+ZivoE6E0ij5ajzJFN0nQeHHO10?=
+ =?us-ascii?Q?tckmUbjZl3bO/Ch98bYk95rH9JZ9gkhmUoosL1M36aUzdD2Ec0ztiLwHyK2C?=
+ =?us-ascii?Q?/HC36cM/Ec4xIXCK9ITiETegHAiZ4uK+wLejS+foAESRoMQIJioGLxfIE2Pu?=
+ =?us-ascii?Q?6MIno9Jfuww57Qq+GtixBZbV7naA3x2jfFWS02EtsNNt4XaenRXyc3xN8NFJ?=
+ =?us-ascii?Q?6cvu3ha8+5hFFKeLYj7CqUSLQzsqIMWPYOyvM9K7C+p4ks/Z8dP/PmEKoZDN?=
+ =?us-ascii?Q?I3h+XP5Y7i9WvWUVCrxGa0utln8iVeq6WBb5eaoGsfZb7q9+bKZncTG/VUA4?=
+ =?us-ascii?Q?j1nH0Yj3Xsc7Hz7Tw/VzpSv38EP46mQEvSUXDK75ZrZfh6SUsfYTfBMcjmbC?=
+ =?us-ascii?Q?diym8ULQNUTDFEGl6QBDJnowQLrJrKYmmr7TRgCkiLi9ujQ6PHpq4Y53LlzI?=
+ =?us-ascii?Q?kbesv6n/6GodVqXhpRBN0eGtZEmdMPdrMpmrDTHJoZ3irAuJbuzDRAXgWS0g?=
+ =?us-ascii?Q?J2rqwuQJy+ukI4RFq0q9q+ttCbcRpmoCHWwlFUWyU5z+LKQNq4yLZwzyzFPQ?=
+ =?us-ascii?Q?90WIPMwJtFBVMwqtQZvOsVdNcp9vzhpGtL4qVd4V6H/okcyQYr4uMbIb7Ylz?=
+ =?us-ascii?Q?qLS+UcYVnNdu0NGjmN/5BCzLhHY0/xtL4UdDkCpWikK2T+B9eyom8+ekXKSS?=
+ =?us-ascii?Q?w0SmCiMCG6ZO0oxVLoXcv+v690LH0E3VBBJIcKqzU4m40vgb0nwy84AA05dJ?=
+ =?us-ascii?Q?7J5CgB+udA4B6M1zQVky6gx31ise03UR90UlkZEciIq5VRdgfk73bTioW4MU?=
+ =?us-ascii?Q?srOSrhgtEQlTBU2iDxg6zvMVHpKBGSLBIMIqaZZzOmXtRNOPP0IWBv0Eccp4?=
+ =?us-ascii?Q?IcVpYB6Wkr79lLilIkaKAPsiKbdpMimXCAKN6sasLGhGAleghaUAY/+UjJyq?=
+ =?us-ascii?Q?uLP6npBUvweKZWs6ZYOLWzmYpbvVG3qGzZLD4S6d4AAVZkojxt/g8QYPWTcj?=
+ =?us-ascii?Q?JSztcbsR7uavRuOLWQC/uW0jgTv1TZRXTn7ifziODZ6HX7dEuGYSww=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ykiam4cTO+osrzCZbDZIHtJGATZNGlFvWBGJe5hbpAVcbsjohsVb/diwdEHV?=
+ =?us-ascii?Q?GHIKK52zb4CBp3zpfxTsR6haH+zsInbWq+5ynhwJyb45hhVgkkmDhEdFEwXA?=
+ =?us-ascii?Q?d0KTWAY96wWTuccP6bK0EZpnXeDG7KR0x5b/9ju9JdNCBomL5/Me3GGIIzaO?=
+ =?us-ascii?Q?KTpFPR5GhEFFrKS94Su8w3GHCRBZV/s6Vi9iCvne7bym1LJCNqv2Dx30+5AF?=
+ =?us-ascii?Q?5aDHsCLlxmfEG6Y1IIqC5GIUqZxJ/fPccVvzfuSL2HGe2vd4M6lLh0HQbnU5?=
+ =?us-ascii?Q?6x5KrH2bBCe47G9B6PGBqT2pcVX2li22Uml1W1eUZVsbzzY/SrKhRfNx32A/?=
+ =?us-ascii?Q?vvqM+kAplHzTIgze/bpPtGy2v4XTWdA0M1UwR6rASGRaVd6Zx5pkaZI/TYQV?=
+ =?us-ascii?Q?kdD9/y3LRj18FiK3vdiZijtXUCvrCKSUg9uD4pXGUjvcs8UA/Gx/AxjRU7V1?=
+ =?us-ascii?Q?XoLO9/j9bG8jZ9hjIm8i9LMFQ913MdLsTCj3MvP+rwRvAMgA16M0gs9j50iM?=
+ =?us-ascii?Q?sp97143Q9QB1kBvu3kS2SyGegEbGtBf43pROu7P/Br+VTk/nF9KAzrxL6MU6?=
+ =?us-ascii?Q?BmtUnN55JF7BBuS60/0SLKMDUN6CufBR7SGL9WkIl3JTe6hn8PJkWBCcSYym?=
+ =?us-ascii?Q?lG6xFF+kHG+n8Z48wSvpL4bwIrwvsiykedjX2emDQ6OW5Yux26EU0Vy/fIn+?=
+ =?us-ascii?Q?95Adqbw7ccBFUNt/7Mk8bEqfyd4TadUuRr+Ex5ZKPHEKV0+I3d2CyIHeJOiG?=
+ =?us-ascii?Q?o2cQ/qTijl1XoqOvILuaTMG7X24JW9ONL9C9vZ5X20yDZbPU3B1n1K3F9U4u?=
+ =?us-ascii?Q?z9Lqqbmc44fJI7ns6AGR+SK24oxlYi8ij89YR/DlDlADbzxjl6hqwGXk2Bra?=
+ =?us-ascii?Q?BTAoHQxy8AesIhcYtth/nxtc/4n/JwV5M7o6GnErs5yD1/BhkzB5mcjWvP2m?=
+ =?us-ascii?Q?a8A/E3TOvTATMDFZ6wW+RMBQoGukm7p0whzeCtoCgRzbCoEWV8CinwR7klQU?=
+ =?us-ascii?Q?TeEWBY7NK8+nwGjywqTLFSiDvU0DwSkV1DQPl9PbeNEiCWyTfIl8nYKVs9wV?=
+ =?us-ascii?Q?Ba/7v3XvixobrrMaeqAsg5DgKxYhtGvlJMDGu1vS7Rtwdeic65zPz7nBAI9P?=
+ =?us-ascii?Q?Yvi/atovSFhk1LuXLCQFCrGSli+sUaAKKZvyH7foSTYBQYqC2zGJooQcF70p?=
+ =?us-ascii?Q?ru4lHnJ0WznWn5trB3LHCicssB/X+dtbZ54hsP1yPxnHyKHe62JqJPwCnjGm?=
+ =?us-ascii?Q?wgGCUYGgUHOaIDMK8xUnQUtHlWIwK6Le5bQtU3QtAVq6o/u04B3cVmOPi8vX?=
+ =?us-ascii?Q?UJZORs6pxwiskdJeG0od6l5VL9Pcu6BgpLuRI9vu1jVrsQJn5fzx7nEgadBv?=
+ =?us-ascii?Q?lN0KIKQS4f4I/9ojzLuSnq7Jcl3HzzkmLJ8a9hsZ3MdaaDogVpRUL3CeJ0bG?=
+ =?us-ascii?Q?d6hDaO/z28w9GcfCr1qsxCKO9g+Iwz3y22BXCbiOUr/FwcatMwV1o/c3ZSh8?=
+ =?us-ascii?Q?v6vWkKK5c/XOprlhILo4OVqYXo1/8xvDWCzKQiQl3R2P0MP1xJwtz/LOPK/P?=
+ =?us-ascii?Q?8NeiPP/CGekUntrdQRlY8rW3PAP+zcnrW3Ov9XzX?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed01b9b9-c1de-43c5-9370-08ddf74557ce
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Sep 2025 06:25:35.8512
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zIPBl/H3IrJ/DmqgAFxPHhfnUZDWzBdKwrMwz9/FhiTqX3a6cOSS0WJbIaVI/Yf9u8hOAJ0eUsWNuN0+3B6aYA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7540
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250918_225913_710999_8E5B9C4F 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250918_232545_243749_CEFDC247 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,263 +161,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chuan Liu <chuan.liu@amlogic.com>
+Only i.MX8MP need dma-range property to let USB controller work properly.
+Remove dma-range from required list and add limitation for imx8mp.
 
-Add video encoder, demodulator and CVBS clocks.
-
-Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+Fixes: d2a704e29711 ("dt-bindings: usb: dwc3-imx8mp: add imx8mp dwc3 glue bindings")
+Reviewed-by: Jun Li <jun.li@nxp.com>
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 ---
- drivers/clk/meson/s4-peripherals.c | 202 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 202 insertions(+)
+ .../devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml       | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
-index 6d69b132d1e1..aa500ea8ef9c 100644
---- a/drivers/clk/meson/s4-peripherals.c
-+++ b/drivers/clk/meson/s4-peripherals.c
-@@ -44,6 +44,7 @@
- #define CLKCTRL_VDIN_MEAS_CLK_CTRL                 0x0f8
- #define CLKCTRL_VAPBCLK_CTRL                       0x0fc
- #define CLKCTRL_HDCP22_CTRL                        0x100
-+#define CLKCTRL_CDAC_CLK_CTRL                      0x108
- #define CLKCTRL_VDEC_CLK_CTRL                      0x140
- #define CLKCTRL_VDEC2_CLK_CTRL                     0x144
- #define CLKCTRL_VDEC3_CLK_CTRL                     0x148
-@@ -1126,6 +1127,21 @@ static struct clk_regmap s4_cts_encp_sel = {
- 	},
- };
+diff --git a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml b/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+index baf130669c38..73e7a60a0060 100644
+--- a/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/fsl,imx8mp-dwc3.yaml
+@@ -89,13 +89,21 @@ required:
+   - reg
+   - "#address-cells"
+   - "#size-cells"
+-  - dma-ranges
+   - ranges
+   - clocks
+   - clock-names
+   - interrupts
+   - power-domains
  
-+static struct clk_regmap s4_cts_encl_sel = {
-+	.data = &(struct clk_regmap_mux_data){
-+		.offset = CLKCTRL_VIID_CLK_DIV,
-+		.mask = 0xf,
-+		.shift = 12,
-+		.table = s4_cts_parents_val_table,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "cts_encl_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_hws = s4_cts_parents,
-+		.num_parents = ARRAY_SIZE(s4_cts_parents),
-+	},
-+};
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: fsl,imx8mp-dwc3
++    then:
++      required:
++        - dma-ranges
 +
- static struct clk_regmap s4_cts_vdac_sel = {
- 	.data = &(struct clk_regmap_mux_data){
- 		.offset = CLKCTRL_VIID_CLK_DIV,
-@@ -1205,6 +1221,22 @@ static struct clk_regmap s4_cts_encp = {
- 	},
- };
+ additionalProperties: false
  
-+static struct clk_regmap s4_cts_encl = {
-+	.data = &(struct clk_regmap_gate_data){
-+		.offset = CLKCTRL_VID_CLK_CTRL2,
-+		.bit_idx = 3,
-+	},
-+	.hw.init = &(struct clk_init_data) {
-+		.name = "cts_encl",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_cts_encl_sel.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
- static struct clk_regmap s4_cts_vdac = {
- 	.data = &(struct clk_regmap_gate_data){
- 		.offset = CLKCTRL_VID_CLK_CTRL2,
-@@ -2735,6 +2767,165 @@ static struct clk_regmap s4_gen_clk = {
- 	},
- };
- 
-+/* CVBS DAC */
-+static struct clk_regmap s4_cdac_sel = {
-+	.data = &(struct clk_regmap_mux_data) {
-+		.offset = CLKCTRL_CDAC_CLK_CTRL,
-+		.mask = 0x3,
-+		.shift = 16,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "cdac_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_data = (const struct clk_parent_data []) {
-+			{ .fw_name = "xtal", },
-+			{ .fw_name = "fclk_div5" },
-+		},
-+		.num_parents = 2,
-+	},
-+};
-+
-+static struct clk_regmap s4_cdac_div = {
-+	.data = &(struct clk_regmap_div_data) {
-+		.offset = CLKCTRL_CDAC_CLK_CTRL,
-+		.shift = 0,
-+		.width = 16,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "cdac_div",
-+		.ops = &clk_regmap_divider_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_cdac_sel.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+static struct clk_regmap s4_cdac = {
-+	.data = &(struct clk_regmap_gate_data) {
-+		.offset = CLKCTRL_CDAC_CLK_CTRL,
-+		.bit_idx = 20,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "cdac",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_cdac_div.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+static struct clk_regmap s4_demod_core_sel = {
-+	.data = &(struct clk_regmap_mux_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.mask = 0x3,
-+		.shift = 9,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "demod_core_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_data = (const struct clk_parent_data []) {
-+			{ .fw_name = "xtal" },
-+			{ .fw_name = "fclk_div7" },
-+			{ .fw_name = "fclk_div4" }
-+		},
-+		.num_parents = 3,
-+	},
-+};
-+
-+static struct clk_regmap s4_demod_core_div = {
-+	.data = &(struct clk_regmap_div_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.shift = 0,
-+		.width = 7,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "demod_core_div",
-+		.ops = &clk_regmap_divider_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_demod_core_sel.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+static struct clk_regmap s4_demod_core = {
-+	.data = &(struct clk_regmap_gate_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.bit_idx = 8
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "demod_core",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_demod_core_div.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+/* CVBS ADC */
-+static struct clk_regmap s4_adc_extclk_in_sel = {
-+	.data = &(struct clk_regmap_mux_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.mask = 0x7,
-+		.shift = 25,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "adc_extclk_in_sel",
-+		.ops = &clk_regmap_mux_ops,
-+		.parent_data = (const struct clk_parent_data []) {
-+			{ .fw_name = "xtal" },
-+			{ .fw_name = "fclk_div4" },
-+			{ .fw_name = "fclk_div3" },
-+			{ .fw_name = "fclk_div5" },
-+			{ .fw_name = "fclk_div7" },
-+			{ .fw_name = "mpll2" },
-+			{ .fw_name = "gp0_pll" },
-+			{ .fw_name = "hifi_pll" }
-+		},
-+		.num_parents = 8,
-+	},
-+};
-+
-+static struct clk_regmap s4_adc_extclk_in_div = {
-+	.data = &(struct clk_regmap_div_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.shift = 16,
-+		.width = 7,
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "adc_extclk_in_div",
-+		.ops = &clk_regmap_divider_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_adc_extclk_in_sel.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
-+static struct clk_regmap s4_adc_extclk_in = {
-+	.data = &(struct clk_regmap_gate_data) {
-+		.offset = CLKCTRL_DEMOD_CLK_CTRL,
-+		.bit_idx = 24
-+	},
-+	.hw.init = &(struct clk_init_data){
-+		.name = "adc_extclk_in",
-+		.ops = &clk_regmap_gate_ops,
-+		.parent_hws = (const struct clk_hw *[]) {
-+			&s4_adc_extclk_in_div.hw
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+	},
-+};
-+
- static const struct clk_parent_data s4_pclk_parents = { .hw = &s4_sys_clk.hw };
- 
- #define S4_PCLK(_name, _reg, _bit, _flags) \
-@@ -3028,6 +3219,17 @@ static struct clk_hw *s4_peripherals_hw_clks[] = {
- 	[CLKID_HDCP22_SKPCLK_SEL]	= &s4_hdcp22_skpclk_sel.hw,
- 	[CLKID_HDCP22_SKPCLK_DIV]	= &s4_hdcp22_skpclk_div.hw,
- 	[CLKID_HDCP22_SKPCLK]		= &s4_hdcp22_skpclk.hw,
-+	[CLKID_CTS_ENCL_SEL]		= &s4_cts_encl_sel.hw,
-+	[CLKID_CTS_ENCL]		= &s4_cts_encl.hw,
-+	[CLKID_CDAC_SEL]		= &s4_cdac_sel.hw,
-+	[CLKID_CDAC_DIV]		= &s4_cdac_div.hw,
-+	[CLKID_CDAC]			= &s4_cdac.hw,
-+	[CLKID_DEMOD_CORE_SEL]		= &s4_demod_core_sel.hw,
-+	[CLKID_DEMOD_CORE_DIV]		= &s4_demod_core_div.hw,
-+	[CLKID_DEMOD_CORE]		= &s4_demod_core.hw,
-+	[CLKID_ADC_EXTCLK_IN_SEL]	= &s4_adc_extclk_in_sel.hw,
-+	[CLKID_ADC_EXTCLK_IN_DIV]	= &s4_adc_extclk_in_div.hw,
-+	[CLKID_ADC_EXTCLK_IN]		= &s4_adc_extclk_in.hw,
- };
- 
- static const struct meson_clkc_data s4_peripherals_clkc_data = {
-
+ examples:
 -- 
-2.42.0
-
+2.34.1
 
 
