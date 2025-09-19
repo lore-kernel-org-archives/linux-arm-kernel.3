@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08882CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 21:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220D4CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 21:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Fj6M1q9KQ1Ru4BAuLDTfX9zC7BgQcWSax5mSaV4yDg=; b=MXEQOs75zfOJzQCNmG4CDZeD7I
-	RaGq/JyGpUEbMhr/Qtk3AD1q4qLMWbDSUZG+wyFi+Te7gknpNl3RJn+7VaamFmCTGdIKxrDD/r7rx
-	q7Uy1IlnPqnbHOU5aDLMvby/VGe9A2Ua8/tN3mFZMiaiIB86KrS1JsQg7v/+xmiFbnE8IgOWsLS06
-	aLsuyirm9ybo5AONwxIPr6mdoPJsm8qhK8j17ruwQzX7RBhunpD7u5ZINjiX9isJ58RzwsjpEsWiz
-	4r2GSIEGzwmAl1OFmACMebZg3j2buh4DL94MlMO3GlMwFg9/ZKLTyCou48Ixq9B/R5pZ6aHflG9Iu
-	jTH8eNgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A1AYJz8YUP/Vhoxa5GdJssOAmcvIGIVOWPwZrgxTxwQ=; b=AcCnN1Y9nIJOitnc+la1r3959t
+	3GVLnCXwLfO5IZ21iKWA4rDllNgyLi5Ys4MlU5KxBSRQ0BNnyRyP8TbY5wXmB8WYw9gDN6yPDrBSe
+	7TjgXXvICMzPHJ04pEDqu1a7POC1q0tAKwxTKOGJ66c6muICYxlM5ZCd1+C+uuzt1+I+LG/Ga/s2y
+	iQwzZsR5blgmkDxKOykkSedeDGZXxvZrzW58cgC8tUsMMGfiysYy1s/yrZ7qcgMM7YDduyG1O4Eqb
+	PP8sw9ySg/pO37v4MjM/JK/wgOj3gVuI5e4AED1iMF6M3Djq/X1/6P7E+V2mUREAAA2F7gSFqwp+x
+	Mesba1Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uziJd-000000042rl-2iSh;
-	Fri, 19 Sep 2025 21:06:49 +0000
+	id 1uziMv-000000043KI-0kp2;
+	Fri, 19 Sep 2025 21:10:13 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uziJb-000000042rP-197c
+	id 1uziMs-000000043Il-1CXD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 21:06:48 +0000
+	Fri, 19 Sep 2025 21:10:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0E6643737;
-	Fri, 19 Sep 2025 21:06:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A28DC4CEF0;
-	Fri, 19 Sep 2025 21:06:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758316006;
-	bh=AZyVB8V6Ey50Gr7OmuBq23KPrawUMGKWsAlF4V2ssKg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=CNWybv6KN/koR1Nk2/3ZqLBy+tEj6tOo+bUae3egY6K9HPQl/cTEvhkqos2R/MFe9
-	 jxE8tivDGfYIIYSsruQfYXZpe4QCs36Jyrt2BTgN+zitvlAwoGkQGk1WQb0VoHlMrx
-	 08Q1dqAMhu4oYjnO0UCN/8NLwRyCf7POV1xIIZWHngcWuXFZfiXYGH9cpOG8TPPtOW
-	 qJTSbegUxcJntN7pMAXrKi7T+6t4xUN/bUSIdoqp8/y55v7EIzumSUdge+WB2duZCq
-	 J7C0JfYC1/kZV5/+bbuD+BfvjB6VmMF26BVEK1Z0wXzdn3jUPCQldIaH4JsluWf+4a
-	 Svxybdp9x09HQ==
-From: Mark Brown <broonie@kernel.org>
-To: Herve Codina <herve.codina@bootlin.com>, 
- Qiang Zhao <qiang.zhao@nxp.com>, Shengjiu Wang <shengjiu.wang@gmail.com>, 
- Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
- Nicolin Chen <nicoleotsuka@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-In-Reply-To: <cover.1758209158.git.christophe.leroy@csgroup.eu>
-References: <cover.1758209158.git.christophe.leroy@csgroup.eu>
-Subject: Re: [PATCH RESEND v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount
- of interrupts
-Message-Id: <175831600403.228965.1508351336751078255.b4-ty@kernel.org>
-Date: Fri, 19 Sep 2025 22:06:44 +0100
+	by sea.source.kernel.org (Postfix) with ESMTP id 22E8E44F92;
+	Fri, 19 Sep 2025 21:10:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73254C4CEF0;
+	Fri, 19 Sep 2025 21:10:06 +0000 (UTC)
+Date: Fri, 19 Sep 2025 22:10:04 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
+Message-ID: <aM3GrAkwAgim0UIO@arm.com>
+References: <20250919184025.15416-1-will@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-56183
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250919184025.15416-1-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_140647_340690_20013AE1 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250919_141010_351452_1939DE95 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +64,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sep 2025 17:34:07 +0200, Christophe Leroy wrote:
-> This is a RESEND of v3 sent one month ago, see:
-> https://lore.kernel.org/all/cover.1754993232.git.christophe.leroy@csgroup.eu/
+On Fri, Sep 19, 2025 at 07:40:25PM +0100, Will Deacon wrote:
+> Big-endian arm64 configurations are vanishingly rare, yet we still claim
+> to support them in Linux despite very limited testing or visible
+> interest. Supporting big-endian adds unnecessary burden to reviewers and
+> contributors which, without any known active users, is hard to justify.
+> For example, recent work to improve our futex routines and to implement
+> nested virtualisation support is non-trivially complicated by having to
+> support both big- and little-endianness.
 > 
-> This series reduces significantly the amount of interrupts on
-> fsl_qmc_audio device.
+> Back in 2019 [1], it was claimed that Huawei were using arm64 big-endian
+> machines in their telecommunication products but I don't know whether
+> that's still the case and certainly haven't seen any patch contributions
+> to help support or maintain it.
 > 
-> Patches 1 and 2 are preparatory patches.
-> Patch 3 is the main change
-> Patch 4 is a cleanup which is enabled by previous patch
+> Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
+> towards its removal.
 > 
-> [...]
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Hanjun Guo <guohanjun@huawei.com>
+> Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Cc: Guenter Roeck <linux@roeck-us.net>
+> Link: https://lore.kernel.org/linux-arm-kernel/73701e9f-bee1-7ae8-2277-7a3576171cd4@huawei.com/ [1]
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/4] soc: fsl: qmc: Only set completion interrupt when needed
-      commit: c2a60426e94a56e5329f6c2681c251281f63ab24
-[2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
-      commit: fb418fe26d28378700bddc16f5fa3362dda86d1b
-[3/4] ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
-      commit: 4c5f8c25561f36407cb137d4c350651820068148
-[4/4] ASoc: fsl: fsl_qmc_audio: Drop struct qmc_dai_chan
-      commit: 2c618f361ae6b9da7fafafc289051728ef4c6ea3
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
