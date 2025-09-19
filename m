@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 466CCCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38DC0CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 13:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e19Ak34azFzbfcjrkmSIzwR5q5RxCxyIpzthy6OtvNM=; b=f0/NeOEQjqlDm/NLO2HWps+6Mt
-	SyqJxqHPqFFIiyItcARfRRQTeYZM+dap64UloR3b354SD8pQjZ87Qy+yFMdsbv++aMx80dC/X4lYs
-	8qRQqWy1smt9fnYkX6NOkoMk/nBk2rURvI4HJtvzOEPLrofQIsxt7Q2atE57hu6edhMlhsV9kuIaE
-	yYrq/jY25OwRrgLWpzuVKt8UjtsZcZ3NXkyavm1C1X6DQs6fHlfB6M58IvHID+M8UysoyaeaM21Fs
-	/wIfSwTv0tDWUbxPpv7BEwOZzsA1BQsgcVIaJKUZYxKK1IBfUhGKWrQFpSiHz1q15sCftyFICvs/O
-	Xlm7YYkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R4GdfKGjcAjHO1Ow9QOdPWWunxjlWYABEGKDu3CoN9g=; b=iV2qTNw4weGKbSermfAI/7hr4g
+	tXBcBafdUjXGkwphRZ2UOYao8J50h+Wwj4IITUlgeDHtJ6CX9ATszMGetLQ8NAXmK5r05WpzCKxql
+	sJJ7ikSWKTgqZCFlZg2LVygINZU16hH6egGv5IlGLxw6Oqv3fpbxNkwDYr/FDxI1mwbS/jTewUikj
+	jx2TKcAe5CDr7Bd2h13P65zdu7Cel7PhJriAEuBscnINGYS7ADSYwxKNA9RHE4MDHWf/wTCxHJT1w
+	GQ6etXEiEaBW3SioG5nb46IsBBe5prI9bXZiq1Q2li+0t4aClf+BmxqHYUiPeyZSKCigLW0QAgKYD
+	gzMPjhOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzbBk-00000002zX6-0emW;
-	Fri, 19 Sep 2025 13:30:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uzbEp-0000000303K-2zIl;
+	Fri, 19 Sep 2025 13:33:23 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzbBh-00000002zWX-3aw6
+	id 1uzbEn-0000000302Z-1Nvh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 13:30:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 011516013A;
-	Fri, 19 Sep 2025 13:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2AB7C4CEF0;
-	Fri, 19 Sep 2025 13:30:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758288608;
-	bh=LUp0Tnx3fiLxfm7kQ6s7noGa/CaWiOokB9OgbwxfWS8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BT8lHOM3I4bB2m5+2+AEpLV7ee9YuEzThzZXU6Nggv6cs/ik2l0a6NeAxgI5XY4ZJ
-	 7/q2l6us8LuJSJT/ACJx+H5P69sAjiqpb2jUKpA9KvEtb4oFX/Ezmm3FJtxiFvBDrY
-	 TGo9hy+HjXz4csvOmIoJIPj/k8xXb9/j4oMmzOhfBY/RLy+a8P1P/ksEJln733vEXe
-	 GMHcHxgoZny42Rhb6ZWoSJ34oDwK6t05WwbU5PUM7TkLLW4w1vCRYpKtHxNyo53Nsz
-	 dNgVpgEzhPO3itr9+pwUe2P4LOPpt+R367ejuRgezbzFJJbOGtxatPh1jqyUXDHYxR
-	 3dNPdP1ULihEg==
-Received: from 82-132-233-255.dab.02.net ([82.132.233.255] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1uzbBd-00000007muj-41hV;
-	Fri, 19 Sep 2025 13:30:06 +0000
-Date: Fri, 19 Sep 2025 14:29:59 +0100
-Message-ID: <87348izi20.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Leo Yan <leo.yan@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v8 07/12] KVM: arm64: Add trap configs for PMSDSFR_EL1
-In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-7-2e2738f24559@linaro.org>
-References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
-	<20250901-james-perf-feat_spe_eft-v8-7-2e2738f24559@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.233.255
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, leo.yan@arm.com, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 19 Sep 2025 13:33:22 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3ecdd80ea44so1076486f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Sep 2025 06:33:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1758288799; x=1758893599; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=R4GdfKGjcAjHO1Ow9QOdPWWunxjlWYABEGKDu3CoN9g=;
+        b=dEDL2n51XDL2uqzNEdHBddnVXnA1pTvbfa4Hhv+9piM7OKBmG8XWJrkoFux3A+iMm9
+         ngWKxoU21hbFoCugGE7QCqDf4B2J9UME1DcWiYXM9zDxNCRiciC1dEgSgVfWETyS1eof
+         pydTPHQlhdRShd72sdD1KcrFy8aDG8FEySdsDERIKj7l83+GSRtcUXKbKdiKS9PSe5z2
+         JRzoqJVv6IWscJkWH4BT0JNMxpF1qS2XzXY+0eQoO65igwRAaVprl7XQC+PpEl26gYOJ
+         97SAwU2tqeYAXkk0idUSRsoMObDKsw1YDNlR9GQW183JQMNKB4wL4s0YQDi1AtbhCKcG
+         dnlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758288799; x=1758893599;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R4GdfKGjcAjHO1Ow9QOdPWWunxjlWYABEGKDu3CoN9g=;
+        b=Iy2o0QjKPfi9S+q5NeiA2BtiM2aS1NSFoBnCQ9+irHMZ/vScuvHvTAoOul80DwhZpe
+         rx/kc+fDqPKvc2d6V140udD0+jRmZycI3oH1IBPUWJTLFJuCfYSPlL6EAggHI1iTNE50
+         uCIq/JvhJriDcz2AVF6qglvDjY4v7uZYhb+0jvnmhTCBveSGrV3jsmutURiOcad3VdTv
+         n/I+PzsvKwjS9UbhUDqhsdFbKNoOCHSx/Wih/2ff5d1oDIQ+jaf42DeGwlWZYOuXW8IG
+         RYyTEErWwSugA/qAeuEWJjMSlDj+zi6dpglIR8OTX83P7HUtf84eoe/yXNVKOmu+SL69
+         nwyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUttsTippY2cKuW7IFAycEG329opiZHN01kIUgsdqVipI/KtIPXkj04gD9WKH0nnIPEm9GHfnxb+balIKhpJGNQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGsrwa99rmrdGFLNS+lHzjVy7/xvqEiGusn+w9v5ZNelDIB0Zv
+	USYqG6ht3UOjjDOi15eYHrbGoSSotLDFohwEJ1IzkAruxyNtw0b0645V/qITiSf7ALT8Jp+hHi/
+	J/Yu95RkxEQYMDQ==
+X-Google-Smtp-Source: AGHT+IGBtth11hKgSJrPU0wa9yxisbbeO9r+lcZZZKAbsRwiycsMuFxXsib0bL2/MaLbfaWsBZv3sfUavT1taA==
+X-Received: from wrbgx5.prod.google.com ([2002:a05:6000:4705:b0:3ec:b561:7686])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a5d:5f95:0:b0:3d6:4596:8a3a with SMTP id ffacd0b85a97d-3ee193f90f1mr3383557f8f.17.1758288799288;
+ Fri, 19 Sep 2025 06:33:19 -0700 (PDT)
+Date: Fri, 19 Sep 2025 13:33:09 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.534.gc79095c0ca-goog
+Message-ID: <20250919133316.2741279-1-smostafa@google.com>
+Subject: [PATCH v3 0/4] Move io-pgtable-arm selftest to KUnit
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
+	praan@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250919_063321_406249_47592853 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Sep 2025 13:40:36 +0100,
-James Clark <james.clark@linaro.org> wrote:
-> 
-> SPE data source filtering (SPE_FEAT_FDS) adds a new register
-> PMSDSFR_EL1, add the trap configs for it. PMSNEVFR_EL1 was also missing
-> its VNCR offset so add it along with PMSDSFR_EL1.
-> 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
+This is a small series to clean up the io-pgtable-arm library.
 
-Given that this is completely independent of this series, and that KVM
-is already aware of FEAT_SPE_FSD (if only to make sure the registers
-actively UNDEF), I'll take it into the KVM tree directly.
+The first patch is a small clean up to reduce the depedencies of the
+test before moving it.
 
-	M.
+The second patch was originally part of the SMMUv3 KVM driver support[1],
+which needed to factor out the kernel code from the io-pgtable-arm
+library, and based on Jason=E2=80=99s suggestion this can be taken out as a
+cleanup, and a step further to convert it to kunit.
 
--- 
-Jazz isn't dead. It just smells funny.
+The second patch just moves the code to a new file with no other changes,
+so it can be easier to review with =E2=80=9C--color-moved=E2=80=9D
+
+The third patch converts the sefltest to be modular, that is useful as
+kunit can be a module and it can run anytime after boot.
+
+The fourth patch registers the test using kunit, and converges some of
+the APIs, some notes about that:
+
+Granularity of tests:
+---------------------
+To make the series easier to review, the series changes the test to run in
+kunit without making intrusive changes to the test itself.
+It=E2=80=99s possible to refactor the tests to have smaller granularity (al=
+though
+I think that would make it less efficient as we might create the same io-pg=
+table
+config multiple times) and integrate them in kunit as multiple tests, that
+change would be more intrusive, if you think that is the right approach,
+I can add a couple of more patches re-writing the tests.
+
+Other changes:
+--------------
+- Also, to make the test changes minimal, and the fail messages similar,
+  =E2=80=9CKUNIT_FAIL()=E2=80=9D is used to fail all tests instead of using=
+ KUNIT specific
+  assertions.
+
+- Instead of using faux device, we rely on kunit_device_register()
+
+- The WARN is removed when a test fails, as that doesn=E2=80=99t seem to be=
+ a pattern
+  used with kunit.
+
+
+You can find the instructions on how to run kunit in the last patch commit =
+message.
+
+A failure at the test with the new implementation look as
+[  191.675985]     # arm_lpae_do_selftests: selftest: pgsize_bitmap 0x20010=
+000, IAS 40 OAS 48
+[  191.676057]     # arm_lpae_do_selftests: EXPECTATION FAILED at drivers/i=
+ommu/io-pgtable-arm-selftests.c:91
+[  191.676087]     # arm_lpae_do_selftests: selftest: test failed for fmt i=
+dx 0
+
+
+Main changes in v3:
+-------------------
+- Move back unused code
+- Simplify printing based on Jason comments + some renames
+- Collect Jasons Rb
+v2: https://lore.kernel.org/all/20250917191143.3847487-1-smostafa@google.co=
+m/
+
+Main changes in v2:
+-------------------
+- Make the test modular
+v1: https://lore.kernel.org/linux-iommu/20250917140216.2199055-1-smostafa@g=
+oogle.com/
+
+[1] https://lore.kernel.org/all/20250819215156.2494305-5-smostafa@google.co=
+m/
+
+Mostafa Saleh (4):
+  iommu/io-pgtable-arm: Simplify error prints for selftests
+  iommu/io-pgtable-arm: Move selftests to a separate file
+  iommu/io-pgtable-arm-selftests: Modularize the test
+  iommu/io-pgtable-arm-selftests: Use KUnit
+
+ drivers/iommu/Kconfig                    |  12 +-
+ drivers/iommu/Makefile                   |   1 +
+ drivers/iommu/io-pgtable-arm-selftests.c | 222 +++++++++++++++++++++++
+ drivers/iommu/io-pgtable-arm.c           | 204 ---------------------
+ 4 files changed, 230 insertions(+), 209 deletions(-)
+ create mode 100644 drivers/iommu/io-pgtable-arm-selftests.c
+
+--=20
+2.51.0.534.gc79095c0ca-goog
+
 
