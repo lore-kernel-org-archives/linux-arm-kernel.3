@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B911BCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F49CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Sep 2025 18:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9RBmI2iX1ZX7Pcl3gagxnA4YyfCeH7uHTQOBr1mgec=; b=thgmp3SPtMn2Ei88uLOt2XSP+S
-	872VRW4I0MM0iqbJJLBwPIGZWdroAcqdO9GJl5TXku5yGa0FGahylKewFQ50gNlXnJdp/G+GkYcvm
-	joWNm+wWDhyYiriDq4WV5Wh2tu3Sfa8cSH6fyJGDZb+5Pb6vtHooYlkODeagfEJTQQ0T46msOFIHX
-	rU1lxtTgBcyrrHY9Sgw/OqHaCvhe4VFUQ5RqcKnqgrg0fn4Rgl8uV6awZyArDClZg1lcG82HkFdsS
-	3mmO/KT4tutWiWlzMO0qhveadiZALnPA1pYfYk78OkqWKqGRssiu4/J4smAlKyX9DEDovzz3RLLyH
-	271yvhuA==;
+	bh=a6BIW6nk9VokxNdMUnaPbHqz+kXxqZQzHIR/NiggwLg=; b=fUDrQ1/n3P6dvuh048EeHCk1Rx
+	KPVWcdGb5VcWaJ4iYmGIqBr7AsCsqRyfn8gyxwBIXZsXfC71G+R4Sn/tfyE3BB1R7BqiA8mccCEJU
+	fdZJUigom/fGMQ1xNwq4r0MEMvmvz8hzwhxpWEIhlrzl310QzUzRykap+mEXojGQXMzzU9mwZKcGR
+	8OLXKJBMY729TbK8TbtT0n8z2bh/tojRIIDsEJ1P+c4M0vbEDrbhSsPsk4RC+vx7iJwUBPSWt2XOh
+	2fP8tZWpQnL+6fZG0jtNparAis87tYCI4lQesJVensmmxo3zvGcDviF1Cz6k/hHrq64aLiGE0hHdJ
+	GmOPFJXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfpb-00000003lCU-1BZd;
-	Fri, 19 Sep 2025 18:27:39 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uzfss-00000003lbv-0Zdv;
+	Fri, 19 Sep 2025 18:31:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzfpZ-00000003lBo-20f7
+	id 1uzfsp-00000003lbJ-2jgi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Sep 2025 18:27:38 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1758306455;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d9RBmI2iX1ZX7Pcl3gagxnA4YyfCeH7uHTQOBr1mgec=;
-	b=GXdhu2FzEMNv+9P0OmuXv3lu2UlSEj+3hva8irx706eOUEvt8MONPtaRD5qUyw8hqLkyUe
-	tRYHysAoof5su+qo3ytGTqEu1xQXq43cLUbDTETKZYvohRiNFax9s1Wn6G0/mTdDVP/VwF
-	dIyky3OVenLfCELQPiiGRHJBmSMcKNBY40S3Cv5S2M6I5LHunpW6g3bgztGNdQYGlXYCVG
-	rluSrdYuQ8qnGL5kyGJ5FoEFpgAfkyAnmvuak31DMnFlV536wFsXyjY0a9sM77jDocldeh
-	KSx5SAmM0YrR6TTx031rSS0MoMvgm75gL2V+0+UI+kLoxceUsXeQwhD+iCWMQQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1758306455;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d9RBmI2iX1ZX7Pcl3gagxnA4YyfCeH7uHTQOBr1mgec=;
-	b=EEtW+YsEucAZH23H4LnoTix/0YV5g6BXxI+zZX4U68FNcAEE5qKUH2st++0/6TSBh/qZR7
-	x9v9Ao7pdxDVWBAg==
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra
- <peterz@infradead.org>, kernel test robot <lkp@intel.com>, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Nathan
- Chancellor <nathan@kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: [patch V2a 1/6] ARM: uaccess: Implement missing __get_user_asm_dword()
-In-Reply-To: <20250916163252.037251747@linutronix.de>
-References: <20250916163004.674341701@linutronix.de>
- <20250916163252.037251747@linutronix.de>
-Date: Fri, 19 Sep 2025 20:27:33 +0200
-Message-ID: <878qia8fhm.ffs@tglx>
+	Fri, 19 Sep 2025 18:31:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB8A1404B4;
+	Fri, 19 Sep 2025 18:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F83C4CEF0;
+	Fri, 19 Sep 2025 18:30:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758306658;
+	bh=VqGaXrsnHDB0BUTkmiNdMkMLAZVWdKAH/20+GH3zJ4c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qiTCts8ITuKje9k20xuiq9n+85M+xbls4wD13KoIdMwCL9Af3TTOit6LevDtelBCQ
+	 y8KdVdq5c+gWclkluTbPyEpvsfM2EYFiOjal41dTJUahi1kwuEuudZDJNY0aBqotrI
+	 Zo4YXug1FwXnGQYx8MRgXLUoxrwMmk4AnmvobngvYR05B/yFwWtXzL6Qj1v3iZR+bK
+	 XhenwT9qvFeYVMkz504Pnxj/C4IFhwWT+tgrWYeZLJyipVJzrTLY6GvGBqhO8jS+8Q
+	 qb7zUON53XmUNdIjypNaIdYWpKiSlUs9C/lxU5BXUW7gvpbT3rOexT3jQr4V7CTMUl
+	 UGUs33Pih9wsA==
+Date: Sat, 20 Sep 2025 00:00:47 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	qiang.yu@oss.qualcomm.com, mayank.rana@oss.qualcomm.com, thippeswamy.havalige@amd.com, 
+	shradha.t@samsung.com, quic_schintav@quicinc.com, inochiama@gmail.com, 
+	cassel@kernel.org, kishon@kernel.org, sergio.paracuellos@gmail.com, 
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 04/10] PCI: dwc: ep: Export
+ dw_pcie_ep_raise_msix_irq() for pci-keystone
+Message-ID: <kb6jxzyihyuhd4qfvdtgxgopzgyymhsflqmheb3fribovdck23@ahswbufb23sv>
+References: <20250912122356.3326888-1-s-vadapalli@ti.com>
+ <20250912122356.3326888-5-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250912122356.3326888-5-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_112737_696221_C3D04BE6 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250919_113059_712396_92FE165C 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM
-variant.  This prevents using get_user(u64) in generic code.
+On Fri, Sep 12, 2025 at 05:46:15PM +0530, Siddharth Vadapalli wrote:
+> The pci-keystone.c driver uses the 'dw_pcie_ep_raise_msix_irq()' helper.
+> In preparation for enabling the pci-keystone.c driver to be built as a
+> loadable module, export 'dw_pcie_ep_raise_msix_irq()'.
+> 
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-Implement it as a sequence of two 4-byte reads with LE/BE awareness and
-make the data type for the intermediate variable to read into dependend
-on the target type. For 8,16,32 bit use unsigned long and for 64 bit
-unsigned long long
+This patch could be merged with patch 2.
 
-The __long_type() macro and the idea to solve it was lifted from
-PowerPC. Thanks to Christophe for pointing it out.
+- Mani
 
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org
-Closes: https://lore.kernel.org/oe-kbuild-all/202509120155.pFgwfeUD-lkp@intel.com/
----
-V2a: Solve the *ptr issue vs. unsigned long long - Russell/Christophe
-V2: New patch to fix the 0-day fallout
----
- arch/arm/include/asm/uaccess.h |   26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+> ---
+> 
+> v1: https://lore.kernel.org/r/20250903124505.365913-5-s-vadapalli@ti.com/
+> No changes since v1.
+> 
+>  drivers/pci/controller/dwc/pcie-designware-ep.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> index 7f2112c2fb21..19571ac2b961 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-ep.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+> @@ -797,6 +797,7 @@ int dw_pcie_ep_raise_msix_irq(struct dw_pcie_ep *ep, u8 func_no,
+>  
+>  	return 0;
+>  }
+> +EXPORT_SYMBOL_GPL(dw_pcie_ep_raise_msix_irq);
+>  
+>  /**
+>   * dw_pcie_ep_cleanup - Cleanup DWC EP resources after fundamental reset
+> -- 
+> 2.43.0
+> 
 
---- a/arch/arm/include/asm/uaccess.h
-+++ b/arch/arm/include/asm/uaccess.h
-@@ -283,10 +283,17 @@ extern int __put_user_8(void *, unsigned
- 	__gu_err;							\
- })
- 
-+/*
-+ * This is a type: either unsigned long, if the argument fits into
-+ * that type, or otherwise unsigned long long.
-+ */
-+#define __long_type(x) \
-+	__typeof__(__builtin_choose_expr(sizeof(x) > sizeof(0UL), 0ULL, 0UL))
-+
- #define __get_user_err(x, ptr, err, __t)				\
- do {									\
- 	unsigned long __gu_addr = (unsigned long)(ptr);			\
--	unsigned long __gu_val;						\
-+	__long_type(x) __gu_val;					\
- 	unsigned int __ua_flags;					\
- 	__chk_user_ptr(ptr);						\
- 	might_fault();							\
-@@ -295,6 +302,7 @@ do {									\
- 	case 1:	__get_user_asm_byte(__gu_val, __gu_addr, err, __t); break;	\
- 	case 2:	__get_user_asm_half(__gu_val, __gu_addr, err, __t); break;	\
- 	case 4:	__get_user_asm_word(__gu_val, __gu_addr, err, __t); break;	\
-+	case 8:	__get_user_asm_dword(__gu_val, __gu_addr, err, __t); break;	\
- 	default: (__gu_val) = __get_user_bad();				\
- 	}								\
- 	uaccess_restore(__ua_flags);					\
-@@ -353,6 +361,22 @@ do {									\
- #define __get_user_asm_word(x, addr, err, __t)			\
- 	__get_user_asm(x, addr, err, "ldr" __t)
- 
-+#ifdef __ARMEB__
-+#define __WORD0_OFFS	4
-+#define __WORD1_OFFS	0
-+#else
-+#define __WORD0_OFFS	0
-+#define __WORD1_OFFS	4
-+#endif
-+
-+#define __get_user_asm_dword(x, addr, err, __t)				\
-+	({								\
-+	unsigned long __w0, __w1;					\
-+	__get_user_asm(__w0, addr + __WORD0_OFFS, err, "ldr" __t);	\
-+	__get_user_asm(__w1, addr + __WORD1_OFFS, err, "ldr" __t);	\
-+	(x) = ((u64)__w1 << 32) | (u64) __w0;				\
-+})
-+
- #define __put_user_switch(x, ptr, __err, __fn)				\
- 	do {								\
- 		const __typeof__(*(ptr)) __user *__pu_ptr = (ptr);	\
+-- 
+மணிவண்ணன் சதாசிவம்
 
