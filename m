@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F39CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 17:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4801ACAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 18:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aaAslXuUtUX6oS3VLGxNFurl4ejRCOlN9+jSRnvqk/U=; b=MoBe/Eg9J6SPxz+bNCKRJlBqJO
-	wP2RNlfteZptH4Bx04S3+hmB/sBRzNTwMtGFyJgFyTmAefEp35GUSED2aiLcG4Fkn/yH+nqGOPEF6
-	ffV3M5bh4sFexA3eQoL9L4mz/iNrDfRPtP9BYZpG1DFaAVBMR9Kc/YWuqvMF1f9TP+a/1WZ02xhee
-	cZ+rBvonVX3ORmXC6zRUOyrARwEQZfJ1kdaf8iy8LxhyWR6Y5W1P1XgwmQPLvPp61ouprc1+MQdS4
-	tlWx9QGhAGJqjfi282o/2eAL2gz/I+4G3iJU6Uyeg+YG65fPLUCIhXJTYV5AWOzRGPZSoo3AyIKjQ
-	tLd2Tlkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EDZl0ANj7v5q6OpbuwpuZi8KB2n6Sh+sPSSDtZHj8Es=; b=sIIN2pLKiI+pfEhRCwCYrqQG+C
+	kqrwrXxaVKWOmC7iYqNWHa0OBc0lIQwU4+r4m040HyE3cZWWmzOR9SC0330qMX4qBWj78gWtwOCT0
+	t3p0sxdcg63ssYunSW+wQkWzc2ZnjRrNdbyWwzU2VTwpC648GRUCXsRS+j9uPq6OH4ksqGt4A400u
+	jY6WVnsew2BlcDeJeVcY9cLj3URCI9s9NJvlzBym6bky8+9JRRXaoSOj2n3fUwgRe+MyKcLbBQ4aI
+	Phm+iRZayX3xrp0NuZ6FSfYP4KufnN7/P8VpMsXeUG/vrgjWLBVGY+xnx4dHGtFhrgGx3fG0qZTjn
+	dkXNos6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v01Ix-00000005gff-3Sep;
-	Sat, 20 Sep 2025 17:23:23 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1v01zR-00000005jNt-20yy;
+	Sat, 20 Sep 2025 18:07:17 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v01Iv-00000005geH-2Qjw
+	id 1v01zO-00000005jNP-19WO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 17:23:22 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=ba5PtmFjowsIaHfACEh+0dU237szl4KEjgtN+AEHH5yNE4yl8t6kGqtsqa0LpXSvC3Eo4uGU7y68CtTs9Oic7MoZHr8ByUS+46tQknWuPP9clbP37TKBhw76hpfxuVI752/+YXC8Ll1/qZYu7OqhayQVWQT9NCEaMAEVnjJ9PgiQGxbjKROBFBE5MvuvUklmQJRkWMjmhxXDVnXw+VvWkKmd9czttkTFKIgRphvTP+1LZIcgDOz5NqLdjmNv/V39qXrf3CV/heebpvs329wnoji6AY1HcmxTEJg5FmDRS4nML6WJVlL1+X2/dXItwFYJiGPAjnpjRshcbyXqPbQlrw==; s=purelymail1; d=purelymail.com; v=1; bh=6/Bi9HXJdwmtXopWk4wjqbKq9IfI+RP10q7/G7trKjE=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1392048781;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sat, 20 Sep 2025 17:23:04 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Sat, 20 Sep 2025 19:22:52 +0200
-Subject: [PATCH v2] dt-bindings: i2c: i2c-mt65xx: Document MediaTek MT6878
- I2C
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250920-mt6878-i2c-bringup-v2-1-70a951f10be9@mentallysanemainliners.org>
-X-B4-Tracking: v=1; b=H4sIAOvizmgC/32NQQ6CMBBFr0K6dkypUNCV9zAsSjuFSaCQKRIJ4
- e5WDuDyveS/v4uITBjFI9sF40qRppBAXTJhexM6BHKJhZKqlHclYVx0XdVAykLLFLr3DLqQrqh
- t67VuRRrOjJ4+Z/TVJO4pLhNv58ea/+zf3JqDBJeXqvLe3ayrniOGxQzDFk3A0VAYKCDH68Sda
- I7j+AIbBwCnxQAAAA==
-X-Change-ID: 20250920-mt6878-i2c-bringup-640d48cbf66b
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: ~postmarketos/upstreaming@lists.sr.ht, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758388982; l=1428;
- i=igor.belwon@mentallysanemainliners.org; s=20250908;
- h=from:subject:message-id; bh=6/Bi9HXJdwmtXopWk4wjqbKq9IfI+RP10q7/G7trKjE=;
- b=vNonu+OGzG1QGA4lfkYdNlJVPkanBGWOsfd/gZnlyCoNtSvnYDZ3hMHmvgtL3a7KF4FMHt+Yt
- 4v5m6V101nbBX7mQEFH98yis37DhzMY9NfRonqE8E/C5RphlUkKgbJK
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=t9Kz6B3jEwJD7YAKcp8XftfEz7SUSlGbrsfFlbrrFwA=
+	Sat, 20 Sep 2025 18:07:16 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1758391630;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EDZl0ANj7v5q6OpbuwpuZi8KB2n6Sh+sPSSDtZHj8Es=;
+	b=FoywK2CetcfKqJWZoi8P9Omv+JEBR1tPPr8nt9qDZ1F6dKpfEZFqNoOZKYD2jHPV3aXgba
+	H7C1Lf4RizzKZDwOYARbBVDgXBNID3i/TeeeTRzm/LndVdtdHK/E4iEjYvml37SR41gFIh
+	ViD5f9lh4KGIlVVdU3cPgUCjn0fOvFgTIpnYd/8RYMYhsbOFBAikWsW3mc2oIFnntFRTbA
+	a0KOoyp6qfUWy+cNmomqzNzry2VdeU7IMR5TfbffHnu5FkFZ5KWIvZtCu2cs73+FoQdtPR
+	gNRwb+cQ4LG/mB7lG0+oGqArQlrmPCan/gtkdeNyttZ7sU2De0Xa45SS4/N31w==
+Content-Type: multipart/signed;
+ boundary=d095de69cd9d2d7c4717294b4ae0febc9cc3d86b9283f057e39e54933396;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Sat, 20 Sep 2025 20:06:36 +0200
+Message-Id: <DCXTSROW5FPM.1008CWKUXILAI@cknow.org>
+Cc: "Mauro Carvalho Chehab" <mchehab@kernel.org>, "Heiko Stuebner"
+ <heiko@sntech.de>, <linux-media@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <kernel@collabora.com>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 09/12] media: rkvdec: Add H264 support for the
+ VDPU381 variant
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Jonas Karlman" <jonas@kwiboo.se>, "Detlev Casanova"
+ <detlev.casanova@collabora.com>
+References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+ <20250808200340.156393-10-detlev.casanova@collabora.com>
+ <DCXPTZRNNTDY.1773L2181HWF@cknow.org>
+ <ea0914d9-bd12-4bdc-b465-3ae82571118a@kwiboo.se>
+In-Reply-To: <ea0914d9-bd12-4bdc-b465-3ae82571118a@kwiboo.se>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_102321_691970_C70827C6 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250920_110714_881395_DC89C4F3 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +78,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the I2C controllers found in the MediaTek MT6878 SoC, by adding
-a new compatible string for the controllers. Their design is compatible
-with the design from the MediaTek MT8188 SoC.
+--d095de69cd9d2d7c4717294b4ae0febc9cc3d86b9283f057e39e54933396
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
-Changes in v2:
-- Removed driver change, made the binding compatible with mt8188
-- Link to v1: https://lore.kernel.org/r/20250920-mt6878-i2c-bringup-v1-0-d1527ffd3cd7@mentallysanemainliners.org
----
- Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+Hi Jonas,
 
-diff --git a/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml b/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
-index 23fe8ff76645e440c19469999ae9a86b7fdabe68..bd6811cbde701ce0fd9baa002aea59d43f8af445 100644
---- a/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
-+++ b/Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml
-@@ -50,6 +50,10 @@ properties:
-           - enum:
-               - mediatek,mt6795-i2c
-           - const: mediatek,mt8173-i2c
-+      - items:
-+          - enum:
-+              - mediatek,mt6878-i2c
-+          - const: mediatek,mt8188-i2c
-       - items:
-           - enum:
-               - mediatek,mt6893-i2c
+On Sat Sep 20, 2025 at 6:15 PM CEST, Jonas Karlman wrote:
+> On 9/20/2025 5:00 PM, Diederik de Haas wrote:
+>> Thanks a LOT for this patch set!
+>> As already reported the results were quite impressive :-D
+>>=20
+>> To figure out how to make VDPU346 for rk3568 work, I had a close look at
+>> the TRM and compared that to rk3588's TRM and compared it to your code.
+>> I think I may have found a few potential issue, but I may also not
+>> understand things correctly.
+>>=20
+>> On Fri Aug 8, 2025 at 10:03 PM CEST, Detlev Casanova wrote:
+>>> This decoder variant is found in Rockchip RK3588 SoC family.
+>>>
+>>> Like for rkvdec on rk3399, it supports the NV12, NV15, NV16 and NV20
+>>> output formats and level up to 5.1.
+>>>
+>>> The maximum width and height have been significantly increased
+>>> supporting up to 65520 pixels for both.
+>>>
+>>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>>> ---
+>>>  .../media/platform/rockchip/rkvdec/Makefile   |   1 +
+>>>  .../rockchip/rkvdec/rkvdec-h264-common.h      |   2 +
+>>>  .../platform/rockchip/rkvdec/rkvdec-h264.c    |  36 --
+>>>  .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     | 469 ++++++++++++++++++
+>>>  .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     | 427 ++++++++++++++++
+>>>  .../media/platform/rockchip/rkvdec/rkvdec.c   | 164 +++++-
+>>>  .../media/platform/rockchip/rkvdec/rkvdec.h   |   6 +
+>>>  7 files changed, 1067 insertions(+), 38 deletions(-)
+>>>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu3=
+81-h264.c
+>>>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu3=
+81-regs.h
+>>>
+>>> ...
+>>>
+>>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/=
+media/platform/rockchip/rkvdec/rkvdec.c
+>>> index 0ccf1ba81958a..1b55fe4ff2baf 100644
+>>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>>>
+>>> ...
+>>>
+>>> @@ -287,6 +327,25 @@ static const struct rkvdec_coded_fmt_desc rkvdec_c=
+oded_fmts[] =3D {
+>>>  	}
+>>>  };
+>>> =20
+>>> +static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] =3D {
+>>> +	{
+>>> +		.fourcc =3D V4L2_PIX_FMT_H264_SLICE,
+>>> +		.frmsize =3D {
+>>> +			.min_width =3D 64,
+>>> +			.max_width =3D  65520,
+>>> +			.step_width =3D 64,
+>>> +			.min_height =3D 16,
+>>> +			.max_height =3D  65520,
+>>> +			.step_height =3D 16,
+>>> +		},
+>>=20
+>> Also in the RK3588 TRM Part 1 paragraph 5.4.3, I see "Supported image si=
+ze" :
+>> 16x16 to 65520x65520; step size 16 pixels
+>>=20
+>> I interpret that that .min_width and .step_width should both be 16.
+>> (.min_height and .step_height are correct at 16; if I read the TRM right=
+)
+>
+> The frmsize used internally for rkvdec is only meant to restrict/align
+> the frame buffer use while decoding, It does not reflect sizes the HW
+> can decode.
+>
+> frmsize should typically be min 64x64 with step_height 16 and step_width
+> 64 to ensure stride is 16 byte aligned for both 8-bit and 10-bit video.
+>
+> Only max_width and max_height is used from here to signal userspace what
+> max res is supported, together with min/max res and step of 1.
 
----
-base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
-change-id: 20250920-mt6878-i2c-bringup-640d48cbf66b
+Interesting, thanks for the explanation :-)
 
-Best regards,
--- 
-Igor Belwon <igor.belwon@mentallysanemainliners.org>
+So if I understand correctly, only .min_height should be changed to '64'
+here? And it should also be 64+64+64+16 for HEVC (patch 11)?
+(and also for VP9 and AVS2?)
 
+> Regards,
+> Jonas
+
+Cheers,
+  Diederik
+
+>>=20
+>>> +		.ctrls =3D &rkvdec_h264_ctrls,
+>>> +		.ops =3D &rkvdec_vdpu381_h264_fmt_ops,
+>>> +		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_h264_decoded_fmts),
+>>> +		.decoded_fmts =3D rkvdec_h264_decoded_fmts,
+>>> +		.subsystem_flags =3D VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
+>>> +	},
+>>> +};
+>>> +
+>>>  static const struct rkvdec_coded_fmt_desc *
+>>>  rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+>>>  {
+>>> @@ -1125,6 +1184,35 @@ static irqreturn_t rk3399_irq_handler(struct rkv=
+dec_ctx *ctx)
+
+--d095de69cd9d2d7c4717294b4ae0febc9cc3d86b9283f057e39e54933396
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaM7tLwAKCRDXblvOeH7b
+bmaPAP42aR+Mi7lYj8rv/CnJ3+XArfhpCOXq8Cechr4YPjJB5QD8Cuv/WjyPD0bq
++qJ3+PrgRJ7oywdCszE4tHtnZPvAPwE=
+=yrXy
+-----END PGP SIGNATURE-----
+
+--d095de69cd9d2d7c4717294b4ae0febc9cc3d86b9283f057e39e54933396--
 
