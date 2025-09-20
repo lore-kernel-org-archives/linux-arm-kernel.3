@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD08CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 19:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8180CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 19:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARNulbwujzqTC6TBIyUcN+Sxg1gArb1tBFDYw0Up1wE=; b=TsmkyRuqkLka5cfbbsTEcKkPzI
-	SUbR67Rd89ezapKChvMlhYyZtNJoREu05N6BUe9CBNRG5lZY5Yw7cJFRDeMXp+FemZkN0oYd1quAB
-	71dTbGmmb6NBXqMCZWoI6B5iy8WZ3OqsUwLn60xXB2Pds0AYL9Ahp/a4LS+xDFRs9VYDSsJwB6Uck
-	X3hC9d7WH3f+0zrAdRbgk2xO8tviY1ktlpl6jSOUN9NBAn6S42x1JKOueM7+EzrN9ITS8flrrDGFm
-	fNaRG6BS6qn1JYvqyW3KmGO9FTQGAzTuP8Ex3jGAZpD9Z3j5NCpSNGzwEHyOX8TfL9BoIvKqITTMb
-	rBbEqreg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B6uFCTQ3oaW30KgEERcz6P3v9NHZ2fvnh4lJdi0Rwug=; b=iduMk/o/Rsssid
+	tLiWSjbfQVDqa2u9u5tXE4KHo8ntS5HilexvP289mszwOmo1ujjMm2IqAku/xk9afdHVTCOYtMuby
+	ekUKKw19YeH8O/MMtgsOC9IyDm2N5u1gXLlpfmsWEvrHgr3oGQdbdVESaFWl5qYxcOLchQbJL1KAs
+	mg63U7TA1zapCU4+xk7pGQWJlfQL/ogzbfQAvh0UzhL/sohHrQzaj0whtpgEfnoY8h3OsBRNOETV/
+	BR2zjQ6TTC6JhMs8KJZmKJgsp+NkSBSRpwez+0+Th3J7e9uJx9Znrs+BnXxghuPB0WhofSwbMyIFt
+	+HL02EVwRJhcY9+SLR8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v03dH-00000005pqe-12kf;
-	Sat, 20 Sep 2025 19:52:31 +0000
-Received: from p-west2-cluster4-host5-snip4-3.eps.apple.com ([57.103.69.154] helo=outbound.mr.icloud.com)
+	id 1v03j0-00000005qRS-06IF;
+	Sat, 20 Sep 2025 19:58:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v03dB-00000005pmY-14gu
+	id 1v03ix-00000005qPw-1rf5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 19:52:26 +0000
-Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-20-percent-0 (Postfix) with UTF8SMTPS id 948721801B24;
-	Sat, 20 Sep 2025 19:52:22 +0000 (UTC)
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bryanhinton.com; s=sig1; bh=ARNulbwujzqTC6TBIyUcN+Sxg1gArb1tBFDYw0Up1wE=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=ig3ymr+Z+eqzf5M5oemHs6qSw2bHI6kP9uNx6KcgXQa9r74tfZp94pp1bRmrlAM9GQGn1sJcw02QgWy2w6NDexI5TEZ4X8O8eLfI+G1CUt4z4XdTjufcGzweuuwvB9IAfNPdqTF1ieychu7P12NHEsxbjMQ++qktZQo9OEjK8eM+TVdLir13vjvVPQWbeCItwTeMqmq7AhjGauprOuQS/F1lhbu4YBqbdxhrofGtgQDtqh2yVoEIyq4FjvMNAupuVx8+PFII2lGpkEZL1gGVYY9nCa31m8g+hWAeLQb7RKY0tk9UvMl87wJwNWYEKQqfZR+BDIVlKbxYmeTKAcTUSw==
-mail-alias-created-date: 1643268037438
-Received: from localhost (mr-asmtp-me-k8s.p00.prod.me.com [17.57.152.38])
-	by p00-icloudmta-asmtp-us-west-2a-20-percent-0 (Postfix) with UTF8SMTPSA id 2449718001A2;
-	Sat, 20 Sep 2025 19:52:22 +0000 (UTC)
-From: Bryan Hinton <bryan@bryanhinton.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Cc: angelogioacchino.delregno@collabora.com,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	robh@kernel.org,
-	daniel@makrotopia.org,
-	Bryan Hinton <bryan@bryanhinton.com>
-Subject: [PATCH v2 2/2] arm64: dts: mediatek: mt7981b: OpenWrt One: set console UART to 115200
-Date: Sat, 20 Sep 2025 14:50:51 -0500
-Message-ID: <20250920195102.2733949-3-bryan@bryanhinton.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250920195102.2733949-1-bryan@bryanhinton.com>
-References: <20250920195102.2733949-1-bryan@bryanhinton.com>
+	Sat, 20 Sep 2025 19:58:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 310E644C12;
+	Sat, 20 Sep 2025 19:58:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E32CFC4CEEB;
+	Sat, 20 Sep 2025 19:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758398302;
+	bh=N/5+0U8xq7Zk0a8gL9aaRKTgfFfm/74fnNbziAndS6o=;
+	h=From:Subject:Date:To:Cc:From;
+	b=LHp1VIKfKI+eepDbB7yikTc5ETwfy6Nq9fSlWZIeztY9wsL6No7L1c05IgVWoEXGi
+	 MRzD8R3+CfV7g7sSgQo6po6X9KrmPmsiUYrEHSTHZ93Ffp1iMs5WgbFhF1FE450Nlz
+	 n+xy7lEx8CQ4Kny5VjJA09R8etiD7AI5O6Iea9YaD792eTrtaf1H4cIVM3xJXI35ov
+	 1mf1I1h42JVEDlE56sgWsGYe51yROme8x55JrBiM4bsT2eIPRp0100MK2kB+1lSzUQ
+	 YdGXT1lusTN4Z+7RD2XS8IsQ771gLjmb38lJUNyS7MOzYhw0rw2aqScBLfk/lH9yPM
+	 8kU5mKEmsWXZQ==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/2] KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in
+ set_id_regs
+Date: Sat, 20 Sep 2025 20:51:58 +0100
+Message-Id: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: 43BJrrDByWVIPkQyTa670jQr2J9PN48K
-X-Proofpoint-ORIG-GUID: 43BJrrDByWVIPkQyTa670jQr2J9PN48K
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDE5NCBTYWx0ZWRfXxZxI4GWXbEsL
- Pin0amTzsu+Gfn5Yh1yU3KuNzcd0LQeLbaN2gUx5RQ+VO5p8Qwxfx59XeEeL2S4WhYC3n7faxVI
- xOYkgY7bUntNjSApyOMsc0xUfTwhv4FgpEJmuHpe+q0DnRWC12yH1kPaZqVKMBguWBO8XhOckMd
- WeKn1j7xiovRJfSCfhVggxDSAv4ejbgIF/yZRlMF2FyVbSbXPrAbYuFKlqWmbm6/8hbVkNgL4LE
- 1JmwvuTD3KG9rmc9j88fNoZe08nGcAmYrk11CnU2ULyHeEOf4SsCzwWzFMDyK57hMiq1mxYFQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-20_07,2025-09-19_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
- mlxlogscore=999 clxscore=1030 bulkscore=0 mlxscore=0 suspectscore=0
- phishscore=0 adultscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.22.0-2506270000 definitions=main-2509200194
-X-JNJ: AAAAAAABZyS4qkue9UJqaMuEO9aLsllPNgsr19EgF0o6Go+lbA0OpU/ZdC7ZCpg0WtAKEpSMlAzriZ0PC2hEffbbKoIZRkmByvbzpFEBIGaY5NlGP2x/5WqylzT8mSZ7cuCUl6+LDd5rj88xIHaxv7Hh+Va62O+RbPu53nYWkqiFa92qtMZBlqqyaCauGEqgW5LDi+T9KHCxffUtdcowshQfUH6K96XbaGyeARnIkYF8izk4CpQVHTv+imtsoucY8njD5axLO3dNnMX+wwGLaCnOyBIOliTeD9iRG45M/H1dpAeL3xwhCvGhl+9W78PLYlCtYz0GH5qAPvAko7eGbGFxzdYPbVqRP4UojdfW51VRJ+7v82TWw2Z/Wu9t8RQcAHlWnvSsmGbKMm7ZX6O2ioGjjrszlbz40lTLDV6UUCb0fgP/aj8YWTndujDH+t3Dh9oDhMRafybne5Eb/dq64k9wfQMnSCc44LYd/XH8G8QKWkHNzhjuoZF1XdgC2fZl7uFqnDWsVvd43SigHkjBY7NGyNVjb2j/ZJsW/Ly6Pt6pP4PnK50ikDfpw7wzfXtsNe9XUsBg7DdpQ2y1VbB9i6HUAlUE42t2eQqy8PnaueTDU8M8hLwsrwEfvRs1pKlPMVyQUCzRv6rs8MoIv0D40bbNe3f8Hl1zChqQCjbgR8zSdbKLL5IRqpVFSQdg6QV/CfuM8WbNdGmyB+G/eq4XDB9oMu0SiQRCE9CFb8xUIYUXtei5q+mx
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN4Fz2gC/x3MTQqEMAxA4atI1gZa6xT1KuIinUYN/pKCCOLdp
+ 8zy48F7ILEKJ+iKB5QvSXLsGbYs4DvTPjFKzIbKVB/T2haXa0PSzdc5IJGvJZE65NXiaEJsKLj
+ ofIA8OJVHuf/zfnjfHyhGpbVsAAAA
+X-Change-ID: 20250919-kvm-arm64-id-aa64isar3-el1-f0bd8ab3d36b
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-56183
+X-Developer-Signature: v=1; a=openpgp-sha256; l=900; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=N/5+0U8xq7Zk0a8gL9aaRKTgfFfm/74fnNbziAndS6o=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozwdZ263G51AbBxPCoC9tq9dlYHu5oWbxX0dPZ
+ TjHX2QkL3aJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaM8HWQAKCRAk1otyXVSH
+ 0HveB/98b1Ix+bm1YAuE6OCxpqygoEcAVSg/qamEdFKMVwqnqIS0gcuTq0pefZ1J148lRUIAYTY
+ fMMIRqjcCUmxqFE9JZ9bFX2LFL3tkueH92DSQTP4RrN+BQQ2nUwvJYNKAXVn8dvxPwYbKoCxZs/
+ +yYpfR8JYP914CavjErEowg3ozNptxtr24JASzk4KcTgXy8Vpr8U8eUrMhazn+A4umkBOASVRhd
+ xLTGQ8s7PzIlHvv7Pm5w05R57lCkqGZIKkoaU2Vg6HM2kQcv2QanNWBEdBHlLFAcpVmmuAU4diP
+ VN6pe4IrGLjYojk7DaI8GuVGJkC82LXZ7mUpviGpBwKxmB4P
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_125225_298698_C0E817DB 
-X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-CacheID: sfid-20250920_125823_507941_DB636080 
+X-CRM114-Status: UNSURE (   5.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,49 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new uart0 label for the console and make the speed explicit by
-adding current-speed = <115200>. This keeps the DTS OS-agnostic: no
-bootargs or distribution-specific properties are added.
+The set_id_regs selftest lacks coverag for ID_AA64ISR3_EL1 which has
+several features exposed to KVM guests in it.  Add coverage, and while
+we're here adjust the test to improve maintainability a bit.  
 
-Verification: Boot-tested with mainline Image+DTB via U-Boot on OpenWrt
-One (MT7981B). Serial console active at 115200 baud, and DTB decompile
-confirms serial0 alias and stdout-path set correctly.
+The test will fail without the recently applied change adding FEAT_LSFE:
 
-Changes in v2:
-  - Dropped redundant hex value comment on current-speed (review feedback).
+   https://lore.kernel.org/r/175829303126.1764550.939188785634158487.b4-ty@kernel.org
 
-Signed-off-by: Bryan Hinton <bryan@bryanhinton.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- .../arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Mark Brown (2):
+      KVM: arm64: selftests: Remove a duplicate register listing in set_id_regs
+      KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-index 4f6cbb491287..638ed76107e3 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-@@ -8,8 +8,21 @@ / {
- 	compatible = "openwrt,one", "mediatek,mt7981b";
- 	model = "OpenWrt One";
- 
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
- 	memory@40000000 {
- 		reg = <0 0x40000000 0 0x40000000>;
- 		device_type = "memory";
- 	};
- };
-+
-+&uart0 {
-+	status = "okay";
-+	current-speed = <115200>;
-+};
--- 
-2.51.0
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
+---
+base-commit: 5db15c998c390efbe5c82f6cda77cb896a3a6a3e
+change-id: 20250919-kvm-arm64-id-aa64isar3-el1-f0bd8ab3d36b
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
