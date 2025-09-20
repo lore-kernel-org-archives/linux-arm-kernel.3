@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711D2CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 09:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77748CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 09:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0KAascs3KaV3Z3mHhvMTLU3s9nCHKKshT+qkVXRYo2g=; b=S4D0Qbm5njnxhF6xF4e4W1wNev
-	ln4fLhQKUhS0xYZ7uQ+H/z6HQjOmxMU3gU2zInasyJVc6c9E0iH/NfmDhu8BlX2i0I5hk8JxweGfS
-	Xsl0mZI2BkKIbVrUjm6iIh49NRPn6xTRl0d8/xGXIydJOgFyQMBHhm73ftRSja2A0gksNRbfc+7L4
-	ILbHeMsryW+YssrC1G8+dzxQ9qKGIH/EoNJzXGnRJ1QKx9z8y4If6d0ZTO63fOXIPCZWR/62hWvyo
-	l/r7Wogvsyq1hBb3oHV1Ql7kjwfX3r7DZsquSUuG0kdaUatfqGEpAaa4+OVKgmibbAA7t+LQg9/3I
-	iB5xDeEg==;
+	bh=Bq45p3Ca7JVhSXo3NerrjZWAjCMhHCZS6+Fe0EH1VXE=; b=lFARtrNHSwZOkQRLYYRl0vG955
+	+v34yMUbCJS44KfO4SJ8g5PJ/AoyHcc+NQjbKYwc6CxRrEjoyaMY4IgDOx/fMQwka7q31M8vnlHaV
+	C7bHwQpiFSk33Nl/oFalgq9SShkVihk876gQF0z2iGVljE2bvqC6+F16Ym/rCAOEFvlihVRrPa56N
+	8gzoFvut4zXconIEXcROIV9RfvsTtbdDceV9ucES0dXQnKn4VKLrfQ/cw3Qhix722bpRoWw08PcTd
+	JqOwsG2uEgi+f6Nq6VHgE1c8nqYXrqlficYixp9oqtgdBBiP3uxDkLvjqOhrKZ2wxfwJ2+uA7AKII
+	ULsQk0HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzteF-000000055rO-3jxM;
-	Sat, 20 Sep 2025 09:12:51 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uztg3-000000056AF-0kJI;
+	Sat, 20 Sep 2025 09:14:43 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzteA-000000055oo-0JbO
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 09:12:47 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3f0134ccc0cso1448971f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 02:12:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758359564; x=1758964364; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0KAascs3KaV3Z3mHhvMTLU3s9nCHKKshT+qkVXRYo2g=;
-        b=SD1/o1F4hvQw7PTi04B2D9ZZ/zakDNWa1vMk81uQUyDTlCQBrbHyqgIe59ViT8/GU4
-         b7goBBsNWNGB5in8wR5VuyGDIYT2AwM4H9YT+CeqhMwnH+Sd/iIF/FieWL0FjeA15N2N
-         /aogT/Eyx27p6qvfUHCG//jjfHOSNNNPttRGvnabqoe03yEj+/qRSFPrBZG+PLKCTSEg
-         ZTtIec494ARGv/SwpUA2vRClFnhirlvNQTpOlFZBFv/spG+nuUEYwsFz8grig7dlzZMY
-         DMnITLj1bHuJ6kFl9MupuyaVbi1vhXAS5xPyUFrX6cgjcdls+nxWj7lAqqGcbUOBD+5N
-         e2ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758359564; x=1758964364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0KAascs3KaV3Z3mHhvMTLU3s9nCHKKshT+qkVXRYo2g=;
-        b=sgBsqD4cHbbOpAMur9Xl+qTSxujYETIWpPNaEG/1u9oMaxO+iXmDgv7DMqWBkxhdPz
-         ymlfYN5HQl515yCGNR9/zAVGScODmW2NFZGDraEeGbA+GpTLVJjvZ0XWi2syeibw+nv3
-         KnJza7unFiJO84c8fSSflreN2kRSq/sKSzxJSemlFFCmzPnYaTTVRIxrwOe88a64zB7V
-         62vMPv2rs/H51YUrO4uabuLHZ2qDJEBVm0GljnmlaCp0bxRXLVIMM/Ecl662p5o4CvAk
-         LqetbrqR8ARxeHg+JKqc0BR/g4B8U8QbRyW4ghlOvnJCk/norNJxeL4nyL2qAaTI4R+A
-         p/tQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXUf52jX4kULUbBxDKK5RujAGZ8Gn7mEB84z8TEvpeQuotAxmhG62AQhIZzRrwpFA/fzJpcekt5EII5EA1jrL8N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMqV+PBgD4o3DhzU8Guj1nzt2RzfHPCQUSVfjT9EjhMQeafUZ0
-	08s+ZJOM76uwOajdcC+b3Af29qbdKrtubCot8al6O1Fx0/GTngHt7Ic/
-X-Gm-Gg: ASbGncvuijM4SPCJPCtFsBJaBFM7uBrrQlyMplHvNXMh+sbtoEiMtLWs+Bg9+baWdWR
-	RwV0kAEfGr3I1lVObrRFmjDo5zl6q81vgRbvdbvaWN5fP2gQaeBWLtLN7NewdtQC08MguEL4sYf
-	//ZBaILZsbF57B8uUMZIhmHaa99I8eU+b1m92C0Eo02edUEQPEza/ix3Qvt8u0EIVnydSPuQJp9
-	Z/ZLiVGRg4JsIRkllfijjAl0BYxG1G6MgwnsiBHOErRofkiMuw71nd3Ebbtzyop+Wj1I6eJAVmE
-	QnS+fcjwNlJshMELKcbF7qtPnBPHPUZa+a4z53A/r4MaitB6Gg4FLPgK5ufTgaiJsIGCzsObhHN
-	v/rl991gUj8OJCo1BqctDqFT6AECvuIi5UzDjAGlvaLLwxTSLj99BrTz7OZU/pfQF67fAPPE=
-X-Google-Smtp-Source: AGHT+IHrh+ndXxTb1EFVumE+GYJ79IR8tl0ePHWHwP2BuY3hk84NbTQ7ULb7XUOoja074PzYe5xg8A==
-X-Received: by 2002:a05:6000:310e:b0:3e9:2fea:6795 with SMTP id ffacd0b85a97d-3ee852a434cmr6002416f8f.53.1758359564118;
-        Sat, 20 Sep 2025 02:12:44 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ef166e62e5sm6375782f8f.40.2025.09.20.02.12.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Sep 2025 02:12:43 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	John Crispin <john@phrozen.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 2/2] arm64: dts: Add Airoha AN7583 SoC and AN7583 Evaluation Board
-Date: Sat, 20 Sep 2025 11:12:29 +0200
-Message-ID: <20250920091230.17702-2-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250920091230.17702-1-ansuelsmth@gmail.com>
-References: <20250920091230.17702-1-ansuelsmth@gmail.com>
+	id 1uztfz-00000005693-0TWD;
+	Sat, 20 Sep 2025 09:14:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1758359662; x=1758964462; i=wahrenst@gmx.net;
+	bh=Bq45p3Ca7JVhSXo3NerrjZWAjCMhHCZS6+Fe0EH1VXE=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=DoCilT9/UZ/WQN0RqslCiFtt6hcUnkVvZQIsLlEHOIZM/nrJIkHWghVbRCR+eSQk
+	 MvFZcOeSyRuhIvA0D3PAerB3qLCTJfNP9qAgeV0G08FB0PiJyZ/TKkhOGlLkv1h6l
+	 75Gpj90jNlfwJ9B5pvJ7+gsXREhtpo4rjdGYKzZnHdLoy11FdVsT3HUQgJK8GH6tZ
+	 remn79Q1MjS060NaZGWT86PLVEXUqcBdIUbT1SJwdXT+GaogucNC5+NCOwZs9OHQH
+	 tuXWk6ULaieoEAOt8HHHQ9hLjWlJc6eJAiSDdG/JWe/lI6I2d87Qb+K51v9HxJVer
+	 WORsDm4Mew2VxCw4ZQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([79.235.128.112]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MEV3I-1vAIzc164o-00C2Ge; Sat, 20
+ Sep 2025 11:14:22 +0200
+Message-ID: <b3d5eee4-bae9-4de4-a2bd-7fd5a1fa9fb6@gmx.net>
+Date: Sat, 20 Sep 2025 11:14:21 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] platform/broadcom: Destage VCHIQ interface
+To: Jai Luthra <jai.luthra@ideasonboard.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
+Cc: linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
+ linux-kernel@vger.kernel.org, kernel-list@raspberrypi.com,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+References: <20250907-vchiq-destage-v2-0-6884505dca78@ideasonboard.com>
+ <20250907-vchiq-destage-v2-3-6884505dca78@ideasonboard.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250907-vchiq-destage-v2-3-6884505dca78@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:yeV6Gvsd+vFcCtVFvRwOBGne72YfegZX7Xh0OtmNtfNgOH2++CG
+ w895V+x21htUuumNDlW8RskSF1fr3JuM7m+CpxCYdamTqRyqhWP1+I38omdDDfVnSni62lp
+ T+WkciVeQM7Q5PU63JwzxbFSIsIlmRJDRi6R+OtIOq98mjTtwb9uSrECVvzc6Tx1xrxvZdf
+ 0olVYnofJJWnAn0oth1WQ==
+UI-OutboundReport: notjunk:1;M01:P0:mCMvwEEmofM=;GhxdT1+PCtiAa6hLRD6QYRjLeLl 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 fUQUVp6jitLy9/HP36I
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_021246_152324_694855C2 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20250920_021439_458211_81B1FE82 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,343 +99,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Airoha AN7583 SoC initial DTSI and AN7583 Evaluation Board
-DTS and add the required entry in the Makefile.
+Hi Jai,
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- arch/arm64/boot/dts/airoha/Makefile       |   1 +
- arch/arm64/boot/dts/airoha/an7583-evb.dts |  22 ++
- arch/arm64/boot/dts/airoha/an7583.dtsi    | 282 ++++++++++++++++++++++
- 3 files changed, 305 insertions(+)
- create mode 100644 arch/arm64/boot/dts/airoha/an7583-evb.dts
- create mode 100644 arch/arm64/boot/dts/airoha/an7583.dtsi
+Am 07.09.25 um 10:56 schrieb Jai Luthra:
+> Destage the VCHIQ interface driver to drivers/platform/raspberrypi.
+could you please adjust the commit subject to raspberrypi, too?
+> There is still the remaining TODO item of improving the documentation,
+> which can be handled post destaging.
+I'm fine with this change, but I don't if it is necessary to have the=20
+IOCTL documented yet.
+Currently I don't know when I've the time to proceed with this [1]. Sorry.
 
-diff --git a/arch/arm64/boot/dts/airoha/Makefile b/arch/arm64/boot/dts/airoha/Makefile
-index ebea112ce1d7..7a604ae249b5 100644
---- a/arch/arm64/boot/dts/airoha/Makefile
-+++ b/arch/arm64/boot/dts/airoha/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0-only
- dtb-$(CONFIG_ARCH_AIROHA) += en7581-evb.dtb
-+dtb-$(CONFIG_ARCH_AIROHA) += an7583-evb.dtb
-diff --git a/arch/arm64/boot/dts/airoha/an7583-evb.dts b/arch/arm64/boot/dts/airoha/an7583-evb.dts
-new file mode 100644
-index 000000000000..a7f83436825e
---- /dev/null
-+++ b/arch/arm64/boot/dts/airoha/an7583-evb.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/dts-v1/;
-+
-+#include "an7583.dtsi"
-+
-+/ {
-+	model = "Airoha EN7583 Evaluation Board";
-+	compatible = "airoha,an7583-evb", "airoha,an7583";
-+
-+	aliases {
-+		serial0 = &uart1;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x2 0x00000000>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/airoha/an7583.dtsi b/arch/arm64/boot/dts/airoha/an7583.dtsi
-new file mode 100644
-index 000000000000..74044811efc0
---- /dev/null
-+++ b/arch/arm64/boot/dts/airoha/an7583.dtsi
-@@ -0,0 +1,282 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+			};
-+		};
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a53";
-+			reg = <0x0>;
-+			operating-points-v2 = <&cpu_opp_table>;
-+			enable-method = "psci";
-+			clocks = <&cpufreq>;
-+			clock-names = "cpu";
-+			power-domains = <&cpufreq>;
-+			power-domain-names = "perf";
-+			next-level-cache = <&l2>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a53";
-+			reg = <0x1>;
-+			operating-points-v2 = <&cpu_opp_table>;
-+			enable-method = "psci";
-+			clocks = <&cpufreq>;
-+			clock-names = "cpu";
-+			power-domains = <&cpufreq>;
-+			power-domain-names = "perf";
-+			next-level-cache = <&l2>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		l2: l2-cache {
-+			compatible = "cache";
-+			cache-size = <0x80000>;
-+			cache-line-size = <64>;
-+			cache-level = <2>;
-+			cache-unified;
-+		};
-+	};
-+
-+	cpufreq: cpufreq {
-+		compatible = "airoha,en7581-cpufreq";
-+
-+		operating-points-v2 = <&cpu_smcc_opp_table>;
-+
-+		#power-domain-cells = <0>;
-+		#clock-cells = <0>;
-+	};
-+
-+	cpu_opp_table: opp-table {
-+		compatible = "operating-points-v2";
-+		opp-shared;
-+
-+		opp-500000000 {
-+			opp-hz = /bits/ 64 <500000000>;
-+			required-opps = <&smcc_opp0>;
-+		};
-+
-+		opp-550000000 {
-+			opp-hz = /bits/ 64 <550000000>;
-+			required-opps = <&smcc_opp1>;
-+		};
-+
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			required-opps = <&smcc_opp2>;
-+		};
-+
-+		opp-650000000 {
-+			opp-hz = /bits/ 64 <650000000>;
-+			required-opps = <&smcc_opp3>;
-+		};
-+
-+		opp-7000000000 {
-+			opp-hz = /bits/ 64 <700000000>;
-+			required-opps = <&smcc_opp4>;
-+		};
-+
-+		opp-7500000000 {
-+			opp-hz = /bits/ 64 <750000000>;
-+			required-opps = <&smcc_opp5>;
-+		};
-+
-+		opp-8000000000 {
-+			opp-hz = /bits/ 64 <800000000>;
-+			required-opps = <&smcc_opp6>;
-+		};
-+
-+		opp-8500000000 {
-+			opp-hz = /bits/ 64 <850000000>;
-+			required-opps = <&smcc_opp7>;
-+		};
-+
-+		opp-9000000000 {
-+			opp-hz = /bits/ 64 <900000000>;
-+			required-opps = <&smcc_opp8>;
-+		};
-+
-+		opp-9500000000 {
-+			opp-hz = /bits/ 64 <950000000>;
-+			required-opps = <&smcc_opp9>;
-+		};
-+
-+		opp-10000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			required-opps = <&smcc_opp10>;
-+		};
-+
-+		opp-10500000000 {
-+			opp-hz = /bits/ 64 <1050000000>;
-+			required-opps = <&smcc_opp11>;
-+		};
-+
-+		opp-11000000000 {
-+			opp-hz = /bits/ 64 <1100000000>;
-+			required-opps = <&smcc_opp12>;
-+		};
-+
-+		opp-11500000000 {
-+			opp-hz = /bits/ 64 <1150000000>;
-+			required-opps = <&smcc_opp13>;
-+		};
-+
-+		opp-12000000000 {
-+			opp-hz = /bits/ 64 <1200000000>;
-+			required-opps = <&smcc_opp14>;
-+		};
-+	};
-+
-+	cpu_smcc_opp_table: opp-table-cpu-smcc {
-+		compatible = "operating-points-v2";
-+
-+		smcc_opp0: opp0 {
-+			opp-level = <0>;
-+		};
-+
-+		smcc_opp1: opp1 {
-+			opp-level = <1>;
-+		};
-+
-+		smcc_opp2: opp2 {
-+			opp-level = <2>;
-+		};
-+
-+		smcc_opp3: opp3 {
-+			opp-level = <3>;
-+		};
-+
-+		smcc_opp4: opp4 {
-+			opp-level = <4>;
-+		};
-+
-+		smcc_opp5: opp5 {
-+			opp-level = <5>;
-+		};
-+
-+		smcc_opp6: opp6 {
-+			opp-level = <6>;
-+		};
-+
-+		smcc_opp7: opp7 {
-+			opp-level = <7>;
-+		};
-+
-+		smcc_opp8: opp8 {
-+			opp-level = <8>;
-+		};
-+
-+		smcc_opp9: opp9 {
-+			opp-level = <9>;
-+		};
-+
-+		smcc_opp10: opp10 {
-+			opp-level = <10>;
-+		};
-+
-+		smcc_opp11: opp11 {
-+			opp-level = <11>;
-+		};
-+
-+		smcc_opp12: opp12 {
-+			opp-level = <12>;
-+		};
-+
-+		smcc_opp13: opp13 {
-+			opp-level = <13>;
-+		};
-+
-+		smcc_opp14: opp14 {
-+			opp-level = <14>;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupt-parent = <&gic>;
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	sys_hclk: clk-oscillator-100mhz {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+		clock-output-names = "sys_hclk";
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gic: interrupt-controller@9000000 {
-+			compatible = "arm,gic-v3";
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			reg = <0x0 0x09000000 0x0 0x20000>,
-+			      <0x0 0x09080000 0x0 0x80000>,
-+			      <0x0 0x09400000 0x0 0x2000>,
-+			      <0x0 0x09500000 0x0 0x2000>,
-+			      <0x0 0x09600000 0x0 0x20000>;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
-+		};
-+
-+		crypto@1e004000 {
-+			compatible = "inside-secure,safexcel-eip93ies";
-+			reg = <0x0 0x1fb70000 0x0 0x1000>;
-+
-+			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		uart1: serial@1fbf0000 {
-+			compatible = "ns16550";
-+			reg = <0x0 0x1fbf0000 0x0 0x30>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <1843200>;
-+		};
-+
-+		watchdog@1fbf0100 {
-+			compatible = "airoha,en7581-wdt";
-+			reg = <0x0 0x1fbf0100 0x0 0x38>;
-+
-+			clocks = <&sys_hclk>;
-+			clock-names = "bus";
-+		};
-+	};
-+};
--- 
-2.51.0
+Best regards
 
+[1] -=20
+https://lore.kernel.org/linux-staging/20250509221152.13564-3-wahrenst@gmx.=
+net/
+>
+> Secondly, multimedia drivers like codec and ISP that rely on this
+> interface need to be upstreamed. And lastly, the drivers that facilitate
+> the shared memory between VideoCore and Linux, like the vc-sm-cma driver
+> and vc_mem char driver also need to be upstreamed.
+>
+> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+> ---
 
