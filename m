@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5344ACAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 06:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD15CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 07:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AW17lv89eSJE61jE0VgMo7IK1f6MgMq0qzbJdrYGhAU=; b=t6OHedrNAV2E9gJLpSlBYAOd6i
-	9YldOkM/drOectrLmvguMz2KcqyuO4ODigp2RW4bNI3QbP7cCz/Qt88WDWNgCyu7QqpY/7xEhvq6I
-	allWQP3Mqn47u6a+PLCGqqcH8cHHUAj+ZOdo/6wneu7T/dGJd6cyhbORkDqcyQENSdpy2eBB9mVrj
-	+joGhfV+zokvOkxIq3RpxnSvHp5sYtpLHfx3ptOpbBWqZJgkOmSz8H/bD7ZNeI3nQXsQp+VGvAToY
-	RzMgze7YjEseqa+dx5dYaXsRSOdIBaKYKBkY890E1/BVkH3EmlUFmlAsjEYXX9g7HwWIflP9BvFpy
-	F/eVrx4w==;
+	bh=PIUZDZ577q+8ZtKPWDIuP8/Il60PG9q6+YjLVEbA9r8=; b=aZXbsIST2R46EK9rEl5Eo34TDP
+	sdr9DTq2cBhDAYRRmbPDiD5OK/FRFKJ4rFHAyqhX122IpIexigtgfHZvorOY3RybWhhoVeI0WwmIv
+	d9LaYvpuZ+/Xw3o1cyP9wiSz7vOSTQgnFDP+17QwH3mVpV5CrhHTZXpodWuzpXZ3gC175sl9N25fp
+	pB4gxSladee2aM/Vqlhz9hnV3pdnns7OE6umKTpVPgb8aogfhsH+Ml/k/xf65d+K72lF2kcOikp2u
+	I1pAOP2olg+/EucojDq3go0wnz5wcpmUVFnFl7bVT0POneV4okEA/lqek+JheXEonI0arI0PT9U09
+	WSTUjFwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzrWN-00000004uqb-0Vtu;
-	Sat, 20 Sep 2025 06:56:35 +0000
-Received: from mail.mainlining.org ([5.75.144.95])
+	id 1uzs7F-00000004wer-0k7N;
+	Sat, 20 Sep 2025 07:34:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzrWK-00000004uq8-2upr;
-	Sat, 20 Sep 2025 06:56:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1758350983; bh=AW17lv89eSJE61jE0VgMo7I
-	K1f6MgMq0qzbJdrYGhAU=; b=Mu0WT1kUgl5cQlQ5PX2jRN2PMPq/dDr7fRG/j6P0q/F6ULS3KE
-	xoivzs0uuNLw4YbnCqJ/RpZ/PfDofasRt6XK59LmkyQwhHfrYQs5bo3vCn4BfUfSMZCWKBpoxJV
-	vMP/Z2Sr8hc2GauwgD00WGBgzerVfzWAzFlX2DTdBLXVaGuNIxQ6AhMRvo9an2gF8HJZ+IlipSj
-	ZFbt0CEcr+vfPWQLXzlDP1a7ZwX8LCwXd9Zavc+fRk0VUvcp2Vr1vhIGSK2ElWRDGPsIfvXrcrb
-	5MpdxFv/SmLCVSnaS9Ly+kcSIAagZt63ASSYPlG0/PYmKuYDp+HZCucRJi734fkCYdQ==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=Message-ID:Subject:To:From:Date; t=1758350983; bh=AW17lv89eSJE61jE0VgMo7I
-	K1f6MgMq0qzbJdrYGhAU=; b=sb2pc5UTtihwQjvou4NnnaSmANU2soJblZAj9CMKygiR43FHTi
-	g56bTIeDIQPJ5/5lGPQJtPn7nlgAN0FmJpBw==;
-Date: Sat, 20 Sep 2025 13:49:34 +0700
-From: Dang Huynh <dang.huynh@mainlining.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Sebastian Reichel <sre@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, dmaengine@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-mmc@vger.kernel.org
-Subject: Re: [PATCH 05/25] dt-bindings: rtc: Add RDA Micro RDA8810PL RTC
-Message-ID: <cr5gkkckxan2b2x23knfwb35a4ulngsp6gguqhcku3z6ghzkcn@cq4krj5qxy3r>
-References: <20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org>
- <20250917-rda8810pl-drivers-v1-5-74866def1fe3@mainlining.org>
- <20250917-contort-sassy-df07fd7515a0@spud>
- <c905fb3ace281280f1ac11c7fbe8e0aa@mainlining.org>
- <20250918-unharmed-bloating-8b573513fce6@spud>
+	id 1uzs7D-00000004wej-0ysx
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 20 Sep 2025 07:34:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 414C86013C;
+	Sat, 20 Sep 2025 07:34:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9DFC4CEEB;
+	Sat, 20 Sep 2025 07:34:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758353678;
+	bh=JtIlPe6rz/IHPgJuGnOZzbz0njTxpzBV+gVWBopV4BE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qdMSWocCNpc+vEIBPvcu7BtVdSgtQX370EVlr9nt99csMhrwP4WWnXf8844GgLduA
+	 Dqfm5gfq5sZW1qqHDAOhoVIsHeaD4at3pL7+l5vcr9uUC/upchpKGDDWPd832zy9au
+	 /my/FJqOOKQGkgL4CNPLoQ+wclr9SMqeQtDxNTQBPQrc1RuatWlPsOLPBc/b+TWPi3
+	 f2Xmzc6WF9uJ3h6T5zwUcC1PFeqqy0bYf6uNMpAWWH6il3GFpWYiptkBoodftgHW5t
+	 i9Dsgbo99YixfGdiYcjqd4pGbFs6G1CRu3z3zANap9Cozjjx+h7QD3u39U5p+SqRof
+	 OXvXP4+Jl/OVg==
+Date: Sat, 20 Sep 2025 13:04:29 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] PCI: imx6: Add a method to handle CLKREQ# override
+Message-ID: <wbfsxrvwb4ky3irnwm5vohmwyek3c4uskxg3dnfzrfadyx4aay@5udf6eht3cdj>
+References: <20250917093751.1520050-1-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250918-unharmed-bloating-8b573513fce6@spud>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_235632_876221_1B247193 
-X-CRM114-Status: GOOD (  22.54  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250917093751.1520050-1-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,73 +72,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 04:18:25PM +0100, Conor Dooley wrote:
-> On Thu, Sep 18, 2025 at 11:11:10AM +0700, Dang Huynh wrote:
-> > On 2025-09-18 03:46, Conor Dooley wrote:
-> > > On Wed, Sep 17, 2025 at 03:07:22AM +0700, Dang Huynh wrote:
-> > > > Add documentation describing the RTC found in RDA8810PL SoC.
-> > > > 
-> > > > Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
-> > > > ---
-> > > >  .../devicetree/bindings/rtc/rda,8810pl-rtc.yaml    | 30
-> > > > ++++++++++++++++++++++
-> > > >  1 file changed, 30 insertions(+)
-> > > > 
-> > > > diff --git
-> > > > a/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml
-> > > > b/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml
-> > > > new file mode 100644
-> > > > index 0000000000000000000000000000000000000000..3ceae294921cc3211cd775d9b3890393196faf82
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/rtc/rda,8810pl-rtc.yaml
-> > > > @@ -0,0 +1,30 @@
-> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > +%YAML 1.2
-> > > > +---
-> > > > +$id: http://devicetree.org/schemas/rtc/rda,8810pl-rtc.yaml#
-> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > +
-> > > > +title: RDA Micro RDA8810PL Real Time Clock
-> > > > +
-> > > > +maintainers:
-> > > > +  - Dang Huynh <dang.huynh@mainlining.org>
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    const: rda,8810pl-rtc
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > 
-> > > Your driver implements functions that turn on an alarm irq, but there is
-> > > none mentioned here. What's going on there?
-> > The RTC doesn't seem to have an AP IRQ associated. I can't find any
-> > reference to it on downstream kernel and the docs.
-> > 
-> > > 
-> > > Additionally, there's no clocks property? For an onboard RTC I'd have
-> > > expected there to be a clock sourced outside of the block.
+On Wed, Sep 17, 2025 at 05:37:49PM +0800, Richard Zhu wrote:
+> The CLKREQ# is an open drain, active low signal that is driven low by
+> the card to request reference clock.
 > 
-> What about the clock?
-I'll fix this in v2.
-
+> But the CLKREQ# maybe reserved on some old device, compliant with CEM
+> r3.0 or before. Thus, this signal wouldn't be driven low by these old
+> devices.
 > 
-> > > 
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    rtc@1a06000 {
-> > > > +      compatible = "rda,8810pl-rtc";
-> > > > +      reg = <0x1a06000 0x1000>;
-> > > > +    };
-> > > > 
-> > > > --
-> > > > 2.51.0
+> Since the reference clock controlled by CLKREQ# may be required by i.MX
+> PCIe host too. To make sure this clock is ready even when the CLKREQ#
+> isn't driven low by the card(e.x old cards described above), force
+> CLKREQ# override active low for i.MX PCIe host during initialization.
+> 
+> The CLKREQ# override can be cleared safely when supports-clkreq is
+> present and PCIe link is up later. Because the CLKREQ# would be driven
+> low by the card in this case.
+> 
+> Main changes in v2:
+> - Update the commit message, and collect the reviewed-by tag.
+> 
+> [PATCH v2 1/2] PCI: dwc: Invoke post_init in dw_pcie_resume_noirq()
+> [PATCH v2 2/2] PCI: imx6: Add a method to handle CLKREQ# override
+> 
 
+Patch 2 is not applying on top of 6.17-rc1. Please fix it and resend the series
+(along with the CEM 4.0 citation suggested by Bjorn).
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
