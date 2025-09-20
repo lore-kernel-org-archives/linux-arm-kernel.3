@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038C3CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 10:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F0DCAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 10:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xe0lcClCPEcf8hl+EDrEGGNTrCD25PEwuESOT223Ua8=; b=GPbFfss8o3p5rUenxrFmi9NJey
-	Xp2QvALe8Ybxm3SYNz4hkfXfkv9NqAvlTgAkN0REr1W9udBW7pa7+fTxkxuyxnqZ3Vw/FAl72ixq5
-	SYvbBjndCWy7V4nkJoWjq1QVExmHtawVZXRsGvoanP9/y3We426WQnvl6HR1Gj6ZkltoQ5aCV+iUs
-	glXluZerS5Ofo2wsvabjnwECwntYqmqyQ0d/0EC1T+bb0fAXlZYvk1aoQnKagTWNGxbJ/FTpW7XTC
-	T+wQ8qlsO4K6WcOFb/4ve+j2bLAwghf2wvUkFhxhvJRzZHV+ByCu9vLw96Amq6jJPOCEfcwMam+zG
-	tKwX2IAA==;
+	bh=twgbklWCuWhXeBiksd9/rL57cbscsnAsUSFdmL5j+vs=; b=hniZp+43aZeN1jMITaR8iYDu9D
+	WeYf86caUeLNlUc+iu4v8cPsM+VhIFnFm2Fur6sdUbT+cvntwEo6+CNenyuA14jG9pYv8F0mS4+Fk
+	/yK3RRMWGoWlSPTArRfaC6V0zq8KHHl0NUy0Fqkl4tRUVPS+r7h6ux0m5EUiFVd9+gzzG63Im6ZQ+
+	lG9Hs5sKg6zQ/XH/kk34tQvv/fdZjfjtjJ6MV8YBanxnfy/gS7wUUPqNB2FF38XzO4r3T8g9oS/w1
+	uNYc0mPxt4AGXXExK6FSOSZBK+ArRmDCA1EtwAAaow6JxmjN7hJI44anJaDToXW8ZWy8Ajp1pVJ/6
+	oxgHNIjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzuVv-00000005AIW-24dR;
-	Sat, 20 Sep 2025 10:08:19 +0000
-Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
+	id 1uzubk-00000005Alz-3Pob;
+	Sat, 20 Sep 2025 10:14:20 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzuVs-00000005AHn-3Uq6
+	id 1uzubh-00000005AlF-3vya
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 10:08:18 +0000
-Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-afcb78ead12so427170066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 03:08:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758362894; x=1758967694; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xe0lcClCPEcf8hl+EDrEGGNTrCD25PEwuESOT223Ua8=;
-        b=Q7NdWT9fVoJprJDeut7Wu3+qMRH5k7HEmI+gnoekVUly4Ym6AVuVANQGnuRgcMBaoe
-         7gWkqkTg5MI98Z0mSvpD9xT/8oBq3BITfAbdRKI5l2JnUjghJ2ktymZO4h8HHqMEEttl
-         pAsVlFByAQh9OxzWUpapW1PSNjQY0p3pgrgO6p5GEVcbXrQiMPVW+oIpM20OELMm7SVv
-         3tC2cUfaenbEk8A6gnwP5wvqf8+jnlQzaPxHtk7Wos9iNKLWXlnSEadTA30pJ7TADCyq
-         JRURSlJRh4HhtQfhWj0R2Sdg/7ox9x84lLZ+y7Y2HGdoWZO9K/FhCjqlYwGP39gvWf/z
-         imCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758362894; x=1758967694;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xe0lcClCPEcf8hl+EDrEGGNTrCD25PEwuESOT223Ua8=;
-        b=crPnYz6pH3KDB6D5OUpDe3QOYR4ryXXGYj88zBt331/64Be7ywPmUueva+ppzuNUbN
-         /97VCMRR3GOsmmf9ha4558HlwbVWEj1b2XPgeIXVP0VCPT/fy+qZd4IUglo7f3g7oUSj
-         M4s4c7bTugJ4P3gjBePRoN/TZVuD/WAn/6Df0WyqMF4I09EJ2OfHZ3sqpq6L1PjYgsbT
-         n/vJDzeVDES3ByYamOdrrKFzURV01QeSonyULxdHwP2+iP79CVLS8Nfms342uqD4xWQ5
-         XYvT+/uuK3rdxH3WM7Fa0L5QAHDIUSeHLqH5A5AKIr0GXQ0JtB6cPs4xtg9OesKOGVup
-         DkKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWG8Dkk2UJpVOnR9K5HmaKye/w/X0bqXto8GvEesSuq9jAw3KuQMjRcse5yGiKn28iiDzzdDYCqnBxDNyj0tf5Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbonUOjjHmKbN0TDhD2gCpxr0xZzBZc2P0237RnnKeZOZ3wYu9
-	7JiIdGAksl88aJ4Ee/Iauxi9OfOqA7r0v7QIPP//L4yX5QNv0OzyupA0ReE89PNnzoKHt60srlj
-	w/wIKo6zS5bo8mWDVUxccRv+4uKFJ5mo=
-X-Gm-Gg: ASbGncu9L6rXgDAhtqJskdEYQTT/ubmOgd/Q2zZjsT3n+RIjHxNR+WiKUKrxb5z5rJB
-	2ngFVO2JOza9aIPIyAE/VSXIaMolkBMwlaEJKl4kUPBUkgO3tXEedF4EcPRGK3Pi5Q+Z4bIbl3o
-	Li1I0LC+2ZuylYx5HfvxXGEv4eihmeioUKMx9Dg/H91ixaaTQHuUh1v1HJoN6dSPNMndZbgcNwl
-	+/h64g=
-X-Google-Smtp-Source: AGHT+IEWE29T6cV4r5UuETqqGeQnjCtI+yhJUtdEO1Ev8BuF7jZN0enwt/bBX1nmZpGKZUqSfijRG8c7SGSTF9FDuo8=
-X-Received: by 2002:a17:907:972a:b0:b04:4046:db6b with SMTP id
- a640c23a62f3a-b24f567c816mr645963466b.45.1758362894355; Sat, 20 Sep 2025
- 03:08:14 -0700 (PDT)
+	Sat, 20 Sep 2025 10:14:19 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cTQ8V4DL3zTh16;
+	Sat, 20 Sep 2025 18:09:30 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8AEE5180486;
+	Sat, 20 Sep 2025 18:14:08 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 20 Sep 2025 18:14:06 +0800
+Message-ID: <ed882938-41da-d7c5-8eb0-968f8d7de131@huawei.com>
+Date: Sat, 20 Sep 2025 18:14:06 +0800
 MIME-Version: 1.0
-References: <CAOprWosSvBmORh9NKk-uxoWZpD6zdnF=dODS-uxVnTDjmofL6g@mail.gmail.com>
- <20250919-lurking-agama-of-genius-96b832-mkl@pengutronix.de>
-In-Reply-To: <20250919-lurking-agama-of-genius-96b832-mkl@pengutronix.de>
-From: Andrea Daoud <andreadaoud6@gmail.com>
-Date: Sat, 20 Sep 2025 18:08:03 +0800
-X-Gm-Features: AS18NWCh31p-viGL3PfP7OcvBtJwzsD-69eILq-7ZVP3bQSbKG7MfpPrWXV11mM
-Message-ID: <CAOprWott046xznChj7JBNmVw3Z65uOC1_bqTbVB=LA+YBw7TTQ@mail.gmail.com>
-Subject: Re: Possible race condition of the rockchip_canfd driver
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Heiko Stuebner <heiko@sntech.de>, Elaine Zhang <zhangqing@rock-chips.com>, kernel@pengutronix.de, 
-	linux-can@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] arm_mpam: Try reading again if MPAM instance returns not
+ ready
+To: James Morse <james.morse@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
+	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
+	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <guohanjun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
+	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
+	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
+	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
+	<xhao@linux.alibaba.com>
+References: <20250910204309.20751-7-james.morse@arm.com>
+ <20250916131717.2980875-1-zengheng4@huawei.com>
+ <e403809c-195f-48ca-a8f1-9eb785f229e9@arm.com>
+Content-Language: en-US
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <e403809c-195f-48ca-a8f1-9eb785f229e9@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_030816_891999_FB7E1F04 
-X-CRM114-Status: GOOD (  25.42  )
+X-CRM114-CacheID: sfid-20250920_031418_287905_E594F80C 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,68 +86,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 20, 2025 at 3:04=E2=80=AFAM Marc Kleine-Budde <mkl@pengutronix.=
-de> wrote:
->
-> Hello,
 
-Thanks for your reply!
 
->
-> On 18.09.2025 20:58:33, Andrea Daoud wrote:
-> > I'm using the rockchip_canfd driver on an RK3568. When under high bus
-> > load, I get
-> > the following logs [1] in rkcanfd_tx_tail_is_eff, and the CAN bus is un=
-able to
-> > communicate properly under this condition. The exact cause is currently=
- not
-> > entirely clear, and it's not reliably reproducible.
->
-> Our customer is using a v3 silicon revision of the chip, which doesn't
-> this workaround.
+On 2025/9/20 0:11, James Morse wrote:
+> Hi Zeng,
+> 
+> On 16/09/2025 14:17, Zeng Heng wrote:
+>> After updating the monitor configuration, the first read of the monitoring
+>> result requires waiting for the "not ready" duration before an effective
+>> value can be obtained.
+> 
+> May need to wait - some platforms need to do this, some don't.
+> Yours is the first I've heard of that does this!
+> 
 
-Could you please let me know how to check whether my RK3568 is v2 or v3?
+I'm afraid similar platforms do exist. As long as one component has more
+than one MSC, after first updating the component’s monitor every MSC
+instance needs to wait for MAX_NRDY_USEC us before reading the monitor
+result.
 
->
-> > In the logs we can spot some strange points:
-> >
-> > 1. Line 24, tx_head =3D=3D tx_tail. This should have been rejected by t=
-he if
-> > (!rkcanfd_get_tx_pending) clause.
-> >
-> > 2. Line 26, the last bit of priv->tx_tail (0x0185dbb3) is 1. This means=
- that the
-> > tx_tail should be 1, because rkcanfd_get_tx_tail is essentially mod the
-> > priv->tx_tail by two. But the printed tx_tail is 0.
-> >
-> > I believe these problems could mean that the code is suffering from som=
-e race
-> > condition. It seems that, in the whole IRQ processing chain of the driv=
-er,
-> > there's no lock protection. Maybe some IRQ happens within the execution=
- of
-> > rkcanfd_tx_tail_is_eff, and touches the state of the tx_head and tx_tai=
-l?
-> >
-> > Could you please have a look at the code, and check if some locking is =
-needed?
->
-> My time for community support is currently a bit limited. I think this
-> has to wait a bit, apologies :/
+In fact, most platforms don’t have nearly as many performance monitors
+as PARTIDs, so the monitors often have to be time-shared, which making
+the problem even more pronounced.
 
-No worries, I will debug myself, and hopefully send a PR if I found
-something out.
+> 
+>> Because a component consists of multiple MPAM instances, after updating the
+>> configuration of each instance, should wait for the "not ready" period of
+>> per single instance before the valid monitoring value can be obtained, not
+>> just wait for once interval per component.
+> 
+> I'm really trying to avoid that ... if you have ~200 MSC pretending to be one thing, you'd
+> wait 200x the maximum period. On systems with CMN, the number of MSC scales with the
+> number of CPUs, so 200x isn't totally crazy.
+> > I think the real problem here is the driver doesn't go on to 
+reconfigure MSC-2 if MSC-1
+> returned not-ready, meaning the "I'll only wait once" logic kicks in and returns not-ready
+> to the user. (which is presumably what you're seeing?)
 
->
-> regards,
-> Marc
->
-> --
-> Pengutronix e.K.                 | Marc Kleine-Budde          |
-> Embedded Linux                   | https://www.pengutronix.de |
-> Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-> Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Yes, exactly.
 
-Regards,
-Andrea
+> 
+> Does this solve your problem?:
+> -----------------%<-----------------
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 404bd4c1fd5e..2f39d0339349 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1395,7 +1395,7 @@ static void __ris_msmon_read(void *arg)
+> 
+>   static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+>   {
+> -       int err, idx;
+> +       int err, any_err = 0, idx;
+>          struct mpam_msc *msc;
+>          struct mpam_vmsc *vmsc;
+>          struct mpam_msc_ris *ris;
+> @@ -1412,15 +1412,19 @@ static int _msmon_read(struct mpam_component *comp, stru
+> ct mon_read *arg)
+>                                                      true);
+>                          if (!err && arg->err)
+>                                  err = arg->err;
+> +
+> +                       /*
+> +                        * Save one error to be returned to the caller, but
+> +                        * keep reading counters so that the get reprogrammed.
+> +                        * On platforms with NRDY this lets us wait once.
+> +                        */
+>                          if (err)
+> -                               break;
+> +                               any_err = err;
+>                  }
+> -               if (err)
+> -                       break;
+>          }
+>          srcu_read_unlock(&mpam_srcu, idx);
+> 
+> -       return err;
+> +       return any_err;
+>   }
+> 
+>   int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+> -----------------%<-----------------
+> 
+
+I agree with this modification: Reconfigure all MSCs first, then if any
+of them returns EBUSY, wait just once for MAX_NRDY_USEC and re-read
+monitor result, this guarantees that the monitor result is valid.
+
+
+
+Thanks,
+Zeng Heng
+
+
+
 
