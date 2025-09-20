@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9CECAC5A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 06:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245E8CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 06:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9R84PBVJ1OLE2GY9tEFdt2gyV/oh1M3yZDTid1z1RwE=; b=t4Aku2v18MbVagJWtGJyK//XIA
-	s93qwejVxN5NIGDFAxgIDfZ8+ymyy7fJLYIbYxDtc1IXuIErfQRXY7AeUkXvppwJSYUuGGEIqdLMm
-	Z2FPv+xQpRcVyXraCvWOpJyn97dJAaa/1X3BRThzWIeZZB0rJeVgogkaL3my8o1Jt40WiWhg7VKfU
-	MEJaVtkL98JFQwHPD2Wc4P7hHuFmyrsyIw13z5qkzAyL2XNtmxd3fRAtviWFE4Je3iTt4bQoV4HZ0
-	pe+cVmLBWneR00RIeqpSO5SVr5PQNigdnIucv9WE51QAOaZpujIEvNrKlBylW39QSeizhrZFhj8qS
-	drVrkZeA==;
+	bh=sDXSgIdtMTk8X9Y3hH2ufXG9xvwt9Ha1wwvrel86eWs=; b=krDlvaHd5y4ni3NjyHZpKtY66V
+	cTxxcg8N+u8uj0XrG+1A4XaIk09SWp0Y2nk2j54QAqMNPvzwUOe/T8fS9hylK8hKdZDMGC39VPAvI
+	t59zzkEOMFd5p7gfhgy4W5Esjl2sbL+asERdyTkzp4eUvPqhAgrTwmdyjYIaVRsY/1KUSZ8CwM2LH
+	bHLcn3299JRDgkHv+o8gusThPmZ4+rZgGB8Os/75Awl0H4VkP1Faz+ECwmqt39ulvVGGQX4/VSCqj
+	FEjaohwFqal3SWZMt8abicqlNfXW5KZRaTqqoQCz8CkNfu58zYBiEP6L09XQhUhQcRMR8YCZIMpp7
+	4xKwt0PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzrAA-00000004tJT-1rBL;
-	Sat, 20 Sep 2025 06:33:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzrBf-00000004tXG-3pqG;
+	Sat, 20 Sep 2025 06:35:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzrA8-00000004tJ8-1PG5
+	id 1uzrBe-00000004tX5-1wr7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 06:33:37 +0000
+	Sat, 20 Sep 2025 06:35:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFBE94418F;
-	Sat, 20 Sep 2025 06:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD6DC4CEEB;
-	Sat, 20 Sep 2025 06:33:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 135D86013C;
+	Sat, 20 Sep 2025 06:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6057C4CEEB;
+	Sat, 20 Sep 2025 06:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758350015;
-	bh=/hfRLVAeokLS0Eaci1siv6XXPrGjW6em2vhHoSS4P1w=;
+	s=k20201202; t=1758350108;
+	bh=kwd//CRsPpYonPR8lPo9/P6DkUgi8kn1wjpddW4+60c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aXEh1rNTPXo0CvHjqmIIik0cDV6bJzExvo1c6+UV7IQS3EmwygQBhV/5atHDtFIiB
-	 hkIb8NaRAO1NEEbdxnjdqDRK6PG10UTtnVs1XgrR+NllqukfloO8i/IWJvfMwANPuC
-	 z1uAut/qwgYeiY/lKrk2diq4CLnlOLVPHLGmjm5VkBk4Epb4YcN2mDUa23xQhvZYZT
-	 tbClM3VJJV1Pa5WvG87kLBBt7nwYD5eJvlDka6ruwKDSZeTV4Kh+og/OB+VowVkCt+
-	 GOicLbBGId/gWgj/+OsCC9yoWGmi/ENssyQCFjsYu+K0ZftjVEzk5dOzAOTSmtLsdI
-	 hJr3oyJKBRgLA==
-Date: Sat, 20 Sep 2025 12:03:26 +0530
+	b=D9OgdNF6cJgOC++kArIJCVA7PmzZXs1OTytQ8fwdI7sisUC5uYFZgmlOrHYhcjT7Q
+	 RTUU8jggbblvCQYof8Gw06UanMTuh6SpluvLbDbp8Gxon5Gib1EGSPyPtSOEU+hZyu
+	 Ajcj9oZlLNr8JW7Un/TlPsoJgA0r/4xQKHi51MRW/ZaPIvyYEZNPAbzMTfdNV/3qHG
+	 qJwrdcgDidlWaFisbEGu0lJYROt++27+6BTHhC/O5EZRjcJPjTwBUYGA7j2spILZKn
+	 eLIyAr3OZE28hx7N9imBKG+j93NbJUP4i0jUF1ZtfvmdLyKev1g4YDKQonlhdaWpRT
+	 EZ/T7KKNY454A==
+Date: Sat, 20 Sep 2025 12:04:59 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Richard Zhu <hongxing.zhu@nxp.com>
 Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
@@ -50,19 +50,16 @@ Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
 	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
 	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 5/6] PCI: dwc: Skip PME_Turn_Off message if there is
- no endpoint connected
-Message-ID: <7imm2xtisu5vlogdf3k2xb6phh4qfaaruwdafzfvl6xm3byfdu@iyjmvo2cyxjf>
+Subject: Re: [PATCH v5 6/6] PCI: dwc: Don't return error when wait for link
+ up in dw_pcie_resume_noirq()
+Message-ID: <lbmeboonxcvviqfc72ozrtnzqsblnv7qdt2owyxs7tcjkc6vmt@e7oe6jtssj36>
 References: <20250902080151.3748965-1-hongxing.zhu@nxp.com>
- <20250902080151.3748965-6-hongxing.zhu@nxp.com>
+ <20250902080151.3748965-7-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250902080151.3748965-6-hongxing.zhu@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_233336_395856_CBFE7EAF 
-X-CRM114-Status: GOOD (  18.82  )
+In-Reply-To: <20250902080151.3748965-7-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 02, 2025 at 04:01:50PM +0800, Richard Zhu wrote:
-> A chip freeze is observed on i.MX7D when PCIe RC kicks off the PM_PME
-> message and no any devices are connected on the port.
+On Tue, Sep 02, 2025 at 04:01:51PM +0800, Richard Zhu wrote:
+> When waiting for the PCIe link to come up, both link up and link down
+> are valid results depending on the device state.
 > 
-
-Is it because the controller waits indefinitely for the arrival of the
-PME_To_Ack response?
-
-> To workaroud such kind of issue, skip PME_Turn_Off message if there is
-> no endpoint connected.
+> Since the link may come up later and to get rid of the following
+> mis-reported PM errors. Do not return an -ETIMEDOUT error, as the
+> outcome has already been reported in dw_pcie_wait_for_link().
+> 
+> PM error logs introduced by the -ETIMEDOUT error return.
+> imx6q-pcie 33800000.pcie: Phy link never came up
+> imx6q-pcie 33800000.pcie: PM: dpm_run_callback(): genpd_resume_noirq returns -110
+> imx6q-pcie 33800000.pcie: PM: failed to resume noirq: error -110
 > 
 > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Fixes tag is needed and stable list should be CCed.
+Again, Fixes tag is needed. Also CC stable list since this should be backported.
 
 - Mani
 
 > Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++++------
->  1 file changed, 9 insertions(+), 6 deletions(-)
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 57a1ba08c427..b303a74b0fd7 100644
+> index b303a74b0fd7..c4386be38a07 100644
 > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1008,12 +1008,15 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  	u32 val;
->  	int ret;
+> @@ -1084,10 +1084,9 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (ret)
+>  		return ret;
 >  
-> -	if (pci->pp.ops->pme_turn_off) {
-> -		pci->pp.ops->pme_turn_off(&pci->pp);
-> -	} else {
-> -		ret = dw_pcie_pme_turn_off(pci);
-> -		if (ret)
-> -			return ret;
-> +	/* Skip PME_Turn_Off message if there is no endpoint connected */
-> +	if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_WAIT) {
-> +		if (pci->pp.ops->pme_turn_off) {
-> +			pci->pp.ops->pme_turn_off(&pci->pp);
-> +		} else {
-> +			ret = dw_pcie_pme_turn_off(pci);
-> +			if (ret)
-> +				return ret;
-> +		}
->  	}
+> -	ret = dw_pcie_wait_for_link(pci);
+> -	if (ret)
+> -		return ret;
+> +	/* Ignore errors, the link may come up later */
+> +	dw_pcie_wait_for_link(pci);
 >  
->  	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> -	return ret;
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(dw_pcie_resume_noirq);
 > -- 
 > 2.37.1
 > 
