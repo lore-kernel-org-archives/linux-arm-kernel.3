@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E984BCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 00:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC529CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 00:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9ZeQCh35puBv44uaN5n9NTG0VCJ7xzTKeG6j0klt68=; b=JnBhOe3xzq8f6ielZ098kuEyEm
-	9VjN7zDYi30auItXR+eoahhdnfA3Na3QOskj0zq6e2QuDGZDVdwHuGpvyTEA7e4iVhWffpo4WagKG
-	I/mH1duXr0zwr7xxVGjWXolWBARYpi4jGytAlrw/CpPm/JC7KGmAAWXuh1R+eYMzMe9BWZZibapf5
-	2fdoiWW/J5qd3NVf8szmzEVQC3oy3Ngoj+jUWkdmf8N/wfSbjuIUC77rBG8s9HryUhNpzCGMkgz8A
-	MaiYvgW++HPp2pxX1PcYS/e/Zvv7Xpx3j786Y7DUGRyG8qcKYj+qRNEs9E+rLz08k0PNfYsNref/l
-	jE1QCV4A==;
+	bh=EJ6B6mlIFjX/lkPTcOY32q3VFDcG4QkNDocDx1ZVeTw=; b=w3mDV0NF2SzwZKBv/PG114oZNk
+	7sLrRmCneA/Zzpk9imv/HpeUqIsXcauczG/QCROr6ngQMr68IaQi9DyW7IRkWsHjzv9TRbMNl1Czb
+	TwX2rTOj4XFEaOR300cwDWrkFIo+yXy8R/5qnqD3o96S+cXtd2O1vrRj3lDvUR+47E0nRfA9wfMj7
+	BLCTAobRrN1IKR3rpjpPGU+VZCKvG9wqZbi7OyaqVBZMavwjvxpBPmsDM/DPkM+Km3O7mk4AGuqoF
+	HY8l8SyBdl8AyM5juImx3oGnnz/IikWpIMnNuB/CsWPch5F+hHnbBKtJ/daesU3W3oVEyS3LVBv1p
+	uTDQAxSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzl7f-00000004N6M-40V4;
-	Sat, 20 Sep 2025 00:06:39 +0000
-Received: from p-west2-cluster6-host5-snip4-1.eps.apple.com ([57.103.70.24] helo=outbound.mr.icloud.com)
+	id 1uzlB2-00000004Not-3N56;
+	Sat, 20 Sep 2025 00:10:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzl7U-00000004Myg-3gRz
+	id 1uzlB1-00000004Nog-2vTD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 00:06:29 +0000
-Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-10 (Postfix) with UTF8SMTPS id 34AC618000BA;
-	Sat, 20 Sep 2025 00:06:26 +0000 (UTC)
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bryanhinton.com; s=sig1; bh=U9ZeQCh35puBv44uaN5n9NTG0VCJ7xzTKeG6j0klt68=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=vg4D5vFngtIASvm5+9ZXGm4v2Dktb+J1NIynWhPCttAK8+o8infv3aifkk6hx2JWTPdpZ/eSsjCNAqEyTcZKv42y0+WCRXmhvRPOk77QxfpazxaTUqZyDAvEPNhsQ+4fUxuVnl56skPMnV5Dv/7Ok2GpFiTSTUbfJYe7ZKyFpBtQnGu+fTcgEseg44d/ux7F7HiB8HdSiRbVJYiOpsH1S4aaAOIABV3apllBd5d992TbuwxtsT3/OG14yHAPCcpwVCfUFq4dfqtIRRyywxPyNGJNdUiRI4irZGWu3qxfDOgAgyzXi1Yz11rC6u2ElLY+dK32s541+VSyvNVHKxxtdQ==
-mail-alias-created-date: 1643268037438
-Received: from localhost (mr-asmtp-me-k8s.p00.prod.me.com [17.57.152.38])
-	by p00-icloudmta-asmtp-us-west-2a-60-percent-10 (Postfix) with UTF8SMTPSA id 7ED25180017C;
-	Sat, 20 Sep 2025 00:06:25 +0000 (UTC)
-From: bryan@bryanhinton.com
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Cc: angelogioacchino.delregno@collabora.com,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	robh@kernel.org,
-	Bryan Hinton <bryan@bryanhinton.com>
-Subject: [PATCH 2/2] arm64: dts: mediatek: mt7981b: OpenWrt One: set console UART to 115200
-Date: Fri, 19 Sep 2025 19:06:12 -0500
-Message-ID: <20250920000619.2643457-3-bryan@bryanhinton.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250920000619.2643457-1-bryan@bryanhinton.com>
-References: <20250920000619.2643457-1-bryan@bryanhinton.com>
+	Sat, 20 Sep 2025 00:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7BF46019D;
+	Sat, 20 Sep 2025 00:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76931C4CEF0;
+	Sat, 20 Sep 2025 00:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758327006;
+	bh=JkPWbXg69iqhHJ900MWi2o+UGPJDKtEJ6OfUOR2VnvU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=O6o/BW0f+45gy85lsSLjU/GGU1Ffl/8HM1Hzm3G6DtcQnrAitBE5cylJWjovMWmd2
+	 wodY0mkQFvBGjUNoXLW1szKmFA7pRRGitzepybn++o8eggPDz610EuRWH/wLDM2xHL
+	 9e24r09owmVp4Y+4zq2ZzETxFMxerIMWbyP6ORsbPndLvZMpiCXim7AnGYyLglEDZF
+	 dw7iDFdcFXT8BKiNelca1APnGtfdKQk8DMW5tXuulsMMw3bSq9wJ7jFK21DWkJZMz1
+	 97ijZXCoES4sZBqRc7NBtVUcMeqg5PD4W4KhC60gv0M502895rRuGZTC6wPklKvEC3
+	 jR8F4T1xEkRVQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB07F39D0C20;
+	Sat, 20 Sep 2025 00:10:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: EOBQ2Tfsbbv0mlTv9OXdHSO1BDfAAx94
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE5MDIyNyBTYWx0ZWRfX/Rcqg8vC9N7t
- iDiMCiA6IZv1Fb3ANLChfzwDyNquQlBNjmH1F+bp28H2/EVnqpVN3DxGsm9OtWJlX8iNRHFQi3t
- ksBN3R+FTwupf1x674tE5kuGeTVn8XRZzK4wr9b35ZGQXgmDQTEw/FzZO+zOuoaULl+95ajrUXR
- pZxfb5SDyf5/+2Vr1rEQseAX9nZQNWxGxDmoYUyodvfIIwUZ0XqOtz3hnQrUE16KEaRroSR2Pac
- tzF/Dz84YcjJycv3yw+SH/Th0HHbH+K9VpLfIMDkdjZmQaMv1yiGgp1SjhnwvPMTsNaGVH1+U=
-X-Proofpoint-ORIG-GUID: EOBQ2Tfsbbv0mlTv9OXdHSO1BDfAAx94
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-19_03,2025-09-19_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- spamscore=0 suspectscore=0 mlxscore=0 clxscore=1030 mlxlogscore=999
- phishscore=0 malwarescore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.22.0-2506270000 definitions=main-2509190227
-X-JNJ: AAAAAAABjQoI1GTOYZxNLTAFLe/A3b20ZKDUCJC9eTtNWwrt0CGMCJqDa8I95QkqXHtnygYshP771JWqF8/M0mTvUAXw3m2XFH4SlS7GtwzBMednVOsx8B1H7/NHC1b5EfWrRBOUgv0fb6x3ym73TQLN+ZhRYW5Sw6QeXkWvFkImHFcgwMLfsQ3pH7OhfdQDsi+n+ZT19Ogl9rijFf0hmxDKQDiucrO6m7TqyXddpq+YbZtTotXu8AVae3Gr8aAJsGaJK6BrdeFpdA5ORtm8ZybNjvvS2oOZy8WHhN/8pRzFcf+UxdUmk90bVwrLgorlp47QRJUJ0BHccB6SBv9q86P5NDeTKwIJs8r0b321iGqzNC8Cuf0A3l/0LnUH0iP9vZW/FGocYMAfnTEK2nhGw2apsX/GMOXhJS6ZB/yk1Nbuf0IOro2CfRD4x5XjAo7/qBTQ/YjzyIYn9G9Spx4R8PK9RGRrlgy2PGf91uw595OF3mv3vJTPI9Q/bbbYaC1aP8NK4q3lljZgyUhtkPMJjl68dyPv2v3OvzghtqBd84JZ4xKs3F5peg5PeVp17QHFRSj4xoffCFPgnwC62I25R9mJutf13Gu+C1rGRBzxN/KtqT1tnb9c+FKtNuEdlWI3y4JDpjB3hR1fI6Vb3srUrBo9VbEYvxXVVh1Go9jfq2cgpy6d8mBt9m/KESj3NEDUnbnCLEx/Wi0OOzIml7g0hVTVV8s=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_170628_916855_9C1FE8AA 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH net-next] net: ti: icssm-prueth: unwind cleanly in probe()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175832700584.3744610.12963791321568877888.git-patchwork-notify@kernel.org>
+Date: Sat, 20 Sep 2025 00:10:05 +0000
+References: <aMvVagz8aBRxMvFn@stanley.mountain>
+In-Reply-To: <aMvVagz8aBRxMvFn@stanley.mountain>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: rogerq@ti.com, danishanwar@ti.com, parvathi@couthit.com,
+ rogerq@kernel.org, pmohan@couthit.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ basharath@couthit.com, afd@ti.com, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new uart0 label for the console and make the speed explicit by
-adding current-speed = <115200>. This keeps the DTS OS-agnostic: no
-bootargs or distribution-specific properties are added.
+Hello:
 
-Verification: Boot-tested with mainline Image+DTB via U-Boot on OpenWrt
-One (MT7981B). Serial console active at 115200 baud, and DTB decompile
-confirms serial0 alias and stdout-path set correctly.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Signed-off-by: Bryan Hinton <bryan@bryanhinton.com>
----
- .../arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+On Thu, 18 Sep 2025 12:48:26 +0300 you wrote:
+> This error handling triggers a Smatch warning:
+> 
+>     drivers/net/ethernet/ti/icssm/icssm_prueth.c:1574 icssm_prueth_probe()
+>     warn: 'prueth->pru1' is an error pointer or valid
+> 
+> The warning is harmless because the pru_rproc_put() function has an
+> IS_ERR_OR_NULL() check built in.  However, there is a small bug if
+> syscon_regmap_lookup_by_phandle() fails.  In that case we should call
+> of_node_put() on eth0_node and eth1_node.
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-index 4f6cbb491287..1d2c3a21019c 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
-@@ -8,8 +8,21 @@ / {
- 	compatible = "openwrt,one", "mediatek,mt7981b";
- 	model = "OpenWrt One";
- 
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
- 	memory@40000000 {
- 		reg = <0 0x40000000 0 0x40000000>;
- 		device_type = "memory";
- 	};
- };
-+
-+&uart0 {
-+	status = "okay";
-+	current-speed = <115200>; /* 0x1c200 */
-+};
+Here is the summary with links:
+  - [net-next] net: ti: icssm-prueth: unwind cleanly in probe()
+    https://git.kernel.org/netdev/net-next/c/5fc7fa743dbf
+
+You are awesome, thank you!
 -- 
-2.51.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
