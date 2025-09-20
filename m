@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738E9CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 08:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9B9CAC5A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 09:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0+J3AcoY0da2JrGA4akS+0gRCutCuTWRlIKPg380lk=; b=xVlHOiVjBnYhvSRoiD1kwqsaUs
-	Syv3d1qjfZkxEG2Vtc+C7J8VLQxPEgcatjsGHP8pT+4L8TdCemzT/cD9glTwgrx5wQZYY3c2y6RHc
-	VKAHgg2ZZTLN4EqGE8diR/sDqs9qtSZMv2oRM4hn38Wcy0vOlDfFMiTNF/xdRRh5/uvitlWDBXcio
-	di4Q1XjSz9WO2/QcLBHbl27u1EeXbs2/jllc7saeIBIDjQJwDEHP8qQSYfR0mzk5Bu77OOEYjPUw3
-	mXtv8JRub1WTwj/opG1jvY2YidyX0Qzofng+yEsy20EVocANJUGUHpc8m4tbLMjfYiQthXYEZjonc
-	5GIOwrcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Gusk5zt0HMd76bDL+pQKEW4NdN74ndDk79BJJ1+vw8=; b=KGp7iRysKai1TyNykAKaLENVSN
+	L+aQ0+c1y1wgoEBHmx2MtIzbp7lFwW5f6bZIoqPi2fx9uXYHOMbAhXsJ9fdAOL0JUqIXRV862K5nA
+	dkOuPBOASbgyxPhCRZPhWaZuJNHShjnzPHiiyRY6roRRyoTjLAD3S9eNCvAgS137MLcSkwovGTrF9
+	L3yfaofOw91zyqb/j3Op4fR8UMCOIiTycbkp+t077AX+HldcFy8gQJ8Z32cRXxbucjGXrCLzItOm/
+	Z1prN02pcqMMk1wyNRhJCiSAXGWpbUdDeQxVuh+gZeaiAi3H42PfJUR3vv7B7bv2yzNvgOCMP2nZG
+	877Ub6cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzt8p-0000000541p-0UZD;
-	Sat, 20 Sep 2025 08:40:23 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uzteA-000000055pX-1NU6;
+	Sat, 20 Sep 2025 09:12:46 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzt8m-0000000541H-1tgZ
+	id 1uzte8-000000055oI-1JCy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 08:40:21 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58K8e40F874896;
-	Sat, 20 Sep 2025 03:40:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758357604;
-	bh=f0+J3AcoY0da2JrGA4akS+0gRCutCuTWRlIKPg380lk=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=sC4lnp28H4xbJoKmOxJSBRH+DwpwWi5tLv5cdxzPUEWjkdU8m/zhoo4a5Dlex7Ec7
-	 czA+qMaBsbddtRtcK44ZhVV1//vvHCLaI8Gm61Cs0rDQPBV/hY7+43UP7FeuqUOWBE
-	 CX375x+sDJ878GA+3u4j1/lfYT62fw8mCqyLdnzU=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58K8e4Dn2945600
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Sat, 20 Sep 2025 03:40:04 -0500
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sat, 20
- Sep 2025 03:40:04 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 20 Sep 2025 03:40:04 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58K8e3rn3874273;
-	Sat, 20 Sep 2025 03:40:03 -0500
-Date: Sat, 20 Sep 2025 14:10:02 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <jingoohan1@gmail.com>, <christian.bruel@foss.st.com>,
-        <qiang.yu@oss.qualcomm.com>, <mayank.rana@oss.qualcomm.com>,
-        <thippeswamy.havalige@amd.com>, <shradha.t@samsung.com>,
-        <quic_schintav@quicinc.com>, <inochiama@gmail.com>,
-        <cassel@kernel.org>, <kishon@kernel.org>,
-        <sergio.paracuellos@gmail.com>, <18255117159@163.com>,
-        <rongqianfeng@vivo.com>, <jirislaby@kernel.org>,
-        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2 10/10] PCI: keystone: Add support to build as a
- loadable module
-Message-ID: <c1ae0f3e-32ec-45cb-96fb-ef45979c9e1b@ti.com>
-References: <20250912122356.3326888-1-s-vadapalli@ti.com>
- <20250912122356.3326888-11-s-vadapalli@ti.com>
- <6nj2fkhxixpkneh7pdvyveu6ogpm5phbpvaw6cog3bshm5spfh@kb64rycphtft>
- <8582c87e-5f0d-4712-b93f-c7524f051fd7@ti.com>
- <5cmkdeo6he3w5a3sqk5ptwwnv6oad5tl3xoll4knved2mo4y3h@enwotijbifvb>
+	Sat, 20 Sep 2025 09:12:45 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45df7dc1b98so17229695e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 02:12:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758359562; x=1758964362; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Gusk5zt0HMd76bDL+pQKEW4NdN74ndDk79BJJ1+vw8=;
+        b=BzIYRLQ1thzpJX1xaeX5fn4rgHV2y/DCwA6vnkF7ePfgIxnKcQA0WGyEhFS32tIA2H
+         GSo9jF1/wg8DoWGg7SeOJNrby3bfmJkSqhQEjsdaYyIGGhX6OauZQmI3xhCWMYzU01lO
+         puf867i9cHp2wMBxET2gzzIYHqZpje305lAyElrQaW1uatJEcSizHmjQdq3z+f+sxM3o
+         3XPhHmMF5IY11c4uhdndk/Ox/e+M26tq5DvmVIP8HEN9yoAVismXZna1HhKAh1BP0sNG
+         F4o5eXRRTfCJ4r+LNQMdFEjPUGPfbULX4E028PylihZY3KT0LZWveeSXBwgKw+Yv6L1x
+         5bSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758359562; x=1758964362;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Gusk5zt0HMd76bDL+pQKEW4NdN74ndDk79BJJ1+vw8=;
+        b=pP6lG5FkKn0oI3JOXlqFoQUoQRcd5mbr+Bx4kRtgDrxCQKPpCnHbsaukQzkmI+8Zio
+         AlnVit5tPeiFmp+TfmziTd37/UaDlkCkMoWCCkY931F5X4ppBO8SuqrVspCnMx3i1a0D
+         nDWXzBuzASjjTOGrgEAyQDKLSXIUBRaMzcmnJHTbfd8umzAgadt/i6opfy9DIh5ARmik
+         Rb0aFwS4q9VqE02ii74ZhgZ99OFEzmQwPcEtBnXqycB72M1Twb6ZDBqTQB7nV0Janwsg
+         5e1fH4tf8iyBPMjtrDvQg1K/TgbjeOd7KcEiYEb4LwqUsplOJF/HIdehjJGfyWgBE479
+         UWqg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjf6oJHIl2iDEHdWlGAy6v9YQLp7YDfQj6BtDzO9aoBR7WBuO1e3UbzURefCvOT7D2H5xlhXgqc7Q8jKE7Az3y@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGiNM9c2yFCVjxTPhtuNxmLa64+TJG1i7bUirqiwjwY+F6TWJ/
+	pZs/kq66lOET49tndbbSW9+O3Ky7rVx7P0pyuqnUPYK1sRjTPdNEWWdl
+X-Gm-Gg: ASbGnctRL3G45CaWp1uePrtM2NQfm09NasUn544mbmdZRkr9mjkDLw7xHe5NnxkIrqF
+	oroielSZAP+SzOGsIyFiTdQR3PWEF4l6RTtAMmvT6xlhlYLoCI9N2PrFXALGM1rOaplnqu0dzTO
+	ImEONlxlHRCpeH0chNRNL5lvZ8nQOb/nzXxZsv8zI0vjacut664s9YydNM9U5L+IPwZY0iqhS+C
+	Xqe/wsNBixqwuQJBYZIz5AZAV9SAE6232ezWBUYy8B0id4eIljj70UYmqKcVH6JLME3XurFgPWt
+	WKyLyUfvsHVcptoCmHFCgG4oXBQPQdYUQDD8f3KoAuKP+LNjL4ZfpDrGWVhIEc3BdkWmshckHRe
+	JZoXBOaJkkUaTHsN7YGKy5P2Y4jcHXd06OqJEZ0PZk5GYhjH3mhkADlsTVOR2VjZE4we9sCnyof
+	Z3RlldPA==
+X-Google-Smtp-Source: AGHT+IGeCGycSjOjMk8oko1TsOrOMJVtki4nnFeQ3rx2NoALaXwxO2K0x5BUb16MSvGQYr/OhAVjnA==
+X-Received: by 2002:a05:6000:310f:b0:3ec:dc87:26a8 with SMTP id ffacd0b85a97d-3ee7c5527damr6050719f8f.10.1758359562015;
+        Sat, 20 Sep 2025 02:12:42 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ef166e62e5sm6375782f8f.40.2025.09.20.02.12.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 Sep 2025 02:12:41 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Felix Fietkau <nbd@nbd.name>,
+	John Crispin <john@phrozen.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH 1/2] dt-bindings: arm64: dts: airoha: Add AN7583 compatible
+Date: Sat, 20 Sep 2025 11:12:28 +0200
+Message-ID: <20250920091230.17702-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <5cmkdeo6he3w5a3sqk5ptwwnv6oad5tl3xoll4knved2mo4y3h@enwotijbifvb>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_014020_585288_3F644F14 
-X-CRM114-Status: GOOD (  42.84  )
+X-CRM114-CacheID: sfid-20250920_021244_363181_00EC3CD1 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,127 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 20, 2025 at 02:01:03PM +0530, Manivannan Sadhasivam wrote:
-> On Sat, Sep 20, 2025 at 01:41:35PM +0530, Siddharth Vadapalli wrote:
-> > On Sat, Sep 20, 2025 at 12:10:59AM +0530, Manivannan Sadhasivam wrote:
-> > > On Fri, Sep 12, 2025 at 05:46:21PM +0530, Siddharth Vadapalli wrote:
-> > > > The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-> > > > Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-> > > > that the 'pci-keystone.c' driver depends upon have been exported for use,
-> > > > enable support to build the driver as a loadable module.
-> > > > 
-> > > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > > ---
-> > > > 
-> > > > v1: https://lore.kernel.org/r/20250903124505.365913-12-s-vadapalli@ti.com/
-> > > > Changes since v1:
-> > > > - Based on the feedback from Manivannan Sadhasivam <mani@kernel.org> at:
-> > > >   https://lore.kernel.org/r/2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5/
-> > > >   builtin_platform_driver() is being retained in the driver due to which
-> > > >   the change made in the v1 patch of replacing builtin_platform_driver()
-> > > >   with module_platform_driver() has been discarded in this patch.
-> > > > 
-> > > >  drivers/pci/controller/dwc/Kconfig        |  6 +++---
-> > > >  drivers/pci/controller/dwc/pci-keystone.c | 22 ++++++++++++++++++++++
-> > > >  2 files changed, 25 insertions(+), 3 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > > > index 34abc859c107..46012d6a607e 100644
-> > > > --- a/drivers/pci/controller/dwc/Kconfig
-> > > > +++ b/drivers/pci/controller/dwc/Kconfig
-> > > > @@ -482,10 +482,10 @@ config PCI_DRA7XX_EP
-> > > >  	  This uses the DesignWare core.
-> > > >  
-> > > >  config PCI_KEYSTONE
-> > > > -	bool
-> > > > +	tristate
-> > > >  
-> > > >  config PCI_KEYSTONE_HOST
-> > > > -	bool "TI Keystone PCIe controller (host mode)"
-> > > > +	tristate "TI Keystone PCIe controller (host mode)"
-> > > >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> > > >  	depends on PCI_MSI
-> > > >  	select PCIE_DW_HOST
-> > > > @@ -497,7 +497,7 @@ config PCI_KEYSTONE_HOST
-> > > >  	  DesignWare core functions to implement the driver.
-> > > >  
-> > > >  config PCI_KEYSTONE_EP
-> > > > -	bool "TI Keystone PCIe controller (endpoint mode)"
-> > > > +	tristate "TI Keystone PCIe controller (endpoint mode)"
-> > > >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> > > >  	depends on PCI_ENDPOINT
-> > > >  	select PCIE_DW_EP
-> > > > diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> > > > index e85942b4f6be..661e31b60a48 100644
-> > > > --- a/drivers/pci/controller/dwc/pci-keystone.c
-> > > > +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> > > > @@ -17,6 +17,7 @@
-> > > >  #include <linux/irqchip/chained_irq.h>
-> > > >  #include <linux/irqdomain.h>
-> > > >  #include <linux/mfd/syscon.h>
-> > > > +#include <linux/module.h>
-> > > >  #include <linux/msi.h>
-> > > >  #include <linux/of.h>
-> > > >  #include <linux/of_irq.h>
-> > > > @@ -132,6 +133,7 @@ struct keystone_pcie {
-> > > >  	struct			device_node *msi_intc_np;
-> > > >  	struct irq_domain	*intx_irq_domain;
-> > > >  	struct device_node	*np;
-> > > > +	struct gpio_desc	*reset_gpio;
-> > > >  
-> > > >  	/* Application register space */
-> > > >  	void __iomem		*va_app_base;	/* DT 1st resource */
-> > > > @@ -1211,6 +1213,7 @@ static const struct of_device_id ks_pcie_of_match[] = {
-> > > >  	},
-> > > >  	{ },
-> > > >  };
-> > > > +MODULE_DEVICE_TABLE(of, ks_pcie_of_match);
-> > > >  
-> > > >  static int ks_pcie_probe(struct platform_device *pdev)
-> > > >  {
-> > > > @@ -1329,6 +1332,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
-> > > >  			dev_err(dev, "Failed to get reset GPIO\n");
-> > > >  		goto err_link;
-> > > >  	}
-> > > > +	ks_pcie->reset_gpio = gpiod;
-> > > >  
-> > > >  	/* Obtain references to the PHYs */
-> > > >  	for (i = 0; i < num_lanes; i++)
-> > > > @@ -1440,9 +1444,23 @@ static void ks_pcie_remove(struct platform_device *pdev)
-> > > >  {
-> > > >  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
-> > > >  	struct device_link **link = ks_pcie->link;
-> > > > +	struct dw_pcie *pci = ks_pcie->pci;
-> > > >  	int num_lanes = ks_pcie->num_lanes;
-> > > > +	const struct ks_pcie_of_data *data;
-> > > >  	struct device *dev = &pdev->dev;
-> > > > +	enum dw_pcie_device_mode mode;
-> > > > +
-> > > > +	ks_pcie_disable_error_irq(ks_pcie);
-> > > > +	data = of_device_get_match_data(dev);
-> > > > +	mode = data->mode;
-> > > > +	if (mode == DW_PCIE_RC_TYPE) {
-> > > > +		dw_pcie_host_deinit(&pci->pp);
-> > > > +	} else {
-> > > > +		pci_epc_deinit_notify(pci->ep.epc);
-> > > > +		dw_pcie_ep_deinit(&pci->ep);
-> > > > +	}
-> > > >  
-> > > > +	gpiod_set_value_cansleep(ks_pcie->reset_gpio, 0);
-> > > 
-> > > Can ks_pcie_remove() be called for a builtin_platform_driver?
-> > 
-> > It cannot be executed but I have added it for the sake of completeness - in
-> > the same manner that the initial implementation didn't simply make the
-> > 'ks_pcie_remove()' function a no-op and the code exists as if it could
-> > be executed or if it were to be executed at some point in the future.
-> > 
-> 
-> It is a dead code, that's it. Drop it in this patch or separately before and add
-> it back later when irq subsystem fixes the irq disposal issues.
+Add Airoha AN7583 compatible to the list of enum for Airoha Supported
+SoCs.
 
-I will discard the changes made to 'ks_pcie_remove()' in the v3 patch.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/airoha.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Regards,
-Siddharth.
+diff --git a/Documentation/devicetree/bindings/arm/airoha.yaml b/Documentation/devicetree/bindings/arm/airoha.yaml
+index 7c38c08dbf3f..6506c64af4f3 100644
+--- a/Documentation/devicetree/bindings/arm/airoha.yaml
++++ b/Documentation/devicetree/bindings/arm/airoha.yaml
+@@ -26,6 +26,10 @@ properties:
+           - enum:
+               - airoha,en7581-evb
+           - const: airoha,en7581
++      - items:
++          - enum:
++              - airoha,an7583-evb
++          - const: airoha,an7583
+ 
+ additionalProperties: true
+ 
+-- 
+2.51.0
+
 
