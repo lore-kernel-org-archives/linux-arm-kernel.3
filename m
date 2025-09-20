@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0CDCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 16:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3907ECAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 17:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75usRvvBUvYXukRrmuxSOsHIRzVX/Q3R0OCmCMp32EM=; b=fvc/g7t97VMbBQHSep4t8eov0X
-	6rmuoBrHCpEsBxOaeO8nRqPehDXtNh291nVLXRonCkdn27QtU9gaf2sG9LY+G6YTcKDXXTHcy/YKO
-	rqjwTz6FsCw/o6SdGEMXWN2ctgTKbeKBcjrBXl72mmtS18vNJMmc9LMYnCcbg2pfY/bTRdkbSzA6G
-	mBpBC89Og83LAYIkugXafqOlOX6TgnM9cSeRInUJUtbDzWdncHzRja0ndvWjJgvIjqZyqDiRWHNIB
-	PrYxsxXqtaSVp83STkhVvhzAzBTMcGQxBFGi1nDxF9YXUmILeta5rmpvZSUhJZrhMa7YocXQENkNL
-	CEsG73iw==;
+	bh=RSI3VckpD7CHAKqWHV0G2q67lpmUbI91NOEpha6163c=; b=pTPImPpL8jtd41I7mUmYkGT7Jh
+	ACLrtfQlixS31bfRzYGGFWVrhqDSQKOLOYH3wK9+M2FTHVLVTG44OCsiNg2TTXxKC3mdmBU5CpJnO
+	TwcUrZqG9YjecO34krvs0G01ANBS0NfWGo9N0dnqeE1EPOeGpMAQG5ES1CZr9lB2lGyYSusQO4Rf7
+	nFmsxQJu8z9H+R/s+Bp/DHXKwV2I1/6TScTJjDycgdJKgr5EbOvJkTBBnhl8TLx0e1SDFZuJKnABG
+	SHrORhVhjWDVGxJjV4jMBzgmz8v+rJc2mdBoDTc1xbgMz2ubVoR5d2w9AcjlFuZIQ49xQ58SZ66b/
+	cjeCl5zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v00Oz-00000005cFE-2dcL;
-	Sat, 20 Sep 2025 16:25:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v016q-00000005fdD-1HmL;
+	Sat, 20 Sep 2025 17:10:52 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v00OP-00000005bgW-0uO0;
-	Sat, 20 Sep 2025 16:24:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86B3760194;
-	Sat, 20 Sep 2025 16:24:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 29646C4CEF9;
-	Sat, 20 Sep 2025 16:24:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758385493;
-	bh=PAEbSGe1wIOU1VKhTsFGw4i3kezoEQ7HO0g02DBBGic=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kPoqBo9PkEIpeYKdsrGhqwwHJL5OMHsElMvH2vvivU8Pyj2PZxule376bxZnJkwNU
-	 Tw4xgugwq5gkQtp+NSjclN5LiU5ACYNg9gzUYgdNSrYt9MaG2DcVzc3SiHiZF5PgIO
-	 APJh8w0YsR3gnnjp1/aHvGZTGzYSQOQmHmslCy/r1TOaV6KjIfM7yebTrVOe+RwW+U
-	 gfNk6ymVv2Nu9aN0lnO+ez0IB/c9ZybZQ/zbH/s7inMr9LkOPvgXOLUCrhAH6yxGiR
-	 7WdcFxlxAPYxoSg7j4VJE6WNzvl2NGSRkJcFG3xgjSlL3/lPoEi9JpoU2XQkT0CApB
-	 P1FJxdrOWdC2g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1863CCAC5A7;
-	Sat, 20 Sep 2025 16:24:53 +0000 (UTC)
-From: Cristian Cozzolino via B4 Relay <devnull+cristian_ci.protonmail.com@kernel.org>
-Date: Sat, 20 Sep 2025 20:23:26 +0200
-Subject: [PATCH 01/10] ARM: mediatek: add board_dt_compat entry for the
- MT6582 SoC
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250920-mt6582-v1-1-b887720f577d@protonmail.com>
-References: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
-In-Reply-To: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- phone-devel@vger.kernel.org, 
- Cristian Cozzolino <cristian_ci@protonmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758392693; l=726;
- i=cristian_ci@protonmail.com; s=20250620; h=from:subject:message-id;
- bh=rPW5X0dJhrkjRCNNcYv6faj1inNTS9fRmw61VUQKL+w=;
- b=sk3kgTpc2Yx2+z5wdsgMX0XRjqoO+k8vc8osDkRpQFyJa/JHqcBSNo/vrm8lBDnIOJq4DyTco
- DiaGwpso9ZNBl0PDGiYXz4Q63P8uiDz5rqVgpgW0C9YVonlimW/SX20
-X-Developer-Key: i=cristian_ci@protonmail.com; a=ed25519;
- pk=xH5IvIPUNHV1Q8R0/pq2CfuVFR/wTiAyuyi6IwedjZY=
-X-Endpoint-Received: by B4 Relay for cristian_ci@protonmail.com/20250620
- with auth_id=438
-X-Original-From: Cristian Cozzolino <cristian_ci@protonmail.com>
+	id 1v016n-00000005fcK-28k3
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 20 Sep 2025 17:10:50 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=KWOTw+Bj4OOXsGaJJvWbSUILi4HVd/QLUfoPr/16Gp8cZtp1ULhP9Uvde66AYpwH+WOk0EbAxWbrC3JHegoga1Gd5SGcaipmCa+ETY0SU6gft8I8jTz8nrWehQvVHM55Xf/avlX/MAo0XVcMSQzllJXv3x409IJsiU6w+SkkSQ93s8R7rYZyQWRCBBm6eJmP+l4a/Hyj2VKbaC+W6w6aZSmHGs6K516FFesf/Kp2srxyoz6EKA+M/ElqYYUcZbQ4Zy8ZtjCkviIokVZqkqesih8R1JOSnR/TzIuCj5+oqKO1sKZKR4D8zv4a2H/XAXZa6Y6NiWpI9ETmEG6UHvRvvQ==; s=purelymail1; d=purelymail.com; v=1; bh=RSI3VckpD7CHAKqWHV0G2q67lpmUbI91NOEpha6163c=; h=Feedback-ID:Received:Date:Subject:From:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 362739118;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Sat, 20 Sep 2025 17:10:05 +0000 (UTC)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 20 Sep 2025 19:10:02 +0200
+Message-Id: <DCXSLGK9ONQV.21BWV4YL6FG4E@mentallysanemainliners.org>
+Cc: <~postmarketos/upstreaming@lists.sr.ht>, <linux-i2c@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 0/2] i2c: Add support for MT6878 I2C controllers
+From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
+To: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>, "Qii Wang"
+ <qii.wang@mediatek.com>, "Andi Shyti" <andi.shyti@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Matthias Brugger"
+ <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20250920-mt6878-i2c-bringup-v1-0-d1527ffd3cd7@mentallysanemainliners.org>
+In-Reply-To: <20250920-mt6878-i2c-bringup-v1-0-d1527ffd3cd7@mentallysanemainliners.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250920_101049_647681_0677452F 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +69,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: cristian_ci@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Cozzolino <cristian_ci@protonmail.com>
+On Sat Sep 20, 2025 at 5:31 PM CEST, Igor Belwon wrote:
+> Hi all,
+>
+> This patchest adds support for the i2c units found in the MediaTek=20
+> MT6878 SoC. These units use the new v3 register offset scheme=20
+> (differing only in OFFSET_SLAVE_ADDR).
+>
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> ---
 
-Add a compatible string for the MT6582 SoC.
+Hi,
 
-Signed-off-by: Cristian Cozzolino <cristian_ci@protonmail.com>
----
- arch/arm/mach-mediatek/mediatek.c | 1 +
- 1 file changed, 1 insertion(+)
+Please DROP this patchset from the queue.
 
-diff --git a/arch/arm/mach-mediatek/mediatek.c b/arch/arm/mach-mediatek/mediatek.c
-index 5c28124bd0078b31665fef647e496f4131b82c8d..fd3a8834fc4fd47adcc91c0d9371d4a1e9c0a7e6 100644
---- a/arch/arm/mach-mediatek/mediatek.c
-+++ b/arch/arm/mach-mediatek/mediatek.c
-@@ -39,6 +39,7 @@ static void __init mediatek_timer_init(void)
- static const char * const mediatek_board_dt_compat[] = {
- 	"mediatek,mt2701",
- 	"mediatek,mt6572",
-+	"mediatek,mt6582",
- 	"mediatek,mt6589",
- 	"mediatek,mt6592",
- 	"mediatek,mt7623",
+This patchset can be simplified into one commit (only bindings changes),
+as the compatible data is 1:1 from mt8188.
 
--- 
-2.49.0
-
-
+Sincere apologies,
+Igor
 
