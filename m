@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F0DCAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 10:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 043C1CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 10:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twgbklWCuWhXeBiksd9/rL57cbscsnAsUSFdmL5j+vs=; b=hniZp+43aZeN1jMITaR8iYDu9D
-	WeYf86caUeLNlUc+iu4v8cPsM+VhIFnFm2Fur6sdUbT+cvntwEo6+CNenyuA14jG9pYv8F0mS4+Fk
-	/yK3RRMWGoWlSPTArRfaC6V0zq8KHHl0NUy0Fqkl4tRUVPS+r7h6ux0m5EUiFVd9+gzzG63Im6ZQ+
-	lG9Hs5sKg6zQ/XH/kk34tQvv/fdZjfjtjJ6MV8YBanxnfy/gS7wUUPqNB2FF38XzO4r3T8g9oS/w1
-	uNYc0mPxt4AGXXExK6FSOSZBK+ArRmDCA1EtwAAaow6JxmjN7hJI44anJaDToXW8ZWy8Ajp1pVJ/6
-	oxgHNIjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oLIWSHI/A9e2kSP+KDoNcN4xIeENb9wP8vYDPb9tF5Q=; b=r0Mkr3bRDVb/cUupnzrCpSoT8L
+	k/aZcFhuwIuj4Znh1BJkfEeaK2poqHcBNEqa/uUJigvuT0JZ3Bey//F+JaOsU7DL4O/4YeAfOjvFu
+	wx6sWRPHgdksK9JozQNUvrUzHzNrKNDUOtnOdM3oRWaF4ttOlxPjst5ka3C3T0/uhpJUhuJs0O6Mm
+	FCLeR5ODWHI/wu94fszKdXDUK1wlQ3l6OhS7i7OjphVSOGn3zBNjxc9VralER0sgaEyRV5RzV064Z
+	dDMf3MjuRqoZ/LDjmQc08ln7aIHT0KKoyVuq/WIyxAa5PCSYveVqO4mCV3aSaBtjcjs3U4xNjkRz5
+	4WjD8NRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzubk-00000005Alz-3Pob;
-	Sat, 20 Sep 2025 10:14:20 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uzv4J-00000005Cm5-3joQ;
+	Sat, 20 Sep 2025 10:43:51 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzubh-00000005AlF-3vya
+	id 1uzv4H-00000005ClJ-18rZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 10:14:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cTQ8V4DL3zTh16;
-	Sat, 20 Sep 2025 18:09:30 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8AEE5180486;
-	Sat, 20 Sep 2025 18:14:08 +0800 (CST)
-Received: from [10.174.178.24] (10.174.178.24) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 20 Sep 2025 18:14:06 +0800
-Message-ID: <ed882938-41da-d7c5-8eb0-968f8d7de131@huawei.com>
-Date: Sat, 20 Sep 2025 18:14:06 +0800
+	Sat, 20 Sep 2025 10:43:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758365029; x=1789901029;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GGcqmDnzpkqL527dvwmPXxPejn0tRqSqA9TUjS43tF4=;
+  b=IDzOXjxu6n+OEjCQkPqoNbD3Qer68DNkE1FU3BTPmOwoCJQaWv42xDPf
+   wqcqTah6WWDjT5eF7Fj4YrysdfItEZFe5zCSx72DFeI9r+YqTLRmemjBn
+   yBEWzmsOB4351gKi56QsKSA+pi9sbPhpVM/RhcSaK98cFdwVRdBhg9R6r
+   CqgdyZDOf08XdTNnSa9x7S/uZM8W+wPOL/khAUonwOETAc0RKJWDlTCXH
+   5rs4uYz5IB3vu61tgOwGna7FwyNVYrCzy4qUPp/vDLDBcixl0x+Ynj3tP
+   w5BAJcqiNMjX6P+shoMqL+Yeg+DfHQdcElycSvykFsEo18iyQfsPrGz0E
+   g==;
+X-CSE-ConnectionGUID: 6E2WdHdfTa2wsFYTrCzZkQ==
+X-CSE-MsgGUID: yKeOjVEkQwqsGlE7Flrkkg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11558"; a="64334364"
+X-IronPort-AV: E=Sophos;i="6.18,280,1751266800"; 
+   d="scan'208";a="64334364"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2025 03:43:46 -0700
+X-CSE-ConnectionGUID: ka3svwETTDyUeiqFLjtQ7A==
+X-CSE-MsgGUID: KLR2Z4G+SdK4f8cCYhbYAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,280,1751266800"; 
+   d="scan'208";a="180446374"
+Received: from lkp-server01.sh.intel.com (HELO 84a20bd60769) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 20 Sep 2025 03:43:44 -0700
+Received: from kbuild by 84a20bd60769 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uzv49-0005EB-1x;
+	Sat, 20 Sep 2025 10:43:41 +0000
+Date: Sat, 20 Sep 2025 18:42:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, robin.murphy@arm.com, will@kernel.org,
+	joro@8bytes.org, jgg@ziepe.ca, praan@google.com,
+	Mostafa Saleh <smostafa@google.com>,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v3 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
+Message-ID: <202509201819.f369wBHc-lkp@intel.com>
+References: <20250919133316.2741279-5-smostafa@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm_mpam: Try reading again if MPAM instance returns not
- ready
-To: James Morse <james.morse@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <bobo.shaobowang@huawei.com>,
-	<carl@os.amperecomputing.com>, <catalin.marinas@arm.com>, <dakr@kernel.org>,
-	<dave.martin@arm.com>, <david@redhat.com>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gregkh@linuxfoundation.org>, <guohanjun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <kobak@nvidia.com>, <lcherian@marvell.com>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <peternewman@google.com>, <quic_jiles@quicinc.com>,
-	<rafael@kernel.org>, <robh@kernel.org>, <rohit.mathew@arm.com>,
-	<scott@os.amperecomputing.com>, <sdonthineni@nvidia.com>,
-	<sudeep.holla@arm.com>, <tan.shaopeng@fujitsu.com>, <will@kernel.org>,
-	<xhao@linux.alibaba.com>
-References: <20250910204309.20751-7-james.morse@arm.com>
- <20250916131717.2980875-1-zengheng4@huawei.com>
- <e403809c-195f-48ca-a8f1-9eb785f229e9@arm.com>
-Content-Language: en-US
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <e403809c-195f-48ca-a8f1-9eb785f229e9@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.24]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250919133316.2741279-5-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_031418_287905_E594F80C 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20250920_034349_383388_47DFFAC8 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,98 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mostafa,
 
+kernel test robot noticed the following build errors:
 
-On 2025/9/20 0:11, James Morse wrote:
-> Hi Zeng,
-> 
-> On 16/09/2025 14:17, Zeng Heng wrote:
->> After updating the monitor configuration, the first read of the monitoring
->> result requires waiting for the "not ready" duration before an effective
->> value can be obtained.
-> 
-> May need to wait - some platforms need to do this, some don't.
-> Yours is the first I've heard of that does this!
-> 
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.17-rc6 next-20250919]
+[cannot apply to joro-iommu/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-I'm afraid similar platforms do exist. As long as one component has more
-than one MSC, after first updating the component’s monitor every MSC
-instance needs to wait for MAX_NRDY_USEC us before reading the monitor
-result.
+url:    https://github.com/intel-lab-lkp/linux/commits/Mostafa-Saleh/iommu-io-pgtable-arm-Simplify-error-prints-for-selftests/20250919-213912
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250919133316.2741279-5-smostafa%40google.com
+patch subject: [PATCH v3 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
+config: i386-randconfig-013-20250920 (https://download.01.org/0day-ci/archive/20250920/202509201819.f369wBHc-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.4.0-5) 12.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250920/202509201819.f369wBHc-lkp@intel.com/reproduce)
 
-In fact, most platforms don’t have nearly as many performance monitors
-as PARTIDs, so the monitors often have to be time-shared, which making
-the problem even more pronounced.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509201819.f369wBHc-lkp@intel.com/
 
-> 
->> Because a component consists of multiple MPAM instances, after updating the
->> configuration of each instance, should wait for the "not ready" period of
->> per single instance before the valid monitoring value can be obtained, not
->> just wait for once interval per component.
-> 
-> I'm really trying to avoid that ... if you have ~200 MSC pretending to be one thing, you'd
-> wait 200x the maximum period. On systems with CMN, the number of MSC scales with the
-> number of CPUs, so 200x isn't totally crazy.
-> > I think the real problem here is the driver doesn't go on to 
-reconfigure MSC-2 if MSC-1
-> returned not-ready, meaning the "I'll only wait once" logic kicks in and returns not-ready
-> to the user. (which is presumably what you're seeing?)
+All error/warnings (new ones prefixed by >>, old ones prefixed by <<):
 
-Yes, exactly.
+>> WARNING: modpost: drivers/iommu/io-pgtable-arm-selftests: section mismatch in reference: arm_lpae_run_tests+0x100 (section: .text) -> arm_lpae_dump_ops (section: .init.text)
+>> ERROR: modpost: "alloc_io_pgtable_ops" [drivers/iommu/io-pgtable-arm-selftests.ko] undefined!
+>> ERROR: modpost: "free_io_pgtable_ops" [drivers/iommu/io-pgtable-arm-selftests.ko] undefined!
 
-> 
-> Does this solve your problem?:
-> -----------------%<-----------------
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 404bd4c1fd5e..2f39d0339349 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1395,7 +1395,7 @@ static void __ris_msmon_read(void *arg)
-> 
->   static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
->   {
-> -       int err, idx;
-> +       int err, any_err = 0, idx;
->          struct mpam_msc *msc;
->          struct mpam_vmsc *vmsc;
->          struct mpam_msc_ris *ris;
-> @@ -1412,15 +1412,19 @@ static int _msmon_read(struct mpam_component *comp, stru
-> ct mon_read *arg)
->                                                      true);
->                          if (!err && arg->err)
->                                  err = arg->err;
-> +
-> +                       /*
-> +                        * Save one error to be returned to the caller, but
-> +                        * keep reading counters so that the get reprogrammed.
-> +                        * On platforms with NRDY this lets us wait once.
-> +                        */
->                          if (err)
-> -                               break;
-> +                               any_err = err;
->                  }
-> -               if (err)
-> -                       break;
->          }
->          srcu_read_unlock(&mpam_srcu, idx);
-> 
-> -       return err;
-> +       return any_err;
->   }
-> 
->   int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> -----------------%<-----------------
-> 
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for IOMMU_IO_PGTABLE_LPAE
+   Depends on [n]: IOMMU_SUPPORT [=y] && (ARM || ARM64 || COMPILE_TEST [=n]) && !GENERIC_ATOMIC64 [=n]
+   Selected by [m]:
+   - IOMMU_IO_PGTABLE_LPAE_KUNIT_TEST [=m] && IOMMU_SUPPORT [=y] && KUNIT [=m]
 
-I agree with this modification: Reconfigure all MSCs first, then if any
-of them returns EBUSY, wait just once for MAX_NRDY_USEC and re-read
-monitor result, this guarantees that the monitor result is valid.
-
-
-
-Thanks,
-Zeng Heng
-
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
