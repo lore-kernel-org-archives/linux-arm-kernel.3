@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F10A8CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 22:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E4CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 22:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTtZhruTVLF4GPNyBajpZdwiUP3tJkM+q78Hsw3okYw=; b=Y5iIQl0b0+a49K6SZWtTvQ5A5o
-	43hDm93mcevtXwwgm/q5AaEzqYZl6Cc/YCEn/QD1QsFQYAr7ifgHeACA7xIOda2KiE+4Aknpo8kW6
-	bAIMHCES52otUSiOQ6gt45wWsrkm7B6UmJPusEpS5BZK7QURTEswD2kQUuGrt9DkRmoh5ASST/1wF
-	qGzVLuyLRRQQ6zlQpwsoX3rsp29JYyPSuKK6XS1rB449JQFNyuwBst2fT5pifQ2JfTvYu3khB+wgC
-	Z4IcQTD82zfANXCbuD117jic2wDCTwQH2YUJBhKQ9JQOsMz7NACjCGowaZwFL4Hdta6ECIQs1XWZz
-	+Vj8033A==;
+	bh=DbXAa8qTsxyq1mEKjnb+++zhRcJBDvgJFncuYVQDFFE=; b=sx1osCz8jr5I21l14Pb0iB0+x1
+	qwWTljwa2RkK/qrjQEZq8yQvoH3hJgdfogrJ55Z0m7oasI6kP9c7XRb7ULgK+DXEcYSiU3X23dY2K
+	2cBEpc/sNdF8Rs3gDtsE1nE8+l6fVJYAqA1QvOasbyhon48Wgrt16wYMCVK62WY+EhDzWHKBY64SA
+	o338pUQj6FZnd9WX2EyYz9lMdq2DZwkVNuTiGTCiAHjFE1q2vx/JLglyoUkvj0XkZsdfCKgyK8uV4
+	Wcyc69vblFCOib1zbe9zZ4BxS075KDEEfEr7uyzRITloMF+66tiktlFuYA0l9Ad0qmr4BwcFtiS7h
+	JWPFJkQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v06HN-000000061TI-03V3;
-	Sat, 20 Sep 2025 22:42:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v06S9-0000000628V-2b4b;
+	Sat, 20 Sep 2025 22:53:13 +0000
+Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v06HK-000000061So-1oJP;
-	Sat, 20 Sep 2025 22:42:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F30940961;
-	Sat, 20 Sep 2025 22:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDD5C4CEEB;
-	Sat, 20 Sep 2025 22:42:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758408121;
-	bh=Dt8VKsI0bzzPWavc0PQi4CMaYsaPhVChPxt1pBUrkF4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=O2VD451vT9HNTTN9Ot+gYm+T7u5XS4TeGU3KNlq3MyYzbPc/WfKyJ5YsAal0YSqZa
-	 xVtREVHKDSzLplyY10SBSdmsSkd8v5ip1Co82UnaMPTaNqgxCQbGA18E8DeWVBE2Zo
-	 SPYF0+SvJAmBHV64T2e37DNfLhT5tv8ICq0uLqr/KChDAFAk3cxcyoFYaBYj8TEvYu
-	 tFnngljlcAoDTqs1yknnMrQY7rGzRV3q8ZPQ4pR3BcK5CAvsPT0GYyQPXbCNhMKRpw
-	 GIQRLcZwMYeIxTY63zUOhMNQchRVFai5QcRRjKXe54mpAmHWTldY9qzCM9oUtlMk28
-	 Pmn+JiZra4uYA==
-Date: Sat, 20 Sep 2025 17:41:57 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1v06S7-0000000628A-0hlp
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 20 Sep 2025 22:53:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1758408791; x=1789944791;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=DbXAa8qTsxyq1mEKjnb+++zhRcJBDvgJFncuYVQDFFE=;
+  b=XXHTW6vMirXyJcfJDU/ZNdnA4ZeoZCHNgEK8tGYwMGnyAD3CUrBS650k
+   Zi6rFsgg02F/cbbGfq62NjghX2oN6cbBH/vUdopysLP5vR+vxvX6xj0Jv
+   pHEC7d6EGqF5aBVCxP+kDLlHW8CntXx4rcv8p0da7XCRSDWEqrLm5eB3r
+   9EbB/130gJtOAuOqGXuMvhBSAm2isua684/YmCzdw6OaLsXBx/Im8AuLD
+   ukJ/L6CiryJgid95S1O2uqFDjXP+nurvBK09CIKQA+Y3VYU46dkLowJAL
+   goPzoXfoeji85BPjRu+HzNeJWdiV+L9LpXzCpR1Qz1e1YsdLjeRc1IVm1
+   w==;
+X-CSE-ConnectionGUID: zMA0ONwqTy6JSTQNaePjXQ==
+X-CSE-MsgGUID: 3Ci37821TSaw+QF3eJWciQ==
+X-IronPort-AV: E=Sophos;i="6.18,282,1751241600"; 
+   d="scan'208";a="3249959"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Sep 2025 22:53:10 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [10.0.38.20:4911]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.11.168:2525] with esmtp (Farcaster)
+ id 920169d4-e150-49a4-9281-68b82a9564ae; Sat, 20 Sep 2025 22:53:09 +0000 (UTC)
+X-Farcaster-Flow-ID: 920169d4-e150-49a4-9281-68b82a9564ae
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Sat, 20 Sep 2025 22:53:09 +0000
+Received: from dev-dsk-ravib-2a-f2262d1b.us-west-2.amazon.com (10.169.187.85)
+ by EX19D032UWA003.ant.amazon.com (10.13.139.37) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Sat, 20 Sep 2025 22:53:09 +0000
+From: Ravi Kumar Bandi <ravib@amazon.com>
+To: <mani@kernel.org>, <thippeswamy.havalige@amd.com>
+CC: <lpieralisi@kernel.org>, <bhelgaas@google.com>,
+	<linux-pci@vger.kernel.org>, <kwilczynski@kernel.org>, <robh@kernel.org>,
+	<ravib@amazon.com>, <michal.simek@amd.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Date: Sat, 20 Sep 2025 22:52:32 +0000
+Message-ID: <20250920225232.18757-1-ravib@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <C47CF283-C0C4-4ACF-BE07-3E87153D6EC6@amazon.com>
+References: <C47CF283-C0C4-4ACF-BE07-3E87153D6EC6@amazon.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Jianjun Wang <jianjun.wang@mediatek.com>, 
- linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org
-To: Christian Marangi <ansuelsmth@gmail.com>
-In-Reply-To: <20250920114103.16964-1-ansuelsmth@gmail.com>
-References: <20250920114103.16964-1-ansuelsmth@gmail.com>
-Message-Id: <175838993594.10832.1517003373145392481.robh@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: PCI: mediatek: Convert to YAML schema
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.169.187.85]
+X-ClientProxiedBy: EX19D043UWA003.ant.amazon.com (10.13.139.31) To
+ EX19D032UWA003.ant.amazon.com (10.13.139.37)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_154202_511167_6D37FA2D 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250920_155311_249964_426BE74D 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+after initializing the port, preventing INTx interrupts from
+PCIe endpoints from flowing through the Xilinx XDMA root port
+bridge. This issue affects kernel 6.6.0 and later versions.
 
-On Sat, 20 Sep 2025 13:41:01 +0200, Christian Marangi wrote:
-> Convert the PCI mediatek Documentation to YAML schema to enable
-> validation of the supported GEN1/2 Mediatek PCIe controller.
-> 
-> While converting, lots of cleanup were done from the .txt with better
-> specifying what is supported by the various PCIe controller variant and
-> drop of redundant info that are part of the standard PCIe Host Bridge
-> schema.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../devicetree/bindings/pci/mediatek-pcie.txt | 289 ---------
->  .../bindings/pci/mediatek-pcie.yaml           | 564 ++++++++++++++++++
->  2 files changed, 564 insertions(+), 289 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.txt
->  create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
-> 
+This patch allows INTx interrupts generated by PCIe endpoints
+to flow through the root port. Tested the fix on a board with
+two endpoints generating INTx interrupts. Interrupts are
+properly detected and serviced. The /proc/interrupts output
+shows:
 
-My bot found errors running 'make dt_binding_check' on your patch:
+[...]
+32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+[...]
 
-yamllint warnings/errors:
+Changes since v1::
+- Fixed commit message per reviewer's comments
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/mediatek-pcie.example.dtb: syscon@1a000000 (mediatek,mt7623-hifsys): compatible: 'oneOf' conditional failed, one must be fixed:
-	['mediatek,mt7623-hifsys', 'mediatek,mt2701-hifsys', 'syscon'] is too long
-	'mediatek,mt7623-hifsys' is not one of ['mediatek,mt2701-hifsys', 'mediatek,mt7622-hifsys']
-	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt2701-hifsys.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/mediatek-pcie.example.dtb: pcie@0,0: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/mediatek-pcie.example.dtb: pcie@1,0: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/mediatek-pcie.example.dtb: pcie@2,0: 'device_type' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/pci-bus-common.yaml#
+Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+---
+ drivers/pci/controller/pcie-xilinx-dma-pl.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250920114103.16964-1-ansuelsmth@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+index b037c8f315e4..cc539292d10a 100644
+--- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
++++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+@@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
+ 		return err;
+ 	}
+ 
++	/* Enable interrupts */
++	pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
++		   XILINX_PCIE_DMA_REG_IMR);
++	pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
++		   XILINX_PCIE_DMA_REG_IDRN_MASK);
++
+ 	return 0;
+ }
+ 
+-- 
+2.47.3
 
 
