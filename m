@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2487DCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 19:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E799CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 21:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6zXVgZPyPkQRAj1pWWzvdRd1dHDZMTxOtu3L4LbOPk=; b=ZkEHF4DDUxiORLAH4Qac47ayHQ
-	Nb77yPda7fVY3UADBjjCAGR+Y7YI5F8m5gjU/QA8fhY/27CTlLJBMz0vsh5q0yFcvzpr0vEDU4/d6
-	ltMAMfz7Fduc6Qk8tCvH7ijAXz80ufxJOt5QnWbwDFJ23i8qgj74bKKNQAYJ+Li6RkgtXxX78R0ak
-	I7uzIqdVoqreBPyc/bTX/AKCEotYRfzeFVfS+0CXG8O5YU9QoobzaXcMP0RmhOISXqkDmWUUNK+BG
-	Kw+XMwc5PudoS+Q6txYfz0xpzJaMVQwYhXpZQwAOpikyTrWH6e+mW4g+7cNfuM9qNiXd2VnSi+tr+
-	xLN9jFSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:Subject:To:From:Date:MIME-Version:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ey1TVXi/MS3WR8yat9Vw6iUgNo638CAO/mjyeNK3rn4=; b=fBXjseE2fdNQxVOHZBcyZGQ8RN
+	RJUsjusrWo6G7XjhNa6R+PBKQtcPtMg2riWYdz0IMsniABEfPfU2CtrljnKE6FYV9N8uSYSOTIQAm
+	V/y0vUGBlIi44I4KFUVfVPuTXREumHtT3Ru3NsgknnkD/2UXYylRmympvaZ//NjCqE9QetNnpB8fS
+	OOLtwonzLjQxKJm/1s4mOrqIHRmYp+f+9zB9cTr3xexKx0AQN0aV0uxQrdRSvkBV/+/9i+EGTVVst
+	aCwjI4Wx5/hzmtBfIIaG/DF2fUY5syq1tdTHjzB1VFNbETH6KIoZ0ArCjwW9VsoB4lTq6cQz/PTsp
+	3bY0+/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v03j4-00000005qUF-3R9m;
-	Sat, 20 Sep 2025 19:58:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v05Vq-00000005z8F-2X9L;
+	Sat, 20 Sep 2025 21:52:58 +0000
+Received: from m101-out-mua-2.websupport.se ([109.235.175.102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v03iz-00000005qQv-36F4
+	id 1v05Vo-00000005z35-1n89
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 19:58:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD58F601B2;
-	Sat, 20 Sep 2025 19:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 707AEC4CEF0;
-	Sat, 20 Sep 2025 19:58:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758398304;
-	bh=/PGuPzUPjL3A+P9KZEgqSNbC4HFlPgCGBNUXeYVZjK8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CslDXXYXuTB9Eq5YwbxWKZ8CSsFsmO6kQaDa37/KASlu98PSgBFB5QMFWl8i4zSgt
-	 f8jgz9AJWe76SYrzxjdQ6fKnaP1TKra9ID6lD1lvY2VevmEorWNNekFILptbQgs4SL
-	 Hct83s/3S94u/Bn+FeMLsUW/WjcY/I7KaErkcme2v7K/OnMfAcKHqu5B821Re4WH10
-	 QNEUchqYxX3Du70yTlNEcAAiVKrrLzyqQG2/S+3VEcLk2prF2QzzBMxOgiL6V+7dk/
-	 VKMYqQYEVN7oPdeSaZinTYsiDOjKld5DDV9yClU5j1wcwKvR15tLdBEfOz3KU75gp5
-	 AublQ1vm8HDTg==
-From: Mark Brown <broonie@kernel.org>
-Date: Sat, 20 Sep 2025 20:51:59 +0100
-Subject: [PATCH 1/2] KVM: arm64: selftests: Remove a duplicate register
- listing in set_id_regs
+	Sat, 20 Sep 2025 21:52:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=technux.se; s=mail;
+	t=1758404912; bh=ey1TVXi/MS3WR8yat9Vw6iUgNo638CAO/mjyeNK3rn4=;
+	h=Date:From:To:Subject:From;
+	b=NTbUu608hVSNCRuWqddzyVB5EkfVqAwqw8KySfF6rm0LvOVC5Zu3bWKlQuIyz8IJ2
+	 KWF6kHswhzcwDbIog8J2pj5r5hXCJk4X0LnfuULWLQJ12M2iqIJ7sUcLotmXRQeqBf
+	 pUady65Y4uuRnBus1SiZN4NDC9B7F7mTDdrkbrl9oXH9/AcoXhaLzJ8cNQVHMrlK4Q
+	 OdLS0CxIDkMhksmiuQ5wbCZwEBzUmlaZbGAVTAEtC3bsqc8o5mz4amFTPlRiNlxWWc
+	 B1JFl1GgFx0rEO9lUS9XselQvX2XRh2rpJ1rXOxwTP3/R/31FHL2clW0sKe0v68Clw
+	 pn/6AVlDTYHeQ==
+Received: from m101-u7-ing.websupport.se (unknown [10.30.7.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by m101-out-mua-2.websupport.se (Postfix) with ESMTPS id 4cTjg44HBGz1h88
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 23:48:32 +0200 (CEST)
+X-Authenticated-Sender: petter@technux.se
+Authentication-Results: m101-u7-ing.websupport.se;
+	auth=pass smtp.auth=petter@technux.se smtp.mailfrom=petter@technux.se
+Received: from roundcube.ws.int (unknown [109.235.175.24])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: petter@technux.se)
+	by m101-u7-ing.websupport.se (Postfix) with ESMTPSA id 4cTjg4235xzwXh
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 23:48:31 +0200 (CEST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Sat, 20 Sep 2025 23:48:31 +0200
+From: petter@technux.se
+To: linux-arm-kernel@lists.infradead.org
+Subject: [BUG] AM335x (BeagleBone Black Wireless) suspend/resume regression
+ starting in Linux 6.10
+User-Agent: Roundcube Webmail/1.6.11
+Message-ID: <31a22abb0cadefc20b22fd287065f7c3@technux.se>
+X-Sender: petter@technux.se
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250920-kvm-arm64-id-aa64isar3-el1-v1-1-1764c1c1c96d@kernel.org>
-References: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
-In-Reply-To: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-56183
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2211; i=broonie@kernel.org;
- h=from:subject:message-id; bh=/PGuPzUPjL3A+P9KZEgqSNbC4HFlPgCGBNUXeYVZjK8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBozwdauQ6uUrBMCoPa4Nf0CnLyOqrS6iJbILFgo
- eNy9Y8VhFGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaM8HWgAKCRAk1otyXVSH
- 0DrOB/4seDJw2IoI/2DuQs0EWGFEjPs/mkTg6Q3hIla8YNEM/PAhkfyxfa/k12oG131sa14o9Q3
- 2OaZgYXZjeYN6id/cK6LYuZxcFKGytrwsgbFYYTxvCnWKTFBTYps8wspfMsx8ET9At+dlt1xbq5
- 826QdoYqA/eKgB0OoVYItjHw9kigvKkrHmlPsDlFmvy6WTLRSCGcr3/sDFa6aoC4ckdp5gUKYoz
- wwUqEIoDw7tnq5TbwAM4LgQeqdLTCEgsRbXkJ4u1VswoJABpA/q1CAv9i1BoqQeDT6YhFwcUJiR
- S836wRFSFD/ShHmowSHJrYQTskjp/mCJ7Ha7n+fOtveV2wWE
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-Out-Spamd-Result: default: False [0.00 / 1000.00];
+	FROM_EQ_ENVFROM(0.00)[];
+	ASN(0.00)[asn:41528, ipnet:109.235.175.0/24, country:SE];
+	ARC_NA(0.00)[];
+	WS_IP_WHITELIST(0.00)[109.235.175.24];
+	FROM_NO_DN(0.00)[]
+X-Out-Rspamd-Queue-Id: 4cTjg4235xzwXh
+X-Rspamd-Pre-Result: action=no action;
+	module=multimap;
+	Matched map: WS_IP_WHITELIST
+X-Out-Rspamd-Server: m101-rspamd-out-4
+X-Rspamd-Action: no action
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 1408
+X-purgate-ID: 155908::1758404912-F3A44325-551F3682/0/0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250920_145256_772238_9DE2D955 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently we list the main set of registers with bits we test three
-times, once in the test_regs array which is used at runtime, once in the
-guest code and once in a list of ARRAY_SIZE() operations we use to tell
-kselftest how many tests we plan to execute. This is needlessly fiddly,
-when adding new registers as the test_cnt calculation is formatted with
-two registers per line. Instead count the number of bitfields in the
-register arrays at runtime.
+Hi,
 
-The existing code subtracts ARRAY_SIZE(test_regs) from the number of
-tests to account for the terminating FTR_REG_END entries in the per
-register arrays, the new code accounts for this when enumerating.
+I have some issues when trying to bump a BeagleBone Black Wireless board 
+from Linux 6.6 to 6.12 (or later). When using rtcwake to test 
+suspend/resume the system freezes on
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+[  209.104183] PM: suspend entry (deep)
+[  209.111191] Filesystems sync: 0.003 seconds
+[  209.147496] Freezing user space processes
+[  209.155818] Freezing user space processes completed (elapsed 0.003 
+seconds)
+[  209.163098] OOM killer disabled.
+[  209.166495] Freezing remaining freezable tasks
+[  209.172805] Freezing remaining freezable tasks completed (elapsed 
+0.001 seconds)
+[  209.180559] printk: Suspending console(s) (use no_console_suspend to 
+debug)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index d3bf9204409c..bfb70926272d 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -763,7 +763,7 @@ int main(void)
- 	struct kvm_vm *vm;
- 	bool aarch64_only;
- 	uint64_t val, el0;
--	int test_cnt;
-+	int test_cnt, i, j;
- 
- 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES));
- 	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_WRITABLE_IMP_ID_REGS));
-@@ -779,13 +779,10 @@ int main(void)
- 
- 	ksft_print_header();
- 
--	test_cnt = ARRAY_SIZE(ftr_id_aa64dfr0_el1) + ARRAY_SIZE(ftr_id_dfr0_el1) +
--		   ARRAY_SIZE(ftr_id_aa64isar0_el1) + ARRAY_SIZE(ftr_id_aa64isar1_el1) +
--		   ARRAY_SIZE(ftr_id_aa64isar2_el1) + ARRAY_SIZE(ftr_id_aa64pfr0_el1) +
--		   ARRAY_SIZE(ftr_id_aa64pfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr0_el1) +
--		   ARRAY_SIZE(ftr_id_aa64mmfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr2_el1) +
--		   ARRAY_SIZE(ftr_id_aa64mmfr3_el1) + ARRAY_SIZE(ftr_id_aa64zfr0_el1) -
--		   ARRAY_SIZE(test_regs) + 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
-+	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
-+	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
-+		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
-+			test_cnt++;
- 
- 	ksft_set_plan(test_cnt);
- 
+I have also tried with no_console_suspend then I can see below 
+additional printouts before the system stalls
 
--- 
-2.47.2
+[ 215.505253] omap8250 48022000.serial: ttyS1: Unable to drain 
+transmitter [ 215.531553] l4ls-clkctrl:0034:0: failed to disable
 
+I tried to bisect the issue and reverting below commits seems to solve 
+it on 6.10 -> 6.12 kernels.
+
+4bcc2e91b9e7 bus: ti-sysc: Drop legacy idle quirk handling
+2414277f5145 bus: ti-sysc: Drop legacy quirk handling for smartreflex
+5f711f036588 bus: ti-sysc: Drop legacy quirk handling for uarts
+
+BUT on Linux 6.17 I tried to revert above commits and it still seems to 
+hang. Anyone that knows how I can debug this further or have any 
+suggestion for what is really wrong here?
+
+BR Petter
 
