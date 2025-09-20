@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D274CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 08:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E289CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 08:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nhhXvyJU4Q/ep+pG2LVNeGtKFMmPOfCIGjE2903J/IY=; b=scwXxA+Ffokph8at8vOMr2I8ZL
-	B4eoPsCOVaNvSBNg8WRvoY+lRmuP5d6yS7AFIVmdRcWDi9mMkgt4ydBIkrECsuiyr0sK4uA2uGZjx
-	V1EHhWKn8T6Sg67ZaejZ0G9lIfsc31oCvfDGbmUfRF6x6fckt4I7rA0CVF7B+I3eA4XxREXG0Hxn9
-	Pce5MunX3wnOxQZte9pox1MYtIdIN6SbDDXYGTkC/W/A3yA2MVKOwwSYI0ZS2R+BtkjoZM+FQ9dud
-	8UvTQCpjrgbPOC5xoPatHqJC0N0KqD6hdL0HH+AIzfWtJdrqK9ZFW85g9fu5cI/TrwgRYe5vUP2XB
-	/TOVprxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AaAtvGQxd5BtWHJs/domYdV7rbH4BbOZzbyvG7eDHK0=; b=Mlq8q41qkxbaMXRzKtlhJWHPFm
+	U9A5ZPiC9ZpKCsOIGAazKHmrhtJ1qcNL2yQNYfmhKlTQ4j1gujH9yCzKGNhLhuQnoCMXfNKABVGQM
+	yWJOwIljkxT3Nwfa8MYE7HjkDMMmAUtrBnLLbG5lFYE8RBQumAlJ8UUQ8e9zi3U9J8daueZqu1/LF
+	gzcir18+7Uphy577rC1uHtAkXmZ5zBBy07lDawYVCN8KI98nJGc/n5RMPq6xPqRbt08Glb3qZfWv2
+	WRdHaTKr+VlnYSkWLca7DS7HI6r1XccPMryIJDbHYQdlY/JNi+P1hCqiox1x7j80ldtcToT8qajEx
+	eG76ty+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzskH-0000000524d-15E1;
-	Sat, 20 Sep 2025 08:15:01 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uzswd-000000052uI-3CIW;
+	Sat, 20 Sep 2025 08:27:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzskF-00000005237-0iUI
+	id 1uzswc-000000052uB-21Bg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 08:15:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Cc: From:
- References: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1758356097;
- bh=nhhXvyJU4Q/ep+pG2LVNeGtKFMmPOfCIGjE2903J/IY=;
- b=0eBvzGMsrD4zElBvN/3D7l46gdaULvTRYe+ejKdvTz8m3OdASYLRjaxd+erpiCD4uiXRkvgzu
- m5VcbPrAbH2o4fhe7K0Yv/HlX2XQ4Ts2eMMtziLOlWBrGLVSEKLEvyurIikZWB1py7o4OQcTRG5
- 1Dwdt4ACJeUjcgyhemzTzveZSM+d1Y80LtMSrGa6zYfmsOzUHqQoSoFLTSvrDgdRb9ThvwX/llV
- rMzM8IbokeoolGWAsCTxk9kUMRw0KGD1Vxc2q8HBeo0doJrpFRlINVdA6dr312gtlu7bPw/a1MP
- 0hz0Rn6UVtd3zX70tjYgKQamp3S9uPbJPm7TTihhcxYg==
-X-Forward-Email-ID: 68ce627a528963d4864a57f8
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.2.14
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <07560892-6672-45a0-aa3d-79e47d145ff4@kwiboo.se>
-Date: Sat, 20 Sep 2025 10:14:45 +0200
+	Sat, 20 Sep 2025 08:27:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 82EDC601AA;
+	Sat, 20 Sep 2025 08:27:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C218C4CEF9;
+	Sat, 20 Sep 2025 08:27:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758356865;
+	bh=xjORWEb9AB9K4GuQONrEhOQ9HcO3RWCcAWlzmCE1C4s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eIkeUZwyORBFSxxN8Pc4oIVfJ8oaglOfKFEVHkSUgIk2mE9cW6ISS1nMYB7l/mTzx
+	 NsE1jNdLrdFXId15b7wHf0WS6LJPTouXO/Ymr6zWcUUPcjUsCkZ9DIfRv1vzEZ+6Js
+	 rh2Me3hOQAbwlh65urfgT/sHEGeCgyaGprQw+PffJzoD3QaHpCyGBFZ0N7/Bse1hbj
+	 klqnPSRNhw6lwvlK06+WmDWwCf5OQnKTOGcSL7j3fZ5NHTd9LBdBCGu/xlvjFGPPns
+	 oouiGgye8+Zyz9jM+b43AVsVXIID/XvVLwq9yZRH76rTRCvcaug3JrPZHJ7zUYw9bC
+	 aeJcv9AXR2xuQ==
+Date: Sat, 20 Sep 2025 13:57:34 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	qiang.yu@oss.qualcomm.com, mayank.rana@oss.qualcomm.com, thippeswamy.havalige@amd.com, 
+	shradha.t@samsung.com, quic_schintav@quicinc.com, inochiama@gmail.com, 
+	cassel@kernel.org, kishon@kernel.org, sergio.paracuellos@gmail.com, 
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 09/10] PCI: keystone: Exit ks_pcie_probe() for the
+ default switch-case of "mode"
+Message-ID: <jgw5f33ptz6dutffxaid4kxnllsdyanqy5obsotn3bmhxibxdt@2zzlh7mbfoi2>
+References: <20250912122356.3326888-1-s-vadapalli@ti.com>
+ <20250912122356.3326888-10-s-vadapalli@ti.com>
+ <lo2zv3nxek57s3h4hwv2ujzophdx2ubfuam4gqmo5h77t2g4jo@447qpc7a4ub3>
+ <3f3b2f06-64a3-4e6d-9fa9-c3412b1ca710@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: correct uart mux for Radxa ZERO
- 3
-To: Ed Wildgoose <lists@wildgooses.com>
-References: <20250917114932.25994-1-lists@wildgooses.com>
- <20250917114932.25994-2-lists@wildgooses.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-In-Reply-To: <20250917114932.25994-2-lists@wildgooses.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_011459_558862_62E1F240 
-X-CRM114-Status: GOOD (  18.38  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3f3b2f06-64a3-4e6d-9fa9-c3412b1ca710@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +79,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ed,
-
-On 9/17/2025 1:49 PM, Ed Wildgoose wrote:
-> The rk3566 has multiplexed pins and the uarts can be moved to a choice
-> of 2 pin groups. The default rk356x-base.dtsi appears to default to mux0
-> for all uarts, however, specific hardware might choose to implement
-> alternatives
+On Sat, Sep 20, 2025 at 01:39:22PM +0530, Siddharth Vadapalli wrote:
+> On Sat, Sep 20, 2025 at 12:06:46AM +0530, Manivannan Sadhasivam wrote:
+> > On Fri, Sep 12, 2025 at 05:46:20PM +0530, Siddharth Vadapalli wrote:
+> > > In ks_pcie_probe(), the switch-case for the "mode" is used to configure
+> > > the PCIe Controller for either Root-Complex or Endpoint mode of operation.
+> > > Prior to the switch-case statement for "mode" an invalid mode will result
+> > > in probe failure only if "dw_pcie_ver_is_ge(pci, 480A)" is true, which
+> > > is the case for the AM654 platform. On the other hand, when that is not
+> > > the case, "ks_pcie_set_mode()" will be invoked, which does not validate
+> > > the mode. As a result, it is possible for the switch-case statement for
+> > > "mode" to receive an invalid mode. Currently, an error message is displayed
+> > > in the "default" case where "mode" is neither "DW_PCIE_RC_TYPE" nor
+> > > "DW_PCIE_EP_TYPE", but the probe succeeds. However, since the configuration
+> > > required for Root-Complex and Endpoint mode have not been performed, the
+> > > Controller is not operational.
+> > > 
+> > > Fix this by exiting "ks_pcie_probe()" with the return value of "-EINVAL"
+> > > in addition to displaying the existing error message.
+> > > 
+> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > 
+> > Fixes tag? And probably CC stable since the controller seems to be not
+> > operations without this fix.
 > 
-> The Radxa zero 3 shows that is uses M1 for uarts:
-> - uart4
-> - uart5
-> - uart9
+> While I had mentioned the rationale for not including the 'Fixes tag' in
+> the v1 patch below the tearline, I forgot to add it in this patch. I will
+> quote the same below:
 > 
-> These aren't normally enabled, but we should at least correct the
-> default pinctrl definitions. Without these changes there will be
-> conflicts with mmc0/mmc1, leading to the SD or eMMC going missing.
-
-Please rephrase the commit subject and message, currently it seem to
-imply that there is something broken that needs fixing, however this
-mainly make it easier to apply an overlay that does not include
-description of any changed behavior for pins on the 40-pin header.
-
-Current expected behavior of the hw, using pins on 40-pin header as gpio
-pins should already be correctly described in this board device tree.
-
-My original intent when submitting board device trees, such as this one, 
-is that a device tree overlay will fully describe any required changes.
-Also I do not expect that using an overlay intended for an old vendor
-kernel device tree will work as-is on mainline kernel device tree.
-
+>     NOTE: A "Fixes" tag is ommitted on purpose since the fix is not crucial:
+>     1. It doesn't fix a crash or any fatal error
+>     2. It doesn't enable controller functionality by fixing the issue
 > 
-> Signed-off-by: Ed Wildgoose <lists@wildgooses.com>
-> ---
->  .../boot/dts/rockchip/rk3566-radxa-zero-3.dtsi    | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
+
+Fixes tag should be added irrespective of the cruciality of the bug.
+
+>     Therefore, the patch may not be worth backporting.
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> index 1ee5d96a4..41b3c4403 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
-> @@ -492,6 +492,21 @@ &uart2 {
->  	status = "okay";
->  };
->  
-> +&uart4{
 
-nit: missing space
+Agree with this though.
 
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart4m1_xfer>;
+> Prior to this patch, the probe succeeded and the controller was
+> unusable. Post this patch, the probe will fail and the controller is
+> still unusable. Behavior is identical from a usability perspective but
+> the user is aware of the issue since the probe fails.
+> 
 
-nit: seem to use space instead of tab, same for rest.
+Ok. I think the description could reworded to make it more clear. The actual
+issue is that the default case lacks setting the errno, leading to probe
+success. But the addition of ks_pcie_set_mode() and others seem to cause little
+bit confusion.
 
-Regards,
-Jonas
+- Mani
 
-> +};
-> +
-> +&uart5 {
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart5m1_xfer>;
-> +};
-> +
-> +&uart9 {
-> +    pinctrl-names = "default";
-> +    pinctrl-0 = <&uart9m1_xfer>;
-> +};
-> +
->  &usb_host0_xhci {
->  	status = "okay";
->  };
+> > 
+> > - Mani
+> > 
+> > > ---
+> > > 
+> > > v1: https://lore.kernel.org/r/20250903124505.365913-11-s-vadapalli@ti.com/
+> > > No changes since v1.
+> > > 
+> > >  drivers/pci/controller/dwc/pci-keystone.c | 2 ++
+> > >  1 file changed, 2 insertions(+)
+> > > 
+> > > diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> > > index 2da9feaaf9ee..e85942b4f6be 100644
+> > > --- a/drivers/pci/controller/dwc/pci-keystone.c
+> > > +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> > > @@ -1414,6 +1414,8 @@ static int ks_pcie_probe(struct platform_device *pdev)
+> > >  		break;
+> > >  	default:
+> > >  		dev_err(dev, "INVALID device type %d\n", mode);
+> > > +		ret = -EINVAL;
+> > > +		goto err_get_sync;
+> > >  	}
+> > >  
+> > >  	ks_pcie_enable_error_irq(ks_pcie);
+> 
+> Regards,
+> Siddharth.
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
