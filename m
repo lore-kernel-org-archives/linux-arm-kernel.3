@@ -4,59 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CD9CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 12:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1379ECAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 12:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lvt9ww4/Q3fs/StfAHb3PQuU23ljLsO8fMPTgXTEZ8Y=; b=SrC1u7a70QvGBm6OhDaSn/iYnM
-	sfve0jE6a8tJuc6ZEtEds34Q5LdihN9Rt4eqa4yulgWnUdM7KHMSGeF8eNRB7i2Yk7sZePRUnXQjc
-	5PfyJ/5giiGgGvduosmu9Xy9YWem2ezmdccDxWgb0yZlfiukU3+FiKmOFcK2sh6fD+QeIHdMxUI/z
-	vFEzn0nBiaHZnrzHAoopYzy9pAXU0S39hp2M5n2TDc6b+ZaDtTJSJNrRMgq1p7FIXkTiLjctrVWNO
-	fOHsa3zM3qE/901gkviUYIpjsbzxKW4OenpIV6yRGEw4vZ1OnIEJ+ngXdFG5OPZupVLT0EiHLK9Zw
-	x4zAv7MQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15ctJlWd5TiNnXgBO40s7vu6haL/vdED1g3JIoksqkA=; b=H1c4DZW5zyF+2bZoUrA8DVSH+Y
+	AA0eP2EHz2e/SoFHkS7Mz7BSEug51gBQuMzRkjD7Z8SEkShrQjVbiqTLM8M9zlJ+b7lThNugfnuQf
+	2+4Ijud/WBxpeOzNYwOHFZwn+DWEiAa1bX9kzK6wILTnPxwiyB2BEDUrBT1gXOp3R9h6OHy2VzEJd
+	4v1WSCt+UgRpk7VLwrLjSZpa9/nP/eswhb50YKJjumT7j6lTdl+vxT2q1MCsOLl5j0oyPYwaHpj6L
+	o8wiVHi0pk/pwexQyge0tvLm7u5m8pqIUsP766J6KdnnrvdQGljEx7NoJHVbvhmp4eTvWwbsaarHZ
+	Wqtqxmtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzwje-00000005Kf5-0v93;
-	Sat, 20 Sep 2025 12:30:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uzwuU-00000005LMj-0d7F;
+	Sat, 20 Sep 2025 12:41:50 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzwjb-00000005Ked-1pWn
+	id 1uzwuR-00000005LMO-0nQj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 12:30:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1462B439BF
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 12:30:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2752EC4CEEB;
-	Sat, 20 Sep 2025 12:30:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758371433;
-	bh=+ABFe90/6L3G3RwAWo57j6ADE9lXeFOY1J0mVIJdsog=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fnqKPjuwWPTWO/5/xvtw6GA3iR/3+e48t2cVXcsiVuGjoBLf1x2d7qxVLquQ851p/
-	 mB1nGZdkMocGgGbFedR75ni2oawfAproeT66hAy7KfFTmtDjfkLV//U7hL/H5l6jIV
-	 yWLVArkD52Hbh2G5zb/YyhWBUsjybmvFqX2vRHfEQLbIYfF06L+g11h5LlHuqmX/5S
-	 78QCl+qfgTKv/5I/P5rfIcc8Zqa+TJlRJmTpqPY3mPLNyfR4BBoXvfPaUO8vqgC2qF
-	 Hlyp1yid4DOC9Kp3tuVsE+9jZJCS5E5BDbXkN3LgdlCyKwa8GKnCoifEYHqMCcGZTl
-	 5pJP+kLsinF1g==
-From: Sven Peter <sven@kernel.org>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sven Peter <sven@kernel.org>
-Subject: [GIT PULL 1/2] Apple SoC driver changes for v6.18
-Date: Sat, 20 Sep 2025 14:30:27 +0200
-Message-Id: <20250920123028.49973-1-sven@kernel.org>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Sat, 20 Sep 2025 12:41:48 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3c68ac7e18aso1624991f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 05:41:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758372104; x=1758976904; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=15ctJlWd5TiNnXgBO40s7vu6haL/vdED1g3JIoksqkA=;
+        b=TEiPO78EG24fkn4ttfYaOl0AiBM7TrI+nVVLmHAWKt0kDeXUvuQi2Xtzqs57Sijcke
+         mw+2Nr/arlrLaVnYmF8yjAUswfKE5kiAHsxq7c1ZXuDuj8e4WKxDMQbFyg6516kfmsun
+         mH6tt2hir4uiJ6zeOP7ZFyF7Zl/FGsA/nsEy/mRDBcqoWaO/TY75cSChgAWRNCoegTqK
+         6obfJ5lP+LBjIwA5CFQaCKCuq7IQ45+UNaLuVdfnueHVB0rl8CjWA4usGbU4xKoo+3tE
+         MbiQYHBngne7noFcOgmgSJXML3ZbESo7ARhuY9xcDU/PtQOYgWO35agBxigQuMWP8KkT
+         969w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758372104; x=1758976904;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=15ctJlWd5TiNnXgBO40s7vu6haL/vdED1g3JIoksqkA=;
+        b=Sc98KtjkYEt49e8zQUosWsHKmlQjamRcG2pbOPF91kU8houoMKg8PCgYTUNdbGocNI
+         GJZDzQ1/1yNPkv8tnw1aQSpVAzXaSKvCSixSBrjlweVGtyhTisowX8PO57vOuMwb4MAk
+         CwFBtDfpt2KQLXw+0kKUaV2X7SKY+NwnJKU3E8Lk5bncuyzb2snKXANFBPR4qDmQ0/iJ
+         IR2XfOdBQ7PB8zkk8iChu2CJI1n4225PRSirzl+eGcA2HttVNyL4ebhNBSVl64RgyLL9
+         n7edph0lVeupQhaSob/jTroX4dz5TykQiNqYiLe3Z8DKe2MmU565wTITvpun9m5GYgvO
+         JJ1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWSRLTaeRbXwGsBbQUw54Msu5giBOxl00N9PIP+rhl1pkM/wXFT8uMglCFvsh53GV5q4vkABdzz5AJi9jAIUuBk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWw8OmiSgLLC2LTUGFR/jzyvkHyVKwcGwp8J6vaz+XMdttkBq2
+	CSQxBKpESJjStGRmL18pQfZee4Vkw6+9p02fgWyO0yczXJ6cUAbkqq5taEOkZQ==
+X-Gm-Gg: ASbGncuTUma/AXpBtFoIkt52wuLOL2qmn6ZyUbI9SkoaQ4ogmIFsw9JTJEF9KAd0J2s
+	sE68Ug22nr9cROC+ia81InGkFmR5nfqWydeaKUn2I1HwEMkzxlmcUtf+Kh9ceftlIhobj+YiC31
+	Ci6MVSYMnWazUmxzhJ4+57QsNUnpPCVqBFSH1LqnB/KKWrxPx7NZbo+ns8i2GZR+S0P6KyJYWTI
+	d6J+9ZzLG0Nj21z2Im1vDXXLoRfjYX+fJyHDHoHhuTGbkx0RA0U+iptRUh4iSVbTUZBBAOExNdS
+	cyue6gvMSdVziou0wuupzdq+WncmsCPgLczcHzAI/QT3zRy8tELY5ZaeEJSat4bag2nQ+eABXbJ
+	ipjweXYSwq3D0sjWE33Hg/VEa80A6SUhj4ben3W2U5fTDiIH5GQmwDVEyC0+Y2bNQxXXrIlJ2zO
+	Rrjf4=
+X-Google-Smtp-Source: AGHT+IEWFUq3RVye1lwnKV9/BW4Qg2WZ91sgKbGmwNaa5auZ6g4qL3atHwoQRVeYQ1Kh21j2Fa3FNw==
+X-Received: by 2002:a5d:5887:0:b0:3d7:eb95:b1e1 with SMTP id ffacd0b85a97d-3ee83cabba5mr4475853f8f.32.1758372104261;
+        Sat, 20 Sep 2025 05:41:44 -0700 (PDT)
+Received: from Radijator.localdomain (93-140-182-131.adsl.net.t-com.hr. [93.140.182.131])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-464f0aac271sm122747095e9.3.2025.09.20.05.41.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 Sep 2025 05:41:43 -0700 (PDT)
+From: "=?utf-8?q?Duje_Mihanovi=C4=87?=" <dujemihanovic32@gmail.com>
+X-Google-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
+Cc: Karel Balej <balejk@matfyz.cz>, David Wronek <david@mainlining.org>, 
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+In-Reply-To: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+References: <20250913-pxa1908-dts-v1-0-8120cdc969b8@dujemihanovic.xyz>
+Subject: Re: [PATCH RESEND 0/9] samsung,coreprimevelte DTS additions
+Message-Id: <175837210249.5177.1897822800832448116.b4-ty@dujemihanovic.xyz>
+Date: Sat, 20 Sep 2025 14:41:42 +0200
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_053035_527665_2BD0966D 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250920_054147_249379_7FD08A08 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,106 +108,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
-  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+On Sat, 13 Sep 2025 23:21:02 +0200, Duje Mihanović wrote:
+> This series adds some hardware support for the PXA1908 SoC and
+> samsung,coreprimevelte board which has accumulated before the initial
+> support series was merged.
+> 
+> 
 
-are available in the Git repository at:
+Applied, thanks!
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-drivers-6.18
+[1/9] arm64: dts: marvell: samsung,coreprimevelte: Add backlight
+      commit: da8cd97da58ac1bada6384eb7327de2502e76b03
+[2/9] arm64: dts: marvell: samsung,coreprimevelte: Correct CD GPIO
+      commit: 37780045c78d0134373c612ed5a6cf18a1c77ee2
+[3/9] arm64: dts: marvell: samsung,coreprimevelte: Enable eMMC
+      commit: 4a9e21b88c9a6bf3afa68d9a3eef8c72c53a69f6
+[4/9] arm64: dts: marvell: pxa1908: Add PWMs
+      commit: b7061793892ed1e947d65a53510dc217411bbea0
+[5/9] arm64: dts: marvell: samsung,coreprimevelte: Add vibrator
+      commit: 1c01dc7da1ca9ddb55cf35a7b8baa362ca393787
+[6/9] arm64: dts: marvell: pxa1908: Move ramoops to SoC dtsi
+      commit: bce8c4671a45d9fc8d0f4539ed758a1aef9e1aa8
+[7/9] arm64: dts: marvell: samsung,coreprimevelte: Drop some reserved memory
+      commit: ef2ec06ed37e8d6134b2df28ce123e7a3096076d
+[8/9] arm64: dts: marvell: samsung,coreprimevelte: Fill in memory node
+      commit: 01bd34653bfc17679e04a7d554e9b7f917e1b3cc
+[9/9] arm64: dts: marvell: samsung,coreprimevelte: Add USB connector
+      commit: efab3844c6f18327886c5c2e0e40acccaf976a89
 
-for you to fetch changes up to 442816f97a4f84cb321d3359177a3b9b0ce48a60:
+Best regards,
+-- 
+Duje Mihanović <duje@dujemihanovic.xyz>
 
-  pmdomain: apple: Add "apple,t8103-pmgr-pwrstate" (2025-09-18 21:30:56 +0200)
-
-----------------------------------------------------------------
-Apple SoC driver updates for 6.18
-
-Krzysztof Kozlowski asked us to move away from generic compatibles:
-- Adjust all dt-bindings to use apple,t8103-XXXX instead of apple,XXXX
-  as fallback and add a comment that the old generic list should no
-  longer be extended.
-- Add new fallback compatibles to pinctrl, pmdomain, spi, and mca
-  drivers. These changes have been Acked by their subsystem maintainers
-  to be merged through our tree together with the dt-bindings.
-
-Support for pre-M1 Apple Silicon:
-- SART and mailbox gain support for Apple's A11, which are both
-  required for NVMe.
-- NVMe also gains support for Apple's A11 and the nvme maintainers
-  prefer that we merge this through the soc tree together with
-  the mailbox and SART changes.
-- SPMI compatibles for A11 and T2 have been added, also going through
-  the soc tree due to conflicts with the generic compatible removal and
-  because no driver change is required.
-
-Signed-off-by: Sven Peter <sven@kernel.org>
-
-----------------------------------------------------------------
-Janne Grunau (23):
-      dt-bindings: arm: apple: apple,pmgr: Add t6020-pmgr compatible
-      dt-bindings: power: apple,pmgr-pwrstate: Add t6020 compatible
-      dt-bindings: cpufreq: apple,cluster-cpufreq: Add t6020 compatible
-      dt-bindings: interrupt-controller: apple,aic2: Add apple,t6020-aic compatible
-      dt-bindings: iommu: dart: Add apple,t6020-dart compatible
-      dt-bindings: pinctrl: apple,pinctrl: Add apple,t6020-pinctrl compatible
-      dt-bindings: mailbox: apple,mailbox: Add t6020 compatible
-      dt-bindings: gpu: apple,agx: Add agx-{g14s,g14c,g14d} compatibles
-      dt-bindings: iommu: apple,sart: Add apple,t6020-sart compatible
-      dt-bindings: nvme: apple: Add apple,t6020-nvme-ans2 compatible
-      dt-bindings: net: bcm4377-bluetooth: Add BCM4388 compatible
-      dt-bindings: net: bcm4329-fmac: Add BCM4388 PCI compatible
-      dt-bindings: mfd: apple,smc: Add t6020-smc compatible
-      dt-bindings: spmi: apple,spmi: Add t6020-spmi compatible
-      dt-bindings: watchdog: apple,wdt: Add t6020-wdt compatible
-      dt-bindings: clock: apple,nco: Add t6020-nco compatible
-      dt-bindings: dma: apple,admac: Add t6020-admac compatible
-      ASoC: dt-bindings: apple,mca: Add t6020-mca compatible
-      spi: dt-bindings: apple,spi: Add t6020-spi compatible
-      pinctrl: apple: Add "apple,t8103-pinctrl" as compatible
-      ASoC: apple: mca: Add "apple,t8103-mca" compatible
-      spi: apple: Add "apple,t8103-spi" compatible
-      pmdomain: apple: Add "apple,t8103-pmgr-pwrstate"
-
-Nick Chan (8):
-      dt-bindings: mailbox: apple,mailbox: Add ASC mailboxes on Apple A11 and T2
-      soc: apple: mailbox: Add Apple A11 and T2 mailbox support
-      dt-bindings: iommu: apple,sart: Add Apple A11
-      soc: apple: sart: Make allow flags SART version dependent
-      soc: apple: sart: Add SARTv0 support
-      dt-bindings: nvme: apple,nvme-ans: Add Apple A11
-      nvme: apple: Add Apple A11 support
-      dt-bindings: spmi: Add Apple A11 and T2 compatible
-
-Sven Peter (1):
-      soc: apple: Drop default ARCH_APPLE in Kconfig
-
- .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |  33 ++--
- .../devicetree/bindings/clock/apple,nco.yaml       |  17 +-
- .../bindings/cpufreq/apple,cluster-cpufreq.yaml    |   3 +
- .../devicetree/bindings/dma/apple,admac.yaml       |  17 +-
- .../devicetree/bindings/gpu/apple,agx.yaml         |   6 +
- .../bindings/interrupt-controller/apple,aic2.yaml  |   1 +
- .../devicetree/bindings/iommu/apple,dart.yaml      |  14 +-
- .../devicetree/bindings/iommu/apple,sart.yaml      |   5 +-
- .../devicetree/bindings/mailbox/apple,mailbox.yaml |   8 +
- .../devicetree/bindings/mfd/apple,smc.yaml         |  17 +-
- .../net/bluetooth/brcm,bcm4377-bluetooth.yaml      |   1 +
- .../bindings/net/wireless/brcm,bcm4329-fmac.yaml   |   1 +
- .../devicetree/bindings/nvme/apple,nvme-ans.yaml   |  30 ++--
- .../devicetree/bindings/pinctrl/apple,pinctrl.yaml |  27 +--
- .../bindings/power/apple,pmgr-pwrstate.yaml        |  27 +--
- .../devicetree/bindings/sound/apple,mca.yaml       |  17 +-
- .../devicetree/bindings/spi/apple,spi.yaml         |  16 +-
- .../devicetree/bindings/spmi/apple,spmi.yaml       |  20 ++-
- .../devicetree/bindings/watchdog/apple,wdt.yaml    |  27 +--
- drivers/nvme/host/apple.c                          | 197 ++++++++++++++-------
- drivers/pinctrl/pinctrl-apple-gpio.c               |   1 +
- drivers/pmdomain/apple/pmgr-pwrstate.c             |   1 +
- drivers/soc/apple/Kconfig                          |   3 -
- drivers/soc/apple/mailbox.c                        |  19 ++
- drivers/soc/apple/sart.c                           |  60 ++++++-
- drivers/spi/spi-apple.c                            |   1 +
- sound/soc/apple/mca.c                              |   1 +
- 27 files changed, 404 insertions(+), 166 deletions(-)
 
