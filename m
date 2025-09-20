@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7D9CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 00:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E984BCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 00:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WPYi7sPUqVQFwd5DMYfPao/LFjtl0ygD3emLcV+vfcY=; b=oEmKSWv53QsbdQuTDXmx9RK+z9
-	+yxiVYB+jnmIOJ2KngoJIDsMlFN9+YlzPf6scIuayHw8Jjhxb25Tpdvzh3GZ1KNwJ03TKS1xTADIA
-	pGuD3QvBzxTEX/12mclnYNsuVoPRVMjC9QQBj6Q4vVoeya6I0LAfsLFV3jMB8PY3tPF91T5ddEeV+
-	4v1P4DJ6ovdzQDQ2OkMY/qehJh7UkuMqR2A9mDwcEsF5RmCAf6ZkzyqC2AGdxmmZJkwqudehoKpAK
-	urV9xoDQOk1B6m+p7szaQI6Xto/IwUYF/k1IKX4p/vnhsukZXu23L8bTvEy0y5reaMUfaBM16+MDn
-	LtHc82Ug==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U9ZeQCh35puBv44uaN5n9NTG0VCJ7xzTKeG6j0klt68=; b=JnBhOe3xzq8f6ielZ098kuEyEm
+	9VjN7zDYi30auItXR+eoahhdnfA3Na3QOskj0zq6e2QuDGZDVdwHuGpvyTEA7e4iVhWffpo4WagKG
+	I/mH1duXr0zwr7xxVGjWXolWBARYpi4jGytAlrw/CpPm/JC7KGmAAWXuh1R+eYMzMe9BWZZibapf5
+	2fdoiWW/J5qd3NVf8szmzEVQC3oy3Ngoj+jUWkdmf8N/wfSbjuIUC77rBG8s9HryUhNpzCGMkgz8A
+	MaiYvgW++HPp2pxX1PcYS/e/Zvv7Xpx3j786Y7DUGRyG8qcKYj+qRNEs9E+rLz08k0PNfYsNref/l
+	jE1QCV4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzl7a-00000004N3Y-3yuW;
-	Sat, 20 Sep 2025 00:06:34 +0000
-Received: from p-west2-cluster6-host8-snip4-10.eps.apple.com ([57.103.70.63] helo=outbound.mr.icloud.com)
+	id 1uzl7f-00000004N6M-40V4;
+	Sat, 20 Sep 2025 00:06:39 +0000
+Received: from p-west2-cluster6-host5-snip4-1.eps.apple.com ([57.103.70.24] helo=outbound.mr.icloud.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzl7T-00000004Mwn-3AYw
+	id 1uzl7U-00000004Myg-3gRz
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 20 Sep 2025 00:06:29 +0000
 Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-20-percent-1 (Postfix) with UTF8SMTPS id 6D62F1800261;
-	Sat, 20 Sep 2025 00:06:19 +0000 (UTC)
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bryanhinton.com; s=sig1; bh=WPYi7sPUqVQFwd5DMYfPao/LFjtl0ygD3emLcV+vfcY=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=31WZ8LclWRDTQbGP+SnrG8FWeDlYT314juO9n7NlUTICKFSF1iou+wybdwGtXSSgWvuvK4+ccEULhMxK/dESR05T0NxBBAH9DTw9jWgdMLifbKV1KQBNobIezSXka9q/kmun71XvI+7qewOhZyarj7GIMnGLQt21pWPSo89EVuvvV+SGjM8UAauHgm2pPuAeYX5i0e3hnBOBtdUvGm5vA9dCfDew8MCuRftl3pcbE99smSnS7tlC28DJnEAgHHw6p+8T+pTS73HjUDK89LST4eAKZTdHR9vjYEaTuJnpCouMr+QaFaNAT2Y7LIDU10N0rDkmajs6eRoHkym4qzhr6Q==
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-10 (Postfix) with UTF8SMTPS id 34AC618000BA;
+	Sat, 20 Sep 2025 00:06:26 +0000 (UTC)
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bryanhinton.com; s=sig1; bh=U9ZeQCh35puBv44uaN5n9NTG0VCJ7xzTKeG6j0klt68=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=vg4D5vFngtIASvm5+9ZXGm4v2Dktb+J1NIynWhPCttAK8+o8infv3aifkk6hx2JWTPdpZ/eSsjCNAqEyTcZKv42y0+WCRXmhvRPOk77QxfpazxaTUqZyDAvEPNhsQ+4fUxuVnl56skPMnV5Dv/7Ok2GpFiTSTUbfJYe7ZKyFpBtQnGu+fTcgEseg44d/ux7F7HiB8HdSiRbVJYiOpsH1S4aaAOIABV3apllBd5d992TbuwxtsT3/OG14yHAPCcpwVCfUFq4dfqtIRRyywxPyNGJNdUiRI4irZGWu3qxfDOgAgyzXi1Yz11rC6u2ElLY+dK32s541+VSyvNVHKxxtdQ==
 mail-alias-created-date: 1643268037438
 Received: from localhost (mr-asmtp-me-k8s.p00.prod.me.com [17.57.152.38])
-	by p00-icloudmta-asmtp-us-west-2a-20-percent-1 (Postfix) with UTF8SMTPSA id DFA08180046D;
-	Sat, 20 Sep 2025 00:06:17 +0000 (UTC)
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-10 (Postfix) with UTF8SMTPSA id 7ED25180017C;
+	Sat, 20 Sep 2025 00:06:25 +0000 (UTC)
 From: bryan@bryanhinton.com
 To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -46,30 +46,32 @@ Cc: angelogioacchino.delregno@collabora.com,
 	matthias.bgg@gmail.com,
 	robh@kernel.org,
 	Bryan Hinton <bryan@bryanhinton.com>
-Subject: [PATCH 0/2] arm64: dts: mt7981/openwrt-one: UART labels and console
-Date: Fri, 19 Sep 2025 19:06:10 -0500
-Message-ID: <20250920000619.2643457-1-bryan@bryanhinton.com>
+Subject: [PATCH 2/2] arm64: dts: mediatek: mt7981b: OpenWrt One: set console UART to 115200
+Date: Fri, 19 Sep 2025 19:06:12 -0500
+Message-ID: <20250920000619.2643457-3-bryan@bryanhinton.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250920000619.2643457-1-bryan@bryanhinton.com>
+References: <20250920000619.2643457-1-bryan@bryanhinton.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: rsqgtyyh4u-4dZ8sjJBoZ70CBEvyscKV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE5MDIyNyBTYWx0ZWRfX3tIQfDR3WuRB
- bhFGXsN9wpKlpFnrckty3RrHeUbKv3zAbob8yligrbCUvujw5m6hBh+mCg1KwV6E5xql5KkjI6X
- FOc6qLuC+YYMJvzaA7Siej+kPY4467e5reqlzDTbARJSSordIk/Wn7RkPRbt7iliH913OJCGF4v
- QJWy49fHg9iBtFUxuLOZzcHPkSpThomh6B0/I2gc1DlnAgUX5r2mjY/JIawml7HKjG+5NW9BiwA
- O4j84LgVTrBCmoPkedsWUbhs6Erkgd2507DvWKhUbmdgNUx7geCK9LzTefxy8n8LcXeaELdLY=
-X-Proofpoint-ORIG-GUID: rsqgtyyh4u-4dZ8sjJBoZ70CBEvyscKV
+X-Proofpoint-GUID: EOBQ2Tfsbbv0mlTv9OXdHSO1BDfAAx94
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE5MDIyNyBTYWx0ZWRfX/Rcqg8vC9N7t
+ iDiMCiA6IZv1Fb3ANLChfzwDyNquQlBNjmH1F+bp28H2/EVnqpVN3DxGsm9OtWJlX8iNRHFQi3t
+ ksBN3R+FTwupf1x674tE5kuGeTVn8XRZzK4wr9b35ZGQXgmDQTEw/FzZO+zOuoaULl+95ajrUXR
+ pZxfb5SDyf5/+2Vr1rEQseAX9nZQNWxGxDmoYUyodvfIIwUZ0XqOtz3hnQrUE16KEaRroSR2Pac
+ tzF/Dz84YcjJycv3yw+SH/Th0HHbH+K9VpLfIMDkdjZmQaMv1yiGgp1SjhnwvPMTsNaGVH1+U=
+X-Proofpoint-ORIG-GUID: EOBQ2Tfsbbv0mlTv9OXdHSO1BDfAAx94
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-19_03,2025-09-19_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- spamscore=0 suspectscore=0 mlxscore=0 clxscore=1030 mlxlogscore=925
+ spamscore=0 suspectscore=0 mlxscore=0 clxscore=1030 mlxlogscore=999
  phishscore=0 malwarescore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx
  scancount=1 engine=8.22.0-2506270000 definitions=main-2509190227
-X-JNJ: AAAAAAABdudQAZpeYxNdutgiEj3zy33HQm+50+3JdYmE2ZrCz7B4y4xTkv10BO4Q3ATHDEjekSEIUBOiv4o+CpMOXQ8jTB59D44gxyo+H3azDRf1udINOSLSHuwoJmM9pxuvUNVXk6fBeT5Vs/0mih35Wi9j7nAgcAOKMShemCfkC3Kd76QVnHViYVgz8V89uQDIPX0476332OmqGC5GL3G0rqj5RMiDJdSwyd6+CpRcq64Rxzcj0tcN7bXmjC2OfdwswrpmCmF9sCzbCH1eIS8X8nHSQQfz8c4Ny1VnZzsyWOfVtuZP6SY5+o78WxkQt7yW3OKOv7di9x7cz0CXP91uAI7eVQlvSUp9tMd6OsBIyUpBGDxRfvmYYPgLavhu1Ko7oQw+YJYrtspNjEujKZ6naWtS1srdzKWbguROwshxyRfDEbaDL4WFtuhLosZNZ9Se3HdjL1+gs056nlKuhEUJ38+Hyy3wWEtARRbRxqKUZe7H9zQUBl0TczivAXLZ9bycKrGZQsdrPWPY3y78T02WZwlhpttaxCfL7qFmIxcdMHbE8S1lM1rbIIRhRc4BXbRJKIxgTCNbDWYticXv/xVGXGcBkbqhaaFcNJ1P9BzcDtl/kpd5uH1pldsLG8ghVIcmjZlH+bkYB0z7l4oS3v3Rzw7lVo3XV3lYGKyXmsktnEnR74lh5REPV1zmjq0q/FMpG/EkRoNWmbH8
+X-JNJ: AAAAAAABjQoI1GTOYZxNLTAFLe/A3b20ZKDUCJC9eTtNWwrt0CGMCJqDa8I95QkqXHtnygYshP771JWqF8/M0mTvUAXw3m2XFH4SlS7GtwzBMednVOsx8B1H7/NHC1b5EfWrRBOUgv0fb6x3ym73TQLN+ZhRYW5Sw6QeXkWvFkImHFcgwMLfsQ3pH7OhfdQDsi+n+ZT19Ogl9rijFf0hmxDKQDiucrO6m7TqyXddpq+YbZtTotXu8AVae3Gr8aAJsGaJK6BrdeFpdA5ORtm8ZybNjvvS2oOZy8WHhN/8pRzFcf+UxdUmk90bVwrLgorlp47QRJUJ0BHccB6SBv9q86P5NDeTKwIJs8r0b321iGqzNC8Cuf0A3l/0LnUH0iP9vZW/FGocYMAfnTEK2nhGw2apsX/GMOXhJS6ZB/yk1Nbuf0IOro2CfRD4x5XjAo7/qBTQ/YjzyIYn9G9Spx4R8PK9RGRrlgy2PGf91uw595OF3mv3vJTPI9Q/bbbYaC1aP8NK4q3lljZgyUhtkPMJjl68dyPv2v3OvzghtqBd84JZ4xKs3F5peg5PeVp17QHFRSj4xoffCFPgnwC62I25R9mJutf13Gu+C1rGRBzxN/KtqT1tnb9c+FKtNuEdlWI3y4JDpjB3hR1fI6Vb3srUrBo9VbEYvxXVVh1Go9jfq2cgpy6d8mBt9m/KESj3NEDUnbnCLEx/Wi0OOzIml7g0hVTVV8s=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250919_170627_796726_194DAB10 
-X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-CacheID: sfid-20250919_170628_916855_9C1FE8AA 
+X-CRM114-Status: UNSURE (   9.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,32 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series makes two small updates for MT7981:
+Use the new uart0 label for the console and make the speed explicit by
+adding current-speed = <115200>. This keeps the DTS OS-agnostic: no
+bootargs or distribution-specific properties are added.
 
-- Patch 1/2: Add stable labels (uart0, uart1, uart2) in the SoC dtsi so
-  that board dts files can reference them directly.
-- Patch 2/2: Update the OpenWrt One board dts to define serial0 alias,
-  configure chosen stdout-path, and set correct UART current-speed.
+Verification: Boot-tested with mainline Image+DTB via U-Boot on OpenWrt
+One (MT7981B). Serial console active at 115200 baud, and DTB decompile
+confirms serial0 alias and stdout-path set correctly.
 
-Both patches were build-tested (dtbs) and boot-tested: 
-mainline Image+DTB built and loaded via U-Boot on MT7981 hardware,
-with serial console output verified.
-
-Thanks,
-Bryan
-
+Signed-off-by: Bryan Hinton <bryan@bryanhinton.com>
 ---
-
-Bryan Hinton (2):
-  arm64: dts: mediatek: mt7981b: add labels for UART0/1/2 nodes
-  arm64: dts: mediatek: mt7981b: OpenWrt One: set console UART to 115200
-
  .../arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 13 +++++++++++++
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi           |  6 +++---
- 2 files changed, 16 insertions(+), 3 deletions(-)
+ 1 file changed, 13 insertions(+)
 
-
-base-commit: 1522b530ac3e2dadd75ccb351b88d3c7c4cf584e
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+index 4f6cbb491287..1d2c3a21019c 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+@@ -8,8 +8,21 @@ / {
+ 	compatible = "openwrt,one", "mediatek,mt7981b";
+ 	model = "OpenWrt One";
+ 
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
+ 	memory@40000000 {
+ 		reg = <0 0x40000000 0 0x40000000>;
+ 		device_type = "memory";
+ 	};
+ };
++
++&uart0 {
++	status = "okay";
++	current-speed = <115200>; /* 0x1c200 */
++};
 -- 
 2.51.0
 
