@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71969CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 13:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DCDCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 13:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/LN8tQZpOXEb1sSStnrdSUO0qgJK3wf5NOdo3YmsH1w=; b=U0tjGeur302eMdI5biS7UYm5be
-	XRwTLVB0JLtoAVrenM1VuFysiuhE2HUmDtEX3s3g2f9Ew/1m0m3Duvi1CMjPs3LDMgj84uZzmkhYA
-	TU7sz30Naao8+ZO4LRIuMV1YMuDW+wnpmLWgaNS8M7EMSdwrzApKzgaQPppBwd1OQLVN/Q0xOcl7C
-	Z7KxIDLQ+0Ym5SzTijE6B0lZ6IOKMO5qlg2V3TYBVe3iFVWg4mkBDCA5AGiyrTQe/uk1q+Ge3vOxg
-	aXuBt6kKxdWlVxfOp0VMvrZ39jXH8abBmaqY3SyD6As209I1Cf3WDmls+boGWasz7GD+l4u9qaFfx
-	zoCnbaYQ==;
+	bh=e2U0S+R40JA/8Y/UUs6naRgYG7DrA2GyrAQ3SGnFjZ4=; b=UIFk8owdiFThrNo9NNCwE3pmVK
+	X03yt9Lo2xLatwSqzkH6btEaDzWe6NOkYSZuhtTcGe87EpcwaaRoiLUB2ve1Ob8J4UzfJFdNeW15j
+	yLimCQpwvrgc7A/tbALyX5te0mPCiHuttblz1MjmjOIeN5yx7LMWqd2lxzwZIGDkKp3RlxobVhNGU
+	fONkGPE/jftbSZhJSLFKiKqSC2fwTPVTppKX27PFaEqz4lsSZg16CMoyRaWzLoJMlsFf67SW0+qbh
+	qgZDYedbop/KRM6FhQ0YJUIBY4nK07D3IXy14/cTFrPZ02QZiT7lmLaDAaEC68q6R9EdfMtG3Jn0K
+	4VCZ/blw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzxWD-00000005OQ3-1d5L;
-	Sat, 20 Sep 2025 13:20:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uzxaf-00000005Oim-01Wp;
+	Sat, 20 Sep 2025 13:25:25 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzxWB-00000005OPu-3MHv
+	id 1uzxab-00000005Ohz-2dOG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 13:20:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B5666014D
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 13:20:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AB5C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 13:20:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758374446;
-	bh=TVKtdkDW5Bx9jo1qL5cjANuXuZINMtgj+qFgRNRgkrA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Wq5e436H04RL6eIWDHxcufFHAJuaWfqpAzlKmc3eqM6yC/AlbnYkfdrkCmBYZeLI6
-	 /QjLa0xTf88xp/wzEbevNrpcpiCOeMAfu7f8c+y5Ak3Azd3R26r445RTyu95eygZoE
-	 R7ODanSAjN0ywnYFE6F/DctWH0HPHCKht8suixoxdf31bCLdVrvnvV9ON5EC5GMEed
-	 RZWC4hP4muHVN2sJzQeG7wbs0Nho8nucBHdpC/nA4xOQI9Cpjrc8zDkttV237h2LpV
-	 8i/ZzvvnKpce06XtzkhJVDM13FkNCKmFhZTRVT+5HRspuJdbaFXzaxAOU2Gu4k1P0k
-	 RdZ0IyGaiL3jg==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-578ecc56235so2331352e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Sep 2025 06:20:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXiSsLTmjHWVSrUatwAevD9loVDX0RuwEQVCqbRzFd57DViEzEEmRprvNQMGmoWce9a90RjI8h5XUIFpDZcI8Us@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi7HYetHzaIcepbminA1HI2GT6NQcPuSlVIM/+IawnAkv4BkYJ
-	FBLCzRSp1HMgJSqGudQJ0xvOxbp+AkBzbMs1n7woR6+e14+mbaT1Bb+43T77I5Hz2A+JqogiyEw
-	nsAAJyHmIMBuj+Dvmp4cClLd6D+0hK+Y=
-X-Google-Smtp-Source: AGHT+IG1LfUXkrYBNfv5ScoJ3gEzekTWk3ybLBFirhAG7Q4onP+VqcdCQaeYnlnFTAzL/cIlQNiaBfKJ1gXwB5SZmOk=
-X-Received: by 2002:a05:6512:6189:b0:571:369a:68bd with SMTP id
- 2adb3069b0e04-579e0cb7047mr2382978e87.3.1758374444801; Sat, 20 Sep 2025
- 06:20:44 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250918063539.2640512-7-ardb+git@google.com> <20250919193221.GB2249@quark>
- <202509192219.E69A1FDA5@keescook>
-In-Reply-To: <202509192219.E69A1FDA5@keescook>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 20 Sep 2025 15:20:33 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFtnDj-kDMPKfbj2hJ9FqVt17EstNSHbzfcmAAYZneS6g@mail.gmail.com>
-X-Gm-Features: AS18NWAFCY8dWxTtxlBneqEoZTFZeASnTt4i57qY4hP6cK5XTVyGvIZt8tkXyfU
-Message-ID: <CAMj1kXFtnDj-kDMPKfbj2hJ9FqVt17EstNSHbzfcmAAYZneS6g@mail.gmail.com>
-Subject: Re: [PATCH 0/5] arm64: Move kernel mode FPSIMD buffer to the stack
-To: Kees Cook <kees@kernel.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, Ard Biesheuvel <ardb+git@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>
+	Sat, 20 Sep 2025 13:25:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:From:
+	Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
+	References; bh=e2U0S+R40JA/8Y/UUs6naRgYG7DrA2GyrAQ3SGnFjZ4=; t=1758374721;
+	x=1758979521; b=cssF68qum6nHIWvMjojY9r8bDfJ+Uk68b4TsLXuX2cYIlABWuEwaHkS01JMDB
+	GwDOjjHIMIW3a13XZN1XIiXcFW7X1d7NpUSHjqjyU3E98ufxunQJx2gq8aMay4D26Pp5uoCGvcoVn
+	BanUM/2vpRJFWdYCbX+f3WIgwS6feqVAX0UYrGQcAkkB+HUVdpaWw9M7R3DyK/e0bsy3nqeHvRkDl
+	uy9YBP8l0v9VR71tPhrX1wBCBFzcxuvIpwItTRNONd0yIq7UavRn5aaGP5DyRXOyS9PRnQueenqcM
+	4JmVRuzzIcLvPww6j7JpcO+oeCp2zHZRkyk5hrybwBmoObbSKQ==;
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.98)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1uzxa9-00000002Tuo-1mKc; Sat, 20 Sep 2025 15:24:53 +0200
+Received: from dynamic-077-011-103-224.77.11.pool.telefonica.de ([77.11.103.224] helo=[192.168.178.50])
+          by inpost2.zedat.fu-berlin.de (Exim 4.98)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1uzxa9-00000000uE8-0N7C; Sat, 20 Sep 2025 15:24:53 +0200
+Message-ID: <9a122c6cf3e2e0e61a62b0512eb97804acebeee9.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH v3 00/36] sparc64: vdso: Switch to the generic vDSO
+ library
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, 
+ Andy Lutomirski	 <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vincenzo Frascino	 <vincenzo.frascino@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, "David S. Miller"	 <davem@davemloft.net>, Andreas Larsson
+ <andreas@gaisler.com>, Nick Alcock	 <nick.alcock@oracle.com>, John Stultz
+ <jstultz@google.com>, Stephen Boyd	 <sboyd@kernel.org>, Shuah Khan
+ <shuah@kernel.org>, Catalin Marinas	 <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Theodore Ts'o	 <tytso@mit.edu>, "Jason A. Donenfeld"
+ <Jason@zx2c4.com>, Russell King	 <linux@armlinux.org.uk>, Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy	
+ <christophe.leroy@csgroup.eu>, Huacai Chen <chenhuacai@kernel.org>, WANG
+ Xuerui	 <kernel@xen0n.name>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, Alexander Gordeev	 <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,  Sven Schnelle
+ <svens@linux.ibm.com>, Nagarathnam Muthusamy
+ <nagarathnam.muthusamy@oracle.com>, Shannon Nelson	 <sln@onemain.com>
+Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, Arnd Bergmann
+	 <arnd@kernel.org>
+Date: Sat, 20 Sep 2025 15:24:51 +0200
+In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
+References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 
+MIME-Version: 1.0
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 77.11.103.224
+X-ZEDAT-Hint: PO
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250920_062521_814210_E7317277 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,94 +104,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 20 Sept 2025 at 08:42, Kees Cook <kees@kernel.org> wrote:
->
-> On Fri, Sep 19, 2025 at 02:32:21PM -0500, Eric Biggers wrote:
-> > On Thu, Sep 18, 2025 at 08:35:40AM +0200, Ard Biesheuvel wrote:
-> > > From: Ard Biesheuvel <ardb@kernel.org>
-> > >
-> > > Move the buffer for preserving/restoring the kernel mode FPSIMD state on a
-> > > context switch out of struct thread_struct, and onto the stack, so that
-> > > the memory cost is not imposed needlessly on all tasks in the system.
-> > >
-> > > Patches #1 - #3 contains some prepwork so that patch #4 can tighten the
-> > > rules around permitted usage patterns of kernel_neon_begin() and
-> > > kernel_neon_end(). This permits #5 to provide a stack buffer to
-> > > kernel_neon_begin() transparently, in a manner that ensures that it will
-> > > remain available until after the associated call to kernel_neon_end()
-> > > returns.
-> > >
-> > > Cc: Marc Zyngier <maz@kernel.org>
-> > > Cc: Will Deacon <will@kernel.org>
-> > > Cc: Mark Rutland <mark.rutland@arm.com>
-> > > Cc: Kees Cook <keescook@chromium.org>
-> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > Cc: Mark Brown <broonie@kernel.org>
-> > >
-> > > Ard Biesheuvel (5):
-> > >   crypto/arm64: aes-ce-ccm - Avoid pointless yield of the NEON unit
-> > >   crypto/arm64: sm4-ce-ccm - Avoid pointless yield of the NEON unit
-> > >   crypto/arm64: sm4-ce-gcm - Avoid pointless yield of the NEON unit
-> > >   arm64/fpsimd: Require kernel NEON begin/end calls from the same scope
-> > >   arm64/fpsimd: Allocate kernel mode FP/SIMD buffers on the stack
-> > >
-> > >  arch/arm64/crypto/aes-ce-ccm-glue.c |  5 +--
-> > >  arch/arm64/crypto/sm4-ce-ccm-glue.c | 10 ++----
-> > >  arch/arm64/crypto/sm4-ce-gcm-glue.c | 10 ++----
-> > >  arch/arm64/include/asm/neon.h       |  7 ++--
-> > >  arch/arm64/include/asm/processor.h  |  2 +-
-> > >  arch/arm64/kernel/fpsimd.c          | 34 +++++++++++++-------
-> > >  6 files changed, 34 insertions(+), 34 deletions(-)
-> >
-> > This looks like the right decision: saving 528 bytes per task is
-> > significant.  528 bytes is a lot to allocate on the stack too, but
-> > functions that use the NEON registers are either leaf functions or very
-> > close to being leaf functions, so it should be okay.
-> >
-> > The implementation is a bit unusual, though:
-> >
-> >    #define kernel_neon_begin()        do { __kernel_neon_begin(&(struct user_fpsimd_state){})
-> >    #define kernel_neon_end()  __kernel_neon_end(); } while (0)
-> >
-> > It works, but normally macros don't start or end code blocks behind the
-> > scenes like this.  Perhaps it should be more like s390's
-> > kernel_fpu_begin(), where the caller provides the buffer that the
-> > registers are stored in?
->
-> We've done stuff like this in the past, but I did wonder if we could use
-> any of the cleanup.h style logic to do this instead of the split
-> do/while? I think this would work, totally untested:
->
-> DEFINE_LOCK_GUARD_0(neon,
->                     __kernel_neon_begin(&(struct user_fpsimd_state){}),
->                     __kernel_neon_end())
-> ...
-> scoped_guard(neon) {
->         do neon things
-> }
->
-> It would require a fair bit of refactoring to replace the existing
-> begin/end code, though...
->
+Hi Thomas,
 
-Yeah, but I think it's worth it. And let's call it simd and reuse that
-on other architectures as well.
+On Wed, 2025-09-17 at 16:00 +0200, Thomas Wei=C3=9Fschuh wrote:
+> The generic vDSO provides a lot common functionality shared between
+> different architectures. SPARC is the last architecture not using it,
+> preventing some necessary code cleanup.
+>=20
+> Make use of the generic infrastructure.
+>=20
+> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+>=20
+> Tested on a Niagara T4 and QEMU.
+>=20
+> This has a semantic conflict with my series "vdso: Reject absolute
+> relocations during build". The last patch of this series expects all user=
+s
+> of the generic vDSO library to use the vdsocheck tool.
+> This is not the case (yet) for SPARC64. I do have the patches for the
+> integration, the specifics will depend on which series is applied first.
+>=20
+> Based on tip/timers/vdso.
 
-The problem with the above, though, is that the temporary stack
-variable goes out of scope when the constructor function returns. So
-probably better to do something like
+Could you share a version of the series based on top of 6.17.0-rcN for
+testing purposes? I would like to test the series on a Sun Netra 240
+which is based on the UltraSPARC IIIi.
 
-DEFINE_LOCK_GUARD_1(simd,
-                    struct user_fpsimd_state,
-                    __kernel_neon_begin(_T->lock),
-                    __kernel_neon_end(_T->lock));
+Adrian
 
-#define scoped_simd() scoped_guard(simd, &(struct user_fpsimd_state){})
-
-leaving the possibility for callers to use scoped_guard() directly and
-pass their own user_fpsimd_state pointer.
-
-We'd need to add some debug checks in __kernel_neon_end() to ensure
-that the provided pointer matches the one that was passed to
-__kernel_neon_begin().
+--=20
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
