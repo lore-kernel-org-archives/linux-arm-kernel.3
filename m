@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29420CAC597
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 08:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE62CAC597
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Sep 2025 08:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtHTw6KafLBqEqV2OxoEjlbV2rU4oUv00hFO/KwtPmI=; b=kfEVBZ68R9x5UKp4NbN8NSn30h
-	Stz1e/jDmFIKKkGK8qk3/cScge1ur2Mh7m31gKuVIoSMMJi0Y2dtPrQThfBNn+KC7UP/nHtEAPaU2
-	zbUth1IegJThkxq5Ier5QdDul6xpC95aSYRC1ChVtkhL0Whu4zfPswO+OTU6LCSwZelPkeOWpV8oD
-	lz9nKF9GKZqGW9pSNaDcyW+tYDfkQJq+nFVmuRo45AD7Gp+nO7xSA+DfbG2mnfC3UQEhRRm/wxoWF
-	6iCpjSJiGfOvFztqdN5EH5JUrV4r+kmkjCDHpdF7IaKxaRQi6ddvcAxB1AMvCfa2PfJUHc5pEyDxs
-	mCw3AKFg==;
+	bh=4sl+9JdP70DKwIHRwzY2NfCCtRDFRLejg8Xik/I1hJM=; b=wiwamqsBln9tVNH/NXb5Iwmpxg
+	InXCfV/vgVJicjaa41eOXSErU1O6vkaJV+qIs+O/kLVBZhwl9gOMkzSsgVIa8eWasZBYG6UWmGoas
+	FhyQiEUCYCuBOpKQkweTreN0I+Cmt+X+gTvpI6pLxg2EzEiyq/DBf+JjTlUTPO9lf8lQKI7SllzF7
+	dRmEuec3LV+a39IG9djV8nnA235zLHrRlnu6pZqBNQuYdRpEDdjvNlRcyfCH7OXb+dNSEXtqignTk
+	NvLMGNPxuhZL2QBMwQfdyW9TGzK2ghvHEXCywfL0FceJBF94tWjc/sGwPX2wsUxys/mgO5jJGPl0A
+	VtysPdVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzshG-000000051cy-3gIi;
-	Sat, 20 Sep 2025 08:11:54 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uzsjZ-000000051sx-1QrA;
+	Sat, 20 Sep 2025 08:14:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uzshE-000000051bi-1QCl
+	id 1uzsjW-000000051sC-47ZV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Sep 2025 08:11:53 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58K8BbA1871386;
-	Sat, 20 Sep 2025 03:11:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758355897;
-	bh=KtHTw6KafLBqEqV2OxoEjlbV2rU4oUv00hFO/KwtPmI=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=BM70R1d6Zrdmx64cmYFIFLcuCi1/29MyA3d3hfMWRqslt6rBeaVkP8xKYTgdf2drJ
-	 c4FFXfnM6wMuz6hTjtkDdpKs0+UWCL2hJCZSSbZQb7CmFnkPR0e9aK1ps4tt4AyPhg
-	 PhSBQ8UU1Tq0Zd3V9se2RgNQrHRQMaTAahTzlMeE=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58K8Bb452930499
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Sat, 20 Sep 2025 03:11:37 -0500
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sat, 20
- Sep 2025 03:11:36 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 20 Sep 2025 03:11:36 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58K8BZ5G3571649;
-	Sat, 20 Sep 2025 03:11:36 -0500
-Date: Sat, 20 Sep 2025 13:41:35 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
-        <jingoohan1@gmail.com>, <christian.bruel@foss.st.com>,
-        <qiang.yu@oss.qualcomm.com>, <mayank.rana@oss.qualcomm.com>,
-        <thippeswamy.havalige@amd.com>, <shradha.t@samsung.com>,
-        <quic_schintav@quicinc.com>, <inochiama@gmail.com>,
-        <cassel@kernel.org>, <kishon@kernel.org>,
-        <sergio.paracuellos@gmail.com>, <18255117159@163.com>,
-        <rongqianfeng@vivo.com>, <jirislaby@kernel.org>,
-        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2 10/10] PCI: keystone: Add support to build as a
- loadable module
-Message-ID: <8582c87e-5f0d-4712-b93f-c7524f051fd7@ti.com>
+	Sat, 20 Sep 2025 08:14:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C55B445FF;
+	Sat, 20 Sep 2025 08:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919AFC4CEEB;
+	Sat, 20 Sep 2025 08:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758356054;
+	bh=H9jVzceHhz7BCuWrEcBBzKxp5SLS2ZXomJMfy40j+D0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fz2O/AsZ6wRO0snZvJPxpyl7bfliCTrVg+OSrWu+uBqQiLuFyLiaz6+DVE0UGnXSa
+	 BbXA5jDLYtLPPrDIC2XYv5fuNmtGIhp3aaUMFfVUtsIYlPkb2YbfOZYf+8RwgU0xBn
+	 YLl0XbUeu7LrsxiXN7u6WSb91IRLsJlXIE35t5RJCZVYdoIfBLyBBFj3r5nse6wN44
+	 qtvupiZLaTIGx7DZsdOdovNSrq0QNMI9yU8cpnqDPECwlYk3r2zotVBMoe24gM/w/M
+	 DO8Iqyke3vY/ajeEbkO7pUS+adOagfbLQwf/mWkQR1PSqF1ja3GVylGopCGmUJFEvN
+	 WJuatdlh9pRFQ==
+Date: Sat, 20 Sep 2025 13:44:02 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	qiang.yu@oss.qualcomm.com, mayank.rana@oss.qualcomm.com, thippeswamy.havalige@amd.com, 
+	shradha.t@samsung.com, quic_schintav@quicinc.com, inochiama@gmail.com, 
+	cassel@kernel.org, kishon@kernel.org, sergio.paracuellos@gmail.com, 
+	18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 05/10] PCI: keystone: Add ks_pcie_free_msi_irq()
+ helper for cleanup
+Message-ID: <ouj2ksyccliaolyq7icceltcmnvadvtckonrck3bawrufuhct6@bda2xxpp66dg>
 References: <20250912122356.3326888-1-s-vadapalli@ti.com>
- <20250912122356.3326888-11-s-vadapalli@ti.com>
- <6nj2fkhxixpkneh7pdvyveu6ogpm5phbpvaw6cog3bshm5spfh@kb64rycphtft>
+ <20250912122356.3326888-6-s-vadapalli@ti.com>
+ <rbyukvvhzoch4p54usbrjpjlhd6qknhp2er6gfxhcj5lxpgrqh@5wnwiijn2g5f>
+ <cbcb0183-1fbd-4815-948b-3c380491c8db@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <6nj2fkhxixpkneh7pdvyveu6ogpm5phbpvaw6cog3bshm5spfh@kb64rycphtft>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cbcb0183-1fbd-4815-948b-3c380491c8db@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_011152_465192_3CB5F231 
-X-CRM114-Status: GOOD (  38.34  )
+X-CRM114-CacheID: sfid-20250920_011415_063344_4AE93662 
+X-CRM114-Status: GOOD (  24.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,119 +82,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 20, 2025 at 12:10:59AM +0530, Manivannan Sadhasivam wrote:
-> On Fri, Sep 12, 2025 at 05:46:21PM +0530, Siddharth Vadapalli wrote:
-> > The 'pci-keystone.c' driver is the application/glue/wrapper driver for the
-> > Designware PCIe Controllers on TI SoCs. Now that all of the helper APIs
-> > that the 'pci-keystone.c' driver depends upon have been exported for use,
-> > enable support to build the driver as a loadable module.
+On Sat, Sep 20, 2025 at 01:34:15PM +0530, Siddharth Vadapalli wrote:
+> On Sat, Sep 20, 2025 at 12:02:34AM +0530, Manivannan Sadhasivam wrote:
+> > On Fri, Sep 12, 2025 at 05:46:16PM +0530, Siddharth Vadapalli wrote:
+> > > Introduce the helper function ks_pcie_free_msi_irq() which will undo the
+> > > configuration performed by the ks_pcie_config_msi_irq() function. This will
+> > > be required for implementing a future helper function to undo the
+> > > configuration performed by the ks_pcie_host_init() function.
+> > > 
+> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > > ---
+> > > 
+> > > v1: https://lore.kernel.org/r/20250903124505.365913-6-s-vadapalli@ti.com/
+> > > No changes since v1.
+> > > 
+> > >  drivers/pci/controller/dwc/pci-keystone.c | 25 +++++++++++++++++++++++
+> > >  1 file changed, 25 insertions(+)
+> > > 
+> > > diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
+> > > index d03e95bf7d54..81c3686688c0 100644
+> > > --- a/drivers/pci/controller/dwc/pci-keystone.c
+> > > +++ b/drivers/pci/controller/dwc/pci-keystone.c
+> > > @@ -666,6 +666,31 @@ static void ks_pcie_intx_irq_handler(struct irq_desc *desc)
+> > >  	chained_irq_exit(chip, desc);
+> > >  }
+> > >  
+> > > +static void ks_pcie_free_msi_irq(struct keystone_pcie *ks_pcie)
+> > > +{
+> > > +	struct device_node *np = ks_pcie->np;
+> > > +	struct device_node *intc_np;
+> > > +	int irq_count, irq, i;
+> > > +
+> > > +	if (!IS_ENABLED(CONFIG_PCI_MSI))
 > > 
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > ---
-> > 
-> > v1: https://lore.kernel.org/r/20250903124505.365913-12-s-vadapalli@ti.com/
-> > Changes since v1:
-> > - Based on the feedback from Manivannan Sadhasivam <mani@kernel.org> at:
-> >   https://lore.kernel.org/r/2gzqupa7i7qhiscwm4uin2jmdb6qowp55mzk7w4o3f73ob64e7@taf5vjd7lhc5/
-> >   builtin_platform_driver() is being retained in the driver due to which
-> >   the change made in the v1 patch of replacing builtin_platform_driver()
-> >   with module_platform_driver() has been discarded in this patch.
-> > 
-> >  drivers/pci/controller/dwc/Kconfig        |  6 +++---
-> >  drivers/pci/controller/dwc/pci-keystone.c | 22 ++++++++++++++++++++++
-> >  2 files changed, 25 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> > index 34abc859c107..46012d6a607e 100644
-> > --- a/drivers/pci/controller/dwc/Kconfig
-> > +++ b/drivers/pci/controller/dwc/Kconfig
-> > @@ -482,10 +482,10 @@ config PCI_DRA7XX_EP
-> >  	  This uses the DesignWare core.
-> >  
-> >  config PCI_KEYSTONE
-> > -	bool
-> > +	tristate
-> >  
-> >  config PCI_KEYSTONE_HOST
-> > -	bool "TI Keystone PCIe controller (host mode)"
-> > +	tristate "TI Keystone PCIe controller (host mode)"
-> >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> >  	depends on PCI_MSI
-> >  	select PCIE_DW_HOST
-> > @@ -497,7 +497,7 @@ config PCI_KEYSTONE_HOST
-> >  	  DesignWare core functions to implement the driver.
-> >  
-> >  config PCI_KEYSTONE_EP
-> > -	bool "TI Keystone PCIe controller (endpoint mode)"
-> > +	tristate "TI Keystone PCIe controller (endpoint mode)"
-> >  	depends on ARCH_KEYSTONE || ARCH_K3 || COMPILE_TEST
-> >  	depends on PCI_ENDPOINT
-> >  	select PCIE_DW_EP
-> > diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> > index e85942b4f6be..661e31b60a48 100644
-> > --- a/drivers/pci/controller/dwc/pci-keystone.c
-> > +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> > @@ -17,6 +17,7 @@
-> >  #include <linux/irqchip/chained_irq.h>
-> >  #include <linux/irqdomain.h>
-> >  #include <linux/mfd/syscon.h>
-> > +#include <linux/module.h>
-> >  #include <linux/msi.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_irq.h>
-> > @@ -132,6 +133,7 @@ struct keystone_pcie {
-> >  	struct			device_node *msi_intc_np;
-> >  	struct irq_domain	*intx_irq_domain;
-> >  	struct device_node	*np;
-> > +	struct gpio_desc	*reset_gpio;
-> >  
-> >  	/* Application register space */
-> >  	void __iomem		*va_app_base;	/* DT 1st resource */
-> > @@ -1211,6 +1213,7 @@ static const struct of_device_id ks_pcie_of_match[] = {
-> >  	},
-> >  	{ },
-> >  };
-> > +MODULE_DEVICE_TABLE(of, ks_pcie_of_match);
-> >  
-> >  static int ks_pcie_probe(struct platform_device *pdev)
-> >  {
-> > @@ -1329,6 +1332,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
-> >  			dev_err(dev, "Failed to get reset GPIO\n");
-> >  		goto err_link;
-> >  	}
-> > +	ks_pcie->reset_gpio = gpiod;
-> >  
-> >  	/* Obtain references to the PHYs */
-> >  	for (i = 0; i < num_lanes; i++)
-> > @@ -1440,9 +1444,23 @@ static void ks_pcie_remove(struct platform_device *pdev)
-> >  {
-> >  	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
-> >  	struct device_link **link = ks_pcie->link;
-> > +	struct dw_pcie *pci = ks_pcie->pci;
-> >  	int num_lanes = ks_pcie->num_lanes;
-> > +	const struct ks_pcie_of_data *data;
-> >  	struct device *dev = &pdev->dev;
-> > +	enum dw_pcie_device_mode mode;
-> > +
-> > +	ks_pcie_disable_error_irq(ks_pcie);
-> > +	data = of_device_get_match_data(dev);
-> > +	mode = data->mode;
-> > +	if (mode == DW_PCIE_RC_TYPE) {
-> > +		dw_pcie_host_deinit(&pci->pp);
-> > +	} else {
-> > +		pci_epc_deinit_notify(pci->ep.epc);
-> > +		dw_pcie_ep_deinit(&pci->ep);
-> > +	}
-> >  
-> > +	gpiod_set_value_cansleep(ks_pcie->reset_gpio, 0);
+> > Isn't the CONFIG_PCI_KEYSTONE_HOST always depend on PCI_MSI?
 > 
-> Can ks_pcie_remove() be called for a builtin_platform_driver?
+> The reason I added the check is that it exists in 'ks_pcie_config_msi_irq()'.
+> But I realize now that it should be removed from
+> 'ks_pcie_config_msi_irq()' as well. Since I had written the above
+> function with the objective of undoing the changes done by
+> 'ks_pcie_config_msi_irq()', the 'config check' was retained since the
+> changes should be undone only if they were executed by
+> 'ks_pcie_config_msi_irq()'. I will drop the check in the v3 series and
+> will also post a separate patch to drop if from 'ks_pcie_config_msi_irq()'
+> if that is acceptable. Please let me know.
+> 
 
-It cannot be executed but I have added it for the sake of completeness - in
-the same manner that the initial implementation didn't simply make the
-'ks_pcie_remove()' function a no-op and the code exists as if it could
-be executed or if it were to be executed at some point in the future.
+Sounds good to me.
 
-Regards,
-Siddharth.
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
