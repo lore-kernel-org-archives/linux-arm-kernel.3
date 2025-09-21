@@ -4,114 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB7BCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:20:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69096CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d37O19kDYF7cJBBjfV0XDP4xmYdr9u1gDGKV1jqw++U=; b=29F6O9XXIZVMAjH9bhJTdkuxI9
-	BYwGQCGt7KZLkvFn8ElBbIDR/dhoNEa6Y7u4UgpD/TSA81hWt6GcB3tkq86Ojnejwew06LraWBlaP
-	1KjV52V3agSlHew5+887z/+9xdIFUKNoepHIsRjK8qfQ8uY1GZ7V/3nMWhLlGnRSgwvDhnF8qabOn
-	Kha97g85WNRwS6WeWZ8QcQqHWf2w6YXtluCg0bsSfYDEogBV/4e70hlOCkK+HfPQp/1Ihc+Wydj+b
-	XJwN2q+8sRmyt6JZ/hspbmdCdyQCtKXMP8Lmo/CLC6kYBYAeroLpf57fY5WvG7wUxs68A2HxuW7C4
-	hDH7c7VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qepFOU8T20KaFaLq8hgY/wsf4nLF6or1PKzI4CKHSjo=; b=hro7Nf3z7tLiNMQUExpuRutjt2
+	NmugK3E9TzK1/8xuGnNkgEmZuDooxzgRjZSWC3aJl+gJi4BkN7sFcB4k1TK4f+7sYIgkQWRDBg5Um
+	k5d6dLj8pJ/E+HtQNEk5xGvdJKm0ivRAc/5+LDS26YPt9zFlCgyL+soV+PLtDcfFQGpkYb5znnp63
+	hMDcWgdyJx8+wO+iXlOduqECgMTlCI/ACSpMTOkWV/WxDIFx4nZBI3wywJDbMx/H6RGUUTD3GTb0K
+	FyiqLYkNyO2VcHcRL+9jw0UpoqEXhRwf/R7KpjpFKajKda2NYghemgLCJLUnd8i7aeUJJADp8y2wt
+	ZZD3EkyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Njc-00000007v2Y-33QE;
-	Sun, 21 Sep 2025 17:20:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0Nv8-00000007wAG-0pGi;
+	Sun, 21 Sep 2025 17:32:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Nja-00000007v1E-2tqt;
-	Sun, 21 Sep 2025 17:20:22 +0000
+	id 1v0Nv6-00000007w9u-1BSp
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 21 Sep 2025 17:32:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49631600AE;
-	Sun, 21 Sep 2025 17:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58E4C4CEE7;
-	Sun, 21 Sep 2025 17:19:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D911D408BC;
+	Sun, 21 Sep 2025 17:32:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86EA0C4CEE7;
+	Sun, 21 Sep 2025 17:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758475190;
-	bh=rxiF7+0X+E1DwELu2yV6ORqUEuJ5BQYtLtP8zWsIpaI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=M4/7Svp6AnZCeOKbjsm5eSg8NQKXGqzgGhzt1oHC2Jaw2wkJqRR/Lx77QBE/qh7c3
-	 tlWvTiszBm2dAbpbNBuNdlAfPf2ZVOZQCyQ9wrFCjom3tnv6mBVuf+aPHZoZ6VRVBw
-	 IPXwvAe0UIYT0VfxkFlwDh02s9o7A2R+BZXlB9ogV4yC4FsiZ7vmS0F9SRSTupxy8v
-	 eUmTvjfRQhom1jH1wSFN6j49GD2osRCotFGsMjNLAGJPeh0/XJPS1ehi8N5cotcwUj
-	 awvcjovcHP77qzG9dNH8B/L6svBqwaP++ul63wxVNEud6cw6+I0No9ua9nzQTKg9m6
-	 k+b0AK3XAZn1Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v0Nj1-00000008Ctq-0grY;
-	Sun, 21 Sep 2025 17:19:47 +0000
-Date: Sun, 21 Sep 2025 18:19:46 +0100
-Message-ID: <87ms6nyb7x.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: thomas.petazzoni@bootlin.com,
-	pali@kernel.org,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	joyce.ooi@intel.com,
-	alyssa@rosenzweig.io,
-	jim2101024@gmail.com,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com,
-	sergio.paracuellos@gmail.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	marek.vasut+renesas@gmail.com,
-	yoshihiro.shimoda.uh@renesas.com,
-	geert+renesas@glider.be,
-	magnus.damm@gmail.com,
-	shawn.lin@rock-chips.com,
-	heiko@sntech.de,
-	michal.simek@amd.com,
-	bharat.kumar.gogada@amd.com,
-	will@kernel.org,
-	kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	linus.walleij@linaro.org,
-	thierry.reding@gmail.com,
-	jonathanh@nvidia.com,
-	rric@kernel.org,
-	nirmal.patel@linux.intel.com,
-	toan@os.amperecomputing.com,
-	jonathan.derrick@linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-hyperv@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH RFC] PCI: Convert devm_pci_alloc_host_bridge() users to error-pointer returns
-In-Reply-To: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
-References: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: alok.a.tiwari@oracle.com, thomas.petazzoni@bootlin.com, pali@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, joyce.ooi@intel.com, alyssa@rosenzweig.io, jim2101024@gmail.com, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, ryder.lee@mediatek.com, jianjun.wang@mediatek.com, sergio.paracuellos@gmail.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, marek.vasut+renesas@gmail.com, yoshihiro.shimoda.uh@renesas.com, geert+renesas@glider.be, magnus.damm@gmail.com, shawn.lin@rock-chips.com, heiko@sntech.de, michal.simek@amd.com, bharat.kumar.gogada@amd.com, will@kernel.org, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, linus.walleij@linaro.org, thierry.reding@gmail.com, jonathanh@nvidia.com, rric@kernel.org, nirmal.patel@linux.intel.com, toan@os.amperecomputing.com, jonathan.derrick@linux.
- dev, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-hyperv@vger.kernel.org, linux-tegra@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1758475935;
+	bh=qepFOU8T20KaFaLq8hgY/wsf4nLF6or1PKzI4CKHSjo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=koEmKzV1JfTshEqlFj/6c7QvIt4O4+AHiKmF7yCgAUnIyKNJIxq9QY9yReUExzRoo
+	 RSvhAKRzWIrcDfEalNx1esu/opu2awkjrnj422ZaEVyM8UAiBR5Y1tlzXYyPQu1471
+	 aLqmqmtZYDSsdLGvO1EOWFqtUD6CP+miBuTkvXhV0V8CZbZP9TFSkXVFAkPmy49Jhr
+	 Svj0EkBVcIOOcxkobOQjkJGeKUgLFJprmv4hWdfvhZ8fsavVZ/kIrGFHsuzv8lHStU
+	 h5wLbIr3AQrfTmrDxio/6aC84uqYlgnMEjSPV+BsvAsow1UtRBq124elLPoaPI8WGQ
+	 mamP7+Lpb83rQ==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250625-upstream_rcc_mp21-v4-1-9368a86c8515@foss.st.com>
+References: <20250625-upstream_rcc_mp21-v4-0-9368a86c8515@foss.st.com> <20250625-upstream_rcc_mp21-v4-1-9368a86c8515@foss.st.com>
+Subject: Re: [PATCH RESEND v4 1/3] dt-bindings: stm32: add STM32MP21 clocks and reset bindings
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>, Conor Dooley <conor.dooley@microchip.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>
+Date: Sun, 21 Sep 2025 10:32:14 -0700
+Message-ID: <175847593403.4354.864826415550352713@lazor>
+User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_103216_341091_DCA41990 
+X-CRM114-Status: UNSURE (   5.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,114 +72,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Sep 2025 17:14:07 +0100,
-Alok Tiwari <alok.a.tiwari@oracle.com> wrote:
-> 
-> devm_pci_alloc_host_bridge() and pci_alloc_host_bridge() previously
-> returned NULL on failure, forcing callers to special-case NULL handling
-> and often hardcode -ENOMEM as the error.
-> 
-> This series updates devm_pci_alloc_host_bridge() to consistently return
-> error pointers (ERR_PTR) with the actual error code, instead of NULL.
-> All callers across PCI host controller drivers are updated to use
-> IS_ERR_OR_NULL()/PTR_ERR() instead of NULL checks and hardcoded -ENOMEM.
-> 
-> Benefits:
->   - Standardizes error handling with Linux kernel ERR_PTR()/PTR_ERR()
->     conventions.
->   - Ensures that the actual error code from lower-level helpers is
->     propagated back to the caller.
->   - Removes ambiguity between NULL and error pointer returns.
->
-> Touched drivers include:
->  cadence (J721E, cadence-plat)
->  dwc (designware, qcom)
->  mobiveil (layerscape-gen4, mobiveil-plat)
->  aardvark, ftpci100, ixp4xx, loongson, mvebu, rcar, tegra, v3-semi,
->  versatile, xgene, altera, brcmstb, iproc, mediatek, mt7621, xilinx,
->  plda, and others
-> 
-> This patch updates error handling across these host controller drivers
->  so that callers consistently receive ERR_PTR() instead of NULL.
+Quoting Gabriel Fernandez (2025-06-25 02:07:24)
+> Adds clock and reset binding entries for STM32MP21 SoC family.
+>=20
+> Signed-off-by: Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+> ---
 
-Not quite.
-
-> diff --git a/arch/mips/pci/pci-xtalk-bridge.c b/arch/mips/pci/pci-xtalk-bridge.c
-> index e00c38620d14..c2c8ed8ecac1 100644
-> --- a/arch/mips/pci/pci-xtalk-bridge.c
-> +++ b/arch/mips/pci/pci-xtalk-bridge.c
-> @@ -636,8 +636,8 @@ static int bridge_probe(struct platform_device *pdev)
->  	pci_set_flags(PCI_PROBE_ONLY);
->  
->  	host = devm_pci_alloc_host_bridge(dev, sizeof(*bc));
-> -	if (!host) {
-> -		err = -ENOMEM;
-> +	if (IS_ERR_OR_NULL(host)) {
-> +		err = PTR_ERR(host);
-
-Under which circumstances can NULL still be returned? Because applying
-PTR_ERR() to a NULL pointer looks like a pretty bad idea.
-
->  		goto err_remove_domain;
->  	}
->  
-
-[...]
-
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index f41128f91ca7..e627f36b7683 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -686,18 +686,18 @@ struct pci_host_bridge *devm_pci_alloc_host_bridge(struct device *dev,
->  
->  	bridge = pci_alloc_host_bridge(priv);
->  	if (!bridge)
-> -		return NULL;
-> +		return ERR_PTR(-ENOMEM);
->  
->  	bridge->dev.parent = dev;
->  
->  	ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
->  				       bridge);
->  	if (ret)
-> -		return NULL;
-> +		return ERR_PTR(ret);
->  
->  	ret = devm_of_pci_bridge_init(dev, bridge);
->  	if (ret)
-> -		return NULL;
-> +		return ERR_PTR(ret);
->  
->  	return bridge;
->  }
-> @@ -3198,7 +3198,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
->  
->  	bridge = pci_alloc_host_bridge(0);
->  	if (!bridge)
-> -		return NULL;
-> +		return ERR_PTR(-ENOMEM);
->  
->  	bridge->dev.parent = parent;
->  
-
-And what about the code that comes after that if we fail to register
-the bus? The remaining "return NULL", which will then be interpreted
-as 0 in any user of this function, leading to a worse situation than
-what we have now.
-
-Also, things like pci_scan_root_bus() have the following pattern:
-
-	b = pci_create_root_bus(parent, bus, ops, sysdata, resources);
-	if (!b)
-		return NULL;
-
-which will end with prejudice given what you have introduced.
-
-If you are going to touch this sort of things, at least make it
-consistent, analyse *all* code paths, and provide documentation.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Applied to clk-next
 
