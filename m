@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69096CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DF3CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qepFOU8T20KaFaLq8hgY/wsf4nLF6or1PKzI4CKHSjo=; b=hro7Nf3z7tLiNMQUExpuRutjt2
-	NmugK3E9TzK1/8xuGnNkgEmZuDooxzgRjZSWC3aJl+gJi4BkN7sFcB4k1TK4f+7sYIgkQWRDBg5Um
-	k5d6dLj8pJ/E+HtQNEk5xGvdJKm0ivRAc/5+LDS26YPt9zFlCgyL+soV+PLtDcfFQGpkYb5znnp63
-	hMDcWgdyJx8+wO+iXlOduqECgMTlCI/ACSpMTOkWV/WxDIFx4nZBI3wywJDbMx/H6RGUUTD3GTb0K
-	FyiqLYkNyO2VcHcRL+9jw0UpoqEXhRwf/R7KpjpFKajKda2NYghemgLCJLUnd8i7aeUJJADp8y2wt
-	ZZD3EkyA==;
+	bh=ffJbmNoMdn7kDBTm1E/CHINJQhEqcbYTDeeSi9wci2Y=; b=R3g1fBONMB7yp3AoqMTh62MO32
+	7oUX5zY6e/85zrIU1wuHKoF2jaV69LD3JDE+5UhwOQCNPaskK1rLCX++HiTIEnkp6wYa/ru739xBL
+	t1az6qmEuIC3djPVgF9EqnNheZ+zqcmhAacMDYgVfgtMvL69yP3WlXNF0WyCGoVr4+nbCOWlEP/qd
+	xUbNtBn4VLm+9d/g7h7PLyHWm+oi6ecGEGeH3NMCS2fzz8i5pVGnmbj0ZnYQvfWOcUxI1amZRzVN8
+	BpWAr7CAboGF0IeWlLKwDL/FB/V1uDC/Qbqlx666ddJ3AvknqsYWdmSPrYtAVl3tJm/G3PnrDiLHQ
+	a0rId3SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Nv8-00000007wAG-0pGi;
-	Sun, 21 Sep 2025 17:32:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0NwM-00000007wJ6-2UI1;
+	Sun, 21 Sep 2025 17:33:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Nv6-00000007w9u-1BSp
+	id 1v0NwL-00000007wIw-380S
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:32:17 +0000
+	Sun, 21 Sep 2025 17:33:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D911D408BC;
-	Sun, 21 Sep 2025 17:32:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86EA0C4CEE7;
-	Sun, 21 Sep 2025 17:32:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BD9B601A3;
+	Sun, 21 Sep 2025 17:33:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4C40C113D0;
+	Sun, 21 Sep 2025 17:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758475935;
-	bh=qepFOU8T20KaFaLq8hgY/wsf4nLF6or1PKzI4CKHSjo=;
+	s=k20201202; t=1758476012;
+	bh=ffJbmNoMdn7kDBTm1E/CHINJQhEqcbYTDeeSi9wci2Y=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=koEmKzV1JfTshEqlFj/6c7QvIt4O4+AHiKmF7yCgAUnIyKNJIxq9QY9yReUExzRoo
-	 RSvhAKRzWIrcDfEalNx1esu/opu2awkjrnj422ZaEVyM8UAiBR5Y1tlzXYyPQu1471
-	 aLqmqmtZYDSsdLGvO1EOWFqtUD6CP+miBuTkvXhV0V8CZbZP9TFSkXVFAkPmy49Jhr
-	 Svj0EkBVcIOOcxkobOQjkJGeKUgLFJprmv4hWdfvhZ8fsavVZ/kIrGFHsuzv8lHStU
-	 h5wLbIr3AQrfTmrDxio/6aC84uqYlgnMEjSPV+BsvAsow1UtRBq124elLPoaPI8WGQ
-	 mamP7+Lpb83rQ==
+	b=SXm8WaH7EWzPNzDqjISh5EFEZHSrGHVTpAT7LTO1FNxPKe9N4QyRlvnd70odZqCFw
+	 IyN7rIoruLgjunml+0UHmvWiJ44eKhrBrhhO9v0Lln6yPOEOljbZ6ihcQKkcLxPZVy
+	 gwDcYRoSLbOtBUCsWMBW84NI0ELl9w+OxwCypQ3bXw4yHf96HE9iPombWNWufmO1vc
+	 7vP4ea2it3ZBzbeCypzfEnQjW2svS8pNW+bqnDKuV5vbWfZt5tkAPK+1ow7gDu/t3d
+	 xMdtG9LU/hrNO7CQaVbxHl5yUHvbDsFB1ENMeIfz03sxNq3PDMGRWA1/Pzx3A4YC4K
+	 JMVdA/jlVfoXQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250625-upstream_rcc_mp21-v4-1-9368a86c8515@foss.st.com>
-References: <20250625-upstream_rcc_mp21-v4-0-9368a86c8515@foss.st.com> <20250625-upstream_rcc_mp21-v4-1-9368a86c8515@foss.st.com>
-Subject: Re: [PATCH RESEND v4 1/3] dt-bindings: stm32: add STM32MP21 clocks and reset bindings
+In-Reply-To: <20250625-upstream_rcc_mp21-v4-2-9368a86c8515@foss.st.com>
+References: <20250625-upstream_rcc_mp21-v4-0-9368a86c8515@foss.st.com> <20250625-upstream_rcc_mp21-v4-2-9368a86c8515@foss.st.com>
+Subject: Re: [PATCH RESEND v4 2/3] clk: stm32: introduce clocks for STM32MP21 platform
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>, Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>, Alok Tiwari <alok.a.tiwari@oracle.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>
-Date: Sun, 21 Sep 2025 10:32:14 -0700
-Message-ID: <175847593403.4354.864826415550352713@lazor>
+Date: Sun, 21 Sep 2025 10:33:31 -0700
+Message-ID: <175847601134.4354.18300374897376083425@lazor>
 User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_103216_341091_DCA41990 
-X-CRM114-Status: UNSURE (   5.87  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,11 +68,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Gabriel Fernandez (2025-06-25 02:07:24)
-> Adds clock and reset binding entries for STM32MP21 SoC family.
+Quoting Gabriel Fernandez (2025-06-25 02:07:25)
+> This driver is intended for the STM32MP21 clock family.
 >=20
 > Signed-off-by: Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Alok Tiwari <alok.a.tiwari@oracle.com>
 > Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
 > ---
 
