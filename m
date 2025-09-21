@@ -4,70 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A12CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 22:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA6DCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 23:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5LxHj+jPu7S0zSFcvS+0o91OUJpB0BwGdBpvy6NSxs=; b=VoQdGy+GvlGnKZYneuZh0tcmNZ
-	1BrlVxcJb0Rp+GqKa/b/amBmz3Y4WWoqekr0wGpl35xkQf/FxGSX281iBQlY4k3CQDRkmaNFlXZZq
-	fqNm+FnTWECbedrQSsV2RfQxAYgnOYuxzPLQ02RC/V9XrPnSjQgJWYWTAR2O06BuwTllr6TsDNuBj
-	fuPCNTGCnslAJRJlSeQKfa0yOuUxIl+WdDXsHTG/twlWJZJwcGkSjSKJTIMHYQD1gtXuz7Vtio0Jp
-	epVhkfaZlO9gmQSMXySmRMoaMXMSjaoaHB81CfFTg5FQ+/03nAnNYHHgnUZaoFiP/YHFl8FgWl7EB
-	jkJbSfJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CZN69W5Mtb3V8lrpdaa/KxTeb9Pg1cBMFpA8nrb6jkM=; b=A98BD0VrrCBvAMRSAkayBOfCvl
+	JyBudsekQx8T15Xv1XjmDmnggpgjF3qduKz7Dv5J23u1sI4RrRd/iwjvpqAn1Awir6Az7U9kHJ0QJ
+	tq/qVW9Rz65uyTZ1QOv5ldjsYqecoTIXWY8BIy/tabW33+67D2tGNY2DShDf1Ucq6CFiZCLQ6IJ2v
+	J4JxIXP0HTues+XelkoM0A4HN0V52sqkslQ160j7V1I8BNgc91nn22NZXd4rnLhhW8hxG+m8/zsXA
+	BgpGPJzXah2LuXij1i35JCZakWEuzfG0bW6dUbDYKBeqsK3OyLw5eAqDzQKN25Yj1yPR96Gie9V5G
+	ZjR8l+1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0SaX-00000008LW8-1yww;
-	Sun, 21 Sep 2025 22:31:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v0Tb0-00000008P0h-0THD;
+	Sun, 21 Sep 2025 23:35:54 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0SaT-00000008LV7-0HIH
+	id 1v0Taw-00000008Ozf-1bTN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 22:31:21 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 2A13F10C4;
-	Mon, 22 Sep 2025 00:29:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1758493793;
-	bh=Fv4UsA9MkASayxLFf2BzUM2Q41JcLsrAVhGMdS029aY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LRxgE/yzzKy+tegRTdD1tm0SvZJgiQsG7fnpyEUqkQH8mO+uzHDqhPLl4pWjG5+RW
-	 5FSnNJoc+Atqas0jh6T12AEGoiIvvY0fwvtactdch/GLjXbJI3OkI8ffThWHhR+WGa
-	 JaputUJRpWEY0wsGKwJa62Q98KqrJqwyoSId8os0=
-Date: Mon, 22 Sep 2025 01:30:43 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: "G.N. Zhou" <guoniu.zhou@nxp.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Alice Yuan <alice.yuan@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 0/5] media: imx91: Add ISI support
-Message-ID: <20250921223043.GF10540@pendragon.ideasonboard.com>
-References: <20250905-isi_imx93-v2-0-37db5f768c57@nxp.com>
- <AS8PR04MB90801C7CE8D06EDC8CAA6750FA11A@AS8PR04MB9080.eurprd04.prod.outlook.com>
- <aM2AurOTxTB4raSg@lizhi-Precision-Tower-5810>
- <20250921160704.GA29453@pendragon.ideasonboard.com>
+	Sun, 21 Sep 2025 23:35:53 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4c794491480so12087691cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 16:35:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758497749; x=1759102549; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CZN69W5Mtb3V8lrpdaa/KxTeb9Pg1cBMFpA8nrb6jkM=;
+        b=fO0KJP4XMG4imbmGRMFvdCxxs3QvYYwnSMH1c7F8B8jVlQm3N9pGjcDvVOjp8KBQ4+
+         wErVjaZhUas0AQS0h3Me7xQptALM3OdMD5H2/+wr61D9pSVoMXlkCqqwwxCh0DnS4wyq
+         lUpRZszq2W7FbGsc9sJXMm2xEkqFKXeGD23+/z6MhlZFIS4uO9Sw7Uk+Xlh//Qbj3TE9
+         HsA83bp4F6g1AWXJk3qiFUlEXQj+8/MLykLLKfHvJk3DCO/gjBP4h0e8HS1fKktnDE/r
+         8Zw5OtIb2qUSb/rImqr3ggyWTHxWQg6tCor9NyGhOUOR/wMpxDM4BMo/52Wc8iniDfuk
+         bW6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758497749; x=1759102549;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CZN69W5Mtb3V8lrpdaa/KxTeb9Pg1cBMFpA8nrb6jkM=;
+        b=CjaXKFi3YsrhzgYNIb1ErEE88oCdkssfpdXza2nQvJGZxREfBezKxw6N3T8gspJB9L
+         MbliHcC1427Yau3hh6wpVR8iaEZH/L2sOoMgionHX+VF9/A9fFhOvPn7QBFvc9xv0URl
+         JvWP3PmNNBY62QmfRzGfAacL+zFbSyrl0c/MjOiXPzTPaSW5bhbFimrUlvyS7jcJErq5
+         O6n7nC2O+T+tAsZQvXYBfPLKvZPjBmVLXwzKvEtOuL1APpAeTfCTnIMcwe7AOaPsKb8F
+         4o20LKhduGFxNA2FjYRlyVFIHm5tSacxJSkiDnae0u/moAFe/f/FCuAW2eCQGZQHiLz4
+         4KXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXwZiRbYYgjoMan34w6GhiuPcDS4mKwt2GACsb2s4iqjz976c8ZwFFNdHgYbRXM7RuPLjOQsxq9L/bxqkqfDQ1w@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVjzy3oUfaMX7TdZzuaiD9l71hP0SB2Ikw7fW5qzZLpHzr56Z8
+	a1oIv9nRZmgpo1/zuWe+Ju8FMzarQ83egKSRhgm2cW1cJOw6n8NtWnnz
+X-Gm-Gg: ASbGncvDuCmlT+LdsslWmGB8f1Kq90QDMzq2sKcdU7CU05stNFbilmLtpaOixfLiBAj
+	XMzctWGtoXud6ktREz1R5F2puxpDQTVOXWue3zSPcnRcJBjgKsC4ELE2uTGeB6SrRMvB0UHcr2v
+	LsW4JUsePO2X840LajBZl2zTA0a/lxtGNeNJdHyRD24admweZPLbhRpwMW93VUehvUh0sq8n6DS
+	/nHKEsDB1iUNVGAzP6e8LF7rmOCYGcrVN3ZWQtHotCkhzRItHIttJa5b/J6n7F3pihf7e7Nv3Un
+	cJry7C1CcCvZM6TPnbg0owfwBCiNjwqp8ew4vIa3fWRRgKEL+lKp9k7ULiuFGxTj9uqUgNqPIHE
+	5wu3ry5qY4tUAa3JO0mx0rqNHsqRFnpNMyn4tcbtT
+X-Google-Smtp-Source: AGHT+IEuX/rG6D8K1mfoAz2r7noBHe6o05XMZUMyqXmXpDmWRhPab5YZzhU8CSDkzsIHOEEXRhXr9A==
+X-Received: by 2002:a05:622a:1103:b0:4b7:929a:2e49 with SMTP id d75a77b69052e-4c06e3fa3f6mr142548381cf.21.1758497748814;
+        Sun, 21 Sep 2025 16:35:48 -0700 (PDT)
+Received: from rogerio-laptop.home ([184.148.194.86])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-83631a8095esm725949085a.49.2025.09.21.16.35.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Sep 2025 16:35:48 -0700 (PDT)
+From: Rogerio Pimentel <rpimentel.silva@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: xiaofeng.wei@nxp.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	alexander.stein@ew.tq-group.com,
+	dario.binacchi@amarulasolutions.com,
+	marex@denx.de,
+	Markus.Niebel@tq-group.com,
+	y.moog@phytec.de,
+	joao.goncalves@toradex.com,
+	frieder.schrempf@kontron.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rogerio Pimentel <rpimentel.silva@gmail.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: fsl: Add i.MX8MP FRDM board
+Date: Sun, 21 Sep 2025 19:35:33 -0400
+Message-Id: <20250921233534.838680-1-rpimentel.silva@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250921160704.GA29453@pendragon.ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_153117_252068_A11A0215 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250921_163550_426085_BCC72C7F 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +116,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 21, 2025 at 07:07:06PM +0300, Laurent Pinchart wrote:
-> On Fri, Sep 19, 2025 at 12:11:38PM -0400, Frank Li wrote:
-> > On Fri, Sep 19, 2025 at 02:40:01AM +0000, G.N. Zhou wrote:
-> > > Hi,
-> > >
-> > > Could you help to please review the patches which I have submitted
-> > > some time back to linux media community and move forward driver part
-> > > if possible.
-> > > 
-> > > Your feedback will be very appreciated. Thanks.
-> > >
-> > > Best Regards
-> > > G.N Zhou
-> > 
-> > Laurent Pinchart:
-> > 
-> > 	Could you please consider pickup these patches? Consider these
-> > related simple changes, is my Reviewed-by enough?
-> 
-> I've completed a set of other reviews and will get to this patch series
-> in the upcoming week.
+Add device tree compatible string for the i.MX8MP FRDM board.
 
-There's just an open question on 2/5. It's about the commit message, so
-it shouldn't be a big deal. Once I get a reply to that, I can apply the
-series with the small proposed changes, there's no need to submit a v3,
-unless you prefer doing so.
+Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+---
 
-> > > >
-> > > > Add ISI support for i.MX91 chip.
-> > > >
-> > > > The bellow patch refine code, no functions changed.
-> > > >    media: nxp: imx8-isi: Simplify code by using helper macro
-> > > >    media: nxp: imx8-isi: Reorder the platform data
-> > > >
-> > > > The bindings and driver patch for i.MX91 ISI.
-> > > >    media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible string
-> > > >    media: nxp: imx8-isi: Add ISI support for i.MX91
-> > > >
-> > > > Add parallel camera input for i.MX93 ISI.
-> > > >    media: nxp: imx8-isi: Add parallel camera input support
-> > > >
-> > > > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > > > ---
-> > > > Changes in v2:
-> > > > - Update commit log in patch 5 to better describe why introduce it.
-> > > > - Include two header files in patch 2 since kernel test robot report build
-> > > >   issue when arch is riscv and compiler is clang-22.
-> > > >   #include <linux/bitfield.h>
-> > > >   #include <linux/bits.h>
-> > > > - Link to v1: https://lore.kernel.org/all/20250827-isi_imx93-v1-0-
-> > > > 83e6b4b50c4d@nxp.com
-> > > >
-> > > > ---
-> > > > Alice Yuan (2):
-> > > >       media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible string
-> > > >       media: nxp: imx8-isi: Add parallel camera input support
-> > > >
-> > > > Guoniu Zhou (3):
-> > > >       media: nxp: imx8-isi: Simplify code by using helper macro
-> > > >       media: nxp: imx8-isi: Reorder the platform data
-> > > >       media: nxp: imx8-isi: Add ISI support for i.MX91
-> > > >
-> > > >  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 13 +++++-
-> > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 50 ++++++++++++++--------
-> > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
-> > > >  .../media/platform/nxp/imx8-isi/imx8-isi-gasket.c  | 18 ++++++--
-> > > >  4 files changed, 59 insertions(+), 23 deletions(-)
-> > > > ---
-> > > > base-commit: 603957ae903e81fb80d3788297c0f58a68802dfc
-> > > > change-id: 20250826-isi_imx93-4a59288b33e4
+No changes in v2
 
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 00cdf490b062..8bddf1f8a78d 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1099,6 +1099,7 @@ properties:
+               - emcraft,imx8mp-navqp      # i.MX8MP Emcraft Systems NavQ+ Kit
+               - fsl,imx8mp-evk            # i.MX8MP EVK Board
+               - fsl,imx8mp-evk-revb4      # i.MX8MP EVK Rev B4 Board
++              - fsl,imx8mp-frdm           # i.MX8MP Freedom Board
+               - gateworks,imx8mp-gw71xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw72xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw73xx-2x # i.MX8MP Gateworks Board
 -- 
-Regards,
+2.25.1
 
-Laurent Pinchart
 
