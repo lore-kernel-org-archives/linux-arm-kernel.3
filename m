@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12085CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DD3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 19:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IRxIJ6cM/uBzVILghoV+9GLrZ/XIzrr+/eiu3+V2I/w=; b=LSaccvOx4rs2nkPQK/5GmYhGA4
-	d0K2/AyvNbgEpVd1cuASJlHhJWJVfm0de/0f3mXjMt3s+M9kLkRqZApZi/NmRWdJA1XWEYeyISRcU
-	BCBiz7t23Mpq+Rd8FrM+ZTOqKAM8JfWb0hHYTAVr3MKsp02Q15KXfWFrm5Sqmk5I06Vv8+eg/Q/Yy
-	PI05wYZ7xE0wFkpPXTvDGagzvLXsb7pBMDE206Wc1AD5ypyIG+OyYlsiQXVb685oba+2Y5UMnLI0F
-	Pc11xgx0E3Gl524WGakQLDig9Jjg8gNi2xTLEVFW37bfyVypAUCkJ0/K+BoX6YXyWRc4ZBqn2UgLq
-	p8ldyB9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zltGFf/iswHLioFD+7yrHPrDgYZxBlcwDu6SYUJNQg4=; b=kMoRVy+s5f10C8E5b5rxPh6oBG
+	oHdFtHXayeMC5t4/blGTxXQ1I04TEG3jOx6W07Lrr96Khvgy+VcbAE/yAi/VwdP6h8DAkmR0R20Dx
+	X64JU1DhncYXOKvCrUvAhRAkbA3iecNJaGlao9XtJG8zK2MJDbZX/V3S1EGZc9lTGihBe6RXQi6bD
+	/l2urbhN7jgqCijXpao3nJ7PBSH+Lq1vAHQmQIrivIMOFb+S+1P5vaR/L3P2Yw6NX0uCJqMo0rbBM
+	p/ezAtPYiLab3sQjGjKm9R9M6Ruo2VYTBKFQVXAO7C8vs3VZ+17O99MRTkZbF5B7YiqbSspfVcoFe
+	szbi2/2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0OKr-00000007yjs-09Ux;
-	Sun, 21 Sep 2025 17:58:53 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1v0QCU-000000087XB-3KeJ;
+	Sun, 21 Sep 2025 19:58:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0OKo-00000007yir-2xMn;
-	Sun, 21 Sep 2025 17:58:51 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1v0OKa-000000004Nn-0Rcb;
-	Sun, 21 Sep 2025 17:58:36 +0000
-Date: Sun, 21 Sep 2025 18:58:29 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sam Shih <sam.shih@mediatek.com>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH RESEND] clk: mediatek: mt7988-infracfg: SPI0 clocks are not
- critical
-Message-ID: <49fb368b4da6f5ed11812dceb45f174ceca8f10a.1758477397.git.daniel@makrotopia.org>
+	id 1v0QCS-000000087Wr-1Pg3
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 21 Sep 2025 19:58:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6950140AA0;
+	Sun, 21 Sep 2025 19:58:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED896C4CEE7;
+	Sun, 21 Sep 2025 19:58:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758484698;
+	bh=zltGFf/iswHLioFD+7yrHPrDgYZxBlcwDu6SYUJNQg4=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=USeqBhhlqudd2ayH26X/wWpf9M65wlqMolkJtsZiT8n/tGFNAmdpDa9E5vfdHq8nq
+	 sWmham3lJfgTG5+vY5dchand2nK+CyAKd1YfvZbePRSANlbxK/Q8hdNR8OX42HaH+K
+	 eu1rwPZ6hu9JWvdiC4JH5ZXFVRiKAJO0sb7h4at02SHGjChF1VlWHrHF+7UlyHrTJu
+	 REifoKLTyt/Ap9IMk0Oo4lvv70PCMIlTTUdC7vE5oDbbADqsZ9NeFUeYsOU2GMcf+j
+	 bYlOGE0DrSB/g77uJ9k+q4RUqWqRsY/DCLTJ1UOVGhR4rmF+/GK02ebwNkH2O6oYDQ
+	 YIFFMuZuvyXmA==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250706201158.1371209-1-alok.a.tiwari@oracle.com>
+References: <20250706201158.1371209-1-alok.a.tiwari@oracle.com>
+Subject: Re: [PATCH] clk: nxp: Fix pll0 rate check condition in LPC18xx CGU driver
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: alok.a.tiwari@oracle.com, darren.kenny@oracle.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+To: Alok Tiwari <alok.a.tiwari@oracle.com>, linux-clk@vger.kernel.org, vz@mleia.com
+Date: Sun, 21 Sep 2025 12:58:16 -0700
+Message-ID: <175848469633.4354.18141546693422292683@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_105850_745096_70C8A80A 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20250921_125820_400132_D49FF757 
+X-CRM114-Status: UNSURE (   8.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,39 +72,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPI0 clocks have wrongly been marked as critical while, probably due
-to the SPI driver not requesting them. This can (and should) be addressed
-in device tree instead.
-Remove CLK_IS_CRITICAL flag from clocks related to SPI0.
+Quoting Alok Tiwari (2025-07-06 13:11:55)
+> The conditional check for the PLL0 multiplier 'm' used a logical AND
+> instead of OR, making the range check ineffective. This patch replaces
+> && with || to correctly reject invalid values of 'm' that are either
+> less than or equal to 0 or greater than LPC18XX_PLL0_MSEL_MAX.
+>=20
+> This ensures proper bounds checking during clk rate setting and rounding.
+>=20
+> Fixes: b04e0b8fd544 ("clk: add lpc18xx cgu clk driver")
+> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> ---
 
-Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-Patch originally sent 2024-10-31 but never received any feedback.
-
- drivers/clk/mediatek/clk-mt7988-infracfg.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-index ef8267319d91..c40e18c27f12 100644
---- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-@@ -196,12 +196,10 @@ static const struct mtk_gate infra_clks[] = {
- 	GATE_INFRA2(CLK_INFRA_SPINFI, "infra_f_fspinfi", "spinfi_sel", 10),
- 	GATE_INFRA2_FLAGS(CLK_INFRA_66M_NFI_HCK, "infra_hf_66m_nfi_hck", "sysaxi_sel", 11,
- 			  CLK_IS_CRITICAL),
--	GATE_INFRA2_FLAGS(CLK_INFRA_104M_SPI0, "infra_hf_104m_spi0", "infra_mux_spi0_sel", 12,
--			  CLK_IS_CRITICAL),
-+	GATE_INFRA2(CLK_INFRA_104M_SPI0, "infra_hf_104m_spi0", "infra_mux_spi0_sel", 12),
- 	GATE_INFRA2(CLK_INFRA_104M_SPI1, "infra_hf_104m_spi1", "infra_mux_spi1_sel", 13),
- 	GATE_INFRA2(CLK_INFRA_104M_SPI2_BCK, "infra_hf_104m_spi2_bck", "infra_mux_spi2_sel", 14),
--	GATE_INFRA2_FLAGS(CLK_INFRA_66M_SPI0_HCK, "infra_hf_66m_spi0_hck", "sysaxi_sel", 15,
--			  CLK_IS_CRITICAL),
-+	GATE_INFRA2(CLK_INFRA_66M_SPI0_HCK, "infra_hf_66m_spi0_hck", "sysaxi_sel", 15),
- 	GATE_INFRA2(CLK_INFRA_66M_SPI1_HCK, "infra_hf_66m_spi1_hck", "sysaxi_sel", 16),
- 	GATE_INFRA2(CLK_INFRA_66M_SPI2_HCK, "infra_hf_66m_spi2_hck", "sysaxi_sel", 17),
- 	GATE_INFRA2(CLK_INFRA_66M_FLASHIF_AXI, "infra_hf_66m_flashif_axi", "sysaxi_sel", 18),
--- 
-2.51.0
-
+Applied to clk-next
 
