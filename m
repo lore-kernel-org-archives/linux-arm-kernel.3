@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5443FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9BCCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJ33OKXzP02F+Zwi+qtD66apY4JkrF1rf2QHlzvAMs0=; b=g0JASU04SvsNqg8oOIuMfKotEB
-	CPhOOcWBMraNNrWpKg0xmdn6eB1PdGaopKlUIEEC/o8AnHKqAfVVcgd7ebbBoyY1XD7yv3toSs1ZC
-	0fv5NPkSMUuRmfg0qITDVud9p8bNvuTlctkX/56xlmksNjFzVOWznT4iegazp0V4IiJhkbyQ1hP4X
-	bg6IalGgEbR7csGEqPLUyvNfF3JM0vdihmYn1piII9zFX8hesBUbqZcXPPZyk3YKSXFeuWRJABBdz
-	MytlXP4sPwEpcbrm541Tg3xxoQ6CGLi6HD96SFVpid/r5Uq/Rus2ozfkfS3rJY12udxu8Q3eIhbfx
-	/j+PY24w==;
+	bh=mhSkOie36LNjLhZ1e/3xKgbbnV6rCK0CBBCBJjtXEl4=; b=mT0lVfw9/97H53eq4W/kbD1tI5
+	LdDMeGmJ2Zi665pOU3y23nhAM9fyZPB/5t/5j0VJCzfez7ZKhKWo6e6Yzgoi1MsgyT1v7WlN7wagz
+	EdrNeL9xPXUu3DaDwsOcyKiIcceYc5EKIRtRHznTTtm8LoZ2eBY1Xds6FLQ/I1o/EuACrONRbYSOI
+	Va4EiykAK7fDTfldSwblUbolN0XIvm4eDgggaoqtzjiCWuf3014b5FzSJ+NYBfLgAuwj9J/e0eEqd
+	SUvgFdl37yfGHPmK0Zl72cAB1fWCzYgzvQJH+ZDwAE9OvTRBSmFKPSEdyI4Z5MGpeqNigP3hKAEZr
+	trvRljFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NJl-00000007pLT-0vry;
-	Sun, 21 Sep 2025 16:53:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0NJr-00000007pR0-3n8F;
+	Sun, 21 Sep 2025 16:53:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NJe-00000007pF2-2UUP;
-	Sun, 21 Sep 2025 16:53:35 +0000
+	id 1v0NJk-00000007pKJ-0hva;
+	Sun, 21 Sep 2025 16:53:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4072E434A8;
-	Sun, 21 Sep 2025 16:53:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 023A4C4CEE7;
-	Sun, 21 Sep 2025 16:53:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 951E1600AE;
+	Sun, 21 Sep 2025 16:53:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AB25C4CEE7;
+	Sun, 21 Sep 2025 16:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758473614;
-	bh=PJ33OKXzP02F+Zwi+qtD66apY4JkrF1rf2QHlzvAMs0=;
+	s=k20201202; t=1758473619;
+	bh=mhSkOie36LNjLhZ1e/3xKgbbnV6rCK0CBBCBJjtXEl4=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=jjG5m9OKipv0wXYbguYj+nPCt05D3kplw6rzavR7mHmJPKZmWUU8yRMjs/ET/fFRN
-	 W74y0bo6ElE4RTJMyCaY9GDLmyT7KiJhmEORSWYkIHMk5w3nSISyNTlfBU89lhJhx3
-	 3kFFUEmnizdyAGeK7koZ8Ro68wTcb6hF0MorLzIcYHz/inNJ31FnL/JFxxSTDxMINT
-	 gP/gG98KMQMG7c0IofmKMHmymnNLUIRIak4q1KHu53wo9PzmmK1JrFFp1cAUwWesZS
-	 HM7mrzbKA6xn4mGtFDiFmxDtYmeyosxbf9SjKhR8DmnTbSeiHwMhGE+Gdis5Kcj5Gk
-	 2bXFZgg8GWLvA==
+	b=nlYZlSPRA3rDVi0b9Jl1NP7yoCrtiWufi9T0NPvDbUYQIEeDzKC76OOanlNKGwm9G
+	 rj4pGCUXYzQePp/DqDQCb8P3AB1Q/79U+4m7vHDvSHhBARqOG80HpeEN0uJAfpDLaf
+	 7VDIvTnmgLmlhJzBznGrv/rhZgwQkfh/rw3VhKezofbZXNbB2kteoLUs+dvmRisrjC
+	 URMKmVv6OyR1/RPynpnavFzyxK5p3F51mhwvMT9PMYIsbXH7UTHAOnTeKIUVVIgRMN
+	 7UiKXcKf3W+FCRRuJZ3FvVyAOc+tPFcFgcxMT4c2v9K3GFFOi1Ivm4vRt8Ldf7UaR3
+	 japFcjxedCUhg==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250915151947.277983-7-laura.nao@collabora.com>
-References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-7-laura.nao@collabora.com>
-Subject: Re: [PATCH v6 06/27] clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use mtk_gate struct
+In-Reply-To: <20250915151947.277983-8-laura.nao@collabora.com>
+References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-8-laura.nao@collabora.com>
+Subject: Re: [PATCH v6 07/27] clk: mediatek: clk-gate: Add ops for gates with HW voter
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: guangjie.song@mediatek.com, wenst@chromium.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, kernel@collabora.com, Laura Nao <laura.nao@collabora.com>
+Cc: guangjie.song@mediatek.com, wenst@chromium.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, kernel@collabora.com, Laura Nao <laura.nao@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F . R . A . Prado <nfraprado@collabora.com>
 To: Laura Nao <laura.nao@collabora.com>, angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, krzk+dt@kernel.org, matthias.bgg@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, richardcochran@gmail.com, robh@kernel.org
-Date: Sun, 21 Sep 2025 09:53:32 -0700
-Message-ID: <175847361261.4354.11188825521023748179@lazor>
+Date: Sun, 21 Sep 2025 09:53:37 -0700
+Message-ID: <175847361789.4354.2149769507345484400@lazor>
 User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_095334_662368_1A4BE6EB 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,14 +67,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Laura Nao (2025-09-15 08:19:26)
-> MT8196 uses a HW voter for gate enable/disable control, with
-> set/clr/sta registers located in a separate regmap. Refactor
-> mtk_clk_register_gate() to take a struct mtk_gate, and add a pointer to
-> it in struct mtk_clk_gate. This allows reuse of the static gate data
-> (including HW voter register offsets) without adding extra function
-> arguments, and removes redundant duplication in the runtime data struct.
+Quoting Laura Nao (2025-09-15 08:19:27)
+> MT8196 use a HW voter for gate enable/disable control. Voting is
+> performed using set/clr regs, with a status bit used to verify the vote
+> state. Add new set of gate clock operations with support for voting via
+> set/clr regs.
 >=20
+> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
 ora.com>
 > Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
