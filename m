@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE79CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 13:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1412CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 13:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=On3T9Vd07eJ1tmpzLKeAxFiS9ecRs0YZXAAVEm7bPLk=; b=v8MiCvo1AB8woFqiUQdG0KVC+x
-	1Txxnb/Vk7Q9YWti45fxgahRlF0/2tnkVkGJ6im2HS51AQXNQCorB9tmCclBewba9ZzSdpxug+JsJ
-	GF+6Fc3kIjknRsKU8bFZO4FDtn3XQkcSHRInxthTE+1S5jbfvHf1e81mqm6PFj0gWpLLjj90cKAkA
-	xi115j1ZE4gph1KIexx1/VCE6xt0bRbq44bFGKtj0sPUhzZIYyGh8/c3bCS5DHeF/8TFu8eZxdjsy
-	/VonWovjO3G5ojTpsD4U7CrEAAgmADGcVK42xlr1vA7jv0glRxhElO/PovFefI43JqDFJlTlRJIqD
-	hvQBI1oQ==;
+	bh=JwONL9DDu35kJkqOi74CClmvm0OF7Yb0XK+wxyO0nYU=; b=dJs/kGa1KFYohOWR0kAarf7DNE
+	sepPlEvGc/CwhABHjkrWwbu2O2/W6+GbtFAwdoDs9h2BWea3MM0RHyXVucSzzXyU8Hv2XyKGhAIKU
+	Mos4Wd9/98sl1kD5i96vPBhfTu/0qBT/YbQ/yvGtstMrgl+h4dwfF1rlD/r06vmpkQ8XZmldgqsK5
+	AHASTMwykOdgagC2Rn7Za6tvbk0fLnSS/m8mrpcX85kP4OqZiCT4+BsZFtNHVCz8ZdCaD/ClAlO8z
+	16DkGdkQx7Oy5tIgGJTEOrh86HatHVJK7zbbeDX29pOMTsJlvB37H69QXN0YH5KFMkpwbTa/dkyWX
+	IVlKF7+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0K4I-00000007Wj1-1Xgx;
-	Sun, 21 Sep 2025 13:25:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0KIv-00000007YQX-13cU;
+	Sun, 21 Sep 2025 13:40:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0K4B-00000007Wf6-361T
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 13:25:24 +0000
+	id 1v0KIu-00000007YQM-1JQE;
+	Sun, 21 Sep 2025 13:40:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FD9A441E0;
-	Sun, 21 Sep 2025 13:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 546BBC4CEE7;
-	Sun, 21 Sep 2025 13:25:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ACD35601D2;
+	Sun, 21 Sep 2025 13:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD449C4CEE7;
+	Sun, 21 Sep 2025 13:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758461123;
-	bh=s+wftv/lLO/HEynUJMSqPwVgj4JeieBXIF19Z/tEeQI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QotlogBeC2DAkXLKYM0i4uU3XzeMVEO/V05JQ1xVW2aGY2/WMgdclV3WFKlibnVf6
-	 FHDIj6Rkyw3fg/XthzquvfDs24o4marNjzhn7BG7uEO8iUQeGo57iizhxK5MeVzF5F
-	 AaRN3UuCvqRiV7NriPgrrdvkVuj3rDy8YWHlDY9+2+kAp+f4mSBThNfRKe8Uyb5W5H
-	 MTlWepoOOL9VamUbpmdOc91g6VCaFtXuUUNnNnRCFA7vbwTBS7RwyztWsEWsR9goBq
-	 JJPKgs4p8aFwmCPdL1YaFV1WmZAOK3lR/iO+NsJIH93EOeqBaUmMnGOzFZqLkEDPxG
-	 F5m4323sX2+Ug==
-From: Mark Brown <broonie@kernel.org>
-Date: Sun, 21 Sep 2025 14:21:37 +0100
-Subject: [PATCH RFC 3/3] kselftest/arm64: Add PR_SHADOW_STACK_EXIT_TOKEN to
- gcs-locking
+	s=k20201202; t=1758462035;
+	bh=95QcD0HJijwOHoaQ6eyOQBU6JkvhnmTwXbdFW5nxPbM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DKgWQQZXjQN82L8kwgQ1cbiOIhuNq4crRXiki+UNkV3qaXbmI8jeQiebAsX9P3zpO
+	 V91T12ukCZY9WgU+VsuNXfDS0hwayPluHpc5H3tWZV4/ci7xd0qpNf9MBvGyuBrZIA
+	 qzHM1lnthrdQms+WHEs6qy/NvWYV5h+/8RJAtfIv7eKeC+M1P3c+Q6ibITQ+l4olyg
+	 zTmZrVXhzWDqEUm0WGrmWRHLrk/VFI+YPj98lgcg8HXmKfMATUCcow5EmJPPQ7sgnI
+	 oh8XKMRU2RB2ivVWxRBXC5TqO2KYDgdyi9LuAo1EAucj4CnPsyDIHGs4Wo54MeKJSP
+	 jsOrImSzehm+Q==
+Message-ID: <41bb000c-5643-4ed2-8d33-a6bd8a549409@kernel.org>
+Date: Sun, 21 Sep 2025 15:40:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/22] usb: dwc3: Add Apple Silicon DWC3 glue layer
+ driver
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+ Ran Wang <ran.wang_1@nxp.com>, Peter Chen <peter.chen@nxp.com>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>
+References: <20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org>
+ <20250906-atcphy-6-17-v2-4-52c348623ef6@kernel.org>
+ <20250919224016.gyao3aoka5ineear@synopsys.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250919224016.gyao3aoka5ineear@synopsys.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250921-arm64-gcs-exit-token-v1-3-45cf64e648d5@kernel.org>
-References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
-In-Reply-To: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Christian Brauner <brauner@kernel.org>, 
- Adhemerval Zanella Netto <adhemerval.zanella@linaro.org>, 
- Shuah Khan <shuah@kernel.org>
-Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Deepak Gupta <debug@rivosinc.com>, Wilco Dijkstra <wilco.dijkstra@arm.com>, 
- Carlos O'Donell <codonell@redhat.com>, Florian Weimer <fweimer@redhat.com>, 
- Szabolcs Nagy <nsz@port70.net>, Rich Felker <dalias@libc.org>, 
- libc-alpha@sourceware.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-56183
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2141; i=broonie@kernel.org;
- h=from:subject:message-id; bh=s+wftv/lLO/HEynUJMSqPwVgj4JeieBXIF19Z/tEeQI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoz/y1M7sHRQ/XGEyodNfOn9vWhZ9M8eyHg8M9M
- BlLxc+D3NOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaM/8tQAKCRAk1otyXVSH
- 0FfoCACGdjQtSrOTxShjPpSqtxWnJCMmalNBZUZgxX4Lde+8F29/Ie6usgMTZi7LgEcIB6IuMfp
- c3SsNw4PVX6daOoVIAaeyG1tuRrhnVM49m3Vs1IA7Kg1j0M95+Ptn1cUiFhB0Dja2g3LVHGhGCN
- rbhq1SDo8z0iPIfbAckPabd30aF2b4vx79KQazn7CycchrCtVhXH2/nBP+cGjNKkJ1W0ebxMYOo
- XNC94IgXeu9Eyivm5R6S3uNF+NWuK8vR8wXlwd6pyK8FtNpq+UJqWZxdkki2L7HNPNlNhHRJEPf
- NKwMfkP9asW7LwJldu8/izVUaCnDq1nDZr1bhR9HA55s3WTy
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_062523_854221_ACAAE048 
-X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +86,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have added PR_SHADOW_STACK_EXIT_TOKEN, ensure that locking works as
-expected for it.
+Hi,
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/gcs/gcs-locking.c | 23 +++++++++++++++++++++++
- tools/testing/selftests/arm64/gcs/gcs-util.h    |  3 ++-
- 2 files changed, 25 insertions(+), 1 deletion(-)
+On 20.09.25 00:40, Thinh Nguyen wrote:
+> On Sat, Sep 06, 2025, Sven Peter wrote:
+>> As mad as it sounds, the dwc3 controller present on the Apple M1 must be
+>> reset and reinitialized whenever a device is unplugged from the root
+>> port or when the PHY mode is changed.
 
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-locking.c b/tools/testing/selftests/arm64/gcs/gcs-locking.c
-index 989f75a491b7..0e8928096918 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-locking.c
-+++ b/tools/testing/selftests/arm64/gcs/gcs-locking.c
-@@ -77,6 +77,29 @@ FIXTURE_VARIANT_ADD(valid_modes, enable_write_push)
- 		PR_SHADOW_STACK_PUSH,
- };
- 
-+FIXTURE_VARIANT_ADD(valid_modes, enable_token)
-+{
-+	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_EXIT_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(valid_modes, enable_write_exit)
-+{
-+	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE |
-+		PR_SHADOW_STACK_EXIT_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(valid_modes, enable_push_exit)
-+{
-+	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_PUSH |
-+		PR_SHADOW_STACK_EXIT_TOKEN,
-+};
-+
-+FIXTURE_VARIANT_ADD(valid_modes, enable_write_push_exit)
-+{
-+	.mode = PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE |
-+		PR_SHADOW_STACK_PUSH | PR_SHADOW_STACK_EXIT_TOKEN,
-+};
-+
- FIXTURE_SETUP(valid_modes)
- {
- }
-diff --git a/tools/testing/selftests/arm64/gcs/gcs-util.h b/tools/testing/selftests/arm64/gcs/gcs-util.h
-index c99a6b39ac14..1abc9d122ac1 100644
---- a/tools/testing/selftests/arm64/gcs/gcs-util.h
-+++ b/tools/testing/selftests/arm64/gcs/gcs-util.h
-@@ -36,7 +36,8 @@ struct user_gcs {
- # define PR_SHADOW_STACK_PUSH		(1UL << 2)
- 
- #define PR_SHADOW_STACK_ALL_MODES \
--	PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE | PR_SHADOW_STACK_PUSH
-+	PR_SHADOW_STACK_ENABLE | PR_SHADOW_STACK_WRITE | \
-+	PR_SHADOW_STACK_PUSH | PR_SHADOW_STACK_EXIT_TOKEN
- 
- #define SHADOW_STACK_SET_TOKEN (1ULL << 0)     /* Set up a restore token in the shadow stack */
- #define SHADOW_STACK_SET_MARKER (1ULL << 1)     /* Set up a top of stack merker in the shadow stack */
+[....]
 
--- 
-2.47.2
+>> +/**
+>> + * struct dwc3_apple - Apple-specific DWC3 USB controller
+>> + * @dwc: Core DWC3 structure
+>> + * @dev: Pointer to the device structure
+>> + * @mmio_resource: Resource to be passed to dwc3_core_probe
+>> + * @apple_regs: Apple-specific DWC3 registers
+>> + * @resets: Reset control
+>> + * @role_sw: USB role switch
+>> + * @lock: Mutex for synchronizing access
+>> + * @core_probe_done: True if dwc3_core_probe was already called after the first plug
+>> + * @mode: Current mode of the controller (off/host/device)
+> 
+> For this platform, current mode of the controller should only ever be
+> host or device mode. Seems we're mixing power with usb role? ie. what
+> DWC3_APPLE_OFF is being used for?
+> 
 
+So this platform is very messed up and in order the bring up dwc3 and 
+the PHY there are four steps:
+
+1) The PHY itself has to be brought up; for this we need to know the 
+mode (USB3, USB3+DisplayPort, USB4, etc) and the lane orientation. This 
+happens from typec_mux_set
+2) DWC3 has to be brought up but we must not touch the gadget area or 
+start xhci yet
+3) The PHY bring-up has to be finalized and dwc3's PIPE interface has to 
+be switched to the USB3 PHY, this is done inside phy_set_mode.
+4) We can now initialize xhci or gadget mode.
+
+I think we can switch 1 and 2 but 3 has to happen after (1 and 2) and 4 
+has to happen after 3.
+
+And then to bring this all down again:
+
+1) DWC3 has to exit host or gadget mode and must no longer touch those 
+registers
+2) The PHY has to switch dwc3's PIPE interface back to the dummy backend
+3) The PHY itself can be shut down, this happens from typec_mux_set
+
+We also can't transition the PHY from one mode to another while dwc3 is 
+up and running (this is slightly wrong, some transitions are possible, 
+others aren't but because we have no documentation for this I'd rather 
+play it safe).
+
+After both the PHY and dwc3 are initialized we will also only ever see a 
+single "new device connected" event. If we just keep them running only 
+the first device plugged in will ever work. XHCI's port status register 
+actually does show the correct state but no interrupt ever comes in. In 
+gadget mode we don't even get a USBDisconnected event and everything 
+looks like there's still something connected on the other end.
+
+
+And to make this all extra fun: If we get the order of some of this 
+wrong either the port is just broken until a phy+dwc3 reset, or it's 
+broken until a full SoC reset (likely because we can't reset some parts 
+of the PHY), or some watchdog kicks in after a few seconds and forces a 
+full SoC reset (I've mostly seen this with USB4/Thunderbolt but there's 
+clearly some watchdog that hates invalid states).
+
+
+So there's really no good way to keep dwc3 fully up and running after we 
+disconnect a cable because then we can't shut down the PHY anymore. And 
+if we kept the PHY running in whatever mode until the next cable is 
+connected we'd need to tear it all down and bring it back up again 
+anyway to detect and use the next device.
+
+
+Instead, I just shutdown everything once a cable is disconnected and 
+that's this DWC3_APPLE_OFF state. Maybe I can put the explanation above 
+as a comment in there and maybe also rename "mode" to "state" here 
+because we may get something like DWC3_APPLE_USB4_TUNNEL in the future 
+here as well because the sequence might be a bit different there.
+
+
+
+>> + */
+>> +struct dwc3_apple {
+
+[...]
+
+>> +	/*
+>> +	 * Note that we only bring up dwc3 once the first device is attached because we need to know
+>> +	 * the role (e.g. host), mode (e.g. USB3) and lane orientation to bring up the PHY which is
+>> +	 * tightly coupled to dwc3.
+>> +	 */
+> 
+> The wording here is odd. You can wait for attach to do this, but it
+> should not be a requirement. You might not know whether you need to
+> switch role, but you should be able to initialize the controller in
+> either host or device mode prior to attachment.
+> 
+> Any particular reason we need to do this? If not, we can do away with
+> the core_probe_done condition.
+
+Because I can't really bring up dwc3 fully to any mode without 
+cooperation from the PHY and bringing it up here doesn't really buy us 
+much (see above). What I could do here is already call dwc3_core_probe 
+and then immediately dwc3_core_exit again to get rid of that condition.
+
+
+
+Thanks,
+
+
+Sven
 
