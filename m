@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A2BCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 00:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D11CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 00:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMcpMcSK9VpqSbUc4pnZNxVy3d3owfBYNNhUsHyIoZA=; b=t9vjwiQv1cmhrgfhLvkU+NpEXP
-	xUiKrY5fipnQJ/wO/G3KPnfEGR10UfZf9yZF8hWz8zC4tWNg4NaMmGYRjF2rw5LF0koG7v4tg7x55
-	judBWUK7PDY9juPAsAhLItaQ0dgYWXuaP0RWdSisNQMnX9fRkJ3d5LVyPH/aCVcFJav3BxT9Nrlgl
-	PbToOH4q4qEfQauZRnSF5yutYI+HBhQBplvlOfBRyUrbKIK8RL6n3xt1rUo6S4BK4psMPee9YJIeX
-	6+EqgXX3rRIDqUlHGYZYdyh6atXoJe6DjrdZ8eX5SUNYM8MAKhQJhsLceUt/Z7G5lc9pbN8/8MMvE
-	zSPLtyYw==;
+	bh=IknqNTIsHKbd3rNmjw8CK8YPBxZ+fEB6aLcpbnkHyKI=; b=niOYfOIYuN2hpvNFuLtGPjOrsi
+	dR1OsCi/fQOkCA1KphnAIB6WGoiJhScgc6QuOsbyyR3Em3dLWCooeFHJ4Gv99O1CLb1XsN9ekG1+C
+	Yu5yeFEVf/wrAnvhFW9zrRP5pV5bWzJMG8ZHqWoQumYhv9UDKj3b+6Q5Aq0mm8FnWyJIjOkJtVUwm
+	QTXsWV6GHd9dMbjItqFRb6LSekkTtwK+2bf4fi2FGHboCcBdvB2woAQbh2gP4rbWILWKzWHZvNQcH
+	cUmTF86SVcrmpfnth6MXnVpC2KmhR9ZjDMiVNQqEodO6MhJlTMESDliwdgrgH98tf3nJCqccoIgRc
+	/W3I8yuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v08KU-00000006AIg-05iq;
-	Sun, 21 Sep 2025 00:53:26 +0000
+	id 1v08Ka-00000006AM9-0aMC;
+	Sun, 21 Sep 2025 00:53:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v08KN-00000006AGI-17db
+	id 1v08KV-00000006AJU-2ogY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 00:53:20 +0000
+	Sun, 21 Sep 2025 00:53:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8775F22F8;
-	Sat, 20 Sep 2025 17:53:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACD0C1655;
+	Sat, 20 Sep 2025 17:53:18 -0700 (PDT)
 Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6037C3F66E;
-	Sat, 20 Sep 2025 17:53:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8726A3F66E;
+	Sat, 20 Sep 2025 17:53:23 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	will@kernel.org
@@ -44,17 +44,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH V5 2/4] arm64/sysreg: Update TCR_EL1 register
-Date: Sun, 21 Sep 2025 06:22:58 +0530
-Message-Id: <20250921005300.2535994-3-anshuman.khandual@arm.com>
+Subject: [PATCH V5 4/4] KVM: arm64: Move inside all required TCR_XXX macros
+Date: Sun, 21 Sep 2025 06:23:00 +0530
+Message-Id: <20250921005300.2535994-5-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250921005300.2535994-1-anshuman.khandual@arm.com>
 References: <20250921005300.2535994-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_175319_350872_9EC789A6 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20250920_175327_793439_278A7621 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,106 +70,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update TCR_EL1 register fields as per latest ARM ARM DDI 0487 L.B and while
-here drop an explicit sysreg definition SYS_TCR_EL1 from sysreg.h, which is
-now redundant.
+Move all required TCR_XXX macros into KVM header (asm/kvm_arm.h) for their
+continued usage in KVM.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>
+Cc: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
-The updated TCR_EL1 fields also matches with latest released TCR_EL1 layout.
+ arch/arm64/include/asm/kvm_arm.h       | 43 ++++++++++++++++++++++++++
+ arch/arm64/include/asm/pgtable-hwdef.h | 43 --------------------------
+ 2 files changed, 43 insertions(+), 43 deletions(-)
 
-https://developer.arm.com/documentation/ddi0601/2025-06/AArch64-Registers/TCR-EL1--Translation-Control-Register--EL1-?lang=en
-
- arch/arm64/include/asm/sysreg.h |  2 --
- arch/arm64/tools/sysreg         | 52 ++++++++++++++++++++++++++++-----
- 2 files changed, 44 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 6604fd6f33f4..71febc944adb 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -281,8 +281,6 @@
- #define SYS_RGSR_EL1			sys_reg(3, 0, 1, 0, 5)
- #define SYS_GCR_EL1			sys_reg(3, 0, 1, 0, 6)
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 1da290aeedce..236e828c69cc 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -107,6 +107,49 @@
  
--#define SYS_TCR_EL1			sys_reg(3, 0, 2, 0, 2)
+ #define MPAMHCR_HOST_FLAGS	0
+ 
++#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
++#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
++
++#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
++#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
++
++#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
++#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
++
++#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
++#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
++
++#define TCR_SH0_MASK		TCR_EL1_SH0_MASK
++#define TCR_SH0_INNER		(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
++
++#define TCR_TG0_SHIFT		TCR_EL1_TG0_SHIFT
++#define TCR_TG0_MASK		TCR_EL1_TG0_MASK
++#define TCR_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
++#define TCR_TG0_64K		(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
++#define TCR_TG0_16K		(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
++
++#define TCR_TG1_SHIFT		TCR_EL1_TG1_SHIFT
++#define TCR_TG1_MASK		TCR_EL1_TG1_MASK
++#define TCR_TG1_16K		(TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT)
++#define TCR_TG1_4K		(TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT)
++#define TCR_TG1_64K		(TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT)
++
++#define TCR_IPS_SHIFT		TCR_EL1_IPS_SHIFT
++#define TCR_IPS_MASK		TCR_EL1_IPS_MASK
++#define TCR_A1			TCR_EL1_A1
++#define TCR_ASID16		TCR_EL1_AS
++#define TCR_TBI0		TCR_EL1_TBI0
++#define TCR_TBI1		TCR_EL1_TBI1
++#define TCR_HA			TCR_EL1_HA
++#define TCR_HD			TCR_EL1_HD
++#define TCR_HPD0		TCR_EL1_HPD0
++#define TCR_HPD1		TCR_EL1_HPD1
++#define TCR_TBID0		TCR_EL1_TBID0
++#define TCR_TBID1		TCR_EL1_TBID1
++#define TCR_E0PD0		TCR_EL1_E0PD0
++#define TCR_E0PD1		TCR_EL1_E0PD1
++#define TCR_DS			TCR_EL1_DS
++
+ /* TCR_EL2 Registers bits */
+ #define TCR_EL2_DS		(1UL << 32)
+ #define TCR_EL2_RES1		((1U << 31) | (1 << 23))
+diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+index 2c0ba17ed1a3..5059abda78d8 100644
+--- a/arch/arm64/include/asm/pgtable-hwdef.h
++++ b/arch/arm64/include/asm/pgtable-hwdef.h
+@@ -231,49 +231,6 @@
+ #define TCR_T0SZ(x)		((UL(64) - (x)) << TCR_EL1_T0SZ_SHIFT)
+ #define TCR_T1SZ(x)		((UL(64) - (x)) << TCR_EL1_T1SZ_SHIFT)
+ 
+-#define TCR_T0SZ_MASK		TCR_EL1_T0SZ_MASK
+-#define TCR_T1SZ_MASK		TCR_EL1_T1SZ_MASK
 -
- #define SYS_APIAKEYLO_EL1		sys_reg(3, 0, 2, 1, 0)
- #define SYS_APIAKEYHI_EL1		sys_reg(3, 0, 2, 1, 1)
- #define SYS_APIBKEYLO_EL1		sys_reg(3, 0, 2, 1, 2)
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 696ab1f32a67..85da09795527 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4756,17 +4756,53 @@ Field   37      TBI0
- Field   36      AS
- Res0    35
- Field   34:32   IPS
--Field   31:30   TG1
--Field   29:28   SH1
--Field   27:26   ORGN1
--Field   25:24   IRGN1
-+Enum	31:30   TG1
-+	0b01	16K
-+	0b10	4K
-+	0b11	64K
-+EndEnum
-+Enum	29:28   SH1
-+	0b00	NONE
-+	0b10	OUTER
-+	0b11	INNER
-+EndEnum
-+Enum	27:26  ORGN1
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+Enum	25:24   IRGN1
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
- Field   23      EPD1
- Field   22      A1
- Field   21:16   T1SZ
--Field   15:14   TG0
--Field   13:12   SH0
--Field   11:10   ORGN0
--Field   9:8     IRGN0
-+Enum	15:14   TG0
-+	0b00	4K
-+	0b01	64K
-+	0b10	16K
-+EndEnum
-+Enum	13:12   SH0
-+	0b00	NONE
-+	0b10	OUTER
-+	0b11	INNER
-+EndEnum
-+Enum	11:10  ORGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+Enum	9:8   IRGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
- Field   7       EPD0
- Res0    6
- Field   5:0     T0SZ
+-#define TCR_EPD0_MASK		TCR_EL1_EPD0_MASK
+-#define TCR_EPD1_MASK		TCR_EL1_EPD1_MASK
+-
+-#define TCR_IRGN0_MASK		TCR_EL1_IRGN0_MASK
+-#define TCR_IRGN0_WBWA		(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
+-
+-#define TCR_ORGN0_MASK		TCR_EL1_ORGN0_MASK
+-#define TCR_ORGN0_WBWA		(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
+-
+-#define TCR_SH0_MASK		TCR_EL1_SH0_MASK
+-#define TCR_SH0_INNER		(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
+-
+-#define TCR_TG0_SHIFT		TCR_EL1_TG0_SHIFT
+-#define TCR_TG0_MASK		TCR_EL1_TG0_MASK
+-#define TCR_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
+-#define TCR_TG0_64K		(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
+-#define TCR_TG0_16K		(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
+-
+-#define TCR_TG1_SHIFT		TCR_EL1_TG1_SHIFT
+-#define TCR_TG1_MASK		TCR_EL1_TG1_MASK
+-#define TCR_TG1_16K		(TCR_EL1_TG1_16K << TCR_EL1_TG1_SHIFT)
+-#define TCR_TG1_4K		(TCR_EL1_TG1_4K << TCR_EL1_TG1_SHIFT)
+-#define TCR_TG1_64K		(TCR_EL1_TG1_64K << TCR_EL1_TG1_SHIFT)
+-
+-#define TCR_IPS_SHIFT		TCR_EL1_IPS_SHIFT
+-#define TCR_IPS_MASK		TCR_EL1_IPS_MASK
+-#define TCR_A1			TCR_EL1_A1
+-#define TCR_ASID16		TCR_EL1_AS
+-#define TCR_TBI0		TCR_EL1_TBI0
+-#define TCR_TBI1		TCR_EL1_TBI1
+-#define TCR_HA			TCR_EL1_HA
+-#define TCR_HD			TCR_EL1_HD
+-#define TCR_HPD0		TCR_EL1_HPD0
+-#define TCR_HPD1		TCR_EL1_HPD1
+-#define TCR_TBID0		TCR_EL1_TBID0
+-#define TCR_TBID1		TCR_EL1_TBID1
+-#define TCR_E0PD0		TCR_EL1_E0PD0
+-#define TCR_E0PD1		TCR_EL1_E0PD1
+-#define TCR_DS			TCR_EL1_DS
+-
+ /*
+  * TTBR.
+  */
 -- 
 2.25.1
 
