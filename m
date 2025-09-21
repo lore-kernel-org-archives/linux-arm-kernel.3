@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96B4CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 11:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26235CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 11:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zAHr6n4ODFCBNsIheB6un8CF/QHHqSti7GCNou1maus=; b=sfd5fB2mqfIQpT+V7ZQvTzAXaK
-	X+qSNw+F9s3zsosyzPOSaRda43hqMZKQRWhkn82pi+ZDrxiBuNXcjzb9DM60jRLeaJ+3zHgmRYPmy
-	XSnjiOmMFfqCnHL1WnG+6KIckDqOl6fdRPM+ePTwXqQP5bQlc03A7lwaqRhOLaXwpREliuLHXRP44
-	plo4VLrUvf+aolvmSbpQoDWRcp0i8dBqkU6sBDkBO1a97Tj0VyvFhdGSl46XhZSTWIbGsdVMXCT8B
-	eAGMOcFzpXBPQLjeypbAEWs3zm8pl+gpaRJQZbFJm5Ldf8ga2TvYNkS+UPTViM2SkM/BKeQhLwe0v
-	kqpM3lKw==;
+	bh=WKJZFMMsH81W+09vA4YXbb5hqZcWM0YRt6J8Oyh0MfM=; b=dTNznUsL+iKjNFJUwbvylXkMcR
+	ym6Pjpx4Fi3rdww6xu0cI01Mk9SMlC4dggjqccXYmFW7jBX9/kH8UP7uRFlkN9TYLSU0MBmTw26j/
+	Pl/Vbs07MfzNbqIlyBBmEznpoLuE2ArGlu7Q3TIRu9FxLusRXJOaVzvtmKJMbtv1NNtZYGrV9ZDO/
+	WAQUifbNX4ef+rEPl/19JhQqtDam2t2kLye2HpkctSFWI8Z9SxkjLvxcx3IBi3XBOf9t9UF3sYWkn
+	kXS6VrrpEBQ/nEH8xnWh1+/IHK3QabsozlhJhEh/2pKuy2SYr4Ut6sxDB6/UVnwR5ofK1iFky4bv4
+	2fzReEGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0I72-00000007Ng3-1Jqr;
-	Sun, 21 Sep 2025 11:20:12 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1v0IFm-00000007Oko-0FH5;
+	Sun, 21 Sep 2025 11:29:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0I6z-00000007Ner-17wY;
-	Sun, 21 Sep 2025 11:20:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1758453604; bh=uj7IBPcVgr5j3kXfBUzjwNgz92gThuVhXKzbjYk8hmA=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=vdj922gU4Bwxp0+IEbQJ62HSf7JICixDFHtqgq7RMoDfAroKG5WAHcjE2dXxGcP6t
-	 Vty3YA30lc1iIbjr1Q4qoLbo4uZpc7uyJQQ9RObMoQzpgzkIUl2DztucV0Fi2SjBM6
-	 MELH9wXs6Y5GWO7GgJRMfxLpzSJrJiXfynhUf4t8=
-Date: Sun, 21 Sep 2025 13:20:03 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: guptarud@gmail.com
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/5] arm64: dts: rk3399-pinephone-pro: Fix voltage
- threshold for volume down key
-Message-ID: <addgrqhxanzrjdhb7y7y2qrqu4odpoclbwlswuua4yqinrzh2l@wcdtuquzuqvr>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	guptarud@gmail.com, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
- <20250921-ppp_light_accel_mag_vol-down-v2-5-e6bcc6ca74ae@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250921-ppp_light_accel_mag_vol-down-v2-5-e6bcc6ca74ae@gmail.com>
+	id 1v0IFj-00000007OjR-490z
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 21 Sep 2025 11:29:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 94C1A446C3;
+	Sun, 21 Sep 2025 11:29:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE4CC4CEE7;
+	Sun, 21 Sep 2025 11:29:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758454151;
+	bh=TnhBtV7gajUKTHQkLmlYsPEe/PTbeqlRt1FGOsovCI8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kPTb3Y619WykYKRmzfWQRATmeoIv20M6LRcwelGoNTBmnovLE3Gy3rjIO3Lk0XJtq
+	 lPkBppKxAEW5YR2p2/3uKK72t7hEGwXBjq8GuYh/tlU82z0a6BJVXgB1xJwVQpDopX
+	 HGPS2c4dquESbmF5NDz7AbCzHpT2wzFBoVenS32+B9+wF6dpxoYOSNsOOocCFdQqGP
+	 kjSpL5u8x+d1YYv0ANs0h1oV7KW2CFdYkj6vAVY9StDKfVaOHUSZR7bXkFabzMwqFg
+	 hwjMIoSO0xtwFyw5WZbxWY4po1fElGvzhhz1zc6V4lxOBNecGIoRov+tr21LUp81eh
+	 RfQssSV08yHJQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v0IFh-00000008A8W-0wm3;
+	Sun, 21 Sep 2025 11:29:09 +0000
+Date: Sun, 21 Sep 2025 12:29:08 +0100
+Message-ID: <87plbkxcvv.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	qperret@google.com,
+	sebastianene@google.com,
+	keirf@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2] KVM: arm64: Check range args for pKVM mem transitions
+In-Reply-To: <20250919155056.2648137-1-vdonnefort@google.com>
+References: <20250919155056.2648137-1-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, sebastianene@google.com, keirf@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_042009_775017_289899DD 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20250921_042912_069640_C90B31DF 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,108 +94,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Sun, Sep 21, 2025 at 01:04:23AM -0700, Rudraksha Gupta via B4 Relay wrote:
-> From: Ondrej Jirman <megi@xff.cz>
+On Fri, 19 Sep 2025 16:50:56 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> U-Boot and Linux use different algorithms for determining voltage ranges
-> for comparison. Pick value that will work with both.
+> There's currently no verification for host issued ranges in most of the
+> pKVM memory transitions. The subsequent end boundary might therefore be
+> subject to overflow and could evade the later checks.
 > 
-> Signed-off-by: Ondrej Jirman <megi@xff.cz>
-> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
+> Close this loophole with an additional check_range_args() check on a per
+> public function basis.
+> 
+> host_unshare_guest transition is already protected via
+> __check_host_shared_guest(), while assert_host_shared_guest() callers
+> are already ignoring host checks.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> 
 > ---
->  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index 0a4121b05d36c5a7e05eddbd3514a11ae4f7d3eb..4e6df664d780ed4798015db6b2fe79bf7c4e4c00 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -46,7 +46,7 @@ button-up {
->  		button-down {
->  			label = "Volume Down";
->  			linux,code = <KEY_VOLUMEDOWN>;
-> -			press-threshold-microvolt = <600000>;
-> +			press-threshold-microvolt = <400000>;
-
-This is fixes the issue accidentally...
-
-According to the schematic the actual threshold is 1.8V*(2/12) = 0.3V :)
-
-  https://xff.cz/dl/tmp/f1410ee03fac4c5b.png
-
-Linux adc-keys driver uses the "closest to the threshold voltage key wins"
-algorithm.
-
-  https://elixir.bootlin.com/linux/v6.16.8/source/drivers/input/keyboard/adc-keys.c#L32
-
-U-Boot uses the same algorithm implemented differently:
-
-  https://elixir.bootlin.com/u-boot/v2025.10-rc4/source/drivers/button/button-adc.c#L97
-
-So my description in the commit message is wrong.
-
-For the current volume up/down key voltage DT "thresholds" the actual threshold
-used by the driver to determine which key will be detected will be:
-
-  (100 + (600 - 100)/2) = 350 mV
-
-So unless you press the key very lightly, a lot of the time adc voltage will be
-below 350 mV for the Volume Down key and will be misdetected as Volume Up key
-press.
-
-Here a few volume down key presses on my PPP:
-
-[   32.567143] volkey val 1791
-[   32.671337] volkey val 1791
-[   32.775266] volkey val 1791
-[   32.879208] volkey val 1791
-[   32.983109] volkey val 1791
-[   33.086836] volkey val 1791
-[   33.191116] volkey val 300
-[   33.295158] volkey val 298 <-----
-[   33.399351] volkey val 1791
-[   33.503339] volkey val 1792
-[   33.607128] volkey val 1792
-[   33.711296] volkey val 1791
-[   33.815307] volkey val 1791
-[   33.919333] volkey val 1791
-[   34.023392] volkey val 311
-[   34.127329] volkey val 305
-[   34.231124] volkey val 1791
-[   34.335390] volkey val 1791
-[   34.439303] volkey val 1791
-[   34.543256] volkey val 1791
-
-On my other Pinephone Pro it goes down even to 293 mV when the button is pressed harder.
-
-It doesn't help that the Volume Up button threshold in DT is set incorrectly, too.
-It should be 2mV and not 100mV.
-
-So the correct fix here is to change both button thresholds to:
-
-  Volume Down
-
-    press-threshold-microvolt = <300000>;
-
-  Volume Up
-
-    press-threshold-microvolt = <2000>;
-
-To match the schematic. Then the threshold/decision voltage will become ~150mV,
-which works fine according to my tests.
-
-Best regards,
-	o.
-
-
->  		};
->  	};
+>  v1 -> v2:
+>    - Also check for (nr_pages * PAGE_SIZE) overflow. (Quentin)
+>    - Rename to check_range_args().
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 8957734d6183..65fcd2148f59 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -712,6 +712,14 @@ static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
+>  	return check_page_state_range(&vm->pgt, addr, size, &d);
+>  }
 >  
-> 
-> -- 
-> 2.51.0
-> 
-> 
+> +static bool check_range_args(u64 start, u64 nr_pages, u64 *size)
+> +{
+> +	if (check_mul_overflow(nr_pages, PAGE_SIZE, size))
+> +		return false;
+> +
+> +	return start < (start + *size);
+
+I will echo Oliver's concern on v1: you probably want to convert the
+boundary check to be inclusive of the end of the range. Otherwise, a
+range that ends at the top of the 64bit range will be represented as
+0, and fail the  check despite being perfectly valid.
+
+That's not a problem for PAs, as we will be stuck with at most 56bit
+PAs for quite a while, but VAs are a different story, and this sort of
+range check should be valid for VAs as well.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
