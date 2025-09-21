@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6CCCAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A144CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iq3yS9s/ubuwFzpPEGjqx1aQ+WIrFYSSZ7S4yEwUjw4=; b=YrcwDUvWiTCrtAmisUPpSq8y1W
-	oGSUGfzIXQuMmWWaPjzpj1AayKatpLN8A8oyB6zXmjKV/cge9BcufQgmnhJzHONCupnDqqVhOGpvH
-	W1tfZXACEAwu5THDhX/S5utG/8R/gp/J8S9X5bQvwgsyLi7QhQL0W1/gQxnnuYg3zmIasDyLGzm9H
-	pAU3NnkIuJslrqmIGk7aMDKz4GxrvOWNhPsPGtlmC5p1RMSssxUlBwivi3VNLCi2AvIj73fWEOgaB
-	Gy2w7GGLP9dU+6ZIT8TYTq6oaxhtwA7RGXFqdkfCD0bafySzeBp8V+Rk1/6/h2CCVTGCEqAytpPw7
-	JFPBbzpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xhzdAZOaWpxuyYfbyjDwLLdmvc3mx6efCZmHRqEr7CM=; b=apuhRiwgWU1bPtZFgHFD1QbAuR
+	G10M3pcVGedC+bL7Kc5BYG+E7cisgByalNgU5K8b3go9yGKG2wzR9gNhj7ALtbG9z1DJassftHjB5
+	vfXSunZJK4fMH7jcEKMzF6L7dDZao9nyF5I8dfvouE/jkNBapbNAreeL9fzUz7psKhUP7o6PCAXwV
+	jDuC8BTcDRUzCRBNtLr/b8zUFknUSHqR4QcTlAlLZpeFq3BxvRwQrte87DT6lwUnsyzIBgX0cxbcM
+	7Fwoym6YdEZ8cH+LdCo/RObwKn1wtju04tvrF5OyUu3f2jh9CLtV/z7hWdvdLHmXjx3I9dRph91ws
+	aa9z+O9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0MbE-00000007iRl-3l8G;
-	Sun, 21 Sep 2025 16:07:40 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1v0MbK-00000007iW1-1Lbb;
+	Sun, 21 Sep 2025 16:07:46 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0MbB-00000007iOq-2D3q
+	id 1v0MbE-00000007iOX-1llv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 16:07:38 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 09F494E40DA7;
-	Sun, 21 Sep 2025 16:07:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D31F360634;
-	Sun, 21 Sep 2025 16:07:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 24F7E102F17CD;
-	Sun, 21 Sep 2025 18:07:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1758470854; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=iq3yS9s/ubuwFzpPEGjqx1aQ+WIrFYSSZ7S4yEwUjw4=;
-	b=hKusGfhjEGs+PMN5i2Mov9e3YQx81PkSlm2L0HNsNBOpRJx0YH9ltXmuvzwELby6GGwqXc
-	84C7lvEvYCsW130Soje+i8bMQCjAoovTxu6QteMqWOlpu7MpcsrbxwAStSzVLCTt9aHvGr
-	NpnBo8kkj8NVgSVFSKm8b4v3Uj+kLkyhKfF9C2F/soYvGI9Lh5rfeRgnZvn2+dudvZqOA2
-	46D4qdVVevhHZn/sPW724lOfydNOjabcvLYpGKH/vJUcCOtjxV/ztgXGQm1lvKdseGhtJW
-	RLSYwNpdloFyBbDVQgO2BPnwpQvHBmHpz26mZF8PAay0cyuxSnG8ODI3ktKbhw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sun, 21 Sep 2025 16:07:42 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 0D213169;
+	Sun, 21 Sep 2025 18:06:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1758470773;
+	bh=SOxfcuAg/wHY4zUhpi4EhLnADzgpkX8Jpg/fLpNoMp0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=guX3vtQ1J6g5ihr5dodogs1eocaF6XVcFMrHKbETIm77ZVJ4vxZmz0NpdkPI5dPm0
+	 cUxdWnS6ZUV3qibeB2k+tpUYHZeUi5ofnrlM/fyCEwrkR0POjH2DiqY2RGv9ifDbbr
+	 +u0TxG79fuLkHvu2k3X3vcw0vCj8/3tackr5WAmg=
+Date: Sun, 21 Sep 2025 19:07:04 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: "G.N. Zhou" <guoniu.zhou@nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Subject: [PATCH net-next v13 12/18] net: phy: marvell: Support SFP through phy_port interface
-Date: Sun, 21 Sep 2025 21:34:10 +0530
-Message-ID: <20250921160419.333427-13-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250921160419.333427-1-maxime.chevallier@bootlin.com>
-References: <20250921160419.333427-1-maxime.chevallier@bootlin.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 0/5] media: imx91: Add ISI support
+Message-ID: <20250921160704.GA29453@pendragon.ideasonboard.com>
+References: <20250905-isi_imx93-v2-0-37db5f768c57@nxp.com>
+ <AS8PR04MB90801C7CE8D06EDC8CAA6750FA11A@AS8PR04MB9080.eurprd04.prod.outlook.com>
+ <aM2AurOTxTB4raSg@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aM2AurOTxTB4raSg@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_090737_733245_A6DF6ED6 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20250921_090740_987774_4C8C38C0 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,177 +81,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell driver (especially the 88e1512 driver) to use the
-phy_port interface to handle SFPs. This means registering a
-.attach_port() handler to detect when a serdes line interface is used
-(most likely, and SFP module).
+Hi Frank,
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Tested-by: Oleksij Rempel <o.rempel@pengutronix.de>
-Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/phy/marvell.c | 94 ++++++++++++++-------------------------
- 1 file changed, 33 insertions(+), 61 deletions(-)
+On Fri, Sep 19, 2025 at 12:11:38PM -0400, Frank Li wrote:
+> On Fri, Sep 19, 2025 at 02:40:01AM +0000, G.N. Zhou wrote:
+> > Hi,
+> >
+> > Could you help to please review the patches which I have submitted
+> > some time back to linux media community and move forward driver part
+> > if possible.
+> > 
+> > Your feedback will be very appreciated. Thanks.
+> >
+> > Best Regards
+> > G.N Zhou
+> >
+> 
+> Laurent Pinchart:
+> 
+> 	Could you please consider pickup these patches? Consider these
+> related simple changes, is my Reviewed-by enough?
 
-diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index 0ea366c1217e..542166cfcb23 100644
---- a/drivers/net/phy/marvell.c
-+++ b/drivers/net/phy/marvell.c
-@@ -29,10 +29,10 @@
- #include <linux/ethtool.h>
- #include <linux/ethtool_netlink.h>
- #include <linux/phy.h>
-+#include <linux/phy_port.h>
- #include <linux/marvell_phy.h>
- #include <linux/bitfield.h>
- #include <linux/of.h>
--#include <linux/sfp.h>
- 
- #include <linux/io.h>
- #include <asm/irq.h>
-@@ -3598,42 +3598,38 @@ static int marvell_probe(struct phy_device *phydev)
- 	return marvell_hwmon_probe(phydev);
- }
- 
--static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int m88e1510_port_configure_serdes(struct phy_port *port, bool enable,
-+					  phy_interface_t interface)
- {
--	DECLARE_PHY_INTERFACE_MASK(interfaces);
--	struct phy_device *phydev = upstream;
--	phy_interface_t interface;
-+	struct phy_device *phydev = port_phydev(port);
- 	struct device *dev;
- 	int oldpage;
- 	int ret = 0;
- 	u16 mode;
- 
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0, };
--
- 	dev = &phydev->mdio.dev;
- 
--	sfp_parse_support(phydev->sfp_bus, id, supported, interfaces);
--	interface = sfp_select_interface(phydev->sfp_bus, supported);
-+	if (enable) {
-+		switch (interface) {
-+		case PHY_INTERFACE_MODE_1000BASEX:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
- 
--	dev_info(dev, "%s SFP module inserted\n", phy_modes(interface));
-+			break;
-+		case PHY_INTERFACE_MODE_100BASEX:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
- 
--	switch (interface) {
--	case PHY_INTERFACE_MODE_1000BASEX:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
-+			break;
-+		case PHY_INTERFACE_MODE_SGMII:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
- 
--		break;
--	case PHY_INTERFACE_MODE_100BASEX:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
-+			break;
-+		default:
-+			dev_err(dev, "Incompatible SFP module inserted\n");
- 
--		break;
--	case PHY_INTERFACE_MODE_SGMII:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
--
--		break;
--	default:
--		dev_err(dev, "Incompatible SFP module inserted\n");
--
--		return -EINVAL;
-+			return -EINVAL;
-+		}
-+	} else {
-+		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII;
- 	}
- 
- 	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
-@@ -3650,49 +3646,24 @@ static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
- 
- error:
- 	return phy_restore_page(phydev, oldpage, ret);
--}
--
--static void m88e1510_sfp_remove(void *upstream)
--{
--	struct phy_device *phydev = upstream;
--	int oldpage;
--	int ret = 0;
--
--	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
--	if (oldpage < 0)
--		goto error;
--
--	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK,
--			   MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII);
--	if (ret < 0)
--		goto error;
--
--	ret = __phy_set_bits(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			     MII_88E1510_GEN_CTRL_REG_1_RESET);
- 
--error:
--	phy_restore_page(phydev, oldpage, ret);
-+	return 0;
- }
- 
--static const struct sfp_upstream_ops m88e1510_sfp_ops = {
--	.module_insert = m88e1510_sfp_insert,
--	.module_remove = m88e1510_sfp_remove,
--	.attach = phy_sfp_attach,
--	.detach = phy_sfp_detach,
--	.connect_phy = phy_sfp_connect_phy,
--	.disconnect_phy = phy_sfp_disconnect_phy,
-+static const struct phy_port_ops m88e1510_serdes_port_ops = {
-+	.configure_mii = m88e1510_port_configure_serdes,
- };
- 
--static int m88e1510_probe(struct phy_device *phydev)
-+static int m88e1510_attach_mii_port(struct phy_device *phy_device,
-+				    struct phy_port *port)
- {
--	int err;
-+	port->ops = &m88e1510_serdes_port_ops;
- 
--	err = marvell_probe(phydev);
--	if (err)
--		return err;
-+	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_100BASEX, port->interfaces);
- 
--	return phy_sfp_probe(phydev, &m88e1510_sfp_ops);
-+	return 0;
- }
- 
- static struct phy_driver marvell_drivers[] = {
-@@ -3952,7 +3923,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.driver_data = DEF_MARVELL_HWMON_OPS(m88e1510_hwmon_ops),
- 		.features = PHY_GBIT_FIBRE_FEATURES,
- 		.flags = PHY_POLL_CABLE_TEST,
--		.probe = m88e1510_probe,
-+		.probe = marvell_probe,
- 		.config_init = m88e1510_config_init,
- 		.config_aneg = m88e1510_config_aneg,
- 		.read_status = marvell_read_status,
-@@ -3978,6 +3949,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
- 		.led_hw_control_set = m88e1318_led_hw_control_set,
- 		.led_hw_control_get = m88e1318_led_hw_control_get,
-+		.attach_mii_port = m88e1510_attach_mii_port,
- 	},
- 	{
- 		.phy_id = MARVELL_PHY_ID_88E1540,
+I've completed a set of other reviews and will get to this patch series
+in the upcoming week.
+
+> > >
+> > > Add ISI support for i.MX91 chip.
+> > >
+> > > The bellow patch refine code, no functions changed.
+> > >    media: nxp: imx8-isi: Simplify code by using helper macro
+> > >    media: nxp: imx8-isi: Reorder the platform data
+> > >
+> > > The bindings and driver patch for i.MX91 ISI.
+> > >    media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible string
+> > >    media: nxp: imx8-isi: Add ISI support for i.MX91
+> > >
+> > > Add parallel camera input for i.MX93 ISI.
+> > >    media: nxp: imx8-isi: Add parallel camera input support
+> > >
+> > > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > > ---
+> > > Changes in v2:
+> > > - Update commit log in patch 5 to better describe why introduce it.
+> > > - Include two header files in patch 2 since kernel test robot report build
+> > >   issue when arch is riscv and compiler is clang-22.
+> > >   #include <linux/bitfield.h>
+> > >   #include <linux/bits.h>
+> > > - Link to v1: https://lore.kernel.org/all/20250827-isi_imx93-v1-0-
+> > > 83e6b4b50c4d@nxp.com
+> > >
+> > > ---
+> > > Alice Yuan (2):
+> > >       media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible string
+> > >       media: nxp: imx8-isi: Add parallel camera input support
+> > >
+> > > Guoniu Zhou (3):
+> > >       media: nxp: imx8-isi: Simplify code by using helper macro
+> > >       media: nxp: imx8-isi: Reorder the platform data
+> > >       media: nxp: imx8-isi: Add ISI support for i.MX91
+> > >
+> > >  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 13 +++++-
+> > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 50 ++++++++++++++--------
+> > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
+> > >  .../media/platform/nxp/imx8-isi/imx8-isi-gasket.c  | 18 ++++++--
+> > >  4 files changed, 59 insertions(+), 23 deletions(-)
+> > > ---
+> > > base-commit: 603957ae903e81fb80d3788297c0f58a68802dfc
+> > > change-id: 20250826-isi_imx93-4a59288b33e4
+
 -- 
-2.49.0
+Regards,
 
+Laurent Pinchart
 
