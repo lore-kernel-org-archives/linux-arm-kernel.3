@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5786CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 12:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4519ECAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 13:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9bTe05i7PvLpQrCxs3XgZ2Ai91JIyzOqASi8bmCSak=; b=Tbdo2ERlQ8XIxx/gmQ1Z+eH5rr
-	xuNcYPPDov0sQpOoy49Z+nnyiw++QAAUgRKvdQdYDhPcsmseWA/SjsJSXUMkEoOfl3CVh4t23hqW2
-	WSyqK/+pOo40bSMWARN7kT0dRymDAuyxW7RQPw8hxaZZd3OcILdg3ISFHJowBH6jLrU3K9uFDFZY4
-	+YedABoLBgaU3+1jEx6BilXYYaG7RxkaofxfG2PTi3qBKbzA49Rcll/+hAEM01xMk4t76yNpeATKL
-	OvpUmYXKCifXa+QAtir6eICDoA10+2HwEyYGBjBcMbUxn9EHt0H7FfNcnSAsix634xGd4C7Ty5mdw
-	d4I4MZMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eWu1eQ1ze4B6AkrgqS93fW0Q89DBvW4Axw6ROtgh2uc=; b=dI3VBrWvNuprMYvWLA5wo/KGH+
+	dx0unc7b7Z6yrS5hOYLB1mdOKHslPHt3U49OzjArm/jh6k2DDfHn7jcGz/UBSYgYl3ogPv3prIqHU
+	t/iEmsEPMbPwzfBurn3lE9cwJ06Vro6tMmGfsI8MoBhE8RxQzXTN6s/VKKAeOSh+IpxpxDdKRWUc9
+	RkUZcMAFKgUFINZzkPv6QmdZ/zka/5u6gAGvr/Hy6azjO6buWdc+h6YjRwuOyX9gh89JamzGZPP1L
+	QlaU/kn2eHNTrhtQrRJbGv6ws2y92TM7x1NjoTq75fqwfymtr+5uXjMfuHcnadKeaSfJ7b2lsFlK9
+	6JFAeStw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0J6T-00000007SKB-0JHR;
-	Sun, 21 Sep 2025 12:23:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0J6Q-00000007SJl-0dyM
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 12:23:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0AFE1516;
-	Sun, 21 Sep 2025 05:23:28 -0700 (PDT)
-Received: from [10.163.39.139] (unknown [10.163.39.139])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 729483F66E;
-	Sun, 21 Sep 2025 05:23:34 -0700 (PDT)
-Message-ID: <d84eef92-115e-4b71-9146-86fc91244c15@arm.com>
-Date: Sun, 21 Sep 2025 17:53:30 +0530
+	id 1v0JqC-00000007VF2-3LWo;
+	Sun, 21 Sep 2025 13:10:56 +0000
+Received: from vps.xff.cz ([195.181.215.36])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0Jq9-00000007VES-2CQo;
+	Sun, 21 Sep 2025 13:10:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1758460250; bh=DYZxgRurBduAgF9lRk9kGZIRbd3bIwXZL3ok4oNlfF4=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=ixZor4FhlbeesOOfPKrhXATito9HFzwpNtFWiEgo1XUfaBVokaylzJe5YPMb4uhXH
+	 HONi/KiM4yrlFjhr0mjt51RQevFLRE0GxuSEWTrTJxEbWcJbu0TJ6+sefRsGJwwHr9
+	 o55PbPJJPaIeD2ytgAibzOcv95SFR0qfYl6AIl2w=
+Date: Sun, 21 Sep 2025 15:10:49 +0200
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: guptarud@gmail.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] arm64: dts: rk3399-pinephone-pro: Add
+ accelerometer sensor support
+Message-ID: <5b6ijumsm6bgqymsfc25frqzjlpiryq7iupuk2pokcb6d4bz56@yqrz6j3oj5ga>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	guptarud@gmail.com, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
+ <20250921-ppp_light_accel_mag_vol-down-v2-2-e6bcc6ca74ae@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64/mm: Elide TLB flush in certain pte protection
- transitions
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: wangkefeng.wang@huawei.com, ryan.roberts@arm.com, baohua@kernel.org,
- pjaroszynski@nvidia.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250920051043.16421-1-dev.jain@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250920051043.16421-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250921-ppp_light_accel_mag_vol-down-v2-2-e6bcc6ca74ae@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_052338_326137_7EE6AE23 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250921_061054_165972_1D00564E 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,90 +72,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/09/25 10:40 AM, Dev Jain wrote:
-> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
-> required for some cases, for example, when changing from PROT_NONE to
-> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
+Hi,
 
-The following transition does not require a TLB flush on all
-architectures ? In which case, should not this check be part
-of generic mprotect() itself.
-
-PROT_NONE ---> PROT_READ | PROT_WRITE
-> growing into the non-main heaps), and unsetting uffd-wp in a range.
+On Sun, Sep 21, 2025 at 01:04:20AM -0700, Rudraksha Gupta via B4 Relay wrote:
+> From: Ondrej Jirman <megi@xff.cz>
 > 
-> Therefore, implement pte_needs_flush() for arm64, which is already
-> implemented by some other arches as well.
-
-Agreed, defining pte_needs_flush() on the platform does make
-sense, if it brings some perf improvement without additional
-cost.
+> Pinephone Pro uses mpu6500.
 > 
-> Running a userspace program changing permissions back and forth between
-> PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
-> for the none->rw transition, I get a reduction from 3.2 microseconds to
-> 2.85 microseconds, giving a 12.3% improvement.
-
-But that's a very specific workload intended to demonstrate
-the use case for this change. Hence the improvement claimed
-here is not representative of real world work loads.
-> 
-> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 > ---
-> mm-selftests pass.
+>  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> v1->v2:
->  - Drop PTE_PRESENT_INVALID and PTE_AF checks, use ptdesc_t instead of
->    pteval_t, return !!diff (Ryan)
-> 
->  arch/arm64/include/asm/tlbflush.h | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index 18a5dc0c9a54..40df783ba09a 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -524,6 +524,33 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->  {
->  	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
->  }
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 65ee0b805034a4357a766d4f1f9efa2d4a843d77..21ff12ac5f6e52041f485c9f2702f5a15ee831f9 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -544,7 +544,13 @@ mpu6500@68 {
+>  		reg = <0x68>;
+>  		interrupt-parent = <&gpio1>;
+>  		interrupts = <RK_PC6 IRQ_TYPE_LEVEL_LOW>;
+> +		vdd-supply = <&vcc_1v8>;
+>  		vddio-supply = <&vcc_1v8>;
 > +
-> +static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
-> +{
-> +	ptdesc_t diff = oldval ^ newval;
-> +
-> +	/* invalid to valid transition requires no flush */
-> +	if (!(oldval & PTE_VALID))
-> +		return false;
+> +		mount-matrix =
+> +			"1", "0", "0",
+> +			"0", "-1", "0",
+> +			"0", "0", "1";
 
-Is not this true for all platforms which could be checked via
-pte_present() helper ? Hence should not this be moved inside
-the caller itself in generic MM ? I guess probably the above
-mentioned transition should be moved as well.
+I'm not sure where you got this patch, but it's not from me (I know for sure
+I never did any mount-matrix testing/DT patches) and should not have my
+Signed-of-by.
 
-PROT_NONE ---> PROT_READ | PROT_WRITE
-> +
-> +	/* Transition in the SW bits requires no flush */
-> +	diff &= ~PTE_SWBITS_MASK;
-> +
-> +	return !!diff;
-> +}
-> +
-> +static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
-> +{
-> +	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
-> +}
-> +#define pte_needs_flush pte_needs_flush
-> +
-> +static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
-> +{
-> +	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
-> +}
-> +#define huge_pmd_needs_flush huge_pmd_needs_flush
-> +
->  #endif
+I have this in my tree https://codeberg.org/megi/linux/commit/d7cd2eab931e32fa94408a96d73b4e6c0616107a
+
+Which is:
+
+  Signed-of-by: Leonardo G. Trombetta <lgtrombetta@gmx.com>
+
+And has different values on top of that and much more explanation. :)
+
+		mount-matrix =
+			"0", "1", "0",
+			"-1", "0", "0",
+			"0", "0", "1";
+
+So I guess you'd need to provide a bit more information about how you
+tested/verified these values, or where you've got them from.
+
+See: https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/iio/mount-matrix.txt#L93
+
+Looking at where the magnetometer is mounted, it's mounted on the bottom side of
+the PCB (U29 chip):
+
+  https://xff.cz/dl/tmp/a0a36024d1ce9b15.png
+  https://xff.cz/dl/tmp/8f9dce63f3a7f3f4.png
+
+Which means it would face from the PCB in the direction of the display and up
+towards the user who is looking at the display, due to the way PCB is mounted.
+
+From the datasheet: https://xff.cz/dl/tmp/6b163fbe4335e58e.png the relationship
+of the chip orientation to measured XYZ values.
+
+Putting it together https://xff.cz/dl/tmp/a17eec1488ea7705.png
+
+
+- Z increases downwards away from user looking at the phone display
+- Y increases to the left
+- X increases to the bottom of the display (towards USB-C connector)
+
+
+DT bindings state:
+
+- Magnetometers (compasses) have their world frame of reference relative to the
+  geomagnetic field. The system orientation vis-a-vis the world is defined with
+  respect to the local earth geomagnetic reference frame where (y) is in the
+  ground plane and positive towards magnetic North, (x) is in the ground plane,
+  perpendicular to the North axis and positive towards the East and (z) is
+  perpendicular to the ground plane and positive upwards.
+
+     ^^^ North: y > 0
+
+     (---------)
+     !         !
+     !         !
+     !         !
+     !         !  >
+     !         !  > North: x > 0
+     ! 1  2  3 !  >
+     ! 4  5  6 !
+     ! 7  8  9 !
+     ! *  0  # !
+     (---------)
+
+Mount matrix in your patch just flips Y axis and leaves the rest as is, so that
+doesn't seem to match what bindings ask for at all.
+
+Just based on the PCB component placement and datasheets we should have:
+(small letters = DT bindings, big letters output from magnetometer)
+
+  x = -Y
+  y = -X
+  z = -Z
+
+So that gives:
+
+		mount-matrix =
+			"0", "-1", "0",
+			"-1", "0", "0",
+			"0", "0", "-1";
+
+I did a quick test (rotating the phone on the table with display
+facing up):
+
+- Y is highest when right edge of the phone faces north:
+
+  in_magn_x_raw: -3074
+  in_magn_y_raw: -690
+  in_magn_z_raw: -1622
+
+  and lowest when pointing south
+
+  in_magn_x_raw: -3569
+  in_magn_y_raw: -2052
+  in_magn_z_raw: -1824
+ 
+  (X is roughly the same)
+
+  so that matches x = Y
+
+
+- X is highest when top edge of the phone faces north:
+
+  in_magn_x_raw: -3990
+  in_magn_y_raw: -1287
+  in_magn_z_raw: -1677
+
+  and lowest when facing south
+
+  in_magn_x_raw: -2553
+  in_magn_y_raw: -1314
+  in_magn_z_raw: -1624
+
+  (Y is roughly the same)
+
+  y = X
+
+- Z is lower when display faces up
+
+  in_magn_x_raw: -4083
+  in_magn_y_raw: -1179
+  in_magn_z_raw: -2436
+
+  and higher with display facing down
+
+  in_magn_x_raw: -3999
+  in_magn_y_raw: -1584
+  in_magn_z_raw: 393
+
+  z = -Z
+
+So based on that mount-matrix should be:
+
+		mount-matrix =
+			"0", "1", "0",
+			"1", "0", "0",
+			"0", "0", "-1";
+
+Go figure. :-D
+
+Best regards,
+	o.
+
+
+>  	};
+>  };
 >  
->  #endif
-
+> 
+> -- 
+> 2.51.0
+> 
+> 
 
