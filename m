@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEBECAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C06CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RhEmqjeU+NFYOyr5HyHp4DAurnHJrTWvo0NLRrLiAm8=; b=vGWVGuvc1adH82pfIWaq56FGWc
-	Ord4GeC5QpG5ceRE10s5mMC7srGxr5h1LXkCZkz1UbwS0hZtL/2UMertkvhgosphVbugN+knlkU9q
-	nMxeSDX3bXL5qRgVmIIVsie/pULNRVlLhWw7/BaPWLIUcikytJX6SxzkHHGT8FghQrp6V/i3YuayN
-	ST2rbL2auaFvDL0xzY1YGIX8h6hDVWBxXprSIsQ7fU1i+sOgF4tvvpm0FmrVGkf5yInuAbWSu82Jw
-	vsqU0WBZsPUPAqfCC05XuROdBY76gGiqsRKv4rC2nXGcJCSj4qyUvAfbyvUy3VBHxAuL3n7o8PRpq
-	ppC/G1hg==;
+	bh=MXt6c1/Cg732915mGHBQzdD2qDCV46lfKJ/44Pi9hdQ=; b=GgCyNr0urYAF8oUMUjM71o4XYa
+	5O0AdLsnC4rSy6e785PvZjljfLRU7sezZ5qVHb8Eon8AQe1obu67hMLMu32u5JN377hgwV+X7pepz
+	gPxyjgkh8c79m5GYfapMoXogKAsVNs8LrggOrRzyNLZ/8uoiemNgJhCkRW4uug+Z9VYChaO3lKvBM
+	dQX9bDo5Onf4BYgZjacISEAkGR7R18nrFx7ymRjLNAB4du85fNIxN8dYebgGitdzmGUDtZDptXfLG
+	4px2zFE7gOpAs7pb8Sliz25K3YhgFjE6ySBt2P1yP9yuUniPkzHtNfJUy/wfeDZvz6o1ONu2gPWz8
+	3Az045xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NMK-00000007roZ-2tRc;
-	Sun, 21 Sep 2025 16:56:20 +0000
+	id 1v0NSD-00000007tE8-3aD0;
+	Sun, 21 Sep 2025 17:02:25 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NLD-00000007qfe-0BSC;
-	Sun, 21 Sep 2025 16:55:12 +0000
+	id 1v0NSB-00000007tDj-1ATy
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 21 Sep 2025 17:02:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A421C435DF;
-	Sun, 21 Sep 2025 16:55:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64081C4CEE7;
-	Sun, 21 Sep 2025 16:55:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 905B143CF6;
+	Sun, 21 Sep 2025 17:02:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 339E8C4CEE7;
+	Sun, 21 Sep 2025 17:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758473710;
-	bh=RhEmqjeU+NFYOyr5HyHp4DAurnHJrTWvo0NLRrLiAm8=;
+	s=k20201202; t=1758474142;
+	bh=GDIRBW2DYpqe0b8KOgrutzQSfAz/bITiNwSGWti6DSc=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=upxuLHQdf+8AkBm8lnvTyDs+oIG9n2JAkPKQQ2YiUnkzomDTx7qaXo+84br1bWqB9
-	 rrb1pPoFHO7gWKSE4j6aKTGq/zQGtVKhDLtR/e/oTGA89uTk40i/oUjoJCKKugyMbO
-	 tVdjpJlNB5wWgo9ZejhkK5A03kuVWTfUGuZrA0CiH73yByNe294XDTOQLxeRDDwLjf
-	 yRjCAXqDxDfnFMRXUqKHWMn/b4Tc+9DB6FNZNSZfyjRR3Cjq1a8DOW6hvVy2gPkkHd
-	 IVIOT6PaPQihGYkGFdk3xokR8ZKo/3VILV88MDyPvMk4RAsHF1TyR5FqgXaJuliw8P
-	 li5aXiYPLIVDg==
+	b=LmCLZUUgFCdwJZMjC4yFmzfLl65O2lH3474hraDuq10F+wEc60l3nHSAUvtxw5wl+
+	 pUYQHDwswuOXH0FnTcVrEJt0ETKO6vUDlWN7914SxR4/nPMCrhwWfjEjXMRR/dUJe/
+	 YrFSxkr6Nd5DUOGIXd2cilXLG94uDvKoi//dbfKAMcqf9avSbPqDOXjsXoAT7S9v/p
+	 uTjqS2mC5cddVHv8liiT4AZN8unWmvfIj9VzuqaJAp+l65Z1quVE39rG/vAJI0MtU5
+	 CnAVlITmTgmsYALKGih+eiGWn0ha35ifMxOp0AKQQh3YGSyyr04enYprlUOgzTNY29
+	 yDU/x9kZkilQw==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250915151947.277983-27-laura.nao@collabora.com>
-References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-27-laura.nao@collabora.com>
-Subject: Re: [PATCH v6 26/27] clk: mediatek: Add MT8196 vdecsys clock support
+In-Reply-To: <20250917182150.93359-1-nicolas.ferre@microchip.com>
+References: <20250916080545.9310-1-nicolas.ferre@microchip.com> <20250917182150.93359-1-nicolas.ferre@microchip.com>
+Subject: Re: [GIT PULL v2] ARM: microchip: clk for 6.18 #1
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: guangjie.song@mediatek.com, wenst@chromium.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, kernel@collabora.com, Laura Nao <laura.nao@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F . R . A . Prado <nfraprado@collabora.com>
-To: Laura Nao <laura.nao@collabora.com>, angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, krzk+dt@kernel.org, matthias.bgg@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, richardcochran@gmail.com, robh@kernel.org
-Date: Sun, 21 Sep 2025 09:55:09 -0700
-Message-ID: <175847370918.4354.1172258827335473725@lazor>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, Linux Kernel list <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, arnd@arndb.de
+To: arm@kernel.org, linux-clk@vger.kernel.org, mturquette@baylibre.com, nicolas.ferre@microchip.com, soc@kernel.org
+Date: Sun, 21 Sep 2025 10:02:20 -0700
+Message-ID: <175847414087.4354.17261652271034200852@lazor>
 User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_095511_183629_FEFF4AB5 
-X-CRM114-Status: UNSURE (   6.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250921_100223_338779_F6E2136D 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,15 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Laura Nao (2025-09-15 08:19:46)
-> Add support for the MT8196 vdecsys clock controller, which provides
-> clock gate control for the video decoder.
+Quoting nicolas.ferre@microchip.com (2025-09-17 11:21:18)
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
 >=20
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
+> Dear clock maintainers,
+>=20
+> Here are the first clk changes for 6.18.
+> I don't think they have conflict with changes for the deprecated round_ra=
+te()
+> to determine_rate() topic.
+> In this v2, I address the issue highlighted by 0-day robot: build issue. I
+> added a patch that is already included as well in an pull-request to arm-=
+soc:
+> https://lore.kernel.org/linux-arm-kernel/20250916150328.27015-1-nicolas.f=
+erre@microchip.com/
+>=20
+> v1 --> v2:
+> - addition of the patch "ARM: at91: pm: save and restore ACR during PLL
+>   disable/enable" as the first patch of the series to avoid build error i=
+f clk
+>   tree is merged before arm-soc. Branch bisect-able. Exact same patch
+>   in both trees.
+> - a new tag (clk-microchip-6.18-2) is created and deployed for this
+>   v2 pull-request
+>=20
+> Thanks, best regards,
+>   Nicolas
+>=20
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
+85:
+>=20
+>   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+>=20
+> are available in the Git repository at:
+>=20
+>   git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/clk-m=
+icrochip-6.18-2
+>=20
+> for you to fetch changes up to 652b08afba69d5d26fe91098eb832b1bcc0f91c2:
+>=20
+>   ARM: at91: remove default values for PMC_PLL_ACR (2025-09-17 19:15:32 +=
+0200)
+>=20
+> ----------------------------------------------------------------
 
-Applied to clk-next
+Thanks. Pulled into clk-next
 
