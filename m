@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4CFCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 15:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D92CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/aOOHrO8iAsZeTdWRGCwmDf0iujJJY7RoMXfp1yHFuI=; b=RDtaUD46/w5y05QaqgZV18s7pv
-	yTHAHRfGS4aNybzqFQVp3qO40L+/2zmajBnqiUbhR6WYQabqb3XvGu+NQpPW2GlwhtrcBzEuJeNT3
-	4Z759fY4laFE1Tbf1gWOZ98HEsZe4E2alsg6PiJr0ch4gbPyoMjemQVHw0hjQJLfkZ8TroOX2S6Hs
-	spQIQe+6RjYXDtthI/D8qr3VrZ5RDDIQBXjNckCxpwZAmieJkD3gJuAjKy6mIJd3B1jrwl3CxN3so
-	7r9Hdxma/R/t6X8p+yv5WL7bBLC7G/dH5mT8xJKEOTreKpv2J/ffRqphWIj5J2QfhGZpvIOwqOerS
-	h7xtZGsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n5s/rbYzOFlNssq65LrWlny/zA30+0vcvAUYK1oUceg=; b=JIF9Xt29lVOrjB9DpHNa61JXVz
+	hSRUg7BnnQCrCk80nRpWST+my344x3aujeTNbLx2Us1rWXJvAwL8eF7+FV7P/V9PXLLG2vEWxhNb2
+	aHxtzAowpqfIHT4lGPAF77MyBlL42sZcc5HsUuMNAGwGQqCLHkpa/QY68rQimrqAU5/cfMXHvsjgl
+	n3bpTWwZOizihoUPS+iEQf4hvnpFHAPDODvPSpFT1irFf01tkAgTUJU6ZlroDoZ5B5ZXYTdloEtQL
+	LUFV7D/HhLPKE+b3QIPfuFN4IteFPsP5SopwNiHvj3UO4OfvGi8A+SZCfM5pi/AyH/IiGp58yq8VF
+	v3zexYww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0M33-00000007esf-0BJx;
-	Sun, 21 Sep 2025 15:32:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0MTv-00000007go3-0yXY;
+	Sun, 21 Sep 2025 16:00:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0M30-00000007esS-38AN
+	id 1v0MTs-00000007gnA-2gaU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 15:32:18 +0000
+	Sun, 21 Sep 2025 16:00:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3EC6600AE;
-	Sun, 21 Sep 2025 15:32:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FF8FC4CEE7;
-	Sun, 21 Sep 2025 15:32:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 02570409B5;
+	Sun, 21 Sep 2025 16:00:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85221C4CEE7;
+	Sun, 21 Sep 2025 16:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758468737;
-	bh=Fm+N0kWNQ92Y1DMiMDIqpCjseiY46IKkj1Fc+PKJUH0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kHGW8kbzFPLcYJpbavA3z7NgZMyIajbTdJzzZaCDAEd4LiSMiTIzfLe6emGprt6Mp
-	 zHnJ8FML6wYevYWXEhzuRyAHGwpPeJfTA550fFx/Xf8YUeA18iv4HGFCXhkh0HLc+3
-	 Cf8Jq7aYGl8DBoz57776P/k0oAOp6hcwwHiNDi8lu5ZuyjVS/QEfQ8S+7wSN9+48ZQ
-	 F8CgZUg5oaO/Wdit6JyOD5ZN36ol/au7I7FxvgdjPb6Vov2ybmoqT1Et2F+vzEt4F6
-	 koKFPY9KfiZ/D4WzMq3ehXkGAJXxCQVyo6ZMgFgTMzAISVDBV/4RBUvF0s2HbDzgpQ
-	 LUZ2EzVd2W21Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v0M2w-00000008BVR-3w1R;
-	Sun, 21 Sep 2025 15:32:15 +0000
-Date: Sun, 21 Sep 2025 16:32:14 +0100
-Message-ID: <87o6r3yg75.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Mark\
- Rutland" <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J.\
- Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"Saravana\
- Kannan" <saravanak@google.com>,
-	Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau
-	<j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark
-	<james.clark@linaro.org>
-Subject: Re: [PATCH v2 11/25] genirq: Kill handle_percpu_devid_fasteoi_nmi()
-In-Reply-To: <20250916163838.00003791@huawei.com>
-References: <20250915085702.519996-1-maz@kernel.org>
-	<20250915085702.519996-12-maz@kernel.org>
-	<20250916163838.00003791@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1758470403;
+	bh=cm6J+UUm0Yhk5gWtzjh9epyLXB2qW6PN/nEAcS+Q3eo=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=K3pK0p0qVU3h0AxJ4/wvHpEO+P/uqi3mIvu1GLcvOj88VReiPu3Z58Vbto8aNql4c
+	 Zy9xggoNLA/bi2x0KftoQxI4pI6wtnScf3db7c6OTXEZBQjjeXWvS+cw/tb2aHzQJa
+	 YcZMFDYeFDsGCIf3q5wgQMXndu2xDkA6I0EJ/8BHIJ0vioLYjX/M9f69zO305AAxyl
+	 i+Caud7at4YXkNwO2CEtZFzb7pBo2EOz5D+2wZCwnFRK46uuK+7l/kL3PYOeTlYO0x
+	 RiUHgaxr67xkqxf+0FMpBpYI1vzqpz5LkzCXcmW01aL24/6P6eDTR0mxPSy4qlgOI6
+	 B2v6u6lRknFBg==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250921022925.599022-1-andersson@kernel.org>
+References: <20250921022925.599022-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock updates for v6.18
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Taniya Das <taniya.das@oss.qualcomm.com>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, Nickolay Goppen <setotau@yandex.ru>, Sricharan Ramabadhran <quic_srichara@quicinc.com>, Abel Vesa <abel.vesa@linaro.org>, =?utf-8?b?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>, Brian Masney <bmasney@redhat.com>, Dan Carpenter <dan.carpenter@linaro.org>, Daniil Titov <daniilt971@gmail.com>, Imran Shaik <imran.shaik@oss.qualcomm.com>, Johan Hovold <johan+linaro@kernel.org>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Lukas Bulwahn <lukas.bulwahn@redhat.com>, Marko =?utf-8?q?M=C3=A4kel=C3=A4?= <marko.makela@iki.fi>, Satya Priya Kakitapalli <quic_skakitap@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Sun, 21 Sep 2025 09:00:01 -0700
+Message-ID: <175847040126.4354.10132480274472842830@lazor>
+User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_090004_702899_502D2E6D 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +72,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Sep 2025 16:38:38 +0100,
-Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
-> 
-> On Mon, 15 Sep 2025 09:56:48 +0100
-> Marc Zyngier <maz@kernel.org> wrote:
-> 
-> > There is no in-tree user of this flow handler anymore, so simply
-> > remove it.
-> > 
-> > Suggested-by: Will Deacon <will@kernel.org>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> 
-> > diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
-> > index 0d0276378c707..869068ec6ac91 100644
-> > --- a/kernel/irq/chip.c
-> > +++ b/kernel/irq/chip.c
-> > @@ -892,7 +892,8 @@ void handle_percpu_irq(struct irq_desc *desc)
-> >   *
-> >   * action->percpu_dev_id is a pointer to percpu variables which
-> >   * contain the real device id for the cpu on which this handler is
-> > - * called
-> > + * called. This is also used for per-CPU NMIs, so special care is
-> > + * required.
-> 
-> Probably belongs in previous patch as not really related to removing
-> the unused code, but meh.
+Quoting Bjorn Andersson (2025-09-20 19:29:23)
+>=20
+> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
+85:
+>=20
+>   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-for-6.18
+>=20
+> for you to fetch changes up to 4ca6a89f38718d6cd84304e6a26e7ddc90e03356:
+>=20
+>   clk: qcom: gcc-sc8280xp: drop obsolete PCIe GDSC comment (2025-09-11 21=
+:09:29 -0500)
+>=20
+> ----------------------------------------------------------------
 
-Actually, I think I'll simply drop this comment. It really doesn't
-bring much to the table.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+Thanks. Pulled into clk-next
 
