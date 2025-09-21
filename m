@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1414FCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 06:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DA0CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 06:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iWiqaPgcctBPcb0PTKuzPGdt34YGwb7L2H0rbxGxLAk=; b=Mj7x2WrUcbqfRxlOtGOCLoTbIi
-	IM8vHOYy44vxfal2AK6vaKWeriRwdsjDd3k8l1bbxEPiuuojg15vIerI9dU4M3sDVEVEi69CN6tS/
-	gEkI857GYplVSRMzVmK69MhY2lR8UPUJLX288rA0DYXgwb6KbEdKPoW/PL0RyhP+sHCI4qvi/e+Zr
-	rMotMVSqGwcKWZ4jASIY8Xod0W/TX9jzhJL5A0xfMwmW5L1MDrJu/X85znh6wXh34tp8HKgBVHTld
-	mAITNyC0hFgjF6iM5G1rZoMN1JnXSd+HMLRJkmIJoHGABaYXTG7B+mxB3RSWllrFWJyJg4tGc2fYj
-	j5k9Pa2A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uSxhnBSPaZ0/8aur0qK5lkNp8fXyB7uF7jqiDRpCT3g=; b=h/8etPlAy9Xk1jHh7O2WL8qTXB
+	u2esxlIbHncBBaCiEPVRizjo04XkebQQP9Galuvn/I/lSSSKUFGdqRGXrbueX4Uhij03Rnq9/dmSG
+	T99hMN49HOn4jOiLhDKz0xDLosebfH4FqDijbWRUd3e2S5Oj1ScC4uIkFS7HBpAqnEYYZX63lbG6y
+	m2p9/in+yW3wBXUGRIt60boPL6odF+P0hO8IyNGnIckcOKVO0NFCtk5heCHdb+rPT5WlOawzbeI4A
+	F+Euu1hB6hrNycYKo+MNrUWIdZr14E2PmWA9gBEtwQnzPcAiajIEFGcPUSCrr9V4sePAzqAX7xwfZ
+	cDS7Raqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Dl5-00000006pkS-3JoT;
-	Sun, 21 Sep 2025 06:41:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0Dky-00000006pgc-1qZr;
+	Sun, 21 Sep 2025 06:41:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Dkv-00000006pen-1uMX;
-	Sun, 21 Sep 2025 06:41:09 +0000
+	id 1v0Dkw-00000006pfT-1P3A;
+	Sun, 21 Sep 2025 06:41:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7899944958;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A3CF600B0;
 	Sun, 21 Sep 2025 06:41:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 461B4C116C6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 27C9BC4CEE7;
 	Sun, 21 Sep 2025 06:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758436864;
-	bh=tWkryI5Fn0tquUFMSgR7wEMVnb6X+aoYcV4XgpFoxII=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=MwMfYkEv87yYuN8Gb/NL2fjhvSLiaH8sv73sBLNcVGc8TWCzD5LMN08bt4fy8rFre
-	 1Ksu7ymmjMqL4iP633bXgBp+STpiwzdspBmZy0aYm8HGVtO+hsk8xzrjBu4lNIc7HC
-	 FQxGowvzs22+ozT+POrqbltYI9vVBdoUNNaNVedoYN+jzVhpDWqTOTexltMkWy1vT+
-	 f7Xvsfbq3SOZQ4xzPNdmGwC4YgnZ/i6MIwvc4uO4N/ecQdZJTsnZNruqHkWKIvL+7o
-	 Z4sHwkOzMA64S36FortAFCLhbJKgc4eqrru4hO2LKyO+2ppgMNvzMPmnyK8URBLN9s
-	 ki2Pi7RbugGjA==
+	bh=Gpfoi+txALgRhI206tlvm8/xAq4M/UZUJ6YgK5XGaYc=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Tsqd3dN7ILapalT1LHywkpPUGmv7qOvHPzboPVLNsogQmRQ46vQKG8Fv9B6asVeF9
+	 hiDs3fHM0UCASnmfg8thmOAjFj5c5iILU60lUvY0qOlh5O6C62/cmo4jExOFFyt5Vv
+	 +OKMPVV5l8GG+bFeqGZSOCwpyen/2i6P2tBYkuMYbmukMWbVg+btm+PbQ74J9lkew+
+	 fP25EwzFPpk0qabokQvi+bQm1dDYDCs1n03XeSTydw8kH92EzhLaGyXfMy7FBPHokw
+	 rZXQhsNapSmMQToYy6HrgLh5wg/sdhopLuwJv6oQ5GKgFb1qqgGsMpQjfZmP1TzKWq
+	 umMqWCEjhi0oA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C759CAC59A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D653CAC5A0;
 	Sun, 21 Sep 2025 06:41:04 +0000 (UTC)
 From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Sat, 20 Sep 2025 23:41:04 -0700
-Subject: [PATCH 2/5] arm64: dts: rk3399-pinephone-pro: Add accelerometer
- sensor support
+Subject: [PATCH 0/5] Upstreaming Pinephone Pro Patches
+Date: Sat, 20 Sep 2025 23:41:02 -0700
+Message-Id: <20250920-ppp_light_accel_mag_vol-down-v1-0-c8bbcd3e2e94@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250920-ppp_light_accel_mag_vol-down-v1-2-c8bbcd3e2e94@gmail.com>
-References: <20250920-ppp_light_accel_mag_vol-down-v1-0-c8bbcd3e2e94@gmail.com>
-In-Reply-To: <20250920-ppp_light_accel_mag_vol-down-v1-0-c8bbcd3e2e94@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAP6dz2gC/x3MQQqEIBQA0KvEXyeYTOR0lQgR/eoHR0WHZiC6e
+ 9Lybd4JDSthg3U4oeJBjXLqmMYBTNDJIyPbDYKLmb8FZ6UUFcmHr9LGYFQf7dWRI7P5l5icFiN
+ fzmqUFnpRKjr6P/22X9cNCKWy5m4AAAA=
+X-Change-ID: 20250920-ppp_light_accel_mag_vol-down-817c84fdae8d
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>
+ Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>, 
+ "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758436863; l=883;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758436863; l=1279;
  i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=SfqrwYTRcKhC1h7DV8dOsoX/vi0YcmV/gXhDpcpF9vw=;
- b=7qCe7uXU7IlkiQxeGNCcIveyXGrAhfeincuEYiMyWR3o4jwBCh7vttA2bIreRtDoMYHdckn/x
- Q6Kd7ALLhJmDazfyL4BMXqDB6MJlB20zGdduy4HUWaONbY0qPnOpsoz
+ bh=Gpfoi+txALgRhI206tlvm8/xAq4M/UZUJ6YgK5XGaYc=;
+ b=H+bXwIwkxn8Ao42UiF3krOmUE1zTnaFt42PKrB9qR1FNOkjde318DvAeJAsg1ROzBO3ok981k
+ JzlX1V3OaJIAeP1gpeKsQlucOP8fuBuWbeECsRzKcrj+WllofRT7NOY
 X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
  pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
 X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
  auth_id=211
 X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250920_234105_530723_E6564CE7 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +87,38 @@ Reply-To: guptarud@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
+Throughout the years, many have contributed to the Pinephone Pro (pro)
+development. Unfortunately, these patches are scattered around various
+repositories in different states.
 
-Pinephone Pro uses mpu6500.
+I will be attempting to upstream these patches. I will start off with the
+following small series:
+- Add light/proximity sensor support
+- Add accelerometer sensor support
+- Add magnetometer sensor support
+- Add mount-matrix for magnetometer
+- Fix voltage threshold for volume down key
 
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
+Leonardo G. Trombetta (1):
+      arm64: dts: rk3399-pinephone-pro: Add mount-matrix for magnetometer
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 7d1257a3f2e0cbdc65a810062ecd5117f9f5b687..da7ce905152269436410b959be937e07c23772b2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -544,7 +544,13 @@ mpu6500@68 {
- 		reg = <0x68>;
- 		interrupt-parent = <&gpio1>;
- 		interrupts = <RK_PC6 IRQ_TYPE_LEVEL_LOW>;
-+		vdd-supply = <&vcc_1v8>;
- 		vddio-supply = <&vcc_1v8>;
-+
-+		mount-matrix =
-+			"1", "0", "0",
-+			"0", "-1", "0",
-+			"0", "0", "1";
- 	};
- };
- 
+Ondrej Jirman (4):
+      arm64: dts: rk3399-pinephone-pro: Add light/proximity sensor support
+      arm64: dts: rk3399-pinephone-pro: Add accelerometer sensor support
+      arm64: dts: rk3399-pinephone-pro: Add magnetometer sensor support
+      arm64: dts: rk3399-pinephone-pro: Fix voltage threshold for volume down key
 
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 46 +++++++++++++++++++++-
+ 1 file changed, 45 insertions(+), 1 deletion(-)
+---
+base-commit: f83ec76bf285bea5727f478a68b894f5543ca76e
+change-id: 20250920-ppp_light_accel_mag_vol-down-817c84fdae8d
+
+Best regards,
 -- 
-2.51.0
+Rudraksha Gupta <guptarud@gmail.com>
 
 
 
