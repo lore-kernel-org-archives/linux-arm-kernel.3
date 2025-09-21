@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E6ECAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 21:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4B1CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 22:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUaGoPV7fIM2EDuQxD1SxHaeYYbBNgBpqAELlef73FY=; b=flitxU2SGryhU7ijZPvLK5gS0l
-	RPEU7Vd4cpa6q3pAopZktpD1k5Z0K10p20u87A/iK7lVHtZUqbQyt1BMSvDvvQEWrgKJq2pCQytL+
-	Hn/rCZQ1fE2UtQzCvpNJG+UTBw8dcG48563wfzo3EuzSROuKkxeqUZN02EcP6+OHQo6e/85HYZD7b
-	Ugw4LpbiSBkTtaH9lDGxiEhfZ8BZhVdEyT30y/H3xGqsx4ANx4F9STwt7pK5pZi8rdneya8gykAv1
-	fWLamDFgcTqPuDEtR08cXN0O2IJpeGU4sw7w66QswSJFrr/BFY9ffu3ochlgSz1+FfkWl7aLd1My6
-	r2GfUidA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=skU/vYmvoIGL8QnH64Wc2Vz3FYqQnJfrcQBRqXYYRXs=; b=tXFK1vg2u2kqcODJ/ZmIqvYzbR
+	duoCULIDBKf5pjDMjRx8nMWJOn6ChGVBed4m/RRt6mc1Es8qu0ue9u4ocyTS4FxrMowr+m0zMCuME
+	UE1+MBMbD+/fw3L2KIsA6Ufv3WJXwuA3ZRUvWparGPHJCO2+N8DcSPkYM960JlYs8SE1lN4M6e7wH
+	pe5YnWxqM5KeienI7EokP+EvXgkg9Iwc1RANkYmr0FEg56+6ixvhAG9Y9jjbatUlibcwqSy1x4Tsg
+	lumQSw2rDtL539nEmijlKKRc2BP2gqurldfToYhZP1a4ex1WIGyy56hBELDt+I30r3/DAvGtf+FcF
+	01kXBWZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0S5v-00000008IZ2-04L3;
-	Sun, 21 Sep 2025 21:59:43 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1v0S8h-00000008IrD-00Z6;
+	Sun, 21 Sep 2025 22:02:35 +0000
+Received: from mail-io1-f72.google.com ([209.85.166.72])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0S5r-00000008IYc-3Stj
+	id 1v0S8d-00000008IqR-1EUr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 21:59:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758491980; x=1790027980;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=M2v7sfpTNNCmcFOkAb0KWsTGiwbSzGag6VBqaXtIdoQ=;
-  b=Eb3bP6Gob509km8khJbyVpvDNCm2fouZQejACR/p4sdJL9AYiM8Jl8f4
-   DPzygfzVP/DTDMuPE9ssJ1Q5gzEbj93Qcp8QNLELAWAvpmq2geozYbUns
-   V2zXIHQv8XM0QmotjqWxfNE2UWodz3U9Uel9bhBEfCf+Xeus9VaTMbSbj
-   8mH2MvNZ7Z89X9bpudFwE/2tToYE3c9LFGZXZWXJMmSeIlbSoCvYVM+9/
-   ypISPjM+bqU6W/vZqBnypf1wsR5CxncCj6yWa7XwkL9eIIrYwKJEOR3ze
-   S4iPQceKjfTkTSCJDI1IEeVQLAvIK8IJDHdRX4LTDWEs1Kvstkd4JtH78
-   Q==;
-X-CSE-ConnectionGUID: TnKcNAIKQ6mJttHWdUbwDg==
-X-CSE-MsgGUID: 78A1ZkUzSCO2UydWlSJz4A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="60671427"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="60671427"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2025 14:59:38 -0700
-X-CSE-ConnectionGUID: l17xTKIzSS2SgRiJlaW/5w==
-X-CSE-MsgGUID: C+Ft5zF3SlWfsyqfo6lDCA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,283,1751266800"; 
-   d="scan'208";a="181581299"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 21 Sep 2025 14:59:34 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v0S5S-00012D-0Y;
-	Sun, 21 Sep 2025 21:59:20 +0000
-Date: Mon, 22 Sep 2025 05:58:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au,
-	ebiggers@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH 4/5] arm64/fpsimd: Require kernel NEON begin/end calls
- from the same scope
-Message-ID: <202509220514.RnYqxP9V-lkp@intel.com>
-References: <20250918063539.2640512-11-ardb+git@google.com>
+	Sun, 21 Sep 2025 22:02:33 +0000
+Received: by mail-io1-f72.google.com with SMTP id ca18e2360f4ac-8870219dce3so393086039f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 15:02:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758492150; x=1759096950;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=skU/vYmvoIGL8QnH64Wc2Vz3FYqQnJfrcQBRqXYYRXs=;
+        b=wxmHkr00rviJ52binUkbUvRBf4HVCbRPH6np/1Bkc1RuVo2OUjimpw7L+C4Z+pmIvf
+         Q6DncDRsLwEaS6v6SeBLrUr36bwx4tl2zLp+I5KgxVTJhiM9PVMuz5e7uI+7qtRKnUfm
+         KEu5USX0yntIHIV/A5preZZnMsGZ5GsaFi09QO6sx3c8/ZgZdbNHy6MwVHKxW6hq2Xy+
+         MiuBy9Fk8z5F7Rea1VXb25/0212iobHRv8GUkkQ1YP0Xac/NwSmt+tmqxh3Hd7lZWXHG
+         rphiOtRwmVGaoz/+zxhwCBl91KUwZcz27Y/X/7xeDih+WjZFCrf6+0zK6dCrnzaxg2u+
+         m/Qg==
+X-Gm-Message-State: AOJu0YwuLIqbqhA7blG54vDgbAy64k1uBusNUhIu7mSk3cy4CFnzcIgH
+	01KdsPLXuWoxO6wkiZWE1gsTajO0Aqyg2NbQvz7mifk45O2yupvPDp1E0Em4yeiPYV4ezq9Yz73
+	cAAgjfsiZEIRt8rvJqqg49krm0siFLj4fwGskd0QCXqQhxUGYbSjQQtVOgOo=
+X-Google-Smtp-Source: AGHT+IGi8Bp/WVBn+SQUOchEZBtkSoRc62fX9ItZ9YXTcXRaCeLvXeJBuZ8CSM9XyY1h6rykCpbkHPBxNIBrCd7GhbtoKCb7bZCt
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250918063539.2640512-11-ardb+git@google.com>
+X-Received: by 2002:a05:6e02:1746:b0:424:6fe:43c1 with SMTP id
+ e9e14a558f8ab-42481968974mr151196685ab.19.1758492149962; Sun, 21 Sep 2025
+ 15:02:29 -0700 (PDT)
+Date: Sun, 21 Sep 2025 15:02:29 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68d075f5.a00a0220.37dadf.0042.GAE@google.com>
+Subject: [syzbot] Monthly arm report (Sep 2025)
+From: syzbot <syzbot+liste38cfc5b51935cc7deeb@syzkaller.appspotmail.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_145939_940269_9EF239CD 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250921_150231_336506_EF3F8C3B 
+X-CRM114-Status: UNSURE (   4.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+Hello arm maintainers/developers,
 
-kernel test robot noticed the following build errors:
+This is a 31-day syzbot report for the arm subsystem.
+All related reports/information can be found at:
+https://syzkaller.appspot.com/upstream/s/arm
 
-[auto build test ERROR on f83ec76bf285bea5727f478a68b894f5543ca76e]
+During the period, 0 new issues were detected and 0 were fixed.
+In total, 4 issues are still open and 6 have already been fixed.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ard-Biesheuvel/crypto-arm64-aes-ce-ccm-Avoid-pointless-yield-of-the-NEON-unit/20250918-143859
-base:   f83ec76bf285bea5727f478a68b894f5543ca76e
-patch link:    https://lore.kernel.org/r/20250918063539.2640512-11-ardb%2Bgit%40google.com
-patch subject: [PATCH 4/5] arm64/fpsimd: Require kernel NEON begin/end calls from the same scope
-config: arm64-randconfig-r132-20250920 (https://download.01.org/0day-ci/archive/20250922/202509220514.RnYqxP9V-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250922/202509220514.RnYqxP9V-lkp@intel.com/reproduce)
+Some of the still happening issues:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509220514.RnYqxP9V-lkp@intel.com/
+Ref Crashes Repro Title
+<1> 13406   Yes   BUG: workqueue lockup (5)
+                  https://syzkaller.appspot.com/bug?extid=f0b66b520b54883d4b9d
+<2> 232     Yes   WARNING in delayed_work_timer_fn
+                  https://syzkaller.appspot.com/bug?extid=e13e654d315d4da1277c
+<3> 29      Yes   INFO: task hung in truncate_inode_pages_final (2)
+                  https://syzkaller.appspot.com/bug?extid=760777ae7038cad77437
 
-All error/warnings (new ones prefixed by >>):
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-   In file included from drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:27:
-   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c: In function 'dc_fpu_begin':
->> drivers/gpu/drm/amd/amdgpu/../display/dc/dc_trace.h:42:9: error: expected 'while' before 'trace_dcn_fpu'
-      42 |         trace_dcn_fpu(begin, function, line, ref_count)
-         |         ^~~~~~~~~~~~~
-   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:86:9: note: in expansion of macro 'TRACE_DCN_FPU'
-      86 |         TRACE_DCN_FPU(true, function_name, line, depth);
-         |         ^~~~~~~~~~~~~
->> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:106:11: error: 'else' without a previous 'if'
-     106 |         } else {
-         |           ^~~~
-   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c: At top level:
->> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:99:6: warning: 'dc_fpu_end' defined but not used [-Wunused-function]
-      99 | void dc_fpu_end(const char *function_name, const int line)
-         |      ^~~~~~~~~~
+To disable reminders for individual bugs, reply with the following command:
+#syz set <Ref> no-reminders
 
+To change bug's subsystems, reply with:
+#syz set <Ref> subsystems: new-subsystem
 
-vim +42 drivers/gpu/drm/amd/amdgpu/../display/dc/dc_trace.h
-
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  25  
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  26  #define TRACE_DC_PIPE_STATE(pipe_ctx, index, max_pipes) \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  27  	for (index = 0; index < max_pipes; ++index) { \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  28  		struct pipe_ctx *pipe_ctx = &dc->current_state->res_ctx.pipe_ctx[index]; \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  29  		if (pipe_ctx->plane_state) \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  30  			trace_amdgpu_dm_dc_pipe_state(pipe_ctx->pipe_idx, pipe_ctx->plane_state, \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  31  						      pipe_ctx->stream, &pipe_ctx->plane_res, \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  32  						      pipe_ctx->update_flags.raw); \
-8b198f6e94d669 Rodrigo Siqueira 2020-09-09  33  	}
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  34  
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  35  #define TRACE_DCE_CLOCK_STATE(dce_clocks) \
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  36  	trace_amdgpu_dm_dce_clocks_state(dce_clocks)
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  37  
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  38  #define TRACE_DCN_CLOCK_STATE(dcn_clocks) \
-13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  39  	trace_amdgpu_dm_dc_clocks_state(dcn_clocks)
-96ee63730fa306 Rodrigo Siqueira 2021-07-26  40  
-2d8471dc371f36 Rodrigo Siqueira 2021-07-26  41  #define TRACE_DCN_FPU(begin, function, line, ref_count) \
-2d8471dc371f36 Rodrigo Siqueira 2021-07-26 @42  	trace_dcn_fpu(begin, function, line, ref_count)
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+You may send multiple commands in a single email message.
 
