@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC1FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F2FCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNCuIkFLlg7Zhk9/3GF9Znm4JqW+TxU/QNyqHxbMO2E=; b=aARq7nghu4vO9MASWVbdAN2qww
-	Ws+4ZsenuyN3qoGwKIFcQbN+jsFMD3AqMcvWbE4VJBOtV7YWQzD69kOal6+mgjxGpiOqGwiS3OCaU
-	NqUn4udz9O3KgcjwVPZkBGaE/OJGsoBwELorI+a1R1e/A+cE2BMsZ/7cjxUJmuWfJwZ3omwBAHGy3
-	pVUSeco7OKgG9JveMxI52K2A3Sf/9vVges2CqiUQnLTERwVIUe49j2iEILBaG7OaW4lftnr09epi4
-	XQpBN3K7svk3VaVfdn2WmnCpGzmfAEtattbabF6SsKdvP4NvO8rHPGXYl+VX7o+b35g/LRLiV4UF9
-	0CZbP4Hg==;
+	bh=e/lBJw/pvOeOhA+TnoE8B9EgHverZBvwU1Z9gNAbIbE=; b=aatgNFJhSbB1lAFkHIYB6eFEe5
+	EhhGVzhvsfiw4YS2MugNRjYKt0q8s1Gs0N+DyMW6rl6x9hNSAIuWrp4+OApuwCr0qY1BAo+ToY2PO
+	8fMTgC7ffRUWZmEy7Uh1fyR7XrL1RSD7Y+1F99E8ekIKJCV2578u1CuO42CT13JNv3+2xfy/N9lCU
+	wk5sG/HnmV4InKKJzzbdWWQjZQzvHP77ES9LVho0MFYqn3EWfBZYfGSdsRX3BNJHNbL2azm22OfdW
+	wfx++ULmmcj9PfpMjfncYcNjxPzFV4u2ybrEajg8tbX++Q9xnZkMozZ26bCXTeBnhBsIcLhSHeeYL
+	KpoqYc3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0O6T-00000007xQg-3Nm8;
-	Sun, 21 Sep 2025 17:44:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0ODM-00000007y9K-0ShE;
+	Sun, 21 Sep 2025 17:51:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0O6S-00000007xQK-1TLj
+	id 1v0ODL-00000007y9C-1bCC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:44:00 +0000
+	Sun, 21 Sep 2025 17:51:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3AC1600AE;
-	Sun, 21 Sep 2025 17:43:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2F7C4CEE7;
-	Sun, 21 Sep 2025 17:43:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 668AB600AE;
+	Sun, 21 Sep 2025 17:51:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E615CC4CEE7;
+	Sun, 21 Sep 2025 17:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758476639;
-	bh=HNCuIkFLlg7Zhk9/3GF9Znm4JqW+TxU/QNyqHxbMO2E=;
+	s=k20201202; t=1758477066;
+	bh=e/lBJw/pvOeOhA+TnoE8B9EgHverZBvwU1Z9gNAbIbE=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=gOEkMpRYvVlgcY4nNw9GoslJjP/3D6/qNd27SQs8TOiivwQSWwiSHBVChoKWHZEeP
-	 axRjEkxhXreGBBNtWKHnSxzdGUUPVz/c+nEuHh0RJCCx4j5W5iga/lraC+RU/yTtRD
-	 /vCoiGUOAtDBB3RcE1AJswrwL2Bixu1cfMGds5Q6/zJ4x/8wxXRkJ5w6QjVok+ctZb
-	 6aQ7v5caRz/bAbN1TCkKTrMhWxM7J+8O7YcracYCcsIeufbsOs2YEmNFVO2FwVAbkr
-	 prXKog3Ff3AP2vMl1u7iR0s94uoOHUk6SoQw8qxgPpnTrcDBwhsq7PHksGGOmsE4dg
-	 keSXWTgboO5Cg==
+	b=utnWX05/rsIn1ShsYYQQjUjEpkqzGWCNfoKPCRIbfgNZyHfKxFOZtvWJppj6U6cvC
+	 WMvyP9nTRqm4EEonMC8BI0pZLyktz5kDMjV7s4f4TxO5iu5GORbRq8Avv9+wL/dr/z
+	 MCp/Olzf7wjDJSJEIwsWjIL6CkTIdojhXUPG8kksZYbk7txcQwdfV2DVbbE+m5noyu
+	 OGIUOk7ORLhJX9Z3ACX5VXJqhvg7Djc1/3rdkKVJtpflAWzlBPivFRoSqyc6ZbUpQV
+	 8gWRng22bVbrlLSuLGf/emRwdTfSaZALXmyjkcHzgXOpV7e3KPYzQjl7yNUos1/Kgu
+	 5A2cX9kHttFVA==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250730-s2mpg10-v5-2-cd133963626c@linaro.org>
-References: <20250730-s2mpg10-v5-0-cd133963626c@linaro.org> <20250730-s2mpg10-v5-2-cd133963626c@linaro.org>
-Subject: Re: [PATCH v5 2/2] clk: s2mps11: add support for S2MPG10 PMIC clock
+In-Reply-To: <20250913-pxa1908-genpd-v4-3-55e4cf32f619@dujemihanovic.xyz>
+References: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz> <20250913-pxa1908-genpd-v4-3-55e4cf32f619@dujemihanovic.xyz>
+Subject: Re: [PATCH v4 3/4] clk: mmp: pxa1908: Instantiate power driver through auxiliary bus
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, kernel-team@android.com, linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, =?utf-8?q?Andr=C3=A9?= Draszik <andre.draszik@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Alim Akhtar <alim.akhtar@samsung.com>, =?utf-8?q?Andr=C3=A9?= Draszik <andre.draszik@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Lee Jones <lee@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Will Deacon <will@kernel.org>
-Date: Sun, 21 Sep 2025 10:43:58 -0700
-Message-ID: <175847663814.4354.1879115669724877566@lazor>
+Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, Duje =?utf-8?q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+To: Conor Dooley <conor+dt@kernel.org>, Duje =?utf-8?q?Mihanovi=C4=87?= <dujemihanovic32@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
+Date: Sun, 21 Sep 2025 10:51:04 -0700
+Message-ID: <175847706450.4354.2268547686521833352@lazor>
 User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,15 +68,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Andr=C3=A9 Draszik (2025-07-30 02:31:35)
-> Add support for Samsung's S2MPG10 PMIC clock, which is similar to the
-> existing PMIC clocks supported by this driver.
+Quoting Duje Mihanovi=C4=87 (2025-09-13 14:12:50)
+> From: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 >=20
-> S2MPG10 has three clock outputs @ 32kHz: AP, peri1 and peri2.
+> The power domain driver shares the APMU clock controller's registers.
+> Instantiate the power domain driver through the APMU clock driver using
+> the auxiliary bus.
 >=20
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> Also create a separate Kconfig entry for the PXA1908 clock driver to
+> allow (de)selecting the driver at will and selecting
+> CONFIG_AUXILIARY_BUS.
+>=20
+> Signed-off-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 > ---
 
 Applied to clk-next
