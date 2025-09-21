@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B006CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 10:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF245CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 10:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZscFgxaOdMe9Fpbe+Rp7hnlp06VZswaAdymqLttHLhE=; b=OZkuNyUpIJW0KJn4kMf+FWlWpe
-	nU57qd9W/8f1yL/QiFj8vjq9y4jecULTzImzY02kDTwIPJw+QKqqf9ZvbUyh2Iv2Bf0Ydwv6ppZ2g
-	YduWVFey4HFYe2b6rx9ybycOl9tgp0kskmrbZOIWNz0a9Q5YwqjnxS3XE3XgLGQ7LGsZaUlen9D6E
-	Kx8pdXCb7fj8/SVC1MU28eJU9BHChljheFylDaJqZiykEvTsmkU7OU9nocQB14GuSXeeopS5+kOfH
-	R6A6rFA8SlBg69gAZy5xHD5i7vJ88X5z6dWdAxJbXsmC3vJb8BpaC6GpDTQORabPaeVlx4fQ0Qsva
-	lHYkaGfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gcurvrki+PQ3hlCSbHx5X7PXrbv6IecB2gkgSChOo2E=; b=oMuR02afNIpoHg6OpeN7CUYy+q
+	9HZ0JmifNTEsEn1NeNs16h31buJR6tcwjyoWaaG68ovo5KO/1WzLNeaNof0AXKhr/5uVTZTSXBFUV
+	W4iShRYnzN0xtRR6L+u3nYAzghXmFrueVyjOIWoN7EEufxdWbD6FR0P2DF1nCyrOZTm7C3++PHvO5
+	L+o3Br1ODJuWD+/TXGAtsRfKah6qBEZae7OCCCiMPQxA9YrFMIyHpmL46Jga7YSeHBfjfFFi98kdc
+	ay6ZwFDm8ODNzG9kLZU2vEdOjgMv8tv1gnoB0BRr5uEmiIQGO+ncLGRgpmljP0X/sRNAdNQ8OaL+g
+	eyFDjsrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0HLw-00000007JWT-0DQN;
-	Sun, 21 Sep 2025 10:31:32 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1v0HlY-00000007KrZ-0cB3;
+	Sun, 21 Sep 2025 10:58:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0HLt-00000007JVv-0oWA
+	id 1v0HlV-00000007Kr9-1zZD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 10:31:30 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id E42FB240101
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 12:31:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
-	t=1758450681; bh=ZscFgxaOdMe9Fpbe+Rp7hnlp06VZswaAdymqLttHLhE=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:From;
-	b=NkL1W8RiTiZl08x88D4b9irNhv9y1E0474eP+AsNO8+V/IoNX33D55e5l8pu+HKJf
-	 ISOb4JItPSgl4TgQe0n/n8QLDTjauR6IPDn1yRzAt0gmM62BrVoTbJsg/1NEz2hHpN
-	 HGlUl9uwvMcJZrXrlINEGvg99o3Muno0VbwdbNUCQhaf+KIbNRxPOHBGa91wjsz+Sz
-	 Fwzu533dfsIZ/O1PyEZbIbtQg0NRU2XLJKKXSCuRdW1prpkf16pp3tKq0Gw0WYqhQu
-	 DJ0nJ91KTF9uj29qDY8sXd8eX/DjpH4F7sfVyYWgbqlzqkGBeiuxCGP0JkbotL3fAL
-	 x9AxKA3oy3Fow==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4cV2bC1lTqz6tm8;
-	Sun, 21 Sep 2025 12:31:19 +0200 (CEST)
-Date: Sun, 21 Sep 2025 10:31:21 +0000
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, Tom Rini <trini@konsulko.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	J =?utf-8?Q?=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] scripts/make_fit: Speed up operation
-Message-ID: <aM_T9mtmEdAGNpLi@probook>
-References: <20250919224639.1122848-1-sjg@chromium.org>
- <20250919224639.1122848-2-sjg@chromium.org>
+	Sun, 21 Sep 2025 10:57:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EFD77404E6;
+	Sun, 21 Sep 2025 10:57:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40ADC4CEE7;
+	Sun, 21 Sep 2025 10:57:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758452275;
+	bh=8Op61nzSpVhT7RNzCmXUhBy/d+AQXo4ddYpTYafvvqQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qMc2JFpawOs1NCf2REhhEkTHNX9fUpIq361qjmtT7U/BmpovsSDZ7s/QfreyO47SG
+	 RykgxkEZjd3BzyMNOD7b5Dny4PRdXauRP3Xm2lPP1wXq2erStMj/V5ho428gMs7HIU
+	 uTr8lW6HZewvWPsdvkZAkP1JNYseW3O57VoXGQtbVFFZoCfoirrCRqQeg2zApm1QPj
+	 /4avlvMR+5c78M7VAjMH7+9AU7Ph7hKeP2SboLi3Fa+4I/eDHsJ5n3OxFQ4R2QerV7
+	 Q+9AMhWw6MmY/LuxP2dEv6cHgcbpxDJsFPkUb2UlqvZa0CTUOcnhGxysnQPkh6K0uQ
+	 CoJxK7ae7XwzQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v0HlR-000000089rB-0xoW;
+	Sun, 21 Sep 2025 10:57:53 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 00/16] KVM: arm64: TTW reporting on SEA and 52bit PA in S1 PTW
+Date: Sun, 21 Sep 2025 11:57:49 +0100
+Message-ID: <175845226586.1792635.11249464012956393475.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250915114451.660351-1-maz@kernel.org>
+References: <20250915114451.660351-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250919224639.1122848-2-sjg@chromium.org>
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_033129_394800_C24F546B 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250921_035757_555340_D6596976 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 04:46:25PM -0600, Simon Glass wrote:
-> The kernel is likely at least 16MB so we may as well use that as a step
-> size when reallocating space for the FIT in memory. Pack the FIT at the
-> end, so there is no wasted space.
+On Mon, 15 Sep 2025 12:44:35 +0100, Marc Zyngier wrote:
+> Yes, $SUBJECT rolls off the tongue.
 > 
-> This reduces the time to pack by an order of magnitude, or so.
+> This series was triggered by the realisation that when injecting an
+> SEA while on a S1PTW fault, we don't report the level of the walk and
+> instead give a bare SEA, which definitely violates the architecture.
 > 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
+> This state of things dates back to the pre-NV days, when we didn't
+> have a S1 page table walker, and really didn't want to implement one.
+> I've since moved on and reluctantly implemented one, which means we
+> now *could* provide the level if we really wanted to.
 > 
-> ---
-> 
-> (no changes since v1)
-> 
->  scripts/make_fit.py | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-> index b4caa127d2c3..904f45088978 100755
-> --- a/scripts/make_fit.py
-> +++ b/scripts/make_fit.py
-> @@ -100,7 +100,7 @@ def setup_fit(fsw, name):
->          fsw (libfdt.FdtSw): Object to use for writing
->          name (str): Name of kernel image
->      """
-> -    fsw.INC_SIZE = 65536
-> +    fsw.INC_SIZE = 16 << 20
->      fsw.finish_reservemap()
->      fsw.begin_node('')
->      fsw.property_string('description', f'{name} with devicetree set')
-> @@ -330,10 +330,12 @@ def build_fit(args):
->  
->          entries.append([model, compat, files_seq])
-> 
+> [...]
 
-> -    finish_fit(fsw, entries)
-> +    finish_fit(fsw, entries, bool(args.ramdisk))
+Applied to next, thanks!
 
-It seems like this line should rather go into the previous patch.
+[01/16] KVM: arm64: Add helper computing the state of 52bit PA support
+        commit: 0090c0a247cd3dc37181be4a9af4750ae3fedbd0
+[02/16] KVM: arm64: Account for 52bit when computing maximum OA
+        commit: 23cf13def0c87d9ce234f12eb6132f6bf9442f29
+[03/16] KVM: arm64: Compute 52bit TTBR address and alignment
+        commit: e645226a9c238db919d105d0ee7b4e09d80d13b1
+[04/16] KVM: arm64: Decouple output address from the PT descriptor
+        commit: df1d0197a2b939e28321686cafaead4a183980fa
+[05/16] KVM: arm64: Pass the walk_info structure to compute_par_s1()
+        commit: e4bd479884a1353efd43aa950c996d333145642d
+[06/16] KVM: arm64: Compute shareability for LPA2
+        commit: c0cc438046eed8d906ac917bc70a7284b6cc3f03
+[07/16] KVM: arm64: Populate PAR_EL1 with 52bit addresses
+        commit: dd82412c2b2b30bf4aa08ef069eb38c7795cd9b8
+[08/16] KVM: arm64: Expand valid block mappings to FEAT_LPA/LPA2 support
+        commit: 5da3a3b27a0108562547086e0ba7d9593f147cfe
+[09/16] KVM: arm64: Report faults from S1 walk setup at the expected start level
+        commit: dabf9f73fed86e096255c5be12c7e1d08a939c67
+[10/16] KVM: arm64: Allow use of S1 PTW for non-NV vcpus
+        commit: 14d4802dc22acf670333c8aad4e1931e7d6ee412
+[11/16] KVM: arm64: Allow EL1 control registers to be accessed from the CPU state
+        commit: cb1762904c5000220a0facf9bcab68ba687ec417
+[12/16] KVM: arm64: Don't switch MMU on translation from non-NV context
+        commit: 61b0280a670bdbb3a209ae474625f387788af0a8
+[13/16] KVM: arm64: Add filtering hook to S1 page table walk
+        commit: 0c5471408cb5c518bce76b851aff89719283a428
+[14/16] KVM: arm64: Add S1 IPA to page table level walker
+        commit: b8e625167a321138f83b1f6c99cf25d1290cb04e
+[15/16] KVM: arm64: Populate level on S1PTW SEA injection
+        commit: 50f77dc87f133b09db44a5bbfdd64b1ca83a8d8e
+[16/16] KVM: arm64: selftest: Expand external_aborts test to look for TTW levels
+        commit: 00a37271c8a68070dc64f81a5d64644beb4cef2f
 
->  
->      # Include the kernel itself in the returned file count
-> -    return fsw.as_fdt().as_bytearray(), seq + 1, size
-> +    fdt = fsw.as_fdt()
-> +    fdt.pack()
-> +    return fdt.as_bytearray(), seq + 1, size
+Cheers,
 
-The rest looks good to me. Easy optimization, big win :)
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
 
-Best regards,
-J. Neuschäfer
 
