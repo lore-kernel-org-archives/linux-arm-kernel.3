@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92479CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9B3CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtNY3mZb+yYSBJf2rxALF2ewBk5OdFI056vRwJ4aepI=; b=n9OLMST5jOftqjF+pDw6WIs/Vu
-	ph+XpbqE/Y+/djSC0YFjkVBp608lcDlH0xIFfXYdUQtPoYWIfkD6YuccheSdnpvx6fJphP3Rl8QjL
-	yy+fyaKC6G2Z8KlLjLwd6sSbtpFFo3grjx+1hacpe8MQla8toNSLQN5nBpG+8o2bVmjg7hxE/O+Gv
-	kZM1hO+SrGJ7+KXxb3OzUqZDrL7Itrft0wboDgUkBtUxEISeFjItyrMsBEjLwcYgbUN9bEhoEiHCo
-	svcBWh3KGe3UzHq+MFBknuW9mEsT9w7TORAUR1QKS75jXznqyN0OkVHQRRqglqLub7PHNXkNCOfAa
-	LGpJTdiQ==;
+	Content-Type:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T13PpfofiomlNgg6/ltRzK/T/BI06+Nnoby+OscX+ss=; b=O0O82NwMAStUbzFTzh/pdFcC+c
+	FjjhJuuNU+S9KnVYpEMtX10PeN2dJ11D9r6kM3uaB5/mlV7xZSX7YBY3HwVEQAJtNV/B4+Js8uZzk
+	EHLC/ey9eDltUG7RAUAB/c30UixAFBZuNTf8q/4Vif14kgmTWgbnGa3j/azgFrbtP/gEMj8CmX7aS
+	HZCTACe8RvI/e8fxlyDOcVNZUaZdbNuObP+6cgYLnhaC5nw0aPBYABbljHbaR83WWsui/vRGTQhL8
+	y95fVmk3DNAAg+aLhhs7Ml4BL+2d+F+Akuw2EmBg/udoovXs4JYG1X6/B1uO5x9XT0icXqn7Ou6Yi
+	4eskQsPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0MsQ-00000007lnV-0IYd;
-	Sun, 21 Sep 2025 16:25:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0Mxr-00000007mml-36rR;
+	Sun, 21 Sep 2025 16:31:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0MsO-00000007lmH-0nKw;
-	Sun, 21 Sep 2025 16:25:24 +0000
+	id 1v0Mxp-00000007mm4-0UcY;
+	Sun, 21 Sep 2025 16:31:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9ACE4601AB;
-	Sun, 21 Sep 2025 16:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 300F8C4CEF7;
-	Sun, 21 Sep 2025 16:25:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0F91445B6;
+	Sun, 21 Sep 2025 16:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A6BC4CEE7;
+	Sun, 21 Sep 2025 16:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758471923;
-	bh=OtNY3mZb+yYSBJf2rxALF2ewBk5OdFI056vRwJ4aepI=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=S27S9JadoG9UKdmIkd4Bwr0qPl6ZUGqVre7SQ2mnHuVVJ1mqZx2oc+qo52g0vPyNL
-	 Wohf9xmDPeyAk/dAWAIRvvgPs+E7onwrD/NS3ccl6bRG2+k3RlNWQGMYN8biB9FgPx
-	 W+tSm1NseZKdwlFwDX2HIsNnhOQSKHVxwhc1t/0TytdvrUMznpPIRKQlrFDrhE/iNe
-	 L2pJEhskt7wNu8fYRtft+wYdAY0cqztve762qMKpu+aEpuchJVgQn5pgHAvsd37b7E
-	 L6d4FycfLOwQ1qpNcWupZGiijOcBAD2HqCDlwnVQsHPHqS/QeB7FcsH+coEk9GPyck
-	 CjP1eoHxgKkJg==
+	s=k20201202; t=1758472260;
+	bh=T13PpfofiomlNgg6/ltRzK/T/BI06+Nnoby+OscX+ss=;
+	h=In-Reply-To:References:Subject:From:To:Date:From;
+	b=gbDmoYfUOjUvEQRhREN2Rt8FcPLK6s8LsMM6YYLQhRR7JJUtCnSQbjSblIIVtERI7
+	 7g2csSK4a3b5r4tu48i9HubMn0GH8GT4IqBucX879MowRdiGBZ1gWIDvEX9VZshXJe
+	 9EP4qyX4EvGqAG1o2tjTpC82fXoeCOhroEP9UX6F3usSUJLIRw9IXZHxC226ifyUZ8
+	 sN2A2vUQn6EvZsZxYgd14iQGwGdlgrL7Xq4ESgoYoi/N9l8/2wGu30/1jQT93AXFgT
+	 hvHGSwpFTOeQqudqIbj53A8X2QirFkgFbKxPzxPSH4CpiyHxXJ2jnsyP+G/81K72c4
+	 zc6Xr+kWop6jw==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250731-v3d-power-management-v2-3-032d56b01964@igalia.com>
-References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com> <20250731-v3d-power-management-v2-3-032d56b01964@igalia.com>
-Subject: Re: [PATCH v2 3/5] clk: bcm: rpi: Maximize V3D clock
+In-Reply-To: <ZyRIy22aS_Yjoavg@pidgin.makrotopia.org>
+References: <ZyRIy22aS_Yjoavg@pidgin.makrotopia.org>
+Subject: Re: [PATCH] clk: mediatek: mt7988-infracfg: SPI0 clocks are not critical
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra?= Canal <mcanal@igalia.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Dom Cobley <popcornmix@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, Iago Toral Quiroga <itoral@igalia.com>, Maxime Ripard <mripard@kernel.org>, =?utf-8?q?Ma=C3=ADra?= Canal <mcanal@igalia.com>, Melissa Wen <mwen@igalia.com>, Michael Turquette <mturquette@baylibre.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Stefan Wahren <wahrenst@gmx.net>
-Date: Sun, 21 Sep 2025 09:25:21 -0700
-Message-ID: <175847192183.4354.13711226446879462833@lazor>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frank-w@public-files.de>, Matthias Brugger <matthias.bgg@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Sam Shih <sam.shih@mediatek.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+Date: Sun, 21 Sep 2025 09:30:58 -0700
+Message-ID: <175847225898.4354.5439045355673574414@lazor>
 User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_093101_175399_77BB4AAF 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,17 +70,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Ma=C3=ADra Canal (2025-07-31 14:06:19)
-> Although minimizing the clock rate is the best for most scenarios, as
-> stated in commit 4d85abb0fb8e ("clk: bcm: rpi: Enable minimize for all
-> firmware clocks"), when it comes to the GPU, it's ideal to have the
-> maximum rate allowed.
+Quoting Daniel Golle (2024-10-31 20:19:39)
+> SPI0 clocks have wrongly been marked as critical while, probably due
+> to the SPI driver not requesting them. This can (and should) be addressed
+> in device tree instead.
+> Remove CLK_IS_CRITICAL flag from clocks related to SPI0.
 >=20
-> Add an option to maximize a firmware clock's rate when the clock is
-> enabled and set this option for V3D.
->=20
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+> Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 > ---
 
-Applied to clk-next
+Please resend this if it is still applicable.
 
