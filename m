@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F29ACAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9F7CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjbJUAsOJvnVsSkd0SpD92Mad+1i6cHrk6TaHi8r1M8=; b=mmhT4rbwKlg/bCBpqPKqXjki7s
-	P3jZGNxObDloyk/t16Wj7+M7HIsr9NiHI5yOBW4z7P5zvHFIAy2+jj6VCE98WN3pLCI5EeCvxGqVY
-	n3NfYlbi26qcbzQ6WuKFpADR0GdoG+QIjOgXND6ORGC/mqHYFKlq3Q0E4tolW7CywYnmLrbJFphIB
-	l3p0vaFNXa+7sOEwZ8ZWZD2iYWRv5wRFappksa9mfxETRe76pQs6+ws1NREIs/CcLy36OVYNr+Epk
-	1RD0BDJbEpLuvVGyqS0qtr/hdYZBVDkaDmJe1iMdqcLL0WhKpDCUaKIefpzjdrvJEE9nAlA9adPJA
-	R/yJU4aw==;
+	bh=8f/9G9mAreZymbDZirPomAxcYvgRWBMv/7B2LPxzobY=; b=ZPo7n9F9AxnWldxlQ4h3VZSgAI
+	BeColO9DFYZYfhNAgYvgRBQdtpEAEEfwOriUq2SpV6Cj/hsnNl/hQab7j8aEgEZgMFLaz6G5XOoMA
+	r5jmHhgLlKIwp8mEgpI+apUbiqz0IehS1ZOUptOuac4FRWuAUxW0+FhcW6tVezQJUGvpTTJXoabGq
+	3LWAtpzRsQwjxH6eJVrJ2dplhftLinTfFHjhvupQ/yMEvppguE2Mtf0l4Er7AOftFFrHwah6cFGlL
+	+igjrulSS3DcqHMshsLcbmPMOfsAX3RnHCuMAS4ZD+tCCjAx9hc9l3PTvuqZiWjy8vxVL81EFsVAX
+	xOjv5rrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NKr-00000007qN9-32wB;
-	Sun, 21 Sep 2025 16:54:49 +0000
+	id 1v0NL0-00000007qUb-3ThI;
+	Sun, 21 Sep 2025 16:54:58 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NKI-00000007pox-1Ar4;
-	Sun, 21 Sep 2025 16:54:15 +0000
+	id 1v0NKP-00000007pvl-1foj;
+	Sun, 21 Sep 2025 16:54:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDA3140739;
-	Sun, 21 Sep 2025 16:54:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CF58C4CEE7;
-	Sun, 21 Sep 2025 16:54:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EEE1A44230;
+	Sun, 21 Sep 2025 16:54:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC50C4CEE7;
+	Sun, 21 Sep 2025 16:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758473653;
-	bh=tjbJUAsOJvnVsSkd0SpD92Mad+1i6cHrk6TaHi8r1M8=;
+	s=k20201202; t=1758473660;
+	bh=8f/9G9mAreZymbDZirPomAxcYvgRWBMv/7B2LPxzobY=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=pB7ybL9Vkw4nqdkgFs0jz7QXCnZ82eQzv1+zQa6q9fbcFWLuuZiFdKjyP2p3CeYy7
-	 W3Rlk4MWstDnKXN6b5zF0N2LNLysS6a3dVc1SBbMsZciesqoQ8DCkQJ6pzhT5riDan
-	 vIAjU2FTC0o2zbAixzqJQXIP2B9WztZeUbVkp8nUOSB3pyNIM9Owvuf4X2BYRHWRTf
-	 cHEn05/TGEDijOgkZbvJXiOVeN1R3vnTOv2S8K/uYG0RFB3I5Bvs+YKkmlM1kSknOm
-	 8s/aJcrOvx0GkLRecod3r6lqcsjSCSiIQ6ooVHIVx7TPHY/c5x9CE7WazihHHw0atd
-	 holo21/5h/4qg==
+	b=stU/VsM6dRPxQnPfM4Z7X6DUADlhgxfa/ZpWxIXAIiOIB7PnVyCyMeIMAyh3yB5Aq
+	 g2nQEMmPYYT8lWKjXwEY6us7O/GXtFnGAjW2fiJN0ZdOfNSDTipWbQRS7NHQLFUSuE
+	 E1WBZmB/AcoUn08sH5D6ELxmQdlYKvPLQF+mgq+frkVMNmFto2qqtIRPp+hoxUEoI9
+	 j4D4vdd153X/q555Kj6QZ2Eax57NWFW9Zl+k83eGeucYRJ7hGxng41A51G4S5+I5hl
+	 uRr8oT7HWgqxSa/SW3XVwqUI3sAa+E+y6DFXK98GsdoG+dFdItPFOQMZwRfx3t0k6u
+	 kBPwedCzgbQzQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250915151947.277983-15-laura.nao@collabora.com>
-References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-15-laura.nao@collabora.com>
-Subject: Re: [PATCH v6 14/27] clk: mediatek: Add MT8196 peripheral clock support
+In-Reply-To: <20250915151947.277983-16-laura.nao@collabora.com>
+References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-16-laura.nao@collabora.com>
+Subject: Re: [PATCH v6 15/27] clk: mediatek: Add MT8196 ufssys clock support
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: guangjie.song@mediatek.com, wenst@chromium.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, kernel@collabora.com, Laura Nao <laura.nao@collabora.com>
 To: Laura Nao <laura.nao@collabora.com>, angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, krzk+dt@kernel.org, matthias.bgg@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, richardcochran@gmail.com, robh@kernel.org
-Date: Sun, 21 Sep 2025 09:54:12 -0700
-Message-ID: <175847365240.4354.11730843899669937671@lazor>
+Date: Sun, 21 Sep 2025 09:54:19 -0700
+Message-ID: <175847365934.4354.12041857829986457329@lazor>
 User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_095414_350091_35C1E388 
-X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-CacheID: sfid-20250921_095423_926230_1F5657D0 
+X-CRM114-Status: UNSURE (   6.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,14 +71,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Laura Nao (2025-09-15 08:19:34)
-> Add support for the MT8196 peripheral clock controller, which provides
-> clock gate control for dma/flashif/msdc/pwm/spi/uart.
+Quoting Laura Nao (2025-09-15 08:19:35)
+> Add support for the MT8196 ufssys clock controller, which provides clock
+> gate control for UFS.
 >=20
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org> # CLK_OPS_PARENT_ENABLE ch=
-ange
+> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
+llabora.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
 ora.com>
+> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
 > ---
 
