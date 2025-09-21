@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1F4CAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD6ACAC59A
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 16:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIiAxC/XQi5kAsbB5RMAD24FdJ00xv/HkAENco6zOtM=; b=fZ+TL5vyocRAq72oSVOR9oFrSr
-	XyHm5jOPsunaUDpQooIb4OP+tHVcqFjl5daaRQJcLKIeFdbZHinBPM9xE/QBI5uXGjnqokgBYPQM1
-	VttLtk/Q2hrl8PPctVuVasKeilriuWdW8OeIo3+Gzi/DhS6d5Lz044MBvFXE1NK/OA+j+wxdcihrg
-	X/K7SJ1y61lR6fZvhwEz14fUBKuEgJM8BY6TaTVPTixA9MOkV9/fh6vB5RYGG+gPKlRxuYPh/Bd8J
-	Ph1T/Ohsq5bsYwKiS67TfndmZSqYuvVaSFMQBJvMQLfdZZ65bKlucctvCyyUQbzaQLB+aEj+lK1uB
-	RUG+HxKA==;
+	bh=HoiCOQ20nTneneIaxwbn1XHFftteJQcuwFtemtIOqt0=; b=NKjE1Ih+jNu9Hi8R5/dVcwtDod
+	leeTTpg7KVqPlLla2TRCN+g89Os2XcxJsmPuQgEO5RdU022dnoGhYrhRZtYGvYVvO6NUaP1Ko/ty6
+	iGgjY++3EWNa8kgNWUZ8Uq3tAE+HnED7FUlw3BYxHGDqgkmGm61LqorCBgquUFYooqHMOApxQgsn+
+	FAGW10trUwMW4/5nJPF1lQMvVVLurhIhdyfKjnw4Xe0zgplnZGaINKyFtufmU4OcO9sbLZKbviXTQ
+	w/pR4IvPZ9oc5cCSF46wXanfTwCd94uEKfhprTXeOrNsN988ci/IDsv7gYFWedcxlC0plKlKACwxh
+	efZOC2gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NJc-00000007pD1-2zwX;
-	Sun, 21 Sep 2025 16:53:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0NJd-00000007pDp-1Hcw;
+	Sun, 21 Sep 2025 16:53:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NJV-00000007p82-3K92;
-	Sun, 21 Sep 2025 16:53:25 +0000
+	id 1v0NJa-00000007pBP-1f6n;
+	Sun, 21 Sep 2025 16:53:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2425B60143;
-	Sun, 21 Sep 2025 16:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0F59C4CEE7;
-	Sun, 21 Sep 2025 16:53:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0156601AD;
+	Sun, 21 Sep 2025 16:53:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 562E9C4CEE7;
+	Sun, 21 Sep 2025 16:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758473604;
-	bh=IIiAxC/XQi5kAsbB5RMAD24FdJ00xv/HkAENco6zOtM=;
+	s=k20201202; t=1758473609;
+	bh=HoiCOQ20nTneneIaxwbn1XHFftteJQcuwFtemtIOqt0=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ZxGJoJppRCzkQdYXNUS8VZy45a058m4wsFOfd/pae4xdXeSlPzACaLdfJjIo8Ewt3
-	 TQBM8NJPRDAcZ3ZUzGPJH05PguSjHbAnM/raja0b3GrGv2p1XLkDJy4TOOYsUAOtrx
-	 c5AWHOGzXJLeW2kb/Un1N8sj39bdvPYbI99NLOJvnNuW3Yen7lnpbsT7Qbyd32spHS
-	 kxZ2S/0+hM/BNc/jn1NNGQRJVzh9FqngiMJhkGaAvy3Ygq3/3LVxF673PWp7q/HRpE
-	 LGdMWAvM0WT6kdupb5qkxfpR77UfJLG0pv9+uJsrKwqAlhBUSbKZ5KHCFNPqqY6YSw
-	 y9s/IYi17gFCA==
+	b=Jfe4nYY0pNIG5vQ0EIKKopwcXzYM1EgFqjnMpcUDDYMoO1eveSIJ3ECoTl7MKIHrv
+	 WXDu4Lqe7bQav8VPJCUW13/IEV71pt/2LKHKhq0ly4ee5GJeXCGbiwebc1IMmrtaS9
+	 ZEPNeHiOgA1U6APoahn5Xq/33OVuH3NioD+R6i4ra03d+MtEbzxY34mli4rTxA1Man
+	 QZMQj0LAPwb5bYPaDhTJTv5F3bMk9KRA+RQ2XtVRShd4GQ3Qav48A2sqS1GhlxXrYE
+	 /ZW/WQPSVONNl4H7EJXKKMdso2OE0H7gQ+KvgZMog7TZ0s5oXlBUdD5giJJYMUz7EQ
+	 Aa548QbsqGY7A==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250915151947.277983-5-laura.nao@collabora.com>
-References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-5-laura.nao@collabora.com>
-Subject: Re: [PATCH v6 04/27] clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
+In-Reply-To: <20250915151947.277983-6-laura.nao@collabora.com>
+References: <20250915151947.277983-1-laura.nao@collabora.com> <20250915151947.277983-6-laura.nao@collabora.com>
+Subject: Re: [PATCH v6 05/27] clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: guangjie.song@mediatek.com, wenst@chromium.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, kernel@collabora.com, Laura Nao <laura.nao@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F . R . A . Prado <nfraprado@collabora.com>
 To: Laura Nao <laura.nao@collabora.com>, angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, krzk+dt@kernel.org, matthias.bgg@gmail.com, mturquette@baylibre.com, p.zabel@pengutronix.de, richardcochran@gmail.com, robh@kernel.org
-Date: Sun, 21 Sep 2025 09:53:23 -0700
-Message-ID: <175847360333.4354.3214551525095431061@lazor>
+Date: Sun, 21 Sep 2025 09:53:28 -0700
+Message-ID: <175847360800.4354.17347591921715136589@lazor>
 User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,12 +67,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Laura Nao (2025-09-15 08:19:24)
-> On MT8196, some clock controllers use a separate regmap for hardware
-> voting via set/clear/status registers. Add=E2=80=AFmtk_clk_get_hwv_regmap=
-() to
-> retrieve this optional regmap, avoiding duplicated lookup code in=E2=80=AF
-> mtk_clk_register_muxes() and=E2=80=AFmtk_clk_register_gate().
+Quoting Laura Nao (2025-09-15 08:19:25)
+> MT8196 use a HW voter for mux gate enable/disable control, along with a
+> FENC status bit to check the status. Voting is performed using
+> set/clr/upd registers, with a status bit used to verify the vote state.
+> Add new set of mux gate clock operations with support for voting via
+> set/clr/upd regs and FENC status logic.
 >=20
 > Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
