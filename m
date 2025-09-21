@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7635CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 21:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E6ECAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 21:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EV+MWhbWq2Q6vqymybluCls4t1NNkCevTKd69KW1i7o=; b=C0ApUgxcm7018K/e6xuhWxwYOh
-	JtuP/DnrXSklcgfBWY5dl1DE2OTPlyrUYNxdCNydtQrxeijBkN/rzMr3NCNMjQjmZrJ9+RbucS9Xk
-	MGTzTQqRoC8blr4vu2G3hs7ODThS0qnr39mgDV5z65cRwZJjTxmhwClS1+ckwPkJnL0WARBw/zITV
-	KaCBnJWVbDME5UfVOGOuFmK/iH7DCPkI9rufEZoXWIqa5xIeccIkSEdllOJ0WO/NCjoqaRsyG1asm
-	ZAaXABKT5Bkm0lC5zSZ+xhsfXVFSdFKE8JUHk6MdIIoIeK3mmcHju5fxrqGEXirmIwnU2NkU2qbpI
-	SGdxjNZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eUaGoPV7fIM2EDuQxD1SxHaeYYbBNgBpqAELlef73FY=; b=flitxU2SGryhU7ijZPvLK5gS0l
+	RPEU7Vd4cpa6q3pAopZktpD1k5Z0K10p20u87A/iK7lVHtZUqbQyt1BMSvDvvQEWrgKJq2pCQytL+
+	Hn/rCZQ1fE2UtQzCvpNJG+UTBw8dcG48563wfzo3EuzSROuKkxeqUZN02EcP6+OHQo6e/85HYZD7b
+	Ugw4LpbiSBkTtaH9lDGxiEhfZ8BZhVdEyT30y/H3xGqsx4ANx4F9STwt7pK5pZi8rdneya8gykAv1
+	fWLamDFgcTqPuDEtR08cXN0O2IJpeGU4sw7w66QswSJFrr/BFY9ffu3ochlgSz1+FfkWl7aLd1My6
+	r2GfUidA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0RH3-00000008E29-05En;
-	Sun, 21 Sep 2025 21:07:09 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1v0S5v-00000008IZ2-04L3;
+	Sun, 21 Sep 2025 21:59:43 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0RGz-00000008Dzl-0ZUb
+	id 1v0S5r-00000008IYc-3Stj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 21:07:07 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-267facf9b58so27015575ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 14:07:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758488824; x=1759093624; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EV+MWhbWq2Q6vqymybluCls4t1NNkCevTKd69KW1i7o=;
-        b=CJ/4UGOeBOStd4qSfj3MVXT+ZhaffWFWQnkfhz5wDo8y9NraVbYm523N96jFh+ckbD
-         gSVF93sKsN20b7R3Qjkj80yPP08igahBwoWRk/A5xRL40s76RBJmrKxcJx+nNz+bdoAD
-         AXLTqLFFIqM12CiJsH/+77bSOhvSaAtWfiOLwQk3fn+b5ZgOnpwTgpQ871isDdgpHABv
-         +TC+zovUdbfvwZmVaH5M5X6KCGG9Jn5jEejFtuOBTrwt4ZEPg6jVqidVc79YkzrJ4UvM
-         hCd0PnjJAeTqDfg0Ck4JRmOYit3zHKjEsgtVOsbXQXDA/TR30M5f2FDQoRFY7cCZxy9x
-         hDJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758488824; x=1759093624;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EV+MWhbWq2Q6vqymybluCls4t1NNkCevTKd69KW1i7o=;
-        b=Ks9r1lJxWY5qeVQMhGYHLtfLwJ/DvKVR0D+8WJzX9Zz3St+QnOGOphxI4AlQdYdE2W
-         v6557Owr+KSPul9KolUL41CrGaU54xzeAkx3PEKm8mrQSwDLKAlzYCf1VN/zlqIt+vMu
-         wmNjuhm1fjF4MpmA3FpoihTE5BB8lLffwgxaJMZBnOwz5ZJWNbAoHvjBbu3J0FMMQ4p2
-         nR8KojpT3vjESesQWC1soxNByDGBXeDo+0JlAQwU0/L0H3/3q2GSl823qxWyOJMyJLzP
-         IgCX+wb+Y0/OkcU+3LeEhFiMeJ/p179vVYLO+xBcNJ8OAhZKKYV/bwPvDi9c1Hfpc4aS
-         NrgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXb1GCMysYAxG4l2Nb6mrEXYNvZfRZr89Z2h1YPsLuYejda0f4/N/bzVDFGRBtUerD6qWVTOzu1yB6c68aGDby9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJy+VqrNFAn1LwXHBgIJvuQ0Y7M1jtkY3bVyVNLR5Li3/BWnDS
-	gcY5Ik4YjRbBGgZ17ekRlK610Ef4JHetdzBbkJHFprVPRR1Zvtr81ua6
-X-Gm-Gg: ASbGncuh8soqQgC4AGpLnqiMv801OL1hkN3Gg6RquPePwv/xX7ydBEU1dDKfkKSqt4z
-	ymmO8Ak92ytDpU/spuGZDbPTecRL6KkdXSg0YAHfhw6lagAoI0DSqKbdoiLDKafVqo2HAEWVREz
-	N9nJymCJ7v/MqgO46DuzMsBx8J67tCsDoo9F8+DZaLaFYLS0Zcte7EBG/49RgonOHkGFiJaENHN
-	otzovSLDWIMkqTInID75HMBJndoHPOWYEJHgE9cEIfXkiNM3iwwxR7V7ILB0AQuasKTNeGv6/o/
-	Bq4deaJWyIj637yUnptcaWgc7dnYVpx830mcMq4s+Rh8Se0PYTX95CI34ScNDkMc5RHlmCgbPHV
-	lU/ZvzW3w+NPNnQHTOEb3zXM7f4bB6864bdE+JGFmdYwfAyvBs+qjTvNG6+C7ePs7bW579In+Oq
-	s9
-X-Google-Smtp-Source: AGHT+IEBhz4Vgcda0CmzO3ZZWUM5pIo4myqFp0/op8mgrMOJGUmsHkIt9o5tgVJoYdz7yYLG2MoAFg==
-X-Received: by 2002:a17:902:fcc7:b0:24c:cc2c:9da9 with SMTP id d9443c01a7336-269ba43410dmr99531245ad.14.1758488824280;
-        Sun, 21 Sep 2025 14:07:04 -0700 (PDT)
-Received: from [192.168.68.63] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269802e14f1sm110134725ad.71.2025.09.21.14.07.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Sep 2025 14:07:03 -0700 (PDT)
-Message-ID: <649ca4a6-3158-4c52-bad3-6c266edd177d@gmail.com>
-Date: Sun, 21 Sep 2025 14:07:03 -0700
+	Sun, 21 Sep 2025 21:59:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758491980; x=1790027980;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=M2v7sfpTNNCmcFOkAb0KWsTGiwbSzGag6VBqaXtIdoQ=;
+  b=Eb3bP6Gob509km8khJbyVpvDNCm2fouZQejACR/p4sdJL9AYiM8Jl8f4
+   DPzygfzVP/DTDMuPE9ssJ1Q5gzEbj93Qcp8QNLELAWAvpmq2geozYbUns
+   V2zXIHQv8XM0QmotjqWxfNE2UWodz3U9Uel9bhBEfCf+Xeus9VaTMbSbj
+   8mH2MvNZ7Z89X9bpudFwE/2tToYE3c9LFGZXZWXJMmSeIlbSoCvYVM+9/
+   ypISPjM+bqU6W/vZqBnypf1wsR5CxncCj6yWa7XwkL9eIIrYwKJEOR3ze
+   S4iPQceKjfTkTSCJDI1IEeVQLAvIK8IJDHdRX4LTDWEs1Kvstkd4JtH78
+   Q==;
+X-CSE-ConnectionGUID: TnKcNAIKQ6mJttHWdUbwDg==
+X-CSE-MsgGUID: 78A1ZkUzSCO2UydWlSJz4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="60671427"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="60671427"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2025 14:59:38 -0700
+X-CSE-ConnectionGUID: l17xTKIzSS2SgRiJlaW/5w==
+X-CSE-MsgGUID: C+Ft5zF3SlWfsyqfo6lDCA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,283,1751266800"; 
+   d="scan'208";a="181581299"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 21 Sep 2025 14:59:34 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v0S5S-00012D-0Y;
+	Sun, 21 Sep 2025 21:59:20 +0000
+Date: Mon, 22 Sep 2025 05:58:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au,
+	ebiggers@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH 4/5] arm64/fpsimd: Require kernel NEON begin/end calls
+ from the same scope
+Message-ID: <202509220514.RnYqxP9V-lkp@intel.com>
+References: <20250918063539.2640512-11-ardb+git@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] arm64: dts: rk3399-pinephone-pro: Add
- accelerometer sensor support
-To: =?UTF-8?Q?Ond=C5=99ej_Jirman?= <megi@xff.cz>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
- <20250921-ppp_light_accel_mag_vol-down-v2-2-e6bcc6ca74ae@gmail.com>
- <5b6ijumsm6bgqymsfc25frqzjlpiryq7iupuk2pokcb6d4bz56@yqrz6j3oj5ga>
-Content-Language: en-US
-From: Rudraksha Gupta <guptarud@gmail.com>
-In-Reply-To: <5b6ijumsm6bgqymsfc25frqzjlpiryq7iupuk2pokcb6d4bz56@yqrz6j3oj5ga>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250918063539.2640512-11-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_140705_199416_9B2AA0B4 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250921_145939_940269_9EF239CD 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +95,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Ard,
 
- > I'm not sure where you got this patch, but it's not from me (I know 
-for sure
- > I never did any mount-matrix testing/DT patches) and should not have my
- > Signed-of-by.
+kernel test robot noticed the following build errors:
 
-This is where I sourced each of the commits:
+[auto build test ERROR on f83ec76bf285bea5727f478a68b894f5543ca76e]
 
-- Add light/proximity sensor support
-   - 
-https://codeberg.org/megi/linux/commit/f171bc7013bc7ad3de9af817bfbcbfa548ebe01c
-- Add accelerometer sensor support
-   - 
-https://codeberg.org/megi/linux/commit/b0bb7633e073a6760fa213b8c4a78ea2e73c7bf1
-- Add magnetometer sensor support
-   - 
-https://codeberg.org/megi/linux/commit/2f7e67f451f16eaf15b81aa1dbdf126d54927d35
-- Add mount-matrix for magnetometer
-   - 
-https://codeberg.org/megi/linux/commit/d7cd2eab931e32fa94408a96d73b4e6c0616107a
-- Fix voltage threshold for volume down key
-   - 
-https://codeberg.org/megi/linux/commit/7c496a5cc27ed4e38b740f36c2d8b2c62f80ae54
+url:    https://github.com/intel-lab-lkp/linux/commits/Ard-Biesheuvel/crypto-arm64-aes-ce-ccm-Avoid-pointless-yield-of-the-NEON-unit/20250918-143859
+base:   f83ec76bf285bea5727f478a68b894f5543ca76e
+patch link:    https://lore.kernel.org/r/20250918063539.2640512-11-ardb%2Bgit%40google.com
+patch subject: [PATCH 4/5] arm64/fpsimd: Require kernel NEON begin/end calls from the same scope
+config: arm64-randconfig-r132-20250920 (https://download.01.org/0day-ci/archive/20250922/202509220514.RnYqxP9V-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 13.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250922/202509220514.RnYqxP9V-lkp@intel.com/reproduce)
 
-I will add my sources to the cover letter moving forward.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509220514.RnYqxP9V-lkp@intel.com/
 
+All error/warnings (new ones prefixed by >>):
 
-
- > Looking at where the magnetometer is mounted, it's mounted on the 
-bottom side of
- > the PCB (U29 chip):
- > ...
- > So based on that mount-matrix should be:
- >
- >         mount-matrix =
- >             "0", "1", "0",
- >             "1", "0", "0",
- >             "0", "0", "-1";
-
-Thanks, addressed in v3!
+   In file included from drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:27:
+   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c: In function 'dc_fpu_begin':
+>> drivers/gpu/drm/amd/amdgpu/../display/dc/dc_trace.h:42:9: error: expected 'while' before 'trace_dcn_fpu'
+      42 |         trace_dcn_fpu(begin, function, line, ref_count)
+         |         ^~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:86:9: note: in expansion of macro 'TRACE_DCN_FPU'
+      86 |         TRACE_DCN_FPU(true, function_name, line, depth);
+         |         ^~~~~~~~~~~~~
+>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:106:11: error: 'else' without a previous 'if'
+     106 |         } else {
+         |           ^~~~
+   drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c: At top level:
+>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/dc_fpu.c:99:6: warning: 'dc_fpu_end' defined but not used [-Wunused-function]
+      99 | void dc_fpu_end(const char *function_name, const int line)
+         |      ^~~~~~~~~~
 
 
-Thanks,
-Rudraksha
+vim +42 drivers/gpu/drm/amd/amdgpu/../display/dc/dc_trace.h
 
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  25  
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  26  #define TRACE_DC_PIPE_STATE(pipe_ctx, index, max_pipes) \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  27  	for (index = 0; index < max_pipes; ++index) { \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  28  		struct pipe_ctx *pipe_ctx = &dc->current_state->res_ctx.pipe_ctx[index]; \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  29  		if (pipe_ctx->plane_state) \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  30  			trace_amdgpu_dm_dc_pipe_state(pipe_ctx->pipe_idx, pipe_ctx->plane_state, \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  31  						      pipe_ctx->stream, &pipe_ctx->plane_res, \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  32  						      pipe_ctx->update_flags.raw); \
+8b198f6e94d669 Rodrigo Siqueira 2020-09-09  33  	}
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  34  
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  35  #define TRACE_DCE_CLOCK_STATE(dce_clocks) \
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  36  	trace_amdgpu_dm_dce_clocks_state(dce_clocks)
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  37  
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  38  #define TRACE_DCN_CLOCK_STATE(dcn_clocks) \
+13b5ca42ca9c96 Rodrigo Siqueira 2020-09-10  39  	trace_amdgpu_dm_dc_clocks_state(dcn_clocks)
+96ee63730fa306 Rodrigo Siqueira 2021-07-26  40  
+2d8471dc371f36 Rodrigo Siqueira 2021-07-26  41  #define TRACE_DCN_FPU(begin, function, line, ref_count) \
+2d8471dc371f36 Rodrigo Siqueira 2021-07-26 @42  	trace_dcn_fpu(begin, function, line, ref_count)
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
