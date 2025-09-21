@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F2FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12085CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/lBJw/pvOeOhA+TnoE8B9EgHverZBvwU1Z9gNAbIbE=; b=aatgNFJhSbB1lAFkHIYB6eFEe5
-	EhhGVzhvsfiw4YS2MugNRjYKt0q8s1Gs0N+DyMW6rl6x9hNSAIuWrp4+OApuwCr0qY1BAo+ToY2PO
-	8fMTgC7ffRUWZmEy7Uh1fyR7XrL1RSD7Y+1F99E8ekIKJCV2578u1CuO42CT13JNv3+2xfy/N9lCU
-	wk5sG/HnmV4InKKJzzbdWWQjZQzvHP77ES9LVho0MFYqn3EWfBZYfGSdsRX3BNJHNbL2azm22OfdW
-	wfx++ULmmcj9PfpMjfncYcNjxPzFV4u2ybrEajg8tbX++Q9xnZkMozZ26bCXTeBnhBsIcLhSHeeYL
-	KpoqYc3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IRxIJ6cM/uBzVILghoV+9GLrZ/XIzrr+/eiu3+V2I/w=; b=LSaccvOx4rs2nkPQK/5GmYhGA4
+	d0K2/AyvNbgEpVd1cuASJlHhJWJVfm0de/0f3mXjMt3s+M9kLkRqZApZi/NmRWdJA1XWEYeyISRcU
+	BCBiz7t23Mpq+Rd8FrM+ZTOqKAM8JfWb0hHYTAVr3MKsp02Q15KXfWFrm5Sqmk5I06Vv8+eg/Q/Yy
+	PI05wYZ7xE0wFkpPXTvDGagzvLXsb7pBMDE206Wc1AD5ypyIG+OyYlsiQXVb685oba+2Y5UMnLI0F
+	Pc11xgx0E3Gl524WGakQLDig9Jjg8gNi2xTLEVFW37bfyVypAUCkJ0/K+BoX6YXyWRc4ZBqn2UgLq
+	p8ldyB9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ODM-00000007y9K-0ShE;
-	Sun, 21 Sep 2025 17:51:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0OKr-00000007yjs-09Ux;
+	Sun, 21 Sep 2025 17:58:53 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ODL-00000007y9C-1bCC
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:51:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 668AB600AE;
-	Sun, 21 Sep 2025 17:51:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E615CC4CEE7;
-	Sun, 21 Sep 2025 17:51:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758477066;
-	bh=e/lBJw/pvOeOhA+TnoE8B9EgHverZBvwU1Z9gNAbIbE=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=utnWX05/rsIn1ShsYYQQjUjEpkqzGWCNfoKPCRIbfgNZyHfKxFOZtvWJppj6U6cvC
-	 WMvyP9nTRqm4EEonMC8BI0pZLyktz5kDMjV7s4f4TxO5iu5GORbRq8Avv9+wL/dr/z
-	 MCp/Olzf7wjDJSJEIwsWjIL6CkTIdojhXUPG8kksZYbk7txcQwdfV2DVbbE+m5noyu
-	 OGIUOk7ORLhJX9Z3ACX5VXJqhvg7Djc1/3rdkKVJtpflAWzlBPivFRoSqyc6ZbUpQV
-	 8gWRng22bVbrlLSuLGf/emRwdTfSaZALXmyjkcHzgXOpV7e3KPYzQjl7yNUos1/Kgu
-	 5A2cX9kHttFVA==
-Content-Type: text/plain; charset="utf-8"
+	id 1v0OKo-00000007yir-2xMn;
+	Sun, 21 Sep 2025 17:58:51 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1v0OKa-000000004Nn-0Rcb;
+	Sun, 21 Sep 2025 17:58:36 +0000
+Date: Sun, 21 Sep 2025 18:58:29 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sam Shih <sam.shih@mediatek.com>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH RESEND] clk: mediatek: mt7988-infracfg: SPI0 clocks are not
+ critical
+Message-ID: <49fb368b4da6f5ed11812dceb45f174ceca8f10a.1758477397.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250913-pxa1908-genpd-v4-3-55e4cf32f619@dujemihanovic.xyz>
-References: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz> <20250913-pxa1908-genpd-v4-3-55e4cf32f619@dujemihanovic.xyz>
-Subject: Re: [PATCH v4 3/4] clk: mmp: pxa1908: Instantiate power driver through auxiliary bus
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, Duje =?utf-8?q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-To: Conor Dooley <conor+dt@kernel.org>, Duje =?utf-8?q?Mihanovi=C4=87?= <dujemihanovic32@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Date: Sun, 21 Sep 2025 10:51:04 -0700
-Message-ID: <175847706450.4354.2268547686521833352@lazor>
-User-Agent: alot/0.11
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_105850_745096_70C8A80A 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,19 +68,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Duje Mihanovi=C4=87 (2025-09-13 14:12:50)
-> From: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
->=20
-> The power domain driver shares the APMU clock controller's registers.
-> Instantiate the power domain driver through the APMU clock driver using
-> the auxiliary bus.
->=20
-> Also create a separate Kconfig entry for the PXA1908 clock driver to
-> allow (de)selecting the driver at will and selecting
-> CONFIG_AUXILIARY_BUS.
->=20
-> Signed-off-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
-> ---
+SPI0 clocks have wrongly been marked as critical while, probably due
+to the SPI driver not requesting them. This can (and should) be addressed
+in device tree instead.
+Remove CLK_IS_CRITICAL flag from clocks related to SPI0.
 
-Applied to clk-next
+Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+Patch originally sent 2024-10-31 but never received any feedback.
+
+ drivers/clk/mediatek/clk-mt7988-infracfg.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+index ef8267319d91..c40e18c27f12 100644
+--- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
+@@ -196,12 +196,10 @@ static const struct mtk_gate infra_clks[] = {
+ 	GATE_INFRA2(CLK_INFRA_SPINFI, "infra_f_fspinfi", "spinfi_sel", 10),
+ 	GATE_INFRA2_FLAGS(CLK_INFRA_66M_NFI_HCK, "infra_hf_66m_nfi_hck", "sysaxi_sel", 11,
+ 			  CLK_IS_CRITICAL),
+-	GATE_INFRA2_FLAGS(CLK_INFRA_104M_SPI0, "infra_hf_104m_spi0", "infra_mux_spi0_sel", 12,
+-			  CLK_IS_CRITICAL),
++	GATE_INFRA2(CLK_INFRA_104M_SPI0, "infra_hf_104m_spi0", "infra_mux_spi0_sel", 12),
+ 	GATE_INFRA2(CLK_INFRA_104M_SPI1, "infra_hf_104m_spi1", "infra_mux_spi1_sel", 13),
+ 	GATE_INFRA2(CLK_INFRA_104M_SPI2_BCK, "infra_hf_104m_spi2_bck", "infra_mux_spi2_sel", 14),
+-	GATE_INFRA2_FLAGS(CLK_INFRA_66M_SPI0_HCK, "infra_hf_66m_spi0_hck", "sysaxi_sel", 15,
+-			  CLK_IS_CRITICAL),
++	GATE_INFRA2(CLK_INFRA_66M_SPI0_HCK, "infra_hf_66m_spi0_hck", "sysaxi_sel", 15),
+ 	GATE_INFRA2(CLK_INFRA_66M_SPI1_HCK, "infra_hf_66m_spi1_hck", "sysaxi_sel", 16),
+ 	GATE_INFRA2(CLK_INFRA_66M_SPI2_HCK, "infra_hf_66m_spi2_hck", "sysaxi_sel", 17),
+ 	GATE_INFRA2(CLK_INFRA_66M_FLASHIF_AXI, "infra_hf_66m_flashif_axi", "sysaxi_sel", 18),
+-- 
+2.51.0
+
 
