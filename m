@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C06CCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B23CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXt6c1/Cg732915mGHBQzdD2qDCV46lfKJ/44Pi9hdQ=; b=GgCyNr0urYAF8oUMUjM71o4XYa
-	5O0AdLsnC4rSy6e785PvZjljfLRU7sezZ5qVHb8Eon8AQe1obu67hMLMu32u5JN377hgwV+X7pepz
-	gPxyjgkh8c79m5GYfapMoXogKAsVNs8LrggOrRzyNLZ/8uoiemNgJhCkRW4uug+Z9VYChaO3lKvBM
-	dQX9bDo5Onf4BYgZjacISEAkGR7R18nrFx7ymRjLNAB4du85fNIxN8dYebgGitdzmGUDtZDptXfLG
-	4px2zFE7gOpAs7pb8Sliz25K3YhgFjE6ySBt2P1yP9yuUniPkzHtNfJUy/wfeDZvz6o1ONu2gPWz8
-	3Az045xg==;
+	bh=5pwDxzyQEn+iBDtKyLYCmHQVSJ6/W7lkVlzqOH9eCks=; b=le0ulirjnVwd12/Y5NHytmYmSY
+	cuW5E7A03kgUYQcZmHmINuoIZAcmrgB5tdTp854oi3PnaqGwAQAKB110OzU6PyD2jioRJfB1j0BBy
+	nuywr7uFm+wHtMeAAyloqSwY9t10je1Z+oE3WQsqxTwa1oUnruz9lIeLvuNwMuK45MovKoR0vZrIp
+	9oi6IOGRmV2ejBSEKa29K9bc3xJacV86wudf3igJzv9QlU51/35LMHTJoihhRWMhofnDFyJXKZ7r+
+	oetmZncR+OtGmuOncElYAvxc1jU+hyU3cf2BaGymLkYPN+1iG84O/DOfOTg0DH2K3ZOfeypI4I8aO
+	bzAENKMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NSD-00000007tE8-3aD0;
-	Sun, 21 Sep 2025 17:02:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0NgJ-00000007uac-1aF9;
+	Sun, 21 Sep 2025 17:16:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NSB-00000007tDj-1ATy
+	id 1v0NgH-00000007ua6-45hL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:02:24 +0000
+	Sun, 21 Sep 2025 17:16:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 905B143CF6;
-	Sun, 21 Sep 2025 17:02:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 339E8C4CEE7;
-	Sun, 21 Sep 2025 17:02:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 628D860143;
+	Sun, 21 Sep 2025 17:16:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E324CC4CEE7;
+	Sun, 21 Sep 2025 17:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758474142;
-	bh=GDIRBW2DYpqe0b8KOgrutzQSfAz/bITiNwSGWti6DSc=;
+	s=k20201202; t=1758475017;
+	bh=5pwDxzyQEn+iBDtKyLYCmHQVSJ6/W7lkVlzqOH9eCks=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=LmCLZUUgFCdwJZMjC4yFmzfLl65O2lH3474hraDuq10F+wEc60l3nHSAUvtxw5wl+
-	 pUYQHDwswuOXH0FnTcVrEJt0ETKO6vUDlWN7914SxR4/nPMCrhwWfjEjXMRR/dUJe/
-	 YrFSxkr6Nd5DUOGIXd2cilXLG94uDvKoi//dbfKAMcqf9avSbPqDOXjsXoAT7S9v/p
-	 uTjqS2mC5cddVHv8liiT4AZN8unWmvfIj9VzuqaJAp+l65Z1quVE39rG/vAJI0MtU5
-	 CnAVlITmTgmsYALKGih+eiGWn0ha35ifMxOp0AKQQh3YGSyyr04enYprlUOgzTNY29
-	 yDU/x9kZkilQw==
+	b=YqZqhogas/JJIGwYzK83wOMaHr8WS6DsS2UDjE4tpj3MwA6o3PFNGAjDJZI70T4F1
+	 fW3TqUbO8tzfDOh8zqEWDiozw0SWdSIRd8WrneBFIaQ98B4P1rTHmxeYsmSThsT9pZ
+	 EVgYn0ySCKXxySVOm/kZSt82virJ19an6cz83jQ37RNRjwA8sPBz/DeqssqFpaHcaP
+	 cfy8Hbl1Io75eKm85cTeMp7ShoofPA0L9jWpQlev8YHHAT7eczaVnF12Ft5rEVlFyA
+	 KQ8cNQt1jwU+oeIiAnOEZMqAAaPfkeiX6NBT9mg9jrv0Y/xtsCT+1aDyaSipujI5As
+	 SD7unuHWLjsTQ==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250917182150.93359-1-nicolas.ferre@microchip.com>
-References: <20250916080545.9310-1-nicolas.ferre@microchip.com> <20250917182150.93359-1-nicolas.ferre@microchip.com>
-Subject: Re: [GIT PULL v2] ARM: microchip: clk for 6.18 #1
+In-Reply-To: <20250814035317.4112336-1-wenst@chromium.org>
+References: <20250814035317.4112336-1-wenst@chromium.org>
+Subject: Re: [PATCH v2 1/2] clk: Sort include statements
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, Linux Kernel list <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Conor Dooley <conor@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, arnd@arndb.de
-To: arm@kernel.org, linux-clk@vger.kernel.org, mturquette@baylibre.com, nicolas.ferre@microchip.com, soc@kernel.org
-Date: Sun, 21 Sep 2025 10:02:20 -0700
-Message-ID: <175847414087.4354.17261652271034200852@lazor>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Chen-Yu Tsai <wenst@chromium.org>
+Date: Sun, 21 Sep 2025 10:16:55 -0700
+Message-ID: <175847501556.4354.8718434383967720736@lazor>
 User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_100223_338779_F6E2136D 
-X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +68,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting nicolas.ferre@microchip.com (2025-09-17 11:21:18)
-> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Quoting Chen-Yu Tsai (2025-08-13 20:53:15)
+> The clk core has its include statements in some random order.
 >=20
-> Dear clock maintainers,
+> Clean it up before we add more.
 >=20
-> Here are the first clk changes for 6.18.
-> I don't think they have conflict with changes for the deprecated round_ra=
-te()
-> to determine_rate() topic.
-> In this v2, I address the issue highlighted by 0-day robot: build issue. I
-> added a patch that is already included as well in an pull-request to arm-=
-soc:
-> https://lore.kernel.org/linux-arm-kernel/20250916150328.27015-1-nicolas.f=
-erre@microchip.com/
->=20
-> v1 --> v2:
-> - addition of the patch "ARM: at91: pm: save and restore ACR during PLL
->   disable/enable" as the first patch of the series to avoid build error i=
-f clk
->   tree is merged before arm-soc. Branch bisect-able. Exact same patch
->   in both trees.
-> - a new tag (clk-microchip-6.18-2) is created and deployed for this
->   v2 pull-request
->=20
-> Thanks, best regards,
->   Nicolas
->=20
-> The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d5=
-85:
->=20
->   Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
->=20
-> are available in the Git repository at:
->=20
->   git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/clk-m=
-icrochip-6.18-2
->=20
-> for you to fetch changes up to 652b08afba69d5d26fe91098eb832b1bcc0f91c2:
->=20
->   ARM: at91: remove default values for PMC_PLL_ACR (2025-09-17 19:15:32 +=
-0200)
->=20
-> ----------------------------------------------------------------
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
 
-Thanks. Pulled into clk-next
+Applied to clk-next
 
