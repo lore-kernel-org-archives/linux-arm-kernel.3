@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FAF3CAC5B3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C45CAC5B2
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 08:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=km2/nMc5TCti9Os6fomL/BWq519toIyk3kwiKoox8ho=; b=anDmznYLylUuDIk3/cTVLljaMI
-	PtzKcigXJCC5Jt43VGPGmTKV3u/GtmZfZL/omVAaXD045KaG44xViCe+cu+h61ayz2shf1j0DR4yr
-	HaRSxHvvbhwfuueH1qxo7qbCWFYGk1LLkckN/BDxQrCnuY64mwqS3Kp1eHjb2mTrtV9mdTkLRFpt+
-	cbS1mbDBuz5+/CZYC5VVITtflOnwu3lOmTAbIEzisrMWX+2p+938gz0lf0HaTrgLTCUpjw2genNYX
-	V5vJxWpKi3q9Df1PWcLg4IaqbMs6dbInDQ6FUTGYLMCRUsbC6qK4HV/EeELbifdRK45nbNPLBtBPG
-	6JO1wdhw==;
+	bh=IMrbFzZHF5/rSoRPb6CkyabadSbs/3A9uuRfeQgvSeo=; b=LZGVjfzQQpjDdKEslxjDrJ1vE5
+	yQdEqJpuS5R7s9sKbnCt8/IyW/w8HkcQFlWrWOrPoAtkkqJXaF3AF+nEm9zHQckC3IZDJH7p5U3/g
+	p+uToU0/BpQIY4B0R0N6rr0rv81lu0iSny/e0VT5cAgz/A6t9gs5JXdldcgwZQYBmkuskFqePXazk
+	ikSLwRkaRoKqcGLBPBsTmYuwpLVx95Z30/bDw7e2N6MjKtKaSMTOUpEXRLQVMzzLseZhspR6icY6y
+	Qmd2HBxwb2nQmL1OcdViVZs0rM6cqZwsgj+pjZOmTWIIdBmCx938iWkZx1uUEh24fmUPpqeF8+0uL
+	GlXR0Dbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0F3g-000000071ml-253e;
-	Sun, 21 Sep 2025 08:04:32 +0000
+	id 1v0F3h-000000071oR-2F6w;
+	Sun, 21 Sep 2025 08:04:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0F3V-000000071fU-1GZm;
-	Sun, 21 Sep 2025 08:04:23 +0000
+	id 1v0F3V-000000071fW-1GbK;
+	Sun, 21 Sep 2025 08:04:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B48A4034C;
+	by sea.source.kernel.org (Postfix) with ESMTP id C368B44D3E;
 	Sun, 21 Sep 2025 08:04:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 61073C116B1;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 82BE7C4AF09;
 	Sun, 21 Sep 2025 08:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758441860;
-	bh=dANZ/yuM6waYGQYmdVXqTPNlVvALmVGnbkrSGvC8deE=;
+	bh=UybcLaOkymoniVqkOhi1dIJsOwx69s4glA8eqYum1Fs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=EBIMznq0xw0ydGyfCLGv0To5LHKyv1jWcTTSxOhIeXONqVCbRf14rqEAbpI1WPMXD
-	 iYy5M2B29yuUJdfH/mduYmqqB8MkrFvYfUqeYdFlU+JH/weDwwaLdE3PHdkf1Pz0pZ
-	 Yoj1TsjJhgOX3fV/M0XpoMlZaSgCQKFTb/h5ghaw9W6/QWptGSQZQcArvD2acPGaUu
-	 A8EzT/j69KhNWlVxdiSQXr8RazmCK3ATtUh+rwDuslHzzkZSa8XHNuLr9tKbIkAYdT
-	 XNjIa4URjeHgmn2LJfJD4d/G1W2G6NEOJ9GLPJuhud2B5nfkgCvkmVosqNGJCbYEvV
-	 8b3dwNienerVA==
+	b=VIICuYqwYaVCkYyTmNhJ7edOlO5w94DxLr3U3N9hjnO5Li6KWAb4jYnaFiEv12Ng5
+	 rm+tiKNZUE2o/TvRaG/TPozeCNfdur4MKzzUJPL7B9VFmFv4ndY/EN//H/EPgKjn2Z
+	 OI4CMaJ2xssrgwqW5GdizrW2Xp40h4jl4DMjft2xl9oOzSUtF5qlwxBcGmyR1LBnxU
+	 FsXbLtdMLppg8Skd/3m9URMdy37gP5F1E1rIx2YVQCfmCbL4r264R6qdH06/8L3Jyi
+	 tc0ZfO9TEbWw7mB8xgLDvB/eTL2+Y6nujrOI3D01nS11Oh93WcQRXgCxUQhdExn1EW
+	 zLCcFq1S38cAA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4FE86CAC59A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 75947CAC5AC;
 	Sun, 21 Sep 2025 08:04:20 +0000 (UTC)
 From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Sun, 21 Sep 2025 01:04:19 -0700
-Subject: [PATCH v2 1/5] arm64: dts: rk3399-pinephone-pro: Add
- light/proximity sensor support
+Date: Sun, 21 Sep 2025 01:04:21 -0700
+Subject: [PATCH v2 3/5] arm64: dts: rk3399-pinephone-pro: Add magnetometer
+ sensor support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250921-ppp_light_accel_mag_vol-down-v2-1-e6bcc6ca74ae@gmail.com>
+Message-Id: <20250921-ppp_light_accel_mag_vol-down-v2-3-e6bcc6ca74ae@gmail.com>
 References: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
 In-Reply-To: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,19 +60,19 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758441859; l=1340;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758441859; l=951;
  i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=hhqVOo3Ifd3acg7mEDnoZwYQLjaVIlSiKU2AQ4pfc+I=;
- b=UrgSS7vdcFXLI0RXR1tdG25kUnXIyw2IlIePrzpv0P1vtHhUYI1IP5lBSe64iJMyZ6/8/7gdv
- QLo/qVo8+lrCDgqChZB/yIWE9aOv5UK5Bt8cofhlRs4YvzbVrHOHgD2
+ bh=kj5gC9w53IltD4i1gA/bywfiCknL042/7ef/++JJoRY=;
+ b=UqzF3/MQI2OHSbCUkIhxdxODJaVOYLczY3yCnHaOrlzoA+p185xGGbKpbJxtaHe4CidZlX3ST
+ a+xMF3P46+7BLY+bMX4kAY9XmManFa8pmzA3ZJLUOsvmULgcsgfJ98R
 X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
  pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
 X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
  auth_id=211
 X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_010421_372222_6D25092A 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20250921_010421_393657_B48FFD00 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,49 +91,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ondrej Jirman <megi@xff.cz>
 
-Pinephone Pro uses STK3311
+Pinephone Pro uses AF8133J.
 
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 6f97e57f36f5599f4027a0f3db98bcbc69cef5e5..65ee0b805034a4357a766d4f1f9efa2d4a843d77 100644
+index 21ff12ac5f6e52041f485c9f2702f5a15ee831f9..266a08540dd0fe099319ec703bb0828c8c5c2c25 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -520,6 +520,17 @@ touchscreen@14 {
- 		touchscreen-size-x = <720>;
- 		touchscreen-size-y = <1440>;
+@@ -554,6 +554,16 @@ mpu6500@68 {
  	};
-+
-+	light-sensor@48 {
-+		compatible = "sensortek,stk3311";
-+		reg = <0x48>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PD3 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&stk3311_int>;
-+		vdd-supply = <&vcc_3v0>;
-+		leda-supply = <&vcc_3v0>;
-+	};
  };
  
- &i2c4 {
-@@ -689,6 +700,12 @@ vcc1v8_codec_en: vcc1v8-codec-en {
- 		};
- 	};
- 
-+	stk3311 {
-+		stk3311_int: stk3311-int {
-+			rockchip,pins = <4 RK_PD3 RK_FUNC_GPIO &pcfg_input_pull_up>;
-+		};
++&i2c4 {
++	af8133j: compass@1c {
++		compatible = "voltafield,af8133j";
++		reg = <0x1c>;
++		reset-gpios = <&gpio1 RK_PA1 GPIO_ACTIVE_LOW>;
++		avdd-supply = <&vcc_3v0>;
++		dvdd-supply = <&vcc_1v8>;
 +	};
++};
 +
- 	wireless-bluetooth {
- 		bt_wake_pin: bt-wake-pin {
- 			rockchip,pins = <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+ &io_domains {
+ 	bt656-supply = <&vcc1v8_dvp>;
+ 	audio-supply = <&vcca1v8_codec>;
 
 -- 
 2.51.0
