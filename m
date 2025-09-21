@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04563CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 02:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67166CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 02:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q+YwbmoC+/eA4WDVc0vSd6+2QtJsGtQPXIIhW0hj5Pw=; b=aCw6XDt4MUclppWLdwfjVD3oMb
-	uSfgtOVyIWbJNYygViQurUqnQH0694sUVoq6fKYhOEK+H09bbHJPI6e3mhAY5tPkJSMMDfvP8xmpG
-	QuIIlaZValqT8vb4AE4Nz2I48XZNuAPj4KBMzb5O/rKatgC/VNX6mZ/1ITF0yEckgf9IE3n5crycH
-	I/XzJpPaK5p2hGVUY/31u4j14HKTBDKjpu9bQzk82FJ6iSmURboYUaVl05TDbSV8AJGbCHk0pn4GI
-	V94XzH2OOveUlFfghplKBUpVx/+SEKow+CLvW+biST7uGorxznWGL2PQM+r+RZLDDrjMq+JmUwOYO
-	TTaHy/IQ==;
+	bh=LaF5fk5VJYRPFQ3wsOgWwA/KlWd22eBC2o++iLWqsaQ=; b=XDyFpoeizaXcY3uI+iMbp57QLL
+	hbMWND1B9EGfdrieS6S0mxOOy+y/lJm/yC8fDnxYL0SBst8S8+g5Y5+vDzKcsEIeEVvmQBJMf0E8V
+	W++G8Yu0IRa6gMJX6G6FBYA7mCjjUtdUnhh4l7xw4F2QSYEPZq6h9l3Clte9RgobJ+okm8xJEGKPq
+	P6QegT+t91CK8JvWfqZEa7KSXR7XvnPnESsBkiu29nPUi4bpBNqrhYBmIL1gP3NrmbKotujg3vcCE
+	B3vASp6yLKZ3LZ3d+37Url/xYXiKgBCt+tMHn3ECWzz1KjLKmGnj7Z/Y2KWiA8aly/8c7bjoxhzlp
+	fmgh6R+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v09Sz-00000006Hj3-0N2l;
-	Sun, 21 Sep 2025 02:06:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v09UT-00000006HwQ-2Guh;
+	Sun, 21 Sep 2025 02:07:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v09Sx-00000006Him-169D
+	id 1v09US-00000006HwC-3z8d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 02:06:15 +0000
+	Sun, 21 Sep 2025 02:07:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 933B3600AC;
-	Sun, 21 Sep 2025 02:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DEBDC4CEEB;
-	Sun, 21 Sep 2025 02:06:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2766E6014D;
+	Sun, 21 Sep 2025 02:07:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34C2DC4CEEB;
+	Sun, 21 Sep 2025 02:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758420373;
-	bh=XRVEQjw1TfKD68ddI6HdIZfq35WBmMfjMmlYbT5eTks=;
+	s=k20201202; t=1758420467;
+	bh=4yHCd5x3C4wI9aEANtmzNfFgw8YiWpvJqMysyL00Du4=;
 	h=From:To:Cc:Subject:Date:From;
-	b=XykrCcViqIFvL3D8GoPzc1FlkdTNNd2yNBSZ1tAwiT9BSHoTgihgWMWX6OTOXZJDv
-	 3WmscXJ/je5Zi54mL/COra5VLpYtvwOQZA69FzbdZkUjzk9DRFyH7Swvgym+XtKlJL
-	 2MDX+4PV2eDnavsVDqUNrQPnIBKIWjki2OTB73bqpX0uIBHA0f/CaOkzLzKZwYTzJ6
-	 pkCThA71JmnBaw5CsI+EpDGE3+XcDg8FxXkzgAxNG5NFZkJ7mIegD0xxGV8mmYbrXV
-	 b425PdzjW/t+e3hC8ioYKdSbZg4Gf7y4WQU7GkZBCgCab+HwtxkouEBi56/hcryuV/
-	 FrH8KPTxRvUhQ==
+	b=ALsnAczYl3NlOs92MwF8YkydVva71cmgVowbfCaA5sfYkvyUCyXaFJYD/QGt5APZT
+	 dAAlvxE86qGoBwjCc6JxNd9b6VMzLgma/CrIzREGlva3sotYRh5blRqwAcQvE4bLDs
+	 pf5FmnysbJRbpL9zhOMlrk3GvyIMFnv/A37uuHBw4+tVBd5eZ2Y4bSvpqvxlIuQh90
+	 1vheECRDkmz6tSaoGab1xWvX+dDkpgPeIjPVn5cqbClHJjgpjowbst3z+bJC/ZQyil
+	 dyAkjaQLwqANdEnB+/MWX14J/ULwXy3XMZ/WHQamF9Ko8nOYKqZ4G01huijCaJWArz
+	 HPBN855WGRe5A==
 From: Bjorn Andersson <andersson@kernel.org>
 To: arm@kernel.org,
 	soc@kernel.org
 Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-	Taniya Das <quic_tdas@quicinc.com>
-Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v6.18
-Date: Sat, 20 Sep 2025 21:06:11 -0500
-Message-ID: <20250921020612.596098-1-andersson@kernel.org>
+	Petr Vorel <petr.vorel@gmail.com>,
+	Trevor Woerner <twoerner@gmail.com>
+Subject: [GIT PULL] Qualcomm Arm32 defconfig updates for v6.18
+Date: Sat, 20 Sep 2025 21:07:45 -0500
+Message-ID: <20250921020746.596400-1-andersson@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -77,27 +77,25 @@ The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-6.18
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-defconfig-for-6.18
 
-for you to fetch changes up to cf0ed173d27a2a832642aa441eb28a4dca53fd19:
+for you to fetch changes up to 3e23fc50890d3f04ec8e3670c6927eb239930136:
 
-  arm64: defconfig: Enable X1P42100 GPUCC driver (2025-08-18 21:49:51 -0500)
-
-----------------------------------------------------------------
-Qualcomm Arm64 defconfig updates for v6.18
-
-The Qualcomm X Plus platform gained GPU support, enable the required
-clock controller.
-The support for Qualcomm QCS615 platform improved, enable the
-multimedia-related clock controllers.
+  ARM: defconfig: Remove obsolete CONFIG_USB_EHCI_MSM (2025-09-11 16:51:08 -0500)
 
 ----------------------------------------------------------------
-Akhil P Oommen (1):
-      arm64: defconfig: Enable X1P42100 GPUCC driver
+Qualcomm Arm32 defconfig updates for v6.18
 
-Taniya Das (1):
-      arm64: defconfig: Enable QCS615 clock controllers
+Remove a bunch of orphaned options from the defconfigs.
 
- arch/arm64/configs/defconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+----------------------------------------------------------------
+Petr Vorel (1):
+      ARM: defconfig: Remove obsolete CONFIG_USB_EHCI_MSM
+
+Trevor Woerner (1):
+      ARM: defconfig: cleanup orphaned CONFIGs
+
+ arch/arm/configs/multi_v7_defconfig | 4 ----
+ arch/arm/configs/qcom_defconfig     | 4 ----
+ 2 files changed, 8 deletions(-)
 
