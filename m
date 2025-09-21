@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16689CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 20:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CEFCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 20:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6yIaPi7mcGJcAYGgK8aQktSJhsIi/eYMgFAw+22rRU=; b=UMfSBhV12zfgAds7J8EXdFUN8r
-	qQKbN0e3wKhbeRNNtAwxXfgr2HuJ+LDGIXtPHgjAIRVzkpru07yvap2mL4FzwQgvq9U9XMr+SBNIJ
-	dP5k6uYZaE2kRFGQKa4nCyXRU0sjSLUY6ODA1gTBDbcBJa4Rb9RyfK6ZTK+w8byUvApHyDR5zRUCL
-	riR1c5MGwnL8e+YrFOiGM4BnakYXxQ2hWpLzXEHrks2mgt3oI2AqjJbdF2FV1RMSQdozMH3IX+fH1
-	zDHhXwf6meKUM+tRJn4RoArfr0OKYD3r7/qogeEL0T3KaUsTx5NEsLShR0WH8EDRhk9IUtoawYkbx
-	WXZEvF6Q==;
+	Content-Type:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cl4D9hUZUtyBRnsjCdqkFO48i3UvAPyAgu61Fe1pMqA=; b=vHz+xfStBazam/QDdsZXqlD6My
+	VIXgMIGxnjpfAci8jQZY6CtFCotIZCOykw2TfV3sFcUZKw61rPa3j1zqYqoI8bXXUIkiiSd4vVc2p
+	CHpNW8QiLxihzyJryXLpELlXjBAT1Bm+K9oO+SEbWNZBT0FX2Vb7uwt87HPaJmFPeXZcKa1WpMqjF
+	iZDr1FJiMoFPRufL27YmYrQFnYlno0hPnShTZfEm2ANlGsPLAXnzW5blTiz+rjPXPGR9ZVY9MmW2p
+	8Etv5rf9XM+IlMM8QiWg7QsfucRnC6EdvAKMYizBOaXe2YLhoid0WAUbpMxkuYYDmTdwMka2l2gbl
+	ngSFt6NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0QS3-000000088rT-3Qjk;
-	Sun, 21 Sep 2025 20:14:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0QSB-000000088tP-0SVl;
+	Sun, 21 Sep 2025 20:14:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0QS1-000000088qx-07ei
+	id 1v0QS9-000000088sr-2Haj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 20:14:26 +0000
+	Sun, 21 Sep 2025 20:14:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D74D43F1F;
-	Sun, 21 Sep 2025 20:14:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4A8FC113D0;
-	Sun, 21 Sep 2025 20:14:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 89DE1601E2;
+	Sun, 21 Sep 2025 20:14:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22780C4CEE7;
+	Sun, 21 Sep 2025 20:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758485664;
-	bh=n42wuk3fRc2TVRisCoqEGhMVO97pJsliEokdZLTtgUI=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ik1F8vFlhgeEufvWs7RZ9i4++Y6dbD/OC6O/1znESUCp+t8/7tBmKMDz1O0+4kRKN
-	 GCBaTdy9VJOKZkLEtKBArW9mo9B8QGGp9UtvCe0ET0GHRfPktVBWzJHqUBKyrJlmip
-	 d4ROLrGMv8ZxI9OHZK9KnxWsezjFEMynoT64DLlHlwZufX9RznzuJL4GOV/YeQspLE
-	 3Tr8zuvp6MqeT8sedQst3GjqHi3+TAj29+jYvjgAuZxXW/vDvctl5QRj8J3Z09mtDf
-	 BDLD/wl6fx3c+hOLPHgk6xkH6Kser6Ng3rDkF67roBvbiFrrc+BAZA1zx9MB9nHQv8
-	 /fTg/12iOYKpg==
+	s=k20201202; t=1758485672;
+	bh=cl4D9hUZUtyBRnsjCdqkFO48i3UvAPyAgu61Fe1pMqA=;
+	h=In-Reply-To:References:Subject:From:To:Date:From;
+	b=ft7MDVZhvzwLKhSLnLGy4LeQsQqHDTT+WpQBwUZumZg35Q0aCxnefg3NgVlXMCdOz
+	 aHocKJn8hvrxBJf7LdYUTlKCfjLsjYhrM8GowuDYuQtydIvjWRELRobP7nVHOIP9x8
+	 rQCptIq89alfez9/H2/x1UypW/8/1yZFo7Cx3ZOltpvtgEzXvMHBfZERlM8Wmmnn8D
+	 WW1uFGCTgUjNDP6gMe2L2HF6R2vPcg0QhGGM+oGevxWPs4tlTfK4kpG4fnsXeSNwMC
+	 Kl8MlM7MM3VHbt7qmyXFHyGG2ncriGbvdU5iM4wnLS5nA6zdTgHPxbjDX16udYWBUP
+	 huD0TIQDDNQbA==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250917020539.3690324-2-ryan_chen@aspeedtech.com>
-References: <20250917020539.3690324-1-ryan_chen@aspeedtech.com> <20250917020539.3690324-2-ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v14 1/3] dt-bindings: clock: ast2700: modify soc0/1 clock define
+In-Reply-To: <20250917020539.3690324-3-ryan_chen@aspeedtech.com>
+References: <20250917020539.3690324-1-ryan_chen@aspeedtech.com> <20250917020539.3690324-3-ryan_chen@aspeedtech.com>
+Subject: Re: [PATCH v14 2/3] reset: aspeed: register AST2700 reset auxiliary bus device
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Mo Elbadry <elbadrym@google.com>, Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Rom Lemarchand <romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>, devicetree@vger.kernel.org, dkodihalli@nvidia.com, leohu@nvidia.com, linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, ryan_chen <ryan_chen@aspeedtech.com>, spuranik@nvidia.com, wthai@nvidia.com
-Date: Sun, 21 Sep 2025 13:14:22 -0700
-Message-ID: <175848566245.4354.2484705489084607414@lazor>
+Date: Sun, 21 Sep 2025 13:14:30 -0700
+Message-ID: <175848567081.4354.110591763861485292@lazor>
 User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_131425_092795_81D4CDE0 
-X-CRM114-Status: UNSURE (   5.77  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,20 +67,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Ryan Chen (2025-09-16 19:05:37)
-> -add SOC0_CLK_AHBMUX:
-> add SOC0_CLK_AHBMUX for ahb clock source divide.
-> mpll->
->       ahb_mux -> div_table -> clk_ahb
-> hpll->
->=20
-> -new add clock:
->  SOC0_CLK_MPHYSRC: UFS MPHY clock source.
->  SOC0_CLK_U2PHY_REFCLKSRC: USB2.0 phy clock reference source.
->  SOC1_CLK_I3C: I3C clock source.
+Quoting Ryan Chen (2025-09-16 19:05:38)
+> The AST2700 reset driver is registered as an auxiliary device
+> due to reset and clock controller share the same register region.
 >=20
 > Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 > ---
 
 Applied to clk-next
