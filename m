@@ -4,59 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B61DCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB7BCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iaS8l847UngA2FOp5KsZtRuIyVlfPyrLMCLxIIpL5CA=; b=Ht0uJWebRnGX9xD1ks6AVoskzc
-	RE3bUIVo9bBZG9ls5jNEI8B+FSvPeIRfmqnp6l8B8WerWmI8Wo5QNzg4MReRtowOaJhcETdtVCrNc
-	/7UGENGtTdpJn+coU9xWrDy5xNMA0EUv2hXvTVbpqDVwepnLIyvq9Qe4Q2hig5n2IG39goH3J2EaW
-	Wchvh41nJKsvm4SUzB/45PFa9AQZwyzr3dZ78RTToXtBXQypZMnazXacdqRsBJ4oP6+DrnzIUxZkv
-	5P7ILe2pR9ijnlq9l6WOY0mgNeORhCUjQtfkTAnI3AlkBQry+Gmhnhdy4jPmRhQDxdBJS9l2Q2oPc
-	LSYflEoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d37O19kDYF7cJBBjfV0XDP4xmYdr9u1gDGKV1jqw++U=; b=29F6O9XXIZVMAjH9bhJTdkuxI9
+	BYwGQCGt7KZLkvFn8ElBbIDR/dhoNEa6Y7u4UgpD/TSA81hWt6GcB3tkq86Ojnejwew06LraWBlaP
+	1KjV52V3agSlHew5+887z/+9xdIFUKNoepHIsRjK8qfQ8uY1GZ7V/3nMWhLlGnRSgwvDhnF8qabOn
+	Kha97g85WNRwS6WeWZ8QcQqHWf2w6YXtluCg0bsSfYDEogBV/4e70hlOCkK+HfPQp/1Ihc+Wydj+b
+	XJwN2q+8sRmyt6JZ/hspbmdCdyQCtKXMP8Lmo/CLC6kYBYAeroLpf57fY5WvG7wUxs68A2HxuW7C4
+	hDH7c7VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NjN-00000007uwu-3uQ8;
-	Sun, 21 Sep 2025 17:20:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0Njc-00000007v2Y-33QE;
+	Sun, 21 Sep 2025 17:20:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NjL-00000007uwJ-1Fsj
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:20:08 +0000
+	id 1v0Nja-00000007v1E-2tqt;
+	Sun, 21 Sep 2025 17:20:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97BF24156D;
-	Sun, 21 Sep 2025 17:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DFAC4CEE7;
-	Sun, 21 Sep 2025 17:20:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49631600AE;
+	Sun, 21 Sep 2025 17:19:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58E4C4CEE7;
+	Sun, 21 Sep 2025 17:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758475206;
-	bh=nZFmlP/P0juGPtOeZk5oTehlfMx9ii7tpf1fA/FVz1s=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=Lyjmj1GLsZgcmTM/xErQpkAWiJsfqG74gTDr58NQ3iRoeTaRrrJm3x1fqe5xyzp4s
-	 7uCBE1j4SHEYaWLo2nnhMFvuDKfEFWr/vGAL/wOeFA63LqBy6rO/HDNc0Y8vrTXuK9
-	 eGcHTReOSVkA0DqwkFeEm8am/HXXAyY6OvdBcV/7xSPBeAux9q2fN/EndSWhICrp5N
-	 Oa8xXMiWFxYE0tXINsU8Fsi4brW/QEcc/fA33rkfD9D9PIe1GW3yyjQsh0epUySM5x
-	 yhPWSL8OwAUEgVHdK+q59NgKowEoFIyWNwYo6M0Mr36LdUD74DAgvQVpf/oFdSqPBg
-	 Cva0Y3s7JvAlg==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250814035317.4112336-2-wenst@chromium.org>
-References: <20250814035317.4112336-1-wenst@chromium.org> <20250814035317.4112336-2-wenst@chromium.org>
-Subject: Re: [PATCH v2 2/2] clk: Use hashtable for global clk lookups
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Chen-Yu Tsai <wenst@chromium.org>
-Date: Sun, 21 Sep 2025 10:20:04 -0700
-Message-ID: <175847520494.4354.5422042536281886650@lazor>
-User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_102007_358097_A7566F6A 
-X-CRM114-Status: GOOD (  14.84  )
+	s=k20201202; t=1758475190;
+	bh=rxiF7+0X+E1DwELu2yV6ORqUEuJ5BQYtLtP8zWsIpaI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M4/7Svp6AnZCeOKbjsm5eSg8NQKXGqzgGhzt1oHC2Jaw2wkJqRR/Lx77QBE/qh7c3
+	 tlWvTiszBm2dAbpbNBuNdlAfPf2ZVOZQCyQ9wrFCjom3tnv6mBVuf+aPHZoZ6VRVBw
+	 IPXwvAe0UIYT0VfxkFlwDh02s9o7A2R+BZXlB9ogV4yC4FsiZ7vmS0F9SRSTupxy8v
+	 eUmTvjfRQhom1jH1wSFN6j49GD2osRCotFGsMjNLAGJPeh0/XJPS1ehi8N5cotcwUj
+	 awvcjovcHP77qzG9dNH8B/L6svBqwaP++ul63wxVNEud6cw6+I0No9ua9nzQTKg9m6
+	 k+b0AK3XAZn1Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v0Nj1-00000008Ctq-0grY;
+	Sun, 21 Sep 2025 17:19:47 +0000
+Date: Sun, 21 Sep 2025 18:19:46 +0100
+Message-ID: <87ms6nyb7x.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: thomas.petazzoni@bootlin.com,
+	pali@kernel.org,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	joyce.ooi@intel.com,
+	alyssa@rosenzweig.io,
+	jim2101024@gmail.com,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	ryder.lee@mediatek.com,
+	jianjun.wang@mediatek.com,
+	sergio.paracuellos@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	marek.vasut+renesas@gmail.com,
+	yoshihiro.shimoda.uh@renesas.com,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com,
+	shawn.lin@rock-chips.com,
+	heiko@sntech.de,
+	michal.simek@amd.com,
+	bharat.kumar.gogada@amd.com,
+	will@kernel.org,
+	kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	linus.walleij@linaro.org,
+	thierry.reding@gmail.com,
+	jonathanh@nvidia.com,
+	rric@kernel.org,
+	nirmal.patel@linux.intel.com,
+	toan@os.amperecomputing.com,
+	jonathan.derrick@linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-hyperv@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH RFC] PCI: Convert devm_pci_alloc_host_bridge() users to error-pointer returns
+In-Reply-To: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
+References: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alok.a.tiwari@oracle.com, thomas.petazzoni@bootlin.com, pali@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, joyce.ooi@intel.com, alyssa@rosenzweig.io, jim2101024@gmail.com, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, ryder.lee@mediatek.com, jianjun.wang@mediatek.com, sergio.paracuellos@gmail.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, marek.vasut+renesas@gmail.com, yoshihiro.shimoda.uh@renesas.com, geert+renesas@glider.be, magnus.damm@gmail.com, shawn.lin@rock-chips.com, heiko@sntech.de, michal.simek@amd.com, bharat.kumar.gogada@amd.com, will@kernel.org, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, linus.walleij@linaro.org, thierry.reding@gmail.com, jonathanh@nvidia.com, rric@kernel.org, nirmal.patel@linux.intel.com, toan@os.amperecomputing.com, jonathan.derrick@linux.
+ dev, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-hyperv@vger.kernel.org, linux-tegra@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,31 +126,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Chen-Yu Tsai (2025-08-13 20:53:16)
-> A clk lookup using clk_core_lookup() is currently somewhat expensive
-> since it has to walk the whole clk tree to find a match. This is
-> extremely bad in the clk_core_init() function where it is used to look
-> for clk name conflicts, which is always the worst case of walking the
-> whole tree. Moreover, the number of clks checked increases as more
-> clks are registered, causing each subsequent clk registration becoming
-> slower.
->=20
-> Add a hashtable for doing clk lookups to replace the tree walk method.
-> On arm64 this increases kernel memory usage by 4 KB for the hashtable,
-> and 16 bytes (2 pointers) for |struct hlist_node| in each clk. On a
-> platform with around 800 clks, this reduces the time spent in
-> clk_core_lookup() significantly:
->=20
->           |      PID 0      |     kworker     |
->           | before |  after | before |  after |
->     -------------------------------------------
+On Sun, 21 Sep 2025 17:14:07 +0100,
+Alok Tiwari <alok.a.tiwari@oracle.com> wrote:
+> 
+> devm_pci_alloc_host_bridge() and pci_alloc_host_bridge() previously
+> returned NULL on failure, forcing callers to special-case NULL handling
+> and often hardcode -ENOMEM as the error.
+> 
+> This series updates devm_pci_alloc_host_bridge() to consistently return
+> error pointers (ERR_PTR) with the actual error code, instead of NULL.
+> All callers across PCI host controller drivers are updated to use
+> IS_ERR_OR_NULL()/PTR_ERR() instead of NULL checks and hardcoded -ENOMEM.
+> 
+> Benefits:
+>   - Standardizes error handling with Linux kernel ERR_PTR()/PTR_ERR()
+>     conventions.
+>   - Ensures that the actual error code from lower-level helpers is
+>     propagated back to the caller.
+>   - Removes ambiguity between NULL and error pointer returns.
+>
+> Touched drivers include:
+>  cadence (J721E, cadence-plat)
+>  dwc (designware, qcom)
+>  mobiveil (layerscape-gen4, mobiveil-plat)
+>  aardvark, ftpci100, ixp4xx, loongson, mvebu, rcar, tegra, v3-semi,
+>  versatile, xgene, altera, brcmstb, iproc, mediatek, mt7621, xilinx,
+>  plda, and others
+> 
+> This patch updates error handling across these host controller drivers
+>  so that callers consistently receive ERR_PTR() instead of NULL.
 
-Applied to clk-next
+Not quite.
 
-Can you send a followup that adds a unit test for clk_core_lookup()? We
-don't want __clk_lookup() to continue being used, so maybe we can add a
-test only exported function like clk_hw_lookup() that uses
-clk_core_lookup() underneath while grabbing the prepare lock. It can
-make sure a registered clk_hw is found and a non-registered name isn't
-found and assert that the not yet registered name isn't found.
+> diff --git a/arch/mips/pci/pci-xtalk-bridge.c b/arch/mips/pci/pci-xtalk-bridge.c
+> index e00c38620d14..c2c8ed8ecac1 100644
+> --- a/arch/mips/pci/pci-xtalk-bridge.c
+> +++ b/arch/mips/pci/pci-xtalk-bridge.c
+> @@ -636,8 +636,8 @@ static int bridge_probe(struct platform_device *pdev)
+>  	pci_set_flags(PCI_PROBE_ONLY);
+>  
+>  	host = devm_pci_alloc_host_bridge(dev, sizeof(*bc));
+> -	if (!host) {
+> -		err = -ENOMEM;
+> +	if (IS_ERR_OR_NULL(host)) {
+> +		err = PTR_ERR(host);
+
+Under which circumstances can NULL still be returned? Because applying
+PTR_ERR() to a NULL pointer looks like a pretty bad idea.
+
+>  		goto err_remove_domain;
+>  	}
+>  
+
+[...]
+
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index f41128f91ca7..e627f36b7683 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -686,18 +686,18 @@ struct pci_host_bridge *devm_pci_alloc_host_bridge(struct device *dev,
+>  
+>  	bridge = pci_alloc_host_bridge(priv);
+>  	if (!bridge)
+> -		return NULL;
+> +		return ERR_PTR(-ENOMEM);
+>  
+>  	bridge->dev.parent = dev;
+>  
+>  	ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
+>  				       bridge);
+>  	if (ret)
+> -		return NULL;
+> +		return ERR_PTR(ret);
+>  
+>  	ret = devm_of_pci_bridge_init(dev, bridge);
+>  	if (ret)
+> -		return NULL;
+> +		return ERR_PTR(ret);
+>  
+>  	return bridge;
+>  }
+> @@ -3198,7 +3198,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
+>  
+>  	bridge = pci_alloc_host_bridge(0);
+>  	if (!bridge)
+> -		return NULL;
+> +		return ERR_PTR(-ENOMEM);
+>  
+>  	bridge->dev.parent = parent;
+>  
+
+And what about the code that comes after that if we fail to register
+the bus? The remaining "return NULL", which will then be interpreted
+as 0 in any user of this function, leading to a worse situation than
+what we have now.
+
+Also, things like pci_scan_root_bus() have the following pattern:
+
+	b = pci_create_root_bus(parent, bus, ops, sysdata, resources);
+	if (!b)
+		return NULL;
+
+which will end with prejudice given what you have introduced.
+
+If you are going to touch this sort of things, at least make it
+consistent, analyse *all* code paths, and provide documentation.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
