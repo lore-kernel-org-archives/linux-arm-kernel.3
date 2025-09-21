@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF245CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 10:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25090CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 11:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gcurvrki+PQ3hlCSbHx5X7PXrbv6IecB2gkgSChOo2E=; b=oMuR02afNIpoHg6OpeN7CUYy+q
-	9HZ0JmifNTEsEn1NeNs16h31buJR6tcwjyoWaaG68ovo5KO/1WzLNeaNof0AXKhr/5uVTZTSXBFUV
-	W4iShRYnzN0xtRR6L+u3nYAzghXmFrueVyjOIWoN7EEufxdWbD6FR0P2DF1nCyrOZTm7C3++PHvO5
-	L+o3Br1ODJuWD+/TXGAtsRfKah6qBEZae7OCCCiMPQxA9YrFMIyHpmL46Jga7YSeHBfjfFFi98kdc
-	ay6ZwFDm8ODNzG9kLZU2vEdOjgMv8tv1gnoB0BRr5uEmiIQGO+ncLGRgpmljP0X/sRNAdNQ8OaL+g
-	eyFDjsrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXlNho2TRgFT8/cqe8tJ5yK32OzKsQWS4NN5Qn8Dm+c=; b=ClRBcOkEX/WLXWK3lvpakaShSa
+	KyxEngZb1w0wgD5d//M2Ii94cwYoG37WBxyAJc79pmyY9sE4YBhKjq9szR7m8pLYEaGu0um6FEqE+
+	1CeuSp+VvcprbRyaewhuY0IML/3kBPMaY7NBQtWnBM+JuYeuuVpMjLLC5Wxtgcs8LnT/krWYKCcqX
+	EdeBi3hJmMke0Q8450KEKlmPneqls8pmnEz/R8f7BQj0AVAhSFy62vfOJWLwsdiKIewuVqlGfLrmi
+	A/1UxUVegJwGqZ8NwCAFfVemgOCVELgk6iWKRjXrtZyW3yplJ0QpxpJqmtv/61DCTWcfunTkQG7sw
+	sOf5md+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0HlY-00000007KrZ-0cB3;
-	Sun, 21 Sep 2025 10:58:00 +0000
+	id 1v0Hnp-00000007L6D-3FzF;
+	Sun, 21 Sep 2025 11:00:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0HlV-00000007Kr9-1zZD
+	id 1v0Hnm-00000007L5U-2W2p
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 10:57:58 +0000
+	Sun, 21 Sep 2025 11:00:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFD77404E6;
-	Sun, 21 Sep 2025 10:57:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40ADC4CEE7;
-	Sun, 21 Sep 2025 10:57:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E61044D0D;
+	Sun, 21 Sep 2025 11:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 058E1C4CEE7;
+	Sun, 21 Sep 2025 11:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758452275;
-	bh=8Op61nzSpVhT7RNzCmXUhBy/d+AQXo4ddYpTYafvvqQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qMc2JFpawOs1NCf2REhhEkTHNX9fUpIq361qjmtT7U/BmpovsSDZ7s/QfreyO47SG
-	 RykgxkEZjd3BzyMNOD7b5Dny4PRdXauRP3Xm2lPP1wXq2erStMj/V5ho428gMs7HIU
-	 uTr8lW6HZewvWPsdvkZAkP1JNYseW3O57VoXGQtbVFFZoCfoirrCRqQeg2zApm1QPj
-	 /4avlvMR+5c78M7VAjMH7+9AU7Ph7hKeP2SboLi3Fa+4I/eDHsJ5n3OxFQ4R2QerV7
-	 Q+9AMhWw6MmY/LuxP2dEv6cHgcbpxDJsFPkUb2UlqvZa0CTUOcnhGxysnQPkh6K0uQ
-	 CoJxK7ae7XwzQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1758452418;
+	bh=mcaq5UETXQW68M5Km24IAUwTvGYTX4atFsOueMZbGpQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=udS1F2ySB4D8hkXwlAnHvYzFs1zz9juYY2mg1t4Bcy+yhN/y5aX4eSJ7cpucxJ2bc
+	 Hznv42AbObEd+C1mT5o5y2zay5l0aF7O7HhsJnz+50h3GRKAX1EUrDPWCZC7G9AA1J
+	 Cg/jYG40bRQhECniBPcjrSQF6nxUfPeljMfwQ/Vyc1RChyCo8f/H6G9SsTWdFisVSj
+	 VoV3iu8SsDPbdjAg/IRFFqxXdQSpvlQ+UiTeOaRxY6isjaP+UO454UzII5bOPq4V/a
+	 J21lI0uGTKhw8HNvXbxDuGDWxH8CqadGI67F+A1iL4xemKoSCdQztH+9T31wB9TicV
+	 ouX6UPdtBnS2g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0HlR-000000089rB-0xoW;
-	Sun, 21 Sep 2025 10:57:53 +0000
+	id 1v0Hnj-000000089ti-2vFR;
+	Sun, 21 Sep 2025 11:00:15 +0000
+Date: Sun, 21 Sep 2025 12:00:15 +0100
+Message-ID: <87qzw0xe80.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
 Subject: Re: [PATCH v2 00/16] KVM: arm64: TTW reporting on SEA and 52bit PA in S1 PTW
-Date: Sun, 21 Sep 2025 11:57:49 +0100
-Message-ID: <175845226586.1792635.11249464012956393475.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250915114451.660351-1-maz@kernel.org>
+In-Reply-To: <aM3bG1fkB4cYslUJ@linux.dev>
 References: <20250915114451.660351-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	<aM3bG1fkB4cYslUJ@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_035757_555340_D6596976 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250921_040018_686336_8757BC2B 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sep 2025 12:44:35 +0100, Marc Zyngier wrote:
-> Yes, $SUBJECT rolls off the tongue.
+On Fri, 19 Sep 2025 23:37:15 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> This series was triggered by the realisation that when injecting an
-> SEA while on a S1PTW fault, we don't report the level of the walk and
-> instead give a bare SEA, which definitely violates the architecture.
+> On Mon, Sep 15, 2025 at 12:44:35PM +0100, Marc Zyngier wrote:
+> > Yes, $SUBJECT rolls off the tongue.
+> > 
+> > This series was triggered by the realisation that when injecting an
+> > SEA while on a S1PTW fault, we don't report the level of the walk and
+> > instead give a bare SEA, which definitely violates the architecture.
+> > 
+> > This state of things dates back to the pre-NV days, when we didn't
+> > have a S1 page table walker, and really didn't want to implement one.
+> > I've since moved on and reluctantly implemented one, which means we
+> > now *could* provide the level if we really wanted to.
+> > 
+> > However, nothing is that simple. The current code in at.c is firmly
+> > 48bit, as our NV implementation doesn't yet support 52bit PA, while an
+> > EL1 VM can happily enjoy LPA and LPA2. As a result, it is necessary to
+> > expand the S1 PTW to support both LPA and LPA2. Joy.
+> > 
+> > Then, once the above is achieved, we need to hook into the PTW
+> > machinery to match the first level of the walk that results in
+> > accessing the faulty address. For this, we introduce a simple filter
+> > mechanism that could be expanded if we needed to (no, please no).
+> > 
+> > Finally, we can plug this into the fault injection path, and enjoy
+> > seeing the translation level being populated in the ESR_ELx register.
+> > 
+> > Patches on top of 6.16-rc4. I intend to take this into 6.18, so shout
+> > if you don't like the idea!
 > 
-> This state of things dates back to the pre-NV days, when we didn't
-> have a S1 page table walker, and really didn't want to implement one.
-> I've since moved on and reluctantly implemented one, which means we
-> now *could* provide the level if we really wanted to.
+> Just some minor gripes, otherwise this LGTM.
 > 
-> [...]
+> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
 
-Applied to next, thanks!
-
-[01/16] KVM: arm64: Add helper computing the state of 52bit PA support
-        commit: 0090c0a247cd3dc37181be4a9af4750ae3fedbd0
-[02/16] KVM: arm64: Account for 52bit when computing maximum OA
-        commit: 23cf13def0c87d9ce234f12eb6132f6bf9442f29
-[03/16] KVM: arm64: Compute 52bit TTBR address and alignment
-        commit: e645226a9c238db919d105d0ee7b4e09d80d13b1
-[04/16] KVM: arm64: Decouple output address from the PT descriptor
-        commit: df1d0197a2b939e28321686cafaead4a183980fa
-[05/16] KVM: arm64: Pass the walk_info structure to compute_par_s1()
-        commit: e4bd479884a1353efd43aa950c996d333145642d
-[06/16] KVM: arm64: Compute shareability for LPA2
-        commit: c0cc438046eed8d906ac917bc70a7284b6cc3f03
-[07/16] KVM: arm64: Populate PAR_EL1 with 52bit addresses
-        commit: dd82412c2b2b30bf4aa08ef069eb38c7795cd9b8
-[08/16] KVM: arm64: Expand valid block mappings to FEAT_LPA/LPA2 support
-        commit: 5da3a3b27a0108562547086e0ba7d9593f147cfe
-[09/16] KVM: arm64: Report faults from S1 walk setup at the expected start level
-        commit: dabf9f73fed86e096255c5be12c7e1d08a939c67
-[10/16] KVM: arm64: Allow use of S1 PTW for non-NV vcpus
-        commit: 14d4802dc22acf670333c8aad4e1931e7d6ee412
-[11/16] KVM: arm64: Allow EL1 control registers to be accessed from the CPU state
-        commit: cb1762904c5000220a0facf9bcab68ba687ec417
-[12/16] KVM: arm64: Don't switch MMU on translation from non-NV context
-        commit: 61b0280a670bdbb3a209ae474625f387788af0a8
-[13/16] KVM: arm64: Add filtering hook to S1 page table walk
-        commit: 0c5471408cb5c518bce76b851aff89719283a428
-[14/16] KVM: arm64: Add S1 IPA to page table level walker
-        commit: b8e625167a321138f83b1f6c99cf25d1290cb04e
-[15/16] KVM: arm64: Populate level on S1PTW SEA injection
-        commit: 50f77dc87f133b09db44a5bbfdd64b1ca83a8d8e
-[16/16] KVM: arm64: selftest: Expand external_aborts test to look for TTW levels
-        commit: 00a37271c8a68070dc64f81a5d64644beb4cef2f
-
-Cheers,
+Thanks for spending the time reviewing it and spotting some crucial
+mistakes. I've applied your suggestions and pushed out the result,
+which should be in the next -next.
 
 	M.
+
 -- 
-Without deviation from the norm, progress is not possible.
-
-
+Jazz isn't dead. It just smells funny.
 
