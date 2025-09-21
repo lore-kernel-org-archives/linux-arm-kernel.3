@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B23CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B61DCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 17:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pwDxzyQEn+iBDtKyLYCmHQVSJ6/W7lkVlzqOH9eCks=; b=le0ulirjnVwd12/Y5NHytmYmSY
-	cuW5E7A03kgUYQcZmHmINuoIZAcmrgB5tdTp854oi3PnaqGwAQAKB110OzU6PyD2jioRJfB1j0BBy
-	nuywr7uFm+wHtMeAAyloqSwY9t10je1Z+oE3WQsqxTwa1oUnruz9lIeLvuNwMuK45MovKoR0vZrIp
-	9oi6IOGRmV2ejBSEKa29K9bc3xJacV86wudf3igJzv9QlU51/35LMHTJoihhRWMhofnDFyJXKZ7r+
-	oetmZncR+OtGmuOncElYAvxc1jU+hyU3cf2BaGymLkYPN+1iG84O/DOfOTg0DH2K3ZOfeypI4I8aO
-	bzAENKMA==;
+	bh=iaS8l847UngA2FOp5KsZtRuIyVlfPyrLMCLxIIpL5CA=; b=Ht0uJWebRnGX9xD1ks6AVoskzc
+	RE3bUIVo9bBZG9ls5jNEI8B+FSvPeIRfmqnp6l8B8WerWmI8Wo5QNzg4MReRtowOaJhcETdtVCrNc
+	/7UGENGtTdpJn+coU9xWrDy5xNMA0EUv2hXvTVbpqDVwepnLIyvq9Qe4Q2hig5n2IG39goH3J2EaW
+	Wchvh41nJKsvm4SUzB/45PFa9AQZwyzr3dZ78RTToXtBXQypZMnazXacdqRsBJ4oP6+DrnzIUxZkv
+	5P7ILe2pR9ijnlq9l6WOY0mgNeORhCUjQtfkTAnI3AlkBQry+Gmhnhdy4jPmRhQDxdBJS9l2Q2oPc
+	LSYflEoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NgJ-00000007uac-1aF9;
-	Sun, 21 Sep 2025 17:16:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0NjN-00000007uwu-3uQ8;
+	Sun, 21 Sep 2025 17:20:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0NgH-00000007ua6-45hL
+	id 1v0NjL-00000007uwJ-1Fsj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 17:16:58 +0000
+	Sun, 21 Sep 2025 17:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 628D860143;
-	Sun, 21 Sep 2025 17:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E324CC4CEE7;
-	Sun, 21 Sep 2025 17:16:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 97BF24156D;
+	Sun, 21 Sep 2025 17:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DFAC4CEE7;
+	Sun, 21 Sep 2025 17:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758475017;
-	bh=5pwDxzyQEn+iBDtKyLYCmHQVSJ6/W7lkVlzqOH9eCks=;
+	s=k20201202; t=1758475206;
+	bh=nZFmlP/P0juGPtOeZk5oTehlfMx9ii7tpf1fA/FVz1s=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=YqZqhogas/JJIGwYzK83wOMaHr8WS6DsS2UDjE4tpj3MwA6o3PFNGAjDJZI70T4F1
-	 fW3TqUbO8tzfDOh8zqEWDiozw0SWdSIRd8WrneBFIaQ98B4P1rTHmxeYsmSThsT9pZ
-	 EVgYn0ySCKXxySVOm/kZSt82virJ19an6cz83jQ37RNRjwA8sPBz/DeqssqFpaHcaP
-	 cfy8Hbl1Io75eKm85cTeMp7ShoofPA0L9jWpQlev8YHHAT7eczaVnF12Ft5rEVlFyA
-	 KQ8cNQt1jwU+oeIiAnOEZMqAAaPfkeiX6NBT9mg9jrv0Y/xtsCT+1aDyaSipujI5As
-	 SD7unuHWLjsTQ==
+	b=Lyjmj1GLsZgcmTM/xErQpkAWiJsfqG74gTDr58NQ3iRoeTaRrrJm3x1fqe5xyzp4s
+	 7uCBE1j4SHEYaWLo2nnhMFvuDKfEFWr/vGAL/wOeFA63LqBy6rO/HDNc0Y8vrTXuK9
+	 eGcHTReOSVkA0DqwkFeEm8am/HXXAyY6OvdBcV/7xSPBeAux9q2fN/EndSWhICrp5N
+	 Oa8xXMiWFxYE0tXINsU8Fsi4brW/QEcc/fA33rkfD9D9PIe1GW3yyjQsh0epUySM5x
+	 yhPWSL8OwAUEgVHdK+q59NgKowEoFIyWNwYo6M0Mr36LdUD74DAgvQVpf/oFdSqPBg
+	 Cva0Y3s7JvAlg==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250814035317.4112336-1-wenst@chromium.org>
-References: <20250814035317.4112336-1-wenst@chromium.org>
-Subject: Re: [PATCH v2 1/2] clk: Sort include statements
+In-Reply-To: <20250814035317.4112336-2-wenst@chromium.org>
+References: <20250814035317.4112336-1-wenst@chromium.org> <20250814035317.4112336-2-wenst@chromium.org>
+Subject: Re: [PATCH v2 2/2] clk: Use hashtable for global clk lookups
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 To: Chen-Yu Tsai <wenst@chromium.org>
-Date: Sun, 21 Sep 2025 10:16:55 -0700
-Message-ID: <175847501556.4354.8718434383967720736@lazor>
+Date: Sun, 21 Sep 2025 10:20:04 -0700
+Message-ID: <175847520494.4354.5422042536281886650@lazor>
 User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_102007_358097_A7566F6A 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,13 +71,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Chen-Yu Tsai (2025-08-13 20:53:15)
-> The clk core has its include statements in some random order.
+Quoting Chen-Yu Tsai (2025-08-13 20:53:16)
+> A clk lookup using clk_core_lookup() is currently somewhat expensive
+> since it has to walk the whole clk tree to find a match. This is
+> extremely bad in the clk_core_init() function where it is used to look
+> for clk name conflicts, which is always the worst case of walking the
+> whole tree. Moreover, the number of clks checked increases as more
+> clks are registered, causing each subsequent clk registration becoming
+> slower.
 >=20
-> Clean it up before we add more.
+> Add a hashtable for doing clk lookups to replace the tree walk method.
+> On arm64 this increases kernel memory usage by 4 KB for the hashtable,
+> and 16 bytes (2 pointers) for |struct hlist_node| in each clk. On a
+> platform with around 800 clks, this reduces the time spent in
+> clk_core_lookup() significantly:
 >=20
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+>           |      PID 0      |     kworker     |
+>           | before |  after | before |  after |
+>     -------------------------------------------
 
 Applied to clk-next
+
+Can you send a followup that adds a unit test for clk_core_lookup()? We
+don't want __clk_lookup() to continue being used, so maybe we can add a
+test only exported function like clk_hw_lookup() that uses
+clk_core_lookup() underneath while grabbing the prepare lock. It can
+make sure a registered clk_hw is found and a non-registered name isn't
+found and assert that the not yet registered name isn't found.
 
