@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40556CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E68CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C9a7k6Swy3++FspoGSqoywdeqAsXbjHvdGqmU8ITUsE=; b=mr4XHuq5I7PCBBd0RRpZZrsDEg
-	lYXqdKBiBe8iNDQpFJ5qWUb2e96/fwNywUoxV5vEoyqu8a8LJSazlotWQwaZZjyh1BT1gc+kGz2Qn
-	ADnXfG+GE3B9QWm2k/yq3/CeGkJqUTp0WIpu4QrFxP46lMT3wUgnVHfumtqh1btdwf1V2wXZTRD6o
-	jxPHXTK6spQIyJSx6SqPN7WVvq6gNWa5MS08FXZeEwSGa2VsxgS+hb1PfrPX0+O14hWUVb/J/DSWp
-	9QJ6cUFWlHBkGv1eMOST+Z8E0o3hkQbTTsP5KrHvJ+hQQyq76CjEeXs2DoOHv917yftQI36fzOxG2
-	n8jVu9LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJkfGbWQ8DKwLCLdQal42ea+EEF76F0Bpw81JJEN1eM=; b=ovz1k3WIrZpPITeG2Qd2Lvscig
+	iBVoVHuJ32qNJwf3oFoOlhaD1CZR7EbmPeO9/VD2xyLMwnmDmxDD3T1hFLBc6Uh9un73Xb2Lua0sn
+	buaANePjKXhq8vkJvJGaJwgu4nO2Mk71t5UQJWI/1wXSxLrqdZ5dJVjsp/e8Bt0XuS3QuYf2VMFmh
+	iOs5b3drBojNDXiw8DQESfrgsnpfiF2EduqIIP+hZ79bWfA6NAwSW/s6tG1zF09q8ZX3zLCd+an6q
+	yokPIqFp8HdG7JNTvW5bGvo67jBvDE1OrEb3B2CY7fjbXGhYgYl6ibFdOFs+/GCRWXMOlmmUbYIsr
+	aZ4OWiFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hmv-0000000AiDK-0p2V;
-	Mon, 22 Sep 2025 14:45:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0hrv-0000000Aifm-0mIL;
+	Mon, 22 Sep 2025 14:50:19 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hms-0000000AiCb-1jzb
+	id 1v0hrs-0000000AifR-42yR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 14:45:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85053438E2;
-	Mon, 22 Sep 2025 14:45:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F36C4CEF0;
-	Mon, 22 Sep 2025 14:45:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758552305;
-	bh=D+LNgfJNYzCpnFJGwhR+lwXuJ0ILIQoGT35vh4i2XBQ=;
-	h=Date:From:To:Cc:Subject:From;
-	b=dbZ8P5ogAQJxFbT4EfBs9j5q1ngbONMN+GPGjDS72pZp8K5Iu7yqjJzx8x50lU1Vr
-	 PPcpXXiat/SkwL2/JWZ7dflR4RJQBQrwyVKAkh7pJ7K/UmpBgiKcs65+TwIATHeW9t
-	 9MPbNQVtV2sVFRKFdG+9SLw5RPWb7xLiY8Ox8pzArKUr5SRrhkF7WuX6ThVcaGWL3A
-	 /fHW211aJfaIA0Ttx8Lk3nowZIF+aQdUcEIZwWHMXF4rJvWDI+vGhXEuFTZSPJ8I+h
-	 SO7+HOTB9X9vQsoDM1E5KtVw5bYfUyHi22g9eNVL52DROhD2zC277PW8XWd5gDwpTF
-	 odCCKaXxNnU8w==
-Received: by wens.tw (Postfix, from userid 1000)
-	id B2EED5FC15; Mon, 22 Sep 2025 22:45:02 +0800 (CST)
-Date: Mon, 22 Sep 2025 22:45:02 +0800
-From: Chen-Yu Tsai <wens@kernel.org>
-To: soc@kernel.org
-Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: [GIT PULL] Allwinner Device Tree changes for 6.18 part 2
-Message-ID: <aNFg7iuBtyWkCZg6@wens.tw>
+	Mon, 22 Sep 2025 14:50:18 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-57a59124323so3314168e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 07:50:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758552615; x=1759157415; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PJkfGbWQ8DKwLCLdQal42ea+EEF76F0Bpw81JJEN1eM=;
+        b=mR17aaK7MsxSkvPTd8Pkye8yEGmRwg9QDW/W/WwcAOjQftyTmnhWA0bzAzb8BIiNju
+         onUmzRjZ291u00modfoKjbjVhnGFXkLB491JYzZq33rrQ5vxwFScuvjpd+8ODCwkOf9k
+         ewkUYcoXokW7ZgDL6NRiYk1rnWkHkfnezvF3SkigQFl/+fy61AWZXwUn9CIEkN8qRlbI
+         psPVBtRYFTJrLWwo4h107v01XIkhLeJOdj8OnBY22y7o7Fi6QAm8cD7NEB0JKnjy9Etl
+         o3juV2Emyl8QpCFzZVoW2UTRkynPX4Y7amqsSgbNFWrADkQSTHVzKqwBdnd9cWwN1sXl
+         ClnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758552615; x=1759157415;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PJkfGbWQ8DKwLCLdQal42ea+EEF76F0Bpw81JJEN1eM=;
+        b=VGX9+Q4LTLQJ+g4TRplGSUpnuieyUHziUN9f75NYzohigbcJdOBlwMOS2KfNfYwl7Y
+         zNDjmdgeB8so6AVjTyhX8rL6TPmxtlN0hEHLWlVY0xampw9LQ6YxayNNEnzGPQ9M8pfu
+         k5n/a2ZDfXmIr8lCInteGewYj5b9sVxxIsX2Miwsve0q399T9DX1F1qmnXgEZrIWmWxx
+         yx4+PMcBYJM+v53B7aNAZSvl7ZqrwiYIXNBHv+HZZNaaRfTtYA5gI5l1U4TJgd/XD6ZG
+         fT2mBGBvSeGRaYycPT+pFbpWqC/tCzwoKPaIYCL9EYbLxlit3vPnS4k1xpKvmbn5iiel
+         AJEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWF3YRvIKENtpfxMI1nD42acKt5FeJybr/g5y+DCyJOhXEq5d6BVpfHbHfGdcONpBkC8lFNf+CWupZ8Sq2w3xhM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR68/bAMe8XGCcOV2XsU+97A+o5fEqQo2hN5BCNm9sMbLB/ekw
+	fybtDS1pbTtVjIfX9yvrjWAY9bsBEKkAwgO+5QSfpXYl7RDnlxhLb7Am
+X-Gm-Gg: ASbGnct4uQz8M2t8HSY3HFYYtbUFxDEpE0PClZrRd/+FgyxOKJtw9WzW1xU78clfQMi
+	NTSGStLQoz7uPWh6bBovKAjhSO6pDh0JRTc1FXm5ZVHt7pzQAHcaMdeqMoTkDlnpBaaT4x/y6wy
+	Yb7P9gD18FjnngV+/kkBNucwXgLtWc2pa+BZOP5PwdbFJ8INaiVLconSorJJ797YVULVWPKGQKS
+	zGUHtl627JK3AWI9u9YhoHIxyduAYJsnMYu9D/CQTkFILaAEJSk7njDFM507lG2rCC/weyJ1zPV
+	beSw4IONCFWfgfOI7+al/jNasr9KLPg1Mtmd4qT6PZ2Et+Xp9nL4tupbACcXCHDerBmoUmSjw7X
+	KNAk8p0LdrcebfrxYGExGmmEx2tBSWJ/ZNJoQqu2XtgV6NveXEBmLWkiAM84=
+X-Google-Smtp-Source: AGHT+IFcvDKfo6/rF+Nh3kI8hFqr1RyQcXaBGgCXhniYJNNce82tXdBX88O2hhL6GYKhS7xRDvOPEQ==
+X-Received: by 2002:a05:6512:2344:b0:57e:216b:7605 with SMTP id 2adb3069b0e04-57e216b7873mr1995745e87.49.1758552614400;
+        Mon, 22 Sep 2025 07:50:14 -0700 (PDT)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-57ea29ee5ddsm890447e87.19.2025.09.22.07.50.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Sep 2025 07:50:13 -0700 (PDT)
+Date: Mon, 22 Sep 2025 16:50:11 +0200
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 5/7] i2c: davinci: calculate bus freq from Hz instead
+ of kHz
+Message-ID: <aNFiI_4HAP5sBSTP@gmail.com>
+References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
+ <20250922-i2c-mux-v1-5-28c94a610930@gmail.com>
+ <CAMRc=MdMMQxFfkMPHaUg9nMWuW9F1p+PT2i-ggcU5SSFKOVGKQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kLmsbuz1Pkyj0gi4"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=MdMMQxFfkMPHaUg9nMWuW9F1p+PT2i-ggcU5SSFKOVGKQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_074506_472282_01767131 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250922_075017_032659_A1F8DF9F 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Here's a very late pull request, adding support for another board.
-This is already included in linux-next, and doesn't show any issues.
+--kLmsbuz1Pkyj0gi4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The following changes since commit cca07ac2b5f7838b8ff612b53b9f82ac8cb58312:
 
-  arm64: dts: allwinner: sun55i: Complete AXP717A sub-functions (2025-09-15 00:04:32 +0800)
+Hi Bartosz,
 
-are available in the Git repository at:
+On Mon, Sep 22, 2025 at 07:42:43AM -0700, Bartosz Golaszewski wrote:
+> On Mon, 22 Sep 2025 08:21:00 +0200, Marcus Folkesson
+> <marcus.folkesson@gmail.com> said:
+> > The bus frequency is unnecessarily converted between Hz and kHz in
+> > several places.
+> > This is probably an old legacy from the old times (pre-devicetrees)
+> > when the davinci_i2c_platform_data took the bus_freq in kHz.
+> >
+> > Stick to Hz.
+> >
+>=20
+> This looks good but would you mind also changing the name of the field to
+> bus_freq_hz in order to leave zero change of misinterpreting it in the fu=
+ture?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-6.18-2
+Thanks for your review!
+Sounds fair, I will change the name to bus_freq_hz in v2.
 
-for you to fetch changes up to 07c7f4f4e9504da240ef68adfd95a1150d3a6fd4:
+>=20
+> Bartosz
 
-  arm64: dts: allwinner: h313: Add Amediatech X96Q (2025-09-19 12:37:16 +0800)
+Best regards,
+Marcus Folkesson
 
-----------------------------------------------------------------
-Allwinner Device Tree changes for 6.18 - part 2
+--kLmsbuz1Pkyj0gi4
+Content-Type: application/pgp-signature; name=signature.asc
 
-A new board, the Amediatech X96Q, was added.
+-----BEGIN PGP SIGNATURE-----
 
-----------------------------------------------------------------
-J. Neuschäfer (2):
-      dt-bindings: arm: sunxi: Add Amediatech X96Q
-      arm64: dts: allwinner: h313: Add Amediatech X96Q
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmjRYh4ACgkQiIBOb1ld
+UjIFaQ/+LAQ/eyJkvpFrJeZXJSpKHC7TjT/6INLurYa43ACv+OmVxYjnHFi6gpWi
+biuX98wrOiTY967DDBgQnlCAl72iirRfxCkImgv0HPg7MfeLiXarhLWwJzYbzp/2
+h/3v2LB3wOJGw+OnWkiDCVXgpT5ti1ME/5S2cx1DAK1RrgCWJhPRzEF6mWWrXEvX
+hnrqSnf6OWFGN7SW2yegp0R5beRjKvZeI9Cg+A1x496RfRQKgEffQ6VxB50Y5iSx
+4odYxRmVIEz9FSnWEhULeB77mgWT2F4vo0KokWd47MBznwwYDcIxtXnZMyW1Kqgb
+0bPDZFqGnIvSQtgOo2tTiL7pAMvxncaWkvFMRmNFX+T+e8SjK0XyP+G0/IDETqoa
+T2k4HPloV4P0a5szKoIzvjaS+SlvMN5F+26XW9k/V9lP7GL+tOFFhy21CJArjU2L
+lRQ8SQLEIKu4JLs6RoVyOYiG+eFuwaaFTrzfBR1gULhMDrzBbT0k2nDrMjvWfGqI
+wsMHXrGqb6eWNq/Vx0sWV5BNLFl5vL38a9bXL0Gv6Lpmc2p7I9SSYcTe9eNR7nVK
+g2S8L/ivdCgXP/n9j1hmQrfACVKQec/DjxT9/HyXVwThXVUXso98DRdNOhZJyg5x
+letC7sGiSN1Pr+P2PAhHYYS33zg2kXad7jm0sHRM8zh89RCJsBg=
+=vtDu
+-----END PGP SIGNATURE-----
 
- Documentation/devicetree/bindings/arm/sunxi.yaml   |   5 +
- arch/arm64/boot/dts/allwinner/Makefile             |   1 +
- arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts | 230 +++++++++++++++++++++
- 3 files changed, 236 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts
+--kLmsbuz1Pkyj0gi4--
 
