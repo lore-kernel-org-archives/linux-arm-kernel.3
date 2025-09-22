@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07790CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F39ACA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maAo7eOe8o8YutYShD5omzBkIATahAgKdVnzIjAE84c=; b=AVYG8etIlAQwAiGO+WZSfhHwsg
-	a97MdHwQvVTEZKKtUKdVWhtPawfSyNewcOs4aIwn02zsr0ApGoStIjlXqBuY+qHw9CRXtLGyl558L
-	PFr1GGrdxVBOylfxx+X1ialRi99hNltL293UmCGnbXCBRwFTXJiVdP0Kvzb/gqBIE4lFunferOiOR
-	2kzGma6+fIF+cGpuz+CLhlp6IDwgRRqm+6IhmcNimDiuQfxKLCwA9IDUYAifhZ/9lg+ZtPMBtVnXk
-	9zAPIdfb9thnz80aWDBrREoBb8OYwbbr8SF+xkGzKIi3vaCl77Z4qHQZKrLKtMW6XJgx9jONJmkp1
-	wwFtrpBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IhdqQk9DvI4AFmg9naSg1FH7sc1HQKYfUNgmIemfvA=; b=X6ATubuziDEyG2IR8LEAMh8DY1
+	iJcOKDad5CjzyLWZLg+cy9rmtfq7G9JZHlC+BzVEc9XBoANAouvI0DPqyfqvX/bQXqwRjtGPiQ458
+	q7ACqE5GU54FIiMfF+EtPkJCKmqgvzZ1IYdPMcGTebi+71T7NsOaqyakJVv2xCpum7boF2bxovI0I
+	a1p3388yHndP98YqMrXQLM5x/l0EWSNgrzZFI/CBJfs7+VRo2fFvavLpLScaZS0dxgD+aXZsctqSS
+	fafU+81dulLBwoCo156NX72gXtNX9CepmkVuH3Vb0CMcqTSANNQ2QzUhutjsmgjqra2ADyyIm/olU
+	i2qhykwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jVa-0000000AzuY-3GYS;
-	Mon, 22 Sep 2025 16:35:22 +0000
-Received: from mail-qv1-xf61.google.com ([2607:f8b0:4864:20::f61])
+	id 1v0jb8-0000000B0V6-0FRA;
+	Mon, 22 Sep 2025 16:41:06 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jVZ-0000000Aztq-0B42
+	id 1v0jb4-0000000B0Tw-3Ov9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 16:35:22 +0000
-Received: by mail-qv1-xf61.google.com with SMTP id 6a1803df08f44-76b8fd4ba2cso36434826d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 09:35:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758558919; x=1759163719;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=maAo7eOe8o8YutYShD5omzBkIATahAgKdVnzIjAE84c=;
-        b=aoRWvTgM3phT2DrfYtGPwR3y8uFV+J7SQLCf9JNLGFrB2xHY6oxXe4eSrOyLIq7rBV
-         ciNwdMC+pbtpZXRMdRA70zpoJCsCBxjpPtm1OX2hcZC/ZxmHmn7rYWHBXMJnp3LJFERP
-         XSEZqB0MkU2J259IFJd63qro0L/MDwfzVjG3aImaOvcJXrISSEfY5ytI2OPxWGcu+L9q
-         tBc7Ox4FAmqtR1PP3kk7bAj72orR4tfnmKJzESJaSB/W2CnqDUQJISoc7bXw6gdS1M7F
-         IKjdI0D9+T9iA4Y96xaf+IoAxYzEw08g/bgs+26UN4C/QFxSFVNoesRW2TTYoq50RqBw
-         qkfg==
-X-Gm-Message-State: AOJu0YxclFKxn3SbeGbPTBSKCWzIOufdfjsY1MvYf/+UWjLM5qfnrHMc
-	na3Bg1+1/3KKobIYUSNxcmKk4Owxyp6TY4yjKydBPHXGm/9RyJiall3/6P6tcvrZXNI0WqRzSP6
-	7B6TJQy+DMvkqlAPFHo45PSqdfOiN8M3gH3d0MHUqQSa4odr9mbb538O7DxSdm9DVTKH/l1vatj
-	t6eJRwRzMVOMZksINxx18QWf09oHboRpt+Qv1G6UD3lh4vW7rJ/cDTU9/SGOGLCMZSeiLuIBR1t
-	rFPszMTwc+mV1LPYs2LATXoQzKkNKQ=
-X-Gm-Gg: ASbGncsWdM4HhsuuuUi7x9CxS0uM840mFKwgwM05FqjcMgdwomiKFIz6YwZw2jZzQJY
-	Byz6stRjEonwG+BmqgJMcarnwbsDWgX5UFFxgoFRS0gjE438FPAq8DEIkxN2Qr4F8qJ/96R5Ndj
-	/9aD4sgag1V+b9ogBRnbqfnhz/2cXW/khOdj0VtsXZbDKqICppcyPEeHOl3lV3yZi48MFnpn/Yg
-	mOhm+grO4SwV7+ArVRJgSjWhZdQD7Hx6vet6CIpzEpVWuXWOf9TGWuIjLoQwVQSyOxZIc0UZj0R
-	M/ASAR++y0qU0hbVpESOZCiyqdIcla7AmDyDLsIkz1XGRyQVmJ7N5WJAwd5VjRcK3RsqYGOcNee
-	LL9Ecvj4ZK6IAqLjje2GizMtHZkzzvIiVdqWMnleFxYYajfXE14jnliwinWk9ViUnFJwQjwWiOa
-	dBtjE=
-X-Google-Smtp-Source: AGHT+IEAYH5AKlYjnbbZiBjNHQ9Q9tWCX/5qepDB5Ko31M7Y+2cL0YDG7Xhdl9FTe0jiY13F6Q7AkRjthc7g
-X-Received: by 2002:a05:6214:ac1:b0:78d:9cbb:2f58 with SMTP id 6a1803df08f44-7991cbb1a7fmr164786216d6.52.1758558918186;
-        Mon, 22 Sep 2025 09:35:18 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-122.dlp.protect.broadcom.com. [144.49.247.122])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-7934ee8bab1sm8097176d6.22.2025.09.22.09.35.18
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Sep 2025 09:35:18 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-73cc7f3ec4aso15173697b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 09:35:17 -0700 (PDT)
+	Mon, 22 Sep 2025 16:41:04 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-269af38418aso49120745ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 09:41:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1758558917; x=1759163717; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=maAo7eOe8o8YutYShD5omzBkIATahAgKdVnzIjAE84c=;
-        b=DmSK9/VPXbZ50C03cqrvaaT8qhcuicnBAosE+9IuPdvS8TV7dKJ2vk0iJwKNRct4nO
-         KDedBNgttCiMHw/bLcJ8SXruFJn0435AQf4SCHUbrRYq67g0TY5qP8t1j5ndQt15Q/7H
-         /LVTyT4xYUQi2OrbfdKsZuk3DeXlXb18DYpA0=
-X-Received: by 2002:a05:690c:4c03:b0:721:3bd0:d5c0 with SMTP id 00721157ae682-73d222a3e42mr118281727b3.9.1758558917396;
-        Mon, 22 Sep 2025 09:35:17 -0700 (PDT)
-X-Received: by 2002:a05:690c:4c03:b0:721:3bd0:d5c0 with SMTP id
- 00721157ae682-73d222a3e42mr118281367b3.9.1758558916916; Mon, 22 Sep 2025
- 09:35:16 -0700 (PDT)
+        d=linaro.org; s=google; t=1758559262; x=1759164062; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=8IhdqQk9DvI4AFmg9naSg1FH7sc1HQKYfUNgmIemfvA=;
+        b=Fmex0j6HU5PsC5oEI6CJaOeqPfc/tEGilDbR5Bdf9j5dS2GL/uOIKDcR7EXa4zknwI
+         lhmcjtm9lo1kf2W+EyiD+MtJfN1DaR+EEi/yQDIqI7Etpi9ng2vKRtk3Uy7xVRj3+251
+         uBmRQ8tAkL5rEQ7OCIqAzfUJy+TeXuS1boQhOYNTNqX+orzZj6wIyHXVcjWB4wjKCnji
+         hacypdjeN75Y2x5X81KMY1yaSNbi+wXdA5maWUBj6wI9gthVIzn6hFKcSrEPeuk/oywu
+         bFqm8jt+gxWxp6sHxwNGvq+Ophq3d6ZwmUTYxrntBrCz1QPhu9Ncm2orYld47iPKAXzr
+         rJyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758559262; x=1759164062;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8IhdqQk9DvI4AFmg9naSg1FH7sc1HQKYfUNgmIemfvA=;
+        b=hrjmdoQ8nuiMolBqbeH1CNtQFkvG7bpqZnCvmT12jcta5DY7X4WhIJJrnRDbZUNqjU
+         JaAaAx/XGS35E90b3ENwQTZ3dT11m2SMqxWKf2gB0P+nl5R/loZJi6O8ULfgTSdTAFwk
+         yI7GGlIcWn0hdGHMUkQyxGW9jeE13itc8A31TszWsAFECHEfECBBFUaPKxYt95CX6hlh
+         x7OlgX4FFh8ars+ETYG/06yvxvS+lWf6dweDL6Y6SsWKHH5uaYfB8bzUjIb5x7zdSLNf
+         JO7Q+hcPDYN4+Z9C1sIddJsn32Yg2+TY05ZNpOz4wj8UsZmsIbRK/a62CyxtBp/XzgB7
+         vIBw==
+X-Forwarded-Encrypted: i=1; AJvYcCXQHAnGg18w7VtdLJzX7HtIcxWXa3dmXnVxmL5Bo364gqpBrt0bvEVCizpP+775+ZtzNtqz4swenYETHIegkxEk@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz0tTzavHNz4ud/73RadHOJlu/gpJaJXG7FbFADaNN72MUiFcu
+	paK8ul418/fs+E18Ubo3Amb4TQWBxvrLSPteegWGfuW/0/66411a3iYZGqklUFVJrvc=
+X-Gm-Gg: ASbGncsixOAkKC1T4qfp/1mQ3m5rBjk0g2azk5KQpcE87lteRQxKMZJNKgueIr97LeE
+	18520RhijX40gvVf9TA2Zu/w8XcQfrx8TbLkverOEj+BM6GZJ4ZvvQjfYcLDLZIGPIH3Um7UXQB
+	PaixZWJ/3DZRWskxpL9nfvs2hEvUTvgyELCe1drm+j7yr2+QEtJbcdyI7Hgt8GxE3uVfLR7PSGs
+	LPGberTco3rd1Eni01g1bqfyh2XyxmmXGNvw9u59v/ibcEsMXKBI/5Ym/DUB82z/LxP5TopdDrl
+	yxR9zU9ZN8kevZCy5L+b9BRjlwHbfS5Bs+rqqlrBdY3g5oP2j1HPbeEFsGV2reMrSZJn0Wxvw0j
+	JAKFmxGbBc/k/d0avBOv1E7tClpww05nmsQJ04uuasU/EvBv5uLsOZKQ+GV/VXrywcCTNBBUgx5
+	9akxyLPNWOkWQbyru7QPH4DaSl
+X-Google-Smtp-Source: AGHT+IEfgeLF7s67XVRDD8PRT9D2ccPv3NRL1m9Ax/Yy510Mn/2xkDPBuMAlPcQAyv9mkisQ4XQ6SQ==
+X-Received: by 2002:a17:902:c402:b0:267:8049:7c7f with SMTP id d9443c01a7336-269ba3e9219mr175928935ad.7.1758559262001;
+        Mon, 22 Sep 2025 09:41:02 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:4631:7929:7e95:6485])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2698018167asm136546225ad.57.2025.09.22.09.41.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Sep 2025 09:41:01 -0700 (PDT)
+Date: Mon, 22 Sep 2025 10:40:58 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] remoteproc: imx_rproc: Use devm_clk_get_enabled()
+ and simplify cleanup
+Message-ID: <aNF8GgKGvokLq0mf@p14s>
+References: <20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com>
+ <20250917-imx_rproc_c2-v1-4-00ce23dc9c6e@nxp.com>
 MIME-Version: 1.0
-References: <20250920021024.847323-1-william.zhang@broadcom.com> <CAMm8Nh0oGokMDFt8ghomX1_SA3sbfv_xJVUXd2V1XeBA0OR08g@mail.gmail.com>
-In-Reply-To: <CAMm8Nh0oGokMDFt8ghomX1_SA3sbfv_xJVUXd2V1XeBA0OR08g@mail.gmail.com>
-From: William Zhang <william.zhang@broadcom.com>
-Date: Mon, 22 Sep 2025 09:35:05 -0700
-X-Gm-Features: AS18NWDDY16I_X8qmh0EBU9sMd591UP-PTflwsPGfCYMoggseyLlr2EinoIFL5E
-Message-ID: <CAHi4H7HeEdmOx1xUDj81hY8qAeshFKjH52HyQhNATMYwwSbNhw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: module: fix unwind section relocation out of range error
-To: Kursad Oney <kursad.oney@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, song@kernel.org, 
-	linus.walleij@linaro.org, florian.fainelli@broadcom.com, ardb@kernel.org, 
-	anand.gore@broadcom.com, 
-	Broadcom Kernel List <bcm-kernel-feedback-list@broadcom.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, "Peter Zijlstra (Intel)" <peterz@infradead.org>, 
-	linux-kernel@vger.kernel.org, Petr Pavlu <petr.pavlu@suse.com>, 
-	Russell King <linux@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250917-imx_rproc_c2-v1-4-00ce23dc9c6e@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_093521_126101_CC678A22 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20250922_094102_867061_B18FD9C5 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,83 +108,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kursad,
+On Wed, Sep 17, 2025 at 09:19:16PM +0800, Peng Fan wrote:
+> Replace separate calls to devm_clk_get() and clk_prepare_enable() with
+> devm_clk_get_enabled(), which combines clock acquisition and enabling
+> into a single managed step. Simplify the probe logic and remove the need
+> for manual clock disable in error and remove paths.
+> 
+> Also, update error handling to eliminate redundant cleanup steps and use
+> return-based error propagation where appropriate. Improve code clarity and
+> reduce the chance of resource leaks or incorrect ordering in cleanup paths.
+> 
+> No functional changes.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/remoteproc/imx_rproc.c | 28 +++++++++-------------------
+>  1 file changed, 9 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index e30b61ee39dacc88f9e938f8c6ffe61fef63dbda..c6cfb308ddb376f370fd4492f8a84f734602bac8 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -1006,26 +1006,19 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+>  {
+>  	const struct imx_rproc_dcfg *dcfg = priv->dcfg;
+>  	struct device *dev = priv->dev;
+> -	int ret;
+>  
+>  	/* Remote core is not under control of Linux or it is managed by SCU API */
+>  	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+>  		return 0;
+>  
+> -	priv->clk = devm_clk_get(dev, NULL);
+> -	if (IS_ERR(priv->clk)) {
+> -		dev_err(dev, "Failed to get clock\n");
+> -		return PTR_ERR(priv->clk);
+> -	}
+> -
+>  	/*
+>  	 * clk for M4 block including memory. Should be
+>  	 * enabled before .start for FW transfer.
+>  	 */
+> -	ret = clk_prepare_enable(priv->clk);
+> -	if (ret) {
+> +	priv->clk = devm_clk_get_enabled(dev, NULL);
+> +	if (IS_ERR(priv->clk)) {
+>  		dev_err(dev, "Failed to enable clock\n");
+> -		return ret;
+> +		return PTR_ERR(priv->clk);
+>  	}
+>  
+>  	return 0;
+> @@ -1134,7 +1127,7 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>  						    imx_rproc_sys_off_handler, rproc);
+>  		if (ret) {
+>  			dev_err(dev, "register power off handler failure\n");
+> -			goto err_put_clk;
+> +			goto err_put_scu;
+>  		}
+>  
+>  		ret = devm_register_sys_off_handler(dev, SYS_OFF_MODE_RESTART_PREPARE,
+> @@ -1142,7 +1135,7 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>  						    imx_rproc_sys_off_handler, rproc);
+>  		if (ret) {
+>  			dev_err(dev, "register restart handler failure\n");
+> -			goto err_put_clk;
+> +			goto err_put_scu;
+>  		}
+>  	}
+>  
+> @@ -1150,32 +1143,30 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>  		ret = devm_pm_runtime_enable(dev);
+>  		if (ret) {
+>  			dev_err(dev, "Failed to enable runtime PM, %d\n", ret);
+> -			goto err_put_clk;
+> +			goto err_put_scu;
+>  		}
+>  
+>  		ret = pm_runtime_resume_and_get(dev);
+>  		if (ret) {
+>  			dev_err(dev, "pm_runtime get failed: %d\n", ret);
+> -			goto err_put_clk;
+> +			goto err_put_scu;
+>  		}
+>  
+>  		ret = devm_add_action_or_reset(dev, imx_rproc_pm_runtime_put, dev);
+>  		if (ret) {
+>  			dev_err(dev, "Failed to add devm disable pm action: %d\n", ret);
+> -			goto err_put_clk;
+> +			goto err_put_scu;
+>  		}
+>  	}
+>  
+>  	ret = rproc_add(rproc);
+>  	if (ret) {
+>  		dev_err(dev, "rproc_add failed\n");
+> -		goto err_put_clk;
+> +		goto err_put_scu;
+>  	}
+>  
+>  	return 0;
+>  
+> -err_put_clk:
+> -	clk_disable_unprepare(priv->clk);
+>  err_put_scu:
+>  	imx_rproc_put_scu(rproc);
+>  
+> @@ -1187,7 +1178,6 @@ static void imx_rproc_remove(struct platform_device *pdev)
+>  	struct rproc *rproc = platform_get_drvdata(pdev);
+>  	struct imx_rproc *priv = rproc->priv;
+>  
+> -	clk_disable_unprepare(priv->clk);
 
-On Mon, Sep 22, 2025 at 6:13=E2=80=AFAM Kursad Oney <kursad.oney@broadcom.c=
-om> wrote:
->
-> Hi William,
->
->
-> On Fri, Sep 19, 2025 at 10:10=E2=80=AFPM William Zhang
-> <william.zhang@broadcom.com> wrote:
-> >
-> > In an armv7 system that uses non-3G/1G split and with more than 512MB
-> > physical memory, driver load may fail with following error:
-> >    section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
-> > 0x7fad5998)
-> >
-> > This happens when relocation R_ARM_PREL31 from the unwind section
-> > .ARM.extab and .ARM.exidx are allocated from the VMALLOC space while
-> > .text section is from MODULES_VADDR space. It exceeds the +/-1GB
-> > relocation requirement of R_ARM_PREL31 hence triggers the error.
-> >
-> > The fix is to mark .ARM.extab and .ARM.exidx sections as executable so
-> > they can be allocated within .text section and always meet range
-> > requirement.
->
-> Not "within" .text, but "along with" or "in close proximity to".
-Yeah that is more accurate.  Will update.
+/home/mpoirier/work/remoteproc/kernel/drivers/remoteproc/imx_rproc.c: In
+function ‘imx_rproc_remove’:
+/home/mpoirier/work/remoteproc/kernel/drivers/remoteproc/imx_rproc.c:1179:27:
+warning: unused variable ‘priv’ [-Wunused-variable]
+ 1179 |         struct imx_rproc *priv = rproc->priv;
+      |                           ^~~~
+  AR      drivers/remoteproc/built-in.a
+  AR      drivers/built-in.a
+  AR      kernel/module/built-in.a
+  AR      kernel/built-in.a
 
->
-> >
-> > Co-developed-by: Ard Biesheuvel <ardb@kernel.org>
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > Signed-off-by: William Zhang <william.zhang@broadcom.com>
->
-> I think a Fixes tag might be appropriate?
-Yes, the change ac3b43283923 ("module: replace module_layout with
-module_memory") does expose this issue. But I won't say that change
-itself has a bug and it is more of an enhancement that this arm module
-code has to handle different memory allocation scenarios.
->
-> >
-> > ---
-> >
-> >  arch/arm/kernel/module-plts.c | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> >
-> > diff --git a/arch/arm/kernel/module-plts.c b/arch/arm/kernel/module-plt=
-s.c
-> > index 354ce16d83cb..5f5bf5e63bd6 100644
-> > --- a/arch/arm/kernel/module-plts.c
-> > +++ b/arch/arm/kernel/module-plts.c
-> > @@ -225,6 +225,18 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_=
-Shdr *sechdrs,
-> >                         mod->arch.init.plt =3D s;
-> >                 else if (s->sh_type =3D=3D SHT_SYMTAB)
-> >                         syms =3D (Elf32_Sym *)s->sh_addr;
-> > +#if defined(CONFIG_ARM_UNWIND) && !defined(CONFIG_VMSPLIT_3G)
-> > +               else if (s->sh_type =3D=3D ELF_SECTION_UNWIND ||
-> > +                        (strncmp(".ARM.extab", secstrings + s->sh_name=
-, 10) =3D=3D 0)) {
-> > +                       /*
-> > +                        * To avoid the possible relocation out of rang=
-e issue for
-> > +                        * R_ARM_PREL31, mark unwind section .ARM.extab=
- and .ARM.exidx as
-> > +                        * executable so they will be allocated within =
-.text section to meet
-> > +                        * +/-1GB range requirement of the R_ARM_PREL31=
- relocation
-> > +                        */
-> > +                       s->sh_flags |=3D SHF_EXECINSTR;
-> > +               }
-> > +#endif
-> >         }
-> >
-> >         if (!mod->arch.core.plt || !mod->arch.init.plt) {
-> > --
-> > 2.43.7
-> >
+>  	rproc_del(rproc);
+>  	imx_rproc_put_scu(rproc);
+>  }
+> 
+> -- 
+> 2.37.1
+> 
 
