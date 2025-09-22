@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DB2CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B019CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5J4Ljpda680ALq6ch3ruxt7+r3NdpzeV0HnX9n1YUCk=; b=kGrquN1MgoDtj0/Xzz2oB3WBL6
-	lHo4xAxlULYeSGgoSKFFSosaB5cQkRAYc+8Coq2PqEA2BetbG/YFtyJ+hSRIOY72c0IIITFUCfLSg
-	QTSNjk+aePEFzyQr0dyjKV061htpZynmExSd8FnEMBor88XwKqvPaHJmQUCS3L6sFTsBiO11zj8dM
-	mxxoVpfth0/rCJ+0a9+6WZ09A5Z0mDfbHyCXJGgWoNWQ+2VtWiQSysO0RDz0NHF0/3fdfTEcDvY4+
-	0bIYQyKdWkIhtj365Ioq8itQz7ONM/Qt//nmfmmyzfseqt6ASqVKGcFNhva8+WAtQci5QVdL4Q0Jk
-	uTDwui1g==;
+	bh=86TLixaQ4qZmTfqmXe0cl5nLobZEJ9tiRlB2jm0Vi9c=; b=1qu9v7bL3omaer9WVjKHGXcbl5
+	Yuq3YZRJ9Sc+z5KhABiyV76JfwWLu0/cwE1cqgn+gRmguVO8mqtRYAGNJCiMoUW+q9MNNvq0vPjo5
+	WhwSZ/cdhmO75OMxIIpAH7CFXuGf4LLoNQbYdoY8kd1YgqDwA2W65XQHbQXS3RfhsiKsTDLIfKlsS
+	0E4sjstNEZCXc08Zeo2JjC2HGGMv88B+VAykPt2P+d+4fW7Me369PFErqXHlmOKyag4Pmwbfd0E5v
+	ayw9otUq0cvuvt3SMNLEEmlPlIa+hB6ypmIbK1l87UoNp8Xw/6FrXIvECnxhlCy4mLCRSCK62Gcnh
+	AcEtY4Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0nXO-0000000BUZo-0Sqp;
-	Mon, 22 Sep 2025 20:53:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0nXy-0000000BUgh-0VIH;
+	Mon, 22 Sep 2025 20:54:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0nXL-0000000BUYu-1uAq;
-	Mon, 22 Sep 2025 20:53:28 +0000
+	id 1v0nXw-0000000BUgX-40xf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 20:54:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7C3244E0A;
-	Mon, 22 Sep 2025 20:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DAF5C4CEF0;
-	Mon, 22 Sep 2025 20:53:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 216FD60241;
+	Mon, 22 Sep 2025 20:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6131C4CEF0;
+	Mon, 22 Sep 2025 20:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758574406;
-	bh=DiuQfD9Kf/1+kF5x4UO9UHkDanaUR9E+z4BreblPOCM=;
+	s=k20201202; t=1758574443;
+	bh=Sr2X5P1gNWeAsocKaWUqNJp3KIq8TIFmVTuLBsbU70A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tB/fzyHUWZbuqImOMTSE6YgmnNXw2HWCrZmo7b5cuNhEfebwfcpoOP7CUvyK8cp8C
-	 IwhDys3lfXo8dcf+TmwAzsuXndIBvwup156n6ru1mDtzkNWyeQyDxLQVgJdJaIOwTj
-	 /H2sliKqDMLrmd6pMjJJ0buiOYjkdMo1LHIgFPwZ2oU0DPr/lK2vf2SBjGLmPA2Mtf
-	 b64+8ahSI/mu5cbnbYtryr0C9vpwm+c0aU7rnzNhdOueCppDjl5te39XPUFeH1yl4G
-	 u7N1g66f8WIWJ2pQJQXSsBL1bekoA+NoVJu8idM/xpGM/mGSTzFlUyINc2Xnc/A1/u
-	 I8h6opdNrT66Q==
-Date: Mon, 22 Sep 2025 15:53:25 -0500
-From: Rob Herring <robh@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	sebastian.reichel@collabora.com,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Eric Anholt <eric@anholt.net>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/3] dt-bindings: arm: bcm:
- raspberrypi,bcm2835-firmware: Add touchscreen child node
-Message-ID: <20250922205325.GA1304482-robh@kernel.org>
-References: <20250921173353.2641438-1-dario.binacchi@amarulasolutions.com>
- <20250921173353.2641438-2-dario.binacchi@amarulasolutions.com>
+	b=o2ActnDCu07Tsa6Lughyxct0Cd9FIxHiuwhFxTQSzSh977Ito3vj4x0F0hh+jMQ3T
+	 nDjVj8tCwmSqJOz6G0HpWHptllsygqpiUva1wwjADecCewtRykJ/2cbSjKrjeppX+d
+	 ERhFmgFD8EDDR/d/PyV9I0oeKDNkPpOSp7E5UzdAuWsP4TXMjyDF0DsFmC9H6z/umy
+	 V8emmE/c0NKRAWAcSPh4d6u3w6g8JGAYK1CWhQPgo2i+cRCqY0ayu16Ue6zOcAMOiB
+	 ofEAOtB7aF7IKlrEl2uanGx7s3B/ecC0QJ/bLWvt7j5sjfGTnnwPkNrbHisV3vsUrH
+	 a37vSI8OW56GQ==
+Date: Mon, 22 Sep 2025 15:54:02 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Rogerio Pimentel <rpimentel.silva@gmail.com>
+Cc: primoz.fiser@norik.com, imx@lists.linux.dev,
+	alexander.stein@ew.tq-group.com, devicetree@vger.kernel.org,
+	joao.goncalves@toradex.com, Markus.Niebel@tq-group.com,
+	y.moog@phytec.de, krzk+dt@kernel.org, conor+dt@kernel.org,
+	marex@denx.de, frieder.schrempf@kontron.de,
+	linux-kernel@vger.kernel.org, dario.binacchi@amarulasolutions.com,
+	xiaofeng.wei@nxp.com, francesco.dolcini@toradex.com,
+	linux-arm-kernel@lists.infradead.org, shawnguo@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com, josua@solid-run.com,
+	s.hauer@pengutronix.de
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: fsl: Add i.MX8MP FRDM board
+Message-ID: <175857444205.1306528.291706454583324337.robh@kernel.org>
+References: <20250921233534.838680-1-rpimentel.silva@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250921173353.2641438-2-dario.binacchi@amarulasolutions.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_135327_531108_30A60D2C 
-X-CRM114-Status: GOOD (  19.52  )
+In-Reply-To: <20250921233534.838680-1-rpimentel.silva@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 21, 2025 at 07:33:43PM +0200, Dario Binacchi wrote:
-> Convert Raspberry Pi firmware 7" touchscreen controller device tree
-> binding to json-schema.
+
+On Sun, 21 Sep 2025 19:35:33 -0400, Rogerio Pimentel wrote:
+> Add device tree compatible string for the i.MX8MP FRDM board.
 > 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> 
+> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
 > ---
 > 
-> (no changes since v5)
+> No changes in v2
 > 
-> Changes in v5:
-> - Move bindings into raspberrypi,bcm2835-firmware.yaml
-> - Remove raspberrypi,firmware-ts.yaml
-> - Update the commit message
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Changes in v3:
-> - Drop firmware-rpi node and use only touchscreen node to fix warnings
->   you can see in
->   https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
-> 
-> Changes in v2:
-> - Added in v2
-> 
->  .../arm/bcm/raspberrypi,bcm2835-firmware.yaml | 27 +++++++++++++++++++
->  .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------------
->  2 files changed, 27 insertions(+), 26 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> index 1f84407a73e4..044544c17e8e 100644
-> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-> @@ -103,6 +103,27 @@ properties:
->        - compatible
->        - "#pwm-cells"
->  
-> +  touchscreen:
-> +    type: object
-> +    additionalProperties: false
 
-Needs a $ref to touchscreen.yaml
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +
-> +    properties:
-> +      compatible:
-> +        const: raspberrypi,firmware-ts
-> +
-> +      firmware:
-> +        deprecated: true
-> +        description: Phandle to RPi's firmware device node.
-> +
-> +      touchscreen-size-x: true
-> +      touchscreen-size-y: true
-> +      touchscreen-inverted-x: true
-> +      touchscreen-inverted-y: true
-> +      touchscreen-swapped-x-y: true
-> +
-> +    required:
-> +      - compatible
-> +
->  required:
->    - compatible
->    - mboxes
-> @@ -135,5 +156,11 @@ examples:
->              compatible = "raspberrypi,firmware-poe-pwm";
->              #pwm-cells = <2>;
->          };
-> +
-> +        ts: touchscreen {
-> +            compatible = "raspberrypi,firmware-ts";
-> +            touchscreen-size-x = <800>;
-> +            touchscreen-size-y = <480>;
-> +        };
->      };
->  ...
-> diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-> deleted file mode 100644
-> index 2a1af240ccc3..000000000000
-> --- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-> +++ /dev/null
-> @@ -1,26 +0,0 @@
-> -Raspberry Pi firmware based 7" touchscreen
-> -=====================================
-> -
-> -Required properties:
-> - - compatible: "raspberrypi,firmware-ts"
-> -
-> -Optional properties:
-> - - firmware: Reference to RPi's firmware device node
-> - - touchscreen-size-x: See touchscreen.txt
-> - - touchscreen-size-y: See touchscreen.txt
-> - - touchscreen-inverted-x: See touchscreen.txt
-> - - touchscreen-inverted-y: See touchscreen.txt
-> - - touchscreen-swapped-x-y: See touchscreen.txt
-> -
-> -Example:
-> -
-> -firmware: firmware-rpi {
-> -	compatible = "raspberrypi,bcm2835-firmware";
-> -	mboxes = <&mailbox>;
-> -
-> -	ts: touchscreen {
-> -		compatible = "raspberrypi,firmware-ts";
-> -		touchscreen-size-x = <800>;
-> -		touchscreen-size-y = <480>;
-> -	};
-> -};
-> -- 
-> 2.43.0
-> 
-> base-commit: f975f08c2e899ae2484407d7bba6bb7f8b6d9d40
-> branch: drop-touchscreen.txt
 
