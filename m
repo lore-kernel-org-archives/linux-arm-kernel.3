@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417A8CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5BFCAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70oUrtBybT9pvgsdRucJAcKaeUTQt17KWLpCLJnAsc0=; b=IOwVcL4vrrJDj+gLRR91vMm9eY
-	Jq5A4bqL/HBXmr6QXphBzE3MWDrrWSsVACNb83sXykI690nIFvwURjWpuxIoCG3yWxL3MTJ3k7+1/
-	C+SrUOfc4wHgqrVjVqGnwO/sxIUoSreScrmEjG1m8jHcVfJWaMDKAFwV80wCi++JNqW0UbicJhfMz
-	5y9+HkyVR1Qwrt0smmuIC/Wb18MA/lrjzFq/7WLBP+/zX9X9MoSEuRwV+k0voCr5AQt3Vl1bKDjkT
-	vPCBSEHwXQg8beZJ2ymAFcpA0teDXgQWNAr7wPNIr/BcjQgUW6jXerwXsnxDJ9qe4QawwLe6BosrP
-	VuQI9PSA==;
+	bh=53z1RBiEx1wjRhfVztxjMPfYe5dFGDgD5TeCne1UIk0=; b=XahyiGg1tTFRA9iar2X/SFRZZn
+	DtDOxtEyG1KkG/ltdu5W2NUyP20xt1N7rW139g+/UL6MC5A1UaemcYTb7vPAaBsd2+3Rr1j34uu2R
+	+YbSkjrePPIF356znp0kawlqMj8qTyXp67IJXKMIazOymEx6LHyn4zlExxZZsJ6kGfy+FL7gNmUrC
+	V4+incWs+xmY7ss9azqIMBcd+DwIHVhE3Xnhf5ohEhZcEsRYJk6ecT//fN8H3U38o0wW5knr09F8E
+	RaNgSD94G932vRM8ar6I21t/YeHm6Lr6cfcFieD0OAbX/vDld5QSxUS4Y55aZawCsX7GELkvRmREK
+	8uIUYyFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gRZ-0000000ATpZ-0sxo;
-	Mon, 22 Sep 2025 13:19:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v0gRx-0000000ATyY-07uW;
+	Mon, 22 Sep 2025 13:19:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gRX-0000000ATob-2w9F
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 22 Sep 2025 13:18:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=70oUrtBybT9pvgsdRucJAcKaeUTQt17KWLpCLJnAsc0=; b=MgrAvkoZieTRfYf4uZB7v/tvmu
-	rcuWLN1tmgYTrb15RLPATU+zs2dkiPM50pE1EAdKwThA+7BugK/szNhvOAt2hxOpDXC7CbfbjQwtT
-	hqGcyeniT0GKrtG0WNLYWnqN06mTAjA8K3bSq+zkCV3eBIoFbCtmOaQ18H5Ijnv8FXqT4X+YFbtCY
-	OcvS0T9iUnwLgwojdv8Txtpq22GKc7pI+KWpwAeoH6cJng++LDAla27k+Jo01iGWJyGotEL/gwLzb
-	ILoHOKcBKMYWBWEyZHTGwPOpXYc6xAoqT6cLqLLb5MCRYyUqnDWbWhisGRrmQbdvNJ+/QsD8M2jKp
-	9oCFiIuw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gRU-00000008ITU-1F68
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:18:58 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1v0gRQ-0005EN-QE; Mon, 22 Sep 2025 15:18:52 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1v0gRQ-002bNX-1U;
-	Mon, 22 Sep 2025 15:18:52 +0200
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 12606477046;
-	Mon, 22 Sep 2025 13:18:52 +0000 (UTC)
-Date: Mon, 22 Sep 2025 15:18:51 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
-	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v7 2/4] net: can: rockchip: Refactor the
- rkcanfd_devtype_data structure
-Message-ID: <20250922-hopeful-mysterious-mole-bccfa3-mkl@pengutronix.de>
-References: <20250922071543.73923-1-zhangqing@rock-chips.com>
- <20250922071543.73923-3-zhangqing@rock-chips.com>
+	id 1v0gRv-0000000ATxZ-2bdQ;
+	Mon, 22 Sep 2025 13:19:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 06A76601D9;
+	Mon, 22 Sep 2025 13:19:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1236AC4CEF0;
+	Mon, 22 Sep 2025 13:19:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758547162;
+	bh=/2BPc+qmrsh2DgallaqxgQi03F/iwjA/IqFzKaKywSw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LG/BtI+1o28ZEPga/55ETInxWu6RoXLXJhRGIZVOknyJhj1fvYNbUGyqjdViU14CO
+	 4NIo1Jz6kugezCY7caieIF2+gm0DpIGu0imUPyECzH5W5gjFvs+rKgKtukthw/N8/Q
+	 bx4CYhN1uy747NgWfTZfngQEIkc2GPyBY9J0mZY0HaOASfnHY5clIBprv22ChzIZj3
+	 hKO4LsUXrEUbB0a/IvFsk22pJgFcLigRkGNYe1tlsXWnGf4ePzKGilQsBvmaFTdN2p
+	 pmxKoTFv5oCMqFO4lxCEB6HHmgrRyqKU0WLl9jxgYm47kGQwuADxiJgjSfXq0IuDjP
+	 fPKTXU7AI/kMQ==
+Date: Mon, 22 Sep 2025 15:19:14 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	kernel@collabora.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 05/10] mailbox: add MediaTek GPUEB IPI mailbox
+Message-ID: <aNFM0oWk5S38KBRC@finisterre.sirena.org.uk>
+References: <20250917-mt8196-gpufreq-v3-0-c4ede4b4399e@collabora.com>
+ <20250917-mt8196-gpufreq-v3-5-c4ede4b4399e@collabora.com>
+ <CABb+yY0_TZC0Dd3Rue=6Am4=Urs8hdkaa6RE=42t58SYUsLV0w@mail.gmail.com>
+ <1933660.tdWV9SEqCh@workhorse>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pxk6t45566eu5aco"
+	protocol="application/pgp-signature"; boundary="hWOioVe/sP5fgiHB"
 Content-Disposition: inline
-In-Reply-To: <20250922071543.73923-3-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_141856_508137_40F5ADB7 
-X-CRM114-Status: GOOD (  16.53  )
+In-Reply-To: <1933660.tdWV9SEqCh@workhorse>
+X-Cookie: Filmed before a live audience.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +94,43 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---pxk6t45566eu5aco
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
+--hWOioVe/sP5fgiHB
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 2/4] net: can: rockchip: Refactor the
- rkcanfd_devtype_data structure
-MIME-Version: 1.0
 
-On 22.09.2025 15:15:41, Elaine Zhang wrote:
-> Add new function pointer:
-> Encapsulate some hardware operation functions into
-> rkcanfd_devtype_data to provide differentiated implementations for
-> different models (such as RK3568v2/v3).
->=20
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+On Mon, Sep 22, 2025 at 02:59:43PM +0200, Nicolas Frattaroli wrote:
+> On Sunday, 21 September 2025 07:00:59 Central European Summer Time Jassi Brar wrote:
 
-[...]
+> > > +#define MBOX_FULL              BIT(0) /* i.e. we've received data */
+> > > +#define MBOX_CLOGGED           BIT(1) /* i.e. the channel is shutdown */
 
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/=
-rockchip/rockchip_canfd.h
-> index 93131c7d7f54..bcd26d23062b 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd.h
-> +++ b/drivers/net/can/rockchip/rockchip_canfd.h
-> @@ -436,9 +436,20 @@ enum rkcanfd_model {
->  	RKCANFD_MODEL_RK3568V3 =3D 0x35683,
->  };
-> =20
-> +struct rkcanfd_priv;
-> +
->  struct rkcanfd_devtype_data {
->  	enum rkcanfd_model model;
->  	u32 quirks;
-> +	void (*get_berr_counter)(struct rkcanfd_priv *priv, struct can_berr_cou=
-nter *bec);
-> +	void (*interrupts_enable)(const struct rkcanfd_priv *priv);
-> +	void (*interrupts_disable)(const struct rkcanfd_priv *priv);
-> +	void (*fifo_setup)(struct rkcanfd_priv *priv);
+> > This is confusing. CLOGGED usually means malfunction, but it seems you
+> > want to call it STOPPED or UNINIT?
 
-Why do you make fifo setup a function pointer if it's only called from
-chip_start, which you make a function pointer, too?
+> I don't agree that "CLOGGED usually means malfunction". To clog something
+> is to impede its flow, which in this case is the correct terminology to
+> refer to what's happened to the channel. "UNINIT" is wrong, it's initialised
+> properly. "STOPPED" is also wrong, it's not stopped, it still sends, it just
+> won't pass it on through.
 
-Marc
+As a native English speaker I'd say that clogged has heavy overtones of
+broken and malfunction, like Jassi says it'd usually describe a fault
+condition.  Something like "blocked" might be more neutral.
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---pxk6t45566eu5aco
+--hWOioVe/sP5fgiHB
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmjRTLgACgkQDHRl3/mQ
-kZzvyQgApVlHcsn6vij4HUY70eO04wqsBAOXG0klOf3yy/PakkXYgqsz7mKlryRg
-HX+dlpOa6RESuRjCLA/REQo4whMrVTysanahmydgd8CqEvV+id+/0qKB6PvWKEhm
-3JejSO5O16PGRXKDA/GBpFaDzDdav77p/3TgVtNKUioOL5/18ca4dNgM9o+/NUZH
-+Ak/UKtR6VnV2DvyR3hWR+eznMl0my/zXmf0X1hrm8bUnikJtQqEGaGrWfJqHXiw
-tr9sijYa+akL4b2+x4R61dcfmKFo9hNzizx+Vhf8L8Ip8FiF2y7wj9kdgQlBMhFd
-6Gh9dnZ0gTk8Rbb2PJb5oCZQ7jLyOA==
-=sxoi
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjRTMsACgkQJNaLcl1U
+h9BSwgf/UbyytmfMXNaOBq0OXuzH3MlTUpvtouJsg45qiXcqEzcGY0k6+RBIUbc6
+zI4fw9IG0Lv8B4Yrt1hanJqBJ/sKvd/eq065FqSbGMiG9Wyvivn0OGdw9IIP3Wxi
+4TpYVqVul1GtYt3Gp5D4HJbNOaeEZeaOsEUqU0EFD1X5NCviWF7atKprxkvd/e9k
+ZPOQdFVmh48Ln2hsCQ621I8Wemmu+gSVB1aSvD1awF36hp+cCvWz7vSus4z3nX5D
+71oUm+zLms7LtKb9Voz3ReEEmIKjbhG7dUF/xHul+Qg8FQqMxwcBPAyjFzl3g92I
+ZQuum9Wn2rVplW7pwOwJ5YvsRh8BdQ==
+=0rmc
 -----END PGP SIGNATURE-----
 
---pxk6t45566eu5aco--
+--hWOioVe/sP5fgiHB--
 
