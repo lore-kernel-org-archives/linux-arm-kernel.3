@@ -4,77 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DDCCAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CC0CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MpMAU6ePTT3stEVrXmR+KZ4X7JkHWkrBjGiR3cqGNDo=; b=N85OHdQRZQ74RjEl5WXA4VigSF
-	PJOM+8TGTnks4ngu+YLLCbtKPMHPxuv/N5OqeTlSa0DMhwzeZf8bKOSIybkZDQmm7vBwQ69W51RuV
-	hRNG2VLNdhvzUFrgQ1ZMLBj2eg80vF7q3M1FxWZv0CZnbSiu3brkl0uczHykM0cLQcgYBQaLPF9Zp
-	39Cd6n66Dgco/veIF0YgsVCIdqo7QSqbjju/HpWpdI3Rntngo0J3TApNE8axTL1DTS0WNUffDVwno
-	GcKc9MrBJaL11xU2GmEIxWMEjV0AJ3/RbQq6ZvDSPASNG3zB2uySH4P9nNRh4X/oU66JB0HBwthTl
-	0w8tMoZg==;
+	bh=1Nie1h/DAYANojmk9mE4qbYY7UUExRTvoZjX8ZL36hU=; b=aVhEBCUrQ4iE+6HP7EcSq3Lyt3
+	VjwIzNeGhCYjfk4GFNT2NNL3MAWtuvxvQeHW6f0pgndYHwEOAcIbIbYyHwjpb83OPM4CXptC9aYSE
+	T1IB3nI66GfXALDcTpnie97PXhvak2Ri+53rVgxXlsoNUq/UcQML6PpWBoPrXa4b4FH0ALmBsqOOg
+	5/EqTRep2SImaqWcz5Oou4HwfueLMXYzkEJBW59hx6hWvi5poim7XMp50aygMG0oDHZg99A81M/G6
+	GSkam5BzeftMamtESF0p4mOJUlmvoDurN2YDVFhPclj3Ch1VFRf9cio9F0FKvkM7Q5Q6gOaiXaaOJ
+	HxnT1umQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0geX-0000000AWAR-1UYf;
-	Mon, 22 Sep 2025 13:32:25 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0geU-0000000AW9x-2kX2
+	id 1v0gh8-0000000AWap-3wQo;
+	Mon, 22 Sep 2025 13:35:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0gh5-0000000AWaJ-3DME
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:32:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758547942; x=1790083942;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=TDh5kMQItLeCtCYOhniYG9SE9N6xkw1ryWAXikH5CKc=;
-  b=03e+Zhr0GU924QPJGH7ZfNTZUO8d/I2WZpXpvNbLYMLTSvcSsSJSPwR1
-   +BUY/4bzYYrQ5Z51xR/5sHnzTB99q99INvpVOM3ujzAl82iA49SdBEwBF
-   cu5PYxOUcw4UT9mwEJAPMc2X5Qo6Q6ZZ4ZuQo79hcuh3lFz667LHBV4bn
-   gLdFOh8GPH8x4tR999dxMUo9o8GOjsYQhH4sFMLc7eqr7Pha7wh6kOeRU
-   OkIWxQRFgUI4NlUI67sLNfhbrarwMANhGy1ZuaM9+Pwp3pyZA6BS8u5P4
-   hyzpn0ABSIJgIDm5yHTc7EYMV8KgpuO2oatWoWWJKnWDribcExNm36EDB
-   A==;
-X-CSE-ConnectionGUID: TCpADp6USuqlHeFWAhCzYw==
-X-CSE-MsgGUID: g6s7rN8HROqtzWL3QVKHcQ==
-X-IronPort-AV: E=Sophos;i="6.18,285,1751266800"; 
-   d="scan'208";a="46235453"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2025 06:32:20 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 22 Sep 2025 06:31:47 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 22 Sep 2025 06:31:45 -0700
-Message-ID: <bc2278a2-387f-4e66-b275-8429bcb45db1@microchip.com>
-Date: Mon, 22 Sep 2025 15:31:45 +0200
+	Mon, 22 Sep 2025 13:35:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B46191424;
+	Mon, 22 Sep 2025 06:34:52 -0700 (PDT)
+Received: from [10.57.95.38] (unknown [10.57.95.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BDFD3F694;
+	Mon, 22 Sep 2025 06:34:59 -0700 (PDT)
+Message-ID: <6c8a2900-cec8-4994-892a-3ef157d89a26@arm.com>
+Date: Mon, 22 Sep 2025 14:34:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: microchip: sam9x7: Add qspi controller
-To: Dharma Balasubiramani <dharma.b@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250915-sam9x7-qspi-dtsi-v1-1-1cc9adba7573@microchip.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20250915-sam9x7-qspi-dtsi-v1-1-1cc9adba7573@microchip.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v1 0/3] Workarounds and optimizations for Neoverse-V3AE
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>
+Cc: kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250919145832.4035534-1-ryan.roberts@arm.com>
+ <175853683592.1350681.8237584408369869851.b4-ty@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <175853683592.1350681.8237584408369869851.b4-ty@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_063222_760897_EF61327F 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20250922_063503_851108_2F811587 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,64 +66,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/09/2025 at 11:13, Dharma Balasubiramani wrote:
-> Add support for QSPI controller.
+On 22/09/2025 14:14, Will Deacon wrote:
+> On Fri, 19 Sep 2025 15:58:27 +0100, Ryan Roberts wrote:
+>> I know it's late in the cycle, but I thought I'd try my luck at sneaking this
+>> in.
+>>
+>> Neoverse-V3AE has a different MIDR value to Neoverse-V3, but qualifies for the
+>> same workarounds and optimizations ("SSBS not fully self-synchronizing" and
+>> BBML2_NOABORT) so this just adds Neoverse-V3AE wherever Neoverse-V3 appears.
+>> Details in the commits.
+>>
+>> [...]
 > 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-And queued in at91-dt branch.
-
-> ---
-> Driver and Doc support
-> https://lore.kernel.org/lkml/20250908-microchip-qspi-v2-0-8f3d69fdd5c9@microchip.com/
-
-Thanks for the reference to the (accepted) binding and driver changes!
-
-Best regards,
-   Nicolas
-
-> ---
->   arch/arm/boot/dts/microchip/sam9x7.dtsi | 21 +++++++++++++++++++++
->   1 file changed, 21 insertions(+)
+> Applied to arm64 (for-next/cpufeature), thanks!
 > 
-> diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-> index 66c07e642c3e..46dacbbd201d 100644
-> --- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
-> @@ -271,6 +271,27 @@ AT91_XDMAC_DT_PERID(38))>,
->   			status = "disabled";
->   		};
->   
-> +		qspi: spi@f0014000 {
-> +			compatible = "microchip,sam9x7-ospi";
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			reg = <0xf0014000 0x100>, <0x60000000 0x20000000>;
-> +			reg-names = "qspi_base", "qspi_mmap";
-> +			interrupts = <35 IRQ_TYPE_LEVEL_HIGH 7>;
-> +			dmas = <&dma0
-> +				(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1) |
-> +				AT91_XDMAC_DT_PERID(26))>,
-> +				<&dma0
-> +				(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1) |
-> +				AT91_XDMAC_DT_PERID(27))>;
-> +			dma-names = "tx", "rx";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 35>, <&pmc PMC_TYPE_GCK 35>;
-> +			clock-names = "pclk", "gclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 35>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_PLLADIV2>;
-> +			status = "disabled";
-> +		};
-> +
->   		i2s: i2s@f001c000 {
->   			compatible = "microchip,sam9x7-i2smcc", "microchip,sam9x60-i2smcc";
->   			reg = <0xf001c000 0x100>;
+> [1/3] arm64: cputype: Add Neoverse-V3AE definitions
+>       https://git.kernel.org/arm64/c/3bbf004c4808
+> [2/3] arm64: errata: Apply workarounds for Neoverse-V3AE
+>       https://git.kernel.org/arm64/c/0c33aa1804d1
+> [3/3] arm64: cpufeature: add Neoverse-V3AE to BBML2 allow list
+>       https://git.kernel.org/arm64/c/8fca3852e33d
 > 
-> ---
-> base-commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
-> change-id: 20250915-sam9x7-qspi-dtsi-a4844266b17d
-> 
-> Best regards,
+> Cheers,
 
+Thank you!
 
