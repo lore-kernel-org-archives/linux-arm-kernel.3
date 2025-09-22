@@ -4,109 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1495BCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Sep 2025 23:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6E6CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 00:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aq/XbpxEcTTBwM2uie3A5y3PRK50AFwXMuVecv5w7Mg=; b=w+hvWleeX4nk4FReF65IAUVjrC
-	33uNIu4q3IMPLB32HVH6cd4z2Qk3qM7QxuIi8OWAjz4dsDVVnFwOHMh3YTbr4a47kCsLdPw0mil/S
-	TjiSSK/WrEi3vy6w0UDR8C/nU2N1ffdqY2cEdM27xpOujGzoDUFZntHEzR0yX3PczONZcRQs0I2So
-	a/9OBuIcOt7HStiAFCR9326VuxDGCv4d6E6tzom1d8r/j/gldfFjP1YQv0ynnXeDaHPZ32iXgIf8S
-	mF2DdcjkUlT3PqQFVk5ZsjhnguNuyXvmCIW3G11crWUSbxT8ZcyydGVP2fAHNMhLZZ5adlCT08qb4
-	1pk4hoOQ==;
+	bh=PDXuqYgBTFSeTj9HmL3kCs/tVEJAWswdP19jlLEVGcM=; b=COQ5J0VwK18V8+IBXuC3MKsLaf
+	djPCq3lSp+6bCQVySJDwx83tn+2qziHRshX6HBeGUrHPb5BVDQ8ZOfbT8awJgD40QeoKAYZuh0lzs
+	NXR01qcBWbXQhj2Il9BClNBZwyX67m98sRN3r7lD0yrqksVlp0jPi/tV3P0iw67NAEPFsUUDWFT7V
+	waet/opR+9QJB8aKPkLjv6edY4vMNe/Q6DH+bCLb5oc92qiV0geTekPEgQpvKIVUvpvSvEj4jd9pC
+	xBZ6Byn/FCkUVh/KSmcM8e6hON2lR67ClKhCoyJyYuwx1u2NxL1F0Hf9bpQSpHsoCiyrnrs/TVYlg
+	NSuwC1Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Tb4-00000008P1e-3jMc;
-	Sun, 21 Sep 2025 23:35:58 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1v0U1i-00000008QIE-0cW8;
+	Mon, 22 Sep 2025 00:03:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Taz-00000008P0I-07Va
+	id 1v0U1d-00000008QHU-16jx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Sep 2025 23:35:55 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-84a91cfc7f0so36435185a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 16:35:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758497752; x=1759102552; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Aq/XbpxEcTTBwM2uie3A5y3PRK50AFwXMuVecv5w7Mg=;
-        b=BSA9VbpivwYL5LTXU1fY4/UO8Q1RZRaOoD9BHO5NlhZXxVYM4Kn2bTRExbreXKW7aH
-         1n8rz8NO4Aw1B/jQbONnND9Kt6jrIGe4xfbT6lFFLrWtRONqYc7swYI30A4u6NEQbXVr
-         D7294qYMOCwAqWNQMY526cISeWjMsSXouVc8tcH/MoCG3s56SouUwlPYfz/0Q7BVZ5Fs
-         4sZUHmB17C4Ccfp86rQd6LbQXWVZCHGvUVtn3iDQ5kAZRhpyPAWPC+jmG3sOPLPUcVVA
-         mDxyCDwLAijqs3lo9AosDi5IEZftWaggHNpc7y937JiwaxdG2enGyfniIgyciycNAwpa
-         jb7Q==
+	Mon, 22 Sep 2025 00:03:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758499402;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PDXuqYgBTFSeTj9HmL3kCs/tVEJAWswdP19jlLEVGcM=;
+	b=MouwOfAaQ41nIRAIVB6dmm1/p7ILXKT9XKAk60qXDHJFKPRa1qHXa8TjP2GtL2U3fDkYM9
+	WAsmro7FyIyumLid/EPADF1UulUz1flpoJfY+R4R92dqLmW+AHjDvbJ8PcP9Ij++cFwFsT
+	RePW/EBXvuemY4uJ/3Coel0QKKl4eoE=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-634-Hx7IIJbpOF--pdNSMrl0iw-1; Sun, 21 Sep 2025 20:03:19 -0400
+X-MC-Unique: Hx7IIJbpOF--pdNSMrl0iw-1
+X-Mimecast-MFC-AGG-ID: Hx7IIJbpOF--pdNSMrl0iw_1758499399
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2698b5fbe5bso46505515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 17:03:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758497752; x=1759102552;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Aq/XbpxEcTTBwM2uie3A5y3PRK50AFwXMuVecv5w7Mg=;
-        b=Tk90QmM75e/mA8jvG1ioIDcPnlzgo9o99CxDIFAtoeBdbW0lRF61ssKR+TTKzdkhF+
-         vbUSPZSQIZO3EY2H6iSDTCNYeYbwwvRO6MC+co0Rz6Z0YaMXEuv5rkRUDwla1v0P+4bq
-         LQbe2I0uoFbvk3afAG2FiuG/uw7vGEt5sFbXCs3MF/krs+LsdFfG4lFAZrl4CZjluR6d
-         FM3KtWKMSS3JJ540FN067yGD7694jiFuKqJDoBXRnZakleGWP3osXyKW1F/vbXsDFiN+
-         aIFqUMo0VN8Dw8DiyB7AIZbSjB2BghXcfn2tfcIEJWTV9deMwPLe1f0fevoEjpiiNqpc
-         xZLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUDDgjaFevjfjjxtvIfNiXdJH6PKs68sg+7BCDVrAc+/xcvyGW0UTaIjU/aqiTqgdgDcclIhqzTar34qOD38VIn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6jH534AWSazb848wcn/oTZnZKZlctXSZgBymE/IbeIUOTneGu
-	Fa68bbR028SiQ8sow8rFl2TJOLu7mEUaVpD4YzxscjoM84DuMf95ie5k
-X-Gm-Gg: ASbGncvzFdLcjwl00rY8yBPThlalVwr+/iz07uyd/deTgVo3SM2lljkRw5lRH+e8Fmo
-	GOcN/4awwVCDct3hDSZoGmCV7yo/t7nMAFIoHXeggDT3k8iTDenA1fMa/j23ltDW401keOGny0i
-	Omlsbk1zHGBLH1XGFk9sYMBdYvES6k/+RE2Uuke3sU6AzWV9p/VChyUsCv379/Q7TLQccIdVPTn
-	BoIsxZPrAwp6ZaUxVqKmPzO0egIY2K//MXl//rQuODhzts2x2kzW7bjig1c2lK2uWSmZ7aiU5Wh
-	pACMhIPRhwNzXN1xSUn30Wr/QKEXyIW+Jhx+D5tyZ/hgApTjOOfbJSnOyzq96oIx+UpYgAnqok3
-	AE4a2oSFeDBYjoIbdrytoIQUzMVZJDaZWxs6k3fojozOtSA4nCls=
-X-Google-Smtp-Source: AGHT+IHtWr8BYWk0a543mLVk9jLcs4xheLhrEKiEs3MLNZwTHVl4JwO0HGo3p2pbvEb6k8kswMAtLg==
-X-Received: by 2002:a05:620a:372b:b0:7e8:8086:cb83 with SMTP id af79cd13be357-836393287f2mr1839104185a.28.1758497751546;
-        Sun, 21 Sep 2025 16:35:51 -0700 (PDT)
-Received: from rogerio-laptop.home ([184.148.194.86])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-83631a8095esm725949085a.49.2025.09.21.16.35.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Sep 2025 16:35:51 -0700 (PDT)
-From: Rogerio Pimentel <rpimentel.silva@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: xiaofeng.wei@nxp.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	alexander.stein@ew.tq-group.com,
-	dario.binacchi@amarulasolutions.com,
-	marex@denx.de,
-	Markus.Niebel@tq-group.com,
-	y.moog@phytec.de,
-	joao.goncalves@toradex.com,
-	frieder.schrempf@kontron.de,
-	josua@solid-run.com,
-	francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rogerio Pimentel <rpimentel.silva@gmail.com>,
-	Anson Huang <Anson.Huang@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Daniel Baluta <daniel.baluta@gmail.com>
-Subject: [PATCH v2 2/2] arm64: dts: add support for NXP i.MX8MP FRDM board
-Date: Sun, 21 Sep 2025 19:35:34 -0400
-Message-Id: <20250921233534.838680-2-rpimentel.silva@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250921233534.838680-1-rpimentel.silva@gmail.com>
-References: <20250921233534.838680-1-rpimentel.silva@gmail.com>
+        d=1e100.net; s=20230601; t=1758499399; x=1759104199;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PDXuqYgBTFSeTj9HmL3kCs/tVEJAWswdP19jlLEVGcM=;
+        b=XTXqUg9N2lZOFkGzSXvdO5G6l2DqRvoZ59NzNGlal0f4qG2F2HY8XNmK/YBGm6B87L
+         w8cAd80AjUgibfHWTuwX1YgPO6+jOKbIshRtY1AJrhYhVSVQ7YuiRLEPY2SoMGU9VQ0G
+         WwRCJcPXrzy693GNTvT+V8c3u4loqMF8+cZcZFx+KtiAQbSrCggTSnH89BnXu0KSgnhu
+         mD8fcphbXMS90HyTnAFX4oFKl0AEf5IHY+oALBADNDOW17b/0cfC2bETkmMzpMaMDqwW
+         akzMFy141y7dzpCV5UpQs783ChJVOLys34beBYQU76vnVMyG0i9L9h7lO44uPNzO7FZ+
+         PjCg==
+X-Forwarded-Encrypted: i=1; AJvYcCU3tej1/uqgu748A74v3dXa9JgZOYqaytMYOzjGYGJ4f9rDg/0WFSUe0C6qiC2sxYiBCzKdoZrwJJYg+adOIG4K@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdALYjUtiy4DUcLn0rPz3t3ChDBJpOMb5Wq/ScxZrL/+5VrT5h
+	FrNym8HemYxJs11HZQwqbfUDvz1UWyVwUIsLW5biH4fV//MqegJo3gnWUrdudHRVsgfpET09uZC
+	7xsalgWKIGvaynkFX+1Bfo11zxnaN3IKN8bWeI0J7RTMpzP6pXqlEjs2EtdCKvRz6935Js5segH
+	Eb
+X-Gm-Gg: ASbGncs3CfO44DMBD22KYcmJh4EsPk1I6yDaPu3qNlO/lPbyxFhmbU1FOV7VLgCZs48
+	MKMkkvv2PyZRhnTHQBpnyS945K+tYVmZFoNzFVRctaEqLTJU2/hohxaOpfsKhT+XC9u/3hZyzn+
+	8hfYsDaDtuCeFksfZlWlHqkSe+w9ZqAzyorcGlf6RFpodoH3GQIk7CSJ8etS+qpEdh/RLrrxeqp
+	WhUhuufmIqI200DlZg/lE1j9+iGiKdpxsFVx94f8lMS48Mwv6A5Exp0EdHfisIDkMj3AJ2F0foB
+	5HnzVO1ofFPzRmi8+FEVTuvJl6SvlteTpAOIE8p2zRwqQm3w36NAyQgfNx4wY9bpZSt+WJb63n0
+	60n4p
+X-Received: by 2002:a17:903:2f83:b0:265:bb0:cbc with SMTP id d9443c01a7336-269ba559260mr154624315ad.47.1758499398739;
+        Sun, 21 Sep 2025 17:03:18 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE0MfGExlYWTmOjV1WzK5kji6eVj+QSqlsV+EO7ogGlqCirbQxRS/TDHG9aRgu0NS0ideP2VQ==
+X-Received: by 2002:a17:903:2f83:b0:265:bb0:cbc with SMTP id d9443c01a7336-269ba559260mr154623995ad.47.1758499398419;
+        Sun, 21 Sep 2025 17:03:18 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269803601e3sm114894975ad.144.2025.09.21.17.03.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 21 Sep 2025 17:03:17 -0700 (PDT)
+Message-ID: <a836c085-9bd2-4160-9bf8-81c186f7535c@redhat.com>
+Date: Mon, 22 Sep 2025 10:03:07 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 31/43] arm_pmu: Provide a mechanism for disabling the
+ physical IRQ
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+ <20250820145606.180644-32-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250820145606.180644-32-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QQPpvCHwVXSCGBkonQAzfcQdMr8-d4khHjYaqSZD3jA_1758499399
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_163553_095444_D618135E 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250921_170325_722731_FD943A35 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,424 +125,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FRDM-i.MX8MP is an NXP development platform based on the i.MX8M Plus
-SoC, featuring a quad Cortex-A53, Cortex-M7 co-processor, 4GB LPDDR4,
-32GB eMMC, Wi-Fi 6/Bluetooth 5.4/802.15.4 tri-radio, Ethernet, HDMI/MIPI
-display interfaces, camera connectors, and standard expansion headers.
 
-Based on the device tree found in the NXP repository at github
-https://github.com/nxp-imx-support/meta-imx-frdm and on imx8mp-evk
-board kernel mainline device tree.
+On 8/21/25 12:55 AM, Steven Price wrote:
+> Arm CCA assigns the physical PMU device to the guest running in realm
+> world, however the IRQs are routed via the host. To enter a realm guest
+> while a PMU IRQ is pending it is necessary to block the physical IRQ to
+> prevent an immediate exit. Provide a mechanism in the PMU driver for KVM
+> to control the physical IRQ.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> v3: Add a dummy function for the !CONFIG_ARM_PMU case.
+> ---
+>   drivers/perf/arm_pmu.c       | 15 +++++++++++++++
+>   include/linux/perf/arm_pmu.h |  5 +++++
+>   2 files changed, 20 insertions(+)
+> 
 
-This is a basic device tree supporting:
-
- - Quad Cortex-A53
- - 4GB LPDDR4 DRAM
- - PCA9450C PMIC with regulators
- - Two NXP PCAL6416 GPIO expanders
- - RGB LEDs via GPIO expander
- - I2C1, I2C2, I2C3 controllers
- - UART2 (console) and UART3 (with RTS/CTS)
- - USDHC3 (8-bit eMMC)
- - SNVS power key (onboard power button)
-
-Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
-Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
-Signed-off-by: Anson Huang <Anson.Huang@nxp.com>
-Signed-off-by: Shawn Guo <shawnguo@kernel.org>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@gmail.com>
----
-
-Changes in v2:
-
- - Fixed dt-binding schema warnings
- - Renamed nodes 'red, green and blue' to
-   'led-0, led-1 and led-2'
- - Renamed led labels 'led-0, led-1 and led-2'
-   to 'red, green and blue'
- - Added Reviewed-by and Signed-off-by tags
-
- 
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- arch/arm64/boot/dts/freescale/imx8mp-frdm.dts | 355 ++++++++++++++++++
- 2 files changed, 356 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 525ef180481d..d861e576779a 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -206,6 +206,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-pdk3.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-dhcom-picoitx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-edm-g-wb.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-mate.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pro.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-pulse.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-new file mode 100644
-index 000000000000..9138c65739aa
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm.dts
-@@ -0,0 +1,355 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2019 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8mp.dtsi"
-+
-+/ {
-+	model = "NXP i.MX8MPlus FRDM board";
-+	compatible = "fsl,imx8mp-frdm", "fsl,imx8mp";
-+
-+	chosen {
-+		stdout-path = &uart2;
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "red";
-+			gpios = <&pcal6416 13 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-1 {
-+			label = "green";
-+			gpios = <&pcal6416 14 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+		};
-+
-+		led-2 {
-+			label = "blue";
-+			gpios = <&pcal6416 15 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0 0xc0000000>,
-+		      <0x1 0x00000000 0 0x40000000>;
-+	};
-+};
-+
-+&A53_0 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_1 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_2 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&A53_3 {
-+	cpu-supply = <&reg_arm>;
-+};
-+
-+&i2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	status = "okay";
-+
-+	pmic@25 {
-+		compatible = "nxp,pca9450c";
-+		reg = <0x25>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pmic>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+
-+		regulators {
-+			BUCK1 {
-+				regulator-name = "BUCK1";
-+				regulator-min-microvolt = <720000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			reg_arm: BUCK2 {
-+				regulator-name = "BUCK2";
-+				regulator-min-microvolt = <720000>;
-+				regulator-max-microvolt = <1025000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <3125>;
-+				nxp,dvs-run-voltage = <950000>;
-+				nxp,dvs-standby-voltage = <850000>;
-+			};
-+
-+			BUCK4 {
-+				regulator-name = "BUCK4";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3600000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			reg_buck5: BUCK5 {
-+				regulator-name = "BUCK5";
-+				regulator-min-microvolt = <1650000>;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			BUCK6 {
-+				regulator-name = "BUCK6";
-+				regulator-min-microvolt = <1045000>;
-+				regulator-max-microvolt = <1155000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO1 {
-+				regulator-name = "LDO1";
-+				regulator-min-microvolt = <1650000>;
-+				regulator-max-microvolt = <1950000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO3 {
-+				regulator-name = "LDO3";
-+				regulator-min-microvolt = <1710000>;
-+				regulator-max-microvolt = <1890000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			LDO5 {
-+				regulator-name = "LDO5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+
-+	pcal6416: gpio@20 {
-+		compatible = "nxp,pcal6416";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pcal6416_int>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "CSI1_nRST",
-+			"CSI2_nRST",
-+			"DSI_CTP_RST",
-+			"EXT_PWREN1",
-+			"CAN_STBY",
-+			"EXP_P0_5",
-+			"EXP_P0_6",
-+			"P0_7",
-+			"LVDS0_BLT_EN",
-+			"LVDS1_BLT_EN",
-+			"LVDS0_CTP_RST",
-+			"LVDS1_CTP_RST",
-+			"SPK_PWREN",
-+			"RLED_GPIO",
-+			"GLED_GPIO",
-+			"BLED_GPIO";
-+	};
-+
-+	pcal6416_1: gpio@21 {
-+		compatible = "nxp,pcal6416";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_pcal6416_1_int>;
-+		interrupt-parent = <&gpio2>;
-+		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "P0_0",
-+			"P0_1",
-+			"AUD_nINT",
-+			"RTC_nINTA",
-+			"USB1_SS_SEL",
-+			"USB2_PWR_EN",
-+			"SPI_EXP_SEL",
-+			"P0_7",
-+			"W2_HOST_WAKE_SD_3V3",
-+			"W2_HOST_WAKE_BT_3V3",
-+			"EXP_WIFI_BT_PDN_3V3",
-+			"EXP_BT_RST_3V3",
-+			"W2_RST_IND_3V3",
-+			"SPI_nINT_3V3",
-+			"KEYM_PCIE_nWAKE",
-+			"P1_7";
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	status = "okay";
-+};
-+
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	status = "okay";
-+};
-+
-+&snvs_pwrkey {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart3>;
-+	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&usdhc3 {
-+	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
-+	assigned-clock-rates = <400000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc3>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
-+	bus-width = <8>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_i2c1: i2c1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL	0x400001c2
-+			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA	0x400001c2
-+		>;
-+	};
-+
-+	pinctrl_pmic: pmicgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03	0x000001c0
-+		>;
-+	};
-+
-+	pinctrl_pcal6416_int: pcal6416_int_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_READY_B__GPIO3_IO16	0x146
-+		>;
-+	};
-+
-+	pinctrl_pcal6416_1_int: pcal6416_1_int_grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x146
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX	0x140
-+			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX	0x140
-+		>;
-+	};
-+
-+	pinctrl_uart3: uart3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX	0x140
-+			MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX	0x140
-+			MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS	0x140
-+			MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS	0x140
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x190
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d0
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d0
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d0
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d0
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d0
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d0
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x190
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x194
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d4
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d4
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d4
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d4
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d4
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d4
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x194
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK	0x196
-+			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2	0x1d6
-+			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3	0x1d6
-+			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4	0x1d6
-+			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5	0x1d6
-+			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6	0x1d6
-+			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7	0x1d6
-+			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE	0x196
-+		>;
-+	};
-+};
--- 
-2.25.1
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
