@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579F5CAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96B5CAC592
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csFYiLIVjSoFyeDzwmDFTsXmMkYhDo721POP4ODJw1c=; b=q1geSoD4C3U+rDN/nSywinPTtW
-	87OxLmXwb2lJWakjx4rKpEkf92gPuuhpPIvIGST4oA88brOjOw3uUsMXKulVutZi4S98iG/2xJ7fI
-	3jHLwG7wANPE4kPjz80eBTRIphUyHUKZSltoNDhF/oIwa2IQyYSMOmiQYjIB6PbIAQI0GLK8Kj7qI
-	Ck8hgA+ipKhUJUNmTqBylkgPVp1RNKkbfxkFfaEtWBHFgiO8NY9mbjBWNmDJqJFuVBRWwS3llWGo8
-	O75qVeL1kK7ek6hDm5/XFhvBA+ubdQHtiUbWlubJwVyfu4VFLrt1WeQuBlrDXpTW1Oy6myxUY5QNs
-	5YFBEA/Q==;
+	bh=CRd5q3ClrGw5uSKIhBxKos2gh+xD3T1v05jJ2q/FZPA=; b=Cioj5Y5u/bCE6HIUfKVv0S8PZS
+	TlzHhU4EmWDxVHjqEcty5Yo/YcZFQIzebO2KdFC7RHKwX+QsHMoCtHNiIpcl4hBiVNS5Wmy2vFR4X
+	GWC99JMqi/uorr9/HE2u5VfTx88H/ucl7BePhg0CL5Kob2MgVYeXaT47iQoZdyiSxgsc1bueB8h3X
+	ZIlmdI0aRS7V7GnOGNdJZedLIB/GlhPnqaefbdRE8OIdI4eE8B5b2951TxKb6qcnTxk9XoPTg5/pV
+	dyc11hR10iZPuaf4rYQpsom3eASKbLDYpjDQ5xUggIaWAbsua36U84z8F+nFfI+zvWPhwpIxmpYYl
+	Ij5MLAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bum-00000009hnY-2y1s;
-	Mon, 22 Sep 2025 08:28:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0bun-00000009hoS-1CzH;
+	Mon, 22 Sep 2025 08:28:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0buf-00000009hg0-3oIy
+	id 1v0bue-00000009hfB-40AF
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 22 Sep 2025 08:28:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 38F0C601DC;
-	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC71AC4CEF0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7570741A09;
+	Mon, 22 Sep 2025 08:28:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C078C4CEF0;
 	Mon, 22 Sep 2025 08:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758529724;
-	bh=C6E+aBEwGO9hdt1adgFxxn43Y+KPhVq4P5UdcbaK3jQ=;
+	bh=PNhSU//BPW9YLsi7ZBnfD4jFD/thyKEGeB39qdpvnP4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LY8MLpCBLX0GLYkb9PnQBGX3JXCY3s6Ve4syk+SVOeb1idI0OqyzBtTx+tmtoeZUA
-	 yStqoW/MQ9WwO01xrNasugarr6r8BQJ0kaPyQmYw+PWBz6gHqw0MoeVB3z/BtoSaRc
-	 YAv4isq8YH1glfqHYKzrh2FIhHkatvtmKHsWr3YOqpOQSNPcy6tVeMpNmPoqYZ6fI2
-	 +BdKU6efM4GJLUKJtbmKVrrEdOANoS7b/ARS02vm62Vy/qgSrzTgppF5VTUp+AILUF
-	 jFxlQ5Mt2eXjrc3G4Yp7M+r/DceiP0h1hyEa/yyQY0SvcJ6Jts/VNiQKhQ9+00iLYs
-	 j8vaL8+6vP1AQ==
+	b=Z+lJwkSsGLQVPnmRu+p9IFTSUGl1hxXx80G0nvSBLiVLyqNil6qdwedjXcI+e9KiM
+	 4n6YUIbEqL7ChaDIpOtgiGmOxlVZliCG+40rD2Dz1Drp6O+wgmgPl6kVSxFgULxZ1D
+	 +wkg3AzAhEVaCaK4O5zN1Amf8dV08pKi4SNMhewzCEflaNHnWgImz0O834aj1ZcLW9
+	 UszsWI2n8ZesNBphQ5K1sUAPgHbzGJ5K0Ryb50fTMIifywQ7ATgiGxMx9aGmznSgsV
+	 soCm2tB4NzZPBNVPbFKKdNbx2ef6VtYAdsC8uYrutmscXeq43QJyslWy3a4LTt73Ep
+	 RA9JoBcgbYRHA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0buc-00000008Kds-3L2U;
+	id 1v0bub-00000008Kds-40yl;
 	Mon, 22 Sep 2025 08:28:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
@@ -64,9 +64,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 04/26] platform: Add firmware-agnostic irq and affinity retrieval interface
-Date: Mon, 22 Sep 2025 09:28:11 +0100
-Message-ID: <20250922082833.2038905-5-maz@kernel.org>
+Subject: [PATCH v3 01/26] irqdomain: Add firmware info reporting interface
+Date: Mon, 22 Sep 2025 09:28:08 +0100
+Message-ID: <20250922082833.2038905-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250922082833.2038905-1-maz@kernel.org>
 References: <20250922082833.2038905-1-maz@kernel.org>
@@ -76,6 +76,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_012845_037175_036DD7C7 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,121 +93,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expand platform_get_irq_optional() to also return an affinity if
-available, renaming it to platform_get_irq_affinity() in the
-process.
+Allow an irqdomain callback to report firmware-provided information
+that is otherwise not available in a generic way. This is reported
+using a new data structure (struct irq_fwspec_info).
 
-platform_get_irq_optional() is preserved with its current semantics
-by calling into the new helper with a NULL affinity pointer.
+This callback is optional and the only information that can be
+reported currently is the affinity of an interrupt. However, the
+containing structure is designed to be extensible, allowing other
+potentially relevant information to be reported in the future.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
- include/linux/platform_device.h |  2 ++
- 2 files changed, 52 insertions(+), 10 deletions(-)
+ include/linux/irqdomain.h | 27 +++++++++++++++++++++++++++
+ kernel/irq/irqdomain.c    | 32 +++++++++++++++++++++++++++-----
+ 2 files changed, 54 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-index 09450349cf323..3a058f63ef0d3 100644
---- a/drivers/base/platform.c
-+++ b/drivers/base/platform.c
-@@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
- EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
- #endif /* CONFIG_HAS_IOMEM */
+diff --git a/include/linux/irqdomain.h b/include/linux/irqdomain.h
+index 4a86e6b915dd6..9d6a5e99394fa 100644
+--- a/include/linux/irqdomain.h
++++ b/include/linux/irqdomain.h
+@@ -44,6 +44,23 @@ struct irq_fwspec {
+ 	u32			param[IRQ_DOMAIN_IRQ_SPEC_PARAMS];
+ };
  
-+static const struct cpumask *get_irq_affinity(struct platform_device *dev,
-+					      unsigned int num)
-+{
-+	const struct cpumask *mask = NULL;
-+#ifndef CONFIG_SPARC
-+	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
++/**
++ * struct irq_fwspec_info - firmware provided IRQ information structure
++ *
++ * @flags:		Information validity flags
++ * @cpumask:		Affinity mask for this interrupt
++ *
++ * This structure reports firmware-specific information about an
++ * interrupt. The only significant information is the affinity of a
++ * per-CPU interrupt, but this is designed to be extended as required.
++ */
++struct irq_fwspec_info {
++	unsigned long		flags;
++	const struct cpumask	*affinity;
++};
 +
-+	if (is_of_node(fwnode))
-+		mask = of_irq_get_affinity(to_of_node(fwnode), num);
-+	else if (is_acpi_device_node(fwnode))
-+		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
++#define IRQ_FWSPEC_INFO_AFFINITY_VALID	BIT(0)
++
+ /* Conversion function from of_phandle_args fields to fwspec  */
+ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
+ 			       unsigned int count, struct irq_fwspec *fwspec);
+@@ -69,6 +86,9 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
+  * @translate:	Given @fwspec, decode the hardware irq number (@out_hwirq) and
+  *		linux irq type value (@out_type). This is a generalised @xlate
+  *		(over struct irq_fwspec) and is preferred if provided.
++ * @get_fwspec_info:
++ *		Given @fwspec, report additional firmware-provided information in
++ *		@info. Optional.
+  * @debug_show:	For domains to show specific data for an interrupt in debugfs.
+  *
+  * Functions below are provided by the driver and called whenever a new mapping
+@@ -96,6 +116,7 @@ struct irq_domain_ops {
+ 	void	(*deactivate)(struct irq_domain *d, struct irq_data *irq_data);
+ 	int	(*translate)(struct irq_domain *d, struct irq_fwspec *fwspec,
+ 			     unsigned long *out_hwirq, unsigned int *out_type);
++	int	(*get_fwspec_info)(struct irq_fwspec *fwspec, struct irq_fwspec_info *info);
+ #endif
+ #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+ 	void	(*debug_show)(struct seq_file *m, struct irq_domain *d,
+@@ -602,6 +623,8 @@ void irq_domain_free_irqs_parent(struct irq_domain *domain, unsigned int irq_bas
+ 
+ int irq_domain_disconnect_hierarchy(struct irq_domain *domain, unsigned int virq);
+ 
++int irq_populate_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info);
++
+ static inline bool irq_domain_is_hierarchy(struct irq_domain *domain)
+ {
+ 	return domain->flags & IRQ_DOMAIN_FLAG_HIERARCHY;
+@@ -685,6 +708,10 @@ static inline bool irq_domain_is_msi_device(struct irq_domain *domain)
+ 	return false;
+ }
+ 
++static inline int irq_populate_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
++{
++	return -EINVAL;
++}
+ #endif	/* CONFIG_IRQ_DOMAIN_HIERARCHY */
+ 
+ #ifdef CONFIG_GENERIC_MSI_IRQ
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index dc473faadcc81..2652c4cfd877f 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -867,13 +867,9 @@ void of_phandle_args_to_fwspec(struct device_node *np, const u32 *args,
+ }
+ EXPORT_SYMBOL_GPL(of_phandle_args_to_fwspec);
+ 
+-unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
++static struct irq_domain *fwspec_to_domain(struct irq_fwspec *fwspec)
+ {
+ 	struct irq_domain *domain;
+-	struct irq_data *irq_data;
+-	irq_hw_number_t hwirq;
+-	unsigned int type = IRQ_TYPE_NONE;
+-	int virq;
+ 
+ 	if (fwspec->fwnode) {
+ 		domain = irq_find_matching_fwspec(fwspec, DOMAIN_BUS_WIRED);
+@@ -883,6 +879,32 @@ unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
+ 		domain = irq_default_domain;
+ 	}
+ 
++	return domain;
++}
++
++#ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
++int irq_populate_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
++{
++	struct irq_domain *domain = fwspec_to_domain(fwspec);
++
++	memset(info, 0, sizeof(*info));
++
++	if (!domain || !domain->ops->get_fwspec_info)
++		return 0;
++
++	return domain->ops->get_fwspec_info(fwspec, info);
++}
 +#endif
 +
-+	return mask ?: cpu_possible_mask;
-+}
-+
- /**
-- * platform_get_irq_optional - get an optional IRQ for a device
-+ * platform_get_irq_affinity - get an optional IRQ and its affinity for a device
-  * @dev: platform device
-  * @num: IRQ number index
-+ * @affinity: optional cpumask pointer to get the affinity of a per-cpu IRQ
-  *
-  * Gets an IRQ for a platform device. Device drivers should check the return
-  * value for errors so as to not pass a negative integer value to the
-- * request_irq() APIs. This is the same as platform_get_irq(), except that it
-- * does not print an error message if an IRQ can not be obtained.
-- *
-- * For example::
-- *
-- *		int irq = platform_get_irq_optional(pdev, 0);
-- *		if (irq < 0)
-- *			return irq;
-+ * request_irq() APIs. Optional affinity information is provided in the
-+ * affinity pointer if available, and NULL otherwise.
-  *
-  * Return: non-zero IRQ number on success, negative error number on failure.
-  */
--int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
-+int platform_get_irq_affinity(struct platform_device *dev, unsigned int num,
-+			      const struct cpumask **affinity)
- {
- 	int ret;
- #ifdef CONFIG_SPARC
-@@ -236,8 +248,36 @@ int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
- out:
- 	if (WARN(!ret, "0 is an invalid IRQ number\n"))
- 		return -EINVAL;
-+
-+	if (ret > 0 && affinity)
-+		*affinity = get_irq_affinity(dev, num);
-+
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(platform_get_irq_affinity);
-+
-+/**
-+ * platform_get_irq_optional - get an optional IRQ for a device
-+ * @dev: platform device
-+ * @num: IRQ number index
-+ *
-+ * Gets an IRQ for a platform device. Device drivers should check the return
-+ * value for errors so as to not pass a negative integer value to the
-+ * request_irq() APIs. This is the same as platform_get_irq(), except that it
-+ * does not print an error message if an IRQ can not be obtained.
-+ *
-+ * For example::
-+ *
-+ *		int irq = platform_get_irq_optional(pdev, 0);
-+ *		if (irq < 0)
-+ *			return irq;
-+ *
-+ * Return: non-zero IRQ number on success, negative error number on failure.
-+ */
-+int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
++unsigned int irq_create_fwspec_mapping(struct irq_fwspec *fwspec)
 +{
-+	return platform_get_irq_affinity(dev, num, NULL);
-+}
- EXPORT_SYMBOL_GPL(platform_get_irq_optional);
- 
- /**
-diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
-index 074754c23d330..ad66333ce85ce 100644
---- a/include/linux/platform_device.h
-+++ b/include/linux/platform_device.h
-@@ -102,6 +102,8 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
- 
- extern int platform_get_irq(struct platform_device *, unsigned int);
- extern int platform_get_irq_optional(struct platform_device *, unsigned int);
-+extern int platform_get_irq_affinity(struct platform_device *, unsigned int,
-+				     const struct cpumask **);
- extern int platform_irq_count(struct platform_device *);
- extern int devm_platform_get_irqs_affinity(struct platform_device *dev,
- 					   struct irq_affinity *affd,
++	unsigned int type = IRQ_TYPE_NONE;
++	struct irq_domain *domain;
++	struct irq_data *irq_data;
++	irq_hw_number_t hwirq;
++	int virq;
++
++	domain = fwspec_to_domain(fwspec);
+ 	if (!domain) {
+ 		pr_warn("no irq domain found for %s !\n",
+ 			of_node_full_name(to_of_node(fwspec->fwnode)));
 -- 
 2.47.3
 
