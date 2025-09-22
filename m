@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9ABCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DB2CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hdn+nBJsk+Q9wroRF9vIAmfxf7ee0czxlH+k6Mt1PIc=; b=JHqI2uW08njbfJYL91468XIYAr
-	z7MZnFZ0cIP70iy+CHyMK/0WPEOJxHOgbylbTpHBRFFFxm8yRGo2GvicQlK6rEQikWPFmTBzQFVm/
-	VRNV/So6SaOamLSiIvtBNM1S0FDGDb4t+LftFSordAnjhuxnJFdeq7uwHktPw2sI1USIUxchU2Fhr
-	7DUh7eTpqMHV+DlzuGYDLA4NRLA7ywVXC5A17kTvAIEGAtC1lSSbOrIGgEAXrCtHfD4rKwkKyZmvG
-	abQnFmC/woLqEigaqEj3NW81U42Xllf4w67m1NKmpPCHBLMhs05yUS2gjOHRp7lMzxlca1c6jW2op
-	dVPnBX/w==;
+	bh=5J4Ljpda680ALq6ch3ruxt7+r3NdpzeV0HnX9n1YUCk=; b=kGrquN1MgoDtj0/Xzz2oB3WBL6
+	lHo4xAxlULYeSGgoSKFFSosaB5cQkRAYc+8Coq2PqEA2BetbG/YFtyJ+hSRIOY72c0IIITFUCfLSg
+	QTSNjk+aePEFzyQr0dyjKV061htpZynmExSd8FnEMBor88XwKqvPaHJmQUCS3L6sFTsBiO11zj8dM
+	mxxoVpfth0/rCJ+0a9+6WZ09A5Z0mDfbHyCXJGgWoNWQ+2VtWiQSysO0RDz0NHF0/3fdfTEcDvY4+
+	0bIYQyKdWkIhtj365Ioq8itQz7ONM/Qt//nmfmmyzfseqt6ASqVKGcFNhva8+WAtQci5QVdL4Q0Jk
+	uTDwui1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0nS3-0000000BU0E-3ewO;
-	Mon, 22 Sep 2025 20:47:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0nXO-0000000BUZo-0Sqp;
+	Mon, 22 Sep 2025 20:53:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0nS2-0000000BTzw-3HDs;
-	Mon, 22 Sep 2025 20:47:58 +0000
+	id 1v0nXL-0000000BUYu-1uAq;
+	Mon, 22 Sep 2025 20:53:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB72C60243;
-	Mon, 22 Sep 2025 20:47:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70920C4CEF0;
-	Mon, 22 Sep 2025 20:47:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A7C3244E0A;
+	Mon, 22 Sep 2025 20:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DAF5C4CEF0;
+	Mon, 22 Sep 2025 20:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758574077;
-	bh=TGffaL/a1AwXsRo2g8p0Qj75pdptlmyikx5RELula7Y=;
+	s=k20201202; t=1758574406;
+	bh=DiuQfD9Kf/1+kF5x4UO9UHkDanaUR9E+z4BreblPOCM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PTZUthHXAfXAzGtefWP7IZeJ3vJtSWfBDfpDm8wveQXWtpjc+EQ+Y3XF6vjettdKi
-	 U65xc3FwwcapHYICo+BqYYSyAscU2Oqm+GAzahI5tLUO6mZCetVXi98OwOnTzFKyB5
-	 hb0DvN7aWJ36yjx5L50kJYRu6dbAHsDmiu7/gG7dUHXHahtqPRV9afI3I1SBUmcUhd
-	 Bc2PV7qi2p6h95Ec5iIrzuKMwA1dwYdwD77d69mQk04HKjbwcJBipxGDI8XP7sOx7/
-	 F4WngtZ8UPIjioaszV5aSvlqKmSTV6pnxq6XD+RyMTpIigdCq5QzwXW54ZBaJ8pIHo
-	 Ji06y3mnG+a7A==
-Date: Mon, 22 Sep 2025 15:47:56 -0500
+	b=tB/fzyHUWZbuqImOMTSE6YgmnNXw2HWCrZmo7b5cuNhEfebwfcpoOP7CUvyK8cp8C
+	 IwhDys3lfXo8dcf+TmwAzsuXndIBvwup156n6ru1mDtzkNWyeQyDxLQVgJdJaIOwTj
+	 /H2sliKqDMLrmd6pMjJJ0buiOYjkdMo1LHIgFPwZ2oU0DPr/lK2vf2SBjGLmPA2Mtf
+	 b64+8ahSI/mu5cbnbYtryr0C9vpwm+c0aU7rnzNhdOueCppDjl5te39XPUFeH1yl4G
+	 u7N1g66f8WIWJ2pQJQXSsBL1bekoA+NoVJu8idM/xpGM/mGSTzFlUyINc2Xnc/A1/u
+	 I8h6opdNrT66Q==
+Date: Mon, 22 Sep 2025 15:53:25 -0500
 From: Rob Herring <robh@kernel.org>
-To: Max Shevchenko <wctrl@proton.me>
-Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	sebastian.reichel@collabora.com,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Long Cheng <long.cheng@mediatek.com>, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: dma: mediatek,uart-dma: drop
- mediatek,dma-33bits property
-Message-ID: <20250922204756.GA1294776-robh@kernel.org>
-References: <20250921-uart-apdma-v1-0-107543c7102c@proton.me>
- <20250921-uart-apdma-v1-1-107543c7102c@proton.me>
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Eric Anholt <eric@anholt.net>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/3] dt-bindings: arm: bcm:
+ raspberrypi,bcm2835-firmware: Add touchscreen child node
+Message-ID: <20250922205325.GA1304482-robh@kernel.org>
+References: <20250921173353.2641438-1-dario.binacchi@amarulasolutions.com>
+ <20250921173353.2641438-2-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250921-uart-apdma-v1-1-107543c7102c@proton.me>
+In-Reply-To: <20250921173353.2641438-2-dario.binacchi@amarulasolutions.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_135327_531108_30A60D2C 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 21, 2025 at 02:03:40PM +0300, Max Shevchenko wrote:
-> Many newer SoCs support more than 33 bits for DMA.
-> Drop the property in order to switch to the platform data.
+On Sun, Sep 21, 2025 at 07:33:43PM +0200, Dario Binacchi wrote:
+> Convert Raspberry Pi firmware 7" touchscreen controller device tree
+> binding to json-schema.
 > 
-> The reference SoCs were taken from the downstream kernel (6.6) for
-> the MT6991 SoC.
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 > 
-> Signed-off-by: Max Shevchenko <wctrl@proton.me>
 > ---
->  Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
-> index dab468a88942d694525aa391f695c44d192f0c42..9dfdfe81af7edbe3540e4b757547a5d5e6ae810c 100644
-> --- a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
-> @@ -22,12 +22,14 @@ properties:
->        - items:
->            - enum:
->                - mediatek,mt2712-uart-dma
-> -              - mediatek,mt6795-uart-dma
->                - mediatek,mt8365-uart-dma
->                - mediatek,mt8516-uart-dma
->            - const: mediatek,mt6577-uart-dma
->        - enum:
-> -          - mediatek,mt6577-uart-dma
-> +          - mediatek,mt6577-uart-dma  # 32 bits
-> +          - mediatek,mt6795-uart-dma  # 33 bits
-
-Unless all existing s/w supported mediatek,mt6795-uart-dma, you just 
-broke this platform which was relying on the fallback compatible. 
-
-> +          - mediatek,mt6779-uart-dma  # 34 bits
-> +          - mediatek,mt6985-uart-dma  # 35 bits
+> (no changes since v5)
+> 
+> Changes in v5:
+> - Move bindings into raspberrypi,bcm2835-firmware.yaml
+> - Remove raspberrypi,firmware-ts.yaml
+> - Update the commit message
+> 
+> Changes in v3:
+> - Drop firmware-rpi node and use only touchscreen node to fix warnings
+>   you can see in
+>   https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
+> 
+> Changes in v2:
+> - Added in v2
+> 
+>  .../arm/bcm/raspberrypi,bcm2835-firmware.yaml | 27 +++++++++++++++++++
+>  .../touchscreen/raspberrypi,firmware-ts.txt   | 26 ------------------
+>  2 files changed, 27 insertions(+), 26 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> index 1f84407a73e4..044544c17e8e 100644
+> --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> @@ -103,6 +103,27 @@ properties:
+>        - compatible
+>        - "#pwm-cells"
 >  
->    reg:
->      minItems: 1
-> @@ -56,10 +58,6 @@ properties:
->        Number of virtual channels of the UART APDMA controller
->      maximum: 16
->  
-> -  mediatek,dma-33bits:
-> -    type: boolean
-> -    description: Enable 33-bits UART APDMA support
+> +  touchscreen:
+> +    type: object
+> +    additionalProperties: false
 
-If this is in use, you need to mark it 'deprecated' instead.
+Needs a $ref to touchscreen.yaml
 
-> -
+> +
+> +    properties:
+> +      compatible:
+> +        const: raspberrypi,firmware-ts
+> +
+> +      firmware:
+> +        deprecated: true
+> +        description: Phandle to RPi's firmware device node.
+> +
+> +      touchscreen-size-x: true
+> +      touchscreen-size-y: true
+> +      touchscreen-inverted-x: true
+> +      touchscreen-inverted-y: true
+> +      touchscreen-swapped-x-y: true
+> +
+> +    required:
+> +      - compatible
+> +
 >  required:
 >    - compatible
->    - reg
-> @@ -116,7 +114,6 @@ examples:
->              dma-requests = <12>;
->              clocks = <&pericfg CLK_PERI_AP_DMA>;
->              clock-names = "apdma";
-> -            mediatek,dma-33bits;
->              #dma-cells = <1>;
+>    - mboxes
+> @@ -135,5 +156,11 @@ examples:
+>              compatible = "raspberrypi,firmware-poe-pwm";
+>              #pwm-cells = <2>;
 >          };
+> +
+> +        ts: touchscreen {
+> +            compatible = "raspberrypi,firmware-ts";
+> +            touchscreen-size-x = <800>;
+> +            touchscreen-size-y = <480>;
+> +        };
 >      };
-> 
+>  ...
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+> deleted file mode 100644
+> index 2a1af240ccc3..000000000000
+> --- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+> +++ /dev/null
+> @@ -1,26 +0,0 @@
+> -Raspberry Pi firmware based 7" touchscreen
+> -=====================================
+> -
+> -Required properties:
+> - - compatible: "raspberrypi,firmware-ts"
+> -
+> -Optional properties:
+> - - firmware: Reference to RPi's firmware device node
+> - - touchscreen-size-x: See touchscreen.txt
+> - - touchscreen-size-y: See touchscreen.txt
+> - - touchscreen-inverted-x: See touchscreen.txt
+> - - touchscreen-inverted-y: See touchscreen.txt
+> - - touchscreen-swapped-x-y: See touchscreen.txt
+> -
+> -Example:
+> -
+> -firmware: firmware-rpi {
+> -	compatible = "raspberrypi,bcm2835-firmware";
+> -	mboxes = <&mailbox>;
+> -
+> -	ts: touchscreen {
+> -		compatible = "raspberrypi,firmware-ts";
+> -		touchscreen-size-x = <800>;
+> -		touchscreen-size-y = <480>;
+> -	};
+> -};
 > -- 
-> 2.51.0
+> 2.43.0
 > 
+> base-commit: f975f08c2e899ae2484407d7bba6bb7f8b6d9d40
+> branch: drop-touchscreen.txt
 
