@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A902CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 07:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC77CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQRpOTdPlsJ/I3ie9xITMLFON03T608didGjNtYqmd8=; b=2K83lHtKK6fj6auWx/50A7iEDn
-	NODHTpx0zU4Z5tCYSiK11WfDtGCMibF9QYkfSnVDQ8QQeR+T99x8rz2Kme6GtmSeOGuqmJcfv6171
-	wR4PBU+4kf1wH6gmGe4RlAv2GLoeiq1Ruwfe4cly7GS+Bz8b7RPRvz1T//pdZ6gWJ3pe5TrS50kw8
-	4rLEsuX8RothxZ+/5+CHKp8LmYG1SMVNjLPrSK/xvi2k7kwbf6iqb/LxuWjxq0ychCbiTiU74CFmd
-	caUXUTAJ8PfqW2sISVmyv+2hHJAP/q4nV2FPIoj+Ru7SL6k4CyzZPIcUhM5Cg0tJQ+xhLpBadMJ5k
-	adsYEqyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JNQymtDL04NlArXg7TMdDb0ZZRfUYKB8rTe/arIQWMc=; b=0WjAhwyBgS2ssWKxq+wGJC7gI/
+	Qso+3lJnejoDdzH0P4kxWORCX4FuMGWlntfA+CJy3U8TQ0hEPF5Ds172vjsSbEvp8LsROPpdkIlXX
+	cD2ho4rJoh6LCMRs3qjjf/fqY5+Rs2Lo2DQVsxYSJMTLyCIFjzATLeStg6xqUCbjD7uNMF7uxyuVO
+	X0MyCQNqqZYRBmZOvFz5+9/bLekNPj+zlpqQHtjMP5d6H54zYsB96QocrWuI7lv26PH/zjnmfKM7Q
+	l1jcUzkfyL836o8WY9q/eSgTI0SAU9nFZXKNtVJPvNrzIli1rI/N7BSHnZd98IEfhnSF4HxbW8siV
+	56y/0qJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bRr-00000009Zgd-1PLy;
-	Mon, 22 Sep 2025 07:58:59 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1v0baY-00000009c2j-3STl;
+	Mon, 22 Sep 2025 08:07:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bRp-00000009ZfC-146F
+	id 1v0baW-00000009c1q-1Tjj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 07:58:58 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45f29e5e89bso49023575e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 00:58:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758527935; x=1759132735; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xQRpOTdPlsJ/I3ie9xITMLFON03T608didGjNtYqmd8=;
-        b=tDxcXonZzx2UFVytHvG/6xZDps7Xicj7Oh1CRNcPgV0T7fmTfTz/VIkMGSyb+H/bXh
-         jaUhlTQK4xm8f9INnRdgogbWkJ1jlO5/rZMGvr7ymq6fN3f2mEzPC2EJB/1WSMrk5025
-         wxLsaJFZZxnH+JeNUbmxMQVGN7RZtel3BX5DPDvUfp1R9N61n5aYFwST/U1KfM1CKCnc
-         08q1/KDQMP0tWJpSYDbBH2mfyZWKBeU8suCp5InPszkh2cNCnGPFH3okgTkuuBUY8eJf
-         QPYTJQjOuUOF0U16R76KSbKxn/JWlmkfiFpQ38KRtBFXMXJvhDr7dn/YkjqqOQ6kOuAU
-         4xAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758527935; x=1759132735;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xQRpOTdPlsJ/I3ie9xITMLFON03T608didGjNtYqmd8=;
-        b=lBah/7Dcekf3aMt8BUS52XfVvV1Gqz0jFw0zeeWtzr52av07ANptvGMgttOy9PNzrY
-         XzrRZd8xM81ijq1qIq2MGJLHiK1aTB3qNi6cBzSfRp99fuIwYDOX/AnUZng7V0/amj1m
-         hz4VneBNhMqbLtATwvT12LdTL0qriU34XT/ZuQctGsijWExAHMwg/EqSoeGUjFspOqMO
-         UrOhYtsHTwztWjhYhJhkhzUuTAzTziDgvXwKBeyn49DcFpwKDXiOmgGjETigDBdVgOJX
-         T5SF3Kj+EWHZHfiqo7w8ukgVa0oSEJ8qpvcHVlqs/Y/VDvayX0q9+D+UTEQM6YZn+qzM
-         kKQA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7VNiYIDDoKoU31YmUY9TekjpJbCRhAfsNWu2+VPxSSBmrtWdLKB1EjlyUG0bkJlCVPdmc4RhtkB5LDPkfvTJR@lists.infradead.org
-X-Gm-Message-State: AOJu0YziDx/ovRlQzCqu/wv0aR8yZFVrCgnFtl4DgcPuABwfGl0KRoGW
-	DwxSw/6wyXBf/cLfWITqAtrdVb6UOsxI63iBDxVRu3Nc2FIb5uFMZaGeiC6AERlhpC0=
-X-Gm-Gg: ASbGncsgGlmP2B5Wrr2uN1yTutuRJGMSr9lkSKeI52D5fTPphl6JMev7hMQzNcup6I/
-	PmY0qiDUwInJhfTpRdLBuVhfm61fYCTi1838lWSMTyhKUMzMA7rUhiNQk2iLQcprEwM55vjx4VX
-	2nv+7cWfaXeLeyC6sFxpg51UZ8a4U2uf65H1IhThsKPw9bQz8ojrgtgYOW2B1vNsMxJwGJ1y4vm
-	qnL9BYWMXOD9st5NOUB71/s8B8gDyjCLYpRkASnwR/HHCUiihC4znqYp/MnB99gRgko0lQy98Xl
-	E/m5j6e4vXnwYfhzDxtNQs/rHdvRKICcMt8H0iDbP80rcMUW1Yl3RyZaWsIgBqTbwguC+JXQr7N
-	fpQaaPs5xUIPdCMt1CoMEBO9MycRqvxCi
-X-Google-Smtp-Source: AGHT+IGv/gvgtd+VyFOGRY+JKmS6raLqaaGrk4Saz9mqQNEkVwU+lxnyBc+9ONztYTEGxxuU7e9nsg==
-X-Received: by 2002:a05:600c:3555:b0:45d:5c71:769a with SMTP id 5b1f17b1804b1-467eb048bafmr104267165e9.26.1758527934709;
-        Mon, 22 Sep 2025 00:58:54 -0700 (PDT)
-Received: from [10.11.12.107] ([79.118.185.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-464f0aac3fdsm186423945e9.1.2025.09.22.00.58.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Sep 2025 00:58:54 -0700 (PDT)
-Message-ID: <905d8c89-56d3-40c9-928f-d6418a0f9193@linaro.org>
-Date: Mon, 22 Sep 2025 08:58:52 +0100
+	Mon, 22 Sep 2025 08:07:57 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 54D0BF89;
+	Mon, 22 Sep 2025 10:06:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1758528392;
+	bh=vhNsUXDWD5mlApfmMJfi5q4ViL1LmxbLuD0y5YquSBE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pzp+430zL259s4SgzVaIeEXvGiwDzPVPmd9jsSQzvLDxnSNdgcAL7fPJ7Q7RRR3PZ
+	 56129ewwGgIXI1tIyeum9dD1sHNrfcGxr0rJfAeE+ClmvRvlQ2emgMG2id2eRaviMX
+	 HK7yw9bW6fxlOKWgY+g477a9rXINLXzqA3Goyh7o=
+Date: Mon, 22 Sep 2025 11:07:23 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@iki.fi>
+Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] media: imx-mipi-csis: Store the number of
+ data_lanes configured in dt
+Message-ID: <20250922080723.GI10540@pendragon.ideasonboard.com>
+References: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
+ <20250915-mbus-config-active-lanes-v3-2-97a1282a410b@ideasonboard.com>
+ <aNDxd9rWjmgrVCd9@valkosipuli.retiisi.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/5] clk: samsung: add Exynos ACPM clock driver
-To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20250908-acpm-clk-v4-0-633350c0c0b1@linaro.org>
- <20250908-acpm-clk-v4-4-633350c0c0b1@linaro.org>
- <175848703636.4354.2936744718103927060@lazor>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <175848703636.4354.2936744718103927060@lazor>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aNDxd9rWjmgrVCd9@valkosipuli.retiisi.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_005857_635465_26E7A585 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20250922_010756_536233_F1971568 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,247 +78,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Stephen,
-
-On 9/21/25 9:37 PM, Stephen Boyd wrote:
-> Quoting Tudor Ambarus (2025-09-08 06:12:45)
->> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->> --- a/drivers/clk/samsung/Kconfig
->> +++ b/drivers/clk/samsung/Kconfig
->> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>           status of the certains clocks from SoC, but it could also be tied to
->>           other devices as an input clock.
->>  
->> +config EXYNOS_ACPM_CLK
->> +       tristate "Clock driver controlled via ACPM interface"
->> +       depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+On Mon, Sep 22, 2025 at 09:49:27AM +0300, Sakari Ailus wrote:
+> On Mon, Sep 15, 2025 at 02:18:34PM +0100, Isaac Scott wrote:
+> > The number of lanes actively used by a MIPI CSI transmitter may differ
+> > from that which is defined in device tree. To allow us to be able to set
+> > the number of configured lanes without changing the maximum lane count,
+> > store the number of lanes configured in device tree, and adjust the
+> > debug print to reflect the device tree value.
+> > 
+> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 14 +++++++++-----
+> >  1 file changed, 9 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index 2beb5f43c2c0..6afbedfe131e 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -313,6 +313,8 @@ struct mipi_csis_device {
+> >  	u32 hs_settle;
+> >  	u32 clk_settle;
+> >  
+> > +	unsigned int num_data_lanes;
+> > +
+> >  	spinlock_t slock;	/* Protect events */
+> >  	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
+> >  	struct dentry *debugfs_root;
+> > @@ -535,7 +537,7 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
+> >  	val &= ~MIPI_CSIS_DPHY_CMN_CTRL_ENABLE;
+> >  	if (on) {
+> > -		mask = (1 << (csis->bus.num_data_lanes + 1)) - 1;
+> > +		mask = (1 << (csis->num_data_lanes + 1)) - 1;
 > 
-> Why is COMPILE_TEST limited to !EXYNOS_ACPM_PROTOCOL?
+> Please use 1U or BIT() for bit-shifted values.
 
+BIT() isn't appropriate here. GENMASK(csis->num_data_lanes, 0) could be
+fine, but this patch just changes the variable, I wouldn't insist in
+fixing separate issues.
 
-otherwise on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
-ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
+> >  		val |= (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
+> >  	}
+> >  	mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
+> > @@ -586,7 +588,7 @@ static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
+> >  
+> >  	/* Calculate the line rate from the pixel rate. */
+> >  	link_freq = v4l2_get_link_freq(src_pad, csis_fmt->width,
+> > -				       csis->bus.num_data_lanes * 2);
+> > +				       csis->num_data_lanes * 2);
+> >  	if (link_freq < 0) {
+> >  		dev_err(csis->dev, "Unable to obtain link frequency: %d\n",
+> >  			(int)link_freq);
+> > @@ -631,7 +633,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+> >  				 const struct v4l2_mbus_framefmt *format,
+> >  				 const struct csis_pix_format *csis_fmt)
+> >  {
+> > -	int lanes = csis->bus.num_data_lanes;
+> > +	int lanes = csis->num_data_lanes;
+> >  	u32 val;
+> >  
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> > @@ -1299,8 +1301,10 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+> >  	}
+> >  
+> >  	csis->bus = vep.bus.mipi_csi2;
+> > +	csis->bus.num_data_lanes = vep.bus.mipi_csi2.num_data_lanes;
 
-> 
->> +       help
->> +         This driver provides support for clocks that are controlled by
->> +         firmware that implements the ACPM interface.
->> +
->> +         This driver uses the ACPM interface to interact with the firmware
->> +         providing all the clock controlls.
->> +
->>  config TESLA_FSD_COMMON_CLK
->>         bool "Tesla FSD clock controller support" if COMPILE_TEST
->>         depends on COMMON_CLK_SAMSUNG
->> diff --git a/drivers/clk/samsung/clk-acpm.c b/drivers/clk/samsung/clk-acpm.c
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..8566495265ee3e06dbf370f9e424d5540f5c7457
->> --- /dev/null
->> +++ b/drivers/clk/samsung/clk-acpm.c
->> @@ -0,0 +1,184 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Samsung Exynos ACPM protocol based clock driver.
->> + *
->> + * Copyright 2025 Linaro Ltd.
->> + */
->> +
->> +#include <linux/array_size.h>
->> +#include <linux/clk-provider.h>
->> +#include <linux/device.h>
->> +#include <linux/err.h>
->> +#include <linux/firmware/samsung/exynos-acpm-protocol.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
-> 
-> Is this include used?
+That doesn't seem to be needed.
 
-ah, it's no longer used, I'll drop it, thanks!
-> 
->> +#include <linux/platform_device.h>
->> +#include <linux/types.h>
-> 
-> Are you avoiding kernel.h? If so, please include container_of.h and
+> > +	csis->num_data_lanes = csis->bus.num_data_lanes;
+> >  
+> > -	dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
+> > +	dev_dbg(csis->dev, "data lanes: %d\n", csis->num_data_lanes);
 
-I tend to include just what's needed, yes. kernel.h has some things that
-are not yet needed in this driver.
+Neither is this change. What you print here is the number of connected
+data lanes, not the number of effectively used lanes. You could change
+it to 
 
-> device/devres.h to avoid implicit includes.
+	dev_dbg(csis->dev, "max data lanes: %u\n", csis->bus.num_data_lanes);
 
-Will add the two and recheck whether I rely on implicit includes somewhere else.
+You'll want to also update the commit message, which I think needs some
+improvement regardless.
 
->> +
->> +struct acpm_clk {
->> +       u32 id;
->> +       struct clk_hw hw;
->> +       unsigned int mbox_chan_id;
->> +       const struct acpm_handle *handle;
->> +};
->> +
->> +struct acpm_clk_variant {
->> +       const char *name;
->> +};
->> +
->> +struct acpm_clk_driver_data {
->> +       const struct acpm_clk_variant *clks;
->> +       unsigned int nr_clks;
->> +       unsigned int mbox_chan_id;
->> +};
->> +
->> +#define to_acpm_clk(clk) container_of(clk, struct acpm_clk, hw)
->> +
->> +#define ACPM_CLK(cname)                                        \
->> +       {                                               \
->> +               .name           = cname,                \
->> +       }
->> +
->> +static const struct acpm_clk_variant gs101_acpm_clks[] = {
->> +       ACPM_CLK("mif"),
->> +       ACPM_CLK("int"),
->> +       ACPM_CLK("cpucl0"),
->> +       ACPM_CLK("cpucl1"),
->> +       ACPM_CLK("cpucl2"),
->> +       ACPM_CLK("g3d"),
->> +       ACPM_CLK("g3dl2"),
->> +       ACPM_CLK("tpu"),
->> +       ACPM_CLK("intcam"),
->> +       ACPM_CLK("tnr"),
->> +       ACPM_CLK("cam"),
->> +       ACPM_CLK("mfc"),
->> +       ACPM_CLK("disp"),
->> +       ACPM_CLK("b0"),
->> +};
->> +
->> +static const struct acpm_clk_driver_data acpm_clk_gs101 = {
->> +       .clks = gs101_acpm_clks,
->> +       .nr_clks = ARRAY_SIZE(gs101_acpm_clks),
->> +       .mbox_chan_id = 0,
->> +};
->> +
->> +static unsigned long acpm_clk_recalc_rate(struct clk_hw *hw,
->> +                                         unsigned long parent_rate)
->> +{
->> +       struct acpm_clk *clk = to_acpm_clk(hw);
->> +
->> +       return clk->handle->ops.dvfs_ops.get_rate(clk->handle,
->> +                                       clk->mbox_chan_id, clk->id, 0);
->> +}
->> +
->> +static int acpm_clk_determine_rate(struct clk_hw *hw,
->> +                                  struct clk_rate_request *req)
->> +{
->> +       /*
->> +        * We can't figure out what rate it will be, so just return the
->> +        * rate back to the caller. acpm_clk_recalc_rate() will be called
->> +        * after the rate is set and we'll know what rate the clock is
->> +        * running at then.
->> +        */
->> +       return 0;
->> +}
->> +
->> +static int acpm_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->> +                            unsigned long parent_rate)
->> +{
->> +       struct acpm_clk *clk = to_acpm_clk(hw);
->> +
->> +       return clk->handle->ops.dvfs_ops.set_rate(clk->handle,
->> +                                       clk->mbox_chan_id, clk->id, rate);
->> +}
->> +
->> +static const struct clk_ops acpm_clk_ops = {
->> +       .recalc_rate = acpm_clk_recalc_rate,
->> +       .determine_rate = acpm_clk_determine_rate,
->> +       .set_rate = acpm_clk_set_rate,
->> +};
->> +
->> +static int acpm_clk_ops_init(struct device *dev, struct acpm_clk *aclk,
-> 
-> Maybe acpm_clk_register() is a more appropriate name.
+> >  	dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
+> >  
+> >  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
+> > @@ -1498,7 +1502,7 @@ static int mipi_csis_probe(struct platform_device *pdev)
+> >  	}
+> >  
+> >  	dev_info(dev, "lanes: %d, freq: %u\n",
+> > -		 csis->bus.num_data_lanes, csis->clk_frequency);
+> > +		 csis->num_data_lanes, csis->clk_frequency);
 
-okay, will update.
+Drop this change too. This message is actually redundant, the number of
+lanes is printed in mipi_csis_async_register(). You could submit a
+separate patch to remove this, possibly replacing it with a dev_dbg() in
+mipi_csis_parse_dt() to print clk_frequency.
 
-> 
->> +                            const char *name)
->> +{
->> +       struct clk_init_data init = {};
->> +
->> +       init.name = name;
->> +       init.ops = &acpm_clk_ops;
->> +       aclk->hw.init = &init;
->> +
->> +       return devm_clk_hw_register(dev, &aclk->hw);
->> +}
->> +
->> +static int acpm_clk_probe(struct platform_device *pdev)
->> +{
->> +       const struct acpm_handle *acpm_handle;
->> +       struct clk_hw_onecell_data *clk_data;
->> +       struct clk_hw **hws;
->> +       struct device *dev = &pdev->dev;
->> +       struct acpm_clk *aclks;
->> +       unsigned int mbox_chan_id;
->> +       int i, err, count;
->> +
->> +       acpm_handle = devm_acpm_get_by_node(dev, dev->parent->of_node);
->> +       if (IS_ERR(acpm_handle))
->> +               return dev_err_probe(dev, PTR_ERR(acpm_handle),
->> +                                    "Failed to get acpm handle.\n");
-> 
-> Remove the period please. Most error messages don't have proper
-> punctuation.
+> >  
+> >  	return 0;
+> >  
 
-okay, will update.
+-- 
+Regards,
 
-> 
->> +
->> +       count = acpm_clk_gs101.nr_clks;
->> +       mbox_chan_id = acpm_clk_gs101.mbox_chan_id;
->> +
->> +       clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, count),
->> +                               GFP_KERNEL);
->> +       if (!clk_data)
->> +               return -ENOMEM;
->> +
->> +       clk_data->num = count;
->> +       hws = clk_data->hws;
->> +
->> +       aclks = devm_kcalloc(dev, count, sizeof(*aclks), GFP_KERNEL);
->> +       if (!aclks)
->> +               return -ENOMEM;
->> +
->> +       for (i = 0; i < count; i++) {
->> +               struct acpm_clk *aclk = &aclks[i];
->> +
->> +               /*
->> +                * The code assumes the clock IDs start from zero,
->> +                * are sequential and do not have gaps.
->> +                */
->> +               aclk->id = i;
->> +               aclk->handle = acpm_handle;
->> +               aclk->mbox_chan_id = mbox_chan_id;
->> +
->> +               hws[i] = &aclk->hw;
->> +
->> +               err = acpm_clk_ops_init(dev, aclk,
->> +                                       acpm_clk_gs101.clks[i].name);
->> +               if (err)
->> +                       return dev_err_probe(dev, err,
->> +                                            "Failed to register clock.\n");
->> +       }
->> +
->> +       return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
->> +                                          clk_data);
->> +}
->> +
->> +static const struct platform_device_id acpm_clk_id[] = {
->> +       { "gs101-acpm-clk" },
->> +       {},
-> 
-> Please drop comma here so that nothing can come after.
-
-okay. Thanks for the review!
-Cheers,
-ta
-
+Laurent Pinchart
 
