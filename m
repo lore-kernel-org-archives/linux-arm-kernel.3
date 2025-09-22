@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC7CCAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B382CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79j64AKzmBVKZ0VCce+vDNcysOjiWPQfOIPmvpLv7oQ=; b=EwP010KdX2ia3D6TaKdD5/TMf0
-	Hry9fMfSBDR5YisFlfIOe2dptRcCIURpcGAYbPVh3VQ/fjw5/ulieQDInNoeyjwi5BIZClJL4M5KD
-	BCHPDKGYMap+GJb23VEAoiRtUO5r4KljMebNRJe2vRPeMOM1QtP3XAIlW7/RZaVuthqbOTpE5/Oc5
-	sLwb+JhDRM6nnG97AdNs1cCr7dvkQvbso5trNcV1CamF3+TMvfNZACtd+RlG7aGYJ8ugZA6T6fzMU
-	6E/X2g1jIj0LZ0vKE66yrw6uHOn9ozBnzB9tBI9nXX9nxgT9SmLMsQn3YYJBz6mWoqcVVtujwD8wE
-	LAO1gW3g==;
+	bh=qP87JigH9w3cESkF8N5cnJLXmDva7bVQRI9ZccgkIPo=; b=qR/JQAefRpqmY9JkmK6Gi92GZe
+	iSYhoIYD9nbpbi1vasshdn5BIiFLgRQSesuLocTTyyNohdWmD1qP1/WGbbz3LBHsekHQjQ37kbVU1
+	4CvIA8oqN2NJtqdjgUAKJMT7WjVGfQD6Xc03sNd1ZMistydlEhYyGL5Hs5sD+icWW7KEi+/GJHDLN
+	4NbdC1k5L7PRmjIQiwE3QPIyfPmz/f/GbboAOXYuO4Whk5tNe1xTyZrKnly/ZVA6KzSq7CvmhvMW6
+	arXhxke7AS7gxvu43Mw2dbvlmPDaMG7M35/59+2PyKzRyYKYv4rHMgYXad8uOb5zLx2OXaPaGYX4z
+	x2+bHCkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gwi-0000000AZuy-0ouz;
-	Mon, 22 Sep 2025 13:51:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gwe-0000000AZuK-0O8G
+	id 1v0h3T-0000000Aaif-3rjd;
+	Mon, 22 Sep 2025 13:58:11 +0000
+Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0h3R-0000000Aai3-04mB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:51:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E609B1424;
-	Mon, 22 Sep 2025 06:50:58 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9EA23F694;
-	Mon, 22 Sep 2025 06:51:04 -0700 (PDT)
-Date: Mon, 22 Sep 2025 14:51:02 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, gregkh@linuxfoundation.org,
-	Sudeep Holla <sudeep.holla@arm.com>, rafael@kernel.org,
-	dakr@kernel.org, beata.michalska@arm.com, ptsm@linux.microsoft.com,
-	sumitg@nvidia.com, yangyicong@hisilicon.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [External] Re: [PATCH v3 1/1] arch_topology: move
- parse_acpi_topology() to common code
-Message-ID: <20250922-adventurous-pumpkin-booby-d4c95c@sudeepholla>
-References: <20250919085918.5442-1-cuiyunhui@bytedance.com>
- <20250919085918.5442-2-cuiyunhui@bytedance.com>
- <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
- <CAEEQ3wkRoX5Y5xQu22kVCFxEy8fgcUxKHEm=9Bpg7g-Np8b-SA@mail.gmail.com>
- <20250922-buffalo-of-hypothetical-downpour-d2a47c@sudeepholla>
- <CAEEQ3w=4aKS=p=+q4iC42Va+dMVm017R0Surxff+4R+4RjkgAg@mail.gmail.com>
+	Mon, 22 Sep 2025 13:58:10 +0000
+Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-887745ee814so136710339f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 06:58:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=konsulko.com; s=google; t=1758549488; x=1759154288; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qP87JigH9w3cESkF8N5cnJLXmDva7bVQRI9ZccgkIPo=;
+        b=J9yZ87lzkS234fRiZLbsw/4YN1sX3UXhf2WHGyo73k2U+/P/qyCrmArUDTnjwn/yMt
+         3bfSEgar7Y7BEqwCYc+lay7AiwPqQ/m6uJBLcjX66ksts8W8hDdTkUDkEMBZ1Fu7ZIoN
+         lbdhlWWLEd+zJqgjcGg6cvhZkcDm5XNWvLPfY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758549488; x=1759154288;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qP87JigH9w3cESkF8N5cnJLXmDva7bVQRI9ZccgkIPo=;
+        b=msTB1GEzqOT2SEV6cb7nT1fkZ6wld0mxPFGNplnG/2+SNMGU1UvTrtfXV7lJqIID3n
+         XyNY8K5zVshs/XXoBBh5qqY9XYEbZ0yE1naBQ3E5+6Bh2UrOHyVcQlzO5FZGD4o9SmaI
+         DvlS1T/ydt/9Vo3FoEvfYbf02MQ+E+kDOyMy7aM2xhvV10okifibu/YPKouYy14vnKLJ
+         aT9GvL+4xC8kF433pxGBNS0oLOJSMSinspj8LoNVsy+7FeEnYHnNC/AAYMwSZEmt0sHe
+         OXznvOUe5nF7pUCsYdx8BGYi8zWmePuB74K+TBz1aJvurETw9SsI9Vcaa2op689y5pRh
+         QRyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfNtgusZzj6YSaiR9hJi++TIRThkTbYoijmhpX/vyNYZl7DRwHeL2zdVBjB+IL7KWnYi3VboVaiz02xKs2C+0P@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW57whtv5vNplmUR76KOygxVBh5uA+57ORoJ6ziFc6J+chu4H5
+	aDcdgWhL9liuey+LK4dozEG4pQED5V/ZLPOTej7Yoz8meo8gaMKgzX+PyEaRhLXy9bU=
+X-Gm-Gg: ASbGncsVnTv6Ho6nletygIowBDXb5odyHOgdS+lzw5QOgb8W4eSz1Iipda9InLJpear
+	4UjDhnFOAD/k3e8b/BxEb2j8Z/ZhbjyS1DoQutP+X4N1+yoZwD6vF1k+PeDrbFtcS37wWDwV/YH
+	OpZN37SUmXGehei7trz2q4ZQhZ2DEkNIRpcT1bUM9UN0Q4IRHwfZgzqKG32NIGfwbQnKtoST6h+
+	RS4n2z6i0mNGGgtKMV/OaS+rfUL8khruMqboVIPNhqQ752G30JMEq4IFW+illVlaQjv6z3h/eEx
+	3pBuIE/beBWpjkfDC1mFtkayla/fMeBZrFQ27wjnVoQ23rWFZjAQiibOXsG1bDmaKvM7nNYlWdT
+	ru28uAlRE59OP+UGXaBkUb32I+TA6V/1Nar+SmLR+nBt99kH0imbMLVXp
+X-Google-Smtp-Source: AGHT+IH8EMB15PYxcBuPL2NYgVxhRe138NFMfR7r961S2ZQFsxef2uERidjsotlvIOx9aFYgUCCKjQ==
+X-Received: by 2002:a05:6602:154a:b0:8de:1f2a:8367 with SMTP id ca18e2360f4ac-8de1f490876mr14201839f.19.1758549487477;
+        Mon, 22 Sep 2025 06:58:07 -0700 (PDT)
+Received: from bill-the-cat (fixed-189-203-97-42.totalplay.net. [189.203.97.42])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8d7f8f481bfsm31892439f.24.2025.09.22.06.58.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Sep 2025 06:58:06 -0700 (PDT)
+Date: Mon, 22 Sep 2025 07:58:04 -0600
+From: Tom Rini <trini@konsulko.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH 1/2] scripts/make_fit: Support an initial ramdisk
+Message-ID: <20250922135804.GA124814@bill-the-cat>
+References: <20250919211000.1045267-1-sjg@chromium.org>
+ <9cafbc70-7235-4e49-928c-4d68a57b7d46@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E7czkW5eDIll3KJ9"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEEQ3w=4aKS=p=+q4iC42Va+dMVm017R0Surxff+4R+4RjkgAg@mail.gmail.com>
+In-Reply-To: <9cafbc70-7235-4e49-928c-4d68a57b7d46@pengutronix.de>
+X-Clacks-Overhead: GNU Terry Pratchett
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_065108_246584_4A7FA835 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20250922_065809_074106_432D1ADB 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,97 +101,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 07:04:05PM +0800, yunhui cui wrote:
-> Hi Sudeep,
-> 
-> On Mon, Sep 22, 2025 at 5:01 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
-> >
-> > On Mon, Sep 22, 2025 at 10:18:57AM +0800, yunhui cui wrote:
-> > > Hi Sudeep,
-> > >
-> > > On Fri, Sep 19, 2025 at 10:05 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
-> >
-> > [...]
-> >
-> > > >
-> > > > Just thinking if it makes sense keep acpi_cpu_is_threaded generic without
-> > > > the need for weak definition.
-> > > >
-> > > > Additional note: not sure why you haven't moved this under CONFIG_ARM64/RISCV as
-> > > > done with other code.
-> > > >
-> > > > bool __init acpi_cpu_is_threaded(int cpu)
-> > > > {
-> > > >         int is_threaded = acpi_pptt_cpu_is_thread(cpu);
-> > > >
-> > > >         /*
-> > > >          * if the PPTT doesn't have thread information, check for architecture
-> > > >          * specific fallback if available
-> > > >          */
-> > > >         if (is_threaded < 0)
-> > > >                 is_threaded = arch_cpu_is_threaded();
-> > > >
-> > > >         return !!is_threaded;
-> > > > }
-> > > >
-> > > > Then you can just have the define in
-> > > >
-> > > > #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK)
-> > > >
-> > > > in arch/arm64/include/asm/topology.h
-> > > >
-> > > > and
-> > > >
-> > > > +#ifndef arch_cpu_is_threaded
-> > > > +#define arch_cpu_is_threaded           (0)
-> > > > +#endif
-> > > >
-> > > > in include/linux/arch_topology.h
-> > > >
-> > > > Thoughts ?
-> > >
-> > > If placed in include/linux/arch_topology.h, there is a possibility
-> > > that "arch_cpu_is_threaded" will be redefined.
-> > >
-> >
-> > Why is that a problem ? We want arch to override the default definition
-> > if and when required.
-> 
-> Because include/linux/topology.h first includes linux/arch_topology.h,
-> and then includes asm/topology.h, a warning will be generated during
-> compilation:
-> 
-> In file included from ./include/linux/topology.h:37,
->                  from ./include/linux/gfp.h:8,
->                  from ./include/linux/xarray.h:16,
->                  from ./include/linux/list_lru.h:14,
->                  from ./include/linux/fs.h:14,
->                  from kernel/events/core.c:11:
-> ./arch/arm64/include/asm/topology.h:39: warning:
-> "arch_cpu_is_threaded" redefined
->    39 | #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK)
->       |
-> In file included from ./include/linux/topology.h:30:
-> ./include/linux/arch_topology.h:94: note: this is the location of the
-> previous definition
->    94 | #define arch_cpu_is_threaded()  (0)
-> 
-> Unless #undef arch_cpu_is_threaded is used in arch/arm64/include/asm/topology.h,
-> 
 
-The above way of #undef first should be fine.
+--E7czkW5eDIll3KJ9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> So it's better to place
-> #ifndef arch_cpu_is_threaded
-> #define arch_cpu_is_threaded (0)
-> #endif
-> in include/asm-generic/topology.h.
->
+On Mon, Sep 22, 2025 at 09:14:55AM +0200, Ahmad Fatoum wrote:
+> Hello Simon,
+>=20
+> On 19.09.25 23:09, Simon Glass wrote:
+> > FIT (Flat Image Tree) allows an ramdisk to be included in each
+> > configuration. Add support for this to the script.
+> >=20
+> > This feature is not available via 'make image.fit' since the ramdisk
+> > likely needs to be built separately anyway, e.g. using modules from
+> > the kernel build.
+>=20
+> AFAIK the kernel supports multiple concatenated separately compressed
+> initramfs just fine, so it may still be useful to add a target which
+> builds a cpio with all modules inside and the rest can be then
+> concatenated.
+>=20
+> What do you think?
+>=20
+> > +        fsw.property_string('compression', args.compress)
+>=20
+> compression should be none as the kernel would take of decompression.
+>=20
+> Both U-Boot and barebox should warn about ramdisk compression property
+> that is !=3D "none".
 
-I don't think asm-generic/topology.h is the right place and also you are
-again better on order of inclusion.
+Agreed. In U-Boot we've been handling this correctly since:
 
--- 
-Regards,
-Sudeep
+commit bddd985734653c366c8da073650930fb2e9b5003
+Author: Julius Werner <jwerner@chromium.org>
+Date:   Fri Aug 2 15:52:28 2019 -0700
+
+    fit: Do not automatically decompress ramdisk images
+   =20
+    The Linux ramdisk should always be decompressed by the kernel itself,
+    not by U-Boot. Therefore, the 'compression' node in the FIT image should
+    always be set to "none" for ramdisk images, since the only point of
+    using that node is if you want U-Boot to do the decompression itself.
+   =20
+    Yet some systems populate the node to the compression algorithm used by
+    the kernel instead. This used to be ignored, but now that we support
+    decompression of all image types it becomes a problem. Since ramdisks
+    should never be decompressed by U-Boot anyway, this patch adds a special
+    exception for them to avoid these issues. Still, setting the
+    'compression' node like that is wrong in the first place, so we still
+    want to print out a warning so that third-party distributions doing this
+    can notice and fix it.
+   =20
+    Signed-off-by: Julius Werner <jwerner@chromium.org>
+    Reviewed-by: Heiko Schocher <hs@denx.de>
+    Tested-by: Heiko Schocher <hs@denx.de>
+    Reviewed-by: Simon Goldschmidt <simon.k.r.goldschmidt@gmail.com>
+
+--=20
+Tom
+
+--E7czkW5eDIll3KJ9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTzzqh0PWDgGS+bTHor4qD1Cr/kCgUCaNFV6AAKCRAr4qD1Cr/k
+CnGjAQD/vmuAq3ofEv1kMg56vhno1TytM3a+z+O5XKpKGYMIWQD/QQs0y0YpQT9i
+kJycivHT7DiRwR+v9g47p3ibeMyePQo=
+=Fyyb
+-----END PGP SIGNATURE-----
+
+--E7czkW5eDIll3KJ9--
 
