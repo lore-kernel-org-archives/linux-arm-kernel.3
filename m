@@ -4,176 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDBD7CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBB6CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WXWmnOLMvScYacHVHM+C0xLS1dQfF9BGlSKm2ZqyxNY=; b=n/otZM4X/2f0WXgtHUyCmROqBn
-	72hogCAhDmFYSM3Z4pc4yf8d2vTQSkKh277yGLuAclstbm5ED0Op1hG91Z9ZGmHnBTA6g69zvmQxP
-	ScWSU81tCqQiE2sNPANAMfnKBr2FGBBueCmo4HPnAVyyQEd22Sq2woZvuacxOuDJ3kc1IDEFBwnpE
-	5aP2JheKToXpFmsB2WopQ3ArBwgu+4GkFRu24gW4CWGaY47/AGun8UMcRW+IFo2dBfN5QvMoJvhSX
-	A0qxGQfvl+eDwRzgU//HjFfW0sRDMPNaetE6i9S3AN44+GH7Z4zsmKxjVtH/2PFGDep6aHLDEoozy
-	CQInwzKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=; b=UZ98CqMrqpFPW8HqMf+jkMYhUC
+	7Oj4fIDuwwJ0VYDt8Y2uaaCcwBsePbudg0KoVQ1gn5JvTlGzwcbIIYLMct75OBjgqil86t4hz3+N5
+	GsJO6ZscDwnd9PTLdcJEHKtUn7FdN/AvGEZQoPz70PNDC1M3efkMZrm3MreLc7rmGdUNnc5rOoDQt
+	4CfieGOjn4yxtPZElGy1acqR2xXTAcbN+irCFPMIZVjEDUbsWN8BrCa2KR+kjroe1Bh5yEpM2Ftu7
+	twnhM3daxjDaXkPPiF7KLBYkg+PFLtov9Ywwc0FMUrcVFWphO3QIt6thBCHITmK87sJOL9bice750
+	dBP3BLGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W8m-00000008aqG-1ejV;
-	Mon, 22 Sep 2025 02:18:56 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1v0W9A-00000008ay3-0tKD;
+	Mon, 22 Sep 2025 02:19:20 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W8i-00000008api-2TuN
+	id 1v0W93-00000008av6-0wFC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 02:18:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ciJc/FX/5eNl9qjZtJlWfQ8D5yNrHOXKa89Fgr8If3L6Z6HQrht6vYmtlgdI6N9NR523AjCgn0AewRXuUtsO19CBfE6WIm+C/0YNTX/xI6rZNQ54mXfpu0kx9gQAM0TV5/tKFUUXygmscIZ5a67jVA4urGdF98PuayIsnrh1xGDJ0tVNeCxWdMXYCBFiU+zdmW0ZR6lD3GlLilmwh8AsI0ikJW9wdVBS83XnwP4wS27zI/m8hYOaQlv/s89vggTVq4TWZNKHwvMSLzauDaOg1q9fyMn+erCPVYVUaXAVCM0AF2+iB04f4zuwJ8RyM8/rJtCULbphM7ZB3RM1346KNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WXWmnOLMvScYacHVHM+C0xLS1dQfF9BGlSKm2ZqyxNY=;
- b=kKzy2LD8CRXpqW6hXEux6rx/1wIAQG6paSIw5YBGY6J2ynWMfrFfejQh0+vWr806sXws181axgKxyVAogIfk0/BWZjPLhadpBVt4sXCZBujRdDHiuvVXjxNKKxbapZ55R5zaUWweD/Ho2g9bX64F/fMBIyD7bsffeg0A6c8wOoHq/bOcgMBc2QJi6aKpUpL1UXFJrxhrRo9n8Drrj1pQVMdiiOgWgAg9kOO173MmnkHGKGeC8ETJpDGtE/RzV4cIJTpUasF8wmqHpFgqGrciAiXTCfelJfsGKGSmclvruDeJ9ZyGWmzbzpfZ7sRug0DZvMaL/1Ob2fyO/CKB6zwrgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WXWmnOLMvScYacHVHM+C0xLS1dQfF9BGlSKm2ZqyxNY=;
- b=SRwTvReb7xvOPAdVI02LgiaUA/OS7beCGJw0iZUnq6JxFH+Zfv9xV43C3AKNOerkCd5+JgTz1S/oLC/twbyS6uN/BgqVn5EM+AEgElyupCDO2vo9uLOSi5h//+NGNHK9vky87ekAb0WA65bWkDj5QHUFA6VFMY+9rfIPHU7AuYpHOcjzOsHUxpii2sKJ+O5YC2TxTxZhcJ3tCe2e1B3P3cbg+rqKxQl4fb42I3c/XtH0HbtKoV3lnDEoKYSJbbbOsjGFLzLXc7ClaSxoCN9/vVDosNk8o2+GZ9tfVXvohCBe4EWUTFbDHMxoqhRInaJVvn5yhrTXGucXS2fMILe0LA==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PAXPR04MB8622.eurprd04.prod.outlook.com (2603:10a6:102:219::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
- 2025 02:18:47 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
- 02:18:47 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Peter Chen <peter.chen@kernel.org>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-CC: "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Xu Yang <xu.yang_2@nxp.com>
-Subject: RE: [PATCH 0/5] pmdomain: core: Introduce device_set_out_band_wakeup
- and use it in usb
-Thread-Topic: [PATCH 0/5] pmdomain: core: Introduce device_set_out_band_wakeup
- and use it in usb
-Thread-Index: AQHcK2agmO0lZ1N1k0G8R+GycH4N97Sed2yA
-Date: Mon, 22 Sep 2025 02:18:47 +0000
-Message-ID: <PAXPR04MB8459B59B752E5D1F4D7100C58812A@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250922-pm-v4-v1-0-7ed2e98065ad@nxp.com>
-In-Reply-To: <20250922-pm-v4-v1-0-7ed2e98065ad@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PAXPR04MB8622:EE_
-x-ms-office365-filtering-correlation-id: bd2002d0-e442-43ae-d401-08ddf97e5cb5
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|921020|13003099007|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?ZG1VTGlHMS9zM0psUlRaVUl5RzFWRDdRejVjODNYSnR0UVlLZ3Y5OGpRNlB5?=
- =?utf-8?B?YjZKU0tWYVl1cm1HYWNTZWQ5SjhUZUova1pIOTRZQkhLTDhkODVLR2VrUWVt?=
- =?utf-8?B?RHJ2UkpCQWJ5V1pGcmo2T0RqZkpFOGZxZ3ovN0Q5eEt1aE16RVZxSmRvc1dr?=
- =?utf-8?B?ZTdidGkxaStQaHhva05Qb2JvYjJvRzQwY3hsRHZna1p3UUI5emVrSUVTeVRT?=
- =?utf-8?B?RWtNNVZKQ1ZiT09acEF5ZjRBWmsrdlhybkdUZkVBQ09yTUo1ejhaQUZpcEVQ?=
- =?utf-8?B?M3Y4QmpDQ1YvTXBmcFU2OEVMUkRaZWRaV2krNHA5ZkRYZDNhRXlVdmppWG4r?=
- =?utf-8?B?M0ZvNHhWVnV3eS9iRk1tRjlweHAyWXN3aFVIdHpITzVkZTVCakI0VjVkMCsv?=
- =?utf-8?B?dlN5OXVScEF2VUpsaVFvMi9Kd1BYRlZzbmhZQTJ6Rys4ODFYL0xrSmdIRHUy?=
- =?utf-8?B?SWR5U2x5Uzg4VktPaTNWNmZJMkNNTkpEdDIxYWZLZ0FmZmtJbGUzMlJrZ0l2?=
- =?utf-8?B?bmJUUHE3eERMS2VHcXp2K1ZPWkNWcllwMVFTUTl6Ulp2QlZ1a2dTRTM2RFpT?=
- =?utf-8?B?c3BQb01DU28wbktEcWVFU09jckR3bFRRR1o5cmV5RWdCYUZqSE80a3VLVWRE?=
- =?utf-8?B?Z2x4dVJLQTczQTc1ZkxPRy9uRTNBZGM1TEN0ZTQza0V6WERLQUxEZ0R5SlR5?=
- =?utf-8?B?b3U0SEIwaFE2YXJHZEhGVnNKYjJvSFQ2amR1cjRVblh3djFMMWJNd205YmZE?=
- =?utf-8?B?WkxmZWR2enlNRXRlaXNyYVRwWVZUQlpCN082enJIYVVBODdUd3JVWVI1SDM5?=
- =?utf-8?B?UHdOVjRBcGVROWMrckhzbTEweUNhdTd5OHprY09vSHRDa3RmdnVDeUQrcEcr?=
- =?utf-8?B?WG83Z1ArdTdUTTNGSnRyLzJpVjNXZzA2NnpvNDdvYXliVk0vZFdMV29Ja2RF?=
- =?utf-8?B?RjU4clJxNHRaUDhZL0hlU1E3U2JUVzFjS2N5dDdtVmZSNXYvaytnR2daNExr?=
- =?utf-8?B?dWN0SVBNNGlxektJQ2IyQUNaT2FVMCtJUjFDT0VicXNWT1ltZWFuTHMwUGd2?=
- =?utf-8?B?dWUrbktPd3VRc3ozMjU5aXZyUFMxcUMyNHltOWNnYU9JdnAwZExGZ3ZSSitS?=
- =?utf-8?B?RjBWUG9BSW16SXFBcEVNOEkyVGNiak1xUnhEa3lFdml5RW1EOXE5SjdNaFox?=
- =?utf-8?B?ck5CNm5ZVDlsaHh1bkhBTTVpczZnY3lueTR4VGpBN3A5M0M0RzJFUTJtMExI?=
- =?utf-8?B?MWNVbjE5RHJqNzdxeWpiTlN3YmhaekNwOTJWbGtvRlRSRnBqZ3lOMktYdlFi?=
- =?utf-8?B?ZnRNQ0x4bTExL1lWM3UwQ05tQ1JlUncxZzNJRHZmekFCV1Ixd3lUZ01zYTFO?=
- =?utf-8?B?QzdjTEc0cHhHakpNZFdranE2aGdSQTB3dUc1OWFtRXRmcHFKcE9TNzZLM1hx?=
- =?utf-8?B?TDJERFUzOEcrYjhyS2xUNEduWUNURkl0MlhLczZ0ZTRFVDJYMjV5eHRwL3BS?=
- =?utf-8?B?NnpEbzB1OW9hZE9SM3R6Zm1kRUd4ZWQwaUFOSFVRMkkvVWRaQ3NDTUdwTGJP?=
- =?utf-8?B?THc2QnhFdDRqajB4WXBvemJuVlhhTndzbER5Y3dScTFGelpLNU5TMlM2QTY1?=
- =?utf-8?B?bmdZUVh6Njkwc1JHSzZFK3k1bThjOGxwZW10eVBmZnE4V2Z1K0lMMkd5eVB4?=
- =?utf-8?B?ZVdVc1RrbzVzdDlZeUp2R09YSzArak5mdXpidVlMUzZROGZzaFh2YkRlck03?=
- =?utf-8?B?V3FYRVlpWWRpdW1vcnV3N2tvVDFnOXBrOTlsVnhtVEJEY1BEbFUxYTVFMEov?=
- =?utf-8?B?dVdNZFRiMXdadnZqZlVXdDV5S0N5MWlyaTlQYzNlZWVRYzlYNlZaRjZmaEJK?=
- =?utf-8?B?NE1FcTJqRTB4MnVhUXN0d1R0TDVmNnd0N3NUOURsTHdSd1RzQnVwd0Z2ZVRt?=
- =?utf-8?B?ZlVYcWZlVncxWll0V1l4TzgxemJNZ0hIVTg2QWJLaUhPTnhWWVNDcUZLaEU0?=
- =?utf-8?B?Mi9rVGx2SEdnPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(921020)(13003099007)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SW03VndJNzNWMEhDSGdwczRNUDJDa1dPZGdXUi9hVVlrajRnTDI1Sk9YcWFa?=
- =?utf-8?B?QVo1cEMwaTQ4SEl4dUExQzZ5YTFPQ0JacGh4Uk5USVFCVmw0VUhLS09QUHho?=
- =?utf-8?B?eUJnWmxUeVoxTG9haVZuMHA3SFhmQ3V2VzhXZlBPeHdEUWhDWG5pZjhCK3Mz?=
- =?utf-8?B?VVAwdUpHK2hrdEc3bVR5UTZlam52Y1JGVjExNG5rTFBMdDUzZm5wMzJHeXQ3?=
- =?utf-8?B?U3Y1Q0F4b0lBdFFGQ0VrSjlyZUlZeExxRVBPVDBzSUlSMHNkU2ZDY3RSSE5m?=
- =?utf-8?B?Uk94d3BkN09ud3VvcGIwVVFUUmg4TmpoczN6V1RXMjVGVjVYRXRTRmsxdjRB?=
- =?utf-8?B?NGpHUVhXRm1aZitFbm1VdnhmMHlIdGVBYWRBTWZMQW80M04rK3NwZlFtUGZI?=
- =?utf-8?B?TFNFanZZU0ZvU2hMQzJCcEZsTUR1TGdQSjhkSkg5eUlFc3V5SXVCUnJ4eGNC?=
- =?utf-8?B?ZU1VekdxWXc3Q1lRTDZ4UjZ0SUFHUjR3M1ROMWhEdXZmZXVkanJHdWJFTmFq?=
- =?utf-8?B?TlA3RnBPZUMyZmQrV3N3TE9vV2daQzZmejZNOVlRMEpxUmJZSkt6blU1d3FR?=
- =?utf-8?B?akFRdUxTYVZpTzRkUjJ4ODA5Nkl4YjFiZ3FUZnlvMGRPVHFKdXdma1c5YXBh?=
- =?utf-8?B?Ni9YVG93ZlRzOGxQckdDcW1GaXZmSlFPdEEzcm5TNDIxOEt1Z1ViZHdEcHkv?=
- =?utf-8?B?TFIvRi9zY3NlZktSb0hiQ2hoT29CY1dmRnU0VFRtUW9SaGFML1hSRmFZNGpv?=
- =?utf-8?B?aUtSQVI0RENkOTBSdnE0U3BWNG96ZHFFYnJmUnhhNkZwS3V1ays4UnR1S0tK?=
- =?utf-8?B?R1ZoaEJ1YUNBZkUrMmNZSmRJWTRsYks5MUd1ZkFtUzVHSk9Oc2VLVmgvaDJt?=
- =?utf-8?B?UUJDcmJzS3NRYU5Qc00vQ1hWUGxGLzkveG1lUnRjNnFIZyttM1VWZUVmd3FB?=
- =?utf-8?B?TE5VbXRwNGF0WUtSOVFvYVFFeVdLNVFQTjMxV2xsTzZ5UU9JcDZNODRsNWl4?=
- =?utf-8?B?blFxdmdRcDIxRjU0VHpxVFk3Zm8yUlVxM2p4RDZOQ3BYVHNmQ3d4K0FlQ2wy?=
- =?utf-8?B?bU03T2tpRTJyRVlJcWNXWWxtL1R2ZDBraVk0U0VReFlIK2kzUEY1bUhHTDF5?=
- =?utf-8?B?a3c4ZG4xU1NpSVlZdXRiZGxMM3NvMzhHTVBtYU1pM0JvNEdUalIxd2V6eEhX?=
- =?utf-8?B?K3lKSWxlZndZa2h0eEZJMU4xQzZKN2hCeUFjQTlURzJxRkt2Njl6ZnYxa3Fq?=
- =?utf-8?B?N3hvUEV2THduWXlvZE5vKzR5R0s4dlE4MnZzT3JpcE5rWjdJVkdNeXIrT2pJ?=
- =?utf-8?B?M2M4djhjcVlBcFNsN0xITHc4SkdNaHFOaTNrdTVCM2pOemdHeTdCQUtDTW1s?=
- =?utf-8?B?bThaUXAwVU5VZ3UvTkNqa29WMDFQdDZQVXVkRVJteUFSNmc0YUtWRzdKQnhi?=
- =?utf-8?B?ZVZlUUVqbGtOdU5Cd3QyMXBmZkZ4NWNuMVpBMGpyRjNJOFpSWU81dm54Ym1q?=
- =?utf-8?B?YlU5RCt3Zy85dVN0eHI3L0pid0J5NlVZSm0vbG55cFJ6MEgxSUJIUmo4Yk56?=
- =?utf-8?B?RERnNXJvRVFGQWxxdkFJTU0vK296eVAyeGRwUWVLRVR0djE0cS9tblFBSHNC?=
- =?utf-8?B?VWh5R3FRRFV2R3RxUEo4Y3Y5d2xsKzljMEozQlorZjZyb3BkNXZabGJYY2h2?=
- =?utf-8?B?Z2d1dkxDSGpNMzRwcWt5Z0tPRkRMTkJjZERKcnRNQStqQnNLUWNPcFhQeEVN?=
- =?utf-8?B?ZjJjRzhiY0pBWWJPajRBcHp1S3AySmJWR0FEalVaVEVHdnoxYWZ3K01QaEVv?=
- =?utf-8?B?UXlOcGFhRU84RTd4VzlZVWNiOG53QWZhQi8wZE1ySXJJdzE4SUlRdERwWjhn?=
- =?utf-8?B?bzE2UnBMbU1LSFYrM0o3dDFtWjJUN1BaZDNoMkVYSm8xY05FSlRXK3QrQlZC?=
- =?utf-8?B?Y21CcTREZVhlTW5iS1RrTlNlV3ZlY0FRNi9TbWJGR0FrbmROZiszOFRNRVdC?=
- =?utf-8?B?SUN6Nm03MUNtbW9YNjlJcjJqbmpZeFVBcWplQTBaNlFxa20vSURXdndxMm1V?=
- =?utf-8?B?SGYydldYSStKU25qWlRJRFROKzNERDJGakRaZjI4UVZVMit1amppUElkZjNv?=
- =?utf-8?Q?HWGY=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 22 Sep 2025 02:19:19 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-341f608661aso355283fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 19:19:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758507548; x=1759112348; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=;
+        b=fLhHpObsqRwG440AYHxGiUldAowp2iXX+VDvp8IENQOocT/U7y0SEWDEX7dAcyZBqX
+         /UdkloQYxI66OHbngJ/FINL9FwiFQ3MV3GIrnxzR40xzmxzkd6UZTBTSrVtFSObO51eg
+         m22Cowiq7v9JGmEoh+C99By11tY3bl6+QWYkfEnAlNDm7gsCzSGiwZ2OSVKREeu0l645
+         QVDdNBaFD/3yXQdZlpCu8+P1Hkuycj11G1wHuSm+ySx86x3d08JiiUgtx5y2RHv+0k6L
+         hsQ/SNmtJPOfz+quvWKNYh8nKiGuBFxStBKAr2hLjfZalAFtkBUulY0xyugF06K9U5GA
+         Z1YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758507548; x=1759112348;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=;
+        b=tKD0ydxTGh/t5nWkXhEwijxAuH9yp6LZFzpkugiZCn9dEYJrei9W9WUnGuu7Z2awxe
+         0EiU0PPhDyCKS7oYz2zx2bAltvhuQllOQTKbmWxAE6a4VW0+4w6mq2FpAMyMUmv3EAas
+         9J/az0RlM223K9/txUHILNjdJ/T5I8lUx4lxh+MSr9ZVPE0npnENX7pfoPxs5dmQMG8A
+         bCPwFVqJwF6eSYRNFdfpKEU0QW4A7Xn+Qv+cDojp0B6KG0lZnliwilEDXnDzeYsTmHF7
+         yyTeWww9V8IzAzN4BEkY9QhE6y/EjsNInYnlcGJmg4FjYfz3tGYKABkhg6DfEwlmfcB5
+         RNTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWVh+dD67wahfk6obMtIXs76qHi0mNsRc9uA7Z72w9qJxTx8pBI99rdURhKDHaVn5eA2WxZ7Q4DRn1Q6EoIsQH3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1HA19gFv7aj6l+QgZeXuBrkdwRyT87IV/4cYPIrMIngl5Nv+r
+	t8yR9NQN6NmjU9FKgph5ALYtin3Bo/PeSauL5pFPOazNdBHGvK6gk8O/gDsngvMgr/WRxFOvDFW
+	9r9D8/kF9oU3CXQY6apEvfr+A1Re7FEiT1mP5N1dK4g==
+X-Gm-Gg: ASbGnct9duMpl0zdR6cxf6pvq8uHsnCyCyAiA2PkwNK0ai66Eg8wPZSCya27CX9v4cE
+	cbV7RqDKu9W1p5YBXkjODgkvAKtvV0m8kosCikxP7riP4Lu3dD5sFSjOeitDesIDhuMN65lE1xz
+	vBT1P2ht8dQuiP3A3AKQ3M6b8EVYpPpNxGjdhnukskaPt2FSa+lYAvaiCntamdgk0DKpiZ7FDME
+	elMSMZ7BlHz7g==
+X-Google-Smtp-Source: AGHT+IESga7w6Wf99SnDt7tdMXCevhJ5p2R1RhYk6MWzPIeMjshgBHSu9yatJ4O8NG1AQJuCdRaSODMV+K4WZ7Dfn8w=
+X-Received: by 2002:a05:6870:d0c4:b0:344:5201:15a4 with SMTP id
+ 586e51a60fabf-34452011f45mr361519fac.16.1758507548141; Sun, 21 Sep 2025
+ 19:19:08 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd2002d0-e442-43ae-d401-08ddf97e5cb5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Sep 2025 02:18:47.3057
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: S2cHkF8ksOyqQXnQEl9e2M/5J7eHKSHJIHowPt0/li6pKU+dGvyLvVC0O/NDwrwPnNxJkXAxNdhJj0TR+C2D8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8622
+References: <20250919085918.5442-1-cuiyunhui@bytedance.com>
+ <20250919085918.5442-2-cuiyunhui@bytedance.com> <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
+In-Reply-To: <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 22 Sep 2025 10:18:57 +0800
+X-Gm-Features: AS18NWCOurZMvR8qBP_HWSnFuyzm-oFke02otvNlqyB8VgAFda0Z_pS9f2f5cAo
+Message-ID: <CAEEQ3wkRoX5Y5xQu22kVCFxEy8fgcUxKHEm=9Bpg7g-Np8b-SA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 1/1] arch_topology: move
+ parse_acpi_topology() to common code
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, gregkh@linuxfoundation.org, 
+	rafael@kernel.org, dakr@kernel.org, beata.michalska@arm.com, 
+	ptsm@linux.microsoft.com, sumitg@nvidia.com, yangyicong@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_191852_779639_E9522075 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20250921_191913_389950_594D9C46 
+X-CRM114-Status: GOOD (  33.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,77 +99,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-UGxlYXNlIGlnbm9yZSB0aGlzIHBhdGNoc2V0LiAgVjQgd2FzIG1pc3NlZCBpbiBzdWJqZWN0LCAN
-Ckkgd2lsbCBhZGQgVjQgYW5kIHJlc2VuZC4NCg0KVGhhbmtzLA0KUGVuZy4NCg0KPiBTdWJqZWN0
-OiBbUEFUQ0ggMC81XSBwbWRvbWFpbjogY29yZTogSW50cm9kdWNlDQo+IGRldmljZV9zZXRfb3V0
-X2JhbmRfd2FrZXVwIGFuZCB1c2UgaXQgaW4gdXNiDQo+IA0KPiBUbyBpLk1YOTUsIFVTQjIgYW5k
-IFVTQjMgYXJlIGluIEhTSU9NSVggZG9tYWluLCBidXQgdGhlcmUgaXMgYWx3YXlzDQo+IG9uIGxv
-Z2ljIHRvIG1ha2UgVVNCMiBhbmQgVVNCMyBoYXMgd2FrZXVwIGNhcGFiaWxpdHkgd2hlbiBIU0lP
-TUlYDQo+IHBvd2VyIGRvbWFpbiBpcyBpbiBvZmYgc3RhdGUuIFNvIHdoZW4gaW4gc3lzdGVtLXN1
-c3BlbmQgc3RhdGUsDQo+IFVTQjIvVVNCMyBjb3VsZCB3YWtldXAgdGhlIHN5c3RlbSBldmVuIHRo
-ZSBVU0IyL1VTQjMgSFNJT01JWA0KPiBwb3dlciBkb21haW4gaXMgdHVybmVkIG9mZi4gVGhpcyBt
-ZWFucyBVU0IyL1VTQjMgaGFzIG91dC1vZi1iYW5kDQo+IHdha2V1cCBjYXBhYmlsaXR5IHRvIHdh
-a2V1cCBzeXN0ZW0gZnJvbSBzdXNwZW5kZWQgc3RhdGUuDQo+IA0KPiBXaXRob3V0IHRoaXMgcGF0
-Y2hzZXQsIGlmIFVTQjIvVVNCMyBhcmUgY29uZmlndXJlZCB3aXRoIHdha2V1cA0KPiBlbmFibGVk
-LCB0aGUgSFNJT01JWCBwb3dlciBkb21haW4gd2lsbCBub3QgYmUgdHVybmVkIG9mZi4gVGhpcyBs
-ZWFkcw0KPiB0byBtb3JlIHBvd2VyIGNvbnN1bWVkIGluIHN5c3RlbSBzdXNwZW5kIHN0YXRlLg0K
-PiANCj4gVGhpcyBwYXRjaHNldCBpbnRyb2R1Y2VzIGRldmljZV9zZXRfb3V0X2JhbmRfd2FrZXVw
-IGFuZA0KPiBkZXZpY2Vfb3V0X2JhbmRfd2FrZXVwIHR3byBBUElzIHRvIHNldCBvdXQtb2YtYmFu
-ZCBhbmQgcXVlcnkgdGhlDQo+IGZsYWcuDQo+IEluIGdlbnBkX2ZpbmlzaF9zdXNwZW5kLCB0aGVy
-ZSBpcyBhIGNoZWNrLCBpZiBvdXQtb2YtYmFuZCBpcyBzZXQsIGl0IHdpbGwNCj4gY29udGludWUg
-dG8gdHVybiBvZmYgdGhlIHBvd2VyIGRvbWFpbi4gSW4gZ2VucGQgcmVzdW1lIGZsb3csIHRoZXJl
-IGlzDQo+IGEgc2ltaWxhciBjaGVjayB0byB0dXJuIG9uIHRoZSBwb3dlciBkb21haW4uDQo+IA0K
-PiBQYXRjaCAxLDIgaW50cm9kdWNlcyBkZXZpY2Vfc2V0X291dF9iYW5kX3dha2V1cCBhbmQNCj4g
-ZGV2aWNlX291dF9iYW5kX3dha2V1cCBQYXRjaCAzIGFuZCA0IGFyZSBkcml2ZXJzIGNoYW5nZXMg
-dG8gdXNlDQo+IGRldmljZV9vdXRfYmFuZF93YWtldXANCj4gDQo+IE1vcmUgb2xkIGRpc2N1c3Np
-b25zOg0KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1wbS8yMDI1MDMxMTA4MzIzOS4z
-MzM2NDM5LTEtDQo+IHBlbmcuZmFuQG9zcy5ueHAuY29tLw0KPiANCj4gVGhpcyBpcyBwaWNrIHVw
-IG9mIFsxXQ0KPiBUaGlzIFYyIHBhdGNoc2V0DQo+IC0gaW5jbHVkZXMgdXNiIGRyaXZlciBjaGFu
-Z2VzIHRvIGdpdmUgcGVvcGxlIGEgZnVsbCBwaWN0dXJlIG9uIGhvdyBpdCBpcw0KPiB1c2VkLg0K
-PiAtIFJlYmFzZWQgbmV4dC0yMDI1MDcyOSB0byByZXNvbHZlIGNvbmZsaWN0cw0KPiANCj4gWzFd
-aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcG0vMjAyNTAzMTEwODMyMzkuMzMzNjQzOS0x
-LQ0KPiBwZW5nLmZhbkBvc3MubnhwLmNvbS8NCj4gDQo+IFRvOiBSYWZhZWwgSi4gV3lzb2NraSA8
-cmFmYWVsQGtlcm5lbC5vcmc+DQo+IFRvOiBQYXZlbCBNYWNoZWsgPHBhdmVsQGtlcm5lbC5vcmc+
-DQo+IFRvOiBMZW4gQnJvd24gPGxlbmJAa2VybmVsLm9yZz4NCj4gVG86IEdyZWcgS3JvYWgtSGFy
-dG1hbiA8Z3JlZ2toQGxpbnV4Zm91bmRhdGlvbi5vcmc+DQo+IFRvOiBEYW5pbG8gS3J1bW1yaWNo
-IDxkYWtyQGtlcm5lbC5vcmc+DQo+IFRvOiBVbGYgSGFuc3NvbiA8dWxmLmhhbnNzb25AbGluYXJv
-Lm9yZz4NCj4gVG86IFBldGVyIENoZW4gPHBldGVyLmNoZW5Aa2VybmVsLm9yZz4NCj4gVG86IFNo
-YXduIEd1byA8c2hhd25ndW9Aa2VybmVsLm9yZz4NCj4gVG86IFNhc2NoYSBIYXVlciA8cy5oYXVl
-ckBwZW5ndXRyb25peC5kZT4NCj4gVG86IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtIDxrZXJuZWxA
-cGVuZ3V0cm9uaXguZGU+DQo+IFRvOiBGYWJpbyBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+
-DQo+IFRvOiBUaGluaCBOZ3V5ZW4gPFRoaW5oLk5ndXllbkBzeW5vcHN5cy5jb20+DQo+IENjOiBs
-aW51eC1wbUB2Z2VyLmtlcm5lbC5vcmcNCj4gQ2M6IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5v
-cmcNCj4gQ2M6IGxpbnV4LXVzYkB2Z2VyLmtlcm5lbC5vcmcNCj4gQ2M6IGlteEBsaXN0cy5saW51
-eC5kZXYNCj4gQ2M6IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZw0KPiBTaWdu
-ZWQtb2ZmLWJ5OiBQZW5nIEZhbiA8cGVuZy5mYW5AbnhwLmNvbT4NCj4gDQo+IENoYW5nZXMgaW4g
-djQ6DQo+IC0gU3BsaXQgZGV2aWNlX3NldF9vdXRfYmFuZF93YWtldXAgQVBJIGFuZCBwbWRvbWFp
-biBjaGFuZ2VzIGludG8NCj4gcGF0Y2ggMQ0KPiAgIGFuZCAyIGFuZCBjbGVhciB0aGUgZmxhZyBp
-biBkZXZpY2VfcHJlcGFyZSAoZnJvbSBVbGYpDQo+IC0gQWRkIFItYiBpbiBwYXRjaCAyDQo+IC0g
-TW92ZSB0aGUgY2FsbCBvZiBkZXZpY2Vfc2V0X291dF9iYW5kX3dha2V1cCB0byBzeXN0ZW0gc3Vz
-cGVuZA0KPiAgIGNhbGxiYWNrIGluIHBhdGNoIDMgYW5kIDQuIChmcm9tIFVsZikNCj4gLSBGb3Ig
-cGF0Y2ggMyw0LCBJIHN0aWxsIGtlZXAgdGhlIFRhZ3MsIHNpbmNlIGNvbXBhcmVkIHdpdGggVjMs
-IGl0IGlzIHF1aXRlDQo+ICAgc21hbGwgY2hhbmdlcy4NCj4gLSBMaW5rIHRvIHYzOiBodHRwczov
-L2xvcmUua2VybmVsLm9yZy9yLzIwMjUwOTAyLXBtLXYzLTAtDQo+IGZmYWRiYjQ1NGNkY0BueHAu
-Y29tDQo+IA0KPiBDaGFuZ2VzIGluIHYzOg0KPiAtIEFkZCBhIG5ldyBwYXRjaCBmcm9tIFh1IFlh
-bmcgdG8gZGV0YWNoIHBvd2VyIGRvbWFpbiBmb3IgY2kgaGRyYw0KPiAtIEFkZCBBLWIgZm9yIHBh
-dGNoIDQNCj4gLSBMaW5rIHRvIHYyOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwODAx
-LXBtLXYyLTAtDQo+IDk3YzhmYjJhNDMzY0BueHAuY29tDQo+IA0KPiAtLS0NCj4gUGVuZyBGYW4g
-KDQpOg0KPiAgICAgICBQTTogd2FrZXVwOiBBZGQgb3V0LW9mLWJhbmQgc3lzdGVtIHdha2V1cCBz
-dXBwb3J0IGZvciBkZXZpY2VzDQo+ICAgICAgIFBNOiBkb21haW5zOiBBbGxvdyBwb3dlci1vZmYg
-Zm9yIG91dC1vZi1iYW5kIHdha2V1cC1jYXBhYmxlDQo+IGRldmljZXMNCj4gICAgICAgdXNiOiBj
-aGlwaWRlYTogY2lfaGRyY19pbXg6IFNldCBvdXQgb2YgYmFuZCB3YWtldXAgZm9yIGkuTVg5NQ0K
-PiAgICAgICB1c2I6IGR3YzM6IGlteDhtcDogU2V0IG91dCBvZiBiYW5kIHdha2V1cCBmb3IgaS5N
-WDk1DQo+IA0KPiBYdSBZYW5nICgxKToNCj4gICAgICAgdXNiOiBjaGlwaWRlYTogY29yZTogZGV0
-YWNoIHBvd2VyIGRvbWFpbiBmb3IgY2lfaGRyYyBwbGF0Zm9ybQ0KPiBkZXZpY2UNCj4gDQo+ICBk
-cml2ZXJzL2Jhc2UvcG93ZXIvbWFpbi5jICAgICAgICAgIHwgIDEgKw0KPiAgZHJpdmVycy9wbWRv
-bWFpbi9jb3JlLmMgICAgICAgICAgICB8ICA2ICsrKystLQ0KPiAgZHJpdmVycy91c2IvY2hpcGlk
-ZWEvY2lfaGRyY19pbXguYyB8IDExICsrKysrKysrKystDQo+ICBkcml2ZXJzL3VzYi9jaGlwaWRl
-YS9jb3JlLmMgICAgICAgIHwgIDMgKysrDQo+ICBkcml2ZXJzL3VzYi9kd2MzL2R3YzMtaW14OG1w
-LmMgICAgIHwgIDkgKysrKysrKy0tDQo+ICBpbmNsdWRlL2xpbnV4L3BtLmggICAgICAgICAgICAg
-ICAgIHwgIDEgKw0KPiAgaW5jbHVkZS9saW51eC9wbV93YWtldXAuaCAgICAgICAgICB8IDE3ICsr
-KysrKysrKysrKysrKysrDQo+ICBpbmNsdWRlL2xpbnV4L3VzYi9jaGlwaWRlYS5oICAgICAgIHwg
-IDEgKw0KPiAgOCBmaWxlcyBjaGFuZ2VkLCA0NCBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygt
-KQ0KPiAtLS0NCj4gYmFzZS1jb21taXQ6IDhmN2Y4YjFiM2Y0YzYxM2RkODg2ZjUzZjc2OGY4Mjgx
-NmI0MWVhYTMNCj4gY2hhbmdlLWlkOiAyMDI1MDkxOS1wbS12NC0xODc5NTY4ZGU1MDANCj4gDQo+
-IEJlc3QgcmVnYXJkcywNCj4gLS0NCj4gUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+DQoNCg==
+Hi Sudeep,
+
+On Fri, Sep 19, 2025 at 10:05=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com=
+> wrote:
+>
+> On Fri, Sep 19, 2025 at 04:59:18PM +0800, Yunhui Cui wrote:
+> > Currently, RISC-V lacks arch-specific registers for CPU topology
+> > properties and must get them from ACPI. Thus, parse_acpi_topology()
+> > is moved from arm64/ to drivers/ for RISC-V reuse.
+> >
+> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > ---
+> >  arch/arm64/kernel/topology.c  | 87 +---------------------------------
+> >  drivers/base/arch_topology.c  | 89 ++++++++++++++++++++++++++++++++++-
+> >  include/linux/arch_topology.h |  1 +
+> >  3 files changed, 90 insertions(+), 87 deletions(-)
+> >
+> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.=
+c
+> > index 5d07ee85bdae4..55650db53b526 100644
+> > --- a/arch/arm64/kernel/topology.c
+> > +++ b/arch/arm64/kernel/topology.c
+> > @@ -26,7 +26,7 @@
+> >  #include <asm/topology.h>
+> >
+> >  #ifdef CONFIG_ACPI
+> > -static bool __init acpi_cpu_is_threaded(int cpu)
+> > +bool __init acpi_cpu_is_threaded(int cpu)
+> >  {
+> >       int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> >
+> > @@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+> >
+> >       return !!is_threaded;
+> >  }
+> > -
+> > -struct cpu_smt_info {
+> > -     unsigned int thread_num;
+> > -     int core_id;
+> > -};
+> > -
+> > -/*
+> > - * Propagate the topology information of the processor_topology_node t=
+ree to the
+> > - * cpu_topology array.
+> > - */
+> > -int __init parse_acpi_topology(void)
+> > -{
+> > -     unsigned int max_smt_thread_num =3D 1;
+> > -     struct cpu_smt_info *entry;
+> > -     struct xarray hetero_cpu;
+> > -     unsigned long hetero_id;
+> > -     int cpu, topology_id;
+> > -
+> > -     if (acpi_disabled)
+> > -             return 0;
+> > -
+> > -     xa_init(&hetero_cpu);
+> > -
+> > -     for_each_possible_cpu(cpu) {
+> > -             topology_id =3D find_acpi_cpu_topology(cpu, 0);
+> > -             if (topology_id < 0)
+> > -                     return topology_id;
+> > -
+> > -             if (acpi_cpu_is_threaded(cpu)) {
+> > -                     cpu_topology[cpu].thread_id =3D topology_id;
+> > -                     topology_id =3D find_acpi_cpu_topology(cpu, 1);
+> > -                     cpu_topology[cpu].core_id   =3D topology_id;
+> > -
+> > -                     /*
+> > -                      * In the PPTT, CPUs below a node with the 'ident=
+ical
+> > -                      * implementation' flag have the same number of t=
+hreads.
+> > -                      * Count the number of threads for only one CPU (=
+i.e.
+> > -                      * one core_id) among those with the same hetero_=
+id.
+> > -                      * See the comment of find_acpi_cpu_topology_hete=
+ro_id()
+> > -                      * for more details.
+> > -                      *
+> > -                      * One entry is created for each node having:
+> > -                      * - the 'identical implementation' flag
+> > -                      * - its parent not having the flag
+> > -                      */
+> > -                     hetero_id =3D find_acpi_cpu_topology_hetero_id(cp=
+u);
+> > -                     entry =3D xa_load(&hetero_cpu, hetero_id);
+> > -                     if (!entry) {
+> > -                             entry =3D kzalloc(sizeof(*entry), GFP_KER=
+NEL);
+> > -                             WARN_ON_ONCE(!entry);
+> > -
+> > -                             if (entry) {
+> > -                                     entry->core_id =3D topology_id;
+> > -                                     entry->thread_num =3D 1;
+> > -                                     xa_store(&hetero_cpu, hetero_id,
+> > -                                              entry, GFP_KERNEL);
+> > -                             }
+> > -                     } else if (entry->core_id =3D=3D topology_id) {
+> > -                             entry->thread_num++;
+> > -                     }
+> > -             } else {
+> > -                     cpu_topology[cpu].thread_id  =3D -1;
+> > -                     cpu_topology[cpu].core_id    =3D topology_id;
+> > -             }
+> > -             topology_id =3D find_acpi_cpu_topology_cluster(cpu);
+> > -             cpu_topology[cpu].cluster_id =3D topology_id;
+> > -             topology_id =3D find_acpi_cpu_topology_package(cpu);
+> > -             cpu_topology[cpu].package_id =3D topology_id;
+> > -     }
+> > -
+> > -     /*
+> > -      * This is a short loop since the number of XArray elements is th=
+e
+> > -      * number of heterogeneous CPU clusters. On a homogeneous system
+> > -      * there's only one entry in the XArray.
+> > -      */
+> > -     xa_for_each(&hetero_cpu, hetero_id, entry) {
+> > -             max_smt_thread_num =3D max(max_smt_thread_num, entry->thr=
+ead_num);
+> > -             xa_erase(&hetero_cpu, hetero_id);
+> > -             kfree(entry);
+> > -     }
+> > -
+> > -     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> > -     xa_destroy(&hetero_cpu);
+> > -     return 0;
+> > -}
+> >  #endif
+> >
+> >  #ifdef CONFIG_ARM64_AMU_EXTN
+> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.=
+c
+> > index 1037169abb459..09f77fd549490 100644
+> > --- a/drivers/base/arch_topology.c
+> > +++ b/drivers/base/arch_topology.c
+> > @@ -823,12 +823,99 @@ void remove_cpu_topology(unsigned int cpu)
+> >       clear_cpu_topology(cpu);
+> >  }
+> >
+> > +__weak bool __init acpi_cpu_is_threaded(int cpu)
+> > +{
+> > +     int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> > +
+>
+> Just thinking if it makes sense keep acpi_cpu_is_threaded generic without
+> the need for weak definition.
+>
+> Additional note: not sure why you haven't moved this under CONFIG_ARM64/R=
+ISCV as
+> done with other code.
+>
+> bool __init acpi_cpu_is_threaded(int cpu)
+> {
+>         int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+>
+>         /*
+>          * if the PPTT doesn't have thread information, check for archite=
+cture
+>          * specific fallback if available
+>          */
+>         if (is_threaded < 0)
+>                 is_threaded =3D arch_cpu_is_threaded();
+>
+>         return !!is_threaded;
+> }
+>
+> Then you can just have the define in
+>
+> #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK)
+>
+> in arch/arm64/include/asm/topology.h
+>
+> and
+>
+> +#ifndef arch_cpu_is_threaded
+> +#define arch_cpu_is_threaded           (0)
+> +#endif
+>
+> in include/linux/arch_topology.h
+>
+> Thoughts ?
+
+If placed in include/linux/arch_topology.h, there is a possibility
+that "arch_cpu_is_threaded" will be redefined.
+
+include/linux/topology.h
+    #include <linux/arch_topology.h>
+        #ifndef arch_cpu_is_threaded
+        #define arch_cpu_is_threaded()  (0)
+        #endif
+    #include <asm/topology.h>
+        #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMA=
+SK)
+
+Therefore, it is better to place it in include/asm-generic/topology.h.
+What do you think?
+
+>
+> --
+> Regards,
+> Sudeep
+
+Thanks,
+Yunhui
 
