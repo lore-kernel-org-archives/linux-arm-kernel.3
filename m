@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CBF5CAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4B9CAC5AC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKBHGOuepNirP+TWwTyWouabZCV1BXWx6FjT63PIbU4=; b=uhBWEe5HXE+VeMkTifUlxFa+HP
-	DayaDHnaqwxDXnNDGcodpxX/TAAb5SLzJApOiBVt8vtA29+rlUTJglzUnWBwu+MQ4hHEXV15eBLXW
-	UU1H+qP4Wf64G6qtNiMrSc1Tola4QjagXRfIOGCHIT+d8QsAB2MLPjZp1+lkt5X6DGqEenyS1wrto
-	zMc3BVFAhiqq3id2Q0sjWq4y03eKpmMMDMgCvXiRZpZhVF/d5HFIXBoiEV5jiedGI0/av/ZohYuUw
-	4ot/84TH0aHTYCpmKcGGt4m3Pt+yct5AmPtoSS/V6y1aI7ntP9o+Ng8mRyPtX0ND/T/netnCO+41o
-	rHElZ6Tg==;
+	bh=qbIR4NhvbbkMdSObT8eWuJchgCepXnZMjee6QWTdHsw=; b=eNbX97hYQpJbSeWpGmdjBU6Bc8
+	g6Yjk1vdqQ4x/WlMYRYgWYczNBQ6ZdHLux0Tj2dfV7dy27bakKVsfYd4WVLDLk7N09WzIi6DUfAv/
+	GETN/kRkoV/gxuLlebpOF5DmK4RGt+hq5FjoICXefobVNvT3a4arFUq/TIMwzZHTuknGA+8kgjWrJ
+	qSLS2ahKlfKMnir/35aH/sD5s1pOVOGh1rjD+8jlrkQRbxPvhPlkakXBBCEBdbjumfDqNbUmpjOkY
+	QmxrXzF18qUESShIw1RZK4qL9Jc/AH+8jmzRC0a4Un1VqIH+9jRb+rjsqOeISxNwdC8kUS5Fys5ud
+	bWyoZ/qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0buy-00000009i9u-3Z9E;
-	Mon, 22 Sep 2025 08:29:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0bux-00000009i6d-0Bmr;
+	Mon, 22 Sep 2025 08:29:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bui-00000009hhh-3lJE
+	id 1v0buk-00000009hkq-0GPM
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 22 Sep 2025 08:28:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98B2344ED6;
-	Mon, 22 Sep 2025 08:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A63FC116C6;
-	Mon, 22 Sep 2025 08:28:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BA1860234;
+	Mon, 22 Sep 2025 08:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32208C116D0;
+	Mon, 22 Sep 2025 08:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758529728;
-	bh=IXL+IAJnY+2vKkQwblhiCgALIEf3E4Odr7ea40In+Fs=;
+	s=k20201202; t=1758529729;
+	bh=B9kVMS1KP6Byn0zyMEHaUwA2iK8UDNHnAZC4Pwhtp14=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ufK8efCtLc3aXcWKqIBHUVcqEce3ZIWNYDANBeCqn68VuoWJL3DqZCerRxLJx8N8w
-	 14Bp/8fyRVzv8y0bP3rYIN09FE/vQfPbllC1C3iVWL2+gvLbOhBwZb9vfSttt6Rxz6
-	 oO11vxLXUUqPRKTw9riZw7AjOFF3kAFvEo/R0GFjjxuvG7y5dWg7ycVWKFhcklRrW+
-	 Y6nMhlekZM4hwf9xX49f3ytGQdr4S/qmbwGzJjHN+RkBTQGOaoX/10HztkrjphLAdF
-	 /Yq4za5yrUbFCWQrpWlLL+QktbdXkCI5Khga2oN4VH4ljJJQM0q0BGVXro1NZyqUUx
-	 U/86+wJxu6BtA==
+	b=rSB5WA6/7jLOB0XbcgmJdzxVvAE40Ux/TSo9VYS/S331nBFQ44dVAMHk5+jCWVdlY
+	 iOHFhQgcf1rKcm8JFJ7JiHZ1pOxyqqoyWZrGlv+HSeXNiFDD8O+r4bQblSHerLTEVO
+	 QzJP3MtthyrOkjidwlzhGNV+JiM7o2RjYT+nMREcCebxN6ik+wJiAuYAbVKDH+NBrQ
+	 PT7PuGxO3AOwF3I4PDfInFXrPNAl4xt92LHRNENNlqyZpwfGTdoIonkHoNYQUxygGu
+	 y/nGLPNjAQ9MaYJj58jc8FHKn2XUF/8GtII1iTEpF94JYbBF8gqOJoaYRXdpFv+vmp
+	 CljDh0vyBJn3Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0bug-00000008Kds-2GLT;
-	Mon, 22 Sep 2025 08:28:46 +0000
+	id 1v0buh-00000008Kds-1itL;
+	Mon, 22 Sep 2025 08:28:47 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,9 +64,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 17/26] genirq: Add request_percpu_irq_affinity() helper
-Date: Mon, 22 Sep 2025 09:28:24 +0100
-Message-ID: <20250922082833.2038905-18-maz@kernel.org>
+Subject: [PATCH v3 20/26] coresight: trbe: Request specific affinities for percpu IRQ
+Date: Mon, 22 Sep 2025 09:28:27 +0100
+Message-ID: <20250922082833.2038905-21-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250922082833.2038905-1-maz@kernel.org>
 References: <20250922082833.2038905-1-maz@kernel.org>
@@ -76,9 +76,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_012848_955320_22F523D9 
-X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While it would be nice to simply make request_percpu_irq() take
-an affinity mask, the churn is likely to be on the irritating side
-given that most drivers do not give a damn about affinities.
+Let the TRBE driver request IRQs with an affinity mask matching
+the TRBE implementation affinity.
 
-So take the more innocuous path to provide a helper that parallels
-request_percpu_irq(), with an affinity as a bonus argument.
-
-Yes, request_percpu_irq_affinity() is a bit of a mouthful.
-
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- include/linux/interrupt.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/hwtracing/coresight/coresight-trbe.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
-index 81506ab759b81..fa62ab556ee32 100644
---- a/include/linux/interrupt.h
-+++ b/include/linux/interrupt.h
-@@ -196,6 +196,15 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
- 				    devname, NULL, percpu_dev_id);
- }
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index c512f8faa6012..4a84a6bc2e8fc 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1492,7 +1492,8 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 	if (!drvdata->handle)
+ 		return -ENOMEM;
  
-+static inline int __must_check
-+request_percpu_irq_affinity(unsigned int irq, irq_handler_t handler,
-+			    const char *devname, const cpumask_t *affinity,
-+			    void __percpu *percpu_dev_id)
-+{
-+	return __request_percpu_irq(irq, handler, 0,
-+				    devname, affinity, percpu_dev_id);
-+}
-+
- extern int __must_check
- request_percpu_nmi(unsigned int irq, irq_handler_t handler, const char *name,
- 		   const struct cpumask *affinity, void __percpu *dev_id);
+-	ret = request_percpu_irq(drvdata->irq, arm_trbe_irq_handler, DRVNAME, drvdata->handle);
++	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler, DRVNAME,
++					  affinity, drvdata->handle);
+ 	if (ret) {
+ 		free_percpu(drvdata->handle);
+ 		return ret;
 -- 
 2.47.3
 
