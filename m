@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55F7CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 23:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF2BCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 23:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YROanHWLsZyxpmkg+bbLtUTGJa8eSeOXO+0+S132Fq0=; b=t9h48R6s16jmX63OnOGyvFIogJ
-	d8EB3y4DrVxe1rd+ryywQhS1J5rLS6GJi5oG0hqjaVAmAj948kVZU5rxKkDvys/2vtZsARdGfFs+6
-	p017B9iXEXSbq8bJziitCBwp2t3NgY7vFuRY+YbgNMh6TyspzOw460E9LyaZTSVWoEn/48h/9/Dg6
-	WhtxPG1XR5y3vFkCoiANSpTskKU3Pf1bdBuzLdLYW7Crd3vZQRIpnsyud2oUYdHybbxSZlPa3evQX
-	nicnQyl+buY8YQTkBK8a+IBZj2iW+iI76uN236wzl1XNSnuhBWVmO703FiIaY991dfzMXnNI8coLN
-	1JPXbicA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7E/YDLybPC/9yzf2H4ojfN2TOYFnywcfvqhtXKh06/w=; b=ArvGJdXqBKAXnAZYNaA8wx5jwY
+	/9urcxvJl2mQ+pF3JgsJLYXuD6GvFD0KsWIOsnmltwPeO7u0PiGf6PSDOasNPz5+JW1A/0d/IinCI
+	9tNk+jjtFu1P/TMf/BmO9IAISoBp4PXs4oe2tejSzKt6N3PmxILCXtoVlJk0I/PihmJMiktPZlYQX
+	ZdKzD58PTl4HIaRb5pQhcks+lgEytBjWxTuh9QrUL8hHPFalwV1uIL4yU6xBOGB+7o1TfALxrMoYS
+	VZWF1CE12pQ9zh4vbh8EeZA+XoVupCZAlr1OpY29ZciYYQkxfl0XY97eBrEia1iqgWlOtZYYH/srD
+	fHwg6XDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0q4e-0000000Bn4a-356f;
-	Mon, 22 Sep 2025 23:36:00 +0000
-Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
+	id 1v0q8s-0000000BoW1-1LCI;
+	Mon, 22 Sep 2025 23:40:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0q4c-0000000Bn3W-0e88
+	id 1v0q8r-0000000BoV7-1MJp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 23:35:59 +0000
-Date: Mon, 22 Sep 2025 16:35:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758584155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YROanHWLsZyxpmkg+bbLtUTGJa8eSeOXO+0+S132Fq0=;
-	b=bhknsX6/vaxKSZnPvKsUbfdwHD6LKytZGBvllisw+rMQMMDWi/4rtFUuhfA4B3/v1aCWwx
-	Lp3TL0ZLYkFWymqq4yqURK4uTHU3iRkrYuECvy+ovmF+ipjkrCz8O7QI8VSLtwPLDJfEmb
-	fe6iGL/v60eF86/upnlOh+WZHIH3+qc=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in
- set_id_regs
-Message-ID: <aNHdVtel5VGMltJb@linux.dev>
-References: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
+	Mon, 22 Sep 2025 23:40:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8319460262;
+	Mon, 22 Sep 2025 23:40:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33106C4CEF0;
+	Mon, 22 Sep 2025 23:40:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758584420;
+	bh=nOnerZmRV0c5WJjU8VhwkEjiAKaD2K/BYYOQhijJfIE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=uVvWcj/d0yvTzBZDzbmzaCkaA+HwY1/+ztqjUkAPwBGkQmYWD+afeV2VTWk2Biz5j
+	 +qIEF9I91+EB1NyPSdpNe5GLcdzoHp38Qj9LplT1G72W0b3pZBlVnHlKRqbxcE/fth
+	 5EVClVWy/KfwgO0Ac/O/UACM9gj/pAEnOR+XVC8kEqkYj8/QUW6WDqeg5ybc00eoHP
+	 rfS4Tgx4UO/+7SN8skCnM7YKQSYoYhJfpxecdumcjp8bUY07dpwwjOkYOXjDSn0GfH
+	 QILHSOhqh0WxXsZ4zL/6p0eVB2v5vIZyhOcTv2yC5CAhV+EYlwDUnHwpjEWCM4pMWy
+	 v9tN3L08gSDxw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE1A39D0C20;
+	Mon, 22 Sep 2025 23:40:18 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_163558_332942_D588D748 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next V3] net: xilinx: axienet: Fix kernel-doc warnings
+ for
+ missing return descriptions
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175858441749.1195312.3629295031958677070.git-patchwork-notify@kernel.org>
+Date: Mon, 22 Sep 2025 23:40:17 +0000
+References: <20250919103754.434711-1-suraj.gupta2@amd.com>
+In-Reply-To: <20250919103754.434711-1-suraj.gupta2@amd.com>
+To: Suraj Gupta <suraj.gupta2@amd.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ sean.anderson@linux.dev, radhey.shyam.pandey@amd.com, horms@kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, harini.katakam@amd.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 20, 2025 at 08:51:58PM +0100, Mark Brown wrote:
-> The set_id_regs selftest lacks coverag for ID_AA64ISR3_EL1 which has
-> several features exposed to KVM guests in it.  Add coverage, and while
-> we're here adjust the test to improve maintainability a bit.  
-> 
-> The test will fail without the recently applied change adding FEAT_LSFE:
-> 
->    https://lore.kernel.org/r/175829303126.1764550.939188785634158487.b4-ty@kernel.org
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
-> Mark Brown (2):
->       KVM: arm64: selftests: Remove a duplicate register listing in set_id_regs
->       KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
+Hello:
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Thanks,
-Oliver
+On Fri, 19 Sep 2025 16:07:54 +0530 you wrote:
+> Add missing "Return:" sections to kernel-doc comments for four functions:
+> - axienet_calc_cr()
+> - axienet_device_reset()
+> - axienet_free_tx_chain()
+> - axienet_dim_coalesce_count_rx()
+> 
+> Also standardize the return documentation format by replacing inline
+> "Returns" text with proper "Return:" tags as per kernel documentation
+> guidelines.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,V3] net: xilinx: axienet: Fix kernel-doc warnings for missing return descriptions
+    https://git.kernel.org/netdev/net-next/c/312e6a58f764
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
