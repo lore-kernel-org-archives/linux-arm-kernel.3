@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F251CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417A8CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFlr4efB97JwSVAAo84Sbj91IVg+sa9UpmbiWhKuaEs=; b=tSCBBrh9nNUhHsMAcYsrlahu4d
-	LApfSQYWbSGsV1sOlbi3Vrthu9NUzfZIbrfZheRoc/VUXDQHu6sVoUyHQiH4ecqqy45hL/xGmcOaK
-	O2SLKp4dr5ntwQ7hrbCB3usdlJ7lZozmePQ80AQsnxg+hiYBKoIpOnKeIJmwdavLXq2qAuVoHaOWA
-	GHdZGa7gvhMdZyr/5dlgCyaN17f1Am/dCuhdl3RtCX5w/6oai+dvB8idK3PUAjkO2SCYqInQ5FueZ
-	iQFVQeFun02GxNVrBHpZmJ4ZZ4RDrEBJyCStkPHA+p8kYRbTI14rZf6FVdMq9P0FzqkccScZnp8Hu
-	Zd1rZf5w==;
+	bh=70oUrtBybT9pvgsdRucJAcKaeUTQt17KWLpCLJnAsc0=; b=IOwVcL4vrrJDj+gLRR91vMm9eY
+	Jq5A4bqL/HBXmr6QXphBzE3MWDrrWSsVACNb83sXykI690nIFvwURjWpuxIoCG3yWxL3MTJ3k7+1/
+	C+SrUOfc4wHgqrVjVqGnwO/sxIUoSreScrmEjG1m8jHcVfJWaMDKAFwV80wCi++JNqW0UbicJhfMz
+	5y9+HkyVR1Qwrt0smmuIC/Wb18MA/lrjzFq/7WLBP+/zX9X9MoSEuRwV+k0voCr5AQt3Vl1bKDjkT
+	vPCBSEHwXQg8beZJ2ymAFcpA0teDXgQWNAr7wPNIr/BcjQgUW6jXerwXsnxDJ9qe4QawwLe6BosrP
+	VuQI9PSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gPt-0000000ATDJ-17ha;
-	Mon, 22 Sep 2025 13:17:17 +0000
+	id 1v0gRZ-0000000ATpZ-0sxo;
+	Mon, 22 Sep 2025 13:19:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gPr-0000000ATCi-3661
+	id 1v0gRX-0000000ATob-2w9F
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 22 Sep 2025 13:17:15 +0000
+	Mon, 22 Sep 2025 13:18:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=FFlr4efB97JwSVAAo84Sbj91IVg+sa9UpmbiWhKuaEs=; b=pw+feo2xcoKbhTEUhvtA+r7xTG
-	eebJROu4TBvP46P/jbLFfhrbbPa70bF7li5pKBxjMGcAYmAq3SDe9JNRPyMbO19GZ1MftpY+iPKLh
-	RvnNkeTkiDTw8lny7aII7yJhBESvdAlOHTcZqJC/4HfzkE/dA3JzqGyxbaurftzMrGEQXha2C2kt9
-	6Hv4TYWBitPBuPnQWgN0Y1unx7ohBvg2u5wExTw4RPVjg5JEcDxhKkiXyUALaYORxAxbhutrNREQ7
-	5dFNQ1w0hJO1jViFNumPfk0psynnbgcIdH8nJtg4c5kQgx1X/msYXDT6UW6hYQXcnjiByfgwv6R3T
-	2c0SiSdA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=70oUrtBybT9pvgsdRucJAcKaeUTQt17KWLpCLJnAsc0=; b=MgrAvkoZieTRfYf4uZB7v/tvmu
+	rcuWLN1tmgYTrb15RLPATU+zs2dkiPM50pE1EAdKwThA+7BugK/szNhvOAt2hxOpDXC7CbfbjQwtT
+	hqGcyeniT0GKrtG0WNLYWnqN06mTAjA8K3bSq+zkCV3eBIoFbCtmOaQ18H5Ijnv8FXqT4X+YFbtCY
+	OcvS0T9iUnwLgwojdv8Txtpq22GKc7pI+KWpwAeoH6cJng++LDAla27k+Jo01iGWJyGotEL/gwLzb
+	ILoHOKcBKMYWBWEyZHTGwPOpXYc6xAoqT6cLqLLb5MCRYyUqnDWbWhisGRrmQbdvNJ+/QsD8M2jKp
+	9oCFiIuw==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gPo-00000008IRJ-2BK6
+	id 1v0gRU-00000008ITU-1F68
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:17:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA735445C4;
-	Mon, 22 Sep 2025 13:17:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45420C113D0;
-	Mon, 22 Sep 2025 13:17:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758547030;
-	bh=qwlHTg4aPlAq/HCxAc3/+aeHYqycjOb3rj/8p3g4PnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RWNHE1G8YssERyk1JUnokVu8CrXeaw1eWFhIRuQFSw6pRErrBu+05ocN1tFmTXwgy
-	 eaw2JmgICPM2yMS5GZRcFx7CZz2+RFGtM3AAd+H6TmXEejZtMYCvQaIlyIe2SVJBVr
-	 ZmetPjKzkSJouyK2Ua+85ZuT546YQ2CJXqaOIt1BffPoo/BJGVRLafjDALG4AVKtVC
-	 KzJOtBAvD+Wl5mN4YF1IMRtaJYlfJU0dyufMiABtVAukHFsdgwPNcLiqodRhzERJEO
-	 DoxDpJ6ddAq/ZErS+GhzMIz+UqQEUv4+YLDJtuENmujcjJxl70wr+g6UFQQijjCIjZ
-	 jnH0axWKI9Vww==
-Date: Mon, 22 Sep 2025 14:17:05 +0100
-From: Will Deacon <will@kernel.org>
-To: Yushan Wang <wangyushan12@huawei.com>
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com,
-	yangyicong@huawei.com, Jonathan.Cameron@huawei.com,
-	liuyonglong@huawei.com, wanghuiqiang@huawei.com,
-	prime.zeng@hisilicon.com, hejunhao3@h-partners.com,
-	linuxarm@huawei.com, fanghao11@huawei.com
-Subject: Re: [PATCH v3 5/9] drivers/perf: hisi: Extend the field of tt_core
-Message-ID: <aNFMUdPJeJo9XU1e@willie-the-truck>
-References: <20250829101427.2557899-1-wangyushan12@huawei.com>
- <20250829101427.2557899-6-wangyushan12@huawei.com>
+	Mon, 22 Sep 2025 13:18:58 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1v0gRQ-0005EN-QE; Mon, 22 Sep 2025 15:18:52 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1v0gRQ-002bNX-1U;
+	Mon, 22 Sep 2025 15:18:52 +0200
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 12606477046;
+	Mon, 22 Sep 2025 13:18:52 +0000 (UTC)
+Date: Mon, 22 Sep 2025 15:18:51 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
+	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v7 2/4] net: can: rockchip: Refactor the
+ rkcanfd_devtype_data structure
+Message-ID: <20250922-hopeful-mysterious-mole-bccfa3-mkl@pengutronix.de>
+References: <20250922071543.73923-1-zhangqing@rock-chips.com>
+ <20250922071543.73923-3-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pxk6t45566eu5aco"
 Content-Disposition: inline
-In-Reply-To: <20250829101427.2557899-6-wangyushan12@huawei.com>
+In-Reply-To: <20250922071543.73923-3-zhangqing@rock-chips.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_141713_113672_32291C20 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20250922_141856_508137_40F5ADB7 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +98,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 29, 2025 at 06:14:23PM +0800, Yushan Wang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Currently the tt_core's using config1's bit [7, 0] and can not be
-> extended. For some platforms there's more the 8 CPUs sharing the
-> L3 cache. So make tt_core use config2's bit [15, 0] and the remaining
-> bits in config2 is reserved for extension.
-> 
-> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> ---
->  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> index a372dd2c07b5..39444f11cbad 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> @@ -55,10 +55,10 @@
->  #define L3C_V1_NR_EVENTS	0x59
->  #define L3C_V2_NR_EVENTS	0xFF
->  
-> -HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config1, 7, 0);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
-> +HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
->  
->  static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
->  {
-> @@ -397,7 +397,7 @@ static const struct attribute_group hisi_l3c_pmu_v1_format_group = {
->  
->  static struct attribute *hisi_l3c_pmu_v2_format_attr[] = {
->  	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
-> -	HISI_PMU_FORMAT_ATTR(tt_core, "config1:0-7"),
-> +	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
->  	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
->  	HISI_PMU_FORMAT_ATTR(datasrc_cfg, "config1:11-15"),
->  	HISI_PMU_FORMAT_ATTR(datasrc_skt, "config1:16"),
 
-I'm a _tiny_ bit worried about this change in that it has the potential
-to break any users who've hardcoded the 'tt_core' encoding in 'config1'.
-Granted, they should be parsing this out of sysfs, but you never know.
+--pxk6t45566eu5aco
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 2/4] net: can: rockchip: Refactor the
+ rkcanfd_devtype_data structure
+MIME-Version: 1.0
 
-If we were going to avoid the possibility of a regression entirely, I
-think we'd either need to (a) split the field so that the upper 8 bits
-of 'tt_core' live in 'config2' but the bottom 8 bits stay where they
-are or (b) leave 'config1:0-7' as an alias of 'config2:0-7'.
+On 22.09.2025 15:15:41, Elaine Zhang wrote:
+> Add new function pointer:
+> Encapsulate some hardware operation functions into
+> rkcanfd_devtype_data to provide differentiated implementations for
+> different models (such as RK3568v2/v3).
+>=20
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 
-The latter is still do-able, as you haven't re-allocated the config1
-bits yet.
+[...]
 
-Will
+> diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/=
+rockchip/rockchip_canfd.h
+> index 93131c7d7f54..bcd26d23062b 100644
+> --- a/drivers/net/can/rockchip/rockchip_canfd.h
+> +++ b/drivers/net/can/rockchip/rockchip_canfd.h
+> @@ -436,9 +436,20 @@ enum rkcanfd_model {
+>  	RKCANFD_MODEL_RK3568V3 =3D 0x35683,
+>  };
+> =20
+> +struct rkcanfd_priv;
+> +
+>  struct rkcanfd_devtype_data {
+>  	enum rkcanfd_model model;
+>  	u32 quirks;
+> +	void (*get_berr_counter)(struct rkcanfd_priv *priv, struct can_berr_cou=
+nter *bec);
+> +	void (*interrupts_enable)(const struct rkcanfd_priv *priv);
+> +	void (*interrupts_disable)(const struct rkcanfd_priv *priv);
+> +	void (*fifo_setup)(struct rkcanfd_priv *priv);
+
+Why do you make fifo setup a function pointer if it's only called from
+chip_start, which you make a function pointer, too?
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--pxk6t45566eu5aco
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmjRTLgACgkQDHRl3/mQ
+kZzvyQgApVlHcsn6vij4HUY70eO04wqsBAOXG0klOf3yy/PakkXYgqsz7mKlryRg
+HX+dlpOa6RESuRjCLA/REQo4whMrVTysanahmydgd8CqEvV+id+/0qKB6PvWKEhm
+3JejSO5O16PGRXKDA/GBpFaDzDdav77p/3TgVtNKUioOL5/18ca4dNgM9o+/NUZH
++Ak/UKtR6VnV2DvyR3hWR+eznMl0my/zXmf0X1hrm8bUnikJtQqEGaGrWfJqHXiw
+tr9sijYa+akL4b2+x4R61dcfmKFo9hNzizx+Vhf8L8Ip8FiF2y7wj9kdgQlBMhFd
+6Gh9dnZ0gTk8Rbb2PJb5oCZQ7jLyOA==
+=sxoi
+-----END PGP SIGNATURE-----
+
+--pxk6t45566eu5aco--
 
