@@ -4,109 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C60DCAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E927CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Qc4JRX4CtnEK9xKvde6W63LFABE82wXLRsYMp9oSo0=; b=SInANYvPPN7z8dYH0DErWqOfl7
-	h4f0QedBaZ15dIYT+fOd2Q2tnewpT/7ZXLgDt88Mi1aNu+G2P3173TadaweTeAl7bA+70MDMYUasr
-	SEZjI5azomWVhMtBZIAc6/WchezW9tzNqym1q0XU32guMp6x+ALkbVOKbgB9XqGeIzT+5pJV3BLUw
-	L5g7zQBsMzAmZT5G5ADMuCz1BYs3v6BBU01KSXU2BiprMS5aYArqz6ZV3n9y3I9uOREV1ERx/q5N3
-	XWgZ1eX5jk85z57Pwzr4GhMjBHlNHmWERtmmCKAR/cCNXqq8gXy/PfVga7QtN1L3oa+hw5hPxU6DJ
-	u+pE+xpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8rkcGkkSHNbg3BRN1kDct5tF5NkukCIyzIEeS3WDl34=; b=Xz0yU7oVx1zInemEYKv07c/oEk
+	40r/pFgfn8tfIbqTxznQxFf9XDxGYXriXEN7RthHn2zMxqhmCPJKg+KDewbLOE8TAoZaLW8fHGERn
+	l8HWgfzBVTX+HUzrL94h7T+5PlDRf0zS9aAfF0I7n99JtDqE4OwTXoLWGXfQGvZjuq7dQAZBifOCs
+	AKNFfHI4VI0W9ZLdKl0jPf+q1xZl8ULBopzW2TkiX50m1WB8QCD2xjxJ/6bZDtpOvoKfMeoPRBXV7
+	RtYJarUWD0YjZdxkgDIkGB3wCxkhoQnhrrwdmhnSlcDj4Ze32BvlPdiYtqbgaOekGMozeuZGOatRK
+	zb+Gh0nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zw4-00000008x0W-3oFb;
-	Mon, 22 Sep 2025 06:22:04 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1v0a3C-00000008ygE-03xv;
+	Mon, 22 Sep 2025 06:29:26 +0000
+Received: from thorn.bewilderbeest.net ([2605:2700:0:5::4713:9cab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zvu-00000008wsh-1DYL
+	id 1v0a38-00000008yfR-0jJR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 06:21:55 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-368348d30e0so10834841fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 23:21:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758522112; x=1759126912; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6Qc4JRX4CtnEK9xKvde6W63LFABE82wXLRsYMp9oSo0=;
-        b=ZXXzt5iqQFzKPYxnHBKuWXtkHEWvnRELDSEupAD2DGwH+Lc7bw1k2LXbyxanxBvRXd
-         oS6o1/lqhXvLfKRAKbYU/qYC2bWSW9zyjeG8rvmFvDvOaxHA79E0RkolkuGfLVPoSPhA
-         L4MUNUu0UTiJzrlLpg3Rkzxoj/x/myZrDLQEQiJoqwuQ7HrQCVEtCTB7bykEvqvBIvnB
-         aph4eVrnhQwdSqDfeoZ1LQAgXdXA+4ZhPQINHsA2Tq2Z5gUXgCj4Cm0zHMk/c+hhE2P7
-         B1Ew9rwmn6wNt5CeuxQGOYBMIoPNMSNEl3+I88y96vuJse0aGtSsjcnKY4FwV4/wX2YD
-         6oxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758522112; x=1759126912;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6Qc4JRX4CtnEK9xKvde6W63LFABE82wXLRsYMp9oSo0=;
-        b=JlFt+VnDBGGjdRAV/DknMXDBwZaQ+UWJ1YA5XmcPwlo8IZpkYwm31itbYy/XAGRPlt
-         ZQ9fkEvs4boCrdYsPC0IbMlYVgjPIpKgFQzvSwdj4eJ4y+dNT+H9CkGn9tU1Qh/WT3rx
-         mcbKkgabO3SR6rKJM3X446Oniipo67JUi/n4fHOmQIrhdKb/4EnuEdyv+0q3e+anSJ1m
-         PEuZ4KLqVo0niA2j5QLsN8iSKk90ujXRSRuOZ0W0B5RpZKYEgYsVIogzYBDqfsuB4Cmr
-         CkFvYuCcnFeWvPca9hntIIiv1eAE/wP709vv+EDtw39WXr98/3Vy+p+4aXpaiDm4qMDR
-         f4QA==
-X-Forwarded-Encrypted: i=1; AJvYcCV5+0U3DhnAU2LQ5wX2OzEz5keATkK5hH9HyN11TRFQEyGYqJ6JnLCpxbYmtyJCWZzYTlwzFPgZB/pqW0THfHIG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/n5uaeRQ/IJkq2OxfJyKuASpAPwbmi/YHkmH9/QAr0KATvNug
-	ZmCIqS7DFTWyhYV8Ld9i31sXC5BdXvMVZQf9AhNz/JVnex19wdbGj6Sf
-X-Gm-Gg: ASbGncsxvrc9ugqWsJ/DO+It0GrUBYxHWmHDnx0QcsMhGFuqBQVF6WMz402N2dU8yMP
-	Oh9dwo3FTGYyL9Ad3W0Ad1JTnZSBUs88YiGOnoXvG8stn0IpjuGBXUChgBBxgXGOAKP3eQ5tYp5
-	v8LAnFGlqxCkPuo33y1huER/pNNgX2PK9b69jKCZImZidEs5Qfi56wisFri6rQv5qi9qu2KByXq
-	ZH02q2c3r20QFjgKPnVRJ0weCfO8OXRlK8Vd3D3CHrR/lVPxf2xelVjcCtwGoh14+xXJ0EKRe9y
-	NjrDvMDFM9Q1zhX07ASRK7w/8bzEKpwTy5odaLCuvG1n3ZgSFkCSxfvYI2SyOaBFndB/gz1+zzr
-	WZ1LrMpC8HiG7Q+kEQiKAUUZdK0BsPV7YE6vX/Vt/qD0bUA/775iMdjX0e2XS3vuNwp0=
-X-Google-Smtp-Source: AGHT+IE3BRCwhlaSY/yzdOewH/qgttb6VJWE4iIrGrjD9WPQORlK7oUt2XV9C7AMcbiiewXRLggrcg==
-X-Received: by 2002:a2e:be24:0:b0:36b:2a0a:b906 with SMTP id 38308e7fff4ca-36b2a1a1125mr8259561fa.12.1758522112136;
-        Sun, 21 Sep 2025 23:21:52 -0700 (PDT)
-Received: from [192.168.1.166] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-361a99e99e6sm26982661fa.56.2025.09.21.23.21.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Sep 2025 23:21:50 -0700 (PDT)
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Mon, 22 Sep 2025 08:21:02 +0200
-Subject: [PATCH RFC 7/7] docs: i2c: i2c-topology: add section about bus
- speed
+	Mon, 22 Sep 2025 06:29:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bewilderbeest.net;
+	s=thorn; t=1758522558;
+	bh=8rkcGkkSHNbg3BRN1kDct5tF5NkukCIyzIEeS3WDl34=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qotb+mlRjdAlDEHIdNKxb3p8iUNutOfEqykG66Udy7+RBiMRR1PuxgXa4Q8+h2uYd
+	 aExoCuxRP0lnBtaKjt8U+Y74Qy3Qkk6z2h92O5P48rNAKo9GffbmWYrrlWRr24nCC5
+	 OJNZYFwsIQr7s48ui0KDryP2smVGGmoDv+43fwnk=
+Received: from hatter.bewilderbeest.net (unknown [IPv6:2602:61:713c:eb00::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: zev)
+	by thorn.bewilderbeest.net (Postfix) with ESMTPSA id B8FDD1BA;
+	Sun, 21 Sep 2025 23:29:17 -0700 (PDT)
+Date: Sun, 21 Sep 2025 23:29:16 -0700
+From: Zev Weiss <zev@bewilderbeest.net>
+To: Rebecca Cran <rebecca@bsdio.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: add device tree for ASRock Rack
+ ALTRAD8 BMC
+Message-ID: <66c5bf80-a3ef-4984-82ce-6d1720b15d38@hatter.bewilderbeest.net>
+References: <20250917180428.810751-1-rebecca@bsdio.com>
+ <20250917180428.810751-3-rebecca@bsdio.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250922-i2c-mux-v1-7-28c94a610930@gmail.com>
-References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
-In-Reply-To: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Peter Rosin <peda@axentia.se>, 
- Michael Hennerich <michael.hennerich@analog.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Marcus Folkesson <marcus.folkesson@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8207;
- i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=S7HyOptvlFZG+2Q7UACyCuq7yJ1BzDh+UGhw42y2UVE=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBo0OrsQeH/4jt8AADCJJyWsja9PeShuzxIPhK2N
- ReEuabziq6JAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaNDq7AAKCRCIgE5vWV1S
- MrL8EAC71SR0gv0PMX2fkCz6yQlh2q10PmcUOvMym57YsKUaU6uYOnPodRtxThthpqvd0SLlPe5
- 9JuEl0zRpP1S+J2Hx3Tc3KAEz/aki4zF+S4kEUlWn6cAsq73U5qHxhcbIGe2/d6wRR/0F6i9KWP
- x6a54MHoJeMWa9a+1xP2kPqqcTWyZMhfe7LYeci5eLqjplD99203lcCzbZYm2gtVXwyfikEHpin
- 9RJrrJr8xv/a6LA/1soMj1u3mXbEnPP7hrDCQy3b3PjO2oX17LNulfi+Wh9AY62tITR9R9rOFQU
- P3hMEUnFPRJWU2UgQZ0c1P6Q1SqwsSRxncNf9edn+1gi9bnMMKTqUn5t6avCQyJhR9y7/W1oPq1
- jA4aewAG/TITkhKn0xBpfdA3MBiaPWR17McEEYGt1oZa7yKYWpmmVhbJWi+rRm4+Lfm605hPd2Q
- 6CvIF3ejobCKXMagRW8SUO+hXaipbHKbjwi1E8iFFESRDH7Cx0ewM4N2YEi51w6EaWAd6LQZFLM
- 87dLaMjehPMdEN9hLzAo78NRJiliy8AiQ1ze/bzehww5cozuRYgOpl9Xg885z5KKDX514HI+Os+
- cB40NlNalpBbn/hGVBX08Et23lJEUccmCpXvNbrYEhdGLghYEouK/fWtj64pxNmT6iukF1EX9iN
- 1AlG9a3DvERIcIg==
-X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
- fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20250917180428.810751-3-rebecca@bsdio.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_232154_396157_DE48D66D 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20250921_232922_309439_3A6ECDDA 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,203 +75,703 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe what needs to be consideraed and taken into account
-when using different bus speeds for different mux channels.
+Hi Rebecca,
 
-Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
----
- Documentation/i2c/i2c-topology.rst | 176 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 176 insertions(+)
+Thanks for posting this -- a handful of small comments below...
 
-diff --git a/Documentation/i2c/i2c-topology.rst b/Documentation/i2c/i2c-topology.rst
-index 48fce0f7491bf1bcd4a851f685b010386c9ce0d2..362859b5de224272941576a9c82a04843e56f0d0 100644
---- a/Documentation/i2c/i2c-topology.rst
-+++ b/Documentation/i2c/i2c-topology.rst
-@@ -367,6 +367,182 @@ When D1 or D2 are accessed, accesses to D3 and D4 are locked out while
- accesses to D5 may interleave. When D3 or D4 are accessed, accesses to
- all other devices are locked out.
- 
-+Bus Speed and I2C Multiplexers
-+================================
-+
-+I2C bus multiplexers allows multiple downstream channels to be exposed
-+as separate I2C adapters which also could set their own bus speed.
-+
-+The multiplexer itself cannot change the bus speed as it use the upstream
-+clock and data lines to communicate with the downstream devices. The speed
-+is therfor changed in the root adapter resulting in that the whole bus is
-+affected.
-+
-+This increases the complexity of the topology and some considerations must
-+be taken into.
-+
-+Bus speed
-+----------
-+
-+Downstream channels of an I2C multiplexer can only operate at the same or
-+lower bus speed as the upstream bus. This is because the upstream bus may
-+have devices that cannot operate at higher speeds and those will be affected
-+by the speed change.
-+
-+The example below illustrates the problem.
-+The root adapter is operating at 100kHz. D2 can only operate with 100kHz,
-+but D2 can operate at 400kHz. When D1 is selected, the bus speed of the
-+root adapter would have to be is set to 400kHz, a speed that D2 cannot support.
-+
-+This topology is therefor not allowed: ::
-+
-+                          .----------. 400kHz .--------.
-+        .--------. 100kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |
-+                    |     '----------'
-+                    |  .--------.
-+                    '--| dev D2 |
-+                       '--------'
-+
-+
-+This topology is allowed: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+
-+Preferred topology
-+-------------------
-+
-+The preferred topology when using different bus speeds is to have the multiplexer
-+connected directly to the root adapter without any devices as siblings.
-+By this arrangement, the bus speed can be changed without affecting any other devices
-+and many of the caveats are avoided.
-+
-+Other multiplexers in parallell is still okay as those are locked out during transfers.
-+
-+This is the preferred topology: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D2 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'        |  mux M1  |--. 400kHz .--------.
-+                          '----------'  '--------| dev D1 |
-+                                                 '--------'
-+Locking
-+--------
-+
-+If the multiplexer is mux-locked, transfers to D3 may interleave between the
-+select-transfer-deselect to D1 or D2.
-+This results in a situation where the bus speed to D3 may be lower than it
-+can handle. This is usually not a problem.
-+
-+This topology is allowed but some transfers to D3 may be at 100kHz: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+Multiple muxes in series
-+--------------------------
-+
-+When multiple muxes are used in series the same rules applies.
-+
-+Transfers to D3 may interleave between select-transfer-deselect to D1, which
-+results that the bus speed to D2 or D3 will be at 100KHz.
-+
-+Transfers to D2 may interleave between select-transfer-deselect to D1, which
-+results in that the bus speed to D1 may be at 400kHz as the transfer to D2
-+will set the bus speed to before the transfer to D1 starts.
-+
-+This is probably a bad topology ::
-+
-+                     .----------. 400kHz .----------. 100kHz .--------.
-+    .--------.400kHz |   mux-   |--------|   mux-   |--------| dev D1 |
-+    |  root  |--+----|  locked  | 400kHz |  locked  |        '--------'
-+    '--------'  |    |  mux M1  |--.     |  mux M2  |
-+                |    '----------'  |     '----------'
-+                |  .--------.      |  .--------.
-+                '--| dev D3 |      '--| dev D2 |
-+                   '--------'         '--------'
-+
-+Multiple muxes in parallell
-+----------------------------
-+
-+When multiple muxes are used in parallell all access to other muxes are locked out
-+so this is not a problem.
-+
-+If the muxes are mux-locked, access to D3 may still interleave though.
-+
-+In the example below, D3 may not interleave between select-transfer-deselect for D1
-+or D2 as both muxes are parent-locked: ::
-+
-+
-+                   .----------. 100kHz   .--------.
-+                   |  parent- |----------| dev D1 |
-+                .--|  locked  |          '--------'
-+                |  |  mux M1  |
-+                |  '----------'
-+                |      .----------. 400KHz  .--------.
-+    .--------. 400kHz  |  parent- |---------| dev D2 |
-+    |  root  |--+------|  locked  |         '--------'
-+    '--------'  |      |  mux M2  |
-+                |      '----------'
-+                |  .--------.
-+                '--| dev D3 |
-+                   '--------'
-+
-+Idle state
-+-----------
-+
-+Muxes have an idle state, which is the state the channels is put into when no channel
-+is active. The state is typically one of the following:
-+
-+- All channels are disconnected
-+- The last selected channel is left as-is
-+- A predefined channel is selected
-+
-+Muxes that support an idle state where all channels are disconnected are preferred when using
-+different bus speeds. Otherwise high bus speeds may "leak" through to devices that
-+may not support that higher speed.
-+
-+Consider the following example: ::
-+
-+                          .----------. 100kHz .--------.
-+        .--------. 400kHz |   mux-   |--------| dev D1 |
-+        |  root  |--+-----|  locked  |        '--------'
-+        '--------'  |     |  mux M1  |--. 400kHz .--------.
-+                    |     '----------'  '--------| dev D2 |
-+                    |  .--------.                '--------'
-+                    '--| dev D3 |
-+                       '--------'
-+
-+If the idle state of M1 is:
-+- All channels disconnected: No problem, D1 and D2 are not affected by communication
-+  to D3.
-+- Last selected channel: Problem if D1 was the last selected channel. High speed
-+  communication to D3 will be "leaked" to D1.
-+- Predefined channel: Problem, if the predefined channel D1. Set predefined channel
-+  to D2 as D2 may handle 400kHz.
-+
-+Supported controllers
-+-----------------------
-+
-+Not all I2C controllers support setting the bus speed dynamically.
-+At the time of writint, the following controllers has support:
-+
-+============================   =============================================
-+i2c-davinci                    Supports dynamic bus speed
-+============================   =============================================
- 
- Mux type of existing device drivers
- ===================================
 
--- 
-2.50.1
+Zev
 
+On Wed, Sep 17, 2025 at 11:04:26AM PDT, Rebecca Cran wrote:
+>The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
+>ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
+>
+>Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+>---
+> arch/arm/boot/dts/aspeed/Makefile                      |   1 +
+> arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts | 633 ++++++++++++++++++++
+> 2 files changed, 634 insertions(+)
+>
+>diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+>index aba7451ab749..6bffb7130839 100644
+>--- a/arch/arm/boot/dts/aspeed/Makefile
+>+++ b/arch/arm/boot/dts/aspeed/Makefile
+>@@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+> 	aspeed-bmc-ampere-mtjefferson.dtb \
+> 	aspeed-bmc-ampere-mtmitchell.dtb \
+> 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
+>+	aspeed-bmc-asrock-altrad8.dtb \
+> 	aspeed-bmc-asrock-e3c246d4i.dtb \
+> 	aspeed-bmc-asrock-e3c256d4i.dtb \
+> 	aspeed-bmc-asrock-romed8hm3.dtb \
+>diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
+>new file mode 100644
+>index 000000000000..ae3ddf5f6eb7
+>--- /dev/null
+>+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
+>@@ -0,0 +1,633 @@
+>+// SPDX-License-Identifier: GPL-2.0+
+>+/dts-v1/;
+>+
+>+#include "aspeed-g5.dtsi"
+>+#include <dt-bindings/gpio/aspeed-gpio.h>
+>+#include <dt-bindings/leds/common.h>
+>+#include <dt-bindings/i2c/i2c.h>
+>+
+>+/ {
+>+	model = "ASRock ALTRAD8 BMC";
+>+	compatible = "asrock,altrad8-bmc", "aspeed,ast2500";
+>+
+>+	aliases {
+>+		serial4 = &uart5;
+>+		i2c50 = &nvme1;
+>+		i2c51 = &pcie4;
+>+		i2c52 = &pcie5;
+>+		i2c53 = &pcie6;
+>+		i2c54 = &pcie7;
+>+		i2c55 = &nvme3;
+>+		i2c56 = &nvme2;
+>+		i2c57 = &nvme0;
+>+		i2c58 = &nvme4;
+>+		i2c59 = &nvme5;
+>+		i2c60 = &nvme6;
+>+		i2c61 = &nvme7;
+>+		i2c62 = &nvme8;
+>+		i2c63 = &nvme9;
+>+		i2c64 = &nvme10;
+>+		i2c65 = &nvme11;
+>+	};
+>+
+>+	chosen {
+>+		stdout-path = "uart5:115200n8";
+>+	};
+>+
+>+	iio-hwmon {
+>+		compatible = "iio-hwmon";
+>+		io-channels =	<&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
+>+				<&adc 4> ,<&adc 5>, <&adc 6>, <&adc 7>,
+>+				<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
+>+				<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
+>+	};
+>+
+>+	leds {
+>+		compatible = "gpio-leds";
+>+
+>+		led-system-fault {
+>+			gpios = <&gpio ASPEED_GPIO(G,3) GPIO_ACTIVE_LOW>;
+>+			label = "platform:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+
+>+		led-enclosure-identify {
+>+			gpios = <&gpio ASPEED_GPIO(G,0) GPIO_ACTIVE_LOW>;
+>+			label = "platform:green:indicator";
+>+			color = <LED_COLOR_ID_GREEN>;
+>+			function = LED_FUNCTION_INDICATOR;
+>+		};
+>+
+>+		led-fan1-fault {
+>+			retain-state-shutdown;
+>+			default-state = "off";
+>+			gpios = <&pca0 0 GPIO_ACTIVE_LOW>;
+>+			label = "fan1:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+
+>+		led-fan2-fault {
+>+			retain-state-shutdown;
+>+			default-state = "off";
+>+			gpios = <&pca0 1 GPIO_ACTIVE_LOW>;
+>+			label = "fan2:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+
+>+		led-fan3-fault {
+>+			retain-state-shutdown;
+>+			default-state = "off";
+>+			gpios = <&pca0 2 GPIO_ACTIVE_LOW>;
+>+			label = "fan3:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+
+>+		led-fan4-fault {
+>+			retain-state-shutdown;
+>+			default-state = "off";
+>+			gpios = <&pca0 3 GPIO_ACTIVE_LOW>;
+>+			label = "fan4:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+
+>+		led-fan5-fault {
+>+			retain-state-shutdown;
+>+			default-state = "off";
+>+			gpios = <&pca0 4 GPIO_ACTIVE_LOW>;
+>+			label = "fan5:red:fault";
+>+			color = <LED_COLOR_ID_RED>;
+>+			function = LED_FUNCTION_FAULT;
+>+		};
+>+	};
+>+
+>+	memory@80000000 {
+>+		reg = <0x80000000 0x20000000>;
+>+	};
+>+
+>+	reserved-memory {
+>+		#address-cells = <1>;
+>+		#size-cells = <1>;
+>+		ranges;
+>+
+>+		gfx_memory: framebuffer {
+>+			compatible = "shared-dma-pool";
+>+			size = <0x01000000>;
+>+			alignment = <0x01000000>;
+>+			reusable;
+>+		};
+>+
+>+		vga_memory: framebuffer@9f000000 {
+>+			no-map;
+>+			reg = <0x9f000000 0x01000000>; /* 16M */
+>+		};
+>+
+>+		video_engine_memory: jpegbuffer {
+>+			compatible = "shared-dma-pool";
+>+			size = <0x02000000>;	/* 32M */
+>+			alignment = <0x01000000>;
+>+			reusable;
+>+		};
+>+	};
+>+};
+>+
+>+&adc {
+>+	status = "okay";
+>+};
+>+
+>+&fmc {
+>+	flash@0 {
+>+		label = "bmc";
+>+		m25p,fast-read;
+>+		spi-max-frequency = <50000000>;
+>+#include "openbmc-flash-layout-64.dtsi"
+>+	};
+>+};
+>+
+>+&gfx {
+>+	memory-region = <&gfx_memory>;
+>+};
+>+
+>+&gpio {
+>+	gpio-line-names =
+>+	/*A0-A7*/	"","","","BMC_READY","","","","",
+>+	/*B0-B7*/	"i2c-backup-sel","","","","","","","host0-shd-ack-n",
+>+	/*C0-C7*/	"","","","","","","","",
+>+	/*D0-D7*/	"POWER_BUTTON","POWER_OUT","RESET_BUTTON",
+>+			"host0-sysreset-n","","","SYS_PWR_GD","",
+>+	/*E0-E7*/	"","s0-vrd1-vddq0123-fault-l",
+>+			"s0-vrd1-vddq4567-fault-l","s0-vrd0-vddc-fault-l",
+>+			"s0-vrd3-p0v75-fault-l","","","",
+>+	/*F0-F7*/	"","","SYS_ATX_PSON_L","","","","","",
+>+	/*G0-G7*/	"id-led","id-button","","","UBOOT_READY",\
+>+			"BMC_SALT2_L","","",
+>+	/*H0-H7*/	"PS_PWROK","uart1-mode1","uart2-mode1","uart3-mode1",
+>+			"uart4-mode1","","BMC_HB_LED","",
+>+	/*I0-I7*/	"","","","","","","","",
+>+	/*J0-J7*/	"s0-hightemp-n","","","","","","","",
+>+	/*K0-K7*/	"","","","","","","","",
+>+	/*L0-L7*/	"","","","","","","","",
+>+	/*M0-M7*/	"","","","","","s0-spi-auth-fail-n","","",
+>+	/*N0-N7*/	"","","","","","","","",
+>+	/*O0-O7*/	"","","","","","","","",
+>+	/*P0-P7*/	"","","CPLD_DISABLE_BMC","","","","","",
+>+	/*Q0-Q7*/	"","","ext-hightemp-n","","","","",
+>+			"CHASSIS_INTRUSION",
+>+	/*R0-R7*/	"","","EXT_HIGHTEMP_L","spi0-program-sel","",
+>+			"HWM_BAT_EN","","",
+>+	/*S0-S7*/	"s0-vr-hot-n","","","BMC_SYSRESET_L","","","","",
+>+	/*T0-T7*/	"","","","","","","","",
+>+	/*U0-U7*/	"","","","","","","","",
+>+	/*V0-V7*/	"","","","","","","","",
+>+	/*W0-W7*/	"","","","","","","","",
+>+	/*X0-X7*/	"","","","","","","","",
+>+	/*Y0-Y7*/	"SIOS3","SIOS5","SIOPWREQ","SIOONCTRL","","","","",
+>+	/*Z0-Z7*/	"","SIOPWRGD","","s0-rtc-lock","","","","",
+>+	/*AA0-AA7*/	"RTC_INT","","","","","PMBUS_SEL_N","","",
+>+	/*AB0-AB7*/	"host0-reboot-ack-n","s0-sys-auth-failure-n",
+>+			"","","","","","",
+>+	/*AC0-AC7*/	"s0-fault-alert","host0-ready","s0-overtemp-n",
+>+			"","bmc-ok","host0-special-boot","presence-cpu0",
+>+			"host0-shd-req-n";
+>+};
+>+
+>+&i2c0 {
+>+	bus-frequency = <100000>;
+
+Here and on most of the other i2c busses, is there a particular reason 
+we want this bus-frequency explicitly specified?  100kHz is the default 
+according to Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml (and 
+the other existing aspeed-bmc-asrock-*.dts files leave it at that 
+implicit default, FWIW).
+
+>+
+>+	ipmb@10 {
+>+		compatible = "ipmb-dev";
+>+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
+>+		i2c-protocol;
+>+	};
+>+
+>+};
+>+
+>+&i2c1 {
+>+	bus-frequency = <100000>;
+>+
+>+	i2c-mux1@73 {
+>+		compatible = "nxp,pca9548";
+>+		reg = <0x73>;
+>+		#address-cells = <1>;
+>+		#size-cells = <0>;
+>+		i2c-mux-idle-disconnect;
+>+
+>+		nvme1: i2c@0 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <0>;
+>+		};
+>+
+>+		pcie4: i2c@1 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <1>;
+>+		};
+>+
+>+		pcie5: i2c@2 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <2>;
+>+		};
+>+
+>+		pcie6: i2c@3 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <3>;
+>+		};
+>+
+>+		pcie7: i2c@4 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <4>;
+>+		};
+>+
+>+		nvme3: i2c@5 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <5>;
+>+		};
+>+
+>+		nvme2: i2c@6 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <6>;
+>+		};
+>+
+>+		nvme0: i2c@7 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <7>;
+>+		};
+>+	};
+>+
+>+	i2c-mux2@75 {
+>+		compatible = "nxp,pca9548";
+>+		reg = <0x75>;
+>+		#address-cells = <1>;
+>+		#size-cells = <0>;
+>+		i2c-mux-idle-disconnect;
+>+
+>+		nvme4: i2c@0 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <0>;
+>+		};
+>+
+>+		nvme5: i2c@1 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <1>;
+>+		};
+>+
+>+		nvme6: i2c@2 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <2>;
+>+		};
+>+
+>+		nvme7: i2c@3 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <3>;
+>+		};
+>+
+>+		nvme8: i2c@4 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <4>;
+>+		};
+>+
+>+		nvme9: i2c@5 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <5>;
+>+		};
+>+
+>+		nvme10: i2c@6 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <6>;
+>+		};
+>+
+>+		nvme11: i2c@7 {
+>+			#address-cells = <1>;
+>+			#size-cells = <0>;
+>+			reg = <7>;
+>+		};
+>+	};
+>+};
+>+
+>+&i2c2 {
+>+	bus-frequency = <100000>;
+>+
+>+	smpro@4f {
+>+		compatible = "ampere,smpro";
+>+		reg = <0x4f>;
+>+	};
+>+};
+>+
+>+&i2c3 {
+>+	// PSU FRU
+>+	eeprom@38 {
+>+		compatible = "atmel,24c02";
+>+		reg = <0x38>;
+>+	};
+>+};
+>+
+>+&i2c4 {
+>+	bus-frequency = <100000>;
+>+
+>+	hardware-monitor@29 {
+
+It looks like this device only monitors temperatures?  If so, perhaps 
+temperature-sensor@29 would be a slightly more appropriate node name.
+
+>+		compatible = "nuvoton,nct7802";
+>+		reg = <0x29>;
+>+
+>+		#address-cells = <1>;
+>+		#size-cells = <0>;
+>+
+>+		channel@0 { /* LTD */
+>+			reg = <0>;
+>+		};
+>+
+>+		channel@1 { /* RTD1 */
+>+				reg = <1>;
+>+				sensor-type = "temperature";
+>+				temperature-mode = "thermistor";
+>+		};
+>+
+>+		channel@2 { /* RTD2 */
+>+				reg = <2>;
+>+				sensor-type = "temperature";
+>+				temperature-mode = "thermal-diode";
+>+		};
+
+channel@1 and channel@2 block bodies look over-indented by one level 
+here.
+
+>+	};
+>+
+>+	temperature-sensor@4c {
+>+		compatible = "nuvoton,w83773g";
+>+		reg = <0x4c>;
+>+	};
+>+};
+>+
+>+&i2c5 {
+>+	status = "okay";
+>+};
+>+
+>+&i2c6 {
+>+	bus-frequency = <100000>;
+>+
+>+	rtc@6f {
+>+		compatible = "isil,isl1208";
+>+		reg = <0x6f>;
+>+	};
+>+};
+>+
+>+&i2c7 {
+>+	bus-frequency = <100000>;
+>+
+>+	// BMC FRU
+>+	eeprom@57 {
+>+		compatible = "atmel,24c128";
+>+		reg = <0x57>;
+>+
+>+		nvmem-layout {
+>+			compatible = "fixed-layout";
+>+			#address-cells = <1>;
+>+			#size-cells = <1>;
+>+
+>+			eth0_macaddress: macaddress@3f88 {
+>+				reg = <0x3f88 6>;
+>+			};
+>+
+>+			eth1_macaddress: macaddress@3f80 {
+>+				reg = <0x3f80 6>;
+>+			};
+
+Are these correct?  On every other ASRock board I've dealt with, the 
+eth0 address is at 0x3f80 and eth1 is at 0x3f88.
+
+If so and they are really for some reason swapped on this platform, as a 
+slight nitpick I might suggest swapping the order the nodes are listed 
+in so they go in order of increasing addresses.
+
+>+		};
+>+	};
+>+};
+>+
+>+&i2c8 {
+>+	bus-frequency = <100000>;
+>+
+>+	pca0: gpio@1c {
+>+		compatible = "nxp,pca9557";
+>+		reg = <0x1c>;
+>+		#address-cells = <1>;
+>+		#size-cells = <0>;
+>+
+>+		gpio-controller;
+>+		#gpio-cells = <2>;
+>+
+>+		gpio@0 {
+>+			reg = <0>;
+>+		};
+>+
+>+		gpio@1 {
+>+			reg = <1>;
+>+		};
+>+
+>+		gpio@2 {
+>+			reg = <2>;
+>+		};
+>+
+>+		gpio@3 {
+>+			reg = <3>;
+>+		};
+>+
+>+		gpio@4 {
+>+			reg = <4>;
+>+		};
+>+
+>+		gpio@5 {
+>+			reg = <5>;
+>+		};
+>+
+>+		gpio@6 {
+>+			reg = <6>;
+>+		};
+>+
+>+		gpio@7 {
+>+			reg = <7>;
+>+		};
+>+	};
+>+};
+>+
+>+&i2c9 {
+>+	status = "okay";
+>+};
+>+
+>+&i2c10 {
+>+	status = "okay";
+>+};
+>+
+>+&i2c11 {
+>+	status = "okay";
+>+};
+>+
+>+&i2c12 {
+>+	status = "okay";
+>+};
+>+
+>+&i2c13 {
+>+	bus-frequency = <100000>;
+>+
+>+	ssif-bmc@10 {
+>+		compatible = "ssif-bmc";
+>+		reg = <0x10>;
+>+	};
+>+};
+>+
+>+// Connected to host Intel X550 (ALTRAD8UD-1L2T) or
+>+// Broadcom BCM57414 (ALTRAD8UD2-1L2Q) interface
+>+&mac0 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_rmii1_default>;
+>+
+>+	clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
+>+		 <&syscon ASPEED_CLK_MAC1RCLK>;
+>+	clock-names = "MACCLK", "RCLK";
+>+
+>+	use-ncsi;
+>+
+>+	nvmem-cells = <&eth0_macaddress>;
+>+	nvmem-cell-names = "mac-address";
+>+};
+>+
+>+// Connected to Realtek RTL8211E
+>+&mac1 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
+>+
+>+	nvmem-cells = <&eth1_macaddress>;
+>+	nvmem-cell-names = "mac-address";
+>+};
+>+
+>+&pinctrl {
+>+	aspeed,external-nodes = <&gfx &lhc>;
+>+};
+>+
+>+&pwm_tacho {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_pwm0_default
+>+			&pinctrl_pwm1_default
+>+			&pinctrl_pwm2_default
+>+			&pinctrl_pwm3_default
+>+			&pinctrl_pwm4_default
+>+			&pinctrl_pwm5_default
+>+			&pinctrl_pwm6_default
+>+			&pinctrl_pwm7_default>;
+>+
+>+	fan@0 {
+>+		reg = <0x00>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x00 0x08>;
+>+	};
+>+
+>+	fan@1 {
+>+		reg = <0x01>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x09>;
+>+	};
+>+
+>+	fan@2 {
+>+		reg = <0x02>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x02 0x0a>;
+>+	};
+>+
+>+	fan@3 {
+>+		reg = <0x03>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
+>+	};
+>+
+>+	fan@4 {
+>+		reg = <0x04>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0c>;
+>+	};
+>+
+>+	fan@5 {
+>+		reg = <0x05>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0d>;
+>+	};
+>+
+>+	fan@6 {
+>+		reg = <0x06>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x06 0x0e>;
+>+	};
+>+
+>+	fan@7 {
+>+		reg = <0x07>;
+>+		aspeed,fan-tach-ch = /bits/ 8 <0x07 0x0f>;
+>+	};
+>+};
+>+
+>+&spi1 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_spi1_default>;
+>+
+>+	flash@0 {
+>+		m25p,fast-read;
+>+		label = "pnor";
+>+		spi-max-frequency = <100000000>;
+>+
+>+		partitions {
+>+			compatible = "fixed-partitions";
+>+			#address-cells = <1>;
+>+			#size-cells = <1>;
+>+
+>+			code@400000 {
+>+				reg = <0x400000 0x1C00000>;
+>+				label = "pnor-code";
+>+			};
+>+
+>+			tfa@400000 {
+>+				reg = <0x400000 0x200000>;
+>+				label = "pnor-tfa";
+>+			};
+
+As the DTBS_CHECK lint reported and Andrew Jeffery commented on, these 
+two partitions overlapping is a bit surprising -- is that intentional?
+
+>+
+>+			uefi@600000 {
+>+				reg = <0x600000 0x1A00000>;
+>+				label = "pnor-uefi";
+>+			};
+>+		};
+>+	};
+>+};
+>+
+>+&uart1 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_txd1_default
+>+			 &pinctrl_rxd1_default
+>+			 &pinctrl_ncts1_default
+>+			 &pinctrl_nrts1_default>;
+>+};
+>+
+>+&uart2 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_txd2_default
+>+			 &pinctrl_rxd2_default>;
+>+};
+>+
+>+&uart3 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_txd3_default
+>+			 &pinctrl_rxd3_default>;
+>+};
+>+
+>+&uart4 {
+>+	pinctrl-names = "default";
+>+	pinctrl-0 = <&pinctrl_txd4_default
+>+			 &pinctrl_rxd4_default>;
+>+};
+>+
+>+// The BMC's uart
+>+&uart5 {
+>+	status = "okay";
+>+};
+>+
+>+&vhub {
+>+	status = "okay";
+>+};
+>+
+>+&video {
+>+	memory-region = <&video_engine_memory>;
+>+};
+>-- 
+>2.47.3
+>
+>
 
