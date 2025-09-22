@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58CACAC5AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073EBCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhLofum5XSgtCUfA5ns+jiGXqztjeclde4HPF9pV6iU=; b=KRVWr7jX+OAoJigl6N6ks4Dw8t
-	fkND0CEJGzfXahGaQvU0ETgGA/KcfzsUm79e9zBH5WsnMtdt1r6VF7oPN2yDPdLzSFP6fQnM6fI2Z
-	mI9rFxaBRe53XqOD5HvsHMOBId48BXkpeeo6YcsheGRN4KIhybExc7T8/9qIWhrYrz3UJHU66DHKy
-	tS1FK5kHXcDuntAZ+jdQ9oKWQ0/mdbkOQkBPvdUvm4U5SoMBPFBAZUC02b018n9uzKus19dspW5NC
-	+nzPRwVCDp+qXUM76wb4/HLSzHZp9v1dbcRiyQfvs3NxdMT2DaiFKEpTJ8zp+K+PXFgYMhC1PWkRK
-	p3EoOe/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FR4N1wOnD9WLDkhsK0FjmQIDmMcNU19g/8FP73AZVSE=; b=4gAsiQKiOQ1s8ZTqA1RD6FB/Ap
+	qmUTc+Yr9yuE2ZqAkZdpI8p0GqnPnYkylRWUUYExYFnq42diB5p8tU2osYXfoCOvClJlNxsHfcIKY
+	qtrfCRiLe1Q4B9iTqR0GJgdv9lRfFpUDFZa9T26ChgjWZ1Gq8qia68w1sOHSdN44lIR4I1Dfye++f
+	NmYsHb2jrDgUXCR39YjXkWl4Pl4MgdAET+LAMQyteuTjRGaXZHucttRzsNRom56k/i0glgmprwqGt
+	MiGoWk246RL2gI9rtPTiG6MN9/GEMTMMt9UEpEDtcntfAOCAKRplE+M8L5edHjIDtAmW4G65wc/qH
+	ai0socbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eSI-0000000AACN-1CqT;
-	Mon, 22 Sep 2025 11:11:38 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1v0eYL-0000000ABFD-2mUs;
+	Mon, 22 Sep 2025 11:17:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eS4-0000000AA19-1iHU
+	id 1v0eYI-0000000ABEo-1iqs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 11:11:25 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1v0eRs-0002HM-Fe; Mon, 22 Sep 2025 13:11:12 +0200
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Mon, 22 Sep 2025 13:10:56 +0200
-Subject: [PATCH v2 5/5] arm64: dts: imx8mp-skov: support new 10" panel
- board
+	Mon, 22 Sep 2025 11:17:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC9DC43C7F;
+	Mon, 22 Sep 2025 11:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E89C4CEF7;
+	Mon, 22 Sep 2025 11:17:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758539869;
+	bh=P/WkZtU1feRYKGYIu/69vRBdYK8dAJ5LkCF7pU4LxlM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AKJGz7DAwj69nbNV0Rne3G36MBMl3WicbxYo6d7/PZP9HsdCs9jzrSchd9/jHIKqh
+	 eC2bZZEHCsGN4N4ZjON/bMrnCwOhqa0Os1N7KJWuMjSw+XaigO4bNnPP29mIoyGd3+
+	 7F3hGlAzdzUOX0U1gYbhMMaEGa0tDc/aQuhAs7hz7pJe2DJhVHfiseVb88nyqnfL3J
+	 oAjYyS3B2+9/8BOmeNggh52hqwFR1obtXc3pkg/gGB4Zc0JcV2tc1rgT96yL5RiGN3
+	 Tekq60Op8YyvRVW4fusY5YxcIylwCl8inJOMdsraDdJTZflRMrJi11D9bDCTifMqOI
+	 hPpMTm27c61NA==
+Date: Mon, 22 Sep 2025 16:47:39 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	quic_wenbyao@quicinc.com, inochiama@gmail.com, mayank.rana@oss.qualcomm.com, 
+	thippeswamy.havalige@amd.com, shradha.t@samsung.com, cassel@kernel.org, kishon@kernel.org, 
+	sergio.paracuellos@gmail.com, 18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v3 0/4] PCI: Keystone: Enable loadable module support
+Message-ID: <qdz2d57q3hyosmvh7xzxy2qdhpjyxkl2mh6dr4or4nj4qakpoh@gg6ihzpaynst>
+References: <20250922071222.2814937-1-s-vadapalli@ti.com>
+ <175852954905.18749.5091036983349477093.b4-ty@kernel.org>
+ <3sjuplupmdoxqhyz2i2p4he5vw7krqokixoy6ddoiox6p536n6@xzfcyhwjx3hv>
+ <590d183c-8971-4728-9aa3-4e02bd3d0845@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-5-abbb759cf8ef@pengutronix.de>
-References: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
-In-Reply-To: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <590d183c-8971-4728-9aa3-4e02bd3d0845@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_041124_453401_4DBF23ED 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250922_041750_491278_04A6B406 
+X-CRM114-Status: GOOD (  32.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,115 +80,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board is similar to the already upstream
-imx8mp-skov-recv-tian-g07017.dts but uses a different 10" panel with a
-different touch controller.
+On Mon, Sep 22, 2025 at 02:55:05PM +0530, Siddharth Vadapalli wrote:
+> On Mon, Sep 22, 2025 at 02:02:43PM +0530, Manivannan Sadhasivam wrote:
+> 
+> Hello Mani,
+> 
+> > On Mon, Sep 22, 2025 at 01:56:08PM +0530, Manivannan Sadhasivam wrote:
+> > > 
+> > > On Mon, 22 Sep 2025 12:42:12 +0530, Siddharth Vadapalli wrote:
+> > > > This series enables support for the 'pci-keystone.c' driver to be built
+> > > > as a loadable module. The motivation for the series is that PCIe is not
+> > > > a necessity for booting Linux due to which the 'pci-keystone.c' driver
+> > > > does not need to be built-in.
+> > > > 
+> > > > Series is based on commit
+> > > > dc72930fe22e Merge branch 'pci/misc'
+> > > > of pci/next.
+> > > > 
+> > > > [...]
+> > > 
+> > > Applied, thanks!
+> > > 
+> > > [1/4] PCI: Export pci_get_host_bridge_device() for use by pci-keystone
+> > >       commit: c514ba0fa8938ae09370beecb77257868c1568a7
+> > > [2/4] PCI: dwc: Export dw_pcie_allocate_domains() and dw_pcie_ep_raise_msix_irq()
+> > >       commit: db9ff606a5535aee94bf41682f03aba500ff3ad6
+> > > [3/4] PCI: keystone: Exit ks_pcie_probe() for invalid mode
+> > >       commit: 76d23c87a3e06af003ae3a08053279d06141c716
+> > > [4/4] PCI: keystone: Add support to build as a loadable module
+> > >       commit: e82d56b5f3844189f2b2240b1c3eaeeafc8f1fd2
+> > > 
+> > 
+> > I just noticed the build dependency mentioned in the cover letter after applying
+> > the series. This is problematic since there is no guarantee that the dependent
+> > commit will reach mainline first. So if this series gets applied by Linus first,
+> > then building this driver as module will break the build. We should not have the
+> > build error at any cost.
+> 
+> As feedback for the future, is there a better way that I could have
+> highlighted the build dependency? I agree that a build failure is
+> unacceptable which is why I tried to highlight the dependency, but, it
+> probably wasn't the best approach to point it out by mentioning it in
+> the cover letter. Please let me know if I could make it easier for you
+> and other Maintainers to notice such stated dependencies.
+> 
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../imx8mp-skov-revc-jutouch-jt101tm023.dts        | 79 ++++++++++++++++++++++
- 2 files changed, 80 insertions(+)
+Mentioning the build dependency in the cover letter is the right thing to do.
+But somehow I failed to spot it as it was not highlighted enough (just for my
+eyes).
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 23535ed47631ca8f9db65bec5c07b6a7a7e36525..b0f98d60553d968820db45c06418ac671753df4b 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -226,6 +226,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..3e320d6dea3a27292ee12c7a592bc078d9376a80
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include "imx8mp-skov-reva.dtsi"
-+
-+/ {
-+	model = "SKOV IMX8MP CPU revC - JuTouch JT101TM023";
-+	compatible = "skov,imx8mp-skov-revc-jutouch-jt101tm023", "fsl,imx8mp";
-+
-+	panel {
-+		compatible = "jutouch,jt101tm023";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
-+
-+		port {
-+			in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	touchscreen@2a {
-+		compatible = "eeti,exc81w32", "eeti,exc80h84";
-+		reg = <0x2a>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1280>;
-+		touchscreen-size-y = <800>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
-+	assigned-clock-rates = <0>, <506800000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&in_lvds0>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&reg_tft_vcom {
-+	regulator-min-microvolt = <3160000>;
-+	regulator-max-microvolt = <3160000>;
-+	voltage-table = <3160000 73>;
-+	status = "okay";
-+};
+Maybe you could mention the dependencies under a sub-section. Like,
+
+Dependency
+==========
+
+Some people also mark the patches as DNM (Do Not Merge), but that's for patches
+not intended to be merged as is. Not for this series though.
+
+Anyhow, I take the blame of not going through the cover letter properly, but you
+did the right thing.
+
+- Mani
 
 -- 
-2.49.0
-
+மணிவண்ணன் சதாசிவம்
 
