@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B797CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 22:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4728CCA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 22:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=; b=xb6poTvPQLcZJ3/gLZDgunuLj/
-	R7jyqxQBAepVi2Cl9MpDSErWwLMvYWZZjsj6Jmt0XGm0GLP3Gda399w5wHBCBB8GacdOh4aFBBfGA
-	UAOdHTBfwBiFvNMwZKGATuALKeh6RgFjQuFPc/1HZFU6UiEUHFa4Dr6PkgdzJI72qJi3T1mtW9CIw
-	t2Qnv1Oxe0iJiu/HL23CEvIjvCEQ2LNwwBBtss8yHQq0NI1tQEku61R1S4454XsF8JXAzavwQb4Do
-	hUfzq4K6EiYVk6UjB/lHloizq/8OboyHIP5DOeAQgxybdOEfsu19CB0GBq4vqVzdAX1Jo2RnJlpky
-	HqanMxLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fWmEChdpxrErFjVsn3V3ZIGQaGqnJGr1o6tiOdOzI5s=; b=kcrHHkdiAjtE7ZUvqjsXAYtncw
+	RSk1AYuMwVPXNf/N/TZS/tn2U/3UPCgzhAfnq9cXnboECujfxVRkYuquW3Ozy8LuMS830dP4ojOYb
+	sksHtACLEZmw6FMNv21vNJ/F0qhSklQNyw256H0DIjMNwx9Q6kvR3T4/8qEqoQTcvvlCVXBCxzzhN
+	THLLZT1EoxtBxJsrEaU7NLDI26T5cuszs5rrgSnW8hNl+kN9CgolDoL+HyzyAB4UbjdFc24039GQ5
+	tDgoXFIno35Jt2f3Qq+/1OdzqRzegVmb+N2I2jsJXV0XSkMRgqx6zERGm6vax1kCJiGPPNxjVkwr0
+	zq0tXppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0pHs-0000000Bf6t-3e6a;
-	Mon, 22 Sep 2025 22:45:36 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1v0pL9-0000000BfQ6-2256;
+	Mon, 22 Sep 2025 22:48:59 +0000
+Received: from mail-oa1-x41.google.com ([2001:4860:4864:20::41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0pHq-0000000Bf6W-237y
+	id 1v0pL7-0000000BfPL-2r3H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 22:45:35 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4bb7209ec97so111771cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 15:45:33 -0700 (PDT)
+	Mon, 22 Sep 2025 22:48:58 +0000
+Received: by mail-oa1-x41.google.com with SMTP id 586e51a60fabf-31d6b8be249so4572389fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 15:48:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1758581132; x=1759185932; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=;
-        b=bmC8eSy2VGHjLpqBgJuvAXf2vyMmwRt3f7HcXEzhUwEN+kfXvXdt/tWtmROOHXe9dk
-         NmWRGmwyx+1s7cS0HHAH73gT5mRX7ccMGs0TybonpPENyy/99OxlmDRVuUUZ9Ih6NmqS
-         njPP5U6ommnnqxMb02lSlwNsL6NOc+YeZDP4I=
+        d=chromium.org; s=google; t=1758581335; x=1759186135; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fWmEChdpxrErFjVsn3V3ZIGQaGqnJGr1o6tiOdOzI5s=;
+        b=EUbn4s1009yYX956hk1NRB1JFIL1sr0iJTlEVKyFJ76QVlLsArRZ17X7DkhpDWgzfA
+         n9uTXSmkFhcgEVVI1+7ee8/XOBjG1dU89ySRBZ/LXG7eDIv+nILbZpbJcB8sf39emcc2
+         sL57T4ufswWyzzfIxfKT2SNK9PFqmQsOrlg54=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758581132; x=1759185932;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1758581335; x=1759186135;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=;
-        b=vZUFjnmG12PTArzICoLOOi/zVE43b+9r2jwJmKN3jn/pmqrBby8VcLYglTn2m36e/f
-         oaYtTfNog18mBa2QJjQGuhSkCNe7ZcOzHn1lmOVwU78CZpjyBinOf8fwRS4mVDrgz/Jn
-         WY2+itrgyxMJ97X7ru4ZAtmhuYzzWHzKBEmqt4gfKgRshjSu5ifSvvnBVMyxoiBbpnIB
-         keuXDwA4v1lNBBZOMlgkVnyArKWvS9dGClOaPzqTyseScSt2NQUNrH4zPhhvLkd1KsM8
-         f9NjuyR2mWIn5TjDvfhM5TVxyLHiQUCzVfwj+oiNQWbE9VNqQPaI/mYll6OGfcU2uxTB
-         0IFA==
-X-Forwarded-Encrypted: i=1; AJvYcCXaOPpGHbZWOeKvcZwbG3bTe7VPK5kmiWy7yVw4m4LUhKmoi28bKYe2XjhUTGjiLRhiGe5YJTdoTA52uR8V6h4Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNIASVUMW9i85FY03NismObunfikby/tBhfJApVtRY8IjIb+HF
-	dVxee+zwdedaEhgmMp3POhXILA73znN5gADr5tNNnv7Nj1pdbS0ag1EBSQA1d4Y0ShGZq4a6JOp
-	FJHIkVOAQ5RqZG6BB560z+JpBXe70E5FOuP7Kyzsf
-X-Gm-Gg: ASbGnctm0QhikOmtuqczIfcsxtGGwSWFH1oIxEG4hY5ccFWRJ3I52iMWPznDVthK9oH
-	+meuV5llBOPpUpzgVCXx0bQM6G6H9PCtYygVBc7QYshiQ3g19SpUM1KToz+TbOxhcHkmzsfOGcz
-	WfM7ePoiGqzpxsgNZyyAd0FJSlpKsGs+sdCSgEB77Acl9NC4bFYWRHKYbtG2cKfIzpq753M5rM4
-	PT+
-X-Google-Smtp-Source: AGHT+IEEHjj+wsiT1bNCpHBT5Mi+r8GATT0+bhUw8kMDnXciBxiK/CjOVLMPqzXvLsmITsSiS2BY9rY1zKy2QnMzLjo=
-X-Received: by 2002:ac8:5903:0:b0:4cf:dc5c:8c76 with SMTP id
- d75a77b69052e-4d36ab2866fmr1207671cf.11.1758581132096; Mon, 22 Sep 2025
- 15:45:32 -0700 (PDT)
+        bh=fWmEChdpxrErFjVsn3V3ZIGQaGqnJGr1o6tiOdOzI5s=;
+        b=SCxuZW54S54BCiY1wF7z9pTClglyRYceuUz1/eaD6TinRzKKB+uCCwqHhXHfFaG6DW
+         eLXitWey0nTE2NP4oiz60qLBdzWkqAJOrZXQrqUlIeNfi2q9PtuXnsg609HjjqSmwlVP
+         wogFOwyFSojkwHYgYv6QyKaSdk+roMk8oQAkcrIuJlTuxjfLFuRDcP42DoS9RS71Wh3Z
+         6hcH33umJfUSQ9SMPizkUikZv3J0o/hStU6tTulpx7AKIEjwMbu4sEboNi5hL9zvQf/Y
+         pdPsbJLnKEPWcll0axachDEw2B4GntFyCwgqDDVkHdg9HZVKm2r+EkPU713kJuKsXAV3
+         rFZw==
+X-Gm-Message-State: AOJu0Yx4ep9v1j9aS2prYrKnDM+V2HOsJwKCOh8hez/hZk8gg/BS1bzg
+	4rgZMsJTM/ovDX/PhyU7pVw4qvGYD09FTrfsChTH0HBR4xzlrImoJKCST9JeMG3NhATXKxnjMSz
+	OBJsCBGfe
+X-Gm-Gg: ASbGncvb7xcMuNclXE8ArK8kr4sUzj0iyOOhIg4QF+O5w8IUWqtpoGEtwvy55pJFapE
+	4g25Vqi/EALiS4r6TpHwbyfyK9TKDf1zXqS+3f+nIS4+Hr7+w/9cwFoNJnklLL9pC0Yx5QxWT/2
+	zZYZDyj5J+IEa8FmmuBwPb+mQ0liB182OWtvbueVp9nnNZTvMsqkLFNHIfx1FgEXmJRQS5vyPN9
+	wCc5Dbn3Np1icAbNlMR+Qylg/qUtwSVw8nzH1YQTm9uweR61HuLiZ4fypfzxgMkFlqc7qiJWD48
+	Jx/FJk3HYPD1Jo4gMZhJFsg04u+qmtGI4Pba+u2wkMoLBZ5ItWE3KntBd2GNw9maxmV0HXLzaPE
+	pUwLel0DZhU+iDo3+jVCvS7rYFP+g3w==
+X-Google-Smtp-Source: AGHT+IHk03TiuVfvlVnwklNju8cnHVtFH0Gbcp+nf3/MfCBK3T7FJJbepFKpUdFIDYDjJpSQH8vCBA==
+X-Received: by 2002:a05:6870:96a7:b0:319:c5ac:c375 with SMTP id 586e51a60fabf-34c73100e06mr307739fac.10.1758581335591;
+        Mon, 22 Sep 2025 15:48:55 -0700 (PDT)
+Received: from chromium.org ([50.235.115.130])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-78780383017sm1167244a34.37.2025.09.22.15.48.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Sep 2025 15:48:54 -0700 (PDT)
+From: Simon Glass <sjg@chromium.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Nicolas Schier <nicolas@fjasle.eu>,
+	Tom Rini <trini@konsulko.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	=?UTF-8?q?J=20=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Simon Glass <sjg@chromium.org>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/5] scripts/make_fit: Speed up operation
+Date: Mon, 22 Sep 2025 16:48:28 -0600
+Message-ID: <20250922224835.1918759-1-sjg@chromium.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250922-b4-ddr-bindings-v7-0-b3dd20e54db6@gmail.com> <20250922-b4-ddr-bindings-v7-1-b3dd20e54db6@gmail.com>
-In-Reply-To: <20250922-b4-ddr-bindings-v7-1-b3dd20e54db6@gmail.com>
-From: Julius Werner <jwerner@chromium.org>
-Date: Mon, 22 Sep 2025 15:45:19 -0700
-X-Gm-Features: AS18NWDpJeoFHhQc83aqhmhoSwFRisU770ZW4iy7Do1FLF-ntGplzcw3QSX4Lyg
-Message-ID: <CAODwPW_oDTh9FdnLq7w2FPQv68ReAUUpssqEktUH5zhewbfcxg@mail.gmail.com>
-Subject: Re: [PATCH v7 1/7] dt-bindings: memory: factorise LPDDR props into
- SDRAM props
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Julius Werner <jwerner@chromium.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_154534_555681_1D2A01CC 
-X-CRM114-Status: UNSURE (   6.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250922_154857_717617_2B395E53 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,7 +98,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +      lpddrX,YY,ZZZZ or ddrX-YYYY,AAAA...,ZZ where X, Y, and Z are in lower
+The kernel is likely at least 16MB so we may as well use that as a step
+size when reallocating space for the FIT in memory. Pack the FIT at the
+end, so there is no wasted space.
 
-It looks like you accidentally changed `lpddrX-YY,ZZZZ` to `lpddrX,YY,ZZZZ`?
+This reduces the time to pack by an order of magnitude, or so.
+
+Signed-off-by: Simon Glass <sjg@chromium.org>
+---
+
+Changes in v3:
+- Move the ramdisk chunk into the correct patch
+
+ scripts/make_fit.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+index 1683e5ec6e67..0f5e7c4b8aed 100755
+--- a/scripts/make_fit.py
++++ b/scripts/make_fit.py
+@@ -98,7 +98,7 @@ def setup_fit(fsw, name):
+         fsw (libfdt.FdtSw): Object to use for writing
+         name (str): Name of kernel image
+     """
+-    fsw.INC_SIZE = 65536
++    fsw.INC_SIZE = 16 << 20
+     fsw.finish_reservemap()
+     fsw.begin_node('')
+     fsw.property_string('description', f'{name} with devicetree set')
+@@ -299,7 +299,9 @@ def build_fit(args):
+     finish_fit(fsw, entries)
+ 
+     # Include the kernel itself in the returned file count
+-    return fsw.as_fdt().as_bytearray(), seq + 1, size
++    fdt = fsw.as_fdt()
++    fdt.pack()
++    return fdt.as_bytearray(), seq + 1, size
+ 
+ 
+ def run_make_fit():
+-- 
+2.43.0
+
+base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
+branch: fita3
 
