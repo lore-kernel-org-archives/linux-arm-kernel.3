@@ -4,64 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19304CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:21:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2F7CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqswoQ/SW++SzOASNIsNm5sMpLVuxYt53hj6+u9n0W4=; b=uqY6CqzbQnFL9ZkDCAq4CZ3fnd
-	9JkC/huj17IjXH6RBGM53m3nF1PAkjCgeVfirAkPMZgRUi8o8d2o8SsyweO6KsIasKoKCJeJZxLaB
-	Tai0wmeALjJu1qW5Lhu+JXTeJczCeHHmD0ByEiciRYaRf6lY61jzq7u/3HeL6+jRL/zYloNSyMc8h
-	XzK7hkLnYV8Waj1gY6qpVl3JL/Gd/kxkD6PcOKnZ78KJJ10RzLXhKmAxhqNEqZjudnbMBtbY70Uet
-	ZgoqAfXrEdfEon5CX4O/BE2Crl9gjW6VTx3GfNvHjFjUsC9CHIvhlYf+JLobbu3B/+KblnAcR21Cv
-	i2XUOMBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h5lLrTEPfjBEE6+72ClqjipyByMm2X0eEE6L7Qy2HzE=; b=OgQkgrRIrqoXFd
+	Nii4KNgau1jc9hSWT+t/s4i3AxUDgGPbMmX2A5CTrXgRQvsEdJqY578OEruJFCYxYckTQG2EbBL0s
+	GZS4OHSnyB92lwRBwIcTQsO6AbXpu2kTZoMojazoiD7e9X7UQ7P9jxkwuk35N0XyfSdPIjj1ItpsF
+	FsjJkONM53ykNi1kmu1P68MeFT08DlG8mkdIErdB/H+2RLKUuD5kB1iQudzVveTYQsQcLbOrrGcTz
+	7tF8BG4BWRFIYEAArBhuu7gyGAna47eBJZWTpLCcGZvps06jQXaroYhbS1DW2Dj03VQhJE5/1TiOO
+	36yOUXyzPvEk4q1zd8EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ZvM-00000008wbX-3ivB;
-	Mon, 22 Sep 2025 06:21:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0Zvk-00000008wkU-0uON;
+	Mon, 22 Sep 2025 06:21:44 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ZvL-00000008wbN-3bwP
+	id 1v0Zvh-00000008wif-2Z1d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 06:21:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E38360147;
-	Mon, 22 Sep 2025 06:21:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0344CC4CEF5;
-	Mon, 22 Sep 2025 06:21:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758522079;
-	bh=eoFLH+PsSdyp4SGdZ6FacLOobyF33z0eyFcT731wQJQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s5bk4DNTrF+fVQt7Y4vSJDQSLniwAcB1wt81kInI24cqVmOK8zXroa7j4dVWfcwVl
-	 v5WQjcnGafariu5UTDAmyjc31ph71NhaoGpdtNNOry+j7rWUUOf2mlv1nCiAknwJes
-	 2VvcDleMFWUAAs3lP0LCjILv8DxMaKZmKy/HDnM6N3ux1bVsi8ZRviCN7qX8jbF7Uj
-	 8PCwZDBR0/9vLvw3zKvBiQ9bCzIc67+j4gByspw2cSXwpZS8Nm/vu/AaTcS6YINWRX
-	 hcEBY4IW9mNIZcju+o3X672Xe3cnVPMc7Xl2gmSm/w2Y6zmFrEkxA3RQHYQ6fFsyAO
-	 Iv0rWyUzUMQjg==
-Date: Mon, 22 Sep 2025 11:51:07 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, 
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
-	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
-Message-ID: <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
-References: <20250919155821.95334-1-vincent.guittot@linaro.org>
- <20250919155821.95334-2-vincent.guittot@linaro.org>
+	Mon, 22 Sep 2025 06:21:42 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-36a6a397477so9163731fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 23:21:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758522099; x=1759126899; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h5lLrTEPfjBEE6+72ClqjipyByMm2X0eEE6L7Qy2HzE=;
+        b=S/r51QeHkaYEataSSJLMPyTTTmHi/Y7yefJqjPqbT9SFjK+4Ov8KhELbcsc+mx3Str
+         3LT5vH8HMIyl5LZVELwqNdmqpPwTxlJytuLoh5uJ2SJ0DuGAjOYFOBupEHcFQrD0iU6b
+         6n2PqgACg4TeEeG+zZ+GbnbJz/FG1TravugxdwQNIN4QhZhh+XGWF02Rx9py7q8/2cKV
+         4JUvtcYwp6ITabRGfNLYOX8o5nZvBROxWHW9UlLyBrep5BaENAo7VogUe26HIrPtdxFJ
+         qrOTC+jWBJsOm9iOQAU9V78Pu/MVEShuG0M7XfTwn/8el/Zwl59GesPZq9H9K5Ucz3K5
+         5hdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758522099; x=1759126899;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h5lLrTEPfjBEE6+72ClqjipyByMm2X0eEE6L7Qy2HzE=;
+        b=a50mHuRf+MCWoYlg+pXh2c2SydDcTnomh+Rf3TG88UPvHmqHDHSBnK/X9k/cdi10x8
+         Qb3/cFO1viVYeC/BCJs/n6p84q7HgXHn1C8OSHubUraKLSWfvMDclGZQqT/GYjgmoxs0
+         m3xFOkFBHRKV4do+gwTqQWrfNB74GaCaHc8PehvgTZAz3yx8yMREPB4Iav/Vquf7wfn3
+         OST2TnVGwNYFJzWY9UFzds/yGQwYyFTa1VheNAt+JIJpwPIBfpdBiKVoXZWIUcguDgHt
+         Jj0aVq7Bt77nRasXhR5kNQEAgnlI1kEZCNQq4VG5YzTt0XzPIcsPNcEzH+R9py0bxH51
+         lRnw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyhYDWTPo+DePIxCiywSVX+OauVxCPEW9pEqqCXV/DvOmq0xMvJMuAVKfBLIWjGWBWs0IIidDuqIqDLw/hYk8T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6Hiy7NhrgoM/AAI4Ueg58ZSXd/s/v/XTrZ2dys5V5n1MkYE9X
+	UyAaugd3unM6otAbcop0OpUSCdz06lgIHQ9S3tbwcm98HClEXu4xSa/7
+X-Gm-Gg: ASbGncv9z7I40L8LzbIuq10gVqzDewiucwf82Ooy55/42TsmD3/RvCCzR49X5ze0qmA
+	0fWUVubWFHtpZW6HNCR55Z4bHuu6ChB1ndE8Gfj9BH+BoqKcYsxbjEP5zayVfm56Utm5XmftX2v
+	lOMNjGhyKiQKlFlIEg1lyvHlf1xh1Ag2f1jO7LqTahM8mtTnJ7wmNDY4OkchbUcJxECQiFYd7eJ
+	+9FydbQ0AdtsVcc5uWSt+h34tk9Miz5NqbgD22LmcgKah9lGfn9oz+3ypt2vwhMJ8ja4cayNc/K
+	Zk6hgG3dadzjRGQV2LYzVAsGtb0qhJxGGcXApU/4tXbI+gyPE+2cqKlhmwkgcBXQM5EoBS+5n1q
+	k9qNvEEYnDR3a8LDBWEJz05S/NAr6TKzxJpXXH71BGkpwhAiybiCrpgsUlT+eIdsO1jE=
+X-Google-Smtp-Source: AGHT+IHF5DNe3flJ6FiaAnZ0MCzodBxytK9lAnP/8PhSe4SRX4JUFirBe6Je3qK5XyJdksPNiUzhLw==
+X-Received: by 2002:a05:651c:556:b0:36a:1e4a:a3b9 with SMTP id 38308e7fff4ca-36a1e4aac34mr17785091fa.43.1758522098976;
+        Sun, 21 Sep 2025 23:21:38 -0700 (PDT)
+Received: from [192.168.1.166] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-361a99e99e6sm26982661fa.56.2025.09.21.23.21.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Sep 2025 23:21:38 -0700 (PDT)
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+Subject: [PATCH RFC 0/7] I2C Mux per channel bus speed
+Date: Mon, 22 Sep 2025 08:20:55 +0200
+Message-Id: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250919155821.95334-2-vincent.guittot@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMfq0GgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDS0Nj3UyjZN3c0grdJAMDM+OUVKPEVJMUJaDqgqLUtMwKsEnRSkFuzkq
+ xtbUAhmqzYl4AAAA=
+X-Change-ID: 20250913-i2c-mux-b0063de2ae4d
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Peter Rosin <peda@axentia.se>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Marcus Folkesson <marcus.folkesson@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2735;
+ i=marcus.folkesson@gmail.com; h=from:subject:message-id;
+ bh=zFtLVcaN8AVG5mTTYVcmEefIdazqWW51ehPhjn82GYg=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBo0OrJIlZZ5BbpTRin9vUd3CQ+TLwiZ5wiSDt2E
+ r30mcyo96KJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaNDqyQAKCRCIgE5vWV1S
+ MiE+D/4wpCm8XHYdhhQW/Eo8ZkK3Vdr1X5BvcE16VcIGRV2FLr3/l+XDmI/uY4TIlS4cgGRjHuS
+ okNslUvKkkygOo4BPHMyOniCKYNSD7oXNZc5vM3mQeA9m28FqtTbj/SK3i186jLocWMGUihvYeO
+ 0yBO/vwjr4TNlI1Az7/uGDt8XkjSq9JQ3zQwxyNvHIorC69OKn+9SD2AY1PS/rGv0frcea3NB5p
+ DBpeIpyf7z5tHTvWvb5RObq1alrjyrWfmGy7YJrQMyXCARkjwXLWtPiR896E4w5ssujKKdYNoFd
+ O016DHhA9ocy1jJ4HgEm/5oA94InzRv8srqwHLx+x3r8zpXgiRahYlfhDUDASuO82tTAZunVi2/
+ KBGADBc5YV7xrhomCybSlcFWoSMJFaTVo6/vUEP18RQhJErmC5uzZBa0UrU1MMkVHRXo/MT3MCf
+ lfsBDD6AtcXesXv6qECU2mSGdIofeTE5Eo5claApOaj8JmH0/TTYfmgMiibuPcIVjDDsDesMecH
+ eA0o238/65NuLOBqynNUkjSDf3Eo8QdhvxtayiWrGdS+MP5dZbYRfkMkqVtgVOHbH6fVdFLDGXC
+ nG3TY0ZF/T5pheNMtswoldHL4LYOL9UCsdmk08F1m52KyL7jj+WGL3qMGA96GtSJepMhWaso6JO
+ ryv685KOSmLJrcQ==
+X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
+ fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250921_232141_692527_5FE3A55D 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,160 +121,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 19, 2025 at 05:58:19PM +0200, Vincent Guittot wrote:
-> Describe the PCIe controller available on the S32G platforms.
-> 
+This is an RFC on how to implement a feature to have different bus
+speeds on different channels with an I2C multiplexer/switch.
 
-You should mention that this binding is for the controller operating in 'Root
-Complex' mode.
+The benefit with this approach is that you may group devices after
+the fastest bus speed they can handle.
+A real-world example is that you could have e.g. a display running @400kHz
+and a smart battery running @100kHz using the same I2C controller.
 
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> ---
->  .../devicetree/bindings/pci/nxp,s32-pcie.yaml | 131 ++++++++++++++++++
->  1 file changed, 131 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> new file mode 100644
-> index 000000000000..cabb8b86c042
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
-> @@ -0,0 +1,131 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/nxp,s32-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP S32G2xx/S32G3xx PCIe controller
-> +
-> +maintainers:
-> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
-> +
-> +description:
-> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
-> +  The S32G SoC family has two PCIe controllers, which can be configured as
-> +  either Root Complex or Endpoint.
-> +
+There are many corner cases where this may cause a problem for some
+hardware topologies. I've tried to describe those I could think of
+in the documentation, see Patch #7.
 
-But this binding is going to cover only the 'Root Complex' mode, isn't it?
+E.g. one risk is that if the mux driver does not disconnect channels
+when Idle, this may cause a higher frequency to "leak" through to
+devices that are supposed to run at lower bus speed.
+This is not only a "problem" for changing bus speed but could also be
+an issue for potential address conflicts.
 
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - enum:
-> +          - nxp,s32g2-pcie     # S32G2 SoCs RC mode
-> +      - items:
-> +          - const: nxp,s32g3-pcie
-> +          - const: nxp,s32g2-pcie
-> +
-> +  reg:
-> +    maxItems: 7
-> +
-> +  reg-names:
-> +    items:
-> +      - const: dbi
-> +      - const: dbi2
-> +      - const: atu
-> +      - const: dma
-> +      - const: ctrl
-> +      - const: config
-> +      - const: addr_space
-> +
-> +  interrupts:
-> +    maxItems: 8
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: link-req-stat
-> +      - const: dma
-> +      - const: msi
-> +      - const: phy-link-down
-> +      - const: phy-link-up
-> +      - const: misc
-> +      - const: pcs
-> +      - const: tlp-req-no-comp
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - ranges
-> +  - phys
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-> +  - $ref: /schemas/pci/pci-bus.yaml#
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        pcie@40400000 {
-> +            compatible = "nxp,s32g3-pcie",
-> +                         "nxp,s32g2-pcie";
-> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
-> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
-> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
-> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
-> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
-> +                  /*
-> +                   * RC configuration space, 4KB each for cfg0 and cfg1
-> +                   * at the end of the outbound memory map
-> +                   */
-> +                  <0x5f 0xffffe000 0x0 0x00002000>,
-> +                  <0x58 0x00000000 0x0 0x40000000>; /* 1GB EP addr space */
-> +            reg-names = "dbi", "dbi2", "atu", "dma", "ctrl",
-> +                        "config", "addr_space";
-> +            dma-coherent;
-> +            #address-cells = <3>;
-> +            #size-cells = <2>;
-> +            device_type = "pci";
-> +            ranges =
-> +                  /*
-> +                   * downstream I/O, 64KB and aligned naturally just
-> +                   * before the config space to minimize fragmentation
-> +                   */
-> +                  <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
+The implementation is split up into several patches:
 
-s/0x81000000/0x01000000
+Patch #1 Introduce a callback for the i2c controller to set bus speed
+Patch #2 Introduce idle state to the mux core.
+Patch #3 Introduce functionality to adjust bus speed depending on mux
+         channel.
+Patch #4 Set idle state for an example mux driver
+Patch #5 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+Parch #6 Implement set_clk_freq for the i2c-davinci driver
+Parch #7 Update documentation with this feature
 
-since the 'relocatable' is irrelevant.
+[1] https://elixir.bootlin.com/linux/v6.16.7/source/Documentation/i2c/i2c-topology.rst#L240
+[2] https://elixir.bootlin.com/linux/v6.16.7/source/Documentation/i2c/i2c-topology.rst#L298
+[3] https://elixir.bootlin.com/linux/v6.16.7/source/Documentation/i2c/i2c-topology.rst#L322
 
-> +                  /*
-> +                   * non-prefetchable memory, with best case size and
-> +                   * alignment
-> +                   */
-> +                  <0x82000000 0x0 0x00000000 0x58 0x00000000 0x7 0xfffe0000>;
+Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+---
+Marcus Folkesson (7):
+      i2c: core: add callback to change bus frequency
+      i2c: mux: add idle_state property to i2c_mux_core
+      i2c: mux: add support for per channel bus frequency
+      i2c: mux: ltc4306: set correct idle_state in i2c_mux_core
+      i2c: davinci: calculate bus freq from Hz instead of kHz
+      i2c: davinci: add support for setting bus frequency
+      docs: i2c: i2c-topology: add section about bus speed
 
-s/0x82000000/0x02000000
+ Documentation/i2c/i2c-topology.rst  | 176 ++++++++++++++++++++++++++++++++++++
+ drivers/i2c/busses/i2c-davinci.c    |  37 ++++++--
+ drivers/i2c/i2c-mux.c               | 127 +++++++++++++++++++++++---
+ drivers/i2c/muxes/i2c-mux-ltc4306.c |   3 +
+ include/linux/i2c-mux.h             |  21 +++++
+ include/linux/i2c.h                 |  13 +++
+ 6 files changed, 357 insertions(+), 20 deletions(-)
+---
+base-commit: 22f20375f5b71f30c0d6896583b93b6e4bba7279
+change-id: 20250913-i2c-mux-b0063de2ae4d
 
-And the PCI address really starts from 0x00000000? I don't think so.
-
-- Mani
-
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Marcus Folkesson <marcus.folkesson@gmail.com>
+
 
