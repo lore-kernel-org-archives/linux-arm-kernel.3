@@ -4,118 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333C8CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53D4CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=; b=PX3lVs2fFqLDeGh+WM5DdpmivL
-	2t6a3k6fZ9MPloHCwiICcibS0pfQAA5gq/7m415zUwXGHvrmA5eXMFbIoJDyXA7ijUUMgnBSur/SS
-	Ez2EFxQLsYK54Bsjo2UpNW3eM6em5nEifUecBEUfXqdzzHx8PYIiIbzVYCVFQ87ib9JBlxaG/T+p1
-	/hiDKZtjOaIuLaFMJIO1hk1wQeInmzku1rSWL2mKXAIRknSqon1oMtfRryA7nkMNo4pwj7MUusa6V
-	QWtmYK1xY0KDoT3vVprYjlI1cwib0l4jEL3DIIW0CGT0Ew5lmJ883szLnZrbJc7tCVHQlzxrXI4GV
-	YqmC/VsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r5kcM3cOoAV3eVwuvauVL1WX5EMq7U5I5iPiedPYVpc=; b=JYTWFGqYywpAOJPRlm+joG1ID4
+	WkIeZWM4wFVcfd+LzZyImend2B9aYmnNYeC84SYFR0Gc9sdsaqD8MEh+f4fT+KXjRqopX2wCpwQ43
+	qCtdZWKkQG8/daW2LcM6bDXUfIy4IOB5/hwNMdGVUu5pwQRexTTpQEPHEp6oWUJviRmE12hZLKSPC
+	3wUc1eF2hNuHuwzEMbw1H/7VYgKabZ7usj6FQLRC1U4+t0n/IEiTNIG8Qh8Pl8j77+MgsBRt/9db1
+	Zpm4WAW981IIVlPL19uLYF4+NEWfAIb7EVJ0oJROuZ74t+NhAQBaQD9Qqu3x7O8E+YUDQXiK/w8D4
+	J01CMzzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W2u-00000008ZCy-2rSk;
-	Mon, 22 Sep 2025 02:12:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v0W4i-00000008ZND-0buV;
+	Mon, 22 Sep 2025 02:14:44 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W2q-00000008ZCY-34bg
+	id 1v0W4e-00000008ZMT-3Vif
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 02:12:51 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58LAC3Kq018265
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:12:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=; b=GlmbIEk4im3vfpRO
-	CY/NvX85qe/L8GfIG9AqXB7WWZS/YiGGWf6gLu2zJYi2fJEU/B6ji+U1/dANlHKj
-	ftwF7n5cweiZ0Ncv/tAqyMA+WPcQ3brNz1c1UeOGcWL7EjWVtsDIpsI8gXQECc1C
-	PWN58CslKhHYh2+Cz2/t4Wf2jlDKeUbjrD3Tb6K+oWB8lhM5q+2V/CMPUac2JgLg
-	HUaKfwkB+/Bd8Qjb7BF8dH0J4vbqZfI8EjSCMOCQDIWChX5knIr58RReDZlHIPI6
-	+ZJmzMVM30rVqQrQZd5bg84+3PEu1gATBS7RSfVgHcxfPqirGf3y5c9PQcHof1nA
-	PpY2fA==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499nektwan-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:12:48 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-77e7d9ed351so1842094b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 19:12:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758507167; x=1759111967;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=;
-        b=AUsTj1B7GcXugWSlnu5BAtJ/z/fuqWSPTBkqu1tFWbzOLUm0asXHJc1NCJ48lxxM54
-         RP2WFBP5+lHaWN6qHaSHSvqSUwDawwAZ1SaNJGlIWWj9gLyAWz0OxS83easbZzpgedcV
-         JBjCztFRBk1Q8g9JQNiqDSPZC2Ry6v4gpxB/PXhM3nrFK9Rn3CzS7QtZyKBdPJb8oEpC
-         jgDhrz+U+yNwtbRiqVhCMf4rjPdiv+Pn9ssRE0IDNWPmH7sJI2UwSImFyEboTnfAZjBV
-         iNLbPUaWE9mZP/4Tkm+NjMZgBg/pivG5hbPdWjVaOxjcPWyUfUK35iIzBf46KwiP/S6Z
-         y7BA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXaLv7hDpZhvJqjF0tCT1xKKBvyHXWdkNfUVH5A7Ho6tbxtThGyWo2uDVYFtyip7FgRNeZnSwlXpD6UZxIlWPC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQPGH7LHmA6lZ/vj4oMSV9vZwHao+wwD4KoUKeixFkmoi3m99Q
-	96kT/n0yUgIe+09YcKZzpWkPknui6mZaI7vFOwq//JRzq5rEcbAHL1eToKoH3l8EI4JAUinTtr+
-	CYPtDRbjjyELRDqn/yp+rA15RgP8mgS1VVNS4lGBsr7ILRzwJjWXxyrSmj1mtswveJNOq01S83P
-	FoVA==
-X-Gm-Gg: ASbGncvUICtveuVBlTqW626rRkWhzoydjnacmbgObeXqSzaelIH6ea+ubJ7Z0maWhfU
-	MAFvPbBd9xUOj9ucdVCGSHfjJLY1E0XdFNb/ZcCC38OEOTh0PkNWirNPEq3VvkmxMvkvLgAl+W5
-	0Uy/J6T/wzDMlK1pSuaMPs533U9F1A7GdG54n/gCuvy6U6x9I6KpfIX5AlG++GM19ALpXNlMCAR
-	K6IEM3s/P1oGwL16CLqfivLkr+4C/FFFRquG08na19rFbBtkNMjOI8hLU6or/hl/LbL2nxIq26K
-	Ig9OdGmDNX6Yj948qZz3WyslwdM9oLebgjbBC5fMqf+kmrCfQFMHdgQ17ubnbZ97Uvyn
-X-Received: by 2002:a05:6a00:4c16:b0:77f:d23:a1f3 with SMTP id d2e1a72fcca58-77f0d23a2d7mr12312842b3a.6.1758507167154;
-        Sun, 21 Sep 2025 19:12:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF0nJwt8VyPwRTk5zPxaaYSfuQQPElbSeruuL1494AIbjCBXPOMTC/N27eggzM78XkyrBx3Tg==
-X-Received: by 2002:a05:6a00:4c16:b0:77f:d23:a1f3 with SMTP id d2e1a72fcca58-77f0d23a2d7mr12312805b3a.6.1758507166625;
-        Sun, 21 Sep 2025 19:12:46 -0700 (PDT)
-Received: from [10.239.154.126] ([114.94.8.21])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77f2863912dsm3298202b3a.26.2025.09.21.19.12.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Sep 2025 19:12:46 -0700 (PDT)
-Message-ID: <9fb7e6be-a952-46af-a224-15cf8fe3bc7f@oss.qualcomm.com>
-Date: Mon, 22 Sep 2025 10:12:43 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firmware: arm_ffa: Add support for IMPDEF value in the
- memory access descriptor
-To: Sudeep Holla <sudeep.holla@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Lixiang Mao <liximao@qti.qualcomm.com>
-References: <20250919155216.34074-1-sudeep.holla@arm.com>
-Content-Language: en-US
-From: Lixiang Mao <lixiang.mao@oss.qualcomm.com>
-In-Reply-To: <20250919155216.34074-1-sudeep.holla@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Mon, 22 Sep 2025 02:14:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AsGGPVQCncbUkwbeOcXKeNk079rKRHVi3/KFAVRbz3HI2/4PFUOEV9s8zJmwwBoIWp6UnkciZXHI82pC2NicVZrju4HdzGyDja+Q+B9A+iYIu4z+fI/u1Q7aNUbr49vEUsjwNdxqaMsL7spzuNTD76UhGmN52U78A/fEuZHMZHuHVxEw8cRRwHVaFVPNjdZ6qan904jCeQFaczPw1xKXC5gqBTPWYvLSpywi1VoTFUt9BDuJKeFsLTRmMc2j9cu/ya50IGryVn5/WEwZYlyRmYMco1WsW2JB6L2d2+jM5lY2hO8Pdp+6CRUULc86G/maKrctxdDE8b6++oOKkmMtRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r5kcM3cOoAV3eVwuvauVL1WX5EMq7U5I5iPiedPYVpc=;
+ b=SJZk0hfoBym1ovv2C76LNk5zmEx7pYbfHbmaybfF80capAO7OYZIGuQocTcIwNC1UMlyhG4hfidIbt3ExzKdsuJL4iQGjfsizFosUrIfKvB0Q3sej4olB2XKKuQtqelMWRWSqMvbbXQeUxcnl/n5+S0U0YAuaUUZGpN/90PkD5Ik0TblzwbcQLZH3EFbvqKO00qZEGEOg1EA/9+DDCYzp6r94EzHx924epo2kQ8FyYmS35N+yVe0cJVK52+y+clI4E1aF/K6ySeUBbwnkvHfnve+9+2yLNNHUI847pEIpswQuFzfunEBR6nMq+Dwuoi6mWmNHkBhwj5nOtU/TQKJdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r5kcM3cOoAV3eVwuvauVL1WX5EMq7U5I5iPiedPYVpc=;
+ b=bVE6ilNxZPUKnayo2oGNakU51N5wiagcBe2jvzZilfIYljgl03bs32on+E4Cy+MjxiX7EF9P/Ia1QIvczX+Ckh4alBcdTKJowWm4c+rM9N4wSZKLY61P6C/PD9fKo3y9b0s5gSg33v631olA7iG1kXTDjRApM5okRaGidggiI/EKv5p2FWhdN9NssMd1leiyaS96Osx2vnmfQ2vehDPA0ZFOvLfhaJKAkoVxMTXeoJAfiMlAX3v4/KZzWykO4HKMbSHiIq/ZkOwiIbRsSpD3cBkf626UMckV9Jeljgy13reS+782tXjEtFwA2eexAwBVBcXDqFF0PEoEnfA4izfkDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8622.eurprd04.prod.outlook.com (2603:10a6:102:219::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
+ 2025 02:14:30 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
+ 02:14:30 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH 0/5] pmdomain: core: Introduce device_set_out_band_wakeup
+ and use it in usb
+Date: Mon, 22 Sep 2025 10:14:08 +0800
+Message-Id: <20250922-pm-v4-v1-0-7ed2e98065ad@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: DnBNQvraEqAPLYGcEMKt0qjr24QAhqh8
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDA0MSBTYWx0ZWRfX0ZI3sNtff2P1
- WmGz2AndAo8zJ5MwvqloZ1NZrODKIalRlnrcyg6bLl5jl5yZhwAlH7fikq5EnI225o6zvzrFuC+
- Qs+eHS9owy9PdFP3IgQbSh9nToPCAQZXxijq8hMynvyzpmB9Te0o5YeCOwxYBObmg4kL3vhoglL
- tNaIAPmjBuM9svkpf+5WsocNL/gDgAi/AtAANGvPYCWbkJ562ZdE+wg7eZQ1kk0Z7I7o24fZGwh
- j0oScCuEQfHcnsw1tKCS7AztUHAzG1uEJlgALreHEHdpAtlKYvaqImrlJh8DCSierpHs/MhyELp
- Fn7KldYRYaxnihc3vT0R3tE+F5rPU820YBXRHFzInOmo7acsJSmsqrQp2US9U8F2skKcHVyOAmB
- AQy5+4zw
-X-Authority-Analysis: v=2.4 cv=b+Oy4sGx c=1 sm=1 tr=0 ts=68d0b0a0 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
- a=aaNDuw_hkKaaLFpP:21 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
- a=7CQSdrXTAAAA:8 a=0PoAz1LEv9j6ZUXw-RcA:9 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: DnBNQvraEqAPLYGcEMKt0qjr24QAhqh8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-21_10,2025-09-19_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 clxscore=1015 phishscore=0 impostorscore=0
- malwarescore=0 priorityscore=1501 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200041
+X-B4-Tracking: v=1; b=H4sIAPCw0GgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDS0NL3YJc3TITXUMLc0tTM4uUVFMDAyWg2oKi1LTMCrA50bG1tQCcAe3
+ 7VwAAAA==
+X-Change-ID: 20250919-pm-v4-1879568de500
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Danilo Krummrich <dakr@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-usb@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>, 
+ Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758507262; l=3738;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=troiSUuQNja1hOiwaW2ffbaS3zvw1gN5mx3k27TRal4=;
+ b=YzFF8B8J5Ks/Y2Z+R69meXu1GPdNb2hafPdHYjVFQWa0yoOBPPDji444Q9/dPQSe1ADquJnZo
+ Td/1VqJEfqJDqPd6BwRE/aGjuDU2Ij/nbJ2afuPdWgFQF+1rEt8ObNM
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI1PR02CA0060.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAXPR04MB8622:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71d2473f-3db5-4714-b38a-08ddf97dc344
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|921020|7053199007|13003099007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cWlrSmJpWXhFRGR2OC96dFFYWG12VWlmd2d2b0dEeDFXWlJnVDE0TE1kSmNm?=
+ =?utf-8?B?c1FtWFJxdmFzaDk3bW9EeldkVm01NmE3REt1Q1pJTmZRYW80N3RIWENUWUM2?=
+ =?utf-8?B?a1RHRWNMZzVPVTYzUFhpTU8yZC8rQXFJejhpamw0VU5EQXR0dTk0NjdkRXhG?=
+ =?utf-8?B?b01sTGZNYnNqTTBMVVhtNEpCbEw1cG56SjhGZS95UzBvaTdaNTVER3ZJZmdt?=
+ =?utf-8?B?d0R0cUxoY1BMVkhzUUVqeVVxWFlrNU53QlZZcXZZQStVdjlqRDR0RlNBa0pG?=
+ =?utf-8?B?TEtKQzZzNzhGRUx2SmwyYnhYdmpLOFVOSkZiQ3hraWQ5d0VnbFVmWFNESExh?=
+ =?utf-8?B?UlZESGZPMGEycnFZcDZ1c1p5Y0hYQ2VsdWZKMGpDR0pGalI4UjRzYTBDZHMy?=
+ =?utf-8?B?K1FhT1VYVnRyUXhwK3FpbnRMNnhXUGxESmZjNUl2NzdXYzNoa2dDRnhJZU9Y?=
+ =?utf-8?B?QWRsYkhlcStoOEVyUzdFVU5KTWN3dkR1Z3lnNExDZGhLamU2UTJzOGFQU1lI?=
+ =?utf-8?B?SEFtUUk4ajh5WUNuQ1I0TEhmVklxVExqZi9KV01LZjQ3NVJERmtVMWNwb1hN?=
+ =?utf-8?B?RkkvcWhnOE10WFVwNFFXN2V4UVd6NjBQVXplci9Qdmt5cVpSZzYrbVQ0RTZx?=
+ =?utf-8?B?djIwcEVQOGE4WWdQRmhoNVhZSll2M1dtSGtGTWcwcG0xNWpFQk5tZDFXN283?=
+ =?utf-8?B?Yk1sVjQ3ZUhadW92UkdVN2NBRU9XQ1BFd3hXcnNNTzlmREl6RUJ2WkkyM0pF?=
+ =?utf-8?B?STFxVnVIL1dzUStaUERnWHlnY2hZRVNPK29DWVF0QjgrREFRY0dBSC9BbjlV?=
+ =?utf-8?B?N2pVNjRoTkJVVkJBeDNEcVozMmIrWm1rUmxPck15SVRCbGZkMXZhT1BZTklu?=
+ =?utf-8?B?cjhYQk5LNzBLQm5xMTdscVJoVythZzNYVWlpeUZxZ3NBTmlTK291UjRpN2Vz?=
+ =?utf-8?B?OWlZZSsvWDlrRGtWK0hzWjdhN1lNMDY2UDRLaHZQTWRDblloa2V0VTgvNTY2?=
+ =?utf-8?B?ZllNU2FYRVFEMjRtRE54alpqeW5PY2RDeE95SmlqeEw3dGNHM3BRVmcwUFVV?=
+ =?utf-8?B?WFA5MUppZEVyT2Z6TW9rMnp2c2pGcFF2Q0phQ2N3dGVTR2JoMXRHdzRUb2Qx?=
+ =?utf-8?B?K0l0OGdCekhMMDFENWxndFlxK0FqM0xBWTZ5ZGx5Ujc1K09QbnhCVElydWh2?=
+ =?utf-8?B?RE5kSmo4WnNWNm1TRWF4UTZEWHlESWR0bVloR0gzQWpUV2dnYzBQTDMxRkMr?=
+ =?utf-8?B?Nmk1Qnh0Mm1YMjBQMWgwZGF0QTlXamRwZWRYM3Z6SGwxK1hCN1VqZElNQXpw?=
+ =?utf-8?B?WVpZWGZTQmRzYlUzeEwvVGQvTi9MSnkyZGNBc1lXc0hTczYwenJ1S1FNWVV5?=
+ =?utf-8?B?Sm5JUUJ0czV5ZVFYOGVDSzJ3aVpMc1FFWGJBdnVlQlhmUzNsUmdvQTNEaith?=
+ =?utf-8?B?dVpobDlnVk5HTlJaQk4vQTdWWHlJcDVoclIzb0JoSENnSjNGelN6blhDREpS?=
+ =?utf-8?B?Y3lvaWFaTVozbmRQWG1xaW1JeEZiN1lTVnFUcFRnNmUrSXdPMDNERXpqWlRa?=
+ =?utf-8?B?dUVKZXM2YmNNS0ZpclBNRGZQYXVxZCtOVGh3aytYTmJrOVVSa2RQaENJN0Jw?=
+ =?utf-8?B?TkxLVkN3RFhXYkxrZ2JRck8yMk0wRld4TEtSWHUzWXcrQ1dUMjRJQ3FnRDRx?=
+ =?utf-8?B?RHpwUWhEN3Y0b0haaHd1U283SjhuTXlPVkZJaWJnZGV6cnhZZ3J0WVRvSkpa?=
+ =?utf-8?B?eVd1dmpYQWRYYVkxU044MkFFMlM1TFdGWnRKYnUwK2lNaXNhNFZLMVRhaFky?=
+ =?utf-8?B?SUNBME4zMGJQdGZyVHdpZUppTSt1b2wvdWM2bVB4TnhlcWgvNFo1ZnlWOEVo?=
+ =?utf-8?B?S1VWT2VQZzhZeTBYRVpkbXpyd3ozWmVuRXc4K2oxSkJmbUtGanVYcmhIZ3p5?=
+ =?utf-8?Q?0Y3jgaV0BrxTyAhg/X383MYKmmFnUT1k?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(921020)(7053199007)(13003099007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MG95VENCc2tkYlV2c1J2WEk5azRXVURNSWtXZ21FejZzVHB5TFFpWlNIVEdL?=
+ =?utf-8?B?NzY5aTN4aTJ3T2NDZUZZUDNxM3NTT085V1RySU9KVHdUUmVPZ0Q5d3BjNlZj?=
+ =?utf-8?B?NTFFTDkwMmhsQjRsNE95aCtJVm9xSmt4b05JU3p2S0RRbGc1RUxOVkloaGxt?=
+ =?utf-8?B?WmZPS3pvRm1kQ0NIY0xGb2hMNjhvQXhvUDFpUHpYYVZRczcvdnRjVnR4ZUZC?=
+ =?utf-8?B?ME5OaE1DQys1UkpOTFVZMkZZbitwVlNxOHUyUE5JMG9DT2hmUTlERE41REpP?=
+ =?utf-8?B?V1htbUdIT2lHL050eVQvdWIwekhEelE4QW90YUt0dW0wdVR6a21iNkFyZlh4?=
+ =?utf-8?B?UEZXbUcydS9yZ0ZiZURMR0ZqRkQ0aHJDM3pOZjNLcWphbUxvS3haMHRUWkZq?=
+ =?utf-8?B?Q3l6WVJKeEt4eTNzcHFnSWFzc2hHZmQzbkdxVFRISTc2NHFlN0RMMmZiSjA5?=
+ =?utf-8?B?bzBaSExhWk1GOUZnanpxUlhWZmVKTmRKTmR6QWkzRXJGT0ovYUg1ZWlIUmRo?=
+ =?utf-8?B?a09DeUZ4RmhMYSs0bE5UTXhlR1NTT2FyTm1HQ2p6bjNydDNxaGNWOXA1bUV6?=
+ =?utf-8?B?bFdqU2NoVEtLejBDT29GelRGM2ttTk9ReU82bXptaitQdTk4QmVpTnIwSEQw?=
+ =?utf-8?B?aldNUlFpaTRUVVNHeVBGZ05vL2paT1FqWVcwTE9rSGZEQndnYzRZWWMwQmhh?=
+ =?utf-8?B?SC8rcVhWZW5WdkFLekh0eDVRNzVOZnpVK0RhR2N3ZGRJR055aStqN1k0cXRi?=
+ =?utf-8?B?YWxpZUc4Z1pab25kWElOalcxLzNvemdKVnBOZExuMlRPSW10WWhPcHZ3M0lz?=
+ =?utf-8?B?VCs4WVF5ZVg2U1JVTHBsd2l3VklNajlvckZvMDB3N2xLcGlOY21XY2JxYk0r?=
+ =?utf-8?B?cFF2R0lpbFdJVFJFUSs0NER0N2o0ejlsUlZXcjljaklBYmIzYzM1TnU2MXVR?=
+ =?utf-8?B?K0Rxd1BqcXV2MU55UWtxck1udVpkMHEycXFYZlY0RFRGZlRSek01clUvK09y?=
+ =?utf-8?B?MTVyVVRMYm8vTEsrRm9JUkxOOXFDaEhsalhhNW9pZHpQclhHaHBQTFJmMnZ0?=
+ =?utf-8?B?eEZFRnNFNGI4Q0I0bHBxS2dvMC9rbnhJNkhYeGRhWGxsc25GWTE5UGp4LzBX?=
+ =?utf-8?B?MWxiS0NoZUVQNGdZZ0p6NmF4aFo1dXNHYWRUREd4ckJTWUxJYmZIczEwSkRL?=
+ =?utf-8?B?bkNyY1NNeEFLVExxYTRZamp0alBoUVJFVW1KeE0vcnRWR1kwOWNZb3NHY2hR?=
+ =?utf-8?B?MlAwcU1kRm1kMGpTS1R3Y21xZEpENW9Jd2k3UFZsN1MxUEI2MFI0Y2J1STlP?=
+ =?utf-8?B?Vm1pMUVJR1hQSndqUU1JeGJVeUhQMXh4SndnVnNYOHFVOG90R1hjbWluajhp?=
+ =?utf-8?B?U1ZTTG5QWEthc21hMXFNU1RpM2Z0d1hrNThVSk5MaGx4TjNnSS9YS2tkMWN0?=
+ =?utf-8?B?bkxiQVBZYk9ZZGEwbnQveUFSSDE2dkdWbVJBd0dKM3pwYWpsdFlXRmZYYm4y?=
+ =?utf-8?B?WXdvN2JaR2lDOVZGclJZZ2RNRFZxeXBoZHlRTTMxYTFBbmtKV0VEd2ttS0M2?=
+ =?utf-8?B?KzlUQTNhMWtWUFZsRkR3VCtsNnpsbDB5clNJdkJoK2V1OWVBSkdKK2dSa2Yr?=
+ =?utf-8?B?bnBZSHlKU0xxbnBVakxpekRnUnIyc0RCSXg3Y0E5ekZJbW1nd1RzcXVNekJp?=
+ =?utf-8?B?WXZlNUpodFNYTjZVVVlZM2VhZ1Vwc1lpUXo4RUFld0dXVVord29teXc3MnBH?=
+ =?utf-8?B?cGdrc3RIZGhqUVIxaXIxMEpDZU42WWF0bFlZMG4rYmZQR2VqaGV4U2tKdjVm?=
+ =?utf-8?B?dTAxQUw3SFA4aitJQVd2WEtIOWlEUjJ2eXA3VDM5Z1VCN1ZJdjRwNTZGaEdG?=
+ =?utf-8?B?cnN2Wkk5UUtla3BMLzVwWWhqK2UwSGdFaDdKT0FJZGhaS2lwbWRKWWYzelAv?=
+ =?utf-8?B?TzRRbjc4UHpNSTNuV0t6S2V5ZHlEWmpMREV6bktKWGo0WGJQU29yK1hyNE9M?=
+ =?utf-8?B?WUJNKytsOEFJYWlGSGVkZTh2Lzc0WVN1Uk90QXVLREt2bVNmSThxZlBpVVg5?=
+ =?utf-8?B?V1hxNnpidUUxSTdvTUNyUGlnM2xWejhKUEZTME4wUllaVUpHb2d0TWpTLzFL?=
+ =?utf-8?Q?Q4NxdX6blYpv0xchKXpA4TTF3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71d2473f-3db5-4714-b38a-08ddf97dc344
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2025 02:14:30.0166
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4bQ0hF794LSeG5k/xHSY4DnvbeFkpSRsg9gOGluuixm5mbs6+xB+i7rRnYyjlqYYq5xniX8oxdFY+bsSLEJetQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_191248_787580_68F83BD6 
-X-CRM114-Status: GOOD (  32.23  )
+X-CRM114-CacheID: sfid-20250921_191440_888933_9AEA61BC 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,138 +193,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I compared your fix with mine which is tested internally, looks no 
-obvious difference.
-I think it is good to mainline.
+To i.MX95, USB2 and USB3 are in HSIOMIX domain, but there is always on logic
+to make USB2 and USB3 has wakeup capability when HSIOMIX power domain
+is in off state. So when in system-suspend state, USB2/USB3 could wakeup
+the system even the USB2/USB3 HSIOMIX power domain is turned off. This
+means USB2/USB3 has out-of-band wakeup capability to wakeup system from
+suspended state.
 
-On 9/19/2025 11:52 PM, Sudeep Holla wrote:
-> FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
-> memory access descriptor to allow any sender could to specify an its any
-> custom value for each receiver. Also this value must be specified by the
-> receiver when retrieving the memory region. The sender must ensure it
-> informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
-> such as a partition message.
->
-> So the FF-A driver can use the message interfaces to communicate the value
-> and set the same in the ffa_mem_region_attributes structures when using
-> the memory interfaces.
->
-> The driver ensure that the size of the endpoint memory access descriptors
-> is set correctly based on the FF-A version.
->
-> Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
-> Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->   drivers/firmware/arm_ffa/driver.c | 37 ++++++++++++++++++++++---------
->   include/linux/arm_ffa.h           | 16 ++++++++++++-
->   2 files changed, 42 insertions(+), 11 deletions(-)
->
-> v1->v2:
-> 	- Fix the size of EMAD in ffa_mem_desc_offset() and the loop
-> 	  increment in ffa_setup_and_transmit()
->
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index cf6e44429ecd..b68cd9eb09ee 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -654,6 +654,26 @@ static u16 ffa_memory_attributes_get(u32 func_id)
->   	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
->   }
->   
-> +static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
-> +{
-> +	struct ffa_mem_region_attributes *ep_mem_access;
-> +
-> +	if (version > FFA_VERSION_1_1)
-> +		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
-> +}
-> +
-> +static void
-> +ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
-> +{
-> +	if (version <= FFA_VERSION_1_0) {
-> +		mem_region->ep_mem_size = 0;
-> +	} else {
-> +		mem_region->ep_mem_size = ffa_emad_size_get(version);
-> +		mem_region->ep_mem_offset = sizeof(*mem_region);
-> +		memset(mem_region->reserved, 0, 12);
-> +	}
-> +}
-> +
->   static int
->   ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->   		       struct ffa_mem_ops_args *args)
-> @@ -672,27 +692,24 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->   	mem_region->flags = args->flags;
->   	mem_region->sender_id = drv_info->vm_id;
->   	mem_region->attributes = ffa_memory_attributes_get(func_id);
-> -	ep_mem_access = buffer +
-> -			ffa_mem_desc_offset(buffer, 0, drv_info->version);
->   	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
->   					       drv_info->version);
->   
-> -	for (idx = 0; idx < args->nattrs; idx++, ep_mem_access++) {
-> +	for (idx = 0; idx < args->nattrs; idx++) {
-> +		ep_mem_access = buffer +
-> +			ffa_mem_desc_offset(buffer, idx, drv_info->version);
->   		ep_mem_access->receiver = args->attrs[idx].receiver;
->   		ep_mem_access->attrs = args->attrs[idx].attrs;
->   		ep_mem_access->composite_off = composite_offset;
->   		ep_mem_access->flag = 0;
->   		ep_mem_access->reserved = 0;
-> +		ffa_emad_impdef_value_init(drv_info->version,
-> +					   ep_mem_access->impdef_val,
-> +					   args->attrs[idx].impdef_val);
->   	}
->   	mem_region->handle = 0;
->   	mem_region->ep_count = args->nattrs;
-> -	if (drv_info->version <= FFA_VERSION_1_0) {
-> -		mem_region->ep_mem_size = 0;
-> -	} else {
-> -		mem_region->ep_mem_size = sizeof(*ep_mem_access);
-> -		mem_region->ep_mem_offset = sizeof(*mem_region);
-> -		memset(mem_region->reserved, 0, 12);
-> -	}
-> +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
->   
->   	composite = buffer + composite_offset;
->   	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index 0a0132c6ae3e..6e180fc0e68e 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -347,6 +347,7 @@ struct ffa_mem_region_attributes {
->   	 * an `struct ffa_mem_region_addr_range`.
->   	 */
->   	u32 composite_off;
-> +	u8 impdef_val[16];
->   	u64 reserved;
->   };
->   
-> @@ -426,10 +427,23 @@ struct ffa_mem_region {
->   #define CONSTITUENTS_OFFSET(x)	\
->   	(offsetof(struct ffa_composite_mem_region, constituents[x]))
->   
-> +static inline u32 ffa_emad_size_get(u32 ffa_version)
-> +{
-> +	u32 sz;
-> +	struct ffa_mem_region_attributes *ep_mem_access;
-> +
-> +	if (ffa_version <= FFA_VERSION_1_1)
-> +		sz = sizeof(*ep_mem_access) - sizeof(ep_mem_access->impdef_val);
-> +	else
-> +		sz = sizeof(*ep_mem_access);
-> +
-> +	return sz;
-> +}
-> +
->   static inline u32
->   ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
->   {
-> -	u32 offset = count * sizeof(struct ffa_mem_region_attributes);
-> +	u32 offset = count * ffa_emad_size_get(ffa_version);
->   	/*
->   	 * Earlier to v1.1, the endpoint memory descriptor array started at
->   	 * offset 32(i.e. offset of ep_mem_offset in the current structure)
+Without this patchset, if USB2/USB3 are configured with wakeup enabled,
+the HSIOMIX power domain will not be turned off. This leads to more
+power consumed in system suspend state.
+
+This patchset introduces device_set_out_band_wakeup and
+device_out_band_wakeup two APIs to set out-of-band and query the flag.
+In genpd_finish_suspend, there is a check, if out-of-band is set,
+it will continue to turn off the power domain. In genpd resume flow,
+there is a similar check to turn on the power domain.
+
+Patch 1,2 introduces device_set_out_band_wakeup and
+device_out_band_wakeup
+Patch 3 and 4 are drivers changes to use device_out_band_wakeup
+
+More old discussions:
+https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
+
+This is pick up of [1]
+This V2 patchset
+- includes usb driver changes to give people a full picture on how it is used.
+- Rebased next-20250729 to resolve conflicts
+
+[1]https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
+
+To: Rafael J. Wysocki <rafael@kernel.org>
+To: Pavel Machek <pavel@kernel.org>
+To: Len Brown <lenb@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Danilo Krummrich <dakr@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+To: Peter Chen <peter.chen@kernel.org>
+To: Shawn Guo <shawnguo@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-pm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-usb@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+
+Changes in v4:
+- Split device_set_out_band_wakeup API and pmdomain changes into patch 1
+  and 2 and clear the flag in device_prepare (from Ulf)
+- Add R-b in patch 2
+- Move the call of device_set_out_band_wakeup to system suspend
+  callback in patch 3 and 4. (from Ulf)
+- For patch 3,4, I still keep the Tags, since compared with V3, it is quite
+  small changes.
+- Link to v3: https://lore.kernel.org/r/20250902-pm-v3-0-ffadbb454cdc@nxp.com
+
+Changes in v3:
+- Add a new patch from Xu Yang to detach power domain for ci hdrc
+- Add A-b for patch 4
+- Link to v2: https://lore.kernel.org/r/20250801-pm-v2-0-97c8fb2a433c@nxp.com
+
+---
+Peng Fan (4):
+      PM: wakeup: Add out-of-band system wakeup support for devices
+      PM: domains: Allow power-off for out-of-band wakeup-capable devices
+      usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
+      usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
+
+Xu Yang (1):
+      usb: chipidea: core: detach power domain for ci_hdrc platform device
+
+ drivers/base/power/main.c          |  1 +
+ drivers/pmdomain/core.c            |  6 ++++--
+ drivers/usb/chipidea/ci_hdrc_imx.c | 11 ++++++++++-
+ drivers/usb/chipidea/core.c        |  3 +++
+ drivers/usb/dwc3/dwc3-imx8mp.c     |  9 +++++++--
+ include/linux/pm.h                 |  1 +
+ include/linux/pm_wakeup.h          | 17 +++++++++++++++++
+ include/linux/usb/chipidea.h       |  1 +
+ 8 files changed, 44 insertions(+), 5 deletions(-)
+---
+base-commit: 8f7f8b1b3f4c613dd886f53f768f82816b41eaa3
+change-id: 20250919-pm-v4-1879568de500
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
