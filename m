@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A509BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4CECA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7dW07Hh/kuW0Ug6mYchCmYe8nJm/s0YjQtY1nJtniU=; b=bw3GCm3CfH+KsSeEhmnaWdcd0R
-	PkooHP0mS0yuDyaLdP9QtPRW0RT4BeCVL6ckKAorV3Wz2mRbVAglkHuoks+ChL9UIP4GxISeu+RBA
-	sULAIRoMv7sCravjc063FOE0XkxR/R+KMB+8u0iMB3XxSbTpkMWLMsKTsdLnV6Y2kCbeuaFyutI6F
-	Hv44VZ43I5GV4oQ6gTb1JWO+fshbThrT7t1e7WWUEY8pKhob1DTpFVX0JUMoOhGFTeKDzPpNHwnT8
-	Sn7+ZDQ2FYe9AqGq9KENCeZCIzzq7csx3c4NZgiH98IhH3y9uQBgLEDsGTuxjQRcQFlWhyvvKCv0H
-	XF9vl4rg==;
+	bh=yThsMOzk6Z0BWjxXLqu+GMM5gml9j+cHqxJDPj/OiDo=; b=BhvY/XxRN13q5KrwzcGRMPMOgs
+	CZBZew3pau18o1DVcKlvkz1PCSm/8oQLv0ktivhrJEJu7LS7uL9JyjpHJ8AEcay3kq5AGQiTgiXnV
+	BXZNtlYxhyDQd4AORf4dc59IWUGUdlP/orLIGuKhd0XJogsW0PW9IljSO9XqkbORdjrBLhq9JiaBV
+	XnRCkLBfJzrG8cplBmLIrfmEZLwna0zXPotD6UuNILUMcpQQGqDQtYLeUxFcKU8yUQlMt8rsmRC80
+	UxyupILYfPSVw++DNZWVYvvhQHW4tIZXjIELGuQSaO32izScgGDnvqKFZiEG1h+4yCWjZVizUy4/X
+	frVre5vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0j4Y-0000000Aw70-02VB;
-	Mon, 22 Sep 2025 16:07:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0j4X-0000000Aw6F-04bE;
-	Mon, 22 Sep 2025 16:07:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 654B3601AA;
-	Mon, 22 Sep 2025 16:07:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F5CFC113D0;
-	Mon, 22 Sep 2025 16:07:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758557244;
-	bh=uDYH/PiATibzkVKp3bhSIMRzoQaIsWXinC2i/JYS0CY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dxJqc/rTNGmUln4TmANPiRWizuTM9+LwmP+nBkAHtaMG9q4XhHFKH+RVd1dE9MDct
-	 +26poE8+Fc9uHJLbZ/CzZlK43kQ+Q/lItU8TsESkGKm5ClamVPnZEFOPpdoi90S/ZF
-	 5Sr9XcYW8MkmGjGIGOKPhRdbwutWm+juG4v0Gj700WWnOultL8XHabWnkB7GKiykbW
-	 YXzQ+zU6Qj64EOIx/1ORaXi8HP6xsTAhOX2H//WSlAvgtyHsegJv6n33F2AZQ4Yv3g
-	 OeAGy2dsleLfDDj5md8I8slt/NyC5ej35RcCbYIWw804vnCk0Vz8b2LOQCI2ePY1ze
-	 B6ajt6A/nQqNA==
-Date: Mon, 22 Sep 2025 11:07:21 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Sean Wang <sean.wang@kernel.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: pinctrl: mediatek: Document MT6878
- pin controller bindings
-Message-ID: <175855724108.148988.1499605659192465226.robh@kernel.org>
-References: <20250915-mt6878-pinctrl-support-v3-0-593cc007d4cf@mentallysanemainliners.org>
- <20250915-mt6878-pinctrl-support-v3-1-593cc007d4cf@mentallysanemainliners.org>
+	id 1v0j5m-0000000AwRL-1N8W;
+	Mon, 22 Sep 2025 16:08:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0j5j-0000000AwQt-3oqn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 16:08:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 052771424;
+	Mon, 22 Sep 2025 09:08:29 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F13CA3F694;
+	Mon, 22 Sep 2025 09:08:35 -0700 (PDT)
+Date: Mon, 22 Sep 2025 17:08:33 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: shechenglong <shechenglong@xfusion.com>, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stone.xulei@xfusion.com, chenjialong@xfusion.com,
+	yuxiating@xfusion.com
+Subject: Re: [PATCH] cpu: fix hard lockup triggered during stress-ng stress
+ testing.
+Message-ID: <aNF0gb1iZndz0-be@J2N7QTR9R3>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <aMvsxd8nHb5roC0o@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250915-mt6878-pinctrl-support-v3-1-593cc007d4cf@mentallysanemainliners.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aMvsxd8nHb5roC0o@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_090840_074817_038645CB 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +67,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 15 Sep 2025 14:46:23 +0200, Igor Belwon wrote:
-> Add device-tree bindings for the pin controller and the EINT controller
-> found in the MediaTek MT6878 SoC.
+On Thu, Sep 18, 2025 at 12:28:05PM +0100, Catalin Marinas wrote:
+> On Thu, Sep 18, 2025 at 02:49:07PM +0800, shechenglong wrote:
+> > Context of the Issue:
+> > In an ARM64 environment, the following steps were performed:
+> > 
+> > 1. Repeatedly ran stress-ng to stress the CPU, memory, and I/O.
+> > 2. Cyclically executed test case pty06 from the LTP test suite.
+> > 3. Added mitigations=off to the GRUB parameters.
+> > 
+> > After 1–2 hours of stress testing, a hardlockup occurred,
+> > causing a system crash.
+> > 
+> > Root Cause of the Hardlockup:
+> > Each time stress-ng starts, it invokes the /sys/kernel/debug/clear_warn_once
+> > interface, which clears the values in the memory section from __start_once
+> > to __end_once. This caused functions like pr_info_once() — originally
+> > designed to print only once — to print again every time stress-ng was called.
+> > If the pty06 test case happened to be using the serial module at that same
+> > moment, it would sleep in waiter.list within the __down_common function.
+> > 
+> > After pr_info_once() completed its output using the serial module,
+> > it invoked the semaphore up() function to wake up the process waiting
+> > in waiter.list. This sequence triggered an A-A deadlock, ultimately
+> > leading to a hardlockup and system crash.
+> > 
+> > To prevent this, a local variable should be used to control and ensure
+> > the print operation occurs only once.
+> > 
+> > Hard lockup call stack:
+> > 
+> > _raw_spin_lock_nested+168
+> > ttwu_queue+180 （rq_lock(rq, &rf); 2nd acquiring the rq->__lock）
+> > try_to_wake_up+548
+> > wake_up_process+32
+> > __up+88
+> > up+100
+> > __up_console_sem+96
+> > console_unlock+696
+> > vprintk_emit+428
+> > vprintk_default+64
+> > vprintk_func+220
+> > printk+104
+> > spectre_v4_enable_task_mitigation+344
+> > __switch_to+100
+> > __schedule+1028 (rq_lock(rq, &rf); 1st acquiring the rq->__lock)
+> > schedule_idle+48
+> > do_idle+388
+> > cpu_startup_entry+44
+> > secondary_start_kernel+352
 > 
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-> ---
->  .../bindings/pinctrl/mediatek,mt6878-pinctrl.yaml  | 211 +++++++++++++++++++++
->  1 file changed, 211 insertions(+)
+> Is the problem actually that we call the spectre v4 stuff on the
+> switch_to() path (we can't change this) under the rq_lock() and it
+> subsequently calls printk() which takes the console semaphore? I think
+> the "once" aspect makes it less likely but does not address the actual
+> problem.
+
+Agreed; I think what we do here is structurally wrong, even if (in the
+asbence of writes to the 'clear_warn_once' file) this happens to largely
+do what we want today.
+
+We really shouldn't print in accessors for kernel state.
+
+> > diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+> > index edf1783ffc81..f8663157e041 100644
+> > --- a/arch/arm64/kernel/proton-pack.c
+> > +++ b/arch/arm64/kernel/proton-pack.c
+> > @@ -424,8 +424,10 @@ static bool spectre_v4_mitigations_off(void)
+> >  	bool ret = cpu_mitigations_off() ||
+> >  		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
+> >  
+> > -	if (ret)
+> > -		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
+> > +	static atomic_t __printk_once = ATOMIC_INIT(0);
+> > +
+> > +	if (ret && !atomic_cmpxchg(&__printk_once, 0, 1))
+> > +		pr_info("spectre-v4 mitigation disabled by command-line option\n");
+> >  
+> >  	return ret;
+> >  }
 > 
+> I think we should just avoid the printk() on the
+> spectre_v4_enable_task_mitigation() path. Well, I'd remove it altogether
+> from the spectre_v4_mitigations_off() as it's called on kernel entry as
+> well. Just add a different way to print the status during kernel boot if
+> there isn't one already, maybe an initcall.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+I agree; I think we want to rip that out of spectre_v2_mitigations_off()
+too.
 
+We print a bunch of things under setup_system_capabilities(), so hanging
+something off that feels like the right thing to do.
+
+Mark.
 
