@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6917CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F96CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcZDlsjsXLfaNlcOLff0xFKyHCF8iSBw6dGR5j1pSB8=; b=OQUx+1ejPYMiqkyF28v5kzP4mR
-	1LROq0DGG1dHM/wsLuYT6ZFB3UClXEcHX1QTl2FIDBlmav8ACHCruFt4U6giyNZQYXLQPfka1n7/B
-	skkyHuvPsDtmzkxcYFBch3tKRQSCnPhahCLg1mHl+kVxdoeoxW+wFPqCNbGRYc9ApzCT23eIfBZpH
-	dgPVKIzehPy0zazj0EFVMnE0MBcS/46aOkwIFU761H/396l2p4q07UC8EFEDs/A6TccV4PFCN5bME
-	QqarYfZp9GLX/W73UzyvGuvxGl35tBwlCOPPOmkNXtEqvbKv1C83gpjur8RPnK4A4yIU+2el6qzDO
-	aximHYpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M4ASQoh434snTg3oMZ4ODV7u1T3gn7WlDG1A0nKTWBQ=; b=loogkZXTFOYlgQ1eUx1ydAS3c7
+	+3FK1f9rdZ7qKdiG9Abnnp8krWj7YwyJOpzHaxlJUel+XJmjoyw8gTLSuMDlZFZTo4CngZKpiLIzK
+	gIW4DC7MIsqwwQ6S+6O/f3EhtjNoKAAwAVZlaLl4zyQq2OXBRm0z7GAU23YIVbUZWyZ/kgaPX49ac
+	gBg9TePkzTvaDFqkHx0cE+796I4Wkd5qcHK7SUMgvCyREZFM0sHSlmU3Vxkc0UYbY5Gmu0NsJD4Gg
+	x0uRjRfgsIqNhaTBOFWmto0bDiOEEofCkGEAfNUrwxbh+bwKnvSqRBJMOndhkHolEzw0W1rr7Z6eb
+	CkUSMY4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jtI-0000000B2lW-11fQ;
-	Mon, 22 Sep 2025 16:59:52 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1v0jxc-0000000B3K4-2d0k;
+	Mon, 22 Sep 2025 17:04:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jtF-0000000B2l1-0ex3;
-	Mon, 22 Sep 2025 16:59:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1758560384; bh=WyeVZUr9UOZR4eTTeq2TQ6nQmLS0wUEiryNXHPbN7vI=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=slDo/3ZoJZMXKAxwXZ2fFlY2HKpdeQv4uMNN0M4TPjwwQU0XUl4h13ygGpKpa56N8
-	 GXChkY2h37tQtX+bipUYaLibgP5/56F0ko9Z2TZ4/0OCIrWLEHsbTQrrSHib6S9wQE
-	 iuHA1la2l/0MXjJYoSoollugh0WYZuwlHYCsquIU=
-Date: Mon, 22 Sep 2025 18:59:43 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Rudraksha Gupta <guptarud@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] arm64: dts: rk3399-pinephone-pro: Add
- accelerometer sensor support
-Message-ID: <kkxecpaatgeqk7ru4maqtbgftiqmdjjweam2zw6xrvbbzpqy4a@nz6llsm37qdx>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Rudraksha Gupta <guptarud@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com>
- <20250921-ppp_light_accel_mag_vol-down-v2-2-e6bcc6ca74ae@gmail.com>
- <5b6ijumsm6bgqymsfc25frqzjlpiryq7iupuk2pokcb6d4bz56@yqrz6j3oj5ga>
- <649ca4a6-3158-4c52-bad3-6c266edd177d@gmail.com>
+	id 1v0jxZ-0000000B3Jf-1D1I
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 17:04:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758560657; x=1790096657;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=mA1m6W7VuxwY07ZYn6w/N7eCuR3fCYoMpUyjqB9ZPjQ=;
+  b=tLKeEkf4oItVf1M3CS/i686Uxmv25UKffkAui/FAo+aX9/Xz9bpiDegN
+   h9A3aX/spuL/iWQ0G0Y6lA/aXSzZQCWOm2uFVDojG9p2jWOAOkmPofMio
+   AAR3ZpCPt/4rd4SYqucJIz5c1w5zhWd8Hn7wtEcVM16obZjIl1EgNkK9I
+   NofxTAq1AgDmtocQOzsd3pUA2zyX/SIS6a04qYLXk0L7ve38s/yWQhFaI
+   BgIAuckvF6x0wC4d/08prKsh7eMuxLssI+E+C3ONvy0e1CkQnLjvdtNPE
+   omhLGjmLUQZpskPaMkjFytdb+cZbxDl7Iqi+9+GmCnKeIoPnBDlrR2n0e
+   w==;
+X-CSE-ConnectionGUID: ARBJErZ/SGCcBWIaab2tJw==
+X-CSE-MsgGUID: Dr/xhLz+QTq3bkZGgcAj/g==
+X-IronPort-AV: E=Sophos;i="6.18,285,1751266800"; 
+   d="scan'208";a="52732392"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2025 10:04:16 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 22 Sep 2025 10:03:55 -0700
+Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 22 Sep 2025 10:03:53 -0700
+From: <nicolas.ferre@microchip.com>
+To: Arnd Bergmann <arnd@arndb.de>, <arm@kernel.org>, <soc@kernel.org>
+CC: Ryan Wanner <ryan.wanner@microchip.com>, Dharma B
+	<dharma.b@microchip.com>, Conor Dooley <conor.dooley@microchip.com>, "Nicolas
+ Ferre" <nicolas.ferre@microchip.com>, Linux Kernel list
+	<linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: [GIT PULL] ARM: microchip/at91: dt for 6.18 #1
+Date: Mon, 22 Sep 2025 19:03:45 +0200
+Message-ID: <20250922170346.40876-1-nicolas.ferre@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Organization: microchip
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <649ca4a6-3158-4c52-bad3-6c266edd177d@gmail.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_095949_644210_9693B5E7 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20250922_100417_502230_A43837D7 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +88,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rudraksha,
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-On Sun, Sep 21, 2025 at 02:07:03PM -0700, Rudraksha Gupta wrote:
-> Hello,
-> 
-> > I'm not sure where you got this patch, but it's not from me (I know for
-> sure
-> > I never did any mount-matrix testing/DT patches) and should not have my
-> > Signed-of-by.
-> 
-> This is where I sourced each of the commits:
-> 
-> - Add light/proximity sensor support
->   - https://codeberg.org/megi/linux/commit/f171bc7013bc7ad3de9af817bfbcbfa548ebe01c
-> - Add accelerometer sensor support
->   - https://codeberg.org/megi/linux/commit/b0bb7633e073a6760fa213b8c4a78ea2e73c7bf1
-> - Add magnetometer sensor support
->   - https://codeberg.org/megi/linux/commit/2f7e67f451f16eaf15b81aa1dbdf126d54927d35
-> - Add mount-matrix for magnetometer
->   - https://codeberg.org/megi/linux/commit/d7cd2eab931e32fa94408a96d73b4e6c0616107a
-> - Fix voltage threshold for volume down key
->   - https://codeberg.org/megi/linux/commit/7c496a5cc27ed4e38b740f36c2d8b2c62f80ae54
-> 
-> I will add my sources to the cover letter moving forward.
-> 
-> 
-> 
-> > Looking at where the magnetometer is mounted, it's mounted on the bottom
-> side of
-> > the PCB (U29 chip):
-> > ...
-> > So based on that mount-matrix should be:
-> >
-> >         mount-matrix =
-> >             "0", "1", "0",
-> >             "1", "0", "0",
-> >             "0", "0", "-1";
-> 
-> Thanks, addressed in v3!
+Dear arm-soc maintainers,
 
-Well, it's not clear this will work as expected. Someone should at least test it
-with some well working userspace sensor fusion program, that uses this
-information, (along with the mount matrix for accelerometer/gyro) for eg.
-compass feature or something like that.
+Here are the first dt changes for 6.18 which contain some little node additions.
+The QSPI node has its bindings accepted and going with the SPI tree:
+https://lore.kernel.org/lkml/20250908-microchip-qspi-v2-0-8f3d69fdd5c9@microchip.com/
 
-Also I don't see this matrix in v3 patch set.
+Thanks, best regards,
+  Nicolas
 
-Did you test it? Any suggestions on what people actully use for sensor fusion on
-Linux?
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
-Regards,
-	o.
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
-> 
-> Thanks,
-> Rudraksha
-> 
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-dt-6.18
+
+for you to fetch changes up to c656932c3ece3eebe6240bb20e5c1d8aa0d7ecb0:
+
+  ARM: dts: microchip: sam9x7: Add qspi controller (2025-09-22 18:20:34 +0200)
+
+----------------------------------------------------------------
+Microchip AT91 device tree updates for v6.18
+
+This update includes:
+- sama7d65 and curiosity board: addition of gpio, leds and usart3
+- sam9x75: qspi node
+- one cleanup
+
+----------------------------------------------------------------
+Dharma Balasubiramani (1):
+      ARM: dts: microchip: sam9x7: Add qspi controller
+
+Krzysztof Kozlowski (1):
+      ARM: dts: microchip: Minor whitespace cleanup
+
+Nicolas Ferre (1):
+      ARM: dts: microchip: sama7d65: add uart3 definition for flexcom3 peripheral
+
+Ryan Wanner (1):
+      ARM: dts: microchip: sama7d65: Add GPIO buttons and LEDs
+
+ .../boot/dts/microchip/at91-sama7d65_curiosity.dts | 53 +++++++++++++++++++++-
+ arch/arm/boot/dts/microchip/sam9x7.dtsi            | 21 +++++++++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi          | 17 ++++++-
+ 3 files changed, 89 insertions(+), 2 deletions(-)
+
+-- 
+Nicolas Ferre
 
