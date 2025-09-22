@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD007CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B756FCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joVz1czTJXBSJmEtLMMnA75YCKiCjjhfE6VZQer6wHU=; b=ugDNsMoFQfgsfifX2itq5YtTdN
-	1GgiNqJ+/sz+icG5y+L965CZXMIts7dhO0ArGraIidKLTJodZLSorOIBjmmqVkQbwBmO5elCkTp1T
-	TXn07mkRlhYRpfAYpYxSnIP/jlXnD/HyLsbUzLX7dgfgljpwIfnMliDh4w0ztJYotUq0j6Z3pOzbP
-	t87aDixHTvQ+0t1GbM56qtpCTpBzdbJR6G863IbYnnBp+ybR71GBdyRMQ+pJN+ehJ4VoKy0yjHdGT
-	Vj8F5r3eSQyqJIrlQDpgnhgvKPcDQzA+sKRWIWvgb4O0UepFTKYKvBqkKEMxGUvTuWVGW5vhpsAw+
-	ma2534qw==;
+	bh=DPWSMInnzeGuBLPUoWxGvmStCeWjizGAjnwCAy85z50=; b=ny2Y72QcvMB+Iefj+RUB9/pD7t
+	z3bG3fVyr5y5de8HVVDAdHpSssatk7ZpvvdtqMHdMMhz2rhsqSthVwDB4M8YpsMQJXUUPt3oGyCXp
+	0edOwYxV7wrfB6YC3x7OTUr0bCBllRXeO5fI4ETqOIvhk60kNvEqabi510G2pJ5C0XkleItVHrS+j
+	+D83MzPt+jCgaWHElalviBFl5FEzoxTMLLHy7mzMzCQRnmTKTfRqWhBqRAmHeH8z83/2IPSFhU9Xw
+	zaAKeYt9pUqc8vvkoARQOSoHkhI8WXVgLHSp5s+jYQRDYpHeNGtfrJXHTVnCRpqhmvmoecfo+q5eT
+	uv5Xj+MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eSH-0000000AABs-4BXO;
-	Mon, 22 Sep 2025 11:11:38 +0000
+	id 1v0eSH-0000000AABR-2yem;
+	Mon, 22 Sep 2025 11:11:37 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eS2-0000000A9zK-28oE
+	id 1v0eS2-0000000A9yL-18c1
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 22 Sep 2025 11:11:24 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1v0eRq-0002HM-Uy; Mon, 22 Sep 2025 13:11:11 +0200
+	id 1v0eRn-0002HM-Dz; Mon, 22 Sep 2025 13:11:07 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Mon, 22 Sep 2025 13:10:55 +0200
-Subject: [PATCH v2 4/5] dt-bindings: arm: fsl: add compatible for Skov
- i.MX8MP variant
+Date: Mon, 22 Sep 2025 13:10:53 +0200
+Subject: [PATCH v2 2/5] dt-bindings: display: simple: Add JuTouch
+ JT101TM023 panel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-4-abbb759cf8ef@pengutronix.de>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-2-abbb759cf8ef@pengutronix.de>
 References: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
 In-Reply-To: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +62,9 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_041122_539321_0FF82B0A 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250922_041122_304146_36487250 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding a new device tree variant with a different
-panel, describe the DT compatible in the binding.
+Add the JuTouch Technology Co. 10" JT101TM023 LVDS panel.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/display/panel/panel-simple.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index a3e9f9e0735a8808721ebba713f14818ee49172a..95078d1a70b07e9c0d298f18ce4eaba3aebd4591 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1111,6 +1111,7 @@ properties:
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
-               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
-               - skov,imx8mp-skov-revc-bd500 # SKOV i.MX8MP climate control with LED frontplate
-+              - skov,imx8mp-skov-revc-jutouch-jt101tm023 # SKOV i.MX8MP climate control with 10" JuTouch panel
-               - skov,imx8mp-skov-revc-tian-g07017 # SKOV i.MX8MP climate control with 7" panel
-               - ysoft,imx8mp-iota2-lumpy  # Y Soft i.MX8MP IOTA2 Lumpy Board
-           - const: fsl,imx8mp
+diff --git a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+index 1ac1f02190790cbff00c9f977d5c1a4420ed9f27..8107dc60e19695d56cd7302e7af7c808575df491 100644
+--- a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
++++ b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+@@ -182,6 +182,8 @@ properties:
+       - innolux,n156bge-l21
+         # Innolux Corporation 7.0" WSVGA (1024x600) TFT LCD panel
+       - innolux,zj070na-01p
++        # JuTouch Technology Co.. 10" JT101TM023 WXGA (1280 x 800) LVDS panel
++      - jutouch,jt101tm023
+         # Kaohsiung Opto-Electronics Inc. 5.7" QVGA (320 x 240) TFT LCD panel
+       - koe,tx14d24vm1bpa
+         # Kaohsiung Opto-Electronics. TX31D200VM0BAA 12.3" HSXGA LVDS panel
 
 -- 
 2.49.0
