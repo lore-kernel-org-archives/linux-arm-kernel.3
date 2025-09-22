@@ -4,113 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1EBCAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 00:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98149CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 00:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqKU8AOkK2sYZLUnyHJFIE8wA4u3vUpzgORbVfbSXxw=; b=tOo+brkIptS2RG7oMlJptf24GT
-	9D7co5K6FHCLdn2K/yVHVDDxpyovEB7xjkmG/Eavh3cN9ETGeGghxxIoQQg+YajPjMJrUMtCdtWnz
-	yDCAcmcVjbMJZMsOfS7Y5lyQR1R2thewStkzBht8DHCKGTy2sKpi9WmRWmFz66/YkiXrOG/1YlLCa
-	NVoHUWy3/Bj5+E/T54iTv0/xTpD2ToH8KNOK3pTPFxW5iHxmu6Ecfpl9OkewTsk0GZiWqAPIf0O5Z
-	hY40UpnURQskMkzvu/hstkLp9zCBoJnitRzQw2/8iADhfrKu2OIcHMef286BLA3V97ZeinyVQowPX
-	uCROkItA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CY0OAV7CngZIuepyntZmY9eSVgmPUas7jl5MKu56xKQ=; b=PW/w3/DfV6WTBmmIz1CBLTT6sw
+	ueLEEi/tY1huu70vC8X0uecrkXsKITG+ZgR0qjObL0pLVSjPNuo/U5Fm+1nPKLJW44EkeWCvTap1m
+	IX8Hnr+ktM4ie8nx4BuqgXRx3MiFUc3qRuTcYaPGbB3BC6ZyJwK3t1VpLb7D09wo3wDsG1FXoVxpG
+	jMDT0GtTuEsogVxBJsBxoTJNK9FoQJ+Ot0Ra56lAJJXsE//vwbtqzhj0jsV1qnTBYouf6Y0eSJWyD
+	wp6o3v/Vj2GRi+xvDvR7iCMQDdHgcYTEatDwBXFsFHGEA7gkXKAcJ8lKKtRqDSicmS956P4TfEhHz
+	W5U8DE4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0U21-00000008QNN-1xNp;
-	Mon, 22 Sep 2025 00:03:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v0UoM-00000008SiQ-2TY4;
+	Mon, 22 Sep 2025 00:53:46 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0U1x-00000008QMh-2st9
+	id 1v0UoK-00000008ShS-24ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 00:03:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758499424;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BqKU8AOkK2sYZLUnyHJFIE8wA4u3vUpzgORbVfbSXxw=;
-	b=fvP74JpxbQmNo1FWFWCMdszGDxrQqjXZf9hGtyR3JdCWJ7C4aGAQMJi+fqRlk57bJCknjy
-	zHxcQH8OH3FCohUXycdn/+l2L7gxlGpk1oZWNcsrPf1puPgHJ6emb7u7491VgmWXXXv0WK
-	EPH+912XEk04qryV9HeA4y8bh8JTJjo=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-368-uYPLGBWfOXS7O7wKP9AXxQ-1; Sun, 21 Sep 2025 20:03:42 -0400
-X-MC-Unique: uYPLGBWfOXS7O7wKP9AXxQ-1
-X-Mimecast-MFC-AGG-ID: uYPLGBWfOXS7O7wKP9AXxQ_1758499422
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-77e7d9ed351so1751595b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 17:03:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758499422; x=1759104222;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BqKU8AOkK2sYZLUnyHJFIE8wA4u3vUpzgORbVfbSXxw=;
-        b=Pz4EKjwU2ZnHZhom5V+lDs0x1+QWm5EKhlZ3ZCaIco1Tz12mqmFzqDomQqvM4hf7tL
-         RoXIFHj5vk/eM//5xpd/AQty436NetTRAmG93btssyRi7bKMVq8mvoaVyU5P0KgfHfn8
-         J1lLaQwyPEM8lvWxFxNcDLU/qB58PmUeH675aE+WZjcPZhRzC67mLCV8j9xcBP/VUVnD
-         +kMx1pFEBDzopMGtn9wp3oRp//KCKaGZxIiUTq2QmYkTFYgVlT6tAljRO4SwVHC7ffM1
-         XmZ6Jg91l5Kzmh26p5/9uqPOOb0ymLRTSELTeD1NXlIPGIES/xD5WtNyLiDw6h6yWQhp
-         iLsg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyMtt5YgfyeAVsK9Kepc12MKyjZeWHhcwBDxm1iP2Eb0xtP+0oW0iy7ugImH6Ip6spjazOK0ZSzQd+h//9VJ4H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8Q6NbHzMM/Uf5LKkHZxNvMeWJhKZGBEYUIRd6E/WKAakfFwTs
-	yPw0Usd6q/cWzIXGUhfiknTdOtx2YYpk7teystW/TQl6k/jdB5Pupq23y05RvLZZx5wzZSzTLhZ
-	ReaM9jjcwjcCjPSPRpFb+YINzpYGnZjroDaZQjR1iz/EHaS6e0kll+lAYfTCQ5PtrbbNrYOFylt
-	rJ
-X-Gm-Gg: ASbGncuNi0eDIhZ7B8pxdwwVw1T0xTthqbk0I2MecxdzigZNTACgejZjjrBnLJm9A0+
-	403qhi9k6PE+NjJ/rMDlKD8Cffg22N8wUUuK/2RAZvNVjAmoHoveeI0U0dxlAVlgFQ+pG0M0iY8
-	JcQjCEgW9Qkrp7Ab5PeWGbD2dqM34qY7bbTmA+YhMcKtzgr3D2EfGPe+MQdji1ZeD4P/Urh+Mwc
-	6NxBwLID75F7213e/BTV4E1W31fbTJPD3ie58mHSfhH8DMc89n4TK166VzdZXbXem4uVGrHB8rN
-	EpZrKC5bZRhO5yoTl79sse9Ww7Yq3o17ZE3OOHrwYf03by8tEzGoddkEK0HUfr8FZjSvsvpM/zw
-	wiveh
-X-Received: by 2002:a05:6a00:10c5:b0:77f:2efb:11d5 with SMTP id d2e1a72fcca58-77f2efb19b5mr3965874b3a.1.1758499421860;
-        Sun, 21 Sep 2025 17:03:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEV+P3PLtWMFz48LpuCCUOGv1CdGlTH41uj5nbM1D8BAHioMb2Zl8ZXd6r9GdYmEpNm+I3zQw==
-X-Received: by 2002:a05:6a00:10c5:b0:77f:2efb:11d5 with SMTP id d2e1a72fcca58-77f2efb19b5mr3965847b3a.1.1758499421542;
-        Sun, 21 Sep 2025 17:03:41 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77f30749642sm2123356b3a.100.2025.09.21.17.03.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Sep 2025 17:03:41 -0700 (PDT)
-Message-ID: <59d78787-1871-41ba-9a2e-30d1596c021f@redhat.com>
-Date: Mon, 22 Sep 2025 10:03:32 +1000
+	Mon, 22 Sep 2025 00:53:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OYUWH/ckTPZk5XBXDzLoxK+0aMySHIIFuojdBmcWARflVRzQtGbsWfD1KCM3J5/3PMT16dnNDo0wSGaPAk//Syf6pIgft68hlo9rbudXb8Bn38glF3lrGW+luyXxqbVngc/xsemmUBb6ndHY3/6bL+7u7djJmiBCaSRUPtRvSgxEObLh4FiEkdxGU/gOLdn87BSb7WL9Kt106GJKY2ugFGkXY7JAkXMC+BF6uJ6ZelYjBradeuiphYfn/pZPP7kQVqfA6AqsCegQfM9SPd0Pec8gm4W65C4tKYIqMFaQUdykj2lRapP8zM9P0oYi5z8wQXQ8z+I7WAiS65ukS0wV7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CY0OAV7CngZIuepyntZmY9eSVgmPUas7jl5MKu56xKQ=;
+ b=soHxOPIiWU1Mmn+AEFu8JRRhXX+GWfi8MDmQveUOX2za6uOdEdZIOsd3oshEToi7r79/X01BznxNYh3C9qiC39v3vx//bHI0XaeOBMWH5Ot9p2KOBPnt3UM7JuXBp1DSoeVpos79fC8JWgAc/tHxSJMxtdlUFpxHQFpwVmUu5ySJtzSA8y/nZE6UC6V2I+0jCaMx1LLlN6jVNfZGG5ax9C6oTlGUAj4lHRzsmOcyyqplTTZ1JX4pKSwzhTPdonTFYg6iU/bs325pf5aYV3G05eOPrydp1SF1JPUt31073RYWZATlE8/qlnRs8iIjAPBeSjc3D5YvbLRlfmBAE9+PPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CY0OAV7CngZIuepyntZmY9eSVgmPUas7jl5MKu56xKQ=;
+ b=sfP07wxgVBExSCirlTnzSU5HY045kEuM4rPudzsLH+9KLkDyVBm020uFMqzRc2YA8CRwcdzvuRGsUsG2wvAUBhTTgNosODETYWmUGR/5kTHPToRx43B/EQ4G/7G+T4Tv5Iv9lGCgA/97AVJwFvqQKefm0b6q8ohSD/U0PcHYmybeAAd5wUoYjMtYyhFO69OS/1Q6uk0iHPaIEclDaebJjSwJMI7RHpAvQ6xoh0hmOPwcCzdhRfJ96MBJ8+ozcCKcDpiC3JkTm+ciZlV2EmEtVM8LUoPR9zs7b6UHM04+7TAKPOY9e8jevcqFgMTVh0wRurFYktplcKTI83i4BCPS5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU2PR04MB9116.eurprd04.prod.outlook.com (2603:10a6:10:2f7::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
+ 2025 00:53:34 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
+ 00:53:33 +0000
+Date: Mon, 22 Sep 2025 10:05:11 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] clk: Introduce clk_hw_set_spread_spectrum
+Message-ID: <20250922020511.GA14753@nxa18884-linux.ap.freescale.net>
+References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
+ <20250915-clk-ssc-version1-v4-2-5a2cee2f0351@nxp.com>
+ <175848801471.4354.13819701022920596111@lazor>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <175848801471.4354.13819701022920596111@lazor>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:194::20) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 32/43] arm64: RME: Enable PMU support with a realm
- guest
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
- <20250820145606.180644-33-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250820145606.180644-33-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: S7dIy2xkCUh-BrBgRiSlkpWuS3QPir3Qgo92JuNfQBk_1758499422
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU2PR04MB9116:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66e56ade-a129-4690-d6db-08ddf9727462
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FXWUfTdo0/PFkpLOIwPbknAoJW8zPLHZkP39cy7bjGvm6R4Eu5+NJ+Vt+Peq?=
+ =?us-ascii?Q?eq2ci7ytP0ze8agCFET0Np0tH8kAEi2tq6XJhCF856exhb84YnBV3wsOHsfu?=
+ =?us-ascii?Q?to0mEwruRlHF9lUCG32Ykbrcm7bS9slPSEkxxAVVzqA+E4vn1zRRaiV4xCQ9?=
+ =?us-ascii?Q?zb32EHgDvL3cUdzvhR8LXTUSuOk6xEx3Rcib/djmZuPa4QeHnXILZ5SScDYk?=
+ =?us-ascii?Q?Zd6ffjgFm1gObaWGgNw2KM4mGUYJsT7/22cE63DbZsF5D2G6/zIxOX4g8lKW?=
+ =?us-ascii?Q?Ix0csI0kDE+b7GYjIYZvdPmwEHNKcgC4SYXSAurS8L26b21TURLOVaI5gROM?=
+ =?us-ascii?Q?uhJXCEKiXJLvLutkXyuLADtDIk1EPMXWj7Iou29G3jqPpNwU3aYFkyfl5cGe?=
+ =?us-ascii?Q?KGYFCj6kJ6crdEIT+wUYhfigP0P75f2YowrdJNKf/pKpjq+N/vpfGdWPXuzM?=
+ =?us-ascii?Q?ClSACWbbRg3OVsfPC58iy8011j52rHVXuQR7ucQuMhporNftoj+YZ2vc3w/L?=
+ =?us-ascii?Q?ByiTfQ5dYEoK2DcLpjIjjiu/ppQEuim9zeb32/FyTje/8/CU1K+X9K28rxqO?=
+ =?us-ascii?Q?uRpA6nbcweN+Q+hBuBsZqDE9OcAcG57Z6UtghK65Ql3QQvnC1mISgRFYRf7D?=
+ =?us-ascii?Q?knKCFyR/F2Ad8bYjqjZQm5EnbNcbNprw2CsMpck5BiU1vUQx1fCJwPjsfHAn?=
+ =?us-ascii?Q?mWGdKQvXSPtVpjJHc2Z11Sa7FC+YNoe0FovvSlubitnI1h+L4j7Fqy7230JC?=
+ =?us-ascii?Q?VskuX+VninXVsilN6tc3Uihqu4Kx0SCtTpO2+MReAcXmRLlyb2ipHuDyfaBW?=
+ =?us-ascii?Q?5AFo7IlxhI2HIM7P7J8y0Gc6AgseFMNI+kNxi2aiVQqEAFqKrmkc/NqoBjvj?=
+ =?us-ascii?Q?onbThzR7oI5kbUIO+4zX25wkc2ZciR9VuKUUZ849mxKDRamQ9Kiw2LGd4cwG?=
+ =?us-ascii?Q?8L1IjMbPZNPXzFollPLSvm+bl1s0TgJpNlSJ3LhzMsTPK8n3drTwYIBiv/EU?=
+ =?us-ascii?Q?PKwNbtYwmPD+vdvzB1dFx4S0DgQTtqadNRaDm+i1BjEvOQ1BrRv1MJWo3myx?=
+ =?us-ascii?Q?PyaXOmjsfREyTc/qPaGoiNgaYPIcFWIFkG0y0KktXt6gP2Gib1N+Nij6XG15?=
+ =?us-ascii?Q?W8XePon5CVWQCqNp9uNWPNE7lOv0cLSF4m7sSY+thF5oVXomV9/5gquVX3u8?=
+ =?us-ascii?Q?MQnitYZHQrG2kpVH4Jv6QAhYG5aIhUxGE9OWuRuEB03i3bqpjg7vofjhVUBk?=
+ =?us-ascii?Q?QcXC8dQR6khE8hRbdx/rKW2kFZL6jpzW/Xx+VmDPLY9C3+dOoMSLq1VjW1W5?=
+ =?us-ascii?Q?qOYy37LrkVwqqGE85+dcZyU460lvf94+uYGvipFZqDxLHagve0Fl+5RUZhI8?=
+ =?us-ascii?Q?zgNnKFlaxTEdpnyfXAcDsEsCNUhvk8aGZWdJdnDkehNt+DA11jtwRC279jFs?=
+ =?us-ascii?Q?P8cYpoUjnpw6Rkw20gdQt+EcjOLWjiOsYxRN1Yl4/uU5tN/2K2qB7A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fHfZ0ZJikcmXFr4I0I12aqEEu5ASykdsdQ+i6dtyQHteOywPwMrJa7WmBmOO?=
+ =?us-ascii?Q?0eovm28qErg5mycFzH4FNwCSLZOjKHy8u3M7sMimlgoLlEMoSfJqaEFKdpcd?=
+ =?us-ascii?Q?bSDN92jslIq7YIlhuh6yD/9MuLBC9c9SUAqP5UO7jmpkVREx+EjfljX0ttUt?=
+ =?us-ascii?Q?8j11IXYmI5Pi6wo9xAYtukH4hYectTinbmgySGEcOSJlXkaqVC52xbhm4TiK?=
+ =?us-ascii?Q?BJZl+dXvks8o0sZEPuDYNHW5Po0jEEsRJonBr/htIvmVS/8L5fZqMmZ5+nw0?=
+ =?us-ascii?Q?NC4XRgJJMhWad9QCpLtT3Iz24Uww8ITDQWW8ZqTk807qjlar1CU2oc/iCJrY?=
+ =?us-ascii?Q?MJBqoLyL4Oj9JYdePkq/Tx0k/k4aeTWPa6ImkT0BgVNCOR7mKlPH+BUniJoH?=
+ =?us-ascii?Q?VT7nW65auttBwPKfDLsi5CC6OhAkrhWH1dnSVoCII/iZumx9KnxJ6+gbLfzZ?=
+ =?us-ascii?Q?PgJ/3B4OHIDbdiEqVOQTPFV1Vwy2OuAnQodMi059hWvxxIatMi+i4ygLyIxw?=
+ =?us-ascii?Q?trPLSc+c23eAZ7Pc5BJVUh8cfAkArePVis02T1lHdWEw4UbjWeVtAymLC+y4?=
+ =?us-ascii?Q?8kUy7PjbPNajv8SG+WSPQKIhUEhz9wyypOE51AldXZY19Qba81tJiBrGjAgX?=
+ =?us-ascii?Q?7sN6x6PY2IHjG68uPI70fwpZJs/Rcdq6eFNloKo8lecXR6CF5tYqMcgwS253?=
+ =?us-ascii?Q?mDjTzD0flxpFqH25e1h7i+k+bLYT2U0bQG2vqq8Btpcq4Bdg5Lw/m1ykPHjs?=
+ =?us-ascii?Q?l2Lz7/8b1brByphLiVbAAea/DFl2NCC2thJhaTIYi+6SLxpSS31nOXIQ6UQi?=
+ =?us-ascii?Q?yRoIkxn6gVf01ZfzYnCGcEZcfdmqupYMkxG4VZJTGp/m6JSijRheJx/0XfPz?=
+ =?us-ascii?Q?USW7hcrGltSst/Jwu2H0oH0V5SeEZx7AidHxhV5i6Pa8LfacGw/MC6lM53GB?=
+ =?us-ascii?Q?hS2/J4Wl03kMBtzd+r4FchoIDNZkyJNB3i41bis3RO6s+DX/8d/NRDRC/9n8?=
+ =?us-ascii?Q?bsKzRvDQI7ervS7WP7ifOyQZgBIUxez+FPLOsI+4KfxNe880mShtGdpmUJF6?=
+ =?us-ascii?Q?X9lmRYAWVby27p0lUK9apERrbIxvJz849phuk0U/PV2mJ/zpHLECZPLM+uBF?=
+ =?us-ascii?Q?QQlIdAoUTObOfAmd3Iq2epN3Z2TRcxdds5RkUMwS96SkkfjsbDhi0SdVWXTv?=
+ =?us-ascii?Q?Aw7ORGGzkMASm9acYwmPtbMk+oP/P5Pkbh5TG/rSz49hHO/KLmw7f1D12pGj?=
+ =?us-ascii?Q?ao+x7eAOJ4A7l6Yc3gjYtwUJDdg78lArjick+mGfKFD8XF9mX6ZZLUWNn9cK?=
+ =?us-ascii?Q?urC2zj3NOyg1mkjQynT/Sjyp3b5uGEWUyNigmJluzSMSsuileiWnEI0qcC4T?=
+ =?us-ascii?Q?Nx/ajU3lWq1Ds8EJ8LzJeEhqcUI7/OMpypgNSdjhwwFtaaN6oIxftQ5ItERn?=
+ =?us-ascii?Q?CIHqsd9fcdR/wnyPrSPWqJFiP7jjc2ngHJdKAjRXONVvIXjZwzoXwIZoe244?=
+ =?us-ascii?Q?XCu/YdfjiswaxhMstO016yH47Ppyqu0zuDQY0bHE+QpNU1pCNwMtM7xGJBmZ?=
+ =?us-ascii?Q?Q5NSdjkFhG2PjHD1fEsQjJtjvKybnE0o00SNRVkD?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66e56ade-a129-4690-d6db-08ddf9727462
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2025 00:53:33.8296
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WIIX/MjZYieYc8SVLUCc6OIFMq4OS2O2dzmCpXTu7wfKsVEposFgn6E8NH4gh1Ko2m/wLsAFhavBZTENUIFRyw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_170345_801765_B0339B2E 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250921_175344_555310_F423D14E 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,36 +171,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/21/25 12:55 AM, Steven Price wrote:
-> Use the PMU registers from the RmiRecExit structure to identify when an
-> overflow interrupt is due and inject it into the guest. Also hook up the
-> configuration option for enabling the PMU within the guest.
-> 
-> When entering a realm guest with a PMU interrupt pending, it is
-> necessary to disable the physical interrupt. Otherwise when the RMM
-> restores the PMU state the physical interrupt will trigger causing an
-> immediate exit back to the host. The guest is expected to acknowledge
-> the interrupt causing a host exit (to update the GIC state) which gives
-> the opportunity to re-enable the physical interrupt before the next PMU
-> event.
-> 
-> Number of PMU counters is configured by the VMM by writing to PMCR.N.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v2:
->   * Add a macro kvm_pmu_get_irq_level() to avoid compile issues when PMU
->     support is disabled.
-> ---
->   arch/arm64/kvm/arm.c      | 11 +++++++++++
->   arch/arm64/kvm/guest.c    |  7 +++++++
->   arch/arm64/kvm/pmu-emul.c |  3 +++
->   arch/arm64/kvm/rme.c      |  8 ++++++++
->   arch/arm64/kvm/sys_regs.c |  5 +++--
->   include/kvm/arm_pmu.h     |  4 ++++
->   6 files changed, 36 insertions(+), 2 deletions(-)
-> 
+Hi Stephen,
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+On Sun, Sep 21, 2025 at 01:53:34PM -0700, Stephen Boyd wrote:
+>Quoting Peng Fan (2025-09-15 01:29:36)
+>> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+>> index b821b2cdb155331c85fafbd2fac8ab3703a08e4d..06db8918a1b35e3280e565272bc4603a88295a92 100644
+>> --- a/drivers/clk/clk.c
+>> +++ b/drivers/clk/clk.c
+>> @@ -2802,6 +2802,32 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+>>  }
+>>  EXPORT_SYMBOL_GPL(clk_set_max_rate);
+>>  
+>> +int clk_hw_set_spread_spectrum(struct clk_hw *hw, struct clk_spread_spectrum *conf)
+>> +{
+...
+>> +       return ret;
+>> +}
+>
+>Does it need to be exported? 
 
+Yeah. it should be exported, I will add it in v5.
+
+>
+>> +
+>>  /**
+>>   * clk_get_parent - return the parent of a clk
+>>   * @clk: the clk whose parent gets returned
+>> diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+>> index 630705a47129453c241f1b1755f2c2f2a7ed8f77..4f48a4df95a1c54638a0e91e0a449fcc8aa40b80 100644
+>> --- a/include/linux/clk-provider.h
+>> +++ b/include/linux/clk-provider.h
+>> @@ -84,6 +84,19 @@ struct clk_duty {
+>>         unsigned int den;
+>>  };
+>>  
+>> +/**
+>> + * struct clk_spread_spectrum - Structure encoding spread spectrum of a clock
+>> + *
+>> + * @modfreq_hz:                Modulation frequency
+>> + * @spread_bp:         Modulation percent in permyriad
+>> + * @method:            Modulation method
+>> + */
+>> +struct clk_spread_spectrum {
+>> +       u32 modfreq_hz;
+>> +       u32 spread_bp;
+>> +       u32 method;
+>
+>What are the possible values of 'method'? I'm guessing it's the defines
+>in the dt-bindings header?
+
+Yes. The values are in dt-bindings header and aligned with dt-schema.
+
+>Please connect these two somehow, maybe
+>through an enum.
+
+ok. I will add back enum in V5.
+
+>Also, why are these u32? Shouldn't these be more common
+>types like unsigned long or unsigned long long instead being exactly 32
+>bits?
+
+u32 is large enough for modfreq_hz and spread_bp.
+
+modfreq_hz will not exceed a few MHz, normally [1-9] * 10KHz per my
+understanding. 
+
+>
+>> +};
+>> +
+>>  /**
+>>   * struct clk_ops -  Callback operations for hardware clocks; these are to
+>>   * be provided by the clock implementation, and will be called by drivers
+>> @@ -178,6 +191,12 @@ struct clk_duty {
+>>   *             separately via calls to .set_parent and .set_rate.
+>>   *             Returns 0 on success, -EERROR otherwise.
+>>   *
+>> + * @set_spread_spectrum: Optional callback used to configure the spread
+>> + *             spectrum modulation frequency, percentage, and method
+>> + *             to reduce EMI by spreading the clock frequency over a
+>> + *             wider range.
+>> + *             Returns 0 on success, -EERROR otherwise.
+>> + *
+>>   * @recalc_accuracy: Recalculate the accuracy of this clock. The clock accuracy
+>>   *             is expressed in ppb (parts per billion). The parent accuracy is
+>>   *             an input parameter.
+>> @@ -255,6 +274,8 @@ struct clk_ops {
+>>         int             (*set_rate_and_parent)(struct clk_hw *hw,
+>>                                     unsigned long rate,
+>>                                     unsigned long parent_rate, u8 index);
+>> +       int             (*set_spread_spectrum)(struct clk_hw *hw,
+>> +                                              struct clk_spread_spectrum *clk_ss);
+>
+>const clk_ss pointer? And is it actually 'conf' or 'ss_conf'?
+
+I will use "const clk_spread_spectrum *ss_conf" in v5.
+
+>
+>>         unsigned long   (*recalc_accuracy)(struct clk_hw *hw,
+>>                                            unsigned long parent_accuracy);
+>>         int             (*get_phase)(struct clk_hw *hw);
+>> @@ -1430,6 +1451,7 @@ void clk_hw_get_rate_range(struct clk_hw *hw, unsigned long *min_rate,
+>>                            unsigned long *max_rate);
+>>  void clk_hw_set_rate_range(struct clk_hw *hw, unsigned long min_rate,
+>>                            unsigned long max_rate);
+>> +int clk_hw_set_spread_spectrum(struct clk_hw *hw, struct clk_spread_spectrum *conf);
+>
+>const conf? And 'ss_conf' again?
+
+yeah. Fix in v5.
+
+Thanks,
+Peng
 
