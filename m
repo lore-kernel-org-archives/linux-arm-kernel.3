@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71303CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 09:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923B7CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 09:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxsHa5a/TnumwuS8wGt++Dj39uNGV0RG0Oz4S0LjiTY=; b=THu5fXrQEEd0rO6Y6c3whEqbmG
-	pJjZnRqoSwjfVFrW9qNjxzgDn7mtBFtAOHaB4gJpZsXO4sNtzQRcj3jKArC6IrMCX9OWhoP/S++sy
-	LJlqdtlNqWTLdrZN7qVi6J9qilWjZws9D6KYhec/vLWUOkT35UjEL9CqG9zasTNNHIX6L8TttVlt9
-	sQAI2inggno2+6v29eCPzjBxzC7SLAqaQv0athhf+xxPwW5QLLx/BIEwfTLPCXy+zawy0DxCf+g/y
-	h4DgAXsvDpb+tXFQTJkauk0k11jHqHUlTf1gDk/GQZv4jY6Q2ignnh939myfIh/Mt33eIqsBrGAQ6
-	zLvtFVpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SJqhgJyvnD5d6YT81nFGxO9YqrSRYT6f3jsmSzdijO4=; b=iRXDbL8FEM0wcdAK5+4RTSMWJS
+	drlzBg4pCeZm1AgtItB449XrP4Eql7ORD+UTGfbO5sUvJUAdJMYS2Fyk1V+k3FxXbgKvWmPACU+t0
+	aHDVcCMxNsaMc7uzqn8EU742u0bE+jlZS27Rtpm3dZY432x1Vh+M4RwhmFcz+AcN/0JjUzj8G4ZGc
+	6SLqnMLRwkFXSvVRu2CDFMGSirR/QsQ7qQzEvQu5c/SHSsTOI2BdAYD/IdP68QAT0ZzYvZ6HNV6B2
+	V0lszHznacpElGNA8WHbcEU/Ixbgd1iG6JjSAzYAvNL4rMU2BMolIx2Hz8bLjm9O1+THvbFBcLq1K
+	sQfMVQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0cPA-00000009ouR-0jVk;
-	Mon, 22 Sep 2025 09:00:16 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1v0cP9-00000009otc-2INs;
+	Mon, 22 Sep 2025 09:00:15 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0cP4-00000009oqb-1yYj
+	id 1v0cP2-00000009oq3-0U4s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 09:00:11 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4612d068c47so29429945e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:00:09 -0700 (PDT)
+	Mon, 22 Sep 2025 09:00:10 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b042eb3ac03so46920166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:00:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758531608; x=1759136408; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fxsHa5a/TnumwuS8wGt++Dj39uNGV0RG0Oz4S0LjiTY=;
-        b=RyX137glycqPLosjOU0Ac1xQtZkOkr9JrvFVGXnjoJMccFSfEKKRJyqfALPv84vNQ+
-         wfkHk2JAd9tD8g311VHq95vYGMua3+C0jGZUkRptqmPGBaj2vXc017Trx/Y3Rnu4JqCl
-         8u8dXyaSfyXlH7eag4VuSVVaf+M9WWbKyAD3zWPRSJiW7AD1rlBTQe4KjYRX29wvVePR
-         Y28tCoUVsPbCTDEZH9ZBs2UshpaRugZEItzjjg4gYQ1j9TX79z5+pAa/FrqTUuhmPqjD
-         jfGSwFiGWMGTEIf+pUzTmPqElDk1zGwp96emizbV/C/SgjkEXgQdG5z8PLm+HgznnJWN
-         8+Iw==
+        d=google.com; s=20230601; t=1758531605; x=1759136405; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SJqhgJyvnD5d6YT81nFGxO9YqrSRYT6f3jsmSzdijO4=;
+        b=GZBuOs33sjTGyErU2vTi9Qx/lVm9N+Wk6CRJjW7igHx6rqS/pnuTQatSxOt3h5j/OS
+         DX/A5GAiRQ0TLb8izCXgYz2yLVTyh+8iV+wWSHY8cYwz2ZM7pI15zv/zlZRqA6wAGhMp
+         I829uup0/RiDnbZ7Z3ST07iCHf32ubeaVQu0jQmZs5+XbsB5I94TZoPPftyLBJRWIbyH
+         tL7H9/QhUxkVKlQ3/gu6/Yjh206C6uVXZS93EjPNXdgE25p8pKtmIIRN7E8Epys7on4z
+         qisWKARlfnnYEvd90ifLqTQboLvDIAOAvvremsMYUX/AUswGzhhvN3C+UQEvqFqhNzmg
+         QWUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758531608; x=1759136408;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fxsHa5a/TnumwuS8wGt++Dj39uNGV0RG0Oz4S0LjiTY=;
-        b=KwNTMdJBEHnylwCEE3/V0mG3oy2mfPpqnxhdSTIidPejWEchVzOftfVeEKddww/mIZ
-         KHA9DFaly2RqjS2nUcgtt0EqTeyNRJ5hYFze/1MLvQOIU9EaYAzG46tvpWXQXh/P4/PW
-         AVCcjqExxYIn+0Vy67E1Xns/vIXjqmSnvnOd+PwKX4PklJ4iMdlSdKWzX4IR3or6o3EY
-         dWdSRRLYxZjdmrmySvoglVNW1KG7lDjDZU4fqA/4LS2tG2O4bZs5WrY7aIl2unUC3pqc
-         MuCW72d6xpnEcw3W3yh3HHluTjO1FhqCTiNbCAWDCN6njtV68gmQzCAHF/O5hjUQu+hy
-         M55Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWf6Of5TNveMZCI735TgbVL5wzIrXSgmeCNF0dQKQcefxYiNjiFZkk69HH5FtBXVZ+eR/MkNPMHlIs5f7JWCzo4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxqrphYMaObiifU6NPc5/PZ21VRtk5CCwP691aPr0rOVX4/aBg
-	j06QaLsAonfBfvB46Ta2lvfPFMQbgdHRE3zQXJRF2mZgvCLP/3UGwpRgE5nSTA13qc/4BG8Elr8
-	MLygekNA+S3QAdA==
-X-Google-Smtp-Source: AGHT+IHget1O4BPqdwANeAahSQkK78lrpcEF2/nHFiBWfVpUCmbTfdZneqa7756vBxWSeKVk9F/QEVfsPjcQ4A==
-X-Received: from wmcn18-n1.prod.google.com ([2002:a05:600c:c0d2:10b0:45b:7262:8426])
+        d=1e100.net; s=20230601; t=1758531605; x=1759136405;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SJqhgJyvnD5d6YT81nFGxO9YqrSRYT6f3jsmSzdijO4=;
+        b=m4S3N2YOASQi2pRHOCWt3eghQd2jzKRO13Et+pfbc8svontuzdhIjd2tdgpdWq/IZ5
+         LgiVm0uzP7WewvfT8HrK9fXuNlWdpTnIwtfAF8ZeE7s/lRf3YRq6Zwq8+Ysuz+sKusTV
+         WyouTdVUHVTCozOut22jg5HD9FhfgJXXdWKXTmQA4N7Md4IBohY8y1ecPIiPafPHD4oi
+         dbm8rOf3LSJ1XVfJfCf6T3Oi/BdcLuIWEYBhxd1r3d75KCcMk7AFPt1iz2NNA6hp6N4F
+         BCCaIUnUf/uJc4rJJ7JEvThQNFap/Rzdvua7ULzgMLO2jDTJr4b4K/Yv27rimk1PWpxE
+         VMPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUfQ8JBsoxHt7SmcqJ2WrJt4xh65g0XaI09XJj/PBGo6XEfOCszz9u3Yu2KMu9TYJrqcnDJlMH8I3Wfvoy/XcvQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz40bNzd9gpdfp5dt+A7MusXlMVvjySNbTYqDH3LuhyolVM8yiW
+	ZhJm7lQT56sCEbkyUrBATEDZ5G/Yy2QDggR65XJAIjXlB3eohsJTPWbkMZp/hWnwMp1rvxduqpJ
+	HSS6fHQYN4f1P0w==
+X-Google-Smtp-Source: AGHT+IF+yNxN8u0Kn/bBdnRnggKLG4SBwNB4ClzRlBvae+pc7iApwAt2kx062VQ8LZ+b/9dnodHumoEI9ZZgHg==
+X-Received: from edf16.prod.google.com ([2002:a05:6402:21d0:b0:633:2fbe:a0c9])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5491:b0:45d:d5df:ab39 with SMTP id 5b1f17b1804b1-467f2cc83afmr101921075e9.26.1758531608493;
- Mon, 22 Sep 2025 02:00:08 -0700 (PDT)
-Date: Mon, 22 Sep 2025 08:59:27 +0000
-In-Reply-To: <20250922090003.686704-1-smostafa@google.com>
+ 2002:a17:907:948c:b0:b14:53a0:5c61 with SMTP id a640c23a62f3a-b24eca014ccmr1430032766b.12.1758531605450;
+ Mon, 22 Sep 2025 02:00:05 -0700 (PDT)
+Date: Mon, 22 Sep 2025 08:59:24 +0000
 Mime-Version: 1.0
-References: <20250922090003.686704-1-smostafa@google.com>
 X-Mailer: git-send-email 2.51.0.534.gc79095c0ca-goog
-Message-ID: <20250922090003.686704-4-smostafa@google.com>
-Subject: [PATCH v4 3/4] iommu/io-pgtable-arm-selftests: Modularize the test
+Message-ID: <20250922090003.686704-1-smostafa@google.com>
+Subject: [PATCH v4 0/4] Move io-pgtable-arm selftest to KUnit
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
-	praan@google.com, Mostafa Saleh <smostafa@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+	praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_020010_530477_CAB3006F 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20250922_020008_176005_FEE19523 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,124 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the __init constraint, as the test will be converted to KUnit,
-it can run on-demand after later.
+This is a small series to clean up the io-pgtable-arm library.
 
-Also, as KUnit can be a module, make this test modular.
+The first patch is a small clean up to reduce the depedencies of the
+test before moving it.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/Kconfig                    |  2 +-
- drivers/iommu/io-pgtable-arm-selftests.c | 36 +++++++++++++++---------
- 2 files changed, 23 insertions(+), 15 deletions(-)
+The second patch was originally part of the SMMUv3 KVM driver support[1],
+which needed to factor out the kernel code from the io-pgtable-arm
+library, and based on Jason=E2=80=99s suggestion this can be taken out as a
+cleanup, and a step further to convert it to kunit.
 
-diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index 70d29b14d851..553522ef3ca9 100644
---- a/drivers/iommu/Kconfig
-+++ b/drivers/iommu/Kconfig
-@@ -41,7 +41,7 @@ config IOMMU_IO_PGTABLE_LPAE
- 	  up to 48-bits in size.
- 
- config IOMMU_IO_PGTABLE_LPAE_SELFTEST
--	bool "LPAE selftests"
-+	tristate "LPAE selftests"
- 	depends on IOMMU_IO_PGTABLE_LPAE
- 	help
- 	  Enable self-tests for LPAE page table allocator. This performs
-diff --git a/drivers/iommu/io-pgtable-arm-selftests.c b/drivers/iommu/io-pgtable-arm-selftests.c
-index 17f48216647c..50350e88d9b4 100644
---- a/drivers/iommu/io-pgtable-arm-selftests.c
-+++ b/drivers/iommu/io-pgtable-arm-selftests.c
-@@ -13,34 +13,34 @@
- 
- #include "io-pgtable-arm.h"
- 
--static struct io_pgtable_cfg *cfg_cookie __initdata;
-+static struct io_pgtable_cfg *cfg_cookie;
- 
--static void __init dummy_tlb_flush_all(void *cookie)
-+static void dummy_tlb_flush_all(void *cookie)
- {
- 	WARN_ON(cookie != cfg_cookie);
- }
- 
--static void __init dummy_tlb_flush(unsigned long iova, size_t size,
--				   size_t granule, void *cookie)
-+static void dummy_tlb_flush(unsigned long iova, size_t size,
-+			    size_t granule, void *cookie)
- {
- 	WARN_ON(cookie != cfg_cookie);
- 	WARN_ON(!(size & cfg_cookie->pgsize_bitmap));
- }
- 
--static void __init dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
--				      unsigned long iova, size_t granule,
--				      void *cookie)
-+static void dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
-+			       unsigned long iova, size_t granule,
-+			       void *cookie)
- {
- 	dummy_tlb_flush(iova, granule, granule, cookie);
- }
- 
--static const struct iommu_flush_ops dummy_tlb_ops __initconst = {
-+static const struct iommu_flush_ops dummy_tlb_ops = {
- 	.tlb_flush_all	= dummy_tlb_flush_all,
- 	.tlb_flush_walk	= dummy_tlb_flush,
- 	.tlb_add_page	= dummy_tlb_add_page,
- };
- 
--static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
-+static void arm_lpae_dump_ops(struct io_pgtable_ops *ops)
- {
- 	struct io_pgtable_cfg *cfg = &io_pgtable_ops_to_pgtable(ops)->cfg;
- 
-@@ -54,9 +54,9 @@ static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
- 		-EFAULT;						\
- })
- 
--static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
-+static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- {
--	static const enum io_pgtable_fmt fmts[] __initconst = {
-+	static const enum io_pgtable_fmt fmts[] = {
- 		ARM_64_LPAE_S1,
- 		ARM_64_LPAE_S2,
- 	};
-@@ -157,15 +157,15 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 	return 0;
- }
- 
--static int __init arm_lpae_do_selftests(void)
-+static int arm_lpae_do_selftests(void)
- {
--	static const unsigned long pgsize[] __initconst = {
-+	static const unsigned long pgsize[] = {
- 		SZ_4K | SZ_2M | SZ_1G,
- 		SZ_16K | SZ_32M,
- 		SZ_64K | SZ_512M,
- 	};
- 
--	static const unsigned int address_size[] __initconst = {
-+	static const unsigned int address_size[] = {
- 		32, 36, 40, 42, 44, 48,
- 	};
- 
-@@ -205,4 +205,12 @@ static int __init arm_lpae_do_selftests(void)
- 
- 	return fail ? -EFAULT : 0;
- }
-+
-+static void arm_lpae_exit_selftests(void)
-+{
-+}
-+
- subsys_initcall(arm_lpae_do_selftests);
-+module_exit(arm_lpae_exit_selftests);
-+MODULE_DESCRIPTION("io-pgtable-arm library selftest");
-+MODULE_LICENSE("GPL");
--- 
+The second patch just moves the code to a new file with no other changes,
+so it can be easier to review with =E2=80=9C--color-moved=E2=80=9D
+
+The third patch converts the sefltest to be modular, that is useful as
+kunit can be a module and it can run anytime after boot.
+
+The fourth patch registers the test using kunit, and converges some of
+the APIs, some notes about that:
+
+Granularity of tests:
+---------------------
+To make the series easier to review, the series changes the test to run in
+kunit without making intrusive changes to the test itself.
+It=E2=80=99s possible to refactor the tests to have smaller granularity (al=
+though
+I think that would make it less efficient as we might create the same io-pg=
+table
+config multiple times) and integrate them in kunit as multiple tests, that
+change would be more intrusive, if you think that is the right approach,
+I can add a couple of more patches re-writing the tests.
+
+Other changes:
+--------------
+- Also, to make the test changes minimal, and the fail messages similar,
+  =E2=80=9CKUNIT_FAIL()=E2=80=9D is used to fail all tests instead of using=
+ KUNIT specific
+  assertions.
+
+- Instead of using faux device, we rely on kunit_device_register()
+
+- The WARN is removed when a test fails, as that doesn=E2=80=99t seem to be=
+ a pattern
+  used with kunit.
+
+
+You can find the instructions on how to run kunit in the last patch commit =
+message.
+
+A failure at the test with the new implementation look as
+[  191.675985]     # arm_lpae_do_selftests: selftest: pgsize_bitmap 0x20010=
+000, IAS 40 OAS 48
+[  191.676057]     # arm_lpae_do_selftests: EXPECTATION FAILED at drivers/i=
+ommu/io-pgtable-arm-selftests.c:91
+[  191.676087]     # arm_lpae_do_selftests: selftest: test failed for fmt i=
+dx 0
+
+
+Main changes in v4:
+- Remove one missed __init.
+- Change the kconfig dependencies back as it broke ARM
+https://lore.kernel.org/all/202509201819.f369wBHc-lkp@intel.com/
+
+v3: https://lore.kernel.org/all/20250919133316.2741279-1-smostafa@google.co=
+m/
+
+Main changes in v3:
+-------------------
+- Move back unused code
+- Simplify printing based on Jason comments + some renames
+- Collect Jasons Rb
+v2: https://lore.kernel.org/all/20250917191143.3847487-1-smostafa@google.co=
+m/
+
+Main changes in v2:
+-------------------
+- Make the test modular
+v1: https://lore.kernel.org/linux-iommu/20250917140216.2199055-1-smostafa@g=
+oogle.com/
+
+[1] https://lore.kernel.org/all/20250819215156.2494305-5-smostafa@google.co=
+m/
+
+Mostafa Saleh (4):
+  iommu/io-pgtable-arm: Simplify error prints for selftests
+  iommu/io-pgtable-arm: Move selftests to a separate file
+  iommu/io-pgtable-arm-selftests: Modularize the test
+  iommu/io-pgtable-arm-selftests: Use KUnit
+
+ drivers/iommu/Kconfig                    |  11 +-
+ drivers/iommu/Makefile                   |   1 +
+ drivers/iommu/io-pgtable-arm-selftests.c | 222 +++++++++++++++++++++++
+ drivers/iommu/io-pgtable-arm.c           | 204 ---------------------
+ 4 files changed, 229 insertions(+), 209 deletions(-)
+ create mode 100644 drivers/iommu/io-pgtable-arm-selftests.c
+
+
+base-commit: 07e27ad16399afcd693be20211b0dfae63e0615f
+--=20
 2.51.0.534.gc79095c0ca-goog
 
 
