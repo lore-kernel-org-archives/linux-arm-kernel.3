@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45692CAC5B4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176D5CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6t9BhHNbawUt9cKcTwWB1zGFcPM5zzfRR15wOmBRsHE=; b=BI5PY8KJDPC6BCjVTwLlCwl59w
-	4Cob2mGDHLuFKgtZJmLkPzDr2U9gx06m1JqdxvT8FHZODasej7n6juMJGzq95VO8/B8zwtDRvLjV4
-	aKj8PIsB0SzVIHOBQSiNazXG/3UjjCgS4sKRgB3iegyCOkUb83fJZn5dRfWlBMEw+zCosDmRxpEFY
-	ZWaS54ZJxibgadX49r5PCMGounnZqEJ3EqWDyabweqlKYV0rSNEHGiqZV2H8BR5lVvj4EbDoDNq1q
-	Da8yAvM85oVeSTTJNxZfuBo/8A9dRY3iZnkdDnU9oDisnwPefyTcb3ORm2/Gpc/kYiJq48zd+zdZM
-	OoISc37Q==;
+	bh=15wov8x5kamvGdoa7WsHIDSg4G4YjukH1NyAlrejWdM=; b=CbJwoDrlZ0ZiDSxx5Q/vO/JZ15
+	RgWYGSA7ZYfuCdnr2a6aIe0Gkwwf4uC6ns8sFAc+yY/9B61zQ55Ow2nUG9Achnyl1PxuxlqiyYish
+	P7tHeNrfYkIBZVeO/YIAKjkLBoGWOtK5VdjaKL4Be7LbpnzBKy4TzzK4nE8SgxZujG1Br1AIIRKh0
+	WXkdxyL8q8jw9WxmdiSthNRqc0SV/3I3k2XjVSjjy1DWaezo4pbj1PMhdqDnLjhyWbwL9ID8TBJOm
+	3sTOpnrn0d6GW54ZQ4++E0r9BtHerlnXU3evZHxJa+11w4NwB2SzHjp5NwZXm6g3zCkZrZ0Un5SBl
+	zSjq7EPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0buo-00000009hq5-0tnD;
-	Mon, 22 Sep 2025 08:28:54 +0000
+	id 1v0buq-00000009hvL-3Ap5;
+	Mon, 22 Sep 2025 08:28:56 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bug-00000009hg3-049v
+	id 1v0buh-00000009hge-3ZYH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:28:47 +0000
+	Mon, 22 Sep 2025 08:28:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D4CD44EC8;
-	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1E9C4CEF0;
-	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B288244ED9;
+	Mon, 22 Sep 2025 08:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7FEC4CEF0;
+	Mon, 22 Sep 2025 08:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758529725;
-	bh=Lteyum6sORsX/ORFwgAmQ1CfkVj7VaM8cFC9100KNAw=;
+	s=k20201202; t=1758529727;
+	bh=wUb93rzYZ46AvuCm0nEYQtzHfIxnso9k5I5Egiwv/gQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WAlC7IdjkueDZd9RKSjdPgM//0FrH3HoKvQA7ESMD7o+rATw7VpfSQrigXiUqCrBY
-	 VZsGeOMgl6oHKLoxh/S2XEGoRLwpCF2RU9YQ/PxSchiFPktF3SjWf7R8mGDUHKPMQW
-	 hoXbf9RsTcMpCF59nGRm9N99B1TyYWssUG4F8rtXdPaEXLCStNclRDR+LmMAQpfj8N
-	 1UqkpiTzAaacKZxYImR8bAsHIwUBeLdMREtyRhspgar2aPzX8eWYeIPGiCw4s7Se+T
-	 xIlm+AZ09pPoR3BjfrE5UUP/IvgMjzVasjjO4irJ9CKroThTSEMLjcIn7W+V2eyZi4
-	 zdaMgyRrtlP9A==
+	b=gPj0XVCkEY3x4shdXEnzhoTL7NxkNREGUzFf8D3rcwHTKETiXq8Ed8rAQlLxLcUam
+	 NQGslrB+b/FMJ9fxRTXCbcjFNIxpuEGhsp+Ajo8+1AgmnelN8IHr5qrkbY6jneyHjD
+	 3uFFC8QH8EP1A31L2HeE7+3HD+rqlv370zdTS79No4YEIG8szNkYKPgCb/F8BtvoQH
+	 7uDlzDnQRTvIQFbq1/iYR8vjMBZK3bj/riaD/LIwzFX+m97Uw8v8BtvreE/HHHCxWr
+	 X1IEZX5KmcflnYFfOXSQ17oGA4cKPkID5o1EOUowoU+3D3uBVubqSA/MvsrHMEBks5
+	 svtC3kXC4vBNw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0bud-00000008Kds-1aCe;
-	Mon, 22 Sep 2025 08:28:43 +0000
+	id 1v0buf-00000008Kds-1gEz;
+	Mon, 22 Sep 2025 08:28:45 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,9 +64,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 06/26] irqchip/apple-aic: Add FW info retrieval support
-Date: Mon, 22 Sep 2025 09:28:13 +0100
-Message-ID: <20250922082833.2038905-7-maz@kernel.org>
+Subject: [PATCH v3 13/26] genirq: Factor-in percpu irqaction creation
+Date: Mon, 22 Sep 2025 09:28:20 +0100
+Message-ID: <20250922082833.2038905-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250922082833.2038905-1-maz@kernel.org>
 References: <20250922082833.2038905-1-maz@kernel.org>
@@ -77,8 +77,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_012846_096021_A78BF96B 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20250922_012847_939221_81B5B590 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,61 +93,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug the new .get_fwspec_info() callback into the Apple AIC driver,
-using some of the existing FIQ affinity handling infrastructure.
+Move the code creating a per-cpu irqaction into its own helper, so that
+future changes to this code can be kept localised.
 
-Acked-by: Sven Peter <sven@kernel.org>
+At the same time, fix the documentation which appears to say the wrong
+thing when it comes to interrupts being automatically enabled
+(percpu_devid interrupts never are).
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-apple-aic.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ kernel/irq/manage.c | 40 ++++++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index 032d66dceb8ec..cb8b6f40ce8d3 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -651,6 +651,33 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
- 	return 0;
+diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+index c94837382037e..d9ddc30678b5d 100644
+--- a/kernel/irq/manage.c
++++ b/kernel/irq/manage.c
+@@ -2442,6 +2442,24 @@ int setup_percpu_irq(unsigned int irq, struct irqaction *act)
+ 	return retval;
  }
  
-+static int aic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
++static
++struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long flags,
++					  const char *devname, void __percpu *dev_id)
 +{
-+	const struct cpumask *mask;
-+	u32 intid;
++	struct irqaction *action;
 +
-+	info->flags = 0;
-+	info->affinity = NULL;
++	action = kzalloc(sizeof(struct irqaction), GFP_KERNEL);
++	if (!action)
++		return NULL;
 +
-+	if (fwspec->param[0] != AIC_FIQ)
-+		return 0;
++	action->handler = handler;
++	action->flags = flags | IRQF_PERCPU | IRQF_NO_SUSPEND;
++	action->name = devname;
++	action->percpu_dev_id = dev_id;
 +
-+	if (fwspec->param_count == 3)
-+		intid = fwspec->param[1];
-+	else
-+		intid = fwspec->param[2];
-+
-+	if (aic_irqc->fiq_aff[intid])
-+		mask = &aic_irqc->fiq_aff[intid]->aff;
-+	else
-+		mask = cpu_possible_mask;
-+
-+	info->affinity = mask;
-+	info->flags = IRQ_FWSPEC_INFO_AFFINITY_VALID;
-+
-+	return 0;
++	return action;
 +}
 +
- static int aic_irq_domain_translate(struct irq_domain *id,
- 				    struct irq_fwspec *fwspec,
- 				    unsigned long *hwirq,
-@@ -753,6 +780,7 @@ static const struct irq_domain_ops aic_irq_domain_ops = {
- 	.translate	= aic_irq_domain_translate,
- 	.alloc		= aic_irq_domain_alloc,
- 	.free		= aic_irq_domain_free,
-+	.get_fwspec_info = aic_irq_get_fwspec_info,
- };
+ /**
+  * __request_percpu_irq - allocate a percpu interrupt line
+  * @irq:	Interrupt line to allocate
+@@ -2450,9 +2468,9 @@ int setup_percpu_irq(unsigned int irq, struct irqaction *act)
+  * @devname:	An ascii name for the claiming device
+  * @dev_id:	A percpu cookie passed back to the handler function
+  *
+- * This call allocates interrupt resources and enables the interrupt on the
+- * local CPU. If the interrupt is supposed to be enabled on other CPUs, it
+- * has to be done on each CPU using enable_percpu_irq().
++ * This call allocates interrupt resources, but doesn't enable the interrupt
++ * on any CPU, as all percpu-devid interrupts are flagged with IRQ_NOAUTOEN.
++ * It has to be done on each CPU using enable_percpu_irq().
+  *
+  * @dev_id must be globally unique. It is a per-cpu variable, and
+  * the handler gets called with the interrupted CPU's instance of
+@@ -2477,15 +2495,10 @@ int __request_percpu_irq(unsigned int irq, irq_handler_t handler,
+ 	if (flags && flags != IRQF_TIMER)
+ 		return -EINVAL;
  
- /*
+-	action = kzalloc(sizeof(struct irqaction), GFP_KERNEL);
++	action = create_percpu_irqaction(handler, flags, devname, dev_id);
+ 	if (!action)
+ 		return -ENOMEM;
+ 
+-	action->handler = handler;
+-	action->flags = flags | IRQF_PERCPU | IRQF_NO_SUSPEND;
+-	action->name = devname;
+-	action->percpu_dev_id = dev_id;
+-
+ 	retval = irq_chip_pm_get(&desc->irq_data);
+ 	if (retval < 0) {
+ 		kfree(action);
+@@ -2546,16 +2559,11 @@ int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+ 	if (irq_is_nmi(desc))
+ 		return -EINVAL;
+ 
+-	action = kzalloc(sizeof(struct irqaction), GFP_KERNEL);
++	action = create_percpu_irqaction(handler, IRQF_NO_THREAD | IRQF_NOBALANCING,
++					 name, dev_id);
+ 	if (!action)
+ 		return -ENOMEM;
+ 
+-	action->handler = handler;
+-	action->flags = IRQF_PERCPU | IRQF_NO_SUSPEND | IRQF_NO_THREAD
+-		| IRQF_NOBALANCING;
+-	action->name = name;
+-	action->percpu_dev_id = dev_id;
+-
+ 	retval = irq_chip_pm_get(&desc->irq_data);
+ 	if (retval < 0)
+ 		goto err_out;
 -- 
 2.47.3
 
