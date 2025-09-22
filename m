@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B756FCAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58CACAC5AD
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DPWSMInnzeGuBLPUoWxGvmStCeWjizGAjnwCAy85z50=; b=ny2Y72QcvMB+Iefj+RUB9/pD7t
-	z3bG3fVyr5y5de8HVVDAdHpSssatk7ZpvvdtqMHdMMhz2rhsqSthVwDB4M8YpsMQJXUUPt3oGyCXp
-	0edOwYxV7wrfB6YC3x7OTUr0bCBllRXeO5fI4ETqOIvhk60kNvEqabi510G2pJ5C0XkleItVHrS+j
-	+D83MzPt+jCgaWHElalviBFl5FEzoxTMLLHy7mzMzCQRnmTKTfRqWhBqRAmHeH8z83/2IPSFhU9Xw
-	zaAKeYt9pUqc8vvkoARQOSoHkhI8WXVgLHSp5s+jYQRDYpHeNGtfrJXHTVnCRpqhmvmoecfo+q5eT
-	uv5Xj+MQ==;
+	bh=YhLofum5XSgtCUfA5ns+jiGXqztjeclde4HPF9pV6iU=; b=KRVWr7jX+OAoJigl6N6ks4Dw8t
+	fkND0CEJGzfXahGaQvU0ETgGA/KcfzsUm79e9zBH5WsnMtdt1r6VF7oPN2yDPdLzSFP6fQnM6fI2Z
+	mI9rFxaBRe53XqOD5HvsHMOBId48BXkpeeo6YcsheGRN4KIhybExc7T8/9qIWhrYrz3UJHU66DHKy
+	tS1FK5kHXcDuntAZ+jdQ9oKWQ0/mdbkOQkBPvdUvm4U5SoMBPFBAZUC02b018n9uzKus19dspW5NC
+	+nzPRwVCDp+qXUM76wb4/HLSzHZp9v1dbcRiyQfvs3NxdMT2DaiFKEpTJ8zp+K+PXFgYMhC1PWkRK
+	p3EoOe/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eSH-0000000AABR-2yem;
-	Mon, 22 Sep 2025 11:11:37 +0000
+	id 1v0eSI-0000000AACN-1CqT;
+	Mon, 22 Sep 2025 11:11:38 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eS2-0000000A9yL-18c1
+	id 1v0eS4-0000000AA19-1iHU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 11:11:24 +0000
+	Mon, 22 Sep 2025 11:11:25 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1v0eRn-0002HM-Dz; Mon, 22 Sep 2025 13:11:07 +0200
+	id 1v0eRs-0002HM-Fe; Mon, 22 Sep 2025 13:11:12 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Mon, 22 Sep 2025 13:10:53 +0200
-Subject: [PATCH v2 2/5] dt-bindings: display: simple: Add JuTouch
- JT101TM023 panel
+Date: Mon, 22 Sep 2025 13:10:56 +0200
+Subject: [PATCH v2 5/5] arm64: dts: imx8mp-skov: support new 10" panel
+ board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-2-abbb759cf8ef@pengutronix.de>
+Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-5-abbb759cf8ef@pengutronix.de>
 References: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
 In-Reply-To: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,9 +62,8 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_041122_304146_36487250 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250922_041124_453401_4DBF23ED 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +78,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the JuTouch Technology Co. 10" JT101TM023 LVDS panel.
+This board is similar to the already upstream
+imx8mp-skov-recv-tian-g07017.dts but uses a different 10" panel with a
+different touch controller.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/display/panel/panel-simple.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile             |  1 +
+ .../imx8mp-skov-revc-jutouch-jt101tm023.dts        | 79 ++++++++++++++++++++++
+ 2 files changed, 80 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
-index 1ac1f02190790cbff00c9f977d5c1a4420ed9f27..8107dc60e19695d56cd7302e7af7c808575df491 100644
---- a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
-@@ -182,6 +182,8 @@ properties:
-       - innolux,n156bge-l21
-         # Innolux Corporation 7.0" WSVGA (1024x600) TFT LCD panel
-       - innolux,zj070na-01p
-+        # JuTouch Technology Co.. 10" JT101TM023 WXGA (1280 x 800) LVDS panel
-+      - jutouch,jt101tm023
-         # Kaohsiung Opto-Electronics Inc. 5.7" QVGA (320 x 240) TFT LCD panel
-       - koe,tx14d24vm1bpa
-         # Kaohsiung Opto-Electronics. TX31D200VM0BAA 12.3" HSXGA LVDS panel
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 23535ed47631ca8f9db65bec5c07b6a7a7e36525..b0f98d60553d968820db45c06418ac671753df4b 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -226,6 +226,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e320d6dea3a27292ee12c7a592bc078d9376a80
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
+@@ -0,0 +1,79 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++
++/dts-v1/;
++
++#include "imx8mp-skov-reva.dtsi"
++
++/ {
++	model = "SKOV IMX8MP CPU revC - JuTouch JT101TM023";
++	compatible = "skov,imx8mp-skov-revc-jutouch-jt101tm023", "fsl,imx8mp";
++
++	panel {
++		compatible = "jutouch,jt101tm023";
++		backlight = <&backlight>;
++		power-supply = <&reg_tft_vcom>;
++
++		port {
++			in_lvds0: endpoint {
++				remote-endpoint = <&ldb_lvds_ch0>;
++			};
++		};
++	};
++};
++
++&backlight {
++	status = "okay";
++};
++
++&i2c2 {
++	clock-frequency = <100000>;
++	status = "okay";
++
++	touchscreen@2a {
++		compatible = "eeti,exc81w32", "eeti,exc80h84";
++		reg = <0x2a>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_touchscreen>;
++		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
++		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
++		touchscreen-size-x = <1280>;
++		touchscreen-size-y = <800>;
++		vdd-supply = <&reg_vdd_3v3>;
++	};
++};
++
++&lcdif2 {
++	status = "okay";
++};
++
++&lvds_bridge {
++	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
++				 <&clk IMX8MP_VIDEO_PLL1>;
++	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
++	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
++	assigned-clock-rates = <0>, <506800000>;
++	status = "okay";
++
++	ports {
++		port@1 {
++			ldb_lvds_ch0: endpoint {
++				remote-endpoint = <&in_lvds0>;
++			};
++		};
++	};
++};
++
++&pwm4 {
++	status = "okay";
++};
++
++&pwm1 {
++	status = "okay";
++};
++
++&reg_tft_vcom {
++	regulator-min-microvolt = <3160000>;
++	regulator-max-microvolt = <3160000>;
++	voltage-table = <3160000 73>;
++	status = "okay";
++};
 
 -- 
 2.49.0
