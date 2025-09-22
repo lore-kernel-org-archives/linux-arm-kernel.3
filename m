@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89919CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 09:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB10FCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 09:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IQI5QQ8BZR8u3xmMC3CUk/nKikH0Qel8i3PONv5lm4w=; b=ZK1GWtvSB9WmMvTGj4br870Xae
-	3aDBfyAjp1YGzD7Qm1UMjbWp7MfEasX73VbhiDPI0CbRL89G3UBvF0zPUOd3Oi6TUw19hia0sA2we
-	r73iKuXOQBYq7HtcLdK91Sh1QCe5ts//KyPBuaehHRFdtjU9mqT8dKr2PL1BKhUYQqw3GkZ9que/E
-	3XyukcfQat99id1Wfgn61UDNwqK2Q8y0MlRAN5XU4UG3mfHsJh7xL9RsA/gAtyhzjrs8ltl7pgZwZ
-	ZrDNyrcjdB1rFD+3Cm63+xGS2U3kMSL25DSvfnh+VwB9GVfB598zU8s+23dmRCSnDufrhEXvGd9Bx
-	HD82Mg+Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=anjUrIiFYK2qv+KyQVbpNAWugOgiouYPlUB5yFcOLnw=; b=Ji1LY6ZiZZSlBUx4ce8ZThP+Ce
+	Eoq+Iskx/13imCFZOa7Z0vtvcLDm6/tAdIoGEATDjxbKzrN6Qg9Ch71J5DxWNYuuC1hPedSmREJ9G
+	LA5hH89KLt6fwdfpMiGH+M0QsDchekuP8oZZcJ+eTemoiRabSBaHkdfUDQKdkDxP/nB8omDpCg50+
+	NX3k5Z0UKq4TZoaRmyvx3vo75rFtS1Vv+o8ggaYPZMgth07JRgmtrClCK3Xz2FjMTDlzDbEcgH5Iz
+	ruHIY+WTqWAbjrBnWXuL3Ml9ZI6EPgBRS/KDOD3R1kUurxVNZbxzgySjhf79a54wzMEN/DaAIdthT
+	06+mVO5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0dCQ-00000009wJr-1Qa7;
-	Mon, 22 Sep 2025 09:51:10 +0000
-Received: from cmccmta6.chinamobile.com ([111.22.67.139] helo=cmccmta3.chinamobile.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0dCK-00000009wIz-1DRP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 09:51:09 +0000
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee968d11c04268-3331d;
-	Mon, 22 Sep 2025 17:51:00 +0800 (CST)
-X-RM-TRANSID: 2ee968d11c04268-3331d
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG: 00000000
-Received: from localhost.localdomain (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee368d11c021c8-9f99b;
-	Mon, 22 Sep 2025 17:51:00 +0800 (CST)
-X-RM-TRANSID: 2ee368d11c021c8-9f99b
-From: liujing <liujing@cmss.chinamobile.com>
-To: john.g.garry@oracle.com
-Cc: will@kernel.org,
-	james.clark@linaro.org,
-	mike.leach@linaro.org,
-	leo.yan@linux.dev,
-	suzuki.poulose@arm.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	kan.liang@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	liujing <liujing@cmss.chinamobile.com>
-Subject: [PATCH] perf sample: Fix the wrong format specifier
-Date: Mon, 22 Sep 2025 17:50:57 +0800
-Message-Id: <20250922095057.3136-1-liujing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.27.0
+	id 1v0dF8-00000009whg-1ek2;
+	Mon, 22 Sep 2025 09:53:58 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0dF6-00000009wgm-0S6a;
+	Mon, 22 Sep 2025 09:53:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758534833;
+	bh=PL/YajbOibPLqyRMxiJdv/uzpYvMdylD/ei2zQhoXwI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W/nQzgw/B/SriU0SadvwUreIeC63YgmlyBEJRz4Je5mwXxlK1vKjWy37TIASblOFf
+	 tGuskA2KvFgwvZFc+TLFGGgzYfKes4R/uuIncC1pR+der0PSFHtoPiScOfUC8rcaGf
+	 T0Ypr4zGnZVxetKwVJS8W5CwpNZrX9wFYuF5fRPOcALAiAsA0ulzIumQScomGWYrC3
+	 vjrNjrLxIY8ZOgDpSfWBcVgekxox2gWpnPxDrPy/obXq9ZEstd7jbQ61bybINrb5/M
+	 55D/sTvL15r7ruD1xzcvvXdRkx4/jLjGGmvJ2C4dKMnlGn7sf8rZNVuHRaqjianyuY
+	 YjX8xT8cgjQ5A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 01F9317E12C1;
+	Mon, 22 Sep 2025 11:53:52 +0200 (CEST)
+Message-ID: <3ba38a84-2e93-483e-8316-f992f981ac7b@collabora.com>
+Date: Mon, 22 Sep 2025 11:53:52 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] arm64: dts: mt7981/openwrt-one: UART labels and
+ console
+To: Bryan Hinton <bryan@bryanhinton.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ daniel@makrotopia.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250922035828.2941327-1-bryan@bryanhinton.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250922035828.2941327-1-bryan@bryanhinton.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_025104_880909_D6511796 
-X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-CacheID: sfid-20250922_025356_314751_950F721B 
+X-CRM114-Status: UNSURE (   8.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,30 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the file tools/perf/util/cs-etm.c, queue_nr is of type unsigned
-int and should be printed with %u.
+Il 22/09/25 05:58, Bryan Hinton ha scritto:
+> This series makes two small updates for MT7981:
+> 
+> - Patch 1/2: Add stable labels (uart0, uart1, uart2) in the SoC dtsi so
+>    that board dts files can reference them directly.
+> - Patch 2/2: Update the OpenWrt One board dts to define serial0 alias,
+>    set chosen stdout-path, and enable uart0.
+> 
+> Both patches were build-tested (dtbs) and boot-tested: mainline Image+DTB
+> built and loaded via U-Boot on MT7981 hardware, with serial console output
+> verified.
+> 
 
-Signed-off-by: liujing <liujing@cmss.chinamobile.com>
----
- tools/perf/util/cs-etm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Whole series is
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 30f4bb3e7fa3..d13575285b19 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -777,7 +777,7 @@ static void cs_etm__packet_dump(const char *pkt_string, void *data)
- 	char queue_nr[64];
- 
- 	if (verbose)
--		snprintf(queue_nr, sizeof(queue_nr), "Qnr:%d; ", etmq->queue_nr);
-+		snprintf(queue_nr, sizeof(queue_nr), "Qnr:%u; ", etmq->queue_nr);
- 	else
- 		queue_nr[0] = '\0';
- 
--- 
-2.27.0
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-
-
+Thanks!
 
