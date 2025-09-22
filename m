@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CA5CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B25CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9qM8s2aGAqq8d9mOeGsUcT1rmyd2K8d/u4x5LMbNc3g=; b=lfYpnzXvsXGCCeCl4uIKJ9XS4+
-	GoNRe4egp7lMPJdpFOM4fA9LyZsEIzZqYKqb2gbHs722eL4LTD10XZYQc2/nNsi1u+QfD9rtzHbjl
-	wzurOUFkzRtr8ldMHjgcK5ZgY1cYrxP6BwhjgUIy1hfyAeg1eB7PsGH6xbWHC6cRIICdyjQnyFkcl
-	PJ0/wlghRzHVI41mrzI/QKLTiGz5Fijrm1jvVSvgRhNHFD/f3CjA9eL47H5bDVVQmP/mzKlhoK6W+
-	wkR7XecOkvQ8m6xD0jrGgZseWxepoWeL7zy0fxVA5BJiuvzQIqnhEHI7wOBI47u3sLFev2Fe+TalW
-	pgt87gbw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hXg/GxymvCtNiazPIaxXzRrcAnchuXSa5kiiDg/krUU=; b=x9ag+Mi263pbU5L/porGkCtTrm
+	K7HtQOm8YXWfgHnCMJrZVtl5COSOFwBwv+eqO55oZSYsA9ymDUMUZWRLsXWv1+KP6TwJAX2yaZn1f
+	/WQBcKbYkkgU+oKfe04ZNfgcJEar9fnhnPTWcM8IaZn67T07StkW/VWc2wr3GdHYNlncYMi4VCgnE
+	y36jOniOOHvPJokqRE+wIeEFJqlwLJF/ZR5RGkVNRvTlpjO9cr7OXeapXkbD+MN3Ya6DbnDNKEJjF
+	tvvWwMyNfG/nRhxxdbE1SS1R8YIGt8NUDIbMU8FB6bAw3rAgYlbdsjgrttI8kCkNZF4xyv8T8MsQy
+	D6F7ospg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eMm-0000000A9E9-1VIA;
-	Mon, 22 Sep 2025 11:05:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v0eOT-0000000A9Tk-1V7X;
+	Mon, 22 Sep 2025 11:07:41 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eMj-0000000A9Dj-2wMt;
-	Mon, 22 Sep 2025 11:05:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758539151;
-	bh=R4tlWJgzes/Y4DKi4qcXXpLirntdDRaHq2QxnEkO0WI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K3A1IcUS1C5LiZIFZkICC+3I+uhRd2Cudsmvef2QmWxJO3L+1ZokRE0lFf82kKr2G
-	 qMluh0T5op0YcZ9KAZ+oAMQpwxGTAqXwfIiU3Fcbq9+6X6xVxhAeayQsyE0ajcFpSF
-	 0PvrwtfkyU6ZFXDYxHCOK92w4EpZjCQar3nK/6XzvzFtQGVpcBhaM7w6UNj912elWv
-	 arwFBKwPCvUF9xlkKy7wS6p9SGaKSkMDjMdy8bf4vLNbH9vCJonQICrSjPCdC73Qkk
-	 BqxfRVgbPebd85Vu9utTqJygdc4IbZ6fnM46A+JQ3QkT8PzugjWzGL4WVPXT7FPo69
-	 MVqQLhk3iy4vQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C3E5417E0125;
-	Mon, 22 Sep 2025 13:05:50 +0200 (CEST)
-Message-ID: <6657bfa7-9a6e-49a1-890f-81cf655940a7@collabora.com>
-Date: Mon, 22 Sep 2025 13:05:50 +0200
+	id 1v0eOQ-0000000A9Rw-0FaI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 11:07:39 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-46d40c338b8so6061905e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 04:07:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758539256; x=1759144056; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hXg/GxymvCtNiazPIaxXzRrcAnchuXSa5kiiDg/krUU=;
+        b=KGi7IzXtKJywdh2Ca0jrTMUD6kJw7IDOiEeLRZmvhxH7YdQobAbg2sIOubwm60V/Ui
+         aWfCZxW5l5o5P8rRsQMrnaaHpU2SB+FxewjRCjyCZg5CfQ81QjfVzh49MCcqD773fH0a
+         P050NgKOg7tJeZ2fDiqmr//7/SINdy5DLuwIv9Uoscdl3FslIqsMb633a5Z9d5AUKU+6
+         51WPNAAY5lKrNYQzvUXL46Oirh06yiQpJB901V86V+kTMNHFswfxkZ5QqzdqqQE7pAVv
+         /ZIRRJGIzUWWTgoBTkMobSDm7kvZAjL3ridyy1usVXSAkR15mmznpAKr0mG5dgIKIsab
+         qArQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758539256; x=1759144056;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hXg/GxymvCtNiazPIaxXzRrcAnchuXSa5kiiDg/krUU=;
+        b=fkHBnMbUoqtQ0QmCzPnw5JW7rT6Of8WhLKV5TNTPMjd/TpiZUGzdp28pMQ3B8nOJT7
+         vkO+Sl9HUze9FG4Ecklp0OmwD/6GvyQcQj52JYfxRm0TsLjbGwJC3jsvKzU+I7y06t1S
+         EUBPetxW5OmFvBIdclKSPu8S3s88hkCcPPqB5ULSmlkFXpSqNKdgM7KupUHGhO4xN/7R
+         jTV3v4D0CVCXUXexZUNREl+aA+ex/RQHGX2xoV0AWhSKvZHghVAxzcubJnWgS+hP1oN0
+         A+z/cgTQn6bbWN3s6LJLvLp1hbmgWXL7XYs8hrK0tAjOhRrJ4ULhcV+wuiOQRa2PNbVL
+         5Wxw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6g4mbRPU2HWnj6YX4j9bo/IdOeibc+JDc20nyLTcX2Hu0JqRTep/13UUNZQ4RmoLLg6kOaUOyUBi7WAyHIm6U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx878aUEavfXnr0uI4DP75OrV11TqUnrrhtnRaL1Bf+wBcTXX47
+	RY7b4QpRiPPn3ouDT1Vwbsk7+Eb2BUn8B6mA9BiZlXGOclNmRAmdA6cx
+X-Gm-Gg: ASbGncui2HeqvNg1ppiX9yoZSfCmdO0MGcCOzAek0aiVv1/ST6BzdwudLFzAeQXPpx+
+	q+2jgvlgJGZSUkloe1MJcDcSfRrN5dblT4ShRdfNi9S4W44wHuTB+f8GkV+M84zkq6ad1s1FUvs
+	LnZFX5pXRN8Z4iYnmJA0S8EMXLyhQNI3EmKvhuDprrCJp1hvvc9L/iP3GPRthwJGeUJJ4ShzLUh
+	QsEEfcLnbTszf2uPsnWeAxXxoyP702/UAuFuOZi9cs7ixSgJGTWUt6HbmKGzLXFG8xnmfTiZo/4
+	O0ziwBVBgqm8jxOqwV5NAT993Gb/9OhOFtJHG2UrMA9JoHJdffOXHjWN3W8Ai+XKBHOfCZQqZgP
+	B42DBh+ddZ64A9OKtzPhPu9nsx/Qx9FE=
+X-Google-Smtp-Source: AGHT+IGuwhHEO83sfFCU12OTOC2+vkw5qcfiySY1IUg+z3oQVKsK98ybPmO83IDuQ6N/NzO8qDOnLA==
+X-Received: by 2002:a05:600c:1d0d:b0:45d:f7e4:87a3 with SMTP id 5b1f17b1804b1-467e6b64fdfmr112379105e9.3.1758539255657;
+        Mon, 22 Sep 2025 04:07:35 -0700 (PDT)
+Received: from pc.. ([105.163.156.181])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee073f53c4sm19524684f8f.3.2025.09.22.04.07.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Sep 2025 04:07:35 -0700 (PDT)
+From: Erick Karanja <karanja99erick@gmail.com>
+To: miquel.raynal@bootlin.com
+Cc: richard@nod.at,
+	vigneshr@ti.com,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kernel-mentees@lists.linux.dev,
+	Erick Karanja <karanja99erick@gmail.com>
+Subject: [PATCH] mtd: rawnand: atmel: Fix error handling path in atmel_nand_controller_add_nands
+Date: Mon, 22 Sep 2025 14:07:27 +0300
+Message-ID: <20250922110727.1423318-1-karanja99erick@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] ARM: Add support for yarisxl mt6582 board
-To: cristian_ci@protonmail.com, Matthias Brugger <matthias.bgg@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- phone-devel@vger.kernel.org
-References: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_040553_926532_2B4C2254 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20250922_040738_096663_A1C2E79A 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/09/25 20:23, Cristian Cozzolino via B4 Relay ha scritto:
-> This series adds support for Alcatel Pop C7 (OT-7041D) smartphone
-> board, named yarisxl, based on MT6582 SoC. It also includes some
-> preliminary patches. More in detail:
-> - patches 1 and 2 add support for mt6582 to platform code
->    (verified by looking at generic mt6582 downstream source code)
-> - patches 3-6 do some maintenance work to mt6582.dtsi
->    (I was unsure if squashing timer node patches into one)
-> - patches 7 and 8 add devicetree and dt-bindings support for yarisxl
-> 
+In case of a jump to the  err label due to atmel_nand_create() or
+atmel_nand_controller_add_nand() failure, the reference to nand_np
+need to be released
 
-That's simply great! Nice cleanup and nice addition - the only thing I can say here
-is that seeing simple-framebuffer is a pity, and that I hope that your plans are to
-continue with systimer, clocks, spi, i2c, apdma, mediatek-drm components, etc :-)
+Use for_each_child_of_node_scoped() to fix the issue.
 
-In the meanwhile, for the whole series
+Fixes: f88fc122cc34 ("mtd: nand: Cleanup/rework the atmel_nand driver")
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Erick Karanja <karanja99erick@gmail.com>
+---
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Keep up the good work!
-
-Cheers,
-Angelo
-
-> Signed-off-by: Cristian Cozzolino <cristian_ci@protonmail.com>
-> ---
-> Cristian Cozzolino (10):
->        ARM: mediatek: add board_dt_compat entry for the MT6582 SoC
->        ARM: mediatek: add MT6582 smp bring up code
->        ARM: dts: mediatek: mt6582: move MMIO devices under soc node
->        ARM: dts: mediatek: mt6582: sort nodes and properties
->        ARM: dts: mediatek: mt6582: remove compatible property from root node
->        ARM: dts: mediatek: mt6582: add mt6582 compatible to timer
->        ARM: dts: mediatek: mt6582: add clock-names property to uart nodes
->        ARM: dts: mediatek: mt6582: add enable-method property to cpus
->        dt-bindings: arm: mediatek: Add MT6582 yarisxl
->        ARM: dts: mediatek: add basic support for Alcatel yarisxl board
-> 
->   .../devicetree/bindings/arm/mediatek.yaml          |   1 +
->   arch/arm/boot/dts/mediatek/Makefile                |   1 +
->   .../boot/dts/mediatek/mt6582-alcatel-yarisxl.dts   |  61 +++++++++
->   arch/arm/boot/dts/mediatek/mt6582.dtsi             | 142 +++++++++++----------
->   arch/arm/mach-mediatek/Kconfig                     |   4 +
->   arch/arm/mach-mediatek/mediatek.c                  |   1 +
->   arch/arm/mach-mediatek/platsmp.c                   |   1 +
->   7 files changed, 142 insertions(+), 69 deletions(-)
-> ---
-> base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
-> change-id: 20250920-mt6582-9339d7fceb34
-> 
-> Best regards,
-
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index db94d14a3807..49e00458eebe 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -1858,7 +1858,7 @@ atmel_nand_controller_legacy_add_nands(struct atmel_nand_controller *nc)
+ 
+ static int atmel_nand_controller_add_nands(struct atmel_nand_controller *nc)
+ {
+-	struct device_node *np, *nand_np;
++	struct device_node *np;
+ 	struct device *dev = nc->dev;
+ 	int ret, reg_cells;
+ 	u32 val;
+@@ -1885,7 +1885,7 @@ static int atmel_nand_controller_add_nands(struct atmel_nand_controller *nc)
+ 
+ 	reg_cells += val;
+ 
+-	for_each_child_of_node(np, nand_np) {
++	for_each_child_of_node_scoped(np, nand_np) {
+ 		struct atmel_nand *nand;
+ 
+ 		nand = atmel_nand_create(nc, nand_np, reg_cells);
+-- 
+2.43.0
 
 
