@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45120CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DDCCAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=soQDxbku75wcKlRQCmyQHwxlcohTMFfAqg+ZHNumi64=; b=SfawVPB2E/4qiD0SBUBxlSe9jq
-	NXw7RG7qhqijzLOO29jjmD7/nRlM9gopdbskFMSdcejXu9Zkw8cq3SOQCLFxEzJcAP+ubbc494MqZ
-	25XVX94K5YmRp3SJtRF//LY6n4zVrugF77zaFYCa5vQ/REBxc0oZQBK2Sv8PaFT8EPdHomdw83WAt
-	bTR93/LxLvUxMMO3QNo2qvN5SMkPcpSo1ijzD7LDyrUyxzi3F75ygMu9MiugP3heqTLSAE5aFIx4h
-	HW4210hOm1j1pV+0vN3SJfzdBow12LH9ZqGCm95IsmZ4PiSHNjzBEBc7QuJ9WihT1FlcESq+XI/tQ
-	Dk+Abypw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpMAU6ePTT3stEVrXmR+KZ4X7JkHWkrBjGiR3cqGNDo=; b=N85OHdQRZQ74RjEl5WXA4VigSF
+	PJOM+8TGTnks4ngu+YLLCbtKPMHPxuv/N5OqeTlSa0DMhwzeZf8bKOSIybkZDQmm7vBwQ69W51RuV
+	hRNG2VLNdhvzUFrgQ1ZMLBj2eg80vF7q3M1FxWZv0CZnbSiu3brkl0uczHykM0cLQcgYBQaLPF9Zp
+	39Cd6n66Dgco/veIF0YgsVCIdqo7QSqbjju/HpWpdI3Rntngo0J3TApNE8axTL1DTS0WNUffDVwno
+	GcKc9MrBJaL11xU2GmEIxWMEjV0AJ3/RbQq6ZvDSPASNG3zB2uySH4P9nNRh4X/oU66JB0HBwthTl
+	0w8tMoZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gcq-0000000AVnR-0Ypl;
-	Mon, 22 Sep 2025 13:30:40 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1v0geX-0000000AWAR-1UYf;
+	Mon, 22 Sep 2025 13:32:25 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gcm-0000000AVmS-3n1z
+	id 1v0geU-0000000AW9x-2kX2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:30:38 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4d1c5c3f77eso1249591cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 06:30:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1758547836; x=1759152636; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=soQDxbku75wcKlRQCmyQHwxlcohTMFfAqg+ZHNumi64=;
-        b=EygiHnxyk2I/VKVA9t/vQyQy3zpV352PEDeundfWvRVVfXPv/NrJ2G1Zqkgjd03fzH
-         xrDhjjwqf1LDF1NKz9emiPrqVc4yFl90W4WY5qEdXzUkOgE01S5AmK878xrBTwCtrYUM
-         s1UGvNYazMJUG4GBcn60X7HUhnssiFjBMuWz6SoBahWf5fqVlFfxjWXQbJEXKEkyLtz7
-         fohRHi0mKxqh3Mhh6L38RSlNVAeNVcBPlRMJp5iYwLzwAW1Rq7tI7Mqtakw2mM7fqQm4
-         bA9ab/Z0OyJQ+feShKYIeoyPuNWg0kX4JiaZAxb/DFeZJGvn+5zshsqGSiuaJjwKcd2F
-         6j/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758547836; x=1759152636;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=soQDxbku75wcKlRQCmyQHwxlcohTMFfAqg+ZHNumi64=;
-        b=BlsraImQVR+26nPJgsYDL8J5Jt5YF++EVjsl74NC7yLYBtFh8eKHY084UyvWF1Oc8u
-         9I0EcAugVHeIOvwKkG6riMYU/G0DNVpFiH+kK8DXERTpt4ip3R8bI8g2IR5yu8E2KVlU
-         PSSGeI1ij93CuUj6R6wECg67xi7ya+k5yMgoU+lV3HOR2BkOo8ZbuMN+txjoXkRxiOMC
-         NfQcbHw8C2U0rDNyXsCBZaEAhgeYHWDxXynvVSrSC6izoCCdZW2qcRWt2lPqckfiOtVm
-         j+Pw58LIHwnZPY6bcpdLydxCr3CmZv3Ru6dkUAdIapYAfXDOZMrqfFdTBXhpV+x7DsnT
-         PGGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXEE6cEgN3VGFrm5C4BZ1zr0rT1jZRnAooNxaRRDO2ZlTFTFIjuzzCr7USsA5DOAm/qtyDwXhu7Qp0ikLj27f6o@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGVQOTNqXGuLQA8OmwzXq798y4AEWLi+j34VMaluPofVM3hiMx
-	E2d3SScI+XZpC5NtMQC3psZh8G5egVCVs49sU9kvTKArA/YxeXQ46/fNoUumKWU4en8zGDZpVrM
-	2S9Jq
-X-Gm-Gg: ASbGncsoTWE3JDZyQk7gX9/+KZ89uPb7ocxfLqyUuOuuhVedqQguOjJsvFD+uNIeFWb
-	jsPoy84t5Rqr1yPCVsrEwnFSsBTy3IBEyXdZ5LagyaVlKM4RvDKESj3RQPdjXTdOMeStc0LOihG
-	ljKE7eayZ5vmf2ym10oHbVqnLPB04cB86c+Jns/uRxD/95ZKtlxdBC4Db92d80WTUxGfdili1Sd
-	+YKpTqvogTqbscTJigdoY5DI9Y38ci9mF2LK6ziVvAmqD8yIWjeHNip4v2Uv5csGIsC04l8EgL6
-	WS2VYi1VgRHNVCQNSpjW2Riy3swAigK91WU8MMwJ3RJZvoHKuL8FQ7oO9lzTbXz01eqvrATa
-X-Google-Smtp-Source: AGHT+IHe9wJVlHUhgN8DEQ7hhP4hzex9JskPCNLwwhsPxRlegpEsHbuCwvoIfwhhlPGANj3noJQUlA==
-X-Received: by 2002:a05:622a:a956:10b0:4c4:40dd:2855 with SMTP id d75a77b69052e-4c440dd2b41mr79485051cf.29.1758547835584;
-        Mon, 22 Sep 2025 06:30:35 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4bda25aa5fesm70078611cf.18.2025.09.22.06.30.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Sep 2025 06:30:35 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1v0gcj-0000000ALyq-2nW5;
-	Mon, 22 Sep 2025 10:30:33 -0300
-Date: Mon, 22 Sep 2025 10:30:33 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
-	joro@8bytes.org, praan@google.com
-Subject: Re: [PATCH v4 2/4] iommu/io-pgtable-arm: Move selftests to a
- separate file
-Message-ID: <20250922133033.GZ1326709@ziepe.ca>
-References: <20250922090003.686704-1-smostafa@google.com>
- <20250922090003.686704-3-smostafa@google.com>
+	Mon, 22 Sep 2025 13:32:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1758547942; x=1790083942;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=TDh5kMQItLeCtCYOhniYG9SE9N6xkw1ryWAXikH5CKc=;
+  b=03e+Zhr0GU924QPJGH7ZfNTZUO8d/I2WZpXpvNbLYMLTSvcSsSJSPwR1
+   +BUY/4bzYYrQ5Z51xR/5sHnzTB99q99INvpVOM3ujzAl82iA49SdBEwBF
+   cu5PYxOUcw4UT9mwEJAPMc2X5Qo6Q6ZZ4ZuQo79hcuh3lFz667LHBV4bn
+   gLdFOh8GPH8x4tR999dxMUo9o8GOjsYQhH4sFMLc7eqr7Pha7wh6kOeRU
+   OkIWxQRFgUI4NlUI67sLNfhbrarwMANhGy1ZuaM9+Pwp3pyZA6BS8u5P4
+   hyzpn0ABSIJgIDm5yHTc7EYMV8KgpuO2oatWoWWJKnWDribcExNm36EDB
+   A==;
+X-CSE-ConnectionGUID: TCpADp6USuqlHeFWAhCzYw==
+X-CSE-MsgGUID: g6s7rN8HROqtzWL3QVKHcQ==
+X-IronPort-AV: E=Sophos;i="6.18,285,1751266800"; 
+   d="scan'208";a="46235453"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Sep 2025 06:32:20 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 22 Sep 2025 06:31:47 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 22 Sep 2025 06:31:45 -0700
+Message-ID: <bc2278a2-387f-4e66-b275-8429bcb45db1@microchip.com>
+Date: Mon, 22 Sep 2025 15:31:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922090003.686704-3-smostafa@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: microchip: sam9x7: Add qspi controller
+To: Dharma Balasubiramani <dharma.b@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250915-sam9x7-qspi-dtsi-v1-1-1cc9adba7573@microchip.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250915-sam9x7-qspi-dtsi-v1-1-1cc9adba7573@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_063036_940980_73AC36AB 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20250922_063222_760897_EF61327F 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +89,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 08:59:26AM +0000, Mostafa Saleh wrote:
-> Clean up the io-pgtable-arm library by moving the selftests out.
-> Next the tests will be registered with kunit.
+On 15/09/2025 at 11:13, Dharma Balasubiramani wrote:
+> Add support for QSPI controller.
 > 
-> This is useful also to factor out kernel specific code out, so
-> it can compiled as part of the hypervisor object.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+And queued in at91-dt branch.
+
 > ---
->  drivers/iommu/Makefile                   |   1 +
->  drivers/iommu/io-pgtable-arm-selftests.c | 208 +++++++++++++++++++++++
->  drivers/iommu/io-pgtable-arm.c           | 200 ----------------------
->  3 files changed, 209 insertions(+), 200 deletions(-)
->  create mode 100644 drivers/iommu/io-pgtable-arm-selftests.c
+> Driver and Doc support
+> https://lore.kernel.org/lkml/20250908-microchip-qspi-v2-0-8f3d69fdd5c9@microchip.com/
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Thanks for the reference to the (accepted) binding and driver changes!
 
-Jason
+Best regards,
+   Nicolas
+
+> ---
+>   arch/arm/boot/dts/microchip/sam9x7.dtsi | 21 +++++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/sam9x7.dtsi b/arch/arm/boot/dts/microchip/sam9x7.dtsi
+> index 66c07e642c3e..46dacbbd201d 100644
+> --- a/arch/arm/boot/dts/microchip/sam9x7.dtsi
+> +++ b/arch/arm/boot/dts/microchip/sam9x7.dtsi
+> @@ -271,6 +271,27 @@ AT91_XDMAC_DT_PERID(38))>,
+>   			status = "disabled";
+>   		};
+>   
+> +		qspi: spi@f0014000 {
+> +			compatible = "microchip,sam9x7-ospi";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0xf0014000 0x100>, <0x60000000 0x20000000>;
+> +			reg-names = "qspi_base", "qspi_mmap";
+> +			interrupts = <35 IRQ_TYPE_LEVEL_HIGH 7>;
+> +			dmas = <&dma0
+> +				(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1) |
+> +				AT91_XDMAC_DT_PERID(26))>,
+> +				<&dma0
+> +				(AT91_XDMAC_DT_MEM_IF(0) | AT91_XDMAC_DT_PER_IF(1) |
+> +				AT91_XDMAC_DT_PERID(27))>;
+> +			dma-names = "tx", "rx";
+> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 35>, <&pmc PMC_TYPE_GCK 35>;
+> +			clock-names = "pclk", "gclk";
+> +			assigned-clocks = <&pmc PMC_TYPE_GCK 35>;
+> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_PLLADIV2>;
+> +			status = "disabled";
+> +		};
+> +
+>   		i2s: i2s@f001c000 {
+>   			compatible = "microchip,sam9x7-i2smcc", "microchip,sam9x60-i2smcc";
+>   			reg = <0xf001c000 0x100>;
+> 
+> ---
+> base-commit: 590b221ed4256fd6c34d3dea77aa5bd6e741bbc1
+> change-id: 20250915-sam9x7-qspi-dtsi-a4844266b17d
+> 
+> Best regards,
+
 
