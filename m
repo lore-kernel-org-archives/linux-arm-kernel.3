@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99658CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82ECCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dYHdzbBtkvmEvyxabx8Jroqrgrh+LxldoB+7GCdGZIg=; b=JpSYLBi4orcPir69Nd2CdwUzXY
-	Y7XopS7icg5f6i0Ok8HW3O6h9jncSWVV6t+WfrTkovS8v/CXPVI3QzyCvC2js0c79YAMukktjMKL8
-	lAmwt6xi07ukVhtjMJRN7t9WTWEqdMumBLqcNrTNbbYlEgAMNSP8LTSSrFRYxpv3KsNjaW21zhyQX
-	kNaXrpzfBkcXb28zKJ/PiokJYf0aicItCXlo/2ifaI3UFcAnsqyNMbKogE8fL68W1IbGhp7+gGJOX
-	vqsVkD+/0CdhJ7IJHY9g1xYI7SZggS22VYOEvoUdY2F1EKTrdM7fe31lVoauha4aK9mzasF27JbWl
-	GtexKCVQ==;
+	bh=VJ7aOz13Ko41PPly9ykFXA8DWGiUHYAJ9XPaPWVJD8Q=; b=fFUIfu7vrOYkSBgo5GOKtscFPT
+	Y4LkNWcz3VBhrA+WsoX1yFZg519L/hlCRD/wkI3JAdeB9ZCMx/DFF/GWuNKzAJSb6xlSCGGuPhOBp
+	bRdDKBihgujF4ALz3SlKvTnHYAIT7pA7FsSL2mgsWIg6yXrsvPrJzEDGtonzhvgGTxSWMo89Bx4gX
+	ZyUNlr50/s29RLe/zsUobgEiAbTMQ814NU/0vQIi6gzgbYREUTakbZXigPnlp0W11n3zX8OKMrOk3
+	kNltH4ekn1qbsDZ6cLdj2CNjMiC/Y0eMBgx4e+ktGoz5gtrrRGyTIT8O1H3tiGwBWS5YcRIX6jMmY
+	XRPWlBEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k8Y-0000000B5FX-2Sc6;
-	Mon, 22 Sep 2025 17:15:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0k8l-0000000B5J0-3jAR;
+	Mon, 22 Sep 2025 17:15:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k8V-0000000B5Ev-3nEJ
+	id 1v0k8k-0000000B5IR-3uUp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 17:15:36 +0000
+	Mon, 22 Sep 2025 17:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E69F143735;
-	Mon, 22 Sep 2025 17:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F57C4CEF0;
-	Mon, 22 Sep 2025 17:15:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E99CA601ED;
+	Mon, 22 Sep 2025 17:15:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58690C4CEF0;
+	Mon, 22 Sep 2025 17:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758561333;
-	bh=wEqeJMpLqHGZi/PwQq3I0CMJUgwHE876L0rlZKPKAWU=;
+	s=k20201202; t=1758561349;
+	bh=mi0cY+Nvy3Qqsit422rWrrAWc80S+JmM8GQj6PeSV2U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tVYEwB6InMpqho4Kzzgk+MrzSQHBlHhdqSrn1u+oZBetxHLvnwS3OgmP69Xmkzsew
-	 regeqbxCKfKK3Mrp3XtsNbBC8GB1g6LwxjWeyjnnxEw81y+GbTeXK4BigVT5viEe56
-	 4EfwO4xJLlKFTfvM9VpdKGiUlb5UVcygRh+t86GNwQFzft7DmbHNrhgnhgOdo6uEYa
-	 8bFY3YSL93oTtkGUsLtSdomTycL+eGVSRM39Pf1CQMgb5b2qztPSPVwVrPCN2IASzU
-	 k2qQA3hctAmmbxqrmCIhUjL8MN9yuAq/MDolVv7pR6RnpXIdwSIaMxxGye9I0m+ckJ
-	 gC7b1EyjtExbA==
-Date: Mon, 22 Sep 2025 12:15:32 -0500
+	b=fvfpwM20kmi/LgRVzKQciG+YKjCg0Mx1FzurfkQzFI3ACRPTweEOfg/DxNcvwLtZQ
+	 iR5+FuScP004ixrWCtOX2ZTFZTIwtltSLvhSpGl0BjwX0XQxhU3YzGiF9Uiqf1cH0W
+	 M8LMfyXpmSCosMi5Hh85MmFVG2gy8pF8uzQ/9DgPKtTSDqeZlD6jTsShE0IcUpoeY3
+	 ulHY+lQil5ATUZUwTdPSRdCAFJejFPD8rN7ItMIWcj4/C4Sh8Z+5KM+Sw4GyU9YUhM
+	 9QzQu95/8uJclYKbA1eczKjiqBB+i/PoA0VjY2JWJ+WZ/+ksJ3TYhiiI3++cpaRwgn
+	 Pzlotp4RgnngQ==
+Date: Mon, 22 Sep 2025 12:15:48 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
-	linux-i2c@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+Cc: Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
 	Andi Shyti <andi.shyti@kernel.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Subject: Re: [PATCH v3 1/7] dt-bindings: soc: samsung: exynos-sysreg: Add
- Exynos990 PERIC0/1 compatibles
-Message-ID: <175856133245.488468.16132364519443523320.robh@kernel.org>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-i2c@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
+	devicetree@vger.kernel.org,
+	Sam Protsenko <semen.protsenko@linaro.org>
+Subject: Re: [PATCH v3 3/7] dt-bindings: soc: samsung: Add Exynos990 USI
+ compatible
+Message-ID: <175856134761.488862.14515741406588517513.robh@kernel.org>
 References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
- <20250917-perics-add-usinodes-v3-1-a3629e4666ef@gmail.com>
+ <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917-perics-add-usinodes-v3-1-a3629e4666ef@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_101535_963042_7BC2E824 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,14 +79,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 17 Sep 2025 21:04:21 +0000, Denzeel Oliva wrote:
-> Add compatible strings for Exynos990 PERIC0 and PERIC1 system register
-> controllers.
+On Wed, 17 Sep 2025 21:04:23 +0000, Denzeel Oliva wrote:
+> Add samsung,exynos990-usi compatible string to the
+> Universal Serial Interface (USI) bindings.
 > 
 > Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
->  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml        | 4 ++++
->  1 file changed, 4 insertions(+)
+>  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
