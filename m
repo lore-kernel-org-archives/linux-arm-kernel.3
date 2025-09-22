@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC93BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D902CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zuVT/NXt6gs791D+SZCmhqxz/igNEd5Yz8i1Mnw+YiE=; b=HbVcGQ2+vR+XTIA0r8cyVWYrDs
-	HEvz6Oi/ZEi1MsGdlqH/fz77WxEfr8oscX9IAvFFepPgvDsn0iADg5WO5ugL97us3TqORr2uvrMf4
-	QvSNCjIrbJSSnkAWqUchtfmOkJrKBc1jlWiyYmOz+gsJfTgjWVU/kULGty9r4HQLaqZUZWejuhRfg
-	BaoxoQWko1C/Xpaa7hHTe8ozZeiQO+GYS0+2i7KPVj85z/Ebl/oz4JhLO7+4QxQ8+CmVgPiB7dfiJ
-	bJ0eIAsrpvCy0devNRlMQiBqq3/hOk57ac91vdcZJ6yWx/5bi+K3LJUn4mU904+SlldtOKWDg+Yz3
-	B8jEhKsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFU+3WTepX+DzDUJeKQm8qVV1FJKax489i2OqeAtQzQ=; b=qL4UDOGrPuD175fYa/UbnpWqM9
+	d9TWvO6PVxnXlti0CtiF0fNDOhOYf93PD6/PD/FUMR2bD9G1ql2HObtdj+ktXNMOX0/aNJ3TeKeZo
+	upSufaQKCc3gVMBBI/c2Q0dUbQ6fOztNFTCIVWwZuAu6AWSaj4L9/ET1cnY6vmZ0SuH7WdefMqPhM
+	jufBLV0//ItZfOHivTXgZZKg46+RPUKtT/r2f4HJa4G+a0TK6VzAl5Nb8MCL+Tbuhp8NmgVUqienx
+	XK68FyljG16CWTYfEyfTPOrlYG6bo09C6AOPpK1BSuXu2SPgccSyVuBxXBN7hJ8buah+84z9Z+ooi
+	1hjCVVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iLI-0000000AmgH-0CUC;
-	Mon, 22 Sep 2025 15:20:40 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iLF-0000000Amdz-1TJH
+	id 1v0iYt-0000000ApM7-3oCY;
+	Mon, 22 Sep 2025 15:34:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0iYs-0000000ApLb-2EDp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 15:20:38 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cVmQ46hrnz9sSS;
-	Mon, 22 Sep 2025 16:55:56 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id yAj35bzrK7Eo; Mon, 22 Sep 2025 16:55:56 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cVmQ45vFpz9sSN;
-	Mon, 22 Sep 2025 16:55:56 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B53D88B768;
-	Mon, 22 Sep 2025 16:55:56 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id Wc8vrIHa2uK1; Mon, 22 Sep 2025 16:55:56 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3A1E68B763;
-	Mon, 22 Sep 2025 16:55:55 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	Mon, 22 Sep 2025 15:34:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D2AA4601AA;
+	Mon, 22 Sep 2025 15:34:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59471C4CEF0;
+	Mon, 22 Sep 2025 15:34:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758555281;
+	bh=R9bSzvYDP/5lyTx6wb918b5EYWwUtu/KCM4x0gs1JpU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j6fbJ745qj2IUxkZ27opt1+vjPQ7SQFxxhmoPFVaU5jGfJjjPbPIMMlFPGBg0HZfP
+	 W7jhueujEPXhnHHI/FWvdDUQiXUZ66YxhwHLaeFKreZBW/+1KBcO1gc0USMl9xCal0
+	 dMmiViT5yuMPxCe7pRuOhXHtsdrS/6vfdMUvvVb5KHnKlVn8cM7JQS80f7w4ZMA+d3
+	 CerhBnikDUzwRiImlW7lV3UvEKcdiYFtL744PdLDsbxaYXgGB3W3eGg37xEFNCXOyz
+	 kq2vw9I2eDtXwuqO9/2XcL4FksBAu/YdCi6E4Njp3B4FJrlUDtBsUFVJPhUq6dIs/S
+	 qviOBOEEnQRfQ==
+Date: Mon, 22 Sep 2025 10:34:40 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Jaehoon Chung <jh80.chung@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: (subset) [PATCH v6 0/7] Add support of IRQs to QUICC ENGINE GPIOs
-Date: Mon, 22 Sep 2025 16:55:46 +0200
-Message-ID: <175855270809.96300.15498969212421871816.b4-ty@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1758212309.git.christophe.leroy@csgroup.eu>
-References: <cover.1758212309.git.christophe.leroy@csgroup.eu>
+	linux-samsung-soc@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v1] dt-bindings: mmc: samsung,exynos-dw-mshc: add
+ specific compatible for exynos8890
+Message-ID: <175855527966.4176202.14757582451293066589.robh@kernel.org>
+References: <20250914131848.2622817-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758552948; l=721; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=aYbrvM60FKtWFyNikef1uJvt0soMLPkWIUod5zKQIfE=; b=o2vh0AbkgZRDTZfD+sDgtiYH+hiDvCfPGLBCRbBvfV9mgwoWZUllSFmykcseyTH9sUcVFu429 IYzJdwjwgF9CXkzFUSH2+wxK1i3QMoVm1UnTnl//mmS0VCVqqVvVmhE
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_082037_560900_B3937AD7 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250914131848.2622817-1-ivo.ivanov.ivanov1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,24 +75,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 18 Sep 2025 18:23:20 +0200, Christophe Leroy wrote:
-> The QUICC Engine provides interrupts for a few I/O ports. This is
-> handled via a separate interrupt ID and managed via a triplet of
-> dedicated registers hosted by the SoC.
+On Sun, 14 Sep 2025 16:18:48 +0300, Ivaylo Ivanov wrote:
+> Add samsung,exynos8890-dw-mshc-smu specific compatible to the bindings
+> documentation. Since Samsung, as usual, likes reusing devices from older
+> designs, use the samsung,exynos7-dw-mshc-smu compatible.
 > 
-> Implement an interrupt driver for those IRQs then add change
-> notification capability to the QUICC ENGINE GPIOs.
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  .../devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml          | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> [...]
 
-Applied, thanks!
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-[2/7] soc: fsl: qe: Change GPIO driver to a proper platform driver
-      commit: 156460811def1ae699eebe40d9678e4ce3d1d9bc
-[3/7] soc: fsl: qe: Drop legacy-of-mm-gpiochip.h header from GPIO driver
-      commit: e9713655b29a47d23cbf07aacf50b0ce8ee0a850
-
-Best regards,
--- 
-Christophe Leroy <christophe.leroy@csgroup.eu>
 
