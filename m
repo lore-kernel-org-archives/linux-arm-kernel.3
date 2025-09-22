@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE0FCCAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7970ACAC5AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wKKmzzmuKG40fuwVyBt/m3UGTsCD1G8VszPdxLZK2HU=; b=WEmtsxCdrYLmxnQd10xau8k0pj
-	nSJrRr5EvY2t/WvMD//hCvuB/G+abwKzY3ZQqHfxKr5cCXjSaoPUhB+aNxzOOZN883rgBoqk8dstm
-	JloLwc+5djOOj+ju1i99/Q1lqD9tYGtmQUPSVKm7vIHBU7KEb0EnbKrM9cX1d2jDB+q8di5wGW6+r
-	XY5Vk6doUYG3/MOEJk6X4QHo2VuTR7uQL0qrT+EevvxkHFUNQ/dCbQiTxV55BLD6Q3A9XLdZDCeJF
-	+qnWS9MpQaFocZukpQ7PMveFIZH8aUT/rC+B6BwbqkI5TqZHSGxB8DexEntQDTxztg4W9W0FQ2e+b
-	fcPRgeUQ==;
+	bh=T6OpUepoVuhb8kEHI6o+Vp9O4ieuYYpB2+MyQBz+ceM=; b=oGnfrf47RbaOCMPvzsC3Xys7dq
+	G4EIKcyJz+ylKqoPhsiml901eDYe1ATH0DdhEqbcAIPNYa+532j7PH4J8l+sQ8vUsW46+PYl0Z+YP
+	bWE23kKjaas4FICKd+9L0DCLo2rr85NaMED3/oW+Xpz0uvoh+5m9Et3dSCJeaTR59UPZs+mqphBD6
+	+0BtizH6mCxMGhcM7Lw7Fpc85LtSKIBd9XI9htir2QIbPv0m9LpO62B4FmyERV+hX7zCOCANWwPbW
+	+kJtAM8L8fkH5bY6j/AHnWjAmfewb0bDK3wNwK6i2Su2R9ffiK4/R1p5D3iTCKC89nr0NSoQRmNm1
+	R3eFHIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gO7-0000000ASM1-47nT;
-	Mon, 22 Sep 2025 13:15:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0gO8-0000000ASMU-1Iug;
+	Mon, 22 Sep 2025 13:15:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gNt-0000000ASCx-2HgX
+	id 1v0gO1-0000000ASH5-016d
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 22 Sep 2025 13:15:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=T6OpUepoVuhb8kEHI6o+Vp9O4ieuYYpB2+MyQBz+ceM=; b=TgA8r6ZaCgHAPxbmyROg1iYI9q
+	8VEU5OuBu2xFLuDejH5G2GFcOYIYjZ6IJIG3rWzZJgwD1v3QYeoIg+idxPep9CPgclvJ8fc89/7Xc
+	wrxumt1F538DYgvGb5RYuluDMF2w4CTeQGTyL2yB05Vm2GsXK8AWYo/mONG0MvXrlTNMGQJxZsOdS
+	u5S5FRSUygv+waT9AAB7ai3F16HynX/hlkux+gqW6UWMqonQrrzr1MrTHI/7Zur6UOq91CeeW7QwR
+	phS8P5f2xFB3Z0A1lFcMfVcrUzjO0CAxPwyaRjCB00zcs9dLVWDOZZv+wjeQCiEkEkc0w9y43pX3V
+	CA2bqp4A==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0gNx-00000008IEZ-2w66
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:15:13 +0000
+	Mon, 22 Sep 2025 13:15:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF10660210;
-	Mon, 22 Sep 2025 13:15:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D59DC113D0;
-	Mon, 22 Sep 2025 13:15:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A5B8403FC;
+	Mon, 22 Sep 2025 13:15:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39652C4CEF0;
+	Mon, 22 Sep 2025 13:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758546912;
-	bh=aw8d7TQnMiVx3O3D0Yvpldr55/2d+Rct4+8tg2KDwhE=;
+	s=k20201202; t=1758546916;
+	bh=LiqDKW6ln9kt2Zw8dlUpGxSN/0CLn3XcrFMQrC+5Rws=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P0m+pYkjM6o8XMa09ll5baluyQe+riaZZmoTwY/xyvo8fCoMwqsJlhQNcqbdUp5Pw
-	 JvcyVos3WCjGmAnOVu38oX2C5WLJBba9OOHWuuceUHDVB0y1GRydYNLx6ml6Zmx6lj
-	 Mjo3uak67QPzPpPWsAvimTU0Uo+ZYPeQgOIYuxSr1Og6H3ZMSNk1x6mAhp7bCKxhMF
-	 JN8q8b4JPcEtD4G5StM6kTRx7JavEaKBwrXx1RoVL1S20SQrye44BrfII+6IgyhBaV
-	 VPz/YBzzGGXNGSgEmRErePHbag6KaxMfbYAl9CY8/qn15cgD8WXfyyR3AgbxbY3Mfi
-	 /t3zB4TvcPbcw==
+	b=nwUQQPcOkH1aPz6j/UFapAp0qwd6wDdo7Rz4l2YxigQacqsAbNQ47biaipWCrhfwy
+	 ZqvJJ6zpurl+jsvmJyjKYlLnMklNg1Yt0lByNYqL3OA6HgrNq/+103Zi3l7WcNklDI
+	 r5ntE2SR094aJxUtOciZBe7PXyOCW+sqNsJQInzROwTTipdvWnx6NAqVlUrd1r2FHm
+	 LrpuTbKoqQ0D5ejuNfORv6NFq/rURfIKcEds0sNHX5oeoKq5qYGz2Uu8mvOSKuVfcn
+	 xyW3aBFLsiGNu/ozxyzdxw4r/ohLt+E0x4U+8vAkzPdM5D/gJGIKaScK5KCnYt2QZa
+	 GLNvFgEK2Jpbw==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/3] Workarounds and optimizations for Neoverse-V3AE
-Date: Mon, 22 Sep 2025 14:14:50 +0100
-Message-Id: <175853683592.1350681.8237584408369869851.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Yushan Wang <wangyushan12@huawei.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	robin.murphy@arm.com,
+	yangyicong@huawei.com,
+	Jonathan.Cameron@huawei.com,
+	liuyonglong@huawei.com,
+	wanghuiqiang@huawei.com,
+	prime.zeng@hisilicon.com,
+	hejunhao3@h-partners.com,
+	linuxarm@huawei.com,
+	fanghao11@huawei.com
+Subject: Re: [PATCH v3 0/9] Updates of HiSilicon Uncore L3C PMU
+Date: Mon, 22 Sep 2025 14:14:51 +0100
+Message-Id: <175854328084.3142502.15045454616796206368.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250919145832.4035534-1-ryan.roberts@arm.com>
-References: <20250919145832.4035534-1-ryan.roberts@arm.com>
+In-Reply-To: <20250829101427.2557899-1-wangyushan12@huawei.com>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_141518_093512_93342175 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,25 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Sep 2025 15:58:27 +0100, Ryan Roberts wrote:
-> I know it's late in the cycle, but I thought I'd try my luck at sneaking this
-> in.
+On Fri, 29 Aug 2025 18:14:18 +0800, Yushan Wang wrote:
+> Support new version of L3C PMU, which supports extended events space
+> which can be controlled in up to 2 extra address spaces with separate
+> overflow interrupts.  The layout of the control/event registers are kept
+> the same.  The extended events with original ones together cover the
+> monitoring job of all transactions on L3C.
 > 
-> Neoverse-V3AE has a different MIDR value to Neoverse-V3, but qualifies for the
-> same workarounds and optimizations ("SSBS not fully self-synchronizing" and
-> BBML2_NOABORT) so this just adds Neoverse-V3AE wherever Neoverse-V3 appears.
-> Details in the commits.
+> That's said, the driver supports finer granual statistics of L3 cache
+> with separated and dedicated PMUs, and a new option `ext` to give a
+> hint of to which part should perf counting command be delivered.
 > 
 > [...]
 
-Applied to arm64 (for-next/cpufeature), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/3] arm64: cputype: Add Neoverse-V3AE definitions
-      https://git.kernel.org/arm64/c/3bbf004c4808
-[2/3] arm64: errata: Apply workarounds for Neoverse-V3AE
-      https://git.kernel.org/arm64/c/0c33aa1804d1
-[3/3] arm64: cpufeature: add Neoverse-V3AE to BBML2 allow list
-      https://git.kernel.org/arm64/c/8fca3852e33d
+But please see my comment on patch 5 regarding the user ABI.
+
+[1/9] drivers/perf: hisi: Relax the event ID check in the framework
+      https://git.kernel.org/will/c/43de0ac332b8
+[2/9] drivers/perf: hisi: Export hisi_uncore_pmu_isr()
+      https://git.kernel.org/will/c/4550244b53b7
+[3/9] drivers/perf: hisi: Simplify the probe process of each L3C PMU version
+      https://git.kernel.org/will/c/0960e535be54
+[4/9] drivers/perf: hisi: Extract the event filter check of L3C PMU
+      https://git.kernel.org/will/c/2271f1634243
+[5/9] drivers/perf: hisi: Extend the field of tt_core
+      https://git.kernel.org/will/c/ede339ff61c6
+[6/9] drivers/perf: hisi: Refactor the event configuration of L3C PMU
+      https://git.kernel.org/will/c/b3abb08d6f62
+[7/9] drivers/perf: hisi: Add support for L3C PMU v3
+      https://git.kernel.org/will/c/475d94dfe7c6
+[8/9] Documentation: hisi-pmu: Fix of minor format error
+      https://git.kernel.org/will/c/272dd0e5e58d
+[9/9] Documentation: hisi-pmu: Add introduction to HiSilicon V3 PMU
+      https://git.kernel.org/will/c/6d2f913fda56
 
 Cheers,
 -- 
