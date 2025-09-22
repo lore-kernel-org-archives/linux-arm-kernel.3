@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5876CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AD7CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DVixwa8StKEloXMjU0KxbhQhClJAOsdGBORDJu9TiAo=; b=S8DW6T1T2+IX0k/zBjr4ziRAfH
-	h5J9FBOxYMntftDmlIw25yFXukTCEN83pPFClQHLcFI/aQZfvyDOnoer4Pf4RmQa82So3lC5zNjQ5
-	A6GtkWqpQAYXItSNu4fgWDMU+cd9rPRAvTPsyc4m8Tb2OIc+E24lSQ5JH+0Ua4tCFjeLcjumjxzhC
-	AX9S1mhXXIszIYEALJRrz8Uccv3v8XpH9UKcpOy4NaTF008J8kG33vXLdkmdY+aiDMa8yhNYvZJl5
-	saCDnJLJWvqbhvO5meWYTYfbGWy7CFwAH+vBoVnAvAS78O7ut/IhXG6Irjyc0gawDOU+LsKgv4JiI
-	VV/bKQ9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cbgpVXooeJQoxtDkq+orZaKLHLZsU4tUaffVgtq1Mcc=; b=XL30656RC9Bp5KtwgrP8FDXfCw
+	P/MiqRJ3PYHUDAibqH3ZbPhSTcVce3vlF5fYD79cSuiWSMlOb1HDmcjmF2TOCSzty4v28TACPJ1zX
+	kTgzeA620Z5qi4dQtnH3VSJE+KfFbky9+nBavuJM/Uf732zdLm2RBVJY0zIDbT06Zc7TNmpaeU03g
+	hoLzH5BMG9lv6YgHaEC9yhhzOAxkdux+dxj1ZP0IZ7hlI5FjlKmlalU+x6h6QJ0Dnt4uSHsRnQESW
+	pEO9JO0XwIQBtJ+YVK2qh3t1thKd7F9dtXts4PaSC8E7GGWsm0jps7zO/5bcTw6ZJZrI06a6iMcl2
+	eGSsWm1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hUg-0000000Af0N-13PE;
-	Mon, 22 Sep 2025 14:26:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0hkf-0000000Ahdk-1zEx;
+	Mon, 22 Sep 2025 14:42:49 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hUe-0000000Af0B-43oi
+	id 1v0hkc-0000000AhdR-2Bqt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 14:26:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CCDC601B5;
-	Mon, 22 Sep 2025 14:26:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BFC1C4CEF0;
-	Mon, 22 Sep 2025 14:26:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758551176;
-	bh=CEK8yHPxJKhWjl3RH+TVpm29Wny+6IBKlzfazln71jo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=n+6J3YlkzS+dsKSUT5df0ZjUzucjalYcUGdQcyRUwxogpDUpe+d7y7RjK6MQCMNNB
-	 nwUgfy4ceEHu/0znn+stF8hwdhzHL3e3MXSUnHwq4Dv1h9jz0+Dq8G2R+5Z5+ZO1CN
-	 0P4cpIqGlRbttm/xNQK0AIUT89fC7Qo6q06CfBTQk7enmhONfPKq14A1WmPgKXYNC5
-	 p7HTBnd4+KMvUdPG4WN78zOXUzrzeNeLasVDPAqLfuFUdR5LQd6cITHaeILLsIYUEn
-	 lO+RjtVNYV6MJZWh87KxH5Uxk/E4vKe87ohb5Im1wW+Ot1TSvRD14PbxUms4bge3y0
-	 LWoXby9vxGUkg==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH] irqchip/gic-v5: Add PCI bus msi-parent property handling
-Date: Mon, 22 Sep 2025 16:26:10 +0200
-Message-ID: <20250922142610.80200-1-lpieralisi@kernel.org>
-X-Mailer: git-send-email 2.48.0
+	Mon, 22 Sep 2025 14:42:47 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-57bd482dfd2so2160841e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 07:42:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758552164; x=1759156964; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cbgpVXooeJQoxtDkq+orZaKLHLZsU4tUaffVgtq1Mcc=;
+        b=sr4oqFJslnFfz4Ppr8MpsAAgs5ZjPhLKCNZK5OW7oQcQOX6aVBgzlu8HuQxRW4KIlW
+         BVcsnfuRrVZWMWHA5gI1+xV2cCsBzYYOS/wXvN6eI9IBWr7t/DNpbDli2dUyMLC6Wl+p
+         BJwOjt6HGWI9f1sRHF90jon2f8S4/YQW5Lw7sEJ24x9cVjObpolRX8iNiXenZKlXh6km
+         KHrraWf0xK4Pj224vb/AUCJjyUdTIsKB5ztLzW/N34xpcY8KcoLOB45NmxGgaID4y04W
+         B+BgCLia9QaOG5hrbKGrIdky42RhnoJt273NGMTdRFwU4eEiEPaZoQ6ZdmkBKdd22gVn
+         pxYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758552164; x=1759156964;
+        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cbgpVXooeJQoxtDkq+orZaKLHLZsU4tUaffVgtq1Mcc=;
+        b=Xok+UrLwuHy/hWald2PY5I4wt6fsrVc25A+Mdbocs7WTYLgeLzG+Ih7mdWeFNPSxvB
+         pML9RGn/5WHuY9eGwA7Jv5H0plSU/Djv8xPm5uyIEWmfhigjIJSIPtPeqrOKf9VNk290
+         XxBdtfW3uI5nGmlUz3x0J+PKshdJPgsHbhrs3BEctlGb7cCa6U1Yu4qzWXkjUGIdouUU
+         2219utyDCyCQHzX0QZVEPMPJbxg+PK5NMMs565nxhRdfiTmVD/dTHUMtKz4d2h6PRYly
+         iJEg/yXIvX1GX54cBn+iO/YjZQCl3ALFlp+XaRHvgukudwvgYzDXGTWjR+LvWbfIZjPT
+         CJ9g==
+X-Forwarded-Encrypted: i=1; AJvYcCWPBLNUpyv7QNtwmmAgD+cYZA8ErPUejDQYwD2kzWCdaX3f43tX1SyZB54QNW9y1Jd5R8QgssBU1fF4OvL/26tK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN16L2bAcTFRskZqSAfOIqfOgjdylFe4NhscMgkgFNrQIzc8Xm
+	71j/DpZhmI4B9krMrY5HhkeV2vYjB9PJQd0Tb5xvWSvVeohpeu+FFfbi91dMscZ/DdAecznQC4j
+	d2WuZOy/tyT6KRSMxJ2zCSYUw9mNWUINRGO6clmgmZxW6tXFUEsnktGg=
+X-Gm-Gg: ASbGncuHCyuGFpNnLCjAg3MS/0zuP2kctDa0XPVL0/J8B4erM9u3sEqFO117h0ilbyz
+	UHPBZwwC9okfc0EJyjkXF1qkCoK4kZf+supybZMjblXyiSkBQ6nyQrKlj5covs2FESDdfGbYmjM
+	Ojtq4q1vIUZuDSpzHtdWtQGhVoQ9fIwyzomb+NufICCeDxfVMx19lr35EO8Dh/UnzlHd6nXHe2+
+	wiJgLwGDiaxW/nfD1mSpOmipFScZBrQhxwspg==
+X-Google-Smtp-Source: AGHT+IHaE9nqceFLj+JInNghJEvz7NuUskN6MHfzPYyLxUjABx4E3I4QkTLcuqh8bctTyJSvA4j3CUuzt28CZtnMZP8=
+X-Received: by 2002:a05:6512:2395:b0:57a:501:54ab with SMTP id
+ 2adb3069b0e04-57a05015577mr5016702e87.50.1758552164438; Mon, 22 Sep 2025
+ 07:42:44 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 22 Sep 2025 07:42:43 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 22 Sep 2025 07:42:43 -0700
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+In-Reply-To: <20250922-i2c-mux-v1-5-28c94a610930@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com> <20250922-i2c-mux-v1-5-28c94a610930@gmail.com>
+Date: Mon, 22 Sep 2025 07:42:43 -0700
+X-Gm-Features: AS18NWA6jseTsU1-el3RwI7NaUjcbCUkPeK98Ko-CDeIjcGra6Ar6whhs_lBYGo
+Message-ID: <CAMRc=MdMMQxFfkMPHaUg9nMWuW9F1p+PT2i-ggcU5SSFKOVGKQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 5/7] i2c: davinci: calculate bus freq from Hz instead
+ of kHz
+To: Marcus Folkesson <marcus.folkesson@gmail.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
+	Michael Hennerich <michael.hennerich@analog.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_074246_566576_9BF4D283 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,92 +100,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some legacy platforms the MSI controller for a PCI host bridge is
-identified by an msi-parent property whose phandle points at an MSI
-controller node with no #msi-cells property, that implicitly
-means #msi-cells == 0.
+On Mon, 22 Sep 2025 08:21:00 +0200, Marcus Folkesson
+<marcus.folkesson@gmail.com> said:
+> The bus frequency is unnecessarily converted between Hz and kHz in
+> several places.
+> This is probably an old legacy from the old times (pre-devicetrees)
+> when the davinci_i2c_platform_data took the bus_freq in kHz.
+>
+> Stick to Hz.
+>
 
-For such platforms, mapping a device ID and retrieving the MSI controller
-node becomes simply a matter of checking whether in the device hierarchy
-there is an msi-parent property pointing at an MSI controller node with
-such characteristics.
+This looks good but would you mind also changing the name of the field to
+bus_freq_hz in order to leave zero change of misinterpreting it in the future?
 
-Add a helper function to its_v5_pci_msi_prepare() to check the msi-parent
-property in addition to msi-map and retrieve the MSI controller node (with
-a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to provide support for
-deviceID mapping and MSI controller node retrieval for such platforms.
-
-Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
----
-Follow-up to [1] in that it is a fix and too risky to fix generic OF code at
-this stage of development since it might affect other platforms.
-
-Apply a fix to GIC ITS v5 MSI parent code - follow-up will clean up
-the msi-parent parsing in the kernel tree.
-
-[1] https://lore.kernel.org/lkml/20250916091858.257868-1-lpieralisi@kernel.org/
-
- drivers/irqchip/irq-gic-its-msi-parent.c | 34 ++++++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-index eb1473f1448a..198fb4e9a22d 100644
---- a/drivers/irqchip/irq-gic-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-@@ -101,6 +101,33 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
- 	return msi_info->ops->msi_prepare(domain->parent, dev, nvec, info);
- }
- 
-+static int its_v5_get_msi_parent(struct device *dev, struct device_node **msi_np)
-+{
-+	struct of_phandle_args out_msi;
-+	struct device *parent_dev;
-+	int ret;
-+
-+	/*
-+	 * Walk up the device parent links looking for one with a
-+	 *  "msi-parent" property.
-+	 */
-+	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
-+		ret = of_parse_phandle_with_optional_args(parent_dev->of_node, "msi-parent",
-+							  "#msi-cells",
-+							  0, &out_msi);
-+		if (!ret) {
-+			if (!out_msi.args_count) {
-+				/* Return with a node reference held */
-+				*msi_np = out_msi.np;
-+				return 0;
-+			}
-+			of_node_put(out_msi.np);
-+		}
-+	}
-+
-+	return -ENODEV;
-+}
-+
- static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
- 				  int nvec, msi_alloc_info_t *info)
- {
-@@ -117,8 +144,11 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
- 	pdev = to_pci_dev(dev);
- 
- 	rid = pci_msi_map_rid_ctlr_node(pdev, &msi_node);
--	if (!msi_node)
--		return -ENODEV;
-+	if (!msi_node) {
-+		ret = its_v5_get_msi_parent(&pdev->dev, &msi_node);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	ret = its_translate_frame_address(msi_node, &pa);
- 	if (ret)
--- 
-2.48.0
-
+Bartosz
 
