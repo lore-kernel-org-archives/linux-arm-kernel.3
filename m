@@ -4,73 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17107CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 03:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A90CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 03:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/pAYjt1PTM1WTwOEAJ1ryShiXtBMZp1571RlbpsQfQ=; b=AjuBSlA0twpHcduadFznQWPZiT
-	RjJZpp9jwRKaKmwaY2nHjJnrOFy6hMBFrHl6hdKtoZMFO07OETdnwG+tC/x+gog+2/waDezpKgM9x
-	R8SN7Kblqw5451XiMygxL95siRIU6MLua7foGW8oK3WjjA+MK4G1HUspA7+iRAkslOeT8z0N7sRdL
-	eZDTXH1hmYC8Fc/99WcZlXmy9nkVXndu2mh6B6SdUKQExDdZwfElwHpreAWmw7RJFyY8xhH1lUFPo
-	yWsgbheQyv5NFRdvK05lm5sBB3sXEYXopcBbmJ21g74WK10s8CPGduzAt/RD8GnH3jyzjaGQYovdY
-	dA7a1o8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9qQu80eqcCh3j9Oo2wSpcdFN1ria6o2WN1+kCr8wXc=; b=R33lIlI/LgQFhlbV8XGzqD8fKO
+	8eRR1Fk4TuF+LlpZk9pV1v4Wb9ByLEtDbH3hdpmtAH+nDw00XSb7z2IxJJszM1ZI8D07TwArR/2eL
+	lgNI9FxjMCDNw4vMhK7C1uQ6bkSx/a8tEkLCHUsDCy7bb180/vPbJuEyVRtcJdvLCPAOjJcf4Dxxe
+	+x0GPYZEmcpjJ7szH060DPBoUTwT7ecWCCGuv87+uiHBVLIEPI8wSEqd/jQrTTlxlhYz8MuLI4gry
+	18sRq4DFPWDVeaPhHCBXTC1rZ3tvsLrP9Vzp/VX8mgfNR+EVLH3SUb88Jc0yS7Hp9u5+4Gpf5ZX/k
+	O61aNLSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XMH-00000008hoC-0bhc;
-	Mon, 22 Sep 2025 03:36:57 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1v0XQN-00000008iG4-1cqi;
+	Mon, 22 Sep 2025 03:41:11 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0XMA-00000008hm8-41Et
+	id 1v0XQH-00000008iEb-3pSa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 03:36:55 +0000
-Message-ID: <e4e82695-c03f-4105-bddd-9778d7e368d4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758512191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9/pAYjt1PTM1WTwOEAJ1ryShiXtBMZp1571RlbpsQfQ=;
-	b=dYeIGHtXEhwqRe5dY2kuaOhbMvjIC5LBJnI4MTLAavEHM28MO5fC1RBYYw1JQSenqd1Od+
-	ppNvqg9coKtIPXFQHgGtx3lExQK15m1zekX1RHO6FWDHA+ZXFNiB8BTagglJX3zuepxRoC
-	P2383CbGkK919uOabMZSgfcRGK4vAQ8=
-Date: Mon, 22 Sep 2025 11:36:11 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
+	Mon, 22 Sep 2025 03:41:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GY8D5o01tDUrv1025WTjUoZpYL/9mVvkNGi1mPuIsuaDIun3FYe7EjGmWWD3QRv9CuhlbOtBolFOgJEecbAh/OXqYhkw8d0gBIlWfCC5+p/6nyJ7gGflywIOabxgTnwKvmUQizKXS+WEWTV+eDYCAe6M2zx9X8K5Uh3H5zraqomwio2quCNKG5niUqHhmJYYtoY7PC22ZmEfWUKuQopB9N8I0gSJDpnfoWLoHAahfX57TnfQYDRimZRGL4X/EJirpTGKGLTZ/vBSeNvh2ieBQ7IA46ITRxTnsLnbmwF2zzJPhejB1Iorwm7gkUr24HNtG6e0T3cHv7EbWXQav3H4iQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o9qQu80eqcCh3j9Oo2wSpcdFN1ria6o2WN1+kCr8wXc=;
+ b=I5ldjkbdRXS4uPkG9GAnv90zYz0Oc2Vye5IuWM/xqUDz2YrzzJIBUQFJNFibPL6WPCak8WtHFj9WzPnjgjawLI9JwzXPaXUTD0EsYevvGGk4215kN4Bpk4CUv6HhS164h+6OWsaYjV1zwnhq4KqFccMqBLGx/FO5aR0WQ026EbtlutoMoDaQpmg+snvdWnRi8WMUiVcFsySikSfC8oIGkwOprNLk2ERoAyXpMPOuxV0lkve7hrmfyhnSGgGYkuzSq6FjkNt6op26iIpo5y5MYk3v2334hUrshapCTnubyuXr50GE6Lo7ZZ7cOuPiuyFx6t/qCOAtuC8nugtlq+nYaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o9qQu80eqcCh3j9Oo2wSpcdFN1ria6o2WN1+kCr8wXc=;
+ b=FCO/NP4+V1lFUPaFf8YuMh+qzwmimRWS2QaSoMz08l5yUmZgyaHFPsJdigjF9f9vKtt3PE5uqHvsNzNk4tCTAC6cJkgt+k7KVkXnFak0wDMyMz9mAUkJF9D+wraB4Q8sL2thmNf959xFLApgw6ZdlaHVbmJ1KpV4JXLVwsbmSJi742UlfkScGaVCExESN8zR13hxSfzipnVJPDjq7TKFAVsogQvA0HaEpXIG7l9TOdK5vKoAk2CFRqpumlL7fBFze4pyHLMXYDXR/M/q0BcPDwwpmWCTPefDsICdPd1IjMkNGoz2+IotOeVnFxq24uOb6+qyFKQJFeCHO0uJJnCPDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by PA1PR04MB10263.eurprd04.prod.outlook.com (2603:10a6:102:455::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.8; Mon, 22 Sep
+ 2025 03:41:01 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
+ 03:41:01 +0000
+Message-ID: <18230ef9-09e1-48c8-aeee-d40d483e28b1@nxp.com>
+Date: Mon, 22 Sep 2025 11:42:21 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/14] drm/imx: dc-crtc: Disable at boot
+To: Frank Li <Frank.li@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com>
+ <20250704-imx8-dc-prefetch-v1-5-784c03fd645f@nxp.com>
+ <aM1w4URkELrmK7No@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
 Content-Language: en-US
-To: Zi Yan <ziy@nvidia.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, lorenzo.stoakes@oracle.com,
- usamaarif642@gmail.com, yuzhao@google.com, baolin.wang@linux.alibaba.com,
- baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
- catalin.marinas@arm.com, cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
- kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
- roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
- dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
- surenb@google.com, hughd@google.com, willy@infradead.org,
- matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
- byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
- apopple@nvidia.com, qun-wei.lin@mediatek.com, Andrew.Yang@mediatek.com,
- casper.li@mediatek.com, chinwen.chang@mediatek.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mm@kvack.org, ioworker0@gmail.com,
- stable@vger.kernel.org, linux-riscv@lists.infradead.org,
- palmer@rivosinc.com, samuel.holland@sifive.com, charlie@rivosinc.com
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <3DD2EF5E-3E6A-40B0-AFCC-8FB38F0763DB@nvidia.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <3DD2EF5E-3E6A-40B0-AFCC-8FB38F0763DB@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <aM1w4URkELrmK7No@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-ClientProxiedBy: SI2PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:194::17) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA1PR04MB10263:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ba5d654-30b1-4a5e-2381-08ddf989d98b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZFZka1hiWEtOSDZQZndIUVdnc1VTM3p0eWlmR1MvVWpRVFgwY0dobUF4Vm05?=
+ =?utf-8?B?b0tOeDJCdE9lYzk5RWloQUhERFpXNEhQMDBkZG1CZC9aRnVJWjZHSFc2M3BM?=
+ =?utf-8?B?eGJYdXlVc1JmUlpTYXZBTFpsMUpZU0xpdUJGTG9DNzJvUWRTMGo5cllvVXlO?=
+ =?utf-8?B?VllmalQxNExrS045TjhYWWR4OTlCZ2VMUEFqU1NMRlkrcW9xcDdFZzNNSTBs?=
+ =?utf-8?B?emlJRjZJU2hBRjJXejR2MDVqak1mc0JFUm8rdVAydUdUYlhDUVczTFU5RldW?=
+ =?utf-8?B?SjJmQ1pFU2QvcDhUalEwNjducm9nVlJPcS9JSlk2L2ZZTnZXR2NQS1RkcGRP?=
+ =?utf-8?B?dk11dFZnNTRvcFJxbGd6S3U2bkZEUC8xejNDZ0p3NWFBMGcrYzNrMlFhaTIz?=
+ =?utf-8?B?S1pRYnpwZUh0TW1oazhRU1FCVmVDT3VPK3oyVnN3MDM1bHlRbDVMcHMvdG82?=
+ =?utf-8?B?SGo0Z1BuOFpGNS9YVTY3U2RvZENwZ3d1emVDV0pGUDlHc0I4VDJBM1luNkZr?=
+ =?utf-8?B?RUIyR2NLRC8vZWgyWHZWVWM1WDM0czA2a2Z5ZU5pMXN6ZnpVa1VJWTVhVDBm?=
+ =?utf-8?B?S2RUVjN1VUs0c3NvZHYzdmxldjJPN1I5M2U2WG42WWVMdmFId1Z2RGh4dmVa?=
+ =?utf-8?B?RjZwMmNNNmNXTTN3MjFQcnJHM3RKWXkycnU1clN4TkZaZjlkbXRQcmN2WnhL?=
+ =?utf-8?B?QU5CVVNOdWp6cm9hQndDcG9DOTJTbGY5TlgyNnBWTjF6ZUFUQjRpVXpwU2pC?=
+ =?utf-8?B?Y2NwY2JjYnh3VmlPd3doWDhFNjB0eVgxOTVRd2UxaUpnY3hoVG8xYi9uR0xz?=
+ =?utf-8?B?MUozN2k5NjZsUEt2L3ljdk9vWnhpNXlzRWFEK3RqVGFvQkRXb2RwM2xLRHpN?=
+ =?utf-8?B?VHhpa2JuUFhnZ2pLNXFYblFOSnNOY3RFU25Bc09ERWFUVkZ3ZXhockxhRDA5?=
+ =?utf-8?B?ampzTklqRnlITlNpdll1dWlGQkZ6cy9SYlI1ZUFDRjIrcE5rV3p1KzZ2ZTJy?=
+ =?utf-8?B?WUJuYml2b1BkWEs5ckZ2V0w4ZWRaRTVlVmJZZFpLY0YrRjBsUkxUUmp6aTVL?=
+ =?utf-8?B?Z0NzTSs3bXNFUkpqUTdrNStBZW1wT2k0Zk1rL3ROQUsxRkEvdno3K0daOWhY?=
+ =?utf-8?B?RDFmcGV3NXp1aTlUcmpzWHAyUHBqWGNqQ1VmYkpRVCt4T0V4WmQrc2JpRTNm?=
+ =?utf-8?B?ZGQvWnlUaGozR0dEVWxqK2JjOHUxK0JWZFp3VENvdHBuV09PS1ovNUlqZnJL?=
+ =?utf-8?B?dFEyaHl3c1NpdlhEZExDekZBNFdnUEx0bHZpWDJlUURZSzhXVTF4ZjBCOFpL?=
+ =?utf-8?B?MHpDVVYxTjgzNWUvSDRYa1F1N2xHN1JCMVlqa0hHWjNOK3o0cHkrYlZicFYw?=
+ =?utf-8?B?c09VajZScm96aDY4LzRmSE11aHIxTkdLMTVsMVJSNE5YZkdOS3NneEdyZXNL?=
+ =?utf-8?B?M1pkWnNOUUtSVjNQeGVWczNCWmJIaEFLK2lpenN2aW91VzNOWGpqYjlOazV1?=
+ =?utf-8?B?VUlPbWt5eWNac3hTTFRqS2N6VC9IWWl4WDlsMmFLTnhMdnhOOUZqYkY2V1FW?=
+ =?utf-8?B?NWVZNkdibjZxWmcwZVVFbTNORHpjM1V4U3l1RVRMNUtUbHhwU1pVRW85OThi?=
+ =?utf-8?B?STFwVWg4QlNQY3lsY3VybWFoZEQzWGkvcDgxTzRHVk4vb2xLejI0WE5xY0hX?=
+ =?utf-8?B?dGhMeU5oTHNEMzQ1UTgvckVQT2hGWFFsbUZTY3RZQ2tjSjZkS2FtSkdmdjlW?=
+ =?utf-8?B?eS9wTXZnTzFCSFN0eVJoQ3lUSFRHMWliSzdlVkJ0blhqL2ZvL2cyLzJnYytn?=
+ =?utf-8?B?eEJ5RW5FVnhnMXJ5Q3FDSEs0UklMT2pIYlJOcjBGQ0dYTVhvQkh0ejR6MCtC?=
+ =?utf-8?B?SjZyWXNkS2RMejREc1k0K2lWV2Vxc3dYRDJMYytZM1JWcnk2WWpRWnBuM3Ev?=
+ =?utf-8?Q?+BWN2jTvUwc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V3praElTSzh2bmZNV1M4dm1sRWlaTTZOQzBNZ1h2enJBemNSU211RFlFcnp2?=
+ =?utf-8?B?anlyYUdDd0o5Smx4ckxTQlYzRElQMkIwYUdseHB4VjFOYTFreGptVGFncUlH?=
+ =?utf-8?B?WmQwVitFbW9ZQjdFbjVDcGcvZTAxWmk2RmZMcUJmY2M0MjRzUkx3aTkzcmg4?=
+ =?utf-8?B?T3A2anF1V1Z0YkxBMitjbnRQbUtwa0pPcVJKS25wNEhzV1BGaFVEQU0xeG9q?=
+ =?utf-8?B?Qm0yeTFncEVFbUNMV1k2L1huaXBDaldVM25lZFMxQkFad1JTTEF6NU5lOSsw?=
+ =?utf-8?B?YTdudDJSY0VaWkxrRXVqaVZ6MkFSbklqVU9lU3pmM2wyMlZkV0t0ZE5RZUVh?=
+ =?utf-8?B?ckJnRkIyL28yNDFuc1hPWE5LcEZSUTQ4djArQXF0SmFkUlJTL2lrVWxaQU5n?=
+ =?utf-8?B?dEp3RDBQOU9LTGNjbTFLRk5yVGU1bWdEc3FlVG5iN3BJMDlhQy9Pa1lwVW9v?=
+ =?utf-8?B?ZXZBVDUvdSswWkM3YndGUWNHR2lYM1lQY0JPMWJFQXNKOGEyR21SVHl3aGFH?=
+ =?utf-8?B?UWFlTDR0VURJM0xSTitoMjVyYm9CNzlNM1BEMDFHdGgyemxaeDJFTlF3YlRT?=
+ =?utf-8?B?OWZJMjM2bjcrSUhvRFZzcXEwRERTSDBYTkVVVU1wb0JOUDRHdW9lNzNnSys0?=
+ =?utf-8?B?c3pxblEyT2I2eDhJUENxTFFvL2N2TEVwWllTYzg2QlNQczZBM2xoMS9NSEd6?=
+ =?utf-8?B?ZDh5SjlXazBsd0V6cnFxRkwvUWNGRmdwMWdjcFRKaDV0NkVHUGpjSWRvek00?=
+ =?utf-8?B?RW5ZVjFYTzV0ZHVYaDliaXVpZkFIOUZsb0s0ajUvMUhaQVJpaDVXVE9rZ3pX?=
+ =?utf-8?B?SmhVNzFpdGVEL1ROQnh3OVptOGZWZG00WjBqdlVnL2ZZY3orN0VNMHBuVUNB?=
+ =?utf-8?B?RkoxeVZOSWwxSFJjMVBzKzBMQ0pZSVlMS2xubjFaejY4a0pUZ1ZRY0ZJcEM5?=
+ =?utf-8?B?eEs4SHE5UkNIaU96ZVo5OUxiUnFKS1g3V1FBeWNoQUtORzZqZ2pHWXJ4aFE4?=
+ =?utf-8?B?ZDhxSmNMa2ZsSm90YWFuN2xHSFJSYXY2MlhIdVo3QmVZT1VIcnBMN0JTMVdZ?=
+ =?utf-8?B?ZEQxUVNJaVpMTjNyQWZOTTkybnBObmRmazkrZThxR29DMXZldi9jNkVGT2Nx?=
+ =?utf-8?B?SHA4emljZXRKT3hZM2xrTjR6SXdtQ1BjQmNERnZHem9XcC9HWTlHVVBkN0xu?=
+ =?utf-8?B?dmFQZHoybFhCZUhBbm1qWTBmWmxOU0prcFFleWlqY1VKWUxCeFNLajBBaGRi?=
+ =?utf-8?B?dnMyMHpCY1E3cTFTSXViZHl1cUQ2bG5qRHRObVRrZjB2SEtBblFWbktieFJm?=
+ =?utf-8?B?R0hwVi9hMFFvdDdseEd5YldUdUwyUTB5UksxQ0J4b1lwUm93cStWM0pzV1BW?=
+ =?utf-8?B?bjlvTW5na3hUb2tFbytIdjlQTkQ4WVRZd3B3OXB0VDZuejNXWWRWSWV0T0hl?=
+ =?utf-8?B?M2VOWTdiRFpGMmgwbGFUYnNkZVZvcVh3Z2UzOVhHU0d4OVBBSTdNOFkzc1Rm?=
+ =?utf-8?B?amYvVWErenc4K0pVNFdZYTZMdERDY2Z6TVI5ZnNKZzJPZEY0SXBtZFpvLy9x?=
+ =?utf-8?B?dkkzQ1RkS0pQOS9RdW9HTkNKRWw2RmozMlFjYXBwbTNSOG5tZzF0akhKdXp5?=
+ =?utf-8?B?d09Ia1BQYVNJRWFtcllGN3h3VVRrNHk1aGlaWHJzUGVsS2wzSFUrajhlUFVm?=
+ =?utf-8?B?OUZmMktieEhCelNIVTNKTWQwakdrQU9tck91SSsvRlYyVHFtTW8raGpNaE01?=
+ =?utf-8?B?Q0VnR0F2L255ZFBxU1o1Tk5nRFRkQVNseUQ4RWxJdStxa2gydTVUY2FuS0lw?=
+ =?utf-8?B?N3U0TXY3WVRYWkt6ODRrRnYwdXNNK2lOZTFyNS9CWDFmNnlWSDJxRHBjUnR1?=
+ =?utf-8?B?YS8xMUduL0VVYXJoOU1kQzVLSTBrcDB3dzhEVGtmNjhZUUlGSVlEWmhUSDhB?=
+ =?utf-8?B?NlFaa0h2eGVzTDB5QUd6OEJ5S1gzMjA4NmJ5NU5NcmtkczFSQUJBZXA0ZThI?=
+ =?utf-8?B?am02TjFheStqMWFuMENPeWdZMjRYMVZtZFlxclcwaGExamxueVdxeWVFWVRL?=
+ =?utf-8?B?d2ZDSExUUC83Y0szSUovdDN2Zmw5dWZtUHJaZkdsa0F4bjRuNVBDblI0SXNa?=
+ =?utf-8?Q?Jti8SWtjMo61iGONjUiBFH9vd?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ba5d654-30b1-4a5e-2381-08ddf989d98b
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2025 03:41:01.4149
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IA6tPRQzXr++lLaXjpohK9dnL+H+4EqzrF0Pr+XttEDxZKR+hbxcIhv0tZhVINUKvkrRab2L49mGV0z7ijK+xQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10263
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_203651_135852_4F9E5197 
-X-CRM114-Status: GOOD (  27.75  )
+X-CRM114-CacheID: sfid-20250921_204106_109185_CE13B8C6 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,156 +186,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cc: RISC-V folks
-
-On 2025/9/22 10:36, Zi Yan wrote:
-> On 21 Sep 2025, at 22:14, Lance Yang wrote:
-> 
->> From: Lance Yang <lance.yang@linux.dev>
+On 09/19/2025, Frank Li wrote:
+> On Fri, Jul 04, 2025 at 05:03:52PM +0800, Liu Ying wrote:
+>> CRTC(s) could still be running after the DRM device is unplugged by
+>> calling drm_dev_unplug(), because the CRTC disablement logic is
+>> protected and bypassed by the drm_dev_enter()/drm_dev_exit() pair.
+>> Hence, Pixel Engine's AXI clock use count(managed by Pixel Engine
+>> driver's runtime PM) and pixel clock use count could be inbalanced
+>> after removing and re-installing the driver module.  To fix this,
+>> add a helper dc_crtc_disable_at_boot() and call it to properly
+>> disable all CRTCs before advertising DRM device to user-space by
+>> calling drm_dev_register().
 >>
->> When both THP and MTE are enabled, splitting a THP and replacing its
->> zero-filled subpages with the shared zeropage can cause MTE tag mismatch
->> faults in userspace.
->>
->> Remapping zero-filled subpages to the shared zeropage is unsafe, as the
->> zeropage has a fixed tag of zero, which may not match the tag expected by
->> the userspace pointer.
->>
->> KSM already avoids this problem by using memcmp_pages(), which on arm64
->> intentionally reports MTE-tagged pages as non-identical to prevent unsafe
->> merging.
->>
->> As suggested by David[1], this patch adopts the same pattern, replacing the
->> memchr_inv() byte-level check with a call to pages_identical(). This
->> leverages existing architecture-specific logic to determine if a page is
->> truly identical to the shared zeropage.
->>
->> Having both the THP shrinker and KSM rely on pages_identical() makes the
->> design more future-proof, IMO. Instead of handling quirks in generic code,
->> we just let the architecture decide what makes two pages identical.
->>
->> [1] https://lore.kernel.org/all/ca2106a3-4bb2-4457-81af-301fd99fbef4@redhat.com
->>
->> Cc: <stable@vger.kernel.org>
->> Reported-by: Qun-wei Lin <Qun-wei.Lin@mediatek.com>
->> Closes: https://lore.kernel.org/all/a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com
->> Fixes: b1f202060afe ("mm: remap unused subpages to shared zeropage when splitting isolated thp")
->> Suggested-by: David Hildenbrand <david@redhat.com>
->> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+>> Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
+>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 >> ---
->> Tested on x86_64 and on QEMU for arm64 (with and without MTE support),
->> and the fix works as expected.
-> 
->  From [1], I see you mentioned RISC-V also has the address masking feature.
-> Is it affected by this? And memcmp_pages() is only implemented by ARM64
-> for MTE. Should any arch with address masking always implement it to avoid
-> the same issue?
-
-Yeah, I'm new to RISC-V, seems like RISC-V has a similar feature as
-described in Documentation/arch/riscv/uabi.rst, which is the Supm
-(Supervisor-mode Pointer Masking) extension.
-
-```
-Pointer masking
----------------
-
-Support for pointer masking in userspace (the Supm extension) is 
-provided via
-the ``PR_SET_TAGGED_ADDR_CTRL`` and ``PR_GET_TAGGED_ADDR_CTRL`` ``prctl()``
-operations. Pointer masking is disabled by default. To enable it, userspace
-must call ``PR_SET_TAGGED_ADDR_CTRL`` with the ``PR_PMLEN`` field set to the
-number of mask/tag bits needed by the application. ``PR_PMLEN`` is 
-interpreted
-as a lower bound; if the kernel is unable to satisfy the request, the
-``PR_SET_TAGGED_ADDR_CTRL`` operation will fail. The actual number of 
-tag bits
-is returned in ``PR_PMLEN`` by the ``PR_GET_TAGGED_ADDR_CTRL`` operation.
-```
-
-But, IIUC, Supm by itself only ensures that the upper bits are ignored on
-memory access :)
-
-So, RISC-V today would likely not be affected. However, once it implements
-full hardware tag checking, it will face the exact same zero-page problem.
-
-Anyway, any architecture with a feature like MTE in the future will need
-its own memcmp_pages() to prevent unsafe merges ;)
-
-> 
+>>  drivers/gpu/drm/imx/dc/dc-crtc.c | 50 ++++++++++++++++++++++++++++++++++++----
+>>  drivers/gpu/drm/imx/dc/dc-drv.c  |  5 ++++
+>>  drivers/gpu/drm/imx/dc/dc-drv.h  |  3 +++
+>>  3 files changed, 53 insertions(+), 5 deletions(-)
 >>
->>   mm/huge_memory.c | 15 +++------------
->>   mm/migrate.c     |  8 +-------
->>   2 files changed, 4 insertions(+), 19 deletions(-)
+>> diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
+>> index 31d3a982deaf7a0390937285c9d5d00100323181..45a87df1ad6a8bd768aa5ed38d6f03f14052b3d7 100644
+>> --- a/drivers/gpu/drm/imx/dc/dc-crtc.c
+>> +++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
+>> @@ -293,6 +293,16 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_state *state)
+>>  	dc_crtc_queue_state_event(new_crtc_state);
+>>  }
 >>
->> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->> index 32e0ec2dde36..28d4b02a1aa5 100644
->> --- a/mm/huge_memory.c
->> +++ b/mm/huge_memory.c
->> @@ -4104,29 +4104,20 @@ static unsigned long deferred_split_count(struct shrinker *shrink,
->>   static bool thp_underused(struct folio *folio)
->>   {
->>   	int num_zero_pages = 0, num_filled_pages = 0;
->> -	void *kaddr;
->>   	int i;
+>> +static inline void __dc_crtc_disable_fg(struct drm_crtc *crtc)
+>> +{
+>> +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+>> +
+>> +	enable_irq(dc_crtc->irq_dec_seqcomplete);
+>> +	dc_fg_disable(dc_crtc->fg);
+>> +	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
+>> +	disable_irq(dc_crtc->irq_dec_seqcomplete);
+>> +}
+>> +
+>>  static void
+>>  dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_state *state)
+>>  {
+>> @@ -305,11 +315,7 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_state *state)
+>>  	if (!drm_dev_enter(crtc->dev, &idx))
+>>  		goto out;
 >>
->>   	for (i = 0; i < folio_nr_pages(folio); i++) {
->> -		kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->> -		if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->> -			num_zero_pages++;
->> -			if (num_zero_pages > khugepaged_max_ptes_none) {
->> -				kunmap_local(kaddr);
->> +		if (pages_identical(folio_page(folio, i), ZERO_PAGE(0))) {
->> +			if (++num_zero_pages > khugepaged_max_ptes_none)
->>   				return true;
->> -			}
->>   		} else {
->>   			/*
->>   			 * Another path for early exit once the number
->>   			 * of non-zero filled pages exceeds threshold.
->>   			 */
->> -			num_filled_pages++;
->> -			if (num_filled_pages >= HPAGE_PMD_NR - khugepaged_max_ptes_none) {
->> -				kunmap_local(kaddr);
->> +			if (++num_filled_pages >= HPAGE_PMD_NR - khugepaged_max_ptes_none)
->>   				return false;
->> -			}
->>   		}
->> -		kunmap_local(kaddr);
->>   	}
->>   	return false;
->>   }
->> diff --git a/mm/migrate.c b/mm/migrate.c
->> index aee61a980374..ce83c2c3c287 100644
->> --- a/mm/migrate.c
->> +++ b/mm/migrate.c
->> @@ -300,9 +300,7 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
->>   					  unsigned long idx)
->>   {
->>   	struct page *page = folio_page(folio, idx);
->> -	bool contains_data;
->>   	pte_t newpte;
->> -	void *addr;
->>
->>   	if (PageCompound(page))
->>   		return false;
->> @@ -319,11 +317,7 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
->>   	 * this subpage has been non present. If the subpage is only zero-filled
->>   	 * then map it to the shared zeropage.
->>   	 */
->> -	addr = kmap_local_page(page);
->> -	contains_data = memchr_inv(addr, 0, PAGE_SIZE);
->> -	kunmap_local(addr);
+>> -	enable_irq(dc_crtc->irq_dec_seqcomplete);
+>> -	dc_fg_disable(dc_crtc->fg);
+>> -	DC_CRTC_WAIT_FOR_COMPLETION_TIMEOUT(dec_seqcomplete_done);
+>> -	disable_irq(dc_crtc->irq_dec_seqcomplete);
 >> -
->> -	if (contains_data)
->> +	if (!pages_identical(page, ZERO_PAGE(0)))
->>   		return false;
+>> +	__dc_crtc_disable_fg(crtc);
+>>  	dc_fg_disable_clock(dc_crtc->fg);
 >>
->>   	newpte = pte_mkspecial(pfn_pte(my_zero_pfn(pvmw->address),
->> -- 
->> 2.49.0
+>>  	/* request pixel engine power-off as plane is off too */
+>> @@ -337,6 +343,40 @@ dc_crtc_atomic_disable(struct drm_crtc *crtc, struct drm_atomic_state *state)
+>>  	spin_unlock_irq(&crtc->dev->event_lock);
+>>  }
+>>
+>> +void dc_crtc_disable_at_boot(struct drm_crtc *crtc)
+>> +{
+>> +	struct dc_drm_device *dc_drm = to_dc_drm_device(crtc->dev);
+>> +	struct dc_crtc *dc_crtc = to_dc_crtc(crtc);
+>> +	int ret;
+>> +
+>> +	ret = pm_runtime_resume_and_get(dc_crtc->de->dev);
+>> +	if (ret < 0) {
+>> +		dc_crtc_err(crtc, "failed to get DC display engine RPM: %d\n",
+>> +			    ret);
+>> +		return;
+>> +	}
+>> +
+>> +	if (!dc_fg_wait_for_frame_index_moving(dc_crtc->fg)) {
+>> +		dc_crtc_dbg(crtc, "FrameGen frame index isn't moving\n");
+>> +		goto out;
+>> +	}
+>> +
+>> +	dc_crtc_dbg(crtc, "disabling at boot\n");
+>> +	__dc_crtc_disable_fg(crtc);
+>> +	dc_fg_disable_clock(dc_crtc->fg);
+>> +
+>> +	if (!dc_drm->pe_clk_axi_disabled) {
+>> +		clk_disable_unprepare(dc_drm->pe->clk_axi);
+>> +		dc_drm->pe_clk_axi_disabled = true;
+>> +	}
 > 
-> The changes look good to me. Thanks. Acked-by: Zi Yan <ziy@nvidia.com>
+> look like dc_crtc_disable_at_boot() call by dc_drm_bind(), does it call
+> twice without call unbind()? Most like other place paired function have
+> not correct.
 
-Cheers!
+It could be called multiple times by bind() without calling unbind.  But
+it's fine and by design.  As this function checks FrameGen frame index
+moving before disabling CRTC(no moving with a disabled CRTC), CRTC is
+actually disabled at most for one time no matter how many times bind()
+is called without unbind().
 
+> 
+> Frank
+> 
+>> +
+>> +out:
+>> +	ret = pm_runtime_put(dc_crtc->de->dev);
+>> +	if (ret < 0)
+>> +		dc_crtc_err(crtc, "failed to put DC display engine RPM: %d\n",
+>> +			    ret);
+>> +}
+>> +
+>>  static bool dc_crtc_get_scanout_position(struct drm_crtc *crtc,
+>>  					 bool in_vblank_irq,
+>>  					 int *vpos, int *hpos,
+>> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+>> index 04f021d2d6cfc93972aa8d9073be24d347152602..f93766b6bfbfae8510db05278d104820ca0719c4 100644
+>> --- a/drivers/gpu/drm/imx/dc/dc-drv.c
+>> +++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+>> @@ -17,6 +17,7 @@
+>>
+>>  #include <drm/clients/drm_client_setup.h>
+>>  #include <drm/drm_atomic_helper.h>
+>> +#include <drm/drm_crtc.h>
+>>  #include <drm/drm_drv.h>
+>>  #include <drm/drm_fbdev_dma.h>
+>>  #include <drm/drm_fourcc.h>
+>> @@ -96,6 +97,7 @@ static int dc_drm_bind(struct device *dev)
+>>  	struct dc_priv *priv = dev_get_drvdata(dev);
+>>  	struct dc_drm_device *dc_drm;
+>>  	struct drm_device *drm;
+>> +	struct drm_crtc *crtc;
+>>  	int ret;
+>>
+>>  	dc_drm = devm_drm_dev_alloc(dev, &dc_drm_driver, struct dc_drm_device,
+>> @@ -118,6 +120,9 @@ static int dc_drm_bind(struct device *dev)
+>>  	if (ret)
+>>  		return ret;
+>>
+>> +	drm_for_each_crtc(crtc, drm)
+>> +		dc_crtc_disable_at_boot(crtc);
+>> +
+>>  	ret = drm_dev_register(drm, 0);
+>>  	if (ret) {
+>>  		dev_err(dev, "failed to register drm device: %d\n", ret);
+>> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+>> index eb61b8c7626933adc7688f046139e2167665dad1..68e99ba7cedbca1b8bdc0d8ced7a610a1056bfc7 100644
+>> --- a/drivers/gpu/drm/imx/dc/dc-drv.h
+>> +++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+>> @@ -50,6 +50,8 @@ struct dc_drm_device {
+>>  	struct dc_pe *pe;
+>>  	/** @tc: tcon list */
+>>  	struct dc_tc *tc[DC_DISPLAYS];
+>> +	/** @pe_clk_axi_disabled: disablement flag at boot */
+>> +	bool pe_clk_axi_disabled;
+>>  };
+>>
+>>  struct dc_subdev_info {
+>> @@ -96,6 +98,7 @@ static inline int dc_subdev_get_id(const struct dc_subdev_info *info,
+>>  	return -EINVAL;
+>>  }
+>>
+>> +void dc_crtc_disable_at_boot(struct drm_crtc *crtc);
+>>  void dc_de_post_bind(struct dc_drm_device *dc_drm);
+>>  void dc_pe_post_bind(struct dc_drm_device *dc_drm);
+>>
+>>
+>> --
+>> 2.34.1
+>>
+
+
+-- 
+Regards,
+Liu Ying
 
