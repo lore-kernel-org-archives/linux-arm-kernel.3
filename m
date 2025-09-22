@@ -4,161 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B46CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333C8CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pkQkjKdJ+2qK38fArBVAOHogOlPfANhySQH27FjV4Q=; b=FnlrRxUgZzNBr//K4InuWQL6Ns
-	06hbwb6sSJdjZtks6xrw+WkN6gcG0sHRCt5eDWB5VLXedprX7f467rDXC5PYbCxpy3A/BDcz1Q3bm
-	pE3cbDH2jX+/2+k+G4vVCV8WhIMClE6dJ7b7ANORB9Yr/hHvVW9Zxu2IonZMsPAL+Fdm24qcppIU9
-	HPlFS5kt4WLuBnkc9YqmPAwYJsxidzBwY/ZsIn/0BWRmNP7lZ8kf1RhUXoWVGtWngf5HgSKzOwi7A
-	bwrmhkuCiiBtm+wU6Xy1tCdrrcD9xSddxkYOfcOtbgvCL6rxQQHD23W2wpHT7yb0p99uPGT+teNRS
-	OPX2rCsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=; b=PX3lVs2fFqLDeGh+WM5DdpmivL
+	2t6a3k6fZ9MPloHCwiICcibS0pfQAA5gq/7m415zUwXGHvrmA5eXMFbIoJDyXA7ijUUMgnBSur/SS
+	Ez2EFxQLsYK54Bsjo2UpNW3eM6em5nEifUecBEUfXqdzzHx8PYIiIbzVYCVFQ87ib9JBlxaG/T+p1
+	/hiDKZtjOaIuLaFMJIO1hk1wQeInmzku1rSWL2mKXAIRknSqon1oMtfRryA7nkMNo4pwj7MUusa6V
+	QWtmYK1xY0KDoT3vVprYjlI1cwib0l4jEL3DIIW0CGT0Ew5lmJ883szLnZrbJc7tCVHQlzxrXI4GV
+	YqmC/VsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W15-00000008YuL-2021;
-	Mon, 22 Sep 2025 02:10:59 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1v0W2u-00000008ZCy-2rSk;
+	Mon, 22 Sep 2025 02:12:52 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W11-00000008YtN-2tWX
+	id 1v0W2q-00000008ZCY-34bg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 02:10:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TUk8/AbN4p0AY09xtGPaci2x5nLey6oRI2DMuHdzP7W0A00oeXYH0yZS8EbStKQKePVfFujWU/dDiov7GdnYBurn2cFHhrAMLNIxMLvWizqD+wTJBaPGI2aeDzLkwkC3EXigmrZAcXkv2ylS3KG/EFY2Ep4hb+SXZhwXa2D50Z0yXy8sVm9TVExZHDyTmh8LHzLzlbB+dORj0zzMZEA2PXVMLiCl1f9bxIM9+Wlll/b+bveLCKCSSAIYrDof85fLBfdCi9wxoWOXcav0DE5SzZEXBsxs+0D/BqJ07cQqYlGtWmhm/PvRk0+V6CP68+ucgWryILCpidVgVZ4tL01sQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5pkQkjKdJ+2qK38fArBVAOHogOlPfANhySQH27FjV4Q=;
- b=NkjvAtPG81ZhR1wCQ4eKbH0FQdFFXbjq9/2dJvWY1ji+sI/MufdCimba/jV1Wxmc8HGI1OwnE+C37IMgkPJZRbA3RGpN8Kkb7DLv2DOUgIVH+ZfvhbvVWnXuqai9O37e8gzKV7LIvldQSy/q18mC1x3s1DRFTqSCMyl8QBzeEqhAdPDITIkypaHxjlqwSF+lGFF7I1T/cw8f5Gma6TWsk1dDvIVFuDygaQ1AFKfGA3sK4qBkzL5bnLphp7d3kho2y7o8h98GP/xBTU50GTRn4nVzOxkpBweTGJleL/wT8/F9BhWKum0olYiQO3BaMKUkgieKkMSySp1eGuL08DfpeQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5pkQkjKdJ+2qK38fArBVAOHogOlPfANhySQH27FjV4Q=;
- b=P9Ey0BsXUffo3qH/bAXcOIdLEZx+VbI5tWj0utaqljME+5Vkr0ARgkjcBwqYKTXJ4xJycEW7q7S7RSsoTYkdGjlzLx2XNVwAB3AXw5F7T5T5YahwJxGhdvaHs/Aa53df6HmhI0w7CoUCtT/cxdUF3zVAPlbeqJuOwbL3teAdM+GRBz5jOvbduRNz7M0NKz7eV+VLwLIPJmvYUJK3upeB1Lv6Sr9tLTPt+2L6zjCCm5B4Z0QVX650b2ZrMk9QjNGpzxp6nVTlUCwO2QToQ6DFcmboetrwTYRg69N9rdw7p3d5W5q5DcZ5p2oNNKrORhmrUF3xCFIQIGr5NBIQtYvPsw==
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by VI0PR04MB10640.eurprd04.prod.outlook.com (2603:10a6:800:26b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
- 2025 02:10:49 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%7]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
- 02:10:49 +0000
-From: "G.N. Zhou" <guoniu.zhou@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Frank Li
-	<frank.li@nxp.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Alice Yuan <alice.yuan@nxp.com>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: RE: [EXT] Re: [PATCH v2 0/5] media: imx91: Add ISI support
-Thread-Topic: [EXT] Re: [PATCH v2 0/5] media: imx91: Add ISI support
-Thread-Index: AQHcHjItDiC1XWqz20ucNhsKpsHWoLSZ3rJggADlEQCAAyNjAIAAazGAgAA8P3A=
-Date: Mon, 22 Sep 2025 02:10:48 +0000
-Message-ID: <AS8PR04MB9080087B96514BC5261C4838FA12A@AS8PR04MB9080.eurprd04.prod.outlook.com>
-References: <20250905-isi_imx93-v2-0-37db5f768c57@nxp.com>
- <AS8PR04MB90801C7CE8D06EDC8CAA6750FA11A@AS8PR04MB9080.eurprd04.prod.outlook.com>
- <aM2AurOTxTB4raSg@lizhi-Precision-Tower-5810>
- <20250921160704.GA29453@pendragon.ideasonboard.com>
- <20250921223043.GF10540@pendragon.ideasonboard.com>
-In-Reply-To: <20250921223043.GF10540@pendragon.ideasonboard.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|VI0PR04MB10640:EE_
-x-ms-office365-filtering-correlation-id: 53fbc164-2e14-4cf7-cb83-08ddf97d3fa3
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?hwzEICt3gUE8/LsI3zTntZJ9Z5ZtkqOkeQSbFz3x5nIA8XaQIjMaMHP0lcuu?=
- =?us-ascii?Q?Os2NPpYwen08MLloR+ZmFGfHs309vbZtNLUC20RtOnIRG6l3fXsTQSpBzvyJ?=
- =?us-ascii?Q?TVQwArtgPCWzN0k3vyBsSIsFnkOl8+2sfBzyYrtL1kVf1FkoZyN67mGTvYg7?=
- =?us-ascii?Q?OpmSk0WrMMWcmlm6MYgGnjb7NLa/sPcsfu3O4YXQkUMYI6B9GZgVPcPuDmEZ?=
- =?us-ascii?Q?sLIyLnz2DHkvutIr11NFZ6pxYq9MSBHuxhzkcvfc48YOdF9X9/XFtMeIqD+Z?=
- =?us-ascii?Q?ikCaztvTIf0cuzbstZ0iDjmHrARD4fY2J7WP4AwFzbw+SuSuA0pB56ozLnx1?=
- =?us-ascii?Q?bQf2AuIRkkCPKHVRZ+jVrdsCozX/6Ydi76Mk0wOnskU9yHGhywwzk/jBwltQ?=
- =?us-ascii?Q?4f0ERYiI3SAihEGcQv9rrrBLfYk+32QqH/Ludqt1Q4UOQ5gKgjZzGVb3EbrA?=
- =?us-ascii?Q?JM4w07R62BwqsHa8bwWqWvAjoyiu5oUaesS63Q0xc1N83+2WFBbQNdDR1H29?=
- =?us-ascii?Q?GOF0ASVy/1vlbCDEgUXNcnX/+M0FH106QsoyGxJy2WQdqUaVqwnZ5ryloNwG?=
- =?us-ascii?Q?Wklf1k27sG1DreiMneOCl32Y73UxvlYyZwhBgTc8onvBXVyBxtyD2XYlklnd?=
- =?us-ascii?Q?5EmtfWBB9L5ygpKX0KhCnRCcpG+aDvMl/BjGWwbvRwLabC1rxw+0kgDloxJj?=
- =?us-ascii?Q?JGqHYKwDepetKE7h9YMBYuMTqiOBMF+sdF5y89y3x7xSASW4H+mZY85A9STR?=
- =?us-ascii?Q?zNOqbULEp6sanZUlXF2YsayS00Y0FDXvv3I28Sj9jUeCl64MYGlXn3czXMGY?=
- =?us-ascii?Q?pP5YM6ZFHKuDOA+Y0QxNqrvRrmNOTM4f9EWuIA4aUhWBevFMkEnSmGW7SUlt?=
- =?us-ascii?Q?/aVdqGr1FLDA/a8bEE+/Vzeqe8Ds1GJaIGfo+q7AnIcOBOZ+elLrSSbaVAXE?=
- =?us-ascii?Q?9R7dUCaL/u+JQ7bdvLpnxWiHOHugojxD490sJOUOYynO32uRPwkXzm5jvCrX?=
- =?us-ascii?Q?VSulSkWuMX7Y2uB80UjThZFqu4T3ILQf9bSPp+g/HiBwULUX4X+ekUMNlxkE?=
- =?us-ascii?Q?ZiAzmDwTY8g6SIQGpwPgV++YWBQS6P11/D+df41sEYLYjmr7YVqLMFhbbXpl?=
- =?us-ascii?Q?LCOHLRD2HBvwJjGccxiYVZt7XAEOSNkDC2wMEJnud/FDlSALJjT7OoLWrXqj?=
- =?us-ascii?Q?AVaovJzvHQl5M5OByQ7CRYOmP0D6BtJtTS7AthU+q9afdZ62Y7TMmmIHwwnm?=
- =?us-ascii?Q?OO4BrpXKLoOyfKpA29hQkSc0jutCE+wmyZAtd/Re7eHpU/xPNRkhLTfHjOZ0?=
- =?us-ascii?Q?RphLlq/uDX4n/8lyH1tUcwTOk8Ixs3UB1KUbiqq4e9IQ0rphSOV/TOxCnG63?=
- =?us-ascii?Q?k7hXZw2Ptw8ZTGX8zLgU16Y0Bfqq5Tz12UC707iN1KehvSbizjBiUAx4qRTI?=
- =?us-ascii?Q?dC9Sb0dBGyU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?isGbGuZQKr2n92x2cNMzyMj64rF6vADRqkQT8PYdE10utjkXMpm7k1/jZO9s?=
- =?us-ascii?Q?t53m9kE3dDjAEoAIpcfum6ggK0PK7L/CVBt+YCX1z3xD3Y3bozfEnawvf37Y?=
- =?us-ascii?Q?ZPAYpd2H47igmSWJiitNxccdytS46t4vxYyTeBQsNsYexPwGrT3qbq7t0BaS?=
- =?us-ascii?Q?EaoTtdcSOqZWmUvwSOn14UAEgzOI6WIAV2R89WcDkaUqzreXkydo1UFFii8t?=
- =?us-ascii?Q?a2E2rqp5ZxvTynuVxgcVwPsheIcodR14eznuLu+UMjhDzl7FYW/MF07cX8r8?=
- =?us-ascii?Q?jChhMnkUolzCJwPYcwfbV8Yr5z1PxykVkffzwvgGZ2+LWMutQSmWC9FUSbAn?=
- =?us-ascii?Q?W15c9XqU3uov9OnB088W/wnLMvd0L7LMgn2JZv5hOlqFp2PZYfA5oRbqaK6P?=
- =?us-ascii?Q?IgqSlZYJ873RYBA1F0jYu2uqGVQ+lQpqbMBPtRwxm8T2lbGcInz/c78AlkHC?=
- =?us-ascii?Q?0vas8x0u3rLNJQWP0tsSOgNnHJwcTB3Gg/jLpZ10LKdYrQ2UMODqeCGj37kl?=
- =?us-ascii?Q?e6cM46crsKi8pBr0h/tJROmE7zU3/e8qn4OygIWTwnWBEPDe5k9CgdnxrY7N?=
- =?us-ascii?Q?hBFTAl9Deq6jMBFtwgUOMtZSFC5ijOSIeVDVCVBJ1Trxv822oyXCc9vFrefS?=
- =?us-ascii?Q?tWtl9ZllVfaf2tQV8DoqWLxu7iXsV0y046ufvkEk6BV38SN++5lbVKb+YxY4?=
- =?us-ascii?Q?Ky2Fz3UYj32/RTA/KETnHsUIokV70K1WkCZMNlerzGxrPqJzm10XHcKnqB7H?=
- =?us-ascii?Q?Vq1i8v7/+c9DVfhXN7XFhNihzzWgjKDVd8todgkXMqQbycfK+21yYDrfxgRa?=
- =?us-ascii?Q?mG5zKPn9HgP8nj6VXXljVqSh6S3sJQ4tpZNB35+PxwEuAzQpcmZeYVs0rMvd?=
- =?us-ascii?Q?cAVe9R23CHkjBnVrBbs+FXwuyZfkDgRMTuRDl6bHimKuHmmgfgro6cU4fpK1?=
- =?us-ascii?Q?foSWZ9V8uRv3aKKmqtVY2tHbO/2kzzVqqnFD1IPl8Bw1b2h8bkEPgqArRSsp?=
- =?us-ascii?Q?HghxT0kBbafoepBm8/DxYxj6FcV0qxFFCn0UkF+sclMinhexx13H1HukCiWz?=
- =?us-ascii?Q?8fNuUg6oVANbIoszPumZ1Wve8cIdy7Qzp9euVQ87KiMqrhsLLM8Ino2jp/u+?=
- =?us-ascii?Q?rwOQvby+HRbJMT8VYPrj0WERABq88mxWSB7qOAJZXA76+G+cnbcZSSIZ8ZAy?=
- =?us-ascii?Q?0KuvuVK2oRjz1p1pJAIVhcYH+HSg/AvyXwU7ZtIxS/LAV6+VHMtiCFbc11He?=
- =?us-ascii?Q?Jhg+y18m0vF+NiQ3yvyXXHiyKtS6vyZy5iuDM835b4za2nKtnZb5gjQ7kybQ?=
- =?us-ascii?Q?1qmFEYhHNnxNQnDclq2W0dunsLsOv/sD7qP3/v6NGe46ai2CYfnmCPhLsKzv?=
- =?us-ascii?Q?IsWq4eFno+8TXi8MEf4pBnUiYPjVU4fiWCIhtsjmVaGF2Tkfzi6T3CA0MvrT?=
- =?us-ascii?Q?uFyW78tIfhb9p/B8sHLg6mOV+OqXNWWLdMeeMx1UVLfXkQ9CKUE/AKmeBlWC?=
- =?us-ascii?Q?qvaqAcbO4O9cJdrMZnyIAEadpdGsIQ699IU5Xn5YJKmT43GuPzdQ44qYMJBe?=
- =?us-ascii?Q?VXTJfRYrIQOQgJLXIZcxHXimDDYsw3IeXtQGQ0p4?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 22 Sep 2025 02:12:51 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58LAC3Kq018265
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:12:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=; b=GlmbIEk4im3vfpRO
+	CY/NvX85qe/L8GfIG9AqXB7WWZS/YiGGWf6gLu2zJYi2fJEU/B6ji+U1/dANlHKj
+	ftwF7n5cweiZ0Ncv/tAqyMA+WPcQ3brNz1c1UeOGcWL7EjWVtsDIpsI8gXQECc1C
+	PWN58CslKhHYh2+Cz2/t4Wf2jlDKeUbjrD3Tb6K+oWB8lhM5q+2V/CMPUac2JgLg
+	HUaKfwkB+/Bd8Qjb7BF8dH0J4vbqZfI8EjSCMOCQDIWChX5knIr58RReDZlHIPI6
+	+ZJmzMVM30rVqQrQZd5bg84+3PEu1gATBS7RSfVgHcxfPqirGf3y5c9PQcHof1nA
+	PpY2fA==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499nektwan-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 02:12:48 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-77e7d9ed351so1842094b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 19:12:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758507167; x=1759111967;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iC9WgX+KWDNWsi9f4O8Igv8H9OJ4FvN98LJ6PC/Ghsk=;
+        b=AUsTj1B7GcXugWSlnu5BAtJ/z/fuqWSPTBkqu1tFWbzOLUm0asXHJc1NCJ48lxxM54
+         RP2WFBP5+lHaWN6qHaSHSvqSUwDawwAZ1SaNJGlIWWj9gLyAWz0OxS83easbZzpgedcV
+         JBjCztFRBk1Q8g9JQNiqDSPZC2Ry6v4gpxB/PXhM3nrFK9Rn3CzS7QtZyKBdPJb8oEpC
+         jgDhrz+U+yNwtbRiqVhCMf4rjPdiv+Pn9ssRE0IDNWPmH7sJI2UwSImFyEboTnfAZjBV
+         iNLbPUaWE9mZP/4Tkm+NjMZgBg/pivG5hbPdWjVaOxjcPWyUfUK35iIzBf46KwiP/S6Z
+         y7BA==
+X-Forwarded-Encrypted: i=1; AJvYcCXXaLv7hDpZhvJqjF0tCT1xKKBvyHXWdkNfUVH5A7Ho6tbxtThGyWo2uDVYFtyip7FgRNeZnSwlXpD6UZxIlWPC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQPGH7LHmA6lZ/vj4oMSV9vZwHao+wwD4KoUKeixFkmoi3m99Q
+	96kT/n0yUgIe+09YcKZzpWkPknui6mZaI7vFOwq//JRzq5rEcbAHL1eToKoH3l8EI4JAUinTtr+
+	CYPtDRbjjyELRDqn/yp+rA15RgP8mgS1VVNS4lGBsr7ILRzwJjWXxyrSmj1mtswveJNOq01S83P
+	FoVA==
+X-Gm-Gg: ASbGncvUICtveuVBlTqW626rRkWhzoydjnacmbgObeXqSzaelIH6ea+ubJ7Z0maWhfU
+	MAFvPbBd9xUOj9ucdVCGSHfjJLY1E0XdFNb/ZcCC38OEOTh0PkNWirNPEq3VvkmxMvkvLgAl+W5
+	0Uy/J6T/wzDMlK1pSuaMPs533U9F1A7GdG54n/gCuvy6U6x9I6KpfIX5AlG++GM19ALpXNlMCAR
+	K6IEM3s/P1oGwL16CLqfivLkr+4C/FFFRquG08na19rFbBtkNMjOI8hLU6or/hl/LbL2nxIq26K
+	Ig9OdGmDNX6Yj948qZz3WyslwdM9oLebgjbBC5fMqf+kmrCfQFMHdgQ17ubnbZ97Uvyn
+X-Received: by 2002:a05:6a00:4c16:b0:77f:d23:a1f3 with SMTP id d2e1a72fcca58-77f0d23a2d7mr12312842b3a.6.1758507167154;
+        Sun, 21 Sep 2025 19:12:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF0nJwt8VyPwRTk5zPxaaYSfuQQPElbSeruuL1494AIbjCBXPOMTC/N27eggzM78XkyrBx3Tg==
+X-Received: by 2002:a05:6a00:4c16:b0:77f:d23:a1f3 with SMTP id d2e1a72fcca58-77f0d23a2d7mr12312805b3a.6.1758507166625;
+        Sun, 21 Sep 2025 19:12:46 -0700 (PDT)
+Received: from [10.239.154.126] ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77f2863912dsm3298202b3a.26.2025.09.21.19.12.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 21 Sep 2025 19:12:46 -0700 (PDT)
+Message-ID: <9fb7e6be-a952-46af-a224-15cf8fe3bc7f@oss.qualcomm.com>
+Date: Mon, 22 Sep 2025 10:12:43 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53fbc164-2e14-4cf7-cb83-08ddf97d3fa3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Sep 2025 02:10:49.0211
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: B8lgo585QeQpz7XjnkR2vI97lTJz/aGep7Rw6AV2aD9pffpR71MZxQAjGQRNFfK3OSllvw2K80baeakAJSSQ/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10640
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] firmware: arm_ffa: Add support for IMPDEF value in the
+ memory access descriptor
+To: Sudeep Holla <sudeep.holla@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Lixiang Mao <liximao@qti.qualcomm.com>
+References: <20250919155216.34074-1-sudeep.holla@arm.com>
+Content-Language: en-US
+From: Lixiang Mao <lixiang.mao@oss.qualcomm.com>
+In-Reply-To: <20250919155216.34074-1-sudeep.holla@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: DnBNQvraEqAPLYGcEMKt0qjr24QAhqh8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDA0MSBTYWx0ZWRfX0ZI3sNtff2P1
+ WmGz2AndAo8zJ5MwvqloZ1NZrODKIalRlnrcyg6bLl5jl5yZhwAlH7fikq5EnI225o6zvzrFuC+
+ Qs+eHS9owy9PdFP3IgQbSh9nToPCAQZXxijq8hMynvyzpmB9Te0o5YeCOwxYBObmg4kL3vhoglL
+ tNaIAPmjBuM9svkpf+5WsocNL/gDgAi/AtAANGvPYCWbkJ562ZdE+wg7eZQ1kk0Z7I7o24fZGwh
+ j0oScCuEQfHcnsw1tKCS7AztUHAzG1uEJlgALreHEHdpAtlKYvaqImrlJh8DCSierpHs/MhyELp
+ Fn7KldYRYaxnihc3vT0R3tE+F5rPU820YBXRHFzInOmo7acsJSmsqrQp2US9U8F2skKcHVyOAmB
+ AQy5+4zw
+X-Authority-Analysis: v=2.4 cv=b+Oy4sGx c=1 sm=1 tr=0 ts=68d0b0a0 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=aaNDuw_hkKaaLFpP:21 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
+ a=7CQSdrXTAAAA:8 a=0PoAz1LEv9j6ZUXw-RcA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: DnBNQvraEqAPLYGcEMKt0qjr24QAhqh8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-21_10,2025-09-19_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 clxscore=1015 phishscore=0 impostorscore=0
+ malwarescore=0 priorityscore=1501 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_191055_886667_88F35003 
-X-CRM114-Status: GOOD (  37.53  )
+X-CRM114-CacheID: sfid-20250921_191248_787580_68F83BD6 
+X-CRM114-Status: GOOD (  32.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,135 +130,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+I compared your fix with mine which is tested internally, looks no 
+obvious difference.
+I think it is good to mainline.
 
-Many thanks for you reviews.
-
-> -----Original Message-----
-> From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Sent: Monday, September 22, 2025 6:31 AM
-> To: Frank Li <frank.li@nxp.com>
-> Cc: G.N. Zhou <guoniu.zhou@nxp.com>; Mauro Carvalho Chehab
-> <mchehab@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Shawn Guo
-> <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
-> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> <festevam@gmail.com>; linux-media@vger.kernel.org;
-> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Alice Yuan
-> <alice.yuan@nxp.com>; Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org=
+On 9/19/2025 11:52 PM, Sudeep Holla wrote:
+> FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
+> memory access descriptor to allow any sender could to specify an its any
+> custom value for each receiver. Also this value must be specified by the
+> receiver when retrieving the memory region. The sender must ensure it
+> informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
+> such as a partition message.
 >
-> Subject: [EXT] Re: [PATCH v2 0/5] media: imx91: Add ISI support
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->=20
->=20
-> On Sun, Sep 21, 2025 at 07:07:06PM +0300, Laurent Pinchart wrote:
-> > On Fri, Sep 19, 2025 at 12:11:38PM -0400, Frank Li wrote:
-> > > On Fri, Sep 19, 2025 at 02:40:01AM +0000, G.N. Zhou wrote:
-> > > > Hi,
-> > > >
-> > > > Could you help to please review the patches which I have submitted
-> > > > some time back to linux media community and move forward driver
-> > > > part if possible.
-> > > >
-> > > > Your feedback will be very appreciated. Thanks.
-> > > >
-> > > > Best Regards
-> > > > G.N Zhou
-> > >
-> > > Laurent Pinchart:
-> > >
-> > >     Could you please consider pickup these patches? Consider these
-> > > related simple changes, is my Reviewed-by enough?
-> >
-> > I've completed a set of other reviews and will get to this patch
-> > series in the upcoming week.
->=20
-> There's just an open question on 2/5. It's about the commit message, so i=
-t
-> shouldn't be a big deal. Once I get a reply to that, I can apply the seri=
-es with the
-> small proposed changes, there's no need to submit a v3, unless you prefer
-> doing so.
-
-I'm very happy to follow your advices and apply on your side as you said. T=
-hank you very much.
-
->=20
-> > > > >
-> > > > > Add ISI support for i.MX91 chip.
-> > > > >
-> > > > > The bellow patch refine code, no functions changed.
-> > > > >    media: nxp: imx8-isi: Simplify code by using helper macro
-> > > > >    media: nxp: imx8-isi: Reorder the platform data
-> > > > >
-> > > > > The bindings and driver patch for i.MX91 ISI.
-> > > > >    media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible st=
-ring
-> > > > >    media: nxp: imx8-isi: Add ISI support for i.MX91
-> > > > >
-> > > > > Add parallel camera input for i.MX93 ISI.
-> > > > >    media: nxp: imx8-isi: Add parallel camera input support
-> > > > >
-> > > > > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > > > > ---
-> > > > > Changes in v2:
-> > > > > - Update commit log in patch 5 to better describe why introduce i=
-t.
-> > > > > - Include two header files in patch 2 since kernel test robot rep=
-ort build
-> > > > >   issue when arch is riscv and compiler is clang-22.
-> > > > >   #include <linux/bitfield.h>
-> > > > >   #include <linux/bits.h>
-> > > > > - Link to v1:
-> > > > > https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
-%
-> > > > > 2Flore.kernel.org%2Fall%2F20250827-isi_imx93-v1-0-
-> &data=3D05%7C02%
-> > > > >
-> 7Cguoniu.zhou%40nxp.com%7C160464d861a24abf246e08ddf95e93bd%7C68
-> 6
-> > > > >
-> ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C638940906787985916%7C
-> Unk
-> > > > >
-> nown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCI
-> sI
-> > > > >
-> lAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sda
-> > > > >
-> ta=3DMJUx0UV12LxPISHvimNpvs6Sfc8qxXr4Yrrix2N8%2BF8%3D&reserved=3D0
-> > > > > 83e6b4b50c4d@nxp.com
-> > > > >
-> > > > > ---
-> > > > > Alice Yuan (2):
-> > > > >       media: dt-bindings: nxp,imx8-isi: Add i.MX91 ISI compatible=
- string
-> > > > >       media: nxp: imx8-isi: Add parallel camera input support
-> > > > >
-> > > > > Guoniu Zhou (3):
-> > > > >       media: nxp: imx8-isi: Simplify code by using helper macro
-> > > > >       media: nxp: imx8-isi: Reorder the platform data
-> > > > >       media: nxp: imx8-isi: Add ISI support for i.MX91
-> > > > >
-> > > > >  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 13 +++++-
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 50
-> ++++++++++++++--------
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 +
-> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-gasket.c  | 18
-> > > > > ++++++--
-> > > > >  4 files changed, 59 insertions(+), 23 deletions(-)
-> > > > > ---
-> > > > > base-commit: 603957ae903e81fb80d3788297c0f58a68802dfc
-> > > > > change-id: 20250826-isi_imx93-4a59288b33e4
->=20
-> --
-> Regards,
->=20
-> Laurent Pinchart
+> So the FF-A driver can use the message interfaces to communicate the value
+> and set the same in the ffa_mem_region_attributes structures when using
+> the memory interfaces.
+>
+> The driver ensure that the size of the endpoint memory access descriptors
+> is set correctly based on the FF-A version.
+>
+> Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
+> Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>   drivers/firmware/arm_ffa/driver.c | 37 ++++++++++++++++++++++---------
+>   include/linux/arm_ffa.h           | 16 ++++++++++++-
+>   2 files changed, 42 insertions(+), 11 deletions(-)
+>
+> v1->v2:
+> 	- Fix the size of EMAD in ffa_mem_desc_offset() and the loop
+> 	  increment in ffa_setup_and_transmit()
+>
+> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> index cf6e44429ecd..b68cd9eb09ee 100644
+> --- a/drivers/firmware/arm_ffa/driver.c
+> +++ b/drivers/firmware/arm_ffa/driver.c
+> @@ -654,6 +654,26 @@ static u16 ffa_memory_attributes_get(u32 func_id)
+>   	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
+>   }
+>   
+> +static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
+> +{
+> +	struct ffa_mem_region_attributes *ep_mem_access;
+> +
+> +	if (version > FFA_VERSION_1_1)
+> +		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
+> +}
+> +
+> +static void
+> +ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
+> +{
+> +	if (version <= FFA_VERSION_1_0) {
+> +		mem_region->ep_mem_size = 0;
+> +	} else {
+> +		mem_region->ep_mem_size = ffa_emad_size_get(version);
+> +		mem_region->ep_mem_offset = sizeof(*mem_region);
+> +		memset(mem_region->reserved, 0, 12);
+> +	}
+> +}
+> +
+>   static int
+>   ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+>   		       struct ffa_mem_ops_args *args)
+> @@ -672,27 +692,24 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+>   	mem_region->flags = args->flags;
+>   	mem_region->sender_id = drv_info->vm_id;
+>   	mem_region->attributes = ffa_memory_attributes_get(func_id);
+> -	ep_mem_access = buffer +
+> -			ffa_mem_desc_offset(buffer, 0, drv_info->version);
+>   	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
+>   					       drv_info->version);
+>   
+> -	for (idx = 0; idx < args->nattrs; idx++, ep_mem_access++) {
+> +	for (idx = 0; idx < args->nattrs; idx++) {
+> +		ep_mem_access = buffer +
+> +			ffa_mem_desc_offset(buffer, idx, drv_info->version);
+>   		ep_mem_access->receiver = args->attrs[idx].receiver;
+>   		ep_mem_access->attrs = args->attrs[idx].attrs;
+>   		ep_mem_access->composite_off = composite_offset;
+>   		ep_mem_access->flag = 0;
+>   		ep_mem_access->reserved = 0;
+> +		ffa_emad_impdef_value_init(drv_info->version,
+> +					   ep_mem_access->impdef_val,
+> +					   args->attrs[idx].impdef_val);
+>   	}
+>   	mem_region->handle = 0;
+>   	mem_region->ep_count = args->nattrs;
+> -	if (drv_info->version <= FFA_VERSION_1_0) {
+> -		mem_region->ep_mem_size = 0;
+> -	} else {
+> -		mem_region->ep_mem_size = sizeof(*ep_mem_access);
+> -		mem_region->ep_mem_offset = sizeof(*mem_region);
+> -		memset(mem_region->reserved, 0, 12);
+> -	}
+> +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
+>   
+>   	composite = buffer + composite_offset;
+>   	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
+> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+> index 0a0132c6ae3e..6e180fc0e68e 100644
+> --- a/include/linux/arm_ffa.h
+> +++ b/include/linux/arm_ffa.h
+> @@ -347,6 +347,7 @@ struct ffa_mem_region_attributes {
+>   	 * an `struct ffa_mem_region_addr_range`.
+>   	 */
+>   	u32 composite_off;
+> +	u8 impdef_val[16];
+>   	u64 reserved;
+>   };
+>   
+> @@ -426,10 +427,23 @@ struct ffa_mem_region {
+>   #define CONSTITUENTS_OFFSET(x)	\
+>   	(offsetof(struct ffa_composite_mem_region, constituents[x]))
+>   
+> +static inline u32 ffa_emad_size_get(u32 ffa_version)
+> +{
+> +	u32 sz;
+> +	struct ffa_mem_region_attributes *ep_mem_access;
+> +
+> +	if (ffa_version <= FFA_VERSION_1_1)
+> +		sz = sizeof(*ep_mem_access) - sizeof(ep_mem_access->impdef_val);
+> +	else
+> +		sz = sizeof(*ep_mem_access);
+> +
+> +	return sz;
+> +}
+> +
+>   static inline u32
+>   ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
+>   {
+> -	u32 offset = count * sizeof(struct ffa_mem_region_attributes);
+> +	u32 offset = count * ffa_emad_size_get(ffa_version);
+>   	/*
+>   	 * Earlier to v1.1, the endpoint memory descriptor array started at
+>   	 * offset 32(i.e. offset of ep_mem_offset in the current structure)
 
