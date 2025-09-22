@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E6ECAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5770FCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pi816NSxpSsHUZbkMSdLHoJH9uRJkzOEaGymZ89+4Gg=; b=u3kOYhFgxiW2vg91XF75txd/TT
-	KxhAyrchdsFV4C2TRVI69T4G5MaLbETEW8eo/Hs/jtMzKbj852frJq8iFCgaWrvW6iMOm/owfLiV+
-	2E2PhCN5p257TWrfXgGIeGQ8TPx5z9Z664FEhmCN0BTlbpViJ/EnN/TvJ3z9Nq7UECseNLB+LQ4AY
-	2WqNWatPZ3bhiX8kvtrUuAjDpjKdHu8TExhhM8JljF+DPDFP4ZbWhVL47ouyUR4Enuri0YT7NyxKG
-	FaKfX0hZ1a9+JUxd3kpVPtAfNKa93Vn/T8og0/vgQzmUlJj0VbKAXshElzp4Pt7EhoQ3sZJHj7LTh
-	Ns6c1mfQ==;
+	bh=k7Z1WGoZ6pGE+GJYePikH7LrX0g0EF/J3QK1tukUmPY=; b=YONTnodLnwAYIF8Yd+4KAkAU73
+	45FDUtYeg10z/vrplQ8/yTdYK4wBvK6mt2v92f3vuhW3zHTxi5XgkDhJ7j0qO8/lZw4wDBfQCI0f2
+	16jz4v6vOlWgNcM2BbPU0P6jDdmkjDy9M9Do24JJpBobKOxWg0xUhRR9QJuj3zG82gyiB3LNHpr3j
+	Xg97FptddklNEnKW2K8h7nHmodiPqYXKdzKnRHIG/+YBrBzSrMWKDZZ2WJ/6Or8mkRIPnfOO+1YL2
+	Gai4a5K6Yjf8WbOfoVR1EVLzOQBIE36XRg3U1jV3jq0Bpbvl9C+uO+dyZR/0vJOXLX1WuaUq4ro7f
+	7VkEQCDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bwe-00000009jtc-2i8p;
-	Mon, 22 Sep 2025 08:30:48 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1v0byk-00000009kX3-36Lt;
+	Mon, 22 Sep 2025 08:32:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bv9-00000009iLd-1U0v
+	id 1v0byi-00000009kVl-0DoR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:29:17 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cVbkP0p5tzddGH;
-	Mon, 22 Sep 2025 16:24:29 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id ECF3F180486;
-	Mon, 22 Sep 2025 16:29:06 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 22 Sep 2025 16:29:05 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <arnd@arndb.de>
-CC: <Liam.Howlett@oracle.com>, <akpm@linux-foundation.org>, <ardb@kernel.org>,
-	<dave@vasilevsky.ca>, <david@redhat.com>, <ebiggers@kernel.org>,
-	<kees@kernel.org>, <liaohua4@huawei.com>, <lilinjie8@huawei.com>,
-	<linmiaohe@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux@armlinux.org.uk>, <lorenzo.stoakes@oracle.com>, <mhocko@suse.com>,
-	<nao.horiguchi@gmail.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<rmk+kernel@armlinux.org.uk>, <rostedt@goodmis.org>, <rppt@kernel.org>,
-	<surenb@google.com>, <vbabka@suse.cz>, <will@kernel.org>,
-	<xieyuanbin1@huawei.com>
-Subject: Re: [RFC PATCH 1/2] ARM: mm: support memory-failure
-Date: Mon, 22 Sep 2025 16:28:43 +0800
-Message-ID: <20250922082843.26722-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <727caa4f-5be5-4b59-a10e-8dc9bbc384bf@app.fastmail.com>
-References: <727caa4f-5be5-4b59-a10e-8dc9bbc384bf@app.fastmail.com>
+	Mon, 22 Sep 2025 08:32:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5457E44CD2;
+	Mon, 22 Sep 2025 08:32:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC1FDC4CEF0;
+	Mon, 22 Sep 2025 08:32:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758529975;
+	bh=e4T4XJtILjw3AWw7ksxXP2XAAsN4pB2E1LrEQPZKKeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NGW/pN/Nc8u6WGuyuaDQQtAJjQTFBK/gPiG754tikHXuBFbLcQLqNF1LrO96YKYYR
+	 Ux+rbMUD8vYAYlMKX6y4A86wxUTjHFOexdXUUCy3nuFgqi33mWmR6uGJQk2H4fHJur
+	 LV7+UQfQrEiCyV6tlsEmnLft4QWdjvztTi9MoJU6et5siqBqyw65XlBMuNIOPbKGmj
+	 dbEBn2ArMC8h4fexKLrFc/HIhrfwcXpOoEUDiKgR1QqpERnMnZA5zsqkgkMgARyj/i
+	 nmOLH7Mr0W3KdSfhq90VBQu4b2IMIsfXx9vzlLhP+SGQhv4BOu3kxRD2343pBiQSV3
+	 aZx5A/+9kLzSg==
+Date: Mon, 22 Sep 2025 14:02:43 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
+	quic_wenbyao@quicinc.com, inochiama@gmail.com, mayank.rana@oss.qualcomm.com, 
+	thippeswamy.havalige@amd.com, shradha.t@samsung.com, cassel@kernel.org, kishon@kernel.org, 
+	sergio.paracuellos@gmail.com, 18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
+	Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v3 0/4] PCI: Keystone: Enable loadable module support
+Message-ID: <3sjuplupmdoxqhyz2i2p4he5vw7krqokixoy6ddoiox6p536n6@xzfcyhwjx3hv>
+References: <20250922071222.2814937-1-s-vadapalli@ti.com>
+ <175852954905.18749.5091036983349477093.b4-ty@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.108.232]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+In-Reply-To: <175852954905.18749.5091036983349477093.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_012915_653834_167129BC 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250922_013256_110666_6B23E2FC 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> It would be helpful to be more specific about what you
-> want to do with this.
+On Mon, Sep 22, 2025 at 01:56:08PM +0530, Manivannan Sadhasivam wrote:
 > 
-> Are you working on a driver that would actually make use of
-> the exported interface?
+> On Mon, 22 Sep 2025 12:42:12 +0530, Siddharth Vadapalli wrote:
+> > This series enables support for the 'pci-keystone.c' driver to be built
+> > as a loadable module. The motivation for the series is that PCIe is not
+> > a necessity for booting Linux due to which the 'pci-keystone.c' driver
+> > does not need to be built-in.
+> > 
+> > Series is based on commit
+> > dc72930fe22e Merge branch 'pci/misc'
+> > of pci/next.
+> > 
+> > [...]
+> 
+> Applied, thanks!
+> 
+> [1/4] PCI: Export pci_get_host_bridge_device() for use by pci-keystone
+>       commit: c514ba0fa8938ae09370beecb77257868c1568a7
+> [2/4] PCI: dwc: Export dw_pcie_allocate_domains() and dw_pcie_ep_raise_msix_irq()
+>       commit: db9ff606a5535aee94bf41682f03aba500ff3ad6
+> [3/4] PCI: keystone: Exit ks_pcie_probe() for invalid mode
+>       commit: 76d23c87a3e06af003ae3a08053279d06141c716
+> [4/4] PCI: keystone: Add support to build as a loadable module
+>       commit: e82d56b5f3844189f2b2240b1c3eaeeafc8f1fd2
+> 
 
-Thanks for your reply.
+I just noticed the build dependency mentioned in the cover letter after applying
+the series. This is problematic since there is no guarantee that the dependent
+commit will reach mainline first. So if this series gets applied by Linus first,
+then building this driver as module will break the build. We should not have the
+build error at any cost.
 
-Yes, In fact, we have developed a hardware component to detect DDR bit
-transitions (software does not sense the detection behavior). Once a bit
-transition is detected, an interrupt is reported to the CPU.
+So I'm dropping this series now. Please repost once the fix is in mainline
+(which will be next cycle).
 
-On the software side, we have developed a driver module ko to register
-the interrupt callback to perform soft page offline to the corresponding
-physical pages.
+- Mani
 
-In fact, we will export `soft_offline_page` for ko to use (we can ensure
-that it is not called in the interrupt context), but I have looked at the
-code and found that `memory_failure_queue` and `memory_failure` can also
-be used, which are already exported.
-
-> I see only a very small number of
-> drivers that call memory_failure(), and none of them are
-> usable on Arm.
-
-I think that not all drivers are in the open source kernel code.
-As far as I know, there should be similar third-party drivers in other
-architectures that use memory-failure functions, like x86 or arm64.
-I am not a specialist in drivers, so if I have made any mistakes,
-please correct me.
-
-Xie Yuanbin
+-- 
+மணிவண்ணன் சதாசிவம்
 
