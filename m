@@ -4,131 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBF8CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 07:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929C4CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 07:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufG3sJi0LeG+2kPC0a9al27kJCVNII9Yo0Sf2m3fcC8=; b=CEz+psQtTW4qCjyoZS+GyD7m40
-	A68UsBK/8gmNs4+ttz9VJeD2bc87CC3x80gJT06vR3bvSA6HR52I60AMIpfuC6m3Y7nNHSznmGZp8
-	MrjPLgich0Tr8gASXqWtIjATN6Eqd9JZw0mgUg3QbpXaw7ajiM3eSB8eJuhMznffUcd9nYafvlxCw
-	g81e6PqP4IPPMxjbDULB8Vj64CzV1BexVFm42gdNaM8ycFfkt2sLBSCwPST/1vQBMcU1Dksf3IBJt
-	u7P10mzzG786dL3qdpCnv4w+nMOzeTqKcqmiz065jSTgGSPN9fCy7525LJrwMfuLiILZQ2kMasW4k
-	r6hGUrog==;
+	bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=; b=HeqRvHkEqERkuFIvF0XwVHH12X
+	bTU1/izcP3YJ9OmTX9bYHsjVHTbCIQ31gdPT3Ju1VmA/7Giv23gaHP5Bsl6xNAMLMtK+c2Xlbu/09
+	Y5pck9vt5Y7Fj+lLM+/ZU//LSFj+gSCufXAC0bCsIm1XHZU2GVZlGDuiEZx7D9nKLOTWJCIJpXtDA
+	mNXQeT2wEHbxzBLixKjcqE7WvdW1QY3yV6FLcpuHUfXSSXJA1bDVUqvrnAvSGwRHQDG+2lX1MR4IX
+	6/FqNcEL0riAu0PK2vyHQ6HSgxymDjgALqe1t1uBCXeYwqg+IEoxh/BP1Qf69lRJfs41ThrLOG8m+
+	TnI8H02w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0b22-00000009LMC-0sCV;
-	Mon, 22 Sep 2025 07:32:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v0bBC-00000009RKU-3XkZ;
+	Mon, 22 Sep 2025 07:41:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0b1w-00000009LFJ-3T9E
+	id 1v0bB9-00000009RGL-287y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 07:32:14 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58LNtglP005264
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 07:32:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ufG3sJi0LeG+2kPC0a9al27kJCVNII9Yo0Sf2m3fcC8=; b=gLrjZNXqOHVAt5k0
-	NIsVpduON6SlA/lSw61zvy7VA0SfMpZAt4C55EWIFNVBGBXAm0Od+tyR5To+YJ7D
-	2IjRE8bGYTsWqgDl82neXtuPBbJFOvW4ZeEWCJfQzyzClGfvQSxXLGYJH8Gzh6WD
-	YKfn24h11svGzJUqIGcndKfwB1cp/UktQlUy5Jsn+Vdo0EdGTPjfIbyvgoSvVDyI
-	KJPAP+1vpNP3MrdU30+np6c3hi5gJWqRcyu0xRlJgMoLwgENtYJI0R9nSq2WRrlE
-	3WhRkqCeGqzd7mPVEdRh0OB6XFZp5kGA5XlZES0CpxgWWh3fKer3hg45PC6R124V
-	EF+Zxw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499hmnm181-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 07:32:11 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-24ae30bd2d0so36809815ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 00:32:11 -0700 (PDT)
+	Mon, 22 Sep 2025 07:41:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758526901;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=;
+	b=U3uSviETBw9QvzfoBI0ae571TW/RjiTeHaxS03i3UM2nwDFurXdtw2vOaRgtuHwE3mmSGK
+	d1KvQx8ZgJBV2Q/NwUNli64Ul1D67NE2tibP9DFs32VDKL41rblAT05FCfbNx19zVOKlFR
+	GaeTeP111etg1U7qsn9/1WJANx5pYRM=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-441-5ZA0Z3VANv6m0Eo0GQdxAg-1; Mon, 22 Sep 2025 03:41:39 -0400
+X-MC-Unique: 5ZA0Z3VANv6m0Eo0GQdxAg-1
+X-Mimecast-MFC-AGG-ID: 5ZA0Z3VANv6m0Eo0GQdxAg_1758526898
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ecdd61b798so2153822f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 00:41:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758526330; x=1759131130;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ufG3sJi0LeG+2kPC0a9al27kJCVNII9Yo0Sf2m3fcC8=;
-        b=Zstuh+CdHlBeYeTl1DboSQXBZht5Ul4XXkRKnd2NhMZKJyQJ20UnYcIldR2hnQ0JSI
-         T/vF8uUmIlLyKyduMXqjwRx6rKBqM6Kati+caqD6E8nIVpYfvR618tck41InIKEoD7Im
-         TcJkICDJWhoV79RBteJRJghsQMGi2+UxiRqCnnARR6VVXHW8ZTcT93rWnzvydZcEzse4
-         LP4C9jqmEnkgq67dUGg1vKLLD2OPaX/3N6zlKs+Ec7E4Up4NKR9AH7ujfw4aEE+c04vx
-         QhOSvOgWCHQt/tW0Xo1u/Wqf6YdpD6YWrKyaCPh0ALDF7otwYhrrY3xSMn1u0a8C/3Yi
-         cRPw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLaK7Mgcre+ln4JygPMWWHDhjm/By8rzlQbKxOPvfd6bGWCXrGg0q0Hrv263SqKioOfRHyYHQlLx//sgowEUTo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJgqHEnhSkq88JO863jWfwoCIV6uk+DsVXBx9Qu3FcEOgI/q9y
-	DXAYRurUao3eM08FevqnQQBzYjvNHUR648/o0oMhTIGFrrIImfi3FRXLVXiamISizqPMOIRvgba
-	ir0qb+GtCkJdHWayCR4aS367iubxPg4oPHars5t1GKpbfGnc5wGMkBldNh3RsD8w98qECYqC0fA
-	Fd1LHvfR4EZkrx
-X-Gm-Gg: ASbGncv8PKkKQhyknkLlj9E0y4DfVe7V2GO7jwNud1viwWql8RPG2vCqAUygVATkq9Q
-	ipbPW+RvNdS6bVGJn5A9uGanyFNR+pB3JxbSrw0vMjz+Nyrl96+PRHJU7o6fNP4+exgXnkJckvW
-	sE6tJkGUVav9gCb6/xhtp1oQo+qnsmrUg44GoqnbvIgZk/SuRdRxI7z37etFk0D1ltef4Wig9MU
-	SYeblyl9dA1v2C6kAvihNeqBFTPANw4nf+PAbsMdYEREL9zRJR1+B08UxRZcbaQ//Vr5rk0EIn9
-	KQE05Fj4yopaBJ7ioL339GErZNghdK2zCxeeDIZ5T/wM3XFnE+Pbb07lvvYh+W2yasy8/Ed1RpE
-	LetOT2D5Cx96dL+3EE1dte2+jQgw=
-X-Received: by 2002:a17:903:40c5:b0:269:96db:939 with SMTP id d9443c01a7336-269ba5628e6mr143483875ad.58.1758526329881;
-        Mon, 22 Sep 2025 00:32:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE1Vp6gvYIR1bXT5jSRLeA0Dq+/XmIuZlyLKdJBmXmf3ry7gid2Ea6v/MpWbW0ZGZhIjTy0jw==
-X-Received: by 2002:a17:903:40c5:b0:269:96db:939 with SMTP id d9443c01a7336-269ba5628e6mr143483585ad.58.1758526329364;
-        Mon, 22 Sep 2025 00:32:09 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-269800529cdsm123806865ad.22.2025.09.22.00.32.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Sep 2025 00:32:09 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 22 Sep 2025 15:31:40 +0800
-Subject: [PATCH RFC 2/3] coresight: change helper_ops to accept
- coresight_path
+        d=1e100.net; s=20230601; t=1758526898; x=1759131698;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=;
+        b=YrMkmc3L+P7WkdevSI8ACQ1rRNwhCbXjLvwZQhdr+d1n03TRByB5rya7ycyAXU2O/d
+         l4ePUOpAm8TvE/MP80irLnp70VepZqQd0zXbFUPZDYSIuDx8+U2HCA8rLwrG5VTqvE3q
+         n9MXlVEucHBP6sb7YkYeZmYC7y1jSpndKRs1ILQoT2VaBz1WIRviAXnej6pi7UcpKYjF
+         uMbvbNfco3TIU1fO2TN5z6VHiRGP5bQixsWCYAnFP9mQU93iGjE/1s4jgUAcd+e4x4t6
+         5+b9W+n337EREu79ty7z6OisfUond9mKPrufayC7LlDbyy/X0bXnZtJNiSzPYFRku+JP
+         V2eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVeDoxldBh+F/U3OK1sVCl0VXYPG8fq0h2xNKa3aLNZg9sKN0e1/afMWryVR4nGtUGFXdY/asEn8gPp22xTpmiG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVi9c0enBi2zJrGxpD259KeD5XgRRgIxBu+mabtlT+ZK04plfr
+	hBhDoDR99MBQ+20hq/tqy+VVN/btM4SCSJBFzPROxz3DT5wlnWmYK8UoNA3V+G/JLDSXIxLyqj1
+	iQb7PHSBHqXKIH2oskO3nPyg2ViybrVbmn3IEMUzQtdQnIxcQPJOwTpqYxeY1WoGZVu3BLrySZm
+	HS
+X-Gm-Gg: ASbGnculgmg0O1Di0pfZsoJMJuw3BJPcsDkzbnc4iZoJ/uDYB444I/3DeKhBv8Qf23p
+	nYVB1J2VoC3mLiroSs3niS8ZNgJVQfSKHWFQApU96ijN2StYsivNp6B+WWmdS2+6u2VzFfMP8YE
+	UGf/vknWWdjmtZ2SVWkVp2gcdD3v/6gnPwEn++URQvPt3+C3Rag6zu8OZ/cW7zb+cQP7nferx5v
+	9x5P6oyHSc6UFLGbEWV4Ih8OaDXzQd6jHxU47/RyKKnHD7v2yhatuwmLS4h6T/klclozhvGCdrE
+	/jbYsIBLzCyj9UYACxDlNPi2fIzGslXV3lcxpXE2Fw9H7t4B57kN5s2dheJNQRcJGvDHNA6jPxf
+	AkMhUNOeWE3R3zqcJZ8WrDyET3AQcTvY3jvnM8MYZ8ocCst8qIiZY8zrOq+0eyko=
+X-Received: by 2002:a05:6000:2203:b0:3ee:1296:d9e8 with SMTP id ffacd0b85a97d-3ee7e1066dbmr9258897f8f.17.1758526898167;
+        Mon, 22 Sep 2025 00:41:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG9B1weiPfO6bMVbHAqxOgbive1f1Crq3xoi47kw3u1f8xvVepvQI2XfzLgozHSVwVEVQfJTg==
+X-Received: by 2002:a05:6000:2203:b0:3ee:1296:d9e8 with SMTP id ffacd0b85a97d-3ee7e1066dbmr9258869f8f.17.1758526897678;
+        Mon, 22 Sep 2025 00:41:37 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f2a:e200:f98f:8d71:83f:f88? (p200300d82f2ae200f98f8d71083f0f88.dip0.t-ipconnect.de. [2003:d8:2f2a:e200:f98f:8d71:83f:f88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07407cffsm18716189f8f.16.2025.09.22.00.41.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Sep 2025 00:41:36 -0700 (PDT)
+Message-ID: <111b1bfb-e2e0-4b2f-a559-9803828f3406@redhat.com>
+Date: Mon, 22 Sep 2025 09:41:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+To: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+ lorenzo.stoakes@oracle.com
+Cc: usamaarif642@gmail.com, yuzhao@google.com, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, baohua@kernel.org, voidice@gmail.com,
+ Liam.Howlett@oracle.com, catalin.marinas@arm.com,
+ cerasuolodomenico@gmail.com, hannes@cmpxchg.org, kaleshsingh@google.com,
+ npache@redhat.com, riel@surriel.com, roman.gushchin@linux.dev,
+ rppt@kernel.org, ryan.roberts@arm.com, dev.jain@arm.com, ryncsn@gmail.com,
+ shakeel.butt@linux.dev, surenb@google.com, hughd@google.com,
+ willy@infradead.org, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
+ rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
+ ying.huang@linux.alibaba.com, apopple@nvidia.com, qun-wei.lin@mediatek.com,
+ Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+ chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250922021458.68123-1-lance.yang@linux.dev>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6F2v96THDCXMc5t2EjbFnhOscra2HAv8qHTdjGlBjSc_1758526898
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250922-fix_helper_data-v1-2-905e8115a24e@oss.qualcomm.com>
-References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
-In-Reply-To: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
-To: Carl Worth <carl@os.amperecomputing.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758526319; l=9918;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=QEBlXI+s6Pg9S40qJyLflLft2wUwobd5Tsvp12e09dc=;
- b=9NtI1pfDUEbYlQdKKADnRMqgOTdWi9zQ4N7QotfDx+WNujMbQNXirNSlwc3H1Mp0+vyG7Wy3v
- vgZg2zNM47kCzuIl/l8+qeCXInuxQ+ksbRFx6UE3t+X8YxzA3XfmwkE
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Authority-Analysis: v=2.4 cv=YPqfyQGx c=1 sm=1 tr=0 ts=68d0fb7b cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=Gv9EIBWDmE4dLvOUe8gA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-ORIG-GUID: viaQ4iLhbd0amyY1-IO5kMMGmdBdVfE7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDAwMCBTYWx0ZWRfX7+enNwfIvnlC
- h/WzbJhq6e8j11YgPJTN7S45uGRV0Oq7gjh4k1roHmYSNj/ZfPV58dFd+0foJA26rF+rFoxohYs
- k54ZKhYhZjNmCMsJpikApEsQEGkKhWl8lcq7OfGLhlMJTzbpE5e2p8aDDbJWw4jPbmt/0sLc5S1
- XVv98ai9qDhv5PEI6ol51fQvdOrmNFfLT4rAeHKfDgFlw3aZaaVk5qogjH3mepvjt10do4E8VrC
- savUFuAE/4iqmJR14RpBYY+O0CC1ySI3R/yJl6HV7v9lxLsikjoN74HZtg4bSQYhgls1N3VSnVz
- 6Qtl3CPc5fa1mn82kvLk6toPNbqXC0KInWsMrfH7ropLhfhYDqcOtPOOm7xtsVCl5rySWsRQFxO
- oD/jJ6yR
-X-Proofpoint-GUID: viaQ4iLhbd0amyY1-IO5kMMGmdBdVfE7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-22_01,2025-09-19_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 priorityscore=1501 phishscore=0 adultscore=0
- clxscore=1015 impostorscore=0 spamscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_003213_018138_6003D111 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20250922_004143_628580_BFA1A640 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,240 +170,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the helper_enable and helper_disable functions to accept
-coresight_path instead of a generic void *data, as coresight_path
-encapsulates all the necessary data required by devices along the path.
+On 22.09.25 04:14, Lance Yang wrote:
+> From: Lance Yang <lance.yang@linux.dev>
+> 
+> When both THP and MTE are enabled, splitting a THP and replacing its
+> zero-filled subpages with the shared zeropage can cause MTE tag mismatch
+> faults in userspace.
+> 
+> Remapping zero-filled subpages to the shared zeropage is unsafe, as the
+> zeropage has a fixed tag of zero, which may not match the tag expected by
+> the userspace pointer.
+> 
+> KSM already avoids this problem by using memcmp_pages(), which on arm64
+> intentionally reports MTE-tagged pages as non-identical to prevent unsafe
+> merging.
+> 
+> As suggested by David[1], this patch adopts the same pattern, replacing the
+> memchr_inv() byte-level check with a call to pages_identical(). This
+> leverages existing architecture-specific logic to determine if a page is
+> truly identical to the shared zeropage.
+> 
+> Having both the THP shrinker and KSM rely on pages_identical() makes the
+> design more future-proof, IMO. Instead of handling quirks in generic code,
+> we just let the architecture decide what makes two pages identical.
+> 
+> [1] https://lore.kernel.org/all/ca2106a3-4bb2-4457-81af-301fd99fbef4@redhat.com
+> 
+> Cc: <stable@vger.kernel.org>
+> Reported-by: Qun-wei Lin <Qun-wei.Lin@mediatek.com>
+> Closes: https://lore.kernel.org/all/a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com
+> Fixes: b1f202060afe ("mm: remap unused subpages to shared zeropage when splitting isolated thp")
+> Suggested-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> ---
 
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-catu.c      | 10 +++++-----
- drivers/hwtracing/coresight/coresight-core.c      | 20 ++++++++++++--------
- drivers/hwtracing/coresight/coresight-ctcu-core.c |  9 +++------
- drivers/hwtracing/coresight/coresight-cti-core.c  |  5 +++--
- drivers/hwtracing/coresight/coresight-cti.h       |  5 +++--
- drivers/hwtracing/coresight/coresight-tmc-etr.c   |  4 ++--
- drivers/hwtracing/coresight/coresight-tmc.h       |  3 ++-
- include/linux/coresight.h                         |  5 +++--
- 8 files changed, 33 insertions(+), 28 deletions(-)
+LGTM, thanks
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index a3ccb7034ae1..69b36bae97ab 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -397,7 +397,7 @@ static int catu_wait_for_ready(struct catu_drvdata *drvdata)
- }
- 
- static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
--			  void *data)
-+			  struct coresight_path *path)
- {
- 	int rc;
- 	u32 control, mode;
-@@ -425,7 +425,7 @@ static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
- 	etrdev = coresight_find_input_type(
- 		csdev->pdata, CORESIGHT_DEV_TYPE_SINK, etr_subtype);
- 	if (etrdev) {
--		etr_buf = tmc_etr_get_buffer(etrdev, cs_mode, data);
-+		etr_buf = tmc_etr_get_buffer(etrdev, cs_mode, path);
- 		if (IS_ERR(etr_buf))
- 			return PTR_ERR(etr_buf);
- 	}
-@@ -455,7 +455,7 @@ static int catu_enable_hw(struct catu_drvdata *drvdata, enum cs_mode cs_mode,
- }
- 
- static int catu_enable(struct coresight_device *csdev, enum cs_mode mode,
--		       void *data)
-+		       struct coresight_path *path)
- {
- 	int rc = 0;
- 	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
-@@ -463,7 +463,7 @@ static int catu_enable(struct coresight_device *csdev, enum cs_mode mode,
- 	guard(raw_spinlock_irqsave)(&catu_drvdata->spinlock);
- 	if (csdev->refcnt == 0) {
- 		CS_UNLOCK(catu_drvdata->base);
--		rc = catu_enable_hw(catu_drvdata, mode, data);
-+		rc = catu_enable_hw(catu_drvdata, mode, path);
- 		CS_LOCK(catu_drvdata->base);
- 	}
- 	if (!rc)
-@@ -488,7 +488,7 @@ static int catu_disable_hw(struct catu_drvdata *drvdata)
- 	return rc;
- }
- 
--static int catu_disable(struct coresight_device *csdev, void *__unused)
-+static int catu_disable(struct coresight_device *csdev, struct coresight_path *path)
- {
- 	int rc = 0;
- 	struct catu_drvdata *catu_drvdata = csdev_to_catu_drvdata(csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 3267192f0c1c..f44ec9e5b692 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -355,17 +355,20 @@ static bool coresight_is_helper(struct coresight_device *csdev)
- }
- 
- static int coresight_enable_helper(struct coresight_device *csdev,
--				   enum cs_mode mode, void *data)
-+				   enum cs_mode mode,
-+				   struct coresight_path *path)
- {
--	return helper_ops(csdev)->enable(csdev, mode, data);
-+	return helper_ops(csdev)->enable(csdev, mode, path);
- }
- 
--static void coresight_disable_helper(struct coresight_device *csdev, void *data)
-+static void coresight_disable_helper(struct coresight_device *csdev,
-+				     struct coresight_path *path)
- {
--	helper_ops(csdev)->disable(csdev, data);
-+	helper_ops(csdev)->disable(csdev, path);
- }
- 
--static void coresight_disable_helpers(struct coresight_device *csdev, void *data)
-+static void coresight_disable_helpers(struct coresight_device *csdev,
-+				      struct coresight_path *path)
- {
- 	int i;
- 	struct coresight_device *helper;
-@@ -373,7 +376,7 @@ static void coresight_disable_helpers(struct coresight_device *csdev, void *data
- 	for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
- 		helper = csdev->pdata->out_conns[i]->dest_dev;
- 		if (helper && coresight_is_helper(helper))
--			coresight_disable_helper(helper, data);
-+			coresight_disable_helper(helper, path);
- 	}
- }
- 
-@@ -479,7 +482,8 @@ void coresight_disable_path(struct coresight_path *path)
- EXPORT_SYMBOL_GPL(coresight_disable_path);
- 
- static int coresight_enable_helpers(struct coresight_device *csdev,
--				    enum cs_mode mode, void *data)
-+				    enum cs_mode mode,
-+				    struct coresight_path *path)
- {
- 	int i, ret = 0;
- 	struct coresight_device *helper;
-@@ -489,7 +493,7 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
- 		if (!helper || !coresight_is_helper(helper))
- 			continue;
- 
--		ret = coresight_enable_helper(helper, mode, data);
-+		ret = coresight_enable_helper(helper, mode, path);
- 		if (ret)
- 			return ret;
- 	}
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index c586495e9a08..abed15eb72b4 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -156,17 +156,14 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
- 	return __ctcu_set_etr_traceid(csdev, traceid, port_num, enable);
- }
- 
--static int ctcu_enable(struct coresight_device *csdev, enum cs_mode mode, void *data)
-+static int ctcu_enable(struct coresight_device *csdev, enum cs_mode mode,
-+		       struct coresight_path *path)
- {
--	struct coresight_path *path = (struct coresight_path *)data;
--
- 	return ctcu_set_etr_traceid(csdev, path, true);
- }
- 
--static int ctcu_disable(struct coresight_device *csdev, void *data)
-+static int ctcu_disable(struct coresight_device *csdev, struct coresight_path *path)
- {
--	struct coresight_path *path = (struct coresight_path *)data;
--
- 	return ctcu_set_etr_traceid(csdev, path, false);
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index 8fb30dd73fd2..bfbc365bb2ef 100644
---- a/drivers/hwtracing/coresight/coresight-cti-core.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -799,14 +799,15 @@ static void cti_pm_release(struct cti_drvdata *drvdata)
- }
- 
- /** cti ect operations **/
--int cti_enable(struct coresight_device *csdev, enum cs_mode mode, void *data)
-+int cti_enable(struct coresight_device *csdev, enum cs_mode mode,
-+	       struct coresight_path *path)
- {
- 	struct cti_drvdata *drvdata = csdev_to_cti_drvdata(csdev);
- 
- 	return cti_enable_hw(drvdata);
- }
- 
--int cti_disable(struct coresight_device *csdev, void *data)
-+int cti_disable(struct coresight_device *csdev, struct coresight_path *path)
- {
- 	struct cti_drvdata *drvdata = csdev_to_cti_drvdata(csdev);
- 
-diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-index 8362a47c939c..4f89091ee93f 100644
---- a/drivers/hwtracing/coresight/coresight-cti.h
-+++ b/drivers/hwtracing/coresight/coresight-cti.h
-@@ -216,8 +216,9 @@ int cti_add_connection_entry(struct device *dev, struct cti_drvdata *drvdata,
- 			     const char *assoc_dev_name);
- struct cti_trig_con *cti_allocate_trig_con(struct device *dev, int in_sigs,
- 					   int out_sigs);
--int cti_enable(struct coresight_device *csdev, enum cs_mode mode, void *data);
--int cti_disable(struct coresight_device *csdev, void *data);
-+int cti_enable(struct coresight_device *csdev, enum cs_mode mode,
-+	       struct coresight_path *path);
-+int cti_disable(struct coresight_device *csdev, struct coresight_path *path);
- void cti_write_all_hw_regs(struct cti_drvdata *drvdata);
- void cti_write_intack(struct device *dev, u32 ackval);
- void cti_write_single_reg(struct cti_drvdata *drvdata, int offset, u32 value);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index 1040f73f0537..b9bdbc745433 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1325,9 +1325,9 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- }
- 
- struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
--				   enum cs_mode mode, void *data)
-+				   enum cs_mode mode,
-+				   struct coresight_path *path)
- {
--	struct coresight_path *path = data;
- 	struct perf_output_handle *handle = path->handle;
- 	struct etr_perf_buffer *etr_perf;
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index cbb4ba439158..95473d131032 100644
---- a/drivers/hwtracing/coresight/coresight-tmc.h
-+++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -442,7 +442,8 @@ struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata *drvdata);
- void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
- void tmc_etr_remove_catu_ops(void);
- struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
--				   enum cs_mode mode, void *data);
-+				   enum cs_mode mode,
-+				   struct coresight_path *path);
- extern const struct attribute_group coresight_etr_group;
- 
- #endif
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 4591121ae1d4..a54241ae9aa1 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -424,8 +424,9 @@ struct coresight_ops_source {
-  */
- struct coresight_ops_helper {
- 	int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
--		      void *data);
--	int (*disable)(struct coresight_device *csdev, void *data);
-+		      struct coresight_path *path);
-+	int (*disable)(struct coresight_device *csdev,
-+		       struct coresight_path *path);
- };
- 
- 
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
-2.34.1
+Cheers
+
+David / dhildenb
 
 
