@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C358BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 04:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0540DCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 04:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ouRHS3eeYe7ktGggPLPm5Pb5SjM6PRMXN4idtPLQk/4=; b=k3hyboXnVwLEsHbUmgTCC4PCfy
-	mPhw5biCm06ylGE36xqySg3bd2TNNYx4RWOL2Nugvz6BbqU/GGsGT8P0KqAi53iDnwSq1Q4Pp7L1t
-	f3rmjxajjWDeCi9euDFwaTSDVi2KkN/LhIAtqD1ChoWTILICBiWfHWAmoUP24FyYlK6TlXDWdj5vt
-	u5y7lnhT50l1G+nKYtn3L4Ygcd28v8gHfTZ87kH1ecKaDUWuKQD8IGxrVms9Pjdi1Z5CVjPs2SUE3
-	rNG2iiSP6zGe1kmfgtITlEgZsqxXBIM2T55UBjeYY3EEKb/YJJkpmQvD755WEPbCid+UWum6PGY1A
-	i0DYKLLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A44684+TxPgrnQxxhQZxw9mhm/+rF3+SYnhEcaZDAiQ=; b=XrJmkc0nJRYBfAGEmFY5tY0+F2
+	UntX/5tq4GfWTnFxeK7JnDyFrCdg/HGVWTRjASXIWOOlgD3qm5P6ZFlcX4WLQDnMHk3HR/ftDyyVL
+	NO2SgMNcTnad4PM+xX2BQI8OD8Ca9VR0rFaC437FxRvVOqmVUa+UKlEeG2MsmY4GJA5+Cy6FD1MUn
+	1uItnG1hiHJmMUonaP0l19+eZi5FJgH9Bdm2+Bp0UtC+9LQ2upcXh7CNzTbt0clJKdDV36XJTi/gv
+	LA4/5kxiZEZNU58sDAgNGSiJ3O6tIy5QzUnUFNHm/Z1js6KTrmSK4M6pIHvh0R60Wj53KyXVv1Bdq
+	oNlsfHng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Xpx-00000008kuJ-1n6y;
-	Mon, 22 Sep 2025 04:07:37 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1v0Y1D-00000008lsH-3oRx;
+	Mon, 22 Sep 2025 04:19:15 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Xpt-00000008ktM-3D6x
+	id 1v0Y18-00000008lqo-2M33
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 04:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758514053; x=1790050053;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G2V1IzI07Lo+cAvCBkq1btsiFZLerly8BvX9QTJo0j4=;
-  b=J4+eny5E3PXpjWrLrB5THvvvICH3DGyyg9Y3v8oXyZxOY5TifSGnqBmV
-   iC2HRWKc8wGZ9udtVAF/pbexA9RZRM69mo1w0tfiRezpKjkFlx7qfAK/d
-   BxJJ1BXpNq4lpXbXtOelnnVGDG5tgGePfwqi0QPFERFiFyO+AS4l0cnpy
-   To2ne2pGdkiJ6SbV4qW68jAsBpqbMOi0BPUJxONrRVA7Yws82pr4F64RV
-   NKHR9RYeMVbJEY6c5XHm4aLpiI7lsiZue1XzztmAwBvxHLqesRnwDJGzh
-   gl30CHR8TTnz/d4N63n+ZC3Wv/IQlNYP4v7l6v8zl5/vi6evTcLQfOsZ+
-   Q==;
-X-CSE-ConnectionGUID: lnmSUpJIRyKM5dAnggJLrg==
-X-CSE-MsgGUID: v90hrOAZQaqIM/9pV6ccTw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11560"; a="59809006"
-X-IronPort-AV: E=Sophos;i="6.18,284,1751266800"; 
-   d="scan'208";a="59809006"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2025 21:07:33 -0700
-X-CSE-ConnectionGUID: zqpl9hnCTuyexJ28zpHKKg==
-X-CSE-MsgGUID: yfvJgNhsSFqEUX/ZvNjTxQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,284,1751266800"; 
-   d="scan'208";a="176811092"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by fmviesa009.fm.intel.com with ESMTP; 21 Sep 2025 21:07:28 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v0Xpl-0001J3-1y;
-	Mon, 22 Sep 2025 04:07:25 +0000
-Date: Mon, 22 Sep 2025 12:07:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com,
-	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
-	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
-	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
-	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, cassel@kernel.org
-Subject: Re: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <202509221101.JBhoJaEX-lkp@intel.com>
-References: <20250919155821.95334-3-vincent.guittot@linaro.org>
+	Mon, 22 Sep 2025 04:19:14 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250922041904epoutp014530a3ef0603cc2f70a09d7b3cace048~nf9e-96Bs1218612186epoutp01Q
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 04:19:04 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250922041904epoutp014530a3ef0603cc2f70a09d7b3cace048~nf9e-96Bs1218612186epoutp01Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758514744;
+	bh=A44684+TxPgrnQxxhQZxw9mhm/+rF3+SYnhEcaZDAiQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VB3lBTZZ+HjIU0wiXoGmPa6li9vZ/5Vm9vcX8tbwkR3UMLjrHZJ7sfAvj7LfW1F1Y
+	 3mD8NTaOSH2TEIe4UDIKBtMcaX8YRpgT14ILeSKCzTEchHd7VNd0+mcDEKbkjtU+H7
+	 mDRXrspTJ0i/9p7fk1yyArkYwEGHze2m/gUVI5MA=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250922041903epcas2p3942d6b9477f01e57ac44b42455de376b~nf9ebpmiU2883128831epcas2p3v;
+	Mon, 22 Sep 2025 04:19:03 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.69]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cVVHB63B3z6B9m9; Mon, 22 Sep
+	2025 04:19:02 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250922041902epcas2p12a2a374cd01021b0d6fb66a70dbab872~nf9dDZILC2352123521epcas2p19;
+	Mon, 22 Sep 2025 04:19:02 +0000 (GMT)
+Received: from asswp60 (unknown [10.229.9.60]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250922041901epsmtip240ddb01dec5a943bc2f102c544f65fbd~nf9c3h7DR0494704947epsmtip2Z;
+	Mon, 22 Sep 2025 04:19:01 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Henrik Grimler
+	<henrik@grimler.se>
+Cc: Shin Son <shin.son@samsung.com>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v4 1/3] dt-bindings: thermal: samsung: Adjust
+ '#thermal-sensor-cells' to 1
+Date: Mon, 22 Sep 2025 13:18:55 +0900
+Message-ID: <20250922041857.1107445-2-shin.son@samsung.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250922041857.1107445-1-shin.son@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250919155821.95334-3-vincent.guittot@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250922041902epcas2p12a2a374cd01021b0d6fb66a70dbab872
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250922041902epcas2p12a2a374cd01021b0d6fb66a70dbab872
+References: <20250922041857.1107445-1-shin.son@samsung.com>
+	<CGME20250922041902epcas2p12a2a374cd01021b0d6fb66a70dbab872@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_210733_823953_A6BDEA61 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250921_211911_253529_A156112D 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +98,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+The ExynosAuto v920 SoC includes multiple TMU instances; each instance
+monitors a subset of the SoC's up to 16 hardware thermal sensors.
 
-kernel test robot noticed the following build warnings:
+Additionally, add myself to the bindings' maintainers list, as I plan
+to actively work on the exynosautov920 TMU support and handle further
+updates in this area.
 
-[auto build test WARNING on pci/next]
-[also build test WARNING on pci/for-linus linus/master v6.17-rc7 next-20250919]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Shin Son <shin.son@samsung.com>
+---
+ .../thermal/samsung,exynos-thermal.yaml       | 32 ++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Vincent-Guittot/PCI-s32g-Add-initial-PCIe-support-RC/20250920-005919
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
-patch link:    https://lore.kernel.org/r/20250919155821.95334-3-vincent.guittot%40linaro.org
-patch subject: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
-config: openrisc-randconfig-r132-20250922 (https://download.01.org/0day-ci/archive/20250922/202509221101.JBhoJaEX-lkp@intel.com/config)
-compiler: or1k-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250922/202509221101.JBhoJaEX-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509221101.JBhoJaEX-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/pci/controller/dwc/pcie-s32g.c:133:20: sparse: sparse: symbol 's32g_pcie_ops' was not declared. Should it be static?
-   drivers/pci/controller/dwc/pcie-s32g.c: note: in included file (through drivers/pci/controller/dwc/pcie-designware.h):
->> drivers/pci/controller/dwc/../../pci.h:632:17: sparse: sparse: cast from restricted pci_channel_state_t
->> drivers/pci/controller/dwc/../../pci.h:632:17: sparse: sparse: cast to restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast from restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast from restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast to restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast from restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast from restricted pci_channel_state_t
-   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast to restricted pci_channel_state_t
-
-vim +/s32g_pcie_ops +133 drivers/pci/controller/dwc/pcie-s32g.c
-
-   132	
- > 133	struct dw_pcie_ops s32g_pcie_ops = {
-   134		.get_ltssm = s32g_pcie_get_ltssm,
-   135		.link_up = s32g_pcie_link_up,
-   136		.start_link = s32g_pcie_start_link,
-   137		.stop_link = s32g_pcie_stop_link,
-   138	};
-   139	
-
+diff --git a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
+index 29a08b0729ee..f9b399a7b82f 100644
+--- a/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/samsung,exynos-thermal.yaml
+@@ -8,6 +8,7 @@ title: Samsung Exynos SoC Thermal Management Unit (TMU)
+ 
+ maintainers:
+   - Krzysztof Kozlowski <krzk@kernel.org>
++  - Shin Son <shin.son@samsung.com>
+ 
+ description: |
+   For multi-instance tmu each instance should have an alias correctly numbered
+@@ -27,6 +28,7 @@ properties:
+       - samsung,exynos5420-tmu-ext-triminfo
+       - samsung,exynos5433-tmu
+       - samsung,exynos7-tmu
++      - samsung,exynosautov920-tmu
+ 
+   clocks:
+     minItems: 1
+@@ -62,11 +64,17 @@ properties:
+     minItems: 1
+ 
+   '#thermal-sensor-cells':
+-    const: 0
++    enum: [0, 1]
+ 
+   vtmu-supply:
+     description: The regulator node supplying voltage to TMU.
+ 
++  samsung,sensors:
++    description: Number of thermal sensors monitored by this TMU instance.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 0
++    maximum: 15
++
+ required:
+   - compatible
+   - clocks
+@@ -97,6 +105,8 @@ allOf:
+         reg:
+           minItems: 2
+           maxItems: 2
++        '#thermal-sensor-cells':
++          const: 0
+   - if:
+       properties:
+         compatible:
+@@ -119,6 +129,8 @@ allOf:
+         reg:
+           minItems: 1
+           maxItems: 1
++        '#thermal-sensor-cells':
++          const: 0
+ 
+   - if:
+       properties:
+@@ -139,6 +151,24 @@ allOf:
+         reg:
+           minItems: 1
+           maxItems: 1
++        '#thermal-sensor-cells':
++          const: 0
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: samsung,exynosautov920-tmu
++    then:
++      properties:
++        clocks:
++          minItems: 1
++          maxItems: 1
++        reg:
++          minItems: 1
++          maxItems: 1
++        '#thermal-sensor-cells':
++          const: 1
+ 
+ additionalProperties: false
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
