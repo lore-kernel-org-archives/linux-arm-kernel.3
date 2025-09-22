@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D902CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19EECA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFU+3WTepX+DzDUJeKQm8qVV1FJKax489i2OqeAtQzQ=; b=qL4UDOGrPuD175fYa/UbnpWqM9
-	d9TWvO6PVxnXlti0CtiF0fNDOhOYf93PD6/PD/FUMR2bD9G1ql2HObtdj+ktXNMOX0/aNJ3TeKeZo
-	upSufaQKCc3gVMBBI/c2Q0dUbQ6fOztNFTCIVWwZuAu6AWSaj4L9/ET1cnY6vmZ0SuH7WdefMqPhM
-	jufBLV0//ItZfOHivTXgZZKg46+RPUKtT/r2f4HJa4G+a0TK6VzAl5Nb8MCL+Tbuhp8NmgVUqienx
-	XK68FyljG16CWTYfEyfTPOrlYG6bo09C6AOPpK1BSuXu2SPgccSyVuBxXBN7hJ8buah+84z9Z+ooi
-	1hjCVVjA==;
+	bh=5/cGdFxmGsz5n5JDLBI5mHR2ZThbO8N2bLNXFxLPYl8=; b=A9INWgy3AmA/6km66/9wG25TQA
+	jlYd/JLisXjAfw/rCqxXNlIvZIb3jM4qg4Bl/uQ7zDk77lNSmiKaLbIMi75uYVtOuUHAhXWMp/i2X
+	40NqfPltgHDhpgN9bxqaD5um/SWzx63AxNhUPuKQYL8y2OfhgjzisPQgHxmo2dQdpOn1AuA5geEnK
+	9DrpEqOV+X1fkzSCLO73MvRbKzLngBfGwyoWRxNUAbIR9OiroAFgzVo+xbhoNOusqditL0AFPEWrL
+	kfQmc4fOy4oc7aE9E7wg6v5VLZ6BZVr+lhuWylGG/eZAN+DaaxCx/RCN62G/GnP9XEdYQ6OoL1EiO
+	jbQk8yjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iYt-0000000ApM7-3oCY;
-	Mon, 22 Sep 2025 15:34:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0iZ6-0000000ApQi-0pkd;
+	Mon, 22 Sep 2025 15:34:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iYs-0000000ApLb-2EDp
+	id 1v0iZ3-0000000ApPc-3Cj2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 15:34:42 +0000
+	Mon, 22 Sep 2025 15:34:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2AA4601AA;
-	Mon, 22 Sep 2025 15:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59471C4CEF0;
-	Mon, 22 Sep 2025 15:34:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4DACF40209;
+	Mon, 22 Sep 2025 15:34:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5791C4CEF0;
+	Mon, 22 Sep 2025 15:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758555281;
-	bh=R9bSzvYDP/5lyTx6wb918b5EYWwUtu/KCM4x0gs1JpU=;
+	s=k20201202; t=1758555293;
+	bh=9HGSjB3r5dniqSgwxmcE42ehkPwt/ZrU3TU596OdGSw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j6fbJ745qj2IUxkZ27opt1+vjPQ7SQFxxhmoPFVaU5jGfJjjPbPIMMlFPGBg0HZfP
-	 W7jhueujEPXhnHHI/FWvdDUQiXUZ66YxhwHLaeFKreZBW/+1KBcO1gc0USMl9xCal0
-	 dMmiViT5yuMPxCe7pRuOhXHtsdrS/6vfdMUvvVb5KHnKlVn8cM7JQS80f7w4ZMA+d3
-	 CerhBnikDUzwRiImlW7lV3UvEKcdiYFtL744PdLDsbxaYXgGB3W3eGg37xEFNCXOyz
-	 kq2vw9I2eDtXwuqO9/2XcL4FksBAu/YdCi6E4Njp3B4FJrlUDtBsUFVJPhUq6dIs/S
-	 qviOBOEEnQRfQ==
-Date: Mon, 22 Sep 2025 10:34:40 -0500
+	b=Qm0blVSlaSiqGsTnpobe23kzg1bJY5b87rq0IKksHw8ZqimpMUQGNklkkjo+A0tRi
+	 wU/2BmWZriav9VtPXul9T2P+hQCkXQQb1F+aTTyu9/rdJWTSwRzHaO332ToqKjJf/k
+	 WjXhkDnoqRLZWWAQGJfmMoCAeU/xVm7dzS8nFn3j76okS8kzQt6P1a0nxYeUS3fB5G
+	 QyQedonYX9kaw+MO+3YjuzT4vTF0T7JBGz2nuehg9l4tAi9ykHVmxjUmvThjR/WvDY
+	 0Dd+J9mf9PflW2yAUM1j3yKAijypHRelJOcHoh+xQwmLcH8MlM4o8gpM1gt9G5JAp3
+	 SCwdzu6BP5Q+Q==
+Date: Mon, 22 Sep 2025 10:34:50 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Jaehoon Chung <jh80.chung@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-samsung-soc@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v1] dt-bindings: mmc: samsung,exynos-dw-mshc: add
- specific compatible for exynos8890
-Message-ID: <175855527966.4176202.14757582451293066589.robh@kernel.org>
-References: <20250914131848.2622817-1-ivo.ivanov.ivanov1@gmail.com>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v1] dt-bindings: serial: samsung: add
+ samsung,exynos8890-uart compatible
+Message-ID: <175855529033.4177731.4812595067760499826.robh@kernel.org>
+References: <20250914132201.2622955-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250914131848.2622817-1-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250914132201.2622955-1-ivo.ivanov.ivanov1@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_083453_819328_4FA54E47 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +78,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 14 Sep 2025 16:18:48 +0300, Ivaylo Ivanov wrote:
-> Add samsung,exynos8890-dw-mshc-smu specific compatible to the bindings
-> documentation. Since Samsung, as usual, likes reusing devices from older
-> designs, use the samsung,exynos7-dw-mshc-smu compatible.
+On Sun, 14 Sep 2025 16:22:01 +0300, Ivaylo Ivanov wrote:
+> Add dedicated samsung,exynos8890-uart compatible to the dt-schema for
+> representing uart of the exynos8890.
+> 
+> Like exynos8895, it has a required DT property samsung,uart-fifosize,
+> so reuse support for it.
 > 
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  .../devicetree/bindings/mmc/samsung,exynos-dw-mshc.yaml          | 1 +
+>  Documentation/devicetree/bindings/serial/samsung_uart.yaml | 1 +
 >  1 file changed, 1 insertion(+)
 > 
 
