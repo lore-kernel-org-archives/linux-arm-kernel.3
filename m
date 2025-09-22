@@ -4,56 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7E2CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 04:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C358BCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 04:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5AH8qGUT4np4Y2Lgf4BNWvf4FP304S3GaOYN/oOaQE=; b=elKL3jgEpXHmYH0mXDG6RNBjen
-	GWXPeDLweaI1RzxW2jxkBCKf55R/AbA0X34WqGXbGA5sFuexJqQbgaocJddHdmbShYZ3hw1ggUckP
-	1qVgKraLiDoowsWoSjw27ribJtFZxFSdeKFpuSxnvCJ5LGBW/5OjfkxsHerfuxT8+B5ZEJCL2s2uJ
-	57WLsXgZ5yxh0VJjkzlQ3JDAfvSOJKXBSfGpDKXYRqqLDr2bjAA4UBo6p5DxPVqpYYr3HdvjE6wEl
-	M6MzvQq9ssMGb3FAYJOmrRh1ba3+C9V/CH+zd7EKV8tBa/QsY1EWiZqrusxAjfDwxHZE/PmnXLF+S
-	MAEmVO+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouRHS3eeYe7ktGggPLPm5Pb5SjM6PRMXN4idtPLQk/4=; b=k3hyboXnVwLEsHbUmgTCC4PCfy
+	mPhw5biCm06ylGE36xqySg3bd2TNNYx4RWOL2Nugvz6BbqU/GGsGT8P0KqAi53iDnwSq1Q4Pp7L1t
+	f3rmjxajjWDeCi9euDFwaTSDVi2KkN/LhIAtqD1ChoWTILICBiWfHWAmoUP24FyYlK6TlXDWdj5vt
+	u5y7lnhT50l1G+nKYtn3L4Ygcd28v8gHfTZ87kH1ecKaDUWuKQD8IGxrVms9Pjdi1Z5CVjPs2SUE3
+	rNG2iiSP6zGe1kmfgtITlEgZsqxXBIM2T55UBjeYY3EEKb/YJJkpmQvD755WEPbCid+UWum6PGY1A
+	i0DYKLLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Xpp-00000008ksa-0YmP;
-	Mon, 22 Sep 2025 04:07:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Xpl-00000008ksA-0f2D
+	id 1v0Xpx-00000008kuJ-1n6y;
+	Mon, 22 Sep 2025 04:07:37 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0Xpt-00000008ktM-3D6x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 04:07:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EED841515;
-	Sun, 21 Sep 2025 21:07:11 -0700 (PDT)
-Received: from [10.164.18.52] (MacBook-Pro.blr.arm.com [10.164.18.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B35693F5A1;
-	Sun, 21 Sep 2025 21:07:17 -0700 (PDT)
-Message-ID: <3911c239-8945-46aa-8ca8-52ea16221b1a@arm.com>
-Date: Mon, 22 Sep 2025 09:37:14 +0530
+	Mon, 22 Sep 2025 04:07:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758514053; x=1790050053;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=G2V1IzI07Lo+cAvCBkq1btsiFZLerly8BvX9QTJo0j4=;
+  b=J4+eny5E3PXpjWrLrB5THvvvICH3DGyyg9Y3v8oXyZxOY5TifSGnqBmV
+   iC2HRWKc8wGZ9udtVAF/pbexA9RZRM69mo1w0tfiRezpKjkFlx7qfAK/d
+   BxJJ1BXpNq4lpXbXtOelnnVGDG5tgGePfwqi0QPFERFiFyO+AS4l0cnpy
+   To2ne2pGdkiJ6SbV4qW68jAsBpqbMOi0BPUJxONrRVA7Yws82pr4F64RV
+   NKHR9RYeMVbJEY6c5XHm4aLpiI7lsiZue1XzztmAwBvxHLqesRnwDJGzh
+   gl30CHR8TTnz/d4N63n+ZC3Wv/IQlNYP4v7l6v8zl5/vi6evTcLQfOsZ+
+   Q==;
+X-CSE-ConnectionGUID: lnmSUpJIRyKM5dAnggJLrg==
+X-CSE-MsgGUID: v90hrOAZQaqIM/9pV6ccTw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11560"; a="59809006"
+X-IronPort-AV: E=Sophos;i="6.18,284,1751266800"; 
+   d="scan'208";a="59809006"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Sep 2025 21:07:33 -0700
+X-CSE-ConnectionGUID: zqpl9hnCTuyexJ28zpHKKg==
+X-CSE-MsgGUID: yfvJgNhsSFqEUX/ZvNjTxQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,284,1751266800"; 
+   d="scan'208";a="176811092"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by fmviesa009.fm.intel.com with ESMTP; 21 Sep 2025 21:07:28 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v0Xpl-0001J3-1y;
+	Mon, 22 Sep 2025 04:07:25 +0000
+Date: Mon, 22 Sep 2025 12:07:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com,
+	mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, s32@nxp.com,
+	bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Ionut.Vicovan@nxp.com,
+	larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com,
+	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com,
+	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, cassel@kernel.org
+Subject: Re: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
+Message-ID: <202509221101.JBhoJaEX-lkp@intel.com>
+References: <20250919155821.95334-3-vincent.guittot@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64/mm: Elide TLB flush in certain pte protection
- transitions
-To: Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: wangkefeng.wang@huawei.com, ryan.roberts@arm.com, baohua@kernel.org,
- pjaroszynski@nvidia.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250920051043.16421-1-dev.jain@arm.com>
- <d84eef92-115e-4b71-9146-86fc91244c15@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <d84eef92-115e-4b71-9146-86fc91244c15@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250919155821.95334-3-vincent.guittot@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_210725_323131_5845B3ED 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20250921_210733_823953_A6BDEA61 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,97 +95,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vincent,
 
-On 21/09/25 5:53 pm, Anshuman Khandual wrote:
-> On 20/09/25 10:40 AM, Dev Jain wrote:
->> Currently arm64 does an unconditional TLB flush in mprotect(). This is not
->> required for some cases, for example, when changing from PROT_NONE to
->> PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
-> The following transition does not require a TLB flush on all
-> architectures ? In which case, should not this check be part
-> of generic mprotect() itself.
+kernel test robot noticed the following build warnings:
 
-You are probably correct - there should be some common transitions
-like these which won't require flush on all arches. But that should
-be part of a wider cleanup :) And, in the ppc version of this function,
-I see that it returns true in the case of !radix_enabled(). So not
-very sure.
-  
+[auto build test WARNING on pci/next]
+[also build test WARNING on pci/for-linus linus/master v6.17-rc7 next-20250919]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->
-> PROT_NONE ---> PROT_READ | PROT_WRITE
->> growing into the non-main heaps), and unsetting uffd-wp in a range.
->>
->> Therefore, implement pte_needs_flush() for arm64, which is already
->> implemented by some other arches as well.
-> Agreed, defining pte_needs_flush() on the platform does make
-> sense, if it brings some perf improvement without additional
-> cost.
->> Running a userspace program changing permissions back and forth between
->> PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
->> for the none->rw transition, I get a reduction from 3.2 microseconds to
->> 2.85 microseconds, giving a 12.3% improvement.
-> But that's a very specific workload intended to demonstrate
-> the use case for this change. Hence the improvement claimed
-> here is not representative of real world work loads.
+url:    https://github.com/intel-lab-lkp/linux/commits/Vincent-Guittot/PCI-s32g-Add-initial-PCIe-support-RC/20250920-005919
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20250919155821.95334-3-vincent.guittot%40linaro.org
+patch subject: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
+config: openrisc-randconfig-r132-20250922 (https://download.01.org/0day-ci/archive/20250922/202509221101.JBhoJaEX-lkp@intel.com/config)
+compiler: or1k-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250922/202509221101.JBhoJaEX-lkp@intel.com/reproduce)
 
-True, but as I state, glibc malloc commonly uses this protection
-transition to extend the heap.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509221101.JBhoJaEX-lkp@intel.com/
 
->> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->> mm-selftests pass.
->>
->> v1->v2:
->>   - Drop PTE_PRESENT_INVALID and PTE_AF checks, use ptdesc_t instead of
->>     pteval_t, return !!diff (Ryan)
->>
->>   arch/arm64/include/asm/tlbflush.h | 27 +++++++++++++++++++++++++++
->>   1 file changed, 27 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->> index 18a5dc0c9a54..40df783ba09a 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -524,6 +524,33 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->>   {
->>   	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
->>   }
->> +
->> +static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
->> +{
->> +	ptdesc_t diff = oldval ^ newval;
->> +
->> +	/* invalid to valid transition requires no flush */
->> +	if (!(oldval & PTE_VALID))
->> +		return false;
-> Is not this true for all platforms which could be checked via
-> pte_present() helper ? Hence should not this be moved inside
-> the caller itself in generic MM ? I guess probably the above
-> mentioned transition should be moved as well.
->
-> PROT_NONE ---> PROT_READ | PROT_WRITE
->> +
->> +	/* Transition in the SW bits requires no flush */
->> +	diff &= ~PTE_SWBITS_MASK;
->> +
->> +	return !!diff;
->> +}
->> +
->> +static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
->> +{
->> +	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
->> +}
->> +#define pte_needs_flush pte_needs_flush
->> +
->> +static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
->> +{
->> +	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
->> +}
->> +#define huge_pmd_needs_flush huge_pmd_needs_flush
->> +
->>   #endif
->>   
->>   #endif
+sparse warnings: (new ones prefixed by >>)
+>> drivers/pci/controller/dwc/pcie-s32g.c:133:20: sparse: sparse: symbol 's32g_pcie_ops' was not declared. Should it be static?
+   drivers/pci/controller/dwc/pcie-s32g.c: note: in included file (through drivers/pci/controller/dwc/pcie-designware.h):
+>> drivers/pci/controller/dwc/../../pci.h:632:17: sparse: sparse: cast from restricted pci_channel_state_t
+>> drivers/pci/controller/dwc/../../pci.h:632:17: sparse: sparse: cast to restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast from restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast from restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:635:23: sparse: sparse: cast to restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast from restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast from restricted pci_channel_state_t
+   drivers/pci/controller/dwc/../../pci.h:639:23: sparse: sparse: cast to restricted pci_channel_state_t
+
+vim +/s32g_pcie_ops +133 drivers/pci/controller/dwc/pcie-s32g.c
+
+   132	
+ > 133	struct dw_pcie_ops s32g_pcie_ops = {
+   134		.get_ltssm = s32g_pcie_get_ltssm,
+   135		.link_up = s32g_pcie_link_up,
+   136		.start_link = s32g_pcie_start_link,
+   137		.stop_link = s32g_pcie_stop_link,
+   138	};
+   139	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
