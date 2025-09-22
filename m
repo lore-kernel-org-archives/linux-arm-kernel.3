@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82ECCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E43CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJ7aOz13Ko41PPly9ykFXA8DWGiUHYAJ9XPaPWVJD8Q=; b=fFUIfu7vrOYkSBgo5GOKtscFPT
-	Y4LkNWcz3VBhrA+WsoX1yFZg519L/hlCRD/wkI3JAdeB9ZCMx/DFF/GWuNKzAJSb6xlSCGGuPhOBp
-	bRdDKBihgujF4ALz3SlKvTnHYAIT7pA7FsSL2mgsWIg6yXrsvPrJzEDGtonzhvgGTxSWMo89Bx4gX
-	ZyUNlr50/s29RLe/zsUobgEiAbTMQ814NU/0vQIi6gzgbYREUTakbZXigPnlp0W11n3zX8OKMrOk3
-	kNltH4ekn1qbsDZ6cLdj2CNjMiC/Y0eMBgx4e+ktGoz5gtrrRGyTIT8O1H3tiGwBWS5YcRIX6jMmY
-	XRPWlBEA==;
+	bh=iZEGJ6uzbKNGv933dhE3Rl87ZI/fO9WVQTbbJyWvfaE=; b=XWyyS/n77Hf3kxmG/6HtK23tvo
+	ERoBdPS2wXGZT7TXBHEVqIJsxcd1e4o9UlZI/eF+1c0+nLGVP7VwwVU6tibA/Gyp8S/YfroEXzCC2
+	g9DnE4TUSSPFaJ1P0N2RXS4d0ZwtAnO64P8tAk/QSCs5MdIDEuqQC8JAwFTRvwdVJwMHarymgpWkt
+	dZkKKl3UVxmuo3Rlih0oXzEpQboHsJ2exaj3vLMGOqNqakgA4G2MxYbFBb1mCnRBtIIwBjMCf2nsj
+	SGd2rsVss0W4slfPG9DGNtdRzixGLlaIOOHPUKBMar7RzcpMUtYkWxUw0FuCgp50Zwzh1XNY5rjlo
+	NkBvCV8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k8l-0000000B5J0-3jAR;
-	Mon, 22 Sep 2025 17:15:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0kB7-0000000B5ib-304F;
+	Mon, 22 Sep 2025 17:18:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k8k-0000000B5IR-3uUp
+	id 1v0kB4-0000000B5hk-2aef
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 17:15:50 +0000
+	Mon, 22 Sep 2025 17:18:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E99CA601ED;
-	Mon, 22 Sep 2025 17:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58690C4CEF0;
-	Mon, 22 Sep 2025 17:15:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0150C43E00;
+	Mon, 22 Sep 2025 17:18:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC0EC4CEF0;
+	Mon, 22 Sep 2025 17:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758561349;
-	bh=mi0cY+Nvy3Qqsit422rWrrAWc80S+JmM8GQj6PeSV2U=;
+	s=k20201202; t=1758561493;
+	bh=7n91RXDPAxgH1q840XCue47m4bAyVbyVfAnh6yft++U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fvfpwM20kmi/LgRVzKQciG+YKjCg0Mx1FzurfkQzFI3ACRPTweEOfg/DxNcvwLtZQ
-	 iR5+FuScP004ixrWCtOX2ZTFZTIwtltSLvhSpGl0BjwX0XQxhU3YzGiF9Uiqf1cH0W
-	 M8LMfyXpmSCosMi5Hh85MmFVG2gy8pF8uzQ/9DgPKtTSDqeZlD6jTsShE0IcUpoeY3
-	 ulHY+lQil5ATUZUwTdPSRdCAFJejFPD8rN7ItMIWcj4/C4Sh8Z+5KM+Sw4GyU9YUhM
-	 9QzQu95/8uJclYKbA1eczKjiqBB+i/PoA0VjY2JWJ+WZ/+ksJ3TYhiiI3++cpaRwgn
-	 Pzlotp4RgnngQ==
-Date: Mon, 22 Sep 2025 12:15:48 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-i2c@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
-	devicetree@vger.kernel.org,
-	Sam Protsenko <semen.protsenko@linaro.org>
-Subject: Re: [PATCH v3 3/7] dt-bindings: soc: samsung: Add Exynos990 USI
- compatible
-Message-ID: <175856134761.488862.14515741406588517513.robh@kernel.org>
-References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
- <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
+	b=ByKyEGTiZjs/nEy3Xzn/QKsdiFqIK/jEadu1pqoZ5vZGLCg+MfsnCiu9gaEf9kl6b
+	 sZK68I/axPzRYCujKthTI//IXqGF5PpFZEuTkue+wUWS7MyUtfOJPVLWib01kMEb6G
+	 sUETtL4ThYkyvjh2XZDBhW/FO/uzt+xE9Cwv3gZdckKKc2zsT8B4SnvhhY5vcsVY2H
+	 dlbMtRcBCAw9g5hGmHTpms6o3QXkH9AaJBTQYzVbQyNZ03UenK6S39/yV6cYQolwnH
+	 +4aM0+NuPv074cEDycBfVbVpmYfW4UPWVHTsjflNIECHo9mcqO1d2VP8VkNZ9oTHKc
+	 QwuHIUOw2KN7w==
+Date: Mon, 22 Sep 2025 12:18:12 -0500
+From: Rob Herring <robh@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/3] dt-bindings: PCI: dwc: Add external reference
+ clock input
+Message-ID: <20250922171812.GA489088-robh@kernel.org>
+References: <20250918032555.3987157-1-hongxing.zhu@nxp.com>
+ <20250918032555.3987157-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
+In-Reply-To: <20250918032555.3987157-2-hongxing.zhu@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_101814_678588_67D17D13 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Sep 18, 2025 at 11:25:53AM +0800, Richard Zhu wrote:
+> Add external reference clock input "extref" for a reference clock that
+> comes from external crystal oscillator.
 
-On Wed, 17 Sep 2025 21:04:23 +0000, Denzeel Oliva wrote:
-> Add samsung,exynos990-usi compatible string to the
-> Universal Serial Interface (USI) bindings.
+Sigh. A different subject on every version throws off my scripts... 
+Perhaps slow down your pace of sending new versions.
+
+See my comments on v5.
+
 > 
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
+> diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> index 34594972d8db..0134a759185e 100644
+> --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> @@ -105,6 +105,12 @@ properties:
+>              define it with this name (for instance pipe, core and aux can
+>              be connected to a single source of the periodic signal).
+>            const: ref
+> +        - description:
+> +            Some dwc wrappers (like i.MX95 PCIes) have two reference clock
+> +            inputs, one from an internal PLL, the other from an off-chip crystal
+> +            oscillator. If present, 'extref' refers to a reference clock from
+> +            an external oscillator.
+> +          const: extref
+>          - description:
+>              Clock for the PHY registers interface. Originally this is
+>              a PHY-viewport-based interface, but some platform may have
+> -- 
+> 2.37.1
+> 
 
