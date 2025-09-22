@@ -4,94 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A2FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 05:27:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00FFCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRQ6VYbR+TQAl593qF3BM3VZfrCtT4hvJ2iIj2q2yDU=; b=pv4Aw7wRGIJNVDbd8qHL12b++O
-	ojCoZlZzC/SBaUk96UnCUp695MhonN9blknO/LXSlFfdoxusf8bY1T0KU6oKYDpBQk0K54DGJCnEv
-	w8/oc4g20PEYyLQApp+S6gRcRYN9Sqs2RvW8eFCFtQnQXWSARFljVexHMNToqTHk4PcTrwyI7gdJH
-	CBy+rin/FJ7d1q38EXHZK5/JaKAwjt8g8VJHThnwQnO2tL8cDAQU5g0qolYrr/0bYSv4zQhAXkq73
-	xvbTPWpSyQjz+9BzZcpouIiE6GjoHZtv7biTqPcDJeSSbQIt5RZD3JSt+CbsYkA0nywEU00ZON+yF
-	hZ31tdfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s4HGwE6JITShxMvSeU8R2PrIbvvEmZDXP/9z9rie5Ps=; b=JzgD2HUqcIHkzSL4L8G7d4Ytj+
+	0y8HzWn2q+bT7ZYcKc3tAtGTAu3j9O5VRx5/8EJwmAnXBXv0BPEvUoipxYZbUus+cEW2CJltTjOw3
+	QhAacI6stPHXyF11H9xLuiwnwI65iKQpfj9lHbbn6jzQj2maS/dEF2i+j0beAq7nuK06OGW5XVZJm
+	3R3k588hkgpJEsHO0ICunA673SwE7rlbfY6A9CZ4GqYl5Na+F3jXDL+pH4FmxYzalUFfGYYGqUTxv
+	msOWzGvIOGl4OG7ECfvJEXss5tPFt0nNrb7FkHWKcebUuApuRl/66N8Lz3BOKfZxD6SXtidLsZwob
+	qyoT7hRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Z50-00000008ro1-1mSL;
-	Mon, 22 Sep 2025 05:27:14 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1v0Zn6-00000008vfJ-2vGG;
+	Mon, 22 Sep 2025 06:12:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Z4v-00000008rmz-41jn
+	id 1v0Zn4-00000008vel-2jZM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 05:27:13 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250922052702epoutp04a95e270817286210ba30f6e0cff98541~ng41bD5uH0754507545epoutp04H
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 05:27:02 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250922052702epoutp04a95e270817286210ba30f6e0cff98541~ng41bD5uH0754507545epoutp04H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758518822;
-	bh=pRQ6VYbR+TQAl593qF3BM3VZfrCtT4hvJ2iIj2q2yDU=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=aCUYp4DjFdiTIF0q8RsM0LWfcvQMzwD40f0EMVU1gQqBJdv4oSshWByhIdy+vWqd/
-	 hln+tqDppQVZ6jzJtSCixGbc2JKT0zokD6hjtFuOZI5Az1bNnlpTcLAaNKnNTt7igs
-	 zEh1jzsfzxBwyZTF43UprNuatfQkhXFui7eD7uiU=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250922052701epcas5p10f94621bc5eaecb962b856c07434d0cb~ng40Tk9CU0734307343epcas5p1d;
-	Mon, 22 Sep 2025 05:27:01 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cVWnc2r61z6B9mC; Mon, 22 Sep
-	2025 05:27:00 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250922052659epcas5p135d8f9832a768030fc87b2e412fdbbc7~ng4y0apWs2794327943epcas5p1_;
-	Mon, 22 Sep 2025 05:26:59 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250922052653epsmtip16c0b78c7e54941680c78cef5ec4caaf1~ng4s6V2_y2099220992epsmtip1H;
-	Mon, 22 Sep 2025 05:26:53 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <vkoul@kernel.org>,
-	<kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>
-Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <02ef5180-ad56-45f0-a56f-87f442bf6793@kernel.org>
-Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Mon, 22 Sep 2025 10:56:50 +0530
-Message-ID: <007f01dc2b81$84ef19b0$8ecd4d10$@samsung.com>
+	Mon, 22 Sep 2025 06:12:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CAB7A601DC;
+	Mon, 22 Sep 2025 06:12:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34ED8C4CEF0;
+	Mon, 22 Sep 2025 06:12:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758521565;
+	bh=3UerwbZ38Y6F51/AVZvwT7fXNyINz/eAUpivcoyBoKs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FtkR8yioGMhFkuF+Cn1wzH4ievrnmc6BCRXFotZptl2hU5vAkAIKzb6bxFPJl1/5V
+	 t4Mn1u5euXTtsl6AZUiQoeTQxskVNc45ObI32dW7n0Te3qyvGjRzhenrKBLO5oHYKl
+	 yUKTm4Sv3J7vPNKLXw44JzFxh23XziKUMADmJi2MTFy4Jsv2SnxqwWjSA4XwdmqybH
+	 zELfSwj198PjLJt2gM0PVjIdfM9qO99QCK9ZGD/5Wis0BX6pNvKy85B9mHiUi1S1A1
+	 cogT9I5lshWFzf1pOdPgdgwi/Sqwx0jL/p8E70994AcP5fUyojYjW0lHrviiFFZB5+
+	 mPj2bZghG6pFg==
+Date: Mon, 22 Sep 2025 11:42:36 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] PCI: imx6: Add a method to handle CLKREQ#
+ override active low
+Message-ID: <hsmebnz6opoj45zztdd2svmdtrwwwrngjaidpltbunnkdvvdqz@lhyejtlwkkes>
+References: <20250922023741.906024-1-hongxing.zhu@nxp.com>
+ <20250922023741.906024-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcA7fJUJgHIrfZJAofpNyCz6rDlMA==
-Content-Language: en-in
-X-CMS-MailID: 20250922052659epcas5p135d8f9832a768030fc87b2e412fdbbc7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
-	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
-	<20250903073827.3015662-2-pritam.sutar@samsung.com>
-	<0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
-	<007801dc2893$18ed4a20$4ac7de60$@samsung.com>
-	<02ef5180-ad56-45f0-a56f-87f442bf6793@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_222711_449663_0867811B 
-X-CRM114-Status: GOOD (  19.51  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250922023741.906024-3-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,76 +74,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mon, Sep 22, 2025 at 10:37:41AM +0800, Richard Zhu wrote:
+> The CLKREQ# is an open drain, active low signal that is driven low by
+> the card to request reference clock. It's an optional signal added in
+> PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
+> reserved.
+> 
+> Since the reference clock controlled by CLKREQ# may be required by i.MX
+> PCIe host too. To make sure this clock is ready even when the CLKREQ#
+> isn't driven low by the card(e.x the scenario described above), force
+> CLKREQ# override active low for i.MX PCIe host during initialization.
+> 
+> The CLKREQ# override can be cleared safely when supports-clkreq is
+> present and PCIe link is up later. Because the CLKREQ# would be driven
+> low by the card at this time.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 35 +++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 80e48746bbaf..a73632b47e2d 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -52,6 +52,8 @@
+>  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+>  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+>  #define IMX95_PCIE_SS_RW_REG_1			0xf4
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
+>  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+>  
+>  #define IMX95_PE0_GEN_CTRL_1			0x1050
+> @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+>  	int (*wait_pll_lock)(struct imx_pcie *pcie);
+> +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
+>  	const struct dw_pcie_host_ops *ops;
+>  };
+>  
+> @@ -149,6 +152,7 @@ struct imx_pcie {
+>  	struct gpio_desc	*reset_gpiod;
+>  	struct clk_bulk_data	*clks;
+>  	int			num_clks;
+> +	bool			supports_clkreq;
+>  	struct regmap		*iomuxc_gpr;
+>  	u16			msi_ctrl;
+>  	u32			controller_id;
+> @@ -267,6 +271,13 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  			   IMX95_PCIE_REF_CLKEN,
+>  			   IMX95_PCIE_REF_CLKEN);
+>  
+> +	/* Force CLKREQ# low by override */
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr,
+> +			   IMX95_PCIE_SS_RW_REG_1,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL);
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 19 September 2025 05:59 AM
-> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; vkoul=40kernel.org=
-;
-> kishon=40kernel.org; robh=40kernel.org; krzk+dt=40kernel.org;
-> conor+dt=40kernel.org; alim.akhtar=40samsung.com; andre.draszik=40linaro.=
-org;
-> peter.griffin=40linaro.org; kauschluss=40disroot.org;
-> ivo.ivanov.ivanov1=40gmail.com; igor.belwon=40mentallysanemainliners.org;
-> m.szyprowski=40samsung.com; s.nawrocki=40samsung.com
-> Cc: linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: Re: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 HS phy compatible
->=20
-> On 18/09/2025 20:55, Pritam Manohar Sutar wrote:
-> >
-> > Yes, we have already discussed this and convergence was to use the
-> > conventions which are mentioned in the Data-book. So, I updated the
-> > supply names accordingly.
-> >
-> > Please see the below communications for the same.
-> >
-> > https://lore.kernel.org/linux-phy/83dc9435-5850-425d-b345-52e84ef9262c
-> > =40kernel.org/
-> > https://lore.kernel.org/linux-phy/6e1c67d2-9bfa-442a-9d53-8c5970a2a9ef
-> > =40kernel.org/
-> Ah, ok, although next time I might ask the same, since commit msg does no=
-t
-> explain that.
+This should be:
 
-Ok, will update commit message.=20
-Please confirm the commit message if I updated it as below. =20
+	imx95_pcie_clkreq_override(imx_pcie, true);
 
-=22dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy compat=
-ible
+refer below...
 
-Document support for the USB20 phy found on the ExynosAutov920 SoC. The
-USB20 phy is functionally identical to that on the Exynos850 SoC, so no
-driver changes are needed to support this phy. However, add a dedicated
-compatible string for USB20 phy found in this SoC.
+>  	return 0;
+>  }
+>  
+> @@ -1298,6 +1309,18 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  		regulator_disable(imx_pcie->vpcie);
+>  }
+>  
+> +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> +{
+> +	imx8mm_pcie_enable_ref_clk(imx_pcie, false);
 
-This phy needs 0.75v, 0.18v and 3.3v supplies for its internal=20
-functionally. Power Supply's names are as per phy's User Data-Book.
-These names, (dvdd, vdd18 and vdd33), are considered  for 0.75v, 1.8v=20
-and 3.3v respectively. =20
-=22
+Just noticed this discrepancy. 'imx8mm_pcie_enable_ref_clk(, false)' is enabling
+the CLKREQ# override, thereby enabling the refclk. But only for imx8mm, this
+helper is called as imx8mm_pcie_enable_ref_clk(). But for imx95, the equivalent
+function is called as imx95_pcie_clr_clkreq_override(). This is causing
+confusion.
 
->=20
-> I still cannot find constraints for the rest of properties, though.
+Maybe you should just call both functions as:
 
-Sorry I didn't get it completely. Can you please elaborate on the same?=20
+	imx8mm_pcie_clkreq_override(imx_pcie, bool enable);
+	imx95_pcie_clkreq_override(imx_pcie, bool enable);
 
-Let me know if you want me to update the commit message=20
-and send v9? And retain your RB on patch1 and patch3?
+Then,
 
-> Best regards,
-> Krzysztof
+	imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+	{
+		imx8mm_pcie_clkreq_override(imx_pcie, false)
+	}
 
-Thank you.
+	imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+	{
+		imx95_pcie_clkreq_override(imx_pcie, false)
+	}
 
-Regards,
-Pritam
+and populate the clr_clkreq_override() callback.
 
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
