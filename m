@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75ACCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEA1CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPYzAXEdeF7lMogWFGvskWNtIBoMjA8NdQ+ADHMu5s0=; b=WJR+6dBeOnXkHtH9YlEf3Hhhh1
-	Yp+TW0PvwuslzLmVSvVHqRjmNMi8y+BWL5x/M65jfbs8emdg5lTOLNxcoYEtamUSPvxtHZWDG+F6d
-	3M6Kajaub7MUQ+YFNBZA9Kn9T2D6BzdlmOLe07FStol7uH7xf8QqtdpA5h15DwHDWao7qeGSqnC2j
-	iMfaVkFKOeNSKHKdXmRKy7eFClghKVTbHDNakaBvO3QOmEsECCTVFmkHetavuaquhLGnSGHI/IIJk
-	Yi8pRyQpnTAptdzz68yqAw4Q5G2HWTWzBCPpkfPDINuSzpsHEIc2Xy+44mm/XpX7pn3l4dndNrnrb
-	PD517PZg==;
+	bh=K5/qLGuVM2rd6S0ixPK5O5j49YfXFWdCdQEKTuuRReM=; b=GnL6L/lKJqPdZa7ah3vJ4IZchn
+	PPQcfQ1BtlLsTKr1TUh0hBh1rBhoyQpXokXRpSX3mRyYUMVn1wDdDPF6JKIyL5yIu8JtivKWChiJN
+	SLiABiDrc2k5G7Ts2C3SPMPx4LJhhrc5ho26azGH9QVL2yyVNdPx7HclPRcyex6Kj/cu9jCTNjZAz
+	1ZStZmeI+ER4lx4KRXEOEEjf2gp+Qb6FOB2d23zk8Es3URzI26xkIRlsp+1VIVe8gcWMyKkb9ni1p
+	2kOnwxRjFWubtmTQMk05z6BpWeHOes8AmGZdIUaMJRMkmNGLPVEcBHwzvOJqhF4ZYB018IGr0g7qN
+	XvZzu+0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gO7-0000000ASLJ-2l0H;
+	id 1v0gO7-0000000ASKt-1H1f;
 	Mon, 22 Sep 2025 13:15:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gNt-0000000ASCR-2EHm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 22 Sep 2025 13:15:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tPYzAXEdeF7lMogWFGvskWNtIBoMjA8NdQ+ADHMu5s0=; b=LG1GvJMa8pPyRlKtcIeA11d61c
-	ZhHTpD65KJ4P5kLeQqRQyfrz8sHlwf2mz3rSbLXCD191OmbF9kqkYiH+Fvf9sIzJ/01mlQtLZ9w3L
-	t87nZVCz2PXeDXJI6Xqw7nx3iSBhKvcyUMs+bcof67gQT9vUto8ArMUmXiAT2Yy53LC1szjruct/6
-	Xlw+1aXs5T9bsrYR0OBjJzqfIFzRaAPvIYBld0+runpZX8Wg9y8XejNz2s8tlo4Fd3i7I9xGbMjQL
-	iTWaCkMgVSqVnQP9qDknWqd87+GLFRp8nU6SG9cXCSPtx7TnasaM7rr9AZvqQ0n4fQIadLXpaZQn4
-	gXC9Juug==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gNq-00000008IDv-0HOh
+	id 1v0gNr-0000000ASBB-2ZO8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 13:15:12 +0000
+	Mon, 22 Sep 2025 13:15:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE20144F5C;
-	Mon, 22 Sep 2025 13:15:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41A18C4CEF0;
-	Mon, 22 Sep 2025 13:15:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CCBC6601DE;
+	Mon, 22 Sep 2025 13:15:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BAB9C4CEF7;
+	Mon, 22 Sep 2025 13:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758546908;
-	bh=w0BgZ/0PysnMar/u7LAhZ9GfXOMmoJnFFf/iWDEkfiM=;
+	s=k20201202; t=1758546910;
+	bh=6UJScf8g+nt2Rgo/WhMNYndeCkN5era5i1Ssuuc8Bmo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WHytwIDZe5D+QvFzO+KrhrqFEJmBwnN8l6c14HrO5UkiNkICTXX/X+ukHk0D5svKg
-	 9V8CWy12ndQ8543BWsrWgmdmyxnxd+ssqglrRQXygC2nk9fD2sgl6cwg9ckf5qMWI0
-	 evI7jBREbXGoFg+dLPetUUY6qUD/PxEA9ONZoURHqOKQxom/CefUjZRLrjhGFLjV2W
-	 pQBB+1MgpO1g4tEhky7IwUUe+4g9AUNBjTKm+nCNdP9mH1qs2WvWUHpeYXy0BajDa/
-	 dXAypbx+Yl7aBvQr4NiD659O6HCXeojs38B1A76zqazfiUeMBK0QFP3M79x9/btg8B
-	 LeFPyuxAumA/A==
+	b=bKUGZIPSZrtBgtGO5WbFapidt4G76uWte/XT89E1wpX2qlm7y1jq3k3PLnRlodDJI
+	 cFjkCdDJHbd+it1QjxQL8psMPCWPyC/72n1ngAXUTUqaYTibHv3xDTGnkxRNPspKD2
+	 LLojmEqbJotufScROYmL/BIift6I8T17tdBA9mMBkqTQzxu6iOEqU0ECQb6XAcZTNm
+	 Adfj17w8ZOQE7riJKtRDCwGpbd6DsQYZOfTZZ/XxjBGlrc2RKXYOhRKePuOywzeJsk
+	 /nsEFgouCqpKVT2y1GVehPQyRlkYMrxdlsUVfJx8spIV10DfwLtOYL4sa0bw683q7D
+	 q2uxtFIDrj9wA==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Omar Sandoval <osandov@osandov.com>
+To: catalin.marinas@arm.com,
+	Can Peng <pengcan@kylinos.cn>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-debuggers@vger.kernel.org,
-	kernel-team@fb.com
-Subject: Re: [PATCH v2] arm64: map [_text, _stext) virtual address range non-executable+read-only
-Date: Mon, 22 Sep 2025 14:14:48 +0100
-Message-Id: <175853869848.3126168.11981509234580321695.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm/syscalls: mark syscall invocation as likely in invoke_syscall
+Date: Mon, 22 Sep 2025 14:14:49 +0100
+Message-Id: <175854396942.3145289.6573440532585531587.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <93a6f8e47cce118493e250b719a927f517be12cf.1758316750.git.osandov@osandov.com>
-References: <93a6f8e47cce118493e250b719a927f517be12cf.1758316750.git.osandov@osandov.com>
+In-Reply-To: <20250919100042.497861-1-pengcan@kylinos.cn>
+References: <20250919100042.497861-1-pengcan@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_141510_446817_C7C29BEA 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +72,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Sep 2025 14:27:51 -0700, Omar Sandoval wrote:
-> Since the referenced fixes commit, the kernel's .text section is only
-> mapped starting from _stext; the region [_text, _stext) is omitted. As a
-> result, other vmalloc/vmap allocations may use the virtual addresses
-> nominally in the range [_text, _stext). This address reuse confuses
-> multiple things:
+On Fri, 19 Sep 2025 18:00:42 +0800, Can Peng wrote:
+> The invoke_syscall() function is overwhelmingly called for
+> valid system call entries. Annotate the main path with likely()
+> to help the compiler generate better branch prediction hints,
+> reducing CPU pipeline stalls due to mispredictions.
 > 
-> 1. crash_prepare_elf64_headers() sets up a segment in /proc/vmcore
->    mapping the entire range [_text, _end) to
->    [__pa_symbol(_text), __pa_symbol(_end)). Reading an address in
->    [_text, _stext) from /proc/vmcore therefore gives the incorrect
->    result.
-> 2. Tools doing symbolization (either by reading /proc/kallsyms or based
->    on the vmlinux ELF file) will incorrectly identify vmalloc/vmap
->    allocations in [_text, _stext) as kernel symbols.
+> This is a micro-optimization targeting syscall-heavy workloads.
 > 
 > [...]
 
-Applied to arm64 (for-next/mm), thanks!
+Applied to arm64 (for-next/entry), thanks!
 
-[1/1] arm64: map [_text, _stext) virtual address range non-executable+read-only
-      https://git.kernel.org/arm64/c/5973a62efa34
+[1/1] arm/syscalls: mark syscall invocation as likely in invoke_syscall
+      https://git.kernel.org/arm64/c/da9e5c04be58
 
 Cheers,
 -- 
