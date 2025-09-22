@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287FECAC592
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45692CAC5B4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xs7stz/3SFqwla0PFNIicUMTpBKTXZ0i6lPIFiVX6E0=; b=fZCtHLCdB9Gqq+BTkr0u2cuaud
-	mWE5xrbVxcpuTLjHVv1HwWYz0TaW01BsrY8vcLK8PN62gFXXaA3G9Z04J+6B1s+YpdxG1zobClJ6U
-	Yru6VQ1O1n44iI2EWaPNMdN2P2r5Zdh7sO6i7aEZHbgYL0svoc41S/siekkm835LD43b1Zl3PLBns
-	lExG+eXgl4JL4mr90RMPAcPOC5O+hFJBw3WJKD6fyfOEOjnNinyehnHUyaMi7/4kcni7YSDpfwPA6
-	I9jB4Eimru4f4HKCM0GrnVpKJrv+dZso3c/qrtNVbAitRhaF29q+T04LI+JJWrEm9QYkBxmb8326x
-	bOFWnmzA==;
+	bh=6t9BhHNbawUt9cKcTwWB1zGFcPM5zzfRR15wOmBRsHE=; b=BI5PY8KJDPC6BCjVTwLlCwl59w
+	4Cob2mGDHLuFKgtZJmLkPzDr2U9gx06m1JqdxvT8FHZODasej7n6juMJGzq95VO8/B8zwtDRvLjV4
+	aKj8PIsB0SzVIHOBQSiNazXG/3UjjCgS4sKRgB3iegyCOkUb83fJZn5dRfWlBMEw+zCosDmRxpEFY
+	ZWaS54ZJxibgadX49r5PCMGounnZqEJ3EqWDyabweqlKYV0rSNEHGiqZV2H8BR5lVvj4EbDoDNq1q
+	Da8yAvM85oVeSTTJNxZfuBo/8A9dRY3iZnkdDnU9oDisnwPefyTcb3ORm2/Gpc/kYiJq48zd+zdZM
+	OoISc37Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bup-00000009htd-4A9P;
-	Mon, 22 Sep 2025 08:28:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v0buo-00000009hq5-0tnD;
+	Mon, 22 Sep 2025 08:28:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bug-00000009hhP-3yCV
+	id 1v0bug-00000009hg3-049v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:28:48 +0000
+	Mon, 22 Sep 2025 08:28:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D78544C04;
-	Mon, 22 Sep 2025 08:28:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F809C116B1;
-	Mon, 22 Sep 2025 08:28:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D4CD44EC8;
+	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1E9C4CEF0;
+	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758529726;
-	bh=Vac5enyF1+7YJx3aHRPivtknN4RVAMzs0FetyAQ41Gc=;
+	s=k20201202; t=1758529725;
+	bh=Lteyum6sORsX/ORFwgAmQ1CfkVj7VaM8cFC9100KNAw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=exZWUAuCvrOxeHAR6lLr56b+BvoyIUJVIhSTdLA+5EqVgNVRIydHoBBxrVCrQ25Ht
-	 Xyy65K4mglc8TrgbhDvYrwvD4RhlSktzQTG6x94WcsAPPLn6rJ44OMBA5nPGXbB2Xu
-	 m/aLptrfZ/yJPRBzU4ZDpHt6KaEZfdjzDXCibZO3nB4A75QY9+WmxGPAq5AUecbzcD
-	 XMd8i3bRUTvT6DNgPqQ5veDQvBYHf3YDkviW6Z/EmDyCOhE4+53Lg52TbhiKfumQMT
-	 2uW5v9PuPtY3jXFGxiPgiN5uLXKQGszYcJnI2vMIwJPeGVFLc+gfa8f7aRsbpZpRS4
-	 n7kg7NYyiqQrw==
+	b=WAlC7IdjkueDZd9RKSjdPgM//0FrH3HoKvQA7ESMD7o+rATw7VpfSQrigXiUqCrBY
+	 VZsGeOMgl6oHKLoxh/S2XEGoRLwpCF2RU9YQ/PxSchiFPktF3SjWf7R8mGDUHKPMQW
+	 hoXbf9RsTcMpCF59nGRm9N99B1TyYWssUG4F8rtXdPaEXLCStNclRDR+LmMAQpfj8N
+	 1UqkpiTzAaacKZxYImR8bAsHIwUBeLdMREtyRhspgar2aPzX8eWYeIPGiCw4s7Se+T
+	 xIlm+AZ09pPoR3BjfrE5UUP/IvgMjzVasjjO4irJ9CKroThTSEMLjcIn7W+V2eyZi4
+	 zdaMgyRrtlP9A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0bue-00000008Kds-2FZv;
-	Mon, 22 Sep 2025 08:28:44 +0000
+	id 1v0bud-00000008Kds-1aCe;
+	Mon, 22 Sep 2025 08:28:43 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,9 +64,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 10/26] irqchip/gic-v3: Switch high priority PPIs over to handle_percpu_devid_irq()
-Date: Mon, 22 Sep 2025 09:28:17 +0100
-Message-ID: <20250922082833.2038905-11-maz@kernel.org>
+Subject: [PATCH v3 06/26] irqchip/apple-aic: Add FW info retrieval support
+Date: Mon, 22 Sep 2025 09:28:13 +0100
+Message-ID: <20250922082833.2038905-7-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250922082833.2038905-1-maz@kernel.org>
 References: <20250922082833.2038905-1-maz@kernel.org>
@@ -77,8 +77,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_012847_027569_6DEE3E19 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250922_012846_096021_A78BF96B 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,117 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It so appears that handle_percpu_devid_irq() is extremely similar to
-handle_percpu_devid_fasteoi_nmi(), and that the differences do no
-justify the horrid machinery we have in the GICv3 driver to handle
-the flow handler switch.
+Plug the new .get_fwspec_info() callback into the Apple AIC driver,
+using some of the existing FIQ affinity handling infrastructure.
 
-Let's stick with the standard flow handler, even for NMIs.
-
-Suggested-by: Will Deacon <will@kernel.org>
+Acked-by: Sven Peter <sven@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-gic-v3.c | 54 ++----------------------------------
- 1 file changed, 2 insertions(+), 52 deletions(-)
+ drivers/irqchip/irq-apple-aic.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 23ef0c285f30b..8b615a2ee463d 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -230,9 +230,6 @@ static void __init gic_prio_init(void)
- 		!cpus_have_group0);
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index 032d66dceb8ec..cb8b6f40ce8d3 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -651,6 +651,33 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
+ 	return 0;
  }
  
--/* rdist_nmi_refs[n] == number of cpus having the rdist interrupt n set as NMI */
--static refcount_t *rdist_nmi_refs;
--
- static struct gic_kvm_info gic_v3_kvm_info __initdata;
- static DEFINE_PER_CPU(bool, has_rss);
++static int aic_irq_get_fwspec_info(struct irq_fwspec *fwspec, struct irq_fwspec_info *info)
++{
++	const struct cpumask *mask;
++	u32 intid;
++
++	info->flags = 0;
++	info->affinity = NULL;
++
++	if (fwspec->param[0] != AIC_FIQ)
++		return 0;
++
++	if (fwspec->param_count == 3)
++		intid = fwspec->param[1];
++	else
++		intid = fwspec->param[2];
++
++	if (aic_irqc->fiq_aff[intid])
++		mask = &aic_irqc->fiq_aff[intid]->aff;
++	else
++		mask = cpu_possible_mask;
++
++	info->affinity = mask;
++	info->flags = IRQ_FWSPEC_INFO_AFFINITY_VALID;
++
++	return 0;
++}
++
+ static int aic_irq_domain_translate(struct irq_domain *id,
+ 				    struct irq_fwspec *fwspec,
+ 				    unsigned long *hwirq,
+@@ -753,6 +780,7 @@ static const struct irq_domain_ops aic_irq_domain_ops = {
+ 	.translate	= aic_irq_domain_translate,
+ 	.alloc		= aic_irq_domain_alloc,
+ 	.free		= aic_irq_domain_free,
++	.get_fwspec_info = aic_irq_get_fwspec_info,
+ };
  
-@@ -608,24 +605,6 @@ static u32 __gic_get_ppi_index(irq_hw_number_t hwirq)
- 	}
- }
- 
--static u32 __gic_get_rdist_index(irq_hw_number_t hwirq)
--{
--	switch (__get_intid_range(hwirq)) {
--	case SGI_RANGE:
--	case PPI_RANGE:
--		return hwirq;
--	case EPPI_RANGE:
--		return hwirq - EPPI_BASE_INTID + 32;
--	default:
--		unreachable();
--	}
--}
--
--static u32 gic_get_rdist_index(struct irq_data *d)
--{
--	return __gic_get_rdist_index(d->hwirq);
--}
--
- static int gic_irq_nmi_setup(struct irq_data *d)
- {
- 	struct irq_desc *desc = irq_to_desc(d->irq);
-@@ -646,20 +625,8 @@ static int gic_irq_nmi_setup(struct irq_data *d)
- 		return -EINVAL;
- 
- 	/* desc lock should already be held */
--	if (gic_irq_in_rdist(d)) {
--		u32 idx = gic_get_rdist_index(d);
--
--		/*
--		 * Setting up a percpu interrupt as NMI, only switch handler
--		 * for first NMI
--		 */
--		if (!refcount_inc_not_zero(&rdist_nmi_refs[idx])) {
--			refcount_set(&rdist_nmi_refs[idx], 1);
--			desc->handle_irq = handle_percpu_devid_fasteoi_nmi;
--		}
--	} else {
-+	if (!gic_irq_in_rdist(d))
- 		desc->handle_irq = handle_fasteoi_nmi;
--	}
- 
- 	gic_irq_set_prio(d, dist_prio_nmi);
- 
-@@ -686,15 +653,8 @@ static void gic_irq_nmi_teardown(struct irq_data *d)
- 		return;
- 
- 	/* desc lock should already be held */
--	if (gic_irq_in_rdist(d)) {
--		u32 idx = gic_get_rdist_index(d);
--
--		/* Tearing down NMI, only switch handler for last NMI */
--		if (refcount_dec_and_test(&rdist_nmi_refs[idx]))
--			desc->handle_irq = handle_percpu_devid_irq;
--	} else {
-+	if (!gic_irq_in_rdist(d))
- 		desc->handle_irq = handle_fasteoi_irq;
--	}
- 
- 	gic_irq_set_prio(d, dist_prio_irq);
- }
-@@ -2079,19 +2039,9 @@ static const struct gic_quirk gic_quirks[] = {
- 
- static void gic_enable_nmi_support(void)
- {
--	int i;
--
- 	if (!gic_prio_masking_enabled() || nmi_support_forbidden)
- 		return;
- 
--	rdist_nmi_refs = kcalloc(gic_data.ppi_nr + SGI_NR,
--				 sizeof(*rdist_nmi_refs), GFP_KERNEL);
--	if (!rdist_nmi_refs)
--		return;
--
--	for (i = 0; i < gic_data.ppi_nr + SGI_NR; i++)
--		refcount_set(&rdist_nmi_refs[i], 0);
--
- 	pr_info("Pseudo-NMIs enabled using %s ICC_PMR_EL1 synchronisation\n",
- 		gic_has_relaxed_pmr_sync() ? "relaxed" : "forced");
- 
+ /*
 -- 
 2.47.3
 
