@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD63CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B41ACAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApMTEldxo9DFgbZqDI/ul+YSiIe3YvqoVohciXpiwpA=; b=p4BeK8/ODv0xUfBVf8lORHCCtg
-	P9r8Wv6jJV7EPFVMEWKt2/NDB/2PJaWVYrOhdTxdL5WPndFIi2mTzzMoSS55fWhG9v9uAxcbvvNto
-	7a5O0HJCYNkqLkjqC1GpytWIIUZoUc9Jb8jDGgyGIjgexygLPw7bZ2R34X0LpKUtQQ1eLbVG2yH73
-	BnncGOUyXmogPcm7NxHKsFG4efLJKny+rDwrBZMlidPKfwxINIInVAej2aBFvog95ozbJZbrvF4vs
-	JDWRvz4SMh91Epg5NiYItrNpzYbA57GkqbmCuR4n9zffGQ93xMEuqsdW10ZuHUJd4QxBNyeJfkvuu
-	D9Gv9v6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DmBk33M4y7xFKP5NO2El21lgRmx7Ak6ZMPGiwj7gGZw=; b=AvNWCxBh4hNikVhDq4BYqEDQFJ
+	PxRQj2jYi9mmcKWdUWH/BG6eSQi9bMi0G6VqlCzGSi4dmXFyfah8QKOLp4tb/+BsA229r2+tMiwAk
+	kNMxdzGkqPfDgDMt9nKWSaC4470s8GoQvJNDRKXN/YcoMwxqjOrHTiHv9MtHtZuJz5OoHZtgF2GVc
+	FWt5bmf/tAG/8QNWqX+uUD0EjtqKBhoQs5EwNrHhsCj8UnUZmojew+GCjG2QrdY8w0gCC/YaK+A77
+	8uQ7nhZo+VMRHwxS7tukrqLamrQZaT9fwsT08/oggOChnawNB4gwDYq7q4Gl4C6+aU+iAdpSylbiN
+	C6z4C4mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eCY-0000000A8Ak-3FWR;
-	Mon, 22 Sep 2025 10:55:22 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v0eGc-0000000A8Vo-0sps;
+	Mon, 22 Sep 2025 10:59:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eCV-0000000A8AD-2XZ4;
-	Mon, 22 Sep 2025 10:55:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758538516;
-	bh=cq7Y4UZHdRw2ECiLZbveDiF74dbYePvi+a4phlHnPtY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QbK+hulz3cRofs2gz2imTo35BmAq9oyHgdicO4p3aKWCfae83ng/JF1phynRpMfzb
-	 EuVXef5tc+M3MEHd287xeKzfT9mVt+1oAR7fUJfVgx3+3R0NuK5/fiasc4TYWglNvE
-	 93XlbxP8cERhUsWnHpPuns5AJ8/QRPVLbopOIrgFwyY6Et63A3RawnM1zn/1JF+fnc
-	 KfwXMYeSwHpTu7EX1CFTguGhgeeT/Ub6QMEXC+71X8tNYwhdS7THjVwrCyEtsrgZ6w
-	 kjrT1HVp3qoNlFHshhrf4KdjEaeexDd1LhSZPWVvZMcV7eqIhhUj3xxB6GEuCySHiH
-	 kS8wrgJKWbdVw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5AC9417E10F3;
-	Mon, 22 Sep 2025 12:55:15 +0200 (CEST)
-Message-ID: <e700cea3-cbe7-4ab5-94d8-a211051e2472@collabora.com>
-Date: Mon, 22 Sep 2025 12:55:14 +0200
+	id 1v0eGa-0000000A8Vf-3eZn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 10:59:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE997601E3;
+	Mon, 22 Sep 2025 10:59:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7644DC4CEF0;
+	Mon, 22 Sep 2025 10:59:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758538770;
+	bh=o1lDqlMsk1yFq192R+5MhB3fFWbg6PgdL1q31dVJ8go=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NJHyDnugZam9/507Uer/BvX23Rt/Zp0pHkiESat+GwwtnWps2p1Sjrpudl9DV8NAx
+	 S4kku1VpodBdzRdhUrVzMoEsgeFc3HFPmf4mi59eTjMX8gH2LqWV28ZSROcOj+S38D
+	 B8TiNfCAA6O0xueTRmuO+ht9Dk/fsoxxZFlDDl2eWVrINFaIQDlso2i9qp+XKtF7Vv
+	 igAWDWAEFrWLdaiZH7l+LX+HQt5gmn8WiVKt9UAToaewkq3mXH9eyoUE5mxFxdJFs/
+	 pWoiE1gmzCafpQLJXq1sKUJ07+zdq1eU2qmiBD1Vc6JK0SowncgqnInGpMsQZJQRwF
+	 F383Vse4cjD3g==
+Date: Mon, 22 Sep 2025 11:59:26 +0100
+From: Will Deacon <will@kernel.org>
+To: Li Qiang <liqiang01@kylinos.cn>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: add unlikely hint to MTE async fault check in
+ el0_svc_common
+Message-ID: <aNEsDswLSpBkf-5S@willie-the-truck>
+References: <20250919033327.1942730-1-liqiang01@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] PCI: Convert devm_pci_alloc_host_bridge() users to
- error-pointer returns
-To: Alok Tiwari <alok.a.tiwari@oracle.com>, thomas.petazzoni@bootlin.com,
- pali@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
- mani@kernel.org, robh@kernel.org, bhelgaas@google.com, joyce.ooi@intel.com,
- alyssa@rosenzweig.io, maz@kernel.org, jim2101024@gmail.com,
- florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- rjui@broadcom.com, sbranden@broadcom.com, ryder.lee@mediatek.com,
- jianjun.wang@mediatek.com, sergio.paracuellos@gmail.com,
- matthias.bgg@gmail.com, marek.vasut+renesas@gmail.com,
- yoshihiro.shimoda.uh@renesas.com, geert+renesas@glider.be,
- magnus.damm@gmail.com, shawn.lin@rock-chips.com, heiko@sntech.de,
- michal.simek@amd.com, bharat.kumar.gogada@amd.com, will@kernel.org,
- kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- decui@microsoft.com, linus.walleij@linaro.org, thierry.reding@gmail.com,
- jonathanh@nvidia.com, rric@kernel.org, nirmal.patel@linux.intel.com,
- toan@os.amperecomputing.com, jonathan.derrick@linux.dev,
- linux-pci@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-hyperv@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_035519_815944_CD6D9560 
-X-CRM114-Status: GOOD (  13.01  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250919033327.1942730-1-liqiang01@kylinos.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +69,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/09/25 18:14, Alok Tiwari ha scritto:
-> devm_pci_alloc_host_bridge() and pci_alloc_host_bridge() previously
-> returned NULL on failure, forcing callers to special-case NULL handling
-> and often hardcode -ENOMEM as the error.
+On Fri, Sep 19, 2025 at 11:33:27AM +0800, Li Qiang wrote:
+> Add unlikely() hint to the _TIF_MTE_ASYNC_FAULT flag check in
+> el0_svc_common() since asynchronous MTE faults are expected to be
+> rare occurrences during normal system call execution.
 > 
-> This series updates devm_pci_alloc_host_bridge() to consistently return
-> error pointers (ERR_PTR) with the actual error code, instead of NULL.
-> All callers across PCI host controller drivers are updated to use
-> IS_ERR_OR_NULL()/PTR_ERR() instead of NULL checks and hardcoded -ENOMEM.
+> This optimization helps the compiler to improve instruction caching
+> and branch prediction for the common case where no asynchronous
+> MTE faults are pending, while maintaining correct behavior for
+> the exceptional case where such faults need to be handled prior
+> to system call execution.
 > 
-> Benefits:
->    - Standardizes error handling with Linux kernel ERR_PTR()/PTR_ERR()
->      conventions.
->    - Ensures that the actual error code from lower-level helpers is
->      propagated back to the caller.
->    - Removes ambiguity between NULL and error pointer returns.
-> 
-> Touched drivers include:
->   cadence (J721E, cadence-plat)
->   dwc (designware, qcom)
->   mobiveil (layerscape-gen4, mobiveil-plat)
->   aardvark, ftpci100, ixp4xx, loongson, mvebu, rcar, tegra, v3-semi,
->   versatile, xgene, altera, brcmstb, iproc, mediatek, mt7621, xilinx,
->   plda, and others
-> 
-> This patch updates error handling across these host controller drivers
->   so that callers consistently receive ERR_PTR() instead of NULL.
-> 
-
-I think that's a nice improvement - propagating the right error code looks good.
-
-The only thing is - you have to make sure that it never returns NULL, so that
-in the controller drivers you always check for `if (IS_ERR(x))` - otherwise with
-the current IS_ERR_OR_NULL(x) most of the error paths are wrong.
-
-Cheers,
-Angelo
-
-> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> Signed-off-by: Li Qiang <liqiang01@kylinos.cn>
 > ---
->   arch/mips/pci/pci-xtalk-bridge.c                       | 4 ++--
->   drivers/pci/controller/cadence/pci-j721e.c             | 4 ++--
->   drivers/pci/controller/cadence/pcie-cadence-plat.c     | 4 ++--
->   drivers/pci/controller/dwc/pcie-designware-host.c      | 4 ++--
->   drivers/pci/controller/dwc/pcie-qcom.c                 | 4 ++--
->   drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c | 4 ++--
->   drivers/pci/controller/mobiveil/pcie-mobiveil-plat.c   | 4 ++--
->   drivers/pci/controller/pci-aardvark.c                  | 4 ++--
->   drivers/pci/controller/pci-ftpci100.c                  | 4 ++--
->   drivers/pci/controller/pci-host-common.c               | 4 ++--
->   drivers/pci/controller/pci-hyperv.c                    | 4 ++--
->   drivers/pci/controller/pci-ixp4xx.c                    | 4 ++--
->   drivers/pci/controller/pci-loongson.c                  | 4 ++--
->   drivers/pci/controller/pci-mvebu.c                     | 4 ++--
->   drivers/pci/controller/pci-rcar-gen2.c                 | 4 ++--
->   drivers/pci/controller/pci-tegra.c                     | 4 ++--
->   drivers/pci/controller/pci-v3-semi.c                   | 4 ++--
->   drivers/pci/controller/pci-versatile.c                 | 4 ++--
->   drivers/pci/controller/pci-xgene.c                     | 4 ++--
->   drivers/pci/controller/pcie-altera.c                   | 4 ++--
->   drivers/pci/controller/pcie-brcmstb.c                  | 4 ++--
->   drivers/pci/controller/pcie-iproc-bcma.c               | 4 ++--
->   drivers/pci/controller/pcie-iproc-platform.c           | 4 ++--
->   drivers/pci/controller/pcie-mediatek-gen3.c            | 4 ++--
->   drivers/pci/controller/pcie-mediatek.c                 | 4 ++--
->   drivers/pci/controller/pcie-mt7621.c                   | 4 ++--
->   drivers/pci/controller/pcie-rcar-host.c                | 4 ++--
->   drivers/pci/controller/pcie-rockchip-host.c            | 4 ++--
->   drivers/pci/controller/pcie-xilinx-cpm.c               | 4 ++--
->   drivers/pci/controller/pcie-xilinx-dma-pl.c            | 4 ++--
->   drivers/pci/controller/pcie-xilinx-nwl.c               | 4 ++--
->   drivers/pci/controller/pcie-xilinx.c                   | 4 ++--
->   drivers/pci/controller/plda/pcie-plda-host.c           | 4 ++--
->   drivers/pci/probe.c                                    | 8 ++++----
->   34 files changed, 70 insertions(+), 70 deletions(-)
-> 
+>  arch/arm64/kernel/syscall.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+
+Does this result in a measurable performance difference?
+
+Will
 
