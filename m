@@ -4,87 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBB6CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B87CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=; b=UZ98CqMrqpFPW8HqMf+jkMYhUC
-	7Oj4fIDuwwJ0VYDt8Y2uaaCcwBsePbudg0KoVQ1gn5JvTlGzwcbIIYLMct75OBjgqil86t4hz3+N5
-	GsJO6ZscDwnd9PTLdcJEHKtUn7FdN/AvGEZQoPz70PNDC1M3efkMZrm3MreLc7rmGdUNnc5rOoDQt
-	4CfieGOjn4yxtPZElGy1acqR2xXTAcbN+irCFPMIZVjEDUbsWN8BrCa2KR+kjroe1Bh5yEpM2Ftu7
-	twnhM3daxjDaXkPPiF7KLBYkg+PFLtov9Ywwc0FMUrcVFWphO3QIt6thBCHITmK87sJOL9bice750
-	dBP3BLGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/o99Y988nKk5Cj3Iu/jImHiD9eq6JPH4xizAh/6jnsg=; b=161evCoOj+ybHwFosKLGzF5piI
+	ZbxBfO1hz+CBQthGmQw42/IyQLxZQFeLD9MYxNAkvXivOHu7JwUOccuaDl/TT10nDJPcnJ8Vb7QbI
+	OqjruWYB+BofBXIxxBcVc8VzqyvXL+280RJGe5buGB+qFVbvKzSQfTnUbkLhTE1R0O6mwa68ygvG7
+	5xw2xaGXxMExHkdDewlKlW4C2ry3B5owBUrqUP0oAPeLaKQt7hHn/ZMuQbseoMVVRyXjSFCRYdJ1w
+	z4/TTvvtKyWiLcBVhj4bKUMBcwULBN8y6d6nhB7R12W2Df/45f+JuDAaGmNHd9MmL1AwJg+fSw8lL
+	zzPVeLUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W9A-00000008ay3-0tKD;
-	Mon, 22 Sep 2025 02:19:20 +0000
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
+	id 1v0WBJ-00000008bFF-35DT;
+	Mon, 22 Sep 2025 02:21:33 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0W93-00000008av6-0wFC
+	id 1v0WBF-00000008bE1-2yZi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 02:19:19 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-341f608661aso355283fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 19:19:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758507548; x=1759112348; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=;
-        b=fLhHpObsqRwG440AYHxGiUldAowp2iXX+VDvp8IENQOocT/U7y0SEWDEX7dAcyZBqX
-         /UdkloQYxI66OHbngJ/FINL9FwiFQ3MV3GIrnxzR40xzmxzkd6UZTBTSrVtFSObO51eg
-         m22Cowiq7v9JGmEoh+C99By11tY3bl6+QWYkfEnAlNDm7gsCzSGiwZ2OSVKREeu0l645
-         QVDdNBaFD/3yXQdZlpCu8+P1Hkuycj11G1wHuSm+ySx86x3d08JiiUgtx5y2RHv+0k6L
-         hsQ/SNmtJPOfz+quvWKNYh8nKiGuBFxStBKAr2hLjfZalAFtkBUulY0xyugF06K9U5GA
-         Z1YQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758507548; x=1759112348;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N0QORqRcXwquGy41hfYPTm7m7eorswVdTE/ZANLL/sQ=;
-        b=tKD0ydxTGh/t5nWkXhEwijxAuH9yp6LZFzpkugiZCn9dEYJrei9W9WUnGuu7Z2awxe
-         0EiU0PPhDyCKS7oYz2zx2bAltvhuQllOQTKbmWxAE6a4VW0+4w6mq2FpAMyMUmv3EAas
-         9J/az0RlM223K9/txUHILNjdJ/T5I8lUx4lxh+MSr9ZVPE0npnENX7pfoPxs5dmQMG8A
-         bCPwFVqJwF6eSYRNFdfpKEU0QW4A7Xn+Qv+cDojp0B6KG0lZnliwilEDXnDzeYsTmHF7
-         yyTeWww9V8IzAzN4BEkY9QhE6y/EjsNInYnlcGJmg4FjYfz3tGYKABkhg6DfEwlmfcB5
-         RNTA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVh+dD67wahfk6obMtIXs76qHi0mNsRc9uA7Z72w9qJxTx8pBI99rdURhKDHaVn5eA2WxZ7Q4DRn1Q6EoIsQH3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1HA19gFv7aj6l+QgZeXuBrkdwRyT87IV/4cYPIrMIngl5Nv+r
-	t8yR9NQN6NmjU9FKgph5ALYtin3Bo/PeSauL5pFPOazNdBHGvK6gk8O/gDsngvMgr/WRxFOvDFW
-	9r9D8/kF9oU3CXQY6apEvfr+A1Re7FEiT1mP5N1dK4g==
-X-Gm-Gg: ASbGnct9duMpl0zdR6cxf6pvq8uHsnCyCyAiA2PkwNK0ai66Eg8wPZSCya27CX9v4cE
-	cbV7RqDKu9W1p5YBXkjODgkvAKtvV0m8kosCikxP7riP4Lu3dD5sFSjOeitDesIDhuMN65lE1xz
-	vBT1P2ht8dQuiP3A3AKQ3M6b8EVYpPpNxGjdhnukskaPt2FSa+lYAvaiCntamdgk0DKpiZ7FDME
-	elMSMZ7BlHz7g==
-X-Google-Smtp-Source: AGHT+IESga7w6Wf99SnDt7tdMXCevhJ5p2R1RhYk6MWzPIeMjshgBHSu9yatJ4O8NG1AQJuCdRaSODMV+K4WZ7Dfn8w=
-X-Received: by 2002:a05:6870:d0c4:b0:344:5201:15a4 with SMTP id
- 586e51a60fabf-34452011f45mr361519fac.16.1758507548141; Sun, 21 Sep 2025
- 19:19:08 -0700 (PDT)
+	Mon, 22 Sep 2025 02:21:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ierw/HCRSyZDciM8uKrJmoaTrL6kuxBJIdrq7bF2k3rdrxRWfyTtbduL4sOPTw9pPvULqsLyIsdRJDqY5t9ZiRCtkHhpWQqW+jJAensqsCs/u83WiPmMNpNbfI9y04uFN3InVVD/QL5yAzXOh98B8XhrKgdg1rM4X94duqssvxkUIAT7zLSI/90EfUJrpDbNI0aUuu54QlPyHAfu2upq9smd25akmLfD03zcDKdKXWc/Zixtf9lMN1hxRNkbnGv6VXmFnlQWCaFfk/U7omJI5+iK8lm3D3307vxttDm4vsmywd7lUvJX44qcyU9SLAorbnDfJefiGR3uIRHeJa82AQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/o99Y988nKk5Cj3Iu/jImHiD9eq6JPH4xizAh/6jnsg=;
+ b=Bo7W2WOBfxavBjSlAGow3jyy8LRdg9ondSJ5u8KRGxrZ/ES2SdUFdg2Rs+K3D9Jly9Xh44UOiwcaFK28zi3iZ50XK0TCGyAc1wI+Fb7X+XlYHxIW7S8EvEDN+mKqbEHaOFkmQFB88peesuB03Qk6xgMaoLvsyP3upC3cZ0gB1+5NjoxinxWr7PWMU5I9nBlLO+J9/i6a3if3+ammhfH6sh+kJ7Y7zrZmz1FHPdVKScRKaZ5dVpGKpXWbIxFJe+1HNZA2HvKluzQktg2UzjQ6U0aYW2E5fWl1nesf2JlRabslBnhg1ynfhpGAs4LZvT4AP5BxcyQm2Fi5j3uCBhXGQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/o99Y988nKk5Cj3Iu/jImHiD9eq6JPH4xizAh/6jnsg=;
+ b=QI7hyIxE43WwBlY3q1GsMyP4GmmCl2b9WUJ5M8iD30OvWlu06ZALIVmZRRYCt+2v2u/islr/pPzzY4a9H4XRRTi3yLPhjGteTkuIyK5MaYcDAYz+BHGHQLEIyAXag+DwMe6Jo2casLJSGWK7Bnm0ZdNBsaHPYq2LZ0AkI6iLuLo9QRIV5OKIv7N3od4U1UVon1w3vRYX0wMnfKLGtnZkrdsSSmd/rwhrLLOFe6HfuOBlNeJhUYapgIcUXesoAZPzKgMw4bb7GhIbAgP1nLEutxm30qtFB3BPSO0Dy1G0Q8TWolWHcwRw2JbhfiRH3X3MM1BS5xnsA0gmXxO5jjeW4w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI1PR04MB7053.eurprd04.prod.outlook.com (2603:10a6:800:12f::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
+ 2025 02:21:23 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
+ 02:21:23 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v4 0/5] pmdomain: core: Introduce
+ device_set_out_band_wakeup and use it in usb
+Date: Mon, 22 Sep 2025 10:21:05 +0800
+Message-Id: <20250922-pm-v4-v4-0-ef48428e8fe0@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJGy0GgC/y3MQQ6DIBCF4auYWXeagYhCV71H48LItLIQDBhiY
+ 7h7qXH5v7x8BySOjhM8mgMiZ5dc8DXaWwPTPPoPo7O1QZJUZITBdcHcotC9UZ22rIigftfIb7e
+ fzmuoPbu0hfg92Sz+6yVIeQlZIGHPVrLR1KnRPv2+3qewwFBK+QHgh3oJmAAAAA==
+X-Change-ID: 20250919-pm-v4-1879568de500
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Danilo Krummrich <dakr@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-usb@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>, 
+ Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758507676; l=3067;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=ugzC+pgoMcvHsA/UBz02SmKrvFFMwDAliYqBtcghI1A=;
+ b=qR7DEaZEFnD9Bkws39KTEajh0Zuw+NcxoCZ5wy0fCcK4eRHWDLIQq+8eUhR5PwQufVzFtSpVa
+ UZSkZKJOiluC6UI9ZEEGl9KGMA30DSvTzv7c8g+Tm1FvMvOg+E3imbZ
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:194::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-References: <20250919085918.5442-1-cuiyunhui@bytedance.com>
- <20250919085918.5442-2-cuiyunhui@bytedance.com> <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
-In-Reply-To: <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Mon, 22 Sep 2025 10:18:57 +0800
-X-Gm-Features: AS18NWCOurZMvR8qBP_HWSnFuyzm-oFke02otvNlqyB8VgAFda0Z_pS9f2f5cAo
-Message-ID: <CAEEQ3wkRoX5Y5xQu22kVCFxEy8fgcUxKHEm=9Bpg7g-Np8b-SA@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 1/1] arch_topology: move
- parse_acpi_topology() to common code
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, gregkh@linuxfoundation.org, 
-	rafael@kernel.org, dakr@kernel.org, beata.michalska@arm.com, 
-	ptsm@linux.microsoft.com, sumitg@nvidia.com, yangyicong@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI1PR04MB7053:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96071c90-6ac2-4338-2d2e-08ddf97eb9dc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|52116014|7416014|921020|13003099007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OFhJQlRPMHlmUzFzMTUvTDN0Q280eEJZSWJxTHAvcmlUR0l5eGhHS055bzZw?=
+ =?utf-8?B?SGUvT2I4b0RNQVBSWldjZS9uQ3EvUXJEajFvd2FuUEl0cmdsNjRFUkR2Z3Yz?=
+ =?utf-8?B?dGUvMjl4cUF3eWUzbi93NTIrU0NHTVZXRnJHSUNDaXROR0pmc3lJeFlRb2Q2?=
+ =?utf-8?B?RENqelFUQVVlRXdQNlRkZTMwTjZMb2lERWszWHc2WU1mbEN6eTJKREdid05D?=
+ =?utf-8?B?SHhIZTRIdlZGZ0EwQll1Uy81amgxVTVrVC9wS3daUDl5YWtxUEY2aXlkTTVF?=
+ =?utf-8?B?cHhkM2REMDc0ZlhHSTdWWkFlS1hSRENvZ0lXaUx4MlV2WkFDSWh6eit1bEZF?=
+ =?utf-8?B?a0ZhbklWaVdHU2dITmpYZkdqNkpMMExPY3VGSTdOeTBpSFgvT0k4VzYzUW9B?=
+ =?utf-8?B?bFo5UnJGNThMVmJ0OE1OWStCSFpZNmh2WDV3ZWZ3YzFGMGZ4MmhpMlZTQ1Fz?=
+ =?utf-8?B?M0NaM0d1Q29iWkMzZVRacTFidTRtczNzZ3RoWU42TlFCQ0RaVlVhRWRxMkll?=
+ =?utf-8?B?eExKOC9uRkg1QnozSVNFK2cyK0V6QU9wOStoUGw3djZWdVJOenlJcUY4NmMx?=
+ =?utf-8?B?YnNNOWtJVUNQRVVWT3ZyUXdPUE93ZVZCSkdmYTZNejJuQ1l4ekc2ZTJVQTVM?=
+ =?utf-8?B?WkVwSjJDOERScGp2UEZQZytpRjRkdUpXb2FIMjYzMnNIWUVxcWJKRXJFNGw5?=
+ =?utf-8?B?Q3ZHVVdvY3FNc2pWSXZody8wdmdTY1h3MG5UMWtNTzhhNVcwWnh3ZFY4cjFw?=
+ =?utf-8?B?UEF2Y05UZjNVWEViZ2VtR0tDd0E1WElIRFpMcmdqeUlCTHA2dVo0UGxiQkZM?=
+ =?utf-8?B?aUQzOHZ3VmhZYm1SSzBlTnNtY05OdFdCZTBwZWdiZjhHTjZqRUNDaXFVQ1Zi?=
+ =?utf-8?B?eVE0VkRKOWZlcCtDaEphSHBuWEw4V0xQaGtxbFNhRkdOOTJnYUJwd0FtTTZP?=
+ =?utf-8?B?aFVJNnRMdzNWN3RTK1Q0Y0RFQkFlS1ZWYXBEellySmFjR2ZGaFo1THBIRGFN?=
+ =?utf-8?B?VkhINDlYUFhWb213MHBJN01pemRYWFNJL3RLdjdMVUdmejlGTlhLV2ZIWFVI?=
+ =?utf-8?B?ZFlnUTFvajk4OVJyZGRrckdENVBlQWI0TlBnZy9Ydno0a0tHSm1yVWp6V296?=
+ =?utf-8?B?Y25FNFJ2VXpXdTI5SHhaRjIyWEU1RXJmcHhhNlBUYUVLRklvS2Y2VkFBWk12?=
+ =?utf-8?B?K2FXRU5yWXdoS0d4Y2FIQmZYai9heVcrdWZYc002QUFQNmllUmdBOHRtR1Rl?=
+ =?utf-8?B?b2l3c1RpeU9SNHl2bHBzSWQ2cHN5Qml0S2ZKQ3dIdFBBemp5Ym1XeFdoZ1g3?=
+ =?utf-8?B?NDdUUDJaM2tvTkx2UTA1MTdTUEFOQUJKaEowMnRzQUwrelcwUExsUkpsLzgy?=
+ =?utf-8?B?REl6TE81OUw3OUVkNVI3QytDZVduaVRjTVovTEFlQnFrdXhlNGJVL0lwR0pk?=
+ =?utf-8?B?c21uald4Q3o2VEd3UjhGNDlXa25yNXg3cDZEOU1NejdZSXFJdEw0SUI5eXFU?=
+ =?utf-8?B?d1B5ZHRONXlZY25ncHg2c2FHQkNjY2FpYXdXTThmeVFFZk93U0tTZVNhK1gw?=
+ =?utf-8?B?cnJOT1lOOFRCUWVlWTFYYTFYcVpGSVVkQk43cWtLZzMyanhkSEMyWWdFOVFM?=
+ =?utf-8?B?WlZPOVg5cDJJQlFqVFhTRTlSTGRMbzRSMDMxOGhObFlROU83bjVQREZUTjJN?=
+ =?utf-8?B?ZnJVSktLVFN4dGdsWDBsMHl2cVFTY0tDd0tnY0hWTzlRMithVndNZDYvVjB5?=
+ =?utf-8?B?aEZlWjdxM3dpZFA3STZnanBCRzk2cEJlc28rL2p0Znp0VktkMStxL3FzbzNo?=
+ =?utf-8?B?V2ZUK1RpK2UwUEFrb2kvMkk3T01Pb3VZQmFGcUNqcGU3WEhFN2dUemlQTzRG?=
+ =?utf-8?B?Wi9QYzdTNlFaK2RDN1prZEdKNUZ5SEphSitONmY1ak9EeFpNT0VheU4zaW9a?=
+ =?utf-8?B?SThmT1VIdkRISk9VT0h2N1VXSmxvMzdCN2lkcW1UcEhpbDM4cTNLVDZ4NjRw?=
+ =?utf-8?B?ZklLZGwrMmZnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(52116014)(7416014)(921020)(13003099007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bXd3Tis3QlMyUUdXUmVSc1htWXFHUVFEWGMxRlA0NVcrMzVvOTcvZzRsNklD?=
+ =?utf-8?B?bXN1U205K2J6cFZKQW9lbE9rb0s1VjNtMVdmM29rTjRwVFdHU3JDSDM5V2JR?=
+ =?utf-8?B?MUpXR2k3WmFMYUZVTlJwWHBIWGhpek5hbHNEeXRyZG93VVBMeGwzUzIxTDl3?=
+ =?utf-8?B?dlpTOVVNMjliSEM0eXcvcjZKTFNqWXVDckdmRkxXRWs5Mjh5eDJsYTN2R3Nk?=
+ =?utf-8?B?dXVVZVUxK2U4MG9FNFVyUDNBeW5DMUZOT2V2aXVZc3l0clVueEZEWGFaaFlo?=
+ =?utf-8?B?Z0ZCdFhiR1hqUG0rcU9EaHRzVUZtREd6dDRrVWVaeExsVStYaTZsN041c1dD?=
+ =?utf-8?B?UkZaY3FjYmEvTDl6RnFobnNBN3ZINU94UWJrdUdvT3NSaytxbUNKSEZTMERO?=
+ =?utf-8?B?cWpLWHlZOVlqYUJ1VVdQNEJONEsxbzRiWEJLWVh6YnNzWC9jLy9maG9JRElO?=
+ =?utf-8?B?RG5tSGRQWHFjNklTc0hPUDhkelZZNU1TYWliMUV2cHREeVpWUHRxOUhCY2V0?=
+ =?utf-8?B?U1Vwd0VtM091NDRHNy9PRWxMcHpON0VtSEowU2FhZ2owaTN2RXZ1bStITGdW?=
+ =?utf-8?B?NUxYTlQ1YXNDL3BLSG9PN1FoV0ZuekZkaXNJOE1iQXZEMUpyeFQwdVRwdmM2?=
+ =?utf-8?B?V2JtNmZOOEJpOGxFNlZZYnlldExVNmdOcHhYZ1dqSy8vMlJSc3BwK0RucVhq?=
+ =?utf-8?B?TE1MeXlJZEI2c3BXOCtTaS9pdEhIUWNKRlQvQVVJc2FYYkE4UEhsM1RUOFNK?=
+ =?utf-8?B?V2MyQ0dQSTFCRjEvOXJaWTNWSWRJekpjQ3libmJlUXFwYXl4cmllY0tOY3NT?=
+ =?utf-8?B?akVKRlFTVTJORGV1cEVqNG1ENjdUQXV6YVJSRWZ0a0JIbmVVQWpRUzZwaGQ4?=
+ =?utf-8?B?aGdjK0pLZ0VrdFhha1paeUIwTzJlVERsMjhEQUpybGFEUGFUTzNjdTJGK0RT?=
+ =?utf-8?B?angzV0NqejdUR1YrNUxoS08rZFphZEJxYmp0R0gwK1ZyR0xnWnJNVi9jWXBW?=
+ =?utf-8?B?MjZlY1dUU2JJQ1ZYOVNINkZzSHlTTVpXRnpwKzJJaGJHd1lpRkYyUENITUdZ?=
+ =?utf-8?B?dVVEUldmK0JTNEp6SE11UnJBK1ZOVmxlZllUOHFjQmV0NnNpVE9sZHhwT3ZW?=
+ =?utf-8?B?N3JRT0tJYkVORjZnOElsZjVHemJCbHN3MlZaTDFYM3VLUG1GaVJteEhXR2hB?=
+ =?utf-8?B?WE55U0xzM1I5S3h4bkRvdVhFVFFaT3A0K1c5a3R1enVTa1dLSndWQUk5RDVR?=
+ =?utf-8?B?Z2RscHN3RGR1S2cybFpEbWt2TFFpVDdFRTgwam1ZZlpUTTF6SDFQMWlibDZt?=
+ =?utf-8?B?dVNNWWwxdU9BYVdtVHU5SnNnUGhIMUcxNUFpT0xVSTY3UDRibHBzVXBSc2FJ?=
+ =?utf-8?B?VTNqeGtzVnJwVkY0bW9OeGRhUXdKRTIrYkRHMGNLNk1ZcXljTXZDbVEzdElY?=
+ =?utf-8?B?ZjVKQWUvMHl0TTBZbzZrOWwyWlpDMzQwd0tNbUZhamVzcmFsV2YxWDBsam4r?=
+ =?utf-8?B?WGd5UEp2OU8xcWx4UHlWN3JnelZHNGJwSkdMMXJqRWVhbUwycCtVZ0Q1ZGtH?=
+ =?utf-8?B?M215djNtbytqdnhmeWYrWG9KOEVEeHAwNGJRS25IaVZjWmkxUis4dUVmZmY1?=
+ =?utf-8?B?T3BHU2MxMXgzaU95RDlWQUxoZ1IxcmxhRDJtV2ZVWmFUcUxBYXFLRTRqRTdQ?=
+ =?utf-8?B?NnN2Q2FNSnJUTnhJRjkxZFp3YzFsaGJoZWxBQWlRcUc5SWh5bmNBUEZnc1hj?=
+ =?utf-8?B?Umtidm9SNjZzSFpWRE1RSy9BWFhiUUo5MXdUWk1YdGx2L2R2QXU1eXFoWTdS?=
+ =?utf-8?B?TlgxbGZObTJXVVhTbUxNMnNHYXVtZnNGQncxaG5tVSsxYlFDTGZLbTVlWC8r?=
+ =?utf-8?B?UmlpMkRuTHRNbzBWM3BOQnFWajVnWHR0cHM5dm1GVytkVENOWU1kWVRQOW51?=
+ =?utf-8?B?bHhUS1Uvb2NSUUIwOWJBN0t4L0p4ODZPOHVibWhhdk4vQmwzSEEwWWpIcWt2?=
+ =?utf-8?B?SU9YeC95aElpSnVBRnJEYmJKbi9SNnhnUHhuTzNuMnVCQjcvc2xOM3RSTFZE?=
+ =?utf-8?B?WUh5WnFSYmhGNFVTMzZrQU5lQmdVdUFpbmpjY2ttUXhJZnpSdlJVTDRWaU5C?=
+ =?utf-8?Q?DCiVphhsOgIuW2eHaodB7huwT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96071c90-6ac2-4338-2d2e-08ddf97eb9dc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2025 02:21:23.7321
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MB057BC/lbipwuOlxDHVxwP7Ng4m58WdfZsnIR01MeQSQI2+PTHeq2SmwNVvqXSpU4W0Y+1PvTMqsFw+vG1Tzg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_191913_389950_594D9C46 
-X-CRM114-Status: GOOD (  33.77  )
+X-CRM114-CacheID: sfid-20250921_192129_759764_400A1BE8 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,211 +194,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+To i.MX95, USB2 and USB3 are in HSIOMIX domain, but there is always on logic
+to make USB2 and USB3 has wakeup capability when HSIOMIX power domain
+is in off state. So when in system-suspend state, USB2/USB3 could wakeup
+the system even the USB2/USB3 HSIOMIX power domain is turned off. This
+means USB2/USB3 has out-of-band wakeup capability to wakeup system from
+suspended state.
 
-On Fri, Sep 19, 2025 at 10:05=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com=
-> wrote:
->
-> On Fri, Sep 19, 2025 at 04:59:18PM +0800, Yunhui Cui wrote:
-> > Currently, RISC-V lacks arch-specific registers for CPU topology
-> > properties and must get them from ACPI. Thus, parse_acpi_topology()
-> > is moved from arm64/ to drivers/ for RISC-V reuse.
-> >
-> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> > ---
-> >  arch/arm64/kernel/topology.c  | 87 +---------------------------------
-> >  drivers/base/arch_topology.c  | 89 ++++++++++++++++++++++++++++++++++-
-> >  include/linux/arch_topology.h |  1 +
-> >  3 files changed, 90 insertions(+), 87 deletions(-)
-> >
-> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.=
-c
-> > index 5d07ee85bdae4..55650db53b526 100644
-> > --- a/arch/arm64/kernel/topology.c
-> > +++ b/arch/arm64/kernel/topology.c
-> > @@ -26,7 +26,7 @@
-> >  #include <asm/topology.h>
-> >
-> >  #ifdef CONFIG_ACPI
-> > -static bool __init acpi_cpu_is_threaded(int cpu)
-> > +bool __init acpi_cpu_is_threaded(int cpu)
-> >  {
-> >       int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
-> >
-> > @@ -39,91 +39,6 @@ static bool __init acpi_cpu_is_threaded(int cpu)
-> >
-> >       return !!is_threaded;
-> >  }
-> > -
-> > -struct cpu_smt_info {
-> > -     unsigned int thread_num;
-> > -     int core_id;
-> > -};
-> > -
-> > -/*
-> > - * Propagate the topology information of the processor_topology_node t=
-ree to the
-> > - * cpu_topology array.
-> > - */
-> > -int __init parse_acpi_topology(void)
-> > -{
-> > -     unsigned int max_smt_thread_num =3D 1;
-> > -     struct cpu_smt_info *entry;
-> > -     struct xarray hetero_cpu;
-> > -     unsigned long hetero_id;
-> > -     int cpu, topology_id;
-> > -
-> > -     if (acpi_disabled)
-> > -             return 0;
-> > -
-> > -     xa_init(&hetero_cpu);
-> > -
-> > -     for_each_possible_cpu(cpu) {
-> > -             topology_id =3D find_acpi_cpu_topology(cpu, 0);
-> > -             if (topology_id < 0)
-> > -                     return topology_id;
-> > -
-> > -             if (acpi_cpu_is_threaded(cpu)) {
-> > -                     cpu_topology[cpu].thread_id =3D topology_id;
-> > -                     topology_id =3D find_acpi_cpu_topology(cpu, 1);
-> > -                     cpu_topology[cpu].core_id   =3D topology_id;
-> > -
-> > -                     /*
-> > -                      * In the PPTT, CPUs below a node with the 'ident=
-ical
-> > -                      * implementation' flag have the same number of t=
-hreads.
-> > -                      * Count the number of threads for only one CPU (=
-i.e.
-> > -                      * one core_id) among those with the same hetero_=
-id.
-> > -                      * See the comment of find_acpi_cpu_topology_hete=
-ro_id()
-> > -                      * for more details.
-> > -                      *
-> > -                      * One entry is created for each node having:
-> > -                      * - the 'identical implementation' flag
-> > -                      * - its parent not having the flag
-> > -                      */
-> > -                     hetero_id =3D find_acpi_cpu_topology_hetero_id(cp=
-u);
-> > -                     entry =3D xa_load(&hetero_cpu, hetero_id);
-> > -                     if (!entry) {
-> > -                             entry =3D kzalloc(sizeof(*entry), GFP_KER=
-NEL);
-> > -                             WARN_ON_ONCE(!entry);
-> > -
-> > -                             if (entry) {
-> > -                                     entry->core_id =3D topology_id;
-> > -                                     entry->thread_num =3D 1;
-> > -                                     xa_store(&hetero_cpu, hetero_id,
-> > -                                              entry, GFP_KERNEL);
-> > -                             }
-> > -                     } else if (entry->core_id =3D=3D topology_id) {
-> > -                             entry->thread_num++;
-> > -                     }
-> > -             } else {
-> > -                     cpu_topology[cpu].thread_id  =3D -1;
-> > -                     cpu_topology[cpu].core_id    =3D topology_id;
-> > -             }
-> > -             topology_id =3D find_acpi_cpu_topology_cluster(cpu);
-> > -             cpu_topology[cpu].cluster_id =3D topology_id;
-> > -             topology_id =3D find_acpi_cpu_topology_package(cpu);
-> > -             cpu_topology[cpu].package_id =3D topology_id;
-> > -     }
-> > -
-> > -     /*
-> > -      * This is a short loop since the number of XArray elements is th=
-e
-> > -      * number of heterogeneous CPU clusters. On a homogeneous system
-> > -      * there's only one entry in the XArray.
-> > -      */
-> > -     xa_for_each(&hetero_cpu, hetero_id, entry) {
-> > -             max_smt_thread_num =3D max(max_smt_thread_num, entry->thr=
-ead_num);
-> > -             xa_erase(&hetero_cpu, hetero_id);
-> > -             kfree(entry);
-> > -     }
-> > -
-> > -     cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> > -     xa_destroy(&hetero_cpu);
-> > -     return 0;
-> > -}
-> >  #endif
-> >
-> >  #ifdef CONFIG_ARM64_AMU_EXTN
-> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.=
-c
-> > index 1037169abb459..09f77fd549490 100644
-> > --- a/drivers/base/arch_topology.c
-> > +++ b/drivers/base/arch_topology.c
-> > @@ -823,12 +823,99 @@ void remove_cpu_topology(unsigned int cpu)
-> >       clear_cpu_topology(cpu);
-> >  }
-> >
-> > +__weak bool __init acpi_cpu_is_threaded(int cpu)
-> > +{
-> > +     int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
-> > +
->
-> Just thinking if it makes sense keep acpi_cpu_is_threaded generic without
-> the need for weak definition.
->
-> Additional note: not sure why you haven't moved this under CONFIG_ARM64/R=
-ISCV as
-> done with other code.
->
-> bool __init acpi_cpu_is_threaded(int cpu)
-> {
->         int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
->
->         /*
->          * if the PPTT doesn't have thread information, check for archite=
-cture
->          * specific fallback if available
->          */
->         if (is_threaded < 0)
->                 is_threaded =3D arch_cpu_is_threaded();
->
->         return !!is_threaded;
-> }
->
-> Then you can just have the define in
->
-> #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK)
->
-> in arch/arm64/include/asm/topology.h
->
-> and
->
-> +#ifndef arch_cpu_is_threaded
-> +#define arch_cpu_is_threaded           (0)
-> +#endif
->
-> in include/linux/arch_topology.h
->
-> Thoughts ?
+Without this patchset, if USB2/USB3 are configured with wakeup enabled,
+the HSIOMIX power domain will not be turned off. This leads to more
+power consumed in system suspend state.
 
-If placed in include/linux/arch_topology.h, there is a possibility
-that "arch_cpu_is_threaded" will be redefined.
+This patchset introduces device_set_out_band_wakeup and
+device_out_band_wakeup two APIs to set out-of-band and query the flag.
+In genpd_finish_suspend, there is a check, if out-of-band is set,
+it will continue to turn off the power domain. In genpd resume flow,
+there is a similar check to turn on the power domain.
 
-include/linux/topology.h
-    #include <linux/arch_topology.h>
-        #ifndef arch_cpu_is_threaded
-        #define arch_cpu_is_threaded()  (0)
-        #endif
-    #include <asm/topology.h>
-        #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMA=
-SK)
+Patch 1,2 introduces device_set_out_band_wakeup and
+device_out_band_wakeup
+Patch 3 and 4 are drivers changes to use device_out_band_wakeup
 
-Therefore, it is better to place it in include/asm-generic/topology.h.
-What do you think?
+More old discussions:
+https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
 
->
-> --
-> Regards,
-> Sudeep
+This is pick up of [1]
+This V2 patchset
+- includes usb driver changes to give people a full picture on how it is used.
+- Rebased next-20250729 to resolve conflicts
 
-Thanks,
-Yunhui
+[1]https://lore.kernel.org/linux-pm/20250311083239.3336439-1-peng.fan@oss.nxp.com/
+
+Changes in v4:
+- Split device_set_out_band_wakeup API and pmdomain changes into patch 1
+  and 2 and clear the flag in device_prepare (from Ulf)
+- Add R-b in patch 2
+- Move the call of device_set_out_band_wakeup to system suspend
+  callback in patch 3 and 4. (from Ulf)
+- For patch 3,4, I still keep the Tags, since compared with V3, it is quite
+  small changes.
+- Link to v3: https://lore.kernel.org/r/20250902-pm-v3-0-ffadbb454cdc@nxp.com
+
+Changes in v3:
+- Add a new patch from Xu Yang to detach power domain for ci hdrc
+- Add A-b for patch 4
+- Link to v2: https://lore.kernel.org/r/20250801-pm-v2-0-97c8fb2a433c@nxp.com
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (4):
+      PM: wakeup: Add out-of-band system wakeup support for devices
+      PM: domains: Allow power-off for out-of-band wakeup-capable devices
+      usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
+      usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
+
+Xu Yang (1):
+      usb: chipidea: core: detach power domain for ci_hdrc platform device
+
+ drivers/base/power/main.c          |  1 +
+ drivers/pmdomain/core.c            |  6 ++++--
+ drivers/usb/chipidea/ci_hdrc_imx.c | 11 ++++++++++-
+ drivers/usb/chipidea/core.c        |  3 +++
+ drivers/usb/dwc3/dwc3-imx8mp.c     |  9 +++++++--
+ include/linux/pm.h                 |  1 +
+ include/linux/pm_wakeup.h          | 17 +++++++++++++++++
+ include/linux/usb/chipidea.h       |  1 +
+ 8 files changed, 44 insertions(+), 5 deletions(-)
+---
+base-commit: 8f7f8b1b3f4c613dd886f53f768f82816b41eaa3
+change-id: 20250919-pm-v4-1879568de500
+
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
+
 
