@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE7FCA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C6CCA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F96qZfTUMlY3kysfnzul6P1kCCFQ8hV+39fmNyIRsLI=; b=Y5EGP0ZARQEDVXkuSKlLwQU3uP
-	2Yjs+335hw582KtFNLfMZRvNT9cyAEmUkBFZPZb+4W1DaaDXNGfPDhTHYUT7QnMRl3qVFs2SnzEfV
-	V4AqKA4qCmJ9oiHtovBcmr/ipTUzddpvZamgtT356r91YfziCzcN8rKG6JhKdT/y14jI0ekZipvph
-	HXmMWnZwBOahwN5o7zg7xPOavNOncXE8KBqkfRrdvXNULk+3ny+EvQRvnYCPNvHqgnlLqhqkGNqlv
-	sM52U+Vnp/bV/wGSeLmqHtQ65JTTyyMivUbmJHmS89kII+xv5Z9tyY5ZxUprL8ZAqOdZq/3DyZsxp
-	74+c/XCw==;
+	bh=nB0Ang0gzGA1pUc4qPtxsUwqv+sxhCltRPOjm5oPndg=; b=s7P3I43a2qbk1H7nJueCDbcKpb
+	Jd1Wv8BQvjc7pJ577Ih5wD+hWS8A5P7jpAWjJKXFyyCw35NKhosyARwJa8MttIKtMz64qfSHEPHsS
+	nOMo3bzXYoUdkfTDgMgnmsJ05pYghRGQObYud/EBJxxJHji0QGwduNMSRBPcAqr+g9Ohhga0BJRnS
+	55t6qBst+xwMPEKEVE9hhP85tZHYtQ/FwsGz0uh/kyU0DQIwkV6oi8a1VAp+f/urQMcY3d/tgO1B4
+	CJrrZ+HsJdDWEOP1XqnjKuKpZ2FlJ/uKGkZq+hQooE3yR+YljXMcH0aDQFEdRr5UYNzfZRlNMV5Fc
+	JEc1KkNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iew-0000000Ar2n-0dYU;
-	Mon, 22 Sep 2025 15:40:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0ifD-0000000ArAq-2w0Q;
+	Mon, 22 Sep 2025 15:41:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iet-0000000Ar26-3a5G;
-	Mon, 22 Sep 2025 15:40:56 +0000
+	id 1v0ifD-0000000ArA8-0olH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 15:41:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A3FA40586;
-	Mon, 22 Sep 2025 15:40:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF345C4CEF0;
-	Mon, 22 Sep 2025 15:40:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FDC46020A;
+	Mon, 22 Sep 2025 15:41:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27802C4CEF0;
+	Mon, 22 Sep 2025 15:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758555655;
-	bh=gD63mzbxeV7BHyffKOeVlku5TInkJFsUy/h5vSG0OTs=;
+	s=k20201202; t=1758555672;
+	bh=NjOxxgw2G2HtP4z+tFDKo3O2KiZzVADLJNb1vGrq+zQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nJGyKMl9csZdOgWg3COPyInWdTtHp6qhQmKGO9FgdKjL/aNqNQqBcvNc4IVV8iw3Z
-	 iMaUH/2xpBi6+mHJREIJNiP8RUTdwAAcPCxXDoKtXpXAGXmjy5+8QNb6B7iyWSVWB0
-	 d8cqwqrEyvyBhx2dPiJ5sSrMscB0l2L2T+wJ2hKExRFHOEM7cey4z7eG+JJEtJeooW
-	 okZC7iwAtEzoj+k5ljfK6YEnofjHVSj7blbmagbhO/MGV9fVOJaH0V5lJmuvM4388v
-	 7ncMNRdohDUEolEiPLXgvc6t3sF8wT290y1TcvuXtOw/KuEa5YbWJqGsCsRraxAryP
-	 kbAcJf8AWZ3bA==
-Date: Mon, 22 Sep 2025 10:40:51 -0500
+	b=VA2s+MDPsMa5SPyJHe17nMnOt1oqosfBHM2Zc/RjmVhCT+8m7O9M/44hd6Uym2dtK
+	 xsrVfRYPjd7ETzCCuujgOcZY62Ei5RkUfXID33hB51OaEaQd/U2xigL+re67jqY5g/
+	 GLMI4kDmC8YRrB5n3iy9XokE8t808gGMguGw6li+ktkarZQV7sODbVge0nEcS6h4sy
+	 mCNgZDr7807xW+HxT0Z0VlH2OEszwlP1WT5XrzQi/LFJ/2yVwRWWbtpdN9ZqnTwLPv
+	 BsXhziJ7B/DECiizElwS3BHXOx7BGMu+NAuN5aj0VRXpim4cM0TG3Y4+Jc+zl9+3Wr
+	 t4CxkqVKK13CA==
+Date: Mon, 22 Sep 2025 10:41:11 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+Cc: linux-arm-kernel@lists.infradead.org,
 	Alim Akhtar <alim.akhtar@samsung.com>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: phy: samsung,usb3-drd-phy: add
- exynos8890 support
-Message-ID: <175855565135.24221.297874866943953244.robh@kernel.org>
-References: <20250914145555.2631595-1-ivo.ivanov.ivanov1@gmail.com>
- <20250914145555.2631595-2-ivo.ivanov.ivanov1@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] dt-bindings: arm: samsung: document herolte board
+ binding
+Message-ID: <175855567004.25808.182745298436415730.robh@kernel.org>
+References: <20250914150321.2632019-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250914150321.2632019-2-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250914145555.2631595-2-ivo.ivanov.ivanov1@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_084055_913592_55E69D5A 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250914150321.2632019-2-ivo.ivanov.ivanov1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +74,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 14 Sep 2025 17:55:54 +0300, Ivaylo Ivanov wrote:
-> The exynos8890 SoC features two dwc3 controllers with one USBDRD and
-> one USBHOST controller. Document compatible for the USBDRD one.
+On Sun, 14 Sep 2025 18:03:19 +0300, Ivaylo Ivanov wrote:
+> Add binding for the Samsung Galaxy S7 (SM-G930F) board, codenamed
+> herolte, which is based on the Samsung exynos8890 SoC.
 > 
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 25 +++++++++++++++++++
->  1 file changed, 25 insertions(+)
+>  .../devicetree/bindings/arm/samsung/samsung-boards.yaml     | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
