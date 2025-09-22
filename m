@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB9ACA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2CCCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVviXf5YU+9P2d/aDTKI7LbuCiNyt7cF6b374RUwvtY=; b=zYixBm8zBRVEmR1w2Ty2o8jWPF
-	pwdTlCQSJ+xBJJlTMdUCa8oS57EeGuT3QYM17JvgmBiHkW+Qqto1K29wQU6WrZhHz6q2MYiQsuAj8
-	UG+/WNotZOp5lkoh50RZchcRS/x5oP83VHnsSklv7zzsjKGu7S2OvuxePo8Cjdoqj0SLtRLbck47P
-	keFuNChkueoOEzg0UpOhsGPqJyslEiXFBIXTy8lWVXsJFUytFXUwgMnMAXNcMpESfDo30HQW/zIsx
-	TQZCw4LmFLPtKToUOGg/14ek1sq43g2gW8HE6i5O4ZjJh0YnFk9KFKigR+dV+Zp7i3LS7uBzj/hii
-	eK41Z2Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jx43FQt04RRWWbJPKAwMaQfiDNcLhpTBUoXKCajpCo8=; b=AmcWV8WhBA5PbygkLueuwOh/pp
+	ONqVS7mL4rG7bOPy9D4TgcQQ0nr2gNCx4LqUPHV5CsWFNaR4M4KDCA8ZDqLw0AM0NIvRXuyt2eyqs
+	N74g+4+1Wyzy1HJnr/SPqIPt3lq9nuEUqwsEKfNzd/s0Ee4MnRnIzCyMORcXKl0HkMWKE8jOTLeAY
+	5/JnFBY+LtYc+ito4duIhqhxUrLA9I8Jn88ViXUL+JpWWWTrNI6aiYaLQTPYEAXAbjuSptUHWSAG5
+	z5/seA1f6TzWeFFaNK24mnNqk+A+kQg9i2GQYYIT0QtHtmrEu7vdVLayR058rbatcdUJs+dLffI40
+	YSPTp+3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k3M-0000000B4Pb-06w5;
-	Mon, 22 Sep 2025 17:10:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0k4Y-0000000B4bI-25P2;
+	Mon, 22 Sep 2025 17:11:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k3K-0000000B4PK-0tUU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 17:10:14 +0000
+	id 1v0k4W-0000000B4aU-3L0k;
+	Mon, 22 Sep 2025 17:11:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9381C601FE
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 17:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E46C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 17:10:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1041C44390;
+	Mon, 22 Sep 2025 17:11:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1D2C4CEF0;
+	Mon, 22 Sep 2025 17:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758561013;
-	bh=LjfO8KQZ0pOYPVi6VN1I03sM/JgE4fiqagXrNbVWxZw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Lrj9Z2fxus0EQD+OB8bJazR3ZDEcJSQZ18UQsQULqJ5Iq/2vZufMw5d4giGj7gNNa
-	 pN5PYjh+13AUKIwXi2iTfzlanD897Sw+SFtyZrYMLvg2VzDJVDpElUWHtXpr49HdFC
-	 MiRqsd8tPCaR8ldWVTFwqNPyLSwkvlErbo+t4SYAa+1WrlHlrbKd8hVbkR3rVRKQtM
-	 N4QS7Pd+JeKbhZYawQnaK+jGr2G18cAqnI/tRMUWeR2LncyOvSm7TkirwKqPFVo2ug
-	 zhFJr01QXTlmzN4mzXR5sHcjM+OnjjzaxKbYHituJStPbR+ud6HZp8MqMXf1k+1LTn
-	 +3TEuGJxT22Eg==
-Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-750b77699b4so3213871a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 10:10:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV+LjZgvcdN6HO6Ua791GztyHXuGU96tr4azncDwOC4+eVeq/MY840Jdxp6pnjD6k78MSi1ZrsArYSK9ySSNLQ2@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcugx2ho9QlQ/kJK2LETdHT+qRlXlMlS4eJI4YVOchoKYvddAs
-	JTjSfA125eMCOJwW0twvnS5K3qmOzIxpL3WXcsIuSypM3EIY1gvKfDZlIEXr2C5MQG420fu++wj
-	ujrEne3A3UF9iD24BGArDBQ806tEHaio=
-X-Google-Smtp-Source: AGHT+IEQgrPHe32vZeMLsnLLopfoaTVSCbgyw3/FvnA92tK1XG9E0pwJSaFqOTcNR67lm0Y9z3GITnD3dGbnCFY+o04=
-X-Received: by 2002:a05:6830:611a:b0:756:a322:2f8 with SMTP id
- 46e09a7af769-76f6e58e005mr8523341a34.5.1758561012535; Mon, 22 Sep 2025
- 10:10:12 -0700 (PDT)
+	s=k20201202; t=1758561087;
+	bh=bkrPLPzrm50ZFvPyvUr+rRE9QdrzUX2GlPLdWhgO5e0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FE3mFOqUGfy67eZHcQhnavXPi3/2dG8CNj1tgOSxuZ97CpKreeWOJ5ZbrY7VTvgpb
+	 NNID9ISM8lVMxAhQZHkjEzBkQuraUA6Pziu6wipkcxycimPRRzbKtksTzgsnqZem8s
+	 Ksw6LNlNhxB3xPTYIv3laKK/fhJ7ZRi1Likdd8F3K92Cce8IJEMVw3HqJ0aAs+hYQa
+	 fCU48b2AneunAhJpC4t2GxwkYf1WJz1KqaT27bUi4FODvrvMaB33R59sV9wyJvMSnu
+	 /Qllvjmp/7NwPewSdPk3rwuuae1YivBD1ltZdAazwrH6UQ/g5qVPyOnRNLndI1+C++
+	 vYiGtaMDKb8rw==
+Date: Mon, 22 Sep 2025 12:11:26 -0500
+From: Rob Herring <robh@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Gerald Loacker <gerald.loacker@wolfvision.net>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Markus Elfring <Markus.Elfring@web.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Val Packett <val@packett.cool>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Bryan O'Donoghue <bod@kernel.org>
+Subject: Re: [PATCH v11 05/17] media: dt-bindings: add rockchip rk3568 mipi
+ csi-2 receiver
+Message-ID: <20250922171126.GA480461-robh@kernel.org>
+References: <20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com>
+ <20240220-rk3568-vicap-v11-5-af0eada54e5d@collabora.com>
 MIME-Version: 1.0
-References: <20250922082833.2038905-1-maz@kernel.org> <20250922082833.2038905-3-maz@kernel.org>
-In-Reply-To: <20250922082833.2038905-3-maz@kernel.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 22 Sep 2025 19:10:01 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0jPdvdTUWqW1OEkLUSrucifEQxmKjEn2H5Xp4g_4q_+Gw@mail.gmail.com>
-X-Gm-Features: AS18NWB5qQhnXhcfR4zq93qjbiiurDZoCQiEBrfaJ7614-vzCAHGIWYi6x8OUsg
-Message-ID: <CAJZ5v0jPdvdTUWqW1OEkLUSrucifEQxmKjEn2H5Xp4g_4q_+Gw@mail.gmail.com>
-Subject: Re: [PATCH v3 02/26] ACPI: irq: Add IRQ affinity reporting interface
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, 
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20240220-rk3568-vicap-v11-5-af0eada54e5d@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_101128_869303_0AD4BAF8 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,84 +95,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 10:28=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
-e:
->
-> Plug the irq_populate_fwspec_info() helper into the ACPI layer
-> to offer an IRQ affinity reporting function. This is currently
-> only supported for the CONFIG_ACPI_GENERIC_GSI configurations,
-> but could later be extended to legacy architectures if necessary.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-
-Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-
+On Wed, Sep 17, 2025 at 05:38:45PM +0200, Michael Riesch wrote:
+> Add documentation for the Rockchip RK3568 MIPI CSI-2 Receiver.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bod@kernel.org>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
->  drivers/acpi/irq.c   | 19 +++++++++++++++++++
->  include/linux/acpi.h |  7 +++++++
->  2 files changed, 26 insertions(+)
->
-> diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
-> index 76a856c32c4d0..d1595156c86a4 100644
-> --- a/drivers/acpi/irq.c
-> +++ b/drivers/acpi/irq.c
-> @@ -300,6 +300,25 @@ int acpi_irq_get(acpi_handle handle, unsigned int in=
-dex, struct resource *res)
->  }
->  EXPORT_SYMBOL_GPL(acpi_irq_get);
->
-> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
-> +                                           unsigned int index)
-> +{
-> +       struct irq_fwspec_info info;
-> +       struct irq_fwspec fwspec;
-> +       unsigned long flags;
+>  .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 144 +++++++++++++++++++++
+>  MAINTAINERS                                        |   6 +
+>  2 files changed, 150 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> new file mode 100644
+> index 000000000000..8cbab93b4b85
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> @@ -0,0 +1,144 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +       if (acpi_irq_parse_one(handle, index, &fwspec, &flags))
-> +               return NULL;
+> +title: Rockchip RK3568 MIPI CSI-2 Receiver
 > +
-> +       if (irq_populate_fwspec_info(&fwspec, &info))
-> +               return NULL;
+> +maintainers:
+> +  - Michael Riesch <michael.riesch@collabora.com>
 > +
-> +       if (!(info.flags & IRQ_FWSPEC_INFO_AFFINITY_VALID))
-> +               return NULL;
+> +description:
+> +  The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one input port
+> +  and one output port. It receives the data with the help of an external
+> +  MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video Capture
+> +  (VICAP) block.
 > +
-> +       return info.affinity;
-> +}
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - rockchip,rk3588-mipi-csi
+> +          - const: rockchip,rk3568-mipi-csi
+> +      - const: rockchip,rk3568-mipi-csi
 > +
->  /**
->   * acpi_set_irq_model - Setup the GSI irqdomain information
->   * @model: the value assigned to acpi_irq_model
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index 1c5bb1e887cd1..c506ae4bacc86 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -1509,12 +1509,19 @@ static inline int acpi_parse_spcr(bool enable_ear=
-lycon, bool enable_console)
->
->  #if IS_ENABLED(CONFIG_ACPI_GENERIC_GSI)
->  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
- *res);
-> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
-> +                                           unsigned int index);
->  #else
->  static inline
->  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
- *res)
->  {
->         return -EINVAL;
->  }
-> +static inline const struct cpumask *acpi_irq_get_affinity(acpi_handle ha=
-ndle,
-> +                                                         unsigned int in=
-dex)
-> +{
-> +       return NULL;
-> +}
->  #endif
->
->  #ifdef CONFIG_ACPI_LPIT
-> --
-> 2.47.3
->
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: Interrupt that signals changes in CSI2HOST_ERR1.
+> +      - description: Interrupt that signals changes in CSI2HOST_ERR2.
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: irq1
+> +      - const: irq2
+
+Names that are just the index are not useful. Drop. With that,
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    maxItems: 1
+> +    description: MIPI C-PHY or D-PHY.
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: Input port node. Connect to e.g., a MIPI CSI-2 image sensor.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              bus-type:
+> +                enum: [1, 4]
+> +
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +
+> +            required:
+> +              - bus-type
+> +              - data-lanes
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Output port connected to a RK3568 VICAP port.
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - phys
+> +  - ports
+> +  - power-domains
+> +  - resets
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3568-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/media/video-interfaces.h>
+> +    #include <dt-bindings/power/rk3568-power.h>
+> +
+> +    soc {
+> +        interrupt-parent = <&gic>;
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        csi: csi@fdfb0000 {
+> +            compatible = "rockchip,rk3568-mipi-csi";
+> +            reg = <0x0 0xfdfb0000 0x0 0x10000>;
+> +            interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
+> +                         <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "irq1", "irq2";
+> +            clocks = <&cru PCLK_CSI2HOST1>;
+> +            phys = <&csi_dphy>;
+> +            power-domains = <&power RK3568_PD_VI>;
+> +            resets = <&cru SRST_P_CSI2HOST1>;
+> +
+> +            ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +
+> +                csi_in: port@0 {
+> +                    reg = <0>;
+> +
+> +                    csi_input: endpoint {
+> +                        bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
+> +                        data-lanes = <1 2 3 4>;
+> +                        remote-endpoint = <&imx415_output>;
+> +                    };
+> +                };
+> +
+> +                csi_out: port@1 {
+> +                    reg = <1>;
+> +
+> +                    csi_output: endpoint {
+> +                        remote-endpoint = <&vicap_mipi_input>;
+> +                    };
+> +                };
+> +            };
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 4c39b9fd80bb..2ac4b7a5b255 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21797,6 +21797,12 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
+>  F:	drivers/media/platform/rockchip/rkisp1
+>  F:	include/uapi/linux/rkisp1-config.h
+>  
+> +ROCKCHIP MIPI CSI-2 RECEIVER DRIVER
+> +M:	Michael Riesch <michael.riesch@collabora.com>
+> +L:	linux-media@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> +
+>  ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+>  M:	Daniel Golle <daniel@makrotopia.org>
+>  M:	Aurelien Jarno <aurelien@aurel32.net>
+> 
+> -- 
+> 2.39.5
+> 
 
