@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A7ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA71BCAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 13:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kn150si6R35actdtONn846LazO4pqKgYJ4TtgIXnRzo=; b=GxypObOXyJtfGEYvX8T6OL+2gm
-	MbuOcRA/1AcVTyYDVGac7vRJ2S/WtZhPQ1exRoVUykcDFdnRDoSs0MbZV9zFjPckyp5dx+MkXBQKV
-	MCAIn8bVfJaE+xFKpHVdNCRENBTb54j8pTNU9Ofe66dAAUpz9dZnGBsOkiAngiGoelORNRo7hotnQ
-	EGgZVSz8C/wErgodswuwbo/98MHorrjMJBfHfGFrJ5AcjxpPgdymeiDIOpdQZRpZFKhiAbcOPKTDS
-	NCiU6kLfuLTFiFSEHWIBuJht/MEEbxl0Ox3Gd/0TRfHDn+4jM2AA3cVidTldGwPwC4vTTGcvDShro
-	0Sn++nxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lfz2UZ8ldaU0z35qQPG4bqU3TgLJWNRu6p19U+8Usms=; b=jfn5UEvUB4IzfieyQNC8ukoO09
+	OQi1keh/nrwSMdejOOqNxxKHTznXqDWr08N3GY47SDR9eo0hwzBaIBfZ8kcXQnVqcVxN+EsfHHiTw
+	GfLEc+Pg3O9bcVfAIIRcYTCXdf+F5vnQs0FvUG99BG9F61qpvbd5FT251vBdHXmicUDLcPjlNjw31
+	t5tyPXGKrrNyBdWsjXsQ7Cgg4VYNZipNCexMPvg0F6nuUWDp68MaD5tS8/YnHMU3pTlmUrf9Ot2D+
+	OqkErbCOer/4xu8m2/ROaj/sWcr18dUMega4PVRRc7PZFf7PW9KIGplerDWjsla2lLZ8yWWVzMID3
+	eggyTVoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gJK-0000000AQJf-2ITl;
-	Mon, 22 Sep 2025 13:10:30 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v0gKO-0000000AQfV-1iMc;
+	Mon, 22 Sep 2025 13:11:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0gJI-0000000AQIw-1qfW;
-	Mon, 22 Sep 2025 13:10:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758546626; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LvrqHWBhrF/YJolT/DD+kCk+6/r3fLveOufwCo5/PU0J1Kp9OzWNO8UqzMId+yXKP8/q+M0a6yPFXkkRqFAUmbTFgp+OX+ZMs2AXTKuebWEwoOmpKHOXI6AT1DiBZTr1t4i5h/AC54pQBVN07KuVAbftvZcBEA4siuuGhq08RzQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758546626; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Kn150si6R35actdtONn846LazO4pqKgYJ4TtgIXnRzo=; 
-	b=kkGKSrMvIhdjki/asDlA1izrtZPael5VZlCYxS3jLtS84N9ub6r4qIqRHoeAUg1sE/orVmw+vldZYWQFnambdPMlJSPpxmqsLfHh+ZvjPIu78scfrx5NMaamv4DRf/GPzPwK7eylolelYH2Hi5OXRFgMiG4Y8uLy8jEqROMaLXY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758546626;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=Kn150si6R35actdtONn846LazO4pqKgYJ4TtgIXnRzo=;
-	b=PyjI5q/MF4VrsT7U6GDclIWy2TAyGGYq67BUikk1yt0Hr8M3jKj2CpKcsNJ8esO4
-	r5LfN3WrvnJ92NrJiHst2FVeRa+StG8hD7IGlHSQwmGSAphEW+Z5fKOelFVH0HbwDZz
-	G684j1eh8KRJJlfr1cp96CVZRnT/C6bPBQkWVg5E=
-Received: by mx.zohomail.com with SMTPS id 1758546623493843.2136614730568;
-	Mon, 22 Sep 2025 06:10:23 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- Jjian Zhou =?UTF-8?B?KOWRqOW7uik=?= <Jjian.Zhou@mediatek.com>
-Cc: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "wenst@chromium.org" <wenst@chromium.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-Date: Mon, 22 Sep 2025 15:10:18 +0200
-Message-ID: <13850137.uLZWGnKmhe@workhorse>
-In-Reply-To: <a9dd348fd7df95ebd5ad9cc58d57b588a18ccc9d.camel@mediatek.com>
-References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
- <CABb+yY2Ay+KqviJvOQC8X8kfzJN6-fQT04A+TCJAkLnWx+XwZg@mail.gmail.com>
- <a9dd348fd7df95ebd5ad9cc58d57b588a18ccc9d.camel@mediatek.com>
+	id 1v0gKN-0000000AQfE-2mGP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 13:11:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E9D0601AF;
+	Mon, 22 Sep 2025 13:11:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95660C4CEF0;
+	Mon, 22 Sep 2025 13:11:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758546694;
+	bh=m1F+2phx7Lb5XyIK23kbVO9XUbG8qwxx1BZm/gVYwWI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PYAzbIzQvSb8RcK7j23d8PVZmI4mNgOMCkEtwsd8DhOZVNRht7ukIO6EfT10M0YC/
+	 xXSG8tvqaxxZrgVQdMPT808SJStUzIGTWj4Qw60amA+z8KlnZlsPwMerisBRGAO6RC
+	 UDq5llW6dhBV+gZVtJGjWETX/tAUO4DCOpshcZUJwcRA6nADcwNL/nFzM6gFxDzFVU
+	 q7YaO7b5Log3c/Yyy8Hpfgy8GYN4Yva3VmE9Xgb1w3tkKxIqxFq0KZh7wfp8+xicA9
+	 BYf7gYuTHu/YayC8m/J20wiwKot26quLv4SIxtOAdmuj3KP5tV5WprDEIhaQnoHaKK
+	 3Ml8KR2cedhlQ==
+From: Michael Walle <mwalle@kernel.org>
+To: Nishanth Menon <nm@ti.com>,
+	Bryan Brattlof <bb@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Michael Walle <mwalle@kernel.org>
+Subject: [PATCH] arm64: dts: ti: k3-j722s: add OPP table
+Date: Mon, 22 Sep 2025 15:11:05 +0200
+Message-Id: <20250922131105.2670932-1-mwalle@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_061028_540419_618AC0A9 
-X-CRM114-Status: GOOD (  26.75  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,93 +74,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 22 September 2025 09:17:27 Central European Summer Time Jjian Zh=
-ou (=E5=91=A8=E5=BB=BA) wrote:
-> On Sat, 2025-09-20 at 23:02 -0500, Jassi Brar wrote:
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> >=20
-> >=20
-> > On Fri, Sep 19, 2025 at 2:02=E2=80=AFPM Nicolas Frattaroli
-> > <nicolas.frattaroli@collabora.com> wrote:
-> > >=20
-> > > On Friday, 19 September 2025 18:32:12 Central European Summer Time
-> > > Jassi Brar wrote:
-> > > > On Fri, Sep 19, 2025 at 3:31=E2=80=AFAM Chen-Yu Tsai <wenst@chromiu=
-m.org>
-> > > > wrote:
-> > > > >=20
-> > > > > On Fri, Sep 19, 2025 at 7:50=E2=80=AFAM Jassi Brar <
-> > > > > jassisinghbrar@gmail.com> wrote:
-> > > > > >=20
-> > > > > > On Thu, Aug 21, 2025 at 9:12=E2=80=AFPM Jjian Zhou <
-> > > > > > jjian.zhou@mediatek.com> wrote:
-> > > > > >=20
-> > > > > > .....
-> > > > > >=20
-> > > > > > > +#include <linux/module.h>
-> > > > > > > +#include <linux/of.h>
-> > > > > > > +#include <linux/platform_device.h>
-> > > > > > > +#include <linux/slab.h>
-> > > > > > > +
-> > > > > > > +struct mtk_vcp_mbox_priv {
-> > > > > >=20
-> > > > > > Maybe 'mtk_vcp_mbox' is a more appropriate name ?
-> > > > > >=20
-> > > > > > > +       void __iomem *base;
-> > > > > > > +       struct device *dev;
-> > > > > > > +       struct mbox_controller mbox;
-> > > > > > > +       const struct mtk_vcp_mbox_cfg *cfg;
-> > > > > > > +       struct mtk_ipi_info ipi_recv;
-> > > > > >=20
-> > > > > > Maybe also have "struct mbox_chan chan[1]; " so that you
-> > > > > > don't have to
-> > > > > > allocate one during the probe.
-> > > > > > Also if you have  "struct mbox_controller mbox;" as the first
-> > > > > > member,
-> > > > > > you could simply typecast that to get this structure.
-> > > > > > Something like "struct mpfs_mbox" in mailbox-mpfs.c
-> > > > >=20
-> > > > > I read somewhere that this way of subclassing is not
-> > > > > recommended.
-> > > > > Instead the base class should explicitly not be the first
-> > > > > member.
-> > > > > And then container_of() should be used.
-> > > > >=20
-> > > > > I don't remember where I read this though. But I think the
-> > > > > explicit
-> > > > > container_of() is easier for understanding the intent.
-> > > > >=20
-> > > >=20
-> > > > And how does container_of() work ? :)
-> > > > typcasting the first member to its parent is the simplest form of
-> > > > container_of.
-> > > >=20
-> > > > -j
-> > > >=20
-> > > >=20
-> > >=20
-> > > Which is why it's completely equivalent and since code is supposed
-> > > to communicate meaning to humans, container_of should be used.
-> > >=20
-> >=20
-> > Nobody is suggesting typecasting cfg, dev or anything else.
-> > Typecasting between mailbox controllers is fine and arguably easier
-> > on
-> > the eyes than using a container_of.
-> >=20
-> > -j
->=20
-> OK. How about:
-> struct mtk_vcp_mbox *priv =3D (struct mtk_vcp_mbox *)chan-
-> >con_priv;
->=20
-> Thanks.
->=20
+Add the A53 frequency operation points. The frequencies where taken from
+the AM62P SoC and seem to be chosen rather arbitrary.
+The SoC doesn't contain it's speed grade in the JTAG USER ID efuse
+register, thus it has to be hardcoded in the SoC dtsi and/or board dts.
 
-An explicit cast would be worse, as at that point you're telling
-C to completely ignore any semblance of a type system it has.
+The SoC is binned into just two speed grades with different core
+voltages: J (0.75V, 1.25GHz) and K (0.85V, 1.4GHz). Add the frequencies
+that both speed grades support to the SoC dtsi and if a board has a
+speed grade K SoC add it to the board device tree.
 
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+---
+ .../arm64/boot/dts/ti/k3-am67a-beagley-ai.dts |  7 ++++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts       |  7 ++++
+ arch/arm64/boot/dts/ti/k3-j722s.dtsi          | 40 +++++++++++++++++++
+ 3 files changed, 54 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+index b697035df04e..464dffd46e59 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+@@ -148,6 +148,13 @@ led-1 {
+ 	};
+ };
+ 
++&a53_opp_table {
++	opp-1400000000 {
++		opp-hz = /bits/ 64 <1400000000>;
++		clock-latency-ns = <6000000>;
++	};
++};
++
+ &main_pmx0 {
+ 	main_i2c0_pins_default: main-i2c0-default-pins {
+ 		pinctrl-single,pins = <
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index e0e303da7e15..ce3ed1b0f24d 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -228,6 +228,13 @@ csi23_mux: mux-controller-1 {
+ 	};
+ };
+ 
++&a53_opp_table {
++	opp-1400000000 {
++		opp-hz = /bits/ 64 <1400000000>;
++		clock-latency-ns = <6000000>;
++	};
++};
++
+ &cpsw_mac_syscon {
+ 	bootph-all;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s.dtsi b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+index 0165db6e4437..acb15307addc 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s.dtsi
+@@ -55,6 +55,7 @@ cpu0: cpu@0 {
+ 			d-cache-line-size = <64>;
+ 			d-cache-sets = <128>;
+ 			next-level-cache = <&l2_0>;
++			operating-points-v2 = <&a53_opp_table>;
+ 			clocks = <&k3_clks 135 0>;
+ 			#cooling-cells = <2>;
+ 		};
+@@ -71,6 +72,7 @@ cpu1: cpu@1 {
+ 			d-cache-line-size = <64>;
+ 			d-cache-sets = <128>;
+ 			next-level-cache = <&l2_0>;
++			operating-points-v2 = <&a53_opp_table>;
+ 			clocks = <&k3_clks 136 0>;
+ 			#cooling-cells = <2>;
+ 		};
+@@ -87,6 +89,7 @@ cpu2: cpu@2 {
+ 			d-cache-line-size = <64>;
+ 			d-cache-sets = <128>;
+ 			next-level-cache = <&l2_0>;
++			operating-points-v2 = <&a53_opp_table>;
+ 			clocks = <&k3_clks 137 0>;
+ 			#cooling-cells = <2>;
+ 		};
+@@ -103,11 +106,48 @@ cpu3: cpu@3 {
+ 			d-cache-line-size = <64>;
+ 			d-cache-sets = <128>;
+ 			next-level-cache = <&l2_0>;
++			operating-points-v2 = <&a53_opp_table>;
+ 			clocks = <&k3_clks 138 0>;
+ 			#cooling-cells = <2>;
+ 		};
+ 	};
+ 
++	a53_opp_table: opp-table {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp-200000000 {
++			opp-hz = /bits/ 64 <200000000>;
++			clock-latency-ns = <6000000>;
++		};
++
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++			clock-latency-ns = <6000000>;
++		};
++
++		opp-600000000 {
++			opp-hz = /bits/ 64 <600000000>;
++			clock-latency-ns = <6000000>;
++		};
++
++		opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++			clock-latency-ns = <6000000>;
++		};
++
++		opp-1000000000 {
++			opp-hz = /bits/ 64 <1000000000>;
++			clock-latency-ns = <6000000>;
++		};
++
++		opp-1250000000 {
++			opp-hz = /bits/ 64 <1250000000>;
++			clock-latency-ns = <6000000>;
++			opp-suspend;
++		};
++	};
++
+ 	l2_0: l2-cache0 {
+ 		compatible = "cache";
+ 		cache-unified;
+-- 
+2.39.5
 
 
