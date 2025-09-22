@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C674ECAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F2CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qu23B2J7b2A56Ul4JJXUbLHwY6TNh++dPK/zMyIBMg0=; b=uCjBPlV9EC72/jRG3pgt6mCaLO
-	cDqq8vaVrJ3y9rxv65x00tHMuljv3ii8w2yAuQyeScww0+0K9G4Sj25gjm5Ek85M6OTPzlddkaoPh
-	gnOE2WfYNmcrou/qgv02M0s3G0gxX97iC3TyzADMxlNAzBs1yumFE1tJcesPeO6lIkln+AC1hLdzb
-	TFpQYjcWqkt1pEB/7SjLxKM7HjXWvcIIdAEQLhFj/apaFFJ07lZXIPDYgnQLa0N/e+0XYCwKJXiVy
-	TMDuNwDOVcOU9k2cpBZClyu1EutKN5THYOIZC/h5jGLT8dQdwIx95F38ev90SbRDwmXK9+VBumEuz
-	+c2kC14w==;
+	bh=cStxNPR0+6f9gxfR6Jcf39Q6otOQTf0Wm6ycPUO8mOo=; b=OjBjYIWcCqY9TaxNigsghFi7dm
+	n5xPUSE9KZb4QlbSX2arzcSGfFkmsh0wob9vYmBtDvg/H0RZXUUHfVHQzbKQdTueH/n4RIYec7pg/
+	8tTKt/KgJWsnccKNGRD8WsBe6iQIKjgdUnhMCUlsF/ylzxxhYUR/KFDCDu3rSOja83X/su2vRPArc
+	G2oFXUMSOxl5fwKH1Ntd9MVnBRN6oXT1OsEeFbjgzqRppwEG5Gjd3nNq4/jU1Z2CpcXQkGwIFXRMF
+	Y+DOUsmBMTrx4fcrWnviRv9sl1v0IvBl2JFYF8PIqvgRcXtmtvQdee66janFaRm4dtcKoevsplELc
+	vMCWqQQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0aMf-000000091Fg-2XHP;
-	Mon, 22 Sep 2025 06:49:33 +0000
-Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
+	id 1v0aSk-000000091hD-1ihL;
+	Mon, 22 Sep 2025 06:55:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0aMd-000000091Eg-1F6z
+	id 1v0aSi-000000091h1-3y4r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 06:49:32 +0000
-Received: from hillosipuli.retiisi.eu (91-158-51-183.elisa-laajakaista.fi [91.158.51.183])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sailus)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4cVYcm1p8bzyQK;
-	Mon, 22 Sep 2025 09:49:28 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1758523768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Qu23B2J7b2A56Ul4JJXUbLHwY6TNh++dPK/zMyIBMg0=;
-	b=WEEjoJVdBwwCayHJBLPJdNoFEAW4IbR1kcb2P++33rMnLG+qunU7aLcs7iGjM0qX2NHYxp
-	EhUb3NmgPVaTg6SJhM4tVDPAjGEugpYJ00go8WJO/3yw3dfThsZTqq9VBWSChLQ6d5/FK6
-	NHJ3c/iyggnw3wKo7JDdj/b/Ao66Edw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1758523768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Qu23B2J7b2A56Ul4JJXUbLHwY6TNh++dPK/zMyIBMg0=;
-	b=ZNYxOXMX192BGaQKrTn8H1Y9O2P5kTyWUb8VxPYRUGycx2Y1PS05oQ0MIdVnNZ4FqCX9kb
-	fV0JmGyr6kRqHpKonn0Rp+nJhFyE768q3uEmXf5wIarYqBa1qexqcITQ6i3QCtYbG4ajMc
-	TDwlnxkWKXb9bw2QpGB6lf1ZO8t50AE=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
-ARC-Seal: i=1; s=meesny; d=iki.fi; t=1758523768; a=rsa-sha256; cv=none;
-	b=SGLNt2dwI5NBADA5l6wnw15IsKqG6BHCpS7pGDWnWAOAUg9RsqjWOt4Z8aOOVpHNZoC+LF
-	ORAEGm9wXJG1RGo6eYOCuVDXZ6NOXnmfrT/rQQUKI5HUbksqe5vmMNsiJJijw/pRdxEc7B
-	iWygxQEJEQEnBQeU59pDNWeDFTkozdE=
-Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 79790634C97;
-	Mon, 22 Sep 2025 09:49:27 +0300 (EEST)
-Date: Mon, 22 Sep 2025 09:49:27 +0300
-From: Sakari Ailus <sakari.ailus@iki.fi>
-To: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/3] media: imx-mipi-csis: Store the number of
- data_lanes configured in dt
-Message-ID: <aNDxd9rWjmgrVCd9@valkosipuli.retiisi.eu>
-References: <20250915-mbus-config-active-lanes-v3-0-97a1282a410b@ideasonboard.com>
- <20250915-mbus-config-active-lanes-v3-2-97a1282a410b@ideasonboard.com>
+	Mon, 22 Sep 2025 06:55:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 47C47601E2
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 06:55:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E49CEC116B1
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 06:55:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758524147;
+	bh=cStxNPR0+6f9gxfR6Jcf39Q6otOQTf0Wm6ycPUO8mOo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=FI+Yzh+sxnP+7y7AeY/UzD+AvO5J9BcZlzQ1Ig9XiOhmmPIGaHdmNLQO8yPkfSvpY
+	 GmXGfrpVJsPf4MehwrNyRufodTnae+ejYEvF1SrCdwXJSMGZO05+qUgM/6qjzBOBK4
+	 VSp9qYhI0rB7d8MHHb8IwGZllDScC+k362rcxBpeO/lx/KcmcxJr+pVg/YsnEihcvz
+	 uL8LEo1EGp7oWP3Bk20pEycuJ04Y6FJ8h+CAeL4CBgKABmc8YvB9c0bz5K9MFPqbfB
+	 cmdnUeX5/qc2YV9s/PCtkgjCqdv7dy/k5mraTiuVjhoWWMQodcdwnB8Na/FvQ8WK+M
+	 rE0JNpsJ04NCA==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-57e03279bfeso1065264e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 23:55:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUMVN6Wu5zgNF/KNpm94zFyb7IU2jyun7kYxqbEg0Bcr4/W5xdiLlpaliF8IuK8+OOuX3WEQJSceX9Nflg6LXqD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGRfIAeAT/04fTszAvcGhiVFAFAF8SwNqfNwKW8SPY7QkPFGgv
+	Fbt32GuceyRg6MhI97oljvuZTE0cKoqxRnzHjFMS7cKUEZ+ZyrfjT+rm1Yd70BKLGXmdwzWTR2o
+	Vgtifb4Nzd+U2b/HgwETPOdBgy/G0ZmY=
+X-Google-Smtp-Source: AGHT+IFEuuIizw00M5tOMIlDV79GLzIy8VumPMrZQwg+c8cGe2MnwvUkmO7jOkF/XPepPXL3XhK5bQF243dup2ewVbE=
+X-Received: by 2002:a05:6512:39c8:b0:571:75c8:43a5 with SMTP id
+ 2adb3069b0e04-578932c711amr5316823e87.1.1758524146258; Sun, 21 Sep 2025
+ 23:55:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915-mbus-config-active-lanes-v3-2-97a1282a410b@ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_234931_502176_4981798E 
-X-CRM114-Status: GOOD (  23.94  )
+References: <20250918103010.2973462-10-ardb+git@google.com>
+ <20250918103010.2973462-15-ardb+git@google.com> <19b370e4-d6a8-4a60-bc14-4adb55616040@sirena.org.uk>
+In-Reply-To: <19b370e4-d6a8-4a60-bc14-4adb55616040@sirena.org.uk>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 22 Sep 2025 08:55:35 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXGrbQW-0ERuHWz1cGhnm81j1_2Kf_FEUT5pzZZa=9Cuyw@mail.gmail.com>
+X-Gm-Features: AS18NWDhOO8LR2J_B_pV8xirK6v2Tu0IG5sHBmb-PL3i5tNUhl9Y83YVb_5Bcvc
+Message-ID: <CAMj1kXGrbQW-0ERuHWz1cGhnm81j1_2Kf_FEUT5pzZZa=9Cuyw@mail.gmail.com>
+Subject: Re: [PATCH v3 5/8] arm64/fpsimd: Drop special handling for EFI
+ runtime services
+To: Mark Brown <broonie@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra <peterz@infradead.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Isaac,
+On Thu, 18 Sept 2025 at 15:10, Mark Brown <broonie@kernel.org> wrote:
+>
+> On Thu, Sep 18, 2025 at 12:30:16PM +0200, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+>
+> > Now that the use of kernel mode FP/SIMD is generally permitted when IRQs
+> > are disabled, the only purpose served by the EFI-specific fallback code
+> > in fpsimd.c is the case where an EFI call occurs from hardirq or NMI
+> > context. No such cases are known to occur in practice, and it is
+> > doubtful whether calling into the EFI firmware for any reason under such
+> > conditions would be a good idea to begin with.
+> >
+> > So disallow EFI runtime services in such cases. This means all the
+> > fallback code can be dropped.
+>
+> This is a really nice simplification, with the fixup rolled in:
+>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
 
-On Mon, Sep 15, 2025 at 02:18:34PM +0100, Isaac Scott wrote:
-> The number of lanes actively used by a MIPI CSI transmitter may differ
-> from that which is defined in device tree. To allow us to be able to set
-> the number of configured lanes without changing the maximum lane count,
-> store the number of lanes configured in device tree, and adjust the
-> debug print to reflect the device tree value.
-> 
-> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 14 +++++++++-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 2beb5f43c2c0..6afbedfe131e 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -313,6 +313,8 @@ struct mipi_csis_device {
->  	u32 hs_settle;
->  	u32 clk_settle;
->  
-> +	unsigned int num_data_lanes;
-> +
->  	spinlock_t slock;	/* Protect events */
->  	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
->  	struct dentry *debugfs_root;
-> @@ -535,7 +537,7 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
->  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
->  	val &= ~MIPI_CSIS_DPHY_CMN_CTRL_ENABLE;
->  	if (on) {
-> -		mask = (1 << (csis->bus.num_data_lanes + 1)) - 1;
-> +		mask = (1 << (csis->num_data_lanes + 1)) - 1;
+Sadly, this is not as simply as I had hoped.
 
-Please use 1U or BIT() for bit-shifted values.
+So even if we address the irqs_disabled() case, there are three
+remaining code paths where EFI pstore may end up calling the
+SetVariable() runtime service in hard IRQ or NMI context: panic(),
+oops_exit() and emergency_restart(). So disallowing this is
+problematic, as EFI pstore might be the only way to do a post mortem.
 
->  		val |= (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
->  	}
->  	mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
-> @@ -586,7 +588,7 @@ static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
->  
->  	/* Calculate the line rate from the pixel rate. */
->  	link_freq = v4l2_get_link_freq(src_pad, csis_fmt->width,
-> -				       csis->bus.num_data_lanes * 2);
-> +				       csis->num_data_lanes * 2);
->  	if (link_freq < 0) {
->  		dev_err(csis->dev, "Unable to obtain link frequency: %d\n",
->  			(int)link_freq);
-> @@ -631,7 +633,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
->  				 const struct v4l2_mbus_framefmt *format,
->  				 const struct csis_pix_format *csis_fmt)
->  {
-> -	int lanes = csis->bus.num_data_lanes;
-> +	int lanes = csis->num_data_lanes;
->  	u32 val;
->  
->  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> @@ -1299,8 +1301,10 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
->  	}
->  
->  	csis->bus = vep.bus.mipi_csi2;
-> +	csis->bus.num_data_lanes = vep.bus.mipi_csi2.num_data_lanes;
-> +	csis->num_data_lanes = csis->bus.num_data_lanes;
->  
-> -	dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
-> +	dev_dbg(csis->dev, "data lanes: %d\n", csis->num_data_lanes);
->  	dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
->  
->  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
-> @@ -1498,7 +1502,7 @@ static int mipi_csis_probe(struct platform_device *pdev)
->  	}
->  
->  	dev_info(dev, "lanes: %d, freq: %u\n",
-> -		 csis->bus.num_data_lanes, csis->clk_frequency);
-> +		 csis->num_data_lanes, csis->clk_frequency);
->  
->  	return 0;
->  
-> 
-
--- 
-Regards,
-
-Sakari Ailus
+As such an IRQ could potentially occur at a time when the FP/SIMD unit
+is being used both in task and in softirq context, there still needs
+to be some special handling, even though a) this condition is
+vanishingly rare, and so having elaborate logic like we do today that
+is never exercised is not great
+b) much of the logic deals with SVE which is user space only, and we
+can just disregard that under the conditions where we may enter in IRQ
+context.
 
