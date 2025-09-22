@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8406CA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB9ACA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Czn2vrlolGeYQImejpAr7KFt5Sj149E/ZMwKdYUmdVs=; b=3lp6Mw3j+mLm6tCq2TyXHRPvn6
-	Qz+IWPMMsfbN9bsKPb1jo+FC4gnsEaWlicR/GytDjlQbhVHp1tGiC2dwfwLSKp/SuxyNk0Nb2qY87
-	M2bQxHnis0jEGUzWebQTTjp7sbQwePt/wlcYDgY2YcXKF64z4B7Cnff9yja7mrNpD/Twtg/oJob8G
-	Ndr2/HSFRzpXp95E+U40qb/23cVSLqe3jhCFiV23mP7RtR8zYHOt4OS6chuCpwtsPIt4w5Z8xC4f/
-	arEhgzcaNMeANH6Gj9cwpet/yZ2jDVOrmM81ARcsEEEXPwXT7oS79vgto8XpC/N1VIMQhfVXehS/K
-	vlUCCYbw==;
+	bh=vVviXf5YU+9P2d/aDTKI7LbuCiNyt7cF6b374RUwvtY=; b=zYixBm8zBRVEmR1w2Ty2o8jWPF
+	pwdTlCQSJ+xBJJlTMdUCa8oS57EeGuT3QYM17JvgmBiHkW+Qqto1K29wQU6WrZhHz6q2MYiQsuAj8
+	UG+/WNotZOp5lkoh50RZchcRS/x5oP83VHnsSklv7zzsjKGu7S2OvuxePo8Cjdoqj0SLtRLbck47P
+	keFuNChkueoOEzg0UpOhsGPqJyslEiXFBIXTy8lWVXsJFUytFXUwgMnMAXNcMpESfDo30HQW/zIsx
+	TQZCw4LmFLPtKToUOGg/14ek1sq43g2gW8HE6i5O4ZjJh0YnFk9KFKigR+dV+Zp7i3LS7uBzj/hii
+	eK41Z2Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k0E-0000000B3q9-3Mg3;
-	Mon, 22 Sep 2025 17:07:02 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1v0k3M-0000000B4Pb-06w5;
+	Mon, 22 Sep 2025 17:10:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0k0B-0000000B3nH-3hdu;
-	Mon, 22 Sep 2025 17:07:01 +0000
+	id 1v0k3K-0000000B4PK-0tUU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 17:10:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9381C601FE
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 17:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E46C113D0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 17:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758561013;
+	bh=LjfO8KQZ0pOYPVi6VN1I03sM/JgE4fiqagXrNbVWxZw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Lrj9Z2fxus0EQD+OB8bJazR3ZDEcJSQZ18UQsQULqJ5Iq/2vZufMw5d4giGj7gNNa
+	 pN5PYjh+13AUKIwXi2iTfzlanD897Sw+SFtyZrYMLvg2VzDJVDpElUWHtXpr49HdFC
+	 MiRqsd8tPCaR8ldWVTFwqNPyLSwkvlErbo+t4SYAa+1WrlHlrbKd8hVbkR3rVRKQtM
+	 N4QS7Pd+JeKbhZYawQnaK+jGr2G18cAqnI/tRMUWeR2LncyOvSm7TkirwKqPFVo2ug
+	 zhFJr01QXTlmzN4mzXR5sHcjM+OnjjzaxKbYHituJStPbR+ud6HZp8MqMXf1k+1LTn
+	 +3TEuGJxT22Eg==
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-750b77699b4so3213871a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 10:10:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV+LjZgvcdN6HO6Ua791GztyHXuGU96tr4azncDwOC4+eVeq/MY840Jdxp6pnjD6k78MSi1ZrsArYSK9ySSNLQ2@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcugx2ho9QlQ/kJK2LETdHT+qRlXlMlS4eJI4YVOchoKYvddAs
+	JTjSfA125eMCOJwW0twvnS5K3qmOzIxpL3WXcsIuSypM3EIY1gvKfDZlIEXr2C5MQG420fu++wj
+	ujrEne3A3UF9iD24BGArDBQ806tEHaio=
+X-Google-Smtp-Source: AGHT+IEQgrPHe32vZeMLsnLLopfoaTVSCbgyw3/FvnA92tK1XG9E0pwJSaFqOTcNR67lm0Y9z3GITnD3dGbnCFY+o04=
+X-Received: by 2002:a05:6830:611a:b0:756:a322:2f8 with SMTP id
+ 46e09a7af769-76f6e58e005mr8523341a34.5.1758561012535; Mon, 22 Sep 2025
+ 10:10:12 -0700 (PDT)
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1758560815;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Czn2vrlolGeYQImejpAr7KFt5Sj149E/ZMwKdYUmdVs=;
-	b=ojmwYfqUYRslwx9vrc6Vkc9cUh/s/av1mcLNGO7ucF+zTT6OESF9DAe4ez6x51V0FNbB8g
-	rb6oZyjIhxCHPiwYlPVGDXkkGQepwQkUvB97umvVL6TEstsXVV8fzAy1Ort9Kw66MF8gsS
-	PGua7faiaSFvowWcas8HN9eRAZKd96TpBXV+qyzcJ7N8ovITJESRy7PFG4q4i5y5TiGhJa
-	13W4iqoAwtNTah8wRhtOGhUUgBlraXiOKiF9rQPECYD64Zk8WzpIpnLQ1+LmS2Jm4eCUMq
-	4p4IMsgCeGHzGV0WUcRSVv2ObP7f+VG8rpXqhAq7wPTkRqAx9cE5dtPMONmhnQ==
-Date: Mon, 22 Sep 2025 19:06:55 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: guptarud@gmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Ondrej
- Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
-Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
-In-Reply-To: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
-References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
-Message-ID: <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_100700_282060_37401B63 
-X-CRM114-Status: GOOD (  13.37  )
+References: <20250922082833.2038905-1-maz@kernel.org> <20250922082833.2038905-3-maz@kernel.org>
+In-Reply-To: <20250922082833.2038905-3-maz@kernel.org>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 22 Sep 2025 19:10:01 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0jPdvdTUWqW1OEkLUSrucifEQxmKjEn2H5Xp4g_4q_+Gw@mail.gmail.com>
+X-Gm-Features: AS18NWB5qQhnXhcfR4zq93qjbiiurDZoCQiEBrfaJ7614-vzCAHGIWYi6x8OUsg
+Message-ID: <CAJZ5v0jPdvdTUWqW1OEkLUSrucifEQxmKjEn2H5Xp4g_4q_+Gw@mail.gmail.com>
+Subject: Re: [PATCH v3 02/26] ACPI: irq: Add IRQ affinity reporting interface
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, 
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,72 +86,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Rudraksha,
+On Mon, Sep 22, 2025 at 10:28=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrot=
+e:
+>
+> Plug the irq_populate_fwspec_info() helper into the ACPI layer
+> to offer an IRQ affinity reporting function. This is currently
+> only supported for the CONFIG_ACPI_GENERIC_GSI configurations,
+> but could later be extended to legacy architectures if necessary.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-On 2025-09-21 23:05, Rudraksha Gupta via B4 Relay wrote:
-> Throughout the years, many have contributed to the Pinephone Pro (ppp)
-> development. Unfortunately, these patches are scattered around various
-> repositories in different states.
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
-Thanks for submitting these patches.  However, please expand the patch
-descriptions, because their current forms are too terse and, as such,
-simply not acceptable.  This applies to all patches in this series.
-
-I'm also under impression that you're submitting these patches upstream
-blindly and without researching the rules that apply well enough, which
-may not be the best possible approach.
-
-Finally, please refrain yourself from sending multiple versions of the
-same patch series in the same day.  Doing so makes reviewing the patches
-unnecessarily hard.
-
-> I will be attempting to upstream these patches. I will start off with 
-> the
-> following small series:
-> - Add light/proximity sensor support
->   - 
-> https://codeberg.org/megi/linux/commit/f171bc7013bc7ad3de9af817bfbcbfa548ebe01c
-> - Add accelerometer sensor support
->   - 
-> https://codeberg.org/megi/linux/commit/b0bb7633e073a6760fa213b8c4a78ea2e73c7bf1
-> - Add magnetometer sensor support
->   - 
-> https://codeberg.org/megi/linux/commit/2f7e67f451f16eaf15b81aa1dbdf126d54927d35
-> - Add mount-matrix for magnetometer
->   - 
-> https://codeberg.org/megi/linux/commit/d7cd2eab931e32fa94408a96d73b4e6c0616107a
-> - Fix voltage threshold for volume down key
->   - 
-> https://codeberg.org/megi/linux/commit/7c496a5cc27ed4e38b740f36c2d8b2c62f80ae54
-> 
-> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 > ---
-> Changes in v3:
-> - change magnetometer mount matrix
-> - update volume button threshold
-> - Link to v2:
-> https://lore.kernel.org/r/20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com
-> 
-> Changes in v2:
-> - remove usb-typec node in dts from light/proximity sensor patch
-> - Link to v1:
-> https://lore.kernel.org/r/20250920-ppp_light_accel_mag_vol-down-v1-0-c8bbcd3e2e94@gmail.com
-> 
-> ---
-> Leonardo G. Trombetta (1):
->       arm64: dts: rk3399-pinephone-pro: Add mount-matrix for 
-> magnetometer
-> 
-> Ondrej Jirman (4):
->       arm64: dts: rk3399-pinephone-pro: Add light/proximity sensor 
-> support
->       arm64: dts: rk3399-pinephone-pro: Add accelerometer sensor 
-> support
->       arm64: dts: rk3399-pinephone-pro: Add magnetometer sensor support
->       arm64: dts: rk3399-pinephone-pro: Fix voltage threshold for 
-> volume keys
-> 
->  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 42 
-> ++++++++++++++++++++--
->  1 file changed, 40 insertions(+), 2 deletions(-)
+>  drivers/acpi/irq.c   | 19 +++++++++++++++++++
+>  include/linux/acpi.h |  7 +++++++
+>  2 files changed, 26 insertions(+)
+>
+> diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
+> index 76a856c32c4d0..d1595156c86a4 100644
+> --- a/drivers/acpi/irq.c
+> +++ b/drivers/acpi/irq.c
+> @@ -300,6 +300,25 @@ int acpi_irq_get(acpi_handle handle, unsigned int in=
+dex, struct resource *res)
+>  }
+>  EXPORT_SYMBOL_GPL(acpi_irq_get);
+>
+> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
+> +                                           unsigned int index)
+> +{
+> +       struct irq_fwspec_info info;
+> +       struct irq_fwspec fwspec;
+> +       unsigned long flags;
+> +
+> +       if (acpi_irq_parse_one(handle, index, &fwspec, &flags))
+> +               return NULL;
+> +
+> +       if (irq_populate_fwspec_info(&fwspec, &info))
+> +               return NULL;
+> +
+> +       if (!(info.flags & IRQ_FWSPEC_INFO_AFFINITY_VALID))
+> +               return NULL;
+> +
+> +       return info.affinity;
+> +}
+> +
+>  /**
+>   * acpi_set_irq_model - Setup the GSI irqdomain information
+>   * @model: the value assigned to acpi_irq_model
+> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+> index 1c5bb1e887cd1..c506ae4bacc86 100644
+> --- a/include/linux/acpi.h
+> +++ b/include/linux/acpi.h
+> @@ -1509,12 +1509,19 @@ static inline int acpi_parse_spcr(bool enable_ear=
+lycon, bool enable_console)
+>
+>  #if IS_ENABLED(CONFIG_ACPI_GENERIC_GSI)
+>  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
+ *res);
+> +const struct cpumask *acpi_irq_get_affinity(acpi_handle handle,
+> +                                           unsigned int index);
+>  #else
+>  static inline
+>  int acpi_irq_get(acpi_handle handle, unsigned int index, struct resource=
+ *res)
+>  {
+>         return -EINVAL;
+>  }
+> +static inline const struct cpumask *acpi_irq_get_affinity(acpi_handle ha=
+ndle,
+> +                                                         unsigned int in=
+dex)
+> +{
+> +       return NULL;
+> +}
+>  #endif
+>
+>  #ifdef CONFIG_ACPI_LPIT
+> --
+> 2.47.3
+>
 
