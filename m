@@ -4,132 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09731CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 21:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B797CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 22:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Di8U+yHpW9PWxGMprMpa0qfyAiwc5nChUHQPZxjrHH8=; b=RPVMD9XjFKS+AFlY9lIQngy/PW
-	Mb1lI1j0FcjgcissYdr3qIQm1FlN29l1HUSa5zUx+8/n+8m5xHWRPAwFK6rIeRqotgtDcIb9+zo4L
-	PO7jglpI9Qqe0uPiR+lTyMI6tdSYJv0RKVP7kOUnQYjq+LM3l7nXgxl7LNrFv+vYcQUEU0XdmS05t
-	e+qInpgpld6bS2umJGSdnP7Wt/Jx4NtA7cEz2llYEbx7F0m14gh+dHbsfuH6RshhcoBv84/AuTFGg
-	gZjUkDNasXq0srDADWApQrcTjzd01sN5Lf/cSR5u06wZDzoXhmpSrdRu2K15uqIq6aCP+lwDrPwfU
-	9RIOx/zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=; b=xb6poTvPQLcZJ3/gLZDgunuLj/
+	R7jyqxQBAepVi2Cl9MpDSErWwLMvYWZZjsj6Jmt0XGm0GLP3Gda399w5wHBCBB8GacdOh4aFBBfGA
+	UAOdHTBfwBiFvNMwZKGATuALKeh6RgFjQuFPc/1HZFU6UiEUHFa4Dr6PkgdzJI72qJi3T1mtW9CIw
+	t2Qnv1Oxe0iJiu/HL23CEvIjvCEQ2LNwwBBtss8yHQq0NI1tQEku61R1S4454XsF8JXAzavwQb4Do
+	hUfzq4K6EiYVk6UjB/lHloizq/8OboyHIP5DOeAQgxybdOEfsu19CB0GBq4vqVzdAX1Jo2RnJlpky
+	HqanMxLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0o03-0000000BYdq-3Rib;
-	Mon, 22 Sep 2025 21:23:07 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1v0pHs-0000000Bf6t-3e6a;
+	Mon, 22 Sep 2025 22:45:36 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0o01-0000000BYd4-05OD
+	id 1v0pHq-0000000Bf6W-237y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 21:23:07 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 97915EC0301;
-	Mon, 22 Sep 2025 17:23:03 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Mon, 22 Sep 2025 17:23:03 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1758576183;
-	 x=1758662583; bh=Di8U+yHpW9PWxGMprMpa0qfyAiwc5nChUHQPZxjrHH8=; b=
-	BOU6mVcToMxa6qFUiC6cht0bV05a8ANyKR5ukskNj74Kgap+DqTUaWSu+IKdFe3l
-	WRpUM30Wu3H0Q7A2y/voOAEVMz1ItWGdFd+w1g29YJ7Tjl2aT+hQdsIjBYzOSRat
-	P6tosIN336s/ecXEeQ/mGTufNXrxc6oPikF3ykV/4Wx5E6r8XKZkcW5rH07dbYAi
-	hVS+ZWgjs+wGKwhWw9MlR/A61u1V4gi072jORA/RDnj7Nu/QRBfiadbi2FwamY3C
-	z1g3eaCmC+6ZV0VO36eJ9rA4ai9KBUyUl+kX8rwbdvVby3ynOJZk+yOUH9dNivMj
-	J6BkZ2jlIo5ZNgAXnGA8VQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758576183; x=
-	1758662583; bh=Di8U+yHpW9PWxGMprMpa0qfyAiwc5nChUHQPZxjrHH8=; b=g
-	mHBoxtTQev5hHzzjS7DzOG6LjQc2O42dSxLb4L6WQb2WlRSURFQb5PpcuBN2HTms
-	62d99pLVtJPUCF7OT5ICVSqlboyOqdGHXJIUax+oI0O3IgOolDGEnOWayvlw19bk
-	GTctlMrBtCTrn15fz5C78bks5N4t7sTFyuHhpbp7bypfTbN9jsFm7miJXebzUTbu
-	GkBm5/mf2z9Lam8hkmNkaZhD/Aa8ufZ9KIVP69Ld+kkRg/FCv7kH/PRqbJ/kSgjT
-	Ys/j3Va2f5abW1fJBGV59q3b0QcV6n8w4sBB+Pm5+Jpany6I0MqmylWHR2hKS/7W
-	p6MNsjIRV0fcgvwbafw5Q==
-X-ME-Sender: <xms:Nb7RaHIv0elNNGqKqz2hq59PlbQ1WvH3PQekoKoYN6GHdrkbplcdZg>
-    <xme:Nb7RaF9zWPO1z0eI-85xdehQcHCJ4U-ixtIweYwspyjZNwYzs6sJyQVkn2QKVroo2
-    tuHZCnZ7Y6hRCAk3yvZYtO1xCbsZ8geow9JBfeHT6Z-a8qAnaICeO8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdehkeelvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeefuddpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheptghhvghsthgvrhdrrgdruhhnrghlsegrrhhinhgtledrtghomhdprh
-    gtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhr
-    tghpthhtohepnhhstghhihgthhgrnhesfhhrvggvsghogidrfhhrpdhrtghpthhtoheprg
-    hnughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopehgvggvrhhtodhrvghn
-    vghsrghssehglhhiuggvrhdrsggvpdhrtghpthhtoheprghlvgigrghnuggvrhdrshhvvg
-    hrughlihhnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshgvrhhgihhordhprghrrggt
-    uhgvlhhlohhssehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhurhgvnhgssehgohhogh
-    hlvgdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:Nb7RaHyj4-U5cmLtj8aV6Obmj2wE8qDHFtnv04wApvnSKRdpvOTwyQ>
-    <xmx:Nb7RaPNEf6QOHCcg2sOwG2YcDZEDgMATtieOS7b2v4iNsq7NAARQhg>
-    <xmx:Nb7RaM7LJ7xoeWbjkfv203dQeqEDMpWgwtURBYX5yI5dIc7-dM-KOA>
-    <xmx:Nb7RaGcvvcBerj7e35_eqxKXMQdHMfkXoSuoEeKpoVO0WLLALUm55w>
-    <xmx:N77RaF-PoW2bovyuykM0k5mv84evTeZMjlxPQrSMV7i2vSrQZNKLFHZX>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 2385C70006A; Mon, 22 Sep 2025 17:23:01 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 22 Sep 2025 22:45:35 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4bb7209ec97so111771cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 15:45:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1758581132; x=1759185932; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=;
+        b=bmC8eSy2VGHjLpqBgJuvAXf2vyMmwRt3f7HcXEzhUwEN+kfXvXdt/tWtmROOHXe9dk
+         NmWRGmwyx+1s7cS0HHAH73gT5mRX7ccMGs0TybonpPENyy/99OxlmDRVuUUZ9Ih6NmqS
+         njPP5U6ommnnqxMb02lSlwNsL6NOc+YeZDP4I=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758581132; x=1759185932;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I59lx++Tx+ZboAPSBm8Z9Aq9d7rn9DeuhAfPTw4RUyo=;
+        b=vZUFjnmG12PTArzICoLOOi/zVE43b+9r2jwJmKN3jn/pmqrBby8VcLYglTn2m36e/f
+         oaYtTfNog18mBa2QJjQGuhSkCNe7ZcOzHn1lmOVwU78CZpjyBinOf8fwRS4mVDrgz/Jn
+         WY2+itrgyxMJ97X7ru4ZAtmhuYzzWHzKBEmqt4gfKgRshjSu5ifSvvnBVMyxoiBbpnIB
+         keuXDwA4v1lNBBZOMlgkVnyArKWvS9dGClOaPzqTyseScSt2NQUNrH4zPhhvLkd1KsM8
+         f9NjuyR2mWIn5TjDvfhM5TVxyLHiQUCzVfwj+oiNQWbE9VNqQPaI/mYll6OGfcU2uxTB
+         0IFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaOPpGHbZWOeKvcZwbG3bTe7VPK5kmiWy7yVw4m4LUhKmoi28bKYe2XjhUTGjiLRhiGe5YJTdoTA52uR8V6h4Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNIASVUMW9i85FY03NismObunfikby/tBhfJApVtRY8IjIb+HF
+	dVxee+zwdedaEhgmMp3POhXILA73znN5gADr5tNNnv7Nj1pdbS0ag1EBSQA1d4Y0ShGZq4a6JOp
+	FJHIkVOAQ5RqZG6BB560z+JpBXe70E5FOuP7Kyzsf
+X-Gm-Gg: ASbGnctm0QhikOmtuqczIfcsxtGGwSWFH1oIxEG4hY5ccFWRJ3I52iMWPznDVthK9oH
+	+meuV5llBOPpUpzgVCXx0bQM6G6H9PCtYygVBc7QYshiQ3g19SpUM1KToz+TbOxhcHkmzsfOGcz
+	WfM7ePoiGqzpxsgNZyyAd0FJSlpKsGs+sdCSgEB77Acl9NC4bFYWRHKYbtG2cKfIzpq753M5rM4
+	PT+
+X-Google-Smtp-Source: AGHT+IEEHjj+wsiT1bNCpHBT5Mi+r8GATT0+bhUw8kMDnXciBxiK/CjOVLMPqzXvLsmITsSiS2BY9rY1zKy2QnMzLjo=
+X-Received: by 2002:ac8:5903:0:b0:4cf:dc5c:8c76 with SMTP id
+ d75a77b69052e-4d36ab2866fmr1207671cf.11.1758581132096; Mon, 22 Sep 2025
+ 15:45:32 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AneuvEk2E7Kg
-Date: Mon, 22 Sep 2025 23:22:30 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Nicolas Schichan" <nschichan@freebox.fr>
-Cc: "Jason Gunthorpe" <jgg@nvidia.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>, ksummit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
- linux-mm@kvack.org, imx@lists.linux.dev,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Richard Weinberger" <richard@nod.at>,
- "Lucas Stach" <l.stach@pengutronix.de>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Ankur Arora" <ankur.a.arora@oracle.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Mike Rapoport" <rppt@kernel.org>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Vlastimil Babka" <vbabka@suse.cz>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Alexander Sverdlin" <alexander.sverdlin@gmail.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- "Sergio Paracuellos" <sergio.paracuellos@gmail.com>,
- "Andreas Larsson" <andreas@gaisler.com>
-Message-Id: <598ab56d-7dd0-4adb-b0fe-30ad5cf24335@app.fastmail.com>
-In-Reply-To: <CAHNNwZCsBY+ta2-OqD40K0-C8N25PLMYfOJowiVeaEMotqR1nQ@mail.gmail.com>
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <20250917125951.GA1390993@nvidia.com>
- <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
- <CAMuHMdVecUeLZ2LPpa457C0a=uduvDhQ4KZJx-++dEFJraRi3w@mail.gmail.com>
- <547dcb81-434d-4910-aa7c-1d69019fcb3d@app.fastmail.com>
- <20250919143436.GC2132010@nvidia.com>
- <44f910bf-ac2c-4b2f-8e50-5cfc7dd0761a@app.fastmail.com>
- <CAHNNwZCsBY+ta2-OqD40K0-C8N25PLMYfOJowiVeaEMotqR1nQ@mail.gmail.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20250922-b4-ddr-bindings-v7-0-b3dd20e54db6@gmail.com> <20250922-b4-ddr-bindings-v7-1-b3dd20e54db6@gmail.com>
+In-Reply-To: <20250922-b4-ddr-bindings-v7-1-b3dd20e54db6@gmail.com>
+From: Julius Werner <jwerner@chromium.org>
+Date: Mon, 22 Sep 2025 15:45:19 -0700
+X-Gm-Features: AS18NWDpJeoFHhQc83aqhmhoSwFRisU770ZW4iy7Do1FLF-ntGplzcw3QSX4Lyg
+Message-ID: <CAODwPW_oDTh9FdnLq7w2FPQv68ReAUUpssqEktUH5zhewbfcxg@mail.gmail.com>
+Subject: Re: [PATCH v7 1/7] dt-bindings: memory: factorise LPDDR props into
+ SDRAM props
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Julius Werner <jwerner@chromium.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_142305_592751_7EE035FF 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250922_154534_555681_1D2A01CC 
+X-CRM114-Status: UNSURE (   6.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,35 +97,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025, at 19:05, Nicolas Schichan wrote:
->> On Fri, Sep 19, 2025, at 16:34, Jason Gunthorpe wrote:
->> > On Fri, Sep 19, 2025 at 04:22:20PM +0200, Arnd Bergmann wrote:
->>
->> I did get an email from Nicolas Schichan (added to Cc here),
->> and he is still supporting a widely deployed Kirkwood based
->> platform that uses 1GB RAM configurations. He should get
->> a chance to test that with CONFIG_VMSPLIT_3G_OPT, but I
->> would expect that to continue working, possibly with minor
->> bugfixes.
->
-> We don't use HIGMEM on our Kirkwood platform, we are happy using a
-> 2G/2G WMSPLIT. We don't need a lot of virtual address space for
-> userland, and with the 2G split we don't waste physical memory.
+> +      lpddrX,YY,ZZZZ or ddrX-YYYY,AAAA...,ZZ where X, Y, and Z are in lower
 
-Ok, good.
-
-> I'm happy to test your patch serie with VMSPLIT_3G_OPT and see if it
-> still boots with it once you send it.
-
-The patches I did for turning off HIGHMEM on ARMv5 won't have
-any effect if you are already running without highmem, so I
-don't think we need to wait for your tests specifically.
-Any testing would be useful of course just to check that
-everything still works.
-
-Jason, I think we can go ahead with your suggestion. I can
-post my patches for review once I've done some testing on
-them.
-
-     Arnd
+It looks like you accidentally changed `lpddrX-YY,ZZZZ` to `lpddrX,YY,ZZZZ`?
 
