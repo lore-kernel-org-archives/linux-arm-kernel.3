@@ -4,117 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC0CCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 12:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72397CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 12:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t36qDepR8M2DCIZbR0pCgjLUAnazHFDPHVI50t3UlR0=; b=d9C7uF8n9f+/ixWFoPi7a9pB8r
-	eX8zHiJRX6V2GJQus6++lb4/q5/SDwYw2Ud8g48sCkoCXhyJ7WwI38sC/UzznxWvUzIBnQ+SMuOSF
-	Ian/Tp/V5AhW8VRS/npevnxhmKWv3HWCMShha3mM6YNEMvZcrkj1GCBnW2ge/D4VOzNrGSypnzpQh
-	FostaEv+dFpt9HeAdkSMEjzOuEcADWnTNVnUI20Gg+3+RXsXLKF69W/uBGatzIVypMZk8Vf0fkagF
-	tobGDEtMvzcyh5tbUXTLBTO0EL72W3OORLzOuyd4FZg2lnCE1wQKk5B8I9nJRBJn45WJIKufoHHQL
-	AD4V5U3Q==;
+	bh=Rv1f4iBAcrSWktOTrbikkBrg5gUMQn5EE/ivYPY4cN4=; b=COOEpns2Ahbaq6OU5QPXuoOVnj
+	2s3XLpsC2Yz6f4n4rbMD7ZNExYDS5jiHzxdLhEQzH1VxrucY4+DOS0ocDgxq6/+qMmLgsxmLiiH1x
+	HqmIXrxIyQM2lzPrdvSxoG5Uj1ubuW6AuAz0Q6PjeTWnZZNMlGXbQyfBLofJGQl+PhJ+LuVBuCrHA
+	PebzeuyWnBVmjs8CWuuGzsnHH7xbPmqnwk2D6hL3tBZHo6Q0raZw7ut623h51v/Nlx2W+uilRYET5
+	2y0A+vXCeRpE2dsWtDuGysgA2Khj89aqZ0KcCq5YlKWLnQ2MYj0otcUe2F3luwDHMr6OeKM4wv5Tz
+	7ZotjHAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0g4L-0000000AO00-06uS;
-	Mon, 22 Sep 2025 12:55:01 +0000
-Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0g4H-0000000ANxD-1GYm
+	id 1v0g79-0000000AOP3-3zAt;
+	Mon, 22 Sep 2025 12:57:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0g77-0000000AOOd-0TmC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 12:54:59 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.phl.internal (Postfix) with ESMTP id B4DF41380189;
-	Mon, 22 Sep 2025 08:54:55 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Mon, 22 Sep 2025 08:54:55 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1758545695;
-	 x=1758552895; bh=t36qDepR8M2DCIZbR0pCgjLUAnazHFDPHVI50t3UlR0=; b=
-	Byx+4gU0eym5kWVlcDXwUEDI2l9mrErWD5C903u60dnEyaLum9cP1ZuS5KIp+xgV
-	ZPhoSR2eD/GkgL674LQAABX9NWS2vtfKwaGvmIMh7dn5zMpqei4YDaKF6Sg1lPqM
-	/QYUc0VveyM9znhOFNe0I0Peulxx/MpOzCUQKlSEgPHlsEhuUOD2y6mRk3lDEj02
-	VonOHqKY3rqz628mNujxcDBLfdikoS4DkYJFuSM7iVjrVgPyCF1G4xzwHAbC28ak
-	vvUqx1uImSJZ0/2d1CaWpImUIRc3GyUcfQGlUAGQNOWn2gPJHn5TvlH9sflGdsBd
-	Q080PKF/+Wx2IOzfgFAq3g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1758545695; x=
-	1758552895; bh=t36qDepR8M2DCIZbR0pCgjLUAnazHFDPHVI50t3UlR0=; b=H
-	0IPFaD0Bba71iIapHDtSV1s5vKNTmSWg76ZWGgJDWMeMe2uVZv93YLpC6F+3M7WS
-	7WR8RZqD6IX9RfHdr78aWjw7DCVCJJDQQAyQV579FYFi5N053564JuPCiuOaoK7E
-	jCNWhlk6xzOLMU//k4yHk7ANSniWbtRW6bN+QjnKeFTwCD651tkhjiL2UZK6FT4a
-	N+e/Yd+67opM9BzKp4zMCF1uEB2IdBcU4BDnt7dF2IYQtXXKkU2s8zbUPCs7FRgT
-	esVXVJWVpb7ki7wYLCkfM9rz4wm7rTHNen16vLJGDFL/xHUUzNYiuVSL2AtqWUoo
-	LzUsfYTN6qltg5PEeMddw==
-X-ME-Sender: <xms:HkfRaIhwl2BmHC6VY4isyWFya-k04jD6ylI2zmgaqD6hV2yhCcrcAw>
-    <xme:HkfRaBA26ySSRAPgSQvT1XYEaaJYts20E0XhpKyqZSIXJCR2OE9jzNtNSAFz8UVQR
-    HSJ4LKxnkBuSkZFk1c>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdehjeeltdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedviedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
-    hopehrmhhkodhkvghrnhgvlhesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthho
-    pehnrghordhhohhrihhguhgthhhisehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosh
-    htvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopehsuhhrvghnsgesghhoohhg
-    lhgvrdgtohhmpdhrtghpthhtoheplhhirghohhhurgegsehhuhgrfigvihdrtghomhdprh
-    gtphhtthhopehlihhlihhnjhhivgeksehhuhgrfigvihdrtghomhdprhgtphhtthhopehl
-    ihhnmhhirghohhgvsehhuhgrfigvihdrtghomhdprhgtphhtthhopeigihgvhihurghnsg
-    hinhdusehhuhgrfigvihdrtghomh
-X-ME-Proxy: <xmx:HkfRaCigs8Fbeh9nddaAG96q7IyZQvw3aeIYEeOmKg-CRsa1QbL_6Q>
-    <xmx:HkfRaCv2xmbmRFslevLLrkDTmmKL1-lKBkFUSXaessp7GPqBHtniAg>
-    <xmx:HkfRaE64XxBzr53OG3J0xus2BYuY6_ti3fdW9pt59OdOalF9khdfew>
-    <xmx:HkfRaNtIkKJV0zAg5uDGA1LBG8hBH_va0vo4RVrbVfhnUgCeeDvgOQ>
-    <xmx:H0fRaKVMmb-oKkRydhvIG9b_njKCBCZyzUrTrxLNyaHqA221GeTlQIFn>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3037D700065; Mon, 22 Sep 2025 08:54:54 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 22 Sep 2025 12:57:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94132FEC;
+	Mon, 22 Sep 2025 05:57:42 -0700 (PDT)
+Received: from [10.57.6.128] (unknown [10.57.6.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 907183F694;
+	Mon, 22 Sep 2025 05:57:49 -0700 (PDT)
+Message-ID: <4650c1ce-2249-4896-b71a-08db71c5ff7f@arm.com>
+Date: Mon, 22 Sep 2025 13:57:47 +0100
 MIME-Version: 1.0
-X-ThreadId: AFFCV0QGVXfF
-Date: Mon, 22 Sep 2025 14:51:59 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Xie Yuanbin" <xieyuanbin1@huawei.com>
-Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Ard Biesheuvel" <ardb@kernel.org>, "Dave Vasilevsky" <dave@vasilevsky.ca>,
- "David Hildenbrand" <david@redhat.com>, "Eric Biggers" <ebiggers@kernel.org>,
- "Kees Cook" <kees@kernel.org>, liaohua4@huawei.com, lilinjie8@huawei.com,
- linmiaohe@huawei.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- "Russell King" <linux@armlinux.org.uk>,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Michal Hocko" <mhocko@suse.com>, nao.horiguchi@gmail.com,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Steven Rostedt" <rostedt@goodmis.org>, "Mike Rapoport" <rppt@kernel.org>,
- "Suren Baghdasaryan" <surenb@google.com>, "Vlastimil Babka" <vbabka@suse.cz>,
- "Will Deacon" <will@kernel.org>
-Message-Id: <9c0cd24c-559b-4550-9fc8-5dc4bcc20bf7@app.fastmail.com>
-In-Reply-To: <20250922082843.26722-1-xieyuanbin1@huawei.com>
-References: <727caa4f-5be5-4b59-a10e-8dc9bbc384bf@app.fastmail.com>
- <20250922082843.26722-1-xieyuanbin1@huawei.com>
-Subject: Re: [RFC PATCH 1/2] ARM: mm: support memory-failure
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] coresight: Updates for Linux v6.18
+Content-Language: en-GB
+To: gregkh@linuxfoundation.org
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ james.clark@linaro.org, leo.yan@linux.dev, mike.leach@linaro.org
+References: <20250922125354.2267995-1-suzuki.poulose@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250922125354.2267995-1-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_055457_692522_D83682B5 
-X-CRM114-Status: GOOD (  25.92  )
+X-CRM114-CacheID: sfid-20250922_055753_240345_A6239E1B 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,51 +64,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025, at 10:28, Xie Yuanbin wrote:
->> It would be helpful to be more specific about what you
->> want to do with this.
->> 
->> Are you working on a driver that would actually make use of
->> the exported interface?
->
-> Thanks for your reply.
->
-> Yes, In fact, we have developed a hardware component to detect DDR bit
-> transitions (software does not sense the detection behavior). Once a bit
-> transition is detected, an interrupt is reported to the CPU.
->
-> On the software side, we have developed a driver module ko to register
-> the interrupt callback to perform soft page offline to the corresponding
-> physical pages.
->
-> In fact, we will export `soft_offline_page` for ko to use (we can ensure
-> that it is not called in the interrupt context), but I have looked at the
-> code and found that `memory_failure_queue` and `memory_failure` can also
-> be used, which are already exported.
+Hi Greg
 
-Ok
+On 22/09/2025 13:53, Suzuki K Poulose wrote:
+> Hi Greg
+> 
+> Please find the CoreSight tree updates for v6.18.
+> 
 
->> I see only a very small number of
->> drivers that call memory_failure(), and none of them are
->> usable on Arm.
->
-> I think that not all drivers are in the open source kernel code.
-> As far as I know, there should be similar third-party drivers in other
-> architectures that use memory-failure functions, like x86 or arm64.
-> I am not a specialist in drivers, so if I have made any mistakes,
-> please correct me.
+Kindly ignore this one due to the non-standard PULL URL.
+I will resend it with the fixed one. Apologies.
 
-I'm not familiar with the memory-failure support, but this sounds
-like something that is usually done with a drivers/edac/ driver.
-There are many SoC specific drivers, including for 32-bit Arm
-SoCs.
+Suzuki
 
-Have you considered adding an EDAC driver first? I don't know
-how the other platforms that have EDAC drivers handle failures,
-but I would assume that either that subsystem already contains
-functionality for taking pages offline, or this is something
-that should be done in a way that works for all of them without
-requiring an extra driver.
+> Kindly pull,
+> 
+> Suzuki
+> 
+> 
+> 
+> The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
+> 
+>    Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+> 
+> are available in the Git repository at:
+> 
+>    ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.18
+> 
+> for you to fetch changes up to 559d6c380ea0a27e71d0269410301303515e4179:
+> 
+>    coresight: Add label sysfs node support (2025-09-10 17:53:01 +0100)
+> 
+> ----------------------------------------------------------------
+> coresight: Updates for Linux v6.18
+> 
+> CoreSight selfhosted tracing subsystem updates targeting Linux v6.18, includes:
+> 
+>   - Clean up and consolidate clocks handling
+>   - Support for exposing labels via sysfs for better device identification
+>   - Add Qualcomm Trace Network On Chip driver support
+>   - Miscellaneous fixes
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> ----------------------------------------------------------------
+> Dan Carpenter (1):
+>        coresight: Fix a NULL vs IS_ERR() bug in probe
+> 
+> James Clark (2):
+>        coresight: trbe: Add ISB after TRBLIMITR write
+>        coresight: Fix missing include for FIELD_GET
+> 
+> Jie Gan (1):
+>        coresight: tpda: fix the logic to setup the element size
+> 
+> Leo Yan (13):
+>        coresight: stm: Remove redundant NULL checks
+>        coresight: perf: Use %px for printing pointers
+>        coresight: tmc: Support atclk
+>        coresight: catu: Support atclk
+>        coresight: etm4x: Support atclk
+>        coresight: Appropriately disable programming clocks
+>        coresight: Appropriately disable trace bus clocks
+>        coresight: Avoid enable programming clock duplicately
+>        coresight: Consolidate clock enabling
+>        coresight: Refactor driver data allocation
+>        coresight: Make clock sequence consistent
+>        coresight: Refactor runtime PM
+>        coresight: trbe: Return NULL pointer for allocation failures
+> 
+> Lin Yujun (1):
+>        coresight: Fix incorrect handling for return value of devm_kzalloc
+> 
+> Mao Jinlong (2):
+>        dt-bindings: arm: Add label in the coresight components
+>        coresight: Add label sysfs node support
+> 
+> Rob Herring (Arm) (1):
+>        hwtracing: coresight: Use of_reserved_mem_region_to_resource() for "memory-region"
+> 
+> Yeoreum Yun (1):
+>        coresight: fix indentation error in cscfg_remove_owned_csdev_configs()
+> 
+> Yuanfang Zhang (5):
+>        coresight: Only register perf symlink for sinks with alloc_buffer
+>        dt-bindings: arm: Add device Trace Network On Chip definition
+>        coresight: add coresight Trace Network On Chip driver
+>        coresight-etm4x: Conditionally access register TRCEXTINSELR
+>        coresight: tnoc: add new AMBA ID to support Trace Noc V2
+> 
+>   .../ABI/testing/sysfs-bus-coresight-devices-cti    |   6 +
+>   .../sysfs-bus-coresight-devices-dummy-source       |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-etb10  |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-etm3x  |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-etm4x  |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-funnel |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-stm    |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-tmc    |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-tpdm   |   6 +
+>   .../ABI/testing/sysfs-bus-coresight-devices-trbe   |   6 +
+>   .../devicetree/bindings/arm/arm,coresight-cti.yaml |   4 +
+>   .../bindings/arm/arm,coresight-dummy-sink.yaml     |   4 +
+>   .../bindings/arm/arm,coresight-dummy-source.yaml   |   4 +
+>   .../bindings/arm/arm,coresight-dynamic-funnel.yaml |   4 +
+>   .../arm/arm,coresight-dynamic-replicator.yaml      |   4 +
+>   .../bindings/arm/arm,coresight-etb10.yaml          |   4 +
+>   .../devicetree/bindings/arm/arm,coresight-etm.yaml |   4 +
+>   .../bindings/arm/arm,coresight-static-funnel.yaml  |   4 +
+>   .../arm/arm,coresight-static-replicator.yaml       |   4 +
+>   .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   4 +
+>   .../bindings/arm/arm,coresight-tpiu.yaml           |   4 +
+>   .../bindings/arm/qcom,coresight-ctcu.yaml          |   4 +
+>   .../bindings/arm/qcom,coresight-remote-etm.yaml    |   4 +
+>   .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 ++++++++++
+>   .../bindings/arm/qcom,coresight-tpda.yaml          |   4 +
+>   .../bindings/arm/qcom,coresight-tpdm.yaml          |   4 +
+>   drivers/hwtracing/coresight/Kconfig                |  12 +
+>   drivers/hwtracing/coresight/Makefile               |   1 +
+>   drivers/hwtracing/coresight/coresight-catu.c       |  53 +++--
+>   drivers/hwtracing/coresight/coresight-catu.h       |   1 +
+>   drivers/hwtracing/coresight/coresight-core.c       |  54 ++++-
+>   drivers/hwtracing/coresight/coresight-cpu-debug.c  |  41 ++--
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  |  24 +-
+>   drivers/hwtracing/coresight/coresight-etb10.c      |  18 +-
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   |   4 +-
+>   drivers/hwtracing/coresight/coresight-etm3x-core.c |  17 +-
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c |  44 ++--
+>   .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   1 +
+>   drivers/hwtracing/coresight/coresight-etm4x.h      |   6 +-
+>   drivers/hwtracing/coresight/coresight-funnel.c     |  66 ++----
+>   drivers/hwtracing/coresight/coresight-replicator.c |  63 ++----
+>   drivers/hwtracing/coresight/coresight-stm.c        |  42 ++--
+>   drivers/hwtracing/coresight/coresight-syscfg.c     |   2 +-
+>   drivers/hwtracing/coresight/coresight-sysfs.c      |  71 +++++-
+>   drivers/hwtracing/coresight/coresight-tmc-core.c   |  70 +++---
+>   drivers/hwtracing/coresight/coresight-tmc.h        |   2 +
+>   drivers/hwtracing/coresight/coresight-tnoc.c       | 246 +++++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tpda.c       |   3 +
+>   drivers/hwtracing/coresight/coresight-tpiu.c       |  36 ++-
+>   drivers/hwtracing/coresight/coresight-trbe.c       |   9 +-
+>   drivers/hwtracing/coresight/ultrasoc-smb.h         |   1 +
+>   include/linux/coresight.h                          |  31 +--
+>   52 files changed, 827 insertions(+), 324 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+>   create mode 100644 drivers/hwtracing/coresight/coresight-tnoc.c
 
-      Arnd
 
