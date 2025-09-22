@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A1BCA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C64CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 20:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IS6xW+WPxW9hNE0Dz/EvA/hRbGthORi+qAnj01ikOBQ=; b=iv+ksGXauNcXh2vWRwrpZ71eXG
-	i1pe3RiK5ME3icVU9YK+856Lgf9P0qJsWXBg06zfJq/ZBKwXVqaYQQm22IX4m09FZMDzvcqdGeSV8
-	+wJrPVfgy0n6Bcp5aUOtqviDBRAzrpUIkNHOsvcpNuT2+nCfs5Ovej92xsoZ0xsh45D5kDLp+Cl9b
-	xHWdMNErQCWg+dUdWtqM/nZIuUpSyttSGceiljybU3dT32+2VWQKaiDC137cv5AcHh2jcQi2UX9vn
-	99bSnWTmCYha5rVrINRK98E8wQnTLzTrttwVjmUqAaJaCt7/Fd2j30EbEaAZ3oWPRLIFtj8qP5MGp
-	jNAsVBpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RRIhpj7f8q+yNaZeKXWv/+VsPneAeHreNiCp7cYSMW0=; b=OUXBjhvJ2ZZfph3Q7IFwzV+Ma0
+	jc2AyCao2xyn4XfQzWkylPYDgBgY8vlMswz5GukfV0yM3rUE9/Z6+o5nsN5T4HiRepINWxrGyaVZ9
+	puvG6/83EGcodJSVD6HjU6rtWK5HBBaQyXYura+CWMaJaF8zyizedSqWCCe6/iVFBzsKTI6/qg09l
+	KG31/0ICanQfD/7zoNRBCB5xTarr9eRkV/bfMM54YguQz+MNiNn/9if2xH1qa3UPNTyVJHVQtrhBe
+	MxLExOHTmJ7DBHOnN73kTmfbXVLLCQywzkE5X/kDdkjYNJ7SWxqwb6RHTK3DYbqBgi19D+QYXQHrn
+	tYEn4PDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0n5d-0000000BRKO-31lR;
-	Mon, 22 Sep 2025 20:24:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0n5k-0000000BRMv-03sY;
+	Mon, 22 Sep 2025 20:24:56 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0n5c-0000000BRJp-1HNx
+	id 1v0n5i-0000000BRMH-0goN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 20:24:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4956C401B2;
-	Mon, 22 Sep 2025 20:24:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20AD0C4CEF0;
-	Mon, 22 Sep 2025 20:24:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758572686;
-	bh=CPhPqucayv1P8fV0pV1Yfu5ztIss5MA5Fxes5eqfero=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mtpq9m1AHVQ992zzyrpc/81KPhzsjDlY5T/8OrAKGEXjNvubrc6EmpcMf2OjCUNB/
-	 i1/S6KliRXQSquTwqNqLf5EZiaX0beh8rHWI01P2/s+yvyIIdrxafoHmz5M+RgoV5k
-	 RCOnFh4pOZSY/V+Sff+fKprjmWVxcfawZPXAwAKUR5TFBStvJZ0RpNj9KKhdSLtmFh
-	 lFvfTVWw4g07GElbMFshh+YOZ+dIoQMTAHpyDeN2CTuPVB1c6SMeqcCU+hxjii4GJv
-	 34xf/uAwUx47uZNDjuMwXP822rzHrkDOwMuvaMz60ECqpCjys65CWJG+pnfYV8Q0pi
-	 bQyKYe9SA/JRg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v0n5X-00000008Vwi-1snH;
-	Mon, 22 Sep 2025 20:24:43 +0000
-Date: Mon, 22 Sep 2025 21:24:42 +0100
-Message-ID: <87jz1qxmk5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sven Peter <sven@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
+	Mon, 22 Sep 2025 20:24:55 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 1AF62C0000DE;
+	Mon, 22 Sep 2025 13:24:51 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 1AF62C0000DE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1758572691;
+	bh=5fmrmxyXo8+QGRwZYQZhtwwyA8SDyVYpuRqt3H8E9PU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=R+Rxe33AVgjsV428MnlL8JMDJK6KEDR7DixzOdl6hjiQLiJ/g7ZGxdxe8teWmOpYT
+	 YZET+696rFDHHxTwTgm3GH2Yet/C6CfH5X65YVS88ZTsbzHgAPADYf29psP2UBM5Xn
+	 oIXu+dOSG0lF6oXfnK89UQMSOBS7MWQM99JXomRs=
+Received: from bcacpedev-irv-3.lvn.broadcom.net (bcacpedev-irv-3.lvn.broadcom.net [10.173.232.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 03B8F18000530;
+	Mon, 22 Sep 2025 13:24:50 -0700 (PDT)
+From: William Zhang <william.zhang@broadcom.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: song@kernel.org,
+	linus.walleij@linaro.org,
+	florian.fainelli@broadcom.com,
+	ardb@kernel.org,
+	anand.gore@broadcom.com,
+	Broadcom Kernel List <bcm-kernel-feedback-list@broadcom.com>,
+	kursad.oney@broadcom.com,
+	William Zhang <william.zhang@broadcom.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	linux-kernel@vger.kernel.org,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland
- <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Janne Grunau
- <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: Re: [PATCH v3 22/26] irqchip/apple-aic: Drop support for custom PMU irq partitions
-In-Reply-To: <24bf4cd9-c992-463a-a17d-0a828c16f8f0@kernel.org>
-References: <20250922082833.2038905-1-maz@kernel.org>
-	<20250922082833.2038905-23-maz@kernel.org>
-	<24bf4cd9-c992-463a-a17d-0a828c16f8f0@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sven@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH v2] ARM: module: fix unwind section relocation out of range error
+Date: Mon, 22 Sep 2025 13:23:22 -0700
+Message-ID: <20250922202438.496433-1-william.zhang@broadcom.com>
+X-Mailer: git-send-email 2.43.7
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_132448_380011_2A34CA9A 
-X-CRM114-Status: GOOD (  25.95  )
+X-CRM114-CacheID: sfid-20250922_132454_214594_ABEB59FE 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,59 +85,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Sep 2025 19:43:40 +0100,
-Sven Peter <sven@kernel.org> wrote:
-> 
-> On 22.09.25 10:28, Marc Zyngier wrote:
-> > Similarly to what has been done for GICv3, drop the irq partitioning
-> > support from the AIC driver, effectively merging the two per-cpu
-> > interrupts for the PMU.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> 
-> Reviewed-by: Sven Peter <sven@kernel.org>
-> 
-> 
-> >   drivers/irqchip/irq-apple-aic.c | 28 +++++++---------------------
-> >   1 file changed, 7 insertions(+), 21 deletions(-)
-> > 
-> > diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-> > index cb8b6f40ce8d3..6305d25b9e77b 100644
-> > --- a/drivers/irqchip/irq-apple-aic.c
-> > +++ b/drivers/irqchip/irq-apple-aic.c
-> > @@ -578,16 +578,9 @@ static void __exception_irq_entry aic_handle_fiq(struct pt_regs *regs)
-> >   	}
-> >     	if ((read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & (PMCR0_IMODE |
-> > PMCR0_IACT)) ==
-> > -			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
-> > -		int irq;
-> > -		if (cpumask_test_cpu(smp_processor_id(),
-> > -				     &aic_irqc->fiq_aff[AIC_CPU_PMU_P]->aff))
-> > -			irq = AIC_CPU_PMU_P;
-> > -		else
-> > -			irq = AIC_CPU_PMU_E;
-> > +			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT))
-> >   		generic_handle_domain_irq(aic_irqc->hw_domain,
-> > -					  AIC_FIQ_HWIRQ(irq));
-> > -	}
-> > +					  AIC_FIQ_HWIRQ(AIC_CPU_PMU_P));
-> 
-> Probably one of the most confusing diffs for a change that's actually
-> fairly simple that the diff algorithm generated! I was only able to
-> tell what's going on by looking at the file after applying this.
+In an armv7 system that uses non-3G/1G split and with more than 512MB
+physical memory, driver load may fail with following error:
+   section 29 reloc 0 sym '': relocation 42 out of range (0xc2ab9be8 ->
+0x7fad5998)
 
-It appears that all 4 algorithms (myers, minimal, patience and
-histogram) give the exact same resolution for these two hunks.
+This happens when relocation R_ARM_PREL31 from the unwind section
+.ARM.extab and .ARM.exidx are allocated from the VMALLOC space while
+.text section is from MODULES_VADDR space. It exceeds the +/-1GB
+relocation requirement of R_ARM_PREL31 hence triggers the error.
 
-It would have been easier to read if I had rewritten the 'if'
-statement to be on a single line (and moved the whole field business
-to a helper), but I went for the smallest possible change. My bad,
+The fix is to mark .ARM.extab and .ARM.exidx sections as executable so
+they can be allocated along with .text section and always meet range
+requirement.
 
-Thanks for the review!
+Fixes: ac3b43283923 ("module: replace module_layout with module_memory")
 
-	M.
+Co-developed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: William Zhang <william.zhang@broadcom.com>
 
+---
+
+Changes in v2:
+- Fix the comment in code and commit message regarding the unwind
+section location
+- Add fix tag for more visibility
+
+ arch/arm/kernel/module-plts.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm/kernel/module-plts.c b/arch/arm/kernel/module-plts.c
+index 354ce16d83cb..b5338fe59706 100644
+--- a/arch/arm/kernel/module-plts.c
++++ b/arch/arm/kernel/module-plts.c
+@@ -225,6 +225,18 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 			mod->arch.init.plt = s;
+ 		else if (s->sh_type == SHT_SYMTAB)
+ 			syms = (Elf32_Sym *)s->sh_addr;
++#if defined(CONFIG_ARM_UNWIND) && !defined(CONFIG_VMSPLIT_3G)
++		else if (s->sh_type == ELF_SECTION_UNWIND ||
++			 (strncmp(".ARM.extab", secstrings + s->sh_name, 10) == 0)) {
++			/*
++			 * To avoid the possible relocation out of range issue for
++			 * R_ARM_PREL31, mark unwind section .ARM.extab and .ARM.exidx as
++			 * executable so they will be allocated along with .text section to
++			 * meet +/-1GB range requirement of the R_ARM_PREL31 relocation
++			 */
++			s->sh_flags |= SHF_EXECINSTR;
++		}
++#endif
+ 	}
+ 
+ 	if (!mod->arch.core.plt || !mod->arch.init.plt) {
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.7
+
 
