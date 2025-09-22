@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32615CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 15:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140DCCAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LhX96/VCknrVdxhhCQa4qsun1A72hXqHFX6SP6yo38U=; b=iYSV7krulGrQYWnoH3SSoVln4B
-	ovjF0osLG8H9CiqHqlPEojXN4Cdzde7dEjnLmIPNcRAeDqIkvAJPKu0GfJE4W4l6r10Z/GfNPtz3W
-	D1YTOhGQ83clG9n95QjIn8ZdPK18QXho0Utwjdrp+fZpXaA+4kNEZ1A+ZcmRWoa8LXF4LQ3x+tc5E
-	Cmg6OzXZmLpuzjuzuC+4nYXkiNaDLSNY0cehzEP5UM9R1vsRIodpxaHLm3ULJCjGgoosBI39KuCAm
-	3jMTjBd6BIeifqoqtU3jYmpxkkZ9zS/D4lAb1ZdwcQOvDKefDwA1rWteO/7cdDKBipk6ZnePiWhH+
-	nEFCGMKQ==;
+	bh=zMUj0+qcDFuHlCbPtsC1PLzSfv9XJ18NOKhPj20IQtM=; b=FQnB4y38i3PYFvUuoHaZUlyWl7
+	qNjWwKpi7F+tO8rurKWUTQlzwI8NY6lWHIdmMkmBt3Is87sSQvUU+jmOx+3e0HfMW5SlGGkNfcyUN
+	7NqfUQtNlho4B3hwfPMWvg0Yz9U8GKsWZGculMy7oeX3msa4Y/nPGKfiHjU7tM1ra5ScOfa/q3urm
+	1/viwlPPhOMWwmhbhuDl6x7ErOER0CkkNlAI7N84rGotkJC1uuRTX4w5M8UPk8IaY704Rlrt/YQkp
+	TznDXiYNyFAKxJY9vHtZ8bZ65F22X6nfHqiizvXAIu4DZR4AJ7L39Y1bdUP2+mFPkUAnIH4j6v+g3
+	12+aayBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0iob-0000000AtMl-2ark;
-	Mon, 22 Sep 2025 15:50:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0izd-0000000Av21-08mD;
+	Mon, 22 Sep 2025 16:02:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ioa-0000000AtMJ-153Z
+	id 1v0iza-0000000Av1g-1Wes
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 15:50:56 +0000
+	Mon, 22 Sep 2025 16:02:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF954601AA;
-	Mon, 22 Sep 2025 15:50:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E990C4CEF0;
-	Mon, 22 Sep 2025 15:50:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B8B98434F5;
+	Mon, 22 Sep 2025 16:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B668FC4CEF0;
+	Mon, 22 Sep 2025 16:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758556255;
-	bh=vbMWpitNm5DxTqLLDH+qpPPtWqFkWWec0kTvC3CnpIw=;
+	s=k20201202; t=1758556937;
+	bh=2/LizJClL1wBMVE5bMlfqc3v7W3h2uppscfEVfjjaKw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g3/hIOqUGt7lMUrCdD6KiF2I0jx9XcFlOlEkom9VEIoyZlauSSBxyIAauJWW6meE9
-	 CtB/Jy8U8SKffhmKvaLp2hc2TQKqT1EOkWr5EyPwDIzAXyb7gP0n83QvuLvz78sHFE
-	 XhL91XDLSF4+JnnKPKi8E5s7KO0ayFhjSFSXqX3n7v8VQADUM7K8Lo4IzqoP4WyDTR
-	 zW3dUiUUdQq60f2+U16QPNRp+Gpr5mCZ1rc8Yc8iyosATMNsojw6RJYnEaptLBJyIj
-	 6ENvvD4G3x25o+b3tWndQlEh80qPVfoqyQFj6NT9hB7BBx9C6h8MYpXD9OjWmO2sg4
-	 3xnTgNRwUcmxw==
-Date: Mon, 22 Sep 2025 10:50:54 -0500
-From: Rob Herring <robh@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] dt-bindings: pci-imx6: Add external reference
- clock mode support
-Message-ID: <20250922155054.GA38670-robh@kernel.org>
-References: <20250915035348.3252353-1-hongxing.zhu@nxp.com>
- <20250915035348.3252353-3-hongxing.zhu@nxp.com>
+	b=bLzft7lF6rvhOI4icdGvNJkM9UQviI0U8bEF7gne7g+Bvp3NY6JOzPpfSVrFmKB/g
+	 aM7FWa1VE9oXcgJv2H1NrN5XhgfoyEEVGf0fiqK6szQf93VDiWO261HpnUjCquQ3oT
+	 SieqwDC7RuoMOWm0AjYdLujrUr9yqdymL4/pccPNctf0vo7kbEp4Mj3RPfd2P8ZcEt
+	 b9/3e3+TsWX9sv4lQFjLOlgYTkoMjeDW/KgAsQkt8Ix2DFCEbnUXLfpQhljn5KO2i0
+	 sccL/cofSQX4GfDfvz5eYWVuWgp8xHAQ36dkxtE6nUDgGXJyI8QIQRbRPSs0mnCwUW
+	 Bl1uSZjfoX/vA==
+Date: Mon, 22 Sep 2025 11:02:15 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>, arm-scmi@vger.kernel.org,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, linux-clk@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/5] dt-bindings: clock: Add spread spectrum definition
+Message-ID: <175855693542.119673.169928379758722249.robh@kernel.org>
+References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
+ <20250915-clk-ssc-version1-v4-1-5a2cee2f0351@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250915035348.3252353-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20250915-clk-ssc-version1-v4-1-5a2cee2f0351@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_090218_422353_28273260 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +83,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 15, 2025 at 11:53:47AM +0800, Richard Zhu wrote:
-> On i.MX, PCIe has two reference clock inputs: one from the internal PLL
-> and one from an external clock source. Only one needs to be used,
-> depending on the board design. Add the external reference clock source
-> for reference clock.
+
+On Mon, 15 Sep 2025 16:29:35 +0800, Peng Fan wrote:
+> Per dt-schema, the modulation methods are: down-spread(3), up-spread(2),
+> center-spread(1), no-spread(0). So define them in dt-bindings to avoid
+> write the magic number in device tree.
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Reviewed-by: Brian Masney <bmasney@redhat.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+>  include/dt-bindings/clock/clock.h | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index ca5f2970f217..6be45abe6e52 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -219,7 +219,12 @@ allOf:
->              - const: pcie_bus
->              - const: pcie_phy
->              - const: pcie_aux
-> -            - const: ref
-> +            - description: PCIe reference clock.
-> +              oneOf:
-> +                - description: The controller has two reference clock
-> +                    inputs, internal system PLL and external clock
-> +                    source. Only one needs to be used.
-> +                  enum: [ref, extref]
 
-This seems wrong to me. There's still only 1 ref input to the PCIe 
-block. If you had 10 possible choices for the ref clock source, would 
-you add 10 clock names here? No!
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Can't you detect what the parent clock is for the 'ref' clock? and 
-configure the GPR register appropriately. Or that mux should be modeled 
-as a clock provider.
-
-Rob
 
