@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00FFCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19304CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4HGwE6JITShxMvSeU8R2PrIbvvEmZDXP/9z9rie5Ps=; b=JzgD2HUqcIHkzSL4L8G7d4Ytj+
-	0y8HzWn2q+bT7ZYcKc3tAtGTAu3j9O5VRx5/8EJwmAnXBXv0BPEvUoipxYZbUus+cEW2CJltTjOw3
-	QhAacI6stPHXyF11H9xLuiwnwI65iKQpfj9lHbbn6jzQj2maS/dEF2i+j0beAq7nuK06OGW5XVZJm
-	3R3k588hkgpJEsHO0ICunA673SwE7rlbfY6A9CZ4GqYl5Na+F3jXDL+pH4FmxYzalUFfGYYGqUTxv
-	msOWzGvIOGl4OG7ECfvJEXss5tPFt0nNrb7FkHWKcebUuApuRl/66N8Lz3BOKfZxD6SXtidLsZwob
-	qyoT7hRA==;
+	bh=qqswoQ/SW++SzOASNIsNm5sMpLVuxYt53hj6+u9n0W4=; b=uqY6CqzbQnFL9ZkDCAq4CZ3fnd
+	9JkC/huj17IjXH6RBGM53m3nF1PAkjCgeVfirAkPMZgRUi8o8d2o8SsyweO6KsIasKoKCJeJZxLaB
+	Tai0wmeALjJu1qW5Lhu+JXTeJczCeHHmD0ByEiciRYaRf6lY61jzq7u/3HeL6+jRL/zYloNSyMc8h
+	XzK7hkLnYV8Waj1gY6qpVl3JL/Gd/kxkD6PcOKnZ78KJJ10RzLXhKmAxhqNEqZjudnbMBtbY70Uet
+	ZgoqAfXrEdfEon5CX4O/BE2Crl9gjW6VTx3GfNvHjFjUsC9CHIvhlYf+JLobbu3B/+KblnAcR21Cv
+	i2XUOMBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zn6-00000008vfJ-2vGG;
-	Mon, 22 Sep 2025 06:12:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0ZvM-00000008wbX-3ivB;
+	Mon, 22 Sep 2025 06:21:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zn4-00000008vel-2jZM
+	id 1v0ZvL-00000008wbN-3bwP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 06:12:46 +0000
+	Mon, 22 Sep 2025 06:21:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAB7A601DC;
-	Mon, 22 Sep 2025 06:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34ED8C4CEF0;
-	Mon, 22 Sep 2025 06:12:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E38360147;
+	Mon, 22 Sep 2025 06:21:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0344CC4CEF5;
+	Mon, 22 Sep 2025 06:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758521565;
-	bh=3UerwbZ38Y6F51/AVZvwT7fXNyINz/eAUpivcoyBoKs=;
+	s=k20201202; t=1758522079;
+	bh=eoFLH+PsSdyp4SGdZ6FacLOobyF33z0eyFcT731wQJQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FtkR8yioGMhFkuF+Cn1wzH4ievrnmc6BCRXFotZptl2hU5vAkAIKzb6bxFPJl1/5V
-	 t4Mn1u5euXTtsl6AZUiQoeTQxskVNc45ObI32dW7n0Te3qyvGjRzhenrKBLO5oHYKl
-	 yUKTm4Sv3J7vPNKLXw44JzFxh23XziKUMADmJi2MTFy4Jsv2SnxqwWjSA4XwdmqybH
-	 zELfSwj198PjLJt2gM0PVjIdfM9qO99QCK9ZGD/5Wis0BX6pNvKy85B9mHiUi1S1A1
-	 cogT9I5lshWFzf1pOdPgdgwi/Sqwx0jL/p8E70994AcP5fUyojYjW0lHrviiFFZB5+
-	 mPj2bZghG6pFg==
-Date: Mon, 22 Sep 2025 11:42:36 +0530
+	b=s5bk4DNTrF+fVQt7Y4vSJDQSLniwAcB1wt81kInI24cqVmOK8zXroa7j4dVWfcwVl
+	 v5WQjcnGafariu5UTDAmyjc31ph71NhaoGpdtNNOry+j7rWUUOf2mlv1nCiAknwJes
+	 2VvcDleMFWUAAs3lP0LCjILv8DxMaKZmKy/HDnM6N3ux1bVsi8ZRviCN7qX8jbF7Uj
+	 8PCwZDBR0/9vLvw3zKvBiQ9bCzIc67+j4gByspw2cSXwpZS8Nm/vu/AaTcS6YINWRX
+	 hcEBY4IW9mNIZcju+o3X672Xe3cnVPMc7Xl2gmSm/w2Y6zmFrEkxA3RQHYQ6fFsyAO
+	 Iv0rWyUzUMQjg==
+Date: Mon, 22 Sep 2025 11:51:07 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] PCI: imx6: Add a method to handle CLKREQ#
- override active low
-Message-ID: <hsmebnz6opoj45zztdd2svmdtrwwwrngjaidpltbunnkdvvdqz@lhyejtlwkkes>
-References: <20250922023741.906024-1-hongxing.zhu@nxp.com>
- <20250922023741.906024-3-hongxing.zhu@nxp.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com, 
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
+	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org
+Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
+Message-ID: <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
+References: <20250919155821.95334-1-vincent.guittot@linaro.org>
+ <20250919155821.95334-2-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250922023741.906024-3-hongxing.zhu@nxp.com>
+In-Reply-To: <20250919155821.95334-2-vincent.guittot@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,109 +76,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 10:37:41AM +0800, Richard Zhu wrote:
-> The CLKREQ# is an open drain, active low signal that is driven low by
-> the card to request reference clock. It's an optional signal added in
-> PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
-> reserved.
+On Fri, Sep 19, 2025 at 05:58:19PM +0200, Vincent Guittot wrote:
+> Describe the PCIe controller available on the S32G platforms.
 > 
-> Since the reference clock controlled by CLKREQ# may be required by i.MX
-> PCIe host too. To make sure this clock is ready even when the CLKREQ#
-> isn't driven low by the card(e.x the scenario described above), force
-> CLKREQ# override active low for i.MX PCIe host during initialization.
-> 
-> The CLKREQ# override can be cleared safely when supports-clkreq is
-> present and PCIe link is up later. Because the CLKREQ# would be driven
-> low by the card at this time.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+You should mention that this binding is for the controller operating in 'Root
+Complex' mode.
+
+> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
 > ---
->  drivers/pci/controller/dwc/pci-imx6.c | 35 +++++++++++++++++++++++++++
->  1 file changed, 35 insertions(+)
+>  .../devicetree/bindings/pci/nxp,s32-pcie.yaml | 131 ++++++++++++++++++
+>  1 file changed, 131 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
 > 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 80e48746bbaf..a73632b47e2d 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -52,6 +52,8 @@
->  #define IMX95_PCIE_REF_CLKEN			BIT(23)
->  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
->  #define IMX95_PCIE_SS_RW_REG_1			0xf4
-> +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-> +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
->  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
->  
->  #define IMX95_PE0_GEN_CTRL_1			0x1050
-> @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
->  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
->  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
->  	int (*wait_pll_lock)(struct imx_pcie *pcie);
-> +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
->  	const struct dw_pcie_host_ops *ops;
->  };
->  
-> @@ -149,6 +152,7 @@ struct imx_pcie {
->  	struct gpio_desc	*reset_gpiod;
->  	struct clk_bulk_data	*clks;
->  	int			num_clks;
-> +	bool			supports_clkreq;
->  	struct regmap		*iomuxc_gpr;
->  	u16			msi_ctrl;
->  	u32			controller_id;
-> @@ -267,6 +271,13 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  			   IMX95_PCIE_REF_CLKEN,
->  			   IMX95_PCIE_REF_CLKEN);
->  
-> +	/* Force CLKREQ# low by override */
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr,
-> +			   IMX95_PCIE_SS_RW_REG_1,
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL);
+> diff --git a/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
+> new file mode 100644
+> index 000000000000..cabb8b86c042
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/nxp,s32-pcie.yaml
+> @@ -0,0 +1,131 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/nxp,s32-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP S32G2xx/S32G3xx PCIe controller
+> +
+> +maintainers:
+> +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> +  - Ionut Vicovan <ionut.vicovan@nxp.com>
+> +
+> +description:
+> +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
+> +  The S32G SoC family has two PCIe controllers, which can be configured as
+> +  either Root Complex or Endpoint.
+> +
 
-This should be:
+But this binding is going to cover only the 'Root Complex' mode, isn't it?
 
-	imx95_pcie_clkreq_override(imx_pcie, true);
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - nxp,s32g2-pcie     # S32G2 SoCs RC mode
+> +      - items:
+> +          - const: nxp,s32g3-pcie
+> +          - const: nxp,s32g2-pcie
+> +
+> +  reg:
+> +    maxItems: 7
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: dbi2
+> +      - const: atu
+> +      - const: dma
+> +      - const: ctrl
+> +      - const: config
+> +      - const: addr_space
+> +
+> +  interrupts:
+> +    maxItems: 8
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: link-req-stat
+> +      - const: dma
+> +      - const: msi
+> +      - const: phy-link-down
+> +      - const: phy-link-up
+> +      - const: misc
+> +      - const: pcs
+> +      - const: tlp-req-no-comp
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - ranges
+> +  - phys
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
+> +  - $ref: /schemas/pci/pci-bus.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@40400000 {
+> +            compatible = "nxp,s32g3-pcie",
+> +                         "nxp,s32g2-pcie";
+> +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
+> +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
+> +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
+> +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
+> +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
+> +                  /*
+> +                   * RC configuration space, 4KB each for cfg0 and cfg1
+> +                   * at the end of the outbound memory map
+> +                   */
+> +                  <0x5f 0xffffe000 0x0 0x00002000>,
+> +                  <0x58 0x00000000 0x0 0x40000000>; /* 1GB EP addr space */
+> +            reg-names = "dbi", "dbi2", "atu", "dma", "ctrl",
+> +                        "config", "addr_space";
+> +            dma-coherent;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            device_type = "pci";
+> +            ranges =
+> +                  /*
+> +                   * downstream I/O, 64KB and aligned naturally just
+> +                   * before the config space to minimize fragmentation
+> +                   */
+> +                  <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
 
-refer below...
+s/0x81000000/0x01000000
 
->  	return 0;
->  }
->  
-> @@ -1298,6 +1309,18 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
->  		regulator_disable(imx_pcie->vpcie);
->  }
->  
-> +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-> +{
-> +	imx8mm_pcie_enable_ref_clk(imx_pcie, false);
+since the 'relocatable' is irrelevant.
 
-Just noticed this discrepancy. 'imx8mm_pcie_enable_ref_clk(, false)' is enabling
-the CLKREQ# override, thereby enabling the refclk. But only for imx8mm, this
-helper is called as imx8mm_pcie_enable_ref_clk(). But for imx95, the equivalent
-function is called as imx95_pcie_clr_clkreq_override(). This is causing
-confusion.
+> +                  /*
+> +                   * non-prefetchable memory, with best case size and
+> +                   * alignment
+> +                   */
+> +                  <0x82000000 0x0 0x00000000 0x58 0x00000000 0x7 0xfffe0000>;
 
-Maybe you should just call both functions as:
+s/0x82000000/0x02000000
 
-	imx8mm_pcie_clkreq_override(imx_pcie, bool enable);
-	imx95_pcie_clkreq_override(imx_pcie, bool enable);
-
-Then,
-
-	imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-	{
-		imx8mm_pcie_clkreq_override(imx_pcie, false)
-	}
-
-	imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-	{
-		imx95_pcie_clkreq_override(imx_pcie, false)
-	}
-
-and populate the clr_clkreq_override() callback.
+And the PCI address really starts from 0x00000000? I don't think so.
 
 - Mani
 
