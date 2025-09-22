@@ -4,45 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB662CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72837CAC5AD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MuBPjgFTyL2P8FbxH55eCnmsteX3QmDIGITmytU5Fro=; b=kAqEVXMXxBaNhR
-	9r2VvxX60YyojicZQRAb6BCJO7GWD+OinLOF41Yltutl79fN1Q2ylNSCntBwgQTO8iRACTQ5n5CRE
-	lEt065rR3d+775hv5IotTzmSo1+FxbhZDzNniDUWF34B0RxJyN+oE8QVCHt8kliuL3CAgxvw2aNNX
-	87lBH+xNZ27+HG7MkaxQMvEKgvjV16XLvkS6FE3LbnpD0d6w7VdOKKFVdW6roDy2jPfeSL6qEolfN
-	vhj26Cps5KcIUGve1GWzSP6CfoWWN2Zqkam2lRSxLzsKGA7OjvAzYC0x10zx3GmeLGPiOHs/Aoq8w
-	PeLknFcO85YQj3/YBs1w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OMx3XS8ctYSSlOsSgF7zdos1UTlu4n/H3nvCN7p89n0=; b=XzQ839i0/8PLGnPJ5lMK7JwIeV
+	8ZB+njcXH/jd6x8c4lTEG/vmyZ8KIZzzxI3dCoUMxhPq2XH8mKpbxLdoChm2kfK6lWRJu2t1n/zGJ
+	BqqzLkSVUhpyX1XUvLGUh9kTbmYfUxzzWiZwEOI/IlYF9NWdamyHcZ9PoeaHTRwDQqdErC7N/O/hU
+	CbU0UVbYCJK6FJ3NLZ/UQZhDgILQ2Roylbk90hyrkaGcMelNQhVny0+M++LYQdxAq4RzmPnnAIwsP
+	2ojhJDqtDA+B8lBJ01GsIvTXE01O9LbhgKE5gGOyD7T60QxJzfATfVQ7KvTX19c9+0tGCzNU3BnA1
+	8ti5jALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eS5-0000000AA3K-3dQK;
+	id 1v0eS5-0000000AA2x-2E6C;
 	Mon, 22 Sep 2025 11:11:25 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eS1-0000000A9xm-18A5
+	id 1v0eS1-0000000A9yg-2wxT
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 22 Sep 2025 11:11:23 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1v0eRk-0002HM-ET; Mon, 22 Sep 2025 13:11:04 +0200
+	id 1v0eRp-0002HM-8g; Mon, 22 Sep 2025 13:11:09 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Subject: [PATCH v2 0/5] arm64: dts: imx8mp-skov: add new 10" variant
-Date: Mon, 22 Sep 2025 13:10:51 +0200
-Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
+Date: Mon, 22 Sep 2025 13:10:54 +0200
+Subject: [PATCH v2 3/5] drm/panel: simple: add JuTouch JT101TM023
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALsu0WgC/52NQQ6DIBBFr2JYdxogWrUr79G4sDLotBEIILEx3
- r3UI3T18/7ivZ0F9ISB3YudeUwUyJoM8lKwcR7MhEAqM5NcVryRAtINRA3ROhqBlq1ZHIS3TaB
- igNca7TrOIDiZPC3qVg9DXVWiZFnoPGraztijzzxTiNZ/znYSv/evTBLA4Vm2EnXDayVk59BMa
- /TW0HZVyPrjOL4D5acR6QAAAA==
-X-Change-ID: 20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-9ef9faa75514
+Message-Id: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-3-abbb759cf8ef@pengutronix.de>
+References: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
+In-Reply-To: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -65,9 +62,8 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_041121_299210_A20DA339 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250922_041121_743702_CA890DC6 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new board variant for the Skov i.MX8MP based family of boards.
-
-This variant uses a different 10" panel than the existing ones.
+Add JuTouch Technology JT101TM023 10" 1280x800 LVDS panel support.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
-Changes in v2:
-- add wider compat "eeti,exc80h84" after "eeti,exc81w32" to pass CHECK_DTB 
-- add Acked-by and Reviewed-By
-- Link to v1: https://lore.kernel.org/r/20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de
+ drivers/gpu/drm/panel/panel-simple.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
----
-Steffen Trumtrar (5):
-      dt-bindings: vendor-prefixes: Add JuTouch Technology Co, Ltd
-      dt-bindings: display: simple: Add JuTouch JT101TM023 panel
-      drm/panel: simple: add JuTouch JT101TM023
-      dt-bindings: arm: fsl: add compatible for Skov i.MX8MP variant
-      arm64: dts: imx8mp-skov: support new 10" panel board
+diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+index 3333d4a0750468b058155bcdddc694a521d342d6..3bb52a557a193a3687bc5125ab055ad6ff065d49 100644
+--- a/drivers/gpu/drm/panel/panel-simple.c
++++ b/drivers/gpu/drm/panel/panel-simple.c
+@@ -2889,6 +2889,38 @@ static const struct panel_desc innolux_zj070na_01p = {
+ 	},
+ };
+ 
++static const struct display_timing jutouch_jt101tm023_timing = {
++	.pixelclock = { 66300000, 72400000, 78900000 },
++	.hactive = { 1280, 1280, 1280 },
++	.hfront_porch = { 12, 72, 132 },
++	.hback_porch = { 88, 88, 88 },
++	.hsync_len = { 10, 10, 48 },
++	.vactive = { 800, 800, 800 },
++	.vfront_porch = { 1, 15, 49 },
++	.vback_porch = { 23, 23, 23 },
++	.vsync_len = { 5, 6, 13 },
++	.flags = DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW |
++		 DISPLAY_FLAGS_DE_HIGH,
++};
++
++static const struct panel_desc jutouch_jt101tm023 = {
++	.timings = &jutouch_jt101tm023_timing,
++	.num_timings = 1,
++	.bpc = 8,
++	.size = {
++		.width = 217,
++		.height = 136,
++	},
++	.delay = {
++		.enable = 50,
++		.disable = 50,
++	},
++	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
++	.bus_flags = DRM_BUS_FLAG_DE_HIGH,
++	.connector_type = DRM_MODE_CONNECTOR_LVDS,
++};
++
++
+ static const struct display_timing koe_tx14d24vm1bpa_timing = {
+ 	.pixelclock = { 5580000, 5850000, 6200000 },
+ 	.hactive = { 320, 320, 320 },
+@@ -5185,6 +5217,9 @@ static const struct of_device_id platform_of_match[] = {
+ 	}, {
+ 		.compatible = "innolux,zj070na-01p",
+ 		.data = &innolux_zj070na_01p,
++	}, {
++		.compatible = "jutouch,jt101tm023",
++		.data = &jutouch_jt101tm023,
+ 	}, {
+ 		.compatible = "koe,tx14d24vm1bpa",
+ 		.data = &koe_tx14d24vm1bpa,
 
- Documentation/devicetree/bindings/arm/fsl.yaml     |  1 +
- .../bindings/display/panel/panel-simple.yaml       |  2 +
- .../devicetree/bindings/vendor-prefixes.yaml       |  2 +
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../imx8mp-skov-revc-jutouch-jt101tm023.dts        | 79 ++++++++++++++++++++++
- drivers/gpu/drm/panel/panel-simple.c               | 35 ++++++++++
- 6 files changed, 120 insertions(+)
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-9ef9faa75514
-
-Best regards,
 -- 
-Steffen Trumtrar <s.trumtrar@pengutronix.de>
+2.49.0
 
 
