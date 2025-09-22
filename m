@@ -4,104 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA02CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 01:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26F2CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 02:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FQiFCRapN/3mwb02ZP+dTFVgTrcEVb7y08IjRSvyuIY=; b=tA+YGytUHPZdzvp1pzw+snIPqW
-	vz2F4iqapDPZJdqCtutDOE83ttJ60Z6RSgHNhRnvw9BhZqXr7feX/c2HSanCYWT7ljTRwS8YLszre
-	jhFS+AVJSc8rilHF1QrmNFJLi5k08hR3ri/DcsRg+9v2vjPm45P/1zzLxtbyKODbMWNteXyukTqFB
-	szSVuE40gsOz/onjaDtqgYo5bGvZNX/dgBlhJfQU4eU+j2qJIFDEOWHSBD8Zf+hrfIDz9bNGiLK7x
-	3aQTpndyQiS3JzcEQ/U4M9Pr/iduwqD8T6frRPD7OeXwpejhBMLuyGqJqezzI41E/vZB/Ewkjs8aD
-	iddCRi6A==;
+	bh=y3BAgFWXo/AYuCEifkvdW+WBQgySUobE7ORlkjXMyac=; b=4572+kWb5xuHLv8Gz4UqsgIlEb
+	VLaSFdQ2zi/1FYbkAllAiSAe7oip2Qy4UrHMOvsQpsIwT1CuOnh+BBz0R5Cyi0nJbgqYjiiynUB1n
+	lytbwK7Euht8HfyIJwmxJa1SoAqqh2K4iRnuET9LiciWizx5MfhTg+DRdHaMbhnwp41ysZ75GvmH1
+	Jhpc6kaeBF6vj2mzTb4IRLIydEX+XOGI3iTF1gtgOU4ytZj8u5SdlSaZKnR+vxi9wt9tQPdCRF/1N
+	hDrdTXawUYK3tpPWhv22HwuvIwv8WxDrT0CM8a3UADVIaS9W1WuEG4eQnI0zK5jX+dVsM+OmYdJy2
+	XclkMfBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0VG7-00000008V05-1yvw;
-	Mon, 22 Sep 2025 01:22:27 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1v0VuI-00000008YJY-3BVa;
+	Mon, 22 Sep 2025 02:03:58 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0VFq-00000008UVC-06Nu;
-	Mon, 22 Sep 2025 01:22:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1758504072;
-	bh=FQiFCRapN/3mwb02ZP+dTFVgTrcEVb7y08IjRSvyuIY=;
-	h=From:To:Subject:Date:Message-Id;
-	b=u0yxSLlSwOATLLm30XMbWjPLBFDpyvoP2neidc+XQMfGEYWq3H5x1vzW5cWOAhydC
-	 Nn9CL4SK5uOmvEoLdZ8Vh9+U5MnkyToL6w/ufUa+aU32ptKsuIwg6fpf0dtreQteFF
-	 A/Dw9SfKJaM2iYtBkkivy6Yw4G5K5xxO+QXNkjCI=
-X-QQ-mid: zesmtpgz1t1758504070tb08ab248
-X-QQ-Originating-IP: irFhF1T+2Su/4ccgz1o9QWkx8RvanKgMn5pFCBUgAAg=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 22 Sep 2025 09:21:08 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16934661695937755636
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v4 6/7] arm64: dts: rockchip: Add missing dp_out port for RK3399 CDN-DP
-Date: Mon, 22 Sep 2025 09:20:38 +0800
-Message-Id: <20250922012039.323-7-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250922012039.323-1-kernel@airkyi.com>
-References: <20250922012039.323-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: NafziRg7Bx69wZmNWpnyeNSCX5aQ2zp2rCi5Mn2t95JOtwkVnw2RyUrk
-	9EY36yPs97/o3uIS8Rev5/D4N57O5jdh6CvE2RAyRUuvsEjqUBUEQjvSi+yhfEETbHBQ7GC
-	JA1IcMA/Rb6ro++E8lUaA3XEeL6lS6+qDoA7bg4N4CD2Yl4K9WXrscWfNc+qBH5FjzEHrtc
-	FMl3zRm/riQEt75uYJKlGk7nA5VxbCZlJG+hJ+bM5hkjbv+syt0sgcJuigs1Yop4ypCQ6ns
-	Df2FOfiOC/iIKJYdmowqHCfY8VZd20DMl3J52RvQIVhBpoD99AfIGkcds2VzBsbSjjPlK3J
-	yHScEaZgXdYbkoBvMVsgkmSI7ofRUcOsB2JwKcX65Y/+g3VV6FXoJWstr/pzKltTlv3zOhO
-	2ouWJ/Bl//dKMsY4hkFyh4KXS/ZnOPxIlZiO6YwLO5c4i9DZRae2a21O4rKl3K8I/ub887G
-	5VykFVAp6dFN/vd7QlHvS+NhxA+/VI31nIIZw44oFklkV8DknzcNPPZ8huKQ+P1yYTp6cqL
-	eiQ81dL5tlImSSo8Qzl2wIrH3yfWzRneHC1Z3dEuYnXKeLT0NBaF02G4N8G0h2q1aOH9BDQ
-	qq3h86STYI/yqqCOXGDti3ZbxEHjF6QLQQu7Mlhvl8LuWHnl6D9MX+xJtdzY3CVafdQ3XgR
-	Umt6eYtf/fDM2fX5KNI/pugP0rRWyRk45EzDM+QNUMRC2loYP/sgl3R1ogIprE6yCkK4mJL
-	BKKyyDlTOi/7sYUQgGcDmx4Dy3FOY62gGy94R/6SbvR+Xk5fUivKukFFZzo9Rp+VZUnfD0s
-	e2cMLfRSroTI1Sb7I12dDnUr8li1Z7h57CBlFqll9ZQXkhZoJCHc+g1wyjaf2ggXpo4pel6
-	efBEqFpmwq2/jVTN4aFijLYgr5RWDHYSXGWnii3iQA+oKrjR7g3f6UPyDQnTWAa2B/RFqKt
-	kZhPVh1E9r/Jbvn/W+2ilghMQp9XLtTyNbUIOxslTTvOzzB95AaC2ojrRcpL0ozcjiDDrm1
-	Y8mUcrnHvf4ZP9ediN
-X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
-X-QQ-RECHKSPAM: 0
+	id 1v0VuE-00000008YIb-24nf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 02:03:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ce5G5jBpmXjYxR2TfMT14w6xmbEhFOje25o/1gYdDIcVAZWPqGvA76mJEm69OzvBvQ3MvHMgozZqUZmiJnHCWVcEuoUEwH3jjE4Si4IW56xEN18eVyCLwgXHa9kx22rbyXUko7IyfiqZu75yaxFSg1vPMZaJorPusvw8ivnB+Cr3Td2jGrfPD4NBnFGTk7gXsSLoCQRAX1sJdvKtW2iNT9gqZ4Kz1x6qvkvfmoM2kDJNt8GnRSBANFNr/X3YqzkUFe3cRN2S6cO3t7bgMc3zu1NXtSRuOyRsGKPJKJo1mONOi9SLVEwC6fk7ta9S/fmeFNaBXoeMKAWZhYNq7bXHlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y3BAgFWXo/AYuCEifkvdW+WBQgySUobE7ORlkjXMyac=;
+ b=HlLzFZPlnYvv37uNHCAKU0nV6UnEhghmkz5E2c2Tb41z+xJ8m4WgzY+n+o2Z/KBaVhJBrhSwAkJS+d4DkLJmuYd2acZwaY9XZAO19zhS8OlIlyBwhgMm5udbpxvbNppzriP6JbSyhC9NyRfTPQylyOYqjnIQ9Kd4YS21UXUt0scxmTDDNvcmhzbEgiXOWjnLPccEOd6Iho5uLbDGCwXSSmTu1FBbXqp+Qc2esndfUKLfudlt2QHXR1fTOHDr1lAhAR8Flg9kgfNuq+6TOJXbip4N9Vc5coRlRt3m8XBbwyaKk6AZZVkZwNfYCnv0mHV3Ddtevh3fPg5sQEZ6+aL1JA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y3BAgFWXo/AYuCEifkvdW+WBQgySUobE7ORlkjXMyac=;
+ b=Q7Y9FpxqCgR/fbN/G/kOPdRrVcfA3nh5jK+on6LkYj+OluyQwiM/LahdmDU/0AZvVygTkPXeRAZbB4Rsw0Fw4/WYe9Jj/b4LbtsSH2ydglxLvesfoJS83eBp5y0QhVHJ/YZQbtGwud/MLyWM9g2sytXh2Aepkf1bWIWoeLZQDttPeWRgvhFN1ntO+sen1IHVH64lui6JU/S6btIMDo+A6kwXbZOsZxJ6uO/zElJKnZs33w7EcFR2DjS9fXWDTy9ulSCGHBeNt/2dQgOrG4ktdvM9/5EB+PLvravhAvDu6DwTpPXdmvzQ+B1n2WfXoX7QQBM7l6YWQDY+gn2RK3JSpg==
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by VI0PR04MB10640.eurprd04.prod.outlook.com (2603:10a6:800:26b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Mon, 22 Sep
+ 2025 02:03:44 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%7]) with mapi id 15.20.9160.008; Mon, 22 Sep 2025
+ 02:03:44 +0000
+From: "G.N. Zhou" <guoniu.zhou@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [EXT] Re: [PATCH v2 2/5] media: nxp: imx8-isi: Simplify code by
+ using helper macro
+Thread-Topic: [EXT] Re: [PATCH v2 2/5] media: nxp: imx8-isi: Simplify code by
+ using helper macro
+Thread-Index: AQHcHjIzAx8GBuTeC0eoL870oKvfoLSeTYGAgAA8otA=
+Date: Mon, 22 Sep 2025 02:03:44 +0000
+Message-ID: <AS8PR04MB9080158655C3EA188BE7FE7AFA12A@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20250905-isi_imx93-v2-0-37db5f768c57@nxp.com>
+ <20250905-isi_imx93-v2-2-37db5f768c57@nxp.com>
+ <20250921221325.GB10540@pendragon.ideasonboard.com>
+In-Reply-To: <20250921221325.GB10540@pendragon.ideasonboard.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|VI0PR04MB10640:EE_
+x-ms-office365-filtering-correlation-id: 8ee3774a-4d37-44ef-3014-08ddf97c4292
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kzQQ7odIRk8pXA+FyTzMg12CZ1vefCkmbZ2obVrh+kibOddFxIPYKFXa7GFP?=
+ =?us-ascii?Q?FnOLf7cZDx3W0Atc+ayINZvlbzVGCsmIPC78oILVLcDh3YKPFFRn5b28NUr8?=
+ =?us-ascii?Q?jVMdbogmUVRh3ZTJDGOuRrOeNa+VbA+fQDkfjzTKrHeSqM4unnSKfmQASuTa?=
+ =?us-ascii?Q?RhAMZ7CCiah8eztorao9Cre6/kLkB6xWu96T/Y5E+L2nwwsOOrfmJM4WLiUR?=
+ =?us-ascii?Q?5se0Z3Vgt2WC+jnS3a+CZ4uxRaFstY2lwkXB6VuieiqTUVQ3zGJ9eBHOPRsG?=
+ =?us-ascii?Q?gX9S8YQJhP9iXdk3uBZZj6AtsivVxwcSnzfdS6IAk8S8H5Gn9kBo5yadv5ro?=
+ =?us-ascii?Q?gMq0ISm8ijuLvjokh8yWzoZF+ledbGFGQoYKHSzRgo/Yj1pgxPGyxCIlbW00?=
+ =?us-ascii?Q?xPGB4S4EzyxQNVDCLPun3yCUOs0boh6VfDHm2GVuwq3YDwxa0xGdv3MRxL3A?=
+ =?us-ascii?Q?Uk7DSixbYPb/Aj5VWbLMC0cm59urw/fApmRLQ5JBJsq+m9zRE+oVI5JbZ8RG?=
+ =?us-ascii?Q?0sTmF8+g+xaZ4wyxE+SQMsT6lyCYMO7wDxvo9K2FjQVJpv/8GtmBl9LOgsUh?=
+ =?us-ascii?Q?CSzzgR09PCv/TMUXuOlDBXz1mKgO5CjTlKOXWQpJmiskCgZXo08DtmIg/Upz?=
+ =?us-ascii?Q?XcWukwkWGKSZecEPYMGz6Bk0/sSz3cX6DBr+xcCn9XxlU4zEcGbORZpMJfhk?=
+ =?us-ascii?Q?x7TkiXf2bYmT8LNlEBCCBSqg7NWWyMhC0lknKTpYuMaTMHMWY//kXhhLpf4G?=
+ =?us-ascii?Q?eoTIqMMCNjG09c53yFN2at2YJxmhnXekiQzHPmAkqKjr0j4R0J4U4b19F35f?=
+ =?us-ascii?Q?J1uLvz340usLTKO4VgV7hK9Mm4XL1wsXH/G+8sh+p6lW6TcNVVkDk4tAb1/0?=
+ =?us-ascii?Q?9iVKNFqHX8dhWUPhyOwbQ8HpJTPHB8gClWqYnrPo4DF1+KUuhsHsPD+tBhuR?=
+ =?us-ascii?Q?obZ59MtFz1hFPk9itOhq1eoD8sUZ3kUXiaqj4iSujYUJBTe73Jqs7ImZUDJc?=
+ =?us-ascii?Q?HRaxsJt6Js/mLrnQI8vuxHtjYl2nYrF6G8yPzksGAnkzrHTn1RbJTpzbMyGC?=
+ =?us-ascii?Q?rN+ztX/VOyXwJLJ7NOWWB++B9AvAivo1+Pou4rl3uzn2pKoQeMypctpNMAvH?=
+ =?us-ascii?Q?effASm4afvzMgkIMhFxmI0aRXB4OP0YNoThuuJqis9VdZHtiFwtZO1iWRcWI?=
+ =?us-ascii?Q?Km8OP5+pPHe7J4kOupO3smR7ZrLbP/7wOxzoOUkr/yYMGSqgdY9mBsupNO5J?=
+ =?us-ascii?Q?6MnseghV5R56AOFjMlKkkqwZRqY92LjWucnvYHtjVkotPc+fdoVXNI49aBk4?=
+ =?us-ascii?Q?XpykN78bw7uq10iDcgv6ePW+9NC2FSQstMqs02R752JoekH+InQuSoCfF1+r?=
+ =?us-ascii?Q?XsS44IYkzsu3oEhC+Mg7i8zAgMNwTO8ADgQRNPPbNINTlyRFPRyPjyF/IcUt?=
+ =?us-ascii?Q?GJfzvZGf4GxoWPrP9sXKl3Uvb2zOSNM6G48PsqtOET0z1daQsemCt0bH5frd?=
+ =?us-ascii?Q?FF7oEl3ykcp9HqI=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?5QAtWJQriZK7Q/MVX6kwcUHbfc1GMdJvz8C3naK3eHX9qYzdXw/MFAx038Ws?=
+ =?us-ascii?Q?E8EZCw5A6pRKRuqmNzDPwOIT3E2jLmUW/Cj/kD/O3MXDGmr72ftVHMTO1wfI?=
+ =?us-ascii?Q?62pkfa/APro2GrV5WTOcZjvNUTlB3xr2R5WxXsGwg/dmJ5xDroUt15Jdf2lH?=
+ =?us-ascii?Q?OmXB5EQKP4Nk/JJzKYaZbQ0zUPa72DxcmKg3N4zWMVGms6v7RXJzfxX0aljD?=
+ =?us-ascii?Q?Nu13fhES+vlw4RhPw+/bxUgu6JQlNFvRrInd3Fvv/USdtIBT61iNhbVDJ7zp?=
+ =?us-ascii?Q?bU8LdW5nwAd40zwzzPTJp9cSuEVHEUADEGBUfZXGdRUcY2uf0Rg1mAqzKsfq?=
+ =?us-ascii?Q?56vYKnbUBPBjV1hMoYHUjmuu7avP4ySgiPf61LXLlqv9DzyVTjQXBsYr8utg?=
+ =?us-ascii?Q?X9LNaYwoV4YiCGjsOt5qtRhvJRZFkVfSzyKwFWHd+UneXEFQ7L7ErX/PNGce?=
+ =?us-ascii?Q?2ucQ14iUWDFniWG4NLUj2fH0CwFnOhRzZ9ftGrrR+CNoBMNo73LIbtrOyeQt?=
+ =?us-ascii?Q?eEwEr+w7AWtJrdG6VAiIlzDRdp4UWaq6Uzr/6UW+XLJ8EaNX161MKfpM2TAk?=
+ =?us-ascii?Q?zDbAU7leLub8CKmyZI4Muf2ir5+Ehh+HOY+o39IwcM33JsnrSbslXYefk85h?=
+ =?us-ascii?Q?o9bukGvkP6/tqmbtdFJs/hwjlbqP2bgcJMY+MDBg0BEoOCodLyLlyqkuw9Ll?=
+ =?us-ascii?Q?heYrzyzjrhdhm1BOIM7OnynYoT+ncVVFpFqkm0LfQioegVtyeT5k3ezv9iiM?=
+ =?us-ascii?Q?n0ehPV0P1mRl88lZN03Kq+koymbOXeD7u21U/RtmutZ54lrj7sN+dEozwhDh?=
+ =?us-ascii?Q?aYaSAVQdOjRckl5+/G3gBbM+RWsPemTU2+vCC4nO8QgivA0JSKEc0+QDTa0p?=
+ =?us-ascii?Q?rbY1OKS5ulziYtrSAEOeT0pXXcmOFZD5OwVon0dfYrDTWc5TwDssBqq63Ax0?=
+ =?us-ascii?Q?HCR72rEHxBUlmn7cuF373XPF8cbdRMBHgrGwOrHQPzdriCSrpR7xZgg/tI77?=
+ =?us-ascii?Q?KIRrkSoUM6k5tDF/plxYCJDOK45RiD5G/scUA0agduIEOfjzw3fryUxb1WdK?=
+ =?us-ascii?Q?m/gdFM2bRwnDMYGmiaeTtGed15PXmvcvVBvkICHVsCWZM89bYBH8RFxH4FP1?=
+ =?us-ascii?Q?JKVDJBTD0YaIzEyjyDMIWsTH0VZQxgffz7l8FcRxsCxNXbhMLPEgjUNL+EMJ?=
+ =?us-ascii?Q?21F4Ezmu6Yi6P2y+FRolvrZwYpDdXpxNCwuD8+BBf2+KJz9KnOeHXtsiId7J?=
+ =?us-ascii?Q?nuU0vC8S+np8E0TBV5A4kr341gLMO+3B7lSHZsRY57JzLQd0r9NAJ6iHhBBp?=
+ =?us-ascii?Q?5uN6NF4DI2DC4QXK4EQ4P6/9nuERx0NMSOYIFqzVCJ/PAa4nq4wUebgaFDyx?=
+ =?us-ascii?Q?N/Y6efQNwLeM06AZWbmIzxVcA+7PUlSBgthtxsw7RQNhorr782hJ/fe0jrqi?=
+ =?us-ascii?Q?r8vtf1/Q0Gi7o5KuoYxgz1S1rV9nQ/tNaoGE6qnhQH0QL3q93FYMWKv+0G/I?=
+ =?us-ascii?Q?hpWU7ki4KmHRYtkFvOvhNs0yAK+KB4rrYgy5TdWnp+95Wru8sfe+MIxq/d/u?=
+ =?us-ascii?Q?q5BUImj4WuXfFjIrcUo=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ee3774a-4d37-44ef-3014-08ddf97c4292
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Sep 2025 02:03:44.4283
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /z9b43GMc73dR5ks+9dsb8AtUR3ntmQLlpRAnTGqY/uO+NPLKFGKUvOZ0wo/Objpu/yhsiJqKOYeXJNamYSafg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10640
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_182210_481659_CC270D83 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250921_190354_545071_D3903CA7 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +173,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Hi Laurent,
 
-Let's make the ports nodes of cdn_dp in the same style as the other
-display interface, and match the style of ports's yaml.
+Thanks for your reviewing.
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
+> -----Original Message-----
+> From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Sent: Monday, September 22, 2025 6:13 AM
+> To: G.N. Zhou <guoniu.zhou@nxp.com>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>; Rob Herring
+> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Frank Li
+> <frank.li@nxp.com>; linux-media@vger.kernel.org; devicetree@vger.kernel.o=
+rg;
+> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: [EXT] Re: [PATCH v2 2/5] media: nxp: imx8-isi: Simplify code by =
+using
+> helper macro
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
+>=20
+>=20
+> Hi Guoniu,
+>=20
+> Thank you for the patch.
+>=20
+> On Fri, Sep 05, 2025 at 02:55:59PM +0800, Guoniu Zhou wrote:
+> > Simplify code by using helper macro FIELD_PREP() and GENMASK().
+>=20
+> I'm not necessarily against this change, but how does it "simplify code"
+> ? There's no change in the code beside the macros, and they don't look
+> particularly simpler.
 
-Changes in v4:
-- Remove unnecessary #address/#size-cells
+How about the message body change to " Make code more readable and easier t=
+o maintain by
+using the FIELD_PREP and GENMASK(). macro" and title change to "Refine code=
+ by using helper macro"?
+If you agree, I could apply it in next version.
 
-(no changes since v1)
+>=20
+> > No functions changed.
+> >
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > ---
+> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c | 7 ++++---
+> >  1 file changed, 4 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+> > b/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+> > index
+> >
+> f69c3b5d478209c083738477edf380e3f280c471..2f5e7299b537d612fb1fe668
+> 8c1b
+> > 75bfd2d6049b 100644
+> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c
+> > @@ -3,6 +3,8 @@
+> >   * Copyright 2019-2023 NXP
+> >   */
+> >
+> > +#include <linux/bitfield.h>
+> > +#include <linux/bits.h>
+> >  #include <linux/regmap.h>
+> >
+> >  #include <media/mipi-csi2.h>
+> > @@ -16,8 +18,7 @@
+> >  #define GASKET_BASE(n)                               (0x0060 + (n) * 0=
+x30)
+> >
+> >  #define GASKET_CTRL                          0x0000
+> > -#define GASKET_CTRL_DATA_TYPE(dt)            ((dt) << 8)
+> > -#define GASKET_CTRL_DATA_TYPE_MASK           (0x3f << 8)
+> > +#define GASKET_CTRL_DATA_TYPE(dt)            FIELD_PREP(GENMASK(13, 8)=
+,
+> (dt))
+>=20
+> I think you can omit the parentheses around dt here, and around x below.
 
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+Ok, will apply in next version.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-index 4dcceb9136b7..93b42820998f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-@@ -618,7 +618,11 @@ cdn_dp: dp@fec00000 {
- 		status = "disabled";
- 
- 		ports {
--			dp_in: port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dp_in: port@0 {
-+				reg = <0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -632,6 +636,10 @@ dp_in_vopl: endpoint@1 {
- 					remote-endpoint = <&vopl_out_dp>;
- 				};
- 			};
-+
-+			dp_out: port@1 {
-+				reg = <1>;
-+			};
- 		};
- 	};
- 
--- 
-2.49.0
-
+>=20
+> >  #define GASKET_CTRL_DUAL_COMP_ENABLE         BIT(1)
+> >  #define GASKET_CTRL_ENABLE                   BIT(0)
+> >
+> > @@ -58,7 +59,7 @@ const struct mxc_gasket_ops mxc_imx8_gasket_ops =3D {
+> >   */
+> >
+> >  #define DISP_MIX_CAMERA_MUX                     0x30
+> > -#define DISP_MIX_CAMERA_MUX_DATA_TYPE(x)        (((x) & 0x3f) << 3)
+> > +#define DISP_MIX_CAMERA_MUX_DATA_TYPE(x)
+> FIELD_PREP(GENMASK(8, 3), (x))
+> >  #define DISP_MIX_CAMERA_MUX_GASKET_ENABLE       BIT(16)
+> >
+> >  static void mxc_imx93_gasket_enable(struct mxc_isi_dev *isi,
+>=20
+> --
+> Regards,
+>=20
+> Laurent Pinchart
 
