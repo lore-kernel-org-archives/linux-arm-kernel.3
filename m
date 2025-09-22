@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED58CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CA5CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=; b=pjSTf1tGDX4LhrnchnetlmloMA
-	Nfhk85Tr1rzy+ajaoJw21xnfwP9ae05z0+WoY2oCT13TUQIZtEVcTamO6JO13bwM7rGqNByRU4iak
-	Iyk7ao+fOsnDIB+tTyW6KHLAFWAX8CogtPOtTTDmx4aeLIcdOrrKNm1GJEWOhxPOwxY/b/ma/QILn
-	cxHyyqtCuvmeBbFEUcQliBzYnlX6uHUrwjslSCsAklGB9wVv7De3ig/ER/8yqK2fI/sq+GLpCsdeC
-	A1h82MrA5tVgEKvB3zjiREDRRufMMDDzmkMmX8eD3zffPQ2fUW573wvSSXFMaI5TV6NSph+q1IF1H
-	/b1FKKmQ==;
+	bh=9qM8s2aGAqq8d9mOeGsUcT1rmyd2K8d/u4x5LMbNc3g=; b=lfYpnzXvsXGCCeCl4uIKJ9XS4+
+	GoNRe4egp7lMPJdpFOM4fA9LyZsEIzZqYKqb2gbHs722eL4LTD10XZYQc2/nNsi1u+QfD9rtzHbjl
+	wzurOUFkzRtr8ldMHjgcK5ZgY1cYrxP6BwhjgUIy1hfyAeg1eB7PsGH6xbWHC6cRIICdyjQnyFkcl
+	PJ0/wlghRzHVI41mrzI/QKLTiGz5Fijrm1jvVSvgRhNHFD/f3CjA9eL47H5bDVVQmP/mzKlhoK6W+
+	wkR7XecOkvQ8m6xD0jrGgZseWxepoWeL7zy0fxVA5BJiuvzQIqnhEHI7wOBI47u3sLFev2Fe+TalW
+	pgt87gbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eLD-0000000A93h-3tWU;
-	Mon, 22 Sep 2025 11:04:19 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1v0eMm-0000000A9E9-1VIA;
+	Mon, 22 Sep 2025 11:05:56 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eLC-0000000A93I-1CiQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 11:04:19 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-746d3b0f7e5so4006650a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 04:04:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758539057; x=1759143857; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=;
-        b=PpjysG4zVknGMuEylYX+y8fvsQuJOFgoPGzi9tn5PEPA2IbfgbRE8ir4GEIgqTb+Yg
-         KEwmVWqlS1j3Zd3yrEBufN5pWw2BLBieooAlSY756Q16iEtHJTP0Nlvx+IPAuTRddiXN
-         eXYkCbSBSoFvOTpiMfYgL1naYyF1Upe/61EeIkTTvAOMZ7Pcng8ZU+qw3ucnNvVlsIaR
-         TzkeM09eVoMvYzMFzZvDoC+Jegq+FXYj1rLgiIDXjowTJI9wP5MhwvO8dANWxNDkWj6Q
-         rp59GKwmqFJJlAnKQQChPkNcuMWN3zU6nyN9UsABKfySEXmnArSYWBhkLaXICHz6pWBQ
-         Dibg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758539057; x=1759143857;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=;
-        b=P5TyJdNsBIn+eMNcI6JM6ToGjCLrC6X3KZ8bF+54ST4Wv0g2bLePdWP/NMOCOU4x+k
-         DkMbgIUA+z0aKD/58fU33/dvDfvLNBDChZt0CvxIPDZIpOFkN7iddllQry+8BfTpkKpz
-         CMfc/lVkco0X+6j/H654xoCgAngdQ8s1s4ky1HvbD+uS5+VGbRSivwsNSbkHYqUI9CTG
-         l5+6o+9ID0Foz0VcmRwNcOLs2mx9n/eL/emlLHVoSV/QRtdunrbSlQeo2LBiZQySDCsS
-         THAakQySNMTcT3wezEPJZ13WII7y++4vLyk/8w/2kUNpC6EBIIccnBpAZ4qSY17VDkke
-         Vc+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWwqqeZIuiPMsw4OMbmc0jq+DOd51pi3rTN8LM2g3UjRGGnF5yUPrveyjgZ3Z7dyqAAlPeFM0gfAphr3Z+5VWUZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjfhZ+Es7K4TOvlHdxNQ5uJygVSZHQ4VH4/UZLq7ER//laQ983
-	yC1PZzAG8pMvNz0PKQrgmn8kU1tY4+c4oE0tlft/8ig5hFzf+o28ddp5CNTiwXYuNlEsd1IF/pf
-	QJ4eHQeyNfxwjvvxG82hP379e/Wrqkhn9K92onkQf0A==
-X-Gm-Gg: ASbGncvJrUlJNN6NGPqiV6H4UA09QaQfZs+belc7a/mxL1u4wPni30nt3kU/1BZ1YV2
-	L56QdZ+c9FOotbDFIrGKZ0haJ1WqQM2XiMNnOHHW8h0WxF7eFMaLZrz0E03C11lhps2Vxng0FGJ
-	WXsiZVVoRdo/5U/+A7qyDQpk5/OWv25p2XkiDglZum3WEzamOAY5SDp+CgaPwZ+C4QFtpwLuuoF
-	HVytx4i/JrnLw==
-X-Google-Smtp-Source: AGHT+IEvS4cemYKzvf8/W3Ni0tXFdK49y2b13V4Ek7MsLn0SEOghPBIISAL2RiOAvFwYHiWJSM5vrjR4tjFOI/lJfqE=
-X-Received: by 2002:a05:6808:2106:b0:437:b63f:5b06 with SMTP id
- 5614622812f47-43d6c2aeb61mr5322105b6e.34.1758539057077; Mon, 22 Sep 2025
- 04:04:17 -0700 (PDT)
+	id 1v0eMj-0000000A9Dj-2wMt;
+	Mon, 22 Sep 2025 11:05:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758539151;
+	bh=R4tlWJgzes/Y4DKi4qcXXpLirntdDRaHq2QxnEkO0WI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=K3A1IcUS1C5LiZIFZkICC+3I+uhRd2Cudsmvef2QmWxJO3L+1ZokRE0lFf82kKr2G
+	 qMluh0T5op0YcZ9KAZ+oAMQpwxGTAqXwfIiU3Fcbq9+6X6xVxhAeayQsyE0ajcFpSF
+	 0PvrwtfkyU6ZFXDYxHCOK92w4EpZjCQar3nK/6XzvzFtQGVpcBhaM7w6UNj912elWv
+	 arwFBKwPCvUF9xlkKy7wS6p9SGaKSkMDjMdy8bf4vLNbH9vCJonQICrSjPCdC73Qkk
+	 BqxfRVgbPebd85Vu9utTqJygdc4IbZ6fnM46A+JQ3QkT8PzugjWzGL4WVPXT7FPo69
+	 MVqQLhk3iy4vQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C3E5417E0125;
+	Mon, 22 Sep 2025 13:05:50 +0200 (CEST)
+Message-ID: <6657bfa7-9a6e-49a1-890f-81cf655940a7@collabora.com>
+Date: Mon, 22 Sep 2025 13:05:50 +0200
 MIME-Version: 1.0
-References: <20250919085918.5442-1-cuiyunhui@bytedance.com>
- <20250919085918.5442-2-cuiyunhui@bytedance.com> <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
- <CAEEQ3wkRoX5Y5xQu22kVCFxEy8fgcUxKHEm=9Bpg7g-Np8b-SA@mail.gmail.com> <20250922-buffalo-of-hypothetical-downpour-d2a47c@sudeepholla>
-In-Reply-To: <20250922-buffalo-of-hypothetical-downpour-d2a47c@sudeepholla>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Mon, 22 Sep 2025 19:04:05 +0800
-X-Gm-Features: AS18NWCjxTnXNffNhsVhAB7VVz0ET_vSy-py67u7Gzutp1wKTHn_hOJyONTf-KI
-Message-ID: <CAEEQ3w=4aKS=p=+q4iC42Va+dMVm017R0Surxff+4R+4RjkgAg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 1/1] arch_topology: move
- parse_acpi_topology() to common code
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, gregkh@linuxfoundation.org, 
-	rafael@kernel.org, dakr@kernel.org, beata.michalska@arm.com, 
-	ptsm@linux.microsoft.com, sumitg@nvidia.com, yangyicong@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/10] ARM: Add support for yarisxl mt6582 board
+To: cristian_ci@protonmail.com, Matthias Brugger <matthias.bgg@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ phone-devel@vger.kernel.org
+References: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250920-mt6582-v1-0-b887720f577d@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_040418_334458_E956E771 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20250922_040553_926532_2B4C2254 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,101 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+Il 20/09/25 20:23, Cristian Cozzolino via B4 Relay ha scritto:
+> This series adds support for Alcatel Pop C7 (OT-7041D) smartphone
+> board, named yarisxl, based on MT6582 SoC. It also includes some
+> preliminary patches. More in detail:
+> - patches 1 and 2 add support for mt6582 to platform code
+>    (verified by looking at generic mt6582 downstream source code)
+> - patches 3-6 do some maintenance work to mt6582.dtsi
+>    (I was unsure if squashing timer node patches into one)
+> - patches 7 and 8 add devicetree and dt-bindings support for yarisxl
+> 
 
-On Mon, Sep 22, 2025 at 5:01=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com>=
- wrote:
->
-> On Mon, Sep 22, 2025 at 10:18:57AM +0800, yunhui cui wrote:
-> > Hi Sudeep,
-> >
-> > On Fri, Sep 19, 2025 at 10:05=E2=80=AFPM Sudeep Holla <sudeep.holla@arm=
-.com> wrote:
->
-> [...]
->
-> > >
-> > > Just thinking if it makes sense keep acpi_cpu_is_threaded generic wit=
-hout
-> > > the need for weak definition.
-> > >
-> > > Additional note: not sure why you haven't moved this under CONFIG_ARM=
-64/RISCV as
-> > > done with other code.
-> > >
-> > > bool __init acpi_cpu_is_threaded(int cpu)
-> > > {
-> > >         int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
-> > >
-> > >         /*
-> > >          * if the PPTT doesn't have thread information, check for arc=
-hitecture
-> > >          * specific fallback if available
-> > >          */
-> > >         if (is_threaded < 0)
-> > >                 is_threaded =3D arch_cpu_is_threaded();
-> > >
-> > >         return !!is_threaded;
-> > > }
-> > >
-> > > Then you can just have the define in
-> > >
-> > > #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK=
-)
-> > >
-> > > in arch/arm64/include/asm/topology.h
-> > >
-> > > and
-> > >
-> > > +#ifndef arch_cpu_is_threaded
-> > > +#define arch_cpu_is_threaded           (0)
-> > > +#endif
-> > >
-> > > in include/linux/arch_topology.h
-> > >
-> > > Thoughts ?
-> >
-> > If placed in include/linux/arch_topology.h, there is a possibility
-> > that "arch_cpu_is_threaded" will be redefined.
-> >
->
-> Why is that a problem ? We want arch to override the default definition
-> if and when required.
+That's simply great! Nice cleanup and nice addition - the only thing I can say here
+is that seeing simple-framebuffer is a pity, and that I hope that your plans are to
+continue with systimer, clocks, spi, i2c, apdma, mediatek-drm components, etc :-)
 
-Because include/linux/topology.h first includes linux/arch_topology.h,
-and then includes asm/topology.h, a warning will be generated during
-compilation:
+In the meanwhile, for the whole series
 
-In file included from ./include/linux/topology.h:37,
-                 from ./include/linux/gfp.h:8,
-                 from ./include/linux/xarray.h:16,
-                 from ./include/linux/list_lru.h:14,
-                 from ./include/linux/fs.h:14,
-                 from kernel/events/core.c:11:
-./arch/arm64/include/asm/topology.h:39: warning:
-"arch_cpu_is_threaded" redefined
-   39 | #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMA=
-SK)
-      |
-In file included from ./include/linux/topology.h:30:
-./include/linux/arch_topology.h:94: note: this is the location of the
-previous definition
-   94 | #define arch_cpu_is_threaded()  (0)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Unless #undef arch_cpu_is_threaded is used in arch/arm64/include/asm/topolo=
-gy.h,
+Keep up the good work!
 
-So it's better to place
-#ifndef arch_cpu_is_threaded
-#define arch_cpu_is_threaded (0)
-#endif
-in include/asm-generic/topology.h.
+Cheers,
+Angelo
 
->
-> --
-> Regards,
-> Sudeep
+> Signed-off-by: Cristian Cozzolino <cristian_ci@protonmail.com>
+> ---
+> Cristian Cozzolino (10):
+>        ARM: mediatek: add board_dt_compat entry for the MT6582 SoC
+>        ARM: mediatek: add MT6582 smp bring up code
+>        ARM: dts: mediatek: mt6582: move MMIO devices under soc node
+>        ARM: dts: mediatek: mt6582: sort nodes and properties
+>        ARM: dts: mediatek: mt6582: remove compatible property from root node
+>        ARM: dts: mediatek: mt6582: add mt6582 compatible to timer
+>        ARM: dts: mediatek: mt6582: add clock-names property to uart nodes
+>        ARM: dts: mediatek: mt6582: add enable-method property to cpus
+>        dt-bindings: arm: mediatek: Add MT6582 yarisxl
+>        ARM: dts: mediatek: add basic support for Alcatel yarisxl board
+> 
+>   .../devicetree/bindings/arm/mediatek.yaml          |   1 +
+>   arch/arm/boot/dts/mediatek/Makefile                |   1 +
+>   .../boot/dts/mediatek/mt6582-alcatel-yarisxl.dts   |  61 +++++++++
+>   arch/arm/boot/dts/mediatek/mt6582.dtsi             | 142 +++++++++++----------
+>   arch/arm/mach-mediatek/Kconfig                     |   4 +
+>   arch/arm/mach-mediatek/mediatek.c                  |   1 +
+>   arch/arm/mach-mediatek/platsmp.c                   |   1 +
+>   7 files changed, 142 insertions(+), 69 deletions(-)
+> ---
+> base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
+> change-id: 20250920-mt6582-9339d7fceb34
+> 
+> Best regards,
 
-Thanks,
-Yunhui
+
 
