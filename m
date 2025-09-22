@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C64CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE72CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 12:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H82PriZ9rjpzbtA4cB7LLdyiPEBtTfyUNElybLELZfU=; b=h6ilXXxZshUqiekuHkMPAkAW+R
-	jIoraAahit8fwbrOslB6c0VCa0T+/3JwzcJKokp5RcQlb6Vyr+tsg8haQXduD+buzfc019o0sMkWv
-	s1WxWK/zyE4f9+WZ3HfTOl1Ur7zc4zZNoy2pzLXnlOSH5KOyGFOIbL5p3eHucsWOVjYftEPsibZQi
-	5faHHB92JS22ty+OjMVNJnER6V3iC8Gi5AeYxypi1MUrsOCQ6pVHKRKl9k3/C046n7amI1xk6J3iy
-	J9fAXF1ahXzqLB4QNc/19j04mS0wwuiX5MdZrbnwrHb64kbLjKuIUeK5x/bvkuiITYVQ4dCc77Il9
-	B815ZBOw==;
+	bh=cnoK284wC9IBvGY8v6wVkknfTGfHO/sFr+t4M3yGJFM=; b=JGNyAA5qZuBKE5veg01XOKjbBt
+	WyafmL3S9tXHpfzD2bOkKRJA3uaxIvLGct77Z/Wy62QzPCmJhMpRwEbXgeiH9I9w0vJc02QtP4Lek
+	MdwpNgssGvrXzH9npnpYtImzsQheez/aocmE0n+fhk1+/2kLFoqpTTCe0CRj32+GPKA/epJWuHCDp
+	ql1+Aof9gp7d0qdOybEjWKlpluYDFcD1RDkH51HFPpXeUgxFXmrdgvfdp+8DsZmtoOlbKcd7Z+ZPK
+	YlrfUbsZDbWBEjXgACPuThgxAZXSYj6TldozpJUsbSpRDKifEFPf5BEv2vCQtYCxFyfKeSErP9y8Y
+	H8YstiCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0f7r-0000000AGEu-3XsA;
-	Mon, 22 Sep 2025 11:54:35 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1v0fUf-0000000AIpi-1Qz1;
+	Mon, 22 Sep 2025 12:18:09 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0f7p-0000000AGEM-331j
+	id 1v0fUb-0000000AIoi-1Avf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 11:54:34 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-32326e2f0b3so3634311a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 04:54:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758542073; x=1759146873; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H82PriZ9rjpzbtA4cB7LLdyiPEBtTfyUNElybLELZfU=;
-        b=jykwaeItaVIzlYuhHvs+yP75XNPXUXOR/Eosj7wKKd+C6AT2ZXStATAhDff2sHDe3Z
-         tYqyPl62tWCLkbtge5efIGWc+498K33HyWK6wMti5HDaRXJVUw5DUSMHgyArNKHj8yVo
-         F1U2d/2jrEusQH5QjyaeoNlYMniAvWGgVRsWd2C6rM72P3tQrzCuDQA3nOfbaWIOOCK/
-         S6vk5Y4gy+UXDxqh2tR2D6xcf0bvI/8nbhG29wFOoObUL6pWx+/C7NDZlzJDkfVoZlDB
-         32GqYkfrxVhVTP8QtKhtg1PRxFgIBLUtF+kKrLYC21TfLCmVFSSy6Ocqzcde6NhHGKDy
-         H2xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758542073; x=1759146873;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=H82PriZ9rjpzbtA4cB7LLdyiPEBtTfyUNElybLELZfU=;
-        b=f3a4gsqpp6XAMYzNW2k6xqwQjuF1MHiq49YeIojSR2fQ2GoaBPhWPjcKkiXcPejsU4
-         ECsjsmTAoci85SOlvnzwuqnbruvR59o5zu3TeSfFnloKTk33pgFPGjiVE2w2bx3hi971
-         crX7h6UzRSyPl4o4iEitxojmOR9DMIvY8dk4fe1SjsgafYXZ/Z8lrc2OlnbVCEr5+xKj
-         5T1OGDVou7g9DcxJ7jn05mCxRxVwtPeQbDQQdnsWgNuDtGu41j+K+2B/rX+jMxx+z0ae
-         xaMb39fbUxAeF4kHeNhm2m+lR37fDPoK+drx3Uxe7VeFFYVdN7uc0SL7PaeMM5M/ASTm
-         3n6g==
-X-Forwarded-Encrypted: i=1; AJvYcCW34Gxt4BMltVvtkBnKRYHlvQigV/wI+xt34c9Qa+clJKT2PIyBmqYm/aLhJ8oc7FpYCP/xFjtF9yrOZkAC4/1R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnGzv0Q6feYldItbpZxE5S9FmPTRtxcbHQJ99H2A2olraSoYTZ
-	Onj8lrUMpgi0LORucULSI8qQtXN3ng7DYcMXG4MaRF8bueS6pjgGkBVNal+IGhA3M4obclL2HgK
-	EwLjtUdDhoPDVfvDJHur0i/XPw+Ypit0=
-X-Gm-Gg: ASbGncvrIH0L3i/WNRqgXlYnByAfw5bTMsKvzBkR/EaF+wN6fikYm1ahY8mwlnjCSDW
-	8dfECLUIKmkR41zQuRxnKlmgysk41O9jCuzpQkMEoJlD7Hs8MbH5JZ/+IGE1mly1EnaOcSkoZ7V
-	xqR5In704GEgTOvZhDvNeh08fnKL7X1Bv7qSvW0HwbnqO83NsNMQDZ8eqrqjuE70qjvVIrlv53p
-	RAvgRLS8jOwxCtKksQmO0QlP6qTBnqvRV6DuSZ19deIGD0=
-X-Google-Smtp-Source: AGHT+IHzxM4yiWZAL6zxD7pQbX0TaeY/bJwW0LY0llQOlSdS3iORCuACnssvnMbvtQZrqfxj7+ITUfMjGupBB0hJduI=
-X-Received: by 2002:a17:90b:3d44:b0:32e:a6b6:6d00 with SMTP id
- 98e67ed59e1d1-3309836d4a0mr14833310a91.25.1758542072686; Mon, 22 Sep 2025
- 04:54:32 -0700 (PDT)
+	Mon, 22 Sep 2025 12:18:08 +0000
+X-UUID: 293a636a97ae11f08b9f7d2eb6caa7cf-20250922
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:820a0db1-d8aa-4ccd-a29a-d5a8403565fe,IP:15,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-40,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:-25
+X-CID-INFO: VERSION:1.1.45,REQID:820a0db1-d8aa-4ccd-a29a-d5a8403565fe,IP:15,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-40,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:6493067,CLOUDID:a01a001bb6b5825328af111a4ef35bfd,BulkI
+	D:250922201752257MKIUF,BulkQuantity:0,Recheck:0,SF:10|24|38|44|64|66|78|80
+	|81|82|83|102|841|850,TC:nil,Content:-10|0|50,EDM:-3,IP:-2,URL:0,File:nil,
+	RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,D
+	KP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 1,FCT|UOG
+X-CID-BAS: 1,FCT|UOG,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FSI
+X-UUID: 293a636a97ae11f08b9f7d2eb6caa7cf-20250922
+X-User: pengcan@kylinos.cn
+Received: from localhost.localdomain [(116.128.244.171)] by mailgw.kylinos.cn
+	(envelope-from <pengcan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1686138324; Mon, 22 Sep 2025 20:17:52 +0800
+From: Can Peng <pengcan@kylinos.cn>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm/syscalls: mark syscall invocation as
+Date: Mon, 22 Sep 2025 20:17:30 +0800
+Message-Id: <20250922121730.986761-1-pengcan@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <aM1BSZV43DB_l5OU@willie-the-truck>
+References: <aM1BSZV43DB_l5OU@willie-the-truck>
 MIME-Version: 1.0
-References: <20250920-imx_rproc_c2-v2-0-3351c4c96df5@nxp.com> <20250920-imx_rproc_c2-v2-5-3351c4c96df5@nxp.com>
-In-Reply-To: <20250920-imx_rproc_c2-v2-5-3351c4c96df5@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 22 Sep 2025 14:56:48 +0300
-X-Gm-Features: AS18NWCo7SM87IX5gqcum6VQNj3ji3-ObJeD7tPNQaPVNEbSqpL0MuoR10HuEnI
-Message-ID: <CAEnQRZAtNCzoPdY0B=NXxKZte46XuVSNm-cSkEj9mUr7TF5BNw@mail.gmail.com>
-Subject: Re: [PATCH v2 5/5] MAINTAINERS: Add an entry for i.MX remoteproc driver
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_045433_764064_B1008A74 
-X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-CacheID: sfid-20250922_051805_688659_AC5B0BCC 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,11 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 20, 2025 at 4:16=E2=80=AFPM Peng Fan <peng.fan@nxp.com> wrote:
->
-> Add an entry for the i.MX remoteproc driver
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Hello,
 
-Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> The invoke_syscall() function is overwhelmingly called for
+>> valid system call entries. Annotate the main path with likely()
+>> to help the compiler generate better branch prediction hints,
+>> reducing CPU pipeline stalls due to mispredictions.
+>> 
+>> This is a micro-optimization targeting syscall-heavy workloads.
+>
+>Does it actually make a measurable difference?
+
+This change implements a micro-optimization. Benchmark results
+from the Kunpeng 920 machine are as follows:
+
+before:
+- lat_syscall result 
+write call      0.2332  0.2337  0.2341
+read call       0.2501  0.2493  0.2506
+
+after:
+- lat_syscall result
+write call      0.2301  0.2316  0.2307
+read call       0.2492  0.2498  0.2491
+
+
+Best regards,
+Can Peng
 
