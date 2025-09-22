@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2388BCA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C82CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 16:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQXUTzzCj82gfW4QWCXnO/vM+d1/Db+iUW/tg6Y56y4=; b=sJkmMmYf9SoO5mjg3Hwyh2k3l+
-	eTBmaoTW8VZf7CgZOdMycbQInMRTcqBGwMIHvpFmlKYTwJNyiF8llFCY5Nt3Y0ilip7On5hFZ2yG7
-	Ew1tn+OhYnO4vCdvv762bJKe3EJ1o+qANCwo1gsCENx5KYpkBhHnAqbRZxbpII8AF3DEQzEZ2WcAr
-	2Loa/XAoo7iW5JO/p5PItj+glFn+kWqB5LOEmNGxSUe+4jmdG1tv12RZDWe0oohyis87/w0KImkvz
-	6g70dgVxQyF7hokqiNLm0fWBiGIsTFmTztgzrjgrFN/0A3JFwMmszrM2VAXlSWSOOaboEFJI5kqLf
-	0Qu45Wfw==;
+	bh=Rxc0HKwniZoNXTbokuWZAAnDMw+7tt8FqJWimchShr4=; b=oJHmWU3iVQO4JnElEHhaCgpjhA
+	VdiPWZjHl4sFNNIHV1j8tSWaCQhPuB/phU1o3j4NrH1lg4Ojeue3bkSJsheuYRQIiZczQ7ETerQzz
+	7tLETACNUltRNCAnYurKvJwiOTwgxfGLW3+ZX7CHXn0MbAXN03c/iT9sjiM01HDMnLlBQaxM5iS3D
+	952AtFqe2VBZXs2RNFAFm9Qs9ajd1C5FMB0VL6l9POUyiMzclcqTDRHGxUDcx3DFzToPSAria/OSP
+	+caPqUJFnpL60J3TZ2yH0gDb451im4ygPliAAZXDJZ9Uz2b7ICObMx3DPujRk6952lweReDWATXuK
+	nbxJbLnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jkY-0000000B1oz-1g1t;
-	Mon, 22 Sep 2025 16:50:50 +0000
+	id 1v0jnN-0000000B27M-3kfD;
+	Mon, 22 Sep 2025 16:53:45 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jkX-0000000B1oY-06Pr
+	id 1v0jnM-0000000B27D-32bi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 16:50:49 +0000
+	Mon, 22 Sep 2025 16:53:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4ACA6601FE;
-	Mon, 22 Sep 2025 16:50:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97B2C4CEF0;
-	Mon, 22 Sep 2025 16:50:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1118601ED;
+	Mon, 22 Sep 2025 16:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FB29C4CEF0;
+	Mon, 22 Sep 2025 16:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758559848;
-	bh=SmYHS6MJbi0vRw6qB/2BTayFi9UqFpognQacTg5pVXs=;
+	s=k20201202; t=1758560023;
+	bh=66YVdEIz0WO5xOUAZXPuRtDVfvF4ZqtngHDQvIbb4OU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JgRpaLe9mPRAsaZBexDSLcYyDGflu/cGHmjb5A9woWtWBlZh8F+Y5dWKZcg7Z4z0i
-	 HtICrPn/KFhQzRUKM108f42vF4MgHew/4egR5ogSg81mN/p4u4TKOVl54Zl3aXz0t1
-	 ggStJsUqvvbf0cVxY612FdiDDuN2pJcbXZ1tgNrEoQ5AhUrdCzatcgF/e/Dtvilh4q
-	 PkhvkyYOEGn1hxon29vLtkRZNnuYG/dRHVy/HLewwRhbvdl0L6RZMfeI/Mxc5/A2C+
-	 KVasxB4FpAIaSBIVys8eBlJVfEyGlJeMrr/JJfyLieBk3hyCck6PGHCPPWwsZfeZ9L
-	 hcxxm1LYYEsxQ==
-Date: Mon, 22 Sep 2025 11:50:47 -0500
-From: Rob Herring <robh@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/3] dt-bindings: PCI: dwc: Add one more reference
- clock
-Message-ID: <20250922165047.GA436960-robh@kernel.org>
-References: <20250917045238.1048484-1-hongxing.zhu@nxp.com>
- <20250917045238.1048484-2-hongxing.zhu@nxp.com>
+	b=haa/u39eq5BLyx3UoZBQ1gg9wuP69x6DUj/rxEJE/qhGf9Fd0u5Te+KW89NvfVKBm
+	 7xfdjvF2tQCp+A3hO+2oeuDpGnIsney4VEfDVvrSa2vy31p4IX9TzZnbXuTV1LMwU8
+	 BeB7Eui+Noq6w7m/Qe1QZ1So3r3Tq+uGNJeMxhonPX7gduqIJRicoArwpC5BMarFk8
+	 20D+1Xfc30GxQ62VETnvK4LqIUJHYja/WxJ6u7Px4dEEmrEjM+PAN9ghH0UrzdMFYs
+	 YBUWsacp8SM86DyL5V89hpaoBGl8k9lmxjpu7vY3nWcJD2CwporgGCX+IRe0PkPxf4
+	 k5WmcfOv5NrnQ==
+Date: Mon, 22 Sep 2025 11:53:42 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ravi Patel <ravi.patel@samsung.com>
+Cc: ksk4725@coasia.com, kenkim@coasia.com, jesper.nilsson@axis.com,
+	s.nawrocki@samsung.com, hgkim05@coasia.com, krzk+dt@kernel.org,
+	bread@coasia.com, shradha.t@samsung.com, mingyoungbo@coasia.com,
+	cw00.choi@samsung.com, krzk@kernel.org,
+	linux-kernel@vger.kernel.org, jspark@coasia.com,
+	linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
+	limjh0823@coasia.com, smn1196@coasia.com, lightwise@coasia.com,
+	devicetree@vger.kernel.org, gwk1013@coasia.com, pjsin865@coasia.com,
+	lars.persson@axis.com, sboyd@kernel.org, alim.akhtar@samsung.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, swathi.ks@samsung.com,
+	conor+dt@kernel.org, mturquette@baylibre.com
+Subject: Re: [PATCH 1/7] dt-bindings: clock: Add ARTPEC-9 clock controller
+Message-ID: <175856002216.463169.9530978340977850859.robh@kernel.org>
+References: <20250917085005.89819-1-ravi.patel@samsung.com>
+ <CGME20250917085025epcas5p229b9eba48bd93a1f059b3cc4656145bc@epcas5p2.samsung.com>
+ <20250917085005.89819-2-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250917045238.1048484-2-hongxing.zhu@nxp.com>
+In-Reply-To: <20250917085005.89819-2-ravi.patel@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 12:52:36PM +0800, Richard Zhu wrote:
-> Add one more reference clock "extref" for a reference clock that comes
-> from external crystal oscillator.
 
-See what I just commented on v5.
-
+On Wed, 17 Sep 2025 14:19:58 +0530, Ravi Patel wrote:
+> From: GyoungBo Min <mingyoungbo@coasia.com>
 > 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Add dt-schema for Axis ARTPEC-9 SoC clock controller.
+> 
+> The Clock Management Unit (CMU) has a top-level block CMU_CMU
+> which generates clocks for other blocks.
+> 
+> Add device-tree binding definitions for following CMU blocks:
+> - CMU_CMU
+> - CMU_BUS
+> - CMU_CORE
+> - CMU_CPUCL
+> - CMU_FSYS0
+> - CMU_FSYS1
+> - CMU_IMEM
+> - CMU_PERI
+> 
+> Signed-off-by: GyoungBo Min <mingyoungbo@coasia.com>
+> Reviewed-by: Kyunghwan Kim <kenkim@coasia.com>
+> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 > ---
->  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  .../bindings/clock/axis,artpec9-clock.yaml    | 232 ++++++++++++++++++
+>  include/dt-bindings/clock/axis,artpec9-clk.h  | 195 +++++++++++++++
+>  2 files changed, 427 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec9-clock.yaml
+>  create mode 100644 include/dt-bindings/clock/axis,artpec9-clk.h
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> index 34594972d8db..0134a759185e 100644
-> --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
-> @@ -105,6 +105,12 @@ properties:
->              define it with this name (for instance pipe, core and aux can
->              be connected to a single source of the periodic signal).
->            const: ref
-> +        - description:
-> +            Some dwc wrappers (like i.MX95 PCIes) have two reference clock
-> +            inputs, one from an internal PLL, the other from an off-chip crystal
-> +            oscillator. If present, 'extref' refers to a reference clock from
-> +            an external oscillator.
-> +          const: extref
->          - description:
->              Clock for the PHY registers interface. Originally this is
->              a PHY-viewport-based interface, but some platform may have
-> -- 
-> 2.37.1
-> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
