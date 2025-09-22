@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE72CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 12:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7903CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 12:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnoK284wC9IBvGY8v6wVkknfTGfHO/sFr+t4M3yGJFM=; b=JGNyAA5qZuBKE5veg01XOKjbBt
-	WyafmL3S9tXHpfzD2bOkKRJA3uaxIvLGct77Z/Wy62QzPCmJhMpRwEbXgeiH9I9w0vJc02QtP4Lek
-	MdwpNgssGvrXzH9npnpYtImzsQheez/aocmE0n+fhk1+/2kLFoqpTTCe0CRj32+GPKA/epJWuHCDp
-	ql1+Aof9gp7d0qdOybEjWKlpluYDFcD1RDkH51HFPpXeUgxFXmrdgvfdp+8DsZmtoOlbKcd7Z+ZPK
-	YlrfUbsZDbWBEjXgACPuThgxAZXSYj6TldozpJUsbSpRDKifEFPf5BEv2vCQtYCxFyfKeSErP9y8Y
-	H8YstiCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bqfgHpqX6xpJyIh8oA4nP8Mt4sI9T2ISK4uYWV4kOHA=; b=aHD2FuEFq141xCC/8iq6nCNRLr
+	zNWP++3SabOL75RwPYKjy77PGnZOsfAUxJlArTlZZZ9JJ1dcH4LruQqwzOpdCeiguXfgggUysEQuq
+	quC26VeKSHyfnuZ8WBmNX8+W486ht1m0QLh+fwY0o6rkehtg5yorzYgWTLKKkkR664woVlLwnhyE3
+	wnGjX6X4be+VYzYteKRyDxEfuDwMaJxGejcHbGfQKLiHnTWCH24LFboJi4mS53nlSr0mfPiI1xCoj
+	ET4cCLZTIRYshYhff0ZHwMEYz2jNr8o2bNBFuCWr2H+P2KjhTAkr4oM3LsTytJ80EQNkpppJshL6S
+	kJagfPTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0fUf-0000000AIpi-1Qz1;
-	Mon, 22 Sep 2025 12:18:09 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1v0fzW-0000000AMoE-2TPv;
+	Mon, 22 Sep 2025 12:50:02 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0fUb-0000000AIoi-1Avf
+	id 1v0fzT-0000000AMmU-2GN7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 12:18:08 +0000
-X-UUID: 293a636a97ae11f08b9f7d2eb6caa7cf-20250922
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:820a0db1-d8aa-4ccd-a29a-d5a8403565fe,IP:15,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-40,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:-25
-X-CID-INFO: VERSION:1.1.45,REQID:820a0db1-d8aa-4ccd-a29a-d5a8403565fe,IP:15,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-40,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:6493067,CLOUDID:a01a001bb6b5825328af111a4ef35bfd,BulkI
-	D:250922201752257MKIUF,BulkQuantity:0,Recheck:0,SF:10|24|38|44|64|66|78|80
-	|81|82|83|102|841|850,TC:nil,Content:-10|0|50,EDM:-3,IP:-2,URL:0,File:nil,
-	RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,D
-	KP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 1,FCT|UOG
-X-CID-BAS: 1,FCT|UOG,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FSI
-X-UUID: 293a636a97ae11f08b9f7d2eb6caa7cf-20250922
-X-User: pengcan@kylinos.cn
-Received: from localhost.localdomain [(116.128.244.171)] by mailgw.kylinos.cn
-	(envelope-from <pengcan@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1686138324; Mon, 22 Sep 2025 20:17:52 +0800
-From: Can Peng <pengcan@kylinos.cn>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm/syscalls: mark syscall invocation as
-Date: Mon, 22 Sep 2025 20:17:30 +0800
-Message-Id: <20250922121730.986761-1-pengcan@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <aM1BSZV43DB_l5OU@willie-the-truck>
-References: <aM1BSZV43DB_l5OU@willie-the-truck>
+	Mon, 22 Sep 2025 12:50:00 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58MCniHm769321;
+	Mon, 22 Sep 2025 07:49:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758545384;
+	bh=bqfgHpqX6xpJyIh8oA4nP8Mt4sI9T2ISK4uYWV4kOHA=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=jFe4iueYEbSpH28gEP0gSwgMLiGmAblpjy+gVu1TvDhxNAX0lcfD0RxTgeTrClguo
+	 TLzgyz9bCZhIJoAASS/OjMyzPMbxaSFoT6smDWfbiJuZkB1xkIUqkDStIkOkhESYrv
+	 GXILySHOWBf3yH0RM0h4DuPNRqL85Lr8N8W5sT/8=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58MCniLi305129
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 22 Sep 2025 07:49:44 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 22
+ Sep 2025 07:49:43 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 22 Sep 2025 07:49:43 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58MCng6Y2793569;
+	Mon, 22 Sep 2025 07:49:43 -0500
+Date: Mon, 22 Sep 2025 18:19:42 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+        <jingoohan1@gmail.com>, <christian.bruel@foss.st.com>,
+        <quic_wenbyao@quicinc.com>, <inochiama@gmail.com>,
+        <mayank.rana@oss.qualcomm.com>, <thippeswamy.havalige@amd.com>,
+        <shradha.t@samsung.com>, <cassel@kernel.org>, <kishon@kernel.org>,
+        <sergio.paracuellos@gmail.com>, <18255117159@163.com>,
+        <rongqianfeng@vivo.com>, <jirislaby@kernel.org>,
+        <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH v3 0/4] PCI: Keystone: Enable loadable module support
+Message-ID: <0e664051-8bc8-4640-ad00-ef041ea5dee6@ti.com>
+References: <20250922071222.2814937-1-s-vadapalli@ti.com>
+ <175852954905.18749.5091036983349477093.b4-ty@kernel.org>
+ <3sjuplupmdoxqhyz2i2p4he5vw7krqokixoy6ddoiox6p536n6@xzfcyhwjx3hv>
+ <590d183c-8971-4728-9aa3-4e02bd3d0845@ti.com>
+ <qdz2d57q3hyosmvh7xzxy2qdhpjyxkl2mh6dr4or4nj4qakpoh@gg6ihzpaynst>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <qdz2d57q3hyosmvh7xzxy2qdhpjyxkl2mh6dr4or4nj4qakpoh@gg6ihzpaynst>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_051805_688659_AC5B0BCC 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250922_054959_666542_6391D7A9 
+X-CRM114-Status: GOOD (  33.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +94,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Mon, Sep 22, 2025 at 04:47:39PM +0530, Manivannan Sadhasivam wrote:
+> On Mon, Sep 22, 2025 at 02:55:05PM +0530, Siddharth Vadapalli wrote:
+> > On Mon, Sep 22, 2025 at 02:02:43PM +0530, Manivannan Sadhasivam wrote:
+> > 
+> > Hello Mani,
+> > 
+> > > On Mon, Sep 22, 2025 at 01:56:08PM +0530, Manivannan Sadhasivam wrote:
+> > > > 
+> > > > On Mon, 22 Sep 2025 12:42:12 +0530, Siddharth Vadapalli wrote:
+> > > > > This series enables support for the 'pci-keystone.c' driver to be built
+> > > > > as a loadable module. The motivation for the series is that PCIe is not
+> > > > > a necessity for booting Linux due to which the 'pci-keystone.c' driver
+> > > > > does not need to be built-in.
+> > > > > 
+> > > > > Series is based on commit
+> > > > > dc72930fe22e Merge branch 'pci/misc'
+> > > > > of pci/next.
+> > > > > 
+> > > > > [...]
+> > > > 
+> > > > Applied, thanks!
+> > > > 
+> > > > [1/4] PCI: Export pci_get_host_bridge_device() for use by pci-keystone
+> > > >       commit: c514ba0fa8938ae09370beecb77257868c1568a7
+> > > > [2/4] PCI: dwc: Export dw_pcie_allocate_domains() and dw_pcie_ep_raise_msix_irq()
+> > > >       commit: db9ff606a5535aee94bf41682f03aba500ff3ad6
+> > > > [3/4] PCI: keystone: Exit ks_pcie_probe() for invalid mode
+> > > >       commit: 76d23c87a3e06af003ae3a08053279d06141c716
+> > > > [4/4] PCI: keystone: Add support to build as a loadable module
+> > > >       commit: e82d56b5f3844189f2b2240b1c3eaeeafc8f1fd2
+> > > > 
+> > > 
+> > > I just noticed the build dependency mentioned in the cover letter after applying
+> > > the series. This is problematic since there is no guarantee that the dependent
+> > > commit will reach mainline first. So if this series gets applied by Linus first,
+> > > then building this driver as module will break the build. We should not have the
+> > > build error at any cost.
+> > 
+> > As feedback for the future, is there a better way that I could have
+> > highlighted the build dependency? I agree that a build failure is
+> > unacceptable which is why I tried to highlight the dependency, but, it
+> > probably wasn't the best approach to point it out by mentioning it in
+> > the cover letter. Please let me know if I could make it easier for you
+> > and other Maintainers to notice such stated dependencies.
+> > 
+> 
+> Mentioning the build dependency in the cover letter is the right thing to do.
+> But somehow I failed to spot it as it was not highlighted enough (just for my
+> eyes).
+> 
+> Maybe you could mention the dependencies under a sub-section. Like,
+> 
+> Dependency
+> ==========
 
->> The invoke_syscall() function is overwhelmingly called for
->> valid system call entries. Annotate the main path with likely()
->> to help the compiler generate better branch prediction hints,
->> reducing CPU pipeline stalls due to mispredictions.
->> 
->> This is a micro-optimization targeting syscall-heavy workloads.
->
->Does it actually make a measurable difference?
+I will follow this format in the future. Thank you for the suggestion.
 
-This change implements a micro-optimization. Benchmark results
-from the Kunpeng 920 machine are as follows:
-
-before:
-- lat_syscall result 
-write call      0.2332  0.2337  0.2341
-read call       0.2501  0.2493  0.2506
-
-after:
-- lat_syscall result
-write call      0.2301  0.2316  0.2307
-read call       0.2492  0.2498  0.2491
-
-
-Best regards,
-Can Peng
+Regards,
+Siddharth.
 
