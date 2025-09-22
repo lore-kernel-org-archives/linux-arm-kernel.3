@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B191CAC592
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E6ECAC5A7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkGEIertZRf37oRBzGN0crNMbTEz3GQtag0/lMWFQL8=; b=Wdk71r/OcDUigTlBKhEcWAvFuU
-	gUeraDMmdGiOGk1dEb8MiPpE52oR/TBY7qTOEdYdwoiQ3GfNXz/qYl1Q9uPzRyqC4XwypmPTR70/Q
-	xBeQjwBKgYGLxcr9VHsOUi+ZSFrI8Qs1uj1h5ZVWII5AwkNKzbuKhJbBxwggobpC3/TFsc55XmE2i
-	f41+4QP4aYsl7HjCo9dnXP9pGLeA5ZoOWP69S4KA/INdL1zq7BthnQT5NttIIAlM5LNbS1YL0mi5Q
-	F5pX0ugGltkJFBZfRWMrzP5QY1zHigh2NU73nKQ3xIrcx4fSJAg/0plsKHN24k0di1P6ARa4Ld4je
-	wQbxDQiw==;
+	bh=Pi816NSxpSsHUZbkMSdLHoJH9uRJkzOEaGymZ89+4Gg=; b=u3kOYhFgxiW2vg91XF75txd/TT
+	KxhAyrchdsFV4C2TRVI69T4G5MaLbETEW8eo/Hs/jtMzKbj852frJq8iFCgaWrvW6iMOm/owfLiV+
+	2E2PhCN5p257TWrfXgGIeGQ8TPx5z9Z664FEhmCN0BTlbpViJ/EnN/TvJ3z9Nq7UECseNLB+LQ4AY
+	2WqNWatPZ3bhiX8kvtrUuAjDpjKdHu8TExhhM8JljF+DPDFP4ZbWhVL47ouyUR4Enuri0YT7NyxKG
+	FaKfX0hZ1a9+JUxd3kpVPtAfNKa93Vn/T8og0/vgQzmUlJj0VbKAXshElzp4Pt7EhoQ3sZJHj7LTh
+	Ns6c1mfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bwe-00000009jtw-3zss;
+	id 1v0bwe-00000009jtc-2i8p;
 	Mon, 22 Sep 2025 08:30:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bvK-00000009ig0-1cSz
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0bv9-00000009iLd-1U0v
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:29:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2641B150C;
-	Mon, 22 Sep 2025 01:29:15 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA60A3F66E;
-	Mon, 22 Sep 2025 01:29:22 -0700 (PDT)
-Date: Mon, 22 Sep 2025 09:29:20 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Carl Worth <carl@os.amperecomputing.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 1/3] coresight: tmc: add the handle of the event to
- the path
-Message-ID: <20250922082920.GB516577@e132581.arm.com>
-References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
- <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
+	Mon, 22 Sep 2025 08:29:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cVbkP0p5tzddGH;
+	Mon, 22 Sep 2025 16:24:29 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id ECF3F180486;
+	Mon, 22 Sep 2025 16:29:06 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 22 Sep 2025 16:29:05 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <arnd@arndb.de>
+CC: <Liam.Howlett@oracle.com>, <akpm@linux-foundation.org>, <ardb@kernel.org>,
+	<dave@vasilevsky.ca>, <david@redhat.com>, <ebiggers@kernel.org>,
+	<kees@kernel.org>, <liaohua4@huawei.com>, <lilinjie8@huawei.com>,
+	<linmiaohe@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+	<linux@armlinux.org.uk>, <lorenzo.stoakes@oracle.com>, <mhocko@suse.com>,
+	<nao.horiguchi@gmail.com>, <nathan@kernel.org>, <peterz@infradead.org>,
+	<rmk+kernel@armlinux.org.uk>, <rostedt@goodmis.org>, <rppt@kernel.org>,
+	<surenb@google.com>, <vbabka@suse.cz>, <will@kernel.org>,
+	<xieyuanbin1@huawei.com>
+Subject: Re: [RFC PATCH 1/2] ARM: mm: support memory-failure
+Date: Mon, 22 Sep 2025 16:28:43 +0800
+Message-ID: <20250922082843.26722-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <727caa4f-5be5-4b59-a10e-8dc9bbc384bf@app.fastmail.com>
+References: <727caa4f-5be5-4b59-a10e-8dc9bbc384bf@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.108.232]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_012926_548773_37E80D89 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250922_012915_653834_167129BC 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,82 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 03:31:39PM +0800, Jie Gan wrote:
-> From: Carl Worth <carl@os.amperecomputing.com>
+> It would be helpful to be more specific about what you
+> want to do with this.
 > 
-> The handle is essential for retrieving the AUX_EVENT of each CPU and is
-> required in perf mode. It has been added to the coresight_path so that
-> dependent devices can access it from the path when needed.
-> 
-> Fixes: 080ee83cc361 ("Coresight: Change functions to accept the coresight_path")
-> Signed-off-by: Carl Worth <carl@os.amperecomputing.com>
-> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm-perf.c |  1 +
->  drivers/hwtracing/coresight/coresight-tmc-etr.c  |  3 ++-
->  include/linux/coresight.h                        | 10 ++++++----
->  3 files changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index f677c08233ba..5c256af6e54a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -520,6 +520,7 @@ static void etm_event_start(struct perf_event *event, int flags)
->  		goto out;
->  
->  	path = etm_event_cpu_path(event_data, cpu);
-> +	path->handle = handle;
->  	/* We need a sink, no need to continue without one */
->  	sink = coresight_get_sink(path);
->  	if (WARN_ON_ONCE(!sink))
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index b07fcdb3fe1a..1040f73f0537 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1327,7 +1327,8 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->  struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->  				   enum cs_mode mode, void *data)
->  {
-> -	struct perf_output_handle *handle = data;
-> +	struct coresight_path *path = data;
-> +	struct perf_output_handle *handle = path->handle;
->  	struct etr_perf_buffer *etr_perf;
->  
->  	switch (mode) {
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 6de59ce8ef8c..4591121ae1d4 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -332,12 +332,14 @@ static struct coresight_dev_list (var) = {				\
->  
->  /**
->   * struct coresight_path - data needed by enable/disable path
-> - * @path_list:              path from source to sink.
-> - * @trace_id:          trace_id of the whole path.
-> + * @path_list:			path from source to sink.
-> + * @trace_id:			trace_id of the whole path.
-> + * struct perf_output_handle:	handle of the aux_event.
+> Are you working on a driver that would actually make use of
+> the exported interface?
 
-s/struct perf_output_handle/@handle/
+Thanks for your reply.
 
-Otherwise, LGTM:
+Yes, In fact, we have developed a hardware component to detect DDR bit
+transitions (software does not sense the detection behavior). Once a bit
+transition is detected, an interrupt is reported to the CPU.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+On the software side, we have developed a driver module ko to register
+the interrupt callback to perform soft page offline to the corresponding
+physical pages.
 
->   */
->  struct coresight_path {
-> -	struct list_head	path_list;
-> -	u8			trace_id;
-> +	struct list_head		path_list;
-> +	u8				trace_id;
-> +	struct perf_output_handle	*handle;
->  };
->  
->  enum cs_mode {
-> 
-> -- 
-> 2.34.1
-> 
-> 
+In fact, we will export `soft_offline_page` for ko to use (we can ensure
+that it is not called in the interrupt context), but I have looked at the
+code and found that `memory_failure_queue` and `memory_failure` can also
+be used, which are already exported.
+
+> I see only a very small number of
+> drivers that call memory_failure(), and none of them are
+> usable on Arm.
+
+I think that not all drivers are in the open source kernel code.
+As far as I know, there should be similar third-party drivers in other
+architectures that use memory-failure functions, like x86 or arm64.
+I am not a specialist in drivers, so if I have made any mistakes,
+please correct me.
+
+Xie Yuanbin
 
