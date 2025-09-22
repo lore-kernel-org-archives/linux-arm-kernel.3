@@ -4,102 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF538CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED58CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a07Jje9wgJS411V9TAYdRp6D/A+/X9TQdr2317tN+Jw=; b=qBwuktRyuBvyEjHa0Kn7by7is3
-	/zZ5uNrNXD9NYDeh6uyg9HTlrcuRc6RJLUrpvDQw59TCRXbwt59pH6PP99rUAQx3RCfkEPaaOWdnG
-	GnAU9oYYNTc3Xm1PlZDb0eS5F1nvrQsWi2S9I52UC8YhERpgnWrBVM4eY73uuHitRBMqSsv7JtMOj
-	rWuiEdZaEgR0K5mWUETAhHurHkkkJF1BILpnrlWJLvzngZFwFT2AOtgCzdiSDT5oZaWXI02rWCjD9
-	wR+8R4QyBXhh7GCQlVxulox3pQ8fvASIh46HNSVsbmfb4/0Fbl9lveDlVuOrWjjrmX7P17Tb1DyPX
-	qm46ePMg==;
+	bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=; b=pjSTf1tGDX4LhrnchnetlmloMA
+	Nfhk85Tr1rzy+ajaoJw21xnfwP9ae05z0+WoY2oCT13TUQIZtEVcTamO6JO13bwM7rGqNByRU4iak
+	Iyk7ao+fOsnDIB+tTyW6KHLAFWAX8CogtPOtTTDmx4aeLIcdOrrKNm1GJEWOhxPOwxY/b/ma/QILn
+	cxHyyqtCuvmeBbFEUcQliBzYnlX6uHUrwjslSCsAklGB9wVv7De3ig/ER/8yqK2fI/sq+GLpCsdeC
+	A1h82MrA5tVgEKvB3zjiREDRRufMMDDzmkMmX8eD3zffPQ2fUW573wvSSXFMaI5TV6NSph+q1IF1H
+	/b1FKKmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eGr-0000000A8Zd-29cV;
-	Mon, 22 Sep 2025 10:59:49 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1v0eLD-0000000A93h-3tWU;
+	Mon, 22 Sep 2025 11:04:19 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eGo-0000000A8Yq-2waB
+	id 1v0eLC-0000000A93I-1CiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 10:59:48 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58MAxEfY1220947;
-	Mon, 22 Sep 2025 05:59:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758538754;
-	bh=a07Jje9wgJS411V9TAYdRp6D/A+/X9TQdr2317tN+Jw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=F46rgG33jswHneyWPfRr/B1Vx1kkSi1ndlwOdFNTX32Yo1+g/s5Ajpx5MLqsODlr0
-	 xODnXVWbWqk1mH6HqDUaRJIsdtR7jIhu4CjeMGjgK5kjcwRLQUhBGbZ1pyHqTY/lMa
-	 5SnfW3adXlc+VhXuLyozljYOsgJuLtdkllo6Qyls=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58MAxE2B251090
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 22 Sep 2025 05:59:14 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 22
- Sep 2025 05:59:13 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 22 Sep 2025 05:59:13 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58MAx5q52656697;
-	Mon, 22 Sep 2025 05:59:06 -0500
-Message-ID: <4f6af874-ca9c-48d5-a812-9fd42226ac5c@ti.com>
-Date: Mon, 22 Sep 2025 16:29:05 +0530
+	Mon, 22 Sep 2025 11:04:19 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-746d3b0f7e5so4006650a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 04:04:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758539057; x=1759143857; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=;
+        b=PpjysG4zVknGMuEylYX+y8fvsQuJOFgoPGzi9tn5PEPA2IbfgbRE8ir4GEIgqTb+Yg
+         KEwmVWqlS1j3Zd3yrEBufN5pWw2BLBieooAlSY756Q16iEtHJTP0Nlvx+IPAuTRddiXN
+         eXYkCbSBSoFvOTpiMfYgL1naYyF1Upe/61EeIkTTvAOMZ7Pcng8ZU+qw3ucnNvVlsIaR
+         TzkeM09eVoMvYzMFzZvDoC+Jegq+FXYj1rLgiIDXjowTJI9wP5MhwvO8dANWxNDkWj6Q
+         rp59GKwmqFJJlAnKQQChPkNcuMWN3zU6nyN9UsABKfySEXmnArSYWBhkLaXICHz6pWBQ
+         Dibg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758539057; x=1759143857;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4XGdu2beYVX5j16G/50OKngoOcnsJZ8baPn43qnH8Vk=;
+        b=P5TyJdNsBIn+eMNcI6JM6ToGjCLrC6X3KZ8bF+54ST4Wv0g2bLePdWP/NMOCOU4x+k
+         DkMbgIUA+z0aKD/58fU33/dvDfvLNBDChZt0CvxIPDZIpOFkN7iddllQry+8BfTpkKpz
+         CMfc/lVkco0X+6j/H654xoCgAngdQ8s1s4ky1HvbD+uS5+VGbRSivwsNSbkHYqUI9CTG
+         l5+6o+9ID0Foz0VcmRwNcOLs2mx9n/eL/emlLHVoSV/QRtdunrbSlQeo2LBiZQySDCsS
+         THAakQySNMTcT3wezEPJZ13WII7y++4vLyk/8w/2kUNpC6EBIIccnBpAZ4qSY17VDkke
+         Vc+g==
+X-Forwarded-Encrypted: i=1; AJvYcCWwqqeZIuiPMsw4OMbmc0jq+DOd51pi3rTN8LM2g3UjRGGnF5yUPrveyjgZ3Z7dyqAAlPeFM0gfAphr3Z+5VWUZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjfhZ+Es7K4TOvlHdxNQ5uJygVSZHQ4VH4/UZLq7ER//laQ983
+	yC1PZzAG8pMvNz0PKQrgmn8kU1tY4+c4oE0tlft/8ig5hFzf+o28ddp5CNTiwXYuNlEsd1IF/pf
+	QJ4eHQeyNfxwjvvxG82hP379e/Wrqkhn9K92onkQf0A==
+X-Gm-Gg: ASbGncvJrUlJNN6NGPqiV6H4UA09QaQfZs+belc7a/mxL1u4wPni30nt3kU/1BZ1YV2
+	L56QdZ+c9FOotbDFIrGKZ0haJ1WqQM2XiMNnOHHW8h0WxF7eFMaLZrz0E03C11lhps2Vxng0FGJ
+	WXsiZVVoRdo/5U/+A7qyDQpk5/OWv25p2XkiDglZum3WEzamOAY5SDp+CgaPwZ+C4QFtpwLuuoF
+	HVytx4i/JrnLw==
+X-Google-Smtp-Source: AGHT+IEvS4cemYKzvf8/W3Ni0tXFdK49y2b13V4Ek7MsLn0SEOghPBIISAL2RiOAvFwYHiWJSM5vrjR4tjFOI/lJfqE=
+X-Received: by 2002:a05:6808:2106:b0:437:b63f:5b06 with SMTP id
+ 5614622812f47-43d6c2aeb61mr5322105b6e.34.1758539057077; Mon, 22 Sep 2025
+ 04:04:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 0/7] Add RPMSG Ethernet Driver
-To: Andrew Davis <afd@ti.com>, "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Jonathan Corbet
-	<corbet@lwn.net>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        Mengyuan Lou
-	<mengyuanlou@net-swift.com>,
-        Lei Wei <quic_leiwei@quicinc.com>, Xin Guo
-	<guoxin09@huawei.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Fan Gong
-	<gongfan1@huawei.com>,
-        Lorenzo Bianconi <lorenzo@kernel.org>,
-        Parthiban
- Veerasooran <Parthiban.Veerasooran@microchip.com>,
-        Lukas Bulwahn
-	<lukas.bulwahn@redhat.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250911113612.2598643-1-danishanwar@ti.com>
- <8a20160e-1528-4d0e-9347-0561fc3426b4@ti.com>
- <7cd06f8f-bd74-429d-bf2c-71858178950a@ti.com>
- <65a98655-68a1-4bf9-b139-c4172f48dad4@ti.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <65a98655-68a1-4bf9-b139-c4172f48dad4@ti.com>
+References: <20250919085918.5442-1-cuiyunhui@bytedance.com>
+ <20250919085918.5442-2-cuiyunhui@bytedance.com> <20250919-colossal-splendid-bettong-e5a0bd@sudeepholla>
+ <CAEEQ3wkRoX5Y5xQu22kVCFxEy8fgcUxKHEm=9Bpg7g-Np8b-SA@mail.gmail.com> <20250922-buffalo-of-hypothetical-downpour-d2a47c@sudeepholla>
+In-Reply-To: <20250922-buffalo-of-hypothetical-downpour-d2a47c@sudeepholla>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 22 Sep 2025 19:04:05 +0800
+X-Gm-Features: AS18NWCjxTnXNffNhsVhAB7VVz0ET_vSy-py67u7Gzutp1wKTHn_hOJyONTf-KI
+Message-ID: <CAEEQ3w=4aKS=p=+q4iC42Va+dMVm017R0Surxff+4R+4RjkgAg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 1/1] arch_topology: move
+ parse_acpi_topology() to common code
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, gregkh@linuxfoundation.org, 
+	rafael@kernel.org, dakr@kernel.org, beata.michalska@arm.com, 
+	ptsm@linux.microsoft.com, sumitg@nvidia.com, yangyicong@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_035946_911328_9669DBE7 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20250922_040418_334458_E956E771 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,91 +100,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew
+Hi Sudeep,
 
-On 17/09/25 10:07 pm, Andrew Davis wrote:
-> On 9/17/25 6:44 AM, MD Danish Anwar wrote:
->> Hi Andrew,
->>
->> On 11/09/25 9:34 pm, Andrew Davis wrote:
->>> On 9/11/25 6:36 AM, MD Danish Anwar wrote:
->>>> This patch series introduces the RPMSG Ethernet driver, which
->>>> provides a
->>>> virtual Ethernet interface for communication between a host
->>>> processor and
->>>> a remote processor using the RPMSG framework. The driver enables
->>>> Ethernet-like packet transmission and reception over shared memory,
->>>> facilitating inter-core communication in systems with heterogeneous
->>>> processors.
->>>>
->>>
->>> This is neat and all but I have to ask: why? What does this provide
->>> that couldn't be done with normal RPMSG messages? Or from a userspace
->>> TAP/TUN driver on top of RPMSG?
->>>
->>
->> This is different from RPMSG because here I am not using RPMSG to do the
->> actual TX / RX. RPMSG is only used to share information (tx / rx
->> offsets, buffer size, etc) between driver and firmware. The TX / RX
->> happens in the shared memory. This implementation uses a shared memory
-> 
-> This is how RPMSG is supposed to be used, it is meant for small messages
-> and signaling, bulk data should be send out-of-band. We have examples
-> specifically showing how this should be done when using RPMSG[0], and our
-> RPMSG backed frameworks do the same (like DSP audio[1] and OpenVX[2]).
-> 
->> circular buffer with head/tail pointers for efficient data passing
->> without copies between cores.
->>
->>> This also feels like some odd layering, as RPMSG sits on virtio, and
->>> we have virtio-net, couldn't we have a firmware just expose that (or
->>> would the firmware be vhost-net..)?
->>>
->>
->> PMSG sits on virtio, and we do have virtio-net but I am not trying to do
->> ethernet communication over RPMSG. RPMSG is only used to exchange
->> information between cores regarding the shared memory where the actual
->> ethernet communication happens.
->>
-> 
-> Again nothing new here, virtio-net does control plane work though a
-> message channel but the data plane is done using fast shared memory
-> vqueues with vhost-net[3]. Using RPMSG would just be an extra unneeded
-> middle layer and cause you to re-implement what is already done with
-> virtio-net/vhost-net.
-> 
+On Mon, Sep 22, 2025 at 5:01=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com>=
+ wrote:
+>
+> On Mon, Sep 22, 2025 at 10:18:57AM +0800, yunhui cui wrote:
+> > Hi Sudeep,
+> >
+> > On Fri, Sep 19, 2025 at 10:05=E2=80=AFPM Sudeep Holla <sudeep.holla@arm=
+.com> wrote:
+>
+> [...]
+>
+> > >
+> > > Just thinking if it makes sense keep acpi_cpu_is_threaded generic wit=
+hout
+> > > the need for weak definition.
+> > >
+> > > Additional note: not sure why you haven't moved this under CONFIG_ARM=
+64/RISCV as
+> > > done with other code.
+> > >
+> > > bool __init acpi_cpu_is_threaded(int cpu)
+> > > {
+> > >         int is_threaded =3D acpi_pptt_cpu_is_thread(cpu);
+> > >
+> > >         /*
+> > >          * if the PPTT doesn't have thread information, check for arc=
+hitecture
+> > >          * specific fallback if available
+> > >          */
+> > >         if (is_threaded < 0)
+> > >                 is_threaded =3D arch_cpu_is_threaded();
+> > >
+> > >         return !!is_threaded;
+> > > }
+> > >
+> > > Then you can just have the define in
+> > >
+> > > #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK=
+)
+> > >
+> > > in arch/arm64/include/asm/topology.h
+> > >
+> > > and
+> > >
+> > > +#ifndef arch_cpu_is_threaded
+> > > +#define arch_cpu_is_threaded           (0)
+> > > +#endif
+> > >
+> > > in include/linux/arch_topology.h
+> > >
+> > > Thoughts ?
+> >
+> > If placed in include/linux/arch_topology.h, there is a possibility
+> > that "arch_cpu_is_threaded" will be redefined.
+> >
+>
+> Why is that a problem ? We want arch to override the default definition
+> if and when required.
 
-virtio-net provides a solution for virtual ethernet interface in a
-virtualized environment. Our use-case here is traffic tunneling between
-heterogeneous processors in a non virtualized environment such as TI's
-AM64x that has Cortex A53 and Cortex R5 where Linux runs on A53 and a
-flavour of RTOS on R5(FreeRTOS) and the ethernet controller is managed
-by R5 and needs to pass some low priority data to A53. The data plane is
-over the shared memory while the control plane is over RPMsg end point
-channel.
+Because include/linux/topology.h first includes linux/arch_topology.h,
+and then includes asm/topology.h, a warning will be generated during
+compilation:
 
-We had aligned with Andrew L [1] and the ask was to create a generic
-Linux Ethernet driver that can be used for heterogeneous system. Similar
-to rpmsg_tty.c. It was suggested to create a new rpmsg_eth.c driver that
-can be used for this purpose.
+In file included from ./include/linux/topology.h:37,
+                 from ./include/linux/gfp.h:8,
+                 from ./include/linux/xarray.h:16,
+                 from ./include/linux/list_lru.h:14,
+                 from ./include/linux/fs.h:14,
+                 from kernel/events/core.c:11:
+./arch/arm64/include/asm/topology.h:39: warning:
+"arch_cpu_is_threaded" redefined
+   39 | #define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMA=
+SK)
+      |
+In file included from ./include/linux/topology.h:30:
+./include/linux/arch_topology.h:94: note: this is the location of the
+previous definition
+   94 | #define arch_cpu_is_threaded()  (0)
 
-Here I have implemented what was suggested in [1]
+Unless #undef arch_cpu_is_threaded is used in arch/arm64/include/asm/topolo=
+gy.h,
 
-[1]
-https://lore.kernel.org/all/8f5d2448-bfd7-48a5-be12-fb16cdc4de79@lunn.ch/
+So it's better to place
+#ifndef arch_cpu_is_threaded
+#define arch_cpu_is_threaded (0)
+#endif
+in include/asm-generic/topology.h.
 
-> Andrew
-> 
-> [0] https://git.ti.com/cgit/rpmsg/rpmsg_char_zerocopy
-> [1] https://github.com/TexasInstruments/rpmsg-dma
-> [2] https://github.com/TexasInstruments/tiovx
-> [3] https://www.redhat.com/en/blog/deep-dive-virtio-networking-and-
-> vhost-net
-> 
+>
+> --
+> Regards,
+> Sudeep
 
-
--- 
-Thanks and Regards,
-Danish
-
+Thanks,
+Yunhui
 
