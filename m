@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073EBCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4EACAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 11:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FR4N1wOnD9WLDkhsK0FjmQIDmMcNU19g/8FP73AZVSE=; b=4gAsiQKiOQ1s8ZTqA1RD6FB/Ap
-	qmUTc+Yr9yuE2ZqAkZdpI8p0GqnPnYkylRWUUYExYFnq42diB5p8tU2osYXfoCOvClJlNxsHfcIKY
-	qtrfCRiLe1Q4B9iTqR0GJgdv9lRfFpUDFZa9T26ChgjWZ1Gq8qia68w1sOHSdN44lIR4I1Dfye++f
-	NmYsHb2jrDgUXCR39YjXkWl4Pl4MgdAET+LAMQyteuTjRGaXZHucttRzsNRom56k/i0glgmprwqGt
-	MiGoWk246RL2gI9rtPTiG6MN9/GEMTMMt9UEpEDtcntfAOCAKRplE+M8L5edHjIDtAmW4G65wc/qH
-	ai0socbQ==;
+	bh=K96Me7ArjTeRjioGVM8Oig3fPbWWwM8drM9n9PLH7ow=; b=Um81kvsihcoXCIM/UIY7cXPd6D
+	E4M93eHiauGeWQ0Tu5iiKhZQ2JxvF3D1Lli+xiO1iSkFlff1wI5/MUhu/z8G7qwAyqZVVR06AVNgS
+	34W1fWvaXa4jIZvoYYmi3zqcgXvjP8odMK0CyYtDcc1+LHMqcgef8SdSl9SLH5NZj5oWQNaIKs5vN
+	6M5BE6iQoTz7jruwtF2UNmBrN3jAvkRrDfV5xvCNCwDv93DA59R7gjSfane7aQBDb8+xAb9knsUpp
+	+irqujKjrjQLC7kXmnfjTweCiDJ5rR2U3gNZyUllURfCMVFjzjsNU2q9k/BRcSRVp8zTfkCcwPwiI
+	Db794WSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eYL-0000000ABFD-2mUs;
-	Mon, 22 Sep 2025 11:17:53 +0000
+	id 1v0ege-0000000AC1p-3bCP;
+	Mon, 22 Sep 2025 11:26:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0eYI-0000000ABEo-1iqs
+	id 1v0egc-0000000AC1U-20qC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 11:17:51 +0000
+	Mon, 22 Sep 2025 11:26:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EC9DC43C7F;
-	Mon, 22 Sep 2025 11:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E89C4CEF7;
-	Mon, 22 Sep 2025 11:17:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 24B2E44040;
+	Mon, 22 Sep 2025 11:26:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3BAC4CEF0;
+	Mon, 22 Sep 2025 11:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758539869;
-	bh=P/WkZtU1feRYKGYIu/69vRBdYK8dAJ5LkCF7pU4LxlM=;
+	s=k20201202; t=1758540386;
+	bh=9JQedTHdHctfJGT11PtE1ZER88ziPva3c5zByj/E2cA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AKJGz7DAwj69nbNV0Rne3G36MBMl3WicbxYo6d7/PZP9HsdCs9jzrSchd9/jHIKqh
-	 eC2bZZEHCsGN4N4ZjON/bMrnCwOhqa0Os1N7KJWuMjSw+XaigO4bNnPP29mIoyGd3+
-	 7F3hGlAzdzUOX0U1gYbhMMaEGa0tDc/aQuhAs7hz7pJe2DJhVHfiseVb88nyqnfL3J
-	 oAjYyS3B2+9/8BOmeNggh52hqwFR1obtXc3pkg/gGB4Zc0JcV2tc1rgT96yL5RiGN3
-	 Tekq60Op8YyvRVW4fusY5YxcIylwCl8inJOMdsraDdJTZflRMrJi11D9bDCTifMqOI
-	 hPpMTm27c61NA==
-Date: Mon, 22 Sep 2025 16:47:39 +0530
+	b=a186c2ozsEjuVX0cAaANqNZGa3frykYXft/EdxosHYevKrOTCM+d0s5O0vQrrN5K7
+	 MzMCxNaChm7DVirKgDOBYxulGsvrsYyz8yGMb74fjqEiwEkUs3EKUAAanoF9D3fnB4
+	 D462ka0eD9dzNCiolfkCDGnfv9ML12SifwOOE+LyznuqRhm1GTz4p9hnjG5/vnP+T7
+	 QeIvFQGs45VhhsUqsEevJw1JawgDX5zDwrhlWuDkb/SacVW25gl4qaW3+ZOdVUSt1K
+	 35wOSbgLDicbQ/bryJMAlVp7K3kVZinNRE9fNZ8DbNnHDA5bKm063NQH5dNKz1/wkp
+	 8hmar9DpNTAMQ==
+Date: Mon, 22 Sep 2025 16:56:17 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
-	bhelgaas@google.com, jingoohan1@gmail.com, christian.bruel@foss.st.com, 
-	quic_wenbyao@quicinc.com, inochiama@gmail.com, mayank.rana@oss.qualcomm.com, 
-	thippeswamy.havalige@amd.com, shradha.t@samsung.com, cassel@kernel.org, kishon@kernel.org, 
-	sergio.paracuellos@gmail.com, 18255117159@163.com, rongqianfeng@vivo.com, jirislaby@kernel.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH v3 0/4] PCI: Keystone: Enable loadable module support
-Message-ID: <qdz2d57q3hyosmvh7xzxy2qdhpjyxkl2mh6dr4or4nj4qakpoh@gg6ihzpaynst>
-References: <20250922071222.2814937-1-s-vadapalli@ti.com>
- <175852954905.18749.5091036983349477093.b4-ty@kernel.org>
- <3sjuplupmdoxqhyz2i2p4he5vw7krqokixoy6ddoiox6p536n6@xzfcyhwjx3hv>
- <590d183c-8971-4728-9aa3-4e02bd3d0845@ti.com>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>, 
+	"jingoohan1@gmail.com" <jingoohan1@gmail.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/6] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM
+ is existing in suspend
+Message-ID: <agtozwcmgwj7kfmzkrglqcba5vaqmd2hv3matzmksbckkrrno3@zdteyblgvpyr>
+References: <20250902080151.3748965-1-hongxing.zhu@nxp.com>
+ <20250902080151.3748965-3-hongxing.zhu@nxp.com>
+ <p4hqjnhpih2uy5hzf7llrd3ah7ov6sijkuqjecpvv5j2iqrsji@kxj5xwb7a5p4>
+ <AS8PR04MB88335CEA526C3B5E957EF0C88C12A@AS8PR04MB8833.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <590d183c-8971-4728-9aa3-4e02bd3d0845@ti.com>
+In-Reply-To: <AS8PR04MB88335CEA526C3B5E957EF0C88C12A@AS8PR04MB8833.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_041750_491278_04A6B406 
-X-CRM114-Status: GOOD (  32.01  )
+X-CRM114-CacheID: sfid-20250922_042626_563846_045198E2 
+X-CRM114-Status: GOOD (  41.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,67 +83,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 02:55:05PM +0530, Siddharth Vadapalli wrote:
-> On Mon, Sep 22, 2025 at 02:02:43PM +0530, Manivannan Sadhasivam wrote:
-> 
-> Hello Mani,
-> 
-> > On Mon, Sep 22, 2025 at 01:56:08PM +0530, Manivannan Sadhasivam wrote:
-> > > 
-> > > On Mon, 22 Sep 2025 12:42:12 +0530, Siddharth Vadapalli wrote:
-> > > > This series enables support for the 'pci-keystone.c' driver to be built
-> > > > as a loadable module. The motivation for the series is that PCIe is not
-> > > > a necessity for booting Linux due to which the 'pci-keystone.c' driver
-> > > > does not need to be built-in.
-> > > > 
-> > > > Series is based on commit
-> > > > dc72930fe22e Merge branch 'pci/misc'
-> > > > of pci/next.
-> > > > 
-> > > > [...]
-> > > 
-> > > Applied, thanks!
-> > > 
-> > > [1/4] PCI: Export pci_get_host_bridge_device() for use by pci-keystone
-> > >       commit: c514ba0fa8938ae09370beecb77257868c1568a7
-> > > [2/4] PCI: dwc: Export dw_pcie_allocate_domains() and dw_pcie_ep_raise_msix_irq()
-> > >       commit: db9ff606a5535aee94bf41682f03aba500ff3ad6
-> > > [3/4] PCI: keystone: Exit ks_pcie_probe() for invalid mode
-> > >       commit: 76d23c87a3e06af003ae3a08053279d06141c716
-> > > [4/4] PCI: keystone: Add support to build as a loadable module
-> > >       commit: e82d56b5f3844189f2b2240b1c3eaeeafc8f1fd2
-> > > 
+On Mon, Sep 22, 2025 at 09:18:20AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Manivannan Sadhasivam <mani@kernel.org>
+> > Sent: 2025年9月20日 14:29
+> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > Cc: Frank Li <frank.li@nxp.com>; jingoohan1@gmail.com;
+> > l.stach@pengutronix.de; lpieralisi@kernel.org; kwilczynski@kernel.org;
+> > robh@kernel.org; bhelgaas@google.com; shawnguo@kernel.org;
+> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> > linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > imx@lists.linux.dev; linux-kernel@vger.kernel.org
+> > Subject: Re: [PATCH v5 2/6] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM
+> > is existing in suspend
 > > 
-> > I just noticed the build dependency mentioned in the cover letter after applying
-> > the series. This is problematic since there is no guarantee that the dependent
-> > commit will reach mainline first. So if this series gets applied by Linus first,
-> > then building this driver as module will break the build. We should not have the
-> > build error at any cost.
+> > On Tue, Sep 02, 2025 at 04:01:47PM +0800, Richard Zhu wrote:
+> > > Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
+> > > Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+> > >
+> > > It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
+> > > PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3
+> > > after a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1
+> > > PME Synchronization.
+> > >
+> > > The LTSSM states are inaccessible on i.MX6QP and i.MX7D after the
+> > > PME_Turn_Off is sent out.
+> > >
+> > 
+> > This statement is not accurate. A single register read cannot cause hang AFAIK.
+> > I'm guessing that the link down (LDn) happens after initiating PME_Turn_Off
+> > and the access to CSR register (LTSSM) causes hang.
+> > 
+> > Is my understanding correct? 
+> The access of LTSSM is not relied on the link is up or not. For example,
+>  the LTSSM stats can be accessed when the link is in the training
+>  and not up yet.
 > 
-> As feedback for the future, is there a better way that I could have
-> highlighted the build dependency? I agree that a build failure is
-> unacceptable which is why I tried to highlight the dependency, but, it
-> probably wasn't the best approach to point it out by mentioning it in
-> the cover letter. Please let me know if I could make it easier for you
-> and other Maintainers to notice such stated dependencies.
+> Per to the discussion with Bjorn, the most possible reason is that the
+>  LTSSM isn't powered anymore on i.MX6/7 when PME_Turn_Off is kicked off.
+> https://lore.kernel.org/imx/20250819192838.GA526045@bhelgaas/
 > 
 
-Mentioning the build dependency in the cover letter is the right thing to do.
-But somehow I failed to spot it as it was not highlighted enough (just for my
-eyes).
+I'm not sure though. Could you try to read any DBI register at this point and
+see if the hang is observed or not?
 
-Maybe you could mention the dependencies under a sub-section. Like,
-
-Dependency
-==========
-
-Some people also mark the patches as DNM (Do Not Merge), but that's for patches
-not intended to be merged as is. Not for this series though.
-
-Anyhow, I take the blame of not going through the cover letter properly, but you
-did the right thing.
+LTSSM states are expressed through the DBI registers. So as per my
+understanding, unless the whole DBI register space is inaccessible, LTSSM
+registers should be accessible.
 
 - Mani
+
+> Best Regards
+> Richard Zhu
+> > 
+> > > To support this case, don't poll L2 state and apply a simple delay of
+> > > PCIE_PME_TO_L2_TIMEOUT_US(10ms) if the QUIRK_NOL2POLL_IN_PM flag
+> > is
+> > > set in suspend.
+> > >
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > 
+> > We need Fixes tag also and you do need to set the flag in relevant glue driver
+> > in this patch itself so that it can cleanly be backported.
+> > 
+> > - Mani
+> > 
+> > > ---
+> > >  .../pci/controller/dwc/pcie-designware-host.c | 34
+> > > +++++++++++++------  drivers/pci/controller/dwc/pcie-designware.h  |
+> > > 4 +++
+> > >  2 files changed, 28 insertions(+), 10 deletions(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > index 9d46d1f0334b..57a1ba08c427 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > @@ -1016,15 +1016,29 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+> > >  			return ret;
+> > >  	}
+> > >
+> > > -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> > > -				val == DW_PCIE_LTSSM_L2_IDLE ||
+> > > -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> > > -				PCIE_PME_TO_L2_TIMEOUT_US/10,
+> > > -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> > > -	if (ret) {
+> > > -		/* Only log message when LTSSM isn't in DETECT or POLL */
+> > > -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n",
+> > val);
+> > > -		return ret;
+> > > +	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> > > +		/*
+> > > +		 * Add the QUIRK_NOL2_POLL_IN_PM case to avoid the read hang,
+> > > +		 * when LTSSM is not powered in L2/L3/LDn properly.
+> > > +		 *
+> > > +		 * Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management
+> > > +		 * State Flow Diagram. Both L0 and L2/L3 Ready can be
+> > > +		 * transferred to LDn directly. On the LTSSM states poll broken
+> > > +		 * platforms, add a max 10ms delay refer to PCIe r6.0,
+> > > +		 * sec 5.3.3.2.1 PME Synchronization.
+> > > +		 */
+> > > +		mdelay(PCIE_PME_TO_L2_TIMEOUT_US/1000);
+> > > +	} else {
+> > > +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
+> > > +					val == DW_PCIE_LTSSM_L2_IDLE ||
+> > > +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
+> > > +					PCIE_PME_TO_L2_TIMEOUT_US/10,
+> > > +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
+> > > +		if (ret) {
+> > > +			/* Only log message when LTSSM isn't in DETECT or POLL */
+> > > +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n",
+> > val);
+> > > +			return ret;
+> > > +		}
+> > >  	}
+> > >
+> > >  	/*
+> > > @@ -1040,7 +1054,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+> > >
+> > >  	pci->suspended = true;
+> > >
+> > > -	return ret;
+> > > +	return 0;
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(dw_pcie_suspend_noirq);
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pcie-designware.h
+> > > b/drivers/pci/controller/dwc/pcie-designware.h
+> > > index 00f52d472dcd..4e5bf6cb6ce8 100644
+> > > --- a/drivers/pci/controller/dwc/pcie-designware.h
+> > > +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> > > @@ -295,6 +295,9 @@
+> > >  /* Default eDMA LLP memory size */
+> > >  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
+> > >
+> > > +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
+> > > +#define dwc_quirk(pci, val)		(pci->quirk_flag & val)
+> > > +
+> > >  struct dw_pcie;
+> > >  struct dw_pcie_rp;
+> > >  struct dw_pcie_ep;
+> > > @@ -504,6 +507,7 @@ struct dw_pcie {
+> > >  	const struct dw_pcie_ops *ops;
+> > >  	u32			version;
+> > >  	u32			type;
+> > > +	u32			quirk_flag;
+> > >  	unsigned long		caps;
+> > >  	int			num_lanes;
+> > >  	int			max_link_speed;
+> > > --
+> > > 2.37.1
+> > >
+> > 
+> > --
+> > மணிவண்ணன் சதாசிவம்
 
 -- 
 மணிவண்ணன் சதாசிவம்
