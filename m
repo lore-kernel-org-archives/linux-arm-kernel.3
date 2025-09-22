@@ -4,158 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 929C4CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 07:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F46CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 07:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=; b=HeqRvHkEqERkuFIvF0XwVHH12X
-	bTU1/izcP3YJ9OmTX9bYHsjVHTbCIQ31gdPT3Ju1VmA/7Giv23gaHP5Bsl6xNAMLMtK+c2Xlbu/09
-	Y5pck9vt5Y7Fj+lLM+/ZU//LSFj+gSCufXAC0bCsIm1XHZU2GVZlGDuiEZx7D9nKLOTWJCIJpXtDA
-	mNXQeT2wEHbxzBLixKjcqE7WvdW1QY3yV6FLcpuHUfXSSXJA1bDVUqvrnAvSGwRHQDG+2lX1MR4IX
-	6/FqNcEL0riAu0PK2vyHQ6HSgxymDjgALqe1t1uBCXeYwqg+IEoxh/BP1Qf69lRJfs41ThrLOG8m+
-	TnI8H02w==;
+	bh=0Bf1iIBem3e4e8UNQB1BD3tDJECURo3kZ9TpjFAMz84=; b=c7V/YUNmObELBhvjeM8KJHNtz1
+	rAAmQg5Hz8GEyF2q3W9DO7DzTTj5toqtJhsrFKp+5dMgwTbWHcxkpx0gRqFW6Hqze4mDgMdxG381d
+	2eft5+Ycf72GTvYHTEJkUeTjRfDyvrZw39+O/t87fdRjby5T/DEVvYsa6Lw9qMSdwoolyRgqS9GdN
+	7glIk/oaG37wr7MAra2KfgORLXRQwZC2pFF1N/X951hJjld98mMbJ636yKnzFscA0zFNvbOfFSWCT
+	YNOtd11/pLH3XXtsZ4eOXWASzgu1j7A6EaYoGRlsC/RrXpTWZCp1B5E7AdMaE41Gt+TKWFStVT/RE
+	Ut954VBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bBC-00000009RKU-3XkZ;
-	Mon, 22 Sep 2025 07:41:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v0bLh-00000009XDS-1KAb;
+	Mon, 22 Sep 2025 07:52:37 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bB9-00000009RGL-287y
+	id 1v0bLd-00000009XAQ-3xHd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 07:41:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758526901;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=;
-	b=U3uSviETBw9QvzfoBI0ae571TW/RjiTeHaxS03i3UM2nwDFurXdtw2vOaRgtuHwE3mmSGK
-	d1KvQx8ZgJBV2Q/NwUNli64Ul1D67NE2tibP9DFs32VDKL41rblAT05FCfbNx19zVOKlFR
-	GaeTeP111etg1U7qsn9/1WJANx5pYRM=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-441-5ZA0Z3VANv6m0Eo0GQdxAg-1; Mon, 22 Sep 2025 03:41:39 -0400
-X-MC-Unique: 5ZA0Z3VANv6m0Eo0GQdxAg-1
-X-Mimecast-MFC-AGG-ID: 5ZA0Z3VANv6m0Eo0GQdxAg_1758526898
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3ecdd61b798so2153822f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 00:41:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758526898; x=1759131698;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fzHIUQbJNzpGAehghm14zuXxtLTVpwy94eSLphrZ324=;
-        b=YrMkmc3L+P7WkdevSI8ACQ1rRNwhCbXjLvwZQhdr+d1n03TRByB5rya7ycyAXU2O/d
-         l4ePUOpAm8TvE/MP80irLnp70VepZqQd0zXbFUPZDYSIuDx8+U2HCA8rLwrG5VTqvE3q
-         n9MXlVEucHBP6sb7YkYeZmYC7y1jSpndKRs1ILQoT2VaBz1WIRviAXnej6pi7UcpKYjF
-         uMbvbNfco3TIU1fO2TN5z6VHiRGP5bQixsWCYAnFP9mQU93iGjE/1s4jgUAcd+e4x4t6
-         5+b9W+n337EREu79ty7z6OisfUond9mKPrufayC7LlDbyy/X0bXnZtJNiSzPYFRku+JP
-         V2eQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeDoxldBh+F/U3OK1sVCl0VXYPG8fq0h2xNKa3aLNZg9sKN0e1/afMWryVR4nGtUGFXdY/asEn8gPp22xTpmiG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVi9c0enBi2zJrGxpD259KeD5XgRRgIxBu+mabtlT+ZK04plfr
-	hBhDoDR99MBQ+20hq/tqy+VVN/btM4SCSJBFzPROxz3DT5wlnWmYK8UoNA3V+G/JLDSXIxLyqj1
-	iQb7PHSBHqXKIH2oskO3nPyg2ViybrVbmn3IEMUzQtdQnIxcQPJOwTpqYxeY1WoGZVu3BLrySZm
-	HS
-X-Gm-Gg: ASbGnculgmg0O1Di0pfZsoJMJuw3BJPcsDkzbnc4iZoJ/uDYB444I/3DeKhBv8Qf23p
-	nYVB1J2VoC3mLiroSs3niS8ZNgJVQfSKHWFQApU96ijN2StYsivNp6B+WWmdS2+6u2VzFfMP8YE
-	UGf/vknWWdjmtZ2SVWkVp2gcdD3v/6gnPwEn++URQvPt3+C3Rag6zu8OZ/cW7zb+cQP7nferx5v
-	9x5P6oyHSc6UFLGbEWV4Ih8OaDXzQd6jHxU47/RyKKnHD7v2yhatuwmLS4h6T/klclozhvGCdrE
-	/jbYsIBLzCyj9UYACxDlNPi2fIzGslXV3lcxpXE2Fw9H7t4B57kN5s2dheJNQRcJGvDHNA6jPxf
-	AkMhUNOeWE3R3zqcJZ8WrDyET3AQcTvY3jvnM8MYZ8ocCst8qIiZY8zrOq+0eyko=
-X-Received: by 2002:a05:6000:2203:b0:3ee:1296:d9e8 with SMTP id ffacd0b85a97d-3ee7e1066dbmr9258897f8f.17.1758526898167;
-        Mon, 22 Sep 2025 00:41:38 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG9B1weiPfO6bMVbHAqxOgbive1f1Crq3xoi47kw3u1f8xvVepvQI2XfzLgozHSVwVEVQfJTg==
-X-Received: by 2002:a05:6000:2203:b0:3ee:1296:d9e8 with SMTP id ffacd0b85a97d-3ee7e1066dbmr9258869f8f.17.1758526897678;
-        Mon, 22 Sep 2025 00:41:37 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f2a:e200:f98f:8d71:83f:f88? (p200300d82f2ae200f98f8d71083f0f88.dip0.t-ipconnect.de. [2003:d8:2f2a:e200:f98f:8d71:83f:f88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07407cffsm18716189f8f.16.2025.09.22.00.41.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Sep 2025 00:41:36 -0700 (PDT)
-Message-ID: <111b1bfb-e2e0-4b2f-a559-9803828f3406@redhat.com>
-Date: Mon, 22 Sep 2025 09:41:33 +0200
+	Mon, 22 Sep 2025 07:52:35 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58M7Kphd010884;
+	Mon, 22 Sep 2025 09:52:28 +0200
+Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011022.outbound.protection.outlook.com [52.101.65.22])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 499kkxxtv7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 22 Sep 2025 09:52:27 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rseilybiWFadiXLE3v+RpApIjaPeYH/AWwpbWoRYh0noWHv/9cIbdrnny2eO2YhJ2mC/fyO02is93Aepwnq/SvTjxnhxZZyDz9dazmrhYhYdw8w3CYySee+mnbZJPAiRF624c/NdmO4HeRtWo0XyyQVPRe+cOasrpFasJN6pBS4tCg2HP5IG+LmbMYPkWnXSVUPvDDjIddqICmBCyzrUZljEpMt2UT2CC4vCWqFT4jwDQs6Hqyiq9ZIskhjgpw8dy+F6kSpU0ChVSz3rvZfSpVUMbuNpkPJsrqerV0k4i2j1hDQnJ3O9/T3r+/edzxyLcHzdHUvNfk4ObyPgFxesvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0Bf1iIBem3e4e8UNQB1BD3tDJECURo3kZ9TpjFAMz84=;
+ b=ScjCruRFxOoAq3vjCXfDzya6/pDHUbQEBPbPkpX5FKwbi5Ti+L19otVf06B6qqEKPFlfWLwaz5+JwubVa8TjvOGZCwGBVm9EUhQl/y9JpAjKD05bhSfi2dTjyjquT8gHjijHTlE8nekCF/uVrdAu6E5JhWwMve13Qd+LwIzTr+tF3ZK1+QRYCFvZaVw299edpDhqbTkn3CKXyRybth51E5yBZWOfJixX6fqjdd1fcun0CZRJ/o6V8QGkJoSahvhkCtg9+Nd9Y6lDO5gofOmvPheg+1KcwnwBLWoVokP+BOO90yILDeRq0e68rGy4ToeW1Q9V/awbsv4Hyc/5ZV7AbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.44) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Bf1iIBem3e4e8UNQB1BD3tDJECURo3kZ9TpjFAMz84=;
+ b=efztnReBPH+IuL0xBVdKgfCF9d4sB4nNgBhhBKoR2aYRRJ5AMHrMTzi7f1DGFLbMKmYNnUDqlFySYJ2zUtahMuYw5mGqOXf5C4Ll224oV2qSBYooJTlSPYRe1eU1s6XPEuJrb+IF/AED354H3z8H+KQbDxrtrLWIGiaGlr8WUqAm5bT2/i4QCMOGW5xELm5kgz9kYyhsvTPHuntso5sDaA6AQKKOCb+/dkedA5c/u0GPHXnK4r9QegTNsts/jVVDe6BRDq48Ta13U2xeoe/T11LYGvcfJjUsze/7IYKFrfOl5k1RXXd0cP87GQ1VCXq5KSzmHawISRUgDzPYG1J45A==
+Received: from DU2PR04CA0025.eurprd04.prod.outlook.com (2603:10a6:10:3b::30)
+ by PAVPR10MB6985.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:306::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Mon, 22 Sep
+ 2025 07:52:22 +0000
+Received: from DB1PEPF00039234.eurprd03.prod.outlook.com
+ (2603:10a6:10:3b:cafe::a3) by DU2PR04CA0025.outlook.office365.com
+ (2603:10a6:10:3b::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.19 via Frontend Transport; Mon,
+ 22 Sep 2025 07:52:22 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.44; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.44) by
+ DB1PEPF00039234.mail.protection.outlook.com (10.167.8.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Mon, 22 Sep 2025 07:52:21 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Mon, 22 Sep
+ 2025 09:45:00 +0200
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Mon, 22 Sep
+ 2025 09:52:20 +0200
+Message-ID: <d7a4e6c6-6670-41e3-9537-4be705ca3805@foss.st.com>
+Date: Mon, 22 Sep 2025 09:52:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-To: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
- lorenzo.stoakes@oracle.com
-Cc: usamaarif642@gmail.com, yuzhao@google.com, ziy@nvidia.com,
- baolin.wang@linux.alibaba.com, baohua@kernel.org, voidice@gmail.com,
- Liam.Howlett@oracle.com, catalin.marinas@arm.com,
- cerasuolodomenico@gmail.com, hannes@cmpxchg.org, kaleshsingh@google.com,
- npache@redhat.com, riel@surriel.com, roman.gushchin@linux.dev,
- rppt@kernel.org, ryan.roberts@arm.com, dev.jain@arm.com, ryncsn@gmail.com,
- shakeel.butt@linux.dev, surenb@google.com, hughd@google.com,
- willy@infradead.org, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, apopple@nvidia.com, qun-wei.lin@mediatek.com,
- Andrew.Yang@mediatek.com, casper.li@mediatek.com,
- chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
-References: <20250922021458.68123-1-lance.yang@linux.dev>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20250922021458.68123-1-lance.yang@linux.dev>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 6F2v96THDCXMc5t2EjbFnhOscra2HAv8qHTdjGlBjSc_1758526898
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v7] bus: firewall: move stm32_firewall header file in
+ include folder
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250916-b4-firewall-upstream-v7-1-6038cf1e61d8@gmail.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <20250916-b4-firewall-upstream-v7-1-6038cf1e61d8@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF00039234:EE_|PAVPR10MB6985:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54189be8-daa1-44e3-8e57-08ddf9acf5f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7053199007|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZUc5NHhoclNrMnA5OTBuUFVHNWoramdSblpjaHozN2J0NS85cUlMS2kza1c5?=
+ =?utf-8?B?NXRyelB0TkozYXJDMExqRTZvZDlyTUlqSk9qUWJqRFk3MDFqL0dBSTlGNmtk?=
+ =?utf-8?B?U21OWG0yUE9vTjhXRWMyclpuS1Y4c3ZNUDhuemdZMTJzNnF5eU0vMWZhQmc1?=
+ =?utf-8?B?T2JISWRoUENoQ2UxU3d5aXg4NURlOW0xRW5SWjZaWW5SQmRkaDQwVXgyWitt?=
+ =?utf-8?B?ZmZUbzNUd3FTZnIwYkFrN3c3bnYrZmVUeTdNWjQ3ZmgydVUzUE1nVmd1d1My?=
+ =?utf-8?B?MlhGRjBCSm95SWNWMDlxS1MrbVFzbnZ6MGVKNFVleWNlNjRSaTRYT0ZvM0pu?=
+ =?utf-8?B?dFIxRFcvOFBWOW9IUVlVeE8yclAyYTRrVVI1azlCaG1wNnQzK0ZwUFNVSFgw?=
+ =?utf-8?B?V01NREQ0dC9EcHIvZmM1SFhvSk83d3Z2TEsyS2p3SHREeDlNZ3JNUzlEOTMy?=
+ =?utf-8?B?cUp3UDNDbCtZNXRKWEN6VHlyQ2NlaFJqZFNDYVlYZGE4bUx0bXAwYTdhU1BH?=
+ =?utf-8?B?VnY5clFManh4TXpTUE04ejVreFVkRk9WZkEyYS9iT1BmdW5aRTJ0SmhaWTFS?=
+ =?utf-8?B?dTdoV0tMcGgvd3orUVM2OERxaE5OUVdrc1VLRGJ3QUxzNHIxcjVVOTBPVG1Y?=
+ =?utf-8?B?VDdyWFF2bUpQeHBpT1VqaEVvc1NwVDhkL2xFREYyT3NSUElkbGFtK1F3OS8z?=
+ =?utf-8?B?RUk2Z0VObldINkh3RmV5R0pOb1FzSmxNMVlGTXR4WjNtR0lVSy9JTnl1WlNi?=
+ =?utf-8?B?R1VnUXJaNEZKQ3ltSktNME9mQ1BVMWs5UWJhZ0FYRzl1alNhRm90aWpLMHB0?=
+ =?utf-8?B?cU43RmpxQ1JYOFdmRlgrSUt6L016UkU0dVMvcVVNNGtFS0dCVzBYNjB4TSs3?=
+ =?utf-8?B?ekZGUExOMlFBMGd0NGhxc3pwRnZaa243YStPMzFpS04rdDdwTys0SVFpV2d4?=
+ =?utf-8?B?V2Nra1JNUWFmb3pDWXFmZ2lHREZvTWQ5OFBQYWoyZXh0Z1p4MVNXeWk0c3lp?=
+ =?utf-8?B?U0VXSGlYOUtSKzBCbFdDd1BqUFU1MGJGckJkNnFZNW1qV1RhM0hMT3FSNmdW?=
+ =?utf-8?B?Y0c3ZGJQcmlYQSs0QmhOT2pUeUo0MnFkSzRmYm9LZ2Rnd2hTeUFKaEtQOFZF?=
+ =?utf-8?B?WDFlVFMwQW9OQXljRTI1QmZGWW5WakdCL3FxYVlCV0FnYnF6a1l1WXFRaGRN?=
+ =?utf-8?B?akhFNmJVVjUvek5LdzJvTGtBNDMxZUxNUEw0MFM5eUpXWnNBbUZVNG8wb2JK?=
+ =?utf-8?B?TXBPeFJjMVJ6K3lQdmVsY1lwcnZoOEdpRVFOak1BSXBmTmxzUkxHcG53blRl?=
+ =?utf-8?B?dXlxazdYaTlTNXA2d3FjaStJanBVWG9PMlpla0YyVmtuVU1qanRlU2syKy9Q?=
+ =?utf-8?B?VmxDNWRjbytMcjRmbnJuUjNVU2NQVVhNTU5FZlhyaU9hVm1RUkNya2hYM3F6?=
+ =?utf-8?B?SGdHdUM1M0JJS054OVp1cWdwV0EwOU85cW5RMy8xbXB6QWhBeHB4Ni93Y1Zo?=
+ =?utf-8?B?NFZJcGJiZFlXUW9NUDdzZ1gyaXJQQTZ4YVVSdjFSNlRwVFFwbnNHR3lOZmtT?=
+ =?utf-8?B?ZjRHcGVrbTdOa0tKaXJOOWRXOG5nWFJISWpHV2tXNDRCYzhHLzhNWWMxUkNn?=
+ =?utf-8?B?SjcvdU1UbE9HL3lnSHZNLzRWVTVqRGhHM093bkJ3QW1aWjlpTFVrajFsWW9s?=
+ =?utf-8?B?V3hMUFZWR1JmYVg5TUprbkQvckx1OStqc01odlFIcldrRXN2RVY2QmQwRHVZ?=
+ =?utf-8?B?VENMZmF0OVMwY3ZpaDZCUUJ4eWIrWGZiWDIvdmRYODRYMUdseGRMTVhlcjFN?=
+ =?utf-8?B?TFZ1OThCbk85aXZhRmw5N0FPZzRIdkEvdU1HQmdzR2Jxb2JCQXJGTUFNVlhx?=
+ =?utf-8?B?M0VBd0l0WC9WQ2FaQkZsSGh6OUdWY0l0UmF3TktiaDZUR0laWlUwaXZmUVIz?=
+ =?utf-8?B?ZFpDcEczRk5IaVNLVlNJVElkR2ZHdnJmcXcxdFp0TjdVWGJSemFRVUFvc0dm?=
+ =?utf-8?B?cGlHVWN4UFovaC83VlBGTlA3Yjg4R2tTTVpHSU8rTnZzWjhxbnMwNlpYRU5y?=
+ =?utf-8?B?cE1QVWJzSndQRlFobXN1RlduejhSMlNRNWdsdz09?=
+X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7053199007)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Sep 2025 07:52:21.1621
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54189be8-daa1-44e3-8e57-08ddf9acf5f6
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00039234.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR10MB6985
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDAyMiBTYWx0ZWRfX4HdaDKrFGV9C RgteYSCRsNnQg+bCApV55FXnWA34AlyTTPuuwFnCavCVCv976KjCIRDe8jONGh7o9moVF3IB/qP AE7bRbrvbB8g4ex3XrwS1PfI7IBB6onwiZUbVxddMkVadpXiAAsQB3+ez7zMoA9XxLmD+XRUa5M
+ U6EV3EQaaMDIbVgfRTKHXHoJBS960rfxE5qM2ihfx+gouAmQyEJqxdNDKw1+0q1McbM7Tp1NiT/ WyGT3RJHmVv1y1ZZhCgE0d+Z/8NAwusNJjOfA0uZ38HjsB8mFcBIlYOMXEwTQMO3U5l+P1bGoFs EtftsDJy/mcVW+681q0k9WmjvsJ/ZBWhbk8ZDHNFMtLSpArHZw9BapdFHNCAMmuG9hetcvZvZ1+ wHhapsb5
+X-Proofpoint-GUID: kEVihndhSV5h7Cum9OHKnr7ztqxLcT3M
+X-Proofpoint-ORIG-GUID: kEVihndhSV5h7Cum9OHKnr7ztqxLcT3M
+X-Authority-Analysis: v=2.4 cv=dY2A3WXe c=1 sm=1 tr=0 ts=68d1003c cx=c_pps a=qDHLbbvJlrr8V5LZr46qng==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=8b9GpE9nAAAA:8 a=YYNlyAMbr1-TTnqoXNcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-22_01,2025-09-19_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 impostorscore=0
+ spamscore=0 clxscore=1015 malwarescore=0 adultscore=0 priorityscore=1501
+ phishscore=0 bulkscore=0 classifier=typeunknown authscore=0 authtc=
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509200022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_004143_628580_BFA1A640 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250922_005234_611120_651B24C7 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,47 +186,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.09.25 04:14, Lance Yang wrote:
-> From: Lance Yang <lance.yang@linux.dev>
+
+
+On 9/16/25 11:07, Clément Le Goffic wrote:
+> From: Clément Le Goffic <clement.legoffic@foss.st.com>
 > 
-> When both THP and MTE are enabled, splitting a THP and replacing its
-> zero-filled subpages with the shared zeropage can cause MTE tag mismatch
-> faults in userspace.
+> Other driver than rifsc and etzpc can implement firewall ops, such as
+> rcc.
+> In order for them to have access to the ops and type of this framework,
+> we need to get the `stm32_firewall.h` file in the include/ folder.
 > 
-> Remapping zero-filled subpages to the shared zeropage is unsafe, as the
-> zeropage has a fixed tag of zero, which may not match the tag expected by
-> the userspace pointer.
-> 
-> KSM already avoids this problem by using memcmp_pages(), which on arm64
-> intentionally reports MTE-tagged pages as non-identical to prevent unsafe
-> merging.
-> 
-> As suggested by David[1], this patch adopts the same pattern, replacing the
-> memchr_inv() byte-level check with a call to pages_identical(). This
-> leverages existing architecture-specific logic to determine if a page is
-> truly identical to the shared zeropage.
-> 
-> Having both the THP shrinker and KSM rely on pages_identical() makes the
-> design more future-proof, IMO. Instead of handling quirks in generic code,
-> we just let the architecture decide what makes two pages identical.
-> 
-> [1] https://lore.kernel.org/all/ca2106a3-4bb2-4457-81af-301fd99fbef4@redhat.com
-> 
-> Cc: <stable@vger.kernel.org>
-> Reported-by: Qun-wei Lin <Qun-wei.Lin@mediatek.com>
-> Closes: https://lore.kernel.org/all/a7944523fcc3634607691c35311a5d59d1a3f8d4.camel@mediatek.com
-> Fixes: b1f202060afe ("mm: remap unused subpages to shared zeropage when splitting isolated thp")
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 > ---
+> This v7 is a subset of the v6 and other prior versions, splited to simplify
+> the review and merging process.
+> 
+> Changes in v7:
+> - None
+> - Link to v6: https://lore.kernel.org/all/20250909-b4-ddrperfm-upstream-v6-1-ce082cc801b5@gmail.com/
+> ---
+>   drivers/bus/stm32_etzpc.c                       | 3 +--
+>   drivers/bus/stm32_firewall.c                    | 3 +--
+>   drivers/bus/stm32_rifsc.c                       | 3 +--
+>   {drivers => include/linux}/bus/stm32_firewall.h | 0
+>   4 files changed, 3 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+> index 7fc0f16960be..4918a14e507e 100644
+> --- a/drivers/bus/stm32_etzpc.c
+> +++ b/drivers/bus/stm32_etzpc.c
+> @@ -5,6 +5,7 @@
+>   
+>   #include <linux/bitfield.h>
+>   #include <linux/bits.h>
+> +#include <linux/bus/stm32_firewall.h>
+>   #include <linux/device.h>
+>   #include <linux/err.h>
+>   #include <linux/init.h>
+> @@ -16,8 +17,6 @@
+>   #include <linux/platform_device.h>
+>   #include <linux/types.h>
+>   
+> -#include "stm32_firewall.h"
+> -
+>   /*
+>    * ETZPC registers
+>    */
+> diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
+> index 2fc9761dadec..ef4988054b44 100644
+> --- a/drivers/bus/stm32_firewall.c
+> +++ b/drivers/bus/stm32_firewall.c
+> @@ -5,6 +5,7 @@
+>   
+>   #include <linux/bitfield.h>
+>   #include <linux/bits.h>
+> +#include <linux/bus/stm32_firewall.h>
+>   #include <linux/bus/stm32_firewall_device.h>
+>   #include <linux/device.h>
+>   #include <linux/err.h>
+> @@ -18,8 +19,6 @@
+>   #include <linux/types.h>
+>   #include <linux/slab.h>
+>   
+> -#include "stm32_firewall.h"
+> -
+>   /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+>   #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+>   
+> diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+> index 4cf1b60014b7..643ddd0a5f54 100644
+> --- a/drivers/bus/stm32_rifsc.c
+> +++ b/drivers/bus/stm32_rifsc.c
+> @@ -5,6 +5,7 @@
+>   
+>   #include <linux/bitfield.h>
+>   #include <linux/bits.h>
+> +#include <linux/bus/stm32_firewall.h>
+>   #include <linux/device.h>
+>   #include <linux/err.h>
+>   #include <linux/init.h>
+> @@ -16,8 +17,6 @@
+>   #include <linux/platform_device.h>
+>   #include <linux/types.h>
+>   
+> -#include "stm32_firewall.h"
+> -
+>   /*
+>    * RIFSC offset register
+>    */
+> diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
+> similarity index 100%
+> rename from drivers/bus/stm32_firewall.h
+> rename to include/linux/bus/stm32_firewall.h
+> 
+> ---
+> base-commit: 46a51f4f5edade43ba66b3c151f0e25ec8b69cb6
+> change-id: 20250916-b4-firewall-upstream-dfe8588a21f8
+> 
+> Best regards,
+> --
+> Clément Le Goffic <legoffic.clement@gmail.com>
+> 
 
-LGTM, thanks
+Hi Clément,
 
-Acked-by: David Hildenbrand <david@redhat.com>
+Acked-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 
--- 
-Cheers
+Nit: peripheral names should be uppercase in the commit message.
 
-David / dhildenb
-
+Thanks,
+Gatien
 
