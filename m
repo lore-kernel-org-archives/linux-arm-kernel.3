@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E88CAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53663CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 06:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQvnHof+a1v1Eo43/K9+opNP6misBMbwYQ9JP0aPt9w=; b=UV8ECQYXv+mUshrJz+ZDHuv2Ro
-	G5HiTrRvwKWH7paaXollcLH3zB5Y/m1f1R7yaeLga08gEYUHqtQQSFrwmU8GGWkDW++udGF7VHS+Y
-	DyrqlaFw5jVuM9WUNcWwEHEULDwJeXDHFLDiu6A7Hd78BkOZNqq1perhAznWdVy50JtL490Zq4fPr
-	P5braB9OGciViGH50lJFvyhHcdRHeYVDrgWZlbNZdLhSCtoaD2k7iTCkRHbJL9I2edLSE2ox11riH
-	UWtdb4H8bPthmMlK8oFh/Nxw/oOPVGg5ed1WfsHtrV0ccFxA0VuY+tG7+SWJOLh5/X3eHYEf9SbnA
-	BenFIfig==;
+	bh=lPDy11iZA0Q8NDHlpUzt6W+Urif82gaVsEWWDj6nyqs=; b=LTqZK0kAQLYMwMQeqMVmZvFUvK
+	WGCx49TKQ+SfWVt7OvY2jFX2ckFKBnaZYtStmze4PaLCTiP5wcvO2ENWdZC/lLep4UYB99klkK5/f
+	lu7l/zFatTlzFMme/9XXVd8rBejUsT/oquHZ6Hj09Yrzt+GGdV72tPxoayza02x/7o3eCD0Krn+Fd
+	FEmJ2KOUxUf1p5mhvue8SfdTyhOzb+ibtbASsbBt5c4oLrtj5csFudrTE0VZ5uFE8cDpvTMJQ3ac4
+	xXYoeKhIQqsgSWPo1r9u54XeiNtQNQuDH2AnXBGVO4B13vYgi3YWykFg/uH+6/EfumcRkir9mWk8q
+	EYdY2BRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zvp-00000008woP-1iPY;
-	Mon, 22 Sep 2025 06:21:49 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1v0Zw3-00000008wz1-2boM;
+	Mon, 22 Sep 2025 06:22:03 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0Zvl-00000008wkT-2OoZ
+	id 1v0Zvo-00000008wn1-3Goz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 06:21:46 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3696f1d5102so10868301fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 23:21:45 -0700 (PDT)
+	Mon, 22 Sep 2025 06:21:49 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-57da66e0dc9so936475e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Sep 2025 23:21:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758522103; x=1759126903; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758522107; x=1759126907; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aQvnHof+a1v1Eo43/K9+opNP6misBMbwYQ9JP0aPt9w=;
-        b=i4hu3vDYXANAt4doTSjE+dXiFVp35t3a5HQn+prraikTGMuAyXlYtzNYy7TFaqzD/t
-         x8r2A52YlnvqrHa7z0ughdbObuA+ocKE3ej+1nDwecnWkTjA+NWaDTmXXCqwEF8zx4u+
-         prXGpW8XBKG/k6wGFZYKI61i6MXkXoibp+KLShWuxvkjDaXQmvZqtbm1f7MSQbbf9+9U
-         PFadLxRu2/rJXzdJvwsXP9gaiEqpP3pujnyEoucVDS4dLqex6zkhk1C1xvOok9mmhTcE
-         WS846kmtBBycurjtX9elJai9shvMgfHBATazpQY2tnqe3tFfOMCS8HfTRgEdtIBjZL2N
-         cg4Q==
+        bh=lPDy11iZA0Q8NDHlpUzt6W+Urif82gaVsEWWDj6nyqs=;
+        b=iu1qUAi0nrRced/3Y4VFlKBXplZFJvj/EkKmn6W/CIUYo9Dr4SkxYQgitVXDYYfTYl
+         yePNOj6YOT7dnK4Yf1yQFjYVcUDpH7xfvJ3BJxNw+L5bjRcyp0pedXot8TrXnsni0c0Q
+         4tCaNC+Pd5qFfg3PSAa+KotNQVoRR301hGtIVV50FA+nZsfUuJk41vVznDpjSCi+e8bJ
+         F1wu//+H3sqLf1YfxAWdOCbfJTnQom36SE1ymNxxWYemVMQJ67XA8B4LWaWEbCTw750H
+         sWI6Lx9Li7rbpFwwpX1GXbeKP1oVoPOfBwUTAutXK4bpldPKd30VpAhvG1oxeVhr1Wjl
+         +Vgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758522103; x=1759126903;
+        d=1e100.net; s=20230601; t=1758522107; x=1759126907;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aQvnHof+a1v1Eo43/K9+opNP6misBMbwYQ9JP0aPt9w=;
-        b=nnbCtMu9JIDvjrET5+wTXKED26UkGCkL4bGPCxj1S9d6/z23Kyr+FtCgweM8OPA7Jj
-         rx+5S4zNFFVfrzqv5Ul32obMnVpx+nXySRaGgbcXljvfxdAwtQNXAH9I8CuE8Wq/n3lE
-         Lsz4uUYnzIV6f2hVY0Eeo0+7TekDS+kQSp2fJdn7GU1a2ZNZjURpJ5xW8dT4TMlpPlQT
-         TnPlTJ7cfiAz5KH1v2FNwE3KfxDP4Y1/jRLnpEqUCZmKzrmxlvxzNGDU5ES9AZZCmQWY
-         4zjLR0y5zAeUAoFcw/awsjW3QM4AEhGAAgZM8Mo2A9XQOcacN3b8R7nwSHL0+whesACv
-         Z5bA==
-X-Forwarded-Encrypted: i=1; AJvYcCXWXE0gjGos0icFC2HlPIux8eqxlkpxtIvyCE5zhSo6zNC+cJ+clDKYdqsAcyHGozhh93H3264Ht6P89dY9Mfx7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYl5WbJ/ZQuaH5gEDtXD+036FxoeNGtudxOSODQeJkEs2eoFFF
-	kYI4SWvdKNCRQf7Y/OjxF9BxVSWawcOz70ybXIYdqjmxH7IMfTJKjWvH6lk82eq6
-X-Gm-Gg: ASbGncs9ZakzUKNDRswdxWltdvisF1ZPI3NTmm1GILRRkxR6RczBJcqnAbVuvzIRyks
-	8e4RGNEpQ1VlQEuMe6BFy04+h2NL95nbFxYjj/11dzGFzCzz8gG3wcO8gskLLznYHmRQJ+oQcZQ
-	kODqh70g71cuNPj0JNpTHdARdS3ESwQKBJMz+JtKjM8FKfxh6Vgu9mjR5A+HWbwev7Cqcm9o27C
-	mYDgoZPM0e96kreutXkT6+9F9nkXZalKVRumIL7ucwWme57JJplcn+ohk4je5bGld0bEs3/hPrN
-	+VfKYB3ot/9ICGoI/mAmm69F5ITJZN6qRITz5eCycRSIDwbho1/eAbVw9iTkr6JOEruoDc0QByK
-	lQNhPsh1zxduT5uCBCKuNbRD26RkE6j60aBhyHqqIg+Oc1+e0Bt8sAHfMYvX2qDG7/WI=
-X-Google-Smtp-Source: AGHT+IEWX9HPunh3YhWgZ0OJpf6A7fWOFQJRUkGvS83H4cItQAhSmXJL+ooteVneLl47uCXET6TCdA==
-X-Received: by 2002:a05:651c:235a:20b0:35e:b926:6a9d with SMTP id 38308e7fff4ca-3641ba80310mr35742121fa.32.1758522103183;
-        Sun, 21 Sep 2025 23:21:43 -0700 (PDT)
+        bh=lPDy11iZA0Q8NDHlpUzt6W+Urif82gaVsEWWDj6nyqs=;
+        b=HLqiyfHvEJ1kzvrbfR/7pk/ysn51HsBG6jfr7xtWwcsN980LFSSEfTGIip3UzU5kHt
+         QlHqf13GEFg1YrWXnKR+L0suTw2uHh1cgDBN1UwRaQYAy4oFIEwCKFdzI00iKa992+2G
+         n+/gW0NJlPImQgzmyiQN8S44uf9yeu6lOqedf9/MxTgCIDDphJIddMOcndOGUKoI5l0c
+         zeiX0i1zkTZ8Jxbrl7qePrrjBbHyPtLVg3Rwgs4R7W4pnhHTRbFKFaKxCzug9mi8f7Rr
+         +nr8P2Suu80a7SOU50FNxIW+lEy4DFAYsPIWgQA8ZkDdHXvPMqynsveefCiO+l7+g9Bq
+         64BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUEWRyWU6f7tA87g4YM5AW/kDc0NJCdmmpZu3HLU2mpBWrCMDx4bzwkjZ9rTMonXXeqA9ThMikNMcIkA2ECrr8c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzYyXMxcbntd2E9/GlPO8hrO2Nghz+rNGRnX2u6EMBpED0IEAN
+	MWlT9jkhfH1AwTI8Eoi15zVQAnICUL05h3lbODlHW4wp+aMKSeCeZxcJ
+X-Gm-Gg: ASbGncuMd+Cffx81OP2GEoCGa1ERjXD3ZZ/mD0ZfEsi9rEW3wRE91JQ6QuKk71tkt+H
+	elsryiegRcCplm/bdYlQ20T1peU31zbQW37Ascm5vpQaDs0JywT0uzyO5KQERWT9A/TqhSqyghb
+	VPgocBi7U95290elYqspnVaLGRtYu1agoMy7T0tnsM8mS3QmjFJsmZ/enLZ6r1IlV/cPH0C4RKE
+	30bT52j5TORmGtcIW0VznyLbFajAdHcYd9LbS2a4/Qu8VcDa2G2KrHg5Ut5Xlmy+DzqUO3Lc1GB
+	hHckVQYodZTkVhFAAsHahJEt1DMM4EvYjlQ5prw2KLsBKx91IBD7BtzMv1TOuOoraWvYMMog2rX
+	4u82RrrDPYjdalO93o7p5QmD8lmCPQgh3F6nucP6l55KMJphlGknKTBNsnGZXcIjWyhs=
+X-Google-Smtp-Source: AGHT+IFS45DD9XX/3MhSRL0Rz2agdiKzl2VuRLu6YIEhM38xGVxDCvEjcoPUZDKKGLI+hWITdR8c4w==
+X-Received: by 2002:ac2:4bcb:0:b0:55b:8273:5190 with SMTP id 2adb3069b0e04-579e1d56197mr5217562e87.18.1758522106585;
+        Sun, 21 Sep 2025 23:21:46 -0700 (PDT)
 Received: from [192.168.1.166] (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-361a99e99e6sm26982661fa.56.2025.09.21.23.21.42
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-361a99e99e6sm26982661fa.56.2025.09.21.23.21.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Sep 2025 23:21:42 -0700 (PDT)
+        Sun, 21 Sep 2025 23:21:45 -0700 (PDT)
 From: Marcus Folkesson <marcus.folkesson@gmail.com>
-Date: Mon, 22 Sep 2025 08:20:57 +0200
-Subject: [PATCH RFC 2/7] i2c: mux: add idle_state property to i2c_mux_core
+Date: Mon, 22 Sep 2025 08:20:59 +0200
+Subject: [PATCH RFC 4/7] i2c: mux: ltc4306: set correct idle_state in
+ i2c_mux_core
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250922-i2c-mux-v1-2-28c94a610930@gmail.com>
+Message-Id: <20250922-i2c-mux-v1-4-28c94a610930@gmail.com>
 References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
 In-Reply-To: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
@@ -86,26 +87,26 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Marcus Folkesson <marcus.folkesson@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2406;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=819;
  i=marcus.folkesson@gmail.com; h=from:subject:message-id;
- bh=9bgM+F7I6nEBFXYeWO7UL9pGB4ld3ARupPlzJMnONCI=;
- b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBo0OrTfjsniWp6URWZI3ApnyPsD8hApZoRIAM7A
- qI2Xt32A0+JAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaNDq0wAKCRCIgE5vWV1S
- MhRgEAC24JGh3ARAKo2IuHAVAizurwI0LVGbgPTLOp+OuMCKJH2ti7is6Ni7R1PdOuI2QkMPf0F
- 3V1Llz0v8ml/2axaF0X020StWV1zlx7ZXqrCHIepvG0DP2S1jVUXQ2LRRfZoAfOhzkB1v6yNBU+
- kluu4zCd6lPhMpQOzx/1fbsT9cRScclGTSnL+jGdDIQdP6bPhciANQnlQVgSLOkK7H5vc5uObrM
- 21rWaoj24i+moR5Ty+YMoPX+8fTdelLGqf+JPQl44trRyXPo9t23pbFDdAxrA49Pxhetq5UsvJw
- lEb0Gc20/sG+m2C4ua+scQVO/fa/aeTiXPN/INQdKjsSRU0qH+1i0zOAL0QVgB9GkrCWkqWwKUt
- 8HmQt5rTv1V+dls5Q0+igckCg0rcCQOzN/eL7Wwx5gEalLOUBLYcm04DGOQSTqIfRA5ePlzIfbv
- SY+/69JT9msuRKl3So16O0vrjKazP1P0u+ZaUY3Hy93RymzI+qutLHJuCByu7CFvr0rKvz8BtFH
- RXEBFv0cLojjXWhV/TPSSSSk5cQ02Cnpx9aaV8rkHGcQUNUHOh+n4CuTXygWFJzyYlxKaJNCURZ
- J4ZBGP5FgMQIFXAQ41qfy1crDEoZxg9ssaInr6eivS36tjhFIWaiAHYmxkrhHZOjD6Bob3j5CdP
- yvK0IZpMDl6Lpkg==
+ bh=vT3u8z9JcPm3Zs8qxToNt2XUMMG8ua9os0KJiBxmsh8=;
+ b=owEBbQKS/ZANAwAKAYiATm9ZXVIyAcsmYgBo0Ordh5iitf7lhHDQuSZr1/thsDJsbdWjg0XOg
+ w5s41jghYeJAjMEAAEKAB0WIQQFUaLotmy1TWTBLGWIgE5vWV1SMgUCaNDq3QAKCRCIgE5vWV1S
+ Mr4lD/9vC0aI7ksGmf/RIn+tZapTkPe+1EzpkMWshsqYVRseYTMjwPNSWhNoadhZpl4uv1XkhRK
+ jfx90FCx+DXpNmTq3H7JLiKXnfeND1ZXP6cv95bzahIeY8ROtyD4KeM0nv3Eg4NHuqTum6qa2op
+ G1pI0RXDimCosrtTHf9DQfbCNzh+V8UHjwqOuA5Gm2Sp0GomcF81p1g7QVz+NGxrK7xcXzU6GL6
+ x6xw0KL7K21jspYgtQQh8G+ux7qNoOTNDXpfcMP31ELwrzGufFJ9+dZ5efLA2Ounoi9FgXZriRH
+ UpqS5twxNLEsgDXH6u8of49OpszwtePa+eeyt07v2iSNXcGniBFH2G3gWNVMVKfm5wUxyFAcSxG
+ I+0tS/pDv/4Fi7inJjodbf+LhaTNDeE4SgB6Cj2PnsHoe/we0sNDXlAOVATU3dQTR/9qvMFn4Tz
+ LWoTwEAhLhk/TU5dFL4Jwq2K7fotTPfk4luf/kdVbM508nUhhNk8Jd5nHYIonroOf8+7KyCKGiu
+ puAoOpKJ2I5lp96pzH1oaYo6I4ZjzYFRMrYMy2DBEnhCibitR3H+WNFy0e/aqUTn5HWY2MCneOP
+ //RzjrAVI7AfGJ6X5aYGzA2nh2hyAbFoYOXsa880k5YPzvJUjskNlHR9/oVNNS9UfLnpMhKw03V
+ ybfzSp8q1qX5Zwg==
 X-Developer-Key: i=marcus.folkesson@gmail.com; a=openpgp;
  fpr=AB91D46C7E0F6E6FB2AB640EC0FE25D598F6C127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250921_232145_642358_9A12AF2D 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20250921_232148_851463_B2411F4F 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,82 +121,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Muxes treat their channels differently when idle.
-Let the mux core have this information to make it available for
-internal use.
-Reuse the same state values used by CONFIG_MULTIPLEXER.
-
-Possible idle states are:
-- MUX_IDLE_AS_IS: Leave channels as is when idle
-- MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-- <n>: Enable channel n when idle
-
-Default value is set to MUX_IDLE_AS_IS.
+Inform the core if we intend to disconnect channels during idle.
 
 Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
 ---
- drivers/i2c/i2c-mux.c   |  1 +
- include/linux/i2c-mux.h | 21 +++++++++++++++++++++
- 2 files changed, 22 insertions(+)
+ drivers/i2c/muxes/i2c-mux-ltc4306.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
-index 4d8690981a55dc0e1b35454971923791e6ed9f7f..5caa927c0caae512af029f0d1ae9b7f845ba3f6f 100644
---- a/drivers/i2c/i2c-mux.c
-+++ b/drivers/i2c/i2c-mux.c
-@@ -250,6 +250,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
- 	muxc->select = select;
- 	muxc->deselect = deselect;
- 	muxc->max_adapters = max_adapters;
-+	muxc->idle_state = MUX_IDLE_AS_IS;
+diff --git a/drivers/i2c/muxes/i2c-mux-ltc4306.c b/drivers/i2c/muxes/i2c-mux-ltc4306.c
+index 50fbc0d06e62b2743dd7f20c9863d56009dcf0e9..4e81002e2e4d6c63f13cf44e16581aff836f7d4f 100644
+--- a/drivers/i2c/muxes/i2c-mux-ltc4306.c
++++ b/drivers/i2c/muxes/i2c-mux-ltc4306.c
+@@ -232,6 +232,9 @@ static int ltc4306_probe(struct i2c_client *client)
+ 	data = i2c_mux_priv(muxc);
+ 	data->chip = chip;
  
- 	return muxc;
- }
-diff --git a/include/linux/i2c-mux.h b/include/linux/i2c-mux.h
-index 1784ac7afb116ce64e9e9fca1ee127c2bbbd2fb9..9e230ad69377b74f9ec809c40ccffd95538c4595 100644
---- a/include/linux/i2c-mux.h
-+++ b/include/linux/i2c-mux.h
-@@ -13,6 +13,7 @@
- 
- #ifdef __KERNEL__
- 
-+#include <dt-bindings/mux/mux.h>
- #include <linux/bitops.h>
- 
- struct i2c_mux_core {
-@@ -22,6 +23,12 @@ struct i2c_mux_core {
- 	unsigned int arbitrator:1;
- 	unsigned int gate:1;
- 
-+	/*
-+	 * The mux controller state to use when inactive, or one
-+	 * of MUX_IDLE_AS_IS and MUX_IDLE_DISCONNECT.
-+	 */
-+	int idle_state;
++	if (idle_disc)
++		i2c_mux_set_idle_state(muxc, MUX_IDLE_DISCONNECT);
 +
- 	void *priv;
+ 	i2c_set_clientdata(client, muxc);
  
- 	int (*select)(struct i2c_mux_core *, u32 chan_id);
-@@ -38,6 +45,20 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
- 				   int (*select)(struct i2c_mux_core *, u32),
- 				   int (*deselect)(struct i2c_mux_core *, u32));
- 
-+/*
-+ * Mux drivers may only change idle_state, and may only do so
-+ * between allocation and registration of the mux controller.
-+ */
-+static inline void i2c_mux_set_idle_state(struct i2c_mux_core *muxc, int state)
-+{
-+	muxc->idle_state = state;
-+}
-+
-+static inline int i2c_mux_idle_state(struct i2c_mux_core *muxc)
-+{
-+	return muxc->idle_state;
-+}
-+
- /* flags for i2c_mux_alloc */
- #define I2C_MUX_LOCKED     BIT(0)
- #define I2C_MUX_ARBITRATOR BIT(1)
+ 	data->regmap = devm_regmap_init_i2c(client, &ltc4306_regmap_config);
 
 -- 
 2.50.1
