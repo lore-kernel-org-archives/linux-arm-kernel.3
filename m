@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9030ECA100F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 18:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FF2CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 18:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVopNVTL/bXRzBvZmqvDHbeKUpTBDAQlmommo49QS5s=; b=Yv1/KcXaOlY88SphBvkZh5i2PH
-	8YjbNAfWarHTOZDQ+CbzJ8IiPt+fJloBZe70uP6SDARUDYfh/Z4gjuZ8pqmwp7PzT52dzlmkrVt+b
-	S/+LSDHqx8kqTYON831DGK1sbW7hN5LTeNhrpH5QgOKiqFyKDY5bjjjPnwSVtAj0j8j7jRuA4bl31
-	liKVXkMowz0cus/PoRVazHxwdY3OyvadiUzrk+4ItRbW1bgNxX55MVD76sZOFeqj1h/BRaqNoj6w5
-	bjovr5x903rh/A60SWPqSQPDuiHyP+8ee28L7c6RLskZ4mchQTFO+Mk8Bc1Lx7r5MGSsFwmXD7DyK
-	kquBAaqA==;
+	bh=w8WQO8COBbkdRnlOhcXHFHuFMj6D9cv++m5m8uaDFtI=; b=cNrXxwGC5S0324WV9UBWBqTHMv
+	gcnYbI7TBze+etKd08HBTA5Hwm9pkVwNi1Zqq9pOHglmxL/B9mNltN9eIns/olNveHY4p0bFv+eFz
+	JoP0poGaLw/flN5mNhQEIXUr3Vj2ablysy2AESbtbk6olrYe7L2POwszZM76xh0b2slqA8MDoF4HV
+	4umVE2wX/sxVTM6b9yOf0uOoRLUgyrS5bGfjKM+PJS7Y2o6y56aFjJBPW+zFA2yVRTH1L2WtO7+m6
+	0KRfjZ6lXCjjzTNQbu03yBR0+kVxWKS/nCE3Mysf2r0kXPGw2AGYWDGXV8UMPbRrLnPv2nCwS6sdJ
+	Hr3aehYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0kwh-0000000BDGn-2xLX;
-	Mon, 22 Sep 2025 18:07:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0ky8-0000000BDUx-39AJ;
+	Mon, 22 Sep 2025 18:08:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0kwg-0000000BDGS-0RMn;
-	Mon, 22 Sep 2025 18:07:26 +0000
+	id 1v0ky7-0000000BDUN-24NH;
+	Mon, 22 Sep 2025 18:08:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 39A56601FE;
-	Mon, 22 Sep 2025 18:07:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD3BC4CEF0;
-	Mon, 22 Sep 2025 18:07:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E12F46013B;
+	Mon, 22 Sep 2025 18:08:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C2CBC4CEF0;
+	Mon, 22 Sep 2025 18:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758564444;
-	bh=uvFzp2Q14YjjdsHkQgT7CFuazmFvDLyKCqHiCKbWrcE=;
+	s=k20201202; t=1758564534;
+	bh=ZpBXykY5GNJ3iTwM8KdwNbZCQ0CzTVwUOQGlFr5Uj8A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AkkCzNfQlFnNHoT0PW4A22QavOcXGiyeLD9hFyfqgJ8lFo6UfGrKnHUJylulMERvX
-	 UodvRMGEnuH64H6MsefEB+0TkuJtBBkEr10LNkA9OlO5PQSlJkkKnryRJcKY6LLI8O
-	 8xz3KqsD7DGUuOuI5WzfpLn6ZcLlVuHQA5D/dLYV5e09f2scM3b6Ba4YEjzfckzJBK
-	 /Zn5l3LqyWkTUEV2YnZxSMpf7NOJPhfD/DQ0DAaFxYYWJLA+i0F6fKw/ZGF5AMrvjA
-	 0s0HF+1CYjXZsHOHE2J6PyCg10ax0ZWXIlfoWmVlkFf95TMD/IByeWE6jWwn/TINMi
-	 g0wad6B7rqGCQ==
-Date: Mon, 22 Sep 2025 13:07:23 -0500
+	b=NpGqUY9tAbHoS6O0fQsM5SICqWep8YqbeQ/cpjWS5o+s1i5vw/RlUISCLYPFuN1ZT
+	 31S4Wsp+nkJ9R8+PHa4jgkgdwv6xWTMHF291bFtTiXnrJIs1zx42Gng9V9+4YIhskr
+	 SYD9a4e6G+O2GAoMwFkw/NU7ge/Mw13apT+h1VWATEhMLfA19CR67v5UoNTftM00FP
+	 Jpebm4E8zknwP6qq7N96XHpDDwbSUYdOtbwKH0Z3NTG/53V6uxBO2w+mRBAGhteQwO
+	 bDTVYH3M1Rb1vh2Fa55Fev3q2xUjxuDgQuXuRAyj2ThNXyZ7diOTkQZqsp56tQgljJ
+	 4X66QCUQ8sxRw==
+Date: Mon, 22 Sep 2025 13:08:51 -0500
 From: Rob Herring <robh@kernel.org>
 To: Dang Huynh <dang.huynh@mainlining.org>
 Cc: Manivannan Sadhasivam <mani@kernel.org>,
@@ -60,7 +60,7 @@ Cc: Manivannan Sadhasivam <mani@kernel.org>,
 	linux-clk@vger.kernel.org, dmaengine@vger.kernel.org,
 	linux-mmc@vger.kernel.org, linux-hardening@vger.kernel.org
 Subject: Re: [PATCH 03/10] dt-bindings: dma: Add RDA IFC DMA
-Message-ID: <20250922180723.GA547468-robh@kernel.org>
+Message-ID: <20250922180851.GB547468-robh@kernel.org>
 References: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
  <20250919-rda8810pl-mmc-v1-3-d4f08a05ba4d@mainlining.org>
 MIME-Version: 1.0
@@ -109,9 +109,6 @@ On Fri, Sep 19, 2025 at 01:48:43AM +0700, Dang Huynh wrote:
 > +  - Dang Huynh <dang.huynh@mainlining.org>
 > +
 > +description: |
-
-Don't need '|'.
-
 > +  RDA IFC is a DMA controller, it only supports scatter/gather lists.
 > +
 > +allOf:
@@ -123,63 +120,9 @@ Don't need '|'.
 > +      - enum:
 > +          - rda,8810pl-ifc
 > +      - const: rda,ifc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#dma-cells":
-> +    const: 1
-> +    description:
-> +      The cell corresponding to DMA request ID
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    dma-controller@f0000 {
-> +      compatible = "rda,8810pl-ifc", "rda,ifc";
-> +      reg = <0xf0000 0x1000>;
-> +      #dma-cells = <1>;
-> +    };
-> diff --git a/include/dt-bindings/dma/rda-ifc.h b/include/dt-bindings/dma/rda-ifc.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..af4bae0542aa71690351e2406d0945a61eff72c1
-> --- /dev/null
-> +++ b/include/dt-bindings/dma/rda-ifc.h
-> @@ -0,0 +1,28 @@
-> +/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
-> +
-> +#ifndef __DT_BINDINGS_DMA_RDA_IFC_H__
-> +#define __DT_BINDINGS_DMA_RDA_IFC_H__
-> +
-> +#define IFC_UART1_TX		0
-> +#define IFC_UART1_RX		1
-> +#define IFC_UART2_TX		2
-> +#define IFC_UART2_RX		3
-> +#define IFC_SPI1_TX		4
-> +#define IFC_SPI1_RX		5
-> +#define IFC_SPI2_TX		6
-> +#define IFC_SPI2_RX		7
-> +#define IFC_SPI3_TX		8
-> +#define IFC_SPI3_RX		9
-> +#define IFC_SDMMC1_TX		10
-> +#define IFC_SDMMC1_RX		11
-> +#define IFC_SDMMC2_TX		12
-> +#define IFC_SDMMC2_RX		13
-> +#define IFC_SDMMC3_TX		14
-> +#define IFC_SDMMC3_RX		15
-> +#define IFC_NFSC_TX		16
-> +#define IFC_NFSC_RX		17
-> +#define IFC_UART3_TX		18
-> +#define IFC_UART3_RX		19
-> +#define IFC_NO_REQUEST		20
 
-These numbers are defined by the h/w (like IRQ numbers)? If so, drop the 
-header. We don't do headers for h/w numbers.
+Also, drop. Generic compatibles are rarely useful. If the next chip has 
+the same block, then 'rda,8810pl-ifc' can be the fallback compatible.
 
 Rob
 
