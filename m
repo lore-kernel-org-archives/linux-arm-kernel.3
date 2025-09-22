@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007DECAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 18:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C141CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 18:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hU8TyBShy31kh8JTAAGC3Ge/CKjKaszH73VH396H3yA=; b=N6WwyzyTIazr4fnefvSjA+Ln2r
-	hNtSwWO+9fQlewGH1AAnvhyjg11bDjHMKGNk9kjrOtUBbH9J7mPzlRkVOGfDpB+59BMJBi4SXeT7B
-	TBiMWL0lgqX/DpkUhReZb5BKXEr7/t9HagZqgAkU6QWX80AD36eUjSE1Ab3Ty9LHN1EAk9T4aqMpy
-	h8YOZw38YpblqHT9OWui0BYjN0MxRpezyxy4qTipJ6KrCgcj1iSIe/2+q1m069nE4sD7+pheq4Fvd
-	i2ldGlRIbUiP9pFy+G2+x33wigQ5kpd0Zujmjxg9OZ9QzW/U7m8T6mqvih4RMQ4ZHFhIcoc8W95c1
-	wQySrNUA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0y9nRJZjn7UQXQcYajKsmiFsdi64GekNX0k6uo49A+Y=; b=s0XxtO0bYipQLbr7+N7jrswalR
+	l4HlnejW/kEg53NgSpLWPWQqbH3d+TWB4+WnlCTcfxOtK8UDlTDSH3Efi2Xf98cX7h7m/s683OX1k
+	cCnOhgCzBjjGeD3GfcEsEjfqBjHlGa8epkjqqtvFsAzIb8Dc3r4LiPusn1plVAE4NqzmtEHkreIvX
+	qjqeoDD5Us6L/A6846ZZKKJrcYiFQLPcLKpYF4wq2v0QIIv5gHjWlPVBrRUrx4AWl7gR+PXdkX/Nt
+	XoswgaHSn9dikl0h0B/tGsLachPToPf36DxjE+CpH8cmK1ysgGcmf+e4FFGZOXP/7FPSpAS4UZBlQ
+	BVZ3KasQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0lBP-0000000BEqO-1OXF;
-	Mon, 22 Sep 2025 18:22:39 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v0lVr-0000000BGgD-1xTu;
+	Mon, 22 Sep 2025 18:43:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0lBL-0000000BEpl-34Zr;
-	Mon, 22 Sep 2025 18:22:37 +0000
-Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:2e97:e92:3fbf:8dbb])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 508A46DC;
-	Mon, 22 Sep 2025 20:21:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1758565267;
-	bh=b5FgkqgcRpAPhJwM4wWi1BVoVHnT8H6KCuQiV5V1p+U=;
-	h=From:To:Cc:Subject:Date:From;
-	b=L/8FBKlTGlVV3ey/JGNvHo6MtrVf+y5bke3Xlf8bg+YOU2PXd0Dz7FhpkV1Ox6haE
-	 K9QeVFFRVUZCbBWVJcL3x+AroTBlA/Z8PC98dlyj68cDMiATGWCncSn5JhV1SIzO1a
-	 B7f/eCGy1HGbgsLo8veDdlTavU5elt8ACigglgM4=
-From: Stefan Klug <stefan.klug@ideasonboard.com>
-To: linux-media@vger.kernel.org,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Stefan Klug <stefan.klug@ideasonboard.com>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] media: rkisp1: Improve frame sequence correctness on stats and params buffers
-Date: Mon, 22 Sep 2025 20:19:57 +0200
-Message-ID: <20250922182003.3712101-2-stefan.klug@ideasonboard.com>
-X-Mailer: git-send-email 2.48.1
+	id 1v0lVq-0000000BGfy-3lEa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Sep 2025 18:43:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F253601ED;
+	Mon, 22 Sep 2025 18:43:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36008C4CEF0;
+	Mon, 22 Sep 2025 18:43:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758566625;
+	bh=hvo9whrU6Oe08PtPIH2oc+mLj8QJ5uC8qV5k/Mjiz8w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=moLJzsOWRr8vIRDkJ7j/azsOpKAfKWNvEmKAUaHVLd7rSG4XJkgFU+s6whwI3sjel
+	 C9EE1spuHM2yOLUdoeDgTiYO31INGIEJ2KxMDy03bWzdW/uaFjsqcrY2jX2CWwFRCr
+	 Uu1hf/Eds2tAnx3oKLrD1gdAeBQDS547Y0R2Ad9XBkH8FsEvoMQMww3PNS/Jk8/5eR
+	 JnTEMkAZYldEur7UyQZ8VQrXgpzUa1kcRJXyR7RkTa/MNJTkgfDgMvmMjKl/1ezkft
+	 EY2PO84e/1HbUE5Nm4qjJYR+JCJQHteKSHlg2j2jRIlkhMNgv2PZgJr15oyT/ToCgi
+	 TQfnps53dLxXw==
+Message-ID: <24bf4cd9-c992-463a-a17d-0a828c16f8f0@kernel.org>
+Date: Mon, 22 Sep 2025 20:43:40 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_112236_237360_7594E7CD 
-X-CRM114-Status: GOOD (  22.30  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 22/26] irqchip/apple-aic: Drop support for custom PMU
+ irq partitions
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland
+ <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Janne Grunau
+ <j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+References: <20250922082833.2038905-1-maz@kernel.org>
+ <20250922082833.2038905-23-maz@kernel.org>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250922082833.2038905-23-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,140 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
-handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
-and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
-commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
-debugfs var for irq delay") a warning was added for that. There are two
-cases where this condition can occur:
+On 22.09.25 10:28, Marc Zyngier wrote:
+> Similarly to what has been done for GICv3, drop the irq partitioning
+> support from the AIC driver, effectively merging the two per-cpu
+> interrupts for the PMU.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
 
-1. The v-sync and the frame-end belong to the same frame. This means,
-   the irq was heavily delayed and the warning is likely appropriate.
+Reviewed-by: Sven Peter <sven@kernel.org>
 
-2. The v-sync belongs to the next frame. This can happen if the vertical
-   blanking between two frames is very short.
 
-The current code always handles case 1 although case 2 is in my
-experience the more common case and happens in regular usage. This leads
-to incorrect sequence numbers on stats and params buffers which in turn
-breaks the regulation in user space. Fix that by adding a frame_active
-flag to distinguish between these cases and handle the start of frame
-either at the beginning or at the end of the rkisp1_isp_isr().
+>   drivers/irqchip/irq-apple-aic.c | 28 +++++++---------------------
+>   1 file changed, 7 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+> index cb8b6f40ce8d3..6305d25b9e77b 100644
+> --- a/drivers/irqchip/irq-apple-aic.c
+> +++ b/drivers/irqchip/irq-apple-aic.c
+> @@ -578,16 +578,9 @@ static void __exception_irq_entry aic_handle_fiq(struct pt_regs *regs)
+>   	}
+>   
+>   	if ((read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & (PMCR0_IMODE | PMCR0_IACT)) ==
+> -			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
+> -		int irq;
+> -		if (cpumask_test_cpu(smp_processor_id(),
+> -				     &aic_irqc->fiq_aff[AIC_CPU_PMU_P]->aff))
+> -			irq = AIC_CPU_PMU_P;
+> -		else
+> -			irq = AIC_CPU_PMU_E;
+> +			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT))
+>   		generic_handle_domain_irq(aic_irqc->hw_domain,
+> -					  AIC_FIQ_HWIRQ(irq));
+> -	}
+> +					  AIC_FIQ_HWIRQ(AIC_CPU_PMU_P));
 
-Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Probably one of the most confusing diffs for a change that's actually 
+fairly simple that the diff algorithm generated! I was only able to tell 
+what's going on by looking at the file after applying this.
 
----
 
-Hi all,
 
-Here is an updated version of the patch with a fix for a typo that was
-spotted in the last review.
 
-Changes in v3:
-- Fixed typo in comment
-- Collected r-by tag
 
-Changes in v2:
-- Removed test for !frame_active in second v_start handler
-- Improved comments
-
-Best regards,
-Stefan
-
----
- .../platform/rockchip/rkisp1/rkisp1-common.h  |  1 +
- .../platform/rockchip/rkisp1/rkisp1-isp.c     | 27 +++++++++++++++----
- 2 files changed, 23 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-index ca952fd0829b..adf23416de9a 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-@@ -222,6 +222,7 @@ struct rkisp1_isp {
- 	struct media_pad pads[RKISP1_ISP_PAD_MAX];
- 	const struct rkisp1_mbus_info *sink_fmt;
- 	__u32 frame_sequence;
-+	bool frame_active;
- };
- 
- /*
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-index 8c29a1c9309a..660c1fd7efcc 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-@@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
- 	}
- 
- 	isp->frame_sequence = -1;
-+	isp->frame_active = false;
- 
- 	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
- 
-@@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
-  * Interrupt handlers
-  */
- 
--static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
-+static void rkisp1_isp_sof(struct rkisp1_isp *isp)
- {
- 	struct v4l2_event event = {
- 		.type = V4L2_EVENT_FRAME_SYNC,
- 	};
- 
-+	isp->frame_sequence++;
-+	isp->frame_active = true;
-+
- 	event.u.frame_sync.frame_sequence = isp->frame_sequence;
- 	v4l2_event_queue(isp->sd.devnode, &event);
- }
-@@ -1111,15 +1115,20 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
- 
--	/* Vertical sync signal, starting generating new frame */
--	if (status & RKISP1_CIF_ISP_V_START) {
--		rkisp1->isp.frame_sequence++;
--		rkisp1_isp_queue_event_sof(&rkisp1->isp);
-+	/*
-+	 * Vertical sync signal, starting new frame. Defer handling of vsync
-+	 * after RKISP1_CIF_ISP_FRAME if the previous frame was not completed
-+	 * yet.
-+	 */
-+	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
-+		status &= ~RKISP1_CIF_ISP_V_START;
-+		rkisp1_isp_sof(&rkisp1->isp);
- 		if (status & RKISP1_CIF_ISP_FRAME) {
- 			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
- 			rkisp1->debug.irq_delay++;
- 		}
- 	}
-+
- 	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
- 		/* Clear pic_size_error */
- 		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
-@@ -1138,6 +1147,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 	if (status & RKISP1_CIF_ISP_FRAME) {
- 		u32 isp_ris;
- 
-+		rkisp1->isp.frame_active = false;
- 		rkisp1->debug.complete_frames++;
- 
- 		/* New frame from the sensor received */
-@@ -1152,5 +1162,12 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
- 		rkisp1_params_isr(rkisp1);
- 	}
- 
-+	/*
-+	 * Deferred handling of vsync if RKISP1_CIF_ISP_V_START and
-+	 * RKISP1_CIF_ISP_FRAME occurred in the same irq.
-+	 */
-+	if (status & RKISP1_CIF_ISP_V_START)
-+		rkisp1_isp_sof(&rkisp1->isp);
-+
- 	return IRQ_HANDLED;
- }
--- 
-2.48.1
-
+Sven
 
