@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D899CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579F5CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 08:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BvzEApNoA6bmgxP5DtdYroJnnc4L1WP2GEVn5ao2R1M=; b=J7m4kLPuX9S+YMssLdRclohJ4R
-	uSWWgQGS7rNLHIuZ9FETkWmThJ/eoR5yt6Dk1p9uzTrj0HmCjxVbHCraCJciuGunSqDUz3asDR1MD
-	b1va7jjmhJloRZ3e2Z37a8tL/M7mTiRgt4r4VQz1ECxHg9DhlRvfdWkXzoxRl//MkfMT9sKe/aASV
-	Gn/h8yaUYvjbcjoDxOh8WLDB+fNt4oBTJ685yydAVxcWWsJPLE7B8S+t8MI9wn/mcHo1womDsRiea
-	KU3Z0ndyDBs23foThhbuW4ZWpluoKXDKyKaAmRJSKT46Bwd0rZbB9UOU6PYpJ+MVT4Tdq8APrn44t
-	ea9oyr+w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=csFYiLIVjSoFyeDzwmDFTsXmMkYhDo721POP4ODJw1c=; b=q1geSoD4C3U+rDN/nSywinPTtW
+	87OxLmXwb2lJWakjx4rKpEkf92gPuuhpPIvIGST4oA88brOjOw3uUsMXKulVutZi4S98iG/2xJ7fI
+	3jHLwG7wANPE4kPjz80eBTRIphUyHUKZSltoNDhF/oIwa2IQyYSMOmiQYjIB6PbIAQI0GLK8Kj7qI
+	Ck8hgA+ipKhUJUNmTqBylkgPVp1RNKkbfxkFfaEtWBHFgiO8NY9mbjBWNmDJqJFuVBRWwS3llWGo8
+	O75qVeL1kK7ek6hDm5/XFhvBA+ubdQHtiUbWlubJwVyfu4VFLrt1WeQuBlrDXpTW1Oy6myxUY5QNs
+	5YFBEA/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0bug-00000009hgm-1cgv;
-	Mon, 22 Sep 2025 08:28:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0bum-00000009hnY-2y1s;
+	Mon, 22 Sep 2025 08:28:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0buf-00000009hfC-1Bzm
+	id 1v0buf-00000009hg0-3oIy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 08:28:45 +0000
+	Mon, 22 Sep 2025 08:28:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD5C6601F8;
-	Mon, 22 Sep 2025 08:28:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 523E7C116C6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 38F0C601DC;
+	Mon, 22 Sep 2025 08:28:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC71AC4CEF0;
 	Mon, 22 Sep 2025 08:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1758529724;
-	bh=NXls5rbHqxDLi0/3KiCGchnqWOEFMs5iQ5o5i5E3JZ0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=oDU7b41Wz7w32jihd3t9/LYaa0cDmaIj1mVdp43n+Gsc7i/IEb57IXE5iSL60+qSz
-	 GT/FXgIlUBZCcARV7J7bC2eddJwGAnRV7/nTiTNFFhC/z9PSlt3VXxGa/3Hxc9jWGg
-	 zrGlkNI+MpGNuOmByfa4txFbPZXYeDS8etIDwQnSBaazTzaa84B2wRy0D28smGtpg4
-	 xwRJX9FDlkK1XEjtbbeoQOVtCKIb5ZvEAHRjT94mtWAAaw9Tkx3YsfgnB5oxrMvQ8Q
-	 DjXOjYQxWRpfGjTTzjLuyH/ZDAFjkY3IVxl8woP9oH6tqGjdjUEncGmEoAn1xQHc2G
-	 ggbumsA/W7kdg==
+	bh=C6E+aBEwGO9hdt1adgFxxn43Y+KPhVq4P5UdcbaK3jQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LY8MLpCBLX0GLYkb9PnQBGX3JXCY3s6Ve4syk+SVOeb1idI0OqyzBtTx+tmtoeZUA
+	 yStqoW/MQ9WwO01xrNasugarr6r8BQJ0kaPyQmYw+PWBz6gHqw0MoeVB3z/BtoSaRc
+	 YAv4isq8YH1glfqHYKzrh2FIhHkatvtmKHsWr3YOqpOQSNPcy6tVeMpNmPoqYZ6fI2
+	 +BdKU6efM4GJLUKJtbmKVrrEdOANoS7b/ARS02vm62Vy/qgSrzTgppF5VTUp+AILUF
+	 jFxlQ5Mt2eXjrc3G4Yp7M+r/DceiP0h1hyEa/yyQY0SvcJ6Jts/VNiQKhQ9+00iLYs
+	 j8vaL8+6vP1AQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v0bub-00000008Kds-2Vyj;
-	Mon, 22 Sep 2025 08:28:41 +0000
+	id 1v0buc-00000008Kds-3L2U;
+	Mon, 22 Sep 2025 08:28:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,10 +64,12 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	James Clark <james.clark@linaro.org>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v3 00/26] genirq: Add support for percpu_devid IRQ affinity
-Date: Mon, 22 Sep 2025 09:28:07 +0100
-Message-ID: <20250922082833.2038905-1-maz@kernel.org>
+Subject: [PATCH v3 04/26] platform: Add firmware-agnostic irq and affinity retrieval interface
+Date: Mon, 22 Sep 2025 09:28:11 +0100
+Message-ID: <20250922082833.2038905-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250922082833.2038905-1-maz@kernel.org>
+References: <20250922082833.2038905-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -88,111 +90,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the third version of this series, originally posted at [1],
-which aims at allowing percpu_devid interrupt requests on the basis of
-an affinity mask. See the original submission for the details of why
-this is a desirable outcome.
+Expand platform_get_irq_optional() to also return an affinity if
+available, renaming it to platform_get_irq_affinity() in the
+process.
 
-From v2, we have some tidying up, thanks to Jonathan's review -- see
-changelog for details.
+platform_get_irq_optional() is preserved with its current semantics
+by calling into the new helper with a NULL affinity pointer.
 
-FWIW, I've pushed a branch at [3].
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
+ include/linux/platform_device.h |  2 ++
+ 2 files changed, 52 insertions(+), 10 deletions(-)
 
-* From v2 [2]:
-
-  - Turned of_node_to_fwnode() usage to of_fwnode_handle() (Jonathan)
-
-  - Added a patch to finally kill of_node_to_fwnode()
-
-  - Tidied-up documentation, comments and formatting (Jonathan)
-
-  - Collected ABs and Rbs, with thanks (Jonathan, Suzuki, Sven)
-
-* From v1 [1]:
-
-  - Fixed NMI handling by getting rid of the NMI-specific flow
-    handler, which was pretty useless anyway (Will)
-
-  - As a result, killed a metric buttload worth of GICv3 code
-
-  - Moved irq_fwspec out of irq_fwspec_info, and passed it as a
-    parameter to irq_get_fwspec_info(), renamed from irq_get_info(),
-    and applied some generous sanitisation of the structure (Thomas)
-
-  - Dropped the rather useless fwspec validity flag (Thomas)
-
-  - Rejigged the PMU per-CPU handling to better deal with the DT/ACPI
-    differences, and drop some now useless patches (Will)
-
-  - Plenty of cosmetic rework (Raphael, Thomas)
-
-[1] https://lore.kernel.org/r/20250908163127.2462948-1-maz@kernel.org
-[2] https://lore.kernel.org/r/20250915085702.519996-1-maz@kernel.org
-[3] git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git irq/ppi-affinity
-
-Marc Zyngier (25):
-  irqdomain: Add firmware info reporting interface
-  ACPI: irq: Add IRQ affinity reporting interface
-  of/irq: Add IRQ affinity reporting interface
-  platform: Add firmware-agnostic irq and affinity retrieval interface
-  irqchip/gic-v3: Add FW info retrieval support
-  irqchip/apple-aic: Add FW info retrieval support
-  coresight: trbe: Convert to new IRQ affinity retrieval API
-  perf: arm_pmu: Convert to new IRQ affinity retrieval API
-  perf: arm_spe_pmu: Convert to new IRQ affinity retrieval API
-  irqchip/gic-v3: Switch high priority PPIs over to
-    handle_percpu_devid_irq()
-  genirq: Kill handle_percpu_devid_fasteoi_nmi()
-  genirq: Merge irqaction::{dev_id,percpu_dev_id}
-  genirq: Factor-in percpu irqaction creation
-  genirq: Add affinity to percpu_devid interrupt requests
-  genirq: Update request_percpu_nmi() to take an affinity
-  genirq: Allow per-cpu interrupt sharing for non-overlapping affinities
-  genirq: Add request_percpu_irq_affinity() helper
-  perf: arm_spe_pmu: Request specific affinities for percpu IRQ
-  coresight: trbe: Request specific affinities for percpu IRQ
-  irqchip/gic-v3: Drop support for custom PPI partitions
-  irqchip/apple-aic: Drop support for custom PMU irq partitions
-  irqchip: Kill irq-partition-percpu
-  genirq: Kill irq_{g,s}et_percpu_devid_partition()
-  irqdomain: Kill of_node_to_fwnode() helper
-  perf: arm_pmu: Kill last use of per-CPU cpu_armpmu pointer
-
-Will Deacon (1):
-  perf: arm_pmu: Request specific affinities for percpu NMI/IRQ
-
- arch/arm64/kernel/smp.c                      |   2 +-
- drivers/acpi/irq.c                           |  19 ++
- drivers/base/platform.c                      |  60 ++++-
- drivers/hwtracing/coresight/coresight-trbe.c |   9 +-
- drivers/irqchip/Kconfig                      |   4 -
- drivers/irqchip/Makefile                     |   1 -
- drivers/irqchip/irq-apple-aic.c              |  56 +++--
- drivers/irqchip/irq-gic-v3.c                 | 224 +++++------------
- drivers/irqchip/irq-partition-percpu.c       | 241 -------------------
- drivers/of/irq.c                             |  20 ++
- drivers/perf/arm_pmu.c                       |  49 ++--
- drivers/perf/arm_pmu_acpi.c                  |   2 +-
- drivers/perf/arm_pmu_platform.c              |  20 +-
- drivers/perf/arm_pmuv3.c                     |   2 +-
- drivers/perf/arm_spe_pmu.c                   |  13 +-
- include/linux/acpi.h                         |   7 +
- include/linux/interrupt.h                    |  24 +-
- include/linux/irq.h                          |   5 -
- include/linux/irqchip/irq-partition-percpu.h |  53 ----
- include/linux/irqdesc.h                      |   1 -
- include/linux/irqdomain.h                    |  33 ++-
- include/linux/of_irq.h                       |   7 +
- include/linux/perf/arm_pmu.h                 |   6 +-
- include/linux/platform_device.h              |   2 +
- kernel/irq/chip.c                            |  35 +--
- kernel/irq/irqdesc.c                         |  24 +-
- kernel/irq/irqdomain.c                       |  32 ++-
- kernel/irq/manage.c                          | 125 +++++++---
- 28 files changed, 420 insertions(+), 656 deletions(-)
- delete mode 100644 drivers/irqchip/irq-partition-percpu.c
- delete mode 100644 include/linux/irqchip/irq-partition-percpu.h
-
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index 09450349cf323..3a058f63ef0d3 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
+ EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
+ #endif /* CONFIG_HAS_IOMEM */
+ 
++static const struct cpumask *get_irq_affinity(struct platform_device *dev,
++					      unsigned int num)
++{
++	const struct cpumask *mask = NULL;
++#ifndef CONFIG_SPARC
++	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
++
++	if (is_of_node(fwnode))
++		mask = of_irq_get_affinity(to_of_node(fwnode), num);
++	else if (is_acpi_device_node(fwnode))
++		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
++#endif
++
++	return mask ?: cpu_possible_mask;
++}
++
+ /**
+- * platform_get_irq_optional - get an optional IRQ for a device
++ * platform_get_irq_affinity - get an optional IRQ and its affinity for a device
+  * @dev: platform device
+  * @num: IRQ number index
++ * @affinity: optional cpumask pointer to get the affinity of a per-cpu IRQ
+  *
+  * Gets an IRQ for a platform device. Device drivers should check the return
+  * value for errors so as to not pass a negative integer value to the
+- * request_irq() APIs. This is the same as platform_get_irq(), except that it
+- * does not print an error message if an IRQ can not be obtained.
+- *
+- * For example::
+- *
+- *		int irq = platform_get_irq_optional(pdev, 0);
+- *		if (irq < 0)
+- *			return irq;
++ * request_irq() APIs. Optional affinity information is provided in the
++ * affinity pointer if available, and NULL otherwise.
+  *
+  * Return: non-zero IRQ number on success, negative error number on failure.
+  */
+-int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
++int platform_get_irq_affinity(struct platform_device *dev, unsigned int num,
++			      const struct cpumask **affinity)
+ {
+ 	int ret;
+ #ifdef CONFIG_SPARC
+@@ -236,8 +248,36 @@ int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
+ out:
+ 	if (WARN(!ret, "0 is an invalid IRQ number\n"))
+ 		return -EINVAL;
++
++	if (ret > 0 && affinity)
++		*affinity = get_irq_affinity(dev, num);
++
+ 	return ret;
+ }
++EXPORT_SYMBOL_GPL(platform_get_irq_affinity);
++
++/**
++ * platform_get_irq_optional - get an optional IRQ for a device
++ * @dev: platform device
++ * @num: IRQ number index
++ *
++ * Gets an IRQ for a platform device. Device drivers should check the return
++ * value for errors so as to not pass a negative integer value to the
++ * request_irq() APIs. This is the same as platform_get_irq(), except that it
++ * does not print an error message if an IRQ can not be obtained.
++ *
++ * For example::
++ *
++ *		int irq = platform_get_irq_optional(pdev, 0);
++ *		if (irq < 0)
++ *			return irq;
++ *
++ * Return: non-zero IRQ number on success, negative error number on failure.
++ */
++int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
++{
++	return platform_get_irq_affinity(dev, num, NULL);
++}
+ EXPORT_SYMBOL_GPL(platform_get_irq_optional);
+ 
+ /**
+diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+index 074754c23d330..ad66333ce85ce 100644
+--- a/include/linux/platform_device.h
++++ b/include/linux/platform_device.h
+@@ -102,6 +102,8 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
+ 
+ extern int platform_get_irq(struct platform_device *, unsigned int);
+ extern int platform_get_irq_optional(struct platform_device *, unsigned int);
++extern int platform_get_irq_affinity(struct platform_device *, unsigned int,
++				     const struct cpumask **);
+ extern int platform_irq_count(struct platform_device *);
+ extern int devm_platform_get_irqs_affinity(struct platform_device *dev,
+ 					   struct irq_affinity *affd,
 -- 
 2.47.3
 
