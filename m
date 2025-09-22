@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F79CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD63CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9FyE/0N1K3w7nr3vxYWKDBXg7DtluS3ho5RrT5Eoduw=; b=yOcHQIl2DskpNApuEYwSzQpThA
-	uQ80bsFf44tWU2isdfSKcn+9lM9hw9wtUQ5KS30HOUyRdrfMUi9QjqwDjP/prZbQgMFTwiByxDlkS
-	jRY8AoP+5il6aOP1H4iUPTueX5Iy834jp8Xkj2/o5mkjVxf4regg/XosZXB6se+jJXVfA4YClQAvb
-	60GYdqOmAg7lOcjLwgo0vI2UqO56TxML8TnM8/wT6UD5zlnMM6Lqv6hscPrUcwl2s95GKCTJLpsM+
-	iEB1D9PDPI0njoQljCn/1+l+xXqxA+6hCYtBwHNHAb0B3TfMKN7J51mA+xaFKL249hE2bIXy67VIK
-	dcT29FBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ApMTEldxo9DFgbZqDI/ul+YSiIe3YvqoVohciXpiwpA=; b=p4BeK8/ODv0xUfBVf8lORHCCtg
+	P9r8Wv6jJV7EPFVMEWKt2/NDB/2PJaWVYrOhdTxdL5WPndFIi2mTzzMoSS55fWhG9v9uAxcbvvNto
+	7a5O0HJCYNkqLkjqC1GpytWIIUZoUc9Jb8jDGgyGIjgexygLPw7bZ2R34X0LpKUtQQ1eLbVG2yH73
+	BnncGOUyXmogPcm7NxHKsFG4efLJKny+rDwrBZMlidPKfwxINIInVAej2aBFvog95ozbJZbrvF4vs
+	JDWRvz4SMh91Epg5NiYItrNpzYbA57GkqbmCuR4n9zffGQ93xMEuqsdW10ZuHUJd4QxBNyeJfkvuu
+	D9Gv9v6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0e7O-0000000A7gJ-4AfR;
-	Mon, 22 Sep 2025 10:50:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v0eCY-0000000A8Ak-3FWR;
+	Mon, 22 Sep 2025 10:55:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0e7M-0000000A7fI-41EG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 10:50:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E87C244C43;
-	Mon, 22 Sep 2025 10:49:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACBFC4CEF0;
-	Mon, 22 Sep 2025 10:49:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758538198;
-	bh=niid4/G+12MRj1IFs6hp4sxeglXjyvGTGDPW0mtxjKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qn15K+BDQCMdtm8fPWDiC0Citf1LHeyLNl9kXRi5WJvwj2/1hIuCpVvsRxGMiSXBP
-	 X1RnlBTgKC6NFyFOYs4Ht4cTAKrG289MkmevTZU02K+unBfSI+7zLjm+dY9XGQsONM
-	 7lfD8Fs5lCSaRp7iG/bLU3B9HB7R1UByh08z+VA/wlsghF52gImFrpJpqb4RfsYH6z
-	 ovVNgbPNhwvW+PRUn4J+Jhqq8YIvSn3QU6DmZ6Z3BDmodPCTMWLjh/1wNOI0WJbnIJ
-	 kTbDqYeC8arkwbeOcl8N4TP51f0ZjiM8O7wsFZv7XPtqlYd5qmvoh3IQU0LEZjc/fB
-	 yAne/WZgkp6yw==
-Date: Mon, 22 Sep 2025 12:49:53 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] of/irq: Add msi-parent check to of_msi_xlate()
-Message-ID: <aNEp0Ty3+a2oxLNm@lpieralisi>
-References: <20250916091858.257868-1-lpieralisi@kernel.org>
- <20250918135555.GA1540012-robh@kernel.org>
+	id 1v0eCV-0000000A8AD-2XZ4;
+	Mon, 22 Sep 2025 10:55:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758538516;
+	bh=cq7Y4UZHdRw2ECiLZbveDiF74dbYePvi+a4phlHnPtY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QbK+hulz3cRofs2gz2imTo35BmAq9oyHgdicO4p3aKWCfae83ng/JF1phynRpMfzb
+	 EuVXef5tc+M3MEHd287xeKzfT9mVt+1oAR7fUJfVgx3+3R0NuK5/fiasc4TYWglNvE
+	 93XlbxP8cERhUsWnHpPuns5AJ8/QRPVLbopOIrgFwyY6Et63A3RawnM1zn/1JF+fnc
+	 KfwXMYeSwHpTu7EX1CFTguGhgeeT/Ub6QMEXC+71X8tNYwhdS7THjVwrCyEtsrgZ6w
+	 kjrT1HVp3qoNlFHshhrf4KdjEaeexDd1LhSZPWVvZMcV7eqIhhUj3xxB6GEuCySHiH
+	 kS8wrgJKWbdVw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5AC9417E10F3;
+	Mon, 22 Sep 2025 12:55:15 +0200 (CEST)
+Message-ID: <e700cea3-cbe7-4ab5-94d8-a211051e2472@collabora.com>
+Date: Mon, 22 Sep 2025 12:55:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250918135555.GA1540012-robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] PCI: Convert devm_pci_alloc_host_bridge() users to
+ error-pointer returns
+To: Alok Tiwari <alok.a.tiwari@oracle.com>, thomas.petazzoni@bootlin.com,
+ pali@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, robh@kernel.org, bhelgaas@google.com, joyce.ooi@intel.com,
+ alyssa@rosenzweig.io, maz@kernel.org, jim2101024@gmail.com,
+ florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+ rjui@broadcom.com, sbranden@broadcom.com, ryder.lee@mediatek.com,
+ jianjun.wang@mediatek.com, sergio.paracuellos@gmail.com,
+ matthias.bgg@gmail.com, marek.vasut+renesas@gmail.com,
+ yoshihiro.shimoda.uh@renesas.com, geert+renesas@glider.be,
+ magnus.damm@gmail.com, shawn.lin@rock-chips.com, heiko@sntech.de,
+ michal.simek@amd.com, bharat.kumar.gogada@amd.com, will@kernel.org,
+ kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+ decui@microsoft.com, linus.walleij@linaro.org, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, rric@kernel.org, nirmal.patel@linux.intel.com,
+ toan@os.amperecomputing.com, jonathan.derrick@linux.dev,
+ linux-pci@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-hyperv@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250921161434.1561770-1-alok.a.tiwari@oracle.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_035001_039940_DB61D07F 
-X-CRM114-Status: GOOD (  41.06  )
+X-CRM114-CacheID: sfid-20250922_035519_815944_CD6D9560 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,126 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 18, 2025 at 08:55:55AM -0500, Rob Herring wrote:
-> On Tue, Sep 16, 2025 at 11:18:58AM +0200, Lorenzo Pieralisi wrote:
-> > In some legacy platforms the MSI controller for a PCI host
-> > bridge is identified by an msi-parent property whose phandle
-> > points at an MSI controller node with no #msi-cells property,
-> > that implicitly means #msi-cells == 0.
-> > 
-> > For such platforms, mapping a device ID and retrieving the
-> > MSI controller node becomes simply a matter of checking
-> > whether in the device hierarchy there is an msi-parent property
-> > pointing at an MSI controller node with such characteristics.
-> > 
-> > Add a helper function to of_msi_xlate() to check the msi-parent
-> > property in addition to msi-map and retrieve the MSI controller
-> > node (with a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to
-> > provide support for deviceID mapping and MSI controller node
-> > retrieval for such platforms.
+Il 21/09/25 18:14, Alok Tiwari ha scritto:
+> devm_pci_alloc_host_bridge() and pci_alloc_host_bridge() previously
+> returned NULL on failure, forcing callers to special-case NULL handling
+> and often hardcode -ENOMEM as the error.
 > 
-> Your line wrapping is a bit short.
+> This series updates devm_pci_alloc_host_bridge() to consistently return
+> error pointers (ERR_PTR) with the actual error code, instead of NULL.
+> All callers across PCI host controller drivers are updated to use
+> IS_ERR_OR_NULL()/PTR_ERR() instead of NULL checks and hardcoded -ENOMEM.
 > 
-> I had a look at who is parsing "msi-parent" themselves as that's 
-> typically a recipe for doing it incorrectly ('interrupt-map' anyone). 
-> Can we make iproc_pcie_msi_enable() use this? It's quite ugly reaching 
-> into the GICv3 node...
+> Benefits:
+>    - Standardizes error handling with Linux kernel ERR_PTR()/PTR_ERR()
+>      conventions.
+>    - Ensures that the actual error code from lower-level helpers is
+>      propagated back to the caller.
+>    - Removes ambiguity between NULL and error pointer returns.
 > 
-> And perhaps irq-gic-its-msi-parent.c could use this? 
+> Touched drivers include:
+>   cadence (J721E, cadence-plat)
+>   dwc (designware, qcom)
+>   mobiveil (layerscape-gen4, mobiveil-plat)
+>   aardvark, ftpci100, ixp4xx, loongson, mvebu, rcar, tegra, v3-semi,
+>   versatile, xgene, altera, brcmstb, iproc, mediatek, mt7621, xilinx,
+>   plda, and others
 > 
-> And looks like pcie-layerscape-gen4 is leaking a node reference...
+> This patch updates error handling across these host controller drivers
+>   so that callers consistently receive ERR_PTR() instead of NULL.
+> 
 
-Hi Rob,
+I think that's a nice improvement - propagating the right error code looks good.
 
-given where we are in the development cycle and that technically this
-is a GICv5 fix I would send a patch to fix the issue in GICv5 MSI
-parent code in drivers/irqchip (yes, it is more code handling the
-msi-parent property scattered around) and then will resume this
-thread for v6.19 - starting the clean-up.
+The only thing is - you have to make sure that it never returns NULL, so that
+in the controller drivers you always check for `if (IS_ERR(x))` - otherwise with
+the current IS_ERR_OR_NULL(x) most of the error paths are wrong.
 
-This patch affects more platforms than GICv5 and I am not sure
-it is safe to rush it in.
+Cheers,
+Angelo
 
-Thanks,
-Lorenzo
-
-> > 
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
-> >  1 file changed, 35 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> > index e7c12abd10ab..d0e2dfd0ee28 100644
-> > --- a/drivers/of/irq.c
-> > +++ b/drivers/of/irq.c
-> > @@ -670,6 +670,35 @@ void __init of_irq_init(const struct of_device_id *matches)
-> >  	}
-> >  }
-> >  
-> > +static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
-> > +{
-> > +	struct of_phandle_args msi_spec;
-> > +	int ret;
-> > +
-> > +	/*
-> > +	 * An msi-parent phandle with a missing or == 0 #msi-cells
-> > +	 * property identifies a 1:1 ID translation mapping.
-> > +	 *
-> > +	 * Set the msi controller node if the firmware matches this
-> > +	 * condition.
-> > +	 */
-> > +	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
-> > +						  0, &msi_spec);
-> > +	if (!ret) {
-> > +		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
-> > +			ret = -EINVAL;
-> > +
-> > +		if (!ret) {
-> > +			/* Return with a node reference held */
-> > +			*msi_node = msi_spec.np;
-> > +			return 0;
-> > +		}
-> > +		of_node_put(msi_spec.np);
-> > +	}
-> > +
-> > +	return ret;
-> > +}
-> > +
-> >  /**
-> >   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
-> >   * @dev: device for which the mapping is to be done.
-> > @@ -677,7 +706,7 @@ void __init of_irq_init(const struct of_device_id *matches)
-> >   * @id_in: Device ID.
-> >   *
-> >   * Walk up the device hierarchy looking for devices with a "msi-map"
-> > - * property. If found, apply the mapping to @id_in.
-> > + * or "msi-parent" property. If found, apply the mapping to @id_in.
-> >   * If @msi_np points to a non-NULL device node pointer, only entries targeting
-> >   * that node will be matched; if it points to a NULL value, it will receive the
-> >   * device node of the first matching target phandle, with a reference held.
-> > @@ -691,12 +720,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
-> >  
-> >  	/*
-> >  	 * Walk up the device parent links looking for one with a
-> > -	 * "msi-map" property.
-> > +	 * "msi-map" or an "msi-parent" property.
-> >  	 */
-> > -	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
-> > +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
-> >  		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
-> >  				"msi-map-mask", msi_np, &id_out))
-> >  			break;
-> > +		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
-> > +			break;
-> > +	}
-> >  	return id_out;
-> >  }
-> >  
-> > -- 
-> > 2.48.0
-> > 
+> Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+> ---
+>   arch/mips/pci/pci-xtalk-bridge.c                       | 4 ++--
+>   drivers/pci/controller/cadence/pci-j721e.c             | 4 ++--
+>   drivers/pci/controller/cadence/pcie-cadence-plat.c     | 4 ++--
+>   drivers/pci/controller/dwc/pcie-designware-host.c      | 4 ++--
+>   drivers/pci/controller/dwc/pcie-qcom.c                 | 4 ++--
+>   drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c | 4 ++--
+>   drivers/pci/controller/mobiveil/pcie-mobiveil-plat.c   | 4 ++--
+>   drivers/pci/controller/pci-aardvark.c                  | 4 ++--
+>   drivers/pci/controller/pci-ftpci100.c                  | 4 ++--
+>   drivers/pci/controller/pci-host-common.c               | 4 ++--
+>   drivers/pci/controller/pci-hyperv.c                    | 4 ++--
+>   drivers/pci/controller/pci-ixp4xx.c                    | 4 ++--
+>   drivers/pci/controller/pci-loongson.c                  | 4 ++--
+>   drivers/pci/controller/pci-mvebu.c                     | 4 ++--
+>   drivers/pci/controller/pci-rcar-gen2.c                 | 4 ++--
+>   drivers/pci/controller/pci-tegra.c                     | 4 ++--
+>   drivers/pci/controller/pci-v3-semi.c                   | 4 ++--
+>   drivers/pci/controller/pci-versatile.c                 | 4 ++--
+>   drivers/pci/controller/pci-xgene.c                     | 4 ++--
+>   drivers/pci/controller/pcie-altera.c                   | 4 ++--
+>   drivers/pci/controller/pcie-brcmstb.c                  | 4 ++--
+>   drivers/pci/controller/pcie-iproc-bcma.c               | 4 ++--
+>   drivers/pci/controller/pcie-iproc-platform.c           | 4 ++--
+>   drivers/pci/controller/pcie-mediatek-gen3.c            | 4 ++--
+>   drivers/pci/controller/pcie-mediatek.c                 | 4 ++--
+>   drivers/pci/controller/pcie-mt7621.c                   | 4 ++--
+>   drivers/pci/controller/pcie-rcar-host.c                | 4 ++--
+>   drivers/pci/controller/pcie-rockchip-host.c            | 4 ++--
+>   drivers/pci/controller/pcie-xilinx-cpm.c               | 4 ++--
+>   drivers/pci/controller/pcie-xilinx-dma-pl.c            | 4 ++--
+>   drivers/pci/controller/pcie-xilinx-nwl.c               | 4 ++--
+>   drivers/pci/controller/pcie-xilinx.c                   | 4 ++--
+>   drivers/pci/controller/plda/pcie-plda-host.c           | 4 ++--
+>   drivers/pci/probe.c                                    | 8 ++++----
+>   34 files changed, 70 insertions(+), 70 deletions(-)
+> 
 
