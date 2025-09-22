@@ -4,136 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26535CAC5AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0673CAC592
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 10:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiYvYz09Ku6t3DKDC+/4pI6qfS4bj3bJjEj9wOzslhA=; b=U0j2cJO1fXS/7t3sCKW9ouFQIa
-	s7KTAXMdOvFtzTnDrZk2+6TAwG2HhaOeNE9VgqjGO5SWwz0CoaKibIM0EKLf8UNA993xcibBgXX4V
-	EIwLwuuwz4BlH8iimHPCdZyPdaEBGRpH22uiGodEji6a+3oYXYloXXgq30nxYRinWAlILjAghGGgF
-	QLMpQEwjz2XQXAhHbblr0TOmcOE3xHt2tudH4qFAoOCGd9ppZeVUhqdmBLvm2MTtj1/bPzYpamEZL
-	YfssLxJVNO4ZNxS8JUm8VPL1UxYnHA7CX4z1CzFeezEulUz4xdIKRwhAZ79TBTmdb6fbN8pexlads
-	8xlmwGcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y811XUkUAcjUYq9kF2IbC9o9QTenp6PpvmUvV5JyxCo=; b=SCbuEnxrGvyOg46CZrQHMIXbNP
+	drvzf0gFijjTHQYNF9leOUo/lKCVNi9JRtaEoFQxc60MDLX8JK5l7b/9t80dZS3b/R1yTE8F4aLD4
+	wpbl8QWwjG6/Qmyc81Gyn/w0AExtd4nTohgh49gviteDH3+70YJDY3UgJoRFoW/y4Lp6Y7nA0S5Zi
+	K3JrTbf7seb+0jD/T4Bx15Xglr8knANWHzCE/IRE6j+nTpjnVaI3raAwmdumgQGHr6LfcZKWQjdKj
+	QTt7kEa38sEqmDwDzvNDnd+SyX227EdOShchRo9ZR6UawHXwCOEzGjacb5CUvlOePuen5ENYIYSV/
+	IjKJ2xKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0dMo-00000009yFJ-336z;
-	Mon, 22 Sep 2025 10:01:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v0dMt-00000009yI9-2EvC;
+	Mon, 22 Sep 2025 10:01:59 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0dMl-00000009yDb-2IRZ
+	id 1v0dMr-00000009yGS-0Jwn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 10:01:53 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58M90FRB002252
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 10:01:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=XiYvYz09Ku6t3DKDC+/4pI6q
-	fS4bj3bJjEj9wOzslhA=; b=M7Yzv5JW0kzo5jqhfuTrRAr2NwtyCdfXVTLVHncP
-	tYI97i8LcDHQB5HgXes9kVdNM0fTPrfKEikVW5TvqhegrojVEAyu1/H2qs8MNc1Q
-	VoGZZ2bvd/2C2225s7s7U2IXWuu/zxXLD83t1PfAVQ3Ex8YzYzw0wNK9XuifolUL
-	qqRXE5YC0eTFuK2tGjUDYH6nA6ORf7KuA9VYoRVFUXn0VWb7pzvJvozCpd3h5gtV
-	/REIvnhJ0oIMAcL7e/3p4yZFYBjUDllStnUmYL2t9DGEVn5PNJv3j6oZfV4pORIB
-	3OJcgmPs9kjwgyNQzEhh7tJjyNTuVaYGLy7e3Tuz6HfQTA==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499k7svem6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 10:01:51 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-78ea15d3548so41395746d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 03:01:51 -0700 (PDT)
+	Mon, 22 Sep 2025 10:01:58 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-467f6fd4e82so9564195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 03:01:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758535315; x=1759140115; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y811XUkUAcjUYq9kF2IbC9o9QTenp6PpvmUvV5JyxCo=;
+        b=OaKAGuCglMVbmJxQoUKzPYFV5NvjpQd3K1ZdQsOknuIm/r3m//MwmKSZ0aissv4j0+
+         Hs1rFgDnZt4TIv0oE8Jnh9S+9fK0OYZTzpC44sjOGWN+xfkIA+dSCDTsPgNGaUwhiNU5
+         TFqp7sHUajCH1P756d54pHwFBgGw6DrLr2h3XXPHmeJTe5L+ytJi2lAciqzJb1vxVQqQ
+         TbjOAef2SBFanoF/zynKyRW6z0kYl9MCluxqB0P7P0sB6A8gODq1riRhxRX+0QqiGzKd
+         IH8e3OFzsnltdtMwKJGfhh+wEu7iragIzfEEnJPi1ReMpdJWDeD6ebt9okO7BsZHJNoU
+         MG3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758535309; x=1759140109;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XiYvYz09Ku6t3DKDC+/4pI6qfS4bj3bJjEj9wOzslhA=;
-        b=QXB7DSi3B//OCm0N6qJZpQwE1KCLhRbDdBv5zYGSM6SGv3pBm0AVA2lfv8KpJq96d5
-         XvGzW0CEDj8YtMmsNZ+22y6CUORLlPIQ+yGK9AKivK274UoplkEzVh8kTL2guZN8YKnM
-         /oVo7yAYTxtxQbLqcE9TvfNzIzA4qRuODMweufztSWPr2PMC4wUcijKEoqq2QBZ+TNo1
-         tztxHlnhKHlhdgD9l9WZk+zafoWbiWaSDZMtOdhxBaNjtMsnk1DHjyQujxccXzMRc0TD
-         X9eCTpIs9bFvd2jvpnaQ7Bbmjew2Wv/eAza893aECpoc9JVzF+UBM28Nq8kKoP1XHl4/
-         k03g==
-X-Forwarded-Encrypted: i=1; AJvYcCV35Nrv38cyebLthXQVoWWmJ3l5z9QyC8RR0rPp7gJyTmHICYzi9PfoZ/9QkbORJXwtbMP5rfHEDepQShd/lkAh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxawn9uP6X4ghu8PuAHQ9wXK/D/oZv7JSrQ2Rumm4DkzuP6SgtY
-	cuDqrMzX1K082MLu3qpbjrdix0f5DxvzCyOwDDQxzaHrzh0QFCCzQRWPETFK60a+vGy2+9/8Kqi
-	Id367hMigcsiBqIr0dUX+c90YyulSs1XbGvfagYa5gxviWCirYqe1b4Ul8vSLz1x5aaY8PhpeJz
-	9DguMVsVjgcw==
-X-Gm-Gg: ASbGncv60XYYRultctgrEnjvuOsUH2kocyivSuFHquAtqs2daE6mjhRgX2/TI891rgi
-	rxIC1EUFPl91AzzDnLy/HkNWp0LKaYTmlMwf+wDxUZEDhlTTCNbcKsrkL0zzo6P139r2gpXMsPJ
-	sRtFdTNFJr0bRdtwIxCAW/9z/OQCf6E8errYVz0+FvqNw7u1ZObdKZXKJrX6IpLe5GsKSF5yQ+v
-	6R0BrrARp2SadRBZuqtFhBdqfsTp3rHnQxiKozvy9bPXZJkXVWWrGFXK6nel7jTQpOd04Q+t4tr
-	6hL2khWw379Lc/NZEIUe7Y1X205rBmUh8UDzVWfRF8X/IZrJK2MohOPAni0pGWnAT9Jr/pLxqTa
-	gp5x0qsByqep+Fgp2LdjoFBo2HOuNMbUr25UkZgsFrVj+mIi48/gM
-X-Received: by 2002:a05:6214:2129:b0:77e:dd3e:a0c9 with SMTP id 6a1803df08f44-79911fe849emr152956866d6.14.1758535309198;
-        Mon, 22 Sep 2025 03:01:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH3dwdmnAT8Ej8kna6zU+1gThqQvOHecwhWI8VJSZtuu94b0HchIuEq9o+Du143hQaVFqG97w==
-X-Received: by 2002:a05:6214:2129:b0:77e:dd3e:a0c9 with SMTP id 6a1803df08f44-79911fe849emr152956006d6.14.1758535308504;
-        Mon, 22 Sep 2025 03:01:48 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-361a1e077d0sm29027191fa.9.2025.09.22.03.01.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Sep 2025 03:01:47 -0700 (PDT)
-Date: Mon, 22 Sep 2025 13:01:44 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v4 4/7] drm/rockchip: cdn-dp: Support handle lane info
- without extcon
-Message-ID: <gcgiszrrpqkoi3mhajn4i72awbffqv6mayahmnyswoitxxmrgd@nr2z4cpurbwq>
-References: <20250922012039.323-1-kernel@airkyi.com>
- <20250922012039.323-5-kernel@airkyi.com>
+        d=1e100.net; s=20230601; t=1758535315; x=1759140115;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y811XUkUAcjUYq9kF2IbC9o9QTenp6PpvmUvV5JyxCo=;
+        b=FI8crrfP5gvVqPaG6mmR/F5M0Vggotu1LL8QCS1/A6yBjK//xUeIX1Yflao8mbzp0L
+         Z3GnK1nOeP9fqkfmUMyWP9oOo98o3a0YedCRNiQdtGEnPff+QS7WlFJ8a0d2HNtfHerr
+         3lahTmjLS4mKwbo2G37FHqguiKNO2GTATk6ec4o325PDXfZPHlzyk1PzPSP9XayGTDHC
+         E0Pbxb0ZBvwBHT5hws3Jq8ShTIpRJgIm8NsAccy37361HdFYo2s59YfEPyegr4x+eMv4
+         g+frSel0vMv6gP1hqGSlnYy6f9ImD0MZnXhOO2Vy7ewShhxQ0YPDVFEaFtT+rSU0DarJ
+         T4TQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGBfzl/y5lejCgIFPMJR26Dip+xKcCHg2z8dnNQ+vdg5g++6ICEQ08jj4YxxrQSPioYzX7nE1awqTpGog1nNEY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkoFENTqSiPnR72Z/y5dsbqD4W4dzWkNKSn+RLBnMJH5gqLFmk
+	MAWLeit21iPOc7uGVxZl+nR19euNA2XT6QpXNcfHG35iKd0oCEiPUGAdwExdGUdb/sg=
+X-Gm-Gg: ASbGncvTBCLGtwnmK564hWKz7/3KZlkSkSEfxaHXpcegb1hhp2/6bk7PDsOSOHwNs+5
+	A4vkdiudDkFYkjN0OPycUoAJQQhT50pgIdkZ0z9FnPNyxx5+SVoV+Ye4HfpxqmiCdcqhCttY/Ll
+	twJ3c+r7fgiJfnIbGLbuOFM08ThH504ZWHuUtd+AcdihDcZwlgfidU/UASI/jPkqtz3vstL5oyQ
+	RJYNyqeaCfMLOmHNrjZ32XSlXWlV5HyJed/Juj8F30ZJNPWzLz2XvZiMz+Eutnsvqj+ca3LgAQS
+	AFMKgYaKM0evVxXjFLMN9KQfmOCac/3fBSk0W1R1uy9Gc+l2EhnvIc2mtLCuQRB9F34KAIqQoMs
+	3xNM6SkW8YYckf2M55hKvcBhTXxanpO+e
+X-Google-Smtp-Source: AGHT+IHyiSZQlLreoJ3W3Ph8Q291wVJ5XeiMCjmBz4nM2qvfV1a5GmC8lVHC1BmJs2M+jyBWopho2A==
+X-Received: by 2002:a05:6000:144f:b0:3ea:e0fd:290a with SMTP id ffacd0b85a97d-3ee7ca198bcmr9624896f8f.12.1758535315118;
+        Mon, 22 Sep 2025 03:01:55 -0700 (PDT)
+Received: from [10.11.12.107] ([79.118.185.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee1095489asm18419549f8f.24.2025.09.22.03.01.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Sep 2025 03:01:54 -0700 (PDT)
+Message-ID: <c0a0daf4-e9e3-4152-8e5e-c7b52a30dae9@linaro.org>
+Date: Mon, 22 Sep 2025 11:01:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922012039.323-5-kernel@airkyi.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDAxOCBTYWx0ZWRfX99zABZdhExc/
- Um7QraG5cWNGwUaOfIkW5mRY7L62VvdnqooLm6nJuFlBmItk+EU/888BYz2gNXFC1w/JuAR56n2
- 8KbhOAQhAwHdSSxoK95c2i7O1S2Zzp5FTTR8KD/YVIh1RaD9igkIo8mPyyudugaiVVgucRxsSCE
- FraOtWixJeUWyOmRUdWeQ+6vB6QKGIJnetAINYP5Ql+LxK1btd9sbBVtZVFUReIBcoASohcKLyR
- c29dcb3079nqFj8V+aOVUUmuZgnscu+w2GJFBrULetCln/nND0sM8SiLFibELD7IIB6RYyqgCWM
- JO6YwZQDnFka9H90AvJYpRr5yMX2hRgW047ceD423fPx4JfdRaie5glX8ttIOdb6X3/W2tzchWz
- jFCY3jrG
-X-Proofpoint-ORIG-GUID: YDi41m3WUKe7zqnnRLPBSGiwxIW8LTx9
-X-Authority-Analysis: v=2.4 cv=bvpMBFai c=1 sm=1 tr=0 ts=68d11e8f cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=s8YR1HE3AAAA:8 a=k09sBhBf5rVv_DnywOQA:9 a=CjuIK1q_8ugA:10
- a=OIgjcC2v60KrkQgK7BGD:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: YDi41m3WUKe7zqnnRLPBSGiwxIW8LTx9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-22_01,2025-09-19_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 bulkscore=0 clxscore=1015 suspectscore=0
- malwarescore=0 impostorscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200018
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH v3 15/16] kmemdump: Add Kinfo backend driver
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com, rdunlap@infradead.org,
+ corbet@lwn.net, david@redhat.com, mhocko@suse.com
+Cc: mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
+ linux-hardening@vger.kernel.org, jonechou@google.com, rostedt@goodmis.org,
+ linux-doc@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250912150855.2901211-1-eugen.hristev@linaro.org>
+ <20250912150855.2901211-16-eugen.hristev@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250912150855.2901211-16-eugen.hristev@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_030151_582922_36267395 
-X-CRM114-Status: GOOD (  26.05  )
+X-CRM114-CacheID: sfid-20250922_030157_145976_83B6BADE 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,57 +105,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 09:20:36AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Hi,
+
+On 9/12/25 4:08 PM, Eugen Hristev wrote:
+> Add Kinfo backend driver.
+> This backend driver will select only regions of interest for the firmware,
+> and it copy those into a shared memory area that is supplied via OF.
+> The firmware is only interested in addresses for some symbols.
+> The list format is kinfo-compatible, with devices like Google Pixel phone.
 > 
-> This patch add support for get PHY lane info without help of extcon.
-> 
-> There is no extcon needed if the Type-C controller is present. In this
-> case, the lane info can be get from PHY instead of extcon.
-> 
-> The extcon device should still be supported if Type-C controller is
-> not present.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 > ---
-> 
-> Changes in v4:
-> - Remove cdn_dp_hpd_notify().
-> 
-> (no changes since v3)
-> 
-> Changes in v2:
-> - Ignore duplicate HPD events.
-> 
->  drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
->  1 file changed, 17 insertions(+), 8 deletions(-)
-> 
-> @@ -1120,14 +1129,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
->  		    PTR_ERR(phy) == -EPROBE_DEFER)
->  			return -EPROBE_DEFER;
->  
-> -		if (IS_ERR(extcon) || IS_ERR(phy))
-> +		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
->  			continue;
+>  MAINTAINERS               |   5 +
+>  mm/kmemdump/Kconfig.debug |  13 ++
+>  mm/kmemdump/Makefile      |   1 +
+>  mm/kmemdump/kinfo.c       | 293 ++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 312 insertions(+)
+>  create mode 100644 mm/kmemdump/kinfo.c
 
-This will break the case when the extcon is present. It should be
-(IS_ERR(extcon) && PTR_ERR(extcon) != -ENODEV)
+I tested the series on pixel 6 and I could see the backtraces correctly
+decoded by the bootloader:
 
->  
->  		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
->  		if (!port)
->  			return -ENOMEM;
->  
-> -		port->extcon = extcon;
-> +		port->extcon = IS_ERR(extcon) ? NULL : extcon;
->  		port->phy = phy;
->  		port->dp = dp;
->  		port->id = i;
-> -- 
-> 2.49.0
-> 
+Tested-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
--- 
-With best wishes
-Dmitry
+Thanks!
 
