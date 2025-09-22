@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D51CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8406CA100F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 17:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Et/xnvrYuQUk0byB46PUmXIo7392F/K55Vqq2WX1kEA=; b=IH8CA6FpgFeYu5QArzbrMOX39K
-	wybvkM6NtEQSmXhze2JrnHwZ9ufNClnQzbxG13ioI5kLpsFI3gIIRQmKPcIBZwq0Vq1oPQjyKWSu2
-	+pRslb+icnXRnpP6XvvoqkQooVgZ5obXeoSIysEixs2dpMX1/mNTYvq/oHFPo2fGAJmR61gI80AvE
-	EALwdyJ8IW4jC8pxxyis+qhTmYIIVzRXtApKUJjLsrYbLA3KDX7Ieik/74Exgg752V0sqNC6qwhjn
-	YRwu0fxBlIV8jg1CrVIEamS3Zo11+DueN1dANICa93WMyL65eesPj4aXjPYcjstk9txux9zHMMIK6
-	fEPM7ocQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Czn2vrlolGeYQImejpAr7KFt5Sj149E/ZMwKdYUmdVs=; b=3lp6Mw3j+mLm6tCq2TyXHRPvn6
+	Qz+IWPMMsfbN9bsKPb1jo+FC4gnsEaWlicR/GytDjlQbhVHp1tGiC2dwfwLSKp/SuxyNk0Nb2qY87
+	M2bQxHnis0jEGUzWebQTTjp7sbQwePt/wlcYDgY2YcXKF64z4B7Cnff9yja7mrNpD/Twtg/oJob8G
+	Ndr2/HSFRzpXp95E+U40qb/23cVSLqe3jhCFiV23mP7RtR8zYHOt4OS6chuCpwtsPIt4w5Z8xC4f/
+	arEhgzcaNMeANH6Gj9cwpet/yZ2jDVOrmM81ARcsEEEXPwXT7oS79vgto8XpC/N1VIMQhfVXehS/K
+	vlUCCYbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jzx-0000000B3h6-1tgA;
-	Mon, 22 Sep 2025 17:06:45 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1v0k0E-0000000B3q9-3Mg3;
+	Mon, 22 Sep 2025 17:07:02 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0jzu-0000000B3gH-2pd7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 17:06:44 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-57bd7f0e5baso1794023e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 10:06:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=freebox-fr.20230601.gappssmtp.com; s=20230601; t=1758560800; x=1759165600; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Et/xnvrYuQUk0byB46PUmXIo7392F/K55Vqq2WX1kEA=;
-        b=vcFeyfZm29uE4so8DQdGzaLZA88NqIEhJLmh5cCnuj80K36sXCU6LEIe6L7pJMWnAU
-         bizjFylMTnwPCSgFI/YYnvQPwR8q0gjf2TYcVB+Es0DPGR37r79KCboJHq6LzoHenp+d
-         Evl7kw6HxkIr3Cr5jhRHqVjuzCLeSsl7j6Gg5NQmeeubDSe40rril4ld3PvLxYZfBKoo
-         fue6habXIHlXjrWRqtXkz4FZWSLXUhgVUi3bLgxwBEKJUCkuefPwPiK9yJ2Ci1JSilKv
-         Es/34N0pDEe0Hg/aVTBwPC1Y5gzyDNy2XddyR7IdxO0ZARqwtBSl3g3o04MXTJp4mHX5
-         i2Zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758560800; x=1759165600;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Et/xnvrYuQUk0byB46PUmXIo7392F/K55Vqq2WX1kEA=;
-        b=F2q0YylPRDt1GdE/pusEhRccXoKZPEMvU/IukPWLJOYIsHJI81qwNZDl4Z3joSkGNI
-         WzcXrJNcxlx74vRitwqhE7izKb6C2T9CMnLWSZDiuKjREXVly/slhRXCLXLFtw547rth
-         FZuRnByPjbup9MrKI9YaeDurnv7V4UYMEMrFbtyrFaLT569UrWVcALnjDchke5S0VRpT
-         T+/nsawP4jPayKXFV3yikOZMSwkx/MaOBlA50yj0wDzqEsikngncsET9uuiZxdLfCb5v
-         HnTCfhUKZgTgKq+ewhk35rthNnyXo+jCnWtj2o9Qo//NDXkSk7gsgq+Nty2b/zuFprjt
-         dgTA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1dtvThxadMphjimpsWmv+t0xmUwvNQRfM8Q3e6pBPXXiqPBc4B2ablh+ojOE1JNoa+dTzbEs23b0a9MxND9HG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdCDwl3FdDemQG9UNXXX2J1/+t/mPQMMAVZL4MJa4Dfo3BubGY
-	tEZGL1ZZ1qCCZzK/ia70V7zhcc/rBSka3PFHcxBE1agjivll57fIYkRXFdUSS5O+LBJF0SMmzUB
-	c7/Zrp2uxsl4BLo815ZM3GHiIysV/M15dxFB8MAqp7A==
-X-Gm-Gg: ASbGncsX+g2UjUqYx7/hEWowM/PmiTfPgcoQMMNSnwP1necwp2KLVZLCTRr1wVmGHLv
-	9wdG2o2I0Fp2TQFXLyT88xvUJnq4U/GH37njBzz46CLAn/TaXcxk2MZsWNScrFeEzqF3xpVY5g+
-	ovU+Pe9sL11+Lptm8KPlpspBO2IHDCBX87PtyWW+W+kWaEeOs027rHXye83cCaL0u+tmxPgvFxY
-	Jzu
-X-Google-Smtp-Source: AGHT+IGGtpp1dzmc7QwuqgW2pSLIm4mtcBhZLeu+2i3+Ni9prtVcG/n56U1c5SPCEyTQDr/U3BLl49JsojBTLduSacs=
-X-Received: by 2002:a05:6512:4013:b0:57b:aff6:68a2 with SMTP id
- 2adb3069b0e04-57baff66a5amr2706206e87.26.1758560800251; Mon, 22 Sep 2025
- 10:06:40 -0700 (PDT)
+	id 1v0k0B-0000000B3nH-3hdu;
+	Mon, 22 Sep 2025 17:07:01 +0000
 MIME-Version: 1.0
-References: <4ff89b72-03ff-4447-9d21-dd6a5fe1550f@app.fastmail.com>
- <20250917125951.GA1390993@nvidia.com> <02b0f383-1c43-4eeb-a76f-830c2970b833@app.fastmail.com>
- <CAMuHMdVecUeLZ2LPpa457C0a=uduvDhQ4KZJx-++dEFJraRi3w@mail.gmail.com>
- <547dcb81-434d-4910-aa7c-1d69019fcb3d@app.fastmail.com> <20250919143436.GC2132010@nvidia.com>
- <44f910bf-ac2c-4b2f-8e50-5cfc7dd0761a@app.fastmail.com>
-In-Reply-To: <44f910bf-ac2c-4b2f-8e50-5cfc7dd0761a@app.fastmail.com>
-From: Nicolas Schichan <nschichan@freebox.fr>
-Date: Mon, 22 Sep 2025 19:05:49 +0200
-X-Gm-Features: AS18NWDJSAue7YE7c8rlG0jvR5lve033dTh_Rnu2Tx6e392cgPO_ZPu-mU9r2No
-Message-ID: <CAHNNwZCsBY+ta2-OqD40K0-C8N25PLMYfOJowiVeaEMotqR1nQ@mail.gmail.com>
-Subject: Re: [TECH TOPIC] Reaching consensus on CONFIG_HIGHMEM phaseout
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Geert Uytterhoeven <geert@linux-m68k.org>, ksummit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, 
-	imx@lists.linux.dev, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Richard Weinberger <richard@nod.at>, Lucas Stach <l.stach@pengutronix.de>, 
-	Linus Walleij <linus.walleij@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Ankur Arora <ankur.a.arora@oracle.com>, David Hildenbrand <david@redhat.com>, 
-	Mike Rapoport <rppt@kernel.org>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Matthew Wilcox <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Suren Baghdasaryan <surenb@google.com>, Ira Weiny <ira.weiny@intel.com>, Nishanth Menon <nm@ti.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	"Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Sergio Paracuellos <sergio.paracuellos@gmail.com>, Andreas Larsson <andreas@gaisler.com>
-Content-Type: text/plain; charset="UTF-8"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1758560815;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Czn2vrlolGeYQImejpAr7KFt5Sj149E/ZMwKdYUmdVs=;
+	b=ojmwYfqUYRslwx9vrc6Vkc9cUh/s/av1mcLNGO7ucF+zTT6OESF9DAe4ez6x51V0FNbB8g
+	rb6oZyjIhxCHPiwYlPVGDXkkGQepwQkUvB97umvVL6TEstsXVV8fzAy1Ort9Kw66MF8gsS
+	PGua7faiaSFvowWcas8HN9eRAZKd96TpBXV+qyzcJ7N8ovITJESRy7PFG4q4i5y5TiGhJa
+	13W4iqoAwtNTah8wRhtOGhUUgBlraXiOKiF9rQPECYD64Zk8WzpIpnLQ1+LmS2Jm4eCUMq
+	4p4IMsgCeGHzGV0WUcRSVv2ObP7f+VG8rpXqhAq7wPTkRqAx9cE5dtPMONmhnQ==
+Date: Mon, 22 Sep 2025 19:06:55 +0200
+From: Dragan Simic <dsimic@manjaro.org>
+To: guptarud@gmail.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Ondrej
+ Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
+In-Reply-To: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
+References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
+Message-ID: <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_100642_967345_728F2A1C 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20250922_100700_282060_37401B63 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, Sep 19, 2025, at 16:34, Jason Gunthorpe wrote:
-> > On Fri, Sep 19, 2025 at 04:22:20PM +0200, Arnd Bergmann wrote:
-[...]
-> > I am right it sounds like we can drop vivt cache support with highmem?
-> > vivt is alot easier to understand if kmap isn't running around
-> > creating virtual addresses aliases!
->
-> I think so, yes. I've prototyped a patch for it to add a dependency
-> on !VIVT and the drop the code paths that are clearly no longer
-> needed without it. This obviously needs proper testing, but the
-> diffstat is promising:
->
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index f14bac913d50..0a31cfaf3818 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -1214,6 +1214,7 @@ config ARCH_SPARSEMEM_ENABLE
->  config HIGHMEM
->         bool "High Memory Support"
->         depends on MMU
-> +       depends on !CPU_CACHE_VIVT
->         select KMAP_LOCAL
->         select KMAP_LOCAL_NON_LINEAR_PTE_ARRAY
->         help
->  arch/arm/Kconfig                    |  1 +
->  arch/arm/configs/gemini_defconfig   |  1 -
->  arch/arm/configs/multi_v5_defconfig |  1 -
->  arch/arm/configs/mvebu_v5_defconfig |  1 -
->  arch/arm/include/asm/highmem.h      | 56 +-----------------------
->  arch/arm/mm/cache-feroceon-l2.c     | 31 +------------
->  arch/arm/mm/cache-xsc3l2.c          | 47 +++-----------------
->  arch/arm/mm/dma-mapping.c           | 14 ++----
->  arch/arm/mm/flush.c                 | 19 ++------
->  mm/highmem.c                        | 86 +++++--------------------------------
->  10 files changed, 27 insertions(+), 230 deletions(-)
->
-> I did get an email from Nicolas Schichan (added to Cc here),
-> and he is still supporting a widely deployed Kirkwood based
-> platform that uses 1GB RAM configurations. He should get
-> a chance to test that with CONFIG_VMSPLIT_3G_OPT, but I
-> would expect that to continue working, possibly with minor
-> bugfixes.
+Hello Rudraksha,
 
-Hello Arnd,
+On 2025-09-21 23:05, Rudraksha Gupta via B4 Relay wrote:
+> Throughout the years, many have contributed to the Pinephone Pro (ppp)
+> development. Unfortunately, these patches are scattered around various
+> repositories in different states.
 
-We don't use HIGMEM on our Kirkwood platform, we are happy using a
-2G/2G WMSPLIT. We don't need a lot of virtual address space for
-userland, and with the 2G split we don't waste physical memory.
+Thanks for submitting these patches.  However, please expand the patch
+descriptions, because their current forms are too terse and, as such,
+simply not acceptable.  This applies to all patches in this series.
 
-I'm happy to test your patch serie with VMSPLIT_3G_OPT and see if it
-still boots with it once you send it.
+I'm also under impression that you're submitting these patches upstream
+blindly and without researching the rules that apply well enough, which
+may not be the best possible approach.
 
-Regards,
+Finally, please refrain yourself from sending multiple versions of the
+same patch series in the same day.  Doing so makes reviewing the patches
+unnecessarily hard.
 
--- 
-Nicolas Schichan
+> I will be attempting to upstream these patches. I will start off with 
+> the
+> following small series:
+> - Add light/proximity sensor support
+>   - 
+> https://codeberg.org/megi/linux/commit/f171bc7013bc7ad3de9af817bfbcbfa548ebe01c
+> - Add accelerometer sensor support
+>   - 
+> https://codeberg.org/megi/linux/commit/b0bb7633e073a6760fa213b8c4a78ea2e73c7bf1
+> - Add magnetometer sensor support
+>   - 
+> https://codeberg.org/megi/linux/commit/2f7e67f451f16eaf15b81aa1dbdf126d54927d35
+> - Add mount-matrix for magnetometer
+>   - 
+> https://codeberg.org/megi/linux/commit/d7cd2eab931e32fa94408a96d73b4e6c0616107a
+> - Fix voltage threshold for volume down key
+>   - 
+> https://codeberg.org/megi/linux/commit/7c496a5cc27ed4e38b740f36c2d8b2c62f80ae54
+> 
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
+> ---
+> Changes in v3:
+> - change magnetometer mount matrix
+> - update volume button threshold
+> - Link to v2:
+> https://lore.kernel.org/r/20250921-ppp_light_accel_mag_vol-down-v2-0-e6bcc6ca74ae@gmail.com
+> 
+> Changes in v2:
+> - remove usb-typec node in dts from light/proximity sensor patch
+> - Link to v1:
+> https://lore.kernel.org/r/20250920-ppp_light_accel_mag_vol-down-v1-0-c8bbcd3e2e94@gmail.com
+> 
+> ---
+> Leonardo G. Trombetta (1):
+>       arm64: dts: rk3399-pinephone-pro: Add mount-matrix for 
+> magnetometer
+> 
+> Ondrej Jirman (4):
+>       arm64: dts: rk3399-pinephone-pro: Add light/proximity sensor 
+> support
+>       arm64: dts: rk3399-pinephone-pro: Add accelerometer sensor 
+> support
+>       arm64: dts: rk3399-pinephone-pro: Add magnetometer sensor support
+>       arm64: dts: rk3399-pinephone-pro: Fix voltage threshold for 
+> volume keys
+> 
+>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 42 
+> ++++++++++++++++++++--
+>  1 file changed, 40 insertions(+), 2 deletions(-)
 
