@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15C7CAC5A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40556CAC5A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 14:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSGJ0XvVlaWK134DsZlY3yMuGiQnMb56P3+rclOYz8g=; b=QVusguzRsX9WYsUguGoVBgh25Z
-	/EYlh8qIjYDBY37prjpimWcj+3YxftNSfY02GUuVyPE7x7OGyfHXZy3KxFlOOf6o+fJeUCrvoHlTH
-	EfIrPDKsVSDApiImNZUIdesSXFXD49yh69M5LdRBXZijB764IAM4persAV8IA1J9jXnAKEfBpylWM
-	lr3sLvxVAzoNojasBQGjaiOe2KH5Nm+rhuY1/5PS07+ajtqeZ4gSKb1DojSpyG1SrVY18WeYKWi4l
-	koOYrq8rhpYKvrTt6o5lN5Q3pmQHU1rypFME9MHRurc3gr/1cGusi1k/Ko0iTqyuaUO8q4ptdNNpY
-	Am0MnPnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C9a7k6Swy3++FspoGSqoywdeqAsXbjHvdGqmU8ITUsE=; b=mr4XHuq5I7PCBBd0RRpZZrsDEg
+	lYXqdKBiBe8iNDQpFJ5qWUb2e96/fwNywUoxV5vEoyqu8a8LJSazlotWQwaZZjyh1BT1gc+kGz2Qn
+	ADnXfG+GE3B9QWm2k/yq3/CeGkJqUTp0WIpu4QrFxP46lMT3wUgnVHfumtqh1btdwf1V2wXZTRD6o
+	jxPHXTK6spQIyJSx6SqPN7WVvq6gNWa5MS08FXZeEwSGa2VsxgS+hb1PfrPX0+O14hWUVb/J/DSWp
+	9QJ6cUFWlHBkGv1eMOST+Z8E0o3hkQbTTsP5KrHvJ+hQQyq76CjEeXs2DoOHv917yftQI36fzOxG2
+	n8jVu9LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hlR-0000000Ahpy-3PJh;
-	Mon, 22 Sep 2025 14:43:37 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1v0hmv-0000000AiDK-0p2V;
+	Mon, 22 Sep 2025 14:45:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0hlP-0000000Ahp6-2us3
+	id 1v0hms-0000000AiCb-1jzb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 14:43:36 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-36bf096b092so9151121fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 07:43:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758552214; x=1759157014; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wSGJ0XvVlaWK134DsZlY3yMuGiQnMb56P3+rclOYz8g=;
-        b=cU7w+mwKjRQP5UsZVxBDO616AfcksNTOPemwxnCI+7TcovpABIT9zivv2jjJOqpaiG
-         /XAfCBDf3KRjflBs0rVKUL/ktvX8K2Z+QTsIZ17zxoYFsmHHQJbMVvbEgbL9wkk0/D2M
-         fvZ8kZzerGjY3xZOxg5259KOoIVpf92PFnI9GCuSA960paGHx1xyx0n2MHLmnb2mSyOY
-         d0Cd2cwhf79J9t+8GaUPsgyCwaGkfOLq4WrnO7shbMrOnLYpo1x8XO86BdScQbg+jSiT
-         6UhuJQs+q90wgt/AsDd/87zNjllSz6CjhJRaVo1PVfJ/fPfOoJMXMAvbu3UhQ8JWutKv
-         IVpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758552214; x=1759157014;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wSGJ0XvVlaWK134DsZlY3yMuGiQnMb56P3+rclOYz8g=;
-        b=EAHF5ZmNYXoY5vpz9/nYNn/Bf9QfVp8HynCab3HjWhPlK1HTBneao7KEC8MyGAD7if
-         b87eHTzD4T0tKlJjjt9OmDeb+NnxfyajmaPxGVRaKh0fTnkUiq9o4DwYCV0AEkYqEak0
-         /au3Ob6rf6Q2qu5KUuNgBAMhNbw2iKihIk2qDzZIpqaO8ve4C0Fo2zKAkmst2c5UFEsO
-         yDaSmjHit3k3ctCPhRMc3pgMZSwT/I9sXr8BHrH/ShUeJ3P/RfyphQaUFVNFXFDKbeBL
-         FUV8ScNqPW8t7Rrpr99myEWKM39v5wFXXdGBD0/xt8FgJV7IUADrRttKpIbTsbYseZqn
-         VhWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUl1LIXRzQVRlVhPOZtPrxJec5EfwKbtXkZg/X8ORirn/mKQEgKkBDG/G02OFVU5jekdo4Ma6+NAHRzHOS5nU+W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8nfNszxlEij0W6FtJ1dt+mqeM8k4dsSsXVhOhmJfjXXLIDLJ8
-	fodYIqHFcvhuDsAzN8eXixNofuyAwAfLmTAeUsDiBdri4VLJIybhAOzSrcNnVW16/1UFLzS65j3
-	Dwudan+9sR6UbpcvWtczV6gn+kUC5VZqCDbEzOj71wQ==
-X-Gm-Gg: ASbGncvWV2g8DQTY8W6mnYTx4zOO4sjFkEXZs6Gal4nyTcEbolfFt7tdUZeZxTFn+Wy
-	qq2o8l2+peZCjziVt+y9I2bz//3qXBLXiHrB26mIoXeDevrGnXR828sRir55/4S80irDDh0yiHL
-	IouUua3D2aVfGxcG/iVGwA/cR291Hdgram0Uk32Q2qI68h2NPRqDvuuC/OirrDiPQhuv+7yPFjP
-	UGOUeknsNfn4eYpFFI+o2L2ccNDaygzCaTSog==
-X-Google-Smtp-Source: AGHT+IHBWA0aOkyyOd+R1k4/p6+BRWwsMoHsL9ctLqhXkzxhgXeHtoGxeh6xuifdB+qoyNNy9NaiBYY06/o80dRnaMo=
-X-Received: by 2002:a2e:be11:0:b0:350:b715:51f1 with SMTP id
- 38308e7fff4ca-3641c63392bmr41010931fa.39.1758552213655; Mon, 22 Sep 2025
- 07:43:33 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 22 Sep 2025 07:43:31 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 22 Sep 2025 07:43:31 -0700
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-In-Reply-To: <20250922-i2c-mux-v1-6-28c94a610930@gmail.com>
+	Mon, 22 Sep 2025 14:45:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 85053438E2;
+	Mon, 22 Sep 2025 14:45:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41F36C4CEF0;
+	Mon, 22 Sep 2025 14:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758552305;
+	bh=D+LNgfJNYzCpnFJGwhR+lwXuJ0ILIQoGT35vh4i2XBQ=;
+	h=Date:From:To:Cc:Subject:From;
+	b=dbZ8P5ogAQJxFbT4EfBs9j5q1ngbONMN+GPGjDS72pZp8K5Iu7yqjJzx8x50lU1Vr
+	 PPcpXXiat/SkwL2/JWZ7dflR4RJQBQrwyVKAkh7pJ7K/UmpBgiKcs65+TwIATHeW9t
+	 9MPbNQVtV2sVFRKFdG+9SLw5RPWb7xLiY8Ox8pzArKUr5SRrhkF7WuX6ThVcaGWL3A
+	 /fHW211aJfaIA0Ttx8Lk3nowZIF+aQdUcEIZwWHMXF4rJvWDI+vGhXEuFTZSPJ8I+h
+	 SO7+HOTB9X9vQsoDM1E5KtVw5bYfUyHi22g9eNVL52DROhD2zC277PW8XWd5gDwpTF
+	 odCCKaXxNnU8w==
+Received: by wens.tw (Postfix, from userid 1000)
+	id B2EED5FC15; Mon, 22 Sep 2025 22:45:02 +0800 (CST)
+Date: Mon, 22 Sep 2025 22:45:02 +0800
+From: Chen-Yu Tsai <wens@kernel.org>
+To: soc@kernel.org
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: [GIT PULL] Allwinner Device Tree changes for 6.18 part 2
+Message-ID: <aNFg7iuBtyWkCZg6@wens.tw>
 MIME-Version: 1.0
-References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com> <20250922-i2c-mux-v1-6-28c94a610930@gmail.com>
-Date: Mon, 22 Sep 2025 07:43:31 -0700
-X-Gm-Features: AS18NWAukxKDxcsu63Pdrf7A6bnsBHb7UFkZ35gRQoLZiLu7TwdGXK-pBJ2BNLo
-Message-ID: <CAMRc=McVePrs_+BKkpO3zf_AUcxhzp+8Cf6Tyh1A97nzkx_ZRQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 6/7] i2c: davinci: add support for setting bus frequency
-To: Marcus Folkesson <marcus.folkesson@gmail.com>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
-	Michael Hennerich <michael.hennerich@analog.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Andi Shyti <andi.shyti@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_074335_748615_889D69D9 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20250922_074506_472282_01767131 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Sep 2025 08:21:01 +0200, Marcus Folkesson
-<marcus.folkesson@gmail.com> said:
-> Populate adapter with clock_hz and set_clk_freq to enable support for
-> dynamic bus frequency.
->
-> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> ---
->  drivers/i2c/busses/i2c-davinci.c | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
->
-> diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
-> index 6b18938457d0c5cabc323c364d9330c2890df107..d3e47738f8ee7e8f69fee49509dcda396c9b7fb6 100644
-> --- a/drivers/i2c/busses/i2c-davinci.c
-> +++ b/drivers/i2c/busses/i2c-davinci.c
-> @@ -279,6 +279,27 @@ static int i2c_davinci_init(struct davinci_i2c_dev *dev)
->  	return 0;
->  }
->
-> +static int davinci_i2c_set_clk(struct i2c_adapter *adap, u32 clock_hz)
-> +{
-> +	struct davinci_i2c_dev *dev = i2c_get_adapdata(adap);
-> +
-> +	if (dev->bus_freq == clock_hz)
-> +		return 0;
-> +
-> +	dev->bus_freq = clock_hz;
-> +
-> +	/* put I2C into reset */
-> +	davinci_i2c_reset_ctrl(dev, 0);
-> +
-> +	/* compute clock dividers */
-> +	i2c_davinci_calc_clk_dividers(dev);
-> +
-> +	/* Take the I2C module out of reset: */
-> +	davinci_i2c_reset_ctrl(dev, 1);
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * This routine does i2c bus recovery by using i2c_generic_scl_recovery
->   * which is provided by I2C Bus recovery infrastructure.
-> @@ -810,6 +831,8 @@ static int davinci_i2c_probe(struct platform_device *pdev)
->  	adap->dev.parent = &pdev->dev;
->  	adap->timeout = DAVINCI_I2C_TIMEOUT;
->  	adap->dev.of_node = dev_of_node(&pdev->dev);
-> +	adap->clock_hz = dev->bus_freq;
-> +	adap->set_clk_freq = davinci_i2c_set_clk;
->
->  	if (dev->has_pfunc)
->  		adap->bus_recovery_info = &davinci_i2c_scl_recovery_info;
->
-> --
-> 2.50.1
->
->
+Hi,
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Here's a very late pull request, adding support for another board.
+This is already included in linux-next, and doesn't show any issues.
+
+The following changes since commit cca07ac2b5f7838b8ff612b53b9f82ac8cb58312:
+
+  arm64: dts: allwinner: sun55i: Complete AXP717A sub-functions (2025-09-15 00:04:32 +0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git tags/sunxi-dt-for-6.18-2
+
+for you to fetch changes up to 07c7f4f4e9504da240ef68adfd95a1150d3a6fd4:
+
+  arm64: dts: allwinner: h313: Add Amediatech X96Q (2025-09-19 12:37:16 +0800)
+
+----------------------------------------------------------------
+Allwinner Device Tree changes for 6.18 - part 2
+
+A new board, the Amediatech X96Q, was added.
+
+----------------------------------------------------------------
+J. Neuschäfer (2):
+      dt-bindings: arm: sunxi: Add Amediatech X96Q
+      arm64: dts: allwinner: h313: Add Amediatech X96Q
+
+ Documentation/devicetree/bindings/arm/sunxi.yaml   |   5 +
+ arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+ arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts | 230 +++++++++++++++++++++
+ 3 files changed, 236 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h313-x96q.dts
 
