@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F032CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 15:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3A2CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 15:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNLcs7fdWejswZNdc+JfM6KW7JmH/hH5F4bOloYrJiA=; b=ncyW54l+do029mtktdqRhWh2qu
-	qxngXRrDWh/xNhz/gUVnsWTNL1mvR3lAnEkh/qAoNZxTjLfMp+lCH036RJheioM6uZtLoT3rBnrDl
-	6E6EukW1nwneWw4VeiqGs+vjK+8WqzEABpui762b2x+ZVksSevfJJnO0LHCJSK6YpxuBacMEjJIOy
-	F462uHABE5oSybdc+DLqjERFNjLZbVpsR9hSN2nt53PDqA4QO6XwwOGoFZgIs9XsxtffW8BsUA9a2
-	XBBK7Kun+3S9uCyn38GpFWOctzFW5JP0cR/I7J+EfEc87FMXhQEhKDjDGtruFaVpZmiSGoyTSnaXT
-	L2PPv+Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B8fRR2aJ/eyeHiuDlU1x25moOhg9RitGZKqikYnDMdI=; b=a072OnX7xALrnaZwdGV6EP9KLW
+	awYg3HxBYq+rUA4R1CCj9upTNSrzAXpQjkwlmiCksOOFuNzLK4a4fv4OAcD429XbPS1ILeulj8Jxe
+	YsFYM37oohruazczTimydTE2lW8vZUo4F0578mAroq5M9skxO5yT9/XHaWqS71w6ZBzn3OyJIx3/v
+	JvtPvHFapwiD3WmmeYA8T6BJXSNU8ZbHZ6TedrycyMRyCK2hZPafAIzsgaF0Y4QSj75J76Eb0282G
+	paWI9EPRWV74UlGIsbu9PJ8iioq0dcfzT7FB7OQajgr4Ts6j2SHnnmCQB/emwCRAZbrpslkecWnbf
+	AO4b2N+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v14zB-0000000E3wl-1Hck;
-	Tue, 23 Sep 2025 15:31:21 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1v158Y-0000000E6md-0tEG;
+	Tue, 23 Sep 2025 15:41:02 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v14z8-0000000E3vd-25Im
+	id 1v158T-0000000E6kh-2Clp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 15:31:19 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b47174b335bso906535a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 08:31:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758641477; x=1759246277; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TNLcs7fdWejswZNdc+JfM6KW7JmH/hH5F4bOloYrJiA=;
-        b=FrVyA8kPuyfqg0GVQt7N+6YjXuKOT3hT0cPdq1lSUuTcDkeKt+eWwueISrrSco3clK
-         QRaZfA5kvayJQQumTXZCQ9FAK3wY8pOOVxyr5p6gBgXRKJQ6aQKfFlQVrf3Xczjvn7Pu
-         Gfs6H2wYtG0dDSuMIrvPz0HA3HSXkMn+CQfyfETL3qojqroiFj3za/xcE++pjA3eD+r3
-         o4A5VUMlvXi7qFaqTJ//jerbhYaisMb2vCLfxr+Keb+P+VM1UP93eKhIg5AWgEztzXY/
-         YfJuM9lKaWX87SkEK/oj2Uj7RkMlux8wplv+wYlY9cPWBdIYLyaA6SSE5kV5S4bdGuRa
-         /Z8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758641477; x=1759246277;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=TNLcs7fdWejswZNdc+JfM6KW7JmH/hH5F4bOloYrJiA=;
-        b=vJSf4H/GgyWIW4dZW8v4m0ycemx4WNDoMwWdEONWf+yAt1KaCcH2JJiptP+bHNW/Og
-         MB7yhY4V1hTcbfNUJNmVyDLLx7WKu5n/96kBOA8w1czDHhn5p2XIrRYMvFvnsZCrm40z
-         h7WnomvJ2Bph12U+j+wJ656U//47sdOIcXKl12Z3HfNXrkYw87muW9FH4NaZMWQ+7sPZ
-         rFqIRs3DwnjU77mBDrBhJn4I8lIYWY1uvsDVwb/YrGLmzkTCcJWXcDeyXo6lhZqVdwze
-         6y6u6uikXdmRDZzAPjv7WNMVIwF5mSK9VTM4BcRUVcjF/wFok5DfMk2jEwEcblrxGav9
-         0Uvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVWVusGJKZ2vSVxU/pEJ0RokEf9bXv3t77F9/AeA3PBzE/8ZK038iGMbpGwd4aewnpiW+RP0J+mu0fx4llcT4A@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSCnV2vNLyECPUIkRMH/BuGfseykcwfD7EQjOz+Eim4UhpjvbU
-	tVUI6byjJc3wwB2jVbMB0NI17sRK8k6+bfb30CLfyF5VB3ixNMpcxr0m
-X-Gm-Gg: ASbGncuZjSFtDkSQL8WirYfKIJyFT3vLMKVUhhWT20bJfUJKkzvd+BF4yoJOosEzKAG
-	GHIDEpFYxvcaE1PNN5/9a7190X7u0PTWMy74bo9SvTDz3wc201oA9+Q/DsriYUpKT5wb8mQ8eUv
-	OvMR0bvfpyDY/SmuqAN7KWdnIYLxXBOqsavEIZJxJmWda3zQGROp+Cr62X1XuouM7TSZK4NKBff
-	H23KeABJGwHyfzt4JXsSmMpxatERU/LLI3/Hhy7EVCQzWasvx8orbAGnz1+4SCikZVG1hOGk0jH
-	xFjVWunYUd8I7LzWSxTxWIHFIGKpxLxxTFFWI4MI7guqBXl8OB5eAQonBZtbI+xOx7NkNVRytAO
-	oXWu2JjxuGFN6Kt0X17vWuC6Zc6mpMNgmYm0V32o6oBQ=
-X-Google-Smtp-Source: AGHT+IFVwvkqLqFecgrYavx9doA33g4ZZ170zFjha/TN20N6du4T6T1t6fuah/m0F6ri5mfdp1LgzQ==
-X-Received: by 2002:a05:6a00:3904:b0:775:fab1:18e3 with SMTP id d2e1a72fcca58-77f537a53cbmr2275577b3a.1.1758641477231;
-        Tue, 23 Sep 2025 08:31:17 -0700 (PDT)
-Received: from [192.168.0.100] ([27.38.181.148])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77f34d09cdcsm6678378b3a.88.2025.09.23.08.31.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Sep 2025 08:31:16 -0700 (PDT)
-Message-ID: <c8972579-c589-4016-98cf-52a0837d0739@gmail.com>
-Date: Tue, 23 Sep 2025 23:31:05 +0800
+	Tue, 23 Sep 2025 15:41:00 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id DB04CC01FB4;
+	Tue, 23 Sep 2025 15:40:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D839960690;
+	Tue, 23 Sep 2025 15:40:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 91187102F1960;
+	Tue, 23 Sep 2025 17:40:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1758642052; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=B8fRR2aJ/eyeHiuDlU1x25moOhg9RitGZKqikYnDMdI=;
+	b=D6j4Z0+KoQ4HRpZjE+nkK2FQivQ1dSRfumFHnpIrO/qWLcALZFBydRIpwqAO2H8bNj+Nvn
+	OZR65wzg7C+RDl9p/BUslV10CHpcuD8F5Wl8hO0T44Npvs5z23qK5vct4S7HAcgQcZpi28
+	1kHuRlj8FA34KXgwNUrRJfbfSdQIGg5J3BVme6lTsbKZafGA4R8Bu9KOo0LV7Mq0q/W2UF
+	9POSnDH2NqAu3kTCnvVtCZs4CScWUZJLOPu196fYHaz8Ya6003pwj5S+P2X8AiWsj8mrCo
+	8+Kw90Pf4Yt+hXuOyzzW9sdkO9MV7l6VhBlATJ+mTOJ+t/lrjDcRySAlrTbddA==
+Date: Tue, 23 Sep 2025 17:40:48 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Shubhi Garg <shgarg@nvidia.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v6 3/4] rtc: nvvrs: add NVIDIA VRS RTC device driver
+Message-ID: <202509231540480daf8b56@mail.local>
+References: <20250919140229.10546-1-shgarg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: yangyccccc@gmail.com, mark.rutland@arm.com, catalin.marinas@arm.com,
- maz@kernel.org, broonie@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, baohua@kernel.org, jonathan.cameron@huawei.com,
- shameerali.kolothum.thodi@huawei.com, prime.zeng@hisilicon.com,
- xuwei5@huawei.com, yangyicong@hisilicon.com, linuxarm@huawei.com,
- Yicong Yang <yangyicong@huawei.com>
-Subject: Re: [PATCH RFC 2/2] arm64: atomics: add optimization support for
- implementations using near atomics
-To: Will Deacon <will@kernel.org>
-References: <20250919091747.3702-1-yangyicong@huawei.com>
- <20250919091747.3702-3-yangyicong@huawei.com>
- <aNJwoSZiZLNeTKOJ@willie-the-truck>
-From: Yicong Yang <yangyccccc@gmail.com>
-In-Reply-To: <aNJwoSZiZLNeTKOJ@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250919140229.10546-1-shgarg@nvidia.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_083118_557254_131E5A04 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250923_084057_926066_043D8B0B 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,21 +79,328 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/23 18:04, Will Deacon wrote:
-> On Fri, Sep 19, 2025 at 05:17:47PM +0800, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Atomic operations can be implemented in the CPU (near atomics) or
->> in the interconnect or at the Subordinate holding the data (far
->> atomics) [1]. The former one can be further optimized by prefetching
->> the destination prior to the atomic operations, similar to the
->> optimization for LL/SC operations mentioned in
->> commit 0ea366f5e1b6 ("arm64: atomics: prefetch the destination word for write prior to stxr")
-> Sorry, but I'm strongly against this. The CPU needs to do better if
-> the system is configured for near atomics.
+On 19/09/2025 14:02:29+0000, Shubhi Garg wrote:
+> +static int nvvrs_rtc_enable_alarm(struct nvvrs_rtc_info *info)
+> +{
+> +	int ret;
+> +
+> +	/* Set RTC_WAKE bit for autonomous wake from sleep */
+> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
+> +				NVVRS_REG_CTL_2_RTC_WAKE);
+> +	if (ret < 0) {
+> +		dev_err(info->dev, "Failed to set RTC_WAKE bit (%d)\n", ret);
 
-got it, then let's leave it to the CPU/hardware guys :) thanks for sharing the opinion.
+This should be either a dev_dbg or removed
 
-thanks.
+> +		return ret;
+> +	}
+> +
+> +	/* Set RTC_PU bit for autonomous wake from shutdown */
+> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
+> +				NVVRS_REG_CTL_2_RTC_PU);
+> +	if (ret < 0) {
+> +		dev_err(info->dev, "Failed to set RTC_PU bit (%d)\n", ret);
 
+Ditto
+
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int nvvrs_rtc_disable_alarm(struct nvvrs_rtc_info *info)
+> +{
+> +	struct i2c_client *client = info->client;
+> +	u8 val[4];
+> +	int ret;
+> +
+> +	/* Clear RTC_WAKE bit */
+> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
+> +				0);
+> +	if (ret < 0) {
+> +		dev_err(info->dev, "Failed to clear RTC_WAKE bit (%d)\n", ret);
+
+Ditto
+
+> +		return ret;
+> +	}
+> +
+> +	/* Clear RTC_PU bit */
+> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
+> +				0);
+> +	if (ret < 0) {
+> +		dev_err(info->dev, "Failed to clear RTC_PU bit (%d)\n", ret);
+
+Ditto
+
+> +		return ret;
+> +	}
+> +
+> +	/* Write ALARM_RESET_VAL in RTC Alarm register to disable alarm */
+> +	val[0] = 0xff;
+> +	val[1] = 0xff;
+> +	val[2] = 0xff;
+> +	val[3] = 0xff;
+> +
+> +	ret = nvvrs_rtc_write_alarm(client, val);
+> +	if (ret < 0)
+> +		dev_err(info->dev, "Failed to disable Alarm (%d)\n", ret);
+
+Ditto
+
+> +
+> +	return 0;
+
+Plus it fails but then returns 0
+
+> +}
+> +
+> +static int nvvrs_rtc_read_time(struct device *dev, struct rtc_time *tm)
+> +{
+> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
+> +	time64_t secs = 0;
+> +	int ret;
+> +	u8 val;
+> +
+> +	mutex_lock(&info->lock);
+
+This lock is unnecessary once you use rtc_lock/rtc_unlock in the IRQ
+handler.
+
+> +
+> +	/*
+> +	 * Multi-byte transfers are not supported with PEC enabled
+> +	 * Read MSB first to avoid coherency issues
+> +	 */
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T3);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	secs |= (time64_t)val << 24;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T2);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	secs |= (time64_t)val << 16;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T1);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	secs |= (time64_t)val << 8;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T0);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	secs |= val;
+> +
+> +	rtc_time64_to_tm(secs, tm);
+> +	ret = 0;
+> +out:
+> +	mutex_unlock(&info->lock);
+> +	return ret;
+> +}
+> +
+> +static int nvvrs_rtc_set_time(struct device *dev, struct rtc_time *tm)
+> +{
+> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
+> +	time64_t secs;
+> +	u8 time[4];
+> +	int ret;
+> +
+> +	mutex_lock(&info->lock);
+
+Ditto
+
+> +
+> +	secs = rtc_tm_to_time64(tm);
+> +	time[0] = secs & 0xff;
+> +	time[1] = (secs >> 8) & 0xff;
+> +	time[2] = (secs >> 16) & 0xff;
+> +	time[3] = (secs >> 24) & 0xff;
+> +
+> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T3, time[3]);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T2, time[2]);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T1, time[1]);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T0, time[0]);
+> +out:
+> +	mutex_unlock(&info->lock);
+> +	return ret;
+> +}
+> +
+> +static int nvvrs_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
+> +	time64_t alarm_val = 0;
+> +	int ret;
+> +	u8 val;
+> +
+> +	mutex_lock(&info->lock);
+
+Ditto
+
+> +
+> +	/* Multi-byte transfers are not supported with PEC enabled */
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A3);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	alarm_val |= (time64_t)val << 24;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A2);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	alarm_val |= (time64_t)val << 16;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A1);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	alarm_val |= (time64_t)val << 8;
+> +
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A0);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	val = (u8)ret;
+> +	alarm_val |= val;
+> +
+> +	if (alarm_val == ALARM_RESET_VAL)
+> +		alrm->enabled = 0;
+> +	else
+> +		alrm->enabled = 1;
+> +
+> +	rtc_time64_to_tm(alarm_val, &alrm->time);
+> +	ret = 0;
+> +out:
+> +	mutex_unlock(&info->lock);
+> +	return ret;
+> +}
+> +
+> +static int nvvrs_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
+> +	time64_t secs;
+> +	u8 time[4];
+> +	int ret;
+> +
+> +	mutex_lock(&info->lock);
+> +
+
+Ditto
+
+> +	if (!alrm->enabled) {
+> +		ret = nvvrs_rtc_disable_alarm(info);
+> +		if (ret < 0)
+> +			goto out;
+> +	}
+> +
+> +	ret = nvvrs_rtc_enable_alarm(info);
+> +	if (ret < 0)
+> +		goto out;
+> +
+> +	secs = rtc_tm_to_time64(&alrm->time);
+> +	time[0] = secs & 0xff;
+> +	time[1] = (secs >> 8) & 0xff;
+> +	time[2] = (secs >> 16) & 0xff;
+> +	time[3] = (secs >> 24) & 0xff;
+> +
+> +	ret = nvvrs_rtc_write_alarm(info->client, time);
+> +
+> +out:
+> +	mutex_unlock(&info->lock);
+> +	return ret;
+> +}
+> +
+> +static int nvvrs_pseq_irq_clear(struct nvvrs_rtc_info *info)
+> +{
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	for (i = 0; i < NVVRS_IRQ_REG_COUNT; i++) {
+> +		ret = i2c_smbus_read_byte_data(info->client,
+> +					       NVVRS_REG_INT_SRC1 + i);
+> +		if (ret < 0) {
+> +			dev_err(info->dev, "Failed to read INT_SRC%d : %d\n",
+> +				i + 1, ret);
+> +			return ret;
+> +		}
+> +
+> +		ret = i2c_smbus_write_byte_data(info->client,
+> +						NVVRS_REG_INT_SRC1 + i,
+> +						(u8)ret);
+> +		if (ret < 0) {
+> +			dev_err(info->dev, "Failed to clear INT_SRC%d : %d\n",
+> +				i + 1, ret);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t nvvrs_rtc_irq_handler(int irq, void *data)
+> +{
+> +	struct nvvrs_rtc_info *info = data;
+> +	int ret;
+> +
+> +	/* Check for RTC alarm interrupt */
+> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_INT_SRC1);
+> +	if (ret < 0) {
+> +		dev_err(info->dev, "Failed to read INT_SRC1: %d\n", ret);
+
+dev_dbg or remove
+
+> +		return IRQ_NONE;
+> +	}
+> +
+> +	if (ret & NVVRS_INT_SRC1_RTC_MASK) {
+> +		rtc_lock(info->rtc);
+> +		rtc_update_irq(info->rtc, 1, RTC_IRQF | RTC_AF);
+> +		rtc_unlock(info->rtc);
+> +	}
+> +
+> +	/* Clear all interrupts */
+> +	if (nvvrs_pseq_irq_clear(info) < 0)
+> +		return IRQ_NONE;
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+
+
+> diff --git a/include/linux/rtc/rtc-nvidia-vrs10.h b/include/linux/rtc/rtc-nvidia-vrs10.h
+> new file mode 100644
+> index 000000000000..3c9c46abf555
+> --- /dev/null
+> +++ b/include/linux/rtc/rtc-nvidia-vrs10.h
+
+Just to be sure, do you expect to use this include in another driver?
+Else you should merge it back in the c file.
+
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
