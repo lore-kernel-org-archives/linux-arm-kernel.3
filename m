@@ -4,74 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF60CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29230CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gk6eqZAFbX16sas/2kwE2G4a7ts2lJRHO7QXaYrFraE=; b=sHZ8Lc6C0NDOjSEO6B9/pZwDbk
-	vreh+IpGCu2QUPWCA7ImnZcxI7sqYfgGN0f2ozHqIA7b89Ezo44fwtYStdLdJHRvabV6SaxDz3sbl
-	kp8x5TvP0YpMG5TXZrJRuJsrPYKL1/41FW6Bb2nEnTczDEJyvswcFGoyMksY4WgaQ5zoSthkXZOxB
-	8JCr9ZpjyPbY1/YlQtzHTHJpD75DbyYnwMG5b5KLJ4ejatr+fkcjJWPeQGxzrKMrGEwaJtpvaJrA6
-	uw0JaBApZPAwsDjQIZBG1+o61exAYHR27BT7OZWpS5EwFkSw3vca+JZkUK7KMGP38V9/JQAYjjTPf
-	OQgVayTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C6zoQ1uv1s7hqCsB4ZjAaLblPEL6nAmG0LEH7MpxUwU=; b=Kt4IjaG44TZWrz
+	ywKvr1uKsnXwoe6TrFmxSkKT2qYTItZI5BAlwozeaKzoABBuXYKJkGHAs2qddrvIHCk+BA33RqRi/
+	eSEua0UKqw9hK3YJc76jXaXkM8EnY6JQY0EoZSvVSBR52smr0qeN/scbX0Dldvw7yZo9hLeYuUvyA
+	xV1Ham59+TEGNwMVe0uJRtnbCQpQKhQdU0Pb8g4pK+FyXWYFxAB6FXAAHOTrUt5gQC4tixx9mH7LQ
+	fmf+igduagjStSLx9zogfbBzlGoVsK15yHTrWLw/EE2PeOevOg/IAK36b1bsc+NVCW0wLepi25h7b
+	aLP5vvabrPYU6cgNfI+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11mp-0000000DGcO-3Qog;
-	Tue, 23 Sep 2025 12:06:23 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	id 1v11uT-0000000DHU5-05EG;
+	Tue, 23 Sep 2025 12:14:17 +0000
+Received: from fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.143.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11mm-0000000DGPM-3kC5
+	id 1v11uQ-0000000DHTe-1WCo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 12:06:22 +0000
-Message-ID: <3734c5a7-6b3f-4af1-ac35-6bd680823be5@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758629077;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gk6eqZAFbX16sas/2kwE2G4a7ts2lJRHO7QXaYrFraE=;
-	b=RYNpYPHd2k0bh9y0HCKQd4gHfuRL/axnDG6gO211K7wPMxOmhySDA/74pfMz2VMbDhK3x8
-	ZnAbmEezV0E2kHK7kw/VT5JJClf3+ebKpPD6F7Rj60cETRvmVVrKada7NfskvXxs4npNVR
-	x5REP7lHguHRrQ6JhP1YbRbGmWx3H+U=
-Date: Tue, 23 Sep 2025 20:04:18 +0800
+	Tue, 23 Sep 2025 12:14:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1758629654; x=1790165654;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=C6zoQ1uv1s7hqCsB4ZjAaLblPEL6nAmG0LEH7MpxUwU=;
+  b=mD0xkIhVDRTDD6UdkT8aj9tqZRAT1M8dvEp1Xglhm05XxCXHdwEQDWjp
+   XRqVIjc1+YBP5q/s2A/2u3LUIE73kre3rBM7GmV6yKdFiBPRSpJxHar4E
+   jyGmXyuNyNArCjRnLY/H7CNT5nQpUrIYq3isRBa8jv0CfJjG1lSiqKNMH
+   t0VNLEaZ/XCfqCsjzVf6ex9gcuS6SHojuY1saWK1drGNOjknXrMFDVVfB
+   8V1rnljmyaC6crUwri2CKzDK9QSaAXtlhbUoiVzmffThZo8QufM246akm
+   aDvnitNjE1BwJAAm1gQ6+FYHZUCZ77TLVBfI3LyqEl25XxYf2a2lk4GG4
+   A==;
+X-CSE-ConnectionGUID: FBNj+l+aR1+qu6nlihE2jA==
+X-CSE-MsgGUID: h+GIaP0rSfmTrhi4K2iYPA==
+X-IronPort-AV: E=Sophos;i="6.18,288,1751241600"; 
+   d="scan'208";a="2438561"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2025 12:13:57 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:7935]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.38.97:2525] with esmtp (Farcaster)
+ id 8181f46e-0526-4b06-9460-3a2e1a03356b; Tue, 23 Sep 2025 12:13:57 +0000 (UTC)
+X-Farcaster-Flow-ID: 8181f46e-0526-4b06-9460-3a2e1a03356b
+Received: from EX19D022EUC002.ant.amazon.com (10.252.51.137) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Tue, 23 Sep 2025 12:13:54 +0000
+Received: from [192.168.26.206] (10.106.82.20) by
+ EX19D022EUC002.ant.amazon.com (10.252.51.137) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Tue, 23 Sep 2025 12:13:53 +0000
+Message-ID: <8408090a-d2cc-4b90-99fe-183d49081ea4@amazon.com>
+Date: Tue, 23 Sep 2025 13:13:51 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-To: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
- usamaarif642@gmail.com, yuzhao@google.com, ziy@nvidia.com,
- baolin.wang@linux.alibaba.com, baohua@kernel.org, voidice@gmail.com,
- Liam.Howlett@oracle.com, cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
- kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
- roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
- dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
- surenb@google.com, hughd@google.com, willy@infradead.org,
- matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
- byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
- apopple@nvidia.com, qun-wei.lin@mediatek.com, Andrew.Yang@mediatek.com,
- casper.li@mediatek.com, chinwen.chang@mediatek.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mm@kvack.org, ioworker0@gmail.com,
- stable@vger.kernel.org
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <aNGGUXLCn_bWlne5@arm.com> <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
- <aNKJ5glToE4hMhWA@arm.com> <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/15] KVM: Introduce KVM Userfault
+To: Sean Christopherson <seanjc@google.com>, James Houghton
+	<jthoughton@google.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Oliver Upton
+	<oliver.upton@linux.dev>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier
+	<maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, Anish Moorthy
+	<amoorthy@google.com>, Peter Gonda <pgonda@google.com>, Peter Xu
+	<peterx@redhat.com>, David Matlack <dmatlack@google.com>,
+	<wei.w.wang@intel.com>, <kvm@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>
+References: <20250618042424.330664-1-jthoughton@google.com>
+ <de7da4d8-0e9d-46f2-88ec-cfd5dc14421c@amazon.com>
+ <CADrL8HVxvwB4JrnUf6QtDCyzZojEvR4tr-ELEn+fL8=1cnbMQQ@mail.gmail.com>
+ <aLrXFWDgDkHqPQda@google.com>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <aLrXFWDgDkHqPQda@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+X-Originating-IP: [10.106.82.20]
+X-ClientProxiedBy: EX19D015EUA002.ant.amazon.com (10.252.50.219) To
+ EX19D022EUC002.ant.amazon.com (10.252.51.137)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_050621_080868_1475A769 
-X-CRM114-Status: GOOD (  35.15  )
+X-CRM114-CacheID: sfid-20250923_051414_703718_672E93EC 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,133 +108,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-On 2025/9/23 20:00, David Hildenbrand wrote:
-> On 23.09.25 13:52, Catalin Marinas wrote:
->> On Mon, Sep 22, 2025 at 07:59:00PM +0200, David Hildenbrand wrote:
->>> On 22.09.25 19:24, Catalin Marinas wrote:
->>>> On Mon, Sep 22, 2025 at 10:14:58AM +0800, Lance Yang wrote:
->>>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->>>>> index 32e0ec2dde36..28d4b02a1aa5 100644
->>>>> --- a/mm/huge_memory.c
->>>>> +++ b/mm/huge_memory.c
->>>>> @@ -4104,29 +4104,20 @@ static unsigned long 
->>>>> deferred_split_count(struct shrinker *shrink,
->>>>>    static bool thp_underused(struct folio *folio)
->>>>>    {
->>>>>        int num_zero_pages = 0, num_filled_pages = 0;
->>>>> -    void *kaddr;
->>>>>        int i;
->>>>>        for (i = 0; i < folio_nr_pages(folio); i++) {
->>>>> -        kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->>>>> -        if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>>>> -            num_zero_pages++;
->>>>> -            if (num_zero_pages > khugepaged_max_ptes_none) {
->>>>> -                kunmap_local(kaddr);
->>>>> +        if (pages_identical(folio_page(folio, i), ZERO_PAGE(0))) {
->>>>> +            if (++num_zero_pages > khugepaged_max_ptes_none)
->>>>>                    return true;
->>>>
->>>> I wonder what the overhead of doing a memcmp() vs memchr_inv() is. The
->>>> former will need to read from two places. If it's noticeable, it would
->>>> affect architectures that don't have an MTE equivalent.
->>>>
->>>> Alternatively we could introduce something like folio_has_metadata()
->>>> which on arm64 simply checks PG_mte_tagged.
->>>
->>> We discussed something similar in the other thread (I suggested
->>> page_is_mergable()). I'd prefer to use pages_identical() for now, so 
->>> we have
->>> the same logic here and in ksm code.
->>>
->>> (this patch here almost looks like a cleanup :) )
->>>
->>> If this becomes a problem, what we could do is in pages_identical() 
->>> would be
->>> simply doing the memchr_inv() in case is_zero_pfn(). KSM might 
->>> benefit from
->>> that as well when merging with the shared zeropage through
->>> try_to_merge_with_zero_page().
+On 05/09/2025 13:27, Sean Christopherson wrote:
+> On Thu, Sep 04, 2025, James Houghton wrote:
+>> On Thu, Sep 4, 2025 at 9:43 AM Nikita Kalyazin <kalyazin@amazon.com> wrote:
+>>> Are there any blockers for merging this series?  We would like to use
+>>> the functionality in Firecracker for restoring guest_memfd-backed VMs
+>>> from snapshots via UFFD [1].  [2] is a Firecracker feature branch that
+>>> builds on top of KVM userfault, along with direct map removal [3], write
+>>> syscall [4] and UFFD support [5] in guest_memfd (currently in discussion
+>>> with MM at [6]) series.
 >>
->> Yes, we can always optimise it later.
+>> Glad to hear that you need this series. :)
+> 
+> Likewise (though I had slightly-advanced warning from Patrick that Firecracker
+> wants KVM Userfault).  The main reason I haven't pushed harder on this series is
+> that I didn't think anyone wanted to use it within the next ~year.
+> 
+>> I am on the hook to get some QEMU patches to demonstrate that KVM
+>> Userfault can work well with it. I'll try to get that done ASAP now
+>> that you've expressed interest. The firecracker patches are a nice
+>> demonstration that this could work too... (I wish the VMM I work on
+>> was open-source).
 >>
->> I just realised that on arm64 with MTE we won't get any merging with the
->> zero page even if the user page isn't mapped with PROT_MTE. In
->> cpu_enable_mte() we zero the tags in the zero page and set
->> PG_mte_tagged. The reason is that we want to use the zero page with
->> PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
->> memcmp_pages() messed up KSM merging with the zero page even before this
->> patch.
->>
->> The MTE tag setting evolved a bit over time with some locking using PG_*
->> flags to avoid a set_pte_at() race trying to initialise the tags on the
->> same page. We also moved the swap restoring to arch_swap_restore()
->> rather than the set_pte_at() path. So it is safe now to merge with the
->> zero page if the other page isn't tagged. A subsequent set_pte_at()
->> attempting to clear the tags would notice that the zero page is already
->> tagged.
->>
->> We could go a step further and add tag comparison (I had some code
->> around) but I think the quick fix is to just not treat the zero page as
->> tagged.
+>> I think the current "blocker" is the kvm_page_fault stuff[*]; KVM
+>> Userfault will be the first user of this API. I'll review that series
+>> in the next few days. I'm pretty sure Sean doesn't have any conceptual
+>> issues with KVM Userfault as implemented in this series.
 > 
-> I assume any tag changes would result in CoW.
-> 
-> It would be interesting to know if there are use cases with VMs or other 
-> workloads where that could be beneficial with KSM.
-> 
->> Not fully tested yet:
->>
->> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
->> index e5e773844889..72a1dfc54659 100644
->> --- a/arch/arm64/kernel/mte.c
->> +++ b/arch/arm64/kernel/mte.c
->> @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page 
->> *page2)
->>   {
->>       char *addr1, *addr2;
->>       int ret;
->> +    bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
->> +    bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
->>       addr1 = page_address(page1);
->>       addr2 = page_address(page2);
->> @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page 
->> *page2)
->>       /*
->>        * If the page content is identical but at least one of the 
->> pages is
->> -     * tagged, return non-zero to avoid KSM merging. If only one of the
->> -     * pages is tagged, __set_ptes() may zero or change the tags of the
->> -     * other page via mte_sync_tags().
->> +     * tagged, return non-zero to avoid KSM merging. Ignore the zero 
->> page
->> +     * since it is always tagged with the tags cleared.
->>        */
->> -    if (page_mte_tagged(page1) || page_mte_tagged(page2))
->> +    if (page1_tagged || page2_tagged)
->>           return addr1 != addr2;
-> 
-> That looks reasonable to me.
+> Yep, Oliver and I (and anyone else that has an opinion) just need to align on the
+> interface for arch-neutral code.  I think that's mostly on me to spin a v2, and
+> maybe to show how it all looks when integrated with the userfault stuff.\
 
-Yeah, looks good to me as well.
-
-> 
-> @Lance as you had a test setup, could you give this a try as well with 
-> KSM shared zeropage deduplication enabled whether it now works as 
-> expected as well?
-
-Sure. I'll test that and get back to you ;)
-
-> 
-> Then, this should likely be an independent fix.
-> 
-> For KSM you likely have to enable it first through /sys/kernel/mm/ksm/ 
-> use_zero_pages.
-
-Got it.
+Sounds good, thanks.  Do you think you'll be having time to work on the 
+v2 soonish?  Is defining and implementing the interface a strict 
+prerequisite for this series?
 
 
