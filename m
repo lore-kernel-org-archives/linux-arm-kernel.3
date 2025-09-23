@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67093CAC5AE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590C1CAC5A7
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 14:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,87 +12,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=; b=H0Z4Hg6njfRe0hgziloV9vSjal
-	p/4uaBtlkyny/F7aG1bs+zjZgwtq/kuuWGXeirFngOfyxlvqGr/hBzm/Po+RBlChoNKDFgsTdv+Iu
-	CKGiUNONMU9lioNwP/e5GRpV1R+PGmjljvwkyctTmYtcr/Dj0JX29eW3rYS4l7YoWy59n2OJ0Jo6S
-	7+ThiKKIG1FrctJtK2JLKWHAECjUI36Q1twe903mk8741YeDjI3vYNRk3mA+NiVUX5r0FBXSskOFS
-	UtjQ72b8W80IigW+X/P7dkOfxEtlpl31TUct7suk3f6OXl3KJR+jERForbrZTkqYay7BcNMeNyNgH
-	cbq37eZw==;
+	bh=OUcTQ2up2eOa5np9juHes8kBZBD61IeSVgwAmot8YUQ=; b=sDjNpqDut9YNi9cz+2zGXPvdEZ
+	fXI3uZCsTmrMhTNAUFMEGVYKngXa/52cEbbYaXQnGAxrox7lgtZEoLdHRUQesBKxENOVBIdODp6Ge
+	D2NrkxLdamxKjMGhxP57eC/XJGl0odqngSBebiUc/dTMl9VTrHabgXB4IlHng5+wNmAI/isFU7U3H
+	UcoLOlaiBaZGZS31Fm+PdLuaDnfaWVC61nlf29c8HIxLF8S25BIRts/nmcQrh0LI2rvUiakSNQjSb
+	CfesA8yaxtZwBwP2+ittJLwuTXCqOJwSSM8RNi3hOJJJo3r/prfqYx4xGpf5c24VqVLXR0QiAyAM5
+	GjTevgXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v149Y-0000000DpMD-1YBW;
-	Tue, 23 Sep 2025 14:38:00 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1v149Z-0000000DpNO-0ITA;
+	Tue, 23 Sep 2025 14:38:01 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v149R-0000000DpEg-1c3u
+	id 1v149V-0000000DpIl-2Eiv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 14:37:54 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b2ac72dbf48so424352966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 07:37:52 -0700 (PDT)
+	Tue, 23 Sep 2025 14:37:58 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b0b6bf0097aso1027430666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 07:37:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1758638271; x=1759243071; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1758638276; x=1759243076; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=;
-        b=WuK6fcxo9zViYOlAR40Gkf4aXJekJygKODMCVE3QblHyJEw44yLBD/u15ycS0HYcNl
-         HLDx/TLb8gag2Nl2cC0FbgBKOBE5qfOyL2Rdg8BI59NK5JQvgrNfoM/HAmEF81R26GBP
-         HzhIzG9dEgSxystTj7oUhwohw3/D9yVNT+c+c=
+        bh=OUcTQ2up2eOa5np9juHes8kBZBD61IeSVgwAmot8YUQ=;
+        b=K5ISesdlTafctxVWjacNYSj2IIrF0BxzI+/va7SABi6bkbSy7tBfaFuVA3YTSccZYW
+         fn6IUEUT9/eB+cffbDHanTTzwL/T6qeyqnfF1E0++9ns7+xXx48/E6cuURl/aMJH/nNv
+         LH6qv23/YQANWhGvxDJKNgPD2I/fWzGQm/xLw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758638271; x=1759243071;
+        d=1e100.net; s=20230601; t=1758638276; x=1759243076;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JAYdvSVQgA1h0haeD8J+mH93pNUjVxDxBFzkQXHtMmU=;
-        b=pHvH8cxn3ts5abeEYqfXE19UHRI8kLonEyLMOT56artT65zFCdNBrbvClUF9g9qh4C
-         zpCPKn2VaQwyiNoZlqf54dOAwK9vtUutldKOD+xfJmTWCNqmWqAqYCNYNc3yl84Rm1OM
-         RT/EFLK/ufjGbXhoIEFgu37jay4geHh12W7Y2yvQWdTjaBvqUEbN/Tt6Dq1MqaKBz92Z
-         cc8kogLDUW2gRRj/35FZEsbMo4MCp6TKQvURuiZ7iV6dDMsVKVT8v1g2d7Z1EmhjL+kt
-         RhsAkhRl47kBdxkV4dqv+cAT0KQPAFQwf1Ih78gqUvJ5Ki4riNDrdast9r/9L3348aw8
-         d9zQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX39DFpJNpdmw0QhloD5kYO118Sb5TzyBC62enbqxem3LKG789WGxGP/sl5XbJJjKy4TiBs/MJynR2JpSPSddU/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5x6Nu77i3v5Si/AmyZO1yqHHXk1VZFOuW+XVG8onhToPzfhtQ
-	Q3e8T0GCdBgjDreBmBHXAnUvldU/T1III4s7g2IP3uOfh528F4gwsVPMmSGLZMSl1RBh5niZELW
-	CL1m3
-X-Gm-Gg: ASbGncu81QyzrpT5ONmrnYvxXbIkqP6aiv/cTL3brO5Uwv57L2m4ilS0aa0DHpFQ8rf
-	mOQZgSRiNBsVKT70mcnuUxZ5psTMQE8UXyRar0rd2non0edGC2qi7dOhOfofTQNrXHTJh4bVQrC
-	ONUIFsz+8OoriKscSSp2ywN/cfv5zjo5SHqAJy+/UJM9J5XXDR/23GDovMb+7ctz3x+7KrxKuh+
-	7eGzMXKEAWHHvZ9xE23LBJ9LVGhS9uWGiAmo4eRguSBNligNzjBnkKOAEVa05qcUyURpbqkTBV2
-	5m7LR5DkpqEJtdQv9p9GzZHhWbRTmEdQADOR3cXL/qlmICLZkMwVILWHjlYs5rVGACZ3zkQrI9D
-	PVbVOtxbV5F9aC/pEgB9tq3gJ5pGE8GjvEcaLh2Ls4TydJJbz+9Qebrfh5QptS53aPRGSfDEOKd
-	LpjkUtzKhgxzVLFTuBK3AEP4PjaBpkW2BgfevxvRvqylVaaJU9R5+l5opRGxeZW4yB
-X-Google-Smtp-Source: AGHT+IHaqS5GNeMUhn9N2QSUvjss8/1xeAtf3qXgVO60HOyrcSqyn/pZRNK3lgknrBEjEWoU4iqXeg==
-X-Received: by 2002:a17:907:6d22:b0:aeb:3df1:2e75 with SMTP id a640c23a62f3a-b302af24e64mr265873166b.46.1758638271431;
-        Tue, 23 Sep 2025 07:37:51 -0700 (PDT)
+        bh=OUcTQ2up2eOa5np9juHes8kBZBD61IeSVgwAmot8YUQ=;
+        b=SOS2KFYEecbcXDWcH3JTS+PIDN6EbAXa7q9QyXPaGTCQQwKwZ7HztKDho5j3JvYBjg
+         HkAFDI4M9rnATilhJyKMCgJXCktEEIne2eeozcqlsYlF4szfUET/JMCSjBD2rzZ4SWHZ
+         GbTNv4ZKSFuTUdwQ52wVqMyh2x75XkC2ARpeoGXv3hYWR7Ne0vqiwFi1vrFGxZSTEYqn
+         sK1dMP1oTycLyl6vfeHg9yMytYI8qdj4P0xlJ2YKTbow52YXE+PWX1pIpoafablMS9Ir
+         ohh+Z9lEBvU6pa+AiyKTXXfk+fdr70dF+FNEQ9lQORTTyF0UGy8hqdR9qiRWufX2lsr2
+         18bQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQK7ivLUkbhgK6BVJxeIHoWkPG/AEaMBXksC2pmyZ1CsbBYatyy+dV3XuBvRBGW+N416YDiL1bPoP+D9sQ4sj2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNgs7FfPCUEZ8DD1mZPuKJ4ViJwDYYry+rnBe7i8XZD9h5S/5T
+	8W90N0D4ZqEq/vm/y+vb39u9zm/fKyr0Go+pgEfnHEvpBKt7uqf45lALElrJrzoFgq4=
+X-Gm-Gg: ASbGncvEyue5aY+fyDIALXs9K4jBgCd0/ziaaOSHM9DTn2RIbwjdvB7RaWA/1cebonR
+	weFxBTVOkDzcie8nh1ISy520FTgQ47Lssh961CkMycKKK2etGlxKPSLYN+vb5X+GauGoGmM4plz
+	dImx058ro+ldetTH6SMzkGIQ8TYnVQZ+d2ztgWVPyPC2SNzCzyEgQhlpopHBy0z11JBQQ8MsEly
+	LX6tMja/IZb0YN/PIOfkVyCQJrL+O0nIeimiSn5jmJhyMYu35EBWo1UjIzTDBB/z3l7sIa/xRZo
+	4z+dhpuirPlMflK3ZZ18w4XNKDFB2NpCkZYwmXGCbbz5w79Fm7tbac1tfkb3XP4eTD3pPtENl0Q
+	ZFZCbuWf7ysfrwIuY1tzxvUDTPbkG2uulPkOsuQXXhgFvoy+PgLr5aP+mYj+PFyXLOwTVQHhLvN
+	dKb2kBQGPXs6Q0HGurZGt6A+EBQ2Qq0YDGIW4KsB+9eXCXHjp3tAcLBHx9eQ/STmu6
+X-Google-Smtp-Source: AGHT+IGDPnG7HtZZOzHzDzOnTvQCbphPIOssxaWdLijuYXdOKqbHAb1gXG6TbG+I7cy+yOigXJi2Ww==
+X-Received: by 2002:a17:906:f58a:b0:b2a:dc08:5914 with SMTP id a640c23a62f3a-b302ad3922bmr273199066b.45.1758638275808;
+        Tue, 23 Sep 2025 07:37:55 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b2a2a5f6c7asm665204666b.28.2025.09.23.07.37.50
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b2a2a5f6c7asm665204666b.28.2025.09.23.07.37.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 07:37:51 -0700 (PDT)
+        Tue, 23 Sep 2025 07:37:55 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Frank Li <Frank.Li@nxp.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
+	Haibo Chen <haibo.chen@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-input@vger.kernel.org
-Subject: [PATCH v6 1/6] Input: imx6ul_tsc - fix typo in register name
-Date: Tue, 23 Sep 2025 16:37:32 +0200
-Message-ID: <20250923143746.2857292-2-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v6 4/6] dt-bindings: touchscreen: fsl,imx6ul-tsc: support glitch thresold
+Date: Tue, 23 Sep 2025 16:37:35 +0200
+Message-ID: <20250923143746.2857292-5-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250923143746.2857292-1-dario.binacchi@amarulasolutions.com>
 References: <20250923143746.2857292-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_073753_441286_842DADB0 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250923_073757_591215_4FA75350 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,46 +110,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Trimarchi <michael@amarulasolutions.com>
+Support the debounce-delay-us property.
 
-Replace 'SETING' with 'SETTING'.
+Drivers must convert this value to IPG clock cycles and map it to one of
+the four discrete thresholds exposed by the TSC_DEBUG_MODE2 register:
 
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+  0: 8191 IPG cycles
+  1: 4095 IPG cycles
+  2: 2047 IPG cycles
+  3: 1023 IPG cycles
+
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
 ---
 
-(no changes since v2)
+Changes in v6:
+- Rename the property to debounce-delay-us.
+- Update the commit message
 
-Changes in v2:
-- Add Reviewed-by tag of Frank Li.
+Changes in v4:
+- Adjust property description following the suggestions of
+  Conor Dooley and Frank Li.
+- Update the commit description.
 
- drivers/input/touchscreen/imx6ul_tsc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Changes in v3:
+- Remove the final part of the description that refers to
+  implementation details.
 
-diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
-index 6ac8fa84ed9f..c2c6e50efc54 100644
---- a/drivers/input/touchscreen/imx6ul_tsc.c
-+++ b/drivers/input/touchscreen/imx6ul_tsc.c
-@@ -55,7 +55,7 @@
- #define ADC_TIMEOUT		msecs_to_jiffies(100)
+ .../bindings/input/touchscreen/fsl,imx6ul-tsc.yaml | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+index 678756ad0f92..a99280aefcbe 100644
+--- a/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
++++ b/Documentation/devicetree/bindings/input/touchscreen/fsl,imx6ul-tsc.yaml
+@@ -62,6 +62,20 @@ properties:
+     description: Number of data samples which are averaged for each read.
+     enum: [ 1, 4, 8, 16, 32 ]
  
- /* TSC registers */
--#define REG_TSC_BASIC_SETING	0x00
-+#define REG_TSC_BASIC_SETTING	0x00
- #define REG_TSC_PRE_CHARGE_TIME	0x10
- #define REG_TSC_FLOW_CONTROL	0x20
- #define REG_TSC_MEASURE_VALUE	0x30
-@@ -192,7 +192,7 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
- 
- 	basic_setting |= tsc->measure_delay_time << 8;
- 	basic_setting |= DETECT_4_WIRE_MODE | AUTO_MEASURE;
--	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETING);
-+	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
- 
- 	writel(DE_GLITCH_2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
- 
++  debounce-delay-us:
++    description: |
++      Minimum duration in microseconds a signal must remain stable
++      to be considered valid.
++
++      Drivers must convert this value to IPG clock cycles and map
++      it to one of the four discrete thresholds exposed by the
++      TSC_DEBUG_MODE2 register:
++
++        0: 8191 IPG cycles
++        1: 4095 IPG cycles
++        2: 2047 IPG cycles
++        3: 1023 IPG cycles
++
+ required:
+   - compatible
+   - reg
 -- 
 2.43.0
 
