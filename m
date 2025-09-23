@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832F3CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAACECAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AJaxzkgGMS2WBlrlop8PHPlSP36j70ySVSvjHs1aEs4=; b=AFIuwv21PvpCkzV7sDhh0Gq+hh
-	5LPu177z38y2CRR6E+MdC1x0BCS5qLiNV/YsEVfG0KbUX0ftkAUlEGJX3uUtZ7LJXbmufTd8mF1y9
-	n7TCUJB0px/Qfb+we3PXd4JWbukHlU38tUKUwDVLlnJZb+GVH8DPhyRYBlV4de5RjoW48suZO7BFX
-	EQljV8kWsVvQ9GDjFzjoKNqLL5/Ac7EEpY7YURcaNkMszN1ISyGZ0f9OOsuTI1a32YppzVNrRzk2T
-	LrxFcdevY7K8MTlP7seAKQvdch/p3u36Rp9ovwzKvalhQpZ4nAVZkpWv2pYkR5E3UoQHADsNyyfrn
-	RpcTUd1Q==;
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XJC5LJVK1BfkEZ+6eezU7+YH6BBGIGQIjB9LFCRV4ac=; b=4mo2ft14Vb+3KL4kKCao1aQbQE
+	B8TUGvmd6lhImaX0s0+1krG3TiPLvRgC0y3nJl7FoUXJ07MnoYwrfXbDKidiAerrMqS0KAkRPjZq4
+	Tw/nRmcdEOCNYAGLk2VDCD3LSYURBPUUxdCzt6ykB6d+vGfQX/HPJ4tOLuslgbxZZQUHRxnDzGOJT
+	ZldR4fU7GDmIc4gz9b9drWn7IYTwMRD3MG1rIyBP9I4AHVHOr9N1/dsv0HchH0iZc5Y54jMW+51yy
+	a3mRIkqZ6Wm/9TLBmWXVWdZ1OUHca4AO/ZkteTKxx1BcKL93/nxBsAw7o5jAodBWV0bu4ja13F+bx
+	iS7a+4uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xli-0000000CjEC-0KkU;
-	Tue, 23 Sep 2025 07:48:58 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1v0xp4-0000000CjYl-3EdU;
+	Tue, 23 Sep 2025 07:52:26 +0000
+Received: from mail.launchix.pl ([162.19.224.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xlf-0000000CjDU-0SQB
+	id 1v0xp2-0000000CjXL-1Y2u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 07:48:56 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-57afc648b7dso3508428e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 00:48:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758613733; x=1759218533; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AJaxzkgGMS2WBlrlop8PHPlSP36j70ySVSvjHs1aEs4=;
-        b=mJbyz8QDVQbhXARwxgIGW+GpDtElRe12pozzr4YrmeUFNBARozxEd0ehpIBw8Dos8p
-         E0mZJH1I3WseeX8woqyz1AtTayjMgn6bqtHVXvu8cw3B9RjOdc4x3dudpTD85TB//yrP
-         /tyI/WbsQJU4UZNmmcy/JO+Ah1FRWb7Hz8tVcfpJaao0+zgRy9vvLCSwWppnnZuIetRn
-         tj2zIVdawPI9+IkSIDT+PDKhsTGdX5NOW67SfW0kNHbVVA1CQyp0WNUFrjmROmetqqo3
-         FdwYWJaPkAd/153JbMLCQWO8QQmqSKdCbLt1L3V/baTDFu/fBufL9CtUEvXYDXRde0YF
-         7YAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758613733; x=1759218533;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AJaxzkgGMS2WBlrlop8PHPlSP36j70ySVSvjHs1aEs4=;
-        b=YzLJ8/d1s3MY5CR+JQywEfyoakjWYQ/3g3MzHvLd+eQ6dvje+iLV1VUbVWUsCeYTUL
-         5ixQrbDImp416FHHE7BW6Isht3cT63yKdpdpEPTVTvU435uWwP8FNSPOKb+lZP+pEWVj
-         1MkD3Svzt8U72KPVv9oz7A3+lk2MR5c0TtkgOJEGns6gpAZgV49NQU/KCIsuaejLM/vQ
-         g2mCiB3CSrJmdnTlTvjbbtY9rkY3qaQpPlHBZepYYi/ILNVLbQN2p4+/3ckaKYRXUJqJ
-         7Dia57YmLf2nEOaLEewjLdYLK248xQM1xVg3UM8Ew0D1J5cmn2PX+29TFTCMQnvIFeZr
-         CNqA==
-X-Forwarded-Encrypted: i=1; AJvYcCUkDVBSnpqkhg9qS6E+VZX2qEUc0cCGYm/yUYxFw9rN2U51yUeMd2eKHwp01JnbQhF+T4zA+ebjIFQ39qCqF8gn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyu5PhdmvrcBVyBtM8sUgjl22sgm6jEsHBe2SAeTGA6TjDssYY+
-	jQTmFmRc8RFbKL9Iuwb9qVNTqxxB5JI//iSXsUzs4uI7ssGQYkkLWuCUqqaDEkYYYWS8NLYGBFF
-	/r+Yt6/At5eBMQ6ZkazGdQgvL9hbCpvSffXp4Z9Up0w==
-X-Gm-Gg: ASbGncvu0s/gsjh6uf9nxikCcq1HUwtd1r2YtGglfSSgyjWJvYrWye9PXR+GCvdqMqa
-	UwCpCzn7iKu7Y8xva9vc4/RJOgM9sbHlrhVQwm+ZfwWHYIRoUzvElUGraWVyF2w75htiHxa0GW2
-	iYIciD0yewRIQ1+FunveFdn2agDgkkumfvje+ZoSVxQb0BdSMK4SR47ibslN5hWVdVDv6e7NATk
-	ZKfUQSEXDJSI+AvfWt5/QdRQm7FlHsctjrmOZa5LMuXAZWl
-X-Google-Smtp-Source: AGHT+IFXCbUC7OKlJXhiIcyp3/0pEbhIPcVmkwcaoRpLoXztj3Zx0ZDwfLpI5huj43NEMpkp0HP1DS+xrpQFvaRxUT4=
-X-Received: by 2002:a05:6512:b19:b0:578:cee7:7aa9 with SMTP id
- 2adb3069b0e04-580734f07d9mr498868e87.48.1758613732567; Tue, 23 Sep 2025
- 00:48:52 -0700 (PDT)
+	Tue, 23 Sep 2025 07:52:25 +0000
+Authentication-Results: launchix.pl; arc=none smtp.remote-ip=127.0.0.1
+ARC-Seal: i=1; d=launchix.pl; s=default; a=rsa-sha256; cv=none; t=1758613940;
+	b=NUHj7HNH8/AzUYwUfsUI4vVjEEVfesNKWPjl1fdZPrAcoJ5aYhgU0xyTX5XKIUCic3ws
+	 0wVcMVoPVhY7KmpdCYj0JealYL1zz1xJKI9OsX7Z4f2WWaFLpRs58pYIlMQ8BEyqYqM0N
+	 mtX72haa31zDy53XzWVfB9pg3h/o1O38ZDfFaqvH6vDjrqtPMIxWW9jeex92/7jDFv1He
+	 cOlVuDFvP8h5eVqDZeNyR3PFu+mArRSF8/hSJry1mefEglEHNl6SDnCAz+oD+cuib0pAZ
+	 nChRTwSZUusF69oUyJ7EIHfXhecVaB+5RayR6f67G+axKGw91prjjrc5XmZNweVcyEQ==
+ARC-Message-Signature: i=1; d=launchix.pl; s=default; a=rsa-sha256;
+	c=relaxed/simple; t=1758613940;
+	h=Message-ID:Date:From:Subject:From;
+	bh=XJC5LJVK1BfkEZ+6eezU7+YH6BBGIGQIjB9LFCRV4ac=;
+	b=vKYcp2oPsw4VRwJ0ZIMd3LOJD+/F067X8qOhdQptmGe8bB2hD5fOxgraPb2hONy5dF96
+	 /vkGH1T6xsNPVjTsKx/rhEJ1VqTItaYVIQZuKDMul15UgxuxZOyPLpk32nz+UKy/rolUl
+	 qmHnbY0/zNA1Lxlx19x+9z4DBgnrk72bCa/t7FUlFR3A55iuxu3x44cEpW9EGV8SvvrLN
+	 GmennIfgv5RmXh0zkTmHLke1eHJjucxlJLMGIKZFZyKy4aMwSlPGiVXHGRReL5DbSPjt4
+	 Z2FRCD0sHJtQyAAXPEHbBvNWAjQeMLmX8nnViJDo+TyYSeYs45kw709yRMi9XS753xA==
+ARC-Authentication-Results: i=1; launchix.pl; arc=none smtp.remote-ip=127.0.0.1
+Received: by mail.launchix.pl (Postfix, from userid 1002)
+	id 0E9C0256B4; Tue, 23 Sep 2025 07:51:49 +0000 (UTC)
+Received: by mail.launchix.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 07:50:50 GMT
+Message-ID: <20250923064500-0.1.37.7nqh.0.s23qplla40@launchix.pl>
+Date: Tue, 23 Sep 2025 07:50:50 GMT
+From: "Filip Galwas" <filip.galwas@launchix.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Zwolnienie z CIT/PIT
+X-Mailer: mail.launchix.pl
 MIME-Version: 1.0
-References: <20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org>
- <CAMRc=Mc4hO1LDumxAfkB1W6miTJXR1NUVAKBVarkwiF2yGvSLA@mail.gmail.com> <2wwi3ktbcuyp7y7mqplndvawagae5hdhcx3hn375kycoqtows6@xcww2237rxpe>
-In-Reply-To: <2wwi3ktbcuyp7y7mqplndvawagae5hdhcx3hn375kycoqtows6@xcww2237rxpe>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 23 Sep 2025 09:48:41 +0200
-X-Gm-Features: AS18NWDP_wgtg5ZAo1aJS0Vwp6mqsgj6RBa2BQg1A6VrGdFXcg4GLeRrQ88qOWM
-Message-ID: <CAMRc=MdhQMR=-ayz+GfigUMVy+j1QNO3LguMoZYa5_+Es3E5Ow@mail.gmail.com>
-Subject: Re: [PATCH 00/10] RDA8810PL SD/MMC support
-To: Dang Huynh <dang.huynh@mainlining.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-unisoc@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, dmaengine@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_004855_274138_F1D6F5A0 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20250923_005224_600992_638575C5 
+X-CRM114-Status: UNSURE (   2.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 5:45=E2=80=AFAM Dang Huynh <dang.huynh@mainlining.o=
-rg> wrote:
->
-> On Mon, Sep 22, 2025 at 04:17:05PM +0200, Bartosz Golaszewski wrote:
-> > On Thu, Sep 18, 2025 at 8:49=E2=80=AFPM Dang Huynh via B4 Relay
-> > <devnull+dang.huynh.mainlining.org@kernel.org> wrote:
-> > >
-> > > This patch series aims to add SDMMC driver and various drivers requir=
-ed
-> > > for SDMMC controller to function.
-> > >
-> > > This also fixed a bug where all the GPIO switched from INPUT to OUTPU=
-T
-> > > after the GPIO driver probed or by reading the GPIO debugfs.
-> > >
-> > > This patch series is a split from [1] to ease the maintainers.
-> > >
-> >
-> > This is still targeting at least 4 subsystems and isn't making the
-> > merging any easier. Are there any build-time dependencies here? If
-> > not, then split it further into small chunks targeting individual
-> > subsystems and the relevant ARM SoC tree.
-> The MMC driver depends on both the clock and the DMA driver.
->
+Drodzy Przedsi=C4=99biorcy,
 
-But is the dependency a build-time one or does the MMC DT node
-reference clocks and the DMA engine by phandle? I assume it's the
-latter in which case it's fine for them to go into next separately.
+pojawi=C5=82a si=C4=99 wyj=C4=85tkowa okazja na znacz=C4=85ce wsparcie ro=
+zwoju Pa=C5=84stwa firmy dzi=C4=99ki mo=C5=BCliwo=C5=9Bci uzyskania dofin=
+ansowania m.in. w ramach Polskiej Strefy Inwestycji (PSI).
 
-Bart
+Mowa o programie, kt=C3=B3ry mo=C5=BCe pokry=C4=87 a=C5=BC 70% koszt=C3=B3=
+w inwestycji. Dofinansowanie obejmuje szeroki zakres projekt=C3=B3w =E2=80=
+=93 od zakupu nowoczesnych maszyn i linii produkcyjnych, budowy hal, prze=
+z instalacje OZE, po specjalistyczne oprogramowanie.
+
+Gwarantujemy b=C5=82yskawiczn=C4=85 decyzj=C4=99 o przyznaniu =C5=9Brodk=C3=
+=B3w =E2=80=93 ju=C5=BC w ci=C4=85gu 30 dni, a nasze do=C5=9Bwiadczenie p=
+ozwala nam osi=C4=85ga=C4=87 nawet 100% skuteczno=C5=9Bci w pozyskiwaniu =
+wsparcia. Nasi eksperci pomog=C4=85 Pa=C5=84stwu przygotowa=C4=87 optymal=
+ny plan inwestycyjny, maksymalizuj=C4=85cy korzy=C5=9Bci z programu.
+
+Bior=C4=85c pod uwag=C4=99 rosn=C4=85ce zainteresowanie, zach=C4=99camy d=
+o jak najszybszego rozpocz=C4=99cia rozm=C3=B3w. Czy mog=C4=99 przedstawi=
+=C4=87 szczeg=C3=B3=C5=82y programu i mo=C5=BCliwo=C5=9Bci wsparcia dla P=
+a=C5=84stwa firmy?
+
+
+Pozdrawiam
+Filip Galwas
 
