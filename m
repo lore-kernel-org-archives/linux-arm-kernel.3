@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8BDCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C658CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXQpyjtyaMSu2S1mwbfcHFzGngL8nm116sLK+CHL85I=; b=RJQNqNpIWrTWaKOFks2yRJvf06
-	4FGkGK4LFGm5Y1F9qnJ1xdQM9JPlRj0n2frajU5rZPo0T4rHlf1tSEQx7nOCpkdxfIIhdRq/29D3q
-	WNrHF7UtLuH8cWn+LLgcFu/U+d40deNliCfR2wy40vHA0M/MMh8aUc3lW3I4h/UioxnvAjEWxYgTb
-	uXzO/arqXL74W6nRaNF7zYziO+mV0EXXwdMMusaAWTjTaWN+PfEpm+nkSxsJJNONh3B39BaVvFc6V
-	aO4PEV54hIDPrXeKTN7eS9zlHLwF6Xq92q5si6lgDhxboGNkesvcs1MJ73+9R4DrDcbIc/bOMErBj
-	g3Sgikjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FqqitcQCkxhV32rTsJ+uCNxHvhC6YeG2qjPkLgt2EmY=; b=ptOJSygymemawnmFrn8qrxHUnU
+	Vfe3TbE4zUxg4A71QyQsupwDNY2ERqMo+dfbu3EdtWSu8j/O4VvMvRylV6x5st7+7Y3LBmzzjC54S
+	v8p2q/nnq0YGh2KSe0rLnrzhPBf7SPtToUJHeFq2baH+nXOOMCHbI+dzHeDC6kHfMk+7xUq8Fagvj
+	sO2j7/d0nTKbb64HJ1nFmJ21Sy859aesH0i3jxEw1nn0oGQufmBdqO8Goc4CDdclpPsLoKz+QT9ZS
+	/ypZ/hEZ19Ez96sX62W/6QchnoDyzLaxinQaM6DtINfwC4POGO0C6fs9/uIB8fYGvRNtZlfitxj1Q
+	zXks8LFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11B9-0000000DB2S-14xk;
-	Tue, 23 Sep 2025 11:27:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v11FA-0000000DBoO-21mV;
+	Tue, 23 Sep 2025 11:31:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11B2-0000000DAxP-1CoA
+	id 1v11F7-0000000DBmC-2yh9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 11:27:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECD5144D27;
-	Tue, 23 Sep 2025 11:27:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C285CC113D0;
-	Tue, 23 Sep 2025 11:27:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758626839;
-	bh=Y6Ks5wTiGs+ByHpP/pFcc1umqPWY5L5vAWv9OUX9xY4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lSGF6VcZInmak+B2nWzBYISkHvSHzLyb6KqUZmybeHjCUvZ2zSZiSshpUWaFIC/+/
-	 KIPPH90NuiZ4PJdQZKOuFQ7eEIgQM0euVR+UDpHvINhha8BkeinZ3AYrz0xE5yAo8D
-	 dMqGfU0SipM0Q+y9ea1s1z3c5Ta1eRaYNWgs8SdQw0BVKSbOs4ii/e14hImcGW1Smq
-	 jcUa9swNvFFk0vqERZNOlCdftDtXcughtKx7esxyNbeNVrv5kBQYp33YyoDd5mIzOm
-	 w0Z8xUuYHY+V0/ZTe4p/GP6OhH5OUVT5TR1xBXD/8jSrX+0htFJEKvOmj6EgPCnyJF
-	 AAl/AeT1DgpWQ==
-From: Manivannan Sadhasivam <mani@kernel.org>
-Date: Tue, 23 Sep 2025 16:56:54 +0530
-Subject: [PATCH v10 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
- 'CFG Shift Feature'
+	Tue, 23 Sep 2025 11:31:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FqqitcQCkxhV32rTsJ+uCNxHvhC6YeG2qjPkLgt2EmY=; b=V2Xf7M/44Zue2oMyR0jrB+6qMg
+	7ZAh961BrfLS0ajhseeoLhfyHCGNfHPNryrtiAnligon5imjUELBnAYYeYvGEq8HyMCjvXGG18NeR
+	xX45bLWzxrnwcB0j2Yuoglb08+J7TKgm0LM9hQOtYHtqGNt/4LLi/I5MvXUR0NQgnNiUhEG5hUbCb
+	JDYoTT3RoUIm3MA855yGNesZCF5JUQgQT8BS9MXHIxnoViLqZaISaVBU/hb0hizZXSiz2+qH5qEXO
+	pgg/MesL/bYJCJJnAnbqqg0IgZRGp7D8trqHGNCTboXfcIhzp4fb1h7R3YigLmTnbHn8DxIhHllQS
+	q3C2v+Fg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54658)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v11F2-000000007BP-0BY1;
+	Tue, 23 Sep 2025 12:31:28 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v11Ez-0000000066T-3bkC;
+	Tue, 23 Sep 2025 12:31:25 +0100
+Date: Tue, 23 Sep 2025 12:31:25 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 0/6] net: stmmac: yet more cleanups
+Message-ID: <aNKFDW_aaSZl2NFE@shell.armlinux.org.uk>
+References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250923-controller-dwc-ecam-v10-4-e84390ba75fa@kernel.org>
-References: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
-In-Reply-To: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5632; i=mani@kernel.org;
- h=from:subject:message-id; bh=lqpEGDikWMpJGoh9O49BHabw0FX3kIuCt8c+nBt0Fho=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBo0oP+nT1B3irIDsL2tBTAYHWeInJiZBrMnFQ05
- AMvJOLqXayJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaNKD/gAKCRBVnxHm/pHO
- 9cUGB/9mDuyKuvKq+CVaMM99wK7fYEnjT595IwhOdIKIy2KvO0vicoCYdJhIcC7gnv+JM/ndKqe
- ZZonzGWZ5UnI7h1e7FRGc8jXLsRoc5ho3EP6I3R8dpXV634QumVCUglmAiiy9AQh8yun3XEnH0p
- XAZQhQ7gIUR38caj7YWj1PkqHikqkT4zBlaH+NybnNkTOYfOFxKxQMm5E+3rqHEOQ7huyyBXtYR
- E03eue8AmKHIHFfTEZ9rLA2Oxnwtoh2W7rSKqBksRdmQI+jVnlVNAXdiEeKCKV3A9yTeDT/S0sX
- zvWMVWZ/ThtygcydYXhWiOQX7Rv23g7d5Mu8EqVjT/F2LGI6
-X-Developer-Key: i=mani@kernel.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_042720_388698_9EA75284 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20250923_043133_746101_91AFF3C6 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,142 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+On Tue, Sep 23, 2025 at 12:25:30PM +0100, Russell King (Oracle) wrote:
+> Building on the previous cleanup series, this cleans up yet more stmmac
+> code.
+> 
+> - Move stmmac_bus_clks_config() into stmmac_platform() which is where
+>   its onlny user is.
+> 
+> - Move the xpcs Clause 73 test into stmmac_init_phy(), resulting in
+>   simpler code in __stmmac_open().
+> 
+> - Move "can't attach PHY" error message into stmmac_init_phy().
+> 
+> We then start moving stuff out of __stmac_open() into stmmac_open()
+> (and correspondingly __stmmac_release() into stmmac_release()) which
+> is not necessary when re-initialising the interface on e.g. MTU change.
+> 
+> - Move initialisation of tx_lpi_timer
+> - Move PHY attachment/detachment
+> - Move PHY error message into stmmac_init_phy()
+> 
+> Finally, simplfy the paths in stmmac_init_phy().
+> 
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h       |   1 -
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 111 ++++++++-------------
+>  .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  32 ++++++
+>  3 files changed, 73 insertions(+), 71 deletions(-)
 
-Designware databook r5.20a, sec 3.10.10.3 documents the 'CFG Shift Feature'
-of the internal Address Translation Unit (iATU). When this feature is
-enabled, it shifts/maps the BDF contained in the bits [27:12] of the target
-address in MEM TLP to become BDF of the CFG TLP. This essentially
-implements the Enhanced Configuration Address Mapping (ECAM) mechanism as
-defined in PCIe r6.0, sec 7.2.2.
+Should've added: tested on nVidia Jetson Xavier NX.
 
-Currently, the driver is not making use of this CFG shift feature, thereby
-creating the iATU outbound map for each config access to the devices,
-causing latency and wasting CPU cycles.
+However, observed a failure changing the MTU with the link down - our
+old friend, failure to complete the DMA reset.
 
-So to avoid this, configure the controller to enable CFG shift feature by
-enabling the 'CFG Shift' bit of the 'iATU Control 2 Register'.
+Once that's been triggered, taking the interface down or changing the
+MTU again results in more problems, with the thread spinning in
+napi_disable_locked() with RTNL held (as we effectively end up calling
+napi_disable() twice on the same napi struct.)
 
-As a result of enabling CFG shift (ECAM), there is longer a need to map the
-DBI register space separately as the DBI region falls under the 'config'
-space used for ECAM (as DBI is used to access the Root Port).
+This basically makes the platforms networking unusable - and needs to
+be hard-reset.
 
-For enabling ECAM using CFG shift, the platform has to satisfy following
-requirements:
-
-  1. Size of the 'config' memory space to be used as ECAM memory should be
-     able to accommodate the number of buses defined in the 'bus-range'
-     property of the host bridge DT node.
-
-  2. The 'config' memory space should be 256 MiB aligned. This requirement
-     comes from PCIe r6.0, sec 7.2.2, which says the base address of ECAM
-     memory should be aligned to a 2^(n+20) byte address boundary. For the
-     DWC cores, n is 8, so this results in 2^28 byte alignment requirement.
-
-It should be noted that some DWC vendor glue drivers like pcie-al may use
-their own ECAM mechanism. For those controllers, set
-'dw_pcie_rp::native_ecam' flag and skip enabling the CFG Shift feature in
-the DWC core.
-
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-[mani: code split, reworded subject/description, comment, native_ecam flag]
-Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
----
- drivers/pci/controller/dwc/pcie-al.c              |  1 +
- drivers/pci/controller/dwc/pcie-designware-host.c | 32 +++++++++++++++++++++++
- drivers/pci/controller/dwc/pcie-designware.h      |  1 +
- 3 files changed, 34 insertions(+)
-
-diff --git a/drivers/pci/controller/dwc/pcie-al.c b/drivers/pci/controller/dwc/pcie-al.c
-index 643115f74092d1c9319e9738db6e94b2752d30c4..345c281c74fefd2113233ef5461f96834b3765de 100644
---- a/drivers/pci/controller/dwc/pcie-al.c
-+++ b/drivers/pci/controller/dwc/pcie-al.c
-@@ -352,6 +352,7 @@ static int al_pcie_probe(struct platform_device *pdev)
- 		return -ENOENT;
- 	}
- 	al_pcie->ecam_size = resource_size(ecam_res);
-+	pci->pp.native_ecam = true;
- 
- 	controller_res = platform_get_resource_byname(pdev, IORESOURCE_MEM,
- 						      "controller");
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 94e0fe11a0b062d0f14e09fe586e20bde46a4266..20c9333bcb1c4812e2fd96047a49944574df1e6f 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -8,6 +8,7 @@
-  * Author: Jingoo Han <jg1.han@samsung.com>
-  */
- 
-+#include <linux/align.h>
- #include <linux/iopoll.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/irqchip/irq-msi-lib.h>
-@@ -32,6 +33,8 @@ static struct pci_ops dw_child_pcie_ops;
- 				     MSI_FLAG_PCI_MSIX			| \
- 				     MSI_GENERIC_FLAGS_MASK)
- 
-+#define IS_256MB_ALIGNED(x) IS_ALIGNED(x, SZ_256M)
-+
- static const struct msi_parent_ops dw_pcie_msi_parent_ops = {
- 	.required_flags		= DW_PCIE_MSI_FLAGS_REQUIRED,
- 	.supported_flags	= DW_PCIE_MSI_FLAGS_SUPPORTED,
-@@ -474,6 +477,34 @@ static int dw_pcie_create_ecam_window(struct dw_pcie_rp *pp, struct resource *re
- 	return 0;
- }
- 
-+static bool dw_pcie_ecam_enabled(struct dw_pcie_rp *pp, struct resource *config_res)
-+{
-+	struct resource *bus_range;
-+	u64 nr_buses;
-+
-+	/* Vendor glue drivers may implement their own ECAM mechanism */
-+	if (pp->native_ecam)
-+		return false;
-+
-+	/*
-+	 * PCIe spec r6.0, sec 7.2.2 mandates the base address used for ECAM to
-+	 * be aligned on a 2^(n+20) byte boundary, where n is the number of bits
-+	 * used for representing 'bus' in BDF. Since the DWC cores always use 8
-+	 * bits for representing 'bus', the base address has to be aligned to
-+	 * 2^28 byte boundary, which is 256 MiB.
-+	 */
-+	if (!IS_256MB_ALIGNED(config_res->start))
-+		return false;
-+
-+	bus_range = resource_list_first_type(&pp->bridge->windows, IORESOURCE_BUS)->res;
-+	if (!bus_range)
-+		return false;
-+
-+	nr_buses = resource_size(config_res) >> PCIE_ECAM_BUS_SHIFT;
-+
-+	return nr_buses >= resource_size(bus_range);
-+}
-+
- static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -492,6 +523,7 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
- 	pp->cfg0_size = resource_size(res);
- 	pp->cfg0_base = res->start;
- 
-+	pp->ecam_enabled = dw_pcie_ecam_enabled(pp, res);
- 	if (pp->ecam_enabled) {
- 		ret = dw_pcie_create_ecam_window(pp, res);
- 		if (ret)
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index 779868e8fa8fd78e5f35cd0fa2575f52cc07c335..625320565360c0134ee9345bcc2e54a6ce83326a 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -429,6 +429,7 @@ struct dw_pcie_rp {
- 	struct pci_eq_presets	presets;
- 	struct pci_config_window *cfg;
- 	bool			ecam_enabled;
-+	bool			native_ecam;
- };
- 
- struct dw_pcie_ep_ops {
+These issues pre-exist all my cleanups.
 
 -- 
-2.48.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
