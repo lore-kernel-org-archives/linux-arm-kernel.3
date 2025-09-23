@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD2ACAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1374CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q24K7de5jaqh0rHllgz2My1TxD+1mvaZiPDKkSvAA3Q=; b=aMAIDk4yHTelfIK/1IBIQoTKdP
-	s+W9aXCqcFpec+NQQGx9ZYyT/wA9dzvaguFKqy86IhjCUuoXj3eFdCER6NjZp0wfzfIEgpXeXyfrf
-	20WZFQVMKZdWL1jXrHMioEpO6nHUOrt+DHYNp8cmL5f37syQDTPy5m5ylvTvKIfYEwC2Wn6WI3hwx
-	lGX5HgYksW94VyiVxEDx9wJEKfdMz+HLp7YfXJr2pDkzmxSkbWNKiyU3PvuzOZmux5HJC7ewcsevT
-	/jkfUrQu1bvRSmIUjn5PcEpx7fqs+BWKMkJM+UOtuswAeiWXFoNDFpqBSPF+VMKxQa6dv+VvZI3sA
-	FhdqfQhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=znbZBQyNIbKfDPmXfhius3rMnG49UgTmHF1VoUDFFMU=; b=q5NGLlxblcYfY7
+	8/tC69JfvCvoqFmZ59SE4yjgbdKUQ4DCLSq9gO9QsRXwmm0TW5eVNZb8S/rtsRytQRdDW5wKiGU6i
+	835tBpV6AR4HsjspDOrfXagOdpdhyYFv6yKq3+0Nf55XWG7BK7vD72H3Ba1MDQ8tdz9TdkBWQ8rH3
+	GbzswqIgG8ml7mg6bS0Lk5YIxtcjvJl4EfnOY7PhPBDfWSGcsaG39e3fGUlF5ZoK2ebQoZgxnCo59
+	rvBO+a+5sLRJmFlE3Dh3RCP6zqqEx3WuSagMrBFOIg9hf4P/U3+wyuiOCQlRFcr7OEq7n2SV4hwgc
+	jpOUItWP82BJWkzlNYOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11AN-0000000DASS-12dU;
-	Tue, 23 Sep 2025 11:26:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v11Ak-0000000DAjF-2UAi;
+	Tue, 23 Sep 2025 11:27:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11AK-0000000DAOM-2lOv
+	id 1v11Ai-0000000DAhJ-2Oeu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 11:26:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=q24K7de5jaqh0rHllgz2My1TxD+1mvaZiPDKkSvAA3Q=; b=wvvoM4eue0TfQLiDWTqBwk1u4u
-	AsxrfAUxyL7D6hjK6sPr6Geqd2HnXq+KNGvlv1HLDZxk3OgvpFN7fZ/LWRINV+3T4+xru0eBdC2lT
-	ugsvxuDIsfBYn+hLyY1Lpi31onpgDakqrHKKZsRUv4TOz+thtDHi5psMT1uFTew16u1XdXQHzV8TB
-	qOtKTopPDI39RhjAk8o7NwFpjWdnQCkcF8/8trnhh/looSHN5cyhm+zQsl8Wyqh1lTPovM1v+Rayi
-	sRLv+EL9+lW1UVqIlZIbX5QjeaAQRyKKsZ6LCgSu/Jgov2mt/Ugaqx28qDO8VLjRwL6p0AykjbtBP
-	plq2/Oig==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39568 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v11AB-0000000079Z-0c1x;
-	Tue, 23 Sep 2025 12:26:27 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v11A8-0000000774M-3pmH;
-	Tue, 23 Sep 2025 12:26:24 +0100
-In-Reply-To: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
-References: <aNKDqqI7aLsuDD52@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 6/6] net: stmmac: simplify stmmac_init_phy()
+	Tue, 23 Sep 2025 11:27:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A8D9F6013E;
+	Tue, 23 Sep 2025 11:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C25C4CEF5;
+	Tue, 23 Sep 2025 11:26:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758626819;
+	bh=IpaBRdasnDHpzr3HxE+/OTJ26uvSLSqswF1CIRDtBCQ=;
+	h=From:Subject:Date:To:Cc:From;
+	b=dacKl6PsYA4kqWF3ywX7LoRb5A0Gv6EOQQw6F9Tg/ANRiI1szo40LC7Mkt5e/YeK7
+	 OONZWOXnBAFKMFLZ68dqNoJnVmmIGblajdSJ2p5BzTxXIzuEyKHMlo59H6/9CE6PkS
+	 Y1W/zpo58Zp+xOrYIoy1U1woksLIjtqGvAcNL79yeVH24AAw/GHGp2tedeAjIQC0xg
+	 whO3PJvZOzJhLL7nODEuiPzQ5QJTqsP+ybCVEq1OVX4ZjqFGwFzBOrnRHa2LseCTrb
+	 atemI+uZ2z7WelY9KUwchCyVNmCG/cDRXAShqrelcW3tOIruA679CAy+3jjHk1iMUi
+	 kH7JHN+86LSsQ==
+From: Manivannan Sadhasivam <mani@kernel.org>
+Subject: [PATCH v10 0/4] PCI: dwc: Add ECAM support with iATU configuration
+Date: Tue, 23 Sep 2025 16:56:50 +0530
+Message-Id: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v11A8-0000000774M-3pmH@rmk-PC.armlinux.org.uk>
-Date: Tue, 23 Sep 2025 12:26:24 +0100
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_042636_696394_ABDD870B 
-X-CRM114-Status: GOOD (  15.26  )
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPqD0mgC/22Nyw6CMBBFf4XM2jEtlEdZ+R+GBbYjNGJrpgQ1h
+ H+3krhzeU5yz10hEjuK0GYrMC0uuuATSHHIwIy9HwidTQJykZdCiwZN8DOHaSJG+zRIpr+jMrU
+ pZFFZkgrS8sF0da89e+4Sjy7Ogd/7y6K/9tfTf3uLRoG1LS9VKRslrD3diD1Nx8ADdNu2fQBoh
+ tH+uAAAAA==
+X-Change-ID: 20250908-controller-dwc-ecam-4c7c3136de14
+To: Jingoo Han <jingoohan1@gmail.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, 
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3739; i=mani@kernel.org;
+ h=from:subject:message-id; bh=IpaBRdasnDHpzr3HxE+/OTJ26uvSLSqswF1CIRDtBCQ=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBo0oP+agCPD5sI9myrKqi+guGHohOWmsjTBZyxl
+ YrrHBL6SJCJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaNKD/gAKCRBVnxHm/pHO
+ 9fxsCACHK7T3Irtv+RCeEVOWqHNrHTj3d/OzhEtl/dBmBv9I2LC29DOb29Ingrf6quZjSfFV2h4
+ t+8iV/01xvHfwjM6B27MhmqvMXc0j/KgKaK7QclQStDkchpt4hKtWsQJ6BByPvl8adRk5bjYgnc
+ wATZtnJcI4YyFaDOnt6WYrBu7crfh/lFpcgXY9OoOKDRS73QBXFlYBL9JEkoF0GPPV1InNjpfzp
+ GeLdKBIwaF5DPw40zVCNmft8Ap7V5ne6ou/0ZH/7jAwG2lOcg2JPWcXfgrNQOHtRB/0Wk/sihGd
+ LsKfoEx6eR1L5w7pyQ9MCOhbPvw3Jv2nm3nfSZUiEAp2tZ97
+X-Developer-Key: i=mani@kernel.org; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +92,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If we fail to attach a PHY, there is no point trying to configure WoL
-settings. Exit the function after printing the "cannot attach to PHY"
-error, and remove the now unnecessary code indentation for configuring
-the LPI timer in phylink. Since we know that "ret" must be zero at this
-point, change the final return to use a constant rather than "ret".
+The current implementation requires iATU for every configuration
+space access which increases latency & cpu utilization.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Designware databook 5.20a, section 3.10.10.3 says about CFG Shift Feature,
+which shifts/maps the BDF (bits [31:16] of the third header DWORD, which
+would be matched against the Base and Limit addresses) of the incoming
+CfgRd0/CfgWr0 down to bits[27:12]of the translated address.
+
+Configuring iATU in config shift mode enables ECAM feature to access the
+config space, which avoids iATU configuration for every config access.
+
+Add cfg_shft_mode into struct dw_pcie_ob_atu_cfg to enable config shift mode.
+
+As DBI comes under config space, this avoids remapping of DBI space
+separately. Instead, it uses the mapped config space address returned from
+ECAM initialization. Change the order of dw_pcie_get_resources() execution
+to acheive this.
+
+Enable the ECAM feature if the config space size is equal to size required
+to represent number of buses in the bus range property.
+
+ELBI registers are optional registers which are part of dwc. So move
+ELBI resource mapping to dwc. Also change the dtbinding and devicetree
+to make the elbi registers as optional one. Having ELBI as the required
+one is making the ecam feature complicated.
+
+The ELBI registers falls after the DBI space, PARF_SLV_DBI_ELBI register
+gives us the offset from which ELBI starts. so use this offset and cfg
+win to map these regions instead of doing the ioremap again.
+
+On root bus, we have only the root port. Any access other than that
+should not go out of the link and should return all F's. Since the iATU
+is configured for the buses which starts after root bus, block the
+transactions starting from function 1 of the root bus to the end of
+the root bus (i.e from dbi_base + 4kb to dbi_base + 1MB) from going
+outside the link through ECAM blocker through PARF registers.
+
+Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 25 +++++++++----------
- 1 file changed, 12 insertions(+), 13 deletions(-)
+Changes in v10:
+- Moved qcom_pci_config_ecam() to qcom_pcie_host_init()
+- Reworded the comment in patch 3
+- Rebased on top of pci/controller/qcom 
+- Link to v9: https://lore.kernel.org/r/20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 4844d563e291..be064f240895 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1115,6 +1115,7 @@ static int stmmac_init_phy(struct net_device *dev)
- 	int mode = priv->plat->phy_interface;
- 	struct fwnode_handle *phy_fwnode;
- 	struct fwnode_handle *fwnode;
-+	struct ethtool_keee eee;
- 	int ret;
- 
- 	if (!phylink_expects_phy(priv->phylink))
-@@ -1160,19 +1161,17 @@ static int stmmac_init_phy(struct net_device *dev)
- 	if (ret) {
- 		netdev_err(priv->dev, "cannot attach to PHY (error: %pe)\n",
- 			   ERR_PTR(ret));
--	} else {
--		struct ethtool_keee eee;
-+		return ret;
-+	}
- 
--		/* Configure phylib's copy of the LPI timer. Normally,
--		 * phylink_config.lpi_timer_default would do this, but there is
--		 * a chance that userspace could change the eee_timer setting
--		 * via sysfs before the first open. Thus, preserve existing
--		 * behaviour.
--		 */
--		if (!phylink_ethtool_get_eee(priv->phylink, &eee)) {
--			eee.tx_lpi_timer = priv->tx_lpi_timer;
--			phylink_ethtool_set_eee(priv->phylink, &eee);
--		}
-+	/* Configure phylib's copy of the LPI timer. Normally,
-+	 * phylink_config.lpi_timer_default would do this, but there is a
-+	 * chance that userspace could change the eee_timer setting via sysfs
-+	 * before the first open. Thus, preserve existing behaviour.
-+	 */
-+	if (!phylink_ethtool_get_eee(priv->phylink, &eee)) {
-+		eee.tx_lpi_timer = priv->tx_lpi_timer;
-+		phylink_ethtool_set_eee(priv->phylink, &eee);
- 	}
- 
- 	if (!priv->plat->pmt) {
-@@ -1183,7 +1182,7 @@ static int stmmac_init_phy(struct net_device *dev)
- 		device_set_wakeup_enable(priv->device, !!wol.wolopts);
- 	}
- 
--	return ret;
-+	return 0;
- }
- 
- static int stmmac_phy_setup(struct stmmac_priv *priv)
+Changes in v9:
+ - Splitted the ECAM enablement change to avoid bisect hole and excluded pcie-al
+   driver from DWC ECAM since it uses its own ECAM mechanism.
+ - Squashed the patches 2 and 3 as patch 2 won't work without 3.
+
+For the rest of the history, please refer v8 changeset:
+https://lore.kernel.org/linux-pci/20250828-ecam_v4-v8-0-92a30e0fa02d@oss.qualcomm.com
+
+---
+Krishna Chaitanya Chundru (4):
+      PCI: dwc: Add support for ELBI resource mapping
+      PCI: dwc: Prepare the driver for enabling ECAM mechanism using iATU 'CFG Shift Feature'
+      PCI: qcom: Prepare for the DWC ECAM enablement
+      PCI: dwc: Support ECAM mechanism by enabling iATU 'CFG Shift Feature'
+
+ drivers/pci/controller/dwc/Kconfig                |   1 +
+ drivers/pci/controller/dwc/pci-exynos.c           |  62 ++++-----
+ drivers/pci/controller/dwc/pcie-al.c              |   1 +
+ drivers/pci/controller/dwc/pcie-designware-host.c | 148 ++++++++++++++++++++--
+ drivers/pci/controller/dwc/pcie-designware.c      |  10 +-
+ drivers/pci/controller/dwc/pcie-designware.h      |   7 +
+ drivers/pci/controller/dwc/pcie-qcom-ep.c         |  15 +--
+ drivers/pci/controller/dwc/pcie-qcom.c            |  84 ++++++++++--
+ 8 files changed, 261 insertions(+), 67 deletions(-)
+---
+base-commit: af8df709bf365f5583d31091280354e1ef0b201f
+change-id: 20250908-controller-dwc-ecam-4c7c3136de14
+
+Best regards,
 -- 
-2.47.3
+Manivannan Sadhasivam <mani@kernel.org>
 
 
