@@ -4,97 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C965CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 01:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01E6CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 02:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nsk0+ZyYUlCeBMpvtgc0y0+NQ46VkaEHVxXhIiqoDXY=; b=P2IrU3RE81l/iH33TwPTKCDvCP
-	ZqId8Rq8dNifzXQppj2q7u4oDJnDrsx819NI7I32Aa0mrp+lhGMEQGW2V6iBpExUlAiszQe1E4KMD
-	XlpsDFndllnaJCpj6vllCRbu+2hhAA5vNdsaOXntWPYYFLu2a41tuhPsTuffRZTEZo+xWU+WylYzh
-	nmRAUTNLTnCR7/owZSOiaS93hydaTutPoQ9Vs2Ev9hWgqvx7x+kXvNPlT2+UQ3dBVs3qkkQ/2OgVN
-	ine7ju0x21NXbQqjcrM2LZXpuahjc+8w9/hkb0LOhIiD1Ock4P9Quyi65JJppSPlVu1xG7Frs7Svy
-	5hTjgYjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DrFrvz+Ies7mZbN92cpbGU0k/obq+KolyisaEJ93Fmg=; b=jBtWxKrareqa5CwWQqO/8Bngv3
+	tbrFYjgqFagMY2YWkjf9pI95EnLbcfRu8MiLb3jV7WLHThJfaSH7o5hJWnuE9Yk3H/djvL1lOE52o
+	3Ru/C6y+3o4PcST4nHqJ8nluwnuo29S9IhzvhiOL81YTLBRM6aJLm2E2d7ZYXJf+dcR2ZIH07Ju9o
+	RE1QISWxb1Q8wMtFvxG6dTTu38likn+ITKrtBCk3eZLc90cdJ+yS+8JhKtyp5mCEWTcm7BrWmIyrH
+	QW07YfuFn0Fp2wv0mg8lnzY8QQBRvTSNbfr4SEUR2MG0tSlhRMlEmsgOP4Oe1A2kTTvfbCepVPKPA
+	Nq2g3+aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0sEl-0000000C4EO-0jFT;
-	Tue, 23 Sep 2025 01:54:35 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1v0sQh-0000000C5Fh-274U;
+	Tue, 23 Sep 2025 02:06:55 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0sEh-0000000C4Dl-3oMZ
+	id 1v0sQe-0000000C5Ei-2r3v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 01:54:33 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3306d93e562so4382906a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 18:54:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758592471; x=1759197271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nsk0+ZyYUlCeBMpvtgc0y0+NQ46VkaEHVxXhIiqoDXY=;
-        b=StpZnVYg2OzaUH9LDM70wCwglcwydRs9n8qSVCFzZYnjNJd0iuCvPE9lpUoKGTpJGv
-         yloi6R8zrASFwpZwKTak+J8hrfUJvazsabNvyK9x5Z20vUYBG8e1ZNTN/Uu7YE0mUz35
-         pTyCdyGiDXvUudYpiT9KLtYNUkwv9wQd2Svput4BLk7+FYWzFDw3lokJgoa1yFp0WKBe
-         pF9tXlJgUSFQQ4LRGBUxwMOtisgUqNqCVXzfrcRtukxLBoSWyDJohktGHNHCUWoRgeJF
-         riyYyneJxy4LoPaVE2FrKYn/a7v6FLgmxpfGwQggYBDp+puswBa4XI33tqiCXxmhHXLr
-         0/AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758592471; x=1759197271;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nsk0+ZyYUlCeBMpvtgc0y0+NQ46VkaEHVxXhIiqoDXY=;
-        b=lSKQBWvhSmd9x66EYeaAQ5nfLwVvWh+98JKADMLBdwhNKzmunJ5l50jwHpvbnhK1dL
-         K0iX2iZse8PEop9HHS+9LjhhaZhAAmg+A0atr6jEwEQao6sOw6rI68XpItvbJAAQlhaB
-         do9UkW3wOG9Ym3iXrkKK9jcMGuZ4YJjtU7eKmK/QSds23dforf9rOOHt9sTQf3Wn4+gA
-         KNI3yq/zm7A7Lpd0qfaVGIw7tY9+iOIL+CegSM9EWkFMf3awYStTTnKe1V1Xm2aWT9EP
-         wDHszYCc42XYPvSLo9moLNhIphFSoXCH37wQM/TNvl/2jMbDyOeADVxvgeQxlWgpv2uJ
-         tfOg==
-X-Forwarded-Encrypted: i=1; AJvYcCUna5eMUEky2OONbsFFbNfd5vozIE9vkmYubmieWFWYJvkleB6TjR6wsNAWltT7KyN0XiJc0XWyaTGCtJ1G7vux@lists.infradead.org
-X-Gm-Message-State: AOJu0YynBdJNFXBxRhmDh4WIY8uPCzozR3ws7vl6mJhf7bcV9kDCq6sC
-	R4pFqjV1z8UKyOxOUH3+JRePSQnr4ZYnjHv5OiPO2uafBM4BYBA3XGDTmUIKYGaEfPw=
-X-Gm-Gg: ASbGncvxo6IOH7xqDiYqrkghDZrh5VnTQtkRQapWPfoYbxAvgvFBC1KB9ihFwuCSXRp
-	SZz9R3AYP20AtlvnyDW5Xr2cuBWL7TyBQDk78IT39u74Pxifcx/huk456Fcxn0PbWJ5cboT+Efv
-	8jAeyPc1y4Nsvkxsqu+HR2knHhEhmlHaocDhExaEMtno6rpBAxvkNPknYbIAu2qBqW+0cKV5ec1
-	0FfOjRSLt+6m1s08tGxzmELlFArO9jJN3Qls58nZHsctSlH00sGs4t7/3o+i0cyk1yMDBrI0v7p
-	mrd0XhohxsUwkqjGPslAvFpidxAyR84LH+1el9yQ0SxEaMeZ3fK9UphmWOQbwynp5spa9Yl+AGo
-	WrpIMhYFQArej4jiZ1VIs+qr3VwHKMdbokS+ny1iJFgfB6YmAb0mINJL0O9Z8PF6y
-X-Google-Smtp-Source: AGHT+IFbfrf5fhSPzrWBkgzrIx7CiQAXrF0fvKls15yDg7nnQCeX/7p3u/SEr+iLhqBLX3uBca/v2g==
-X-Received: by 2002:a17:90b:48d1:b0:32e:c649:e583 with SMTP id 98e67ed59e1d1-332a95e9184mr924901a91.22.1758592470782;
-        Mon, 22 Sep 2025 18:54:30 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([61.213.176.12])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32ed268813bsm17503265a91.1.2025.09.22.18.54.25
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 22 Sep 2025 18:54:30 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	sudeep.holla@arm.com,
-	gregkh@linuxfoundation.org,
-	rafael@kernel.org,
-	dakr@kernel.org,
-	mario.limonciello@amd.com,
-	cuiyunhui@bytedance.com,
-	beata.michalska@arm.com,
-	sumitg@nvidia.com,
-	ptsm@linux.microsoft.com,
-	yangyicong@hisilicon.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/1] arch_topology: move parse_acpi_topology() to common code
-Date: Tue, 23 Sep 2025 09:54:09 +0800
-Message-Id: <20250923015409.15983-2-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20250923015409.15983-1-cuiyunhui@bytedance.com>
-References: <20250923015409.15983-1-cuiyunhui@bytedance.com>
+	Tue, 23 Sep 2025 02:06:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F5x5hJ4wee1/Bb2OTO5phNP8TwZGk1HCX9XzuMnLG4c+TsG97c9gEef76kSq/xo3wjYbyRICgJsfiA/1cit5ep10XGjqYK2rjbErca8+N9ObMdSRrbArZ486PMz+XKODDqR1VrNHpWgYxNhwMsgkZoPShG58Nu0uDMgZB/BXRLPc9IWC8h2Gc61ib8Nnn1yQrbJaA4ysd5c1PGpHQ4Vqkry+zhWNYlfvxh8xqSI8jQjwOqiY/k4ALBcxe7Bb2f4ksZs3tNnYqBVVx2bra6525Ono3LvQEm74kz42OGA1OH3UGvt4sT40FcUKsCXYI7vIwyNC0kW64CsLLQ1z9+DGqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DrFrvz+Ies7mZbN92cpbGU0k/obq+KolyisaEJ93Fmg=;
+ b=n+c5t3qHlxclMLP4r+4ftvDTjBeQe6KZt8TeeGGq///qx7V70WMb5jfHYymo3qYktPgeFVPjzNeZNB3NX0jCzZwcoHKDyngao+81SxBwY+F7hXXaqCF+HR3P++qNVmA5I0y2WK2rcQiz/Ob/rCJ6Lsvq9lpbyilQttIB3KnyhK/MGmF3ESwC/EzTc6VQV72nFv97PoEW+AskJKpDjav7X8iKngW/PP4UZDtl1h+7mSALjadseL8hKH1671aW1Vs5u6uj+7S2dVNLW1Wxorycaw662YaeYWpgSN1dhlFV1OIyzbgYkjOFq1bW1pxQNRs1jgQI+Y/5wIStB0ixMeHNqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DrFrvz+Ies7mZbN92cpbGU0k/obq+KolyisaEJ93Fmg=;
+ b=JX0ji54idZJKv9c38s1l/le3+BtdOM5dJz4JcJeV8NbqMOilvqzBrvWE/9csm7imSZohdiElR5F1otXSDQ/MaHuYJZYx3QC7QG+dDCwQMM77hmw7OGBHKlE3My0UEnfuPEREmKzsBKxagdWYp57PL3adqQF7rp55UFNHI+CipE+GnAT2nMSJGMI/ggc7weiI41YR+JoKWMoKha/6FmbXerrSsV6uCcs7TxKNMrcPfmIaWBUW0PcAt+Oq/yysVtCMuSloKT/UVJSDGbrOb1/FNocV4Tco1I8sa8O1p1rflqcKcvC0bbc3vzjICEigr7jB20IR5O4jHKuAVE0quneEqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by VI0PR04MB10854.eurprd04.prod.outlook.com (2603:10a6:800:25f::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
+ 2025 02:06:46 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
+ 02:06:46 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Subject: [PATCH v2 00/14] drm/imx: dc: Use prefetch engine
+Date: Tue, 23 Sep 2025 10:07:50 +0800
+Message-Id: <20250923-imx8-dc-prefetch-v2-0-5d69dc9ac8b5@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPYA0mgC/2WNOw6DMBBEr4K2zkaLwYakyj0iisis4y34yEYWE
+ eLuMUipUr4ZzZsNIgfhCPdig8BJokxjBnUpwPrX+GaUPjMoUpoaqlCGtcXe4hzY8WI9kmq5IqN
+ vpTWQZ0ch66l8dpm9xGUKn/MhlUf6k9X/slQiYdPWlirXm1q7x7jOVzsN0O37/gU6kaxKrgAAA
+ A==
+X-Change-ID: 20250703-imx8-dc-prefetch-028e306591c6
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Liu Ying <victor.liu@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SGXP274CA0014.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::26)
+ To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB10854:EE_
+X-MS-Office365-Filtering-Correlation-Id: 511645c3-a666-4b76-74ec-08ddfa45d900
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7416014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NFNqMmx6aDNpTTBDRHdrOHR1UzVlODM5MEI3UTBDZjlDMTBiMHVvQWpxZ0pa?=
+ =?utf-8?B?dGljUzliWUo3bVVBTEZZQWFxSTVTdGgzSElSNHpyL1J3ODMveXZBT3Iyd1l4?=
+ =?utf-8?B?NGg4K0RmdE4ybXloRU56OEdVSzgzVjNIU2ExbWJPcS9oUmxJRUZJOFpDWWtE?=
+ =?utf-8?B?aHpZRzY0K1A3RVJTSUtPOHk2SHV1NFZFNlpubGZOZ2JXRi9GeGorampScHFW?=
+ =?utf-8?B?azFKQk5vRUQyUTcvRXFocW5DT0dTQThhbXBIUnZtczY2UmdtQWF6blJsQnZO?=
+ =?utf-8?B?Q0lEWWE4UTE5cWNGWG44N2MzMHp6QnUzMXFQWGEyQzlDQVN2a0ZJd0xHTjRT?=
+ =?utf-8?B?WmFBNktYc1VVR21LcEdLdGhKSm44OFJuRXpGL21WQVBsS1FIUExsR04yR1BM?=
+ =?utf-8?B?Ry9nTmRlUnB2S1JVMXBlVGZsa25PMzN1VkY4dk9KRUtRYkpjZDdiaTM3L0x4?=
+ =?utf-8?B?K3BaZExtRmlQSDJRNnV4by83b29Mc1ZtZzRkV1hFUXFoNTZpWFVFVlhOeU54?=
+ =?utf-8?B?NFZJZFYwam50SjRpWG9CbkNKd0NLU2trTHNGSThSMlVmVzA0TjVLZWljZUpx?=
+ =?utf-8?B?RUlQalRwczJiNFk1dHBPT3l6TXY4NlBrbHVsT2dJNDNuQjdPK0QwdVNYSXZp?=
+ =?utf-8?B?aW4xV3NNeGJZU0dnMGdCcFBvdHNDcEJxd0F6TnZhSjFwSHNQMHVaUW5VT3RD?=
+ =?utf-8?B?aGYyYkd1d3R0TlNrck1KNFNNa2FuRVBjd3Y3YU9DSytKMlRQZzN0b0RMRU85?=
+ =?utf-8?B?OG0ycE5nZFZKZEVLbkhsb28yd1dzVmR2TTY3UitrNDljT2YzcmlzVDZremFL?=
+ =?utf-8?B?ZmlvMHZFWmR4RnZvTjdQbkpjTmlNZExNM2d6T084YlhSOU5mYzVzUGt4Yysv?=
+ =?utf-8?B?MHI2Tm85QVRBS1c4d1ptU2NCM2IxTCtZUlNOSnZoUUppNzlzVC9tVXU5T2FE?=
+ =?utf-8?B?K3JCTEtUQ3dHWmpud0xHQTRRRllsVWFwelFzOVUyRXhOTmxibFU1QkRvbDNt?=
+ =?utf-8?B?clVMZjRFL01kc2VrODhKa1VPVjdBQjVMQ0tqcWl6QnVUZ3B1ZUlNeWRiUDZw?=
+ =?utf-8?B?V01nUUhTb0k3SWozTTVVMHFYVVQ3anROYTdWTkxCTkhMZzQwVjhkYWhUMmpu?=
+ =?utf-8?B?V0pwSCsxNjR3U01aSG1jTjF6ZWErcDNuRldONDV3UVdwNWZTNm5DU3ZXQUtZ?=
+ =?utf-8?B?eVNnNzJZeDB6Z2R6SUYySHJQQ2R4c2J1RnphQXVYOXhFL2dQNVhTdzRpdkxq?=
+ =?utf-8?B?VjdGOUF5d0tvUHl5K3BUMUZNbGk5VHFDVEE2TE1KRUxPTmdiS2JMbXpTbndM?=
+ =?utf-8?B?Z2hweTBDd1VSY29nV0xKbGZXVFRsdXF6TmlzWmQ3V1BOcWlibS9LQi9NK0E5?=
+ =?utf-8?B?ZDZ1Sm1UNlNIeHZhTmhRY2xjVk44ZzV4V05XUUcwOEVaUk9VV21PVVBZN0lM?=
+ =?utf-8?B?cmM0Z0RUV2tOVnRoS2gvQUJRSFo4cklIV2M5Tmt3MFdDUVZ2YlJoUFdEMzBX?=
+ =?utf-8?B?N0szdXA2TFlGNnlabHdOSE8rRkxTQWF6L01NSndGV2duYVFCREQ2ZUJxTnRH?=
+ =?utf-8?B?L3lFYXdTU0syNVlFTndEbTcyTHZTdXhvdzQ4aHU2V2dzY0FGUTVZNXBGVk1X?=
+ =?utf-8?B?RW5lR1JuWVByN3M3K3diZVlXV0JKQW44OGJyYUdONFZiL2lpVWdxWUtvNU5X?=
+ =?utf-8?B?Skg0ZHFuSVFISTVab09OYzByTjZjL0NUWjZuMngwK2dHZ1pOem1kL0lFSGl3?=
+ =?utf-8?B?Q2lDN0dGT3I2TjZxOVlxWFVTL1NqcEo2d3h3aDIxUWI0dnNBRDhEZnhUUkxF?=
+ =?utf-8?B?NzlObVA0SG5SYmF3VGt3MUtpbWVFcWEzcHozdU5Tb1EvSlZGNVJUNzdsWTNQ?=
+ =?utf-8?B?SytSa0xXUGd4TzJyZ1A3WWFQUG1ZT2l4UXV2bGRzdXUrczR2NmJpR0pKb2l1?=
+ =?utf-8?Q?eyF+mNRpzNkZLCDey8X/2aNG0v0D+VBO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M0FhMWhJUyttMCt3YWoxRmRHYU1MdnpZT09XK3FtQjFUVmxseUN2TmpVaG9J?=
+ =?utf-8?B?MjdaY211OHRQYjRBSUd1WXUvdjBWMWt5dkJPcENvTTQvWGsvajd3U2xFallw?=
+ =?utf-8?B?MzV1cHd3aVZ6bStjeEs2ck92SWN6N2UxMkZnYWthb2RMUVdFNDJEQmtSdlpL?=
+ =?utf-8?B?R0cxOHJqS0Fyekg1dXdST3FiTFhkcHV6RExXSGxmd1hCdklqaXMzT2lESWxW?=
+ =?utf-8?B?TDF6K0VqY000MUxyZXVmeDY0Y1B0MG1BUzZGREZXSVdFMGNkQnE3S051VDNl?=
+ =?utf-8?B?YjZFSGFMV1Z5S2NsbHp1SjZDSTFSbEI2SnJGMVZlZ08vaWdMdkE2YXVOYzRy?=
+ =?utf-8?B?MGlpdW42Zm1tZnRoQkxCZFpic1hHM01aQzlTejZlRlQvcjBOdC9iQ0hxNVhS?=
+ =?utf-8?B?M3BCbzYrWlNEcU1KYlZsMHQ5Tk9yTVdQaEVVbXV5V3d3QUdaeHliZE5YSXdr?=
+ =?utf-8?B?QnQrS2hPTGxTelpMY2w2R2VJRFZnWlBWYlJESGQxUENYT0VnbEduQVB3aDZS?=
+ =?utf-8?B?ako1cVFIRkRjbjJtTlBSSmFBc2oxUFlKZXZtQVpKTzhzZzEvV2lNbE52aStN?=
+ =?utf-8?B?enQrbWFSQy9NZ2x5YkFMY0NhVTl0dU01T21VWWM5WTZMaWV1enoxOFZPdHNo?=
+ =?utf-8?B?Y1FMekQzTkpOSUtpeGdLTmR0MkZUeVZLTEViSzVnQnZnTUhmU2VxQStORU8z?=
+ =?utf-8?B?Tll5emFteEVZODN5a25jS0pqdDVsSFk0L09lQjlzazlEWmZnbklyQnB2Qkwx?=
+ =?utf-8?B?dU1Yb2VHWFNYaWxEc0xwbzhYMktHc00za3FCemVzMStvV0s4L2phVTNJdk5a?=
+ =?utf-8?B?Q2ZVWVVVcEF0b0xkaytBWFJMOHN2K0ZycXUzWjJZVnRGN05QN0RvMDJwZ0Fl?=
+ =?utf-8?B?SEhSZmI4REd4NWpWS1Q3d2pWOHdKWGcwb2taRDgxTyswcEtQaTBFc1BEd3Z3?=
+ =?utf-8?B?dEU2VXBkSkIyT05LYmtURVB1VzlqZGNremZ3LzVibEpLVVU4UGxWSEZUanB0?=
+ =?utf-8?B?NDRuSmVjZmdEWlZ3SUJ1VVNIWHJpa0g5TVIzSW11R1ZPUDJBT0psb1BTbUNL?=
+ =?utf-8?B?SzNJTW0rWi83eHB1QUZIZ0crdWdzdHJNcU1hLzhvRURtandQb05SWjYyRU0w?=
+ =?utf-8?B?SGlhTzFyQzFieCtQMjdhejI2bE9CRXR5ZVJBMnp0RTBiSFVBMDVhcmIxTTJG?=
+ =?utf-8?B?RVBUZXZydVZSRlR4c2ZSdXpmUGFFa3M3RjJrU1lla3o5TFRUUFJkZStFeTQ0?=
+ =?utf-8?B?UU5SUVFENUlYTWMvL0dic2xHMG14QWIxY2VUdFBLM0JSbmY0ZUJ4N0lYY0xn?=
+ =?utf-8?B?RStSdGtNN0ZWT2hpRHg0UC9PSFVRUnR2WmM4Nmhwc3d5UXRpcDU3bzhFK3NO?=
+ =?utf-8?B?U3RWWUg5RnJhb1VvejNSaFdkNkxCREZRZ1FVaGhDemFoMHh6OWozd0FBb01s?=
+ =?utf-8?B?SjlVeXVtakZrMXp6WTBDdjhHb3UrUnJUR3pDZ3lBQm50YVdDNXhuREVmVlhC?=
+ =?utf-8?B?R0R2aFVqbTYzVndRWXlIZXpIZWxDRkxhdkVFNVhITVVJR2cyZGlhSFAraXBL?=
+ =?utf-8?B?SWZ1OFd2V1BlVnJocXk4VHhleGp1ZExPRlRWTkdsb1ZENlpURDRLZzUxZ2sw?=
+ =?utf-8?B?SEw2YlJob2t4Y0JmRnZVNTQyNWY2eHdFWXQ0NHZDNUVYWHo2OXF5cHZOT3Bx?=
+ =?utf-8?B?b2RtdU5yd3ZtSUFnc3RwSm5QQS8vM1JXUUJaNUZ3akgrNXo0ZGt2bEVIY05H?=
+ =?utf-8?B?Z2JTVDY2NjZ2b1dNWHczSndUQTBwb0d4ZkJBVHZhU1IwenpyeTRoTXIvOFox?=
+ =?utf-8?B?THFvMlFETVppSTRoZFF5dEFsQXlkcmthb1BZNkUxTUxpOHJ5bTl0dXBMV3Mz?=
+ =?utf-8?B?OGZsZmJ6RWxSUVJ6VkRNQ2Q3by9TaTd4a0tQYktwUHZiWml1T3pjRkVYUUVQ?=
+ =?utf-8?B?SzdpWkxqODZzQnlQMk9ocGRSVktjUytwR2xFNjlrWExNa3lQTGtnUHNyMDRo?=
+ =?utf-8?B?Y3U2R1NOZndKM1AzTEpNQ3o0aXlHOVM1eHBFODBIRy8zcHhnTDBMY05lUFN3?=
+ =?utf-8?B?M0FWUU8zNmxrQTB1d2RkclFWdGQ0WXI5WFNacDNESmZZOTRkL3lHZEhIeFpE?=
+ =?utf-8?Q?zL6hNdrqhEgTi2rua0kHD9b/x?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 511645c3-a666-4b76-74ec-08ddfa45d900
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 02:06:45.8609
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8WvZ8bucn3kpBPL9OxdY3NF9fTC637ifVAAWn9oUQy0rZbHpV6h9X/9NuBsjiplFYCfg/KMndIWjYpZDvSvC3Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10854
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_185431_960377_E3E3E91B 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20250922_190652_908475_90BF85FE 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,273 +186,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, RISC-V lacks arch-specific registers for CPU topology
-properties and must get them from ACPI. Thus, parse_acpi_topology()
-is moved from arm64/ to drivers/ for RISC-V reuse.
+Hi,
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+This patch series aims to use prefetch engine in imx8-dc KMS driver.
+
+One prefetch engine consists of one DPR Channel(DPRC) and one or two
+Display Prefetch Resolve Gaskets(PRGs).  It prefetches data from
+DDR, resolves data in tile formats if needed and outputs the result
+data to FetchUnit(s).  When one PRG is used, a prefetch engine supports
+processing pixel formats with one planar, e.g., RGB formats.  When two
+are used, pixel formats with two planars are supported, e.g., NV12.
+
+For now, this patch series only supports prefetch engines with one PRG
+because it is enough for XRGB8888 which is the only pixel format
+supported by imx8-dc plane driver.  Two PRGs would be supported by
+future patches.
+
+Patch 1 and 2 add dt-bindings for DPRC and PRG.  They were reviewed
+by Rob[1][2].  I slightly modified the patches' commit message to use
+imperative mood.
+
+Patch 3 adds DPRC and PRG dt-binding files to MAINTAINERS.
+
+Patch 4 fixes FetchUnit dimensions as related to prefetch engine function.
+
+Patch 5 disables CRTC at boot if needed to support prefetch engine better.
+
+Patch 6 and 7 add PRG and DPRC drivers.
+
+Patch 8 to 13 do preparations before using prefetch engine in imx8-dc KMS
+driver.
+
+Patch 14 uses prefetch engine in imx8-dc KMS driver.
+
+[1] https://lore.kernel.org/lkml/20201207165945.GA430214@robh.at.kernel.org/
+[2] https://lore.kernel.org/lkml/20201207170206.GA434964@robh.at.kernel.org/
+
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
- arch/arm64/include/asm/topology.h |   3 +
- arch/arm64/kernel/topology.c      | 101 ------------------------------
- drivers/base/arch_topology.c      |  96 +++++++++++++++++++++++++++-
- include/linux/arch_topology.h     |   5 ++
- 4 files changed, 103 insertions(+), 102 deletions(-)
+Changes in v2:
+- Rebase the patch series onto next-20250922.
+- Collect Alexander's and Frank's R-b tags.
+- Manage PRG's and DPRC's clocks with bulk interfaces in patch 6&7.  (Frank)
+- Sort variables in probe function in reverse Christmas tree fashion in patch 7.  (Frank)
+- Link to v1: https://lore.kernel.org/r/20250704-imx8-dc-prefetch-v1-0-784c03fd645f@nxp.com
 
-diff --git a/arch/arm64/include/asm/topology.h b/arch/arm64/include/asm/topology.h
-index 341174bf91063..b9eaf4ad70850 100644
---- a/arch/arm64/include/asm/topology.h
-+++ b/arch/arm64/include/asm/topology.h
-@@ -36,6 +36,9 @@ void update_freq_counters_refs(void);
- #define arch_scale_hw_pressure topology_get_hw_pressure
- #define arch_update_hw_pressure	topology_update_hw_pressure
- 
-+#undef arch_cpu_is_threaded
-+#define arch_cpu_is_threaded() (read_cpuid_mpidr() & MPIDR_MT_BITMASK)
-+
- #include <asm-generic/topology.h>
- 
- #endif /* _ASM_ARM_TOPOLOGY_H */
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 5d07ee85bdae4..5d24dc53799b7 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -25,107 +25,6 @@
- #include <asm/cputype.h>
- #include <asm/topology.h>
- 
--#ifdef CONFIG_ACPI
--static bool __init acpi_cpu_is_threaded(int cpu)
--{
--	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
--
--	/*
--	 * if the PPTT doesn't have thread information, assume a homogeneous
--	 * machine and return the current CPU's thread state.
--	 */
--	if (is_threaded < 0)
--		is_threaded = read_cpuid_mpidr() & MPIDR_MT_BITMASK;
--
--	return !!is_threaded;
--}
--
--struct cpu_smt_info {
--	unsigned int thread_num;
--	int core_id;
--};
--
--/*
-- * Propagate the topology information of the processor_topology_node tree to the
-- * cpu_topology array.
-- */
--int __init parse_acpi_topology(void)
--{
--	unsigned int max_smt_thread_num = 1;
--	struct cpu_smt_info *entry;
--	struct xarray hetero_cpu;
--	unsigned long hetero_id;
--	int cpu, topology_id;
--
--	if (acpi_disabled)
--		return 0;
--
--	xa_init(&hetero_cpu);
--
--	for_each_possible_cpu(cpu) {
--		topology_id = find_acpi_cpu_topology(cpu, 0);
--		if (topology_id < 0)
--			return topology_id;
--
--		if (acpi_cpu_is_threaded(cpu)) {
--			cpu_topology[cpu].thread_id = topology_id;
--			topology_id = find_acpi_cpu_topology(cpu, 1);
--			cpu_topology[cpu].core_id   = topology_id;
--
--			/*
--			 * In the PPTT, CPUs below a node with the 'identical
--			 * implementation' flag have the same number of threads.
--			 * Count the number of threads for only one CPU (i.e.
--			 * one core_id) among those with the same hetero_id.
--			 * See the comment of find_acpi_cpu_topology_hetero_id()
--			 * for more details.
--			 *
--			 * One entry is created for each node having:
--			 * - the 'identical implementation' flag
--			 * - its parent not having the flag
--			 */
--			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
--			entry = xa_load(&hetero_cpu, hetero_id);
--			if (!entry) {
--				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
--				WARN_ON_ONCE(!entry);
--
--				if (entry) {
--					entry->core_id = topology_id;
--					entry->thread_num = 1;
--					xa_store(&hetero_cpu, hetero_id,
--						 entry, GFP_KERNEL);
--				}
--			} else if (entry->core_id == topology_id) {
--				entry->thread_num++;
--			}
--		} else {
--			cpu_topology[cpu].thread_id  = -1;
--			cpu_topology[cpu].core_id    = topology_id;
--		}
--		topology_id = find_acpi_cpu_topology_cluster(cpu);
--		cpu_topology[cpu].cluster_id = topology_id;
--		topology_id = find_acpi_cpu_topology_package(cpu);
--		cpu_topology[cpu].package_id = topology_id;
--	}
--
--	/*
--	 * This is a short loop since the number of XArray elements is the
--	 * number of heterogeneous CPU clusters. On a homogeneous system
--	 * there's only one entry in the XArray.
--	 */
--	xa_for_each(&hetero_cpu, hetero_id, entry) {
--		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
--		xa_erase(&hetero_cpu, hetero_id);
--		kfree(entry);
--	}
--
--	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
--	xa_destroy(&hetero_cpu);
--	return 0;
--}
--#endif
--
- #ifdef CONFIG_ARM64_AMU_EXTN
- #define read_corecnt()	read_sysreg_s(SYS_AMEVCNTR0_CORE_EL0)
- #define read_constcnt()	read_sysreg_s(SYS_AMEVCNTR0_CONST_EL0)
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 1037169abb459..1ccb1eda4ce8b 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -823,12 +823,106 @@ void remove_cpu_topology(unsigned int cpu)
- 	clear_cpu_topology(cpu);
- }
- 
-+#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
-+struct cpu_smt_info {
-+	unsigned int thread_num;
-+	int core_id;
-+};
-+
-+static bool __init acpi_cpu_is_threaded(int cpu)
-+{
-+	int is_threaded = acpi_pptt_cpu_is_thread(cpu);
-+
-+	/*
-+	 * if the PPTT doesn't have thread information, check for architecture
-+	 * specific fallback if available
-+	 */
-+	if (is_threaded < 0)
-+		is_threaded = arch_cpu_is_threaded();
-+
-+	return !!is_threaded;
-+}
-+
-+/*
-+ * Propagate the topology information of the processor_topology_node tree to the
-+ * cpu_topology array.
-+ */
- __weak int __init parse_acpi_topology(void)
- {
-+	unsigned int max_smt_thread_num = 1;
-+	struct cpu_smt_info *entry;
-+	struct xarray hetero_cpu;
-+	unsigned long hetero_id;
-+	int cpu, topology_id;
-+
-+	if (acpi_disabled)
-+		return 0;
-+
-+	xa_init(&hetero_cpu);
-+
-+	for_each_possible_cpu(cpu) {
-+		topology_id = find_acpi_cpu_topology(cpu, 0);
-+		if (topology_id < 0)
-+			return topology_id;
-+
-+		if (acpi_cpu_is_threaded(cpu)) {
-+			cpu_topology[cpu].thread_id = topology_id;
-+			topology_id = find_acpi_cpu_topology(cpu, 1);
-+			cpu_topology[cpu].core_id   = topology_id;
-+
-+			/*
-+			 * In the PPTT, CPUs below a node with the 'identical
-+			 * implementation' flag have the same number of threads.
-+			 * Count the number of threads for only one CPU (i.e.
-+			 * one core_id) among those with the same hetero_id.
-+			 * See the comment of find_acpi_cpu_topology_hetero_id()
-+			 * for more details.
-+			 *
-+			 * One entry is created for each node having:
-+			 * - the 'identical implementation' flag
-+			 * - its parent not having the flag
-+			 */
-+			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-+			entry = xa_load(&hetero_cpu, hetero_id);
-+			if (!entry) {
-+				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-+				WARN_ON_ONCE(!entry);
-+
-+				if (entry) {
-+					entry->core_id = topology_id;
-+					entry->thread_num = 1;
-+					xa_store(&hetero_cpu, hetero_id,
-+						 entry, GFP_KERNEL);
-+				}
-+			} else if (entry->core_id == topology_id) {
-+				entry->thread_num++;
-+			}
-+		} else {
-+			cpu_topology[cpu].thread_id  = -1;
-+			cpu_topology[cpu].core_id    = topology_id;
-+		}
-+		topology_id = find_acpi_cpu_topology_cluster(cpu);
-+		cpu_topology[cpu].cluster_id = topology_id;
-+		topology_id = find_acpi_cpu_topology_package(cpu);
-+		cpu_topology[cpu].package_id = topology_id;
-+	}
-+
-+	/*
-+	 * This is a short loop since the number of XArray elements is the
-+	 * number of heterogeneous CPU clusters. On a homogeneous system
-+	 * there's only one entry in the XArray.
-+	 */
-+	xa_for_each(&hetero_cpu, hetero_id, entry) {
-+		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
-+		xa_erase(&hetero_cpu, hetero_id);
-+		kfree(entry);
-+	}
-+
-+	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-+	xa_destroy(&hetero_cpu);
- 	return 0;
- }
- 
--#if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
- void __init init_cpu_topology(void)
- {
- 	int cpu, ret;
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index d72d6e5aa2002..766ed9cf0e549 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -80,6 +80,11 @@ extern struct cpu_topology cpu_topology[NR_CPUS];
- #define topology_sibling_cpumask(cpu)	(&cpu_topology[cpu].thread_sibling)
- #define topology_cluster_cpumask(cpu)	(&cpu_topology[cpu].cluster_sibling)
- #define topology_llc_cpumask(cpu)	(&cpu_topology[cpu].llc_sibling)
-+
-+#ifndef arch_cpu_is_threaded
-+#define arch_cpu_is_threaded()	(0)
-+#endif
-+
- void init_cpu_topology(void);
- void store_cpu_topology(unsigned int cpuid);
- const struct cpumask *cpu_coregroup_mask(int cpu);
+---
+Liu Ying (14):
+      dt-bindings: display: imx: Add i.MX8qxp/qm PRG binding
+      dt-bindings: display: imx: Add i.MX8qxp/qm DPR channel binding
+      MAINTAINERS: Add i.MX8qxp prefetch engine DT binding files
+      drm/imx: dc-fu: Fix dimensions
+      drm/imx: dc-crtc: Disable at boot
+      drm/imx: dc: Add PRG support
+      drm/imx: dc: Add DPR channel support
+      drm/imx: dc: Use TCON operation mode
+      drm/imx: dc-ed: Support getting source selection
+      drm/imx: dc-lb: Support getting secondary input selection
+      drm/imx: dc-ed: Drop initial source selection
+      drm/imx: dc-lb: Drop initial primary and secondary input selections
+      drm/imx: dc-fu: Get DPR channel
+      drm/imx: dc: Use prefetch engine
+
+ .../bindings/display/imx/fsl,imx8qxp-dprc.yaml     | 100 +++++
+ .../bindings/display/imx/fsl,imx8qxp-prg.yaml      |  60 +++
+ MAINTAINERS                                        |   2 +
+ drivers/gpu/drm/imx/dc/Kconfig                     |   1 +
+ drivers/gpu/drm/imx/dc/Makefile                    |   6 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c                   | 191 ++++++++-
+ drivers/gpu/drm/imx/dc/dc-de.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-dprc.c                   | 465 +++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-dprc.h                   |  35 ++
+ drivers/gpu/drm/imx/dc/dc-drv.c                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-drv.h                    |   5 +
+ drivers/gpu/drm/imx/dc/dc-ed.c                     |  27 +-
+ drivers/gpu/drm/imx/dc/dc-fl.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-fu.c                     |  49 ++-
+ drivers/gpu/drm/imx/dc/dc-fu.h                     |  11 +-
+ drivers/gpu/drm/imx/dc/dc-fw.c                     |   7 +-
+ drivers/gpu/drm/imx/dc/dc-kms.h                    |   7 +
+ drivers/gpu/drm/imx/dc/dc-lb.c                     |  23 +-
+ drivers/gpu/drm/imx/dc/dc-pe.h                     |   2 +
+ drivers/gpu/drm/imx/dc/dc-plane.c                  |  46 +-
+ drivers/gpu/drm/imx/dc/dc-prg.c                    | 320 ++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-prg.h                    |  39 ++
+ drivers/gpu/drm/imx/dc/dc-tc.c                     | 114 ++++-
+ 23 files changed, 1496 insertions(+), 30 deletions(-)
+---
+base-commit: bf2602a3cb2381fb1a04bf1c39a290518d2538d1
+change-id: 20250703-imx8-dc-prefetch-028e306591c6
+
+Best regards,
 -- 
-2.39.5
+Liu Ying <victor.liu@nxp.com>
 
 
