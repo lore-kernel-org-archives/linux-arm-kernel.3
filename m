@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AF4CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D88DCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeaqGM/dnSt7VQMXlKJMzUPAvYn4X0kFJnsfUt3Memw=; b=r18qtMH35nVGoXtH6ghB+yMMKj
-	LKUBIPLyxFlZrjbotBqfQygLddZt4dJebXl9fDAMJdD42JoXE14+DmU5g4Hb03Cf5WkFGoOdZlTrZ
-	PXhcopK1pvZC9rn9dXUmO4ZH87ahjcwrgVh3p3DbN+FoQB5vm0S+YO1RsVsOyu7tUVLHcGWimCqHs
-	9WfddeaawTnf+g5dWjde3A0RB/A/3qb4i0LvveM1ml8ZPfRuwuwtdKJVHhx2SHbHeEr1Ta+zbcdvw
-	WsgYwKfEgFXJUfLqvR6ers1bJsfuYd2X8t3ZUXjY+XaIrYzXjCFEQcwlRbryh4n6We2dWiGnofRQn
-	4Creifyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7E3C0GYNlj0hYhjD9/c2lHqaFNoZ8ozSgnfG4yKpPwA=; b=RBVmVrp6AoSPPM9XrLbEBnB9UI
+	0qMNOjQLCBEeyXjOz5BVqzgRN1GQa4UoTLyHGLXaOlcqExx4Nl11Ru/EcDOhPUt1CgwYCzp2wReS6
+	1cryHen9hYfppTPkGBo4tXArZwauCOOphc9haTaRpN2x80UoFUhAKXZvhQ2bvDv+SG2bKSI6Bxiyp
+	f086q36n4LIOuidTcO4XbVF2kdpmfPkWOvQMUxF10gq6GFB/+UEutqzw+1XApNs895CEh1AV3vh6C
+	X8SYtTMf4IrQs/zu0Lg35yG4NUu8V5SMPvPHHRwuhjGRDkrlx2NSGhmKmDxttAtWHrgCGpIqvd4fP
+	0pUg94LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yPa-0000000Cojn-1gPL;
-	Tue, 23 Sep 2025 08:30:10 +0000
-Received: from pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.34.181.151])
+	id 1v0yUf-0000000CpJN-2i8b;
+	Tue, 23 Sep 2025 08:35:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yPX-0000000Coii-45R3
+	id 1v0yUd-0000000CpJH-3hgi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 08:30:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1758616207; x=1790152207;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=KeaqGM/dnSt7VQMXlKJMzUPAvYn4X0kFJnsfUt3Memw=;
-  b=lOfViCDuQ+z/lANjL6N0tATX4dg+folEWPZ4Ayk0KENTSJxcJuK4Welc
-   54F/5mHJ5HfRpxlmoK/CEd6I8CyfLHDtRp10uVEnjvxiSFZXKE5zMwGH1
-   1aW4YlNe+rROoUR7HoLLhUPlob+ahMutd8TSqbAPSHg3giMtL1FTaZXC2
-   HSFJXCaqGSqiyCq3tigGCjYgNeRFMlIoBNynDbGs6f5zkme1+XECwTIBi
-   vfnSKWXnN4cPJq8nhMZKVHYW+1oJmpo8bumeER7/JSbf7mrlgVkDxco6o
-   weyPlrF68z1A8M9aFcWYQhPFAq8SABijozS8apY7KMra8rik4BF07a2kh
-   Q==;
-X-CSE-ConnectionGUID: Y+SxHihJTXaZjG3dAprjYQ==
-X-CSE-MsgGUID: xfFWRL0GTsqKazJJtxEOcA==
-X-IronPort-AV: E=Sophos;i="6.18,263,1751241600"; 
-   d="scan'208";a="3553817"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-007.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2025 08:30:04 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [10.0.21.151:11530]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.48.21:2525] with esmtp (Farcaster)
- id a2aa504d-997f-4357-87ea-aa2904c81b42; Tue, 23 Sep 2025 08:30:04 +0000 (UTC)
-X-Farcaster-Flow-ID: a2aa504d-997f-4357-87ea-aa2904c81b42
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Tue, 23 Sep 2025 08:30:02 +0000
-Received: from c889f3b3a561.amazon.com (10.106.101.44) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Tue, 23 Sep 2025 08:30:01 +0000
-From: Priscilla Lam <prl@amazon.com>
-To: <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <christoffer.dall@arm.com>, <dwmw@amazon.co.uk>, <graf@amazon.com>,
-	<gurugubs@amazon.com>, <jgrall@amazon.co.uk>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <prl@amazon.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>
-Subject: Re: Re: [PATCH] KVM: arm64: Implement KVM_TRANSLATE ioctl for arm64
-Date: Tue, 23 Sep 2025 01:29:55 -0700
-Message-ID: <20250923082955.66602-1-prl@amazon.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: 86frcd1tp4.wl-maz@kernel.org
-References: <86frcd1tp4.wl-maz@kernel.org>
+	Tue, 23 Sep 2025 08:35:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 17A8260203;
+	Tue, 23 Sep 2025 08:35:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A21C4CEF5;
+	Tue, 23 Sep 2025 08:35:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758616522;
+	bh=+rRxUkZspQylYOU643PlOSIkzkgXe3gEa5Qgh0Ams44=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nHGYI3EwrOgfDnYsZPAngBO4cZRbkx31coOrmnbE/GCrRy1EpezDwwo4hz2F8r+4M
+	 mfxCehwPJKRDFVZmUoB58RWgDNM/6D1Z7odutzxs3uBHCy1nT5uWrEQDIZ+NDdaLMa
+	 ZbrfcPYysvXSdnMJpJewzOd+LAZXc8PPv2GUDJ/6qMuW7R/BF0eCYaonj66B4x6vj4
+	 BrSrrKvN7X3K7PH6fcohh+wdBHLyuRO7vyl+MkG29isHid4fX/skSscxm9hplK+HgB
+	 WZD/J2infr5N74WE5hXtEWrFY/AimcxV3M1kgmk9er7iwhXnTio5xVLsEtsxTScvwz
+	 w2ikAQHpZVQdQ==
+Date: Tue, 23 Sep 2025 09:35:18 +0100
+From: Will Deacon <will@kernel.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	oe-kbuild@lists.linux.dev, lkp@intel.com,
+	oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [arm64:for-next/perf 5/28] drivers/perf/dwc_pcie_pmu.c:418
+ dwc_pcie_pmu_validate_group() error: uninitialized symbol 'time_event'.
+Message-ID: <aNJbxj55fEgutUPn@willie-the-truck>
+References: <202509231223.gZsX6Eio-lkp@intel.com>
+ <a2bb5fb1-f94e-cdea-6db5-86d78d2a53eb@os.amperecomputing.com>
+ <aNJZ6SqYvBfjZlrZ@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.106.101.44]
-X-ClientProxiedBy: EX19D045UWC004.ant.amazon.com (10.13.139.203) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_013008_062531_47F79143 
-X-CRM114-Status: GOOD (  23.53  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aNJZ6SqYvBfjZlrZ@stanley.mountain>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +72,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver and Marc,
+On Tue, Sep 23, 2025 at 11:27:21AM +0300, Dan Carpenter wrote:
+> On Tue, Sep 23, 2025 at 12:55:01AM -0700, Ilkka Koskinen wrote:
+> > That's cleary a bug and I don't know how I missed it.
+> 
+> Because we disabled uninitialized variable warnings for GCC and because
+> everyone has CONFIG_INIT_STACK_ALL_ZERO set so it wouldn't show up in
+> testing either.
 
-Thanks for the detailed feedback.
+The more annoying thing is that I run smatch on my tree before pushing
+but somehow I didn't notice this. I'll run it again to see whether it
+detected it in the first place...
 
-> But at the end of the day, what do you need KVM_TRANSLATE for? This
-> interface is an absolute turd that is unable to represent the bare
-> minimum of the architecture (writable by whom? physical address in
-> which translation regime? what about S2 translations?), and is better
-> left in the "utter brain fart" category.
-
-Regarding motivation, this patch is intended to give a userspace vmm
-the ability to handle non-ISV guest faults. The Arm Arm (DDI 0487L.b,
-section B3.13.6) notes that for load/store pair faults, the syndrome
-may not provide the specifics of the access that faulted. In those
-cases, the vmm must manually decode the instruction to emulate it. The
-introduction of KVM_CAP_ARM_NISV_TO_USER
-(https://lore.kernel.org/kvm/20191120164236.29359-2-maz@kernel.org/)
-seems to have anticipated that flow by allowing exits to userspace on
-trapped NISV instructions. What is still missing is a reliable way for
-userspace to query VA->IPA translations in order to complete emulation.
-
-> Please do selftests changes in a separate patch.
-
-Ack, will split the kernel changes and selftests into 1/2 and 2/2.
-
-> So arch/arm64/kvm/at.c exists for this exact purpose: walking guest page
-> tables. While it was previously constrained to handling NV-enabled VMs,
-> Marc's SEA TTW series opens up the stage-1 walker for general use.
-
-Thanks for the reference, I wasn't aware of this. I'll drop the bespoke 
-VHE/NVHE paths and use the shared S1 walker in v2.
-
-> "linear_address" is a delightful x86-ism. I'd prefer naming that was
-> either architecture-generic -or- an arm64-specific struct that used our
-> architectural terms.
-
-I'll switch internal naming to VA/IPA. For uAPI, I'll retain the field
-for compatibility and translate internally.
-
-> Thanks to borken hardware, this needs to go through the write_sysreg_hcr()
-> accessor.
-
-Ack, will use write_sysreg_hcr().
-
-> KVM supports both FEAT_S1PIE and FEAT_S1POE, so this is not a complete
-> MMU context.
-
-Understood. v2 will rely on the shared walker to avoid missing S1PIE/S1POE.
-
-> The AT instruction can generate an exception, which is why __kvm_at()
-> exists.
->
-> And this is where reusing the existing translation infrastructure is
-> really important. The AT instruction *will* fail if the stage-1
-> translation tables are unmapped at stage-2. The only option at that
-> point is falling back to a software table walker that potentially faults
-> in the missing translation tables.
-
-v2 will use __kvm_at() and the fallback software walk.
-
-> What about permissions besides RW?
-
-I'll add support for the additional bit (execute and EL0) in v2.
-
-> Yet another interesting consideration around this entire infrastructure
-> is the guest's view of the translation that the VMM will now use. KVM
-> uses a pseudo-TLB for the guest's VNCR page and maintains it just like a
-> literal TLB.
->
-> How would the guest invalidate the translation fetched by the VMM when
-> unmapping/remapping the VA? Doesn't the stage-1 PTW need to set the
-> Access flag as this amounts to a TLB fill?
-> Understanding what it is you're trying to accomplish would be quite
-> helpful. I'm concerned this trivializes some of the gory details of
-> participating in the guest's virtual memory.
-
-My intent is for this ioctl to be side-effect free with no AF updates 
-and guest-visible TLB fills. I’ll send v2 as two patches with the above
-changes.
-
-Thanks,
-Priscilla
+Will
 
