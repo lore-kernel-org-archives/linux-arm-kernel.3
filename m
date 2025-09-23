@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F46CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 15:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B481CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 16:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JW6Pq0osddemYt/bdOCpAcfjllFX2GB9kYb3rxjKU1g=; b=UuDWkeGoNP1zu26GpJXsiFqwLd
-	+5t5QVCtpzCh1jtu0PZd0Zsy1jrTwtJx8sTv9O4sAiZC6RKBBmyMROcGkZSb9tiH89Ac9b5u5Zy49
-	5DrnmSUqBwPpmh7eSyIkAf4PzxFtmwj1f7u3mMAkDZWwJfK1Mj3JtNIKJEC96H8eUCLQ9qVjrLEy2
-	VGS2MySPAq52AtKQUE727MQC2ycExgN53z/84b/Z3LDrQlHrIzChBjnUAMMAPCPxCd8gQoYL6Kn3g
-	Vc1mDj7nu6EtrxYD3/vt8W7Nyhfz5qoTJNSHO1S7lxTwzw8V4GKzwJSMq3a+D4fAd4xVHo/Jpdmtt
-	+fJ3qD+w==;
+	bh=od3W27UP2d4Dd91dUdUX5opiLkersdSVw2Akopacp7A=; b=A7qZZipDpDqc+a3AYhHPeNS0Nr
+	sYdo1dvE0NKnhK4anYkJ9nDBL+AHUg2ZwpKkB4Xb8qUtIw+68J5GR/5cMB1D3Ekta9zTuvWfgm7tG
+	KrZCbxmSqk6YxhbFTGF9nTCGphxwvuiOlFeTcNhySXt21DDOV1uxH4HxTm8Ti8uXtcW/usDUiuUT0
+	rK6k3vywCMPd+WTV61EaeT9FNqWe9FE5tWHUeD5UgmHdGbudF90hxg3xRixD+yvImLAnEfds42daD
+	EidW2bl89IOfwHFNA6mDZrItn3elN3KvfFaTVJbuAVFbHO2RF8G2Sk+leuLjs1zVsTmOdJ9uzqQ/v
+	9XM9rEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v15Nr-0000000EAl1-1W0d;
-	Tue, 23 Sep 2025 15:56:51 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v15No-0000000EAjj-36Cy
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 15:56:50 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1152)
-	id 9BA8B2015510; Tue, 23 Sep 2025 08:56:47 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9BA8B2015510
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1758643007;
-	bh=JW6Pq0osddemYt/bdOCpAcfjllFX2GB9kYb3rxjKU1g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d6d07kjygCRywb698zp2lefj4VDV404AV36O9xh5AE+1GNG0a2jt/0hpzLu8QJQcL
-	 ECN8IvpEiBbc7+D9RGPJsYTiQoEkMb8od7hrQWMMJzQRvlsSxnai4rFnr+3usp0m4Y
-	 ZbxEKaGcTAem4frcTuE0FBtJbFhV335EYU3Zfcfk=
-Date: Tue, 23 Sep 2025 08:56:47 -0700
-From: Shyam Saini <shyamsaini@linux.microsoft.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Will Deacon <will@kernel.org>
-Cc: thierry.reding@gmail.com, robin.murphy@arm.com, robh@kernel.org,
-	joro@8bytes.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, jacob.pan@linux.microsoft.com,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
-	bboscaccy@linux.microsoft.com, saravanak@google.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, lizhi.hou@amd.com,
-	clement.leger@bootlin.com
-Subject: Re: [PATCH v4 3/4] arm-smmu: select suitable MSI IOVA
-Message-ID: <20250923155647.GA22010@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
- <20250909154600.910110-4-shyamsaini@linux.microsoft.com>
- <aMw4I0AjKNPY6SOw@willie-the-truck>
- <20250918224322.GR1326709@ziepe.ca>
- <aM0HQ51DelZW_Rt8@willie-the-truck>
- <20250919120839.GV1326709@ziepe.ca>
+	id 1v15fT-0000000EEZZ-3irR;
+	Tue, 23 Sep 2025 16:15:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v15fS-0000000EEYu-1Dtn;
+	Tue, 23 Sep 2025 16:15:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9747844A33;
+	Tue, 23 Sep 2025 16:15:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4DEEC4CEF5;
+	Tue, 23 Sep 2025 16:14:53 +0000 (UTC)
+Date: Tue, 23 Sep 2025 17:14:51 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
+	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
+	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+	surenb@google.com, hughd@google.com, willy@infradead.org,
+	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+	apopple@nvidia.com, qun-wei.lin@mediatek.com,
+	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+Message-ID: <aNLHexcNI53HQ46A@arm.com>
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com>
+ <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250919120839.GV1326709@ziepe.ca>
-User-Agent: Mutt/1.5.21 (2010-09-15)
+In-Reply-To: <aNKJ5glToE4hMhWA@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_085648_806323_FEBB4D3A 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250923_091502_366082_4134783B 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +78,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason, Will,
+On Tue, Sep 23, 2025 at 12:52:06PM +0100, Catalin Marinas wrote:
+> I just realised that on arm64 with MTE we won't get any merging with the
+> zero page even if the user page isn't mapped with PROT_MTE. In
+> cpu_enable_mte() we zero the tags in the zero page and set
+> PG_mte_tagged. The reason is that we want to use the zero page with
+> PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
+> memcmp_pages() messed up KSM merging with the zero page even before this
+> patch.
+[...]
+> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> index e5e773844889..72a1dfc54659 100644
+> --- a/arch/arm64/kernel/mte.c
+> +++ b/arch/arm64/kernel/mte.c
+> @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page *page2)
+>  {
+>  	char *addr1, *addr2;
+>  	int ret;
+> +	bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
+> +	bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
+>  
+>  	addr1 = page_address(page1);
+>  	addr2 = page_address(page2);
+> @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page *page2)
+>  
+>  	/*
+>  	 * If the page content is identical but at least one of the pages is
+> -	 * tagged, return non-zero to avoid KSM merging. If only one of the
+> -	 * pages is tagged, __set_ptes() may zero or change the tags of the
+> -	 * other page via mte_sync_tags().
+> +	 * tagged, return non-zero to avoid KSM merging. Ignore the zero page
+> +	 * since it is always tagged with the tags cleared.
+>  	 */
+> -	if (page_mte_tagged(page1) || page_mte_tagged(page2))
+> +	if (page1_tagged || page2_tagged)
+>  		return addr1 != addr2;
+>  
+>  	return ret;
 
-On 19 Sep 2025 09:08, Jason Gunthorpe wrote:
-> On Fri, Sep 19, 2025 at 08:33:23AM +0100, Will Deacon wrote:
-> > pieces and will need to work on the userspace side. It's not like
-> > MSI_IOVA2 is magically going to work (and I bet it won't be tested).
-> 
-> It could, if someone checks the default memory map a second constant
-> could be selected that works.
-> 
-> > > Nicolin has some patches on the iommufd side to let userspace select
-> > > the MSI address instead, but they are not done yet.
-> > 
-> > Maybe we should just wait for that? Carrying a temporary hack with ABI
-> > implications to support broken hardware isn't particularly compelling
-> > to me.
-> 
-> This patch would still be needed for kernel users.
-> 
-> Arguably the kernel users should just be using the iova allocator from
-> dma-iommu.c. This whole hard coded constant/sneaky uapi is just a hack
-> to make vfio work..
-> 
-> So maybe if the single constant doesn't work we could set some
-> indication that the caller must allocate the MSI iova, the kernel can
-> use the dma-iommu allocator and VFIO can just refuse to use the device
-> for now.
+Unrelated to this discussion, I got an internal report that Linux hangs
+during boot with CONFIG_DEFERRED_STRUCT_PAGE_INIT because
+try_page_mte_tagging() locks up on uninitialised page flags.
 
-So, are we settling on having two predefined MSI IOVA base constants,
-and if both of those conflict with reserved regions on a given platform,
-falling back to dynamic allocation via the IOVA allocator? Just checking
-if that's the consensus we're reaching.
+Since we (always?) map the zero page as pte_special(), set_pte_at()
+won't check if the tags have to be initialised, so we can skip the
+PG_mte_tagged altogether. We actually had this code for some time until
+we introduced the pte_special() check in set_pte_at().
 
-Thanks,
-Shyam
+So alternative patch that also fixes the deferred struct page init (on
+the assumptions that the zero page is always mapped as pte_special():
+
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 7b78c95a9017..e325ba34f45c 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2419,17 +2419,21 @@ static void bti_enable(const struct arm64_cpu_capabilities *__unused)
+ #ifdef CONFIG_ARM64_MTE
+ static void cpu_enable_mte(struct arm64_cpu_capabilities const *cap)
+ {
++	static bool cleared_zero_page = false;
++
+ 	sysreg_clear_set(sctlr_el1, 0, SCTLR_ELx_ATA | SCTLR_EL1_ATA0);
+ 
+ 	mte_cpu_setup();
+ 
+ 	/*
+ 	 * Clear the tags in the zero page. This needs to be done via the
+-	 * linear map which has the Tagged attribute.
++	 * linear map which has the Tagged attribute. Since this page is
++	 * always mapped as pte_special(), set_pte_at() will not attempt to
++	 * clear the tags or set PG_mte_tagged.
+ 	 */
+-	if (try_page_mte_tagging(ZERO_PAGE(0))) {
++	if (!cleared_zero_page) {
++		cleared_zero_page = true;
+ 		mte_clear_page_tags(lm_alias(empty_zero_page));
+-		set_page_mte_tagged(ZERO_PAGE(0));
+ 	}
+ 
+ 	kasan_init_hw_tags_cpu();
+
+-- 
+Catalin
 
