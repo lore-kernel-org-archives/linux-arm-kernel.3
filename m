@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF2ACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A745CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MF8PkXgUBXn0osNVxu7f/la70PCpV5fAZ4RLQTvzLhw=; b=ceUEAdubEHH3+h
-	vBACN16Q+xxVs7ze4FTUcew8rEvQSgRSNxWHxHbV2t3Yy96embztMPfMtn11dw12j25UzkGY2sDCV
-	ght6slqueL+RuFlWRezgoKH60PSdIlrsT0zOzvolkk16nv5QBSQDuQa3xqj6Lm+jMgDs3CJQ5xdfF
-	xzIPmc0tMh9lcNOSGgVzjDg0QrpJhtqZFd4Qsgtcwx5MCTSxdTkilAxlH3veSLx99cjcF+xg5NH3X
-	ncddIiu5UgLS05z5uRh2pDKvd9DLcAxXIXy7ZhgPGUcD3NEta5Wph256DOWWGNny/dzBvfzRf6t51
-	sSXHPaGV7ptzsCvkNcxg==;
+	List-Owner; bh=8BNGHKYTksCgXacuIfzUjXtJP9J31ATouaI+NCug5mc=; b=c8t+B2ldYNzAnr
+	SLybqQz1EN6qc0E0RKlVDGI8F7sI979XG4YWYQ5TgVvtpb74xYki8ytxC3Bc572GHWJBTt25gITbI
+	aaPRoMO4Q//1H49R7x8FFEa063H2qcm/CVBcUT11K/6sORTPefJGXlk0kfkrAZvJoUteXEciPZ5rL
+	hpb/+gDT5q94/yP105Xn5ZKnk0yAy0LiNbutt3StfO7ZY+5j+GOl0LsfmvT7pMrDAGAz70G93pRrJ
+	otAL52Sj70CusiZeaf0gH/6k+psQL7qeYgBKlqWWCImUVfBr8LUjNO4BUB7+u6IXIiIQSRfdXOqqC
+	smlPgaBoIcLJGvuEprJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v178x-0000000ERW2-2ip5;
+	id 1v178x-0000000ERVR-1NLx;
 	Tue, 23 Sep 2025 17:49:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v178r-0000000ERRX-3mz7
+	id 1v178o-0000000ERNv-0VC3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 17:49:31 +0000
+	Tue, 23 Sep 2025 17:49:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D92C0497;
-	Tue, 23 Sep 2025 10:49:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEBD7267F;
+	Tue, 23 Sep 2025 10:49:15 -0700 (PDT)
 Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.30.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6F0BD3F5A1;
-	Tue, 23 Sep 2025 10:49:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 67B913F5A1;
+	Tue, 23 Sep 2025 10:49:20 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 03/16] arm64/insn: always inline aarch64_insn_decode_register()
-Date: Tue, 23 Sep 2025 18:48:50 +0100
-Message-ID: <20250923174903.76283-4-ada.coupriediaz@arm.com>
+Subject: [RFC PATCH 02/16] arm64: kasan: make kasan_hw_tags_enable() callback safe
+Date: Tue, 23 Sep 2025 18:48:49 +0100
+Message-ID: <20250923174903.76283-3-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_104930_068689_9610B949 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250923_104926_233017_15BF677C 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,108 +61,43 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As it is always called with an explicit register type, we can
-check for its validity at compile time and remove the runtime error print.
+Alternative callback functions are regular functions, which means they
+or any function they call could get patched or instrumented
+by alternatives or other parts of the kernel.
+Given that applying alternatives does not guarantee a consistent state
+while patching, only once done, and handles cache maintenance manually,
+it could lead to nasty corruptions and execution of bogus code.
 
-This makes `aarch64_insn_decode_register()` self-contained and safe
-for inlining and usage from patching callbacks.
+Make `kasan_hw_tags_enable()` safe by preventing its instrumentation.
+This is possible thanks to a previous commit making
+`kasan_hw_tags_enabled()` always inlined, preventing any instrumentation
+in the callback.
+
+As `kasan_hw_tags_enable()` is already marked as `__init`,
+which has its own text section conflicting with the `noinstr` one,
+use `__no_instr_section(".noinstr.text")` to add
+all the function attributes added by `noinstr`, without the section
+conflict.
+This can be an issue, as kprobes seems to only block the text sections,
+not based on function attributes.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/include/asm/insn.h | 32 ++++++++++++++++++++++++++++++--
- arch/arm64/lib/insn.c         | 29 -----------------------------
- 2 files changed, 30 insertions(+), 31 deletions(-)
+ arch/arm64/kernel/mte.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 18c7811774d3..f6bce1a62dda 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -7,6 +7,7 @@
-  */
- #ifndef	__ASM_INSN_H
- #define	__ASM_INSN_H
-+#include <linux/bits.h>
- #include <linux/build_bug.h>
- #include <linux/types.h>
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index e5e773844889..a525c1d0c26d 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -239,6 +239,7 @@ static void mte_update_gcr_excl(struct task_struct *task)
+ void __init kasan_hw_tags_enable(struct alt_instr *alt, __le32 *origptr,
+ 				 __le32 *updptr, int nr_inst);
  
-@@ -558,8 +559,35 @@ enum aarch64_insn_encoding_class aarch64_get_insn_class(u32 insn);
- u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn);
- u32 aarch64_insn_encode_immediate(enum aarch64_insn_imm_type type,
- 				  u32 insn, u64 imm);
--u32 aarch64_insn_decode_register(enum aarch64_insn_register_type type,
--					 u32 insn);
-+static __always_inline u32 aarch64_insn_decode_register(
-+				 enum aarch64_insn_register_type type, u32 insn)
-+{
-+	compiletime_assert(type >= AARCH64_INSN_REGTYPE_RT &&
-+		type <= AARCH64_INSN_REGTYPE_RS, "unknown register type encoding");
-+	int shift;
-+
-+	switch (type) {
-+	case AARCH64_INSN_REGTYPE_RT:
-+	case AARCH64_INSN_REGTYPE_RD:
-+		shift = 0;
-+		break;
-+	case AARCH64_INSN_REGTYPE_RN:
-+		shift = 5;
-+		break;
-+	case AARCH64_INSN_REGTYPE_RT2:
-+	case AARCH64_INSN_REGTYPE_RA:
-+		shift = 10;
-+		break;
-+	case AARCH64_INSN_REGTYPE_RM:
-+	case AARCH64_INSN_REGTYPE_RS:
-+		shift = 16;
-+		break;
-+	default:
-+		return 0;
-+	}
-+
-+	return (insn >> shift) & GENMASK(4, 0);
-+}
- u32 aarch64_insn_gen_branch_imm(unsigned long pc, unsigned long addr,
- 				enum aarch64_insn_branch_type type);
- u32 aarch64_insn_gen_comp_branch_imm(unsigned long pc, unsigned long addr,
-diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index 4e298baddc2e..0fac78e542cf 100644
---- a/arch/arm64/lib/insn.c
-+++ b/arch/arm64/lib/insn.c
-@@ -144,35 +144,6 @@ u32 __kprobes aarch64_insn_encode_immediate(enum aarch64_insn_imm_type type,
- 	return insn;
- }
- 
--u32 aarch64_insn_decode_register(enum aarch64_insn_register_type type,
--					u32 insn)
--{
--	int shift;
--
--	switch (type) {
--	case AARCH64_INSN_REGTYPE_RT:
--	case AARCH64_INSN_REGTYPE_RD:
--		shift = 0;
--		break;
--	case AARCH64_INSN_REGTYPE_RN:
--		shift = 5;
--		break;
--	case AARCH64_INSN_REGTYPE_RT2:
--	case AARCH64_INSN_REGTYPE_RA:
--		shift = 10;
--		break;
--	case AARCH64_INSN_REGTYPE_RM:
--		shift = 16;
--		break;
--	default:
--		pr_err("%s: unknown register type encoding %d\n", __func__,
--		       type);
--		return 0;
--	}
--
--	return (insn >> shift) & GENMASK(4, 0);
--}
--
- static u32 aarch64_insn_encode_register(enum aarch64_insn_register_type type,
- 					u32 insn,
- 					enum aarch64_insn_register reg)
++__noinstr_section(".init.text")
+ void __init kasan_hw_tags_enable(struct alt_instr *alt, __le32 *origptr,
+ 				 __le32 *updptr, int nr_inst)
+ {
 -- 
 2.43.0
 
