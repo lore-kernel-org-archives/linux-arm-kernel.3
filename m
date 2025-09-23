@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7C0CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 14:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C40B0CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 14:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIxVfZFoAEsIwCtiKpIw9ltXsqh5nL/d8yl3mBu/8Nc=; b=ueICZCLXjXLoaxLzBjG24NI2M3
-	fuRlLSWaM5ce+UhTvS9STaI4HO/2u0xNpbu0aigjboEob31Ndk6nn/9pQ9JBeZb+QQjFYqsqJ5jeI
-	fPD9/ZVPM6wUmXUjeJibMhyplQ8IduVJpxL5aRKRnZAF7Kw97m0aWQ9HZaS70LPR/CJDnGhK9rgFx
-	5pyh7UD/Xrys9zRWUCgoPP2iWq1iEOloC3upPzcumnAML5j+ijz4fEUA6d5B5iYqhYhuKEcYILBH9
-	w261AjozP4/WPUI8V5TnCgsmcdJ3UkfJEctzM2h60VjkEazBMN5m4DYnLShr2tBvZInC9HJNUsEbI
-	ze9dEYnQ==;
+	bh=s1NZM4v8G7kVFRobZkkcSJXgVxob1GWmO5LhOiwNAgs=; b=AEcF4o2qTTJjk4vHLfoNXm7yuV
+	95TuVVdJjM3/sJptsvkyrLg9hOlQplzlar/YixR//pus7nSwkWqC8FZeiefV9rbyfRbR1p5JZa8qv
+	ldP/ivOpTr0hYZi5fCKWVvDiMSAFxI3xXvfMyUVyYmEwQ+NkhDyAnEy34assB2+ODxIJoOlkJJIRx
+	6PQMII0UZI/tguqMVJRvSzld7llmCnDyEFTO/YyHQx6m/BYTEoQzX8lAwCBD86DHHiwNF8QuLBNqZ
+	yY6pjFePNmR2rw5g9OTAgviHnWdXR5J27xPHwS3GkJa7+DJxgve/TPG8kM3K4d/+06N7pW328G+4Q
+	XMOVJm4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v149n-0000000Dpb5-1gc6;
+	id 1v149n-0000000Dpbr-3Bco;
 	Tue, 23 Sep 2025 14:38:15 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v149W-0000000DpJe-3D47
+	id 1v149Y-0000000DpKq-1G3N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 14:37:59 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b2b4096539fso377035966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 07:37:58 -0700 (PDT)
+	Tue, 23 Sep 2025 14:38:01 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb78ead12so860316566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 07:37:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1758638277; x=1759243077; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1758638278; x=1759243078; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BIxVfZFoAEsIwCtiKpIw9ltXsqh5nL/d8yl3mBu/8Nc=;
-        b=kHypUJq61DmgCoyxiQxdwSUv3mr6QOWZFsmEEYg81TGDcg3yCrHSRQac5Dpeo4kcBn
-         9YR5DfYC1AYf7wRALKK9oRSWvIBjbd5cLGnYv//UkP02Bl58TL8zyVxgf7rC29kZKtdj
-         iccOP6X7xQJYDBdJw9CtuaYSl6USsOetmWxQw=
+        bh=s1NZM4v8G7kVFRobZkkcSJXgVxob1GWmO5LhOiwNAgs=;
+        b=ANOV9H2VNVyMPut+iX78k+jKMg3YPp2weP8WrMtzLND5EClYX0vNwgm3ZpU0iswv6D
+         LhLSrcbsHtLYMGixbilAB27S+mWmAxZYB2V4Ek5ZBfEaKDZEfFJD7c9B3IDtynaJzBBS
+         JElx7RJgdOZhEolaifleDEsSZroaD48hLoHsU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758638277; x=1759243077;
+        d=1e100.net; s=20230601; t=1758638278; x=1759243078;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BIxVfZFoAEsIwCtiKpIw9ltXsqh5nL/d8yl3mBu/8Nc=;
-        b=a7jn8akarpCFMTOjYZb9g0ADVpTh2CiKGFTaaJRoOWmJm8QQ32oysEE4fuQgJkEqu4
-         eINLnh2apCJvN7fhQQNFIO5JtHFCyihya2o51IrjvmTpagyXYCqmmj8+7fgBzu6UnpjJ
-         bcNdo2vFSZ8vQOCMBS7F+WVO65KsS2RfwFAynOTO79BeU6DNe2da37kkOQQRGVEdKWLM
-         uFRfbJvlPFoQkZc5NNgJ78JALoYrZlbKogAmGONa0wPLQkWcUVdtVXnq6lf4qe3Wv9H3
-         J4+p720sN6cCyK5u9qJ8kVmaB9kRnTcrgEtwLOLXIxrM791OzLXS6io6TtyGU3lcM8wi
-         jRiw==
-X-Forwarded-Encrypted: i=1; AJvYcCUPBRtYHk0I6HdCb1gbWSGfLFO15mm1BDJ7jFsav5HecergZbkvgZtRl4k4DWPd2O8lbzm60E4dH82vlsDOQDIP@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf14FYsgt1fb6Y9OGEUkR79uWMdwzQ7vewSyKWd9MOaY4RBaCb
-	br8lx54wWyeXdOZ2deD/JKfmdAehanHCSX2dahn0Lepr0E3zfA0wZeDeV+xNWjhm2s8=
-X-Gm-Gg: ASbGncuDmw/UQasE+91pgbZbFrG6lXd/+zydwQJj+JGxWLz6KK4f6Nz1+77eSVkZ7DY
-	5fPaSlkXE6oTUYYfdKnahtgJRDXrvGYMpHA5nZQtdCnpH9DIlRJN52y+5+majneKwENoiLzMtI9
-	HH/ewXBKrMZr51WcqhwvaIen4ZQp1cLMp5qJ1YotnjX9X159MbRMkVkEx+rNguyDG6ujfIjWHWh
-	DQKmdTwkJHxcjdEwiVxdLXclxD/SOyhMP6Y5IaUcu5bmMSptVppSYffJgfOjOXRqgEkhV+hvx1B
-	1c0zDu1wc0ujZevgZsAgmLXor6WBnfGbLsRtupdGD0cxKHhnPaae+kfVABJ9yqVjoKRpwVcMMia
-	tkpmaE/Pgg6Kk3zBVbvYIKAD+iTVvC6s5IAHRb5pQoLVyN4MKC+DgTrwyoqUgXdOTs30nDt6LBR
-	r3AHbMHF5cHzmPb/ckcz455uoB0h4pu07UyJgnEI66XNxHEdFDAZrxZnb3pS5XfmZPjP11fp2mg
-	8I=
-X-Google-Smtp-Source: AGHT+IH9SMkFkR71Kx+KKn5T55TYlat8HlxhxiB+GViGIA9Vt0hQfUrdnZ3e8AKspkcyGYH3r9r1+A==
-X-Received: by 2002:a17:907:3d8d:b0:afa:1d2c:bbd1 with SMTP id a640c23a62f3a-b301e5ad661mr314613866b.30.1758638277092;
-        Tue, 23 Sep 2025 07:37:57 -0700 (PDT)
+        bh=s1NZM4v8G7kVFRobZkkcSJXgVxob1GWmO5LhOiwNAgs=;
+        b=Nj9tsh2majXFaNsvpi9lfcn8YGUhWPJY1P4UDp3RNfSH+kvkPkjA8uJmvF3FudZYj7
+         yYbFu/5THeuO1VlYuB7pIa1Y1ktYXoXfbp33TrfrL01OPwvxtF7h2WvgjiKHFLBK9tRH
+         w+hP2hF9A/Xxdya7nLE/ay9klMy1raU7Ii1a+OgtnRT+9V5cLRkt+c0g/qPVW2gdU6b/
+         yPkQaW5GkOecIxIcZM4zaYAFHUiFeUQdxqTOR26y3yYNcRqgJGUxK4g9aT+rF+GUrkch
+         dtAHlKeB7Ql8dVsGjoaYUhCik94VIU0tXgnh1JdHe1H/uCENDHOvMUHVQwPU1SfzB/XV
+         Nt3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUPVHeY7clI5y5i0+eD9G+OqYor+k7gx+v1c9jyzRu4+e33kz9hRoBgbumPYtIABZn3Vh1bfZmoHHFqZqAgMslW@lists.infradead.org
+X-Gm-Message-State: AOJu0YycAt4RtmHotvNzmA5xcHThZc5AORuBb4jbe+ekltUwk+RWGboE
+	w+CuFbgfuWMk1IPK3J3XO+hOb868Uto1iU0zF98jb/HIsqD5ks03moTuGaW7wrCnNdg=
+X-Gm-Gg: ASbGncsSBaY6DYQ3CWvQzG/Mnwy8zsiu46HFJ51BTp49d8QfxiJ20IuJz93HLRct0zp
+	yGyi4n+a4aLftr08XrK1oJ+bmBFPI82JCmH8UVKUNay9QeQtWe3dRUK//eB9DF3VHAel4Ju0c69
+	mw6d7GlNq6FERVDbVLE7mMSS+ToTOU3hdAJliVr1e6divM4MtFJySc0GFik2N7kDJyqz5rewCRp
+	CXbBdnU83sfv7vAs39jQATy5mFhBw+8T3WfWaX50YzJa5RlUe6BuJCvnHxARffIr44Rp89p0VhB
+	jd8t1CN2NHN0WwDCPleePlAQEWYHWEp9+R/igRiCOkZeQ1iWmD1WeR18iABMU2Nk78Xh7Nse7VC
+	R56J8yKow21fTEyk1F5846bT/H1pdZSeo8bR/pjm7b6QGz8ZMYxXRv2icq15iRP3TZFKMF2UDzx
+	eUs7yXjyZOzhyNaCV/akVZMW47mXsnvX4v84Z0b+btlxQNIPcRa6VOfVVtU7AKUGXh
+X-Google-Smtp-Source: AGHT+IEUmE6xkdZeJdkLL9TsBhYJubk/EzndUqe5eNZwoBqgNfIIOlpziTlRhmGHtKqRgY6aB2HfsQ==
+X-Received: by 2002:a17:907:7b91:b0:b2c:3967:eb71 with SMTP id a640c23a62f3a-b30268949e6mr298598066b.3.1758638278355;
+        Tue, 23 Sep 2025 07:37:58 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b2a2a5f6c7asm665204666b.28.2025.09.23.07.37.56
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b2a2a5f6c7asm665204666b.28.2025.09.23.07.37.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 07:37:56 -0700 (PDT)
+        Tue, 23 Sep 2025 07:37:58 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Frank Li <Frank.Li@nxp.com>,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 5/6] ARM: dts: imx6ull-engicam-microgea-bmm: set touchscreen glitch threshold
-Date: Tue, 23 Sep 2025 16:37:36 +0200
-Message-ID: <20250923143746.2857292-6-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org
+Subject: [PATCH v6 6/6] Input: imx6ul_tsc - set glitch threshold by DTS property
+Date: Tue, 23 Sep 2025 16:37:37 +0200
+Message-ID: <20250923143746.2857292-7-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250923143746.2857292-1-dario.binacchi@amarulasolutions.com>
 References: <20250923143746.2857292-1-dario.binacchi@amarulasolutions.com>
@@ -93,8 +91,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_073758_816032_F58C616A 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250923_073800_369371_3C4CC964 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,8 +107,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This way the detected signal is valid only if it lasts longer than
-62 µs, otherwise it is not sampled.
+Set the glitch threshold by DTS property and keep the existing default
+behavior if the 'debounce-delay-us' is not present.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
@@ -118,27 +116,106 @@ Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
 
 Changes in v6:
-- Rename touchscreen-glitch-threshold-ns to debounce-delay-us and
-  update the value.
+- Rename the deglitch property from touchscreen-glitch-threshold-ns to
+  debounce-delay-us.
+- Read the DTS debounce-delay-us instead of touchscreen-glitch-threshold-ns.
+- Udpate the cycles calculation.
 
 Changes in v5:
+- I didn’t remove patches:
+   - 2/6 Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros
+   - 1/6 Input: imx6ul_tsc - fix typo in register name
+  even though they were accepted, to avoid generating conflicts detected
+  by the kernel test robot.
+- Re-work the commit message
 - Add Reviewed-by tag of Frank Li
 
- arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v4:
+- Adjust property description fsl,imx6ul-tsc.yaml following the
+  suggestions of Conor Dooley and Frank Li.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts
-index 279d46c22cd7..f251a1028355 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts
-@@ -154,6 +154,7 @@ &tsc {
- 	pinctrl-0 = <&pinctrl_tsc>;
- 	measure-delay-time = <0x9ffff>;
- 	pre-charge-time = <0xfff>;
-+	debounce-delay-us = <62>;
- 	xnur-gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
- 	status = "okay";
+Changes in v3:
+- Remove the final part of the description that refers to
+  implementation details in fsl,imx6ul-tsc.yaml.
+
+Changes in v2:
+- Replace patch ("dt-bindings: input: touchscreen: fsl,imx6ul-tsc: add
+  fsl,glitch-threshold") with ("dt-bindings: touchscreen: add
+  touchscreen-glitch-threshold-ns property"), making the previous property
+  general by moving it to touchscreen.yaml.
+- Rework "Input: imx6ul_tsc - set glitch threshold by DTS property" patch
+  to match changes made to the DTS property.
+- Move "Input: imx6ul_tsc - use BIT, FIELD_{GET,PREP} and GENMASK macros"
+  patch right after the patch fixing the typo.
+- Rework to match changes made to the DTS property.
+
+ drivers/input/touchscreen/imx6ul_tsc.c | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/input/touchscreen/imx6ul_tsc.c b/drivers/input/touchscreen/imx6ul_tsc.c
+index e2c59cc7c82c..85f697de2b7e 100644
+--- a/drivers/input/touchscreen/imx6ul_tsc.c
++++ b/drivers/input/touchscreen/imx6ul_tsc.c
+@@ -79,7 +79,7 @@
+ #define MEASURE_SIG_EN		BIT(0)
+ #define VALID_SIG_EN		BIT(8)
+ #define DE_GLITCH_MASK		GENMASK(30, 29)
+-#define DE_GLITCH_2		0x02
++#define DE_GLITCH_DEF		0x02
+ #define START_SENSE		BIT(12)
+ #define TSC_DISABLE		BIT(16)
+ #define DETECT_MODE		0x2
+@@ -98,6 +98,7 @@ struct imx6ul_tsc {
+ 	u32 pre_charge_time;
+ 	bool average_enable;
+ 	u32 average_select;
++	u32 de_glitch;
+ 
+ 	struct completion completion;
  };
+@@ -205,7 +206,7 @@ static void imx6ul_tsc_set(struct imx6ul_tsc *tsc)
+ 	basic_setting |= AUTO_MEASURE;
+ 	writel(basic_setting, tsc->tsc_regs + REG_TSC_BASIC_SETTING);
+ 
+-	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, DE_GLITCH_2);
++	debug_mode2 = FIELD_PREP(DE_GLITCH_MASK, tsc->de_glitch);
+ 	writel(debug_mode2, tsc->tsc_regs + REG_TSC_DEBUG_MODE2);
+ 
+ 	writel(tsc->pre_charge_time, tsc->tsc_regs + REG_TSC_PRE_CHARGE_TIME);
+@@ -391,6 +392,7 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
+ 	int tsc_irq;
+ 	int adc_irq;
+ 	u32 average_samples;
++	u32 de_glitch;
+ 
+ 	tsc = devm_kzalloc(&pdev->dev, sizeof(*tsc), GFP_KERNEL);
+ 	if (!tsc)
+@@ -513,6 +515,25 @@ static int imx6ul_tsc_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
+ 
++	err = of_property_read_u32(np, "debounce-delay-us", &de_glitch);
++	if (err) {
++		tsc->de_glitch = DE_GLITCH_DEF;
++	} else {
++		u64 cycles;
++		unsigned long rate = clk_get_rate(tsc->tsc_clk);
++
++		cycles = DIV64_U64_ROUND_UP((u64)de_glitch * rate, USEC_PER_SEC);
++
++		if (cycles <= 0x3ff)
++			tsc->de_glitch = 3;
++		else if (cycles <= 0x7ff)
++			tsc->de_glitch = 2;
++		else if (cycles <= 0xfff)
++			tsc->de_glitch = 1;
++		else
++			tsc->de_glitch = 0;
++	}
++
+ 	err = input_register_device(tsc->input);
+ 	if (err) {
+ 		dev_err(&pdev->dev,
 -- 
 2.43.0
 
