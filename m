@@ -4,99 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98D6CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998AFCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eq3dfyrFYclljj1qT31cA5X22L5O+KUSooUYqpQO2X0=; b=AafgkmWydk7TXdDDosOjbJLBbu
-	OvRDbN04IrdLhKxGRSEwaeTdcBRCq/p6shNZH68bXVGgI0iULLSnjfUm7F82WPqwqa+ZXMzWC3cDk
-	tpln7tRbQiXxMxHu2Xs47UvSsza1lA2uOfKCCj8gqojhGT1hFRsb9W6UvtilL/6z0snw7T8paE6Ql
-	2869Elf/SGsrzpDnCnfsGhKU7CRUgwF5NYU3VOKGiqQfReJapouVHhpikm22DFDMRoTdfPfsEAmab
-	3bGwMEgxaGxLRVhr/PKJxAOJXHmn/SnyWulDke6zZWZ/5TksgNG83QGZkgPBRP549+aqvm1DY1H7g
-	DM24SLYA==;
+	bh=TiMGsq6XPaRxTuMMoW+mEb6/vs7hCKzZ6AU5Tv2hacw=; b=rnSLbhHii1W1SIlJ20G9L/IH0J
+	O4JXSTfu0NtIZI9tCj8tcucdJGuKh4a5QcCL1pjg+VIoun5R+4fhC9kHisdd3FQywC98Gx3ZU6KrX
+	8EV224YvC2qx6GA74b6viOoQdILDOXSChw5u6PVfLGpJzg92SS2WRHGwlFVCKdhAEPfyg4NHP+6Ks
+	oeY9htWsGERAbLH+v08VSsJI5MDe57Gp73fmb9k+CmbdUWvGfAosV4sOgFJInXNK/C1b/D5/GffLu
+	wp9mmMMg4/a0AlwkQPv9451qbdxo1Vp+LrgZiCYjPLVDEYxwf7tX18pIOndaLhZtO6xScmsGpwmKb
+	UE64Ny9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v12ae-0000000DNjL-19ve;
-	Tue, 23 Sep 2025 12:57:52 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1v12as-0000000DNqT-0B6l;
+	Tue, 23 Sep 2025 12:58:06 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v12ab-0000000DNi0-1xhk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 12:57:51 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b0b6bf0097aso1006507566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 05:57:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1758632267; x=1759237067; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eq3dfyrFYclljj1qT31cA5X22L5O+KUSooUYqpQO2X0=;
-        b=ZsJ4W6KQ7hxtZP1+LQXmcDqj75d1Fleik9bAjRDZdxs8VKRsZWTfUUOSIpz51dBWfr
-         OvxZPNIkaA1InalrQwNY82IE0Zo+mnC7l9/m2r/CtJ8Spl73G4TfQpbN8zoa5GNenQou
-         vSD4m826EK1tzBSNcSH6r2adplZt7KMwzEfS0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758632267; x=1759237067;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eq3dfyrFYclljj1qT31cA5X22L5O+KUSooUYqpQO2X0=;
-        b=TliTst4pjIzxo8jD/qKWngaQXcaPQfQ9PbZJDJ54tBi0Vqrjz5zcJ6YIjTX0BTXAnB
-         F2tXQyqbfX82C4qIq4wlEeWLQL2MlZstHYUyMgfOJvL69l6SSBTjDxstq/5vlWGRwxcv
-         b2HhpTO19E6UYjNt/dTZaympziK/P3ERxGMFCJFPjDcwdFWy2x1JwSe7TjZu72R8bch9
-         Fp4bf2fjoLmpvIdFIzB4XmlcC+leGXJtV43lJJv/Kg/1mGPoOCm8ao65JPxZ41y82auE
-         kz/QRuS2PiDG+nrdEEUqGQRsu6Qu1Lvz/7QhCTfpnCxpCDCrchZelPKUIdGQYNwtbhLp
-         8H+g==
-X-Forwarded-Encrypted: i=1; AJvYcCV5SuauqBqsFQ+iT9FAAUV9AS5rqLdx4bKLS74RcDS/QflVNDeUqf/x8hvqaO8V3g0nQEkWazLhM8ClJ9n3TNi8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGklcOAjCanvuYl7eQ7h66c9kHzDjlsuV+uUKih+8dSp9CGHS/
-	oGVmFZYKEm7qbKxIuJP/qFM1fssxWQOR2N5xtseJXSkTCQNI1MRP3NnmWx/du5u10xc=
-X-Gm-Gg: ASbGnct6Iucru/8yLMJlZYwOy31Yim7yDAqXlPO4VjXItiJ7vEjAIC172NvIqdEzdUM
-	++C86QEjmXeDq/1rtcBXGpMmf9GPri/dcNBjvsaZgxPSbzJL8lOKiOuMVKOXwhH5ffmTdjmdK/h
-	wrS6XT70PsB6I6XLR/5XVLa+g7JCxr5nyeG3TbpTknTMn1kc8+f0YMs0cYgunrP5ZvAgGVX7CPy
-	RuGnwFMUs6gIesbQLXf43PcN1YY284IpD1ktbv1srvTCL8han4jSCRC5+K2vIkYJY31z/S/fiBl
-	uEAWvTHef2MhcSJDyoPDXuojvb8DWZN5JvmFnqQFL9HzXP3TzTgSsVbCgmBdT0lQaCtIca+T6f1
-	umXDkhGgwiKvzEzwXSmTmF3ymwQq4DZZGpax1JF6Srb+7HVZ/Ugq50tg80+SCZxjoU4cljToWdX
-	3HVxyOMY5StT9ypd9BIegAYVTVUhswC+OMymnncCtv0c+vLrjnIsj5G0MQHwzqXjn6
-X-Google-Smtp-Source: AGHT+IFGakYPF5iPMB1/+894VRlbLwCXmeQPzZ6Q8KuBpQCg4xITr20xSCf3DfifCufaTwJ53CPxGg==
-X-Received: by 2002:a17:906:f58a:b0:b2a:dc08:5914 with SMTP id a640c23a62f3a-b302ad3922bmr241240166b.45.1758632267240;
-        Tue, 23 Sep 2025 05:57:47 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b2761cb532esm872331166b.67.2025.09.23.05.57.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 05:57:46 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	sebastian.reichel@collabora.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Eric Anholt <eric@anholt.net>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH v7 2/3] dt-bindings: arm: bcm: raspberrypi,bcm2835-firmware: Add touchscreen child node
-Date: Tue, 23 Sep 2025 14:57:11 +0200
-Message-ID: <20250923125741.2705551-2-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250923125741.2705551-1-dario.binacchi@amarulasolutions.com>
-References: <20250923125741.2705551-1-dario.binacchi@amarulasolutions.com>
+	id 1v12ap-0000000DNo7-39Xq;
+	Tue, 23 Sep 2025 12:58:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758632268; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YTayCFrWd6rTcDAoATSnM0jCA3h2mzracFb/11E6MitxsFo+zcLvZ8yexJSuoEEcnrS351UhX3rJHCR3WUqIizdqJaiHuFiKNyCdqjbhHM/ssz9JNG3KExP+Sh8+PosQbjvjVzCFWj1jsiTV1efknVRl6TDLZPRuJTayjm9lZbM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1758632268; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=TiMGsq6XPaRxTuMMoW+mEb6/vs7hCKzZ6AU5Tv2hacw=; 
+	b=ZNUoYFUwo/cLNpSyPUvJKKt3Z/ensfxvqlPtIeg9jd8XywYzNvmhtQaQdwKEHJ7uTkppHe397znCqaWisREfbLvmowSdiNUVi7ht/hjMKeRcXimMKwmM/83GSq/ZFogvK5HJeKFupEztK3ZG92Fa8xxPt1BFivl7930gX+3sOME=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758632268;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=TiMGsq6XPaRxTuMMoW+mEb6/vs7hCKzZ6AU5Tv2hacw=;
+	b=EWtnAt4heAJugIaCYzxoLVIfVd4KEffARNPn2gbjUhYn/8GYVUrcCOHzAhtZ1qe2
+	cSAMDXRazPxFXMAD4LttfOU4dxjD4Tnys9A1zA2uT9Taaa0hqTNsH6lkduDOgBQ3bRx
+	lJmEyeK7dWQozbUAhW1TCZ9sjJCZS+ZxiS/pVvXc=
+Received: by mx.zohomail.com with SMTPS id 1758632266182776.1698281398124;
+	Tue, 23 Sep 2025 05:57:46 -0700 (PDT)
+Message-ID: <e2c590a8-b77a-4878-891c-3e0f977e2d09@collabora.com>
+Date: Tue, 23 Sep 2025 14:57:41 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] media: verisilicon: Fix CPU stalls on G2 bus error
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Hans Verkuil <hverkuil@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ Stable@vger.kernel.org
+References: <20250922-imx8mq-hantro-g2-hang-v1-0-67d00eb6a548@collabora.com>
+ <20250922-imx8mq-hantro-g2-hang-v1-1-67d00eb6a548@collabora.com>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20250922-imx8mq-hantro-g2-hang-v1-1-67d00eb6a548@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_055749_548620_0F29C12B 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250923_055803_865834_62D078B1 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,114 +88,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Raspberry Pi firmware 7" touchscreen controller device tree
-binding to json-schema.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Le 22/09/2025 à 20:43, Nicolas Dufresne a écrit :
+> In some seek stress tests, we are getting IRQ from the G2 decoder where
+> the dec_bus_int and the dec_e bits are high, meaning the decoder is
+> still running despite the error.
+>
+> Fix this by reworking the IRQ handler to only finish the job once we
+> have reached completion and move the software reset to when our software
+> watchdog triggers.
+>
+> This way, we let the hardware continue on errors when it did not self
+> reset and in worse case scenario the hardware timeout will
+> automatically stop it. The actual error will be fixed in a follow up
+> patch.
+>
+> Fixes: 3385c514ecc5a ("media: hantro: Convert imx8m_vpu_g2_irq to helper")
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
----
+Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
-Changes in v7:
-- Add $ref: /schemas/input/touchscreen/touchscreen.yaml#
-
-Changes in v5:
-- Move bindings into raspberrypi,bcm2835-firmware.yaml
-- Remove raspberrypi,firmware-ts.yaml
-- Update the commit message
-
-Changes in v3:
-- Drop firmware-rpi node and use only touchscreen node to fix warnings
-  you can see in
-  https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
-
-Changes in v2:
-- Added in v2
-
- .../arm/bcm/raspberrypi,bcm2835-firmware.yaml | 28 +++++++++++++++++++
- .../touchscreen/raspberrypi,firmware-ts.txt   | 26 -----------------
- 2 files changed, 28 insertions(+), 26 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-
-diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-index 1f84407a73e4..8349c0a854d9 100644
---- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-+++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-@@ -103,6 +103,28 @@ properties:
-       - compatible
-       - "#pwm-cells"
- 
-+  touchscreen:
-+    type: object
-+    $ref: /schemas/input/touchscreen/touchscreen.yaml#
-+    additionalProperties: false
-+
-+    properties:
-+      compatible:
-+        const: raspberrypi,firmware-ts
-+
-+      firmware:
-+        deprecated: true
-+        description: Phandle to RPi's firmware device node.
-+
-+      touchscreen-size-x: true
-+      touchscreen-size-y: true
-+      touchscreen-inverted-x: true
-+      touchscreen-inverted-y: true
-+      touchscreen-swapped-x-y: true
-+
-+    required:
-+      - compatible
-+
- required:
-   - compatible
-   - mboxes
-@@ -135,5 +157,11 @@ examples:
-             compatible = "raspberrypi,firmware-poe-pwm";
-             #pwm-cells = <2>;
-         };
-+
-+        ts: touchscreen {
-+            compatible = "raspberrypi,firmware-ts";
-+            touchscreen-size-x = <800>;
-+            touchscreen-size-y = <480>;
-+        };
-     };
- ...
-diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-deleted file mode 100644
-index 2a1af240ccc3..000000000000
---- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
-+++ /dev/null
-@@ -1,26 +0,0 @@
--Raspberry Pi firmware based 7" touchscreen
--=====================================
--
--Required properties:
-- - compatible: "raspberrypi,firmware-ts"
--
--Optional properties:
-- - firmware: Reference to RPi's firmware device node
-- - touchscreen-size-x: See touchscreen.txt
-- - touchscreen-size-y: See touchscreen.txt
-- - touchscreen-inverted-x: See touchscreen.txt
-- - touchscreen-inverted-y: See touchscreen.txt
-- - touchscreen-swapped-x-y: See touchscreen.txt
--
--Example:
--
--firmware: firmware-rpi {
--	compatible = "raspberrypi,bcm2835-firmware";
--	mboxes = <&mailbox>;
--
--	ts: touchscreen {
--		compatible = "raspberrypi,firmware-ts";
--		touchscreen-size-x = <800>;
--		touchscreen-size-y = <480>;
--	};
--};
--- 
-2.43.0
-
-base-commit: cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
-branch: drop-touchscreen.txt
+> ---
+>   drivers/media/platform/verisilicon/hantro_g2.c     | 88 +++++++++++++++++-----
+>   .../platform/verisilicon/hantro_g2_hevc_dec.c      |  2 -
+>   .../media/platform/verisilicon/hantro_g2_regs.h    | 13 ++++
+>   .../media/platform/verisilicon/hantro_g2_vp9_dec.c |  2 -
+>   drivers/media/platform/verisilicon/hantro_hw.h     |  1 +
+>   drivers/media/platform/verisilicon/imx8m_vpu_hw.c  |  2 +
+>   6 files changed, 85 insertions(+), 23 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/hantro_g2.c b/drivers/media/platform/verisilicon/hantro_g2.c
+> index aae0b562fabb1732b08bcd88b9007749a7849ba6..318673b66da884b89f31777dd8e69a934080cebf 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g2.c
+> +++ b/drivers/media/platform/verisilicon/hantro_g2.c
+> @@ -5,43 +5,93 @@
+>    * Copyright (C) 2021 Collabora Ltd, Andrzej Pietrasiewicz <andrzej.p@collabora.com>
+>    */
+>   
+> +#include <linux/delay.h>
+>   #include "hantro_hw.h"
+>   #include "hantro_g2_regs.h"
+>   
+>   #define G2_ALIGN	16
+>   
+> -void hantro_g2_check_idle(struct hantro_dev *vpu)
+> +static bool hantro_g2_active(struct hantro_ctx *ctx)
+>   {
+> -	int i;
+> -
+> -	for (i = 0; i < 3; i++) {
+> -		u32 status;
+> -
+> -		/* Make sure the VPU is idle */
+> -		status = vdpu_read(vpu, G2_REG_INTERRUPT);
+> -		if (status & G2_REG_INTERRUPT_DEC_E) {
+> -			dev_warn(vpu->dev, "device still running, aborting");
+> -			status |= G2_REG_INTERRUPT_DEC_ABORT_E | G2_REG_INTERRUPT_DEC_IRQ_DIS;
+> -			vdpu_write(vpu, status, G2_REG_INTERRUPT);
+> -		}
+> +	struct hantro_dev *vpu = ctx->dev;
+> +	u32 status;
+> +
+> +	status = vdpu_read(vpu, G2_REG_INTERRUPT);
+> +
+> +	return (status & G2_REG_INTERRUPT_DEC_E);
+> +}
+> +
+> +/**
+> + * hantro_g2_reset:
+> + * @ctx: the hantro context
+> + *
+> + * Emulates a reset using Hantro abort function. Failing this procedure would
+> + * results in programming a running IP which leads to CPU hang.
+> + *
+> + * Using a hard reset procedure instead is prefferred.
+> + */
+> +void hantro_g2_reset(struct hantro_ctx *ctx)
+> +{
+> +	struct hantro_dev *vpu = ctx->dev;
+> +	u32 status;
+> +
+> +	status = vdpu_read(vpu, G2_REG_INTERRUPT);
+> +	if (status & G2_REG_INTERRUPT_DEC_E) {
+> +		dev_warn_ratelimited(vpu->dev, "device still running, aborting");
+> +		status |= G2_REG_INTERRUPT_DEC_ABORT_E | G2_REG_INTERRUPT_DEC_IRQ_DIS;
+> +		vdpu_write(vpu, status, G2_REG_INTERRUPT);
+> +
+> +		do {
+> +			mdelay(1);
+> +		} while (hantro_g2_active(ctx));
+>   	}
+>   }
+>   
+>   irqreturn_t hantro_g2_irq(int irq, void *dev_id)
+>   {
+>   	struct hantro_dev *vpu = dev_id;
+> -	enum vb2_buffer_state state;
+>   	u32 status;
+>   
+>   	status = vdpu_read(vpu, G2_REG_INTERRUPT);
+> -	state = (status & G2_REG_INTERRUPT_DEC_RDY_INT) ?
+> -		 VB2_BUF_STATE_DONE : VB2_BUF_STATE_ERROR;
+>   
+> -	vdpu_write(vpu, 0, G2_REG_INTERRUPT);
+> -	vdpu_write(vpu, G2_REG_CONFIG_DEC_CLK_GATE_E, G2_REG_CONFIG);
+> +	if (!(status & G2_REG_INTERRUPT_DEC_IRQ))
+> +		return IRQ_NONE;
+> +
+> +	hantro_reg_write(vpu, &g2_dec_irq, 0);
+> +	hantro_reg_write(vpu, &g2_dec_int_stat, 0);
+> +	hantro_reg_write(vpu, &g2_clk_gate_e, 1);
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_RDY_INT) {
+> +		hantro_irq_done(vpu, VB2_BUF_STATE_DONE);
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_ABORT_INT) {
+> +		/* disabled on abort, though lets be safe and handle it */
+> +		dev_warn_ratelimited(vpu->dev, "decode operation aborted.");
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_LAST_SLICE_INT)
+> +		dev_warn_ratelimited(vpu->dev, "not all macroblocks were decoded.");
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_BUS_INT)
+> +		dev_warn_ratelimited(vpu->dev, "bus error detected.");
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_ERROR_INT)
+> +		dev_warn_ratelimited(vpu->dev, "decode error detected.");
+> +
+> +	if (status & G2_REG_INTERRUPT_DEC_TIMEOUT)
+> +		dev_warn_ratelimited(vpu->dev, "frame decode timed out.");
+>   
+> -	hantro_irq_done(vpu, state);
+> +	/**
+> +	 * If the decoding haven't stopped, let it continue. The hardware timeout
+> +	 * will trigger if it is trully stuck.
+> +	 */
+> +	if (status & G2_REG_INTERRUPT_DEC_E)
+> +		return IRQ_HANDLED;
+>   
+> +	hantro_irq_done(vpu, VB2_BUF_STATE_ERROR);
+>   	return IRQ_HANDLED;
+>   }
+>   
+> diff --git a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+> index 0e212198dd65b1cc27770ca93b14aa96e2772ac4..f066636e56f98560d9b1c5036691e3c34dd13b1f 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+> +++ b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+> @@ -582,8 +582,6 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx)
+>   	struct hantro_dev *vpu = ctx->dev;
+>   	int ret;
+>   
+> -	hantro_g2_check_idle(vpu);
+> -
+>   	/* Prepare HEVC decoder context. */
+>   	ret = hantro_hevc_dec_prepare_run(ctx);
+>   	if (ret)
+> diff --git a/drivers/media/platform/verisilicon/hantro_g2_regs.h b/drivers/media/platform/verisilicon/hantro_g2_regs.h
+> index b943b1816db7fd11eee063ecd7b082a5ed6c6f90..c614951121c79cf5c3bd4d086e596f60fba12459 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g2_regs.h
+> +++ b/drivers/media/platform/verisilicon/hantro_g2_regs.h
+> @@ -22,7 +22,14 @@
+>   #define G2_REG_VERSION			G2_SWREG(0)
+>   
+>   #define G2_REG_INTERRUPT		G2_SWREG(1)
+> +#define G2_REG_INTERRUPT_DEC_LAST_SLICE_INT	BIT(19)
+> +#define G2_REG_INTERRUPT_DEC_TIMEOUT	BIT(18)
+> +#define G2_REG_INTERRUPT_DEC_ERROR_INT	BIT(16)
+> +#define G2_REG_INTERRUPT_DEC_BUF_INT	BIT(14)
+> +#define G2_REG_INTERRUPT_DEC_BUS_INT	BIT(13)
+>   #define G2_REG_INTERRUPT_DEC_RDY_INT	BIT(12)
+> +#define G2_REG_INTERRUPT_DEC_ABORT_INT	BIT(11)
+> +#define G2_REG_INTERRUPT_DEC_IRQ	BIT(8)
+>   #define G2_REG_INTERRUPT_DEC_ABORT_E	BIT(5)
+>   #define G2_REG_INTERRUPT_DEC_IRQ_DIS	BIT(4)
+>   #define G2_REG_INTERRUPT_DEC_E		BIT(0)
+> @@ -35,6 +42,9 @@
+>   #define BUS_WIDTH_128			2
+>   #define BUS_WIDTH_256			3
+>   
+> +#define g2_dec_int_stat		G2_DEC_REG(1, 11, 0xf)
+> +#define g2_dec_irq		G2_DEC_REG(1, 8, 0x1)
+> +
+>   #define g2_strm_swap		G2_DEC_REG(2, 28, 0xf)
+>   #define g2_strm_swap_old	G2_DEC_REG(2, 27, 0x1f)
+>   #define g2_pic_swap		G2_DEC_REG(2, 22, 0x1f)
+> @@ -225,6 +235,9 @@
+>   #define vp9_filt_level_seg5	G2_DEC_REG(19,  8, 0x3f)
+>   #define vp9_quant_seg5		G2_DEC_REG(19,  0, 0xff)
+>   
+> +#define g2_timemout_override_e	G2_DEC_REG(45, 31, 0x1)
+> +#define g2_timemout_cycles	G2_DEC_REG(45, 0, 0x7fffffff)
+> +
+>   #define hevc_cur_poc_00		G2_DEC_REG(46, 24, 0xff)
+>   #define hevc_cur_poc_01		G2_DEC_REG(46, 16, 0xff)
+>   #define hevc_cur_poc_02		G2_DEC_REG(46, 8,  0xff)
+> diff --git a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> index 82a478ac645e1daf730bf7aa53f825508556d3b2..56c79e339030e8076c386d7c48d976e102971d6d 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> +++ b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> @@ -893,8 +893,6 @@ int hantro_g2_vp9_dec_run(struct hantro_ctx *ctx)
+>   	struct vb2_v4l2_buffer *dst;
+>   	int ret;
+>   
+> -	hantro_g2_check_idle(ctx->dev);
+> -
+>   	ret = start_prepare_run(ctx, &decode_params);
+>   	if (ret) {
+>   		hantro_end_prepare_run(ctx);
+> diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
+> index c9b6556f8b2b78b94e11c6f1374b395ca02f16ff..5f2011529f02dc6f8260f10a579bf1cd4e6c2edf 100644
+> --- a/drivers/media/platform/verisilicon/hantro_hw.h
+> +++ b/drivers/media/platform/verisilicon/hantro_hw.h
+> @@ -583,6 +583,7 @@ void hantro_g2_vp9_dec_done(struct hantro_ctx *ctx);
+>   int hantro_vp9_dec_init(struct hantro_ctx *ctx);
+>   void hantro_vp9_dec_exit(struct hantro_ctx *ctx);
+>   void hantro_g2_check_idle(struct hantro_dev *vpu);
+> +void hantro_g2_reset(struct hantro_ctx *ctx);
+>   irqreturn_t hantro_g2_irq(int irq, void *dev_id);
+>   
+>   #endif /* HANTRO_HW_H_ */
+> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> index f9f276385c11786c4fda9f02f71ec699f57b84f5..5be0e2e76882f1e21359d3e7cf7f6213ee728ea5 100644
+> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
+> @@ -294,11 +294,13 @@ static const struct hantro_codec_ops imx8mq_vpu_g1_codec_ops[] = {
+>   static const struct hantro_codec_ops imx8mq_vpu_g2_codec_ops[] = {
+>   	[HANTRO_MODE_HEVC_DEC] = {
+>   		.run = hantro_g2_hevc_dec_run,
+> +		.reset = hantro_g2_reset,
+>   		.init = hantro_hevc_dec_init,
+>   		.exit = hantro_hevc_dec_exit,
+>   	},
+>   	[HANTRO_MODE_VP9_DEC] = {
+>   		.run = hantro_g2_vp9_dec_run,
+> +		.reset = hantro_g2_reset,
+>   		.done = hantro_g2_vp9_dec_done,
+>   		.init = hantro_vp9_dec_init,
+>   		.exit = hantro_vp9_dec_exit,
+>
 
