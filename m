@@ -4,104 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87286CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 342CACAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=; b=3DYgkGeJxx7GIMd4c4lLUCB6FD
-	VZ1y7lj+oGf4+5bDe+oWoNZRRaOJ1ojsgpyAzrGgkqCgBeiNHKC2kJaSh0pQhacr01sKggENvSYRp
-	L0Xidh7uu1O7CX/KkaYZGqFlULqXpJyl8iZyB83cvx7MJEW+617xGoGHouH9ZJXZdau7oRooqytA3
-	kKgXHqJMR32RSsLPKZH1EWRCO8ywpPjxgXFfQiozXV8Fx8HYLeR8940A3dn86szBVNZ2BOadQBHjD
-	hadF7b4rDYhC+N3Dwp4cRIuhYx5E7cHysOTCRTYGiYGtdNqDMfBGr8PhJMz0RdxI0IUxfCHt+2IPy
-	1E6rVs2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1HVNRKnXwN1l3v7rGC9v9wEQAvyOTqKaPM0kGZyug6c=; b=x7eRvy5kxnQdllXDyPTcN+v8wg
+	B5vxDDBmgdLBgeZJ2RQFOvDehe+I0bI8Y20sEmcM47Ryd+hyWUHeiAbsK/Ewh9h+kYF7kkK6WDLVR
+	Xn5QvV8R3guklmolUs5wXcDvQowGw9UsnFi3WxG71rQ2vShC07MzhXdOPL7zumal54agK9oI9VBUX
+	sBLQwSw/7TqPKbh90E6GpDJP60G+g3zmUzNCQqbp+fWqqksILrZ33GV5bHNonQjmmq3Ggz4R2ejAm
+	K2ZgSnik7MCZSmahM/Yy2enD3nkuqWNiJX99PCqUO2S2Qcri8u0N52n97yLI9Ma58BhPO80dW4KJ9
+	OS8VM2fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Nw-0000000Ek5G-1M4y;
-	Tue, 23 Sep 2025 20:13:12 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1v19Xg-0000000ElMH-2L43;
+	Tue, 23 Sep 2025 20:23:16 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Nl-0000000EjtP-25dK
+	id 1v19Xd-0000000ElLc-1GzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 20:13:02 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3ee1381b835so3965809f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 13:13:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758658380; x=1759263180; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=;
-        b=USjrlY9Wvx4gUQrOvjdazQ3rkmn28gL6oIuEdUeFisRNAZgaSRNMsNL3Vi35uUgr/C
-         kusMpw1dbIBZGJQQPAsTw9M20JcYWpTbBLkXoV5wA9gr657T25P5+tGdU/9cO4bS1KJw
-         HgB82y6hMWu8XfCxSJaiigw1CIjUdNZFrPtaJCjCMhzROKGhzBEM4KUQKvTokp091EhE
-         gLtBQeMZCZFatfpUGWNqa9Bbc0Vbk8PXswBqQdnyFS0IMGIMHyDvZZdcZGk1pRYO5Y0X
-         noQp9pMXPTH4+kYMGV/0q9UxwrW+vyjrdLvEPzlFv2ucxmXShalVc7zrf5K87zFRp2yu
-         aojg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758658380; x=1759263180;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=;
-        b=Fl0gweZGAM23Bl1Sy/ff6BDvU/g1SEGtJHSCO80ra7JgZdNPXwY/VyuFK087VEne0x
-         qsleLXw3JyzHHt7lF91gce/PSRE5Ix2+bYttvPAl2k7BV4v3VaaTChr4+uthA6AEh/2t
-         c8/Vawdj3TuMJXvBL2IqtiEK0CVvccjxj9TCi9c9VYGcs81og+gGXDqApe/Hfrkwh10R
-         uSEosps80vKCemZzAlEHV563FQLBLQIv9eLTlL1dtixhnqtSYcju9YLDyTDE3k5dRpjy
-         hNObQmDs+TaviLZnQ9Rt/sC9QuTLLLRBgkIbdBUOazdd1gmTx1FmNwtis4z5EzZvVTNt
-         JYiA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJ7Bl/ebhCsQSV3GlpOHKWqLX/pd8srpx9bHhN/ABPpimSJ4se0vJuDdKxUcewLBnusTDOAcQyJYc/i6BIsHeM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGur6kW2jdUf/RLRHnStqnFYWIYnk9NUwCN6cuhpEqT89pgruu
-	NeE2TqwzPbTZr7siYsB7tABdBE9WDBbBsFmBoUez4h1rd4AGU9BLZX/b
-X-Gm-Gg: ASbGncsEirHijCn+r/fptUlY1UGYnz6mjymiQWJDRMEeJprMT7/jmk236YecJn1iQqe
-	3zSASmc9M5erb8hixEwrJ6Ph+4aNywtl8u2vwn8vS+nNEW/CDCw3vKEpqOG4DxlXJVjT4gWE7Nl
-	gLtc4zluIOf+/j4VcjNs6F4wnZP8XpziMJCXYvQehZzMTEqxnktF+12W1E25l7SXOynuLncR5sM
-	eipcOOKaj5yNdNQCiW7K1cZihXr0uZ7ZvbJKDHYouyYtzhmXBt4i/Mq2LkbrqoBImD4ThMyVwgW
-	CKq81bGYGUB3aRUrcsZT/BpkdUdOo+DplJxjjBm3am1NYLRHOrm9mYrdO9HHXOCfjcDdC96D7dT
-	bWb0tiQUExJkFcR7vSfvYqDXIi9WWV92XN7k3F/komWTw+Bg+osomqHliOL0b/VKQN9HcSL4=
-X-Google-Smtp-Source: AGHT+IFbHn8VL6NabBiNOJDmra87r8MK+4nqnknbe3Uap+qkSdJFvH4B0H/cqDTPX4N5G1MGJJWP8Q==
-X-Received: by 2002:a5d:5889:0:b0:3ec:d78d:8fde with SMTP id ffacd0b85a97d-405cb7bbd49mr3615361f8f.44.1758658379499;
-        Tue, 23 Sep 2025 13:12:59 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ee141e9cf7sm24889690f8f.12.2025.09.23.13.12.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 13:12:59 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	upstream@airoha.com
-Subject: [PATCH v2 4/4] PCI: mediatek: add support for Airoha AN7583 SoC
-Date: Tue, 23 Sep 2025 22:12:32 +0200
-Message-ID: <20250923201244.952-5-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250923201244.952-1-ansuelsmth@gmail.com>
-References: <20250923201244.952-1-ansuelsmth@gmail.com>
+	Tue, 23 Sep 2025 20:23:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LTsF5JUhH4cu/9hABfW42YFQJyHWXC1UfezRqEx9hROUk7u6MxXqo2Re6scOIyIxf2GcO0UmRP6HitrgbPB7swUpPWI7AuH9EABuewg0LmVazU0Ae1qHCfbB2dIWk4hT1o41QfGBxae5boCAz2ZieBeF2ZloD88OVvEjufdHKWVjMrlvOOzckM5psXMNQPwptiuoX8Pfsa3xV+91/spB4TM4McMIXp5HF+ipAYgWXCVYNXnq8ONTjFQxF2spLSZ2KfBEetRhw4YeH9mX1yy25ysk2ip7ScVhQyRVa83FxCki6uqkdJd9xlCMfVe2d1We5oUGjuZygNvqKuH7bY68Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1HVNRKnXwN1l3v7rGC9v9wEQAvyOTqKaPM0kGZyug6c=;
+ b=vWn+Xny252HOaBUCmtHW/0rCWF2Xo/7b8yaVocscFLgMSKNE8eiUszRgl2652e3iQGoa8feg0crZoPB/N13xLqT+XtyNT6VbWxP8sQGggErlnhAdg38Zl9nKQbTKfSZqnilmuIR3bqn/q9wDJY7EGlKNT2ayio/HoLxlZ+5HcKbPvldPbk3zedn48zw6gs10oep9dP7coscxPeeSXYuuARkYjgdt4Rsv+VEEsPs0e/iFX4IU5UBiKOFkRifmpqeLIbMkoMfXizqCsxHxmobB27NvtMH8Q8x9z8ZsXvQOy3JS64il9QQ5i7H/ubq9lMlwgPP9Ouvcm7TRgN/30nbNlA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1HVNRKnXwN1l3v7rGC9v9wEQAvyOTqKaPM0kGZyug6c=;
+ b=YIgygczYk0vZCCrjS0OQUs7+JrLKZYsgrBntvDYvttEyknpKwNB2MgHOFq/zKi4rQmgiCmTUxyFMnwaMRp4rwXrz0Bu2iX+0D74ciBltQQmAetAzOo9RyAS44ShbE8udWLgnq6wHqbPiuIExBfpylAVY4Caj6U5AC5XCr5LYVCk29kilz9+i3RdtRlizXbL006U8+eWCWY/JVf7TouWQHV9RI4UBPy7XwhNNlhWUwRgHJppIlY9FqIUkXqfM+Hq6x7AFFeEe83jAHtuj76TphPL7PmWv2+y1rndEj0RD71FB4rKSD6U/oQsKZwC7XLru/Zb4zaf54O4cqEN1kb3ACw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by DB8PR04MB6953.eurprd04.prod.outlook.com (2603:10a6:10:111::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
+ 2025 20:23:04 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
+ 20:23:04 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 0/3] usb: dwc3: add layerscape platform driver use
+ flatten dwc3 core
+Date: Tue, 23 Sep 2025 16:22:47 -0400
+Message-Id: <20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJcB02gC/32NQQ7CIBBFr9LMWgxFpOrKe5imgWEqJBYaMKSm6
+ d3FHsDle8l/f4VMyVOGW7NCouKzj6GCODSATocnMW8rg+DizBUX7JUHO+kBo6NEAYnhCYVRY3e
+ 1RkCdzYlGv+zJR1/Z+fyO6bM/lPZn/8RKyzhD1cmLtEobJe9hmY8YJ+i3bfsC9mkaS64AAAA=
+X-Change-ID: 20250602-ls_dma_coherence-c3c2b6f79db2
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ bjorn.andersson@oss.qualcomm.com, Frank Li <Frank.Li@nxp.com>, 
+ Ze Huang <huang.ze@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758658981; l=2684;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=5y+M5fnKCCkgZEAZMnWMYKoFsDOilNhPTPJEb0iMbIw=;
+ b=Q6ljfRqxNIvbOFcQBvEwfDDoc9fOM2qui3z8A2aTyaTvRHTz0PZKpqJ+Srdj2H1dDdSKffMB6
+ yI55qMtz7YeCwbFs+y+q8nMhADeoGGRJXA5rZXJxOJysV9/7h2Ua9BT
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: AM0PR01CA0170.eurprd01.prod.exchangelabs.com
+ (2603:10a6:208:aa::39) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DB8PR04MB6953:EE_
+X-MS-Office365-Filtering-Correlation-Id: 271e3d2f-e122-47ad-ecfb-08ddfadeffd3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UGJXZVpySTNqcmFkUHFUQUdLOWovZFh5a0J2ZHl2RHFIeDVPSktDYkNnamhL?=
+ =?utf-8?B?VngvaDhkbXJBR0R6NVFkOEp3b1BFRTh4b2xOdHQzZHBXQ0ZrOTdTdlVRc3Av?=
+ =?utf-8?B?R1RLelhPRkRyR2ZDTlEvZC9UdHEzVE5ZVGl1enNqblB3N2xuc1BRTkxqYVRt?=
+ =?utf-8?B?VmRPSzkvZGJFaHZoY0xrN1JlUTR0eWtrbStmNTRObzNPM1FXUFpjK0lRU1RR?=
+ =?utf-8?B?b25janpzYVkrR243bFRLZENIaXQxemNUV2FSOHBnZXBZNEZxTzZXNndiSkhu?=
+ =?utf-8?B?NzZxcnovYmIzcnZVSWMvbFZyMDNBRG94RThMUnJLMytDcUxwa0ZIWHBPd3pI?=
+ =?utf-8?B?WDNkNXZrNkhBZ2ljVk9JWjFzMlE0eTJEc3FYTU1BTmZXMlZTMm94eGtHVnRz?=
+ =?utf-8?B?UTFzZ3RUd3psbzk4Wm5MbGt0cWdEMVE0WUNzcTBkNTV0akJYOUFRaVVrbEI0?=
+ =?utf-8?B?SmI3N0FyWjBZc0ozOFh3eTJkUVhhR3BSY3VGZTlhcjFxWVJBcDNmYURzTEhK?=
+ =?utf-8?B?dHVRV00zeFl4bi81WlpHcENMM3BkOHJEWmYvamV3cGp4dndMUFJTdjlTcXE1?=
+ =?utf-8?B?K3V3T3NpKzgzeFVhcFBoUWNKWkRjbXJGY2lsSHZUdWFNaUpOU2g1RjhRa090?=
+ =?utf-8?B?dkVrc1JQZWlMdFpFYjJUMlpJOTN6aHQ5N00ya05vajNqSktXcmtkWmNJVHhY?=
+ =?utf-8?B?Rlc4QWdrU1ZvN1MzdkVncXJHMEhZMm1kQUlwUkhIemdEZm9XRTZRS3UwUklK?=
+ =?utf-8?B?b01XOXp3NE1aa1JHT3lHL3hsMnArNnJOang2em5TeVRpQTFuSUxwWCtXakdY?=
+ =?utf-8?B?WjRZcEwwZ0ZDSGxZRDVqSFo2RndabkQzMFBiQm9qUTZZYUJNVDhpbGdlQjVG?=
+ =?utf-8?B?enhmb1Ywc2xIdzhvOStucDBJTjJLR3N3VTdxNDJjLzQxZkNrWXo3dTQ5cTNC?=
+ =?utf-8?B?UGtyWTMvUjMyT0drRElrZGVjS0FsSWthUWhDclJaSnNYWml6MjhMbm1ReVFh?=
+ =?utf-8?B?NmF3N1QyY2o0dEtsUWRxODgzVjk1azJQMXAzWnVuMXA3TW5GQjV3dVh2bVFo?=
+ =?utf-8?B?OWR2WFNzMHEvd0Jpb2U5bnRsbFNVWFp4dFZ5bXlUSURJdFJ0b2tGVTRwNTdt?=
+ =?utf-8?B?angrUnVRanBHRW9oQi9PNSt3SmhhWWRoYjB4MS8xbnE2bGlNVkFRRVZjcW1H?=
+ =?utf-8?B?ZmNXTTlUbUhBTW1kZDJzMU9ZN3phQXljUkVvdEk4S3BHM3RBaFVNUExmV2tm?=
+ =?utf-8?B?alZOczdRQ0V2K2cvUnV1ZUwyQkVoVnZTOVhFY3dITCtUMjRYZjFYOThpNExN?=
+ =?utf-8?B?QzZaZmlEUHgvdVFJRk5lUXgxTUZIZTdoWUkzSmZTNXRITCtkZUowU25pTENr?=
+ =?utf-8?B?VlJEWTc1d3JkWm4rR2FRZ1hzbkVrR1NkSVpXZ0hTak9DTlBhSE5PYUxWOGZS?=
+ =?utf-8?B?Vmo4TldQSUlWWHl0ZEYvLy9jNHJBSWIvRkIvVVhlNFdRa2JCS1daRmZQWVhi?=
+ =?utf-8?B?RUtiTWNMamlCelRjakFoemVoYml2cnA0OE5sZXdTZExBQWFqdHMvZkJCRUZu?=
+ =?utf-8?B?ZjN3WWFiY1AxbUlLUHkwRFBkVmZsd0tYaTF2RmZoNzVjK3RsaXIybzluOENw?=
+ =?utf-8?B?bkFuZm9NS3F1SEN6dE43RXJKZ0ZwR0Nud2c3ck5UVUhQeEk5Vjl4R0dqM0xQ?=
+ =?utf-8?B?ZmlCWUpVYXpIQit4M0owMjdEOFJ5MmFPTWNxYmwvNG9WTlpzcGpqc2Q1eGtr?=
+ =?utf-8?B?YWdkWllqZ0R3MnJudGdaMXpMOFNvZ0NVRTI3ZVV2YmVPQVRYUWIzQW5UaTMw?=
+ =?utf-8?B?aVlvRnBRODMvTGlydDFueHRqTWNtVkdkVUcxMlNBbDJTQ3FwWjhpMnZEUmN3?=
+ =?utf-8?B?TU9WeFRhN0taV1JiZXFzU0crZmNybzhXRWQrNUFvajNNa0FMR2dDM2RTQjhJ?=
+ =?utf-8?B?TDdWL3hNa2p6REFaMnpCTmc3cTd5Y2xKMXNKYzF2WWNrL3l0K1c4OGE3TXFQ?=
+ =?utf-8?Q?ajg8wUEIny4OY0JZmTK5QjyQ2Sblms=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OVc3VGMwSnlvSUlKZ1JzZnMxVVVua3JoZnk4Y1drMnpjR0xmV0M5SnV2U29V?=
+ =?utf-8?B?aHJkelUwRStGbUliK05Lc0tDeXF1MjdFb250RWE2VzRWQW9pck0wV2lMTDI1?=
+ =?utf-8?B?QVdkbUgwTFhVbUpSWUhCMUk5Z0pTamo2ZWtpTUlicVdxQSt2ZjBmOHd5M1ZX?=
+ =?utf-8?B?V0g0VmJQcUt0emhiZXZRSWd4SWNFVTJucEg0SzJUY0dRRHoxYXM3YTBGV3lY?=
+ =?utf-8?B?Zm9LMkZYM3BMVkxsRjNhS2JFU0VSYms2TUhScmpmaXpwNDNRSDNaekp3V0J1?=
+ =?utf-8?B?R2NkRXZPaEFCQ1NiczczYmdYTk1aa1FaVjc2SEpKRmc3bURHdkxKR1JoRnQ4?=
+ =?utf-8?B?THVEcTkvQlgrWU05YnJtR2xGOGRmdHN3aExqekNJcWFhbUtSVjA3TjUvYnNt?=
+ =?utf-8?B?eXdDS0l5UUlZcDhsVTFwNlp4NEJudnFYczBhcEVEVW5QdExBZklsd0R1aG5I?=
+ =?utf-8?B?ZWNqUCttNXlKVzNTQVdiZGVnY2xrT0RBRG85NHhOTlBDUzBwM2krNVRzS2JG?=
+ =?utf-8?B?SzNmWVA2S2tYalVHN2FxK0xlRDJHUE42SzVZM0lDalJBUE14V0tYMjBrWkdX?=
+ =?utf-8?B?NktEQ1JQZ2VOMXRSQnhNK0tBZ3pQNHBLalV3Y0xoVEN6YmVJS3k4NkhwZGVH?=
+ =?utf-8?B?UlZSTnBaYzk2WlNNK0p1enFYVFEvTlJWTlZIUk9CaE90Q09LQkdtL1hCbHJa?=
+ =?utf-8?B?WXlwQVh2TXpCdVZqclN1ZHVhNkZieUhxczA1RUtmMWFqZVk2NTMrMXN3U3Jv?=
+ =?utf-8?B?cExqc2k2U1MxTEgvekVlRmRRTEEwaTkremRIK3ZvMHNFeHZLNmExVC95UEww?=
+ =?utf-8?B?ekJpQm5GL0NiYUE3YjE4OENlNGVRZVV4NmVuYTJuY0xYb3AyTXBKaWhJMjd4?=
+ =?utf-8?B?Zlp2VVJtOFZwVkRvMEhoazVPaVU0SFZHek5LNWttSHhjYTBwU3orUUVYWXhm?=
+ =?utf-8?B?L3Ixa3F3KzFyOGdnNkUyOW9iRThvTGxsSVh4YWlvbitkNDNCenJmcFBRQTdP?=
+ =?utf-8?B?NG9wcmJOZmVEMGpIRG81a0g4aFRuTThYK3p1RXZOR1RDS05vQWJqdnVwQzNy?=
+ =?utf-8?B?eGJjb1ppZFEzR1dFSGRoOGdxcTBzQlRPaTEybDkycXlaZEtDOTE3eTNEazhO?=
+ =?utf-8?B?T2hvOXZiZ2I5TGg5UU9FN0UzbGVoQmFQNmtNYzhLcXAzWExOWk5xYmdOZE1p?=
+ =?utf-8?B?aXBSNnlWM3Fzb1VyWEYrMlAwZmtJRElwdnNBTmdRTU5PaUhlR0s2Vm5SMCt2?=
+ =?utf-8?B?Uit2RFVtSTRuYjRQWGhvTDNkV0F5S0ZZdGV6OE80bXg1Ny9FbE1jWnpYakVk?=
+ =?utf-8?B?dG9IMmkyMnJ5RUxmZ2JuRFRKUFJKMlVydEhyZnZDZytSNVJyb3Y1T2xOTWtj?=
+ =?utf-8?B?ZkhzdTJjUGdwVW94NGd0U1VGb2F0MktnYjFTcmVYSVlxVUNiSWk2eFNOeXJz?=
+ =?utf-8?B?RGNvc1U2REt2bDFVcnZqOUlva3o5VGxOY0VPQ21VcWY5cDJzZE5UQmlRVGFi?=
+ =?utf-8?B?KzZ0K21tUFc4SWNOU0hNOThwNEtJUUVKc1FYaUJSdzRQZ0o0V0RIeml6WVI4?=
+ =?utf-8?B?RFJvN0M0dTVqR21uZG9WRkxGWU14Q0dwYW0vUDlLdG5QMStVM21DcTMwTzdS?=
+ =?utf-8?B?ZDV5eUJDWGRlVVVGNW9CY1VBVW44YVVYbjFxZkkzNFJSVkV3Umo1K0FLejdJ?=
+ =?utf-8?B?NnVhcGNSYko0ZWdtU29INy9ieldwQ2JHY0xRZktMQ3FpNFRFQ2FOdWtOYVlN?=
+ =?utf-8?B?MUpmWW5vcUNUT0lxSXhJVTZZcjRXSi95LzhVenZxbHVETkJBWUVyTHlzeU4v?=
+ =?utf-8?B?dlkxMy9DSjFwRDlNam9tMC90WGIvb2hVdUFkMUdROWs0S1NQRDFvdTJWc3Nz?=
+ =?utf-8?B?SnZTakR3cHlqYTA1enM1bXJpaDVNcDNXNE50M1dFUnBKL1Zqb09CV0ZqVmY1?=
+ =?utf-8?B?ak1nL2pIMDlwMDNiOXdNMnJMZU9mR1lCbzFESFJ4bW1ML0pGeTdGODJXQ0xB?=
+ =?utf-8?B?VFpiRHBPeXlkNDBKamlPQTFiTHhmU3NEK0JobGNERG5QSUhpbUNqRzhSQkpK?=
+ =?utf-8?B?WUV1cmFXUGR3L3NMYysxc21BZmhHWWpiNUY2NTlwL2NiSndkbWhzR281ZVUv?=
+ =?utf-8?Q?3mVo=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 271e3d2f-e122-47ad-ecfb-08ddfadeffd3
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 20:23:04.0345
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ViRZptv695E1nGIEGkaGrwyhL0EY8Z8xWWexpUEtqvWhPoVqxT9BLERmAhiW3GmCUyqPqeAbTm8NLcAK5aBEFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6953
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_131301_573214_5898F9CA 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20250923_132313_535466_B75B92AC 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,152 +189,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the second PCIe line present on Airoha AN7583 SoC.
+Add layerscape platform driver use flatten dwc3 core to enable dma-coherence.
+It needs set gsburstcfg0 to 0x2222.
 
-This is based on the Mediatek Gen1/2 PCIe driver and similar to Gen3
-also require workaround for the reset signals.
+There are some several try before:
+[1] https://lore.kernel.org/imx/20240710-ls-dwc-v1-0-62f8cbed31d7@nxp.com/
+[2] https://lore.kernel.org/imx/20240123170206.3702413-1-Frank.Li@nxp.com/
 
-Introduce a new bool to skip having to reset signals and also introduce
-some additional logic to configure the PBUS registers required for
-Airoha SoC.
+[2]: add new property, which was reject because there are no varience in
+the soc. Fortunately the below commit resolve this problem by use software
+managed property.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+d504bfa6cfd1a usb: dwc3: enable CCI support for AMD-xilinx DWC3 controller
+
+[1] was reject because there are not actually dwc wrap at layerscape
+platform. Fortunately Bjorn Andersson's below patch to make it possible
+by use correct dts dwc3 node layer out.
+
+613a2e655d4dc usb: dwc3: core: Expose core driver as library
+
+This resolve problem [1] and [2] by use flatten dwc3 core library.
+
+1. add soc specific compatible string at dt-binding.
+2. create platform driver for layerscape chips and pass down gsbuscfg0 if
+dma-coherence enabled.
+3. update layerscape dts files.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/pci/controller/pcie-mediatek.c | 85 +++++++++++++++++++-------
- 1 file changed, 63 insertions(+), 22 deletions(-)
+Changes in v2:
+- base on drivers/usb/dwc3/dwc3-generic-plat.c
 
-diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-index 24cc30a2ab6c..640d1f1a6478 100644
---- a/drivers/pci/controller/pcie-mediatek.c
-+++ b/drivers/pci/controller/pcie-mediatek.c
-@@ -147,6 +147,7 @@ struct mtk_pcie_port;
-  * @need_fix_class_id: whether this host's class ID needed to be fixed or not
-  * @need_fix_device_id: whether this host's device ID needed to be fixed or not
-  * @no_msi: Bridge has no MSI support, and relies on an external block
-+ * @skip_pcie_rstb: Skip calling RSTB bits on PCIe probe
-  * @device_id: device ID which this host need to be fixed
-  * @ops: pointer to configuration access functions
-  * @startup: pointer to controller setting functions
-@@ -156,6 +157,7 @@ struct mtk_pcie_soc {
- 	bool need_fix_class_id;
- 	bool need_fix_device_id;
- 	bool no_msi;
-+	bool skip_pcie_rstb;
- 	unsigned int device_id;
- 	struct pci_ops *ops;
- 	int (*startup)(struct mtk_pcie_port *port);
-@@ -679,28 +681,30 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
- 		regmap_update_bits(pcie->cfg, PCIE_SYS_CFG_V2, val, val);
- 	}
- 
--	/* Assert all reset signals */
--	writel(0, port->base + PCIE_RST_CTRL);
--
--	/*
--	 * Enable PCIe link down reset, if link status changed from link up to
--	 * link down, this will reset MAC control registers and configuration
--	 * space.
--	 */
--	writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
--
--	/*
--	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
--	 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
--	 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
--	 */
--	msleep(100);
--
--	/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
--	val = readl(port->base + PCIE_RST_CTRL);
--	val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
--	       PCIE_MAC_SRSTB | PCIE_CRSTB;
--	writel(val, port->base + PCIE_RST_CTRL);
-+	if (!soc->skip_pcie_rstb) {
-+		/* Assert all reset signals */
-+		writel(0, port->base + PCIE_RST_CTRL);
-+
-+		/*
-+		 * Enable PCIe link down reset, if link status changed from link up to
-+		 * link down, this will reset MAC control registers and configuration
-+		 * space.
-+		 */
-+		writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
-+
-+		/*
-+		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
-+		 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
-+		 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
-+		 */
-+		msleep(100);
-+
-+		/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
-+		val = readl(port->base + PCIE_RST_CTRL);
-+		val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
-+		       PCIE_MAC_SRSTB | PCIE_CRSTB;
-+		writel(val, port->base + PCIE_RST_CTRL);
-+	}
- 
- 	/* Set up vendor ID and class code */
- 	if (soc->need_fix_class_id) {
-@@ -1105,6 +1109,33 @@ static int mtk_pcie_probe(struct platform_device *pdev)
- 	if (err)
- 		goto put_resources;
- 
-+	if (device_is_compatible(dev, "airoha,an7583-pcie")) {
-+		struct resource_entry *entry;
-+		struct regmap *pbus_regmap;
-+		resource_size_t addr;
-+		u32 args[2], size;
-+
-+		/*
-+		 * Configure PBus base address and base address mask to allow the
-+		 * hw to detect if a given address is accessible on PCIe controller.
-+		 */
-+		pbus_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node,
-+								   "mediatek,pbus-csr",
-+								   ARRAY_SIZE(args),
-+								   args);
-+		if (IS_ERR(pbus_regmap))
-+			return PTR_ERR(pbus_regmap);
-+
-+		entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
-+		if (!entry)
-+			return -ENODEV;
-+
-+		addr = entry->res->start - entry->offset;
-+		regmap_write(pbus_regmap, args[0], lower_32_bits(addr));
-+		size = lower_32_bits(resource_size(entry->res));
-+		regmap_write(pbus_regmap, args[1], GENMASK(31, __fls(size)));
-+	}
-+
- 	return 0;
- 
- put_resources:
-@@ -1205,6 +1236,15 @@ static const struct mtk_pcie_soc mtk_pcie_soc_mt7622 = {
- 	.setup_irq = mtk_pcie_setup_irq,
- };
- 
-+static const struct mtk_pcie_soc mtk_pcie_soc_an7583 = {
-+	.skip_pcie_rstb = true,
-+	.need_fix_class_id = true,
-+	.need_fix_device_id = false,
-+	.ops = &mtk_pcie_ops_v2,
-+	.startup = mtk_pcie_startup_port_v2,
-+	.setup_irq = mtk_pcie_setup_irq,
-+};
-+
- static const struct mtk_pcie_soc mtk_pcie_soc_mt7629 = {
- 	.need_fix_class_id = true,
- 	.need_fix_device_id = true,
-@@ -1215,6 +1255,7 @@ static const struct mtk_pcie_soc mtk_pcie_soc_mt7629 = {
- };
- 
- static const struct of_device_id mtk_pcie_ids[] = {
-+	{ .compatible = "airoha,an7583-pcie", .data = &mtk_pcie_soc_an7583 },
- 	{ .compatible = "mediatek,mt2701-pcie", .data = &mtk_pcie_soc_v1 },
- 	{ .compatible = "mediatek,mt7623-pcie", .data = &mtk_pcie_soc_v1 },
- 	{ .compatible = "mediatek,mt2712-pcie", .data = &mtk_pcie_soc_mt2712 },
--- 
-2.51.0
+commit e0b6dc00c701e600e655417aab1e100b73de821a
+Author: Ze Huang <huang.ze@linux.dev>
+Date:   Sat Sep 13 00:53:48 2025 +0800
+
+    usb: dwc3: add generic driver to support flattened
+
+    To support flattened dwc3 dt model and drop the glue layer, introduce the
+    `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
+    and offers an alternative to the existing glue driver `dwc3-of-simple`.
+
+- Link to v1: https://lore.kernel.org/r/20250602-ls_dma_coherence-v1-0-c67484d6ab64@nxp.com
+
+---
+Frank Li (3):
+      dt-bindings: usb: add missed compatible string for arm64 layerscape
+      usb: dwc3: dwc3-generic-plat: add layerscape dwc3 support
+      arm64: dts: layerscape: add dma-coherent for usb node
+
+ .../devicetree/bindings/usb/fsl,ls1028a.yaml       | 33 ++++++++++++----------
+ arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi     |  3 +-
+ arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi     |  8 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi     |  9 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi     |  9 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi     |  8 ++++--
+ arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi     |  8 ++++--
+ drivers/usb/dwc3/dwc3-generic-plat.c               | 30 +++++++++++++++++++-
+ 8 files changed, 79 insertions(+), 29 deletions(-)
+---
+base-commit: c45d2c21b3889c520bf141d576eaecb25666895c
+change-id: 20250602-ls_dma_coherence-c3c2b6f79db2
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
