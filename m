@@ -4,160 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF90ACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF89CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0lHJleKKp1sduRWliCKRwCZzKVaxlmJiyfuSv8pyDw=; b=RamuhRR5vrLrPJt14wN6opvxux
-	1VqATLddddXiVvtY75V9jjNqKuGxVBocVCZCTor7ElEJKJKQK5vnH7L/jxKOE2nuBlvPCErWtrvan
-	KbbFeSJXznIUsk7lCbiyb1B7m/YRZWcZI3dB69MjtSE+KaPJUL6AKfQa/r51iQzKn60AMsn22mEt5
-	nhqTYchA91jy+190A1HJ9t0Q3mLZ6qb/FOfw4T7ZpR7ejkfg0kD+mLCnOtxWKXtssf94UPvgu2vI5
-	JcfWn5U4xIt/F4Zyh/8z0YGmAmRIfuzrauTITnYDatEge4vlT7Z+xJVc4ndG9UjyWESHv7YbqhSdK
-	SS2lr5Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKdaiczZ8kXJlszT3mmuy/UxfkiCpcw1k93GPopgN3M=; b=Wn0/L+XSZlYESXFT76Mp25fqhV
+	PBwjOTp9axvzq2n4vf5TiakrrUAJzv8Mj7Jjyrg08rlCjKaEuB2yyyvZ/7noCXiDpX9S0UpXYoQ8P
+	pGhw9nhEXPpfcMPOn+BKe0emz5eqpe8JLomVz4IZr5WUCJx7Hhq1k4GWuvCXD3Fjh+yTft/SMFnPr
+	/uWHHmoH4u5efbPZHCuV68HVMBr91k/BGocnVpTf+DpSUX1A786OX6XwX1pBmzM9Thk3Wi94VMpao
+	3F7tIMpc0CzBmuYIpPvbdglWnJSsGC4P2jqwglbyi1Utr/UJmysIsk2wx6jjWM5lI/W86xd18qlqr
+	SRIgMMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xdW-0000000Ci0W-253k;
-	Tue, 23 Sep 2025 07:40:30 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1v0xfw-0000000CiRP-38aX;
+	Tue, 23 Sep 2025 07:43:00 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xdR-0000000Chwj-2nbJ
+	id 1v0xft-0000000CiQS-3ryf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 07:40:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JvOC5EoDs8p03cYfZqc7dlnxnNCqQiAKfmWZQn5fE1+04Rhw0t+bQEFXPNK4LOPOTMUTII0YVCnCHqrtcwPXPs3C6XnptVxZjCAA8Ma1n1rqLtDTuBeZ2sRY4Qet84eZ8jyI7YIevooqU3vqg8W4OIqz1NdHKEAUONNbTw8GQHFBnuOsvs4iRyuZwLT8DcsQih61oi6U8gBKU3gK6izh+k7DJOh645pIMTdW3cTqKOPRESxCmH3xsYdZiuyGykPoXypsXU7AD1KMDh991b1E1hDDSEOa0yNOaYyFsQ32VxthCZXj/dfB1BBYYFj48A+Y/EpCWtj5L6tk/9GUnh0lUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o0lHJleKKp1sduRWliCKRwCZzKVaxlmJiyfuSv8pyDw=;
- b=wB1SdanMn5807/5wJqd6kHkb2AfysVCej5gPkoQYg9rVNSB4LGcqMPsb0aqFZSBe0KWF9hXqRO7UATewZQ3cA6qeZphYY1nU3meAYfV20oCGNdksnBEFMfGFGuV8IrmFI7gAnCnBbxyIYNtDNy855OEIRLIySk7orXh1yexXevV30HXoqhbvKgB9PFXZIwLBZnGyc4QOhrm0qHZgFMtAXtRMoCt5VfDvJHnyEuCz7ZFFsSZGB3keqJOn8Jn8LojsIdUMD2UNk9ArgIzBzghzJYCkecoJ6WBFE6k8b+o+oFy+xhu61bqtW4uUiMED6FrI6JtNllpMgH81u+HDSizFzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o0lHJleKKp1sduRWliCKRwCZzKVaxlmJiyfuSv8pyDw=;
- b=OR7nVc2iWdBMrBwdSsNgJxHIu5wknVTF39BQkXuW1U4mX5jZ6RLmsWElZeyWr/eLPGK9AiFI7Wh3bkkVSQGWmDKKYXI9oLk1mM5P8k50SvsaI4SxE+cmdluDgVO16Ap9AJ/BTb6AUMyGcZ3UVmU6+5h6FoU2a0c4z9eO+HOgLiFCjGlEAFVMxsnf+gRVRqxUyorAGvg52pNaTNl2fyWCzeaZlieTnM4h09Y+9i44c81zkoLzU41ZXY+TPyxzfy0mgflObPR/pwqQ1ASevtZ83agQDiPArLlowWQvWj4rH34cWiHA0WUUnlF/GvnYDVqdU8fioE/dvRjfqteIDqtj+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by GV2PR04MB11446.eurprd04.prod.outlook.com (2603:10a6:150:2b2::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
- 2025 07:40:18 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
- 07:40:18 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ# override active low
-Date: Tue, 23 Sep 2025 15:39:13 +0800
-Message-Id: <20250923073913.2722668-3-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250923073913.2722668-1-hongxing.zhu@nxp.com>
-References: <20250923073913.2722668-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0011.apcprd02.prod.outlook.com
- (2603:1096:3:17::23) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Tue, 23 Sep 2025 07:42:59 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1v0xfh-0003cg-Dt; Tue, 23 Sep 2025 09:42:45 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1v0xff-0003NS-2V;
+	Tue, 23 Sep 2025 09:42:43 +0200
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 24ABF4779C9;
+	Tue, 23 Sep 2025 06:57:17 +0000 (UTC)
+Date: Tue, 23 Sep 2025 08:57:14 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
+	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v7 0/4] rockchip: add can for RK3576 Soc
+Message-ID: <20250922-charming-resourceful-caterpillar-d47761-mkl@pengutronix.de>
+References: <20250922071543.73923-1-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|GV2PR04MB11446:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4399d5b7-94c5-4c8a-3dad-08ddfa747168
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kO/CbCnWEwCIWdyU6hcOiOk/cFG5/COoINsm3g7k83XVYbf+IRIWx2ynN+KX?=
- =?us-ascii?Q?XDMq2zo9pH5vN8jc8H+ehRtiqSLqx2r+Spqz6d5at+Pvt6khJFpkV9xXDnYx?=
- =?us-ascii?Q?s9EiGIyL2PHE/I0g17O5bVea3Qn1LT9oBtVDLmge/PCyViM7l9FyM1icBp48?=
- =?us-ascii?Q?+5rXLZ6CnXBbqLtAlVeL0Tm6mNtIiquwBMlzIGxkSc0dTAGD+zPhDvIeeKYi?=
- =?us-ascii?Q?ef+FmhcNTAJApfugWlcfJ3qOi/dSUgEmKgUrL3ZvmJz8YPRQh+/gipcSgHZ1?=
- =?us-ascii?Q?b8pbwNbnDhP19WI9jXW2dKX39CpTVtbfmNqaVeEoCtbJj6dSfBwNjxecGwWb?=
- =?us-ascii?Q?FAKBtcOG6C6N8vZAoMhn58/x7gEVu7e9i20m7+DfzJDzfz1Bm8HuVSd3BazU?=
- =?us-ascii?Q?eGIN847p/NXsv2Yma1UqXYVlo/DeCGuuXaSwiVpJcgcJqiSGtY3Xwf8sHpRO?=
- =?us-ascii?Q?ursM+0d8ye8aCZIQfq2iwyPsYLl5sIu3PWsnxrfEvi9DP139aReKf/Vn6z+x?=
- =?us-ascii?Q?3wt+UF8NvzSDKc+brQZBez+Ew8CKRhkqnhG/1DcJibMBiFZnDGbFKQy5yOtH?=
- =?us-ascii?Q?UFq2wElaW4g4b01YEPXo5+Wgz1Q2WxwW2lXaqcgWpw14k0AhBnC25/6MFvYK?=
- =?us-ascii?Q?4GOfLfqKAl85ML1zQYu+NUJ6jQgRmqFvDcxgZywg7DK3eYleDqeSMRECZHRj?=
- =?us-ascii?Q?oUQfOJZi+uvyWuQNsGYQbEoH9l5cuq1kIlmP7yb9Hvr9cMf2EYwMmdlPJwes?=
- =?us-ascii?Q?pnFVnAkwu+2QVHysLRwfxD02X49nftumyOmzWmCtHGHVN4N0O+UI3hZXhl1I?=
- =?us-ascii?Q?mY9dMN4doKQdV9LqSZ6MQOc0ja/9EzFKhcYGqJaQU0rFlT2RBZq1Gp2Ukq24?=
- =?us-ascii?Q?RUDn1/tTQSV9QkAGFocGSqscFBIC8WcEbyks+goAjiXp+2mZyeUydTdOkzmL?=
- =?us-ascii?Q?Bgl3BfpGmfhzb8ox7cWEXglIkFX/O6aTiT+8Lu61CSFHGR4SgHamM9dOPSC5?=
- =?us-ascii?Q?TrhQk78GIRBwExoKbnd9Zbw/q79KPygbMo8TA+xtUYtFvJGdWo3Z3jhPT4s9?=
- =?us-ascii?Q?U77+ZZc5BxBZyRsU0nj7+IoKz7YQR6z6vbzzQzInxrpe/pw0Cj03iz5r8aLc?=
- =?us-ascii?Q?giIkMMsq6LSBHoB0Pjt3H1zgNoCJnjSYhsmY08K/ORZ2EO5oOUO0NX8VakEf?=
- =?us-ascii?Q?tltJ26JQQJzmo3lXRD6EhauSS1bmi22Yj49pKZ6/4WgLbmj5P+4Y5GvYWDww?=
- =?us-ascii?Q?Eb7WhvPYOBlKZXNsq4F133OC/KsNbovWYgtXsMQcIfiXGYFNP1U9UOzT2lHv?=
- =?us-ascii?Q?rV6/4j7spnHMtLjm0I0tRBGeBts4Z0xU3P6lJrdEUTmlLwvr1FpMvqBX2Lde?=
- =?us-ascii?Q?zeZtdnFoBc6/X0z0UeBl4AhdYzp0N17igYATFiWktH8xQOFDfyZ1Coc4W9zr?=
- =?us-ascii?Q?waRZOJbOBvEkmYKA4LLypkcq10aZaOYsm3y85ICDea9PqF82wWcjeXzYUvHK?=
- =?us-ascii?Q?b1xZfr49RPWRs0k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HkRBiwbPIE/J/G3TqjaIxXmJ+xbru1cBbXeB18BHUUnOqfTdOmGUFR6cpGtd?=
- =?us-ascii?Q?FcQAC3HhDQjHEjyuzwzRGzQHGjprhJtiW67OuOVe2QUxbhn2RjCOdw/zMNAl?=
- =?us-ascii?Q?GsccTxgCRnHaH+uiWD8lsMVfhXiYvAKsCDpfnJuSF7VRiv9p6k0T9OCyaLMx?=
- =?us-ascii?Q?PK+dpxn5YmfpG11381gExl5NITCeVK5P8XFZ/HOEpXecAQT35zz81NkWDPe8?=
- =?us-ascii?Q?qYJmtpSB/3ImPgttdBFClbK258OrhorscRrTeQgXSqFNNGOUDuo3Yae8lF7p?=
- =?us-ascii?Q?xFrowFMcUqyrvZ7xaTWzAh/KZj7/q0Cjqa6fjWbw1BvB/G2uq6hE5d7JH77Q?=
- =?us-ascii?Q?XihtZpiVjQxD+yMvR54CGVSMYkBZSRaYMv25GzPfvqbt6tV/nvsQBImMwXoD?=
- =?us-ascii?Q?29CD8O+hFlc11lFDLV4cnjZsCSWALnvURWVUo7Ls9oUP8yFMgRZPQ/aKcJVp?=
- =?us-ascii?Q?zNDStOWy9K7GT1yfz3byhyqjimrhg+cdGLpvS/fCJfGFJDo0utpjjy3k9PxB?=
- =?us-ascii?Q?KqxumJLEOlP1OIiFNiy9YKUTuvBpRYI7kXES4dWNZjXhnYRw+FJgGdC2bshl?=
- =?us-ascii?Q?84BtoUv5VYav2qAIKvPQCNSS6noQwwKh8df7aeKtt/gOIsX2mGFUg8C3MuDN?=
- =?us-ascii?Q?Uc5CES8Gp5gWmkiHzJGJTsMqDHK8VLir6OslSX0D7kiUu1XGLczyzsF33cTu?=
- =?us-ascii?Q?GBzQijKmhuWlzQhLE0mSp4Stm9oifxm4h8F3QQ8XK5RlF4GrOqveocEqjB63?=
- =?us-ascii?Q?5fRei3p78aKMix+FjB5/aB8+Y1Yhrg7AyO5VEbh7YVNeVfAbzDlOrKGarO4m?=
- =?us-ascii?Q?6Hb2kUAvbFWEM19aF9TTR2sEsNq5a+oMw6xXcqf+yC8QeA6Rgq4B5+isv9XE?=
- =?us-ascii?Q?q2i+tgOISrcXxEOhd6L8iaZIN3bCFS3WjQXDfJNC9dsOWVBzQjN0E4GEMHgV?=
- =?us-ascii?Q?7QbAK3XlVEZTbnq31BADAjr9GDTov/E/P2cQyCR7615WZjsLr2bZakc22vfJ?=
- =?us-ascii?Q?cACEdVOLhP3qAMDr164sYPBwy9Cp2RXNiobfF7KPYWwn+BqxR4NWXMD4aB6f?=
- =?us-ascii?Q?DSrevH6RGm1QgOyPxACSF/qojc27B4PLHA2VlQnekxTP5OfSPkG7dvYUou71?=
- =?us-ascii?Q?P3/KH2SuYjgkVyIrGR4I71xn0ivOQIVyQA971MNLhjkBage7nEtOtaZ9Vue2?=
- =?us-ascii?Q?jBQFyDXU5Iy6p4KNFlqYtO45OlDkYSTk3hcBrnZBch2zfiCEimQhvA6fIiP0?=
- =?us-ascii?Q?Sa2/DT8yuwugMVtUD9y020f4NLaraUXJdqHXB2qXQhpkphTE+GUq6AghYAWB?=
- =?us-ascii?Q?Rm3ncJR34kahDGZ+h0PGeWzJa7K73ZNmiYq/OYlY8hbKOwY+j14oDapAMiuR?=
- =?us-ascii?Q?n2R9QXv++nOusjfeOOhZdRzRQnvEQIo1uhCrfzn4A1EBYwFpoDPOX4Qx54mw?=
- =?us-ascii?Q?c3C3ZXczhy+GSNUbQko78g37OM+MgcTJdHtTTv798wtAAjQgKzr0oKwdcA/B?=
- =?us-ascii?Q?k6B6P1xmW+AiTU1Nns7RiUz1on0KxCqU3duluqs0SZE4RktkhhLYRWt68jri?=
- =?us-ascii?Q?KfSW78SNJ8DPIrkQ4u9keOgHsGgPODE2O7iq3K9D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4399d5b7-94c5-4c8a-3dad-08ddfa747168
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 07:40:18.4672
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /vcs7EtCo0qtbfS7oJ5pagbBGCQnIrhEALDMpQemQopeohePkZ+4ktZ6y+ljP0c13vZF5Qzd+AORhjJCllFsfg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11446
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="as43upblxqmnobgv"
+Content-Disposition: inline
+In-Reply-To: <20250922071543.73923-1-zhangqing@rock-chips.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_004025_726814_B5AD746C 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250923_004258_258610_FAE00FF1 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,165 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CLKREQ# is an open drain, active low signal that is driven low by
-the card to request reference clock. It's an optional signal added in
-PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
-reserved.
 
-Since the reference clock controlled by CLKREQ# may be required by i.MX
-PCIe host too. To make sure this clock is ready even when the CLKREQ#
-isn't driven low by the card(e.x the scenario described above), force
-CLKREQ# override active low for i.MX PCIe host during initialization.
+--as43upblxqmnobgv
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 0/4] rockchip: add can for RK3576 Soc
+MIME-Version: 1.0
 
-The CLKREQ# override can be cleared safely when supports-clkreq is
-present and PCIe link is up later. Because the CLKREQ# would be driven
-low by the card at this time.
+On 22.09.2025 15:15:39, Elaine Zhang wrote:
+> rk3576 can is a new controller,new register layout and Bit position
+> definition:
+> Support CAN and CANFD protocol.
+> Support Dma.
+>=20
+> There are major differences from the previous rk3568.
+> All errata on the rk3568 have been fixed and redesigned.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 43 ++++++++++++++++++++++++++-
- 1 file changed, 42 insertions(+), 1 deletion(-)
+=E2=97=8F 9550057c4efe: net: can: rockchip: add can for RK3576 Soc
+  =E2=97=8F checkpatch.pl: drivers/net/can/rockchip/rockchip_canfd-core.c:2=
+92: WARNING: void function return statements are not generally useful
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 80e48746bbaf..6b03b1111d06 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -52,6 +52,8 @@
- #define IMX95_PCIE_REF_CLKEN			BIT(23)
- #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
- #define IMX95_PCIE_SS_RW_REG_1			0xf4
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-+#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
- #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
- 
- #define IMX95_PE0_GEN_CTRL_1			0x1050
-@@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
- 	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
- 	int (*core_reset)(struct imx_pcie *pcie, bool assert);
- 	int (*wait_pll_lock)(struct imx_pcie *pcie);
-+	void (*clr_clkreq_override)(struct imx_pcie *pcie);
- 	const struct dw_pcie_host_ops *ops;
- };
- 
-@@ -149,6 +152,7 @@ struct imx_pcie {
- 	struct gpio_desc	*reset_gpiod;
- 	struct clk_bulk_data	*clks;
- 	int			num_clks;
-+	bool			supports_clkreq;
- 	struct regmap		*iomuxc_gpr;
- 	u16			msi_ctrl;
- 	u32			controller_id;
-@@ -239,6 +243,16 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
- 	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
- }
- 
-+static void  imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
-+{
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
-+			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
-+	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-+			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-+			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0);
-+}
-+
- static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
- 	/*
-@@ -685,7 +699,7 @@ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
- 	return 0;
- }
- 
--static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
-+static void imx8mm_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
- {
- 	int offset = imx_pcie_grp_offset(imx_pcie);
- 
-@@ -695,6 +709,11 @@ static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
- 	regmap_update_bits(imx_pcie->iomuxc_gpr, offset,
- 			   IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN,
- 			   enable ? IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN : 0);
-+}
-+
-+static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
-+{
-+	imx8mm_pcie_clkreq_override(imx_pcie, enable);
- 	return 0;
- }
- 
-@@ -1298,6 +1317,16 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
- 		regulator_disable(imx_pcie->vpcie);
- }
- 
-+static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-+{
-+	imx8mm_pcie_clkreq_override(imx_pcie, false);
-+}
-+
-+static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-+{
-+	imx95_pcie_clkreq_override(imx_pcie, false);
-+}
-+
- static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-@@ -1322,6 +1351,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
- 		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
- 		dw_pcie_dbi_ro_wr_dis(pci);
- 	}
-+
-+	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
-+	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
-+		if (imx_pcie->drvdata->clr_clkreq_override)
-+			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
-+	}
- }
- 
- /*
-@@ -1745,6 +1780,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	pci->max_link_speed = 1;
- 	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
- 
-+	imx_pcie->supports_clkreq =
-+		of_property_read_bool(node, "supports-clkreq");
- 	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
- 	if (IS_ERR(imx_pcie->vpcie)) {
- 		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
-@@ -1873,6 +1910,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
- 		.init_phy = imx8mq_pcie_init_phy,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MM] = {
- 		.variant = IMX8MM,
-@@ -1883,6 +1921,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_off[0] = IOMUXC_GPR12,
- 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MP] = {
- 		.variant = IMX8MP,
-@@ -1893,6 +1932,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.mode_off[0] = IOMUXC_GPR12,
- 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
- 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-+		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
- 	},
- 	[IMX8Q] = {
- 		.variant = IMX8Q,
-@@ -1913,6 +1953,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.core_reset = imx95_pcie_core_reset,
- 		.init_phy = imx95_pcie_init_phy,
- 		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
-+		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
- 	},
- 	[IMX8MQ_EP] = {
- 		.variant = IMX8MQ_EP,
--- 
-2.37.1
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--as43upblxqmnobgv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmjSRMUACgkQDHRl3/mQ
+kZwilwgAhBRQy2zPv/I02Kws1RfbW8BIiG7My+w4HUDEO2nxf6mBsMyGVqg6JCs2
+fXbbzIGaI463/UBdj8EWwZvd11i99LIzikSvrFir7eEGr92tJ6YvdcKDzs40p8Wp
+w16+ULDgSrcDO6z5Q8tHwid2gy4W+ZBOC0AD5Ckp5RMbX0lwUWSy1ilXaKetSQMT
+qj6KsySbfgfwDeZDSWMc+6ReB2bMjFXFxTpLCDb5j6m9HaVrhWpj+tekJQO+AX0g
+is3jh6G+VB7Prr/VI2312a/9bMnIInEYLcjiITUgk2eTR3klze4C4XPuv4kcSEkA
+ijb+dmG2vzdoPZpxSzAM0+04TDg/UA==
+=vfsm
+-----END PGP SIGNATURE-----
+
+--as43upblxqmnobgv--
 
