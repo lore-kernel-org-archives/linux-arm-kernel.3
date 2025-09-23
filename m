@@ -4,175 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635EFCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75019CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BDZ0o4H9ijr71sJrKbVbVEtmQtNm/2nqrZ66oE0U1GM=; b=KzInp/9xOIPcc1kEFKPTx3LQjC
-	auxVb+6JQUrcJ9ubU+C9Ps2fhJqzaqaMO41gRo4Eg7SnsGFLMuucRxi3h0WzEpulhHm8B9sbTeUZK
-	aorW3L6Qm7SCgLLWn8VINEW/7QsAI3Z/rehR6eog4dEN70kz+AY7qPrkW0lI98yD2N1oaxchr9lvA
-	Gj22G1Vc40PtSEhSo/QE8s6sUTeTYCz2JryYjpg9O2HMFWphuPiy3R4y+h6yQPCG1/YWqrwrn0Rjt
-	dFE4MWwq2EdIa3unt7p5c+u8BV412AvAFZDJjxLuVdjWzqDAmUB/35XBLggQ+BycRvSSYjuUOiNU9
-	8t7g/QAQ==;
+	bh=sdlu20rBCmLHD/cmCz6jZNQZ7hsZ/+Qk91a/GIE2IBQ=; b=o8OmqalEQRwfr2UGHrnEp+1Lca
+	sAxndHigFIp6ubQnt/tHiIr1gijHpIJ55GbNLjs/vZrhhMJlqEpo/dMrDwVWhPhgDWjrh+YGrXHEj
+	CmkEwnybZ3ryCc45D75Oy3Qd6BStCdRE3Xg5qrRMTCI3nGeBKtL5O4NNEreoce9FI3Wa9WkwCFGzP
+	2Scj20yR5XV/Jp2lWSK6tAbn6Ooyq7+SCp9O/EsqxlArI9cY652Q/Cp2aAFanP0/sPL0IuYdREOA4
+	A244KrwurnHD8GgcmZJeax8z8PFU/w5DYKLSB1tcOonXAi7DMJS+/OFBVj5/wTTW1L+/fqyHm8Lub
+	4qhtcFZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Xo-0000000ElQc-06SK;
-	Tue, 23 Sep 2025 20:23:24 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v19lG-0000000En9D-0gCP;
+	Tue, 23 Sep 2025 20:37:18 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Xj-0000000ElLc-33T0
+	id 1v19lE-0000000En8i-0mmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 20:23:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e2rv0Tq/uu3ZWV1IAtsAEVDZPFg4GY8QYIQRpn3jmcSJIENq6ksyfkn8iqZLbYOGDLRBzA/nqrR8NngtOV3tmfuy9rLfcen8lIRKB75n1xOOwC6817Du2eqBhWLzF0rk8AN7R8BmHveZqUNbyChsCeqPnKPXtwP5pbuvx3kmZKtazBCTvxOvrPA/Y5akinsC+Ul6YzmbRSXLvGw6OBQA3UrNSA/gFDcxpYe4Qwa20d6xo4vCZr7SlUUJkyJa86ylkRn+HfOOvEGXdHDxPXSe5UBZ8N8pthwDlTe034TnYy2ySyVdeOpgytrvOI/Nxb+voKgoUiKRdWbZLHzBwnOGgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BDZ0o4H9ijr71sJrKbVbVEtmQtNm/2nqrZ66oE0U1GM=;
- b=PPYlSVwk907AkTW751IiwLB6PlKSKZVkkdCVVBhWGlE7Z4JMrIdMmfr7zD5MsZ+1iESSBJxP4m3v/ltQU8IU5hI9owrTmQgVFT7iHT1xR0OCtTVlfkFsHui57IZsJHHIGwnmko9EP6xrlcQsR/XCDpZevrxr5MoxiSqfsZ9orudzvQXMUn8K06dppWEz6TJl5muvj4YgmeEVl6htv/iHtgMtySDbzb2QxHg2/I9PlRHzHRx3ympdlq2m6prFECJ9lkqfYtB9dViqs12+AOPf/D0colaai2pHN71GdTJ+8++2cAbD4+BAk7ovWulPBoHih/V+A9hamNRp3u/UcJSBBg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BDZ0o4H9ijr71sJrKbVbVEtmQtNm/2nqrZ66oE0U1GM=;
- b=aBJ8pW4t300uGhFLUxMptmc1R9HLVZQ2WYj4hj9O9I/vDxc3cNFaJu5LdBu5vxcbNLv+oCddM7jTH+adJsphb0dc4HrklAxXptsYlUH3wTgrz0Afvk2Mxk/QP5Gzbg9ft/ynAJ0UJuD25HGc1pngLhdcS4gPdb+SozYvikSDj/RFG7yf2k3dLeB96qjvu60tYpPiI90QVM2HcDN1ILSbN9dd45puJGuoAE/bDKfO5auSw5ITTuv3N0XNiImuS04xjcFN+zk3+RJzerXWfF1+JSr239p5HxIwiYizl51bd/nVeH1lvjo858laC8pwmx6hLsIV8TUgCPv7k+WUeP57Cg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DB8PR04MB6953.eurprd04.prod.outlook.com (2603:10a6:10:111::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
- 2025 20:23:11 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
- 20:23:11 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Tue, 23 Sep 2025 16:22:50 -0400
-Subject: [PATCH v2 3/3] arm64: dts: layerscape: add dma-coherent for usb
- node
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250923-ls_dma_coherence-v2-3-ce3176396bdb@nxp.com>
-References: <20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com>
-In-Reply-To: <20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- bjorn.andersson@oss.qualcomm.com, Frank Li <Frank.Li@nxp.com>, 
- Ze Huang <huang.ze@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758658981; l=8694;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=MfrzkHWiY3Foc5Vne3opsJSIafyoVDR8FSTrkUytx1M=;
- b=Z6BEDJPQTJaPtSW5rkTEWHsDjm8yz/88OZ7YCNF4QS5PBRs7Zb3OVQQDwOJjQWLemuu0nsSxG
- /ha3n8BVzHuBxRBHTJ0gv+qf+rECUlxnbNIUhq+2RznlVbZbDa98heX
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: AM0PR01CA0170.eurprd01.prod.exchangelabs.com
- (2603:10a6:208:aa::39) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Tue, 23 Sep 2025 20:37:17 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-363f137bbf8so44093351fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 13:37:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758659834; x=1759264634; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sdlu20rBCmLHD/cmCz6jZNQZ7hsZ/+Qk91a/GIE2IBQ=;
+        b=FjjFzTKgbckB4INo4b3Ke5x9xthNbBxNuk3y4vDlhiOuQTSUy8y1m+LouqZttjiSeF
+         j+IUGkQcIgnsgiQ4DWULz5k2huqdmipmrzXqIk1L8kj/rsMp9DvH9SwBCgrZrV8OHqOa
+         kkRMFLyyx4/N8hx72smyQC5674lXkdYQ1V0cuNGhV/h+r4mHO9JY124VIjOr8hYMDhBq
+         bg4gHpCSsiZbMTCOW9ndcgT9fxE5bEscAWLkU15kBUmIVZKEiK+a/vUxmOqPnNo3S6Ug
+         kaI2kH7YS9Bh0MSxq7xSzA4ipWSB1EcoYcYwWfnxyPJkvIcmxYzmU+6i8lvfLudAhmOK
+         Fv+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758659834; x=1759264634;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sdlu20rBCmLHD/cmCz6jZNQZ7hsZ/+Qk91a/GIE2IBQ=;
+        b=Wu7Uwjsn+QInipZFXsfIHKr+1GAgQpGHvqjLm0Ad0m2WXN7jBTj0wIv5o3XxjWYkC9
+         IaofsCx309F27mMa61vh1zZeWOydzl+qsgI22H9usnWDk/5DwMqrTjuQgNHfHLXjR7aw
+         J/Gva3dekR915rkCBStbaWdXVpoGfOK8znilyzrQM7c186xhEHC2Miq4SkNQXmmMr+DR
+         V1cT8lvp8E4IWAuupHrl4cyjhQBIWKpVCHy6p/7YNWbfYVErgRQwuriuUvMcL4zgSgQA
+         xAJBWFg28LuROlPfHa5ESANSiQqlzEDu4pNm0X2uJJRATMDvjr+J1olfA40TrDMFIoWA
+         +new==
+X-Forwarded-Encrypted: i=1; AJvYcCW2F0MvDktz0C2vSYmuG8/jPPxFfY5nBWQhLJ/n7/dYI1B/7NXoQ1cUiEtk00Dn6brs10PzmPIrKQwc5zmjGjhs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcZBhjkuBbLayBcPpgGIaPbFjHygueazd2psWYVRWSHAUL94Ab
+	1ZW5gVb/Rwuz2cIa8xPJhGNywApmWBaLJwBXcMeMzXPmVTvWpGXCd4Ue
+X-Gm-Gg: ASbGnctB5ENUqnvHIFlW3sVvJ94oGEIGQjjH0q8gkDFi2aKJ+IPV7v4VeUNYZjDiyKt
+	rV3+MVloPp30Ykyg8p8UqPRGlL5a8LfvX1c5Yh0jZUCVpv/Q9atW9u7yBd3Ksw0ezJjs3Upjug3
+	v2uItiUln2sZKhqsNVEwsOjTk6Ocu/fNvAAu5Ao1ciMbCAUQ80rV8cv6ERfvFSVFd/fRgaezkJG
+	fzKle7a/0xHwpnZ6FUqx9leRjlLuwjAQkx6bPz+WiAkffE1rU0x6GeWpWp8sAkG1NhUjwNjaizn
+	gtaF1A2huuKkmrUGsZwtGV7lk+TM1+uDdD2xE64s5q8cRBx9TU0XloDgrlMVDrlDtf/gtozRZvM
+	z9N+8BKQndrKX1CTi9qsxb+IQXu27xtN2udQ/hsiWiIcRvH6Ht32LNU0XN1M=
+X-Google-Smtp-Source: AGHT+IFuA8I9VNhcD2Q41OOz3JJ/4CvcKHsvlANmcOu/VUqlfohOjCTLqnQUny7hlksdlQImrup3GA==
+X-Received: by 2002:a05:651c:4395:10b0:338:735:8a79 with SMTP id 38308e7fff4ca-36d150a49ecmr11764551fa.1.1758659833515;
+        Tue, 23 Sep 2025 13:37:13 -0700 (PDT)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-36c7a76d202sm10325501fa.19.2025.09.23.13.37.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Sep 2025 13:37:12 -0700 (PDT)
+Date: Tue, 23 Sep 2025 22:37:10 +0200
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Peter Rosin <peda@axentia.se>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC 0/7] I2C Mux per channel bus speed
+Message-ID: <aNME9gWzazXTWtzw@gmail.com>
+References: <20250922-i2c-mux-v1-0-28c94a610930@gmail.com>
+ <0186ebba-958b-8076-3706-1edc75b6c6d3@axentia.se>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DB8PR04MB6953:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd184490-9a94-4762-be33-08ddfadf0423
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VTAyQ3hmVDJsaVhJaEdrWlUzeDRuVnVKVDdRWG1rMmJPcnE0Y0RCYXh5WVJ3?=
- =?utf-8?B?clJpbkIwdVNzMDA0S0dYYjZRZWNKWHp4UkJUQytFV0xPbHJ1WHo5MElrTnpv?=
- =?utf-8?B?MkRVQzcyMm5pR3lBVkYzUklsUExWOE9ZNW5OSTRWSHRXQ05YMklmSVpkSmlp?=
- =?utf-8?B?bjJvMnl3UGU1ZWRxN2ZMUzFSTy9nTkRockRSSjZndWk4eVg5R1p6bEpLcFk1?=
- =?utf-8?B?bWdTNnRpcUMxSlNidUxHUDg3eHIyYThsTGprbTRwdnBtdXgrZ0VOaUJTZ2lp?=
- =?utf-8?B?TEZIUU9SdStBVm9IM1BjK2Z2UFVyZTZzTDRSaUxMVzI3Q3BTaXpzZUpBMEc4?=
- =?utf-8?B?TDA1MHRwU3ZiQ3UzOFBHTkNsbVlRQVh6KzZCNWZYS1dlcGtucFIxaFZmcHNB?=
- =?utf-8?B?YmpXTGFzOWNlSCszS1YrYkJMaWgzRVBMRVRRd3ZRRzAwaHVYZWN3aHNDcDBs?=
- =?utf-8?B?ZXgvOVk2WTg3TExDV2hKMzZ5d3A1NE5PQXEwWUR5OEJhY1dINmxWejZmWE1E?=
- =?utf-8?B?cUJPakxFYzNQd3NWREVWdFh2QUQvRzFhR2VSdUV5U0tTdzdXMW5lcXVVTVl6?=
- =?utf-8?B?MkoxV2xNK1RnUmhXeENiZzkxL0hlZW1XUzI1RURVUjdBYTZxQ1dlMFlCdUdm?=
- =?utf-8?B?eGtKT2xualpwbndoMGNsYUFkMW9Sc0FLakNjSmcrUW5HL2pGZlFOOGhYeTI5?=
- =?utf-8?B?R29HandJeEE2TGRTcHJnQ1YzR1BncmZsM01lR3E0SUlpc3pEdC8zRVE1SnJo?=
- =?utf-8?B?dllLVTc1VlJFbU91QlhkWm1XMEZrVGZZN3FLZHVKdlorWFJDOWwwVWx3Uitx?=
- =?utf-8?B?WXRjWTVZRFljQ0x6dlZzNkJXNUJVeHFPTFQyTTR6bEx4eTV5cjVlM1RpeGRS?=
- =?utf-8?B?YVRjcTJ4QlJpMjJTNTgrUHZXTkRYQU01U3JTMDQ4YTlNVUt6SWJOS2JNTTda?=
- =?utf-8?B?TXFia2dyZkFRblhoM0UyZkt4blh1akpldjBhMHF6eERxVStPSTlaS1gxNUhX?=
- =?utf-8?B?bUdOZWszdWpZVU4wRmhRUlVqMHkxRVl6RDNiRjBQNGJMWWFabVpmUnUwR1dD?=
- =?utf-8?B?eE1WSVNWSlYxVUFwSkdLbjNLRDNwT0M4TWhDbzQvR0NNd1dlcnpLdCsyenZE?=
- =?utf-8?B?N3YxbXZZUDRQbHhsZHB4ZzZYQ0N2eFZaS2l0Zlp6WmU4bzR1bjBnM244Uito?=
- =?utf-8?B?M0dlTmRtYmkyZUEwU0VXN29UMVZJTzdKZVlyOUY2N200STRBbXR4Z1hJTnpq?=
- =?utf-8?B?NEZVVmtPU0g1dm5JMTZCU0krT055VVpHcjdpcGlvOHphTDhxQlFkcW1CMTk0?=
- =?utf-8?B?SzJOMkZKQnhUamxkUW84ZERibGFYRTIyejBIWmV0Z1ErTzdYWkJ6dUQzalpl?=
- =?utf-8?B?eGU1SjlmZ0VYRVNVc1lCMUV2TW1IWmRTYitxOGZSSFRuMU93NUV2dFE2SHpC?=
- =?utf-8?B?elJNN0VwTmptcE5jbFR3S3J6eXpXOHlKcUszREl2T1laZXFRMTVGem1odFV2?=
- =?utf-8?B?cGpPMmk5R0pvaUNtT2hWV3hUbFZxK2dFY2xOejUxWll2dXRpWmtGQWZMNm9k?=
- =?utf-8?B?a2xuSUd2Vi8yMW1BbjNOdG90WDZ6N2FySzB3STdRRG1rcVo0TGtoNStEanZo?=
- =?utf-8?B?YTlLQjdlZzVPbW4wOFc3M3c3QUVoWklNN25sa2dMT3I2NEQ0QitoOWNrcTJT?=
- =?utf-8?B?VXdyeGVBQlgvQ3ZQbUJxT1JrZHFjQnVVV3ZpaExGYmFENzk1aVlvc0VSQVNt?=
- =?utf-8?B?VldsM2J3YVFvL25PN1VKczU2dEVqUVkzR25JZ3dyaS9nUkZDaUR4ZVNDRTJK?=
- =?utf-8?B?eHNXSXdRclQyWXo1eVJBWXdKTG5wbUV3ZWxiNytIeEJZU05EUFRHTldtaW5K?=
- =?utf-8?B?Mkw1ZGtSdWNaN2IrcXNoK2R2K2VsM0Y5Si8vMHZSL1cwUTdocUpNSTN2dHBN?=
- =?utf-8?B?dkdML1poSGFrNXNVaVpraW1kRS9lZ2xDWktIbWhsMmtrTEVUVVhOUmFHdEx6?=
- =?utf-8?B?ZXBwUEthdGFRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blF0MzdZMmNQWHFVdWd3VHNoYlpOalltK0FrNm12ZEYzNGtxaTBsdTJaQTRT?=
- =?utf-8?B?UTZFbWFwR25Wb3d0ZkxFMEV5Tlorb0t4cWNCNDFST3M3Nm5MdUphdlBqZEtv?=
- =?utf-8?B?dERpQjlCWU5PTThsN1A0WStzbkMvV3NUMlpVbTNBWml3em93ckwwYTlrMjM4?=
- =?utf-8?B?eTJIWWRVY2dlK3ZWNTA2M3k1YnRhOERNRHNvR2tyV2RYYnMxOFJCTGp2SXFE?=
- =?utf-8?B?cXJaMlFBVmMrVW1PazIzcHJFZmhLZmZJZ3R6VktnVElMRjI0d3VIT2ZESkl6?=
- =?utf-8?B?Z2hUZTJGTHRYZjdtQ1dMNFUrYzlxQU00ai9FOFNqWmJsd08rQWZwcFlIQzQ3?=
- =?utf-8?B?YkNQMkxXV2YrWnZXOVpSK2ZZTW8yR0VoZ3BMOWwxSE55TVNnU1VwVFpOS2tL?=
- =?utf-8?B?bFVTNjVxM0xOeXd3V2IvQXlxa2tnREdJMXlnK1hPYlJKMm9IQ1YrSHZBOGI1?=
- =?utf-8?B?SHBKazBoU0ZCUERocmlzWldWbElHek0vMlFoWWxkelR0RDNHQXlHK1VJbmlo?=
- =?utf-8?B?QTZFSUVLK2k3eU4vRWJZbUZ6UG9iRVZrRHc0ZTFXNlpTeEdUR1pzYlNYOXNw?=
- =?utf-8?B?WHJtYjE4OG0rbEUrUmliKy95dGgwdlR2UHZ2VmpaKzdZOFNlZTFCNEE1RmFw?=
- =?utf-8?B?dk0xQUhVa2k3VE5yakpYSXlmNnVldHo0WERybThxYm9kUGp4YWFhaHdUMDdp?=
- =?utf-8?B?ZjVNaVYrS1B0dHhKTXBiUFpnK1YvUGlIUmN4ck83YytRL2hZTVJSV3RxUDZR?=
- =?utf-8?B?bndTcWl5T3dFdWhRU0ZqSnZjaUdpQUU5S3AxaytKbVVDT1NuUGR1V2xyRDFU?=
- =?utf-8?B?ekJjMHM3TWxuTjNqemt3MVBhZDBQQ2VCWi9UdExWZ3VZenVvc0FXUHpPaElL?=
- =?utf-8?B?eGtZTzIvZTdVcjEyVEVFU3pPYWxlb0swNSsyZHF4RGxCZkVxSmhrc29HMFhw?=
- =?utf-8?B?MWRmVEs4MERRYnFaREhyRHloWGtkeUd6bU5GSTBjeVUzdk12WTVJbGc2U2hk?=
- =?utf-8?B?WmphTTdiUVFZSTlUZmkvbDBveERlTmd5NDVuNGEzQkNBUUppZyt4TUxXK3R6?=
- =?utf-8?B?c3Z6V1V0MWdwcWdvelpjQnpKZU1jLzhtY1ZtU294aWJDbHZvNjJCR2QzeGNV?=
- =?utf-8?B?YkFBS1BIUEZWMGJTUzdnVEM3SWd2UlA4TGd2NWNYVlo2ZCt6OUpuWFZBam1s?=
- =?utf-8?B?ZE9jcGEwaXRQTis2bUVwWXE0bWJ6NzVCM042UDBYY1VBVVI3ODYvL29CdkVC?=
- =?utf-8?B?SEFjcWxkeFM4WjduOUkranJrVmxMVmNienUzOThiVEYxcmpGTjVNMmNQMTVX?=
- =?utf-8?B?WmFBYmRKRHAvRzU4Z1BxVUsvNGVPM0w0c3Y5Qnc1RGNvenREc0tRS25URWZ5?=
- =?utf-8?B?UUJkOXQxYmtTczZqQUYwVHB4SVFqT1UvTHdOakdGY0RsWGhjd1pxMlZKVEF2?=
- =?utf-8?B?R3pSeHdpTlgrOXdBYXkyRmlRc3daQTlEUVFJVnFnTWhwOXQxQkF6T0tCTUpy?=
- =?utf-8?B?NllZNDA3Q1Facmo4cUdBOFpyN1kvNzBSVW1ENmlRNFhBZkZrOTk0djBraThH?=
- =?utf-8?B?ZXk1QW1CczhTUjBodHFZUm52S3cxRGtMaWs2Zk1MZW5DcHozaEdSeU41czVQ?=
- =?utf-8?B?RVBsKzFLMFRWZGVrUnBsYU9OR0J0OGU5ZUZhQzduOWtNVUFPL2xSTnU1U1hy?=
- =?utf-8?B?dlhBQ1U3WTdGZGlkdkU2ZHVZM28wcDQ1TDZ1U1ZLYjFtNHFDay9NS1BTU2Iw?=
- =?utf-8?B?QzhPbVJZMlFsMTBIYW82TTRUbUQ2UnlPRTE5N0VVc1dJMDl4ckRLZzVPaW5m?=
- =?utf-8?B?bkhKdnNlSkkvejA1SnVRcWhGY2lvL3lYU0kwbFVJNmhrZEtmbUNpSjQrMENk?=
- =?utf-8?B?dWFpUkEwb2ZIYkNkSzdCWXhRVzlXNktvR0tqN055dFNRZzFyNzRjR2NySkVt?=
- =?utf-8?B?Z2QyaWNRN1AyckRJaWdMaHlmKzE5L1lEWTFGV2NmNE9wVGJRQmlQZm84L0VO?=
- =?utf-8?B?WXFOZ0g2Z21Ed1JKRzZWaG1sZG1kV0FRWHhhVXU5QllUYmQ3aUFFa21mV1VP?=
- =?utf-8?B?UVBDSk54U1RPSGg3dGIrS0dkK3NCcXJLTEVGOVB4VjRxdUhBY0V1U0x2Z0Jx?=
- =?utf-8?Q?VJ6E2SRP98juHKrs/AsD0gNQy?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd184490-9a94-4762-be33-08ddfadf0423
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 20:23:11.2695
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wBg7FwhO7XsEoDYq5YxBxTIAX6UMLm+9dq3c2btaFuW51wbLmJ/S5usoJp4lFf8Y8REuFefO3w1FB98MXVQW3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6953
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="otWbKmgQiAM7SsCc"
+Content-Disposition: inline
+In-Reply-To: <0186ebba-958b-8076-3706-1edc75b6c6d3@axentia.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_132319_824329_6D889508 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250923_133716_259082_E159848C 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,226 +102,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SOC special compatible string, remove fallback snps,dwc3 to let flatten
-dwc3-layerscape driver to be probed and enable dma-coherence for usb node
-since commit add layerscape dwc3 support, which set correct gsbustcfg0
-value.
 
-Add iommus property to run at old uboot, which use fixup add iommus by
-check compatible string snsp,dwc3 compatible string.
+--otWbKmgQiAM7SsCc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi | 3 ++-
- arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 8 ++++++--
- 6 files changed, 32 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-index fc3e138077b86cd5e3cf95c3d336cb3c6e1c45ef..ef80bf6a604f475c670e2d626a727e94fcb2a17a 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-@@ -493,10 +493,11 @@ QORIQ_CLK_PLL_DIV(4)>,
- 		};
- 
- 		usb0: usb@2f00000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1012a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x2f00000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-index 7d172d7e5737c4b6e42ee88676c5763fa7415260..e7f9c9319319a69d8c70d1e26446b899c3599f95 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-@@ -613,9 +613,11 @@ gpio3: gpio@2320000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -623,9 +625,11 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-index 73315c51703943d9ee5e1aa300c388ff6482423f..50d9b03a284a2aa4e13aa3323c25bbc5fe08f3d0 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-@@ -833,10 +833,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -845,10 +846,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -857,10 +859,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-index 770d91ef0310d971d044a1f55cc5e2cb738acc47..22173d69713d1bd2abca986e76668ad437dd34e4 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-@@ -749,10 +749,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -760,10 +761,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -771,10 +773,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-index 9d5726378aa015eff10578bf095908a58b9d9eee..b2f6cd237be046123de9342e2167aa32248a8a16 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-@@ -489,10 +489,12 @@ esdhc: mmc@2140000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -500,10 +502,12 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index c9541403bcd8239a48d4ef79c7c4f9e3b607b556..d899c0355e51dd457a4e7259709cea98a488f557 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1094,24 +1094,28 @@ ftm_alarm0: rtc@2800000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
+Hi Peter,
 
--- 
-2.34.1
+Thanks for your input!
 
+On Tue, Sep 23, 2025 at 05:10:16PM +0200, Peter Rosin wrote:
+> Hi!
+>=20
+> 2025-09-22 at 08:20, Marcus Folkesson wrote:
+> > This is an RFC on how to implement a feature to have different bus
+> > speeds on different channels with an I2C multiplexer/switch.
+> >=20
+
+[...]
+
+> > Patch #1 Introduce a callback for the i2c controller to set bus speed
+> > Patch #2 Introduce idle state to the mux core.
+> > Patch #3 Introduce functionality to adjust bus speed depending on mux
+> >          channel.
+> > Patch #4 Set idle state for an example mux driver
+> > Patch #5 Cleanup i2c-davinci driver a bit to prepare it for set_clk_freq
+> > Parch #6 Implement set_clk_freq for the i2c-davinci driver
+> > Parch #7 Update documentation with this feature
+> It seems excessive to add idle_state to struct i2c_mux_core for the sole
+> purpose of providing a warning in case the idle state runs on lower speed.
+> Especially so since the default idle behavior is so dependent on the mux.
+>=20
+> E.g. the idle state is completely opaque to the driver of the pinctrl mux.
+> It simply has no way of knowing what the idle pinctrl state actually mean=
+s,
+> and can therefore not report back a valid idle state to the i2c-mux core.
+>=20
+> The general purpose mux is also problematic. There is currently no API
+> for the gpmux to dig out the idle state from the mux subsystem. That
+> can be fixed, of course, but the mux susbsystem might also grow a way
+> to change the idle state at runtime. Or some other consumer of the "mux
+> control" used by the I2C gpmux might set it to a new state without the
+> I2C gpmux having a chance to prevent it (or even know about it).
+>=20
+> You can have a gpio mux that only muxes SDA while SCL is always forwarded
+> to all children. That might not be healthy for devices not expecting
+> overly high frequencies on the SCL pin. It's probably safe, but who knows?
+>=20
+> The above are examples that make the warning inexact.
+>=20
+> I'd prefer to just kill this idle state hand-holding from the code and
+> rely on documentation of the rules instead. Whoever sets this up must
+> understand I2C anyway; there are plenty of foot guns, so avoiding this
+> particular one (in a half-baked way) is no big help, methinks.
+>=20
+> This has the added benefit of not muddying the waters for the idle state
+> defines owned by the mux subsystem.
+
+I pretty much buy everything you say here.=20
+
+I later saw that, as you pointed out, e.g. pca954x let you set the idle
+state at runtime which would have increased the complexity a bit.
+
+So, I think it is better to do as you suggest; remove idle_state and
+keep the rules in the documentation.
+
+>=20
+> Cheers,
+> Peter
+
+Best regards,
+Marcus Folkesson
+
+--otWbKmgQiAM7SsCc
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBVGi6LZstU1kwSxliIBOb1ldUjIFAmjTBO8ACgkQiIBOb1ld
+UjIwfA//Rz23XygcpF0dwlGWKA/FBtIORJthioBHmNmVWREax7GLJ/h8ziRohWL3
+kTW9O/vVbYdJe3LhvBazB9KL2JjRh1A0p5ijLiuI0Gw6WYy9sqroZV7SzmP3P8WE
+PzLR41O9IVVEVvBcWSmh/0Rcm+cYAeLwZ2F1O4yiplpiP+Id7f378pCPPxaFtN2g
+Ea9J0o09LccZC4nERdvrI9QUrfxxiPUBF71+VMrX/Wlc1gUI6JsmGgqpIiz97kiC
+IibpcKgNocQgA7YWCbL16EvFkX4k+HF2L7UQqGtijV0OSNxFtsC2woavw2qJFBjl
+IZtS8aLXdx9DevdcUuYXscf6mwGVFZQDNahDS2KGknsHj3DMvEFO9AMEcIb7995j
+j6SPF6l9/23SqC5mYxQ8t2PSnbgTvfZN8HqycI8oiV0y4QHNrJ1dK6S/BaHcInRw
+C4IKNyMZGclPFreGDD7JdxRu/XgQb3ZfJi156LEfuMSMXQkUPCLWbGjT6DOcy+Pw
+tHAiEr50HWxVwpt/TUfualMNd2ldXQQDTW7Iyz2tTlQn78BZU/Ku37YXKg9vPe2r
+wURBzM/VUk+ToGhH4lI14vqTVlOFi1keu6dnae7Bb7yAf9W372JnVhwwNiU3HXbf
+FXnOTa4MlQjThE+eerYrSTnDu0bViq4w8wsg9hlSXp7w0+A+4Ec=
+=av5T
+-----END PGP SIGNATURE-----
+
+--otWbKmgQiAM7SsCc--
 
