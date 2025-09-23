@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01C7CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87286CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 20:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ojrSKhmG/fxO+GWCa4ng/6S+zCuiK4Lwk2+N5nW6KeM=; b=ZITf/pbnR6USMKljERAp51Uobp
-	KeritWDtgkkUjX5KdbuqEpZTWQoCf31yQelC2npAOXGr2g51Qmfdb9o73x/dRVhNUFj5MHIjI6EXL
-	3La8srUEfmspqL/6WMs1oa6fLU0OP1YlSs0OzSB0KLvhIR8DUJIf9Q8n1ogmyTTlWwCXPqqAqxuIv
-	lxu86swen7AvrPq6tsTwJOlDcj2hG7EInqH1+BYzbi8Ha8qcG0KU0cJ9w4Uss941jIC6N1Y7aJU/B
-	80SQlVsY3gVvVYjPlwUxO9oPkKuLXKLq2PITTa0td6XXGJTkT17LCRbA4FmbFY3QRZKkTQ4U7sI09
-	C1f/VWKA==;
+	bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=; b=3DYgkGeJxx7GIMd4c4lLUCB6FD
+	VZ1y7lj+oGf4+5bDe+oWoNZRRaOJ1ojsgpyAzrGgkqCgBeiNHKC2kJaSh0pQhacr01sKggENvSYRp
+	L0Xidh7uu1O7CX/KkaYZGqFlULqXpJyl8iZyB83cvx7MJEW+617xGoGHouH9ZJXZdau7oRooqytA3
+	kKgXHqJMR32RSsLPKZH1EWRCO8ywpPjxgXFfQiozXV8Fx8HYLeR8940A3dn86szBVNZ2BOadQBHjD
+	hadF7b4rDYhC+N3Dwp4cRIuhYx5E7cHysOTCRTYGiYGtdNqDMfBGr8PhJMz0RdxI0IUxfCHt+2IPy
+	1E6rVs2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Nn-0000000Ejwo-40jY;
-	Tue, 23 Sep 2025 20:13:03 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1v19Nw-0000000Ek5G-1M4y;
+	Tue, 23 Sep 2025 20:13:12 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v19Nj-0000000EjsE-1y7n
+	id 1v19Nl-0000000EjtP-25dK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 20:13:00 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3ee12332f3dso6121138f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 13:12:58 -0700 (PDT)
+	Tue, 23 Sep 2025 20:13:02 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3ee1381b835so3965809f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 13:13:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758658378; x=1759263178; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758658380; x=1759263180; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ojrSKhmG/fxO+GWCa4ng/6S+zCuiK4Lwk2+N5nW6KeM=;
-        b=D4TdGbsbB16vslTrWoOmlbNMwaUdwU8l8gSFkf96jdnU1sAweZpfcmev1PEnczy1sJ
-         e3styy7EXLg/gky8UODVbfwCjqXbA/XBBqAg5iImlTyiZ/da0pExC3T0/aXyKgKYBFCf
-         slfJoRcKcT73yJLOEv64AXZ9sRHPOitI5AvxukmudIXousqthgd/VMgMt9iSQBl7KtjM
-         k2xHksvHrNFDeap5dMnVAc5eRQIa4TSebw3+epOVLhP5cSwxI70KjKEadfSGgKIdq3F2
-         SVMj/qARPBnMTpcN/EXO5R2Yh6eo+aIWfVdO0SLSyndj5/f043MLdgI0S2goQFw5RvrM
-         l0xw==
+        bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=;
+        b=USjrlY9Wvx4gUQrOvjdazQ3rkmn28gL6oIuEdUeFisRNAZgaSRNMsNL3Vi35uUgr/C
+         kusMpw1dbIBZGJQQPAsTw9M20JcYWpTbBLkXoV5wA9gr657T25P5+tGdU/9cO4bS1KJw
+         HgB82y6hMWu8XfCxSJaiigw1CIjUdNZFrPtaJCjCMhzROKGhzBEM4KUQKvTokp091EhE
+         gLtBQeMZCZFatfpUGWNqa9Bbc0Vbk8PXswBqQdnyFS0IMGIMHyDvZZdcZGk1pRYO5Y0X
+         noQp9pMXPTH4+kYMGV/0q9UxwrW+vyjrdLvEPzlFv2ucxmXShalVc7zrf5K87zFRp2yu
+         aojg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758658378; x=1759263178;
+        d=1e100.net; s=20230601; t=1758658380; x=1759263180;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ojrSKhmG/fxO+GWCa4ng/6S+zCuiK4Lwk2+N5nW6KeM=;
-        b=PBkX/0RweiRyFQ6aEZfPvJc6/UKVzAzdvNOdLa5S1n1C6UGMgQ26OAKgLm/ap6L4Bv
-         t870EauG1sE1hTFUmZTWjgc+kYZW9QIw4dsATRdz/ouUbQb1vx88kjm3X8NRkUFyyVpz
-         FYF46A+5vYa+1AYPsSt5oEv3hgFQrrmXGmr4Ymlcx8gtnFtkBpRFwi2FDNciMtKJEnQN
-         iY+fHeHgFFtm85FYUeeWZoZ+qskNtDLjEizjNiURY2ZtE3JyorghFRFjAx8ZnuTkwdjp
-         aHhop5mLvqkgLNSK2LOLA64G8yFC28lb6Krrck6baKaP12HNfHXKNHHOWnVbbthNRVTV
-         LAFw==
-X-Forwarded-Encrypted: i=1; AJvYcCWzTu0j1xAjixoO6tyVbVlSaoUTnkL+xE6kK5jhjcQLFuCVS1dyWJG4MPvnTCY86jyVkr/BxGaVGZc23vT3LWPv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yygu9ofxJnBTMuhivZ45FkeuRKkJ/WJ410cBUJQ2lSd03inDWIx
-	W9QEWna3BA3HGxflJxriVIkRcJIk8gA+IRozJbBZZqJSHp1HfKKgluLT
-X-Gm-Gg: ASbGncvI5mq+xunhND+YltpuLddWqFQTChx1lFysZtMy+Ye6cFqcVKE7cxtBid6oYhq
-	pcOfbM/T7MAO8yq34dKiG/h52vcFX4R0gS852ybtXsn0Kn4B/n2PBU2w2FhWlYbJrVkOflrN0uk
-	g1mzaVg6R2aevm/pB235Rr50I1k0T1JtpRNbHNaCPfMjnDXaNFIsH4KYmPSwM0oMgAiZkNgaP3R
-	vjTa7b1hmc3ul/qjjHIbOQGGBHXJ58cHJzmoxuKuNVBaS6xGT7vLpW9eFlvbkj2Sg+FiuppjR37
-	/o2MQIUzWYnANFtN8vNZu+6GOro8DkfxfJcxRgqgbUJTkwQLN5MNlh4IWH2gqHNsmYf24r3BP/N
-	Z8pTI59INariXwKNnhBDrjTZQyjNkkfex5dhqjDNk342p5GqvlRPIMoXG4pZ7qbmMquEtUSw=
-X-Google-Smtp-Source: AGHT+IGqK47tNLWDzv+QVmr3Noen4JYHJzHX9XOvwSn6hx1DoeLXgBT/x9MNl6d/T3WqvGo45eUn9g==
-X-Received: by 2002:a05:6000:4024:b0:3d5:d5ea:38d5 with SMTP id ffacd0b85a97d-405c5eb6416mr3557423f8f.25.1758658377507;
-        Tue, 23 Sep 2025 13:12:57 -0700 (PDT)
+        bh=aly97HE4DbfA98BoW1r98QzzxmSOsTSspnaWMcDHFeI=;
+        b=Fl0gweZGAM23Bl1Sy/ff6BDvU/g1SEGtJHSCO80ra7JgZdNPXwY/VyuFK087VEne0x
+         qsleLXw3JyzHHt7lF91gce/PSRE5Ix2+bYttvPAl2k7BV4v3VaaTChr4+uthA6AEh/2t
+         c8/Vawdj3TuMJXvBL2IqtiEK0CVvccjxj9TCi9c9VYGcs81og+gGXDqApe/Hfrkwh10R
+         uSEosps80vKCemZzAlEHV563FQLBLQIv9eLTlL1dtixhnqtSYcju9YLDyTDE3k5dRpjy
+         hNObQmDs+TaviLZnQ9Rt/sC9QuTLLLRBgkIbdBUOazdd1gmTx1FmNwtis4z5EzZvVTNt
+         JYiA==
+X-Forwarded-Encrypted: i=1; AJvYcCVJ7Bl/ebhCsQSV3GlpOHKWqLX/pd8srpx9bHhN/ABPpimSJ4se0vJuDdKxUcewLBnusTDOAcQyJYc/i6BIsHeM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGur6kW2jdUf/RLRHnStqnFYWIYnk9NUwCN6cuhpEqT89pgruu
+	NeE2TqwzPbTZr7siYsB7tABdBE9WDBbBsFmBoUez4h1rd4AGU9BLZX/b
+X-Gm-Gg: ASbGncsEirHijCn+r/fptUlY1UGYnz6mjymiQWJDRMEeJprMT7/jmk236YecJn1iQqe
+	3zSASmc9M5erb8hixEwrJ6Ph+4aNywtl8u2vwn8vS+nNEW/CDCw3vKEpqOG4DxlXJVjT4gWE7Nl
+	gLtc4zluIOf+/j4VcjNs6F4wnZP8XpziMJCXYvQehZzMTEqxnktF+12W1E25l7SXOynuLncR5sM
+	eipcOOKaj5yNdNQCiW7K1cZihXr0uZ7ZvbJKDHYouyYtzhmXBt4i/Mq2LkbrqoBImD4ThMyVwgW
+	CKq81bGYGUB3aRUrcsZT/BpkdUdOo+DplJxjjBm3am1NYLRHOrm9mYrdO9HHXOCfjcDdC96D7dT
+	bWb0tiQUExJkFcR7vSfvYqDXIi9WWV92XN7k3F/komWTw+Bg+osomqHliOL0b/VKQN9HcSL4=
+X-Google-Smtp-Source: AGHT+IFbHn8VL6NabBiNOJDmra87r8MK+4nqnknbe3Uap+qkSdJFvH4B0H/cqDTPX4N5G1MGJJWP8Q==
+X-Received: by 2002:a5d:5889:0:b0:3ec:d78d:8fde with SMTP id ffacd0b85a97d-405cb7bbd49mr3615361f8f.44.1758658379499;
+        Tue, 23 Sep 2025 13:12:59 -0700 (PDT)
 Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ee141e9cf7sm24889690f8f.12.2025.09.23.13.12.55
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3ee141e9cf7sm24889690f8f.12.2025.09.23.13.12.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 13:12:57 -0700 (PDT)
+        Tue, 23 Sep 2025 13:12:59 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -91,17 +91,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-pci@vger.kernel.org,
 	upstream@airoha.com
-Subject: [PATCH v2 3/4] dt-bindings: PCI: mediatek: Add support for Airoha AN7583
-Date: Tue, 23 Sep 2025 22:12:31 +0200
-Message-ID: <20250923201244.952-4-ansuelsmth@gmail.com>
+Subject: [PATCH v2 4/4] PCI: mediatek: add support for Airoha AN7583 SoC
+Date: Tue, 23 Sep 2025 22:12:32 +0200
+Message-ID: <20250923201244.952-5-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250923201244.952-1-ansuelsmth@gmail.com>
 References: <20250923201244.952-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_131259_556690_DF416028 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250923_131301_573214_5898F9CA 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,185 +116,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Airoha AN7583 SoC compatible in mediatek PCIe controller
-binding.
+Add support for the second PCIe line present on Airoha AN7583 SoC.
 
-Similar to GEN3, the Airoha AN7583 GEN2 PCIe controller require the
-PBUS csr property to permit the correct functionality of the PCIe
-controller.
+This is based on the Mediatek Gen1/2 PCIe driver and similar to Gen3
+also require workaround for the reset signals.
+
+Introduce a new bool to skip having to reset signals and also introduce
+some additional logic to configure the PBUS registers required for
+Airoha SoC.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../bindings/pci/mediatek-pcie.yaml           | 110 ++++++++++++++++++
- 1 file changed, 110 insertions(+)
+ drivers/pci/controller/pcie-mediatek.c | 85 +++++++++++++++++++-------
+ 1 file changed, 63 insertions(+), 22 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
-index e3afedb77a01..46000049a6c5 100644
---- a/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
-@@ -13,6 +13,7 @@ properties:
-   compatible:
-     oneOf:
-       - enum:
-+          - airoha,an7583-pcie
-           - mediatek,mt2712-pcie
-           - mediatek,mt7622-pcie
-           - mediatek,mt7629-pcie
-@@ -61,6 +62,17 @@ properties:
-   power-domains:
-     maxItems: 1
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index 24cc30a2ab6c..640d1f1a6478 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -147,6 +147,7 @@ struct mtk_pcie_port;
+  * @need_fix_class_id: whether this host's class ID needed to be fixed or not
+  * @need_fix_device_id: whether this host's device ID needed to be fixed or not
+  * @no_msi: Bridge has no MSI support, and relies on an external block
++ * @skip_pcie_rstb: Skip calling RSTB bits on PCIe probe
+  * @device_id: device ID which this host need to be fixed
+  * @ops: pointer to configuration access functions
+  * @startup: pointer to controller setting functions
+@@ -156,6 +157,7 @@ struct mtk_pcie_soc {
+ 	bool need_fix_class_id;
+ 	bool need_fix_device_id;
+ 	bool no_msi;
++	bool skip_pcie_rstb;
+ 	unsigned int device_id;
+ 	struct pci_ops *ops;
+ 	int (*startup)(struct mtk_pcie_port *port);
+@@ -679,28 +681,30 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+ 		regmap_update_bits(pcie->cfg, PCIE_SYS_CFG_V2, val, val);
+ 	}
  
-+  mediatek,pbus-csr:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to pbus-csr syscon
-+          - description: offset of pbus-csr base address register
-+          - description: offset of pbus-csr base address mask register
-+    description:
-+      Phandle with two arguments to the syscon node used to detect if
-+      a given address is accessible on PCIe controller.
+-	/* Assert all reset signals */
+-	writel(0, port->base + PCIE_RST_CTRL);
+-
+-	/*
+-	 * Enable PCIe link down reset, if link status changed from link up to
+-	 * link down, this will reset MAC control registers and configuration
+-	 * space.
+-	 */
+-	writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
+-
+-	/*
+-	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
+-	 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
+-	 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
+-	 */
+-	msleep(100);
+-
+-	/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
+-	val = readl(port->base + PCIE_RST_CTRL);
+-	val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
+-	       PCIE_MAC_SRSTB | PCIE_CRSTB;
+-	writel(val, port->base + PCIE_RST_CTRL);
++	if (!soc->skip_pcie_rstb) {
++		/* Assert all reset signals */
++		writel(0, port->base + PCIE_RST_CTRL);
 +
-   '#interrupt-cells':
-     const: 1
++		/*
++		 * Enable PCIe link down reset, if link status changed from link up to
++		 * link down, this will reset MAC control registers and configuration
++		 * space.
++		 */
++		writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
++
++		/*
++		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
++		 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
++		 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
++		 */
++		msleep(100);
++
++		/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
++		val = readl(port->base + PCIE_RST_CTRL);
++		val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
++		       PCIE_MAC_SRSTB | PCIE_CRSTB;
++		writel(val, port->base + PCIE_RST_CTRL);
++	}
  
-@@ -96,6 +108,45 @@ required:
- allOf:
-   - $ref: /schemas/pci/pci-host-bridge.yaml#
+ 	/* Set up vendor ID and class code */
+ 	if (soc->need_fix_class_id) {
+@@ -1105,6 +1109,33 @@ static int mtk_pcie_probe(struct platform_device *pdev)
+ 	if (err)
+ 		goto put_resources;
  
-+  - if:
-+      properties:
-+        compatible:
-+          const: airoha,an7583-pcie
-+    then:
-+      properties:
-+        reg:
-+          maxItems: 1
++	if (device_is_compatible(dev, "airoha,an7583-pcie")) {
++		struct resource_entry *entry;
++		struct regmap *pbus_regmap;
++		resource_size_t addr;
++		u32 args[2], size;
 +
-+        reg-names:
-+          const: port1
++		/*
++		 * Configure PBus base address and base address mask to allow the
++		 * hw to detect if a given address is accessible on PCIe controller.
++		 */
++		pbus_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node,
++								   "mediatek,pbus-csr",
++								   ARRAY_SIZE(args),
++								   args);
++		if (IS_ERR(pbus_regmap))
++			return PTR_ERR(pbus_regmap);
 +
-+        clocks:
-+          maxItems: 1
++		entry = resource_list_first_type(&host->windows, IORESOURCE_MEM);
++		if (!entry)
++			return -ENODEV;
 +
-+        clock-names:
-+          const: sys_ck1
++		addr = entry->res->start - entry->offset;
++		regmap_write(pbus_regmap, args[0], lower_32_bits(addr));
++		size = lower_32_bits(resource_size(entry->res));
++		regmap_write(pbus_regmap, args[1], GENMASK(31, __fls(size)));
++	}
 +
-+        reset:
-+          maxItems: 1
-+
-+        reset-names:
-+          const: pcie-rst1
-+
-+        phys:
-+          maxItems: 1
-+
-+        phy-names:
-+          const: pcie-phy1
-+
-+        power-domain: false
-+
-+      required:
-+        - resets
-+        - reset-names
-+        - phys
-+        - phy-names
-+        - mediatek,pbus-csr
-+
-   - if:
-       properties:
-         compatible:
-@@ -131,6 +182,8 @@ allOf:
+ 	return 0;
  
-         power-domains: false
+ put_resources:
+@@ -1205,6 +1236,15 @@ static const struct mtk_pcie_soc mtk_pcie_soc_mt7622 = {
+ 	.setup_irq = mtk_pcie_setup_irq,
+ };
  
-+        mediatek,pbus-csr: false
++static const struct mtk_pcie_soc mtk_pcie_soc_an7583 = {
++	.skip_pcie_rstb = true,
++	.need_fix_class_id = true,
++	.need_fix_device_id = false,
++	.ops = &mtk_pcie_ops_v2,
++	.startup = mtk_pcie_startup_port_v2,
++	.setup_irq = mtk_pcie_setup_irq,
++};
 +
-       required:
-         - phys
-         - phy-names
-@@ -169,6 +222,8 @@ allOf:
+ static const struct mtk_pcie_soc mtk_pcie_soc_mt7629 = {
+ 	.need_fix_class_id = true,
+ 	.need_fix_device_id = true,
+@@ -1215,6 +1255,7 @@ static const struct mtk_pcie_soc mtk_pcie_soc_mt7629 = {
+ };
  
-         phy-names: false
- 
-+        mediatek,pbus-csr: false
-+
-       required:
-         - power-domains
- 
-@@ -209,6 +264,8 @@ allOf:
-           items:
-             - enum: [ pcie-phy0, pcie-phy1 ]
- 
-+        mediatek,pbus-csr: false
-+
-       required:
-         - power-domains
- 
-@@ -243,6 +300,8 @@ allOf:
- 
-         power-domain: false
- 
-+        mediatek,pbus-csr: false
-+
- unevaluatedProperties: false
- 
- examples:
-@@ -402,3 +461,54 @@ examples:
-             };
-         };
-     };
-+
-+  # AN7583
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/en7523-clk.h>
-+
-+    soc_3 {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@1fa92000 {
-+            compatible = "airoha,an7583-pcie";
-+            device_type = "pci";
-+            linux,pci-domain = <1>;
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+
-+            reg = <0x0 0x1fa92000 0x0 0x1670>;
-+            reg-names = "port1";
-+
-+            clocks = <&scuclk EN7523_CLK_PCIE>;
-+            clock-names = "sys_ck1";
-+
-+            phys = <&pciephy>;
-+            phy-names = "pcie-phy1";
-+
-+            ranges = <0x02000000 0 0x24000000 0x0 0x24000000 0 0x4000000>;
-+
-+            resets = <&scuclk>; /* AN7583_PCIE1_RST */
-+            reset-names = "pcie-rst1";
-+
-+            mediatek,pbus-csr = <&pbus_csr 0x8 0xc>;
-+
-+            interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-+            interrupt-names = "pcie_irq";
-+            bus-range = <0x00 0xff>;
-+            #interrupt-cells = <1>;
-+            interrupt-map-mask = <0 0 0 7>;
-+            interrupt-map = <0 0 0 1 &pcie_intc1 0>,
-+                            <0 0 0 2 &pcie_intc1 1>,
-+                            <0 0 0 3 &pcie_intc1 2>,
-+                            <0 0 0 4 &pcie_intc1 3>;
-+
-+            pcie_intc1_4: interrupt-controller {
-+                interrupt-controller;
-+                #address-cells = <0>;
-+                #interrupt-cells = <1>;
-+            };
-+        };
-+    };
+ static const struct of_device_id mtk_pcie_ids[] = {
++	{ .compatible = "airoha,an7583-pcie", .data = &mtk_pcie_soc_an7583 },
+ 	{ .compatible = "mediatek,mt2701-pcie", .data = &mtk_pcie_soc_v1 },
+ 	{ .compatible = "mediatek,mt7623-pcie", .data = &mtk_pcie_soc_v1 },
+ 	{ .compatible = "mediatek,mt2712-pcie", .data = &mtk_pcie_soc_mt2712 },
 -- 
 2.51.0
 
