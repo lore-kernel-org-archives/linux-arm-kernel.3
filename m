@@ -4,64 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF2BCAC592
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Sep 2025 23:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BF2CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 00:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7E/YDLybPC/9yzf2H4ojfN2TOYFnywcfvqhtXKh06/w=; b=ArvGJdXqBKAXnAZYNaA8wx5jwY
-	/9urcxvJl2mQ+pF3JgsJLYXuD6GvFD0KsWIOsnmltwPeO7u0PiGf6PSDOasNPz5+JW1A/0d/IinCI
-	9tNk+jjtFu1P/TMf/BmO9IAISoBp4PXs4oe2tejSzKt6N3PmxILCXtoVlJk0I/PihmJMiktPZlYQX
-	ZdKzD58PTl4HIaRb5pQhcks+lgEytBjWxTuh9QrUL8hHPFalwV1uIL4yU6xBOGB+7o1TfALxrMoYS
-	VZWF1CE12pQ9zh4vbh8EeZA+XoVupCZAlr1OpY29ZciYYQkxfl0XY97eBrEia1iqgWlOtZYYH/srD
-	fHwg6XDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ArWe2Cdpb1B9QJDnPPtkWbLn2dmLXjGSTFyr8TwXlwU=; b=UyZ+U715MxSlXdBeZeTWHbVWv4
+	4QjMxv90psHqfGHhvRs0OZbyo57jemPgJUQRbpiE6gL+ndIjT7VnTa2wJS6JwM1JLFgp1FRyZ9eNT
+	HLDiKI3j2Y2ndNq+vaMdbliwTZGMwjdRQMYml+jVZHzMmdhck8Wp3Cr1eh6eMNALoPG+OGvw+dqWs
+	A3dWsSlZdt0Vf6+hsCixodOEehmCZ2lx4lygINqIvJprMT9ggtBMjLhbD5PnWcnbTnjIY7sW/uwuy
+	/t2b4Oiq7AkJqpI+4wVQOsgZDvPvj1ONeXATh+y+wbHcAXjcaqlijEvrjIUjqgt2o2W4gOBH36het
+	WDOtpqyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0q8s-0000000BoW1-1LCI;
-	Mon, 22 Sep 2025 23:40:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0qmI-0000000Bt3j-0dnF;
+	Tue, 23 Sep 2025 00:21:06 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0q8r-0000000BoV7-1MJp
+	id 1v0qmF-0000000Bt2Z-1fMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Sep 2025 23:40:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8319460262;
-	Mon, 22 Sep 2025 23:40:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33106C4CEF0;
-	Mon, 22 Sep 2025 23:40:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758584420;
-	bh=nOnerZmRV0c5WJjU8VhwkEjiAKaD2K/BYYOQhijJfIE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=uVvWcj/d0yvTzBZDzbmzaCkaA+HwY1/+ztqjUkAPwBGkQmYWD+afeV2VTWk2Biz5j
-	 +qIEF9I91+EB1NyPSdpNe5GLcdzoHp38Qj9LplT1G72W0b3pZBlVnHlKRqbxcE/fth
-	 5EVClVWy/KfwgO0Ac/O/UACM9gj/pAEnOR+XVC8kEqkYj8/QUW6WDqeg5ybc00eoHP
-	 rfS4Tgx4UO/+7SN8skCnM7YKQSYoYhJfpxecdumcjp8bUY07dpwwjOkYOXjDSn0GfH
-	 QILHSOhqh0WxXsZ4zL/6p0eVB2v5vIZyhOcTv2yC5CAhV+EYlwDUnHwpjEWCM4pMWy
-	 v9tN3L08gSDxw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE1A39D0C20;
-	Mon, 22 Sep 2025 23:40:18 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 23 Sep 2025 00:21:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ezIM5SPZV8X1bvwyuCLucpucGKDPke1TNeFHqAfovphvsG7TAHLE8qViYz1J82wiEIJKQnhkShPmynCKWoUeCloxzSDGHdyiC8lIsPz+q85cUX/YMMAHIJ81Thzu8OLc+PXA98erEDgf0PVEN/JOA5ZX0ch1vAR40IAl9cLB6xh8XKyDAmvvW7jio+aU3/ZYA4uhTN78N85DVCiXq4siMygTnH8kar70M2y1dwDh46itqd0Ko3wbkdyDq8NOga+rKRBk7PrgQGqE27dIx103wWWE39KXYEY5yisvNRUUKkqsfoOeCj9+RiQxsrvviByrI7+xNklf9p2f51zRfz2qpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ArWe2Cdpb1B9QJDnPPtkWbLn2dmLXjGSTFyr8TwXlwU=;
+ b=vT5nU7LKELXkwwBqpOMg2ra9Vf78L5p1LqFGzlR6ZMJ87wJTnsqboG6Tvl9DDoe8ZdgnNchF2TiahUHUTGJJDRIBozq7/FvkxcZKXq7b9Ohls+wkZ1Z11Zhu09v+pSToUGu+Ll3bZHj7t9M6BFtFuC1TTZuoiYtsIqJNXk7AV1M3vFxcwcwZPPG2LwBcesiutlxfIjNBMH2uZ9bVXi0OvOpTLXow2kzDrRvf0cucz6siEgJNUOqxYrTIWzMSxkzSrNG5T+keJZWqxwBhMaep2FA3p3+lZXcdwJVy+FZCy3x47FnOstP+1dXrVTt8rN12J/EX1xh7bJ0YE/O7037qww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ArWe2Cdpb1B9QJDnPPtkWbLn2dmLXjGSTFyr8TwXlwU=;
+ b=LJg9xUh/oBXfyLCw1l27kYX9aVuLe9ZYckv+ohJ+AhQjOYJGLbz7sV2CFNAfUn7FcQZDqKn8A9bH0MOaiJkhXL1CUFYYIHfzuhXT+tG4xZDQJ9ZrIWBHwU5R3Mbc756F+sbf5HqKQDFZaX7PtPErg5oRfU8rY+TbrYm80V3/+9vQgdx5G54uOPdD9vjZ8QIevd3WwsunMC+a+8C9voSjw+lFYsN7m34MAgtYg+PQ00tIp1KRVdqAfhPZMMy4IAl7T0oMXCEIdErI57KoKEilNRSWbo+VCJdw4yNcpyvuEpSfgm0ixv9V5WwDobMxiXCV1h55wOT2EfG24znAbpAqIw==
+Received: from DS7PR03CA0241.namprd03.prod.outlook.com (2603:10b6:5:3b3::6) by
+ LV2PR12MB6013.namprd12.prod.outlook.com (2603:10b6:408:171::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Tue, 23 Sep
+ 2025 00:20:46 +0000
+Received: from DS1PEPF00017091.namprd03.prod.outlook.com
+ (2603:10b6:5:3b3:cafe::24) by DS7PR03CA0241.outlook.office365.com
+ (2603:10b6:5:3b3::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.20 via Frontend Transport; Tue,
+ 23 Sep 2025 00:20:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00017091.mail.protection.outlook.com (10.167.17.133) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Tue, 23 Sep 2025 00:20:46 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Mon, 22 Sep
+ 2025 17:20:32 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 22 Sep
+ 2025 17:20:31 -0700
+Received: from build-bwicaksono-focal-20250829.internal (10.127.8.12) by
+ mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via
+ Frontend Transport; Mon, 22 Sep 2025 17:20:31 -0700
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <ilkka@os.amperecomputing.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <suzuki.poulose@arm.com>,
+	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>, "Besar
+ Wicaksono" <bwicaksono@nvidia.com>
+Subject: [PATCH v2 0/5] perf/arm_cspmu: Preparatory patches for NVIDIA T410 PMU
+Date: Tue, 23 Sep 2025 00:18:35 +0000
+Message-ID: <20250923001840.1586078-1-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next V3] net: xilinx: axienet: Fix kernel-doc warnings
- for
- missing return descriptions
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175858441749.1195312.3629295031958677070.git-patchwork-notify@kernel.org>
-Date: Mon, 22 Sep 2025 23:40:17 +0000
-References: <20250919103754.434711-1-suraj.gupta2@amd.com>
-In-Reply-To: <20250919103754.434711-1-suraj.gupta2@amd.com>
-To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
- sean.anderson@linux.dev, radhey.shyam.pandey@amd.com, horms@kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, harini.katakam@amd.com
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017091:EE_|LV2PR12MB6013:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9b9cfac0-6e30-4583-42bf-08ddfa370a81
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1UZD+KMBCnXEoCA+yb43Q9fi33pAsHmaeFlW/k/0WjJ4KSMVcONIXhhhTQ98?=
+ =?us-ascii?Q?gpF+PNdXzJinpSfvPnNu93Cv18nSgIRrrHJvSiBi61i2A9nxmanZfFbJybZx?=
+ =?us-ascii?Q?q8ruef650Ew3/s6+vEv4bfuZQKwuQMJwXUIeDN0accKEwMlgex7ERbmHIN3d?=
+ =?us-ascii?Q?KAxjQOakdxpx8zgcqQ1I+i0/tyDPBhnNBnpM1n2CEIkSSFcEtS3TrOajWmZE?=
+ =?us-ascii?Q?AQ579D2i83qr2B1b+Ay/nN2P/QYm833Zz5w23ZN1jS/2neOYABjrirHnJu5q?=
+ =?us-ascii?Q?Mni5WqdAzYE3vsbVtPW1gyOuf+2RwIWhjrVi4pzNWrR7ntzhMp/YTfFsPtXq?=
+ =?us-ascii?Q?B8Sl2Pye7UEPgTV00jsh06Qr+ZCPUq0/K9PlxzyvshSfVW/nTYcvS2i2vtwI?=
+ =?us-ascii?Q?cWIw82YXOVEZmc3/h+z5S7fV/PH3l5I2mU79gtRD3pS/ByVVSD9FTNoTFWmF?=
+ =?us-ascii?Q?H0HZB1vVMrwkyY5htcr7FD0Gc3o2CEj0T84I+BZgF5Vb3OPZLAkKqwFRDECM?=
+ =?us-ascii?Q?bhnHdAVWd+Th2D19BCK4OvvL5uNhSTtyo2xceQW2vSidQxtjKMiSiWaMn4Ar?=
+ =?us-ascii?Q?tJcwbVpDdHoRPuEq7cJN3hojYncfbjSRSaJV2KnzipTvSFE3YDkzlE0qmnYv?=
+ =?us-ascii?Q?Sa65EAskRJ93/u+zotg09sBrIPQlro1EdqFKynj+fvCe5gGWLfNJmeGxlL/m?=
+ =?us-ascii?Q?yZIJNFr8m3XgdE6xD9fo4OGDfixb2cnc9m3gMplD4CaKHL14JJAYyX/jy/7Y?=
+ =?us-ascii?Q?o9ScroQexrM3gfEScFvi3zrsysO1KvJ4Pz3+N5xk5W3H6ue14YsfIzYPFsgZ?=
+ =?us-ascii?Q?SZqqZkh5iO3sNmGApNDoeTrxyn5/fRQPexoisnNzeCGx+ahRuqjO3iH/mAKi?=
+ =?us-ascii?Q?6lywkEeTTturvqKPJduQsBsyCY8cHvUQidh+dfM/Qo+P5jhALFr2NCl4uo3m?=
+ =?us-ascii?Q?mcp5dQnTFihZj3o6JwCfHmzcCsh0hglqyWp3AnOxMWhA00/ot0Puguwbl7iO?=
+ =?us-ascii?Q?x8V6Y3P7DTnIwylg55g4HHt9YB4QA880UAAGNdOHGyeMHikP0cMRpsUtN1p1?=
+ =?us-ascii?Q?O1job4X3MUuyEeiik/ZP9kmCNSeRHqAu+NCsmuGwGqL6O4YLKYsSRuu9r34y?=
+ =?us-ascii?Q?OfiN/x5e2nSN/a9Vc5ySz4DjybTAfoMJsrW0Cv1X7dJpr814kfynbvNT9GaU?=
+ =?us-ascii?Q?iTXHUwL7ArTSAI9IsJeJHje0EJRt3TH3uBTT8ZnQHQ3VHkKwC8YWTr+YYn3u?=
+ =?us-ascii?Q?N+NqQ9lV22YTSKpf2hGQDuF5c8B1WDXfZHoWpZVhN8QL21T7sI7ScSIeF6Sp?=
+ =?us-ascii?Q?nGd+CgdTojlD39tx1blvj26QsIqOpGnxe2f4ZHLPx+wHM4M/M7CT/8WufFKk?=
+ =?us-ascii?Q?jvxGeVK0tT6PM3Ftkci+SJwH9NrOLV6/Zc3Lggb/nIykBjvBTRpmmcBLMaUI?=
+ =?us-ascii?Q?e9RfAkfFsfmnzvuoy7qKoE0nJj8l8bUw4B5SppzRFqnoEEgsal8dxu03WkpB?=
+ =?us-ascii?Q?Yix/O+P2bEpjd8+WO0bZ1E0BZu4jMB9rePxDZ1StWW6rJ3BzWfmvDteaSw?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 00:20:46.1517
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9b9cfac0-6e30-4583-42bf-08ddfa370a81
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017091.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB6013
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250922_172103_429658_CA43EF7A 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +152,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+This series contains initial patches before adding support for upcoming
+NVIDIA T410 PMUs.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Thanks,
+Besar
 
-On Fri, 19 Sep 2025 16:07:54 +0530 you wrote:
-> Add missing "Return:" sections to kernel-doc comments for four functions:
-> - axienet_calc_cr()
-> - axienet_device_reset()
-> - axienet_free_tx_chain()
-> - axienet_dim_coalesce_count_rx()
-> 
-> Also standardize the return documentation format by replacing inline
-> "Returns" text with proper "Return:" tags as per kernel documentation
-> guidelines.
-> 
-> [...]
+Changes from v1:
+ * Add Reviewed-by from Ilkka for patch #3 and #4
+ * Drop change to [1/5] on making arm_cspmu_apmt_node public
+   * Replace it with new API arm_cspmu_acpi_dev_get
+Thanks to Ilkka and Robin for the review comments.
+v1: https://lore.kernel.org/all/20250812233411.1694012-1-bwicaksono@nvidia.com/T/#t
 
-Here is the summary with links:
-  - [net-next,V3] net: xilinx: axienet: Fix kernel-doc warnings for missing return descriptions
-    https://git.kernel.org/netdev/net-next/c/312e6a58f764
 
-You are awesome, thank you!
+Besar Wicaksono (5):
+  perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+  perf/arm_cspmu: Add callback to reset filter config
+  perf/arm_cspmu: Add pmpidr support
+  perf/arm_cspmu: nvidia: Add revision id matching
+  perf/arm_cspmu: nvidia: Add pmevfiltr2 support
+
+ drivers/perf/arm_cspmu/arm_cspmu.c    |  70 +++++++++-
+ drivers/perf/arm_cspmu/arm_cspmu.h    |  48 ++++++-
+ drivers/perf/arm_cspmu/nvidia_cspmu.c | 194 +++++++++++++++++++-------
+ 3 files changed, 253 insertions(+), 59 deletions(-)
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.50.1
 
 
