@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337A7CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42429CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ebINn/Ex6peTjWVdcmsWh2BtgOfbHEuHXthkszx0uqg=; b=EBWG6TceO0DNGxVvYDA00tVIpC
-	SuWp8ST3t9g24PjOEmU+teInd/IBD4YXCp60kXpzfcuXNd6IkUFxqsLygy/rYEWIDxi21GGiV1c85
-	K1Zi9JQID/KalUV+1bvaGWc6SrV7gSuRwXCeorVrYkdENTewqyvcdY41gb+xveNs+revWNMYKisdk
-	QBu/WGEmR8LdPJlOuKRAK07clOUZolR6TuP7krGZDwGk+4kAeyraw4QzC0jozAyXWEfYs0hcw0YfK
-	KrD5252ocSXSwctOoM25VkUYBI+igA3fOPSyt+PaOtJkLQyIv66XXZomJJJaqd+AYEYCSFVH5NfNC
-	qEjo87rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=70TpCwFaIyGe3KXB6s+x31vUbM0ZIyshoHwXPvlt+4Q=; b=I+IpeDHjfKd3lUVRndSg5m4k73
+	728ys2cY11FWWoddQqLnWOlKyk5Rl/I3AYDfIMePVOIG3+Evmby7UlpqRfdmMvjxfhy0j6HFGu+af
+	JCQLiKnYCFDWYQc1VPjf8lV+9iJpRpzDldtUunmpJnrFpYdJlsjG0VG2t8M9RAR5kPz8UJe3wIO55
+	ptS1JA82OpHNI2C3Phtk/NzXUm9BU7z2eQR9WP3/RB/BMsfwVNdIjf/ANgHe8IushpokGFplfmSBg
+	BGcdVnWFrBu4/0nzCPoNVZqE25DXRPTHisGT4/pZCPPtIzaQNV7u5erLoMXwUahLJXN/nMe6PNRd5
+	ftHL5S1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ylJ-0000000Cr1M-2Lma;
-	Tue, 23 Sep 2025 08:52:37 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v0yv6-0000000CsCm-1EkW;
+	Tue, 23 Sep 2025 09:02:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0ylG-0000000Cqzu-0rrM;
-	Tue, 23 Sep 2025 08:52:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758617550;
-	bh=eQ3bgrFsPixYkoX5WF8vxszDEQywePDRPFRChX8eSyw=;
-	h=From:Date:Subject:To:Cc:From;
-	b=C/OJcW2wr0UlSy5iTPEpZ+d530Z8l5Wsiq0TXn6L8RJwC7pO4y0epp/5S2uleH32b
-	 bTh98ZZqQ/MjqrpDjYrEMMTuyg2a0Pa7cTQLtBeoiUedwGxzshq6Jdn4dUrG7w/w59
-	 7MTyHyHK0u0xvxjYzOoKpaUfKjxfB+XDQzo1aVFIW+T4CRSDqYS00Trb/HTxc8/Qj0
-	 L6ZLyKZDg2h8/l5lrcITOa5cs+GfbWTbI8tp3OUL7eyil/OXsMdT184J4JqwizbiIG
-	 g6fFxWcI74qHIjUMz88+PBU+GOdj7tkT2LbxvByV66mg+Ud8iY2m8u+nVNjUTLs8A4
-	 gy3RQdZ9GqUtw==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CFC617E0299;
-	Tue, 23 Sep 2025 10:52:30 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 23 Sep 2025 10:52:12 +0200
-Subject: [PATCH] pmdomain: mediatek: set default off flag for MT8195 AUDIO
- power domain
+	id 1v0yv5-0000000CsCK-1sjT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 23 Sep 2025 09:02:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=70TpCwFaIyGe3KXB6s+x31vUbM0ZIyshoHwXPvlt+4Q=; b=fcHt0z3hxZLI8uqmXlNwLg+6yz
+	gOJONGttt1OQVb1ymLy6xqn2kLSauxQS1Mxkeq2gtNOqyo7CXxM+u9prOS6NajIUD2tsxTo9g/B/p
+	kUDs25akAkjq+wOr/T0o4oK/mLKXSdTnrqlinrJKhnk2EaavgJqo35N7daLTmdmJtjdVbbeKnniuG
+	N5FU6/TbAYchhRw8/6+aYVL7t06Ktv/9nnu7ZIG2W2KMAJJI1szGMQK0ZcI/R2A3aTQ5g1apMF7Mf
+	3DhQ4Ct85bHRkkeSsKWwiBbOxljNscDpiC1fbXkCn7aPVZmGNeP3BeoFz6C3Jqc7f1ZUTfxhroYP+
+	F/ca9nvQ==;
+Received: from [54.239.6.190] (helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v0yv1-00000008YgD-2UmL;
+	Tue, 23 Sep 2025 09:02:39 +0000
+Message-ID: <c8a8ddbc4b1c53429748d239f2a8461f180a5133.camel@infradead.org>
+Subject: Re: [PATCH] KVM: arm64: Implement KVM_TRANSLATE ioctl for arm64
+From: David Woodhouse <dwmw2@infradead.org>
+To: Alexander Graf <graf@amazon.com>, Priscilla Lam <prl@amazon.com>, 
+	maz@kernel.org, oliver.upton@linux.dev
+Cc: christoffer.dall@arm.com, gurugubs@amazon.com, jgrall@amazon.co.uk, 
+ joey.gouly@arm.com, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com
+Date: Tue, 23 Sep 2025 10:02:38 +0100
+In-Reply-To: <97759f51-385b-4ce4-8766-d00ed5af580b@amazon.com>
+References: <86frcd1tp4.wl-maz@kernel.org>
+	 <20250923082955.66602-1-prl@amazon.com>
+	 <97759f51-385b-4ce4-8766-d00ed5af580b@amazon.com>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-2+7Due4sKE215/2KPo3Z"
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250923-mt8195-pmdomain-audio-fix-v1-1-782190385f46@collabora.com>
-X-B4-Tracking: v=1; b=H4sIALtf0mgC/zWNQQrDIBBFryKz7kAUpEmuUrLQOKazUFM1IRBy9
- 0pDl+/B/++EQpmpwChOyLRz4RQbyIeA+W3iQsiuMahO6W5QCkPt5aBxDS4FwxHN5jih5wP9k6x
- XxlupPbT9mqnp3/drujnTZ2uJekuwphDOKQSuo4h0VPxnYLquL3bFntucAAAA
-X-Change-ID: 20250922-mt8195-pmdomain-audio-fix-f7ebf2afb15f
-To: Ulf Hansson <ulf.hansson@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, linux-pm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758617550; l=1485;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=eQ3bgrFsPixYkoX5WF8vxszDEQywePDRPFRChX8eSyw=;
- b=lG8MR+Jilqa9YvJI4g5WNbwG6A6UqK+1dxOy1mukQ6zReDxsF9ZSp8MjJSLdz7dYlCjb+gHTw
- Ei7/kDTc2ZOCZjuWhIC+g/nPNVHDq3IGkwIKz2djC75wH2f9j8PQ85I
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_015234_440002_095E2127 
-X-CRM114-Status: GOOD (  11.05  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +74,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In MT8195 power domain data array, set the KEEP_DEFAULT_OFF and
-ACTIVE_WAKEUP flags for the AUDIO power domain entry to avoid
-having this domain being on during boot sequence when unneeded.
 
-Fixes: 0e789b491ba0 ("pmdomain: core: Leave powered-on genpds on until sync_state")
-Fixes: 13a4b7fb6260 ("pmdomain: core: Leave powered-on genpds on until late_initcall_sync")
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
-Patch tested on Mediatek Genio 1200-EVK board (based on MT8395 SoC)
-with a kernel based on linux-next (tag: next-20250922).
----
- drivers/pmdomain/mediatek/mt8195-pm-domains.h | 1 +
- 1 file changed, 1 insertion(+)
+--=-2+7Due4sKE215/2KPo3Z
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/pmdomain/mediatek/mt8195-pm-domains.h b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-index 9405e8f62eaf07112d52a28e6545d26a4342c7c6..1d3ca195ac75806c458db71db4538940f37128a8 100644
---- a/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mt8195-pm-domains.h
-@@ -126,6 +126,7 @@ static const struct scpsys_domain_data scpsys_domain_data_mt8195[] = {
- 				    MT8195_TOP_AXI_PROT_EN_2_CLR,
- 				    MT8195_TOP_AXI_PROT_EN_2_STA1),
- 		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF | MTK_SCPD_ACTIVE_WAKEUP,
- 	},
- 	[MT8195_POWER_DOMAIN_MFG0] = {
- 		.name = "mfg0",
+On Tue, 2025-09-23 at 10:39 +0200, Alexander Graf wrote:
+>=20
+> All modern OSs constrain themselves to only ISV enabled MMIO=20
+> instructions.
 
----
-base-commit: fba389ea7aa6401d3539456123cbadfa1a87231e
-change-id: 20250922-mt8195-pmdomain-audio-fix-f7ebf2afb15f
+Why? Such does not appear to be required by the architecture, AFAICT?
 
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+And what is "MMIO" architecturally anyway? Using LDP is actually fine
+on MMIO, if a PCI BAR is passed through to a guest (and assuming there
+are no ordering dependencies on the loads). It's the fact that it's
+missing from stage2 page tables and causes a guest exit which is the
+problem.
 
+Other than lying to a compiler and *pretending* there are ordering
+constraints, or explicitly using inline asm, how would a guest OS
+*prevent* the compiler from using problematic instructions?
+
+>  NISV is really only useful to run non hypervisor=20
+> enlightened guests. Did you encounter a real world OS that was causing=
+=20
+> NISV faults? And if so, what was causing these? It's most likely a=20
+> driver or OS bug.
+
+The Windows CRB TPM driver uses LDP. Even if it *were* forbidden by the
+architecture, the track record of getting Microsoft to fix bugs *even*
+when they are egregious violations of both specifications and common
+sense is... poor.
+
+--=-2+7Due4sKE215/2KPo3Z
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDkyMzA5MDIz
+OFowLwYJKoZIhvcNAQkEMSIEINvwWnozZlemf5pSHKOvmGadBSNyNeu5fahtCQ5nK81uMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIARVmGr8b1ZC5r
+xWpqYxfWEvf+FS1CtOeWpaQ8F+3xaJ4iL6wCTf5vD1vUauH1pLn5mPLbdDrGreppGFq5cercdvR1
+PNyb8/ZVGLmxKj51xCA8OHn3srMdBOsqvFrdq20Wsx/bkZcgXLilgSrcqUacav3oPos6s+aD9dnl
+B0R+zlxGW311+63xgpPNIlldqVOuyRIfwrlq/LzbxZglVURGJQWTkmPyxIVLdsAf/xL2JiwKLTwU
+HQyCrNyp3QL7TDV+pA3dZlFRGKaWHOOLjoBNgENNCk+VX/QrcvKCNWrRiDwosOKjHVMC9v1rBrwg
+LAyMU1hIqWu7UkcN3fnGa+En/CWADtj5K+AeTfS0rQvU7APwoOwp6iHTHjhAllG0wPKzkbdA2+Wl
+p46VuGMIZrBqDVULRytdIkS0/GqXElpGesysEpRU3L+B1CSRYLHxWkOkEfb2hJ60AuoBYGqAFcTK
+Nbolz6xj9uN4Slm2JOhDlRxut8UCVAmU6jhyJUtM1EJ8u/GdDdpJjMoqSFhWMvvSa10DqNPk1hjG
+T/sULnERQoOyXrP33r0Kc0vEOBnwETpFGQdsgm/mZFu3zywGhkQ7wLJAjNcH8mf0cztcD3V9gATV
+JulgBbYYtq0K8FpRYWlAUjTnfl855lJP+ltS4u0NHmmoW1pv3HLpQVr3v6L/85UAAAAAAAA=
+
+
+--=-2+7Due4sKE215/2KPo3Z--
 
