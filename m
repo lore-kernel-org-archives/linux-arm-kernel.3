@@ -4,99 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29230CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DBFCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C6zoQ1uv1s7hqCsB4ZjAaLblPEL6nAmG0LEH7MpxUwU=; b=Kt4IjaG44TZWrz
-	ywKvr1uKsnXwoe6TrFmxSkKT2qYTItZI5BAlwozeaKzoABBuXYKJkGHAs2qddrvIHCk+BA33RqRi/
-	eSEua0UKqw9hK3YJc76jXaXkM8EnY6JQY0EoZSvVSBR52smr0qeN/scbX0Dldvw7yZo9hLeYuUvyA
-	xV1Ham59+TEGNwMVe0uJRtnbCQpQKhQdU0Pb8g4pK+FyXWYFxAB6FXAAHOTrUt5gQC4tixx9mH7LQ
-	fmf+igduagjStSLx9zogfbBzlGoVsK15yHTrWLw/EE2PeOevOg/IAK36b1bsc+NVCW0wLepi25h7b
-	aLP5vvabrPYU6cgNfI+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BpE48q+PsG/FwICY44olX3NmM67Pp1q0dE72zZ4RYME=; b=U+yNOKjP8HZ398pm79RiDlkEVS
+	IZl44WzVsxFaR5QwOfNlbjzA5mb3C783fR95FYKqP+PaTePRlk6xCcHsJmEWYWQ87sO35eOVIZFpD
+	VDZd96PgjkhTdeMBMrCZn9bCepIueePDhojV3YWYgszE3l02OBeZ8WTm+lMQIxQXYjCFPeT6dK7p/
+	00lpRodlGn88DGDf/YOJyvDHEUJmKfh55YcZnxsv5jOqyq1gw1TfcyOzcEAoSVLMzpAjfdpQq+YwS
+	JN1LALICLTB98wPuhUqEl/+ANyi/XmVgNFj0Yu/EXCQGM0A38085EjPQQEILwyuc9WzzbEn/FnSfl
+	qn5QXWCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11uT-0000000DHU5-05EG;
-	Tue, 23 Sep 2025 12:14:17 +0000
-Received: from fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.143.178])
+	id 1v11ut-0000000DHbe-1QYE;
+	Tue, 23 Sep 2025 12:14:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v11uQ-0000000DHTe-1WCo
+	id 1v11us-0000000DHbM-0KSb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 12:14:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1758629654; x=1790165654;
-  h=message-id:date:mime-version:reply-to:subject:to:cc:
-   references:from:in-reply-to:content-transfer-encoding;
-  bh=C6zoQ1uv1s7hqCsB4ZjAaLblPEL6nAmG0LEH7MpxUwU=;
-  b=mD0xkIhVDRTDD6UdkT8aj9tqZRAT1M8dvEp1Xglhm05XxCXHdwEQDWjp
-   XRqVIjc1+YBP5q/s2A/2u3LUIE73kre3rBM7GmV6yKdFiBPRSpJxHar4E
-   jyGmXyuNyNArCjRnLY/H7CNT5nQpUrIYq3isRBa8jv0CfJjG1lSiqKNMH
-   t0VNLEaZ/XCfqCsjzVf6ex9gcuS6SHojuY1saWK1drGNOjknXrMFDVVfB
-   8V1rnljmyaC6crUwri2CKzDK9QSaAXtlhbUoiVzmffThZo8QufM246akm
-   aDvnitNjE1BwJAAm1gQ6+FYHZUCZ77TLVBfI3LyqEl25XxYf2a2lk4GG4
-   A==;
-X-CSE-ConnectionGUID: FBNj+l+aR1+qu6nlihE2jA==
-X-CSE-MsgGUID: h+GIaP0rSfmTrhi4K2iYPA==
-X-IronPort-AV: E=Sophos;i="6.18,288,1751241600"; 
-   d="scan'208";a="2438561"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-010.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Sep 2025 12:13:57 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:7935]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.38.97:2525] with esmtp (Farcaster)
- id 8181f46e-0526-4b06-9460-3a2e1a03356b; Tue, 23 Sep 2025 12:13:57 +0000 (UTC)
-X-Farcaster-Flow-ID: 8181f46e-0526-4b06-9460-3a2e1a03356b
-Received: from EX19D022EUC002.ant.amazon.com (10.252.51.137) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Tue, 23 Sep 2025 12:13:54 +0000
-Received: from [192.168.26.206] (10.106.82.20) by
- EX19D022EUC002.ant.amazon.com (10.252.51.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Tue, 23 Sep 2025 12:13:53 +0000
-Message-ID: <8408090a-d2cc-4b90-99fe-183d49081ea4@amazon.com>
-Date: Tue, 23 Sep 2025 13:13:51 +0100
+	Tue, 23 Sep 2025 12:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37FA46024D;
+	Tue, 23 Sep 2025 12:14:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F89CC4CEF5;
+	Tue, 23 Sep 2025 12:14:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1758629678;
+	bh=RVhxoyPovtSx43TfKXZLJv8gzg5A8eiVNVPKu1RqQAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qX5i3YwFTMku/9P76Zl9TJjXNQtW4RhCJOrAb8GgnMeRcY9PWaLgZ+3nH9yX+JsX8
+	 /nKUQnNhfATH55uUBqgWnqukxXOTiiu/QRxsQheg6p2ZRusbmSFbnrUMyioVITmZmE
+	 pJMZv5wSbWA8WrFLgHZi/jQVN6LJfcOITjg3gLTs=
+Date: Tue, 23 Sep 2025 14:14:36 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	james.clark@linaro.org, leo.yan@linux.dev, mike.leach@linaro.org
+Subject: Re: [GIT PULL] coresight: Updates for Linux v6.18
+Message-ID: <2025092306-foster-outsource-fb07@gregkh>
+References: <20250922125907.2268152-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/15] KVM: Introduce KVM Userfault
-To: Sean Christopherson <seanjc@google.com>, James Houghton
-	<jthoughton@google.com>
-CC: Paolo Bonzini <pbonzini@redhat.com>, Oliver Upton
-	<oliver.upton@linux.dev>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier
-	<maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, Anish Moorthy
-	<amoorthy@google.com>, Peter Gonda <pgonda@google.com>, Peter Xu
-	<peterx@redhat.com>, David Matlack <dmatlack@google.com>,
-	<wei.w.wang@intel.com>, <kvm@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>
-References: <20250618042424.330664-1-jthoughton@google.com>
- <de7da4d8-0e9d-46f2-88ec-cfd5dc14421c@amazon.com>
- <CADrL8HVxvwB4JrnUf6QtDCyzZojEvR4tr-ELEn+fL8=1cnbMQQ@mail.gmail.com>
- <aLrXFWDgDkHqPQda@google.com>
-Content-Language: en-US
-From: Nikita Kalyazin <kalyazin@amazon.com>
-Autocrypt: addr=kalyazin@amazon.com; keydata=
- xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
- JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
- BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
- IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
- CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
- ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
- ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
- i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
-In-Reply-To: <aLrXFWDgDkHqPQda@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.106.82.20]
-X-ClientProxiedBy: EX19D015EUA002.ant.amazon.com (10.252.50.219) To
- EX19D022EUC002.ant.amazon.com (10.252.51.137)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_051414_703718_672E93EC 
-X-CRM114-Status: GOOD (  19.21  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250922125907.2268152-1-suzuki.poulose@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,45 +62,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 05/09/2025 13:27, Sean Christopherson wrote:
-> On Thu, Sep 04, 2025, James Houghton wrote:
->> On Thu, Sep 4, 2025 at 9:43 AM Nikita Kalyazin <kalyazin@amazon.com> wrote:
->>> Are there any blockers for merging this series?  We would like to use
->>> the functionality in Firecracker for restoring guest_memfd-backed VMs
->>> from snapshots via UFFD [1].  [2] is a Firecracker feature branch that
->>> builds on top of KVM userfault, along with direct map removal [3], write
->>> syscall [4] and UFFD support [5] in guest_memfd (currently in discussion
->>> with MM at [6]) series.
->>
->> Glad to hear that you need this series. :)
+On Mon, Sep 22, 2025 at 01:59:07PM +0100, Suzuki K Poulose wrote:
+> Hi Greg
 > 
-> Likewise (though I had slightly-advanced warning from Patrick that Firecracker
-> wants KVM Userfault).  The main reason I haven't pushed harder on this series is
-> that I didn't think anyone wanted to use it within the next ~year.
+> Please find the CoreSight tree updates for v6.18.
 > 
->> I am on the hook to get some QEMU patches to demonstrate that KVM
->> Userfault can work well with it. I'll try to get that done ASAP now
->> that you've expressed interest. The firecracker patches are a nice
->> demonstration that this could work too... (I wish the VMM I work on
->> was open-source).
->>
->> I think the current "blocker" is the kvm_page_fault stuff[*]; KVM
->> Userfault will be the first user of this API. I'll review that series
->> in the next few days. I'm pretty sure Sean doesn't have any conceptual
->> issues with KVM Userfault as implemented in this series.
+> Kindly pull,
 > 
-> Yep, Oliver and I (and anyone else that has an opinion) just need to align on the
-> interface for arch-neutral code.  I think that's mostly on me to spin a v2, and
-> maybe to show how it all looks when integrated with the userfault stuff.\
+> Suzuki
+> 
+> 
+> 
+> The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
+> 
+>   Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.18
+> 
+> for you to fetch changes up to 559d6c380ea0a27e71d0269410301303515e4179:
+> 
+>   coresight: Add label sysfs node support (2025-09-10 17:53:01 +0100)
+> 
+> ----------------------------------------------------------------
+> coresight: Updates for Linux v6.18
+> 
+> CoreSight selfhosted tracing subsystem updates targeting Linux v6.18, includes:
+> 
+>  - Clean up and consolidate clocks handling
+>  - Support for exposing labels via sysfs for better device identification
+>  - Add Qualcomm Trace Network On Chip driver support
+>  - Miscellaneous fixes
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Sounds good, thanks.  Do you think you'll be having time to work on the 
-v2 soonish?  Is defining and implementing the interface a strict 
-prerequisite for this series?
 
+I get the following error from the scripts when pulling this:
+
+Commit: 0ac00534623a ("coresight: Fix a NULL vs IS_ERR() bug in probe")
+	Fixes tag: Fixes: 26e20622a8ae ("coresight: add coresight Trace Network On Chip driver")
+	Has these problem(s):
+		- Target SHA1 does not exist
+
+Please fix up.
+
+thanks,
+
+greg k-h
 
