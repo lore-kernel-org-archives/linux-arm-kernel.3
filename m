@@ -4,69 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9729ACAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98312CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 07:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5lh/p7AJSPyiwSKxptPTILcY03mibX/06YzA35WWYok=; b=ae/mpvS7E45qkRCeYpVj7kN3wP
-	dSB67AeCJiPLjk+pG1zOuAGUwpblhTlsa6c5EQ3pBwAgAdyT8kFDt+XOnZM7KxvCS5GE/q/T6Oc61
-	sH8WNH8cGEYZeHQHBfNvM7VNOkjdD8H3YQYRmE6LMx/OFuVwyOitPWeQcT93GjYpb7V/t1MCxgrbX
-	h+Qkmp1MljfRfpbUkCIcLseaiPHn6D4CVfy18vRLmURefVbFtyWYt7U9SlQhjP4a/YYZ0LVq1HC29
-	HxErFTk4dxQ76faA3Le1hT59cGDcOrZUGlcyrs0OPe5Btt0P5clbFGP7doWRnPYUu/CTezkmxWMGJ
-	LvM9d5rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/lZRRc4Od9lp8WmLxwZAFQFru2UrqpBJoWq17TZK5H4=; b=ZR7TdUjCVQJvI0JrVyanhfDNKn
+	EnAepcJXFYY5o1Lm8yuLQl4n84C4dtqEj2+IVY/WxY0QBDceOOmreQrc44pQnOskPl0DdoCi7gUjl
+	GuN47PV7hP5VGdrGB3bgejbhw+nZddHmcSU9+5QvTNCCzzZRjmyRAVNmkEW/AbXybCaO634/ixqOs
+	XmjyKAKec91eeqAOmsGgMeCoMd7/qmfh4Ht2VHmkmILBlPgEH/AFouJDZ6hY2CRxoYPhd9mBzCOJ7
+	awDfnZiSt8FPuvRUGSG6yCBZFiCKQChparKd/+WFs/pIpubvtc1vT3+NgqRSGtkjpBhEcs/0Iy3ok
+	x10fT6yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xUo-0000000Ch5e-3TDz;
-	Tue, 23 Sep 2025 07:31:30 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1v0xdP-0000000Chx5-1H0a;
+	Tue, 23 Sep 2025 07:40:23 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xUl-0000000Ch4z-1zrZ
+	id 1v0xdN-0000000ChwR-1syc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 07:31:29 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cWBQS1Srcz2RW7K;
-	Tue, 23 Sep 2025 15:27:44 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id B6AB01A0188;
-	Tue, 23 Sep 2025 15:31:16 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 23 Sep 2025 15:31:16 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 23 Sep 2025 15:31:15 +0800
-CC: <yangyicong@hisilicon.com>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robin.murphy@arm.com>, <liuyonglong@huawei.com>, <wanghuiqiang@huawei.com>,
-	<prime.zeng@hisilicon.com>, <hejunhao3@h-partners.com>,
-	<linuxarm@huawei.com>, <fanghao11@huawei.com>
-Subject: Re: [PATCH v3 5/9] drivers/perf: hisi: Extend the field of tt_core
-To: Will Deacon <will@kernel.org>, Yushan Wang <wangyushan12@huawei.com>,
-	<Jonathan.Cameron@huawei.com>
-References: <20250829101427.2557899-1-wangyushan12@huawei.com>
- <20250829101427.2557899-6-wangyushan12@huawei.com>
- <aNFMUdPJeJo9XU1e@willie-the-truck>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <3cc3fcdf-436a-9e73-a377-ed896d07a825@huawei.com>
-Date: Tue, 23 Sep 2025 15:31:15 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 23 Sep 2025 07:40:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sSYYOJM9H4ZB/DVSiI0gD6ERZkMW9RcA2l49Ujg4p1DNYkHsPWspwnD+MnCrLcSPrEx6JJLWjyv94q9TN2puDdWc/H1cq2DQFnlRcjAYbtMMjD99ggOcJ4PuAlBFsYXCuyPkYhGBbD+8JGURh7PeE54/T/T7pYHsOwkgUv/c0FuK4s8gQRyQSgd8rGuvrLEBKyoBqq+q3T3PlRiXp4+sCEF775Xj5Eba1v1pgTYa8VmO7sq4FUen+xoNIdEjkXZaxtE5/S3SsxyqEG/Bk+bR9BKktTJKcVmK/n49h9n2jonRPzs4rljqnncCefd2dD5rvbFX/54B1ojsaRkCQPMGng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/lZRRc4Od9lp8WmLxwZAFQFru2UrqpBJoWq17TZK5H4=;
+ b=C3XPb9BuBYdFPAsiRVwekvj9pW9R41/BF0XM1eLfoFhN26QDp7sCpDR/QGQYbw2caH3vBlaAkd4xWIOYT5EmVX+iGggpZBoRzJB98ntEmbekCmtyvKB10z45rPLW/mVssnoa+OhTX8ejN/3YVPL7lbZZnDk0YmhA6pT9bhdFu/0WaLKUFyC6fohjs9GOXRXi2vOpvI2kr6OX7p1UrcAqoT0BvjPFzgQSQWMvf+4dw9MEkohEkcZAnbBT1Xzb6KjrjgJz1rWCp/gXiRREu5GrkQxz3oFdTjCcccqNNBrpAmzVIrByHKbbrqFvsZfSQvrT3w4HCs/P1fcH7rl8lAXvLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/lZRRc4Od9lp8WmLxwZAFQFru2UrqpBJoWq17TZK5H4=;
+ b=Rk/rfripa4W0Jmn+Gof1+Gss1OH3NrMnQHHxBUr9GPrmWtHNCLq03P3V5ZyTxlu4bdnkXvCI0cUTzWwguMmDVb++BglD8bwCEO7R/FHqpwzel4A9ja/QJKqVJ5uI2rX7CcX8Ffv+QkcQw4hL9trI8p01qOkAgtXZMDltI8XcYxmHYYYwdszyC1uiMvR6SCyh7Ozow328RQUEw2jU5Ga62m+UfotLJzWiPmPZL3ywtxwbANczINHB6he4tbIFctMlyR2nqIfgUop/N4ubNmwrHr8iyMZBDX6RSW7wZ1q+Va1WEBXbFsDcjp5NXKuHQUqhMmuFimEXa7z2ciqO9mEO9Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by GV2PR04MB11327.eurprd04.prod.outlook.com (2603:10a6:150:2ae::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
+ 2025 07:40:07 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%3]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
+ 07:40:07 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	jingoohan1@gmail.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/2] PCI: imx6: Add a method to handle CLKREQ# override
+Date: Tue, 23 Sep 2025 15:39:11 +0800
+Message-Id: <20250923073913.2722668-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:3:17::23) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-In-Reply-To: <aNFMUdPJeJo9XU1e@willie-the-truck>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|GV2PR04MB11327:EE_
+X-MS-Office365-Filtering-Correlation-Id: ccf37271-befa-4040-171b-08ddfa746b0e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I+0ju579vDPqRf7qjGdDsmoKG9XEB1QEN9xksA8oGE/d2wbRvStGAJihAx2G?=
+ =?us-ascii?Q?2y6JkP5rliJ4hPINQU+PaRfVh2Lj1Pxu8ws97INLwJPREb/ab/Sn+2JVkpwn?=
+ =?us-ascii?Q?cAYXELDgv2St/OZC+99S49Ne/xK9mL3e+eFUMdxlu0DQLg5w0lGB3io9Fc+c?=
+ =?us-ascii?Q?NbfSCrw7lFIaljZwWxiLmUnGByIXhT/EokJX2HHuWaLk1G2KSaDH9ZoVIXWw?=
+ =?us-ascii?Q?AV/PodcFfpdz6kBhqU8T8iaqTFahuNRML2LX4b1Dovsfes23jnvdsbYpX0aj?=
+ =?us-ascii?Q?7zQLoqZ8pNoG+VHCBykFxFrmVt+AoV/IdeupTdHtGE8N0sTC2w6HUecL5+5w?=
+ =?us-ascii?Q?hyz0G8hoODmM4NjdMBMUdsssU6ZUJ6gs4C3h29t5UzLOevWDUpOWJFOtFt0m?=
+ =?us-ascii?Q?EFfyQs06s6EQgm7EZsKs88JPRBpSLpwdaaqCczJ7FmAswkVLpW3hfQOLRXcR?=
+ =?us-ascii?Q?El9JINNt70KTTp+Cm8p7EQP/xxCMj09Sb0WKNY+/zmscie4Fbs9bc3mIn+gW?=
+ =?us-ascii?Q?mtPICxlhnQhuc+MZZ7EHaiv8xCXv5YSCygWiRfC4wAUxz6NAKaiR9oU11Giy?=
+ =?us-ascii?Q?sjcYnpg0Wjqz45YzvHJGw6T3OV6XJ9EXBMTz8ffO4oVdVAz4U3iqKGNicpoT?=
+ =?us-ascii?Q?9bcIXYHsWPZMwfM1Dld6JQsnchYZGzfT+ZnC5IdYd6/jRgxwBbtgdHugmD+c?=
+ =?us-ascii?Q?Tr7ZnAMsZwQ1a3dizjh85SkJ2IYJiN0RMb0z/JikqVWSlhRWxMit+4eeTk5f?=
+ =?us-ascii?Q?m43W8xO7xDAbPLqfuBMHCOPCc8vIJpWeXqLKSiVVM8lWBajhuXoPDLWdjp+J?=
+ =?us-ascii?Q?J9/szkVeJxR3+dAT+tM9BOUg08as0XQNBqeioTxpsEJ7mt49qyddTrWa7jKI?=
+ =?us-ascii?Q?qhx3v2svhJplZVbJbTZXJBg75sXkcv5RxXx4+WCy0BcThkWk0ysyz4CLKuLo?=
+ =?us-ascii?Q?yLtkVhWQqI+JLaVR2pEQd+Jz8Tin/Xso8auRCsTqhdF2gWENEGqCE3pHwMGp?=
+ =?us-ascii?Q?rmP11q1KbQc/yySvOeZZ576qJClOPJHc1yaqDOBRQnzlZHjb7Z0UCZi/+hUl?=
+ =?us-ascii?Q?zWzkXX3Vd3t0q3862wbqOi2DdlbLsmpvYNRQRX3eKm6X9nPeUCBA+nZwvU/9?=
+ =?us-ascii?Q?Fpq4Gh5MrCpRfRWYayhS25OoJ6Nc4e/Ac9u4o0hFqy7U6scFACr/WVHT8NsE?=
+ =?us-ascii?Q?mxFL131Qwlab8ifK0wyPqMWE+rXr+woU0feeUCURU6q0NfmU0RTVGI5xQC12?=
+ =?us-ascii?Q?k0Gv+LACgr0vPWtvWcmRZ+ZMAtucW9zaMwbcavDkL9ZnEOYICLvQhpXZiGsR?=
+ =?us-ascii?Q?PZDYJyc53maHY59Ll4fxwNt/CDmszJ3oVWqoSbLKIaaDg5zMhmWZOaxt1w6t?=
+ =?us-ascii?Q?utX5jtNn4yMwADHnuFPEu5Moob6COl3FYkk1wRViZWSl4fHul30jfkZZZPLV?=
+ =?us-ascii?Q?vtDelLkOOLNzJiYR+i61JykoWOQlmCvPpGDVFFdR1XRQaagibZMk88EIOPHn?=
+ =?us-ascii?Q?4CDJCI09Uw7vXQY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vDUsCsaJAfZU9LlkwTVzzeTfw976pHMHvYbQpqztmw1PrQbfWNHWHrufYD92?=
+ =?us-ascii?Q?J2h+uQIsvAYDx1oAW4scXDdzTzbU7UDo0dHiFh8eJQnIKSnLr5hs5W/3ERFh?=
+ =?us-ascii?Q?7ut23WwTHX8hy/Rn+2B3hpa3e23+itXemyPYl7eJbuA/f0tPNNOA3LJgabNS?=
+ =?us-ascii?Q?sIxlhMpCLudWVM/UpInuoAOwDaHccQrvTzTocAdyIqta0kUE7GLiZfr3yihh?=
+ =?us-ascii?Q?ENk1bV0qMUS4rCgwRX6jh0jcqGAmRQF+v5DYYj9MOtZHOK9hAlJA0tE5pvjf?=
+ =?us-ascii?Q?RLsk8lNe9TGVslVW5bLF2hKrhfHPaPC+K5xs4176dzPbeo7GNIYdBOGKHFO0?=
+ =?us-ascii?Q?akHwT3P5qOFXIG/QNyjlTIyARH21i4zIBvRdQzaptGL9wQYlgMHv8LDIbGUt?=
+ =?us-ascii?Q?4esaN/I6wPQ6O7xq/bCTDgiK8IAW+kFPUKw1K5OhQY3q5vsHXfGqanuqnV5+?=
+ =?us-ascii?Q?GaX6IUltqiYDCnFCAyEnL9t/ejqnVeynJOoMLLveFDsc1KHUSsQRH0eebA3o?=
+ =?us-ascii?Q?wbK7a//wCqIa5UXsPZRm83r73ED+TB7zShq5JAE+6tioQyOHmqFiwQJ1NnD1?=
+ =?us-ascii?Q?4c7LsdETabjI4moHQEbf2OFx/y5DoAKQPAHLrPW83INq4+Ljf2C2dVZauaqW?=
+ =?us-ascii?Q?Z7DnwEhGNGsrsjliwWsB6OIxSSwrLV75fF7EusPj1cNpSAVusNb459q3lr8t?=
+ =?us-ascii?Q?bDSiDJYyZ73yX0vN0aDv5ofyK/vf9Gf/P8QsqeZb0CqvmFK9o9XoLTuS+6dC?=
+ =?us-ascii?Q?86Sb3RnstY9KiFVfUDzE/wag6k3uq8uNZCaQ/20qaLW4JvPbjvnpcFiPd4MU?=
+ =?us-ascii?Q?+UkSRITKCzBm+ntXdu1foPZqez7NfyFDQqosOZ2GIHNMmslGz3et0KN/jzEL?=
+ =?us-ascii?Q?1NU8hKtuN7WlatS2sxhQ/TAertHcaoiTdC9W0GaZG+TLDDSpexgOyKVTeQ73?=
+ =?us-ascii?Q?TBiVoUQxhh7aeFUfTyvOpU6UWACi25tAmHvmFLA32j1Uv+Zc5lC1a5tV0706?=
+ =?us-ascii?Q?iFrzrIzlmh9IpcCITrUqzwTRleJQtzFGz/41KE7Wgbl8QRTZfIHP4LvwYj+L?=
+ =?us-ascii?Q?fhRTU+IvHqRwj6UARSdeKriTL/lnqT1ppvmQBYuNqsabV2cd+00kvZcSq/aB?=
+ =?us-ascii?Q?IFfUsj8+aR94zNitTmXjLi31w9cMI2T8UHRZtvGEp8/WS53QbZOW1Yt+y1St?=
+ =?us-ascii?Q?1Ohfg0XsNFZZ6CKy1qCi0Qmwa99aW+zU03QldTAkI/bBRNUKLJoHViDns8XY?=
+ =?us-ascii?Q?eZOQwwBYVDR6gBYmqCqTWFtFLaUr3oVFzdu6RDKSMJexAfvyLBrHIKRl/3s7?=
+ =?us-ascii?Q?3UN1taEzfzd98/afZoQ7m3scTsHM07IZVh3B1bJP4SgdhPoljrWIyBsfp9vo?=
+ =?us-ascii?Q?PzcVXOOoNR7FnH3FUItWBFUBq+zfvea126dAC59Nw71zyQWbJNyan9yJnGMU?=
+ =?us-ascii?Q?QysTsK9FgJaAbGuh803WtAcHzCUkKW7DproXin7qYA4T0Mjc4b5b9dKa4/Pv?=
+ =?us-ascii?Q?OkO91FgGx3u551gxiLTGU2n++uyIJhg8pZGutg/uHxzvN2BtZXo/pKVb5mTw?=
+ =?us-ascii?Q?XMNlKFFtolCPhOHXFwu6QO1ubYBabUpK6hPD5DTd?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ccf37271-befa-4040-171b-08ddfa746b0e
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 07:40:07.8171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W8ctL+QlHjioTCzAWwzn5HhsnR86Eq8MJgxB1uxw8KdYMvwF+eKDDcYYEQXc8BjL1s2OfrKYWHnerfOPPuJTjQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11327
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_003128_129009_18DC37E1 
-X-CRM114-Status: GOOD (  33.48  )
+X-CRM114-CacheID: sfid-20250923_004021_788162_E601A7E8 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,200 +168,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/22 21:17, Will Deacon wrote:
-> On Fri, Aug 29, 2025 at 06:14:23PM +0800, Yushan Wang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Currently the tt_core's using config1's bit [7, 0] and can not be
->> extended. For some platforms there's more the 8 CPUs sharing the
->> L3 cache. So make tt_core use config2's bit [15, 0] and the remaining
->> bits in config2 is reserved for extension.
->>
->> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
->> ---
->>  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> index a372dd2c07b5..39444f11cbad 100644
->> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
->> @@ -55,10 +55,10 @@
->>  #define L3C_V1_NR_EVENTS	0x59
->>  #define L3C_V2_NR_EVENTS	0xFF
->>  
->> -HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config1, 7, 0);
->>  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
->>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
->>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
->> +HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
->>  
->>  static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
->>  {
->> @@ -397,7 +397,7 @@ static const struct attribute_group hisi_l3c_pmu_v1_format_group = {
->>  
->>  static struct attribute *hisi_l3c_pmu_v2_format_attr[] = {
->>  	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
->> -	HISI_PMU_FORMAT_ATTR(tt_core, "config1:0-7"),
->> +	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
->>  	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
->>  	HISI_PMU_FORMAT_ATTR(datasrc_cfg, "config1:11-15"),
->>  	HISI_PMU_FORMAT_ATTR(datasrc_skt, "config1:16"),
-> 
-> I'm a _tiny_ bit worried about this change in that it has the potential
-> to break any users who've hardcoded the 'tt_core' encoding in 'config1'.
-> Granted, they should be parsing this out of sysfs, but you never know.
-> 
+The CLKREQ# is an open drain, active low signal that is driven low by
+the card to request reference clock. It's an optional signal added in
+PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
+reserved.
 
-yes, it's true. I thought of this as a misusage, the sysfs format should
-be checked first for option encoding, just like how perf use of it.
-but yes the direct use of config1 is not forbidden.
+Since the reference clock controlled by CLKREQ# may be required by i.MX
+PCIe host too. To make sure this clock is ready even when the CLKREQ#
+isn't driven low by the card(e.x the scenario described above), force
+CLKREQ# override active low for i.MX PCIe host during initialization.
 
-> If we were going to avoid the possibility of a regression entirely, I
-> think we'd either need to (a) split the field so that the upper 8 bits
-> of 'tt_core' live in 'config2' but the bottom 8 bits stay where they
-> are or (b) leave 'config1:0-7' as an alias of 'config2:0-7'.
-> 
-> The latter is still do-able, as you haven't re-allocated the config1
-> bits yet.
-> 
+The CLKREQ# override can be cleared safely when supports-clkreq is
+present and PCIe link is up later. Because the CLKREQ# would be driven
+low by the card at this time.
 
-option (b) looks better for me, since not sure we'll expand it later and
-currently I reserved the whole config2 for extension.
+Main changes in v5:
+- New create imx8mm_pcie_clkreq_override() and keep the original
+  enable_ref_clk callback function.
 
-as for an alias is something like below? make the config1:0-7 as option
-tt_core_deprecated and encourage user to use tt_core.
+Main changes in v4:
+- To align the function name when add the CLKREQ# override clear, rename
+imx8mm_pcie_enable_ref_clk(), clean up codes refer to Mani' suggestions.
 
-thanks.
+Main changes in v3:
+- Rebase to v6.17-rc1.
+- Update the commit message refer to Bjorn's suggestions.
 
-From 446cceeff563774caccc087ec62db810a8154c2d Mon Sep 17 00:00:00 2001
-From: Yicong Yang <yangyicong@hisilicon.com>
-Date: Tue, 23 Sep 2025 12:02:01 +0800
-Subject: [PATCH] drivers/perf: hisi: Add tt_core_deprecated for compatibility
+Main changes in v2:
+- Update the commit message, and collect the reviewed-by tag.
 
-Previously tt_core is defined as config1:0-7 which may not cover all
-the CPUs sharing L3C on platforms with more than 8 CPUs in a L3C. In
-order to support such platforms extend tt_core to 16 bits, since no
-spare space in config1, tt_core was moved to config2:0-15.
+[PATCH v5 1/2] PCI: dwc: Invoke post_init in dw_pcie_resume_noirq()
+[PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ# override
 
-Though linux expects the users to retrieve the control encoding from
-sysfs first for each option, it's possible if user doesn't follow
-this and hardcoded tt_core in config1. So add an option
-tt_core_deprecated for config1:0-7 for backward compatibility.
-
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- Documentation/admin-guide/perf/hisi-pmu.rst  |  4 +++
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 30 +++++++++++++++++---
- 2 files changed, 30 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-index c4c2cbbf88cb..0017f8ddeb75 100644
---- a/Documentation/admin-guide/perf/hisi-pmu.rst
-+++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-@@ -66,6 +66,10 @@ specified as a bitmap::
-
- This will only count the operations from core/thread 0 and 1 in this cluster.
-
-+User should not use tt_core_deprecated to specify the core/thread filtering.
-+This option is provided for backward compatiblility and only support 8bit
-+which may not cover all the core/thread sharing L3C.
-+
- 2. Tracetag allow the user to chose to count only read, write or atomic
- operations via the tt_req parameeter in perf. The default value counts all
- operations. tt_req is 3bits, 3'b100 represents read operations, 3'b101
-diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index bbd81a43047d..a52d98f1ed34 100644
---- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -57,6 +57,11 @@
- #define L3C_V2_NR_EVENTS	0xFF
-
- HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
-+/*
-+ * Remain the config1:0-7 for backward compatibility if some existing users
-+ * hardcode the config1:0-7 directly without parsing the sysfs attribute.
-+ */
-+HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core_deprecated, config1, 7, 0);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
-@@ -95,6 +100,21 @@ static bool support_ext(struct hisi_l3c_pmu *pmu)
- 	return l3c_pmu_ext->support_ext;
- }
-
-+/*
-+ * tt_core was extended to cover all the CPUs sharing the L3 and was moved from
-+ * config1:0-7 to config2:0-*. Try it first and fallback to tt_core_deprecated
-+ * if user's still using the deprecated one.
-+ */
-+static u32 hisi_l3c_pmu_get_tt_core(struct perf_event *event)
-+{
-+	u32 core = hisi_get_tt_core(event);
-+
-+	if (core)
-+		return core;
-+
-+	return hisi_get_tt_core_deprecated(event);
-+}
-+
- static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
- {
- 	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
-@@ -259,7 +279,7 @@ static void hisi_l3c_pmu_clear_ds(struct perf_event *event)
- static void hisi_l3c_pmu_config_core_tracetag(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
--	u32 core = hisi_get_tt_core(event);
-+	u32 core = hisi_l3c_pmu_get_tt_core(event);
-
- 	if (core) {
- 		u32 val;
-@@ -280,7 +300,7 @@ static void hisi_l3c_pmu_config_core_tracetag(struct perf_event *event)
- static void hisi_l3c_pmu_clear_core_tracetag(struct perf_event *event)
- {
- 	struct hw_perf_event *hwc = &event->hw;
--	u32 core = hisi_get_tt_core(event);
-+	u32 core = hisi_l3c_pmu_get_tt_core(event);
-
- 	if (core) {
- 		u32 val;
-@@ -300,7 +320,7 @@ static void hisi_l3c_pmu_clear_core_tracetag(struct perf_event *event)
-
- static bool hisi_l3c_pmu_have_filter(struct perf_event *event)
- {
--	return hisi_get_tt_req(event) || hisi_get_tt_core(event) ||
-+	return hisi_get_tt_req(event) || hisi_l3c_pmu_get_tt_core(event) ||
- 	       hisi_get_datasrc_cfg(event) || hisi_get_datasrc_skt(event);
- }
-
-@@ -602,10 +622,11 @@ static const struct attribute_group hisi_l3c_pmu_v1_format_group = {
-
- static struct attribute *hisi_l3c_pmu_v2_format_attr[] = {
- 	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
--	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
-+	HISI_PMU_FORMAT_ATTR(tt_core_deprecated, "config1:0-7"),
- 	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
- 	HISI_PMU_FORMAT_ATTR(datasrc_cfg, "config1:11-15"),
- 	HISI_PMU_FORMAT_ATTR(datasrc_skt, "config1:16"),
-+	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
- 	NULL
- };
-
-@@ -617,6 +638,7 @@ static const struct attribute_group hisi_l3c_pmu_v2_format_group = {
- static struct attribute *hisi_l3c_pmu_v3_format_attr[] = {
- 	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
- 	HISI_PMU_FORMAT_ATTR(ext, "config:16-17"),
-+	HISI_PMU_FORMAT_ATTR(tt_core_deprecated, "config1:0-7"),
- 	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
- 	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
- 	NULL
--- 
-2.24.0
-
-
-
+drivers/pci/controller/dwc/pci-imx6.c             | 43 ++++++++++++++++++++++++++++++++++++++++++-
+drivers/pci/controller/dwc/pcie-designware-host.c |  3 +++
+2 files changed, 45 insertions(+), 1 deletion(-)
 
 
