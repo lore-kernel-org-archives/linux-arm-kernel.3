@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24805CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E6ECAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 12:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=31NDFIT1J77T6WgOgaD6KtRWo1pajt4U43lgn0M+eTk=; b=3AGX3zh9q6RYVidHi+ZkuvE1E9
-	M/sb73JmsrQq6X80VrqjQr0rSoZ5LS7HERWjPs0Lgvon+7eGG2N/MAYSX9kPyaskMiW7lboexGP8C
-	b0vljmT6xEXg4x636rSI1pYrLwECR49DqnejBY2EZ+t6mUiZYXQujyIzlhWfwkP/u64T1e0A9/pyR
-	WBcEYs0u+M7u1Y+3ZWEK5jOGUawl/NWzJDR1r0qTDym85xEmazHWPTNbtc5x8GCF5Uc1f2kiuezDw
-	wbKcu39WuZ4QhYhnUf6JhBmLmb5w2bz4iOeKKxDsxcODYJWOG6sc+3h09ys/Df1u2BKoAGHocGd2j
-	hoOFk5aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zbMyxGJKnCifDzYMlTNsZNz35I2L39o9GdGpyX8yzLI=; b=C8V7Vfit3rwjXf+QWgedsk9xw8
+	Y8PmXvP0/whi9TU6eeageAvXHRYGNjGaG54BddBLMVZxgfibW2x+8hVvZ5uRMexD9pMT9ylXYvrzL
+	o7yLcMvb7VX3VpqPG4TjgYKA0ku49XLrwCk/8FP9VFr1y/56jezsVBYlJBrgxZjncDSKnHBK/chyb
+	rXhyonk7IXVeTFOcOJ/E2vGGmxqueWiTMtaJdAtGbAUGDxsGQ5JwI2TEAVIarGeQr+dvjv93mB/Sr
+	tTHklwthJR7hIfBKxujAP2sBNRmgE475r2771Y/Trc4/tqGJv9Hc1iIVH2kuakxtOu8GV/hJOuFnx
+	RhiQ/zaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v121c-0000000DIYq-4AM7;
-	Tue, 23 Sep 2025 12:21:40 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1v12Ue-0000000DM8g-2G1P;
+	Tue, 23 Sep 2025 12:51:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v121a-0000000DIWv-3oYF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 12:21:40 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-77f2a62e44dso3377266b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 05:21:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758630098; x=1759234898; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=31NDFIT1J77T6WgOgaD6KtRWo1pajt4U43lgn0M+eTk=;
-        b=FnGaaT1v+NSlKBuFHrpkZflRiv4no5b8ZVeei/ZDfDMFYMOaCIyr2zSBQcjQi3YGwQ
-         BSjRoqzRmSm5Luh8KsCFP8VrP4S8piYfFnwQ+6WLtQJXHU/ZdkJMrsO4wxOZ6QV64l9D
-         fKAnxuY+ONKJw+aRHBESIOYQ3CsKcQKPee26C3nr3gnOC+lTl0yENi+XoeI4HxL/6dsN
-         s29Pl88cNjuPVJfYtPOQIEPT60NeUDg0KCIGHQuBTyw8qnKwvN7jDiN/yxzldbR/wOjU
-         gYjygdFz6bmHUMindh+sdO241Z8m10xRnwYwPCbOKvTPDN5/z6muhhi3oiw+pz1PUNA1
-         MWcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758630098; x=1759234898;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=31NDFIT1J77T6WgOgaD6KtRWo1pajt4U43lgn0M+eTk=;
-        b=ZZONt1zp1Sia4+/Yt1MyiYdL4y7sOkhH6jWEQS5Mr17SwD5+MBSRt+Vn5nRu0by6e8
-         rr5mMa4tykjTUX6kwcfFvkVib8jgjac/C+Csov/kltSTts/YPcvc69xq1MwSCsX9ZHO4
-         tu610MHTScUMXMUIiHecA6oC/bXpwE5DFLl2UqqxpWv144qBoGDRqRWXl2DU2fuligo1
-         pOqhCYqfDeEBBwNbWeFr6UY9k8nZgu8pIF91D/HaENs4fIKKbOnY1/A6WbOcaZ7rKs67
-         mhhXPquifhjGSPZgGdm6VCt9qgQpJmzn13H6vmPWkS7HpfQHqaklwtMPxkDG7WWswhJ7
-         gQCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXvxENbCdZs94OYbNdp8FQqcI0KA3q61VaIypvaYuSiG9v/wVabMcjIisz9tkTluh6VmjHxa44QCe1C1bqVOT1k@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywts2R/4ymmGAhzgAEXPzLnY+UU6Bbcp1dqtmV4jmMngToIY8q4
-	5eRJrVjekSui2Y1bcDuOAfe50CC/QbnMsCONPNWwI9Z3IPNFSdvtV5gVrtg8SdYeauZHBA==
-X-Gm-Gg: ASbGncsVMlM/1ZAbKW3rACTJ3Z0mEHaQEZD5zqziqbO+v7WM8IusuTeq61Cg0+T6Za9
-	HxznR2FZksvb4yokGg3Qh+82BJc09sWc1L+feKnT9AwRqkShYpAiONcSUzQrkP5kibDqEFd/Bqc
-	Hth9Ah7hbtZvb15EaQmV4RynNOBo0vDBIwCR/4FuSlAEHzOcgP04bkOUa4NPN7MWmuSEybaAMUH
-	hFhX/XVwM0/hiC5LWXUY0k+2VisnA4G12/eVIqS6+4ng2aKkXBFbG4MyHYKNT0+6pKB8/3NbzEo
-	ge41xkiTk8nXnba/lq1iwDqwRWKUQNjkNHpWJ717jFspiG/DqLEf/lSTkEiNC87oneHzIiOIWPl
-	TspKeMuF2iUMsGoo=
-X-Google-Smtp-Source: AGHT+IGapQYbJxxDclXfWf1hQJL8kcsiV3WYPv+6b0/vrntM1EgcdnY/IVTVQnQOpFXNKfmNw7kNBw==
-X-Received: by 2002:a05:6a00:1706:b0:776:1de4:aee6 with SMTP id d2e1a72fcca58-77f53a2a233mr2209045b3a.16.1758630098030;
-        Tue, 23 Sep 2025 05:21:38 -0700 (PDT)
-Received: from lgs.. ([172.81.120.170])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77f4fd7223esm2786939b3a.103.2025.09.23.05.21.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 05:21:37 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v3] ASoC: mediatek: mt8365: Add check for devm_kcalloc() in mt8365_afe_suspend()
-Date: Tue, 23 Sep 2025 20:21:21 +0800
-Message-ID: <20250923122121.1855051-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1v12Uc-0000000DM8R-3qaV;
+	Tue, 23 Sep 2025 12:51:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 207C26027E;
+	Tue, 23 Sep 2025 12:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36A7AC4CEF5;
+	Tue, 23 Sep 2025 12:51:30 +0000 (UTC)
+Date: Tue, 23 Sep 2025 13:51:27 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
+	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
+	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+	surenb@google.com, hughd@google.com, willy@infradead.org,
+	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+	apopple@nvidia.com, qun-wei.lin@mediatek.com,
+	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+Message-ID: <aNKXz3B7iIIv7LxK@arm.com>
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com>
+ <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com>
+ <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_052138_979227_AE1BC479 
-X-CRM114-Status: GOOD (  15.46  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,53 +76,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_kcalloc() may fail. mt8365_afe_suspend() uses afe->reg_back_up
-unconditionally after allocation and writes afe->reg_back_up[i], which
-can lead to a NULL pointer dereference under low-memory conditions.
+On Tue, Sep 23, 2025 at 02:00:01PM +0200, David Hildenbrand wrote:
+> On 23.09.25 13:52, Catalin Marinas wrote:
+> > I just realised that on arm64 with MTE we won't get any merging with the
+> > zero page even if the user page isn't mapped with PROT_MTE. In
+> > cpu_enable_mte() we zero the tags in the zero page and set
+> > PG_mte_tagged. The reason is that we want to use the zero page with
+> > PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
+> > memcmp_pages() messed up KSM merging with the zero page even before this
+> > patch.
+> > 
+> > The MTE tag setting evolved a bit over time with some locking using PG_*
+> > flags to avoid a set_pte_at() race trying to initialise the tags on the
+> > same page. We also moved the swap restoring to arch_swap_restore()
+> > rather than the set_pte_at() path. So it is safe now to merge with the
+> > zero page if the other page isn't tagged. A subsequent set_pte_at()
+> > attempting to clear the tags would notice that the zero page is already
+> > tagged.
+> > 
+> > We could go a step further and add tag comparison (I had some code
+> > around) but I think the quick fix is to just not treat the zero page as
+> > tagged.
+> 
+> I assume any tag changes would result in CoW.
 
-Add a NULL check and bail out with -ENOMEM, making sure to disable the
-main clock before returning to keep clock state balanced.
+Yes.
 
-Fixes: e1991d102bc2 ("ASoC: mediatek: mt8365: Add the AFE driver support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
-changelog:
-v3:
-- Move the Signed-off-by line above the '---' separator.
-- Restore the original spacing/indentation in the devm_kcalloc() continuation line.
-- No functional changes.
+> It would be interesting to know if there are use cases with VMs or other
+> workloads where that could be beneficial with KSM.
 
-v2:
-- Return -ENOMEM directly on allocation failure without goto/label.
-- Disable the main clock before returning to keep clock state balanced.
----
- sound/soc/mediatek/mt8365/mt8365-afe-pcm.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+With VMs, if MTE is allowed in the guest, we currently treat any VM page
+as tagged. In the initial version of the MTE spec, we did not have any
+fine-rained control at the stage 2 page table over whether MTE is in use
+by the guest (just a big knob in a control register). We later got
+FEAT_MTE_PERM which allows stage 2 to trap tag accesses in a VM on a
+page by page basis, though we haven't added KVM support for it yet.
 
-diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-index 10793bbe9275..570fb10c306d 100644
---- a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-@@ -1975,11 +1975,15 @@ static int mt8365_afe_suspend(struct device *dev)
- 
- 	mt8365_afe_enable_main_clk(afe);
- 
--	if (!afe->reg_back_up)
-+	if (!afe->reg_back_up) {
- 		afe->reg_back_up =
- 			devm_kcalloc(dev, afe->reg_back_up_list_num,
- 				     sizeof(unsigned int), GFP_KERNEL);
--
-+		if (!afe->reg_back_up) {
-+			mt8365_afe_disable_main_clk(afe);
-+			return -ENOMEM;
-+		}
-+	}
- 	for (i = 0; i < afe->reg_back_up_list_num; i++)
- 		regmap_read(regmap, afe->reg_back_up_list[i],
- 			    &afe->reg_back_up[i]);
+If we add full tag comparison, VMs may be able to share more pages. For
+example, code pages are never tagged in a VM but the hypervisor doesn't
+know this, so it just avoids sharing. I posted tag comparison some years
+ago but dropped it eventually to keep things simple:
+
+https://lore.kernel.org/all/20200421142603.3894-9-catalin.marinas@arm.com/
+
+However, it needs a bit of tidying up since at the time we assumed
+everything was tagged. I can respin the above (on top of the fix below),
+though I don't see many vendors rushing to deploy MTE in a multi-VM
+scenario (Android + pKVM maybe but not sure they enable KSM due to power
+constraints).
+
+> > diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> > index e5e773844889..72a1dfc54659 100644
+> > --- a/arch/arm64/kernel/mte.c
+> > +++ b/arch/arm64/kernel/mte.c
+> > @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page *page2)
+> >   {
+> >   	char *addr1, *addr2;
+> >   	int ret;
+> > +	bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
+> > +	bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
+> >   	addr1 = page_address(page1);
+> >   	addr2 = page_address(page2);
+> > @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page *page2)
+> >   	/*
+> >   	 * If the page content is identical but at least one of the pages is
+> > -	 * tagged, return non-zero to avoid KSM merging. If only one of the
+> > -	 * pages is tagged, __set_ptes() may zero or change the tags of the
+> > -	 * other page via mte_sync_tags().
+> > +	 * tagged, return non-zero to avoid KSM merging. Ignore the zero page
+> > +	 * since it is always tagged with the tags cleared.
+> >   	 */
+> > -	if (page_mte_tagged(page1) || page_mte_tagged(page2))
+> > +	if (page1_tagged || page2_tagged)
+> >   		return addr1 != addr2;
+> 
+> That looks reasonable to me.
+> 
+> @Lance as you had a test setup, could you give this a try as well with KSM
+> shared zeropage deduplication enabled whether it now works as expected as
+> well?
+
+Thanks!
+
+> Then, this should likely be an independent fix.
+
+Yes, I'll add a proper commit message. We could do a cc stable, though
+it's more of an optimisation.
+
 -- 
-2.43.0
-
+Catalin
 
