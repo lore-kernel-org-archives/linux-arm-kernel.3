@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3A2CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 15:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F46CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 15:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B8fRR2aJ/eyeHiuDlU1x25moOhg9RitGZKqikYnDMdI=; b=a072OnX7xALrnaZwdGV6EP9KLW
-	awYg3HxBYq+rUA4R1CCj9upTNSrzAXpQjkwlmiCksOOFuNzLK4a4fv4OAcD429XbPS1ILeulj8Jxe
-	YsFYM37oohruazczTimydTE2lW8vZUo4F0578mAroq5M9skxO5yT9/XHaWqS71w6ZBzn3OyJIx3/v
-	JvtPvHFapwiD3WmmeYA8T6BJXSNU8ZbHZ6TedrycyMRyCK2hZPafAIzsgaF0Y4QSj75J76Eb0282G
-	paWI9EPRWV74UlGIsbu9PJ8iioq0dcfzT7FB7OQajgr4Ts6j2SHnnmCQB/emwCRAZbrpslkecWnbf
-	AO4b2N+A==;
+	bh=JW6Pq0osddemYt/bdOCpAcfjllFX2GB9kYb3rxjKU1g=; b=UuDWkeGoNP1zu26GpJXsiFqwLd
+	+5t5QVCtpzCh1jtu0PZd0Zsy1jrTwtJx8sTv9O4sAiZC6RKBBmyMROcGkZSb9tiH89Ac9b5u5Zy49
+	5DrnmSUqBwPpmh7eSyIkAf4PzxFtmwj1f7u3mMAkDZWwJfK1Mj3JtNIKJEC96H8eUCLQ9qVjrLEy2
+	VGS2MySPAq52AtKQUE727MQC2ycExgN53z/84b/Z3LDrQlHrIzChBjnUAMMAPCPxCd8gQoYL6Kn3g
+	Vc1mDj7nu6EtrxYD3/vt8W7Nyhfz5qoTJNSHO1S7lxTwzw8V4GKzwJSMq3a+D4fAd4xVHo/Jpdmtt
+	+fJ3qD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v158Y-0000000E6md-0tEG;
-	Tue, 23 Sep 2025 15:41:02 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v158T-0000000E6kh-2Clp
+	id 1v15Nr-0000000EAl1-1W0d;
+	Tue, 23 Sep 2025 15:56:51 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v15No-0000000EAjj-36Cy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 15:41:00 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DB04CC01FB4;
-	Tue, 23 Sep 2025 15:40:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D839960690;
-	Tue, 23 Sep 2025 15:40:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 91187102F1960;
-	Tue, 23 Sep 2025 17:40:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1758642052; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=B8fRR2aJ/eyeHiuDlU1x25moOhg9RitGZKqikYnDMdI=;
-	b=D6j4Z0+KoQ4HRpZjE+nkK2FQivQ1dSRfumFHnpIrO/qWLcALZFBydRIpwqAO2H8bNj+Nvn
-	OZR65wzg7C+RDl9p/BUslV10CHpcuD8F5Wl8hO0T44Npvs5z23qK5vct4S7HAcgQcZpi28
-	1kHuRlj8FA34KXgwNUrRJfbfSdQIGg5J3BVme6lTsbKZafGA4R8Bu9KOo0LV7Mq0q/W2UF
-	9POSnDH2NqAu3kTCnvVtCZs4CScWUZJLOPu196fYHaz8Ya6003pwj5S+P2X8AiWsj8mrCo
-	8+Kw90Pf4Yt+hXuOyzzW9sdkO9MV7l6VhBlATJ+mTOJ+t/lrjDcRySAlrTbddA==
-Date: Tue, 23 Sep 2025 17:40:48 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Shubhi Garg <shgarg@nvidia.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v6 3/4] rtc: nvvrs: add NVIDIA VRS RTC device driver
-Message-ID: <202509231540480daf8b56@mail.local>
-References: <20250919140229.10546-1-shgarg@nvidia.com>
+	Tue, 23 Sep 2025 15:56:50 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 9BA8B2015510; Tue, 23 Sep 2025 08:56:47 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9BA8B2015510
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1758643007;
+	bh=JW6Pq0osddemYt/bdOCpAcfjllFX2GB9kYb3rxjKU1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d6d07kjygCRywb698zp2lefj4VDV404AV36O9xh5AE+1GNG0a2jt/0hpzLu8QJQcL
+	 ECN8IvpEiBbc7+D9RGPJsYTiQoEkMb8od7hrQWMMJzQRvlsSxnai4rFnr+3usp0m4Y
+	 ZbxEKaGcTAem4frcTuE0FBtJbFhV335EYU3Zfcfk=
+Date: Tue, 23 Sep 2025 08:56:47 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Will Deacon <will@kernel.org>
+Cc: thierry.reding@gmail.com, robin.murphy@arm.com, robh@kernel.org,
+	joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+	bboscaccy@linux.microsoft.com, saravanak@google.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, lizhi.hou@amd.com,
+	clement.leger@bootlin.com
+Subject: Re: [PATCH v4 3/4] arm-smmu: select suitable MSI IOVA
+Message-ID: <20250923155647.GA22010@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
+ <20250909154600.910110-4-shyamsaini@linux.microsoft.com>
+ <aMw4I0AjKNPY6SOw@willie-the-truck>
+ <20250918224322.GR1326709@ziepe.ca>
+ <aM0HQ51DelZW_Rt8@willie-the-truck>
+ <20250919120839.GV1326709@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250919140229.10546-1-shgarg@nvidia.com>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20250919120839.GV1326709@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_084057_926066_043D8B0B 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20250923_085648_806323_FEBB4D3A 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,328 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/09/2025 14:02:29+0000, Shubhi Garg wrote:
-> +static int nvvrs_rtc_enable_alarm(struct nvvrs_rtc_info *info)
-> +{
-> +	int ret;
-> +
-> +	/* Set RTC_WAKE bit for autonomous wake from sleep */
-> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
-> +				NVVRS_REG_CTL_2_RTC_WAKE);
-> +	if (ret < 0) {
-> +		dev_err(info->dev, "Failed to set RTC_WAKE bit (%d)\n", ret);
+Hi Jason, Will,
 
-This should be either a dev_dbg or removed
+On 19 Sep 2025 09:08, Jason Gunthorpe wrote:
+> On Fri, Sep 19, 2025 at 08:33:23AM +0100, Will Deacon wrote:
+> > pieces and will need to work on the userspace side. It's not like
+> > MSI_IOVA2 is magically going to work (and I bet it won't be tested).
+> 
+> It could, if someone checks the default memory map a second constant
+> could be selected that works.
+> 
+> > > Nicolin has some patches on the iommufd side to let userspace select
+> > > the MSI address instead, but they are not done yet.
+> > 
+> > Maybe we should just wait for that? Carrying a temporary hack with ABI
+> > implications to support broken hardware isn't particularly compelling
+> > to me.
+> 
+> This patch would still be needed for kernel users.
+> 
+> Arguably the kernel users should just be using the iova allocator from
+> dma-iommu.c. This whole hard coded constant/sneaky uapi is just a hack
+> to make vfio work..
+> 
+> So maybe if the single constant doesn't work we could set some
+> indication that the caller must allocate the MSI iova, the kernel can
+> use the dma-iommu allocator and VFIO can just refuse to use the device
+> for now.
 
-> +		return ret;
-> +	}
-> +
-> +	/* Set RTC_PU bit for autonomous wake from shutdown */
-> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
-> +				NVVRS_REG_CTL_2_RTC_PU);
-> +	if (ret < 0) {
-> +		dev_err(info->dev, "Failed to set RTC_PU bit (%d)\n", ret);
+So, are we settling on having two predefined MSI IOVA base constants,
+and if both of those conflict with reserved regions on a given platform,
+falling back to dynamic allocation via the IOVA allocator? Just checking
+if that's the consensus we're reaching.
 
-Ditto
-
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int nvvrs_rtc_disable_alarm(struct nvvrs_rtc_info *info)
-> +{
-> +	struct i2c_client *client = info->client;
-> +	u8 val[4];
-> +	int ret;
-> +
-> +	/* Clear RTC_WAKE bit */
-> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_WAKE,
-> +				0);
-> +	if (ret < 0) {
-> +		dev_err(info->dev, "Failed to clear RTC_WAKE bit (%d)\n", ret);
-
-Ditto
-
-> +		return ret;
-> +	}
-> +
-> +	/* Clear RTC_PU bit */
-> +	ret = nvvrs_update_bits(info, NVVRS_REG_CTL_2, NVVRS_REG_CTL_2_RTC_PU,
-> +				0);
-> +	if (ret < 0) {
-> +		dev_err(info->dev, "Failed to clear RTC_PU bit (%d)\n", ret);
-
-Ditto
-
-> +		return ret;
-> +	}
-> +
-> +	/* Write ALARM_RESET_VAL in RTC Alarm register to disable alarm */
-> +	val[0] = 0xff;
-> +	val[1] = 0xff;
-> +	val[2] = 0xff;
-> +	val[3] = 0xff;
-> +
-> +	ret = nvvrs_rtc_write_alarm(client, val);
-> +	if (ret < 0)
-> +		dev_err(info->dev, "Failed to disable Alarm (%d)\n", ret);
-
-Ditto
-
-> +
-> +	return 0;
-
-Plus it fails but then returns 0
-
-> +}
-> +
-> +static int nvvrs_rtc_read_time(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-> +	time64_t secs = 0;
-> +	int ret;
-> +	u8 val;
-> +
-> +	mutex_lock(&info->lock);
-
-This lock is unnecessary once you use rtc_lock/rtc_unlock in the IRQ
-handler.
-
-> +
-> +	/*
-> +	 * Multi-byte transfers are not supported with PEC enabled
-> +	 * Read MSB first to avoid coherency issues
-> +	 */
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T3);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	secs |= (time64_t)val << 24;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T2);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	secs |= (time64_t)val << 16;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T1);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	secs |= (time64_t)val << 8;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_T0);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	secs |= val;
-> +
-> +	rtc_time64_to_tm(secs, tm);
-> +	ret = 0;
-> +out:
-> +	mutex_unlock(&info->lock);
-> +	return ret;
-> +}
-> +
-> +static int nvvrs_rtc_set_time(struct device *dev, struct rtc_time *tm)
-> +{
-> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-> +	time64_t secs;
-> +	u8 time[4];
-> +	int ret;
-> +
-> +	mutex_lock(&info->lock);
-
-Ditto
-
-> +
-> +	secs = rtc_tm_to_time64(tm);
-> +	time[0] = secs & 0xff;
-> +	time[1] = (secs >> 8) & 0xff;
-> +	time[2] = (secs >> 16) & 0xff;
-> +	time[3] = (secs >> 24) & 0xff;
-> +
-> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T3, time[3]);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T2, time[2]);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T1, time[1]);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	ret = i2c_smbus_write_byte_data(info->client, NVVRS_REG_RTC_T0, time[0]);
-> +out:
-> +	mutex_unlock(&info->lock);
-> +	return ret;
-> +}
-> +
-> +static int nvvrs_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
-> +{
-> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-> +	time64_t alarm_val = 0;
-> +	int ret;
-> +	u8 val;
-> +
-> +	mutex_lock(&info->lock);
-
-Ditto
-
-> +
-> +	/* Multi-byte transfers are not supported with PEC enabled */
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A3);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	alarm_val |= (time64_t)val << 24;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A2);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	alarm_val |= (time64_t)val << 16;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A1);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	alarm_val |= (time64_t)val << 8;
-> +
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_RTC_A0);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	val = (u8)ret;
-> +	alarm_val |= val;
-> +
-> +	if (alarm_val == ALARM_RESET_VAL)
-> +		alrm->enabled = 0;
-> +	else
-> +		alrm->enabled = 1;
-> +
-> +	rtc_time64_to_tm(alarm_val, &alrm->time);
-> +	ret = 0;
-> +out:
-> +	mutex_unlock(&info->lock);
-> +	return ret;
-> +}
-> +
-> +static int nvvrs_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
-> +{
-> +	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
-> +	time64_t secs;
-> +	u8 time[4];
-> +	int ret;
-> +
-> +	mutex_lock(&info->lock);
-> +
-
-Ditto
-
-> +	if (!alrm->enabled) {
-> +		ret = nvvrs_rtc_disable_alarm(info);
-> +		if (ret < 0)
-> +			goto out;
-> +	}
-> +
-> +	ret = nvvrs_rtc_enable_alarm(info);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	secs = rtc_tm_to_time64(&alrm->time);
-> +	time[0] = secs & 0xff;
-> +	time[1] = (secs >> 8) & 0xff;
-> +	time[2] = (secs >> 16) & 0xff;
-> +	time[3] = (secs >> 24) & 0xff;
-> +
-> +	ret = nvvrs_rtc_write_alarm(info->client, time);
-> +
-> +out:
-> +	mutex_unlock(&info->lock);
-> +	return ret;
-> +}
-> +
-> +static int nvvrs_pseq_irq_clear(struct nvvrs_rtc_info *info)
-> +{
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	for (i = 0; i < NVVRS_IRQ_REG_COUNT; i++) {
-> +		ret = i2c_smbus_read_byte_data(info->client,
-> +					       NVVRS_REG_INT_SRC1 + i);
-> +		if (ret < 0) {
-> +			dev_err(info->dev, "Failed to read INT_SRC%d : %d\n",
-> +				i + 1, ret);
-> +			return ret;
-> +		}
-> +
-> +		ret = i2c_smbus_write_byte_data(info->client,
-> +						NVVRS_REG_INT_SRC1 + i,
-> +						(u8)ret);
-> +		if (ret < 0) {
-> +			dev_err(info->dev, "Failed to clear INT_SRC%d : %d\n",
-> +				i + 1, ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static irqreturn_t nvvrs_rtc_irq_handler(int irq, void *data)
-> +{
-> +	struct nvvrs_rtc_info *info = data;
-> +	int ret;
-> +
-> +	/* Check for RTC alarm interrupt */
-> +	ret = i2c_smbus_read_byte_data(info->client, NVVRS_REG_INT_SRC1);
-> +	if (ret < 0) {
-> +		dev_err(info->dev, "Failed to read INT_SRC1: %d\n", ret);
-
-dev_dbg or remove
-
-> +		return IRQ_NONE;
-> +	}
-> +
-> +	if (ret & NVVRS_INT_SRC1_RTC_MASK) {
-> +		rtc_lock(info->rtc);
-> +		rtc_update_irq(info->rtc, 1, RTC_IRQF | RTC_AF);
-> +		rtc_unlock(info->rtc);
-> +	}
-> +
-> +	/* Clear all interrupts */
-> +	if (nvvrs_pseq_irq_clear(info) < 0)
-> +		return IRQ_NONE;
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-
-
-> diff --git a/include/linux/rtc/rtc-nvidia-vrs10.h b/include/linux/rtc/rtc-nvidia-vrs10.h
-> new file mode 100644
-> index 000000000000..3c9c46abf555
-> --- /dev/null
-> +++ b/include/linux/rtc/rtc-nvidia-vrs10.h
-
-Just to be sure, do you expect to use this include in another driver?
-Else you should merge it back in the c file.
-
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Thanks,
+Shyam
 
