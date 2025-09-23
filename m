@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAC9CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 13:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D217CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 13:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rz2BzszcEXiuSNsZolOaAYncFvYFyjET7mNAKvEoSkg=; b=KOscoLKF9WOQaZcWUt5ceQTOjM
-	yLYsEZlzhjyoa4nstzojRK0UVBTrgcpoOCVMdaJzk4S8DvWpYSOwe722XEG7v2cFM22duWA3IE9nt
-	taD9GRWnenVjL2LXUPew5dc1zh/w+He5Kf9dCdULrfpZNYwpNXkEpsVX7HpssMG+7YprATBhM2RiN
-	HBexEBj27DIqnxIHQGK0bgvp966ggceMgAJPogTHxrL9tk+fQCz+lablMUPhRokqUaZMiVCyLSLTa
-	EzCVSfPcvd/8DJ8C3I/6rb8zvSBbTnDHon4/TuO48nk4WAC9lmFIUIbFjpEsbybCnrjaiSwBL3GiM
-	GCjr+hHQ==;
+	bh=HmiFHqTevzpTd67JED8R3CjY5+3NzH7Hvg1rhxsNPiY=; b=0Ne03BJ5bgYd7mZxy9D2ZpvTRp
+	PNyxHIKW6gMknXllBY19plxmwU0XbwTqJnGd1mlIiUCFZ6WoyrlWQJFznB5RUzWTSTJAkW75D7ars
+	FepnNEc857lxOw3Hw2abL47JxvEhrKZsWkoyKAlBZGQ6DTyEB/VNafR2hFi6OvBX9TXXNL2uZ1evY
+	zhL0gBx6q9noC8zR3ay2ilx7w3YozNX4Mj8hRXiWG/GL6WaftK/VR4XtUEsKCEPoE9PfABlBwoYz5
+	AvQsucxPspsYLmzOgGlhQE9GGQPq2UXQ+fqW5Pz1UkXFDRgZbAwL96BAihtnIK6wl1B8Djr5W26IK
+	68yerndw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v13DK-0000000DXbm-38un;
-	Tue, 23 Sep 2025 13:37:50 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1v13M1-0000000DZop-3cpC;
+	Tue, 23 Sep 2025 13:46:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v13D8-0000000DXO5-3Yi7;
-	Tue, 23 Sep 2025 13:37:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cWLWg3pB3zddT4;
-	Tue, 23 Sep 2025 21:32:47 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id E43701800B1;
-	Tue, 23 Sep 2025 21:37:25 +0800 (CST)
-Received: from huawei.com (10.175.101.6) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 23 Sep
- 2025 21:37:24 +0800
-From: Yin Tirui <yintirui@huawei.com>
-To: <akpm@linux-foundation.org>, <david@redhat.com>,
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
-	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
-	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <willy@infradead.org>,
-	<apopple@nvidia.com>, <samuel.holland@sifive.com>,
-	<luxu.kernel@bytedance.com>, <abrestic@rivosinc.com>,
-	<yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
-	<yintirui@huawei.com>
-Subject: [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
-Date: Tue, 23 Sep 2025 21:31:03 +0800
-Message-ID: <20250923133104.926672-2-yintirui@huawei.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250923133104.926672-1-yintirui@huawei.com>
-References: <20250923133104.926672-1-yintirui@huawei.com>
+	id 1v13Lz-0000000DZnz-1Wgo;
+	Tue, 23 Sep 2025 13:46:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C48D1449D0;
+	Tue, 23 Sep 2025 13:46:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1C0DC4CEF5;
+	Tue, 23 Sep 2025 13:46:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758635205;
+	bh=FO1IaZWhYXzPZ1kV2cp8Kfr5N2is+biotDlknM0E+x4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qxQ7VDKfAzJIYa13xErJ+FpKQkM0PJmDHnphGd9CMCFROVxi8kNFAWh/WESrHULj8
+	 VLgqHBFIBpQXCtb/GASS4fKMOjmBwZRD7wACS7+FLfDx2ytcroOdgLi/XLulEJQ7NA
+	 eNLCLXjkrcFO4s0XZFhspPWr/XwYMMrWpNf12Cwy0wyvAWs1hrhZHgSbO1wapC2gpT
+	 4W/lMZbVbEYoyuQoOrhA7kGpyuDXmTm0Ft5mrMqqZvR1kv9x+VF9ILnrRUcYFHInJt
+	 uHe+M9HvRIDEV+RyIx9VqgjQDSF4y7mjWkxmTEowB9J7dXKXY2UNJoe3h5D6fiEAoh
+	 cpGKGLsVB4rKg==
+Date: Tue, 23 Sep 2025 15:46:37 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: David Bremner <david@tethera.net>
+Cc: devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org,
+	bhelgaas@google.com, heiko@sntech.de,
+	krishna.chundru@oss.qualcomm.com, kwilczynski@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	lpieralisi@kernel.org, lukas@wunner.de, mahesh@linux.ibm.com,
+	mani@kernel.org, manivannan.sadhasivam@oss.qualcomm.com,
+	oohall@gmail.com, p.zabel@pengutronix.de, robh@kernel.org,
+	wilfred.mallawa@wdc.com, will@kernel.org
+Subject: Re: [PATCH v6 0/4] PCI: Add support for resetting the Root Ports in
+ a platform specific way
+Message-ID: <aNKkI00EAJb8LD9S@fedora>
+References: <20250715-pci-port-reset-v6-0-6f9cce94e7bb@oss.qualcomm.com>
+ <87ldm548u2.fsf@tethera.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.175.101.6]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87ldm548u2.fsf@tethera.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_063739_083419_0BF1DA5D 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250923_064647_424683_A1B85751 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pte_clrhuge() helper function for architectures that enable
-ARCH_SUPPORTS_HUGE_PFNMAP to clear huge page attributes from PTE
-entries.
+Hello David,
 
-This function provides the inverse operation of pte_mkhuge() and will
-be needed for upcoming huge page splitting, where PTE entries derived
-from huge page mappings need to have their huge page attributes cleared.
+On Tue, Sep 23, 2025 at 10:06:13AM -0300, David Bremner wrote:
+> 
+> I have been testing this series on the 6.17 pre-releases, lightly
+> patched by the collabora [1] and mnt-reform [2] teams. I have been testing
+> on bare hardware, on MNT Research's pocket-reform product. I'm afraid I
+> can only offer CI level feedback, but in case it helps
+> 
+> 1) The series now applies cleanly onto collabora's rockchip-devel branch
+> 2) The resulting kernel boots and runs OK.
+> 3) the resulting kernel still fails the "platform" pm_test [3] with
+>  "rockchip-dw-pcie a40c00000.pcie: Phy link never came up"
+> 
+> Of course there could be other reasons for (3), I don't know that much
+> about it.
 
-Signed-off-by: Yin Tirui <yintirui@huawei.com>
----
- arch/arm64/include/asm/pgtable.h | 8 ++++++++
- arch/riscv/include/asm/pgtable.h | 5 +++++
- 2 files changed, 13 insertions(+)
+I don't think this driver has support for hibernate in upstream.
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index abd2dee416b3..244755bad46f 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -366,6 +366,14 @@ static inline pte_t pte_mkinvalid(pte_t pte)
- 	return pte;
- }
- 
-+static inline pte_t pte_clrhuge(pte_t pte)
-+{
-+	pteval_t mask = PTE_TYPE_MASK & ~PTE_VALID;
-+	pteval_t val = PTE_TYPE_PAGE & ~PTE_VALID;
-+
-+	return __pte((pte_val(pte) & ~mask) | val);
-+}
-+
- static inline pmd_t pmd_mkcont(pmd_t pmd)
- {
- 	return __pmd(pmd_val(pmd) | PMD_SECT_CONT);
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 91697fbf1f90..125b241e6d2c 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -455,6 +455,11 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte;
- }
- 
-+static inline pte_t pte_clrhuge(pte_t pte)
-+{
-+	return pte;
-+}
-+
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
- #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
- 					napot_cont_size(napot_cont_order(pte)) :\
--- 
-2.43.0
+Did you try forward porting this patch:
+https://lore.kernel.org/linux-pci/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
 
+Also, have you tried the downstream driver?
+If it is working there, perhaps you could try to isolate the changes
+that make it work there.
+
+Otherwise, I would recommend you to reach out to author of the patch
+above ask for support.
+
+
+Kind regards,
+Niklas
 
