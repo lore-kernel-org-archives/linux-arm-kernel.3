@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07095CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1920ECAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1GxCwFJr7+FhSweoyT4eDjESrLKAe4twjk8U5KXG75E=; b=jUMzW0/eGrCrO4mHIesMWhILWA
-	xdPNYxU/cm0inK6wr89wywr8qDaU3f+KACMhlbM6PkYPNfs18WZ8l+ayuAhXqFxi1ko8kemRdGNG8
-	Xcz8SyNu7KPdd5OQT9qjswabCWOv5isuyWPt3+obxz8tw99XAwfysJ6Ss014cipdvyZ/423Q2Tg1f
-	95ei5L1DuLjeVnChnSGglnzkj2JUdohyM8GNN9ZXoPQa/gZpRk4AB/aw23TjHlBkHx1hj5xMxV5BG
-	jXQseq02pvMvbJpa1Are+R72qDaOZ5AW3soO2flCn6nQPiRNjqfRfU0VodvUU1VrzmAKkIxvuEYGw
-	5WKkGvGA==;
+	bh=NyBPtCHg5D/EjT8uTbQbLQ8LVoszQDo0Ue2taA2mz7k=; b=Fv/k4t8QIU3dufuUPm2tLHxMFj
+	tRcxICq9QnnVYtjJC37oUqr/ap1B1zCDJVge7HI99HIM1W7nTG22azLYcilj8ApxkLy8K9Qjn80Az
+	7ABYMMWOXDz05aau3sNZmlTQS1kcMBBeKR4IphBQZWspoq3IY3RFs8vmVS7elr+TZb2nFC7dZ/Hos
+	fD2MvCgatEGZ1vKp4GzXUQ5WcrQEYJQGuZ+jlgBMYIcn+WiPq1Fd2wk0XurzUSpiokD0HW0QDFWlo
+	z24mWIpxAfVL4HLQe+D7ux/P/yo0tDKSHSHiBV4D7Fr9moIonPTdCc7xOnp0qHJWJMZPynveuqR5e
+	xFuaQdRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0zYC-0000000CyKv-1WhZ;
-	Tue, 23 Sep 2025 09:43:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v0zZe-0000000CyaF-2CD3;
+	Tue, 23 Sep 2025 09:44:38 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0zYB-0000000CyKn-1utZ
+	id 1v0zZT-0000000CyZN-2wPt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 09:43:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA11660007;
-	Tue, 23 Sep 2025 09:43:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308B9C4CEF5;
-	Tue, 23 Sep 2025 09:43:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758620586;
-	bh=gWokNwz3211+7i9a8Ok4nVu/7HhmNCFwfkMWyXM6JLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gtdvfn0WpOajOmj3ZfSZI6HT1Bf01mf+RluxQVZnhoOf1GLEdPWH/DNeaXZxz+0gl
-	 9PzCTwd4bXC2EJkJ4trWwi85K2txKt4OKKYEiLGfkXQQ8z18SlGpZ22jRGYhG+NQwH
-	 si7mbRIXl7L6kCEU2phphXeIdqr76fem5rOICRl7DUrbGHftoyl80Veza6Vn7ccDEV
-	 w/rp9KagiKzXaqX72vkKkKEqpvZHboq7zWG46RFQTABPeJWqxPgZmAnqt0LmIcmAqJ
-	 Ds1GguVndQAd8eTo0G8ZvRcOSpGo6LQE/F6q1+slsNgWI2M+ICwQaAmLTsVj078G/f
-	 YDuJe+yiY+RjA==
-Date: Tue, 23 Sep 2025 11:43:03 +0200
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Waiman Long <llong@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Peter Zijlstra <peterz@infradead.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 27/33] sched/arm64: Move fallback task cpumask to
- HK_TYPE_DOMAIN
-Message-ID: <aNJrp_IDiDXEx6N4@2a01cb069018a810e4ede1071806178f.ipv6.abo.wanadoo.fr>
-References: <20250829154814.47015-1-frederic@kernel.org>
- <20250829154814.47015-28-frederic@kernel.org>
- <26d5ced7-8f35-49b2-b342-c6b55dde9c66@redhat.com>
+	Tue, 23 Sep 2025 09:44:30 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58N9iFhl965751;
+	Tue, 23 Sep 2025 04:44:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1758620655;
+	bh=NyBPtCHg5D/EjT8uTbQbLQ8LVoszQDo0Ue2taA2mz7k=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=zH+DBw9jgG1XKscE5MCC6KXkbyh5nnikp6dGToCoShbQ00epKAy/o+fg1Hc7bJ8zm
+	 12f5w4pBziulisj7Ae3nYS7/p9V6OvHx1FsLZglT66A3gX2WRE8o8sIEsAsmY4dowZ
+	 gbkA/WbYZsRXDmKHwdkaQJ+5AaDRp+PL1gOsEPRQ=
+Received: from DFLE206.ent.ti.com (dfle206.ent.ti.com [10.64.6.64])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58N9iFTE988034
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 23 Sep 2025 04:44:15 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 23 Sep
+ 2025 04:44:14 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 23 Sep 2025 04:44:14 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58N9iDEa4041921;
+	Tue, 23 Sep 2025 04:44:14 -0500
+Date: Tue, 23 Sep 2025 15:14:13 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Peng Fan <peng.fan@nxp.com>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>,
+        Len Brown <lenb@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Ulf Hansson <ulf.hansson@linaro.org>,
+        Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha
+ Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team
+	<kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Thinh Nguyen
+	<Thinh.Nguyen@synopsys.com>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 2/5] PM: domains: Allow power-off for out-of-band
+ wakeup-capable devices
+Message-ID: <20250923094413.quvxrj2ru46qdjgb@lcpd911>
+References: <20250922-pm-v4-v4-0-ef48428e8fe0@nxp.com>
+ <20250922-pm-v4-v4-2-ef48428e8fe0@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <26d5ced7-8f35-49b2-b342-c6b55dde9c66@redhat.com>
+In-Reply-To: <20250922-pm-v4-v4-2-ef48428e8fe0@nxp.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250923_024428_518256_9BC31F1F 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +97,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Tue, Sep 02, 2025 at 12:43:16PM -0400, Waiman Long a écrit :
+On Sep 22, 2025 at 10:21:07 +0800, Peng Fan wrote:
+> Currently, if a device is configured as a system wakeup source, the PM
+> domain core avoids powering off its power domain during system-wide
+> suspend. However, this can lead to unnecessary power consumption,
+> especially for devices whose wakeup logic resides in an always-on domain,
+> i.e., devices with out-of-band wakeup capability.
 > 
-> On 8/29/25 11:48 AM, Frederic Weisbecker wrote:
-> > When none of the allowed CPUs of a task are online, it gets migrated
-> > to the fallback cpumask which is all the non nohz_full CPUs.
-> > 
-> > However just like nohz_full CPUs, domain isolated CPUs don't want to be
-> > disturbed by tasks that have lost their CPU affinities.
-> > 
-> > And since nohz_full rely on domain isolation to work correctly, the
-> > housekeeping mask of domain isolated CPUs is always a subset of the
-> > housekeeping mask of nohz_full CPUs (there can be CPUs that are domain
-> > isolated but not nohz_full, OTOH there can't be nohz_full CPUs that are
-> > not domain isolated):
-> > 
-> > 	HK_TYPE_DOMAIN & HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-> > 
-> > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-> > tasks and since this cpumask can be modified at runtime, make sure
-> > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
-> > by cpusets.
-> > 
-> > CC: linux-arm-kernel@lists.infradead.org
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >   arch/arm64/kernel/cpufeature.c | 18 ++++++++++++---
-> >   include/linux/cpu.h            |  4 ++++
-> >   kernel/cgroup/cpuset.c         | 40 +++++++++++++++++++++++-----------
-> >   3 files changed, 46 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index 9ad065f15f1d..38046489d2ea 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -1653,6 +1653,18 @@ has_cpuid_feature(const struct arm64_cpu_capabilities *entry, int scope)
-> >   	return feature_matches(val, entry);
-> >   }
-> > +/*
-> > + * 32 bits support CPUs can't be isolated because tasks may be
-> > + * arbitrarily affine to them, defeating the purpose of isolation.
-> > + */
-> > +bool arch_isolated_cpus_can_update(struct cpumask *new_cpus)
-> > +{
-> > +	if (static_branch_unlikely(&arm64_mismatched_32bit_el0))
-> > +		return !cpumask_intersects(cpu_32bit_el0_mask, new_cpus);
-> > +	else
-> > +		return true;
-> > +}
-> > +
-> >   const struct cpumask *system_32bit_el0_cpumask(void)
-> >   {
-> >   	if (!system_supports_32bit_el0())
-> > @@ -1666,7 +1678,7 @@ const struct cpumask *system_32bit_el0_cpumask(void)
-> >   const struct cpumask *task_cpu_fallback_mask(struct task_struct *p)
-> >   {
-> > -	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_TICK));
-> > +	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_DOMAIN));
-> >   }
-> >   static int __init parse_32bit_el0_param(char *str)
-> > @@ -3963,8 +3975,8 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
-> >   	bool cpu_32bit = false;
-> >   	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0)) {
-> > -		if (!housekeeping_cpu(cpu, HK_TYPE_TICK))
-> > -			pr_info("Treating adaptive-ticks CPU %u as 64-bit only\n", cpu);
-> > +		if (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN))
-> > +			pr_info("Treating domain isolated CPU %u as 64-bit only\n", cpu);
-> >   		else
-> >   			cpu_32bit = true;
-> >   	}
-> > diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-> > index b91b993f58ee..8bb239080534 100644
-> > --- a/include/linux/cpu.h
-> > +++ b/include/linux/cpu.h
-> > @@ -228,4 +228,8 @@ static inline bool cpu_attack_vector_mitigated(enum cpu_attack_vectors v)
-> >   #define smt_mitigations SMT_MITIGATIONS_OFF
-> >   #endif
-> > +struct cpumask;
-> > +
-> > +bool arch_isolated_cpus_can_update(struct cpumask *new_cpus);
-> > +
-> >   #endif /* _LINUX_CPU_H_ */
-> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> > index 8260dd699fd8..cf99ea844c1d 100644
-> > --- a/kernel/cgroup/cpuset.c
-> > +++ b/kernel/cgroup/cpuset.c
-> > @@ -1352,33 +1352,47 @@ static bool partition_xcpus_del(int old_prs, struct cpuset *parent,
-> >   	return isolcpus_updated;
-> >   }
-> > +bool __weak arch_isolated_cpus_can_update(struct cpumask *new_cpus)
-> > +{
-> > +	return true;
-> > +}
-> > +
-> >   /*
-> > - * isolcpus_nohz_conflict - check for isolated & nohz_full conflicts
-> > + * isolated_cpus_can_update - check for conflicts against housekeeping and
-> > + *                            CPUs capabilities.
-> >    * @new_cpus: cpu mask for cpus that are going to be isolated
-> > - * Return: true if there is conflict, false otherwise
-> > + * Return: true if there no conflict, false otherwise
-> >    *
-> > - * If nohz_full is enabled and we have isolated CPUs, their combination must
-> > - * still leave housekeeping CPUs.
-> > + * Check for conflicts:
-> > + * - If nohz_full is enabled and there are isolated CPUs, their combination must
-> > + *   still leave housekeeping CPUs.
-> > + * - Architecture has CPU capabilities incompatible with being isolated
-> >    */
-> > -static bool isolcpus_nohz_conflict(struct cpumask *new_cpus)
-> > +static bool isolated_cpus_can_update(struct cpumask *new_cpus)
-> >   {
-> >   	cpumask_var_t full_hk_cpus;
-> > -	int res = false;
-> > +	bool res;
-> > +
-> > +	if (!arch_isolated_cpus_can_update(new_cpus))
-> > +		return false;
-> >   	if (!housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
-> > -		return false;
-> > +		return true;
-> >   	if (!alloc_cpumask_var(&full_hk_cpus, GFP_KERNEL))
-> > -		return true;
-> > +		return false;
-> > +
-> > +	res = true;
-> >   	cpumask_and(full_hk_cpus, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
-> >   		    housekeeping_cpumask(HK_TYPE_DOMAIN));
-> >   	cpumask_andnot(full_hk_cpus, full_hk_cpus, isolated_cpus);
-> >   	cpumask_and(full_hk_cpus, full_hk_cpus, cpu_online_mask);
+> To address this, add a check for device_out_band_wakeup() in
+> genpd_finish_suspend(). If the device supports out-of-band wakeup, its
+> power domain can be safely powered off, just like regular devices without
+> wakeup enabled. And same check in genpd_finish_resume().
+
+Seems very well structured now! Thanks.
+
 > 
-> We should construct the new cpumask by adding new CPUs and removing old ones
-> from the existing isolated_cpus and pass it to
-> arch_isolated_cpus_can_update() for the checking to be correct.
+> This change improves power efficiency without compromising wakeup
+> functionality.
 
-As for arch_isolated_cpus_can_update(), arm64 only cares about the new
-CPUs that are going to be isolated. But perhaps you're referring to the check
-above that excludes isolated_cpus while we don't care about the old set?
+On a lighter note-
+This seems like an AI generated sentence to me :P
 
-Thanks.
+I've often seen LLMs throw around terms like improve code / power
+efficiency, etc...
 
-> Cheers,
-> Longman
 > 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/pmdomain/core.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 61c2277c9ce39fcd2f7e77df549626e49a4d5310..4925bc1c441078a8d38600192ee696bf550e80f0 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -1545,7 +1545,8 @@ static int genpd_finish_suspend(struct device *dev,
+>  	if (ret)
+>  		return ret;
+>  
+> -	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd))
+> +	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
+> +	    !device_out_band_wakeup(dev))
+>  		return 0;
+>  
+>  	if (genpd->dev_ops.stop && genpd->dev_ops.start &&
+> @@ -1600,7 +1601,8 @@ static int genpd_finish_resume(struct device *dev,
+>  	if (IS_ERR(genpd))
+>  		return -EINVAL;
+>  
+> -	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd))
+> +	if (device_awake_path(dev) && genpd_is_active_wakeup(genpd) &&
+> +	    !device_out_band_wakeup(dev))
+>  		return resume_noirq(dev);
+
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
 -- 
-Frederic Weisbecker
-SUSE Labs
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
