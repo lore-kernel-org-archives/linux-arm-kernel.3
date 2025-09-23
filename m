@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3C8CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D606CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bZ2uzXtl6lqNAinf/Y3wQdYQbNd4yFTmZ87eTrWeF7E=; b=M0Xk1QOMhP74Wg
-	tcX7Kz46bRPueFTL6dtbMU4Zb/jfJpM3EvqmFdfczBXIyxEMm+3Ev/x5kioibG9eq07/3wPkqrXmX
-	ESQl1Cfiv/0NBpbzINi3z2dPjLCAy6VpP1DnrQDwTH+Cl7FwpORp0+sALrXfjlmt+1uOI1u1fRHRd
-	1oaGQTSfIbbCPUNRTxApz3P9V7LOtfKV41nhhDfUmTgCwMr8M6ATJKszamukANNMFEE6qdl7bKdg3
-	BHyh+Mk7dyDD0Kw1mhpGmTDHjOpTogv+p6klYlRc8pC7HDmiwHLpwGmMVIAuo/4CtAqUl+3r+b+PI
-	KwUl9H9EMwa6htKRSkBg==;
+	List-Owner; bh=3TEt5FVs7bAByY4KAampM0rCdgggPH1dRWAiWsS8XiU=; b=2VDkk9C82CL7rG
+	AJsrjCaD2T4P4x2dPhKsS3nMDtOgU3RlgovRDDRYwzoxJu0IQdGfReBWMVRhRPft8v6rmMSROXo9C
+	K6KQLPrU+LCScGRPN/JeVrmz/5h7WrT1UbAzrounQGlsly7XdHkcWD/Nzl8/YcF/QRUWAMQXLk018
+	SGEXtltqJSvMp1IN0dymgaIB80lP461JoZESLqWpu5NwGGVK4aCBpKxdDi9IevAYiZqAWJpDREtxc
+	5H7dkACVuWiQCB2BPfWVoMsnbCCf5bTGzaJmqoG64LZzTkpLFl5NwDi7vd3IqxEmtW09OrrD+7k/U
+	8PhuA+MoqYxVYKH8Tfaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v179N-0000000ERvZ-354t;
-	Tue, 23 Sep 2025 17:50:01 +0000
+	id 1v179O-0000000ERwU-1r6F;
+	Tue, 23 Sep 2025 17:50:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v178y-0000000ERWi-0mSb
+	id 1v1796-0000000ERfp-2DGI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 17:49:37 +0000
+	Tue, 23 Sep 2025 17:49:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5738B25E0;
-	Tue, 23 Sep 2025 10:49:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B63E425E0;
+	Tue, 23 Sep 2025 10:49:35 -0700 (PDT)
 Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.30.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DB98A3F5A1;
-	Tue, 23 Sep 2025 10:49:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E078E3F5A1;
+	Tue, 23 Sep 2025 10:49:39 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 05/16] arm64/insn: always inline aarch64_insn_encode_immediate()
-Date: Tue, 23 Sep 2025 18:48:52 +0100
-Message-ID: <20250923174903.76283-6-ada.coupriediaz@arm.com>
+Subject: [RFC PATCH 07/16] arm64/proton-pack: make alternative callbacks safe
+Date: Tue, 23 Sep 2025 18:48:54 +0100
+Message-ID: <20250923174903.76283-8-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_104936_322764_00CD5DDF 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20250923_104944_726082_410B36E8 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,288 +61,63 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As type is passed dynamically at runtime we cannot check at compile time
-that is valid.
-However, in practice this should not happen and will still result in a
-fault BRK, so remove the error print.
+Alternative callback functions are regular functions, which means they
+or any function they call could get patched or instrumented
+by alternatives or other parts of the kernel.
+Given that applying alternatives does not guarantee a consistent state
+while patching, only once done, and handles cache maintenance manually,
+it could lead to nasty corruptions and execution of bogus code.
 
-Pull `aarch64_get_imm_shift_mask()` in the header as well and make it
-`__always_inline` as it is needed for `aarch64_insn_encode_immediate()`
-and is already safe to inline.
-This is a change of visibility, so make sure to check the input pointers
-in case it is used in other places.
-Current callers do not care about -EINVAL, they just check for an error,
-so change the return to a boolean.
+Make the Spectre mitigations alternative callbacks safe by marking them
+`noinstr` when they are not.
+This is possible thanks to previous commits making `aarch64_insn_...`
+functions used in the callbacks safe to inline.
 
-This makes `aarch64_insn_encode_immediate()` safe for inlining and
-usage from patching callbacks.
-
-As both functions are now `__always_inline`, they do not need
-their `__kprobes` annotation anymore.
+`spectre_bhb_patch_clearbhb()` is already marked as `__init`,
+which has its own text section conflicting with the `noinstr` one.
+Instead, use `__no_instr_section(".noinstr.text")` to add
+all the function attributes added by `noinstr`, without the section
+conflict.
+This can be an issue, as kprobes seems to only block the text sections,
+not based on function attributes.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/include/asm/insn.h | 103 +++++++++++++++++++++++++++++++++-
- arch/arm64/lib/insn.c         | 102 +--------------------------------
- 2 files changed, 102 insertions(+), 103 deletions(-)
+This is missing `spectre_bhb_patch_wa3()` and
+`spectre_v4_patch_fw_mitigation_enable()` callbacks, which would need
+some more work :
+- `spectre_bhb_patch_wa3()` uses `WARN` which is instrumented, and
+  I am not sure if it is safe to remove. It feels like something else
+  should be done there ?
+- `spectre_v4_patch_fw_mitigation_enable()` calls into
+  `spectre_v4_mitigations_off()` which calls `pr_info_once()` to notice
+  the disabling of the mitigations on the command line, which is
+  instrumentable but feels important to keep. I am not sure if there
+  would be a better place to generate that message ?
+  Interestingly, this was brought up recently[0].
+  It also calls `cpu_mitigations_off()` which checks a static variable
+  against a static enum, in a common code C file, and is instrumentable.
+  This one feels like it could be `__always_inline`'d, but given it is
+  common code and the static nature of operands in the check, maybe
+  marking it `noinstr` would be acceptable ?
 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 90f271483e5b..5f5f6a125b4e 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -9,6 +9,7 @@
- #define	__ASM_INSN_H
- #include <linux/bits.h>
- #include <linux/build_bug.h>
-+#include <linux/sizes.h>
- #include <linux/types.h>
- 
- #include <asm/insn-def.h>
-@@ -555,10 +556,108 @@ static __always_inline bool aarch64_insn_uses_literal(u32 insn)
- 	       aarch64_insn_is_prfm_lit(insn);
+[0]: https://lore.kernel.org/all/aNF0gb1iZndz0-be@J2N7QTR9R3/
+---
+ arch/arm64/kernel/proton-pack.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index edf1783ffc81..4ba8d24bf7ef 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -1174,6 +1174,7 @@ void noinstr spectre_bhb_patch_wa3(struct alt_instr *alt,
  }
  
-+static __always_inline bool aarch64_get_imm_shift_mask(
-+				 enum aarch64_insn_imm_type type, u32 *maskp, int *shiftp)
-+{
-+	u32 mask;
-+	int shift;
-+
-+	if (maskp == NULL || shiftp == NULL)
-+		return false;
-+
-+	switch (type) {
-+	case AARCH64_INSN_IMM_26:
-+		mask = BIT(26) - 1;
-+		shift = 0;
-+		break;
-+	case AARCH64_INSN_IMM_19:
-+		mask = BIT(19) - 1;
-+		shift = 5;
-+		break;
-+	case AARCH64_INSN_IMM_16:
-+		mask = BIT(16) - 1;
-+		shift = 5;
-+		break;
-+	case AARCH64_INSN_IMM_14:
-+		mask = BIT(14) - 1;
-+		shift = 5;
-+		break;
-+	case AARCH64_INSN_IMM_12:
-+		mask = BIT(12) - 1;
-+		shift = 10;
-+		break;
-+	case AARCH64_INSN_IMM_9:
-+		mask = BIT(9) - 1;
-+		shift = 12;
-+		break;
-+	case AARCH64_INSN_IMM_7:
-+		mask = BIT(7) - 1;
-+		shift = 15;
-+		break;
-+	case AARCH64_INSN_IMM_6:
-+	case AARCH64_INSN_IMM_S:
-+		mask = BIT(6) - 1;
-+		shift = 10;
-+		break;
-+	case AARCH64_INSN_IMM_R:
-+		mask = BIT(6) - 1;
-+		shift = 16;
-+		break;
-+	case AARCH64_INSN_IMM_N:
-+		mask = 1;
-+		shift = 22;
-+		break;
-+	default:
-+		return false;
-+	}
-+
-+	*maskp = mask;
-+	*shiftp = shift;
-+
-+	return true;
-+}
-+
-+#define ADR_IMM_HILOSPLIT	2
-+#define ADR_IMM_SIZE		SZ_2M
-+#define ADR_IMM_LOMASK		((1 << ADR_IMM_HILOSPLIT) - 1)
-+#define ADR_IMM_HIMASK		((ADR_IMM_SIZE >> ADR_IMM_HILOSPLIT) - 1)
-+#define ADR_IMM_LOSHIFT		29
-+#define ADR_IMM_HISHIFT		5
-+
- enum aarch64_insn_encoding_class aarch64_get_insn_class(u32 insn);
- u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn);
--u32 aarch64_insn_encode_immediate(enum aarch64_insn_imm_type type,
--				  u32 insn, u64 imm);
-+
-+static __always_inline u32 aarch64_insn_encode_immediate(
-+				 enum aarch64_insn_imm_type type, u32 insn, u64 imm)
-+{
-+	u32 immlo, immhi, mask;
-+	int shift;
-+
-+	if (insn == AARCH64_BREAK_FAULT)
-+		return AARCH64_BREAK_FAULT;
-+
-+	switch (type) {
-+	case AARCH64_INSN_IMM_ADR:
-+		shift = 0;
-+		immlo = (imm & ADR_IMM_LOMASK) << ADR_IMM_LOSHIFT;
-+		imm >>= ADR_IMM_HILOSPLIT;
-+		immhi = (imm & ADR_IMM_HIMASK) << ADR_IMM_HISHIFT;
-+		imm = immlo | immhi;
-+		mask = ((ADR_IMM_LOMASK << ADR_IMM_LOSHIFT) |
-+			(ADR_IMM_HIMASK << ADR_IMM_HISHIFT));
-+		break;
-+	default:
-+		if (aarch64_get_imm_shift_mask(type, &mask, &shift) == false) {
-+			return AARCH64_BREAK_FAULT;
-+		}
-+	}
-+
-+	/* Update the immediate field. */
-+	insn &= ~(mask << shift);
-+	insn |= (imm & mask) << shift;
-+
-+	return insn;
-+}
- static __always_inline u32 aarch64_insn_encode_register(
- 				 enum aarch64_insn_register_type type,
- 				 u32 insn,
-diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index 1810e1ea64a7..d77aef7f84f1 100644
---- a/arch/arm64/lib/insn.c
-+++ b/arch/arm64/lib/insn.c
-@@ -13,7 +13,6 @@
- #include <linux/types.h>
- 
- #include <asm/debug-monitors.h>
--#include <asm/errno.h>
- #include <asm/insn.h>
- #include <asm/kprobes.h>
- 
-@@ -21,71 +20,6 @@
- #define AARCH64_INSN_N_BIT	BIT(22)
- #define AARCH64_INSN_LSL_12	BIT(22)
- 
--static int __kprobes aarch64_get_imm_shift_mask(enum aarch64_insn_imm_type type,
--						u32 *maskp, int *shiftp)
--{
--	u32 mask;
--	int shift;
--
--	switch (type) {
--	case AARCH64_INSN_IMM_26:
--		mask = BIT(26) - 1;
--		shift = 0;
--		break;
--	case AARCH64_INSN_IMM_19:
--		mask = BIT(19) - 1;
--		shift = 5;
--		break;
--	case AARCH64_INSN_IMM_16:
--		mask = BIT(16) - 1;
--		shift = 5;
--		break;
--	case AARCH64_INSN_IMM_14:
--		mask = BIT(14) - 1;
--		shift = 5;
--		break;
--	case AARCH64_INSN_IMM_12:
--		mask = BIT(12) - 1;
--		shift = 10;
--		break;
--	case AARCH64_INSN_IMM_9:
--		mask = BIT(9) - 1;
--		shift = 12;
--		break;
--	case AARCH64_INSN_IMM_7:
--		mask = BIT(7) - 1;
--		shift = 15;
--		break;
--	case AARCH64_INSN_IMM_6:
--	case AARCH64_INSN_IMM_S:
--		mask = BIT(6) - 1;
--		shift = 10;
--		break;
--	case AARCH64_INSN_IMM_R:
--		mask = BIT(6) - 1;
--		shift = 16;
--		break;
--	case AARCH64_INSN_IMM_N:
--		mask = 1;
--		shift = 22;
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	*maskp = mask;
--	*shiftp = shift;
--
--	return 0;
--}
--
--#define ADR_IMM_HILOSPLIT	2
--#define ADR_IMM_SIZE		SZ_2M
--#define ADR_IMM_LOMASK		((1 << ADR_IMM_HILOSPLIT) - 1)
--#define ADR_IMM_HIMASK		((ADR_IMM_SIZE >> ADR_IMM_HILOSPLIT) - 1)
--#define ADR_IMM_LOSHIFT		29
--#define ADR_IMM_HISHIFT		5
--
- u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
+ /* Patched to NOP when not supported */
++__noinstr_section(".init.text")
+ void __init spectre_bhb_patch_clearbhb(struct alt_instr *alt,
+ 				   __le32 *origptr, __le32 *updptr, int nr_inst)
  {
- 	u32 immlo, immhi, mask;
-@@ -100,7 +34,7 @@ u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
- 		mask = ADR_IMM_SIZE - 1;
- 		break;
- 	default:
--		if (aarch64_get_imm_shift_mask(type, &mask, &shift) < 0) {
-+		if (aarch64_get_imm_shift_mask(type, &mask, &shift) == false) {
- 			pr_err("%s: unknown immediate encoding %d\n", __func__,
- 			       type);
- 			return 0;
-@@ -110,40 +44,6 @@ u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
- 	return (insn >> shift) & mask;
- }
- 
--u32 __kprobes aarch64_insn_encode_immediate(enum aarch64_insn_imm_type type,
--				  u32 insn, u64 imm)
--{
--	u32 immlo, immhi, mask;
--	int shift;
--
--	if (insn == AARCH64_BREAK_FAULT)
--		return AARCH64_BREAK_FAULT;
--
--	switch (type) {
--	case AARCH64_INSN_IMM_ADR:
--		shift = 0;
--		immlo = (imm & ADR_IMM_LOMASK) << ADR_IMM_LOSHIFT;
--		imm >>= ADR_IMM_HILOSPLIT;
--		immhi = (imm & ADR_IMM_HIMASK) << ADR_IMM_HISHIFT;
--		imm = immlo | immhi;
--		mask = ((ADR_IMM_LOMASK << ADR_IMM_LOSHIFT) |
--			(ADR_IMM_HIMASK << ADR_IMM_HISHIFT));
--		break;
--	default:
--		if (aarch64_get_imm_shift_mask(type, &mask, &shift) < 0) {
--			pr_err("%s: unknown immediate encoding %d\n", __func__,
--			       type);
--			return AARCH64_BREAK_FAULT;
--		}
--	}
--
--	/* Update the immediate field. */
--	insn &= ~(mask << shift);
--	insn |= (imm & mask) << shift;
--
--	return insn;
--}
--
- static const u32 aarch64_insn_ldst_size[] = {
- 	[AARCH64_INSN_SIZE_8] = 0,
- 	[AARCH64_INSN_SIZE_16] = 1,
 -- 
 2.43.0
 
