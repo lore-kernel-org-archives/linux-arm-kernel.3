@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42429CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC55CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:07:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70TpCwFaIyGe3KXB6s+x31vUbM0ZIyshoHwXPvlt+4Q=; b=I+IpeDHjfKd3lUVRndSg5m4k73
-	728ys2cY11FWWoddQqLnWOlKyk5Rl/I3AYDfIMePVOIG3+Evmby7UlpqRfdmMvjxfhy0j6HFGu+af
-	JCQLiKnYCFDWYQc1VPjf8lV+9iJpRpzDldtUunmpJnrFpYdJlsjG0VG2t8M9RAR5kPz8UJe3wIO55
-	ptS1JA82OpHNI2C3Phtk/NzXUm9BU7z2eQR9WP3/RB/BMsfwVNdIjf/ANgHe8IushpokGFplfmSBg
-	BGcdVnWFrBu4/0nzCPoNVZqE25DXRPTHisGT4/pZCPPtIzaQNV7u5erLoMXwUahLJXN/nMe6PNRd5
-	ftHL5S1Q==;
+	bh=lDSLbWRe3/XSF6EHknU6DwHbBjpQeYWU/BRQOn+S+E0=; b=d72SidLsw8LLD2bwUOhQmZ2wzP
+	QhhFewbkIXR3XRHwYMkHqispv6Hh5bR44S/jJulNyAb1nIM0VehS5R0H81QWm+8GU6+mKAZPWNGTR
+	ioPJEeTmEdElfrAySGUCAl4PgVaQmkZTggJksFMwyCWQvy+ICc1ibErKBxu7Q68YdY3ch9W8b7hVZ
+	FwnjDuvuzSBnJYF43VQeHvUL+B+stA2qrCCwbOI9mrqLIy2Ck7+B6AUg0xrq085e2Uqxn+0GOnep0
+	bB1IIfjP5tJVR5ZrkkwwVlm3c5+AoKLMgCvCF5zT3zS3EjWAOfRCCHfgIoeWC9icpmRjuApEinsEk
+	ucp9hfzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yv6-0000000CsCm-1EkW;
-	Tue, 23 Sep 2025 09:02:44 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v0yzJ-0000000CsoS-1Jt1;
+	Tue, 23 Sep 2025 09:07:05 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yv5-0000000CsCK-1sjT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 23 Sep 2025 09:02:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=70TpCwFaIyGe3KXB6s+x31vUbM0ZIyshoHwXPvlt+4Q=; b=fcHt0z3hxZLI8uqmXlNwLg+6yz
-	gOJONGttt1OQVb1ymLy6xqn2kLSauxQS1Mxkeq2gtNOqyo7CXxM+u9prOS6NajIUD2tsxTo9g/B/p
-	kUDs25akAkjq+wOr/T0o4oK/mLKXSdTnrqlinrJKhnk2EaavgJqo35N7daLTmdmJtjdVbbeKnniuG
-	N5FU6/TbAYchhRw8/6+aYVL7t06Ktv/9nnu7ZIG2W2KMAJJI1szGMQK0ZcI/R2A3aTQ5g1apMF7Mf
-	3DhQ4Ct85bHRkkeSsKWwiBbOxljNscDpiC1fbXkCn7aPVZmGNeP3BeoFz6C3Jqc7f1ZUTfxhroYP+
-	F/ca9nvQ==;
-Received: from [54.239.6.190] (helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yv1-00000008YgD-2UmL;
-	Tue, 23 Sep 2025 09:02:39 +0000
-Message-ID: <c8a8ddbc4b1c53429748d239f2a8461f180a5133.camel@infradead.org>
-Subject: Re: [PATCH] KVM: arm64: Implement KVM_TRANSLATE ioctl for arm64
-From: David Woodhouse <dwmw2@infradead.org>
-To: Alexander Graf <graf@amazon.com>, Priscilla Lam <prl@amazon.com>, 
-	maz@kernel.org, oliver.upton@linux.dev
-Cc: christoffer.dall@arm.com, gurugubs@amazon.com, jgrall@amazon.co.uk, 
- joey.gouly@arm.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
- suzuki.poulose@arm.com, yuzenghui@huawei.com
-Date: Tue, 23 Sep 2025 10:02:38 +0100
-In-Reply-To: <97759f51-385b-4ce4-8766-d00ed5af580b@amazon.com>
-References: <86frcd1tp4.wl-maz@kernel.org>
-	 <20250923082955.66602-1-prl@amazon.com>
-	 <97759f51-385b-4ce4-8766-d00ed5af580b@amazon.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-2+7Due4sKE215/2KPo3Z"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1v0yzG-0000000Csnw-0gwQ;
+	Tue, 23 Sep 2025 09:07:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758618417; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WUVll49IQ+H3NMXdoaT6K2RFOubCRIh8nTVDC130XCwvQtEqkgW8odYao0QpHWGZA2xf2Jbv8o0qKuvI0tFfylr9/nxi3kCX+idBXWtpHEJcFAlKIaoz0hoVm71HDpVu5PMQLDiz3LNzcUdlHe2qJS4++ljbea0gqmb6pMpDexk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1758618417; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lDSLbWRe3/XSF6EHknU6DwHbBjpQeYWU/BRQOn+S+E0=; 
+	b=iyt1yQ/3U0uKZsgnULMdD3f/prailyEXuo2yvBU6agBfC9hJYFRVhlb6Br75wjrLOitUQtw/oerKm/d6sCnnBRwp/BkIBbf+1WO7F5bqfOdQ69Ip+9imwWwAsmSJODvnX4LhPC+z5yGpfklXY9EPiS0Ueu0imU4nidq3sY9DKDg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758618417;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=lDSLbWRe3/XSF6EHknU6DwHbBjpQeYWU/BRQOn+S+E0=;
+	b=kKRpg/SUMjRrSseNMULThv4AZ7il2w6TbWlp+iHoeVtfTNv9szWRJZDrbtPUkxQY
+	3GUrqSzx5yxcXQaVFMbe0AhUSJ4BSHR01kILwd2HHJGoM34dbY2Cc8uozi9d7FxMtwq
+	ftuXMxgrlPcDErDdb4GFWLL3L2WgpA9GKLS6HaLw=
+Received: by mx.zohomail.com with SMTPS id 1758618414479846.6177567826774;
+	Tue, 23 Sep 2025 02:06:54 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ Jjian Zhou =?UTF-8?B?KOWRqOW7uik=?= <Jjian.Zhou@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "wenst@chromium.org" <wenst@chromium.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
+Date: Tue, 23 Sep 2025 11:06:50 +0200
+Message-ID: <2382077.ElGaqSPkdT@workhorse>
+In-Reply-To: <eb9b0ea70abb09f45c50e88b6221948ae09be6f7.camel@mediatek.com>
+References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
+ <13850137.uLZWGnKmhe@workhorse>
+ <eb9b0ea70abb09f45c50e88b6221948ae09be6f7.camel@mediatek.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250923_020702_285471_AFA2F790 
+X-CRM114-Status: GOOD (  39.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,134 +89,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-2+7Due4sKE215/2KPo3Z
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, 2025-09-23 at 10:39 +0200, Alexander Graf wrote:
+On Tuesday, 23 September 2025 04:35:59 Central European Summer Time Jjian Z=
+hou (=E5=91=A8=E5=BB=BA) wrote:
+> On Mon, 2025-09-22 at 15:10 +0200, Nicolas Frattaroli wrote:
+> > External email : Please do not click links or open attachments until
+> > you have verified the sender or the content.
+> >=20
+> >=20
+> > On Monday, 22 September 2025 09:17:27 Central European Summer Time
+> > Jjian Zhou (=E5=91=A8=E5=BB=BA) wrote:
+> > > On Sat, 2025-09-20 at 23:02 -0500, Jassi Brar wrote:
+> > > > External email : Please do not click links or open attachments
+> > > > until
+> > > > you have verified the sender or the content.
+> > > >=20
+> > > >=20
+> > > > On Fri, Sep 19, 2025 at 2:02=E2=80=AFPM Nicolas Frattaroli
+> > > > <nicolas.frattaroli@collabora.com> wrote:
+> > > > >=20
+> > > > > On Friday, 19 September 2025 18:32:12 Central European Summer
+> > > > > Time
+> > > > > Jassi Brar wrote:
+> > > > > > On Fri, Sep 19, 2025 at 3:31=E2=80=AFAM Chen-Yu Tsai <
+> > > > > > wenst@chromium.org>
+> > > > > > wrote:
+> > > > > > >=20
+> > > > > > > On Fri, Sep 19, 2025 at 7:50=E2=80=AFAM Jassi Brar <
+> > > > > > > jassisinghbrar@gmail.com> wrote:
+> > > > > > > >=20
+> > > > > > > > On Thu, Aug 21, 2025 at 9:12=E2=80=AFPM Jjian Zhou <
+> > > > > > > > jjian.zhou@mediatek.com> wrote:
+> > > > > > > >=20
+> > > > > > > > .....
+> > > > > > > >=20
+> > > > > > > > > +#include <linux/module.h>
+> > > > > > > > > +#include <linux/of.h>
+> > > > > > > > > +#include <linux/platform_device.h>
+> > > > > > > > > +#include <linux/slab.h>
+> > > > > > > > > +
+> > > > > > > > > +struct mtk_vcp_mbox_priv {
+> > > > > > > >=20
+> > > > > > > > Maybe 'mtk_vcp_mbox' is a more appropriate name ?
+> > > > > > > >=20
+> > > > > > > > > +       void __iomem *base;
+> > > > > > > > > +       struct device *dev;
+> > > > > > > > > +       struct mbox_controller mbox;
+> > > > > > > > > +       const struct mtk_vcp_mbox_cfg *cfg;
+> > > > > > > > > +       struct mtk_ipi_info ipi_recv;
+> > > > > > > >=20
+> > > > > > > > Maybe also have "struct mbox_chan chan[1]; " so that you
+> > > > > > > > don't have to
+> > > > > > > > allocate one during the probe.
+> > > > > > > > Also if you have  "struct mbox_controller mbox;" as the
+> > > > > > > > first
+> > > > > > > > member,
+> > > > > > > > you could simply typecast that to get this structure.
+> > > > > > > > Something like "struct mpfs_mbox" in mailbox-mpfs.c
+> > > > > > >=20
+> > > > > > > I read somewhere that this way of subclassing is not
+> > > > > > > recommended.
+> > > > > > > Instead the base class should explicitly not be the first
+> > > > > > > member.
+> > > > > > > And then container_of() should be used.
+> > > > > > >=20
+> > > > > > > I don't remember where I read this though. But I think the
+> > > > > > > explicit
+> > > > > > > container_of() is easier for understanding the intent.
+> > > > > > >=20
+> > > > > >=20
+> > > > > > And how does container_of() work ? :)
+> > > > > > typcasting the first member to its parent is the simplest
+> > > > > > form of
+> > > > > > container_of.
+> > > > > >=20
+> > > > > > -j
+> > > > > >=20
+> > > > > >=20
+> > > > >=20
+> > > > > Which is why it's completely equivalent and since code is
+> > > > > supposed
+> > > > > to communicate meaning to humans, container_of should be used.
+> > > > >=20
+> > > >=20
+> > > > Nobody is suggesting typecasting cfg, dev or anything else.
+> > > > Typecasting between mailbox controllers is fine and arguably
+> > > > easier
+> > > > on
+> > > > the eyes than using a container_of.
+> > > >=20
+> > > > -j
+> > >=20
+> > > OK. How about:
+> > > struct mtk_vcp_mbox *priv =3D (struct mtk_vcp_mbox *)chan-
+> > > > con_priv;
+> > >=20
+> > > Thanks.
+> > >=20
+> >=20
+> > An explicit cast would be worse, as at that point you're telling
+> > C to completely ignore any semblance of a type system it has.
+> >=20
+> >=20
+> >=20
+>      struct mtk_vcp_mbox *priv;=20
+>      priv->dev =3D dev;
+>      priv->chans[0].con_priv =3D priv;
+> The type of con_priv is "void *".=20
+> Would the conversion mentioned above also have the issue you mentioned?
 >=20
-> All modern OSs constrain themselves to only ISV enabled MMIO=20
-> instructions.
+> Thanks.
+>=20
 
-Why? Such does not appear to be required by the architecture, AFAICT?
+No, in that case the cast is implicit. While void pointers do
+subvert the type system, they are needed in this case because
+the con_priv member needs to point at structs of any type.
 
-And what is "MMIO" architecturally anyway? Using LDP is actually fine
-on MMIO, if a PCI BAR is passed through to a guest (and assuming there
-are no ordering dependencies on the loads). It's the fact that it's
-missing from stage2 page tables and causes a guest exit which is the
-problem.
+The problem is that when you do something like
 
-Other than lying to a compiler and *pretending* there are ordering
-constraints, or explicitly using inline asm, how would a guest OS
-*prevent* the compiler from using problematic instructions?
+  struct apple *a =3D something;
+  struct orange *o =3D (struct orange *)a;
 
->  NISV is really only useful to run non hypervisor=20
-> enlightened guests. Did you encounter a real world OS that was causing=
-=20
-> NISV faults? And if so, what was causing these? It's most likely a=20
-> driver or OS bug.
+then if the two structs (apple and orange) are incompatible,
+the compiler won't even yell at you, because you're explicitly
+casting.
 
-The Windows CRB TPM driver uses LDP. Even if it *were* forbidden by the
-architecture, the track record of getting Microsoft to fix bugs *even*
-when they are egregious violations of both specifications and common
-sense is... poor.
+With an implicit cast:
 
---=-2+7Due4sKE215/2KPo3Z
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+  struct apple *a =3D something;
+  struct orange *o =3D a;
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDkyMzA5MDIz
-OFowLwYJKoZIhvcNAQkEMSIEINvwWnozZlemf5pSHKOvmGadBSNyNeu5fahtCQ5nK81uMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIARVmGr8b1ZC5r
-xWpqYxfWEvf+FS1CtOeWpaQ8F+3xaJ4iL6wCTf5vD1vUauH1pLn5mPLbdDrGreppGFq5cercdvR1
-PNyb8/ZVGLmxKj51xCA8OHn3srMdBOsqvFrdq20Wsx/bkZcgXLilgSrcqUacav3oPos6s+aD9dnl
-B0R+zlxGW311+63xgpPNIlldqVOuyRIfwrlq/LzbxZglVURGJQWTkmPyxIVLdsAf/xL2JiwKLTwU
-HQyCrNyp3QL7TDV+pA3dZlFRGKaWHOOLjoBNgENNCk+VX/QrcvKCNWrRiDwosOKjHVMC9v1rBrwg
-LAyMU1hIqWu7UkcN3fnGa+En/CWADtj5K+AeTfS0rQvU7APwoOwp6iHTHjhAllG0wPKzkbdA2+Wl
-p46VuGMIZrBqDVULRytdIkS0/GqXElpGesysEpRU3L+B1CSRYLHxWkOkEfb2hJ60AuoBYGqAFcTK
-Nbolz6xj9uN4Slm2JOhDlRxut8UCVAmU6jhyJUtM1EJ8u/GdDdpJjMoqSFhWMvvSa10DqNPk1hjG
-T/sULnERQoOyXrP33r0Kc0vEOBnwETpFGQdsgm/mZFu3zywGhkQ7wLJAjNcH8mf0cztcD3V9gATV
-JulgBbYYtq0K8FpRYWlAUjTnfl855lJP+ltS4u0NHmmoW1pv3HLpQVr3v6L/85UAAAAAAAA=
+the compiler will tell you if you're doing something wrong.
+Here's a userspace code example to illustrate the point:
+
+    #include <stdio.h>
+
+    struct apple {
+            const char *name;
+            unsigned int weight;
+    };
+
+    struct orange {
+            int x;
+            int y;
+            int z;
+    };
+
+    int main(int argc, char** argv)
+    {
+            struct apple a =3D {"Granny Smith", 200};
+            // won't compile, good!
+            /* struct orange *o =3D &a; */
+            // will compile, bad!
+            struct orange *o =3D (struct orange *)&a;
+
+            printf("%d\n", o->x);
+
+            return 0;
+    }
+
+If you comment out the second struct orange line and uncomment the
+first, then you'll get a compilation error, which is what we want
+because the two structs are incompatible and we don't want the
+assignment to work in this case, as that would be a bug.
+
+The second struct orange line always compiles, even though the two
+structs are incompatible, and will cause nonsense to be printed.
+
+I hope this illustrates the point I was trying to make, which is
+that explicit casts make it harder to find issues because they
+force the language to simply accept the cast rather than give us
+a compilation error when something nonsensical is being done.
+
+Kind regards,
+Nicolas Frattaroli
 
 
---=-2+7Due4sKE215/2KPo3Z--
 
