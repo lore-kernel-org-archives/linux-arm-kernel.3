@@ -4,140 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2B2CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 00:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A000CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 00:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ApB1Vxngk7d0gpi7VavlKGPmX4qx5JeDH9qyDLnciQ=; b=Of2/0wnj+aFYMz5J2XhZZFSQAF
-	o+TJVMhTeGko2a3mxrXFlJF46uPYVMom8OAp/sUMiua75UF1WawQf9p4jlVRkC/RwnyEqSEd3ht3K
-	flcpaxzHI+kbD8lcNeYZ776E6zEmtTuF6W7j3O1KWX+lJCCym6JmCxU2C7AQQb72X30XgGobTGk9v
-	AuMuqeTVDUkkLQDiwvSndok6R3AsAanWhzLOiasG/ULM2LiMTYylOZW351WcZrqzgSCVtCqpGOxAo
-	uk4Wacls3JU6R5SeF6wG+//W/aaK5rQq8MIJxJsP98RK1DS6RNjcvU8QtQcdSfQhk6L9q6PozR2+M
-	R7zy1VbA==;
+	bh=0icZwGq6l6trj5m8kiyot8z07Evuj931KewICxfmrA0=; b=NDM0i3RWVUGe8JMNEWe4VOEYnK
+	xzQBmewbvXeQIeBECTFPfBiMbAsZ9wTMfJjiXs5e0SC3jkPbq/cDiPWSUueBz62k8a6GlyGplpa2d
+	Gk1JK94nHkp4yBo2pe0yw5XWdfgrM1rlHE03Iwe5GKcutKNDIWO3NZCDr8FvUnx/gf/BOSLE8cxx1
+	nSozw+st1qfimg0B3YqKHo+DuIDd0U939UzY8UZsUZ6NCUoik8Lim15TPR/Ps9Kj4GzxCrsIaCPUv
+	eIg/ZxkAey7eKH7shaDitASh6gu2aqzY1YKBjulJh13hL+UpL5l8SS5xEiNQCxvJSuwdXpjhiSv6T
+	3uhbRI5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0qmq-0000000BtNx-2bNz;
-	Tue, 23 Sep 2025 00:21:40 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1v0rIK-0000000BwWA-3785;
+	Tue, 23 Sep 2025 00:54:12 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0qmg-0000000BtH5-2YyP
+	id 1v0rIH-0000000BwUf-3Gsg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 00:21:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hkE8s6rpC+WdYzvWfepxGsjaMCvJj7tiuB9nzcc+6T4NRiFJmE6s1X3hE9ffp9FSww1f+12etjYahwQDnk5Xit/0vZODDe24wk3CZ1N/caiMf78kJ56hdfmlHcqjc/lL9FiZ+jEeNFoApCi5WXE8tkv2bmqcjI/NCu/Xi6lOjWKYT7X8yjuBqZvnKBHKHeVEJAZ6rnWDeRRbT+BRMTAawXQ3CACAyBHGtvznCUn0XrlvDydaDXxyxM/yvtXQnAdgCLBXzIkA8An2hD/ahXSOvjqh6Ztrb7U6mNLKD1UU2RVQ1rtwDaSXXtXK857Bqa6GdPl2e5/KR84VsHP1+1QyUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8ApB1Vxngk7d0gpi7VavlKGPmX4qx5JeDH9qyDLnciQ=;
- b=Z1tsEQxw9nLNFwCXKAcKSJNu/IzQf42Z7eWCtSm4/vyOvTYPvhgAPmT6UzSckVvap1R+6zxQYyacknqgYVlc1gHtI+CSXlSBFlEzyG5ZQVaygjf6fMc2je9QTSErGzQYICFmYqxx3dhZKE6irbG+uvREKQwoCj+GJRGF2iL8sS8fxffvf0iSgJS117doIfFNyUGHJf8g6iIkLqAJCMFYFafesFfXkZt48QPitRZBIdn2gsys/WrEudI9YGT+jyejx2OwlIYGca+93QX0xVBBr4HMDQyICsmP3faTBQLoiM+anMj4zHZKZnuU3qsxloEz1dkfvOxRb/YiH5BJ8+7Cdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8ApB1Vxngk7d0gpi7VavlKGPmX4qx5JeDH9qyDLnciQ=;
- b=OQEl7s8YILlE2umtbpRqHUYAlepjuQK9ngDCG2vGYklfthTRBrzSA5d/vmIt0oOdGu2IP9dvNh/AIkJxElokDeq7YncQkep8bT1Cj9xVJE9FJOz9yVflvAxPJ8oq022xNummvDEXwksVsHzNDFCGI9CQQc0AumabmcDqX50roQL9NY1uXQSYHYzPSg+gzdxG3Jvv+bTtJiy0beigKmNXl4VRASbJryyqedlF5uhH86joUNYOVkT+Q26D+NoAmjCofRlarPPRqelNtZOUuZ0yM1OtUtGBb2bnj4STNF7SYK5uWYHl41RvFV9X5VmqMTScA12/DGkglTBlwVy/wfySRQ==
-Received: from DS7PR03CA0270.namprd03.prod.outlook.com (2603:10b6:5:3b3::35)
- by MN2PR12MB4360.namprd12.prod.outlook.com (2603:10b6:208:266::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Tue, 23 Sep
- 2025 00:21:21 +0000
-Received: from DS1PEPF0001708E.namprd03.prod.outlook.com
- (2603:10b6:5:3b3:cafe::80) by DS7PR03CA0270.outlook.office365.com
- (2603:10b6:5:3b3::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.19 via Frontend Transport; Tue,
- 23 Sep 2025 00:21:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS1PEPF0001708E.mail.protection.outlook.com (10.167.17.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9137.12 via Frontend Transport; Tue, 23 Sep 2025 00:21:21 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Mon, 22 Sep
- 2025 17:21:11 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 22 Sep
- 2025 17:21:10 -0700
-Received: from build-bwicaksono-focal-20250829.internal (10.127.8.12) by
- mail.nvidia.com (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via
- Frontend Transport; Mon, 22 Sep 2025 17:21:10 -0700
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <ilkka@os.amperecomputing.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <suzuki.poulose@arm.com>,
-	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
-	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>, "Besar
- Wicaksono" <bwicaksono@nvidia.com>
-Subject: [PATCH v2 5/5] perf/arm_cspmu: nvidia: Add pmevfiltr2 support
-Date: Tue, 23 Sep 2025 00:18:40 +0000
-Message-ID: <20250923001840.1586078-6-bwicaksono@nvidia.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250923001840.1586078-1-bwicaksono@nvidia.com>
-References: <20250923001840.1586078-1-bwicaksono@nvidia.com>
+	Tue, 23 Sep 2025 00:54:12 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250923005401epoutp01040188d37a5b9abe7ceae9af0aa90cb7~nwzv4hinA2663426634epoutp01c
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 00:54:01 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250923005401epoutp01040188d37a5b9abe7ceae9af0aa90cb7~nwzv4hinA2663426634epoutp01c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758588841;
+	bh=0icZwGq6l6trj5m8kiyot8z07Evuj931KewICxfmrA0=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=otohyrUYrfg89CB6iep/4Blgcw316CaCY9Ze4fGymgPL3NLb4lAHCkiqU7sQZGoBw
+	 s8mB4UZjAndBJCZ09LyTRR5ofZz68puAE2yg7EZnBIba3fIKU0Sp3RixV1UzNpfGUu
+	 WhY8w4lDG50mlvgjH63gHJhONoRrx6lOcqT1xB0I=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250923005400epcas2p4d217865e5715affdeab93832c32ea661~nwzu8bTEn1878118781epcas2p4R;
+	Tue, 23 Sep 2025 00:54:00 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.36.70]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cW1h76Mw1z2SSKx; Tue, 23 Sep
+	2025 00:53:59 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250923005359epcas2p419655d2bdb7de8ea6e0e60556660ac14~nwzte59Ee2370523705epcas2p4p;
+	Tue, 23 Sep 2025 00:53:59 +0000 (GMT)
+Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250923005359epsmtip26a98a0660041a34e46c9d4ee172226d5~nwztZPk940718307183epsmtip27;
+	Tue, 23 Sep 2025 00:53:59 +0000 (GMT)
+From: =?ks_c_5601-1987?B?vNW9xQ==?= <shin.son@samsung.com>
+To: "'Henrik Grimler'" <henrik@grimler.se>
+Cc: "'Bartlomiej Zolnierkiewicz'" <bzolnier@gmail.com>, "'Krzysztof
+ Kozlowski'" <krzk@kernel.org>, "'Rafael J . Wysocki'" <rafael@kernel.org>,
+	"'Daniel Lezcano'" <daniel.lezcano@linaro.org>, "'Zhang Rui'"
+	<rui.zhang@intel.com>, "'Lukasz Luba'" <lukasz.luba@arm.com>, "'Rob
+	Herring'" <robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>, "'Alim
+	Akhtar'" <alim.akhtar@samsung.com>, <linux-pm@vger.kernel.org>,
+ <linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <20250922200430.GA4697@l14.localdomain>
+Subject: RE: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
+ update TMU interface
+Date: Tue, 23 Sep 2025 09:53:53 +0900
+Message-ID: <000001dc2c24$8be7a090$a3b6e1b0$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001708E:EE_|MN2PR12MB4360:EE_
-X-MS-Office365-Filtering-Correlation-Id: aeed8419-e5bf-4c2b-96bb-08ddfa371f7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?otFjBXWDuY6rN7KcAs/pGBtXgdwlujB0xI3hUCO9BcXxGN4uUI7HrkRVpJna?=
- =?us-ascii?Q?5rTTLewHCeIFaImjFJe0eE2riP2H43q/mdXB8mden5E6YaWqZndIxDytpvJ7?=
- =?us-ascii?Q?fS+ZmdLworjnrb41Orxu/kBwyX2C+73YT4WwtspjUzePgNkVNZBiZcilGZd3?=
- =?us-ascii?Q?8rvtHjPu+yI7rGrrMlV4cLJyOwQGg5lzBOG2AT93lXHT4hBkuW4Zzsi3gI+C?=
- =?us-ascii?Q?BC+/lWEkcuo2+SnfWARs88q7ST6TIR9m/Bh82bN8BQHnVzVmeGACzm9r+tqD?=
- =?us-ascii?Q?fmEYy93CVn5Z7vFGtAwW+m4VPif0CilSxrC+c1rwZ4dlWMFOVXOz5LraxEKR?=
- =?us-ascii?Q?908Jb4g4V0LasgiyNpzRa6FT51UVFYRFiiqUjtFdeIOm2kDPp9nc9g+Z1cOT?=
- =?us-ascii?Q?kaoyKgU7vQp9xySnxh72R2MViccWPlylnkRSFju/PTk+DL9HcxPhF/stc+rU?=
- =?us-ascii?Q?KDnD8/iRau4vJkYkCcVXg4Ulc/du3+F/PKVJCIBda+PymG5dlDKlyUGmTgC3?=
- =?us-ascii?Q?CjX2iVctZIzJBn0z/DBd9YwDt9kqver+C4NSJ3A06hUEAYHG7TYm5R1oaZtX?=
- =?us-ascii?Q?J2X6/e7LRAYzZRKPCBJSonZHunTkqhBetctMdsyNkAFY5yJNINF/dWPEeK1R?=
- =?us-ascii?Q?ju1FflLm8t1jRmkO2rq3/ggbwMhv3rGyeI3CWtEm9x3Pbpn4jI1oIgwPK5Bo?=
- =?us-ascii?Q?4qq0Lbg3u3vtU48CHZRKOvrI89HtK+00jEcL2x+VldZQ3XpXaah6bRwdEfh5?=
- =?us-ascii?Q?MgFUAYtL7MuNHHl4OgU2wY1AupdUXeUTUvHZUsQWnoLhzpeY+x9A64o4c0wC?=
- =?us-ascii?Q?6cxOVmwJCIBACNm+MRqzF2E+qpg9MrNNYdstW7LShVw9wKvHzKd4O02jdeoI?=
- =?us-ascii?Q?kGhTyI+pV2SpS3wGIXp8FJnR3hYV+zNPHnITevEqwdohSTKQ0AWOpQ60R/sS?=
- =?us-ascii?Q?Kn0hmq1MnCbSPWMSvA7ZyyywYWNB4+NO8/5jOj6QEj/Wc+EL0RpBWSYENx+e?=
- =?us-ascii?Q?WSLkKY7u5dZ7ybD758J5Ics65lc4mjNQbT8cP+jOj9FWmcTTy2O6nNDdDDyn?=
- =?us-ascii?Q?27wftofxjMEI9zl3Rwv0qkubqzrDg7vC4JpVcH7Nb+sOBAnLRclE+L7xt331?=
- =?us-ascii?Q?nZ/ls7BmJi3X4NVSecfaBcRA09NFQ5vpDYJr6IAT0+DIlcQHPNYv27JBCgkP?=
- =?us-ascii?Q?YRZ/aqxlHpQlMYJR1awbS0nwEScfWjYQeebDpRUU3fIihUK3m3bFzWXH1pe3?=
- =?us-ascii?Q?ev9EmTgA6jIq+epgzh38Xm8R/y1Z4TDnWeULEtJ9q4jtFzgCACVyjF6QRvtS?=
- =?us-ascii?Q?0Di/1uRrbnNw4482hp3UYRouS5k9iR94r6j5hoZ18KdqysZL/d0okA8gF+cG?=
- =?us-ascii?Q?QYnvkBOA4Qify7JToPMF0zEJ7OEx0p0yT6nuOjMMO7xxcL9srnw/E7wnUbNM?=
- =?us-ascii?Q?rIQCcv8hinC3IMr1ucXRLAKs9D4o1BWM4aY8vtCZ7YvKE1sncCfSgO5d0FXA?=
- =?us-ascii?Q?l4pvZHYeXtOksJimpxeOtnvSwwwzwpOlZVG8?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 00:21:21.3325
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aeed8419-e5bf-4c2b-96bb-08ddfa371f7c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001708E.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4360
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AQLNrO/s5c6r06mWwaZxWViDEkHfogKWIOg4AX/6Z7UBj0CC7bKPv5FA
+Content-Language: ko
+X-CMS-MailID: 20250923005359epcas2p419655d2bdb7de8ea6e0e60556660ac14
+X-Msg-Generator: CA
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250922041902epcas2p3e40ed58737b22b7af9d09f6ba362928d
+References: <20250922041857.1107445-1-shin.son@samsung.com>
+	<CGME20250922041902epcas2p3e40ed58737b22b7af9d09f6ba362928d@epcas2p3.samsung.com>
+	<20250922041857.1107445-3-shin.son@samsung.com>
+	<20250922200430.GA4697@l14.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_172130_822796_032C58E3 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20250922_175410_486193_1A75B813 
+X-CRM114-Status: GOOD (  49.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,286 +102,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support NVIDIA PMU that utilizes the optional event filter2 register.
+Hello Henrik Grimler
 
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
----
- drivers/perf/arm_cspmu/nvidia_cspmu.c | 176 +++++++++++++++++++-------
- 1 file changed, 133 insertions(+), 43 deletions(-)
+> -----Original Message-----
+> From: Henrik Grimler [mailto:henrik@grimler.se]
+> Sent: Tuesday, September 23, 2025 5:05 AM
+> To: Shin Son <shin.son@samsung.com>
+> Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>; Krzysztof Kozlowski
+> <krzk@kernel.org>; Rafael J . Wysocki <rafael@kernel.org>; Daniel Lezcano
+> <daniel.lezcano@linaro.org>; Zhang Rui <rui.zhang@intel.com>; Lukasz Luba
+> <lukasz.luba@arm.com>; Rob Herring <robh@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Alim Akhtar <alim.akhtar@samsung.com>; linux-
+> pm@vger.kernel.org; linux-samsung-soc@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: Re: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
+> update TMU interface
+> 
+> Hi Shin,
+> 
+> On Mon, Sep 22, 2025 at 01:18:56PM +0900, Shin Son wrote:
+> > The Exynos tmu driver's private data structure has been extended to
+> > support the exynosautov920 hardware, which requires per-sensor
+> > interrupt enablement and multiple-zone handling:
+> >
+> > - Add 'slope_comp' : compensation parameter below 25 degrees.
+> > - Add 'calib_temp' : stores the fused calibaration temperature.
+> > - Add 'sensor_count' : reflects the maximum sensor numbers.
+> > - Rename 'tzd' -> 'tzd_array' to register multiple thermal zones.
+> >
+> > Since splitting this patch causes runtime errors during temperature
+> > emulation or problems where the read temperature feature fails to
+> > retrieve values, I have submitted it as a single commit. To add
+> > support for the exynosautov920 to the exisiting TMU interface, the
+> > following changes are included:
+> >
+> > 1. Simplify "temp_to_code" and "code_to_temp" to one computation path
+> >    by normalizing calib_temp.
+> > 2. Loop over 'sensor_count' in critical-point setup.
+> > 3. Introduce 'update_con_reg' for exynosautov920 control-register
+> updates.
+> > 4. Add exynosautov920-specific branch in 'exynos_tmu_update_temp'
+> function.
+> > 5. Skip high & low temperature threshold setup in exynosautov920.
+> > 6. Enable interrupts via sensor_count in exynosautov920.
+> > 7. Initialize all new members during 'exynosautov920_tmu_initialize'.
+> > 8. Clear IRQs by iterating the sensor_count in exynosautov920.
+> > 9. Register each zone with 'devm_thermal_of_zone_register()'
+> >    based on 'sensor_count'.
+> >
+> > Signed-off-by: Shin Son <shin.son@samsung.com>
+> > ---
+> >  drivers/thermal/samsung/exynos_tmu.c | 322
+> > ++++++++++++++++++++++++---
+> >  1 file changed, 285 insertions(+), 37 deletions(-)
+> >
+> > diff --git a/drivers/thermal/samsung/exynos_tmu.c
+> > b/drivers/thermal/samsung/exynos_tmu.c
+> > index 47a99b3c5395..ebcc38f3fff6 100644
+> > --- a/drivers/thermal/samsung/exynos_tmu.c
+> > +++ b/drivers/thermal/samsung/exynos_tmu.c
+> > @@ -121,8 +121,51 @@
+> >
+> >  #define EXYNOS_NOISE_CANCEL_MODE		4
+> >
+> > +/* ExynosAutov920 specific registers */
+> > +#define EXYNOSAUTOV920_SLOPE_COMP		25
+> > +#define EXYNOSAUTOV920_SLOPE_COMP_MASK		0xf
+> > +#define EXYNOSAUTOV920_CALIB_SEL_TEMP		30
+> > +#define EXYNOSAUTOV920_CALIB_SEL_TEMP_MASK	0x2
+> > +
+> > +#define EXYNOSAUTOV920_SENSOR0_TRIM_INFO	0x10
+> > +#define EXYNOSAUTOV920_TRIM_MASK		0x1ff
+> > +#define EXYNOSAUTOV920_TRIMINFO_25_SHIFT	0
+> > +#define EXYNOSAUTOV920_TRIMINFO_85_SHIFT	9
+> > +
+> > +#define EXYNOSAUTOV920_TMU_REG_TRIMINFO2	0x04
+> > +
+> > +#define EXYNOSAUTOV920_TMU_REG_THRESHOLD(p)	(((p)) * 0x50 +
+0x00d0)
+> > +#define EXYNOSAUTOV920_TMU_REG_INTEN(p)		(((p)) * 0x50 +
+> 0x00f0)
+> > +#define EXYNOSAUTOV920_TMU_REG_INT_PEND(p)	(((p)) * 0x50 + 0x00f8)
+> > +
+> > +#define EXYNOSAUTOV920_CURRENT_TEMP_P1_P0	0x084
+> > +#define EXYNOSAUTOV920_TMU_REG_EMUL_CON		0x0b0
+> > +
+> > +#define EXYNOSAUTOV920_TMU_REG_CONTROL		0x50
+> > +#define EXYNOSAUTOV920_TMU_REG_CONTROL1		0x54
+> > +#define EXYNOSAUTOV920_TMU_REG_AVG_CONTROL	0x58
+> > +#define EXYNOSAUTOV920_TMU_SAMPLING_INTERVAL	0x70
+> > +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE0	0x74
+> > +#define EXYNOSAUTOV920_TMU_REG_COUNTER_VALUE1	0x78
+> > +
+> > +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_SHIFT		8
+> > +#define EXYNOSAUTOV920_TMU_T_BUF_VREF_SEL_MASK		0x1f
+> > +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_SHIFT	3
+> > +#define EXYNOSAUTOV920_TMU_T_BUF_SLOPE_SEL_MASK		0xf
+> > +#define EXYNOSAUTOV920_TMU_NUM_PROBE_MASK		0xf
+> > +#define EXYNOSAUTOV920_TMU_NUM_PROBE_SHIFT		16
+> > +#define EXYNOSAUTOV920_TMU_LPI_MODE_MASK		1
+> > +#define EXYNOSAUTOV920_TMU_LPI_MODE_SHIFT		10
+> > +
+> > +#define EXYNOSAUTOV920_TMU_AVG_CON_UPDATE		0x0008011a
+> > +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE0_UPDATE	0x030003c0
+> > +#define EXYNOSAUTOV920_TMU_COUNTER_VALUE1_UPDATE	0x03c0004d
+> > +
+> >  #define MCELSIUS	1000
+> >
+> > +#define EXYNOS_DEFAULT_SENSOR_COUNT			1
+> > +#define EXYNOS_MAX_SENSOR_COUNT				16
+> 
+> In patch 1, sensor count is described as a value 0 <= sensor_count <= 15,
+> but here max sensor count value is set to 16. Shouldn't max value be the
+> same in these two places, what is the maximum number of thermal sensors
+> that the hardware can have?
 
-diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-index ac91dc46501d..e06a06d3407b 100644
---- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-+++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-@@ -40,10 +40,21 @@
- 
- struct nv_cspmu_ctx {
- 	const char *name;
--	u32 filter_mask;
--	u32 filter_default_val;
-+
- 	struct attribute **event_attr;
- 	struct attribute **format_attr;
-+
-+	u32 filter_mask;
-+	u32 filter_default_val;
-+	u32 filter2_mask;
-+	u32 filter2_default_val;
-+
-+	u32 (*get_filter)(const struct perf_event *event);
-+	u32 (*get_filter2)(const struct perf_event *event);
-+
-+	void *data;
-+
-+	int (*init_data)(struct arm_cspmu *cspmu);
- };
- 
- static struct attribute *scf_pmu_event_attrs[] = {
-@@ -144,6 +155,7 @@ static struct attribute *cnvlink_pmu_format_attrs[] = {
- static struct attribute *generic_pmu_format_attrs[] = {
- 	ARM_CSPMU_FORMAT_EVENT_ATTR,
- 	ARM_CSPMU_FORMAT_FILTER_ATTR,
-+	ARM_CSPMU_FORMAT_FILTER2_ATTR,
- 	NULL,
- };
- 
-@@ -184,13 +196,36 @@ static u32 nv_cspmu_event_filter(const struct perf_event *event)
- 	return filter_val;
- }
- 
-+static u32 nv_cspmu_event_filter2(const struct perf_event *event)
-+{
-+	const struct nv_cspmu_ctx *ctx =
-+		to_nv_cspmu_ctx(to_arm_cspmu(event->pmu));
-+
-+	const u32 filter_val = event->attr.config2 & ctx->filter2_mask;
-+
-+	if (filter_val == 0)
-+		return ctx->filter2_default_val;
-+
-+	return filter_val;
-+}
-+
- static void nv_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
- 				   const struct perf_event *event)
- {
--	u32 filter = nv_cspmu_event_filter(event);
--	u32 offset = PMEVFILTR + (4 * event->hw.idx);
-+	u32 filter, offset;
-+	const struct nv_cspmu_ctx *ctx =
-+		to_nv_cspmu_ctx(to_arm_cspmu(event->pmu));
-+	offset = 4 * event->hw.idx;
- 
--	writel(filter, cspmu->base0 + offset);
-+	if (ctx->get_filter) {
-+		filter = ctx->get_filter(event);
-+		writel(filter, cspmu->base0 + PMEVFILTR + offset);
-+	}
-+
-+	if (ctx->get_filter2) {
-+		filter = ctx->get_filter2(event);
-+		writel(filter, cspmu->base0 + PMEVFILT2R + offset);
-+	}
- }
- 
- static void nv_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-@@ -210,74 +245,120 @@ enum nv_cspmu_name_fmt {
- struct nv_cspmu_match {
- 	u32 prodid;
- 	u32 prodid_mask;
--	u64 filter_mask;
--	u32 filter_default_val;
- 	const char *name_pattern;
- 	enum nv_cspmu_name_fmt name_fmt;
--	struct attribute **event_attr;
--	struct attribute **format_attr;
-+	struct nv_cspmu_ctx template_ctx;
-+	struct arm_cspmu_impl_ops ops;
- };
- 
- static const struct nv_cspmu_match nv_cspmu_match[] = {
- 	{
- 	  .prodid = 0x10300000,
- 	  .prodid_mask = NV_PRODID_MASK,
--	  .filter_mask = NV_PCIE_FILTER_ID_MASK,
--	  .filter_default_val = NV_PCIE_FILTER_ID_MASK,
- 	  .name_pattern = "nvidia_pcie_pmu_%u",
- 	  .name_fmt = NAME_FMT_SOCKET,
--	  .event_attr = mcf_pmu_event_attrs,
--	  .format_attr = pcie_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = mcf_pmu_event_attrs,
-+		.format_attr = pcie_pmu_format_attrs,
-+		.filter_mask = NV_PCIE_FILTER_ID_MASK,
-+		.filter_default_val = NV_PCIE_FILTER_ID_MASK,
-+		.filter2_mask = 0x0,
-+		.filter2_default_val = 0x0,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = NULL,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- 	{
- 	  .prodid = 0x10400000,
- 	  .prodid_mask = NV_PRODID_MASK,
--	  .filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
--	  .filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
- 	  .name_pattern = "nvidia_nvlink_c2c1_pmu_%u",
- 	  .name_fmt = NAME_FMT_SOCKET,
--	  .event_attr = mcf_pmu_event_attrs,
--	  .format_attr = nvlink_c2c_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = mcf_pmu_event_attrs,
-+		.format_attr = nvlink_c2c_pmu_format_attrs,
-+		.filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-+		.filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-+		.filter2_mask = 0x0,
-+		.filter2_default_val = 0x0,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = NULL,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- 	{
- 	  .prodid = 0x10500000,
- 	  .prodid_mask = NV_PRODID_MASK,
--	  .filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
--	  .filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
- 	  .name_pattern = "nvidia_nvlink_c2c0_pmu_%u",
- 	  .name_fmt = NAME_FMT_SOCKET,
--	  .event_attr = mcf_pmu_event_attrs,
--	  .format_attr = nvlink_c2c_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = mcf_pmu_event_attrs,
-+		.format_attr = nvlink_c2c_pmu_format_attrs,
-+		.filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-+		.filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-+		.filter2_mask = 0x0,
-+		.filter2_default_val = 0x0,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = NULL,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- 	{
- 	  .prodid = 0x10600000,
- 	  .prodid_mask = NV_PRODID_MASK,
--	  .filter_mask = NV_CNVL_FILTER_ID_MASK,
--	  .filter_default_val = NV_CNVL_FILTER_ID_MASK,
- 	  .name_pattern = "nvidia_cnvlink_pmu_%u",
- 	  .name_fmt = NAME_FMT_SOCKET,
--	  .event_attr = mcf_pmu_event_attrs,
--	  .format_attr = cnvlink_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = mcf_pmu_event_attrs,
-+		.format_attr = cnvlink_pmu_format_attrs,
-+		.filter_mask = NV_CNVL_FILTER_ID_MASK,
-+		.filter_default_val = NV_CNVL_FILTER_ID_MASK,
-+		.filter2_mask = 0x0,
-+		.filter2_default_val = 0x0,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = NULL,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- 	{
- 	  .prodid = 0x2CF00000,
- 	  .prodid_mask = NV_PRODID_MASK,
--	  .filter_mask = 0x0,
--	  .filter_default_val = 0x0,
- 	  .name_pattern = "nvidia_scf_pmu_%u",
- 	  .name_fmt = NAME_FMT_SOCKET,
--	  .event_attr = scf_pmu_event_attrs,
--	  .format_attr = scf_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = scf_pmu_event_attrs,
-+		.format_attr = scf_pmu_format_attrs,
-+		.filter_mask = 0x0,
-+		.filter_default_val = 0x0,
-+		.filter2_mask = 0x0,
-+		.filter2_default_val = 0x0,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = NULL,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- 	{
- 	  .prodid = 0,
- 	  .prodid_mask = 0,
--	  .filter_mask = NV_GENERIC_FILTER_ID_MASK,
--	  .filter_default_val = NV_GENERIC_FILTER_ID_MASK,
- 	  .name_pattern = "nvidia_uncore_pmu_%u",
- 	  .name_fmt = NAME_FMT_GENERIC,
--	  .event_attr = generic_pmu_event_attrs,
--	  .format_attr = generic_pmu_format_attrs
-+	  .template_ctx = {
-+		.event_attr = generic_pmu_event_attrs,
-+		.format_attr = generic_pmu_format_attrs,
-+		.filter_mask = NV_GENERIC_FILTER_ID_MASK,
-+		.filter_default_val = NV_GENERIC_FILTER_ID_MASK,
-+		.filter2_mask = NV_GENERIC_FILTER_ID_MASK,
-+		.filter2_default_val = NV_GENERIC_FILTER_ID_MASK,
-+		.get_filter = nv_cspmu_event_filter,
-+		.get_filter2 = nv_cspmu_event_filter2,
-+		.data = NULL,
-+		.init_data = NULL
-+	  },
- 	},
- };
- 
-@@ -310,6 +391,14 @@ static char *nv_cspmu_format_name(const struct arm_cspmu *cspmu,
- 	return name;
- }
- 
-+#define SET_OP(name, impl, match, default_op) \
-+	do { \
-+		if (match->ops.name) \
-+			impl->name = match->ops.name; \
-+		else if (default_op != NULL) \
-+			impl->name = default_op; \
-+	} while (false)
-+
- static int nv_cspmu_init_ops(struct arm_cspmu *cspmu)
- {
- 	struct nv_cspmu_ctx *ctx;
-@@ -330,20 +419,21 @@ static int nv_cspmu_init_ops(struct arm_cspmu *cspmu)
- 			break;
- 	}
- 
--	ctx->name		= nv_cspmu_format_name(cspmu, match);
--	ctx->filter_mask	= match->filter_mask;
--	ctx->filter_default_val = match->filter_default_val;
--	ctx->event_attr		= match->event_attr;
--	ctx->format_attr	= match->format_attr;
-+	/* Initialize the context with the matched template. */
-+	memcpy(ctx, &match->template_ctx, sizeof(struct nv_cspmu_ctx));
-+	ctx->name = nv_cspmu_format_name(cspmu, match);
- 
- 	cspmu->impl.ctx = ctx;
- 
- 	/* NVIDIA specific callbacks. */
--	impl_ops->set_cc_filter			= nv_cspmu_set_cc_filter;
--	impl_ops->set_ev_filter			= nv_cspmu_set_ev_filter;
--	impl_ops->get_event_attrs		= nv_cspmu_get_event_attrs;
--	impl_ops->get_format_attrs		= nv_cspmu_get_format_attrs;
--	impl_ops->get_name			= nv_cspmu_get_name;
-+	SET_OP(set_cc_filter, impl_ops, match, nv_cspmu_set_cc_filter);
-+	SET_OP(set_ev_filter, impl_ops, match, nv_cspmu_set_ev_filter);
-+	SET_OP(get_event_attrs, impl_ops, match, nv_cspmu_get_event_attrs);
-+	SET_OP(get_format_attrs, impl_ops, match, nv_cspmu_get_format_attrs);
-+	SET_OP(get_name, impl_ops, match, nv_cspmu_get_name);
-+
-+	if (ctx->init_data)
-+		return ctx->init_data(cspmu);
- 
- 	return 0;
- }
--- 
-2.50.1
+Sorry for the confusion. It actually refers to the maximum number of remote
+sensors.
+I'll change it to 15.
+
+> 
+> >  enum soc_type {
+> >  	SOC_ARCH_EXYNOS3250 = 1,
+> >  	SOC_ARCH_EXYNOS4210,
+> > @@ -133,6 +176,7 @@ enum soc_type {
+> >  	SOC_ARCH_EXYNOS5420_TRIMINFO,
+> >  	SOC_ARCH_EXYNOS5433,
+> >  	SOC_ARCH_EXYNOS7,
+> > +	SOC_ARCH_EXYNOSAUTOV920,
+> >  };
+> >
+
+...
+
+> >  static int temp_to_code(struct exynos_tmu_data *data, u8 temp)  {
+> > +	s32 temp_diff, code;
+> > +
+> >  	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
+> >  		return temp + data->temp_error1 - EXYNOS_FIRST_POINT_TRIM;
+> >
+> > -	return (temp - EXYNOS_FIRST_POINT_TRIM) *
+> > -		(data->temp_error2 - data->temp_error1) /
+> > -		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) +
+> > -		data->temp_error1;
+> > +	temp_diff = temp - EXYNOS_FIRST_POINT_TRIM;
+> > +
+> > +	code = temp_diff * (data->temp_error2 - data->temp_error1) *
+> MCELSIUS /
+> > +	       (data->calib_temp - EXYNOS_FIRST_POINT_TRIM);
+> > +
+> > +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920 && temp_diff < 0)
+> > +		code = code * (57 + data->slope_comp) / 65;
+> > +
+> > +	return code / MCELSIUS + data->temp_error1;
+> >  }
+> >
+> >  /*
+> > @@ -220,13 +277,20 @@ static int temp_to_code(struct exynos_tmu_data
+> *data, u8 temp)
+> >   */
+> >  static int code_to_temp(struct exynos_tmu_data *data, u16 temp_code)
+> > {
+> > +	s32 code_diff, temp;
+> > +
+> >  	if (data->cal_type == TYPE_ONE_POINT_TRIMMING)
+> >  		return temp_code - data->temp_error1 +
+> EXYNOS_FIRST_POINT_TRIM;
+> >
+> > -	return (temp_code - data->temp_error1) *
+> > -		(EXYNOS_SECOND_POINT_TRIM - EXYNOS_FIRST_POINT_TRIM) /
+> > -		(data->temp_error2 - data->temp_error1) +
+> > -		EXYNOS_FIRST_POINT_TRIM;
+> > +	code_diff = temp_code - data->temp_error1;
+> > +
+> > +	temp = code_diff * (data->calib_temp - EXYNOS_FIRST_POINT_TRIM) *
+> MCELSIUS /
+> > +	       (data->temp_error2 - data->temp_error1);
+> > +
+> > +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920 && code_diff < 0)
+> > +		temp = temp * 65 / (57 + data->slope_comp);
+> > +
+> > +	return temp / MCELSIUS + EXYNOS_FIRST_POINT_TRIM;
+> >  }
+> 
+> Nice, these two functions looks much better compared to v2!
+
+Thank you for your advice!
+
+> 
+> >  static void sanitize_temp_error(struct exynos_tmu_data *data, u32
+> > trim_info) @@ -262,6 +326,9 @@ static int exynos_tmu_initialize(struct
+> platform_device *pdev)
+
+...
+
+> > @@ -865,6 +1079,10 @@ static int exynos_map_dt_data(struct
+> > platform_device *pdev)
+> >
+> >  	data->soc = (uintptr_t)of_device_get_match_data(&pdev->dev);
+> >
+> > +	data->sensor_count = EXYNOS_DEFAULT_SENSOR_COUNT;
+> > +
+> > +	data->calib_temp = EXYNOS_SECOND_POINT_TRIM;
+> > +
+> >  	switch (data->soc) {
+> >  	case SOC_ARCH_EXYNOS4210:
+> >  		data->tmu_set_low_temp = exynos4210_tmu_set_low_temp; @@ -
+> 945,6
+> > +1163,19 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+> >  		data->min_efuse_value = 15;
+> >  		data->max_efuse_value = 100;
+> >  		break;
+> > +	case SOC_ARCH_EXYNOSAUTOV920:
+> > +		data->tmu_set_low_temp = exynosautov920_tmu_set_low_temp;
+> > +		data->tmu_set_high_temp = exynosautov920_tmu_set_high_temp;
+> > +		data->tmu_disable_low = exynosautov920_tmu_disable_low;
+> > +		data->tmu_disable_high = exynosautov920_tmu_disable_high;
+> > +		data->tmu_set_crit_temp = exynosautov920_tmu_set_crit_temp;
+> > +		data->tmu_initialize = exynosautov920_tmu_initialize;
+> > +		data->tmu_control = exynosautov920_tmu_control;
+> > +		data->tmu_read = exynosautov920_tmu_read;
+> > +		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+> > +		data->tmu_clear_irqs = exynosautov920_tmu_clear_irqs;
+> > +		data->sensor_count = EXYNOS_MAX_SENSOR_COUNT;
+> > +		break;
+> >  	default:
+> >  		dev_err(&pdev->dev, "Platform not supported\n");
+> >  		return -EINVAL;
+> > @@ -952,6 +1183,14 @@ static int exynos_map_dt_data(struct
+> > platform_device *pdev)
+> >
+> >  	data->cal_type = TYPE_ONE_POINT_TRIMMING;
+> >
+> > +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
+> > +		if (of_property_read_u32(pdev->dev.of_node,
+> "samsung,sensors",
+> > +					 &data->sensor_count)) {
+> > +			dev_err(&pdev->dev, "failed to get sensor count\n");
+> > +			return -ENODEV;
+> > +		}
+> > +	}
+> 
+> Do we really need the `if (data->soc == SOC_ARCH_EXYNOSAUTOV920)` here, I
+> am sure there will be more socs that use samsung,sensors. Can't we simply
+> read samsung,sensors for all socs and use EXYNOS_DEFAULT_SENSOR_COUNT if
+> it fails, or would it be potentially dangerous if samsung,sensors is
+> missing for autov920 dtb and default value of 1 is used?
+> 
+> Best regards,
+> Henrik Grimler
+> 
+
+Yes. Incorrect remote-sensor settings can affect TMU operation. For
+example, when the sensor count is set to 1,
+The thermal zone doesn't function properly and the hardware trip doesn't
+assert on the v920 variant.
+I consider that configuration unsafe, so I added variant-specific handling
+for that SoC.
+Meanwhile, the other variant legitimately uses only a single sensor.
+
 
 
