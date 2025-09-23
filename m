@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AE1CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 21:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D086CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 21:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mIYBNLdEFCMwbmz5598KhcQlF95m4CjWxguyw0V4SU=; b=Ep2GlqGjfCLMd69gdujgCdLnoG
-	vGvwxteGSK+g9dNB1eDjgh9U1nITHlWxdAQIYeejQ3t73w8zDVr7fVrxQq3TgtGOVJT4ZkkztqguS
-	4ZkS5tFHLqUxII0ZNKwvsqePVXpeQtajo+pPiX3QmAYAM7rdkxZkFOVy5UDGxppce8zrzscjKNFjr
-	fTIwJe92o7PhVoEmGtuP1Wh09xLJYX47liE5tX/I1QcuXKQs2QOGrdQBeEya436+J1WNvqiN0ywZd
-	92BI1VqA6weQxHVHc4t1ZhQsP8zxFgXo4gv2ZV3m3gm4AjKoFoRlyEQMO9wP3Lc5DNPDHOG/XrVSY
-	R3zNGSZQ==;
+	bh=QX45tuaO5WXNN+CTHbEijBgzmNBMNeLxfeOXCA93uSM=; b=IT+RGf0Yo/xyBThIxXlO1qCzOw
+	FECaRfFRmsM3usOWhxe9/XbuIwfLHPLHFg63AV/iCy5KXwCXm1nIQJjmvezNwk9Doosxqted36ni7
+	mk2+qHdW/cSrM/i8L+YcFRvQUNt0pCtWxbFHunmrbx+dmsTco/vH8vxpbpocCl/yzYAa3+UvzIY4H
+	ma092lbRU1lBfI/ZnYZnHx4OTJB2ej+9DleRh5MmRtT/tZ8gpo8xrCi7MXj8uBWR2QMOr8w5DbN1i
+	yQVw+OI/d1cvmrUq55r116jZF797iMkwHK3lf+P4lxVbs52d0pnpz7XYpFT+o+wcHjMiMr+lFSsEU
+	fLDDtqVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Avv-0000000F0sq-24OZ;
-	Tue, 23 Sep 2025 21:52:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1Aw5-0000000F0yM-1Jwz;
+	Tue, 23 Sep 2025 21:52:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Avt-0000000F0qe-00Xk
+	id 1v1Aw4-0000000F0xi-0LVO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 21:52:22 +0000
+	Tue, 23 Sep 2025 21:52:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5970D40B13;
-	Tue, 23 Sep 2025 21:52:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE1A9C4CEF5;
-	Tue, 23 Sep 2025 21:52:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FCBB60292;
+	Tue, 23 Sep 2025 21:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E5A7C4CEF5;
+	Tue, 23 Sep 2025 21:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758664340;
-	bh=owMdIa2olCHJ3eYUyQpQ21kOHUHt5sxjjmLt+nAB5Gc=;
+	s=k20201202; t=1758664351;
+	bh=BULakDdKw0A4NZGkv919IsMp+rW5CmZOYDx2mdUjOFA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G/RqXC3KmUV/CsJGvJtZGwzPF2/7gsfLJPdooZB5WN/gLN1DiiKGgZjP4UllLkQy7
-	 tRj1xNyIWXuw6H/dNVx6X7zF64rjQYHboNCdMyOkiixCFiFBpMQcLG65Ffii91LuXD
-	 81Y2gWy20aCGQfNCg8AOz9VvC89cxDkWm+0y+RFuA5/DJnzKsgPTgQp0qFSB0HxOXL
-	 Q58zDHoFmrrD7A77l7gQZWGsTV+oPZQEPcMm0GX+tZ0PJGnr42my2EogblAnLk50ei
-	 litgKOD8b9mI2oso6hzd2EsX3parhlBtgRGWKnipP45cFN5H2S66gcWvYLs9EISmr3
-	 4yC1bb25iTEDA==
+	b=bbPDkg8x5vH27VfUoF+koTvyt23ssm+a7u9uXZl1YlS2HNFgfS/7XXfJJcS36jBK+
+	 jbI0CCQwFbtQmwdOyJUvQVRVRLOnaomAwjKVnHzJlEMNZ7MsqpA/Hi9F/qxuFUNWVx
+	 iZqOyoV41gMhmdN2/QBQgUO8pTSfw2YthTD/82vNjswNC9ftWo3DzQDeriMn8V51WJ
+	 4QUpXkEpfQZ9mRg7szIgWPrpYfg3LfGY59rOM9URqQDQTBOYCpp4RwL10WqZlRfHgb
+	 0PPOBNd2hpo/yAWgbRVCF8pm1SDCpjwqIQqAJxTL2hpp7trEedJx/XLhPz0U5mZ02H
+	 Q1QkPGTs/N0Bw==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Steven Rostedt <rostedt@kernel.org>,
 	Florent Revest <revest@google.com>,
@@ -54,17 +54,14 @@ Cc: bpf@vger.kernel.org,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Menglong Dong <menglong8.dong@gmail.com>
-Subject: [PATCH 2/9] ftrace: Add register_ftrace_direct_hash function
-Date: Tue, 23 Sep 2025 23:51:40 +0200
-Message-ID: <20250923215147.1571952-3-jolsa@kernel.org>
+Subject: [PATCH 3/9] ftrace: Add unregister_ftrace_direct_hash function
+Date: Tue, 23 Sep 2025 23:51:41 +0200
+Message-ID: <20250923215147.1571952-4-jolsa@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250923215147.1571952-1-jolsa@kernel.org>
 References: <20250923215147.1571952-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_145221_082253_546D6FDC 
-X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,44 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding register_ftrace_direct_hash function that registers
+Adding unregister_ftrace_direct_hash function that unregisters
 all entries (ip -> direct) provided in hash argument.
 
-The difference to current register_ftrace_direct is
- - hash argument that allows to register multiple ip -> direct
+The difference to current unregister_ftrace_direct is
+ - hash argument that allows to unregister multiple ip -> direct
    entries at once
- - we can call register_ftrace_direct_hash multiple times on the
-   same ftrace_ops object, becase after first registration with
-   register_ftrace_function_nolock, it uses ftrace_update_ops to
-   update the ftrace_ops object
+ - we can call unregister_ftrace_direct_hash multiple times on the
+   same ftrace_ops object, becase we do not need to unregister
+   all entries at once, we can do it gradualy with the help of
+   ftrace_update_ops function
 
 This change will allow us to have simple ftrace_ops for all bpf
 direct interface users in following changes.
 
 Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
- include/linux/ftrace.h |   7 +++
- kernel/trace/ftrace.c  | 110 +++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 117 insertions(+)
+ include/linux/ftrace.h |  6 +++
+ kernel/trace/ftrace.c  | 98 ++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 104 insertions(+)
 
 diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 7ded7df6e9b5..2705c292341a 100644
+index 2705c292341a..55f5ead5d4ff 100644
 --- a/include/linux/ftrace.h
 +++ b/include/linux/ftrace.h
-@@ -526,6 +526,8 @@ int unregister_ftrace_direct(struct ftrace_ops *ops, unsigned long addr,
- int modify_ftrace_direct(struct ftrace_ops *ops, unsigned long addr);
+@@ -527,6 +527,7 @@ int modify_ftrace_direct(struct ftrace_ops *ops, unsigned long addr);
  int modify_ftrace_direct_nolock(struct ftrace_ops *ops, unsigned long addr);
  
-+int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash);
-+
+ int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash);
++int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash);
+ 
  void ftrace_stub_direct_tramp(void);
  
- #else
-@@ -552,6 +554,11 @@ static inline int modify_ftrace_direct_nolock(struct ftrace_ops *ops, unsigned l
+@@ -559,6 +560,11 @@ int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash
  	return -ENODEV;
  }
  
-+int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
++int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
 +{
 +	return -ENODEV;
 +}
@@ -125,110 +121,98 @@ index 7ded7df6e9b5..2705c292341a 100644
   * This must be implemented by the architecture.
   * It is the way the ftrace direct_ops helper, when called
 diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index a45556257963..06528af2281f 100644
+index 06528af2281f..ab5739f72933 100644
 --- a/kernel/trace/ftrace.c
 +++ b/kernel/trace/ftrace.c
-@@ -6219,6 +6219,116 @@ int modify_ftrace_direct(struct ftrace_ops *ops, unsigned long addr)
- 	return err;
+@@ -6329,6 +6329,104 @@ int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash
  }
- EXPORT_SYMBOL_GPL(modify_ftrace_direct);
-+
-+static unsigned long hash_count(struct ftrace_hash *hash)
-+{
-+	return hash ? hash->count : 0;
-+}
-+
+ EXPORT_SYMBOL_GPL(register_ftrace_direct_hash);
+ 
 +/**
-+ * hash_add - adds two struct ftrace_hash and returns the result
++ * hash_sub - substracts @b from @a and returns the result
 + * @a: struct ftrace_hash object
 + * @b: struct ftrace_hash object
 + *
 + * Returns struct ftrace_hash object on success, NULL on error.
 + */
-+static struct ftrace_hash *hash_add(struct ftrace_hash *a, struct ftrace_hash *b)
++static struct ftrace_hash *hash_sub(struct ftrace_hash *a, struct ftrace_hash *b)
 +{
-+	struct ftrace_func_entry *entry;
-+	struct ftrace_hash *add;
++	struct ftrace_func_entry *entry, *del;
++	struct ftrace_hash *sub;
 +	int size, i;
 +
-+	size = hash_count(a) + hash_count(b);
-+	if (size > 32)
-+		size = 32;
-+
-+	add = alloc_and_copy_ftrace_hash(fls(size), a);
-+	if (!add)
++	sub = alloc_and_copy_ftrace_hash(a->size_bits, a);
++	if (!sub)
 +		goto error;
 +
 +	size = 1 << b->size_bits;
 +	for (i = 0; i < size; i++) {
 +		hlist_for_each_entry(entry, &b->buckets[i], hlist) {
-+			if (add_hash_entry_direct(add, entry->ip, entry->direct) == NULL)
++			del = __ftrace_lookup_ip(sub, entry->ip);
++			if (WARN_ON_ONCE(!del))
 +				goto error;
++			remove_hash_entry(sub, del);
++			kfree(del);
 +		}
 +	}
-+	return add;
++	return sub;
 +
 + error:
-+	free_ftrace_hash(add);
++	free_ftrace_hash(sub);
 +	return NULL;
 +}
 +
-+int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
++int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
 +{
-+	struct ftrace_hash *filter_hash = NULL, *new_hash = NULL, *free_hash = NULL;
-+	struct ftrace_func_entry *entry;
-+	int i, size, err = -EINVAL;
-+	bool reg;
++	struct ftrace_hash *new_hash = NULL, *filter_hash = NULL, *free_hash = NULL;
++	struct ftrace_func_entry *del, *entry;
++	unsigned long size, i;
++	int err = -EINVAL;
 +
 +	if (!hash_count(hash))
 +		return 0;
++	if (check_direct_multi(ops))
++		return -EINVAL;
++	if (!(ops->flags & FTRACE_OPS_FL_ENABLED))
++		return -EINVAL;
++	if (direct_functions == EMPTY_HASH)
++		return -EINVAL;
 +
 +	mutex_lock(&direct_mutex);
 +
-+	/* Make sure requested entries are not already registered. */
++	/* Make sure requested entries are already registered. */
 +	size = 1 << hash->size_bits;
 +	for (i = 0; i < size; i++) {
 +		hlist_for_each_entry(entry, &hash->buckets[i], hlist) {
-+			if (__ftrace_lookup_ip(direct_functions, entry->ip))
++			del = __ftrace_lookup_ip(direct_functions, entry->ip);
++			if (!del || del->direct != entry->direct)
 +				goto out_unlock;
 +		}
 +	}
 +
-+	filter_hash = ops->func_hash ? ops->func_hash->filter_hash : NULL;
-+
-+	/* If there's nothing in filter_hash we need to register the ops. */
-+	reg = hash_count(filter_hash) == 0;
-+	if (reg) {
-+		if (ops->func || ops->trampoline)
-+			goto out_unlock;
-+		if (ops->flags & FTRACE_OPS_FL_ENABLED)
-+			goto out_unlock;
-+	}
-+
 +	err = -ENOMEM;
-+	filter_hash = hash_add(filter_hash, hash);
++	filter_hash = hash_sub(ops->func_hash->filter_hash, hash);
 +	if (!filter_hash)
 +		goto out_unlock;
 +
-+	new_hash = hash_add(direct_functions, hash);
++	new_hash = hash_sub(direct_functions, hash);
 +	if (!new_hash)
 +		goto out_unlock;
 +
-+	free_hash = direct_functions;
-+	rcu_assign_pointer(direct_functions, new_hash);
-+
-+	if (reg) {
-+		ops->func = call_direct_funcs;
-+		ops->flags = MULTI_FLAGS;
-+		ops->trampoline = FTRACE_REGS_ADDR;
-+		ops->local_hash.filter_hash = filter_hash;
-+
-+		err = register_ftrace_function_nolock(ops);
-+		if (!err)
-+			filter_hash = NULL;
++	/* If there's nothing left, we need to unregister the ops. */
++	if (ftrace_hash_empty(filter_hash)) {
++		err = unregister_ftrace_function(ops);
++		/* cleanup for possible another register call */
++		ops->func = NULL;
++		ops->trampoline = 0;
++		ftrace_free_filter(ops);
++		ops->func_hash->filter_hash = NULL;
 +	} else {
 +		err = ftrace_update_ops(ops, filter_hash, EMPTY_HASH);
 +	}
++
++	free_hash = direct_functions;
++	rcu_assign_pointer(direct_functions, new_hash);
 +
 + out_unlock:
 +	mutex_unlock(&direct_mutex);
@@ -240,7 +224,7 @@ index a45556257963..06528af2281f 100644
 +
 +	return err;
 +}
-+EXPORT_SYMBOL_GPL(register_ftrace_direct_hash);
++EXPORT_SYMBOL_GPL(unregister_ftrace_direct_hash);
 +
  #endif /* CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS */
  
