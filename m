@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA62ACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 22:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE98CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 22:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6SWHpC7XT0boWgdfna8gc+pG3x0qlvgKa0qIbsC+iC4=; b=JRVoDP6kxkanfqVOGdKbX6TFm2
-	2Sk5P50DWgG2n43y2pDtTQGoANE0On0zUlySvwWJd4zsb1ZGBtEApuADhgt3bWPuEX8rNgCbw1oHT
-	W9MrzFiYU48216J7s2uakO8vhvW0cTGD9OPCKdw6OZIs/YDxMNthD2KdshJAkk2HeGTcIVWsTivfU
-	sGW6H9mp1mtRsS9pUlh7ARh8dSfAHBIviV86WGdhvwvG5HIoix7KID+sB+u3gSbHDbp6++x+3jEp8
-	8QvjX41+sFkfWgIdXJWekc6J4TFplVvzF2p02sY2/zzq2UtO//sfMkqsLJ2GHadIawH8k7bcoQp6Q
-	3SjCYe9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=/wNTZlN6qLp4sqdyo6QTG1IaiR5Ni0PqLyc9Tnrd6w0=; b=BzDtM98FKLc/WK
+	9Q5u5oXp1ZHHTcg0H4aE6kBBqjbXwBFZos70qov89JEObj16wmmRAFOSYqvnP3ymPpGW3mHNoB+sk
+	eSZnUWcW6xWDUtk9EQK+ArpHC5rXf/98HtfmRb1pc9jwQVIHUPQOP+qtL7n1faDoUXVB/OEcDrMVy
+	M96NpNa5WAjWrbMOu/dFmEvEgArUHWPopDZvJEHKvGOKYPbcehh7GfMm9CsSE2rBtPtpxyNtJpvjZ
+	dSamPQP6AhUCS1hLTvZl+fzOhBUkz32sQUYCDgpwQJs8/O1ztL46hi2V2dM7pQxupTnqBXdco3mAu
+	bzMs1ObyzqNPC8oYGxDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Bhz-0000000F6Ll-1n0z;
-	Tue, 23 Sep 2025 22:42:03 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1v1BtW-0000000F73F-2bm7;
+	Tue, 23 Sep 2025 22:53:58 +0000
+Received: from mail-il1-f200.google.com ([209.85.166.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Bhw-0000000F6L2-2onO
+	id 1v1BtT-0000000F72K-1lj6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 22:42:02 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3696f1d5102so28938731fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 15:41:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758667318; x=1759272118; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6SWHpC7XT0boWgdfna8gc+pG3x0qlvgKa0qIbsC+iC4=;
-        b=kEC6QjFelSfCUaiMpAanQX2/76eylzbPfJgxtCu89ziERQBQOxdeB/TKd0sHZb2Het
-         jXqZE4+z5eF/laW7BT1WPSzNhnMhb61MVd3OpAfVIO0bUcKFLD5EiWtcR8MXGxvTl7NS
-         6vU3ZK+8EavMx4xvP1gnGSzZfrK3rwWAqOkv1y0U04EMt6U40GCXJVh5p77J/pZGYImw
-         cGINLi6sALRFHaWRaWRgiXO/Qko6EcCxwN0SnBm6gu/Hh26pcBlVzqOqAK9rZAQlmjMX
-         WI7GF4EcyBA4EYXtRqOB7eT+PvSeF1VajMRJbJ80QuUZ1WYxwXLuUDif/i5MqJqtraRb
-         Fx9w==
+	Tue, 23 Sep 2025 22:53:56 +0000
+Received: by mail-il1-f200.google.com with SMTP id e9e14a558f8ab-4257a99466eso58988725ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 15:53:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758667318; x=1759272118;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6SWHpC7XT0boWgdfna8gc+pG3x0qlvgKa0qIbsC+iC4=;
-        b=h6sHe7R56TBsItjzxH/MUFqp+BNqfJKHLj4X3Vjq9GJptc9uc+YkSJdJ116N3L6OS/
-         5tYq6r41dRU3heG4MXjzFzVMBy+BBPEZUXAMlS1tQ1HudvT6xcroPXiBAqrQtpaoE2MF
-         6zHmqtNoV1mqQQKdxRFXo8JRS5ym8Go2kmO+tRDWK52UduKi82/x87gaHaMwIKZurdVn
-         VUw1XjRB9nJ33/vIk5EitQQ/0sSRBqCSAklQtf43ynKFZXzcdgeElfkNYFmKXIq8Sb8O
-         vIVLfG4u+itjsG1bZgMCO8WqMhzphrGsJ61lhZz8xnoIUFIUYK2Xai8uL0QU/gUwWyz1
-         c+9g==
-X-Forwarded-Encrypted: i=1; AJvYcCV0yV4UAYs3sVBvNn6WKdnqi765osCH1RIV82Abjqp52wUhqVCoTtDFDLkSLGftCyzyQiWvxmv4FvsJiYON5W1h@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB9gb++ZvniaU/KAtEggJZ9bYJJNhXlkPB3ZHxvXl3me3cihOA
-	+QqV2CMPrKfv7S+9L9PF/7sViUKwLUunntqFsurOSnz7TVIRswM/WFX1k+zRsUI2E51FAK53bQq
-	lf4bNLt+YDdvOnE0w+eu5/hzXAP0SqBPn4D78B3fGhg==
-X-Gm-Gg: ASbGnctKzzQ91MaTZfJq9Vj59U2I4TOoXpZ/SPYHluLVsFkfHbgoXJY4P25cIuZrved
-	AQqRjhDWcw+qB8lMncYzwXtfI86R7fPYhtjGPgnDXeJrpV6PUYTMepZ6ijBa9s+H67dYUUdydpz
-	H7j7J/6Ekaq0qmejBK+VJHK9mqFRUNVZuR3WR66KdmzW5COz/qLZoCWkTtrr8QAw0iVbEaji8LP
-	IFxhD8=
-X-Google-Smtp-Source: AGHT+IG99GeGJ6EJmRFtaCX57MxbFFNDKEJDSpjz4IOp4Xv1ApJ9GNzknCU6gn3AgKwY56E7tlVN9VixGw0iGQWzSiA=
-X-Received: by 2002:a05:6512:4007:b0:57a:7be2:21e4 with SMTP id
- 2adb3069b0e04-5807051c520mr1245993e87.9.1758667317970; Tue, 23 Sep 2025
- 15:41:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758668034; x=1759272834;
+        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/wNTZlN6qLp4sqdyo6QTG1IaiR5Ni0PqLyc9Tnrd6w0=;
+        b=v/uSvQmXS/A+3xANPX0OyqGs0zyAFl9Wu5eITvY+WHBM3AgPColfzcn4qjoZiYE90h
+         ZxJ/pnTYQ8dZOE6mmiaxmxveMyuawjMe1sh2d4pDQ0yE9O3avlz5RF+JiiiltdAhfpKm
+         JbrDH7DKa7OiuCU5mOPgp+AK+NDkHiqs3gg2wFPOigmHifEPROhmUrMxBEKT8DCofgQ/
+         lbyFAT+siCbiiZ+7Kj+cQ5fELxhZPkMsovGQc1jtIrowahFtDzN4FQ7Q2SrEoOsJvWkM
+         y3N98KBD/DmL4X1gSIDpLFDAtHwkzNXBXYbU5pOvQcEeEILI/C39cvtQ9OBXgYJv7FMc
+         SE8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWrsCh0QtR2xxYC+8k+lcs35fJHSeIiJBxzQiMldl43vI41VR51XOTo0camrwIhHcdXcSvoWJMd5O0tQVETwTkc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdhgmdlA7YToaAeqTEl41aWP59VnEZo6jviPpqnwQHMhla9kah
+	ENOW25CJ8VBRmcNuRczkYNxwywkIqBFEM170mBb2bFpiM9Qq7BJ+Vsw2jcg5iN1QlW7/d2lce4h
+	oAWy+St3TxEttsxH64BcoOLLkDD6rEjvvSloFopirTggvkCkykxnnQWBY3bs=
+X-Google-Smtp-Source: AGHT+IGM2aCp+eZxlq2lYE2sv5q3yAtCF346ZsErV/J6qoFUIgD7WjAxOqZ9UCXOlxf3mNdh2dP0thvuweiArcx6FLx35qJXyTJ2
 MIME-Version: 1.0
-References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
- <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
-In-Reply-To: <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 24 Sep 2025 00:41:46 +0200
-X-Gm-Features: AS18NWA87kQOtTQ-6Uw89hDflE_WXMd3ykrYMsrH2sWDsx3-k27OaCZ6EKQ1YIY
-Message-ID: <CACRpkdY8AN5vRQEt=3QzdFdPkvx0FLiv7QmwZ=eqZBSn9sUtng@mail.gmail.com>
-Subject: Re: [PATCH 2/3] pinctrl: use more common syntax for compound literals
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Lee Jones <lee@kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matt.redfearn@blaize.com>, 
-	Neil Jones <neil.jones@blaize.com>, 
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>, Hoan Tran <hoan@os.amperecomputing.com>, 
-	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>, 
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+X-Received: by 2002:a05:6e02:1a2b:b0:425:7ae2:b8c1 with SMTP id
+ e9e14a558f8ab-42581e10bfamr72471655ab.13.1758668033945; Tue, 23 Sep 2025
+ 15:53:53 -0700 (PDT)
+Date: Tue, 23 Sep 2025 15:53:53 -0700
+In-Reply-To: <20250923133104.926672-1-yintirui@huawei.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68d32501.a70a0220.4f78.0011.GAE@google.com>
+Subject: [syzbot ci] Re: mm: add huge pfnmap support for remap_pfn_range()
+From: syzbot ci <syzbot+ciae73d4d89faf898f@syzkaller.appspotmail.com>
+To: abrestic@rivosinc.com, akpm@linux-foundation.org, alex@ghiti.fr, 
+	anshuman.khandual@arm.com, aou@eecs.berkeley.edu, apopple@nvidia.com, 
+	ardb@kernel.org, baohua@kernel.org, baolin.wang@linux.alibaba.com, 
+	catalin.marinas@arm.com, chenjun102@huawei.com, david@redhat.com, 
+	dev.jain@arm.com, liam.howlett@oracle.com, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev, 
-	linux-unisoc@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	lorenzo.stoakes@oracle.com, luxu.kernel@bytedance.com, mhocko@suse.com, 
+	npache@redhat.com, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	rppt@kernel.org, ryan.roberts@arm.com, samuel.holland@sifive.com, 
+	surenb@google.com, vbabka@suse.cz, wangkefeng.wang@huawei.com, 
+	will@kernel.org, willy@infradead.org, yangyicong@hisilicon.com, 
+	yintirui@huawei.com, yongxuan.wang@sifive.com, ziy@nvidia.com
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_154200_721602_F72249F7 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250923_155355_463903_9EBB8361 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,21 +89,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 10, 2025 at 9:25=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+syzbot ci has tested the following series
 
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> The (typeof(foo)) construct is unusual in the kernel, use a more typical
-> syntax by explicitly spelling out the type.
->
-> Link: https://lore.kernel.org/all/20250909-gpio-mmio-gpio-conv-part4-v1-1=
-3-9f723dc3524a@linaro.org/
-> Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+[v1] mm: add huge pfnmap support for remap_pfn_range()
+https://lore.kernel.org/all/20250923133104.926672-1-yintirui@huawei.com
+* [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
+* [PATCH RFC 2/2] mm: add PMD-level huge page support for remap_pfn_range()
 
-Patch applied.
+and found the following issues:
+* BUG: non-zero pgtables_bytes on freeing mm: NUM
+* stack segment fault in pgtable_trans_huge_withdraw
 
-Yours,
-Linus Walleij
+Full report is available here:
+https://ci.syzbot.org/series/633cbff7-ef54-4f3a-9133-71cc271396ee
+
+***
+
+BUG: non-zero pgtables_bytes on freeing mm: NUM
+
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      07e27ad16399afcd693be20211b0dfae63e0615f
+arch:      amd64
+compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+config:    https://ci.syzbot.org/builds/72b4b6cf-5400-40d6-94b6-1cfc0e85050d/config
+C repro:   https://ci.syzbot.org/findings/3450ef75-3540-4c00-8b33-5625d4aa40ef/c_repro
+syz repro: https://ci.syzbot.org/findings/3450ef75-3540-4c00-8b33-5625d4aa40ef/syz_repro
+
+BUG: non-zero pgtables_bytes on freeing mm: 4096
+
+
+***
+
+stack segment fault in pgtable_trans_huge_withdraw
+
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      07e27ad16399afcd693be20211b0dfae63e0615f
+arch:      amd64
+compiler:  Debian clang version 20.1.8 (++20250708063551+0c9f909b7976-1~exp1~20250708183702.136), Debian LLD 20.1.8
+config:    https://ci.syzbot.org/builds/72b4b6cf-5400-40d6-94b6-1cfc0e85050d/config
+C repro:   https://ci.syzbot.org/findings/dcfb72b5-c263-48da-830a-7f51aaa927db/c_repro
+syz repro: https://ci.syzbot.org/findings/dcfb72b5-c263-48da-830a-7f51aaa927db/syz_repro
+
+Oops: stack segment: 0000 [#1] SMP KASAN PTI
+CPU: 0 UID: 0 PID: 6000 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 5d 38 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 3b 38 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90002d5f300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea0000fb3dd0 RCX: ffff888107769cc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff888022b90843 R09: 1ffff11004572108
+R10: dffffc0000000000 R11: ffffed1004572109 R12: ffff88803ecf7000
+R13: dffffc0000000000 R14: ffff88803ecf7000 R15: 0000000000000008
+FS:  0000555576e7a500(0000) GS:ffff8880b8612000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000107d74000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ zap_deposited_table mm/huge_memory.c:2177 [inline]
+ zap_huge_pmd+0xa25/0xf50 mm/huge_memory.c:2205
+ zap_pmd_range mm/memory.c:1798 [inline]
+ zap_pud_range mm/memory.c:1847 [inline]
+ zap_p4d_range mm/memory.c:1868 [inline]
+ unmap_page_range+0x9fe/0x4370 mm/memory.c:1889
+ unmap_single_vma mm/memory.c:1932 [inline]
+ unmap_vmas+0x399/0x580 mm/memory.c:1976
+ exit_mmap+0x248/0xb50 mm/mmap.c:1280
+ __mmput+0x118/0x430 kernel/fork.c:1129
+ copy_process+0x2910/0x3c00 kernel/fork.c:2454
+ kernel_clone+0x21e/0x840 kernel/fork.c:2605
+ __do_sys_clone kernel/fork.c:2748 [inline]
+ __se_sys_clone kernel/fork.c:2732 [inline]
+ __x64_sys_clone+0x18b/0x1e0 kernel/fork.c:2732
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xfa/0x3b0 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f96b638ec29
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc07e618c8 EFLAGS: 00000206 ORIG_RAX: 0000000000000038
+RAX: ffffffffffffffda RBX: 00007f96b65d5fa0 RCX: 00007f96b638ec29
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000002001000
+RBP: 00007f96b6411e41 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 00007f96b65d5fa0 R14: 00007f96b65d5fa0 R15: 0000000000000006
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:pgtable_trans_huge_withdraw+0x115/0x310 mm/pgtable-generic.c:188
+Code: c3 10 48 89 d8 48 c1 e8 03 42 80 3c 28 00 74 08 48 89 df e8 5d 38 13 00 48 8b 03 48 89 04 24 4c 8d 78 08 4c 89 fd 48 c1 ed 03 <42> 80 7c 2d 00 00 74 08 4c 89 ff e8 3b 38 13 00 49 8b 07 48 8d 48
+RSP: 0018:ffffc90002d5f300 EFLAGS: 00010202
+RAX: 0000000000000000 RBX: ffffea0000fb3dd0 RCX: ffff888107769cc0
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 0000000000000001 R08: ffff888022b90843 R09: 1ffff11004572108
+R10: dffffc0000000000 R11: ffffed1004572109 R12: ffff88803ecf7000
+R13: dffffc0000000000 R14: ffff88803ecf7000 R15: 0000000000000008
+FS:  0000555576e7a500(0000) GS:ffff8880b8612000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000107d74000 CR4: 00000000000006f0
+----------------
+Code disassembly (best guess):
+   0:	c3                   	ret
+   1:	10 48 89             	adc    %cl,-0x77(%rax)
+   4:	d8 48 c1             	fmuls  -0x3f(%rax)
+   7:	e8 03 42 80 3c       	call   0x3c80420f
+   c:	28 00                	sub    %al,(%rax)
+   e:	74 08                	je     0x18
+  10:	48 89 df             	mov    %rbx,%rdi
+  13:	e8 5d 38 13 00       	call   0x133875
+  18:	48 8b 03             	mov    (%rbx),%rax
+  1b:	48 89 04 24          	mov    %rax,(%rsp)
+  1f:	4c 8d 78 08          	lea    0x8(%rax),%r15
+  23:	4c 89 fd             	mov    %r15,%rbp
+  26:	48 c1 ed 03          	shr    $0x3,%rbp
+* 2a:	42 80 7c 2d 00 00    	cmpb   $0x0,0x0(%rbp,%r13,1) <-- trapping instruction
+  30:	74 08                	je     0x3a
+  32:	4c 89 ff             	mov    %r15,%rdi
+  35:	e8 3b 38 13 00       	call   0x133875
+  3a:	49 8b 07             	mov    (%r15),%rax
+  3d:	48                   	rex.W
+  3e:	8d                   	.byte 0x8d
+  3f:	48                   	rex.W
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
 
