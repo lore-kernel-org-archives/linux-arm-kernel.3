@@ -4,152 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B67CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DD4CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8PJCryrcGZlLyn2yOaE6LhwVAHu35o09M608LkhpNsM=; b=uNttogubNPR2YIZA1YWT4DTpvt
-	4EyUApZFoEmEHeMoBs97FRHXhBbh/NFtyIDGijA2PCaGPW3pkuvj28z0e6qBnpHw7d/cpyN1te6aZ
-	7o8onKDaggaaedtt+soLntY+JkVIovdw5uqspJ811qFuZ8agCocnQq6fGJTrlVRR8LdypxSwruUGN
-	XToUN2cy2zqUhoYTJFXTDOCvQtj5UY2Q2E4Yxbk8H9yLqDcBpU1HnUIvWwwsC2mKKo33UrKX3m0TJ
-	xhpweZVFJeD6Uzt7VdUUI6j7XEZN6xBN10w+udmeQuEvkgBxW0WtNr2vWd8algEdgMunw7jl1MDA+
-	CkuCzreg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zhWRSUVB8GF7kCQH4EGUYZkhuU402qmBEblBNgpnv18=; b=qlHA6SgQNvJm07gINpGhA7Bd5m
+	JCr1upUGuPVHPdnZWhWcPrFwM/QGNnH5MI0fVhZHr+xO3U9gvYC7DwLzHTU3eQsVcPHH6BtdXtkvU
+	VrC3UVscbEP/yByuHHpcPggF/j8cfiCT9L0PM8iKekLd2tePw6zjk6XUbK8lsEoldbKFSCxkro9sc
+	mQM72R+/2YOBJWiVZiP6hHwd7I3ENaYzfnobSq6OYC4UaMCM+hoG+D3pn0zEHwSsQkF0kHCwV9y2/
+	cvHsIoQKsCQ2vJ1Uzh2K/fJR0gAchT7g4K32jQgIRMyUjWcc7ygOkUh0cCo5sHPx5bmTJr6z6DRtd
+	qbif84Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v16Nw-0000000EKPr-0ohY;
-	Tue, 23 Sep 2025 17:01:00 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1v16h4-0000000ENGh-0HJ6;
+	Tue, 23 Sep 2025 17:20:46 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v16Nu-0000000EKOt-176e
+	id 1v16h0-0000000ENE5-2NeP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 17:00:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fTi61w/Ktq9pvdUvVXNX2Su/p4a+YksKidmKD4Ea0NFqWzkrtyl7VqmBXE7QonrZIeXU9UYB9ILCLjZYs2ZBv7Dc3h/GmJU2VVjeECRnbIa/LeBqZbG5HwLacwK9ie4Fm6KPCEJtxaHX2gpYkikabs03hMrxwRqSOTEohnKBhGkIiQ8VC2KbQBIlqs5c5gA/bS8qs1xTebuUy0/gYZZzsVVVgHBb1c2nGp6R/ExAAN33pTL2dfj7Mk4mfsmK8r3aZy061YWdlvelsPOAKjbIFoEg0yusitW1r+QLiJqnRGdwuvCVaeuchCZ0EnjXPmszkkeNtW2+B5cPSsa2RXgyAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8PJCryrcGZlLyn2yOaE6LhwVAHu35o09M608LkhpNsM=;
- b=JeJ7MMUntL2Hk9czy4KBq/pEa4mhowPdjuO+CauZ5XMLjKEjO5QDXGPQqFOOTFRkHKUJJCUaE5QTI8NyPg1zfEyErpOA1gFUH07DJCKMkhNER4Tb4+e34c4Hf+oMqW0tIvOwQKvMjAJH6btOkVjG91qS3m/73vYF9gdZjXYqLQEBuuVU9sgbRgkuY01FqUJ8NNHlm6snQZNPKmXyiTb4i4CXxEWDlw7dDamDXlTkPbScakClg8Jghx1MtOQEh9dj812DuH1OQ4dbiDqiDzJ0dJtwnP2OckFDAdNIzbaUGv7eo1vmonS7K9Q7lYwpJR8f9Guhw4CM3kuYPqSK6+GZFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8PJCryrcGZlLyn2yOaE6LhwVAHu35o09M608LkhpNsM=;
- b=PO0ddrxwSt8J5yEhMKP0NN24H0U/Sa/HsI57XfoCvkn6nJCpSrkZDiNQB9uY+AuB38Hp6kATroZPKur6QxQ5qI7oBUBWUURCgoMHyNYUgkhWm6nEhcRlpGY+w4yn7l158Z3m2ECXUGXZrlDDIesVhOlywRKHmRCNIS1NQzgzo5IXHrgqop8NG6IOX9EOUtyXd4prbJCHQ8SXuJgBvkMbWk43pIVANW6xrAOq4LHDJPcrae/c/340McrsdcRr+o06iSK2wMW+9F0wDYi13feqU6oNtsIKKJgu6mczLCuWwxUdUU8faJJbB3/e4YXQ0ZOD8P8SrMHo49cfHZWBPDyBvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by VI0PR04MB10613.eurprd04.prod.outlook.com (2603:10a6:800:25f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Tue, 23 Sep
- 2025 17:00:49 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Tue, 23 Sep 2025
- 17:00:49 +0000
-Date: Tue, 23 Sep 2025 13:00:39 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, bhelgaas@google.com,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] dt-bindings: pci-imx6: Add external reference
- clock mode support
-Message-ID: <aNLSN5Ix2iZyxeng@lizhi-Precision-Tower-5810>
-References: <20250915035348.3252353-1-hongxing.zhu@nxp.com>
- <20250915035348.3252353-3-hongxing.zhu@nxp.com>
- <20250922155054.GA38670-robh@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922155054.GA38670-robh@kernel.org>
-X-ClientProxiedBy: SJ0PR13CA0042.namprd13.prod.outlook.com
- (2603:10b6:a03:2c2::17) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Tue, 23 Sep 2025 17:20:44 +0000
+Message-ID: <1a8352a6-e03f-4f3e-a06b-fab757e39eab@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758648028;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zhWRSUVB8GF7kCQH4EGUYZkhuU402qmBEblBNgpnv18=;
+	b=vCnmUEcOJcdG5I4H4EeCK1M+LLbB60ngG817jo83Vo6bdMnlfLHaKSuVzIxH0lInW54Sda
+	Kb/hdqVsJnw0cUz93IyL5x7VjXDNCPhZtPTgyDowkkT90DFJN9QxpeBKp4DZvz0YwPUtEL
+	MgZYJV8EAvGz9D3+TvAY57J8A4ijaoM=
+Date: Wed, 24 Sep 2025 01:20:16 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|VI0PR04MB10613:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71dee60e-e4b4-4596-29ec-08ddfac2beaa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|7416014|366016|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sjIt1bO04rdiTUFRQWw/I2Oh5uDZa+2aS4AcmO7+VfMtbsflZ2fTdSPvKMZd?=
- =?us-ascii?Q?VwfzGMf8XWQRbmmfJ93ArgFNPwfx0xarx7hWIiQYBcmBd/3KIs5ssZrKg1Sb?=
- =?us-ascii?Q?Jez6C+VtO5rbiBhRubf+g/HdzihlqGsO8mY2ObDxSnZf/vBiFVf38U5s4z4P?=
- =?us-ascii?Q?/5ALuxPkC9aVe5n/6gs9bNc4Pn5W6UkJLeUTB4w3sKW+uPABkv+Upyis3HaV?=
- =?us-ascii?Q?545fxgk7VrxMAppkYXRAHCwiyftyWNjNzL2aLZ8/Ng+pFYbMkYiZRNsZ4l43?=
- =?us-ascii?Q?9W445KjZoXY5RYnoOfvJzFDfkhKBQddXbJ7yKpL9JjzPMOezzPfCTOe8EL4z?=
- =?us-ascii?Q?NFB374Z+D11MOM62vIvDBur685hts/IKW5UequhuU6/gIx76LMBjVIzcXCUu?=
- =?us-ascii?Q?iLo7vF/XJpNzLMhJqepyCKWyz6dO9yV36vAQ1y5HRc1UtUfPVbiSe0P/onI+?=
- =?us-ascii?Q?MU/ofcBSD5W35tt2liWoQope9vwcbpHTWxMwHsRHUZLfqdCBRlT4IH6Q//rQ?=
- =?us-ascii?Q?+O9ZCmTRrbx3cnqL8S40HDfo35SnoA5v9cmREekk3dVrvW7rN+tO15fAMH75?=
- =?us-ascii?Q?T3u4vOzEV5Fzt0pAJHIHyuVNxZO5Sua5hFZjk6ppYvWWy4ryCSlJ2LjvcMdJ?=
- =?us-ascii?Q?JRegZcqi1/Ly3mhdfqMPoxc8D1xEv8OQSxuv6vEpfomkW3BAs5m4MbBl2yHG?=
- =?us-ascii?Q?FM5Pb7xgFmD37OnW24jOwVC9HfEDesp44CoYAuYGBOsIi2oJqiA9S7uVfW0x?=
- =?us-ascii?Q?WQDnFcDxKJ9JekVdDy8kS4vLb7QJc2okzg97jSD1YoD0Ej2a/C4u4aG4ymAj?=
- =?us-ascii?Q?oFpmFguAkuy5KmjfvnKngTyUZhsEkgNKdSsIseziEbrLMWNk1jerWW8+W/MQ?=
- =?us-ascii?Q?bTHyNPyIYNGEMzSvH833J/I7hAI+SNh+TDln9FAb12Ttp9pu0+assjIQrKPP?=
- =?us-ascii?Q?OE8AKhdR2LNjzrY9+/Y95Lfo8Rwxe2sm9oL70x5+ZRDNdDORu0fZQBndYYvM?=
- =?us-ascii?Q?ExS54eMEApPxuiqNzLCiHrifQl3vI9gDCamYkd7J8EeQrPZtLZhS3V4Zl0sV?=
- =?us-ascii?Q?u/VqCl0LbsLi4tp7/tN9hiU3C2KEEhjSSvv/a6GZm8rh4LBuBZmH+Pwgqyqj?=
- =?us-ascii?Q?CvWTsUw6YNoCSgQsnFwQPC/OYhS/LZkSzrSG+bVIKJrTrhsyxGdXkuKWyRmg?=
- =?us-ascii?Q?Lq4k2ggexfVsFIa/GInuLL5LLNFUANWUnasTkhBR/QIMk5aJ569cc+h1AmAt?=
- =?us-ascii?Q?i/wKviRJt4I0dBihEogQTHUISsQf0fE6zCCbQ/B3xHtuWIx0Q7g/E06gVffv?=
- =?us-ascii?Q?A08Wwqa9+tj8RWN6g3wcEL1sB6d3e9L/p9vx8iP9RI5t7SqD/0ryeykcxq5R?=
- =?us-ascii?Q?F9dZcVN7imVkRcFvF0YJyORBhswE9Itj8hsOSt1TV3pDZMINY2vuREweKSko?=
- =?us-ascii?Q?q4RpxCdiog6tQSpbYJ3eRoG9fsGwiDk6BuWILgmlxTyInpsW8nZ1bbEbdVJ3?=
- =?us-ascii?Q?2J6EYKBpwv/1boE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aj2NUpMeoBRjBAMZP2coGd6/BO+xq1fEeCm0E94ohwnO1XFAoAv2lo0N7Lgy?=
- =?us-ascii?Q?9pFi5zSjEj0aAU/Syi+GBqfabKbMa+Pl1FDU5PxhQlUISqXah3tby3vrvl4o?=
- =?us-ascii?Q?aDaRYmsOCMV6l8fRUI21MB6LPgMEU+FPUKmAN7HdhqmRw0aOESPD9/HLo6TZ?=
- =?us-ascii?Q?Qg48jyTGMGczI1lI9IJ31pKDAH1jRNyT/VbkWYGigw2M4ZsDL4ugOwv1649P?=
- =?us-ascii?Q?2sjB6Otm+jRFtLOwC3OfGxjQMmWNEIQ/v5EPGNeNWbxk2AOAyNjimWW4EkgS?=
- =?us-ascii?Q?f7S0Af4nq3Z7C8WcSM2ZafYzAsCBr8LM9WAoKVYWMpanJy7UWv5UuBucpoA5?=
- =?us-ascii?Q?nKJywp5ptmi/VQqBO8XEyQ5RsjT3pRNnlMP5DgdnSWEIZZCuS0n5IXpkBGqS?=
- =?us-ascii?Q?lISUbsrtb9oY9wcRmYVSDUPdNS6scFoC4qNf6Iv61aQwqx9S9yZQVi/gibiZ?=
- =?us-ascii?Q?3yw8GpwOruZPjIN2e+O/AKcVkiG5597DFqt2M4T/XE5u8IYPcBmmhTsLBjn8?=
- =?us-ascii?Q?CFVt06fOLyMprHubrxBl7X8xJrrFR5szI5eCFN3/NeIXOLvYgrTUfgDUZtti?=
- =?us-ascii?Q?cJUvAN5iPkmlgyj7Ros2I0IUiAYcutLiHmapb10TxQBvrq58TCC8rqcdYIhe?=
- =?us-ascii?Q?vGqAJi2eaV7qL6/KWyw3t0/EDPe43ei693klPIsSyV8XVdn85zPmKR+axjkq?=
- =?us-ascii?Q?yG4cfrHHwAhs2oNPDoe7exqjgjQYwiUSltJxNvHZviC5VxbXZZvVaPLsgvrH?=
- =?us-ascii?Q?CbuCMUiTBmlQZrjmJENsxJVe5Pol0V58n+ZToV0gSAsd8zfzO/JX7rKv7UL+?=
- =?us-ascii?Q?SZjH9Q/TtT4XOl0O2KelyU4aDRHR4aWEcPzqv1Upgpvotwy6u5iCwHt5gOJT?=
- =?us-ascii?Q?g2L+7+ieJldsHzO+Iu7s6Bz60x9FwrFs362jhtHA09N/+dWqcS/dOz5uyVuc?=
- =?us-ascii?Q?Z8EykDa4us1OsR4lVDYZeDd3VXoyMIRgVaox8NCJ0bMaKXFE0J/qhFlayuSI?=
- =?us-ascii?Q?YuGQAl05Dk2sWqvipmw4RQXkEsm/5gmIH+TizDslkL3IW1Xc09ROmEutF/Ls?=
- =?us-ascii?Q?pPJer7pqce4rNHSH4CeiHilfzaD/PxbmB2wutV4ZJ1AudzaVPwj7uEqQPQJV?=
- =?us-ascii?Q?xre6exs5PGKc3J1R3lVRN4cjDrO2ELPLyo4fYafQmxiv/Cbb5aOmcTwmOR7l?=
- =?us-ascii?Q?m+2XcIEzgOgOfLV9G93z94IT9ThYltvXt7AAfP1nP60U2wKFiyKSNwd05nfw?=
- =?us-ascii?Q?RA8O3F0kXCtmC9HpsfzTwf9Xr2EJYRZYTfs8zTZsIIhP95S3jaT1EhS5gCsr?=
- =?us-ascii?Q?y+3S3dLAkMZeWgWF1toNKeVfuJ6WvvR31kJe2NCBBGmaElLpRyiekZMXuJ9q?=
- =?us-ascii?Q?zE6pFCh7XIARHgf3rI0OoN40cnOktBxgsXr8GQoRDx/TMxLwKNKYRJKKqVl0?=
- =?us-ascii?Q?tv77EQ4Tem0LSpCMdBWteKQAlHTGIlELgOkLo0IU3tQEhi+sBSXdlW4J2AhX?=
- =?us-ascii?Q?RAfx+hnHq5YeUOC4kt52mkrXuL6GmXFmKh94ma1CgcjxAwmBRe/+KovA7Xpc?=
- =?us-ascii?Q?z8OvtsrUD1zp+ni1a6CGK8HDcAkKupRzWLMVlVRJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71dee60e-e4b4-4596-29ec-08ddfac2beaa
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 17:00:48.9410
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lib635bzvERGXr/8bxiCxSzzy7OmiBuvPu7pkdi9SGrj0FJyN+j6H3M304alpNd66xSO8hNFjNYkKmv7fq1Uiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10613
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+To: David Hildenbrand <david@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
+ usamaarif642@gmail.com, yuzhao@google.com, ziy@nvidia.com,
+ baolin.wang@linux.alibaba.com, baohua@kernel.org, voidice@gmail.com,
+ Liam.Howlett@oracle.com, cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+ kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+ roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+ dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+ surenb@google.com, hughd@google.com, willy@infradead.org,
+ matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+ byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+ apopple@nvidia.com, qun-wei.lin@mediatek.com, Andrew.Yang@mediatek.com,
+ casper.li@mediatek.com, chinwen.chang@mediatek.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-mm@kvack.org, ioworker0@gmail.com,
+ stable@vger.kernel.org
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com> <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com> <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_100058_305791_7B3C174E 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250923_102042_754982_B13638FA 
+X-CRM114-Status: GOOD (  34.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,58 +86,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 10:50:54AM -0500, Rob Herring wrote:
-> On Mon, Sep 15, 2025 at 11:53:47AM +0800, Richard Zhu wrote:
-> > On i.MX, PCIe has two reference clock inputs: one from the internal PLL
-> > and one from an external clock source. Only one needs to be used,
-> > depending on the board design. Add the external reference clock source
-> > for reference clock.
-> >
-> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 ++++++-
-> >  1 file changed, 6 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > index ca5f2970f217..6be45abe6e52 100644
-> > --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > @@ -219,7 +219,12 @@ allOf:
-> >              - const: pcie_bus
-> >              - const: pcie_phy
-> >              - const: pcie_aux
-> > -            - const: ref
-> > +            - description: PCIe reference clock.
-> > +              oneOf:
-> > +                - description: The controller has two reference clock
-> > +                    inputs, internal system PLL and external clock
-> > +                    source. Only one needs to be used.
-> > +                  enum: [ref, extref]
->
-> This seems wrong to me. There's still only 1 ref input to the PCIe
-> block. If you had 10 possible choices for the ref clock source, would
-> you add 10 clock names here? No!
->
-> Can't you detect what the parent clock is for the 'ref' clock?
 
-In include/linux/clk.h, I have not found any API to get clk providor's
-information. let me know if I missed it.
 
-> and
-> configure the GPR register appropriately. Or that mux should be modeled
-> as a clock provider.
+On 2025/9/23 20:00, David Hildenbrand wrote:
+> On 23.09.25 13:52, Catalin Marinas wrote:
+>> On Mon, Sep 22, 2025 at 07:59:00PM +0200, David Hildenbrand wrote:
+>>> On 22.09.25 19:24, Catalin Marinas wrote:
+>>>> On Mon, Sep 22, 2025 at 10:14:58AM +0800, Lance Yang wrote:
+>>>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>>>>> index 32e0ec2dde36..28d4b02a1aa5 100644
+>>>>> --- a/mm/huge_memory.c
+>>>>> +++ b/mm/huge_memory.c
+>>>>> @@ -4104,29 +4104,20 @@ static unsigned long 
+>>>>> deferred_split_count(struct shrinker *shrink,
+>>>>>    static bool thp_underused(struct folio *folio)
+>>>>>    {
+>>>>>        int num_zero_pages = 0, num_filled_pages = 0;
+>>>>> -    void *kaddr;
+>>>>>        int i;
+>>>>>        for (i = 0; i < folio_nr_pages(folio); i++) {
+>>>>> -        kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
+>>>>> -        if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
+>>>>> -            num_zero_pages++;
+>>>>> -            if (num_zero_pages > khugepaged_max_ptes_none) {
+>>>>> -                kunmap_local(kaddr);
+>>>>> +        if (pages_identical(folio_page(folio, i), ZERO_PAGE(0))) {
+>>>>> +            if (++num_zero_pages > khugepaged_max_ptes_none)
+>>>>>                    return true;
+>>>>
+>>>> I wonder what the overhead of doing a memcmp() vs memchr_inv() is. The
+>>>> former will need to read from two places. If it's noticeable, it would
+>>>> affect architectures that don't have an MTE equivalent.
+>>>>
+>>>> Alternatively we could introduce something like folio_has_metadata()
+>>>> which on arm64 simply checks PG_mte_tagged.
+>>>
+>>> We discussed something similar in the other thread (I suggested
+>>> page_is_mergable()). I'd prefer to use pages_identical() for now, so 
+>>> we have
+>>> the same logic here and in ksm code.
+>>>
+>>> (this patch here almost looks like a cleanup :) )
+>>>
+>>> If this becomes a problem, what we could do is in pages_identical() 
+>>> would be
+>>> simply doing the memchr_inv() in case is_zero_pfn(). KSM might 
+>>> benefit from
+>>> that as well when merging with the shared zeropage through
+>>> try_to_merge_with_zero_page().
+>>
+>> Yes, we can always optimise it later.
+>>
+>> I just realised that on arm64 with MTE we won't get any merging with the
+>> zero page even if the user page isn't mapped with PROT_MTE. In
+>> cpu_enable_mte() we zero the tags in the zero page and set
+>> PG_mte_tagged. The reason is that we want to use the zero page with
+>> PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
+>> memcmp_pages() messed up KSM merging with the zero page even before this
+>> patch.
+>>
+>> The MTE tag setting evolved a bit over time with some locking using PG_*
+>> flags to avoid a set_pte_at() race trying to initialise the tags on the
+>> same page. We also moved the swap restoring to arch_swap_restore()
+>> rather than the set_pte_at() path. So it is safe now to merge with the
+>> zero page if the other page isn't tagged. A subsequent set_pte_at()
+>> attempting to clear the tags would notice that the zero page is already
+>> tagged.
+>>
+>> We could go a step further and add tag comparison (I had some code
+>> around) but I think the quick fix is to just not treat the zero page as
+>> tagged.
+> 
+> I assume any tag changes would result in CoW.
 
-The mux is inside PCIe controller IP. Similar case in S32 RTC, which have
-4 clk inputs and mux is inside IP.
+Right, I did a test and confirmed that any attempt to change
+tags on the shared zero page results in a Copy-on-Write, as
+expected ;)
 
-https://lore.kernel.org/all/20241104152934.GA129622-robh@kernel.org/
+> 
+> It would be interesting to know if there are use cases with VMs or other 
+> workloads where that could be beneficial with KSM.
+> 
+>> Not fully tested yet:
+>>
+>> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+>> index e5e773844889..72a1dfc54659 100644
+>> --- a/arch/arm64/kernel/mte.c
+>> +++ b/arch/arm64/kernel/mte.c
+>> @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page 
+>> *page2)
+>>   {
+>>       char *addr1, *addr2;
+>>       int ret;
+>> +    bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
+>> +    bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
+>>       addr1 = page_address(page1);
+>>       addr2 = page_address(page2);
+>> @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page 
+>> *page2)
+>>       /*
+>>        * If the page content is identical but at least one of the 
+>> pages is
+>> -     * tagged, return non-zero to avoid KSM merging. If only one of the
+>> -     * pages is tagged, __set_ptes() may zero or change the tags of the
+>> -     * other page via mte_sync_tags().
+>> +     * tagged, return non-zero to avoid KSM merging. Ignore the zero 
+>> page
+>> +     * since it is always tagged with the tags cleared.
+>>        */
+>> -    if (page_mte_tagged(page1) || page_mte_tagged(page2))
+>> +    if (page1_tagged || page2_tagged)
+>>           return addr1 != addr2;
+> 
+> That looks reasonable to me.
+> 
+> @Lance as you had a test setup, could you give this a try as well with 
+> KSM shared zeropage deduplication enabled whether it now works as 
+> expected as well?
 
-We met many similar cases. Actually s32 rtc's first version modeled as
-clock provider, but this way is rejected because no clock output.
+This works as expected. Both KSM (with use_zero_pages enabled) and
+the THP shrinker are now able to successfully merge zero-filled
+pages with the shared zero page, as long as those pages are not
+mapped with PROT_MTE.
 
-Frank
+> 
+> Then, this should likely be an independent fix.
 
->
-> Rob
+@Catalin could you send a real patch?
+
 
