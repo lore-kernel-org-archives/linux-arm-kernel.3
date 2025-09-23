@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33635CAC5A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8CDCAC5AC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 06:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqLPM+kXoeHgjPG3WNK50K5OpNlzyApuQ3Iy6PDhjwg=; b=PnG/YXlW200zZPRMC9l0Kl8my7
-	0XMPQcf+RKms5PiiFm/g3wYgg+BPtC6XfagtJ7GOXcS+asA3dETD2jceWQSYpeMIc39Hl3t+nWrJ7
-	kvsfsTh3aX58I6rWUxhXfryJsAPnlUnaA8l9DN0D+fc4kd1eIf1IvMAT52mzspSI1E2rwI7oJWZHI
-	Qh4PRn7l4+7ZrDGdARZ9exozzHwA45IEwwR/K6O3yl6cHdoQx1TRUgt0gHWXl3UdZPZpyQH2iu7Qa
-	IAztk8UfzI+j47R3NGN3h180p6R1utIlZuOU/NmEdEXw+HjMPiIWXtZOX61K8T3jkewW4c90IFy1i
-	7/gE6yZA==;
+	bh=4zdOECm9UDt4mSRVWdAJlFg918s9UR2BUDdjk/GLuac=; b=xWFzXDTuVLDwnQ+ceAs7pMZWlu
+	mKRQi2e1bSzzwgWNP4xk/bDCRQSKNOQT9CekGqABjp2mttHDblfFX4IN2pLME6xkx8cWemUjSYn1a
+	HBXZW9XB3q9rBt/vCus9SOGMlPuxxlqH9r5YZJ1P+oHuI/LgFNZl2adhfIW9hnGGS7gdaVHyAdMp3
+	71CISTl6fJSKyWkiahDysv8R+cR2OurOiZGeTrRp3X3eZ2pY640kfCiB4W8s/J0dOJ+rSGjQZV1k8
+	IIGxO/ibAR0FwbmXiIFZ0vnWBcbNdef8zXbqOH+2guK/LJJdIKHTr0vcsnPlCFXk+bCm+jdeFvAZ2
+	1iE3m59Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0wEp-0000000CWm7-1P1P;
-	Tue, 23 Sep 2025 06:10:55 +0000
-Received: from mail-m49242.qiye.163.com ([45.254.49.242])
+	id 1v0wEq-0000000CWnQ-18VP;
+	Tue, 23 Sep 2025 06:10:56 +0000
+Received: from mail-m1973175.qiye.163.com ([220.197.31.75])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0wEY-0000000CWeI-2ShI
+	id 1v0wEZ-0000000CWeY-3urC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 06:10:42 +0000
+	Tue, 23 Sep 2025 06:10:43 +0000
 Received: from [127.0.1.1] (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 23bdebfdc;
-	Tue, 23 Sep 2025 14:10:32 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 23bdebff2;
+	Tue, 23 Sep 2025 14:10:36 +0800 (GMT+08:00)
 From: Albert Yang <yangzh0906@thundersoft.com>
-Date: Tue, 23 Sep 2025 14:10:09 +0800
-Subject: [PATCH 3/9] arm64: Kconfig: add ARCH_BST for Black Sesame
- Technologies SoCs
+Date: Tue, 23 Sep 2025 14:10:12 +0800
+Subject: [PATCH 6/9] mmc: sdhci: allow drivers to pre-allocate bounce
+ buffer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250923-v4-patch-final-v1-3-2283ad7cbf88@thundersoft.com>
+Message-Id: <20250923-v4-patch-final-v1-6-2283ad7cbf88@thundersoft.com>
 References: <20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com>
 In-Reply-To: <20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -50,26 +50,26 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org, 
  soc@lists.linux.dev, Albert Yang <yangzh0906@thundersoft.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758607828; l=1640;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758607828; l=2071;
  i=yangzh0906@thundersoft.com; s=20250814; h=from:subject:message-id;
- bh=cHT9OdZmOkIsxZYmVp8kL8+kNdAyxnac4z7DgCBE+1k=;
- b=OME+FkLaqTP1p6JDWalZczqQZG/luaqEYd25xIJ3VIjzrcNGla4mWvW6JCbOoj2G1Qj83dWlJ
- ySZJfmZ4MzTB7cpa6dk1Of1li1dzTh1wdpESALut0Q0Jxe0sGa1t4Oz
+ bh=DySTBlwx8SxAqSzT6Ick6Jr1zhm5KCXfBY5QxqKIbyw=;
+ b=ix7Cn5PKa7gJNY0yDsFsWNW8nlAWEJhuVied4sPs3/t6HoDAE1rrDpPzL4sWN7KI3HOEa6wER
+ xtlQvg6W2SxDUlvOWg09hjIBfy1okIjtpKO7HdTwkcnk6W89rj64E43
 X-Developer-Key: i=yangzh0906@thundersoft.com; a=ed25519;
  pk=bEcgALL9KpUg/m7zH44r50xa/re91dI9SA0vGV1/bu4=
-X-HM-Tid: 0a997531f48c09cckunmfc27e25b4e0271
+X-HM-Tid: 0a99753204e409cckunmfc27e25b4e02ee
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGE1JVh0YTENMGksZGUlPSlYVFAkWGhdVEwETFh
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSkkaVhpISUIZHksfGE1MSFYVFAkWGhdVEwETFh
 	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
 	tLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=jtjwu41VZUI2FsHS4LND00ky5OEvWLJEiWKpD4y0Z59bYpQT+VrlGfSzcx1WNYySyRP4nNNB4mW14yvZr8WQ9tsmb0z1aFzssbdsd5qbESsJyi2T+fS2Ay9NEimMAMSLOIwuUmrIPlA3v+fs93tnAptcQNBogeUKnQlmsYb4wjE=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=NqLPM+kXoeHgjPG3WNK50K5OpNlzyApuQ3Iy6PDhjwg=;
+	b=V2V4U78ClyaDeCqDoYNIU6wni98ujkNU0fsI8Q634rn082Fjc6DyzYXjtUdnJHdQx2SOkllDk4xgZX2twmtmBI7Qa1EQGUFLDhlOJlojggJ02tl2G76z0jtUrSXTH9wAKzdJKcxaIxLarDBw5/eLdDdyRj84YkJoUJwhfz8B60g=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=4zdOECm9UDt4mSRVWdAJlFg918s9UR2BUDdjk/GLuac=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_231038_860463_045F4E02 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250922_231041_642940_6AF8F63A 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ARCH_BST configuration option to enable support for Black Sesame
-Technologies SoC family. BST produces automotive-grade system-on-chips
-for intelligent driving, focusing on computer vision and AI capabilities.
+In sdhci_allocate_bounce_buffer(), add an early path that respects a
+driver-provided pre-allocated bounce buffer (host->bounce_buffer).
 
-The BST C1200 family includes SoCs for ADAS and autonomous driving
-applications.
+If the buffer is already allocated by the driver (e.g. coherent/SRAM
+buffer needed for platforms with 32-bit DMA constraints), just compute
+max_blocks from host->bounce_buffer_size and jump to the common "out"
+path to set mmc->max_*.
 
+This enables platform drivers to allocate the bounce buffer before
+sdhci_add_host(), avoiding starting the host without the buffer ready
+and aligning with the guidance from review.
+
+No functional change for drivers that do not pre-allocate the buffer.
+
+drivers/mmc/host/sdhci.c (sdhci_allocate_bounce_buffer): Handle
+pre-allocated bounce buffer and fall through to set mmc->max_*.
+
+Suggested-by: Adrian Hunter <adrian.hunter@intel.com>
+Link: https://lore.kernel.org/lkml/2b23bcb9-abc7-4667-b939-a19ecae935a2@intel.com/
 Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
 ---
 Changes for v4:
-- remove Signed-off-by: Ge Gordon
-
-Changes for v3:
-- Reword subject from "for bst silicons" to "for Black Sesame Technologies
-SoCs"
-- drop unrelated whitespace hunk
-
-Changes for v2:
-- Placed the configuration entry in correct alphabetical order
-- Used generic family name (ARCH_BST) instead of SoC-specific naming
-- Followed upstream kernel naming and description conventions
+- Add new patch by Suggested-by: Adrian Hunter
 ---
- arch/arm64/Kconfig.platforms | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/mmc/host/sdhci.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index a88f5ad9328c2ee13a0822782af6c83899273f14..8a870b213dee930861bab39dce2df295c387cf89 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -112,6 +112,14 @@ config ARCH_BLAIZE
- 	help
- 	  This enables support for the Blaize SoC family
+diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
+index 3a17821efa5ca92c6c29141d8fcb9ebf58355cc7..03fbe30cb205e16b924481caa44f0979d230f380 100644
+--- a/drivers/mmc/host/sdhci.c
++++ b/drivers/mmc/host/sdhci.c
+@@ -4193,6 +4193,12 @@ static void sdhci_allocate_bounce_buffer(struct sdhci_host *host)
+ 	unsigned int bounce_size;
+ 	int ret;
  
-+config ARCH_BST
-+	bool "Black Sesame Technologies SoC Family"
-+	help
-+	  This enables support for Black Sesame Technologies (BST) SoC family.
-+	  BST produces automotive-grade system-on-chips for intelligent driving,
-+	  focusing on computer vision and AI capabilities. The BST C1200 family
-+	  includes SoCs for ADAS and autonomous driving applications.
-+
- config ARCH_CIX
- 	bool "Cixtech SoC family"
- 	help
++	/* Drivers may have already allocated the buffer */
++	if (host->bounce_buffer) {
++		bounce_size = host->bounce_buffer_size;
++		max_blocks = bounce_size / 512;
++		goto out;
++	}
+ 	/*
+ 	 * Cap the bounce buffer at 64KB. Using a bigger bounce buffer
+ 	 * has diminishing returns, this is probably because SD/MMC
+@@ -4241,6 +4247,7 @@ static void sdhci_allocate_bounce_buffer(struct sdhci_host *host)
+ 
+ 	host->bounce_buffer_size = bounce_size;
+ 
++out:
+ 	/* Lie about this since we're bouncing */
+ 	mmc->max_segs = max_blocks;
+ 	mmc->max_seg_size = bounce_size;
 
 -- 
 2.43.0
