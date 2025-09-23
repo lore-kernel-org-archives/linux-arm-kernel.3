@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBF8CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 10:53:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B4ECAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7JjzlXvIH0z19Y9RrAgsUMC9V31Bo4J2LmQf/wo/Uc=; b=TlzwSiEiW4+ixLXJAR/zkn3SH4
-	N15aF+RY+LoINtyg7qEyrM5VmELyWxqveY729t9IBsXKDdw9hsTF0zEnbhculwWNQPov8Pjgb6tM1
-	x8JjJx5eDoWlV2S6mW6+Dq90svicM2KR+ukqweGl3LwnMrUlOsIS54v0b+/hBsw4MEig6vPbj+znG
-	a+qkjgUcId4WnuCwhfxHap0TTaiEHPgMqPhi8fGER0uJEp+pqy0+/UjFdmYHEckdtssi21A91L0yd
-	lD9d5do7MQfBJaDklimZhyl1IdCSR32lJSVt0E2MNXa9B7okiRZ15z44MvFHFjhu01IrASMofud26
-	NYOA4k5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=; b=SxDBNZGmOcmO+9ZAkYne7bh0Jj
+	wczRTKLAFjCspSZ+pRvWVV8iYkrBt6VSQMpMEsZzDkxwC70wjtepPB9kGXK76VfQ2MRrg9Xstf+iF
+	3wp3hE2kcS8wTvxuIgVyK1r04G+nAIeoHXRuGGx2UDB4afUCgDDIKzPXCGe1Cr9efyncobI8fFEfT
+	y3jbkoisM4fG+Nh06nUu3ku55A2BfgyffXbrTIkslT/SufX/QgqHKTsf2E8ssaF+laKnemjRxwZLy
+	Z/jfxRYMTaVQRiJoBKSqxyxo2ygNQwIdfIMBWrdFvyNrhSk3Jeo5njwnWge4UIvPUuzoX9J95gDOV
+	4+Qf6MQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v10dp-0000000D67q-0XQ8;
-	Tue, 23 Sep 2025 10:53:01 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1v10v2-0000000D8LY-4AWt;
+	Tue, 23 Sep 2025 11:10:48 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v10dl-0000000D67N-0dL8
+	id 1v10v0-0000000D8L9-0uCj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 10:52:59 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58NAqblj1460248;
-	Tue, 23 Sep 2025 05:52:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758624757;
-	bh=m7JjzlXvIH0z19Y9RrAgsUMC9V31Bo4J2LmQf/wo/Uc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=qFliFiXE6P2NK2UON0nLZDy9RZdrekE86Y5FUJ5zVnpa9RAESLivXAwJUmwXfj4Dq
-	 zffVJUpaaDUsi8/zpc8CtB9dka+qjWpJx3xZ1xna4Eo5VsLM64DHonPvEKcPlSCAxf
-	 A19Fs63yqS7Wvs67OGRNn/ufTD5lpgkLEU704gf8=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58NAqbth1022630
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 23 Sep 2025 05:52:37 -0500
-Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 23
- Sep 2025 05:52:36 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 23 Sep 2025 05:52:36 -0500
-Received: from [172.24.233.14] (shark.dhcp.ti.com [172.24.233.14])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58NAqVUj188749;
-	Tue, 23 Sep 2025 05:52:32 -0500
-Message-ID: <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
-Date: Tue, 23 Sep 2025 16:22:31 +0530
+	Tue, 23 Sep 2025 11:10:47 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-46e158480beso2141925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 04:10:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758625844; x=1759230644; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=;
+        b=IINyIlB/wSuKW1zEIGwgbDTj60KP9F6TCx8GZv/azswS60dwHytQrhqC6gNT9+rzBW
+         hi9ZurEaHHieUM4/ImK4gj4subt9JQNLmsLZ1NQa+f6bjtsWfOkJ0Oqb1+fV0JSUL2dJ
+         UeUqaWguErmMfBMEIeVG0rUmderZE4AKvL4JGCR4DvL5AUuxp3FF4PQD4lQAI09G1rLS
+         JzEtSUevh3V5WUEwXpYG8+YcMuWMj7ih7d3hJaOfTk91g24UknDqsT/+tjrOds3yruRN
+         6Uvm9sbKz/At8wzbZ9Y9Yr5/aRGtIZYJ/tXX0ZEtmLxpvf9dbyZVuqVrGGIJxojKKZff
+         PXQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758625844; x=1759230644;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=;
+        b=KEsXB7eV1/EYhFLLVvCO/tUECvutZc3q+uP0t2V0yglAGD72No0SpwrfsoLzbQuQMr
+         dv/1cC51sdd4ddfNi/V2FHnuIok2U3OFMHMRB03LIpJBrHIszGQUUYUB8cBBzk9tNRk9
+         RElm2188lHMqUxIP7h5wn93RR7RSPr1KOOmy2hEvGHDyYu++RZltShqE+LEykZBC+UE1
+         CU3zbKWPDuFh1IZznuyDxXoBDYLVKwjUhfgVGJJVr78Erde3wNIpJDAfcQjm1Oxh5EFm
+         2wWFifu0tL4ba3NMGUGvVLYZrJDLXrRLhivULHGuSvpMPgnMYw4wa9z4NRv/bHpsI3/U
+         XbyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVX9gERiezQ6oritl+g/t6hjjfSRcorms+oSwg+/5YFNcBN4xuQuT4hm/dkbpl1SRql8YF52Sa6x51o48ne9M01@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA5ta+88HfxDpMwRMWR39rvcSRwd6Nv43PvqJanM1VkmqHy5hV
+	9QrxixRyB+Z/eK8GUqaAO7nWic5n606C7XVsG9gVZwkKxWlVmLLGnG54
+X-Gm-Gg: ASbGncsy9vVd2L24nnj738iyFhWOJV7hgXRciSasG1+ivvn5nbvSpNea+wW6hfLtMKo
+	vrBZwsYHtjL7pxktPOjO27Wn08ttyZTUjNZtxYcdF7thbY9npiAgyfyVTJnixIVFvBw7OBEPc30
+	aoeMXu1KhrUfK+HVtGuSetpgGRj0IOVxAiRkHoXwGgH9J4HBbMMnFyIpGDZTFvjL303GhAKz5A3
+	maBEYjNIbrS2uBgrkyBT7WOkhejlPwQG3N6tnOkZiwdPJ5mKrsrNMoPFhFmcHNeXXuO25Fze5ws
+	uyAnADMH4bSFHN7qBbbU1EPa2ZPHiUOvJSYFacTz1JpCxLecxfiYfXc8bGvzaKYe68ripdv61QF
+	RQunDpmTbD22NvSHlRTNZHKk=
+X-Google-Smtp-Source: AGHT+IHhlp7t8Mif75guovtxrXuNcYEIzhCdfujdY3LaIWfy1jJmzn6mmtcb1ThUszzhbFiPUhqUdw==
+X-Received: by 2002:a05:600c:4ed3:b0:45f:2919:5e8d with SMTP id 5b1f17b1804b1-46e1d98c40bmr12841095e9.1.1758625842783;
+        Tue, 23 Sep 2025 04:10:42 -0700 (PDT)
+Received: from skbuf ([2a02:2f04:d005:3b00:2e0a:df05:253e:8b85])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e23adcce3sm3208595e9.11.2025.09.23.04.10.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Sep 2025 04:10:41 -0700 (PDT)
+From: Vladimir Oltean <olteanv@gmail.com>
+X-Google-Original-From: Vladimir Oltean <vladimir.oltean@nxp.com>
+Date: Tue, 23 Sep 2025 14:10:38 +0300
+To: Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Olof Johansson <olof@lixom.net>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 3/3] arm64: dts: fsl-lx2160a: include rev2 chip's dts
+Message-ID: <20250923111038.qluh2kjmc534ytig@skbuf>
+References: <20240826-2160r2-v1-0-106340d538d6@nxp.com>
+ <20240826-2160r2-v1-3-106340d538d6@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Marco Felsch
-	<m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Brian Masney
-	<bmasney@redhat.com>
-CC: Dan Carpenter <dan.carpenter@linaro.org>,
-        Geert Uytterhoeven
-	<geert@linux-m68k.org>,
-        <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
- <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
-Content-Language: en-US
-From: Sebin Francis <sebin.francis@ti.com>
-In-Reply-To: <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20240826-2160r2-v1-3-106340d538d6@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_035257_392885_5D1D01EA 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20250923_041046_270838_AAFB46DC 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +107,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng
+Hi Shawn,
 
-On 15/09/25 13:59, Peng Fan wrote:
-> The PLL clocks on NXP i.MX95 SoCs support Spread Spectrum (SS).
-> This patch introduces scmi_clk_imx_set_spread_spectrum to pass SS
-> configuration to the SCMI firmware, which handles the actual
-> implementation.
+On Mon, Aug 26, 2024 at 05:38:34PM -0400, Frank Li wrote:
+> The mass production lx2160 rev2 use designware PCIe Controller. Old Rev1
+> which use mobivel PCIe controller was not supported. Although uboot
+> fixup can change compatible string fsl,lx2160a-pcie to fsl,ls2088a-pcie
+> since 2019, it is quite confused and should correctly reflect hardware
+> status in dtb. Change freescale's board to use rev2's dtsi firstly.
 > 
-> To ensure this feature is only enabled on NXP platforms,
-> scmi_clk_imx_extended_config_oem is added. Since SS is only applicable
-> to PLL clocks, config_oem_get is used to verify SS support for a given
-> clock.
-> 
-> i.MX95 SCMI firmware Spread Spectrum extConfigValue definition is as
-> below, no modulation method because firmware forces to use down spread.
-> 	 extConfigValue[7:0]   - spread percentage (%)
-> 	 extConfigValue[23:8]  - Modulation Frequency (KHz)
-> 	 extConfigValue[24]    - Enable/Disable
-> 	 extConfigValue[31:25] - Reserved
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-
-...
-
->   	if (WARN_ON(feats_key >= db_size))
->   		return NULL;
->   
-> @@ -459,7 +515,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
->   		 * to avoid sharing the devm_ allocated clk_ops between multiple
->   		 * SCMI clk driver instances.
->   		 */
-> -		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-> +		scmi_ops = scmi_clk_ops_select(handle, sclk, transport_is_atomic,
->   					       atomic_threshold_us,
->   					       scmi_clk_ops_db,
->   					       ARRAY_SIZE(scmi_clk_ops_db));
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f..37f422b4b1ef2af2b4231a1677161aa24e07d0e2 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-> @@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
->   	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
->   	SCMI_CLOCK_CFG_PHASE,
->   	SCMI_CLOCK_CFG_OEM_START = 0x80,
-> +	SCMI_CLOCK_CFG_IMX_SSC = 0x80,
-
-TI is also planning to implement the same in our upcoming platform. so 
-can we use a generic ID instead of vender specfic message ID?
-
->   	SCMI_CLOCK_CFG_OEM_END = 0xFF,
->   };
->   
-> +#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-> +#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-> +#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-> +
->   /**
->    * struct scmi_clk_proto_ops - represents the various operations provided
->    *	by SCMI Clock Protocol
+>  arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts | 2 +-
+>  arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts | 2 +-
+>  arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
+> index 4d721197d837e..71d0d6745e44a 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
+> @@ -6,7 +6,7 @@
+>  
+>  /dts-v1/;
+>  
+> -#include "fsl-lx2160a.dtsi"
+> +#include "fsl-lx2160a-rev2.dtsi"
+>  
+>  / {
+>  	model = "NXP Layerscape LX2160AQDS";
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
+> index 0c44b3cbef773..2373e1c371e8c 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
+> @@ -6,7 +6,7 @@
+>  
+>  /dts-v1/;
+>  
+> -#include "fsl-lx2160a.dtsi"
+> +#include "fsl-lx2160a-rev2.dtsi"
+>  
+>  / {
+>  	model = "NXP Layerscape LX2160ARDB";
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
+> index 9f5ff1ffe7d5e..7a595fddc0273 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
+> @@ -6,7 +6,7 @@
+>  
+>  /dts-v1/;
+>  
+> -#include "fsl-lx2160a.dtsi"
+> +#include "fsl-lx2160a-rev2.dtsi"
+>  
+>  / {
+>  	model = "NXP Layerscape LX2162AQDS";
+> 
+> -- 
+> 2.34.1
+> 
 > 
 
-Thanks
-Sebin
+Sorry for digging up an old thread, but I'm curious why you applied
+patch 2/3 but not this one? Currently,
+arch/arm64/boot/dts/freescale/fsl-lx2160a-rev2.dtsi has no user.
+
+Thread here.
+https://lore.kernel.org/lkml/20240826-2160r2-v1-0-106340d538d6@nxp.com/
 
