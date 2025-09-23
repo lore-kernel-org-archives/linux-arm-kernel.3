@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A9FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEF5CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:07:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRKb+GDYunbLhT08YRqR4IiauJHqZAltr/kHRhQjozU=; b=vmAh8g2ry974M/aqseszRFYuQo
-	fQRLHcKOTGqf5xnI59ic2kpoGJPhV9dtlTo5jV7LaF17vVYwo70xAeKYIYDYaD6BN4JnxNy40w1C4
-	pC5fZCtooenCPVDm5fF+a7XO+2CTW3OvAfSU5aad7+WSEwLyw+IVqz1w7vK63LO+UvoEjve7K5mPX
-	CDzUS1LNNNjUTTHlK1759OK7+j9GGUqq7cqwUyX+cgvtQ2dPeJ/h36ennjG0A5Nt2Dmr/hmjsMKXA
-	OH0sjs5UaqtqwZHb8t01iadzijNLxxOe2GiuIEfdDAXdQWfELgD+l4+Ro6+kV7uLEtYdw7/egFkKV
-	3xi8dJsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HuXLsMMpc578ltmXayFqyQKez4+ZRrpty5hbaJUkQks=; b=sTSoS5AygEBlm3NyRd8gYmPmYU
+	9wefwBWt4KrtN42QX3o8a+dKTb4pgFG4CqO2IWYA/HhO9nIFscgvgW8uAhuGF0XX6G8yDE4JKY7FU
+	qY+7wI3rmbL7qsAhcN+pabtsNwa45w1yH/WqDK1t8dIZIWaLZYD1r4LH8SprcHK4gDj/qpEeYbhV1
+	qvxX72CzdhvQWvwRLqB57P1Ru3YdfRrApdhPGbz/9+uo9WMcxNTryihcfYUVX4WPFXUfDSf1BGWeL
+	7J/JK0I5oVW3B7NN4gjsBMZ7K+CubbQPvz8qVhZ9LtMFPc6hO+FZkJmieOBmW2XEYD2HUDHNeN62Z
+	1VB2sjCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yzY-0000000CsuI-2fdp;
-	Tue, 23 Sep 2025 09:07:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v0yzr-0000000Ct2g-0ONJ;
+	Tue, 23 Sep 2025 09:07:39 +0000
+Received: from mail-m1973197.qiye.163.com ([220.197.31.97])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yzY-0000000Csth-040m
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 09:07:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B9A96027F;
-	Tue, 23 Sep 2025 09:07:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1382C4CEF5;
-	Tue, 23 Sep 2025 09:07:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758618439;
-	bh=dhXEPgsBK+GvW9IrpnbQ/Olpln40iiFo0p9WPqLhTGw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gAJgVe3zzA14Z10X9t6nDnxyUAbX04WAM5naygnt3UAF6HSiiiLjhdr8lurR8vncD
-	 z7X8tX38EYXvBTVjpTuhYGlqIt9mT6AW2bBhcXmFcUIbyZCnvSZe8Nn2F9R8yRERYK
-	 nkFnobjcPiPQFgEd/0OfLAhl7XG+PwznugZIIni36fGlpRON++fsQ/kFiC+/eMUpRo
-	 ucpwci7rXNdoYRdrIRzJbeHhZ9ByRIPKOxD5EpD2PGlyg7CqCMcaFKv8od/f7/Q+n3
-	 q6hr01vJL1miVBWG/S8GqQj2agGY3HBNqYD8PbZUXp694JX2BRsLDfGL7exeLg75h4
-	 jHPeTpW9XVGpg==
-Date: Tue, 23 Sep 2025 10:07:14 +0100
-From: Will Deacon <will@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	oe-kbuild@lists.linux.dev, lkp@intel.com,
-	oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [arm64:for-next/perf 5/28] drivers/perf/dwc_pcie_pmu.c:418
- dwc_pcie_pmu_validate_group() error: uninitialized symbol 'time_event'.
-Message-ID: <aNJjQkj70kCArFf1@willie-the-truck>
-References: <202509231223.gZsX6Eio-lkp@intel.com>
- <a2bb5fb1-f94e-cdea-6db5-86d78d2a53eb@os.amperecomputing.com>
- <aNJZ6SqYvBfjZlrZ@stanley.mountain>
- <aNJbxj55fEgutUPn@willie-the-truck>
+	id 1v0yzm-0000000Csyn-2yqA;
+	Tue, 23 Sep 2025 09:07:36 +0000
+Received: from [172.16.12.153] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 23c505336;
+	Tue, 23 Sep 2025 17:07:26 +0800 (GMT+08:00)
+Message-ID: <18f55fe7-7c68-4982-916d-11752325c667@rock-chips.com>
+Date: Tue, 23 Sep 2025 17:07:25 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aNJbxj55fEgutUPn@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/7] usb: typec: Add default HPD device when register
+ DisplayPort altmode
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20250922012039.323-1-kernel@airkyi.com>
+ <20250922012039.323-2-kernel@airkyi.com>
+ <mygbqhiom6pkwsadzz2bqf5bth3ogsbd6iku5a7r5swxrakein@fjhz7udnkcks>
+ <e9cf0aa8-ed32-4ffb-a755-150742455808@rock-chips.com>
+ <sgvrzhbhkzxbuybmws44kyenhfyppm3blijkarypcin4fiscvx@mnajrlmicyxi>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <sgvrzhbhkzxbuybmws44kyenhfyppm3blijkarypcin4fiscvx@mnajrlmicyxi>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9975d3e93303abkunm8ca4981716a2df
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0gaQlYeHU1LGkoaSUIeTh1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=UnY0x8ewyFrxCkRivPth9p+Zl0CdPssh9KDioUgHEl094n0HZ+9pTSLZFY59zOaJdprHdBf7fU2I29XmF7SyPPKTw+K0GYeC8PyJ2j51y0bvpzUZl+70r0Q37Np7Qa+3PWdrnujNiON1rcCOg62YDFABAiIG2g7QPODrOmCn6Lc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=HuXLsMMpc578ltmXayFqyQKez4+ZRrpty5hbaJUkQks=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250923_020735_239870_773830A7 
+X-CRM114-Status: GOOD (  27.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +93,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 09:35:18AM +0100, Will Deacon wrote:
-> On Tue, Sep 23, 2025 at 11:27:21AM +0300, Dan Carpenter wrote:
-> > On Tue, Sep 23, 2025 at 12:55:01AM -0700, Ilkka Koskinen wrote:
-> > > That's cleary a bug and I don't know how I missed it.
-> > 
-> > Because we disabled uninitialized variable warnings for GCC and because
-> > everyone has CONFIG_INIT_STACK_ALL_ZERO set so it wouldn't show up in
-> > testing either.
-> 
-> The more annoying thing is that I run smatch on my tree before pushing
-> but somehow I didn't notice this. I'll run it again to see whether it
-> detected it in the first place...
+On 9/23/2025 11:11 AM, Dmitry Baryshkov wrote:
 
-bah, there it is:
+> On Tue, Sep 23, 2025 at 09:34:39AM +0800, Chaoyi Chen wrote:
+>> On 9/23/2025 9:10 AM, Dmitry Baryshkov wrote:
+>>
+>>> On Mon, Sep 22, 2025 at 09:20:33AM +0800, Chaoyi Chen wrote:
+>>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>>
+>>>> Add default DRM AUX HPD bridge device when register DisplayPort
+>>>> altmode. That makes it redundant for each Type-C driver to implement
+>>>> a similar registration process in embedded scenarios.
+>>>>
+>>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>> ---
+>>>>    drivers/usb/typec/altmodes/displayport.c | 27 ++++++++++++++++++++++++
+>>>>    drivers/usb/typec/altmodes/displayport.h |  2 ++
+>>>>    drivers/usb/typec/class.c                |  8 +++++++
+>>>>    include/linux/usb/typec_altmode.h        |  2 ++
+>>>>    4 files changed, 39 insertions(+)
+>>>>
+>>>> diff --git a/drivers/usb/typec/altmodes/displayport.c b/drivers/usb/typec/altmodes/displayport.c
+>>>> index 1dcb77faf85d..e026dc6e5430 100644
+>>>> --- a/drivers/usb/typec/altmodes/displayport.c
+>>>> +++ b/drivers/usb/typec/altmodes/displayport.c
+>>>> @@ -14,6 +14,7 @@
+>>>>    #include <linux/property.h>
+>>>>    #include <linux/usb/pd_vdo.h>
+>>>>    #include <linux/usb/typec_dp.h>
+>>>> +#include <drm/bridge/aux-bridge.h>
+>>>>    #include <drm/drm_connector.h>
+>>>>    #include "displayport.h"
+>>>> @@ -182,6 +183,10 @@ static int dp_altmode_status_update(struct dp_altmode *dp)
+>>>>    				dp->pending_irq_hpd = true;
+>>>>    		}
+>>>>    	} else {
+>>>> +		if (dp->port->hpd_dev)
+>>>> +			drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
+>>>> +						  hpd ? connector_status_connected :
+>>>> +							connector_status_disconnected);
+>>> There should be no need for these calls. Once the HPD bridge is added to
+>>> a correct fwnode, the drm_connector_oob_hotplug_event() calls should
+>>> deliver the signal as expected.
+>> It seems that only drm_bridge_connector can do this. I'm not sure if I remember correctly. I'll give it a try.
+> Other connectors can implement the .oob_hotplug_event call. Calling
+> drm_bridge_hpd_notify() also depends on the connector setting the
+> callbacks via drm_bridge_hpd_enable(), a step which is done by only a
+> few drivers.
 
-+drivers/perf/dwc_pcie_pmu.c:418 dwc_pcie_pmu_validate_group() error: uninitialized symbol 'time_event'. [smatch]
+Hmm, let's go over this again. First, drm_connector_oob_hotplug_event() requires a connector fwnode.
 
-so not sure why I missed this. Maybe I used the wrong .config (this
-driver isn't enabled in defconfig).
+On the Qualcomm platforms, the fwnode corresponds to the USB-C controller device node, so
 
-Will
+drm_connector_oob_hotplug_event(dp->connector_fwnode, ..) can handle them directly.
+
+But our platform doesn't use the USB-C controller device node as drm connector fwnode :(
+
+So I use drm_dp_hpd_bridge_register() and drm_aux_hpd_bridge_notify() here, I think it just create a simple hpd bridge to bridge_list.
+
+But drm_connector_oob_hotplug_event() use connector_list instead of bridge_list.
+
+
+
+>
+>>
+>>>>    		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+>>>>    						hpd ? connector_status_connected :
+>>>>    						      connector_status_disconnected);
+>>>> @@ -206,6 +211,9 @@ static int dp_altmode_configured(struct dp_altmode *dp)
+>>>>    	 * configuration is complete to signal HPD.
+>>>>    	 */
+>>>>    	if (dp->pending_hpd) {
+>>>> +		if (dp->port->hpd_dev)
+>>>> +			drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
+>>>> +						  connector_status_connected);
+>>>>    		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+>>>>    						connector_status_connected);
+>>>>    		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+>>>> @@ -391,6 +399,9 @@ static int dp_altmode_vdm(struct typec_altmode *alt,
+>>>>    			dp->data.status = 0;
+>>>>    			dp->data.conf = 0;
+>>>>    			if (dp->hpd) {
+>>>> +				if (dp->port->hpd_dev)
+>>>> +					drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
+>>>> +								  connector_status_disconnected);
+>>>>    				drm_connector_oob_hotplug_event(dp->connector_fwnode,
+>>>>    								connector_status_disconnected);
+>>>>    				dp->hpd = false;
+>>>> @@ -751,6 +762,18 @@ static const struct attribute_group *displayport_groups[] = {
+>>>>    	NULL,
+>>>>    };
+>>>> +void dp_altmode_hpd_device_register(struct typec_altmode *alt)
+>>>> +{
+>>>> +	if (alt->svid != USB_TYPEC_DP_SID)
+>>>> +		return;
+>>>> +
+>>>> +	alt->hpd_dev = drm_dp_hpd_bridge_register(alt->dev.parent->parent,
+>>>> +						  dev_of_node(alt->dev.parent->parent));
+>>> This needs at least a comment, what is dev.parent->parent. Also, the
+>>> of_node is not correct here. It should be a node of the connector,
+>>> rather than the device itself. Consider USB-C controllers which handle
+>>> several USB-C connectors (e.g. UCSI). The DRM core won't be able to
+>>> identify the correct bridge.
+>> I think  alt.dev->parent->parent is the connector device. Am I missing something?
+> As I wrote, it needs a comment (in the source file). No, it's not a
+> connector device, it's a USB-C controller device. There is no guarantee
+> that there is a separate struct device for the USB-C connector. On
+> Qualcomm platforms, the device will point to the USB-C controller (TCPM
+> or UCSI), which contain usb-c-connector(s) as child node(s) in DT.
+
+Thanks for the clarification.
+
+
+
+>
+>>
+>>
+>>>> +	if (IS_ERR(alt->hpd_dev))
+>>>> +		alt->hpd_dev = NULL;
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(dp_altmode_hpd_device_register);
+>>> Having the function here will bring a typec -> displayport dependency
+>>> between drivers (which you didn't document). It means it won't be
+>>> possible to build typec core into the kernel, having the DP AltMode
+>>> driver in the module (which also doesn't sound like a good idea).
+>> It make sense. Perhaps moving it into class.c would be a good idea.
+>>
+>>
+>>>> +
+>>>>    int dp_altmode_probe(struct typec_altmode *alt)
+>>>>    {
+>>>>    	const struct typec_altmode *port = typec_altmode_get_partner(alt);
+>> -- 
+>> Best,
+>> Chaoyi
+>>
+>>
+>> -- 
+>> linux-phy mailing list
+>> linux-phy@lists.infradead.org
+>> https://lists.infradead.org/mailman/listinfo/linux-phy
+
+-- 
+Best,
+Chaoyi
+
 
