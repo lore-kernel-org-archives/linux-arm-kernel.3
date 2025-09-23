@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE48CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D843ACAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5uiey4471seattefoOzNwyH5jPWbq+Ym1dnz+bTheg=; b=IhsJXzTmG/Q2Ame3qj3XdSOvOf
-	10JEAop9jeX727Cfn3ckVpeMFRKFohwOkvE39zMa2JYadZERk+uQ2bawnxABlOGOqaHZbSofh1R8e
-	S6YN+cN0QKHgdx6L+6iKPAkJffaRqNtXkjVrn7udkrLAVstNqwM2MsJQTu+HTb/vRO9ghDIVXIEqH
-	jVfrtpEMox9c8inrZdbLTqAvptSFa+EUJRYjqq3/fa/Rdby1tv1iib8Y0wMVtXJOt/s329/aQ7ryZ
-	4iXYTm3C9SLM82xEi4vslj5LvpHjFCA5sxwdEQhuOL8VPQPrLkiJfUGGExEjlrfPRJ7oBeWWLc4GO
-	sSp2ASlg==;
+	bh=Bzs7YWomkogdqc6nSTqlox/fEuO/KRitOGRJQuZaVdE=; b=xrwNgvzcJoffyxigyEVT5G+5oh
+	oCJNwpoAt+zr7mg1MyCMPRxzVLMZxtxLayw6dpjtqkCjUus2khdF+y+DoG4TqKeTJhKbMDTCsQ9rZ
+	QM4mSVCSLuD0sDKIRRX0cQNFKCxLfYHhuWAj8d8yCyJngej7D+t9iI1ScaiwiZtZfVhQnf/mGOglC
+	8nxVJebWRmLDufNR2G0hzqWipci9JuR354OP1QB7sOVJxLi5u4g8PKFanMMQTnLFZ6d/YQY33tXQ2
+	WeBnbC9yVMzDCj1FtR/0+Wdcn48pUpni6hqBvzfDtaTESEwQIGmAynQk94s7Qs6BMPqAzpr3WLGMx
+	4WD5jLhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xzc-0000000Cku6-19ay;
-	Tue, 23 Sep 2025 08:03:20 +0000
+	id 1v0y0D-0000000Cl7U-3mFw;
+	Tue, 23 Sep 2025 08:03:57 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0xza-0000000Ckt8-22gH;
-	Tue, 23 Sep 2025 08:03:19 +0000
+	id 1v0y0A-0000000Cl6U-32LO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Sep 2025 08:03:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E97DB44318;
-	Tue, 23 Sep 2025 08:03:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B300C4CEF5;
-	Tue, 23 Sep 2025 08:03:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 62FC5441B5;
+	Tue, 23 Sep 2025 08:03:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40974C4CEF7;
+	Tue, 23 Sep 2025 08:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758614597;
-	bh=D5uiey4471seattefoOzNwyH5jPWbq+Ym1dnz+bTheg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=txYkf+EBHpb+z/Ek9O1ldAU2o3rcJZel9hPFPiLbL7qMZF0GRoTvytX6clvt233YM
-	 z4IovMoaWdeW2Ks+XDeOeLtlDTdyYzw7HDHb4ugBs2UMYMI0Jk7/koyMgaTkwmLsLk
-	 ydnrl9Ye0dxfXNwC6QDzQLr1gStHZ2zjQuXI0A2kJpoS4SGlO1rNrSijKYABOu3+9C
-	 unBg9wKsIyLgfSV0lO3qqGAr08wBVdEOwNuWFhflXdd6ay0GvAxjm74Qcb7JuF4HR1
-	 rvLx4/duwX07qI5GKHXeuupRRTW09noeH71t/ce0R8EfOSo6bJ+NkuYpYcy/HfEMiD
-	 5Hvt1xuVC+0BQ==
-Date: Tue, 23 Sep 2025 10:03:12 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
-	stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH v?] ASoC: mediatek: mt8365: Add check for devm_kcalloc()
- in mt8365_afe_suspend()
-Message-ID: <aNJUQE6VncYiRx_w@finisterre.sirena.org.uk>
-References: <20250922140555.1776903-1-lgs201920130244@gmail.com>
- <638119fb-4587-48a4-9534-2f19a194ca4e@web.de>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+UPYTcPP9yAXiY1I"
-Content-Disposition: inline
-In-Reply-To: <638119fb-4587-48a4-9534-2f19a194ca4e@web.de>
-X-Cookie: Filmed before a live audience.
+	s=k20201202; t=1758614634;
+	bh=1uL8zMCWJXKjyrofklpu94Ov8wlXnfPS3LN0UwuWDeI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=r25EuohfNyaH331n8cTzafDXav0Rz4WDmkA/kHNz+ePibetT3ACpbsTFKA7sm7Q7W
+	 uDKXw30BE0vBlXhnOmDvZ9O05nTCifB8VaVvoPXjTa0Ig2n+PU2ri66bB0q40OP9oX
+	 aOG/1Xz56aU5zthSGu7aFfs8gZyl2VpA2TeNtiNDzzCwFuhWO5aO2QQiJe1V6j9Pa4
+	 MU26HljlM9kKT9B1Dxv8MapFyJAIMpDa7hLp5W5DbLDtvgVV+QmMDHAp6YJZM5Z7HD
+	 GNdpqX5Q+y0OwLat+y1zOdx9T4C2ZFEQZYiLsdJnHGr42csmGALSEwAYXRz7CsteMO
+	 CHwVpXsT3jaZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v0y07-00000008eJK-436N;
+	Tue, 23 Sep 2025 08:03:52 +0000
+Date: Tue, 23 Sep 2025 09:03:51 +0100
+Message-ID: <86frcd1tp4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Priscilla Lam <prl@amazon.com>
+Cc: <oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<dwmw@amazon.co.uk>,
+	<gurugubs@amazon.com>,
+	<christoffer.dall@arm.com>,
+	<graf@amazon.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Implement KVM_TRANSLATE ioctl for arm64
+In-Reply-To: <20250922202452.45810-1-prl@amazon.com>
+References: <20250922202452.45810-1-prl@amazon.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prl@amazon.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, dwmw@amazon.co.uk, gurugubs@amazon.com, christoffer.dall@arm.com, graf@amazon.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_010318_542512_76239351 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250923_010354_801636_CD820930 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +92,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Priscilla,
 
---+UPYTcPP9yAXiY1I
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Mon, 22 Sep 2025 21:24:52 +0100,
+Priscilla Lam <prl@amazon.com> wrote:
+> 
+> There is a KVM_TRANSLATE ioctl for x86 to translate a GVA
+> (guest virtual address) to a GPA (guest physical address) in EL1
+> which is not yet implemented for arm64.
+> 
+> Implement KVM_TRANSLATE on arm64 for both configurations that
+> support and do not support VHE. The VHE path uses the AT
+> instruction directly while the non-VHE implementation wraps the
+> AT call in a hypercall to allow for its execution in EL2. Add
+> selftest that tests the ioctl in both configurations.
+> 
+> Signed-off-by: Priscilla Lam <prl@amazon.com>
+> ---
+>  arch/arm64/include/asm/kvm_asm.h              |   2 +
+>  arch/arm64/kvm/guest.c                        |  89 ++++++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  10 ++
+>  arch/arm64/kvm/hyp/nvhe/translate.c           |  84 ++++++++++++++
+>  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>  tools/testing/selftests/kvm/arm64/translate.c | 107 ++++++++++++++++++
+>  7 files changed, 292 insertions(+), 4 deletions(-)
+>  create mode 100644 arch/arm64/kvm/hyp/nvhe/translate.c
+>  create mode 100644 tools/testing/selftests/kvm/arm64/translate.c
 
-On Mon, Sep 22, 2025 at 05:35:35PM +0200, Markus Elfring wrote:
-> =E2=80=A6
-> > Add a NULL check and bail out with -ENOMEM, making sure to disable the
-> > main clock via the existing error path to keep clock state balanced.
->=20
-> How do you think about to increase the application of scope-based resourc=
-e management?
+Oliver already gave a review of some aspects of the code. In short,
+you're going about walking the page tables the wrong way, both by
+ignoring some of the complicated architectural features (PIE, POE),
+trusting the S1 PTs to be vaguely correct, and by assuming that S1 PTs
+are never swapped out.
 
-Feel free to ignore Markus, he has a long history of sending
-unhelpful review comments and continues to ignore repeated requests
-to stop.
+But there is more: you are assuming that the only translation regime
+we care about is EL1&0, which isn't true. This would also need to
+cater for EL2 and EL2&0.
 
---+UPYTcPP9yAXiY1I
-Content-Type: application/pgp-signature; name="signature.asc"
+As Oliver also pointed out, all that infrastructure already exists in
+the kernel, and is able to do the right thing, with full support of
+the expected feature set as presented to the guest.
 
------BEGIN PGP SIGNATURE-----
+But at the end of the day, what do you need KVM_TRANSLATE for? This
+interface is an absolute turd that is unable to represent the bare
+minimum of the architecture (writable by whom? physical address in
+which translation regime? what about S2 translations?), and is better
+left in the "utter brain fart" category.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjSVDsACgkQJNaLcl1U
-h9CCEAf/QCnhzFI+vp9Z49NAqudJk3wDfrBz+Hv5nquQzGzv/kb6Yc1Fi72Cl+Iq
-xEDVMpmBO5q1RUEK6oaDMPsrf9bHQ3pPPXEnUl4hbmeL+KNaUaYZEIio2c8bGBvd
-lLdOZKp0KSN0yxXku0zJV5tjg6UnkGbaOldwJxFhACgUhxEbpnSsE+dNsvtGuYik
-oCJtKZhTqE3aOz3lqXNYy6eVi/K0THqsqaBVwmkdwrexlxn02VZXnp9CpVl4CLqB
-p9iK+FwyxIZ5UvH/kihITAP3klv9+SRjCiCxJNbaDdvV1YVZ+BP/yUUbbiiq62B8
-hr36WqAph+oDt0grDiMkmKeHD5Dy5w==
-=Pl39
------END PGP SIGNATURE-----
+Finally, and assuming that you actually need something of the sort,
+why do you expect that something in the kernel will be better than a
+pure userspace implementation?
 
---+UPYTcPP9yAXiY1I--
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
