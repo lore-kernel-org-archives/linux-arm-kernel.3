@@ -4,95 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B4ECAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0412ACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 11:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=; b=SxDBNZGmOcmO+9ZAkYne7bh0Jj
-	wczRTKLAFjCspSZ+pRvWVV8iYkrBt6VSQMpMEsZzDkxwC70wjtepPB9kGXK76VfQ2MRrg9Xstf+iF
-	3wp3hE2kcS8wTvxuIgVyK1r04G+nAIeoHXRuGGx2UDB4afUCgDDIKzPXCGe1Cr9efyncobI8fFEfT
-	y3jbkoisM4fG+Nh06nUu3ku55A2BfgyffXbrTIkslT/SufX/QgqHKTsf2E8ssaF+laKnemjRxwZLy
-	Z/jfxRYMTaVQRiJoBKSqxyxo2ygNQwIdfIMBWrdFvyNrhSk3Jeo5njwnWge4UIvPUuzoX9J95gDOV
-	4+Qf6MQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0v1QCYzDyy9ylkxjs8ymCgWYzEah0RxSutwmBJOt0XA=; b=yEOUSv5t18gopio2zrPpLbc/RN
+	BVq7lpoFgPvC8NOkEC+xRE5Z/4P9W4tOodoXEAYzhgel7wA3oRAVK5R6xwgiqWVE2ER6tTgItrwTD
+	4c3kCrkEw4zvJxuFj5oAak+IkL+a9bGaWVbkSo/SpIzWT6W2bQE0IvWNnhAQTvi351cw/fFLa1bom
+	AyH8paeFqpJLRYNB3z4bFVmMrqM6xKn7aFG7sHHVXS4ScqlJOCezQYA+wxNwCoJWXnWLdr6nQeEyJ
+	afhSLj2h/rQK8YQeLVKyr+jywhx0eOYIXYh07+eHR8dP5fBhn8QruSuyDVGolUTGduOa7L4npzOn0
+	UrZz/glA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v10v2-0000000D8LY-4AWt;
-	Tue, 23 Sep 2025 11:10:48 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v10v0-0000000D8L9-0uCj
+	id 1v111b-0000000D9Ab-2X5S;
+	Tue, 23 Sep 2025 11:17:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v111Y-0000000D99g-20Br
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 11:10:47 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-46e158480beso2141925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 04:10:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758625844; x=1759230644; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=;
-        b=IINyIlB/wSuKW1zEIGwgbDTj60KP9F6TCx8GZv/azswS60dwHytQrhqC6gNT9+rzBW
-         hi9ZurEaHHieUM4/ImK4gj4subt9JQNLmsLZ1NQa+f6bjtsWfOkJ0Oqb1+fV0JSUL2dJ
-         UeUqaWguErmMfBMEIeVG0rUmderZE4AKvL4JGCR4DvL5AUuxp3FF4PQD4lQAI09G1rLS
-         JzEtSUevh3V5WUEwXpYG8+YcMuWMj7ih7d3hJaOfTk91g24UknDqsT/+tjrOds3yruRN
-         6Uvm9sbKz/At8wzbZ9Y9Yr5/aRGtIZYJ/tXX0ZEtmLxpvf9dbyZVuqVrGGIJxojKKZff
-         PXQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758625844; x=1759230644;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/M4chbTCwJie6GL25HuGRFhPc1V63zKjOJLKGItv6qU=;
-        b=KEsXB7eV1/EYhFLLVvCO/tUECvutZc3q+uP0t2V0yglAGD72No0SpwrfsoLzbQuQMr
-         dv/1cC51sdd4ddfNi/V2FHnuIok2U3OFMHMRB03LIpJBrHIszGQUUYUB8cBBzk9tNRk9
-         RElm2188lHMqUxIP7h5wn93RR7RSPr1KOOmy2hEvGHDyYu++RZltShqE+LEykZBC+UE1
-         CU3zbKWPDuFh1IZznuyDxXoBDYLVKwjUhfgVGJJVr78Erde3wNIpJDAfcQjm1Oxh5EFm
-         2wWFifu0tL4ba3NMGUGvVLYZrJDLXrRLhivULHGuSvpMPgnMYw4wa9z4NRv/bHpsI3/U
-         XbyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVX9gERiezQ6oritl+g/t6hjjfSRcorms+oSwg+/5YFNcBN4xuQuT4hm/dkbpl1SRql8YF52Sa6x51o48ne9M01@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA5ta+88HfxDpMwRMWR39rvcSRwd6Nv43PvqJanM1VkmqHy5hV
-	9QrxixRyB+Z/eK8GUqaAO7nWic5n606C7XVsG9gVZwkKxWlVmLLGnG54
-X-Gm-Gg: ASbGncsy9vVd2L24nnj738iyFhWOJV7hgXRciSasG1+ivvn5nbvSpNea+wW6hfLtMKo
-	vrBZwsYHtjL7pxktPOjO27Wn08ttyZTUjNZtxYcdF7thbY9npiAgyfyVTJnixIVFvBw7OBEPc30
-	aoeMXu1KhrUfK+HVtGuSetpgGRj0IOVxAiRkHoXwGgH9J4HBbMMnFyIpGDZTFvjL303GhAKz5A3
-	maBEYjNIbrS2uBgrkyBT7WOkhejlPwQG3N6tnOkZiwdPJ5mKrsrNMoPFhFmcHNeXXuO25Fze5ws
-	uyAnADMH4bSFHN7qBbbU1EPa2ZPHiUOvJSYFacTz1JpCxLecxfiYfXc8bGvzaKYe68ripdv61QF
-	RQunDpmTbD22NvSHlRTNZHKk=
-X-Google-Smtp-Source: AGHT+IHhlp7t8Mif75guovtxrXuNcYEIzhCdfujdY3LaIWfy1jJmzn6mmtcb1ThUszzhbFiPUhqUdw==
-X-Received: by 2002:a05:600c:4ed3:b0:45f:2919:5e8d with SMTP id 5b1f17b1804b1-46e1d98c40bmr12841095e9.1.1758625842783;
-        Tue, 23 Sep 2025 04:10:42 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:2e0a:df05:253e:8b85])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e23adcce3sm3208595e9.11.2025.09.23.04.10.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Sep 2025 04:10:41 -0700 (PDT)
-From: Vladimir Oltean <olteanv@gmail.com>
-X-Google-Original-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-Date: Tue, 23 Sep 2025 14:10:38 +0300
-To: Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Olof Johansson <olof@lixom.net>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 3/3] arm64: dts: fsl-lx2160a: include rev2 chip's dts
-Message-ID: <20250923111038.qluh2kjmc534ytig@skbuf>
-References: <20240826-2160r2-v1-0-106340d538d6@nxp.com>
- <20240826-2160r2-v1-3-106340d538d6@nxp.com>
+	Tue, 23 Sep 2025 11:17:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8576497;
+	Tue, 23 Sep 2025 04:17:22 -0700 (PDT)
+Received: from [10.57.6.128] (unknown [10.57.6.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59E223F66E;
+	Tue, 23 Sep 2025 04:17:28 -0700 (PDT)
+Message-ID: <0339c5cc-20e7-4bfd-829f-6fc91f2c1669@arm.com>
+Date: Tue, 23 Sep 2025 12:17:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240826-2160r2-v1-3-106340d538d6@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/26] coresight: trbe: Convert to new IRQ affinity
+ retrieval API
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland
+ <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Peter
+ <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ James Clark <james.clark@linaro.org>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+References: <20250922082833.2038905-1-maz@kernel.org>
+ <20250922082833.2038905-8-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250922082833.2038905-8-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_041046_270838_AAFB46DC 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20250923_041732_565308_EE79D0D3 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,71 +74,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn,
+On 22/09/2025 09:28, Marc Zyngier wrote:
+> Now that the relevant interrupt controllers are equipped with
+> a callback returning the affinity of per-CPU interrupts, switch
+> the TRBE driver over to this new method.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-On Mon, Aug 26, 2024 at 05:38:34PM -0400, Frank Li wrote:
-> The mass production lx2160 rev2 use designware PCIe Controller. Old Rev1
-> which use mobivel PCIe controller was not supported. Although uboot
-> fixup can change compatible string fsl,lx2160a-pcie to fsl,ls2088a-pcie
-> since 2019, it is quite confused and should correctly reflect hardware
-> status in dtb. Change freescale's board to use rev2's dtsi firstly.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts | 2 +-
->  arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts | 2 +-
->  arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
-> index 4d721197d837e..71d0d6745e44a 100644
-> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
-> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dts
-> @@ -6,7 +6,7 @@
->  
->  /dts-v1/;
->  
-> -#include "fsl-lx2160a.dtsi"
-> +#include "fsl-lx2160a-rev2.dtsi"
->  
->  / {
->  	model = "NXP Layerscape LX2160AQDS";
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts b/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
-> index 0c44b3cbef773..2373e1c371e8c 100644
-> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
-> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-rdb.dts
-> @@ -6,7 +6,7 @@
->  
->  /dts-v1/;
->  
-> -#include "fsl-lx2160a.dtsi"
-> +#include "fsl-lx2160a-rev2.dtsi"
->  
->  / {
->  	model = "NXP Layerscape LX2160ARDB";
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts b/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
-> index 9f5ff1ffe7d5e..7a595fddc0273 100644
-> --- a/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
-> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dts
-> @@ -6,7 +6,7 @@
->  
->  /dts-v1/;
->  
-> -#include "fsl-lx2160a.dtsi"
-> +#include "fsl-lx2160a-rev2.dtsi"
->  
->  / {
->  	model = "NXP Layerscape LX2162AQDS";
-> 
-> -- 
-> 2.34.1
-> 
-> 
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Sorry for digging up an old thread, but I'm curious why you applied
-patch 2/3 but not this one? Currently,
-arch/arm64/boot/dts/freescale/fsl-lx2160a-rev2.dtsi has no user.
-
-Thread here.
-https://lore.kernel.org/lkml/20240826-2160r2-v1-0-106340d538d6@nxp.com/
 
