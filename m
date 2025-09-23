@@ -4,79 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB1ECAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62391CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 08:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yse2UjJ0Dh7zrI132zVl5aYFvop4Jh6+vpIEEPGtQj4=; b=tDN0yrhg57/9NkWWbPQleXVooW
-	slG5b9w3JFIqb049Np5Tygopcqh2QEL76mCWbc/5H7s3AKmo0jqrPw8gnnH9HGt7LGz2GdD4HK4JZ
-	R11boqXCqi/StW5bVAEScNi2InXFKuh/dy2zKxUsPtoAkQYmQ4avO/R9Tf6j9AiaYNZQQtSrOv+yY
-	9S6k6a3T/+CfSD3pMgJUX08A8kB2HkU1GM+Zj69WrS3pSMZKPeOzYcavFM6B+gh7BcO3+xFAJmSum
-	+GQizDA5svnzcUYQV4d3Hsvz8aBnIXguMtHntOkfzNUWxorIAVIDZf690Z7SLITNKb7EkTKxd6Zz4
-	zO39/8Ew==;
+	bh=sx3JnukKcin3hQdFQWZ5JtPeTp2j19rhqeAQMxkJ/LQ=; b=RvfdHrVx3X6UbjnISPs7D4UeT7
+	Cu47ezXFL973GxqT6shjurpZXTV/Epc5y/8xszcZUDQXD7QTSnEHSWsaqBng3HvD/eM5in9E0l3Ew
+	//uuk+GSkOtQGqtCBH8ch2lyTsHZ3N4cZBd6zPJfFBq9FmZrMNFQgHR1HvEfHOk+AA8wog/5ctrhW
+	NlEZL6ur6wTh/NKqOVhoO+tWpRGIutJ+mSPKwZl6T9S6vb9RiuYRxyB2cfoGsBR+lRTGVhyy9A+Ps
+	YP2zG8gELvdnllNrASco4CNzSd1ZywvXunDU2+9LwUyArp1DGvvcn10aNRZynm0V1sSSrcWGl1+sa
+	q69DZyIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yD5-0000000Cn4t-1y2l;
-	Tue, 23 Sep 2025 08:17:15 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1v0yG7-0000000CnOO-0ptu;
+	Tue, 23 Sep 2025 08:20:23 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0yD1-0000000Cn43-2z7h;
-	Tue, 23 Sep 2025 08:17:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1758615418; x=1759220218; i=markus.elfring@web.de;
-	bh=Yse2UjJ0Dh7zrI132zVl5aYFvop4Jh6+vpIEEPGtQj4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=anoYx4thzK5Oe0EYIIcdhv+GBKzTJON+MmsdB/dTo3E4Kc+geZV4hO5cmp32hmi0
-	 nE0izIhAEAst14IrRmS3vNghGAXWwW0UGrtJ+Cc56LNCc8mHyXjuCM4rJPQ3MA5jy
-	 JTeBWgaa8xTa1Q2WToxiRYtQFaouaffkP90DI/kXHKF1Otx539yYyizi/LTsDEi4C
-	 K/RRkeV4XcBwrHsHeAL7seMlPod3TTSbxDDPT/nRw6prgDJfpS4CONPYC3ppSbS74
-	 lGrolfcpsJvK6/3d4u/Fm/+lHokP6Vs4bH+TSur8bMmo4Q4a0zqSnElRWSccNC4De
-	 Ugiw1/EBNtxachLfkg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.248]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MtPvg-1uCziO1K2A-016dZc; Tue, 23
- Sep 2025 10:16:58 +0200
-Message-ID: <36758eff-5d49-4ded-bcb0-19d38b8eae2a@web.de>
-Date: Tue, 23 Sep 2025 10:16:56 +0200
+	id 1v0yG2-0000000CnMk-2UCQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Sep 2025 08:20:22 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58N81mXD015882;
+	Tue, 23 Sep 2025 10:20:07 +0200
+Received: from pa4pr04cu001.outbound.protection.outlook.com (mail-francecentralazon11013054.outbound.protection.outlook.com [40.107.162.54])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49b7pf3g3a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 23 Sep 2025 10:20:07 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B8yC2eEY6lpYfxXnoCYUavI738eapqkRQ6sScmrjM6IlrPTUp21r1lKva2VCEpEH1fV+fgoP9vOuzjLrHL8GDLrDORJLuMz1DGuR0IMUZDMEbUsxXKKFWhmenqwwTt9tNDHIz5C0MbOBlbq4UL5ToWqip6LdKawNghGjpvQuwxlubjowgIiRq6fMD2I/3QiCCYeh5kk6X+uL4Ym6R86mUEA98C2PHzQgt1TgoVNb0n6KidPVm9VHE0sKrj9s1MwrCeY78y/rjRqHz1Wclat+s9fJCU5dBLZI0w2h++JAZUHAyOqTNM/d9AXexpmwxh9Duscl+7qawyJU4bm8p4giDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sx3JnukKcin3hQdFQWZ5JtPeTp2j19rhqeAQMxkJ/LQ=;
+ b=PNmjEPbYOwsg7RKWuZdFek8RNX7sRE05xjRSEt+fpjmqNvWYk5bS7CjsLsExQ9DdGO37XI501dDrh/h3kisVrJjSd/8FnM4t5MBjyBewe5xxGGUR1m8b06xeoiyXbzgrqXWlfbnSHXaDvU2Ur9evN0HY8PaewBvlrq8lw8jRHXOQscUIGFgdMDUHJCjKxr7XuqOQ2rA9k5t86zQdOB2PcmaYmK3QTFCTNYysS05ErnGrnnMRtM2JQMM+QWVC9+/UFYC8uKBKm6FeD2qAcsJQiTRXldCs8kNML6ixfXOCX8ZTqHJd/jo+3Pk0GExl6//vtRy+4mEa33Fjhjfv/na7bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.44) smtp.rcpttodomain=lunn.ch smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sx3JnukKcin3hQdFQWZ5JtPeTp2j19rhqeAQMxkJ/LQ=;
+ b=gVpn7jA21WYyV0MCy4szjDY7w//DGhlHt+crdvGI4MyBEC9OoOZ1/LbuMEZjJU7ZwqZyyay59ixDCt+Jf1cTy7HacyV83Pxvb8ayihqnKKGmuAIp9PTLpHDP6FicVcJEbF39ltpkFrNupDYDjEJCVZFWWoSBQUPkjk0Xc5SgCYqUWMyI5kOyGkBYOeFlEm2nrP6h1unFRnHz6omDXFRQ5mGRP2KdtN9uKr5agepayQx4NUsi+DsZViuw+K52U4dat/So/uaUMbHzZ0oXEiCIMAS8dYwuVQC8WfuNMDfK+yHxzqyP4C+lnTGBTOFh4iYCMl71ppmlw70ulmNxVLPnxw==
+Received: from DUZPR01CA0299.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b7::10) by DBAPR10MB4059.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:10:1cc::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Tue, 23 Sep
+ 2025 08:20:05 +0000
+Received: from DU2PEPF0001E9C1.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b7:cafe::2a) by DUZPR01CA0299.outlook.office365.com
+ (2603:10a6:10:4b7::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.20 via Frontend Transport; Tue,
+ 23 Sep 2025 08:20:10 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.44; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.44) by
+ DU2PEPF0001E9C1.mail.protection.outlook.com (10.167.8.70) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Tue, 23 Sep 2025 08:20:05 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 23 Sep
+ 2025 10:12:44 +0200
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 23 Sep
+ 2025 10:20:03 +0200
+Message-ID: <e95085f4-ff7f-40e1-a0fd-514bff4bcd1c@foss.st.com>
+Date: Tue, 23 Sep 2025 10:20:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v?] ASoC: mediatek: mt8365: Add check for devm_kcalloc() in
- mt8365_afe_suspend()
-To: Mark Brown <broonie@kernel.org>, Guangshuo Li
- <lgs201920130244@gmail.com>, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org
-Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Alexandre Mergnat <amergnat@baylibre.com>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>
-References: <20250922140555.1776903-1-lgs201920130244@gmail.com>
- <638119fb-4587-48a4-9534-2f19a194ca4e@web.de>
- <aNJUQE6VncYiRx_w@finisterre.sirena.org.uk>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <aNJUQE6VncYiRx_w@finisterre.sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:cWBgkpYik2H8mxtZ3KY43SyfDlbDJM4covtIK1EZWliqdusnR4U
- 60QiYFS6WZkjdj6cHddbnnrFuN84ruYgIln/E/7/drt1as3t5c3TCcCoXOiXNIoRpD4U9Gp
- bNFjCpRomDNxAGC4/K43pq4tmUAxnPrrxbi3G2lHQ/e60ExXIQz2PHemtH4H24GSIse2IKV
- GN+56lDmDNjFvJr4UR7dw==
-UI-OutboundReport: notjunk:1;M01:P0:ZqrXlG4ixUQ=;3mA1GBTRnGEn4I1VSDjp+EJpkrS 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 yA77uqw=
+Subject: Re: [PATCH net-next v2 2/4] net: stmmac: stm32: add WoL from PHY
+ support
+To: Andrew Lunn <andrew@lunn.ch>
+CC: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        "Eric
+ Dumazet" <edumazet@google.com>,
+        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        Heiner Kallweit
+	<hkallweit1@gmail.com>,
+        Simon Horman <horms@kernel.org>,
+        Tristram Ha
+	<Tristram.Ha@microchip.com>,
+        Florian Fainelli
+	<florian.fainelli@broadcom.com>,
+        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250917-wol-smsc-phy-v2-0-105f5eb89b7f@foss.st.com>
+ <20250917-wol-smsc-phy-v2-2-105f5eb89b7f@foss.st.com>
+ <aMriVDAgZkL8DAdH@shell.armlinux.org.uk>
+ <72ad4e2d-42fa-41c2-960d-c0e7ea80c6ff@foss.st.com>
+ <46f9bdf8-a35c-4e94-9d4d-c87219444029@lunn.ch>
+Content-Language: en-US
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <46f9bdf8-a35c-4e94-9d4d-c87219444029@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF0001E9C1:EE_|DBAPR10MB4059:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6bc1368-e908-4002-2812-08ddfa7a002c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cEhKakh6dXRYS0c2ZjhiQXJwNVpvMm9kdFJ3NDJMRkhBUSt3SlFWZ2RhVExG?=
+ =?utf-8?B?QmpBOEREcG52ZlFVQ3VsazBJb2hOUkgrbnlTUGZCc3VZVGhzcHhxSlNET25k?=
+ =?utf-8?B?SW9XbkxGTmI5Uzg0ZElydTJQSTh4WmpLVnBLYkVFdFBUTlNqQjB0aHRBd3VF?=
+ =?utf-8?B?RVNtMm9mRVVjU0Jyc3ZwVFA5ZXk0K0VtOHhHVjNUcVVrOFVCMUFWTnVVL1Bh?=
+ =?utf-8?B?N3hoNFpVc1g3c092L0QrUUV0eVhEUDU5aTZ1Y0ZkZStqeGxzOHYvNDBNKzBw?=
+ =?utf-8?B?a2hiRUpJcnZ5RHgwbjE0dThDMU9aTFZhZmJYRDROUW1EeHg0NGV2bzYrNjF1?=
+ =?utf-8?B?L0RlOE9YRERsUTJBbHBQYjV3VndCVGU3aGJsemIvS1l5Z3N2OU9xbDlDVGdK?=
+ =?utf-8?B?YXllbnUxUFBHUWtoRWFzUFdidjhpSDdTQzAxcSt4cUUzRjJIV2JOYVhuS1dB?=
+ =?utf-8?B?aVl6N1R1TVNXWnRhclR3TTRmSU5Zc2syK29JVUFRNmtjMjRhTDR2eGhWUXlh?=
+ =?utf-8?B?SjZESjJCM2pFcFludGRlZlVONHI4c0VxY0pMWTI3WkZicFZjZ3A3Ry9xTTV1?=
+ =?utf-8?B?UE5NTm1vL1ZhU2hETURoeURmUnVJTHppWUJTVVRWbFpLYXAwbFg5VWFVZ2hM?=
+ =?utf-8?B?WHkwa0NoSXM3R205OUpEQldldmFXaTYxMWoxdXc2L3dxMG43d2NJY3RJT1oy?=
+ =?utf-8?B?REx3NmNvU3R0Q3dodUJFZ2djREVBTkgra3dnTFdOWmJmVTJRT1lTNTVsMGNE?=
+ =?utf-8?B?NHMwTUhaanlXZitEdVBtY09vMUtIbWpKVjlUSUQ1bndhMDFHUDJCZjU1dk9E?=
+ =?utf-8?B?U082Vzh3TkZDdzAySXpNMUVZdUdzV2xWSm5CNkJXanl5Mmx0cXdwS2RQMnJ0?=
+ =?utf-8?B?MW9DclNocFg4SUl0SVRsWnNNQmpJVjB2SDBxbHB4a1JySVZ3S09mcEp3K05l?=
+ =?utf-8?B?VXA5bHRGUTlPcUpuUmdsU1NvR2pQeG1lcXU0b21jNjZZSTYxZUtQbFFkU2ox?=
+ =?utf-8?B?bmJ1R3FLK0FVMXovTXNLdXVORUljQzlYekVwTng5bUVLckkxd0RsT1hzSVpa?=
+ =?utf-8?B?a09LNno2cjh4am5nVG42NWE4eXBYNnRQamZ3YWpjdTBsS20wQ3phTGhqVmdx?=
+ =?utf-8?B?cjFFaGdEd1B2NWNWTm5uc3JjcUVvUjR1d2NPRVBCaUx6bUlUQVFIRFc3OE9y?=
+ =?utf-8?B?NW5UZURGQVR0VXZMdlE2MGpNUnVud1duOWRUc0QwRkNZbTY0Ri9lbGcvYWN3?=
+ =?utf-8?B?N3NWelFaaXArTTl3VGZRVldmcXFEdVJPUzUwSXBsTGJrNTUvc1Rud2hBNldj?=
+ =?utf-8?B?cEErTDY2ZE16VlBNQnRua1lXajZHaktZVENZTGI3dXlzNHFqY0FxYzZ6NGt5?=
+ =?utf-8?B?ME83d1l0OVh1bnoyY2VvQlVWWDRaRWxTSExiYzRjQVlETnZoaFJBZTNOVUlj?=
+ =?utf-8?B?d29XRk5SaENxMFIxa0JUTlNZQ1lFUWpvYnhKR09PMDBMVC9GQ0sxUG5wazMw?=
+ =?utf-8?B?VllrNFlDWTZ6aWZRY09uZXRjUE5za3U2cjZxVE1yc0svU0djd0UraFhMckkr?=
+ =?utf-8?B?b3VmUHBadDFKakE3Wk9wRjVhOUFvdXdpeVBXZFpTWXlGeWsrdzNMdmxCcUlS?=
+ =?utf-8?B?a1k2bW9BaFpvQ2w1WVdYR01FbWlqalFZeEJRcEJOZGIvR3k0Ym90cnUwZXR0?=
+ =?utf-8?B?bEl1Y3c2Z3lFc1lwM2t4SjkzYTV6dThsOVRpSzNCUTU4ZTlqWGVla3BEYnlC?=
+ =?utf-8?B?eDNJZUZtNklyVWhXeHlhdjZoL0ZNZWthRGN0WkRmbVBTWXZtazF5V1BRSkto?=
+ =?utf-8?B?cmhWSWtCeXczUG9PNU9sMjl4ZDViMlJlN3B4NjhzMXZscDNvY2RRdkQxNCtZ?=
+ =?utf-8?B?NVFYQTVSWmlUOVdVRTVRNUVHNE83eG9QS2ZvRmJzc3p6a1Jucm00VEFWbXZI?=
+ =?utf-8?B?WGhtV1Y0Nm90cVlFalRwZW1QUVhXUWtETE5xdm5yOGtURXQzcWszandxcWNs?=
+ =?utf-8?B?aXBrOHNUbWtob3NXYzBiUHlBa3dWcFVZbEt6di9CalRGVC9EWlU0SDBlVmJi?=
+ =?utf-8?Q?YNQE90?=
+X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Sep 2025 08:20:05.1205
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6bc1368-e908-4002-2812-08ddfa7a002c
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C1.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR10MB4059
+X-Proofpoint-ORIG-GUID: VtkRA6V57Kanfe_j4AjST6aPkFkBMBgT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIyMDEzNSBTYWx0ZWRfXx6qMbWoDhfCb MxPI8JUtBAEbEOats4q2VUq5Zpbeaul7afHyZXSdioOizW3nrllz0jyrKqXGEp0qCghvwoiguQ9 GoxIj7pFajJ9It7SsNaugO8v0mA+55G8GIoxUAPNnhi+UaA6Byau1JZ0JOZFoU7uAxT3gjq0Jim
+ s0JW/IuVeJ+PJ1CJQckIxZYeAhPjf/kxo06i7vJmuYur3y3eZPNsspXYz+QOQJSFV7PCpp8kEdo FPpY0el/ePESiRVjFfPaGsDLxSXFijgx+3OwdTR+cxNzTDNK6askpJDd01Xmo4A7hK4Bg8ZXFTE gRv3vWQoDnBgqocJ84al0H412sEXv0WaV9O3bGpn7GDk4zAoYeZ8kMAFEfMSLEeTrzIVrSBBTwL YlZudpij
+X-Authority-Analysis: v=2.4 cv=IvYecK/g c=1 sm=1 tr=0 ts=68d25837 cx=c_pps a=+ohsn0u86qlID4FyhhUwTg==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=ei1tl_lDKmQA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=E3GHTLob2G1mBu3on-8A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: VtkRA6V57Kanfe_j4AjST6aPkFkBMBgT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-23_01,2025-09-22_05,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 spamscore=0 adultscore=0
+ clxscore=1015 impostorscore=0 phishscore=0 priorityscore=1501 bulkscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2507300000
+ definitions=main-2509220135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_011712_204633_58149110 
-X-CRM114-Status: UNSURE (   6.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250923_012019_231346_095DA881 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,20 +208,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> =E2=80=A6
->>> Add a NULL check and bail out with -ENOMEM, making sure to disable the
->>> main clock via the existing error path to keep clock state balanced.
+
+
+On 9/18/25 17:34, Andrew Lunn wrote:
+>>> Andrew has previously suggested that MAC drivers should ask the PHY
+>>> whether WoL is supported, but this pre-supposes that PHY drivers are
+>>> coded correctly to only report WoL capabilities if they are really
+>>> capable of waking the system. As shown in your smsc PHY driver patch,
+>>> this may not be the case.
 >>
->> How do you think about to increase the application of scope-based resou=
-rce management?
->=20
-> Feel free to ignore Markus, he has a long history of sending
-> unhelpful review comments and continues to ignore repeated requests
-> to stop.
+>> So how can we distinguish whether a PHY that implements WoL features
+>> is actually able (wired) to wake up the system? By adding the
+>> "wakeup-source" property to the PHY node?
+>>
+>> Therefore, only set the "can wakeup" capability when both the PHY
+>> supports WoL and the property is present in the PHY node?
+> 
+> There are layering issue to solve, and backwards compatibility
+> problems, but basically yes.
+> 
 
-Can you take care for the mentioned development topic in more constructive=
- ways?
+Ack
 
-Regards,
-Markus
+> I would prefer to keep the phylib API simple. Call get_wol() and it
+> returns an empty set if the PHY is definitely not capable of waking
+> the system. Calling set_wol() returns -EOPNOTSUPP, or maybe -EINVAL,
+> if it definitely cannot wake the system.
+> 
+> However, 'wakeup-source' on its own is not sufficient. It indicates
+> the PHY definitely can wake the system. However, it being missing does
+> not tell us it cannot wake the system, because old DT blobs never had
+> it, but i assume some work, and some are broken.
+> 
+> We need the PHY driver involved as well. If the driver only supports
+> WoL via interrupts, and phy_interrupt_is_valid() returns False, it
+> cannot wake the system.
+> 
+> There other tests we can make, like device_can_wakeup(). In the end,
+> we probably have some cases where we know it should work, some cases
+> we know it will not work, and a middle ground, shrug our shoulders, it
+> might work, try it and see.
+> 
+>> However, this does not solve the actual static pin function
+>> configuration for pins that can, if correct alternate function is
+>> selected, generate interrupts, in PHY drivers.
+>>
+>> It would be nice to be able to apply some kind of pinctrl to configure
+>> the PHY pins over the MDIO bus thanks to some kind of pinctrl hogging.
+> 
+> I don't think it needs to be hogging. From what i remember of pinctrl,
+> when a driver is probed, pinctrl-0 is activated. It is not limited to
+> pins which the driver directly uses. So if LED2 is connected to a pin,
+> pinctrl can at least select the needed function for that pin.
+> 
+
+Ok, I'll see where it takes me in a separate patch-set.
+Thank you for the feedback and clarifications.
+
+Gatien
+
+> 	Andrew
 
