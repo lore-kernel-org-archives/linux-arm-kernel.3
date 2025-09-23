@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BF4CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46A4CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lZyHqDirOg8h1xFyA+fm0sCoxyLJfpze86+oaD8OVwo=; b=u4Mwac/qr/9PiU
-	1ihPzk/vxYrUb7lw6Sjb5ktejNEG7/RBpMVvMSACH4uzOYLVfAi0REe/1mt5MPq0E4be3j8Z15QVN
-	BQgKZR2Sof6EuqZuStGXzDGyfr0BFr23Mfam4KoYpW/rT5MhRqRR5jMf8SOmpbf3PZYRXedmDSEDQ
-	aIXBdByNrwfbcz6OO3mAqhAEPxTkDLrNrpkpqZF5mDrBjc43sJfIAHIbsJMvwJktwUgG6ZinK7koP
-	KodBBbuYW+wsupsZEnAZqTjLeIhSpZ2f+MVe+HGaGTaI42UKwwH3z70C7rkd6k2CnX1xQxq2yNArb
-	9v8664Wu3m+dQzEU9rcg==;
+	List-Owner; bh=/h3GryW2ugWYvXKu7+Axpgl6L5jNnr93ft50tZXJ/tA=; b=jH84SpWYLWTYKL
+	xdmHvvrCJST3Aph7sgS3OaJmAJ8dQBBEgcCBuC2GsCLL2ta8ITHxio2k4wOIbpouAAjZ0u+5wn28Q
+	b4BUhmQ2k07Z8Gv6/wFsOrSsiGQrQiLA2Ot6xRsq2JQ8Yab0c3GrhzCAz8J/4MD0xushgNZZxX7Zq
+	lJAX4PkLdZl4k1DLBKf8BfTD3C2nmq9jatNfpUqKRExdIynveYvY+j6jgpSVgiqV/p6b8bmXQgQAx
+	1FF/SaJWtsi4deKFwNYLJtFfG869YzXS5xPKDd9W2drP9P5VQks47WolpHw/zdUAseOgXz1fVdzcP
+	OaQU3007FZQ5ELtbiN8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v179g-0000000ESFC-0bmK;
-	Tue, 23 Sep 2025 17:50:20 +0000
+	id 1v179m-0000000ESOv-2ws5;
+	Tue, 23 Sep 2025 17:50:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v179Y-0000000ES6T-0Yqq
+	id 1v179c-0000000ES9a-0j8a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 17:50:13 +0000
+	Tue, 23 Sep 2025 17:50:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60DD1497;
-	Tue, 23 Sep 2025 10:50:03 -0700 (PDT)
-Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.30.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D65E03F5A1;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E640497;
 	Tue, 23 Sep 2025 10:50:07 -0700 (PDT)
+Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.30.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EC8333F5A1;
+	Tue, 23 Sep 2025 10:50:11 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH 14/16] arm64/insn: always inline aarch64_insn_encode_ldst_size()
-Date: Tue, 23 Sep 2025 18:49:01 +0100
-Message-ID: <20250923174903.76283-15-ada.coupriediaz@arm.com>
+Subject: [RFC PATCH 15/16] arm64/insn: always inline aarch64_insn_gen_load_acq_store_rel()
+Date: Tue, 23 Sep 2025 18:49:02 +0100
+Message-ID: <20250923174903.76283-16-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_105012_305069_6AB32A06 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20250923_105016_350174_B5773CFD 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,98 +61,107 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The type and instruction checks cannot be made at compile time,
-as they are dynamically created. However, we can remove the error print
-as it should never appear in normal operation and will still lead to
-a fault BRK.
+As it is always called with an explicit instruction type, we can
+check for its validity at compile time and remove the runtime error print.
 
-This makes `aarch64_insn_encode_ldst_size()` safe for inlining
-and usage from patching callbacks.
-
-This is a change of visiblity, as previously the function was private to
-lib/insn.c.
-However, in order to inline more `aarch64_insn_` functions and make
-patching callbacks safe, it needs to be accessible by those functions.
-As it is more accessible than before, add a check so that only loads
-or stores can be affected by the size encoding.
+This makes `aarch64_insn_gen_load_acq_store_rel()` safe for inlining
+and usage from patching callbacks, as both
+`aarch64_insn_encode_ldst_size()` and `aarch64_insn_encode_register()`
+have been made safe in previous commits.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/include/asm/insn.h | 24 ++++++++++++++++++++++++
- arch/arm64/lib/insn.c         | 19 +------------------
- 2 files changed, 25 insertions(+), 18 deletions(-)
+ arch/arm64/include/asm/insn.h | 36 +++++++++++++++++++++++++++++++----
+ arch/arm64/lib/insn.c         | 29 ----------------------------
+ 2 files changed, 32 insertions(+), 33 deletions(-)
 
 diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 44435eede1f3..46d4d452e2e2 100644
+index 46d4d452e2e2..b7abc9b3e74c 100644
 --- a/arch/arm64/include/asm/insn.h
 +++ b/arch/arm64/include/asm/insn.h
-@@ -717,6 +717,30 @@ static __always_inline u32 aarch64_insn_encode_immediate(
- 
- 	return insn;
- }
+@@ -882,10 +882,38 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
+ 				     int offset,
+ 				     enum aarch64_insn_variant variant,
+ 				     enum aarch64_insn_ldst_type type);
+-u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
+-					enum aarch64_insn_register base,
+-					enum aarch64_insn_size_type size,
+-					enum aarch64_insn_ldst_type type);
 +
-+extern const u32 aarch64_insn_ldst_size[];
-+static __always_inline u32 aarch64_insn_encode_ldst_size(
-+					 enum aarch64_insn_size_type type,
-+					 u32 insn)
++static __always_inline u32 aarch64_insn_gen_load_acq_store_rel(
++					 enum aarch64_insn_register reg,
++					 enum aarch64_insn_register base,
++					 enum aarch64_insn_size_type size,
++					 enum aarch64_insn_ldst_type type)
 +{
-+	u32 size;
++	compiletime_assert(type == AARCH64_INSN_LDST_LOAD_ACQ ||
++					type == AARCH64_INSN_LDST_STORE_REL,
++		"unknown load-acquire/store-release encoding");
++	u32 insn;
 +
-+	if (type < AARCH64_INSN_SIZE_8 || type > AARCH64_INSN_SIZE_64) {
++	switch (type) {
++	case AARCH64_INSN_LDST_LOAD_ACQ:
++		insn = aarch64_insn_get_load_acq_value();
++		break;
++	case AARCH64_INSN_LDST_STORE_REL:
++		insn = aarch64_insn_get_store_rel_value();
++		break;
++	default:
 +		return AARCH64_BREAK_FAULT;
 +	}
 +
-+	/* Don't corrput the top bits of other instructions which aren't a size. */
-+	if (!aarch64_insn_is_ldst(insn)) {
-+		return AARCH64_BREAK_FAULT;
-+	}
++	insn = aarch64_insn_encode_ldst_size(size, insn);
 +
-+	size = aarch64_insn_ldst_size[type];
-+	insn &= ~GENMASK(31, 30);
-+	insn |= size << 30;
++	insn = aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RT, insn,
++					    reg);
 +
-+	return insn;
++	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RN, insn,
++					    base);
 +}
 +
- static __always_inline u32 aarch64_insn_encode_register(
- 				 enum aarch64_insn_register_type type,
- 				 u32 insn,
+ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
+ 				   enum aarch64_insn_register base,
+ 				   enum aarch64_insn_register state,
 diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index 71df4d72ac81..63564d236235 100644
+index 63564d236235..6ee298f96d47 100644
 --- a/arch/arm64/lib/insn.c
 +++ b/arch/arm64/lib/insn.c
-@@ -42,30 +42,13 @@ u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
- 	return (insn >> shift) & mask;
+@@ -328,35 +328,6 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
+ 					     offset >> shift);
  }
  
--static const u32 aarch64_insn_ldst_size[] = {
-+const u32 aarch64_insn_ldst_size[] = {
- 	[AARCH64_INSN_SIZE_8] = 0,
- 	[AARCH64_INSN_SIZE_16] = 1,
- 	[AARCH64_INSN_SIZE_32] = 2,
- 	[AARCH64_INSN_SIZE_64] = 3,
- };
- 
--static u32 aarch64_insn_encode_ldst_size(enum aarch64_insn_size_type type,
--					 u32 insn)
+-u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
+-					enum aarch64_insn_register base,
+-					enum aarch64_insn_size_type size,
+-					enum aarch64_insn_ldst_type type)
 -{
--	u32 size;
+-	u32 insn;
 -
--	if (type < AARCH64_INSN_SIZE_8 || type > AARCH64_INSN_SIZE_64) {
--		pr_err("%s: unknown size encoding %d\n", __func__, type);
+-	switch (type) {
+-	case AARCH64_INSN_LDST_LOAD_ACQ:
+-		insn = aarch64_insn_get_load_acq_value();
+-		break;
+-	case AARCH64_INSN_LDST_STORE_REL:
+-		insn = aarch64_insn_get_store_rel_value();
+-		break;
+-	default:
+-		pr_err("%s: unknown load-acquire/store-release encoding %d\n",
+-		       __func__, type);
 -		return AARCH64_BREAK_FAULT;
 -	}
 -
--	size = aarch64_insn_ldst_size[type];
--	insn &= ~GENMASK(31, 30);
--	insn |= size << 30;
+-	insn = aarch64_insn_encode_ldst_size(size, insn);
 -
--	return insn;
+-	insn = aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RT, insn,
+-					    reg);
+-
+-	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RN, insn,
+-					    base);
 -}
 -
- static inline long label_imm_common(unsigned long pc, unsigned long addr,
- 				     long range)
- {
+ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
+ 				   enum aarch64_insn_register base,
+ 				   enum aarch64_insn_register state,
 -- 
 2.43.0
 
