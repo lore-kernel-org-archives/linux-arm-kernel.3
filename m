@@ -4,74 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DD4CAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC92DCAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 17:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhWRSUVB8GF7kCQH4EGUYZkhuU402qmBEblBNgpnv18=; b=qlHA6SgQNvJm07gINpGhA7Bd5m
-	JCr1upUGuPVHPdnZWhWcPrFwM/QGNnH5MI0fVhZHr+xO3U9gvYC7DwLzHTU3eQsVcPHH6BtdXtkvU
-	VrC3UVscbEP/yByuHHpcPggF/j8cfiCT9L0PM8iKekLd2tePw6zjk6XUbK8lsEoldbKFSCxkro9sc
-	mQM72R+/2YOBJWiVZiP6hHwd7I3ENaYzfnobSq6OYC4UaMCM+hoG+D3pn0zEHwSsQkF0kHCwV9y2/
-	cvHsIoQKsCQ2vJ1Uzh2K/fJR0gAchT7g4K32jQgIRMyUjWcc7ygOkUh0cCo5sHPx5bmTJr6z6DRtd
-	qbif84Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZBIJqbmEZbrWURHaKZlCYT/zn1TgwW+8+aRFRZatnkY=; b=VYJcIeI0yFrpufLLe2+7mXLIqn
+	luTzzfO9sy2o8PcBF0ICDzk0keQ5SGeoIVikmwFbj/DKZX/kZUmkYVhL7iLIUhktwCbTxXEXbu5aH
+	EaC2ncE8UaHVObQmMHicYiyLm0bMyH0Lb1YS0eNbbd45DeebHbY/U6ZyqbXmvZzNEx0lDx2WgQUJC
+	uJgJ78HoNUM+nB2+d//qXX9XdhcTV9unyWXR8UhfMsh5MMsOGmcS6Xdo8UwQwHfdh2BKV2GSdMwjg
+	oh8xw1kfJaUrCKyqjojQZeXrXJmrCVOeVvza2oY75TG79k8o52Rb7tPKAJbTXqcR+imPYpbWx1LkJ
+	pwCzSqaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v16h4-0000000ENGh-0HJ6;
-	Tue, 23 Sep 2025 17:20:46 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1v16xv-0000000EPHM-312s;
+	Tue, 23 Sep 2025 17:38:11 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v16h0-0000000ENE5-2NeP
+	id 1v16xt-0000000EPFo-1xBX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 17:20:44 +0000
-Message-ID: <1a8352a6-e03f-4f3e-a06b-fab757e39eab@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758648028;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zhWRSUVB8GF7kCQH4EGUYZkhuU402qmBEblBNgpnv18=;
-	b=vCnmUEcOJcdG5I4H4EeCK1M+LLbB60ngG817jo83Vo6bdMnlfLHaKSuVzIxH0lInW54Sda
-	Kb/hdqVsJnw0cUz93IyL5x7VjXDNCPhZtPTgyDowkkT90DFJN9QxpeBKp4DZvz0YwPUtEL
-	MgZYJV8EAvGz9D3+TvAY57J8A4ijaoM=
-Date: Wed, 24 Sep 2025 01:20:16 +0800
+	Tue, 23 Sep 2025 17:38:10 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-30cce872d9cso6072452fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 10:38:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1758649088; x=1759253888; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZBIJqbmEZbrWURHaKZlCYT/zn1TgwW+8+aRFRZatnkY=;
+        b=bJ6LkxnepimUpl+f7mEXG6rox9+43EtzaByC7WC+CUs5qTlRLukVBN/1xm5OiCpT67
+         Fu/xN0pJF1vLtQK0Pe5lFgR5zAbPgDXJA6o5rXVqutNKWGn3pyU38v9WzWDTj0Cc/B8z
+         Uh6Y9Jzuw8JLOj0L6Pn1nGkklRB8yQ8VNMRzXCvaZwDap65Nk0NDpJEulRMpPBjLxdU/
+         CbkplaGARzfkkpoziDz0nJE3UTdknOr4Oyo8d2BvfDD1KkbhKQ4GyB/ZDj+wHiWCjria
+         +caE1gsV/o/5zwYFhvl6qlCav+Ae4rc3Qt1utSRGa1Ry8qps80ImumEv3fYxG5XG0Zcb
+         d6Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758649088; x=1759253888;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZBIJqbmEZbrWURHaKZlCYT/zn1TgwW+8+aRFRZatnkY=;
+        b=nchFiS24skEJGUU25qKnHBhihzi4iepd05ifHCDlHpuzTo9Zcc1vbDS89EdQAAqbnW
+         obbwPk576v5Jb52Nv94gyFH+e+AXXga745iq3rAh3I3iUe3WZ1V1+5f2sxhxy0c/NF7k
+         /4oV8YoMykLZFeqY4l3uhgQTtUSpWz5LVnf0lzQbpCZ97IuQFMOfNyhl/J3KTIL1m0d+
+         YmFQgblzE44RaYSIQtmeBzLahAhtfWtE/PVhv3V1OFvaXSOfMvkZO1GRqzZhr5lDssVi
+         00vF86U78ums+wnYQCEKnGgB4xHbDq4O4xl/Rw5b9rIT5ehc+pE5nmdTOrlf8QIC58X5
+         SmDA==
+X-Forwarded-Encrypted: i=1; AJvYcCWHXTdS436ipDWbjvSh0Z7mSm/pZeTRHcZ3IGV8qPNfL4c6M4D9hJ2h2eS50rBWrxxKZqEoGZD5QdRPJeTiDS9R@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHbFKJ9sHav8ShSsaPLECZq3U3OlwoRp5l2j3gqaNaCVxtV8KK
+	Z1lK+E4HPkqLHGgP5bTbPO5iNNNOfNnvfbbEK6ENFrOOGKiaNl8uVXSzKzCCVXA+5kg=
+X-Gm-Gg: ASbGncvgyGCh5hgkhaoYwyjCPKe8/rvreYo6xuyB233QMOEBCRrQdakxL67vj4Aq+r6
+	V4e2vtA6088dnnCCWSax8VPj6Hp9u+vqTyyN9wOy0lCBKigh04Mj8dNmSukisQCoQyuY6vpMwuu
+	DwDMKP0bscE9xALs9qfHSbq8VM/FjPmA4hby6dEhtq9+bARY4bI2jcooROIDAkkFsyhqdCkoIy7
+	ufCh67E+bl3j0M6i4lsXTxBIfmdO61ZQ/KKEaM3NkhjpWLLjUE8pnUDkIjVxVOMLSdDPFcX9jNH
+	0I0GEFL8UxUT5q3u70udQTU6Hh0OYjI1aeV1230vnExNGb0gUd6WmdgzLlvsnet9Up0CQ+HS
+X-Google-Smtp-Source: AGHT+IEiUq4ZNiIQ/kvtshlpB8TY+qUCVv3sM7ttZqsjKZyYCVp5SpveErcNASTGPSdrjl/Eyj3Y1g==
+X-Received: by 2002:a05:6870:15ca:b0:32f:ec51:a716 with SMTP id 586e51a60fabf-34c83545b23mr2456188fac.29.1758649088337;
+        Tue, 23 Sep 2025 10:38:08 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-336e3af73f5sm9720934fac.6.2025.09.23.10.38.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Sep 2025 10:38:07 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1v16xq-0000000AySS-4AaP;
+	Tue, 23 Sep 2025 14:38:07 -0300
+Date: Tue, 23 Sep 2025 14:38:06 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
+ mode
+Message-ID: <20250923173806.GF2547959@ziepe.ca>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-16-smostafa@google.com>
+ <aMQmA9cLaeYWG5_C@willie-the-truck>
+ <aNKwROPzDCWgJBGQ@google.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-To: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: akpm@linux-foundation.org, lorenzo.stoakes@oracle.com,
- usamaarif642@gmail.com, yuzhao@google.com, ziy@nvidia.com,
- baolin.wang@linux.alibaba.com, baohua@kernel.org, voidice@gmail.com,
- Liam.Howlett@oracle.com, cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
- kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
- roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
- dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
- surenb@google.com, hughd@google.com, willy@infradead.org,
- matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
- byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
- apopple@nvidia.com, qun-wei.lin@mediatek.com, Andrew.Yang@mediatek.com,
- casper.li@mediatek.com, chinwen.chang@mediatek.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-mm@kvack.org, ioworker0@gmail.com,
- stable@vger.kernel.org
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <aNGGUXLCn_bWlne5@arm.com> <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
- <aNKJ5glToE4hMhWA@arm.com> <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <8bf8302a-6aba-4f7e-8356-a933bcf9e4a1@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <aNKwROPzDCWgJBGQ@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_102042_754982_B13638FA 
-X-CRM114-Status: GOOD (  34.95  )
+X-CRM114-CacheID: sfid-20250923_103809_513993_515C1A79 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,132 +111,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 23, 2025 at 02:35:48PM +0000, Mostafa Saleh wrote:
+> If we really want to avoid the current approach, we can keep deferring probe,
+> until a check for a new flag set from “finalize_pkvm” which is called
+> unconditionally of KVM state.
 
+I still think the pkvm drivers should be bound to some special pkvm
+device_driver and the driver core should handle all this special
+dancing:
+ - Wait for pkvm to decide if it will start or not
+ - Claim a device for pkvm and make it visible in some generic way,eg
+   in sysfs
+ - Fall back to using the normal driver once we conclude pkvm won't
+   run.
 
-On 2025/9/23 20:00, David Hildenbrand wrote:
-> On 23.09.25 13:52, Catalin Marinas wrote:
->> On Mon, Sep 22, 2025 at 07:59:00PM +0200, David Hildenbrand wrote:
->>> On 22.09.25 19:24, Catalin Marinas wrote:
->>>> On Mon, Sep 22, 2025 at 10:14:58AM +0800, Lance Yang wrote:
->>>>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->>>>> index 32e0ec2dde36..28d4b02a1aa5 100644
->>>>> --- a/mm/huge_memory.c
->>>>> +++ b/mm/huge_memory.c
->>>>> @@ -4104,29 +4104,20 @@ static unsigned long 
->>>>> deferred_split_count(struct shrinker *shrink,
->>>>>    static bool thp_underused(struct folio *folio)
->>>>>    {
->>>>>        int num_zero_pages = 0, num_filled_pages = 0;
->>>>> -    void *kaddr;
->>>>>        int i;
->>>>>        for (i = 0; i < folio_nr_pages(folio); i++) {
->>>>> -        kaddr = kmap_local_folio(folio, i * PAGE_SIZE);
->>>>> -        if (!memchr_inv(kaddr, 0, PAGE_SIZE)) {
->>>>> -            num_zero_pages++;
->>>>> -            if (num_zero_pages > khugepaged_max_ptes_none) {
->>>>> -                kunmap_local(kaddr);
->>>>> +        if (pages_identical(folio_page(folio, i), ZERO_PAGE(0))) {
->>>>> +            if (++num_zero_pages > khugepaged_max_ptes_none)
->>>>>                    return true;
->>>>
->>>> I wonder what the overhead of doing a memcmp() vs memchr_inv() is. The
->>>> former will need to read from two places. If it's noticeable, it would
->>>> affect architectures that don't have an MTE equivalent.
->>>>
->>>> Alternatively we could introduce something like folio_has_metadata()
->>>> which on arm64 simply checks PG_mte_tagged.
->>>
->>> We discussed something similar in the other thread (I suggested
->>> page_is_mergable()). I'd prefer to use pages_identical() for now, so 
->>> we have
->>> the same logic here and in ksm code.
->>>
->>> (this patch here almost looks like a cleanup :) )
->>>
->>> If this becomes a problem, what we could do is in pages_identical() 
->>> would be
->>> simply doing the memchr_inv() in case is_zero_pfn(). KSM might 
->>> benefit from
->>> that as well when merging with the shared zeropage through
->>> try_to_merge_with_zero_page().
->>
->> Yes, we can always optimise it later.
->>
->> I just realised that on arm64 with MTE we won't get any merging with the
->> zero page even if the user page isn't mapped with PROT_MTE. In
->> cpu_enable_mte() we zero the tags in the zero page and set
->> PG_mte_tagged. The reason is that we want to use the zero page with
->> PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
->> memcmp_pages() messed up KSM merging with the zero page even before this
->> patch.
->>
->> The MTE tag setting evolved a bit over time with some locking using PG_*
->> flags to avoid a set_pte_at() race trying to initialise the tags on the
->> same page. We also moved the swap restoring to arch_swap_restore()
->> rather than the set_pte_at() path. So it is safe now to merge with the
->> zero page if the other page isn't tagged. A subsequent set_pte_at()
->> attempting to clear the tags would notice that the zero page is already
->> tagged.
->>
->> We could go a step further and add tag comparison (I had some code
->> around) but I think the quick fix is to just not treat the zero page as
->> tagged.
-> 
-> I assume any tag changes would result in CoW.
+It sounds like a pain to open code all this logic in every pkvm
+driver? How many do you have?
 
-Right, I did a test and confirmed that any attempt to change
-tags on the shared zero page results in a Copy-on-Write, as
-expected ;)
-
-> 
-> It would be interesting to know if there are use cases with VMs or other 
-> workloads where that could be beneficial with KSM.
-> 
->> Not fully tested yet:
->>
->> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
->> index e5e773844889..72a1dfc54659 100644
->> --- a/arch/arm64/kernel/mte.c
->> +++ b/arch/arm64/kernel/mte.c
->> @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page 
->> *page2)
->>   {
->>       char *addr1, *addr2;
->>       int ret;
->> +    bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
->> +    bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
->>       addr1 = page_address(page1);
->>       addr2 = page_address(page2);
->> @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page 
->> *page2)
->>       /*
->>        * If the page content is identical but at least one of the 
->> pages is
->> -     * tagged, return non-zero to avoid KSM merging. If only one of the
->> -     * pages is tagged, __set_ptes() may zero or change the tags of the
->> -     * other page via mte_sync_tags().
->> +     * tagged, return non-zero to avoid KSM merging. Ignore the zero 
->> page
->> +     * since it is always tagged with the tags cleared.
->>        */
->> -    if (page_mte_tagged(page1) || page_mte_tagged(page2))
->> +    if (page1_tagged || page2_tagged)
->>           return addr1 != addr2;
-> 
-> That looks reasonable to me.
-> 
-> @Lance as you had a test setup, could you give this a try as well with 
-> KSM shared zeropage deduplication enabled whether it now works as 
-> expected as well?
-
-This works as expected. Both KSM (with use_zero_pages enabled) and
-the THP shrinker are now able to successfully merge zero-filled
-pages with the shared zero page, as long as those pages are not
-mapped with PROT_MTE.
-
-> 
-> Then, this should likely be an independent fix.
-
-@Catalin could you send a real patch?
-
+Jason
 
