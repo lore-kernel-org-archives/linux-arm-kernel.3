@@ -4,94 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C1E0CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 06:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ACBCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 06:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otbxpskZQ2jszr6scN/t0l115iHPynAVTy5cD9xe/9s=; b=vWZcpGJyZIZ3U6jmmPJy2tjXuP
-	Yp4WVmS26ebI5XuGfuUfXzJ9XJnZyvGFjwITwn/3g6HiZXgBwnpFRuMt8OqtK5s8K8M7vjf3PDVo6
-	z7YCBFjLHO1GdgP9RZP1BSS2hL3IjhRMpIr2pk6LDEMTP1M/WwtNW9dSs35WGlO5pny5R/xGdgki2
-	H0Hhe3MFF/Ak2a+2C41zqgY62lHOMOAfQLw6v4GJt65pC8w0hdEQoJK1hxilFA/Ivtettj0itwOvF
-	1znNJUwQNRH98H/Pc7m1B0xQ/8qNztb3xwi49xAOIjEftMYRenBf1OSRFkYpds2EQgkQclCvyg9f7
-	A2cjHHoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sC1QU0KNWf7SJ3Z+JWpO5Q9pbVL4JNbALTKscLwpqa8=; b=oc4vlZBxaws0PIVXt6q8P9/n36
+	dUdkqewi/uWHj2nm1JNzNE8p9pJvqWGzqgJI2Gy7FbQ/3xVF2aH6ZozR0050x6a7YuxSea95YlYi6
+	oNPO5qxeMnhtqbyBJfBrsmLSpU04iDTYHR+J/mf0v5Xbz3OqVc93dKM6TxZtmruRm45+JEtCwjJBE
+	IP/T879WAtcwLbGmf2uocjMlkkNjJKHw3owiRye+3WnBl5uuqf1J/GR8Hz4Rm6p5oJXiwm5oITIBK
+	MIqc1xz4HtJ0LtKUVGbZoc4vdJrQvO9pQ8sf4BM21494drO8rVQE9jpJaKVl6Kgmg19WqXXau9vcO
+	sLrIQtjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0wGE-0000000CXi5-1lld;
-	Tue, 23 Sep 2025 06:12:22 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1v0wnj-0000000CbNA-1tHo;
+	Tue, 23 Sep 2025 06:46:59 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0wGB-0000000CXfO-2KPu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 06:12:21 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-34049023e98so734967fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Sep 2025 23:12:15 -0700 (PDT)
+	id 1v0wng-0000000CbLF-3PzL;
+	Tue, 23 Sep 2025 06:46:58 +0000
+X-UUID: 15ce1fa6984911f0a52f393f94899d25-20250922
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=sC1QU0KNWf7SJ3Z+JWpO5Q9pbVL4JNbALTKscLwpqa8=;
+	b=sqIyEaY3q9KHA9vxYKuMdSt6OnD/io51huatAdKTdcGYTq9pKCycZ30o4+0NDFgXtTPO1odYIXGhrT6tJ8klJXjPCUc7Xxl7VNJUfaTswHPjlm5k9JOtlfUur1cfs98RW6ZU9ZGuvuK9d20EztHt1Gsvdj7GKTGHfCZR86EhWFE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.4,REQID:f1e5ba4b-e5bd-4383-92b9-017582c21a68,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:1ca6b93,CLOUDID:53bb97f8-ebfe-43c9-88c9-80cb93f22ca4,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:n
+	il,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC
+	:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 15ce1fa6984911f0a52f393f94899d25-20250922
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2106776276; Mon, 22 Sep 2025 23:46:51 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Tue, 23 Sep 2025 14:46:48 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Tue, 23 Sep 2025 14:46:47 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=emrTZ16ehnsnFtcqRDDQiRS3BtWMBINpEnX7FfYukJzD6sr4gb6iXCC3m+51hBRMv+7CsUcbKIl5yHQPcmvp1d23kZwql0vyyCURZRUJAp7ggbC/CKjmFIukn0WQa2Ki4/SXCfzu3ceNxcR7dg2mCiEJVnzYXcsHGjsP70qonlclovLULFbJVagmUixeXM8cRI8t7dmwakoJDwFTVfa5aQtEHnmlXCQwKKGHr5eYaX9QSn1qzzczmo9Hjjey/MNKMHwGlCtdk7SHp+jyLmarbMFpHAEGvQk/u00XadS5LLrn59e15eGn3VZ4ee3mj6nRZ996Ww/sGaegqgYhCfHxIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sC1QU0KNWf7SJ3Z+JWpO5Q9pbVL4JNbALTKscLwpqa8=;
+ b=jd3iZy9+9gH1KGci8irCuWAczJt5gU4NUWXzcICMuwFQuYeE+ytXVrTrg4hAQegn38Px56O47HlW9ZEqFVz5MQ2FifmTpnIjukArmv03eaJ9fcqbMf5GH6Yy8SQ6gmOct8QnPjXCm+pNFAkiSKKQEs3qSm/mYGjX/7gs3gtnL0xz5bI3dDVnnEc5+A3gJ/yCnclSGf716hEIC3UUOA+9drJfg3xpmu5ACTNOP1fle5qbwTXDexEXTvVzMG8vP1mX3JecFDBvSgqt0+tfeyljjO3e2G19UGUnANqZxqA/kmR3SxQqn3m+K5gRcw1JxOrMLU8r1uXSFOEPD8BInMECWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1758607934; x=1759212734; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=otbxpskZQ2jszr6scN/t0l115iHPynAVTy5cD9xe/9s=;
-        b=JTQpaf+VlZ+YkEzaOHOPPzk5jcwchgsUUskQiESCCTqlCZkjwR3S6e6MC1BhMDz+FA
-         ibsxg22EAY4sRs489rZnDCjfmYN9/HXIXgIWT5IPiYKhygk51NFHG85AfP1Tx2w4nDRA
-         BIcvMKOjQDKsIIVHJBTZOzNWNFJbrQIak9GeQ+bfy1J+nJ4xhUQMVHvG7clPiq5gXdAd
-         1y7/8gTDUKrksi1Zv6o+fwSaiql2okY2QzWDZeZIRO4WcKgI2JLUjlvu3i4BwdkPN65j
-         I58/jB2ieG6f5uinhN2i2m52jsbkAm+Ca6BO1iPHz62hkIhNXQ/F9MXhKFBKls6Um35s
-         wdCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758607934; x=1759212734;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=otbxpskZQ2jszr6scN/t0l115iHPynAVTy5cD9xe/9s=;
-        b=UHokKdBISKSkpYqCqknxX9M0pOVqecMN/PjSMEkETu0Ng8ASTk8/wgo6nvI7mTJhpk
-         sghAeWtnOfVRr/RqrLkeJXnFn/iPMGYFYs81ugQbUhuGFNyqYVKM23GvzDVUSHZMCREZ
-         L3urY9VWVBjgRtbWpN9XW5hIaZtwDXONn3B6bWdsIM82QFqnsXV6frdVqTIkeYOkWXgW
-         M3axK58t590l9c36ApKHq4/6njAqK3Cl6VMPfULy4q6KNg8XOfS13Cg7CR702iSYywj5
-         xa1d/3t/arF0IMSqg+IEIgqZkacj7b54BsdbnT/LITVVslVZ4WmQrfvXi5VLWKnLZqd7
-         qQjA==
-X-Forwarded-Encrypted: i=1; AJvYcCXmbgqyulXjTQ2Dcfzz0yGr0m+xoanyoAB9QBuXsCV4H/8uQnTJ63Tmd3rYImZhois/++abyOWWcZWlmrvE9v2l@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfYk1IhFP/BkiRejJKZjjNQMV16r53+1FS9T6+5aNKdHhmnQfi
-	HDUUthUuQSroCB65t6qQ5MfJhlHvT8L3TQpULWeWqnuZnUpNAfRWUSQM1sQMoEo4VZ1zdoUM0UZ
-	w9rq/benxbgYvJ2QBf4rwYimyeVFyEuAY/I7GZ/sGKw==
-X-Gm-Gg: ASbGncttEVTSqAfU/wBfp9ovyxTRzmp7vPVT4NSsvuS4lx7iAPZ9MSyZA3HsLc22zYU
-	gBYVxzW4wGZiiwnd5R4Pe5qd2SAT9G4lIfqYWFHSyOAkyLQRXkDviUtDcOu2C2KBCWENiGZyAxN
-	/4CDWOUSplSKigDmiEwtE2Udfy4rx6O249hJ/sZ1KpSL7UQOmroqoaToueeJ62Pe1tV+A6u3rYT
-	311lRaYZy+xW+1AZYWUx895nPc=
-X-Google-Smtp-Source: AGHT+IEIzs7n1nl91TIN023GUF0KUu3vYki89SdmZKUjsJa36BUfXx8eHWGEvtkrF3jtxJ7k3zA0vEDE+kHUSzoN6S4=
-X-Received: by 2002:a05:6870:6591:b0:2d6:245:a9b3 with SMTP id
- 586e51a60fabf-34c7b236bfemr746748fac.6.1758607934210; Mon, 22 Sep 2025
- 23:12:14 -0700 (PDT)
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sC1QU0KNWf7SJ3Z+JWpO5Q9pbVL4JNbALTKscLwpqa8=;
+ b=NFkn7nxRI3r9gol7ZpKBoyjX1RxroVn1x9DAvmfboWjQqnAijppnznj00ewAtLnXEMtjjUbYqsMusK+cVPV+59po+1LEIe7NzQa5vm+erixsUHJTuiovpNFWh3Ilgi4/RvwCrB3uWvMRe+vcH/nZf4+r3B5qeXO+D9mj3okoCLg=
+Received: from PSAPR03MB6363.apcprd03.prod.outlook.com (2603:1096:301:5f::10)
+ by SEZPR03MB7121.apcprd03.prod.outlook.com (2603:1096:101:e6::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.20; Tue, 23 Sep
+ 2025 06:46:42 +0000
+Received: from PSAPR03MB6363.apcprd03.prod.outlook.com
+ ([fe80::eb73:91b9:5905:e89f]) by PSAPR03MB6363.apcprd03.prod.outlook.com
+ ([fe80::eb73:91b9:5905:e89f%6]) with mapi id 15.20.9137.018; Tue, 23 Sep 2025
+ 06:46:41 +0000
+From: =?utf-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>
+To: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"wenst@chromium.org" <wenst@chromium.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "robh@kernel.org"
+	<robh@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
+Thread-Topic: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
+Thread-Index: AQHcEwpW87Sc9bspPUqF1pf91CjDQbSZyAEAgAa9iwA=
+Date: Tue, 23 Sep 2025 06:46:41 +0000
+Message-ID: <24a916ece6971d3ab9156dd8277eb23935e9cb13.camel@mediatek.com>
+References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
+	 <20250822021217.1598-3-jjian.zhou@mediatek.com>
+	 <CABb+yY16DPJwVTHap4F6n5YJoOJzQLtqKiCQ-2MUm67pzF8uXg@mail.gmail.com>
+In-Reply-To: <CABb+yY16DPJwVTHap4F6n5YJoOJzQLtqKiCQ-2MUm67pzF8uXg@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB6363:EE_|SEZPR03MB7121:EE_
+x-ms-office365-filtering-correlation-id: 13267847-2f94-4cdd-975b-08ddfa6cf42b
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?U0ZIV2hNVEdYRjhHclVvYWNDQmJQMk1MZDJ1S09LWDViUEoyeldZRnh6UjBk?=
+ =?utf-8?B?NUxVcWZOUFVzcTJEQkJ1L2w0VkVCVmJqenZxeEcybVAyOVJTM2FFVmFvVEwr?=
+ =?utf-8?B?TE1PMklhL2dXMHR5bkFUTllySXVGeWp6TDBSMFRTeW1TKzNpd0Z1N1laaG9X?=
+ =?utf-8?B?K1dwdlFTRE1wUVdvaC9FSHNuTXdFTCtzTU5zd2ZrRDl4YXhET09ONkhaL09S?=
+ =?utf-8?B?WGZ3VkVlSlE2QVNka09Pblh4RzJpa2Y1aE1reWdSUXdkZllhSzZKMHA5L09M?=
+ =?utf-8?B?d0tRVW00KzdQRGhWSUdkRXNRUmMzQmp3T2ZBeEY2d3E0Zm1IdlN2VUpBb1Ur?=
+ =?utf-8?B?bDI2NHhJTGVtcjlUWXY1a21MaUhFbU9SckM4Qm40VitURnJ1cmRWYnNtODlZ?=
+ =?utf-8?B?QnA5U1JXQjVWRXpySWtIcTBFNmhRSWpaQ3Fya0I3SjlpTWNPRjVBMDlJWUNp?=
+ =?utf-8?B?RHFxcEpING9KampPWmhNRE5HTWMwOGpyS1VZMTlra0lhOTkwNllTb0tCWXI1?=
+ =?utf-8?B?K29pdnpiaENScVhQV0dlRnlXLzFuS1NUaHRoM2doNVc0NTBtemxlajcyRmU1?=
+ =?utf-8?B?TzBHWWhuYUdwdnRoR05nSWNEdU9CaW1NT2RDdUY3VUpqUndyRkVSQ2RPb1hx?=
+ =?utf-8?B?WXh6WFJ0Q3hzVy9mVlNuYTllVmVoUnJVSzluc3B3Qmg3VHQ2bUxmd0pxOEtt?=
+ =?utf-8?B?ckltQjViNXVFdVBya1R5VkdqUmNYNDBUWDgxdmc4dElZS3NqeHRNQ2dLUzJz?=
+ =?utf-8?B?RFVHTFpNMzNTTm13MkFTcG04S2VEODhUbHZIRUJVbmE5QU9LUUh4WUJadXd6?=
+ =?utf-8?B?dEh5UkE5bG1XcHZtZmwySmMxYlhwSEQ4dkxUcWVnTGxRMm9qMW9BeVYzKzhK?=
+ =?utf-8?B?UlBIZTI2QSt3TUdJemJQeDlmc09peStpcnBZandUWkpRNy9HOHd1ekVSNFpk?=
+ =?utf-8?B?WDJ3MnMwWWNIS1RUTVRMN1doM2RFSkxSN1R4dHMvZ1pvc25IZlNOdmYxWWF1?=
+ =?utf-8?B?cStOU2FOcGRubXhuUFN0WnM0Sk10UXI0NXVoMHdEVGFlelprT1pvWHZUSjZS?=
+ =?utf-8?B?UkxkTVBzekZpbE1pcWJQdy9na2lXckQ0WURMWTBINkt6aEhndG83OWZmcUhs?=
+ =?utf-8?B?VWhscVdMNmZTTVFCNFRYeWptb2dNVWl4am9NVzJEclJWbUc3dnpJeWxaL1dO?=
+ =?utf-8?B?TjA5ajZxRXp4M0dVeWR0a0Erc1lhSlJnWkVIREVPN3dSYlBqM2FJYUdLY29o?=
+ =?utf-8?B?djdjam1BU1JGajBJSUlkMTVPaCs4VEc2dXNhRkFkRnc4eDlpSDZ3UzBnOGNn?=
+ =?utf-8?B?TkM0cmdBWVh3akJsclhlVTA2NjQ4ZlVPbmxISWVtYU45QmZMZ3JtaUdiL2l6?=
+ =?utf-8?B?bHAwNjFoTlEwSVhBQnFnQ0J4eWRpTjM3UEl6eEQxeFRBMjBVSjM5bDVQcGdj?=
+ =?utf-8?B?OVRyMlQ5OCtkeEdNeWp0dzRPZzl5T3RDdW5PS2ROOUdDL3o5T0NjVVkrTnAr?=
+ =?utf-8?B?dnUyVGQrUCt0WTkxbVVObHJyUVpzOW93NDJ4VHI1Tm4vaEtxcnhhODN6VS9S?=
+ =?utf-8?B?THBvUTdyLzFMeFZidzhBakF4cVZFSytPZzNQNk9iNkFMdXU2TEpWSFVuRjZz?=
+ =?utf-8?B?SVV3UXEyZzVKQXRsVmI5RjJTbmY2MmVLU1QwUVBhb2RYYXpZdlNNNmdWZlZX?=
+ =?utf-8?B?OEZwY1hLVjl6a0VrVWR2REVpcExuTi9KbEVJQlgrSnJOVkNSTWpDbkVnajQ0?=
+ =?utf-8?B?bHJtVVFLcE5ENVQwZHpNdmRsTklSeHNqYzhxWGVpQXVTcmdUNDMvclZxZHAr?=
+ =?utf-8?B?ZisyZGozRE5jdDNUZjJOVDdtNEdMTjhHRXNyV2Rma1lpS090OHNyR2wwWFpv?=
+ =?utf-8?B?L2JuS05FdVo3b0pDTUJGSkxnUlpiODVndGcxdDZqcnpacXYzcTc3eTJhM3B3?=
+ =?utf-8?Q?0wRjKSha5wc=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB6363.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OU5PWjVGWW9ON2dwYld3UDYyN0JxVitoYkUyWlF6M0hoU0Jtcm8veVhrbmoz?=
+ =?utf-8?B?YlZTaWxHTW1SZUFDTEdHcWk1YjBhZTMvQ0dPTVRaSnEwbjNybXF3a2hkdjFH?=
+ =?utf-8?B?Uy9CdldLa2ltSW1CcUwzN1ozOUdMazVkeXNhT0czajFINjdIaG9WWjE2TTk0?=
+ =?utf-8?B?aFMvMkh6VCtlamlKd1Mra0tqUXhGTlZ3b2hCTFVxUmx3TDhvcmJaWXdOYUZy?=
+ =?utf-8?B?MTdDODNmWDBTN2VHWURNSzVJaHhJUTRWMjh4b1JHNFNvTWZNcnYvOVR6SW9I?=
+ =?utf-8?B?YlV5a0lXRDRjcXgrNW9jWWdaL0FONXZZT2psNjU4blhKL1dMRTBTemR4Y0Qr?=
+ =?utf-8?B?Q1c4a3hjT3JINmIreVVGZWZzWHJOdDB3REViS3NIU1JHRGU1S05qZnE4UFd1?=
+ =?utf-8?B?TGlyNVQvQUFBM0VoK2tOTGJrdkJrRDZhUUliZUE5NWJQRDJMcnBrZDdrdkIv?=
+ =?utf-8?B?V2daZHJPQXNqajk0TjVydi9HbWlKazdETUY3Vm5wZzl1OHUvZG4yajh4N1hN?=
+ =?utf-8?B?cnJUM0hFRldhOWhpdnFXWFoxR2l0cC9HNnljSEhZWGZCa0xqUVpLTjd1Qkht?=
+ =?utf-8?B?WVNvT2hEN0VvRTdQWDFYQmg4SUZSNVNwZUI5b0dpVG02VEl5eHFSb3JpQzEw?=
+ =?utf-8?B?eDJBTEFTWEgrdVRhZEJDNmFQUElCZjIzSGUvejJxT2RYS0JhZXkzSERNSHVO?=
+ =?utf-8?B?VzdsVnVzMVlSMnpLaWdWdSsvMEFTdGV3VkIrOE1DMFRFU2F1dU5ncGxiQzE1?=
+ =?utf-8?B?S1BxMnFwckdITGVhL2ppWnRzZ21kQkVFblYrMTRoTDQxRkg4YWpibWRPM1M1?=
+ =?utf-8?B?NHErZHNkQjNPYlJrRUpEdGp3VWpaeWpTU2RwSGFpYVhjSFI2Uk5maWZad1FH?=
+ =?utf-8?B?Y0huVFJPOG1tK2ZyL084QVF1UDd4M2FIMk4rZzFZL0hXaVdsdkhRT2wrL3N5?=
+ =?utf-8?B?dkJkZ0owMFQ1bGhsQ3NONEdTK1IyTENsMjhVOTF4MnV6ekNub1JUMmdLN3N5?=
+ =?utf-8?B?QzdkNkoyTHY0K0NObVVUK3JHSjVJZEszL2NFRG95NkowMSszTndKM3FiSndQ?=
+ =?utf-8?B?Z1NmTGNJcHo4RFI1UE9aNEtMbTZMK0J4VGttRHZJM1lDcUlWa3dSTCtSR05N?=
+ =?utf-8?B?UEhMU3o1SG0wT1lJM2dVY3hXeGljak5jQ1loMy94cHpTbHA5QnpmMVNDUlQ1?=
+ =?utf-8?B?VTgzV0xuSmd1MGpJSEp4ZVYrTXBuVDBSYWJjOTdsVXFKajNLRmR6MFV6UzN6?=
+ =?utf-8?B?NnB3K0JpZzdHNHVjQUpvOTJEeGE1L1c4VHc5STdpYWNCbTZhVExPNHRKL2Vz?=
+ =?utf-8?B?WW8vZTcxT1N1dGd0S0dqWmQveGZlelBXNndaSGRJSkl2YXNhcGRmMHNrYitP?=
+ =?utf-8?B?RURZV1pNSFJRSnU4Qk1weWdrdDZHamlWTHYzZzBSdUo3djJuVGc0dGRQY05T?=
+ =?utf-8?B?eXBaSEIyUWdVVy8zNkk5YWcrODBnSWdtQWRnWFNQc2V1ejRNeUxwTXVhNm9h?=
+ =?utf-8?B?OFRQSnd2UkNWYjFxeVlabGlCeVpEQjVENVhMNXdnMlArZ1Q5dk5HRHdxMWdo?=
+ =?utf-8?B?dUJ2TThWdG1RQmtSVG5wbEFyZUJSeVV5c0dLSGkyRnJDMHFSY29Mdjc2Sjg5?=
+ =?utf-8?B?c3NHL2ZoZkYvK0NzM3NUNWttclNCY1NQVFFHT05wQ0k2ajdRaTFtcnFZMzZt?=
+ =?utf-8?B?WEE3d0JKcnJvbGNRUEVXU1dnZnQzaW54L3Qxb1pNU0NKL2djNU82UlVIVnZi?=
+ =?utf-8?B?aVhFZmhEUkEyVzg1ZlNJUkFubGJJR3VrYncwTGhRbHRHbkRCY1FPcERzdXov?=
+ =?utf-8?B?R2hXbFJMYmtsR3hycG0ycHo0MzNKTm1MM3BHK21EZ2szV1UwQkVJSGMxY21y?=
+ =?utf-8?B?UjhZbC9wbG9neDZncmp4UDdvVEZDUUFxRXdNeGhZRlloaHlpV0xybENTTFhO?=
+ =?utf-8?B?R05UUHplTy9aOENmZk1xdzZKYkFLRzIzTzM5a290R2JyM3F3TGpjYzlYWWla?=
+ =?utf-8?B?bnhlOGhRaUVMZ0NKTEU1bys0bENNYlY2QXBaNVowR3Nrcnk5TmY1dUpEZ1RE?=
+ =?utf-8?B?eGYrSFFoVHZINytHUUViM3c1ZzNTYUFlRktDUi9Gb1kxUnN2a1gyYnNjZ0pL?=
+ =?utf-8?B?MFFVNm5ueW5SdFZacmtkamVVWkp1UVB0Zmx6eTJoNTU5THZmZ3NVQllTTUFS?=
+ =?utf-8?B?UXc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <756A0D0C55583949AD5D757374C09FB4@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com> <20250327-counter_delegation-v5-12-1ee538468d1b@rivosinc.com>
-In-Reply-To: <20250327-counter_delegation-v5-12-1ee538468d1b@rivosinc.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Tue, 23 Sep 2025 14:12:03 +0800
-X-Gm-Features: AS18NWCpz0zRDa7TiIE6jd6ds8giKZBrxub6MRRgBhuLhQx-LIu9q4wyCfRpBus
-Message-ID: <CAEEQ3wm-TGcRFjmb7cw5K-M13CicwgJSLZrgY1KMZA5SgUjziw@mail.gmail.com>
-Subject: Re: [External] [PATCH v5 12/21] RISC-V: perf: Modify the counter
- discovery mechanism
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB6363.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13267847-2f94-4cdd-975b-08ddfa6cf42b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2025 06:46:41.5998
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: y51Xs5tr3ksPBeq1U/fbF9aOwFZXK2Fc+7NKznHkMoPTEANEMhUcuHvaxNVNeLMzy9LvXCsMyvPaoPw2ChiuyA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250922_231219_628630_7E77B607 
-X-CRM114-Status: GOOD (  40.44  )
+X-CRM114-CacheID: sfid-20250922_234656_885068_471E00C7 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,276 +216,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-On Fri, Mar 28, 2025 at 3:42=E2=80=AFAM Atish Patra <atishp@rivosinc.com> w=
-rote:
->
-> If both counter delegation and SBI PMU is present, the counter
-> delegation will be used for hardware pmu counters while the SBI PMU
-> will be used for firmware counters. Thus, the driver has to probe
-> the counters info via SBI PMU to distinguish the firmware counters.
->
-> The hybrid scheme also requires improvements of the informational
-> logging messages to indicate the user about underlying interface
-> used for each use case.
->
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_dev.c | 130 ++++++++++++++++++++++++++++++++-----=
-------
->  1 file changed, 96 insertions(+), 34 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 6cebbc16bfe4..c0397bd68b91 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -66,6 +66,20 @@ static bool sbi_v2_available;
->  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->  #define sbi_pmu_snapshot_available() \
->         static_branch_unlikely(&sbi_pmu_snapshot_available)
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
-> +
-> +/* Avoid unnecessary code patching in the one time booting path*/
-> +#define riscv_pmu_cdeleg_available_boot() \
-> +       static_key_enabled(&riscv_pmu_cdeleg_available)
-> +#define riscv_pmu_sbi_available_boot() \
-> +       static_key_enabled(&riscv_pmu_sbi_available)
-> +
-> +/* Perform a runtime code patching with static key */
-> +#define riscv_pmu_cdeleg_available() \
-> +       static_branch_unlikely(&riscv_pmu_cdeleg_available)
-> +#define riscv_pmu_sbi_available() \
-> +               static_branch_likely(&riscv_pmu_sbi_available)
->
->  static struct attribute *riscv_arch_formats_attr[] =3D {
->         &format_attr_event.attr,
-> @@ -88,7 +102,8 @@ static int sysctl_perf_user_access __read_mostly =3D S=
-YSCTL_USER_ACCESS;
->
->  /*
->   * This structure is SBI specific but counter delegation also require co=
-unter
-> - * width, csr mapping. Reuse it for now.
-> + * width, csr mapping. Reuse it for now we can have firmware counters fo=
-r
-> + * platfroms with counter delegation support.
->   * RISC-V doesn't have heterogeneous harts yet. This need to be part of
->   * per_cpu in case of harts with different pmu counters
->   */
-> @@ -100,6 +115,8 @@ static unsigned int riscv_pmu_irq;
->
->  /* Cache the available counters in a bitmask */
->  static unsigned long cmask;
-> +/* Cache the available firmware counters in another bitmask */
-> +static unsigned long firmware_cmask;
->
->  struct sbi_pmu_event_data {
->         union {
-> @@ -780,34 +797,38 @@ static int rvpmu_sbi_find_num_ctrs(void)
->                 return sbi_err_map_linux_errno(ret.error);
->  }
->
-> -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
-> +static u32 rvpmu_deleg_find_ctrs(void)
-> +{
-> +       /* TODO */
-> +       return 0;
-> +}
-> +
-> +static int rvpmu_sbi_get_ctrinfo(u32 nsbi_ctr, u32 *num_fw_ctr, u32 *num=
-_hw_ctr)
->  {
->         struct sbiret ret;
-> -       int i, num_hw_ctr =3D 0, num_fw_ctr =3D 0;
-> +       int i;
->         union sbi_pmu_ctr_info cinfo;
->
-> -       pmu_ctr_list =3D kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL)=
-;
-> -       if (!pmu_ctr_list)
-> -               return -ENOMEM;
-> -
-> -       for (i =3D 0; i < nctr; i++) {
-> +       for (i =3D 0; i < nsbi_ctr; i++) {
->                 ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_IN=
-FO, i, 0, 0, 0, 0, 0);
->                 if (ret.error)
->                         /* The logical counter ids are not expected to be=
- contiguous */
->                         continue;
->
-> -               *mask |=3D BIT(i);
-> -
->                 cinfo.value =3D ret.value;
-> -               if (cinfo.type =3D=3D SBI_PMU_CTR_TYPE_FW)
-> -                       num_fw_ctr++;
-> -               else
-> -                       num_hw_ctr++;
-> -               pmu_ctr_list[i].value =3D cinfo.value;
-> +               if (cinfo.type =3D=3D SBI_PMU_CTR_TYPE_FW) {
-> +                       /* Track firmware counters in a different mask */
-> +                       firmware_cmask |=3D BIT(i);
-> +                       pmu_ctr_list[i].value =3D cinfo.value;
-> +                       *num_fw_ctr =3D *num_fw_ctr + 1;
-> +               } else if (cinfo.type =3D=3D SBI_PMU_CTR_TYPE_HW &&
-> +                          !riscv_pmu_cdeleg_available_boot()) {
-> +                       *num_hw_ctr =3D *num_hw_ctr + 1;
-> +                       cmask |=3D BIT(i);
-> +                       pmu_ctr_list[i].value =3D cinfo.value;
-> +               }
->         }
->
-> -       pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num=
-_hw_ctr);
-> -
->         return 0;
->  }
->
-> @@ -1069,16 +1090,41 @@ static void rvpmu_ctr_stop(struct perf_event *eve=
-nt, unsigned long flag)
->         /* TODO: Counter delegation implementation */
->  }
->
-> -static int rvpmu_find_num_ctrs(void)
-> +static int rvpmu_find_ctrs(void)
->  {
-> -       return rvpmu_sbi_find_num_ctrs();
-> -       /* TODO: Counter delegation implementation */
-> -}
-> +       u32 num_sbi_counters =3D 0, num_deleg_counters =3D 0;
-> +       u32 num_hw_ctr =3D 0, num_fw_ctr =3D 0, num_ctr =3D 0;
-> +       /*
-> +        * We don't know how many firmware counters are available. Just a=
-llocate
-> +        * for maximum counters the driver can support. The default is 64=
- anyways.
-> +        */
-> +       pmu_ctr_list =3D kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list=
-),
-> +                              GFP_KERNEL);
-> +       if (!pmu_ctr_list)
-> +               return -ENOMEM;
->
-> -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
-> -{
-> -       return rvpmu_sbi_get_ctrinfo(nctr, mask);
-> -       /* TODO: Counter delegation implementation */
-> +       if (riscv_pmu_cdeleg_available_boot())
-> +               num_deleg_counters =3D rvpmu_deleg_find_ctrs();
-> +
-> +       /* This is required for firmware counters even if the above is tr=
-ue */
-> +       if (riscv_pmu_sbi_available_boot()) {
-> +               num_sbi_counters =3D rvpmu_sbi_find_num_ctrs();
-> +               /* cache all the information about counters now */
-> +               rvpmu_sbi_get_ctrinfo(num_sbi_counters, &num_hw_ctr, &num=
-_fw_ctr);
-> +       }
-> +
-> +       if (num_sbi_counters > RISCV_MAX_COUNTERS || num_deleg_counters >=
- RISCV_MAX_COUNTERS)
-> +               return -ENOSPC;
-> +
-> +       if (riscv_pmu_cdeleg_available_boot()) {
-> +               pr_info("%u firmware and %u hardware counters\n", num_fw_=
-ctr, num_deleg_counters);
-> +               num_ctr =3D num_fw_ctr + num_deleg_counters;
-> +       } else {
-> +               pr_info("%u firmware and %u hardware counters\n", num_fw_=
-ctr, num_hw_ctr);
-> +               num_ctr =3D num_sbi_counters;
-> +       }
-> +
-> +       return num_ctr;
->  }
->
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
-> @@ -1379,12 +1425,21 @@ static int rvpmu_device_probe(struct platform_dev=
-ice *pdev)
->         int ret =3D -ENODEV;
->         int num_counters;
->
-> -       pr_info("SBI PMU extension is available\n");
-> +       if (riscv_pmu_cdeleg_available_boot()) {
-> +               pr_info("hpmcounters will use the counter delegation ISA =
-extension\n");
-> +               if (riscv_pmu_sbi_available_boot())
-> +                       pr_info("Firmware counters will use SBI PMU exten=
-sion\n");
-> +               else
-> +                       pr_info("Firmware counters will not be available =
-as SBI PMU extension is not present\n");
-> +       } else if (riscv_pmu_sbi_available_boot()) {
-> +               pr_info("Both hpmcounters and firmware counters will use =
-SBI PMU extension\n");
-> +       }
-> +
->         pmu =3D riscv_pmu_alloc();
->         if (!pmu)
->                 return -ENOMEM;
->
-> -       num_counters =3D rvpmu_find_num_ctrs();
-> +       num_counters =3D rvpmu_find_ctrs();
->         if (num_counters < 0) {
->                 pr_err("SBI PMU extension doesn't provide any counters\n"=
-);
->                 goto out_free;
-> @@ -1396,9 +1451,6 @@ static int rvpmu_device_probe(struct platform_devic=
-e *pdev)
->                 pr_info("SBI returned more than maximum number of counter=
-s. Limiting the number of counters to %d\n", num_counters);
->         }
->
-> -       /* cache all the information about counters now */
-> -       if (rvpmu_get_ctrinfo(num_counters, &cmask))
-> -               goto out_free;
->
->         ret =3D rvpmu_setup_irqs(pmu, pdev);
->         if (ret < 0) {
-> @@ -1488,13 +1540,23 @@ static int __init rvpmu_devinit(void)
->         int ret;
->         struct platform_device *pdev;
->
-> -       if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> -           !sbi_probe_extension(SBI_EXT_PMU)) {
-> -               return 0;
-> -       }
-> +       if (sbi_spec_version >=3D sbi_mk_version(0, 3) &&
-> +           sbi_probe_extension(SBI_EXT_PMU))
-> +               static_branch_enable(&riscv_pmu_sbi_available);
->
->         if (sbi_spec_version >=3D sbi_mk_version(2, 0))
->                 sbi_v2_available =3D true;
-> +       /*
-> +        * We need all three extensions to be present to access the count=
-ers
-> +        * in S-mode via Supervisor Counter delegation.
-> +        */
-> +       if (riscv_isa_extension_available(NULL, SSCCFG) &&
-> +           riscv_isa_extension_available(NULL, SMCDELEG) &&
-
-Is there no need to check SMCDELEG (Machine-level) in the kernel, and
-can it be done directly via SSCCFG or sbi_probe_extension?
-The #define RISCV_ISA_EXT_SMCDELEG 98 also doesn't need to be defined
-in the kernel.
-
-> +           riscv_isa_extension_available(NULL, SSCSRIND))
-> +               static_branch_enable(&riscv_pmu_cdeleg_available);
-> +
-> +       if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_availabl=
-e_boot()))
-> +               return 0;
->
->         ret =3D cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
->                                       "perf/riscv/pmu:starting",
->
-> --
-> 2.43.0
->
->
-
-Thanks,
-Yunhui
+T24gVGh1LCAyMDI1LTA5LTE4IGF0IDE4OjUwIC0wNTAwLCBKYXNzaSBCcmFyIHdyb3RlOg0KPiBF
+eHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2ht
+ZW50cyB1bnRpbA0KPiB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRoZSBjb250ZW50
+Lg0KPiANCj4gDQo+IE9uIFRodSwgQXVnIDIxLCAyMDI1IGF0IDk6MTLigK9QTSBKamlhbiBaaG91
+IDxqamlhbi56aG91QG1lZGlhdGVrLmNvbT4NCj4gd3JvdGU6DQo+IA0KPiAuLi4uLg0KPiANCj4g
+PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPg0KPiA+ICsjaW5jbHVkZSA8bGludXgvb2YuaD4N
+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPg0KPiA+ICsjaW5jbHVkZSA8
+bGludXgvc2xhYi5oPg0KPiA+ICsNCj4gPiArc3RydWN0IG10a192Y3BfbWJveF9wcml2IHsNCj4g
+DQo+IE1heWJlICdtdGtfdmNwX21ib3gnIGlzIGEgbW9yZSBhcHByb3ByaWF0ZSBuYW1lID8NCj4g
+DQo+ID4gKyAgICAgICB2b2lkIF9faW9tZW0gKmJhc2U7DQo+ID4gKyAgICAgICBzdHJ1Y3QgZGV2
+aWNlICpkZXY7DQo+ID4gKyAgICAgICBzdHJ1Y3QgbWJveF9jb250cm9sbGVyIG1ib3g7DQo+ID4g
+KyAgICAgICBjb25zdCBzdHJ1Y3QgbXRrX3ZjcF9tYm94X2NmZyAqY2ZnOw0KPiA+ICsgICAgICAg
+c3RydWN0IG10a19pcGlfaW5mbyBpcGlfcmVjdjsNCj4gDQo+IE1heWJlIGFsc28gaGF2ZSAic3Ry
+dWN0IG1ib3hfY2hhbiBjaGFuWzFdOyAiIHNvIHRoYXQgeW91IGRvbid0IGhhdmUNCj4gdG8NCj4g
+YWxsb2NhdGUgb25lIGR1cmluZyB0aGUgcHJvYmUuDQo+IEFsc28gaWYgeW91IGhhdmUgICJzdHJ1
+Y3QgbWJveF9jb250cm9sbGVyIG1ib3g7IiBhcyB0aGUgZmlyc3QgbWVtYmVyLA0KPiB5b3UgY291
+bGQgc2ltcGx5IHR5cGVjYXN0IHRoYXQgdG8gZ2V0IHRoaXMgc3RydWN0dXJlLg0KPiBTb21ldGhp
+bmcgbGlrZSAic3RydWN0IG1wZnNfbWJveCIgaW4gbWFpbGJveC1tcGZzLmMNCj4gDQoNCg0KRVJS
+T1I6RkxFWElCTEVfQVJSQVk6IFVzZSBDOTkgZmxleGlibGUgYXJyYXlzIC0gc2VlIA0KaHR0cHM6
+Ly9kb2NzLmtlcm5lbC5vcmcvcHJvY2Vzcy9kZXByZWNhdGVkLmh0bWwjemVyby1sZW5ndGgtYW5k
+LW9uZS1lbGVtZW50LWFycmF5cw0KIzgxOiBGSUxFOiBkcml2ZXJzL21haWxib3gvbXRrLXZjcC1t
+YWlsYm94LmM6MjQ6DQorICAgICAgIHN0cnVjdCBtYm94X2NoYW4gY2hhbnNbMV07DQorfTsNCg0K
+Q2FuIHdlIGlnbm9yZSB0aGlzIGVycm9yPw0KDQo+IC4uLi4NCj4gPiArDQo+ID4gK3N0YXRpYyBz
+dHJ1Y3QgbWJveF9jaGFuICptdGtfdmNwX21ib3hfeGxhdGUoc3RydWN0IG1ib3hfY29udHJvbGxl
+cg0KPiA+ICptYm94LA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgY29uc3Qgc3RydWN0DQo+ID4gb2ZfcGhhbmRsZV9hcmdzICpzcCkNCj4gPiArew0KPiA+
+ICsgICAgICAgaWYgKHNwLT5hcmdzX2NvdW50KQ0KPiA+ICsgICAgICAgICAgICAgICByZXR1cm4g
+TlVMTDsNCj4gPiArDQo+ID4gKyAgICAgICByZXR1cm4gbWJveC0+Y2hhbnM7DQo+IA0KPiByZXR1
+cm4gJm1ib3gtPmNoYW5zWzBdICAgc2VlbXMgYmV0dGVyLg0KPiANCj4gdGhueA0K
 
