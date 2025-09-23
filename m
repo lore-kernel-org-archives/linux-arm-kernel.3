@@ -4,160 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33359CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 16:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D03D8CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 16:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L1QkzrTGCwMnovMp2G8JNLttd8EAbqBA5tlzUuHhOxE=; b=uRnzgFJlBXHG0BOphF75cVkrcU
-	dhmGpssJkzHFa8O+oZhdL9EIaKnZQhPHHptT9RUpLLFlt365OO32oyOarVLU7R97rY+3VVF51zWeZ
-	OfZtVXZjfO0/3xGqjtFKw6rQOE6vIvSs3Mo6DrEmmHpQnRbdHu/YR65SF/R2SfCEL5jXYi0/zDqJy
-	17uwGlXdjG7e6WsCyanOHh03CkSZ3Ry9gzf+Pqkr+45ByUeS8wKxWbs3sSSyLlYz49wEudTJbqVhO
-	KrggU2DzBfsr87WIQL/2aKai13+4usODbERR7gbRxVCkyO3yaFowBq0jmQyP/XLE0PWYV2xwUQiCp
-	ubcI964Q==;
+	bh=OK9LkqPWykV46GFtEz1xSRYnIgfA86idCpf9sqRFfwU=; b=mtqMTHJnvtDk2Vm+xYIKDuzxmA
+	cPM3sPPQhZVsF+J+WEeWgmHu4jzkV0wxqOuPQ1Ki/MMl/fV+pLLZ4oJ8tWTDhqX7cAazRtZ9jK3zo
+	uXHBZhaGCON5x62GQMof7VJOXXGo2g1uEsU8jH1MhOGyoncgfSWbThXQFfJJNpl+HsAgPUr6L1FWF
+	gpDAzVgHTeL6guFRanNTDzpxmgvKmEibm6nPXFlZnR0MCyjPNN3CdbTMdC2IjlP6ortnzm8MaCOjV
+	61korhiPuuTs78xtxyP6adBajY+UBCoiXysJN5w0+TzjZt9i/f6w+pRnIfpOlsdurDe3dEnF2ugfO
+	fZO3R+wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v163t-0000000EILc-3eGu;
-	Tue, 23 Sep 2025 16:40:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v163q-0000000EIKX-2kQl
+	id 1v165a-0000000EIZq-2ZnU;
+	Tue, 23 Sep 2025 16:42:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v165X-0000000EIZO-09B5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 16:40:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758645613;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=L1QkzrTGCwMnovMp2G8JNLttd8EAbqBA5tlzUuHhOxE=;
-	b=RVQzuncCBC/RdIu0dOF5UsXDI9dRgd/v++5jJL1xyhl2kr+bpQqKv42hhQvdrEdB9REsH3
-	DPVXKz2nzoYFJXcqA1Y70CxKnsoBIATxVuX4EmjZyVFDGbufpkogXf21ND4Tv3R1viI/bq
-	5OGEteMm+gIs4I8HaIpAnTSdbnYGtMA=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-161-8ci74oAAPmKnhMQC_5195A-1; Tue, 23 Sep 2025 12:40:11 -0400
-X-MC-Unique: 8ci74oAAPmKnhMQC_5195A-1
-X-Mimecast-MFC-AGG-ID: 8ci74oAAPmKnhMQC_5195A_1758645611
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3f44000639fso2906782f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 09:40:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758645610; x=1759250410;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L1QkzrTGCwMnovMp2G8JNLttd8EAbqBA5tlzUuHhOxE=;
-        b=dYvwV3JrQ6m2mSZq/QUCrDSDbmnQb8+X4jQqQtO5S9KCCoQex8vfgqfloIKnOebLFV
-         iqAEcHrQYYWnLXr1cUt8SuCqD2RhjyG/q2NiJhmvctnuDD2TNJYsAIkAucr8Ao/C8uoT
-         W0ymeIX4psa6aSqH+bk4g6IYP8iXho7afwZhbEWMR1OTxKivlD2fNFER0HlQJs54gtUu
-         W6Ruz4V0IdlPlsZX5wI+5TtJp5STtu41AXl8ftHYn0Drwor+p5ZKKHRK/Mf24ijdVl56
-         anf35mmfw/i2BGxhjbEWGQpS0MLwK0m0Yru1EeHkTDgNJlejNpb6lSfJtVCVVe3YlF3D
-         DFGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVRcDnbaybzjUKbZ4xBOrrdzqwdurtA5xj4yQtTIuKcORteKjD0hgT1zsT45ehJPS925Bl85oaZQ2zmCq/H6B/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA26WxkBaTF8ZMNF40h/kA0q+/ib4FaYxyRrMZOpGRnAlV6VLY
-	Cs2sR2rVRWn9zMJ8+kj+wZfLJ7iUscbMVewvG34st4k/SB0CM1B3mH6MCmGizngJ7dyG1Ovs8ng
-	Vq7Rd1QrTtb701/Xjq7AaokGx2GbVbKvBPLR3/u2IwQl9njMO2DKbPMYl9IFa2JV4ys1zYSljTB
-	VJ
-X-Gm-Gg: ASbGncuCD/kCYnjMm9JiEQCcelf/VkK4a/mXCr5CPQuZO6uhwojAYLYvcmrwvrDEP3Y
-	6i3fzV+HV6KlpPtMaH7EgQpllnsf76JbJZSN7FR2pHc2+TkHLVmymLF4Hdybp4QiPfsPzvZyZkW
-	O60ytShU6LZY0KXJGwcBqhQr2su6/hDPjagv0+3nfTPxNveTDSbyM1rjWymmHJtYVRqQrNF1/OM
-	ZxUrI3sOidre+r2G8LYbVw5bOXIDVW+aVreCoQ8W4MR5xZ3U6YhmZYosmMBl4k+n+ZZeM0wJ6Kt
-	GdWpi6aJXQ2CF8wyr83xK3YjdJzkaVeljQftkDw16S5+Epx5JtzYDuagphRWes5Ab7Th4bW+Dah
-	zZNQFJnZW/YtUoWUC5OykTttAMuNJYoKytaVFV1h87EBV4LXT0b7FPUfwBfNavdbixA==
-X-Received: by 2002:a05:6000:607:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-405c6c1be66mr2624126f8f.16.1758645610485;
-        Tue, 23 Sep 2025 09:40:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHlBeAzcC62U49+wQ4+N2FLeq7Mpxq7qWokF6XhNbNHyY0QVTf/R3ihiA3HW6AmAgoSQoynKg==
-X-Received: by 2002:a05:6000:607:b0:3e3:e7a0:1fec with SMTP id ffacd0b85a97d-405c6c1be66mr2624093f8f.16.1758645609976;
-        Tue, 23 Sep 2025 09:40:09 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4f:700:c9db:579f:8b2b:717c? (p200300d82f4f0700c9db579f8b2b717c.dip0.t-ipconnect.de. [2003:d8:2f4f:700:c9db:579f:8b2b:717c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3fcb01a9049sm9757269f8f.61.2025.09.23.09.40.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Sep 2025 09:40:09 -0700 (PDT)
-Message-ID: <45a7aa69-16df-4809-8ccd-c08c404d55cb@redhat.com>
-Date: Tue, 23 Sep 2025 18:40:06 +0200
+	Tue, 23 Sep 2025 16:42:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F13A497;
+	Tue, 23 Sep 2025 09:41:46 -0700 (PDT)
+Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8973B3F694;
+	Tue, 23 Sep 2025 09:41:49 -0700 (PDT)
+Message-ID: <9982847d-2878-4748-8c65-2d98a2e47396@arm.com>
+Date: Tue, 23 Sep 2025 17:41:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
- lorenzo.stoakes@oracle.com, usamaarif642@gmail.com, yuzhao@google.com,
- ziy@nvidia.com, baolin.wang@linux.alibaba.com, baohua@kernel.org,
- voidice@gmail.com, Liam.Howlett@oracle.com, cerasuolodomenico@gmail.com,
- hannes@cmpxchg.org, kaleshsingh@google.com, npache@redhat.com,
- riel@surriel.com, roman.gushchin@linux.dev, rppt@kernel.org,
- ryan.roberts@arm.com, dev.jain@arm.com, ryncsn@gmail.com,
- shakeel.butt@linux.dev, surenb@google.com, hughd@google.com,
- willy@infradead.org, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, apopple@nvidia.com, qun-wei.lin@mediatek.com,
- Andrew.Yang@mediatek.com, casper.li@mediatek.com,
- chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <aNGGUXLCn_bWlne5@arm.com> <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
- <aNKJ5glToE4hMhWA@arm.com> <aNLHexcNI53HQ46A@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <aNLHexcNI53HQ46A@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: agfducAD8nghJgrC4FOU8Vh8EUd7ZZH1Xq--3VTow3o_1758645611
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-8-james.morse@arm.com>
+ <20250911143544.000026aa@huawei.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20250911143544.000026aa@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_094014_781732_CAC6F23D 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20250923_094159_174044_65911149 
+X-CRM114-Status: GOOD (  52.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,66 +82,345 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.09.25 18:14, Catalin Marinas wrote:
-> On Tue, Sep 23, 2025 at 12:52:06PM +0100, Catalin Marinas wrote:
->> I just realised that on arm64 with MTE we won't get any merging with the
->> zero page even if the user page isn't mapped with PROT_MTE. In
->> cpu_enable_mte() we zero the tags in the zero page and set
->> PG_mte_tagged. The reason is that we want to use the zero page with
->> PROT_MTE mappings (until tag setting causes CoW). Hmm, the arm64
->> memcmp_pages() messed up KSM merging with the zero page even before this
->> patch.
-> [...]
->> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
->> index e5e773844889..72a1dfc54659 100644
->> --- a/arch/arm64/kernel/mte.c
->> +++ b/arch/arm64/kernel/mte.c
->> @@ -73,6 +73,8 @@ int memcmp_pages(struct page *page1, struct page *page2)
->>   {
->>   	char *addr1, *addr2;
->>   	int ret;
->> +	bool page1_tagged = page_mte_tagged(page1) && !is_zero_page(page1);
->> +	bool page2_tagged = page_mte_tagged(page2) && !is_zero_page(page2);
->>   
->>   	addr1 = page_address(page1);
->>   	addr2 = page_address(page2);
->> @@ -83,11 +85,10 @@ int memcmp_pages(struct page *page1, struct page *page2)
->>   
->>   	/*
->>   	 * If the page content is identical but at least one of the pages is
->> -	 * tagged, return non-zero to avoid KSM merging. If only one of the
->> -	 * pages is tagged, __set_ptes() may zero or change the tags of the
->> -	 * other page via mte_sync_tags().
->> +	 * tagged, return non-zero to avoid KSM merging. Ignore the zero page
->> +	 * since it is always tagged with the tags cleared.
->>   	 */
->> -	if (page_mte_tagged(page1) || page_mte_tagged(page2))
->> +	if (page1_tagged || page2_tagged)
->>   		return addr1 != addr2;
->>   
->>   	return ret;
+Hi Jonathan,
+
+On 11/09/2025 14:35, Jonathan Cameron wrote:
+> On Wed, 10 Sep 2025 20:42:47 +0000
+> James Morse <james.morse@arm.com> wrote:
 > 
-> Unrelated to this discussion, I got an internal report that Linux hangs
-> during boot with CONFIG_DEFERRED_STRUCT_PAGE_INIT because
-> try_page_mte_tagging() locks up on uninitialised page flags.
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+>> only be accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until
+>> the system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
+
+> Hi James,
 > 
-> Since we (always?) map the zero page as pte_special(), set_pte_at()
+> Various comments inline.  You can ignore the do/while(0)
+> one but I'll probably forget and send more grumpy comments about it ;)
 
-Yes. (if pte_special is implemented by the arch of course)
+I got exposed to this quite a lot in some other project - its better than a goto.
+Due to the heavy exposure, I don't think its odd - I'm just used to seeing it.
+(not sure its quite Stockholm syndrome yet)
 
-> won't check if the tags have to be initialised, so we can skip the
-> PG_mte_tagged altogether. We actually had this code for some time until
-> we introduced the pte_special() check in set_pte_at().
+
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 6487c511bdc6..93e563e1cce4 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
+>>  
+>>  config ARM64_MPAM
+>>  	bool "Enable support for MPAM"
+>> +	select ARM64_MPAM_DRIVER if EXPERT
 > 
-> So alternative patch that also fixes the deferred struct page init (on
-> the assumptions that the zero page is always mapped as pte_special():
+> To me that wants a comment as it's unusual.
+
+Sure - "# does nothing yet".
+This is to stop it being enabled in distros as it can't be used until the resctrl part is
+added.
+
+
+>> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+>> new file mode 100644
+>> index 000000000000..c30532a3a3a4
+>> --- /dev/null
+>> +++ b/drivers/resctrl/Kconfig
+>> @@ -0,0 +1,14 @@
+>> +menuconfig ARM64_MPAM_DRIVER
+>> +	bool "MPAM driver"
+>> +	depends on ARM64 && ARM64_MPAM && EXPERT
+>> +	help
+>> +	  MPAM driver for System IP, e,g. caches and memory controllers.
+>> +
+>> +if ARM64_MPAM_DRIVER
+>> +config ARM64_MPAM_DRIVER_DEBUG
+>> +	bool "Enable debug messages from the MPAM driver"
+>> +	depends on ARM64_MPAM_DRIVER
 > 
+> The depends on should make the if unnecessary.
 
-LGTM!
+Yup, that was a recent change and I didn't spot the duplication.
 
--- 
-Cheers
 
-David / dhildenb
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> new file mode 100644
+>> index 000000000000..efc4738e3b4d
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -0,0 +1,180 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+>> +
+>> +#include <linux/acpi.h>
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cacheinfo.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/device.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/gfp.h>
+>> +#include <linux/list.h>
+>> +#include <linux/lockdep.h>
+>> +#include <linux/mutex.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/printk.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/spinlock.h>
+>> +#include <linux/srcu.h>
+>> +#include <linux/types.h>
+> 
+>> +/*
+>> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+>> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+>> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+>> + * corresponding cache may also be powered off. By making accesses from
+>> + * one of those CPUs, we ensure this isn't the case.
+>> + */
+>> +static int update_msc_accessibility(struct mpam_msc *msc)
+>> +{
+>> +	u32 affinity_id;
+>> +	int err;
+>> +
+>> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
+>> +				       &affinity_id);
+>> +	if (err)
+>> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
+>> +	else
+>> +		acpi_pptt_get_cpus_from_container(affinity_id,
+>> +						  &msc->accessibility);
+>> +
+>> +	return 0;
+>> +
+>> +	return err;
+> 
+> Curious. I'd do a build test after each patch before v3. A couple of
+> places would have failed or given helpful warnings so far.
 
+Oddly - the compiler is quite happy with this. Not sure why.
+I've fixed it to return err.
+
+This was due to the last second rip-out of the DT support.
+
+
+>> +}
+> 
+>> +
+>> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +	int err;
+>> +	struct mpam_msc *msc;
+>> +	struct resource *msc_res;
+>> +	struct device *dev = &pdev->dev;
+>> +	void *plat_data = pdev->dev.platform_data;
+>> +
+>> +	mutex_lock(&mpam_list_lock);
+>> +	do {
+> 
+> I might well have moaned about this before, but I really dislike a do while(0)
+> if it doesn't fit on my screen (and my eyesight is poor so that's not this
+> many lines).  To me a non trivial case of this is almost always a place
+> where a '_do' function would have made it more readable. 
+
+I guess I'm very used to seeing this pattern, so I don't notice it.
+
+I've change this to a do_ thing with all this shoved in another function.
+
+
+> I'm also not a fan of scoped_guard() plus breaks because it feels like
+> it is dependent on an implementation detail but maybe it's clearer than this.
+
+(i.e. the cleanup stuff? I'd always prefer to see the free/unlock call)
+
+
+>> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +		if (!msc) {
+>> +			err = -ENOMEM;
+>> +			break;
+>> +		}
+>> +
+>> +		mutex_init(&msc->probe_lock);
+>> +		mutex_init(&msc->part_sel_lock);
+>> +		mutex_init(&msc->outer_mon_sel_lock);
+>> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+>> +		msc->id = pdev->id;
+>> +		msc->pdev = pdev;
+>> +		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+>> +		INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +		err = update_msc_accessibility(msc);
+>> +		if (err)
+>> +			break;
+>> +		if (cpumask_empty(&msc->accessibility)) {
+>> +			dev_err_once(dev, "MSC is not accessible from any CPU!");
+>> +			err = -EINVAL;
+>> +			break;
+>> +		}
+>> +
+>> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>> +					     &msc->pcc_subspace_id))
+>> +			msc->iface = MPAM_IFACE_MMIO;
+>> +		else
+>> +			msc->iface = MPAM_IFACE_PCC;
+>> +
+>> +		if (msc->iface == MPAM_IFACE_MMIO) {
+>> +			void __iomem *io;
+>> +
+>> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
+>> +								    &msc_res);
+>> +			if (IS_ERR(io)) {
+>> +				dev_err_once(dev, "Failed to map MSC base address\n");
+>> +				err = PTR_ERR(io);
+>> +				break;
+>> +			}
+>> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>> +			msc->mapped_hwpage = io;
+>> +		}
+>> +
+>> +		list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
+>> +		platform_set_drvdata(pdev, msc);
+>> +	} while (0);
+>> +	mutex_unlock(&mpam_list_lock);
+>> +
+>> +	if (!err) {
+>> +		/* Create RIS entries described by firmware */
+>> +		err = acpi_mpam_parse_resources(msc, plat_data);
+>> +	}
+>> +
+>> +	if (err && msc)
+>> +		mpam_msc_drv_remove(pdev);
+> 
+> Is it worth bothering to remove?  We failed probe anyway if we got here
+> and it's not expected to happen on real systems so I'd just leave it around
+> so that you can exit early above.
+
+Symmetry and the principle of least surprise.
+Ideally the probing code wouldn't need to unwind what it did, it can rely on the remove
+code to do the necessary. It was a patch from Carl Worth that did this as the
+unwind/remove code was duplication.
+
+I agree there is no error that requires it here, but later patches add things like debugfs
+entries that need removing before the struct mpam_msc memory can be free'd - potentially
+by the devm stuff if the probe function returns an error due to the firmware tables 'RIS'
+description being wonky.
+
+
+> I'm also not following why the msc check is relevant if you do want to do
+> this. Can only get here without msc if the allocation failed. Why would
+> we leave the driver loaded in only that case?
+
+Simply because the remove/destroy code goes dereferencing msc, so that is the one case
+that mustn't get in there. With your do_ version of the above this got simplified.
+
+
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> new file mode 100644
+>> index 000000000000..7c63d590fc98
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -0,0 +1,65 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +#ifndef MPAM_INTERNAL_H
+>> +#define MPAM_INTERNAL_H
+>> +
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/io.h>
+>> +#include <linux/mailbox_client.h>
+>> +#include <linux/mutex.h>
+> 
+> spinlock.h
+
+Fixed,
+
+
+>> +#include <linux/resctrl.h>
+> 
+> Not spotting anything rsctl yet.  So maybe this belongs later.
+
+There shouldn't be anything that depends on resctrl in this series - looks like
+this is a 2018 era bug in the way I carved this up!
+
+
+>> +#include <linux/sizes.h>
+>> +
+>> +struct mpam_msc {
+>> +	/* member of mpam_all_msc */
+>> +	struct list_head        all_msc_list;
+>> +
+>> +	int			id;
+> 
+> I'd follow (approx) include what you use principles to make later header
+> shuffling easier. So a forward def for this.
+
+-ENOPARSE
+
+I'm sure I'll work this out from your later comments.
+
+
+>> +	struct platform_device *pdev;
+>> +
+>> +	/* Not modified after mpam_is_enabled() becomes true */
+>> +	enum mpam_msc_iface	iface;
+>> +	u32			pcc_subspace_id;
+>> +	struct mbox_client	pcc_cl;
+>> +	struct pcc_mbox_chan	*pcc_chan;
+> 
+> Forward def or include acpi/pcc.h
+
+The PCC code got pulled later, and out of this series. I missed these bits.
+
+
+>> +	u32			nrdy_usec;
+>> +	cpumask_t		accessibility;
+>> +
+>> +	/*
+>> +	 * probe_lock is only taken during discovery. After discovery these
+>> +	 * properties become read-only and the lists are protected by SRCU.
+>> +	 */
+>> +	struct mutex		probe_lock;
+>> +	unsigned long		ris_idxs;
+>> +	u32			ris_max;
+>> +
+>> +	/* mpam_msc_ris of this component */
+>> +	struct list_head	ris;
+>> +
+>> +	/*
+>> +	 * part_sel_lock protects access to the MSC hardware registers that are
+>> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+>> +	 * by RIS).
+>> +	 * If needed, take msc->probe_lock first.
+>> +	 */
+>> +	struct mutex		part_sel_lock;
+>> +
+>> +	/*
+>> +	 * mon_sel_lock protects access to the MSC hardware registers that are
+>> +	 * affected by MPAMCFG_MON_SEL.
+>> +	 * If needed, take msc->probe_lock first.
+>> +	 */
+>> +	struct mutex		outer_mon_sel_lock;
+>> +	raw_spinlock_t		inner_mon_sel_lock;
+>> +	unsigned long		inner_mon_sel_flags;
+>> +
+>> +	void __iomem		*mapped_hwpage;
+>> +	size_t			mapped_hwpage_sz;
+>> +};
+>> +
+>> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>> +				   cpumask_t *affinity);
+> 
+> Where is this?
+
+Ugh, more bits of DT - this one is non-obvious because of the name.
+
+
+Thanks,
+
+James
 
