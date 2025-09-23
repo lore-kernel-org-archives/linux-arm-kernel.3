@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57275CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B53CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Sep 2025 09:55:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WkLeetlEiGsISzY1xWXkEm/5I5DPkQJHXZnw/D42BmA=; b=NBe/tg1SD7coV2CSd68P1FaQm/
-	8WnWKt3yukHdlEFsYClr+zprBM4SkAtDtYWhv7ZK3i3f8McrdZqnf3GvEvnY+loIKGCiPnw/xRnr8
-	W2He7aQQ33cJYt0YUeSoAy41IjCTpRo0pSie+J8uNPSO5zm0CjAGxFLU9NKqAsqfh9IaRW9TjUJqQ
-	Tl1HPrYQb8SU52huJxdA33edRl2RXJWYKCjVB2fgctWdsvWfEYRAp53cmgYswpIWHcrsV9KRJjJw+
-	TPv9OB8o3Vi31RpdxZGS+snFP1GoO6ZcNfhQTDSFrMumJlB/x68CSUWP3QQYyTTYX8yhENkcnhfHB
-	0QNQWjPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HB2ztpM/z/1aet2izgjZbRQv4OgflrqUwLmuY+sf8sY=; b=tY2sdSPiXzTQBPbVToSWTFOgiT
+	s+r52I86xYCzwwNLo+uSZDY3E7TjWNsUvmj8nJkiJy8DCqmrkcomARzifLmWYTLKPQeAJ3qL4nQgj
+	bDiDXknIc0ZJGz9JWJMoUloDbq9YujB+bUFSRXhr/7STRGiTz/e5HyKnz+wD1IxjjXo7QN5SbB2MB
+	1aD16+MSiGvO0QdcHY3GvOfpn7ddQpzWn4hVv2tFgtnEFlSrqxrUSsGaqiF0eo1/VaOf97q12AUFz
+	XSvJ/xOf+v13U+T1uKPFEiXwO6LZ0TavBnVJZ3kFHaIXxF0zOBQriQ5UeFvsuh10R6eCrVcGtONex
+	9+qOS+2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0zbC-0000000Cyjr-0gwq;
-	Tue, 23 Sep 2025 09:46:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1v0zjq-0000000CzYB-2sbr;
+	Tue, 23 Sep 2025 09:55:10 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v0zb8-0000000CyjU-33NL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Sep 2025 09:46:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1758620770; x=1790156770;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=4IC6kzCc94flTu4NXzbmBmmXB8gHOaFw4qBAx5wMWio=;
-  b=mlb5Sz9q+qfMrrzHVxsSNWAnha8moyisdmf45q7Zx4oyqcdkrP7B5B1N
-   SH4bqryorLkkOJ+JeyGM7OHvylbsUQD8Sh8UWhRVUF7OrPSxGVZoQM3M0
-   LhBrpLNyo+2DgCet3dVnpiABbgQ84PzBcHyCRMlv99TtAgA9CAfp7ZZji
-   9Z4oExDpYybCB0JByyq2oQC46NQXFJEoqzU0EQv3NyG2faokeeY+l4z9E
-   A9brxZab3nb7f3nzZNDou+r+mqOmIt+SxGALEJnqFdmuhlSVBptYkdJwc
-   isM5j7EgsGy2Dl6bP2Q4pYhJX0iDBrVTGqhmKc3zNa4Hfy97oGV7SjkzC
-   Q==;
-X-CSE-ConnectionGUID: revMr/fCT+KWP1FGF0svAw==
-X-CSE-MsgGUID: tyHQfLvdTb6WLP8gyUoRvw==
-X-IronPort-AV: E=Sophos;i="6.18,287,1751266800"; 
-   d="scan'208";a="47393017"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Sep 2025 02:46:09 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 23 Sep 2025 02:46:00 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 23 Sep 2025 02:45:56 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <linux@armlinux.org.uk>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<ardb@kernel.org>, <martin.petersen@oracle.com>, <mihai.sain@microchip.com>,
-	<ebiggers@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <manikandan.m@microchip.com>
-Subject: [PATCH] ARM: at91: at91_dt_defconfig: set MMC_SPI to module
-Date: Tue, 23 Sep 2025 15:15:52 +0530
-Message-ID: <20250923094552.430595-1-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
+	id 1v0zjo-0000000CzXQ-3PTe;
+	Tue, 23 Sep 2025 09:55:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758621306;
+	bh=6jkoZaLgcRgIvyAKD9Sgrmlisy0AVP4pRawO5HYe6i4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ENxgqdB20Q6egxrLJ/jdK12CrtpBRvuAat1f/ggJa6qUan0LopthbwJZcEUEIldxH
+	 Z+z24QYl5FDG+eLZMlpStEg8zJsONSfVc3AwsWl/bkPYIMtnj+0L8dht2s/XEABPmf
+	 hKDoVwkLkkLkU2VxsD86oLgOv2irwXqKu67WmoZYDDoygxhObV7PJzNoq0qHuuKVUn
+	 BkhiOgwB2oCqBNQuTNKY89DJ79AxAVehYMRFiRaxtxxwMTI+hsGnQ9kSyke3xPOnLz
+	 HPLCc8/OptlYTzrvS6YGnAjm9f9Sz5PxzvFioH3VJxmkM9GFPDHJRliu3UEsSjlK1H
+	 2WGmncA/N+s5A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E11BC17E0299;
+	Tue, 23 Sep 2025 11:55:05 +0200 (CEST)
+Message-ID: <2961fdbb-067a-4d03-a4fb-68ea54638724@collabora.com>
+Date: Tue, 23 Sep 2025 11:55:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] memory: mtk-smi: Add mt8189 support
+To: Zhengnan Chen <zhengnan.chen@mediatek.com>, Yong Wu
+ <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250919081014.14100-1-zhengnan.chen@mediatek.com>
+ <20250919081014.14100-3-zhengnan.chen@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250919081014.14100-3-zhengnan.chen@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_024611_213921_5A617FB3 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250923_025509_119517_BC3E3021 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +80,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change CONFIG_MMC_SPI from built-in to module in the
-at91_dt_defconfig. This allows the MMC over SPI driver to
-be loaded only when needed for WILC subsystem.
+Il 19/09/25 10:09, Zhengnan Chen ha scritto:
+> From: "zhengnan.chen" <zhengnan.chen@mediatek.com>
+> 
+> Add the necessary platform data and ostdl setting to enable support
+> for mt8189 smi.
+> 
+> Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
 
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
- arch/arm/configs/at91_dt_defconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
-index ff13e1ecf4bb..4f1153098b16 100644
---- a/arch/arm/configs/at91_dt_defconfig
-+++ b/arch/arm/configs/at91_dt_defconfig
-@@ -181,7 +181,7 @@ CONFIG_MMC_SDHCI=y
- CONFIG_MMC_SDHCI_PLTFM=y
- CONFIG_MMC_SDHCI_OF_AT91=y
- CONFIG_MMC_ATMELMCI=y
--CONFIG_MMC_SPI=y
-+CONFIG_MMC_SPI=m
- CONFIG_NEW_LEDS=y
- CONFIG_LEDS_CLASS=y
- CONFIG_LEDS_GPIO=y
--- 
-2.25.1
 
 
