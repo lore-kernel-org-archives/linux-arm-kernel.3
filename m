@@ -4,158 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225E4CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 15:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB263CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 15:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yy7QfNU/dr21B0GTzI1r5r6GPyFzbA3t4UoCGhN05Xs=; b=3j5le2evw3twjyW2PXtYtcsf7S
-	5NWHkSd59pxKqhiEZQi+u5kgTZ7+zkWo0/i+paU14v6+XupXsewSzTCIKmXN1qJTFRC0xEdq480RN
-	xH7Jto+/e0UliQl8lccRt7J6XTeSlJJsj7hfYcB/rvtePt5bjdope6k2kWw7eYOIIdzDPAekXbdMw
-	mURx/WsIO5OFrAH8Upk6rwN68CkremG0Cvm5hTWoeZSRnc+zGmHkf4R2XQX6RsKSFdMiny7I+idkz
-	sksz6WwLPSRmXgC+/3LwxUI+H+PofxeVB/vdpSuwu2JF8rgqMRmWrjdZHIOGKN+8ji+EIh4ATSRWw
-	KR6YKKsA==;
+	bh=/ws36E4l6sDZ0NgTD31F0HXvzlU5qFwYdqyOPAZNL3c=; b=iAqOhZ/RJGX1dVBMdKzGiZYJ4m
+	nmJ+85oTjKiV4FpIOn6br7LQ4LgN3CvTse6tqyJ9ghUh1AMh55UNhL7GMLPdbK6l+Sm7/3uOpyfDB
+	0b+r7Y1PMxIhKxcLImBV5AL47Q2ro1smrzkVJ69XRBvTFVQtsy4fEmi0pvyUYEAj72x/hj2e93Cei
+	t5wySghhaAXiiUBIXpLwdoe6uNa8q97Z15ZeS4u24P4bXJ7Fhvx8Nzw9tC0t063jEbIAIuT0hXBIF
+	d8HceHoszRO1jRo+L8qys/biEgEGlxdJ4HrLFTz715Do1FjCU8YtsMjdqdIcpnfTmuD93Z51wsW5v
+	AHoXSTfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RWU-00000001KJT-43ug;
-	Wed, 24 Sep 2025 15:35:14 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v1RoU-00000001Syo-1JrV;
+	Wed, 24 Sep 2025 15:53:50 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RWS-00000001KHv-2Xar
+	id 1v1RoS-00000001Sx4-23ug
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 15:35:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XnvssiBXu+iigG4FyXwh7nDmBDPRnaZTy84UN20IBUHqVWZSDojJmQZ0ynsEkzox7lQAqlHX7dyrjLMAcvRbPSsaYGVX+VyodJHOkdGs3HuDz6auUzQQV2GFFsRwgP0rpDvLzEUJhFWMSENoHiHyE1DK7S/3I40b1HbW1LawI34uhtJP9/WTMCa+c3FQtIA5OwLgudKpChz8cw7Gkk69JULnCUZ+NrRAzOYTLwpYrl9aEKHVh28pzmIXDXfOR6b+bCzHCJka2hhnCRh959/r5Iv2qZ+7q8nCDhICNhmxUQLyGvnmtokqciIbs0LTA2k4n9YPnvcQe/3yKtj+SFxZrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yy7QfNU/dr21B0GTzI1r5r6GPyFzbA3t4UoCGhN05Xs=;
- b=BGEcnh16DQdBAMCH9UNb/GEuiTDkKjUODxkWplJ/dleC6ysckvXcrBES3r5xj0W4g5ddsTHte6OKDzRplwBuMQJYOHwFmRE35/NnguO/gVNyOoyKNoFm7JOUuqzoPMnPH6Gc6OAKktacf9KwTsGTJ/Xcp7KDwTI2dzYBnnrZbzJbfLg13dt66wBJbC9Eb2cw4kXMBsPzes23rdLUqKz8oCsVje9+wIMsXkKeXS7Jgis/uIge9jC3jlcwb9OfnT53Bwr4f5qw5dw3EDSxWK8sDLnwopRV3TDXPf/fz3YAhRw5HEaDUU4pRgKK1W5EMbrmv8JD7kX9cdUmwhThn0v1Vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yy7QfNU/dr21B0GTzI1r5r6GPyFzbA3t4UoCGhN05Xs=;
- b=E3JevCyqxeh9vTzjuZkcyFQfCI+wqoWIe2LzuHRYKW7C5k3xJegcpp1BQhVF67mmMJvhGsTLQrlmAI+7XyXCQkdzd+MG/1NRXjzMnWUD11y6kG6JjFNqC+rGX+35ZhX8E00bQ+3x0Jh/SnQ/UPpag+QWdidzO9zBdFWKZU2hG4G1/drGhtzphf2H3o1P8Y2+5tt/JgVudo8FaMQdyml1LUGSCgSCajvkS0/VOiQXJvK0vCEFPM1NfssSZrLgI/KTK9ejEbyuzGN6+/Tvb7I+CbD7azrtJvGuwUfRf64YwUd1sDtEZgg2nQP1b+KR1rOuUAHEDdRGEx8GR5vULVTmCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8740.eurprd04.prod.outlook.com (2603:10a6:20b:42d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Wed, 24 Sep
- 2025 15:35:06 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Wed, 24 Sep 2025
- 15:35:06 +0000
-Date: Thu, 25 Sep 2025 00:46:50 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v2 0/6] remoteproc: imx_rproc: Use device managed API to
- clean up the driver
-Message-ID: <20250924164650.GA2711@nxa18884-linux.ap.freescale.net>
-References: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0007.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::6) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 24 Sep 2025 15:53:49 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-eaf8e473ddcso1125721276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:53:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758729227; x=1759334027; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ws36E4l6sDZ0NgTD31F0HXvzlU5qFwYdqyOPAZNL3c=;
+        b=E8AJIDTTql/HXs+2DJLM6/F7ylyatEoYnVpPbQNYJ0YFMiKDb0hGMHYQXRg71MDSJh
+         v4U7FRUw4cbt1wkcrybJ29CNWdpSn4hkyZ6t+Z4DotveugRwwkjmXHkSrw9+jXkbnXuZ
+         1Rtla/nwAyi6Pn/5z6dOiE/nZsv62vnGyiBdyFngAqbct2dAJ59Rwdd5mqtsqlJcUvqJ
+         vFHxtXfJ2MZt4GyXFIM43Aud2L3Qm4BGpjEUPOw6xxUr74EjGi+MAoUqGRM8CaSe3y/R
+         eBE2bU4RvWkY1lgf6YSvBddQZJe3HtK5nw4BywGLJXxoJ7ZV49EPtAXysqg72XsXYTmU
+         9dwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758729227; x=1759334027;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/ws36E4l6sDZ0NgTD31F0HXvzlU5qFwYdqyOPAZNL3c=;
+        b=qjkDr+LtqXR204rb9ywrnkcoDVYYbYI48hZSPPTQd8Hz341cBjYitZ1aPYpyteIdJQ
+         aI0bYHeSGr+CUJTRmbSSFC/uj22NO/shM6P09cEq4yDWnMgp5izaawGJgOiEcV3g0sGi
+         0W+hYRgeCsbrZvUsEMLfDSWDhCpABBw+Wfc9aVfJeWfre857BR6zu2GhwGot6eJQKlJu
+         rTTj50D7mgCmkVjQZ7nq50cIupgmz5F8aTZfBBGK+L6pGkD7kXcSZpHOHN7G+Pyaikh7
+         R7fh4xdWWbEAg9pNXdlhl4g9ARW4lWTGc/jhubj3EmQbSebj8ZVH94Dmg3OZtTW5u/J2
+         4rKw==
+X-Forwarded-Encrypted: i=1; AJvYcCUqqNQLuBqMw4ipWzggGz5C+1KYM0WRqqSzEMopwKL8BnozNfCVBb+l+jcgNCpR2OA+drSUcbsAliS+31FxCjdr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSQdj8vcVc6dPWPUVjLNXRD+7RUROPfchZIj6FEjwj3Wj2MQIV
+	qt8Z8hCV1p1c5TjbFhv7ELAlzqIKAqnLcTp7aqiQZMrrkLdDFeQokKs0SMGEOZVBxXoP9e3OWJ7
+	gj4fLIFb/5ZpAq2E7Z884xVUogjadylJfLsBpk4uORQ==
+X-Gm-Gg: ASbGncuI2nJh3khYGHSHKhXkszjqdogq9B2/0PdkllU6Oqr47rkzIKXNfJpaNNzUNSs
+	7o8JyNsnOf4dC5rW55tYkhjYjDsPtwg3ennuyJBh+aiqIo9uuV49w0x/WKKSjCX/pNGDDAiF1SD
+	IUuIL9mSOrRm59a1S8ILa8vy4kDW4rZVZyfB1drc/lTabDYW85+xCenzF7Xdlgg3R8QW8fTtTCN
+	S7uV5AWkcGgDT4n7nr5maucE36GitfnVB8eVg==
+X-Google-Smtp-Source: AGHT+IG/0HOlWN+Opy8mk1rlXCX6lREWcCWPZFITT3xAhxjSLe4cF9GNTsFZhuk9Ow8vzBprt7QptbBAX/tQMBdgAFw=
+X-Received: by 2002:a05:690e:1648:b0:633:b317:9cea with SMTP id
+ 956f58d0204a3-6361a90013cmr66977d50.8.1758729226717; Wed, 24 Sep 2025
+ 08:53:46 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8740:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40bff54d-06f1-4ab9-1aa2-08ddfb7ff027
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mNq8M3F9lQNFuisaGdZjLcy2otfKO9T5Bl9xm7piFPJ4k71+8MtI4+Sjl8zf?=
- =?us-ascii?Q?3lrNmlyjIVh09cenijw3euN+4XV6XiyaL2zN6pctZDc+SIeChELwX4UMb5cf?=
- =?us-ascii?Q?51YFrdfSYw7vezZ3e01IWT2zXrLwH/STHptZF3uJHqw3FaxQVyqSUpgm9Q6E?=
- =?us-ascii?Q?vyhA2vIhh3/QewsyMjekK+be/gefVOVsqSbHkFyW6GuQ+TFZzWsUwj5X7X+h?=
- =?us-ascii?Q?LEe+iC+QzmdoAO5yhd1X2ntXRFEbOFr2l6aNLdbJXzURhe5//+pDTKC0SG8T?=
- =?us-ascii?Q?3BBWtsjhHIvP/CenGxzYbJX7iwG81rboEbu9UWGXrgjOTBsXUniIzHeVcVru?=
- =?us-ascii?Q?znRCPrynLOVhoQ5PdgZzyK4Zcs7qk0I3pZiUQYm/mEpmmRg3ny+NvC4tO8rx?=
- =?us-ascii?Q?Xq+6r5J/MfGAO0geOibmCLBFio8d2InRUDKcrooYUoR72+/UHRDw0+BqfOcO?=
- =?us-ascii?Q?iadvOgbwtueXiLteaST798mmbEQUBLOqZzP6mVc1ZCAzjG5XJ+LMZPXoOvAJ?=
- =?us-ascii?Q?4BmUZ4R7MhdW+K2IPOFWxtgOaC+e68tU7xi/5lfkIUgmvYOAKqm+lug3fSKb?=
- =?us-ascii?Q?wGvEDmlVvGzJ95mGgDyrqQDkGd7R0LLH1XpSbJTWClKP/22dnox0fXVAoSoh?=
- =?us-ascii?Q?pvTIpOuL/xy6QYzkM3twxPzphFw6heu0YiK6EzKdOF3DHLO86CXbPKWrplHw?=
- =?us-ascii?Q?2wSpnsv15t9MBT+a7JHx56I16vkpoiI6N0KwdH8xJaY1vfW62PIbE0s+UeT3?=
- =?us-ascii?Q?UtNUyyp6aIOPUH2dfO6Z2zM1CZPh+zCn7xucV+fUJc04Vi4qJsBe0sJkefic?=
- =?us-ascii?Q?QX84/KSbnpApGcC3U1GGQ3s8tm0ryLBndBvHs6MVoO6MdT4QP3WQoh6GwgKx?=
- =?us-ascii?Q?H5ocGNniZBI7a5e09qxifAnLzdGxHLi8qQ5eQo10kZHohguGPmMOtnCixTuQ?=
- =?us-ascii?Q?iHbuvUtzIuIo3+iT0pwK0kMlMRbLzlVqILa1x8E+GGPBTcwTjUbBP0aAx2i9?=
- =?us-ascii?Q?iaI4bDCSr8AvWxgc6vTITRj25HD8lPP3zNmrItSBOX2bt1U8s+f/UUhtE97G?=
- =?us-ascii?Q?4tcmuhTQhYcmMcQzcVqdOY8Jpv7el89zRhfk6dtgDp4hmGDntD1F7klVAdZE?=
- =?us-ascii?Q?UJwPOh7tYvc5yMzMsSAwSBa5zdC/XAXcwRgEWasQTF6qKd+Zypqd3MM89GJT?=
- =?us-ascii?Q?ibtX12R3A19bmS9Maiv3nvFivQ+t7QWWwyRo69JMXKqfcXXeBMN2qimc9Egw?=
- =?us-ascii?Q?GEP6RZ24qb/v78SYiCADBVtql9nsxcxxoZ6Pe1zvupuiTSlyvcQaUPh40saX?=
- =?us-ascii?Q?nOyWTxx5ZfRzfmqwlp6UrnsM6qnPoY9ZsobfsHAKclZMQDFo4qEhxXs8t7KR?=
- =?us-ascii?Q?fetWPU59dGvcECyoQo4OVpSeuRlRm++QqSnw3PO7SLHTP95t1yGflLFo403A?=
- =?us-ascii?Q?AOB3+p+Nb1Q3gqBEpI5ncG2APp2HzNXj?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JlrRdA8neejy4S+sb/esQW31Yd7cKdxdg2tN8kyBVFVuG8lQsLwS2Osw0rc6?=
- =?us-ascii?Q?zmGlC70oRh2kcUVm3n74t3ad8BtQs9ywoNLjcZLxuruFjAo5pvHY3AdxduDA?=
- =?us-ascii?Q?wAr8wF8NUN7DlfwqQ94o6PJsHgoFKl0HmhF/Jwb3oRyC7bGVG8KhkYTHyuJM?=
- =?us-ascii?Q?O/XwsCjHSSkoG1G3EeIYYYWeSKnsP1I2dtBCW9xtwYlPNYki6jh7jYWE/tHh?=
- =?us-ascii?Q?PId/OPnX78sBmjC3wlFLUrdBaJOXxoGGHJYdiYxt6XhgZ0HZCYIuAjMhgVyy?=
- =?us-ascii?Q?y0mOBN/xECOhOZSTG9u2agS5k8zLDctraUAanLaxP8TyMX1CiiNPx3sq0lR4?=
- =?us-ascii?Q?gVyqH+RtIqrn57VPBz3aE1kfD/DtVN7nMOPypvvh6IVgYJOZbMJTFCfpXE4z?=
- =?us-ascii?Q?QJO6JLQw+5zigjXnY4PxGSnGvGygVXRcmnFgGVMvCngBtFwFRYA6rPUOvEK+?=
- =?us-ascii?Q?PGvJORiccwkMheyad1bv8JGuQp197pY4VmXjaW+9mmkwa+LgfLUDVUDa/vLq?=
- =?us-ascii?Q?3OLy5GBV4fndWalcHJGIPIvpnMjezZYhD8K7/AFgDVZCBJS5LmO0RF6VA/Zb?=
- =?us-ascii?Q?K2ozx4QCri0hs9vDdgDJEwd2A9hT3JbsGEBB7RZvM2pgIHtqd2ve2rxAfSFF?=
- =?us-ascii?Q?ZmILkoLiay/dT6Wuhyc5pbLbUvMnzHyVIEeOrbMMwaHmcPQrHrWkkTXRW85n?=
- =?us-ascii?Q?4zjGXQuDkJGMljg3X+gy+lf6HNFoNAkOsrZzvLe1GyCjCiA5Y8af+y+PWMY+?=
- =?us-ascii?Q?GNlBoqh7O5k8b/ODIi4+1xN5c+kLTOq6aF5HurtEzLluIXkLVkryjud7yH5q?=
- =?us-ascii?Q?sRSScF5E2QehSd8a3Hkw/191fMtCGDEjW9ASkHxcecwzMLkbjeYmUZWj4qpX?=
- =?us-ascii?Q?N1dfcmfimkqc1AjH7ey6ekl5vQAqAJAXxz1+mOLapZEBmwqpG5N1FNN3oC5p?=
- =?us-ascii?Q?3m/Z+IiSVAfQ1h7+gyGe+aL311KbY7oyMCKZRK87IWg/tehOf2wDi3QcO99s?=
- =?us-ascii?Q?eWN9DXPAZPA02K38SBtKlEofsOP8V2YYXZFWSk+8DjbbVm6iYcx0YR/CQpAD?=
- =?us-ascii?Q?Iq7vq7kIj4qDwqxm5P3KO1heCYmILIiJDk7vG6HfQmA/11MGi9O+2rtYuXQE?=
- =?us-ascii?Q?20QeQYEOLRBNzX3rBOGeBGggwdNcGGBD2Q4JoDluDB7NUsQLHsgpMA11EV7M?=
- =?us-ascii?Q?5gP90nlyyo2XoauRjzhDEbHze1Fvr+Ew5kxQGgJvSnMoVbyV97EkKUU1tZfd?=
- =?us-ascii?Q?ObBFsvlAs5o4p4afOK3EKJgRgqlj7FzqNtYY4eNfW9Qm1B/8J+dPrABXxC9W?=
- =?us-ascii?Q?mYpXIbPywrPmoZX/IvQGPzq9tRI6eer3DumWuvd1CQxYOwJF3yyMQsXRDOdq?=
- =?us-ascii?Q?a9rdsxaEdgixdFavtnonnVCgLeAXICPPmsbr7vtIfRLcGj7Q1kja5WNY/PQe?=
- =?us-ascii?Q?LEOnpiH5UnxttZoXBQF7hHLttBPAZbqMjA1ZDy/Ry83F8RE8SDktQo7TIjmg?=
- =?us-ascii?Q?oUD3ja6RDrxU4Pn/AOgu2l6Xy9bcHFY4eGYfHojjC5i+Lz9UfEPGOWdabrD6?=
- =?us-ascii?Q?1ok1GZC65R422V9I30NHnZQl1cuQlTJ2W189Z0lz?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40bff54d-06f1-4ab9-1aa2-08ddfb7ff027
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 15:35:06.6538
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YKJmzsp+1XPIiyKSku0nzQsTYhgVx72Et0nQNLmyeh7qPC0FkNc1XDiEr6XgAYvG8rVRhN0Ex8FX+w188iFN9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8740
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+ <20250701114733.636510-21-ulf.hansson@linaro.org> <4478f28b-47f8-4049-bf17-b7fc95cfac65@nvidia.com>
+ <CAPDyKFqSyP3e=JRFYEuFefWVN5SYJWULU8SKzXmrThvyiVGXgg@mail.gmail.com>
+ <a904d953-acb2-44f6-81bd-118f7abd22da@nvidia.com> <614f726c-4d6d-463b-a8b3-26d3df590575@nvidia.com>
+In-Reply-To: <614f726c-4d6d-463b-a8b3-26d3df590575@nvidia.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 24 Sep 2025 17:53:11 +0200
+X-Gm-Features: AS18NWBv34Nq6YjDF4uwQFfPTxm1VXqbNiERHa_duVzXNf8ehBq83NeR0ORga00
+Message-ID: <CAPDyKFoPOejFT+=OBoLTBXj5GYuHFwwnY9qGROTynrtHT=mCAw@mail.gmail.com>
+Subject: Re: [PATCH v3 20/24] pmdomain: core: Default to use
+ of_genpd_sync_state() for genpd providers
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Hiago De Franco <hiago.franco@toradex.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_083512_658762_FF32CAC3 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250924_085348_545691_9D37B960 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,47 +105,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu, Bjorn
-
-On Tue, Sep 23, 2025 at 01:16:32PM +0800, Peng Fan wrote:
->This is the 2nd series to cleanup the driver.
+On Wed, 24 Sept 2025 at 13:41, Jon Hunter <jonathanh@nvidia.com> wrote:
 >
->---
->Changes in v2:
->- Address a build warning in patch 4/6
->- Add R-b from Frank and Daniel
->- Link to v1: https://lore.kernel.org/r/20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com
+> Hi Ulf,
 >
->---
->Peng Fan (6):
->      remoteproc: imx_rproc: Fix runtime PM cleanup order and error handling
->      remoteproc: imx_rproc: Use devm_add_action_or_reset() for workqueue cleanup
->      remoteproc: imx_rproc: Use devm_add_action_or_reset() for mailbox cleanup
->      remoteproc: imx_rproc: Use devm_clk_get_enabled() and simplify cleanup
->      remoteproc: imx_rproc: Use devm_add_action_or_reset() for scu cleanup
->      remoteproc: imx_rproc: Use devm_rproc_add() helper
-
-
-Sorry for early ping - I just wanted to check if there's any chance for this
-patchset to be included in 6.18, along with the other cleanup patchset [1].
-
-Both patchsets have received Reviewed-by tags, have been tested, and
-successfully passed builds (arm64 gcc) with each patch applied incrementally.
-
-[1] https://lore.kernel.org/linux-remoteproc/20250920-imx_rproc_c2-v2-0-3351c4c96df5@nxp.com/T/#ma16bb8a38300f6eb333ee04f00d57805aee3c114
-
-Thanks
-Peng
-
+> On 03/09/2025 13:33, Jon Hunter wrote:
 >
-> drivers/remoteproc/imx_rproc.c | 128 ++++++++++++++++++-----------------------
-> 1 file changed, 57 insertions(+), 71 deletions(-)
->---
->base-commit: c3067c2c38316c3ef013636c93daa285ee6aaa2e
->change-id: 20250916-imx_rproc_c2-2b9ad7882f4d
+> ...
 >
->Best regards,
->-- 
->Peng Fan <peng.fan@nxp.com>
+> >>> Following this change I am seeing the following warning on our Tegra194
+> >>> devices ...
+> >>>
+> >>>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to
+> >>> 17000000.gpu
+> >>>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 3960000.cec
+> >>>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to
+> >>> 15380000.nvjpg
+> >>>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to
+> >>> 154c0000.nvenc
+> >>>    WARNING KERN tegra-bpmp bpmp: sync_state() pending due to
+> >>> 15a80000.nvenc
+> >>>
+> >>> Per your change [0], the 'GENPD_FLAG_NO_SYNC_STATE' is set for Tegra
+> >>> and so should Tegra be using of_genpd_sync_state() by default?
+> >>
+> >> This is a different power-domain provider (bpmp) in
+> >> drivers/firmware/tegra/bpmp.c and
+> >> drivers/pmdomain/tegra/powergate-bpmp.c.
+> >>
+> >> For the bpmp we don't need GENPD_FLAG_NO_SYNC_STATE, as the
+> >> power-domain provider is described along with the
+> >> "nvidia,tegra186-bpmp" compatible string. In the other case
+> >> (drivers/soc/tegra/pmc.c) the "core-domain" and "powergates" are
+> >> described through child-nodes, while ->sync_state() is managed by the
+> >> parent-device-node.
+> >>
+> >> In the bpmp case there is no ->sync_state() callback assigned, which
+> >> means genpd decides to assign a default one.
+> >>
+> >> The reason for the warnings above is because we are still waiting for
+> >> those devices to be probed, hence the ->sync_state() callback is still
+> >> waiting to be invoked. Enforcing ->sync_state() callback to be invoked
+> >> can be done via user-space if that is needed.
+> >>
+> >> Did that make sense?
+> >
+> > Sorry for the delay, I was on vacation. Yes makes sense and drivers for
+> > some of the above drivers are not yet upstreamed to mainline and so this
+> > would be expected for now.
 >
+>
+> I have been doing more testing and do see a lot of "tegra-bpmp bpmp:
+> sync_state() pending due to" on our platforms for basically are driver
+> that is built as a module. It seems a bit noisy given that these do
+> eventually probe OK. I am wondering if this should be more of a
+> dev_info() or dev_dbg() print?
+
+Yes, I agree. We have had similar reports for other platforms too.
+
+I intend to send a patch for this in the next day or so.
+
+Kind regards
+Uffe
 
