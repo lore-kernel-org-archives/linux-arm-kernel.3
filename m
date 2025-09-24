@@ -4,159 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0F5CAC59A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 06:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88571CAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 06:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kqR/XJ98yGum2ArAaN3+VoXCWUs/xAepGHGALVdXHwk=; b=PFKdy7nJtaiAkRpnsY+6i8o6Y4
-	eKX2oqU1LAliixZEdA5XnYDsTH8PYFh0fF7miBErAsD0u+U/ymwK+Cu9GPjYY6lhmQf4H/UGe4F3W
-	UAfAiOrlKAC+TAimu2qVRCtUoG/rvqmoOg5bYtw75RjwBpTnxZcR1UQvzQD2IPqs5MREOxMgA+5OK
-	eOz7ZSaNREq7gF9PlSjcTNdIbKaqGns8XXRpTy4CQhNxYKnFO3N0ATSPHXm/9n4DLGugRRo+y9Eai
-	teycGwd7LlV9AFXTYvulm2p9hbP8rM6tVEiQQ8MfA+InOB+QGOzTV9xTbB58q4ZfY9WTmr0Zrf+Y+
-	ELgU94yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oL5K5vqLXDjohbzGu1q9kXasuqJsPhJHn3iFihsVwYQ=; b=idgHU6PsUpmRtsE1kFGCHUytlP
+	kxZwZ6jp3ZdCFUHsZrLcmQJY0l6K7NW8WgZdH4q5XKV3IrlQ8+hJ6N/ZBf+DpFYlTtNJFPJb28mND
+	O7tAeH/gDddp/y+9i2VdcnC+Qe5tp2chHzqUyMkHMOnfT9pUhY3W8j3uTEgrSuklqPF5WSZc/0DT9
+	29BiBGRNtDx0SgEv+XgWwMrRXZjaeaQRbfnSxom4RyGu/416KUg+OiHinyU6KZmMKeHMTyII1nWTi
+	6Oxryocb5UIdvXeJ+Fk/MSi/i0PYErxAz6TiFqG0fUAPVVMGZ28UaAM06pf553D3AFCQzJOG/sv1R
+	eW/JnDkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1IdJ-0000000Fcf8-0FcJ;
-	Wed, 24 Sep 2025 06:05:41 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1v1IlQ-0000000FdZi-0wrw;
+	Wed, 24 Sep 2025 06:14:04 +0000
+Received: from pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.77.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Id8-0000000FcYi-3GXa;
-	Wed, 24 Sep 2025 06:05:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Yz+/8m0INH/xRVgv97RFDVegxpWh2r6nizoiRglgmQsQv8yrZE/N/7axL5ngio93mA9l5ULbCFZlfyGr6tL5/f1j82kVSMo2gEGcbrKo+UFaQP5xch1tzTOxMNr9lJdwbLEtgJPwUzw3xkc6f2gedbJj5KWLkxBbA5WrhTtxaqII7QbYDnVgUfPBPkJOJe3pzJ9A09ZQhvWVOv+Mg4xdOtGKESZ4XsGFiQg+jvvsERqwdfKkRgB/sCvnMf30yO+7Rzwb2/NAIZ1PLwtXBPUaqT/Y/hwyCLfbuuzQDIRrXyWim2HIgsz+USTqo+Yn424mThnyXM1/GVuf2A5QLtXAjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kqR/XJ98yGum2ArAaN3+VoXCWUs/xAepGHGALVdXHwk=;
- b=eLM2IT0DCzz1BYs+2vzTVEAdXPVY5Ha/pEmbJW6ycuBzMx9sRtymKOHhbvR8c8r+PuNxa3Bo+JOeWEbR4x40wczH2/y2CvGqGdIlCAwbu1eOe7/aZarJo0XwW5TixtdT/KEwFuwK4qKfymtBAHqsnfFZpJFWHRHXc4zqX7oVJGGHGk8CNS58xmLDWRBckioe0rFLpXxWPbl+cYo4mJQ/VaPLymZppd+fLBBlFa5scsHdg7VmhxUGrAyP6fvam2ZqJfSVv3QnMCzIbtyYvjuQkwRT85v5SiogeNwV7NDrhqVCuNWXvt36uMfL2KvNFyYczxp1A7wpofH+JgrqEH2Ipg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kqR/XJ98yGum2ArAaN3+VoXCWUs/xAepGHGALVdXHwk=;
- b=eOOc3ukmSqNaA0apPX1hojYDtgENBg1Gx3SpJBEMxsFgLdp9OkmJSmNQxWAlXV1R8uKwI+cp48AG7urBoP+C98HDhUNqpqsycoQLLD3GjcskECV8WZfGURxYq0Dz/CItEas/xYVsJhnoVf//uRs18r8GXjaUSgUM5z0kg8RQOVc2OMHz0KwlioKN+gYKtbaIGYplGPOPxnQYH9NpX4w7EYPWOHNf6ZLrmCr3ucSxfJCVwcnE25FnpCxl8Xil55fmJLWu4k4r5Bum53Uj15cWQtWsbnY1e8YstFfL0XmJM4D5XG+fasdhN8atCodFfcRAYAAqH+NsSIVwWuSiE/R8/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by PA4PR08MB6080.eurprd08.prod.outlook.com (2603:10a6:102:ec::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Wed, 24 Sep
- 2025 06:05:21 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9137.018; Wed, 24 Sep 2025
- 06:05:21 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: [PATCH 2/2] clk: en7523: Add reset-controller support for EN7523 SoC
-Date: Wed, 24 Sep 2025 09:05:09 +0300
-Message-ID: <20250924060509.1889131-3-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: ZR0P278CA0154.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:41::9) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1v1IlO-0000000FdZ9-10HF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Sep 2025 06:14:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1758694442; x=1790230442;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=oL5K5vqLXDjohbzGu1q9kXasuqJsPhJHn3iFihsVwYQ=;
+  b=h0+UTrfOrNFuT3IynSBur2zjwRo/0hve48hVBMitEjcdP0QPgdrS5BAF
+   HiTTv1WMQ/l4MmMvLkBztFGKbK1ENu6f1oGi3GNtjJf77ESrBjElgEtDv
+   XXOnfeLBWhfkljzNJFxsWUAybNj4k6PzFJfNP+uaq2l5b6Gd8C/7XjS81
+   K6/08EkyAfSYgyD7ZiADT7Tkms/fbjB1kRMzDdKNahznb0Div/khwKdda
+   /TgUrBA7IWi9Z+IzNx2qjs1UDgahBLY0si/eda7PY3OsmP/eI9iR0lRpB
+   xdw15JjJTUDIa8rka24IUNupkBTelu5BZ/r/yYhY4AlEOizEAhCm5vYvX
+   Q==;
+X-CSE-ConnectionGUID: zJCroIsQSdmcKOPQ2SVXNA==
+X-CSE-MsgGUID: ER1XdZmMSJ+0IpSaHds0Rw==
+X-IronPort-AV: E=Sophos;i="6.18,290,1751241600"; 
+   d="scan'208";a="3645442"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2025 06:13:58 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [10.0.21.151:6491]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.11.168:2525] with esmtp (Farcaster)
+ id 032be64e-1622-49e8-a2e4-203efa474f45; Wed, 24 Sep 2025 06:13:58 +0000 (UTC)
+X-Farcaster-Flow-ID: 032be64e-1622-49e8-a2e4-203efa474f45
+Received: from EX19D032UWA004.ant.amazon.com (10.13.139.56) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Wed, 24 Sep 2025 06:13:55 +0000
+Received: from EX19D032UWA003.ant.amazon.com (10.13.139.37) by
+ EX19D032UWA004.ant.amazon.com (10.13.139.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Wed, 24 Sep 2025 06:13:55 +0000
+Received: from EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497]) by
+ EX19D032UWA003.ant.amazon.com ([fe80::8e94:8f60:9531:c497%5]) with mapi id
+ 15.02.2562.020; Wed, 24 Sep 2025 06:13:55 +0000
+From: "Bandi, Ravi Kumar" <ravib@amazon.com>
+To: "mani@kernel.org" <mani@kernel.org>, "thippeswamy.havalige@amd.com"
+	<thippeswamy.havalige@amd.com>
+CC: "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"michal.simek@amd.com" <michal.simek@amd.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Thread-Topic: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Thread-Index: AQHcKoFWBnk90o/gZUOv7QYU+iHxwrSh38GA
+Date: Wed, 24 Sep 2025 06:13:55 +0000
+Message-ID: <AB21188C-0467-4378-AD3B-34093EC88AA9@amazon.com>
+References: <C47CF283-C0C4-4ACF-BE07-3E87153D6EC6@amazon.com>
+ <20250920225232.18757-1-ravib@amazon.com>
+In-Reply-To: <20250920225232.18757-1-ravib@amazon.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.106.100.56]
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <7F0679158EB19D4092812EA5536C56AD@amazon.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PA4PR08MB6080:EE_
-X-MS-Office365-Filtering-Correlation-Id: ac20890a-dcb0-4e5e-4f0e-08ddfb3057d6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iRu8K+SVRIQPmj4pvdpL6nad6TXnWglmymiOezXngdSyyvkLgH8FoCQateHK?=
- =?us-ascii?Q?ucO+zchJ/bi5L+8yjqVcOB5/RwXqfLoBzp5LIRf2KIujDqYirZbNdZ8bVwT0?=
- =?us-ascii?Q?2ZS7vkIVVRedeM0SVcHGDHZ1+2vySwTGW7xWEwu98EcEVnE7nz/OtVKythH+?=
- =?us-ascii?Q?GIat9GK1KSdDUoWT/ZmbE6v/GWMppgbkXNm/bhL8hCtfcM4DKlMMT+fsJcUX?=
- =?us-ascii?Q?aK4W2Nd49nHC+JVvJknAsyeSeM8Xis8ubfzoCkGIE0zJbAt5zyGTS1Kl+e1R?=
- =?us-ascii?Q?rTxJLuhJO2NfRx2AxwEFYP976BM9THtlQwBpo+0DyCGBpSPqOdS0VgKjKZcl?=
- =?us-ascii?Q?y9n1EDKlBmd0aowQMHRV3lcuknxZ8sXG/nOCGjH2pyxrSRSZqKdwpnRaa+lD?=
- =?us-ascii?Q?9g3TeMpMaNdb4JmRVhrdy/A9CWJhi11a7nW7nBpufWGJKAsEQAg1HjpwVZN9?=
- =?us-ascii?Q?TMrtagDSBEX89Dzc+gRkPwIIqfWgu9Kq6+yGD7W8UqMf6+ufkq23VwcxRE2Z?=
- =?us-ascii?Q?cjFVoJWrERnwduCMmpVas1+b55vzhaVzUwhZQXIVTjKGSQNoFwz3MU7Y1WYf?=
- =?us-ascii?Q?KneFJFNWldLozTsyeoyLL/gS4X2u9fddJWLFkVHp6shbln0WrcfnG385+CO4?=
- =?us-ascii?Q?7vsKXrpVvrDaEs895iTHbjt5uBLm+o8ABwvdKxmFvv6l54U1K9qj5FP7pxTV?=
- =?us-ascii?Q?qG++8Qt2/+zzl7bSegS/2peNyixBP1fgZ7nir041Iz4JyLNTfY+rjRN8UtVw?=
- =?us-ascii?Q?IW+3dKvJk9QRdng6+icj06ep1KriQkHRnnL/lde0sv5KiMOMcRkDapqz7g2l?=
- =?us-ascii?Q?QDNo2qvXI1DDFY34pAuSS6gGbu8C40oX6ADuahYSBdznCsupdhSWE/lxIE9O?=
- =?us-ascii?Q?lCv8RXF5YhEOuoVR75L2x8EzBxKr/vJOcPgpFCtYUbRB/QADB7Y6AnjdGMci?=
- =?us-ascii?Q?FF604aqw1XLx7ZK796Y+eMghhlmL0/7bP+A/AvT/WjhlFXGBGSFYcg9ndyoC?=
- =?us-ascii?Q?Bv4ikPT+s15JJ5nXss0NI3k2Ddxx6qZ6cQIgzzlBvul8gEWXL8Gu9woDLfqw?=
- =?us-ascii?Q?tnyDBnudmAj4q+Wl3EFrsaPZr6Cr7ZJbfdO6pwJf1bmU/ic1wPpl8kaGzEMT?=
- =?us-ascii?Q?xH5/d2Yw1m/btENTiibnpAKJ1HWXDB3FV1hTmYstuSsB7aJuP841DO7V33Py?=
- =?us-ascii?Q?Qox5Z5AxTcCQUV006UbCDeRPYj6uNhhoqiJu6e1zrqDfQxgTl9yHyP+duOs5?=
- =?us-ascii?Q?O+gG1/642R/a8TMHTwTieCQTX9w+TYyQwxaovX1X1mgf0sUTJ86di9W9zYbR?=
- =?us-ascii?Q?F8IC7VJ5JEgCQUWZBUS7S7JeJIt8q8YQwWL7YzOyldgkVn1L44TFUL2cnRZk?=
- =?us-ascii?Q?CrLL65PHF2ugFLOWCqdPaE7S2bwxJsqHcSRX+wBQazkvbaf9pPiU1p87zdYO?=
- =?us-ascii?Q?MWLj83VIcb8lSN8irkZlwxJrlg1c1WHqdrhVC77C7wxRkZzkWXvO4uK1ElPE?=
- =?us-ascii?Q?wITnIjDXX/0/vDU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z407WwiWHqD3ZS3X1VWgD9DkX8JozLmVEnuO2UG4DbFUYXuZiGbAzKb1y8TN?=
- =?us-ascii?Q?OCp6jN58I+f3ZKUVNrOu2FocSGyH6nNZ7J39PsQ6DnaupAWvnj/YEIlswI7j?=
- =?us-ascii?Q?Q3mOp4NubkGQfPy0hcjw+MunoIUmjwc9XJ02uevJpCrHTlw/4XLGd2Fv9+fX?=
- =?us-ascii?Q?sA0267Fwt3XC2UbbhqNkp5eM4y0ZGo23VjpQPGaMvY2TLuLj+r0h5IxEnbHX?=
- =?us-ascii?Q?vfKVFAUxhmVcKQl5HTflLNNrjsnTNq3RyiaXyVBxZnuVLIXl8WgzlCJ/9CjW?=
- =?us-ascii?Q?O1medIaJygjRjRjyDNWOTctQuQiC1sGm8bHBWnUTtuetIuf8OWOEC1RM2HWC?=
- =?us-ascii?Q?+fCxSzLUO1BziDHurCVySAUAeLhiNyHcl0Cr22wW2Z5fuMV5T48QKTMbd4ST?=
- =?us-ascii?Q?71+Ew+WYuNVdMTsVb+xd/5Ju3b7KCSuKQwDPPdHhdokJC0u0hgsnPOkEWkiQ?=
- =?us-ascii?Q?2V7lF66eqp+3lBe2ukeX7uUj2OaTYx2KE5r5GlNf1GBg9S4Hg+XRsb7i45HX?=
- =?us-ascii?Q?uyUq179WKvIR+AtPXwfZpuqLt4ZWhxpwh4Onz8sK2HJBKgOqD8fnEHxX3H0P?=
- =?us-ascii?Q?tkfSA9QfLbDiwTQLjXa4ab1sbg4Rw60AyyMlZU87gbCNFE6mwsjMq0r52Yed?=
- =?us-ascii?Q?TAO1EzJjdjqJ2norx4FMBx74yc2+aPyavTHJvENP6MyuPhS3raqro7VhYjGS?=
- =?us-ascii?Q?3QeMy8hu2kjQdPD10pM3+pxQt9cwrbuRp5/wbuf2Zi93TkRJmLBbI2WEXfi6?=
- =?us-ascii?Q?rjx4PMK2it/xWZprxsv2hbJP6BkZn6a36n/LKicUvF8kw13fmQtvO6T5C2aW?=
- =?us-ascii?Q?S1P4Sh0W8g2+HUys2QTQPjxmET5UhsPcXXeZ7MyKzoxVqztWa91hdEN8ke/0?=
- =?us-ascii?Q?1o3kFjM4Yn4PAjjUzACMM3+ZL8YGHw5Mv1CZMHi1M01l20zUEpEKSjXQKUXM?=
- =?us-ascii?Q?/TjWFeO/jhvV294iUxbC6mulb4UBLtWwVqQLu9+EaGUXSgrtib7MqF1+BSaM?=
- =?us-ascii?Q?mGewXRbxHGf7LengDvg5pMGA9oPtmAWz44Fa9Fm0rVF4gYVGGI8xLCZGPehK?=
- =?us-ascii?Q?MeuQAVc6yMEj/n4H0kp0/z1d/LlE18imC/lbcu/MWfJ83hZ36AFSlqSMCQ0t?=
- =?us-ascii?Q?WBGz/aVK548nxTWf+/W6p9EoRoEUg5gkx7oI2UmItATQvLwtcuFRsEDwe/QN?=
- =?us-ascii?Q?lZUOrOLoTn8aU+yaiw7wR8ugzsfqaBNjmm1+sCi5CPJF0L8rutmzm0MQVNGg?=
- =?us-ascii?Q?2bvNA5iNsVpteoO6ifBwGobttb5NEEsM5Q6jRsOdZFya5L/vRSA6FIAD6RHN?=
- =?us-ascii?Q?8MlbYacs7hbS+GY55alkKuxpSyZ2rZuxD8hH+ociev2mV01vDEdA2CwWpsvG?=
- =?us-ascii?Q?OIirCHgkc8NMeAkJXy7BBCbae7FsbG3E5c/IEjgETuzgi2qjAdN/m+U65vLy?=
- =?us-ascii?Q?amT00rtKkZ9i0clpVJu2P4P7OC0Z+NKbAMkWvbEuXvYHpCkxa34OUcC2jnzi?=
- =?us-ascii?Q?PY48d6ncKIPdsRTN+mqAQOCH8lLnTtsaUHpRznkkFa1r5kmE9nb+RYC8pv97?=
- =?us-ascii?Q?Nh1xwkNqM0XNMS43Kq6tUC2GkkmGBBRx1pOc+gS1Vyy/iIG9/mgD/NLDN+5H?=
- =?us-ascii?Q?X9Sq+3HINmOGfxCXbVITVws=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: ac20890a-dcb0-4e5e-4f0e-08ddfb3057d6
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 06:05:20.9926
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZJTKB2etEnUU7ecsDQZ4Jc5ToBqVljveaEU/59qBXeLuFX/lTG2RwzfQYyp6CDAbuVS8aGFHs0f01oG/PwEWN0gvyqLiWE2bqBGwv9OpTIU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_230530_824587_1F3C1E63 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20250923_231402_368358_EBD97D1B 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,172 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce reset API support to EN7523 clock driver. EN7523 uses the
-same reset logic as EN7581, so just reuse existing code. The patch
-renames:
- * en7581_rst_ofs to en75xx_rst_ofs,
- * en7581_reset_register() to en75xx_reset_register()
-because they are not en7581 specific.
-
-This patch also updates en7523 dtsi file to add required '#reset-cells'
-property to the System Control Unit node.
-
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
----
- arch/arm/boot/dts/airoha/en7523.dtsi |  1 +
- drivers/clk/clk-en7523.c             | 72 ++++++++++++++++++++++++----
- 2 files changed, 64 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
-index b523a868c4ad..7d60a4f2e650 100644
---- a/arch/arm/boot/dts/airoha/en7523.dtsi
-+++ b/arch/arm/boot/dts/airoha/en7523.dtsi
-@@ -91,6 +91,7 @@ scu: system-controller@1fa20000 {
- 		reg = <0x1fa20000 0x400>,
- 		      <0x1fb00000 0x1000>;
- 		#clock-cells = <1>;
-+		#reset-cells = <1>;
- 	};
- 
- 	gic: interrupt-controller@9000000 {
-diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-index 15bbdeb60b8e..f276937181b9 100644
---- a/drivers/clk/clk-en7523.c
-+++ b/drivers/clk/clk-en7523.c
-@@ -9,6 +9,7 @@
- #include <linux/regmap.h>
- #include <linux/reset-controller.h>
- #include <dt-bindings/clock/en7523-clk.h>
-+#include <dt-bindings/reset/airoha,en7523-reset.h>
- #include <dt-bindings/reset/airoha,en7581-reset.h>
- 
- #define RST_NR_PER_BANK			32
-@@ -294,11 +295,58 @@ static const struct en_clk_desc en7581_base_clks[] = {
- 	}
- };
- 
--static const u16 en7581_rst_ofs[] = {
-+static const u16 en75xx_rst_ofs[] = {
- 	REG_RST_CTRL2,
- 	REG_RST_CTRL1,
- };
- 
-+static const u16 en7523_rst_map[] = {
-+	/* RST_CTRL2 */
-+	[EN7523_XPON_PHY_RST]		= 0,
-+	[EN7523_XSI_MAC_RST]		= 7,
-+	[EN7523_XSI_PHY_RST]		= 8,
-+	[EN7523_NPU_RST]		= 9,
-+	[EN7523_I2S_RST]		= 10,
-+	[EN7523_TRNG_RST]		= 11,
-+	[EN7523_TRNG_MSTART_RST]	= 12,
-+	[EN7523_DUAL_HSI0_RST]		= 13,
-+	[EN7523_DUAL_HSI1_RST]		= 14,
-+	[EN7523_HSI_RST]		= 15,
-+	[EN7523_DUAL_HSI0_MAC_RST]	= 16,
-+	[EN7523_DUAL_HSI1_MAC_RST]	= 17,
-+	[EN7523_HSI_MAC_RST]		= 18,
-+	[EN7523_WDMA_RST]		= 19,
-+	[EN7523_WOE0_RST]		= 20,
-+	[EN7523_WOE1_RST]		= 21,
-+	[EN7523_HSDMA_RST]		= 22,
-+	[EN7523_I2C2RBUS_RST]		= 23,
-+	[EN7523_TDMA_RST]		= 24,
-+	/* RST_CTRL1 */
-+	[EN7523_PCM1_ZSI_ISI_RST]	= RST_NR_PER_BANK + 0,
-+	[EN7523_FE_PDMA_RST]		= RST_NR_PER_BANK + 1,
-+	[EN7523_FE_QDMA_RST]		= RST_NR_PER_BANK + 2,
-+	[EN7523_PCM_SPIWP_RST]		= RST_NR_PER_BANK + 4,
-+	[EN7523_CRYPTO_RST]		= RST_NR_PER_BANK + 6,
-+	[EN7523_TIMER_RST]		= RST_NR_PER_BANK + 8,
-+	[EN7523_PCM1_RST]		= RST_NR_PER_BANK + 11,
-+	[EN7523_UART_RST]		= RST_NR_PER_BANK + 12,
-+	[EN7523_GPIO_RST]		= RST_NR_PER_BANK + 13,
-+	[EN7523_GDMA_RST]		= RST_NR_PER_BANK + 14,
-+	[EN7523_I2C_MASTER_RST]		= RST_NR_PER_BANK + 16,
-+	[EN7523_PCM2_ZSI_ISI_RST]	= RST_NR_PER_BANK + 17,
-+	[EN7523_SFC_RST]		= RST_NR_PER_BANK + 18,
-+	[EN7523_UART2_RST]		= RST_NR_PER_BANK + 19,
-+	[EN7523_GDMP_RST]		= RST_NR_PER_BANK + 20,
-+	[EN7523_FE_RST]			= RST_NR_PER_BANK + 21,
-+	[EN7523_USB_HOST_P0_RST]	= RST_NR_PER_BANK + 22,
-+	[EN7523_GSW_RST]		= RST_NR_PER_BANK + 23,
-+	[EN7523_SFC2_PCM_RST]		= RST_NR_PER_BANK + 25,
-+	[EN7523_PCIE0_RST]		= RST_NR_PER_BANK + 26,
-+	[EN7523_PCIE1_RST]		= RST_NR_PER_BANK + 27,
-+	[EN7523_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
-+	[EN7523_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
-+};
-+
- static const u16 en7581_rst_map[] = {
- 	/* RST_CTRL2 */
- 	[EN7581_XPON_PHY_RST]		= 0,
-@@ -357,6 +405,9 @@ static const u16 en7581_rst_map[] = {
- 	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
- };
- 
-+static int en75xx_reset_register(struct device *dev, void __iomem *base,
-+				 const u16 *rst_map, int nr_resets);
-+
- static u32 en7523_get_base_rate(const struct en_clk_desc *desc, u32 val)
- {
- 	if (!desc->base_bits)
-@@ -552,7 +603,8 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
- 
- 	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
- 
--	return 0;
-+	return en75xx_reset_register(&pdev->dev, np_base, en7523_rst_map,
-+				     ARRAY_SIZE(en7523_rst_map));
- }
- 
- static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
-@@ -646,13 +698,14 @@ static int en7523_reset_xlate(struct reset_controller_dev *rcdev,
- 	return rst_data->idx_map[reset_spec->args[0]];
- }
- 
--static const struct reset_control_ops en7581_reset_ops = {
-+static const struct reset_control_ops en75xx_reset_ops = {
- 	.assert = en7523_reset_assert,
- 	.deassert = en7523_reset_deassert,
- 	.status = en7523_reset_status,
- };
- 
--static int en7581_reset_register(struct device *dev, void __iomem *base)
-+static int en75xx_reset_register(struct device *dev, void __iomem *base,
-+				 const u16 *rst_map, int nr_resets)
- {
- 	struct en_rst_data *rst_data;
- 
-@@ -660,13 +713,13 @@ static int en7581_reset_register(struct device *dev, void __iomem *base)
- 	if (!rst_data)
- 		return -ENOMEM;
- 
--	rst_data->bank_ofs = en7581_rst_ofs;
--	rst_data->idx_map = en7581_rst_map;
-+	rst_data->bank_ofs = en75xx_rst_ofs;
-+	rst_data->idx_map = rst_map;
- 	rst_data->base = base;
- 
--	rst_data->rcdev.nr_resets = ARRAY_SIZE(en7581_rst_map);
-+	rst_data->rcdev.nr_resets = nr_resets;
- 	rst_data->rcdev.of_xlate = en7523_reset_xlate;
--	rst_data->rcdev.ops = &en7581_reset_ops;
-+	rst_data->rcdev.ops = &en75xx_reset_ops;
- 	rst_data->rcdev.of_node = dev->of_node;
- 	rst_data->rcdev.of_reset_n_cells = 1;
- 	rst_data->rcdev.owner = THIS_MODULE;
-@@ -698,7 +751,8 @@ static int en7581_clk_hw_init(struct platform_device *pdev,
- 	val = readl(base + REG_NP_SCU_PCIC);
- 	writel(val | 3, base + REG_NP_SCU_PCIC);
- 
--	return en7581_reset_register(&pdev->dev, base);
-+	return en75xx_reset_register(&pdev->dev, base, en7581_rst_map,
-+				     ARRAY_SIZE(en7581_rst_map));
- }
- 
- static int en7523_clk_probe(struct platform_device *pdev)
--- 
-2.51.0
-
+SGVsbG8gTWFuaSwgVGhpcHBlc3dhbXksDQoNCkEgZ2VudGxlIHJlbWluZGVyIHRvIHJldmlldyBw
+YXRjaCB2Mi4gUGxlYXNlIGxldCBtZSBrbm93IGlmIHlvdSBuZWVkIGFueSBhZGRpdGlvbmFsIGlu
+Zm9ybWF0aW9uLiBUaGFua3MuDQoNClNpbmNlcmVseSwNClJhdmkNCg0KPiBPbiBTZXAgMjAsIDIw
+MjUsIGF0IDM6NTLigK9QTSwgQmFuZGksIFJhdmkgS3VtYXIgPHJhdmliQGFtYXpvbi5jb20+IHdy
+b3RlOg0KPiANCj4gVGhlIHBjaWUteGlsaW54LWRtYS1wbCBkcml2ZXIgZG9lcyBub3QgZW5hYmxl
+IElOVHggaW50ZXJydXB0cw0KPiBhZnRlciBpbml0aWFsaXppbmcgdGhlIHBvcnQsIHByZXZlbnRp
+bmcgSU5UeCBpbnRlcnJ1cHRzIGZyb20NCj4gUENJZSBlbmRwb2ludHMgZnJvbSBmbG93aW5nIHRo
+cm91Z2ggdGhlIFhpbGlueCBYRE1BIHJvb3QgcG9ydA0KPiBicmlkZ2UuIFRoaXMgaXNzdWUgYWZm
+ZWN0cyBrZXJuZWwgNi42LjAgYW5kIGxhdGVyIHZlcnNpb25zLg0KPiANCj4gVGhpcyBwYXRjaCBh
+bGxvd3MgSU5UeCBpbnRlcnJ1cHRzIGdlbmVyYXRlZCBieSBQQ0llIGVuZHBvaW50cw0KPiB0byBm
+bG93IHRocm91Z2ggdGhlIHJvb3QgcG9ydC4gVGVzdGVkIHRoZSBmaXggb24gYSBib2FyZCB3aXRo
+DQo+IHR3byBlbmRwb2ludHMgZ2VuZXJhdGluZyBJTlR4IGludGVycnVwdHMuIEludGVycnVwdHMg
+YXJlDQo+IHByb3Blcmx5IGRldGVjdGVkIGFuZCBzZXJ2aWNlZC4gVGhlIC9wcm9jL2ludGVycnVw
+dHMgb3V0cHV0DQo+IHNob3dzOg0KPiANCj4gWy4uLl0NCj4gMzI6ICAgICAgICAzMjAgICAgICAg
+ICAgMCAgcGxfZG1hOlJDLUV2ZW50ICAxNiBMZXZlbCAgICAgNDAwMDAwMDAwLmF4aS1wY2llLCBh
+emRydg0KPiA1MjogICAgICAgIDQ3MCAgICAgICAgICAwICBwbF9kbWE6UkMtRXZlbnQgIDE2IExl
+dmVsICAgICA1MDAwMDAwMDAuYXhpLXBjaWUsIGF6ZHJ2DQo+IFsuLi5dDQo+IA0KPiBDaGFuZ2Vz
+IHNpbmNlIHYxOjoNCj4gLSBGaXhlZCBjb21taXQgbWVzc2FnZSBwZXIgcmV2aWV3ZXIncyBjb21t
+ZW50cw0KPiANCj4gRml4ZXM6IDhkNzg2MTQ5ZDc4YyAoIlBDSTogeGlsaW54LXhkbWE6IEFkZCBY
+aWxpbnggWERNQSBSb290IFBvcnQgZHJpdmVyIikNCj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5v
+cmcNCj4gU2lnbmVkLW9mZi1ieTogUmF2aSBLdW1hciBCYW5kaSA8cmF2aWJAYW1hem9uLmNvbT4N
+Cj4gLS0tDQo+IGRyaXZlcnMvcGNpL2NvbnRyb2xsZXIvcGNpZS14aWxpbngtZG1hLXBsLmMgfCA2
+ICsrKysrKw0KPiAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspDQo+IA0KPiBkaWZmIC0t
+Z2l0IGEvZHJpdmVycy9wY2kvY29udHJvbGxlci9wY2llLXhpbGlueC1kbWEtcGwuYyBiL2RyaXZl
+cnMvcGNpL2NvbnRyb2xsZXIvcGNpZS14aWxpbngtZG1hLXBsLmMNCj4gaW5kZXggYjAzN2M4ZjMx
+NWU0Li5jYzUzOTI5MmQxMGEgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIv
+cGNpZS14aWxpbngtZG1hLXBsLmMNCj4gKysrIGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9wY2ll
+LXhpbGlueC1kbWEtcGwuYw0KPiBAQCAtNjU5LDYgKzY1OSwxMiBAQCBzdGF0aWMgaW50IHhpbGlu
+eF9wbF9kbWFfcGNpZV9zZXR1cF9pcnEoc3RydWN0IHBsX2RtYV9wY2llICpwb3J0KQ0KPiAJCXJl
+dHVybiBlcnI7DQo+IAl9DQo+IA0KPiArCS8qIEVuYWJsZSBpbnRlcnJ1cHRzICovDQo+ICsJcGNp
+ZV93cml0ZShwb3J0LCBYSUxJTlhfUENJRV9ETUFfSU1SX0FMTF9NQVNLLA0KPiArCQkgICBYSUxJ
+TlhfUENJRV9ETUFfUkVHX0lNUik7DQo+ICsJcGNpZV93cml0ZShwb3J0LCBYSUxJTlhfUENJRV9E
+TUFfSURSTl9NQVNLLA0KPiArCQkgICBYSUxJTlhfUENJRV9ETUFfUkVHX0lEUk5fTUFTSyk7DQo+
+ICsNCj4gCXJldHVybiAwOw0KPiB9DQo+IA0KPiAtLSANCj4gMi40Ny4zDQo+IA0KDQo=
 
