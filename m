@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29079CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 15:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201E1CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 15:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XviAeY7lSeSaJCaNoApmoT1KMIq12BnZAiqMT/S5OY=; b=042jMlqelm8igVsM/pWEja5uQB
-	KlUafNxEYI+UcL7W+HIEN/SeZTG9sTDP5XKIVPDL5H67WNJ1DL+VRVKcS5O2sfb8X+BvRLd2EPGUj
-	Xit0zSbCziFwVEk3bnZHQ0aNKievHdLegIEHVLXS/VrEf2GNVGKzzsbY3++0qFQkxu0kKkiMdmWW2
-	wDIb5N1gHpKPUx5b+a0QrF4OfLsO6hfUKf1P2lhpjz5GUw5ZsX4zfjvWYy/lWbs1hJbqhMytnta7e
-	iFWO1/MImw66A/4x1froZtEL1w5dN0KpMPNeCwCTsedpnF1XUauUP5Erg4QSd67lhgaFGsGEkTlRw
-	e7aBLnqg==;
+	bh=j8cxVw/7cCYHvLHRmPD20gr9/jU6KZGxeKnW/6kPkh4=; b=VMZ03r5dkFIRLi3m3QR8TtuRc6
+	eSc7/7xNRH/9g8SsAmLgOWY7xUJNwTPe2LrrAFhSbSbpLx3wFlw6HMaBBHJEyyVe8rgvBocMkuD8b
+	Z5dnxfLvmkFEl8xGT5C9xfeaDBF5ZC5k762XuLS+ObpYqu8ilgrgHQUK72TbGrgtMbUNuJVVolISw
+	7vyT5d31Jj9cghNdwQsPvWzf3ADkGcpjYqFMLg/aI5OT9xLa+ur/NkXcva+MLHtLBtPS0M7vpL7vO
+	aYLs2VFSrHd4f96IqXMsXMR0RT47A2qnryiKve68o4Cp59qL3RblunxyOrdzHAyw2W0HyNoqJZ7R+
+	9zla5FEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RP6-00000001FMX-0vYA;
+	id 1v1RP6-00000001FNV-37oF;
 	Wed, 24 Sep 2025 15:27:36 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1RP0-00000001FBS-2pUl
+	id 1v1RP1-00000001FCf-3NPV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 15:27:31 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45f2c1556aeso22656855e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:27:29 -0700 (PDT)
+	Wed, 24 Sep 2025 15:27:33 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b2d1072a9c4so261927766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:27:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758727648; x=1759332448; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1758727649; x=1759332449; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5XviAeY7lSeSaJCaNoApmoT1KMIq12BnZAiqMT/S5OY=;
-        b=xYWYN5avWjRkS9aR5LWMVyw0i4x3y2uHTqjTp0XU5T4mGDGq0NgWDQYW8EGB3L3AWQ
-         4/6RB/xYLQwuMgGpZmOz3A62rUXw2Hzdxr+V5TlKoXTJ30FglZFLFQYnVRsdjeI0kpD7
-         IsbaevhY5Hb+ePq0ae74O+S2A6R9FDTnxKTMKuq7jK4JtQ/h8k2j5ISsH5+Ed1863tBr
-         RniVGUKUw7LuxZxhpz5eyHcglcc9MvMoOTIgrU1RPJwzIc/Mz4tDkLkcXdekCvvVvL13
-         uYcOfGdZe/Ko0ASrevzXA0ISa+ZHFXb/epYlc3bLuYSDIw1KQ17Ek4JP4V1TGPQmxOLE
-         /iaw==
+        bh=j8cxVw/7cCYHvLHRmPD20gr9/jU6KZGxeKnW/6kPkh4=;
+        b=LFJsKjH692rA9gQcvALNfRGt3sHnsiCcOjX708S3lXeG+pLeFAy2EyF61o7HFAuvTk
+         yMBVe/Ltwuqb8rfy7ZC60YJgWMAAOvpkuPR0U49SUuKp0Qg2fQPI6wXL9zMZu4xHhFdk
+         SCNl1EG2mBDiwqQG2LvUCvokfr0r5irAPH0S6sW/eeFczTaDFWbqnCy/ikAbyxLNec8X
+         q4kMMzMwpwuxT6ukXWSRv0d72/Hzl7zO3poYACDog3uqFGLBDnm+ug3aGcijjkWfm5tX
+         w5nrmA9L8xOCxO8d5nfoHrYXEmRSVjsy7sLQJ9fhNcFGl9H6jxDwAG/w7m0xYc0KH1NS
+         as/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758727648; x=1759332448;
+        d=1e100.net; s=20230601; t=1758727649; x=1759332449;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5XviAeY7lSeSaJCaNoApmoT1KMIq12BnZAiqMT/S5OY=;
-        b=ofAcvpbfXKoLUj/HrleUEKacmdRzBy6VwmUYHEN6CnKolJHgar0RhADOfMuqzXRQpq
-         7vvEOSyaPyCPfn48dGhgNirry5lXv+7NDqoCYWDkgOf8DFKiGDf6tIewPkIc2Gi0EuON
-         qWhe9cCt7xObE2wlNVKhMzBrNzepSJkfZ3bRrSnluRKlJLjnOxiFxjX8F4RfiHWIXnmz
-         dTU5Y2d2vkM7Ar6lPHI5Ti+XrLOybmZH30UTmS3elXDzJGugpfB7pnGkRAWHN4KQxd7A
-         Dvfz78A6BipKz8BcNb03Xuxr5uSu6ql7PKPwdDyomU06C0gCq7BOntxbw/z2z6wl6MVs
-         sD1A==
-X-Forwarded-Encrypted: i=1; AJvYcCUMKCzmaKAdOEmpAvs6zrr7VCvIqZMfxuAmpXtZlMgUkkBQ50vUiCg2e+HkhaYnwvyRHmo5EH3vu8Z0fDrJBFUg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNOpK7EI3XLigI/6YDkOX+IYCPGqcNKzy4xiF/9PPfhmzpQt6G
-	ig6/8IUnXy8A8Pxeqq8/go+j/d5JxMdxvGNHRPY6hBt/ui7yrXPWg/SZqdICsRBiDE7RlGatzA=
+        bh=j8cxVw/7cCYHvLHRmPD20gr9/jU6KZGxeKnW/6kPkh4=;
+        b=tss2tgskZFWBjIe1YXjnyMTh+xa0/s8LzKvQTs0QQKqscuQV49TimNCoO8f2SFtklY
+         kMEvYrzWJLf1utZYAs6PkOR1391C99Enz7MuWxZdYos/p4WDDKRVefGqhso0uVGngGI3
+         XonOKDQ0g1oO8xF3dSTrcCswUAqkx18zIFklyZk1vIqj1NLJYdrsNvrczEhHlv4pi43S
+         YLg32kAQDopGTlvRmqIa57ue/t3OtfxlRx3VwmoYBWIkv5oryPm8KyCjQhlvbFEn5UW0
+         bBMeUzVoRN17xzx/lVOif/5h1Y4F40rZ6TgKf9MB73OlkoD8praoM0bQUaid2oinx9C4
+         iYTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyiI9I/O79gI9XnJ+3e4KE0BCheb0aK6fMdEvyUvngUbolS3z1fZzeVummdDx8xVnZ+LZAE3REXHuExaqynJnv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwjoduN4hOlABtVJ+l7WSDBnZnMVLozuSTcVoSPbgjH9eeprrP
+	TBMgUrxCg69ZZ4VGIOcqgZjWd1GlUyHPGLBoQsdt9ZmU3KkmJ71+qAttojJjEZb+B4KDqC9xEA=
 	=
-X-Google-Smtp-Source: AGHT+IGGX7f3s3fIS7F6JjZ/EdBwQsTrzEkrdjWSZ27jkWwDpVAWC72cO2yCYMURkKd1dYsCB5YYDcSL
-X-Received: from wmnp7.prod.google.com ([2002:a05:600c:2e87:b0:45d:e45e:96aa])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5297:b0:465:a51d:ab
- with SMTP id 5b1f17b1804b1-46e329bbf5amr2850725e9.15.1758727648403; Wed, 24
- Sep 2025 08:27:28 -0700 (PDT)
-Date: Wed, 24 Sep 2025 17:26:55 +0200
+X-Google-Smtp-Source: AGHT+IH4bVunQjsBO/jFeFQ/40wQ6/8E/Cc61XBJcsk8PC0On7+XU7q5CsbrMyF4FwtbVkJiBxDn5Gl8
+X-Received: from edc10.prod.google.com ([2002:a05:6402:460a:b0:631:d068:2197])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:3553:b0:62f:5992:a64a
+ with SMTP id 4fb4d7f45d1cf-634677b5aa0mr6138973a12.13.1758727649406; Wed, 24
+ Sep 2025 08:27:29 -0700 (PDT)
+Date: Wed, 24 Sep 2025 17:26:56 +0200
 In-Reply-To: <20250924152651.3328941-9-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20250924152651.3328941-9-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=901; i=ardb@kernel.org;
- h=from:subject; bh=nKwv+wRF8AczbIGiloggDafTMLbsFJ1dEVBDncfmiHo=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMK7yEN/52J0oxlKw4rvHFWbdru73/z3MPftwrbj0RHO
- 959ZjKxo5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzkz2tGhu18n7TLZn0/d9F9
- 2enNSjr+8u+U1bwK/1jHv9rbdeyOnTbDP901L/M0p7qkTt3/xy4m0jykxOHNvlcxM6K+lAZurev R4gcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3253; i=ardb@kernel.org;
+ h=from:subject; bh=VXQIH5e7qk0odJJeP5mqROl0N0Kotb4txaIG+Rdz7OQ=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMK75EVtWHbDBr3pDX8rbf32+8eueq4P9vfBO7u4CDBT
+ UtS9/R1lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIns5mD4H32F995U74DtPb4R
+ +buOif/bad73KDLz9V6OTTfShC5dbGdkuL8nPmmZs/qkfYGxy5N+RH/LWyGenmPwTlHv6edf6tE LmAA=
 X-Mailer: git-send-email 2.51.0.534.gc79095c0ca-goog
-Message-ID: <20250924152651.3328941-12-ardb+git@google.com>
-Subject: [PATCH v4 3/7] arm64/fpsimd: Don't warn when EFI execution context is preemptible
+Message-ID: <20250924152651.3328941-13-ardb+git@google.com>
+Subject: [PATCH v4 4/7] arm64/fpsimd: Permit kernel mode NEON with IRQs off
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -81,8 +81,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_082730_726552_9208CD37 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250924_082731_872310_B70FAE54 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +99,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Kernel mode FP/SIMD no longer requires preemption to be disabled, so
-only warn on uses of FP/SIMD from preemptible context if the fallback
-path is taken for cases where kernel mode NEON would not be allowed
-otherwise.
+Currently, may_use_simd() will return false when called from a context
+where IRQs are disabled. One notable case where this happens is when
+calling the ResetSystem() EFI runtime service from the reboot/poweroff
+code path. For this case alone, there is a substantial amount of FP/SIMD
+support code to handle the corner case where a EFI runtime service is
+invoked with IRQs disabled.
 
+The only reason kernel mode SIMD is not allowed when IRQs are disabled
+is that re-enabling softirqs in this case produces a noisy diagnostic
+when lockdep is enabled. The warning is valid, in the sense that
+delivering pending softirqs over the back of the call to
+local_bh_enable() is problematic when IRQs are disabled.
+
+While the API lacks a facility to simply mask and unmask softirqs
+without triggering their delivery, disabling softirqs is not needed to
+begin with when IRQs are disabled, given that softirqs are only every
+taken asynchronously over the back of a hard IRQ.
+
+So dis/enable softirq processing conditionally, based on whether IRQs
+are enabled, and relax the check in may_use_simd().
+
+Acked-by: Will Deacon <will@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/simd.h |  2 +-
+ arch/arm64/kernel/fpsimd.c    | 25 +++++++++++++++-----
+ 2 files changed, 20 insertions(+), 7 deletions(-)
 
+diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
+index 8e86c9e70e48..abd642c92f86 100644
+--- a/arch/arm64/include/asm/simd.h
++++ b/arch/arm64/include/asm/simd.h
+@@ -29,7 +29,7 @@ static __must_check inline bool may_use_simd(void)
+ 	 */
+ 	return !WARN_ON(!system_capabilities_finalized()) &&
+ 	       system_supports_fpsimd() &&
+-	       !in_hardirq() && !irqs_disabled() && !in_nmi();
++	       !in_hardirq() && !in_nmi();
+ }
+ 
+ #else /* ! CONFIG_KERNEL_MODE_NEON */
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index c37f02d7194e..d26a02ea2bb9 100644
+index d26a02ea2bb9..5af3043fb0ca 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1933,11 +1933,11 @@ void __efi_fpsimd_begin(void)
- 	if (!system_supports_fpsimd())
- 		return;
+@@ -225,10 +225,21 @@ static void fpsimd_bind_task_to_cpu(void);
+  */
+ static void get_cpu_fpsimd_context(void)
+ {
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_disable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		/*
++		 * The softirq subsystem lacks a true unmask/mask API, and
++		 * re-enabling softirq processing using local_bh_enable() will
++		 * not only unmask softirqs, it will also result in immediate
++		 * delivery of any pending softirqs.
++		 * This is undesirable when running with IRQs disabled, but in
++		 * that case, there is no need to mask softirqs in the first
++		 * place, so only bother doing so when IRQs are enabled.
++		 */
++		if (!irqs_disabled())
++			local_bh_disable();
++	} else {
+ 		preempt_disable();
++	}
+ }
  
--	WARN_ON(preemptible());
--
- 	if (may_use_simd()) {
- 		kernel_neon_begin();
- 	} else {
-+		WARN_ON(preemptible());
-+
- 		/*
- 		 * If !efi_sve_state, SVE can't be in use yet and doesn't need
- 		 * preserving:
+ /*
+@@ -240,10 +251,12 @@ static void get_cpu_fpsimd_context(void)
+  */
+ static void put_cpu_fpsimd_context(void)
+ {
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_enable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		if (!irqs_disabled())
++			local_bh_enable();
++	} else {
+ 		preempt_enable();
++	}
+ }
+ 
+ unsigned int task_get_vl(const struct task_struct *task, enum vec_type type)
 -- 
 2.51.0.534.gc79095c0ca-goog
 
