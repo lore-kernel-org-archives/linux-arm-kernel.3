@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DD9CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36B7CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4cKTSeea7/czdVYO122nuGfInlG59hXiu0r7c4Sres=; b=qbY1WkrQje8t34DcYlXjbOoo4H
-	5HXVF2OkrojMX2t0mVSvNAbQKG1Zt2MpktkEvo3BH3g9/9YeoT2JgCjE8CTxNMqfrMhvJRYGPp93p
-	0sbxyF/wHG9VkFeIIgvgMINbpXD7LZLXJnFrkJIVkXjm3EDO0DHu18PtJoEmQswVWeczthB4j2dzC
-	AndglLeC93fivTFGCB4tnswiM/BJ32T2Yy2C73n2DcqDdDYRilSNBPxXqPoRahwdrVOlvbrK9N+uh
-	w2qyUm03zDapkOaFhvr349RCGpOvxStSlhFHzy+3lnoP09BAY4NpAnftR5aSilxfpltTyeJ99SA0C
-	RpQK/5+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CqXbCXCtfo3WYJi7OeV3d7gOVlYWPMATHpNe2Dly36M=; b=cxql7qSGdDOG9aphHaPXZOxPP/
+	+IrXAybTKvojlf5mhF7BeykehTMSSQFh6e9MRS5cMk+o0mPn5BTIdQcoppxl6FFpkAPsfoZyHFDWA
+	3uIcMxWQu16yD4WKjPDvKs3EIqidxEq+OTk3zywMjkKbSLv62cp7tiNCxcXxEfUatltuH3+T3kP9W
+	cKROStCji6/zmOM4JqikC9IEY0z3LJwTJl7FGwDM+LPC+sKRTQ+nsaNMK1dki914VXaOMY91CtfqH
+	RU+rhWwbv1y4uxEKiU0Em+cGxyCxulkGjZdlZJVR4AEEntgrHMKoWURmunLoTHHGtwi/UoBGas5OH
+	A6bWyhHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LCW-0000000FwFY-15LV;
-	Wed, 24 Sep 2025 08:50:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1LG2-0000000FwqL-39Ky;
+	Wed, 24 Sep 2025 08:53:50 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LCT-0000000FwEE-3zBg;
-	Wed, 24 Sep 2025 08:50:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91B4643CCC;
-	Wed, 24 Sep 2025 08:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E087DC4CEE7;
-	Wed, 24 Sep 2025 08:50:02 +0000 (UTC)
-Date: Wed, 24 Sep 2025 09:50:00 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Lance Yang <lance.yang@linux.dev>
-Cc: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org,
-	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
-	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
-	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
-	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
-	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
-	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
-	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
-	surenb@google.com, hughd@google.com, willy@infradead.org,
-	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
-	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
-	apopple@nvidia.com, qun-wei.lin@mediatek.com,
-	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
-	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
-Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
- zero-filled subpages
-Message-ID: <aNOwuKmbAaMaEMb7@arm.com>
-References: <20250922021458.68123-1-lance.yang@linux.dev>
- <aNGGUXLCn_bWlne5@arm.com>
- <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
- <aNKJ5glToE4hMhWA@arm.com>
- <aNLHexcNI53HQ46A@arm.com>
- <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
+	id 1v1LFx-0000000Fwpu-14Dn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Sep 2025 08:53:49 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250924085339euoutp01afce6b251e97ee7f288d687edd7f935e~oK-y-jQQl3237632376euoutp01f
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:53:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250924085339euoutp01afce6b251e97ee7f288d687edd7f935e~oK-y-jQQl3237632376euoutp01f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758704019;
+	bh=CqXbCXCtfo3WYJi7OeV3d7gOVlYWPMATHpNe2Dly36M=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=KcNch+1SleSfRiwUNdfjecEzzqa7B113uBvSNATfohn3+1nkid85q1JT/8KZo9G3w
+	 hBPRfsPfV+qhYZD9L+nioCTXdNunZPv3xpowgyojDfUNrj9I5ArgRGfvk5D3PPHrOQ
+	 VDK+hDOS4DI1+f2/B8XfJ+kdjMctSD0mUxLkQ0hQ=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250924085338eucas1p262e8f49fbe3d4eb17c25e99907fc0915~oK-yvdSFC0850508505eucas1p2f;
+	Wed, 24 Sep 2025 08:53:38 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250924085337eusmtip2a749c23464beec550557f0850b9d4e6c~oK-xoipmi0978809788eusmtip2E;
+	Wed, 24 Sep 2025 08:53:37 +0000 (GMT)
+Message-ID: <a1ce41d7-ac54-4f66-b0b3-b98e5079e926@samsung.com>
+Date: Wed, 24 Sep 2025 10:53:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts
+ only on ARM64
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, Krzysztof Kozlowski
+	<krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Ingo Molnar <mingo@kernel.org>, Peter Griffin
+	<peter.griffin@linaro.org>, Youngmin Nam <youngmin.nam@samsung.com>, Will
+	McVicker <willmcvicker@google.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20250924085338eucas1p262e8f49fbe3d4eb17c25e99907fc0915
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
+X-EPHeader: CA
+X-CMS-RootMailID: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
+References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
+	<20250827102645.1964659-1-m.szyprowski@samsung.com>
+	<8fb4534e-ffb0-40ad-8256-b0fa040a1b97@kernel.org>
+	<d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
+	<6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_015010_009547_B9C53F51 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20250924_015346_670035_F4859CA4 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +91,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 10:49:27AM +0800, Lance Yang wrote:
-> On 2025/9/24 00:14, Catalin Marinas wrote:
-> > So alternative patch that also fixes the deferred struct page init (on
-> > the assumptions that the zero page is always mapped as pte_special():
-> 
-> I can confirm that this alternative patch also works correctly; my tests
-> for MTE all pass ;)
+Hi Daniel,
 
-Thanks Lance for testing. I'll post one of the variants today.
+On 24.09.2025 10:41, Daniel Lezcano wrote:
+>
+> On 19/09/2025 23:31, Marek Szyprowski wrote:
+>> On 27.08.2025 13:58, Krzysztof Kozlowski wrote:
+>>> On 27/08/2025 12:26, Marek Szyprowski wrote:
+>>>> For some unknown reasons forcing percpu interrupts for local timers
+>>>> breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
+>>>> machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use 
+>>>> percpu
+>>>> flag only when driver is compiled for newer ARM64 architecture.
+>>>>
+>>>> Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local 
+>>>> timer interrupts as percpu")
+>>>
+>>> I am pretty sure the patch above was not tested on arm32, thus this
+>>> workaround seems reasonable.
+>>>
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>
+>> Daniel, any chance to get this merged?
+>
+> The patch does not apply. However it is not your fault but a glitch in 
+> the previous pull request and the regression found in the Exynos MCT.
+>
+> Apparently, Thomas had to drop the entire pull request while I thought 
+> he dropped only Will's changes.
+>
+> A pull request with the previous changes for v6.17-rc1 and with the 
+> new changes for v6.18-rc1 is about to be emitted but without the 
+> Exynos MCT changes for the modularization. That means your change does 
+> not apply correctly anymore on the current changes.
 
-> This looks like a better fix since it solves the boot hang issue too.
+Thanks for the information. I've checked and 
+https://git.kernel.org/pub/scm/linux/kernel/git/daniel.lezcano/linux.git/commit/?h=timers/drivers/next 
+branch indeed doesn't contain the whole Exynos MCT modularization 
+patchset, so the $subject patch (which was supposed to fix it) is not 
+really needed.
 
-In principle, yes, until I tracked down why I changed it in the first
-place - 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to
-the zero page"). ptrace() can read tags from PROT_MTE mappings and we
-want to allow reading zeroes as well if the page points to the zero
-page. Not flagging the page as PG_mte_tagged caused issues.
-
-I can change the logic in the ptrace() code, I just need to figure out
-what happens to the huge zero page. Ideally we should treat both in the
-same way but, AFAICT, we don't use pmd_mkspecial() on the huge zero
-page, so it gets flagged with PG_mte_tagged.
-
-If I go with the first fix for the page merging, I'll look to defer the
-zero page initialisation post page_alloc_init_late() in a separate
-patch.
-
+Best regards
 -- 
-Catalin
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
