@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFBECAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109F8CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qmVW+Z/mziG0ZeCkjmpV+S/k8DcMMNx/U++MptcSCGo=; b=j7+8WjXHfzJbjUpULPD7UuYC5i
-	s1xCSk/3MFWEUVdeLs83BGSCEOTDKERzsiMxgNXseHJKUiRMdwhDzlYSu0c6SPur3fglZh6agnzu9
-	nkBwzgjadVoa9sDpYJbH7VP9JcAI1dF1R0sVRSbS5L9tW4s5nZwVjTiZ+/XHb8XejbO6+D2Ghdiog
-	xb+HCOQkpifcM1/2PgbhdSV9r9/hDgD4YuY+44Xb5YT6q21NJ5plxxy65LtlIwuA6oILQaruMeBZf
-	knSU9ILjOhbiBQlBYIVvPUc2TalRMUiWOMnCfarDf2jfH+WeEAszLHDhO4Y1/0cJ7I2d/+JXKdIkE
-	5YYsT7YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sN4TFCft2/wZSXIELr5RHWTzLUBfhTJlV5b+crUf6Vc=; b=TOSFkgUvqF/8YcJqQUYIZDshUG
+	zxwIiLfWfWhnPdPjurxy1SZGIXtZqigRbO5YNnR/VnPehEpu3OtuRx5TZUfRP4/8UTynRvn8MXB66
+	w8M72TYJ+P82n5QjBCB3jtmJmo2G47y9SyMpf5oz6gSRcsNZ9f+A20ZDX/X07WoQufjIABBnt15i1
+	ulEfQfB07gv7g8ER7KgQTRyKYJj+9re6CS3Z2z89tYw3UFfHmKFLrroo3BxUIUn8DjLkFAm/yrkG9
+	GvFCiWDS/cJwdzr8OJQ8R1kJDiJZIlp7N2AIEv7E28XLQWV51iBm9Vwu45xazJeybJ3wh7g+Q+7OQ
+	ZMr5rPZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MIR-0000000GHVu-1cH4;
-	Wed, 24 Sep 2025 10:00:23 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1v1MKR-0000000GIg7-3XC5;
+	Wed, 24 Sep 2025 10:02:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MIP-0000000GHUc-0BLG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 10:00:22 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3ecdf2b1751so3954358f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 03:00:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758708019; x=1759312819; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qmVW+Z/mziG0ZeCkjmpV+S/k8DcMMNx/U++MptcSCGo=;
-        b=bqVLVTEUojfRKkU1okvhsBUsyUKdjvvWTa4+fd9543w4lJ/xfuq78sSd4SYCslVo/z
-         HQB+jRkfvCjksFkcbkFgxK/cTyTH5y2VtZoopqUgrfovXc/LRe2GedlO9GG3f9j8yeP9
-         0p6dr0t57X4t1YR6MV8uE+VBbKJmrn72MuDXWl7mPIsi0iZIlu6CZbBOT36c0xo9dppK
-         x1FFbRqbDvxKRqeuVA1mR09N02NhsvGYQ+MsZX7ZeQpn1Z0tjR9OKvprPsGNEPRep8g3
-         HTc/BnOUV0fKfD5d7dhR/T6FQYczVC1iWuZp5/p1dcZaXs8CQCTLev1ggPqZWrChljZe
-         EEVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758708019; x=1759312819;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qmVW+Z/mziG0ZeCkjmpV+S/k8DcMMNx/U++MptcSCGo=;
-        b=X7w3ReU+176dh92UMqLWzA5rHgygAKB1gayuOETujCGf93aSULJnFSzdV0VttlRoQJ
-         FnghFDCTFxfZRuZMYRzMHcqGoMaSIfdZlWU+Ykkhbvexb6brdjChhxAY1VhWFa5vJVqk
-         zdOGwREXsZG5JFraV0nPmYictqM7zhP/t4yg2++gf5Sz0+3BK+g4oOR1qfd5652UkC6P
-         pvj+QmEff/iV4F3JOKieRtTF79uwoI0vY3ygYrOXAcKcXSppnuUoT4mnM3MSEuJxla5q
-         D1DOO/xOZIk7MOA4Va03P4HeBmUg1mi4TcCEjyKG2GA7O2B+2XUigUB0X/840/PUmTg6
-         2geA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+Bz4r22QF6zBzTarGiMO3NYLcjLbnW24w93YdEiCIXjrgPcJfB7NgXFFzxwX6phaVZU2rMlFf6nNVmcOCl+dj@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc1niAILMjl1SETCbIOBN1nAIVITTmOZJyYSjFfwjD4rU7WV62
-	B8Wf8qJgq5RBhj2vJ+wu10xB5VDohcD0xAltIfuAyeSfnPr2mKoWGw/n
-X-Gm-Gg: ASbGncspIAEltYZQys9V8bMbf5LG6V/xv6oyC5QhRW5+Jqp2Udosj23xwvwJ5NvleEq
-	wuAO9svVIENIFPA5lBidZBjEogZjVD9JWOpFO5aTJqMIJktiHwVZBmrBiMfArGO5YqjMmaHLr1T
-	blHwXwLylWHFnhyquX7N+KFi0la2yqiwq4jucfoax0ziFOjWhR0mC2w/1biCs3pzQnxNmkOewUU
-	I1ECt2/utGZfhGNjxwDQ14h+xQx3tUX0y96p3LBQOT1dL8+NC5W6PNBikIKSdb9WRx/OuVmpq4P
-	rjVh8nKPTN5+pRddaT0ojolLXCtBfLBhSonhpGjHQUyWQK+aPrh357Z4ZjBh9sQEFXJvYw+MF8T
-	xuU+EZNMbcEyZD6r4t15Yws4k4+hcCR2E5KVlShUWe+pghMsRc/XKQ7IOBOxX8ec5hfJUWKsHyl
-	epXlAH0DhtPR6yZKcU90ImqN+ABNYF2VtwwrEakfHZm7atWPFUqOMVDwL+hB75
-X-Google-Smtp-Source: AGHT+IG42+8OH08VTgLUl9F1YLwdDI/MKRqmfZxK/ji2sSckzPzSa7uie7TpTd+qAIdz3qyFVuJLPw==
-X-Received: by 2002:a05:6000:2082:b0:401:5ad1:682 with SMTP id ffacd0b85a97d-405c46c242amr5543802f8f.14.1758708019030;
-        Wed, 24 Sep 2025 03:00:19 -0700 (PDT)
-Received: from ?IPV6:2a02:8440:7503:805b:76:f865:8f03:23d3? (2a02-8440-7503-805b-0076-f865-8f03-23d3.rev.sfr.net. [2a02:8440:7503:805b:76:f865:8f03:23d3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee073f4f3csm26375517f8f.2.2025.09.24.03.00.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Sep 2025 03:00:18 -0700 (PDT)
-Message-ID: <430e9fad-a877-4328-848f-59b982a10706@gmail.com>
-Date: Wed, 24 Sep 2025 12:00:17 +0200
+	id 1v1MKQ-0000000GIem-0OJP;
+	Wed, 24 Sep 2025 10:02:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 717B6600AA;
+	Wed, 24 Sep 2025 10:02:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A36D5C4CEE7;
+	Wed, 24 Sep 2025 09:59:49 +0000 (UTC)
+Date: Wed, 24 Sep 2025 10:59:23 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
+	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
+	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+	surenb@google.com, hughd@google.com, willy@infradead.org,
+	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+	apopple@nvidia.com, qun-wei.lin@mediatek.com,
+	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+Message-ID: <aNPA--5AcqeFd6nl@arm.com>
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com>
+ <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com>
+ <aNLHexcNI53HQ46A@arm.com>
+ <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
+ <aNOwuKmbAaMaEMb7@arm.com>
+ <17dabd83-0849-44c9-b4a2-196af60d9676@redhat.com>
+ <aNO7MrQt9oPT8Hic@arm.com>
+ <791e0d59-0eb2-481f-bf8b-ba4b413d5ebd@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] dt-bindings: memory: introduce DDR4
-To: Julius Werner <jwerner@chromium.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20250922-b4-ddr-bindings-v7-0-b3dd20e54db6@gmail.com>
- <20250922-b4-ddr-bindings-v7-2-b3dd20e54db6@gmail.com>
- <CAODwPW9Js2AjSzQrvRFMK3xHXjbb6qV2bGEj3GhYWpDELniyCQ@mail.gmail.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <CAODwPW9Js2AjSzQrvRFMK3xHXjbb6qV2bGEj3GhYWpDELniyCQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_030021_100089_209CE627 
-X-CRM114-Status: GOOD (  11.15  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <791e0d59-0eb2-481f-bf8b-ba4b413d5ebd@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,22 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2025 00:51, Julius Werner wrote:
->> +      - pattern: "^ddr4-[0-9a-f]{4},[a-z]{1,10},[0-9a-f]{2}$"
+On Wed, Sep 24, 2025 at 11:44:19AM +0200, David Hildenbrand wrote:
+> On 24.09.25 11:34, Catalin Marinas wrote:
+> > On Wed, Sep 24, 2025 at 11:13:18AM +0200, David Hildenbrand wrote:
+> > > On 24.09.25 10:50, Catalin Marinas wrote:
+> > > > On Wed, Sep 24, 2025 at 10:49:27AM +0800, Lance Yang wrote:
+> > > > > On 2025/9/24 00:14, Catalin Marinas wrote:
+> > > > > > So alternative patch that also fixes the deferred struct page init (on
+> > > > > > the assumptions that the zero page is always mapped as pte_special():
+> > > > > 
+> > > > > I can confirm that this alternative patch also works correctly; my tests
+> > > > > for MTE all pass ;)
+> > > > 
+> > > > Thanks Lance for testing. I'll post one of the variants today.
+> > > > 
+> > > > > This looks like a better fix since it solves the boot hang issue too.
+> > > > 
+> > > > In principle, yes, until I tracked down why I changed it in the first
+> > > > place - 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to
+> > > > the zero page"). ptrace() can read tags from PROT_MTE mappings and we
+> > > > want to allow reading zeroes as well if the page points to the zero
+> > > > page. Not flagging the page as PG_mte_tagged caused issues.
+> > > > 
+> > > > I can change the logic in the ptrace() code, I just need to figure out
+> > > > what happens to the huge zero page. Ideally we should treat both in the
+> > > > same way but, AFAICT, we don't use pmd_mkspecial() on the huge zero
+> > > > page, so it gets flagged with PG_mte_tagged.
+> > > 
+> > > I changed that recently :) The huge zero folio will now always have
+> > > pmd_special() set.
+> > 
+> > Oh, which commit was this? It means that we can end up with
+> > uninitialised tags if we have a PROT_MTE huge zero page since
+> > set_pmd_at/set_pte_at() skips mte_sync_tags().
 > 
-> I don't really understand why there can only be up to 10 characters in
-> the module part number. I also don't understand why you wrote "20
-> bytes (10 chars)" for this in the previous patch. Are you assuming
-> that module part numbers are UTF16LE? According to my reading of the
-> spec, it sounds like they're supposed to be plain ASCII, i.e. 20 bytes
-> should be able to contain up to 20 chars.
+> This one:
+> 
+> commit d82d09e482199e6bbc204df10b2082f764cbe1f4
+> Author: David Hildenbrand <david@redhat.com>
+> Date:   Mon Aug 11 13:26:25 2025 +0200
+> 
+>     mm/huge_memory: mark PMD mappings of the huge zero folio special
+> 
+>     The huge zero folio is refcounted (+mapcounted -- is that a word?)
+>     differently than "normal" folios, similarly (but different) to the
+>     ordinary shared zeropage.
+> 
+> 
+> It should be in mm-stable, to go upstream in the upcoming merge window. It's
+> been lurking in -next for a while now.
 
-Hi Julius,
+Thanks. At least it's something to address in the next kernel version. I
+need to improve the MTE kselftests to catch the zero page scenarios.
 
-Yes plain ASCII needs 8 bits for each char as the value range is 0-127
-I was having hexadecimal in mind while writing this, I'm sorry.
-I'll fix it here and in the previous patch.
+> As it behaves just like the ordinary shared zeropage now, would we have to
+> zero/initialize the tags after allocating it?
 
-Best regards,
-Clément
+Yes. Before pmd_special(), it was be done lazily via set_pmd_at(). I
+think it just needs a __GFP_ZEROTAGS. The only other place we use this
+flag is in vma_alloc_zeroed_movable_folio(), as an optimisation to avoid
+a separate loop for zeroing the tags after data.
+
+-- 
+Catalin
 
