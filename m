@@ -4,118 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECF5CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 01:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A610CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 01:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMk1PFgMI3iBzjl2W60oVJ/yYa1atum9g4O87B2FnM4=; b=SscLHBdeQCnlq5gUHnc04u6Mro
-	ALhiJKqyRXSQVfeSe8q6iz15nRfHCp7ZPNG+TbdaCd+AfQYlafsgk1nTATpDeI6HaXWtxD32qkafJ
-	bHEV7UmuEl7B/NZ5L7xodFahLIXq29Hf6yVAwngT473arffCjVGs7wSwgkWxb03Iu7gBaQnzN+muS
-	BChy3Y8wdUHQdcpfR0k1fviOwSnnqMiqNcxK9NmFQ9apMGDmdgT7iB6wIexFuYiWJ/dVApARF6xwV
-	JkeUZSbDhSnsB7S+4Iy1rupU++qDNX+/RJ6V5JFbV+pbXuusUIngGOi2oR2roU8dgVYQlPhM27gvt
-	E5LUO0pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6aTsBsG3b0stGVUU3MEZdAy7klaOCIs/53nUSWSvKzs=; b=MKq898BDiwEbVQlFYvRloz0DNs
+	Dvs54ZIg0bKN+S/ZuQW4kk3EuSz4xSIPlLcr533qf8gxtkhwCflxblYsWFTJe+GSHUyF3UYO+vvrI
+	oi51WvX2nvkgIhI5tOYz8IA+cAba+HUQJ+li8xMEFxbXjx72pY5DJTjeE6vjLhI9dxoPRFyo53N1w
+	viGvvLKMhMJJWJqBqmYjBohTJsW1IKtkSuXgwMmYpDofmHLR1a60e5Og5MvpHpeT7dU1sNtrwnIDX
+	pNj/SYkjf8jrUbP1296kFrhapJvY1XMZLq5PuxbTkm+GO+GDbmQPWpobJGCjZ3BSplek4D5HwKfz3
+	vxMQfY8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1EeN-0000000FJxN-18mh;
-	Wed, 24 Sep 2025 01:50:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v1EmX-0000000FKS3-1wts;
+	Wed, 24 Sep 2025 01:58:57 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1EeJ-0000000FJwq-3215
+	id 1v1EmU-0000000FKRB-3gD8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 01:50:29 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58O1PEEw026280
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 01:50:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dMk1PFgMI3iBzjl2W60oVJ/yYa1atum9g4O87B2FnM4=; b=VaxDiuJMS16vKNsj
-	q1L6Jcsn5+FnLoWd03ZKAuZyZ537P08Gz1sNhHV+C5pinVVSyXCuJRYeKMoNx6wo
-	ojYWqbQU8fVv2dgqmWOjjM8lIH3eO/W7hi8qPbxXfxPv5SCQEb9F73QiGdrHvU5v
-	Y6Gt1EiL1zV7NcoA/fwgALoU22snvsYjiS4QktRjGv+UInfC3bfvWweZFbtZO68f
-	hDxFwsGBYFh3+HGKWigikbleEI33K6w6cnJemwqXYQ6sV4hlsXPAHvG+zdxtGQj5
-	+tPO8T6uA7LDTFYSs3Xsb5F4I6QZo225MbHqZJeYLXHYdHqQKmJIsyju1kJTHjrO
-	Op4QHg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499hyety81-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 01:50:26 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3307af9b595so4350448a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Sep 2025 18:50:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758678626; x=1759283426;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dMk1PFgMI3iBzjl2W60oVJ/yYa1atum9g4O87B2FnM4=;
-        b=DsGhOCkquQBsnd6XyW0KqGYzi3K9/5JsaSely2pNZQwwseNqvk019PTVkRWKEecAvW
-         8m79juZG7uVwTncWTuhPlbEkw6KssFslf48zF4QpcNn6claxMqi8uYhLh3Gm/ZM8dp3g
-         hkecedAF5tn1cCHstL68etxyLj07qYOYKdgl3sJTBBpC2wq8nzw/mCaLy7/rki3Skzmb
-         x2AXCxxseVi2+2G3dKWnqirnhIF2pX31KeOZhvaQUeZjKjm6Sl2UezO18YWzoRyzCpMF
-         Z4vuyEQanr1MBmbli9ovJpHNR32ABnEAdG7KE7xANRXQxHpwXB0FsbSMVHjZbTwNUmkg
-         2chA==
-X-Forwarded-Encrypted: i=1; AJvYcCVoF/DCo5QWTIQ2ryzGkwpIdV7yHAvYHEFOX9SdMkU9RVmHgQgjCzsZCcVpLNF9L85+3H0zZaUEkO11EtEZiXKx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEF0SGSNneiDk2LAoPOemGTN9GHuwN+XpLiGx/MBQsyB3zWw+A
-	R3v19EWUAA9a4lgk2zKxY4XrsNOcxuASJi7ckyvxskR//VoIkH1v1Y0MSwp/DqOXkhTDNIszjv2
-	d5hIs2uD3oXcw4p+wv+YQTh+aZhBKvDpvXNMipyq2cO3wXIx6Buibf+sT/MUJaCXke/UtV6SYnW
-	EBVA==
-X-Gm-Gg: ASbGnctHzfHzSS35GSXo3q8hccahN3gVZSyBPgFi6pM/JdM7ZuYIDs0YQSCgjYRap/Q
-	/cFxMeH0kYW04PdRF8slvp0jgcUVe9N0nYc189VgBUBG9mgcjsMdiYBQfc3vqC0vS2pBOajOb5L
-	qKNI96V3q+0wH7Ydi0trKBWUP5AOnuvsxwehBwzlHTmQBabXlxw/zianWezWrgefxub+Bpw+1V/
-	jZcPY9Tu67UEC7uvasBoouiuzwPJAVsA3r795I1tSB5NqU7SD8ztMwjdMjNuAtcMurXrcB3orCg
-	Pr2lmptGeYpBkoaPgzbpOLM2tUAJ7kdYJsWE1sKjGOtoryA70LXHtMa3h1L0Q7efZgy9
-X-Received: by 2002:a17:90a:e7ca:b0:330:8c87:8668 with SMTP id 98e67ed59e1d1-332a9513658mr5170043a91.14.1758678625586;
-        Tue, 23 Sep 2025 18:50:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGC/ctB7vh6PDCSgKOJgudcq/zBAOSGTDLmlFLHWBJL5DS42mvLkFysSiW1tZ+GQYJeN7UkGQ==
-X-Received: by 2002:a17:90a:e7ca:b0:330:8c87:8668 with SMTP id 98e67ed59e1d1-332a9513658mr5170010a91.14.1758678624840;
-        Tue, 23 Sep 2025 18:50:24 -0700 (PDT)
-Received: from [10.239.154.126] ([114.94.8.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3341bd8fad1sm496360a91.4.2025.09.23.18.50.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Sep 2025 18:50:24 -0700 (PDT)
-Message-ID: <c88f5edd-492d-47c9-8188-c702cfa6301d@oss.qualcomm.com>
-Date: Wed, 24 Sep 2025 09:50:21 +0800
+	Wed, 24 Sep 2025 01:58:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1758679127;
+	bh=6aTsBsG3b0stGVUU3MEZdAy7klaOCIs/53nUSWSvKzs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aup8ujOgSj/tebaHKpzgUVZXqYRu+3zaYauaxooNC9jEP6uu7nz8yhZdMa19xEJcJ
+	 98JW49+VdRenKr1ok13J+k/6gPdVHD7YEMPtOOmILnppIgnTJSCeV8GCb0jjE7T9CV
+	 IN0K/eGxkqsC3dFDYRJJTPC7zipVDXUEHsiyQUBp/p0d+k2fKPopKk5gDV6AjsWEuC
+	 2ORJdOpZr2PQajFzMwFKM+VKKmChXg+Ie7+GbzQVHgr0JDBQ87ldx1JevgxwkyQqzX
+	 Bm9KkmjEyLrQjjcm+r4wIzCKn8x/lz6317TR24RzgrHMLfGoG/U3kWeqmfDxIQ9HSo
+	 nvTqGTK6t0dxA==
+Received: from [IPv6:2405:6e00:243d:a853:dbe5:4849:b82e:5665] (unknown [120.20.205.123])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id EA720647A7;
+	Wed, 24 Sep 2025 09:58:44 +0800 (AWST)
+Message-ID: <3c310312cc401bbec13b0935e7b0a83284efdcc5.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: add asrock x470d4u bmc
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Tan Siewert <tan@siewert.io>, Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,  Joel Stanley <joel@jms.id.au>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Wed, 24 Sep 2025 11:28:37 +0930
+In-Reply-To: <0c7a28b7-8d6d-4f91-ac6c-8cf37e128139@siewert.io>
+References: <20250919185621.6647-1-tan@siewert.io>
+	 <20250919185621.6647-3-tan@siewert.io>
+	 <20250922200738.GA1124791-robh@kernel.org>
+	 <0c7a28b7-8d6d-4f91-ac6c-8cf37e128139@siewert.io>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] firmware: arm_ffa: Add support for IMPDEF value in the
- memory access descriptor
-To: Sudeep Holla <sudeep.holla@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Lixiang Mao <liximao@qti.qualcomm.com>
-References: <20250923150927.1218364-1-sudeep.holla@arm.com>
-Content-Language: en-US
-From: Lixiang Mao <lixiang.mao@oss.qualcomm.com>
-In-Reply-To: <20250923150927.1218364-1-sudeep.holla@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: _iYk-0Qh03iYaPq_XKEkDok8aXlFy2uA
-X-Authority-Analysis: v=2.4 cv=YMOfyQGx c=1 sm=1 tr=0 ts=68d34e62 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
- a=aaNDuw_hkKaaLFpP:21 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=RHNJ8GERv2vVevSSRggA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDAwNCBTYWx0ZWRfXxVI9ixe2iIXt
- SGklI8HT4gSe8suL0MF4Ng0t77Cnif199AJD6hNgMteSSvLTGw4+53+pjOsp1YmdeEonxCnPpoN
- qlfKgrQzJANkJvk+XhIB8v8jwCZE6ZKMShN3M2NXCAeqvhJeFuj2P++nFvGfW3ZqCPTr+UfTYUt
- xR++Knts9Rmv8P8Slv+fyeQ6yrO09iN2vQvVSmDXXIFoXpHZZvwojm7IpefiSkM79q1DP/CL6D+
- cKAToyf+upuwNhmBstkfLNsBRDpItgLw8Ixg3/7nr9TMJ5B33+vVV4LdO31TJJ+xqHSoCLIyWg3
- Igoz9NUza/nzU6pQTP3F8GOxPA8458c6Cc8jHq7b7c6GzhF49dDiZwR2pWCjSdrYKSFDhK4TPld
- DSIZ3yzr
-X-Proofpoint-ORIG-GUID: _iYk-0Qh03iYaPq_XKEkDok8aXlFy2uA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-23_08,2025-09-22_05,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 adultscore=0 priorityscore=1501 spamscore=0
- clxscore=1015 suspectscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_185027_773031_7AD1323A 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20250923_185855_133727_8B776BD0 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,154 +75,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 2025-09-23 at 16:48 +0200, Tan Siewert wrote:
+> On 22.09.25 22:07, Rob Herring wrote:
+> > On Fri, Sep 19, 2025 at 08:56:18PM +0200, Tan Siewert wrote:
 
-On 9/23/2025 11:09 PM, Sudeep Holla wrote:
-> FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
-> memory access descriptor to allow any sender could to specify an its any
-> custom value for each receiver. Also this value must be specified by the
-> receiver when retrieving the memory region. The sender must ensure it
-> informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
-> such as a partition message.
->
-> So the FF-A driver can use the message interfaces to communicate the value
-> and set the same in the ffa_mem_region_attributes structures when using
-> the memory interfaces.
->
-> The driver ensure that the size of the endpoint memory access descriptors
-> is set correctly based on the FF-A version.
->
-> Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
-> Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
-> Tested-by: Lixiang Mao <liximao@qti.qualcomm.com>
-> Message-Id: <20250919155216.34074-1-sudeep.holla@arm.com>
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->   drivers/firmware/arm_ffa/driver.c | 37 ++++++++++++++++++++++---------
->   include/linux/arm_ffa.h           | 21 ++++++++++++++++--
->   2 files changed, 46 insertions(+), 12 deletions(-)
->
-> v2[2]->v3:
-> 	- Moved FFA version checks into macros and tie them with features
-> 	  to improve readability and maintenance
->
-> v1[1]->v2[2]:
-> 	- Fix the size of EMAD in ffa_mem_desc_offset() and the loop
-> 	  increment in ffa_setup_and_transmit()
->
-> [1] https://lore.kernel.org/all/20250915150119.3106344-1-sudeep.holla@arm.com/
-> [2] https://lore.kernel.org/all/20250919155216.34074-1-sudeep.holla@arm.com/
->
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index 65bf1685350a..c72ee4756585 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -649,6 +649,26 @@ static u16 ffa_memory_attributes_get(u32 func_id)
->   	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
->   }
->   
-> +static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
-> +{
-> +	struct ffa_mem_region_attributes *ep_mem_access;
-> +
-> +	if (FFA_EMAD_HAS_IMPDEF_FIELD(version))
-> +		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
-> +}
-> +
-> +static void
-> +ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
-> +{
-> +	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(version)) {
-> +		mem_region->ep_mem_size = 0;
-> +	} else {
-> +		mem_region->ep_mem_size = ffa_emad_size_get(version);
-> +		mem_region->ep_mem_offset = sizeof(*mem_region);
-> +		memset(mem_region->reserved, 0, 12);
-> +	}
-> +}
-> +
->   static int
->   ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->   		       struct ffa_mem_ops_args *args)
-> @@ -667,27 +687,24 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
->   	mem_region->flags = args->flags;
->   	mem_region->sender_id = drv_info->vm_id;
->   	mem_region->attributes = ffa_memory_attributes_get(func_id);
-> -	ep_mem_access = buffer +
-> -			ffa_mem_desc_offset(buffer, 0, drv_info->version);
->   	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
->   					       drv_info->version);
->   
-> -	for (idx = 0; idx < args->nattrs; idx++, ep_mem_access++) {
-> +	for (idx = 0; idx < args->nattrs; idx++) {
-> +		ep_mem_access = buffer +
-> +			ffa_mem_desc_offset(buffer, idx, drv_info->version);
->   		ep_mem_access->receiver = args->attrs[idx].receiver;
->   		ep_mem_access->attrs = args->attrs[idx].attrs;
->   		ep_mem_access->composite_off = composite_offset;
->   		ep_mem_access->flag = 0;
->   		ep_mem_access->reserved = 0;
-> +		ffa_emad_impdef_value_init(drv_info->version,
-> +					   ep_mem_access->impdef_val,
-> +					   args->attrs[idx].impdef_val);
->   	}
->   	mem_region->handle = 0;
->   	mem_region->ep_count = args->nattrs;
-> -	if (drv_info->version <= FFA_VERSION_1_0) {
-> -		mem_region->ep_mem_size = 0;
-> -	} else {
-> -		mem_region->ep_mem_size = sizeof(*ep_mem_access);
-> -		mem_region->ep_mem_offset = sizeof(*mem_region);
-> -		memset(mem_region->reserved, 0, 12);
-> -	}
-> +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
->   
->   	composite = buffer + composite_offset;
->   	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index e1634897e159..c2d1f743e44a 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -337,6 +337,7 @@ struct ffa_mem_region_attributes {
->   	 * an `struct ffa_mem_region_addr_range`.
->   	 */
->   	u32 composite_off;
-> +	u8 impdef_val[16];
->   	u64 reserved;
->   };
->   
-> @@ -416,15 +417,31 @@ struct ffa_mem_region {
->   #define CONSTITUENTS_OFFSET(x)	\
->   	(offsetof(struct ffa_composite_mem_region, constituents[x]))
->   
-> +#define FFA_EMAD_HAS_IMPDEF_FIELD(version)	(version >= FFA_VERSION_1_2)
-> +#define FFA_MEM_REGION_HAS_EP_MEM_OFFSET(version) (version > FFA_VERSION_1_0)
-Minor: version -->> (version)
-> +
-> +static inline u32 ffa_emad_size_get(u32 ffa_version)
-> +{
-> +	u32 sz;
-> +	struct ffa_mem_region_attributes *ep_mem_access;
-> +
-> +	if (FFA_EMAD_HAS_IMPDEF_FIELD(ffa_version))
-> +		sz = sizeof(*ep_mem_access);
-> +	else
-> +		sz = sizeof(*ep_mem_access) - sizeof(ep_mem_access->impdef_val);
-> +
-> +	return sz;
-> +}
-> +
->   static inline u32
->   ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
->   {
-> -	u32 offset = count * sizeof(struct ffa_mem_region_attributes);
-> +	u32 offset = count * ffa_emad_size_get(ffa_version);
->   	/*
->   	 * Earlier to v1.1, the endpoint memory descriptor array started at
->   	 * offset 32(i.e. offset of ep_mem_offset in the current structure)
->   	 */
-> -	if (ffa_version <= FFA_VERSION_1_0)
-> +	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
->   		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
->   	else
->   		offset += sizeof(struct ffa_mem_region);
+*snip*
+
+> > > +/ {
+> > > +	model =3D "Asrock Rack X470D4U-series BMC";
+> > > +	compatible =3D "asrock,x470d4u-bmc", "aspeed,ast2500";
+> > > +
+> > > +	aliases {
+> > > +		serial4 =3D &uart5;
+> > > +	};
+> > > +
+> > > +	chosen {
+> > > +		stdout-path =3D &uart5;
+> > > +	};
+> > > +
+> > > +	iio-hwmon {
+> > > +		compatible =3D "iio-hwmon";
+> > > +		io-channels =3D <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>, <&adc 4>,
+> > > +			<&adc 5>, <&adc 6>, <&adc 7>, <&adc 8>, <&adc 9>,
+> > > +			<&adc 10>, <&adc 11>, <&adc 12>;
+> > > +	};
+> > > +
+> > > +	leds {
+> > > +		compatible =3D "gpio-leds";
+> > > +
+> > > +		heartbeat {
+> >=20
+> > led-0
+>=20
+> I guess `led-heartbeat` would be fine too, right?
+>=20
+> >=20
+> > This should have given you a warning. You did run "make dtbs_check"
+> > check the warnings, right?
+>=20
+> I did and there were no warnings, even after a full clean. The full=20
+> command I ran before submitting was `make dtbs_check W=3D1=20
+> DT_SCHEMA_FILES=3DDocumentation/devicetree/bindings/arm/aspeed/aspeed.yam=
+l`
+
+Ah, so that's probably unhelpful, as you're excluding all the other
+schemas. Rather, try:
+
+   make -j$(nproc) CHECK_DTBS=3Dy aspeed/aspeed-bmc-asrock-x470d4u.dtb
+
+Running that on your series locally produces:
+
+     SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+     HOSTLD  scripts/dtc/dtc
+     DTC [C] arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/memory-=
+controller@1e6e0000: failed to match any schema with compatible: ['aspeed,a=
+st2500-sdram-edac']
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/syscon@=
+1e6e2000/p2a-control@2c: failed to match any schema with compatible: ['aspe=
+ed,ast2500-p2a-ctrl']
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/display=
+@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2500-gfx=
+', 'syscon']
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/timer@1=
+e782000: failed to match any schema with compatible: ['aspeed,ast2400-timer=
+']
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/pwm-tac=
+ho-controller@1e786000: failed to match any schema with compatible: ['aspee=
+d,ast2500-pwm-tacho']
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: fan@1: aspeed,fan-tach-ch: b'\=
+x01' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+           from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: fan@2: aspeed,fan-tach-ch: b'\=
+x02' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+           from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: fan@3: aspeed,fan-tach-ch: b'\=
+x03\x0b' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+           from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: fan@4: aspeed,fan-tach-ch: b'\=
+x04\r' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+           from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: fan@5: aspeed,fan-tach-ch: b'\=
+x05\x0e' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+           from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: lpc@1e789000 (aspeed,ast2500-l=
+pc-v2): lpc-snoop@90: 'clocks' does not match any of the regexes: '^pinctrl=
+-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.ya=
+ml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: kcs@24 (aspeed,ast2500-kcs-bmc=
+-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast24=
+00-kcs-bmc.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: kcs@28 (aspeed,ast2500-kcs-bmc=
+-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast24=
+00-kcs-bmc.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: kcs@2c (aspeed,ast2500-kcs-bmc=
+-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast24=
+00-kcs-bmc.yaml#
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: kcs@114 (aspeed,ast2500-kcs-bm=
+c-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast24=
+00-kcs-bmc.yaml#
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/lpc@1e7=
+89000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2500-=
+lhc']
+   arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: /ahb/apb/lpc@1e7=
+89000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2500=
+-ibt-bmc']
+   /home/andrew/src/kernel.org/linux/origin/build.arm.aspeed_g5/arch/arm/bo=
+ot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dtb: leds (gpio-leds): 'heartbeat',=
+ 'identify', 'systemfault' do not match any of the regexes: '(^led-[0-9a-f]=
+$|led)', '^pinctrl-[0-9]+$'
+           from schema $id: http://devicetree.org/schemas/leds/leds-gpio.ya=
+ml#
+  =20
+
+Andrew
 
