@@ -4,69 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDB2CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDDBCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YX8a/51L97n1ZI+a5+UNicoAaC6gb4itPc+rxKNEcPM=; b=cKwPRp6EznGc3XTNeZFOK81NAu
-	jkT/Ed/TMXbS4D5Va2zbFxxogTykJTYIZMtMDrwgZelSJtAV3blTx2oXqATodZYPqkUuxkCPzM1l+
-	DlVwyEsPgD6VIV9UoMNvKgHszSQyRlbyRu8JbytJvzwlsx22mpp97TEX5PfFjKcrEMZfqWLypY56L
-	k498liJgpbtd6qLUXkSg/tURcLASEXjqFeNKBvMji4O6NmIH8WlCRdf6B/le2SUucCupZz1gfY+Ei
-	mobx5V7+iF473/7Id7FawiyRoF8zJgpMl+WRwr4G0dUbNkHb79r1Fg2oVrRHRYKjSlCKGDQGkECV7
-	fyXsRclg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHxeAqDAzgoIkP2Y0QjhiBY4j5SW4uvDF0I+i3WqG3E=; b=XdBN5qqaTiyLAIl2xZ85wEPTpP
+	76jL7rCcrb/Qdy3rFFqht6siNRJfMTWbKBte3CkfIsAtD5FGKDSGhedj/CZXLLbHk671OOHw+I0vH
+	x/fsMGj7aPBDKmoBdXFb9BrM9mvoEMmli3QRx8DYFLsZWotwV7k5OCiSbW53iBe57WjOnzD0w8QJb
+	tbIQGHZDHFb76Ty46a1bTJsP5bzAy5jyd9FmlxC9HbkSXCncM/6yC7UtZ8A4+3LqYmgE7yGV17s+0
+	UmlqlvysCKL4YUUhbPUqi1lDca/xmgTmUB5b3FM8WX0x4ysIoGydbdEhEG/lXXg8JugaiDHUKn9L6
+	d/qujqEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1SOA-00000001itk-2kzE;
-	Wed, 24 Sep 2025 16:30:42 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1SO7-00000001itQ-3kya
+	id 1v1SZj-00000001nzL-0qFZ;
+	Wed, 24 Sep 2025 16:42:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1SZf-00000001nxT-3FKM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 16:30:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758731440; x=1790267440;
-  h=date:from:to:cc:subject:message-id;
-  bh=r6ytChXBB6+/o/jiw3rRQ4z0qGE/EemGNga8zB6OjXk=;
-  b=WHrebcDP9OW8Sp1rRGaKhqdzUVqhkaM6bsjEB+kkF1i/PQChd9m+tAwC
-   9zych8kurMPm3b2qYWL0j5DzR7Oc0Xnm4HsDVbsBgR9yM9czWB2SlnrIY
-   kkGVhqvYnFkTpz+sJPe2w0vwHcHa+CODnPMKUCNDfqDkjS1U4iUdiuyuu
-   Faw1toBnjy5mdT/1OohhP7Dfs/Bk85qkWsaERlvgAfpSVzWOny4b6cix2
-   w8cZl8R++aM1SoKRYSB4/MJFSXbXSo0QZ9uqJdvlRh01EEeVQVfjAazU1
-   tCpGpj2B27AsxLScRMy6sRSOh+HU4ttlFTYGlUDR0ALkLaLJsK15W6A/o
-   A==;
-X-CSE-ConnectionGUID: 62E/+rzRTJ6wopvbPe83BQ==
-X-CSE-MsgGUID: 91lKopdnQGKp00iqi7ai5A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11563"; a="72135971"
-X-IronPort-AV: E=Sophos;i="6.18,290,1751266800"; 
-   d="scan'208";a="72135971"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2025 09:30:38 -0700
-X-CSE-ConnectionGUID: mcDTpJ6oR7+Zp6oWOOSMuA==
-X-CSE-MsgGUID: Og/Lcbt+QgCyvIUL+1Zhlg==
-X-ExtLoop1: 1
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 24 Sep 2025 09:30:37 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v1SO2-0004Kq-26;
-	Wed, 24 Sep 2025 16:30:34 +0000
-Date: Thu, 25 Sep 2025 00:29:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:sophgo/dt] BUILD SUCCESS
- 4d94abded400a5194b929c26b3aa07fb9485fe35
-Message-ID: <202509250022.3YMPoVuF-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Wed, 24 Sep 2025 16:42:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62A9C16A3;
+	Wed, 24 Sep 2025 09:42:26 -0700 (PDT)
+Received: from [10.57.1.72] (unknown [10.57.1.72])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 581953F66E;
+	Wed, 24 Sep 2025 09:42:33 -0700 (PDT)
+Message-ID: <3b16607f-8995-46b1-aecf-c6aa79f66f9d@arm.com>
+Date: Wed, 24 Sep 2025 17:42:31 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/3] coresight: tmc: add the handle of the event to
+ the path
+Content-Language: en-GB
+To: Mike Leach <mike.leach@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Carl Worth <carl@os.amperecomputing.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
+ <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
+ <874isuo0m2.fsf@rasp.cworth.amperemail.amperecomputing.com>
+ <f7be3833-9b33-4935-b821-a2e0000a2557@oss.qualcomm.com>
+ <CAJ9a7VjaUE+iy=FFwPhCdfXgoGR3rP9WSx-ZkKYeCHhqJ2yzMg@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CAJ9a7VjaUE+iy=FFwPhCdfXgoGR3rP9WSx-ZkKYeCHhqJ2yzMg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_093039_983699_24171CDD 
-X-CRM114-Status: UNSURE (   5.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250924_094235_892375_AAF632E4 
+X-CRM114-Status: GOOD (  32.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +72,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git sophgo/dt
-branch HEAD: 4d94abded400a5194b929c26b3aa07fb9485fe35  dts: sophgo: sg2042: added numa id description
+On 24/09/2025 11:21, Mike Leach wrote:
+> Hi,
+> 
+> On Tue, 23 Sept 2025 at 02:49, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>>
+>>
+>>
+>> On 9/23/2025 1:31 AM, Carl Worth wrote:
+>>> Jie Gan <jie.gan@oss.qualcomm.com> writes:
+>>>> From: Carl Worth <carl@os.amperecomputing.com>
+>>>>
+>>>> The handle is essential for retrieving the AUX_EVENT of each CPU and is
+>>>> required in perf mode. It has been added to the coresight_path so that
+>>>> dependent devices can access it from the path when needed.
+>>>
+>>> I'd still like to have the original command I used to trigger the bug in
+>>> the commit message. I really like having reproduction steps captured in
+>>> commit messages when I look back at commits in the future. So, that was:
+>>>
+>>>         perf record -e cs_etm//k -C 0-9 dd if=/dev/zero of=/dev/null
+>>>
+>>
+>> Sure, I’ll include your commit message in the formal patch series, I
+>> think it's V3 since you have submitted two versions, if you're okay with
+>> me sending it out.
+>>
+>>>>    /**
+>>>>     * struct coresight_path - data needed by enable/disable path
+>>>> - * @path_list:              path from source to sink.
+>>>> - * @trace_id:          trace_id of the whole path.
+>>>> + * @path_list:                      path from source to sink.
+>>>> + * @trace_id:                       trace_id of the whole path.
+>>>> + * struct perf_output_handle:       handle of the aux_event.
+>>>>     */
+>>>
+>>> Fixing to "@handle" was mentioned in another comment already.
+>>>
+>>> Something about the above still feels a little off to me. It feels like
+>>> we're throwing new data into a structure just because it happens to be
+>>> conveniently at hand for the code paths we're needing, and not because
+>>> it really _belongs_ there.
+>>>
+>>
+> This data is perf specific - not path generic; so I agree that this
+> structure should go elsewhere.
+> 
+> I would suggest in the csdev (coresight_device) structure itself. We
+> already have some sink specific data in here e.g. perf_sink_id_map.
+> 
+> This could then be set/clear in the functions coresight-etm-perf.c
+> file, where there is a significant amount of code dealing with the
+> perf handle and ensuring it is valid and in scope.
+> 
+> This can then be set only when appropriate - for source / sink devices
+> and only when in perf mode, and avoid the need to pass the handle
+> around as API call parameters.
 
-elapsed time: 1180m
+I think this data is specific to the session we are enabling the
+device(s) in. e.g., we keep the trace-id in the path.
+So, I don't mind having this in the path structure.
+Instead of modifying csdev with additional locking from "etm-perf"
+it is always cleaner to handle this in the path.
 
-configs tested: 73
-configs skipped: 125
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Suzuki
 
-tested configs:
-alpha                             allnoconfig    clang-22
-arc                               allnoconfig    clang-22
-arm                               allnoconfig    clang-22
-arm64                             allnoconfig    clang-22
-csky                              allnoconfig    clang-22
-hexagon                           allnoconfig    clang-22
-i386        buildonly-randconfig-001-20250924    gcc-14
-i386        buildonly-randconfig-002-20250924    gcc-14
-i386        buildonly-randconfig-003-20250924    gcc-14
-i386        buildonly-randconfig-004-20250924    gcc-14
-i386        buildonly-randconfig-005-20250924    gcc-14
-i386        buildonly-randconfig-006-20250924    gcc-14
-i386                  randconfig-001-20250924    clang-20
-i386                  randconfig-002-20250924    clang-20
-i386                  randconfig-003-20250924    clang-20
-i386                  randconfig-004-20250924    clang-20
-i386                  randconfig-005-20250924    clang-20
-i386                  randconfig-006-20250924    clang-20
-i386                  randconfig-007-20250924    clang-20
-i386                  randconfig-011-20250924    gcc-14
-i386                  randconfig-012-20250924    gcc-14
-i386                  randconfig-013-20250924    gcc-14
-i386                  randconfig-014-20250924    gcc-14
-i386                  randconfig-015-20250924    gcc-14
-i386                  randconfig-016-20250924    gcc-14
-i386                  randconfig-017-20250924    gcc-14
-loongarch                         allnoconfig    clang-22
-microblaze                          defconfig    gcc-15.1.0
-nios2                               defconfig    gcc-15.1.0
-openrisc                          allnoconfig    clang-22
-openrisc                            defconfig    gcc-14
-parisc                            allnoconfig    clang-22
-parisc                              defconfig    gcc-15.1.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-22
-riscv                            allmodconfig    clang-22
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-14
-riscv                 randconfig-001-20250924    gcc-8.5.0
-riscv                 randconfig-002-20250924    clang-22
-s390                              allnoconfig    clang-22
-s390                                defconfig    gcc-14
-sh                                  defconfig    gcc-14
-sparc                               defconfig    gcc-15.1.0
-sparc64                             defconfig    gcc-14
-um                                allnoconfig    clang-22
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                           x86_64_defconfig    gcc-14
-x86_64      buildonly-randconfig-001-20250924    clang-20
-x86_64      buildonly-randconfig-002-20250924    clang-20
-x86_64      buildonly-randconfig-003-20250924    clang-20
-x86_64      buildonly-randconfig-004-20250924    clang-20
-x86_64      buildonly-randconfig-005-20250924    clang-20
-x86_64      buildonly-randconfig-006-20250924    clang-20
-x86_64                randconfig-001-20250924    gcc-14
-x86_64                randconfig-002-20250924    gcc-14
-x86_64                randconfig-003-20250924    gcc-14
-x86_64                randconfig-004-20250924    gcc-14
-x86_64                randconfig-005-20250924    gcc-14
-x86_64                randconfig-006-20250924    gcc-14
-x86_64                randconfig-007-20250924    gcc-14
-x86_64                randconfig-008-20250924    gcc-14
-x86_64                randconfig-071-20250924    clang-20
-x86_64                randconfig-072-20250924    clang-20
-x86_64                randconfig-073-20250924    clang-20
-x86_64                randconfig-074-20250924    clang-20
-x86_64                randconfig-075-20250924    clang-20
-x86_64                randconfig-076-20250924    clang-20
-x86_64                randconfig-077-20250924    clang-20
-x86_64                randconfig-078-20250924    clang-20
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> Regards
+> 
+> Mike.
+> 
+> 
+> 
+> 
+>> The core idea behind coresight_path is that it can hold all the data
+>> potentially needed by any device along the path.
+>>
+>> For example with the path ETM->Link->ETR->CATU:
+>>
+>> All the mentioned devices operate by forming a path, for which the
+>> system constructs a coresight_path. This 'path' is then passed to each
+>> device along the route, allowing any device to directly access the
+>> required data from coresight_path instead of receiving it as a separate
+>> argument.
+>>
+>> Imagine a device that requires more than two or three arguments, and you
+>> want to pass them through coresight_enable_path or similar functions...
+>>
+>> For certain coresight_path instances, we may not need the handle or
+>> other parameters. Since these values are initialized, it's acceptable to
+>> leave them as NULL or 0.
+>>
+>>
+>>> Or, maybe it's the right place for it, and the cause of my concern is
+>>> that "path" is an overly-narrow name in struct coresight_path?
+>>>
+>>
+>> It defines the direction of data flow—serving as the path for trace data.
+>>
+>> Thanks,
+>> Jie
+>>
+>>> But if a renaming of this structure would improve the code, I'd also be
+>>> fine with that happening in a subsequent commit, so I won't try to hold
+>>> up the current series based on that.
+>>>
+>>> -Carl
+>>
+> 
+> 
+> --
+> Mike Leach
+> Principal Engineer, ARM Ltd.
+> Manchester Design Centre. UK
+
 
