@@ -4,102 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0ABCCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41297CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWHuMNffMGutQbJvBKG/MZveRAosfgTjgtTC/tzZqkI=; b=y4rJ1GpHdrz/Riw3J4XV433/7W
-	QA+BIAhyGdE0YMalhywcEPTmb+qwWuY9HMqDUz9SOrD16R7+8TIOvdE4DNYjQ1QkWaFTxxxu57sgv
-	wVZK/mu8dYRSRtFqfCE6aMHhRdlS4fgy4wnkCANfVTW9JIYphE6IZEHYDlu7k9KTMnjI3en1rNpis
-	XGsKErmS4g79Anq6N7rs4jeEvSrO2/kM5kjyPuHCM/vt+L+Ng4taI/SdBYa0VdaWUtKba7WnJqftE
-	hZfnXVgCC+OvPmBhh72ye5qIazGG4kU8GacjMXb9fUqf1i2PIqqPiO6ryQlRoDW5hHTm8wk11S7Cd
-	8MTIA3DQ==;
+	bh=5iHvWuqXMKqXY5xi5HWO4WJVMOf5QP5qFtqbNbimzII=; b=L9oReUcQ2uJ6Km/Z4Or0msEPwp
+	kbY1tCbgKuYIqHyADHeVK96ObRZRS2sUG5ndb5p6e0vNbH1O7ofNtXHsnN5zTAwYpeVLbLLWhfB5e
+	NTRThaEhsRHiAKqytT0VEZOeik3K7OIeAXAjxjM934FIb8JD+DAV+9c5g2XQx94cHeJCaHZ3L33J0
+	AHT9jIFFdy1RTCeLD3x31mtqbLgOk5GlkQOujc7OXf6yYqtS8yHkYxZOvqROZMtpHFbKSG1IVoUxS
+	aNReT1iCYBfnX4bqXEMjBM0GDo90iLBPsQKUHbeXWaS0FQIHMbEbyP6sjBp1/cFAPSadQ0U6zYi9K
+	vTmunhUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VDM-000000035WE-1Cw3;
-	Wed, 24 Sep 2025 19:31:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v1VEc-000000036AK-2Z0H;
+	Wed, 24 Sep 2025 19:33:02 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VDI-000000035SF-44XN
+	id 1v1VEZ-0000000366l-1ytA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 19:31:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=wWHuMNffMGutQbJvBKG/MZveRAosfgTjgtTC/tzZqkI=; b=b5/u/dXh0JBJyMqjvQCaQFkHk+
-	8Ksv2CPwkCAHaWyXWet8FTyq9FgPyo7XewgPvma6VXyppo3tezvBghJZfbT9HetuKxM795x5Kn7sr
-	hIwXirxpW1Br4vDkZdC0CkWR6PKd2tEIxzEtktNIuD7WKO7pXP4kAfvgqHmmkTra4W+m4smtqCSuK
-	XCOL9BxcPLVKGW785xU3zvkHu3JWuKs4AbGatRATYJYy4dHehqcVXwlroC7HjAXdeuwBz+1c2MDRq
-	4FJmYWRFEXRXE1ABa/Jzw5zSJ3zIMTfFp8EaqrW37NtkfPs0PSG0jrfnENMkugEBKVbMTyULQoSIV
-	Sb37R4Rg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34686)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v1VCp-000000001DY-2osw;
-	Wed, 24 Sep 2025 20:31:11 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v1VCd-000000007PA-3Edy;
-	Wed, 24 Sep 2025 20:30:59 +0100
-Date: Wed, 24 Sep 2025 20:30:59 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jacob Keller <jacob.e.keller@intel.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Abhishek Chauhan <quic_abchauha@quicinc.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothore <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Swathi K S <swathi.ks@samsung.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH RFC net-next 0/9] net: stmmac: experimental PCS conversion
-Message-ID: <aNRG82biP9mA-rvm@shell.armlinux.org.uk>
-References: <aNQ1oI0mt3VVcUcF@shell.armlinux.org.uk>
- <b7fb3c8c-bfa6-4e46-b5ed-05e4752bbc00@intel.com>
+	Wed, 24 Sep 2025 19:33:02 +0000
+Date: Wed, 24 Sep 2025 21:32:48 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
+	t=1758742374;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5iHvWuqXMKqXY5xi5HWO4WJVMOf5QP5qFtqbNbimzII=;
+	b=ZEM96ehZfNKMQ9RPJZFXmoXJ8Fk/dL8ssD8yZTVwrJTEoInjNxItijIGl8OtrfbNlfEQyZ
+	jk1KKW07G6hBHf8X7G3kPRtnmUmIml0rWY7oeJPvxA6nOiDn0uifc48w56uARMZxnMOZd2
+	wKaMSGKfxG/hUk+DCJF1pHv7OGeu3Dw=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Henrik Grimler <henrik@grimler.se>
+To: =?utf-8?B?77+91b3vv70=?= <shin.son@samsung.com>
+Cc: 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+	'Krzysztof Kozlowski' <krzk@kernel.org>,
+	"'Rafael J . Wysocki'" <rafael@kernel.org>,
+	'Daniel Lezcano' <daniel.lezcano@linaro.org>,
+	'Zhang Rui' <rui.zhang@intel.com>,
+	'Lukasz Luba' <lukasz.luba@arm.com>,
+	'Rob Herring' <robh@kernel.org>,
+	'Conor Dooley' <conor+dt@kernel.org>,
+	'Alim Akhtar' <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
+ update TMU interface
+Message-ID: <20250924193248.GA34040@l14.localdomain>
+References: <20250922041857.1107445-1-shin.son@samsung.com>
+ <CGME20250922041902epcas2p3e40ed58737b22b7af9d09f6ba362928d@epcas2p3.samsung.com>
+ <20250922041857.1107445-3-shin.son@samsung.com>
+ <20250922200430.GA4697@l14.localdomain>
+ <000001dc2c24$8be7a090$a3b6e1b0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <b7fb3c8c-bfa6-4e46-b5ed-05e4752bbc00@intel.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <000001dc2c24$8be7a090$a3b6e1b0$@samsung.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_123141_009302_9460B3EE 
-X-CRM114-Status: GOOD (  42.43  )
+X-CRM114-CacheID: sfid-20250924_123300_547745_EB081CBA 
+X-CRM114-Status: GOOD (  33.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,98 +83,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 12:13:18PM -0700, Jacob Keller wrote:
-> 
-> 
-> On 9/24/2025 11:17 AM, Russell King (Oracle) wrote:
-> > This series is radical - it takes the brave step of ripping out much of
-> > the existing PCS support code and throwing it all away.
-> > 
-> > I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
-> > flag with Bartosz Golaszewski, and the conclusion I came to is that
-> > this is to workaround the breakage that I've been going on about
-> > concerning the phylink conversion for the last five or six years.
-> > 
-> > The problem is that the stmmac PCS code manipulates the netif carrier
-> > state, which confuses phylink.
-> > 
-> > There is a way of testing this out on the Jetson Xavier NX platform as
-> > the "PCS" code paths can be exercised while in RGMII mode - because
-> > RGMII also has in-band status and the status register is shared with
-> > SGMII. Testing this out confirms my long held theory: the interrupt
-> > handler manipulates the netif carrier state before phylink gets a
-> > look-in, which means that the mac_link_up() and mac_link_down() methods
-> > are never called, resulting in the device being non-functional.
-> > 
-> > Moreover, on dwmac4 cores, ethtool reports incorrect information -
-> > despite having a full-duplex link, ethtool reports that it is
-> > half-dupex.
-> > 
-> > Thus, this code is completely broken - anyone using it will not have
-> > a functional platform, and thus it doesn't deserve to live any longer,
-> > especially as it's a thorn in phylink.
-> > 
-> > Rip all this out, leaving just the bare bones initialisation in place.
-> > 
-> > However, this is not the last of what's broken. We have this hw->ps
-> > integer which is really not descriptive, and the DT property from
-> > which it comes from does little to help understand what's going on.
-> > Putting all the clues together:
-> > 
-> > - early configuration of the GMAC configuration register for the
-> >   speed.
-> > - setting the SGMII rate adapter layer to take its speed from the
-> >   GMAC configuration register.
-> > 
-> > Lastly, setting the transmit enable (TE) bit, which is a typo that puts
-> > the nail in the coffin of this code. It should be the transmit
-> > configuration (TC) bit. Given that when the link comes up, phylink
-> > will call mac_link_up() which will overwrite the speed in the GMAC
-> > configuration register, the only part of this that is functional is
-> > changing where the SGMII rate adapter layer gets its speed from,
-> > which is a boolean.
-> > 
-> > From what I've found so far, everyone who sets the snps,ps-speed
-> > property which configures this mode also configures a fixed link,
-> > so the pre-configuration is unnecessary - the link will come up
-> > anyway.
-> > 
-> > So, this series rips that out the preconfiguration as well, and
-> > replaces hw->ps with a boolean hw->reverse_sgmii_enable flag.
-> > 
-> > We then move the sole PCS configuration into a phylink_pcs instance,
-> > which configures the PCS control register in the same way as is done
-> > during the probe function.
-> > 
-> > Thus, we end up with much easier and simpler conversion to phylink PCS
-> > than previous attempts.
-> > 
-> > Even so, this still results in inband mode always being enabled at the
-> > moment in the new .pcs_config() method to reflect what the probe
-> > function was doing. The next stage will be to change that to allow
-> > phylink to correctly configure the PCS. This needs fixing to allow
-> > platform glue maintainers who are currently blocked to progress.
-> > 
-> > Please note, however, that this has not been tested with any SGMII
-> > platform.
-> > 
-> > I've tried to get as many people into the Cc list with get_maintainers,
-> > I hope that's sufficient to get enough eyeballs on this.
-> > 
-> 
-> I'm no expert with this hardware or driver, but all of your explanations
-> seem reasonable to me.
-> 
-> I'd guess the real step is to try and get this tested against the
-> variety of hardware supported by stmmac?
+Hi Shin,
 
-Yes please, that would be very helpful, as I don't want to regress
-anyone's setup. I'm hoping that this series is going to be the low-
-risk change.
+On Tue, Sep 23, 2025 at 09:53:53AM +0900, �ս� wrote:
+> Hello Henrik Grimler
+> 
+> > -----Original Message-----
+> > From: Henrik Grimler [mailto:henrik@grimler.se]
+> > Sent: Tuesday, September 23, 2025 5:05 AM
+> > To: Shin Son <shin.son@samsung.com>
+> > Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>; Krzysztof Kozlowski
+> > <krzk@kernel.org>; Rafael J . Wysocki <rafael@kernel.org>; Daniel Lezcano
+> > <daniel.lezcano@linaro.org>; Zhang Rui <rui.zhang@intel.com>; Lukasz Luba
+> > <lukasz.luba@arm.com>; Rob Herring <robh@kernel.org>; Conor Dooley
+> > <conor+dt@kernel.org>; Alim Akhtar <alim.akhtar@samsung.com>; linux-
+> > pm@vger.kernel.org; linux-samsung-soc@vger.kernel.org;
+> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> > kernel@vger.kernel.org
+> > Subject: Re: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
+> > update TMU interface
+> > 
+> > Hi Shin,
+> > 
+> > On Mon, Sep 22, 2025 at 01:18:56PM +0900, Shin Son wrote:
+> > > The Exynos tmu driver's private data structure has been extended to
+> > > support the exynosautov920 hardware, which requires per-sensor
+> > > interrupt enablement and multiple-zone handling:
+> > >
+> > > - Add 'slope_comp' : compensation parameter below 25 degrees.
+> > > - Add 'calib_temp' : stores the fused calibaration temperature.
+> > > - Add 'sensor_count' : reflects the maximum sensor numbers.
+> > > - Rename 'tzd' -> 'tzd_array' to register multiple thermal zones.
+> > >
+> > > Since splitting this patch causes runtime errors during temperature
+> > > emulation or problems where the read temperature feature fails to
+> > > retrieve values, I have submitted it as a single commit. To add
+> > > support for the exynosautov920 to the exisiting TMU interface, the
+> > > following changes are included:
+> > >
+> > > 1. Simplify "temp_to_code" and "code_to_temp" to one computation path
+> > >    by normalizing calib_temp.
+> > > 2. Loop over 'sensor_count' in critical-point setup.
+> > > 3. Introduce 'update_con_reg' for exynosautov920 control-register
+> > updates.
+> > > 4. Add exynosautov920-specific branch in 'exynos_tmu_update_temp'
+> > function.
+> > > 5. Skip high & low temperature threshold setup in exynosautov920.
+> > > 6. Enable interrupts via sensor_count in exynosautov920.
+> > > 7. Initialize all new members during 'exynosautov920_tmu_initialize'.
+> > > 8. Clear IRQs by iterating the sensor_count in exynosautov920.
+> > > 9. Register each zone with 'devm_thermal_of_zone_register()'
+> > >    based on 'sensor_count'.
+> > >
+> > > Signed-off-by: Shin Son <shin.son@samsung.com>
 
-Thanks.
+[ ... ]
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> > > @@ -952,6 +1183,14 @@ static int exynos_map_dt_data(struct
+> > > platform_device *pdev)
+> > >
+> > >  	data->cal_type = TYPE_ONE_POINT_TRIMMING;
+> > >
+> > > +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
+> > > +		if (of_property_read_u32(pdev->dev.of_node,
+> > "samsung,sensors",
+> > > +					 &data->sensor_count)) {
+> > > +			dev_err(&pdev->dev, "failed to get sensor count\n");
+> > > +			return -ENODEV;
+> > > +		}
+> > > +	}
+> > 
+> > Do we really need the `if (data->soc == SOC_ARCH_EXYNOSAUTOV920)` here, I
+> > am sure there will be more socs that use samsung,sensors. Can't we simply
+> > read samsung,sensors for all socs and use EXYNOS_DEFAULT_SENSOR_COUNT if
+> > it fails, or would it be potentially dangerous if samsung,sensors is
+> > missing for autov920 dtb and default value of 1 is used?
+> > 
+> > Best regards,
+> > Henrik Grimler
+> > 
+> 
+> Yes. Incorrect remote-sensor settings can affect TMU operation. For
+> example, when the sensor count is set to 1,
+> The thermal zone doesn't function properly and the hardware trip doesn't
+> assert on the v920 variant.
+> I consider that configuration unsafe, so I added variant-specific handling
+> for that SoC.
+> Meanwhile, the other variant legitimately uses only a single sensor.
+
+I see, thanks for the explanation!
+
+Best regards,
+Henrik Grimler
 
