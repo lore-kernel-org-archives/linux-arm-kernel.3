@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 809AACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB5FCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSrLsyBqPp2VkZRrMVRRxN6FIFV101kCxP7Vh9vckU0=; b=1R1v7M9i6BktJm611ZT29Z5YgG
-	kHBifXt4dd3pvepL6gmzYN5gRR/wi5NXAWcEpPCXgK7EFeGJQmo3P4iSVm5XtDkIYkhy8XEHyXVRH
-	yxU7INyuqZS5MbgxZEabZXTIo4W0SWQneZ/MuklCynmnxPPY+1ZABNgcVAMwSQkG1hLosRF6Lkj6g
-	BdZoUhoGSCbZkj52lSD9FLMJJ4fDNDkQk8AQulQOPxc++434/QzJ+iAiu3hxCsno3uzVovcVEuAq2
-	xKCD/rAHJzpRG8fAh7zpdjRKoMvZnkG1OygG9A/itiA2MH+qMVtgpnqZQG+sUzDT/mIXkQAuzP3o8
-	HvKA4Akw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pL2uoqzypHbRpbvTBPNzb3YECUS6GHGmBJvJaUK0ytc=; b=fP3J++Be19snS1u0LJD2YPaWVj
+	1YNyrWsuGVOkaXQ50TDZidSMjlfHC0b89hVFxFMOpq6AyorN6M0LD+zbobhW/kCH37EZxjK10gV+m
+	4C9V20X8uXoLdhKXuS26ZRpHvsSpvAJkYR/NNHSjgmJP/hWxr01rInOsIsIsMv12WK54yyThtn9EH
+	y8Z9Zwl3CxVMNZDCCmVR5cOOzgg6HIbdzT3p+T4nP4IKmWh0zplm3PbvUi/kygc+I9Ofm2m/HEj4c
+	f+Z9N5IXB57W4ToXYLwNyPTTKwTFpYNTpPoOytrf5cd9PYEEU7egXdG8TzKFn0jc1akvrzTjLlO0m
+	ROVxAzRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MX6-0000000GPCd-0Vgy;
-	Wed, 24 Sep 2025 10:15:32 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v1MYJ-0000000GPuN-3EvK;
+	Wed, 24 Sep 2025 10:16:47 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MX3-0000000GPBs-2Qoh;
-	Wed, 24 Sep 2025 10:15:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758708927;
-	bh=1uyEu6yafkIx0SXozzaxMJRC9ltSjEJEMuHsl0MpVlU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S93HjY1cAJMNbDfCnyhBybY0llsQplGyrGqfWhpQQRCAFvk9J5NX/iMbG2zVt2mqL
-	 s7K6LahFrz2/SowOlGk+h05i3VtpzPIcGdypz9y/6uiDaE7b+W7r/CNZuG++4m2xjR
-	 Lnzvm6aUPI539UHXr8WTczL1o5EwFB8BflEdau/FajawvUsUNLV+UhsrW0FPeYJnwv
-	 sGqZq66K+GRCImEiLFECqD7x7Ng/PsO3vLiZeR7JA5LoAxMsvHnT8IS7wcMLCyMokl
-	 ZNLWzoHsTugp96TAt6fesMYXhvFVKFcYszrWjbaY9r48dsDeTV79SdE09KF8uA0v/c
-	 tJqHUnTPwWlfg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9AFDC17E12A7;
-	Wed, 24 Sep 2025 12:15:26 +0200 (CEST)
-Message-ID: <6af21910-5e45-4eef-90d2-690766913bed@collabora.com>
-Date: Wed, 24 Sep 2025 12:15:26 +0200
+	id 1v1MYH-0000000GPrj-008Y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Sep 2025 10:16:46 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-62fa062a1abso10716407a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 03:16:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1758709003; x=1759313803; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pL2uoqzypHbRpbvTBPNzb3YECUS6GHGmBJvJaUK0ytc=;
+        b=W/15yqEz6daAGTu+MfWExEt8vebVciYf1c972GmPtkaysqhrDRMWpXu6z+VZ+s4KlI
+         fFiqJ4EdZX64hXxDqwBFMf4GJ5kV7xS9Qnw87S3dLNMy8ymAqx2frcj8rTPodAkuZKNa
+         Vqiffi6HhlK8X3i2cjASmAsrNAGUn7mOroSgY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758709003; x=1759313803;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pL2uoqzypHbRpbvTBPNzb3YECUS6GHGmBJvJaUK0ytc=;
+        b=E2M6KGGP5891EYftBoiPHIY23mTvkYPZh5B21H+Qez+mOcmEMnF8hmMJpSrKs7yaIK
+         6/kfj37ZskRlObs1P/ZBBU/2K8dlkOSWEm6XpLDfVbEZ7nTNaVBJXe0OSZrON33YkzEr
+         jDReiEL8V+iyKhPvzqA74+IJcpYlw9Rmfs06aVF345fhWy8xg/VkCDoxM1JEXBJwA/gg
+         ci0fN2+foSfIakQSqvUQ1tiV4NJBZ0hLZT9VcZXsHo+Irr81msDjPN6Q72amEeMYJ0il
+         +snIMwaZX6zEMFB33fyilANwsR6iCAiWGBSyNv6U5J1SO/woRz0sGreO0uT/aTq3Jya4
+         uGQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUmhgFZP/h40AKiHlGcXddgBMi9/Qiz7eIVwtx0KS3O+uKS21ehGe0DHZlepUQWXM3QX8nLLvUIfzGkG2VpGEHW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe56HT1+nMi+8NtFZU3w9lNnZNzm/MWubTtquqcJCVMk5efevB
+	JZADB20sqx+GKD0bM0lTK8pcSKWKTjsACaBIuhEH/Q1vg9PtnQVy5FqqvzTvBLrNytU=
+X-Gm-Gg: ASbGncsr/Njh7oVfxpEVh24eLzcNm/GtTMEq0Sti3Zd4QjjNQQdnDu8XxEXH421y4f/
+	EhRvLLR0PrcCNk4XrzSrxvZhAFQrO0yzwDApo/uvnNjrBJ4OO1B3pPAkrLrJe/zSmg7Y13z+IXD
+	fXpLWBhQG8QbgcRooc3Rva6Wcj/g6mu59pnoKnG4hd8x97PuKzx/TFUO+hQL3ylyBPyzPcZBb7N
+	3Mum9Vf9anFxIi3eMkYENz5rVI0itbBoxBzXXSzuOAJWQWGDHZD9aD6raOrdLFsijrjDJAXFuXO
+	JrGd91L5Un+N6OiAgXqAh0FSkV1QpNm4oYT24VuBhxo4q3pTAM9dqJizBkqX0nR2uq9gbLrf1BS
+	3hAyg07O3cyhTmzNd4O+CI3v35DdYRYJxprEowXbADL6Rg8kM5mLKRmhlQn37fADAEbVuPjCkLs
+	V2HLweICYRzHXEEr9rN1duhLUwCJPoWAP1LW7xeGkm6nhMkw8ORHUvOUrnahjiAQJ/pqMxAA==
+X-Google-Smtp-Source: AGHT+IHOIaPIXlWeLkZKenFEtjzYGIM9G3O+kz9aBGgbCcayPpzFvqsW2MirypYhSn7F+tMkSctIcg==
+X-Received: by 2002:a17:907:1c10:b0:b2d:d73:de59 with SMTP id a640c23a62f3a-b30263b7c73mr570377266b.9.1758709003021;
+        Wed, 24 Sep 2025 03:16:43 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b28d206bd13sm949712766b.31.2025.09.24.03.16.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 03:16:42 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH 1/3] ASoC: mxs-saif: support usage with simple-audio-card
+Date: Wed, 24 Sep 2025 12:16:25 +0200
+Message-ID: <20250924101640.2942635-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: remoteproc: mediatek: Add binding for
- mt8189 scp
-To: Huayu Zong <huayu.zong@mediatek.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Tinghan Shen <tinghan.shen@mediatek.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250924084422.4604-1-huayu.zong@mediatek.com>
- <20250924084422.4604-2-huayu.zong@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250924084422.4604-2-huayu.zong@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_031529_795774_3C4E8DA0 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250924_031645_246085_6ECE4752 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +105,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/09/25 10:44, Huayu Zong ha scritto:
-> Add the compatible for mt8189 SCP to the binding.
-> 
-> Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
+Add support for enabling MCLK output when using the simple-audio-card
+driver. In the sound/soc/mxs/mxs-sgtl5000.c use case, that driver
+handles MCLK enable/disable by calling mxs_saif_get_mclk() and
+mxs_saif_put_mclk() at probe/remove. This does not happen when the
+simple-audio-card driver is used. Extend the mxs-saif driver to enable
+MCLK output in that scenario.
 
-Please fix the commit description.
+Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
 
-Example:
+ sound/soc/mxs/mxs-saif.c | 123 ++++++++++++++++++++++++++++-----------
+ 1 file changed, 90 insertions(+), 33 deletions(-)
 
-Add a new compatible for MT8189's SCP: even though this is partially
-compatible with the SCP found in MT8192, the register layout has some
-slight differences.
+diff --git a/sound/soc/mxs/mxs-saif.c b/sound/soc/mxs/mxs-saif.c
+index 3e3a62df3d7e..a01a680ad4d7 100644
+--- a/sound/soc/mxs/mxs-saif.c
++++ b/sound/soc/mxs/mxs-saif.c
+@@ -24,8 +24,79 @@
+ #define MXS_SET_ADDR	0x4
+ #define MXS_CLR_ADDR	0x8
+ 
++#define MXS_SAIF_BUSY_TIMEOUT_US 10000
++
+ static struct mxs_saif *mxs_saif[2];
+ 
++/*
++ * Since SAIF may work on EXTMASTER mode, IOW, it's working BITCLK&LRCLK
++ * is provided by other SAIF, we provide a interface here to get its master
++ * from its master_id.
++ * Note that the master could be itself.
++ */
++static inline struct mxs_saif *mxs_saif_get_master(struct mxs_saif *saif)
++{
++	return mxs_saif[saif->master_id];
++}
++
++static int __mxs_saif_put_mclk(struct mxs_saif *saif)
++{
++	u32 stat;
++	int ret;
++
++	ret = readx_poll_timeout(__raw_readl, saif->base + SAIF_STAT, stat,
++				 (stat & BM_SAIF_STAT_BUSY) == 0,
++				 MXS_SAIF_BUSY_TIMEOUT_US,
++				 USEC_PER_SEC);
++	if (ret) {
++		dev_err(saif->dev, "error: busy\n");
++		return -EBUSY;
++	}
++
++	/* disable MCLK output */
++	__raw_writel(BM_SAIF_CTRL_CLKGATE,
++		saif->base + SAIF_CTRL + MXS_SET_ADDR);
++	__raw_writel(BM_SAIF_CTRL_RUN,
++		saif->base + SAIF_CTRL + MXS_CLR_ADDR);
++
++	saif->mclk_in_use = 0;
++
++	return 0;
++}
++
++static int __mxs_saif_get_mclk(struct mxs_saif *saif)
++{
++	u32 stat;
++	struct mxs_saif *master_saif;
++
++	if (!saif)
++		return -EINVAL;
++
++	/* Clear Reset */
++	__raw_writel(BM_SAIF_CTRL_SFTRST,
++		saif->base + SAIF_CTRL + MXS_CLR_ADDR);
++
++	/* FIXME: need clear clk gate for register r/w */
++	__raw_writel(BM_SAIF_CTRL_CLKGATE,
++		saif->base + SAIF_CTRL + MXS_CLR_ADDR);
++
++	master_saif = mxs_saif_get_master(saif);
++	if (saif != master_saif) {
++		dev_err(saif->dev, "can not get mclk from a non-master saif\n");
++		return -EINVAL;
++	}
++
++	stat = __raw_readl(saif->base + SAIF_STAT);
++	if (stat & BM_SAIF_STAT_BUSY) {
++		dev_err(saif->dev, "error: busy\n");
++		return -EBUSY;
++	}
++
++	saif->mclk_in_use = 1;
++
++	return 0;
++}
++
+ /*
+  * SAIF is a little different with other normal SOC DAIs on clock using.
+  *
+@@ -48,6 +119,7 @@ static int mxs_saif_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
+ 			int clk_id, unsigned int freq, int dir)
+ {
+ 	struct mxs_saif *saif = snd_soc_dai_get_drvdata(cpu_dai);
++	int ret;
+ 
+ 	switch (clk_id) {
+ 	case MXS_SAIF_MCLK:
+@@ -56,18 +128,22 @@ static int mxs_saif_set_dai_sysclk(struct snd_soc_dai *cpu_dai,
+ 	default:
+ 		return -EINVAL;
+ 	}
+-	return 0;
+-}
+ 
+-/*
+- * Since SAIF may work on EXTMASTER mode, IOW, it's working BITCLK&LRCLK
+- * is provided by other SAIF, we provide a interface here to get its master
+- * from its master_id.
+- * Note that the master could be itself.
+- */
+-static inline struct mxs_saif *mxs_saif_get_master(struct mxs_saif * saif)
+-{
+-	return mxs_saif[saif->master_id];
++	if (!saif->mclk_in_use && freq) {
++		ret = __mxs_saif_get_mclk(saif);
++		if (ret)
++			return ret;
++
++		/* enable MCLK output */
++		__raw_writel(BM_SAIF_CTRL_RUN,
++		saif->base + SAIF_CTRL + MXS_SET_ADDR);
++	} else if (saif->mclk_in_use && freq == 0) {
++		ret = __mxs_saif_put_mclk(saif);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
+ }
+ 
+ /*
+@@ -238,34 +314,15 @@ int mxs_saif_get_mclk(unsigned int saif_id, unsigned int mclk,
+ 					unsigned int rate)
+ {
+ 	struct mxs_saif *saif = mxs_saif[saif_id];
+-	u32 stat;
+ 	int ret;
+-	struct mxs_saif *master_saif;
+ 
+ 	if (!saif)
+ 		return -EINVAL;
+ 
+-	/* Clear Reset */
+-	__raw_writel(BM_SAIF_CTRL_SFTRST,
+-		saif->base + SAIF_CTRL + MXS_CLR_ADDR);
+-
+-	/* FIXME: need clear clk gate for register r/w */
+-	__raw_writel(BM_SAIF_CTRL_CLKGATE,
+-		saif->base + SAIF_CTRL + MXS_CLR_ADDR);
+-
+-	master_saif = mxs_saif_get_master(saif);
+-	if (saif != master_saif) {
+-		dev_err(saif->dev, "can not get mclk from a non-master saif\n");
+-		return -EINVAL;
+-	}
+-
+-	stat = __raw_readl(saif->base + SAIF_STAT);
+-	if (stat & BM_SAIF_STAT_BUSY) {
+-		dev_err(saif->dev, "error: busy\n");
+-		return -EBUSY;
+-	}
++	ret = __mxs_saif_get_mclk(saif);
++	if (ret)
++		return ret;
+ 
+-	saif->mclk_in_use = 1;
+ 	ret = mxs_saif_set_clk(saif, mclk, rate);
+ 	if (ret)
+ 		return ret;
+-- 
+2.43.0
 
-...after which:
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogiaocchino.delregno@collabora.com>
-
-> ---
->   Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> index 179c98b33b4d..407be544b404 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> @@ -20,6 +20,7 @@ properties:
->         - mediatek,mt8186-scp
->         - mediatek,mt8188-scp
->         - mediatek,mt8188-scp-dual
-> +      - mediatek,mt8189-scp
->         - mediatek,mt8192-scp
->         - mediatek,mt8195-scp
->         - mediatek,mt8195-scp-dual
-> @@ -168,6 +169,7 @@ allOf:
->               - mediatek,mt8183-scp
->               - mediatek,mt8186-scp
->               - mediatek,mt8188-scp
-> +            - mediatek,mt8189-scp
->       then:
->         properties:
->           reg:
-
-
+base-commit: cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
+branch: microgea-rmm-audio
 
