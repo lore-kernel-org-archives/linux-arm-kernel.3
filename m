@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54033CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D339CCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 17:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ra84b5TQcvneIFEng3d2XbPMhEj095xAOBIRrzuXxN0=; b=AjGjwNqHKkKIH6NT+KVNq0gLFf
-	LjY3WqkcsjeqIndZo+t2UA7eO8Cwx2tKTbR5KVJ8lO1YpIQMF4g6foKkMMK1M9D567SifQ+lZC/H4
-	AFCg94DeulI5p8h24y4jHUE43Ku4dvI7SB70DNX0sWQ+2yM+2UnMQJ/o2pZC0ze1lwxgf27OsDZk2
-	Txq9yPSWveIkZ5gjvWECrOWt4ih0RYkjdwAW7qasr0iiGGpUOOVH162o7rxV+GjD2tQY+zXjd/UDQ
-	pitYtjeIK4SjGxMPyhG4rhLanb7xXGRA3ueiDli6U2WL4NSZxuktTqOdMNwFCCqJoMr11CnEA8zde
-	qEDAaGag==;
+	bh=A/9j5vmJ4hrvShr9ivPZzPOHIhWnRzbwcr8xeM7YB00=; b=tQZSSQ471rvrEgkvI9jrYUb76X
+	WuuNcocRP4SeRJbd5U4+NgFrUGxG3+ZKC1tiNWjS2ZlePoA5y0xsOEry0+1aanzuHrn+u3eNDtGtw
+	d5zP3G20D/JA4c7G/0bZ5ISKkuhLWeauegME3uY2qwg5QI7R+xWGCKuDmrxG4KzAFTVlzmQofr5xN
+	ajHA0MNTKIJba1sg0dtFnVzxoG6lhOgszaVAyU/Hl4zhI6DpPS2lbnedBNMy0T3Ts70oGBiltjxKq
+	yoKaqrEjK5KJoyFCOuXVLKLqXMP1cXBQ1AVF8JEfNASRfXcB1Bjg8rEr86frepc5DEsn8HkofXbwd
+	9UNSHNvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Slj-00000001tEA-2AI5;
-	Wed, 24 Sep 2025 16:55:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1SzE-00000001ztl-1Mqs;
+	Wed, 24 Sep 2025 17:09:00 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Sli-00000001tDz-3QQY
+	id 1v1SzB-00000001zqX-0AQV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 16:55:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0DD52601A7;
-	Wed, 24 Sep 2025 16:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA2BC4CEE7;
-	Wed, 24 Sep 2025 16:54:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758732901;
-	bh=ZSuvPKo4zP1BolcgaK42uPifYCuhAjff2p5QUMlhvj4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uXNRVo90ZhjkmSGghzeTg1AwA9xcxiXQgqZpgm5694xcVDh65DWhbtAbUuhvC4kW2
-	 S9G9l6hbYLvXkhR22gbdk2HIL56L42VvBvOoDLKFBJsSSHik/yXb5ga0Hdc85cVbfp
-	 9jyZRYcEt70BjMBoUv8akRa2oY1lI8k56rOqHlCCb21jS2T2sxXBfflXO/31EzPRbf
-	 /3DgBIfF8p8LJG0whLwQzeyC/17xUvzlLw8l5G/UO3K5Et7wSie3pYZBhCm0pXCBxd
-	 Nr3u4c2rFgOBlW1liOJDY8TUbC5O2PDnYRB8S64t97UTzCvygkoORljvPSPHAS9Trp
-	 hqFj+McS5Oc6g==
-Date: Wed, 24 Sep 2025 09:54:55 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Nicolas Schier <nicolas@fjasle.eu>, Tom Rini <trini@konsulko.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	J =?iso-8859-1?Q?=2E_Neusch=E4fer?= <j.ne@posteo.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Chen-Yu Tsai <wenst@chromium.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Han Shen <shenhan@google.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>, Rong Xu <xur@google.com>,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/5] kbuild: Allow adding modules into the FIT ramdisk
-Message-ID: <20250924165455.GA1445061@ax162>
-References: <20250922224835.1918759-1-sjg@chromium.org>
- <20250922224835.1918759-5-sjg@chromium.org>
+	Wed, 24 Sep 2025 17:08:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758733737; x=1790269737;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aeWps3hGKLyWKjZOJweWrTxcCTaDaWqTIIpaS/fAWuQ=;
+  b=kdtYYHnoX/d1zW5X2nXmjJEBQjXAKUV5+fsk6NYN9LjBfa5xKDbvygzX
+   /y2JQmRZyOQPROzq9CjLliTD6aiugr2mSgViiog7tpRK7idFc4rE2Y/+L
+   yf99AVdgqY+nBMm8jpe7YQWahPkZey5v+G5/3jGNKcyuIVoYby0t+2MqL
+   AS/vavZTBIEFI/iNKClbUAfK2rr+ZCIlDi9fmwfKZAPfYoSH1xUN99tYW
+   b183CoZ2XaNSEoAbnog9P15R1/xF2kT8MJ/xW4pn0cunj/ZGpE32kD0wb
+   gKjwmk/Vo+/RalOnM5ARilBi0GVWs33kH8GWi7Jk4M1gm/BRVN7tdauFz
+   Q==;
+X-CSE-ConnectionGUID: XQxJ1d0tQBWHgUGt57urSg==
+X-CSE-MsgGUID: FqTyU2JaRgqjktmOgy6a2g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11563"; a="83643416"
+X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
+   d="scan'208";a="83643416"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2025 10:08:45 -0700
+X-CSE-ConnectionGUID: Yhq3NqxFTYOm0i0PtY1iGg==
+X-CSE-MsgGUID: dDWvxP7bSZ+FFgPaJk9r+Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
+   d="scan'208";a="181473381"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 24 Sep 2025 10:08:40 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v1Sys-0004NB-0I;
+	Wed, 24 Sep 2025 17:08:38 +0000
+Date: Thu, 25 Sep 2025 01:07:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shenwei Wang <shenwei.wang@nxp.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+	Shenwei Wang <shenwei.wang@nxp.com>
+Subject: Re: [PATCH v2 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+Message-ID: <202509250023.gNpm32hs-lkp@intel.com>
+References: <20250922200413.309707-4-shenwei.wang@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250922224835.1918759-5-sjg@chromium.org>
+In-Reply-To: <20250922200413.309707-4-shenwei.wang@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_100857_154954_80A928FE 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 04:48:32PM -0600, Simon Glass wrote:
-> Support 'make image.fit FIT_MODULES=1' to put all the modules into a
-> ramdisk image within the FIT.
-> 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> ---
+Hi Shenwei,
 
-Acked-by: Nathan Chancellor <nathan@kernel.org>
+kernel test robot noticed the following build warnings:
 
->  scripts/Makefile.lib | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 1d581ba5df66..2e880d9b4706 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -398,9 +398,15 @@ MAKE_FIT := $(srctree)/scripts/make_fit.py
->  # Use this to override the compression algorithm
->  FIT_COMPRESSION ?= gzip
->  
-> +# Set this to 1 to include an initrd with all the kernel modules
-> +FIT_MODULES ?= 0
-> +ifeq ($(FIT_MODULES),1)
-> +EXTRA := -B $(objtree) -m
+[auto build test WARNING on remoteproc/rproc-next]
+[also build test WARNING on brgl/gpio/for-next shawnguo/for-next linus/master v6.17-rc7 next-20250923]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Not that I can imagine it being a big issue, it would be nice to
-potentially namespace this variable, like MAKE_FIT_EXTRA or
-MAKE_FIT_FLAGS?
+url:    https://github.com/intel-lab-lkp/linux/commits/Shenwei-Wang/dt-bindings-remoteproc-imx_rproc-Add-rpmsg-subnode-support/20250923-040844
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/remoteproc/linux.git rproc-next
+patch link:    https://lore.kernel.org/r/20250922200413.309707-4-shenwei.wang%40nxp.com
+patch subject: [PATCH v2 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+config: arm64-randconfig-r121-20250924 (https://download.01.org/0day-ci/archive/20250925/202509250023.gNpm32hs-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250925/202509250023.gNpm32hs-lkp@intel.com/reproduce)
 
-> +endif
-> +
->  quiet_cmd_fit = FIT     $@
->        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
-> -		--name '$(UIMAGE_NAME)' \
-> +		--name '$(UIMAGE_NAME)' $(EXTRA) \
->  		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
->  		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
->  		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
-> -- 
-> 2.43.0
-> 
-> base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
-> branch: fita3
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509250023.gNpm32hs-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/gpio/gpio-imx-rpmsg.c:410:44: sparse: sparse: Using plain integer as NULL pointer
+
+vim +410 drivers/gpio/gpio-imx-rpmsg.c
+
+   405	
+   406	static void imx_rpmsg_gpio_remove_action(void *data)
+   407	{
+   408		struct imx_rpmsg_gpio_port *port = data;
+   409	
+ > 410		port->info.port_store[port->idx] = 0;
+   411	}
+   412	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
