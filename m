@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444C2CAC5AE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D79CAC5A5
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 15:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=09aADhRx97hgFBUXBrs2wpmXKNGHwu9T21ONWFuPPkc=; b=xP843O1DBxRXfz1bm2pXFmRo7D
-	zzPmZbY0c1IkcIiU/JlzxdMzBiTOOvlMlB+ulhwQhqX0/t1r9pgLRJjY76FkW+5KyqiW7ppEHZfUV
-	F3nurxdHPWT9SQqVY8HoOkLb069WxjudSvAelAjLSx4NA4qm/ROTHKmNv0BXYBW32DdVWkI+mPeM7
-	m/P3I1xhJgD7mZFFNAXM6tOE2JsUY5eHy5Sm0GuOEG4ru0aT914h/mOlVLdCf4dOBepKeKLN8oxy1
-	Oj910wctXqP18cM58PB14NjGoJt/LpFVfz1IgH45MM2a+dFOe6KsCxHv4ugAZF7x8JzcLG1Nrzfaa
-	mfS+9J/Q==;
+	bh=41p1zpQsk+NbDwSIv78ihFM0CdBgvYG00QN32wnKKd8=; b=35MbdwzVIvpvHGqXCCt4iZntmj
+	b8KTbjP2d/g3RWuwFvRSUGelHXMweT6Y0/V1eUKu3/QbPqqJuhcM0ZNeWHo4ZyRIKVodb965gq0Tm
+	LyjzSLwfqjA+ltO+6KuGOiMqgUNWYA7VI9w8jY7CZi3vGYakQRTBPXB2c0qqBqi0qhecvLoJhId5c
+	dy3pHnM9Ei+fq6adbn7+9ISQoU8plFTdpBFokMAeovr9Wg+KJXWGiY/I28aNaQogKAkbbCFADLSOp
+	TuR71lqQNjatK6p5eO1RG3FAb7vRPTyxao2chZyxZ4Aw0RxoNPRq+nSu4p0IUol+JbvuKvvSxZna7
+	vAWQjESA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1R9M-000000015Y3-0pTP;
+	id 1v1R9M-000000015Z6-3MIz;
 	Wed, 24 Sep 2025 15:11:20 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1R9E-000000015Q6-1kr1
+	id 1v1R9G-000000015Re-0xKV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 15:11:14 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45dd5e24d16so66307695e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:11:11 -0700 (PDT)
+	Wed, 24 Sep 2025 15:11:15 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-46e2562e8cbso13158325e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:11:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758726670; x=1759331470; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1758726672; x=1759331472; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=09aADhRx97hgFBUXBrs2wpmXKNGHwu9T21ONWFuPPkc=;
-        b=FUwxY9Tc03ml1yEECyp1noxC9bUNgkO8tt9m6MK3nLFa/p0eA5ds9PMdZPejtXgtJJ
-         wo7ODAkollVNWFyDOxTHzRM3MDCbl093klDIHMMXIzEsklhWNtFTgyZcTDT56LzWHU/v
-         YZtNsp2HDI4KY30zrwUTEd2CvepgYGGLja5Dmh7q8zmpqktUDYzZ1NwYlI86BoJmj5SV
-         rT7ZDHwtyqS7YL7BgU6ScHiaQrne6PPHsGJtDVHDUPVNnBgG8f8vNDB6wq72CAYB/OHV
-         e/CUF6EuP0IaMs1xCdMaSvwgAcwg8MyYI4Lxn4IWisVFs0+1lQza2/8t71UXOsTMZN9T
-         /Z7Q==
+        bh=41p1zpQsk+NbDwSIv78ihFM0CdBgvYG00QN32wnKKd8=;
+        b=Mxd1RK5mCUI+ihz67czQEqgKosNMLc83AE1l38Ui4q+NoFyFFprW3TFWt0Z0RKCgr7
+         +AwrwMV1M6TIaW6QhwfOSt+AiELHLPgNT2/Kfr0W5r19yQpK2QDIRLCBoMmrwqlHTdrE
+         l3NkesI4RODHKtPLpsmCFokJmk9a+5nLu/u89+BHwAv81hMbBdGUdQY9Sxz/w7XL1T3r
+         uGvhixuRpMPQ/u31BKwJy2MvEsBsQ/B/ehbHG9bYcbGHf9kiyqGA/6Cq6vnWrQICD3qD
+         TnWVmxCCoouGpqVakggDjhwsirqsQ3YP7uVjpE2ZBTyWZYPhV8nveWDVtOue+fCGbgyi
+         lIyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758726670; x=1759331470;
+        d=1e100.net; s=20230601; t=1758726672; x=1759331472;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=09aADhRx97hgFBUXBrs2wpmXKNGHwu9T21ONWFuPPkc=;
-        b=mQKLBKGyoojph9ljrZwnmTMYS6i9Rq/IPhjaB+hG5w9lUyRBXnYuN8Msx3Ii8GUINl
-         EjAHs3E2EFujEZR90FZKq5vdmhXp8cCbhw7Hwrw3sUzhFPtXqz+MVgMJry1WSZWumRLS
-         Zq7V2LwAdIcWJsvE7XgUhROtLw25bjmlpnyRVyXvjIPoYDKcFC+o+Kz31e9JpSZHvJVW
-         RtkcAmMmCZvrOOOwYP/k8Ycxtg2acK7I/T1PeeKmCJPf5vNuGZmkWq0dxLuLS+P35uxb
-         +3hqFXiEwP7CmApUWkOHTX4AHl/E3LpoXEibI3Fgb89IinN/7eRkNIv8MGmNm8EkBS7w
-         VcZw==
-X-Forwarded-Encrypted: i=1; AJvYcCUHcgAiNIzZBaL0y22VnfOwpDykkQfeUH8OtczYnTXxUqCf6tjk+JYsHljWpcAcAMYLenphXWmpJAqgZ3xYD22W@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfSB0gpoX2ExJNTlMOzDsYvJLANZg0AEPa0+ljg1iGIqsjYv55
-	PcO+kz5xUyBtM/yky0MA+vgnqJoVTgBm8Bze4XmArfwz4YWwMzjKn7292/fULB5FOS4=
-X-Gm-Gg: ASbGncuFIXci/f7auEKRxByM/VziG5m4HtteQX1O/uhf5TloQ2zx1DeoONUtxdDe3hI
-	7gSUi/9Szq1Ij4XRLHdIfQGPfMJlV5Gmc0x+tZxwjpF7gtIsuw2VdQsJbPqoW8ecNlmjeendOlu
-	esWV7Yt6cBjr0lKfmNSLET0mE4flH50v4ZgVAiHxYh+9ry0MEt99OwqzbRy8WEQ/iV6Ii6j6GhS
-	GkpZTCvIq5AGpxSh7fJbh88HrgWUVqzTXbLPDbLsy3W5X6RtwgJcNjyiXZwfk4OMKOeDG2Sw0HP
-	dkeeMoBOd6rzdsuy/1TbKzAfhPZmUWVBuGHZ/SSZSYm9DEmRzgVkC21H47Z440ZT1y22J1KoFMl
-	JTkCL2SXoG4Tw3NY1G9zoZyLm6oGE+6ffzsZtx3tDKK+DU8Dk5nHnec5sW68Vu0IaLCy4l5zAiv
-	A=
-X-Google-Smtp-Source: AGHT+IEs8QQ7m3gKJ792ZHmSzLEcZBZ4i1CTXbR5D1PZeV8nN8Q4fLpYid2Xg1E6ZQRkaWTb8EXBNg==
-X-Received: by 2002:a05:600c:4686:b0:45f:29e4:92ff with SMTP id 5b1f17b1804b1-46e329e4e87mr2559865e9.17.1758726670313;
-        Wed, 24 Sep 2025 08:11:10 -0700 (PDT)
+        bh=41p1zpQsk+NbDwSIv78ihFM0CdBgvYG00QN32wnKKd8=;
+        b=mWG684lqFiY1qp1qGkwHmMoEupBhjidzruqxeKt/fwh2PMdNrlgM1Xf8QcVer3C5O4
+         RxIbGg8+MYHUL+dco6cSew6SU/Ootd1obfI3Z4z8xlMtH0e0J1IIXl0H5v4GcC/tuAwt
+         F6SU1/U+Khg50aq+/BRBFiIQV5kKKO3OfMLtcuYB6BUvyYZw/bLYp7ww+TnQJZbMXBwS
+         Q83iu/RzwtXRI5B91VOUDxl0lhQNR1UP63X/6YwNLwVXrfkc0NQSkCqv8SXQmSLtVRs6
+         Lu6Zl+2qg6FfU7U4qFzkhNADvmhEpPv30qDZgYsYt/0PUKKBSbl1wFvI4DG/FWgC2m/k
+         pqVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWYipu9kLlSlDXHseeqIvEMdi/peDNC3IjbJqzOchNfQtvTVfAqga658s50DICc60FRBVJvRvlpW+I0xu+UngNR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmVyB/KVuekJJWT4FS7CL8MT/zpudfGYKSx6hB2pEGAvBBExGc
+	Ek6U9cVOjbINvYD0S78gkLbBI0JarWyaqR9/j0b4tw10aFBdz+ZpDvK1aB+YogX9pqU=
+X-Gm-Gg: ASbGncvT/6Jy0GlmkYtaagX8n+GL+3ac/9SL2TmgTj+lyUJm309TfW+awTrweu1MCl3
+	oqh5u00UWiw7846Sn3Nxt0rFCerhMsRpnmaqaTVNIShrJsRA4bBh7hbGS15fe6L/y4RXJ6h+FQL
+	Y+IpFQSPCoxWcK0qW2Y8UW1yFe2D+bRjlhsH3z15zjNVZuobE62GehiWFiCyYrx526dLopFalh+
+	77xkoQIakxLrWwF9TguYMs1fdnN8mMrNv/cZq9GjA/1CWsmwEi2wf313u+vslx8p8dv3ngwPOn5
+	AmOy+CgaIJNAEqCJcf2WEv8LEwtFY2uw+DzMNTqPCkdwvhaMYV7mTxdHc0pFW9RYaDagT+WLCri
+	FsswAX8LnGLOhd2Pzu7D1DtNGpshnt3VhLtXtqLTFItyM7GwgEeeSmHXqWxWxtJ7b5BTL/A1G6b
+	o=
+X-Google-Smtp-Source: AGHT+IETWzoCn+KI4Y062GniSVBIueDGgqmtXBjNxKzPiwlUP/Ee0vR/LVaxIC0wQUEdUpBQ+TYtnA==
+X-Received: by 2002:a05:600c:a47:b0:46d:45e:3514 with SMTP id 5b1f17b1804b1-46e329f9b7amr1978275e9.17.1758726672238;
+        Wed, 24 Sep 2025 08:11:12 -0700 (PDT)
 Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a7c8531sm36045145e9.0.2025.09.24.08.11.09
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a7c8531sm36045145e9.0.2025.09.24.08.11.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 08:11:09 -0700 (PDT)
+        Wed, 24 Sep 2025 08:11:11 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Wed, 24 Sep 2025 15:11:00 +0000
-Subject: [PATCH v5 1/5] dt-bindings: firmware: google,gs101-acpm-ipc: add
- ACPM clocks
+Date: Wed, 24 Sep 2025 15:11:02 +0000
+Subject: [PATCH v5 3/5] firmware: exynos-acpm: register ACPM clocks pdev
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250924-acpm-clk-v5-1-4cca1fadd00d@linaro.org>
+Message-Id: <20250924-acpm-clk-v5-3-4cca1fadd00d@linaro.org>
 References: <20250924-acpm-clk-v5-0-4cca1fadd00d@linaro.org>
 In-Reply-To: <20250924-acpm-clk-v5-0-4cca1fadd00d@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -95,16 +94,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758726668; l=3182;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758726668; l=2732;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=NkT+Yg9cYGQ08mwihOyEX0wXQkJh1dzuD63z7Z//UsU=;
- b=XV1rlGn+zByellycKzW8IPoG9nI0fOQeoVrNmoZlVgT6Gi5o6TgZ4a67vO6MX5vbPdR65Dv3R
- aPujGM0WjaOA27mL0pW6hLtNDiuiCIpedYIQ6aCyTj6JTkwfMz+UUXQ
+ bh=e9jnjsKxvNvdU2khw3Ii1tiDbQ0I3fEhveIt8DxtYOQ=;
+ b=8K1Nho86vCYKFmFOrazLr4JP7fnaMoeuy8L8qTUu/0OpDGoboRM5EW54QSEvJNgMv/DGNkSgY
+ c1wak4b5exrCe3QpKblmZ7ZO55mwUaDA00P58OE0FyNZ2H8STjvekkG
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_081112_488953_FD6E94D5 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20250924_081114_301833_D347545A 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,90 +118,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The firmware exposes clocks that can be controlled via the
-Alive Clock and Power Manager (ACPM) interface.
-
-Make the ACPM node a clock provider by adding the mandatory
-"#clock-cells" property, which allows devices to reference its
-clock outputs.
+Register by hand a platform device for the ACPM clocks.
+The ACPM clocks are not modeled as a DT child of ACPM because:
+1/ they don't have their own resources.
+2/ they are not a block that can be reused. The clock identifying
+   data is reduced (clock ID, clock name and mailbox channel ID)
+   and may differ from a SoC to another.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
 ---
- .../bindings/firmware/google,gs101-acpm-ipc.yaml   | 11 +++++++++
- include/dt-bindings/clock/google,gs101-acpm.h      | 26 ++++++++++++++++++++++
- 2 files changed, 37 insertions(+)
+ drivers/firmware/samsung/exynos-acpm.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-index 9785aac3b5f34955bbfe2718eec48581d050954f..d3bca6088d128485618bb2b538ed8596b4ba14f0 100644
---- a/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-+++ b/Documentation/devicetree/bindings/firmware/google,gs101-acpm-ipc.yaml
-@@ -24,6 +24,15 @@ properties:
-   compatible:
-     const: google,gs101-acpm-ipc
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index 9fa0335ccf5db32892fdf09e8d4b0a885a8f8fb5..0cb269c7046015d4c5fe5731ba0d61d48dcaeee1 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -177,9 +177,11 @@ struct acpm_info {
+ /**
+  * struct acpm_match_data - of_device_id data.
+  * @initdata_base:	offset in SRAM where the channels configuration resides.
++ * @acpm_clk_dev_name:	base name for the ACPM clocks device that we're registering.
+  */
+ struct acpm_match_data {
+ 	loff_t initdata_base;
++	const char *acpm_clk_dev_name;
+ };
  
-+  "#clock-cells":
-+    const: 1
-+    description:
-+      Clocks that are variable and index based. These clocks don't provide
-+      an entire range of values between the limits but only discrete points
-+      within the range. The firmware also manages the voltage scaling
-+      appropriately with the clock scaling. The argument is the ID of the
-+      clock contained by the firmware messages.
+ #define client_to_acpm_chan(c) container_of(c, struct acpm_chan, cl)
+@@ -604,9 +606,15 @@ static void acpm_setup_ops(struct acpm_info *acpm)
+ 	pmic_ops->update_reg = acpm_pmic_update_reg;
+ }
+ 
++static void acpm_clk_pdev_unregister(void *data)
++{
++	platform_device_unregister(data);
++}
 +
-   mboxes:
-     maxItems: 1
+ static int acpm_probe(struct platform_device *pdev)
+ {
+ 	const struct acpm_match_data *match_data;
++	struct platform_device *acpm_clk_pdev;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *shmem;
+ 	struct acpm_info *acpm;
+@@ -647,6 +655,18 @@ static int acpm_probe(struct platform_device *pdev)
  
-@@ -45,6 +54,7 @@ properties:
+ 	platform_set_drvdata(pdev, acpm);
  
- required:
-   - compatible
-+  - "#clock-cells"
-   - mboxes
-   - shmem
- 
-@@ -56,6 +66,7 @@ examples:
- 
-     power-management {
-         compatible = "google,gs101-acpm-ipc";
-+        #clock-cells = <1>;
-         mboxes = <&ap2apm_mailbox>;
-         shmem = <&apm_sram>;
- 
-diff --git a/include/dt-bindings/clock/google,gs101-acpm.h b/include/dt-bindings/clock/google,gs101-acpm.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..e2ba89e09fa6209f7c81f554dd511b2619009e5b
---- /dev/null
-+++ b/include/dt-bindings/clock/google,gs101-acpm.h
-@@ -0,0 +1,26 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright 2025 Linaro Ltd.
-+ *
-+ * Device Tree binding constants for Google gs101 ACPM clock controller.
-+ */
++	acpm_clk_pdev = platform_device_register_data(dev,
++						match_data->acpm_clk_dev_name,
++						PLATFORM_DEVID_NONE, NULL, 0);
++	if (IS_ERR(acpm_clk_pdev))
++		return dev_err_probe(dev, PTR_ERR(acpm_clk_pdev),
++				     "Failed to register ACPM clocks device.\n");
 +
-+#ifndef _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H
-+#define _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H
++	ret = devm_add_action_or_reset(dev, acpm_clk_pdev_unregister,
++				       acpm_clk_pdev);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to add devm action.\n");
 +
-+#define GS101_CLK_ACPM_DVFS_MIF				0
-+#define GS101_CLK_ACPM_DVFS_INT				1
-+#define GS101_CLK_ACPM_DVFS_CPUCL0			2
-+#define GS101_CLK_ACPM_DVFS_CPUCL1			3
-+#define GS101_CLK_ACPM_DVFS_CPUCL2			4
-+#define GS101_CLK_ACPM_DVFS_G3D				5
-+#define GS101_CLK_ACPM_DVFS_G3DL2			6
-+#define GS101_CLK_ACPM_DVFS_TPU				7
-+#define GS101_CLK_ACPM_DVFS_INTCAM			8
-+#define GS101_CLK_ACPM_DVFS_TNR				9
-+#define GS101_CLK_ACPM_DVFS_CAM				10
-+#define GS101_CLK_ACPM_DVFS_MFC				11
-+#define GS101_CLK_ACPM_DVFS_DISP			12
-+#define GS101_CLK_ACPM_DVFS_BO				13
-+
-+#endif /* _DT_BINDINGS_CLOCK_GOOGLE_GS101_ACPM_H */
+ 	return devm_of_platform_populate(dev);
+ }
+ 
+@@ -746,6 +766,7 @@ EXPORT_SYMBOL_GPL(devm_acpm_get_by_node);
+ 
+ static const struct acpm_match_data acpm_gs101 = {
+ 	.initdata_base = ACPM_GS101_INITDATA_BASE,
++	.acpm_clk_dev_name = "gs101-acpm-clk",
+ };
+ 
+ static const struct of_device_id acpm_match[] = {
 
 -- 
 2.51.0.536.g15c5d4f767-goog
