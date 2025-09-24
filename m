@@ -4,167 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D20CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 05:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B41CCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 06:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mo6OJDQ8THxzPM7pJetQZ6M7lkoCOKhFvfCms0/XEro=; b=Fpmq7Xj8INMNYtE35IfN7esZ5g
-	tv/B+38bAu704J823NIA/OONFcQC3he0khwuYT08EQmOkxw7kSdduBLiyYmm6GrUf+b9beASOZ8pD
-	/ejRan5P4GuSGJr4yU5yI0vRRn43AIiqw87aHuIvxSHeoXDMfojBqjUzQ37/Y47OCtBukWzlR/8Ul
-	i38gaimWlxgFUyfy1q84Uo9cPyKM/MEFc52s3E59IMg6sJQhU+jYCX5Gba5PsgeV4zDzPGbd2pYD0
-	uS78dRFXfGjIwLNY0BLIu4upJipKFXKDicWK8k78TPLJDIZPccD1W234rW6bqwUswdz8gyxeR985Z
-	/bdReRRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yYgQ4aFhcSvYGQITjCcxJF80VC371NBb6sHNmyYvQxU=; b=F1UPtPYAvef7FOSPd9fahbgKbX
+	oSYOeHQcpSM7Mk5OKWbzqHZdP2dbCE1QHxF9Tsho/Za1nK0DvmZSeqd0NYUUYjd62G6ABag7kpogs
+	YEpH4ZRes5woahZnEQAvPcMg27XERUO0T+jLgxJ6+uHJ5ngoUbnxdIkrdiShl80IRjY2jrwmetH93
+	IxaB2MO3irNHbDxu7HTQfr+a8UydWE/IqNRS3EztIHiVi9q8yngfzqweNhhmghm97W/1AYx3GXChw
+	133/OkAXkV91VdSxUL/tCr+PFGajzcAIsBTLMnURV2M6BwVj+INU6IZlqkuqJm+L/tDzs3X4tvMpE
+	lsNox3ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1I6k-0000000FZbD-2oLo;
-	Wed, 24 Sep 2025 05:32:02 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1v1Id8-0000000Fca6-2sQA;
+	Wed, 24 Sep 2025 06:05:30 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1I6i-0000000FZaC-1Ydj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 05:32:01 +0000
+	id 1v1Id5-0000000FcYi-1uM1;
+	Wed, 24 Sep 2025 06:05:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ly8E23sy6eL4KSTX/Nlwp05O9P0WgyjDqzKoAdHCEb030b86jvyT8UaTIHuVmw0MPKHvBsHh4Mg1mZD7uZYoHvVL2yaacp3BY5X8c0W+ilO43MMUmgTIssn6V+JO1mMHtxZ6RS8NDnrCXgQbR2O3Ki+y88Vbhhd/rthuw3minE6uAtGmTSMwy5EcBABpeXeVyK5REmoh3zy4gIbkI+WiU0QVZHB8rBBMtT7TFfDNcGfOggV0bpjnShnHsqgyc0uJeBdg9UgbnTOzudqzxrf3DlKY4n3tMYmxv+H5umduDJeWrLkFmN7f/aEcP+IIFgCFgmkL845fd4BUxg14SCb1CQ==
+ b=Cd4n0CtvMplTVpVL972+vpkl00RFg7CXUKTEi/LzokvRFjv2nAF7s8aUsuFC0Tc4ewzpAXTkQ8isLUmOTHTIuwAaquDjxciJWIM3ijJ4fqNp8k7Eu+9ejq5C1tnuyD1og7frnlMcHiV9HCCHPX2ztmjccAIbDl76LhuuGC07MtL8QEfi/X8SUbp4+xcQnN90GFA0XNKDCe6DuZCvqxrtd7nW7NZIythqzrL9FPqlorgWNBcZx0i5q3rPaggTnVYnj/6bHCLSk1nAt9R0CEKFcCEcMuJuck9cCKRqL2S8B7RhtW8+/GulDq02a3G0Z0Y7FQl2xE8vFLUdKfUoDr6Cnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mo6OJDQ8THxzPM7pJetQZ6M7lkoCOKhFvfCms0/XEro=;
- b=tqgdNnWrXlg+pWgS1QRm6XjBfFSLhKSEimQQwBiWr9ckVt8JtM12S3Oe1t0L6tI6hcaKov6SWdlEB+0hjZFbQYMq66+5QYsAfWDNGxTWSUaQdpkIte5SI5lVVZyR2d/eklbLPJ7ieTNU5MaEXvcK8JIySzfSZflRN0id9kmtj0YK6v+DLLNn8dJMlh4BTZ+oZSLLvg0fjxSsXV7YfD9eemH9qfWCkZRwKklehnTENYOz+xADFnTicWCG7HEfhmWG3b2nrT+DOWMVSUK6H9JJp8w7Eg81Mezh3G/CDiZr9E4AIXBNo6X3vgc03JP23WjQiShmMSM0BzLTz2teAan7Bg==
+ bh=yYgQ4aFhcSvYGQITjCcxJF80VC371NBb6sHNmyYvQxU=;
+ b=dDtTzIqV6pPhEABL21zuZBt8V4ITWIUaFpzNCWf/kFZSMo8qB2qn0C58/iyi5xd+cctBe3Wawkxjq6inokqjqT1IjnESrDH40SXXquD3Z/1HMRzHQLBGv5ol02VGmClMetVpmBC2KDK7eG7zZOnsCgiJiQ01eov8kmBhPl099ZP5DZfqH+2hQnJ3RuDeXqoIW3ujC7E8UBKSlIit6+nOfV5zqD/p1+RISZYGFCfD6lMP2YCpp9u8UIDxFfjHQNebvCdhD7i+NCUBeMwapiANjf+cbRz3+aIeeM7iNrssblJBcNT0caD/xJ7jBnWSBAbdwi3c5MIcIzAfTeJLBgpH2g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mo6OJDQ8THxzPM7pJetQZ6M7lkoCOKhFvfCms0/XEro=;
- b=Hh0KHlW0qQiktxmq60iF5rvyEGji2es33L+mwYYkMGHb5v4MI43BM4Wslssye6yVTbwC+Mzro/nxRYMlflNS5WR5i5R0gBvTctSLrD/bJpqtRUq9G1/iIaDl+GJF8UAu8+uB5wLmY+tRqDIm24/wf2mNiH0W0s4Wneciw1y1HwQPeqT0kXqj9PIUE1lv7Jj1T7CRwUe6YnZ/F8xeCzEYb1y+d+eDxYL1vDfPSF7UJx+PxOBrKM6Ua8qWrTA0l63bFkMX37GDtDUmiEZQe5dndEnKAfXRhuAmV1JsmeD1WeckNGI3jkrq//2jUQV7f3eIqbQjYSowYYaHm8ccuG9wRw==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by TYZPR06MB7333.apcprd06.prod.outlook.com (2603:1096:405:a7::9) with
+ bh=yYgQ4aFhcSvYGQITjCcxJF80VC371NBb6sHNmyYvQxU=;
+ b=M2DH6KqSFPOQLi/XTRj/iwxoxDIKNBfhL4JQsrsiDi8oIc/iEsfy7CvVap7HsAo8n0+E1hQsnR1d3p/0icjEtDjVsVlKLaoJ4EAfDdRWxMreRn+lJl6H8MIkkaUKNgq8YhFI9qOwrhCLtfHk6B/lqdMh2TViFO/LWN6o9XEqjRiQQs/R+W0Ddo4ogDWc39IcMRSfhQaCeeV1Mlm3kdLU2iKaL5A7Pb8p5W2jYYgfNay64h6HzisEtqjKZ+G/clkguf2PYQWcjU9uOHvlDDMGt6BPjKuQRiDYrqV13jkl4TVczE4LpCo8NjB/qaBv9uXc+NlSA9URseD8CL5GI0MnMQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by PA4PR08MB6080.eurprd08.prod.outlook.com (2603:10a6:102:ec::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Wed, 24 Sep
- 2025 05:31:47 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%6]) with mapi id 15.20.9160.008; Wed, 24 Sep 2025
- 05:31:47 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>, Jeremy Kerr <jk@codeconstruct.com.au>
-CC: "benh@kernel.crashing.org" <benh@kernel.crashing.org>, "joel@jms.id.au"
-	<joel@jms.id.au>, "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "naresh.solanki@9elements.com"
-	<naresh.solanki@9elements.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v18 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Topic: [PATCH v18 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Index: AQHcEZHhMUfthzzCFUyK1ToM2tNFA7SPY8MAgAAHMMCABFcpgIAHaaeAgAbZk/A=
-Date: Wed, 24 Sep 2025 05:31:47 +0000
-Message-ID: <OS8PR06MB75416F7F1B5DBC95A5E87FD1F21CA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250820051832.3605405-1-ryan_chen@aspeedtech.com>
- <20250820051832.3605405-2-ryan_chen@aspeedtech.com>
- <9d6660f0bf5119cedee824cf764f15838622833a.camel@codeconstruct.com.au>
- <OS8PR06MB7541C0D6696FC754D944D45EF208A@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <03abda47219b8b0b476a3740c7ed2acc4b2b16dc.camel@codeconstruct.com.au>
- <20250919205329.GA2192084-robh@kernel.org>
-In-Reply-To: <20250919205329.GA2192084-robh@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|TYZPR06MB7333:EE_
-x-ms-office365-filtering-correlation-id: 198b6514-6822-4ae4-d6ae-08ddfb2ba7e3
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?gGwe+k7WZqAhLrTp+xwG1MpL3kXet1e6xXzPDcRoTi9e7CUakfWXL4rIeYAD?=
- =?us-ascii?Q?oCzktORHuWYfp05mUXV+o6JN+pSqELGYLX6iTYHBQltVe7zf5GvIkbhYaWQw?=
- =?us-ascii?Q?/yHdpBIMyUsyKL1DYVHNFA1QwMZFlqWuCNrCq/fB/5bSA+8Vot7jLha7iWfH?=
- =?us-ascii?Q?Vj7nDC5K0AA3F89EWnF8FIvHSiuNfbLoGThGw7dksp20H09OTJlFyw/1zBxq?=
- =?us-ascii?Q?WVf6DebIoiMyWn10AEX3TNenoQQ+GJNoMnibsqqBH3fhvoVshG+H1zD/YCFQ?=
- =?us-ascii?Q?3I3tB5n9t3yWSfvZdP/VBpsu4+2LWBlP2HISLK9yhXWVNrjNAV9Eg8Ok/lv8?=
- =?us-ascii?Q?fCaoQVQfja1mInAPIdki8ojE1yW0gSe4bYOQor2VcqhyMH4nTlS7ZS39bcVD?=
- =?us-ascii?Q?2wa6CVjvIL+MPlWY3N45W8mVoSlI8kVAOuG6MSpGhqUqjrR8gfkiYZwLfI+r?=
- =?us-ascii?Q?Qf1FqGj6D9ZvRfwY4VCSEwpszbvW1slxZOR7r7NoFFOpmsdWBE2CqlAOV5nF?=
- =?us-ascii?Q?ATTu/tfx3iJKsD6qcoyCe01RPCsDkkJThzL3PzwRoAaReBw9qHMQO+folC5n?=
- =?us-ascii?Q?w61MRXMrBrgcF9cE0MnLT7f1IK/Qjsgs8kSPMdzg14KzZvSSqgAmZNFiAk5H?=
- =?us-ascii?Q?wigkp5DVs9vRWBMpj1d5NA1HhWjKdhcmNkSBvs6xSw15uU4DjfRZ12qjBWOZ?=
- =?us-ascii?Q?h9ywusEktzGUOhBBtRMGskOUF0JCwDXquJpq6AAwFUUACNiwnLVp+/L9poN+?=
- =?us-ascii?Q?CVvkl0lEPlqey0lzsnx4XgbEy5ENQedTFgZ1YoRKBJVtHzBkgczkoTJig7Cj?=
- =?us-ascii?Q?IEr5lGTnN+OCE8alr856Ex7nKKrm3hhfg5kkHPCzqwbFxgNdIcU6nTd+w7zF?=
- =?us-ascii?Q?Vxu778T/p0izNPzI6BLdnzVamOr/GT0PQOO+U5OqoM1hlq0ghSo3G434Bcj3?=
- =?us-ascii?Q?FvXBIAMbib62VvIsoUJyET8S/rWBaXd5INhHHG6+jnL5ven8oPRNyi/SEz9j?=
- =?us-ascii?Q?j90JfkfklSGrNZ9YU0p5a2fK44QO7Y+ty87kgjMwjwN4pvudidFmvUsfIShO?=
- =?us-ascii?Q?hpscdfXwdPm5maKwMd7+TA+Rh+++oJ0YyPbztQs8pvKbfHSYFvBNNjgo6huT?=
- =?us-ascii?Q?yO9MnWuuuT1kudEJgP5PeVAXn7L4gItsviCduP87NP//hcER4THxVM83rmus?=
- =?us-ascii?Q?YFrsEIvjl9Y9ZEU8WWqOb/+h2VO6n31pNtyhOLlC7GEaAeBMvnLlSTnJpZE7?=
- =?us-ascii?Q?WiUuh6AHXqJkvKXWx/DkACYXiWhGxGNn0K+1L8Zr+arRIts/eS/WrBOleluy?=
- =?us-ascii?Q?JX0a6WAj6hpnY4SyS9igMk2Hb/t5Q129c7yIOYLeo/ABX6wFTPrCeht6CHZP?=
- =?us-ascii?Q?WIFXiwbIrU1w+asLKsvlucfKCNHLHQ3UY+M3/tCuawb0mW7VKWP9c4QJJyKU?=
- =?us-ascii?Q?1aPj6i7wZbU9bQg/87Nv0qJXDapjlL1lf6Yc3r0fAgPI93uX/JMUqwHJrHZ0?=
- =?us-ascii?Q?oMHs5NN2FavdVxc=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PdEOQZTGHrZInMyR1k2S5PZfcw5rXQ6VZxWB+2nnkU0ANBmY/7LdfwUZ/uRF?=
- =?us-ascii?Q?7FAQgeUzMo8mDG4rUfnvU4UGqDqLRq9VuGkbrfxBugzrnXd2k8b0jxF3w7pp?=
- =?us-ascii?Q?HKaAW89RppRXUorQVaePu+jQo8u0hqqqEC751eJJfiSIZrcVpDuBxja43osL?=
- =?us-ascii?Q?o3wHCVtqvdqUohIyZT7JdNVZdL0i1HjJxizxFgNtqhAiFYeouT/ZjGr9XXK4?=
- =?us-ascii?Q?sLdF6mBGjpFTThUPzeygqH8potTFg3ChiwdTNReFpRIGf+wxDDL50hZXXpBd?=
- =?us-ascii?Q?Z+RxaffMSrnwry2cYmawat9Lqu5V02BGhkPkOEgaC3apmteBW07Qiy4qlw7q?=
- =?us-ascii?Q?JgEsBvs7vSUPPYNYFJ3nZ1PwGC0ITsbb6yNbg8mTK7gAQoVZziUgMnn+RDXv?=
- =?us-ascii?Q?ogz8butsCqdCjj0sVJhE3B5i1TFTVRulwqY4bqwta5/1Za5Brtfl6Hsj2YrH?=
- =?us-ascii?Q?lfl8ZPBrOaq1iVFkIyIahOixDVDD63wyxuqRtr15kF8WBTZl4IS+BASjVGxk?=
- =?us-ascii?Q?zA5bzSYMx2t65dfaF4dJYVntqTPXRECyKWACjcKZ0zvEiQOEQG8RYlYpNB+w?=
- =?us-ascii?Q?euBugrXmo5usq4qs8dmhEGLFH1fL29PX5VGvVwW1OIsizjnGx5vMbLDiH9IM?=
- =?us-ascii?Q?TlGFH+QSzry17d+ig3EfIOU3k+7AvT7Mq7in9Pylx2KsOKI3MeAbK/YhqzAb?=
- =?us-ascii?Q?qQMX8hVOFnJY8utaZjKdIXYuUVZaF08zjQUbHhKsT2NUHJGPkmnvsTP6dj0U?=
- =?us-ascii?Q?QiGiW1Uwp9ZR4aFOIThrnC+UE51h/PGIYprP7+dbbd2AmR4oJDCvWhfmW++w?=
- =?us-ascii?Q?pRBAdxhpHpOqUe++axXEOMJE4xV/ydJwLxlH7UrvnZntvM7EU5c2po7nF3mA?=
- =?us-ascii?Q?Uv48QN6uNACeDsVFEIBmzpWRXNWFOqsCbOjTvNclUgXX6nKtevI2TnG49S1H?=
- =?us-ascii?Q?iTyiAlBZCum6dD+fumNLBeYwOZFcn7bXHaMUf4MrcvR2iGBtMXlsrhid20EY?=
- =?us-ascii?Q?3Ht7QcjAaVNGqMoZ8roMnqMb/xVVcvF5KhL/2S1KbjCFKf7isooCWqoKxR2o?=
- =?us-ascii?Q?MvKoXuPY70pOvIRnL825mw9kc0lP5Cw5nbhoI941BwCNPMg8EfUdXfhuSzKA?=
- =?us-ascii?Q?xtCToRD0uV9p7WrN0x8uW7kTKTCKsESg5jgXByCsF6kzjoCrDHwMxv5414tI?=
- =?us-ascii?Q?MYoCaUDkyhZjkaETeEMez1Cy8Ryt4Bt8tXUbH70Ga747LO81od+w22G4CrAu?=
- =?us-ascii?Q?C8PZswbXluwgOV5ZslBOoav7P4MYj9S109AoYuuK4YHFr3WlZTyy0ZONsNJo?=
- =?us-ascii?Q?RAznvNLpOyQjp3eiZJosay6zqChcma1VYj04nvz1BxAAgWBjKF9+JrhR2wlZ?=
- =?us-ascii?Q?GT6t3LdHCeHSGx1rPzxIeXptb6Fd78qOlSi0rnZsBj2wqoADBitZncYzJaQz?=
- =?us-ascii?Q?xHpKuATE1gNdQ+c1Z7f9iYpc3ZyJy4x64aLjVLSiCD4UBuCNVpa1oxmY7zmD?=
- =?us-ascii?Q?0tx+JefQMDgYD0+KYdeSW4wtAL9ZE04ZgXwmPBgH5PvAym5b/XM7Ujz4d+98?=
- =?us-ascii?Q?YR9Dyq2uNkUGjox2uLFBVJq2klLfKffruafx5/Di?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Wed, 24 Sep
+ 2025 06:05:19 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9137.018; Wed, 24 Sep 2025
+ 06:05:19 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: [PATCH 1/2] dt-bindings: clock: airoha: Add reset support to EN7523 clock binding
+Date: Wed, 24 Sep 2025 09:05:08 +0300
+Message-ID: <20250924060509.1889131-2-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
+References: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: ZR0P278CA0154.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:41::9) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PA4PR08MB6080:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b8441f7-3063-42b3-8dbc-08ddfb3056ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Xjtz6Nkiqj94amfHDNww4XleUjNsJA+BgN6Z+fVKx7t90P+/vA2NqTt74p4Q?=
+ =?us-ascii?Q?u0oGkavQ00TM54HAKfHfGOAesd+BS2aqv6uDBs/2ly63fBWFcphcrL9HXKXo?=
+ =?us-ascii?Q?lHWra+UV6Si2n1XB5ywKpKviLS+vFi54iBgE+6Eo83IW0R0hzys79qXwzYaB?=
+ =?us-ascii?Q?QpfXPBZAhX8HrIMVD214/NFs2f6/LLeMlRjv2xCSb9J5rbaerxoKigYC/pYg?=
+ =?us-ascii?Q?VwFZS3vpLESIVww8dxvqf61G8U5+3aIgxAfepYa09KgFX6h7dk1+njjs1tKO?=
+ =?us-ascii?Q?69Vu9C9lHT0tc4n8rFGt0gf/tZ/faOYQlzl/fuy6ABoMyZDi8HEIV+xNZhQN?=
+ =?us-ascii?Q?vIjJ6bnSafyB2KKMUowrKBy9Pq9gTS+65z/Fy3Qj1erw8fCAkvCBa58qMU76?=
+ =?us-ascii?Q?/oyeD8RYIniSl+N0S3N+NKhPOmkQlWFxB82OTl0mZjHQWLO189Nrjveyh5Nc?=
+ =?us-ascii?Q?I5NMJ0hiU385kPkUIWc6NJ815WilaBf3WfO3IhKxYnHkyCppGdhsMA87WvoP?=
+ =?us-ascii?Q?Rzda7SlOWYUxX+aRQo59ulDPY0Ul9YK58jWn5UWGq+AR64s0uV7J1U6gq9SK?=
+ =?us-ascii?Q?p74EwTR3DwHzRxONHD62S9VRCbNh1YWRycKd//o4SvPQ44NoIB6ZKoul0djR?=
+ =?us-ascii?Q?EZFfT7946NJKxHAG4vsLQgprx1SdYZO4YgY6rK+IqxWnJ0ulZBBF77A5MdAy?=
+ =?us-ascii?Q?9qcabWggocDXwwJx9H1yCNPmslVKa9EOFdESWlBSVf1mu9ICPvYB0GsgF55s?=
+ =?us-ascii?Q?XWgJDRrjzK1xJ7G5mgUUeFfHJHnVmh7GEh3ttQcaOpSiIvIo+TLE8UN2Hp1x?=
+ =?us-ascii?Q?IWlyKWyNAd5nNUqNajzhXGfWuOF2vK4n1Qa/+9lTec/OYFari0xLMlR3RfEo?=
+ =?us-ascii?Q?F4JKLUaQQ3cABYiXxM0VSbXXfY1B3+aPFmH7M3+vvwTOPzwIDqy+fEKcWqsd?=
+ =?us-ascii?Q?wu5YQb1JT3kvEhZ6GpeHKMaSWJY86wSO77l4WjLNeRJKXQAh7uHMLTfeGfIz?=
+ =?us-ascii?Q?8IPb21wZp6Armb4K790m4WnIad1HTqabz8G/AYzCAqah7Xl6PUvMQc7vwXjj?=
+ =?us-ascii?Q?dJSPe6FTKIU6qxU5xffW+lvvtlFSw3tCDWun05dSxM2IEqPNxbNgFjTHzsn+?=
+ =?us-ascii?Q?GJjB7I/qXAS5fVVTKtiNfMS6nT0KBizLCAKQEPoY67v6kMhgREh5gDJP62L+?=
+ =?us-ascii?Q?rIUR36JXWzSoO5lpdEnSZB3xwyNqakAcp4U418KaVEtohFOTG36mTSQdfqzT?=
+ =?us-ascii?Q?+GsxNcG2zWbxB2F0kfuIeea01qKgwi7QV7VR/A+aSJhh4i53WCCcNHAs4IbJ?=
+ =?us-ascii?Q?lKprBacbZ5tYwzlwtgxa2DcoLCdhrt4oJzGjRmTI1vlSXBeq8B+H1clFkXOr?=
+ =?us-ascii?Q?zAcwHNMP8x+YHbdQ0H9R0ZVOkfrhBhVSPTP+rIRE3hfWUCGzL093/tdPdIV3?=
+ =?us-ascii?Q?HnwE031+Gqqm5/Clm4kLhZ0k/NjCIzhxBitUPmDdlWEGZs9MUUvik5QVazaz?=
+ =?us-ascii?Q?QxA1/J2lEGXicxI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I9ewawzhCCsf3V+Lgbeu1++gnkjbhi2CVrlWOiArcOqmf1YZ5pij/rm4JNaE?=
+ =?us-ascii?Q?PDUOvM91YqpNpacb8h52x9emEyNvoWdCDQQNtL1U9I3vcpPRj1yCGxHBWoEp?=
+ =?us-ascii?Q?P6kRQ6ENPYlOjZ52xvSDNVk/XkID3gzfIdlDhKCBpwea3IxjDWh7XE7NEts4?=
+ =?us-ascii?Q?y8mgXs8iSGsONiooY/u0IhPodVWxxLEIpDOBv5XGHQKqwWOPwG4DIM6V0NQy?=
+ =?us-ascii?Q?bRMgrz1ODYoPubaQUMccPRUKcQsOxX/G14Nqe4z5xBzMplIbV1l+Vbh2Nx4B?=
+ =?us-ascii?Q?eTrxIQsd/E5bWd9oHnAXWW4ADkv0nTd9LT7R8xM29DKzKZV9S0ggiuV74ewC?=
+ =?us-ascii?Q?TYwLNc74D10YR9TABmoRD8r4DOT5EzpVHDO3JH7KEL5XQszO76OR3e2iIXls?=
+ =?us-ascii?Q?IYgcKcyrbGcIVHfNnrFuuRnubK2HuySH7NpCuUETCEqvERHe3JesopunpRjM?=
+ =?us-ascii?Q?QRWA38rcXGStxKlNJIaiNMcLmiIccYeZ2YRg4DKzwfL9S0yzJrtSuEL2y9nB?=
+ =?us-ascii?Q?lmpoIXN1a+y8CL2ZXQOsJANJM+meFgrpzwmZmvpuaTYtxs7kYPStOUkjUde3?=
+ =?us-ascii?Q?/z3twmTzeik39C5bv9RimhZMwPJneGLSb1WBbsU53kw+zSsqyk6TvmYPzxTK?=
+ =?us-ascii?Q?bo4WmJnf2gWG01pjbHLKBhlpAI3O9ewuW9PPKCK9s/qMlSxmPmBgyDaVIp8f?=
+ =?us-ascii?Q?GKmexERdqmSJkzosBh3+oyxHHgNOOWZ1FXQElg4YZHqtAqzhe0o/Bn8fAXsn?=
+ =?us-ascii?Q?ufIWq7ibFYhJObb/P8Hvw+TN27BWSFfiPCKP9hgHfWabs9TUyYXpIy3QQ0RD?=
+ =?us-ascii?Q?Kiq46wAje9mrjUMAYxfffhkrZVacuF+T0RyiLRAvgZNIoZyVttppeKwtue9a?=
+ =?us-ascii?Q?9uSiRK8cCXN+iApLTjd3JEq5nt0Vb/zyYWCm00qcBNQ2sxNGIKlPTUTqZN41?=
+ =?us-ascii?Q?VQF6hSL8c4Ac4ptzOR9D5dey+CwQ9eEmq8j9nG5S5E4UKsFflc6zmzK1mxa0?=
+ =?us-ascii?Q?Rzo2uRlrC097kOaQyVt2abRVjGfKT+04bWSsWdET4aC0CropGCnrCXOk5Wuw?=
+ =?us-ascii?Q?X0euUDBgiaEUtHt6Ldembb/mDZuyYbF6dqJxhOYYXNlL2DrF3xHUdKevHJcc?=
+ =?us-ascii?Q?mS8cdrtQyeRXTHyI+NBSL9u6HvNHB1xtSFH88B6DOW4ktLYFXqzt39imCeWd?=
+ =?us-ascii?Q?iso+LcXJnoFC/OAg037Jt6dAtXhS4hUql0c65SD/OLuT7qFF4tk84loeqF2m?=
+ =?us-ascii?Q?cjbtAvxDLaA5pDIoPsgRkhiNVPFFluWNP1pgUmgMslyRU/6dr1fLDf4luS1I?=
+ =?us-ascii?Q?oY+wa0BtmRQMi/DItQ7F6gLGZj1Kc40vqQ7FRvlpCusTl82LpPWeVVUJYETU?=
+ =?us-ascii?Q?rzPN2pRL4ttB2zlam/tkcNxYYXKLmRVShrIgIIxSpr2h5Qmm+Pzp+u9Z66uq?=
+ =?us-ascii?Q?kI6AGvBhGltLroigHEi6LYfi34AWlWkB/fkZ1yqJ1SyZiP6S2bZ2LHEIYbnr?=
+ =?us-ascii?Q?Tk1TIX6jJO1qN3kOdE1YhxLCFix9J1KBehSpC0kN3IUc2cknbw3hOtsacZQh?=
+ =?us-ascii?Q?NgG6IclnCYElBzdgc30tafWgBOwyL7yUqCkTc/sKQVW7vfYqhW31cGUVYyVW?=
+ =?us-ascii?Q?2JTYffanPq4JiT+xmi5Wqh4=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b8441f7-3063-42b3-8dbc-08ddfb3056ce
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 198b6514-6822-4ae4-d6ae-08ddfb2ba7e3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Sep 2025 05:31:47.4946
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 06:05:19.2484
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: eYx0BiHC/13TGvbOe+Gy3FbaMV/dFwOBOSJqgpZdi3hY36XmAaSusVnOwJeaxDdjMtwv8DEtJkTWs/NDcOIZdBvgQy6fi+NtPWqEv3uhFGg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB7333
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sL9h39Hk+EpflFpp1yXGa14xLn1cmecvhPzoFTOcAGJsaTkcYFQXoWOzyPCh3nfvzJHtajHpZXFnYzlbVpdYKMBV99T2Oz7y8lDud8QP8sU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_223200_423857_4F23C43B 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20250923_230528_785674_C9D082CF 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,57 +171,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v18 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
-> transfer-mode and global-regs properties and update example
->=20
-> On Mon, Sep 15, 2025 at 11:41:31AM +0800, Jeremy Kerr wrote:
-> > Hi Ryan,
-> >
-> > > > OK, but the ast2400 and ast2500 I2C peripherals - which this
-> > > > binding also describes - do not have that facility. Given the 2600
-> > > > is a distinct peripheral (as discussed on the v16 series), this wou=
-ld seem
-> to warrant a distinct binding.
-> > > >
-> > > > Should this be split out into an ast2600-specific binding, to
-> > > > reflect that it is different hardware? The reference to the global
-> > > > registers and transfer modes would then be added only to the
-> ast2600-i2c-bus binding.
-> > >
-> > > I agree it would be cleaner to split out a new binding file
-> > > specifically for AST2600, for example: `aspeed,ast2600-i2c.yaml` But
-> > > also I think `aspeed,i2cv2.yaml` more better name, that compatible
-> > > will support next generation such like AST2700 .....
-> >
-> > The ship may have already sailed on that one, as you already have the
-> > existing compatible string describing existing hardware.
-> >
-> > I would assume that the compatible string should be fixed for an
-> > instance of the specific hardware, but the DT maintainers may be able
-> > to provide some input/precedence on changing an existing binding, if
-> > necessary.
-> >
-> > If this does get changed, I would expect that you would need a
-> > corresponding update in the old driver too.
-> >
-> > Or, another option may be to keep the current generation ("v2 core
-> > with compat registers") as-is (ie., at ast2600-i2c-bus), and introduce
-> > a new string for the next - where the primary hardware change might be
-> > the removal of compat registers, but it's still new hardware
->=20
-> About the only place we use version numbers (without regret) is when the
-> version can be traced back to the actual verilog. This is typically only =
-IP
-> targeted to FPGAs. The reality in SoCs is h/w designers can't help themse=
-lves to
-> not change things. In reality, there are almost always some changes.
->=20
-> Rob
+Introduce reset capability to EN7523 device-tree clock binding
+documentation. Also this patch makes mandatory '#reset-cells'
+property for EN7523 SoC dts.
 
-Thanks, I think I will work on new yaml aspeed,ast2600-i2c.yaml for ast2600=
- i2c driver.
-That support global regs, transfer-mode properties.
-Then will add ast2700-i2c.yaml for ast2700 i2c.
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+---
+ .../bindings/clock/airoha,en7523-scu.yaml     |  4 +-
+ .../dt-bindings/reset/airoha,en7523-reset.h   | 61 +++++++++++++++++++
+ 2 files changed, 63 insertions(+), 2 deletions(-)
+ create mode 100644 include/dt-bindings/reset/airoha,en7523-reset.h
 
-Ryan.
+diff --git a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+index fe2c5c1baf43..a0df16485300 100644
+--- a/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
++++ b/Documentation/devicetree/bindings/clock/airoha,en7523-scu.yaml
+@@ -53,6 +53,7 @@ required:
+   - compatible
+   - reg
+   - '#clock-cells'
++  - '#reset-cells'
+ 
+ allOf:
+   - if:
+@@ -64,8 +65,6 @@ allOf:
+         reg:
+           minItems: 2
+ 
+-        '#reset-cells': false
+-
+   - if:
+       properties:
+         compatible:
+@@ -85,6 +84,7 @@ examples:
+       reg = <0x1fa20000 0x400>,
+             <0x1fb00000 0x1000>;
+       #clock-cells = <1>;
++      #reset-cells = <1>;
+     };
+ 
+   - |
+diff --git a/include/dt-bindings/reset/airoha,en7523-reset.h b/include/dt-bindings/reset/airoha,en7523-reset.h
+new file mode 100644
+index 000000000000..211e8a23a21c
+--- /dev/null
++++ b/include/dt-bindings/reset/airoha,en7523-reset.h
+@@ -0,0 +1,61 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2024 iopsys Software Solutions AB.
++ * Copyright (C) 2025 Genexis AB.
++ *
++ * Author: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
++ *
++ * based on
++ *   include/dt-bindings/reset/airoha,en7581-reset.h
++ * by Lorenzo Bianconi <lorenzo@kernel.org>
++ */
++
++#ifndef __DT_BINDINGS_RESET_CONTROLLER_AIROHA_EN7523_H_
++#define __DT_BINDINGS_RESET_CONTROLLER_AIROHA_EN7523_H_
++
++/* RST_CTRL2 */
++#define EN7523_XPON_PHY_RST		 0
++#define EN7523_XSI_MAC_RST		 1
++#define EN7523_XSI_PHY_RST		 2
++#define EN7523_NPU_RST			 3
++#define EN7523_I2S_RST			 4
++#define EN7523_TRNG_RST			 5
++#define EN7523_TRNG_MSTART_RST		 6
++#define EN7523_DUAL_HSI0_RST		 7
++#define EN7523_DUAL_HSI1_RST		 8
++#define EN7523_HSI_RST			 9
++#define EN7523_DUAL_HSI0_MAC_RST	10
++#define EN7523_DUAL_HSI1_MAC_RST	11
++#define EN7523_HSI_MAC_RST		12
++#define EN7523_WDMA_RST			13
++#define EN7523_WOE0_RST			14
++#define EN7523_WOE1_RST			15
++#define EN7523_HSDMA_RST		16
++#define EN7523_I2C2RBUS_RST		17
++#define EN7523_TDMA_RST			18
++/* RST_CTRL1 */
++#define EN7523_PCM1_ZSI_ISI_RST		19
++#define EN7523_FE_PDMA_RST		20
++#define EN7523_FE_QDMA_RST		21
++#define EN7523_PCM_SPIWP_RST		22
++#define EN7523_CRYPTO_RST		23
++#define EN7523_TIMER_RST		24
++#define EN7523_PCM1_RST			25
++#define EN7523_UART_RST			26
++#define EN7523_GPIO_RST			27
++#define EN7523_GDMA_RST			28
++#define EN7523_I2C_MASTER_RST		29
++#define EN7523_PCM2_ZSI_ISI_RST		30
++#define EN7523_SFC_RST			31
++#define EN7523_UART2_RST		32
++#define EN7523_GDMP_RST			33
++#define EN7523_FE_RST			34
++#define EN7523_USB_HOST_P0_RST		35
++#define EN7523_GSW_RST			36
++#define EN7523_SFC2_PCM_RST		37
++#define EN7523_PCIE0_RST		38
++#define EN7523_PCIE1_RST		39
++#define EN7523_PCIE_HB_RST		40
++#define EN7523_XPON_MAC_RST		41
++
++#endif /* __DT_BINDINGS_RESET_CONTROLLER_AIROHA_EN7523_H_ */
+-- 
+2.51.0
+
 
