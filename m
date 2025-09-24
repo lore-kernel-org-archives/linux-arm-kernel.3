@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB749CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 17:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B1ACAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 17:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5p9OhedmlgnqtH6MtrKzkYKSqLa11Xwu0UHh8KLtW4=; b=Gn8CwrgrrO92wqX57ADzpFCG3F
-	mdx4gT2h1W0jcBtJRm5bcpZZPM+Nrr+BpDk1o4SeSRon5WVaUFc/9Sm4ub2JHxzyzCuSPD8yRySEr
-	LnJv+xjJtug1FqZwe3LbySLoteT5Np/b7TUxq4zTtyasKL/lPW/VhbOPfdBz7IZIiT6EI9UqhA2qU
-	qt+pP5+W8CkUVdZUuoomq82auEcgP8s8cbQ34lIZwkFbHELheuaW1lrqLOnsiFs1tJXnzNEQBvHlL
-	wISsGWEbZaoVpY20F9kLjF/NPHsrpY9Sh/xLzbMkddAK7IWFdXpn/+psC/0v2oxlFstW3CTlK83aA
-	qVaOfYcg==;
+	bh=Ra9h0pKy9hrfzn/xULq5J28p+78Z8nIxSntYx3sf93M=; b=aSy1dxUjigJjIHnosi98e346xD
+	FnxHxQjFbcjWRzQgWLfiZ1+s6FOAPjOqM7XvTeakCLpuP2vlnuMiiHHOe04rgeOXGR9uAFqacle95
+	Gj8YzZGTXJsFP4fCO2uPueSfUFaLsdw1rf1GeZOgNyNhxJhwHcsWKAJAJrya0iZw4FZc66UWvci50
+	HQy70eEFxn39qEYd/Bz1B9uRc6UyUZxZ/aHqbO5vPzusK6HZwQkP5cG8oYWAnWjxP8S74eELJGbxI
+	84ZjPp3O1+gY+67Z3kQlLcAUw/B8PZHDyOvzmMxpuMn+0C9cbxTa54uf7nkJ0h1OW8fLs2qRCGpB1
+	eqzIkw7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1T10-000000020o0-16uA;
-	Wed, 24 Sep 2025 17:10:50 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1v1T7l-000000023ux-2YjR;
+	Wed, 24 Sep 2025 17:17:49 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1T0x-000000020mW-1iCK
+	id 1v1T7h-000000023q8-3zc7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 17:10:49 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6349e3578adso316333a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 10:10:46 -0700 (PDT)
+	Wed, 24 Sep 2025 17:17:47 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-77f22902b46so86830b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 10:17:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758733845; x=1759338645; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=d5p9OhedmlgnqtH6MtrKzkYKSqLa11Xwu0UHh8KLtW4=;
-        b=rVCD+zUT4485IPNjBxJ0LucOul8cGHxvZzp700qNnLajPCV5y9kEOPr/C2wIb2+RG+
-         y+8t0oBgHgocckJaJ9269/SumRbFBp7eG1rv9vDEwYvWmYFLLeF22zJLFxKFH4s6V2mY
-         ZHjvJOMArThRQLSTRO7H1FIBCKJVc5sRMpxu4mKpL025X5o04sH51BEBKJGdEagJfP11
-         CeU2/6dGpJSqqrAzfbqIBAWrSjUEzi6+ETKzlpC0ycPNQvOcgU89ILeBsmQc23p2jMv/
-         ZdG83w0obiovytrQeGxAyGCElVzlWKDJnCnbgkmsMh3zmNUy/fk1sCa8lJpYhmqrWUZB
-         PMbw==
+        d=google.com; s=20230601; t=1758734264; x=1759339064; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ra9h0pKy9hrfzn/xULq5J28p+78Z8nIxSntYx3sf93M=;
+        b=BE5jrEV9oege7qddyXTu7LmTdBSe+ZXahF9XQnKE+2NCBeLPY+I+SxH/+bowtiopwI
+         4s6aHGHwq5lw6321KxT4Wmy88GJZFP7o9Y4PMupeKurjYk58OQG7qUgratruE3m2Ohk9
+         u4CcX81UcuBv3EG4elS7fwwmhxS0Sw9lDGRmspSrTPD78FxM05eF77jOaW1X7hXsZ68I
+         /IXV7OFHiK1+WgjInVSTNmCdf7lMJeQtqimdWWX/OlcFPdohSVzF/hbxVWtHy/wePr/n
+         F+hxpmzJ9BColkuPgvBbEF66ndni1hM5J8ZYMhTmotS6es8wpfgkoMvSwJgkp/69bWqM
+         9jDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758733845; x=1759338645;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d5p9OhedmlgnqtH6MtrKzkYKSqLa11Xwu0UHh8KLtW4=;
-        b=lB1wcihv70jZXObo9mH8Jke4jmWZWDtvjCt230p0/CWoBprboI0zbPQcIRQ7fdwYxQ
-         HHA0wGvQldIRT8JlfexnNI/sBuZeO2xs3uQ7IxqRlkSZi/i7F5e98wQBZMei5ryXG4nY
-         VZ7vH41VoCEpoZF7X6eMZbMjvtdNKXjbN6TEIcyHWvMWAnIxChV/5L1CFT/RYmlbvLBH
-         9WoMB0at8Sgf5TnVBoJUJxWxauySNZPD+7yNdiXe0SJvbN/Wdf7I2xoenpt8tUulQzbj
-         wLlz/tKfo+Ysa5pJ+6hRhJqctgr9qEHc+mQ5lKn9VwUzpIaHP5xxCCSiPS5s2DnaeURm
-         VkrA==
-X-Forwarded-Encrypted: i=1; AJvYcCUp+vxjYWcZVNZ6aAVPnc4r61pb6aboaPqWHakzH9HqTVIIAQWFmtXA4rTonNF9cGfwHndQzANdJN0hgXaRmQEZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMiRx5809MmygmSitUXA+GRWGvqgwjkxIVoyN5KDFwavyJJak5
-	z2rUGV1xMCr8Wxu+J06j6JuDAuO3jY2k6rxZc4pS0NHKn08j6/oS+pWi64emJWvj5uMrQZWgIm0
-	y3u7ff7Bf0WpIFAyZhtcDkbh+0V/B8R2xSfd1RYvkyw==
-X-Gm-Gg: ASbGncuyTkPwjtV4pq0Zn8d4xPjZF/4hF8hkMFKScUC2/UZyR5ogwqQV2MnzJ+2jfSz
-	t9thweznl/gmpo91aV0JmtZq8yMGECihAQDSJ907ULnbjIZTWPoO0f4zkft5YgCHicYAci0+9CA
-	ec6hhiogrrrODOYfVW9hD1EYQk8IQVzm3RbqN5oSIQr5iN6dBKdUjU+3ZqxGvJmHESEk3KYMkPI
-	hPZfJlXyibC4OwdIMdJioBP2Aou4HDQhQ7Zwlpz0/Q6sntyw794BxDXq+6B8z/DYRFtM5haPknt
-	EPX1m42pCRwDsDWRjQV6fT0XYxNEBB/PV0j+VRKc
-X-Google-Smtp-Source: AGHT+IHZl+DbJWqzsW4usvg5XU8XG95/QBxRsXHVNuqnHskrM2O5sL7CTEM1KL/dJojrWYwbNX3q4vepU43szuZh3Cg=
-X-Received: by 2002:a05:6402:5612:b0:634:66c8:9e7d with SMTP id
- 4fb4d7f45d1cf-6349faa3493mr143723a12.36.1758733845069; Wed, 24 Sep 2025
- 10:10:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758734264; x=1759339064;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ra9h0pKy9hrfzn/xULq5J28p+78Z8nIxSntYx3sf93M=;
+        b=OVHXMqp7ZCgy1b1dNdkVjcpZ8R1b1yngSJgPawXzkcDemn3VSgIRWi19VugfnSnQmN
+         DcZ4FGuyRR0FeWzHrVQOOepwjwViHwop9CJ1rw1FBBU+Qk32FgGWEEqOyUdXltQhMAjF
+         ELzwlObylY2uDrCAVrqOIARFn9VNOhVmiGP0IgbVgyV2Gka33dgtUC26atTTcZuyd51a
+         ElLOa72POkhD9w4zZ3LXg+/QgXeqI6kpjvzueDs7WuWBEcKk71ecfxXdNoYeDttOpqKJ
+         rtk8O34MxnNXAUfKD+6Sd8qGE/e/p4FlZpK+IepBs2Wzzgq8+O9f4X69Oik/eOnyg0me
+         xxrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMnmU2muAqCrcD1mc86nWHbi1Sz7QVSETJH1VqvTZKo9GRLBMy7cgbiywQgph/l8bh3OZhYId5Izqo/OZ2NnDv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHja7mI/8/vK/NJ8wL1lGht8F3Ypu0PfhXX2wpXqwcpehSSXoU
+	RDgjn6Ego7mzRGTHIFGcfy0k9/VD08jKAgVgKl2zF/AdQSDhMv28spqyHs/fSp17ZA==
+X-Gm-Gg: ASbGnctO2Z7c5tOKtkkhWcxEFz8EwWFSQQffJX7q2NxABW7aJDcyY8Q6OuH1KHpeCYz
+	ooy5pRP/wye1/wXICXXmsXdwev5bmUX8kaM9eENdYkhZlAqUu4K48yGvEH4w9UcCpW+IA6+8F7C
+	mqfkuM3VMmEPNkm6LF8sETazC9D7D16PYessqQAHV9S/QAYKj+Vd5hsjpjOfby1t1SOjcEARZ+A
+	KRkgFRr7g5fh0x28faQ+Cv4VR+U11V/aAeD4pW08+p86vVgz6Lan58Enyih8jfC/qoheII8/pm3
+	jHRhXzyFpJ0OK3CTB8qcYv98QjdoWaMkkUOLbuwu72p0KKgiUY8LJnclNlWAO+APX7ddjOvb7sX
+	0mgc3bbPGnDKhgmo7u/vVG66FhCE4PcC4syZlx43CORUn9JnIRP9kOn9WRUFZFtwRLROcEg==
+X-Google-Smtp-Source: AGHT+IECcRUUOXZw8N72wAdSdn4wRjBNkobfFLE0UHBTkp1YQV+wUXCx2YiosQc5CaxumRtZ4E56yA==
+X-Received: by 2002:a05:6a20:258f:b0:2d3:f411:a970 with SMTP id adf61e73a8af0-2e7d3eaa484mr412304637.41.1758734264070;
+        Wed, 24 Sep 2025 10:17:44 -0700 (PDT)
+Received: from google.com (83.117.83.34.bc.googleusercontent.com. [34.83.117.83])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77dbc8e7cc4sm17407079b3a.29.2025.09.24.10.17.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 10:17:43 -0700 (PDT)
+Date: Wed, 24 Sep 2025 17:17:39 +0000
+From: William McVicker <willmcvicker@google.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Youngmin Nam <youngmin.nam@samsung.com>
+Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts
+ only on ARM64
+Message-ID: <aNQnszeIfeHjx3GS@google.com>
+References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
+ <20250827102645.1964659-1-m.szyprowski@samsung.com>
+ <8fb4534e-ffb0-40ad-8256-b0fa040a1b97@kernel.org>
+ <d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
+ <6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
 MIME-Version: 1.0
-References: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com> <20250924164650.GA2711@nxa18884-linux.ap.freescale.net>
-In-Reply-To: <20250924164650.GA2711@nxa18884-linux.ap.freescale.net>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Wed, 24 Sep 2025 11:10:33 -0600
-X-Gm-Features: AS18NWBF6pgBTDh35FbgLrsaT57uZ-qc2vyxmLVdoUBaK9TLl5St00uV6e6iIsQ
-Message-ID: <CANLsYkzWQEWKM-_iff7wY-sk_OERFiAMSrXP6Cyf8vJfXqunjg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] remoteproc: imx_rproc: Use device managed API to
- clean up the driver
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_101047_639155_AC81F2DC 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250924_101746_012925_92F3C8F7 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 Sept 2025 at 09:35, Peng Fan <peng.fan@oss.nxp.com> wrote:
->
-> Hi Mathieu, Bjorn
->
-> On Tue, Sep 23, 2025 at 01:16:32PM +0800, Peng Fan wrote:
-> >This is the 2nd series to cleanup the driver.
-> >
-> >---
-> >Changes in v2:
-> >- Address a build warning in patch 4/6
-> >- Add R-b from Frank and Daniel
-> >- Link to v1: https://lore.kernel.org/r/20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com
-> >
-> >---
-> >Peng Fan (6):
-> >      remoteproc: imx_rproc: Fix runtime PM cleanup order and error handling
-> >      remoteproc: imx_rproc: Use devm_add_action_or_reset() for workqueue cleanup
-> >      remoteproc: imx_rproc: Use devm_add_action_or_reset() for mailbox cleanup
-> >      remoteproc: imx_rproc: Use devm_clk_get_enabled() and simplify cleanup
-> >      remoteproc: imx_rproc: Use devm_add_action_or_reset() for scu cleanup
-> >      remoteproc: imx_rproc: Use devm_rproc_add() helper
->
->
-> Sorry for early ping - I just wanted to check if there's any chance for this
-> patchset to be included in 6.18, along with the other cleanup patchset [1].
+Hi Daniel,
 
-It seems very unlikely.  I am currently looking into how the PM
-runtime framework behaves to address my own questions about this patch
-[1].  Furthermore, I am worried about the usage of the device
-management framework when it comes to freeing memory.  I will get back
-to you with comments on that front when I know we are doing the right
-thing with the PM runtime framework.
+On 09/24/2025, Daniel Lezcano wrote:
+> 
+> Hi Marek,
+> 
+> On 19/09/2025 23:31, Marek Szyprowski wrote:
+> > On 27.08.2025 13:58, Krzysztof Kozlowski wrote:
+> > > On 27/08/2025 12:26, Marek Szyprowski wrote:
+> > > > For some unknown reasons forcing percpu interrupts for local timers
+> > > > breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
+> > > > machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use percpu
+> > > > flag only when driver is compiled for newer ARM64 architecture.
+> > > > 
+> > > > Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer interrupts as percpu")
+> > > 
+> > > I am pretty sure the patch above was not tested on arm32, thus this
+> > > workaround seems reasonable.
+> > > 
+> > > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > 
+> > Daniel, any chance to get this merged?
+> 
+> The patch does not apply. However it is not your fault but a glitch in the
+> previous pull request and the regression found in the Exynos MCT.
+> 
+> Apparently, Thomas had to drop the entire pull request while I thought he
+> dropped only Will's changes.
+> 
+> A pull request with the previous changes for v6.17-rc1 and with the new
+> changes for v6.18-rc1 is about to be emitted but without the Exynos MCT
+> changes for the modularization. That means your change does not apply
+> correctly anymore on the current changes.
 
-I dropped the 3rd cleanup patchset.  More than once I asked you to
-submit only one patchset at a time and you still refuse to take notice
-of my request.
+Is there somewhere I can check to see which changes will be re-sent? I don't
+see them in the timers/drivers/next branch. Will it be patches 2-4 plus the
+fixes for the section mismatch and this new IRQ fix? Once that's all sorted
+out, I'll base the new modularization patches on top of that.
 
-Mathieu
-
-[1]. "remoteproc: imx_rproc: Fix runtime PM cleanup order and error handling"
-
->
-> Both patchsets have received Reviewed-by tags, have been tested, and
-> successfully passed builds (arm64 gcc) with each patch applied incrementally.
->
-> [1] https://lore.kernel.org/linux-remoteproc/20250920-imx_rproc_c2-v2-0-3351c4c96df5@nxp.com/T/#ma16bb8a38300f6eb333ee04f00d57805aee3c114
->
-> Thanks
-> Peng
->
-> >
-> > drivers/remoteproc/imx_rproc.c | 128 ++++++++++++++++++-----------------------
-> > 1 file changed, 57 insertions(+), 71 deletions(-)
-> >---
-> >base-commit: c3067c2c38316c3ef013636c93daa285ee6aaa2e
-> >change-id: 20250916-imx_rproc_c2-2b9ad7882f4d
-> >
-> >Best regards,
-> >--
-> >Peng Fan <peng.fan@nxp.com>
-> >
+Thanks,
+Will
 
