@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C687CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 18:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8671CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 18:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SNSZoFZNDR80URdz36YBIJ5OBNfDxN1RufFh7l+ri0I=; b=HPZdufd+AwFPZinYyJG3lFlqRL
-	Sos7mxKhT41FbtzbtrP/42V+JSCUyTWha32bwDzY73Yq4OybCP226EI8NTwTpLyemiCK1rgViADga
-	sBW+mZBjZ0X83eLiBLpXnw/kbFTuSjxR97M5jV/OZx50WZTSJ5rn93j8q7CJNE8ifoB3FIBX1VUuY
-	n6C5PDtFCsPqJj/xIZzB3OflJDy5EG03WoHobHF4wsy0jQ3J7e2lvaiWnsAumsVmt1VS/kvaBpcBU
-	VosX2kYf9nwDwGmvsCd2EI3k1p7P1/cUPIt1GlOHFoQX1Pefid+CjXyVcqibdClVQU1/O+uaN1zjn
-	qtlWBHlw==;
+	bh=Tvms9S2u+WWs1aqmeVPw1ZH+QcXa67JBCDgXQqcL1Nc=; b=g2VWKDy/HPE4O1Exv3K6io/JPJ
+	BMOsJlSAT0adxE9RdoN70420HG+6K5lCiXqPcCi0WQWUNWbtfhecTAG+LMOLcj5xuU1I2iRsndz6p
+	1JoPxAkOXPF06OzAptTbgU+odjTVbua8BZBbipv5NP3nzpLZQDoYq3Uy20h+onSMUK/rjJWfP9F4I
+	kFYjwCQ3sdctp6NEG2I78eUJpLYv8gnpUv5cKXA4W7/laurstk1QcszWpds2fSgIqkhyrPkOAESo9
+	EoPmB+MdBOZJYzIpve0FQOE6bOzRilvJdcED4hG9mCeLwnskscvW9Vh1TREeE5sVm4WyytoeqlW4+
+	mlG7jgGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UNv-00000002hIu-0Ium;
-	Wed, 24 Sep 2025 18:38:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1UhE-00000002qLq-0ozF;
+	Wed, 24 Sep 2025 18:58:32 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UNr-00000002hFn-2fiQ
+	id 1v1UhB-00000002qJY-01X0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 18:38:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9669A40964;
-	Wed, 24 Sep 2025 18:38:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C2A1C4CEE7;
-	Wed, 24 Sep 2025 18:38:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758739110;
-	bh=JIUwIwvyK28kGXsFjmWwmTqUM0qtgo11UVD4GpXU9DU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QS4gQZ2ut/p5CX+SDw9+RK/9FA9j4cDOup/uPL78PwlLRA+8Az8iC5ktHnQ6FenUz
-	 n9UEmWIomcmPGbVdGsDQO33pNlFPpPll8WC51BqC6C7pjq2IY4NqJw1crh2kh5aaIO
-	 DYr/7zLh7ZcCFb6xIkYIk/Pl9m1DBiUt2K7bz2x1h+Lr7rFiYEl0BCOHQAvzVyf8QS
-	 D/+IshKU7j/9s7SU3sCmrYQuAlZwVuP/YgQMoJVOSd5m4hn6UcKxwACPBm7dhtxDMr
-	 DdlavpKVCrxuFSllGp4YSkc0JTIhfaRkBLVUd1e6GgimrNbNOerkrcgJDg7raOlJbL
-	 IsVVZwk5NrL9g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v1UNo-000000097OU-0ZEg;
-	Wed, 24 Sep 2025 18:38:28 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
-Date: Wed, 24 Sep 2025 19:38:24 +0100
-Message-ID: <175873910389.2373233.15017711229799268342.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
-References: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
+	Wed, 24 Sep 2025 18:58:30 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-57d8ff3944dso94450e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 11:58:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758740307; x=1759345107; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Tvms9S2u+WWs1aqmeVPw1ZH+QcXa67JBCDgXQqcL1Nc=;
+        b=h2+J8d3r+fZaGqRVm2cBT1ZHjoSkO9cpvQHhP2nymIOXZA/PkwB5+sNl73kACNhNTS
+         SuNuFToq6T09C90/l+5u2Rcwx7nCJXTjlH21y4gJbzcc1qYz6xvQLCtST2tRtsDBiNaI
+         iy9SRWKDUOBHFr/mv0zQ/foYcV+zOqWufMRNuPwSlAeukEYv+YgAeCZzFAnuH1j61Dke
+         No99h0cNCRf+wOanQ7/tUlDJaGNovxcTirFxkg8KZm4NSsWmL2BtBLOmPNAQkDwZrBAQ
+         kybkhlREQxcZIYw3i2mN/7E2PWaVL/EHhQvSSUdCQOk14vJw9Ot2upJZPGjZr+4BFc4w
+         hYVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758740307; x=1759345107;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tvms9S2u+WWs1aqmeVPw1ZH+QcXa67JBCDgXQqcL1Nc=;
+        b=jAg6n693sviLbFDnc9lTAEuhql/ajJhmiiJQSrcfajGCj5+iVIgUvZGM7u50+PFihv
+         LCyLABvnFxu7o/bCUs9mA3oDkgjWqYKWh/TxGcAOKQJKycCIo3le3nXeChxSazuaI8+I
+         btziJWfDcdVZcixbJ+USdYbPy1Omz0KIHbBItevHBak6RC6Dt3uFKt4AkZ8q9hexBKnf
+         dwYqDiDZCE3lNvbQFH63qDvMlqZvyn0yd/BHTdZG5a/Dkp9cPh3LjpsBiXetL+Yxst/b
+         99IomZJhAsWc+Ep8DPcfvOhRyVYdPgnoI5+CeOUVBDNHPgvX9l8ne9g9msrBOd0NlSqo
+         Tvkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWoVl4EtaWLB3OzO6RqQwOgqL2i8466XaLcpVjp0oc94sGvlL3X6HTN9gvJ2HYiXQ6i92E2EiFWy+ovat2EereO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVkYHFaubzVf6cYFJ9RbVIXeFGfSlcliOJL1L7jpbt6gj8+wzD
+	Y3pun4dfH/AetwBZhrrLArM+RadrepYJpvVGuRg9285fiigU5an5ggbmtQxe+4FAHmLE1LLa4UL
+	vPTovHBg58HQl5sJd5nDkspyv5ZRrgi9mTUmrn41UIQ==
+X-Gm-Gg: ASbGnctVEOXVS26Xh8fnwk2y9Qwp/BHA0XFBtxXQty5ev01YJagslGWl3dS3zzx/xjY
+	pWd/3Mq8e6Syu2fdV4lyrBuGkou/Doh2udusmGusfR3K0xizqrFZkLGq230/Jb76p6tncYgLOq0
+	MidjGXH1E8FHKjZoPaXuWfdpSvR4tn/EFJ/+Vhp4KDsKFbZNzsjd+6eh8+HEJkdhZ4rkM63T1hb
+	/eN7O7ZJdiqkUNUFCSvFxnccFbfe7CrNii0nBY=
+X-Google-Smtp-Source: AGHT+IG80v30cYAxmqw0nWtuIX67T8j0+pyB3RqSVPJrA4Q3f2yx4NJvYOML7KmCJ9NDodn7hTwpeLEpVOpaBNNnZoU=
+X-Received: by 2002:a05:6512:1389:b0:55f:572e:2417 with SMTP id
+ 2adb3069b0e04-582d4442054mr147305e87.56.1758740306748; Wed, 24 Sep 2025
+ 11:58:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org> <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+In-Reply-To: <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 24 Sep 2025 20:58:14 +0200
+X-Gm-Features: AS18NWB3RTCRDB9znJ75efLzXjjUdrkYJL4LszylIzL1olaMxdJPlHwCWt0jx1k
+Message-ID: <CAMRc=McVc2aYFX-DKjtNNNs0eZLcq_jahR+_q3EP1T352XhP+Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_113831_695887_A84D18D3 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250924_115829_300339_61264268 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 20 Sep 2025 20:51:58 +0100, Mark Brown wrote:
-> The set_id_regs selftest lacks coverag for ID_AA64ISR3_EL1 which has
-> several features exposed to KVM guests in it.  Add coverage, and while
-> we're here adjust the test to improve maintainability a bit.
-> 
-> The test will fail without the recently applied change adding FEAT_LSFE:
-> 
->    https://lore.kernel.org/r/175829303126.1764550.939188785634158487.b4-ty@kernel.org
-> 
-> [...]
+On Wed, Sep 24, 2025 at 8:25=E2=80=AFPM Dmitry Torokhov
+<dmitry.torokhov@gmail.com> wrote:
+>
+> Hi Bartosz,
+>
+> On Wed, Sep 24, 2025 at 04:51:28PM +0200, Bartosz Golaszewski wrote:
+> > Here's a functional RFC for improving the handling of shared GPIOs in
+> > linux.
+> >
 
-Applied to next, thanks!
+[snip]
 
-[1/2] KVM: arm64: selftests: Remove a duplicate register listing in set_id_regs
-      commit: 5a070fc376babc7efdc8288b97431e43e18f4646
-[2/2] KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
-      commit: b02a2c060b657296c080cff1b54ee4e9e650811c
+> >
+> > The practical use-case for this are the powerdown GPIOs shared by
+> > speakers on Qualcomm db845c platform, however I have also extensively
+> > tested it using gpio-virtuser on arm64 qemu with various DT
+> > configurations.
+>
+> How is this different from the existing gpio-backed regulator/supply?
+> IMO GPIOs are naturally exclusive-use resources (in cases when you need
+> to control them, not simply read their state), and when there is a need
+> to share them there are more appropriate abstractions that are built on
+> top of GPIOs...
+>
 
-Cheers,
+I think you have never been on the receiving end of Krzysztof's wrath
+when trying to model a simple shared pin as a nonexistent reset
+provider or a fixed regulator in device-tree. :)
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+Unless you mean some other abstractions I am missing.
 
-
+Bartosz
 
