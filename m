@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 320B7CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FF4CAC5B2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WI73KSwQqhq1Gh+2IcGy32QhBQAYgTIk/JPEYFLFV2Y=; b=Bs3HsZ1GcWXJRcAkwQ1+D8YIZZ
-	Er4pN0rI0IhYMFXG43GswUSUeC6WrjhrSwbhq1/F05OSlurt+zUB8X6Q5zmlUN3aTVe4YxPVXwcvN
-	6uYUPcuYylteE8apXzwgBeab0EBWi6kLphUGBnV7rJszGceuxtIq7gP2ewKeTolCQ7ANdI85fC3RK
-	7v2ljAp4lGsWHN1nev1mJmKCorwe+gOeFtw46ZESZV9PpQAtp0hnACzYVh/0XsgKzlUQdqW0iWUQp
-	oi2x1+AOBJUlwpLxP7zL+BcZ06HG7KFl7LHFnZ/ZbfcZZHYTfJ2uaf/Xn3BCDcyUeKrVqpV9mJEWf
-	UNfZjHIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PFuPLTdWH67tX0oh7ejew8sf/DWLeKIxmgCUYj8rnI8=; b=L2j2/QN0w6MSuacFvR0YucG5Gm
+	7alqE21fyo3x3m4xNbLZJU97yHhYrHU6PiQthoYA2k7TuwZFVtqGvFFKKg6EjrL9a6sDnyI4SDSag
+	9jyybHwtULtOPdGB/4NFIMzy6Eek4mMZxHfxuju4kfpfie8EkrkxLCMnOMDdrzr1cCvKWtr7Le+7g
+	bZDEtQi7zgOW810Gfp/tPMV1usKfUz3kFvZ6gNnen01/XGODqMZPjGkLfmAWgccE4CHkVZK9rTRb1
+	fsazaopTi7diMqL6nXN4DYdWgHEXMsSYtlyxKQYiMXt/bBsyYnhbsh3YHy8VInhJyhsnF93D1W/5L
+	WEeptiYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1L3z-0000000Fv9L-3hcD;
-	Wed, 24 Sep 2025 08:41:23 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1v1L77-0000000FvW0-3weC;
+	Wed, 24 Sep 2025 08:44:37 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1L3x-0000000Fv7l-3AAO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 08:41:23 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46e2e363118so3402775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 01:41:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758703280; x=1759308080; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WI73KSwQqhq1Gh+2IcGy32QhBQAYgTIk/JPEYFLFV2Y=;
-        b=mjRIDlgzLyGVIMmyz/FAAvslnQmH6LgBV7KfZKFgNuLgbP4zSi5CRanOBr+ccW8JME
-         EEKeGSl7pgqSoErX45Xf4OW5vh7ynHOacv5IAlalSdByPAn08KzqlUKEVwsqemKM6wi6
-         0sUw8fzGaJcqqJgUqO/hAqPl1++8wz75gOUeUg+mCv1DJ8roRCS7v/43zqKdgACcwVlk
-         LPh+f/wcHd4FCtAnrA7jw6CcAUVDLJhVLOEybAFqo8vW4cNkttKNWHdm4gQZ9kSWk2Xa
-         aIp2gEmdFyIIpyWK3vCUdMta5y5D63b0XNzarnM2XM9HyUVuhJMb7TNzpRcr07wJ3vbr
-         Rhjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758703280; x=1759308080;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WI73KSwQqhq1Gh+2IcGy32QhBQAYgTIk/JPEYFLFV2Y=;
-        b=NIHXOQoGbkTdxnlmJjxkTRWnMBdDTn7ARY4utNhBaZ7av5z/5u/CWggAEX+dJu1kUd
-         FwKWvlZL6UJjAoYnmodaWdrG+ttvZKcVQ6zyBegdqgjQo/kdtfg4KJ0mK06vXaOeXOhn
-         j4+ld+XfD9UcL/gBrC+ouJsDreAD6sn+dTCHHJNFiPC3328ohEFr9fbnm6DGRHnswnHP
-         tsf+HIQpMzDLYlmpL2aKY1t6UC0ov9IfADFT3FPorFfGMjD/qOBEQ1fO7W6ibxRpLcHr
-         0J620dh1tamb3VIh6WrGIM1Rwcl0F7bbWIj/GnCCSeNzLz9uEY+RKyeiJCJKshkL/q2R
-         lCtA==
-X-Forwarded-Encrypted: i=1; AJvYcCVwp7RGjM5fDCTL+ziDdT8Dfidopp1GswW7BagbQBCu4rdy8Urh1e7mOMQ481ixrSXxLbE/a/UYi1WjrlmEqfy/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvAp16MwSKYtVlSOF7rcVOCgNJImtEjQ+C7tQeRa7NPTuGCmS8
-	aLd6gIYP3Nq4Euut9PGuiIIzYhO6/Xnbn3FcKfaIM3lPRPMHmW/4FU/Ezbs9Jvonbt0=
-X-Gm-Gg: ASbGncsYchgd5nMhBYiyBFoYHKOI73VeJQejOTe8iX8ozFrWxQiM6crbFJq3BgxszfP
-	Q32wX9yk15USFE23UErpqYWxQHMGyQWm60mmHh7IDUVuKXQFiMqSr29B9wZ0QVZ0C04XNFr9ZxI
-	N+mDAaZaF5Qo6lXOxZ/0gRmC2bJgAvIgR4eBDtJF/VajEj/uy+vSQVyX6nJ0bU3cgq+Rn0m7ZUk
-	eA5EGm280Ues2Ai5NmaUOziKYYxbtznrEBRkUgs/5S8gX7/2Xamt6UoeUbSe/necHaOdwz4Y4wh
-	GxxaUSo/z8yGZmO+tzS3gBo5Az8iOopx7Y/c2bWPzaYNClVv10XsP8mDLNSSObGXtosusN1KR9i
-	ej8X8DMWvMSAMiS5c02pNaQOeUJGBvqk8X9eyUPDLDy9GvuJY3j9QURQcLtvdfwMouttohEa01J
-	oILQ==
-X-Google-Smtp-Source: AGHT+IG1DdlpxlL0duxNewRctsIzz5UZfKcQ2utw+x/rbFZjfa3j++4y90r1/7+EYFvHa6wtluGcQw==
-X-Received: by 2002:a05:600c:1c09:b0:45b:74fc:d6ec with SMTP id 5b1f17b1804b1-46e1d974906mr72852475e9.8.1758703278633;
-        Wed, 24 Sep 2025 01:41:18 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:bc4b:2611:54b0:29a4? ([2a05:6e02:1041:c10:bc4b:2611:54b0:29a4])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-46e2ab7d4e3sm21594365e9.23.2025.09.24.01.41.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Sep 2025 01:41:18 -0700 (PDT)
-Message-ID: <6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
-Date: Wed, 24 Sep 2025 10:41:17 +0200
+	id 1v1L74-0000000FvSw-2ZKA;
+	Wed, 24 Sep 2025 08:44:35 +0000
+X-UUID: adfb0094992211f09f706fa2197c6ceb-20250924
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=PFuPLTdWH67tX0oh7ejew8sf/DWLeKIxmgCUYj8rnI8=;
+	b=AUeMTNuU8mESewvD/6TspUB7ttXJd/6/FklSDo91dOizitck7Rg6g9ByCFpWi0gslQzc+fZXFeiwFbMZr/T+xn8jqx/e2YKPonTvHDliZ1vP2o2vL48ppA5GVHHk+DN4G/8aXMR+O/H0+xI+nOD642ZwKx2rTEQC8blygfuCHI8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.4,REQID:a47538cb-d073-4cb5-83d9-87209fef5f86,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:1ca6b93,CLOUDID:ec99e46c-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: adfb0094992211f09f706fa2197c6ceb-20250924
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <huayu.zong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1529998545; Wed, 24 Sep 2025 01:44:27 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 24 Sep 2025 16:44:24 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Wed, 24 Sep 2025 16:44:23 +0800
+From: Huayu Zong <huayu.zong@mediatek.com>
+To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Tinghan Shen
+	<tinghan.shen@mediatek.com>
+CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Huayu Zong
+	<huayu.zong@mediatek.com>
+Subject: [PATCH v2 0/2] Add support for MT8189 SCP and device tree bindings
+Date: Wed, 24 Sep 2025 16:44:16 +0800
+Message-ID: <20250924084422.4604-1-huayu.zong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts
- only on ARM64
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
- Alim Akhtar <alim.akhtar@samsung.com>, Ingo Molnar <mingo@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Youngmin Nam <youngmin.nam@samsung.com>,
- Will McVicker <willmcvicker@google.com>
-References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
- <20250827102645.1964659-1-m.szyprowski@samsung.com>
- <8fb4534e-ffb0-40ad-8256-b0fa040a1b97@kernel.org>
- <d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_014121_816617_D65E166A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250924_014434_651234_FCBB51DC 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,41 +90,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+  This patch series adds support for the System Companion
+Processor (SCP) on MediaTek MT8189, including device tree
+bindings and driver support.
 
-Hi Marek,
+Huayu Zong (2):
+  dt-bindings: remoteproc: mediatek: Add binding for mt8189 scp
+  remoteproc: mediatek: Support MT8189 SCP
 
-On 19/09/2025 23:31, Marek Szyprowski wrote:
-> On 27.08.2025 13:58, Krzysztof Kozlowski wrote:
->> On 27/08/2025 12:26, Marek Szyprowski wrote:
->>> For some unknown reasons forcing percpu interrupts for local timers
->>> breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
->>> machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use percpu
->>> flag only when driver is compiled for newer ARM64 architecture.
->>>
->>> Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer interrupts as percpu")
->>
->> I am pretty sure the patch above was not tested on arm32, thus this
->> workaround seems reasonable.
->>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Daniel, any chance to get this merged?
-
-The patch does not apply. However it is not your fault but a glitch in 
-the previous pull request and the regression found in the Exynos MCT.
-
-Apparently, Thomas had to drop the entire pull request while I thought 
-he dropped only Will's changes.
-
-A pull request with the previous changes for v6.17-rc1 and with the new 
-changes for v6.18-rc1 is about to be emitted but without the Exynos MCT 
-changes for the modularization. That means your change does not apply 
-correctly anymore on the current changes.
+ .../bindings/remoteproc/mtk,scp.yaml          |  2 ++
+ drivers/remoteproc/mtk_common.h               | 10 +++++++
+ drivers/remoteproc/mtk_scp.c                  | 29 +++++++++++++++++--
+ 3 files changed, 39 insertions(+), 2 deletions(-)
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+2.45.2
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
 
