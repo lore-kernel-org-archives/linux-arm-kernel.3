@@ -4,79 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B36B7CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE0CCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqXbCXCtfo3WYJi7OeV3d7gOVlYWPMATHpNe2Dly36M=; b=cxql7qSGdDOG9aphHaPXZOxPP/
-	+IrXAybTKvojlf5mhF7BeykehTMSSQFh6e9MRS5cMk+o0mPn5BTIdQcoppxl6FFpkAPsfoZyHFDWA
-	3uIcMxWQu16yD4WKjPDvKs3EIqidxEq+OTk3zywMjkKbSLv62cp7tiNCxcXxEfUatltuH3+T3kP9W
-	cKROStCji6/zmOM4JqikC9IEY0z3LJwTJl7FGwDM+LPC+sKRTQ+nsaNMK1dki914VXaOMY91CtfqH
-	RU+rhWwbv1y4uxEKiU0Em+cGxyCxulkGjZdlZJVR4AEEntgrHMKoWURmunLoTHHGtwi/UoBGas5OH
-	A6bWyhHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJDyC8rUF/eWH5B/7UaO0tbND5FfuI3668kVV74lXeA=; b=ipNEBFkMtz50/z/9cFCULSMGjy
+	lcB0jnCrVLgbe6QD+DNTQSy9D3emtLyERoX/ZzLMcOPgJiVr/t8EnGxheR/np8D5zRy6qhwCrvv9+
+	O7EtnZjLfBLyWVH1DFdnZ6keSgR7ko0M+7nlM6R5feQjEH0MnNcOqFgJjFooSVm7qBbpULPicnTkM
+	yDmT2db5Lg/LZ84/HbY2Y49a7KBQ8/m7h+RlMAuIf/sU1PotsIUwe2q5XDl7OY2XvJCUQqb66tOuI
+	ZgRvWZbd4IPeAUjgJGHi1y+2UUQgD1Ja5yfHp3HcdJfR4Px6Rzmh3t/Li3zz+0Gacz8uJ6w49d6zq
+	u8UBwc5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LG2-0000000FwqL-39Ky;
-	Wed, 24 Sep 2025 08:53:50 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LFx-0000000Fwpu-14Dn
+	id 1v1LGw-0000000Fwwq-0VRy;
+	Wed, 24 Sep 2025 08:54:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1LGt-0000000FwwP-1jHb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 08:53:49 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250924085339euoutp01afce6b251e97ee7f288d687edd7f935e~oK-y-jQQl3237632376euoutp01f
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 08:53:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250924085339euoutp01afce6b251e97ee7f288d687edd7f935e~oK-y-jQQl3237632376euoutp01f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758704019;
-	bh=CqXbCXCtfo3WYJi7OeV3d7gOVlYWPMATHpNe2Dly36M=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=KcNch+1SleSfRiwUNdfjecEzzqa7B113uBvSNATfohn3+1nkid85q1JT/8KZo9G3w
-	 hBPRfsPfV+qhYZD9L+nioCTXdNunZPv3xpowgyojDfUNrj9I5ArgRGfvk5D3PPHrOQ
-	 VDK+hDOS4DI1+f2/B8XfJ+kdjMctSD0mUxLkQ0hQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250924085338eucas1p262e8f49fbe3d4eb17c25e99907fc0915~oK-yvdSFC0850508505eucas1p2f;
-	Wed, 24 Sep 2025 08:53:38 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250924085337eusmtip2a749c23464beec550557f0850b9d4e6c~oK-xoipmi0978809788eusmtip2E;
-	Wed, 24 Sep 2025 08:53:37 +0000 (GMT)
-Message-ID: <a1ce41d7-ac54-4f66-b0b3-b98e5079e926@samsung.com>
-Date: Wed, 24 Sep 2025 10:53:36 +0200
+	Wed, 24 Sep 2025 08:54:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E5E4106F;
+	Wed, 24 Sep 2025 01:54:34 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD7EE3F5A1;
+	Wed, 24 Sep 2025 01:54:41 -0700 (PDT)
+Date: Wed, 24 Sep 2025 09:54:38 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Lixiang Mao <lixiang.mao@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lixiang Mao <liximao@qti.qualcomm.com>
+Subject: Re: [PATCH v3] firmware: arm_ffa: Add support for IMPDEF value in
+ the memory access descriptor
+Message-ID: <20250924-amazing-unyielding-shark-1ac77e@sudeepholla>
+References: <20250923150927.1218364-1-sudeep.holla@arm.com>
+ <c88f5edd-492d-47c9-8188-c702cfa6301d@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts
- only on ARM64
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, Krzysztof Kozlowski
-	<krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Ingo Molnar <mingo@kernel.org>, Peter Griffin
-	<peter.griffin@linaro.org>, Youngmin Nam <youngmin.nam@samsung.com>, Will
-	McVicker <willmcvicker@google.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20250924085338eucas1p262e8f49fbe3d4eb17c25e99907fc0915
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-X-EPHeader: CA
-X-CMS-RootMailID: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
-	<20250827102645.1964659-1-m.szyprowski@samsung.com>
-	<8fb4534e-ffb0-40ad-8256-b0fa040a1b97@kernel.org>
-	<d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
-	<6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c88f5edd-492d-47c9-8188-c702cfa6301d@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_015346_670035_F4859CA4 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250924_015443_529144_703414CF 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,49 +65,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On Wed, Sep 24, 2025 at 09:50:21AM +0800, Lixiang Mao wrote:
+> 
+> On 9/23/2025 11:09 PM, Sudeep Holla wrote:
+> > FF-A v1.2 introduced 16 byte IMPLEMENTATION DEFINED value in the endpoint
+> > memory access descriptor to allow any sender could to specify an its any
+> > custom value for each receiver. Also this value must be specified by the
+> > receiver when retrieving the memory region. The sender must ensure it
+> > informs the receiver of this value via an IMPLEMENTATION DEFINED mechanism
+> > such as a partition message.
+> > 
+> > So the FF-A driver can use the message interfaces to communicate the value
+> > and set the same in the ffa_mem_region_attributes structures when using
+> > the memory interfaces.
+> > 
+> > The driver ensure that the size of the endpoint memory access descriptors
+> > is set correctly based on the FF-A version.
+> > 
+> > Fixes: 9fac08d9d985 ("firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver")
+> > Reported-by: Lixiang Mao <liximao@qti.qualcomm.com>
+> > Tested-by: Lixiang Mao <liximao@qti.qualcomm.com>
+> > Message-Id: <20250919155216.34074-1-sudeep.holla@arm.com>
+> > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> > ---
+> >   drivers/firmware/arm_ffa/driver.c | 37 ++++++++++++++++++++++---------
+> >   include/linux/arm_ffa.h           | 21 ++++++++++++++++--
+> >   2 files changed, 46 insertions(+), 12 deletions(-)
+> > 
+> > v2[2]->v3:
+> > 	- Moved FFA version checks into macros and tie them with features
+> > 	  to improve readability and maintenance
+> > 
+> > v1[1]->v2[2]:
+> > 	- Fix the size of EMAD in ffa_mem_desc_offset() and the loop
+> > 	  increment in ffa_setup_and_transmit()
+> > 
+> > [1] https://lore.kernel.org/all/20250915150119.3106344-1-sudeep.holla@arm.com/
+> > [2] https://lore.kernel.org/all/20250919155216.34074-1-sudeep.holla@arm.com/
+> > 
+> > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> > index 65bf1685350a..c72ee4756585 100644
+> > --- a/drivers/firmware/arm_ffa/driver.c
+> > +++ b/drivers/firmware/arm_ffa/driver.c
+> > @@ -649,6 +649,26 @@ static u16 ffa_memory_attributes_get(u32 func_id)
+> >   	return FFA_MEM_NORMAL | FFA_MEM_WRITE_BACK | FFA_MEM_INNER_SHAREABLE;
+> >   }
+> > +static void ffa_emad_impdef_value_init(u32 version, void *dst, void *src)
+> > +{
+> > +	struct ffa_mem_region_attributes *ep_mem_access;
+> > +
+> > +	if (FFA_EMAD_HAS_IMPDEF_FIELD(version))
+> > +		memcpy(dst, src, sizeof(ep_mem_access->impdef_val));
+> > +}
+> > +
+> > +static void
+> > +ffa_mem_region_additional_setup(u32 version, struct ffa_mem_region *mem_region)
+> > +{
+> > +	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(version)) {
+> > +		mem_region->ep_mem_size = 0;
+> > +	} else {
+> > +		mem_region->ep_mem_size = ffa_emad_size_get(version);
+> > +		mem_region->ep_mem_offset = sizeof(*mem_region);
+> > +		memset(mem_region->reserved, 0, 12);
+> > +	}
+> > +}
+> > +
+> >   static int
+> >   ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+> >   		       struct ffa_mem_ops_args *args)
+> > @@ -667,27 +687,24 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+> >   	mem_region->flags = args->flags;
+> >   	mem_region->sender_id = drv_info->vm_id;
+> >   	mem_region->attributes = ffa_memory_attributes_get(func_id);
+> > -	ep_mem_access = buffer +
+> > -			ffa_mem_desc_offset(buffer, 0, drv_info->version);
+> >   	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
+> >   					       drv_info->version);
+> > -	for (idx = 0; idx < args->nattrs; idx++, ep_mem_access++) {
+> > +	for (idx = 0; idx < args->nattrs; idx++) {
+> > +		ep_mem_access = buffer +
+> > +			ffa_mem_desc_offset(buffer, idx, drv_info->version);
+> >   		ep_mem_access->receiver = args->attrs[idx].receiver;
+> >   		ep_mem_access->attrs = args->attrs[idx].attrs;
+> >   		ep_mem_access->composite_off = composite_offset;
+> >   		ep_mem_access->flag = 0;
+> >   		ep_mem_access->reserved = 0;
+> > +		ffa_emad_impdef_value_init(drv_info->version,
+> > +					   ep_mem_access->impdef_val,
+> > +					   args->attrs[idx].impdef_val);
+> >   	}
+> >   	mem_region->handle = 0;
+> >   	mem_region->ep_count = args->nattrs;
+> > -	if (drv_info->version <= FFA_VERSION_1_0) {
+> > -		mem_region->ep_mem_size = 0;
+> > -	} else {
+> > -		mem_region->ep_mem_size = sizeof(*ep_mem_access);
+> > -		mem_region->ep_mem_offset = sizeof(*mem_region);
+> > -		memset(mem_region->reserved, 0, 12);
+> > -	}
+> > +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
+> >   	composite = buffer + composite_offset;
+> >   	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
+> > diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+> > index e1634897e159..c2d1f743e44a 100644
+> > --- a/include/linux/arm_ffa.h
+> > +++ b/include/linux/arm_ffa.h
+> > @@ -337,6 +337,7 @@ struct ffa_mem_region_attributes {
+> >   	 * an `struct ffa_mem_region_addr_range`.
+> >   	 */
+> >   	u32 composite_off;
+> > +	u8 impdef_val[16];
+> >   	u64 reserved;
+> >   };
+> > @@ -416,15 +417,31 @@ struct ffa_mem_region {
+> >   #define CONSTITUENTS_OFFSET(x)	\
+> >   	(offsetof(struct ffa_composite_mem_region, constituents[x]))
+> > +#define FFA_EMAD_HAS_IMPDEF_FIELD(version)	(version >= FFA_VERSION_1_2)
+> > +#define FFA_MEM_REGION_HAS_EP_MEM_OFFSET(version) (version > FFA_VERSION_1_0)
+> Minor: version -->> (version)
 
-On 24.09.2025 10:41, Daniel Lezcano wrote:
->
-> On 19/09/2025 23:31, Marek Szyprowski wrote:
->> On 27.08.2025 13:58, Krzysztof Kozlowski wrote:
->>> On 27/08/2025 12:26, Marek Szyprowski wrote:
->>>> For some unknown reasons forcing percpu interrupts for local timers
->>>> breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
->>>> machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use 
->>>> percpu
->>>> flag only when driver is compiled for newer ARM64 architecture.
->>>>
->>>> Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local 
->>>> timer interrupts as percpu")
->>>
->>> I am pretty sure the patch above was not tested on arm32, thus this
->>> workaround seems reasonable.
->>>
->>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>
->> Daniel, any chance to get this merged?
->
-> The patch does not apply. However it is not your fault but a glitch in 
-> the previous pull request and the regression found in the Exynos MCT.
->
-> Apparently, Thomas had to drop the entire pull request while I thought 
-> he dropped only Will's changes.
->
-> A pull request with the previous changes for v6.17-rc1 and with the 
-> new changes for v6.18-rc1 is about to be emitted but without the 
-> Exynos MCT changes for the modularization. That means your change does 
-> not apply correctly anymore on the current changes.
+Good point, will fix it up when applying. Thanks!
 
-Thanks for the information. I've checked and 
-https://git.kernel.org/pub/scm/linux/kernel/git/daniel.lezcano/linux.git/commit/?h=timers/drivers/next 
-branch indeed doesn't contain the whole Exynos MCT modularization 
-patchset, so the $subject patch (which was supposed to fix it) is not 
-really needed.
-
-Best regards
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Regards,
+Sudeep
 
