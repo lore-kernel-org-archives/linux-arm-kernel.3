@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6604FCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F056CCAC5B3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aBAth7OC4HXESnQWCbnVVE+P6zORgmWjqjh0hqLI844=; b=43R7abeNF9QINR
-	Q3VYcTngf0MBZ7w13VVCwWkpNzudaw6CU6zifBuhh3FWy+XgqFf0oJEUeHn7lvVNWaOK2A2q2ch1S
-	/UBDTvwCazD6lH8iLEDu7i1jHgVcmZnSGhqqA0spbKqMjebwHw3I+8GApiML4WAgJJX0hle31daK0
-	WkrF51WWO57BWWtqeTadPNjm635A3MnYzo+x/oVynq9x7L21KRx283P44D/gJc23oFbaARNqPkpgX
-	wG5xrkIO8UkvS4VZj9AjHfisUN37Vo25gtJECOiILFviD1DPkrmf6OPKvj73/kO7CtkrI0xlWVigN
-	B6kdt6adDZVfUya3aQeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UrPkFZg9UXvWvVyQk7ot6ccfVBCiplzsPaS75y+4B4I=; b=My/2bGHo0W3KZ2rOPC3GNWLkyP
+	D05PwpaeOgeDgiQSxY6jMdVeQh3Hf3562vaZub4LkYxLn076ytV83EMArmyQdMukjG46CcWaWkX5C
+	uNt7xtqtKHA80ahJ/GZeYcqWqj2yvyrzFSj9GtePue9Xpfug0pz6SRJd3zDNIKNQPS0VdtTUTBSev
+	t+XA2uOMMm65wlHmbdwqlmgYa9c+v65wsk+cdcx3VtdEmzq7b71qeskzCRHsRWbl62bq2peElvVYG
+	o/GgvaqLgYvVbvogZ/yfPtjmILIoFcm/Ar5KCEEIG0naoLoiaGpP2tGAmqrlSRoGulCkWk2acQ1E9
+	6NU1Aeeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Kxf-0000000FtRe-2Ecz;
+	id 1v1Kxf-0000000FtSA-3kQD;
 	Wed, 24 Sep 2025 08:34:51 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1KxT-0000000FtMY-0ARV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 08:34:41 +0000
-Received: from dude04.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::ac])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <jre@pengutronix.de>)
-	id 1v1KxR-0006Aj-7V; Wed, 24 Sep 2025 10:34:37 +0200
-From: Jonas Rebmann <jre@pengutronix.de>
-Subject: [PATCH v3 0/3] Mainline Protonic PRT8ML board
-Date: Wed, 24 Sep 2025 10:34:11 +0200
-Message-Id: <20250924-imx8mp-prt8ml-v3-0-f498d7f71a94@pengutronix.de>
+	id 1v1KxY-0000000FtOW-1A4B;
+	Wed, 24 Sep 2025 08:34:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758702881;
+	bh=VdHX48lqCFSosZvX9FtA92m9ELKCKlcdOBW2HmyJPaM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=XaqbDzooaatmy2NMad8g4HR8NWNtVigysbLC4clikTQdowbAu9cRmDqGPupLTTSfi
+	 GznKPmokpz9GxBlxhuCJqpvH54YSXTtRflvHWKBj9CAO4PpSHyMGnOYYILmGRk2Ss5
+	 FN2Rk6neTZfcu6lRLA2cl7Qr+p7HEjA8N7lZb43epZNKl7/VYjLhD1T1ELbfbrapbo
+	 x9hxv/Pwt/xBu7dCBxZf2mXRilnLztWB3D1A1sgJ2D6YZD0J183k1U2kQ7QZXtGY0A
+	 mvAO/amAv5R5IacKxafjJSmZj3+IQIvG4zfVfzvg+YeeJokTO6L4091wvneKSziXz+
+	 plk67zSybeHJQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E54A17E0C21;
+	Wed, 24 Sep 2025 10:34:41 +0200 (CEST)
+Message-ID: <79b738be-d51c-4414-801d-3430c18f0b72@collabora.com>
+Date: Wed, 24 Sep 2025 10:34:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: Add Airoha AN7583 SoC and AN7583
+ Evaluation Board
+To: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250923185340.21526-1-ansuelsmth@gmail.com>
+ <20250923185340.21526-2-ansuelsmth@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250923185340.21526-2-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAOt02gC/2XMSw6CMBSF4a2Qjq3pE4oj92EcgL3ATaSQFhsMY
- e8WnBgc/ic530ICeIRALtlCPEQMOLgU8pSRR1e5Fija1EQwoVnBOMV+Nv1IRz+Z/kkZr0Gq3Kh
- clyR9Rg8Nzrt3u6fuMEyDf+985Nv6lUrODlLklNHGMlWB5Tov2HUE174mPziczxbIxkXxS5gjI
- RIhrVG1akBLC3/Euq4f9TOPKPIAAAA=
-X-Change-ID: 20250701-imx8mp-prt8ml-01be34684659
-To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Jonas Rebmann <jre@pengutronix.de>, 
- Frank Li <Frank.Li@nxp.com>, David Jander <david@protonic.nl>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-X-Mailer: b4 0.15-dev-7abec
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1535; i=jre@pengutronix.de;
- h=from:subject:message-id; bh=4wvx639RnwwdY8F0v2Vj37kcv/o6/9JmJ8NAhXnPjto=;
- b=owGbwMvMwCV2ZcYT3onnbjcwnlZLYsi4vFba0Pk8n2Oeim+bwmwF888J55+v+JZt43defuPjP
- xVJK9vPdZSyMIhxMciKKbLEqskpCBn7XzertIuFmcPKBDKEgYtTACZyRZuRYatq8smImfserIta
- ZfJgl1Nu1Ed3uVcp6fbZmmuSFr3lrWD4XxLwSyzYVJll52yVTfz9Z6anX9m37HnaiWym0rPZ9tO
- rWQE=
-X-Developer-Key: i=jre@pengutronix.de; a=openpgp;
- fpr=0B7B750D5D3CD21B3B130DE8B61515E135CD49B5
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::ac
-X-SA-Exim-Mail-From: jre@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_013439_103909_7A657B6F 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250924_013444_522384_7491849D 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +79,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the Protonic PRT8ML device tree as well as some minor
-corrections to the devicetree bindings used.
+Il 23/09/25 20:53, Christian Marangi ha scritto:
+> Introduce Airoha AN7583 SoC initial DTSI and AN7583 Evaluation Board
+> DTS and add the required entry in the Makefile.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+> Changes v2:
+> - Fix DTB BOT warning (fix crypto compatible and OPP node name)
+> 
+>   arch/arm64/boot/dts/airoha/Makefile       |   1 +
+>   arch/arm64/boot/dts/airoha/an7583-evb.dts |  22 ++
+>   arch/arm64/boot/dts/airoha/an7583.dtsi    | 282 ++++++++++++++++++++++
+>   3 files changed, 305 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/airoha/an7583-evb.dts
+>   create mode 100644 arch/arm64/boot/dts/airoha/an7583.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/airoha/Makefile b/arch/arm64/boot/dts/airoha/Makefile
+> index ebea112ce1d7..7a604ae249b5 100644
+> --- a/arch/arm64/boot/dts/airoha/Makefile
+> +++ b/arch/arm64/boot/dts/airoha/Makefile
+> @@ -1,2 +1,3 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   dtb-$(CONFIG_ARCH_AIROHA) += en7581-evb.dtb
+> +dtb-$(CONFIG_ARCH_AIROHA) += an7583-evb.dtb
+> diff --git a/arch/arm64/boot/dts/airoha/an7583-evb.dts b/arch/arm64/boot/dts/airoha/an7583-evb.dts
+> new file mode 100644
+> index 000000000000..a7f83436825e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/airoha/an7583-evb.dts
+> @@ -0,0 +1,22 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/dts-v1/;
+> +
+> +#include "an7583.dtsi"
+> +
+> +/ {
+> +	model = "Airoha EN7583 Evaluation Board";
 
-Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
----
-Changes in v3:
-- Add comment on the intentional limitation to 100Mbps RGMII
-- Link to v2: https://lore.kernel.org/r/20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de
+There's a typo - you wrote EN instead of AN.
 
-Changes in v2:
-- Dropped "ASoC: dt-bindings: asahi-kasei,ak4458: Reference common DAI
-  properties", applied to broonie/sound for-next (Thanks, Mark)
-- Updated description of the reset-gpios property in sja1105 binding to
-  address the issues of connecting this pin to GPIO (Thanks, Vladimir)
-- Added the fec, switch and phy for RJ45 onboard ethernet after
-  successful testing
-- Consistently use interrupts-extended
-- Link to v1: https://lore.kernel.org/r/20250910-imx8mp-prt8ml-v1-0-fd04aed15670@pengutronix.de
+> +	compatible = "airoha,an7583-evb", "airoha,an7583";
+> +
+> +	aliases {
+> +		serial0 = &uart1;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x80000000 0x2 0x00000000>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/airoha/an7583.dtsi b/arch/arm64/boot/dts/airoha/an7583.dtsi
+> new file mode 100644
+> index 000000000000..a6a5df60d0e1
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/airoha/an7583.dtsi
+> @@ -0,0 +1,282 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +/ {
+> +	interrupt-parent = <&gic>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu-map {
+> +			cluster0 {
+> +				core0 {
+> +					cpu = <&cpu0>;
+> +				};
+> +
+> +				core1 {
+> +					cpu = <&cpu1>;
+> +				};
+> +			};
+> +		};
+> +
+> +		cpu0: cpu@0 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a53";
+> +			reg = <0x0>;
+> +			operating-points-v2 = <&cpu_opp_table>;
+> +			enable-method = "psci";
+> +			clocks = <&cpufreq>;
+> +			clock-names = "cpu";
+> +			power-domains = <&cpufreq>;
+> +			power-domain-names = "perf";
+> +			next-level-cache = <&l2>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		cpu1: cpu@1 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a53";
+> +			reg = <0x1>;
+> +			operating-points-v2 = <&cpu_opp_table>;
+> +			enable-method = "psci";
+> +			clocks = <&cpufreq>;
+> +			clock-names = "cpu";
+> +			power-domains = <&cpufreq>;
+> +			power-domain-names = "perf";
+> +			next-level-cache = <&l2>;
+> +			#cooling-cells = <2>;
+> +		};
+> +
+> +		l2: l2-cache {
+> +			compatible = "cache";
+> +			cache-size = <0x80000>;
+> +			cache-line-size = <64>;
+> +			cache-level = <2>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	cpufreq: cpufreq {
+> +		compatible = "airoha,en7581-cpufreq";
+> +
+> +		operating-points-v2 = <&smcc_opp_table>;
+> +
+> +		#power-domain-cells = <0>;
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	cpu_opp_table: opp-table-cpu {
+> +		compatible = "operating-points-v2";
+> +		opp-shared;
+> +
+> +		opp-500000000 {
+> +			opp-hz = /bits/ 64 <500000000>;
+> +			required-opps = <&smcc_opp0>;
+> +		};
+> +
+> +		opp-550000000 {
+> +			opp-hz = /bits/ 64 <550000000>;
+> +			required-opps = <&smcc_opp1>;
+> +		};
+> +
+> +		opp-600000000 {
+> +			opp-hz = /bits/ 64 <600000000>;
+> +			required-opps = <&smcc_opp2>;
+> +		};
+> +
+> +		opp-650000000 {
+> +			opp-hz = /bits/ 64 <650000000>;
+> +			required-opps = <&smcc_opp3>;
+> +		};
+> +
+> +		opp-7000000000 {
+> +			opp-hz = /bits/ 64 <700000000>;
+> +			required-opps = <&smcc_opp4>;
+> +		};
+> +
+> +		opp-7500000000 {
+> +			opp-hz = /bits/ 64 <750000000>;
+> +			required-opps = <&smcc_opp5>;
+> +		};
+> +
+> +		opp-8000000000 {
+> +			opp-hz = /bits/ 64 <800000000>;
+> +			required-opps = <&smcc_opp6>;
+> +		};
+> +
+> +		opp-8500000000 {
+> +			opp-hz = /bits/ 64 <850000000>;
+> +			required-opps = <&smcc_opp7>;
+> +		};
+> +
+> +		opp-9000000000 {
+> +			opp-hz = /bits/ 64 <900000000>;
+> +			required-opps = <&smcc_opp8>;
+> +		};
+> +
+> +		opp-9500000000 {
+> +			opp-hz = /bits/ 64 <950000000>;
+> +			required-opps = <&smcc_opp9>;
+> +		};
+> +
+> +		opp-10000000000 {
+> +			opp-hz = /bits/ 64 <1000000000>;
+> +			required-opps = <&smcc_opp10>;
+> +		};
+> +
+> +		opp-10500000000 {
+> +			opp-hz = /bits/ 64 <1050000000>;
+> +			required-opps = <&smcc_opp11>;
+> +		};
+> +
+> +		opp-11000000000 {
+> +			opp-hz = /bits/ 64 <1100000000>;
+> +			required-opps = <&smcc_opp12>;
+> +		};
+> +
+> +		opp-11500000000 {
+> +			opp-hz = /bits/ 64 <1150000000>;
+> +			required-opps = <&smcc_opp13>;
+> +		};
+> +
+> +		opp-12000000000 {
+> +			opp-hz = /bits/ 64 <1200000000>;
+> +			required-opps = <&smcc_opp14>;
+> +		};
+> +	};
+> +
+> +	smcc_opp_table: opp-table-smcc {
+> +		compatible = "operating-points-v2";
+> +
+> +		smcc_opp0: opp-0 {
+> +			opp-level = <0>;
+> +		};
+> +
+> +		smcc_opp1: opp-1 {
+> +			opp-level = <1>;
+> +		};
+> +
+> +		smcc_opp2: opp-2 {
+> +			opp-level = <2>;
+> +		};
+> +
+> +		smcc_opp3: opp-3 {
+> +			opp-level = <3>;
+> +		};
+> +
+> +		smcc_opp4: opp-4 {
+> +			opp-level = <4>;
+> +		};
+> +
+> +		smcc_opp5: opp-5 {
+> +			opp-level = <5>;
+> +		};
+> +
+> +		smcc_opp6: opp-6 {
+> +			opp-level = <6>;
+> +		};
+> +
+> +		smcc_opp7: opp-7 {
+> +			opp-level = <7>;
+> +		};
+> +
+> +		smcc_opp8: opp-8 {
+> +			opp-level = <8>;
+> +		};
+> +
+> +		smcc_opp9: opp-9 {
+> +			opp-level = <9>;
+> +		};
+> +
+> +		smcc_opp10: opp-10 {
+> +			opp-level = <10>;
+> +		};
+> +
+> +		smcc_opp11: opp-11 {
+> +			opp-level = <11>;
+> +		};
+> +
+> +		smcc_opp12: opp-12 {
+> +			opp-level = <12>;
+> +		};
+> +
+> +		smcc_opp13: opp-13 {
+> +			opp-level = <13>;
+> +		};
+> +
+> +		smcc_opp14: opp-14 {
+> +			opp-level = <14>;
+> +		};
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupt-parent = <&gic>;
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+> +	};
+> +
+> +	sys_hclk: clk-oscillator-100mhz {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <100000000>;
+> +		clock-output-names = "sys_hclk";
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		gic: interrupt-controller@9000000 {
+> +			compatible = "arm,gic-v3";
+> +			interrupt-controller;
+> +			#interrupt-cells = <3>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			reg = <0x0 0x09000000 0x0 0x20000>,
+> +			      <0x0 0x09080000 0x0 0x80000>,
+> +			      <0x0 0x09400000 0x0 0x2000>,
+> +			      <0x0 0x09500000 0x0 0x2000>,
+> +			      <0x0 0x09600000 0x0 0x20000>;
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+> +		};
+> +
+> +		crypto@1e004000 {
+> +			compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
 
----
-Jonas Rebmann (3):
-      dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios property
-      dt-bindings: arm: fsl: Add Protonic PRT8ML
-      arm64: dts: add Protonic PRT8ML board
+First of all: sorry for not catching this in the first review.
 
- Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
- .../devicetree/bindings/net/dsa/nxp,sja1105.yaml   |   9 +
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- arch/arm64/boot/dts/freescale/imx8mp-prt8ml.dts    | 501 +++++++++++++++++++++
- 4 files changed, 512 insertions(+)
----
-base-commit: ea21fa34164c9ea0a2a5b8714c7e36f54c7fb46e
-change-id: 20250701-imx8mp-prt8ml-01be34684659
+This is wrong - the compatible string must contain the SoC compatible, but this is
+AN7583, not EN7581.
 
-Best regards,
---  
-Jonas Rebmann <jre@pengutronix.de>
+Either of
+
+compatible = "airoha,an7583-eip93", "inside-secure,safexcel-eip93ies";
+
+or
+
+compatible = "airoha,an7583-eip93", "airoha,en7581-eip93",
+	     "inside-secure,safexcel-eip93ies";
+
+is acceptable. Of course, you have to add that to the bindings.
+
+> +			reg = <0x0 0x1fb70000 0x0 0x1000>;
+> +
+> +			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+> +		uart1: serial@1fbf0000 {
+> +			compatible = "ns16550";
+> +			reg = <0x0 0x1fbf0000 0x0 0x30>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
+> +			clock-frequency = <1843200>;
+> +		};
+> +
+> +		watchdog@1fbf0100 {
+> +			compatible = "airoha,en7581-wdt";
+
+compatible = "airoha,an7583-wdt", "airoha,en7581-wdt";
+
+(and add to the bindings)
+
+Everything else looks ok.
+
+Cheers,
+Angelo
+
 
 
