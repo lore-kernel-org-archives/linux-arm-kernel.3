@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE56CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1FDCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 13:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ur1sWRUAidpm/ZEjn1xdq4CloKH85fbSgxpB+jt40W0=; b=Njr8OKUP1VQDK/XdbiMgdtz+Ak
-	ZIFQ0lou1UKSvvrtDErdD7/7+OHp1TZKLS+Or9rgteG5B0DvISu5lmbiEG1aseS3SpCU1prHr2JXE
-	5/99fO+efV5aSTPR7BgqjWfdr1isWojcr4NmwMIoHCH2BrrEV3jxNdgdILmf6ZH0tbV5Pwth86cRw
-	pXIZ33lJLkuZjc6BH9aO5un85OdXdw4ODqtaNCwCmKZqub+UIKPq5FcHjDJ+B7sOBd7md3Eee7fmV
-	hL3Tfe6gcYz27r2c5YwQb5I9zmueAGvkHR/jlIypiKo0CsyoWDi3nNPom1oxXhrSVESBBDkJVtaik
-	I8ltVL1w==;
+	bh=y68HKP5ZWM2nZLoIp6G0xyl57vLEVKukBRq+ymXstjI=; b=byR0TG1qGIcWA3QNl6oGzPcRhH
+	MBdcJG4jorNNMwmeX4nXCdWaNWmQDb/cy56bsuI4WXqdgzJ9c3cRBMlz+ieJFAMxVRO25RoPoQvU4
+	GyCNoHjDXjZjJJ4uUDzrxkeJGRmFKLRJmVesZ65pAOQNvXvTDpyhVOKVfYCEoKD7e68TP4rIQv3Te
+	cUgj2bp8Oxy0MocYhnxqoiCL1Nrc5CwmIniFjVKLIiPDIuxZ+gHE3QE4bZue0DajCBqT+2l1EfY+w
+	Xgp0FHqpe8x+d8NEiVGNeHiS/DKrZJ5WaY4wuLzydZ7KReE/Dqn65Htmcvohzq6+5ZGul98JZHY83
+	bdR5GKFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P42-000000000TP-3l2q;
-	Wed, 24 Sep 2025 12:57:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P41-000000000SD-1SB5
+	id 1v1P6N-000000001Ua-0ucI;
+	Wed, 24 Sep 2025 13:00:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1P6J-000000001U9-41IC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 12:57:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E25A60007;
-	Wed, 24 Sep 2025 12:57:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79037C4CEE7;
-	Wed, 24 Sep 2025 12:57:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758718659;
-	bh=VG20TPc0vSAmEbBXOQRn+cY5clUm9F5ItXR7KZk0Ww8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YMtq/SByQ6iK2UkBgv5/kmBi40RN4P0XYKTALZjywJ3uaN/kHmmnmE/qudSKEbSSg
-	 HaV3hbD281tfodz7aUI6qkbjfaBwy7pSwigmgVx1aNUFLFZQ9qwH8lZvyEYrV2ewCI
-	 dKMOW6ZMBHIVTzcfk+pcjhQ13/exrBYe0Um+yR+IPIEGdleZIwJDTDaEmAeh00/zoW
-	 sQGjUOGtYspA1P3J7pHhgG73mhfHDNpwhQEaDERWiIPLjnZqynN2HvwiuoScOqcpwT
-	 XoLflD011vfmzP7dbQiDHTYMZy99mtY5l27KEiAoFY9wsuSIVvi6TrrEHCXo0IKx0R
-	 Q2mmxMbsGmyvw==
-Date: Wed, 24 Sep 2025 14:57:35 +0200
-From: Mark Brown <broonie@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Takashi Iwai <tiwai@suse.com>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 1/3] ASoC: mxs-saif: support usage with simple-audio-card
-Message-ID: <aNPqv15dnLCw3qew@finisterre.sirena.org.uk>
-References: <20250924101640.2942635-1-dario.binacchi@amarulasolutions.com>
+	Wed, 24 Sep 2025 13:00:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00617106F;
+	Wed, 24 Sep 2025 05:59:54 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A9E93F5A1;
+	Wed, 24 Sep 2025 05:59:58 -0700 (PDT)
+Date: Wed, 24 Sep 2025 13:59:56 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sebin Francis <sebin.francis@ti.com>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Dhruva Gole <d-gole@ti.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
+Message-ID: <20250924-versed-auspicious-bullmastiff-19de2e@sudeepholla>
+References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
+ <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
+ <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
+ <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <082735e7-956b-4574-952e-06ba69db41f1@ti.com>
+ <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <c34157c5-cd13-4e85-a9ee-22446111f633@ti.com>
+ <aNPmydbv6Xm0Tj9B@pluto>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MnrHIRL6ihxwJiWv"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250924101640.2942635-1-dario.binacchi@amarulasolutions.com>
-X-Cookie: Filmed before a live audience.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aNPmydbv6Xm0Tj9B@pluto>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_060004_082417_AE6C083F 
+X-CRM114-Status: GOOD (  43.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Cristian,
 
---MnrHIRL6ihxwJiWv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Wed, Sep 24, 2025 at 01:40:56PM +0100, Cristian Marussi wrote:
+> On Wed, Sep 24, 2025 at 05:45:32PM +0530, Sebin Francis wrote:
+> > Hi Peng,
+> 
+> Hi ,
+> 
+> > 
+> > On 24/09/25 17:13, Peng Fan wrote:
+> > > > Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for
+> > > > NXP i.MX95
+> > > ...
+> > > > > > >         SCMI_CLOCK_CFG_OEM_START = 0x80,
+> > > > > > > +     SCMI_CLOCK_CFG_IMX_SSC = 0x80,
+> > > > > > 
+> > > > > > TI is also planning to implement the same in our upcoming platform.
+> > > > > > so can we use a generic ID instead of vender specfic message ID?
+> > > > > 
+> > > > > I tried to push to new generic ID [1] in half a year ago, but in the
+> > > > > end ARM decided not to add generic ID for spread spectrum support.
+> > > > > 
+> > > > > To i.MX, it is too late to use a generic ID and waiting spec, i.MX
+> > > > > firmware has been public for quite some time and passed several
+> > > > external releases.
+> > > > > So I need to use what our firmware adds and spec allows: vendor
+> > > > > extension.
+> > > > 
+> > > > Thanks for the quick response,
+> > > > Since this implementation is specific to i.MX, can you move this to a
+> > > > vendor specific file, so that it will not break i.MX's firmware and TI can
+> > > > implement SSC in TI specific file.
+> > > 
+> > > i.MX has encountered issue with pinctrl-scmi.c and pinctrl-imx-scmi.c
+> > > both supports SCMI PINCTRL. Current linux scmi does not support
+> > > both drivers built in kernel image, because scmi devlink issue.
+> > >
+> 
+> Yes indeed, BUT the vendor protocol extensions mechanism was meant to
+> serve the development of vendor custom protocols and drivers, it was
+> NEVER meant really to allow multiple alternative drivers implementation
+> on top of the same standard protocols like it happened with pinctrl-imx-scmi...
+>  
+> > > Sudeep said he would address the devlink issue in 6.19 cycle.
+> > > 
+> > > Given the current situation, I'm hesitant to introduce a new driver
+> > > saying clk-imx-scmi.c.
+> > >
+> 
+> Even if the devlink issues will be solved, in THIS case the problem is
+> handling custom vendor extensions inside a standard protocol, as it is
+> allowed in this case...
+> 
+> > > What I'm unclear about is whether moving to a vendor-specific file
+> > > implies creating a new driver (i.e., clk-imx-scmi.c), or if it could be
+> > > handled via a callback or another mechanism. Could you help
+> > > clarify the intended direction?
+> > 
+> > My intended was to handle it via callback or something similar, so that TI
+> > can its own callback for the TI's SSC implementation.
+> > 
+> 
+> This is exactly what is needed, the ability to extend with vendor
+> extensions callback the behavior of a standard protocol where
+> allowed....this is NOT currently supported and sincerely that was the
+> reason months ago I proposed initially that maybe we could have standardized
+> a new common clock extension SSC instead of using the OEM extensions since:
+> 
+> 1. it seemed a pretty generic operation
+> 2. any per-vendor extension callback of std protocol was NOT ready :P
+> 
+> ...then this proposal never went anywhere with ATG...AND now looking at
+> this thread I think that it is good at the end that we did NOT add a new
+> standard extended clock config instead of the IMX OEM, since now it
+> seems that TI wants its own non-compatible implementation...
+> 
+> So yes the ideal solutiomn would be to extend in a generic way the SCMI
+> framework so that you can add in these cases custom handling of vendor
+> extensions for standard protocols (and then generalize the current
+> clk-scmi IMX support and add the new TI one...)...but I have not thought
+> about this and I certainly dont have enough bandwidth now to work on
+> this...beside having already in the pipeline other stuff/fixes like
+> a proper fix for vendor drivers coex like Peng askes (rightly so a few
+> months ago)
+> 
 
-On Wed, Sep 24, 2025 at 12:16:25PM +0200, Dario Binacchi wrote:
-> Add support for enabling MCLK output when using the simple-audio-card
-> driver. In the sound/soc/mxs/mxs-sgtl5000.c use case, that driver
-> handles MCLK enable/disable by calling mxs_saif_get_mclk() and
-> mxs_saif_put_mclk() at probe/remove. This does not happen when the
-> simple-audio-card driver is used. Extend the mxs-saif driver to enable
-> MCLK output in that scenario.
+Thanks for the detailed response as usual 😄. I don't have much to add
+in case anyone is expecting different or more info from me.
 
-You've not copied me on the rest of the series so I don't know what's
-going on with dependencies.  When sending a patch series it is important
-to ensure that all the various maintainers understand what the
-relationship between the patches as the expecation is that there will be
-interdependencies.  Either copy everyone on the whole series or at least
-copy them on the cover letter and explain what's going on.  If there are
-no strong interdependencies then it's generally simplest to just send
-the patches separately to avoid any possible confusion.
-
---MnrHIRL6ihxwJiWv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjT6r4ACgkQJNaLcl1U
-h9DVqwgAhP2iqSkJ01DCJkMcimnnaPqL1BoYPz9SUVVCg24PgJgprD+E+gepAHr1
-qgKvrq9lNgkRC8rbqU2oSB0sXcc1Pyymo85CERMqZLhF2ZriRI+W1iN85si8e9Iw
-Oa4He4aXvw0UacsqQb+bj7w9JNjqGdB0iGbleQdzPBn2Iyl1aiuLCap98CPK8lLI
-TCZoEaTSLOOHpBOlqYLTaqoJfeDjEDhToR4TI1bYuFbNz2d6ai6OgQoa78W69nWO
-c9DOFsbll0dx+W+blKCNwwvLzQNt0QmCvK+STQwLqzTYOOMQXn4XCBNZY1sbO0Wk
-F37ZIQT/6j7xA8l8k5YNDLGXw2opYA==
-=2GTo
------END PGP SIGNATURE-----
-
---MnrHIRL6ihxwJiWv--
+-- 
+Regards,
+Sudeep
 
