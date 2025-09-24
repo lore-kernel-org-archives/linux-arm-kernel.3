@@ -4,54 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49556CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0B1CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0l1QJGoFegY63YDH+E8NnlnBrbPmW0Zeh/7waplptY=; b=HyeW99+Mh+sZiErtiW/b/K79fp
-	QnPH0ok7gDTts9Cc2izuv1tJGosLUJJye+HJyAMHVk1ZYt/mUPbzC6Xrey37N2Cdk5LWkVWgcNPPv
-	uRTDA3UJAb2H5dbgttLC6BJ8gwNAgr3RuwkKBNiKF4HLJj4X+ubwZkqLtuxVOsIEGZ3+vji8dvLB5
-	N3eE7meWbubRZ2f/2cm7lo4iBJwxtQCLthYORmSQaqByFNAkrvW+U1U5qI3utyPCJUvDT/Mj7SRb3
-	bYH6+mF56hEHdHWPypJcYBsyVbCThIWwxJcbIpGrJrVLQSFiizZ+EN8zkl1ZTYrfQX0lUvO43hUvr
-	Dr5u5WcA==;
+	bh=teLA4i8nux4HKrIXNPo+zPMCtmw2VVGeEgKQ+gJ1nyw=; b=A2BwQFJoJ/FnyrvMyUUno5S9Dy
+	BmbQoYzQaPeUWuQXTHJTn9YHbJAr4CTyMERjQ1iU1xS598kW3ZdaR4sghLlOWFBHABb84J3NQbIu0
+	XXtFOZqZNIKHjefy9U/E17TuHy5bjpH/UGoCoPegOfM48NHV+0FQOCjlfMXQguAz/AJDtSBvW0TuF
+	lt5OSozw0GisnH/11CscjGOvJH718MUq3QcVNunt9Iy/ahxj0vuZ7h/2RGMC1+KmjMzifKwB7LOCx
+	mhYjvJWmpfkkKnfvhceyAoZtDHYYKnwN720GK0C5snM3etC6YItTj5kCBMBD7j1/tf6GCG0KBhSjb
+	N+t4Xt3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Km9-0000000FqxF-1NIR;
-	Wed, 24 Sep 2025 08:22:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Km6-0000000FqwA-0mNm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 08:22:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D321106F;
-	Wed, 24 Sep 2025 01:22:43 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 397AA3F66E;
-	Wed, 24 Sep 2025 01:22:50 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: gregkh@linuxfoundation.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	james.clark@linaro.org,
-	leo.yan@linux.dev,
-	mike.leach@linaro.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [UPDATED] [GIT PULL] coresight: Updates for Linux v6.18
-Date: Wed, 24 Sep 2025 09:22:42 +0100
-Message-ID: <20250924082242.2306143-1-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2025092306-foster-outsource-fb07@gregkh>
-References: <2025092306-foster-outsource-fb07@gregkh>
+	id 1v1Ko6-0000000FrMb-3ALu;
+	Wed, 24 Sep 2025 08:24:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1Ko3-0000000FrL3-3uQM;
+	Wed, 24 Sep 2025 08:24:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758702292;
+	bh=nc3lW4hEPO4+UuoQL/uQ7/SVAuuMyo049NNa4zT6c8I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O4T5RwlG/l99iCRkcEwzdsV6JY/OpyJQDfQ6W7/poAYXWcSO4tV5AcGEaWcHoCNvl
+	 kiU/KsrBZxpZ1uJBs6LAFEtnF3X+pPELLZksBI4PgG4q3I3qQp0uJdlDRoz3V4rp8S
+	 5STjySeXm8+5yr9L9srjG51a+IGK6UixO1CW+jS0/tNrpS5BWyfQHH30Wd/yM2MEp2
+	 oXZnGt/BnHDLFCLdLDITI2JVLBNCq24ciTvAxmbMERCsGWhHs6iGI1td6gnG5fB6k1
+	 wycjzBy8/mD+dFny/+JZV5958k39l65AgNU+w/a51w9lzTO5XgiAKuQSs88L7N0IpW
+	 5ZGphx99dbu3w==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0A62F17E068C;
+	Wed, 24 Sep 2025 10:24:52 +0200 (CEST)
+Message-ID: <fee90caf-1646-4fdf-8835-20c28c0181c6@collabora.com>
+Date: Wed, 24 Sep 2025 10:24:51 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] clk: en7523: Add reset-controller support for EN7523
+ SoC
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Felix Fietkau <nbd@nbd.name>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
+References: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
+ <20250924060509.1889131-3-mikhail.kshevetskiy@iopsys.eu>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250924060509.1889131-3-mikhail.kshevetskiy@iopsys.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_012254_314161_5A4C5616 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250924_012456_160832_5925F6EE 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,147 +83,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Greg
+Il 24/09/25 08:05, Mikhail Kshevetskiy ha scritto:
+> Introduce reset API support to EN7523 clock driver. EN7523 uses the
+> same reset logic as EN7581, so just reuse existing code. The patch
+> renames:
+>   * en7581_rst_ofs to en75xx_rst_ofs,
+>   * en7581_reset_register() to en75xx_reset_register()
+> because they are not en7581 specific.
+> 
+> This patch also updates en7523 dtsi file to add required '#reset-cells'
+> property to the System Control Unit node.
+> 
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> ---
+>   arch/arm/boot/dts/airoha/en7523.dtsi |  1 +
 
-Please find the updated pull request to fix the invalid commit reference in
-the fixes tag, in the original pull request [0]
+Driver and devicetree changes have to be done in two different commits.
+Please split.
 
-Apologies for the inconvenience.
+>   drivers/clk/clk-en7523.c             | 72 ++++++++++++++++++++++++----
+>   2 files changed, 64 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
+> index b523a868c4ad..7d60a4f2e650 100644
+> --- a/arch/arm/boot/dts/airoha/en7523.dtsi
+> +++ b/arch/arm/boot/dts/airoha/en7523.dtsi
+> @@ -91,6 +91,7 @@ scu: system-controller@1fa20000 {
+>   		reg = <0x1fa20000 0x400>,
+>   		      <0x1fb00000 0x1000>;
+>   		#clock-cells = <1>;
+> +		#reset-cells = <1>;
+>   	};
+>   
+>   	gic: interrupt-controller@9000000 {
+> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> index 15bbdeb60b8e..f276937181b9 100644
+> --- a/drivers/clk/clk-en7523.c
+> +++ b/drivers/clk/clk-en7523.c
+> @@ -9,6 +9,7 @@
+>   #include <linux/regmap.h>
+>   #include <linux/reset-controller.h>
+>   #include <dt-bindings/clock/en7523-clk.h>
+> +#include <dt-bindings/reset/airoha,en7523-reset.h>
+>   #include <dt-bindings/reset/airoha,en7581-reset.h>
+>   
+>   #define RST_NR_PER_BANK			32
+> @@ -294,11 +295,58 @@ static const struct en_clk_desc en7581_base_clks[] = {
+>   	}
+>   };
+>   
+> -static const u16 en7581_rst_ofs[] = {
+> +static const u16 en75xx_rst_ofs[] = {
 
-[0] https://lkml.kernel.org/r/20250922125907.2268152-1-suzuki.poulose@arm.com
+There's no need to rename this.
 
-Kindly pull,
+>   	REG_RST_CTRL2,
+>   	REG_RST_CTRL1,
+>   };
+>   
+> +static const u16 en7523_rst_map[] = {
+> +	/* RST_CTRL2 */
+> +	[EN7523_XPON_PHY_RST]		= 0,
+> +	[EN7523_XSI_MAC_RST]		= 7,
+> +	[EN7523_XSI_PHY_RST]		= 8,
+> +	[EN7523_NPU_RST]		= 9,
+> +	[EN7523_I2S_RST]		= 10,
+> +	[EN7523_TRNG_RST]		= 11,
+> +	[EN7523_TRNG_MSTART_RST]	= 12,
+> +	[EN7523_DUAL_HSI0_RST]		= 13,
+> +	[EN7523_DUAL_HSI1_RST]		= 14,
+> +	[EN7523_HSI_RST]		= 15,
+> +	[EN7523_DUAL_HSI0_MAC_RST]	= 16,
+> +	[EN7523_DUAL_HSI1_MAC_RST]	= 17,
+> +	[EN7523_HSI_MAC_RST]		= 18,
+> +	[EN7523_WDMA_RST]		= 19,
+> +	[EN7523_WOE0_RST]		= 20,
+> +	[EN7523_WOE1_RST]		= 21,
+> +	[EN7523_HSDMA_RST]		= 22,
+> +	[EN7523_I2C2RBUS_RST]		= 23,
+> +	[EN7523_TDMA_RST]		= 24,
+> +	/* RST_CTRL1 */
+> +	[EN7523_PCM1_ZSI_ISI_RST]	= RST_NR_PER_BANK + 0,
+> +	[EN7523_FE_PDMA_RST]		= RST_NR_PER_BANK + 1,
+> +	[EN7523_FE_QDMA_RST]		= RST_NR_PER_BANK + 2,
+> +	[EN7523_PCM_SPIWP_RST]		= RST_NR_PER_BANK + 4,
+> +	[EN7523_CRYPTO_RST]		= RST_NR_PER_BANK + 6,
+> +	[EN7523_TIMER_RST]		= RST_NR_PER_BANK + 8,
+> +	[EN7523_PCM1_RST]		= RST_NR_PER_BANK + 11,
+> +	[EN7523_UART_RST]		= RST_NR_PER_BANK + 12,
+> +	[EN7523_GPIO_RST]		= RST_NR_PER_BANK + 13,
+> +	[EN7523_GDMA_RST]		= RST_NR_PER_BANK + 14,
+> +	[EN7523_I2C_MASTER_RST]		= RST_NR_PER_BANK + 16,
+> +	[EN7523_PCM2_ZSI_ISI_RST]	= RST_NR_PER_BANK + 17,
+> +	[EN7523_SFC_RST]		= RST_NR_PER_BANK + 18,
+> +	[EN7523_UART2_RST]		= RST_NR_PER_BANK + 19,
+> +	[EN7523_GDMP_RST]		= RST_NR_PER_BANK + 20,
+> +	[EN7523_FE_RST]			= RST_NR_PER_BANK + 21,
+> +	[EN7523_USB_HOST_P0_RST]	= RST_NR_PER_BANK + 22,
+> +	[EN7523_GSW_RST]		= RST_NR_PER_BANK + 23,
+> +	[EN7523_SFC2_PCM_RST]		= RST_NR_PER_BANK + 25,
+> +	[EN7523_PCIE0_RST]		= RST_NR_PER_BANK + 26,
+> +	[EN7523_PCIE1_RST]		= RST_NR_PER_BANK + 27,
+> +	[EN7523_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
+> +	[EN7523_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
+> +};
+> +
+>   static const u16 en7581_rst_map[] = {
+>   	/* RST_CTRL2 */
+>   	[EN7581_XPON_PHY_RST]		= 0,
+> @@ -357,6 +405,9 @@ static const u16 en7581_rst_map[] = {
+>   	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
+>   };
+>   
+> +static int en75xx_reset_register(struct device *dev, void __iomem *base,
+> +				 const u16 *rst_map, int nr_resets);
+> +
+>   static u32 en7523_get_base_rate(const struct en_clk_desc *desc, u32 val)
+>   {
+>   	if (!desc->base_bits)
+> @@ -552,7 +603,8 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
+>   
+>   	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
+>   
+> -	return 0;
+> +	return en75xx_reset_register(&pdev->dev, np_base, en7523_rst_map,
+> +				     ARRAY_SIZE(en7523_rst_map));
+>   }
+>   
+>   static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
+> @@ -646,13 +698,14 @@ static int en7523_reset_xlate(struct reset_controller_dev *rcdev,
+>   	return rst_data->idx_map[reset_spec->args[0]];
+>   }
+>   
+> -static const struct reset_control_ops en7581_reset_ops = {
+> +static const struct reset_control_ops en75xx_reset_ops = {
 
-Suzuki
+Same, no need to rename.
 
----
+>   	.assert = en7523_reset_assert,
+>   	.deassert = en7523_reset_deassert,
+>   	.status = en7523_reset_status,
+>   };
+>   
+> -static int en7581_reset_register(struct device *dev, void __iomem *base)
+> +static int en75xx_reset_register(struct device *dev, void __iomem *base,
+> +				 const u16 *rst_map, int nr_resets)
 
-The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
+And again. No need to rename.
 
-  Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+Cheers,
+Angelo
 
-are available in the Git repository at:
 
-  git//git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.18-v2
-
-for you to fetch changes up to 01f96b812526a2c8dcd5c0e510dda37e09ec8bcd:
-
-  coresight: Add label sysfs node support (2025-09-23 14:14:13 +0100)
-
-----------------------------------------------------------------
-coresight: Updates for Linux v6.18, take 2
-
-This is an updated drop for v6.18, fixing the invalid commit
-reference in the original tag.
-
-CoreSight selfhosted tracing subsystem updates targeting Linux v6.18, includes:
-
- - Clean up and consolidate clocks handling
- - Support for exposing labels via sysfs for better device identification
- - Add Qualcomm Trace Network On Chip driver support
- - Miscellaneous fixes
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-----------------------------------------------------------------
-Dan Carpenter (1):
-      coresight: tnoc: Fix a NULL vs IS_ERR() bug in probe
-
-James Clark (2):
-      coresight: trbe: Add ISB after TRBLIMITR write
-      coresight: Fix missing include for FIELD_GET
-
-Jie Gan (1):
-      coresight: tpda: fix the logic to setup the element size
-
-Leo Yan (13):
-      coresight: stm: Remove redundant NULL checks
-      coresight: perf: Use %px for printing pointers
-      coresight: tmc: Support atclk
-      coresight: catu: Support atclk
-      coresight: etm4x: Support atclk
-      coresight: Appropriately disable programming clocks
-      coresight: Appropriately disable trace bus clocks
-      coresight: Avoid enable programming clock duplicately
-      coresight: Consolidate clock enabling
-      coresight: Refactor driver data allocation
-      coresight: Make clock sequence consistent
-      coresight: Refactor runtime PM
-      coresight: trbe: Return NULL pointer for allocation failures
-
-Lin Yujun (1):
-      coresight: Fix incorrect handling for return value of devm_kzalloc
-
-Mao Jinlong (2):
-      dt-bindings: arm: Add label in the coresight components
-      coresight: Add label sysfs node support
-
-Rob Herring (Arm) (1):
-      hwtracing: coresight: Use of_reserved_mem_region_to_resource() for "memory-region"
-
-Yeoreum Yun (1):
-      coresight: fix indentation error in cscfg_remove_owned_csdev_configs()
-
-Yuanfang Zhang (5):
-      coresight: Only register perf symlink for sinks with alloc_buffer
-      dt-bindings: arm: Add device Trace Network On Chip definition
-      coresight: add coresight Trace Network On Chip driver
-      coresight-etm4x: Conditionally access register TRCEXTINSELR
-      coresight: tnoc: add new AMBA ID to support Trace Noc V2
-
- .../ABI/testing/sysfs-bus-coresight-devices-cti    |   6 +
- .../sysfs-bus-coresight-devices-dummy-source       |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-etb10  |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-etm3x  |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-etm4x  |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-funnel |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-stm    |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-tmc    |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-tpdm   |   6 +
- .../ABI/testing/sysfs-bus-coresight-devices-trbe   |   6 +
- .../devicetree/bindings/arm/arm,coresight-cti.yaml |   4 +
- .../bindings/arm/arm,coresight-dummy-sink.yaml     |   4 +
- .../bindings/arm/arm,coresight-dummy-source.yaml   |   4 +
- .../bindings/arm/arm,coresight-dynamic-funnel.yaml |   4 +
- .../arm/arm,coresight-dynamic-replicator.yaml      |   4 +
- .../bindings/arm/arm,coresight-etb10.yaml          |   4 +
- .../devicetree/bindings/arm/arm,coresight-etm.yaml |   4 +
- .../bindings/arm/arm,coresight-static-funnel.yaml  |   4 +
- .../arm/arm,coresight-static-replicator.yaml       |   4 +
- .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   4 +
- .../bindings/arm/arm,coresight-tpiu.yaml           |   4 +
- .../bindings/arm/qcom,coresight-ctcu.yaml          |   4 +
- .../bindings/arm/qcom,coresight-remote-etm.yaml    |   4 +
- .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 ++++++++++
- .../bindings/arm/qcom,coresight-tpda.yaml          |   4 +
- .../bindings/arm/qcom,coresight-tpdm.yaml          |   4 +
- drivers/hwtracing/coresight/Kconfig                |  12 +
- drivers/hwtracing/coresight/Makefile               |   1 +
- drivers/hwtracing/coresight/coresight-catu.c       |  53 +++--
- drivers/hwtracing/coresight/coresight-catu.h       |   1 +
- drivers/hwtracing/coresight/coresight-core.c       |  54 ++++-
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  41 ++--
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |  24 +-
- drivers/hwtracing/coresight/coresight-etb10.c      |  18 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   |   4 +-
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  17 +-
- drivers/hwtracing/coresight/coresight-etm4x-core.c |  44 ++--
- .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   1 +
- drivers/hwtracing/coresight/coresight-etm4x.h      |   6 +-
- drivers/hwtracing/coresight/coresight-funnel.c     |  66 ++----
- drivers/hwtracing/coresight/coresight-replicator.c |  63 ++----
- drivers/hwtracing/coresight/coresight-stm.c        |  42 ++--
- drivers/hwtracing/coresight/coresight-syscfg.c     |   2 +-
- drivers/hwtracing/coresight/coresight-sysfs.c      |  71 +++++-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  70 +++---
- drivers/hwtracing/coresight/coresight-tmc.h        |   2 +
- drivers/hwtracing/coresight/coresight-tnoc.c       | 246 +++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.c       |   3 +
- drivers/hwtracing/coresight/coresight-tpiu.c       |  36 ++-
- drivers/hwtracing/coresight/coresight-trbe.c       |   9 +-
- drivers/hwtracing/coresight/ultrasoc-smb.h         |   1 +
- include/linux/coresight.h                          |  31 +--
- 52 files changed, 827 insertions(+), 324 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
- create mode 100644 drivers/hwtracing/coresight/coresight-tnoc.c
 
