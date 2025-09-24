@@ -4,95 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1655CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77468CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=750rYEAHSQ0UWuveAndSH+YLhrYLDuMy4II+d7YdJQE=; b=d8zpY2zcEliITYdd0syIF3lgXX
-	xBaryMNBvhEKAff3lIgFpzrGPl4W3mYj2Bw8n76ZweXvpEp0RrWec1u27NiiFjh1Gyxvk1+CjQNle
-	WyXGMPqaMH2ecjY39C+NN2ipMoZoFZKkENqWgGZc1Zcuy8aW3U+WMzCMBBbrm5F0zNni1oYFLyIO+
-	DGIvu1aYxHMsnJZFWyiluQ7WUnlBYF6l2rVPOPSMKPjrPp134E7CLUjEDfAKkYtMvXceXXcvlK0pq
-	1Na4BF6/nAoS48UdX6JyHQUQS9O7XU/t6lp+GXTY9cM+sGeNEgrwOzIHpRMQLGccC1PJ1af5nOTHA
-	RyR5NeJQ==;
+	bh=j/eQZQr/FlrHFqBmnzi43q5wN7esytT7U9mYDKA0Bws=; b=XOJC2gdZWfqkjezvcldh0wDy6/
+	NmWNKTPB8nBN4/PGJsj1k3P48W1gKutDH18sdKdgRZ0YWDNEADFectRSHDCWZHLksJEV8SKNs+vV6
+	tSVCv7ITGXUqM33yu3ZQcDUmbXfJLjV/TZYm5PotXqRqCx6DywMa86cAHeV5r9sXChwCluGAvyAI+
+	SKNtZ0xc+fm6fvMuJFldSYLUlHsO2AeA5kD+63HK/byIti/F/bqxsZwVWLiaZ1+P9ZOlY6MGlMwWU
+	kPkI+pymkkxxUgfwWcQ4HA69npBtgj16qlW7Y/rObzv4f1irqzdVDBfvA8Ms8DbDgH4q2V0qKVA1b
+	DoDteLlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Ruz-00000001Voj-2k6G;
-	Wed, 24 Sep 2025 16:00:33 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1v1Rv5-00000001Vqj-3zCa;
+	Wed, 24 Sep 2025 16:00:39 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Rux-00000001Vmw-0hbq
+	id 1v1Ruy-00000001VnH-1bfC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 16:00:32 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46cbdf513d7so38269805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 09:00:30 -0700 (PDT)
+	Wed, 24 Sep 2025 16:00:33 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b551350adfaso5752138a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 09:00:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758729629; x=1759334429; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758729631; x=1759334431; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=750rYEAHSQ0UWuveAndSH+YLhrYLDuMy4II+d7YdJQE=;
-        b=hTm6Ujj1Kt3qUIpI5lJkDzfQHERaq3U9HEoW2KpTyR4UdMJOMhDFJ8DZ24MH5YCZao
-         4KC8VmR7wuNZZg6zGdLFmgMM7lpKl7ZBkuzdK3iKztVKfMOCfGKFKuou+T7VngmeIkJY
-         G/0WvJtjAx8ZuKwfczVdFXcCv4/rguaasUWhHWfh1BzgDRdFWCP7Wbl4TIWrU9kSV5Ka
-         zsFqyd4meal0UwPCZCEK0IS5CQbnYanP2IyRR9Tm42LdkyZGtHu2UFhFFXzF4IxpIPOO
-         NoDtedknjan7ymlUXpU6kADkuk88bkuF9iBTh8GAfs5sGGiMKyXOCsDhV/yZPp+lRT3e
-         l3ig==
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j/eQZQr/FlrHFqBmnzi43q5wN7esytT7U9mYDKA0Bws=;
+        b=BIo2HTs7TwEdzwgM3b5jPhYOYQr+lmytt9FDfJsH0OMErEGBI3hJuS3JSYTUGZr6tf
+         YTetq8QC4lspy9TXRFulyrv8cR0XF8SODQWYdHV6EL0JrHynjFnu7XBOQeAc54AvVN9Z
+         IcAq8gmTj+tgc8EESPeEKE34/ALoVmvkaxsqwQ7AydsE2KjETmnl8ZNwB1Rf9qpCLXEi
+         i0boUBGnPKsoKC6MXJ0uLMbQVSr3/vnJx/SLWGQIuvK9TdDmTUbONvTAqwweXRyx/vCK
+         ZMP1TJCVZFAU56/0IQfLwJeieIMXyuz1qLOZ03RV9zEPVlBUmSoy6OEvGUqjD9h9dxsS
+         /6Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758729629; x=1759334429;
+        d=1e100.net; s=20230601; t=1758729631; x=1759334431;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=750rYEAHSQ0UWuveAndSH+YLhrYLDuMy4II+d7YdJQE=;
-        b=Kl0dpHsG4b3VcA/ImXlYY5ALHgf2HU+ggQtW+HZyo6KVP8BakWmKyBV+cIaE6Y+4en
-         Vi9sCMmEAC9Wzn9IOdj9dfUGaPHKD79JqVCVrL1YbhltKRdSdOZGVM0t0qK0RTaxMoyv
-         rqat+LIRHjnIC0MCseXDDoKr6MtjkdgTG3DcLzc8RVgiaRWWWmo86LRb8apT7sIKuf1v
-         pIfOAcA+WqH+q4ddHEo+1FBHQ4+vo8AJqZY9mVhtZMqdclXZIZUFwJOSKUSRdC9eUrez
-         PEJ29PgzOu3RRo/ZU66EYyP0qN3x4UMcDuCn7roZxb5YnPL3AAsxn03yRVPu7C80C3dW
-         f7eQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXo4h0TSF+vPBTY6WHG6OdwDzU3ScI6/aq7l9281hJYWeWywiE/XGVPVVcvX+cFW0bu33prALlHV58ZIPaI/eFm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzybH/KjDdixZmqENnjXlytWftm9xqkriuU2yzcTZIfZbJzm4Ab
-	FkqQNjbX5kRJ7ZUd37B04xaEx/riVQ2akySowWc38I7x06w2Fwu+tdu8
-X-Gm-Gg: ASbGncuBywSLjmOyaGTdHEX8UmzucBGiMqzjlRcEQG7MdFWHgMIjU8uW9Jt66e5l5j9
-	JOFR99+glu11hZwMMqHlg2W3ZMRnpfKRJEL5pY1oY+fq/qUMtKncOx3bzhNTi3+y3rICYwc1Xtb
-	wZDal5PnwkB7XxTDEYQrCaUDdqBIXk//3OuIYmHlKBrbDfAQAVVk6PCQ2mVWgaXOzHbFssd7jqL
-	5NGVlx13nEqG3cpKnv5CPR4+UR/in/6RWCiMlC+maybS0eex7lh3txX0G9TU9oQA84BK1bEPSfo
-	c7dbVOZJsz0TLD+fMSwJPXzGHrg+HF7cJ1/uQNCaVuLN7t9WUxH5nkpjeBVDOY932Q1P7Bso
-X-Google-Smtp-Source: AGHT+IGS1uVQdvHmWTJ9aInOCYB0BEj+cPbPcp0L0eplHLPsYT5p2wId+q3+D0Z2kfEz6FOGX5pf3g==
-X-Received: by 2002:a05:600c:1d16:b0:45d:f7cb:70f4 with SMTP id 5b1f17b1804b1-46e329bca25mr3761415e9.13.1758729629203;
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=j/eQZQr/FlrHFqBmnzi43q5wN7esytT7U9mYDKA0Bws=;
+        b=OwOhEH2A1MWnG+WbRss2lRfs0UAKXugpnaeMJklt31Ofd/M/wo+6KkjNyqvcvXO2gG
+         q9hiLz5YTCDtdI2QpzqaPuPoOlQv8/HcvlaB+6pjo//eglRu0275VxIkVLPBbiVX4YjE
+         c84UYyl4ENyIBL2yP+uvssoYQg4Bj/dB33C5uuShSxEAgLQg7bli7mCzwNlTAImCY/Qi
+         G3V6qDTsdZ1088fpobAtkMVuLd23q0FVT4Hg8xcV7XY5kdREYsy6EYsdm2PoYF8exYuR
+         +thB9reXG6QIUHTt4ltdIvhUdSa8h3shLnf/VxgCxAxiCHDkxVv3uD9nbD32BB8E952+
+         Isew==
+X-Forwarded-Encrypted: i=1; AJvYcCV+Up6676WPAFlZG2dP+ZvFqT4a9+eEI3ZQmFY6kncNi0IJGrJnXr1WrdYmeIGyK8cUPFXQQEyohoKp8Dg3xXWB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTZivJto6+2vW48WWajTnQlPs9QTu9UjaNG7KXKaOXfwyFr4Hs
+	l0gFGKHUZz7l9wuE+DirAREONPaZGRt6qyZTDXQ4FrHXKngKrUeTJce/+sWuPOBi
+X-Gm-Gg: ASbGncusHa7uZnctrxh/Pbn/licv4PVHQisO9FZcM2//QXCQhy7jGRrQCoQd/dRm6qL
+	g262kf4BEN6+FBnNEeZUWN/NznqKpi1r5lNSWixBebOYJjha2y0e1Uui1vtuGVmtc7iXy9GUykQ
+	k32I9bpr2FqoPSeOwT3PnC3geSt2AOEv1fhHF6dwEb0TKTn5Dh4o7ewoCR3e2allqtNBMon/H4o
+	1v198BBvW0zEvRlD6SrbK4p/CoXXpPau+FO/jwssqRbP09z/tDCRSk7Ozk5c+7jiJBSkY1A5kXS
+	i3aSoFYAGDDgReTimu1dbB22MxIbBuRoCy/5XvWrwU1gP8Ze4vegE2sejRnjf8kEzkbRrT9aZUm
+	4tp3I4DeeeduXDX/mfuHeny0UioNgR/m0bCU=
+X-Google-Smtp-Source: AGHT+IHh6nEKuJB+/U1aI4KfR/nSkf414wZmo0pvYnpISYF821fu02/TzRKwO0iL6xcTPglHzJx6Xw==
+X-Received: by 2002:a17:903:1a6f:b0:272:f9c3:31fa with SMTP id d9443c01a7336-27ed49b8e31mr2949535ad.9.1758729629711;
         Wed, 24 Sep 2025 09:00:29 -0700 (PDT)
-Received: from krava ([2a02:8308:a00c:e200::31e0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07407d33sm28837786f8f.18.2025.09.24.09.00.28
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-26980053201sm196264675ad.17.2025.09.24.09.00.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 09:00:28 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Wed, 24 Sep 2025 18:00:26 +0200
-To: Steven Rostedt <rostedt@kernel.org>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Florent Revest <revest@google.com>,
-	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>
-Subject: Re: [PATCH 2/9] ftrace: Add register_ftrace_direct_hash function
-Message-ID: <aNQVmrGCW08zF9Kp@krava>
-References: <20250923215147.1571952-1-jolsa@kernel.org>
- <20250923215147.1571952-3-jolsa@kernel.org>
- <20250924050415.4aefcb91@batman.local.home>
- <aNQCDwYcG0Qo00Vg@krava>
- <20250924110703.2a0ced1b@batman.local.home>
+        Wed, 24 Sep 2025 09:00:29 -0700 (PDT)
+Date: Wed, 24 Sep 2025 09:00:28 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Michael Walle <mwalle@kernel.org>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean Delvare <jdelvare@suse.com>, Lee Jones <lee@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, Andrew Davis <afd@ti.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 4/7] dt-bindings: hwmon: sl28cpld: add sa67mcu
+ compatible
+Message-ID: <bffc6119-8623-47a7-aa47-40ffeb6ec09a@roeck-us.net>
+References: <20250912120745.2295115-1-mwalle@kernel.org>
+ <20250912120745.2295115-5-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250924110703.2a0ced1b@batman.local.home>
+In-Reply-To: <20250912120745.2295115-5-mwalle@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_090031_211782_B07AD142 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250924_090032_421347_CE2B00F9 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,28 +109,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 11:07:03AM -0400, Steven Rostedt wrote:
-> On Wed, 24 Sep 2025 16:37:03 +0200
-> Jiri Olsa <olsajiri@gmail.com> wrote:
+On Fri, Sep 12, 2025 at 02:07:42PM +0200, Michael Walle wrote:
+> The Kontron SMARC-sAM67 module features an on-board house keeping uC.
+> It is designed to be compatible with the older sl28cpld implementation,
+> but has different sensors, like voltage and temperature monitoring. Add
+> a new compatible for that board.
 > 
-> > I have bpf changes using this that I did not post yet, but even with that
-> > there's probably no reason to export this.. will remove
-> 
-> I'm interested in seeing these patches, as the ftrace hashes were
-> supposed to be opaque from other parts of the kernel.
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-branch:
-  https://git.kernel.org/pub/scm/linux/kernel/git/jolsa/perf.git/log/?h=bpf/tracing_multi
+Applied.
 
-used in this commit:
-  https://git.kernel.org/pub/scm/linux/kernel/git/jolsa/perf.git/commit/?h=bpf/tracing_multi&id=8814108949537edaae84fbeee1cbc28280590b7f
-
-background.. it's poc code for bpf tracing-multi attachment. Most likely we will
-go with Menglong change instead [1], but it could use this direct interface in a
-same way for speeding up the attachment
-
-jirka
-
-
-[1] https://lore.kernel.org/bpf/20250528034712.138701-1-dongml2@chinatelecom.cn/
+Guenter
 
