@@ -4,57 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F4DCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CFDCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EkrKvcmnyanpNmN2TMX13kQTg2IchP43w1mYiFQjFuQ=; b=PIWmXH2EKS0O4s4tg4HuF9B72H
-	6nqAxqrgt3/K7t56lrsr/IKSixyev5S6QUkLS3JDvZzy0uHBt0cl8A+dQ52z5oYsxELwOBm4MQuv/
-	0xnDHJyc89JT/XK7r8JiG1i458bH3fVe9AhxONLG8fGFrpNE0rouoPLZJIVI9aBlEQM0LqNpQEo76
-	A1R1wb1JHnTCj3pzdFImzkQ0jOFCiT11suP+wfe9Eagi4op5GW+rNFS9GnYr/dfukZAIs5yMtOCDT
-	9KW5sr8+pWxh/oAhhsr1FvUjX50gOSZtDE3WfViPWqhv1lJCFhzud1HieQMu3zumTud/YjT4QZCrc
-	5lCezWug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LySa7PtlTpcfiu9tjClKhkHXaYxq88sTnun/1WdWMRM=; b=rMAZdGkysFvHamsYEBaj0VQWOV
+	upnG8AOt0gmKbXiGNLymKg6nRZ9JtarUcPq12Rd2eVRJJgTCSIqFMmV+VpY/jKeEyhi4ny9tHcNR2
+	C++YApFGxYJT5+kz+g/TRxTs6ZRkGRdY2RPt9uzcTF9ChHDnAfK0Z2Zev1WVl3yC/16jxqGGq6oX4
+	1PNjitOF6ydVv23AZLs3wf7ZXR0HgNThjsXR1Olg4A3ZoO6hsYPRlRD3Dhr5H7e4hH0yniOpny2c9
+	NfGroYPxNCT/jqOM1owLgCE09mhNI6DXQXaeORWZcqbNMCJCpw5nkCig+LOEyDp+L+bc8soRB9eSD
+	S707K+0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OgX-0000000HQLQ-2CbV;
-	Wed, 24 Sep 2025 12:33:25 +0000
-Received: from wxsgout03.xfusion.com ([36.139.52.80] helo=wxsgout04.xfusion.com)
+	id 1v1Oid-0000000HR0C-0C0H;
+	Wed, 24 Sep 2025 12:35:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OgT-0000000HQBf-3YAJ
+	id 1v1Oib-0000000HQzu-17XZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 12:33:24 +0000
-Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
-	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cWx6f24MLzB6mdQ;
-	Wed, 24 Sep 2025 20:31:38 +0800 (CST)
-Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
- wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
- Wed, 24 Sep 2025 20:33:04 +0800
-From: shechenglong <shechenglong@xfusion.com>
-To: <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <stone.xulei@xfusion.com>,
-	<chenjialong@xfusion.com>, <yuxiating@xfusion.com>, shechenglong
-	<shechenglong@xfusion.com>, Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH] cpu: fix hard lockup triggered by printk calls within scheduling context
-Date: Wed, 24 Sep 2025 20:32:47 +0800
-Message-ID: <20250924123247.807-1-shechenglong@xfusion.com>
-X-Mailer: git-send-email 2.38.0.windows.1
-In-Reply-To: <20250918064907.1832-1-shechenglong@xfusion.com>
-References: <20250918064907.1832-1-shechenglong@xfusion.com>
+	Wed, 24 Sep 2025 12:35:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F56D60097;
+	Wed, 24 Sep 2025 12:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3612C4CEF7;
+	Wed, 24 Sep 2025 12:35:30 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	Gergely Kovacs <Gergely.Kovacs2@arm.com>,
+	David Hildenbrand <david@redhat.com>,
+	Lance Yang <lance.yang@linux.dev>
+Subject: [PATCH] arm64: mte: Do not flag the zero page as PG_mte_tagged
+Date: Wed, 24 Sep 2025 13:31:22 +0100
+Message-ID: <20250924123528.1536835-1-catalin.marinas@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.82.130.100]
-X-ClientProxiedBy: wuxpheds03046.xfusion.com (10.32.128.186) To
- wuxpheds03048.xfusion.com (10.32.143.30)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_053322_451171_ABFCB10E 
-X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,100 +59,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-relocate the printk() calls from spectre_v4_mitigations_off() and
-spectre_v2_mitigations_off() into setup_system_capabilities() function,
-preventing hard lockups that occur when printk() is invoked from scheduler context.
+Commit 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to the
+zero page") attempted to fix ptrace() reading of tags from the zero page
+by marking it as PG_mte_tagged during cpu_enable_mte(). The same commit
+also changed the ptrace() tag access permission check to the VM_MTE vma
+flag while turning the page flag test into a WARN_ON_ONCE().
 
-Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250918064907.1832-1-shechenglong@xfusion.com/
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: shechenglong <shechenglong@xfusion.com>
+Attempting to set the PG_mte_tagged flag early with
+CONFIG_DEFERRED_STRUCT_PAGE_INIT enabled may either hang (after commit
+d77e59a8fccd "arm64: mte: Lock a page for MTE tag initialisation") or
+have the flags cleared later during page_alloc_init_late(). In addition,
+pages_identical() -> memcmp_pages() will reject any comparison with the
+zero page as it is marked as tagged.
+
+Partially revert the above commit to avoid setting PG_mte_tagged on the
+zero page. Update the __access_remote_tags() warning on untagged pages
+to ignore the zero page since it is known to have the tags initialised.
+
+Note that all user mapping of the zero page are marked as pte_special().
+The arm64 set_pte_at() will not call mte_sync_tags() on such pages, so
+PG_mte_tagged will remain cleared.
+
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Fixes: 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to the zero page")
+Reported-by: Gergely Kovacs <Gergely.Kovacs2@arm.com>
+Cc: <stable@vger.kernel.org> # 5.10.x
+Cc: Will Deacon <will@kernel.org>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>
 ---
- arch/arm64/include/asm/spectre.h |  3 +++
- arch/arm64/kernel/cpufeature.c   |  9 +++++++++
- arch/arm64/kernel/proton-pack.c  | 18 ++++--------------
- 3 files changed, 16 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
-index 8fef12626090..6fe29df41788 100644
---- a/arch/arm64/include/asm/spectre.h
-+++ b/arch/arm64/include/asm/spectre.h
-@@ -118,5 +118,8 @@ void spectre_bhb_patch_wa3(struct alt_instr *alt,
- void spectre_bhb_patch_clearbhb(struct alt_instr *alt,
- 				__le32 *origptr, __le32 *updptr, int nr_inst);
- 
-+bool spectre_v2_mitigations_off(void);
-+bool spectre_v4_mitigations_off(void);
-+
- #endif	/* __ASSEMBLY__ */
- #endif	/* __ASM_SPECTRE_H */
+For reference, discussion on page merging here:
+
+https://lore.kernel.org/r/aNKJ5glToE4hMhWA@arm.com
+
+The deferred struct page init problem was reported by Gergely offline.
+
+Given that we've had this bug for over four years and it was only
+recently noticed, I think we should merge it at -rc1, give it a bit more
+time in -next in case it breaks anything (not likely but you never know,
+MTE interaction with the mm code is always surprising ;)).
+
+ arch/arm64/kernel/cpufeature.c | 10 +++++++---
+ arch/arm64/kernel/mte.c        |  2 +-
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
 diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index ef269a5a37e1..7d1f541e66a0 100644
+index ef269a5a37e1..3e9d1aa37bbf 100644
 --- a/arch/arm64/kernel/cpufeature.c
 +++ b/arch/arm64/kernel/cpufeature.c
-@@ -94,6 +94,7 @@
- #include <asm/traps.h>
- #include <asm/vectors.h>
- #include <asm/virt.h>
-+#include <asm/spectre.h>
- 
- /* Kernel representation of AT_HWCAP and AT_HWCAP2 */
- static DECLARE_BITMAP(elf_hwcap, MAX_CPU_FEATURES) __read_mostly;
-@@ -3942,6 +3943,14 @@ static void __init setup_system_capabilities(void)
- 	 */
- 	if (system_uses_ttbr0_pan())
- 		pr_info("emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching\n");
+@@ -2408,17 +2408,21 @@ static void bti_enable(const struct arm64_cpu_capabilities *__unused)
+ #ifdef CONFIG_ARM64_MTE
+ static void cpu_enable_mte(struct arm64_cpu_capabilities const *cap)
+ {
++	static bool cleared_zero_page = false;
 +
-+	/*
-+	 * Report Spectre mitigations status.
-+	 */
-+	if (spectre_v2_mitigations_off())
-+		pr_info("spectre-v2 mitigation disabled by command line option\n");
-+	if (spectre_v4_mitigations_off())
-+		pr_info("spectre-v4 mitigation disabled by command-line option\n");
- }
+ 	sysreg_clear_set(sctlr_el1, 0, SCTLR_ELx_ATA | SCTLR_EL1_ATA0);
  
- void __init setup_system_features(void)
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index edf1783ffc81..0d4a8a123e07 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -89,14 +89,9 @@ static int __init parse_spectre_v2_param(char *str)
- }
- early_param("nospectre_v2", parse_spectre_v2_param);
+ 	mte_cpu_setup();
  
--static bool spectre_v2_mitigations_off(void)
-+bool spectre_v2_mitigations_off(void)
- {
--	bool ret = __nospectre_v2 || cpu_mitigations_off();
--
--	if (ret)
--		pr_info_once("spectre-v2 mitigation disabled by command line option\n");
--
--	return ret;
-+	return __nospectre_v2 || cpu_mitigations_off();
- }
+ 	/*
+ 	 * Clear the tags in the zero page. This needs to be done via the
+-	 * linear map which has the Tagged attribute.
++	 * linear map which has the Tagged attribute. Since this page is
++	 * always mapped as pte_special(), set_pte_at() will not attempt to
++	 * clear the tags or set PG_mte_tagged.
+ 	 */
+-	if (try_page_mte_tagging(ZERO_PAGE(0))) {
++	if (!cleared_zero_page) {
++		cleared_zero_page = true;
+ 		mte_clear_page_tags(lm_alias(empty_zero_page));
+-		set_page_mte_tagged(ZERO_PAGE(0));
+ 	}
  
- static const char *get_bhb_affected_string(enum mitigation_state bhb_state)
-@@ -419,15 +414,10 @@ early_param("ssbd", parse_spectre_v4_param);
-  * with contradictory parameters. The mitigation is always either "off",
-  * "dynamic" or "on".
-  */
--static bool spectre_v4_mitigations_off(void)
-+bool spectre_v4_mitigations_off(void)
- {
--	bool ret = cpu_mitigations_off() ||
-+	return cpu_mitigations_off() ||
- 		   __spectre_v4_policy == SPECTRE_V4_POLICY_MITIGATION_DISABLED;
--
--	if (ret)
--		pr_info_once("spectre-v4 mitigation disabled by command-line option\n");
--
--	return ret;
- }
+ 	kasan_init_hw_tags_cpu();
+diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+index e5e773844889..63aed49ac181 100644
+--- a/arch/arm64/kernel/mte.c
++++ b/arch/arm64/kernel/mte.c
+@@ -460,7 +460,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
+ 		if (folio_test_hugetlb(folio))
+ 			WARN_ON_ONCE(!folio_test_hugetlb_mte_tagged(folio));
+ 		else
+-			WARN_ON_ONCE(!page_mte_tagged(page));
++			WARN_ON_ONCE(!page_mte_tagged(page) && !is_zero_page(page));
  
- /* Do we need to toggle the mitigation state on entry to/exit from the kernel? */
--- 
-2.33.0
-
+ 		/* limit access to the end of the page */
+ 		offset = offset_in_page(addr);
 
