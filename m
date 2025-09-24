@@ -4,180 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997DBCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 14:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C581BCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 14:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7XGcz8ovMSwK+mcd4Ei/ZyrbGmMEmM30ZVrZ8TA0Ydo=; b=YCoCCukNP3YIvHo5PE9sRE1/Fe
-	lQ9kFcZ6zk4A6wIFs8yv8CbHzNMalvF8iUJh7tDMWvNOHxg7a/uDwohTsAwBsT8Z5yBTJMNYqGaPk
-	AX3FKvWwoChsUmccJOBD3M3zzKkWsvg5PiWPD0yZgX00CuSQpJN7C/wQ4h9C3qi6lrEBWUZEXP5vi
-	PZYbM3h8NeZT/9VpMrNkAr0PECDg1eJi8nuZoVRKGIb5DNEyERh1wLuLTDjfDNVS/ghGFGkgFDdW6
-	+Foy3/JOdyEEZe9Onw6v+01v+jwwjOyocNkonzduA9WFiog5V0w2h+ili4+UxLR1jYVF1YYHH2Eb2
-	AtDPYdbw==;
+	bh=5HShbJ4pb0uvOuUwE85U36B7c1llkadxegnV9SHJtyg=; b=Jo4pcfi8r1tL3YF4ozA7UC/g97
+	0HeZqG1nrcBKaQzPdW3///HBkjCW4BRpFkCKJ1n5KfVMLO0GRccK1Po0zIx02i2sw3rU+XQ7J1GzD
+	CyILkZmsEGkd9tfuJNEW4WWKIEA13/PnLzYnJt2ZGokPwvInTFAvI45N4DBw7F6THlzz7eWfznvtB
+	3BMLqvOuwOauLlzj307pLTQY2f9w0ateMDG8VNfqceLeFBFYgvuZQnTrJwZiV5kDBLhKUWqB2WL6K
+	Uoq7eO0/31qyVELZlxdyAS4L2CSdlusKJOhpX4G6PYOZ7p1CnRN9yK7EEubS8p+bLnFdfSuV7sIEg
+	Plq4WVuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Qaq-00000000iOV-10Kn;
-	Wed, 24 Sep 2025 14:35:40 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1v1QcH-00000000ja8-3ubi;
+	Wed, 24 Sep 2025 14:37:09 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Qao-00000000iNa-2vsZ
+	id 1v1QcF-00000000jWT-2YmK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 14:35:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PpV2SJdG4/2MbL5BjvrIQEEdBz+vjVWAfCYRByDnX9vUASk02W3VAGB108BNzRkWWD50m7XJxInOBAzDx/rDTdSwJ9lf0DTXk33FttQy6+li3TkUaOf2j5VPcwK+sxfRIAnRMx8kVBNuNn5JEE7Dt1SkwrkIX/Wtq3FY3Ietyw/M2ZCYr7fPtbKsIp/M8hBkWi1619w2Cy4B+8zy1oKHtaf3fA20S12LTEkpgqcVrwrLSdyjBQ9bqsQghk1+FO9Ah2CwHSVtCMIrGEKMPhLytAi6rO+Ic8ZPh9C40OiWK7S+vQfrtNT6BqNbPXLJYn/AYtTEaNbQY798ZJXIjHXdaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7XGcz8ovMSwK+mcd4Ei/ZyrbGmMEmM30ZVrZ8TA0Ydo=;
- b=G9PvcEAoBnlcqdb0xGxaksr50LL/0hWwV01Y+uBGaXkgTsB0Dy0tQuhd9XCjDNZZvgdtTBpVEEFaihunrUd2hMlhd5E0/aP+PCuu2mGaQ07P3u19bwS0g6Yxmubb9B34eGEbT92oWwpPYMrM37M/9AYKxfoq+KwuvVEstQnLvF6GUD+GMvUpCDhDHgC1PwrKcLC5j8QA8d/UHSVl4CUgNFTj2xjgR2Sjg+Xg37mVfdITy/eJA5WHolCLu6tkjEo0BrSVuwopd3ezAgxn/sfwNKwUHoM/MmmKInhAlFfDE/ByN+hskB9ee5R7nWRxI9ZSrx6VedecOj6rnJwNEHwYEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7XGcz8ovMSwK+mcd4Ei/ZyrbGmMEmM30ZVrZ8TA0Ydo=;
- b=CHGAHfM+SOcL6xync3LhYjl3M2drxyEEnl2NEyWQHYzeVnxkmCgYFLvlJtYBC7Ga3sLCZYz4lsTc0I9bwogR0XO219rrTKbGEzAs+DHgsXNd+sBsWT9EqCRng41vqH2IY/1j7N2s3/XUkfomEDbhS1/A/LlR/cAJ2SiqmYYSs3WL8sl/Mv5Hqz1+UMKKAXYQk5bz+TFsOk2TNaItp42e4TlGjCqo1gQOS7PB7qw3UDWyp85xvkfUI+vpm8Ibk7xR+4T76T8U7V71SXl4kjXjvSDacjItfJfm0xwx4gJfBTYEBdvAvQsbCl8Ggy28DKq+5UsovHkpcnPAgfNMAMgVBg==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI0PR04MB11537.eurprd04.prod.outlook.com (2603:10a6:800:2cb::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Wed, 24 Sep
- 2025 14:35:31 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.008; Wed, 24 Sep 2025
- 14:35:31 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, Sebin Francis <sebin.francis@ti.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Marco Felsch <m.felsch@pengutronix.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Brian Masney <bmasney@redhat.com>, Dan Carpenter
-	<dan.carpenter@linaro.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-Subject: RE: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-Thread-Topic: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-Thread-Index: AQHcJhsCzmRSrEp0oEyqjCzMN4tqC7SgpByAgAAO97CAAWsJAIAAIANwgAAfpwCAABEKsA==
-Date: Wed, 24 Sep 2025 14:35:30 +0000
-Message-ID: <PAXPR04MB84592331881F5C0C529C7B66881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
- <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
- <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
- <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <082735e7-956b-4574-952e-06ba69db41f1@ti.com>
- <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20250924-dark-super-gharial-246400@sudeepholla>
-In-Reply-To: <20250924-dark-super-gharial-246400@sudeepholla>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI0PR04MB11537:EE_
-x-ms-office365-filtering-correlation-id: f566843b-6896-480a-048f-08ddfb779d01
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?WUF2SzI5TWozOGNNaXk0MGxRUmxmRzNEVWx3QmozS0h6Mkd3NDFJdlRpc2c3?=
- =?utf-8?B?M1NBb1hhYUZ6aXFaYTVLK0M3WVdBck1waFh5ckg1SW5QL1lha3lNNGVKUVpO?=
- =?utf-8?B?QnJsQ0xybEEzdzZvTElTM1N0UGVrL0VQKzBIWEQ1ZnllUUtWeUJ5OE1IN29i?=
- =?utf-8?B?L2l5QmNHR1ZIUDF6YnluSU9la3N5ZVBDQUkvTUJIQjNJN1kvMW1YTzJOZ0lU?=
- =?utf-8?B?eUx4c1Q3SVR0MEJSdEJNRnpuUUx3SjJUY0QwejV6TWxvZHlsR3hvUGE2ZHhJ?=
- =?utf-8?B?ekprY1JTTnhZckJYRDh6YkQ2Q3J2aGxXYXFjbnZmSi91WDBXNzNSc0RxZWo1?=
- =?utf-8?B?QTRtd3Rwa2QvVzJvdmdWQkNJYkRIMFhDb2R0aCtxYytUMFpZc0ZkdlZCb01P?=
- =?utf-8?B?bjJqZXFQNThLS21ZU3VWbVhKNEpsZFkrRys4MHRlc01Hb2hmUysvdWh5UWI5?=
- =?utf-8?B?aUR0ODc3eVBieTZsb1JtOTdlYVB4TkhmZFhKQlFTb0E3UytSUitlT1gvS0dl?=
- =?utf-8?B?d0FGVmlMQ0IyeHljZXh3RllTbGVVSVUyb1poK1c5M3FXaEtnR0Z3RzR6dm82?=
- =?utf-8?B?Mm9YS1hlYUFneG1LR2dkTUpxOGxhY2tJcW44L2xFdU5ZUDhHVTJaUURQMW9n?=
- =?utf-8?B?UWxZcHRWdGx3djdaZi9HMVdCWjNwcmZsSC9VamJmTlI4bldlbG1CdEc1THE5?=
- =?utf-8?B?cUpud2o4TWw5RWd2b0tuZGtTZmU1ODlocGtpZ2dLKytaQngrL3JJTE9TQUx2?=
- =?utf-8?B?b3IyMzFrWEk1aXJqaVNPaVhEUmlPR0FURXJoSUVXQkhiN1ZjKzlkbDV0SnJs?=
- =?utf-8?B?Si9FbVA4WHBXeVMxR09zRXBPS3BGYjZEbWRkbXltTFJZNmdBNitrWVRzQWxQ?=
- =?utf-8?B?OXpTVEM4NlNZZnlZazNjd1FFUUhoUDRvY0lmeXFHb2s4Q0FLOWgrN2lFTGlQ?=
- =?utf-8?B?cmF5YjdnRUNya093SFA0ZndyTWgwQmUxdGpTRWF1NlpTWUIrTStHWk9DQmZt?=
- =?utf-8?B?elp2bXl4QXNhdmxqcFRhaVNlakdIZDVaa3N6bnJQU01IQTRLMkJIcTFEUmZH?=
- =?utf-8?B?ajh3ZzVQcStaQjhPaUtDaGZjSldldzUwdWpEV3p4WFRJSUV6cTQ5RmJSZ0VR?=
- =?utf-8?B?Q0FoQUYwQWY2b2N2MXVYb2NOUWV3TnFpcldKKzZlaUE1ZGF1S2t1a1hvbW9J?=
- =?utf-8?B?elNNL1BRaVo5SDFWWGRzTHlXU0EzemhmTC9pNnNyWjdEaUEvMi9sV3RhZW8x?=
- =?utf-8?B?UnpPRVlEUTRrdVgrMlpaMzFQS1hZSnEwTUZNNjUzcGhOQU1DbVRPdkZwSGFU?=
- =?utf-8?B?ZFBPNFBOZms0ZTZOVnVidVRNUmoyaER1eXcxM2hldzhQRW1maFl5SnhjU2Fx?=
- =?utf-8?B?azl0SW8zUWF0TnJRK0lqbk9xVWtzeGdCMmRUVStIcGFVbWR1ajFWQkpNRm9F?=
- =?utf-8?B?S294ZlI3cVdYTWRvUzBIaGZSNndHWStwL3dtZm5xUFdBOVp1KzBJMWRTRURy?=
- =?utf-8?B?U2krVnI3WVhRKzdEZVdPTHhZWVNmVW9wV2kycFdBOUlhd3BEbGVRTjJnMjZN?=
- =?utf-8?B?QmltcjYrRUVkdjZJTTlJaU83WFlteXFOZDVKK2c5dXkvMjBHNElmejczUm1Y?=
- =?utf-8?B?aTFmQndQQSswSy9vTFlIMTNFa0p2YnRWWDI3bFZDc1NyaTBIcXBKd2d4RHJs?=
- =?utf-8?B?aG04SEFsWG1jKzZMUDNDMDNrMkRkQnpkNmN6eHgvRlpTRyt5ZW5SWTBGR1lv?=
- =?utf-8?B?K1ZRVml0VTBvRitpSTRvSll3UHg3UXNjRzE2dkw4cFBFTUowYm1iQ2VaUm5U?=
- =?utf-8?B?ZzVqVmwwSlZwV0dUSk1QVVhwanFhWUl2RFR0QytncGs0dDN2M3BvMmdBVGRX?=
- =?utf-8?B?MmhrUHd6aTUxdk9wWVd4V05kMnF1aUNLYzNZa0orZUNmbVJOcVhYaHIrY1FU?=
- =?utf-8?B?NndsOGhZbVJhNmU4NFkySHhyczFGWTZkOGRLZlR2R3hUd1BXMndmVU9jY3lw?=
- =?utf-8?Q?Te5cMqls4PyDVaPJuWZpbLwbycxFgM=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NHBsNExOV2hDYW1jK2VQNVpIdHljZlZmaVJiNm1lQjE3QWNOWlgyb1BlcGYv?=
- =?utf-8?B?b0JzZzR4bklocmdOSEp5MHU1UVpQVDlSZUlnSlNtY3lFZVJHTnhDRW4wQnUr?=
- =?utf-8?B?SURqM09Ya3h4OTIzcTBzT1RjR3ZBY1IxL05JR1k3Uzl5Nkw4TURJeE5YOURk?=
- =?utf-8?B?M3YvMXhsaGtRRmp6MHBTUFJ5TnhMdldQU3NFZ1hpVnBHdXhzZk5qeHJ4Mzhh?=
- =?utf-8?B?Q1d1TXZ2RHI0MkVUWmdMUlozMU4rSlpGZ2xRQUoyUmwzZC9uVi9Kb21xZXRK?=
- =?utf-8?B?T1RuV2VqbDA2RHBKdTZKc01hNFZVcnpIdFZMc0xjRm5EeU9aOWtsS0tISXB5?=
- =?utf-8?B?V3lMTTQ2U211Z2ZSOTIwakNWRU5BYVVOeTR6SmZHcVNqZndtSWVESEQzdjZM?=
- =?utf-8?B?SXdIaEdrWDNhOHRLMlBsb0Y2dTNtcW42UE04YVkycE5DdUhRYVkvdGVqSmow?=
- =?utf-8?B?UENnc0cvbmUxSFEvdEs1MGVndjRlT1kyOU1wQ2l6aERoam1Ha0FrMDdqYkpO?=
- =?utf-8?B?WUdWZm9HMFVKdVM3SG4yci81djQrNjhoVlFpbnh3T05sT2VnSCtRcHl1RUtX?=
- =?utf-8?B?R0c5WWRlRWpVU0Y0ZExMMktseTFXOGFYZjNjdE9tam1McUJKNjJPd2NZbVhj?=
- =?utf-8?B?TUFSTVQ1bXhWaFhwcHVBTW5LZnRqeUJIWG1OYmlGS0lvQWp1em9vVHlsZjFJ?=
- =?utf-8?B?V3VQRHBMLzVlamhsSmM5SHVaamcvSmdoTzNOeENZYXgwSmNnTk9YTlNYbmFI?=
- =?utf-8?B?b09YaElid2ZibVRPeGNXcmltQnA2bEc2ckp0Q2E2YzdxbzlKcDVvL04rMktJ?=
- =?utf-8?B?WVE2V0RJbnpiV1IxbFlkTzd0emxpYW50UjhqZG5mQWViSUlNanovWEczT0RF?=
- =?utf-8?B?YVVkTkR3N2w2dzZUSnNtcFpMRWw4NG1YalQwWVRRSDZaZE9PNS9CaG9wY1hB?=
- =?utf-8?B?UytxL3VMNDNLaXloVTFWMkMzQjhFanZNd0VUOVpjcFZ5T3hFaCsvMFlnNytx?=
- =?utf-8?B?TkthaDByWlRoRmFVenR6ZWpnbXNRMVR4ZDY5NTdxWUJkdnZyTXpjNzVvQjF1?=
- =?utf-8?B?VHlWZHZXcVFIaCt3RFFWSUlLencybEpEeVhCdXBCajdtWHRsdzgwSkpQbEdh?=
- =?utf-8?B?dHU4QjhBenI2LzBVaVdGTjlkMlQ2NGZ4RWl2UmxIaW5YUGNYY2NNRjlTTEFv?=
- =?utf-8?B?R3ArWDVYVHhqMlNGUnF2YkdNT3E4UmRkWEpEL1ZLL25CbXNxTUdFMFovb0w4?=
- =?utf-8?B?Z3RyaHd6VlZiR0VrL3pyVFEyOEJ1d25HWVNOdVJRZTVkWjU3MGVhNWpkYXNo?=
- =?utf-8?B?dW5KQ0FCRDFodDFKVHliT2VwMXVjbW9ZQ1N6NXhLbWZQOXhZaDZ1dGtxSkRo?=
- =?utf-8?B?emgxcVZyVXBKa1M1d3FZRHRLbTZNSytnNDNDeUhnK1d5dFB6bk5wQkxUZXZ1?=
- =?utf-8?B?dkwxZWVWOVM5TGFuMk1JeVhrYUVJcHV4bW5jMzBrT2hTU0xGTnZaWGdaOVBM?=
- =?utf-8?B?NXVUYm5nT3ZOc1p3TkRJc2JPK2U4cG5PQWVoQnFYazNCS1V4YjRMbmhaZW9z?=
- =?utf-8?B?VWkxSTNhMXhVeFppbytCYkRkWUJVaUtJZkp0YUlVTWxDTFUwWDludUVscUh5?=
- =?utf-8?B?VE5rckNuejlRczVXWWV4OVNFYjczNnBLeWY5YitlZTdlV3JFRTFubWFtUVM1?=
- =?utf-8?B?VHpnSWptd25MU3RiVUxDa3NtUW5zNzBUbHNad3RKS3Z6dWh6N1lLN3JwMXhw?=
- =?utf-8?B?bVNUZW9CZDRkbVducGdMRWYxWDJsOHc4MkxyYS9XdFRmWnFuRjB2RDRVYUli?=
- =?utf-8?B?eW9CaUJma2w2S2VGT0puSEF0RitFN0tBVVNWemhXREw3Mkx6Y3BjV29TZGNz?=
- =?utf-8?B?WTdLaFZUVzI5cmJiYmlnME5GcTZRb25QQWhlaVZjdXI5MzJzODh2U2lvcGI5?=
- =?utf-8?B?SXNDekxFdHN2WVRqT25sbG8vQlQ5Ujd0OHphNzhCSzkveElabDVKYUdVbGVB?=
- =?utf-8?B?dytCNzdacytNUXNWaVdUY2NWQlB4dHhsTm5ndSt1V0NvaUpNZ2l5UGZOaTM4?=
- =?utf-8?B?eEFvL2hTMHRBaHk2SG5JMXU3bGJoUzFUNEV5VG8rZ3A0V1ozUk9vU256RUVU?=
- =?utf-8?Q?fV+k=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 24 Sep 2025 14:37:08 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3f1153f4254so2416466f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 07:37:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758724626; x=1759329426; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5HShbJ4pb0uvOuUwE85U36B7c1llkadxegnV9SHJtyg=;
+        b=dUNm0iR89WwY+Kx8gWjndE5oaMt/6OxZr6mmGE1iTBlLteVKv8qAhZNf33emWq86sT
+         pPBUGlWCws43GZY4Gm7vQ71GKLkkDYsEAQMdbpIRmgbDI+2MSlh3aoRGSn/ojkifG123
+         z2AhhqTeBjBBVOBw427y51FoR+yMdqI8I7bJFVJAqEawc6g+rE81G4HRaocSxilAUKr6
+         djE+NvrAgRFXKbL+MJyKGf4ZdrT+FYI6jzPNJTkzJxrNLYh/h7Gp9j3swxxk4ZD2Mb5e
+         e2QEMVrZAHOj6tMjQXhmgrXUy3zJqZ9Bnpddu2001YhD8bKWT8JVBK8B5dFJ2ZkQbnT0
+         KsVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758724626; x=1759329426;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5HShbJ4pb0uvOuUwE85U36B7c1llkadxegnV9SHJtyg=;
+        b=ZcD13pxiB/1RBWBqgUT5/gYRzKR01kPeCjVGuMSqH8WH8geqU8XDSXg6L8zKmQ3T6V
+         oLX8AysrpdgeBqmDWnV6pNw5zONIx72LLQFGE6sEgMk/NODLCtt3KtTv2UzVuXfvHu7l
+         q0iPxf4CYnBqP+LAAnN/HMMEg2X7XUFiTzEmKkzdsGazCASTpdKbVfhgDkUF4cMcYLSP
+         Usk22VOH78ghOTIvinFehucmUrHfNUb44g4qwlF6eIOcTf9loMv4AEgVbAMlgRXTpadf
+         MjRlASfXiMXWUiFIJEs12vip7kB7s6Ete/VVu8h+yUsE4gqT4DN6ZYdovsoN2h0hdITK
+         iBvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXYL3Y3XwVJ5YhiPmyPmBGePl3pAM+tTOMQUhsyEk8e77AYcXWRaJsGTWeoEpePyn8nwUaqRmverS54/xoEPWLP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBUq39z+8R0hVeKMzZNvucmnCJvj0H3De5cEY49OlV0gXUPunF
+	xHvF59zx80LXK3evBRV+jPZwjIlvsx53pXI8rVzsffcEQbA5U4xdga7P
+X-Gm-Gg: ASbGncuyTYqnZFJ9JEkkOfzJziv/sdPRK69EBRh3SPWVOjAM6BJs6vepmym/cIWLAum
+	h9PIryMKiF83Bpm6STTT9rSzbGXiwkdyT8UG3r2LEJik8tTszT3gV2YnJm1zYPAelMHDMb8ZdKQ
+	jP1jqtmmvXzpEMK0lTffckHBpHXWD559w6Sydx0Ix/m1LQxQlG6FFTLVjH/2VJBNr2Oy5WLp/SG
+	vQSj/hFHFtWuxIpswnTaXPcYfh45ranbyZ3rpe7llUJIFPemVxPpWagCh153DFfbqNytuiDF/Ju
+	XIAWn9sv19qfosB7ABlHbvx6u3pLhCdFSA4ZXB4M3O+yYscA97lni07QILNLd+yTwcoimvwZ
+X-Google-Smtp-Source: AGHT+IGEO49EkOTURq2dd80B/jZaZg6Lr95kVlEuO3QoAtObbHlJjeJCYscX19kjXmpcKNM1wSiX9Q==
+X-Received: by 2002:a05:6000:3105:b0:3fb:9950:b9fe with SMTP id ffacd0b85a97d-40e48a56cb5mr155880f8f.47.1758724625481;
+        Wed, 24 Sep 2025 07:37:05 -0700 (PDT)
+Received: from krava ([2a02:8308:a00c:e200::31e0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3fb8ebb0d91sm15724812f8f.54.2025.09.24.07.37.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 07:37:05 -0700 (PDT)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Wed, 24 Sep 2025 16:37:03 +0200
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: Florent Revest <revest@google.com>, Mark Rutland <mark.rutland@arm.com>,
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>
+Subject: Re: [PATCH 2/9] ftrace: Add register_ftrace_direct_hash function
+Message-ID: <aNQCDwYcG0Qo00Vg@krava>
+References: <20250923215147.1571952-1-jolsa@kernel.org>
+ <20250923215147.1571952-3-jolsa@kernel.org>
+ <20250924050415.4aefcb91@batman.local.home>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f566843b-6896-480a-048f-08ddfb779d01
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Sep 2025 14:35:30.9754
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wqwUoNMr/Y6MtCorDhn8hnvoyA4B+1tiZH6ibKHcmSMPt2nLLso+WoGZvEyCvdjGiGTEASXK11JCxdWP1YTI1g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11537
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250924050415.4aefcb91@batman.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_073538_747140_AED756C3 
-X-CRM114-Status: GOOD (  37.50  )
+X-CRM114-CacheID: sfid-20250924_073707_668090_D96E6A3D 
+X-CRM114-Status: GOOD (  28.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,50 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgU3VkZWVwLA0KDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjQgNS81XSBjbGs6IHNjbWk6IFN1
-cHBvcnQgU3ByZWFkIFNwZWN0cnVtIGZvcg0KPiBOWFAgaS5NWDk1DQo+IA0KPiBPbiBXZWQsIFNl
-cCAyNCwgMjAyNSBhdCAxMTo0Mzo1NkFNICswMDAwLCBQZW5nIEZhbiB3cm90ZToNCj4gPiA+IFN1
-YmplY3Q6IFJlOiBbUEFUQ0ggdjQgNS81XSBjbGs6IHNjbWk6IFN1cHBvcnQgU3ByZWFkIFNwZWN0
-cnVtIGZvcg0KPiA+ID4gTlhQIGkuTVg5NQ0KPiA+IC4uLg0KPiA+ID4gPj4+ICAgICAgICBTQ01J
-X0NMT0NLX0NGR19PRU1fU1RBUlQgPSAweDgwLA0KPiA+ID4gPj4+ICsgICAgIFNDTUlfQ0xPQ0tf
-Q0ZHX0lNWF9TU0MgPSAweDgwLA0KPiA+ID4gPj4NCj4gPiA+ID4+IFRJIGlzIGFsc28gcGxhbm5p
-bmcgdG8gaW1wbGVtZW50IHRoZSBzYW1lIGluIG91ciB1cGNvbWluZw0KPiBwbGF0Zm9ybS4NCj4g
-PiA+ID4+IHNvIGNhbiB3ZSB1c2UgYSBnZW5lcmljIElEIGluc3RlYWQgb2YgdmVuZGVyIHNwZWNm
-aWMgbWVzc2FnZSBJRD8NCj4gPiA+ID4NCj4gPiA+ID4gSSB0cmllZCB0byBwdXNoIHRvIG5ldyBn
-ZW5lcmljIElEIFsxXSBpbiBoYWxmIGEgeWVhciBhZ28sIGJ1dCBpbg0KPiA+ID4gPiB0aGUgZW5k
-IEFSTSBkZWNpZGVkIG5vdCB0byBhZGQgZ2VuZXJpYyBJRCBmb3Igc3ByZWFkIHNwZWN0cnVtDQo+
-IHN1cHBvcnQuDQo+ID4gPiA+DQo+ID4gPiA+IFRvIGkuTVgsIGl0IGlzIHRvbyBsYXRlIHRvIHVz
-ZSBhIGdlbmVyaWMgSUQgYW5kIHdhaXRpbmcgc3BlYywgaS5NWA0KPiA+ID4gPiBmaXJtd2FyZSBo
-YXMgYmVlbiBwdWJsaWMgZm9yIHF1aXRlIHNvbWUgdGltZSBhbmQgcGFzc2VkIHNldmVyYWwNCj4g
-PiA+IGV4dGVybmFsIHJlbGVhc2VzLg0KPiA+ID4gPiBTbyBJIG5lZWQgdG8gdXNlIHdoYXQgb3Vy
-IGZpcm13YXJlIGFkZHMgYW5kIHNwZWMgYWxsb3dzOiB2ZW5kb3INCj4gPiA+ID4gZXh0ZW5zaW9u
-Lg0KPiA+ID4NCj4gPiA+IFRoYW5rcyBmb3IgdGhlIHF1aWNrIHJlc3BvbnNlLA0KPiA+ID4gU2lu
-Y2UgdGhpcyBpbXBsZW1lbnRhdGlvbiBpcyBzcGVjaWZpYyB0byBpLk1YLCBjYW4geW91IG1vdmUg
-dGhpcyB0bw0KPiA+ID4gYSB2ZW5kb3Igc3BlY2lmaWMgZmlsZSwgc28gdGhhdCBpdCB3aWxsIG5v
-dCBicmVhayBpLk1YJ3MgZmlybXdhcmUNCj4gPiA+IGFuZCBUSSBjYW4gaW1wbGVtZW50IFNTQyBp
-biBUSSBzcGVjaWZpYyBmaWxlLg0KPiA+DQo+ID4gaS5NWCBoYXMgZW5jb3VudGVyZWQgaXNzdWUg
-d2l0aCBwaW5jdHJsLXNjbWkuYyBhbmQgcGluY3RybC1pbXgtc2NtaS5jDQo+ID4gYm90aCBzdXBw
-b3J0cyBTQ01JIFBJTkNUUkwuIEN1cnJlbnQgbGludXggc2NtaSBkb2VzIG5vdCBzdXBwb3J0DQo+
-IGJvdGgNCj4gPiBkcml2ZXJzIGJ1aWx0IGluIGtlcm5lbCBpbWFnZSwgYmVjYXVzZSBzY21pIGRl
-dmxpbmsgaXNzdWUuDQo+ID4NCj4gPiBTdWRlZXAgc2FpZCBoZSB3b3VsZCBhZGRyZXNzIHRoZSBk
-ZXZsaW5rIGlzc3VlIGluIDYuMTkgY3ljbGUuDQo+ID4NCj4gDQo+IFllcyBpdCBpcyBhIGRpZmZl
-cmVudCBpc3N1ZSBJTU8gYW5kIG5vdGhpbmcgcmVsYXRlZCB0byB0aGlzLg0KPiANCj4gPiBHaXZl
-biB0aGUgY3VycmVudCBzaXR1YXRpb24sIEknbSBoZXNpdGFudCB0byBpbnRyb2R1Y2UgYSBuZXcg
-ZHJpdmVyDQo+ID4gc2F5aW5nIGNsay1pbXgtc2NtaS5jLg0KPiA+DQo+IA0KPiBZZXMgcGxlYXNl
-IGRvbid0LCBhbmQgSSBkb24ndCBzZWUgYSBzdHJvbmcgcmVhc29uIGZvciB0aGF0KHlldCkuDQo+
-IA0KPiBVbmxpa2UgdmVuZG9yIHByb3RvY29sLCB0aGVyZSBpcyBubyB3YXkgd2UgY2FuIG5vIHVw
-ZnJvbnQgaG93IHRoZQ0KPiB2ZW5kb3JzIGNhbiB1c2UgdGhpcyBpbiB0aGVpciBvd24gY29sb3Vy
-ZnVsIHdheS4gU28gSSBhbSBub3Qgc3VyZSBpZiB3ZQ0KPiBzdGFydCBidWlsZGluZyBzb21ldGhp
-bmcgZ2VuZXJpYyBmcm9tIHRoZSBzdGFydCBvciByZWZhY3RvciBhcyBtb3JlDQo+IHZlbmRvcnMg
-c3RhcnQgdXNpbmcgaXQuIEhhcmQgdG8gZGVjaWRlIPCfmYEuIExldHMgc2VlLCBuZWVkIHRvIHRo
-aW5rIGEgYml0Lg0KPiANCj4gSWYgUGVuZyBvciBTZWJpbiBvciBvdGhlcnMgaGF2ZSBzb21lIGlk
-ZWEsIHBsZWFzZSBwcm9wb3NlIG9yIHN0YXJ0IHRoZQ0KPiBkaXNjdXNzaW9uIHNvIHRoYXQgd2Ug
-Y2FuIGV2YWx1YXRlIHRoZSBhcHByb2FjaC4NCg0KSSB3b3VsZCBnaXZlIGEgbG9vayBhbmQgaG9w
-ZSB0aGVyZSBpcyBhbiBvdXRwdXQuIEkgd2lsbCBzdGFydA0KYSBuZXcgdGhyZWFkIHRvIGRpc2N1
-c3MuDQoNCkp1c3QgaW4gbXkgbWluZA0KRWFjaCBzdGFuZGFyZCBwcm90b2NvbCBoYXMgaXRzIG93
-biBPRU0gb3IgdmVuZG9yIGRlc2NyaXB0aW9uLCBpdCBtaWdodA0KYmUgaGFyZCB0byB1c2UgYSBn
-ZW5lcmljIHdheSB0byBzdXBwb3J0IGFsbCBzdGFuZGFyZCBwcm90b2NvbHMuDQoNCkl0IG1pZ2h0
-IGJlIGEgYml0IGVhc2llciB0byB1c2UgcGVyIHByb3RvY29sIGV4dGVuc2lvbi4NCg0KQW55d2F5
-LCBsZXQncyBkaXNjdXNzIGluIHRoZSBuZXcgdGhyZWFkIHdpdGggcG90ZW50aWFsIHNvbHV0aW9u
-cy4NCg0KVGhhbmtzDQpQZW5nLiANCg0KPiANCj4gLS0NCj4gUmVnYXJkcywNCj4gU3VkZWVwDQo=
+On Wed, Sep 24, 2025 at 05:04:15AM -0400, Steven Rostedt wrote:
+> On Tue, 23 Sep 2025 23:51:40 +0200
+> Jiri Olsa <jolsa@kernel.org> wrote:
+> 
+> > Adding register_ftrace_direct_hash function that registers
+> > all entries (ip -> direct) provided in hash argument.
+> > 
+> > The difference to current register_ftrace_direct is
+> >  - hash argument that allows to register multiple ip -> direct
+> >    entries at once
+> 
+> I'm a bit confused. How is this different? Doesn't
+> register_ftrace_direct() register multiple ip -> direct entries at once
+> too? But instead of using a passed in hash, it uses the hash from
+> within the ftrace_ops.
+
+right, but that assumes that we can touch the hash in ftrace_ops directly,
+but register_ftrace_direct_hash semantics is bit different, because it allows
+to register new (ip,addr) entries on already 'running' ftrace_ops, in which
+case you can't change the ftrace_ops hash directly
+
+> 
+> >  - we can call register_ftrace_direct_hash multiple times on the
+> >    same ftrace_ops object, becase after first registration with
+> >    register_ftrace_function_nolock, it uses ftrace_update_ops to
+> >    update the ftrace_ops object
+> 
+> OK, I don't like the name "register" here. "register" should be for the
+> first instance and then it is registered. If you call it multiple times
+> on the same ops without "unregister" it should give an error.
+> 
+> Perhaps call this "update_ftrace_direct()" where it can update a direct
+> ftrace_ops from?
+
+I agree the 'register' naming is confusing in here.. but we still need to
+use 3 functions for register/unregister/modify operations, so perhaps:
+
+   update_ftrace_direct_add(ops, hash)
+   update_ftrace_direct_del(ops, hash)
+   update_ftrace_direct_mod(ops, hash)
+
+?
+
+> 
+> > 
+> > This change will allow us to have simple ftrace_ops for all bpf
+> > direct interface users in following changes.
+> 
+> After applying all the patches, I have this:
+> 
+> $ git grep register_ftrace_direct_hash
+> include/linux/ftrace.h:int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash);
+> include/linux/ftrace.h:int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash);
+> include/linux/ftrace.h:int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> include/linux/ftrace.h:int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> kernel/trace/ftrace.c:  err = register_ftrace_direct_hash(ops, hash);
+> kernel/trace/ftrace.c:  err = unregister_ftrace_direct_hash(ops, hash);
+> kernel/trace/ftrace.c:int register_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> kernel/trace/ftrace.c:EXPORT_SYMBOL_GPL(register_ftrace_direct_hash);
+> kernel/trace/ftrace.c:int unregister_ftrace_direct_hash(struct ftrace_ops *ops, struct ftrace_hash *hash)
+> kernel/trace/ftrace.c:EXPORT_SYMBOL_GPL(unregister_ftrace_direct_hash);
+> 
+> Where I do not see it is used outside of ftrace.c. Why is it exported?
+
+I have bpf changes using this that I did not post yet, but even with that
+there's probably no reason to export this.. will remove
+
+thanks,
+jirka
 
