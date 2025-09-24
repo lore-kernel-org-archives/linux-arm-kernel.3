@@ -4,97 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C815CAC5B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110BDCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=; b=t1DewzfhjKc7yvNl9N+k4nSgla
-	k+f67ewh0C+oofXCfnSZaVsZ1DsPLx6U2P7+or1MKb2aWviZqLXNNNyb3a39XAAhLOw7VX30Ytyaj
-	2a83PwdBUvyh/nhYsbE3AKOqA6r3VTeazp5gtJXjFsP22tI/QTRE7qEZOIMjiQLI4gzLJ3Fo/QbVQ
-	Jxe4q/OMYChgZo1FiGF+wX39kWATs+8O/RyPlHS7NufpaKYcT/cljWRRmNXr7tZRypPP+Z9saA3KX
-	7jfAK7loIjgVbf+W9m7Ru8BjtZkB29pxNCe64vTnhCSJw169Agb6S19OZDD4qX7X901FgmX/syTqh
-	pv7kbgvw==;
+	bh=/plAAalNIFyASmZL1uXMhtsgpP9B2u6DMRkxuTVqztw=; b=wqUgc5+a99rD4IXmBo/f8ei2To
+	1xZ6ZJBcmnZaC+dmwXuJ0E8Xcuu/q/HwgX9SRZh82EX7hdnxxLcoCf6oknd4Y6aLhz4q6SbYf61Dr
+	IaBtH3IzbAqyI3Z8ftBE5ViyMPQO/+j3KAf2I1JBJ4KQ1Prn1AkWcLGJ+CMvCdsOaBA8CaPnQ+KDf
+	wPS5RnYvjlh9/ti/tHvfgLk8MLDXmDzc89d1VsI79eg6hcJQcWYlhzsn1R5EjVpJohzNRvZpNha9w
+	ZEtO6+HSA+0fdkBtm8n39hT/n4PaEcMUVxY6rnZS1/reEsoMP5jJo6gjcM98yKUKO/lA6wPDzdrZf
+	whdZMo2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1M3U-0000000GABi-2PBD;
-	Wed, 24 Sep 2025 09:44:56 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1v1M7n-0000000GClG-1b7C;
+	Wed, 24 Sep 2025 09:49:23 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1M3Q-0000000GA6z-1jNj
+	id 1v1M7k-0000000GCkT-0mf8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 09:44:53 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-46b7bf21fceso34461815e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 02:44:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758707090; x=1759311890; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=;
-        b=VNDgaQMK305dm2PYR7xwubgOiga1K1BZ/6WcMCb7RhPJ12NbLi3fQDdIxrZnXk7fqo
-         i7Pcb+SLPbkyORVks+mNzqPk2apd++tsaYTpBcwQoFg4mZRgTopXPVbI5OvDjxpE02nM
-         75aG34TpFFdkhpndNZ6nD2hlpBOXftour87Zd3gpSHDB8dGQ1eh0CnzBwJfQLGG1+t2i
-         o32mf01UKJAnS4VnZU57CLhT9D0URVn3IsGCNpsOQbpVr7fhLqIKKEDTXIyIaxTE3iPX
-         GH5JeFUIHvz1CzAN8j+0vwjrKnZbQCRRYx1xgqwwM0FfXK3+9+chtRJS5amh4sR/r2bi
-         i8nA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758707090; x=1759311890;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LPzMl9444DyFsyhIlxZU2alp+KEUomV9x8N6sGCMpt4=;
-        b=Q+r4dkXUlrtW9z1Ua2RVHnX5uZSCylFEzDQ64Ev5zbNHaOuZV6g3Qq0p2/znizSLCx
-         RQ9qdfdFY0yf9rg0Sel8jExrZbHsaFnR5z5DHQyqdPqujlbyJEdi4amzXQZqZQm+u7zk
-         d1j0qlNewOxX7MseE20uGOpl/Z/oE1LllmGvwybs1HRQTSgwJFvRszABf0lUSVEaNw/h
-         BRAYItW0+x21STMnJ61//qpGx4U866TW9dlqDEEmtFonOI9qELKw6Mqit6BCunTfz//s
-         7BnDhjO3M0qrgR5tcZqHSD6hiV/1D3bBux5wgTB8uqC+WALrQfNEFXlz5l5S2J3bSzSN
-         /plA==
-X-Forwarded-Encrypted: i=1; AJvYcCUIweLQ4jpDJvujFUDhfBCCXpveyenwKeGhdFpLZYbgzka2IWRp3lfgn2z1/TD8zmn6soMr8lDPs11vyQvcSueg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzpzrnnspQQ6piL6+wgpuFA2BQWLGsPA/Uajw0YGWDXgvlaowN
-	c50kD3RvxEUUpAiYrgo9sRSa7R5fQQ2/UhdJV6TlhqHiaTlp3w2ZLe1X
-X-Gm-Gg: ASbGncssEPhkOfqV2o0Mm423bzTRelx9NtsKOYYmje/FRtOltYmY3jtQ2mpv7QK/Gj0
-	qC8XnbLYdLiHYLjLHwyP/wsCAjzP4lf6pFtPyS/d7FXslfH4BiiBpXnVjnyGh0Rx36CF4TxFCCh
-	JlAuHDFCv4IxAePaFtdjxdb8oTF1DMLHWxtzhTngp1L6XmAaMjq7/f19lI+6wkmwLq30UcqaTTY
-	fAVvhEP8B9oN140VNuvXKPyYlNV62tA1rg8QxdOkX6D4mYajvZlrcYP0BYmGrhgfa8FH9pZ4KUP
-	54ws+uUjLJQraPyyBWWJdnWTMUV2/J4SXopAvvESBszI4U23pJsCCVbDAJAU5lufidT23TYAWNO
-	455RPA01Orc/g2NbCZ18gF6XQ2UKQixXsNDHvKJtvx9vzroh1bH2kxs2IjmTc0Er2+YH4D+BMXF
-	oOTJgMUp7o1aOAFQ==
-X-Google-Smtp-Source: AGHT+IEhM0YgF2Kn4HKT8PplTIrFiGxgI+VDLPFn2Qw0xzee/LIuyoGd6FHnJttuYVQuUAjdxDoCmw==
-X-Received: by 2002:a05:600c:468f:b0:45d:d353:a491 with SMTP id 5b1f17b1804b1-46e1d979fc5mr51230185e9.1.1758707090354;
-        Wed, 24 Sep 2025 02:44:50 -0700 (PDT)
-Received: from localhost (2a02-8440-7503-805b-0076-f865-8f03-23d3.rev.sfr.net. [2a02:8440:7503:805b:76:f865:8f03:23d3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a9ac5basm30729625e9.7.2025.09.24.02.44.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 02:44:50 -0700 (PDT)
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Wed, 24 Sep 2025 11:44:43 +0200
-Subject: [PATCH v8 2/3] clk: stm32mp25: add firewall grant_access ops
+	Wed, 24 Sep 2025 09:49:22 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58O9mtQM031212;
+	Wed, 24 Sep 2025 11:49:02 +0200
+Received: from am0pr02cu008.outbound.protection.outlook.com (mail-westeuropeazon11013052.outbound.protection.outlook.com [52.101.72.52])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 499hd79ncc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 24 Sep 2025 11:49:02 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t/QIso2j3VDGvV7YEDVIN9WvV2kT0EmKI4PGA9tjvk9tQm04pmACAQ+TQhO7rrJmHsBp0F9d45Ej8ho5MUIq5SBvHjFf9+ujDdLxRVewqNNrrgMupxU6bP6fumldViniaByJJg6Jmjr2y1YwTx3nKX1aYFKhmMbR0zaFrGwAHV87u5gAEdykTveLishcjKiYFaCQjEeJbVMGotlTn2trWurey6QfPQh3rrE5YoNTcqTDeiP9XYeUO5FjnCAa92lzKcbUHwzE259hnu1ChHZYXyAh5eZaZLWVNs9EeE1hbXbAa0EFpWUpvQFHHwjRVCoY0efBFqGaBDgQ3H5JbVdeQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/plAAalNIFyASmZL1uXMhtsgpP9B2u6DMRkxuTVqztw=;
+ b=kF6idgC3VbgB5tAsjYfbcT/M9D3JKaFGv3dHx8kJapRGRHXaYbFITwBj5v2xDNkevfNDDsSeyW9Ce7/PNnYa1EXtQWmAGrnlpVt5V8Nptm8IQjQSJNJ48e1qRYVHr2z1+HLipV3eFHtpCfp+pWqCwJzvvVI2/v2iYyl11WaAYzoIWPcagsUzmtO5wPWmKZWnym4mz2C8A0YsUmnBIzZ18bBkn9SJylk2quH7/aEB3puH1QkQKoy3oJIFja4KAJJT70ArVICtCXwbUs12YnQPUJAtq3CYdnogXqglUNF34eGr0ILaXWbTQPjGI5Q8yc9g32OnmdM12HYUqzMTtdVKDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.44) smtp.rcpttodomain=renesas.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/plAAalNIFyASmZL1uXMhtsgpP9B2u6DMRkxuTVqztw=;
+ b=WY5yEPeN4nI/YeSj88S5e0m4LPhxnv5XiP0FoNaWy0JABFPEsxrEzUnzavmsZjJVVjchBNz/Fwro/foA7HZaH3j+qAuEClaSvXPgaL+qihhDVBqgpoDOP6yJGsjH09PUywkC82rMtPcJunrLcK3C3dvV8fux8cQU/VYgC4bBL1rYn3Fj5xnqXdSqjy+JMKwbJWhyRHPf0a+yPl5PR8JwbcUQQuZ+saMB7KmhhE5M2b0vz9ZA2diHNlU/PEp2YHj//3zV0R96EtpCy7onnBvC1WWef2M5TeqTTlzsvghHVsH1xomLppDz4/GWlNnEP2/kBagviLCQuGx6Y3l6MSKaKw==
+Received: from DB9PR06CA0004.eurprd06.prod.outlook.com (2603:10a6:10:1db::9)
+ by DU0PR10MB6605.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:406::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Wed, 24 Sep
+ 2025 09:49:00 +0000
+Received: from DB1PEPF000509E4.eurprd03.prod.outlook.com
+ (2603:10a6:10:1db:cafe::15) by DB9PR06CA0004.outlook.office365.com
+ (2603:10a6:10:1db::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.21 via Frontend Transport; Wed,
+ 24 Sep 2025 09:49:00 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.44; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.44) by
+ DB1PEPF000509E4.mail.protection.outlook.com (10.167.242.54) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9137.12 via Frontend Transport; Wed, 24 Sep 2025 09:49:00 +0000
+Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
+ (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 24 Sep
+ 2025 11:41:40 +0200
+Received: from [10.252.12.149] (10.252.12.149) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 24 Sep
+ 2025 11:48:58 +0200
+Message-ID: <a4950a0d-32a2-4cdd-8c8a-8f451181b0d6@foss.st.com>
+Date: Wed, 24 Sep 2025 11:48:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250924-b4-rcc-upstream-v8-2-b32d46f71a38@gmail.com>
-References: <20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com>
-In-Reply-To: <20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-0dae4
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: stm32: sai: manage context in set_sysclk callback
+To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+CC: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        Liam Girdwood
+	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Jaroslav Kysela
+	<perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <linux-sound@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250916123118.84175-1-olivier.moysan@foss.st.com>
+ <87ms6taph0.wl-kuninori.morimoto.gx@renesas.com>
+ <a9725bfd-a2b8-4343-83f2-d18908029ea0@foss.st.com>
+ <875xdgpmq6.wl-kuninori.morimoto.gx@renesas.com>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <875xdgpmq6.wl-kuninori.morimoto.gx@renesas.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.252.12.149]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509E4:EE_|DU0PR10MB6605:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76b158f3-c255-4256-87f0-08ddfb4f9675
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QTNxT0MycENvMTNrYmhaWE5sTEpoRWxsWDNVL1RqdzdUc3l3SGNGNkxZdC9J?=
+ =?utf-8?B?M1d5Tm1kWCtJV0gzU3FLN0p4L0JRZVVBcGhhQWw4cUg2T0VXbUJDQnprK0Fq?=
+ =?utf-8?B?RmtGWWs1QnFLeVhRU3FZdERsUHZtQm1icmE1V2Y3SE1VVUIzNGVPbGVDVWdz?=
+ =?utf-8?B?dFU3N1piOWZsVExxMVRZWExDNTI5Tm1WUGVJYTQ1eGN5R2ltRkYxZnhHQkFl?=
+ =?utf-8?B?SEphWWsyZGV5OXpHRFZMQWlTOGQ4VDZUZENLMXVwdWNSMm8zRWhsR3lYSm4r?=
+ =?utf-8?B?Q3pwc2ErcDBIcTNsN09Ya2RPMXVLTzE1cWRRd2VLM216T1EwbklEajhkS3dB?=
+ =?utf-8?B?b0hKY1dXZGxSK1EzZUU5UmFJRHlaa3lQQ09vaEd3U1Z0VU1KSVF2K1N0enRn?=
+ =?utf-8?B?ZG5HMXZQbkFnZk9aM3lXZUQ1K3Z1VGE0dkxJcEdLUnQ2a05jLzRXeitHWm1R?=
+ =?utf-8?B?RTBCaHpWbG9vSGNyZ2tob0taVnJHQVNrRk5OREdPN2w4bWxLellYMkVBMS9r?=
+ =?utf-8?B?eVd5MkV6b2pKay8ybm5ra3g2SXQrKzlVZTNNWDB5NGdBTFpwVkMzRzNOVSta?=
+ =?utf-8?B?RFY4SlFnVkNMb2toS2F2UzMxRGJjZXpkTU5pdmNsa054V3F5WFIxWEVhdjdL?=
+ =?utf-8?B?MW9TdWJIdmFvOE5zMlgvSm5pcXhiSFpEQS96N1EzdlZPQThKTytOMlhuK056?=
+ =?utf-8?B?dDNKd1k3NW04UzFpUU5oR3BQRlEwK25qeXkrb0twVDdxL09NVlhSY0RQc0tP?=
+ =?utf-8?B?WGNra0ExWFpnZnI3emJDQUtXRFVmcXo2ay8vZFpmVDIwenJCWVowdXZRakFK?=
+ =?utf-8?B?dFg0VlRoeTRqZk11VGEreGdMUGpsUzRpdU1QR0daRDR4c1BpZ0hpU1lnYUJJ?=
+ =?utf-8?B?UGJBQlZsMVorSHFERTEyL0t2RDErTDJ3UmwzUjkrNWJIYXBBTkN2MXNWdENp?=
+ =?utf-8?B?RlZkYnpFR1N0dHAyZEI3TTZvNlp1MmF1bGgzYlgxRlhHeDFxOFA2emlFUGwx?=
+ =?utf-8?B?cW1leDdkWWlGZWZBRmlJZnp1VHg1WHMrSWRCMlJTNmEvV2ROUlFTeXgxWGVK?=
+ =?utf-8?B?WEVXek1vUjk2Y2NIaEwyaGRrMjFMRXhscFppOElBZkVHOENONWRvd1ZmQ0hm?=
+ =?utf-8?B?OW9HNjdzYS9vRXg1S3F0S05oYW9kNHB6UUpZK3M0MG5jN0JhUGZDU0NhdW1T?=
+ =?utf-8?B?UzhkV2huT0ZoMHZPM3JGMnhFcGF1NExYbW9FRDRYbVVkM0dBVGlUTFZxKzh6?=
+ =?utf-8?B?b2ZzbmpIQmJJZGc3RGhieWNsZ2ZPVEtHbVQySWNUSFhxd0w4T0hWdkNpd2px?=
+ =?utf-8?B?NkRLK1RiWXQ5UzFKUFBFV29YYWFHSkxTL3VDbVVaNHI0SlMvVzN5VGVxOGxy?=
+ =?utf-8?B?ekxXUjc4VUc4aGc4Y3VrbHg1ZUw2bThiVm54S0IxL2pmb1JLb1pLSXg0djFO?=
+ =?utf-8?B?U21rOUtHOTYvcWxOUElxWW9xcjR0UU9XbjZoUVVUSG1vVis2YnNXN0xRblRQ?=
+ =?utf-8?B?YUZoYmZtSHYvQ0hzSU52YkQyMmlDc0lNMElEZEZ3SGlrZ3o3bmlvR0hIUkU0?=
+ =?utf-8?B?UTUrMExtWHdLRTFEbXVrVC9TSklnUjVVWUJqUGhXT2VudkZoQzBvSmdSUE9Q?=
+ =?utf-8?B?ajg2OXhOcWhRWjRpMm1IVkRiVm1OWC90MldGTzdMaWYxM0JkT1dlUFNWQyt5?=
+ =?utf-8?B?OElPY0VzWFlPRGNjMDlaWWZHd2FBNlk2NmJzUzlUUngvbzlOYk5kQm1jL2tS?=
+ =?utf-8?B?QWVDbHRFUkI5ZjJ5UHVEZld5RTlHbW9lRzloQnQrTlA3RnpVMDNXRzZwYVVP?=
+ =?utf-8?B?djFBZnlnU214VFlNcks3UGJyWFZBdXlNSW1Kc1E5NjFZUVhOeVBzV05Cci80?=
+ =?utf-8?B?Y3VEcFlKMnZ4M2xzOTh5MUtuajZ3dTE2WlA1eEI1TUtHR2xhZDBXY0N0WVdN?=
+ =?utf-8?B?RHVnVzhndXRSTXpXdW1qM3NJMXJqUWpUQVlDVmwwdDFYUjYyUVlEOVlkdDFu?=
+ =?utf-8?B?Nkt6UWFhdXVuM0lISE5mb3IwQXd6cVhyZERGM2t0TWVDV3NFSEkyVHRsY1Fi?=
+ =?utf-8?Q?JodWt3?=
+X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 09:49:00.0668
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76b158f3-c255-4256-87f0-08ddfb4f9675
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E4.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB6605
+X-Proofpoint-ORIG-GUID: ZU7e4ibTYjWKwHWdcpavX9iFqN9gF-g3
+X-Authority-Analysis: v=2.4 cv=W+c4VQWk c=1 sm=1 tr=0 ts=68d3be8e cx=c_pps a=0jypAZrmxcbgW+ytPeIz4Q==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=h8e1o3o8w34MuCiiGQrqVE4VwXA=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=E_cj8LcMwhkA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=1c5YuWx-dZ7yCilmOUgA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: ZU7e4ibTYjWKwHWdcpavX9iFqN9gF-g3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTE5MDIyNiBTYWx0ZWRfX3HYXYcoy9ig/ bMu+C2MPdIrTAHqeuT34siGcdnXUZyquNBD4GvL1NqL3hMMDDRQQ0fI3I04YFeSX+ABfqG/7tIN YXcnXyjeb/N3zRUCBC01HrRZQEnUEgIHxbANx2nf+JqQmGDZfRCuHjqQqNX/SHzDeB/V1w8PDRS
+ BEOSnySxZW+UsPhGfqywXwMj8BE140o9qoiJjb3h7okVUAIIEPtlZdhX47uyekblCJujcrnyGaa mJ/vHlpzKvFVV7ZEWxbsAmof4O4NuaB48d1G0wDesxBFe7aNVJ6Rw3AiiJGn53xN1G2xmDeHd7x qIoRj6wdTb+mQj/Zj6zJgOuB8hTHPesGC7TL5SkGk5Lzb7t/hKZQWnNE2FS31cz+Ijcg0R+6pQI P7dKH88k
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-24_02,2025-09-22_05,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 adultscore=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
+ bulkscore=0 phishscore=0 clxscore=1015 classifier=typeunknown authscore=0
+ authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509190226
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_024452_477313_47B18D6B 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250924_024920_841010_D405DEEB 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,101 +191,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Clément Le Goffic <clement.legoffic@foss.st.com>
+Hi Kuninori,
 
-On STM32MP25, the RCC peripheral manages the secure level of resources
-that are used by other devices such as clocks.
-Declare this peripheral as a firewall controller.
+On 9/18/25 03:34, Kuninori Morimoto wrote:
+> 
+> Hi Olivier
+> 
+> Thank you for clarify the situation
+> 
+>> Looking at the traces (see below), initially, we had one call with the
+>> 'in' direction (kernel clock frequency) and one call with the 'out'
+>> direction.
+> (snip)
+>> Now, both calls have the 'out' direction when the property
+>> 'system-clock-direction-out' is set. This seems more consistent with the
+>> changes from commit 5725bce709db1.
+> 
+> Ah.. simple-card-utils calls snd_soc_dai_set_sysclk() from 3 functions
+> 
+> 	- simple_init_dai()
+> 	- simple_util_hw_params()
+> 	- simple_util_shutdown()
+> 
+> but its "direction" is...
+> 
+> Step0:
+> 	Before
+> 	a728f56094e7cf60a1dc0642fe86901d1a4dfb4e
+> 	 ("ASoC: make clock direction configurable in asoc-simple")
+> 
+> 	- simple_init_dai()		fixed: 0
+> 	- simple_util_hw_params()	fixed: SND_SOC_CLOCK_xx
+> 	- simple_util_shutdown()	fixed: SND_SOC_CLOCK_xx
+> 
+> Step1:
+> 	After
+> 	a728f56094e7cf60a1dc0642fe86901d1a4dfb4e
+> 	 ("ASoC: make clock direction configurable in asoc-simple")
+> 
+> 	and before
+> 
+> 	5725bce709db1c001140d79398581e067e28c031
+> 	("ASoC: simple-card-utils: Unify clock direction by clk_direction")
+> 
+> 
+> 	- simple_init_dai()		dai->clk_direction
+> 	- simple_util_hw_params()	fixed: SND_SOC_CLOCK_xx
+> 	- simple_util_shutdown()	fixed: SND_SOC_CLOCK_xx
+> 
+> Step2:
+> 	After
+> 	5725bce709db1c001140d79398581e067e28c031
+> 	("ASoC: simple-card-utils: Unify clock direction by clk_direction")
+> 
+> 	- simple_init_dai()		dai->clk_direction
+> 	- simple_util_hw_params()	dai->clk_direction
+> 	- simple_util_shutdown()	dai->clk_direction
+> 
+> In Step0 and Step1, your dirver is called with both dir IN/OUT ?
+> 
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
----
- drivers/clk/stm32/clk-stm32mp25.c | 40 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+Yes, based on the trace, this appears to be the case.
 
-diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
-index 52f0e8a12926..af4bc06d703a 100644
---- a/drivers/clk/stm32/clk-stm32mp25.c
-+++ b/drivers/clk/stm32/clk-stm32mp25.c
-@@ -4,8 +4,10 @@
-  * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
-  */
- 
-+#include <linux/bus/stm32_firewall.h>
- #include <linux/bus/stm32_firewall_device.h>
- #include <linux/clk-provider.h>
-+#include <linux/device.h>
- #include <linux/io.h>
- #include <linux/platform_device.h>
- 
-@@ -1602,6 +1604,11 @@ static int stm32_rcc_get_access(void __iomem *base, u32 index)
- 	return 0;
- }
- 
-+static int stm32mp25_rcc_grant_access(struct stm32_firewall_controller *ctrl, u32 firewall_id)
-+{
-+	return stm32_rcc_get_access(ctrl->mmio, firewall_id);
-+}
-+
- static int stm32mp25_check_security(struct device_node *np, void __iomem *base,
- 				    const struct clock_config *cfg)
- {
-@@ -1970,6 +1977,7 @@ MODULE_DEVICE_TABLE(of, stm32mp25_match_data);
- 
- static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
- {
-+	struct stm32_firewall_controller *rcc_controller;
- 	struct device *dev = &pdev->dev;
- 	void __iomem *base;
- 	int ret;
-@@ -1982,7 +1990,36 @@ static int stm32mp25_rcc_clocks_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	return stm32_rcc_init(dev, stm32mp25_match_data, base);
-+	ret = stm32_rcc_init(dev, stm32mp25_match_data, base);
-+	if (ret)
-+		return ret;
-+
-+	rcc_controller = devm_kzalloc(&pdev->dev, sizeof(*rcc_controller), GFP_KERNEL);
-+	if (!rcc_controller)
-+		return -ENOMEM;
-+
-+	rcc_controller->dev = dev;
-+	rcc_controller->mmio = base;
-+	rcc_controller->name = dev_driver_string(dev);
-+	rcc_controller->type = STM32_PERIPHERAL_FIREWALL;
-+	rcc_controller->grant_access = stm32mp25_rcc_grant_access;
-+
-+	platform_set_drvdata(pdev, rcc_controller);
-+
-+	ret = stm32_firewall_controller_register(rcc_controller);
-+	if (ret) {
-+		dev_err(dev, "Couldn't register as a firewall controller: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void stm32mp25_rcc_clocks_remove(struct platform_device *pdev)
-+{
-+	struct stm32_firewall_controller *rcc_controller = platform_get_drvdata(pdev);
-+
-+	stm32_firewall_controller_unregister(rcc_controller);
- }
- 
- static struct platform_driver stm32mp25_rcc_clocks_driver = {
-@@ -1991,6 +2028,7 @@ static struct platform_driver stm32mp25_rcc_clocks_driver = {
- 		.of_match_table = stm32mp25_match_data,
- 	},
- 	.probe = stm32mp25_rcc_clocks_probe,
-+	.remove = stm32mp25_rcc_clocks_remove,
- };
- 
- static int __init stm32mp25_clocks_init(void)
+>> In my setup, the kernel clock is an input clock. Maybe it should be
+>> tagged as an input clock. However, we have no
+>> 'system-clock-direction-in' property yet.
+>> Anyway, the patch in the STM32 SAI driver is still valid.
+> 
+> OK
+> 
+> Or maybe reset simple_dai->sysclk somehow (not sure...) ?
+> (simple_init_dai() will call snd_soc_dai_set_sysclk() if it has
+> simple_dai->sysclk)
+> 
 
--- 
-2.43.0
+Yes, resetting simple_dai->sysclk may also be an option, but I could not 
+find a way to do it in practice. Requesting a reset of 
+simple_dai->sysclk from the CPU DAI .probe callback might be the right 
+time I think, but there is no service that allows this.
+Another way would be to set "system-clock-frequency = <0>" in the CPU DT 
+node. However, this is not possible, as it conflicts with the following 
+check in the simple_set_clk_rate() function:
+if (simple_dai->clk_fixed && rate != simple_dai->sysclk) {
+    dev_err(...)
+}
 
+So, the current patch still seems like the better option to me.
+
+Best regards
+Olivier
+
+> Thank you for your help !!
+> 
+> Best regards
+> ---
+> Kuninori Morimoto
 
