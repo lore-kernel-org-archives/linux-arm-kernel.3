@@ -4,97 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F77CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B0FCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAcYijQUw8JH6Gkhzh4E9b+3rGXrtBQWE/aPaFL/C5k=; b=J01kmfxWI9dBg7/hXQm2aHXEMl
-	bi615DtFDl9LTWBs8pyfHxRDNEINQ8kx6Oe3gnFnSpu4XLdHPi+D92/Hs7J6KzXcgBkJ+IMV2IU3k
-	3uggTCTQ2wkTCXVnDN/EXRoguaCXyqQ78Vi94SRc939NzMOrZ9sgzzx5Jk+m2dojRYEQChwaTONQx
-	seAHFaev0+8ylTdusII5mEwKIhn8h8N45bb7fNhbO6Iq1O5EuVSIOdQj1i13FI0y+2JulU5EJdYy7
-	FDRrty7q6X5g6eQmsSEZPS8d2ERqEHzvNMX6ev8ajDk7Po9y8+gPn+zQeL/neNpIOYAQXYb3Pk4Rn
-	pxXb9nEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z8aJTvAowz2MeXf/l0LS9pZrzy/MnVv3cfYmNSpGbCE=; b=1R3e15Mp/X+FegJRZE0VrwyQ9J
+	shGVmM+8Uxu9jM044hpPteRuirb3c1UWgweDphqgk0Aj7/+ejX9WazBtuHGnZ0ubQ6/hkh22rPv8b
+	/sbVAy2V6YvXEOC8P1Mb1vgVNWUGDImbZOx3ZXmpboTjTIy613o+dIc4JXkrNkzR3rYgIjdOXHq0B
+	tq9aAQOWcm8jYHRHdR8DkTAc/goOXmBpjVwj80lthqIsCHpxsb/prBjRE5zIHsK5lGwT8ZazM0TZE
+	YOegnWz4ogsU6wE7A0BC0sDxK13PZcjFKi0nY6K+q+9kKcdy66NHsDlmOHIcahNZ2MLZOe2dun6Fc
+	jgEFm2Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OPg-0000000HHt0-1LxN;
-	Wed, 24 Sep 2025 12:16:00 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1OPc-0000000HHqZ-3a53
+	id 1v1OVL-0000000HKWi-2W3h;
+	Wed, 24 Sep 2025 12:21:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1OVJ-0000000HKUH-2TBx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 12:15:58 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58OCFd4B1694403;
-	Wed, 24 Sep 2025 07:15:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758716139;
-	bh=GAcYijQUw8JH6Gkhzh4E9b+3rGXrtBQWE/aPaFL/C5k=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BMQL5iYff0pDWxgw/etrsl5Bm22SIRImKSxHGIc+UEoIAgYx58P0FgozpQveQJns+
-	 WZeRyMa2FFd+73mw2gV4/3nEo2NP9k4fCQaap7HIKD3U+0v95vEwXLXvfLepzfhwkK
-	 AtClVyqAfQdZStyEVVPNpL6dDlchvd0vBT4t/GPs=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58OCFc7H2420511
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 24 Sep 2025 07:15:38 -0500
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 24
- Sep 2025 07:15:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 24 Sep 2025 07:15:38 -0500
-Received: from [172.24.233.14] (shark.dhcp.ti.com [172.24.233.14])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58OCFW1H1982020;
-	Wed, 24 Sep 2025 07:15:33 -0500
-Message-ID: <c34157c5-cd13-4e85-a9ee-22446111f633@ti.com>
-Date: Wed, 24 Sep 2025 17:45:32 +0530
+	Wed, 24 Sep 2025 12:21:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D72C8106F;
+	Wed, 24 Sep 2025 05:21:38 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13B483F66E;
+	Wed, 24 Sep 2025 05:21:44 -0700 (PDT)
+Date: Wed, 24 Sep 2025 13:21:37 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mengchen Li <mengchenli64@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: kgdb: Ensure atomic single-step execution
+Message-ID: <aNPiUbdRhaRklebF@J2N7QTR9R3>
+References: <1756972043-12854-1-git-send-email-mengchenli64@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Marco Felsch
-	<m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Brian Masney
-	<bmasney@redhat.com>,
-        Dhruva Gole <d-gole@ti.com>
-CC: Dan Carpenter <dan.carpenter@linaro.org>,
-        Geert Uytterhoeven
-	<geert@linux-m68k.org>,
-        "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
- <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
- <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
- <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <082735e7-956b-4574-952e-06ba69db41f1@ti.com>
- <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Sebin Francis <sebin.francis@ti.com>
-In-Reply-To: <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1756972043-12854-1-git-send-email-mengchenli64@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_051556_990026_D6B3E8B4 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250924_052149_704957_78092ADF 
+X-CRM114-Status: GOOD (  35.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,82 +62,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On Thu, Sep 04, 2025 at 03:47:23PM +0800, Mengchen Li wrote:
+> The existing KGDB single-step handling on ARM64 is susceptible to
+> interference from external interrupts. If an interrupt arrives in the
+> narrow time window between the execution of the instruction under test
+> and the generation of the step exception, the CPU will vector to the
+> interrupt handler (e.g., el1_interrupt -> __el1_irq) instead of
+> triggering the debug exception immediately.
+> 
+> When the step exception is finally taken, the context is no longer that
+> of the original instruction. This causes the debugger to appear "stuck",
+> as it repeatedly tries to single-step through the interrupt handler's
+> code (e.g., irq_enter_rcu()) instead of the target code.
+> 
+> The fix is to make the single-step operation atomic by masking interrupts
+> for its duration:
+> 1. Upon receiving a step ('s') request from GDB, save the current
+>    PSTATE and then mask IRQs by setting the PSTATE.I bit.
+> 2. After the single-step exception is taken, in kgdb_single_step_handler(),
+>    disable the kernel's single-step mechanism and meticulously restore
+>    the original interrupt mask state from the saved PSTATE.
 
-On 24/09/25 17:13, Peng Fan wrote:
->> Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for
->> NXP i.MX95
-> ...
->>>>>         SCMI_CLOCK_CFG_OEM_START = 0x80,
->>>>> +     SCMI_CLOCK_CFG_IMX_SSC = 0x80,
->>>>
->>>> TI is also planning to implement the same in our upcoming platform.
->>>> so can we use a generic ID instead of vender specfic message ID?
->>>
->>> I tried to push to new generic ID [1] in half a year ago, but in the
->>> end ARM decided not to add generic ID for spread spectrum support.
->>>
->>> To i.MX, it is too late to use a generic ID and waiting spec, i.MX
->>> firmware has been public for quite some time and passed several
->> external releases.
->>> So I need to use what our firmware adds and spec allows: vendor
->>> extension.
->>
->> Thanks for the quick response,
->> Since this implementation is specific to i.MX, can you move this to a
->> vendor specific file, so that it will not break i.MX's firmware and TI can
->> implement SSC in TI specific file.
-> 
-> i.MX has encountered issue with pinctrl-scmi.c and pinctrl-imx-scmi.c
-> both supports SCMI PINCTRL. Current linux scmi does not support
-> both drivers built in kernel image, because scmi devlink issue.
-> 
-> Sudeep said he would address the devlink issue in 6.19 cycle.
-> 
-> Given the current situation, I'm hesitant to introduce a new driver
-> saying clk-imx-scmi.c.
-> 
-> What I'm unclear about is whether moving to a vendor-specific file
-> implies creating a new driver (i.e., clk-imx-scmi.c), or if it could be
-> handled via a callback or another mechanism. Could you help
-> clarify the intended direction?
+I don't think that works:
 
-My intended was to handle it via callback or something similar, so that 
-TI can its own callback for the TI's SSC implementation.
+* Anything which reads PSTATE/DAIF will see PSTATE.I set unexpectedly.
+  For example, that will break irqflag tracing, since
+  arch_irqs_disabled_flags() will return true in cases where it is
+  expected to return false.
 
+* That will break anything which sets PSTATE.I.
+  For example, if stepping local_irq_disable(), the initial DAIF value
+  might have DAIF.I clear. If that's restored *after*
+  local_irq_disable() has set DAIF.I, then restoring the original DAIF.I
+  value will erroneously unmask interrupts.
+
+More generally:
+
+* The DAIF.IF bits need to be handled atomically, for platforms where
+  FIQ is used.
+
+* Even if the DAIF.IF bits are set, It's still possible to take SError,
+  and potentially other exceptions in future (e.g. PMU, NMI). I don't
+  think we can only think about the DAIF.I or DAIF.IF bits.
+
+If we want to do something here, I think we'd need to enlighten the
+entry code with more comprehensive management of the singlestep state.
+I'm not too keen on coupling that with KGDB.
+
+> This guarantees the instruction is executed without interruption and the
+> debug exception is taken in the correct context.
 > 
-> Sudeep, Cristian
+> As a result of this new approach, the following cleanups are also made:
+> - The global `kgdb_single_step` flag is removed, as state is now precisely
+>   managed by `kgdb_cpu_doing_single_step` and the interrupt mask.
+> - The logic to disable single-step and manage the flag in the 'c'ontinue
+>   case is removed, as it is rendered redundant.
+> - The call to `kernel_rewind_single_step()` is unnecessary and is removed.
 > 
-> Would you please jump in and say something?
+> Tested on OrangePi 3B (RK3566) via serial console (kgdboc);
+> allows reliable single-stepping with GDB where it previously failed.
 > 
-> Thanks,
-> Peng.
+> Signed-off-by: Mengchen Li <mengchenli64@gmail.com>
+> ---
+>  arch/arm64/kernel/kgdb.c | 49 ++++++++++++++++++++----------------------------
+>  1 file changed, 20 insertions(+), 29 deletions(-)
 > 
->>
->>>
->>> [1]
->>>
->> https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2F
->> lore
->>> .kernel.org%2Farm-
->> scmi%2FZ8iKErarE0lHWxEy%40pluto%2F&data=05%7C02%7Cpe
->>>
->> ng.fan%40nxp.com%7C4bd4c6b93ff146fbfc4c08ddfb4c5ab5%7C686ea
->> 1d3bc2b4c6f
->>>
->> a92cd99c5c301635%7C0%7C0%7C638943027585856649%7CUnknow
->> n%7CTWFpbGZsb3d8
->>>
->> eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiI
->> sIkFOIjoiTW
->>>
->> FpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=zEREeXuiaC5wWS
->> C%2FUAIe6wfiTf
->>> MG5AEY5vZ7D4OEIGI%3D&reserved=0
->>>
->>> Regards,
->>> Peng.
->>
->> Thanks
->> Sebin
+> diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+> index 968324a..ee8a7e3 100644
+> --- a/arch/arm64/kernel/kgdb.c
+> +++ b/arch/arm64/kernel/kgdb.c
+> @@ -101,6 +101,8 @@ struct dbg_reg_def_t dbg_reg_def[DBG_MAX_REG_NUM] = {
+>  	{ "fpcr", 4, -1 },
+>  };
+>  
+> +static DEFINE_PER_CPU(unsigned int, kgdb_pstate);
+> +
+>  char *dbg_get_reg(int regno, void *mem, struct pt_regs *regs)
+>  {
+>  	if (regno >= DBG_MAX_REG_NUM || regno < 0)
+> @@ -128,25 +130,15 @@ int dbg_set_reg(int regno, void *mem, struct pt_regs *regs)
+>  void
+>  sleeping_thread_to_gdb_regs(unsigned long *gdb_regs, struct task_struct *task)
+>  {
+> -	struct cpu_context *cpu_context = &task->thread.cpu_context;
+> +	struct pt_regs *thread_regs;
+>  
+>  	/* Initialize to zero */
+>  	memset((char *)gdb_regs, 0, NUMREGBYTES);
+>  
+> -	gdb_regs[19] = cpu_context->x19;
+> -	gdb_regs[20] = cpu_context->x20;
+> -	gdb_regs[21] = cpu_context->x21;
+> -	gdb_regs[22] = cpu_context->x22;
+> -	gdb_regs[23] = cpu_context->x23;
+> -	gdb_regs[24] = cpu_context->x24;
+> -	gdb_regs[25] = cpu_context->x25;
+> -	gdb_regs[26] = cpu_context->x26;
+> -	gdb_regs[27] = cpu_context->x27;
+> -	gdb_regs[28] = cpu_context->x28;
+> -	gdb_regs[29] = cpu_context->fp;
+> -
+> -	gdb_regs[31] = cpu_context->sp;
+> -	gdb_regs[32] = cpu_context->pc;
+> +	thread_regs = task_pt_regs(task);
+> +	memcpy((void *)gdb_regs, (void *)thread_regs->regs, GP_REG_BYTES);
+> +	/* Special case for PSTATE */
+> +	dbg_get_reg(33, gdb_regs + GP_REG_BYTES, thread_regs);
+>  }
+
+The commit message doesn't explain anything about the behaviour for
+sleeping threads, so it's not clear why this is changed at all.
+
+The task_pt_regs() helper returns a pointer to the pt_regs for the
+*userspace* context of a task. That doesn't represent the kernel
+context, and that's meaningless for kthreads without a userspace
+context.
+
+Regardless of anything else, this is definitely wrong. It is at best
+pointless.
+
+[...]
+
+> +		/* mask interrupts while single stepping */
+> +		__this_cpu_write(kgdb_pstate, linux_regs->pstate);
+> +		linux_regs->pstate |= (1 << 7);
+
+As a general note, please don't open-code bit shifts like this.
+
+IIUC this is PSR_I_BIT.
+
+Mark.
 
