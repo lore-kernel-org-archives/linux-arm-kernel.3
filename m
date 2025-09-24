@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BBBCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AB3CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSdDHuNTbBGSV0Dxkyi9JWjhRYgamGr39a/WPf5G4Ms=; b=HFdTC6K0MDwYkpoMOg5gEm57wX
-	nscgxOGnnxg4KKR1LGHDpTW3hdH6/AwookSLQEtskANF6GKyTToSDbo0kDmPIvbD+ghkq4tiGgeAo
-	or4Aq79AHmCdgyapIkvCHr0XFMERxsIxftfzvHI5qK0ClDTzlfqDYRDqQcPa3t3Dvp9TwDKBkEANt
-	La2DeF1021FIsqPf42/xVnc6NBmU3ASDwgY+1t5bcMCU09ln8yQDgkjSb1HCaLZpNRQb7Dtsem8fu
-	35BBN9F82sMuLTpgvagBk6K7VtucBtbF0JfO2kUT98vrdyOYcMBvvhUcdFe90G29I7xEHapq3Bljz
-	WD2mzUYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AjCeAO14p3zmD9+iEqpOsVWSf1uUTsFnLPszehJC8mM=; b=X7yyprw/kYqf/Ssero4bn5/qtj
+	nvdwznugJace9QKGRtof5iE7VEtDPSTeO0/mBPL5f66BHXl1FxWGpe1Qp5Py4Rsv+EJYWmuxAtZBn
+	jypY9RYH1Skal8KLuQ9vi3brqO4ZXwhggBUrc066vEwoldhFvMFo1rmVlO9k0g0TbrlD3lqe+iQXP
+	7Q4x8c2ZO/5uCvVhsjRPlcQq3rlkvITka3mnz0VLxSVF5rCAyDHMZYWlT7zVISSDWKnEXbM8XaQZ2
+	opVs5x8cX+cT0VmkD8KRvrFJaEgJCT2z7TMGL6I6Oj/0EM7sHfcK7E2CsTD2lg2t5WWUGd5UNW+co
+	znAZwelQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Ll1-0000000G2By-1vrG;
-	Wed, 24 Sep 2025 09:25:51 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1v1Luz-0000000G5tb-2a3r;
+	Wed, 24 Sep 2025 09:36:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Lkx-0000000G2Aq-3aWo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 09:25:49 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58O9PXRa1670036;
-	Wed, 24 Sep 2025 04:25:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758705933;
-	bh=iSdDHuNTbBGSV0Dxkyi9JWjhRYgamGr39a/WPf5G4Ms=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BsH8sE9oRTYt0VY8L6tl0yYe7pp3QSlwbFtl+TGPOcosWaqHsYbIJW3HCMYZHkHTu
-	 7lMqkGrN1g6k9BFbjZLj6NoJQlxUerf/deYgqAyEGswaptTc5UEjeyOV7wkRbyYMO0
-	 KplMgOrJ6oEGOUgyLGoTfYQ4kgRgwBLpxyLVGFyU=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58O9PWva2336456
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 24 Sep 2025 04:25:32 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 24
- Sep 2025 04:25:32 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 24 Sep 2025 04:25:32 -0500
-Received: from [172.24.233.14] (shark.dhcp.ti.com [172.24.233.14])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58O9PRpR1784191;
-	Wed, 24 Sep 2025 04:25:28 -0500
-Message-ID: <082735e7-956b-4574-952e-06ba69db41f1@ti.com>
-Date: Wed, 24 Sep 2025 14:55:26 +0530
+	id 1v1Luv-0000000G5r2-32iD;
+	Wed, 24 Sep 2025 09:36:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 62A8B43B27;
+	Wed, 24 Sep 2025 09:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551F0C116B1;
+	Wed, 24 Sep 2025 09:34:55 +0000 (UTC)
+Date: Wed, 24 Sep 2025 10:34:42 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
+	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
+	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+	surenb@google.com, hughd@google.com, willy@infradead.org,
+	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+	apopple@nvidia.com, qun-wei.lin@mediatek.com,
+	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+Message-ID: <aNO7MrQt9oPT8Hic@arm.com>
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com>
+ <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com>
+ <aNLHexcNI53HQ46A@arm.com>
+ <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
+ <aNOwuKmbAaMaEMb7@arm.com>
+ <17dabd83-0849-44c9-b4a2-196af60d9676@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
-To: Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Marco Felsch
-	<m.felsch@pengutronix.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Brian Masney
-	<bmasney@redhat.com>
-CC: Dan Carpenter <dan.carpenter@linaro.org>,
-        Geert Uytterhoeven
-	<geert@linux-m68k.org>,
-        "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "arm-scmi@vger.kernel.org"
-	<arm-scmi@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
- <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
- <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
- <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Sebin Francis <sebin.francis@ti.com>
-In-Reply-To: <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <17dabd83-0849-44c9-b4a2-196af60d9676@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_022548_055520_EF39DF48 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250924_023605_778998_E94E8880 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On Wed, Sep 24, 2025 at 11:13:18AM +0200, David Hildenbrand wrote:
+> On 24.09.25 10:50, Catalin Marinas wrote:
+> > On Wed, Sep 24, 2025 at 10:49:27AM +0800, Lance Yang wrote:
+> > > On 2025/9/24 00:14, Catalin Marinas wrote:
+> > > > So alternative patch that also fixes the deferred struct page init (on
+> > > > the assumptions that the zero page is always mapped as pte_special():
+> > > 
+> > > I can confirm that this alternative patch also works correctly; my tests
+> > > for MTE all pass ;)
+> > 
+> > Thanks Lance for testing. I'll post one of the variants today.
+> > 
+> > > This looks like a better fix since it solves the boot hang issue too.
+> > 
+> > In principle, yes, until I tracked down why I changed it in the first
+> > place - 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to
+> > the zero page"). ptrace() can read tags from PROT_MTE mappings and we
+> > want to allow reading zeroes as well if the page points to the zero
+> > page. Not flagging the page as PG_mte_tagged caused issues.
+> > 
+> > I can change the logic in the ptrace() code, I just need to figure out
+> > what happens to the huge zero page. Ideally we should treat both in the
+> > same way but, AFAICT, we don't use pmd_mkspecial() on the huge zero
+> > page, so it gets flagged with PG_mte_tagged.
+> 
+> I changed that recently :) The huge zero folio will now always have
+> pmd_special() set.
 
-On 23/09/25 17:27, Peng Fan wrote:
-> Hi Sebin,
-> 
->> Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for
->> NXP i.MX95
->>
->>> --- a/include/linux/scmi_protocol.h
->>> +++ b/include/linux/scmi_protocol.h
->>> @@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
->>>        SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
->>>        SCMI_CLOCK_CFG_PHASE,
->>>        SCMI_CLOCK_CFG_OEM_START = 0x80,
->>> +     SCMI_CLOCK_CFG_IMX_SSC = 0x80,
->>
->> TI is also planning to implement the same in our upcoming platform. so
->> can we use a generic ID instead of vender specfic message ID?
-> 
-> I tried to push to new generic ID [1] in half a year ago, but in the end ARM
-> decided not to add generic ID for spread spectrum support.
-> 
-> To i.MX, it is too late to use a generic ID and waiting spec, i.MX firmware
-> has been public for quite some time and passed several external releases.
-> So I need to use what our firmware adds and spec allows: vendor
-> extension.
+Oh, which commit was this? It means that we can end up with
+uninitialised tags if we have a PROT_MTE huge zero page since
+set_pmd_at/set_pte_at() skips mte_sync_tags().
 
-Thanks for the quick response,
-Since this implementation is specific to i.MX, can you move this to a 
-vendor specific file, so that it will not break i.MX's firmware and TI 
-can implement SSC in TI specific file.
-
-> 
-> [1] https://lore.kernel.org/arm-scmi/Z8iKErarE0lHWxEy@pluto/
-> 
-> Regards,
-> Peng.
-
-Thanks
-Sebin
+-- 
+Catalin
 
