@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E95CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274D0CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 16:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=11PTYK92XaqtXMDL1CnKa9shaJapea9ldZ9H+9FuvHs=; b=EjnDWWRasuvvnuguFOLF9q1Ncw
-	1C8i4a70NJzELe19yrAQqjFlF2oR5FPl5GpuYtGFwhLf6xIpylK4uN2utY0piX6YEvjQP3JhBuyTV
-	89xDHS0+JV7RfgrIx90LcoSgijaow9Q+htrCpOmPydsMZCeWirYG0DjX7Jb37nvP6VEBp2e3aX9bO
-	+Kirr3OPnZJDOZwtsnFucypB8sAedW36LIe4V0XDDuaGdjw9Dl/ljTdM3bXkDjBOVLT7gegBqZyFJ
-	YOlQEyj7wYHxWoU9qeUHMzqEyenYROorpVn5NbduWt8B39y3X4xtJGeGApgdpj9rA89oW2V8RspnK
-	DIMwbhaw==;
+	bh=ev7vkWWpgToc+FdEfELBXoQMv9UDNDNXzmnZ7+y7N2U=; b=KAGtLvjPgTIRiYans/z3J5un1H
+	nHHHBEmKefGvis6O16SudggzXqoZVJ/9nyTYtA41fscH6dh+hMDP1bNdjwNsPnbZ5OG21m2+ocQA0
+	U38b10kgyPxMNzTw/010i4KIfx3dnhdPm55Sf8onnTQ3vbrXaL3vIqfX43279xxwxQqb20GuHJ/kV
+	Pn0XEz6oI0XUjhTsap9PlZSSJNclWW4hIBCt9Gc+JZqVyGa/U30Cd3NQa7SRgKdyT4vYX6yzCF8oT
+	vC/zf6eigaSBiZwcFjTBHeFDZlbmeQGfTqaXaweFqK3C1n44hJ6lvKyzQ72XVByiwwc/MCThvBmHU
+	bviiTMuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1S4F-00000001a7T-2g3R;
-	Wed, 24 Sep 2025 16:10:07 +0000
+	id 1v1S4N-00000001aBA-27NH;
+	Wed, 24 Sep 2025 16:10:15 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1S4E-00000001a6y-2888
+	id 1v1S4G-00000001a7u-1z74
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 16:10:06 +0000
+	Wed, 24 Sep 2025 16:10:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E198260202;
+	by tor.source.kernel.org (Postfix) with ESMTP id E2C116020E;
+	Wed, 24 Sep 2025 16:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CB13C4CEF4;
 	Wed, 24 Sep 2025 16:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62172C4CEE7;
-	Wed, 24 Sep 2025 16:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758730205;
-	bh=oZMitb7M22Ej6GRU2hUfNuXfDkljVEWaa1LZL7XbmAs=;
+	s=k20201202; t=1758730207;
+	bh=m73kcVysURDl6GXQPRTNE13OfbCK3ha4T2Z9R0aQT0w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ig6xByBEBw/6LKeaCNF8IllhULFNjthYcNuED5Mu9YT+mpc6F/iF8noUoy+TfAEXa
-	 k/oJX9OqDwIDjzx6l7gVvtq9g4iK7vuWLtgOsgh5eM6Uv8gl5sgC1cXH93D6OR23F3
-	 iQLp+z/JOLRiZOt51PUz+pM9Tb0jHajco2oY3hOOp+p3/ISoGPeJKcGgAkn80ZLPG4
-	 EXSjh64SQlRwwmpNYTQU880gymK4JSHEtgeGz63bMzbFJH4Vb3iDca7WjniBYL5dpX
-	 if9a609uJvcOR+q976D34VLr9M9zdiLE+bC2qBcaXDBhJIGRAvn/Tcw6jTwpI7qMxh
-	 epNhwte9caNOA==
+	b=KgH4HDO5JWOt+xsLlEt99a/nF2CGleqbKiPNKAgj447l00w3BeLL7y+DhRVxyZHVz
+	 VUSHt8he7/R9+ksWXMVa3RBwTLLc2vY7Xa7bc648y7WlCT7rKmMgRxHI15EzZuRZmx
+	 4NY6LuJ8VTBpTBEy8yNCeIoB8KEkV9iL3EPFDtL4qqZrhFsJRBw12fRuIAitOHfbOk
+	 87zYFVuoR3Dzb2RHaXkNdSVAZzlf0Q65BfECk4+CR3Ifo8aUvhL4WCMQ1jiCHUH4b8
+	 8LM2RIkdXZdWUMeAC0yjV38+e9AICAlKRaqmCXkmBgwJtcOlO+cvGa+AIe5c/3uQ9+
+	 fKImi/JcxUMDA==
 From: Will Deacon <will@kernel.org>
-To: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	dan.carpenter@linaro.org,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: catalin.marinas@arm.com,
+	Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf/dwc_pcie: Fix use of uninitialized variable
-Date: Wed, 24 Sep 2025 17:09:56 +0100
-Message-Id: <175871240090.2379729.10967323290224502441.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Abaci Robot <abaci@linux.alibaba.com>
+Subject: Re: [PATCH -next] arm64: cpufeature: Remove duplicate asm/mmu.h header
+Date: Wed, 24 Sep 2025 17:09:57 +0100
+Message-Id: <175872868780.2472667.3542607606720611909.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250923213136.8107-1-ilkka@os.amperecomputing.com>
-References: <20250923213136.8107-1-ilkka@os.amperecomputing.com>
+In-Reply-To: <20250923035023.3166679-1-jiapeng.chong@linux.alibaba.com>
+References: <20250923035023.3166679-1-jiapeng.chong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,15 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Sep 2025 14:31:36 -0700, Ilkka Koskinen wrote:
-> Fix use of uninitialized variable in group validation code.
+On Tue, 23 Sep 2025 11:50:23 +0800, Jiapeng Chong wrote:
+> ./arch/arm64/kernel/cpufeature.c: asm/mmu.h is included more than once.
 > 
 > 
 
-Applied to will (for-next/perf), thanks!
+Applied to arm64 (for-next/core), thanks!
 
-[1/1] perf/dwc_pcie: Fix use of uninitialized variable
-      https://git.kernel.org/will/c/2084660ad288
+[1/1] arm64: cpufeature: Remove duplicate asm/mmu.h header
+      https://git.kernel.org/arm64/c/ea0b39168d3a
+
+Note that I dropped the Closes: tag because the bugzilla link was giving
+me a 500 internal server error.
 
 Cheers,
 -- 
