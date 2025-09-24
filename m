@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5E2CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 02:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE52FCAC59A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 03:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kwBC1H0nYoqKpSsKJjvGwQ7Iv6qkAYHRPiiQTfb8/N8=; b=soSACxjc9HHns0dljVaT2MokZQ
-	gLSH0f73DF9U6aBcDtf1v4GQeXbuCK67g1IFQjTsyKzfHrZCIGJYIWygVeK0n0yeDuAuhW3SisHAs
-	1X2wZIiongrBh0ZEgf0E/9KbWnWyk6QY9NWGBO4OKViyrs6B2jNqJXupYagpK+UJ7yH9NOW1pR70+
-	ubDxoJMOgu6UMLvKcOCn76Ue2GeXHvn54n91DWXF4qIdDqkgU1gabucpuq8/G47zYRKKZVt6aY4qu
-	R4E9Sd2mprmJyY1IXE8tlNdjk3BEpjc+JDfpBoIBuidT2Zyxu2kLMDggkUS5B1KDSuLZKbmPm10DO
-	7e7wDDqQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g+qDq5wTJI6x9EY39D0tJB9MH6r0WcMVdVhtkKarOt0=; b=3kX16kMfud5ofSZwjRGqssniWz
+	1ZXIvBVEll8xbE1/1yULNwUEOzat9Ab+asqGBTRRNdR2xK8nAvDAdQmke1n/p7ByA8j40LWASJ7lN
+	bZnGiszP9P7Kyp0aWN7TJDqbX5yhhJrULf2s6lpRHK4jETe/Arv1SqfT55Zym1jkhRZT8iR0ifW30
+	aqDOdZJL+qdho+rHH5QRLj6+KRKBLebgQqz4gw0YMUBAY9peyoV7I/y9Z0jZMgiBWwx5ptQVDLLk/
+	55fRmRPw7xg77J0IVK7MYfv1G/8NJIell5G/75k4ID+11e9nyXPr3f6fevKdZ/jnHYUg3XXiEUGC0
+	YxQ9OPPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Fd2-0000000FOZA-1ySY;
-	Wed, 24 Sep 2025 02:53:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v1Gay-0000000FTEq-0ADG;
+	Wed, 24 Sep 2025 03:55:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Fcz-0000000FOYV-1Itx
+	id 1v1Gas-0000000FTD8-2wdH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 02:53:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758682386;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kwBC1H0nYoqKpSsKJjvGwQ7Iv6qkAYHRPiiQTfb8/N8=;
-	b=hJuJa3/riBfjXceez9VDffOrivA7VGMkUPO0roomcoLGhQmUcdXoldjCn0xEdnXkyCIDKT
-	Ne4TgjBpRRVZSmIYn4Ybuz+nPPO9kVhf2xH/42vM1/UAxSO8TApug/IcALk6GZxQ2a9rbj
-	23JmbIH+UXJFfcGJsE3rfaW1kdPIGNo=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-399-szRC4v8vOP6TtW82YFL4KA-1; Tue,
- 23 Sep 2025 22:53:04 -0400
-X-MC-Unique: szRC4v8vOP6TtW82YFL4KA-1
-X-Mimecast-MFC-AGG-ID: szRC4v8vOP6TtW82YFL4KA_1758682383
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 852B41800451;
-	Wed, 24 Sep 2025 02:53:03 +0000 (UTC)
-Received: from [172.20.26.51] (unknown [10.30.44.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DBCB71800447;
-	Wed, 24 Sep 2025 02:53:01 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc7,
- upstream-arm-next, b785b087)
-Date: Wed, 24 Sep 2025 02:53:01 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Wed, 24 Sep 2025 03:55:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E38FFC007A9;
+	Wed, 24 Sep 2025 03:54:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D3384606B6;
+	Wed, 24 Sep 2025 03:54:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EF2FD102F1886;
+	Wed, 24 Sep 2025 05:54:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1758686096; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=g+qDq5wTJI6x9EY39D0tJB9MH6r0WcMVdVhtkKarOt0=;
+	b=GCN4JXvy5Jr2Cc5svIW5gg1tIvUpzdNR4vXL3iilzXOvA0IDaSnXsAipk852bsHFxPGIar
+	8xzEeaC3wRS7xz17WwtS9be1O0lZdzovwkekvueR4jPF20QzmTvDy5Eq7nR2JGLrRuKNSg
+	Ku8B522sIzaksIy3APEcrUHJ7wxRltQdFreb3Em9UPhhxCvlEUtSvVjcr+qiOZXaP+j8Yl
+	IAewYMc7DqVeRLKEno1S6nCb+rdumy5n1bjCodVN71F+Mm5tjr8DpQQfvqkUvJdnPQmJIq
+	y4ltufGnQ4H3zsCCGOJOSY/k69w417eWj3go6jOn9ibxoz7FxppNR2aVFDu9SA==
+Message-ID: <ff7432c4-27ce-45a1-ac4d-c18d612ef04d@bootlin.com>
+Date: Wed, 24 Sep 2025 09:23:55 +0530
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <27591.125092322530400221@us-mta-399.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7lq3AJaDNCvKzNf3x_mSf4MYOjJFayV4xvSSR9ZXp9g_1758682383
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v13 13/18] net: phy: marvell10g: Support SFP
+ through phy_port
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+References: <20250921160419.333427-1-maxime.chevallier@bootlin.com>
+ <20250921160419.333427-14-maxime.chevallier@bootlin.com>
+ <20250923182429.697b149b@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20250923182429.697b149b@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_195309_447168_32D2FDF5 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250923_205503_114957_DACABCDF 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +99,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
-
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
-
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2058181911
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+On 24/09/2025 06:54, Jakub Kicinski wrote:
+> On Sun, 21 Sep 2025 21:34:11 +0530 Maxime Chevallier wrote:
+>> +/**
+>> + * phy_port_restrict_mediums - Mask away some of the port's supported mediums
+>> + * @port: The port to act upon
+>> + * @mediums: A mask of mediums to support on the port
+>> + *
+>> + * This helper allows removing some mediums from a port's list of supported
+>> + * mediums, which occurs once we have enough information about the port to
+>> + * know its nature.
+>> + *
+>> + * Returns 0 if the change was donne correctly, a negative value otherwise.
+> 
+> kdoc likes colons after return so:
+> 
+>   Returns 0 -> Return: 0
+> 
+> sorry for only providing an automated nit pick..
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+It's OK, the series no longer applies with Russell's sfp_module_caps 
+series being here, so a new version is due anyway.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Russell, I missed this series of yours as I wasn't available at all at 
+that time, but as this phy_port series has been in the pipe for quite a 
+while, and you commented on the used of sfp_parse_support et.al. that 
+was being replaced, I'd have appreciated to be in CC :(
+
+Given my schedule, next iteration is probably going to be for the next 
+cycle anyway so no harm :)
+
+Thanks,
+
+Maxime
+
+> 
+>> + */
+>> +int phy_port_restrict_mediums(struct phy_port *port, unsigned long mediums)
 
 
