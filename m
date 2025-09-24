@@ -4,144 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56502CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F8FCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1HIBbNx+7IoAo0EgoqfpJZzI0d77yAdU5KcGNxih41g=; b=QkKCwcAXwYG4sErHzBWbnX4kAR
-	j3CmozX4cnhD5XQ6aEO0QEZUAfrFOlE1R3SrtwAsHePsGmm3rk243GfSAwV1i2ZWzjvzJ5/My6pwE
-	EJS792P1F36w2+2zZa6MeukHxON493tPGaZG+rXye3APuS5rfZDAQ+4Tcz8KTERVyyjFbbtZOPbUG
-	JZaiLIhF3jS6fwSHu/0Tnt9EnWnUoLiurGaIqqwRIO9lWfppu7ZfDL5PGuG06TA99xoj7QEr6pdy1
-	imvpXQ2e7zx0AjaE1BcNebEKtjGtIRyIK8PtGyeBQXZh8/lUirmZBfg2mKHpTzg12S0kx0B7trNfT
-	EsuL847w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GVeEbXZHLLVdgtkq3Rt5skmTBi/qzB86iEFJYe7MbOY=; b=hy9JYsF36Oviz+srPfImyjRO19
+	CJqR2tNFE+MCTYEzN4EKOrVLeJZP85Iiq4kzP9ofjxEutCgzqx0PoLabiMO9/IGTEYlH0UVkNe6Fm
+	Kv/bKEaFSkW5H3ys5YQg7UhxQOORadYkuMQCRgdE1MwapvT1mmCUpGjFVqTqvk/M9E0wyKZEA+HFg
+	oqQw7Ms+R15cW0Qczg0JlEe31zW4cw1nXjMyCl0ImrwbvrpnaoC4ao2CaFfcLwOgMdpJ82k7/pY60
+	gWINZmIhXkPqIp9ALw5N1QZb/4jd/WiLE9aKdtCzTw63Bxt7FdhCobVcZQdj10cPlq9FddBuuOTwe
+	d9lDPuIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1O9d-0000000H9zY-2tHB;
-	Wed, 24 Sep 2025 11:59:25 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1v1O9z-0000000HAEa-3szD;
+	Wed, 24 Sep 2025 11:59:47 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1O9W-0000000H9uC-2iId
+	id 1v1O9w-0000000HAAT-1r3b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 11:59:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QrVJ4+rGhuSO0wkENQVPYkSKFmcXrW1POB0NsZ2CSyP3eogVU4UXZ4X4icxqPoX/umFcvacLjFxA07UKOi+SADCTr6txsTynWRpIJsmY/CziVY1/3aTYNLvJEO28qGqP/w6N6TKU/nKRDMvBq+OJyRv14hMjiE9XhMEgdcmapZvBIaaYfhH6Ygf7gOih6yIdKQrsSaHRSYgxLX2n4rg6dAaizXKPz52tQvmGbCoUkhQr40/VPAPFAdifYPgmEsm6v+BkfTQULeL/S6K62ZiRgzF8ECpBtGBxsAHNBdaXWYAbkIhhDzgIw0OCqJ8eVhDlv6yyES0vCb+R4AmVtT2+Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1HIBbNx+7IoAo0EgoqfpJZzI0d77yAdU5KcGNxih41g=;
- b=BFl+Su9Y9FER7A1pn260N+2mAJGcJzgwRh07d+k0ItLiRbPyEA8NqcFcU9EPmQpM+F8w0k44QfcBHKvfFsfw12NJIW+eaax+6vLz4DtKz+AuxzmmyRtWTfmdaEYiW9Cc0ZwEqTLPpnWu0OPmlrDMtDh+dEYFNJrmmK7GdZSgHqiYtpIqqH8IvyJL/rMXzmHw7eLC4f5EM/g3nUgip5PkefQQi/j9Dn5R/9lOCtN1QPmaXKc3UcnjfcaNtko/TqQs7Lw74NlJttQipfUX0U32NHZuya68w2udJecYUKOjA8us4h6PbDTLkQVR4PWE+pY00VJoXYw+VWIs6m6OlAtbRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1HIBbNx+7IoAo0EgoqfpJZzI0d77yAdU5KcGNxih41g=;
- b=ihfii41X2+CQAuHnxnMHjRXV8xt3HCOduLzt2A4A1y5FhSgR2Q+6DhaknOMGlgun1LfTn7ptwV+/MJQTNliOOc7EV+KfmDRZ3ioATrqn+M+jGQxYkmP/4aX6LTz1OzewuVHd8iDEJ+mdiEHmyc5xLGhySpTTvlbZCaMISSiTtVNFzS1IXOnKVSUAQek+MO7VoTF8J4ptpEmwDSfnRy1ffErazYmkFRqfWNvs8OJbf8z9HnCRVny2tNR33FWjePxWpYnqxdWixn6JHwLzHUcITdiAfnNcm9SD/he4duHes6VZTfX2uNWyX8M2yg+UX+aTSSBY7uf3BwygEBQoviWGyw==
-Received: from DB7PR03CA0077.eurprd03.prod.outlook.com (2603:10a6:10:72::18)
- by FRWP195MB2886.EURP195.PROD.OUTLOOK.COM (2603:10a6:d10:187::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Wed, 24 Sep
- 2025 11:59:11 +0000
-Received: from DB1PEPF000509EB.eurprd03.prod.outlook.com
- (2603:10a6:10:72:cafe::ba) by DB7PR03CA0077.outlook.office365.com
- (2603:10a6:10:72::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.21 via Frontend Transport; Wed,
- 24 Sep 2025 11:59:11 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- DB1PEPF000509EB.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9160.9 via Frontend Transport; Wed, 24 Sep 2025 11:59:11 +0000
-Received: from [127.0.1.1] (172.25.39.168) by Postix.phytec.de (172.25.0.11)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 24 Sep
- 2025 13:59:09 +0200
-From: Yannic Moog <y.moog@phytec.de>
-Date: Wed, 24 Sep 2025 13:59:04 +0200
-Subject: [PATCH v2 1/3] arm64: dts: imx8mp pollux: add display overlays
+	Wed, 24 Sep 2025 11:59:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1758715184; x=1790251184;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=GVeEbXZHLLVdgtkq3Rt5skmTBi/qzB86iEFJYe7MbOY=;
+  b=JYX17GFJ/nrCmMemfao7zf+yrYc1YeDHWswf7Isie7W0HjZxrMB29MqC
+   I/2nyNmbGtvjjmN+0cH+x9tCKNRow8wmfxQT6xjWZQGsIm/NamFYr1URj
+   oBO2aYlAU06qlhSVtv+ajgFj9F7FGZ18cYQHrN31K33UWpqUv8M59+ZAv
+   HCKK380cdwolYsuUB1FJKIgrxah4QUtTp8EVKOgRsppPNq5Roumar1jIv
+   wZSroZVN79LparrPGgHXWzbay5eoYmlM9pnJvcKEnRibIva3Nz+bE73qE
+   Gx6mQm5jaccatGplxLiUXv13NpbDA8ATgMHo+MREIey1kUh6lXTtB3jCP
+   Q==;
+X-CSE-ConnectionGUID: SEZAPg5SSv+Xkd0I3Bz+rQ==
+X-CSE-MsgGUID: eazkGnp5TNGYZVKNdD1K2Q==
+X-IronPort-AV: E=Sophos;i="6.18,290,1751234400"; 
+   d="scan'208";a="46192635"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 24 Sep 2025 13:59:39 +0200
+X-CheckPoint: {68D3DD2B-5-690ADD0E-C022EA8D}
+X-MAIL-CPID: EA6A543783A22A079A34EFAE6113B43F_3
+X-Control-Analysis: str=0001.0A2D0325.68D3DD2B.0075,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2DAD11611D7;
+	Wed, 24 Sep 2025 13:59:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1758715174;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=GVeEbXZHLLVdgtkq3Rt5skmTBi/qzB86iEFJYe7MbOY=;
+	b=MiszbaIwL75n4NinMTq+BtlT448qY1P4vjFdNNNxGvnFo5VbY/XtEhFJx57K1X2drvQ8Wy
+	eFHuNGbe+zA4jYso57yNiZDcPKjj30UANNnydpV8lMLt57Qz+2EdIANvQtyZDigrVlQRP2
+	ThjtrAKGiMQhwQsXr6tTKoFhNeEKosH0CIqKc413ZDZQT3PRPlHH5KPEvWtCg7lyokJQMr
+	Aey54GL7SRvgoJW7b44SH158DUntQm3nCjEN3ztKX8uwwlMUPP9tRmr9yFey34nuOXa2wm
+	hRE4qUWIuBCM5kLf0QgnbQukWDG7pgJpaA8scFRKpdpXB/ChxnDRiWOQdBDXMQ==
+Message-ID: <e347ec137033975423c262bc4dce1132e1de04fe.camel@ew.tq-group.com>
+Subject: Re: [PATCH v6 1/2] arm64: entry: Skip single stepping into
+ interrupt handlers
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: mark.rutland@arm.com, daniel.thompson@linaro.org, dianders@chromium.org,
+  liwei391@huawei.com, mhiramat@kernel.org, maz@kernel.org, ardb@kernel.org,
+  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ will@kernel.org, catalin.marinas@arm.com, linux@ew.tq-group.com
+Date: Wed, 24 Sep 2025 13:59:32 +0200
+In-Reply-To: <20230202073148.657746-2-sumit.garg@linaro.org>
+References: <20230202073148.657746-1-sumit.garg@linaro.org>
+	 <20230202073148.657746-2-sumit.garg@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250924-imx8mp-pollux-display-overlays-v2-1-600f06b518b9@phytec.de>
-References: <20250924-imx8mp-pollux-display-overlays-v2-0-600f06b518b9@phytec.de>
-In-Reply-To: <20250924-imx8mp-pollux-display-overlays-v2-0-600f06b518b9@phytec.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<upstream@lists.phytec.de>, Yannic Moog <y.moog@phytec.de>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [172.25.39.168]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509EB:EE_|FRWP195MB2886:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67fe6120-2914-451f-f13c-08ddfb61c62a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SW8rTW1INnFTT1pzcGlWdUpFaHozMEdCM0R1Kzl0bk5mbzI1NndudStiMEF0?=
- =?utf-8?B?cDRydHY5T2QvN1VzU2hyYWkwOWltcXR1N1JGNisxVEtFMkRkTEZ0V0ZEcjF4?=
- =?utf-8?B?TnN2N1ozdjdmUG5WVXlteTFwMWxERVF6bkhJcTRiMHA4SGZ4eWFWVVkrT09v?=
- =?utf-8?B?dXU5aFhBRjAwVVQydzNuUFozZWVGREppMjJXWC9WdW9kR0hOOFhJWGo2N0JJ?=
- =?utf-8?B?YmNUTWNaYWNnOElnMXdob1BCVXpFYnNvNGxkR05kWER5YjFDSXR2cnNaeTBy?=
- =?utf-8?B?ZVVYWHpick9xbWZydHlZbWZBczlmNHNRZ0FxZ3YrREJONDVYVEtTalQ5VUM5?=
- =?utf-8?B?V1NYekRqTjlXVkxHdlppZEFnc3BaN0Y0Z2FLK2p1NFgra1N4UzhVYkNuWTlU?=
- =?utf-8?B?SWkvbHRaalFxQmRORVNTRC9SZTRzZ001ODhEWmRVbDRlRzBzNnE5M1YrQngr?=
- =?utf-8?B?eUQ4cE1ZMzlPL0FRc1B4VEFCaU1sbTNUeHhFWHFIbWcxbUQ0WGtISWM5T0ZZ?=
- =?utf-8?B?TncrQVpVSjhlWHhqemxSV0l6US9aaXR5VjBvZWRNd3l6RjNWT0xHTU9lQ1Rn?=
- =?utf-8?B?eUpjUjNZMFRQWXZhOWtOSmZWRzd5cmg2UkM4Vzl6cWliYnFPck14TnJNTXRw?=
- =?utf-8?B?dWpmOGp1MUdXVHRXL2JpM25WaGpQSzhwNDNpZXJVMzRPUGpTT3RXdzVwVGN5?=
- =?utf-8?B?R0d1R2NFeDROWjNmYThCaUptUktaQmVKdk5NODdmellxdkFqWVQyOXkrY1dh?=
- =?utf-8?B?NE1rUnZpZm9XQjB4NVhMcUJYeVJKSXVCeUdNVzNwTXpyMnE5eisvNTRPT2da?=
- =?utf-8?B?czV5enFZUHlyUkp0ZmxNWWVhVXB4OXpCY040TE9wVWZQc2pIQmxvek5pRFhy?=
- =?utf-8?B?MHlUMWpRcWIrNGRQdmoxdDAwUEcrdzNvWVlpREI2eVQ1ajBpMHByT1h1Unlo?=
- =?utf-8?B?RlM1anoyVHFCOGZLRWtHMXVVUEdGWnRZM2hPL2xmcVo3ZDJZd0hCZHVadUlE?=
- =?utf-8?B?Y1d0Q1drbHBaaGYwU1FGYU9kL3hDK09MUXV6c0dublZvWGJ0eEJsTVNrUVdV?=
- =?utf-8?B?YkREMzB3by8zYTB3cFk0dklneVBpemMxNGRwYVY0cnBGU25nR3gzakVxa2dG?=
- =?utf-8?B?MnZSMDloSm9pMEN5ejZNMkhNSENVUEtUcDBlOUk1bmszbnU0MXJJWEVJTUVs?=
- =?utf-8?B?UlRPQ3dZUU1BUjdnMVhwTlVraFZKTVFJVlBxcXRLM3NtcEdXcXhVTVdYK0gx?=
- =?utf-8?B?cGNLSkJRZ3pEVzROWGszS3lCTmVEMmVIYU1MdlliYU9GR0IxQithdFRRbm0y?=
- =?utf-8?B?TzB3T1lEaXFocnErb2ttZ0psRFY5amFZU2YydExvVWlaKzltUnpxNHhhd3Vy?=
- =?utf-8?B?MjRVNUltbGhtUXdIdWkzU3Ruc1R1dUV2L1pCOWF6OUxuVUVhV1lQbWlGY2Ev?=
- =?utf-8?B?YSsvZXpkRHg1NUxiaW1CNlFjSVRBcUtURDliZ2d1MTA3aWhvakdPU09jZ2Jp?=
- =?utf-8?B?Tm1XekhzY1VaQVRKZCtMSkc3M1RrMHJmM2FsYVdQU0k1YXZ6VlM4WSs1WnNI?=
- =?utf-8?B?bk9CQmN4T3J2UVlmNTdISWlQamNYREpVczk3bG1kcnAxQ210dTZRZmVQdkxR?=
- =?utf-8?B?UHhKc3dkRVB5Y2RvZnhZWEZxeEorNlBwblJSdVVGQmYxSDdDL3NnNDNsRUMz?=
- =?utf-8?B?U2NhR0lLSjJvQkRCZCtGTDU2a0R2SElSYWZ3V2VkcGJpcmlMYnRkNGNIVldN?=
- =?utf-8?B?eklXa1lNM2poL1gyOUNFWk9rSTV2Q2k4MlJjUWtEdTBsZGkvcUlmZndkeDRK?=
- =?utf-8?B?RGM0U0hoUnowSHRVZEdzWDNsU21EWFF4cm5XTFQyNXB1dDNjYjZrM1c1bmpo?=
- =?utf-8?B?Vk00d3pEYmFheHFTQ1VKRlJHS2E3WCtITlhHS0RITm1MWHQ3YjY3MGsrcllk?=
- =?utf-8?B?Z1ZNbGZOSkFyY0JHWFE5WElpNGZIRXJuWkV2TmRlVGJKTHUzc0llYU4zejYy?=
- =?utf-8?B?bkMvdXRHdTZWWGVWQWRVbzkzS05BSFdRMTV6T0pwR2g4dUQ0a3AwTkJDUWJ3?=
- =?utf-8?Q?Wzt4Wv?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 11:59:11.0861
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67fe6120-2914-451f-f13c-08ddfb61c62a
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509EB.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWP195MB2886
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_045918_859215_C296C39B 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250924_045944_832961_36DEAC31 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,243 +96,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx8mp-phyboard-pollux had a display baked into its board dts file.
-However this approach does not truly discribe the hardware and is not
-suitable when using different displays.
-Move display specific description into an overlay and add the successor
-display for the phyboard-pollux as an additional overlay.
+On Thu, 2023-02-02 at 13:01 +0530, Sumit Garg wrote:
+> Currently on systems where the timer interrupt (or any other
+> fast-at-human-scale periodic interrupt) is active then it is impossible
+> to step any code with interrupts unlocked because we will always end up
+> stepping into the timer interrupt instead of stepping the user code.
+>=20
+> The common user's goal while single stepping is that when they step then
+> the system will stop at PC+4 or PC+I for a branch that gets taken
+> relative to the instruction they are stepping. So, fix broken single step
+> implementation via skipping single stepping into interrupt handlers.
+>=20
+> The methodology is when we receive an interrupt from EL1, check if we
+> are single stepping (pstate.SS). If yes then we save MDSCR_EL1.SS and
+> clear the register bit if it was set. Then unmask only D and leave I set.
+> On return from the interrupt, set D and restore MDSCR_EL1.SS. Along with
+> this skip reschedule if we were stepping.
+>=20
+> Suggested-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Sumit Garg <sumit.garg@linaro.org>
+> Tested-by: Douglas Anderson <dianders@chromium.org>
+> Acked-by: Daniel Thompson <daniel.thompson@linaro.org>
+> Tested-by: Daniel Thompson <daniel.thompson@linaro.org>
 
-Signed-off-by: Yannic Moog <y.moog@phytec.de>
----
- arch/arm64/boot/dts/freescale/Makefile             |  6 +++
- .../imx8mp-phyboard-pollux-etml1010g3dra.dtso      | 44 ++++++++++++++++++
- .../imx8mp-phyboard-pollux-ph128800t006.dtso       | 45 ++++++++++++++++++
- .../dts/freescale/imx8mp-phyboard-pollux-rdk.dts   | 53 +++++-----------------
- 4 files changed, 107 insertions(+), 41 deletions(-)
+Hi Sumit,
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 23535ed47631ca8f9db65bec5c07b6a7a7e36525..805ab9e5942bc9e2b9776e92412f56e969b6b39a 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -218,7 +218,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-navqp.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-enc-carrier-board.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-nitrogen-smarc-universal-board.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk.dtb
-+imx8mp-phyboard-pollux-etml1010g3dra-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
-+	imx8mp-phyboard-pollux-etml1010g3dra.dtbo
-+imx8mp-phyboard-pollux-ph128800t006-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
-+	imx8mp-phyboard-pollux-ph128800t006.dtbo
- imx8mp-phyboard-pollux-rdk-no-eth-dtbs += imx8mp-phyboard-pollux-rdk.dtb imx8mp-phycore-no-eth.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-etml1010g3dra.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-ph128800t006.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk-no-eth.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-basic.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-etml1010g3dra.dtso b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-etml1010g3dra.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..9c14f7818fec807577f4774c0e48e9daf5014734
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-etml1010g3dra.dtso
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds1 {
-+	brightness-levels = <0 8 16 32 64 128 255>;
-+	default-brightness-level = <8>;
-+	enable-gpios = <&gpio2 20 GPIO_ACTIVE_LOW>;
-+	num-interpolated-steps = <2>;
-+	pwms = <&pwm3 0 50000 0>;
-+	status = "okay";
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>, <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/*
-+	 * The LVDS panel uses 72.4 MHz pixel clock, set IMX8MP_VIDEO_PLL1 to
-+	 * 72.4 * 7 = 506.8 MHz so the LDB serializer and LCDIFv3 scanout
-+	 * engine can reach accurate pixel clock of exactly 72.4 MHz.
-+	 */
-+	assigned-clock-rates = <0>, <506800000>;
-+	status = "okay";
-+};
-+
-+&panel_lvds1 {
-+	compatible = "edt,etml1010g3dra";
-+	status = "okay";
-+};
-+
-+&pwm3 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-ph128800t006.dtso b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-ph128800t006.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..0df34c50cce7df58322161f0a2f72eaddf2307a7
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-ph128800t006.dtso
-@@ -0,0 +1,45 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&backlight_lvds1 {
-+	brightness-levels = <0 8 16 32 64 128 255>;
-+	default-brightness-level = <8>;
-+	enable-gpios = <&gpio2 20 GPIO_ACTIVE_LOW>;
-+	num-interpolated-steps = <2>;
-+	pwms = <&pwm3 0 66667 0>;
-+	status = "okay";
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>, <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/*
-+	 * The LVDS panel uses 72.4 MHz pixel clock, set IMX8MP_VIDEO_PLL1 to
-+	 * 66.5 * 7 = 465.5 MHz so the LDB serializer and LCDIFv3 scanout
-+	 * engine can reach accurate pixel clock of exactly 66.5 MHz.
-+	 */
-+	assigned-clock-rates = <0>, <465500000>;
-+	status = "okay";
-+};
-+
-+
-+&panel_lvds1 {
-+	compatible = "powertip,ph128800t006-zhc01";
-+	status = "okay";
-+};
-+
-+&pwm3 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-index 436152308642270c320e3ae3b21b9e46b923c043..76a9ae34ba469cbc65648f588c63c4016119821e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-@@ -1,6 +1,6 @@
--// SPDX-License-Identifier: GPL-2.0
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright (C) 2020 PHYTEC Messtechnik GmbH
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-  * Author: Teresa Remmet <t.remmet@phytec.de>
-  */
- 
-@@ -8,7 +8,6 @@
- 
- #include <dt-bindings/phy/phy-imx8-pcie.h>
- #include <dt-bindings/leds/leds-pca9532.h>
--#include <dt-bindings/pwm/pwm.h>
- #include <dt-bindings/thermal/thermal.h>
- #include "imx8mp-phycore-som.dtsi"
- 
-@@ -21,16 +20,12 @@ chosen {
- 		stdout-path = &uart1;
- 	};
- 
--	backlight_lvds: backlight {
-+	backlight_lvds1: backlight1 {
- 		compatible = "pwm-backlight";
--		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_lvds1>;
--		brightness-levels = <0 4 8 16 32 64 128 255>;
--		default-brightness-level = <11>;
--		enable-gpios = <&gpio2 20 GPIO_ACTIVE_LOW>;
--		num-interpolated-steps = <2>;
-+		pinctrl-names = "default";
- 		power-supply = <&reg_lvds1_reg_en>;
--		pwms = <&pwm3 0 50000 0>;
-+		status = "disabled";
- 	};
- 
- 	fan0: fan {
-@@ -43,10 +38,11 @@ fan0: fan {
- 		#cooling-cells = <2>;
- 	};
- 
--	panel1_lvds: panel-lvds {
--		compatible = "edt,etml1010g3dra";
--		backlight = <&backlight_lvds>;
-+	panel_lvds1: panel-lvds1 {
-+		/* compatible panel in overlay */
-+		backlight = <&backlight_lvds1>;
- 		power-supply = <&reg_vcc_3v3_sw>;
-+		status = "disabled";
- 
- 		port {
- 			panel1_in: endpoint {
-@@ -232,32 +228,8 @@ led-3 {
- 	};
- };
- 
--&lcdif2 {
--	status = "okay";
--};
--
--&lvds_bridge {
--	status = "okay";
--
--	ports {
--		port@2 {
--			ldb_lvds_ch1: endpoint {
--				remote-endpoint = <&panel1_in>;
--			};
--		};
--	};
--};
--
--&media_blk_ctrl {
--	/*
--	 * The LVDS panel on this device uses 72.4 MHz pixel clock,
--	 * set IMX8MP_VIDEO_PLL1 to 72.4 * 7 = 506.8 MHz so the LDB
--	 * serializer and LCDIFv3 scanout engine can reach accurate
--	 * pixel clock of exactly 72.4 MHz.
--	 */
--	assigned-clock-rates = <500000000>, <200000000>,
--			       <0>, <0>, <500000000>,
--			       <506800000>;
-+&ldb_lvds_ch1 {
-+	remote-endpoint = <&panel1_in>;
- };
- 
- &snvs_pwrkey {
-@@ -282,9 +254,8 @@ &pcie {
- };
- 
- &pwm3 {
--	status = "okay";
--	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pwm3>;
-+	pinctrl-names = "default";
- };
- 
- &rv3028 {
+I was wondering what the status of this patch is. [1] sounds like there wer=
+e
+remaining concerns, but I'm not sure about the details.
 
--- 
-2.51.0
+The current state is very unsatisfactory, as I need to apply this patch eve=
+ry
+time I want to use KGDB on arm64. It is not only required for single-steppi=
+ng,
+but it also fixes 'continue' endlessly hitting the same breakpoint (until t=
+he
+breakpoint is deleted or disabled).
 
+Best,
+Matthias
+
+
+[1] https://lkml.org/lkml/2023/2/22/49
+
+> ---
+>  arch/arm64/kernel/entry-common.c | 22 ++++++++++++++++++++--
+>  1 file changed, 20 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-c=
+ommon.c
+> index cce1167199e3..568481f66977 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -231,11 +231,15 @@ DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_con=
+d_resched);
+>  #define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
+>  #endif
+> =20
+> -static void __sched arm64_preempt_schedule_irq(void)
+> +static void __sched arm64_preempt_schedule_irq(struct pt_regs *regs)
+>  {
+>  	if (!need_irq_preemption())
+>  		return;
+> =20
+> +	/* Don't reschedule in case we are single stepping */
+> +	if (regs->pstate & DBG_SPSR_SS)
+> +		return;
+> +
+>  	/*
+>  	 * Note: thread_info::preempt_count includes both thread_info::count
+>  	 * and thread_info::need_resched, and is not equivalent to
+> @@ -471,19 +475,33 @@ static __always_inline void __el1_irq(struct pt_reg=
+s *regs,
+>  	do_interrupt_handler(regs, handler);
+>  	irq_exit_rcu();
+> =20
+> -	arm64_preempt_schedule_irq();
+> +	arm64_preempt_schedule_irq(regs);
+> =20
+>  	exit_to_kernel_mode(regs);
+>  }
+> +
+>  static void noinstr el1_interrupt(struct pt_regs *regs,
+>  				  void (*handler)(struct pt_regs *))
+>  {
+> +	unsigned long mdscr;
+> +
+> +	/* Disable single stepping within interrupt handler */
+> +	if (regs->pstate & DBG_SPSR_SS) {
+> +		mdscr =3D read_sysreg(mdscr_el1);
+> +		write_sysreg(mdscr & ~DBG_MDSCR_SS, mdscr_el1);
+> +	}
+> +
+>  	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
+> =20
+>  	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && !interrupts_enabled(regs))
+>  		__el1_pnmi(regs, handler);
+>  	else
+>  		__el1_irq(regs, handler);
+> +
+> +	if (regs->pstate & DBG_SPSR_SS) {
+> +		write_sysreg(DAIF_PROCCTX_NOIRQ | PSR_D_BIT, daif);
+> +		write_sysreg(mdscr, mdscr_el1);
+> +	}
+>  }
+> =20
+>  asmlinkage void noinstr el1h_64_irq_handler(struct pt_regs *regs)
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
