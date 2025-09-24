@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEC8CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FE4CAC5B3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=; b=TQx/9e66W/TjYTp/pxfzMQPDhd
-	C96BBqjQ1+AxwM0zwPMr74UAvLGQwLjSpodHkb+3CbjSBy3ktfzih3Z5mqRjG+BzHwnsUBPBjWhK9
-	huG02S7IkQMAbtU6GwaP4GTzhoYvC0wYfz+2UWzZhAQjRy9ntezpmLDeb83Ww+y7jON5MdA8GfpeM
-	1Wm+2mXUmZMQX0DCU2tmB+obNw0J78MIw1Tt+ZjgF1qyic1AE0IrEw9QVE4wdgIQBSm64SS7cEb91
-	FVucBZ03mIiKWtjSJMsYnyyT6LVLvQh0snqyQjHgT2h3zQSv/PIp6vVds6MNPsY76ttob6DKyX3fA
-	LNzjqroQ==;
+	bh=hH7fDiyFIwd5GKCGsoTM7UQ+n2/6xvaN9QjJ2WXUyBY=; b=o0JkGKNodjVSrf52ggctA8DsxD
+	fzq2mxKojmVuRcbFmnWJjO7/o/x7EjfvXbf3NW3IfA4JhkxLRhpv2ggidkLXNmqV6X5QWq3ueBJOB
+	EBriGyUbC6RejuBLdpc5U5vtjDoDIrxslO17rFBIoHsZm2h8rkSrefsVd1HjX2ruHCq6TTAFgUUMs
+	rSj+FulaP5cO/1l5LtPX9zCF7ufuHKPeBFFj4d8tOukRTyIgPYZp5/LjOGolinZVZUEzliE2e2Zz4
+	TJ1BQdZ0wu7qpGn2Ndt3wbxNUjJMne7fj6rXPc3R81RHouegUGGkgtk7jv8W9lZyevuVzG9LcAuV0
+	aIU8zS0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1M3U-0000000GABH-1AZZ;
+	id 1v1M3U-0000000GACB-3cMM;
 	Wed, 24 Sep 2025 09:44:56 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1M3O-0000000GA4D-3FrR
+	id 1v1M3S-0000000GA8r-04kV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 09:44:51 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3ece0e4c5faso7376626f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 02:44:50 -0700 (PDT)
+	Wed, 24 Sep 2025 09:44:55 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-45cb5e5e71eso41203645e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 02:44:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758707089; x=1759311889; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1758707092; x=1759311892; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=;
-        b=j0GaORW6P4WHmh7RDgbqQb9LM+29GVqndcCRzEQcx8+6KCvehtqPdup2m+HEzayxyy
-         aMnVEM0rYOJBi+SdWsmSpyWVtOkVlgHJ2woYPSdzOvIcpLmxx5LYSvlvhBX4hGPnEDAM
-         SVNktRXGOKRDj7nTK97tgpF3fdGGKZX6GhgwHZMqGzC6VuxruBqw3Kq8mk4/fg5zFJvC
-         gZs0vcpUfmL6YQdecUYxtCnMLxkUamxX1nK+lCmWLMT5N4RWfUS30+u3q1iQoCt32TaH
-         mY8j9UNicyEGNzLhBDy2EiD6PvFB2WVDVNhe+V5CWwKOfMKv3ya5axiqW9OLIFcQi0mH
-         zAxA==
+        bh=hH7fDiyFIwd5GKCGsoTM7UQ+n2/6xvaN9QjJ2WXUyBY=;
+        b=b95QMQzL/UuzKMnHtWnTNPG7iP49hfuNZW2Of0HNbOqYLqThX+Nmskhf08Ga4So6c+
+         b/fE0XzTeF5VTihDtEgmMSgfuHlt+pwDLLtjQYIJVq/L24VU88EvupwzsqcdMO36iVCb
+         3Mw9HatUinQVwr0TIhLPgmJyLc5iDGRzZETcIgY144oEJayy9i0HkMKXANKKpDJhMg86
+         Xh8H8ERDcKCAVJcCSmBujYLQwlrR+ONrgmiY49gVJwl4kJnt2YhdI2Bk4M2ydT4aP+JB
+         G5WMdoW+rpbdqxPxuA/Ro5GhR1XX7du5QLJjMq9ESI+AVnZscZ36olPqkc/ZWEXpDVQB
+         odhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758707089; x=1759311889;
+        d=1e100.net; s=20230601; t=1758707092; x=1759311892;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8htGACZZYE1dIEbtDAUA+3P97IrmED7ZD9WcIPqTfx4=;
-        b=EczY3/SsXftAXMK1uDvviUEP401zaqGjzbhAmQ9QrrUuPdic3s8T6a8+D5RPaH7PLa
-         VuRftX+LGjtzUXeBiCNz5vJ9bvHEWP2fpsmcU7svLGGH42af6ikEz1c1aRf88pG6l0yV
-         m7RIjxBa53XL/Ucg5NiWAKI9Eelz1tokk9PDNZz3MmlceFJe9VTpRurm7faAN41tSZo9
-         LSdl82+ElyaddS1xR9n1zcNem88gldKixDLEPkWGjUznfb4u4MxDNSPcwGHSsAiZFQ1f
-         RdLU7k2AUvnvnPvl+0apB/lMmcmvunGxXGbSJ7vGvq67LRL/xmj+XBwIbP+h7CuGlG/b
-         vwCw==
-X-Forwarded-Encrypted: i=1; AJvYcCWre24N8xUfiALIV+FyyvaZf1D/tHpQehyueDFbJEV4s6NHhsHCmd9BCgfFqiownFHMqFv/2WhL09G2QYYKuUSD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZp4V/nXprEgMSqXvEB20zM6lmKaMNgRAgNvUh44yfp1rLwpIF
-	8rTq/vAd/DcASx2rmzKb2sah7MR5rSqXreCHYE/z/8Ng7NRTRtlqDGYx
-X-Gm-Gg: ASbGncs0HXJO5XbUBQDj67jUS0a0hJ3++JAPFhTg/EtXWyX+PZBflg1L0xB6q+41agS
-	4d4tAYjBVgT+LLxLE4XnZahkN0uvxOK/AqgYlFmpaM9Fw4aYBEN3LPSKAxWjEl6DfK1I3XoTXCp
-	49di1GLqym9y9cn2LSiTVK9zrrDdMHlZIELYppM2F4TfNOdzpntI1s418FZVqrYbLtXz63kZ2Ce
-	UVtzdOM9KHEvXaN+IL7r2vhJnRFFCFm8dWb9zCD04eCqOLn1J5v2hN4ITxbbp9Lcg4s9C75zV3I
-	4h1GJ+BbgQX4bb3gVx4vcqGKdFbNe1XlgOO5dEWbyay48j7HagLRMAsbLWjyk5UWbb/lnPUp1Mv
-	SQcQ/yxeOKGHqghHush3ebxstPSYTzDJgBmxaLApxsSSx9x0sjl+tu6jCyMGSkLSzq+YscjgfRf
-	GnfvyVziSVMevlxw==
-X-Google-Smtp-Source: AGHT+IFDGC5gILr6xmz9HYWmbPGf7fv1JpRWluY5ULikXOKvBqLdmUKtTk3mYXekw57q/HwxxJNkVQ==
-X-Received: by 2002:a05:6000:186c:b0:3f0:9bf0:a369 with SMTP id ffacd0b85a97d-405c6d1024dmr5131775f8f.14.1758707088783;
-        Wed, 24 Sep 2025 02:44:48 -0700 (PDT)
+        bh=hH7fDiyFIwd5GKCGsoTM7UQ+n2/6xvaN9QjJ2WXUyBY=;
+        b=G5S66BMBauI7+sO8te7uRmupwcHRY2axJ09GS9dlwSe2L3wyxeBd/tefwutIM5ldgU
+         TGFcc5YJ2vekCFcGjpAi2OaCoeXYq5JkDs+7x8FSnAbhJZ4kf+ooH50tJMEH70FSawgn
+         Fx4DcpjeU1gOL2xCr9xHxIF3v+P3UR5o4DNz6qtDUJgJ9zqGrPM27nRQCePioNpNs2yg
+         3icMI/e6yyKQJWmIh7BGGEd9Ib0u0EF0pzSR/Q7SQvayRZYZGvrxlaFbizyvkSSMeI36
+         cP6RWRM7MN8/jktTfqbonMQDCvPk2eniOcKD2JvH3CCqGmzZlTLAJM4uSV7PO7X2w/Zu
+         RQxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX250eSMdrlkLw9iedgIh97/xIDims9qg7I9dRedwYq7G0Mzx8ypucNyPkk3D8Cil5Y+gbkJdqdfXe/TuCuHDRU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwALe/fN4D9O42kKZajTF8HSj9MsoWRBCntAXRQ7ljd5jaUgx4z
+	rDjpo1B96n3ZjPSk3oGGF7H0KKj6h+ngdnfR6TTYKMPfNJIDUpclSwk8
+X-Gm-Gg: ASbGnctPjONc+xWCBUYQjMD5ZNBSihuTnowqWjHJBfENYKmRfAkFmdZj6y4wb8jMUWC
+	VpRDp3YC1hsEWoOShdPnjsCplVuSSEk7+K8DzCJG2CL7ipJ8vps9bj7/vcRmdfYRCd14XzXSMcT
+	wlk5DnxrerfVb37M3v8gFocpMzzljAqFC1CLwojIexLP67EzS8INYk4DjVyr/4e/gTAXByot96D
+	f5XmcbZFlNnjE8DNcjtLlAIriepWa97GBQdc/vW7FMggQofVOsaEl5iXWyOogOGqTqwdn9hpMKk
+	bkKD/LpDHsYW//lYuH8mRhCr5YVAWNZR2WP/ED5HQcSNbcHUYtv3c8rHtqEeUbtggme4yox03zN
+	E+sWxPWjuJ+7EisTRG1XiHI0yaKy2TeZDTS7U+2gT46ElnAVEEFyX53dHBdpLOvYW3b53bRSso8
+	FdtIf6batkwHaD3UXmQxR9u+kv
+X-Google-Smtp-Source: AGHT+IEIpicMOfP08Ui6PtoUDCNZ6++RjL5ZW9INST6VLjpDrbiX7bE7tvizzZ3gSwxM8E2g4eP1TA==
+X-Received: by 2002:a05:600c:1914:b0:45b:8adf:cf2b with SMTP id 5b1f17b1804b1-46e1dab512bmr50452905e9.21.1758707091986;
+        Wed, 24 Sep 2025 02:44:51 -0700 (PDT)
 Received: from localhost (2a02-8440-7503-805b-0076-f865-8f03-23d3.rev.sfr.net. [2a02:8440:7503:805b:76:f865:8f03:23d3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee141e9cf7sm27213765f8f.12.2025.09.24.02.44.48
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee07407cffsm27184233f8f.16.2025.09.24.02.44.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 02:44:48 -0700 (PDT)
+        Wed, 24 Sep 2025 02:44:51 -0700 (PDT)
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-Date: Wed, 24 Sep 2025 11:44:42 +0200
-Subject: [PATCH v8 1/3] dt-bindings: stm32: stm32mp25: add
- `#access-controller-cells` property
+Date: Wed, 24 Sep 2025 11:44:44 +0200
+Subject: [PATCH v8 3/3] arm64: dts: st: set RCC as an access-controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250924-b4-rcc-upstream-v8-1-b32d46f71a38@gmail.com>
+Message-Id: <20250924-b4-rcc-upstream-v8-3-b32d46f71a38@gmail.com>
 References: <20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com>
 In-Reply-To: <20250924-b4-rcc-upstream-v8-0-b32d46f71a38@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -94,8 +93,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
 X-Mailer: b4 0.15-dev-0dae4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_024450_835255_E4B5161A 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250924_024454_081434_06F768F8 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +111,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Clément Le Goffic <clement.legoffic@foss.st.com>
 
-RCC is able to check the availability of a clock.
-Allow to query the RCC with a firewall ID.
+RCC now implements firewall access ops to check the access to
+resources. Allow client nodes to query the RCC with one firewall ID.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
 ---
- Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 1 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-index 88e52f10d1ec..4d471e3d89bc 100644
---- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-@@ -31,6 +31,11 @@ properties:
-   '#reset-cells':
-     const: 1
- 
-+  '#access-controller-cells':
-+    const: 1
-+    description:
-+      Contains the firewall ID associated to the peripheral.
-+
-   clocks:
-     items:
-       - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
-@@ -123,6 +128,7 @@ required:
-   - reg
-   - '#clock-cells'
-   - '#reset-cells'
-+  - '#access-controller-cells'
-   - clocks
- 
- additionalProperties: false
-@@ -136,6 +142,7 @@ examples:
-         reg = <0x44200000 0x10000>;
-         #clock-cells = <1>;
-         #reset-cells = <1>;
-+        #access-controller-cells = <1>;
-         clocks =  <&scmi_clk CK_SCMI_HSE>,
-                   <&scmi_clk CK_SCMI_HSI>,
-                   <&scmi_clk CK_SCMI_MSI>,
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index 75697acd1345..8c0dea2796a4 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -776,6 +776,7 @@ rcc: clock-controller@44200000 {
+ 			reg = <0x44200000 0x10000>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
++			#access-controller-cells = <1>;
+ 			clocks = <&scmi_clk CK_SCMI_HSE>,
+ 				<&scmi_clk CK_SCMI_HSI>,
+ 				<&scmi_clk CK_SCMI_MSI>,
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 303abf915b8e..fbedf23def52 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -1677,6 +1677,7 @@ rcc: clock-controller@44200000 {
+ 			reg = <0x44200000 0x10000>;
+ 			#clock-cells = <1>;
+ 			#reset-cells = <1>;
++			#access-controller-cells = <1>;
+ 			clocks = <&scmi_clk CK_SCMI_HSE>,
+ 				<&scmi_clk CK_SCMI_HSI>,
+ 				<&scmi_clk CK_SCMI_MSI>,
 
 -- 
 2.43.0
