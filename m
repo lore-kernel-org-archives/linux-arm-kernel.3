@@ -4,102 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5277CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3D6CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 09:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JMA8T+uuXjDczkBULvG8lVF0HvEKkx+ujrke72mc0TA=; b=e3bD3GO2eqOC5xfkN9ECZvtAqC
-	wSkD/sRxFUs+LtVEW9OONARkCby0BtiE2uiKy9jTm6GsNeonwtq/WXhsIS6o0f+fedWfXhrf3KZgj
-	Ylo0VBiE9w6AEXj0j2yudj4YtqI9htluGpjQo9+actBvDxR76uY3sEpEKOyKPSTBPPhZS3zudP1iI
-	IYNBIRFoYt6XfXQT1fZjkWaJe+G3s8pb+YwvwLhVd83IH79X7CdTO3QtMfyADTHJFy8lPikRikEjq
-	o+pOz4squfJ7/38qUoeQZR/jpGtQOrtPohNdA0NxF5Mop/P2QJ8sMKH5Z0JRttA/wNW6wAjx/2zsD
-	sQe8+0tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=16pnkGFVbO1vjzK4Fqh9nQhcK7NoT6dcZwayS88HTh0=; b=VQtmNTq3wU2n+oqpdc9ohMJkje
+	RptJLumOw/Pkp3kzRigxXWCFwHnE2Z8SAddy1+uselvBKNr5sW81AfTgy1AmSy1BpWh3Gf7IdTSzM
+	RYoKTcOHct3/vcZQArBejW9ZKaCJ28u91xUlF0XxTyfrH8/HKmznaK0vFeukLz145LZi5AmrFBhtN
+	mBbklJYi8Utn8y05/6qJLWBQQPw+dkM8B//jnx730oZEEG7i6fRU38qWdDTvOqNx5knFswW+ydbDl
+	t9lnHZnWkIoSOAyB4W/bVGBEJSqZWQTVuwe/B/MeMCd9+Zn1dwOo7UfvsL/dyTMXpSGaaiEnUKp/F
+	V8KCRWzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LwP-0000000G6sW-3lK4;
-	Wed, 24 Sep 2025 09:37:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v1M0E-0000000G8HE-081g;
+	Wed, 24 Sep 2025 09:41:34 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1LwN-0000000G6qA-0cAp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 09:37:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58847442F5;
-	Wed, 24 Sep 2025 09:37:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E08DC4CEE7;
-	Wed, 24 Sep 2025 09:37:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758706654;
-	bh=1aZ/9VunpzhlHKKkboI7zyiqhZ/F0yATGuOtZAeMB/0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oaAnH1TIvwFUX0sa/zWWzjeMquc3iEFX1R2IOXauBGZXM5aKOb40WbSQYdQcTCP3j
-	 bag2hPIXNbxbFWTGfBiSsX/aw810/XYF6qWm484X9MIcBa/ioSSVX37Jf9HAFtrlCP
-	 T2Fo2o0IYDNPo6EFagZvC7XGxJtYzP0ZBoZQ8PO350iDtORV68Pa101ZoGcC7S9eYa
-	 S5A+Sv3/DeqxGv0B/Ao/t1p3In66+e6d/qnyRDEONv38p2VMWzodESi97yX4ejMQJz
-	 He0VxSvvEDXXsvoQ7PRkXIKhYfg2LiELBKGjUPNpiyanmGbvhqswPydEWwWL+SmmRd
-	 I8+TjH64VMCAw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v1LwJ-00000008yeU-2X2S;
-	Wed, 24 Sep 2025 09:37:31 +0000
-Date: Wed, 24 Sep 2025 10:37:30 +0100
-Message-ID: <86a52k199h.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ian Rogers <irogers@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
+	id 1v1M0B-0000000G8EO-0YLQ;
+	Wed, 24 Sep 2025 09:41:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y97OriNT8ofeGymkVgliKKvfGUmrJxDgBVc6hRrnqtqkM5DxIQFYh+eD9IBlL8zzK7XK/qtCdIRpE/t0tlB0IxB8XvaErM4RHwIzOzYhm5I0mZwjeA8CusEyfesFIqY/b4vIsFiZ82nAzVFhQTBWvktFL52oFxhMC+ylVFMO1qTdp9qBzH7zcstaAhahVY2Qn5xsvUCJxnhulCz6ZadeRjKWIzcovslo75NpQ3wq31RGL2SOC90a2DlGu3dDXFZkeAkaJxdJ0hX1Ew762Vxf51HwL4cLFJWsWOkNdRkfLd8rSGH94VgCWS/qH61LScIbbJ67lr7rbI3hykulrOwNhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=16pnkGFVbO1vjzK4Fqh9nQhcK7NoT6dcZwayS88HTh0=;
+ b=R3uduCmqerQggax7XZ0G/AI0N1ztkBt/ls56iqtlBBS16DkNWLC8en3QZkKkaOw5qG8HTMK5I/GOc/KhhYyxuaYw5ElqUk1JwHukkq2e6Ey5FHbjss0GlHUGYyTP7RcLgi70kao3p6TdmxX2mcwhv4SkdSt9vAqCNjC08SVC69OwwsfAjNRRMMcYhbBHJCKtP8cl7Q8T0u/Ev24A+JkDZbZ7XWo8rVeVl0Z8nmLmoJpIE309BaOybVZTH3E1QcZW4gv277eLQQ3PgVcdDIA3E1Dcbto01tgPWWjFPUemaAPqVXI56f5C1A7YEaWvARmxwYbUV0TtRHYcfCaK6eL8TQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=16pnkGFVbO1vjzK4Fqh9nQhcK7NoT6dcZwayS88HTh0=;
+ b=GI8JHFtjqZi3RYuvoDw4a/fcnLpZiB5Kx3jPbJ/NMtj89CIVXH+FKLKoX7e9JOfdhQFFuFaqTaL5j2TYFrmbcGPb0DVwGHqfo60eW3lm2lrkIWKyne7OGN0sMzO+SfYZCOSkVEkGVdbz5bMdMjoKSKHJWT/sseE1MDSOCrh0g3M7z+zKsWtQ4ayPPA1tTeQPFYgkTnvW68KC9zKnbReO2P0HCzSQbyA0d5Y82W933wCp6K6VmP95OS7d6JAdXkxANaOfaEinHOOY/E3Z1upM6ZZSlxRE3ylhscD/Sx/InDjJb8YOnWVXir/p7zyUzutkDWucZDC9oRz6zqPMMrG9/g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by AM9PR08MB6098.eurprd08.prod.outlook.com (2603:10a6:20b:2d9::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Wed, 24 Sep
+ 2025 09:41:20 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9137.018; Wed, 24 Sep 2025
+ 09:41:20 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Will Deacon <will@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v5 6/7] arm64: dts: renesas: Add R8A78000 X5H DTs
-In-Reply-To: <87plbgafkj.wl-kuninori.morimoto.gx@renesas.com>
-References: <87ms6snut0.wl-kuninori.morimoto.gx@renesas.com>
-	<87ecs4nult.wl-kuninori.morimoto.gx@renesas.com>
-	<86ikhg13m1.wl-maz@kernel.org>
-	<CAMuHMdVezqWxbFp9dd0WPJnNM+MvmQ9F0UA2Ru_BSV6-6VgOyA@mail.gmail.com>
-	<877bxuzvs6.wl-maz@kernel.org>
-	<87plbgafkj.wl-kuninori.morimoto.gx@renesas.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kuninori.morimoto.gx@renesas.com, geert@linux-m68k.org, kan.liang@linux.intel.com, adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, acme@kernel.org, catalin.marinas@arm.com, conor+dt@kernel.org, dianders@chromium.org, geert+renesas@glider.be, irogers@google.com, mingo@redhat.com, james.clark@linaro.org, jolsa@kernel.org, john.g.garry@oracle.com, krzk+dt@kernel.org, leo.yan@linux.dev, lpieralisi@kernel.org, mark.rutland@arm.com, mike.leach@linaro.org, namhyung@kernel.org, oliver.upton@linux.dev, peterz@infradead.org, robh@kernel.org, will@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: [PATCH v2 0/3] clk: en7523: reset-controller support for EN7523 SoC
+Date: Wed, 24 Sep 2025 12:41:09 +0300
+Message-ID: <20250924094112.1918444-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
+References: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: GV3P280CA0091.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:8::25) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AM9PR08MB6098:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd88d894-fc0e-40ef-83c6-08ddfb4e83ff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?utcLrT+8bG7GJ2Fs7wve0mIYmiEBtwLcLjJtTA/8EeDMzL915Os8fL7rt649?=
+ =?us-ascii?Q?CPe52bcMOctpGE40oB4x4Nujp2z60b47yx+0JyckFHOwtZdd3FYosNFxwlxJ?=
+ =?us-ascii?Q?HfqydyR61HW+riNfspN3ASRsFj+zYypJdsLIDiXGh9qiIt9s9NV55o5oNF7b?=
+ =?us-ascii?Q?SeJ7WgQX6PtJG8BcKsef0Fhkby6stMe1QUum+y7Nvj1Bp+BE7BOkB8olcCcW?=
+ =?us-ascii?Q?8p/1GQzK5pTqGHldIEYeGSSVGHAIrfCk4n0d5Ej0QVNybrwrKI9Hun7TQ9dg?=
+ =?us-ascii?Q?UpT0Joy9Gqy6VMu3ZKofN/NbM2qKb+ZQ4hArqWnHPge6y8NWuEjftO4bTkvg?=
+ =?us-ascii?Q?5USoTipV9bRticv2/jdCmyPoTDfBaUaPhIM9HcOpA97JC0GmLS0Xg8tzVTlf?=
+ =?us-ascii?Q?ZAq+ZfVeHrlivUs/Z1iDCZPy3qXc9j7shB6lJxcMAw4YtxKhYBQF+59Jf3/p?=
+ =?us-ascii?Q?WVY8nBkKlvxg5tuZx3tTwmEUO/vCK5je9uvpwd2u3z0At9q2pjTip9dLT5hI?=
+ =?us-ascii?Q?8JzOcutSyTWmEqk1mD5OaU0c5KjQgCgm3MHA4ueeYGp3oMLuBNDCOkGbEKuN?=
+ =?us-ascii?Q?AZe3/3FniyNJ8WCvlqwdBsdLmLEMDEdjZEOjr6WM0KPSm57qALJ0jWAPcGfi?=
+ =?us-ascii?Q?Kzu82q/5L6rpBOkrrEaVkIDd3/wc2Ny3WNbaY/wrjA+yqVgttu+vdB7VLfoB?=
+ =?us-ascii?Q?v9Q4/OgqJqQUk6wZxY6I/4qLvJNE3A5B1CuEC9duCXORBYgdzPf2g2QhOgHq?=
+ =?us-ascii?Q?b5GdhYZzKPWZdrVbWAx3zv5IjJqPAUjv159upmToNPN40ueeorxqoHZlAj/B?=
+ =?us-ascii?Q?BAmrTLOv3zkH7Q6fOz7+1wedbHQSb+YQfIIAZH/xARj7GkbiqUmiMgN472Uy?=
+ =?us-ascii?Q?Ej5K6FL6uje6BE800q8A+rRCOWHYIR5wTkEzDtu4cPx59wzkaig8U3YPwFwT?=
+ =?us-ascii?Q?bNDYIzUHCcZDVoNZk/0+yyvM8ti5bRG2FUVa7OthLK8xNPfV40PoUYdQvwkB?=
+ =?us-ascii?Q?LPFZKvMqbCarCiw+MHjqgE/q0gQIAdB9SL0yExUSeLPcUiJobi1q+CiZha+O?=
+ =?us-ascii?Q?Nb5lTXxSc95HIsCKnKjHkD7qbq7V/Cl/i4RBmP3asDgYyhmdQR947cq2SCUw?=
+ =?us-ascii?Q?6WcUn3XiF1Y9DRKrDor9SkOxzpRbRNmAmR9v2MEck8JaB50J/0yfLaLZSIRG?=
+ =?us-ascii?Q?DW95AQ466yIExtbvlepM8+ksTupMu92enQ/zcGK+3qsM6DTZ2v7SNRS1l5wd?=
+ =?us-ascii?Q?KNKyqHWd5SNGV6Q09Nt2ATdRZ/hiOIFjsKe9JjHFWgWOC5kkKSDzg7VgnEJg?=
+ =?us-ascii?Q?qenIn2kR8brEKfqsQaLNdZhI2lOAq400QQccBNrUNXnJv16xWgYBbnWecqcR?=
+ =?us-ascii?Q?kTHdTjp3VVxAP4vTgeBLlV4h3sEz/r2hY1uagnFGjxHkFqD889YNJibtBt9J?=
+ =?us-ascii?Q?SZ2EmIIbTs7+GsJ0xHvhnJtAYnc9m0debDOACjPntBKt7Lmv9bAVuQkJEx7i?=
+ =?us-ascii?Q?ygAeGsWRkHqL32o=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KbzO56FP0cG/nkS+lh3yBMPaUhSnzjbvqJwbbF75+4IU6OupFvxecHW+2UNV?=
+ =?us-ascii?Q?jVTzzw+r27HlA4SPl5jWclfqBFgiMd87fWOddI6jqaSGTQIxCAu2sPnEqeIy?=
+ =?us-ascii?Q?TbR/wNHVFzhsD4t7o56M5kpFDOUWLgAz97hiKG2+9enk7dQXhF0GZ/gxyVBs?=
+ =?us-ascii?Q?RdscWTUBNyPYOdE5cps+hP4lfa7BnX5nZAI9zoF7cyfV3V1Z0FwhfGAywH1+?=
+ =?us-ascii?Q?mvqm2ogF/UJ1vkMD5fnaNSwS8Qtlt5PkyiznaI4Q/lnZEvPPSx71KRGQmOw6?=
+ =?us-ascii?Q?b5YNJYIz/bohsjC8sbE0UDfuw7pZkbdkU1Gnp7HO7NLZL3Y/CKthbgY9VErE?=
+ =?us-ascii?Q?CiB+TALK5cL7kZwnfiYnhdXu12quMjvzr2gn2ce0D/adPRamlwulopYW0Fsy?=
+ =?us-ascii?Q?iHVIsqQWBgkPdvuTKFJvy9uLdrUiLGlRZ1kC1Xir3/e0y7Uox1l7l3Lpzvw3?=
+ =?us-ascii?Q?HT4vYDlQmTGzPsfbXTXDwlBb4e4Bi1c+e5FmU9YzvhrF0tMzgTHXk4IKnDQd?=
+ =?us-ascii?Q?jQtasvgiudn1ixMBvU5VvwFBioZrS+EdLnZ2NSPTz0r0jIU1QVg9jyam3ZHr?=
+ =?us-ascii?Q?MAKtu4iqV+0LdHXZWQy9LMlPe/G2xAmTvxjolq67WqPs1r5FRLb9mI3yCy0b?=
+ =?us-ascii?Q?Fli8mQEC2E+B7+dKGevjgqFMbd/xIMO398FT+/8YfIJhZSccCb7MShdIcUaw?=
+ =?us-ascii?Q?05Jsuiq5Ll7oHxMGXkjSp0X0laRUMlw/yUrBLKECH/yjCvU9ZpLovRndor9B?=
+ =?us-ascii?Q?bHm8H6d825QF59rymkpb56EZ9NX2WQyG25MPoc7JyWIJXYFq9CtyK3kdtTwk?=
+ =?us-ascii?Q?LQUyYbgcyqYueCMiwXe1J3k5aGBPML+sE3Y4tUAn7QDBnh7JyOHlhhLc1Ult?=
+ =?us-ascii?Q?PgzlKzB52zxF/6FNR1pmtY5bRR9rth+3J3cUcOcxMlQFWuMa3m5tj1GbOE6i?=
+ =?us-ascii?Q?4SpAxz+gWeZzPhSmuMFHDpk4+K2LlsBm+ifySV9H9QIeMvsIHZxquY0w9sFX?=
+ =?us-ascii?Q?sxqKBLLVn1MfDOhgFZhZn0aTi+F86cZw/eaR6DqT69F/jh3qPPsCwTg9EIp+?=
+ =?us-ascii?Q?0oKqc+wQ+r5E0py3HWI/i/OTmX2M04gE+GWN7hZSpSGtwUOqYl0Ddun6RLAZ?=
+ =?us-ascii?Q?D7yBH3DqkwSQky+7rhWOPT32mZD24rS0AFIh+SY/KmGKXXd3JWjzXntGzXHF?=
+ =?us-ascii?Q?edsMzglLdha6mFVcGPwHY+1RlubfwpLbp0bu8p3wxOipkgmPM26boEAOy7eW?=
+ =?us-ascii?Q?4CZhSgXiqXnrIp9lM6D5a1z4osEpdkSZN2NqHaW3XMOKrCx+Xu3pZ1TVsBf2?=
+ =?us-ascii?Q?iiIGDN/PjNMHjC5K0CV32IyWWjGk3kPAnPAklIa7kd6oBbBNKKRJ12GIaVib?=
+ =?us-ascii?Q?kTqxFmNIgatQ0sebwT44+9VJJ+9tM0KANBksViXKkwvAdPo8TP04T3qV/oYM?=
+ =?us-ascii?Q?Q3yeeX5mE2WDRJaL6BBE+dj5IEYfD9VosgSFnU2Gukq7mzmVCWgItpDv/ZBM?=
+ =?us-ascii?Q?g632JNck1lfKuSmOhCetW8o7dMLnwm1DuzBvPpSmimbB16jed8Ym+Wr2AqTd?=
+ =?us-ascii?Q?nixNJx+cdpRUDUBf+TLNTsOUqoguQWOrXejBQcpcj0ej5RmhyACPFltSxo8W?=
+ =?us-ascii?Q?v1UdvpjqE0VN3x1IsS9NpTc=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd88d894-fc0e-40ef-83c6-08ddfb4e83ff
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 09:41:20.1056
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Sasz9xPUAajLHkasZcNSB7V5xpEUbnzbR5Jh7zZH4j5TVrg1zck/MFtoMVvuhffU7LNAlMgFCweL6VhKo7jwvFKKNvSa5dz6un/jC2RZYUY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB6098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_023735_227223_DF28F560 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20250924_024131_549083_3AB2BE43 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,52 +171,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 Sep 2025 00:56:28 +0100,
-Kuninori Morimoto <kuninori.morimoto.gx@renesas.com> wrote:
-> 
-> 
-> Hi Marc
-> 
-> # sorry for late response. I had took day-off
-> 
-> > > > > +             /*
-> > > > > +              * The ARM GIC-720AE - View 1
-> > > > > +              *
-> > > > > +              * see
-> > > > > +              *      r19uh0244ej0052-r-carx5h.pdf
-> > > > > +              *      - attachments: 002_R-CarX5H_Address_Map_r0p51.xlsx
-> > > > > +              *       - sheet [RT]
-> > > > > +              *        - line 619
-> > > > > +              */
-> (snip)
-> > Something like:
-> > 
-> > 	/* Application Processors manage View-1 of a GIC-720AE */
-> > 
-> > and the mention of the TRM and other spreadsheets dropped.
-> 
-> OK, will do
-> 
-> > the ITS to be described. The HW has it, it has no dependency on
-> > anything else, so there is no reason to omit it.
-> 
-> I had asked HW team and PCI team, and there is a valid reason
-> why we would like to skip it. Because we had issues with using ITS on
-> previous SoCs. Hence we are reluctant to describe it until we can
-> actually test it.
+These patches:
+ * adds reset-controller support for EN7523 SoC
+ * updates dt-bindings
+ * updates en7523 dtsi
 
-Posting patches for partially HW doesn't feel like a great approach.
+Reset-controller support will allow us more easily reusing of en7581 drivers
+for en7523.
 
-> So far, we never submitted a complete .dtsi in one go, but always enabled
-> more functionality in incremental steps, after verifying that it actually
-> works.
+Changes v2:
+ * keep '#reset-cells' property optional
+ * put dtsi changes to a separate commit
+ * add missed dtsi include
 
-Well, the GIC (and specially ARM's implementation) is a whole entity,
-not something you can cut and dice. Just like you wouldn't describe
-the CPUs without their timers.
+Mikhail Kshevetskiy (3):
+  dt-bindings: clock: airoha: Add reset support to EN7523 clock binding
+  clk: en7523: Add reset-controller support for EN7523 SoC
+  ARM: dts: airoha: update EN7523 dtsi to support resets
 
-	M.
+ .../bindings/clock/airoha,en7523-scu.yaml     |  3 +-
+ arch/arm/boot/dts/airoha/en7523.dtsi          |  2 +
+ drivers/clk/clk-en7523.c                      | 72 ++++++++++++++++---
+ .../dt-bindings/reset/airoha,en7523-reset.h   | 61 ++++++++++++++++
+ 4 files changed, 127 insertions(+), 11 deletions(-)
+ create mode 100644 include/dt-bindings/reset/airoha,en7523-reset.h
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.51.0
+
 
