@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908E5CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 13:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6639CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 13:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9Vr9KY4xbvuuPlwdSJb5M89fpFiaZAEVobis/+vA7s=; b=nWfIf5vwcZ+pmywNK3tb6ZhnCa
-	kUhqAxAeJpgEJ+ioRCpIc1D3nJiRdwQNRvDDxgNdQb21qCqy257dg48ZRoeaotAMIn862MYdBNVK9
-	yEBQzJU29haPmHPFVmWuE7ybEghy2CpQKwjePq9b4zBCJ+3IVeivwo7kw4/SmeejCPWfo2OJEF6gk
-	HRWBoqlfpK3PIkHv9fhlNZ23F5XPAQ35CVpBbQ69PkMkcEoXPkFcHYpJcv9MqVZk+IbcXelYiNV3I
-	KYmCAYQw/nuaGB+N0fgc90rUgJ4wDHUTlTcAEOje/Z0O3HRyaHpYEfW5TRnzA/gPOTCbdDnEuJnUd
-	1No8RChw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DDGC9hXwVm6bS462Izp5vFz+OrkU1zDVyB5kAX8rAMA=; b=2Lv1A4vfgblez++X36VzlXdoVo
+	qq+iFc9SpXdwGzoUopGtjyUZIrG6Wx6tsfDUmWl5Tj+YOttV1yoguKXFiIRTMKQD1LlggsXpEIwgG
+	LOvMWhjSzIQMPNQXgxpgSm6iuEJ34C5dwB/8AYcsnt3AlpExeCXEw1ZY1SS+ZihqBguGdJXFi3p3P
+	9D/5DDEkZLWlC+tXWIdAS7VKupcf6uDv4sycbKqZkdYTR7wqunazZVh2S7XXw+B3QFv1kr4kGyprR
+	LLby9um7/PDRxZZwSsebn8BM5tFeDuVgOereII7r+dluIeUplKFgxi2z5fXIMsjWZaApGpUNM/GGZ
+	5RzkQ9aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Pdf-00000000G4w-0tn7;
-	Wed, 24 Sep 2025 13:34:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1PuW-00000000NZ3-3dNb;
+	Wed, 24 Sep 2025 13:51:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Pdc-00000000G4F-0ith
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 13:34:29 +0000
+	id 1v1PuT-00000000NWy-3Qj3;
+	Wed, 24 Sep 2025 13:51:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D6DF343BB1
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 13:34:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFF6CC19421
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 13:34:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C2BF43EC8;
+	Wed, 24 Sep 2025 13:51:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9225EC4CEF0;
+	Wed, 24 Sep 2025 13:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758720867;
-	bh=3Z6XTJa/2I09pYSflW4MDbMqly8jjfPgHvxuTYEtOvk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tK4g8xF3KJeMYnB9VZ4gO8VRMtQvT117WCk3DHhVlEegaKquqejM1Ot5xjEhSSEOK
-	 43WmDcGlPeFBVd6oCpGsmL+8tu5/12oZs4cT3CBOvCTcpV/9ieFFCe0OnqgT5j3e+E
-	 kamp4muCI1+ku/3UZUUk43jADlPfZFB/OGQbWFEL1yIieBn5z+BjOVZvX1yaSW2VRG
-	 8hor0XFKZBCNhDYppKwVU3Vmmj4G7OBcqnycvEma7dxeTlVQ9NQ7zdf/KO//cZhphQ
-	 zs6/ZVsvHe5w9Ygt933ZX8EDJqUdOzRtNRnuAu0X9OGJH948CqCf7TfTwDLEtb4W2w
-	 atUla77I4Zl5A==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-63163a6556bso10244073a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 06:34:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX1eiHcn751n2/GsZP/5SNd5Hk9QHSzIprabeAPqt1Yn8fL9V0F6FLg+i0BveYK3y+xXTJlztuKieczMzqnXA5l@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAsvdR9cxL18hxcQIZ/zJOCyxCtARChyWhoPylBOvFqRHMFEzN
-	tbznuRMmU+bwIrKbS+HlWsTOUkB/qpwOqnTBAKWvGayVw0RTEW8+ZcL4bzjBjRno3gBEuXnUyCL
-	Kj+m4uvAXxEAl9cwkUKUHR640aDPypA==
-X-Google-Smtp-Source: AGHT+IE6gNa61RcE9DKf2iXVRg4jwELeBK0rbWB2RUsPPFiJAgwlJN43oTxNrNqM4YRqC7tDc6X2gwE56i96k2A7jt0=
-X-Received: by 2002:a05:6402:a00e:b0:62f:b6bd:eff7 with SMTP id
- 4fb4d7f45d1cf-63467813addmr5004269a12.38.1758720866242; Wed, 24 Sep 2025
- 06:34:26 -0700 (PDT)
+	s=k20201202; t=1758721913;
+	bh=2PnF1NHzsZDLHuBnT3GhZhqpwSuMX60FWYPhgeGiYFQ=;
+	h=From:Date:Subject:To:Cc:From;
+	b=YgPWaB6BDJHLlfanRAGbzN3J6C6T9B3uugL/OopTDyaIjfrDi/0Uzt2ZVM7g70uDv
+	 utEdyEfV2sk64BBabYiEFcj5zIFFRD/jYbsZ6b5VbckBtWtUDI86418DfyINGk7acG
+	 fr7zsOK4w/lHbPcbAECs7AFArAj91iaY+9vmkf3DkYNxMca6cV1H3hIlJRwQufQbsn
+	 ieb6KgQ8bkLc5GlloXs/NdOuEJOXJU8k/cOLWgldGGUkrDot0kSNnEv3oJ6mLEplED
+	 3r14dmxjCUxO7n8xG02Unav5tyiOfSrXM87po017zdD3hReY9VovJq7gVfrxbWem8w
+	 Qt2aofMIjzFyw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 24 Sep 2025 15:51:39 +0200
+Subject: [PATCH mt76] wifi: mt76: mt7996: Remove unnecessary link_id checks
+ in mt7996_tx
 MIME-Version: 1.0
-References: <20250917074812.4042797-1-kevin.tung.openbmc@gmail.com>
- <9bb9929a-8130-48da-983e-2901a7c3da36@lunn.ch> <CABh9gBew1=hbJvg1Mhg5dE7Lr_Z442_kbBX6zTs_6_C2NRyLbw@mail.gmail.com>
- <7e6f568da28d7a63738b6ed22b33db3df4c478c9.camel@codeconstruct.com.au> <CABh9gBcoWbXurPo0f9U9+gz8k6gttUvj=NMMDVfgjo5dgaTLSA@mail.gmail.com>
-In-Reply-To: <CABh9gBcoWbXurPo0f9U9+gz8k6gttUvj=NMMDVfgjo5dgaTLSA@mail.gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 24 Sep 2025 08:34:15 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+zBK1CBJX0XcaqaYeOPUhoRE-nMeYvkTNwQovJ+dakGg@mail.gmail.com>
-X-Gm-Features: AS18NWBRbwk465MJYJkBc3f6vXfBHLpagMAmj_NyZMMJpbB87hfWSByQAiUtoWU
-Message-ID: <CAL_Jsq+zBK1CBJX0XcaqaYeOPUhoRE-nMeYvkTNwQovJ+dakGg@mail.gmail.com>
-Subject: Re: [PATCH v1 0/2] Add Meta (Facebook) Yosemite5 BMC (AST2600)
-To: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, Andrew Lunn <andrew@lunn.ch>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250924-mt76_tx_unnecessary-check-v1-1-e595930a5662@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAGr302gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDSyMT3dwSc7P4kor40ry81OTU4uLEokrd5IzU5GxdyyQjIDSxMEu1SFE
+ C6i8oSk3LrACbHR1bWwsA4lXlFGsAAAA=
+X-Change-ID: 20250924-mt76_tx_unnecessary-check-9b2b2b486e8d
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
+ linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_063428_258037_66EFDEB5 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20250924_065153_879253_1AA29E0F 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +79,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 8:05=E2=80=AFAM Kevin Tung <kevin.tung.openbmc@gmai=
-l.com> wrote:
->
-> On Mon, Sep 22, 2025 at 10:47=E2=80=AFAM Andrew Jeffery
-> <andrew@codeconstruct.com.au> wrote:
-> >
-> > On Thu, 2025-09-18 at 10:21 +0800, Kevin Tung wrote:
-> > > On Wed, Sep 17, 2025 at 11:12=E2=80=AFPM Andrew Lunn <andrew@lunn.ch>=
- wrote:
-> > > >
-> > > > On Wed, Sep 17, 2025 at 03:48:08PM +0800, Kevin Tung wrote:
-> > > > > Summary:
-> > > > > Add device tree for the Meta (Facebook) Yosemite5 compute node,
-> > > > > based on the AST2600 BMC.
-> > > > >
-> > > > > The Yosemite5 platform provides monitoring of voltages, power,
-> > > > > temperatures, and other critical parameters across the motherboar=
-d,
-> > > > > CXL board, E1.S expansion board, and NIC components. The BMC also
-> > > > > logs relevant events and performs appropriate system actions in
-> > > > > response to abnormal conditions.
-> > > > >
-> > > > > Kevin Tung (2):
-> > > > >   dt-bindings: arm: aspeed: add Meta Yosemite5 board
-> > > > >   ARM: dts: aspeed: yosemite5: Add Meta Yosemite5 BMC
-> > > >
-> > > > The threading between your patches are broken? How did you send the=
-m?
-> > > > git send-email? b4 send?
-> > >
-> > > Yes, the threading is broken. I initially used git send-email, but fo=
-r
-> > > some reason, only the cover letter was sent. I then sent the remainin=
-g
-> > > dt-bindings and DTS patches separately as a follow-up.
-> >
-> > I recommend using b4, it helps blunt some of the sharp edges of git-
-> > send-email.
-> >
-> > https://b4.docs.kernel.org/en/latest/
-> >
-> > Can you please send v2 of the series so that it's properly threaded,
-> > after applying tags you've collected for the involved patches, and
-> > checking your work with `make CHECK_DTBS=3Dy aspeed/aspeed-bmc-facebook=
+Remove unnecessary link_id checks in mt7996_tx routine since if the link
+identifier provided by mac80211 is unspecified the value will be
+overwritten at the beginning on the function.
+
+Fixes: f940c9b7aef6 ("wifi: mt76: mt7996: Set proper link destination address in mt7996_tx()")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 581314368c5ba566f6050bee86696c4654619176..de044c16e630c888b181778b4b450c2c75a76939 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1339,12 +1339,10 @@ static void mt7996_tx(struct ieee80211_hw *hw,
+ 	}
+ 
+ 	if (mvif) {
+-		struct mt76_vif_link *mlink = &mvif->deflink.mt76;
++		struct mt76_vif_link *mlink;
+ 
+-		if (link_id < IEEE80211_LINK_UNSPECIFIED)
+-			mlink = rcu_dereference(mvif->mt76.link[link_id]);
 -
-> > yosemite5.dtb`?
-> >
-> > Andrew
->
-> Sure! I have sent v2 of the series using b4, and the patches are now
-> properly threaded.
-> I also checked the work with `make CHECK_DTBS=3Dy
-> aspeed/aspeed-bmc-facebook- yosemite5.dtb`,
-> and the warnings that appear are not related to these patches.
+-		if (mlink->wcid)
++		mlink = rcu_dereference(mvif->mt76.link[link_id]);
++		if (mlink && mlink->wcid)
+ 			wcid = mlink->wcid;
+ 
+ 		if (mvif->mt76.roc_phy &&
+@@ -1352,7 +1350,7 @@ static void mt7996_tx(struct ieee80211_hw *hw,
+ 			mphy = mvif->mt76.roc_phy;
+ 			if (mphy->roc_link)
+ 				wcid = mphy->roc_link->wcid;
+-		} else {
++		} else if (mlink) {
+ 			mphy = mt76_vif_link_phy(mlink);
+ 		}
+ 	}
+@@ -1362,7 +1360,7 @@ static void mt7996_tx(struct ieee80211_hw *hw,
+ 		goto unlock;
+ 	}
+ 
+-	if (msta && link_id < IEEE80211_LINK_UNSPECIFIED) {
++	if (msta) {
+ 		struct mt7996_sta_link *msta_link;
+ 
+ 		msta_link = rcu_dereference(msta->link[link_id]);
 
-Um, they are related because they are warnings for *your* platform.
-You don't care that there are warnings for your platform?
+---
+base-commit: 1e06a137513dff9835e57f76cff177cb1e2e5475
+change-id: 20250924-mt76_tx_unnecessary-check-9b2b2b486e8d
 
-Rob
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
