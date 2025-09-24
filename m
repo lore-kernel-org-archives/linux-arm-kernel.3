@@ -4,109 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240EECAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 18:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6816FCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 18:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98biKbPuv+kbYg6hY3GxF0OjQQ/oXiCUuA+3Ci5wrLs=; b=y//cc2ROTXaDAGvDabcXJ/WFjU
-	mTF3Scx4IDS+2P0aW6ZMkzHivTvUA9ghmg0mq3CtFpAe2U9f51HdVZZwlvEHMWWdTnuiwvndvP2O2
-	wO56G/SCCHUJFbxs5pjU6o6nOs+HtKqEXpNStEYQhTE4YcStUQ8jWCakZgGX2WBmHsiJlFcCB9YMp
-	U9m9u6wJNNsacvyuQtKWHhJCBsKJcnmkbdJkaAVvxtbjG9Mo994FTbKm52YPLL07wml+jVm7XI+02
-	7KU0kFBWIUpAlyUz1W4bIXg87NwDAeP9XBDboLJvDPkbYjWfQmbP5UkHFFdTQBxI4LvyCg74Kygkb
-	dQEjxq4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Xf7Yqc+8lgTg8ka/onUanA3dQfz7f++SSaMY7J7oeU=; b=Y3tHtLOsSKB/3KBYJe58Ic76W0
+	UpPpZL5Np3ye6T8o8W57P0LuiQ0gce9Wlj4zySsn4k/UwCADdCXreLnEQb7vrywC06y3iYJh805Ob
+	F98kvov0cVv4B/vNqlaQM37J8Bvkh8KG+LB7zoLTKeeqCxutqNCZ2UciiCfMrGQRQTJe4q69kBbgy
+	w1PEPDAx1VUFGSBEi5b8wWsEE2nDpZ4+fkQa5yrdB+zH4zYXNhDRTPcUvHp9JxweVzfL6h7CnhCUL
+	W7emD7WkW096JBukowsdgEWd/ksSl4vHbKp7tB0wpOb61v41Hr5aAXQxTOjTXBMLlFs27OWQ+vvA9
+	wNsFJR4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UCl-00000002cDt-4BGw;
-	Wed, 24 Sep 2025 18:27:04 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v1UFX-00000002dk5-3J6S;
+	Wed, 24 Sep 2025 18:29:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1UCk-00000002cBV-0LMN
+	id 1v1UFV-00000002dj8-1Tiu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 18:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=98biKbPuv+kbYg6hY3GxF0OjQQ/oXiCUuA+3Ci5wrLs=; b=lwDhbTzN76RteIqsY0gW6IRtx+
-	fm0t4/tLe6GHBxhVW+uzl/q/46ojJYlx2MV5+BleZVSzb2qw1LbImWMVeZwhFL0PWuvC1iEhG2uIE
-	5BCykL7bntdKeuBnULo6h2F7lq6taf75Qhs7XV/H6KFsGy6rhNGtkJr38I2yp6VMEPHo+7LkSg6Qr
-	cK2VCJn5Il+ylJ6QkYXPBSQWSqqo3tvVG75VinUw8FXOAo9LqxulWa/QG1BikVyyc8sjX/f3UHBku
-	L0Le6bb7VQPTsVJ2cBv08WvaBr0MVH0k9jLGDa2JBAhfb15dvwqbhz7uCF5ZO30mp1Y1ktZzrpGWO
-	FG+D3Z+A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36588 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Wed, 24 Sep 2025 18:29:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2E6643C8C;
+	Wed, 24 Sep 2025 18:29:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91E3FC4CEE7;
+	Wed, 24 Sep 2025 18:29:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758738592;
+	bh=ivIxj/3QNNujwPtTOLPIud3a0Z3ASU+eA3YKOvK8qgI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rWjUNK9kxClMeZ63Z3gIKLHvqdUqP6p/OJtUHbGZ5JBtsvrdkMPFps3d7gEeZ3OAm
+	 g1EkC9VSQBfFCP1GrYfcuD7Rl4xnGY7cq/K/QJ221Rl9YLXG545UT2BUCaIMtWlSDI
+	 mxU2mHUIM45ZSVT+7wfFr1uxeupejpA9hp/XZD3ddGOOpoh4fG2v4W0ob/mwn/bovo
+	 2XNBITtn8cO+MA1JSN+58tBjAFNgtXOmi3V9uYzdj82O27tBXAhxu1HUfps7OBrZZQ
+	 35z5guGLse/9e3q8ii288GiFiSZkgSMYBipbSWySMZlH+B4KKsD7Qr/4B0CWmR0NLB
+	 13qXulRjaGDBw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v1U6M-0000000012y-0Ch2;
-	Wed, 24 Sep 2025 19:20:27 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v1U68-00000007HwG-3nk3;
-	Wed, 24 Sep 2025 19:20:13 +0100
-In-Reply-To: <aNQ1oI0mt3VVcUcF@shell.armlinux.org.uk>
-References: <aNQ1oI0mt3VVcUcF@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothore <alexis.lothore@bootlin.com>,
-	"Alexis Lothor__" <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	(envelope-from <maz@kernel.org>)
+	id 1v1UFS-000000097Hp-0iCb;
+	Wed, 24 Sep 2025 18:29:50 +0000
+Date: Wed, 24 Sep 2025 19:29:49 +0100
+Message-ID: <87ikh7ya8y.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Swathi K S <swathi.ks@samsung.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Vinod Koul <vkoul@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH RFC net-next 7/9] net: stmmac: hw->ps becomes
- hw->reverse_sgmii_enable
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v1U68-00000007HwG-3nk3@rmk-PC.armlinux.org.uk>
-Date: Wed, 24 Sep 2025 19:20:12 +0100
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
+In-Reply-To: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
+References: <20250920-kvm-arm64-id-aa64isar3-el1-v1-0-1764c1c1c96d@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_112702_122698_03A1F008 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250924_112953_412778_886F5B55 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,80 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After a lot of digging, it seems that the oddly named hw->ps member
-is all about setting the core into reverse SGMII speed. When set to
-a non-zero value, it:
+On Sat, 20 Sep 2025 20:51:58 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> The set_id_regs selftest lacks coverag for ID_AA64ISR3_EL1 which has
+> several features exposed to KVM guests in it.  Add coverage, and while
+> we're here adjust the test to improve maintainability a bit.  
+> 
+> The test will fail without the recently applied change adding FEAT_LSFE:
+> 
+>    https://lore.kernel.org/r/175829303126.1764550.939188785634158487.b4-ty@kernel.org
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+> Mark Brown (2):
+>       KVM: arm64: selftests: Remove a duplicate register listing in set_id_regs
+>       KVM: arm64: selftests: Cover ID_AA64ISAR3_EL1 in set_id_regs
+> 
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c | 22 ++++++++++++++--------
+>  1 file changed, 14 insertions(+), 8 deletions(-)
+> ---
+> base-commit: 5db15c998c390efbe5c82f6cda77cb896a3a6a3e
 
-1. Configures the MAC at initialisation time to operate at a specific
-   speed.
-2. It _incorrectly_ enables the transmitter (GMAC_CONFIG_TE) which
-   makes no sense, rather than enabling the "transmit configuration"
-   bit (GMAC_CONFIG_TC).
-3. It configures the SGMII rate adapter layer to retrieve its speed
-   setting from the MAC configuration register rather than the PHY.
+$ git show 5db15c998c390efbe5c82f6cda77cb896a3a6a3e
+fatal: bad object 5db15c998c390efbe5c82f6cda77cb896a3a6a3e
 
-In the previous commit, we removed (1) and (2) as phylink overwrites
-the configuration set at that step.
+What's the point of indicating a base commit if that's not something I
+can find? You should never base any work on top of something that
+isn't a stable tag.
 
-Thus, the only functional aspect is (3), which is a boolean operation.
-This means there is no need to store the actual speed, and just have a
-boolean flag.
+	M.
 
-Convert the priv->ps member to a boolean, and rename it to
-priv->reverse_sgmii_enable to make it more understandable.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/common.h      | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 8ff3406cdfbf..87c3f0dd54f0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -599,13 +599,13 @@ struct mac_device_info {
- 	unsigned int mcast_bits_log2;
- 	unsigned int rx_csum;
- 	unsigned int pcs;
--	unsigned int ps;
- 	unsigned int xlgmac;
- 	unsigned int num_vlan;
- 	u32 vlan_filter[32];
- 	bool vlan_fail_q_en;
- 	u8 vlan_fail_q;
- 	bool hw_vlan_en;
-+	bool reverse_sgmii_enable;
- };
- 
- struct stmmac_rx_routing {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a90df69ac43f..dff3bba83969 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3476,10 +3476,10 @@ static int stmmac_hw_setup(struct net_device *dev)
- 
- 		if ((speed == SPEED_10) || (speed == SPEED_100) ||
- 		    (speed == SPEED_1000)) {
--			priv->hw->ps = speed;
-+			priv->hw->reverse_sgmii_enable = true;
- 		} else {
- 			dev_warn(priv->device, "invalid port speed\n");
--			priv->hw->ps = 0;
-+			priv->hw->reverse_sgmii_enable = false;
- 		}
- 	}
- 
-@@ -3520,7 +3520,7 @@ static int stmmac_hw_setup(struct net_device *dev)
- 	}
- 
- 	if (priv->hw->pcs)
--		stmmac_pcs_ctrl_ane(priv, 1, priv->hw->ps);
-+		stmmac_pcs_ctrl_ane(priv, 1, priv->hw->reverse_sgmii_enable);
- 
- 	/* set TX and RX rings length */
- 	stmmac_set_rings_length(priv);
 -- 
-2.47.3
-
+Jazz isn't dead. It just smells funny.
 
