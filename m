@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41297CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D9BCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5iHvWuqXMKqXY5xi5HWO4WJVMOf5QP5qFtqbNbimzII=; b=L9oReUcQ2uJ6Km/Z4Or0msEPwp
-	kbY1tCbgKuYIqHyADHeVK96ObRZRS2sUG5ndb5p6e0vNbH1O7ofNtXHsnN5zTAwYpeVLbLLWhfB5e
-	NTRThaEhsRHiAKqytT0VEZOeik3K7OIeAXAjxjM934FIb8JD+DAV+9c5g2XQx94cHeJCaHZ3L33J0
-	AHT9jIFFdy1RTCeLD3x31mtqbLgOk5GlkQOujc7OXf6yYqtS8yHkYxZOvqROZMtpHFbKSG1IVoUxS
-	aNReT1iCYBfnX4bqXEMjBM0GDo90iLBPsQKUHbeXWaS0FQIHMbEbyP6sjBp1/cFAPSadQ0U6zYi9K
-	vTmunhUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=DSLxLUm6aulbheu13ImKZULrWRBfovkW8nVM2gySq7M=; b=cMAIRnHWiXinBb
+	XnihclVfWwyuOWHjWRBx9PQ8tf8+3vwGn6UglQmxf4rOd3WFvWDSb9J7MuLCkUXbowZdxf6iyYkeM
+	Yety9JzPG1ql1iqy+GOCMltL+YglSUdxeX6tKK7l8XxbmsYBpPm/AsnQYq9uN5Yigfvma9684tswU
+	ejEwjknPCX3bCdjCC9OZRrkKtC+j+RanpOf0+m/JgN1UR24JTJZqP3IKNS05axQf7V2b1iKIgqQJi
+	Y8ebHIhKh5rL3M5vunS0bcGQaq8OBamxgrW4UIfBlbs4o3goHVpAGRQKzHtC1/rdu6PfXrI1YQaiD
+	RtZWe9GR4CM6s0w2jPvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VEc-000000036AK-2Z0H;
-	Wed, 24 Sep 2025 19:33:02 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1v1VQE-00000003Atn-06HC;
+	Wed, 24 Sep 2025 19:45:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VEZ-0000000366l-1ytA
+	id 1v1VQB-00000003Ari-0wr4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 19:33:02 +0000
-Date: Wed, 24 Sep 2025 21:32:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grimler.se; s=key1;
-	t=1758742374;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5iHvWuqXMKqXY5xi5HWO4WJVMOf5QP5qFtqbNbimzII=;
-	b=ZEM96ehZfNKMQ9RPJZFXmoXJ8Fk/dL8ssD8yZTVwrJTEoInjNxItijIGl8OtrfbNlfEQyZ
-	jk1KKW07G6hBHf8X7G3kPRtnmUmIml0rWY7oeJPvxA6nOiDn0uifc48w56uARMZxnMOZd2
-	wKaMSGKfxG/hUk+DCJF1pHv7OGeu3Dw=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Henrik Grimler <henrik@grimler.se>
-To: =?utf-8?B?77+91b3vv70=?= <shin.son@samsung.com>
-Cc: 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
-	'Krzysztof Kozlowski' <krzk@kernel.org>,
-	"'Rafael J . Wysocki'" <rafael@kernel.org>,
-	'Daniel Lezcano' <daniel.lezcano@linaro.org>,
-	'Zhang Rui' <rui.zhang@intel.com>,
-	'Lukasz Luba' <lukasz.luba@arm.com>,
-	'Rob Herring' <robh@kernel.org>,
-	'Conor Dooley' <conor+dt@kernel.org>,
-	'Alim Akhtar' <alim.akhtar@samsung.com>, linux-pm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
- update TMU interface
-Message-ID: <20250924193248.GA34040@l14.localdomain>
-References: <20250922041857.1107445-1-shin.son@samsung.com>
- <CGME20250922041902epcas2p3e40ed58737b22b7af9d09f6ba362928d@epcas2p3.samsung.com>
- <20250922041857.1107445-3-shin.son@samsung.com>
- <20250922200430.GA4697@l14.localdomain>
- <000001dc2c24$8be7a090$a3b6e1b0$@samsung.com>
+	Wed, 24 Sep 2025 19:45:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1FBE43671;
+	Wed, 24 Sep 2025 19:44:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF3FC4CEE7;
+	Wed, 24 Sep 2025 19:44:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758743098;
+	bh=s3G5vm8zNI9Bmh0+IwNormIltha1LWLe8EQ0HF8XNg8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=jsiLHm1g1QiReRZ2bgB0YtliwwFwoN+e+oaIAu3dl0OQEVC8EYSWKb72Z8DBkotNn
+	 UlPsOGVNmhgdUetimifm62ggR3xW/r67CXD6SKlGGiPMKiPAxdIY7knttQ8dwlNEo4
+	 68g3P4yowkvC4j9LB/HtxJA8ue+mVRgNiZXDgrMjvDCH3yh6whip9HGbGpVcKXHUxD
+	 VCEGegoeAQ0lEPOdcYTF1Bt0WY5wfiUoaNp+X5qZRiiJddnRjfdBPaqBPzu1TkUHYV
+	 CHD7spFuFvOP4q3tE69VKKO2EIZBqoG12gll6j738zvjaFsMMj3CTm1hgEHq30DYFC
+	 RIoA8xMXyy2Bw==
+Date: Wed, 24 Sep 2025 14:44:57 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v6 1/4] PCI: dwc: Remove the L1SS check before putting
+ the link into L2
+Message-ID: <20250924194457.GA2131297@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <000001dc2c24$8be7a090$a3b6e1b0$@samsung.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250924072324.3046687-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_123300_547745_EB081CBA 
-X-CRM114-Status: GOOD (  33.28  )
+X-CRM114-CacheID: sfid-20250924_124459_288460_9BAD1B0D 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,96 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shin,
+On Wed, Sep 24, 2025 at 03:23:21PM +0800, Richard Zhu wrote:
+> The ASPM configuration shouldn't leak out here. Remove the L1SS check
+> during L2 entry.
 
-On Tue, Sep 23, 2025 at 09:53:53AM +0900, �ս� wrote:
-> Hello Henrik Grimler
+I'm all in favor of removing this code if possible, but we need to
+explain why this is safe.  The L1SS check was added for some reason,
+and we need to explain why that reason doesn't apply.
+
+> Cc: stable@vger.kernel.org
+> Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
+> Suggested-by: Bjorn Helgaas <helgaas@kernel.org>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 8 --------
+>  1 file changed, 8 deletions(-)
 > 
-> > -----Original Message-----
-> > From: Henrik Grimler [mailto:henrik@grimler.se]
-> > Sent: Tuesday, September 23, 2025 5:05 AM
-> > To: Shin Son <shin.son@samsung.com>
-> > Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>; Krzysztof Kozlowski
-> > <krzk@kernel.org>; Rafael J . Wysocki <rafael@kernel.org>; Daniel Lezcano
-> > <daniel.lezcano@linaro.org>; Zhang Rui <rui.zhang@intel.com>; Lukasz Luba
-> > <lukasz.luba@arm.com>; Rob Herring <robh@kernel.org>; Conor Dooley
-> > <conor+dt@kernel.org>; Alim Akhtar <alim.akhtar@samsung.com>; linux-
-> > pm@vger.kernel.org; linux-samsung-soc@vger.kernel.org;
-> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> > kernel@vger.kernel.org
-> > Subject: Re: [PATCH v4 2/3] thermal: exynos_tmu: Support new hardware and
-> > update TMU interface
-> > 
-> > Hi Shin,
-> > 
-> > On Mon, Sep 22, 2025 at 01:18:56PM +0900, Shin Son wrote:
-> > > The Exynos tmu driver's private data structure has been extended to
-> > > support the exynosautov920 hardware, which requires per-sensor
-> > > interrupt enablement and multiple-zone handling:
-> > >
-> > > - Add 'slope_comp' : compensation parameter below 25 degrees.
-> > > - Add 'calib_temp' : stores the fused calibaration temperature.
-> > > - Add 'sensor_count' : reflects the maximum sensor numbers.
-> > > - Rename 'tzd' -> 'tzd_array' to register multiple thermal zones.
-> > >
-> > > Since splitting this patch causes runtime errors during temperature
-> > > emulation or problems where the read temperature feature fails to
-> > > retrieve values, I have submitted it as a single commit. To add
-> > > support for the exynosautov920 to the exisiting TMU interface, the
-> > > following changes are included:
-> > >
-> > > 1. Simplify "temp_to_code" and "code_to_temp" to one computation path
-> > >    by normalizing calib_temp.
-> > > 2. Loop over 'sensor_count' in critical-point setup.
-> > > 3. Introduce 'update_con_reg' for exynosautov920 control-register
-> > updates.
-> > > 4. Add exynosautov920-specific branch in 'exynos_tmu_update_temp'
-> > function.
-> > > 5. Skip high & low temperature threshold setup in exynosautov920.
-> > > 6. Enable interrupts via sensor_count in exynosautov920.
-> > > 7. Initialize all new members during 'exynosautov920_tmu_initialize'.
-> > > 8. Clear IRQs by iterating the sensor_count in exynosautov920.
-> > > 9. Register each zone with 'devm_thermal_of_zone_register()'
-> > >    based on 'sensor_count'.
-> > >
-> > > Signed-off-by: Shin Son <shin.son@samsung.com>
-
-[ ... ]
-
-> > > @@ -952,6 +1183,14 @@ static int exynos_map_dt_data(struct
-> > > platform_device *pdev)
-> > >
-> > >  	data->cal_type = TYPE_ONE_POINT_TRIMMING;
-> > >
-> > > +	if (data->soc == SOC_ARCH_EXYNOSAUTOV920) {
-> > > +		if (of_property_read_u32(pdev->dev.of_node,
-> > "samsung,sensors",
-> > > +					 &data->sensor_count)) {
-> > > +			dev_err(&pdev->dev, "failed to get sensor count\n");
-> > > +			return -ENODEV;
-> > > +		}
-> > > +	}
-> > 
-> > Do we really need the `if (data->soc == SOC_ARCH_EXYNOSAUTOV920)` here, I
-> > am sure there will be more socs that use samsung,sensors. Can't we simply
-> > read samsung,sensors for all socs and use EXYNOS_DEFAULT_SENSOR_COUNT if
-> > it fails, or would it be potentially dangerous if samsung,sensors is
-> > missing for autov920 dtb and default value of 1 is used?
-> > 
-> > Best regards,
-> > Henrik Grimler
-> > 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 952f8594b501..9d46d1f0334b 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1005,17 +1005,9 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+>  
+>  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  {
+> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+>  	u32 val;
+>  	int ret;
+>  
+> -	/*
+> -	 * If L1SS is supported, then do not put the link into L2 as some
+> -	 * devices such as NVMe expect low resume latency.
+> -	 */
+> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+> -		return 0;
+> -
+>  	if (pci->pp.ops->pme_turn_off) {
+>  		pci->pp.ops->pme_turn_off(&pci->pp);
+>  	} else {
+> -- 
+> 2.37.1
 > 
-> Yes. Incorrect remote-sensor settings can affect TMU operation. For
-> example, when the sensor count is set to 1,
-> The thermal zone doesn't function properly and the hardware trip doesn't
-> assert on the v920 variant.
-> I consider that configuration unsafe, so I added variant-specific handling
-> for that SoC.
-> Meanwhile, the other variant legitimately uses only a single sensor.
-
-I see, thanks for the explanation!
-
-Best regards,
-Henrik Grimler
 
