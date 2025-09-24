@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33994CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE56CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 12:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1HigbfdhjwD2UMz4gq5kN4d1TQ2vXtHCF+rIKePduGY=; b=CU/V1sj4gZtA9+hEse5yDgnZ9m
-	C8IPrabfJNBB+H0nrujEUd1zaOPihtUz3eoSeKmm0aKpmCj47RXqyPhEsz9d6RRXRtpXLGD+xuHd6
-	IpfsuoGSpZswbGCiOQFS9baYWKjGMFrPFJuvDgYmn3K9//X7d5+CC4SajmN4WEMMW8EUpEPT/bjyr
-	Pn973MQr8hug6lJE7WHks6xLmAYZ1bHx67rBRCPxCc9ZXQS5e++fC3sO3utChb7+CJEHFLq604oa8
-	vZLqnevTt7bDLa/NkfYrlfF8YEMm3I92MoVhMoaOyCsOSj5tV3Wnhe9d3GUr4/FmrAqvM6FYG+tIR
-	8urguVKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ur1sWRUAidpm/ZEjn1xdq4CloKH85fbSgxpB+jt40W0=; b=Njr8OKUP1VQDK/XdbiMgdtz+Ak
+	ZIFQ0lou1UKSvvrtDErdD7/7+OHp1TZKLS+Or9rgteG5B0DvISu5lmbiEG1aseS3SpCU1prHr2JXE
+	5/99fO+efV5aSTPR7BgqjWfdr1isWojcr4NmwMIoHCH2BrrEV3jxNdgdILmf6ZH0tbV5Pwth86cRw
+	pXIZ33lJLkuZjc6BH9aO5un85OdXdw4ODqtaNCwCmKZqub+UIKPq5FcHjDJ+B7sOBd7md3Eee7fmV
+	hL3Tfe6gcYz27r2c5YwQb5I9zmueAGvkHR/jlIypiKo0CsyoWDi3nNPom1oxXhrSVESBBDkJVtaik
+	I8ltVL1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P2o-0000000Hamb-1wlK;
-	Wed, 24 Sep 2025 12:56:26 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1v1P42-000000000TP-3l2q;
+	Wed, 24 Sep 2025 12:57:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1P2m-0000000HajI-0OhL
+	id 1v1P41-000000000SD-1SB5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 12:56:25 +0000
-Message-ID: <87bc9c70-a464-4990-947a-faacd4959595@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758718581;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1HigbfdhjwD2UMz4gq5kN4d1TQ2vXtHCF+rIKePduGY=;
-	b=Ntp/hWrrKFsBbDV2r+8W5nmoNNCDxDHPUgfKBqzrHXJvbdDhASAGZkRvJjuvLw/MyMZrBg
-	f14jn2QyB4KtB8LXtGNYUNpgyHfKf7umVHoBv/lbtqjESmXAbb2wjPnXijYaFqRXcCV2T8
-	4KHr6uA7MfTwsFQW8R8GBt/DEV3D3+Q=
-Date: Wed, 24 Sep 2025 20:55:16 +0800
+	Wed, 24 Sep 2025 12:57:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5E25A60007;
+	Wed, 24 Sep 2025 12:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79037C4CEE7;
+	Wed, 24 Sep 2025 12:57:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758718659;
+	bh=VG20TPc0vSAmEbBXOQRn+cY5clUm9F5ItXR7KZk0Ww8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YMtq/SByQ6iK2UkBgv5/kmBi40RN4P0XYKTALZjywJ3uaN/kHmmnmE/qudSKEbSSg
+	 HaV3hbD281tfodz7aUI6qkbjfaBwy7pSwigmgVx1aNUFLFZQ9qwH8lZvyEYrV2ewCI
+	 dKMOW6ZMBHIVTzcfk+pcjhQ13/exrBYe0Um+yR+IPIEGdleZIwJDTDaEmAeh00/zoW
+	 sQGjUOGtYspA1P3J7pHhgG73mhfHDNpwhQEaDERWiIPLjnZqynN2HvwiuoScOqcpwT
+	 XoLflD011vfmzP7dbQiDHTYMZy99mtY5l27KEiAoFY9wsuSIVvi6TrrEHCXo0IKx0R
+	 Q2mmxMbsGmyvw==
+Date: Wed, 24 Sep 2025 14:57:35 +0200
+From: Mark Brown <broonie@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	Michael Trimarchi <michael@amarulasolutions.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Takashi Iwai <tiwai@suse.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH 1/3] ASoC: mxs-saif: support usage with simple-audio-card
+Message-ID: <aNPqv15dnLCw3qew@finisterre.sirena.org.uk>
+References: <20250924101640.2942635-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: mte: Do not flag the zero page as PG_mte_tagged
-Content-Language: en-US
-To: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- Gergely Kovacs <Gergely.Kovacs2@arm.com>, Will Deacon <will@kernel.org>
-References: <20250924123528.1536835-1-catalin.marinas@arm.com>
- <c07073f2-96b7-4044-94e2-b41a2f8ca633@linux.dev>
- <8006c8c3-8e62-47c2-9d0d-9c7183dcdcf9@redhat.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <8006c8c3-8e62-47c2-9d0d-9c7183dcdcf9@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_055624_536373_DF668143 
-X-CRM114-Status: GOOD (  10.73  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MnrHIRL6ihxwJiWv"
+Content-Disposition: inline
+In-Reply-To: <20250924101640.2942635-1-dario.binacchi@amarulasolutions.com>
+X-Cookie: Filmed before a live audience.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +79,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--MnrHIRL6ihxwJiWv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 2025/9/24 20:49, David Hildenbrand wrote:
-> On 24.09.25 14:48, Lance Yang wrote:
->>
->>
->> On 2025/9/24 20:31, Catalin Marinas wrote:
->>> Commit 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to the
->>> zero page") attempted to fix ptrace() reading of tags from the zero page
->>> by marking it as PG_mte_tagged during cpu_enable_mte(). The same commit
->>> also changed the ptrace() tag access permission check to the VM_MTE vma
->>> flag while turning the page flag test into a WARN_ON_ONCE().
->>>
->>> Attempting to set the PG_mte_tagged flag early with
->>> CONFIG_DEFERRED_STRUCT_PAGE_INIT enabled may either hang (after commit
->>> d77e59a8fccd "arm64: mte: Lock a page for MTE tag initialisation") or
->>> have the flags cleared later during page_alloc_init_late(). In addition,
->>> pages_identical() -> memcmp_pages() will reject any comparison with the
->>> zero page as it is marked as tagged.
->>>
->>> Partially revert the above commit to avoid setting PG_mte_tagged on the
->>> zero page. Update the __access_remote_tags() warning on untagged pages
->>> to ignore the zero page since it is known to have the tags initialised.
->>>
->>> Note that all user mapping of the zero page are marked as pte_special().
->>> The arm64 set_pte_at() will not call mte_sync_tags() on such pages, so
->>> PG_mte_tagged will remain cleared.
->>>
->>> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
->>> Fixes: 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to 
->>> the zero page")
->>> Reported-by: Gergely Kovacs <Gergely.Kovacs2@arm.com>
->>> Cc: <stable@vger.kernel.org> # 5.10.x
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: David Hildenbrand <david@redhat.com>
->>> Cc: Lance Yang <lance.yang@linux.dev>
->>> ---
->>>
->>> For reference, discussion on page merging here:
->>>
->>> https://lore.kernel.org/r/aNKJ5glToE4hMhWA@arm.com
->>
->> Cool. LGTM.
->> Acked-by: Lance Yang <lance.yang@linux.dev>
-> 
-> 
-> Likely you can provide even a Tested-by? Just saying :)
+On Wed, Sep 24, 2025 at 12:16:25PM +0200, Dario Binacchi wrote:
+> Add support for enabling MCLK output when using the simple-audio-card
+> driver. In the sound/soc/mxs/mxs-sgtl5000.c use case, that driver
+> handles MCLK enable/disable by calling mxs_saif_get_mclk() and
+> mxs_saif_put_mclk() at probe/remove. This does not happen when the
+> simple-audio-card driver is used. Extend the mxs-saif driver to enable
+> MCLK output in that scenario.
 
-Right, so:
-Tested-by: Lance Yang <lance.yang@linux.dev>
+You've not copied me on the rest of the series so I don't know what's
+going on with dependencies.  When sending a patch series it is important
+to ensure that all the various maintainers understand what the
+relationship between the patches as the expecation is that there will be
+interdependencies.  Either copy everyone on the whole series or at least
+copy them on the cover letter and explain what's going on.  If there are
+no strong interdependencies then it's generally simplest to just send
+the patches separately to avoid any possible confusion.
+
+--MnrHIRL6ihxwJiWv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjT6r4ACgkQJNaLcl1U
+h9DVqwgAhP2iqSkJ01DCJkMcimnnaPqL1BoYPz9SUVVCg24PgJgprD+E+gepAHr1
+qgKvrq9lNgkRC8rbqU2oSB0sXcc1Pyymo85CERMqZLhF2ZriRI+W1iN85si8e9Iw
+Oa4He4aXvw0UacsqQb+bj7w9JNjqGdB0iGbleQdzPBn2Iyl1aiuLCap98CPK8lLI
+TCZoEaTSLOOHpBOlqYLTaqoJfeDjEDhToR4TI1bYuFbNz2d6ai6OgQoa78W69nWO
+c9DOFsbll0dx+W+blKCNwwvLzQNt0QmCvK+STQwLqzTYOOMQXn4XCBNZY1sbO0Wk
+F37ZIQT/6j7xA8l8k5YNDLGXw2opYA==
+=2GTo
+-----END PGP SIGNATURE-----
+
+--MnrHIRL6ihxwJiWv--
 
