@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B32CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 13:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F29CCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 13:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rr4AHNLZpak0/qwDXluW3tBh9480ZbWvsfmpnJ8cepg=; b=xHRaJluyZIiiTVxVRWOz2C34Gc
-	rxcFdCCm4yafaYpKIU7MrYhktta1xZa3b9+RA3wOV6432R1eDLMyk8dpR3b5bgCVPnxOZfe3zVbl7
-	rSsHUW/SkyX3nkOIB1HiLVPocaZok7jXClX6K1F/ijqv4SUl523N70wTfPticWk8MmY/sgk7oTi22
-	YFxVsOllMGbdsJw0/dJ4AflPFR+EUbcqj4vMRz/u/sA7aJWuei5B5gXA//ZvjTnipPsH8mBjOb7s5
-	vBpGosNu95wC7o8EhiacuWxJi+rGrCdj1pFFpzEldlxCooQkVok8KHqssL61GO5Fc1SeQzKmSgo7G
-	auFVb3Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WugwlRt+f92wWZ3YUyN065k1SzG0y5rlcWoKr0jAWkU=; b=EKb6qO13bSOXxlfs78eH/MePoy
+	BBWZ3yMGFTURxYvdHr9uSQH5xYnLZE3mNyexd37fgZk1zJoIdazn+ri2gLzNvtwfB1JqlnE53jSMi
+	P4sA8GGG7mIZIkcSzNThECl1Tv2kVvzYz0oq8x4sR7MOiwyFDvDVkZbSKo5+VrwgkIuGT+Yg3xlV/
+	rjP4mG3FtHN6QthPhbOthLElLDKsbyTHtsFmBPWnuG+44rpGTzPxNouzv3bzL2pbv5yXq3eTsmwlW
+	rvIakd83mgEwS/cQWqMHGJE9B1AGlH+YUJTriUNPdAK4eaArAXY3M4HAy27FQWqh0DOSL/yvtZFSN
+	qA83szZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1PE3-0000000052c-17WK;
-	Wed, 24 Sep 2025 13:08:03 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1PDx-000000004wV-1vQl
+	id 1v1PJG-000000007RW-2P7u;
+	Wed, 24 Sep 2025 13:13:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1PJE-000000007Qc-3a9L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 13:07:58 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b0418f6fc27so1192007166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 06:07:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1758719275; x=1759324075; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Rr4AHNLZpak0/qwDXluW3tBh9480ZbWvsfmpnJ8cepg=;
-        b=JROnVm2SLg1zDb/dzJyjCwvkBlNiOFfGDVr0gLXvYeCj9HtQvUKqnH9CC4RJMD2TWL
-         0vQGqtcrpmhB0uasT6UsSgXcEk50ETMVW/1Yi4tfMwnr+Uh8lsTxcr+65BxECm1F4IVx
-         FhoEXhuikPNVIOA6u8Q/6nb2D0TxGw/gcwokU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758719275; x=1759324075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Rr4AHNLZpak0/qwDXluW3tBh9480ZbWvsfmpnJ8cepg=;
-        b=TwQzftKCAWYtkeJNcJfNT3Ot6ZdCr8ftf2pWzBNMAWVBWLI/Uvlapab6a5KFwbXeWK
-         pmCp8JIJ3rXlIYa25rmk3YS3o150Y+fe+aSeW1Jwx7deoWPR+D00YfCx3ghVFZKHpsCh
-         v9f5YF5km5w140+suK7F9Fg3UzDvUckJA0R9GfXRuuwFEXSKhoYgcXfuf4dKsSBZtk3l
-         1uW6rqX31YnwgOdezjJBArmV6P5Qojx+RGBrVdhDtKd65tBiDAj1AWYhoQxlyPhBVAfT
-         VRxJjId6Jsvc6xAWyO31d2F7AkUte3zPBUf6F+vsVfJdTbHe51mIxpTTsDvGkrNC0STA
-         orMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUej+aQZ3SqzzZ7W53J0j5s0uBf4JY9WxtiCVKnZY8QvNGkYpEfDD5mI3in4xSVdZhXQm1lT7WzUHFWGc3kU4de@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz6oZ8TaGR23BdCP2dEFYF2mKzEjBFsV8AyNaByuEdQ+q8bhRJ
-	Li56YE8Khr/NPFRRNaxvqYqhxZEhej6zJ7XIXTqjpszXQdoSzNkMVGSq5BJUISsA+Zs=
-X-Gm-Gg: ASbGncvcOAVs1Hl/Uo2xUZFWQXHU+jF/J723u5qT052sIhSDQDwNiGH6Zt5eF1XFKsy
-	aZ9QazMPiqRiEDkMsLpV5V7J+oDFTg6fd5uhmXpGHIdGSoTvLpbPi5QxB88gjP0cOvK9jKKZfvv
-	lS1PM8+CixiWO2pR/keg2U+C4VH5QUjkQ6Fvmg7DyJDAgywm/25G9Y0IphJoEcfu5mZC+YqEubI
-	ayvslcaYLOIu8Ma3bGHfRUiDKTjiy2evx14Og3BVh7Zz89H/+K6ko5H/Y38yADsH6TbKX70yZUs
-	o527mtv9YI6oRUnv21ENq+Hmq8TnGcddE2Eeyta3iIwdR0E0gtMfbltjA3Pq3IuWAcnevqUzmzp
-	NJobyHZ1u79WoH2qk3EKVP0TOYGZyFLgi6cNU8DYIUWfWgaOAc7z35q5X4RyTxDiPlQNPW2lu1U
-	k5ybxRqHADTEOVcXQEiUAZrz0S8Ychf0Dv19WeYOxc7zwtCxxRa0HLlg9/18k=
-X-Google-Smtp-Source: AGHT+IFx9RJ+/2IFWtcGeD4AIDWcZcKVdKo7r0/4aN/+yno0pYXxsSMoGTi5NzRLLyVL5lFzEdLoFQ==
-X-Received: by 2002:a17:906:6a03:b0:afe:dd76:7cd4 with SMTP id a640c23a62f3a-b302b21c432mr677014766b.57.1758719275523;
-        Wed, 24 Sep 2025 06:07:55 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b1fc5f382b0sm1574379866b.2.2025.09.24.06.07.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 06:07:55 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RESEND PATCH 3/3] ARM: mxs_defconfig: enable sound drivers for imx28-amarula-rmm
-Date: Wed, 24 Sep 2025 15:07:46 +0200
-Message-ID: <20250924130749.3012071-3-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250924130749.3012071-1-dario.binacchi@amarulasolutions.com>
-References: <20250924130749.3012071-1-dario.binacchi@amarulasolutions.com>
+	Wed, 24 Sep 2025 13:13:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD41C106F;
+	Wed, 24 Sep 2025 06:13:15 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C7953F5A1;
+	Wed, 24 Sep 2025 06:13:20 -0700 (PDT)
+Date: Wed, 24 Sep 2025 14:13:18 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sebin Francis <sebin.francis@ti.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"Marco Felsch" <m.felsch@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Brian Masney" <bmasney@redhat.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for NXP i.MX95
+Message-ID: <20250924-dark-super-gharial-246400@sudeepholla>
+References: <20250915-clk-ssc-version1-v4-0-5a2cee2f0351@nxp.com>
+ <20250915-clk-ssc-version1-v4-5-5a2cee2f0351@nxp.com>
+ <5f508f1d-2d08-4687-86cd-d1944caa0a49@ti.com>
+ <PAXPR04MB8459CE9F22CD56A9BFDB5E78881DA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <082735e7-956b-4574-952e-06ba69db41f1@ti.com>
+ <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <PAXPR04MB84590D5AAAB56ED7E1CBDE05881CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_060757_494314_E4367C5B 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250924_061324_934291_0F57BA63 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable TLV320AIC3X I2C codec and simple-card support used on Amarula
-rmm board.
+On Wed, Sep 24, 2025 at 11:43:56AM +0000, Peng Fan wrote:
+> > Subject: Re: [PATCH v4 5/5] clk: scmi: Support Spread Spectrum for
+> > NXP i.MX95
+> ...
+> > >>>        SCMI_CLOCK_CFG_OEM_START = 0x80,
+> > >>> +     SCMI_CLOCK_CFG_IMX_SSC = 0x80,
+> > >>
+> > >> TI is also planning to implement the same in our upcoming platform.
+> > >> so can we use a generic ID instead of vender specfic message ID?
+> > >
+> > > I tried to push to new generic ID [1] in half a year ago, but in the
+> > > end ARM decided not to add generic ID for spread spectrum support.
+> > >
+> > > To i.MX, it is too late to use a generic ID and waiting spec, i.MX
+> > > firmware has been public for quite some time and passed several
+> > external releases.
+> > > So I need to use what our firmware adds and spec allows: vendor
+> > > extension.
+> > 
+> > Thanks for the quick response,
+> > Since this implementation is specific to i.MX, can you move this to a
+> > vendor specific file, so that it will not break i.MX's firmware and TI can
+> > implement SSC in TI specific file.
+> 
+> i.MX has encountered issue with pinctrl-scmi.c and pinctrl-imx-scmi.c
+> both supports SCMI PINCTRL. Current linux scmi does not support
+> both drivers built in kernel image, because scmi devlink issue.
+> 
+> Sudeep said he would address the devlink issue in 6.19 cycle.
+>
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Yes it is a different issue IMO and nothing related to this.
 
----
+> Given the current situation, I'm hesitant to introduce a new driver
+> saying clk-imx-scmi.c.
+>
 
- arch/arm/configs/mxs_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Yes please don't, and I don't see a strong reason for that(yet).
 
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index 3b08c63b6de4..603fb003b223 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -100,6 +100,8 @@ CONFIG_SND=y
- CONFIG_SND_SOC=y
- CONFIG_SND_MXS_SOC=y
- CONFIG_SND_SOC_MXS_SGTL5000=y
-+CONFIG_SND_SOC_TLV320AIC3X_I2C=y
-+CONFIG_SND_SIMPLE_CARD=y
- CONFIG_USB=y
- CONFIG_USB_EHCI_HCD=y
- CONFIG_USB_STORAGE=y
+Unlike vendor protocol, there is no way we can no upfront how the vendors
+can use this in their own colourful way. So I am not sure if we start
+building something generic from the start or refactor as more vendors start
+using it. Hard to decide 🙁. Lets see, need to think a bit.
+
+If Peng or Sebin or others have some idea, please propose or start the
+discussion so that we can evaluate the approach.
+
 -- 
-2.43.0
-
-base-commit: cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
-branch: microgea-rmm-audio
+Regards,
+Sudeep
 
