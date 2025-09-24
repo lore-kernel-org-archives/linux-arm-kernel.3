@@ -4,98 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C67CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 20:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4009CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 20:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=; b=A/buJx1mBSrxN4HJrAOg4gK6Mk
-	GCb7nkC4JtM22yrMx5sTfEFpz7A2DWsXOiv0HMbArkZD5T3zMmkRCrHvWI1fXlKnCdAlWDNKCTUTY
-	UqzoYsSt2k8TO3m1NoVGNYGeQV5EozE6BQepSsDPyUDLd+m/BvdOiq8ShbQUpualC5LdrTuUJ2MTj
-	bzZ2aLfKt9OvDEqQz2w7+QGw0Ex7UIujsiZKMdRdyZYiGiupKBuL33Yth0G4fSJaZCFEtD4tqgkWC
-	q0XheI8OS9IQRh2lM3TQrtMRF0iWMON0HIRraVh+qd/9CvSdQamJEofm7vOK9yllt72Nr00B+Ekmu
-	mreec3ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qLQwVc1w/sS3cRfltjv8ih4BvpnDmQnaS6OQNsdhaKA=; b=KgGdugEpeecZmIjf8U7OWXz21K
+	QCMUPkSU6cUdmH2I9iBaP+OFiGfEQ6SOuqyXIbYNvw5tORn1JxBnNd8TgEYEXutCIPzM8XLdbLFus
+	vDleVf3pAZqIdBZPHOKMtK/1O8jCiX27DCTvUbTnELN8DnCcjjzmcc6NYnxWq3nExVQsWJZ06s0+7
+	j6Nx+dRbyp/kdPpSCB28C5J+Bn0K5u9MYF6hJ8bUva2K/1KOM2l6SO2jjA5Cje6uSPpw6E/njoDp6
+	2lO0Em1UwujFOKDvmy2ADwdsOeM0tiPoyA8MXnuFID40mD+FrhnMelVM8MMT1R2BRExkqPme2dgrB
+	Kb8R61jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1WG2-00000003Zu6-03pC;
-	Wed, 24 Sep 2025 20:38:34 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1v1WaI-00000003iSJ-29Rl;
+	Wed, 24 Sep 2025 20:59:30 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1WFy-00000003ZpN-3CUk
+	id 1v1WaG-00000003iQf-2XfD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 20:38:32 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ddc7d5731so1817215e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 13:38:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758746308; x=1759351108; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=;
-        b=Qx/2WcRM0FTThNhdGymIpEcLexLZ2XWTvQF0eX3sF/9KyeYI20v/IQ3poH7U13sY78
-         1TeY6YELkc1vMyzT8DOBlNXFZzMNNyfDIY+wtn1kJYpiruL+p36FZMb89K6N0WCUq6KK
-         36YsrLWDs+ji7NcaQot1lvERhoNjeOE/1kgYiAxplO9q6ZoYG3ow8o/yObgC7EQd3/Jq
-         45cTMRtOs1gFRMEw1Tavdta3sGST+U7IsTONyIq+i/Uy8w55aaWGH6CDBvgvF2/44MVp
-         VJlRihvvk5YJ/761joE9Tdupccavcf2rx1sph18KBwEpp8t5GajLHKujR/8e3HxM9WJ/
-         igDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758746308; x=1759351108;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=;
-        b=YE9d91cqlcUX/JqwjtwxqIJ7J6Ve+CpNySnJ2fxGKBWvSWLuUGBcfDDO1sKOLUSVr8
-         tT84ehiYi/kX9sClx6oziS+OL+BnZ4oHPwqvrZUNTom3tiwX5HnKTTlT5Y6TqMRHk9fG
-         Xed1zD8pyOpd9kjmxS0dbwRAbBk6zlH36vR38/RBDs2+eSHPEbzH1o/oNgRV1VjJpxPi
-         8uMrl9ubt057AtGqdZvVmTHC0IsJhp/DsrdMDwF63lrU/pYrgvYJ4CoFaTJaUyscAD7L
-         LOppcTaxjIkEcZeelCo1oTuWU8FQ7kE73SYAAW4Jo8VsZrys/eDM74MvgxmmZq1hhsBu
-         Xb1w==
-X-Forwarded-Encrypted: i=1; AJvYcCUAXp2yChnuC4T88g9qPuWk8JqV1GFUK9oF25VWWzekrTuiz3vlpLQGCIodA5WvWlKNIALzJNQexiy9bF1MOWJs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKYd1SJsA/fMGL2FlOZXo5YKWytw4vrt+zMAtmiljK/ydhmoh3
-	7ppzDdP/xBvIeOjRugCfDEZeRIzqNHBrxiXS2j9lFgOmx9lbAXW2X+Uz
-X-Gm-Gg: ASbGncvSA0vgb8HYBW50rDp5qij8YAAXv10GDWl4RW/1n8OpufhEpPVv7WHi8W9W5OT
-	tZm7PZ8GDFmb+kDBJnjUWZuoWAGgKKvnL7/HFrpOuCsFRXUtec8epahp5aK5pXBe3snBqeNGyje
-	LVxyagYRqFYY24Zb3S3NS3QfijIQyamoHmLQuyq00WdhI5R7rft9roLMAlQlNAl4pRxqdx8DDvq
-	5gWF/rRA+mUGo5vtHrBBZtgSgqzxr9ruo8l23rm54ys6BDJr7WMSaSyMG5mQdO72MOhJ3ePT7Vl
-	FOzP/qfv3Q3S2B3TiQMHezqIUvCsIeAvxrW1zHO892jrUAfyAQUJh2cfAbkrt0GAc9mpIStRplN
-	lNbFRuI25pibgr4KSMB5zm+H+4ZONC+Z7oYcEzChG9t5gHQWi
-X-Google-Smtp-Source: AGHT+IGDxHR9zD3T2Jojj5V63amKQHEZ4Y5ouX0SIG7pqFz8i6fnWZlg4urHE+jXQ/8JQVeDmH/9Kg==
-X-Received: by 2002:a05:600c:1695:b0:45b:7e86:7378 with SMTP id 5b1f17b1804b1-46e32a1987cmr6748555e9.34.1758746308296;
-        Wed, 24 Sep 2025 13:38:28 -0700 (PDT)
-Received: from alchark-surface.localdomain ([5.194.95.234])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33b9e8aesm2663465e9.4.2025.09.24.13.38.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 13:38:27 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 25 Sep 2025 00:38:13 +0400
-Subject: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
+	Wed, 24 Sep 2025 20:59:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kjQ66bWB17+HxUdOg27qUK1968XXgxlw/PdOwlik7BzV+/1hdyT92MHP8n4ryYSmGC57ylxTSrcKNJtY0O13ZVC3Q/llntMaKyuPnE6SIk/awfqKFZQdLdtTVym4HO0d9Vhd/LQw/2gV17dk9TdkPUVorQYR+LHJNpavAvslVJ1uIRPq8dF3l09f5ek2N81kzFjIUwb7C0eukGL+EcjPOo5Ljc5lqF+S9FSkZDIz55J06C9CqrxKnhiPu88m2Giib2ei3hFUzaF+AaIPd7E+xdhhT00NfgfXllZdYbmm9VlXAO0vVe73qaNB4HI70xbvQQq6ucJYI8LeWw/zj3AJfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qLQwVc1w/sS3cRfltjv8ih4BvpnDmQnaS6OQNsdhaKA=;
+ b=nxxcYB3w5y1fsavZ5R4f3LXrWUdXk96tdxuVAnxkxq43zzD4/CzjoaShDtbhJE4TZXWlQFDjtAvlj+6cAD3GCy7fPpeoLg9DNFakKWTT+B6SpW7euMjl37aCzHGN45peREvJ5NZuACCqnEKhbLQBWBTcN0cBPqfAOoBse9KUJ3P0Pv+EOGpZE/9mz8TMY73dR0WmYReypgng0XFs1g7M5INxaKavQ+NF3dq+WcKuBloxBEOj0P2s2blLLAQtN5cUqxLX7IyrvHwifMk/I3pYHeDKXvZARsh4d+B4xvVXzc8jD/ZqC8MFMhfx/0v08yC/qlzJGdHhZ28JhndVdwVqZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qLQwVc1w/sS3cRfltjv8ih4BvpnDmQnaS6OQNsdhaKA=;
+ b=ktoy/pkF9590GeG8549G6o+6e8+JhIEQEYhZW+xhYz7iSj7SHjwAEsQU425+ZPW3rSgiHmoRt+o1J+XFGP6ZhyCa9rvXZRFDSBXU41qtHGyl5oDQKiAeRQgWQGhWGtZMqO5hghwVZx7ZYcC1hBBfwfCjH+4oLM8/Q0Zups6SusD8Vo96GKskWbMDtbA1expMDE5IGtyQvFAF41flYN+GOrPNB5rqe3dRwPNmix4eR/NQhsntVNspme9e+Kcx4XGOUphjhFwfUuYRxB5BU2sIBfzjji8DiuGRahz/tmlCrBVdWD58Nxx8wK07EfoXL9SdZNzzlFplAsKVYG75d3+0KQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by AS5PR04MB11419.eurprd04.prod.outlook.com (2603:10a6:20b:6c4::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Wed, 24 Sep
+ 2025 20:59:20 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Wed, 24 Sep 2025
+ 20:59:20 +0000
+Date: Wed, 24 Sep 2025 16:59:11 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, jingoohan1@gmail.com,
+	l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v6 1/4] PCI: dwc: Remove the L1SS check before putting
+ the link into L2
+Message-ID: <aNRbn+bZ8MP77sdh@lizhi-Precision-Tower-5810>
+References: <20250924072324.3046687-2-hongxing.zhu@nxp.com>
+ <20250924194457.GA2131297@bhelgaas>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250924194457.GA2131297@bhelgaas>
+X-ClientProxiedBy: BYAPR07CA0090.namprd07.prod.outlook.com
+ (2603:10b6:a03:12b::31) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
-X-B4-Tracking: v=1; b=H4sIALRW1GgC/x3MSQqAMAxA0atI1gZsU8eriAuHVIOg0kIRSu9uc
- fkW/0fw7IQ9DEUEx0G83FeGKgtYj/naGWXLBl3puuq1QXdS3TbIYVG4eUGm3pLpiBbbQK4ex1b
- e/zhOKX3yEkZhYQAAAA==
-X-Change-ID: 20250924-rk3576-evb1-dsi-e39f34833bf6
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3993; i=alchark@gmail.com;
- h=from:subject:message-id; bh=/7E6ceDbDhZ4pxug1DrrfRHk0oYerFsLd6y+cKd/Fmc=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRcCTss8+Uow9wVd7om3ggIPPxuqbaVReHufeeOKO8ui
- DqxLvCgXUcpC4MYF4OsmCLL3G9LbKca8c3a5eHxFWYOKxPIEAYuTgGYiNxbRoafxwXXszilzNvD
- v3ou95Mb/R6Ju83fpOisd/+6dteaZbd2MPwPfxPzSlRMSOXbG8XWJufMCcLu6zfOeeo/SUhQjlt
- YYSsDAA==
-X-Developer-Key: i=alchark@gmail.com; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AS5PR04MB11419:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8c231de-b7ba-4bbf-70af-08ddfbad3b9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Niygwsv5+julerpe3H+QIiKYPkS7tXifAyC0XlzFsrdqw6pP7GlsGA/ZLxFh?=
+ =?us-ascii?Q?l+m3b88uwJ0FqsnwVI+HwBjKkLPLf97YE544KFRog7LMOTSTvfEJtT8rgM/V?=
+ =?us-ascii?Q?uALIaXGa0pV2QaU6T2AlCyZxrASm/CugjcMMptXLqPZy/U4eZAn5eo/6pL2D?=
+ =?us-ascii?Q?yZ9lbri7JXTy5KtTj7uQ9KSHeM6MAvHlJc9KfLn3ZyhjvyH6f57Y01qc+3hM?=
+ =?us-ascii?Q?/Y0pLL3+NE0KmRPufpjlGQUO7v2UTgmj4UW4V6q8lvwM15a39faGoOaU8HKv?=
+ =?us-ascii?Q?PZGsTR/2QD9nrZDtLvPrJs3QkgmJ0/9ekPZ320+gORLW+L+WFzs8ZuCiV8ib?=
+ =?us-ascii?Q?RQNwyLrf+mfpHAwbR2EBRh5A6lESfk9+6/ZgQwgMF0fZIKTf+qNUhgFscaLC?=
+ =?us-ascii?Q?sJpQchNThX9ilfSJAH6q78+uw8wty6Zj6Pnsnm8exwQrXt3kpCCrxeaoUhzC?=
+ =?us-ascii?Q?coPgrh/MxyW3eKlCI9ywM/B0rAlYdLAeqIy8yVEiGD4FjadvXVPk0USMSgqy?=
+ =?us-ascii?Q?3iJuTl8B4pBmf7z2Qb9m/nwi8oCG4Prcfh42ku+YGX0hHnGoEuMTTXPCLLgj?=
+ =?us-ascii?Q?f3bKloFKZngWdDVJC3afteHzg5SAOeHNln0RMREOvUR4RhkPSCprtLbyVTea?=
+ =?us-ascii?Q?Jub6OOr5LDPbvTO/3EULKp02YOE9zb9c0f2IkB5Q9VVp4TMXyAA9/rKCr+X2?=
+ =?us-ascii?Q?qZYDZ4CzrzWRbf5p9P/xv4sQjIEx/zs5fSv3W/wwbXKkyJ7gQ38p6L3w4pG+?=
+ =?us-ascii?Q?krEfhgYFCfhLPds2OyGRNPHwHvZ7JEyAcghdeeAVmMcqZoFRj7j/KvQiDwdf?=
+ =?us-ascii?Q?CR+kKZFmPz3s5sZVLpRbvgoOLSvBApYoa0XnS4Ir/MW0q6s01AHwm9dftZEO?=
+ =?us-ascii?Q?JHRpyYjwKyYhGDEJ/w7Z6yA84xoZKUZawq1hnjBQRMKMJZRySzg5/aokUIr6?=
+ =?us-ascii?Q?MKAv9IsGkNuTVii/eUX9mJZsAGUc0v45kxui2SNcIEe5T52knYO2ih9dZGlN?=
+ =?us-ascii?Q?QvHcdYvqUkLDjCNwPJF5mdVOe+WJOSX/ffa0mH2YKgpN54A5y5pHxebnpNk2?=
+ =?us-ascii?Q?DCPX2d7ZlN0HZtr20dXEk7UbQNRHGLxBAzsiN9WlI3XsAdm4f0rnH4sPn/ZF?=
+ =?us-ascii?Q?VhZBIJYoXbh/WtGxXsH9VXlAsEHbujNTBp3f0Rvtsfl8QGZ/NV7NVp4Cu9Bs?=
+ =?us-ascii?Q?3lQyxz08CNbqMxBchwefSxkaSBHFWxYt+8yhXrM3DlrrwyqLMuX87uHUR/KE?=
+ =?us-ascii?Q?hluUMzELDaSRQRiaNOaWffUpYZp9e7vxEJi4qpbm6e/0ieGXdbTma106FmeE?=
+ =?us-ascii?Q?UD5MTNINm3ZTi8xxEBCsm7lSgNg9zaTR/K8TvQY68e3B7/UMygyUi4Wd//7y?=
+ =?us-ascii?Q?mXlW3HN+BS+UuSv7YbLbmDIDmdlHyXxuDYeZNcJy0fJ/DBv6GlcY5oAbNbGX?=
+ =?us-ascii?Q?7CNo53jChGfkFBCkiyYI+LzILSAPbOZkW89HadXJQJnIuxSVQA3Iqw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+srY92DvnjorscKXKf0v51KGgSRfd28rxaGqDSDlYf9s/UNpYC92rPl+TqE2?=
+ =?us-ascii?Q?I0f1gy5UsgxMyqY6BjtA4q5ofC+eKEnr9R514ThBLoFFknm/apIkkawGWVrH?=
+ =?us-ascii?Q?clwqKXisAtg3stxyriizMxjzVCDLGrVUrf1RxtQxDJIGhsEJc+HLED6GY4i5?=
+ =?us-ascii?Q?vdyz/G5ORBL5Cefdo202owMaACmv6vZX/HltFYYOSyA19FF4v3fB/V7NRcEO?=
+ =?us-ascii?Q?hbMJMG3l214F9/dM8j5VzpeR8ZERz/iAhEY/ftYHeRcbcwd9GwewMo+xbPiy?=
+ =?us-ascii?Q?prCLALGKsPvbtvhRylwb53zIEqZjTYZJYpmlODUEMc2RDPyWsUA0wxUKYFMu?=
+ =?us-ascii?Q?afDIraa+ZL75E4TYbzLmEUl6js2pGDJmhfY/KiczGlQtPDNnpBs7BElHyUxS?=
+ =?us-ascii?Q?pMI099OKiQoCuOsDt6FaWF2dZfoGR+4YZSdbhF5fxF/RAljGyFzYQaBRHUok?=
+ =?us-ascii?Q?7M/vya4C5CekzjO9CWK+mkKeEz4IN+umLhaNeI9UKq8VGO6rRNvxqWDTqql8?=
+ =?us-ascii?Q?QolpxFXrlRDfpUhV23aYUPGnONs1TJ9ZRmb/iiYHe8xdUnv2VRG2uqzwK7lf?=
+ =?us-ascii?Q?mJ7qhy823ZJUXGUMkCk5WH/4WqaF5b+KDCGymRGZobaOipzsaL5pGgxrOhN9?=
+ =?us-ascii?Q?5MazVAmLKz6FiCFoXxzE37fkAZe79rWEjfoZ+iPCoMSQpinQrfl/+PbQ4cU8?=
+ =?us-ascii?Q?gJDKgf1WaTh4zuhJ5An8gO/sWhZMLRPD9NPtN1zKY8HDnihW2av0eBGbDZBE?=
+ =?us-ascii?Q?HljT39B6qnqTzgydT0b/97AMi/sXYwuY+Sa9Qxv9Cw/dUJnbYgLnpC6rv/en?=
+ =?us-ascii?Q?gDdBCJ6ZZn9v/8pDVCHFzYwmsA58OCLf7zVZi9KXl+m4+ujCHx7kbiEZ2cLo?=
+ =?us-ascii?Q?slkO4d+5AnMCcAc+ttWOw+dAbbfFDPKkpNZzHt3PU1S2nnO+/hqYjMJ2ewya?=
+ =?us-ascii?Q?H42Tr0NDQspmIR31vd7r1dtjYB/0IdCo6jTeIq0Bo+pH7YMuzqNXQwDyQp67?=
+ =?us-ascii?Q?2ZPBdSN4ToC+bDaF9gUW9A0mGlsHdAfbJ25nPLKcPDj+1uu8hscVn7Mxdls7?=
+ =?us-ascii?Q?B6ogKUDTFKPJb6doPZo3Z3dVJUXk4NWZTxZ26aMbvI7psLq3tWRVAf2th6Wg?=
+ =?us-ascii?Q?6XSy3P59SDK1JnQBKDAbsX0YkY+AgrCNtF/aN++S2zwq9iN1Xc82GrAuEBJS?=
+ =?us-ascii?Q?Sj/uGGTUULU6YvjmXvfW5R4bCkjnqABQnT+y4goFMIaWJQ/wsvJtKmTNp9NI?=
+ =?us-ascii?Q?fbe/4PBZlmZR2uvfHB3rdliQox9GsUAll/fntLaVMPdBAnPoK/8qn84K4rDn?=
+ =?us-ascii?Q?lQbZXOLO/5n30J4Tu9c59cYV7tqfw/PDaQfA/u6QVZmZ4clJBAYF0uyDXRAu?=
+ =?us-ascii?Q?DOnWNa7IWyB0AU9gxMvnAA64uBaMwf0ZBMXdMs0FUBzgnH3fA4gHoId/MHXL?=
+ =?us-ascii?Q?oY05cb/5Zvspq8ElPab3N0BOg8qAIsy8IBSVmF2ZmwrVG+HTbT2wrPPSj+ND?=
+ =?us-ascii?Q?/BohH+pDR1XL/INmAGUPs0FZXO8hHvc+WjLww8CZtDqAr4W29dZkM0Tu6h1q?=
+ =?us-ascii?Q?xB6SDWiU/45ezRpzNAjwDtlGYv+qZTNLD9ocd6t+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8c231de-b7ba-4bbf-70af-08ddfbad3b9f
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 20:59:20.7559
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CA752QsTFDUdifi43BQALQg4Ti1jr1AY0wbAkMCXCc3X84vi9bRHRn/DNItXZBi7BlKyLL910lWNjna1oZxkxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_133830_834261_87ACC082 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20250924_135928_653755_52ABBE07 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,164 +163,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assembly which
-comes physically attached to Rockchip RK3576 EVB1 boards.
+On Wed, Sep 24, 2025 at 02:44:57PM -0500, Bjorn Helgaas wrote:
+> On Wed, Sep 24, 2025 at 03:23:21PM +0800, Richard Zhu wrote:
+> > The ASPM configuration shouldn't leak out here. Remove the L1SS check
+> > during L2 entry.
+>
+> I'm all in favor of removing this code if possible, but we need to
+> explain why this is safe.  The L1SS check was added for some reason,
+> and we need to explain why that reason doesn't apply.
 
-The display part is driven by the on-chip MIPI DSI controller, and the
-touchscreen is connected over I2C.
+That's original discussion
+https://lore.kernel.org/linux-pci/20230720160738.GC48270@thinkpad/
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
-Note that backlight support is left out for now, as it depends on PWM
-support [0] which has not yet been merged.
+"To be precise, NVMe driver will shutdown the device if there is no ASPM support
+and keep it in low power mode otherwise (there are other cases as well but we do
+not need to worry).
 
-A workaround is simply `gpioset -c 0 13=1` to set the respective GPIO
-pin high and thus to light up the display unconditionally.
+But here you are not checking for ASPM state in the suspend path, and just
+forcing the link to be in L2/L3 (thereby D3Cold) even though NVMe driver may
+expect it to be in low power state like ASPM/APST.
 
-[0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com/
----
- arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++++++++++++++++
- 1 file changed, 89 insertions(+)
+So you should only put the link to L2/L3 if there is no ASPM support. Otherwise,
+you'll ending up with bug reports when users connect NVMe to it.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-index db8fef7a4f1b9570cb517ccc9a857d1c93c9d2db..f20cd6f2c079e0a5bd79acc9ebcd56b499e0f72f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-@@ -125,6 +125,8 @@ vcc3v3_lcd_n: regulator-vcc3v3-lcd0-n {
- 		regulator-boot-on;
- 		enable-active-high;
- 		gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc3v3_lcd_s0_en>;
- 		vin-supply = <&vcc_3v3_s0>;
- 	};
- 
-@@ -264,6 +266,43 @@ &combphy1_psu {
- 	status = "okay";
- };
- 
-+&dsi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-0 = <&mipim1_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "wanchanglong,w552793baa", "raydium,rm67200";
-+		reg = <0>;
-+
-+		iovcc-supply = <&vcc3v3_lcd_n>;
-+		reset-gpios = <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
-+		vdd-supply = <&vcc3v3_lcd_n>;
-+		vsn-supply = <&vcc5v0_device>;
-+		vsp-supply = <&vcc5v0_device>;
-+
-+		port {
-+			mipi_panel_in: endpoint {
-+				remote-endpoint = <&dsi_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi_in {
-+	dsi_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_dsi>;
-+	};
-+};
-+
-+&dsi_out {
-+	dsi_out_panel: endpoint {
-+		remote-endpoint = <&mipi_panel_in>;
-+	};
-+};
-+
- &gmac0 {
- 	clock_in_out = "output";
- 	phy-mode = "rgmii-rxid";
-@@ -319,6 +358,28 @@ &hdptxphy {
- 	status = "okay";
- };
- 
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0m1_xfer>;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	touchscreen@14 {
-+		compatible = "goodix,gt1158";
-+		reg = <0x14>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_LOW>;
-+		irq-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&tp_int>, <&tp_rst>;
-+		reset-gpios = <&gpio0 RK_PD0 GPIO_ACTIVE_HIGH>;
-+		touchscreen-size-x = <720>;
-+		touchscreen-size-y = <1280>;
-+		VDDIO-supply = <&vcc3v3_lcd_n>;
-+	};
-+};
-+
- &i2c1 {
- 	status = "okay";
- 
-@@ -738,6 +799,10 @@ rgmii_phy1: ethernet-phy@1 {
- 	};
- };
- 
-+&mipidcphy {
-+	status = "okay";
-+};
-+
- &pcie0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie0_rst>;
-@@ -788,6 +853,20 @@ host_wake_bt: host-wake-bt {
- 		};
- 	};
- 
-+	display {
-+		vcc3v3_lcd_s0_en: vcc3v3-lcd-s0-en {
-+			rockchip,pins = <0 RK_PC6 0 &pcfg_pull_none>;
-+		};
-+
-+		tp_int: tp-int {
-+			rockchip,pins = <0 RK_PC5 0 &pcfg_pull_none>;
-+		};
-+
-+		tp_rst: tp-rst {
-+			rockchip,pins = <0 RK_PD0 0 &pcfg_pull_none>;
-+		};
-+	};
-+
- 	hym8563 {
- 		rtc_int: rtc-int {
- 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -941,3 +1020,13 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi_in_vp0>;
- 	};
- };
-+
-+&vp1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	vp1_out_dsi: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
-+		reg = <ROCKCHIP_VOP2_EP_MIPI0>;
-+		remote-endpoint = <&dsi_in_vp1>;
-+	};
-+};
+- Mani"
 
----
-base-commit: ce7f1a983b074f6cf8609068088ca3182c569ee4
-change-id: 20250924-rk3576-evb1-dsi-e39f34833bf6
+Frank
 
-Best regards,
--- 
-Alexey Charkov <alchark@gmail.com>
 
+>
+> > Cc: stable@vger.kernel.org
+> > Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
+> > Suggested-by: Bjorn Helgaas <helgaas@kernel.org>
+> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-designware-host.c | 8 --------
+> >  1 file changed, 8 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > index 952f8594b501..9d46d1f0334b 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > @@ -1005,17 +1005,9 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+> >
+> >  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+> >  {
+> > -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> >  	u32 val;
+> >  	int ret;
+> >
+> > -	/*
+> > -	 * If L1SS is supported, then do not put the link into L2 as some
+> > -	 * devices such as NVMe expect low resume latency.
+> > -	 */
+> > -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+> > -		return 0;
+> > -
+> >  	if (pci->pp.ops->pme_turn_off) {
+> >  		pci->pp.ops->pme_turn_off(&pci->pp);
+> >  	} else {
+> > --
+> > 2.37.1
+> >
 
