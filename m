@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF4CCAC5A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47068CAC5B1
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 14:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=; b=bijg4fWHV+TP+PrZlYBIbffmDq
-	7FbAyVV2eQlBD+aEiM6uG4Inqw0z0dGWEwXST4sdtpUzhJ2dW3xUKIa09oIPIoeXWEqN3IUrGkZDj
-	ZP7SRdNvTr9mtEEdVAVcgcUQ/Q4xdl/D1xma8kQG/9fa7Nw0Wr4JuR373KBUwTahlRRUk74IUlC2X
-	esLvQmQMs6l52GampzlEKYNgaIsGjj9IP6XdjJN/9NxPsewLvIoMLEI1Qa9gQnAVBMiqHIINUGLVa
-	dpGyxvv5pRo6aXnNUCxnspTnt3Cv31Bo+e3gB+y81nGelsAh8GrxnwtRVjplH9K/TAZwjiZFlvWPC
-	+lzqbAww==;
+	bh=ZL4+irwvWE4SsBdHoCJTCTy+AX9NkTo9OPK52JUB9wc=; b=peHnQBh8CKBkWbueDSRXOIJweL
+	tjB69aI7gDgbeN0Teq4xDbXPZDafEoku8B/vSK503d3vJ/qXxtQ7rQ4OFNYduSL/QUCb28YmXFQIt
+	OpCE6RarDWECSL+2GyeZm1eKcrH4+kvYsAMA/jj/YnwoSTSI0pws0ivfhhSSpbbYiXAwd0w5Y7zGK
+	bYq4hPqNAoJeVGickEOC3BJAvH4am0XSGs4WBW4KgRnfYteDn4CsBL8CJcVeSIOh40BHqnTw5RPxy
+	SV9KMvo+l8vm1H1FOw05rPqN/PmlmAdotaVGQsnbD/uNKHNhNZ6BB2Oh+wAJNVOyLoqTML8G0WC5a
+	7c6eOkvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Qqy-00000000tVm-2gM6;
-	Wed, 24 Sep 2025 14:52:20 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1v1Qqx-00000000tSq-0QlK;
+	Wed, 24 Sep 2025 14:52:19 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Qqp-00000000tHW-3vmb
+	id 1v1Qqk-00000000tBT-36Nl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 14:52:13 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3ee13baf2e1so5210605f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 07:52:11 -0700 (PDT)
+	Wed, 24 Sep 2025 14:52:08 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3ef166e625aso4031729f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 07:52:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758725530; x=1759330330; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758725525; x=1759330325; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=;
-        b=JjD5/OAf07XYtPf+PbNbsi3L0iCvY5EoE7KBHciGIY2nzC4tp/LhLE9yQ+uSGNGfdn
-         YIANyST/yVX6kP1wqWShxjpbjECdkFPT7ivnvVa/abCmmAvTfWENYAgiodg0jP/My1O1
-         ieWVf1gYEgNkoUdmdSoq9DLIy397nHEYs3se6R7sxu7DJnZG4Zcysoyi32iXPds/8ZtU
-         FjBDTGXxkULwbSJ5hIQp7ouJkxJ7GXaraEqJk2NJ33H2645q9CAXZ7ySzg/hCUc781sC
-         vPtXsgSLCCeasim3M9bMn7iqdnJd+OYi4Um+l2/7lvOSYdCu5B0V8gx/zY7828vsVFcS
-         9siA==
+        bh=ZL4+irwvWE4SsBdHoCJTCTy+AX9NkTo9OPK52JUB9wc=;
+        b=q/HT2KepdXTvNmuL+97/97rb4OvA90ea8xlL5Rl/a/uAizzpXdyFWSDZ9BptIm9aeD
+         K12Q9s8gBiV3duIc+qWQ3W8EbPuNLH7RFqYKeFRW4cntKJJoR15vczUVFzd2aC4oyu3i
+         W8cZpHIAyWOn75kyk53mkT+FultEk6nAr5+Ejn1R/GxoJ+NqzZdeCXzcfglZthvIr4tq
+         CON/Orw85J+Nnixt5o3LOrYomplLoAgPvtxZxCcjVXNMC5Q9jpEv0KSBGXK7PJQNeOqY
+         kWqhQGvfl4uhy/8hLBY8g+TI4n8/15j1f/lcEdEqCnau+WMD9jdqKqG2kVN55zyjUfDC
+         Dvmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758725530; x=1759330330;
+        d=1e100.net; s=20230601; t=1758725525; x=1759330325;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=;
-        b=etWUeyQ2ibTNx/0BZfiyAPw4PSRSggtKGIEmDCjKRVh0SRAc3mUk/cl06PdPkHWLVb
-         IBLkg4reLWEq1y6S0hc21kkzRbgbc5shfHAQ/NCe0+eHFLUss9i18Hp7DfLXW4S95NDU
-         YrWIaJNSPdEnJygVMYs2z3X+xuKZAV7XgnF6AoZwVhqywsxO1JypYV26me4KWeHP66/l
-         ZlV1ZkTFJvT8M4wfE/wmOqVZOLkkGv2/9rRUbeAQwTvcz8A5gvtFSjyNJCap+8IeiJAY
-         osVkOAUJfaiYOHNNhwkElOr3HqN31prSe4GDsjS1wxbojvcrEyiJkSbWEkJJbxR0IkC6
-         oBCw==
-X-Forwarded-Encrypted: i=1; AJvYcCU60FbYfb4iaaxFkeV2czssMMgAtQ2stKN0Avrba4FSzwpVBtb2T5AjajQFAKdkL9wChmwh223XlsI/csQW6qM0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwm0KaRaApmHs4RwHSZ6aKxv1n0or6W3Yt+WvMgwlEsE3G45Z4
-	DZWdTvKz1JpxcXWykgZA4X1+XJqZHzdD5Rrl3EgcfShc+2leSKgmz5lWau5+N2aN+wE=
-X-Gm-Gg: ASbGncvnxfW/LE3+VAv4kFU3wcHAvCJTb2a5Qqz84jnZDUxla6Pjw5LapiCJ6LcQZar
-	WxsT+uKoH22outQabZ4qQ55ErdmXREJ+czrqDWbyB6FmhVmrt5da6VBlxYT1HdRgp8NdVOu7Kpk
-	0tB0NAeU6TDObBh0zHlUeG/95ekbGAfMRe0r1/GvaVI78DSnMcvIGINFKuBZMhpe/6PuRAPNG1n
-	60M3Rka8XvU0kTvCVARIKHXpmz+vr3UR4ZcyE1M0De787A1htMXMeMNo0qLtcK2xCn64AgZL5re
-	h5+zlFG9CtUs1LLJlS41NRmjJ5c/GqDNRVEORnfed402kfsRgVgKRHqpEjuTPOcHllzRg6lQSz7
-	8hCzW6uJlqwDYL3R4ytbI6Yac6zhF
-X-Google-Smtp-Source: AGHT+IHo7hPpbL4ZM5xq7bjjRM9vk1iuX0jyZL5Qov4depu+7BABKiS+a1RzqJgCrKv8lOkO/9BmkA==
-X-Received: by 2002:a05:6000:26ce:b0:3ee:15b4:8470 with SMTP id ffacd0b85a97d-40e4be0c962mr219796f8f.45.1758725530045;
-        Wed, 24 Sep 2025 07:52:10 -0700 (PDT)
+        bh=ZL4+irwvWE4SsBdHoCJTCTy+AX9NkTo9OPK52JUB9wc=;
+        b=LBzD/6kkNLBk4szlTMBR/NPhnXtWqEkmFljy9cSZILv4gQ5ZMeli48zwmQK9bp7PsS
+         BiBl69D/AeuROb0bc3Xe4+l+dRfmE4MwzOIsraq3mBWdvgmt0DhW6QByw62PIJCkgvfm
+         fIXjTMSv2AKXtho0OMXz31HkJCNpR1nM4coSltMNzjjQbq2W+K3p1HsJdOrswxCrfzBd
+         idJw6LkThZXeo5ELqAE7hINooj3bvHGTxonov6W9k8zycIgUywl9N13oFI9zWpv15hvK
+         D8SP7GRFpH29wBeXi7mXCLHrMDW62n9BEI70ebE6D8oBVXpFLKObY0P6BdCXvvEcPcOj
+         QFTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWkYNAE67AVBa248iN8z4/3EE3eahimBMB3a1hXgws7ONSxNYlK7ifmWFIQhid/mVRaYwCakJQHa3gZsandlQYK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpDQr3lmkBsrF80FyQeHQr+wOWdQ2DyfNb9FiZ/Y3TDYxKUtgZ
+	ytLD+CP+i5JkVWVZSWUeJyxZnBYaNro1oQzS/lxJUBEwfgnQbW8SjHO5QGxsZy7SSQM=
+X-Gm-Gg: ASbGncvAdE/zmMXbjV5YST/fAD8TNbQkUw4VBuwpCsMTy8ybZz1YprwTOTdatKyfhAC
+	dBE9XK/jEZK31UPwGr6qUNjmGtJxyixYt6tAPystFhJeDoCTmKgKxDY4jw5RYBCllDzsqLr/KeP
+	xSTvG44ARkDRYVD3xYHebnT939YTON3kP7RAW4fDsPVWoWaoPX0VnArvg0bRbxjHfAAnOj+ZBxo
+	tQPBOq+TCtx/33wCg4A07RyItqEomM1uk/pCozGyAt4XaLYPHRORuDcuMctaGbfT9CR3HzUoQ12
+	prwZC9V3BnIe+WHrrtBhs0legJmN0xwGCTLCK2kxX6odnJLXC9m/nl723lPybPAAL39wgHLp3UN
+	9CQkY4EidoMcfgbkyRrcuM8VyEuAY
+X-Google-Smtp-Source: AGHT+IEWHNWM3PMiQi39DCUY0P65dMCtUAmW0aNINKZlaMoAKd9G+OFLiLVmnpWbGaFejBIGTe5r6A==
+X-Received: by 2002:a05:6000:22c5:b0:3f6:9c5a:e202 with SMTP id ffacd0b85a97d-40e4a8f9b01mr211100f8f.24.1758725524742;
+        Wed, 24 Sep 2025 07:52:04 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:1729:c9b6:7a46:b4a3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee0fbc7188sm29514750f8f.37.2025.09.24.07.52.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3ee0fbc7188sm29514750f8f.37.2025.09.24.07.52.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 07:52:08 -0700 (PDT)
+        Wed, 24 Sep 2025 07:52:03 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 24 Sep 2025 16:51:36 +0200
-Subject: [PATCH RFC 8/9] ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE
- flag from GPIO lookup
+Date: Wed, 24 Sep 2025 16:51:34 +0200
+Subject: [PATCH RFC 6/9] gpiolib: support shared GPIOs in core subsystem
+ code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250924-gpio-shared-v1-8-775e7efeb1a3@linaro.org>
+Message-Id: <20250924-gpio-shared-v1-6-775e7efeb1a3@linaro.org>
 References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
 In-Reply-To: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
 To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
@@ -97,26 +97,26 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=937;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4422;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=vspstOLquen8UYYEalfT4SF6xCukX3qfgdJchdoYapg=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBo1AWGMBU259VWbLUFQV6SPSQ1mCX0iBW23guMa
- VXKoI+zVNmJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaNQFhgAKCRARpy6gFHHX
- cvj7EADf10cfXI03PODvy6iln82xUiPu89UJlugKSbbUiWCkjYBUDIBAkVerwrnChTfbjHklBlo
- QUwiI+HkzY/nBc0LJyuNwptKpjTuk0LrX+T08cIKUntvoXc9WetrGMPVFQ321J1SApioK1TqDtN
- eoGSM3XqRfRMsDAVYZlSCbq80fpyJMFlhljP/c8+obGy4YZwce6bthnE3ybROshaTXJcP3gTINk
- 95vvtfxAr+pRCqipNgqPcbeX3oLJbZ/MVQZC5mEj+2xSCwkYJKXrkXHB2aae20UeTJZHfYaqSvC
- H2DOs/6NLW6ml/KfZjRvfjfaA+VTqD7cn4iV7/PtDDLkCvcamm/OA+lQ07D61TF1I8M9bUVbn5u
- A21uSs++ScVL6XfDunZtHE75ylZXpRIp6VZ866ltMYEjWd1FKnxDdDeTvZE1/CiZYywppWzayxV
- fHPPn8s+btRwJ/0TUj+czn2GFqIOzixzbELM9gw8Z+ULFwWN4LOOcwj2ZykbMa9VzR1DgAGnpw1
- Aq9Cni1x/fjU2gmiHPy4LNG6375hP+wT8EIGg6URIzJkQ6ljy/t2wMCfVww9AGfhEDzGonwAvxC
- Zo9kN9wOH6p0IRXa5eL/6tmPExvW+oMuBd9LOPTJFzWwtCL40ZujGTgOzuq5S20xvsaPQlcBnrW
- Z6DRjLjjbDf35Uw==
+ bh=D3LlX9JCIHILUSECKUB0i2KcvXBRhYifvdj8HcLrtsY=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBo1AWGtEm9BZBoHOyi6MRlpVU3iN4/m5ugqizXb
+ cb5jiakzJqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaNQFhgAKCRARpy6gFHHX
+ clvfD/9ggshaV+wkSDLG7IqfR2kbj7iMCsyqumue5okcVW4slPGxJZrj33JjG2A5jCcf5zg6aYH
+ mBJRXK2dlpCQk6WnUdIITocpEX+OdGe7/sDWBRWoez9hMSLBgwjFRegmHLSTckq3MRMtccedLZj
+ ktqpmoRdheHwIgrqtKKBYZEhMeSEfkFz5E5WwJ4XlzUmnS5XT0n/t1gpt4jHTmdrJRV9inQSCD7
+ 3iEIFwiCcO8NV05SRR52jeC9dOiu/EnhQmKZ9+v5UvLDkbdpnLJA+HuRFKyegz6Jve2KB4jngsq
+ iabVmFlK/1ZLkfzuA1OBa7Wcc2ca1XKXAFCXoqRqDhxMcB56XsKHpUnj9tOQ9br2hGjXCh1Dmm7
+ I/VgNk1ApegakrszD7wB+reSA4O8W+7flw4KRo821kAyRsSVxQm/gyAXYUHuVFfUA76aS0yE5Rq
+ uedGX/Vc9Xa9J79webxMRgOyfdm03s8lWUxsqBWOupPZ7owkAMCk+NARXtgQvNyfhR9sofkHvpv
+ wJUntMKhrtDw2qs/eMXDnzBG+3YLhGQg+bD351X+Auc/ZUnNt232Y9ndJpJKKCrf0gmtDNDQKWE
+ jXk3uBqKSiBvrcGmhPTiIoqhXV1cBhxQf7FC4wyMQQpIdx4grMPvIc87j5rVL8IXMMpr1z/C/0l
+ lBZI30IhdmleP1g==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_075212_020014_9D11B9CC 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20250924_075206_854046_5393449D 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,28 +133,121 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-This driver is only used on Qualcomm platforms which now select
-HAVE_SHARED_GPIOS so this flag can be dropped.
+As the final step in adding official support for shared GPIOs, enable
+the previously added elements in core GPIO subsystem code. Set-up shared
+GPIOs when adding a GPIO chip, tear it down on removal and check if a
+GPIO descriptor looked up during the firmware-node stage is shared and
+fall-back to machine lookup in this case.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- sound/soc/codecs/wsa881x.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/gpio/gpiolib.c | 50 +++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 41 insertions(+), 9 deletions(-)
 
-diff --git a/sound/soc/codecs/wsa881x.c b/sound/soc/codecs/wsa881x.c
-index 636e59abc3772fc0b333873a329b65f4213c3ef3..92a1e3bb8371e178571a6c1ed6f1185fe6c2e757 100644
---- a/sound/soc/codecs/wsa881x.c
-+++ b/sound/soc/codecs/wsa881x.c
-@@ -1112,8 +1112,7 @@ static int wsa881x_probe(struct sdw_slave *pdev,
- 	if (!wsa881x)
- 		return -ENOMEM;
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 9952e412da505c12ceddfefd9cfd778aad3bd5e6..1e4c991797126d0d91233bbe7c3ae3831bf77d6c 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -37,6 +37,7 @@
+ #include "gpiolib-acpi.h"
+ #include "gpiolib-cdev.h"
+ #include "gpiolib-of.h"
++#include "gpiolib-shared.h"
+ #include "gpiolib-swnode.h"
+ #include "gpiolib-sysfs.h"
+ #include "gpiolib.h"
+@@ -1200,6 +1201,10 @@ int gpiochip_add_data_with_key(struct gpio_chip *gc, void *data,
+ 	if (ret)
+ 		goto err_remove_irqchip_mask;
  
--	wsa881x->sd_n = devm_gpiod_get_optional(dev, "powerdown",
--						GPIOD_FLAGS_BIT_NONEXCLUSIVE);
-+	wsa881x->sd_n = devm_gpiod_get_optional(dev, "powerdown", 0);
- 	if (IS_ERR(wsa881x->sd_n))
- 		return dev_err_probe(dev, PTR_ERR(wsa881x->sd_n),
- 				     "Shutdown Control GPIO not found\n");
++	ret = gpio_device_setup_shared(gdev);
++	if (ret)
++		goto err_remove_irqchip;
++
+ 	/*
+ 	 * By first adding the chardev, and then adding the device,
+ 	 * we get a device node entry in sysfs under
+@@ -1211,10 +1216,13 @@ int gpiochip_add_data_with_key(struct gpio_chip *gc, void *data,
+ 	if (gpiolib_initialized) {
+ 		ret = gpiochip_setup_dev(gdev);
+ 		if (ret)
+-			goto err_remove_irqchip;
++			goto err_teardown_shared;
+ 	}
++
+ 	return 0;
+ 
++err_teardown_shared:
++	gpio_device_teardown_shared(gdev);
+ err_remove_irqchip:
+ 	gpiochip_irqchip_remove(gc);
+ err_remove_irqchip_mask:
+@@ -1283,6 +1291,7 @@ void gpiochip_remove(struct gpio_chip *gc)
+ 	/* Numb the device, cancelling all outstanding operations */
+ 	rcu_assign_pointer(gdev->chip, NULL);
+ 	synchronize_srcu(&gdev->srcu);
++	gpio_device_teardown_shared(gdev);
+ 	gpiochip_irqchip_remove(gc);
+ 	acpi_gpiochip_remove(gc);
+ 	of_gpiochip_remove(gc);
+@@ -4652,11 +4661,29 @@ struct gpio_desc *gpiod_find_and_request(struct device *consumer,
+ 	scoped_guard(srcu, &gpio_devices_srcu) {
+ 		desc = gpiod_fwnode_lookup(fwnode, consumer, con_id, idx,
+ 					   &flags, &lookupflags);
++		if (!IS_ERR_OR_NULL(desc) &&
++		    test_bit(GPIOD_FLAG_SHARED, &desc->flags)) {
++			/*
++			 * We're dealing with a GPIO shared by multiple
++			 * consumers. This is the moment to add the machine
++			 * lookup table for the proxy device as previously
++			 * we only knew the consumer's fwnode.
++			 */
++			ret = gpio_shared_add_proxy_lookup(consumer, lookupflags);
++			if (ret)
++				return ERR_PTR(ret);
++
++			/* Trigger platform lookup for shared GPIO proxy. */
++			desc = ERR_PTR(-ENOENT);
++			/* Trigger it even for fwnode-only gpiod_get(). */
++			platform_lookup_allowed = true;
++		}
++
+ 		if (gpiod_not_found(desc) && platform_lookup_allowed) {
+ 			/*
+ 			 * Either we are not using DT or ACPI, or their lookup
+-			 * did not return a result. In that case, use platform
+-			 * lookup as a fallback.
++			 * did not return a result or this is a shared GPIO. In
++			 * that case, use platform lookup as a fallback.
+ 			 */
+ 			dev_dbg(consumer,
+ 				"using lookup tables for GPIO lookup\n");
+@@ -4679,14 +4706,19 @@ struct gpio_desc *gpiod_find_and_request(struct device *consumer,
+ 			return ERR_PTR(ret);
+ 
+ 		/*
+-		 * This happens when there are several consumers for
+-		 * the same GPIO line: we just return here without
+-		 * further initialization. It is a bit of a hack.
+-		 * This is necessary to support fixed regulators.
++		 * This happens when there are several consumers for the same
++		 * GPIO line: we just return here without further
++		 * initialization. It's a hack introduced long ago to support
++		 * fixed regulators. We now have a better solution with
++		 * automated scanning where affected platforms just need to
++		 * select the provided Kconfig option.
+ 		 *
+-		 * FIXME: Make this more sane and safe.
++		 * FIXME: Remove the GPIOD_FLAGS_BIT_NONEXCLUSIVE flag after
++		 * making sure all platforms use the new mechanism.
+ 		 */
+-		dev_info(consumer, "nonexclusive access to GPIO for %s\n", name);
++		dev_info(consumer,
++			 "nonexclusive access to GPIO for %s, consider updating your code to using gpio-shared-proxy\n",
++			 name);
+ 		return desc;
+ 	}
+ 
 
 -- 
 2.48.1
