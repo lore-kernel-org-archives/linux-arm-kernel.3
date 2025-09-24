@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20ADCCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 18:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4ACCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WM62gTsgmj4Dhp6zYZAU4Kvxml8fsZ2dFKaBl5OjPbg=; b=aGiA0Zq0mx7EipWG+6BwnvRv2b
-	Rch5EqcSrp1W/o0WMuv6G7su57g61drV2O4/+B62l2qZdiIUw156kSQ1sJf5f+CXiaPOIfWfkIp7x
-	t+WF1U+frwpKC0AJYV4d+ZNzGzAD0DYm5kHSfv6feTt8VH5XF8GkiGa0SZu8dGzVdmiKAGSRvw5S8
-	k0Fv66u4N45rERMAYcbhZ9Oj+6q70ngY27BanWASHOhw/qCO/o2EHREVgZRb51btID5eoYvhm9HLl
-	LFuaZbMVxV0oOXUFcvjCxfo/diRGgAXVIU6f8jwOBajtRF5EDdvGhe41nrZ+yAhdjJbAX1+BjCOis
-	cPC0kzAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MP5auDUMxEYh7gEFpW+fTsgkWPRs0id0KEIy7AhJUyY=; b=lUuV3RmpWLNELzyes96BRoOaw7
+	kgVJHAcce6qfqJh9fXV0sjl4NfOd0f2TA1gOr2Cd31Ity65lFTR5HU/WAgn1XK1qY3rW1oCjGO5mv
+	xp5VKmPPb7ETtNbn7TBqtE2oF+O10XreJk24nQ/a+o8j7XSG6090WfZ94Cyf5pf5SGERwz7sz0STf
+	idAQoMpdk7t5YnM/JCVDKGvERm062OuaSYuDVE/r/7cQD+2JCtiBkmCEWpmok2V6/Z0xgq8/URltN
+	ldfcWIvlgAervo/nHlYknrYlnZbcxG5JSp8clkVQWkKc9SG5V7KxIoOJU0sUSO0McO3PizCj9ugLS
+	MMk/59kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Ui1-00000002qrW-0AHj;
-	Wed, 24 Sep 2025 18:59:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Uhy-00000002qop-0hNL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 18:59:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B45E106F;
-	Wed, 24 Sep 2025 11:59:09 -0700 (PDT)
-Received: from [10.57.32.18] (unknown [10.57.32.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFE423F66E;
-	Wed, 24 Sep 2025 11:59:09 -0700 (PDT)
-Message-ID: <ab5b53dd-2d34-43bf-bd26-02bae3073794@arm.com>
-Date: Wed, 24 Sep 2025 19:59:07 +0100
+	id 1v1UuR-00000002wJg-21Lt;
+	Wed, 24 Sep 2025 19:12:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1UuP-00000002wIV-49QB;
+	Wed, 24 Sep 2025 19:12:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MP5auDUMxEYh7gEFpW+fTsgkWPRs0id0KEIy7AhJUyY=; b=JtT/4GaczhTrXWevKq1Z0GGSBN
+	7hL6b1vSi4WVd26aD2jyjPQxXfOF2WHPwCosphruokVyh8n0qweAuwA7/b9A+cHoDWqfakttmjUNb
+	z15qD/Zc3jsnRzmryWcictDancPCXk+SPXAYDA6xCnp5DrXXZT4V6mVC4/w1ym8w3l4J7+jxf5S/z
+	B2FqdsYUeEFFeBZXtGpWcnvcCq/jr1K3SnC4Q1MWQ4RaD8oIOH1VIJhLBhr/R6UO6wUfscqYtwpAD
+	NgIf1yD3YoNPxMVWj7ymFwKi+kLnouHtieSuMBtPa8jpscMPumJnNg/COs2w1dbUUqvAYO8+MoNku
+	kt7NSXPA==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1UuK-00000008ooH-0QZ8;
+	Wed, 24 Sep 2025 19:12:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1758741100; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QaedpyvNWTm3ZyznWbct9XcTO3uyB+R10rhzjIfFZlOg7KJGXAJZZzEfBpfH+jG80Am+sQEvS9nCd1i1Ja0zm9jXFbOR83QP+rqGozhNhTL1cUAK2Qp3bSt4DHLSqdhR72GCR8JY3HTwfFWLSNNrVP7hwAbNmY6NulRfLMiORoM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1758741100; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MP5auDUMxEYh7gEFpW+fTsgkWPRs0id0KEIy7AhJUyY=; 
+	b=Wj01iXE+yaT1qmASXvtr4YBqwc+M3+/wbukdfVD4VsA4otCqxQby7YRIlV7l+sCZHpoIagC/EWBVyVgBLnf3R+CAj+LVXu10NhowVdaOZvdDKMPwfmi/yik3p/gTe26bs83Rl04dP01yTfOPxWjgajSRo00WybIM8g5GMx+f53E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758741100;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=MP5auDUMxEYh7gEFpW+fTsgkWPRs0id0KEIy7AhJUyY=;
+	b=gizke4EylmQRwo1ox82aCREvOiJDAToCi9ZbGcQEgrGbRZEcyE0439huHBBt2Sqo
+	L4/TMMpxSx5Lqcz4me5aZQ0TwnmWUGBzJ9GRFa+TgZW+WxqbI6AFCHX8yuCd9wsEKUo
+	FTNb5CvC++cr/b3ciCE/g03i7JrtSDOHC1kJkjNU=
+Received: by mx.zohomail.com with SMTPS id 1758741097995233.96426730070766;
+	Wed, 24 Sep 2025 12:11:37 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
+ Chen-Yu Tsai <wenst@chromium.org>, Steven Price <steven.price@arm.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v4 8/8] pmdomain: mediatek: Add support for MFlexGraphics
+Date: Wed, 24 Sep 2025 21:11:31 +0200
+Message-ID: <13851204.uLZWGnKmhe@workhorse>
+In-Reply-To: <673af008-04a8-432d-9517-ca2255e6b35f@collabora.com>
+References: <20250923-mt8196-gpufreq-v4-0-6cd63ade73d6@collabora.com>
+ <20250923-mt8196-gpufreq-v4-8-6cd63ade73d6@collabora.com>
+ <673af008-04a8-432d-9517-ca2255e6b35f@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm-smmu: select suitable MSI IOVA
-To: Jason Gunthorpe <jgg@ziepe.ca>,
- Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: Will Deacon <will@kernel.org>, thierry.reding@gmail.com, robh@kernel.org,
- joro@8bytes.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- virtualization@lists.linux.dev, jacob.pan@linux.microsoft.com,
- eric.auger@redhat.com, code@tyhicks.com, eahariha@linux.microsoft.com,
- vijayb@linux.microsoft.com, bboscaccy@linux.microsoft.com,
- saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
- lizhi.hou@amd.com, clement.leger@bootlin.com
-References: <20250909154600.910110-1-shyamsaini@linux.microsoft.com>
- <20250909154600.910110-4-shyamsaini@linux.microsoft.com>
- <aMw4I0AjKNPY6SOw@willie-the-truck> <20250918224322.GR1326709@ziepe.ca>
- <aM0HQ51DelZW_Rt8@willie-the-truck> <20250919120839.GV1326709@ziepe.ca>
- <20250923155647.GA22010@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250923161912.GB2547959@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250923161912.GB2547959@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_115918_290716_F0D88DAE 
-X-CRM114-Status: GOOD (  29.54  )
+X-CRM114-CacheID: sfid-20250924_201204_971278_D40DDA12 
+X-CRM114-Status: GOOD (  56.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,83 +105,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-09-23 5:19 pm, Jason Gunthorpe wrote:
-> On Tue, Sep 23, 2025 at 08:56:47AM -0700, Shyam Saini wrote:
->> Hi Jason, Will,
->>
->> On 19 Sep 2025 09:08, Jason Gunthorpe wrote:
->>> On Fri, Sep 19, 2025 at 08:33:23AM +0100, Will Deacon wrote:
->>>> pieces and will need to work on the userspace side. It's not like
->>>> MSI_IOVA2 is magically going to work (and I bet it won't be tested).
->>>
->>> It could, if someone checks the default memory map a second constant
->>> could be selected that works.
->>>
->>>>> Nicolin has some patches on the iommufd side to let userspace select
->>>>> the MSI address instead, but they are not done yet.
->>>>
->>>> Maybe we should just wait for that? Carrying a temporary hack with ABI
->>>> implications to support broken hardware isn't particularly compelling
->>>> to me.
->>>
->>> This patch would still be needed for kernel users.
->>>
->>> Arguably the kernel users should just be using the iova allocator from
->>> dma-iommu.c. This whole hard coded constant/sneaky uapi is just a hack
->>> to make vfio work..
->>>
->>> So maybe if the single constant doesn't work we could set some
->>> indication that the caller must allocate the MSI iova, the kernel can
->>> use the dma-iommu allocator and VFIO can just refuse to use the device
->>> for now.
->>
->> So, are we settling on having two predefined MSI IOVA base constants,
->> and if both of those conflict with reserved regions on a given platform,
->> falling back to dynamic allocation via the IOVA allocator? Just checking
->> if that's the consensus we're reaching.
+On Tuesday, 23 September 2025 18:25:53 Central European Summer Time AngeloGioacchino Del Regno wrote:
+> Il 23/09/25 13:40, Nicolas Frattaroli ha scritto:
+> > Various MediaTek SoCs use GPU integration silicon named "MFlexGraphics"
+> > by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
+> > integration silicon is required to power on the GPU.
+> > 
+> > This glue silicon is in the form of an embedded microcontroller running
+> > special-purpose firmware, which autonomously adjusts clocks and
+> > regulators.
+> > 
+> > Implement a driver, modelled as a pmdomain driver with a
+> > set_performance_state operation, to support these SoCs.
+> > 
+> > The driver also exposes the actual achieved clock rate, as read back
+> > from the MCU, as common clock framework clocks, by acting as a clock
+> > provider as well.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >   drivers/pmdomain/mediatek/Kconfig            |  16 +
+> >   drivers/pmdomain/mediatek/Makefile           |   1 +
+> >   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 928 +++++++++++++++++++++++++++
+> >   3 files changed, 945 insertions(+)
+> > 
+> > diff --git a/drivers/pmdomain/mediatek/Kconfig b/drivers/pmdomain/mediatek/Kconfig
+> > index 0e34a517ab7d5a867bebaab11c0d866282a15e45..2abf78c85d017b1e3526b41c81f274f78d581fd0 100644
+> > [ ... snip ...]
+> > +
+> > +/*
+> > + * This enum is part of the ABI of the GPUEB firmware. Don't change the
+> > + * numbering, as you would wreak havoc.
+> > + */
+> > +enum mtk_mfg_ipi_cmd {
+> > +	CMD_INIT_SHARED_MEM		= 0,
+> > +	CMD_GET_FREQ_BY_IDX		= 1,
+> > +	CMD_GET_POWER_BY_IDX		= 2,
+> > +	CMD_GET_OPPIDX_BY_FREQ		= 3,
+> > +	CMD_GET_LEAKAGE_POWER		= 4,
+> > +	CMD_SET_LIMIT			= 5,
+> > +	CMD_POWER_CONTROL		= 6,
+> > +	CMD_ACTIVE_SLEEP_CONTROL	= 7,
+> > +	CMD_COMMIT			= 8,
+> > +	CMD_DUAL_COMMIT			= 9,
+> > +	CMD_PDCA_CONFIG			= 10,
+> > +	CMD_UPDATE_DEBUG_OPP_INFO	= 11,
+> > +	CMD_SWITCH_LIMIT		= 12,
+> > +	CMD_FIX_TARGET_OPPIDX		= 13,
+> > +	CMD_FIX_DUAL_TARGET_OPPIDX	= 14,
+> > +	CMD_FIX_CUSTOM_FREQ_VOLT	= 15,
+> > +	CMD_FIX_DUAL_CUSTOM_FREQ_VOLT	= 16,
+> > +	CMD_SET_MFGSYS_CONFIG		= 17,
+> > +	CMD_MSSV_COMMIT			= 18,
+> > +	CMD_NUM				= 19,
 > 
-> I think Will is arguing against introducing a new constant..
+> I don't really like seeing index assignments to enumeration, especially when there
+> are no holes... and you have also clearly written that this is ABI-do-not-touch so
+> I'm not sure that having those numbers here is improving anything.
 > 
-> Yesterday I was looking at the SW_MSI code again.. What specific
-> problem is it you have?
+> I also haven't got strong opinions about that, anyway.
+
+My main worry is that someone comes by and alphabetically sorts them
+with either some style linter script and does not think to read the
+comment, and it's either an overworked maintainer or get acked by
+an overworked maintainer.
+
+> [... snip ...]
+> > +
+> > +static int mtk_mfg_eb_off(struct mtk_mfg *mfg)
+> > +{
+> > +	struct device *dev = &mfg->pdev->dev;
+> > +	struct mtk_mfg_ipi_sleep_msg msg = {
 > 
-> It looks to me like dma-iommu.c is already allocating MSI addresses
-> using its built in IOVA allocator. So if your DT is marking that space
-> reserved then it should Just Work right now as dma-iommu.c already
-> processes the reserved ranges and will allocate MSI addresses around
-> them?
+> Can this be constified?
+
+No :( mbox_send_message's msg parameter is not const, so it'd discard
+the qualifier, and instead of explicitly discarding the qualifier
+(which would be a very stinky code smell) we would have to look into
+whether the mailbox subsystem is cool with const void* for messages,
+and whether all the mailbox drivers are fine with that too.
+
+> > +		.event = 0,
+> > +		.state = 0,
+> > +		.magic = GPUEB_SLEEP_MAGIC
+> > +	};
+> > +	u32 val;
+> > +	int ret;
+> > +
+> > +	ret = mbox_send_message(mfg->slp_mbox->ch, &msg);
+> > +	if (ret < 0) {
+> > +		dev_err(dev, "Cannot send sleep command: %pe\n", ERR_PTR(ret));
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret = readl_poll_timeout(mfg->rpc + RPC_PWR_CON, val,
+> > +				 !(val & PWR_ACK_M), GPUEB_POLL_US,
+> > +				 GPUEB_TIMEOUT_US);
+> > +
+> > +	if (ret)
+> > +		dev_err(dev, "timed out waiting for EB to power off, val=0x%08X\n",
+> > +			val);
 > 
-> The base value of the SW_MSI is only used by VFIO - are you trying to
-> use VFIO with this device, or have I misunderstood the dma-iommu.c
-> logic?
+> 90 columns is fine, one line please.
+> 
+> > +
+> > +	return ret;
+> > +}
+> > +
+> [... snip ...]
+> > +
+> > +static int mtk_mfg_attach_dev(struct generic_pm_domain *pd, struct device *dev)
+> > +{
+> > +	struct mtk_mfg *mfg = mtk_mfg_from_genpd(pd);
+> > +	struct dev_pm_opp_data *opps = mfg->gpu_opps;
+> > +	int i, ret;
+> > +
+> > +	for (i = mfg->num_opps - 1; i >= 0; i--) {
+> > +		if ((i == mfg->num_opps - 1) || (opps[i].freq != opps[i + 1].freq)) {
+> 
+> 		/* Add a comment here, because you're using a trick, and it's not
+> 		 * very fast to read, as in, if you skim through that, you're most
+> 		 * probably losing the fact that the first OPP is always added
+> 		 * regardless of anything.
+> 		 */
+> 		if ((i != mfg->num_opps - 1) || (opps[i].freq == opps[i + 1].freq))
+> 			continue;
+> 
+> 		/* Reduced indentation :-) */
+> 		ret = dev_pm_opp_add_dynamic(.....) etc
+> 
 
-Indeed the sole user of the entire 
-IOMMU_RESV_SW_MSI/iommu_dma_get_msi_cookie() mechanism is that one place 
-in vfio_iommu_type1. iommu-dma itself treats MSIs just like any other 
-DMA mapping, so if address space limitations are not correctly described 
-then any breakage will be to DMA in general.
-> If it is only VFIO at issue then perhaps we should solve this by
-> completing the work Nicolin started to allow VFIO userspace to specify
-> the MSI Aperture?
+Sure, but not before properly applying De Morgan's law here ;) It
+should be the following as far as I can tell:
 
-+1 to that - the arbitrary fake MSI reserved region was only ever meant 
-to be a first step to get existing VMMs working with bare minimal 
-"squint and pretend it's like x86" changes; MSI_IOVA_BASE was literally 
-just picked to fit the standard Qemu virt machine memory map nicely. It 
-was always intended that we'd eventually have more 
-Arm-system-architecture-aware VMMs that would understand it's just a 
-notional hole that needs punching in VFIO address space _somewhere_, and 
-we'd figure out some interface for negotiating it. There has also always 
-been at least one platform where this MSI_IOVA_BASE knowingly could 
-never work, but that one (Arm Juno) also has sufficient other 
-impediments to realistic VFIO usage (I've had it working, but it's 
-definitely no more than a novelty) that it was never going to justify 
-any upstream investment itself.
+    if ((i != mfg->num_opps - 1) && (opps[i].freq == opps[i + 1].freq))
+			    continue;
 
-If we do now have a "serious" VFIO-capable system where the basic bodge 
-no longer suffices, that surely does justify it finally being time to do 
-the right thing.
+> > +			ret = dev_pm_opp_add_dynamic(dev, &opps[i]);
+> > +			if (ret) {
+> > +				dev_err(dev, "Failed to add OPP level %u from PD %s\n",
+> > +					opps[i].level, pd->name);
+> > +				dev_pm_opp_remove_all_dynamic(dev);
+> > +				return ret;
+> > +			}
+> > +		}
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> [... snip ...]
+> > +
+> > +static int mtk_mfg_probe(struct platform_device *pdev)
+> > +{
+> [... snip ...]
+> > +
+> > +	ret = clk_prepare_enable(mfg->clk_eb);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "failed to turn on EB clock\n");
+> 
+> What happens if the `gpu_regs` regulator(s) is/are not enabled at boot?
+> 
+> I am guessing that the EB doesn't depend at all on these being enabled, as it
+> should be powered by the internal vscp or sspm - but still asking to make sure
+> that this wasn't an overlook.
 
-Thanks,
-Robin.
+Yeah, the EB doesn't need those regulators on. After somewhat fixing module
+unload and reload on my side, I can now confirm that it doesn't appear to
+need them during probe.
+
+> 
+> > +	mfg->ipi_magic = readl(mfg->gpr + GPR_IPI_MAGIC);
+> > +	/* Downstream does this, don't know why. */
+> 
+> Preventing reinitialization?
+> Did you try to avoid that write? What happens in that case?
+> 
+> Also, if you unload this module and reload it, are you able to reinitialize the EB,
+> or are you reading zero in GPR_IPI_MAGIC (preventing you from correctly reinit this
+> driver again)?
+
+Okay so this led me down a deep rabbit hole and I realised that so far, we
+could only read the IPI magic because the bootloader helpfully left MFG on
+for us. So on second probe, we'd get a magic number of 0, and all IPI comms
+that use it would fail.
+
+Fix is simple though, just read the magic in power_on. I also left out the
+0 write but I might experimentally add it back in to see if it changes any
+of the other behaviour I'm currently chasing.
+
+> 
+> > +	writel(0x0, mfg->gpr + GPR_IPI_MAGIC);
+> > +
+> > +	ret = mtk_mfg_init_mbox(mfg);
+> > +	if (ret) {
+> > +		ret = dev_err_probe(dev, ret, "Couldn't initialise mailbox\n");
+> > +		goto out;
+> > +	}
+> > +
+> > +	mfg->last_opp = -1;
+> > +
+> > +	ret = mtk_mfg_power_on(&mfg->pd);
+> > +	clk_disable_unprepare(mfg->clk_eb);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "Failed to power on MFG\n");
+> > +
+> > +	ret = mtk_mfg_init_shared_mem(mfg);
+> > +	if (ret) {
+> > +		dev_err(dev, "Couldn't initialize EB SRAM: %pe\n", ERR_PTR(ret));
+> > +		goto out;
+> > +	}
+> > +
+> > +	ret = mtk_mfg_read_opp_tables(mfg);
+> > +	if (ret) {
+> > +		dev_err(dev, "Error reading OPP tables from EB: %pe\n",
+> > +			ERR_PTR(ret));
+> > +		goto out;
+> > +	}
+> > +
+> > +	ret = mtk_mfg_init_clk_provider(mfg);
+> > +	if (ret)
+> > +		goto out;
+> > +
+> > +	ret = of_genpd_add_provider_simple(pdev->dev.of_node, &mfg->pd);
+> > +	if (ret) {
+> > +		ret = dev_err_probe(dev, ret, "Failed to add pmdomain provider\n");
+> > +		goto out;
+> > +	}
+> > +
+> > +	return 0;
+> > +
+> > +out:
+> > +	mtk_mfg_power_off(&mfg->pd);
+> > +	return ret;
+> > +}
+> 
+> static void mtk_mfg_remove(struct platform_device *pdev)
+> {
+> 	struct mtk_mfg *mfg = dev_get_drvdata(&pdev->dev);
+> 
+> 	of_genpd_del_provider(....)
+> 
+> 	pm_genpd_remove(....)
+> 
+> 	mtk_mfg_power_off(...)
+
+Unconditional power_off will go poorly if the thing isn't powered
+on at removal time, so I need to figure out something more clever.
+
+Unfortunately, that something more clever isn't "dev_pm_genpd_is_on"
+because that has a case where it will return false and then devres
+kicks in and says hey you left your regulators on that's not cool.
+
+I'll have to spend another day at the debug print factory until
+I can figure out what's wrong there, and if I can't, then I guess
+we'll add our own pd_on counting.
+
+> 
+> 	mbox_free_channel(mfg->gf_mbox->ch);
+> 	mfg->gf_mbox->ch = NULL;
+> 
+> 	mbox_free_channel(mfg->slp_mbox->ch);
+> 	mfg->slp_mbox->ch = NULL;
+> 
+> 
+> }
+> 
+> > +
+> > +static struct platform_driver mtk_mfg_driver = {
+> > +	.driver = {
+> > +		.name = "mtk-mfg-pmdomain",
+> > +		.of_match_table = mtk_mfg_of_match,
+> > +	},
+> > +	.probe = mtk_mfg_probe,
+> 
+> 	.remove = mtk_mfg_remove,
+> 
+> > +};
+> > +module_platform_driver(mtk_mfg_driver);
+> > +
+> > +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
+> > +MODULE_DESCRIPTION("MediaTek MFlexGraphics Power Domain Driver");
+> > +MODULE_LICENSE("GPL");
+> > 
+> 
+> There might be more, but for now, I'm done with this review round :-)
+> 
+> Cheers,
+> Angelo
+> 
+
+Thanks for the review. Assume all comments I didn't reply to (including
+the big one) are acknowledged and will be addressed.
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
