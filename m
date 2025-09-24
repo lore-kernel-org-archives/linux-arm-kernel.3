@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5335CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D46FCAC5B3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwfkqMziB6gCJNcij5fnepcOp1KZIm6MW8qrBIKv5YI=; b=FGEAcG4fQTzXSRbdP06tFKtq1E
-	x7BK9UFM5+FLBLrZgaL+eWFVNEoJFRgWlmK5XGpgqx7Ay+4elv3SAg6m/tp1xa+JgbuEhamlk1/wG
-	9zEF4nioyDbl6qqcWdDmj5iKITZFmOFdpRjRdOOyYxaAOhMnCSt2m6XkOMQH1peTURerRqdtvAJdG
-	8sY3g8GTUU1nUIqGjRfiRqrm4SFscQbhbuJ34AWr7rXe9cLH6Av5pAxJmzDynCNWC7fdJhmISfuCE
-	fUeJsdtVsYjjg/vapPTEdFMuQL0YALgp7hZ2hbibtmf7k2E/5NnG2J+ofekyuRtsHC8JbEJWfNdot
-	RthuvrAQ==;
+	bh=0JGoQ4hmCfZ/TkMkG/taAm55rt5AIxt1SS2NLziKhmk=; b=ogHTiVvygC2iZRSRSWzYQ8RnVA
+	rgrTHvx2fyD4wrDtkdK7OpljX354z2Q9nlyXr6DhX8PVNtF1riIbcunqiiTw2v0HyglQTmEcxFfci
+	JyShSPWSUpI5zCeo3yU/2y73/IaSv7dRz0HJgQDQaXO/vxUPlnhE11NK3DWI9q3ExWYsbAcWRLe5T
+	+d2Aen5rXkZ4uEjzHLofzpx/fRU7QyAEroPbWW6983ok3/qQPaPxJN/tqYPE257Q2CtTiVHr+HswO
+	nwCgCw+78dAsFssZEQ7602WgZ/BAu/oE8B/S35pZEwDhnP541QIKcc3pVhjcUdBLd/6RZB3FVcbzV
+	oiDAHClg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Nhw-0000000GviX-0liG;
-	Wed, 24 Sep 2025 11:30:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v1Nmp-0000000GyJQ-1TP4;
+	Wed, 24 Sep 2025 11:35:51 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Nhs-0000000Gvgm-3VFZ;
-	Wed, 24 Sep 2025 11:30:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758713442;
-	bh=zAejJcsR74t5qZJ7rjpWSVUmAm/GDBIrDrA/WIcoYEs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QuG46zSOaR9X4edxtW+pQ+3UH7B0FcrFvBxe7Vu2/CCarOOCmn5RvqMyETMNLE5Tj
-	 sUYiZCLg71vRI1BbB6aTfIgCBvDQuP5NAbTCPKq2lGB0VN563Jyg+zLAlX3H03CdCi
-	 EeGgtGZL4auDTismc2lxfaK9fjIMJWRm2+o1gjmUt/x4ka+NouSoBNnv3kdEIZ4DS3
-	 qjGWGExCRy0SSX21dBZmYlHnq3+8J2IupiofzMjM/fQB2pAGZsRP5wMWone9L6h1uh
-	 4V+IzMSqztrRXMwUCnlFA9+JsbWCqxcxyRHXiMWDxv0wsctZ72gfkq2KZZAl7Ylf41
-	 kzxsin8p9aL9w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A001C17E07EE;
-	Wed, 24 Sep 2025 13:30:41 +0200 (CEST)
-Message-ID: <4603e18e-e9c9-4f0e-9c0c-8cbad3567ea8@collabora.com>
-Date: Wed, 24 Sep 2025 13:30:41 +0200
+	id 1v1Nmm-0000000GyI0-0xO0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Sep 2025 11:35:49 +0000
+Date: Wed, 24 Sep 2025 13:35:22 +0200 (GMT+02:00)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1758713743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0JGoQ4hmCfZ/TkMkG/taAm55rt5AIxt1SS2NLziKhmk=;
+	b=QlOkXOk3wDqFbbFYZsEnlgMHERzf96yJYS0jGCAx8XL84tsLn5ka3PYxS3tS6fRiz4EdFp
+	hMUyAsiUILtR8JSw3OgT3Fy0mtO9V6+vyErIQ7UEqbgWogA4ThP02dZ7nQf1bcNUN6oc1E
+	qIS9/nd74dV5DEbbsNthzLIIe0mNg8fHArZw72OWjj0HJx2y/wJcXKWq9tADPKUcw2oCa1
+	MNgG8SaKpMW/kXFfHB3IGyN4KRzzDdYS8yZwV4AN2CdSs8O+lduKmgKTYpZGvoSsWu5yzJ
+	vn9hc+ve1LqLnCQYSUPrJ8WxAuF+cXnlxVYaeRwKdflbaBdk98XsHYzpLwzheQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1758713743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0JGoQ4hmCfZ/TkMkG/taAm55rt5AIxt1SS2NLziKhmk=;
+	b=9aYLxaYQfRDX5WwG1TPEXNPpaVf2pDqro4TeNjcbtq5rkULq+SlNuIn8W8JezYqbHJuTiS
+	grPgu4XhzSRIaIAw==
+From: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Nick Alcock <nick.alcock@oracle.com>,
+	John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+	Shannon Nelson <sln@onemain.com>, linux-kernel@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>
+Message-ID: <c5e28d44-3480-4e28-aff0-5c5cfd1b0632@linutronix.de>
+In-Reply-To: <ec0894011cb4403f45ad8b30095cc333edc1e5e6.camel@physik.fu-berlin.de>
+References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de> <9a122c6cf3e2e0e61a62b0512eb97804acebeee9.camel@physik.fu-berlin.de> <48fd164e-959b-4263-b3c7-cef5771aa40a@linutronix.de> <60a0af09cc1a5de3b33b9606ed07ae91b42c5432.camel@physik.fu-berlin.de> <bea9cc5c-7fc6-4c87-ab78-8232b2bee4dc@linutronix.de> <ec0894011cb4403f45ad8b30095cc333edc1e5e6.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH v3 00/36] sparc64: vdso: Switch to the generic vDSO
+ library
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/8] dt-bindings: power: Add MT8196 GPU frequency
- control binding
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
- Chen-Yu Tsai <wenst@chromium.org>, Steven Price <steven.price@arm.com>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org
-References: <20250923-mt8196-gpufreq-v4-0-6cd63ade73d6@collabora.com>
- <20250923-mt8196-gpufreq-v4-2-6cd63ade73d6@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250923-mt8196-gpufreq-v4-2-6cd63ade73d6@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Correlation-ID: <c5e28d44-3480-4e28-aff0-5c5cfd1b0632@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_043045_039751_4CBA3F04 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20250924_043548_414679_F4ED7D2E 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +106,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/09/25 13:39, Nicolas Frattaroli ha scritto:
-> On the MT8196 and MT6991 SoCs, the GPU power and frequency is controlled
-> by some integration logic, referred to as "MFlexGraphics" by MediaTek,
-> which comes in the form of an embedded controller running
-> special-purpose firmware.
-> 
-> This controller takes care of the regulators and PLL clock frequencies
-> to squeeze the maximum amount of power out of the silicon.
-> 
-> Add a binding which models it as a power domain.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->   .../bindings/power/mediatek,mt8196-gpufreq.yaml    | 117 +++++++++++++++++++++
->   1 file changed, 117 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..03721244a737ce0914a89cc0aedd88fa3b6b2038
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
-> @@ -0,0 +1,117 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/power/mediatek,mt8196-gpufreq.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MFlexGraphics Power and Frequency Controller
-> +
-> +maintainers:
-> +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> +
-> +description: |
+Sep 24, 2025 10:29:00 John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.=
+de>:
 
-This vertical bar is not needed. Please drop it.
+> Hi,
+>
+> On Wed, 2025-09-24 at 10:07 +0200, Thomas Wei=C3=9Fschuh wrote:
+>> Sep 24, 2025 09:40:47 John Paul Adrian Glaubitz <glaubitz@physik.fu-berl=
+in.de>:
+>>
+>>> Hi Thomas,
+>>>
+>>> On Sat, 2025-09-20 at 16:37 +0200, Thomas Wei=C3=9Fschuh wrote:
+>>>>> Could you share a version of the series based on top of 6.17.0-rcN fo=
+r
+>>>>> testing purposes? I would like to test the series on a Sun Netra 240
+>>>>> which is based on the UltraSPARC IIIi.
+>>>>
+>>>> Here is the git branch based on rc4:
+>>>> https://git.kernel.org/pub/scm/linux/kernel/git/thomas.weissschuh/linu=
+x.git/log/?h=3Db4/vdso-sparc64-generic-2
+>>>>
+>>>> Does that work for you?
+>>>
+>>> I'm getting merge conflicts with "vdso/datastore: Allocate data pages d=
+ynamically" and
+>>> "vdso/datapage: Remove inclusion of gettimeofday.h".
+>>>
+>>> Can these be skipped?
+>>
+>> No, these are important.
+>>
+>> What are you trying to merge?
+>> I can probably give you a merge.
+>
+> I'm using v6.17-rc7 plus all SPARC fixes in Andreas Larsson's linux-sparc=
+ for-next branch:
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/alarsson/linux-sparc.git/=
+log/?h=3Dfor-next
 
-Cheers,
-Angelo
+This merged cleanly for me:
+https://git.kernel.org/pub/scm/linux/kernel/git/thomas.weissschuh/linux.git=
+/log/?h=3Dvdso-sparc64-merge
 
-> +  A special-purpose embedded MCU to control power and frequency of GPU devices
-> +  using MediaTek Flexible Graphics integration hardware.
-> +
+
+(Only compile-tested)
+
+
+Thomas
 
