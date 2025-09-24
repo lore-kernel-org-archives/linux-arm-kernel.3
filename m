@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9C5CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 22:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F62DCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 22:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=95/f70UhM4f4k+HsZJ9k6JeJuwfMEoFVuZxACp5T8CM=; b=vYnmtMj9diIqIx
-	KM8L53LJ1Qb9jv/Hd/jEy/7cwWvhsU9u5DEbOocKzhqrAjRD7Tqz6Tch1Yil8A0Fu0eoago77VeRx
-	FMCjRN+CgsMkCnhXc9xbL72v3I8Grvdw/3+QT4FG7tcMaVXtaBDUTnQ9cB9C4wy05Q7bIFVU8Qram
-	s2au7H7KFJIqQWi+htPiUZVFZ2+52C922LXwApaTKLrsixmoLFEXOx8pSulVgF6FEtzkXUp4lLGBg
-	11UdBHcPzQx3OwKhSpRjxznR7UKkym1yJCM8rWjaYt/Wzxu6HVLHhNaIJ5yIhYVu6oAbEuzNF4RB5
-	PhYMcufzKEorhnWSBpUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QE2ZBuvBtsyonJtw6gxDXflUgxP6mbU9Qz4jXJSFPXU=; b=HXRq1XBBDnen1OZzVmMF8QU4ei
+	GHle4kGGhW9HIoZ7N/DS695+Y51Wufs1QLSJSkWfaP6hDWBoV6ihw4ZJEwec9wtexm+VMxVvZDtSg
+	ISq8NA4dZPvwR6AdhZgc5N4XEe2g5USB2DKB5W0DstrYISmVvPVWcsBID2c20468Epwha2r53agqE
+	BCtrP0U/G5jdvB2JcGVRHiomeXYGlVTyXzJLXpv2WWS5dUyD7HwbAoZHqOUDE5KyR7/KLCL9xHtu9
+	TLgot/aANn7Uae0JVYknxyIjaJ+bvc4K7/TSyKJI82f5tIj6O5nxZ1YIKtVcZJESp2CvZPnoT7aJg
+	inF6EE+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Xcm-000000048Vh-1Olk;
-	Wed, 24 Sep 2025 22:06:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1Xjh-00000004BX1-0pyE;
+	Wed, 24 Sep 2025 22:13:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Xcl-000000048VI-29BA
+	id 1v1Xjd-00000004BU9-343R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 22:06:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EBB6D602CD;
-	Wed, 24 Sep 2025 22:06:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B3DC4CEE7;
-	Wed, 24 Sep 2025 22:06:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758751566;
-	bh=WtHYzeoqqVSA7DSNSyTBNjNmYwn+bmve6GHaOnB6vKk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=L9+U0TcgZa4VR23ZVWjm1oxhQhn6R8G99Q0sQ6YDxOAIo8iJpWv6XhgvgMSjlsq/x
-	 Pt3qRCWx2Y/lDrwVUnOyGQO0x6IeNm6H/Rvog5uKtclpyXTrhe++udIBc6H0uJ+OAa
-	 RPzWB476Wk0uCZ32cHKSgyDVyH0bgkTnQLsur4X/obLzAtD1seFcJO1KxfjwauBie6
-	 YB9AfUe6NpxBYniC2nRRY0iOFfdbw7e0VVm4yN/PHcZ9Dz1O1jZMbQpV6SiGWP2ZEg
-	 nmG0dDexSJfoUC9993DzFmDjSAtmFrOy3GC5ToBXz2c9EjWCMC+AfK7lXyvZscD5pO
-	 i1q3F19f0sKdQ==
-Date: Wed, 24 Sep 2025 17:06:05 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, jingoohan1@gmail.com,
-	l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v6 1/4] PCI: dwc: Remove the L1SS check before putting
- the link into L2
-Message-ID: <20250924220605.GA2136377@bhelgaas>
+	Wed, 24 Sep 2025 22:13:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758751991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QE2ZBuvBtsyonJtw6gxDXflUgxP6mbU9Qz4jXJSFPXU=;
+	b=XP/G0swGmokDiRnBvFJ4+0JnOVwyI//aiE6WgeON1Nb/UccJYUURVID/YMml5IFX+CrlRK
+	pZUb2Uj6OJd5LnEv6jmwQ4QC6C8n2WaGBnSaxU/eHa0BdfR2P5DEWXg/9RO91vQcQM4LhJ
+	EgaXVKx69iGEAMyjMiZTuKdk0ube/zU=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-503-gOD5eKIEPXegO1arjrXdyQ-1; Wed,
+ 24 Sep 2025 18:13:08 -0400
+X-MC-Unique: gOD5eKIEPXegO1arjrXdyQ-1
+X-Mimecast-MFC-AGG-ID: gOD5eKIEPXegO1arjrXdyQ_1758751987
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6241D180057F;
+	Wed, 24 Sep 2025 22:13:07 +0000 (UTC)
+Received: from [172.20.26.51] (unknown [10.30.44.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A910C180035E;
+	Wed, 24 Sep 2025 22:13:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc7,
+ upstream-arm-next, 0f3be52b)
+Date: Wed, 24 Sep 2025 22:13:06 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aNRbn+bZ8MP77sdh@lizhi-Precision-Tower-5810>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+Message-Id: <53899.125092418130800929@us-mta-503.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: S2vpQl9JnAgtFObdGhdHpcvPGEr9DHF9Fap5m6aWc6I_1758751987
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_151313_840585_09FC9C00 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,75 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 04:59:11PM -0400, Frank Li wrote:
-> On Wed, Sep 24, 2025 at 02:44:57PM -0500, Bjorn Helgaas wrote:
-> > On Wed, Sep 24, 2025 at 03:23:21PM +0800, Richard Zhu wrote:
-> > > The ASPM configuration shouldn't leak out here. Remove the L1SS check
-> > > during L2 entry.
-> >
-> > I'm all in favor of removing this code if possible, but we need to
-> > explain why this is safe.  The L1SS check was added for some reason,
-> > and we need to explain why that reason doesn't apply.
-> 
-> That's original discussion
-> https://lore.kernel.org/linux-pci/20230720160738.GC48270@thinkpad/
-> 
-> "To be precise, NVMe driver will shutdown the device if there is no
-> ASPM support and keep it in low power mode otherwise (there are
-> other cases as well but we do not need to worry).
-> 
-> But here you are not checking for ASPM state in the suspend path,
-> and just forcing the link to be in L2/L3 (thereby D3Cold) even
-> though NVMe driver may expect it to be in low power state like
-> ASPM/APST.
-> 
-> So you should only put the link to L2/L3 if there is no ASPM
-> support. Otherwise, you'll ending up with bug reports when users
-> connect NVMe to it.
-> 
-> - Mani"
+Hi, we tested your kernel and here are the results:
 
-Whatever the reasoning is, it needs to be in the commit log.  The
-above might be leading to the reasoning, but it would need a lot more
-dots to be connected to be persuasive.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-If NVMe is making assumptions about the ASPM configuration, there
-needs to be some generic way to keep track of that.  E.g., if NVMe
-doesn't work correctly with some ASPM states, maybe it shouldn't
-advertise support for those states.  Hacking up every host controller
-driver doesn't seem like a viable approach.
+Tested-by: CKI Project <cki-project@redhat.com>
 
-> > > Cc: stable@vger.kernel.org
-> > > Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
-> > > Suggested-by: Bjorn Helgaas <helgaas@kernel.org>
-> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-designware-host.c | 8 --------
-> > >  1 file changed, 8 deletions(-)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > index 952f8594b501..9d46d1f0334b 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > @@ -1005,17 +1005,9 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
-> > >
-> > >  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
-> > >  {
-> > > -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> > >  	u32 val;
-> > >  	int ret;
-> > >
-> > > -	/*
-> > > -	 * If L1SS is supported, then do not put the link into L2 as some
-> > > -	 * devices such as NVMe expect low resume latency.
-> > > -	 */
-> > > -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-> > > -		return 0;
-> > > -
-> > >  	if (pci->pp.ops->pme_turn_off) {
-> > >  		pci->pp.ops->pme_turn_off(&pci->pp);
-> > >  	} else {
-> > > --
-> > > 2.37.1
-> > >
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2060415554
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
