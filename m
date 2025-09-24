@@ -4,149 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE43CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 20:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C67CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 20:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DH/5qH0YEA7PHXXRGWI3JBCQEKLFlz/h7A9YTwA2b6w=; b=L6Bozo8s7q3VwMPQfRum+dS9Hc
-	KjfrHP0szMMJN0lyWHM557DfByEy7D9Mfz9DppX9aNDKfnICMQ2kOOLDWmejxHWofyqsPATTdeHop
-	lVx0DOYwQAv4bPeY6GUOdOOiezoUNU9vohj1J4Z8GBLsY+Cor1goKVXRU7Y3k9bytfXAmWib6OOUh
-	n83Sx/TnXGXky/KL8MaPYENF5EzVGOBR3s/jfkQDjatg4YI/9di093rTgVgeOunvirT6CwPnyD+cx
-	Kh2XHbRUoAS0R2sfIUHFX+XyeALTOZlwv3QaY7akhotKfYQ2uVVGfmArfRt/vePy60iCgwCacAkXM
-	expreslg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=; b=A/buJx1mBSrxN4HJrAOg4gK6Mk
+	GCb7nkC4JtM22yrMx5sTfEFpz7A2DWsXOiv0HMbArkZD5T3zMmkRCrHvWI1fXlKnCdAlWDNKCTUTY
+	UqzoYsSt2k8TO3m1NoVGNYGeQV5EozE6BQepSsDPyUDLd+m/BvdOiq8ShbQUpualC5LdrTuUJ2MTj
+	bzZ2aLfKt9OvDEqQz2w7+QGw0Ex7UIujsiZKMdRdyZYiGiupKBuL33Yth0G4fSJaZCFEtD4tqgkWC
+	q0XheI8OS9IQRh2lM3TQrtMRF0iWMON0HIRraVh+qd/9CvSdQamJEofm7vOK9yllt72Nr00B+Ekmu
+	mreec3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VpS-00000003Lhf-4A9Y;
-	Wed, 24 Sep 2025 20:11:06 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1v1WG2-00000003Zu6-03pC;
+	Wed, 24 Sep 2025 20:38:34 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VpQ-00000003Lg4-2X9P
+	id 1v1WFy-00000003ZpN-3CUk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 20:11:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Llvsm6BOgFwLYyG2x7+cKpd9pUkP861LM35IUA1vRRwjdp3KZMAgs0YLb3jT12/Hf9JjEYMIP6QLYZl1kKx7QFr2st9WL7e0wEm3dBzmpmLPfsOge4bopmR3dFwu6FkQ9HDOiuKeB5msg91qUzgPhX23mUUgxFS2eYdpWX83N7kLEuTsfPPoxXujZccYO9UPuGjTYFPMn8XEm1FG9EcKUwesPJPeD+s24pTmYwjY5wFDLvf4S7ICyvzOGJnDnRDln5AX1ThzQjgZSyc7e7xQ3Gu+LwwDjHNLiO7oB/E5LLmfRoppmJva6qx1obztrdiL/IVMcA87vvwCr5xHVFPezg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DH/5qH0YEA7PHXXRGWI3JBCQEKLFlz/h7A9YTwA2b6w=;
- b=Gveb3sCbiELbGpfHaE6Cey6juK11pK94PZ1KYCW9z9uD9kzaK9LW2hwyB/hlXwz1ZKULv65moGI/h4B6OMNRFyRdo0mvp97F/Sjw3E11Q6Mm0allVI5fjEMqNBnC/dBQqXLJRkb2coAvMhKbSlH3RLwQMUbjiOi7WHvkxbuZ3F9jyO4ZeAxpXwNNLguBLgwcTArKO0lBL8dT40Tin0a3kin06rMjnJzJAzckk8kfe6vEwE2mzwpeSQm05cbjMGLKmVTh5onvR3IeCsKnKBmCFr5Mh9YEtp3HUGaPRFlRD8yE4s2oSaZtwitHArKkq2gFH2ToUPg5nST3inraS/aCDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Wed, 24 Sep 2025 20:38:32 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-45ddc7d5731so1817215e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 13:38:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DH/5qH0YEA7PHXXRGWI3JBCQEKLFlz/h7A9YTwA2b6w=;
- b=t6sS5k2EBRJpVVxvTMniaazWMBHxZ475Q7RC5G7iI1aa/yi6zVETgN8gn/kHNWaLAuMfFpzEi1IfRQByUciFtoNH8WleKg8VvAn1QRKJ63xP7W1+fH0Ipe8HPqGSuG13V/mrd/jcFrTjypXjA2nOyldzULdHyquQYOn13hCdvq8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- BY1PR01MB8802.prod.exchangelabs.com (2603:10b6:a03:5b8::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9160.9; Wed, 24 Sep 2025 20:10:57 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::86f5:4db2:7ad5:7fc4%6]) with mapi id 15.20.9160.008; Wed, 24 Sep 2025
- 20:10:57 +0000
-Date: Wed, 24 Sep 2025 13:10:55 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Besar Wicaksono <bwicaksono@nvidia.com>
-cc: will@kernel.org, robin.murphy@arm.com, ilkka@os.amperecomputing.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    linux-tegra@vger.kernel.org, suzuki.poulose@arm.com, mark.rutland@arm.com, 
-    treding@nvidia.com, jonathanh@nvidia.com, vsethi@nvidia.com, 
-    rwiley@nvidia.com, sdonthineni@nvidia.com
-Subject: Re: [PATCH v2 5/5] perf/arm_cspmu: nvidia: Add pmevfiltr2 support
-In-Reply-To: <20250923001840.1586078-6-bwicaksono@nvidia.com>
-Message-ID: <ee1b3064-df46-a030-6ebf-6acaac8cf81b@os.amperecomputing.com>
-References: <20250923001840.1586078-1-bwicaksono@nvidia.com> <20250923001840.1586078-6-bwicaksono@nvidia.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR03CA0210.namprd03.prod.outlook.com
- (2603:10b6:303:b8::35) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+        d=gmail.com; s=20230601; t=1758746308; x=1759351108; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=;
+        b=Qx/2WcRM0FTThNhdGymIpEcLexLZ2XWTvQF0eX3sF/9KyeYI20v/IQ3poH7U13sY78
+         1TeY6YELkc1vMyzT8DOBlNXFZzMNNyfDIY+wtn1kJYpiruL+p36FZMb89K6N0WCUq6KK
+         36YsrLWDs+ji7NcaQot1lvERhoNjeOE/1kgYiAxplO9q6ZoYG3ow8o/yObgC7EQd3/Jq
+         45cTMRtOs1gFRMEw1Tavdta3sGST+U7IsTONyIq+i/Uy8w55aaWGH6CDBvgvF2/44MVp
+         VJlRihvvk5YJ/761joE9Tdupccavcf2rx1sph18KBwEpp8t5GajLHKujR/8e3HxM9WJ/
+         igDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758746308; x=1759351108;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PgAWQCFoo98/Z9ljCaTiQGL2NXe+X8U3ZUEI4e+iLi4=;
+        b=YE9d91cqlcUX/JqwjtwxqIJ7J6Ve+CpNySnJ2fxGKBWvSWLuUGBcfDDO1sKOLUSVr8
+         tT84ehiYi/kX9sClx6oziS+OL+BnZ4oHPwqvrZUNTom3tiwX5HnKTTlT5Y6TqMRHk9fG
+         Xed1zD8pyOpd9kjmxS0dbwRAbBk6zlH36vR38/RBDs2+eSHPEbzH1o/oNgRV1VjJpxPi
+         8uMrl9ubt057AtGqdZvVmTHC0IsJhp/DsrdMDwF63lrU/pYrgvYJ4CoFaTJaUyscAD7L
+         LOppcTaxjIkEcZeelCo1oTuWU8FQ7kE73SYAAW4Jo8VsZrys/eDM74MvgxmmZq1hhsBu
+         Xb1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUAXp2yChnuC4T88g9qPuWk8JqV1GFUK9oF25VWWzekrTuiz3vlpLQGCIodA5WvWlKNIALzJNQexiy9bF1MOWJs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKYd1SJsA/fMGL2FlOZXo5YKWytw4vrt+zMAtmiljK/ydhmoh3
+	7ppzDdP/xBvIeOjRugCfDEZeRIzqNHBrxiXS2j9lFgOmx9lbAXW2X+Uz
+X-Gm-Gg: ASbGncvSA0vgb8HYBW50rDp5qij8YAAXv10GDWl4RW/1n8OpufhEpPVv7WHi8W9W5OT
+	tZm7PZ8GDFmb+kDBJnjUWZuoWAGgKKvnL7/HFrpOuCsFRXUtec8epahp5aK5pXBe3snBqeNGyje
+	LVxyagYRqFYY24Zb3S3NS3QfijIQyamoHmLQuyq00WdhI5R7rft9roLMAlQlNAl4pRxqdx8DDvq
+	5gWF/rRA+mUGo5vtHrBBZtgSgqzxr9ruo8l23rm54ys6BDJr7WMSaSyMG5mQdO72MOhJ3ePT7Vl
+	FOzP/qfv3Q3S2B3TiQMHezqIUvCsIeAvxrW1zHO892jrUAfyAQUJh2cfAbkrt0GAc9mpIStRplN
+	lNbFRuI25pibgr4KSMB5zm+H+4ZONC+Z7oYcEzChG9t5gHQWi
+X-Google-Smtp-Source: AGHT+IGDxHR9zD3T2Jojj5V63amKQHEZ4Y5ouX0SIG7pqFz8i6fnWZlg4urHE+jXQ/8JQVeDmH/9Kg==
+X-Received: by 2002:a05:600c:1695:b0:45b:7e86:7378 with SMTP id 5b1f17b1804b1-46e32a1987cmr6748555e9.34.1758746308296;
+        Wed, 24 Sep 2025 13:38:28 -0700 (PDT)
+Received: from alchark-surface.localdomain ([5.194.95.234])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33b9e8aesm2663465e9.4.2025.09.24.13.38.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 13:38:27 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 25 Sep 2025 00:38:13 +0400
+Subject: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|BY1PR01MB8802:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8080d6d4-5821-4cd7-ce84-08ddfba678fa
-X-LD-Processed: 3bc2b170-fd94-476d-b0ce-4229bdc904a7,ExtAddr
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zH54gFj+WRKG32B4n4nsuEOd79dIAXWDbSLjxvSARxis+exLvxgsNavYGzpL?=
- =?us-ascii?Q?iGGUPVrqDkA120iIq+zArCTNQ3Lcvq9mc25WLFUbbueiaZYBksm5hT9FaI+2?=
- =?us-ascii?Q?DiyjipWVX6cd8dnxqdoJWtkAUlmbNZKerOvCdomf8QMEo1tkg2pw7ONEKn6U?=
- =?us-ascii?Q?YLfDhJO6eaoLTCGvsEW8FyG4uZdKy8rdmPclnKOtLfSeDiE7/gUrVr/anwoV?=
- =?us-ascii?Q?z0pOyHtQQ9TJD7AsNZDkwrLgyiA+DeZGRjbIOKcS4vK8aQMF44NLPZTkNcQn?=
- =?us-ascii?Q?hy1NB11X+7AxQDjGA8L0Lu4wHA+khTC4Y3sO1n8JUMlpqa3uuuE0EM+yhjmv?=
- =?us-ascii?Q?BsdJYqEHmG0uMxg6rKISnU+TnCsoZ0KNNbliaH/wLK4199EOL6SJHga0lWKx?=
- =?us-ascii?Q?l2r9o2BgnJShaZKTZx2BcHCzJLh3nPqQzSgmMw2BP3EvJaLyNDzBLx2BlpUe?=
- =?us-ascii?Q?hK+GqRBvDHwoo4g/lPQO5jvDCCDdBZJ0mdt04tmlpAZBPeXx1g1WLpaoWqNC?=
- =?us-ascii?Q?jAHp4IhT5wAsJFsg+BlpEBSfMaL7h6wtbcZOgxbrVuCh5EisOJlK7Pu/2n/L?=
- =?us-ascii?Q?e8iOhpP1yEJYN06HTJYmKuucdJMvrTGPtngQq8f5AHx3TP50dD0NXd0mLB04?=
- =?us-ascii?Q?CGTzbotkGlmaAINgalD8kPaJithYRd/I5cNqXrVaDw2WrxCIECBteL0dEHLs?=
- =?us-ascii?Q?GmvawXXXVCVI6ys6AUeSroSIM8/zfmCFO0qiIo8bvCFacr6QMn8rbp+OUmVv?=
- =?us-ascii?Q?gMTvjR9Vs2eEd+zSeY/OV60tVzIA/pWcDlXsDRMCu8zPYMf0HzCBNgKqb8qq?=
- =?us-ascii?Q?fup8PLzxNZySMyTUQJ0LjOP7+DumGiyhC334UzO4vM22mA/10K+RgymbZ19E?=
- =?us-ascii?Q?qsIVtuo+1VvfZiZtCmODgY0gpRQyLD58YdCUM5Eer9YNe/OQzqj1lxo8CNJR?=
- =?us-ascii?Q?WAC8dyPC3HAUGdISc+IWhUWIVKwlfE335pxgAW+XBp5G4V+If8cHElLQ9OXP?=
- =?us-ascii?Q?zi1k2nm3kdhqiT+bCDSOHJHG2KqaDcpYSWjg0F/Bdfu5VOpH96G3Y1X2wrkH?=
- =?us-ascii?Q?F6eAJd0UZ6/NxSeK/a80ddepLKb0J7NYSYZBujch5e8iV/jX6F0Yu+xIvSKN?=
- =?us-ascii?Q?NXKixvR2A7Ctee70PljfUEY488IStVPZXsWXmAh122mWu8O8mqMtrlYwvf2Q?=
- =?us-ascii?Q?EFs3RNGNEWMerN0B4uW9vqYDHdNyuauke4OSISnSQysW1tPiADUAAwdki4vT?=
- =?us-ascii?Q?MvTG+JFio/awRQFUZ89g63zA4En2deNgzX3yoZ9rSKaZPTn742sAiKKT6Kvy?=
- =?us-ascii?Q?kgfBZga7OjcAzku5ji23i8hp/oyWyYsR/8Zz2qgrRnKvLGGy4VI21o+JHORc?=
- =?us-ascii?Q?INgsBsYSORUJ7tJ20ST3UCQC6jPEdxUvc8fh566IgAcTqlcFtoUesdR09zNy?=
- =?us-ascii?Q?Sx87QsFH+xxLqB/H2toKXDZVJPaRYogf5q+BRzjTpjoAgw0FkDllqg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rw6sOeejxWubQlYyZceNDsK+FNCbUkhFgaWk5TvIYmGrC54d14md6F8pg98J?=
- =?us-ascii?Q?/LWzidGSb1SPZWjY4r8PURiG8+4EN7+Kzudm7NkLvWj+wYFwS9bGL2ZW9e8K?=
- =?us-ascii?Q?ANG26XjdmlCDwfWebJlUteDvhrBCXJ4XK9o7tESwJXPc7L3GjdD+GQYsGefn?=
- =?us-ascii?Q?LWiApS66LWSQO78C38co2MkGbYn1GU0se2k8O9dEJzEOUDN/rmE+ZzwMfklW?=
- =?us-ascii?Q?hZCXHYwZ+oBxBJwpwBTVsgMfCoBMkdh9XbPOQNkmFDRdLLpMP9sRCttUsBLP?=
- =?us-ascii?Q?1x8/tH8rYs/FQxiYzIHg/MHy8jn+sSxTxhR/6j8Iv9UXLqdXXmPpzaMn6Yn5?=
- =?us-ascii?Q?kQR+20HfLdcqmUv8xCoMK//G6FFOSfKDzyCowWcCrTL/wZAIfoqSFa9kUmyW?=
- =?us-ascii?Q?4IRPwOFmLezWe75G8lwv83Eg+pxgwQv9vkEB0u2aOtx5yeSFaDH9vVyWxjyp?=
- =?us-ascii?Q?C3xUSanErtRFH3+6jqrpT5Fd7ZlWYur8NNuK0I1kLex1SYbSOZ58sYshnazt?=
- =?us-ascii?Q?/rkFtIPqczIQuobgbM7hB2eLv0BpK1hTLCTMGFi0cdKFsUNjWL8ws/zZpWBW?=
- =?us-ascii?Q?w9pPSwyo11vtqg7PK0qwmR3KQ2DlOqThmMsi1UHRiwo4qjEc/OP0lpj+1XRs?=
- =?us-ascii?Q?f6Cc6xwF8VwJuLGYywu7ejVvnOWlm/goCiPBA4yFQ0jUAwt5EFIJwYdXslbj?=
- =?us-ascii?Q?WXbZ3xhp6OJlLVxFb2hLkUaFX5l8tkcBPvG5VDPZrixWmUlrxgT+LYqg/CaB?=
- =?us-ascii?Q?00+sf/WedrnBM0T2cXs+hgxZJVdiwRnm+yEw1hQeWmJ+QtPH9M90phHMf1GE?=
- =?us-ascii?Q?ZQV3/CxGh8EhIj9ikPvDmo3CeQKyHBBFnFki7mCiKyWjNl3AsX3IDjPC3w5I?=
- =?us-ascii?Q?1SC+wHG76IfsCE0aHX1nop7GSmpy6wA33SDvLvs0gYLhNQehQUciwS6ru4Ik?=
- =?us-ascii?Q?5LAJhlr5Htx4iMU/qcSkourARH4GuySupqr5FuaG603s22X8MfAhFzf4Mmuy?=
- =?us-ascii?Q?bBS5xBUHIyNBHsy79x3U9mm08QvvgFTQGLU/mPSCRxIzxDzhgEnG9J/cpPov?=
- =?us-ascii?Q?SbukHbAz7fwoFr6GzcMB7TOwM9QtHxV/M5sB0VUuyXMwo0Zzlyxz11LCzyK7?=
- =?us-ascii?Q?eGdxnPzxvUi+OJMeBh7cU7Ahi5+6vWdw8w6Bdsb1X28Slc4b9nm7MwrY6JHp?=
- =?us-ascii?Q?vZ1U1GZ1baZbCtD+SKDNCRd9qp5+qlJ8AfXv7DxXLZhp5qy4qgFHpidLINru?=
- =?us-ascii?Q?FLnvu2QB8kps7fhuQYEaJRt3W1YbT4BQETR693v0mHbE1R5TSHn9elvtpuV2?=
- =?us-ascii?Q?QwsCqftHTxHs3nboAO/FeiK5a5IEaSMr7XWCd5pJsjgguhbKxcPVmdaFxwRx?=
- =?us-ascii?Q?XOPQQL3SJzScqYSxf5EBNQMipyn7H30Txz79rQAdb8CAqUipXB+GGX80uy9n?=
- =?us-ascii?Q?9VZyfu9Skqwu4wNfi9ABh0xIpyxuD/Jvf3NUCg3HRAb4u/J2qi7kVK/a3NsM?=
- =?us-ascii?Q?qzgnSfj1SeK0DUMJE7P6fFw1qkrblEq9eTP3beTLSdft64HO6wmFt/L+CXa2?=
- =?us-ascii?Q?7q6kIbMnzfDfc0dFYpfBOjL0zqIRsRDvibXfpKf5bNcbxccck35BtRkK/zll?=
- =?us-ascii?Q?oUDopPLBVCmk53We3nuVUW0=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8080d6d4-5821-4cd7-ce84-08ddfba678fa
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 20:10:57.0815
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xqd4iwoKbC5KA1HO3L9wxESHCarm0eziM9zNJWizwX9sYRmQQUkhFAFqqvNTP6wehMJliPPKXvT3n/L4jqIsQRNFSQd87auABT9kWxEOqT7l5Mj5GZIKYx/h3s+hTJBo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR01MB8802
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
+X-B4-Tracking: v=1; b=H4sIALRW1GgC/x3MSQqAMAxA0atI1gZsU8eriAuHVIOg0kIRSu9uc
+ fkW/0fw7IQ9DEUEx0G83FeGKgtYj/naGWXLBl3puuq1QXdS3TbIYVG4eUGm3pLpiBbbQK4ex1b
+ e/zhOKX3yEkZhYQAAAA==
+X-Change-ID: 20250924-rk3576-evb1-dsi-e39f34833bf6
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3993; i=alchark@gmail.com;
+ h=from:subject:message-id; bh=/7E6ceDbDhZ4pxug1DrrfRHk0oYerFsLd6y+cKd/Fmc=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWRcCTss8+Uow9wVd7om3ggIPPxuqbaVReHufeeOKO8ui
+ DqxLvCgXUcpC4MYF4OsmCLL3G9LbKca8c3a5eHxFWYOKxPIEAYuTgGYiNxbRoafxwXXszilzNvD
+ v3ou95Mb/R6Ju83fpOisd/+6dteaZbd2MPwPfxPzSlRMSOXbG8XWJufMCcLu6zfOeeo/SUhQjlt
+ YYSsDAA==
+X-Developer-Key: i=alchark@gmail.com; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_131104_697668_6AC8F62E 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20250924_133830_834261_87ACC082 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,294 +110,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assembly which
+comes physically attached to Rockchip RK3576 EVB1 boards.
 
+The display part is driven by the on-chip MIPI DSI controller, and the
+touchscreen is connected over I2C.
 
-On Tue, 23 Sep 2025, Besar Wicaksono wrote:
-> Support NVIDIA PMU that utilizes the optional event filter2 register.
->
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Note that backlight support is left out for now, as it depends on PWM
+support [0] which has not yet been merged.
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+A workaround is simply `gpioset -c 0 13=1` to set the respective GPIO
+pin high and thus to light up the display unconditionally.
 
+[0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com/
+---
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++++++++++++++++
+ 1 file changed, 89 insertions(+)
 
-> ---
-> drivers/perf/arm_cspmu/nvidia_cspmu.c | 176 +++++++++++++++++++-------
-> 1 file changed, 133 insertions(+), 43 deletions(-)
->
-> diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> index ac91dc46501d..e06a06d3407b 100644
-> --- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> @@ -40,10 +40,21 @@
->
-> struct nv_cspmu_ctx {
-> 	const char *name;
-> -	u32 filter_mask;
-> -	u32 filter_default_val;
-> +
-> 	struct attribute **event_attr;
-> 	struct attribute **format_attr;
-> +
-> +	u32 filter_mask;
-> +	u32 filter_default_val;
-> +	u32 filter2_mask;
-> +	u32 filter2_default_val;
-> +
-> +	u32 (*get_filter)(const struct perf_event *event);
-> +	u32 (*get_filter2)(const struct perf_event *event);
-> +
-> +	void *data;
-> +
-> +	int (*init_data)(struct arm_cspmu *cspmu);
-> };
->
-> static struct attribute *scf_pmu_event_attrs[] = {
-> @@ -144,6 +155,7 @@ static struct attribute *cnvlink_pmu_format_attrs[] = {
-> static struct attribute *generic_pmu_format_attrs[] = {
-> 	ARM_CSPMU_FORMAT_EVENT_ATTR,
-> 	ARM_CSPMU_FORMAT_FILTER_ATTR,
-> +	ARM_CSPMU_FORMAT_FILTER2_ATTR,
-> 	NULL,
-> };
->
-> @@ -184,13 +196,36 @@ static u32 nv_cspmu_event_filter(const struct perf_event *event)
-> 	return filter_val;
-> }
->
-> +static u32 nv_cspmu_event_filter2(const struct perf_event *event)
-> +{
-> +	const struct nv_cspmu_ctx *ctx =
-> +		to_nv_cspmu_ctx(to_arm_cspmu(event->pmu));
-> +
-> +	const u32 filter_val = event->attr.config2 & ctx->filter2_mask;
-> +
-> +	if (filter_val == 0)
-> +		return ctx->filter2_default_val;
-> +
-> +	return filter_val;
-> +}
-> +
-> static void nv_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
-> 				   const struct perf_event *event)
-> {
-> -	u32 filter = nv_cspmu_event_filter(event);
-> -	u32 offset = PMEVFILTR + (4 * event->hw.idx);
-> +	u32 filter, offset;
-> +	const struct nv_cspmu_ctx *ctx =
-> +		to_nv_cspmu_ctx(to_arm_cspmu(event->pmu));
-> +	offset = 4 * event->hw.idx;
->
-> -	writel(filter, cspmu->base0 + offset);
-> +	if (ctx->get_filter) {
-> +		filter = ctx->get_filter(event);
-> +		writel(filter, cspmu->base0 + PMEVFILTR + offset);
-> +	}
-> +
-> +	if (ctx->get_filter2) {
-> +		filter = ctx->get_filter2(event);
-> +		writel(filter, cspmu->base0 + PMEVFILT2R + offset);
-> +	}
-> }
->
-> static void nv_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-> @@ -210,74 +245,120 @@ enum nv_cspmu_name_fmt {
-> struct nv_cspmu_match {
-> 	u32 prodid;
-> 	u32 prodid_mask;
-> -	u64 filter_mask;
-> -	u32 filter_default_val;
-> 	const char *name_pattern;
-> 	enum nv_cspmu_name_fmt name_fmt;
-> -	struct attribute **event_attr;
-> -	struct attribute **format_attr;
-> +	struct nv_cspmu_ctx template_ctx;
-> +	struct arm_cspmu_impl_ops ops;
-> };
->
-> static const struct nv_cspmu_match nv_cspmu_match[] = {
-> 	{
-> 	  .prodid = 0x10300000,
-> 	  .prodid_mask = NV_PRODID_MASK,
-> -	  .filter_mask = NV_PCIE_FILTER_ID_MASK,
-> -	  .filter_default_val = NV_PCIE_FILTER_ID_MASK,
-> 	  .name_pattern = "nvidia_pcie_pmu_%u",
-> 	  .name_fmt = NAME_FMT_SOCKET,
-> -	  .event_attr = mcf_pmu_event_attrs,
-> -	  .format_attr = pcie_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = mcf_pmu_event_attrs,
-> +		.format_attr = pcie_pmu_format_attrs,
-> +		.filter_mask = NV_PCIE_FILTER_ID_MASK,
-> +		.filter_default_val = NV_PCIE_FILTER_ID_MASK,
-> +		.filter2_mask = 0x0,
-> +		.filter2_default_val = 0x0,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = NULL,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> 	{
-> 	  .prodid = 0x10400000,
-> 	  .prodid_mask = NV_PRODID_MASK,
-> -	  .filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-> -	  .filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-> 	  .name_pattern = "nvidia_nvlink_c2c1_pmu_%u",
-> 	  .name_fmt = NAME_FMT_SOCKET,
-> -	  .event_attr = mcf_pmu_event_attrs,
-> -	  .format_attr = nvlink_c2c_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = mcf_pmu_event_attrs,
-> +		.format_attr = nvlink_c2c_pmu_format_attrs,
-> +		.filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-> +		.filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-> +		.filter2_mask = 0x0,
-> +		.filter2_default_val = 0x0,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = NULL,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> 	{
-> 	  .prodid = 0x10500000,
-> 	  .prodid_mask = NV_PRODID_MASK,
-> -	  .filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-> -	  .filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-> 	  .name_pattern = "nvidia_nvlink_c2c0_pmu_%u",
-> 	  .name_fmt = NAME_FMT_SOCKET,
-> -	  .event_attr = mcf_pmu_event_attrs,
-> -	  .format_attr = nvlink_c2c_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = mcf_pmu_event_attrs,
-> +		.format_attr = nvlink_c2c_pmu_format_attrs,
-> +		.filter_mask = NV_NVL_C2C_FILTER_ID_MASK,
-> +		.filter_default_val = NV_NVL_C2C_FILTER_ID_MASK,
-> +		.filter2_mask = 0x0,
-> +		.filter2_default_val = 0x0,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = NULL,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> 	{
-> 	  .prodid = 0x10600000,
-> 	  .prodid_mask = NV_PRODID_MASK,
-> -	  .filter_mask = NV_CNVL_FILTER_ID_MASK,
-> -	  .filter_default_val = NV_CNVL_FILTER_ID_MASK,
-> 	  .name_pattern = "nvidia_cnvlink_pmu_%u",
-> 	  .name_fmt = NAME_FMT_SOCKET,
-> -	  .event_attr = mcf_pmu_event_attrs,
-> -	  .format_attr = cnvlink_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = mcf_pmu_event_attrs,
-> +		.format_attr = cnvlink_pmu_format_attrs,
-> +		.filter_mask = NV_CNVL_FILTER_ID_MASK,
-> +		.filter_default_val = NV_CNVL_FILTER_ID_MASK,
-> +		.filter2_mask = 0x0,
-> +		.filter2_default_val = 0x0,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = NULL,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> 	{
-> 	  .prodid = 0x2CF00000,
-> 	  .prodid_mask = NV_PRODID_MASK,
-> -	  .filter_mask = 0x0,
-> -	  .filter_default_val = 0x0,
-> 	  .name_pattern = "nvidia_scf_pmu_%u",
-> 	  .name_fmt = NAME_FMT_SOCKET,
-> -	  .event_attr = scf_pmu_event_attrs,
-> -	  .format_attr = scf_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = scf_pmu_event_attrs,
-> +		.format_attr = scf_pmu_format_attrs,
-> +		.filter_mask = 0x0,
-> +		.filter_default_val = 0x0,
-> +		.filter2_mask = 0x0,
-> +		.filter2_default_val = 0x0,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = NULL,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> 	{
-> 	  .prodid = 0,
-> 	  .prodid_mask = 0,
-> -	  .filter_mask = NV_GENERIC_FILTER_ID_MASK,
-> -	  .filter_default_val = NV_GENERIC_FILTER_ID_MASK,
-> 	  .name_pattern = "nvidia_uncore_pmu_%u",
-> 	  .name_fmt = NAME_FMT_GENERIC,
-> -	  .event_attr = generic_pmu_event_attrs,
-> -	  .format_attr = generic_pmu_format_attrs
-> +	  .template_ctx = {
-> +		.event_attr = generic_pmu_event_attrs,
-> +		.format_attr = generic_pmu_format_attrs,
-> +		.filter_mask = NV_GENERIC_FILTER_ID_MASK,
-> +		.filter_default_val = NV_GENERIC_FILTER_ID_MASK,
-> +		.filter2_mask = NV_GENERIC_FILTER_ID_MASK,
-> +		.filter2_default_val = NV_GENERIC_FILTER_ID_MASK,
-> +		.get_filter = nv_cspmu_event_filter,
-> +		.get_filter2 = nv_cspmu_event_filter2,
-> +		.data = NULL,
-> +		.init_data = NULL
-> +	  },
-> 	},
-> };
->
-> @@ -310,6 +391,14 @@ static char *nv_cspmu_format_name(const struct arm_cspmu *cspmu,
-> 	return name;
-> }
->
-> +#define SET_OP(name, impl, match, default_op) \
-> +	do { \
-> +		if (match->ops.name) \
-> +			impl->name = match->ops.name; \
-> +		else if (default_op != NULL) \
-> +			impl->name = default_op; \
-> +	} while (false)
-> +
-> static int nv_cspmu_init_ops(struct arm_cspmu *cspmu)
-> {
-> 	struct nv_cspmu_ctx *ctx;
-> @@ -330,20 +419,21 @@ static int nv_cspmu_init_ops(struct arm_cspmu *cspmu)
-> 			break;
-> 	}
->
-> -	ctx->name		= nv_cspmu_format_name(cspmu, match);
-> -	ctx->filter_mask	= match->filter_mask;
-> -	ctx->filter_default_val = match->filter_default_val;
-> -	ctx->event_attr		= match->event_attr;
-> -	ctx->format_attr	= match->format_attr;
-> +	/* Initialize the context with the matched template. */
-> +	memcpy(ctx, &match->template_ctx, sizeof(struct nv_cspmu_ctx));
-> +	ctx->name = nv_cspmu_format_name(cspmu, match);
->
-> 	cspmu->impl.ctx = ctx;
->
-> 	/* NVIDIA specific callbacks. */
-> -	impl_ops->set_cc_filter			= nv_cspmu_set_cc_filter;
-> -	impl_ops->set_ev_filter			= nv_cspmu_set_ev_filter;
-> -	impl_ops->get_event_attrs		= nv_cspmu_get_event_attrs;
-> -	impl_ops->get_format_attrs		= nv_cspmu_get_format_attrs;
-> -	impl_ops->get_name			= nv_cspmu_get_name;
-> +	SET_OP(set_cc_filter, impl_ops, match, nv_cspmu_set_cc_filter);
-> +	SET_OP(set_ev_filter, impl_ops, match, nv_cspmu_set_ev_filter);
-> +	SET_OP(get_event_attrs, impl_ops, match, nv_cspmu_get_event_attrs);
-> +	SET_OP(get_format_attrs, impl_ops, match, nv_cspmu_get_format_attrs);
-> +	SET_OP(get_name, impl_ops, match, nv_cspmu_get_name);
-> +
-> +	if (ctx->init_data)
-> +		return ctx->init_data(cspmu);
->
-> 	return 0;
-> }
-> -- 
-> 2.50.1
->
->
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index db8fef7a4f1b9570cb517ccc9a857d1c93c9d2db..f20cd6f2c079e0a5bd79acc9ebcd56b499e0f72f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -125,6 +125,8 @@ vcc3v3_lcd_n: regulator-vcc3v3-lcd0-n {
+ 		regulator-boot-on;
+ 		enable-active-high;
+ 		gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&vcc3v3_lcd_s0_en>;
+ 		vin-supply = <&vcc_3v3_s0>;
+ 	};
+ 
+@@ -264,6 +266,43 @@ &combphy1_psu {
+ 	status = "okay";
+ };
+ 
++&dsi {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	pinctrl-0 = <&mipim1_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	panel@0 {
++		compatible = "wanchanglong,w552793baa", "raydium,rm67200";
++		reg = <0>;
++
++		iovcc-supply = <&vcc3v3_lcd_n>;
++		reset-gpios = <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
++		vdd-supply = <&vcc3v3_lcd_n>;
++		vsn-supply = <&vcc5v0_device>;
++		vsp-supply = <&vcc5v0_device>;
++
++		port {
++			mipi_panel_in: endpoint {
++				remote-endpoint = <&dsi_out_panel>;
++			};
++		};
++	};
++};
++
++&dsi_in {
++	dsi_in_vp1: endpoint {
++		remote-endpoint = <&vp1_out_dsi>;
++	};
++};
++
++&dsi_out {
++	dsi_out_panel: endpoint {
++		remote-endpoint = <&mipi_panel_in>;
++	};
++};
++
+ &gmac0 {
+ 	clock_in_out = "output";
+ 	phy-mode = "rgmii-rxid";
+@@ -319,6 +358,28 @@ &hdptxphy {
+ 	status = "okay";
+ };
+ 
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0m1_xfer>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	touchscreen@14 {
++		compatible = "goodix,gt1158";
++		reg = <0x14>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_LOW>;
++		irq-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&tp_int>, <&tp_rst>;
++		reset-gpios = <&gpio0 RK_PD0 GPIO_ACTIVE_HIGH>;
++		touchscreen-size-x = <720>;
++		touchscreen-size-y = <1280>;
++		VDDIO-supply = <&vcc3v3_lcd_n>;
++	};
++};
++
+ &i2c1 {
+ 	status = "okay";
+ 
+@@ -738,6 +799,10 @@ rgmii_phy1: ethernet-phy@1 {
+ 	};
+ };
+ 
++&mipidcphy {
++	status = "okay";
++};
++
+ &pcie0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie0_rst>;
+@@ -788,6 +853,20 @@ host_wake_bt: host-wake-bt {
+ 		};
+ 	};
+ 
++	display {
++		vcc3v3_lcd_s0_en: vcc3v3-lcd-s0-en {
++			rockchip,pins = <0 RK_PC6 0 &pcfg_pull_none>;
++		};
++
++		tp_int: tp-int {
++			rockchip,pins = <0 RK_PC5 0 &pcfg_pull_none>;
++		};
++
++		tp_rst: tp-rst {
++			rockchip,pins = <0 RK_PD0 0 &pcfg_pull_none>;
++		};
++	};
++
+ 	hym8563 {
+ 		rtc_int: rtc-int {
+ 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -941,3 +1020,13 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi_in_vp0>;
+ 	};
+ };
++
++&vp1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	vp1_out_dsi: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
++		reg = <ROCKCHIP_VOP2_EP_MIPI0>;
++		remote-endpoint = <&dsi_in_vp1>;
++	};
++};
+
+---
+base-commit: ce7f1a983b074f6cf8609068088ca3182c569ee4
+change-id: 20250924-rk3576-evb1-dsi-e39f34833bf6
+
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
+
 
