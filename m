@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9BDCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E105ECAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 11:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wryAd6ncuSfZcxzz9rjCldwBQ+sv4oOpRu8xGk5LPEo=; b=T6xQnmhm4zxTk/nX4nSHMXsmy7
-	ZamAilgrTn611NxD5glBCct1aklumkbweX1wL1fjkM//GKY4f1GlUahORZUco7wFYxn/Dyj6682Tf
-	huAHTXY3l+W1KprHGLbJPfyUaFqekTSMCmkLVvO/UnY5SCQTS3gWJLgzKoSCgjwo0JmwBjRCp4aEQ
-	PCQRWA0hZAmCq91dBpdPbCMk5oH4siCWTKmBvB/wtce7BBzpUYSRYE1AkgG7lbJjls1iLmSbKId6s
-	52312tJxV5GWe8NGWbnDjOxar9TZ5PKtBEUuUEWd3s5895WyQeDFQJuv6/Ij8H/hUgM4h9NFgcsez
-	4JfxZM1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sr+3TOUJGZkTvPdj5ni/KiW7FZ5zvFQ62TYrQkn+sAw=; b=Z/5WX9pmyTCazLsV96DlKWCTuq
+	zeQzwTgys4mOqIf0pqZAnTqtpSN1enwoBjBxufJK3EUMjiIJY1urxJoIkS3poXqnKm4xVcVX08okJ
+	HVRi6/lo5X9EV9LnGw58tKhP/6NAtf9vVsgCrKIS/tJdiO0tDZ5TRStZZNo11RZ1+jGaDiYV+1Egq
+	buHiuUs4j9vEL8XDtSN7VmHILelVLd69O+NZQk/M/CyNC6+qx0RjVoa1di2c5T1hDbKtDHiHHb0/H
+	N0Z0dxIzVfovkJS9RUc/iBY+EWFqQBfbZv+l0cVY+U6LRVjBWWmefT/ofvLPpmPX1ns1vqMt012zF
+	fyGmhB4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1NZX-0000000GsLn-3me6;
-	Wed, 24 Sep 2025 11:22:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1NZW-0000000GsKl-2A57
+	id 1v1NeX-0000000GuId-2frw;
+	Wed, 24 Sep 2025 11:27:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1NeU-0000000GuFg-03HH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 11:22:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7491460007;
-	Wed, 24 Sep 2025 11:22:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CCFC4CEF0;
-	Wed, 24 Sep 2025 11:21:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758712921;
-	bh=X7GIGF2FsHIBZtxGFEtJeOu9snmHHyv0w2PWFjS9Qgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s39B4XWh9JRah+ZAUcjPHW2yD9vovdGwxH8YMl7ATmxflxxhVFa3jkS4bi+x2461v
-	 DMhKUBVhWjxbkCcSWJoW1FNvG13n+f03NL5y+gZKSkB72Zj0Avh2/MMIvRF1G/f10T
-	 LM2rUFsnZDcdbuJcCYqwTIaQCh99pFaxoTbxKtA/9NuMEwLpVRDbO4oUNUbDDeVKG9
-	 6brUMHEjRNho9/i8UKZB0pVvwFiJjCFRbUkH6p4ELmpl8F8YATybQZZRmolcRLQi36
-	 RlChf13e6Ak06R40yk5iYFulIOX800XdQ2RH7zaPHoHwM3XS69i4dIsctIfAb4WSb4
-	 WcIAyA3xxQ7hA==
-Date: Wed, 24 Sep 2025 12:19:31 +0100
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Yushan Wang <wangyushan12@huawei.com>, Jonathan.Cameron@huawei.com,
-	yangyicong@hisilicon.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	robin.murphy@arm.com, liuyonglong@huawei.com,
-	wanghuiqiang@huawei.com, prime.zeng@hisilicon.com,
-	hejunhao3@h-partners.com, linuxarm@huawei.com, fanghao11@huawei.com
-Subject: Re: [PATCH v3 5/9] drivers/perf: hisi: Extend the field of tt_core
-Message-ID: <aNPTwxnlXGbazFLR@willie-the-truck>
-References: <20250829101427.2557899-1-wangyushan12@huawei.com>
- <20250829101427.2557899-6-wangyushan12@huawei.com>
- <aNFMUdPJeJo9XU1e@willie-the-truck>
- <3cc3fcdf-436a-9e73-a377-ed896d07a825@huawei.com>
+	Wed, 24 Sep 2025 11:27:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B805106F;
+	Wed, 24 Sep 2025 04:27:04 -0700 (PDT)
+Received: from [10.57.1.72] (unknown [10.57.1.72])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA4F23F5A1;
+	Wed, 24 Sep 2025 04:27:11 -0700 (PDT)
+Message-ID: <4dfdf419-102f-4fab-8d58-4863dfe64167@arm.com>
+Date: Wed, 24 Sep 2025 12:27:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3cc3fcdf-436a-9e73-a377-ed896d07a825@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [UPDATED] [GIT PULL] coresight: Updates for Linux v6.18
+Content-Language: en-GB
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ james.clark@linaro.org, leo.yan@linux.dev, mike.leach@linaro.org
+References: <2025092306-foster-outsource-fb07@gregkh>
+ <20250924082242.2306143-1-suzuki.poulose@arm.com>
+ <2025092446-spinout-paramount-a27b@gregkh>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <2025092446-spinout-paramount-a27b@gregkh>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250924_042714_093608_3997AD40 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +66,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 03:31:15PM +0800, Yicong Yang wrote:
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> index bbd81a43047d..a52d98f1ed34 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> @@ -57,6 +57,11 @@
->  #define L3C_V2_NR_EVENTS	0xFF
+On 24/09/2025 12:06, Greg KH wrote:
+> On Wed, Sep 24, 2025 at 09:22:42AM +0100, Suzuki K Poulose wrote:
+>> Hi Greg
+>>
+>> Please find the updated pull request to fix the invalid commit reference in
+>> the fixes tag, in the original pull request [0]
+>>
+>> Apologies for the inconvenience.
+>>
+>> [0] https://lkml.kernel.org/r/20250922125907.2268152-1-suzuki.poulose@arm.com
+>>
+>> Kindly pull,
+>>
+>> Suzuki
+>>
+>> ---
+>>
+>> The following changes since commit 1b237f190eb3d36f52dffe07a40b5eb210280e00:
+>>
+>>    Linux 6.17-rc3 (2025-08-24 12:04:12 -0400)
+>>
+>> are available in the Git repository at:
+>>
+>>    git//git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.18-v2
 > 
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
-> +/*
-> + * Remain the config1:0-7 for backward compatibility if some existing users
-> + * hardcode the config1:0-7 directly without parsing the sysfs attribute.
-> + */
-> +HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core_deprecated, config1, 7, 0);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
->  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
-> @@ -95,6 +100,21 @@ static bool support_ext(struct hisi_l3c_pmu *pmu)
->  	return l3c_pmu_ext->support_ext;
->  }
+> That is not a valid "url" to pull from, how did you create this?
+
+Dang! I did use the git request-pull, but have to manually replace the
+"ssh" URL with git:// :-( and I messed up.
+
 > 
-> +/*
-> + * tt_core was extended to cover all the CPUs sharing the L3 and was moved from
-> + * config1:0-7 to config2:0-*. Try it first and fallback to tt_core_deprecated
-> + * if user's still using the deprecated one.
-> + */
-> +static u32 hisi_l3c_pmu_get_tt_core(struct perf_event *event)
-> +{
-> +	u32 core = hisi_get_tt_core(event);
-> +
-> +	if (core)
-> +		return core;
-> +
-> +	return hisi_get_tt_core_deprecated(event);
-> +}
+> I've added the missing ':', but you might want to check your scripts to
+> verify you aren't doing something odd.
 
-Perhaps we should be stricter about this and fail validation for events
-that specify both a non-zero tt_core and a non-zero tt_core_deprecated?
+Will take care of it, thanks.
 
-Will
+Suzuki
+
 
