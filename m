@@ -4,71 +4,199 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0B1CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF12CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teLA4i8nux4HKrIXNPo+zPMCtmw2VVGeEgKQ+gJ1nyw=; b=A2BwQFJoJ/FnyrvMyUUno5S9Dy
-	BmbQoYzQaPeUWuQXTHJTn9YHbJAr4CTyMERjQ1iU1xS598kW3ZdaR4sghLlOWFBHABb84J3NQbIu0
-	XXtFOZqZNIKHjefy9U/E17TuHy5bjpH/UGoCoPegOfM48NHV+0FQOCjlfMXQguAz/AJDtSBvW0TuF
-	lt5OSozw0GisnH/11CscjGOvJH718MUq3QcVNunt9Iy/ahxj0vuZ7h/2RGMC1+KmjMzifKwB7LOCx
-	mhYjvJWmpfkkKnfvhceyAoZtDHYYKnwN720GK0C5snM3etC6YItTj5kCBMBD7j1/tf6GCG0KBhSjb
-	N+t4Xt3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/+vxHoUbixghqQPxnbGbhc8kl50p3vAB+Mt/mgeeKcE=; b=Rg2sKz2GRyclLkTMwty4Epk1sV
+	f5aIWC2g6VK8IyIjQx8safJa0Oa4jbOPrMcbGrcbpSuuBvs63Q4uBoRFGIQ5tzEJWgY9Flap1AysU
+	8s7cn7ha/L7m0BebzE2Hn9Ug7L00QMiqWHOTBmLjkYlgkEbUh/4PLo7wJeLAF1TslnG8/DW5sHc0h
+	9JJguL1pZxu8hOHIy8aVVqjpvZxidMnyJUDdXVRMREtMoO2xOyAm+7hZKxjoQhFwNUzNJ+oxwe/1z
+	hJQCZP+GMoGFbGr11gWbA0RgSdj457qIt8/GDiHSsw8dmA0YbIH7qNsb3DGFNYieeUzOkVP+h9jU3
+	mR4Y6+aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Ko6-0000000FrMb-3ALu;
-	Wed, 24 Sep 2025 08:24:58 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v1KpP-0000000FrkY-1AKc;
+	Wed, 24 Sep 2025 08:26:19 +0000
+Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1Ko3-0000000FrL3-3uQM;
-	Wed, 24 Sep 2025 08:24:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1758702292;
-	bh=nc3lW4hEPO4+UuoQL/uQ7/SVAuuMyo049NNa4zT6c8I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O4T5RwlG/l99iCRkcEwzdsV6JY/OpyJQDfQ6W7/poAYXWcSO4tV5AcGEaWcHoCNvl
-	 kiU/KsrBZxpZ1uJBs6LAFEtnF3X+pPELLZksBI4PgG4q3I3qQp0uJdlDRoz3V4rp8S
-	 5STjySeXm8+5yr9L9srjG51a+IGK6UixO1CW+jS0/tNrpS5BWyfQHH30Wd/yM2MEp2
-	 oXZnGt/BnHDLFCLdLDITI2JVLBNCq24ciTvAxmbMERCsGWhHs6iGI1td6gnG5fB6k1
-	 wycjzBy8/mD+dFny/+JZV5958k39l65AgNU+w/a51w9lzTO5XgiAKuQSs88L7N0IpW
-	 5ZGphx99dbu3w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0A62F17E068C;
-	Wed, 24 Sep 2025 10:24:52 +0200 (CEST)
-Message-ID: <fee90caf-1646-4fdf-8835-20c28c0181c6@collabora.com>
-Date: Wed, 24 Sep 2025 10:24:51 +0200
-MIME-Version: 1.0
+	id 1v1KpK-0000000Friu-0nJ3;
+	Wed, 24 Sep 2025 08:26:17 +0000
+Received: from pps.filterd (m0250810.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 58O5oWWl898017;
+	Wed, 24 Sep 2025 01:26:08 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
+	 h=cc:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	PPS06212021; bh=/+vxHoUbixghqQPxnbGbhc8kl50p3vAB+Mt/mgeeKcE=; b=
+	QleDM5HKJDzKHvK2Mw/0EGhjF6MUlTFiAWg0issqfDCFh/5aGmz6QqFUZUfuE7Gp
+	yuI8YFSWZYiNwyTeQwhrPUfhYp4KYkkC6/pwQNbx17HyKPYVvcuOQHv/VlS3JuxO
+	PZbwifkcavtiHjhr9jQn0+kQpReVfON4m6eE2hQTwjSH9ET1DoFwxS9vQFqq56lB
+	PrFvwfypvsWpWAIzRrdPlPv9cWR81JPfbq5pc1pR+DVBuiuPBOuLp3R9JfngQMBK
+	5e8p90UYf910FSwj8d2oOrQWH1RczPtprGa+O9H+zjGNFDW3/MqHaAW0GZpwDWUE
+	iqdULRbMKv5/GSPswCamaQ==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011010.outbound.protection.outlook.com [52.101.62.10])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 499qj2vcky-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 24 Sep 2025 01:26:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=igF8W4UBzS0OT3oRuHKZ2sz+VMh1uRjfm/l8RiT0F7ggOJde8VRrUrk1JSfIvLUxDZFRvo1sneg9k/a96Qx9v32NAHcCz3AOrhc56bTywLyEY2obJV2S2lPXpLt+iVvWBZLVo9mWn+TIJnIbj3Ab2qNYVnlF9mmnjThsIVX1Zb726KvJX5Y24FGckuf9Z+tyKXKZBbHyIEI3ZIyMkK3IZ7Pv7S5jgdxzvC9JOhhreV25iWDeurcP4p0oeI/KsTfe3NUPuY2TMPFmzHCdmfCl5hPv4bUDAOXplnpFYHdgxvyArQjZW8gbjoaN0ZEcrb6tBh5TmPBTn59xQES4mLrHiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/+vxHoUbixghqQPxnbGbhc8kl50p3vAB+Mt/mgeeKcE=;
+ b=hxSRhbZ+8D+0yDfzKCVk5vHkzB2y/UDMt89CFfpb0KCQ9Q7qECIxpq5HVX1g7+crXSMKcFs6mD6ZqN13cYtckURr1MnUkSsMpGpvNlPStYNfx1iI3tQDRmCL+pxmNZtz3iWokceutp3ub0XflilJfHTsdOObIQMa/jvGD2zdWKQ9QvhyaqtURA/N8lvRUldFjkGNibiys02gYz351q6e8DBzgPJHLQdT0WMxV/E6V76DSUB+HVF3HlpkAb5JPs0lwr1c24Xq1g53bnIBF+TqjSCNdeAabCbpsqcaJQbnifRsOm+V2dsSJdF9gw4JkIa/lpNla9t+e3a6njmd7nUALw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53) by DS4PPF7CCC4B437.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Wed, 24 Sep
+ 2025 08:26:06 +0000
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::4b10:b3ea:35de:ab99]) by DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::4b10:b3ea:35de:ab99%7]) with mapi id 15.20.9137.018; Wed, 24 Sep 2025
+ 08:26:05 +0000
+Message-ID: <57032268-b034-43e4-8490-2a5db66095dc@windriver.com>
+Date: Wed, 24 Sep 2025 16:25:57 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: en7523: Add reset-controller support for EN7523
- SoC
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Felix Fietkau <nbd@nbd.name>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20250924060509.1889131-1-mikhail.kshevetskiy@iopsys.eu>
- <20250924060509.1889131-3-mikhail.kshevetskiy@iopsys.eu>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH] phy: freescale: Initialize priv->lock
+To: Frank Li <Frank.li@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, shawnguo@kernel.org,
+        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+        linux-phy@lists.infradead.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250923141611.1295395-1-xiaolei.wang@windriver.com>
+ <aNL0pDdQ4HfQH0ZF@lizhi-Precision-Tower-5810>
 Content-Language: en-US
-In-Reply-To: <20250924060509.1889131-3-mikhail.kshevetskiy@iopsys.eu>
+From: xiaolei wang <xiaolei.wang@windriver.com>
+In-Reply-To: <aNL0pDdQ4HfQH0ZF@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TYWPR01CA0030.jpnprd01.prod.outlook.com
+ (2603:1096:400:aa::17) To DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PPFD667CEBB6:EE_|DS4PPF7CCC4B437:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19293ffb-5a1d-4a49-4dfb-08ddfb44013d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RDFDM2s1ZDVibFpoRnVJanBYRlRMdW92L1AzOXFYb24ycmxJaitGaVBXZ01i?=
+ =?utf-8?B?SWxoN05YL2VXU2RvMnUyM21nL0Y3Vk1oQ0tzc1lYZis3U3ZQQjI3cVAvQm40?=
+ =?utf-8?B?cmQ1SGpKWVVUN09WdW8wdU5WNG9aMHAzSU9hSUlwTHJoOS9JaW10M215b1Q0?=
+ =?utf-8?B?V1lSa1R1Ums2eHczdGJ3S2F3RVRoNmtjTVVIUGUweDBTa2xJeHd5NUFzZyti?=
+ =?utf-8?B?cGY2MmtDVTl4Kzlra0JLcm5SbndtcW9QcmwwNC95ckpXcWtQQ2NjZWRLT2pK?=
+ =?utf-8?B?dkhTTWhMb3o1MUtQNStUdjRtWjc5dHplTjZlZE1Edmh4MEEyc1o4ZnkxRi84?=
+ =?utf-8?B?dFJkUDZGSStSaExya3c1UDdQOEczQkVhLzUzVGxaOURYYzAraWMyU3FucVRV?=
+ =?utf-8?B?QjlJU1F5WUNyQ1VES0VUQjJCY2VCeWlGa3kwSUc1TVBYVWhRb1VWNUtFZ1BT?=
+ =?utf-8?B?VXhHR1VYVENTd0VqRzZVM2FhTU5FQkdlZllqSVNVdkFjS2RwNUk5UGQrZHVQ?=
+ =?utf-8?B?MkUxTXloUklMWHBnWERVS0lGUEdjRDIwSFBpc0ZINW54VkRkd2FGQU1hNWk2?=
+ =?utf-8?B?VUpydjN2SGs5Z2R6b1hpWlllam1mSDB6ZW5RMVBHZmN4ZG5DOWM5NEQ2N1BL?=
+ =?utf-8?B?ZmU1dDc3b2Q1aVhCQllCbHhHVVp0d1ZFTW53Ti81VzFrQzZyVjFSa1UxNmdi?=
+ =?utf-8?B?NFc3aVRQTEpNeHBCbW5yWGorVXR2QUpEL1QvM1BCeFFTOGJxTDNpcFF4YmdP?=
+ =?utf-8?B?WDBUR1B5YXZCRi8ydG1ITVNXaTg4Z2o0Q1lCeUJ2bmFsS2VTWHpDRHNIc1lY?=
+ =?utf-8?B?Mlo5Qi9RTkVzOTk3UFJJanVVMkNGWkxodDFsYk1uOW1rQU5PWFRuSCtJYjFo?=
+ =?utf-8?B?UEd6UnlCRjFFSjFzVHlkQndTOHRYU2oydDVJSnAwQjAyR1F0QzdDT2xwYmtY?=
+ =?utf-8?B?NUZiellkV3Jib0RIZ3ZQNG5vLzdQV2FnZEU2MnB2MlhrSUxxbmE0MGtlYjI0?=
+ =?utf-8?B?bC84U0R1dTVYQjdueDVEVGI2SDc1MFZ4REVqVUZRdzlOTU5selBRVkpCdTdy?=
+ =?utf-8?B?bWMyMWMyQ3ptRDRNakUrcElNd3hqaVpQSFRtaDMrNk1nSW8wNlU5c3l5bzhG?=
+ =?utf-8?B?TDFHdU5GWHJzd01Pa3lWZVlYOEUvRG90bEo3QmlSSnQyaXUzNmtBM3NJQ3Y0?=
+ =?utf-8?B?RzEzMkU2Nk5NMEdhTUhnM3lTclB1ZHFqTUlEUEdkRUVkaWVSL3JPSEdYK25z?=
+ =?utf-8?B?dThWT21SZEx1SzVqNGlmUmdYUUZQbWVsYlJBNmxseU56ZzV5ajJLL2loRzBB?=
+ =?utf-8?B?MHI4OUtaS01sekcwZkNJbmtsOWlVQ3pGS2RGUEp4bHNMQ00vMEVudTBCZDIv?=
+ =?utf-8?B?bFQ5ellEVzdtNDV0aUFsd29LZlFIcm14L2d5bVlqWWp2NGxwZm13cjRNY0ZU?=
+ =?utf-8?B?K3I0UFFxYXhoWnlCS0dGVkJUS0t5MnFMNm9QYVdjaHdTWE01V3Z1SzFrWFdW?=
+ =?utf-8?B?SUVBOVpHSDVLaHFSQWhNTVppZDE0QWFUTjZZRVBRWE4xRjU1bk9wZW5OR1Fi?=
+ =?utf-8?B?RFFjcmRGQTRmTHJLbkF5Z1ZhamFSRnJzYkt2N2pyb1FaWWpZSjAvL2c3RXd0?=
+ =?utf-8?B?WTdaQnBwa1J5ekl3d0cyZlJVYy8wYXRVNkhiSVJ6NHJkOUY2UGNHUTJaN2tn?=
+ =?utf-8?B?TEZHZjBXY1ZOc0Vzd0RXNDlSTVZkMTc0cWZ3bC94TmNqUDRzQktjdDJTYVox?=
+ =?utf-8?B?ZDNJYzVoaVhnZ0NtWWl4M0huUURQU3UrQy9MMW1sVEI2Slk0eWdmM2RMQlQr?=
+ =?utf-8?B?Yy9rMEdFVk1Ma1YyNFhlRE81S3JaTTFBb3REYjBBZ2RkazJxWlNSZmo3L0Zo?=
+ =?utf-8?B?Q3NCQnJOeTdJUWpxQndZSUNmVTJQSnZYWnNQSmRjeTVqUW5YSEkwajFrUkl0?=
+ =?utf-8?Q?972PTaEBZ4Q=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFD667CEBB6.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Nk5aZHBhWTRLSTF0OFFzaUZ4TnBSSnl0WHFPdEhWcyt1d0praCtZWkhuN0xD?=
+ =?utf-8?B?WVcyU3hla1VQYlh3OWovTEQ3SGdzVUpsSm5ZbUtrY3VYRTI4QzhYMUEwb2s4?=
+ =?utf-8?B?d1pTUmpDa0ZtbDNPQzFLWDMzL0FteWJFMVFJWmpEck51b2R6aGJBVDNyVnVm?=
+ =?utf-8?B?UDY0Y3VuKy9YZk41ZmpsSjFrY1djTndta2tBTkZkcW5OQnVlOTZqRFNiMDJp?=
+ =?utf-8?B?L0Y2bW1sRFl4cG1uNHdrM0V3N09UaEl6dVBPa2ZEWXVVUzFWYmlBVHZ3TzRi?=
+ =?utf-8?B?OU5zTHFWWTd1bVRlTzVkb3FTV2RzMTVlNzhJYkxXOHFWaThITVlZalNuemE0?=
+ =?utf-8?B?c0tyWm1IWUtDYmZOdStrbjVndWhzaTIxRUY2aDlHVVU4RFlkbGwrWng0UFJ0?=
+ =?utf-8?B?dTRMTVVjNmZBZmZxL2ZUb0NYSkUzYjdBWjNmbEFpRG5wL0M4ZThjWi80bFpE?=
+ =?utf-8?B?dFU2S2NGM3ZmNkJ4dXFianJSMGxNL2V0UGxUYko4OXYwc2dDT29HYVNhZFM5?=
+ =?utf-8?B?OStRSExqdkozSjJFeGpaUTZaY1FwN2NmaXVOL3hiWEkrZVpnaWY4SS9oZjg4?=
+ =?utf-8?B?U0pHNUdUamdDNzhNcnp0QVdqRlRRUkdjWmtEZmFreXB0MGROdEx6UjJJRDFy?=
+ =?utf-8?B?bEowRk9mY2NjMEhnU3ViaExBdTkrczhqQXVqL2MvRzNEeVB2SGtIT1ZzR0w3?=
+ =?utf-8?B?V28vUUl5MnNyN2d4YlRQOTNQbThrWVdsV0hPbVVMMmEvT3VGQjN4OTRYMlU0?=
+ =?utf-8?B?YmQwRktaYzJ3UVlrM0dzN0N5dEgzY2JVRU0zTVUyVERNQWZ2Y044cHlXbFNn?=
+ =?utf-8?B?VWtxUDdHRnlPL2FLaktuS0szN1VnUjlzSkdDRXovZWRHTWphVmVZNVRTSmJn?=
+ =?utf-8?B?VFRpRkZIcTdGdTJWeUZtZ1ZxeTBOdVlWSWJub2dYWXFSc3lpNnc5bHJ4K010?=
+ =?utf-8?B?MG1rTGtnZGt4eFBMcTI0VVFKT2FQc3F0K1BjSUU0TklQV1FHRTE5VlJmNlYy?=
+ =?utf-8?B?MkFEbzZmYzR6YVhITVFhQkF6NnY0NHJMNjFyTTNwVHk3UHN0VWZHYy9FcXI3?=
+ =?utf-8?B?SEswdnNiWVdnYnh2MytjSUR5clNSWjlHQTNKaFZldDJGbnBhTXFRdmxsUUZZ?=
+ =?utf-8?B?NXAralpCZ2svNmsvdm5yWHNKWTM2Y080SEt0TjBlZGdDejdDTVhoTVlYSkhN?=
+ =?utf-8?B?S1JEcmFuaVhBTWkxQ2VjSG54Q0IzdFViRy9YYXM3T0Y3d0JkR0x4Q1dPczRo?=
+ =?utf-8?B?cU1xM0FWa09Lbkd5V3ZIZjF1WkFBMHdkS1FQUXlQclcxdXZsdmhLRG9peXRh?=
+ =?utf-8?B?aUtPVDJ5cTdEWFpUMFg1a2hkejVpb0poQnE4UmRxWTF6TTZFcDRjdlJka3BB?=
+ =?utf-8?B?ZUVkL01TYjA4UnQxVTZpTk9jUDFpdWpOcThpUE1MaXd5UGdKRjl0MkZrWmo2?=
+ =?utf-8?B?Ujc0c2JQTTVIZk93RUdqRzNPRHZ3Qmk2QzkyZE9qZUVGM05xcm14YTJobmpl?=
+ =?utf-8?B?Z3V1REk0SHdvMGhnR3NUVURaNWMvM3ZpMk91bllheFc1R3Y3YW5ySTEzR2tT?=
+ =?utf-8?B?anExeVdEZ3BYV2I2V253MERyQ0YwdjFhM2VrdXNGdXI4WmkvZUpaWHRtOHBZ?=
+ =?utf-8?B?QkxOVFN0ZGgzV1J6M3FZZjNnbjZuQWcxbFZzaUx5Z015bHVFdmdsZzNON01M?=
+ =?utf-8?B?ZG0xdWY4Vnp4WjhZbG5Sbmc5WVNtK25hOVMwdUhybm5Tb1BYS2VNSmNjZXRj?=
+ =?utf-8?B?Uk5lVmNVdGJySnJ5OXBVODI3MUpLa0E5aUVmRVZFSjZzVWRRYVgvTzk2bkFx?=
+ =?utf-8?B?S0VucHV6Mzc0RlNES29sdTVIakFvSXUwcFdDSEhwQmxidDk3aGYwMTBIT0pa?=
+ =?utf-8?B?MnF5QjAwWDh4aVBzSzczU1Job2x6ci9pNGFpRm9uYSt6OE9DSXlEMW94Q2J6?=
+ =?utf-8?B?aVdrQXV6SFdubzY1SlhrRXhYQUszcW1rUi8wS2M3WEt0emkrZm1mNG1zQnhX?=
+ =?utf-8?B?NHdURlA4bVg0b0J1dmczWSthbHhnclgrVkxXbFB3T2JnU1FFbDFoOXI4b1Z1?=
+ =?utf-8?B?N3JKMng4VEFVeDJXOGFqQTQybHN1dDZOMUdLcnNNTm03aFRHTy94RzJXSVFR?=
+ =?utf-8?B?MVBCeG9LMXVPN1djQkpPd0NRWnBCQndYblQ5S1N0a09aV2V0Vk5UTFB0a0Za?=
+ =?utf-8?B?eUJEekFZYzN2U05FbnlVenhpemNFMFBQVTEwNkloZWRNcFJpVGxSd0pTVkNk?=
+ =?utf-8?B?MitRV0tFWFVrM1hVa2pZRk1UK2VBPT0=?=
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19293ffb-5a1d-4a49-4dfb-08ddfb44013d
+X-MS-Exchange-CrossTenant-AuthSource: DS4PPFD667CEBB6.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Sep 2025 08:26:05.7302
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fWds63+Dw2nvdKXVfbx0r+ZXs3AM5u6wsJLcl9qUsTBmrTQVgpZR5rp0HqPQMlgTKemXl1Y5nI9U1QSKUFTiZIgAzSD3AmO+53YwZFUM9FI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF7CCC4B437
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI0MDA3MCBTYWx0ZWRfX3dvttXyErtFg
+ lszdHKzWxLi1Z7t8bTEtfrGTqnIPoB4ZVnGTC+2qnSiMeDTtoIm97rkFprAI9D2X5FqsDAu4GzE
+ DWWJ9Dil6n/LfcN1ddymBrRWp/qIacPH1Vj2f+PZID5EocM3uq3Pt/FL5Afzj1724gm8W7NsZfR
+ F9pPTWU31XkNFdVeLahJgLPtgXySrgC20YBvtWtHKo2hPXy6b7CRhuwcue/ZzKrFcsMb/IAq0NX
+ xNFysi3ulMzwLPFoFfPRJAUaIfb7fb3kAnEC0Z0xKbiFtzXIUZYzZ+0S6VSOBZrzEh46t4/lD4T
+ 7lcujzpmmbIP68Pr+R+Zi8NU5OC+tTK/r7hw2U+X7TMiXZARaCqQU69jBPOl5g=
+X-Authority-Analysis: v=2.4 cv=btpMBFai c=1 sm=1 tr=0 ts=68d3ab20 cx=c_pps
+ a=1oswHZhTlIntAJ9aeONiTQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=t7CeM3EgAAAA:8
+ a=JmqyOsm01RiUq3GRwxsA:9 a=QEXdDO2ut3YA:10 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-GUID: bAPfhqFBy51MCTOIrCB01l92yAVxFCYf
+X-Proofpoint-ORIG-GUID: bAPfhqFBy51MCTOIrCB01l92yAVxFCYf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-24_02,2025-09-22_05,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 bulkscore=0 malwarescore=0 clxscore=1011
+ phishscore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2507300000 definitions=firstrun
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_012456_160832_5925F6EE 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250924_012616_017430_8B02478B 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,156 +211,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/09/25 08:05, Mikhail Kshevetskiy ha scritto:
-> Introduce reset API support to EN7523 clock driver. EN7523 uses the
-> same reset logic as EN7581, so just reuse existing code. The patch
-> renames:
->   * en7581_rst_ofs to en75xx_rst_ofs,
->   * en7581_reset_register() to en75xx_reset_register()
-> because they are not en7581 specific.
-> 
-> This patch also updates en7523 dtsi file to add required '#reset-cells'
-> property to the System Control Unit node.
-> 
-> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-> ---
->   arch/arm/boot/dts/airoha/en7523.dtsi |  1 +
 
-Driver and devicetree changes have to be done in two different commits.
-Please split.
+On 9/24/25 03:27, Frank Li wrote:
+> CAUTION: This email comes from a non Wind River email account!
+> Do not click links or open attachments unless you recognize the sender and know the content is safe.
+>
+> On Tue, Sep 23, 2025 at 10:16:11PM +0800, Xiaolei Wang wrote:
+>> Initialize priv->lock to fix the following warning.
+>>
+>> WARNING: CPU: 0 PID: 12 at kernel/locking/mutex.c:577 __mutex_lock+0x70c/0x8b8
+>>   Modules linked in:
+>>   Hardware name: Freescale i.MX8QM MEK (DT)
+>>   Call trace:
+>>    __mutex_lock+0x70c/0x8b8 (P)
+>>    mutex_lock_nested+0x24/0x30
+>>    imx_hsio_power_on+0x4c/0x764
+>>    phy_power_on+0x7c/0x12c
+>>    imx_pcie_host_init+0x1d0/0x4d4
+>>    dw_pcie_host_init+0x188/0x4b0
+>>    imx_pcie_probe+0x324/0x6f4
+>>    platform_probe+0x5c/0x98
+>>    really_probe+0xbc/0x29c
+>>    __driver_probe_device+0x78/0x12c
+>>    driver_probe_device+0xd8/0x160
+>>    __device_attach_driver+0xb8/0x138
+>>    bus_for_each_drv+0x84/0xe4
+>>    __device_attach_async_helper+0xb8/0xdc
+>>    async_run_entry_fn+0x34/0xe0
+>>    process_one_work+0x220/0x694
+>>    worker_thread+0x1c0/0x36c
+>>    kthread+0x14c/0x224
+>>
+>> Fixes: 82c56b6dd24f ("phy: freescale: imx8qm-hsio: Add i.MX8QM HSIO PHY driver support")
+>> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+>> ---
+>>   drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
+>> index 5dca93cd325c..9453ab98e475 100644
+>> --- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
+>> +++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
+>> @@ -545,6 +545,7 @@ static int imx_hsio_probe(struct platform_device *pdev)
+>>                return -ENOMEM;
+>>        priv->dev = &pdev->dev;
+>>        priv->drvdata = of_device_get_match_data(dev);
+>> +     mutex_init(&priv->lock);
+> use devm_mutex_init()
 
->   drivers/clk/clk-en7523.c             | 72 ++++++++++++++++++++++++----
->   2 files changed, 64 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
-> index b523a868c4ad..7d60a4f2e650 100644
-> --- a/arch/arm/boot/dts/airoha/en7523.dtsi
-> +++ b/arch/arm/boot/dts/airoha/en7523.dtsi
-> @@ -91,6 +91,7 @@ scu: system-controller@1fa20000 {
->   		reg = <0x1fa20000 0x400>,
->   		      <0x1fb00000 0x1000>;
->   		#clock-cells = <1>;
-> +		#reset-cells = <1>;
->   	};
->   
->   	gic: interrupt-controller@9000000 {
-> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-> index 15bbdeb60b8e..f276937181b9 100644
-> --- a/drivers/clk/clk-en7523.c
-> +++ b/drivers/clk/clk-en7523.c
-> @@ -9,6 +9,7 @@
->   #include <linux/regmap.h>
->   #include <linux/reset-controller.h>
->   #include <dt-bindings/clock/en7523-clk.h>
-> +#include <dt-bindings/reset/airoha,en7523-reset.h>
->   #include <dt-bindings/reset/airoha,en7581-reset.h>
->   
->   #define RST_NR_PER_BANK			32
-> @@ -294,11 +295,58 @@ static const struct en_clk_desc en7581_base_clks[] = {
->   	}
->   };
->   
-> -static const u16 en7581_rst_ofs[] = {
-> +static const u16 en75xx_rst_ofs[] = {
+Thanks for the suggestion, I will send v2
 
-There's no need to rename this.
+thanks
 
->   	REG_RST_CTRL2,
->   	REG_RST_CTRL1,
->   };
->   
-> +static const u16 en7523_rst_map[] = {
-> +	/* RST_CTRL2 */
-> +	[EN7523_XPON_PHY_RST]		= 0,
-> +	[EN7523_XSI_MAC_RST]		= 7,
-> +	[EN7523_XSI_PHY_RST]		= 8,
-> +	[EN7523_NPU_RST]		= 9,
-> +	[EN7523_I2S_RST]		= 10,
-> +	[EN7523_TRNG_RST]		= 11,
-> +	[EN7523_TRNG_MSTART_RST]	= 12,
-> +	[EN7523_DUAL_HSI0_RST]		= 13,
-> +	[EN7523_DUAL_HSI1_RST]		= 14,
-> +	[EN7523_HSI_RST]		= 15,
-> +	[EN7523_DUAL_HSI0_MAC_RST]	= 16,
-> +	[EN7523_DUAL_HSI1_MAC_RST]	= 17,
-> +	[EN7523_HSI_MAC_RST]		= 18,
-> +	[EN7523_WDMA_RST]		= 19,
-> +	[EN7523_WOE0_RST]		= 20,
-> +	[EN7523_WOE1_RST]		= 21,
-> +	[EN7523_HSDMA_RST]		= 22,
-> +	[EN7523_I2C2RBUS_RST]		= 23,
-> +	[EN7523_TDMA_RST]		= 24,
-> +	/* RST_CTRL1 */
-> +	[EN7523_PCM1_ZSI_ISI_RST]	= RST_NR_PER_BANK + 0,
-> +	[EN7523_FE_PDMA_RST]		= RST_NR_PER_BANK + 1,
-> +	[EN7523_FE_QDMA_RST]		= RST_NR_PER_BANK + 2,
-> +	[EN7523_PCM_SPIWP_RST]		= RST_NR_PER_BANK + 4,
-> +	[EN7523_CRYPTO_RST]		= RST_NR_PER_BANK + 6,
-> +	[EN7523_TIMER_RST]		= RST_NR_PER_BANK + 8,
-> +	[EN7523_PCM1_RST]		= RST_NR_PER_BANK + 11,
-> +	[EN7523_UART_RST]		= RST_NR_PER_BANK + 12,
-> +	[EN7523_GPIO_RST]		= RST_NR_PER_BANK + 13,
-> +	[EN7523_GDMA_RST]		= RST_NR_PER_BANK + 14,
-> +	[EN7523_I2C_MASTER_RST]		= RST_NR_PER_BANK + 16,
-> +	[EN7523_PCM2_ZSI_ISI_RST]	= RST_NR_PER_BANK + 17,
-> +	[EN7523_SFC_RST]		= RST_NR_PER_BANK + 18,
-> +	[EN7523_UART2_RST]		= RST_NR_PER_BANK + 19,
-> +	[EN7523_GDMP_RST]		= RST_NR_PER_BANK + 20,
-> +	[EN7523_FE_RST]			= RST_NR_PER_BANK + 21,
-> +	[EN7523_USB_HOST_P0_RST]	= RST_NR_PER_BANK + 22,
-> +	[EN7523_GSW_RST]		= RST_NR_PER_BANK + 23,
-> +	[EN7523_SFC2_PCM_RST]		= RST_NR_PER_BANK + 25,
-> +	[EN7523_PCIE0_RST]		= RST_NR_PER_BANK + 26,
-> +	[EN7523_PCIE1_RST]		= RST_NR_PER_BANK + 27,
-> +	[EN7523_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
-> +	[EN7523_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
-> +};
-> +
->   static const u16 en7581_rst_map[] = {
->   	/* RST_CTRL2 */
->   	[EN7581_XPON_PHY_RST]		= 0,
-> @@ -357,6 +405,9 @@ static const u16 en7581_rst_map[] = {
->   	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
->   };
->   
-> +static int en75xx_reset_register(struct device *dev, void __iomem *base,
-> +				 const u16 *rst_map, int nr_resets);
-> +
->   static u32 en7523_get_base_rate(const struct en_clk_desc *desc, u32 val)
->   {
->   	if (!desc->base_bits)
-> @@ -552,7 +603,8 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
->   
->   	en7523_register_clocks(&pdev->dev, clk_data, base, np_base);
->   
-> -	return 0;
-> +	return en75xx_reset_register(&pdev->dev, np_base, en7523_rst_map,
-> +				     ARRAY_SIZE(en7523_rst_map));
->   }
->   
->   static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
-> @@ -646,13 +698,14 @@ static int en7523_reset_xlate(struct reset_controller_dev *rcdev,
->   	return rst_data->idx_map[reset_spec->args[0]];
->   }
->   
-> -static const struct reset_control_ops en7581_reset_ops = {
-> +static const struct reset_control_ops en75xx_reset_ops = {
+xiaolei
 
-Same, no need to rename.
-
->   	.assert = en7523_reset_assert,
->   	.deassert = en7523_reset_deassert,
->   	.status = en7523_reset_status,
->   };
->   
-> -static int en7581_reset_register(struct device *dev, void __iomem *base)
-> +static int en75xx_reset_register(struct device *dev, void __iomem *base,
-> +				 const u16 *rst_map, int nr_resets)
-
-And again. No need to rename.
-
-Cheers,
-Angelo
-
-
+>
+> Frank
+>>        /* Get HSIO configuration mode */
+>>        if (of_property_read_string(np, "fsl,hsio-cfg", &priv->hsio_cfg))
+>> --
+>> 2.43.0
+>>
 
