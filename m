@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDAECAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DD9CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 08:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XoSu2fJTIg2tOBaQI/yiLzTwJrsr6QRQNWtcsqnm/A0=; b=vwaVBCBYLjdKqB+PGV5X9LHpaM
-	jn8/FhIXSPz1cE5cmPWKujVcTNfyXEUwo73M8SdN2NdhjlfMJ4dVG9e+lOfS2evJqZTgntlqyO+WF
-	GIEb5azRW5Mff7pZL89IMfxXD/YaQJyVHSq0HM08IrOr2vB9fe3FxXHzRG9nLYFV3fhNR9jvJ2BUj
-	UNT+J8CHVNCUhiyYyS0HI8ce/yUM5D5ifA6AX9maVbL7l1MLEj9NpGTYh87GrgIPocGSGpTQvT9Ki
-	7NtChvIiP7Gi7Cl3NE/XUxKILj6WoXNr2+5mzFF+HbgTIq142urn36kN9M3hS+xeK7OCsrMZK4DKz
-	HbIPr/EQ==;
+	bh=J4cKTSeea7/czdVYO122nuGfInlG59hXiu0r7c4Sres=; b=qbY1WkrQje8t34DcYlXjbOoo4H
+	5HXVF2OkrojMX2t0mVSvNAbQKG1Zt2MpktkEvo3BH3g9/9YeoT2JgCjE8CTxNMqfrMhvJRYGPp93p
+	0sbxyF/wHG9VkFeIIgvgMINbpXD7LZLXJnFrkJIVkXjm3EDO0DHu18PtJoEmQswVWeczthB4j2dzC
+	AndglLeC93fivTFGCB4tnswiM/BJ32T2Yy2C73n2DcqDdDYRilSNBPxXqPoRahwdrVOlvbrK9N+uh
+	w2qyUm03zDapkOaFhvr349RCGpOvxStSlhFHzy+3lnoP09BAY4NpAnftR5aSilxfpltTyeJ99SA0C
+	RpQK/5+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1L7J-0000000Fvf3-1frL;
-	Wed, 24 Sep 2025 08:44:49 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1v1LCW-0000000FwFY-15LV;
+	Wed, 24 Sep 2025 08:50:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1L74-0000000FvSu-3ryB;
-	Wed, 24 Sep 2025 08:44:36 +0000
-X-UUID: ae941cca992211f0a52f393f94899d25-20250924
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=XoSu2fJTIg2tOBaQI/yiLzTwJrsr6QRQNWtcsqnm/A0=;
-	b=T3AVlxLgbsru6Rzcl6G3xogDcoX9vdzG9gToFSCa9Y5YZI1YbS88dO6albYlLKpXL/WtZ1GNatFms322t7m1I024oFx0hPyGwsrUSoqNDS0JkiTXcLvCL48E5xsTywiY3USL0omOoz6ZPXt+Si+h7MJFIezn4D1HO0NMrvf81d0=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.4,REQID:984a2923-59ac-46e1-bf0b-b84515e94618,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:1ca6b93,CLOUDID:585da1e9-2ff9-4246-902c-2e3f7acb03c4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ae941cca992211f0a52f393f94899d25-20250924
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <huayu.zong@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 535039976; Wed, 24 Sep 2025 01:44:28 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Wed, 24 Sep 2025 16:44:25 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.10 via Frontend Transport; Wed, 24 Sep 2025 16:44:24 +0800
-From: Huayu Zong <huayu.zong@mediatek.com>
-To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Tinghan Shen
-	<tinghan.shen@mediatek.com>
-CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Huayu Zong
-	<huayu.zong@mediatek.com>
-Subject: [PATCH v2 1/2] dt-bindings: remoteproc: mediatek: Add binding for mt8189 scp
-Date: Wed, 24 Sep 2025 16:44:17 +0800
-Message-ID: <20250924084422.4604-2-huayu.zong@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250924084422.4604-1-huayu.zong@mediatek.com>
-References: <20250924084422.4604-1-huayu.zong@mediatek.com>
+	id 1v1LCT-0000000FwEE-3zBg;
+	Wed, 24 Sep 2025 08:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91B4643CCC;
+	Wed, 24 Sep 2025 08:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E087DC4CEE7;
+	Wed, 24 Sep 2025 08:50:02 +0000 (UTC)
+Date: Wed, 24 Sep 2025 09:50:00 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lance Yang <lance.yang@linux.dev>
+Cc: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org,
+	lorenzo.stoakes@oracle.com, usamaarif642@gmail.com,
+	yuzhao@google.com, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
+	baohua@kernel.org, voidice@gmail.com, Liam.Howlett@oracle.com,
+	cerasuolodomenico@gmail.com, hannes@cmpxchg.org,
+	kaleshsingh@google.com, npache@redhat.com, riel@surriel.com,
+	roman.gushchin@linux.dev, rppt@kernel.org, ryan.roberts@arm.com,
+	dev.jain@arm.com, ryncsn@gmail.com, shakeel.butt@linux.dev,
+	surenb@google.com, hughd@google.com, willy@infradead.org,
+	matthew.brost@intel.com, joshua.hahnjy@gmail.com, rakie.kim@sk.com,
+	byungchul@sk.com, gourry@gourry.net, ying.huang@linux.alibaba.com,
+	apopple@nvidia.com, qun-wei.lin@mediatek.com,
+	Andrew.Yang@mediatek.com, casper.li@mediatek.com,
+	chinwen.chang@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org, ioworker0@gmail.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/1] mm/thp: fix MTE tag mismatch when replacing
+ zero-filled subpages
+Message-ID: <aNOwuKmbAaMaEMb7@arm.com>
+References: <20250922021458.68123-1-lance.yang@linux.dev>
+ <aNGGUXLCn_bWlne5@arm.com>
+ <a3412715-6d9d-4809-9588-ba08da450d16@redhat.com>
+ <aNKJ5glToE4hMhWA@arm.com>
+ <aNLHexcNI53HQ46A@arm.com>
+ <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f2fe9c01-2a8d-4de9-abd5-dbb86d15a37b@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_014434_961988_98931C68 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250924_015010_009547_B9C53F51 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for mt8189 SCP to the binding.
+On Wed, Sep 24, 2025 at 10:49:27AM +0800, Lance Yang wrote:
+> On 2025/9/24 00:14, Catalin Marinas wrote:
+> > So alternative patch that also fixes the deferred struct page init (on
+> > the assumptions that the zero page is always mapped as pte_special():
+> 
+> I can confirm that this alternative patch also works correctly; my tests
+> for MTE all pass ;)
 
-Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
----
- Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Thanks Lance for testing. I'll post one of the variants today.
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-index 179c98b33b4d..407be544b404 100644
---- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-@@ -20,6 +20,7 @@ properties:
-       - mediatek,mt8186-scp
-       - mediatek,mt8188-scp
-       - mediatek,mt8188-scp-dual
-+      - mediatek,mt8189-scp
-       - mediatek,mt8192-scp
-       - mediatek,mt8195-scp
-       - mediatek,mt8195-scp-dual
-@@ -168,6 +169,7 @@ allOf:
-             - mediatek,mt8183-scp
-             - mediatek,mt8186-scp
-             - mediatek,mt8188-scp
-+            - mediatek,mt8189-scp
-     then:
-       properties:
-         reg:
+> This looks like a better fix since it solves the boot hang issue too.
+
+In principle, yes, until I tracked down why I changed it in the first
+place - 68d54ceeec0e ("arm64: mte: Allow PTRACE_PEEKMTETAGS access to
+the zero page"). ptrace() can read tags from PROT_MTE mappings and we
+want to allow reading zeroes as well if the page points to the zero
+page. Not flagging the page as PG_mte_tagged caused issues.
+
+I can change the logic in the ptrace() code, I just need to figure out
+what happens to the huge zero page. Ideally we should treat both in the
+same way but, AFAICT, we don't use pmd_mkspecial() on the huge zero
+page, so it gets flagged with PG_mte_tagged.
+
+If I go with the first fix for the page merging, I'll look to defer the
+zero page initialisation post page_alloc_init_late() in a separate
+patch.
+
 -- 
-2.45.2
-
+Catalin
 
