@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AE8CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 23:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85F1CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 23:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=isKEQzfxss1sYjk64yoM6hVVlanKUUPiN0aW5OP9ozA=; b=MGNfCc2LppSoBM9/e6KH4J/vID
-	UuJ0CS3Mh4BYfcojmrx//qC9qiMxEYvL8AtMIqbITZNy2YP4mMtlS4DuktAqB0rDd/IxVLdDe9eRs
-	2b24tSQDr9lqI1fELFppx9D8a0jeTB6bzPaCIOqLlQNPRHljO7tghetWCflvoJp1nsWO97aTcsYAq
-	gVWaWai/7OGs3gTgQO7uWx55ucjWC0xecPDZTzf1cPwlY8FWL92/G9/sY0EdZqiC1udvHLSijhYYs
-	fsPM92ycUnOyDPAQTwoEbkrksPQnGHlIxmY/n/dIBf5BIifmd2qeQotoe5fJl+mza167hlLfKeGw4
-	GRO+Zf2g==;
+	bh=Pk70erFYcO2AfKKE1Z7dwoVNONUYzVa0slzE3uRgPDI=; b=k2saEOGkg/WbZAebycSHJG2xbp
+	Ra56Uvf7mRUXg3i20kLUnCweIqK/LJkGpwcNYgpalARU+i6JYWAtTdef8yEphK5CiC6IkTNWQx5yv
+	EI1xBOD7TRbfLdQT/nk7yrzyr20m65gL8lH4bqB1IZCdvWgHnYlrmbW5h7sAbxLBstbx2O/09QOV9
+	PnbzahJwC+i07w0eFviYD69DvGJUFLa1dq21tRvcrmbBgt8W54rI3Zin4OwvJrYUDNKrgQlw49OGn
+	X/laUeGQ0EUZIDX3KgT0AfqOihL0ZXOn+Bcn/yU3Ny9CtEA9vrtwrRY27Y4AP6SVI7G2hgLhRCwEY
+	gdSPk5JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ZM9-00000004sZC-0W0Y;
+	id 1v1ZM9-00000004sa1-37hJ;
 	Wed, 24 Sep 2025 23:57:05 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ZM3-00000004sUS-1x7K
+	id 1v1ZM6-00000004sWz-42Nb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 23:57:00 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58OD5INc021489
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 23:56:58 GMT
+	Wed, 24 Sep 2025 23:57:04 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58OCwa5o023773
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 23:57:02 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	isKEQzfxss1sYjk64yoM6hVVlanKUUPiN0aW5OP9ozA=; b=YT5/si8KhXNMZX2T
-	aHs1Jv20X4rPpSuqJFJQf1wRMpf7N5oYFWcKaga1VLr4NskpsTnN7trpywqJyUeQ
-	bO1R5lWKu4yUaGpnMtQKRswLPX27qqvAOFW3iy48VNvpO0I6DCFGrp8EsW/bfDx5
-	UeOgnTNtuaeMshMVREFEMq+tR7f5ug23iKFmvELINIwf5WWaNHsrJZ9/Is/qS3sm
-	IfC1XSdYRRrtdRZWNUFqeS8NMkMpYgH1JbbFLZ+wTrhpWyla7tGtIGEOQ0oYfQVE
-	fNeyaxSHVp9k1hi9irhTDhXoAnuSLBLUqpcOrZ0f69tl+K+5Sew38MFgAzsBKmN9
-	z4E2Ow==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49budadn8c-1
+	Pk70erFYcO2AfKKE1Z7dwoVNONUYzVa0slzE3uRgPDI=; b=Av1MGkWJ70XVj0nm
+	6HHG1YbZ7o2pEheSiQC9+IH9tkgrnYvyMZkmhZadYH2LfcdGe5Tr3Xufno0k9h+q
+	bwDkAStGyTIkmMnhB+auBc4pWLmz3xWv4G3oq2Abq7j2MIJ9NnRiBVVZ2Zv0dM1j
+	BBU6lYnn6FrlCWZhHUjuId7rMrtV9RpfHUD6gO8LCnhx5gWf++JDU+kbP2MwgiJs
+	kX0ERGKgaxm/+Q65D+gXB4QO8RxBlVdEQm2W5wI/1EH5V2yvItODyHxQjtzXrELG
+	mMuhCrk1YR41I8/0qi1iFVAQ2BEspTgnvQNJIN+lu+PNqs/9atcubZtoKjH6obEF
+	bOX8BA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49bwp0d4f3-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 23:56:58 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-24458345f5dso4009845ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 16:56:58 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 23:57:02 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-26e4fcc744dso2460375ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 16:57:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758758217; x=1759363017;
+        d=1e100.net; s=20230601; t=1758758221; x=1759363021;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=isKEQzfxss1sYjk64yoM6hVVlanKUUPiN0aW5OP9ozA=;
-        b=PEHLobEF9XPgR83ftNwZHIk3hxb7BPbuhUqHjQfw3mECGlttRbGhgW40fPss8bTZae
-         2iRF36+eJGMEc5HaiVbqEnmip3g9R3IpO1ILmG3cFK0SX7xkUy5X7ndRWhpX7SWmN2tT
-         +2Qf/lkzcM8aF5w4j0o/Pqq03veIXIPx0IAzcOrpLDIlTfURJ3YgKZmACCWK+ln9vMed
-         IDtxY+pkCP/TVGuqP2DoHr3U8cUTWs4IaGkB0gS95K2fQgv8C04RujgrTcI/3bWJLANX
-         aDbZIluLc1hRR3lhJclB86H8LgqPb9sMV8cSP0JarwM68STvIIBLYHNJSMK85kVIbPH9
-         8HAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCjGux/OlrO+CaUkQmx0ipphBJdSEj2MpDJvmh6hXiS89WSYINhtW3ec4gVfEk3VZkZDcM2gBn1l5CYkwBxWOJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC9SsAZPUsm6K1bg0FpNm73YOzBI9m85Jlpz1vfz5n3eWE7r1t
-	rWyltS7nFuzdJf4N6Z3wmWYFKXYBCLoq5gNKlbhFIIUDj1Z0XvB4SMl+hx/UT7TW2WHTJvrfTbj
-	ZKfcGx/MfPA7Uly/L8H37lLzf/ffZLoZkGpur6Bcq5FEy7BIfW4JaYwMq5HimF4UjPbpAbXjzH0
-	M3uw==
-X-Gm-Gg: ASbGnctFoZYC+kHAcxni3cP7V4jRGMPTMu/00K1sSOZu63f2Zats1rCCfNM1FY7nCIe
-	xcSeae8c0GzV6nt8AskaGylIXXK1Qu0Ij4d2UynBIHBBUxK2jLdeDMROS6epQUWgHvK4AxrscVV
-	xOWLB0W60wXiVLx5t4AVNwspZhgGT7SHzaAUV+c4rp/Ya0MYJWANxItRKKWhop8UmMJuGyE5BwW
-	9yTw02/zsNvXT+guBcAnGiJ0F41YqL8i0vLnO8x8E4pHKwJEip8lgG251RTSjzf6ePWvrp6sL0x
-	FGOyeKSIaT96V/Ybo/rMaW3ld32SYT/5JQvyKYPzmGxxTZsEtgwmcO03gvUELfEKsQnP+r9cC2I
-	MPbMKBphZkGVgwLw=
-X-Received: by 2002:a17:903:1a43:b0:269:8072:5be7 with SMTP id d9443c01a7336-27ed4ab368fmr13745595ad.56.1758758217272;
-        Wed, 24 Sep 2025 16:56:57 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFehxrPaJqcD0zoFcP93jMpuoqnmCDC66PekYT5ca6v2kR3j20bFF+ZvrXw83kR+NSWs2aNaA==
-X-Received: by 2002:a17:903:1a43:b0:269:8072:5be7 with SMTP id d9443c01a7336-27ed4ab368fmr13745185ad.56.1758758216782;
-        Wed, 24 Sep 2025 16:56:56 -0700 (PDT)
+        bh=Pk70erFYcO2AfKKE1Z7dwoVNONUYzVa0slzE3uRgPDI=;
+        b=rQgTt6IGs8eE6FaYj3i0AwMwvznIkX2hVMUFA800ZdzlFNxkLzz678TfdxxXlCghf3
+         7IAlE//DBM2ksY8GyZbY9XYDz6pPk4YZDZqfqg3Y2iaZ1VliQYogn+i9aEzOW5rOzO2R
+         T5IFoLgBVL1kGLnBWo/xQU0wMzkrWqg6YcfF1tGSA4ehIKeh96gq3wXjx6NUCyQa29hn
+         wXxsG1zpX0dHXPQI90lZp6ebl6Rl54/6gBTebnIls3XXCqIGRj2v0qFCHPqalSh0F2uK
+         eW2W2VAO1XIthVGHoK6lgvrD5YuX+0FkcPdOE5xTcwgMNR3GZHdfvRM+YI3Y8u+wGJSy
+         K8/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVlWgIVJWrlZCmH8PHWhS5++j4Gs5dCrdxYKjQvXOTt1MyPmEOWpSMfd8dEgdvt4VpQGUFygxlt72JyYL07JWwU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtVECeqRQS/kXqAk8B5b6ezOu27lSdPB0q9EioQPENe4c0v77X
+	LMqg605aSYOLtLM4ETAg0YFxdxVyAqGGQyuUKpqU0U5bC3H6rvFj57uh8sw8ciTPAfyKzX9IO5J
+	jK5zpF8kKsuhZ63CG1cuOplhAeBIPa+h1c0K7SkpsjL00QlTlSsvPZSPTIqlWpAaLETGIIrhGMr
+	RRTA==
+X-Gm-Gg: ASbGncsI1hVVqPLuRAIYcUDBKYZkCR1nH+IycIZhCs2M0teev/JCNnjfPsqlopu9ZRY
+	OiMaFoMbBjCIUs0sj6fne9ihJUnP7Jdztj4+chbOdkdTVWrKgGQ8WZe3UPEjzTX8gxLTn6Vc544
+	Hr4LSNYoB7MzmRRgGmqEOsUfd5BMEgAz0pNZCQCUQV1XarnGqXtyfOH7KdbWabRMKyinKH0UGtp
+	gkGlQiP2EQRFCN12F0moonMCcqCBwiBtTKxuEfSDuUqgpFeNx5PK7gaN+PrJiTcqVrp8jVnKekA
+	l4QjV2maweWgGPf8Ws9b/DE2gJkOHZspWw9mLneaeFrgSMVjK+4jqfnaIr2vFZYkIkE5eWOCtGf
+	4vT6htLJSYcqRXnQ=
+X-Received: by 2002:a17:902:fc47:b0:264:1afd:82e6 with SMTP id d9443c01a7336-27ed4a60f9bmr13196095ad.53.1758758220440;
+        Wed, 24 Sep 2025 16:57:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGbTbTp2me/2Ozbja2PwjyojwjJ05KsAp6cuIPrATe9oMmVCAbQuTu3rQBw9zmosE+LnsGZKA==
+X-Received: by 2002:a17:902:fc47:b0:264:1afd:82e6 with SMTP id d9443c01a7336-27ed4a60f9bmr13195805ad.53.1758758219947;
+        Wed, 24 Sep 2025 16:56:59 -0700 (PDT)
 Received: from hu-jingyw-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6881fd6sm4557185ad.87.2025.09.24.16.56.55
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6881fd6sm4557185ad.87.2025.09.24.16.56.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 16:56:56 -0700 (PDT)
+        Wed, 24 Sep 2025 16:56:59 -0700 (PDT)
 From: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-Date: Wed, 24 Sep 2025 16:56:43 -0700
-Subject: [PATCH 2/9] dt-bindings: clock: sm8450-camcc: Remove sc8280xp
- camcc to from sm8450 camcc
+Date: Wed, 24 Sep 2025 16:56:45 -0700
+Subject: [PATCH 4/9] dt-bindings: clock: qcom: Add Kaanapali video clock
+ controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250924-knp-mmclk-v1-2-d7ea96b4784a@oss.qualcomm.com>
+Message-Id: <20250924-knp-mmclk-v1-4-d7ea96b4784a@oss.qualcomm.com>
 References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
 In-Reply-To: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -111,37 +111,37 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
         tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
         yijie.yang@oss.qualcomm.com
 X-Mailer: b4 0.15-dev-99b12
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758758212; l=1045;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758758212; l=3732;
  i=jingyi.wang@oss.qualcomm.com; s=20250911; h=from:subject:message-id;
- bh=7G7QgavjnI2PuDqM9mUeILw47Kp6A2VPBmjnh3LL6As=;
- b=Omu47EnR+bgkxUUTbhFMWZbUJ6KHgo0C4uuRJDAgZ109au6Ey0JVTAUiJWM1osKJ5naM/Fl1e
- xl9N1vYgizlCbxAb3FevdwA+lT6Pr52Ad+E6Yhe12SYq+lpZg9pSYPq
+ bh=0aHzA87ne9/I9u0KuPsqyfzOGqP9ZE4Qht8AQaI9SGA=;
+ b=bfaEOWxv1PpaU5TCtCim6m8Ui/1XV/Z5ELraJs8RZIFMQHjsxdCFjvh14YtqielMA/B97NvTr
+ OAtVVOXv3NOBInq0arVHFQzREhI8KWLdmxqYVb/o1gaV5NHfMBA/fl3
 X-Developer-Key: i=jingyi.wang@oss.qualcomm.com; a=ed25519;
  pk=PSoHZ6KbUss3IW8FPRVMHMK0Jkkr/jV347mBYJO3iLo=
-X-Proofpoint-GUID: YolbAafvKOe7LkV_ZZPDoW_C2urStbo8
-X-Proofpoint-ORIG-GUID: YolbAafvKOe7LkV_ZZPDoW_C2urStbo8
-X-Authority-Analysis: v=2.4 cv=Yaq95xRf c=1 sm=1 tr=0 ts=68d4854a cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=2bVdrMdO9wEKqzfnleYA:9
- a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIzMDExMyBTYWx0ZWRfXyxCqUIaJBVLG
- gjgSPeq30P8rveVQ+zbvQk5ivDwRdUQtM2Gkji89q9EfX7hfewQlLljwtLYxzPhF2KY3Qis3p16
- dIs3TU9G16mqSwFBIlOnaYJjwduZY5RAuJJ/iQh+7+WqVctaabe3yJ5EtTdxJSDyIqFEBb6f8tc
- tbCTPhntXX5VEYKtPffP+UYK3p6KI7HvisosxVxpBQoEG0SawxYSnG6VjRu4RE9h8J/QV4xKWY2
- /qgjl1v/v19ZsQ49kY2fxA5HMqrDljqwnHoC3pG53TjmApVMo2GThsJXHqwvzK3VJ1/WVJgQRQK
- q6fph3X7wW+GhwS1cYHpIEKLSFy0jOwP8qe0IVOQhSz+gqtfR+sOF+Fd7uQsjdN68IjB7jtuPNV
- /CZNXiXV
+X-Authority-Analysis: v=2.4 cv=KNxaDEFo c=1 sm=1 tr=0 ts=68d4854e cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=_xnZC5tmkvlqoiR1VIgA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-GUID: UVeoZrEbLhbMO5ahJlKnXKmmzy-oMMvz
+X-Proofpoint-ORIG-GUID: UVeoZrEbLhbMO5ahJlKnXKmmzy-oMMvz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIzMDEzOCBTYWx0ZWRfX1NHO934nV6md
+ dpOunjNmnWB/w++U+89MY3Ep0qYChD2lylGR7Ysp/HilPvufMrizU2AXWA2JxGSl67A1U8DCMyv
+ MzxgUR4URq+a+KrN+dCqgdspHo/o/4fXuidRPyioCzBlQFhOwxJK4foU/HCyiS77WS2DdUTLtiI
+ ThOPDkibWV5NDQRjNJirhZo0bISMFD4oOz83NP3dfsRTF0qKMdFCTyOXYTSCVECQk+3mPl46S4K
+ 94q1CQEs3RQztHRZzf/kUkeGr2eBNG7FbNA9UC5Q42Fm/7VkSiEX1tLA8Z49aoSZtWpysZaibC/
+ d0hs50we0RWylT/mY6SC3E2Ax7ORFEQuuwxunD31ZPn0hlbho1HK0g8YIwRqx6FmY4XYA76lpHb
+ KYG2KnpL
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-24_07,2025-09-24_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 phishscore=0
- adultscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509230113
+ impostorscore=0 priorityscore=1501 clxscore=1015 phishscore=0 suspectscore=0
+ adultscore=0 bulkscore=0 spamscore=0 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509230138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_165659_630841_0D3FA89A 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250924_165703_131173_FD24A7AD 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,29 +158,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Taniya Das <taniya.das@oss.qualcomm.com>
 
-SC8280XP camcc only requires the MMCX power domain, unlike SM8450 camcc
-which now supports both MMCX and MXC power domains. Hence move SC8280XP
-camcc from SM8450.
+Add device tree bindings for the video clock controller on Qualcomm
+Kaanapali SoC.
 
-Fixes: 842fa7482915 ("dt-bindings: clock: qcom,sm8450-camcc: Move sc8280xp camcc to sa8775p camcc")
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml | 1 -
- 1 file changed, 1 deletion(-)
+ .../bindings/clock/qcom,sm8450-videocc.yaml        |  3 ++
+ include/dt-bindings/clock/qcom,kaanapali-videocc.h | 58 ++++++++++++++++++++++
+ 2 files changed, 61 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-index c1e06f39431e..dbfcc399f10b 100644
---- a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-@@ -63,7 +63,6 @@ allOf:
+diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
+index b31bd8335529..e6beebd6a36e 100644
+--- a/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
++++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
+@@ -15,6 +15,7 @@ description: |
+   domains on SM8450.
+ 
+   See also:
++    include/dt-bindings/clock/qcom,kaanapali-videocc.h
+     include/dt-bindings/clock/qcom,sm8450-videocc.h
+     include/dt-bindings/clock/qcom,sm8650-videocc.h
+     include/dt-bindings/clock/qcom,sm8750-videocc.h
+@@ -22,6 +23,7 @@ description: |
+ properties:
+   compatible:
+     enum:
++      - qcom,kaanapali-videocc
+       - qcom,sm8450-videocc
+       - qcom,sm8475-videocc
+       - qcom,sm8550-videocc
+@@ -61,6 +63,7 @@ allOf:
          compatible:
            contains:
              enum:
--              - qcom,sc8280xp-camcc
-               - qcom,sm8450-camcc
-               - qcom,sm8550-camcc
-     then:
++              - qcom,kaanapali-videocc
+               - qcom,sm8450-videocc
+               - qcom,sm8550-videocc
+               - qcom,sm8750-videocc
+diff --git a/include/dt-bindings/clock/qcom,kaanapali-videocc.h b/include/dt-bindings/clock/qcom,kaanapali-videocc.h
+new file mode 100644
+index 000000000000..cc0d41b895c9
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,kaanapali-videocc.h
+@@ -0,0 +1,58 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_VIDEO_CC_KAANAPALI_H
++#define _DT_BINDINGS_CLK_QCOM_VIDEO_CC_KAANAPALI_H
++
++/* VIDEO_CC clocks */
++#define VIDEO_CC_AHB_CLK					0
++#define VIDEO_CC_AHB_CLK_SRC					1
++#define VIDEO_CC_MVS0_CLK					2
++#define VIDEO_CC_MVS0_CLK_SRC					3
++#define VIDEO_CC_MVS0_FREERUN_CLK				4
++#define VIDEO_CC_MVS0_SHIFT_CLK					5
++#define VIDEO_CC_MVS0_VPP0_CLK					6
++#define VIDEO_CC_MVS0_VPP0_FREERUN_CLK				7
++#define VIDEO_CC_MVS0_VPP1_CLK					8
++#define VIDEO_CC_MVS0_VPP1_FREERUN_CLK				9
++#define VIDEO_CC_MVS0A_CLK					10
++#define VIDEO_CC_MVS0A_CLK_SRC					11
++#define VIDEO_CC_MVS0A_FREERUN_CLK				12
++#define VIDEO_CC_MVS0B_CLK					13
++#define VIDEO_CC_MVS0B_CLK_SRC					14
++#define VIDEO_CC_MVS0B_FREERUN_CLK				15
++#define VIDEO_CC_MVS0C_CLK					16
++#define VIDEO_CC_MVS0C_CLK_SRC					17
++#define VIDEO_CC_MVS0C_FREERUN_CLK				18
++#define VIDEO_CC_MVS0C_SHIFT_CLK				19
++#define VIDEO_CC_PLL0						20
++#define VIDEO_CC_PLL1						21
++#define VIDEO_CC_PLL2						22
++#define VIDEO_CC_PLL3						23
++#define VIDEO_CC_SLEEP_CLK					24
++#define VIDEO_CC_TS_XO_CLK					25
++#define VIDEO_CC_XO_CLK						26
++#define VIDEO_CC_XO_CLK_SRC					27
++
++/* VIDEO_CC power domains */
++#define VIDEO_CC_MVS0A_GDSC					0
++#define VIDEO_CC_MVS0_GDSC					1
++#define VIDEO_CC_MVS0_VPP1_GDSC					2
++#define VIDEO_CC_MVS0_VPP0_GDSC					3
++#define VIDEO_CC_MVS0C_GDSC					4
++
++/* VIDEO_CC resets */
++#define VIDEO_CC_INTERFACE_BCR					0
++#define VIDEO_CC_MVS0_BCR					1
++#define VIDEO_CC_MVS0_VPP0_BCR					2
++#define VIDEO_CC_MVS0_VPP1_BCR					3
++#define VIDEO_CC_MVS0A_BCR					4
++#define VIDEO_CC_MVS0C_CLK_ARES					5
++#define VIDEO_CC_MVS0C_BCR					6
++#define VIDEO_CC_MVS0_FREERUN_CLK_ARES				7
++#define VIDEO_CC_MVS0C_FREERUN_CLK_ARES				8
++#define VIDEO_CC_XO_CLK_ARES					9
++
++#endif
 
 -- 
 2.25.1
