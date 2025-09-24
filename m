@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA332CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 19:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9405CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 20:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PI3jKF1wa+jz/Q+sxzURVRi9vzbRjcZWN9xqrYSDWVU=; b=zgpon+NoC/vNDCbNQ24D1cWr+G
-	9JldZa+aTFIiyNLZa4SPu8cyiI1r0p8n1tLvTgy4r6Xs7rFOe+MMq/9/s4YGuWos63lIDbWyOZ2O0
-	bebVfTU4KP/yWuaHfiDZnVbTUuuuJBKTjhnUF18hHxRcUu6qGWgGxK/OgbPZ+TnAHpcom0J1XeVdT
-	mQa/67KCXOVw9+hpPqKcMXRLhEKB/R7fh0D9Tm91kPLXPkT8EEVq2mUaTsT+KewU7JOeobCYps/Gl
-	b6+FwtNuyk836qdn74zeu8gWaDMgeICOSxW6vxQO0vy1RuENVg4k4bgHuHV7PTQqGYv1nDDYrlQbe
-	wbKfueVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=jM6zgU1lCSMljAQh35sE4RZFjQgx2HJB2iPImrH5iSA=; b=xnLFMubpfv82Ay
+	KXFsi7wAK/Jni8E2mREUKxJjiQvRKB1Q+sFtUsmQZ6nqO5pjW/n/RYMM6yhTPkyLvPopXKjtNfakb
+	EgbE4302mO1/1ScOP9kPBuVb4o4rie2Wh8nm2+zyu0F+hwDk8MCmuW6pHiNP30DcFQw+8G58+otA5
+	HVoL16rZhc0d4wbZ1G171ov+4XovhFAui9XinoeLnRYoqvf4dXAXSTjnreo2ivBe6pVbcG64eoVEj
+	4H+Qex1LkNydAJHJwApPAOHBQp9PafUK9btaII7ATSahGz2ye+1/sT3veedXav3mbXVxHO5pPtCKv
+	iasm1IENTGRoBBIHTcfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VRg-00000003Be9-20Po;
-	Wed, 24 Sep 2025 19:46:32 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1v1Veh-00000003HFB-34pj;
+	Wed, 24 Sep 2025 19:59:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1VRe-00000003BdR-1nFF
+	id 1v1Vef-00000003HDl-1be2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 19:46:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758743191; x=1790279191;
-  h=date:from:to:cc:subject:message-id;
-  bh=E1F/8or5ya+Ko6HYRqwbGqaTLbJaJqHXJWqISjp9340=;
-  b=EeK+VW6GVtbIqRsIWxEV7khHHFSd1TInDhJuvfIRr47OdQfYYjQHicXM
-   QBVoUoCxRFbE/3T8lNUoCsAn7bvmtO6T5ViUUchKazsp8HjlBT5BdN9QR
-   ffrY3A3Rdq5Rq3zbapcXIzfy0ECcE2cHWh0hPX4Saf/w1bQPHYtXnNSz1
-   SZbxQpRnLtnEzDkuVCRjsCxw4drSTTI6eEDP9+IINkySbaplSN7bQqfo2
-   L219zK6ftzISwVOFc96B2Ja1sIgKBL+QNlTbCcZDxZ3xbaOLRkEv6vsZn
-   sLIMK0lAZysHFAeUHhBLsv6+0bTFAKhLLfov/kFs2BTIviyjXsoHZoI6R
-   w==;
-X-CSE-ConnectionGUID: QYEcd8qHT8agipS5o6USWA==
-X-CSE-MsgGUID: vxtnubabSiSXK3Csr6axhA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11563"; a="78690472"
-X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
-   d="scan'208";a="78690472"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2025 12:46:30 -0700
-X-CSE-ConnectionGUID: l8pauha1QdmLtCb6S3cKgQ==
-X-CSE-MsgGUID: tl7n9/53RQGYSiF9vfMQ/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
-   d="scan'208";a="176411652"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 24 Sep 2025 12:46:29 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v1VRZ-0004UT-32;
-	Wed, 24 Sep 2025 19:46:25 +0000
-Date: Thu, 25 Sep 2025 03:46:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Kevin Hilman <khilman@baylibre.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:omap/soc] BUILD SUCCESS
- bb676996ed583464504123721195e98a708fbba9
-Message-ID: <202509250301.KUMiaDJn-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Wed, 24 Sep 2025 19:59:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 064C243308;
+	Wed, 24 Sep 2025 19:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8E9FC4CEE7;
+	Wed, 24 Sep 2025 19:59:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758743996;
+	bh=73wTCutzdqB7e3bMkutV3dF3j841Mh5OPxmNu0G40w4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=IU8Blo7g52ooQwvBxy9BqSMyKa1yhskXxlBQZWapZs9L4jgfF+jYxe8s4zDSSkv8p
+	 rvAPMNRzeor6O33mrqQteJy1N3XUCe6+wsRvf23JNzDW5KHZNPxC4KywGBleuC6pc/
+	 19KnPI1p3LU1bc/+AxF8pEJTRnh3sd17QL0XxlkHutS7UjWYQ9J/a6rr9lx1qdPkTN
+	 84t5puB/CDJYsv+80qGLHgO1jBHRtEVewq2NLuRlcVBbXqXDi8H47KzePEpOeKEbV1
+	 WDdr5/uKYVlj+Utdt0GXLNOGRoiTZiOyMWBgeKvjhFxuwRoi6doarYX5Xj7DTA9pgv
+	 B4uA1cPkg/xCQ==
+Date: Wed, 24 Sep 2025 14:59:55 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v6 3/4] PCI: dwc: Skip PME_Turn_Off message if there is
+ no endpoint connected
+Message-ID: <20250924195955.GA2132329@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250924072324.3046687-4-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_124630_478091_BE06345A 
-X-CRM114-Status: UNSURE (   5.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250924_125957_453387_CB8C0E07 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,150 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git omap/soc
-branch HEAD: bb676996ed583464504123721195e98a708fbba9  ARM: OMAP2+: clock: convert from round_rate() to determine_rate()
+On Wed, Sep 24, 2025 at 03:23:23PM +0800, Richard Zhu wrote:
+> A chip freeze is observed on i.MX7D when PCIe RC kicks off the PM_PME
+> message and no any devices are connected on the port.
 
-elapsed time: 1304m
+s/no any/no/
 
-configs tested: 130
-configs skipped: 123
+> To workaroud such kind of issue, skip PME_Turn_Off message if there is
+> no endpoint connected.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+s/workaroud/work around/
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                               defconfig    clang-19
-arc                              allmodconfig    clang-19
-arc                               allnoconfig    clang-22
-arc                              allyesconfig    clang-19
-arc                                 defconfig    clang-19
-arc                   randconfig-001-20250924    gcc-11.5.0
-arc                   randconfig-002-20250924    gcc-11.5.0
-arm                              allmodconfig    clang-19
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-19
-arm                              allyesconfig    gcc-15.1.0
-arm                                 defconfig    clang-19
-arm                   randconfig-001-20250924    clang-22
-arm                   randconfig-001-20250924    gcc-11.5.0
-arm                   randconfig-002-20250924    clang-22
-arm                   randconfig-002-20250924    gcc-11.5.0
-arm                   randconfig-003-20250924    clang-22
-arm                   randconfig-003-20250924    gcc-11.5.0
-arm                   randconfig-004-20250924    gcc-11.5.0
-arm                   randconfig-004-20250924    gcc-13.4.0
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                               defconfig    clang-19
-arm64                 randconfig-001-20250924    gcc-11.5.0
-arm64                 randconfig-002-20250924    gcc-11.5.0
-arm64                 randconfig-003-20250924    gcc-11.5.0
-arm64                 randconfig-004-20250924    gcc-11.5.0
-csky                              allnoconfig    clang-22
-csky                                defconfig    clang-19
-hexagon                           allnoconfig    clang-22
-hexagon                             defconfig    clang-19
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    clang-20
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20250924    gcc-14
-i386        buildonly-randconfig-002-20250924    gcc-14
-i386        buildonly-randconfig-003-20250924    gcc-14
-i386        buildonly-randconfig-004-20250924    gcc-14
-i386        buildonly-randconfig-005-20250924    gcc-14
-i386        buildonly-randconfig-006-20250924    gcc-14
-i386                                defconfig    clang-20
-i386                  randconfig-001-20250924    clang-20
-i386                  randconfig-002-20250924    clang-20
-i386                  randconfig-003-20250924    clang-20
-i386                  randconfig-004-20250924    clang-20
-i386                  randconfig-005-20250924    clang-20
-i386                  randconfig-006-20250924    clang-20
-i386                  randconfig-007-20250924    clang-20
-i386                  randconfig-011-20250924    gcc-14
-i386                  randconfig-012-20250924    gcc-14
-i386                  randconfig-013-20250924    gcc-14
-i386                  randconfig-014-20250924    gcc-14
-i386                  randconfig-015-20250924    gcc-14
-i386                  randconfig-016-20250924    gcc-14
-i386                  randconfig-017-20250924    gcc-14
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch                           defconfig    clang-19
-m68k                             allmodconfig    clang-19
-m68k                             allyesconfig    clang-19
-m68k                                defconfig    clang-19
-microblaze                       allmodconfig    clang-19
-microblaze                       allyesconfig    clang-19
-microblaze                          defconfig    gcc-15.1.0
-nios2                               defconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-14
-parisc                              defconfig    gcc-15.1.0
-parisc64                            defconfig    gcc-15.1.0
-riscv                               defconfig    gcc-14
-riscv                 randconfig-001-20250924    gcc-8.5.0
-riscv                 randconfig-002-20250924    gcc-8.5.0
-s390                             allmodconfig    gcc-15.1.0
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    gcc-14
-s390                  randconfig-001-20250924    gcc-8.5.0
-s390                  randconfig-002-20250924    gcc-8.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20250924    gcc-8.5.0
-sh                    randconfig-002-20250924    gcc-8.5.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250924    gcc-8.5.0
-sparc                 randconfig-002-20250924    gcc-8.5.0
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20250924    gcc-8.5.0
-sparc64               randconfig-002-20250924    gcc-8.5.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20250924    gcc-8.5.0
-um                    randconfig-002-20250924    gcc-8.5.0
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250924    clang-20
-x86_64      buildonly-randconfig-002-20250924    clang-20
-x86_64      buildonly-randconfig-003-20250924    clang-20
-x86_64      buildonly-randconfig-004-20250924    clang-20
-x86_64      buildonly-randconfig-005-20250924    clang-20
-x86_64      buildonly-randconfig-006-20250924    clang-20
-x86_64                              defconfig    clang-20
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20250924    gcc-14
-x86_64                randconfig-002-20250924    gcc-14
-x86_64                randconfig-003-20250924    gcc-14
-x86_64                randconfig-004-20250924    gcc-14
-x86_64                randconfig-005-20250924    gcc-14
-x86_64                randconfig-006-20250924    gcc-14
-x86_64                randconfig-007-20250924    gcc-14
-x86_64                randconfig-008-20250924    gcc-14
-x86_64                randconfig-071-20250924    clang-20
-x86_64                randconfig-072-20250924    clang-20
-x86_64                randconfig-073-20250924    clang-20
-x86_64                randconfig-074-20250924    clang-20
-x86_64                randconfig-075-20250924    clang-20
-x86_64                randconfig-076-20250924    clang-20
-x86_64                randconfig-077-20250924    clang-20
-x86_64                randconfig-078-20250924    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                randconfig-001-20250924    gcc-8.5.0
-xtensa                randconfig-002-20250924    gcc-8.5.0
+> Cc: stable@vger.kernel.org
+> Fixes: 4774faf854f5 ("PCI: dwc: Implement generic suspend/resume functionality")
+> Fixes: a528d1a72597 ("PCI: imx6: Use DWC common suspend resume method")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++++------
+>  1 file changed, 9 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 57a1ba08c427..b303a74b0fd7 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1008,12 +1008,15 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  	u32 val;
+>  	int ret;
+>  
+> -	if (pci->pp.ops->pme_turn_off) {
+> -		pci->pp.ops->pme_turn_off(&pci->pp);
+> -	} else {
+> -		ret = dw_pcie_pme_turn_off(pci);
+> -		if (ret)
+> -			return ret;
+> +	/* Skip PME_Turn_Off message if there is no endpoint connected */
+> +	if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_WAIT) {
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+This looks racy and it sounds like this is a workaround for an i.MX7D
+defect.  Should it be some kind of quirk just for i.MX7D?
+
+> +		if (pci->pp.ops->pme_turn_off) {
+> +			pci->pp.ops->pme_turn_off(&pci->pp);
+> +		} else {
+> +			ret = dw_pcie_pme_turn_off(pci);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  	}
+>  
+>  	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> -- 
+> 2.37.1
+> 
+> 
 
