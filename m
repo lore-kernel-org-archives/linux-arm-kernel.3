@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BB4CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 00:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB195CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 00:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0cCdQuWMSBorsyja2Ch1l6GXItVozkz899teDhpu3jI=; b=VuEojG5Z5YjCDhv8JwlM3Fv8Tn
-	2I9/IzyuYeb3cst9EQ2yoGeLI4Popg3Co4lwZ/l2kB4taE74Sx1ZAU7OzZbIXLTgH1QdOivc90mGB
-	la9XcP+b1GfIOn1t2T5CzliqKOlqyEMuJAT0suFUCsD4OX6TamCXEe+5/yri8zV0nqTnwnYnCotOo
-	eGqTBWQfPBZOzRiiQiirWX2K7sNoS2uZ8mOQ6t15RcXUpP0XJzPHZ6cpFiQVNmMIW/Aih6YxyR+OT
-	s4QrUWcpmcwcuK266wvMCAfbM+quhvHZGI+CFZ/B66mB44WL11ca1EOPCQZRM/oJgsko4A0rwm2Vj
-	inP183hw==;
+	bh=jnGednQAnwv9ER2iB1Z9NBS4T2mF0GFsZAmAism9VDs=; b=y1iZ6M7AReHc0gOUfXs6rSAiAw
+	dyuFBB9EYCX48H7k/yIPAk+/LJc9CEvzQcJ8ceDidVwOMhb911vmYkU9GmpdCsOKzuLeh4vwf5mmT
+	yYrPYy30YuT0X2wv8ChuGrhXDER0qAqmArySdaYZgKDqbz/nFnmVJcmrZXlRz+IAuA6peH1KIQnLU
+	KwfDbMGZ0j/webt2E0Gui4Xb5OagJmnl/xHihFJ2okOYbVQaktOhDhuqSaZ72H9QJTlwVqpqVnlO2
+	XyZ4G7mJ928MrWAeShFfl0Q/JzR7L3/0N9zYA+si90mjITFjESEcQXb7Ni5NQqWb24zy/o8hRaqmu
+	0OpcOBCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1DU5-0000000FDyN-1euv;
-	Wed, 24 Sep 2025 00:35:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v1Djy-0000000FF97-1GOh;
+	Wed, 24 Sep 2025 00:52:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1DU0-0000000FDxu-30F4
+	id 1v1Djw-0000000FF8x-2ljU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 00:35:47 +0000
+	Wed, 24 Sep 2025 00:52:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFEB540490;
-	Wed, 24 Sep 2025 00:35:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17DBBC4CEF5;
-	Wed, 24 Sep 2025 00:35:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B95B96020F;
+	Wed, 24 Sep 2025 00:52:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C316C4CEF5;
+	Wed, 24 Sep 2025 00:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758674143;
-	bh=DRhxi2T0h0T058uT0q5WDIBIuhGBboq7dtvoADz/Vcc=;
+	s=k20201202; t=1758675131;
+	bh=AVfHO1CTr0Qk1/2kp7j+A2HLBwT4+lGQ8iNME1oqqtg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rnbO/Ue6pEe98CQSQtGfI/WCHp27rIl9ETccr9wK+XKbPEhAVgOEGrmuG5DdpnxYB
-	 6V2epqcVFYfp6oNtXqyPk2zHR++EaJK21xyt50aEfVAg8Bh8K/nbuTVeEpEqIWtwAb
-	 KXVY1tj1exQGp2xVpevO/ziNcdTCFWrLiAfB3uAvrREIb6SYKMzJPotf3swUuapCSY
-	 BFY17Z56mWjoU7tKyyVmISX+fR8PZbEAJBxY7jKlLW+JXQoNIddc05W0Zd2dHI1Zpb
-	 14Qh/897rQXmwBSe20Lwo84HWIC38peCrSERGRqLRl0H+Ckpo/UGlBhPaU2tdiYWcz
-	 G65sFg9c4Rrfw==
-Date: Wed, 24 Sep 2025 08:35:37 +0800
+	b=fKDa67y6SyEFw1qlA6a9iuqltKqS79FgbeO5XHRgbgEJrbRFMGLyes+sdJl4P9Kx1
+	 1Bdl/6xJlKkXJG7OLvO5j5xgFuFwUY/k5DADcWja7MHn/iR7QkmOIi3LOPlPuWQpPA
+	 zEDH4f9m4ww4taqjnFfi27ghihSD6O4b+BT8gujROOLRCQ4si+7r136kK3fNJDxc/r
+	 4ea+MQIeBO5jArQvh2YxrjviMh46GmoB5n0zp3nR5+fS7Sl+T9lGw5ALVTxMzxSMFq
+	 wEfjCBXp0IEJty2uolJs47GNwkp9Q+jJlk+b7NYqtTN1QHj8n7uolepgdwxV0VgxM7
+	 tDKztVOK9js6g==
+Date: Wed, 24 Sep 2025 08:52:06 +0800
 From: "Peter Chen (CIX)" <peter.chen@kernel.org>
 To: Peng Fan <peng.fan@nxp.com>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
@@ -58,18 +58,15 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v4 3/5] usb: chipidea: core: detach power domain for
- ci_hdrc platform device
-Message-ID: <aNM82SUSoQN6cKkD@nchen-desktop>
+Subject: Re: [PATCH v4 4/5] usb: chipidea: ci_hdrc_imx: Set out of band
+ wakeup for i.MX95
+Message-ID: <aNNAtlP768mMPPVC@nchen-desktop>
 References: <20250922-pm-v4-v4-0-ef48428e8fe0@nxp.com>
- <20250922-pm-v4-v4-3-ef48428e8fe0@nxp.com>
+ <20250922-pm-v4-v4-4-ef48428e8fe0@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250922-pm-v4-v4-3-ef48428e8fe0@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250923_173544_780977_51F89FB8 
-X-CRM114-Status: GOOD (  20.90  )
+In-Reply-To: <20250922-pm-v4-v4-4-ef48428e8fe0@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-09-22 10:21:08, Peng Fan wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
+On 25-09-22 10:21:09, Peng Fan wrote:
+> i.MX95 USB2 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
+> power domain(Digital logic) is off. There is still always on logic
+> have the wakeup capability which is out band wakeup capbility.
 > 
-> When add a platform device by calling ci_hdrc_add_device(), this device
-> will reuse OF node of its parent device. If power-domains property is
-> provided in the OF node, both two platform devices will be attached to
-> the same power domain. This should be unnecessary and may bring other
-> inconsistent behavior. For example, to support wakeup capability, these
-> two platform device need different power domain state. The parent device
-> need NOT power domain on for out-band interrupt, but the ci_hdrc device
-> need power domain on for in-band interrupt. The i.MX95 Soc support
-> out-band wakeup interrupt, the user need to enable wakeup for the parent
-> device, but if the user also enable wakeup for ci_hdrc device, the power
-> domain will keep at on state finally. To exclude such inconsistent
-> behavior and simplify the power management, detach power domain for ci_hdrc
-> platform device.
+> So use device_set_out_band_wakeup for i.MX95 to make sure usb2 could
+> wakeup system even if HSIOMIX power domain is in off state.
 > 
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> Tested-by: Xu Yang <xu.yang_2@nxp.com>
+> Reviewed-by: Xu Yang <xu.yang_2@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Acked-by: Peter Chen <peter.chen@kernel.org>
+Acked-by: Peter Chen <peter.chen@kernel.org> 
+
+Feel free add my ack if power part has accepted.
 
 Peter
-
 > ---
->  drivers/usb/chipidea/core.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 11 ++++++++++-
+>  include/linux/usb/chipidea.h       |  1 +
+>  2 files changed, 11 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-> index 694b4a8e4e1d8583dcbf4a42f8c2dfd785d5745c..70597f40b9997a9766934c67bbbed38e96c210f8 100644
-> --- a/drivers/usb/chipidea/core.c
-> +++ b/drivers/usb/chipidea/core.c
-> @@ -27,6 +27,7 @@
->  #include <linux/kernel.h>
->  #include <linux/slab.h>
->  #include <linux/pm_runtime.h>
-> +#include <linux/pm_domain.h>
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/usb/ch9.h>
->  #include <linux/usb/gadget.h>
-> @@ -915,6 +916,8 @@ struct platform_device *ci_hdrc_add_device(struct device *dev,
->  	if (ret)
->  		goto err;
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index d7c2a1a3c2715967203b98c819fa864e06a00a32..d4ee9e16332fe8b506711e4739c9008f73a377bf 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -79,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
+>  		CI_HDRC_HAS_PORTSC_PEC_MISSED,
+>  };
 >  
-> +	dev_pm_domain_detach(&pdev->dev, false);
+> +static const struct ci_hdrc_imx_platform_flag imx95_usb_data = {
+> +	.flags = CI_HDRC_SUPPORTS_RUNTIME_PM | CI_HDRC_OUT_BAND_WAKEUP,
+> +};
 > +
->  	return pdev;
+>  static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
+>  	.flags = CI_HDRC_DISABLE_HOST_STREAMING,
+>  };
+> @@ -94,6 +98,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
+>  	{ .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
+>  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
+>  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
+> +	{ .compatible = "fsl,imx95-usb", .data = &imx95_usb_data},
+>  	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
+>  	{ /* sentinel */ }
+>  };
+> @@ -704,9 +709,13 @@ static int ci_hdrc_imx_suspend(struct device *dev)
 >  
->  err:
+>  	pinctrl_pm_select_sleep_state(dev);
+>  
+> -	if (data->wakeup_irq > 0 && device_may_wakeup(dev))
+> +	if (data->wakeup_irq > 0 && device_may_wakeup(dev)) {
+>  		enable_irq_wake(data->wakeup_irq);
+>  
+> +		if (data->plat_data->flags & CI_HDRC_OUT_BAND_WAKEUP)
+> +			device_set_out_band_wakeup(dev);
+> +	}
+> +
+>  	return ret;
+>  }
+>  
+> diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
+> index e17ebeee24e3ecc4b1c2d153d9ea9b656b5a3d35..c6451191d2de68607a9380482701d11f949d0ff7 100644
+> --- a/include/linux/usb/chipidea.h
+> +++ b/include/linux/usb/chipidea.h
+> @@ -66,6 +66,7 @@ struct ci_hdrc_platform_data {
+>  #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
+>  #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
+>  #define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
+> +#define	CI_HDRC_OUT_BAND_WAKEUP		BIT(20)
+>  	enum usb_dr_mode	dr_mode;
+>  #define CI_HDRC_CONTROLLER_RESET_EVENT		0
+>  #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
 > 
 > -- 
 > 2.37.1
