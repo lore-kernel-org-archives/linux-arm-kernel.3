@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87E6CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 21:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3883CCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 21:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5MGaHwlMqmAmb8nWShJ3BhjbPCg4yYSW2r2gDioK9zs=; b=t0b1Y1JNkLh7iNiIG04KRBgwDq
-	8cjuEPWy+ZUmayx+5U8zO8TwNW6Npf4M6QB9BpchK2hfBVRb1xbEEI//z8PTJl7rUwGX6oqjeJXi+
-	jWK9pHaky5xinOchrWzZKQddej9R2mFY49xURHcWjUZhtvSYD2B3lWO7oLF8OChGLb5m3h8hj6ilP
-	aptdy0mmae5F/Pr8PIc2BzgJdy+vB8EJogZmBL0AXyeSq5dkNfp0TGwmV3HdNdrNgVjWP67B47ZhY
-	FqLPPXm/PL06o1kgFFTqSKAj0a2nyG+nS9D2AGuF4rJIR9ZESNp0oozskns+7IR1ePW09IAxfseRt
-	ZXgbs5UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8vehDCHFQPuf5/+JLt9NrQDdNgbJgcFD+JEAxhSZTeg=; b=oDe2epRupOO1EdQCanGPagoMeD
+	DbxXb7OuwDuhi+sQ7aqSFEUBOAM5hluAewMKZp7hhqE5UwhVPfDETQkv7ci9VKqR417PwACr+K6Jp
+	uHVVcvoQugtYvbsrs0Y8yaEO1FEbNXF1cZYRcuTjc18Zj2fMcQuF8Ei5wS0GmCh3AAJlDYlkTDZwn
+	zoyHmH3lzpbRx94WVQXXfwWIBrUeY/7MrhVgjz2EyUeeYwydp8IGpEhkXdTPum+xKbyW/VwJFglYt
+	lOSbMWsuC4E5+s/tDzS+YcpW91Zv5wqZwY23kHStG0YPAtbvHyrNxMk6GQOyJnXKwRQkmsJ++JH5E
+	AT5eYuyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1WnM-00000003o6F-09uz;
-	Wed, 24 Sep 2025 21:13:00 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1v1WpQ-00000003pFJ-2tJD;
+	Wed, 24 Sep 2025 21:15:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1WnJ-00000003o4z-3HMF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Sep 2025 21:12:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758748378; x=1790284378;
-  h=date:from:to:cc:subject:message-id;
-  bh=mLGJNk42aK/8qlY3rYrQp5PwyhZz91t48Sv8pVUK2BI=;
-  b=dIBwF39jw1pWzVN1PXvawRb02mdNJnp5DB7qZopaE4YJiYq3w1GVx07b
-   d2SAaNYI5KlMBSEMfLZLDct3nHTu4uyYur3+7tZ2eL0Raf3x9m9yH1yHH
-   gFyNlCozoFSdr04o1twj5J8fIS/9nsxXWUXrDUmNkd0h6nCRTzpXfQHLa
-   XQZG8EhiKZY4ci8CTR7wBNWKd8eqoBm9bx6sC7On2Zt2AoGJB7syJSSeX
-   sTRdBC/RoaaMxqhclKoxaKOshE28lEX3dOda6ie7L1LHwySgVF+EHfgDq
-   ozAwWUXdlA0FAm4FRZFmBRN4THYB0xKsI1GoHZhqN3hHtPjoWKSNBK100
-   w==;
-X-CSE-ConnectionGUID: A6Aw2aFOTUiS1KIQe0wEfQ==
-X-CSE-MsgGUID: pzIejliGQ6KGPaRGrRcZEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11563"; a="60950196"
-X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
-   d="scan'208";a="60950196"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Sep 2025 14:12:57 -0700
-X-CSE-ConnectionGUID: YKcW81F9SceuAUTNmjMMOQ==
-X-CSE-MsgGUID: LGs7MkmWRk2fc7vL4klySg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,291,1751266800"; 
-   d="scan'208";a="182417607"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 24 Sep 2025 14:12:55 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v1WnF-0004ZX-36;
-	Wed, 24 Sep 2025 21:12:53 +0000
-Date: Thu, 25 Sep 2025 05:11:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 13923775d5b0b47656e800bec7baf50a20474aaf
-Message-ID: <202509250545.xZILxsI8-lkp@intel.com>
-User-Agent: s-nail v14.9.24
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_141257_865476_3A8FB353 
-X-CRM114-Status: UNSURE (   5.95  )
-X-CRM114-Notice: Please train this message.
+	id 1v1WpO-00000003pEE-3JZJ;
+	Wed, 24 Sep 2025 21:15:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D605B602A2;
+	Wed, 24 Sep 2025 21:15:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FC18C4CEE7;
+	Wed, 24 Sep 2025 21:15:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758748505;
+	bh=C/wfjUCsdiaeeAQq1JlkTgcHiBcnmTP3fACu65+WKFU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=I+A4o40DPLh/cpYaOKT8T4ZD/DpeVn/rGxCVzSz/W2Hp1FqiCmv2s0AnnyFXEGF5x
+	 Vflk0QFRxYyueXTEeHS8CAr9STokDoYDb9t1vYQ0AAGtAl6pFuc+03cmupjgrwE6ho
+	 /p8ahHbLhb70/N8uL01dj/6bP+9AFvmykRJ7QVbvuEmIDqSb89WL6qEmrgBxGaYbYS
+	 MIRCiVBUGgyELcHYJvu34697Ofu89Qp6fXS6sFFqGWRmBdBrnLpB0p9wx6sV1f/izs
+	 +oBO57FNZrtN1Nbn5bCqXILNdV9BryOAfIDa/ZI9Qt7cwHa1h22qpAmnIwBgVSDN37
+	 TPpEYYBFZ5uvA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 24 Sep 2025 23:14:53 +0200
+Subject: [PATCH net-next] net: airoha: npu: Add a NPU callback to
+ initialize flow stats
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250924-airoha-npu-init-stats-callback-v1-1-88bdf3c941b2@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAExf1GgC/x3NQQqDMBBA0avIrDugMZXEqxQXY5zWoRIlkxZBv
+ LvB5dv8f4ByElboqwMS/0VljQXNo4IwU/wwylQMpjbP2huLJGmdCeP2Q4mSUTNlxUDLMlL4Yjs
+ Ftq2zXecdlMiW+C37PXgN53kBc0rawHAAAAA=
+X-Change-ID: 20250924-airoha-npu-init-stats-callback-3dce43846698
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,153 +74,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 13923775d5b0b47656e800bec7baf50a20474aaf  Merge tag 'tegra-for-6.17-firmware-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes
+Introduce a NPU callback to initialize flow stats and remove NPU stats
+initialization from airoha_npu_get routine. Add num_stats_entries to
+airoha_npu_ppe_stats_setup routine.
+This patch makes the code more readable since NPU statistic are now
+initialized on demand by the NPU consumer (at the moment NPU statistic
+are configured just by the airoha_eth driver).
+Moreover this patch allows the NPU consumer (PPE module) to explicitly
+enable/disable NPU flow stats.
 
-elapsed time: 1464m
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_npu.c  | 24 ++++++------------------
+ drivers/net/ethernet/airoha/airoha_ppe.c  | 19 +++++++++++++------
+ include/linux/soc/airoha/airoha_offload.h |  7 ++++---
+ 3 files changed, 23 insertions(+), 27 deletions(-)
 
-configs tested: 133
-configs skipped: 3
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index e1d131d6115c10b40a56b63427eec59ea587d22a..8c883f2b2d36b74053282bc299f0a0572b2e0e71 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -379,15 +379,13 @@ static int airoha_npu_foe_commit_entry(struct airoha_npu *npu,
+ 	return err;
+ }
+ 
+-static int airoha_npu_stats_setup(struct airoha_npu *npu,
+-				  dma_addr_t foe_stats_addr)
++static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
++				      dma_addr_t foe_stats_addr,
++				      u32 num_stats_entries)
+ {
+-	int err, size = PPE_STATS_NUM_ENTRIES * sizeof(*npu->stats);
++	int err, size = num_stats_entries * sizeof(*npu->stats);
+ 	struct ppe_mbox_data *ppe_data;
+ 
+-	if (!size) /* flow stats are disabled */
+-		return 0;
+-
+ 	ppe_data = kzalloc(sizeof(*ppe_data), GFP_ATOMIC);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+@@ -542,7 +540,7 @@ static void airoha_npu_wlan_irq_disable(struct airoha_npu *npu, int q)
+ 	regmap_clear_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
+ }
+ 
+-struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
++struct airoha_npu *airoha_npu_get(struct device *dev)
+ {
+ 	struct platform_device *pdev;
+ 	struct device_node *np;
+@@ -581,17 +579,6 @@ struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
+ 		goto error_module_put;
+ 	}
+ 
+-	if (stats_addr) {
+-		int err;
+-
+-		err = airoha_npu_stats_setup(npu, *stats_addr);
+-		if (err) {
+-			dev_err(dev, "failed to allocate npu stats buffer\n");
+-			npu = ERR_PTR(err);
+-			goto error_module_put;
+-		}
+-	}
+-
+ 	return npu;
+ 
+ error_module_put:
+@@ -643,6 +630,7 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 	npu->dev = dev;
+ 	npu->ops.ppe_init = airoha_npu_ppe_init;
+ 	npu->ops.ppe_deinit = airoha_npu_ppe_deinit;
++	npu->ops.ppe_init_stats = airoha_npu_ppe_stats_setup;
+ 	npu->ops.ppe_flush_sram_entries = airoha_npu_ppe_flush_sram_entries;
+ 	npu->ops.ppe_foe_commit_entry = airoha_npu_foe_commit_entry;
+ 	npu->ops.wlan_init_reserved_memory = airoha_npu_wlan_init_memory;
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 78473527ff508919fa60a464917617cb882aac20..691361b254075555549ee80a4ed358c52e8e00b2 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1243,12 +1243,11 @@ static int airoha_ppe_flush_sram_entries(struct airoha_ppe *ppe,
+ 
+ static struct airoha_npu *airoha_ppe_npu_get(struct airoha_eth *eth)
+ {
+-	struct airoha_npu *npu = airoha_npu_get(eth->dev,
+-						&eth->ppe->foe_stats_dma);
++	struct airoha_npu *npu = airoha_npu_get(eth->dev);
+ 
+ 	if (IS_ERR(npu)) {
+ 		request_module("airoha-npu");
+-		npu = airoha_npu_get(eth->dev, &eth->ppe->foe_stats_dma);
++		npu = airoha_npu_get(eth->dev);
+ 	}
+ 
+ 	return npu;
+@@ -1257,6 +1256,7 @@ static struct airoha_npu *airoha_ppe_npu_get(struct airoha_eth *eth)
+ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ {
+ 	struct airoha_npu *npu = airoha_ppe_npu_get(eth);
++	struct airoha_ppe *ppe = eth->ppe;
+ 	int err;
+ 
+ 	if (IS_ERR(npu))
+@@ -1266,12 +1266,19 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ 	if (err)
+ 		goto error_npu_put;
+ 
+-	airoha_ppe_hw_init(eth->ppe);
+-	err = airoha_ppe_flush_sram_entries(eth->ppe, npu);
++	if (PPE_STATS_NUM_ENTRIES) {
++		err = npu->ops.ppe_init_stats(npu, ppe->foe_stats_dma,
++					      PPE_STATS_NUM_ENTRIES);
++		if (err)
++			goto error_npu_put;
++	}
++
++	airoha_ppe_hw_init(ppe);
++	err = airoha_ppe_flush_sram_entries(ppe, npu);
+ 	if (err)
+ 		goto error_npu_put;
+ 
+-	airoha_ppe_foe_flow_stats_reset(eth->ppe, npu);
++	airoha_ppe_foe_flow_stats_reset(ppe, npu);
+ 
+ 	rcu_assign_pointer(eth->npu, npu);
+ 	synchronize_rcu();
+diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
+index 1dc5b4e35ef9eaa1d06072a6b6dad52902468f79..6f66eb339b3fc6e130c24bf04f7daa898314f1e2 100644
+--- a/include/linux/soc/airoha/airoha_offload.h
++++ b/include/linux/soc/airoha/airoha_offload.h
+@@ -181,6 +181,8 @@ struct airoha_npu {
+ 	struct {
+ 		int (*ppe_init)(struct airoha_npu *npu);
+ 		int (*ppe_deinit)(struct airoha_npu *npu);
++		int (*ppe_init_stats)(struct airoha_npu *npu,
++				      dma_addr_t addr, u32 num_stats_entries);
+ 		int (*ppe_flush_sram_entries)(struct airoha_npu *npu,
+ 					      dma_addr_t foe_addr,
+ 					      int sram_num_entries);
+@@ -206,7 +208,7 @@ struct airoha_npu {
+ };
+ 
+ #if (IS_BUILTIN(CONFIG_NET_AIROHA_NPU) || IS_MODULE(CONFIG_NET_AIROHA_NPU))
+-struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr);
++struct airoha_npu *airoha_npu_get(struct device *dev);
+ void airoha_npu_put(struct airoha_npu *npu);
+ 
+ static inline int airoha_npu_wlan_init_reserved_memory(struct airoha_npu *npu)
+@@ -256,8 +258,7 @@ static inline void airoha_npu_wlan_disable_irq(struct airoha_npu *npu, int q)
+ 	npu->ops.wlan_disable_irq(npu, q);
+ }
+ #else
+-static inline struct airoha_npu *airoha_npu_get(struct device *dev,
+-						dma_addr_t *foe_stats_addr)
++static inline struct airoha_npu *airoha_npu_get(struct device *dev)
+ {
+ 	return NULL;
+ }
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+---
+base-commit: 5e3fee34f626a8cb8715f5b5409416c481714ebf
+change-id: 20250924-airoha-npu-init-stats-callback-3dce43846698
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-alpha                               defconfig    gcc-15.1.0
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    gcc-15.1.0
-arc                                 defconfig    gcc-15.1.0
-arc                   randconfig-001-20250924    gcc-11.5.0
-arc                   randconfig-002-20250924    gcc-14.3.0
-arm                              allmodconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    gcc-15.1.0
-arm                       aspeed_g5_defconfig    gcc-15.1.0
-arm                                 defconfig    clang-22
-arm                   randconfig-001-20250924    clang-22
-arm                   randconfig-002-20250924    clang-22
-arm                   randconfig-003-20250924    clang-22
-arm                   randconfig-004-20250924    gcc-13.4.0
-arm                       spear13xx_defconfig    gcc-15.1.0
-arm                           stm32_defconfig    gcc-15.1.0
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250924    gcc-14.3.0
-arm64                 randconfig-002-20250924    clang-18
-arm64                 randconfig-003-20250924    gcc-12.5.0
-arm64                 randconfig-004-20250924    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                                defconfig    gcc-15.1.0
-csky                  randconfig-001-20250924    gcc-14.3.0
-csky                  randconfig-002-20250924    gcc-15.1.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon                             defconfig    clang-22
-hexagon               randconfig-001-20250924    clang-22
-hexagon               randconfig-002-20250924    clang-22
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20250924    gcc-14
-i386        buildonly-randconfig-002-20250924    clang-20
-i386        buildonly-randconfig-003-20250924    gcc-13
-i386        buildonly-randconfig-004-20250924    gcc-14
-i386        buildonly-randconfig-005-20250924    clang-20
-i386        buildonly-randconfig-006-20250924    clang-20
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch                 loongson3_defconfig    clang-22
-loongarch             randconfig-001-20250924    gcc-15.1.0
-loongarch             randconfig-002-20250924    gcc-14.3.0
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-microblaze                       alldefconfig    gcc-15.1.0
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-11.5.0
-nios2                 randconfig-001-20250924    gcc-11.5.0
-nios2                 randconfig-002-20250924    gcc-8.5.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20250924    gcc-12.5.0
-parisc                randconfig-002-20250924    gcc-13.4.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                          allyesconfig    clang-22
-powerpc                      cm5200_defconfig    clang-22
-powerpc               randconfig-001-20250924    clang-18
-powerpc               randconfig-002-20250924    clang-18
-powerpc               randconfig-003-20250924    clang-22
-powerpc                      tqm8xx_defconfig    clang-19
-powerpc64             randconfig-001-20250924    clang-22
-powerpc64             randconfig-002-20250924    gcc-15.1.0
-powerpc64             randconfig-003-20250924    gcc-8.5.0
-riscv                            allmodconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    clang-22
-riscv                 randconfig-001-20250924    gcc-8.5.0
-riscv                 randconfig-002-20250924    clang-22
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    clang-22
-s390                  randconfig-001-20250924    gcc-8.5.0
-s390                  randconfig-002-20250924    clang-22
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                        apsh4ad0a_defconfig    gcc-15.1.0
-sh                                  defconfig    gcc-15.1.0
-sh                    randconfig-001-20250924    gcc-15.1.0
-sh                    randconfig-002-20250924    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20250924    gcc-15.1.0
-sparc                 randconfig-002-20250924    gcc-8.5.0
-sparc64                             defconfig    clang-20
-sparc64               randconfig-001-20250924    gcc-8.5.0
-sparc64               randconfig-002-20250924    gcc-8.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-14
-um                                  defconfig    clang-22
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20250924    clang-16
-um                    randconfig-002-20250924    clang-19
-um                           x86_64_defconfig    clang-22
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250924    clang-20
-x86_64      buildonly-randconfig-002-20250924    clang-20
-x86_64      buildonly-randconfig-003-20250924    clang-20
-x86_64      buildonly-randconfig-004-20250924    gcc-14
-x86_64      buildonly-randconfig-005-20250924    clang-20
-x86_64      buildonly-randconfig-006-20250924    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20250924    gcc-13.4.0
-xtensa                randconfig-002-20250924    gcc-8.5.0
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
