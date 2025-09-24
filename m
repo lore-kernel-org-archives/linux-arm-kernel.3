@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E885CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ABDCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Sep 2025 10:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNNBeObjdL43LHXCCN8I8bejSq21u9A9sayNPRpBblE=; b=rMVqUd1tZJ1gBxN85a/ftnEHMV
-	jJVz3//R/K1kvU9fUMFwf2bGZnI9N6Qkw2Fi5i7rUFBiEpNViH/Y6WcIp3LHO2rG+H0HnCJU7L8pe
-	84qlO6Hm3T9SgsTWVowwVXJ851FBekO/DNpFIObnb0OsCxbKCNjsnVqnyx4WkDhRDeRSU4vqv+YPr
-	JIjxkbz0Sjh2OhM631AZOGxpxkjnB3bYN0M0LzEnQPOHY36Mla+6OYnHoZHEpgvcIyhug9U67EuvA
-	HxcFBSt53EwBei692RIRZf67VR++CJXgkb1qPPURAh+Uz6FmM+Roaj2QUzFs+zi73yAenF5Q8uFMD
-	PD75J4xQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cAHGF8NPACDOV/8Ynuw7kqNcAMPlFhs2QNdw+CC9zx4=; b=Q1KCGUkg2gii28Ajh1ABD11Ai3
+	MFpTQKOkpfnDpZFBOFRf1TgwHuTQs4R1OsACZqt9Mfvoon6d5vjSQnSGFaxb7zprebSuPflwwMW5n
+	3tbGOAcwG1ANzK5z+iAJ29kvBHLYAhDflBml25lVXlHnu8qGDEUmf89EhNfLpYwFyCDd/RLekPphO
+	wL7VJNbCz6jybRM1D0z6qVXgkSL7mXahghZZj430zkcZTevpo6O9qjTu/feXh8oACYGb4hJUPorrO
+	ElQbOeHzt4yNcsjpGpK1hpAMNoC+tiS5GvBmIGaQMtQkXwwblm9HK6IVCEL5rB5Y++Ab37StDRopN
+	yJL3BSUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MsF-0000000GYc6-1xlS;
-	Wed, 24 Sep 2025 10:37:23 +0000
+	id 1v1MsE-0000000GYbU-3kVf;
+	Wed, 24 Sep 2025 10:37:22 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1MsB-0000000GYXr-3mSi;
+	id 1v1MsB-0000000GYXU-2yGB;
 	Wed, 24 Sep 2025 10:37:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1758710237;
-	bh=6q4nIF9PbW8vKqtt8oUILNc6BjJu8LTWVp+LAjhBKV0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KYorXydr04gRo8aD6mEUTsaAEfjf68IsYc/xPn+AY75dqEk4qsAErHToxf/23Qf50
-	 V2kuQKgEinw2Avv35Et65VjGv5ABHECvVsHMSxJMZol1yF0MFMR3KXQzqNfsPSkNzj
-	 X45ccvwsAx7OitpexfKtvkU/6G6WTbOTk+0sTj/TyS/8uYAM6FR3b5mEcYDP0zlnrf
-	 E7/7deUpAPPZP/K42HOtBv+wvIs+cDB7lnk3R0VhuSQBJ16I+/VqttkQAW/5zIn3kC
-	 FdMF2LtvJs9NqI3aSb4fkRQ5nSfRK9JkTOJl5ZdJB299L5EIvM/LesV7hzYM3qDzy1
-	 knM5JDQY4v4WQ==
+	bh=VRbbyb2TqGZ2vmUel9UTJU8dUoPtOcrO+Q97F0QNAUo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AFSWeblmyZTvXqZuH6q9hrkH5s0gfXBar4a01bue57y1fGC/DaGtkp/t/DXQ9oinq
+	 unWnG4od1U54jaWI3EeirUBKNi+I4dUDE7u0niGG/l8I6CRA4A6mWKwSj3L9R5qap0
+	 sD6RjFW+xn0yj0IiVFV4IcRpro3VIqSa2XHkXviZcQ66byosgCmREcICEqwSwoV2DB
+	 EzaTUPnyY9yFhiZpLsq2FpKkU+kIXqwjrDpyVMAPZjQx0kMV5Yy4AiHYUu4DopJAEo
+	 9b37lkEqfLiYRvF6AEcOicEISkQcZmgLpYSkTTHqvsxa8Rymty8bR0XVP+yEGD7naX
+	 H4s655fSBrd8A==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2324017E12DF;
-	Wed, 24 Sep 2025 12:37:17 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3F0EA17E068C;
+	Wed, 24 Sep 2025 12:37:16 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -63,17 +63,16 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH 1/3] drm/mediatek: mtk_dp: Fix hdmi codec and phy driver unregistration
-Date: Wed, 24 Sep 2025 12:37:06 +0200
-Message-ID: <20250924103708.19071-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 0/3] drm/mediatek: Fixes: Stale pointer usage and device leak
+Date: Wed, 24 Sep 2025 12:37:05 +0200
+Message-ID: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
-References: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_033720_103902_D1B4E9AD 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250924_033720_060611_6210A510 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During probe, this driver is registering two platform devices: one
-for the HDMI Codec driver and one for the DisplayPort PHY driver.
+A while ago I've found some issues in drm/mediatek and fixed those
+but then forgot to send all of the fixes as I was progressing on more.
 
-In the probe function, none of the error cases are unregistering
-any of the two platform devices and this may cause registration
-of multiple instances of those in case this driver returns one or
-more probe deferral(s) in the "wrong" spots.
+For whatever reason, I couldn't continue with more fixes and eventually
+forgot to send what I had.
+Recent series reminded me about those, which we're carrying in the
+Collabora MediaTek integration kernel since .. forever, and are tested
+on all of the MTK boards that we have in the lab, including MT8173,
+MT8183, MT8192, MT8195, MT8188, MT8186 Chromebooks and Genio boards.
 
-In order to fix this, add devm actions to unregister those and
-remove the manual calls to platform_device_unregister in the
-mtk_dp_remove() function, as those would otherwise be redundant.
+The mtk_dp fix was sent months ago, but got ignored - it's included
+in this series again anyway.
 
-Fixes: e71a8ebbe086 ("drm/mediatek: dp: Audio support for MT8195")
-Fixes: caf2ae486742 ("drm/mediatek: dp: Add support for embedded DisplayPort aux-bus")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 30 ++++++++++++++++++++++++++----
- 1 file changed, 26 insertions(+), 4 deletions(-)
+AngeloGioacchino Del Regno (3):
+  drm/mediatek: mtk_dp: Fix hdmi codec and phy driver unregistration
+  drm/mediatek: mtk_disp_ovl: Enable/disable interrupt on bind/unbind
+  drm/mediatek: mtk_disp_rdma: Enable/disable interrupt on bind/unbind
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index bef6eeb30d3e..9b374b8d079e 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2650,6 +2650,13 @@ static const struct hdmi_codec_ops mtk_dp_audio_codec_ops = {
- 	.hook_plugged_cb = mtk_dp_audio_hook_plugged_cb,
- };
- 
-+static void mtk_dp_unregister_pdevs(void *data)
-+{
-+	struct platform_device *ext_pdev = data;
-+
-+	platform_device_unregister(ext_pdev);
-+}
-+
- static int mtk_dp_register_audio_driver(struct device *dev)
- {
- 	struct mtk_dp *mtk_dp = dev_get_drvdata(dev);
-@@ -2660,18 +2667,29 @@ static int mtk_dp_register_audio_driver(struct device *dev)
- 		.data = mtk_dp,
- 		.no_capture_mute = 1,
- 	};
-+	int ret;
- 
- 	mtk_dp->audio_pdev = platform_device_register_data(dev,
- 							   HDMI_CODEC_DRV_NAME,
- 							   PLATFORM_DEVID_AUTO,
- 							   &codec_data,
- 							   sizeof(codec_data));
--	return PTR_ERR_OR_ZERO(mtk_dp->audio_pdev);
-+	if (IS_ERR(mtk_dp->audio_pdev))
-+		return PTR_ERR(mtk_dp->audio_pdev);
-+
-+	ret = devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mtk_dp->phy_dev);
-+	if (ret) {
-+		platform_device_unregister(mtk_dp->audio_pdev);
-+		return dev_err_probe(dev, ret,
-+				     "Failed to add codec unregister devm action");
-+	}
-+	return 0;
- }
- 
- static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- {
- 	struct device *dev = mtk_dp->dev;
-+	int ret;
- 
- 	mtk_dp->phy_dev = platform_device_register_data(dev, "mediatek-dp-phy",
- 							PLATFORM_DEVID_AUTO,
-@@ -2681,6 +2699,13 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- 		return dev_err_probe(dev, PTR_ERR(mtk_dp->phy_dev),
- 				     "Failed to create device mediatek-dp-phy\n");
- 
-+	ret = devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mtk_dp->phy_dev);
-+	if (ret) {
-+		platform_device_unregister(mtk_dp->phy_dev);
-+		return dev_err_probe(dev, ret,
-+				     "Failed to add phy unregister devm action");
-+	}
-+
- 	mtk_dp_get_calibration_data(mtk_dp);
- 
- 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
-@@ -2850,9 +2875,6 @@ static void mtk_dp_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- 	if (mtk_dp->data->bridge_type != DRM_MODE_CONNECTOR_eDP)
- 		timer_delete_sync(&mtk_dp->debounce_timer);
--	platform_device_unregister(mtk_dp->phy_dev);
--	if (mtk_dp->audio_pdev)
--		platform_device_unregister(mtk_dp->audio_pdev);
- }
- 
- #ifdef CONFIG_PM_SLEEP
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c  | 20 +++++++++-----
+ drivers/gpu/drm/mediatek/mtk_disp_rdma.c | 34 ++++++++++++++----------
+ drivers/gpu/drm/mediatek/mtk_dp.c        | 30 ++++++++++++++++++---
+ 3 files changed, 59 insertions(+), 25 deletions(-)
+
 -- 
 2.51.0
 
