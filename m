@@ -4,111 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE86CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55017CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4MsAfN8ggET6LQP8EBxlOi/6T17883/ulcELGobe1ps=; b=jCryuDEqpoNswgnSPPD7JJx/6r
-	i5CGnvkKY6T3+xwZRNekF2kb8CkZ+LMTs7LyT/fsRPA0YRtKxJHQgJ5Kfl7SE8Uo7R2vV/o0zPtPM
-	484//Abcdl57sEQ7dIR7OE3VbOokPAi8DPQDJs7cX+z0S7yGQV2ARaLZcDtRVbHtY3c00K47Lf25k
-	7gxcW8rVonUeAs9iZKTX+YiHPbz+M7s5EujlyDGLItK46T7I2Swdzjuj+KI4kxXVxp/t85HRFQJGp
-	OxAj9SQ4DqIFovcXbkwXNEX0SEuH0g8CXrky/2BZ/w5y7Bxst57i4iYJEU+aR12lxr3Obus0oczjM
-	iI2sWIxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BQFj3Uo8ilD9DkV7i7N/0dnNEvz96lNNazFJoCH0aTI=; b=Z+EwODWsQRDlT8UgQkV+bgKFJy
+	n92MyxrCROw6yJfh+Zsug0EFYoN0FWkQOeBtUVPINjjPXMj+uMpr6AuzzntNu7N59SwqHFbd6glIn
+	21WxLe3qKMCisurC/BXkVqMEbsdw0wMsnlwWXvEmKmas1d4s30L9LCqZTgf+qjUPgm6dRyXhHDHV5
+	IHBIG27FyNRyjlXEGl20tl3NjfLfbO9xR3aPyHXDyG/wV++V3m+iFe8qspfAwF7uB13OIQt7mdAMc
+	pJc+gYPjsjiveYU8T9zjt8I54LI7iAXLqRkogwxGG6trMXHpQM2twBCLnJpHorVmdilAfrtUtq+IB
+	bx052zGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ses-0000000ClLL-42IQ;
-	Thu, 25 Sep 2025 20:33:42 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1seq-0000000ClHP-1wx0
+	id 1v1shW-0000000CmpF-1pEm;
+	Thu, 25 Sep 2025 20:36:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1shU-0000000Cmo5-1QdX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 20:33:42 +0000
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id CB4A37A006F;
-	Thu, 25 Sep 2025 16:33:36 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Thu, 25 Sep 2025 16:33:37 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1758832416; x=1758918816; bh=4M
-	sAfN8ggET6LQP8EBxlOi/6T17883/ulcELGobe1ps=; b=pJf8uTAxclEov111Gn
-	xQ33IEzEHo7vZmyugvLylE5X3t7pkcrOh7/XCidyZiYzR0a4NyS6HyGjCY2RivHL
-	kzjCsBYKPn9K1MMqnWmtZ+EUfptvUGwTXB3/GZ8RoGAFD14VLatTcN0i7x5VdcxL
-	VzKzL3SI9txI5qCLxEx4yXyHlncYrz9iuU7+9OZYhj/NBtQ8b0V3YQT953Sy4yZo
-	Poqajq2bZA6wWZeIzp3ZkJcmlT9Jk2ZhyUUk7CV3YRcYDk0nTHNtiocJBthAeOKb
-	mdf+WJOcxLqpClG3rFnpPh/b85F1wePpSMC9tA3ZEygExgKKTzXzHmGqjOhNBwNS
-	IGpw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1758832416; x=1758918816; bh=4MsAfN8ggET6LQP8EBxlOi/6T178
-	83/ulcELGobe1ps=; b=lw2ETftN5AzzStse6OyaSkJZuueuyPUur6H1J8UGRtAL
-	tAAxWijSEKFt0+5vbGbdh3XAnZ0qgCAOIiIrfGGq/UXiozMzSnH1YKDdLcp9/6BN
-	KhM3y0FEGYd2J7ZXf5fTGCZdsy68aVqpYXJHAF25iIz8+Do2qQt+Zpi19xJNXYpI
-	Mh4WgO2/X6IQvjxGw6fQgxjDjmvjifcF4MeHYx9kv+zv+8/UeqFmKIOzks5BE+LL
-	UE7ge7OkFFfvJm567uE/u+dwu9/8SwWCtMq+8Fol1c3T23qehOYs3iW2+4RsZsHL
-	V6Zrlv+zstB5oR5MuvqEMKEV3a1pZWJpe/v1oxRW/w==
-X-ME-Sender: <xms:IKfVaDcyJhuTh0EKMcbT7vfbUje0hkz8Pbd-IaixgespATpn-tBd7Q>
-    <xme:IKfVaDQrYi9YSJzbAyMUw9HGudsbSIg0PzuO7Dc1C7BlHXtf450WNSz-mWmtG7Ul9
-    gtJfkffpo43jiU3YeEvA-b0v6hzAcVH5dQoFvUpAgjFSqnwnPJhZA>
-X-ME-Received: <xmr:IKfVaMZ4Z7_YvfZp_Dav0LunN2VmZjwuKOp6WaDEsuZj9X8eArDK1OprQmGG3gTJW533JK5Z17qaxoYL770K6oOFF-9bzRlim92Rfg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeijeeghecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
-    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgffeiff
-    etueffteeugfeghffghedthfekgfdtjeeuuedvveekteevvedvffekheenucevlhhushht
-    vghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnh
-    gvthdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohep
-    shhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvg
-    hrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlvggv
-    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuh
-    igrdguvghvpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoheplhhi
-    nhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnh
-    gvrghlsehgohhmphgrrdguvghv
-X-ME-Proxy: <xmx:IKfVaGdLgQ47fw3_12hvrZhafUyESr_kIuiiZmel5oIMUKdEh5wa8A>
-    <xmx:IKfVaNJiTL8cjvTSDT__UcSJ8An68vNHUfVm4Igj0aPVuEA7GARr-g>
-    <xmx:IKfVaDLdz77NmFoKrf-EvnPHSUTNZT49cU58Nm4x5bJ6E_AfDQQmSg>
-    <xmx:IKfVaMWokm2V5rgT18v8iSgKqEmkosr2nwMaMhFre0Ew3s07gidJUQ>
-    <xmx:IKfVaL5wYVvDXcvtiryhIXB5g6spwD_SM6WbfZgl96NQUaRfSyCNdz9w>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 25 Sep 2025 16:33:35 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 25 Sep 2025 22:33:18 +0200
-Subject: [PATCH] mfd: macsmc: Initialize mutex
+	Thu, 25 Sep 2025 20:36:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9464E1C2B;
+	Thu, 25 Sep 2025 13:36:15 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 042AA3F694;
+	Thu, 25 Sep 2025 13:36:20 -0700 (PDT)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org,
+	d-gole@ti.com,
+	souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH 01/10] firmware: arm_scmi: Define a common SCMI_MAX_PROTOCOLS value
+Date: Thu, 25 Sep 2025 21:35:45 +0100
+Message-ID: <20250925203554.482371-2-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250925203554.482371-1-cristian.marussi@arm.com>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250925-macsmc-mutex_init-v1-1-416e9e644735@jannau.net>
-X-B4-Tracking: v=1; b=H4sIAA6n1WgC/x3MTQqAIBBA4avErBNMiH6uEhHTONYstNCKILp70
- vJbvPdA4iicoC8eiHxJki1kVGUBtGJYWInNBqNNrTtTK4+UPCl/HnxPEuRQrbYNzQaRHELu9sh
- O7v85jO/7ASqO8vhjAAAA
-X-Change-ID: 20250925-macsmc-mutex_init-80d7cb2aacfa
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1050; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=+Jor10eg5LvHZCSW9hUAM8+MJz6BmLXiQAQ9uw52A+I=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhoyry+UO9Srerd2t5J3CXPixIzP8kk3K0o78Hg8pJqstE
- 61cZ6zsKGVhEONikBVTZEnSftnBsLpGMab2QRjMHFYmkCEMXJwCMJG9Cxj+u/Dy+rsvSXuXqf/+
- NJPM2Vvxa/88vl4V/Sj85vrdP/fqPWD4n5c9X/nTyo3iOrwT1Xo0xQxLWI2EVVz8QmOninz3X3G
- PBQA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_133341_052687_5893A467 
-X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-CacheID: sfid-20250925_133624_413820_B6AF859D 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,35 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Struct apple_smc's mutex was not initialized before use. Surprisingly
-this only resulted in occasional NULL pointer dereferences in
-apple_smc_read() calls from the probe() functions of sub devices.
+Add a common definition of SCMI_MAX_PROTOCOLS and use it all over the
+SCMI stack.
 
-Fixes: e038d985c9823 ("mfd: Add Apple Silicon System Management Controller")
-Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/mfd/macsmc.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/firmware/arm_scmi/notify.c | 4 +---
+ include/linux/scmi_protocol.h      | 3 +++
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index 870c8b2028a8fc0e905c8934c2636824cbe5d527..3a117cf19145e86b642f40dc165b542b8df69070 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -413,6 +413,7 @@ static int apple_smc_probe(struct platform_device *pdev)
- 	if (!smc)
- 		return -ENOMEM;
+diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+index dee9f238f6fd..78e9e27dc9ec 100644
+--- a/drivers/firmware/arm_scmi/notify.c
++++ b/drivers/firmware/arm_scmi/notify.c
+@@ -94,8 +94,6 @@
+ #include "common.h"
+ #include "notify.h"
  
-+	mutex_init(&smc->mutex);
- 	smc->dev = &pdev->dev;
- 	smc->sram_base = devm_platform_get_and_ioremap_resource(pdev, 1, &smc->sram);
- 	if (IS_ERR(smc->sram_base))
-
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250925-macsmc-mutex_init-80d7cb2aacfa
-
-Best regards,
+-#define SCMI_MAX_PROTO		256
+-
+ #define PROTO_ID_MASK		GENMASK(31, 24)
+ #define EVT_ID_MASK		GENMASK(23, 16)
+ #define SRC_ID_MASK		GENMASK(15, 0)
+@@ -1673,7 +1671,7 @@ int scmi_notification_init(struct scmi_handle *handle)
+ 	ni->gid = gid;
+ 	ni->handle = handle;
+ 
+-	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTO,
++	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTOCOLS,
+ 						sizeof(char *), GFP_KERNEL);
+ 	if (!ni->registered_protocols)
+ 		goto err;
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 688466a0e816..59527193d6dd 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -926,8 +926,11 @@ enum scmi_std_protocol {
+ 	SCMI_PROTOCOL_VOLTAGE = 0x17,
+ 	SCMI_PROTOCOL_POWERCAP = 0x18,
+ 	SCMI_PROTOCOL_PINCTRL = 0x19,
++	SCMI_PROTOCOL_LAST = 0x7f,
+ };
+ 
++#define SCMI_MAX_PROTOCOLS	256
++
+ enum scmi_system_events {
+ 	SCMI_SYSTEM_SHUTDOWN,
+ 	SCMI_SYSTEM_COLDRESET,
 -- 
-Janne Grunau <j@jannau.net>
+2.51.0
 
 
