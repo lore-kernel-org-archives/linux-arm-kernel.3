@@ -4,147 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA34CAC5A7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB5BCAC5B1
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 14:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EK88bIxyb7opoCqG7E3Er3n2due1WnCsiMk8VTgRnkg=; b=DO4PaLDAWh1jFLUpjtal7opfx5
-	0/kRCe4zjIZjq05v8QXMb3NkX951x1TMalRbQUqLjuwmHAz0vJVfn5mjMZIiqIu//DfTG512v27Ig
-	hxI2eLUUczDJmCibR4anwVGuEkzn8GyPueRwnkULtXrsR4dKtokmPKJyncxYL/BGju6M6ug4tt+Vp
-	uz7ICObb6mQYD59ww43VenMgEiZyZ3AImLrbs0EmiaKgHxZY7n7WmrWy7Fu7Hx9TQfQ7iu3qAEBCK
-	+bzg7NTG8k5bXt/Src/4/hAkildmo6nbzbXI8pvpRk5IakYrqB9m2SiGsqLeMJTnQ+KAJN5zLJybV
-	AbU4qwLw==;
+	bh=IJ+nF8uKdrEQpugzICNVcKzol70S/AnQATCfzBW+hiM=; b=MSiePeJ4FnJD/eKTZ3SM8GaYsn
+	OUpW3WUuKUihe1DXqA/kCkiSAn5Y7mMKA4knOexCcSX8jVlVSf+Tc1DuUK1i/1NR+yK2LAoDwlwIp
+	0cpA+xR6p9Vvb2Qsdlngos915EyflW76WqCIVVQd+cTrlAHnr7oiLaSZsjzwMu0Nta5Wg1I4rPE+F
+	FKkt5jP9CxWBUxs31pEe+HqIrij/Hn8yAtAf221hGUxpJUYEJ90v9oTx9o6sVkw2srLqyWDCr9H4X
+	o4qweqT4JOQE04SvpwTPzZcx9zLCeXqyE3xmUEm28wTb69ciMfWlL2C6FrTQJtCGa0tiJMViD9mPw
+	LJ6/3alg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mcA-00000009mt0-25JD;
+	id 1v1mcA-00000009mti-3RmW;
 	Thu, 25 Sep 2025 14:06:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mc8-00000009mq4-1QDe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 25 Sep 2025 14:06:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=EK88bIxyb7opoCqG7E3Er3n2due1WnCsiMk8VTgRnkg=; b=CDKNMOE3egdr1Gqs8osltUmtUk
-	RaDmwQPzBweM15ByvSxlw/9pMqyl4VZ3siPZtF4fMkwvYt1wwXF2zdvLBUalsVu2ieH2t5r8c9U1X
-	SVOaRTYEuWICwa4ytOPeK1qV8O3AUPLm/yIYPQadU9TqiE7YYJQkj1SsKxz06Dp6egTlFxspFJ6wp
-	A6z0aSe0dlvekK/qnLPVnUgWS+K3tTqYq/SvWnyBUFth2uiJCOy+zLZRgd6dOEM58uVcwaO6SO8n3
-	p9Hywb5aspNrjlxBDNkFhKwsaL20R08u6pe7XKr6P9rOcUFCYepS1CxIhsJm1cexCe/moNhE86hfZ
-	N+3sEJjQ==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mc4-00000009Cyu-38Gx
+	id 1v1mc9-00000009mqq-0Lqi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 14:06:27 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58PAUhvM029619;
-	Thu, 25 Sep 2025 14:06:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	EK88bIxyb7opoCqG7E3Er3n2due1WnCsiMk8VTgRnkg=; b=lIbVWS0xpT1rwP5t
-	HA1VAgPzmoHjRhP1ABGlKCm3EnI57rbsxm2REOADGVeYBWSiZsNyKxBG6DjnbcRC
-	hI2QJgr4Yl5SbkzjgCTVcnaIHjjuSdhTYULMtVd+7yZKz5c2EOH0TDlTneHFul7O
-	7sqSMMV3wgZr8hQMkNmO8+NowJjfy+LD8j5Sz7UKCA0ojbHadG7OkHdNOyfMRO7W
-	9zpiBcadY2rbDUjDaP7xMoAqdk7rraoZL8iq0uJabHmOvqpX2YeRPMBBrNScWk1F
-	AqZYY3/TtXmxaZMFDioZN54epVxrs3cgRz6ZZpIwGeWMz7H5fxYgjimruT52ej8d
-	e5AM5w==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 499n1fr7ks-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 Sep 2025 14:06:10 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58PE68li022731
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 Sep 2025 14:06:08 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Thu, 25 Sep 2025 07:06:02 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 25 Sep 2025 22:05:37 +0800
-Subject: [PATCH v6 03/10] dt-bindings: interconnect: Add Qualcomm IPQ5424
- NSSNOC IDs
+	Thu, 25 Sep 2025 14:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CA88605D8;
+	Thu, 25 Sep 2025 14:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DAC92C116D0;
+	Thu, 25 Sep 2025 14:06:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758809187;
+	bh=HV1fJPRFrPlcadQzhmD0w45w8XUYKAzZp4nL/8OX/sU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=AZXV4PyEfHJIAOnyxSkujQNWdCnF1+t0zf438VaaaJxiOkVeZAQ2bhk4zWXwks32S
+	 xCtuq4ZUx7iRijmMNrn9R9iuIxGkClsa4QpFc3rq7wjqsNURc4HuTOvi8iuG/bfDrc
+	 xz4LqWlW0QNWGnlEoJR2/kVqQH0UMEzYKacUQGEUA50J1vNIETIZb6Pddfxb2E8lam
+	 K/H79239LrutrQYv+yFXTmha4wK7+NmaX2iT1RmWsoi6+C8I3YkzOr0k40e6B1+joa
+	 US5G3dPMN5hAb19htIfLNuuZAPQjNMEKkNsboWDcjo4KDEbOe942rVcZ0Kk+nacgtu
+	 XvRuD6GGq2acw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD778CAC5B7;
+	Thu, 25 Sep 2025 14:06:27 +0000 (UTC)
+From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
+Date: Thu, 25 Sep 2025 22:06:14 +0800
+Subject: [PATCH net-next v3 2/2] net: stmmac: tc: Add HLBS drop count to
+ taprio stats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250925-qcom_ipq5424_nsscc-v6-3-7fad69b14358@quicinc.com>
-References: <20250925-qcom_ipq5424_nsscc-v6-0-7fad69b14358@quicinc.com>
-In-Reply-To: <20250925-qcom_ipq5424_nsscc-v6-0-7fad69b14358@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        "Varadarajan
- Narayanan" <quic_varada@quicinc.com>,
-        Georgi Djakov <djakov@kernel.org>, "Rob
- Herring" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        "Manikanta Mylavarapu" <quic_mmanikan@quicinc.com>,
-        Devi Priya
-	<quic_devipriy@quicinc.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Richard
- Cochran" <richardcochran@gmail.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_suruchia@quicinc.com>, Luo Jie
-	<quic_luoj@quicinc.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758809144; l=1518;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=3kI7v3n2uneHPtTTq+P96g+GGegxV6qWC49TJxH8Jfc=;
- b=DnTbCCp0ejnZVH1RCIPQSN8Dd71lI27GFVYWHDUIDZDRfhEwq06LeC36XNkiZmpq4xfcl2Gps
- jIba0ZOAaiJDp2ndquOigeF9ayIm2XMx1dyryIb37CZbZDR+hgd8S0+
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: UsR0FuEcIvf_hVMeDDiYv3U-QA1BbTFf
-X-Proofpoint-GUID: UsR0FuEcIvf_hVMeDDiYv3U-QA1BbTFf
-X-Authority-Analysis: v=2.4 cv=No/Rc9dJ c=1 sm=1 tr=0 ts=68d54c52 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8
- a=Qcuqu0ky38DJWFOqejsA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIwMDAzNyBTYWx0ZWRfX4N4tci+qleZE
- nf+sK0VYGDbDGcPD5Ng65jpxOb5LPtMB1FORYPQbeFJ/qvkDsxdZSwey408bke5vfSrAZrpQT2S
- OePsLpTmNy9cugy6Hdtxj0PQFhIdSxdHNuRjYwuBzxkp9Qkw3PTkLmJSDYr5s4InWgxPKfGyszF
- u+PNnkxU9W+1fhtfapOB2JLoLmkgbLwvdNT0xkFeKMFWfHiidqhH9ot2JMnZe5X6QRMVJhzZHpm
- /P4lMcDoPBra+8aDMqWfVdFwcoDEt8DrTRNOGv0RSmihVhlrOp+9BVYeTZrOOCCalL6Noi5lTO1
- K0ffjxF3CojBXM95PsW2JRTxtEb8QWmQkoICnLcnvfl4mlfv9klTn0cGuqxmM9qyNGlRfaSsgIX
- jxjrqPxV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-25_01,2025-09-25_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 suspectscore=0 adultscore=0 malwarescore=0
- phishscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509200037
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_150625_245012_C9787BA1 
-X-CRM114-Status: GOOD (  11.46  )
+Message-Id: <20250925-hlbs_2-v3-2-3b39472776c2@altera.com>
+References: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
+In-Reply-To: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rohan G Thomas <rohan.g.thomas@altera.com>, 
+ Matthew Gerlach <matthew.gerlach@altera.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758809186; l=1901;
+ i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
+ bh=yQq3VlBwoMaeIk8RqufK4UtuoZY2MJJUDQlkLWwWmPU=;
+ b=hMdALF2Fprn4xVt2wKIRH3p+R12E3UBo6KtGBycM/0VaCD43UCQOfL6aRH7GT37DTEzaquy94
+ rybizx/a9NfB7Wi/Vz9npKmXRfGA6OTViRZojhai+kF+f2vKAwnzA0S
+X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
+ pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
+X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
+ with auth_id=494
+X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,51 +86,56 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the NSSNOC master/slave ids for Qualcomm IPQ5424 network subsystem
-(NSS) hardware blocks. These will be used by the gcc-ipq5424 driver
-that provides the interconnect services by using the icc-clk framework.
+From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+Add the count of the frames dropped by Head-Of-Line Blocking due to
+Scheduling(HLBS) error to taprio window drop count stats.
+
+Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
 ---
- include/dt-bindings/interconnect/qcom,ipq5424.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/include/dt-bindings/interconnect/qcom,ipq5424.h b/include/dt-bindings/interconnect/qcom,ipq5424.h
-index afd7e0683a24..c5e0dec0b300 100644
---- a/include/dt-bindings/interconnect/qcom,ipq5424.h
-+++ b/include/dt-bindings/interconnect/qcom,ipq5424.h
-@@ -20,6 +20,26 @@
- #define SLAVE_CNOC_PCIE3		15
- #define MASTER_CNOC_USB			16
- #define SLAVE_CNOC_USB			17
-+#define MASTER_NSSNOC_NSSCC		18
-+#define SLAVE_NSSNOC_NSSCC		19
-+#define MASTER_NSSNOC_SNOC_0		20
-+#define SLAVE_NSSNOC_SNOC_0		21
-+#define MASTER_NSSNOC_SNOC_1		22
-+#define SLAVE_NSSNOC_SNOC_1		23
-+#define MASTER_NSSNOC_PCNOC_1		24
-+#define SLAVE_NSSNOC_PCNOC_1		25
-+#define MASTER_NSSNOC_QOSGEN_REF	26
-+#define SLAVE_NSSNOC_QOSGEN_REF		27
-+#define MASTER_NSSNOC_TIMEOUT_REF	28
-+#define SLAVE_NSSNOC_TIMEOUT_REF	29
-+#define MASTER_NSSNOC_XO_DCD		30
-+#define SLAVE_NSSNOC_XO_DCD		31
-+#define MASTER_NSSNOC_ATB		32
-+#define SLAVE_NSSNOC_ATB		33
-+#define MASTER_CNOC_LPASS_CFG		34
-+#define SLAVE_CNOC_LPASS_CFG		35
-+#define MASTER_SNOC_LPASS		36
-+#define SLAVE_SNOC_LPASS		37
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index 694d6ee1438197bd4434af6e9b78f022e94ff98f..97e89a604abd7a01bb8e904c38f10716e0a911c1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -1080,6 +1080,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
+ 		for (i = 0; i < priv->plat->tx_queues_to_use; i++) {
+ 			priv->xstats.max_sdu_txq_drop[i] = 0;
+ 			priv->xstats.mtl_est_txq_hlbf[i] = 0;
++			priv->xstats.mtl_est_txq_hlbs[i] = 0;
+ 		}
+ 		mutex_unlock(&priv->est_lock);
+ 	}
+@@ -1097,7 +1098,8 @@ static void tc_taprio_stats(struct stmmac_priv *priv,
  
- #define MASTER_CPU			0
- #define SLAVE_L3			1
+ 	for (i = 0; i < priv->plat->tx_queues_to_use; i++)
+ 		window_drops += priv->xstats.max_sdu_txq_drop[i] +
+-				priv->xstats.mtl_est_txq_hlbf[i];
++				priv->xstats.mtl_est_txq_hlbf[i] +
++				priv->xstats.mtl_est_txq_hlbs[i];
+ 	qopt->stats.window_drops = window_drops;
+ 
+ 	/* Transmission overrun doesn't happen for stmmac, hence always 0 */
+@@ -1111,7 +1113,8 @@ static void tc_taprio_queue_stats(struct stmmac_priv *priv,
+ 	int queue = qopt->queue_stats.queue;
+ 
+ 	q_stats->stats.window_drops = priv->xstats.max_sdu_txq_drop[queue] +
+-				      priv->xstats.mtl_est_txq_hlbf[queue];
++				      priv->xstats.mtl_est_txq_hlbf[queue] +
++				      priv->xstats.mtl_est_txq_hlbs[queue];
+ 
+ 	/* Transmission overrun doesn't happen for stmmac, hence always 0 */
+ 	q_stats->stats.tx_overruns = 0;
 
 -- 
-2.34.1
+2.35.3
+
 
 
