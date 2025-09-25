@@ -4,105 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF43CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F2FCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fvGyyGJ8hFx3nYrMkZDfGE5Winq5taN5wWeFI0QZNc=; b=gAz5TmHiaKG3vJZ/otxVi5Hqsh
-	ak+8bQCdibZyrpLDeMBEdmi36rXATA0JP8gZCr1XxbEbolzHwS8p2HsPlI1hQ3NBDxVySuO+V68+M
-	tu2ZZ2pVO+XSBiFxYFRlYe4t/EOjJr2UPvwSaeWHsUteg/oDvdd3CI9fyuM7B/ir3BLZxokC6Jr2v
-	kaA2tDnXnYPo+HussGPlsPUmmJ65aODzwNr5+QyIycReP9eJsVo97D4wOp3HEUBl5a9fOJ2iFckdA
-	jMGDzU/eAzghesNd4YaP2jBd1opuydncS2/PZEbbid7QSKmvXaei76IvVqAnRuuafn2D44QqP6E2t
-	du0h1UdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ijBeTVh2qMoqGY4XXlzT1UoXFC5cgdqYwVNgvrBe2U=; b=edMUB54LiFbQjiVCiD4dSLZ6Kl
+	Ut6a1mJzPl3v960vGOwvJyrPxZlOWptwRUAiCoqmurA6kNBMztOu01id58rZqb/p1RiQBf+3sptcR
+	rws+y9QXGsmQ5tXNhccIsa+U6E8Ceuu3JZYuwRHBc6Mere5c65gBmt9zjXdn4PQZJX5MhpPUHJ/hd
+	awwh9nmtKXP3w2uQw6tsxJudQpghWB6F3mGhW5BqRhVIy/jpBl+yFMFe9/QDr3jzd31xbKEzF7D5X
+	0/gxCtOraHIppX7KD29ZyVph4FS/uaZRuSKoqzq4OhRYM9dAgvFChVhSLuD4+ZSf0QM1G2uS4G42U
+	mE1fJxbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gq7-00000006uV5-1pLL;
-	Thu, 25 Sep 2025 07:56:31 +0000
-Received: from mail-io1-f49.google.com ([209.85.166.49])
+	id 1v1gqw-00000006ulT-3GHj;
+	Thu, 25 Sep 2025 07:57:22 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gq4-00000006uTV-1mwD
+	id 1v1gqr-00000006ugK-2lsU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 07:56:29 +0000
-Received: by mail-io1-f49.google.com with SMTP id ca18e2360f4ac-8b0055cbd0fso64309939f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 00:56:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758786987; x=1759391787;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9fvGyyGJ8hFx3nYrMkZDfGE5Winq5taN5wWeFI0QZNc=;
-        b=B4Pou/imhUaVrp5E2H6aE+LNjZbSlz9XddLe6x+ck9QHwX1U0vy+qDVUuhhrChRNn6
-         V+j1yy8ZWJ91TVfHc2H8RYKF0/eAprlF5M3FJ7xBdMjrQJu0+2/QZN3oVMQCPGISQxoC
-         5mYzZMEol3Zzrw4ivtkxiiYLWMHObpgT2aKxliiClrkj3pCeZQCXCbChbGrk4Xbsg4Yb
-         Tg0hyerpEAfyo8rmS6xdpVMva5hu9d7tPgx4mxTjzwu9XcnwX0CTffl1ilq0IvgcNCeW
-         ZYpeQkpipEU5rdb2R3/7Tb6jZuZVVFqGW7ZuFNCP6cqOj1+E/dv91ZC/BUyJwTrgppeM
-         W98g==
-X-Forwarded-Encrypted: i=1; AJvYcCXKJ7CzdUJEpSZ1AfHCtay2VnYUKHIk5B9CwS4EHC9SKHrzReubHl/jTsEMrqGzrb7nKptByo1hFa3iVsPhluxy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiLGX0QJVzcnxkyzPcYqaCQjihw/p82/jrfVLeWSYiUdPUQo1x
-	ZeZ9ndOBfL3121fBXW9rb4tMS9b29qikaX9zgPyHinBJ2F/vl4IuB1CmT91saRMT
-X-Gm-Gg: ASbGnctnWdEwWRM7iV0M5QgE+ij0cyZ/8qX6KCxhEX8Uz2ExVX/lMiKtFC7UhclPPmq
-	A5ZcfGtyOUaR9XXWxl4nFNAgg9lhmNxewmZNn8Nh4HtdwnAHBsUvkzmTsdqPKoshpuSoVSgHae4
-	G1sdmHfTTnCsfj23N09nYqS+EJAChKEwYbuXFZGsAKzC1FBEcuNdSSV6nL/Dvq7WUuGOnW1KrDq
-	nUGFyoLmoN7Cb9x2W45RjpRZyWAZclDu15y9wqExpjKGzdOCnRETdDy6ykWhyaNj2QyYcNjFJj/
-	+2HUoaaAfd6kE4VrdFkD3HKYcUn1AoK7oqg0vZ6eoN4LoGnuFKjukWqk56NnmcqTKOwcVnQtShP
-	Wes5AX5UxHAw3P6CeVIiRWIdrQsw34LrhLA9n0xUF0uuSp9ZNtJEez9tl/63HB4WT
-X-Google-Smtp-Source: AGHT+IF0GdbMuTnc47vxDeVbzkuwDyKxLkVtDV8BuK8+bAXM2k1TEp1ChN0AgG6L3dZlafKW8k/96Q==
-X-Received: by 2002:a05:6602:3f8a:b0:8e0:cc1b:f680 with SMTP id ca18e2360f4ac-9016c487c05mr361958539f.13.1758786987068;
-        Thu, 25 Sep 2025 00:56:27 -0700 (PDT)
-Received: from mail-il1-f171.google.com (mail-il1-f171.google.com. [209.85.166.171])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-903fb455dbbsm50807039f.10.2025.09.25.00.56.26
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Sep 2025 00:56:26 -0700 (PDT)
-Received: by mail-il1-f171.google.com with SMTP id e9e14a558f8ab-425635acc4dso7004875ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 00:56:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX38yimFl41uXL/khRYwX7nHD8yvZk6MY7Kt07KSzUNXFr9PlMANyFYoqZ6loU6yHR08fD7mvC1LVoQSTFVCljn@lists.infradead.org
-X-Received: by 2002:a05:6102:510d:b0:529:fc9e:84a0 with SMTP id
- ada2fe7eead31-5acd36bc5d5mr955558137.32.1758786509499; Thu, 25 Sep 2025
- 00:48:29 -0700 (PDT)
+	Thu, 25 Sep 2025 07:57:21 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250925075712euoutp01499ba15c87d7a0461a34788ed303ae0a~od3zMW4qQ2336923369euoutp01x
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 07:57:12 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250925075712euoutp01499ba15c87d7a0461a34788ed303ae0a~od3zMW4qQ2336923369euoutp01x
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758787032;
+	bh=+ijBeTVh2qMoqGY4XXlzT1UoXFC5cgdqYwVNgvrBe2U=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=TZQ8vvPjFj5PkMyDHybH6PwN7dyr3NhtdVbEpqMffQ8EpGjF/ePqtm3CIVT7exurA
+	 0Ktnnx4yMfDievDvYDVmxXqdf99VFOwreQhODpr+4ii57R5fBmKt8xsmT1xIEcYQaB
+	 3C+f5VFdyryFGWVl5/LRz+VORHGL9j30aN36Ml4Q=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3~od3yzCY6p2636426364eucas1p2F;
+	Thu, 25 Sep 2025 07:57:11 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250925075710eusmtip21342a4d5fdce7eebd984c1532f6130c3~od3x4W-jr1189111891eusmtip2X;
+	Thu, 25 Sep 2025 07:57:10 +0000 (GMT)
+Message-ID: <727aa0c8-2981-4662-adf3-69cac2da956d@samsung.com>
+Date: Thu, 25 Sep 2025 09:57:10 +0200
 MIME-Version: 1.0
-References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
- <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
-In-Reply-To: <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 25 Sep 2025 09:48:17 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
-X-Gm-Features: AS18NWAlEwAE5FC0AW6Wq0ip31mrrj6gmcRezsp6GMYcQa-YSc4N16xdaxhcVw8
-Message-ID: <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] pinctrl: use more common syntax for compound literals
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Lee Jones <lee@kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matt.redfearn@blaize.com>, 
-	Neil Jones <neil.jones@blaize.com>, 
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>, Hoan Tran <hoan@os.amperecomputing.com>, 
-	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>, 
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev, 
-	linux-unisoc@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, Michael Turquette
+	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz
+	Julienne <nsaenz@kernel.org>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Maxime
+	Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>, Iago Toral
+	Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>, Dave
+	Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+	Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
+X-EPHeader: CA
+X-CMS-RootMailID: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
+References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
+	<20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
+	<CGME20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_005628_462451_9C6FEF31 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250925_005718_161376_7A09F27E 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,34 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
-
-On Thu, 11 Sept 2025 at 12:02, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 31.07.2025 23:06, Maíra Canal wrote:
+> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+> enable/disable the firmware clock. This means that
+> `clk_disable_unprepare()` doesn't actually change the clock state at
+> all, nor does it lowers the clock rate.
 >
-> The (typeof(foo)) construct is unusual in the kernel, use a more typical
-> syntax by explicitly spelling out the type.
+> >From the Mailbox Property Interface documentation [1], we can see that
+> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+> prepare and an unprepare hook for RPi's firmware clock.
+>
+> As now the clocks are actually turned off, some of them are now marked
+> CLK_IS_CRITICAL, as those are required to be on during the whole system
+> operation.
+>
+> Link: https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface [1]
+> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>
+> ---
+>
+> About the pixel clock: currently, if we actually disable the pixel
+> clock during a hotplug, the system will crash. This happens in the
+> RPi 4.
+>
+> The crash happens after we disabled the CRTC (thus, the pixel clock),
+> but before the end of atomic commit tail. As vc4's pixel valve doesn't
+> directly hold a reference to its clock – we use the HDMI encoder to
+> manage the pixel clock – I believe we might be disabling the clock
+> before we should.
+>
+> After this investigation, I decided to keep things as they current are:
+> the pixel clock is never disabled, as fixing it would go out of
+> the scope of this series.
+> ---
+>   drivers/clk/bcm/clk-raspberrypi.c | 56 ++++++++++++++++++++++++++++++++++++++-
+>   1 file changed, 55 insertions(+), 1 deletion(-)
 
-Thanks for your patch, which is now commit da3a88e9656c17a3 ("pinctrl:
-use more common syntax for compound literals") in pinctrl/for-next
+This patch landed recently in linux-next as commit 919d6924ae9b ("clk: 
+bcm: rpi: Turn firmware clock on/off when preparing/unpreparing"). In my 
+tests I found that it breaks booting of RaspberryPi3B+ board in ARM 
+32bit mode. Surprisingly the same board in ARM 64bit mode correctly 
+boots a kernel compiled from the same source. The RPi3B+ board freezes 
+after loading the DRM modules (kernel compiled from arm/multi_v7_defconfig):
 
-> Link: https://lore.kernel.org/all/20250909-gpio-mmio-gpio-conv-part4-v1-13-9f723dc3524a@linaro.org/
+---->8---
 
-Looks like you (slightly) missed your target. The correct link is:
+[    7.317423] cfg80211: Loading compiled-in X.509 certificates for 
+regulatory database
+[    7.379464] Console: switching to colour dummy device 80x30
+[    7.407475] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4])
+[    7.434647] input: vc4-hdmi HDMI Jack as 
+/devices/platform/soc/3f902000.hdmi/sound/card0/input0
+[    7.448937] vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc4])
+[    7.455677] vc4-drm soc:gpu: bound 3f806000.vec (ops vc4_vec_ops [vc4])
+[    7.462371] vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4])
+[    7.468962] vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops 
+vc4_crtc_ops [vc4])
+[    7.476424] vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops 
+vc4_crtc_ops [vc4])
+[    7.483831] vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops 
+vc4_crtc_ops [vc4])
 
-    Link: https://lore.kernel.org/aMAP9hAWars0T83r@smile.fi.intel.com
+(system frozen at this point)
 
-> Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Gr{oetje,eeting}s,
+> ...
 
-                        Geert
-
+Best regards
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
