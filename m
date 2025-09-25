@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFA1CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 01:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BF4CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 01:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1cxPuru/dTauKIdCPPQWiFvPqh4TOSKalbOdFC9IPl8=; b=Pod19RncijzixjOQXMEHWwOOe5
-	X7s85zIj8WHfiDSOmf6kED8pkR01h59yaOxh50qIN4TdBsUe1vZZvPuZq/n6ITIGZ6DaYg/n+HD+1
-	c8ibJM3Tn6WNnxYjZWynzL4ScXpCbSDpAbriNAWtHGZOEuN5KQAum6hcNGf2V4fWTMoyhUGuz3+jK
-	+bdSHtl4BKPmGpoKnCx0iaMXzcvl5eyB1Jp8mm50AQioBkHMRljC1blSULJoVEBGw1TMWJ19KCcus
-	PPZ4fLVJZfnszphJzKLYn4bbZo0jg2mohYuA0qerhpN7LC7U5i3F9UkN/0NDTgw0+EJ9aPexxRh1W
-	kzcWv2Hw==;
+	bh=plG5U0sBcjaeBHfSfODAnBwtdeMzG2EnpxK6FuRkTcs=; b=4EeQrKa7TxsH9Av/iSCJq0B2DU
+	XyZNhP3TQLluWO5qWvL59mAWdzxvgNG1K/yMzoZm+vM7GEAWSwR7FajkA4gg2r7+t1siA+rVzVhz4
+	Hjh7HFCeKwrc2qv2Kk9vaZgTD/zXq9CWja0u1evRpkXLQwztXXnfpxZ87vFYRCTaA+EclhiZAIQYX
+	4G/DpStuLsfoJ63CQMkPk0/qaZxOqXvWOIi7sVWKHv2DFEt7eJNOZOWoa4bk3F16uAfVI3ZxidnzT
+	l9waSAB/80UqN+1nYXbSMjX+d8sU9LNYciDr1GZEBFLUV9h1yee+YQYEaOj4aOp700l9B+OzOmUHY
+	+atyFwbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1acn-00000005AbT-3cV2;
+	id 1v1acn-00000005Aar-2PQ2;
 	Thu, 25 Sep 2025 01:18:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1ack-00000005AZU-2z7J
+	id 1v1acj-00000005AYO-23SX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 01:18:20 +0000
+	Thu, 25 Sep 2025 01:18:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6ACA241764;
-	Thu, 25 Sep 2025 01:18:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FAF6C4CEF8;
-	Thu, 25 Sep 2025 01:18:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 85FE544D4A;
+	Thu, 25 Sep 2025 01:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC3DC4CEE7;
+	Thu, 25 Sep 2025 01:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758763098;
-	bh=C55DETOo2QRYteFXs2WfthXPbj+SvYWsU4QTXLEnsCU=;
+	s=k20201202; t=1758763095;
+	bh=+Rq7hiUDbbMid1ZpoqEKumtl/xgLrffLe02IvsOC8CM=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=slfRqWTwJpfzLeFqfHeCLJlKBQBLQPGGb1ZUd9Y9kH/UQ97KoztYe1RwAEXhYwcfM
-	 l3DFn8PtKpRUp8zcqpNyUeN1NcG8MPrYDSaFSquI9szHDmRX57I4nnU3cbWloaTAhv
-	 PhJfSTbsJVnUuUAnnVbBeit9E07nZiVNw3gEwkrkslW3cNQ6e56qcAaOrsK2tb6DZz
-	 ZrSScpuFUDxDKqdnBt088LhEBqMAi13ZZU4Ih8/YHLJ1T7gMWUOp+lYuzW/lS+q6ZC
-	 9hSEyGKDvPZ5dI+N6IFJlVSbwiY0QAuRbj+1bqD/KuONDJDzq10Z/w87tDvQvUu1Yb
-	 luQ7zCdkOrHLQ==
-Date: Wed, 24 Sep 2025 20:18:17 -0500
+	b=P5e0RFMBUDkFAF0bn9qLxqA8XVllUHPlgPJYT5cWvu/lTZEmC/wwC+3kWbFSDFO4l
+	 vjMsUV0DylmtvJiM+uPTpLKGsF7my1iaI+o43VXf1tQYHyy1Y2HfOddcR2bLKRCfVL
+	 ZiFPG51reUSpv9a561Rpx2MXnOVhAn6K8VW/HCBnAVtULdBqctRWSPhCH5hIGtoYgY
+	 sDHgnyKr5MM1opo6E1zBeXMgLbtOIGPso0TQlWgh/ghOElLxSTpONWrK2dmFjprF+y
+	 J1joLBxJ8OG1SE83hJMoAqsXQKxKskcnnQZFjiXgDMWW/nKIA8IYjeetF/m4LDCRlv
+	 ISmSkDAQdi37Q==
+Date: Wed, 24 Sep 2025 20:18:14 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Alice Guo <alice.guo@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- devicetree@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org
-To: "Alice Guo (OSS)" <alice.guo@oss.nxp.com>
-In-Reply-To: <20250924-imx943-v1-0-0d32d7852ecb@oss.nxp.com>
-References: <20250924-imx943-v1-0-0d32d7852ecb@oss.nxp.com>
-Message-Id: <175876283151.3268828.13905899356593149136.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Add i.MX94 OCOTP support
+Cc: linux-kernel@vger.kernel.org, kristo@kernel.org, krzk+dt@kernel.org, 
+ devicetree@vger.kernel.org, upstream@lists.phytec.de, conor+dt@kernel.org, 
+ aradhya.bhatia@linux.dev, vigneshr@ti.com, nm@ti.com, 
+ linux-arm-kernel@lists.infradead.org
+To: Wadim Egorov <w.egorov@phytec.de>
+In-Reply-To: <20250924143916.2023919-1-w.egorov@phytec.de>
+References: <20250924143916.2023919-1-w.egorov@phytec.de>
+Message-Id: <175876282860.3268733.8113461594217309147.robh@kernel.org>
+Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am62: Add support for AM625
+ OLDI IO Control
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_181818_815195_E501AB53 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20250924_181817_573090_A6DD1016 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +75,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 24 Sep 2025 18:06:22 +0800, Alice Guo (OSS) wrote:
-> This patch series adds support for the OCOTP controller on the i.MX94
-> SoC. The OCOTP controller provides access to eFuse regions.
+On Wed, 24 Sep 2025 16:39:14 +0200, Wadim Egorov wrote:
+> From: Aradhya Bhatia <a-bhatia1@ti.com>
 > 
-> Tested on an i.MX943 EVK board with successful NVMEM read access via
-> sysfs.
+> Add TI DSS OLDI-IO control registers for AM625 DSS. This is a region of
+> 12 32bit registers found in the TI AM625 CTRL_MMR0 register space[0].
+> They are used to control the characteristics of the OLDI DATA/CLK IO as
+> needed by the DSS display controller node.
 > 
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
+> [0]: https://www.ti.com/lit/pdf/spruiv7
+> 
+> Signed-off-by: Aradhya Bhatia <a-bhatia1@ti.com>
+> Signed-off-by: Swamil Jain <s-jain1@ti.com>
+> Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
 > ---
-> Alice Guo (3):
->       dt-bindings: nvmem: imx-ocotp: Add binding for i.MX94
->       nvmem: imx-ocotp-ele: Add support for i.MX94 OCOTP
->       arm64: dts: imx94: Add OCOTP node
-> 
->  .../devicetree/bindings/nvmem/imx-ocotp.yaml         |  4 +++-
->  arch/arm64/boot/dts/freescale/imx94.dtsi             |  7 +++++++
->  drivers/nvmem/imx-ocotp-ele.c                        | 20 ++++++++++++++++++++
->  3 files changed, 30 insertions(+), 1 deletion(-)
-> ---
-> base-commit: cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
-> change-id: 20250924-imx943-b27ad75d14fa
-> 
-> Best regards,
-> --
-> Alice Guo <alice.guo@oss.nxp.com>
-> 
-> 
+>  arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
 
 
@@ -123,19 +109,86 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
+ Base: attempting to guess base-commit...
+ Base: tags/v6.17-rc1-58-g7c1d13a14e61 (best guess, 1/2 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250924-imx943-v1-0-0d32d7852ecb@oss.nxp.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250924143916.2023919-1-w.egorov@phytec.de:
 
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: efuse@47510000 (fsl,imx94-ocotp): compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx94-ocotp'] is too short
-	'fsl,imx94-ocotp' is not one of ['fsl,imx8mn-ocotp', 'fsl,imx8mp-ocotp']
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: efuse@47510000 (fsl,imx94-ocotp): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/imx-ocotp.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@0:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'oneOf' conditional failed, one must be fixed:
+	'port' is a required property
+	'#address-cells' is a required property
+	'#size-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@0' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: dss@30200000 (ti,am625-dss): oldi-transmitters:oldi@1:ports: 'port@1' is a required property
+	from schema $id: http://devicetree.org/schemas/display/ti/ti,am65x-dss.yaml#
 
 
 
