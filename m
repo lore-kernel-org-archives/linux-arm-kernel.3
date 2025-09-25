@@ -4,125 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13942CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 08:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7ECCAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 08:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NCYggp0oa3WS+sCeY8ACSU0jLeJBxV/981+lAQ+y5O0=; b=NaBTaQIYSGpBcahBcxaU8oVJt4
-	Fp1oBBfCUewuTOZAL0UTebIL4vujKZC1ZCUl8q7mrNt8h9M1wlpEiB8WrYAGytveDOXXkukqkxbUu
-	VDDboJaO0NyBoaxOjJbsRYye0ZVoT5Q1kRQNWxXmZ1uhlV/8XDfBBbwFAb7LoOwy/zA+qDpQ957dw
-	wGya8fZwOQufkPea4UZz4qOQgXAbujmmSyHFjRnxQjYMUAkzLJ3ucwXXTXkwY3ufY1P6/eGxeMkeJ
-	0A2WShbw0ZidEiBKK846PE3xk2VW87vHHIOqEZfimQIpR/eXiwnekd9G/pYxG5B1rvvD4+MjiaACk
-	vj2/l7jQ==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gphyOsNtOdKDqs9aSBR2mOumTKsLxXqSuoON6fWyPlc=; b=yI2I5T1hJYSzZxsq6sMxjHDRdG
+	k5Pd4hlXUqRMTbisswGvynxKEa/0TAtFhzUhyGHrsFnyTS81iXKal2RqgNUm+ESQODydIEUel+hFt
+	VxnlAIyBk6CMyaTsr9vcpQifEH4HUTLFGDMlO2CPpEk/N0MXC8AssSrfM0SXFiEi7m6l0AlBP8PhK
+	YIaEb+Ley10VfdKX4lKyyDM03fFqCHScmc3/tRYLl7tRCQVloS8vcM5tMw/9Pg0C5QDTPbmonxnQO
+	58rBTF7UBK1UdYNHHh0JzSxy1YleRMXY0qh6oUdVT9te9kt64UiCpGqBRr4ZSYecR1LbC+vjl8N2+
+	eMVMb1SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1hcu-00000007GGX-0M8D;
-	Thu, 25 Sep 2025 08:46:56 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v1heR-00000007H5e-02Qf;
+	Thu, 25 Sep 2025 08:48:31 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1hcs-00000007GDk-0ngH
+	id 1v1heN-00000007H1G-1vLK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 08:46:55 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58P100KY019923;
-	Thu, 25 Sep 2025 08:46:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NCYggp0oa3WS+sCeY8ACSU0jLeJBxV/981+lAQ+y5O0=; b=RfK8Hqs85bKUsyMs
-	bYnzOOIDZ3Fx6Q0tIw3eDqXCasT5IKaVRqR2U2pOSMpf4OWUi7E4w+qLIxryGAg+
-	L7LQ0hsjQgyY/pAT2pnjeYHCcRwS29KK4Y7N1bt0gJQ+Az+Mcge5ipASTge+Y5cI
-	WAR4mlv8UlXYIX2ZOJsVi2Vvkv+9oWh+0FRq01Ru19g8fP8uPdS7rkDbXxGD/+xo
-	gfxl2x2jOMQwCNsjfJE5EHvfRSV/IeXvev2bX6AijGhkrQwWX6xZLUwez2Zwr2iP
-	kvERFJhEFWW1rkUXyAJxR93pGBYi95KSPvIxVAciuWnT/QOzlMt/vcHrvIRayH9O
-	M27xOg==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49bjpe0nb8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 Sep 2025 08:46:44 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58P8khjG009910
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 25 Sep 2025 08:46:43 GMT
-Received: from [10.217.216.93] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Thu, 25 Sep
- 2025 01:46:36 -0700
-Message-ID: <8c558ac3-541b-47c4-be4b-c9101997de7c@quicinc.com>
-Date: Thu, 25 Sep 2025 14:16:33 +0530
+	Thu, 25 Sep 2025 08:48:29 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-77716518125so391199b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 01:48:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1758790103; x=1759394903; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gphyOsNtOdKDqs9aSBR2mOumTKsLxXqSuoON6fWyPlc=;
+        b=D5ra5J3pv3mQF+pT0ttygy7dIe1EkvYfr2uPfXyTmAU2d+Ehj3M4XPCGjcgkMzVAw0
+         eSY3mfY1NKTg4s03uPg2jPFabGlGlt9nttv5XVGjwV3VzBgylREqtgVKjJJtrPfTdXxu
+         dRZWEEqHjXL1hAmv944b3CGvClVSq3alXib7Ft+VpzrzdTsS5Emr2HaW9eN9vHhNrItN
+         3EKAMc+vkmC/QSZ7OOfjfzftTk4IrC4S3svMqOy65NmqgXog5FBnaZeQLt1R64/Cybd3
+         2ugJs3qHCe6ULc2/30SVTu7cn3DStgY+iF7mGO0+OEBw1D2+sCJ4U/1/DUOo+paxVSxx
+         bUUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758790103; x=1759394903;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gphyOsNtOdKDqs9aSBR2mOumTKsLxXqSuoON6fWyPlc=;
+        b=kPMHYt+07UYSr8s52zuHuTHzv2JOBr8Rt6zkPqXzaRSJA7rgf55Ce8Ad+YzwvWX+/2
+         3G/hqYG9MHhb+cNxAw6lTdJ6bm/gsk/1ibjG4T5QVC9TEHPViqU1UvVfFfXH7aJpNxuP
+         nH2SxaK8sUtbKDzIC+Is/D2pbDQ8++VoN8kbIgFVIYIYGakvQJgu/d+wxGHHCN2sqbgb
+         lpLhif9Jf2Xr7H0DdsrvnwsQJWTFiT2E2CSSJoWV7wwryYDdKowIuSbtZN9bHEhl7zxm
+         q2WwZr3moxr3Nd2XjFTTpHjhxvL2AAwjRwpieIuiNR1zImLW14LJwgt+jUhPRM5R+NR4
+         RQ7g==
+X-Forwarded-Encrypted: i=1; AJvYcCX3NVi85EtEOkpOjMyTvaJzdnv3MvrpbOx0C/v08YUPmjYgR9TcWINsvZS+X+kACTx1Q/JwOO78IbqjxHuWxk7d@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMVpV398X269KBojJAj+7F6CtJNOSgCb3d7+zmxDQ3Lw+U3J7B
+	1fTvSpYzX0ErgAmrJye8u0RDizr+cQKdSdBLwTdnhLdZH0TPd1yHEDg0sqrvwBv29oU=
+X-Gm-Gg: ASbGncsPO6hFMEaQRP9XVfJ+nXuyInqtsoGh4Cw94CAR4B6pjfeCbWkrgsH6eq4xnbz
+	JAa4j4IOBGE6t0l8Uh5I4aZAq5yCYcyhn2gUIBECIRUHtNGnqZ8o7jbBkf/SsqDxrKO/5856/69
+	YPAeeGP7q9pYMFbtRNZzd9D/tF9/Y1o9ZB4oRjlPD8YlJYxt9sI54GCMJWHMTk/u2TH8u5Hj02U
+	BHSFI8Dd4pNI1Vd0zoo6sVJOp8v8PqV2eBfKinQWlRwnPcwRJbgxtWjhkdIILKRP+fP26uCj2yV
+	eCTTnOrKaUkx/phEEVkJ88X+MkoH8ESmNTpwZWDwG9CbsVMbe8BnJ4basE6eXxXJLrIg8+ltv/+
+	XC5XR0LXst84L9rofQmNZGDI2HReiqoOBkOK6lXAlbiE1nCZv3s+90eqfYxlMiQJG81IgSZU=
+X-Google-Smtp-Source: AGHT+IF5o7MsY/7di1Syx2EkRYGotHHFJz3EjXekBBptiHMX8QMKY8RAgGzMhfi8YFQVNtPQp29NcA==
+X-Received: by 2002:a05:6a00:1255:b0:77f:2e62:1e3e with SMTP id d2e1a72fcca58-780fce9a124mr2974997b3a.18.1758790102952;
+        Thu, 25 Sep 2025 01:48:22 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([61.213.176.10])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-781023ec6aasm1321867b3a.46.2025.09.25.01.48.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 25 Sep 2025 01:48:22 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	catalin.marinas@arm.com,
+	cuiyunhui@bytedance.com,
+	dianders@chromium.org,
+	johannes@sipsolutions.net,
+	lihuafei1@huawei.com,
+	mark.rutland@arm.com,
+	masahiroy@kernel.org,
+	maz@kernel.org,
+	mingo@kernel.org,
+	nicolas.schier@linux.dev,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	suzuki.poulose@arm.com,
+	thorsten.blum@linux.dev,
+	wangjinchao600@gmail.com,
+	will@kernel.org,
+	yangyicong@hisilicon.com,
+	zhanjie9@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/2] Add HARDLOCKUP_DETECTOR_PERF support for RISC-V
+Date: Thu, 25 Sep 2025 16:48:04 +0800
+Message-Id: <20250925084806.89715-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/9] dt-bindings: clock: qcom: Add support for CAMCC for
- Kaanapali
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Jingyi Wang
-	<jingyi.wang@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Neil Armstrong
-	<neil.armstrong@linaro.org>,
-        Vladimir Zapolskiy
-	<vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Taniya Das <taniya.das@oss.qualcomm.com>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        "Krzysztof
- Kozlowski" <krzysztof.kozlowski@linaro.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <aiqun.yu@oss.qualcomm.com>,
-        <tingwei.zhang@oss.qualcomm.com>, <trilok.soni@oss.qualcomm.com>,
-        <yijie.yang@oss.qualcomm.com>
-References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
- <20250924-knp-mmclk-v1-3-d7ea96b4784a@oss.qualcomm.com>
- <4315205b-5320-4a8f-a707-45f5eb35ae51@linaro.org>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <4315205b-5320-4a8f-a707-45f5eb35ae51@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: gOvyCpm6vRwXejT-0a-kF1xyV2XwLYVE
-X-Authority-Analysis: v=2.4 cv=Pc//hjhd c=1 sm=1 tr=0 ts=68d50174 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
- a=BqXNtYeTnhAdVobpDk4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: gOvyCpm6vRwXejT-0a-kF1xyV2XwLYVE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIzMDAyMCBTYWx0ZWRfX65GoAxFnLvyI
- Qrijn0Zu+PzQFzUPIg52Ichvy2AZiJSXtFPOdDQAYPxj7njHZJ4X18rXKvEfSFmRO7msZDanMtC
- IckvCcGHYSB5yH6tW/LkyvFj9NMqsM+Hkp7i5XmZl9orod3o797L1koAShPpyjUxoSr5sevlWC9
- fcQ3jS0zp6oJfToQb1PxVbC8sqwmQNzlwsSc6gFf2BX/jpzh8zggb1iOLbmvJ1sVpYBv2WY6+Ky
- zZ/+mrpfLlEdjsiibKFsw/P2kssUcj7tbqCKxYTH0AV+j8B7VQiITQBKIFfH8ZLuUbVR2b0pA/2
- bXOPxbWewug2L4eYbUdL4/LRfT9FzvFnkITnVqi9H5rI5W3MiG/1nP/OMi67/SAcIE11F22opiO
- wWyZIvXc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-24_07,2025-09-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0 impostorscore=0
- spamscore=0 suspectscore=0 clxscore=1011 adultscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2509230020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_014654_242985_4CD2A6A3 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20250925_014827_800965_B493ED39 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,280 +118,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+After discussion [1],[2], hardlockup_perf cannot be completely replaced by
+the hardlockup_buddy approach, so this patch is still being submitted. 
 
+v1->v2:
+The contents of arch/arm64/watchdog_hld.c are directly consolidated into
+kernel/watchdog_perf.c.
 
-On 9/25/2025 2:09 PM, Bryan O'Donoghue wrote:
-> On 25/09/2025 00:56, Jingyi Wang wrote:
->> From: Taniya Das <taniya.das@oss.qualcomm.com>
->>
->> Update the compatible and the bindings for CAMCC support on Kaanapali
->> SoC.
->>
->> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
->> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
->> ---
->>   .../bindings/clock/qcom,sm8450-camcc.yaml          |   8 +-
->>   .../clock/qcom,kaanapali-cambistmclkcc.h           |  33 +++++
->>   include/dt-bindings/clock/qcom,kaanapali-camcc.h   | 147 +++++++++++
->> ++++++++++
->>   3 files changed, 187 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-
->> camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-
->> camcc.yaml
->> index dbfcc399f10b..54b04ecf67c1 100644
->> --- a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
->> +++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
->> @@ -12,9 +12,11 @@ maintainers:
->>     description: |
->>     Qualcomm camera clock control module provides the clocks, resets
->> and power
->> -  domains on SM8450.
->> +  domains on SM8450 SoCs.
-> 
-> This change is not about adding Kaanapali.
+Link: https://lore.kernel.org/all/CAD=FV=UEhVCD6JehQi1wor2sSmtTLDyf=37xfo-DOTK1=u1xzA@mail.gmail.com/ [1]
+Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao600@gmail.com/ [2]
 
-Agree.
+Yunhui Cui (2):
+  watchdog: move arm64 watchdog_hld into common code
+  riscv: add HARDLOCKUP_DETECTOR_PERF support
 
-> 
->>       See also:
->> +    include/dt-bindings/clock/qcom,kaanapali-camcc.h
->> +    include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
-> 
-> What's so special about Kanaanapli that it needs two headers for this ?
-> 
+ arch/arm64/kernel/Makefile       |  1 -
+ arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
+ arch/riscv/Kconfig               |  3 +
+ drivers/perf/arm_pmu.c           |  5 +-
+ drivers/perf/riscv_pmu_sbi.c     | 10 ++++
+ include/linux/perf/arm_pmu.h     |  2 -
+ kernel/watchdog_perf.c           | 81 +++++++++++++++++++++++++++
+ 7 files changed, 98 insertions(+), 98 deletions(-)
+ delete mode 100644 arch/arm64/kernel/watchdog_hld.c
 
-There are two camera clock controllers one has the regular clocks and
-the other is for the mclks of the camera clock controller.
-
-
-> 
->>       include/dt-bindings/clock/qcom,sm8450-camcc.h
->>       include/dt-bindings/clock/qcom,sm8550-camcc.h
->>       include/dt-bindings/clock/qcom,sm8650-camcc.h
->> @@ -22,6 +24,8 @@ description: |
->>   properties:
->>     compatible:
->>       enum:
->> +      - qcom,kaanapali-cambistmclkcc
->> +      - qcom,kaanapali-camcc
->>         - qcom,sm8450-camcc
->>         - qcom,sm8475-camcc
->>         - qcom,sm8550-camcc
->> @@ -63,6 +67,8 @@ allOf:
->>           compatible:
->>             contains:
->>               enum:
->> +              - qcom,kaanapali-cambistmclkcc
->> +              - qcom,kaanapali-camcc
->>                 - qcom,sm8450-camcc
->>                 - qcom,sm8550-camcc
->>       then:
->> diff --git a/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
->> b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
->> new file mode 100644
->> index 000000000000..ddb083b5289e
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
->> @@ -0,0 +1,33 @@
->> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->> +/*
->> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
->> + */
->> +
->> +#ifndef _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
->> +#define _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
->> +
->> +/* CAM_BIST_MCLK_CC clocks */
->> +#define CAM_BIST_MCLK_CC_DEBUG_CLK                0
->> +#define CAM_BIST_MCLK_CC_DEBUG_DIV_CLK_SRC            1
->> +#define CAM_BIST_MCLK_CC_MCLK0_CLK                2
->> +#define CAM_BIST_MCLK_CC_MCLK0_CLK_SRC                3
->> +#define CAM_BIST_MCLK_CC_MCLK1_CLK                4
->> +#define CAM_BIST_MCLK_CC_MCLK1_CLK_SRC                5
->> +#define CAM_BIST_MCLK_CC_MCLK2_CLK                6
->> +#define CAM_BIST_MCLK_CC_MCLK2_CLK_SRC                7
->> +#define CAM_BIST_MCLK_CC_MCLK3_CLK                8
->> +#define CAM_BIST_MCLK_CC_MCLK3_CLK_SRC                9
->> +#define CAM_BIST_MCLK_CC_MCLK4_CLK                10
->> +#define CAM_BIST_MCLK_CC_MCLK4_CLK_SRC                11
->> +#define CAM_BIST_MCLK_CC_MCLK5_CLK                12
->> +#define CAM_BIST_MCLK_CC_MCLK5_CLK_SRC                13
->> +#define CAM_BIST_MCLK_CC_MCLK6_CLK                14
->> +#define CAM_BIST_MCLK_CC_MCLK6_CLK_SRC                15
->> +#define CAM_BIST_MCLK_CC_MCLK7_CLK                16
->> +#define CAM_BIST_MCLK_CC_MCLK7_CLK_SRC                17
->> +#define CAM_BIST_MCLK_CC_PLL0                    18
->> +#define CAM_BIST_MCLK_CC_PLL_TEST_CLK                19
->> +#define CAM_BIST_MCLK_CC_PLL_TEST_DIV_CLK_SRC            20
->> +#define CAM_BIST_MCLK_CC_SLEEP_CLK                21
->> +
->> +#endif
-> 
-> BIST == Built In Self Test ?
-> 
-> Can this not just be put into one camcc header ?
-
-These are two different clock controllers CAMCC and CAM_BIST_MCLK they
-should not be in the same header.
-
-> 
->> diff --git a/include/dt-bindings/clock/qcom,kaanapali-camcc.h b/
->> include/dt-bindings/clock/qcom,kaanapali-camcc.h
->> new file mode 100644
->> index 000000000000..58835136b356
->> --- /dev/null
->> +++ b/include/dt-bindings/clock/qcom,kaanapali-camcc.h
->> @@ -0,0 +1,147 @@
->> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->> +/*
->> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
->> + */
->> +
->> +#ifndef _DT_BINDINGS_CLK_QCOM_CAM_CC_KAANAPALI_H
->> +#define _DT_BINDINGS_CLK_QCOM_CAM_CC_KAANAPALI_H
->> +
->> +/* CAM_CC clocks */
->> +#define CAM_CC_CAM_TOP_AHB_CLK                    0
->> +#define CAM_CC_CAM_TOP_FAST_AHB_CLK                1
->> +#define CAM_CC_CAMNOC_DCD_XO_CLK                2
->> +#define CAM_CC_CAMNOC_NRT_AXI_CLK                3
->> +#define CAM_CC_CAMNOC_NRT_CRE_CLK                4
->> +#define CAM_CC_CAMNOC_NRT_IPE_NPS_CLK                5
->> +#define CAM_CC_CAMNOC_NRT_OFE_MAIN_CLK                6
->> +#define CAM_CC_CAMNOC_RT_AXI_CLK                7
->> +#define CAM_CC_CAMNOC_RT_AXI_CLK_SRC                8
->> +#define CAM_CC_CAMNOC_RT_IFE_LITE_CLK                9
->> +#define CAM_CC_CAMNOC_RT_TFE_0_MAIN_CLK                10
->> +#define CAM_CC_CAMNOC_RT_TFE_1_MAIN_CLK                11
->> +#define CAM_CC_CAMNOC_RT_TFE_2_MAIN_CLK                12
->> +#define CAM_CC_CAMNOC_XO_CLK                    13
->> +#define CAM_CC_CCI_0_CLK                    14
->> +#define CAM_CC_CCI_0_CLK_SRC                    15
->> +#define CAM_CC_CCI_1_CLK                    16
->> +#define CAM_CC_CCI_1_CLK_SRC                    17
->> +#define CAM_CC_CCI_2_CLK                    18
->> +#define CAM_CC_CCI_2_CLK_SRC                    19
->> +#define CAM_CC_CORE_AHB_CLK                    20
->> +#define CAM_CC_CPHY_RX_CLK_SRC                    21
->> +#define CAM_CC_CRE_AHB_CLK                    22
->> +#define CAM_CC_CRE_CLK                        23
->> +#define CAM_CC_CRE_CLK_SRC                    24
->> +#define CAM_CC_CSI0PHYTIMER_CLK                    25
->> +#define CAM_CC_CSI0PHYTIMER_CLK_SRC                26
->> +#define CAM_CC_CSI1PHYTIMER_CLK                    27
->> +#define CAM_CC_CSI1PHYTIMER_CLK_SRC                28
->> +#define CAM_CC_CSI2PHYTIMER_CLK                    29
->> +#define CAM_CC_CSI2PHYTIMER_CLK_SRC                30
->> +#define CAM_CC_CSI3PHYTIMER_CLK                    31
->> +#define CAM_CC_CSI3PHYTIMER_CLK_SRC                32
->> +#define CAM_CC_CSI4PHYTIMER_CLK                    33
->> +#define CAM_CC_CSI4PHYTIMER_CLK_SRC                34
->> +#define CAM_CC_CSI5PHYTIMER_CLK                    35
->> +#define CAM_CC_CSI5PHYTIMER_CLK_SRC                36
->> +#define CAM_CC_CSID_CLK                        37
->> +#define CAM_CC_CSID_CLK_SRC                    38
->> +#define CAM_CC_CSID_CSIPHY_RX_CLK                39
->> +#define CAM_CC_CSIPHY0_CLK                    40
->> +#define CAM_CC_CSIPHY1_CLK                    41
->> +#define CAM_CC_CSIPHY2_CLK                    42
->> +#define CAM_CC_CSIPHY3_CLK                    43
->> +#define CAM_CC_CSIPHY4_CLK                    44
->> +#define CAM_CC_CSIPHY5_CLK                    45
->> +#define CAM_CC_DRV_AHB_CLK                    46
->> +#define CAM_CC_DRV_XO_CLK                    47
->> +#define CAM_CC_FAST_AHB_CLK_SRC                    48
->> +#define CAM_CC_GDSC_CLK                        49
->> +#define CAM_CC_ICP_0_AHB_CLK                    50
->> +#define CAM_CC_ICP_0_CLK                    51
->> +#define CAM_CC_ICP_0_CLK_SRC                    52
->> +#define CAM_CC_ICP_1_AHB_CLK                    53
->> +#define CAM_CC_ICP_1_CLK                    54
->> +#define CAM_CC_ICP_1_CLK_SRC                    55
->> +#define CAM_CC_IFE_LITE_AHB_CLK                    56
->> +#define CAM_CC_IFE_LITE_CLK                    57
->> +#define CAM_CC_IFE_LITE_CLK_SRC                    58
->> +#define CAM_CC_IFE_LITE_CPHY_RX_CLK                59
->> +#define CAM_CC_IFE_LITE_CSID_CLK                60
->> +#define CAM_CC_IFE_LITE_CSID_CLK_SRC                61
->> +#define CAM_CC_IPE_NPS_AHB_CLK                    62
->> +#define CAM_CC_IPE_NPS_CLK                    63
->> +#define CAM_CC_IPE_NPS_CLK_SRC                    64
->> +#define CAM_CC_IPE_NPS_FAST_AHB_CLK                65
->> +#define CAM_CC_IPE_PPS_CLK                    66
->> +#define CAM_CC_IPE_PPS_FAST_AHB_CLK                67
->> +#define CAM_CC_JPEG_CLK                        68
->> +#define CAM_CC_JPEG_CLK_SRC                    69
->> +#define CAM_CC_OFE_AHB_CLK                    70
->> +#define CAM_CC_OFE_ANCHOR_CLK                    71
->> +#define CAM_CC_OFE_ANCHOR_FAST_AHB_CLK                72
->> +#define CAM_CC_OFE_CLK_SRC                    73
->> +#define CAM_CC_OFE_HDR_CLK                    74
->> +#define CAM_CC_OFE_HDR_FAST_AHB_CLK                75
->> +#define CAM_CC_OFE_MAIN_CLK                    76
->> +#define CAM_CC_OFE_MAIN_FAST_AHB_CLK                77
->> +#define CAM_CC_PLL0                        78
->> +#define CAM_CC_PLL0_OUT_EVEN                    79
->> +#define CAM_CC_PLL0_OUT_ODD                    80
->> +#define CAM_CC_PLL1                        81
->> +#define CAM_CC_PLL1_OUT_EVEN                    82
->> +#define CAM_CC_PLL2                        83
->> +#define CAM_CC_PLL2_OUT_EVEN                    84
->> +#define CAM_CC_PLL3                        85
->> +#define CAM_CC_PLL3_OUT_EVEN                    86
->> +#define CAM_CC_PLL4                        87
->> +#define CAM_CC_PLL4_OUT_EVEN                    88
->> +#define CAM_CC_PLL5                        89
->> +#define CAM_CC_PLL5_OUT_EVEN                    90
->> +#define CAM_CC_PLL6                        91
->> +#define CAM_CC_PLL6_OUT_EVEN                    92
->> +#define CAM_CC_PLL6_OUT_ODD                    93
->> +#define CAM_CC_PLL7                        94
->> +#define CAM_CC_PLL7_OUT_EVEN                    95
->> +#define CAM_CC_QDSS_DEBUG_CLK                    96
->> +#define CAM_CC_QDSS_DEBUG_CLK_SRC                97
->> +#define CAM_CC_QDSS_DEBUG_XO_CLK                98
->> +#define CAM_CC_SLEEP_CLK                    99
->> +#define CAM_CC_SLOW_AHB_CLK_SRC                    100
->> +#define CAM_CC_TFE_0_BAYER_CLK                    101
->> +#define CAM_CC_TFE_0_BAYER_FAST_AHB_CLK                102
->> +#define CAM_CC_TFE_0_CLK_SRC                    103
->> +#define CAM_CC_TFE_0_MAIN_CLK                    104
->> +#define CAM_CC_TFE_0_MAIN_FAST_AHB_CLK                105
->> +#define CAM_CC_TFE_1_BAYER_CLK                    106
->> +#define CAM_CC_TFE_1_BAYER_FAST_AHB_CLK                107
->> +#define CAM_CC_TFE_1_CLK_SRC                    108
->> +#define CAM_CC_TFE_1_MAIN_CLK                    109
->> +#define CAM_CC_TFE_1_MAIN_FAST_AHB_CLK                110
->> +#define CAM_CC_TFE_2_BAYER_CLK                    111
->> +#define CAM_CC_TFE_2_BAYER_FAST_AHB_CLK                112
->> +#define CAM_CC_TFE_2_CLK_SRC                    113
->> +#define CAM_CC_TFE_2_MAIN_CLK                    114
->> +#define CAM_CC_TFE_2_MAIN_FAST_AHB_CLK                115
->> +#define CAM_CC_TRACENOC_TPDM_1_CMB_CLK                116
->> +#define CAM_CC_XO_CLK_SRC                    117
->> +
->> +/* CAM_CC power domains */
->> +#define CAM_CC_IPE_0_GDSC                    0
->> +#define CAM_CC_OFE_GDSC                        1
->> +#define CAM_CC_TFE_0_GDSC                    2
->> +#define CAM_CC_TFE_1_GDSC                    3
->> +#define CAM_CC_TFE_2_GDSC                    4
->> +#define CAM_CC_TITAN_TOP_GDSC                    5
->> +
->> +/* CAM_CC resets */
->> +#define CAM_CC_DRV_BCR                        0
->> +#define CAM_CC_ICP_BCR                        1
->> +#define CAM_CC_IPE_0_BCR                    2
->> +#define CAM_CC_OFE_BCR                        3
->> +#define CAM_CC_QDSS_DEBUG_BCR                    4
->> +#define CAM_CC_TFE_0_BCR                    5
->> +#define CAM_CC_TFE_1_BCR                    6
->> +#define CAM_CC_TFE_2_BCR                    7
->> +
->> +#endif
->>
-> 
-> 
+-- 
+2.39.5
 
 
