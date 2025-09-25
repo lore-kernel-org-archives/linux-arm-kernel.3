@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C0ACAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A94BCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfAVQsJMCa+08II6sZx8nLAvAG7+m2m1wBLI5CKcaxE=; b=lK4KJWmCt6JnFLwFQhIsf3e+6w
-	N3IPWha8G1Qw8Lpv8CdOf99n4OZUXFNldYeNEzVItgssaMlrv5O3vdBq84cl2I0GfNzoBQtMsXElW
-	vcZNl+sX1sAX+ELQ9F2IDQ3vproDgJk3G9FQlJL3Gp2IE+4lJbsSb7OWZXU33ccBh/eVDKydcZVD2
-	6+bsVOgvDK5BtjfO6aFitIxzdYVBGApCUI16t5yIOG7Ckie5ec+6IW0MHho/pCae2f2bsRHA7+AZ7
-	6b8NvYOYYq1m8SWvODYvaTTo5UZ4MYC5SdYY27e+p0T2ByB8ChAIw3xmvP4bp8tAiPexFIxOM+xK8
-	qxMlnwFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5s1NkUGStweVlYWGlUVqWZR3tOWBeOpZjnhIgCBEaNw=; b=jSaEWfQ6xhWW+v5iwHxaWFO6v0
+	XbEjCR0+pSZ06/gBgvK0NoFa7MKqqeSpkWMnih6hdMpOJCX1Rzmnk29re5fcIHXMBgNomqEpFFcFG
+	0QYwiaeyzRUa14/IlvVE9kpaT+cxniUUfAri329JzIu90YDsRoiMe1wQTb8v4zp7hNs8+HNWZdy8U
+	n3WAWomsbPLDGbleUIrWQAnZfpjwqm8GEsEO9TLmuv3sMrTHs9vrKz/GkUeY2cpRHxTZoHo8RpfyL
+	Lz0NdD24VfPZ+oA/RrSH8ZcTrqk4xGH02D0oaJtr2QS21atL9Rg+O76xYnnEwE4zw8mYNtYI8gK5o
+	uh768XbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nqh-0000000AbZv-1ySp;
-	Thu, 25 Sep 2025 15:25:35 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1v1nwr-0000000Aecn-3Jfh;
+	Thu, 25 Sep 2025 15:31:57 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nqe-0000000AbZ9-31bf
+	id 1v1nwo-0000000AeZ3-2Pog
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 15:25:34 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-26e68904f0eso12336175ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 08:25:32 -0700 (PDT)
+	Thu, 25 Sep 2025 15:31:56 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b29ebf9478bso154585966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 08:31:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758813932; x=1759418732; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pfAVQsJMCa+08II6sZx8nLAvAG7+m2m1wBLI5CKcaxE=;
-        b=oSpujWRJbiVo2/pgvKrSEkDCRrD53pLp6jhYb+hKHz9zJA7pjYb1ZXUMnSWIyP+GaR
-         ew3BJMYxR/qE7RWdo7kOKnbLdcYmMoYRUf03JB9z1pIT3aBaG3qN6yxqrOU1XTEpLBLr
-         RRSE+LTxHRDyBZnCnOlA6/i7VbQEYBTD3aYqYX6I/UjyBVQNDQRiDF9dHU0HAxpazRvZ
-         ds6MvWwtYP2qNmSo5Mow53Q8NSb3/JIFjmYJb7YYuLrhCMPkMpbTdN0GWA9Mygkb34Yg
-         oXR3awvPeHilszpzSZcDJg1GxNHRlG96mTdlh9xcNE6Tg0MrwfKRIsKiqt2dVHdl+Ojh
-         UFhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758813932; x=1759418732;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=amarulasolutions.com; s=google; t=1758814310; x=1759419110; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pfAVQsJMCa+08II6sZx8nLAvAG7+m2m1wBLI5CKcaxE=;
-        b=dfDJ2z5nU82m0GDuNzyDx9Jf4TKAOfqQMs5sb9l2mbri/3kWUmCp6LrpEG5M9OoiZp
-         nQ4q6+gQQpfP/0SUpRBnS0mb/vrZwjSSuXl6zfeHzVL9g/WZS8JpbFgBZTuizwZFHiIp
-         0yWIKOp1ujgIMJ1sWLap6XG90pnLIk7UrAntDCOPwPEBBqtvop0tQHIk0YuFCTxCsjLF
-         nnAfvXincRF3ZX71sjIaX3wSqYlpfpgQ1smeTXO46j9QHFZDyaW82Pv1fjXeR3uePwuv
-         VUlzO2fzSqXJoZZRC4zjNhZbJgSNqsXv35JLmY7vm5AWAuFuDgUghILMAxiKxk16ZgWl
-         OudQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1DBz24jGi2KXBVJb0Dob7IoTb01+TTagxCJKW6OZXefhY+GZcQCdc/BUYp3aFqG35PtffF68qmxVfopEj3Dq8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwofnbMY0u4BMHzmn3MVIM6bxZlluojuan4WV0sksBkW1gljoh6
-	puIb0NNIVk/z8IMsGFBWA8HhilKunO8A7XBYXQM2VHAndgOM/wK1cmtLpeQqpJkaz04=
-X-Gm-Gg: ASbGncv/Ax680AQObhz/DNTHIqIRe/RWuT1hDiRYO4TKQQDjUQrj2wgr1esgUfH9XMY
-	+h6PfW8HT2552NzPr71o8RNYds1mT0ATWaPjcwLGtPwKCI24ZeUpyi7J4QRw6xuscgRIGWj66T7
-	V+OHK45/EsIcue8UfcfdCB0HIHX0pJM/jBeclsIvvosQ+ttCOSjtgLzbkakWZfW6kX0dhxkftUq
-	yhFDE+LhCtduhUiZ/34ZhO0bkihys1xeT//gEraKJ0vIjlGugyqEfGCbCUI+pki4w1UbRBdH1ur
-	ryQKU47Ki0FKorJ5y6JKiJ1XqDoXt0pYi9SxS2FFxYjhm4XVBvj9bl5iaHVFFxT536cNCIY6qNK
-	cJnNqEhHdU7j9YA0zAgORmJPcpd7XtrMA9jSBGaLXW418evlTVbRAzkR/g3Mzpkm2bQpq7VlwOO
-	2iG10q1LVGP1nm6WW7gNvmeM0=
-X-Google-Smtp-Source: AGHT+IFaUWm0IMFuhwxwZ6ZVuoRzGDUplyarDIAkk4+v9ajtIq9wSLIjRgUT3UbBtMTnindWS3TDDQ==
-X-Received: by 2002:a17:903:19ef:b0:274:3db8:e755 with SMTP id d9443c01a7336-27ed4a7ec49mr43070925ad.30.1758813931703;
-        Thu, 25 Sep 2025 08:25:31 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:491a:5e5:2a2d:1b96])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66d37casm28336435ad.8.2025.09.25.08.25.30
+        bh=5s1NkUGStweVlYWGlUVqWZR3tOWBeOpZjnhIgCBEaNw=;
+        b=KXsYlXUy39FyLTGSA32uc0lWR8KBBEtftOpGPP0CLmmPv102juycn4BGYRJeCEIIjw
+         7NP+dE1eMvXsiBUkeFJzv3Zq6oa7f+Jf6J/saXFfFwgA5uj31vJSwI90vA21kgojS7+e
+         m1DU0Gyw6qc6Xcf9TBTOse8YSD38pWt8Ynqk8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758814310; x=1759419110;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5s1NkUGStweVlYWGlUVqWZR3tOWBeOpZjnhIgCBEaNw=;
+        b=KkC2HP5MXKTYPQ8U5E2qhY2fDrU66UqitaC9y06vqxnDHQxaZCnsHYuwGZeWIKqfqI
+         BeMy7GJ34ECwmk94wcBMYQfe3TA35AeFZhnaz5D/awpYQRJ54+O35d3a/Mwuv3U6s+u4
+         y4tF5kaW9gLxSqrUKfMgEv2gKoFXmdFxUpx0MZ9DhegpfJRjHSft3wPiySZXi/XzGJBw
+         tpXqBJ4JK+X8VLJrwKY5RsOHeTsgjm92oNZOh3p3pcZWoxkyGaxvz1PSioOv8Q38+shj
+         m/HNcDWmMmG//DYKV0aVcsXOhXb+OUemdjSLaYF3pgGTLjne9ofeWq3NUTrIcasBBAiO
+         kMUw==
+X-Forwarded-Encrypted: i=1; AJvYcCURP/e0zQl8r+v/HOeYdXeDllOx8Qv/wCmYENGYJmj/VmgVZcTBzMuPuODCbidbeC+3n2RB9iB1QobhMpAybjXj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEijbHHuV+hE5alWwgmD6q473smAAg96qd1yKJNQYbi7AcgUpd
+	dOPMMKLyfG9qpXTsZ2YozftkwD5UEj4HoxntGFrvTmCTyDpk9349Z/cw0TMtY/NLBHY=
+X-Gm-Gg: ASbGncvsCQHfr3kKYnyEle+KfcuqB76TGBIRKXzrMJuY3yaXgoJQsjR1bxr+C1wv3x8
+	5HvZCtfsGz5eevIdH0XH8n7tUWrMpYKEC1R+ZloSLwrBZqmSdfdUIFMHLnNPl9YzaVYlWMU28GJ
+	mi6bhVYIsavHWHnlQcJ3Yn8svDAD//hXZdDukpo/RuyF8x3+W4ZE6fbPIhg1ceEIB8vnpMTza0g
+	q8HL4B926wYNVLhFypQFxA88wmosQAfIq0tUiijwqlX6hYkicYRwMSX5wDr03kmYoCLBVqCzwEX
+	1NZEbVqS5FwjjnVh1SlP/UzYUaMbfF3eovmgzMs3ocRzkdCTPOyw6nYCdn7DGDOg8aWcx3WBUfO
+	Fu4zlC9UnBP74YtNfPrlSmtkzz/4yJKWbfLbU2GGamg6xJbNYLueK9H+D9FZwAMYsd5CI71UCLR
+	oRQqbMAP+KofVcIHiCLuYASqkH/25be1oCko12Tq7XKoXjIDjBOogA8R8WSq5jqO4nsdf1f/+gZ
+	bDyfb0pBlQ=
+X-Google-Smtp-Source: AGHT+IF7BuPuSGwyBCz2UCqO+HRTTylRFxaIlwU3C5Efe36PDl6FBJSX2Hnycv4Zf1+SFTY6NIs+yw==
+X-Received: by 2002:a17:907:d94:b0:b04:2d6c:551 with SMTP id a640c23a62f3a-b34bb9e9ffemr417345866b.42.1758814310288;
+        Thu, 25 Sep 2025 08:31:50 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-82-56-38-125.retail.telecomitalia.it. [82.56.38.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b36f410e129sm43924766b.89.2025.09.25.08.31.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Sep 2025 08:25:31 -0700 (PDT)
-Date: Thu, 25 Sep 2025 09:25:28 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v2 0/6] remoteproc: imx_rproc: Use device managed API to
- clean up the driver
-Message-ID: <aNVe6MG2HiWNJZQP@p14s>
-References: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com>
- <20250924164650.GA2711@nxa18884-linux.ap.freescale.net>
- <CANLsYkzWQEWKM-_iff7wY-sk_OERFiAMSrXP6Cyf8vJfXqunjg@mail.gmail.com>
- <20250924203115.GB2711@nxa18884-linux.ap.freescale.net>
+        Thu, 25 Sep 2025 08:31:49 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: sebastian.reichel@collabora.com,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Rob Herring <robh@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Eric Anholt <eric@anholt.net>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-input@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org
+Subject: [linux-next PATCH v8 2/3] dt-bindings: arm: bcm: raspberrypi,bcm2835-firmware: Add touchscreen child node
+Date: Thu, 25 Sep 2025 17:31:34 +0200
+Message-ID: <20250925153144.4082786-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250925153144.4082786-1-dario.binacchi@amarulasolutions.com>
+References: <20250925153144.4082786-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250924203115.GB2711@nxa18884-linux.ap.freescale.net>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_082532_766627_BBE75D09 
-X-CRM114-Status: GOOD (  37.99  )
+X-CRM114-CacheID: sfid-20250925_083154_799372_1EA6707E 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,100 +112,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 04:31:15AM +0800, Peng Fan wrote:
-> On Wed, Sep 24, 2025 at 11:10:33AM -0600, Mathieu Poirier wrote:
-> >On Wed, 24 Sept 2025 at 09:35, Peng Fan <peng.fan@oss.nxp.com> wrote:
-> >>
-> ...
-> >> Sorry for early ping - I just wanted to check if there's any chance for this
-> >> patchset to be included in 6.18, along with the other cleanup patchset [1].
-> >
-> >It seems very unlikely.  I am currently looking into how the PM
-> >runtime framework behaves to address my own questions about this patch
-> >[1].  Furthermore, I am worried about the usage of the device
-> >management framework when it comes to freeing memory.  I will get back
-> >to you with comments on that front when I know we are doing the right
-> >thing with the PM runtime framework.
-> 
-> I see. Not sure Ulf could help clarify or review, then you might take less
-> time.
->
+Convert Raspberry Pi firmware 7" touchscreen controller device tree
+binding to json-schema.
 
-It is fortunate that time was taken to understand the problem and fix it
-correctly.  Otherwise we'd still have a problem and more patches, possibly
-wrong as well, would have been needed.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+---
+
+Changes in v8:
+- Add Reviewed-by tag of Rob Herring
+
+Changes in v7:
+- Add $ref: /schemas/input/touchscreen/touchscreen.yaml#
+
+Changes in v5:
+- Move bindings into raspberrypi,bcm2835-firmware.yaml
+- Remove raspberrypi,firmware-ts.yaml
+- Update the commit message
+
+Changes in v3:
+- Drop firmware-rpi node and use only touchscreen node to fix warnings
+  you can see in
+  https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250913092707.1005616-3-dario.binacchi@amarulasolutions.com/
+
+Changes in v2:
+- Added in v2
+
+ .../arm/bcm/raspberrypi,bcm2835-firmware.yaml | 28 +++++++++++++++++++
+ .../touchscreen/raspberrypi,firmware-ts.txt   | 26 -----------------
+ 2 files changed, 28 insertions(+), 26 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 1f84407a73e4..8349c0a854d9 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -103,6 +103,28 @@ properties:
+       - compatible
+       - "#pwm-cells"
  
-> >
-> >I dropped the 3rd cleanup patchset.  More than once I asked you to
-> >submit only one patchset at a time and you still refuse to take notice
-> >of my request.
-> 
-> I apologize - I now recall your earlier request to hold off on submitting
-> further patches until the table_sz clearing patch was clarified. I
-> misunderstood and appreciate your patience.
-> 
-> Could you please clarify whether there's a general rule in remoteproc that
-> developers should only have one patchset or patch under review at a time? If
-> so, would it be possible to document this guideline in the kernel documentation?
-> That would help avoid confusion for contributors.
->
++  touchscreen:
++    type: object
++    $ref: /schemas/input/touchscreen/touchscreen.yaml#
++    additionalProperties: false
++
++    properties:
++      compatible:
++        const: raspberrypi,firmware-ts
++
++      firmware:
++        deprecated: true
++        description: Phandle to RPi's firmware device node.
++
++      touchscreen-size-x: true
++      touchscreen-size-y: true
++      touchscreen-inverted-x: true
++      touchscreen-inverted-y: true
++      touchscreen-swapped-x-y: true
++
++    required:
++      - compatible
++
+ required:
+   - compatible
+   - mboxes
+@@ -135,5 +157,11 @@ examples:
+             compatible = "raspberrypi,firmware-poe-pwm";
+             #pwm-cells = <2>;
+         };
++
++        ts: touchscreen {
++            compatible = "raspberrypi,firmware-ts";
++            touchscreen-size-x = <800>;
++            touchscreen-size-y = <480>;
++        };
+     };
+ ...
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt b/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
+deleted file mode 100644
+index 2a1af240ccc3..000000000000
+--- a/Documentation/devicetree/bindings/input/touchscreen/raspberrypi,firmware-ts.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-Raspberry Pi firmware based 7" touchscreen
+-=====================================
+-
+-Required properties:
+- - compatible: "raspberrypi,firmware-ts"
+-
+-Optional properties:
+- - firmware: Reference to RPi's firmware device node
+- - touchscreen-size-x: See touchscreen.txt
+- - touchscreen-size-y: See touchscreen.txt
+- - touchscreen-inverted-x: See touchscreen.txt
+- - touchscreen-inverted-y: See touchscreen.txt
+- - touchscreen-swapped-x-y: See touchscreen.txt
+-
+-Example:
+-
+-firmware: firmware-rpi {
+-	compatible = "raspberrypi,bcm2835-firmware";
+-	mboxes = <&mailbox>;
+-
+-	ts: touchscreen {
+-		compatible = "raspberrypi,firmware-ts";
+-		touchscreen-size-x = <800>;
+-		touchscreen-size-y = <480>;
+-	};
+-};
+-- 
+2.43.0
 
-Most people tend to address one problem at a time, especially when subsequent
-patchsets have dependencies on the previous ones.  I'm not sure there is a need
-to document something like that.
- 
-> I ask because I have other patches queued that are independent of the current
-> series, such as:
->  - Reintroducing the table_sz clearing
->  - Misc cleanup in remoteproc core
-
-I'm fine with those, as long as you address just one proble at any given time.
-
-> 
-> I understand you may be busy and have limited bandwidth. Would it be feasible
-> to offload part of the review work to Bjorn? I rarely see Bjorn reviewing i.MX
-> patches. Alternatively, could we consider bringing in a third maintainer to
-> help accelerate the review process?
->
-
-How fast do you want to go?  By and large, I reply to patchsets within a week,
-sometimes two when things are busy.  And when I can't meet those standards, I
-send out an email to the mailing list with the review order of the patches in
-my queue.  What else are you expecting?
-
-Bjorn is maintaining over a dozen subsystems - I stepped forward to maintain
-remoteproc/rpmsg to help with the volume.
-
- 
-> Thanks again for your time and guidance.
-> 
-> Thanks,
-> Peng
-> 
-> >
-> >Mathieu
-> >
-> >[1]. "remoteproc: imx_rproc: Fix runtime PM cleanup order and error handling"
-> >
-> >>
-> >> Both patchsets have received Reviewed-by tags, have been tested, and
-> >> successfully passed builds (arm64 gcc) with each patch applied incrementally.
-> >>
-> >> [1] https://lore.kernel.org/linux-remoteproc/20250920-imx_rproc_c2-v2-0-3351c4c96df5@nxp.com/T/#ma16bb8a38300f6eb333ee04f00d57805aee3c114
-> >>
-> >> Thanks
-> >> Peng
-> >>
-> >> >
-> >> > drivers/remoteproc/imx_rproc.c | 128 ++++++++++++++++++-----------------------
-> >> > 1 file changed, 57 insertions(+), 71 deletions(-)
-> >> >---
-> >> >base-commit: c3067c2c38316c3ef013636c93daa285ee6aaa2e
-> >> >change-id: 20250916-imx_rproc_c2-2b9ad7882f4d
-> >> >
-> >> >Best regards,
-> >> >--
-> >> >Peng Fan <peng.fan@nxp.com>
-> >> >
-> >
+base-commit: b5a4da2c459f79a2c87c867398f1c0c315779781
+branch: drop-touchscreen
 
