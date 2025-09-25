@@ -4,156 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00503CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 21:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54BDCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 21:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eYp/21o38PKejkqSa7U/BrniIDH57jgw6WqFh9xIeFk=; b=dVPVMfdUBzhwIdPj0RxKrfOg6r
-	rfafwcB+rDi2B0eiy5ZHV6FveEQffnTQFHD/zM87CNxbiriaTnPPp8lRVbhJmbKX0qPrNC8s44p/o
-	79nLsB8qFfkTXMQhNqAJU0qnhg2GjrtMqRRCDRPr5pFO1O6wmGN8FlcJl4+XNdHgvWw/flfGsYobM
-	XkBn9UGPlF7OE0dJ59w8LCpLSpUBzmmqjHBfbTpqlMR9aL7BX98fqumOojJveWd/r2dGHtS/KQYjN
-	UMaDHpwUsl1gzNPqVdXtnI3YFiOA+EP0at2864mt5CID7a7S9WbEupwBlNYaxqFfSSxpX6ZZi36vZ
-	VYNI6Ahg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=uqTQx9LUkIe0/ub4yjVNAA6+owlalcgdNtwtnIvFdxE=; b=a5475XHmZXm7bb
+	cpzPJRS9hRPZTUUBA7wwC2t65Am4KUyT5FVODrkElWgcPJPz83Bb+fdlg965mgFv9zTDEdqD1nyzP
+	LPHplKsTJRb6cmY31Hs98I9lsC7L4IuoITqBZCWW1HP3t8yp7c6DbXp4+LcDOEaep3dDXuhfdQTuy
+	Rca1+Smtmbn1pzRlujo+mMpE+1Y4ScT/6Km4VnB0+2vknLFKCNNE8vUfmDj8V6zc69TXR+BL0Tr7B
+	lKDAFIJm2+q67NTnjgjC1bN+V+AXJExtdttpBTstHDZ9kNFAE07beFrk7PSf5mruI3v6EGrbN7GZV
+	5x9zEn9xQRxSsXrkMwlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1twH-0000000DMJh-47CQ;
-	Thu, 25 Sep 2025 21:55:45 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1v1tyT-0000000DNV3-3gjk;
+	Thu, 25 Sep 2025 21:58:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1twG-0000000DMHF-1nDO
+	id 1v1tyR-0000000DNUx-3IU6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 21:55:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dVdYUcWsIYN9X0BbY/F4Ec8slW0laYeRNmVsznqk9QaQhEFMV2JK6IA7dqjamgIkPEUDl3mc2Va50G5hLeUfKTcfdBlYnjmiZPO5lVNiR1ABgYlCIse5RATkPXkd2e5EvDrjFwcptJoCXxpnvQTeUXfr6XSz9vciyzuRI3jYE/s1OI15zQP4zG4p2/OA2wJicxj/bT2OAVbIuMUNbG6SG5BFvRlaWRkR+8JVPpOOY9LnNlR2D3jrfl6Avkj2acT+YIfE+rvJLkq6A674G6QyZGnmvlgw3BKlBkwOiIHSf0PD9fyWpHrblovtQaRCaU5FqJamMBiS9ZI8aFfDrVXsmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eYp/21o38PKejkqSa7U/BrniIDH57jgw6WqFh9xIeFk=;
- b=MZuU8asD/LFN8IxAow9CXBV5f+EjHwWEIfSri5g07Vzc5mYfIhyiBvoNRcWI2hRFZx3wfegGgN9PYtI22/d8GjGMjH8aehZ65psQiZwND/yKJuKwWTmnpZZdkjFb9yMSaCyvmSfWML0S3VwJqMYbpSVWlfsbj2pzuvH8PE9+A40Pr7HMHhJ+nTyqcDrVtvw/83PTwgGJt0g59DH0l++bZyMWVr0LaEXEuo7ZwdQAppu4wV43QlXvzPLtJ3Hn4DckNpxcjTq3T6UrCdDxQ7u00eGuOnV+YEjVX6Ucq4RYfpn0UqbYNt1x6Cg7RcDFXc6UwzGFt5Rwb0o5FVnTVP99WA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eYp/21o38PKejkqSa7U/BrniIDH57jgw6WqFh9xIeFk=;
- b=luqEr8OSpWKjn6txJfPtclU47Kl5mn8KrkFq/sjt+perAtFNvMpbFSvWJFce/njWAGVli+9XP06yDwbRogwHOTadzZtl39OtOeOlgwH+8EbjOsowkH6yM9ZMjKy7FoYhGyNBw+0JGYy/suQTRuBP9fXMc54kzDMCv9IomXmMUNHQ3SD3pJygNTYwj3a2vjh4hgoMmLLw1ylYl0t9WsNhrmbc0fWnGVgwLC5WRLy7iqzoACqyti+31Kt/UhjqH0yyrTgNhT3CnBUqm7EaYEc+MLXK1KyrstH9xYlr7FTYnfOmXtMpQNgkori4IjR9TyBgveKEfjle27IDCw76PYDGNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AS8PR04MB9112.eurprd04.prod.outlook.com (2603:10a6:20b:44b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Thu, 25 Sep
- 2025 21:55:36 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
- 21:55:36 +0000
-Date: Thu, 25 Sep 2025 17:55:28 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 4/4] media: imx-mipi-csis: Get number of active lanes
- via mbus_config
-Message-ID: <aNW6UPV7LzmczWtm@lizhi-Precision-Tower-5810>
-References: <20250925-active-data-lanes-v4-0-8b54e3d5af6c@ideasonboard.com>
- <20250925-active-data-lanes-v4-4-8b54e3d5af6c@ideasonboard.com>
+	Thu, 25 Sep 2025 21:57:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 27F6E61282;
+	Thu, 25 Sep 2025 21:57:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAA3EC4CEF0;
+	Thu, 25 Sep 2025 21:57:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758837478;
+	bh=XSHViZo3Pi55CeXnpkwa+76DxWBGmZaI9vptrJBuf3Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=O9jw1uPIi82h87JIKbVTIqu+AZDAM6k59eR34EetiOXMbG80a0szGPh5gViG08yGl
+	 /QUNaZ27F2FodFn/W1wqFbHSTGFO+dbS9UK1VEVHUI+BOYgO2wr1LrUSvIiwx54EFj
+	 cC+Ynvw9g8wd/RcH0Lki2jVBgwo4GQrA+OPJWkK+gAokG3V9doBxAQ33aIz9teJGqx
+	 T6ow1SftLrX7eYgxfMNiRvsdTzW2miiSy0qxTChgG4uzufaUT1Ggrb3a/wVsa9kXg2
+	 MQEDzbZm4IlpLxs8hQ+Xm7FZhfoQ4HPZGXSHRve9tmG1jLdMjHGj8PfS5dXyYWU/sO
+	 saYoyggiS0edA==
+Date: Thu, 25 Sep 2025 16:57:57 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ#
+ override active low
+Message-ID: <20250925215757.GA2205491@bhelgaas>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250925-active-data-lanes-v4-4-8b54e3d5af6c@ideasonboard.com>
-X-ClientProxiedBy: PH7P222CA0026.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::29) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB9112:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c6c260e-17dd-43eb-98e8-08ddfc7e4231
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|7416014|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WI/FdmKuc721s4KgN1wHGbc11RWXxkznxtrBTi9YvE9vQe2uxXaf6XqLM5Gq?=
- =?us-ascii?Q?s0tJZgp44wbgczapoJG94JyV1RE1epQ6drib6FlcFscko46rK47n2bOpxXES?=
- =?us-ascii?Q?hQeitjzMrIoEZhH/lT460CLQcpivKdX90fOeifLo6jv7N4zHa+HhIgfEzR8S?=
- =?us-ascii?Q?xuAxAFRYIswSOXSUjNH1WXKl9zo278lCDL5el49T15Stgoand4zsjShsYNA1?=
- =?us-ascii?Q?KRbRpxmgLN3pvstFMYtrq5iQsYq6wNRFoOdSaejRf7jbj5KBUo4HFWQGPAJT?=
- =?us-ascii?Q?PeOgkoKPU3C12wngae5q0wrBHR46HWSnTtxRH603VVCG3CIV8AKUtOnFIoPe?=
- =?us-ascii?Q?F1ZSzCQpCrUF9CDttOgsVHwwUBaiDVwkNdWVtoa9HhvtvyBKo5y479qbuINu?=
- =?us-ascii?Q?P6ZxrBiRpfcPQRjfN9yX86m4Q/CFMdd28h/A+g7KSh1EKDIFSUZq5/4toHkO?=
- =?us-ascii?Q?/CZJi/8bl9ATjlHBIs2ehjdxvudjgqKCT8E9/bO4acmVSlpuLokqPMwd9i2g?=
- =?us-ascii?Q?nKh9HutaNFi++g5AeCddhJsZeni4PcxsKDfnDm+3WGR/Jy2u/n1dAK3kMg5E?=
- =?us-ascii?Q?WO3v4Gw9qxN5SczUGBbRgpc1ckPxltIZejyt652KFkN38y2g2yX1A9nH7aF/?=
- =?us-ascii?Q?AHyyk/xQQuR62HyUL3/9Jm6nhgtnBbuyuj1YAg8YPEUX3Fku4Q83kC1FyBJ5?=
- =?us-ascii?Q?txULNBZfLT/BBP9JLNomJKiU56smcrcma/XrL+VS/FccTcMFYlWMVgT5bQRc?=
- =?us-ascii?Q?RhTuZ+hl2W6qEmT2a0JyuUDAGj8meVPyCg7yOVG1/lGIUCP2xYd/Nopg5LdJ?=
- =?us-ascii?Q?whH4g/saMNj3pfn0LP16fDfGpziYMzmR/AxSnKo9SoxiQSopTzRX39GAPUME?=
- =?us-ascii?Q?BWzzI4ned5CXHN7k5a4xE8CQxnGB1rUDkUzgUDixkl41zv1YoO+hRPY2rKJq?=
- =?us-ascii?Q?tnet8sHFcC7LHpNLoX4fbJzOvaVMdi2GY6G6I52JcKIDypg7rLScOMZ69Ygn?=
- =?us-ascii?Q?c+LYtzzi65Xu9THFI9Uaf6KMC14bMrcnL8Gdf5TJeZfR37hDQeBNeGO42p42?=
- =?us-ascii?Q?nh10yuoq6ired6xIRXnlThGoEYxZ9EzUuyIk9Q9J1fkhQRXGfRsqDEww/TVY?=
- =?us-ascii?Q?FKzZqStFTIgWYstCGxyy2tOvUEjjKCGMqd0Lpurb9+UqdfiHyKkEzWKDGWVu?=
- =?us-ascii?Q?aPAvQOHr9yQbzlB1eCzPcpl4T92lrNLhfxesXhkMvLBNRA83zcQITRbw5+YH?=
- =?us-ascii?Q?UeP7F8VvlGamy/J0ZmLXsVUPKtDlUtG4PKsXMtE/rO5kRNTLci48y1WvowHu?=
- =?us-ascii?Q?jkPnGXOgvTOFi26g0N7e0dKRcNFVuUDJ2hxW0zoDNDL5m/UhD3FaxkMN1xtW?=
- =?us-ascii?Q?vcESY4+0Yu3pxURIJmv940Om1gCoxeUSMzpwDH2Mgf2Y8zTxZroo+30NG2XL?=
- =?us-ascii?Q?ZRE19ce8jOcdzn+wczrS6yQ/d86NW3ObZhGCKkxLjGsTjT+zyrnIsw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VF40pT/CEoRKd1cS979u0yJCS8HLfWo17ht7ycszJs5Vmnd1tkNsKEHXExW6?=
- =?us-ascii?Q?R8ZQ+ca+zv+ac3/wdODMfCSlrLrGtK7DJkUmDm/H/rMHg9ZpDkdLcQHlD5+e?=
- =?us-ascii?Q?00zwtIErSlTd9GptU7EpMr7ly6BSFb5j6RDGF+vt1R6kgJ948R8tMXhRYSBE?=
- =?us-ascii?Q?pKK/t4jhDYSkObGNRohZ7aBjRILQarfNByAesrCKmeSLKPY9NaRYHFkpxx2x?=
- =?us-ascii?Q?+0dE9p3xsb4NWopS2Ebn1b9BAgcm97a45r8Qwhg/rKYsXdlGJ/1fju5nCVSU?=
- =?us-ascii?Q?hXDhJRprppkpvoKD7vfR77g4N1ItlD0J1GnR43ULJCPK2Tv2EdhyakRteseq?=
- =?us-ascii?Q?oAJBzSDc7x3IJY8YzC9fTm5RhSzuT96FhjPh+/LjQXUFwitkF3VbG9w1PlSq?=
- =?us-ascii?Q?qB9Ir5og4pBKmAgSckl4aCMFciyTc8/nPR8pF4n3p7mdoBEhTGtnHxmF9ncq?=
- =?us-ascii?Q?3e8RePZJO1F8Kz/naR7PRMTBFFWdUxXsfBmBiDHCOLGYfN0bF48lypktMO3K?=
- =?us-ascii?Q?kSF9SQllSXtifgt5Y5XOifArkp5pjzznZlCMsquxGxFujuJbYdCPyUNlT+kL?=
- =?us-ascii?Q?GAqBGvWHd79aTcquFOHMt78kj9G9D73R0M4JmjVUwvA1FEZ/3GqWIm6NFNow?=
- =?us-ascii?Q?njutkY+8FXpuMYAtV2D0Xpt9AS25OUtgSJ6SCk2mJEAu/hcIRTZxUtgqoJQl?=
- =?us-ascii?Q?8NM557LEheoVxD/sMjlBbkkqCwm9qLv7cvx+U2VDbljDW08axDncCVRbU0sv?=
- =?us-ascii?Q?Keg4NHVKxVofPQVPahkFia0X2NNTOkfxFJwVHERoRP1XZUX7rTpbBfzQ4KJO?=
- =?us-ascii?Q?MUZBsiSLDW4qSHUQZqYwwXD37spFUSqS2j+/Rfn/aF9gkHktZ1VEFZ1R+PTf?=
- =?us-ascii?Q?sPS8lsRDOoz2QOiBuwZT2l8quB9YfUrPwGOBK8y20WmxxzhvsQzvh5pv+glZ?=
- =?us-ascii?Q?FQg25uzs/E1sbrG0q2sTo3P4JXfe4jIVJ0o4k05AJoe/sH3ZPZn4mX2YFbXN?=
- =?us-ascii?Q?0uUQqSX/mnR08jgms8OGIehay/KkGODuEDfMbr7l+zn6XCJF4Xbc/R/UVpjL?=
- =?us-ascii?Q?3FpHoToYGyFhdpkSe1v7z4iIkvhgg27F3lbtn5n6V264HpUCHgrFZqoKgm9A?=
- =?us-ascii?Q?CducRYtD0s/y1LD+RxG5CgGM3Vm0GMuOk5bGEKyQq7m37TpHqv57bYbtO7jL?=
- =?us-ascii?Q?xizmdOW+oDv700/IxQ/o0VVjJgsdWGKGrWGAmyihyW2ja94Y5MWcaK2Vsn3H?=
- =?us-ascii?Q?mDaB6I5slhS+8akLOSNRZmtLheb0now1+iPTKD/pGoeQEEj6OUyv+E6H32V+?=
- =?us-ascii?Q?OGpKMhtzpYvG0V+sStk+PRKO6r2iOe2o3VZBGjoYmhUcJb+0+ls/o4gHxWFP?=
- =?us-ascii?Q?xeFvWWFwMLwypNWWCCgoi7lg5CMshu1X59t8oRAI1b2FBuJ0l7671qoWVFwI?=
- =?us-ascii?Q?rUEr29tqLgQ4QNjKcqNEtucqHs6mpYYKQj/1pAgc/HCZdETpFa6m1ZK7Zeu0?=
- =?us-ascii?Q?hzh1aJAP1fp/T4UWVdprBCThx4Cm2wrpACjWbV8/85iEPFJqvjzlh5qqp0IN?=
- =?us-ascii?Q?wf7cRSWPtdY4jElzZ+avIR0Wr2kiCF43OwxfbJlr?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c6c260e-17dd-43eb-98e8-08ddfc7e4231
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 21:55:36.5016
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: H3xa0Ib7ilJ03i+enZplAqYAX1szCIGgrlcedJ2+TjT5cNqSBQVHvjRjUVo4N1JdxBvsf+IWa01jPMaSFT/vxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9112
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_145544_466220_A9F5F754 
-X-CRM114-Status: GOOD (  22.83  )
+In-Reply-To: <20250923073913.2722668-3-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,52 +72,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 04:54:29PM +0100, Isaac Scott wrote:
-> The number of lanes actively used by a MIPI CSI transmitter may differ
-> from that which is defined in device tree, due to the source device not
-> using all of the connected data lanes on the board. As such, call on
-> v4l2_get_active_data_lanes() to check if the driver reports a differing
-> number of lanes to the maximum, and use that number of active lanes.
->
-> If the number of active data lanes is invalid, or the op is not
-> supported, use the maximum number of allowed data lanes.
-
-Is below message better?
-
-media: mipi-csis: Support active data lanes differing from maximum
-
-Call v4l2_get_active_data_lanes() to get the number of lanes actively used
-by the MIPI CSI transmitter, which may differs from the maximum defined in
-the device tree.
-
-If the driver reports an invalid number of active lanes, or the
-operation is not supported, fall back to the maximum number of allowed
-data lanes
-
-Frank
->
-> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+On Tue, Sep 23, 2025 at 03:39:13PM +0800, Richard Zhu wrote:
+> The CLKREQ# is an open drain, active low signal that is driven low by
+> the card to request reference clock. It's an optional signal added in
+> PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
+> reserved.
+> 
+> Since the reference clock controlled by CLKREQ# may be required by i.MX
+> PCIe host too. To make sure this clock is ready even when the CLKREQ#
+> isn't driven low by the card(e.x the scenario described above), force
+> CLKREQ# override active low for i.MX PCIe host during initialization.
+> 
+> The CLKREQ# override can be cleared safely when supports-clkreq is
+> present and PCIe link is up later. Because the CLKREQ# would be driven
+> low by the card at this time.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 838a1ad123b5..637ef6e614fa 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -1034,6 +1034,10 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
->  	format = v4l2_subdev_state_get_format(state, CSIS_PAD_SINK);
->  	csis_fmt = find_csis_format(format->code);
->
-> +	ret = v4l2_get_active_data_lanes(csis->source.pad,
-> +					 csis->bus.num_data_lanes);
-> +	csis->num_data_lanes = ret < 0 ? csis->bus.num_data_lanes : ret;
+>  drivers/pci/controller/dwc/pci-imx6.c | 43 ++++++++++++++++++++++++++-
+>  1 file changed, 42 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 80e48746bbaf..6b03b1111d06 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -52,6 +52,8 @@
+>  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+>  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+>  #define IMX95_PCIE_SS_RW_REG_1			0xf4
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
+>  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+>  
+>  #define IMX95_PE0_GEN_CTRL_1			0x1050
+> @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+>  	int (*wait_pll_lock)(struct imx_pcie *pcie);
+> +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
+>  	const struct dw_pcie_host_ops *ops;
+>  };
+>  
+> @@ -149,6 +152,7 @@ struct imx_pcie {
+>  	struct gpio_desc	*reset_gpiod;
+>  	struct clk_bulk_data	*clks;
+>  	int			num_clks;
+> +	bool			supports_clkreq;
+>  	struct regmap		*iomuxc_gpr;
+>  	u16			msi_ctrl;
+>  	u32			controller_id;
+> @@ -239,6 +243,16 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+>  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
+>  }
+>  
+> +static void  imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
+> +{
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
+> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
+> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0);
+> +}
 > +
->  	ret = mipi_csis_calculate_params(csis, csis_fmt);
->  	if (ret < 0)
->  		goto err_unlock;
->
-> --
-> 2.43.0
->
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  {
+>  	/*
+> @@ -685,7 +699,7 @@ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  	return 0;
+>  }
+>  
+> -static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+> +static void imx8mm_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
+>  {
+>  	int offset = imx_pcie_grp_offset(imx_pcie);
+>  
+> @@ -695,6 +709,11 @@ static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr, offset,
+>  			   IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN,
+>  			   enable ? IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN : 0);
+> +}
+> +
+> +static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+> +{
+> +	imx8mm_pcie_clkreq_override(imx_pcie, enable);
+>  	return 0;
+>  }
+>  
+> @@ -1298,6 +1317,16 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  		regulator_disable(imx_pcie->vpcie);
+>  }
+>  
+> +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> +{
+> +	imx8mm_pcie_clkreq_override(imx_pcie, false);
+> +}
+> +
+> +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> +{
+> +	imx95_pcie_clkreq_override(imx_pcie, false);
+> +}
+> +
+>  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -1322,6 +1351,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+>  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+>  		dw_pcie_dbi_ro_wr_dis(pci);
+>  	}
+> +
+> +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
+> +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
+> +		if (imx_pcie->drvdata->clr_clkreq_override)
+> +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
+> +	}
+>  }
+>  
+>  /*
+> @@ -1745,6 +1780,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	pci->max_link_speed = 1;
+>  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
+>  
+> +	imx_pcie->supports_clkreq =
+> +		of_property_read_bool(node, "supports-clkreq");
+>  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+>  	if (IS_ERR(imx_pcie->vpcie)) {
+>  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
+> @@ -1873,6 +1910,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
+>  		.init_phy = imx8mq_pcie_init_phy,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8MM] = {
+>  		.variant = IMX8MM,
+> @@ -1883,6 +1921,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0] = IOMUXC_GPR12,
+>  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8MP] = {
+>  		.variant = IMX8MP,
+> @@ -1893,6 +1932,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0] = IOMUXC_GPR12,
+>  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+
+imx8mm_pcie_enable_ref_clk() and imx8mm_pcie_clr_clkreq_override()
+both call imx8mm_pcie_clkreq_override().
+
+All these devices that use imx8mm_pcie_clr_clkreq_override() also
+enable the refclk in .init() by overriding clkreq, so .post_init()
+clears that override.
+
+>  	},
+>  	[IMX8Q] = {
+>  		.variant = IMX8Q,
+> @@ -1913,6 +1953,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+> +		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+
+But here there's no .enable_ref_clk() method, so I guess this device
+must override clkreq automatically and the driver doesn't have to
+enable that?
+
+>  	},
+>  	[IMX8MQ_EP] = {
+>  		.variant = IMX8MQ_EP,
+> -- 
+> 2.37.1
+> 
 
