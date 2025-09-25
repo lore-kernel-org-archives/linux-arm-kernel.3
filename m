@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5076CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAECCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmyZXRi73uZYdBVcBjsptiB3fqiGtTcUPx0kUvNWDWU=; b=HvhsblyvqgNzvcaPb6uSz5y4y6
-	20YPqSIZFvkkP0uFSh/cGcPM1fs/3P0OZ0Eb1wFU5DeunGCoacBf+HYKawgg/jGFlgsP2BOPjHB/c
-	8R5JJdtnStYxEQmpuwBGxOgW0apRxcUA3X+nkKwyrRnBOVEtvuuPu0zb3EIXzU2DGNs4DTMxT9AWp
-	2X4PC58TcFmtuu8brm2B73WxCpEIgcydaHEJo6/DjKua5uGnbvvfsG/XgpCidCYsVHiK7nJc2QTHG
-	FrLobtWwzB/xDTyOUMVxSCg9zTWn4SUfeyHTNqEXvPCAwXe1dlSq1SMdY7G5YkZcZJeJZzDKxSkyS
-	lU8/oQCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ABZKBXlDGiDO7dz2VhCshuGqK89Fp0A2MbuBuw1Nuns=; b=vP20q6lj/7qdrG0UwVFv6q4fwz
+	VMzUtNmQroHAAKs0d8th8nCl55YeoED+DnOCvOetPbg2GiplSgQrgPRWeBVKA26djjxZAdqoClNHi
+	WPtqMhVtmkZuytJGvzgxKsESbYWIybOktOQFpFG06BEo2M/Un7v27s/xokfmmd+8TtsJowXFCo6Ml
+	7r73N7CCIbwTPVh06jjZJx253L/z/1k7mM4UeQZkTn/8ICqFMXyF5oMoCJVX9yqP/36tkK7L6Y0q5
+	io3qW0P2Rh4Jb3dI1gKbgQNezUfBF/IDOl4ZJLJ2B9pjKYvIbktKLO+vIJ6bTtQTu0XCkH5Xx9u85
+	6W5leojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mME-00000009c0T-2AHf;
-	Thu, 25 Sep 2025 13:50:02 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1v1mSR-00000009g3N-09cu;
+	Thu, 25 Sep 2025 13:56:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mMC-00000009bxd-0jqu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 13:50:01 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-74f6974175dso14278897b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 06:49:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758808199; x=1759412999; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kmyZXRi73uZYdBVcBjsptiB3fqiGtTcUPx0kUvNWDWU=;
-        b=ZBAKOA5ACMrHEa+fq+PDm4TiE+T42FKA4EKRdGqghA13ps6xm9yx/epMNQwK2I7Jmp
-         fzNEf/4Vkseg+vGK9eZt8HbeJl1NHV0nrAXNG4TqoQN4cY+0ugSCZRrXwKWIC7HNdrOk
-         IKPbKvWOXQrY7gJaQY6mvCeW12vQus/X2QSGtoDBSkFfYMa8JW3oID1zJkkcspJNrQSO
-         lpdD6Ay5IheDy3rAQoE2Y+cR9p7G0JxRqbfJtOsVlLKgR3j8EKMuU+yj51bfXzNj2zlh
-         3GT98Bysb6R3Zoj4ySJ9VEV3VWTw/PDcTDhrBVG32V9neYhfW+W5nkzZRPMgFzbOGD4q
-         jhRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758808199; x=1759412999;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kmyZXRi73uZYdBVcBjsptiB3fqiGtTcUPx0kUvNWDWU=;
-        b=nEeX8K4uxWVVgq4dD0XLFFC5YhsfCXEfb/c4+ilyqhw1zT9NOLGkL6CRaLDumsY9Fm
-         lpxeuyh7cFvr4pUfFee1N7qklOsx1oEGYwbr79c+CLkiBnZ5NVPR7S3mnODZKFd0o2a9
-         46UrcwGcyWPJ+oS8wp71z9ADXg6jJxmNN/KQ671V1SCBDDpLSa/nBCm6Sf8QlR1HUu75
-         c4sCzpJqjaHJqmMeeQn+/cmZhKdKHeEIYpgaL4ctnmbQfEE8sP5f1p9qYwG7pzdHnhfT
-         8AqNrsMHD0arAmXYtEFaMdIa9FYahR2qcaHOo63DZkXy0ue81s7rmOmLLDOJBuu3RnXz
-         H65g==
-X-Forwarded-Encrypted: i=1; AJvYcCVCeVRJ9IfhQitGnMoXSp6FdhyC03mNzew16VUL+Dj9lkBXF7lePMFiMSHBCbVmkS/63bHJNDqC1RZLlA9GjKZ6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYNA5TqgmdeSCGHv/XCDTan5tbcYGj/GoL09hMOVUBtHvh3jHK
-	67hem0iJBf1r3FPJ8tPXaEiHMD+4ZiK4YuizPic7gzEbSwp1FqvkG21BrmygGqxKTWjBsuzIHRQ
-	TY5lxAUbGErW1TJ/lCrwVJZTCq1NuH4YXYwxuoF8k3Q==
-X-Gm-Gg: ASbGncunc0E1nvyUuc/X+d9Wer3xlT6iI7r1cF9LMsy20faTsNsZccmeaql6cWJH/5q
-	qX9h/WV3wW6vZBA/rcvtlpoNg08WlOyV69DPxTQYqn22L9tL1eC4fQblGPxLL9Ewe7Od3sYcv80
-	7F2Caj7Cfn9+4qN1qSOviWApYVoKx3gsyTIJVTghPHpE9Ivzn9igw2ytKe2CUfLR+dx7IVCcm5B
-	PxEOLCz
-X-Google-Smtp-Source: AGHT+IGaha3hYgmKpJiOOTZ9mrQajm66T6EOvbyDKUqs9BGv9oHsslH1tx8/pHWIf2OpE+bvRrEoo4jl8LUISCN+73k=
-X-Received: by 2002:a05:690c:620d:b0:744:fe4e:b5ce with SMTP id
- 00721157ae682-76406cdda58mr31077837b3.45.1758808198715; Thu, 25 Sep 2025
- 06:49:58 -0700 (PDT)
+	id 1v1mSN-00000009g14-39C6;
+	Thu, 25 Sep 2025 13:56:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1758808581;
+	bh=slNJrvUvalJgEjRI/QEKcr3aGOrfhEydMGMtAVNpyJw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FT0zNm6Cs8dDXxwnnuxI31+IadOQgL7lnHkydqOVyqj3SQP3cOM/C24DaaY+cp4qc
+	 pPwxjcLKL3IwhPhH3G/nMeleevEm5JI0zEYV9GXy6zkEGbOxpkBq542U0A56ACw/iR
+	 h9zTEDTTc+Rghe0k1eWbqRxnQUuAingw9b+IKUpHQ2RK/lOuRL9WamARWubnKmwDuv
+	 68y31Sg1x2rsI/oIvabWpYcrhUUZQyq3grNscXkEUVsQS9sVu5lgku6M6HeZUOgG8h
+	 5/PeRvAD1IzfKxEBnW/uEa+Z401p5oEVdNuwNaYFvreZ4M06fvZ02CGe9r06Z8zGdr
+	 V9FEMKRD8irFA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5280E17E0FBA;
+	Thu, 25 Sep 2025 15:56:20 +0200 (CEST)
+Message-ID: <a8014179-14a9-41e1-b023-826b1d5dd8fc@collabora.com>
+Date: Thu, 25 Sep 2025 15:56:19 +0200
 MIME-Version: 1.0
-References: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com>
- <20250923-imx_rproc_c2-v2-1-d31c437507e5@nxp.com> <CAPDyKFpjP07826FXh8XveXiH7ta+N=upYaowf7r6gyNWPSFfqA@mail.gmail.com>
- <20250925142400.GA18572@nxa18884-linux.ap.freescale.net>
-In-Reply-To: <20250925142400.GA18572@nxa18884-linux.ap.freescale.net>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 25 Sep 2025 15:49:22 +0200
-X-Gm-Features: AS18NWBypGVgaTpOeUMZ5LpwCPamsE3X5aIdHt-BsxZusAy24_34jazFPo4GtO0
-Message-ID: <CAPDyKFqeWAqbM0td1gW0+Kz2g85xqCuSpQWdJEs8U7MmOPsY0Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] remoteproc: imx_rproc: Fix runtime PM cleanup
- order and error handling
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 8/8] pmdomain: mediatek: Add support for MFlexGraphics
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
+ Chen-Yu Tsai <wenst@chromium.org>, Steven Price <steven.price@arm.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20250923-mt8196-gpufreq-v4-0-6cd63ade73d6@collabora.com>
+ <20250923-mt8196-gpufreq-v4-8-6cd63ade73d6@collabora.com>
+ <673af008-04a8-432d-9517-ca2255e6b35f@collabora.com>
+ <13851204.uLZWGnKmhe@workhorse>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <13851204.uLZWGnKmhe@workhorse>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_065000_235616_48BB0E32 
-X-CRM114-Status: GOOD (  52.33  )
+X-CRM114-CacheID: sfid-20250925_065623_961498_9F790663 
+X-CRM114-Status: GOOD (  53.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,145 +91,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sept 2025 at 15:12, Peng Fan <peng.fan@oss.nxp.com> wrote:
->
-> Hi Ulf,
->
-> Thanks for reviewing this patch.
->
-> On Thu, Sep 25, 2025 at 12:18:39PM +0200, Ulf Hansson wrote:
-> >On Tue, 23 Sept 2025 at 07:17, Peng Fan <peng.fan@nxp.com> wrote:
-> >>
-> >> The order of runtime PM API calls in the remove path is wrong.
-> >> pm_runtime_put() should be called before pm_runtime_disable(), per the
-> >> runtime PM guidelines. Calling pm_runtime_disable() prematurely can
-> >> lead to incorrect reference counting and improper device suspend behavior.
-> >
-> >This isn't entirely correct as it depends a bit more on the runtime PM
-> >deployment.
-> >
-> >More importantly, even if you would call pm_runtime_put() before the
-> >call to pm_runtime_disable() doesn't necessarily mean that the device
-> >becomes runtime suspended, as it can be prevented by user-space for
-> >example, assuming that is the goal.
-> >
-> >To make sure the device is put back into a low power-state, this is
-> >the typical pattern that is deployed in a driver's ->remove()
-> >callback.
-> >
-> >*) Call pm_runtime_get_sync(), to make sure the device gets the runtime resumed.
-> >Not needed in this case, as the runtime PM usage count was increased
-> >during ->probe() and not dropped).
-> >
-> >*) Turn off resources that correspond to what the runtime PM callbacks
-> >in the driver are managing.
-> >Not needed, as there are no runtime PM callbacks for the driver.
-> >
-> >*) Call pm_runtime_disable() and then pm_runtime_put_noidle(). This
-> >makes sure that when ->remove() is completed, the device is in a low
-> >power-state and the runtime PM usage count has been restored.
-> >
-> >*) If there are PM domains, those are turned off by calling
-> >dev_pm_domain_detach_list(), or from the driver core (after the
-> >->remove() callback has been completed) for the single PM domain case.
-> >
-> >That said, one could consider converting the pm_runtime_put() here
-> >into a pm_runtime_put_noidle(), to make it clear that this is only
-> >about restoring the usage count, but I don't think it's a big deal.
-> >
-> >>
-> >> Additionally, proper cleanup should be done when rproc_add() fails by
-> >> invoking both pm_runtime_put() and pm_runtime_disable() to avoid leaving
-> >> the device in an inconsistent power state.
-> >
-> >Right, this deserved to be fixed.
-> >
-> >>
-> >> With using devm_pm_runtime_enable() for automatic resource management and
-> >> introducing a devres-managed cleanup action imx_rproc_pm_runtime_put() to
-> >> enforce correct PM API usage and simplify error paths, the upper two
-> >> issues could be fixed. Also print out error log in case of error.
-> >
-> >I really don't want to encourage people to use
-> >devm_pm_runtime_enable(), simply because it's not always a good fit
-> >when making sure things get turned off in the correct sequence. In
-> >particular, as it's just about saving one/two lines of code, this
-> >doesn't make sense to me.
-> >
-> >I suggest you follow the similar pattern as I explained above for
-> >->remove(), for the error path in ->probe() too. So, calling
-> >pm_runtime_disable() and pm_runtime_put_noidle() should do the trick
-> >for this too, I think.
->
-> I appreciate for your detailed explaination. I intended to drop the remove path
-> in this patchset :), but need to keep it now. No problem.
->
-> Follow your suggestion, I work out one patch, would you please give a look
-> whether this is good for you?
->
-> You could ignore the 'dcfg->method == IMX_RPROC_SCU_API', I will drop
-> this in the patchset to make the runtime PM apply for all, not just
-> IMX_RPROC_SCU_API.
->
-> Thanks in advance for you guidance and help.
->
-> --------------------------------------------------------------------
-> remoteproc: imx_rproc: Fix runtime PM cleanup and improve remove path
->
-> Proper cleanup should be done when rproc_add() fails by invoking both
-> pm_runtime_disable() and pm_runtime_put_noidle() to avoid leaving the
-> device in an inconsistent power state.
->
-> Fix it by adding pm_runtime_put_noidle() and pm_runtime_disable()
-> in the error path.
->
-> Also Update the remove() callback to use pm_runtime_put_noidle() instead of
-> pm_runtime_put(), to clearly indicate that only need to restore the usage
-> count.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/remoteproc/imx_rproc.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index bb25221a4a89..8424e6ea5569 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -1136,11 +1136,16 @@ static int imx_rproc_probe(struct platform_device *pdev)
->         ret = rproc_add(rproc);
->         if (ret) {
->                 dev_err(dev, "rproc_add failed\n");
-> -               goto err_put_clk;
-> +               goto err_put_pm;
->         }
->
->         return 0;
->
-> +err_put_pm:
-> +       if (dcfg->method == IMX_RPROC_SCU_API) {
-> +               pm_runtime_disable(dev);
-> +               pm_runtime_put_noidle(dev);
-> +       }
->  err_put_clk:
->         clk_disable_unprepare(priv->clk);
->  err_put_scu:
-> @@ -1160,7 +1165,7 @@ static void imx_rproc_remove(struct platform_device *pdev)
->
->         if (priv->dcfg->method == IMX_RPROC_SCU_API) {
->                 pm_runtime_disable(priv->dev);
-> -               pm_runtime_put(priv->dev);
-> +               pm_runtime_put_noidle(priv->dev);
->         }
->         clk_disable_unprepare(priv->clk);
->         rproc_del(rproc);
->
->
-> Thanks,
-> Peng
+Il 24/09/25 21:11, Nicolas Frattaroli ha scritto:
+> On Tuesday, 23 September 2025 18:25:53 Central European Summer Time AngeloGioacchino Del Regno wrote:
+>> Il 23/09/25 13:40, Nicolas Frattaroli ha scritto:
+>>> Various MediaTek SoCs use GPU integration silicon named "MFlexGraphics"
+>>> by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
+>>> integration silicon is required to power on the GPU.
+>>>
+>>> This glue silicon is in the form of an embedded microcontroller running
+>>> special-purpose firmware, which autonomously adjusts clocks and
+>>> regulators.
+>>>
+>>> Implement a driver, modelled as a pmdomain driver with a
+>>> set_performance_state operation, to support these SoCs.
+>>>
+>>> The driver also exposes the actual achieved clock rate, as read back
+>>> from the MCU, as common clock framework clocks, by acting as a clock
+>>> provider as well.
+>>>
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>>    drivers/pmdomain/mediatek/Kconfig            |  16 +
+>>>    drivers/pmdomain/mediatek/Makefile           |   1 +
+>>>    drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 928 +++++++++++++++++++++++++++
+>>>    3 files changed, 945 insertions(+)
+>>>
+>>> diff --git a/drivers/pmdomain/mediatek/Kconfig b/drivers/pmdomain/mediatek/Kconfig
+>>> index 0e34a517ab7d5a867bebaab11c0d866282a15e45..2abf78c85d017b1e3526b41c81f274f78d581fd0 100644
+>>> [ ... snip ...]
+>>> +
+>>> +/*
+>>> + * This enum is part of the ABI of the GPUEB firmware. Don't change the
+>>> + * numbering, as you would wreak havoc.
+>>> + */
+>>> +enum mtk_mfg_ipi_cmd {
+>>> +	CMD_INIT_SHARED_MEM		= 0,
+>>> +	CMD_GET_FREQ_BY_IDX		= 1,
+>>> +	CMD_GET_POWER_BY_IDX		= 2,
+>>> +	CMD_GET_OPPIDX_BY_FREQ		= 3,
+>>> +	CMD_GET_LEAKAGE_POWER		= 4,
+>>> +	CMD_SET_LIMIT			= 5,
+>>> +	CMD_POWER_CONTROL		= 6,
+>>> +	CMD_ACTIVE_SLEEP_CONTROL	= 7,
+>>> +	CMD_COMMIT			= 8,
+>>> +	CMD_DUAL_COMMIT			= 9,
+>>> +	CMD_PDCA_CONFIG			= 10,
+>>> +	CMD_UPDATE_DEBUG_OPP_INFO	= 11,
+>>> +	CMD_SWITCH_LIMIT		= 12,
+>>> +	CMD_FIX_TARGET_OPPIDX		= 13,
+>>> +	CMD_FIX_DUAL_TARGET_OPPIDX	= 14,
+>>> +	CMD_FIX_CUSTOM_FREQ_VOLT	= 15,
+>>> +	CMD_FIX_DUAL_CUSTOM_FREQ_VOLT	= 16,
+>>> +	CMD_SET_MFGSYS_CONFIG		= 17,
+>>> +	CMD_MSSV_COMMIT			= 18,
+>>> +	CMD_NUM				= 19,
+>>
+>> I don't really like seeing index assignments to enumeration, especially when there
+>> are no holes... and you have also clearly written that this is ABI-do-not-touch so
+>> I'm not sure that having those numbers here is improving anything.
+>>
+>> I also haven't got strong opinions about that, anyway.
+> 
+> My main worry is that someone comes by and alphabetically sorts them
+> with either some style linter script and does not think to read the
+> comment, and it's either an overworked maintainer or get acked by
+> an overworked maintainer.
+> 
+>> [... snip ...]
+>>> +
+>>> +static int mtk_mfg_eb_off(struct mtk_mfg *mfg)
+>>> +{
+>>> +	struct device *dev = &mfg->pdev->dev;
+>>> +	struct mtk_mfg_ipi_sleep_msg msg = {
+>>
+>> Can this be constified?
+> 
+> No :( mbox_send_message's msg parameter is not const, so it'd discard
+> the qualifier, and instead of explicitly discarding the qualifier
+> (which would be a very stinky code smell) we would have to look into
+> whether the mailbox subsystem is cool with const void* for messages,
+> and whether all the mailbox drivers are fine with that too.
+> 
+>>> +		.event = 0,
+>>> +		.state = 0,
+>>> +		.magic = GPUEB_SLEEP_MAGIC
+>>> +	};
+>>> +	u32 val;
+>>> +	int ret;
+>>> +
+>>> +	ret = mbox_send_message(mfg->slp_mbox->ch, &msg);
+>>> +	if (ret < 0) {
+>>> +		dev_err(dev, "Cannot send sleep command: %pe\n", ERR_PTR(ret));
+>>> +		return ret;
+>>> +	}
+>>> +
+>>> +	ret = readl_poll_timeout(mfg->rpc + RPC_PWR_CON, val,
+>>> +				 !(val & PWR_ACK_M), GPUEB_POLL_US,
+>>> +				 GPUEB_TIMEOUT_US);
+>>> +
+>>> +	if (ret)
+>>> +		dev_err(dev, "timed out waiting for EB to power off, val=0x%08X\n",
+>>> +			val);
+>>
+>> 90 columns is fine, one line please.
+>>
+>>> +
+>>> +	return ret;
+>>> +}
+>>> +
+>> [... snip ...]
+>>> +
+>>> +static int mtk_mfg_attach_dev(struct generic_pm_domain *pd, struct device *dev)
+>>> +{
+>>> +	struct mtk_mfg *mfg = mtk_mfg_from_genpd(pd);
+>>> +	struct dev_pm_opp_data *opps = mfg->gpu_opps;
+>>> +	int i, ret;
+>>> +
+>>> +	for (i = mfg->num_opps - 1; i >= 0; i--) {
+>>> +		if ((i == mfg->num_opps - 1) || (opps[i].freq != opps[i + 1].freq)) {
+>>
+>> 		/* Add a comment here, because you're using a trick, and it's not
+>> 		 * very fast to read, as in, if you skim through that, you're most
+>> 		 * probably losing the fact that the first OPP is always added
+>> 		 * regardless of anything.
+>> 		 */
+>> 		if ((i != mfg->num_opps - 1) || (opps[i].freq == opps[i + 1].freq))
+>> 			continue;
+>>
+>> 		/* Reduced indentation :-) */
+>> 		ret = dev_pm_opp_add_dynamic(.....) etc
+>>
+> 
+> Sure, but not before properly applying De Morgan's law here ;) It
+> should be the following as far as I can tell:
 
-Yes, this makes better sense to me!
+WHOOOOOOPS! That was quite a bad typo :D
+(yes, of course it's &&)
 
-Kind regards
-Uffe
+> 
+>      if ((i != mfg->num_opps - 1) && (opps[i].freq == opps[i + 1].freq))
+> 			    continue;
+> 
+>>> +			ret = dev_pm_opp_add_dynamic(dev, &opps[i]);
+>>> +			if (ret) {
+>>> +				dev_err(dev, "Failed to add OPP level %u from PD %s\n",
+>>> +					opps[i].level, pd->name);
+>>> +				dev_pm_opp_remove_all_dynamic(dev);
+>>> +				return ret;
+>>> +			}
+>>> +		}
+>>> +	}
+>>> +
+>>> +	return 0;
+>>> +}
+>>> +
+>> [... snip ...]
+>>> +
+>>> +static int mtk_mfg_probe(struct platform_device *pdev)
+>>> +{
+>> [... snip ...]
+>>> +
+>>> +	ret = clk_prepare_enable(mfg->clk_eb);
+>>> +	if (ret)
+>>> +		return dev_err_probe(dev, ret, "failed to turn on EB clock\n");
+>>
+>> What happens if the `gpu_regs` regulator(s) is/are not enabled at boot?
+>>
+>> I am guessing that the EB doesn't depend at all on these being enabled, as it
+>> should be powered by the internal vscp or sspm - but still asking to make sure
+>> that this wasn't an overlook.
+> 
+> Yeah, the EB doesn't need those regulators on. After somewhat fixing module
+> unload and reload on my side, I can now confirm that it doesn't appear to
+> need them during probe.
+> 
+>>
+>>> +	mfg->ipi_magic = readl(mfg->gpr + GPR_IPI_MAGIC);
+>>> +	/* Downstream does this, don't know why. */
+>>
+>> Preventing reinitialization?
+>> Did you try to avoid that write? What happens in that case?
+>>
+>> Also, if you unload this module and reload it, are you able to reinitialize the EB,
+>> or are you reading zero in GPR_IPI_MAGIC (preventing you from correctly reinit this
+>> driver again)?
+> 
+> Okay so this led me down a deep rabbit hole and I realised that so far, we
+> could only read the IPI magic because the bootloader helpfully left MFG on
+> for us. So on second probe, we'd get a magic number of 0, and all IPI comms
+> that use it would fail.
+
+I had a hunch ;-)
+
+> 
+> Fix is simple though, just read the magic in power_on. I also left out the
+> 0 write but I might experimentally add it back in to see if it changes any
+> of the other behaviour I'm currently chasing.
+> 
+
+Yeah, we don't know what this write is all about and it logically doesn't make
+much sense - so if it works without, let's just leave it out.
+
+>>
+>>> +	writel(0x0, mfg->gpr + GPR_IPI_MAGIC);
+>>> +
+>>> +	ret = mtk_mfg_init_mbox(mfg);
+>>> +	if (ret) {
+>>> +		ret = dev_err_probe(dev, ret, "Couldn't initialise mailbox\n");
+>>> +		goto out;
+>>> +	}
+>>> +
+>>> +	mfg->last_opp = -1;
+>>> +
+>>> +	ret = mtk_mfg_power_on(&mfg->pd);
+>>> +	clk_disable_unprepare(mfg->clk_eb);
+>>> +	if (ret)
+>>> +		return dev_err_probe(dev, ret, "Failed to power on MFG\n");
+>>> +
+>>> +	ret = mtk_mfg_init_shared_mem(mfg);
+>>> +	if (ret) {
+>>> +		dev_err(dev, "Couldn't initialize EB SRAM: %pe\n", ERR_PTR(ret));
+>>> +		goto out;
+>>> +	}
+>>> +
+>>> +	ret = mtk_mfg_read_opp_tables(mfg);
+>>> +	if (ret) {
+>>> +		dev_err(dev, "Error reading OPP tables from EB: %pe\n",
+>>> +			ERR_PTR(ret));
+>>> +		goto out;
+>>> +	}
+>>> +
+>>> +	ret = mtk_mfg_init_clk_provider(mfg);
+>>> +	if (ret)
+>>> +		goto out;
+>>> +
+>>> +	ret = of_genpd_add_provider_simple(pdev->dev.of_node, &mfg->pd);
+>>> +	if (ret) {
+>>> +		ret = dev_err_probe(dev, ret, "Failed to add pmdomain provider\n");
+>>> +		goto out;
+>>> +	}
+>>> +
+>>> +	return 0;
+>>> +
+>>> +out:
+>>> +	mtk_mfg_power_off(&mfg->pd);
+>>> +	return ret;
+>>> +}
+>>
+>> static void mtk_mfg_remove(struct platform_device *pdev)
+>> {
+>> 	struct mtk_mfg *mfg = dev_get_drvdata(&pdev->dev);
+>>
+>> 	of_genpd_del_provider(....)
+>>
+>> 	pm_genpd_remove(....)
+>>
+>> 	mtk_mfg_power_off(...)
+> 
+> Unconditional power_off will go poorly if the thing isn't powered
+> on at removal time, so I need to figure out something more clever.
+> 
+> Unfortunately, that something more clever isn't "dev_pm_genpd_is_on"
+> because that has a case where it will return false and then devres
+> kicks in and says hey you left your regulators on that's not cool.
+> 
+> I'll have to spend another day at the debug print factory until
+> I can figure out what's wrong there, and if I can't, then I guess
+> we'll add our own pd_on counting.
+
+I did suspect that unconditional poweroff could be possibly wreaking havoc, and
+I also knew that you'd see that in case, so I didn't write anything about my own
+suspects :-P
+
+But then, good. Since we don't care about refcounting in this case, I guess that
+if there's no other way, eventually just a bool to track off/on state is enough.
+
+Cheers!
+
+> 
+>>
+>> 	mbox_free_channel(mfg->gf_mbox->ch);
+>> 	mfg->gf_mbox->ch = NULL;
+>>
+>> 	mbox_free_channel(mfg->slp_mbox->ch);
+>> 	mfg->slp_mbox->ch = NULL;
+>>
+>>
+>> }
+>>
+>>> +
+>>> +static struct platform_driver mtk_mfg_driver = {
+>>> +	.driver = {
+>>> +		.name = "mtk-mfg-pmdomain",
+>>> +		.of_match_table = mtk_mfg_of_match,
+>>> +	},
+>>> +	.probe = mtk_mfg_probe,
+>>
+>> 	.remove = mtk_mfg_remove,
+>>
+>>> +};
+>>> +module_platform_driver(mtk_mfg_driver);
+>>> +
+>>> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
+>>> +MODULE_DESCRIPTION("MediaTek MFlexGraphics Power Domain Driver");
+>>> +MODULE_LICENSE("GPL");
+>>>
+>>
+>> There might be more, but for now, I'm done with this review round :-)
+>>
+>> Cheers,
+>> Angelo
+>>
+> 
+> Thanks for the review. Assume all comments I didn't reply to (including
+> the big one) are acknowledged and will be addressed.
+> 
+> Kind regards,
+> Nicolas Frattaroli
+> 
+> 
+
 
