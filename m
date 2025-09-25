@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE50CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E445CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxK95fh32bmvs3eUOHU609gQaq6SCA9IhpuHiYw2yMQ=; b=j42AJH6fXKPQCY6i2L1xRzo9Gk
-	UWp2f8htTrOXP5RbJwwkEzYZSChHNVr7P13lLCvSXtM7rPoWc/whaOqLTk2ZzwbiuqID741BVC6Ri
-	EKeay2kUeZT0NXMoU8qHvLfZm/EJ3cwm2pl8dMySGioTGxseUu+nxQtyrNPS6YQPnA8ZddFD/+IpE
-	6y8Omu0CDiDKUVaF4liiNSY+rwyQD5Le4MchCudo4mJ902EFF9hoNdY7NHl4fm/uq5oXTUS2zeTvT
-	qz14OHh6G3jxNvg867YvmieCkvzyY28yCN8rI2A5dFBt9Syo03/A42VTxdnXUQNcY0zuFeTjcKeCt
-	QLuV68fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rFsFtt/dYubWASJgvWs3g9b5WimRx2r0jDM0W9mimZ4=; b=n21CuImZ0FF4IjjwQsKJQBUN9A
+	BECUw2l/TDyDQLv0wN4KR8zfmyYkphIjaNIvaz/WQI05A9TKEWo0OeqJ3qHO0lAmZu72tO+da/eNZ
+	YFQvK2BZ3tM0b2kYOdvChiP2MtwVlK/4Tge3ZFFdakMUE2fL3JIDoq5XDjkOo/hgq1BJSxAYYomVc
+	atOlfzjaRWjzOtIeO/eddOE5DbRTn8HOsEYHvEa9NONpeLXJeFbGGXkuYw64kkbz+s/9Ni7imo/Kf
+	lb+EmkUYb0Lq8wPmdcsXiJMkZL3UUilnQYuAtWqES646xYwhxi/2JRuV7Ggck+EtkUqapamPTPRmf
+	KoIMJozA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nUn-0000000ANps-06VZ;
-	Thu, 25 Sep 2025 15:02:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v1nWn-0000000APKH-2Dvs;
+	Thu, 25 Sep 2025 15:05:01 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nUl-0000000ANpE-3Dhi
+	id 1v1nWk-0000000AObR-1Omw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 15:02:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 037A06061E;
-	Thu, 25 Sep 2025 15:02:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E1EC4CEF0;
-	Thu, 25 Sep 2025 15:02:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758812574;
-	bh=YxK95fh32bmvs3eUOHU609gQaq6SCA9IhpuHiYw2yMQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rjNhqR/zzn/S/ZVhwIN9MDllGlsfDj31D8pywRVM2dLJ61TbNhYV0Ipp/47yT/K8V
-	 +EeNMQrPGA3Y1YvS9pEwQlpqUKofGbRYdyQoFmohqW8CJPDRht+9bgY/qI8lr+JKhY
-	 adWcnSdTmZTQe79STkhuY4T+z7c5Zz3in6VcCFYurRXeHhEzlnfTgmIvHuAhPDJTvh
-	 +IfzoynuWUtduAiApEGquaiuMZgddUYcG2/nzqaxRTQv1zaH/DAse1uAYVB3CE1O+7
-	 qQagTF/E2Z06COnpG6TE1OvVNdLbyjjiSx+tRAMAKiRqVTSm7xo3KXtn0VZe87unF8
-	 /tCuV5J6O+HrQ==
-Date: Thu, 25 Sep 2025 16:02:49 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Rob Herring <robh@kernel.org>, Andre Przywara <andre.przywara@arm.com>,
-	Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Thu, 25 Sep 2025 15:05:00 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1758812644;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rFsFtt/dYubWASJgvWs3g9b5WimRx2r0jDM0W9mimZ4=;
+	b=JyqpvJj0isPclEJyeW7fLiPwKRipWqHOvgNoVwokn7yAbKMSE5TCY5PmT1etG8xI8ZCGSk
+	RYaGfcnVN2eZsW4f7LlSsVQj5QpQSYhO0TAfEPPkUinvgfiB4SJskHiSCx4GhNjQ/IioWf
+	PkNRCPYpEyuLxt1TcIj6/N83QfV+LfE=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Leo Yan <leo.yan@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Linu Cherian <lcherian@marvell.com>,
+	Mike Leach <mike.leach@linaro.org>,
 	linux-kernel@vger.kernel.org,
-	Mikhail Kalashnikov <iuncuim@gmail.com>
-Subject: Re: [RFC PATCH 1/5] dt-bindings: mfd: x-powers,axp152: Add
- polyphased property
-Message-ID: <e1e31e6c-59e9-422c-af72-718fcb7051aa@sirena.org.uk>
-References: <20250919000020.16969-1-andre.przywara@arm.com>
- <20250919000020.16969-2-andre.przywara@arm.com>
- <20250922181611.GA567602-robh@kernel.org>
- <CAGb2v64KvnvSy0-MYd7FBLVKeJQk=-=VWxRLsHXMP1+MFOPPfg@mail.gmail.com>
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH v5 3/3] coresight: Fix possible deadlock in coresight_panic_cb
+Date: Thu, 25 Sep 2025 11:03:42 -0400
+Message-Id: <20250925150342.1845615-4-sean.anderson@linux.dev>
+In-Reply-To: <20250925150342.1845615-1-sean.anderson@linux.dev>
+References: <20250925150342.1845615-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Jx2zlekHxWXeOT9r"
-Content-Disposition: inline
-In-Reply-To: <CAGb2v64KvnvSy0-MYd7FBLVKeJQk=-=VWxRLsHXMP1+MFOPPfg@mail.gmail.com>
-X-Cookie: Shipping not included.
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_080458_963146_543A3AAB 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +75,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Panics can occur at any time, so taking locks may cause a deadlock (such
+as if the panicking CPU held the lock).  coresight_panic_cb uses
+bus_for_each_dev, but that calls bus_to_subsys which takes
+bus_kset->list_lock.
 
---Jx2zlekHxWXeOT9r
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Instead of registering a single panic notifier and iterating over
+coresight devices, register a panic notifier for each coresight device
+that requires it (letting the atomic notifier list handle iteration).
+atomic_notifier_chain_unregister will just return -ENOENT if a notifier
+block isn't on the list, so it's safe to call when we haven't registered
+a notifier.
 
-On Thu, Sep 25, 2025 at 10:52:45PM +0800, Chen-Yu Tsai wrote:
-> On Tue, Sep 23, 2025 at 2:16=E2=80=AFAM Rob Herring <robh@kernel.org> wro=
-te:
-> > On Fri, Sep 19, 2025 at 01:00:16AM +0100, Andre Przywara wrote:
+Fixes: 46006ceb5d02 ("coresight: core: Add provision for panic callbacks")
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+---
 
-> > > Add the "x-powers,polyphased" property to the binding, to describe th=
-ose
-> > > pairs or tuples of regulators that should work together. In the lead
-> > > regulator node, the property lists the phandles of the connected
-> > > regulators. Just an empty property means no poly-phasing.
+Changes in v5:
+- Check csdev mode before calling sync()
 
-> > Don't we have a coupled regulator binding already?
+Changes in v4:
+- Move the panic notifier into csdev and restore the panic sync API
 
-> That was my first thought as well.
+Changes in v3:
+- Rewrite patch to remove the panic sync API entirely
 
-That's something separate, that's two separate regulators that need to
-be kept within a range of each other manually.
+Changes in v2:
+- Add a comment describing csdev_lock/list
+- Consolidate list removal in coresight_device_release
 
-> Unlike separate regulators that are ganged together, in the AXP PMICs it
-> seems that when buck outputs are ganged, only the controls for the first
-> output have any actual effect. In such cases I don't know if we should
-> just ignore / leave out the secondary outputs from both the description
-> and the runtime state.
+ drivers/hwtracing/coresight/coresight-core.c | 67 ++++++++------------
+ include/linux/coresight.h                    |  2 +
+ 2 files changed, 28 insertions(+), 41 deletions(-)
 
-This is very common, I would expect any regulators that are ganged
-together into a single regulator like this to simply not appear in the
-DT.
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 305b1773cfbe..01303348fc0e 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1046,6 +1046,9 @@ static void coresight_device_release(struct device *dev)
+ {
+ 	struct coresight_device *csdev = to_coresight_device(dev);
+ 
++	if (panic_ops(csdev))
++		atomic_notifier_chain_unregister(&panic_notifier_list,
++						 &csdev->panic_notifier);
+ 	free_percpu(csdev->perf_sink_id_map.cpu_map);
+ 	fwnode_handle_put(csdev->dev.fwnode);
+ 	kfree(csdev);
+@@ -1315,6 +1318,18 @@ void coresight_release_platform_data(struct coresight_device *csdev,
+ 		coresight_remove_conns_sysfs_group(csdev);
+ }
+ 
++static int coresight_panic_notifier(struct notifier_block *nb,
++				    unsigned long action, void *data)
++{
++	struct coresight_device *csdev =
++		container_of(nb, struct coresight_device, panic_notifier);
++	int mode = coresight_get_mode(csdev);
++
++	if (mode == CS_MODE_SYSFS || mode == CS_MODE_PERF)
++		panic_ops(csdev)->sync(csdev);
++	return NOTIFY_DONE;
++}
++
+ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ {
+ 	int ret;
+@@ -1357,6 +1372,17 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 			goto err_out;
+ 		}
+ 	}
++
++	if (panic_ops(csdev)) {
++		csdev->panic_notifier.notifier_call = coresight_panic_notifier;
++		ret = atomic_notifier_chain_register(&panic_notifier_list,
++						     &csdev->panic_notifier);
++		if (ret) {
++			coresight_device_release(&csdev->dev);
++			goto err_out;
++		}
++	}
++
+ 	/*
+ 	 * Make sure the device registration and the connection fixup
+ 	 * are synchronised, so that we don't see uninitialised devices
+@@ -1563,36 +1589,6 @@ const struct bus_type coresight_bustype = {
+ 	.name	= "coresight",
+ };
+ 
+-static int coresight_panic_sync(struct device *dev, void *data)
+-{
+-	int mode;
+-	struct coresight_device *csdev;
+-
+-	/* Run through panic sync handlers for all enabled devices */
+-	csdev = container_of(dev, struct coresight_device, dev);
+-	mode = coresight_get_mode(csdev);
+-
+-	if ((mode == CS_MODE_SYSFS) || (mode == CS_MODE_PERF)) {
+-		if (panic_ops(csdev))
+-			panic_ops(csdev)->sync(csdev);
+-	}
+-
+-	return 0;
+-}
+-
+-static int coresight_panic_cb(struct notifier_block *self,
+-			       unsigned long v, void *p)
+-{
+-	bus_for_each_dev(&coresight_bustype, NULL, NULL,
+-				 coresight_panic_sync);
+-
+-	return 0;
+-}
+-
+-static struct notifier_block coresight_notifier = {
+-	.notifier_call = coresight_panic_cb,
+-};
+-
+ static int __init coresight_init(void)
+ {
+ 	int ret;
+@@ -1605,20 +1601,11 @@ static int __init coresight_init(void)
+ 	if (ret)
+ 		goto exit_bus_unregister;
+ 
+-	/* Register function to be called for panic */
+-	ret = atomic_notifier_chain_register(&panic_notifier_list,
+-					     &coresight_notifier);
+-	if (ret)
+-		goto exit_perf;
+-
+ 	/* initialise the coresight syscfg API */
+ 	ret = cscfg_init();
+ 	if (!ret)
+ 		return 0;
+ 
+-	atomic_notifier_chain_unregister(&panic_notifier_list,
+-					     &coresight_notifier);
+-exit_perf:
+ 	etm_perf_exit();
+ exit_bus_unregister:
+ 	bus_unregister(&coresight_bustype);
+@@ -1628,8 +1615,6 @@ static int __init coresight_init(void)
+ static void __exit coresight_exit(void)
+ {
+ 	cscfg_exit();
+-	atomic_notifier_chain_unregister(&panic_notifier_list,
+-					     &coresight_notifier);
+ 	etm_perf_exit();
+ 	bus_unregister(&coresight_bustype);
+ }
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 4ac65c68bbf4..a7aaf9d3d01d 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -280,6 +280,7 @@ struct coresight_trace_id_map {
+  * @config_csdev_list:  List of system configurations added to the device.
+  * @cscfg_csdev_lock:	Protect the lists of configurations and features.
+  * @active_cscfg_ctxt:  Context information for current active system configuration.
++ * @panic_notifier: Notifier block used to clean up during a panic
+  */
+ struct coresight_device {
+ 	struct coresight_platform_data *pdata;
+@@ -304,6 +305,7 @@ struct coresight_device {
+ 	struct list_head config_csdev_list;
+ 	raw_spinlock_t cscfg_csdev_lock;
+ 	void *active_cscfg_ctxt;
++	struct notifier_block panic_notifier;
+ };
+ 
+ /*
+-- 
+2.35.1.1320.gc452695387.dirty
 
---Jx2zlekHxWXeOT9r
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjVWZgACgkQJNaLcl1U
-h9DZDQf/YukKJO9QFk1kcg54NRNKNybvOqiTJfwZP4IhbmC5UEJESH1PbN7zcdH4
-gmAKpJKDxrVMVLUfEUy1xOe8Kp+x1/ijJ4MHqZ8N5wnTba1KVnx+Ga+HP0lMwzh/
-jGi/p8yAsZABxkpicJDMeo9tO7HcE54w3h9bahmHVqq/xLF9NbZhSIrkuak9WfgC
-zbbwPBTxLbHA2WFdT6gE5BB/H2ZDs59gGEpc9t096dMZ1lA/s/EAie0xL22jWvjR
-g/HvfTCXxLIq9Pmxf7nrUsaYadrmQPOl5OkLjKKlOpS9w0pt66SMvGl7NHu6ZMBK
-+L4DakUqm1K0vlA6KvcmIl72yDcslg==
-=lQZb
------END PGP SIGNATURE-----
-
---Jx2zlekHxWXeOT9r--
 
