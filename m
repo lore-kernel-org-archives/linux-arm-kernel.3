@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B2ACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E522CAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:To:From:Cc:Subject:Message-Id:Date:Content-Type:
-	Reply-To:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6tvrlYM4ypm3uCxKvO5/nP2owYKh8tc18s60KyVYn0M=; b=TY6Ex5Cys8JkK+PZOw/GyJYFaX
-	LaImk2/XpTkIJZAttRI5dQlify9rQ2VWFstUIC+anTgSnwQ51ASx6NRGTlwoNQRRL2PKQy4PnBVAH
-	SyCr4bfCxc7/58rUrY+bK4weIOGzyjtUd7O38CdDJk9kfLHKiWPU2YwCtPoY90FSAlJQ+NrgaTiJd
-	dSNNyzZaJNzZCW0ddPNZLoRLrHBpqfyg0G99ZtjwFZuKcgLM+BJzCnWHJIKFsYfFYwoebiLCxqdQU
-	/dhDAEPS9+0xDo8PC09AAV6GF/hcVxkTJnFIan6kMkkdnwM44hj3sJZccib0pgA+n8nftCnc3jPFG
-	7yf46lfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=au3KSZWJEHbb1QBimYOS6ELLkIZtHTxDYAIBRUcPtLs=; b=cfs3hyCDB216wXf/2x+A6z9F98
+	kOlW8RtVMSXifWP/8izqaL4d7yjX3t7QHV6xGP8L8VL5xdXDRwt2eXVtPXWjdj61k/PUbsT/gV6we
+	gxzu6+qyBlVV3TE7Goq9OB8rUcaaK6SC4jkBrkTJb8LU23I2WtcG6r6TjD0/GQJMgOmLvBytsxZ4z
+	/cJLZqoK2MtksUzfwaS1sr1PZHniQel760dzroR381DqKwHSC+ZXEht5y/w/NFFXcJjXDm7Y9bCKx
+	TzD3dWzXiiVeWWFUeK8lCJwnkwM3Y6rCzI7bGRw5EDP250S5lGcV/R3OxCsDCw7S95XO3t7YsJIHd
+	QB448eIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gPV-00000006iNo-0dSG;
-	Thu, 25 Sep 2025 07:29:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1gPg-00000006iXI-1reT;
+	Thu, 25 Sep 2025 07:29:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gPS-00000006iLx-2vQn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 07:28:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D290A40212;
-	Thu, 25 Sep 2025 07:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375AEC4CEF0;
-	Thu, 25 Sep 2025 07:28:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758785337;
-	bh=E5H22ljejFV7OF7GmWz23BkhezFyc+iVSQv0Pyu/jqI=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
-	b=qpR4FUbuRe+vO4qghhExmZIfSTpFhRiJnGnNyZsW967PX6XSYQkAoLyuYENEpquWI
-	 HN7e+8SFMSoArAk9VV5oRKuLSNMMpgdlRvwCNt7S+kQ8ZTGEAtZgoFGmt0BSVopW8A
-	 gfn+i7uCp4wZxpP5u519ZPHZdkwont1gxBSSAA1DVIlK6salhnGcXj2bwmWHVKcf9B
-	 A6xPQmzDsDEVkYWbAiLOpJl8XpETbWlCnq0iI+dom6ZgWljwwCS8mK37QVLWB9JbHZ
-	 4qauHkQ0AYwguWYn0aerkZSGTjlt8AkTutFazB32t0uTpPBfXW40vugdLKAki5ggqH
-	 aZgucfXSNl0IQ==
-Content-Type: multipart/signed;
- boundary=0afea6db4dd96f53b68f9fad7bcae6c16f16bfb407d755022db670fb382c;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Thu, 25 Sep 2025 09:28:53 +0200
-Message-Id: <DD1PD807DBY9.2FY81JFZ6EDAE@kernel.org>
-Subject: Re: [PATCH v2 0/7] Initial Kontron SMARC-sAM67 support
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-hwmon@vger.kernel.org>,
- <linux-watchdog@vger.kernel.org>, "Andrew Davis" <afd@ti.com>, "Nishanth
- Menon" <nm@ti.com>, "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo"
- <kristo@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Jean Delvare"
- <jdelvare@suse.com>, "Guenter Roeck" <linux@roeck-us.net>, "Michael Walle"
- <mwalle@kernel.org>, "Srinivas Kandagatla" <srini@kernel.org>, "Wim Van
- Sebroeck" <wim@linux-watchdog.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Lee Jones" <lee@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: aerc 0.16.0
-References: <20250912120745.2295115-1-mwalle@kernel.org>
-In-Reply-To: <20250912120745.2295115-1-mwalle@kernel.org>
+	id 1v1gPV-00000006iLE-1SS3;
+	Thu, 25 Sep 2025 07:29:02 +0000
+Received: from ideasonboard.com (unknown [IPv6:2001:b07:6462:5de2:520d:d7a3:63ca:99e8])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B35FBE91;
+	Thu, 25 Sep 2025 09:27:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1758785251;
+	bh=z21Xp4TuXHyCW4xtMz/OOCsZSb7Kaf5SWHB7K7mD714=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YrW/A+e9Va5WN1aYaEF5voDen7kynHSJvb+tW2ovoWaqiLOi+xSAs0R+GwOweyOig
+	 MB4oMsacYfWEsVxFZo3m6wEEi0odSNTqlAQS9kiDMXJXpKOosA//i9sVj60gOtB5CH
+	 CTsWJgx/wFZrvnZK4ydTqXG4mF8RItwEVkzGCipM=
+Date: Thu, 25 Sep 2025 09:28:52 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Kieran Bingham <kieran.bingham@ideasonboard.com>, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] media: rkisp1: Improve frame sequence correctness on
+ stats and params buffers
+Message-ID: <xxj3awe4ezdf242bpiktov4tb2xb3r6l6c5rtmrywubniwlbik@bubb5l6psz6i>
+References: <20250922182003.3712101-2-stefan.klug@ideasonboard.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250922182003.3712101-2-stefan.klug@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_002858_776502_1853B661 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20250925_002901_528877_D7B90533 
+X-CRM114-Status: GOOD (  35.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +69,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0afea6db4dd96f53b68f9fad7bcae6c16f16bfb407d755022db670fb382c
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Stefan
 
-Hi Lee,
-
-On Fri Sep 12, 2025 at 2:07 PM CEST, Michael Walle wrote:
-> Now that the PMIC support is there, we can finally, upstream the
-> support for this board. Besides the usual device tree, this
-> patchset contains the support for the on-board house keeping MCU. It
-> make extensive reuse of the drivers for the former SMARC-sAL28
-> board. Besides different hwmon sensors, all the dt binding patches
-> will just add a board specific compatible (in addition to the old
-> sl28 compatible) to make any future board specific quirks possible.
+On Mon, Sep 22, 2025 at 08:19:57PM +0200, Stefan Klug wrote:
+> On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
+> handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
+> and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
+> commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
+> debugfs var for irq delay") a warning was added for that. There are two
+> cases where this condition can occur:
 >
-> I'm aware that there is a patch [1] which moves the sl28cpld MFD
-> schema to a different directory. Once that patch is merged, I'll
-> repost this series. But I already want to get some early feedback.
+> 1. The v-sync and the frame-end belong to the same frame. This means,
+>    the irq was heavily delayed and the warning is likely appropriate.
 >
-> v2:
->  - dropped patches which were already picked up
->  - new patch "dt-bindings: mfd: tps6594: allow gpio-line-names"
->  - separate driver for the hwmon, add missing hwmon documentation,
->    thanks Guenter
->  - split the DT as suggested by the SoC maintainers
->  - add missing copyright and license to the overlays, thanks Andrew
+> 2. The v-sync belongs to the next frame. This can happen if the vertical
+>    blanking between two frames is very short.
 >
-> Michael Walle (7):
->   dt-bindings: arm: ti: Add Kontron SMARC-sAM67 module
->   dt-bindings: mfd: tps6594: allow gpio-line-names
->   arm64: dts: ti: Add support for Kontron SMARC-sAM67
->   dt-bindings: hwmon: sl28cpld: add sa67mcu compatible
->   dt-bindings: watchdog: add SMARC-sAM67 support
->   hwmon: add SMARC-sAM67 support
->   arm64: dts: ti: sa67: add on-board management controller node
+> The current code always handles case 1 although case 2 is in my
+> experience the more common case and happens in regular usage. This leads
+> to incorrect sequence numbers on stats and params buffers which in turn
+> breaks the regulation in user space. Fix that by adding a frame_active
+> flag to distinguish between these cases and handle the start of frame
+> either at the beginning or at the end of the rkisp1_isp_isr().
+>
+> Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>
+> ---
+>
+> Hi all,
+>
+> Here is an updated version of the patch with a fix for a typo that was
+> spotted in the last review.
+>
+> Changes in v3:
+> - Fixed typo in comment
+> - Collected r-by tag
+>
+> Changes in v2:
+> - Removed test for !frame_active in second v_start handler
+> - Improved comments
 
-Would you take these two patches
-    dt-bindings: mfd: tps6594: allow gpio-line-names
-    dt-bindings: watchdog: add SMARC-sAM67 support
+Thanks for addressing these
+Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
-through the MFD tree this cycle? If they make it in, there wouldn't
-be any more dependencies for the next cycle for the actual device
-tree.
-
-Thanks,
--michael
-
---0afea6db4dd96f53b68f9fad7bcae6c16f16bfb407d755022db670fb382c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaNTvNRIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/iMSgF/U/Hnym3/BbU5iWgqn4kuJE5mIgjGrqH+
-xebvDaMtckOeHjdqxGIg7wAV1v5PZLsUAYCYJPNo/zXnrrWdXLOY+md/sOocOPZr
-/NGu1VF2dlgbKARDg+JXcIGreW3wYK3JzV0=
-=kccx
------END PGP SIGNATURE-----
-
---0afea6db4dd96f53b68f9fad7bcae6c16f16bfb407d755022db670fb382c--
+>
+> Best regards,
+> Stefan
+>
+> ---
+>  .../platform/rockchip/rkisp1/rkisp1-common.h  |  1 +
+>  .../platform/rockchip/rkisp1/rkisp1-isp.c     | 27 +++++++++++++++----
+>  2 files changed, 23 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> index ca952fd0829b..adf23416de9a 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> @@ -222,6 +222,7 @@ struct rkisp1_isp {
+>  	struct media_pad pads[RKISP1_ISP_PAD_MAX];
+>  	const struct rkisp1_mbus_info *sink_fmt;
+>  	__u32 frame_sequence;
+> +	bool frame_active;
+>  };
+>
+>  /*
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> index 8c29a1c9309a..660c1fd7efcc 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd, int enable)
+>  	}
+>
+>  	isp->frame_sequence = -1;
+> +	isp->frame_active = false;
+>
+>  	sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+>
+> @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *rkisp1)
+>   * Interrupt handlers
+>   */
+>
+> -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
+> +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
+>  {
+>  	struct v4l2_event event = {
+>  		.type = V4L2_EVENT_FRAME_SYNC,
+>  	};
+>
+> +	isp->frame_sequence++;
+> +	isp->frame_active = true;
+> +
+>  	event.u.frame_sync.frame_sequence = isp->frame_sequence;
+>  	v4l2_event_queue(isp->sd.devnode, &event);
+>  }
+> @@ -1111,15 +1115,20 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>
+>  	rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
+>
+> -	/* Vertical sync signal, starting generating new frame */
+> -	if (status & RKISP1_CIF_ISP_V_START) {
+> -		rkisp1->isp.frame_sequence++;
+> -		rkisp1_isp_queue_event_sof(&rkisp1->isp);
+> +	/*
+> +	 * Vertical sync signal, starting new frame. Defer handling of vsync
+> +	 * after RKISP1_CIF_ISP_FRAME if the previous frame was not completed
+> +	 * yet.
+> +	 */
+> +	if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active) {
+> +		status &= ~RKISP1_CIF_ISP_V_START;
+> +		rkisp1_isp_sof(&rkisp1->isp);
+>  		if (status & RKISP1_CIF_ISP_FRAME) {
+>  			WARN_ONCE(1, "irq delay is too long, buffers might not be in sync\n");
+>  			rkisp1->debug.irq_delay++;
+>  		}
+>  	}
+> +
+>  	if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
+>  		/* Clear pic_size_error */
+>  		isp_err = rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
+> @@ -1138,6 +1147,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  	if (status & RKISP1_CIF_ISP_FRAME) {
+>  		u32 isp_ris;
+>
+> +		rkisp1->isp.frame_active = false;
+>  		rkisp1->debug.complete_frames++;
+>
+>  		/* New frame from the sensor received */
+> @@ -1152,5 +1162,12 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  		rkisp1_params_isr(rkisp1);
+>  	}
+>
+> +	/*
+> +	 * Deferred handling of vsync if RKISP1_CIF_ISP_V_START and
+> +	 * RKISP1_CIF_ISP_FRAME occurred in the same irq.
+> +	 */
+> +	if (status & RKISP1_CIF_ISP_V_START)
+> +		rkisp1_isp_sof(&rkisp1->isp);
+> +
+>  	return IRQ_HANDLED;
+>  }
+> --
+> 2.48.1
+>
 
