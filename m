@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4DCCAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 04:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE95CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 05:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pL4il6Mcz3AjJ60/DLAuos3cvtVE8VY2cOJbTK/DwQU=; b=0tXfFZJa/fKlbxW7TqX+2TZVHZ
-	UjbMqZGlMjni1UmH9dygcJaes1mzwf9eTU8X7oOfV6wCd8hmum/rR8V1/kJ/+FjE+i3vQVDHIVlLe
-	HC0MgprGeG/g7onLyK3o+42rlsNJA7TepK3yORIpfB89trigMKLFcsCXLH93ufC2d06Ls+RACBVnI
-	+g+zdkmuMvXuGe33+dorLLW0LVzcosmpqBKoKuZ8ytruRQ8GfRoDU+WZVuU8aCR4hzxw0gEzrUnvi
-	3AjDgGnd03dpd1x/HovKG+6qqNjxD1aKWudYoLPBJ9K/W4wfOlPGQM4aIisljy6qlNVb/qYAeLieM
-	d9ow47tQ==;
+	bh=1dHu+qfF+j3DIMFKc9HeoPvreOucdAuO+Jk5woaNYdI=; b=mfrJXZ97WNCVEpm0nheF7Nh6JY
+	TSNcIma3dPM6eteeoTiKchrQpFptqoL1HYIYjUgM8I21MpLyxdAUxfwXEcgi1lfs+lMwCTGgUwruO
+	cuqkfG+QKxN4bOgX55JGQjgBP/xX9BNUIeaBPijj6llf6ZFEdRa/MIk5S5VwgOwFuT4hSrRw55B/l
+	PIUKMl4kA5Jn1muOij+tFqshPniDdeScDcOFBMCTGODGlulxY2dY18DoupeCMvQvdMlMTWVxznHeh
+	5DIMRilemQIgGsFAbdQ7Li6uI9X1RMuYc+jY8dpFNdeDOuvtQL3HAtuaHPobTrHazviQDUa3GcQ6m
+	piRrv/wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1duN-00000005e7d-3kJB;
-	Thu, 25 Sep 2025 04:48:43 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1v1ePx-00000005pih-0Vbx;
+	Thu, 25 Sep 2025 05:21:21 +0000
+Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1duK-00000005e6l-3aY2
+	id 1v1ePu-00000005phz-2IXR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 04:48:42 +0000
+	Thu, 25 Sep 2025 05:21:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1758775715;
-	bh=pL4il6Mcz3AjJ60/DLAuos3cvtVE8VY2cOJbTK/DwQU=;
-	h=Subject:From:To:Date:In-Reply-To:References;
-	b=CV6c2crvVUcHe2qjR9Qzl+GBuzhFgZhDC/szv3jlJ/Pa00f7kT7OIlNqsBnJjaaVz
-	 BbD2qw3qLncAoOw6Ax3rHRYC9M7IOMMwHLWIl6Gpvu4OfRLfWMmWYqBNsbgBhjYTID
-	 KQH9PrHekbp/0YF6kK3Jjz29RixtMsxdZK9YO/5Hx07CvzbT+Es2VoqAQ8W1S6LApg
-	 oOsBk4Q5nupg0ITnrhbqsBw8NUs8WblmNsobylyNkk5GBXASYnwEZWUupxQLC4lftV
-	 RPMYdEbdOKonJsWx024g6oOGk6LQRJ4cJ5/N8nU2INgPOfdLFCGCqDSpsSliqNElva
-	 fe5bHpil9CRjA==
-Received: from [192.168.68.113] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1C98264743;
-	Thu, 25 Sep 2025 12:48:33 +0800 (AWST)
-Message-ID: <005c9928cde01c8a3bf4840692eddf13f2c08282.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 3/4] pinctrl: aspeed: Add AST2700 pinmux support
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Billy Tsai <billy_tsai@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
- 	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- linus.walleij@linaro.org, 	brgl@bgdev.pl, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, 	openbmc@lists.ozlabs.org,
- linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
-Date: Thu, 25 Sep 2025 14:18:31 +0930
-In-Reply-To: <20250904103401.88287-4-billy_tsai@aspeedtech.com>
-References: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
-	 <20250904103401.88287-4-billy_tsai@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1758777678; x=1790313678;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=1dHu+qfF+j3DIMFKc9HeoPvreOucdAuO+Jk5woaNYdI=;
+  b=BrxJ6dZQKzhZ8zrM93yqzUflfUYm7lutPUgAfQvgw963DjZMjvNcJxY2
+   wE2rKGUTyiOL+MKx3ehJEKJaw+uFUYCcgftzNy8Z6NCBSJy4L4wDmqde+
+   eOrDl6qIo6bo9JAlrNdQp3ygmpaUtRkb6XlxUS3l82UZxYgz/4noO463O
+   1PIuU+8Qlge/dSfajF97Hp57ZAYCxzhtQtc4cuCIOvsY6gOdT6xnPCicN
+   4oBgby82BNJonk2+Pge0hxnFFlqa38G4YpcrvNtB2JwvDk4k33G70+00/
+   J53LZvRiFyRrONZzGYz9wUdJuhe9E+RO27RdX+t5S6UTNcj/fzUJ5V53w
+   w==;
+X-CSE-ConnectionGUID: 2sgSshe0QCCvvjHAJKOFKA==
+X-CSE-MsgGUID: iZZgazSASsCExdr9yR06Mg==
+X-IronPort-AV: E=Sophos;i="6.18,291,1751241600"; 
+   d="scan'208";a="3510852"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2025 05:21:16 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.21.151:54803]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.48.62:2525] with esmtp (Farcaster)
+ id e01fb47c-faf6-4c81-a5a5-f369ea6453b8; Thu, 25 Sep 2025 05:21:16 +0000 (UTC)
+X-Farcaster-Flow-ID: e01fb47c-faf6-4c81-a5a5-f369ea6453b8
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Thu, 25 Sep 2025 05:21:15 +0000
+Received: from c889f3b3a561.amazon.com (10.106.101.18) by
+ EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Thu, 25 Sep 2025 05:21:15 +0000
+From: Priscilla Lam <prl@amazon.com>
+To: <maz@kernel.org>
+CC: <christoffer.dall@arm.com>, <dwmw@amazon.co.uk>, <graf@amazon.com>,
+	<gurugubs@amazon.com>, <jgrall@amazon.co.uk>, <joey.gouly@arm.com>,
+	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <oliver.upton@linux.dev>, <prl@amazon.com>,
+	<suzuki.poulose@arm.com>, <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Implement KVM_TRANSLATE ioctl for arm64
+Date: Wed, 24 Sep 2025 22:21:08 -0700
+Message-ID: <20250925052108.27351-1-prl@amazon.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: 86ecrx1px2.wl-maz@kernel.org
+References: <86ecrx1px2.wl-maz@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.101.18]
+X-ClientProxiedBy: EX19D046UWB004.ant.amazon.com (10.13.139.164) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_214841_146984_A3B44D31 
-X-CRM114-Status: GOOD (  29.56  )
+X-CRM114-CacheID: sfid-20250924_222118_646567_F1457907 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,259 +95,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Billy,
+On 9/23/25, 2:26 AM, "Marc Zyngier" <maz@kernel.org> wrote:
+> A guest doing this is a sure indication that it is completely broken,
+> and will fail on actual HW, because it clearly ignores small
+> insignificant details such as *ordering*.
+> 
+> My other question still remains: why can't you perform this page table
+> walk in userspace? It is actually much safer to do so because you can
+> stop other vcpus while inspecting the PTs, and avoid a vcpu playing
+> tricks behind your back -- something the in-kernel PTW doesn't try to
+> avoid.
 
-On Thu, 2025-09-04 at 18:34 +0800, Billy Tsai wrote:
-> This patch adds pinmux support for the AST2700, which includes two SoC
-> configurations:
-> - SoC0 closely resembles previous generations of ASPEED BMC SoCs, allowin=
-g
-> =C2=A0 the reuse of existing macros and callback functions.
-> - SoC1, however, introduces a new logic for configuring pin functions.
-> =C2=A0 Therefore, new g7_set_mux and gpio_request_enable functions are
-> =C2=A0 implemented to properly configure the pinctrl registers using the
-> =C2=A0 pin_cfg table and to resolve GPIO request errors.
+In our case, this comes from the Windows TPM driver using ldp32 to read
+static adjacent CRB fields where ordering doesn't matter, but I agree 
+that a guest relying on this kind of translation is problematic. We'll
+drop this KVM_TRANSLATE implementation and pursue a different approach
+instead.
 
-Do you mind splitting support for soc0 and soc1 into separate patches?
-Having taken a brief look I think we're also due for some further
-separation of the code. Particularly, isolating the patch for soc0
-would be nice, as the register design for soc1 is just _so_ much nicer,
-and I'd like to avoid dragging the baggage of previous generations
-along with it.
-
->=20
-> The driver supports:
-> - All 12 GPIO-capable pins in SoC0
-> - All 212 GPIO-capable pins in SoC1
->=20
-> Additionally, this patch introduces several pseudo-ball definitions for
-> specific configuration purposes:
-> - USB function selection
-> - JTAG target selection
-> - PCIe RC PERST configuration
-> - SGMII PHY selection
->=20
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
-> =C2=A0drivers/pinctrl/aspeed/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 =
-8 +
-> =C2=A0drivers/pinctrl/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c=C2=A0=C2=A0 |=C2=A0 503=
- ++++
-> =C2=A0.../pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c=C2=A0=C2=A0 | 2523 ++++=
-+++++++++++++
-> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 47 +
-> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 11 +-
-> =C2=A0drivers/pinctrl/aspeed/pinmux-aspeed.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 35 +-
-
-The impression I get from the changes to the latter three files here is
-that the soc0 support might even be different enough to warrant
-separation from the previous generations as well. You're defining
-similar-but-different structs and macros to what we already have. If
-the those are genuinely necessary (not yet resolved), I'd rather they
-be their own driver.
-
-> =C2=A07 files changed, 3123 insertions(+), 5 deletions(-)
-> =C2=A0create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
-> =C2=A0create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
->=20
-> diff --git a/drivers/pinctrl/aspeed/Kconfig b/drivers/pinctrl/aspeed/Kcon=
-fig
-> index 1a4e5b9ed471..16743091a139 100644
-> --- a/drivers/pinctrl/aspeed/Kconfig
-> +++ b/drivers/pinctrl/aspeed/Kconfig
-> @@ -31,3 +31,11 @@ config PINCTRL_ASPEED_G6
-> =C2=A0	help
-> =C2=A0	=C2=A0 Say Y here to enable pin controller support for Aspeed's 6t=
-h
-> =C2=A0	=C2=A0 generation SoCs. GPIO is provided by a separate GPIO driver=
-.
-> +
-> +config PINCTRL_ASPEED_G7
-> +	bool "Aspeed G7 SoC pin control"
-> +	depends on (ARCH_ASPEED || COMPILE_TEST) && OF
-> +	select PINCTRL_ASPEED
-> +	help
-> +	=C2=A0 Say Y here to enable pin controller support for Aspeed's 7th
-> +	=C2=A0 generation SoCs. GPIO is provided by a separate GPIO driver.
-> diff --git a/drivers/pinctrl/aspeed/Makefile b/drivers/pinctrl/aspeed/Mak=
-efile
-> index db2a7600ae2b..1713f678a984 100644
-> --- a/drivers/pinctrl/aspeed/Makefile
-> +++ b/drivers/pinctrl/aspeed/Makefile
-> @@ -6,3 +6,4 @@ obj-$(CONFIG_PINCTRL_ASPEED)	+=3D pinctrl-aspeed.o pinmux=
--aspeed.o
-> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G4)	+=3D pinctrl-aspeed-g4.o
-> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G5)	+=3D pinctrl-aspeed-g5.o
-> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G6)	+=3D pinctrl-aspeed-g6.o
-> +obj-$(CONFIG_PINCTRL_ASPEED_G7) +=3D pinctrl-aspeed-g7-soc0.o pinctrl-as=
-peed-g7-soc1.o
-> \ No newline at end of file
-> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c b/drivers/pi=
-nctrl/aspeed/pinctrl-aspeed-g7-soc0.c
-> new file mode 100644
-> index 000000000000..86da889cc010
-> --- /dev/null
-> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
-> @@ -0,0 +1,503 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +#include <linux/bits.h>
-> +#include <linux/device.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/irq.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/pinctrl/machine.h>
-> +#include <linux/pinctrl/pinconf.h>
-> +#include <linux/pinctrl/pinconf-generic.h>
-> +#include <linux/pinctrl/pinctrl.h>
-> +#include <linux/pinctrl/pinmux.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +#include "pinctrl-aspeed.h"
-> +#include "../pinctrl-utils.h"
-> +
-> +#define SCU200 0x200 /* System Reset Control #1=C2=A0 */
-> +
-> +#define SCU400 0x400 /* Multi-function Pin Control #1=C2=A0 */
-> +#define SCU404 0x404 /* Multi-function Pin Control #2=C2=A0 */
-> +#define SCU408 0x408 /* Multi-function Pin Control #3=C2=A0 */
-> +#define SCU40C 0x40C /* Multi-function Pin Control #3=C2=A0 */
-> +#define SCU410 0x410 /* USB Multi-function Control Register=C2=A0 */
-> +#define SCU414 0x414 /* VGA Function Control Register=C2=A0 */
-> +
-> +#define SCU480 0x480 /* GPIO18A0 IO Control Register */
-> +#define SCU484 0x484 /* GPIO18A1 IO Control Register */
-> +#define SCU488 0x488 /* GPIO18A2 IO Control Register */
-> +#define SCU48C 0x48c /* GPIO18A3 IO Control Register */
-> +#define SCU490 0x490 /* GPIO18A4 IO Control Register */
-> +#define SCU494 0x494 /* GPIO18A5 IO Control Register */
-> +#define SCU498 0x498 /* GPIO18A6 IO Control Register */
-> +#define SCU49C 0x49c /* GPIO18A7 IO Control Register */
-> +#define SCU4A0 0x4A0 /* GPIO18B0 IO Control Register */
-> +#define SCU4A4 0x4A4 /* GPIO18B1 IO Control Register */
-> +#define SCU4A8 0x4A8 /* GPIO18B2 IO Control Register */
-> +#define SCU4AC 0x4AC /* GPIO18B3 IO Control Register */
-> +
-> +enum {
-> +	AC14,
-> +	AE15,
-
-Are the ball enums necessary? Historically we haven't needed it as the
-undefined macro symbols were just used for token-pasting or
-stringification purposes.
-
-> +	AD14,
-> +	AE14,
-> +	AF14,
-> +	AB13,
-> +	AB14,
-> +	AF15,
-> +	AF13,
-> +	AC13,
-> +	AD13,
-> +	AE13,
-> +	PORTA_U3, // SCU410[1:0]
-> +	PORTA_U2, // SCU410[3:2]
-> +	PORTB_U3, // SCU410[5:4]
-> +	PORTB_U2, // SCU410[7:6]
-> +	PORTA_U3_XHCI, // SCU410[9]
-> +	PORTA_U2_XHCI, // SCU410[9]
-> +	PORTB_U3_XHCI, // SCU410[10]
-> +	PORTB_U2_XHCI, // SCU410[10]
-> +	PORTA_MODE, // SCU410[25:24]
-> +	PORTB_MODE, // SCU410[29:28]
-> +	PORTA_U2_PHY,
-> +	PORTA_U3_PHY,
-> +	PORTB_U2_PHY,
-> +	PORTB_U3_PHY,
-> +	JTAG_PORT,
-> +	PCIERC0_PERST,
-> +	PCIERC1_PERST,
-> +};
-> +
-> +GROUP_DECL(EMMCG1, AC14, AE15, AD14);
-> +GROUP_DECL(EMMCG4, AC14, AE15, AD14, AE14, AF14, AB13);
-> +GROUP_DECL(EMMCG8, AC14, AE15, AD14, AE14, AF14, AB13, AF13, AC13, AD13,=
- AE13);
-> +GROUP_DECL(EMMCWPN, AF15);
-> +GROUP_DECL(EMMCCDN, AB14);
-> +GROUP_DECL(VGADDC, AD13, AE13);
-> +GROUP_DECL(VB1, AC14, AE15, AD14, AE14);
-> +GROUP_DECL(VB0, AF15, AB14, AF13, AC13);
-
-For the previous generation drivers my philosophy was "keep things that
-go together together," so signal descriptors, groups and functions were
-all located around the definition for one or a set of balls.
-
-Given I'm potentially escaping maintenance of ASPEED pinctrl drivers
-for the 2700 onwards I won't complain too much, but was this a specific
-choice to break from that approach? You're defining all the groups,
-then all the functions, then all the configurations.=20
-
-*snip*
-
-
-> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c b/drivers/pi=
-nctrl/aspeed/pinctrl-aspeed-g7-soc1.c
-> new file mode 100644
-> index 000000000000..7c5a5e208f63
-> --- /dev/null
-> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
->=20
-
-*snip*
-
-> +
-> +FUNCFG_DESCL(C16, PIN_CFG(ESPI1, SCU400, GENMASK(2, 0), 1),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(2, 0), 2),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(2, 0), 3),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C0, SCU400, GENMASK(2, 0), 4),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(2, 0), 5));
-> +FUNCFG_DESCL(C14, PIN_CFG(ESPI1, SCU400, GENMASK(6, 4), (1 << 4)),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(6, 4), (2 << 4))=
-,
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(6, 4), (3 << 4)),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C1, SCU400, GENMASK(6, 4), (4 << 4)=
-),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(6, 4), (5 << 4)))=
-;
-> +FUNCFG_DESCL(C11, PIN_CFG(ESPI1, SCU400, GENMASK(10, 8), (1 << 8)),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(10, 8), (2 << 8)=
-),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(10, 8), (3 << 8)),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C3, SCU400, GENMASK(10, 8), (4 << 8=
-)),
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(10, 8), (5 << 8))=
-);
-
-If we're going to continue the macro soup we need to take the
-opportunity to clean this up. You shouldn't need to open-code the
-shifts like this, the data model needs more thought.
-
-*snip*
-
-> +
-> +static const struct aspeed_g7_pincfg pin_cfg[] =3D {
-> +	PINCFG_PIN(C16),=C2=A0=C2=A0=C2=A0 PINCFG_PIN(C14),=C2=A0=C2=A0 PINCFG_=
-PIN(C11),
-> +	PINCFG_PIN(D9),	=C2=A0=C2=A0=C2=A0 PINCFG_PIN(F14),=C2=A0=C2=A0 PINCFG_=
-PIN(D10),
-
-My preference is that this array definition be one entry per line,
-sorted, that way we don't get weird alignment or reflow affecting the
-remainder of the struct if we change things in the middle.
-
-Cheers,
-
-Andrew
+Thanks,
+Priscilla
 
