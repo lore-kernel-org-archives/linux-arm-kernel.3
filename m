@@ -4,105 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDC1CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 05:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38926CAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 06:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XtavhOsQwF08dyhxTuSlB3SJ6xxUQQjoptkIUo1P2H0=; b=gUkkvuQHtCA7bjqlCKFZVyA7Mc
-	wu1/4u979C3JmfeTUMajDaOT+KcN5Kk2n4yk2Bp7yFTQ9rkNs1XIb2DWhtg6qhfSS5+hf0YW+1tgn
-	VkiWtFMtK6XvYIDd2z557LVaRZ7Y0WW9+YaiOFi1+ef9/vKFEDGs91MaSuO/6/HjgdAQvz3BSs70K
-	QwgjAv7e3NCpMXSmdJAz9gtbpISulZhWG9MQX2oehDOYJiVsaKSzzy8rQx99BChxnIREkFwm4K80C
-	JsUv3h8+/OfpZh8ltjpd9N+1Ow+LoVDZq7yZxZVps0U6cVXt8BuKODbVayaKBkPSUrrJA+Q3P54TX
-	pWQZJ2Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BE48LGd8Du5MiKKvglrn1AproCC4GlipHq5F9zopUYA=; b=CKq5XWh4xGOSA5hUxcfZQi3YZN
+	l1gBy6MGbUjLkgfcKR6KyvfBNGhujhQ0WYrReY4OnPY/bzfAOq58Fi4tnjFyiqPVHnvlFqUj8U5x1
+	1IR0G/oUIqy5sgqbM2kZJ//vP/KP9jpcZwjrLvtLU3oeIXUayxb/6LDnNzI+PYCYtw9ZscrDSzw7i
+	f88vrc2eq28DpQwol7Q0USBkHBhrUG9/hT5ERtFiHvfqYP4lr7IMTTjJIWnn0/S/53X/xaGG4KJtN
+	o1CeSytrJWLZ4aWLWzPoOQbJSccUdI7G92yElK/w0ReflY4tX0XT3GW6onUznQnIjLrsdjSzfv1BH
+	y2T4IdrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1f0t-000000064hJ-2Lcp;
-	Thu, 25 Sep 2025 05:59:31 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1v1f5n-0000000673l-3dAv;
+	Thu, 25 Sep 2025 06:04:35 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1f0q-000000064d4-1qHt
+	id 1v1f5k-0000000670O-0rIF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 05:59:30 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-77c1814ca1dso498893b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 22:59:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758779968; x=1759384768; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XtavhOsQwF08dyhxTuSlB3SJ6xxUQQjoptkIUo1P2H0=;
-        b=azVAlrAOwTQ0Ye6IZ4J0UCqG79ewSshj/CJu87mKeksC1+LYh+smkn/LzBkgWVDxaT
-         qtV6uVv7VONB2XOHXPvIfO8wAcx3cG+l1Mqdy4bo3QrwiDirsUeM8Hg+YeNKvtDwHAa+
-         glIp61B/Z/hllzg77BLFB3/7qwvkDyZSS6FaMaiiM5n3NliojYRctucPN9Hyu4rLIHYL
-         G5hILeFIUZ/yrri8CW0G0dlf1gCZznfX4+7YJwGi7R5gH4/PW4L1PaONo3KLvD3QtEUj
-         G1UToUWOxxP8QdVyp0vj6CT0ZGfDKQrZei/PPKn99b8yi1tJbwoLBSytzCSSFIeHR0dB
-         XNfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758779968; x=1759384768;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XtavhOsQwF08dyhxTuSlB3SJ6xxUQQjoptkIUo1P2H0=;
-        b=IxuBWID0TBl0O28e5sKUakzH0OdFiNYIahfjm5/GtPW4Bl1DUr1LvtjZixnQCl5ymv
-         8acON/7sNd76RhGAlTCuvubnDV/oKCdb0qmFnDMRCi4AhahDA/wLZSOAnaP4drNsgLUH
-         FDwpGfwOsuHGHUGAqkSUM1TS6lqJdzm8P/MfNhABlsqmZgtA899uhQteHEYSegAAxLHQ
-         hHonPqorDQ1nWmbdOn85+ZAT0BySc6pkOqI9Wi9ppn86r/h9tywo6zoIF8Wf6DDXigs+
-         spNqCBpbWrntvBRF6AS/RzEAGdlU6Fm7a0mkKctiuKxEgWlSd+tqAI/4CXM/PTUS5vmv
-         /gJw==
-X-Forwarded-Encrypted: i=1; AJvYcCU1mcUI7e5ewuvjm2T+xvyjE6GhNYkvXKExeFGGNYZ91RthGtMTBXypyCVvf76G1cfSTXg/BpUpAYmYjdr+mJLL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCyb41cu9hP/71l2NtnEL9vHSFLhg8wWhBHjjnWQa+OwnCX2eG
-	WcfzFTFBYEV4d3DGaHtrAGVr/xOYXy5uk09aTUDVuflqXnRAsTKyWEOt
-X-Gm-Gg: ASbGncsuvRfRZ1mDqW6TB8CAxxccwhQZSqASW9CYb/Ays2VmUV4OOKOZKCapmnrbsgl
-	nzQ1Yyjs2ezzPrfNw3Edr3g1RBMB8BV+DGa03dmluY8iHx7sFKaHqnl79/jNMUajNDZF58HgR3u
-	VxUGOe0ltURMSbeZjMjX7i83WD2ZO0fIZWDDHSC2VqjOWXeEOqvFqEcax0qTqx6OKmt/NuM44GU
-	SCo90OWp99fISSsTZDTnJAM2KH530PYR+uMfioGIVJaL0G1hvYezliGfhUTUU/E9gtR9Q1+Xc0E
-	423+6CNf33OC28bq7jcpzhUtxiSP7SFCXP8LLeW2Y6rFfgMO6TuNH0+2cFFa5kqRAkjQVDTodzD
-	nCO+CSheJz/zgIflPIH+9
-X-Google-Smtp-Source: AGHT+IH0KeuvbDEDawkIcCaPX2Sayqc/yRlC7UDQx0lpMFNkquEwx4BK9EJRbPVaFFYWxRUjrCyRtw==
-X-Received: by 2002:a05:6a20:9192:b0:277:f962:3163 with SMTP id adf61e73a8af0-2e7c29376b1mr2916281637.19.1758779967608;
-        Wed, 24 Sep 2025 22:59:27 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:bac5:3981:16dc::247:77])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78102b231ebsm866478b3a.52.2025.09.24.22.59.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 24 Sep 2025 22:59:27 -0700 (PDT)
-From: Liangbin Lian <jjm2473@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com,
-	naoki@radxa.com,
-	honyuenkwun@gmail.com,
-	inindev@gmail.com,
-	ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org,
-	mani@kernel.org,
-	dsimic@manjaro.org,
-	pbrobinson@gmail.com,
-	alchark@gmail.com,
-	didi.debian@cknow.org,
-	jjm2473@gmail.com,
-	jbx6244@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Date: Thu, 25 Sep 2025 13:59:06 +0800
-Message-ID: <20250925055906.83375-3-jjm2473@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250925055906.83375-1-jjm2473@gmail.com>
-References: <20250925055906.83375-1-jjm2473@gmail.com>
+	Thu, 25 Sep 2025 06:04:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zk2IZ5RcjL5WpAtA6Y8HNE2qCUgpvaOLt/hNuENuRT/hNKoRYohBqN6vAqvBaQ1uYKyvKBet5AMAElwH10/mfoSJTv7zVUqe+6fDx7ny/IEpKymratX/KSZZg+kDonGEZXO8irZs33DNuzyCOgY2NBS0DN506PPIaVzACn+MCYsZiJtLym68veAMYVzE5f6QRRYqcap6q6la6TfCextSjcfrMvzjnaY0RvA869AHOMLhyGmm6hmzJm62uiP18u/y1CUBy2rFHDfggQ1xRzIxw1HaZjblU6XSstNXyj/4xzZ24qKbH4MA+lj3l7a0llwXiDU4Z32Z67hpicepWzccJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BE48LGd8Du5MiKKvglrn1AproCC4GlipHq5F9zopUYA=;
+ b=anX7IVOpQ2WZs5CbWOAJS5jmHgcEKQWOulnQYnwdnd0X7GCjJrnWdhM147Eg8QmI9is64WVhLgK2viChDN+XboF6yelHj+1UDkXI1ihXP6CwPBT4YdECWo8DH57B2ZS/x1XqkSZmDKSDZlvKnb40OtKbY0Naqo89uU9XgcY3i+y33DPX8UY4hlQ0UJti4letmU7/19RHP9X87hE4zbP8HLcwlwdN+aTsgRoge7VKbogHG28oBcJ0j4OPCRJoOHZx//Wabn0CdBIlz9Pgq9RHUdxhjo8Pvn8XknEFiodWYHYK6O02ZEdLIAq1pSL5ZipTGMJEJl33PdepzqRYijNKQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BE48LGd8Du5MiKKvglrn1AproCC4GlipHq5F9zopUYA=;
+ b=skO4P0lvLQrumj/uVC0DlLyQ0xPMv2opfo7AqzFq3+SqtwsnchYTfZQODJmydajCWbgMmrW5iQNgFYR0kIfehfVvPcYkr/B99HEzUv9RFNcag6QdG4kLTB7Wz7aWh2eshJDh7v7oLsgFVdIBRAyXSA6FQv4GKGQEFWImR4E/iGc=
+Received: from SJ1PR12MB6076.namprd12.prod.outlook.com (2603:10b6:a03:45d::10)
+ by DS2PR12MB9565.namprd12.prod.outlook.com (2603:10b6:8:279::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.20; Thu, 25 Sep
+ 2025 06:04:18 +0000
+Received: from SJ1PR12MB6076.namprd12.prod.outlook.com
+ ([fe80::415b:4f92:5791:b46]) by SJ1PR12MB6076.namprd12.prod.outlook.com
+ ([fe80::415b:4f92:5791:b46%4]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
+ 06:04:18 +0000
+From: "T, Harini" <Harini.T@amd.com>
+To: "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>, "Simek,
+ Michal" <michal.simek@amd.com>
+CC: "linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>
+Subject: RE: [PATCH V2] rtc: zynqmp: Restore alarm functionality after kexec
+ transition
+Thread-Topic: [PATCH V2] rtc: zynqmp: Restore alarm functionality after kexec
+ transition
+Thread-Index: AQHcAV1AXhRPyjcD+0u9TsGzWke7IrSByXbQgCH3+XA=
+Date: Thu, 25 Sep 2025 06:04:18 +0000
+Message-ID: <SJ1PR12MB6076CAEB3B0429159B4151AA921FA@SJ1PR12MB6076.namprd12.prod.outlook.com>
+References: <20250730142110.2354507-1-harini.t@amd.com>
+ <DS7PR12MB606995B08A344C01711C7BCC9201A@DS7PR12MB6069.namprd12.prod.outlook.com>
+In-Reply-To: <DS7PR12MB606995B08A344C01711C7BCC9201A@DS7PR12MB6069.namprd12.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-09-03T15:22:17.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
+ Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ1PR12MB6076:EE_|DS2PR12MB9565:EE_
+x-ms-office365-filtering-correlation-id: e0d7776d-56f9-4ae0-c5d2-08ddfbf95d00
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?MyU0gBMeeADmwh7XmKfuarqVyTSh4eIv8Ove3WW54EzRo5D0ARGeD7Mt1RAm?=
+ =?us-ascii?Q?6p7+cjmxhlnXBagfuxtwEWjJquaa5q7oyWGypm3yTrrfPdZcO6yzITJP1hwZ?=
+ =?us-ascii?Q?fnmsN+AVpxrvL4LDGRJpEfoX/Z+GucXg6SdvVn5qfjHXykJSbTb4pF4tsCJU?=
+ =?us-ascii?Q?ZgSOoYaa9pMFn/xeXRrshEYsQmidrnsqXLZ1l7g5kkQr1cg20bNBHHD9/82l?=
+ =?us-ascii?Q?Nf3dNClbWA0lfD7JVUXbzCKC3dFiBub9fLWjwfROaGgC+Wy/MF8WitLy6xLZ?=
+ =?us-ascii?Q?dsyM4WcXJUSFzLwtaOZ5uQrAGmR6zCwD3PiVsr7P4FPijhviGakepsonjdOC?=
+ =?us-ascii?Q?ccm+cZgFOMXrPBu0xXGX92oUIfrdggC4QLpjf9Q9NnBee8kgxJkw2aBPDXY9?=
+ =?us-ascii?Q?OnD74MPkNagHUKI/o4fZzPSPWi/ug0vXd3XufQExuSrtdQIdh92anKTzxPW4?=
+ =?us-ascii?Q?m8/P0KjKgyMX+NT9BvppR4GjHIOCLcGPkr1sC4hUBhMeQ8/+pXeo9fSAvZ4a?=
+ =?us-ascii?Q?5aPtEVIessO3putmj0O77zwQKqFOsLgI62XDfOLhG+cYBTO5WvFShggiFQ/I?=
+ =?us-ascii?Q?48zbGmT+Q7HOkrOyFR0qADs44hDl2mcjR+4ffvp/etUdEvRGG9Ew85aY/zFT?=
+ =?us-ascii?Q?VCp9PAZV5gpKC6BqecG2EbgfZYlgchvlZyMiGX68+IicGErd92uJVK07tG47?=
+ =?us-ascii?Q?sl4UXStv6wadUT9ALJgwG9l2A/mVDBLCdDErlLIOH9NTMU+NgLqCWhN55XvQ?=
+ =?us-ascii?Q?JBISqYDUIm7PAdRYfK36/cJm5Xeitv6YdDd6fVgsK5sTUQZb8evNEzkL8Hqj?=
+ =?us-ascii?Q?MX7Vi/l2T47APtoOrJZtB5VnU7N7lWX0xGj4UtVPluzklsmMZ2c2wYMnUUeP?=
+ =?us-ascii?Q?0SmjyPP30u4qquMGw5+QzldHwmQxmyEzwt4hqw440IbSsTHXTzuJ3n5mIzOT?=
+ =?us-ascii?Q?TL1Ami5WpOhoCf6aw5cU7FwKXIUmOXTZyLSRE1+LMFgqMBlmCsF0BLvVa7Zv?=
+ =?us-ascii?Q?ZejWxvmSBemIoNcN3ulkZJcfaqlqc69yXP4/FIm3di7WEmv7IwjDA3mYaAuB?=
+ =?us-ascii?Q?kanscZ4+E08j+CLu0Y5eGGKgwUPXduStGa7qPuWi//pQ2NP9GETZUwP52W1E?=
+ =?us-ascii?Q?Zdbbq2HCNC/pJeCblOpyaBUhvsiPVLovnE5XAcAMM19XKVE0kxDa25BdQuQt?=
+ =?us-ascii?Q?85I9tccpgDpKQGn0wdZJ51uy++y8xwznZvLBafC12c/NMkefAhs8oGQA/jvY?=
+ =?us-ascii?Q?uUvJqkvScAgMJwaLefHv5tvWf7tUmSmmKK827Hlro/5T6dZc7LS6KWa8tbHR?=
+ =?us-ascii?Q?ROQjamVFGzJKBEaR96pgVzp5ZqeO6xPWnFLMqHZJeMMuNTYuQ+ADHjkg4Dg2?=
+ =?us-ascii?Q?msSebFibRVXwU0jfFXqM5z2pylbiCdFPK0BI33Itw7lHKruM0J26TJsO55PS?=
+ =?us-ascii?Q?N+liBR42mYpkKVRuhzZXG2whKdKfibB9?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6076.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ruUxucvxSpYtXSjhvq9ds9k1X4pe9aJ/EqqRO9s4zsbnkUT3P3/R90oWld1a?=
+ =?us-ascii?Q?J0DOidUcw/zaAK6HKpYtPYa99zXMdE6+wJHRR1SDcY2cUN9AA5V/MSf4KVCx?=
+ =?us-ascii?Q?oy3AXkuu53MACT4iE4RgNqUqYbao/vmQRXxTKbR8hlZxq8wfpLPXOWKh0XJo?=
+ =?us-ascii?Q?fBLRGGh9iQl1OYqff9cTrqRnB4JtVRUNav0DJIULwABhItWpeaZqvRaFf3cv?=
+ =?us-ascii?Q?TfqX92aVMcQ9TjETTJNew5cLZkhrRgpzoNetMf5u6sz9hox1zvcdJhC5Qucc?=
+ =?us-ascii?Q?+WG682CratKU6rXkIwGNOvwLaD3w0U6tXZwytbYCRkzPCoi5NyPvHQM+UEjC?=
+ =?us-ascii?Q?zJfY/7ZhBbKDCx0QYDUJ3pZB/cMTw/H04S6YNT2j1gIOJpfcFEjo5LPp37nu?=
+ =?us-ascii?Q?ocmvG0BDGtcgYul0oNqOXNkTacX5OXCyzwXqqZeDLz55sOy3nYEA+oKhtCRZ?=
+ =?us-ascii?Q?WmewTlv/H78K57TalAzKoCaa2yGM4sEM2qmQhD/eZzHqJr72t5/39nzfRoTt?=
+ =?us-ascii?Q?7DqByTyvtnQsWkPAmhOmsmzQt/3jiXnI2mpXPQriz+3LNHCjc0B7QVuFPd+V?=
+ =?us-ascii?Q?+cw9GuGY8QoaJyhoH9EsNyLHARNQ8ylIjvMZ1m9EDEKSvciX3PkdGBaOW+9L?=
+ =?us-ascii?Q?XfKW3z5Nof5MCDQ+Ae7HcwFAuKxuhqqZcCHQKJyPjBSKq3Uhv1mCEozKALti?=
+ =?us-ascii?Q?lTKI2DqXrL2WJwGD/tTWAABT4Z9vfcggg+HsiDjLJ1xgTK4q3K9X1JI5OTLn?=
+ =?us-ascii?Q?3cvOsIyvHKKS9C/vpQ6W9oUhfwunksfyUW/yPWbUSvfBgOH9JHofONPLLZfU?=
+ =?us-ascii?Q?s8iJZJozZ9A2ApE+TCRZvzvSC5PkZuNBI8gG9WrzdzC31b1ItfqhAWEC9Ejw?=
+ =?us-ascii?Q?nXcrIwQfa+NaMs31mYwIw2pC+zVg11dUoIi5U8bZ7LVDc/wQaObzDKuyQQHm?=
+ =?us-ascii?Q?Wiz5Hi58PAPITHdC6RkYqc6Q1d7rgfmVwrU8Bsc9BaUveisirm1aFSeCBm/l?=
+ =?us-ascii?Q?w80sRARHLMQK+zl6WR5KQqALycMbhrwoppjVSDV3UWk1N6RVrI0SNJTe98cY?=
+ =?us-ascii?Q?9/Eqru4sCe/nIPEIbq875hpcCE+k1Xw4wT0ZWyn0waG6YVL3qsmFF5hJ/0Ue?=
+ =?us-ascii?Q?4lICxVuMJnSoaRW5IwsalC94ccLS4FvfgCZv/yZV8wQG/x+XTxLDPojcOCJK?=
+ =?us-ascii?Q?1bdcQZ6yvMfST3C34J0Sfx/FEqufA2RTtH9BPgHwv2YTRggx/x3KrX7twz9R?=
+ =?us-ascii?Q?gLQEmsAv+dnF9ThOsBsRAkYdSeZiPpmkWQvbS4xNENa3hnLluHu1JId10DeD?=
+ =?us-ascii?Q?xUjJJkSnNK2Jr0gKhp0gjaL8XDTvC5Eta7ScbPio7H1tew0DDZvnnObOWV0o?=
+ =?us-ascii?Q?GF2f/Wix/6VJ36HYfAgJ7KANPiP/Nrf+Ncrcmy3OJ0T6RDc5DoTAe1pJ8VMf?=
+ =?us-ascii?Q?PcSc4LWUIK1ta5zAnyehEY0sC5y58h5NAt1qkNaPRU1s4nKK/MSSBikTZw9H?=
+ =?us-ascii?Q?aVzeNFwhxAtfqxqsRuTHTh0eBX2StRx6hRHh4ldD7nzBmB/61K9Wyn4HBCfO?=
+ =?us-ascii?Q?EOEu7B/Yr62td78FVGg=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6076.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0d7776d-56f9-4ae0-c5d2-08ddfbf95d00
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2025 06:04:18.2078
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: s6ShdufpUTUc1uqr7vBjdZMfvn5X6IWVmbwPRfbWkc8R7AEkIFzzhumCeTNwJg06
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9565
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_225928_523252_9E5E7FE1 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20250924_230432_282815_0992CDEE 
+X-CRM114-Status: GOOD (  33.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,742 +167,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LinkEase EasePi R1 [1] is a high-performance mini router.
+[Public]
 
-Specification:
-- Rockchip RK3568
-- 2GB/4GB LPDDR4 RAM
-- 16GB on-board eMMC
-- 1x M.2 key for 2280 NVMe (PCIe 3.0)
-- 1x USB 3.0 Type-A
-- 1x USB 2.0 Type-C (for USB flashing)
-- 2x 1000 Base-T (native, RTL8211F)
-- 2x 2500 Base-T (PCIe, RTL8125B)
-- 1x HDMI 2.0 Output
-- 12v DC Jack
-- 1x Power key connected to PMIC
-- 2x LEDs (one static power supplied, one GPIO controlled)
+Ping!
 
-[1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
-
-Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 692 ++++++++++++++++++
- 2 files changed, 693 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 099520962ffb..7646ffd7f309 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -127,6 +127,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-nanopi-r3s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-cb2-manta.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-pi2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-bpi-r2-pro.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-easepi-r1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r68s.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts b/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-new file mode 100644
-index 000000000000..09e0dc4af794
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-@@ -0,0 +1,692 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3568.dtsi"
-+
-+/ {
-+	model = "LinkEase EasePi R1";
-+	compatible = "linkease,easepi-r1", "rockchip,rk3568";
-+
-+	aliases {
-+		mmc0 = &sdmmc0;
-+		mmc1 = &sdhci;
-+		mmc2 = &sdmmc2;
-+
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+	};
-+
-+	chosen: chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+
-+		button-recovery {
-+			label = "Recovery";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1750>;
-+		};
-+	};
-+
-+	dc_12v: regulator-dc-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_12v";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	pcie30_avdd0v9: regulator-pcie30-avdd0v9 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	pcie30_avdd1v8: regulator-pcie30-avdd1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	regulator-vdd0v95-25glan {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pwr_25g_pin>;
-+		enable-active-high;
-+		gpio = <&gpio3 RK_PB1 GPIO_ACTIVE_HIGH>;
-+		regulator-name = "vdd0v95_25glan";
-+		regulator-min-microvolt = <950000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	vcc3v3_nvme: regulator-vcc3v3-nvme {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_nvme";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		enable-active-high;
-+		gpio = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&dc_12v>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc3v3_nvme_en>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rk809 1>;
-+		clock-names = "ext_clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_h>;
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&status_led_pin>;
-+
-+		status_led: led-status {
-+			gpios = <&gpio2 RK_PD7 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			label = "green:status";
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+};
-+
-+&gmac0 {
-+	phy-mode = "rgmii";
-+	clock_in_out = "input";
-+
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-+	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	phy-handle = <&rgmii_phy0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim
-+		     &gmac0_tx_bus2
-+		     &gmac0_rx_bus2
-+		     &gmac0_rgmii_clk
-+		     &gmac0_rgmii_bus>;
-+
-+	tx_delay = <0x3c>;
-+	rx_delay = <0x2f>;
-+
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	phy-mode = "rgmii";
-+	clock_in_out = "input";
-+
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	phy-handle = <&rgmii_phy1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		     &gmac1m1_tx_bus2
-+		     &gmac1m1_rx_bus2
-+		     &gmac1m1_rgmii_clk
-+		     &gmac1m1_rgmii_bus>;
-+
-+	tx_delay = <0x4f>;
-+	rx_delay = <0x26>;
-+
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-0 = <&eth_phy0_reset_pin>;
-+		pinctrl-names = "default";
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-0 = <&eth_phy1_reset_pin>;
-+		pinctrl-names = "default";
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&combphy0 {
-+	status = "okay";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu>;
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	avdd-0v9-supply = <&vdda0v9_image>;
-+	avdd-1v8-supply = <&vcca1v8_image>;
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	vdd_cpu: regulator@1c {
-+		compatible = "tcs,tcs4525";
-+		reg = <0x1c>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1150000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	rk809: pmic@20 {
-+		compatible = "rockchip,rk809";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
-+		#clock-cells = <1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_int>;
-+		rockchip,system-power-controller;
-+		vcc1-supply = <&vcc3v3_sys>;
-+		vcc2-supply = <&vcc3v3_sys>;
-+		vcc3-supply = <&vcc3v3_sys>;
-+		vcc4-supply = <&vcc3v3_sys>;
-+		vcc5-supply = <&vcc3v3_sys>;
-+		vcc6-supply = <&vcc3v3_sys>;
-+		vcc7-supply = <&vcc3v3_sys>;
-+		vcc8-supply = <&vcc3v3_sys>;
-+		vcc9-supply = <&vcc3v3_sys>;
-+		wakeup-source;
-+
-+		regulators {
-+			vdd_logic: DCDC_REG1 {
-+				regulator-name = "vdd_logic";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_gpu: DCDC_REG2 {
-+				regulator-name = "vdd_gpu";
-+				regulator-always-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_ddr: DCDC_REG3 {
-+				regulator-name = "vcc_ddr";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vdd_npu: DCDC_REG4 {
-+				regulator-name = "vdd_npu";
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8: DCDC_REG5 {
-+				regulator-name = "vcc_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_image: LDO_REG1 {
-+				regulator-name = "vdda0v9_image";
-+				regulator-min-microvolt = <950000>;
-+				regulator-max-microvolt = <950000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda_0v9: LDO_REG2 {
-+				regulator-name = "vdda_0v9";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_pmu: LDO_REG3 {
-+				regulator-name = "vdda0v9_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <900000>;
-+				};
-+			};
-+
-+			vccio_acodec: LDO_REG4 {
-+				regulator-name = "vccio_acodec";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd: LDO_REG5 {
-+				regulator-name = "vccio_sd";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_pmu: LDO_REG6 {
-+				regulator-name = "vcc3v3_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vcca_1v8: LDO_REG7 {
-+				regulator-name = "vcca_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcca1v8_pmu: LDO_REG8 {
-+				regulator-name = "vcca1v8_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcca1v8_image: LDO_REG9 {
-+				regulator-name = "vcca1v8_image";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3: SWITCH_REG1 {
-+				regulator-name = "vcc_3v3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_sd: SWITCH_REG2 {
-+				regulator-name = "vcc3v3_sd";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+
-+	};
-+};
-+
-+&i2s0_8ch {
-+	status = "okay";
-+};
-+
-+/* ETH3 */
-+&pcie2x1 {
-+	reset-gpios = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&pcie30phy {
-+	data-lanes = <1 2>;
-+	status = "okay";
-+};
-+
-+/* ETH2 */
-+&pcie3x1 {
-+	num-lanes = <1>;
-+	reset-gpios = <&gpio3 RK_PA3 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+/* M.2 Key for 2280 NVMe */
-+&pcie3x2 {
-+	num-lanes = <1>;
-+	reset-gpios = <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_nvme>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	gmac0 {
-+		eth_phy0_reset_pin: eth-phy0-reset-pin {
-+			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+	gmac1 {
-+		eth_phy1_reset_pin: eth-phy1-reset-pin {
-+			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		status_led_pin: status-led-pin {
-+			rockchip,pins =
-+				<2 RK_PD7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pmic {
-+		pmic_int: pmic-int {
-+			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	pcie-nic {
-+		pwr_25g_pin: pwr-25g-pin {
-+			rockchip,pins = <3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	nvme {
-+		vcc3v3_nvme_en: vcc3v3-nvme-en {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sdio-pwrseq {
-+		wifi_enable_h: wifi-enable-h {
-+			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc3v3_pmu>;
-+	pmuio2-supply = <&vcc3v3_pmu>;
-+	vccio1-supply = <&vccio_acodec>;
-+	vccio3-supply = <&vccio_sd>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcca_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+/* Micro SD card slot is not mounted */
-+&sdmmc0 {
-+	max-frequency = <150000000>;
-+	no-sdio;
-+	no-mmc;
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "disable";
-+};
-+
-+/* Wifi module is not mounted */
-+&sdmmc2 {
-+	max-frequency = <150000000>;
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_cmd &sdmmc2m0_clk>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sys>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "disable";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+/* OTG Only USB2.0, Only device mode */
-+&usb_host0_xhci {
-+	phys = <&usb2phy0_otg>;
-+	phy-names = "usb2-phy";
-+	extcon = <&usb2phy0>;
-+	maximum-speed = "high-speed";
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_sys>;
-+	status = "okay";
-+};
-+
-+&usb2phy0_otg {
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-+	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
--- 
-2.51.0
-
+> -----Original Message-----
+> From: T, Harini
+> Sent: Wednesday, September 3, 2025 8:53 PM
+> To: Harini T <harini.t@amd.com>; alexandre.belloni@bootlin.com; Simek,
+> Michal <michal.simek@amd.com>
+> Cc: linux-rtc@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linu=
+x-
+> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>
+> Subject: RE: [PATCH V2] rtc: zynqmp: Restore alarm functionality after ke=
+xec
+> transition
+>
+> Hi Alexandre,
+>
+> > -----Original Message-----
+> > From: Harini T <harini.t@amd.com>
+> > Sent: Wednesday, July 30, 2025 7:51 PM
+> > To: alexandre.belloni@bootlin.com; Simek, Michal
+> > <michal.simek@amd.com>
+> > Cc: linux-rtc@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > linux- kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; T,
+> > Harini <Harini.T@amd.com>
+> > Subject: [PATCH V2] rtc: zynqmp: Restore alarm functionality after
+> > kexec transition
+> >
+> > Caution: This message originated from an External Source. Use proper
+> > caution when opening attachments, clicking links, or responding.
+> >
+> >
+> > During kexec reboots, RTC alarms that are fired during the kernel
+> > transition experience delayed execution. The new kernel would
+> > eventually honor these alarms, but the interrupt handlers would only
+> > execute after the driver probe is completed rather than at the intended=
+ alarm
+> time.
+> >
+> > This is because pending alarm interrupt status from the previous
+> > kernel is not properly cleared during driver initialization, causing
+> > timing discrepancies in alarm delivery.
+> >
+> > To ensure precise alarm timing across kexec transitions, enhance the
+> > probe function to:
+> > 1. Clear any pending alarm interrupt status from previous boot.
+> > 2. Detect existing valid alarms and preserve their state.
+> > 3. Re-enable alarm interrupts for future alarms.
+> >
+> > Signed-off-by: Harini T <harini.t@amd.com>
+> > ---
+> > Changes in V2:
+> > - Remove shutdown handler to prevent alarm interrupts from being
+> >   disabled during kexec transitions.
+> > - Add alarm state detection and restoration in probe.
+> >
+> > V1 link: https://lore.kernel.org/linux-rtc/20250724170517.974356-1-
+> > harini.t@amd.com/T/#u
+> > ---
+> >  drivers/rtc/rtc-zynqmp.c | 19 +++++++++++++++++++
+> >  1 file changed, 19 insertions(+)
+> >
+> > diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c index
+> > f39102b66eac..3baa2b481d9f 100644
+> > --- a/drivers/rtc/rtc-zynqmp.c
+> > +++ b/drivers/rtc/rtc-zynqmp.c
+> > @@ -277,6 +277,10 @@ static irqreturn_t xlnx_rtc_interrupt(int irq,
+> > void *id) static int xlnx_rtc_probe(struct platform_device *pdev)  {
+> >         struct xlnx_rtc_dev *xrtcdev;
+> > +       bool is_alarm_set =3D false;
+> > +       u32 pending_alrm_irq;
+> > +       u32 current_time;
+> > +       u32 alarm_time;
+> >         int ret;
+> >
+> >         xrtcdev =3D devm_kzalloc(&pdev->dev, sizeof(*xrtcdev),
+> > GFP_KERNEL); @@
+> > -296,6 +300,17 @@ static int xlnx_rtc_probe(struct platform_device *pde=
+v)
+> >         if (IS_ERR(xrtcdev->reg_base))
+> >                 return PTR_ERR(xrtcdev->reg_base);
+> >
+> > +       /* Clear any pending alarm interrupts from previous kernel/boot=
+ */
+> > +       pending_alrm_irq =3D readl(xrtcdev->reg_base + RTC_INT_STS) &
+> > RTC_INT_ALRM;
+> > +       if (pending_alrm_irq)
+> > +               writel(pending_alrm_irq, xrtcdev->reg_base +
+> > + RTC_INT_STS);
+> > +
+> > +       /* Check if a valid alarm is already set from previous kernel/b=
+oot */
+> > +       alarm_time =3D readl(xrtcdev->reg_base + RTC_ALRM);
+> > +       current_time =3D readl(xrtcdev->reg_base + RTC_CUR_TM);
+> > +       if (alarm_time > current_time && alarm_time !=3D 0)
+> > +               is_alarm_set =3D true;
+> > +
+> >         xrtcdev->alarm_irq =3D platform_get_irq_byname(pdev, "alarm");
+> >         if (xrtcdev->alarm_irq < 0)
+> >                 return xrtcdev->alarm_irq; @@ -337,6 +352,10 @@ static
+> > int xlnx_rtc_probe(struct platform_device *pdev)
+> >
+> >         xlnx_init_rtc(xrtcdev);
+> >
+> > +       /* Re-enable alarm interrupt if a valid alarm was found */
+> > +       if (is_alarm_set)
+> > +               writel(RTC_INT_ALRM, xrtcdev->reg_base + RTC_INT_EN);
+> > +
+> >         device_init_wakeup(&pdev->dev, true);
+> >
+> >         return devm_rtc_register_device(xrtcdev->rtc);
+> > --
+> > 2.43.0
+> >
+>
+> Kindly following up on this patch. I would appreciate it if you could rev=
+iew it
+> when convenient and let me know if any updates are needed.
+>
+> Thank you for your time.
+>
+> Best regards,
+> Harini T
 
