@@ -4,120 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB1CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4298CAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 07:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83Nn5b4JSEuoWgZrR/ay70JX8WRfWcMJ9A+FdwfFYxo=; b=qT8ERb6n8ZYKt7E1iHjDQrIZjY
-	2mf1KfjBv3XsP7ybq5n8TdWslbmId9XKzaPk8scJPrhIDrTCGaTIiirBhmy8QwBVk3qrEdwOxA35y
-	FBV56vrcv3wsQFvH6vBWLC+orS8L1e68CISXnnVVB/s0yjWEYcmevN6mrgG2osfC1yh0e7euqPWhe
-	raPl3lFcZdQdNTCU6/rUsO7r6JVPYDyuGPEMGdxOYKCpDS+Q16A6OWX2MMfo+X0wqxC34E+ItOrP+
-	QyRzEVBdV/7MC+wiqOcKgVRAV6dVX5aHiWfFrS8FpHLcWBTAfcGVcbTUWUTwucmOcm1CharQ/Thpk
-	GmKedyQA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/pmdbPSS1+PFGOQZXgEhCWxoqVsYqlqHhZMSV2rIROA=; b=lOG0gcpl74xMNFfRi5X2Fpk0Eo
+	BBxlVrrKYJxBNpdJI94+32fTR2/dO5GR1ck8CgsGZe0BB1yPXLcXWFHhltRAdRdcESoh4EV660OjN
+	Q3cotA+uClEb8haJ3L+HFt2KJf135VndNrbMlhmHMJpRazUW3ZMTlc5/tW3ANWvLog58T1alkQc1F
+	EvstuEGYWYCAbDmkbtYCXZ49LJgoepSqHPUAZePVuW1b9jBDh81BL/h2MXhoX8v875qXRL9vWIkj6
+	+VJQirl6Dz4W6OLGjEFdC/66VXfuZiwN2A5wkBe7mrNMTsPNLSgdbjqublPkHnxYZfdhMrMFC9xPF
+	Z61JhZxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gkP-00000006rze-3zij;
-	Thu, 25 Sep 2025 07:50:37 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1v1glx-00000006sQW-1af3;
+	Thu, 25 Sep 2025 07:52:13 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1gkN-00000006rxE-14QA
+	id 1v1glu-00000006sPm-1lM9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 07:50:37 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 501437A0179;
-	Thu, 25 Sep 2025 03:50:33 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 25 Sep 2025 03:50:34 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1758786633;
-	 x=1758873033; bh=83Nn5b4JSEuoWgZrR/ay70JX8WRfWcMJ9A+FdwfFYxo=; b=
-	pItA3ruZW5T9+PNMdSyjosQHJWW2SIzFRB1T+1RzR7XetYb5u8pq+kAbshCqp/hb
-	CFNDPCk/hLBLyz+H2ZWs8UcaNdg2+zOCRg4++29TjH3JlmivlncDIp3x2zeX+vBG
-	D7QG5D+gm9SgVgUgjgBJ+FMTmm+DsPGr9bUhzqdyqqoNL8fi52jH8/JaQRCTGDw6
-	FHaKU+6MtiCOQ9tjMdscENdigKG4iD1fTydgYzyoz42edBo442pHGC79hqjyPTeM
-	KLrbZIPCADoFDoWyI3qavcmg70ybpiHfptnQAZhImMoeIsR9wzwiEjJn+rQ3CVuD
-	s19XNKOjyD2KuoK1LpTONw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1758786633; x=1758873033; bh=8
-	3Nn5b4JSEuoWgZrR/ay70JX8WRfWcMJ9A+FdwfFYxo=; b=F8gtftuPlBTRVn1pa
-	p6m3cdU9OIig8dVcgg67TXV+KxF/F5/oqQuQtWoojwNQFfeWb9lh60R1TFw5At2k
-	ucwafUPANpmkWItrpNtP6w/ecFxZY6orzb8rLkFMPHCaxGenNmbGRjn8cw47yjC3
-	CEM8OQgKbtdagWJTFDLLyttBR68IenIRaa/R5DjkQ4+jtNlvJbpX4YQiVGF9w03f
-	gFhednbXnVH92My128e7yjsMVQWIHnXvGi9sOe62bgP2AXIe49x1Vpxtb1PmgupE
-	G4Qf8kwq1rkfBS7XpfjGFyttT9FbzheIlA1iIJhMEG8AUoi8h7OoslJwdsuXo5Ep
-	4k7iA==
-X-ME-Sender: <xms:R_TUaHKqyXCy2u6drtgXYPqbK830VmCmZRElz_DxuwtMju8m69zJgA>
-    <xme:R_TUaF_Spg3m16H2kIU2QNq19M-W6m_bYrAS-PE379QzEhamyqoaJemZmQQCgCESV
-    qQxXHQ6hkXbx7M93XBEbT1Ud93NJp7l_uBkLfCJI1hbt5dyFRJTNRY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeiheelfecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epfeeilefguedtueetjeekkeegkedtudfhvdetuddtleeihffhuddvhfeufeevlefhnecu
-    ffhomhgrihhnpegrshhpvggvughtvggthhdrtghomhdpkhgvrhhnvghlrdhorhhgnecuve
-    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
-    rhhnuggsrdguvgdpnhgspghrtghpthhtohepvdelpdhmohguvgepshhmthhpohhuthdprh
-    gtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthht
-    oheprhihrghnpggthhgvnhesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthhtohepph
-    hrrggshhgrkhgrrhdrmhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdr
-    tghomhdprhgtphhtthhopegrnhgurhgvfiestghouggvtghonhhsthhruhgtthdrtghomh
-    drrghupdhrtghpthhtohepnhhfrhgrphhrrgguohestgholhhlrggsohhrrgdrtghomhdp
-    rhgtphhtthhopegvsghighhgvghrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepvg
-    hlsggrughrhihmsehgohhoghhlvgdrtghomhdprhgtphhtthhopehrohhmlhgvmhesghho
-    ohhglhgvrdgtohhmpdhrtghpthhtohepfigrkhesghhoohhglhgvrdgtohhm
-X-ME-Proxy: <xmx:R_TUaCQNWYf7xcnmutE64H55YDv-wG_GnNWltdQu47-XLEWqRqLfSg>
-    <xmx:R_TUaIOGhz3Vc68QV44f-9EIYj5iy7WDrZlaTmUb0lEw2sqnov865w>
-    <xmx:R_TUaGs6JGuiXFJq0DvGWqw7-yzX8QP7i5v3zM4zrDjbepspj5BVdg>
-    <xmx:R_TUaERxoCYP_AJ0GAgc8B-gPD7Mo9NYBnBevlzOuDiBbh8IvNkT2w>
-    <xmx:SfTUaArooyr620KNVFTum50IpoHqBjBTm12tNgGDbf1of-N0qVf46SKF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 508FA700069; Thu, 25 Sep 2025 03:50:31 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 25 Sep 2025 07:52:12 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-57bb7ee3142so663514e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 00:52:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1758786728; x=1759391528; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/pmdbPSS1+PFGOQZXgEhCWxoqVsYqlqHhZMSV2rIROA=;
+        b=ugU6BIepYxuju/wisgMj536w0ag5lweJ7NLewyK3Lg4Z2bKhS+OLF3+/yoZnwmaw2t
+         tvELut55mF4hbkqWhwI4Ts5uHWwPiZEiVhwYnzGpWUBDBsnjTOI1Zyluw2aqjkIF4kpT
+         AgdXj2ktY/jVRmXPthVPv4RM2RjJ4q6zab8Ynu8bg/0BRbjLb9BtF7Q+3eoSBTpPAXad
+         oCwf0rD7+oOpiNC2WE2Fk1BHei96Bdewt54ewdBdhg69dZHjH+ObDH9ZLjllupZ92stm
+         DewhK/LuoQtb34GlJBV/zMe1/bLCBTkMbtadh2t8eoVkZr8IBEeuYRXTfxJt4Eou66is
+         F6NQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758786728; x=1759391528;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/pmdbPSS1+PFGOQZXgEhCWxoqVsYqlqHhZMSV2rIROA=;
+        b=joHTg8tHDh6YK5MX9HF/9a5Xqe6ND/gfPP40KJU2kWlMac3c3iHd3hApCcnNqUpBCd
+         HtKBNCqybWuxUTgN9Uz3PTgaLZXsBT1nDmRB71Ux4LwAmfE8suoPi+hK8Bvqs4zh7VJC
+         LLqnM0SA28joYm5K6fGHuMLL5AVUnuOqY8iv+xtUKwYbv67jkywfc2gFNKNHbMObEYpq
+         dkNsx26VWlgsKVjDQMhguDik82NKOi1G6v29rx7rAai0cgDe/96tuoH2xlRTTJeKst0A
+         U6W7USux6Sa09k8iWWYmuX5tht10FugYPyZBNCkGTlYX96uQIbs/VZP+IzQkSRFpCCT1
+         +0Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUDr2r6+exTmXTaJIW1ao3GXh1ojCMn/BYiLhAMtV/w4ETnEVt/8q2C6FgQW2M3h4CWrOCNRCpHpA+j4E1Yivey@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlyeDRUMcUnCXglt/8pynwPd/9JwJ3Dqxezxasa2jEN9DK93IO
+	PuwNle4b+mNInwDOIKXWPeY8VW4+5qgu7fPGfwnLQTtiTeMXLmINiCK0Yp8BDhV6LbeTUu5QQTH
+	3M+i5vsoctos+YcTIRu/6bI69596s4wL/JjYCfaUMgw==
+X-Gm-Gg: ASbGncuS42I679hCM38hOa6EqIPw0ekfidEiY7qqGK8rEH8SDxcDcL0j3rMGtjiWFVP
+	WQrpXbJ/dR2ahNxxisH+Cnf4fb6zP1FwUFzuO77RuRy1lqIKCdnXjfx8wHNfpU79qV04PE6P7Ft
+	0lBExQGPDkAY9c5t72DlIWJza0SSwiyXndPjSQ1+TivV4i8Ow6Cp0/5NHZ1dZ74u8TUWgF3YCs6
+	IcLvDApl2qhibyu6Ph80B74wmCb/C3uoKQpUA==
+X-Google-Smtp-Source: AGHT+IFjDFQMappKZZFROu+v6o3bME1MjtTxrIbJ3f6pWVz6MpCD55Lk6Fra5LzFmOtZoqCjtC5vbl0PRHtSU8AsH3Q=
+X-Received: by 2002:a05:6512:3a8f:b0:57e:4245:114e with SMTP id
+ 2adb3069b0e04-582d14effcfmr700774e87.24.1758786728179; Thu, 25 Sep 2025
+ 00:52:08 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: ApQpqsW9_EUk
-Date: Thu, 25 Sep 2025 09:50:10 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Chen" <ryan_chen@aspeedtech.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Joel Stanley" <joel@jms.id.au>,
- "Andrew Jeffery" <andrew@codeconstruct.com.au>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>,
- "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
- "Taniya Das" <quic_tdas@quicinc.com>, "Lad,
- Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
- "Eric Biggers" <ebiggers@google.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, soc@lists.linux.dev,
- "Mo Elbadry" <elbadrym@google.com>, "Rom Lemarchand" <romlem@google.com>,
- "William Kennington" <wak@google.com>,
- "Yuxiao Zhang" <yuxiaozhang@google.com>, wthai@nvidia.com,
- leohu@nvidia.com, dkodihalli@nvidia.com, spuranik@nvidia.com
-Message-Id: <41705e13-c61d-4249-9492-b83f1371d3f9@app.fastmail.com>
-In-Reply-To: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
-References: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
-Subject: Re: [PATCH v5 0/5] Introduce ASPEED AST2700 BMC SoC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
+ <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org> <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 25 Sep 2025 09:51:56 +0200
+X-Gm-Features: AS18NWCh67p36-1DiEra54BRYeOZGMgpqlB-NSoS3MdBtkk6GMB-z9-7UGdMnvw
+Message-ID: <CAMRc=Mej9fQk-1zYKhPK6aWdptXKvjq28TywRyP+iZExRuX9og@mail.gmail.com>
+Subject: Re: [PATCH 2/3] pinctrl: use more common syntax for compound literals
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Lee Jones <lee@kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matt.redfearn@blaize.com>, 
+	Neil Jones <neil.jones@blaize.com>, 
+	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>, Hoan Tran <hoan@os.amperecomputing.com>, 
+	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>, 
+	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev, 
+	linux-unisoc@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_005035_757730_016782D0 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250925_005210_709751_277192E6 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,40 +118,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 1, 2025, at 05:13, Ryan Chen wrote:
-> This introduces initial support for the Aspeed AST2700 SoC and the AST2700
-> Evaluation Board (EVB) to the Linux kernel. The AST27XX is the 8th
-> generation Baseboard Management Controller (BMC) SoC from Aspeed,
-> featuring improved performance, enhanced security, and expanded I/O
-> capabilities compared to previous generations.
+On Thu, Sep 25, 2025 at 9:48=E2=80=AFAM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
 >
-> AST27XX SOC Family
->  - https://www.aspeedtech.com/server_ast2700/
->  - https://www.aspeedtech.com/server_ast2720/
->  - https://www.aspeedtech.com/server_ast2750/
+> Hi Bartosz,
+>
+> On Thu, 11 Sept 2025 at 12:02, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > The (typeof(foo)) construct is unusual in the kernel, use a more typica=
+l
+> > syntax by explicitly spelling out the type.
+>
+> Thanks for your patch, which is now commit da3a88e9656c17a3 ("pinctrl:
+> use more common syntax for compound literals") in pinctrl/for-next
+>
+> > Link: https://lore.kernel.org/all/20250909-gpio-mmio-gpio-conv-part4-v1=
+-13-9f723dc3524a@linaro.org/
+>
+> Looks like you (slightly) missed your target. The correct link is:
+>
+>     Link: https://lore.kernel.org/aMAP9hAWars0T83r@smile.fi.intel.com
+>
+> > Suggested-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
 
-Hi Ryan,
+Hi Geert,
 
-Thanks for you submission earlier. I see that you had sent the
-series to several lists including soc@lists.linux.dev, which is
-what I use to keep track of patches that have been successfully
-reviewed and that are ready to be merged through the soc tree.
+This is a link to the discussion with Andy as per Linus Torvalds'
+recent request to use the Link: tag to point to actually useful
+information rather than just the patch's origin. Linus Walleij doesn't
+use b4 so the origin link you'd normally expect to be added
+automatically is not there at all. That's probably what caused the
+confusion.
 
-Unless you have been told to send it here by Joel and Andrew,
-I assume that they will pick up the series through the "bmc"
-tree once they are happy with it like they do with the 32-bit
-Aspeed SoC (ast24xx/25xx/26xx) patches, and I have dropped
-the series from https://patchwork.kernel.org/project/linux-soc
-now.
-
-For future submission, please send the patches only "to"
-them, with the other people in the "cc" field to avoid this
-confusion, and leave out the "soc@lists.linux.dev"
-recipient. You can add me as arnd@arndb.de to the Cc list
-for reviews though.
-
-Please also add a patch that changes the MAINTAINERS entry
-to reflect the added arch/arm64 contents.
-
-     Arnd
+Bartosz
 
