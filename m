@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA37CAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 06:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD55CAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 06:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1KW/opvHx16r3s1Vc5ZpK1xznEfLK8QH9H6s4kzsVEA=; b=hJfQiN7OEu9YzBv8yxZpPPlnnT
-	hPP0O21HA1LJbWLwI79D4HmTBe33OKiqB7TL5U25aR4YrnCAWbL82mHTZpf/2CrzNsq5h/cKMD3Lq
-	dAwckUw/5PD4LIsNW4k2dZxMfQOA/pMyl681M/a980uKKQNleM/DDX+oCloE5y41Jul7TkwJ5pMtJ
-	9c4J/OnIVHGiajMK0RK9W6iBFJsPhQELkgm5H9eRgf1stVtoMApK3ZqKNYPfZlMIS5eblM3/pScLy
-	mR1IfJYUUspGIlF91dPUC5wUOiayKqV0s8ETg4xWG7H1Bg10IbzLj+8f7SQhDif7L3joo4tlcQXEX
-	6HaMy4Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4A7uHFyGsqg+/5gcAVyLzJeZKPdXHFpebcPVRaYpAr0=; b=JZiV2cAXSQm1SSIi/kkjE3PWoL
+	hnMPchYYEiFwYRmRbSzr1r+s79XXgJFFsRimsq11e4kYN4TlbxMyv9dW/+Jr0caqbO16RAf0fGYyQ
+	uxrDiHGgiRltbjFIwJDzJrbHBBKLkJv+3xqnw85zPLEci/VrKXnDqL4ZgzVBMeeZX757ajc670G17
+	XOv94oBjVlMxi9HDKvskPCUyzhFLc3EKZ7sTkySZFQ6s7NH7hgm4OHhW+K59C+cpIySWDHlqbGkUH
+	2v5CxNHb47mIveIujk/hXlFrV6lMeAd+ewnEKwrELjDwq3cKgPQzI6ymPdUvsce88obvCAcNJEhxl
+	eHRAF3cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1fbW-00000006LYh-2sOB;
-	Thu, 25 Sep 2025 06:37:22 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1v1foF-00000006Red-1dmE;
+	Thu, 25 Sep 2025 06:50:31 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1fbS-00000006LSI-2duo
+	id 1v1foD-00000006RdE-0i8d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 06:37:20 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250925063713euoutp01777707bd29761217e67e02c191a547ca~ocx9taMbi2960229602euoutp01r
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 06:37:13 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250925063713euoutp01777707bd29761217e67e02c191a547ca~ocx9taMbi2960229602euoutp01r
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758782233;
-	bh=1KW/opvHx16r3s1Vc5ZpK1xznEfLK8QH9H6s4kzsVEA=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Jih2lDjBlJNmf5n3R8rFB9UiHzAVNyJGnEEezwa4oL8EJYZXWhXLH0gNeRAhTetw5
-	 /iokn0kMt24A6FsC/JMLedoA/pulEj6tl9siUnVmp9dLwptzs47WjfvFGxSfamzGkR
-	 Jn3CBQqEjZ6E+ZvB+i8w7nEAl4zYtOqk7wnhrPqo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250925063712eucas1p2af67fe7f4ea8b8af33874bfaba09fb02~ocx9TqQsg2841228412eucas1p2s;
-	Thu, 25 Sep 2025 06:37:12 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250925063711eusmtip1f9c8523f8b0305612b38794be3d45926~ocx8VlJBi1105611056eusmtip1T;
-	Thu, 25 Sep 2025 06:37:11 +0000 (GMT)
-Message-ID: <5f69200c-0cce-4b7b-85df-8b9d37960269@samsung.com>
-Date: Thu, 25 Sep 2025 08:37:11 +0200
+	Thu, 25 Sep 2025 06:50:30 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46e1cc6299cso5064275e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 23:50:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758783027; x=1759387827; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4A7uHFyGsqg+/5gcAVyLzJeZKPdXHFpebcPVRaYpAr0=;
+        b=l7TerzqFP75vRG/FBUpcmvNsmzQkFHtTDHC+uY05i0xvgGAPVxx/X84+GAxGq9YG1i
+         +6wSt+jrCmKgAWsgLPNmuMx/h7FCF1uC7+N5R5jZz2CgaJdiDeYPxfqGv1loGaSHGqN0
+         V2tLO9d34JUz2f5gB7srlvAqljVXKIIfVSIi9WbN42o0sfix9fYl3pwr9LqPRkwecMnC
+         MlCACw8Q5Nton5POQ3dcDLSQnq1vkALVcRWCqECJ+SiP5dxmTmY93qs0tnWOVDXW/KRe
+         BS2f2dsEUf5wbsxulGQuY4C8VT9tYM3J31WW5Bf9BCIxm+tMmeRUBomiMX0JYPLSB33f
+         y3Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758783027; x=1759387827;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4A7uHFyGsqg+/5gcAVyLzJeZKPdXHFpebcPVRaYpAr0=;
+        b=DU0EIq1B0AvkNP7oqs9Ay3reNjzf0sEFQ+DcGCLKlMHkrQPhUebhRTZNOnKH6EqC9G
+         Evl7KLiL8Se4UaHOZ0b/Zbu9d5ODrUxcXQhYzna9ZksRH9Lh4cxyi7wOPMhh2U0lVNwG
+         M3k+jem1bnVOU7HWEesjhzgPDUc9nfSJEV/OfBKmKCRW427eAoDlgYzPAPK5YSPgj44T
+         1POa5FpazopXZRdFx5WzQqAxRE+NRlCIFfHDNhWi+vrFdkpxMXDjIt0ucqli/w4DQSUJ
+         VNPp4he0QxQjATbq7DTzmK4ph3KO5s7xHAp6/7SIE2u4JejI2b7j8J5ZzCth2/bpbVY3
+         7Whw==
+X-Forwarded-Encrypted: i=1; AJvYcCWQIBKZ0oFHt/GQDK9piW+gJ/L3dn29knQEsp+tIC+iV3kRk3lgQrXc//5qFVIoIDtaBC8gdRMnhI85QvPxKa1h@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpZBzR0Z/2U3M8D7xKhFoiWv82AacUnrQfZfeFREYyturqrJkj
+	zARuWYwXzWKg+g+HxbFTpdJy8QpUnN6yzs+//NAUHy3N9JEKf2X0rQ/P
+X-Gm-Gg: ASbGncurwZci21ZWdgyWFPQ6bGRTKprTUMx8WoU+bH0IuS1V0ZDBp6G9fhCPh4JJnMy
+	CpSkvQlHFATqxU8ZSmwX8Fa/X17Q3ipSOhfk6TlLsnr5B5YIPKw5qnJRJ2z52LhCi1hRcIodM8d
+	iZs0V0Awv9ti3M2lrW2VF+wCpaylX89Ng1tZ9z+Aw5eW7rQbDRcprWHfD7gEcxkMOEFjaHHva0d
+	y/Ga1uQSJiwHKtDEazfUVE8E8pa9zlR6yKS7MaNu9Ybrk91U/25zPOt5R8PrWMu0Xe1CfeCYm9x
+	5BVjJz9MmmxnFIwOK8YKLD/lOF6WOfE/6+WUyZH+A9y3SSjlyJbqfAWVE8ln/HUbDm8oGMiU
+X-Google-Smtp-Source: AGHT+IFDrBvdqgW3dfAsa53PUDyLwpuKBZY/PKiwkfqmYxUGGh4GPPrCN0aoqOBwEKILDjVmZ7uA8g==
+X-Received: by 2002:a05:600c:35ca:b0:458:a7b5:9f6c with SMTP id 5b1f17b1804b1-46e329ab712mr24367705e9.11.1758783026884;
+        Wed, 24 Sep 2025 23:50:26 -0700 (PDT)
+Received: from krava ([2a02:8308:a00c:e200::31e0])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33bf6ecbsm20412955e9.22.2025.09.24.23.50.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 23:50:26 -0700 (PDT)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Thu, 25 Sep 2025 08:50:24 +0200
+To: Feng Yang <yangfeng59949@163.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com,
+	catalin.marinas@arm.com, will@kernel.org, revest@chromium.org,
+	alexei.starovoitov@gmail.com, olsajiri@gmail.com, andrii@kernel.org,
+	ast@kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH] tracing: Fix the bug where bpf_get_stackid returns
+ -EFAULT on the ARM64
+Message-ID: <aNTmMGC3iYoAlfUU@krava>
+References: <20250925020822.119302-1-yangfeng59949@163.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Use percpu interrupts
- only on ARM64
-To: William McVicker <willmcvicker@google.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Ingo Molnar <mingo@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	Youngmin Nam <youngmin.nam@samsung.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <aNQnszeIfeHjx3GS@google.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20250925063712eucas1p2af67fe7f4ea8b8af33874bfaba09fb02
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-X-EPHeader: CA
-X-CMS-RootMailID: 20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3
-References: <CGME20250827102650eucas1p1fe270adbf29c649b9ce529e1d45aabc3@eucas1p1.samsung.com>
-	<20250827102645.1964659-1-m.szyprowski@samsung.com>
-	<8fb4534e-ffb0-40ad-8256-b0fa040a1b97@kernel.org>
-	<d27df41d-58ba-41e8-9275-2e9991f574a0@samsung.com>
-	<6a89a8bf-022d-4c31-b6db-95763142e603@linaro.org>
-	<aNQnszeIfeHjx3GS@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250925020822.119302-1-yangfeng59949@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_233719_253649_853820E2 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250924_235029_230460_56E21A67 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.09.2025 19:17, William McVicker wrote:
-> On 09/24/2025, Daniel Lezcano wrote:
->> On 19/09/2025 23:31, Marek Szyprowski wrote:
->>> On 27.08.2025 13:58, Krzysztof Kozlowski wrote:
->>>> On 27/08/2025 12:26, Marek Szyprowski wrote:
->>>>> For some unknown reasons forcing percpu interrupts for local timers
->>>>> breaks CPU hotplug for 'little' cores on legacy ARM 32bit Exynos based
->>>>> machines (for example Exynos5422-based Odroid-XU3/XU4 boards). Use percpu
->>>>> flag only when driver is compiled for newer ARM64 architecture.
->>>>>
->>>>> Fixes: f3cec54ee3bf ("clocksource/drivers/exynos_mct: Set local timer interrupts as percpu")
->>>> I am pretty sure the patch above was not tested on arm32, thus this
->>>> workaround seems reasonable.
->>>>
->>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> Daniel, any chance to get this merged?
->> The patch does not apply. However it is not your fault but a glitch in the
->> previous pull request and the regression found in the Exynos MCT.
->>
->> Apparently, Thomas had to drop the entire pull request while I thought he
->> dropped only Will's changes.
->>
->> A pull request with the previous changes for v6.17-rc1 and with the new
->> changes for v6.18-rc1 is about to be emitted but without the Exynos MCT
->> changes for the modularization. That means your change does not apply
->> correctly anymore on the current changes.
-> Is there somewhere I can check to see which changes will be re-sent? I don't
-> see them in the timers/drivers/next branch. Will it be patches 2-4 plus the
-> fixes for the section mismatch and this new IRQ fix? Once that's all sorted
-> out, I'll base the new modularization patches on top of that.
+On Thu, Sep 25, 2025 at 10:08:22AM +0800, Feng Yang wrote:
+> From: Feng Yang <yangfeng@kylinos.cn>
+> 
+> When using bpf_program__attach_kprobe_multi_opts on ARM64 to hook a BPF program
+> that contains the bpf_get_stackid function, the BPF program fails
+> to obtain the stack trace and returns -EFAULT.
+> 
+> This is because ftrace_partial_regs omits the configuration of the pstate register,
+> leaving pstate at the default value of 0. When get_perf_callchain executes,
+> it uses user_mode(regs) to determine whether it is in kernel mode.
+> This leads to a misjudgment that the code is in user mode,
+> so perf_callchain_kernel is not executed and the function returns directly.
+> As a result, trace->nr becomes 0, and finally -EFAULT is returned.
+> 
+> Therefore, the assignment of the pstate register is added here.
+> 
+> Fixes: b9b55c8912ce ("tracing: Add ftrace_partial_regs() for converting ftrace_regs to pt_regs")
+> Closes: https://lore.kernel.org/bpf/20250919071902.554223-1-yangfeng59949@163.com/
+> Signed-off-by: Feng Yang <yangfeng@kylinos.cn>
 
-The problematic mct patches are still in linux-next, merged via tip tree 
-by commit 9703240ef617 ("Merge branch into tip/master: 
-'timers/clocksource'"). What are the plans to resolve this?
+Tested-by: Jiri Olsa <jolsa@kernel.org>
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+thanks,
+jirka
 
+> ---
+>  arch/arm64/include/asm/ftrace.h | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+> index bfe3ce9df197..ba7cf7fec5e9 100644
+> --- a/arch/arm64/include/asm/ftrace.h
+> +++ b/arch/arm64/include/asm/ftrace.h
+> @@ -153,6 +153,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+>  	regs->pc = afregs->pc;
+>  	regs->regs[29] = afregs->fp;
+>  	regs->regs[30] = afregs->lr;
+> +	regs->pstate = PSR_MODE_EL1h;
+>  	return regs;
+>  }
+>  
+> -- 
+> 2.25.1
+> 
 
