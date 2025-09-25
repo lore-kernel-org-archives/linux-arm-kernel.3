@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51B0CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4632CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ljhn8bif18aFps1rRdBClCGFFynJpfAeepmIW2TXY3A=; b=Z+n21JGykLa/mmYHQClbtRRlu3
-	NtdrT2CmLGpxIpq/iwd65iq8dcshiUCDceB2fRb6EoLQT+Ycq3n5fNSaQBk1RoYPYNLGulC4bO0in
-	DZ1wdFxu/BdiLQfybU8cJO1hLVaWb7EbagSmts8JwoyLniRTsjiO7vdkK8AUxubcv/+YPYkuOwY3p
-	wUWvbhRTx7FfrqQgvO4T7Sizlo2kfJnNAXXhPlC814oXzQQx7E98JzBnx0SlGMHMt58QGnIapMIGj
-	ErZEHdBTHRsWLks/tnJxNIXS+VRjpZ+QXPBLqmMxSj/KSWDyTUBvuO2/2ouEB4k5HmhXxbw5xyBe4
-	RHCooz/Q==;
+	bh=M+MrvNjbNMU5UdkWxgeYFdNRdUNRe55IPsqP6XzkkQw=; b=BgQ0AeuGpUmOCuskX7RFCX2wOp
+	liVPFpl/t9Omk193LLO6Bq8Dlt5/b1yHtk4Fertz+AMmqiTRpOZJS3JRIorAdZA2P3OObifTzJNJs
+	Bitb8RIrSpB6TiqWWbG4u69hRCo8yXF7Ry5Ire/pGTlX09urGTRXoVZs0jEBdrZwf7mrFCO1IPFIM
+	1fPSQ+YLnT+fAHPBAFwUrLEiD3XseatcbdcaC2OSgu2ECGYp5ELtUnYpJj7U2V5HpDJbLjFg0je1A
+	OTxOGRie34/esBXeNlp3WOlb0pimT77UdeA2bkq8RQqcrQJcLmTzF5oPSw4anRquzvIxGlSbjHaQz
+	4p5eGSFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bSl-00000005GeD-0KsN;
-	Thu, 25 Sep 2025 02:12:03 +0000
-Received: from mail-m49220.qiye.163.com ([45.254.49.220])
+	id 1v1bYJ-00000005HOT-1WsP;
+	Thu, 25 Sep 2025 02:17:47 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bSh-00000005Gc1-1DUZ;
-	Thu, 25 Sep 2025 02:12:01 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 23f942a34;
-	Thu, 25 Sep 2025 10:11:53 +0800 (GMT+08:00)
-Message-ID: <7cf14078-5d4f-4ced-bdcf-182371d0fd35@rock-chips.com>
-Date: Thu, 25 Sep 2025 10:11:53 +0800
+	id 1v1bYF-00000005HNI-107Q;
+	Thu, 25 Sep 2025 02:17:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4cXHLG6dwBzTh3F;
+	Thu, 25 Sep 2025 10:12:54 +0800 (CST)
+Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7EA3B180B63;
+	Thu, 25 Sep 2025 10:17:33 +0800 (CST)
+Received: from [10.174.179.35] (10.174.179.35) by
+ kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Sep 2025 10:17:31 +0800
+Message-ID: <620d202a-6078-4b5d-a42a-8a52543bc14a@huawei.com>
+Date: Thu, 25 Sep 2025 10:17:31 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 13/17] drm/rockchip: analogix_dp: Apply
- &analogix_dp_plat_data.attach() to attach next bridge
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- dianders@chromium.org, m.szyprowski@samsung.com, luca.ceresoli@bootlin.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250912085846.7349-1-damon.ding@rock-chips.com>
- <20250912085846.7349-14-damon.ding@rock-chips.com>
- <2cu3ge6kjeibfznvt6c52xn2rp5zb3wk3pkb7gly34qrjlueem@7wqyowascpn5>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <2cu3ge6kjeibfznvt6c52xn2rp5zb3wk3pkb7gly34qrjlueem@7wqyowascpn5>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
+ remap_pfn_range()
+To: Matthew Wilcox <willy@infradead.org>
+CC: <akpm@linux-foundation.org>, <david@redhat.com>,
+	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
+	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
+	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
+	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <apopple@nvidia.com>,
+	<samuel.holland@sifive.com>, <luxu.kernel@bytedance.com>,
+	<abrestic@rivosinc.com>, <yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
+	<chenjun102@huawei.com>
+References: <20250923133104.926672-1-yintirui@huawei.com>
+ <20250923133104.926672-3-yintirui@huawei.com>
+ <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
+From: Yin Tirui <yintirui@huawei.com>
+In-Reply-To: <aNMhiZ4FiEE1Rk_T@casper.infradead.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a997ea4309303a3kunm542c945b85b02
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR5LT1ZIGh1PTEMdGUpDSx5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=iVKD7f62uqeDZeWknCM50t4q+F59fTE4NNT58Y0093B07tMOfWOMy8AZVe6YOCr802f8Pf+EvfpvFbJEg2wVUjJcIBAH3suMh+XfmN4d3KXJXFGIQ0VcjzG3rZuDDk/5Md8wIwVl5DruEmeVZoWpbNKEhRNxy82ULkMok5Cfsmg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Ljhn8bif18aFps1rRdBClCGFFynJpfAeepmIW2TXY3A=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.174.179.35]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr500001.china.huawei.com (7.202.194.229)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_191159_856347_B1D634E0 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250924_191743_581065_E460308B 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 9/12/2025 7:05 PM, Dmitry Baryshkov wrote:
-> On Fri, Sep 12, 2025 at 04:58:42PM +0800, Damon Ding wrote:
->> There may be the panel or bridge after &analogix_dp_device.bridge.
->> Add rockchip_dp_attach() to support the next bridge attachment for
->> the Rockchip side.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> ---
->>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 19 +++++++++++++++++++
->>   1 file changed, 19 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> index 0784f19a2ed9..39f1ed293c75 100644
->> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> @@ -164,6 +164,24 @@ static int rockchip_dp_powerdown(struct analogix_dp_plat_data *plat_data)
->>   	return 0;
->>   }
->>   
->> +static int rockchip_dp_attach(struct analogix_dp_plat_data *plat_data,
->> +				     struct drm_bridge *bridge)
->> +{
->> +	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
->> +	int ret;
->> +
->> +	if (plat_data->next_bridge) {
->> +		ret = drm_bridge_attach(&dp->encoder.encoder, plat_data->next_bridge, bridge,
->> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+
+On 9/24/2025 6:39 AM, Matthew Wilcox wrote:
+> On Tue, Sep 23, 2025 at 09:31:04PM +0800, Yin Tirui wrote:
+>> +			entry = pte_clrhuge(pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
 > 
-> Can this be handled inside analogix_dp_bridge's attach callback?
+> This doesn't make sense.  And I'm not saying you got this wrong; I
+> suspect in terms of how things work today it's actually necessary.
+> But the way we handle this stuff is so insane.
 
-I found that the &analogix_dp_plat_data.attach() callbacks of Rockchip 
-and Exynos sides are the same. It should be nice to handle the next 
-bridge attachment in analogix_dp_bridge_attach(), which would allow us 
-to remove the &analogix_dp_bridge_attach().
+Thank you for pointing this out and the broader context.
 
 > 
->> +		if (ret) {
->> +			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->>   static bool
->>   rockchip_dp_drm_encoder_mode_fixup(struct drm_encoder *encoder,
->>   				   const struct drm_display_mode *mode,
->> @@ -452,6 +470,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>   	dp->plat_data.dev_type = dp->data->chip_type;
->>   	dp->plat_data.power_on = rockchip_dp_poweron;
->>   	dp->plat_data.power_off = rockchip_dp_powerdown;
->> +	dp->plat_data.attach = rockchip_dp_attach;
->>   	dp->plat_data.ops = &rockchip_dp_component_ops;
->>   
->>   	ret = rockchip_dp_of_probe(dp);
->> -- 
->> 2.34.1
->>
+> pte_clrhuge() should not exist.  If we have a PTE, it can't have the
+> huge bit set, by definition (don't anybody mention hugetlbfs because
+> that is an entirely separate pile of broken horrors).  I understand what
+> you're trying to do here.  You want to construct a PTE that points to
+> the same address as the first page of the PMD and has the same
+> permissions.  But that *should* be written as:
 > 
+> 	entry = pfn_pte(pmd_pfn(old_pmd), pmd_pgprot(old_pmd)));
+> 
+> right?  Now, pmd_pgprot() might or might not want to return the huge bit
+> set.  I'm not sure.  Perhaps you could have a look through and figure it
 
+I've tested this on arm64, and pmd_pgprot() does return the huge bit 
+set, which is exactly why I added pte_clrhuge().
+
+> out.  But pfn_pte() should never return a PTE with the huge bit set.
+> So if it is set in the pgorot on entry, it should filter it out.
+> 
+> There are going to be consequences to this.  Maybe there's code
+> somewhere that relies on pfn_pte() returning a PTE with the huge bit
+> set.  Perhaps it's hugetlbfs.
+
+I'll try to refactor pfn_pte() and related functions to filter out the 
+huge bit set and test its impact on hugetlbfs.
+
+> 
+> But we have to start cleaning this garbage up.  I did some work with
+> e3981db444a0 and the commits leading up to that.  See
+> https://lkml.kernel.org/r/20250402181709.2386022-12-willy@infradead.org
+> 
+> I'd like pte_clrhuge() to be deleted from x86, not added to arm and
+> riscv.
+> 
+I completely agree with the goal of deleting pte_clrhuge() rather than 
+expanding it. I'll study your referenced work and align my approach with 
+your efforts.
+
+Would you recommend I address the pfn_pte() and related function 
+refactoring as part of this patch series, or should I submit it as a 
+separate patch series?
+
+-- 
 Best regards,
-Damon
+Yin Tirui
 
 
