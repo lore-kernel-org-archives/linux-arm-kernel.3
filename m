@@ -4,180 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D00CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EF0CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9U6DXi55r/KNz0Nl1z/KlRHhCSFLtANbYerJf6nVsWE=; b=OpTnHURLN4fnn83J4KNRuJKYkj
-	AIYUSGqlIB4PvFeIm7zE5lVIhyxnwUKL0xIfcTAO5gYDiBLl/Cjy4W4++UsVtQRSjhLfazaBvHZuR
-	zxSnzH40/9G7IGKiSf1n1B3q91V3jtgvA6zkwGWnH0dsqf4Aq2l0FrTYrNvvYP4PQ+re3v8WUtjX4
-	jqDfMNGR2fWlgqe/lLUHuInFSFSL+qE+bnkcGH5bKLUy5RnqngEF69ANJr6Ec/ewRo36mVnFtA4cd
-	TsH3nAp5PToOqWg++apYxh83tp8bcJwjGqHmS2Sro+oqguEWp+Phibo7KaKRYSfDxI6wl6IRfMTUK
-	7OQWFZPw==;
+	bh=H2hXuCp7EQSu2VY5F9OuSum1bbz+fDfBhTmNsUc96kw=; b=p9OF56KR58uN/E4jY03vwSfaLQ
+	tC063MTcr+1n2GC+kJ8c8l0XnkI34BT6PBtMpAmr5IexHhNwZ4PA05gEiErabpRmNM6OI15N/QLbS
+	2M4QMu7mtTppXdX2wZUTfuJG6wKIzY3sNvssD7JJ7AMQjm72xEMAv5nSPALlX4JRvhjG4Sqq2PIVj
+	XLY1BLAvXmUNHdk/loMkdxf1dOhHb6qXyhCp/DzMOGo2/ctYfyBSOOr/2Qxb7Jl82NYMYyfldhVJ5
+	FdvZa06JXCTV3xV5ST2Z5K1mY9fM/zw6SDZVmaA11Rigkop+RUQdcjl/jV0jRtQI9wTLmjqL+B3zo
+	xb1l54Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bkr-00000005JXf-2P5P;
-	Thu, 25 Sep 2025 02:30:45 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1v1bwc-00000005L1d-1aNi;
+	Thu, 25 Sep 2025 02:42:54 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bkp-00000005JWy-14PG
+	id 1v1bwZ-00000005L0o-2Zes
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 02:30:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ngHCdTMmAe6FawaG01qh6ZkieENyYnVyUF2ttm8/AbyqOPADWzaTXRNOmEtdf9U/a+OnwsdWb/x0adG7BxmMQivqMsMnpfj73gKGDN+pbFDZPN9Nnpyy/74UpisJlUox/YQ1CnwKq/IOLa8Z/r5LwBFtS9vIdJz5jddMKcEjnM3c1+2zlCgnqq9zdENLXsPM+4DkZKElOMoSDsot/qKwIVdrGZfH0mSLbqIpaGIhg7AfeVigIPNANypG7V3SiuLgKoFWSkqZS/FUCm0QyFCrnIqae/Qo3JSaLIOexzCwtEFFdzdquIoMR2nPb9aryRj2il0oah5SAcTqPWenN1BNwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9U6DXi55r/KNz0Nl1z/KlRHhCSFLtANbYerJf6nVsWE=;
- b=R9TK+TRIrST9NvFaWHDz4fnPEK5E2jBAQtSfa5m3ddUMGFkTQBRlkUjuJMZq7wfG4Wafyi97aEp0w44DT0KJMJf/9wnWcKof2o1TrQEhtQHaz7ipUttn5WTtlfrG/BH4VmPFYBhS9AHdCwzoPHKqwgsFsXNx0+4de+yQyw1sy7Ytijd2pn0A669ky+hYfKlfRDVMFpVGxMC/u3JJSXx5ogtGoBk+NfecuRCiKvHx9o5vhCfaNwJPgB4Ksyh4yax9K0c/IRfd6Y34pIkAeOHhgrR4KwebC4d3gpp8lA0ju36JhJSwNf9926wFTjrBnRDs3nGqkUSaJmtWRI2dFz5UQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9U6DXi55r/KNz0Nl1z/KlRHhCSFLtANbYerJf6nVsWE=;
- b=ud2Uy565UiMQZU0pHshK4/GVVvvWUYsZuZ0o0rFP5+/lVn6ytFUYuOHX8SHpwHvxiFcYWcaR0hN2k8L7Maqglh6LeJ3lpzYjUkCjtx36+m3H6H72Eor5m3gZoZJO6yNQ5zJvMFUjFG47FzIeBsTKcihV9m0yVFbyyYqcH2DAbQxcLtSL7B9I4XWlXRCi1oIehYWUhfeciK5zYXQw/Aa7SS+Q1wSRGRNd+qHLhq7ql4tnTTyN78sfgjO/+XSv3MRslMempZclNfhM6S0E9QWD//PcdOMbNYu22cAnxAHYEds3K+WuctdqaDKq7zKSHf6nDQ6k7na9w8ZJlSYlhRLlyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- IA0PR12MB7749.namprd12.prod.outlook.com (2603:10b6:208:432::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Thu, 25 Sep
- 2025 02:30:36 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9137.015; Thu, 25 Sep 2025
- 02:30:35 +0000
-Message-ID: <74afb5d1-850c-4e30-a9bb-9903a5193280@nvidia.com>
-Date: Wed, 24 Sep 2025 19:30:33 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-24-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20250910204309.20751-24-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY3PR03CA0015.namprd03.prod.outlook.com
- (2603:10b6:a03:39a::20) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Thu, 25 Sep 2025 02:42:52 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3322e6360bbso502414a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 19:42:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758768171; x=1759372971; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=H2hXuCp7EQSu2VY5F9OuSum1bbz+fDfBhTmNsUc96kw=;
+        b=Zn0eyVYpTfjUpng8zhage9gFLGpmRqqXFAwvF/XgAIMXaxsDXTvz4vBmis+401W/t4
+         GZ8rvkzZWoSfzW/rEOctoogN7tfmurIEqoD07D6hqmNsQ3P2WiBPK1surqdplzWXO4xm
+         6uIpNJFksOpNroChwHZAoRolMFh3wy1K98l3wodpNETcdcF0XYEHrYuHUdM0EtKFCisZ
+         8x/QXxxUEqSsq/daPIk3ju76RXjCAGHXIqwuqAd83s9p5w6q5MnG7oubRmiTiP5s5zNH
+         zd14uGEdU2EDJBA8IIAqU2lB9HW79TULJ0FvX0UQeWlQ57q3qVFIYvd6LwPHsm9Q+u2b
+         yr4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758768171; x=1759372971;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=H2hXuCp7EQSu2VY5F9OuSum1bbz+fDfBhTmNsUc96kw=;
+        b=Ve4zaKjIp28vqk1C7fmRTzBz/1O79eKSu6jloYXehd8LrWfwCFd5ERKZKxqhneeGM5
+         hTcOEOQBPTawZpi4U80LDXiNLsTcmuKU2tgvM1q93+PNaa/0GE1I8LEtYWuqeohpa3W+
+         GUPgtbNvxlZiTRccqV4gL2pBCBTQZ4ZHKBN51+VUsa2msNGqtBNhZYVJHAL0n0JW9ZhL
+         hMOcym4LtMKJRGSN5mevXF4ATk3QgewWWzuF439OH1zozDQnonS34GJqsDtK4acdnDIQ
+         1yRZkqEPMcLjt5/sIO5upKn2cYQEWEuUfoP9HodMLMKwhACQYa/U41QnWD9JFCvEX7S6
+         VUKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUV+5kGL+VDbore0kZo44B/ccIRFZRLOhdbWd6H8z7aaHkB5k1rZX9Jgq3YBp9VJFqvjLptfalwCnEP8HnUSmaW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ46cqKbuhT0UwjHZznJiekN71HEBWhHGRSA16TVtNQjd2WZzf
+	eaH6LY1i2xeX2nFKAlRR96Y0zmcAT5tXPtrP7KwoSoZRii+4u/k/Oo/ZBGUsYX58
+X-Gm-Gg: ASbGncvzEyOF8IdpRTNNGPdavYhIE74fDRGQCfVH0hcZzlxvzngV9nl3I4nM3/v6/PP
+	xV1EGCj/7LweUh/1tI9idNOB6bKVYRKujEpTBOOnoN+Dw+Wkw3s5FpGQCqZwBDKdF83GUKCKCqF
+	gLQ7cznMBGlq46i4RyoWHhXm1hPEMIjJvfqzuuBc3Bi52bOSzsPV6jUL/H8ZD09AVezyOHn5t+D
+	Bthv3+2s0FOsPRZmxgudOE1rgWKxcP327AVfm4Lu/V3JTdQ56QgoVPtWFv1x0syBgpCcMe+YiTF
+	3YcVQ06H+ib27HYp1ke2vqgYKG990yjDOhhr8bux8o0KuM+an8V9Jzx6lniVZ3dcjUW/oJVfrJ5
+	7DZvB/0SfmrCqHJKaqVvuR/eVlWtigcyy/Ww=
+X-Google-Smtp-Source: AGHT+IE0G2axEK95LZpQCj1blNLHLFhQYEdYLjR6DblWy6INXdm/D+7lSNoW57qRiV90T5B2V8ID1g==
+X-Received: by 2002:a17:90b:380a:b0:32e:5d87:8abc with SMTP id 98e67ed59e1d1-3342a306014mr1784771a91.36.1758768170707;
+        Wed, 24 Sep 2025 19:42:50 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33471d711ecsm525656a91.4.2025.09.24.19.42.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Sep 2025 19:42:50 -0700 (PDT)
+Date: Wed, 24 Sep 2025 19:42:49 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-hwmon@vger.kernel.org, Jean Delvare <jdelvare@suse.com>,
+	Rob Herring <robh@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 2/4] hwmon: adc: rp1: Add Raspberry Pi's RP1 ADC driver
+Message-ID: <d07158fc-678e-4ae4-8943-168146a58fe0@roeck-us.net>
+References: <20250925000416.2408457-1-svarbanov@suse.de>
+ <20250925000416.2408457-3-svarbanov@suse.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|IA0PR12MB7749:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79c71c59-881b-413b-3078-08ddfbdb8223
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dzhWditHOHZIQmpML2Q4OFlJdWR1NHNRdFlrcFhhTW9Yb0Vxclc4MFd0eGRa?=
- =?utf-8?B?N2FFUktyZ2lNV0lBbUU5RktjbExROURCRDB6eHhWaGlUeUlBcmI2dVNxWVoz?=
- =?utf-8?B?K2Q1Tzd2SVZ0Q1FDMC8wSU9HVk5WcE5MTmRHcVQ2enF6akUrZDBrZjBNa0pt?=
- =?utf-8?B?dldVZ1ljZTQ3bkRtWGtubHVIcUZBekRtVm9YUzF3bEZMY09QN25tTnBORmZn?=
- =?utf-8?B?Z3ZuczlROEMyWXRFd1hSd213UkdRcTU5VXVuTnduOW5jMEllTFF6TVplZzYx?=
- =?utf-8?B?QnhyTU93UStqVjkzT3hzMVhaWUFKR0hmUW1sRVE1VlBmWjlKVkZTdFN2VVRi?=
- =?utf-8?B?NXpIVit3aEk0SmUvOVFxYVNrV1NSRjcxSmlwakpaTTNicVpEY3FwTUJwRDZU?=
- =?utf-8?B?TEFROHRkWXhMSkE2Z1ZHcEdaL1ZTTDF1LzBpNng4VWFYdmZwNkExYkw5N1VO?=
- =?utf-8?B?ZXlZd1ZXSGtnMGl1bCtpdytuTmM5TE53c3RiYzJwSVA2YmF5TGFWOG1jVGNp?=
- =?utf-8?B?dzluc1A5dmFpOE9reFdpWStKZ0d1bllxNzJaNTRvaW9ueURMUXo3dUJMaDBX?=
- =?utf-8?B?cEtSU2srK2hKa3BQSi85RVNCRzFiZ1g3ckx5U0JCam54cWpERDg0dklLcTVw?=
- =?utf-8?B?Lzg0U2pJeVZFYkdHelRNTHFOc2E2WFNFSkc3RVcvN3d0UTR5bGZFLys0dllG?=
- =?utf-8?B?TktKaHdwZTcraUpMNkVtT1hVVG9EN1paNHl3em1rVUpwN0dZZ2NSR1g5aW1P?=
- =?utf-8?B?VVFmL2xicWFUS2pSd2QzTlloUUZ1Y2hpajVGQkhRMU5xNk5FSTFvM0h2U1o2?=
- =?utf-8?B?WW1UeE9iYjF5aFE3RmpnOGFDQWhxTXFYVXZqdCt1Y0lySUhDa3dHUHZISWhY?=
- =?utf-8?B?QW1LWGlJZ0JvM3pncGk3dVpoNFhKYjhWQUJCQWNVMXk3K0NNeUtrWFhGTTlp?=
- =?utf-8?B?NE9HNjhKajhTMVVvM216dlJqclNvcjNYZ1FjU08ycndSK1hSbFI1VlN4UzUz?=
- =?utf-8?B?UFpqZVZhaDdXMnpvalN3YmhrUFE4a2ZZVWdQL2FnK0tOMlZLd0MzV2t6eEMv?=
- =?utf-8?B?VHVPZk4ydVIxTlZRcForWklPODJLYUFucHo4dHY1Ri9ieUFHMUxJTVY3eUhi?=
- =?utf-8?B?NzNmWWJ4QkU4ZktocStyVjF5QjBDdnRmVGR0WEg1UlRITVNncjZVdDYzcklX?=
- =?utf-8?B?VWMvNWw4SnEwM2pUMmlLNC80UEtJd014aEFHVUtiejVLbURyaFZyc2h6ank3?=
- =?utf-8?B?bU1lbFBJakpFQWgveFlHdWZ3M2o5V09jb25UdEtDVnJpUjJaNDRUaW12c2M3?=
- =?utf-8?B?UG45aEtKalJUOXdySTBjOCt1ZFpxZUxPMHl0RE85YkVSUGh3aUlUS01mdzQ2?=
- =?utf-8?B?Zk8renV1Z1dJSC9YajUrcVREWXBzUlk2ZWFaQmRIZFlOSHYzU0lhRXRTMUds?=
- =?utf-8?B?RVJUY29OZVl3d0NvWERWR2xUWnVndkNjaDdHbEZvQm9ObHA5YUdGK0p6NWkw?=
- =?utf-8?B?dFd4SUFlL0xlWXRIK2x1TThPRjZNWXA3aWYvNk1WcjRTMnBhcVJKTGhqbDFC?=
- =?utf-8?B?M1FkQ0xxay9MZEVLV0RrYURiVlBlVzlEMG5HVEo3b09PUDBpYlVsNWlYNVlE?=
- =?utf-8?B?STV1TkpSSjN5Z1o5TmJlS3dvK25oeFpwZCtJNURXaXQ0eFBCUHhkNk5tTFQy?=
- =?utf-8?B?MGRBMTZuMmt6aTg3VzdVL1BzSHVJT3orUGhOemFJRDU4YzUzYlBpRHVYRjFS?=
- =?utf-8?B?M283Q3pOTGI0S2RmUGJrYWRWcXoyeUZhZ3ZNZWlYcmk3dmE2SU5LbjJwcHRF?=
- =?utf-8?B?cUpxUU1WdjNEbDRNdkpRd1NTR2pFY1o5M2c1VEpscXZzM0ZKbTd5WXYwMVMx?=
- =?utf-8?B?cWE2TlZBUlZQVWtyZGdYQWJ1OEpjc1gxSVU0WXpRbjJhWW5KUXBjUlZueTN1?=
- =?utf-8?Q?hX5cy29PhgY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDR6UEp4U2FSS3dDb1orQWtRcVZoMUZtRDVTWDdYdkJFZC8xSnpnNmdxai8v?=
- =?utf-8?B?NDdDVmkyRGRKZmtRM3JFY3NSWWVBaGxhdVdjTnhUamMxT3VtME82NFVuUm90?=
- =?utf-8?B?b09kZktsS2VyNkJCbG1nY1hZbjUrZyt4bDBPd2VSdURIdkduWFRmRDJXRncx?=
- =?utf-8?B?TGNvSXpNTlZDcGEraC81U3FKUEpoejJWTVFWeURkcTdCdUVoS0ZtR0NHTHNI?=
- =?utf-8?B?eGdhL0tOajFDVmxsYTFtN3NjcFBQczZBNDNjUTZ3VkpxV3RyM2lVQzVjMm1G?=
- =?utf-8?B?dURXUFRQbE0reElOdDBnQXozT1BxV0todDdZSGhJM0JyMm5BYXVqQ0pMVWM1?=
- =?utf-8?B?UGcvTVUxY1BLakZscTRhZnN4MllOaUR6cjBTekFFd3g3dFg3MVFHVXNTYmd3?=
- =?utf-8?B?bDZSSEJkdlkwdVhuckNDSkpoMGl6bDVZWGtJZ213VFRaT2ttT1NFejAvSHp5?=
- =?utf-8?B?V0gydFk3T1dVQTdvRVRXUDZJeWhCSTRZNThjWWFnNGdqNm1hWVBSQU93WWVN?=
- =?utf-8?B?Y2hoSjdudzIyS0JBWkZCalRBUW9sZTcvSGphdkJyaHNsNE9MOVVyMWJsL0w1?=
- =?utf-8?B?RGNOZGhnYkVsSkU2Zm5XUHd0RytwYWREaVpybzUra0l6aStBSjhTK0ZmVTNP?=
- =?utf-8?B?ZThka3FMbnN1TktQRTJTa2JPZ1dzcHYwN3N0dVlSRlBYb1pIQzhmUlR2YTFE?=
- =?utf-8?B?R21TTzdrTG9DN1FrZ0h4OGJxaHp1alZMM0xRZUZTOXdsR24xOG9ENlRGcGwx?=
- =?utf-8?B?SDVDdUZsdWE5bzdWWEJMUGpuL1hMSVJPK00yZWJzT2NsYlBOdFk2ZHVLclRR?=
- =?utf-8?B?Mm9LdWVJVXVleWlOZUNsWW1sbVdNRG0xd1hYNUdFL3BnWmNOL2VPNm9jRVJr?=
- =?utf-8?B?bE5Ib1dsZEhSTlBTRnB6YVJiUmZZMHU0TENFbitIdnE2SFh6eUh1N0NtWXRE?=
- =?utf-8?B?c0pRbFFlRVdUa21id01EWTVieUhrNURobHNKRm9hRTRjZk93ZDY3c1JRNFdl?=
- =?utf-8?B?b1RZelU3L0ZPTnk3b1VyRmp5dzQ0ZWtzWjFURWJURTVrdFlzTHpJblMxdFFm?=
- =?utf-8?B?UUw1cjZHS1RPaGNQVndBN0RzYk5IYmRja0pDL25hT1JkOUVEYllXRklvU1gx?=
- =?utf-8?B?a2JjdmV2bnB1Z0x0aXI0NEZuK0NmTUxsSFZ1empBdURsTy91bDBRL0dQQjds?=
- =?utf-8?B?eWhJVGUvMWNvWnpSQ2hYam8rQ2wrOXdtYVNhTlBwQW1LQ1NPM0V0VUhuekRv?=
- =?utf-8?B?a21hM1VLOWRwSlVWeGNtZEwyR2VUcVJOTENPdVRETVlGcmJwd2hERWFjdk93?=
- =?utf-8?B?a1dmVDhzMkNFWW51RkpybE1GUjZJWEIwRjBaUW14N2tWYkJjdDZpTE43bC9o?=
- =?utf-8?B?N2xKRys4dkRwYzV3OVIrdTQya3BHemlhUXpPWC9QamptRFJ0YXdDUHUrVGFL?=
- =?utf-8?B?UUVSMW1HdVY1NytxT0kvUGVlbHp1NmdKZHlaRzlUM3VxNnJZWXk0c1JocWZT?=
- =?utf-8?B?dWR0NS8yZWd0MHhPT2hobEFjT0RGcjk4UWIwNmZUVnZhaDBCb3VXTVlhUDJB?=
- =?utf-8?B?RlJqSGthU0ZKY2srWTdXaWNzS0pMSjd3VGJPbEYzZTJOb2ZkMEdBVnN0WmRH?=
- =?utf-8?B?SkxoK2tKbGZxbWhDQUtPRGMrdlh5VWl1T1VmZXJ0UzZCZXg3S245cHF4OStZ?=
- =?utf-8?B?UjVkQjluWVFJWTlodzdNMnB4VGY1NUhSQlpUaG5pb2ZYOUxOL0hXaG1aenRK?=
- =?utf-8?B?OVNWSElsNG5LQkk3aHRCb1ZZTi9vYlE3c08zd1JQeDFOa2t4bGhoRy9NTE4y?=
- =?utf-8?B?T3Q0UHJZZktPLzRXdWJFYjFFSEo4OHdEV1dlT2Q5dWxYd1IraDNaeDFBNGJ1?=
- =?utf-8?B?Z2o2bmIyc29mU3B4b0JjYyttbVlWRjNoSjJ1MCtXZG4yWDdWSDA3M3pFTXJ6?=
- =?utf-8?B?cjRqVkUzZlExSGY2TmMvZklqMTdlL0d4VWlqOXNSZzZYbW9lS1h5MkZCdGF6?=
- =?utf-8?B?bUNSK2lYS29HUXhjWGUyZ0NzMVcwQ0RGRjZtMytxT0ZjY2JmVjBsZkwrZGdF?=
- =?utf-8?B?OHlQSlluUzBqS2VDb2pTN1ArRlUxUnYrVHJVZVNiWmN6ejhPZWtGczB5Nzdl?=
- =?utf-8?Q?xA6GA28NGkUZFN/Z/wSfs8OBL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79c71c59-881b-413b-3078-08ddfbdb8223
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 02:30:35.8307
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: engGFI6+9OU++xHV3PAbbdC3Sl3TnPDE6cW/c8dQd1wKxLLzfERETG62R+a1xxqmPGw+Bi+JkmCiYq8M6vrb5w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7749
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250925000416.2408457-3-svarbanov@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_193043_358532_DB1A19CE 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20250924_194251_652626_55E1D3A3 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,315 +112,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, James,
+On Thu, Sep 25, 2025 at 03:04:14AM +0300, Stanimir Varbanov wrote:
+> A five-input successive-approximation analogue-to-digital converter
+> with 12-bit (effective number of 9.5 bits) resolution at 500kSPS.
+> The ADC has four external inputs and one internal temperature sensor.
+> 
+> Signed-off-by: Phil Elwell <phil@raspberrypi.com>
+> Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 
-On 9/10/25 13:43, James Morse wrote:
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
->
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
->
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
+I just realized that there is already a hwmon driver for
+Rasperri Pi - drivers/hwmon/raspberrypi-hwmon.c.
+
+Please add this code to that driver.
+
 > ---
-> Changes since v1:
->   * Added XCL support.
->   * Merged FLT/CTL constants.
->   * a spelling mistake in a comment.
->   * moved structrues around.
-> ---
->   drivers/resctrl/mpam_devices.c  | 226 ++++++++++++++++++++++++++++++++
->   drivers/resctrl/mpam_internal.h |  19 +++
->   2 files changed, 245 insertions(+)
->
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index cf190f896de1..1543c33c5d6a 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -898,6 +898,232 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->   	return 0;
->   }
->   
-> +struct mon_read {
-> +	struct mpam_msc_ris		*ris;
-> +	struct mon_cfg			*ctx;
-> +	enum mpam_device_features	type;
-> +	u64				*val;
-> +	int				err;
-> +};
-> +
-> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				   u32 *flt_val)
-> +{
-> +	struct mon_cfg *ctx = m->ctx;
-> +
-> +	/*
-> +	 * For CSU counters its implementation-defined what happens when not
-> +	 * filtering by partid.
-> +	 */
-> +	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
-> +
-> +	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
-> +	if (m->ctx->match_pmg) {
-> +		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
-> +		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
-> +	}
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
-> +			*flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
-> +					       ctx->csu_exclude_clean);
-> +
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> +
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_rwbw, &m->ris->props))
-> +			*flt_val |= FIELD_PREP(MSMON_CFG_MBWU_FLT_RWBW, ctx->opts);
-> +
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-> +				    u32 *flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-> +		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Remove values set by the hardware to prevent apparent mismatches. */
-> +static void clean_msmon_ctl_val(u32 *cur_ctl)
-> +{
-> +	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-> +}
-> +
-> +static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> +				     u32 flt_val)
-> +{
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +
-> +	/*
-> +	 * Write the ctl_val with the enable bit cleared, reset the counter,
-> +	 * then enable counter.
-> +	 */
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, CSU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-> +		mpam_write_monsel_reg(msc, MBWU, 0);
-> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-> +		break;
-> +	default:
-> +		return;
-> +	}
-> +}
-> +
-> +/* Call with MSC lock held */
-> +static void __ris_msmon_read(void *arg)
-> +{
-> +	u64 now;
-> +	bool nrdy = false;
-> +	struct mon_read *m = arg;
-> +	struct mon_cfg *ctx = m->ctx;
-> +	struct mpam_msc_ris *ris = m->ris;
-> +	struct mpam_props *rprops = &ris->props;
-> +	struct mpam_msc *msc = m->ris->vmsc->msc;
-> +	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
-> +
-> +	if (!mpam_mon_sel_lock(msc)) {
-> +		m->err = -EIO;
-> +		return;
-> +	}
-> +	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
-> +		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> +	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +
-> +	/*
-> +	 * Read the existing configuration to avoid re-writing the same values.
-> +	 * This saves waiting for 'nrdy' on subsequent reads.
-> +	 */
-> +	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	clean_msmon_ctl_val(&cur_ctl);
-> +	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
-> +	if (cur_flt != flt_val || cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN))
-> +		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-> +
-> +	switch (m->type) {
-> +	case mpam_feat_msmon_csu:
-> +		now = mpam_read_monsel_reg(msc, CSU);
-> +		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	case mpam_feat_msmon_mbwu:
-> +		now = mpam_read_monsel_reg(msc, MBWU);
-> +		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-> +			nrdy = now & MSMON___NRDY;
-> +		break;
-> +	default:
-> +		m->err = -EINVAL;
-> +		break;
-> +	}
-> +	mpam_mon_sel_unlock(msc);
-> +
-> +	if (nrdy) {
-> +		m->err = -EBUSY;
-> +		return;
-> +	}
-> +
-> +	now = FIELD_GET(MSMON___VALUE, now);
-> +	*m->val += now;
-> +}
-> +
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> +{
-> +	int err, idx;
-Can err be initialized to some error code e.g. -ENODEV?
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-> +
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-> +			arg->ris = ris;
-> +
-> +			err = smp_call_function_any(&msc->accessibility,
-> +						    __ris_msmon_read, arg,
-> +						    true);
-> +			if (!err && arg->err)
-> +				err = arg->err;
-> +			if (err)
-> +				break;
-> +		}
-> +		if (err)
-> +			break;
-> +	}
+>  drivers/hwmon/Kconfig   |  10 ++
+>  drivers/hwmon/Makefile  |   1 +
+>  drivers/hwmon/rp1-adc.c | 301 ++++++++++++++++++++++++++++++++++++++++
 
-comp->vmsc or vmsc->ris usually are not empty. But in some condition, 
-they can be empty. In that case, uninitialized err value may cause 
-unexpected behavior for the callers.
+Also, this needs documentation.
 
-So it's better to initialize err to avoid any complexity.
-
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +
-> +	return err;
-> +}
-> +
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> +		    enum mpam_device_features type, u64 *val)
-> +{
-> +	int err;
-> +	struct mon_read arg;
-> +	u64 wait_jiffies = 0;
-> +	struct mpam_props *cprops = &comp->class->props;
-> +
-> +	might_sleep();
-> +
-> +	if (!mpam_is_enabled())
-> +		return -EIO;
-> +
-> +	if (!mpam_has_feature(type, cprops))
-> +		return -EOPNOTSUPP;
-> +
-> +	memset(&arg, 0, sizeof(arg));
-> +	arg.ctx = ctx;
-> +	arg.type = type;
-> +	arg.val = val;
-> +	*val = 0;
-> +
-> +	err = _msmon_read(comp, &arg);
-> +	if (err == -EBUSY && comp->class->nrdy_usec)
-> +		wait_jiffies = usecs_to_jiffies(comp->class->nrdy_usec);
-> +
-> +	while (wait_jiffies)
-> +		wait_jiffies = schedule_timeout_uninterruptible(wait_jiffies);
-> +
-> +	if (err == -EBUSY) {
-> +		memset(&arg, 0, sizeof(arg));
-> +		arg.ctx = ctx;
-> +		arg.type = type;
-> +		arg.val = val;
-> +		*val = 0;
-> +
-> +		err = _msmon_read(comp, &arg);
-> +	}
-> +
-> +	return err;
-> +}
-> +
->   static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
->   {
->   	u32 num_words, msb;
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 81c4c2bfea3d..bb01e7dbde40 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -196,6 +196,22 @@ static inline void mpam_clear_feature(enum mpam_device_features feat,
->   	*supported &= ~(1 << feat);
->   }
->   
-> +/* The values for MSMON_CFG_MBWU_FLT.RWBW */
-> +enum mon_filter_options {
-> +	COUNT_BOTH	= 0,
-> +	COUNT_WRITE	= 1,
-> +	COUNT_READ	= 2,
-> +};
-> +
-> +struct mon_cfg {
-> +	u16                     mon;
-> +	u8                      pmg;
-> +	bool                    match_pmg;
-> +	bool			csu_exclude_clean;
-> +	u32                     partid;
-> +	enum mon_filter_options opts;
-> +};
-> +
->   struct mpam_class {
->   	/* mpam_components in this class */
->   	struct list_head	components;
-> @@ -343,6 +359,9 @@ void mpam_disable(struct work_struct *work);
->   int mpam_apply_config(struct mpam_component *comp, u16 partid,
->   		      struct mpam_config *cfg);
->   
-> +int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
-> +		    enum mpam_device_features, u64 *val);
-> +
->   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->   				   cpumask_t *affinity);
->   
-
-Thanks.
-
--Fenghua
-
+Thanks,
+Guenter
 
