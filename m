@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412FDCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75204CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To
-	:From:Subject:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ls9j3ehev03+/T3e7eCjckf/cKK1mjKSxTbjZU7yHko=; b=xuAKfStXJ7Mnzd/gFn5iVQh1+P
-	NbeTBoJ+8GyxqzMKEAGv6BLIsMQbqCMAgJiu8ICr46RShx3UGieuJ6POMWCWCrE6h2JIjL47fA1yF
-	XNGEQgrce5pe+7Va81FnRdzkdaWkCPU4wMhVDB5cC5YWprXVbE9RdHToaVyYVF7MoDxgB8wbT+HXE
-	VJqdv6Hawkp/3qaRtI6PFuAjs3GP2Rq3T4vn/Qg0XuRoX5lOoZwegI/OSmswYVrnAnCcSg93pkFjj
-	1b+Iti3yO227bgswCK/SSJE5sWskmOetPm2NKLKcyL4KRCwsB310e8WgcNEJDxfSgVx/2D71fduig
-	uJAtvEUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=5U4ssfLObfMrsZsYwgUd8+iN9wTGTk9ZQLRuKX7hC5I=; b=a81A0/5amJtN4Yhh1EvsGAfD2T
+	vBsI8TdfgzhTrzIWVBWfb4sFKMatiuaS5LF5kwQAb09XmtFBIh651xdKUbhQhq2g5yyXXA8qgZr0W
+	nqMrU9BRfX6Sp051KCEta3KzL8wXGDf/cBHNHT9AxqmsOOdaMtj6wcYyoswMEJ5Jh15M3khpimvxt
+	uVFaw82PA6DqRch85q0EfYsIIvJWUiXwCSZCkSehXMbefT3enuw6kIDpOOEBIDwy7GD1epAsptU7N
+	LxT69mricV50bMfNPfB9Wc9AKu04BAmU0RYO4gEpA6iP1bA6/gL/1udU/4RMuM/lUfEhdkkAE+PHS
+	s/Fizduw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bgx-00000005IQy-39XH;
-	Thu, 25 Sep 2025 02:26:43 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1v1bj7-00000005Ijg-3z2c;
+	Thu, 25 Sep 2025 02:28:57 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bgv-00000005IPt-27lB
+	id 1v1bj3-00000005IhY-3Vml
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 02:26:42 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58P2QJxI1799988;
-	Wed, 24 Sep 2025 21:26:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1758767179;
-	bh=Ls9j3ehev03+/T3e7eCjckf/cKK1mjKSxTbjZU7yHko=;
-	h=Date:Subject:From:To:CC:References:In-Reply-To;
-	b=ij/PIj8UccGFJ7MtcytPs4WJyZsF6uzCdNN0Z28H3V55N5fvGL7G4jkSAVtCZ5gD6
-	 e20BhlrEH7snCwah3nHrtT1T2aoL9J9WHvoJtIdWkKWBa0ye2fHIrKnX0Qj2EqHfo8
-	 nEVjIrMff8N08aipOCtJBRA11+PZ2oG+jgM1LWSY=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58P2QIaK4027010
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 24 Sep 2025 21:26:18 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 24
- Sep 2025 21:26:17 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 24 Sep 2025 21:26:17 -0500
-Received: from localhost (rs-desk.dhcp.ti.com [128.247.81.144])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58P2QHDi2737277;
-	Wed, 24 Sep 2025 21:26:17 -0500
+	Thu, 25 Sep 2025 02:28:57 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250925022847epoutp04d6a40768889715e743d1df7d0aac9811~oZZDfs2la1356013560epoutp044
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 02:28:47 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250925022847epoutp04d6a40768889715e743d1df7d0aac9811~oZZDfs2la1356013560epoutp044
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758767327;
+	bh=5U4ssfLObfMrsZsYwgUd8+iN9wTGTk9ZQLRuKX7hC5I=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=PuwQHNZNmwXlqhTtc6OpmWFWSN7s3bljFkDGZfqLb4HHU/fjKQevLgqPcgweI7d0r
+	 9e5wg8xJ0SLIorxEPBdWzuRQIKGKsBN0zoiE6znfKpd5zEPX41PCqi1FdL5DMsngrf
+	 ZbcvAqUlf2e6A0P69mavgbeLvHzl7XK2Q8vm0s6U=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250925022846epcas2p4aff00abcd39f8d88bd05747e85d55a84~oZZDFPiWe1518815188epcas2p4O;
+	Thu, 25 Sep 2025 02:28:46 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.36.92]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cXHhZ2VBzz6B9mG; Thu, 25 Sep
+	2025 02:28:46 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250925022845epcas2p2b0e2bbe2e7674f408ae6404ac66a8627~oZZB3Wd0F2876028760epcas2p2u;
+	Thu, 25 Sep 2025 02:28:45 +0000 (GMT)
+Received: from asswp60 (unknown [10.229.9.60]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250925022845epsmtip1f371dfbcfc01419492d52c76434048cf~oZZBxRpD-2348123481epsmtip1K;
+	Thu, 25 Sep 2025 02:28:45 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski
+	<krzk@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Henrik Grimler
+	<henrik@grimler.se>
+Cc: Shin Son <shin.son@samsung.com>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/3] Add exynosautov920 thermal support
+Date: Thu, 25 Sep 2025 11:28:37 +0900
+Message-ID: <20250925022841.2813150-1-shin.son@samsung.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-Date: Wed, 24 Sep 2025 21:26:17 -0500
-Message-ID: <DD1IXJDTBQ72.2XIEIIN0YA713@ti.com>
-Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
-From: Randolph Sapp <rs@ti.com>
-To: Kevin Hilman <khilman@kernel.org>, Michael Walle <mwalle@kernel.org>,
-        Frank Binns <frank.binns@imgtec.com>,
-        Matt Coster <matt.coster@imgtec.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor Dooley"
-	<conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        "Vignesh Raghavendra"
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>,
-        "Santosh Shilimkar"
-	<ssantosh@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen
- Boyd <sboyd@kernel.org>
-CC: Andrew Davis <afd@ti.com>, <dri-devel@lists.freedesktop.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20250915143440.2362812-1-mwalle@kernel.org>
- <20250915143440.2362812-3-mwalle@kernel.org> <7hv7lhp0e8.fsf@baylibre.com>
-In-Reply-To: <7hv7lhp0e8.fsf@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250925022845epcas2p2b0e2bbe2e7674f408ae6404ac66a8627
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250925022845epcas2p2b0e2bbe2e7674f408ae6404ac66a8627
+References: <CGME20250925022845epcas2p2b0e2bbe2e7674f408ae6404ac66a8627@epcas2p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_192641_627771_D08AEBCF 
-X-CRM114-Status: GOOD (  34.80  )
+X-CRM114-CacheID: sfid-20250924_192854_500523_F6CADDD4 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,104 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Sep 17, 2025 at 10:24 AM CDT, Kevin Hilman wrote:
-> Michael Walle <mwalle@kernel.org> writes:
->
->> The TISCI firmware will return 0 if the clock or consumer is not
->> enabled although there is a stored value in the firmware. IOW a call to
->> set rate will work but at get rate will always return 0 if the clock is
->> disabled.
->> The clk framework will try to cache the clock rate when it's requested
->> by a consumer. If the clock or consumer is not enabled at that point,
->> the cached value is 0, which is wrong.
->
-> Hmm, it also seems wrong to me that the clock framework would cache a
-> clock rate when it's disabled.  On platforms with clocks that may have
-> shared management (eg. TISCI or other platforms using SCMI) it's
-> entirely possible that when Linux has disabled a clock, some other
-> entity may have changed it.
->
-> Could another solution here be to have the clk framework only cache when
-> clocks are enabled?
+This patch series adds support for exynosautov920, automotive-grade
+processor. Although the exynosautov920's TMU hardware differs slightly
+from exisiting platform, its read and calibration logic closely follow
+our legacy TMU interface. To prevent runtime and build time errors,
+it is kept as a single change rather than being split.
 
-So I looked into that. There are still about 34 clock operations that are
-functionally uncached, but it does seem more logical than treating everythi=
-ng as
-uncached.
+This change merges the new exynosautov920-specific register definitions and
+timing parameters into the exynos-tmu driver, ensuring consistent behavior
+across all Exynos series. All new code paths have been tested on a
+exynosautov920 board and verified to correctly read temperatures and
+emulate behavior.
 
-Side note, why would someone even want to read the rate of an unprepared cl=
-ock?
-I dumped some debug info for all the clocks tripping this new uncached path=
-.
-Seems weird that it's even happening this often. Even weirder that it's
-apparently happening 3 times to cpu0's core clock on the board I'm currentl=
-y
-testing.
+Changes in v5:
+- Changed the maximum number of thermal sensors to 15.
 
-Some devices it only happens once, others get it two or three times. Most o=
-f
-them seem to be obvious - someone trying to read a rate before the clock wa=
-s
-prepared as part of a probe sequence. One seemed to be happening directly a=
-fter
-a clk_prepare_enable call that completed successfully. Not sure how that co=
-uld
-happen.
+Changes in v4:
+- Kept 'addtionalProperties: false'.
+- Removed the 'samsung,hw-sensor-indices' property in the binding.
+- Added the 'samsung,sensors' property in the binding.
+- Dropped code-like formatting and rewrote the description in plain,
+  hardware-focused language in the commit message.
+- Removed the bitmap and replaced the tz_count to sensor_count.
 
->> Thus, disable the cache altogether.
->>
->> Signed-off-by: Michael Walle <mwalle@kernel.org>
->> ---
->> I guess to make it work correctly with the caching of the linux
->> subsystem a new flag to query the real clock rate is needed. That
->> way, one could also query the default value without having to turn
->> the clock and consumer on first. That can be retrofitted later and
->> the driver could query the firmware capabilities.
->>
->> Regarding a Fixes: tag. I didn't include one because it might have a
->> slight performance impact because the firmware has to be queried
->> every time now and it doesn't have been a problem for now. OTOH I've
->> enabled tracing during boot and there were just a handful
->> clock_{get/set}_rate() calls.
->
-> The performance hit is not just about boot time, it's for *every*
-> [get|set]_rate call.  Since TISCI is relatively slow (involves RPC,
-> mailbox, etc. to remote core), this may have a performance impact
-> elsewhere too.  That being said, I'm hoping it's unlikely that
-> [get|set]_rate calls are in the fast path.
->
-> All of that being said, I think the impacts of this patch are pretty
-> minimal, so I don't have any real objections.
->
-> Reviewed-by: Kevin Hilman <khilman@baylibre.com>
->
->> ---
->>  drivers/clk/keystone/sci-clk.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->>
->> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-c=
-lk.c
->> index c5894fc9395e..d73858b5ca7a 100644
->> --- a/drivers/clk/keystone/sci-clk.c
->> +++ b/drivers/clk/keystone/sci-clk.c
->> @@ -333,6 +333,14 @@ static int _sci_clk_build(struct sci_clk_provider *=
-provider,
->> =20
->>  	init.ops =3D &sci_clk_ops;
->>  	init.num_parents =3D sci_clk->num_parents;
->> +
->> +	/*
->> +	 * A clock rate query to the SCI firmware will return 0 if either the
->> +	 * clock itself is disabled or the attached device/consumer is disable=
-d.
->> +	 * This makes it inherently unsuitable for the caching of the clk
->> +	 * framework.
->> +	 */
->> +	init.flags =3D CLK_GET_RATE_NOCACHE;
->>  	sci_clk->hw.init =3D &init;
->> =20
->>  	ret =3D devm_clk_hw_register(provider->dev, &sci_clk->hw);
->> --=20
->> 2.39.5
+Changes in v3:
+- Removed redundant commit message.
+- Rephrased the sentences to describe the hardware clearly.
+- Restricted sensor indices to V920.
+- Set #thermal-sensor-cells per variant.
+- Replaced 'additionalProperties' with 'unevaluatedProperties'.
+- Removed the duplicate #define and use the original.
+- Used lowercase hex in #define.
+- Simplified 'temp_to_code' and 'code_to_temp' to one computation
+  path by normalizing calib_temp.
+
+Changes in v2:
+- Replace the generic property with a vendor-specific one.
+- Added an indices property instead of ranges.
+- Shortened thermal node name and made them more generic.
+- Updated the indices logic accordingly after removing the ranges property.
+
+Shin Son (3):
+  dt-bindings: thermal: samsung: Adjust '#thermal-sensor-cells' to 1
+  thermal: exynos_tmu: Support new hardware and update TMU interface
+  arm64: dts: exynosautov920: Add multiple sensors
+
+ .../thermal/samsung,exynos-thermal.yaml       |  32 +-
+ .../boot/dts/exynos/exynosautov920-tmu.dtsi   | 377 ++++++++++++++++++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |  31 ++
+ drivers/thermal/samsung/exynos_tmu.c          | 322 +++++++++++++--
+ 4 files changed, 724 insertions(+), 38 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-tmu.dtsi
+
+-- 
+2.50.1
 
 
