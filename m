@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA17CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 12:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817ABCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 12:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eo5MQOkGyElXlEHPuquWDvolz5tCt5MH2A2PG0iQrcA=; b=Si46PkF937l2Tv8fkNa9cw/vH8
-	dTHd+X5d9cqk2XUm6Dkex11LysapnQBYZ0f/s0lfMIXvOD9UCGCwRSZsNIUppo+eYwZI1plSRDr5l
-	EBPlEa+MClxCTio3fv8txTK2Efh/KPkUItsNWtSzAAoM6MD3CGnGRJogWsF0fWivc6zFTe1JX0LOY
-	cU4W4++uQeglr0qosuRJu343vBebDJaxBkNRKuZOgqILgvyvJ2XlXgf390vWfVYMPm9+D0wJ3HAUs
-	zjKH7U0JRGeeNKBwd292B0QH7h3PZvMvHTi8XGsRxJojS9oaZH8/d+5dSXrz4+93HJ40jInR4W/zh
-	Sc//cVmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iD7D/WniQ0Zxw3Jv/99O/bSelLxFQ6gM67sSZlZ6hik=; b=zRX2bnsTICH3p3J+zegNA/1z2Q
+	D+KIZScNSS6pSgVynzvMuQhejoPgtDdVD2AbkWqfp1ON4Ilipx8gjvF9NHVirB8G5ar2+R3SrA0ht
+	84X75Bl02zOc/hzw0k9X9Ysf1Ocg0B7nO+3LQDWL2KJuXOb9WVgaXYlrN0coIgpMdaSlkDKWN4VQX
+	pAeAFwSZpWa4eSyCD2fNCgF8tWmeDhWV9IP2X2van13HtEKN4AzbOezFfq7b5RMrKkT7iaDspD3eQ
+	Zzhvvzogy0aXElAkSp5xIwFvU/IURCzB8ENk8ewEizokkY7ucg0rJanN4b9pP7kbRJBB0MgeAZQe1
+	tj8WW4NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kpQ-00000008qNt-0URc;
-	Thu, 25 Sep 2025 12:12:04 +0000
-Received: from mail-m49224.qiye.163.com ([45.254.49.224])
+	id 1v1lDR-00000009240-2q5k;
+	Thu, 25 Sep 2025 12:36:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kpN-00000008qLP-13cQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 12:12:02 +0000
-Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 240dfac53;
-	Thu, 25 Sep 2025 20:11:56 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: arnd@arndb.de
-Cc: adrian.hunter@intel.com,
-	bst-upstream@bstai.top,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	gordon.ge@bst.ai,
-	krzk+dt@kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	robh@kernel.org,
-	ulf.hansson@linaro.org,
-	will@kernel.org,
-	yangzh0906@thundersoft.com
-Subject: Re: [PATCH 0/9] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
-Date: Thu, 25 Sep 2025 20:11:54 +0800
-Message-ID: <20250925121155.2401934-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250925090412.2068216-1-yangzh0906@thundersoft.com>
-References: <20250925090412.2068216-1-yangzh0906@thundersoft.com>
+	id 1v1lDQ-0000000922g-0Lhd;
+	Thu, 25 Sep 2025 12:36:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 60A8C6013A;
+	Thu, 25 Sep 2025 12:36:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054A8C4CEF0;
+	Thu, 25 Sep 2025 12:36:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758803811;
+	bh=IBUAnul7b8BQqt3zLS4cohInRJ5Mx15MT7PNd8Nz5R4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XkvQ1go55VUCHLla+6DHun6ac9iHj597k6xHzW2ehbWZf1qu17advzm0DOfLaJdX2
+	 CFK1pTszoqCLJrUFasnXEbhaA+1f/RSAgXuAlCqIPBFAunLcZSLWGiS/DqtgPo1lAz
+	 vd59DiKljlaDbik78b3p69oUNn/NqxQnsAOZKEj9miVMPRGtAD7JdxnTW3ZYETd/id
+	 3l8YdBfhuJ0+fEQ/tfJEwaZ73jeDNCtDBWibnzrzLBuVvq+35kOG7RWoaJ9NZ0Zvhk
+	 QMPN3eI4qbedD4PN9VBWseCLjfv6KabHrHPVkDmVcJZq2VK9elqC28msll8ZwXvERx
+	 rJPYbUQBQg33g==
+Date: Thu, 25 Sep 2025 14:36:46 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+	Daniel Stone <daniels@collabora.com>
+Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
+ as unsupported
+Message-ID: <20250925-didactic-spiked-lobster-fefabe@penduick>
+References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
+ <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
+ <20250910-furry-singing-axolotl-9aceac@houat>
+ <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9980c98bf209cckunm0dbea3318270a9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaT04ZVkNOS0NKSh0ZT0pCT1YVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=lMq0ZdblTM4Zv2oMG3N+IorP8ydfWF/POg1If0IxGoUdZpVXrgamH/KY+J5nm03NYw1du4yJQMv12lrKqKLjh5RdA40kpajnglkSyGdO8hNpW9vHCtTkuls4L3JFqxzTZqPUg1DjwcWPvdkKPPFQsrwAwYGCOtKsvuT5kiIIRuI=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=eo5MQOkGyElXlEHPuquWDvolz5tCt5MH2A2PG0iQrcA=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_051201_475678_C4A5D92C 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="5gspsh2yhbs7pucv"
+Content-Disposition: inline
+In-Reply-To: <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +86,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 05:03:57PM +0800, Albert Yang wrote:Subject: Re: [PATCH] splitting SoC and MMC parts
 
-Hi Arnd,
+--5gspsh2yhbs7pucv
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
+ as unsupported
+MIME-Version: 1.0
 
-I may have missed an important detail in my previous note. If I split
-out the MMC-related patches and submit only the SoC parts first, I
-cannot validate the SoC on real hardware: both the kernel and the root
-filesystem live on the MMC device. Without the MMC stack (DT bindings
-and the controller driver), the board does not boot to userspace, so I
-cannot properly verify the SoC/DT changes in isolation.
+On Wed, Sep 10, 2025 at 06:16:25PM +0300, Dmitry Baryshkov wrote:
+> On Wed, Sep 10, 2025 at 01:03:47PM +0200, Maxime Ripard wrote:
+> > On Tue, Sep 09, 2025 at 05:51:59PM +0300, Dmitry Baryshkov wrote:
+> > > Currently DRM framework expects that the HDMI connector driver suppor=
+ts
+> > > all infoframe types: it generates the data as required and calls into
+> > > the driver to program all of them, letting the driver to soft-fail if
+> > > the infoframe is unsupported. This has a major drawback on userspace
+> > > API: the framework also registers debugfs files for all Infoframe typ=
+es,
+> > > possibly surprising the users when infoframe is visible in the debugfs
+> > > file, but it is not visible on the wire. Drivers are also expected to
+> > > return success even for unsuppoted InfoFrame types.
+> > >=20
+> > > Let drivers declare that they support only a subset of infoframes,
+> > > creating a more consistent interface. Make the affected drivers return
+> > > -EOPNOTSUPP if they are asked to program (or clear) InfoFrames which =
+are
+> > > not supported.
+> > >=20
+> > > Acked-by: Liu Ying <victor.liu@nxp.com>
+> > > Acked-by: Daniel Stone <daniels@collabora.com>
+> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> >=20
+> > Again, I still believe that it's a bad idea, goes against what the spec
+> > states, and the framework was meant to be.
+>=20
+> Please correct me if I'm wrong. The specs (HDMI & CEA) define several
+> infoframes and whether we should be sending them. If I'm reading it
+> correctrly, CEA spec explicitly says 'If the Source supports the
+> transmission of [foo] InfoFrame..." (6.4 - AVI, 6.6 - Audio, 6.7 MPEG,
+> 6.9 - DRM). For other InfoFrames (6.5 SPD, 6.8 NTSC VBI) it just defines
+> that sending those frames is optional.
 
-Would you prefer that I:
-- keep the MMC pieces in the same series for initial bring-up; or
-- validate everything locally, then send only the SoC/DT parts first and
-  follow up with the MMC binding/driver as a separate series?
+SPD is indeed optional, but the HDMI spec, (HDMI 1.4b, Section 8.2.1 -
+Auxiliary Video information (AVI) InfoFrame) states that:
 
-I’m not entirely sure which approach best matches the normal workflow,
-so your guidance would be appreciated. I can proceed whichever way you
-think is most appropriate.
+  A Source shall always transmit an AVI InfoFrame at least once per two
+  Video Fields if the Source:
 
-Thanks for the review and suggestions.
+   * is ever capable of transmitting an AVI InfoFrame or,
+   * is ever capable of transmitting YCBCR pixel encoding or,
+   * is ever capable of transmitting any colorimetry other than the
+     transmitted video format=E2=80=99s default colorimetry or,
+   * is ever capable of transmitting any xvYCC or future enhanced
+     colorimetry or,
+   * is ever capable of transmitting any Gamut Metadata packet or,
+   * is ever capable of transmitting any video format with multiple
+     allowed pixel repetitions or,
+   * is ever capable of transmitting Content Type other than =E2=80=9Cno da=
+ta=E2=80=9D or,
+   * is ever capable of transmitting YCC Quantization Range.
 
-Best regards,
-Albert 
+  The AVI InfoFrame shall be transmitted even while such a Source is
+  transmitting RGB and non-pixel-repeated video. When a Source is not
+  explicitly required to transmit AVI InfoFrames, it is recommended that
+  the Source transmit AVI InfoFrames.
+
+So it's recommended in every case, and the list kind of makes it
+mandatory for how Linux uses HDMI.
+
+Also, did we ever encounter some hardware that couldn't send AVI?
+
+Audio is mandatory when streaming audio, DRM when using HDR, and we
+don't support the others yet.
+
+So the only we support but don't have to send is SPD.
+
+> We can't even infer support for InfoFrames from the Source features.
+> E.g. CEA 6.6.1 defines a case when digital audio is allowed to be sent,
+> without sending Audio InfoFrame.
+
+HDMI 1.4 section 8.2.2 - Audio Infoframe states that:
+
+  Whenever an active audio stream is being transmitted, an accurate
+  Audio InfoFrame shall be transmitted at least once per two Video
+  Fields.
+
+I'd say it takes precedence over CTA-861.
+
+> As we will be getting more and more features, some of the InfoFrames
+> or data packets will be 'good to have, but not required'.
+
+And drivers would be free to ignore those.
+
+> > So, no, sorry. That's still a no for me. Please stop sending that patch
+>=20
+> Oops :-)
+>=20
+> > unless we have a discussion about it and you convince me that it's
+> > actually something that we'd need.
+>=20
+> My main concern is that the drivers should not opt-out of the features.
+> E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFrames
+> (yes, stupid examples), it should not be required to go through all the
+> drivers, making sure that they disable those. Instead the DRM framework
+> should be able to make decisions like:
+>=20
+> - The driver supports SPD and the VSDB defines SPD, enable this
+>   InfoFrame (BTW, this needs to be done anyway, we should not be sending
+>   SPD if it's not defined in VSDB, if I read it correctly).
+>=20
+> - The driver hints that the pixel data has only 10 meaninful bits of
+>   data per component (e.g. out of 12 for DeepColor 36), the Sink has
+>   HF-VSDB, send HF-VSIF.
+>=20
+> - The driver has enabled 3D stereo mode, but it doesn't declare support
+>   for HF-VSIF. Send only H14b-VSIF.
+>=20
+> Similarly (no, I don't have these on my TODO list, these are just
+> examples):
+> - The driver defines support for NTSC VBI, register a VBI device.
+>=20
+> - The driver defines support for ISRC packets, register ISRC-related
+>   properties.
+>=20
+> - The driver defines support for MPEG Source InfoFrame, provide a way
+>   for media players to report frame type and bit rate.
+>=20
+> - The driver provides limited support for Extended HDR DM InfoFrames,
+>   select the correct frame type according to driver capabilities.
+>=20
+> Without the 'supported' information we should change atomic_check()
+> functions to set infoframe->set to false for all unsupported InfoFrames
+> _and_ go through all the drivers again each time we add support for a
+> feature (e.g. after adding HF-VSIF support).
+
+=46rom what you described here, I think we share a similar goal and have
+somewhat similar concerns (thanks, btw, it wasn't obvious to me before),
+we just disagree on the trade-offs and ideal solution :)
+
+I agree that we need to sanity check the drivers, and I don't want to go
+back to the situation we had before where drivers could just ignore
+infoframes and take the easy way out.
+
+It should be hard, and easy to catch during review.
+
+I don't think bitflag are a solution because, to me, it kind of fails
+both.
+
+What if, just like the debugfs discussion, we split write_infoframe into
+write_avi_infoframe (mandatory), write_spd_infoframe (optional),
+write_audio_infoframe (checked by drm_connector_hdmi_audio_init?) and
+write_hdr_infoframe (checked in drmm_connector_hdmi_init if max_bpc > 8)
+
+How does that sound?
+
+Maxime
+
+--5gspsh2yhbs7pucv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaNU3XQAKCRAnX84Zoj2+
+duiWAYCEQHaNpq1acegbRGgnWK7idyco+oNyb5OKUdG2mSrF8iG51+HcmQ30rpWH
+OmNB+HsBf3AD+4uAstcClyYSies8sQ9MYWjuxdp67l9l23iryEuQM410hwJTA3iL
+XSaP3z9ISQ==
+=35Cr
+-----END PGP SIGNATURE-----
+
+--5gspsh2yhbs7pucv--
 
