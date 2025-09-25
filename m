@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0E0CAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 16:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA61CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 16:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjDusFkV6Fedc73tWmi89ek/xXuCd4Aj23QQrO3mGxQ=; b=gzRRd0jKKjxRcoKOHPmVY3Clz5
-	mIqEy2sC9Nt2UjdonfeiSlLSxvOK7qg3eNmR5vAy6flN4Uuf3HNBczJu6tU0ud9sD4COOfvf4fsnc
-	HpJscypcBg/4+n0W0hieqvp5lPk6EjgmqY3p5I70UtbTfnUswu8MPHAkJ0ZLlRke4+AUs1W1pRc7B
-	i3I+UBO8jh+p713L5VmfPAUDc3yqSUniS+9HBVKEB/25kYueVedVFtq5Y7OWaDOQlO6BsyCgLIqc6
-	sN+Y7gSKlC43dFl9UuN6aVS+MC61xl9bQcbHtK6BCopkM86fNNxlu9RF1U7PkJBfV/wURFVUOBOhi
-	m7NMhQZw==;
+	bh=v+lassDmCrGUqK1j75W06mPpLprXWJRC5SDVpvwTaVY=; b=N2aa9fq9naXspvR1NJWLCU89ye
+	uc2dTyBKJRD6tzpE2Hu9xiL11iy5zJw+9vpI+9AFTzhGjjO3n9X8PaT9AdNlpe9DoucC0aZNBJfYr
+	7kyKLVO8G8Gff3yGOChIs4kfbhdcD0NesHHmAHTkGXpqo9Nx9IgyjJTTfFZgYWeqsQmHKW5vmgKWF
+	M7izfKMmO1h5UAI21kw1lGmHCanhEWbfMhB6KuMbegx/+UYM4/jKDYR6UJiVS2tTI8f1imMnVlsMS
+	G23o9OybwJlzZrIgzmiVTWLmqKS19F2qAC9EFZZLXyjfgXsPMoyS0wZsBwK08ao8eZD2jplS7ll8W
+	lz7yhZ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1oSb-0000000Ax89-3WVi;
-	Thu, 25 Sep 2025 16:04:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1oSZ-0000000Ax7a-2CTo
+	id 1v1oUo-0000000AyLV-19pr;
+	Thu, 25 Sep 2025 16:07:02 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1oUm-0000000AyJD-00zz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 16:04:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19AA31692;
-	Thu, 25 Sep 2025 09:04:34 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C45EE3F694;
-	Thu, 25 Sep 2025 09:04:41 -0700 (PDT)
-Date: Thu, 25 Sep 2025 17:04:40 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Jie Gan <jie.gan@oss.qualcomm.com>,
-	Carl Worth <carl@os.amperecomputing.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 1/3] coresight: tmc: add the handle of the event to
- the path
-Message-ID: <20250925160440.GD7985@e132581.arm.com>
-References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
- <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
- <874isuo0m2.fsf@rasp.cworth.amperemail.amperecomputing.com>
- <f7be3833-9b33-4935-b821-a2e0000a2557@oss.qualcomm.com>
- <CAJ9a7VjaUE+iy=FFwPhCdfXgoGR3rP9WSx-ZkKYeCHhqJ2yzMg@mail.gmail.com>
- <3b16607f-8995-46b1-aecf-c6aa79f66f9d@arm.com>
- <635ba698-d7a9-40d0-9285-4ec108d4a536@linaro.org>
+	Thu, 25 Sep 2025 16:07:01 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3f42b54d1b9so1396847f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 09:06:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758816418; x=1759421218; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=v+lassDmCrGUqK1j75W06mPpLprXWJRC5SDVpvwTaVY=;
+        b=Jo8u2IxHJxP/SFbH1nKYTeDSgYECDmv9AiansSjNyIrPsHbL1FlMT4UbbArip5Z3jC
+         XCKg9YAEOu4uKKQW1Rs2mACsCcWrFcLRQlCsTrIieavr5AbzkMf/T+9CyllOn61EWbGA
+         hmCeE9J6JKqQj43t3dc5I59DkTfGaqWsBFNGY/Bzz9AEV82dMddl4ANxSMj3q/JQISZe
+         9aDj80j2QeCfquPlTkaPDCfsasH6XtQq32LeEXBmeK/CLDMfTnLY9HewpaIx9mtGJU4x
+         lixMrQ2KXjIZEOW0dpBj7UMtn1iDRAufPl2nQ8q+HnydugITa+0zEj89eDas8yg2aq8d
+         X06g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758816418; x=1759421218;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v+lassDmCrGUqK1j75W06mPpLprXWJRC5SDVpvwTaVY=;
+        b=Oa2K7RhZU1sNsFXn4dTRyy5RuJ9CD5rrx95gR/Ud9mmANc0ORTrZqJrWPlQygSx/vf
+         wpa/qbBmUpT9KZuD9rUpLkVZ6oeLG5KbBfz6Xzr6IRX1UpaH/6EC5VRNN7jLl8tIlL3G
+         0tmjWJbyOAX7+RX2EkMRE+Qo1d+rxHOwKfxxm/42+LR5QdzJI3iyJY5V5M6gUdPI7T2d
+         YprKBqNeobtkHHI4ssRkSUvLH9dAkor3MhVC//iOKuKPao2I23tQSAeNrBtxleNTy/4/
+         h9OvDWIIcLzpqLivsrRWujgO/42OFyiO/8zSm2q8cIhYXDXPOfQCrmlkdJQFr4aU9J8d
+         TZ9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUqUdnrA7SMsUYchaK7HuUx6JqdFL3xa8SxEpsRWHC4q0n3jeU5A8iJ4r6GdQOgkjlAcqyvGKEpZQML6wF4PjH/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyv6FqKebHsHM5IMFMstWlHOfwJZVJOu7i9gR1kXLPYGNNWscoo
+	XKxM+9AtlcTvgwerfibe0jNNq4SgmxjkKxIzgOBdgDaiujoa3zK1xDeO
+X-Gm-Gg: ASbGncvIJh5x5Buq84QuE8YyLa5CT4l1gro5ar54oeO+f3RSzFqWHnVoFEo5SWcXiHd
+	s/7Uzgbd7SWemxKoHS+ZlEXGBf8ZZAaRR5/nI+m4PYtFFfo6Yff4YPYaHFCmmzuFqPH+FaK8z2k
+	2jWDUFzPNmYFfQYxrQk5pBTK4ExXiZAfVhLT09AMe2uGw7nUtWkn75gOvA8jwyPkLtwpUYSU0+A
+	FDSIJXhKTC+tId2olrYDX8jCdxG912OEn5+p2V9bjy91ERcv/ulzF/eO2a5ekbresmtV5IbZ/Qk
+	NniOk9lxcdzc/Fv+tUDRbxiZhSlB6JHS/BkC6dkCy6KI1B/PxBbDMqIh6lxyjMPjx4zcsWHE22x
+	cozHIRpXpLQV5jl/xLMgEze8IVDN83sbUV9gEagbyogPKOapIQc1TjUnAJodgtg/ypO1eYT0jdm
+	COjyej
+X-Google-Smtp-Source: AGHT+IEHMIJU9u8ueZDndaal17u8mfKe0TgyHQU77XQdzJ/EbxOIGOMX4Q6Ld8eqXuhgbWlq5qhIfQ==
+X-Received: by 2002:a05:6000:2486:b0:3d4:f5c2:d805 with SMTP id ffacd0b85a97d-40e4458c89bmr4101481f8f.16.1758816417869;
+        Thu, 25 Sep 2025 09:06:57 -0700 (PDT)
+Received: from Ansuel-XPS. (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e32c49541sm20807025e9.5.2025.09.25.09.06.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Sep 2025 09:06:56 -0700 (PDT)
+Message-ID: <68d568a0.050a0220.19f5c.8cb6@mx.google.com>
+X-Google-Original-Message-ID: <aNVonSpnm70dLOUL@Ansuel-XPS.>
+Date: Thu, 25 Sep 2025 18:06:53 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: clock: mediatek: Fix wrong
+ compatible list for hifsys YAML
+References: <20250923201244.952-1-ansuelsmth@gmail.com>
+ <20250923201244.952-2-ansuelsmth@gmail.com>
+ <20250924140347.GA1556090-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <635ba698-d7a9-40d0-9285-4ec108d4a536@linaro.org>
+In-Reply-To: <20250924140347.GA1556090-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_090443_603566_DBE7B3D3 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250925_090700_056819_16083FE2 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +116,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 11:10:51AM +0100, James Clark wrote:
-
-> > > I would suggest in the csdev (coresight_device) structure itself. We
-> > > already have some sink specific data in here e.g. perf_sink_id_map.
-
-[...]
-
-> > I think this data is specific to the session we are enabling the
-> > device(s) in. e.g., we keep the trace-id in the path.
-> > So, I don't mind having this in the path structure.
-> > Instead of modifying csdev with additional locking from "etm-perf"
-> > it is always cleaner to handle this in the path.
+On Wed, Sep 24, 2025 at 09:03:47AM -0500, Rob Herring wrote:
+> On Tue, Sep 23, 2025 at 10:12:29PM +0200, Christian Marangi wrote:
+> > While converting the hifsys to YAML schema, the "syscon" compatible was
+> > dropped for the mt7623 and the mt2701 compatible.
 > 
-> Yeah, and perf_sink_id_map only "needs" to be in the csdev because it
-> controls sharing IDs between multiple paths which can't be accomplished by
-> storing it in the path.
+> Is "syscon" really needed? AFAICT, the clock and reset drivers don't 
+> need it.
+>
 
-This is a bit off-topic: do we really need to maintain an id_map in
-every sink device, or could we simply use a global id_map?
+Ok I also searched downstream and can't find any patch that would make
+use of syscon. Guess I will replace this patch with a patch that drop
+the syscon from the dts.
 
-I might miss some info; anyway, consolidating trace IDs is a low
-priority for me and not critical to this thread. But this might be
-benefit for later refactoring.
+> > 
+> > Add back the compatible to mute DTBs warning on "make dtbs_check" and
+> > reflect real state of the .dtsi.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> >  .../devicetree/bindings/clock/mediatek,mt2701-hifsys.yaml | 8 +++++---
+> >  1 file changed, 5 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt2701-hifsys.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt2701-hifsys.yaml
+> > index 9e7c725093aa..aa3345ea8283 100644
+> > --- a/Documentation/devicetree/bindings/clock/mediatek,mt2701-hifsys.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/mediatek,mt2701-hifsys.yaml
+> > @@ -16,13 +16,15 @@ maintainers:
+> >  properties:
+> >    compatible:
+> >      oneOf:
+> > -      - enum:
+> > -          - mediatek,mt2701-hifsys
+> > -          - mediatek,mt7622-hifsys
+> > +      - items:
+> > +          - const: mediatek,mt2701-hifsys
+> > +          - const: syscon
+> > +      - const: mediatek,mt7622-hifsys
+> >        - items:
+> >            - enum:
+> >                - mediatek,mt7623-hifsys
+> >            - const: mediatek,mt2701-hifsys
+> > +          - const: syscon
+> >  
+> >    reg:
+> >      maxItems: 1
+> > -- 
+> > 2.51.0
+> > 
 
-Thanks,
-Leo
+-- 
+	Ansuel
 
