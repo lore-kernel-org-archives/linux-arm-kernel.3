@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE9BCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 17:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF35CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 17:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Me/hhkvjWPnZ9KrlVrjtaijLMJdpJVh8Herif1Q87Vg=; b=CejsZW4UQ9D6wC
-	naCS3Qb7cVcT2lwClPVrBSMafNcY+PzSoBEHLVM4ZB1HAz20vFT4gd7Uomcwwb0W0DoZXajm16rmR
-	asLYeB9Zm+GObrGUYNKr357VSIKgjz5/I7RdEn0BZ5A4n2PKPvlbpXAW8yUR/pZBw87WmW80ndn7v
-	oM2yyyNPKzphCSnUR3BkGmTcvTljN7NGlVmkuTIA2QazUyxvuREkFwZg7G7J3gZd52IwS6toC3ORq
-	vo4e4rDLNyhp4XlMnEOW/YbXlpiCEblHKFmGwQ+eHTk2ij5BtStHpXRUQJdLtwzN7c6MfFcDhZFxL
-	LdQEnnVFhgDR1+4yuauw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IB9yQNRgVuz8m2m/oI2qa6ls/IWIUCOFdQtE6J/rfIA=; b=LMD0njGlgsOXN1B5gOA/Cc37x4
+	9WVuPd91NyMpj4oC4G/VRUGFHr5WIOE6ND9qxckWArtW2sHUIca8wzWN5HP0XsVqMhT4bQ4nT4hX1
+	yxBIFjcL2kP+dA3/lYISfIFm2BBMyp6I9FY7rYu35cU8aQfvBlrDKdhbX6M4PYYWu7xShZdTjU+gV
+	uMqm0qMp4h02G/feRTcTPkU2dnOpg31mGQSAcsBVulwZjS1ijCEnu5htvqJzMJAxZrLtA/UtuSrjS
+	wL6kysJNxbKCeFsqeX35IHY9bo18KNGoxnvcLu1hhXrCagKGfYd/m11zAeX4gLYlWueMvdK3z7C2T
+	6M6IRTzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pib-0000000BWTO-0kAu;
-	Thu, 25 Sep 2025 17:25:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1q8y-0000000Bi5Z-1Bio;
+	Thu, 25 Sep 2025 17:52:36 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pia-0000000BWSo-0nPf
+	id 1v1q8v-0000000Bi2M-0oZr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 17:25:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92E7E611A8;
-	Thu, 25 Sep 2025 17:25:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DF0C4CEF0;
-	Thu, 25 Sep 2025 17:25:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758821119;
-	bh=vdDtnd7eralUvO1XlLeDfYnMfW2wY9yiVB9StQbyH5g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lkwYG/vUo/EzJ1jKlWOOEn0aUxEoQ862XOvuqFQ1HWIWXVCw8SLuwWFk4Fx7INazg
-	 AYxo/tvw14FhUtCBX+5CzFGq5H8eG0qu7nk+QpdwPBzV6YlVt/Fivwrs25d2uisYZA
-	 LXv4LQr6Q7yfS3zg3wG8Eu/JsXLyuQurV9HquIahNtTZ0Wm+vCI0BUTRXZasvWNvOj
-	 GaSOYG1/rqSFThGrnD2AqDnGj78ARhBTvhJ6DX84WQ0L2+NubSUymF2znFkLIY+SbF
-	 M7zqNIZqk4GuJ/HEedGgXWBInI8ICSRT0nk5HRIXSOvRG/epW6AglVRqX/fQk7cB6i
-	 8kMkZJC0QZuaQ==
-Date: Thu, 25 Sep 2025 12:25:17 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	chaitanya chundru <quic_krichai@quicinc.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
-	amitk@kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v6 5/9] PCI: dwc: Implement .start_link(), .stop_link()
- hooks
-Message-ID: <20250925172517.GA2169496@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yofmk5uyykyv4jxzem622dtuyzknk7ipd5xlkzdrfl5v7tgojy@5aarg5wj6bar>
+	Thu, 25 Sep 2025 17:52:34 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1758822747;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IB9yQNRgVuz8m2m/oI2qa6ls/IWIUCOFdQtE6J/rfIA=;
+	b=EMq1VUNsJcP9snVahb7nKoWpXIaDE41gqDWsbAG4yWY8Rnu1rMo2FDoiKi/9dfZarIh/+m
+	LL+7sHuW/hw2dFQgEiTMq8vIfTKXyby5P9trym8R8wVkzGXGV+/2ggIAG+J8T2nqPOeWCx
+	I9ulU++zscOBm+xM54yiJckom9/K9rvw6go4Wjs40pw0Q66AUVt3DsUEhXU5UnpNatT2sH
+	qew11Tjar4NMmOBj2Ro8RcgCmPRTE9RYc+st28XVeUMh4kruDtkgh0Xjzs/qFt1sWHCd8Z
+	zDJY9AO0tox9pwPXH+P2KTHVOaFxbGFCWZyv0V/fjzMbVfcJrR+53XJ2McAOEg==
+Content-Type: multipart/signed;
+ boundary=a357dd026792ca33492dc6fb0c6b8bf0ccfe6b9c80285818675682e9f5be;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 25 Sep 2025 19:52:11 +0200
+Message-Id: <DD22MGF3HNLM.Q7S70RX4NZXS@cknow.org>
+Cc: "Saravana Kannan" <saravanak@google.com>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ <linux-pm@vger.kernel.org>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>, "Heiko Stuebner"
+ <heiko@sntech.de>, "Sebastian Reichel" <sebastian.reichel@collabora.com>,
+ "Sebin Francis" <sebin.francis@ti.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Jon Hunter" <jonathanh@nvidia.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] driver core: fw_devlink: Don't warn in
+ fw_devlink_dev_sync_state()
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Ulf Hansson" <ulf.hansson@linaro.org>
+References: <20250925115924.188257-1-ulf.hansson@linaro.org>
+ <DD1XOHE6P5OC.2JUQRAGAE1KTU@cknow.org>
+ <CAPDyKFrKP2bdpKTHzqDdhEpRAjYu+PFd2Bst=-WPddByxcAX_w@mail.gmail.com>
+In-Reply-To: <CAPDyKFrKP2bdpKTHzqDdhEpRAjYu+PFd2Bst=-WPddByxcAX_w@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_105233_789364_F95BD699 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +79,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 09:49:16PM +0530, Manivannan Sadhasivam wrote:
-> On Thu, Sep 25, 2025 at 09:54:16AM -0500, Bjorn Helgaas wrote:
-> > On Thu, Aug 28, 2025 at 05:39:02PM +0530, Krishna Chaitanya Chundru wrote:
-> > > Implement stop_link() and  start_link() function op for dwc drivers.
-> > > 
-> > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pcie-designware-host.c | 18 ++++++++++++++++++
-> > >  1 file changed, 18 insertions(+)
-> > > 
-> > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > index 952f8594b501254d2b2de5d5e056e16d2aa8d4b7..bcdc4a0e4b4747f2d62e1b67bc1aeda16e35acdd 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > @@ -722,10 +722,28 @@ void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int devfn,
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(dw_pcie_own_conf_map_bus);
-> > >  
-> > > +static int dw_pcie_op_start_link(struct pci_bus *bus)
-> > > +{
-> > > +	struct dw_pcie_rp *pp = bus->sysdata;
-> > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > +
-> > > +	return dw_pcie_host_start_link(pci);
-> > 
-> > This takes a pci_bus *, which could be any PCI bus, but this only
-> > works for root buses because it affects the link from a Root Port.
-> > 
-> > I know the TC9563 is directly below the Root Port in the current
-> > topology, but it seems like the ability to configure a Switch with
-> > I2C or similar is potentially of general interest, even if the
-> > switch is deeper in the hierarchy.
-> > 
-> > Is there a generic way to inhibit link training, e.g., with the
-> > Link Disable bit in the Link Control register?  If so, this could
-> > potentially be done in a way that would work for any vendor and
-> > for any Downstream Port, including Root Ports and Switch
-> > Downstream Ports.
-> 
-> FWIW, the link should not be stopped for a single device, since it
-> could affect other devices in the bus. Imagine if this switch is
-> connected to one of the downstream port of another switch. Then
-> stopping and starting the link will affect other devices connected
-> to the upstream switch as well.
+--a357dd026792ca33492dc6fb0c6b8bf0ccfe6b9c80285818675682e9f5be
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Link Disable would affect all devices downstream of the bridge where
-it is set, same as dw_pcie_op_stop_link().
+On Thu Sep 25, 2025 at 4:26 PM CEST, Ulf Hansson wrote:
+> On Thu, 25 Sept 2025 at 15:59, Diederik de Haas <didi.debian@cknow.org> w=
+rote:
+>> On Thu Sep 25, 2025 at 1:59 PM CEST, Ulf Hansson wrote:
+>> > Due to the wider deployment of the ->sync_state() support, for PM doma=
+ins
+>> > for example, we are receiving reports about the messages that are bein=
+g
+>> > logged in fw_devlink_dev_sync_state(). In particular as they are at th=
+e
+>> > warning level, which doesn't seem correct.
+>> >
+>> > Even if it certainly is useful to know that the ->sync_state() conditi=
+on
+>> > could not be met, there may be nothing wrong with it. For example, a d=
+river
+>> > may be built as module and are still waiting to be initialized/probed.
+>>
+>> "there may be nothing wrong with it" doesn't sound very convincing.
+>> So there *can* be something wrong with it, so warning sounds
+>> appropriate? If there is (certainly) something wrong with it, I expect
+>> an error.
+>
+> Sorry if I was too vague. See more below.
+>
+>> FWIW: most of my drivers/modules are built as modules.
+>> I do seem to run into 'problems' more then average because of that, but
+>> to me it just signals there is something wrong ... which should be
+>> fixed. Not silenced.
+>
+> Well, why is it wrong to have drivers being built as modules? They
 
-> This driver is doing it right now just because, there is no other
-> way to control the switch state machine. Ideally, we would want the
-> PERST# to be in asserted stage to keep the device from starting the
-> state machine, then program the registers over I2C and deassert
-> PERST#. This will work across all of the host controller drivers (if
-> they support pwrctrl framework).
+Nothing wrong with it at all. It just means I notice issues (like [1])
+that others may not who have modules built-in.
 
-I don't think there's a way to implement .start_link() and
-.stop_link() for ACPI unless it's by using Link Disable, which is why
-I asked about this.  If Link Disable *does* work, it would be a very
-generic way to do this because it's part of the PCIe base spec.
+[1] a52dffaa46c2 ("drm/rockchip: vop2: make vp registers nonvolatile")
 
-Bjorn
+> just happen to be probed at some point later, then why should we have
+> warnings printed in the log due to this?
+
+I thought the failure of the check was more important then it apparently
+is. Then warning about it does seem excessive.
+
+Cheers,
+  Diederik
+
+--a357dd026792ca33492dc6fb0c6b8bf0ccfe6b9c80285818675682e9f5be
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaNWBUwAKCRDXblvOeH7b
+bhxxAQCeedjuz7MzbGyk41Q/ap7bH+8LHheMRHyOxpn9SezY7AD+KZApBH0xFnE/
+3+O2yoRG+dre2ZIK4DMmnaaZXvwd8QM=
+=3Rfs
+-----END PGP SIGNATURE-----
+
+--a357dd026792ca33492dc6fb0c6b8bf0ccfe6b9c80285818675682e9f5be--
 
