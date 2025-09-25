@@ -4,131 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48527CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 10:01:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2577ACAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 10:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DjfLd1KwWR3eJHSXHXjdsR07lo1IOFz8xElOeao3qbY=; b=Gwr3GtqvCZ1KwM0sy8qvbxG2EN
-	r1VcmE+J3HblXeLu08mBQMG62kGt8/ufKK3lX9rdGNNekdgdO2vfE/ZyAF4VlWOqa6EVbfIYyfnOp
-	VsV7NnYIMzZd5JWTUZEV10IWLO31QMLOG8DBZfQwblcuEEszPNHJfGizsZO7xJD7eSxvgwda9AwUm
-	KaVmZK0jIC4hgFRXBJDjG4HpfgjXD0X/dNLi9SkCffvWyR7tLnhyqXr32eTJ+EyCgRep41foFhai4
-	DetEs8IYwG9ckf7NLLBwACbg/DOs4mrcqlHORaAWPdc761K5r8XU2cUsJbvtLvwQFQeequqFflfuh
-	QkrSz6Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rOe/V2dIqH8cF6CYVYqeg4xafgczBUe8P8lTChGAnIk=; b=yfdjU7lpu1uERbfNptgujo8z1U
+	0QYp953t+Bvbw6b+pU0Mxql8a3zF6wnOoERErb9MxEdzFZjtTiFd51bM/shwT05e0hYDRRydoy+Tf
+	GAbY4t9ktsBb1xmd9f2MtxRNGjOSE3yP3OHRHIkjcrmw4LmjOM+R6W50kh2p8up88DFXsVzpEX9nJ
+	3X7lMOb0792G+Mxjn13uf9uLUrzUhM1gmallHsspMV3ectIOrzBfwznlU5DKQzNkiEOJT3r1K4Irs
+	ShQmdbVUe3VIZQwAPSJbUMVoKiBRTQCLFVRqPJp74P0HWecDpS/WQizpBtdHuSnYT6WxUyLkHxfbp
+	5fhvYXJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1imc-00000007saS-33pR;
-	Thu, 25 Sep 2025 10:01:02 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1v1iwE-00000007xNK-23ti;
+	Thu, 25 Sep 2025 10:10:58 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1imY-00000007sVm-1Two
+	id 1v1iwB-00000007xKp-1u9m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 10:00:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lbMQqTk2Kf+rlPHpMXuUzqiEEXZ/9at25JZDNouI6+U+As44cU/CcYNkg32ztQXWbaTrfsCJjaOkGLdyNNK7XAFlGsnH4ZuBbKjpC/Kbs2CB9f8WoBkxlqBoLnttiZ+gEunapMFOpyfx5rVC/0yMVHyb74DhC1tZllnKYezX1gP2nmPNSrJu9/sPMRVOcOXNP6bIK9ilMDY+vaI09lYdPGUaMghX97H2tokzhuCQPiNwhoI3MOfee7OmMI2s7QBJZI/FfBElvBuNgWKQNr/gOS+zCPG2xFsmtTJaPZoG8O5bt4jFzSbAJn0C81Zl6kcSz5dptYZbb9d0QUgBh14j5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DjfLd1KwWR3eJHSXHXjdsR07lo1IOFz8xElOeao3qbY=;
- b=AIbgWHy3IAB0XEr08b0giBRj0cjUE63ULoiJBNEOkbEtWxdjeQa+lLULpgIuVHkGYIRZFiFIiM0s2e/FbAcjFE5CWoz27zHestwuB7Sxs0R1nYtpavwu1uQTbeGs8rOVqsdMyCwFDFFzAeGGnb9g5yz/pT1N47GIvtcg8AITF5Fb1U71+HtU0ssssVN8pJPMVtzRSrMekpYYldOeg+xswTXmShy8kIPlDzf4KorJY6xXMQ9B0hQcto8C9YfEAMlnSJshcMUH4KHACjQXg8GaKxC+6B4gzwq6x68RLIxiB6SC2EbTL3KAcaBsafuYYu3VNwL4xppzyB24Kqt18l/arg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DjfLd1KwWR3eJHSXHXjdsR07lo1IOFz8xElOeao3qbY=;
- b=OXxAlb89AqIhtw5SUjF7+tl56JQbZEtk1sSUUG2Z36DpszniXUUsTiOkUxA16bT0U4MquK5C7SfacMCwq3+Js1lhL5ckMks276G7ol6sz0WVhOE+/v8hASRGd1TU5L5Kiy1GhwAxgp+fiS4ErzadhtcFsrvPvuENmSiy5L8iLP87bqNR/bQFejrBFlhQkOJnaNPWTRZV8v9N7rZqPbGuL0FCa8mfWEtTxqaTTZYYL4iagiI0pNjbN66+xYa8WeU3jgCfdihu3XNmXdvpBcb6aSJcWiRSHvQX4Qw1dXJuKM1/TKDgASPKZeZ5ac/1kEg0fGyzS6RKOqSRHC1idC401A==
-Received: from AM0PR01CA0145.eurprd01.prod.exchangelabs.com
- (2603:10a6:208:aa::14) by DU7PPF2CD800A78.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:18:3::bcd) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.19; Thu, 25 Sep
- 2025 10:00:47 +0000
-Received: from AMS0EPF000001B3.eurprd05.prod.outlook.com
- (2603:10a6:208:aa:cafe::8a) by AM0PR01CA0145.outlook.office365.com
- (2603:10a6:208:aa::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.22 via Frontend Transport; Thu,
- 25 Sep 2025 10:00:45 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AMS0EPF000001B3.mail.protection.outlook.com (10.167.16.167) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9160.9 via Frontend Transport; Thu, 25 Sep 2025 10:00:47 +0000
-Received: from phytec.de (172.25.0.51) by Postix.phytec.de (172.25.0.11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 25 Sep
- 2025 12:00:45 +0200
-From: Wadim Egorov <w.egorov@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <aradhya.bhatia@linux.dev>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH v2 3/3] arm64: dts: ti: am625-phyboard-lyra: Add Lincoln LCD185-101CT panel overlay
-Date: Thu, 25 Sep 2025 12:00:38 +0200
-Message-ID: <20250925100038.3008298-3-w.egorov@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250925100038.3008298-1-w.egorov@phytec.de>
-References: <20250925100038.3008298-1-w.egorov@phytec.de>
+	Thu, 25 Sep 2025 10:10:56 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46e2c3b6d4cso4734205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 03:10:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758795053; x=1759399853; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rOe/V2dIqH8cF6CYVYqeg4xafgczBUe8P8lTChGAnIk=;
+        b=ktnqPsrRik6E+Wa53/uJfa2/Uh7YYM6gxh1AerAPaF+dFZKJ/quZfkhUFK0lc8J+7C
+         y6EIs0ARnzfLTJu07MmmgvCBxywiuP0sp6JAvWzs3VnlPmAnWHNRyV3sC6Y73mtfcGCL
+         tGdQnPkO7V5zVFiG8EHxg+utyId26kS1Rl1J4i3niE5YXy1WFlI81MUssT2kRlxUh+SW
+         r90sL56hc0hzgqmKLjA8xiF+e0hbUcvxMpnRjzngV5Bd9WRIjJj4L6BuX1SAIYUx24OA
+         YJzBLZLg+XeWN/SBKQlvmB7p5ZQbP/0G7nUumABUff7cDvmLJKTN8rW9wQso9CxszjRC
+         6maw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758795053; x=1759399853;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rOe/V2dIqH8cF6CYVYqeg4xafgczBUe8P8lTChGAnIk=;
+        b=OLkFU5CepJN5CNH2+Mn/XdXEz+yMInECQ3k3OXAVG2CI7b7j4qUj4ggj80JrnsP2PV
+         7dDeGRd8vCNzwdm0ns5JsAFMOLF8D2tJfLVONpNNg6NRbA9ss2sNBtS+iXOWFANuU3jb
+         8zxW0mNGyY62e/Behwj19dwJNJHDD0deK+jbnEVkrCh0HS+Jder7yJAXw/uBc6IFmUNu
+         QV7CFu2Q/FNDAULcCCnumzA20zqnIlxb+PcaJ0cYZmia8Ej96oKXgj/RyHuBWEAq6bb4
+         tsLnQhPj4DCDQ9EqXijaeUOd/4FYjRAIT/VNAJQ3rQm8NLuNl9odIG5nFI4RxW4+du+N
+         Dfgg==
+X-Forwarded-Encrypted: i=1; AJvYcCWp0H2IkpQsnsCHDrqrltBVKmF1IqejHCXXFnA8SERC8tzsYn1og8hYIFKFeq2JZl69t7VfnqraPqFMv2TT5UDV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5BH5aoUddBf1dvDWE6mEKBUrdCJRYAOYrhgK9jCGloDPn/W2r
+	uUhQ0keGpMx36EK0K2ElrPOxw1Mo5jxa/BeE4M7gg9szYXQujzxx12pZ/CmzMRMdwfc=
+X-Gm-Gg: ASbGncuH/YU48WdnmBSivOjfNHJMs1j40jYGZyL8fgct+VXDKa7maspEKqtIk52XYK0
+	WfSbREXWovnchYdrDbN7C2LF0QrdhA9SiUTkNnCTRbVxAJLnr9SFuS49TaEIS2ShoGuN9/h1H5/
+	WCqj7IK4zoLBSdjfqKxXu9pFnKcdgthTDTL4p54yww21CibkhNfQlNLN+lSuR2k7wWVZBtZFrbl
+	iEntD15OSTYgMOyj+qrIpIBS0cx7hWWzBdenJEQN453XYwYdupm5nsz3mgfCCplpJLidUvEEN7X
+	4Inaj1nZc8X4fqrCPqLAKpBLkjcMDKTZerkEPV3v11gMB/6TS2jbiXBmsxojPETq5cGNVZE7PvV
+	a6EGJR6XXVfcx89Cb+836r2MbvZ+x
+X-Google-Smtp-Source: AGHT+IFKLqOqt62stWM0T5kpVyIEL9lneNcZ++3W9gEaCXSNMWcezei1Wkk6UZpKhu4oEPAHFgNNEA==
+X-Received: by 2002:a05:600c:6306:b0:46d:9d28:fb5e with SMTP id 5b1f17b1804b1-46e329ab29cmr30602985e9.5.1758795053180;
+        Thu, 25 Sep 2025 03:10:53 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2ab7d4e3sm69919775e9.23.2025.09.25.03.10.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Sep 2025 03:10:52 -0700 (PDT)
+Message-ID: <635ba698-d7a9-40d0-9285-4ec108d4a536@linaro.org>
+Date: Thu, 25 Sep 2025 11:10:51 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/3] coresight: tmc: add the handle of the event to
+ the path
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>,
+ Leo Yan <leo.yan@arm.com>
+Cc: Carl Worth <carl@os.amperecomputing.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
+ <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
+ <874isuo0m2.fsf@rasp.cworth.amperemail.amperecomputing.com>
+ <f7be3833-9b33-4935-b821-a2e0000a2557@oss.qualcomm.com>
+ <CAJ9a7VjaUE+iy=FFwPhCdfXgoGR3rP9WSx-ZkKYeCHhqJ2yzMg@mail.gmail.com>
+ <3b16607f-8995-46b1-aecf-c6aa79f66f9d@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <3b16607f-8995-46b1-aecf-c6aa79f66f9d@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.0.51]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001B3:EE_|DU7PPF2CD800A78:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f57bd38-7300-48d2-00f8-08ddfc1a66a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1woEwnL+Sw4D6jMEOqphiIX8AxwK2RkdoFWgYq2K06HrNInVFSJnjNXj9/z3?=
- =?us-ascii?Q?hE1ced+U8z+m6CxJ4s8GBGlUlbsoSBQNNvxoHs2qaGFXoLyYJuiGXF6fs3v8?=
- =?us-ascii?Q?VWvuaCpjtHVmwK+XdLx8FfZe/qGjErEbVlxaDztU9BCu6i7VMlMRs++e7WAb?=
- =?us-ascii?Q?jrtHCzNaRQIKkNFkt6fh0rkPUOHDkOmKUDQlp7N5ruBEKeE0xze7Jo/IFvR+?=
- =?us-ascii?Q?ZbAS8Ts3qDVpx7xem66JoMYmGUrK+2mU8Kr2YHSC6M6ks7UUdN2kE7F/8bG/?=
- =?us-ascii?Q?3UIJxehN7yyMzTm52z1uVMd2xwv2/97x/ZyQTLkJIrzfDtKos757ZlISyu7G?=
- =?us-ascii?Q?jWKkkstaBYAncEQdWek4jynvU/0neSziesYhecmqvYfAbPtgmCtC807e7P82?=
- =?us-ascii?Q?TbDGA7Iald2WOttqOg2HcY1RwZM+dr6laUJoO/2hVr9VopfpUkPyc9VUi2DK?=
- =?us-ascii?Q?6VIuDIFg4zYbsrhZY1Gl6SLRD173pXCa/b+gOIjbBmX8N1IOnVit0y5J8xym?=
- =?us-ascii?Q?mMih5m+ArIVovniRMelSzaLUmaH5aU1OyxAsqWzuxExK+PGmlLM/8gOCwF06?=
- =?us-ascii?Q?9WKeLQbNf+X1FD3VgSU7DkWVhqP9ZEv1rUqWKsUQfotbHoAVvOu0WVYg4MRk?=
- =?us-ascii?Q?jSWSYud//ksl7xMOQqN5ZlqET1IEInaI50ER/mVR60FbbhZTL89bZLeBZOZ3?=
- =?us-ascii?Q?dvjgXa2C2ATEg6DAOTSqHEJKkgWfS3oi/eaHOWF2ZdYrFWgpMQ7fsxKKhvP2?=
- =?us-ascii?Q?BjoV8j8YQoVWCJVh1yGUaPOhf40aag48viznBXLYwfDBuFUAacVViRRJIfZi?=
- =?us-ascii?Q?D9yJqHVUan2gKARaukaBd7DxF2Lg1Vc8g8HBT/0D54W7WCVF/uJ78ny89Zfd?=
- =?us-ascii?Q?YAWB2bb01O3odk9+NUL4x1XwaBr9KkLB60Ct49RcUPG/tQM82Gv1zOQnO0hC?=
- =?us-ascii?Q?YbMeg8beNPxJZBJjgZ/G6MCqFuWNmfn3yfWgpKMa4gFuoj1nd1DdO1MSTEyn?=
- =?us-ascii?Q?ziwef+Ooc5ph/Qw39W0sqQDmbUWqklFDtlnLkoIk4DzmkLUngQ2ARD1V0nEd?=
- =?us-ascii?Q?8B2XqEOfEvnYMc7tUyCXdzRYl3w2OVIUD2/eucmcCA6kTV7htHL8fXLctmuf?=
- =?us-ascii?Q?69LLd3IwbcSeBV3omt2RSZagXaMY7Q4+e+lFVK3K0tiIyHged2Wj9l3VXKTx?=
- =?us-ascii?Q?TkRLRj/M/OWFZl1sjaPDLfJtlHhKiIl8KUzbfgzhd2AhbdogfgntSvI4SNpa?=
- =?us-ascii?Q?iIV2zuiOOvImw57yLC/YNvinUsCMwvinbGj1H2e9nj+RcLxwVLd7gFZQssN4?=
- =?us-ascii?Q?bvY19ELQyjVCaKhT4M8AAYcYjqIdNEiK0kWtptnYruNambz0Mx2BJobtQDft?=
- =?us-ascii?Q?uhT5cI0B+1nlhG7zhqRJyfol+HOrI+n82DFLC2n69BvZZUl4pvRdZP4QkAOw?=
- =?us-ascii?Q?i685EDa0qvU6uQyzhGTVA9X0PS7ZXLY5/njeBNFnQN5F5bkaPIm/ng=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 10:00:47.7153
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f57bd38-7300-48d2-00f8-08ddfc1a66a0
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B3.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PPF2CD800A78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_030058_404219_E4BAC11A 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250925_031055_570250_A484F5EF 
+X-CRM114-Status: GOOD (  39.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,241 +110,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The panel is a Lincoln Technology Solutions LCD185-101CT [0]. It is
-a dual-link LVDS panel and supports WUXGA resolution (1920x1200).
-Furthermore, it has an I2C based touch controller: Goodix-GT928.
 
-Add an device tree overlay to support the Lincoln LCD185-101CT panel
-in combination with the phyBOARD-Lyra-AM62x.
 
-[0] https://lincolntechsolutions.com/wp-content/uploads/2024/09/LCD185-101CTL1ARNTT_DS_R1.3.pdf
+On 24/09/2025 5:42 pm, Suzuki K Poulose wrote:
+> On 24/09/2025 11:21, Mike Leach wrote:
+>> Hi,
+>>
+>> On Tue, 23 Sept 2025 at 02:49, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>>>
+>>>
+>>>
+>>> On 9/23/2025 1:31 AM, Carl Worth wrote:
+>>>> Jie Gan <jie.gan@oss.qualcomm.com> writes:
+>>>>> From: Carl Worth <carl@os.amperecomputing.com>
+>>>>>
+>>>>> The handle is essential for retrieving the AUX_EVENT of each CPU 
+>>>>> and is
+>>>>> required in perf mode. It has been added to the coresight_path so that
+>>>>> dependent devices can access it from the path when needed.
+>>>>
+>>>> I'd still like to have the original command I used to trigger the 
+>>>> bug in
+>>>> the commit message. I really like having reproduction steps captured in
+>>>> commit messages when I look back at commits in the future. So, that 
+>>>> was:
+>>>>
+>>>>         perf record -e cs_etm//k -C 0-9 dd if=/dev/zero of=/dev/null
+>>>>
+>>>
+>>> Sure, I’ll include your commit message in the formal patch series, I
+>>> think it's V3 since you have submitted two versions, if you're okay with
+>>> me sending it out.
+>>>
+>>>>>    /**
+>>>>>     * struct coresight_path - data needed by enable/disable path
+>>>>> - * @path_list:              path from source to sink.
+>>>>> - * @trace_id:          trace_id of the whole path.
+>>>>> + * @path_list:                      path from source to sink.
+>>>>> + * @trace_id:                       trace_id of the whole path.
+>>>>> + * struct perf_output_handle:       handle of the aux_event.
+>>>>>     */
+>>>>
+>>>> Fixing to "@handle" was mentioned in another comment already.
+>>>>
+>>>> Something about the above still feels a little off to me. It feels like
+>>>> we're throwing new data into a structure just because it happens to be
+>>>> conveniently at hand for the code paths we're needing, and not because
+>>>> it really _belongs_ there.
+>>>>
+>>>
+>> This data is perf specific - not path generic; so I agree that this
+>> structure should go elsewhere.
+>>
+>> I would suggest in the csdev (coresight_device) structure itself. We
+>> already have some sink specific data in here e.g. perf_sink_id_map.
+>>
+>> This could then be set/clear in the functions coresight-etm-perf.c
+>> file, where there is a significant amount of code dealing with the
+>> perf handle and ensuring it is valid and in scope.
+>>
+>> This can then be set only when appropriate - for source / sink devices
+>> and only when in perf mode, and avoid the need to pass the handle
+>> around as API call parameters.
+> 
+> I think this data is specific to the session we are enabling the
+> device(s) in. e.g., we keep the trace-id in the path.
+> So, I don't mind having this in the path structure.
+> Instead of modifying csdev with additional locking from "etm-perf"
+> it is always cleaner to handle this in the path.
+> 
+> 
+> Suzuki
+> 
+> 
 
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
----
-v1: https://lists.infradead.org/pipermail/linux-arm-kernel/2025-September/1065767.html
-v2: Use port dummies defined in previous patch
----
- arch/arm64/boot/dts/ti/Makefile               |   3 +
- .../k3-am625-phyboard-lyra-oldi-lcd185.dtso   | 188 ++++++++++++++++++
- 2 files changed, 191 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
+Yeah, and perf_sink_id_map only "needs" to be in the csdev because it 
+controls sharing IDs between multiple paths which can't be accomplished 
+by storing it in the path.
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index aad9177930e6..aa34a0d77615 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am652-phyboard-lyra-oldi-lcd185.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev.dtb
-@@ -165,6 +166,8 @@ k3-am625-phyboard-lyra-gpio-fan-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
- 	k3-am62x-phyboard-lyra-gpio-fan.dtbo
- k3-am625-phyboard-lyra-qspi-nor-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
- 	k3-am6xx-phycore-qspi-nor.dtbo
-+k3-am625-phyboard-lyra-oldi-lcd185-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
-+	k3-am625-phyboard-lyra-oldi-lcd185.dtbo
- k3-am625-sk-csi2-imx219-dtbs := k3-am625-sk.dtb \
- 	k3-am62x-sk-csi2-imx219.dtbo
- k3-am625-sk-csi2-ov5640-dtbs := k3-am625-sk.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
-new file mode 100644
-index 000000000000..b1feb665248b
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
-@@ -0,0 +1,188 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Author: Wadim Egorov <w.egorov@phytec.de>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/pwm/pwm.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include "k3-pinctrl.h"
-+
-+&{/} {
-+	display {
-+		compatible = "lincolntech,lcd185-101ct";
-+		backlight = <&backlight>;
-+		power-supply = <&vdd_usb_5v0>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				dual-lvds-odd-pixels;
-+				lcd_in0: endpoint {
-+					remote-endpoint = <&oldi_0_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				dual-lvds-even-pixels;
-+				lcd_in1: endpoint {
-+					remote-endpoint = <&oldi_1_out>;
-+				};
-+			};
-+		};
-+	};
-+
-+	backlight: backlight {
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bl_pwm_pins_default>;
-+
-+		compatible = "pwm-backlight";
-+
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <6>;
-+
-+		enable-gpios = <&gpio_exp 5 GPIO_ACTIVE_HIGH>;
-+		pwms = <&epwm0 1 50000 0>;
-+	};
-+
-+        vdd_usb_5v0: regulator-vdd-usb5v0 {
-+                compatible = "regulator-fixed";
-+                regulator-name = "vdd-usb5v0";
-+                regulator-min-microvolt = <5000000>;
-+                regulator-max-microvolt = <5000000>;
-+                regulator-always-on;
-+                regulator-boot-on;
-+        };
+This one is just a pointer to the perf handle which really does belong 
+to the session rather than the device. This makes it more of a path 
+thing than a csdev thing. Maybe we can rename path to be more like 
+"session", which also happens to contain a path. But I think path is 
+fine for now.
+
+However in this case handle is per-cpu data that is only accessed on the 
+same cpu in tmc_etr_get_buffer(). Assigning it in etm_event_start() just 
+copies the same per-cpu variable into a non per-cpu place that 
+eventually gets accessed on the same cpu anyway.
+
+If we exported it then it can be used directly without worrying where to 
+store it:
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c 
+b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 17afa0f4cdee..4c33f442c80b 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -42,12 +42,8 @@ static bool etm_perf_up;
+   * the ETM. Thus the event_data for the session must be part of the 
+ETM context
+   * to make sure we can disable the trace path.
+   */
+-struct etm_ctxt {
+-       struct perf_output_handle handle;
+-       struct etm_event_data *event_data;
+-};
+-
+-static DEFINE_PER_CPU(struct etm_ctxt, etm_ctxt);
++DEFINE_PER_CPU(struct etm_ctxt, etm_ctxt);
++EXPORT_SYMBOL_GPL(etm_ctxt);
+  static DEFINE_PER_CPU(struct coresight_device *, csdev_src);
+
+  /*
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h 
+b/drivers/hwtracing/coresight/coresight-priv.h
+index fd896ac07942..b834e8bef2a5 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -14,6 +14,7 @@
+
+  extern struct mutex coresight_mutex;
+  extern const struct device_type coresight_dev_type[];
++DECLARE_PER_CPU(struct etm_ctxt, etm_ctxt);
+
+  /*
+   * Coresight management registers (0xf00-0xfcc)
+@@ -49,6 +50,11 @@ extern const struct device_type coresight_dev_type[];
+  #define ETM_MODE_EXCL_HOST     BIT(32)
+  #define ETM_MODE_EXCL_GUEST    BIT(33)
+
++struct etm_ctxt {
++       struct perf_output_handle handle;
++       struct etm_event_data *event_data;
 +};
 +
-+&dss {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_oldi0_pins_default &main_dss0_pins_default>;
-+};
-+
-+&dss_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	/* VP1: Output to OLDI */
-+	port@0 {
-+		reg = <0>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		dpi0_out0: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&oldi_0_in>;
-+		};
-+
-+		dpi0_out1: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&oldi_1_in>;
-+		};
-+	};
-+};
-+
-+&epwm0 {
-+	status = "okay";
-+};
-+
-+&main_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@5d {
-+		compatible = "goodix,gt928";
-+		reg = <0x5d>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_screen_pins_default>;
-+
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
-+
-+		reset-gpios = <&main_gpio0 18 GPIO_ACTIVE_HIGH>;
-+		irq-gpios = <&main_gpio0 19 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&main_pmx0 {
-+	bl_pwm_pins_default: bl-pwm-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01b8, PIN_INPUT, 2) /* (C13) SPI0_CS1.EHRPWM0_B */
-+		>;
-+	};
-+
-+	touch_screen_pins_default: touch-screen-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x048, PIN_OUTPUT, 7) /* (N25) GPMC0_AD3.GPIO0_18 - RST */
-+			AM62X_IOPAD(0x04c, PIN_INPUT, 7) /* (P24) GPMC0_AD4.GPIO0_19 - INT */
-+		>;
-+	};
-+
-+	main_oldi0_pins_default: main-oldi0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x0260, PIN_OUTPUT, 0) /* (AA5) OLDI0_A0N */
-+			AM62X_IOPAD(0x025c, PIN_OUTPUT, 0) /* (Y6) OLDI0_A0P */
-+			AM62X_IOPAD(0x0268, PIN_OUTPUT, 0) /* (AD3) OLDI0_A1N */
-+			AM62X_IOPAD(0x0264, PIN_OUTPUT, 0) /* (AB4) OLDI0_A1P */
-+			AM62X_IOPAD(0x0270, PIN_OUTPUT, 0) /* (Y8) OLDI0_A2N */
-+			AM62X_IOPAD(0x026c, PIN_OUTPUT, 0) /* (AA8) OLDI0_A2P */
-+			AM62X_IOPAD(0x0278, PIN_OUTPUT, 0) /* (AB6) OLDI0_A3N */
-+			AM62X_IOPAD(0x0274, PIN_OUTPUT, 0) /* (AA7) OLDI0_A3P */
-+			AM62X_IOPAD(0x0280, PIN_OUTPUT, 0) /* (AC6) OLDI0_A4N */
-+			AM62X_IOPAD(0x027c, PIN_OUTPUT, 0) /* (AC5) OLDI0_A4P */
-+			AM62X_IOPAD(0x0288, PIN_OUTPUT, 0) /* (AE5) OLDI0_A5N */
-+			AM62X_IOPAD(0x0284, PIN_OUTPUT, 0) /* (AD6) OLDI0_A5P */
-+			AM62X_IOPAD(0x0290, PIN_OUTPUT, 0) /* (AE6) OLDI0_A6N */
-+			AM62X_IOPAD(0x028c, PIN_OUTPUT, 0) /* (AD7) OLDI0_A6P */
-+			AM62X_IOPAD(0x0298, PIN_OUTPUT, 0) /* (AD8) OLDI0_A7N */
-+			AM62X_IOPAD(0x0294, PIN_OUTPUT, 0) /* (AE7) OLDI0_A7P */
-+			AM62X_IOPAD(0x02a0, PIN_OUTPUT, 0) /* (AD4) OLDI0_CLK0N */
-+			AM62X_IOPAD(0x029c, PIN_OUTPUT, 0) /* (AE3) OLDI0_CLK0P */
-+			AM62X_IOPAD(0x02a8, PIN_OUTPUT, 0) /* (AE4) OLDI0_CLK1N */
-+			AM62X_IOPAD(0x02a4, PIN_OUTPUT, 0) /* (AD5) OLDI0_CLK1P */
-+		>;
-+	};
-+};
-+
-+&oldi0 {
-+	ti,companion-oldi = <&oldi1>;
-+	status = "okay";
-+};
-+
-+&oldi0_port0 {
-+	oldi_0_in: endpoint {
-+		remote-endpoint = <&dpi0_out0>;
-+	};
-+};
-+
-+&oldi0_port1 {
-+	oldi_0_out: endpoint {
-+		remote-endpoint = <&lcd_in0>;
-+	};
-+};
-+
-+&oldi1 {
-+	ti,secondary-oldi;
-+	status = "okay";
-+};
-+
-+&oldi1_port0 {
-+	oldi_1_in: endpoint {
-+		remote-endpoint = <&dpi0_out1>;
-+	};
-+};
-+
-+&oldi1_port1 {
-+	oldi_1_out: endpoint {
-+		remote-endpoint = <&lcd_in1>;
-+	};
-+};
--- 
-2.48.1
+  struct cs_pair_attribute {
+         struct device_attribute attr;
+         u32 lo_off;
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c 
+b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index bf08f6117a7f..7026994b02b3 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1328,8 +1328,9 @@ struct etr_buf *tmc_etr_get_buffer(struct 
+coresight_device *csdev,
+                                    enum cs_mode mode,
+                                    struct coresight_path *path)
+  {
+-       struct perf_output_handle *handle = path->handle;
+         struct etr_perf_buffer *etr_perf;
++       struct etm_ctxt *ctxt = this_cpu_ptr(&etm_ctxt);
++       struct perf_output_handle *handle = &ctxt->handle;
+
+         switch (mode) {
+         case CS_MODE_SYSFS:
+
+
+>>
+>> Regards
+>>
+>> Mike.
+>>
+>>
+>>
+>>
+>>> The core idea behind coresight_path is that it can hold all the data
+>>> potentially needed by any device along the path.
+>>>
+>>> For example with the path ETM->Link->ETR->CATU:
+>>>
+>>> All the mentioned devices operate by forming a path, for which the
+>>> system constructs a coresight_path. This 'path' is then passed to each
+>>> device along the route, allowing any device to directly access the
+>>> required data from coresight_path instead of receiving it as a separate
+>>> argument.
+>>>
+>>> Imagine a device that requires more than two or three arguments, and you
+>>> want to pass them through coresight_enable_path or similar functions...
+>>>
+>>> For certain coresight_path instances, we may not need the handle or
+>>> other parameters. Since these values are initialized, it's acceptable to
+>>> leave them as NULL or 0.
+>>>
+>>>
+>>>> Or, maybe it's the right place for it, and the cause of my concern is
+>>>> that "path" is an overly-narrow name in struct coresight_path?
+>>>>
+>>>
+>>> It defines the direction of data flow—serving as the path for trace 
+>>> data.
+>>>
+>>> Thanks,
+>>> Jie
+>>>
+>>>> But if a renaming of this structure would improve the code, I'd also be
+>>>> fine with that happening in a subsequent commit, so I won't try to hold
+>>>> up the current series based on that.
+>>>>
+>>>> -Carl
+>>>
+>>
+>>
+>> -- 
+>> Mike Leach
+>> Principal Engineer, ARM Ltd.
+>> Manchester Design Centre. UK
+> 
 
 
