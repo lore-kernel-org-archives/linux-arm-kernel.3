@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5EDCAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 11:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C317CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 11:48:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zz0ntQxtbSScgBceqf0xmJ6yCeJzqYsD5xVK+HpSWkw=; b=w664O8yD3Em1JbwVMjwKRBtUFj
-	HXsGwgEd0J4qAp9jgQUKz/I8cA1KV1MzHsNi/nxLOcTUPV3RtZwkYVMWa/ovgfCqhZ4aUCKn/lh1A
-	ENEoCkDCnyPrUha/lagMhagZYJTNJWowh6kGgumv3iFgKl1n4PiNHTJSCWywGl+hKlQ8a5AKMOCy1
-	NJ0zyjeFb/3asytC2u/1grF/msMXuFeOseAdDiCuu44AnHnJLMhQds6eiBQn+OBL+bdAQaLkACsEt
-	hpJyos8OoP4nHGHQOiEpPHib7NGkhNWUwYgrtSBWCVV3ct3DsobI1JFQREJroixclslWdMi5AQ5YQ
-	JVrzqsNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VO8foP5H4Ue/tAyEyJtS1OR2a2W/sOXrHOqpxaP+dII=; b=zXaZrskJByrfTwQlesbXzV3rqz
+	iIi2CDlwenFB+yHbrkWBX82Gdw9Wa30olXKFMvubMp5j+b7EYm8DTAqaC2wtFu9QI763J7vk3WOe9
+	T6JP1J7vYWcdP9XREEbjl6+lHDH+lHM8cJak3MsDPbYQhAbQVWWbPaXnJ2LWrbVkFpuOyyiqqGcsY
+	6Iru+2Cc25b1Odl0VhcvTWORsYOJo6PWVV8WOw4gqlLFrNBj9oBZa26n0hAWM9pU7dKmjYnJ/nWcB
+	4JnPiz/Ub/DoNcXqQ6/6KqBXoD1TYTUHxYjrf2/WIoTCiQjS3T87z+oJ74Veaww0S+Yg1Fb7DZLc2
+	/mVwwAcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kNf-00000008chB-3sHM;
-	Thu, 25 Sep 2025 11:43:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v1kSC-00000008eim-2BsS;
+	Thu, 25 Sep 2025 11:48:04 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1kNe-00000008cgE-2F61
+	id 1v1kS8-00000008ef7-3gdU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 11:43:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEEBB6051E;
-	Thu, 25 Sep 2025 11:43:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFE7C4CEF0;
-	Thu, 25 Sep 2025 11:43:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758800601;
-	bh=a5xPdx3jXMIi7dIC3fqaFYnfIes+xJu61vL48T1pH/s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FwLyz8IlT5sZGXEfJ/5PvIGhwv/edRsDGhxjaHVApRZYgaus6H+zHMQu05x5KWImR
-	 0fkYan4uSt5mgDwUeMS+KjzAaT3zrI4h/PHpa+ymSo78E0yTLStROaDkN5yje9aWnz
-	 PjmTYha7XF8hy8lXZcZDTWYVMSfrrAM5jOxAp/fag9bvV7GLdHr7IGMrKnKqnDO5SU
-	 igACWAO0G57a07/JC55DmJcPNv6rS3Z9/wOTQ6wrSBO5naJgml7Y/cklDOtd2qx7f4
-	 iJmb4bK44skn+5uduXQRbXvUydi+xCWm8e0uPGZBz6N5xNjyRhVYhHdOnPhRL7ADFs
-	 fPRk3RcBf8Xaw==
-Date: Thu, 25 Sep 2025 13:43:18 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Randolph Sapp <rs@ti.com>
-Cc: Kevin Hilman <khilman@kernel.org>, Michael Walle <mwalle@kernel.org>, 
-	Frank Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Andrew Davis <afd@ti.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
-Message-ID: <20250925-elephant-of-absolute-prowess-a97fcd@penduick>
-References: <20250915143440.2362812-1-mwalle@kernel.org>
- <20250915143440.2362812-3-mwalle@kernel.org>
- <7hv7lhp0e8.fsf@baylibre.com>
- <DD1IXJDTBQ72.2XIEIIN0YA713@ti.com>
+	Thu, 25 Sep 2025 11:48:03 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250925114757euoutp02c623ff34d88c3a16728d3b92a98084db~ohBRbEG-z1129711297euoutp02s
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 11:47:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250925114757euoutp02c623ff34d88c3a16728d3b92a98084db~ohBRbEG-z1129711297euoutp02s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758800877;
+	bh=VO8foP5H4Ue/tAyEyJtS1OR2a2W/sOXrHOqpxaP+dII=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=SRzPHQsYIpb94X4QWwQnypT60QLIs3LABHBgpPU6U+n+nJs5ug+56/MTP7OdLzH3O
+	 OMpYDFav8JCC6JX9hVPSs/ZwF/C8cg5AGP1N8Klmlt2OJ7EjPuOdJc6kETl+XP+BKS
+	 +Qk7CK09EqyusWIMdlERhYDvD+ae2Mv8H4qKK/vE=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250925114756eucas1p2fb0d86888580decc59de7ca0e68b7953~ohBQ90IKZ2841528415eucas1p26;
+	Thu, 25 Sep 2025 11:47:56 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250925114755eusmtip2d6fe84522c4c068a21975601caabe8dd~ohBPJeL_P1686816868eusmtip2k;
+	Thu, 25 Sep 2025 11:47:54 +0000 (GMT)
+Message-ID: <6c7cdef8-f912-4147-a4a2-641070a478e8@samsung.com>
+Date: Thu, 25 Sep 2025 13:47:52 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="xje5644bvvj2aacm"
-Content-Disposition: inline
-In-Reply-To: <DD1IXJDTBQ72.2XIEIIN0YA713@ti.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH RFC 2/2] drm/bridge: samsung-dsim: move clk setup to
+ enable
+To: Jan Remmet <j.remmet@phytec.de>, Andrzej Hajda
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, Jernej
+	Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, Jagan Teki
+	<jagan@amarulasolutions.com>, Aradhya Bhatia <a-bhatia1@ti.com>, Aradhya
+	Bhatia <aradhya.bhatia@linux.dev>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, Dmitry
+	Baryshkov <lumag@kernel.org>, Alexander Sverdlin
+	<alexander.sverdlin@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+	upstream@lists.phytec.de
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-2-94f9f775ee62@phytec.de>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250925114756eucas1p2fb0d86888580decc59de7ca0e68b7953
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250925113632eucas1p2c49ddb268d3e4e9d3ae226b87bd89c03
+X-EPHeader: CA
+X-CMS-RootMailID: 20250925113632eucas1p2c49ddb268d3e4e9d3ae226b87bd89c03
+References: <20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-94f9f775ee62@phytec.de>
+	<CGME20250925113632eucas1p2c49ddb268d3e4e9d3ae226b87bd89c03@eucas1p2.samsung.com>
+	<20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-2-94f9f775ee62@phytec.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_044801_515141_9367EA94 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +97,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25.09.2025 13:35, Jan Remmet wrote:
+> Move the samsung_dsim_init and so samsung_dsim_enable_clock to
+> samsung_dsim_atomic_enable.
+>
+> The base clocks may not be ready when pre_enable is called.
+>
+> commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable
+> and post-disable") points out that pre_enable hook definition says that
+> "The display pipe (i.e. clocks and timing signals) feeding this bridge
+> will not yet be running when this callback is called".
+>
+> Signed-off-by: Jan Remmet <j.remmet@phytec.de>
 
---xje5644bvvj2aacm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] clk: keystone: don't cache clock rate
-MIME-Version: 1.0
+Isn't this similar to this 
+patch https://lore.kernel.org/all/20250619-samsung-dsim-fix-v1-1-6b5de68fb115@ideasonboard.com/ 
+?
 
-On Wed, Sep 24, 2025 at 09:26:17PM -0500, Randolph Sapp wrote:
-> On Wed Sep 17, 2025 at 10:24 AM CDT, Kevin Hilman wrote:
-> > Michael Walle <mwalle@kernel.org> writes:
-> >
-> >> The TISCI firmware will return 0 if the clock or consumer is not
-> >> enabled although there is a stored value in the firmware. IOW a call to
-> >> set rate will work but at get rate will always return 0 if the clock is
-> >> disabled.
-> >> The clk framework will try to cache the clock rate when it's requested
-> >> by a consumer. If the clock or consumer is not enabled at that point,
-> >> the cached value is 0, which is wrong.
-> >
-> > Hmm, it also seems wrong to me that the clock framework would cache a
-> > clock rate when it's disabled.  On platforms with clocks that may have
-> > shared management (eg. TISCI or other platforms using SCMI) it's
-> > entirely possible that when Linux has disabled a clock, some other
-> > entity may have changed it.
-> >
-> > Could another solution here be to have the clk framework only cache when
-> > clocks are enabled?
->=20
-> So I looked into that. There are still about 34 clock operations that are
-> functionally uncached, but it does seem more logical than treating everyt=
-hing as
-> uncached.
->=20
-> Side note, why would someone even want to read the rate of an unprepared =
-clock?
-> I dumped some debug info for all the clocks tripping this new uncached pa=
-th.
-> Seems weird that it's even happening this often. Even weirder that it's
-> apparently happening 3 times to cpu0's core clock on the board I'm curren=
-tly
-> testing.
 
-The short, unsatisfying, answer is that the API explicitly allowed it so fa=
-r.
+> ---
+>   drivers/gpu/drm/bridge/samsung-dsim.c | 14 ++++++++------
+>   1 file changed, 8 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
+> index b5dd71f6a99057d98cf15090f6081d0460836ec5..53ce3228586ac0f6abfa252b7c15d9eba459c96c 100644
+> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+> @@ -1460,6 +1460,14 @@ static void samsung_dsim_atomic_pre_enable(struct drm_bridge *bridge,
+>   	}
+>   
+>   	dsi->state |= DSIM_STATE_ENABLED;
+> +}
+> +
+> +static void samsung_dsim_atomic_enable(struct drm_bridge *bridge,
+> +				       struct drm_atomic_state *state)
+> +{
+> +	pr_debug("%s called from %pS\n", __func__, __builtin_return_address(0));
+> +	struct samsung_dsim *dsi = bridge_to_dsi(bridge);
+> +	int ret;
+>   
+>   	/*
+>   	 * For Exynos-DSIM the downstream bridge, or panel are expecting
+> @@ -1470,12 +1478,6 @@ static void samsung_dsim_atomic_pre_enable(struct drm_bridge *bridge,
+>   		if (ret)
+>   			return;
+>   	}
+> -}
+> -
+> -static void samsung_dsim_atomic_enable(struct drm_bridge *bridge,
+> -				       struct drm_atomic_state *state)
+> -{
+> -	struct samsung_dsim *dsi = bridge_to_dsi(bridge);
+>   
+>   	samsung_dsim_set_display_mode(dsi);
+>   	samsung_dsim_set_display_enable(dsi, true);
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-It's also somewhat natural when you have a functional rate to set it up
-before enabling it and the logic driven by it so that you would avoid a
-rate change, or something like a cycle where you would enable, shut
-down, reparent, enable the clock again.
-
-In such a case, we would either need the cache, or to read the rate, to
-know if we have to change the clock rate in the first place.
-
-Maxime
-
---xje5644bvvj2aacm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaNUq1QAKCRAnX84Zoj2+
-dlS+AYDYcgVjmnkP3YmpKQblVoojlCq6+KQGaNg5XQixrO1I2MsBBcvKjFbkL9Fx
-/JpQrIYBgJTaiR/ihBAVpD80IqL5X6pNQAla0FGkzvuPA23E+shl4FQ7aGaa1SQf
-KklmoGMEWw==
-=HGWr
------END PGP SIGNATURE-----
-
---xje5644bvvj2aacm--
 
