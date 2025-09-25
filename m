@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3015CCAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1FF3CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EvtiP8cp8BhABUlmDna8Y0Y1St2GWHNIfZ0PtAqOnds=; b=v0R8S9hFH82O54LyPuxWpcdy7g
-	S6ARCsS+Nj8vA720ieIXfiK0Zo/JbyjXIgRDfnSKYRZJse6cThkVcbcXVH3y60Z7j97UDTZP2ZvAM
-	tlXhHgQ/F4gyaBua7tNFhQl+Orr/vOfCDTgEkTqpRSZIshV2Uhj8AxVgRqwvonM2HAZ8dURvPtFgE
-	IFyqYBUkInz1eF1XvTyZ2w8Z+ABzW/h9vzyZge7RVhaTuLScInGNVU8h61UaZVFWgrOJ7cxjCPBF6
-	BNzid2iT/ReKxTrsV7PhYx6sqtvbWcbA5/3++Y9joZlaw+WIgpd9tWATIq68zuEjWztQKxA0FRA09
-	rdtASOVQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pQfOvvpVeHu2haioKIlLlNw0O7AmtYvMNB5o/K0IIVw=; b=y8UAybxlUuMkLGQIJHq1hcpgLi
+	xzrriF46QC0zRJAQrZ+kxWlBAaP23tfyaCR7JfXOhO9cX9uXddOeHv+u4nHZ6tiu2wysj9sKE2kHq
+	pj4NPBtxmy3R6LrnEnUkQGA1Yk3N0sLR9nErznecS3a+UaYLPZEyafFbsbqNoTp26HP+vPNFQINvL
+	aFLluVxeG+b5N60pzfPdHhJ/RJCQfsXTNE/xe3t9C0ReMkzicjTvc2kQnEXtmKVYUl1na1AmPZESn
+	tm8B0L442ypX8niR0/0EFcIpJLxeLIgH/iQA8jA+B2Vq+k9JZpgtJ91uIDs3OJS7t7hJvKDwJAwCV
+	69dbxN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nXd-0000000AQ5c-1uA6;
-	Thu, 25 Sep 2025 15:05:53 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1v1nZp-0000000ARWx-3tlW;
+	Thu, 25 Sep 2025 15:08:09 +0000
+Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nXb-0000000AOY8-3Kwj
+	id 1v1nZo-0000000ARVm-06fV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 15:05:53 +0000
+	Thu, 25 Sep 2025 15:08:09 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758812638;
+	t=1758812641;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=EvtiP8cp8BhABUlmDna8Y0Y1St2GWHNIfZ0PtAqOnds=;
-	b=qc+APSbfWfm1HkxNcTUxP7A7opt9wXkSXngWpYL2pyaw4uSvSeu6Qe+/07OQwHr20jSsbp
-	0wDu6H/3V2x79Fjv607xpQZtCHzXNCdQe+UEqVidFbzQeWUzeLIXXX1S1FbL4faWTgE2j5
-	zuHkCL88AGRahruz20aL/3tXpF7fbn0=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pQfOvvpVeHu2haioKIlLlNw0O7AmtYvMNB5o/K0IIVw=;
+	b=TEvzXx6ei1B2c2+lW41m/X5MmbR4yRgiJMJajXSQOD3eyLHfhNLjUBheaWJ4BRRgKowzCF
+	6vtBucMjyQX2Wg6Okh2aoaWddHg6oh+NOENuVQ9+jXEAx8Y3kL68YL4gw7q5J1T9TZ2yeW
+	P4BVhqE1ZN/ZscO/zpB7S39g2BLxpf4=
 From: Sean Anderson <sean.anderson@linux.dev>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	coresight@lists.linaro.org,
@@ -49,16 +50,17 @@ Cc: Leo Yan <leo.yan@arm.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	James Clark <james.clark@linaro.org>,
 	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v5 0/3] coresight: Fix possible deadlock in coresight_panic_cb
-Date: Thu, 25 Sep 2025 11:03:39 -0400
-Message-Id: <20250925150342.1845615-1-sean.anderson@linux.dev>
+Subject: [PATCH v5 2/3] coresight: Reorder coresight_device_release to match coresight_register
+Date: Thu, 25 Sep 2025 11:03:41 -0400
+Message-Id: <20250925150342.1845615-3-sean.anderson@linux.dev>
+In-Reply-To: <20250925150342.1845615-1-sean.anderson@linux.dev>
+References: <20250925150342.1845615-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_080551_974152_CC094864 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250925_080808_198875_ED1E38F4 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This time with the notifier in csdev.
+To make it easier to determine where to add new release actions, reorder
+the actions in coresight_device_release to be the reverse of
+coresight_register.
+
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+---
 
 Changes in v5:
-- Split reordering of coresight_device_release into a separate patch
-- Check csdev mode before calling sync()
+- New
 
-Changes in v4:
-- Fix fwnode leak in coresight_register error path
-- Move the panic notifier into csdev and restore the panic sync API
+ drivers/hwtracing/coresight/coresight-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v3:
-- Rewrite patch to remove the panic sync API entirely
-
-Changes in v2:
-- Add a comment describing csdev_lock/list
-- Consolidate list removal in coresight_device_release
-
-Sean Anderson (3):
-  coresight: Fix fwnode leak in coresight_register error path
-  coresight: Reorder coresight_device_release to match
-    coresight_register
-  coresight: Fix possible deadlock in coresight_panic_cb
-
- drivers/hwtracing/coresight/coresight-core.c | 71 ++++++++------------
- include/linux/coresight.h                    |  2 +
- 2 files changed, 30 insertions(+), 43 deletions(-)
-
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 022c8384b98d..305b1773cfbe 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1046,8 +1046,8 @@ static void coresight_device_release(struct device *dev)
+ {
+ 	struct coresight_device *csdev = to_coresight_device(dev);
+ 
+-	fwnode_handle_put(csdev->dev.fwnode);
+ 	free_percpu(csdev->perf_sink_id_map.cpu_map);
++	fwnode_handle_put(csdev->dev.fwnode);
+ 	kfree(csdev);
+ }
+ 
 -- 
 2.35.1.1320.gc452695387.dirty
 
