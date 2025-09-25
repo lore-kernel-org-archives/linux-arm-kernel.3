@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9570CCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B104BCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LpaNtOZ/byIV/f/TXpPkcpmZJH/cZvq+sT+/f8r70EI=; b=he7r9ZsIlohgw0FKbU+dbqzeLm
-	iHYokKnXvOyV/3Ho9x3+8XwooIIliDphigivfnKEk6pnwZkFWR7UkEwjZc/zCyZos/sKOpnHMj/wg
-	WASFtNSqaEW9a0087wtxPpvyXojxXqiylklBQ6ZFwLmebVQEw/wClKp7EoRwvYvBY4ThuUm2il6AH
-	rApiAxhbijEQTr2q28PKXkdWYyqG8B2oNimEvqpF58LD/XEaoLPJsuALntQa98QamsCdVGJO1YFsJ
-	EExF4JaO3KRFwHfiaWEy30nKreXJNnPHF/wxGDHND89bo+laJWiDNvnuD18+MxUBLKSzuf5/0UF86
-	Xf7PJY4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EejZf4QziLZePomlHcKbVbhRWJO3IKyIRNdV3+twcUQ=; b=AGPssa/EjlwSA5QzcU2KTvbOOI
+	mZjVQEPhywydIWDAd17P5lkuvJmjJgDsDYSCKsO+LRewyqAuxSOYBMWkg4VY5N4NjulAj1uPaiMv8
+	32Py75VUu/WDKL5jzq7D+Rm+F0xEygdAVqrgX7NpiSQtnR3xufx/UP3wgdOd838W65W6TIibgTe0f
+	WeBeG01QI6cScEUax2w48KwS2/W/lYifMm0/ps5BGm91Ck6su/UALG8lJSZdqVeJOS3yrUg3VsuWe
+	aYqTJVvFrc12uU1ukElQNztcfDZ5R8+OfCzBnr+ulzN5+mxTBOePlYWwnAKuXA3+/+TJ+WinB9BhA
+	96DPr18A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lb6-00000009CiH-2qU5;
-	Thu, 25 Sep 2025 13:01:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v1lgP-00000009F0Z-1XIi;
+	Thu, 25 Sep 2025 13:06:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lb4-00000009CgA-1zK5
+	id 1v1lgN-00000009Ezk-3b7a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 13:01:19 +0000
+	Thu, 25 Sep 2025 13:06:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C9C5441FB;
-	Thu, 25 Sep 2025 13:01:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A239BC4CEF0;
-	Thu, 25 Sep 2025 13:01:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 46D9D6054E;
+	Thu, 25 Sep 2025 13:06:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 920D7C113D0;
+	Thu, 25 Sep 2025 13:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758805273;
-	bh=Ejn+jXYsuwN2KMiTy9i/2i1LIyvkc8U+LXh052Sk+5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N8VdYWQFoDZqGW3xaLiew0jQRAeYDTUBXdm+OAxNu+YifuPH+y6HbkScfo/UuW1oe
-	 1C+Q/485jYTARK7umSzIoXYPRnQYqddfyGRgebO5VD9eV+d3h+32bihfy3x1pZdh1n
-	 +pP2kVTS7wnij/oPX+tRR2EqaR29Hm6jqwAANyMUGyOBubxGINWIv0rjuxUixRk9E+
-	 3474anTI9ZsG4McuAJqGJUaQ/nkvtvS8n+Yw1oUCdNCbBWgxTg7xHiWcYwA+5NCRov
-	 lqhkrJS2HO19BMMhhbVGPDOJQSElqE78HHEc1bkfS5tDhlPmbrZkeagTxo4udcPSAQ
-	 1FNHUm7Truc6A==
-Date: Thu, 25 Sep 2025 14:01:08 +0100
-From: Will Deacon <will@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Hanjun Guo <guohanjun@huawei.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
-Message-ID: <aNU9FPYAUnBMMznn@willie-the-truck>
-References: <20250919184025.15416-1-will@kernel.org>
- <778ccdfe-791c-4d67-a7f5-354ea84159dc@roeck-us.net>
+	s=k20201202; t=1758805607;
+	bh=tqHiPuaWvPkWNyWSejFJnXiHQaUaHLR+Dsrl+qUoonE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kQrG8RUhEmZDzFq7uUXrW2aUzU/juCKW/Z0JZX4mnIHFCAL6KODWeh4dB6AQLe6xc
+	 PfTNxofgZFn89DvL3mZLIRwlAly3B2gydD1YejNSWbYD/KV0SDt1uvMcQRRLaMLwtQ
+	 +8sMFXWtkbVqMLsTdaUtt1DH0fVU1UR3YmCk3AgoIJgXuMaLo5iGBTMy8UPyUr2PgM
+	 UQl41Q9MTh7Vn6O08eEOe+v5UjEYvbunuUT6kNGuoHvq1G0jiDKO2C/E8yCaGgHwxB
+	 5Jzp+QsnsbT7ljExB8ER52wfMKfndh3GlRPPivYMCuvdBclDMeUI1o1BCCb5jrtvzR
+	 2wyZH1ZSnLBAg==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Jonathan Chocron <jonnyc@amazon.com>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Subject: Re: [PATCH v10 0/4] PCI: dwc: Add ECAM support with iATU configuration
+Date: Thu, 25 Sep 2025 18:36:36 +0530
+Message-ID: <175880556056.15879.13833041080045099781.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
+References: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <778ccdfe-791c-4d67-a7f5-354ea84159dc@roeck-us.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_060118_538887_5A32C4B5 
-X-CRM114-Status: GOOD (  21.69  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 09:09:16AM -0700, Guenter Roeck wrote:
-> On 9/19/25 11:40, Will Deacon wrote:
-> > Big-endian arm64 configurations are vanishingly rare, yet we still claim
-> > to support them in Linux despite very limited testing or visible
-> > interest. Supporting big-endian adds unnecessary burden to reviewers and
-> > contributors which, without any known active users, is hard to justify.
-> > For example, recent work to improve our futex routines and to implement
-> > nested virtualisation support is non-trivially complicated by having to
-> > support both big- and little-endianness.
-> > 
-> > Back in 2019 [1], it was claimed that Huawei were using arm64 big-endian
-> > machines in their telecommunication products but I don't know whether
-> > that's still the case and certainly haven't seen any patch contributions
-> > to help support or maintain it.
-> > 
-> > Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
-> > towards its removal.
-> > 
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Ard Biesheuvel <ardb@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Hanjun Guo <guohanjun@huawei.com>
-> > Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> > Cc: Guenter Roeck <linux@roeck-us.net>
-> > Link: https://lore.kernel.org/linux-arm-kernel/73701e9f-bee1-7ae8-2277-7a3576171cd4@huawei.com/ [1]
-> > Signed-off-by: Will Deacon <will@kernel.org>
-> > ---
-> > 
-> > Cc'ing Guenter as a heads-up in case he needs to turn down his testing
-> > to avoid this causing a false regression report.
+
+On Tue, 23 Sep 2025 16:56:50 +0530, Manivannan Sadhasivam wrote:
+> The current implementation requires iATU for every configuration
+> space access which increases latency & cpu utilization.
 > 
-> Cool, one more architecture to drop. I wonder if I should drop arm64 big endian testing
-> for all kernel releases. That would simplify my test infrastructure substantially,
-> and it would avoid useless regressions due to bitrot for older kernel releases
-> if no one is using it anyway. Thoughts ?
+> Designware databook 5.20a, section 3.10.10.3 says about CFG Shift Feature,
+> which shifts/maps the BDF (bits [31:16] of the third header DWORD, which
+> would be matched against the Base and Limit addresses) of the incoming
+> CfgRd0/CfgWr0 down to bits[27:12]of the translated address.
+> 
+> [...]
 
-It's entirely up to you, but I'd suggest leaving it running until 6.18
-is out and then turning it all off if nobody has chimed in to say
-they're using this stuff.
+Applied to pci/controller/qcom, thanks!
 
-Will
+[1/4] PCI: dwc: Add support for ELBI resource mapping
+      commit: c96992a24beca0768c1c42ad25d6a466e17ec70f
+[2/4] PCI: dwc: Prepare the driver for enabling ECAM mechanism using iATU 'CFG Shift Feature'
+      commit: f6fd357f7afbeb34a633e5688a23b9d7eb49d558
+[3/4] PCI: qcom: Prepare for the DWC ECAM enablement
+      commit: 4660e50cf81800f82eeecf743ad1e3e97ab72190
+[4/4] PCI: dwc: Support ECAM mechanism by enabling iATU 'CFG Shift Feature'
+      commit: 0da48c5b2fa731b21bc523c82d927399a1e508b0
+
+Best regards,
+-- 
+Manivannan Sadhasivam <mani@kernel.org>
 
