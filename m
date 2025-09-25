@@ -4,122 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8381ACAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 01:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20654CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 01:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DbUhjN5CIGWSt9WkjZTIH5uwxuwIn+CRrMV8Oz+n67A=; b=j1Jg6JDF8T5/rjk/41Gdfzhab4
-	c250vAYwvnC0sqKz4DF1cVUUKz4Yh4dDneZtSbylgnLvkeIM/08RtRvqdYPwPvr0Cx/bQBH7GjKOf
-	WxNw6LmScNDTUWXDS4UF/QU71gP0rOGPzcOMijBL3uJ4CNKsD8jtdS9hiXBtULZb6VH0CxXN658E7
-	b+pDl9XUOk5UJ3G+jUXE6gMkeOEwHs2hb35q7YqTUQcwWwm6FeQuAwmCEdt3TWWcQBDlNHzZ/HhTp
-	tJnp5VKFmXj5cc4ItvKvfvuJ842HSKULCTsgHtqf/ALdnQyZRrlU3fjGfycBt4ADltWZqpVMznuYq
-	oF0N5x1Q==;
+	bh=hovQSyd+JxEsYjlB8mTVe+qRtrkSjfOrblEnkCkXXJg=; b=SIDU4skSkz62Yvf/7KK4bC1Doi
+	VgHX0Rauz5AE38+o4qKPhCN4rCsJ0Q4y3lnt47sqAY8P2HRomUcuMlYT6gCJs8oi2B5IcYKjSRmc2
+	xIDd9ZSMmTxdjs7FVmiNRKJkDfb3YqrQI0JR5eOIlHCaFrWuE2/84WI3KFDk5fkq2cbIeMaOeg4PH
+	9KHcZ333w98BV48p6vOXtUOKmch+TdXEyhNi4/FtpYUT5a5u+ormkCQnNBNfh+jzgVkZ5HfPMs2BJ
+	7deEByoSLR4N3cY51NIRb/VrGoWXzzmDjo4bPO3ckCq+mNGYlPcQ+i33zcciSU5S1yNExXSoh1x03
+	42nTPwZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1aUf-000000059kR-1jmJ;
-	Thu, 25 Sep 2025 01:09:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v1ach-00000005AYP-4A3D;
+	Thu, 25 Sep 2025 01:18:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1aUd-000000059jn-04Oc
+	id 1v1acg-00000005AYG-438F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 01:09:56 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58ONq6tb021486
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 01:09:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=DbUhjN5CIGWSt9WkjZTIH5uw
-	xuwIn+CRrMV8Oz+n67A=; b=DZDayiedObjYn5sPShaRMCrXuWpgoG8g83mwdC4o
-	zsMM3TiN5iB2yOV0oFbCpRNLPXroSzKuTXbgcMmWMJqqLPYoccmqPXh5S3sdhveO
-	90i6UqZUOoLUIzAQIprL4LvlqoKvnY/qyvMPXk15pTbRxpFxu1l703rrZCGLPQW8
-	n0SDz0Ysu7umuMbQpcUQIAe6X2HV/rsTvLqCNHocMMTmM907uRrrSY57evXZYmdl
-	F7kftmcyzY1f1+wiVKlAHPxZnooiow4/hDHVgvxRNOJzOhausCigu1YJmwAo+F7A
-	9rgXQuZXjCdk7eM4Uqm1vmfru1RExeCpeZPjiFmaKBff/Q==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49budadt9k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 01:09:52 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4ca4eeb9b06so9973711cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 18:09:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758762592; x=1759367392;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DbUhjN5CIGWSt9WkjZTIH5uwxuwIn+CRrMV8Oz+n67A=;
-        b=vf1hTci+kk6oGR1howD0V+ke4k2nXlL8jr/MTQY3baltCJfK/n2Osugr4W4qpsIyv3
-         xzZBMgPT5FB5M0Vcq50S0ELpna92+rYWvc85J4f0LRsn4fA+DPO57E+0QU50ofqOPb7r
-         AOTsfXUO7rQ25OBNwDDC7UGOOR0lDIwrdEcvfDVL8b/8BUsV8VXZF71gVREpbH4cXUIN
-         N94+ijK8L2XltFO3okCBz1TXUFuZSLP9p9G/cCNn/Fdq5c1IQm8hQmSAbr4mf47WhPIX
-         wWqgnbpJqMuReUCcbJ84QMDhbH0l+IeVIWDjh+IZVKolWpkc9NvhJR0bC7Wd4ZdDm9AW
-         Uh8g==
-X-Forwarded-Encrypted: i=1; AJvYcCV5Pn8WgZVPe8oLCyF7A6OyzBhkF0WOGHde/qvMPGmoFg5ULzeffY0YMNfmMucRFZHAFEYrBlLsehwgLK5T9kga@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhk4+lqEQUSBObWEE82NbqikVgeWvdadFs+/AG6pcfY1TqO+m3
-	IBIwBP17Pk9Nu4MinJlAU3PTYKrTziuxsmDjaaUZhARJdIMhCj+P/wG0rPAkXkzQYEkZnttkAVY
-	HAMdzFFhAjdOtNEY1YurHG1Vk6dmat2QdN72XNHUEKq5SU9vg6LwasJxEEq8IRolbpTv9GomZzf
-	daoA==
-X-Gm-Gg: ASbGncuC9X8wpfLPGB3PWkPnLfti6vbEChiNifHtnDCvpgzEgtockoFPw65X9C3JHpu
-	KIcvkMX0qd0XwO/Adz2p8teNWxdVCUIFPhdDywdjJpD0Qn0leFikHiIRcRx/mBpVku3cJ3My9bw
-	46vn6UAO82AnN7lma4EPVrRQj09RmHcthQ2VV5S/YPjUXSStATkEFHgHG9eVRUlFLww8G9DHAmM
-	E6elXgU1w8sRiDbZR36N6SzE1fQaOsOBG1swt1QLd3w1E+yy183URToKN01xfLNGGIsqtuM0s1g
-	vTrJWr4MoRnMmKupXyIoL3KjKoSKA3k+wNUfpkXaWzCi4lr6EzE0B52TX/CA+D7Affrq4skW3d/
-	bXcxAzCGJe89ELCM9sj9W2QZh9UPvpkcnCIy7m4Q/XRGrIdTqJoN1
-X-Received: by 2002:ac8:7d8e:0:b0:4ce:dcd9:20e5 with SMTP id d75a77b69052e-4da4c39b63dmr22909191cf.61.1758762591311;
-        Wed, 24 Sep 2025 18:09:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFHy06/44VJG9y/4ON5huaolTpEddWVJd1dr3xZtLHQ8wyGirA7dIu3ZPD6BlpqavkK+a5x3g==
-X-Received: by 2002:ac8:7d8e:0:b0:4ce:dcd9:20e5 with SMTP id d75a77b69052e-4da4c39b63dmr22908561cf.61.1758762590203;
-        Wed, 24 Sep 2025 18:09:50 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58316a3252csm183105e87.119.2025.09.24.18.09.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 18:09:49 -0700 (PDT)
-Date: Thu, 25 Sep 2025 04:09:47 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
-        simona@ffwll.ch, matthias.bgg@gmail.com, dmitry.osipenko@collabora.com,
-        granquet@baylibre.com, rex-bc.chen@mediatek.com, ck.hu@mediatek.com,
-        amergnat@baylibre.com, djkurtz@chromium.org, littlecvr@chromium.org,
-        bibby.hsieh@mediatek.com, dri-devel@lists.freedesktop.org,
-        linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH 1/3] drm/mediatek: mtk_dp: Fix hdmi codec and phy driver
- unregistration
-Message-ID: <72pgsr4birfy5wtf5umsfkahr7tplnih5wxoj4x33igapaspmg@7iafkarq4hzg>
-References: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
- <20250924103708.19071-2-angelogioacchino.delregno@collabora.com>
+	Thu, 25 Sep 2025 01:18:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 474F7601EB;
+	Thu, 25 Sep 2025 01:18:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD03AC4CEE7;
+	Thu, 25 Sep 2025 01:18:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758763094;
+	bh=45bAfEzqB4LMImO72az8/GSyERP99FSqFK9rILx3i4k=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=n50gbN6XBzzmYff3NeHKPI4Qf7l/TA8deCuiLrcdX8GQGy4yimp+I09eEuoUIhNkJ
+	 CzAPqg5pkgFd3UzV+5KrGlKq48jKr5zxZXGEZEM8mlXGLKiKr1hY6xJhUcoXSRgGau
+	 lpJHKsQnU54bJwZzR98vY2Wr6FRxWYkFNlFSPZGkUzZkEM9g7SAnczgC2FoGyjCxFB
+	 99z2K6PpbfceiZBSuy4DzxJBlCiTH8HSuytnC+P2+U3rW9oBsLaE8qgbaupAv9NKcT
+	 Br9gsnM+L6syEaeCZP3B1wTatmT6E7wvTUTkqi/UGOmfw5lnA9aTxHgrIhFRBwD/3m
+	 IE/Evxqjx9Nyw==
+Date: Wed, 24 Sep 2025 20:18:12 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250924103708.19071-2-angelogioacchino.delregno@collabora.com>
-X-Proofpoint-GUID: gXjuV-Za8JWFa-jOseMFUhEeLFML_nP0
-X-Proofpoint-ORIG-GUID: gXjuV-Za8JWFa-jOseMFUhEeLFML_nP0
-X-Authority-Analysis: v=2.4 cv=Yaq95xRf c=1 sm=1 tr=0 ts=68d49661 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=QX4gbG5DAAAA:8 a=O6Y6ztsS-7Sf4rctI10A:9 a=CjuIK1q_8ugA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIzMDExMyBTYWx0ZWRfXx726VBCqhlRG
- 48vpxRQARfvAJxrHw9P0rDfeX3iYH7nLCO3CJpiFpJo8Bdj3IvehbH3JrIWYSNUynCmjMW8wx5b
- 4iB5OtTzLpDEr3k0AzRYJN2HpNWgAYQPIkX58mwwCIQGKgmriXTvnZFImg6x9WCXzS0ZzAE4x5w
- oX+CCz22jIxFKtoWurcGP/LIj18kXcgZCzzCP2eIGvyFFAvjnfQWl4O0RgmF8VcxjvIk6PXq3/S
- NdYoMOCUqkzmSp+JGEevhPx/Q9gMxqLiLBFywIJaFqPyRhFoJfh8wfKQxHvsegjrVRtM/28TCKJ
- B1zELKkeW+wufVRvMaVsI8hQQR8xZ8krrZsQAR7x1zh1EhQP97dKlT/iR8vuUTNf3Ffe9zR3duC
- JKvLayUt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-24_07,2025-09-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 phishscore=0
- adultscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509230113
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_180955_170318_5FC3CDC5 
-X-CRM114-Status: GOOD (  21.41  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, linux-arm-kernel@lists.infradead.org, 
+ linux-sound@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+ imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-kernel@vger.kernel.org, Takashi Iwai <tiwai@suse.com>, 
+ Michael Trimarchi <michael@amarulasolutions.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
+ linux-amarula@amarulasolutions.com, Frank Li <Frank.Li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20250924130749.3012071-1-dario.binacchi@amarulasolutions.com>
+References: <20250924130749.3012071-1-dario.binacchi@amarulasolutions.com>
+Message-Id: <175876282784.3268717.7038048984656005880.robh@kernel.org>
+Subject: Re: [RESEND PATCH 1/3] ASoC: mxs-saif: support usage with
+ simple-audio-card
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,35 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 12:37:06PM +0200, AngeloGioacchino Del Regno wrote:
-> During probe, this driver is registering two platform devices: one
-> for the HDMI Codec driver and one for the DisplayPort PHY driver.
+
+On Wed, 24 Sep 2025 15:07:44 +0200, Dario Binacchi wrote:
+> Add support for enabling MCLK output when using the simple-audio-card
+> driver. In the sound/soc/mxs/mxs-sgtl5000.c use case, that driver
+> handles MCLK enable/disable by calling mxs_saif_get_mclk() and
+> mxs_saif_put_mclk() at probe/remove. This does not happen when the
+> simple-audio-card driver is used. Extend the mxs-saif driver to enable
+> MCLK output in that scenario.
 > 
-> In the probe function, none of the error cases are unregistering
-> any of the two platform devices and this may cause registration
-> of multiple instances of those in case this driver returns one or
-> more probe deferral(s) in the "wrong" spots.
-> 
-> In order to fix this, add devm actions to unregister those and
-> remove the manual calls to platform_device_unregister in the
-> mtk_dp_remove() function, as those would otherwise be redundant.
-> 
-> Fixes: e71a8ebbe086 ("drm/mediatek: dp: Audio support for MT8195")
-> Fixes: caf2ae486742 ("drm/mediatek: dp: Add support for embedded DisplayPort aux-bus")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 > ---
->  drivers/gpu/drm/mediatek/mtk_dp.c | 30 ++++++++++++++++++++++++++----
->  1 file changed, 26 insertions(+), 4 deletions(-)
+> 
+>  sound/soc/mxs/mxs-saif.c | 123 ++++++++++++++++++++++++++++-----------
+>  1 file changed, 90 insertions(+), 33 deletions(-)
 > 
 
-You can save yourself from all these troubles if you store the
-registered device at  connector->hdmi_audio.codec_pdev (see
-drm_connector_cleanup()).
 
-And of course, you might use DRM_BRIDGE_OP_DP_AUDIO in order to reduce
-code duplication.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
--- 
-With best wishes
-Dmitry
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit cec1e6e5d1ab33403b809f79cd20d6aff124ccfe
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250924130749.3012071-1-dario.binacchi@amarulasolutions.com:
+
+arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dtb: pinctrl@80018000 (fsl,imx28-pinctrl): 'auart0-2pins@0', 'auart0@0', 'auart1-2pins@0', 'auart1@0', 'auart2-2pins@0', 'auart2-2pins@1', 'auart2-pins@0', 'auart3-2pins@0', 'auart3-2pins@1', 'auart3@0', 'auart4@0', 'auart4@1', 'can0@0', 'can1@0', 'duart-4pins@0', 'duart@0', 'duart@1', 'edt-ft5x06-wake@0', 'edt-ft5x06@0', 'fec-3v3-enable@0', 'gpmi-nand@0', 'gpmi-status-cfg@0', 'hog@0', 'i2c0@0', 'i2c0@1', 'i2c1@0', 'i2c1@1', 'lcdif-16bit@0', 'lcdif-18bit@0', 'lcdif-24bit@0', 'lcdif-sync@0', 'leds@0', 'mac0@0', 'mac0@1', 'mac1@0', 'mmc0-4bit@0', 'mmc0-8bit@0', 'mmc0-cd-cfg@0', 'mmc0-sck-cfg@0', 'mmc1-4bit@0', 'mmc1-cd-cfg@0', 'mmc1-sck-cfg@0', 'mmc2-4bit@0', 'mmc2-4bit@1', 'mmc2-cd-cfg@0', 'mmc2-sck-cfg@0', 'mmc2-sck-cfg@1', 'pwm0@0', 'pwm2@0', 'pwm3@0', 'pwm3@1', 'pwm4@0', 'pwm7@0', 'saif0@0', 'saif0@1', 'saif1@0', 'spi2@0', 'spi3@0', 'spi3@1', 'tlv320aic3x-pins@0', 'usb0-vbus-enable@0', 'usb0@0', 'usb0@1', 'usb0id1@0', 'usb0id@0', 'usb1-vb
+ us-enable@0', 'usb1@0', 'usb1@1' do not match any of the regexes: '^pinctrl-[0-9]+$', 'gpio@[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-mxs.yaml#
+
+
+
+
+
 
