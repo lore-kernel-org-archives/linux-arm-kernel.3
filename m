@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1FF3CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F52FCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQfOvvpVeHu2haioKIlLlNw0O7AmtYvMNB5o/K0IIVw=; b=y8UAybxlUuMkLGQIJHq1hcpgLi
-	xzrriF46QC0zRJAQrZ+kxWlBAaP23tfyaCR7JfXOhO9cX9uXddOeHv+u4nHZ6tiu2wysj9sKE2kHq
-	pj4NPBtxmy3R6LrnEnUkQGA1Yk3N0sLR9nErznecS3a+UaYLPZEyafFbsbqNoTp26HP+vPNFQINvL
-	aFLluVxeG+b5N60pzfPdHhJ/RJCQfsXTNE/xe3t9C0ReMkzicjTvc2kQnEXtmKVYUl1na1AmPZESn
-	tm8B0L442ypX8niR0/0EFcIpJLxeLIgH/iQA8jA+B2Vq+k9JZpgtJ91uIDs3OJS7t7hJvKDwJAwCV
-	69dbxN6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DlMI+igi+LUMuQTqkSmm+VJAddaRP7bPzXdlAl4mAb0=; b=XCtYRBWZ+ortTRRvIYeqaVCbIP
+	ISjdNaNmNqYBGZffadxp5I2X1WVM/WkNHFEoKIV17Jzr5Hull3OTJ7wnOpqtv6NNJcv3hwMjcUil5
+	MP54FAqNDd+AKrskIJmiRtgzIiP74uu7SbqpnoRvUcQoXRHeOi2uMyn99HWQB5GRANRdKUyDUGvaO
+	fLr3kFyY3pf73XxKuTu06X8oCaq51pIU2t+LuSQWxPWI9F+CBNVez8Whqz13iZe6NoIW78i0JHZ1i
+	JrcXjmC88ti0YsAzTtIuT1gX2I8IXHM0L8/70Rp0mOMfoz+GeLs6jYkYMdShNF1yX7g0iGueczjVV
+	kfXhHo7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nZp-0000000ARWx-3tlW;
-	Thu, 25 Sep 2025 15:08:09 +0000
-Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
+	id 1v1nav-0000000AS63-3InJ;
+	Thu, 25 Sep 2025 15:09:17 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nZo-0000000ARVm-06fV
+	id 1v1nas-0000000AS09-0leW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 15:08:09 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1758812641;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pQfOvvpVeHu2haioKIlLlNw0O7AmtYvMNB5o/K0IIVw=;
-	b=TEvzXx6ei1B2c2+lW41m/X5MmbR4yRgiJMJajXSQOD3eyLHfhNLjUBheaWJ4BRRgKowzCF
-	6vtBucMjyQX2Wg6Okh2aoaWddHg6oh+NOENuVQ9+jXEAx8Y3kL68YL4gw7q5J1T9TZ2yeW
-	P4BVhqE1ZN/ZscO/zpB7S39g2BLxpf4=
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Leo Yan <leo.yan@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Linu Cherian <lcherian@marvell.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH v5 2/3] coresight: Reorder coresight_device_release to match coresight_register
-Date: Thu, 25 Sep 2025 11:03:41 -0400
-Message-Id: <20250925150342.1845615-3-sean.anderson@linux.dev>
-In-Reply-To: <20250925150342.1845615-1-sean.anderson@linux.dev>
-References: <20250925150342.1845615-1-sean.anderson@linux.dev>
+	Thu, 25 Sep 2025 15:09:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=DlMI
+	+igi+LUMuQTqkSmm+VJAddaRP7bPzXdlAl4mAb0=; b=D+zFVvp5d2xB7jpplLVU
+	hqWybUKO1wDY4FwXn2fJREtMIql6+iXhMLvYIlE11blKhEwl893U5gbPRpAQrepf
+	sv4XJZuHE0psDeLJShsht6T1pigvCLYLbEmzk4sC5VvXhgsJ9uCWan1YyrDU2MhM
+	0rc4tXMy0R0l/v5Cs+y8QwVNRUADfgLi4wggO7war9QMxavXLt21OdO4pgdGXu2s
+	od3cECpPMpHzKY3fd4gXqE+Hckp9JOuv15178UZrLcMbWoCaHUfUDdAAwbiaSEah
+	075zBeoasHdDz/r6+UhgIawd5L3NvjKyi/dVH0VXoRQ7LgifaNSgqEkp1h04nHhm
+	4g==
+Received: (qmail 1914123 invoked from network); 25 Sep 2025 17:09:07 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 25 Sep 2025 17:09:07 +0200
+X-UD-Smtp-Session: l3s3148p1@mu3tjKE/spQgAwDPXwQHAL/S9V79e5yL
+Date: Thu, 25 Sep 2025 17:09:06 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: renesas: r8a779g3: Add Argon40 fan HAT
+ DTO to Retronix R-Car V4H Sparrow Hawk
+Message-ID: <aNVbEvSRCpQSXT4W@shikoro>
+References: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_080808_198875_ED1E38F4 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250925_080915_097074_1493BC25 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +75,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To make it easier to determine where to add new release actions, reorder
-the actions in coresight_device_release to be the reverse of
-coresight_register.
+On Sun, Sep 07, 2025 at 06:10:53PM +0200, Marek Vasut wrote:
+> Add DT overlay to bind Argon40 fan HAT, on Retronix R-Car V4H
+> Sparrow Hawk board. Fan RPM control and full RPM on reboot has
+> been tested.
+> 
+> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
----
-
-Changes in v5:
-- New
-
- drivers/hwtracing/coresight/coresight-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 022c8384b98d..305b1773cfbe 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1046,8 +1046,8 @@ static void coresight_device_release(struct device *dev)
- {
- 	struct coresight_device *csdev = to_coresight_device(dev);
- 
--	fwnode_handle_put(csdev->dev.fwnode);
- 	free_percpu(csdev->perf_sink_id_map.cpu_map);
-+	fwnode_handle_put(csdev->dev.fwnode);
- 	kfree(csdev);
- }
- 
--- 
-2.35.1.1320.gc452695387.dirty
+As the dependencies are in, can we have this patch in -next now, pretty
+please? :)
 
 
