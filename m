@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7DECAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 12:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9570CCAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ox9g0fnE72mIrPn8iskqzncYvj7MD62mKUb3nI8lUdY=; b=UtoKzz0qDwtsNyn+RZLt+r6oO0
-	thcTQjc/iZmAC3KD2AfJa0M/gkNuozGnevpMSn5JGsLGsMhRj/04xa3ZUZIob4zBubLWzv2RV8p4o
-	ut6leTPLc7ykL6hgAhWZWIu3iFot82LtOOwpRFPRM6xvaAj9ODTypbq5EvrCy22UyTzhF/Q9NvUvj
-	Esq3Fbj5+jDmbyRxeeTmnYeRKiwLp0D9JOOr8lI4QUuELt1eNwR2+Jnuh31AaUJ9UYMmMK9ZLTHcr
-	Mx3VxJlabRfLLMwZFiHbkosIlq6N9yqKKvmzTSENLyfR5oQ4kjYtptH0OBN/KZrDUPyRznsRPjln+
-	MRQgs5vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LpaNtOZ/byIV/f/TXpPkcpmZJH/cZvq+sT+/f8r70EI=; b=he7r9ZsIlohgw0FKbU+dbqzeLm
+	iHYokKnXvOyV/3Ho9x3+8XwooIIliDphigivfnKEk6pnwZkFWR7UkEwjZc/zCyZos/sKOpnHMj/wg
+	WASFtNSqaEW9a0087wtxPpvyXojxXqiylklBQ6ZFwLmebVQEw/wClKp7EoRwvYvBY4ThuUm2il6AH
+	rApiAxhbijEQTr2q28PKXkdWYyqG8B2oNimEvqpF58LD/XEaoLPJsuALntQa98QamsCdVGJO1YFsJ
+	EExF4JaO3KRFwHfiaWEy30nKreXJNnPHF/wxGDHND89bo+laJWiDNvnuD18+MxUBLKSzuf5/0UF86
+	Xf7PJY4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lWb-00000009AVP-2QcJ;
-	Thu, 25 Sep 2025 12:56:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v1lb6-00000009CiH-2qU5;
+	Thu, 25 Sep 2025 13:01:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lWW-00000009ASu-1sfH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 25 Sep 2025 12:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ox9g0fnE72mIrPn8iskqzncYvj7MD62mKUb3nI8lUdY=; b=oIr2d2blWJhAlFH3xK5L2a3+YD
-	oRtzSjxKQmupKA7YPc1wrAzBL3gHD4YGPxuliy4S4GLcd0jqXZ7pZ6Wjot0NwCNkJAMMj0dnPFVY1
-	XhBGVFaJCQYGVzCgYUB6Fj3lryr8+gI0cQ1ww3nG9KT9NfDnKBbVVtgb+d+p2kdQWaS38Bacz6LZH
-	B1tKXw3tAXjPWrWOiYyT8BtFkaxZ1UUOJ2a2r86lqhNk6olWkegKGp7Yjdse6yr/Dhy1TqC4wcQ22
-	41GXUmQbMGdXXCsF/MCWeYDjurVIfYfOjnaL7QmcXUW1ILYuh+rC4QaYn5h539mdT6LkwVXN7dd11
-	2XU+Nelw==;
-Received: from mailout1.samsung.com ([203.254.224.24])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lWS-000000098IT-12Qb
+	id 1v1lb4-00000009CgA-1zK5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 12:56:35 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250925125622epoutp0104ec17aaf8e7b6125ccb4d2367ffa540~oh9ApS2XL1758417584epoutp01P
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 12:56:22 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250925125622epoutp0104ec17aaf8e7b6125ccb4d2367ffa540~oh9ApS2XL1758417584epoutp01P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758804982;
-	bh=Ox9g0fnE72mIrPn8iskqzncYvj7MD62mKUb3nI8lUdY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oc5Xl4BEYNd44hIDI8osup4Vvtj/z8UGnefeUJwgHN2Ys4DyKqwCpBhUSLCMYh1gt
-	 MN8a4Cs+1vT/QKxxMVQFNQZYTxGcRSuVeMeK8C6mNEfMOUMaBpDaF5J2jPMRkDg39x
-	 jZcCpCS+GL7+fdMAfgAJ6EnJj9uZpDTn1SE/obuc=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250925125622epcas5p24ce7e7efd4944becde2cd485ed9e9601~oh9AHPSNE0688406884epcas5p2t;
-	Thu, 25 Sep 2025 12:56:22 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cXYcj0Td9z6B9m5; Thu, 25 Sep
-	2025 12:56:21 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250925125620epcas5p359a6c18a13f2a2f895433e4dd241020e~oh8_pqdaR3191731917epcas5p3b;
-	Thu, 25 Sep 2025 12:56:20 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250925125616epsmtip2a9d8b9526bb0079104f1bd1de99262c4~oh87OeJVg1425914259epsmtip2j;
-	Thu, 25 Sep 2025 12:56:16 +0000 (GMT)
-From: Raghav Sharma <raghav.s@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, conor+dt@kernel.org, sunyeal.hong@samsung.com,
-	shin.son@samsung.com
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, chandan.vn@samsung.com,
-	dev.tailor@samsung.com, karthik.sun@samsung.com, Raghav Sharma
-	<raghav.s@samsung.com>
-Subject: [PATCH 2/3] clk: samsung: exynosautov920: add block mfc clock
- support
-Date: Thu, 25 Sep 2025 18:34:56 +0530
-Message-Id: <20250925130457.3476803-3-raghav.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250925130457.3476803-1-raghav.s@samsung.com>
+	Thu, 25 Sep 2025 13:01:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C9C5441FB;
+	Thu, 25 Sep 2025 13:01:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A239BC4CEF0;
+	Thu, 25 Sep 2025 13:01:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758805273;
+	bh=Ejn+jXYsuwN2KMiTy9i/2i1LIyvkc8U+LXh052Sk+5I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N8VdYWQFoDZqGW3xaLiew0jQRAeYDTUBXdm+OAxNu+YifuPH+y6HbkScfo/UuW1oe
+	 1C+Q/485jYTARK7umSzIoXYPRnQYqddfyGRgebO5VD9eV+d3h+32bihfy3x1pZdh1n
+	 +pP2kVTS7wnij/oPX+tRR2EqaR29Hm6jqwAANyMUGyOBubxGINWIv0rjuxUixRk9E+
+	 3474anTI9ZsG4McuAJqGJUaQ/nkvtvS8n+Yw1oUCdNCbBWgxTg7xHiWcYwA+5NCRov
+	 lqhkrJS2HO19BMMhhbVGPDOJQSElqE78HHEc1bkfS5tDhlPmbrZkeagTxo4udcPSAQ
+	 1FNHUm7Truc6A==
+Date: Thu, 25 Sep 2025 14:01:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Hanjun Guo <guohanjun@huawei.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: Re: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
+Message-ID: <aNU9FPYAUnBMMznn@willie-the-truck>
+References: <20250919184025.15416-1-will@kernel.org>
+ <778ccdfe-791c-4d67-a7f5-354ea84159dc@roeck-us.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250925125620epcas5p359a6c18a13f2a2f895433e4dd241020e
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250925125620epcas5p359a6c18a13f2a2f895433e4dd241020e
-References: <20250925130457.3476803-1-raghav.s@samsung.com>
-	<CGME20250925125620epcas5p359a6c18a13f2a2f895433e4dd241020e@epcas5p3.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <778ccdfe-791c-4d67-a7f5-354ea84159dc@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_135632_956357_5B83FCC4 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250925_060118_538887_5A32C4B5 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for CMU_MFC which provides clocks to MFC block, and
-register the required compatible and cmu_info for the same.
+On Wed, Sep 24, 2025 at 09:09:16AM -0700, Guenter Roeck wrote:
+> On 9/19/25 11:40, Will Deacon wrote:
+> > Big-endian arm64 configurations are vanishingly rare, yet we still claim
+> > to support them in Linux despite very limited testing or visible
+> > interest. Supporting big-endian adds unnecessary burden to reviewers and
+> > contributors which, without any known active users, is hard to justify.
+> > For example, recent work to improve our futex routines and to implement
+> > nested virtualisation support is non-trivially complicated by having to
+> > support both big- and little-endianness.
+> > 
+> > Back in 2019 [1], it was claimed that Huawei were using arm64 big-endian
+> > machines in their telecommunication products but I don't know whether
+> > that's still the case and certainly haven't seen any patch contributions
+> > to help support or maintain it.
+> > 
+> > Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
+> > towards its removal.
+> > 
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Hanjun Guo <guohanjun@huawei.com>
+> > Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> > Cc: Guenter Roeck <linux@roeck-us.net>
+> > Link: https://lore.kernel.org/linux-arm-kernel/73701e9f-bee1-7ae8-2277-7a3576171cd4@huawei.com/ [1]
+> > Signed-off-by: Will Deacon <will@kernel.org>
+> > ---
+> > 
+> > Cc'ing Guenter as a heads-up in case he needs to turn down his testing
+> > to avoid this causing a false regression report.
+> 
+> Cool, one more architecture to drop. I wonder if I should drop arm64 big endian testing
+> for all kernel releases. That would simplify my test infrastructure substantially,
+> and it would avoid useless regressions due to bitrot for older kernel releases
+> if no one is using it anyway. Thoughts ?
 
-Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
----
- drivers/clk/samsung/clk-exynosautov920.c | 45 ++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+It's entirely up to you, but I'd suggest leaving it running until 6.18
+is out and then turning it all off if nobody has chimed in to say
+they're using this stuff.
 
-diff --git a/drivers/clk/samsung/clk-exynosautov920.c b/drivers/clk/samsung/clk-exynosautov920.c
-index 75deec8bece5..b90b73c3518f 100644
---- a/drivers/clk/samsung/clk-exynosautov920.c
-+++ b/drivers/clk/samsung/clk-exynosautov920.c
-@@ -28,6 +28,7 @@
- #define CLKS_NR_HSI1			(CLK_MOUT_HSI1_USBDRD + 1)
- #define CLKS_NR_HSI2			(CLK_DOUT_HSI2_ETHERNET_PTP + 1)
- #define CLKS_NR_M2M                     (CLK_DOUT_M2M_NOCP + 1)
-+#define CLKS_NR_MFC                     (CLK_DOUT_MFC_NOCP + 1)
- 
- /* ---- CMU_TOP ------------------------------------------------------------ */
- 
-@@ -1863,6 +1864,47 @@ static const struct samsung_cmu_info m2m_cmu_info __initconst = {
- 	.clk_name               = "noc",
- };
- 
-+/* ---- CMU_MFC --------------------------------------------------------- */
-+
-+/* Register Offset definitions for CMU_MFC (0x19c00000) */
-+#define PLL_CON0_MUX_CLKCMU_MFC_MFC_USER        0x600
-+#define PLL_CON0_MUX_CLKCMU_MFC_WFD_USER        0x610
-+#define CLK_CON_DIV_DIV_CLK_MFC_NOCP            0x1800
-+
-+static const unsigned long mfc_clk_regs[] __initconst = {
-+	PLL_CON0_MUX_CLKCMU_MFC_MFC_USER,
-+	PLL_CON0_MUX_CLKCMU_MFC_WFD_USER,
-+	CLK_CON_DIV_DIV_CLK_MFC_NOCP,
-+};
-+
-+/* List of parent clocks for Muxes in CMU_MFC */
-+PNAME(mout_clkcmu_mfc_mfc_user_p) = { "oscclk", "dout_clkcmu_mfc_mfc" };
-+PNAME(mout_clkcmu_mfc_wfd_user_p) = { "oscclk", "dout_clkcmu_mfc_wfd" };
-+
-+static const struct samsung_mux_clock mfc_mux_clks[] __initconst = {
-+	MUX(CLK_MOUT_MFC_MFC_USER, "mout_clkcmu_mfc_mfc_user",
-+	    mout_clkcmu_mfc_mfc_user_p, PLL_CON0_MUX_CLKCMU_MFC_MFC_USER, 4, 1),
-+	MUX(CLK_MOUT_MFC_WFD_USER, "mout_clkcmu_mfc_wfd_user",
-+	    mout_clkcmu_mfc_wfd_user_p, PLL_CON0_MUX_CLKCMU_MFC_WFD_USER, 4, 1),
-+};
-+
-+static const struct samsung_div_clock mfc_div_clks[] __initconst = {
-+	DIV(CLK_DOUT_MFC_NOCP, "dout_mfc_nocp",
-+	    "mout_clkcmu_mfc_mfc_user", CLK_CON_DIV_DIV_CLK_MFC_NOCP,
-+	    0, 3),
-+};
-+
-+static const struct samsung_cmu_info mfc_cmu_info __initconst = {
-+	.mux_clks               = mfc_mux_clks,
-+	.nr_mux_clks            = ARRAY_SIZE(mfc_mux_clks),
-+	.div_clks               = mfc_div_clks,
-+	.nr_div_clks            = ARRAY_SIZE(mfc_div_clks),
-+	.nr_clk_ids             = CLKS_NR_MFC,
-+	.clk_regs               = mfc_clk_regs,
-+	.nr_clk_regs            = ARRAY_SIZE(mfc_clk_regs),
-+	.clk_name               = "noc",
-+};
-+
- static int __init exynosautov920_cmu_probe(struct platform_device *pdev)
- {
- 	const struct samsung_cmu_info *info;
-@@ -1896,6 +1938,9 @@ static const struct of_device_id exynosautov920_cmu_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynosautov920-cmu-m2m",
- 		.data = &m2m_cmu_info,
-+	}, {
-+		.compatible = "samsung,exynosautov920-cmu-mfc",
-+		.data = &mfc_cmu_info,
- 	},
- 	{ }
- };
--- 
-2.34.1
-
+Will
 
