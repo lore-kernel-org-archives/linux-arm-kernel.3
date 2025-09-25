@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC71CCAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51B0CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=adiBphAPScR6QQjh2KwjN5aarvz+PskpFpyHr3Y87gs=; b=oSFt8Gssz7HSwArLyrKccZJ+U9
-	SkfZHbN4zm47PI/8ONKffRDJpBJ8//jcwdn9+/bIz7F7moujH760LH+cjL/0DZN89sVQJCrsySQaS
-	wW7I8cf6OLOCqd50lhbpjswN9qytAPKAAjivKd/bnXNpkmwFMastej12491KvYQ7bE+FU7WUzjoyI
-	4Bwi2apwjWS2E6MGGxb91ffg7OFMYiZw0DKc8ADqt2FvpRsuhae1dZKHRXbOMlOSC6dwSGzcmL1qv
-	8tV85ktJVqebx9teLTaFMYxKXPQFI9TrWnAyNj3mr1TEFrlUBSsmpMFDCqFXkLsDzsECjVr/Qk8m7
-	E7DIc2Sg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ljhn8bif18aFps1rRdBClCGFFynJpfAeepmIW2TXY3A=; b=Z+n21JGykLa/mmYHQClbtRRlu3
+	NtdrT2CmLGpxIpq/iwd65iq8dcshiUCDceB2fRb6EoLQT+Ycq3n5fNSaQBk1RoYPYNLGulC4bO0in
+	DZ1wdFxu/BdiLQfybU8cJO1hLVaWb7EbagSmts8JwoyLniRTsjiO7vdkK8AUxubcv/+YPYkuOwY3p
+	wUWvbhRTx7FfrqQgvO4T7Sizlo2kfJnNAXXhPlC814oXzQQx7E98JzBnx0SlGMHMt58QGnIapMIGj
+	ErZEHdBTHRsWLks/tnJxNIXS+VRjpZ+QXPBLqmMxSj/KSWDyTUBvuO2/2ouEB4k5HmhXxbw5xyBe4
+	RHCooz/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bPn-00000005GC7-3LhY;
-	Thu, 25 Sep 2025 02:08:59 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1v1bSl-00000005GeD-0KsN;
+	Thu, 25 Sep 2025 02:12:03 +0000
+Received: from mail-m49220.qiye.163.com ([45.254.49.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1bPk-00000005GBG-0XZH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 02:08:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ad
-	iBphAPScR6QQjh2KwjN5aarvz+PskpFpyHr3Y87gs=; b=WjzIx70LpoyMNUwCIh
-	ePB4aB07F7rsQrRR/e9WPkjqZgFTnVXn+ilrjtG3btzPXzxyt4Bw3Bch3tRw3RgX
-	G8/lxsmodMkMGGdq8UqCKLDF6EtEsIXwhwzs2JtslgNJ4+d7EEX5x48n62Gq/osK
-	wYuql/ibaoeh7FrMobRX80/gI=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDnEQkXpNRowQcHEQ--.9650S2;
-	Thu, 25 Sep 2025 10:08:24 +0800 (CST)
-From: Feng Yang <yangfeng59949@163.com>
-To: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mark.rutland@arm.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	revest@chromium.org,
-	alexei.starovoitov@gmail.com,
-	olsajiri@gmail.com,
-	andrii@kernel.org,
-	ast@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH] tracing: Fix the bug where bpf_get_stackid returns -EFAULT on the ARM64
-Date: Thu, 25 Sep 2025 10:08:22 +0800
-Message-Id: <20250925020822.119302-1-yangfeng59949@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1v1bSh-00000005Gc1-1DUZ;
+	Thu, 25 Sep 2025 02:12:01 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 23f942a34;
+	Thu, 25 Sep 2025 10:11:53 +0800 (GMT+08:00)
+Message-ID: <7cf14078-5d4f-4ced-bdcf-182371d0fd35@rock-chips.com>
+Date: Thu, 25 Sep 2025 10:11:53 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgDnEQkXpNRowQcHEQ--.9650S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tFyxur1kWF4xJrW8tr4xZwb_yoW8XFWkp3
-	9F9rykGFWDWFs0kw47WrsxXr15Cws3ArWrCry8Cw1akF4DZFyUCr9FkFWjkF1xA34Du3yx
-	uF1avry5Cws8ZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjuWLUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: p1dqww5hqjkmqzuzqiywtou0bp/1tbiVhrSeGjUYEjeAQABss
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 13/17] drm/rockchip: analogix_dp: Apply
+ &analogix_dp_plat_data.attach() to attach next bridge
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ dianders@chromium.org, m.szyprowski@samsung.com, luca.ceresoli@bootlin.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20250912085846.7349-1-damon.ding@rock-chips.com>
+ <20250912085846.7349-14-damon.ding@rock-chips.com>
+ <2cu3ge6kjeibfznvt6c52xn2rp5zb3wk3pkb7gly34qrjlueem@7wqyowascpn5>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <2cu3ge6kjeibfznvt6c52xn2rp5zb3wk3pkb7gly34qrjlueem@7wqyowascpn5>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a997ea4309303a3kunm542c945b85b02
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR5LT1ZIGh1PTEMdGUpDSx5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=iVKD7f62uqeDZeWknCM50t4q+F59fTE4NNT58Y0093B07tMOfWOMy8AZVe6YOCr802f8Pf+EvfpvFbJEg2wVUjJcIBAH3suMh+XfmN4d3KXJXFGIQ0VcjzG3rZuDDk/5Md8wIwVl5DruEmeVZoWpbNKEhRNxy82ULkMok5Cfsmg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Ljhn8bif18aFps1rRdBClCGFFynJpfAeepmIW2TXY3A=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_190856_583323_1C0D2528 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250924_191159_856347_B1D634E0 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Feng Yang <yangfeng@kylinos.cn>
+Hi Dmitry,
 
-When using bpf_program__attach_kprobe_multi_opts on ARM64 to hook a BPF program
-that contains the bpf_get_stackid function, the BPF program fails
-to obtain the stack trace and returns -EFAULT.
+On 9/12/2025 7:05 PM, Dmitry Baryshkov wrote:
+> On Fri, Sep 12, 2025 at 04:58:42PM +0800, Damon Ding wrote:
+>> There may be the panel or bridge after &analogix_dp_device.bridge.
+>> Add rockchip_dp_attach() to support the next bridge attachment for
+>> the Rockchip side.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+>>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 19 +++++++++++++++++++
+>>   1 file changed, 19 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> index 0784f19a2ed9..39f1ed293c75 100644
+>> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+>> @@ -164,6 +164,24 @@ static int rockchip_dp_powerdown(struct analogix_dp_plat_data *plat_data)
+>>   	return 0;
+>>   }
+>>   
+>> +static int rockchip_dp_attach(struct analogix_dp_plat_data *plat_data,
+>> +				     struct drm_bridge *bridge)
+>> +{
+>> +	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
+>> +	int ret;
+>> +
+>> +	if (plat_data->next_bridge) {
+>> +		ret = drm_bridge_attach(&dp->encoder.encoder, plat_data->next_bridge, bridge,
+>> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> 
+> Can this be handled inside analogix_dp_bridge's attach callback?
 
-This is because ftrace_partial_regs omits the configuration of the pstate register,
-leaving pstate at the default value of 0. When get_perf_callchain executes,
-it uses user_mode(regs) to determine whether it is in kernel mode.
-This leads to a misjudgment that the code is in user mode,
-so perf_callchain_kernel is not executed and the function returns directly.
-As a result, trace->nr becomes 0, and finally -EFAULT is returned.
+I found that the &analogix_dp_plat_data.attach() callbacks of Rockchip 
+and Exynos sides are the same. It should be nice to handle the next 
+bridge attachment in analogix_dp_bridge_attach(), which would allow us 
+to remove the &analogix_dp_bridge_attach().
 
-Therefore, the assignment of the pstate register is added here.
+> 
+>> +		if (ret) {
+>> +			dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
+>> +			return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   static bool
+>>   rockchip_dp_drm_encoder_mode_fixup(struct drm_encoder *encoder,
+>>   				   const struct drm_display_mode *mode,
+>> @@ -452,6 +470,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+>>   	dp->plat_data.dev_type = dp->data->chip_type;
+>>   	dp->plat_data.power_on = rockchip_dp_poweron;
+>>   	dp->plat_data.power_off = rockchip_dp_powerdown;
+>> +	dp->plat_data.attach = rockchip_dp_attach;
+>>   	dp->plat_data.ops = &rockchip_dp_component_ops;
+>>   
+>>   	ret = rockchip_dp_of_probe(dp);
+>> -- 
+>> 2.34.1
+>>
+> 
 
-Fixes: b9b55c8912ce ("tracing: Add ftrace_partial_regs() for converting ftrace_regs to pt_regs")
-Closes: https://lore.kernel.org/bpf/20250919071902.554223-1-yangfeng59949@163.com/
-Signed-off-by: Feng Yang <yangfeng@kylinos.cn>
----
- arch/arm64/include/asm/ftrace.h | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-index bfe3ce9df197..ba7cf7fec5e9 100644
---- a/arch/arm64/include/asm/ftrace.h
-+++ b/arch/arm64/include/asm/ftrace.h
-@@ -153,6 +153,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
- 	regs->pc = afregs->pc;
- 	regs->regs[29] = afregs->fp;
- 	regs->regs[30] = afregs->lr;
-+	regs->pstate = PSR_MODE_EL1h;
- 	return regs;
- }
- 
--- 
-2.25.1
+Best regards,
+Damon
 
 
