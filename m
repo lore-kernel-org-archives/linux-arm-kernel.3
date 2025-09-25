@@ -4,34 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E30CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484EBCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LCrVuSuAyjnYvl0QcabiZiK+9N6M0MKl3psifduLgMg=; b=Amsb7V6Zoig7S4vPbzXrW82uHt
-	Ivvj6rJA4mEA33aqjFIFp5XxzLIGFATo7mvwNCrnwvJssat9XOGTNrxWjjEgaUNoDofljPZeu3A8z
-	z+PPTJFwVkfW8uMzqaXIqvpjg0vVDSDE0/UXy4uVC8qGUoBKiNuskR8SCi8NYMk2ltkSdTgBakpIb
-	SXZ+KetlNmuKlJd4SmhxIUp8+zo6doSJxiyf0KB8eJIql5frqF9rZFTDgkV6B5CGNKf5NC7kBypkL
-	hYhYUAhSoiqYtR0vwM1zFOTNawseaN4qrlrpZ1zt7rZtoDwu3tSvlBBAq0VvYFVkEkXAZPZ9nttDA
-	AcPRYE/Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RoXSHzCj4YzllEn0ikbMVGveVmreJ/pgkk4Ih3+wHXg=; b=DXwpLwRkHeDSw58xeunOxzRts4
+	4t7gRltpZkzwQerwZGUUN9AKCCp2hRvsG5SjXeoLglhLuQxOlbqBK7Rhy3m3x61+imB4IHsYJm31x
+	GrBx3IDLHbtpHEqBqwbqR+E0apEwcWCvzQMWiukOcJQ08l5pPAEvRyak5cu19URcAWOypuTA+wh4n
+	4BipA+6iSTLUwd4d9hJxyqdN6wcZvXNYCDPckPoGaxpDZxrAgoJMAKA9AjmIxEwDX2a2W26uC+Upu
+	7hl6L26wzeePybMRqak3b6+wm65AcImy2lRA/3KirBx/gzJCHSKIuctrzywpdh1j7+L6Wp9xnzFaT
+	QwmReJJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1cBG-00000005MiA-2oWY;
-	Thu, 25 Sep 2025 02:58:02 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1v1cBR-00000005MmN-02aE;
+	Thu, 25 Sep 2025 02:58:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1cBD-00000005MgN-0eyC
+	id 1v1cBP-00000005MlY-28Ya
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 25 Sep 2025 02:58:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RoXSHzCj4YzllEn0ikbMVGveVmreJ/pgkk4Ih3+wHXg=; b=KdGq9DGt9/8kkO+4cfO4Zcu1dQ
+	DxIqZNMsALO1YtQqEcn64tEpbdM/EPJbaaEbNMcK4cJmZNLkeTTZPGaJIYnEvX+vBI5icvicQ/nqt
+	K1l+OpM2cDCVhwSB/tRxkTjgwD/Xlr96LoCr25zxKjZN9hOci19Olr3WDUL7714VeZo8x1GBwR0bF
+	fCuzE2/y53WNY7dQv13F0PT/JTEqL5ksMmKL0bIZfAzGJ0c2aVYVrUyEkffskRCUF+a3v7q+CSODL
+	rLUwCbFK/91PZcHVloyQrAFS90fTSHNw8yY7BwzgwM1m007Lz3omIbr/6SQ9mOTtFOUOBDWlKotbC
+	DWuXIF1w==;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1cBL-00000008u41-3sS3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 02:58:00 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4cXJMS5NVSz27j4X;
-	Thu, 25 Sep 2025 10:59:00 +0800 (CST)
+	Thu, 25 Sep 2025 02:58:10 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cXJDl09xhz2Cg2G;
+	Thu, 25 Sep 2025 10:53:11 +0800 (CST)
 Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2200218005F;
+	by mail.maildlp.com (Postfix) with ESMTPS id D85381400D3;
 	Thu, 25 Sep 2025 10:57:49 +0800 (CST)
 Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
  kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
@@ -47,10 +62,12 @@ To: <rmk+kernel@armlinux.org.uk>, <linux@armlinux.org.uk>, <rppt@kernel.org>,
 CC: <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <liaohua4@huawei.com>,
 	<lilinjie8@huawei.com>, <xieyuanbin1@huawei.com>
-Subject: [PATCH v2 1/2] ARM: spectre-v2: Fix potential missing mitigations
-Date: Thu, 25 Sep 2025 10:57:43 +0800
-Message-ID: <20250925025744.6807-1-xieyuanbin1@huawei.com>
+Subject: [PATCH v2 2/2] ARM: mm: Optimize page_fault to reduce the impact of spectre-v2 bugfix
+Date: Thu, 25 Sep 2025 10:57:44 +0800
+Message-ID: <20250925025744.6807-2-xieyuanbin1@huawei.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250925025744.6807-1-xieyuanbin1@huawei.com>
+References: <20250925025744.6807-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -58,8 +75,8 @@ X-Originating-IP: [10.67.108.232]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_195759_494359_0BC0C571 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250925_035808_919449_F219B79C 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,77 +91,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the latest kernel, with arm's multi_v7_defconfig, and set
-CONFIG_PREEMPT=y, CONFIG_DEBUG_PREEMPT=y, CONFIG_ARM_LPAE=y,
-if a user program try to accesses any valid kernel address, for example:
-```c
-static void han(int x)
-{
-	while (1);
-}
+Submitting this optimized performance commit is because of
+last spectre-v2 bugfix, which adds a branch to the hot code path
+and may cause performance degradation.
 
-int main(void)
-{
-	signal(SIGSEGV, han);
-	/* 0xc0331fd4 is just a kernel address in kernel .text section */
-	__asm__ volatile (""::"r"(*(int *)(uintptr_t)0xc0331fd4):"memory");
-	while (1);
-	return 0;
-}
-```
-, the following WARN will be triggered:
+It mainly does the following things:
+1. Extract the judgment of user_mode and reduce some redundant branch.
+For example, for user mode, interrupts must be enabled, and
+`(faulthandler_disabled() || !mm)` is impossible. I think some other
+branches can also be optimized, such as `(fsr & FSR_LNX_PF)` and
+`ttbr0_usermode_access_allowed()`, but I'm not sure. Among them,
+`ttbr0_usermode_access_allowed()` is after `perf_sw_event()`, I think
+these two are not dependent. If `ttbr0_usermode_access_allowed()` can be
+placed front, it can also be optimized into the kernel mode branch.
 
-[    1.089103] BUG: using smp_processor_id() in preemptible [00000000] code: init/1
-[    1.093367] caller is __do_user_fault+0x20/0x6c
-[    1.094355] CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 6.14.3 #7
-[    1.094585] Hardware name: Generic DT based system
-[    1.094706] Call trace:
-[    1.095211]  unwind_backtrace from show_stack+0x10/0x14
-[    1.095329]  show_stack from dump_stack_lvl+0x50/0x5c
-[    1.095352]  dump_stack_lvl from check_preemption_disabled+0x104/0x108
-[    1.095448]  check_preemption_disabled from __do_user_fault+0x20/0x6c
-[    1.095459]  __do_user_fault from do_page_fault+0x334/0x3dc
-[    1.095505]  do_page_fault from do_DataAbort+0x30/0xa8
-[    1.095528]  do_DataAbort from __dabt_usr+0x54/0x60
-[    1.095570] Exception stack(0xf0825fb0 to 0xf0825ff8)
+2. Add some like/unlikely.
 
-This WARN indicates that the current CPU is not stable, which means that
-current can be migrated to other CPUs.
-Therefore, in some scenarios, mitigation measures may be missed, such as:
-1. Thread A attacks on cpu0 and triggers do_page_fault
-2. Thread A migrates to cpu1 before bp_hardening
-3. Thread A do bp_hardening on cpu1
-4. Thread A migrates to cpu0
-5. Thread A ret_to_user on cpu0
-
-Assuming that all of the context_stwitch() mentioned above does not
-trigger switch_mm(), therefore all of the context_stwitch() does not
-trigger mitigation. Thread A successfully bypassed the mitigation on cpu0.
-
-Over the past six years, there have been continuous reports of this bug:
-2025.4.24 https://lore.kernel.org/all/20250424100437.27477-1-xieyuanbin1@huawei.com/
-2022.6.22 https://lore.kernel.org/all/795c9463-452e-bf64-1cc0-c318ccecb1da@I-love.SAKURA.ne.jp/
-2021.3.25 https://lore.kernel.org/all/20210325095049.6948-1-liu.xiang@zlingsmart.com/
-2021.3.12 https://lore.kernel.org/all/20210312041246.15113-1-qiang.zhang@windriver.com/
-2021.3.11 https://lore.kernel.org/all/0000000000007604cb05bd3e6968@google.com/
-2019.5.27 https://lore.kernel.org/all/1558949979-129251-1-git-send-email-gaoyongliang@huawei.com/
-2019.3.19 https://lore.kernel.org/all/20190319203239.gl46fxnfz6gzeeic@linutronix.de/
-
-To fix it, we must check whether mitigation are needed before enabling
-interrupt(with PREEMPT) or before calling mm_read_lock()(without PREEMPT).
-
-Fixes: f5fe12b1eaee ("ARM: spectre-v2: harden user aborts in kernel space")
+3. `__do_user_fault` is cold code path, inlining may lead to negative
+optimization, so add noinline.
+I also want to do this for `__do_kernel_fault`, but it seems that
+`fixup_exception()` in `__do_kernel_fault` is not cold code, which may be
+triggered by `copy_from_user_nofault`.
 
 Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
 ---
- arch/arm/mm/fault.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm/mm/fault.c | 54 +++++++++++++++++++++++----------------------
+ 1 file changed, 28 insertions(+), 26 deletions(-)
 
 diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 2bc828a1940c..e4dc7c2cfe75 100644
+index e4dc7c2cfe75..09dde89a88ed 100644
 --- a/arch/arm/mm/fault.c
 +++ b/arch/arm/mm/fault.c
-@@ -265,20 +265,27 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+@@ -147,21 +147,21 @@ static void die_kernel_fault(const char *msg, struct mm_struct *mm,
+  * Oops.  The kernel tried to access some page that wasn't present.
+  */
+ static void
+ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
+ 		  struct pt_regs *regs)
+ {
+ 	const char *msg;
+ 	/*
+ 	 * Are we prepared to handle this kernel fault?
+ 	 */
+-	if (fixup_exception(regs))
++	if (likely(fixup_exception(regs)))
+ 		return;
+ 
+ 	/*
+ 	 * No handler, we'll have to terminate things with extreme prejudice.
+ 	 */
+ 	if (addr < PAGE_SIZE) {
+ 		msg = "NULL pointer dereference";
+ 	} else {
+ 		if (is_translation_fault(fsr) &&
+ 		    kfence_handle_page_fault(addr, is_write_fault(fsr), regs))
+@@ -170,21 +170,21 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
+ 		msg = "paging request";
+ 	}
+ 
+ 	die_kernel_fault(msg, mm, addr, fsr, regs);
+ }
+ 
+ /*
+  * Something tried to access memory that isn't in our memory map..
+  * User mode accesses just cause a SIGSEGV
+  */
+-static void
++static noinline void
+ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ 		int code, struct pt_regs *regs)
+ {
+ 	struct task_struct *tsk = current;
+ 
+ 	if (addr > TASK_SIZE)
+ 		harden_branch_predictor();
+ 
+ #ifdef CONFIG_DEBUG_USER
+ 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
+@@ -265,135 +265,137 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
  	struct mm_struct *mm = current->mm;
  	struct vm_area_struct *vma;
  	int sig, code;
@@ -155,23 +179,157 @@ index 2bc828a1940c..e4dc7c2cfe75 100644
  	if (kprobe_page_fault(regs, fsr))
  		return 0;
  
-+#ifdef CONFIG_HARDEN_BRANCH_PREDICTOR
-+	if (unlikely(addr > TASK_SIZE) && user_mode(regs)) {
-+		fault = 0;
-+		code = SEGV_MAPERR;
-+		goto bad_area;
-+	}
-+#endif
+-#ifdef CONFIG_HARDEN_BRANCH_PREDICTOR
+-	if (unlikely(addr > TASK_SIZE) && user_mode(regs)) {
+-		fault = 0;
+-		code = SEGV_MAPERR;
+-		goto bad_area;
+-	}
+-#endif
++	if (user_mode(regs)) {
++		if (IS_ENABLED(CONFIG_HARDEN_BRANCH_PREDICTOR) && unlikely(addr > TASK_SIZE)) {
++			fault = 0;
++			code = SEGV_MAPERR;
++			goto bad_area;
++		}
  
- 	/* Enable interrupts if they were enabled in the parent context. */
- 	if (interrupts_enabled(regs))
+-	/* Enable interrupts if they were enabled in the parent context. */
+-	if (interrupts_enabled(regs))
++		/* Enable interrupts if they were enabled in the parent context. */
  		local_irq_enable();
  
+-	/*
+-	 * If we're in an interrupt or have no user
+-	 * context, we must not take the fault..
+-	 */
+-	if (faulthandler_disabled() || !mm)
+-		goto no_context;
+-
+-	if (user_mode(regs))
+ 		flags |= FAULT_FLAG_USER;
++	} else {
++		/* Enable interrupts if they were enabled in the parent context. */
++		if (interrupts_enabled(regs))
++			local_irq_enable();
++
++		/*
++		 * If we're in an interrupt or have no user
++		 * context, we must not take the fault..
++		 */
++		if (faulthandler_disabled() || unlikely(!mm))
++			goto no_context;
++	}
+ 
+ 	if (is_write_fault(fsr)) {
+ 		flags |= FAULT_FLAG_WRITE;
+ 		vm_flags = VM_WRITE;
+ 	}
+ 
+ 	if (fsr & FSR_LNX_PF) {
+ 		vm_flags = VM_EXEC;
+ 
+-		if (is_permission_fault(fsr) && !user_mode(regs))
++		if (unlikely(is_permission_fault(fsr)) && !user_mode(regs))
+ 			die_kernel_fault("execution of memory",
+ 					 mm, addr, fsr, regs);
+ 	}
+ 
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+ 
  	/*
- 	 * If we're in an interrupt or have no user
- 	 * context, we must not take the fault..
+ 	 * Privileged access aborts with CONFIG_CPU_TTBR0_PAN enabled are
+ 	 * routed via the translation fault mechanism. Check whether uaccess
+ 	 * is disabled while in kernel mode.
  	 */
- 	if (faulthandler_disabled() || !mm)
+-	if (!ttbr0_usermode_access_allowed(regs))
++	if (unlikely(!ttbr0_usermode_access_allowed(regs)))
+ 		goto no_context;
+ 
+ 	if (!(flags & FAULT_FLAG_USER))
+ 		goto lock_mmap;
+ 
+ 	vma = lock_vma_under_rcu(mm, addr);
+ 	if (!vma)
+ 		goto lock_mmap;
+ 
+-	if (!(vma->vm_flags & vm_flags)) {
++	if (unlikely(!(vma->vm_flags & vm_flags))) {
+ 		vma_end_read(vma);
+ 		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
+ 		fault = 0;
+ 		code = SEGV_ACCERR;
+ 		goto bad_area;
+ 	}
+ 	fault = handle_mm_fault(vma, addr, flags | FAULT_FLAG_VMA_LOCK, regs);
+ 	if (!(fault & (VM_FAULT_RETRY | VM_FAULT_COMPLETED)))
+ 		vma_end_read(vma);
+ 
+ 	if (!(fault & VM_FAULT_RETRY)) {
+ 		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
+ 		goto done;
+ 	}
+ 	count_vm_vma_lock_event(VMA_LOCK_RETRY);
+ 	if (fault & VM_FAULT_MAJOR)
+ 		flags |= FAULT_FLAG_TRIED;
+ 
+ 	/* Quick path to respond to signals */
+-	if (fault_signal_pending(fault, regs)) {
++	if (unlikely(fault_signal_pending(fault, regs))) {
+ 		if (!user_mode(regs))
+ 			goto no_context;
+ 		return 0;
+ 	}
+ lock_mmap:
+ 
+ retry:
+ 	vma = lock_mm_and_find_vma(mm, addr, regs);
+ 	if (unlikely(!vma)) {
+ 		fault = 0;
+ 		code = SEGV_MAPERR;
+ 		goto bad_area;
+ 	}
+ 
+ 	/*
+ 	 * ok, we have a good vm_area for this memory access, check the
+ 	 * permissions on the VMA allow for the fault which occurred.
+ 	 */
+-	if (!(vma->vm_flags & vm_flags)) {
++	if (unlikely(!(vma->vm_flags & vm_flags))) {
+ 		mmap_read_unlock(mm);
+ 		fault = 0;
+ 		code = SEGV_ACCERR;
+ 		goto bad_area;
+ 	}
+ 
+ 	fault = handle_mm_fault(vma, addr & PAGE_MASK, flags, regs);
+ 
+ 	/* If we need to retry but a fatal signal is pending, handle the
+ 	 * signal first. We do not need to release the mmap_lock because
+ 	 * it would already be released in __lock_page_or_retry in
+ 	 * mm/filemap.c. */
+-	if (fault_signal_pending(fault, regs)) {
++	if (unlikely(fault_signal_pending(fault, regs))) {
+ 		if (!user_mode(regs))
+ 			goto no_context;
+ 		return 0;
+ 	}
+ 
+ 	/* The fault is fully completed (including releasing mmap lock) */
+ 	if (fault & VM_FAULT_COMPLETED)
+ 		return 0;
+ 
+-	if (!(fault & VM_FAULT_ERROR)) {
++	if (likely(!(fault & VM_FAULT_ERROR))) {
+ 		if (fault & VM_FAULT_RETRY) {
+ 			flags |= FAULT_FLAG_TRIED;
+ 			goto retry;
+ 		}
+ 	}
+ 
+ 	mmap_read_unlock(mm);
+ done:
+ 
+ 	/* Handle the "normal" case first */
 -- 
 2.48.1
 
