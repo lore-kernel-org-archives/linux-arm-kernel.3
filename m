@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32404CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69286CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BtNjzQKudYD0ky97v1743lPf/WrnfS9KJCemG7a+/I0=; b=mAQaFdDa1o7Zizu60iIAqiIJWC
-	aAltDm+pplz1aCWDT1y5L051rzcIOJE/YFbvgyOVEvm1QT9p2Lf2DzK2Z9MPQWxt/j2Hzg8VRV+ee
-	ueaMrXzgshG+pguj6ZNQhhy5ATBj1Rb+Vjk7dvSozWQrNKY9s9uCV3RDFkZ0DYqxOfnGCYj4PN87O
-	59v92TbSD8ScSEGXiC5rNN7qDS/uf25G3GtpSN46aZlpQr4ENe4my3Uerz/Thg6d4OBQ3FLdhdkXK
-	Z1GFQLxsR6LNrjikn2QyHii9Koq+1gDEKWQ0ePJV02mSDSnsh2e0MSyPmbmq9i8LPyiOisjkObmMn
-	U+s3f7Eg==;
+	bh=fx9sm2SG/XPK/zOHzWrJwHUPoT7scPpd+/H8+WI3Eu8=; b=HamR9OXUGJ7i7AGH/uzXV38hE7
+	doeAn7saTJYSCZMfY3hDZeanrtDc9bHOQ6Qwdfu8wwBN96YgGvW1p8MTFqMTiX2RNjZCtFU9L9Iq5
+	Acby8YlTtfdnjaN6SV23hMnHjrrhth0uKJu6oRSN7EaM4E19MWRVt1TlExmiQ3xsJ5YLP4kMK2Nqw
+	Dw7mvmBnJ079k6w8Rf882RN7/kpZMJJY52VQijGwqKPvYNCvjGTDxMsxYCPqEeorsure51ETyv25Q
+	/ecsb8X8zbh4iKL2rtJyzEBz12TpGVn5LdN2fztqH0izbs6X2aCzrBWSpIyFgemp04SEadUstQlEA
+	L6ugv5jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1m7i-00000009Sw6-1CtD;
-	Thu, 25 Sep 2025 13:35:02 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1v1m9F-00000009Tqb-2tmE;
+	Thu, 25 Sep 2025 13:36:37 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1m7g-00000009Sue-0Ad9
+	id 1v1m9C-00000009Tnf-2sL4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 13:35:01 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-63470a6f339so657964d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 06:34:59 -0700 (PDT)
+	Thu, 25 Sep 2025 13:36:35 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3f0134ccc0cso788920f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 06:36:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758807299; x=1759412099; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BtNjzQKudYD0ky97v1743lPf/WrnfS9KJCemG7a+/I0=;
-        b=WYJvYwbufmTd5EvF3cft8Y6YGEVSgQdqH5kzDIi0NUl7GDeTBzvmE36Q1Lg7PaCDBs
-         5Px7b6H9GgLcCkH18D0oIF4skTcVisUwcSGrmbyLvLaj6IhyCmGfW3pvR0LnjM0xERG9
-         euwCCzrRMe9dcU3w9rnsslRvKR/vYEM309ZP3/ZhVBBicHxaLojrDYv+XEtLvwH0w8qb
-         JiEyzzj9WrYvTaTfpoPYVaKhdFTGBOoeSadccw2CFVrtNNEUSK2vhRNSDjpipUlwqsR/
-         hVYifL14KJIKJDUjIFbs93KT/PBmZoGNHF6b8QPtCNMpSjJqB6WspXGYX6qX6dQSueeC
-         phZg==
+        d=linaro.org; s=google; t=1758807393; x=1759412193; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fx9sm2SG/XPK/zOHzWrJwHUPoT7scPpd+/H8+WI3Eu8=;
+        b=y2fAi3SDIZga3tXluwyiU0hyDNaHhxT6MR679YoEWZnR2GQ2sv1V+CMZUxALQos4oC
+         cx8XYXm3GMeZHUSHZWi8ovCRk7or4EBde9xrpB3JD1F36+LgzvWrrtzn6HqUS4EhpdOx
+         i/JMT80xL89ZLU77qfZiro0G9qnMuxvhOMPcSKOAAxX8oWRMJF8KRIy6gvtKf6XJnNwv
+         lVuCqkqmN7pZ8q9CS4v2EpS5X0fkZVBnMzNU56qytWaQodO27TNuEXOG8Uzg4MzRbpNx
+         2H9Ja0VKTC5hg8VqI+bHYv8SK5urvTXAszqttosCvzsQxP1GE1RKMq5rVRtcIBEdx1mB
+         HsIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758807299; x=1759412099;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BtNjzQKudYD0ky97v1743lPf/WrnfS9KJCemG7a+/I0=;
-        b=wqimLBe9CqtWr/9TW9nCxZPAJv/jW3bHTLl9FWXm6BIYhZTRgk/51WVF+X0C5aypVH
-         OvD7YMhcT3zdIPQgnaG1L4NUn10/JDfWbjA6zbBp9xff4LbVGowLV3lrm8eM5KDMCfIl
-         qDh4XRliT5cIifvxzQlUuCdQzjQji9yu+4cHtNCu2N/6rNpoxZWHcump1uud7H/6y4AQ
-         UJlB62r1cty6bVFGgf05yU0pvfxWdwBLZUYl6LmiB3nmknu5ub+WURdSGmSlgndOEkdj
-         1wxYrPQFgY2RxdzS81/Dfq/kFWK5lMa3MIj/1KkulTO5DvTgqjruu+7dQoT2LO/1zPwc
-         5kVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWT3nWh2O2DCNdEFWCPKfJbR9GMuroDqMCWjpQNi61E3azMq1fnRiB09NU/Lb4pwnmx3Vx/Hmyba2xWt94adINz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDFw/4y81jwr5+cVruJhcaOVPXntHKnj9IEkNUARKYOmLwcj7y
-	iUDksCId5la5TqBC21ga0FCOiay8b6N6i5yCTLqv4GinCq0HQJMv2q2yNjVav1gGubK+Njyj2Nk
-	8w7pCwEQ9admXiM3VTdPld3D2f845O7FVFqLtBu8gJg==
-X-Gm-Gg: ASbGncu83eiXt6By09j7WZSZQW2m5MfOK5o79Xd6F16/AaJiCvDKmcj0nMaWtIdxSBN
-	7qy5TY3HGDP0FTkfnhhOJyTplcNT2NHXmX5oJT7YNetD4JWiT0SqJY/xAeo2xbs+VqaEhjwlUvC
-	d3p+0Za24/1OsiCpE9t5Ekd2NnBch3ETQWC5d1KOoG1nYZL1iVNvhPA6oQqO5zQo78CPlBeOUBi
-	ywMN8dI
-X-Google-Smtp-Source: AGHT+IGimO2Q23ZQRuh/31hfKH0M0gM5VQ+Kb4vJFyOlHv/p/Vvr462F0FI6JqMOIO0OkAJ4FQSVqaMbzzoyb5VvJmI=
-X-Received: by 2002:a05:690e:240d:b0:636:d335:2515 with SMTP id
- 956f58d0204a3-636d335263emr142033d50.3.1758807298695; Thu, 25 Sep 2025
- 06:34:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758807393; x=1759412193;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fx9sm2SG/XPK/zOHzWrJwHUPoT7scPpd+/H8+WI3Eu8=;
+        b=McnxF/vyhd0xftTtKKPPfcW+q5FRPwqqijAYqu6Cx68ARb9tezgBn+Voonndqo/z16
+         /HqeljPW0e7QBaVPv1/fUo94Uu52CAn+Sr/RGBJq9MeJTvqbTmXDfTDriUu3235CZ0aV
+         BkXg7nz2FT+AvdG8bDs+zJoU9drv9iS+3zqFU6QV8aYx+jqPKk7j8Z8vel/mquFACnux
+         zNGNciA93HRDV2ZGmplsnpqQlnAjxUvJk0Js/vqvfnMzKRyjsne5MfaIzillQlS2Mw0w
+         5DddM+kyedurG1pUKPWP3JFgmNI5SCR6acwJPtXNHfXC7z2sEvhy/J364LARla4iEQwl
+         5NnQ==
+X-Gm-Message-State: AOJu0YzFC/ZGII36Kp94k5TomcEqKwuGT47b07lm91yArSIDOO1bGvek
+	GEgW9xOz33IeU9E3NRjfFlgJrYgj6JqG8oI2BP120OEjL0Sl3LTOel8/LJBxUXEgaGc=
+X-Gm-Gg: ASbGnct59wH7JzYeh1f51DQqsoLbF1pIJU/VlKDpIzpBJvHt+4WWqSnSMWGKUGF5ty4
+	ZG/KuVqRaY+nVhVNMuzpkGvqTkwSHJSvxZkTL10DB6mXdWPhVjsAC+qffWksEbrQiPpwHQbvVUy
+	hfj5oJj+uq74CrHymM51V/BfUBhXqasjbAZ7SZOVxburbdBb9YZDLzyYhs6dQ/+YLnjeykMhyWq
+	RMEbig0K9g223wpOUD4cX74MOmSrVxypO3ZUYL9YPSIKaz6tZjN7LxqXBjXRXpWAkmybbBGrPF4
+	jMUiCpocPXNRIqQYUYxFGUtV8ymntMsz3GAkUxbQWtSSsLWM82Bwu1Gyye3iAfsLgV959qxTaao
+	WZ6DvvjL/IvnK5g6pVh0vTgtTUfk0
+X-Google-Smtp-Source: AGHT+IHR1VtsrqYdEOR5yfalGbybkOIcDKOqLqd1M8rHZFAAkkevuzTqFI72lGmxMsSzzCv1aIizeQ==
+X-Received: by 2002:a05:6000:290b:b0:3ee:154e:4f9 with SMTP id ffacd0b85a97d-40e45a92e7emr3845371f8f.20.1758807392860;
+        Thu, 25 Sep 2025 06:36:32 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fb72fb2eesm3203962f8f.12.2025.09.25.06.36.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Sep 2025 06:36:32 -0700 (PDT)
+Message-ID: <4d5bf14a-0465-47b2-88c3-1bf85b008707@linaro.org>
+Date: Thu, 25 Sep 2025 14:36:30 +0100
 MIME-Version: 1.0
-References: <20250925090412.2068216-1-yangzh0906@thundersoft.com> <20250925121155.2401934-1-yangzh0906@thundersoft.com>
-In-Reply-To: <20250925121155.2401934-1-yangzh0906@thundersoft.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 25 Sep 2025 15:34:22 +0200
-X-Gm-Features: AS18NWBTeJE3De2V6Q2_nyOlyupwgaA4ybsnxBjHtD7xymMmZJcjw6ksT3sbAGs
-Message-ID: <CAPDyKFp3onTDGgygvOrK-G40w4mSx4S5=PbdZ+26hsQ+nPVRSA@mail.gmail.com>
-Subject: Re: [PATCH 0/9] arm64: introduce Black Sesame Technologies C1200 SoC
- and CDCU1.0 board
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: arnd@arndb.de, adrian.hunter@intel.com, bst-upstream@bstai.top, 
-	catalin.marinas@arm.com, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	gordon.ge@bst.ai, krzk+dt@kernel.org, krzysztof.kozlowski@linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, robh@kernel.org, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 08/12] perf: Add perf_event_attr::config4
+To: Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev, Ingo Molnar <mingo@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>
+References: <20250901-james-perf-feat_spe_eft-v8-0-2e2738f24559@linaro.org>
+ <20250901-james-perf-feat_spe_eft-v8-8-2e2738f24559@linaro.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250901-james-perf-feat_spe_eft-v8-8-2e2738f24559@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_063500_096747_324E5345 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250925_063634_746039_3824F3C9 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +111,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sept 2025 at 14:12, Albert Yang <yangzh0906@thundersoft.com> wro=
-te:
->
-> On Thu, Sep 25, 2025 at 05:03:57PM +0800, Albert Yang wrote:Subject: Re: =
-[PATCH] splitting SoC and MMC parts
->
-> Hi Arnd,
->
-> I may have missed an important detail in my previous note. If I split
-> out the MMC-related patches and submit only the SoC parts first, I
-> cannot validate the SoC on real hardware: both the kernel and the root
-> filesystem live on the MMC device. Without the MMC stack (DT bindings
-> and the controller driver), the board does not boot to userspace, so I
-> cannot properly verify the SoC/DT changes in isolation.
 
-At least to me, I would not consider that a problem. As long as you
-can test the pieces together "manually" that's fine, I think.
 
-I mean, the platform was not supported in the first place, so it's not
-like we would be introducing a regression - or break something, right?
+On 01/09/2025 1:40 pm, James Clark wrote:
+> Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
+> packet using another 64-bits of event filtering control. As the existing
+> perf_event_attr::configN fields are all used up for SPE PMU, an
+> additional field is needed. Add a new 'config4' field.
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Tested-by: Leo Yan <leo.yan@arm.com>
+> Reviewed-by: Ian Rogers <irogers@google.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>   include/uapi/linux/perf_event.h | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index 78a362b80027..0d0ed85ad8cb 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -382,6 +382,7 @@ enum perf_event_read_format {
+>   #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
+>   #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
+>   #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
+> +#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
+>   
+>   /*
+>    * 'struct perf_event_attr' contains various attributes that define
+> @@ -543,6 +544,7 @@ struct perf_event_attr {
+>   	__u64	sig_data;
+>   
+>   	__u64	config3; /* extension of config2 */
+> +	__u64	config4; /* extension of config3 */
+>   };
+>   
+>   /*
+> 
 
->
-> Would you prefer that I:
-> - keep the MMC pieces in the same series for initial bring-up; or
-> - validate everything locally, then send only the SoC/DT parts first and
->   follow up with the MMC binding/driver as a separate series?
->
-> I=E2=80=99m not entirely sure which approach best matches the normal work=
-flow,
-> so your guidance would be appreciated. I can proceed whichever way you
-> think is most appropriate.
 
-I think doing things in parallel would be the best/fastest way
-forward. Validating locally and sending the pieces upstream to
-different subsystems.
+Hi Peter,
 
->
-> Thanks for the review and suggestions.
->
-> Best regards,
-> Albert
+Did you get a chance to look at this? Patches 1-7 have been taken, just 
+waiting on an ack to take this config4 change before taking the 
+remaining ones.
 
-Kind regards
-Uffe
+Thanks
+James
+
 
