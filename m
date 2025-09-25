@@ -4,145 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0516CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 03:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECB5CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 03:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2wCCyfYeRD2IFSBTLmGsU159j7Tj1QVsG95hOkKGvgg=; b=I+VbSVNYN6GoJDZsW+LZznOCtW
-	b3AjcO4nnXNPUzav8ooWbXEo3JiM5lcfkBHTl7Fw1Jcho6kcXhWD6mFsIP2LbXmbtzy2ow4xj30mc
-	C26QiOlZjtoK+7kfIIP0L+a190OESAkehSKYcnGCF6hSYcRAXom7169ircmkG1hv2P0zEHclLMrrT
-	OE+OlORGn0yQXJg+YMuDr/wFIXNueAKgRAFeRIO8UoqWRd4olItPI6ffn1VbiuNzH2oCQ+hPsT54C
-	SjeHjl5G77cr2Yehx9wOjyUvhYkz8DYpi+u0DekgBQOzXlEF8rwMqoPS+7rC28jg29+sHUWDoDBnS
-	l7KzH/yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JRu807sQVxHjOX7nnLXur2y1rZFK118rE8MYOwZywZQ=; b=XfKRA8srHpRPLm9Vw0YzHKaII3
+	eCCyuvvHkuuBWYGJ+YDIr4Eb8PMdCvtlh/Sb1otiSB6veImi+BVq2rk7Wg8ijDsgrKd78yByLleki
+	vn5u+VNmuQ38vXhb/jf2mV2foaP6xvLuKDPVCcwIcan7mZ/AYuoGPwzJluqiBS+eMqb6zPq1I3Fut
+	/sNltc3ssfPSKklJzjThPZKNSerJASVqJHGXtnflMbTgXVe5Bz29UDZKQKoX0bHXr8ul0T+DYppug
+	+I4T5jC17fSWvvbLsKxUU/CliO6JpwbFbptbMQYLIXWagQWG0gbgPb6NuRa1nwy82GlAfthWzztcV
+	hSA9GY5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1d8A-00000005RXC-1qQk;
-	Thu, 25 Sep 2025 03:58:54 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1v1d8x-00000005Rfz-2Dke;
+	Thu, 25 Sep 2025 03:59:43 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1d87-00000005RUm-3gjb;
-	Thu, 25 Sep 2025 03:58:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KTh9GOHvma4skRSbisHUqM9S8QPz19YmUOXwdw7tU9UWxsXuU4HIGFeJM8tXAut7WzrlwoZt8ZajVBbN4N0qtEZ6fLcfXpX8hkQBUUr74W77dyiyODpf9Ug9bhRzmugCk4BYgh3u0gjSslR9SvReK/ij2vy9OXemNE4dvAaqQ0QneA16ZXGSBNlW63wQ37g0tVIsbPTwXtsVmtkATo0aK49U/JayxCam02wfJsK4P7S71XgFa59D2n7WPQ4Js/qiaft3q8i/pVKuG712iGvnwm2Zpv/nd3Ld9V7hhKq+tZ5cdsaJhB3ORhJ8JBfhpuYX1Rvb7wbduJtjrXu7hiCkMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2wCCyfYeRD2IFSBTLmGsU159j7Tj1QVsG95hOkKGvgg=;
- b=wK8B1/kXDlLHpSAMGlQ7rUN95GOTrj4MgxlTLIFBoBi2foM5piReseW80V9HsQXEB5xOlDON1aPvtYgZ8id8YPS76umwBNndQE4aniMUgMrcjsuLMXA7iwv7HDUBb4IGon9EWV0imgeYUj8otil41zuGGkB56YQOY9tp00RyvzoGUQhuowoVaMdLBeKXwRAXxW7gP1Jqf8ozjnOvOqqHhL04OMjSsiKA5ZjaXwJnyKz95n1CHiMtKNiZ2f068TPjyhP1NRYokfNffLW8okSSgAdjP2mJ07rbmjEg9YHYp17slqZGQSKWxWyu5lrkwthe4nbOuJNZKuleC5MSg8xdoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2wCCyfYeRD2IFSBTLmGsU159j7Tj1QVsG95hOkKGvgg=;
- b=R8I04f9biuLmEgqj49iepbf6M5UL9iGKe2FU4nDIqjm9bESqwFxvmMXtdxKrX981c8tDm6J9NAX3kCNbu6NRcI+V+x/Yksr9sNe31y7XAGGb9hGoDWeJ+Sdb0wKgANvJpqaqamkuhE431p6d3XCi6Ln+Cla8ChBi8aW5ZJXA/zv+ptqrg3Fs7JojP8oZ3mQMN2YSakhNW9AEH+rXBrwXdAUhTglI7dhcjG2L/Tx08neQywtrWK5ECSgBCM/imsJxNr/JT3GtaVH6jZR0wo4TLJNne67E/F+Js9AGysl5EcUvlkFUiPqLS8ow7PhkkIs9Ak5SK6UxalWC0OMYvgUdiQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by AM8PR04MB7267.eurprd04.prod.outlook.com (2603:10a6:20b:1df::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Thu, 25 Sep
- 2025 03:58:44 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
- 03:58:44 +0000
-Date: Wed, 24 Sep 2025 23:58:35 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] phy: freescale: Initialize priv->lock
-Message-ID: <aNS96z6GZb8sUdOy@lizhi-Precision-Tower-5810>
-References: <20250925013806.569658-1-xiaolei.wang@windriver.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250925013806.569658-1-xiaolei.wang@windriver.com>
-X-ClientProxiedBy: BYAPR11CA0082.namprd11.prod.outlook.com
- (2603:10b6:a03:f4::23) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	id 1v1d8u-00000005Ret-2YAu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Sep 2025 03:59:42 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cXKdh531Sz1R9MK;
+	Thu, 25 Sep 2025 11:56:24 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id EA4EC140135;
+	Thu, 25 Sep 2025 11:59:33 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Sep 2025 11:59:33 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Sep 2025 11:59:32 +0800
+CC: <yangyicong@hisilicon.com>, Yushan Wang <wangyushan12@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robin.murphy@arm.com>, <liuyonglong@huawei.com>, <wanghuiqiang@huawei.com>,
+	<prime.zeng@hisilicon.com>, <hejunhao3@h-partners.com>,
+	<linuxarm@huawei.com>, <fanghao11@huawei.com>
+Subject: Re: [PATCH v3 5/9] drivers/perf: hisi: Extend the field of tt_core
+To: Will Deacon <will@kernel.org>
+References: <20250829101427.2557899-1-wangyushan12@huawei.com>
+ <20250829101427.2557899-6-wangyushan12@huawei.com>
+ <aNFMUdPJeJo9XU1e@willie-the-truck>
+ <3cc3fcdf-436a-9e73-a377-ed896d07a825@huawei.com>
+ <aNPTwxnlXGbazFLR@willie-the-truck>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <d1731acc-81a7-df59-b6ac-650f30e0e780@huawei.com>
+Date: Thu, 25 Sep 2025 11:59:32 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AM8PR04MB7267:EE_
-X-MS-Office365-Filtering-Correlation-Id: e209ac5a-03e7-4e09-88b9-08ddfbe7d1c2
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mCXImGLVA3jtOg8ip7RLshTS/np4ILLeaqp/mpCR/Ae2pvyV3TELoexe6Ekv?=
- =?us-ascii?Q?lJYvE/Hp6XZM1Tp/nTd6TSTx1fc+7qc2DN70SSmBP8NjluPNJjBGyxwxiPOr?=
- =?us-ascii?Q?xFTuEa2c+GZ4BvjUx8cS4CkQJl97cWsE4OnGJpsMC09d6z/PxE1LGc0BbQJK?=
- =?us-ascii?Q?/Kd4GLyW6T8iT7rKwFEIaHhEuWusEOnjLs6aR7gSiJXZY/GXJ4sq6nZCz0/6?=
- =?us-ascii?Q?ti0Esrp9kb1tR0NL2RxdVKie94/s8CqIZ6gIeyhgdTaqez0ETSeVJw7mj8T8?=
- =?us-ascii?Q?HA+lDyeNFBaVg0FqGrHM7tKeV24YZycGKI7D3fRDiQQ8Gc7X7ct4S9IznIGf?=
- =?us-ascii?Q?sXRED3Tm+eovOMqEsIrEmScSugM/ycK4wbm8abVnqmo5V3Ltu+fc0OvfFN25?=
- =?us-ascii?Q?kITpUplnPm2OthT/5OuAcq/ojHB+uC9K2+pFTyV9WNu0PlJtKjuGorNE7gni?=
- =?us-ascii?Q?N2l+eKpramiym/k6hSE4Gs0FpmDIN44tOIWXASlQZ458BR++QfS5akNTxSSI?=
- =?us-ascii?Q?UwRSik2M3NMeAhznVGqKxaGngR7tD0sJWglujPFjGEjdYSWbhle/Ahy9sosF?=
- =?us-ascii?Q?GclHcdRsIMMBlSHXlDAxoLT6yO/5HP3kjEgfDX3SKPxlDxjkz1FIjNnqVI5V?=
- =?us-ascii?Q?nktJlxYih7x9lQnwQWn1dhComocnTcbhkwBAIa/VmNKvgWRsU7tJmZ6jIgBa?=
- =?us-ascii?Q?0wjQ/ZC47gFHKN+1Uc3OLLUJM4XRoxLLrpjWhcB722ONWhThHTgZ41RDmFCd?=
- =?us-ascii?Q?2zXA++y4Taf3hMLr0e69kQOWkZz4hqDjxIXyhFPdEtOTK+JaJHJuG24cGucj?=
- =?us-ascii?Q?5PrkqARqAZqrooyExghxET1MTwGbRNb9GxUoJrWpixy5EvBhIgP7wx2tewNb?=
- =?us-ascii?Q?s+Nn9JIoQrTJx43ISgD+4L0WuZoisfX0A7wzupcLR7Pr0g/MudCEouV4fK+d?=
- =?us-ascii?Q?PnCRoS6b+PPEPLRBLylta3NL1QTcBlkghgDLVNubVhqCdh3aLArQeoTB0DHo?=
- =?us-ascii?Q?zipnn9TgOuc84/ZSxU6s1E+zrpThvL9m7gkz5IYBWwxOOBrT7e+L+X7Beh4P?=
- =?us-ascii?Q?cnIK40ncsV17VJ9aqOYzYHaOT0+NGIYJFKOiPSPsTr3RC2qXoGHCvf6/p427?=
- =?us-ascii?Q?yGUheXfoC80JvEfIVGLnOdDuU3jVuiB2xSfzwP7ENg/CJho6/rOgLXkbfILv?=
- =?us-ascii?Q?kAzxYRBnCt+E/VF/lgXuBntlkjSrziUx65n1+BeF6q731PlHeImOjW86gPvX?=
- =?us-ascii?Q?IB2nm6hgGx47BaAxfNAkOJzSu97yGYZO4MFyHBuWs+OP6h+TTmHjjoIAcM+6?=
- =?us-ascii?Q?v289wSxcrQOwPGXOvinQ3OWjk3TrjNpB5XzavhmbQPDi+V7Vjvt5V9vVq7R8?=
- =?us-ascii?Q?IriptZFQBNxURByY1Q2q9x8fjVzf3L/3aIgiw119lSprdw4hCCz3WmCJ+ZXJ?=
- =?us-ascii?Q?kU0MChN1A9A=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AWnfMObfDtjwdmDJ/uzHfbrN/ZoJZBCGb1Vz05LOcYdyMoc55jmLMUauWBUy?=
- =?us-ascii?Q?P8cQxgLD+jgr9E7V67g6++nfsoHWA9nb4DRSKEx/NMGm8RJdsPH3GcNabGy8?=
- =?us-ascii?Q?zYtKYn2eh1vOVnRDzMODoRWJPX8I4pE/GsyJiMWUrh2j4uqvu1VkFeiwwh0o?=
- =?us-ascii?Q?ncjyoH8KL763rwQ9yv2IDq8DorjFCTZ41xgtz0HVOik6ANDo5gOJMs6FFqhb?=
- =?us-ascii?Q?Lx28moB0Hj4YX0UMTvJUFmyy2s523yTTenzlbociVJZ2uHEZR+/g5LbJWBvZ?=
- =?us-ascii?Q?mmPJFhIBke9o1dBLh2C0c8V9SyWqDTbFnNue18Op5x77mYV+lBqG6fvRdP3A?=
- =?us-ascii?Q?4MLEI3uZPjA8oniNBmXbPEP59E+rlK1K0r6IlqNHrHZPwVoj1qQpl9fCfglj?=
- =?us-ascii?Q?fBaPK+RWP/0lfhU6mmFFGG2NxFG9y1oua21IN3ZJ5QR2zFIst8QwlsGr8UDM?=
- =?us-ascii?Q?jM7SMP9+yn44CFgIVREWNKLFcxmOU2NY4pXGvmE9oVPliniR4tP1ecIpifdB?=
- =?us-ascii?Q?hDAj3cqrlyl/dZ2jEM6QHJ0FAKjC+sAhNJNSuz2hggtGVAOA7VCLrmkg/arF?=
- =?us-ascii?Q?jsEjyWjd1Z5JfV4+eS62rfODLPf46x+f5FtEEV1lQn6xxc6b+ogyyJOlgZlv?=
- =?us-ascii?Q?DjRw7fuh5X4w15GKk+0ZnWrilKyzBxC3k02FhrCFRuZ63qh/vGgs2Fb45m4K?=
- =?us-ascii?Q?g9n3KLgAIgfvhQPYhO/XgREyiihqKslO0GfsjO6rKOmK8AEIBENX8P0ZRBI7?=
- =?us-ascii?Q?rFICr8CLvA6AFA0nz6PHqKV2popXY0H5SHvZCWWh2v3TCJs9Qv+TX8UhbV4p?=
- =?us-ascii?Q?BeWemgYBcu+c/aL8P7jTT6zTAwgjL2fxrRpm+oOB9lb5qBEFhJjeddOgTQR5?=
- =?us-ascii?Q?yqDX+S/1coqZJy01d3Z8ZvhL9XpRYDe7tOR+pxarR/hH+s5JNvxWsiQ3lz/S?=
- =?us-ascii?Q?5zxoPU4SbfBf1bGoG7V4FB63fnsbEgp3ZkIJSOPSbqb9woIF/VZkURU7aEC1?=
- =?us-ascii?Q?fuk+PYbP8/9OHJai3DaGSd+l4Xcc+yc51pBWnQri8ax+D4wwd2dJJMxZBLjI?=
- =?us-ascii?Q?nXyoU6eYcrOnSS97je9f/TxEbKlAF79g77TtN2njICJymssY4p0fVAWMxK8E?=
- =?us-ascii?Q?yHwTNGxfM0+8PD8l5vmVqUhLcSCZq/RdfxJnk/O36gzU7TiGSI2S44KNygxY?=
- =?us-ascii?Q?h6a5/wOel1Qf+AWgUPcEAHsmS4SSD6bnZumu7Wf9/mi6HQRcwXAtKGgLgWhv?=
- =?us-ascii?Q?/Lbk7pPAn5rZGrBP+t5QzayaKJocbJE4VUNjFnSnB6AF89XQwclim38DBjWN?=
- =?us-ascii?Q?syRPz9yGwUAeCwoaSkovxU5wdJHK6nZhpei4Zet0giP94iOANLcgJVb0qHZL?=
- =?us-ascii?Q?UiuskUx+g/4oW/ysY4kUoDqfLqvhzdppIb49BaB2wuDQalzYnfkwGNm6Q8Wi?=
- =?us-ascii?Q?mrrR7+u61JVg22DsSvNca95ZUPpw7ifUqUK4ODpLyx0OjTxG/3/iYUUfPtgk?=
- =?us-ascii?Q?QSG9j65N/w8+a9Buuu4nQVwYzjutxvsj8vZ5KmdxQUeC/PmlgAIzmKss3C+v?=
- =?us-ascii?Q?so6rWODzUrt97JwHKDjUoc9cD0+4DJZ+EMBVYhKS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e209ac5a-03e7-4e09-88b9-08ddfbe7d1c2
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 03:58:43.9339
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oUu8XO+L4Frju3QhIQnuf4iQsGQFxj2V8RbjgudrxdTeLlNFkF13auT3A9rcVDLl5ddknWQ1zQAoKRgWFec5Zw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7267
+In-Reply-To: <aNPTwxnlXGbazFLR@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_205851_934263_D3F686D8 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20250924_205940_844210_ADAF69E7 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,69 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 09:38:06AM +0800, Xiaolei Wang wrote:
-> Initialize priv->lock to fix the following warning.
->
-> WARNING: CPU: 0 PID: 12 at kernel/locking/mutex.c:577 __mutex_lock+0x70c/0x8b8
->  Modules linked in:
->  Hardware name: Freescale i.MX8QM MEK (DT)
->  Call trace:
->   __mutex_lock+0x70c/0x8b8 (P)
->   mutex_lock_nested+0x24/0x30
->   imx_hsio_power_on+0x4c/0x764
->   phy_power_on+0x7c/0x12c
->   imx_pcie_host_init+0x1d0/0x4d4
->   dw_pcie_host_init+0x188/0x4b0
->   imx_pcie_probe+0x324/0x6f4
->   platform_probe+0x5c/0x98
->   really_probe+0xbc/0x29c
->   __driver_probe_device+0x78/0x12c
->   driver_probe_device+0xd8/0x160
->   __device_attach_driver+0xb8/0x138
->   bus_for_each_drv+0x84/0xe4
->   __device_attach_async_helper+0xb8/0xdc
->   async_run_entry_fn+0x34/0xe0
->   process_one_work+0x220/0x694
->   worker_thread+0x1c0/0x36c
->   kthread+0x14c/0x224
->
-> Fixes: 82c56b6dd24f ("phy: freescale: imx8qm-hsio: Add i.MX8QM HSIO PHY driver support")
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> ---
+On 2025/9/24 19:19, Will Deacon wrote:
+> On Tue, Sep 23, 2025 at 03:31:15PM +0800, Yicong Yang wrote:
+>> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> index bbd81a43047d..a52d98f1ed34 100644
+>> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+>> @@ -57,6 +57,11 @@
+>>  #define L3C_V2_NR_EVENTS	0xFF
+>>
+>>  HISI_PMU_EVENT_ATTR_EXTRACTOR(ext, config, 17, 16);
+>> +/*
+>> + * Remain the config1:0-7 for backward compatibility if some existing users
+>> + * hardcode the config1:0-7 directly without parsing the sysfs attribute.
+>> + */
+>> +HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core_deprecated, config1, 7, 0);
+>>  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
+>>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
+>>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
+>> @@ -95,6 +100,21 @@ static bool support_ext(struct hisi_l3c_pmu *pmu)
+>>  	return l3c_pmu_ext->support_ext;
+>>  }
+>>
+>> +/*
+>> + * tt_core was extended to cover all the CPUs sharing the L3 and was moved from
+>> + * config1:0-7 to config2:0-*. Try it first and fallback to tt_core_deprecated
+>> + * if user's still using the deprecated one.
+>> + */
+>> +static u32 hisi_l3c_pmu_get_tt_core(struct perf_event *event)
+>> +{
+>> +	u32 core = hisi_get_tt_core(event);
+>> +
+>> +	if (core)
+>> +		return core;
+>> +
+>> +	return hisi_get_tt_core_deprecated(event);
+>> +}
+> 
+> Perhaps we should be stricter about this and fail validation for events
+> that specify both a non-zero tt_core and a non-zero tt_core_deprecated?
+> 
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+added in hisi_uncore_l3c_ops->check_filter() that hisi_uncore_pmu_event_init() will
+call check_filter() to ask uncore pmu to validate the filter configuration.
 
-> v1: https://patchwork.kernel.org/project/imx/patch/20250923141611.1295395-1-xiaolei.wang@windriver.com/
->
-> v2: Use devm_mutex_init() instead of mutex_init()
->
->  drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> index 5dca93cd325c..977d21d753a5 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-> @@ -533,7 +533,7 @@ static struct phy *imx_hsio_xlate(struct device *dev,
->
->  static int imx_hsio_probe(struct platform_device *pdev)
->  {
-> -	int i;
-> +	int i, ret;
->  	void __iomem *off;
->  	struct device *dev = &pdev->dev;
->  	struct device_node *np = dev->of_node;
-> @@ -545,6 +545,9 @@ static int imx_hsio_probe(struct platform_device *pdev)
->  		return -ENOMEM;
->  	priv->dev = &pdev->dev;
->  	priv->drvdata = of_device_get_match_data(dev);
-> +	ret = devm_mutex_init(dev, &priv->lock);
-> +	if (ret)
-> +		return ret;
->
->  	/* Get HSIO configuration mode */
->  	if (of_property_read_string(np, "fsl,hsio-cfg", &priv->hsio_cfg))
-> --
-> 2.43.0
->
+https://lore.kernel.org/linux-arm-kernel/20250925033123.5836-1-yangyicong@huawei.com/
+
+thanks.
 
