@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75134CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 09:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE192CAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 09:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIYHrp+r8l3aRY2CrSNIVxvTo+sjJh2VmGHzM0SkdFI=; b=rB9qbQKva+XRCLUWQU2MVWtXxe
-	7309qukzZWct0aNVeKODABYpCpEArmNqHxjFI19ehpp11feZ+jO2KKPnjp/EahZoTWRWNG/U5Xj17
-	Bs8z7ZroVBtXKr4ujpT0oKu8NeaDKs9/ioQ0B4IPl3Fw+Dg1USe5A2b2WI75I1sNyDJ+1x4XlzBy9
-	wGKHaho6P3V/ay6cWcgTZ89i67f5AKr/fLjwB+RZ6831Vva70dsSXNYT5XgoElpr8yNKyM+Q9c3jt
-	rS7SrJc1WVGjHUA3h3Pik/wJhUBKP1lSCr3hTub8Hw9XCOuYBYRCtDHmv9R2ptMnWLBKNm4IH3iR1
-	zuGy5qZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLxGGY+0sXasSx/e5+1dN8eG9XM5LcxKN/mDWo3249Q=; b=vJAKAdAr3MG+5gbzgtDOjYwL0G
+	YgerADdApCnDAe7krwovyBEKlyjGUmsdqtW1np0k2uoUBmNVy8uxzmIaEABXgTaqyHAaBBGuUmXfd
+	dbIV0fPls5Gdv1ICajJXB8iVi9oVoYdp1m71akaw5UzcrVY8ormvjXx0ioX+Q3ESvNTiHmslecRjg
+	8wdKSRyBLs9dk3JYHjHs7zQc5yVLyigt6yNHU3ouWxWtWy4emDQWAA9bj0m8Uv8DvxgSUEH7PXsUi
+	60gGlZB6LsY2WWYFx6xluosTl5K29oBLjOEgqdyxEekGxalDH3UtoQwwOZuMESEd8jtbnuiHdRmo9
+	ljhaVJvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1iCk-00000007Z8s-1Rzd;
-	Thu, 25 Sep 2025 09:23:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1iCh-00000007Z74-2MGP
+	id 1v1iE2-00000007Zxb-340L;
+	Thu, 25 Sep 2025 09:25:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v1iE1-00000007Zw8-0O2V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 09:23:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC0D41692;
-	Thu, 25 Sep 2025 02:23:46 -0700 (PDT)
-Received: from [10.57.1.72] (unknown [10.57.1.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BD9A3F5A1;
-	Thu, 25 Sep 2025 02:23:53 -0700 (PDT)
-Message-ID: <149b84c8-cdd6-4302-b3be-9cf6e69c3319@arm.com>
-Date: Thu, 25 Sep 2025 10:23:51 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] perf/arm_cspmu: Add callback to reset filter
- config
-Content-Language: en-GB
-To: Besar Wicaksono <bwicaksono@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, ilkka@os.amperecomputing.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org, mark.rutland@arm.com, treding@nvidia.com,
- jonathanh@nvidia.com, vsethi@nvidia.com, rwiley@nvidia.com,
- sdonthineni@nvidia.com
-References: <20250923001840.1586078-1-bwicaksono@nvidia.com>
- <20250923001840.1586078-3-bwicaksono@nvidia.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250923001840.1586078-3-bwicaksono@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Thu, 25 Sep 2025 09:25:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 75DE44186F;
+	Thu, 25 Sep 2025 09:25:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D3FCC4CEF0;
+	Thu, 25 Sep 2025 09:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758792316;
+	bh=WIwi1Q5Ih8EETZG8HYgff8itSbuVENXHFclMfz2Q0a0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Kc+BWUOONeKOMbp62rKkiot7ahj8P6UpbtwZ0TF2ZJvuTZ09WTcGzhe0imI4bCMcu
+	 Dk4/32nx04Fd6SnBlz9BZQf0rHIOh+tSEo8n3t6Ceu13a24LlE+lHjUx1G10s6fEno
+	 jbRx7LcLVVLHIAGF+B/oZnpUfoGCHcr+6CyPpdDvj09RHJPoT7XSd+CMNL5v0mKAdq
+	 46pdIVShhtI0n0hUAO65SUZBhaGb63ontPB9rxjowTRPRau+1PE6yj9VmqRkKojGT6
+	 HF/QB/wX5U+SafTHrthx0A6t+utuJoV+/AMN7Ef3EVUk2MJpuxFo574gKJBjK0epdn
+	 ghaSeuEHEZuTw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v1iDx-00000009IVL-3Nku;
+	Thu, 25 Sep 2025 09:25:13 +0000
+Date: Thu, 25 Sep 2025 10:25:13 +0100
+Message-ID: <868qi228au.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maximilian Dittgen <mdittgen@amazon.de>
+Cc: <oliver.upton@linux.dev>,
+	<pbonzini@redhat.com>,
+	<shuah@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>,
+	<kvm@vger.kernel.org>
+Subject: Re: [PATCH] kvm, selftests: ioctl to handle MSIs injected from userspace as software-bypassing vLPIs
+In-Reply-To: <20250925090116.27575-1-mdittgen@amazon.de>
+References: <20250925090116.27575-1-mdittgen@amazon.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mdittgen@amazon.de, oliver.upton@linux.dev, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_022355_646350_581BCADD 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250925_022517_156507_99E94595 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,11 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/09/2025 01:18, Besar Wicaksono wrote:
-> Implementer may need to reset a filter config when
-> stopping a counter, thus adding a callback for this.
+On Thu, 25 Sep 2025 10:01:16 +0100,
+Maximilian Dittgen <mdittgen@amazon.de> wrote:
 > 
-> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+> From: Maximilian Dittgen <mdittgen@amazon.de>
+> 
+> At the moment, all MSIs injected from userspace using KVM_SIGNAL_MSI are
+> processed as LPIs in software with a hypervisor trap and exit.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Not really. Injecting an interrupt preempts the guest injecting a host
+IPI, but there is no trap.
+
+> To
+> properly test GICv4 direct vLPI injection from KVM selftests, we write a
+> KVM_DEBUG_GIC_MSI_SETUP ioctl that manually creates an IRQ routing table
+> entry for the specified MSI, and populates ITS structures (device,
+> collection, and interrupt translation table entries) to map the MSI to a
+> vLPI. We then call GICv4 kvm_vgic_v4_set_forwarding to let the vLPI bypass
+> hypervisor traps and inject directly to the vCPU.
+
+I think that's totally overkill, and there is at least two ways to
+achieve the same thing without adding any additional code to the
+kernel:
+
+- your test can simulate the restore of a guest with pending
+  interrupts in the in-memory tables, start it, see the expected
+  interrupts in the guest. Additional benefit: you can now test LPI
+  restore.
+
+- you use the interrupt injection mechanism that has been in the core
+  code since 536e2e34bd0022, and let the GIC inject the interrupt for
+  you. In case you wonder why it is there: for the exact purpose you
+  describe.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
