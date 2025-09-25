@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C4BCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 22:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9BDCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 22:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45q2RfxgPL2RPs1UTa/vp3a4iK6CtTwGXX+rlUIY7e4=; b=nCFmD0IDDDMhnM45IfI95mOC7E
-	szZ+hvjvwbQUKryzIFk1BuEp9K5bD7tWNYGNMxHbGFxxB+EkHkOUKRftcgUYJao6BSQrdiyLr9Mcd
-	3y2tlMvpmUHHsKnhXkX141spz1sccz11ifnWo3d47cMkA691rGcaJ3MZ/RvRFj9D/UcOqafrZfmv7
-	uBLB1SwRd1ouiOkH6OltgqMJP9t1aGRwhvj84nRzU9l+5BydDX/0lQaBNOhG0XRD7kkLtRsQqngub
-	EhsUTafzhYQWr/vFxn3asCtNl/EKg4yfA9Pz8ZV+BZUHHHi62T/0IQlK3+ReP/Pf34zYQiMbYiyFv
-	rNIs1xcA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Yn0xvvBLMwu8wkU+DuP8uHQSpgg0AdELGYZw55NAqUc=; b=E1QwsaAvDD9R3v
+	T/argCtpCBbzFpZdFbaIKokQTRIOsA6LzSpjZMfMczLsBlvooo3WzXJkMiKsUjAtU7k6gbm3sCSMi
+	ILbVicaVjG/fPCsi5CW3QSKqSY59dDPOXPBSB6N7Sdp8Nb1k2KDauKqnoSba0U7BMSmFMmkm68USm
+	ILOIYfsK6W25WAH8NSJjhcmPvoH50YmjSOlAOKDnV6jI/Ia45jPzU9UqdXRjpUIgAJEA/hg7plrvr
+	Je27mvTBTi9O8b7pFiRm/p+Pz0B/fZgEY4zl+tNS4W00gJZMxNFG7X6O2ooRLOQ8cSWaMhDEfpDbb
+	Nvb56/U7CpvISewtTfXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1u3I-0000000DPXo-41Ud;
-	Thu, 25 Sep 2025 22:03:00 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1v1u4M-0000000DPw1-3NMH;
+	Thu, 25 Sep 2025 22:04:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1u3G-0000000DPWG-0nGu
+	id 1v1u4K-0000000DPvK-0n3y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 22:02:59 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 8C48B1D0001C;
-	Thu, 25 Sep 2025 18:02:56 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 25 Sep 2025 18:02:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1758837776; x=1758924176; bh=45q2RfxgPL
-	2RPs1UTa/vp3a4iK6CtTwGXX+rlUIY7e4=; b=UWGOpYJ6CBLaUH3lP0939qUdp8
-	oIkBJg4b59HUGa+sGLQi5FJeYdcB/G+n+XIEojAEhKKMUIWt0ePF7LvONkYuqZE4
-	IcFMuwW28xRzu3u3d/LcBr4AsEtk8OJocP1B96QSrCY1X1EEUnDEVOdLSJl0tvMH
-	/hW+h3eA19yYRZhslKNEzLZVjbxD2oAelB2mF4ZH0B7GTB54jnGIticrcRSpXXIC
-	VCxMdP8Gb0jmQg5VqpXMT923cSjl/eGlI3fgD3BnQmvZ5ZfbPgelnDhPXZkutynE
-	M5q5hQqWUws4z2DFueDPRkLyMHeDlv+wgocAscFGEgSDluv/hCNNBC5G2JBw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1758837776; x=1758924176; bh=45q2RfxgPL2RPs1UTa/vp3a4iK6CtTwGXX+
-	rlUIY7e4=; b=G2xnt1E7zv+0TEUQksFp5Bb7hUTt/noMfIK6VjGRxfYV08dHOn4
-	kt0lYp9p3mV7sbBdKBr/Ela64eT+uNcK5WABxkJIoKAU0C9JtmVCtkoMtcYQKziu
-	47awA01Co19sIx8Vi063ASKB97zuVe4pa6pjRU600C4aPzSZu9TTw55eM5etri8i
-	skGrF9A0Na8ZQeHu4I9vDuUH/PT4T20iTJep1r/0JNQtO4zM/jFWNZ9rb2Ev+L8/
-	k+GcFs1UP7DgeFDdT2MGvmCQ3aeuh69TNT5ETXV9gQVBhywWZ0yqknaqwbU94cQP
-	4YNT8R51TVIpHDCmxxI9g9f5g+Vst0t/5HA==
-X-ME-Sender: <xms:D7zVaHdDwSU7-i24NUP40ENlshVsImBeqs_TR6P8BTE0nuCf8oPagA>
-    <xme:D7zVaJHynfWtGe2VtM2ux6S9_pVUaGOwYQ07cQ7qDifsTzMwr5kx-KmmAznS1DKEv
-    ZOcokBWhNf05R-8Hzr_us6sGJiVG-ULaMlibZ1L6Xk2ISUTlLkCOms>
-X-ME-Received: <xmr:D7zVaMB07uC71mt2yTVFGE-MSToNSClmWVhJSXWx60Y9nfm6InLvoYASM6Q-TpTF-txdE0bXAXKu1ZQHr5w6zCcu1DA7zw2B9f8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeijeeigecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpeffhffvvefukfhfgggtuggjsehttdertddttdejnecuhfhrohhmpeflrghnnhgvucfi
-    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfdvff
-    evleegudejfeefheehkeehleehfefgjefffeetudegtefhuedufeehfeetnecuvehluhhs
-    thgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurd
-    hnvghtpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghpthht
-    ohepjhgtrghllhhighgvrhhoshelleesghhmrghilhdrtghomhdprhgtphhtthhopehsvh
-    gvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiif
-    vghighdrihhopdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtoh
-    eplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlvgigrghn
-    ughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomh
-X-ME-Proxy: <xmx:D7zVaM4f33altnetDoyGCGAuXKPZpJUQzcMCvu3hbliXcsJ2EbMXJQ>
-    <xmx:D7zVaLlX54RiZDd0NVg_pxNK6WcEk5SZ_5iBcd4nnLWqts4MHhKgNA>
-    <xmx:D7zVaF4mOHwi_NKCjr6py86kDM_Oj5AknOBXQgN4scbAEzaMbHkaXw>
-    <xmx:D7zVaJXr0kKu-tI4bL74Wpn-nKWh7XaaJQhRwquku5tnWMJrAS0nNQ>
-    <xmx:ELzVaD-j4wqPauB1cCsZcJESH2PPmoAtWPNuPvIgMz8-jEHql9-jyh3j>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 25 Sep 2025 18:02:55 -0400 (EDT)
-Date: Fri, 26 Sep 2025 00:02:54 +0200
-From: Janne Grunau <j@jannau.net>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v2 10/11] arm64: dts: apple: Add common hwmon sensors and
- fans
-Message-ID: <20250925220254.GE637503@robin.jannau.net>
-References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
- <20250827-macsmc-subdevs-v2-10-ce5e99d54c28@gmail.com>
+	Thu, 25 Sep 2025 22:04:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4DDA43794;
+	Thu, 25 Sep 2025 22:04:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5307EC4CEF0;
+	Thu, 25 Sep 2025 22:04:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758837842;
+	bh=hu1EQlTMo9DEgndmffGfA29c8ETyA13nPng1Cr0CAtg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=WXxKBSfhlZuO/9iTAPjDoEIbxiyc4T01O3tEd3IewRO54u1LHJhSmheRJUv8PjifK
+	 Vy566N/ZKcqcKOcEZkN+ctd9tfksRHYsr67PMz8XU0xmgymQfmTqu+im2AC28t6rZf
+	 X6m9BoTU6SL2OC2JiH7Dy1SA6tcVu9umVmiZXeB7yTiFDzE1KdmbBTCb35Yfo/JvOt
+	 gCbzeyA1YBvo5jXgTAnKy+bKmPCwthKzmC8v0Z/AyPE9hhKu/BjMwAW9Z7dMuNzNRQ
+	 ecDVr6neMzdaC8WEveVvVBfwG4+DRwEcsDSzbhtVYd5hVlivxpYeYOv+z2iNdTan/K
+	 09VwIoe6gDSyQ==
+Date: Thu, 25 Sep 2025 17:04:00 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ#
+ override active low
+Message-ID: <20250925220400.GA2206333@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250827-macsmc-subdevs-v2-10-ce5e99d54c28@gmail.com>
+In-Reply-To: <20250923073913.2722668-3-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_150258_279947_409366EF 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250925_150404_269736_D4CD5A91 
+X-CRM114-Status: GOOD (  29.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,45 +75,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 27, 2025 at 09:22:44PM +1000, James Calligeros wrote:
-> Each Apple Silicon device exposes a unique set of sensors and fans,
-> however some have been found to be reliably common across devices.
+On Tue, Sep 23, 2025 at 03:39:13PM +0800, Richard Zhu wrote:
+> The CLKREQ# is an open drain, active low signal that is driven low by
+> the card to request reference clock. It's an optional signal added in
+> PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
+> reserved.
 > 
-> Add these as .dtsi files so that they can be combined with any
-> device-specific sensors without excessive repetition.
+> Since the reference clock controlled by CLKREQ# may be required by i.MX
+> PCIe host too. To make sure this clock is ready even when the CLKREQ#
+> isn't driven low by the card(e.x the scenario described above), force
+> CLKREQ# override active low for i.MX PCIe host during initialization.
 > 
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> The CLKREQ# override can be cleared safely when supports-clkreq is
+> present and PCIe link is up later. Because the CLKREQ# would be driven
+> low by the card at this time.
+
+What happens if we clear the CLKREQ# override (so the host doesn't
+assert it), and the link is up but the card never asserts CLKREQ#
+(since it's an optional signal)?
+
+Does the i.MX host still work?
+
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../boot/dts/apple/hwmon-common.dtsi     | 37 +++++++++++++++++++++++++
->  .../boot/dts/apple/hwmon-fan-dual.dtsi   | 24 ++++++++++++++++
->  arch/arm64/boot/dts/apple/hwmon-fan.dtsi | 19 +++++++++++++
->  .../boot/dts/apple/hwmon-laptop.dtsi     | 35 +++++++++++++++++++++++
->  .../boot/dts/apple/hwmon-mac-mini.dtsi   | 17 ++++++++++++
->  5 files changed, 132 insertions(+)
+>  drivers/pci/controller/dwc/pci-imx6.c | 43 ++++++++++++++++++++++++++-
+>  1 file changed, 42 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/boot/dts/apple/hwmon-common.dtsi b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..bac4e44d3f9892fe8ad04125e47dcccb2bcf57a0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/apple/hwmon-common.dtsi
-> @@ -0,0 +1,37 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-> +/*
-> + * Hardawre monitoring sensors expected to be found on all Apple Silicon devices
-
-typo: "Hardawre"
-
-> + *
-> + * Copyright The Asahi Linux Contributors
-> + */
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 80e48746bbaf..6b03b1111d06 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -52,6 +52,8 @@
+>  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+>  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+>  #define IMX95_PCIE_SS_RW_REG_1			0xf4
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
+> +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
+>  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+>  
+>  #define IMX95_PE0_GEN_CTRL_1			0x1050
+> @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+>  	int (*wait_pll_lock)(struct imx_pcie *pcie);
+> +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
+>  	const struct dw_pcie_host_ops *ops;
+>  };
+>  
+> @@ -149,6 +152,7 @@ struct imx_pcie {
+>  	struct gpio_desc	*reset_gpiod;
+>  	struct clk_bulk_data	*clks;
+>  	int			num_clks;
+> +	bool			supports_clkreq;
+>  	struct regmap		*iomuxc_gpr;
+>  	u16			msi_ctrl;
+>  	u32			controller_id;
+> @@ -239,6 +243,16 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+>  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
+>  }
+>  
+> +static void  imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
+> +{
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
+> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
+> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0);
+> +}
 > +
-> +&smc {
-> +	hwmon {
-> +		compatible = "apple,smc-hwmon";
-
-I think it woiuld make more sense to add the hwmon child node with the
-compatible in the SoC *.dtsi and then only add the sensor nodes to
-"&smc_hwmon" in these hwmon-*.dtsi files
-
-Janne
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  {
+>  	/*
+> @@ -685,7 +699,7 @@ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  	return 0;
+>  }
+>  
+> -static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+> +static void imx8mm_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
+>  {
+>  	int offset = imx_pcie_grp_offset(imx_pcie);
+>  
+> @@ -695,6 +709,11 @@ static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr, offset,
+>  			   IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN,
+>  			   enable ? IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN : 0);
+> +}
+> +
+> +static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+> +{
+> +	imx8mm_pcie_clkreq_override(imx_pcie, enable);
+>  	return 0;
+>  }
+>  
+> @@ -1298,6 +1317,16 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  		regulator_disable(imx_pcie->vpcie);
+>  }
+>  
+> +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> +{
+> +	imx8mm_pcie_clkreq_override(imx_pcie, false);
+> +}
+> +
+> +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> +{
+> +	imx95_pcie_clkreq_override(imx_pcie, false);
+> +}
+> +
+>  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -1322,6 +1351,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+>  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+>  		dw_pcie_dbi_ro_wr_dis(pci);
+>  	}
+> +
+> +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
+> +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
+> +		if (imx_pcie->drvdata->clr_clkreq_override)
+> +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
+> +	}
+>  }
+>  
+>  /*
+> @@ -1745,6 +1780,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	pci->max_link_speed = 1;
+>  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
+>  
+> +	imx_pcie->supports_clkreq =
+> +		of_property_read_bool(node, "supports-clkreq");
+>  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+>  	if (IS_ERR(imx_pcie->vpcie)) {
+>  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
+> @@ -1873,6 +1910,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
+>  		.init_phy = imx8mq_pcie_init_phy,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8MM] = {
+>  		.variant = IMX8MM,
+> @@ -1883,6 +1921,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0] = IOMUXC_GPR12,
+>  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8MP] = {
+>  		.variant = IMX8MP,
+> @@ -1893,6 +1932,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_off[0] = IOMUXC_GPR12,
+>  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+>  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8Q] = {
+>  		.variant = IMX8Q,
+> @@ -1913,6 +1953,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+> +		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+>  	},
+>  	[IMX8MQ_EP] = {
+>  		.variant = IMX8MQ_EP,
+> -- 
+> 2.37.1
+> 
 
