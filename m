@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B104BCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB43CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 13:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EejZf4QziLZePomlHcKbVbhRWJO3IKyIRNdV3+twcUQ=; b=AGPssa/EjlwSA5QzcU2KTvbOOI
-	mZjVQEPhywydIWDAd17P5lkuvJmjJgDsDYSCKsO+LRewyqAuxSOYBMWkg4VY5N4NjulAj1uPaiMv8
-	32Py75VUu/WDKL5jzq7D+Rm+F0xEygdAVqrgX7NpiSQtnR3xufx/UP3wgdOd838W65W6TIibgTe0f
-	WeBeG01QI6cScEUax2w48KwS2/W/lYifMm0/ps5BGm91Ck6su/UALG8lJSZdqVeJOS3yrUg3VsuWe
-	aYqTJVvFrc12uU1ukElQNztcfDZ5R8+OfCzBnr+ulzN5+mxTBOePlYWwnAKuXA3+/+TJ+WinB9BhA
-	96DPr18A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UHiyy4KxqAgQ+eN/V7jFale2Y0hm8rgKKn38zDKOn8=; b=Wg2WTMIpOqo8cDZup8/2YbB7tI
+	gaww9oC34wyD/LiiySatcRSWEw8fc3wLisC5OIu4E0m/1EaDNa7y4hyt5p1X5rLuHg9yzeUNvB9NB
+	h5XFq9Leu2izodwuHnbBx5cuD1NS8zbiAo2wt50prCXBJP9ZcYFEkuhN67LxVGao8qepMQkBTTnWj
+	TVj/aSP3Alzy/Whom5Fuj3psdRWxfNEv16Vw5uGwRXeNWHLP015MM/nGaAnsmtUxxNTlSyHCeucgi
+	7U7EnkflVOMooAehS9XYXgxb11fkSCLptPxl7ba1bY42465xwbTOAKG+j+ABR8JgworXWqtF/sOCd
+	lr7j1/Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lgP-00000009F0Z-1XIi;
-	Thu, 25 Sep 2025 13:06:49 +0000
+	id 1v1llZ-00000009HUA-21O2;
+	Thu, 25 Sep 2025 13:12:09 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lgN-00000009Ezk-3b7a
+	id 1v1llY-00000009HTe-2LER
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 13:06:47 +0000
+	Thu, 25 Sep 2025 13:12:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46D9D6054E;
-	Thu, 25 Sep 2025 13:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 920D7C113D0;
-	Thu, 25 Sep 2025 13:06:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D6AB76054E;
+	Thu, 25 Sep 2025 13:12:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D07E6C4CEF0;
+	Thu, 25 Sep 2025 13:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758805607;
-	bh=tqHiPuaWvPkWNyWSejFJnXiHQaUaHLR+Dsrl+qUoonE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kQrG8RUhEmZDzFq7uUXrW2aUzU/juCKW/Z0JZX4mnIHFCAL6KODWeh4dB6AQLe6xc
-	 PfTNxofgZFn89DvL3mZLIRwlAly3B2gydD1YejNSWbYD/KV0SDt1uvMcQRRLaMLwtQ
-	 +8sMFXWtkbVqMLsTdaUtt1DH0fVU1UR3YmCk3AgoIJgXuMaLo5iGBTMy8UPyUr2PgM
-	 UQl41Q9MTh7Vn6O08eEOe+v5UjEYvbunuUT6kNGuoHvq1G0jiDKO2C/E8yCaGgHwxB
-	 5Jzp+QsnsbT7ljExB8ER52wfMKfndh3GlRPPivYMCuvdBclDMeUI1o1BCCb5jrtvzR
-	 2wyZH1ZSnLBAg==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Jonathan Chocron <jonnyc@amazon.com>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Subject: Re: [PATCH v10 0/4] PCI: dwc: Add ECAM support with iATU configuration
-Date: Thu, 25 Sep 2025 18:36:36 +0530
-Message-ID: <175880556056.15879.13833041080045099781.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
-References: <20250923-controller-dwc-ecam-v10-0-e84390ba75fa@kernel.org>
+	s=k20201202; t=1758805927;
+	bh=hCbg+xH0PAFSHq/z2bdjQ4pq3+Cnx9PLmBUG/OA2ris=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oAnizgjI5yWSwS247xUL1Al1T++xVE+5Ckc0md+K/OeloABVWqUpTznDhQP7Ha4FM
+	 z6iyGrVpaWU+VYgcG/8rsA1gQWAmWIyq4dgY7brtt1Vl5h16cutxxXRt+VAH90oVHq
+	 Hjt/xHdyJxnU770UqWU+ioF2kPwvCUU27LEDHkhTTaLf5x67Mzg80k4F30/nvaC5yy
+	 OWMFV0jXJYaKYDbfzzLesYN9ITDeHa7prYLFuwb587YSwMc40+UCxnx2w2t8scpj7t
+	 Ql0bdQc+wIHIAjbDCva1q0rEMfDeM1zWPquSqLTpDRARLjAUVUr3+sZrcQJPy0WTJO
+	 Mnwluuq3UnhrA==
+Date: Thu, 25 Sep 2025 08:12:04 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bod@kernel.org>, 
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+	Jagadeesh Kona <quic_jkona@quicinc.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, aiqun.yu@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com, 
+	trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com
+Subject: Re: [PATCH 2/9] dt-bindings: clock: sm8450-camcc: Remove sc8280xp
+ camcc to from sm8450 camcc
+Message-ID: <g2e5ejykf6nteipzsybbjjjcdvko4yg664uxh57bi3ty3cljh4@5mv5ki2cqyg3>
+References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
+ <20250924-knp-mmclk-v1-2-d7ea96b4784a@oss.qualcomm.com>
+ <a8ebec72-eee2-4a02-ac6b-57678aa7c50f@kernel.org>
+ <1c90a127-4b39-4cad-9805-d4449990baa7@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <1c90a127-4b39-4cad-9805-d4449990baa7@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +83,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 23 Sep 2025 16:56:50 +0530, Manivannan Sadhasivam wrote:
-> The current implementation requires iATU for every configuration
-> space access which increases latency & cpu utilization.
+On Thu, Sep 25, 2025 at 02:14:01PM +0530, Taniya Das wrote:
 > 
-> Designware databook 5.20a, section 3.10.10.3 says about CFG Shift Feature,
-> which shifts/maps the BDF (bits [31:16] of the third header DWORD, which
-> would be matched against the Base and Limit addresses) of the incoming
-> CfgRd0/CfgWr0 down to bits[27:12]of the translated address.
 > 
-> [...]
+> On 9/25/2025 1:59 PM, Bryan O'Donoghue wrote:
+> > On 25/09/2025 00:56, Jingyi Wang wrote:
+> >> From: Taniya Das <taniya.das@oss.qualcomm.com>
+> >>
+> >> SC8280XP camcc only requires the MMCX power domain, unlike SM8450 camcc
+> >> which now supports both MMCX and MXC power domains. Hence move SC8280XP
+> >> camcc from SM8450.
+> >>
+> >> Fixes: 842fa7482915 ("dt-bindings: clock: qcom,sm8450-camcc: Move
+> >> sc8280xp camcc to sa8775p camcc")
+> >> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> >> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+> >> ---
+> >>   Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml | 1 -
+> >>   1 file changed, 1 deletion(-)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-
+> >> camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-
+> >> camcc.yaml
+> >> index c1e06f39431e..dbfcc399f10b 100644
+> >> --- a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
+> >> +++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
+> >> @@ -63,7 +63,6 @@ allOf:
+> >>           compatible:
+> >>             contains:
+> >>               enum:
+> >> -              - qcom,sc8280xp-camcc
+> >>                 - qcom,sm8450-camcc
+> >>                 - qcom,sm8550-camcc
+> >>       then:
+> >>
+> > 
+> > This is not a revert.
+> > 
+> > Where does the compat string go ?
+> > 
+> 
+> The compat is now part of
+> Documentation/devicetree/bindings/clock/qcom,sa8775p-camcc.yaml as part
+> of this commit "842fa7482915".
+> 
+> > You are missing the part where you move the compat string to where you
+> > think it should be...
+> > 
+> 
+> It was already moved as mentioned above.
+> 
 
-Applied to pci/controller/qcom, thanks!
+I'm sorry, but I don't see where you say this. 
 
-[1/4] PCI: dwc: Add support for ELBI resource mapping
-      commit: c96992a24beca0768c1c42ad25d6a466e17ec70f
-[2/4] PCI: dwc: Prepare the driver for enabling ECAM mechanism using iATU 'CFG Shift Feature'
-      commit: f6fd357f7afbeb34a633e5688a23b9d7eb49d558
-[3/4] PCI: qcom: Prepare for the DWC ECAM enablement
-      commit: 4660e50cf81800f82eeecf743ad1e3e97ab72190
-[4/4] PCI: dwc: Support ECAM mechanism by enabling iATU 'CFG Shift Feature'
-      commit: 0da48c5b2fa731b21bc523c82d927399a1e508b0
+The commit message is a verbatim copy of the first paragraph of commit
+'842fa7482915 ("dt-bindings: clock: qcom,sm8450-camcc: Move sc8280xp
+camcc to sa8775p camcc")', where that comment makes sense. But here's
+you're no longer moving something.
 
-Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+Please help me understand what I'm missing.
+
+> > Also why is this patch appearing in a series about _adding_ Kanaapali to
+> > CAMCC ?
+> > 
+> 
+> This was to reduce less dependency on the series.
+> 
+
+Had you sent this patch last week, I would have merged it into v6.18 and
+there wouldn't have been any dependency.
+
+Regards,
+Bjorn
+
+> > NAK
+> > 
+> > ---
+> > bod
+> > 
+> 
+> -- 
+> Thanks,
+> Taniya Das
+> 
 
