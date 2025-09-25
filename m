@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD2CCAC5BE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 447A5CAC5BB
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,27 +12,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWsM+EKf5cQ3zXa2ZkYacilRJyGlckvMR6Ck7XGbGa8=; b=U5dg3wuLqB13YCU/2zl2yM/jf6
-	Drk+C+sp8mvY/J27e+xIw/9foQfQj1Ha7Uyi0b/3dFEE0aa/gpsU3hdyt3b7dKGCq6s2IH1Jcxae/
-	Fr2bfwTXLFVePzOEoaB/Q9adapYZr9nEztMStnZpTX4bFUGZ1Ig6Gy9VA5YlPfyM8IJxkxkIttg4O
-	dnivv9PsKZ0v5et5/bTAXmOJz50HAmazIloMPAiXGPEqvLjKMp5AYrnZl4hEgaULvBt1WTR6EmhsM
-	dfgfFGDRJ4rQj8CEJexCG9rp+RtBCjeCQTec/6AK7THXdAbYmrMO720CcoE5bFD4SxK/lI3lEwrCj
-	K8upXAMw==;
+	bh=EqexFhgz8hlZlUVrM+Hn0iAL/2nZJoaIXA858e7N9Vw=; b=KB9Kv7YxG0pcoxBfei4+iBd1w3
+	O0ejs/SwlPX5rPalhr19IE0u1AsF2Q3BKVuxd2tMlDioJVjVWWJal6u1dedF1oK72f0K3hbmaoA5S
+	Hpwln/lP1Z1N52QG5ORMFYEhXPYYbnsL2vDFBU+OFjFIf38ZyfjesLM1k03zLucy/rFas0f1Jwv6F
+	DGsXfb1IoDgtyb4w7A+EjKc7Jp03SwZ7749mlwCGLx5p2tOvbORepi1aIiw6TyUozGjA7X31aN4wN
+	PpDjznqeOGl8/KFRaKjpMsNrZa/n0d4/NaYsj3+C8XuegeAI3fUp40V258orl6FFqfSzR08Ra0+Ou
+	EJbfPa/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1si2-0000000CnGQ-3z5d;
-	Thu, 25 Sep 2025 20:36:58 +0000
+	id 1v1shy-0000000CnBQ-2K7f;
+	Thu, 25 Sep 2025 20:36:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1sht-0000000Cn64-1D9q
+	id 1v1shq-0000000Cn3s-1p7e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 20:36:50 +0000
+	Thu, 25 Sep 2025 20:36:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F9E71692;
-	Thu, 25 Sep 2025 13:36:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71FD41692;
+	Thu, 25 Sep 2025 13:36:37 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD7193F694;
-	Thu, 25 Sep 2025 13:36:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC0083F694;
+	Thu, 25 Sep 2025 13:36:42 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -49,18 +49,17 @@ Cc: sudeep.holla@arm.com,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 09/10] include: trace: Add Telemetry trace events
-Date: Thu, 25 Sep 2025 21:35:53 +0100
-Message-ID: <20250925203554.482371-10-cristian.marussi@arm.com>
+Subject: [PATCH 08/10] firmware: arm_scmi: Add Telemetry components view
+Date: Thu, 25 Sep 2025 21:35:52 +0100
+Message-ID: <20250925203554.482371-9-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250925203554.482371-1-cristian.marussi@arm.com>
 References: <20250925203554.482371-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_133649_372941_0001F03E 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250925_133646_568728_0200CD5D 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +74,802 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add custom traces to report Telemetry failed accesses and to report when DE
-values are updated internally after a notification is processed.
+Add an alternative filesystem view for the discovered Data Events, where
+the tree of DEs is laid out following the discovered topological order
+instead of the existing flat layout.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- include/trace/events/scmi.h | 48 ++++++++++++++++++++++++++++++++++++-
- 1 file changed, 47 insertions(+), 1 deletion(-)
+ .../firmware/arm_scmi/scmi_system_telemetry.c | 730 ++++++++++++++++++
+ 1 file changed, 730 insertions(+)
 
-diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
-index 703b7bb68e44..b70b26e467b8 100644
---- a/include/trace/events/scmi.h
-+++ b/include/trace/events/scmi.h
-@@ -7,7 +7,8 @@
+diff --git a/drivers/firmware/arm_scmi/scmi_system_telemetry.c b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+index f591aad10302..a4b6d23b211e 100644
+--- a/drivers/firmware/arm_scmi/scmi_system_telemetry.c
++++ b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+@@ -189,6 +189,8 @@ struct scmi_tlm_inode {
+  * @all_nodes: An array to keep track of all the initialized TLM nodes that
+  *	       have been created as a result of the usual probe time SCMI
+  *	       enumeration process.
++ * @des_nodes: An array to use as handy reference only to the set of nodes
++ *	       representing the DEs top directories.
+  * @info: A handy reference to this instance SCMI Telemetry info data.
+  *
+  * The most notable field in this structure is the @all_nodes array, which
+@@ -208,6 +210,7 @@ struct scmi_tlm_instance {
+ 	int max_nodes;
+ 	int num_nodes;
+ 	struct scmi_tlm_inode **all_nodes;
++	struct scmi_tlm_inode **des_nodes;
+ 	const struct scmi_telemetry_info *info;
+ };
  
- #include <linux/tracepoint.h>
+@@ -216,6 +219,526 @@ static int scmi_telemetry_instance_register(struct super_block *sb,
  
--#define TRACE_SCMI_MAX_TAG_LEN	6
-+#define TRACE_SCMI_MAX_TAG_LEN		6
-+#define TRACE_SCMI_TLM_MAX_TAG_LEN	16
+ static LIST_HEAD(scmi_telemetry_instances);
  
- TRACE_EVENT(scmi_fc_call,
- 	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 val1, u32 val2),
-@@ -180,6 +181,51 @@ TRACE_EVENT(scmi_msg_dump,
- 		  __entry->tag, __entry->msg_id, __entry->seq, __entry->status,
- 		__print_hex_str(__get_dynamic_array(cmd), __entry->len))
- );
++#define TYPES_ARRAY_SZ		256
 +
-+TRACE_EVENT(scmi_tlm_access,
-+	TP_PROTO(u64 de_id, unsigned char *tag, u64 startm, u64 endm),
-+	TP_ARGS(de_id, tag, startm, endm),
++static const char *compo_types[TYPES_ARRAY_SZ] = {
++	"unspec",
++	"cpu",
++	"cluster",
++	"gpu",
++	"npu",
++	"interconnnect",
++	"mem_cntrl",
++	"l1_cache",
++	"l2_cache",
++	"l3_cache",
++	"ll_cache",
++	"sys_cache",
++	"disp_cntrl",
++	"ipu",
++	"chiplet",
++	"package",
++	"soc",
++	"system",
++	"smcu",
++	"accel",
++	"battery",
++	"charger",
++	"pmic",
++	"board",
++	"memory",
++	"periph",
++	"periph_subc",
++	"lid",
++	"display",
++	"res_29",
++	"res_30",
++	"res_31",
++	"res_32",
++	"res_33",
++	"res_34",
++	"res_35",
++	"res_36",
++	"res_37",
++	"res_38",
++	"res_39",
++	"res_40",
++	"res_41",
++	"res_42",
++	"res_43",
++	"res_44",
++	"res_45",
++	"res_46",
++	"res_47",
++	"res_48",
++	"res_49",
++	"res_50",
++	"res_51",
++	"res_52",
++	"res_53",
++	"res_54",
++	"res_55",
++	"res_56",
++	"res_57",
++	"res_58",
++	"res_59",
++	"res_60",
++	"res_61",
++	"res_62",
++	"res_63",
++	"res_64",
++	"res_65",
++	"res_66",
++	"res_67",
++	"res_68",
++	"res_69",
++	"res_70",
++	"res_71",
++	"res_72",
++	"res_73",
++	"res_74",
++	"res_75",
++	"res_76",
++	"res_77",
++	"res_78",
++	"res_79",
++	"res_80",
++	"res_81",
++	"res_82",
++	"res_83",
++	"res_84",
++	"res_85",
++	"res_86",
++	"res_87",
++	"res_88",
++	"res_89",
++	"res_90",
++	"res_91",
++	"res_92",
++	"res_93",
++	"res_94",
++	"res_95",
++	"res_96",
++	"res_97",
++	"res_98",
++	"res_99",
++	"res_100",
++	"res_101",
++	"res_102",
++	"res_103",
++	"res_104",
++	"res_105",
++	"res_106",
++	"res_107",
++	"res_108",
++	"res_109",
++	"res_110",
++	"res_111",
++	"res_112",
++	"res_113",
++	"res_114",
++	"res_115",
++	"res_116",
++	"res_117",
++	"res_118",
++	"res_119",
++	"res_120",
++	"res_121",
++	"res_122",
++	"res_123",
++	"res_124",
++	"res_125",
++	"res_126",
++	"res_127",
++	"res_128",
++	"res_129",
++	"res_130",
++	"res_131",
++	"res_132",
++	"res_133",
++	"res_134",
++	"res_135",
++	"res_136",
++	"res_137",
++	"res_138",
++	"res_139",
++	"res_140",
++	"res_141",
++	"res_142",
++	"res_143",
++	"res_144",
++	"res_145",
++	"res_146",
++	"res_147",
++	"res_148",
++	"res_149",
++	"res_150",
++	"res_151",
++	"res_152",
++	"res_153",
++	"res_154",
++	"res_155",
++	"res_156",
++	"res_157",
++	"res_158",
++	"res_159",
++	"res_160",
++	"res_161",
++	"res_162",
++	"res_163",
++	"res_164",
++	"res_165",
++	"res_166",
++	"res_167",
++	"res_168",
++	"res_169",
++	"res_170",
++	"res_171",
++	"res_172",
++	"res_173",
++	"res_174",
++	"res_175",
++	"res_176",
++	"res_177",
++	"res_178",
++	"res_179",
++	"res_180",
++	"res_181",
++	"res_182",
++	"res_183",
++	"res_184",
++	"res_185",
++	"res_186",
++	"res_187",
++	"res_188",
++	"res_189",
++	"res_190",
++	"res_191",
++	"res_192",
++	"res_193",
++	"res_194",
++	"res_195",
++	"res_196",
++	"res_197",
++	"res_198",
++	"res_199",
++	"res_200",
++	"res_201",
++	"res_202",
++	"res_203",
++	"res_204",
++	"res_205",
++	"res_206",
++	"res_207",
++	"res_208",
++	"res_209",
++	"res_210",
++	"res_211",
++	"res_212",
++	"res_213",
++	"res_214",
++	"res_215",
++	"res_216",
++	"res_217",
++	"res_218",
++	"res_219",
++	"res_220",
++	"res_221",
++	"res_222",
++	"res_223",
++	"oem_224",
++	"oem_225",
++	"oem_226",
++	"oem_227",
++	"oem_228",
++	"oem_229",
++	"oem_230",
++	"oem_231",
++	"oem_232",
++	"oem_233",
++	"oem_234",
++	"oem_235",
++	"oem_236",
++	"oem_237",
++	"oem_238",
++	"oem_239",
++	"oem_240",
++	"oem_241",
++	"oem_242",
++	"oem_243",
++	"oem_244",
++	"oem_245",
++	"oem_246",
++	"oem_247",
++	"oem_248",
++	"oem_249",
++	"oem_250",
++	"oem_251",
++	"oem_252",
++	"oem_253",
++	"oem_254",
++	"oem_255",
++};
 +
-+	TP_STRUCT__entry(
-+		__field(u64, de_id)
-+		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
-+		__field(u64, startm)
-+		__field(u64, endm)
-+	),
++static const char *unit_types[TYPES_ARRAY_SZ] = {
++	"none",
++	"unspec",
++	"celsius",
++	"fahrenheit",
++	"kelvin",
++	"volts",
++	"amps",
++	"watts",
++	"joules",
++	"coulombs",
++	"va",
++	"nits",
++	"lumens",
++	"lux",
++	"candelas",
++	"kpa",
++	"psi",
++	"newtons",
++	"cfm",
++	"rpm",
++	"hertz",
++	"seconds",
++	"minutes",
++	"hours",
++	"days",
++	"weeks",
++	"mils",
++	"inches",
++	"feet",
++	"cubic_inches",
++	"cubic_feet",
++	"meters",
++	"cubic_centimeters",
++	"cubic_meters",
++	"liters",
++	"fluid_ounces",
++	"radians",
++	"steradians",
++	"revolutions",
++	"cycles",
++	"gravities",
++	"ounces",
++	"pounds",
++	"foot_pounds",
++	"ounce_inches",
++	"gauss",
++	"gilberts",
++	"henries",
++	"farads",
++	"ohms",
++	"siemens",
++	"moles",
++	"becquerels",
++	"ppm",
++	"decibels",
++	"dba",
++	"dbc",
++	"grays",
++	"sieverts",
++	"color_temp_kelvin",
++	"bits",
++	"bytes",
++	"words",
++	"dwords",
++	"qwords",
++	"percentage",
++	"pascals",
++	"counts",
++	"grams",
++	"newton_meters",
++	"hits",
++	"misses",
++	"retries",
++	"overruns",
++	"underruns",
++	"collisions",
++	"packets",
++	"messages",
++	"chars",
++	"errors",
++	"corrected_err",
++	"uncorrectable_err",
++	"square_mils",
++	"square_inches",
++	"square_feet",
++	"square_centimeters",
++	"square_meters",
++	"radians_per_secs",
++	"beats_per_minute",
++	"meters_per_secs_squared",
++	"meters_per_secs",
++	"cubic_meter_per_secs",
++	"millimeters_mercury",
++	"radians_per_secs_squared",
++	"state",
++	"bps",
++	"res_96",
++	"res_97",
++	"res_98",
++	"res_99",
++	"res_100",
++	"res_101",
++	"res_102",
++	"res_103",
++	"res_104",
++	"res_105",
++	"res_106",
++	"res_107",
++	"res_108",
++	"res_109",
++	"res_110",
++	"res_111",
++	"res_112",
++	"res_113",
++	"res_114",
++	"res_115",
++	"res_116",
++	"res_117",
++	"res_118",
++	"res_119",
++	"res_120",
++	"res_121",
++	"res_122",
++	"res_123",
++	"res_124",
++	"res_125",
++	"res_126",
++	"res_127",
++	"res_128",
++	"res_129",
++	"res_130",
++	"res_131",
++	"res_132",
++	"res_133",
++	"res_134",
++	"res_135",
++	"res_136",
++	"res_137",
++	"res_138",
++	"res_139",
++	"res_140",
++	"res_141",
++	"res_142",
++	"res_143",
++	"res_144",
++	"res_145",
++	"res_146",
++	"res_147",
++	"res_148",
++	"res_149",
++	"res_150",
++	"res_151",
++	"res_152",
++	"res_153",
++	"res_154",
++	"res_155",
++	"res_156",
++	"res_157",
++	"res_158",
++	"res_159",
++	"res_160",
++	"res_161",
++	"res_162",
++	"res_163",
++	"res_164",
++	"res_165",
++	"res_166",
++	"res_167",
++	"res_168",
++	"res_169",
++	"res_170",
++	"res_171",
++	"res_172",
++	"res_173",
++	"res_174",
++	"res_175",
++	"res_176",
++	"res_177",
++	"res_178",
++	"res_179",
++	"res_180",
++	"res_181",
++	"res_182",
++	"res_183",
++	"res_184",
++	"res_185",
++	"res_186",
++	"res_187",
++	"res_188",
++	"res_189",
++	"res_190",
++	"res_191",
++	"res_192",
++	"res_193",
++	"res_194",
++	"res_195",
++	"res_196",
++	"res_197",
++	"res_198",
++	"res_199",
++	"res_200",
++	"res_201",
++	"res_202",
++	"res_203",
++	"res_204",
++	"res_205",
++	"res_206",
++	"res_207",
++	"res_208",
++	"res_209",
++	"res_210",
++	"res_211",
++	"res_212",
++	"res_213",
++	"res_214",
++	"res_215",
++	"res_216",
++	"res_217",
++	"res_218",
++	"res_219",
++	"res_220",
++	"res_221",
++	"res_222",
++	"res_223",
++	"res_224",
++	"res_225",
++	"res_226",
++	"res_227",
++	"res_228",
++	"res_229",
++	"res_230",
++	"res_231",
++	"res_232",
++	"res_233",
++	"res_234",
++	"res_235",
++	"res_236",
++	"res_237",
++	"res_238",
++	"res_239",
++	"res_240",
++	"res_241",
++	"res_242",
++	"res_243",
++	"res_244",
++	"res_245",
++	"res_246",
++	"res_247",
++	"res_248",
++	"res_249",
++	"res_250",
++	"res_251",
++	"res_252",
++	"res_253",
++	"res_254",
++	"oem_unit",
++};
 +
-+	TP_fast_assign(
-+		__entry->de_id = de_id;
-+		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
-+		__entry->startm = startm;
-+		__entry->endm = endm;
-+	),
-+
-+	TP_printk("de_id=0x%llX [%s] - startm=%016llX endm=%016llX",
-+		  __entry->de_id, __entry->tag, __entry->startm, __entry->endm)
-+);
-+
-+TRACE_EVENT(scmi_tlm_collect,
-+	TP_PROTO(u64 ts, u64 de_id, u64 value, unsigned char *tag),
-+	TP_ARGS(ts, de_id, value, tag),
-+
-+	TP_STRUCT__entry(
-+		__field(u64, ts)
-+		__field(u64, de_id)
-+		__field(u64, value)
-+		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->ts = ts;
-+		__entry->de_id = de_id;
-+		__entry->value = value;
-+		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
-+	),
-+
-+	TP_printk("ts=%llu  de_id=0x%04llX  value=%016llu [%s]",
-+		  __entry->ts, __entry->de_id, __entry->value, __entry->tag)
-+);
-+
- #endif /* _TRACE_SCMI_H */
+ static inline int
+ __scmi_tlm_generic_open(struct inode *ino, struct file *filp,
+ 			int (*bulk_op)(const struct scmi_tlm_setup *tsp,
+@@ -753,6 +1276,10 @@ static int scmi_telemetry_des_initialize(struct device *dev,
+ 	struct scmi_tlm_inode *des_top_inode;
  
- /* This part must be outside protection */
+ 	des_top_inode = TLM_INODE_SETUP(ti, tsp, &des_dir_cls, NULL, NULL);
++	ti->des_nodes = devm_kcalloc(dev, ti->info->base.num_des,
++				     sizeof(*ti->des_nodes), GFP_KERNEL);
++	if (!ti->des_nodes)
++		return -ENOMEM;
+ 
+ 	for (int i = 0; i < ti->info->base.num_des; i++) {
+ 		const struct scmi_telemetry_de *de = ti->info->des[i];
+@@ -796,6 +1323,8 @@ static int scmi_telemetry_des_initialize(struct device *dev,
+ 				&dei->persistent);
+ 
+ 		TLM_INODE_SETUP(ti, tsp, &value_tlmo, de_dir_inode, de);
++
++		ti->des_nodes[i] = de_dir_inode;
+ 	}
+ 
+ 	dev_info(dev, "Found %d Telemetry DE resources.\n", ti->info->base.num_des);
+@@ -1633,10 +2162,204 @@ scmi_tlm_node_add(struct super_block *sb, struct dentry *parent,
+ 	return dentry;
+ }
+ 
++static struct inode *scmi_telemetry_make_dir_inode(struct super_block *sb)
++{
++	struct inode *inode = new_inode(sb);
++
++	if (!inode)
++		return NULL;
++
++	inode->i_ino = get_next_ino();
++	inode_init_owner(&nop_mnt_idmap, inode, NULL, S_IFDIR | 0700);
++	simple_inode_init_ts(inode);
++
++	inode->i_op = &tlm_dir_inode_ops;
++	inode->i_fop = &simple_dir_operations;
++
++	return inode;
++}
++
++static struct dentry *scmi_telemetry_topology_dir_alloc(struct super_block *sb,
++							struct dentry *parent,
++							const char *name)
++{
++	struct dentry *dentry;
++	struct inode *inode;
++
++	inode = scmi_telemetry_make_dir_inode(sb);
++	if (!inode)
++		return ERR_PTR(-ENOMEM);
++
++	dentry = d_alloc_name(parent, name);
++	if (!dentry)
++		return ERR_PTR(-ENOMEM);
++
++	d_add(dentry, inode);
++
++	dget(dentry);
++
++	return dentry;
++}
++
++static struct scmi_tlm_inode *
++scmi_telemetry_de_subdir_clone(struct super_block *sb,
++			       struct scmi_tlm_inode *tlmi,
++			       struct dentry *parent)
++{
++	struct device *dev = tlmi->tsp->dev;
++	struct scmi_tlm_inode *dtlmi;
++	struct dentry *twin, *child;
++	struct qstr qstr;
++
++	/*
++	 * NOTE THAT I CANNOT HARD-LINK A DIRECTORY ... BREAKS VFS
++	 * ...so we just duplicate the tlm_inode here
++	 */
++	dtlmi = devm_kmemdup(dev, tlmi, sizeof(*tlmi), GFP_KERNEL);
++	if (!dtlmi)
++		return ERR_PTR(-ENOMEM);
++
++	qstr.name = dtlmi->cls->name;
++	qstr.len = strlen(dtlmi->cls->name);
++	qstr.hash = full_name_hash(parent, qstr.name, qstr.len);
++
++	/* by_compo_type/<COMPO_TYPE_STR>/<N/<DE_UNIT_TYPE_STR>/<M>/<DE_ID> */
++	twin = d_lookup(parent, &qstr);
++	if (twin) {
++		dev_err(dev, "Found duplicated entry '%s' in topology.\n",
++			dtlmi->cls->name);
++		return ERR_PTR(-EBUSY);
++	}
++
++	twin = d_alloc_name(parent, dtlmi->cls->name);
++	if (!twin)
++		return ERR_PTR(-ENOMEM);
++
++	dtlmi->dentry = twin;
++	dtlmi->parent = NULL;
++	if (!scmi_tlm_inode_initialize(sb, S_IFDIR | dtlmi->cls->mode, dtlmi))
++		return ERR_PTR(-ENOMEM);
++
++	/* Add another dentry to the duplicated inode under another parent */
++	d_add(twin, &dtlmi->vfs_inode);
++
++	/* Hard-link all child of tlmi to the duplicate */
++	spin_lock(&tlmi->dentry->d_parent->d_lock);
++	hlist_for_each_entry(child, &tlmi->dentry->d_children, d_sib) {
++		struct dentry *hdl;
++
++		if (!child->d_inode)
++			continue;
++
++		hdl = d_alloc_name(twin, child->d_name.name);
++		if (!hdl) {
++			spin_unlock(&tlmi->dentry->d_parent->d_lock);
++			return ERR_PTR(-ENOMEM);
++		}
++
++		inode_inc_link_count(child->d_inode);
++		d_add(hdl, child->d_inode);
++	}
++	spin_unlock(&tlmi->dentry->d_parent->d_lock);
++
++	return 0;
++}
++
++static struct dentry *
++scmi_telemetry_topology_path_get(struct super_block *sb, struct dentry *parent,
++				 const char *dname)
++{
++	struct dentry *dentry;
++	struct qstr qstr;
++
++	qstr.name = dname;
++	qstr.len = strlen(dname);
++	qstr.hash = full_name_hash(parent, qstr.name, qstr.len);
++
++	dentry = d_lookup(parent, &qstr);
++	if (!dentry) {
++		dentry = scmi_telemetry_topology_dir_alloc(sb, parent, dname);
++		if (!dentry)
++			return ERR_PTR(-ENOMEM);
++	}
++
++	return dentry;
++}
++
++static int scmi_telemetry_topology_add_node(struct super_block *sb,
++					    struct dentry *top_dentry,
++					    struct scmi_tlm_inode *tlmi)
++{
++	struct dentry *ctype, *cinst, *cunit, *dinst;
++	const struct scmi_telemetry_de *de = tlmi->priv;
++	struct scmi_tlm_de_info *dei = de->info;
++	struct scmi_tlm_inode *dtlmi;
++	char inst_str[32];
++
++	/* by_compo_type/<COMPO_TYPE_STR>/ */
++	ctype = scmi_telemetry_topology_path_get(sb, top_dentry,
++						 compo_types[dei->compo_type]);
++	if (!ctype)
++		return -ENOMEM;
++
++	/* by_compo_type/<COMPO_TYPE_STR>/<N>/ */
++	snprintf(inst_str, 32, "%u", dei->compo_instance_id);
++	cinst = scmi_telemetry_topology_path_get(sb, ctype, inst_str);
++	dput(ctype);
++	if (!cinst)
++		return -ENOMEM;
++
++	/* by_compo_type/<COMPO_TYPE_STR>/<N>/<DE_UNIT_TYPE_STR>/ */
++	cunit = scmi_telemetry_topology_path_get(sb, cinst,
++						 unit_types[dei->unit]);
++	dput(cinst);
++	if (!cunit)
++		return -ENOMEM;
++
++	/* by_compo_type/<COMPO_TYPE_STR>/<N>/<DE_UNIT_TYPE_STR>/<N> */
++	snprintf(inst_str, 32, "%u", dei->instance_id);
++	dinst = scmi_telemetry_topology_path_get(sb, cunit, inst_str);
++	dput(cunit);
++	if (!dinst)
++		return -ENOMEM;
++
++	dtlmi = scmi_telemetry_de_subdir_clone(sb, tlmi, dinst);
++	dput(dinst);
++
++	return PTR_ERR(dtlmi);
++}
++
++static int scmi_telemetry_topology_view_add(struct super_block *sb,
++					    struct scmi_tlm_instance *ti)
++{
++	struct device *dev = ti->tsp->dev;
++	struct dentry *topo;
++
++	topo = scmi_telemetry_topology_dir_alloc(sb, ti->top_inode->dentry,
++						 "components");
++	if (!topo)
++		return -ENOMEM;
++
++	for (int i = 0; i < ti->info->base.num_des; i++) {
++		int ret;
++
++		ret = scmi_telemetry_topology_add_node(sb, topo,
++						       ti->des_nodes[i]);
++		if (ret)
++			dev_err(dev, "Fail to add node %s to topology. Skip.\n",
++				ti->des_nodes[i]->cls->name);
++	}
++
++	dput(topo);
++
++	return 0;
++}
++
+ static int scmi_telemetry_instance_register(struct super_block *sb,
+ 					    struct scmi_tlm_instance *ti)
+ {
+ 	struct dentry *top;
++	int ret;
+ 
+ 	/* AT first create instance top dir ... */
+ 	top = scmi_tlm_node_add(sb, sb->s_root, ti->top_cls.name,
+@@ -1664,6 +2387,13 @@ static int scmi_telemetry_instance_register(struct super_block *sb,
+ 			return PTR_ERR(dentry);
+ 	}
+ 
++	/* Add an alternative topological view for the DES nodes */
++	ret = scmi_telemetry_topology_view_add(sb, ti);
++	if (ret)
++		dev_warn(ti->tsp->dev,
++			 "Failed to create topology view for instance %s.\n",
++			 ti->top_cls.name);
++
+ 	return 0;
+ }
+ 
 -- 
 2.51.0
 
