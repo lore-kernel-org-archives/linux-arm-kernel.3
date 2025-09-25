@@ -4,63 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311F2CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 17:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F089CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 17:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2KQXK0QxwhIywdI52yxYsSm5g6v5vjP57GLurR9+TM=; b=iRnBoJ/4buQVXjKBcqtnXN8CkV
-	yxzuxnuEaaq0Ygz5rr6NNUGbpRme6mppzf7cEhXp6osKpK6MFt08iU/3z/0jyAD2ugiGcjhNJ/ot7
-	KPcZeLn7y8bUXXJ8VeOaUUttMAQ+keCQTk0uiyRmDUWno76KAgvgJJnob98ykxdmO4AdZbnoIuZT4
-	/Qoqbm0iGyv7NL9UHGqXOAaBb6MkssqPxYJkTJCCDV1zPx6Y/0C5/0/jRUUOvAdnffWR03gx3id2m
-	yEKXMvTLrkxWgeWBcJgi+YKRE1Fs3U35Spq8AL2GZLutHh6WVFtgXHMSfar/8jODC4LFj5QKMwwJz
-	IONLW2fg==;
+	bh=1i8usWdgCBL07Pd+gV6BwvrtUR8swLThI0l+24ZsGls=; b=LO8pIezJTue/ZCF0plb8U2vW8R
+	1Ih8Eh/JeaDXPAohep3g6MucqxEshbc/kqdY7xcrulkXkqo/x9G+Pa9rdV8Iy0OG6I4olvWAsK+38
+	fWm1oiFh0YLsVgdGg1l6+5zeBl5H5cIE6DNoViN8QmlI8zBZ3llz7qbXdcqCgXOry/eO6oH2w6GR8
+	Vnm2NprHGz97MXPkZg/mwnvuf5SyI3tWzoEFTezpyOo7YROGo/Gu6zAlgdpFNIYapkf2rLTZoz1XV
+	HHjDbZW31uxyjdVtB2IwTIv2p8yly+XJ3iJyz8PLO4ieecWAANkiJPf2rDvIKuPkqPRYINKQkPqHj
+	tcGPuEwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pVQ-0000000BPwQ-2w1K;
-	Thu, 25 Sep 2025 17:11:44 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v1pXU-0000000BREd-1qwa;
+	Thu, 25 Sep 2025 17:13:52 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1pVN-0000000BPvE-2PSm;
-	Thu, 25 Sep 2025 17:11:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=l2KQXK0QxwhIywdI52yxYsSm5g6v5vjP57GLurR9+TM=; b=4ah210tlcMTfmpCOwPnIBcnn11
-	xM/z+chDbvSpKyoMvOO7U+Z6/kJjuGIC8fMr8KD0WNt2Xed/v3PrTcngYIyb+UrYinR1eVDl5oogZ
-	t29Jek3QJh5s5Ia79aOpBKyu8xesBe1OPjV60IrTSAgJcWu7NgTY8UVgwgCSSc1ey8IA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v1pVB-009US2-6Q; Thu, 25 Sep 2025 19:11:29 +0200
-Date: Thu, 25 Sep 2025 19:11:29 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"ukleinek@debian.org" <ukleinek@debian.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>
-Subject: Re: [PATCH 2/6] arm64: dts: rockchip: Fix the 1Ghz ethernet on Qnap
- TS433
-Message-ID: <e4d3127b-c879-4931-9ea0-de7449bc508c@lunn.ch>
-References: <20250925092923.2184187-1-heiko@sntech.de>
- <20250925092923.2184187-3-heiko@sntech.de>
- <da752790-da17-4d26-b9b2-8240b38b3276@kwiboo.se>
+	id 1v1pXR-0000000BRBz-2nEi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Sep 2025 17:13:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bk53Y4TpcDF7M6uc3mhi1IgG5I6pRrYDN1W42gH63TKOagOevxptqjOymfgXka5dAtehJVdqzt3MD577VQG6BQ9WB5Rk6O7rK6WKwoYhyjwcwOviI9OLE0lgZE0NmZU2BBgu4pezJtqUHxuEXMykaEsmir7otdLREY4SH/AaN+IkNgIc29laWH1DMjBScdstGALzhLbJj9sCsA9QwHf/7OpX2JUcPF57jvES7YaNJ9hDjp7pZZ8L2kHouA0D1E2KUwQ2T85UcJSn0nQLjSMjotxa5zSfCztMbadMy/0m/KwZPDcxuI7OI2CZmHqmCHsXZiYaOsWmHH3WEDtXz8AOiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1i8usWdgCBL07Pd+gV6BwvrtUR8swLThI0l+24ZsGls=;
+ b=w+8GumZ/HaRWaxfIIOHjqbMZvVeCKwqkNViK1ZuLhrxNpOtCYjuQE2i1qX68z4yvO3hfqglywfHZmbXaK3FRsu/s3hopoHNmxxAEab4MkoRtgV24d8vgHr5T5foJYRYjNPYcnpBSZLWpIvS4O8l3oNjrTju5Z+3canlZnYTPoFgzZMR74Dm+jjl9yiUXDLRntSh491jOBjgbN4S4Aiz92aBMGzmBwfAHcVuoaoCJVA6J6g+8Z83D2G5JtW5/f5+YDnNjeUlLtvigNydyAw49IYZQNPQGy4coBKyh5mpSEMZcJLu0AX81XpI9MCZznsJiLpSpTHbu1Oje6YtW1qA0ZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1i8usWdgCBL07Pd+gV6BwvrtUR8swLThI0l+24ZsGls=;
+ b=puXVyeWgDOGGg8zY5gVNtCJKB/kdtET41plH9+FTEfLGdoOyzo89ZdHB+JetJDfj7K/H5Vd3TAu/E0GK0wONIwZ2TCKof1CxbnqYCxGoO5bjlx2f2o8mb4ZhH7d3U6xzHUdEZEsbDSKSUnuh7klaFEVCyQ9F/i7amPCbv1oPIerKXiHRlOH8pg8puMqIMKtGiiu+CV1P3v5J1s8d4C9pITQzqiQIjqOROzSctXbWL+OrzuIhHk0InHIG3SXvguYpBC0rscdyxT7UwLUUdH63Zh1WfAbuen/RhNVP5/FahO5WLigeuB2qPw4BaozTN4UP93wg1cFgceD+l8hLVKdbcg==
+Received: from SJ0PR12MB5676.namprd12.prod.outlook.com (2603:10b6:a03:42e::8)
+ by MN0PR12MB6365.namprd12.prod.outlook.com (2603:10b6:208:3c2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.23; Thu, 25 Sep
+ 2025 17:13:29 +0000
+Received: from SJ0PR12MB5676.namprd12.prod.outlook.com
+ ([fe80::abdb:7990:cc95:89ce]) by SJ0PR12MB5676.namprd12.prod.outlook.com
+ ([fe80::abdb:7990:cc95:89ce%4]) with mapi id 15.20.9137.022; Thu, 25 Sep 2025
+ 17:13:28 +0000
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, "will@kernel.org"
+	<will@kernel.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+	Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>, Shanker
+ Donthineni <sdonthineni@nvidia.com>
+Subject: RE: [PATCH v2 1/5] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+Thread-Topic: [PATCH v2 1/5] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+Thread-Index: AQHcLB/x0ECYGsP7/UujGGehS37q97SjlSuAgACE5fA=
+Date: Thu, 25 Sep 2025 17:13:28 +0000
+Message-ID: <SJ0PR12MB56769D95623AA45135F113A8A01FA@SJ0PR12MB5676.namprd12.prod.outlook.com>
+References: <20250923001840.1586078-1-bwicaksono@nvidia.com>
+ <20250923001840.1586078-2-bwicaksono@nvidia.com>
+ <331bea5f-cfab-49fb-87e4-7ec31523c2c3@arm.com>
+In-Reply-To: <331bea5f-cfab-49fb-87e4-7ec31523c2c3@arm.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR12MB5676:EE_|MN0PR12MB6365:EE_
+x-ms-office365-filtering-correlation-id: 0ebb4515-1669-4f28-b59c-08ddfc56d846
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?u4YfGwIdy7WODr/wg1z1O7oK+DuFfp4agedRSeF6fQY4J55CJ7qa/l8+fLbj?=
+ =?us-ascii?Q?RqJc/sFl2egpU6MAvQFQBvstJAS39YM6mtV5YP1j4w70vBbXA2EyfEIL7HuM?=
+ =?us-ascii?Q?tWF4kM7W7RDHrwKqXpagzeWqdy+xPSU61qXbmj2qsLYg3oASJSF3G3KrPCno?=
+ =?us-ascii?Q?UDt7aPzhqkBcmgT7IImas22Y5l3pYONsYJnwKL/PY0Szus9d1RwtsXkDAv6y?=
+ =?us-ascii?Q?i+gLQXni6vXzMIzetiMUkNayS3AtLTaEsM9IuntUnmu5LzcWVp4I5gha5oBm?=
+ =?us-ascii?Q?sRsFo54oAFi+a+HZcONSo7xKgB2H0IusP87Z48tDs+xjvXlwwvOzGTQqLZCt?=
+ =?us-ascii?Q?AsV5fokePHwR+UKT0/Th4BK4DI7o0eCPaQx93Qs7FpUgV27vXCTYfn+5nyiG?=
+ =?us-ascii?Q?iAOcR/ay0c+N5Edyy8OLmgT6+SVPqORKr/Iwkv3vHRGjyTz1a9XxjuesGRqY?=
+ =?us-ascii?Q?03kJimFdpeNODEFUGABR3jWHux0JrvxVqF8bNErsqOMmnYnc2ZfKSuDVSm61?=
+ =?us-ascii?Q?OGUSnq6lHkBjfj7fQm7suF7i1nPTQgMjESXL57e+N6cKOrNH84j8339WeIgr?=
+ =?us-ascii?Q?GrcdiNHcsA5YAxsDiiMdFGCyeb5V0PzlQCK0JNBGYerSi4GlKIP50Ey4iXKn?=
+ =?us-ascii?Q?ApY1rqwRNVTZMrdDgv6zoFrkWR6KkLE1bb8FgVcUsW8tTjG9jcMzFrA1DJGA?=
+ =?us-ascii?Q?shDAXNDVUfsvx3UWZU3B4Zye6G6yE3aO0krpVtSKtNGdmGpN/1rXu0T73CXz?=
+ =?us-ascii?Q?VjOMT7cULRz7gS4Br7tDHrbYsZ3aI+3xXz8FgieQNPGtLEAfuNcxygWCGE7m?=
+ =?us-ascii?Q?NEpQCcNERfMRn+jJ5woH8MYMN9GR0iSzQY6PBTCbpryUjfZDDLW3yrNBrwKw?=
+ =?us-ascii?Q?si6TrOLyd79XnNvo6hVpv7JPJHpwNnxcCrN3RrJloThLctD9/LhijsYyJJke?=
+ =?us-ascii?Q?6BqSXVeOBSfTk/Fd7+X3MraafPh2tIa/gm+g86cOPXTx+OQ/k8JmwuwVt2yb?=
+ =?us-ascii?Q?XlwttR1jKhFehc48VtKUH0ax+8ThGZE5i1iv3LWZW/e6GjLKPfF7cDfj59UO?=
+ =?us-ascii?Q?84KL79TFfTIDmRyCD5t7+TYIs+scnrY7eB1hhpE1ahccLRRwKY3KXMQSjiyP?=
+ =?us-ascii?Q?6J+ovf5OWqzpYMvxqFRg3uEBtYZ5XqxWfvjZboypgpMHBLJOwM3BTsnRFkEI?=
+ =?us-ascii?Q?XYjrEorNkZOGbEsWMIunxvd/wK69xBh9eN569Z/R9c3ivtr84wuz0XEqDeiK?=
+ =?us-ascii?Q?fH2MWLda0apWs0XNHXfy6O7WMBPw5KzjPTDBWwNl+CfBu+vQ026WE3Kro4BJ?=
+ =?us-ascii?Q?mp5Cb+mNR3bYFxHDEx0qL+xsK8AZvvsYvkAg3Zid0o46FJjN0Tj7WQsX1gC+?=
+ =?us-ascii?Q?qUkDZ+0K0qcOoTMZh0z4NDVjBNvZEbKTFKZwNhTR0ci6Pa+oNku82JnuOqVS?=
+ =?us-ascii?Q?TR9Q0whqR37UHEZVEbeui+LBVRyUZJe/v8Cia+iRDRRejcLQf6IYR6e/P7ut?=
+ =?us-ascii?Q?pPJDcLWOGZ44b9EwEC5rGE7BJWd6FC0p/iAL?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5676.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?YhmWpeFsYwf6ZpRjsb4WKDm4aUX7gWMbspefOAH9fl4PC/48UYUHFJ/Z7+6C?=
+ =?us-ascii?Q?hhCjmanWIe239XF6W+LTonXaM6M6zibj5wPETHdTyY5Tjk3mNuVVtg2WchU+?=
+ =?us-ascii?Q?Fhq0O7IYwfUo2S4/n1m1cw5mOO4jUgYpNhw4qYmn2ct6ZoDd/ABnerrKPx7a?=
+ =?us-ascii?Q?1DNwCECjwkDFkKaMB1imP6PyNSzrXurc8hKFlJfodXS67vVLERixDmHbRLYn?=
+ =?us-ascii?Q?IdQg3prjlV/jZ8k9lA/Pcghbw1nzlygnYKARdVU7WEbejlkXk2M2yb3VGhW2?=
+ =?us-ascii?Q?sGuGMwXV+Suho25HLdKPmiI/5jyyJe8woEBhTrTP3EeobTMCyeGxOJRVhgFy?=
+ =?us-ascii?Q?esmBidgJ/r3WNk5JiEyGpYGShrWJqa7gC1DpNEm8jQZszeXjMiqC0UxjEcxT?=
+ =?us-ascii?Q?1qTVczuCcw/AF261k+1dxW1Wd1413S/xyzXF2ERNk1v1Oxd+jFUiqYjB9YWt?=
+ =?us-ascii?Q?yI+uPutuEwlaItOTVY6Y3UsfoCkqOHjX3o5kJXJW2dfj1z6ZqaSyzILfB+VC?=
+ =?us-ascii?Q?b4NO7xZfeNIwtvt6g1ijFEHRCrqzSUnPfYCCIktXNxSuV6szN6QWoiEsQZ3j?=
+ =?us-ascii?Q?eKmb0dK5Mo1zJv/TSFtbKkt3YFh3a8syK/m0fmU1p7gnNQf0fFeg2Hpe8fQn?=
+ =?us-ascii?Q?frqJNqoEXK1rFZvzuquR9DHsp3wAcT0OrhDTQ89/8QIP3+yGVhsD8GzIqjuB?=
+ =?us-ascii?Q?i5667+Zyy7D9MpTW0C/3imOjxIKMf97k31NeAfR0DbjPv+4Myzb6Xprz8B/f?=
+ =?us-ascii?Q?ZWtmIgV4F7LqWcelWwyx5/yS4XMxAsYU1CO1tG9DNTGSZywvnlzSDjW932oS?=
+ =?us-ascii?Q?e7z64wLYkeqP6WgvZl2T9HDG37XJXrgGRBnsAD5l/7HYzraMOIH+Pj6qHUQc?=
+ =?us-ascii?Q?QbiSpkgbg2rSRYLyUnIytVtceK+J3dZdGmFxzybdb8yiWY54u2W1UDQ/cS6P?=
+ =?us-ascii?Q?XiSbwYIXtpnDBttsEb9VkkkM5leMbJh+UrI7mD4uBsEUSKYHk3YFqfDapNEI?=
+ =?us-ascii?Q?5DwGmwOYcJ+BgI+3i5kpl31kILK4hw8S9Lt0/RXnk352E+heOyy6ytmNJduE?=
+ =?us-ascii?Q?qntW3Sp5CSmDbkn8caqVExuxRrN5P+4/OJuzLYoYRU9PUufG+sI5qa0s1L8T?=
+ =?us-ascii?Q?pjZOkuFGeMDOJjXgRe6mqkN++2JbMG6MEJONdiYEDODrpMQGKBH7aLTglEMu?=
+ =?us-ascii?Q?OJTNQC20/rFTc8la3pie9Mt74JCjdb0dxCTfPilEZy+x4n2plfVFyzhRXbXK?=
+ =?us-ascii?Q?yEG6+pB8k/TKkM78Yh8x51sDBYkaoBsrRGwNKlqLEnyyOUT1HYUPWSVdHEOj?=
+ =?us-ascii?Q?jltV2ju/QfJKlZgMLrEoxcJ3UbDBav+pJMitJPkPBVVf19Zg6JaVD0f0a+iD?=
+ =?us-ascii?Q?9rz64NB8YnJzT5gSCIVl8IL4Bd1Sm+k1Ti8Dt4grlvxWoRIRzgY+Fe2RclGB?=
+ =?us-ascii?Q?diya7HjZGxf2zigvJUFtA8oFJUGF6j+XxzrLHDxZv8lCvS70Z9ob97zZSLWe?=
+ =?us-ascii?Q?3dmhbmWxWFwb1COsuUxfA4e2WTX9DD5DziXrNos1tfW9+8PG4fCdyBmpZ48e?=
+ =?us-ascii?Q?71uM4T797hG9InFifZwyu7pwcnxrd+WkFZ27baA2?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <da752790-da17-4d26-b9b2-8240b38b3276@kwiboo.se>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5676.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ebb4515-1669-4f28-b59c-08ddfc56d846
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2025 17:13:28.2330
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GeHSIH2FEuB8OTWkvj71EKBBs308Go1ELeVF4EGgn01+sHblQlrHZmlnEkqbG+2M1tMZVs7GkY65vXQ0hTxeAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6365
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_101141_701495_087ED3C7 
-X-CRM114-Status: GOOD (  34.34  )
+X-CRM114-CacheID: sfid-20250925_101349_705889_3F89003A 
+X-CRM114-Status: GOOD (  27.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,87 +169,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 06:58:06PM +0200, Jonas Karlman wrote:
-> Hi Heiko,
-> 
-> On 9/25/2025 11:29 AM, Heiko Stuebner wrote:
-> > While I want to remember that the dwmac on the TS433 was working at some
-> > point, it seems I had my network always connected to the 2.5G nic after
-> > that "point". And testing now revealed that the gmac does not actually
-> > manages to transfer data.
-> > 
-> > Currently the gmac is set to rgmii-id with no rx-/tx-delay values set
-> > which makes the driver use default values. Setting the delays to 0
-> > also does not provide a working interface.
-> > 
-> > The vendor kernel is running with phy-mode set to rgmii and delays of
-> >     tx_delay = 0x3c, rx_delay = 0x2f
-> > 
-> > As Andrew points out often, those delay values "are magic" and rgmii-id
-> > should definitly be used "with small values" for delays, if really needed.
-> > 
-> > The Rockchip vendor-kernel actually contains additional code in the dwmac
-> > driver to use the loopback function of a phy to find a window of usable
-> > delay values. Code can be found for example on [0] and the process is
-> > described in a document called "Rockchip GMAC RGMII Delayline Guide"
-> > which has made its way onto the internet in a lot of places [1].
-> > 
-> > So I used this process, with the interface set to rgmii-id to get values
-> > for this mode, which are in face lower than the ones for rgmii with
-> >     tx_delay = 0x21, rx_delay = 0x15
-> > and results in a working interface on the dwmac.
-> > 
-> > [0] https://github.com/armbian/linux-rockchip/blob/rk-6.1-rkr6.1/drivers/net/ethernet/stmicro/stmmac/dwmac-rk-tool.c
-> > [1] https://gitlab.com/firefly-linux/docs/-/blob/rk356x/firefly/Common/GMAC/Rockchip_Developer_Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
-> > 
-> > Cc: Andrew Lunn <andrew@lunn.ch>
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+
+
+> -----Original Message-----
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Sent: Thursday, September 25, 2025 3:31 AM
+> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
+> robin.murphy@arm.com; ilkka@os.amperecomputing.com
+> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; l=
+inux-
+> tegra@vger.kernel.org; mark.rutland@arm.com; Thierry Reding
+> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
+> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
+> <sdonthineni@nvidia.com>
+> Subject: Re: [PATCH v2 1/5] perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+>=20
+> External email: Use caution opening links or attachments
+>=20
+>=20
+> On 23/09/2025 01:18, Besar Wicaksono wrote:
+> > Add interface to get ACPI device associated with the
+> > PMU. This ACPI device may contain additional properties
+> > not covered by the standard properties.
+> >
+>=20
+> Ok, but who needs this ? I couldn't see any users in the series.
+> Did I miss something ?
+
+NVIDIA will need it to support upcoming PMU devices.
+I am still preparing the follow up patch series containing the use case
+on these new devices.=20
+
+>=20
+> > Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
 > > ---
-> >  arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts | 2 ++
-> >  1 file changed, 2 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-> > index 5656554ca284..e8af92a011d6 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts
-> > @@ -257,6 +257,8 @@ &gmac0_tx_bus2
-> >  		     &gmac0_rx_bus2
-> >  		     &gmac0_rgmii_clk
-> >  		     &gmac0_rgmii_bus>;
-> > +	rx_delay = <0x15>;
-> > +	tx_delay = <0x21>;
-> 
-> I do not understand why defining rx/tx_delay would change anything.
+> >   drivers/perf/arm_cspmu/arm_cspmu.c | 22 ++++++++++++++++++++++
+> >   drivers/perf/arm_cspmu/arm_cspmu.h |  9 +++++++++
+> >   2 files changed, 31 insertions(+)
+> >
+> > diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c
+> b/drivers/perf/arm_cspmu/arm_cspmu.c
+> > index efa9b229e701..75b2d80f783e 100644
+> > --- a/drivers/perf/arm_cspmu/arm_cspmu.c
+> > +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+> > @@ -1090,6 +1090,28 @@ static int arm_cspmu_acpi_get_cpus(struct
+> arm_cspmu *cspmu)
+> >
+> >       return 0;
+> >   }
+> > +
+> > +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu
+> *cspmu)
+> > +{
+> > +     char hid[16];
+> > +     char uid[16];
+> > +     struct acpi_device *adev;
+> > +     const struct acpi_apmt_node *apmt_node;
+> > +
+> > +     apmt_node =3D arm_cspmu_apmt_node(cspmu->dev);
+> > +     if (!apmt_node || apmt_node->type !=3D ACPI_APMT_NODE_TYPE_ACPI)
+> > +             return NULL;
+> > +
+> > +     memset(hid, 0, sizeof(hid));
+> > +     memset(uid, 0, sizeof(uid));
+> > +
+> > +     memcpy(hid, &apmt_node->inst_primary, sizeof(apmt_node-
+> >inst_primary));
+> > +     sprintf(uid, "%u", apmt_node->inst_secondary);
+> > +
+> > +     adev =3D acpi_dev_get_first_match_dev(hid, uid, -1);
+> > +     return adev;
+> > +}
+> > +EXPORT_SYMBOL_GPL(arm_cspmu_acpi_dev_get);
+> >   #else
+> >   static int arm_cspmu_acpi_get_cpus(struct arm_cspmu *cspmu)
+> >   {
+> > diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h
+> b/drivers/perf/arm_cspmu/arm_cspmu.h
+> > index 19684b76bd96..9c5f11f98acd 100644
+> > --- a/drivers/perf/arm_cspmu/arm_cspmu.h
+> > +++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+> > @@ -8,6 +8,7 @@
+> >   #ifndef __ARM_CSPMU_H__
+> >   #define __ARM_CSPMU_H__
+> >
+> > +#include <linux/acpi.h>
+> >   #include <linux/bitfield.h>
+> >   #include <linux/cpumask.h>
+> >   #include <linux/device.h>
+> > @@ -222,4 +223,12 @@ int arm_cspmu_impl_register(const struct
+> arm_cspmu_impl_match *impl_match);
+> >   /* Unregister vendor backend. */
+> >   void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match
+> *impl_match);
+> >
+> > +#if defined(CONFIG_ACPI)
+> > +/**
+> > + * Get ACPI device associated with the PMU.
+> > + * The caller is responsible for calling acpi_dev_put() on the returne=
+d device.
+> > + */
+> > +struct acpi_device *arm_cspmu_acpi_dev_get(const struct arm_cspmu
+> *cspmu);
+> > +#endif
+> If we need this, why not add an empty stub for !CONFIG_ACPI case ?
+> Similar to what we do for other cases.
 
-I was also wondering why these two properties are added but no change
-to phy-mode.
+Right, this is an oversight. I thought the ACPI code is not portable. But j=
+ust found
+out linux/acpi.h takes care of it. I will fix it on next version.
 
-> 
-> Setting these should currently not have any effect on the driver code
-> when phy-mode=rgmii-id is used, see below (next-20250924, dwmac-rk.c):
-> 
-> 
-> 	switch (bsp_priv->phy_iface) {
-> 	case PHY_INTERFACE_MODE_RGMII:
-> 		dev_info(dev, "init for RGMII\n");
-> 		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay,
-> 					    bsp_priv->rx_delay);
-> 		break;
-> 	case PHY_INTERFACE_MODE_RGMII_ID:
-> 		dev_info(dev, "init for RGMII_ID\n");
-> 		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
-> 		break;
-
-And this explains it, thanks.
-
-> I have played around with a few patches that changes this and apply the
-> rx/tx_delay for rgmii-id modes (both Linux and U-Boot), see top of [2]
-> for Linux patches. Will try to get them on ML in a few days.
-
-We should not really be expanding the use of rx_delay and
-tx_delay. The standardized properties {tx|rx}-internal-delay-ps should
-be used.
-
-	Andrew
-
+Thanks,
+Besar
 
