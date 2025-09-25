@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D54BDCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 21:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B86CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 22:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=uqTQx9LUkIe0/ub4yjVNAA6+owlalcgdNtwtnIvFdxE=; b=a5475XHmZXm7bb
-	cpzPJRS9hRPZTUUBA7wwC2t65Am4KUyT5FVODrkElWgcPJPz83Bb+fdlg965mgFv9zTDEdqD1nyzP
-	LPHplKsTJRb6cmY31Hs98I9lsC7L4IuoITqBZCWW1HP3t8yp7c6DbXp4+LcDOEaep3dDXuhfdQTuy
-	Rca1+Smtmbn1pzRlujo+mMpE+1Y4ScT/6Km4VnB0+2vknLFKCNNE8vUfmDj8V6zc69TXR+BL0Tr7B
-	lKDAFIJm2+q67NTnjgjC1bN+V+AXJExtdttpBTstHDZ9kNFAE07beFrk7PSf5mruI3v6EGrbN7GZV
-	5x9zEn9xQRxSsXrkMwlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sFulBqk+pUJkXGAcsQXQMYAJnr7uyFJLWS40iaQYai8=; b=tcMrQdZ5+6hjrFeBNwehEOfeB5
+	aGYiru2+bPyvwul5eygP7oZ3QhDyo0aV7sJO3/LEpErEz8lPCwwrG7qWaokKzv3jU3k3izfn0iQHn
+	OTWMF68iAd/GiFxjsFcFsqUz9OcaGxMt0hv3dklD57A+T+eCL9p5zjXa50WBwbm1nXoNhI1QkqB0j
+	z07o+EdqY08P56AH++Wn4ULMGb87ntUXcibNhextPRFXF7nHt1Z9nW4Ymt1gZNLrZ+ofuLhVh6mmF
+	1cSAhbO2XhLedCmM26+2zpY1qeqByAXIDflBLVlj2rZ2rsnt4/O3OEDBrxKpcIK943ZIkE32lid4G
+	uo8Jgi+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1tyT-0000000DNV3-3gjk;
-	Thu, 25 Sep 2025 21:58:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1u0p-0000000DOFx-1yvW;
+	Thu, 25 Sep 2025 22:00:27 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1tyR-0000000DNUx-3IU6
+	id 1v1u0m-0000000DOEL-3Hmc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 21:57:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 27F6E61282;
-	Thu, 25 Sep 2025 21:57:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAA3EC4CEF0;
-	Thu, 25 Sep 2025 21:57:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758837478;
-	bh=XSHViZo3Pi55CeXnpkwa+76DxWBGmZaI9vptrJBuf3Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=O9jw1uPIi82h87JIKbVTIqu+AZDAM6k59eR34EetiOXMbG80a0szGPh5gViG08yGl
-	 /QUNaZ27F2FodFn/W1wqFbHSTGFO+dbS9UK1VEVHUI+BOYgO2wr1LrUSvIiwx54EFj
-	 cC+Ynvw9g8wd/RcH0Lki2jVBgwo4GQrA+OPJWkK+gAokG3V9doBxAQ33aIz9teJGqx
-	 T6ow1SftLrX7eYgxfMNiRvsdTzW2miiSy0qxTChgG4uzufaUT1Ggrb3a/wVsa9kXg2
-	 MQEDzbZm4IlpLxs8hQ+Xm7FZhfoQ4HPZGXSHRve9tmG1jLdMjHGj8PfS5dXyYWU/sO
-	 saYoyggiS0edA==
-Date: Thu, 25 Sep 2025 16:57:57 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ#
- override active low
-Message-ID: <20250925215757.GA2205491@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250923073913.2722668-3-hongxing.zhu@nxp.com>
+	Thu, 25 Sep 2025 22:00:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758837625; x=1790373625;
+  h=date:from:to:cc:subject:message-id;
+  bh=dvqUPuVvrFqGe7yOG5vuKaX6hhFVwI0WzHW9nCrAsho=;
+  b=XRLjdVkji/1BRwo/GU33GbBySYVtHF/g6N6hyP6G8Lzr0nSyRG72+eY6
+   gP1kQxJzr3WZBFuKGq/7mxd6x0sb/fFUEOAfZ09907tXQwMxOYheI4pj6
+   Pt7f8snZFT18CTgSaFl/5blOObc/+qir3PwGTMRfDhdR8R69vL+z6CuiN
+   aHkuWswPlG2/97mb4KIDiO6x8RZA+9veKB7KpIwJFtuZFex0t/5InHQKF
+   GWhfjCV087ynNC/nr05lPvqz8Ft9RSa6URqtSy1EvnyHDlW0dk4xNoomd
+   vKlMK5sCAOSJYaAJQto3XuT3fbCkfHaF5l/FgYgExiWZkgsrQwOCJON4r
+   A==;
+X-CSE-ConnectionGUID: VUXCxw4sSNWlJlsVdamdYw==
+X-CSE-MsgGUID: O3301mf7TtKW6fv14ioBRQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="61221650"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="61221650"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Sep 2025 15:00:24 -0700
+X-CSE-ConnectionGUID: yjA8v0GLQ96NrQJugy9YDg==
+X-CSE-MsgGUID: GAuuPWrfSmm3iku+Bc8o7A==
+X-ExtLoop1: 1
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by fmviesa003.fm.intel.com with ESMTP; 25 Sep 2025 15:00:22 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v1u0i-0005f0-0W;
+	Thu, 25 Sep 2025 22:00:20 +0000
+Date: Fri, 26 Sep 2025 05:59:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:tee/fix2] BUILD SUCCESS
+ d5cf5b37064b1699d946e8b7ab4ac7d7d101814c
+Message-ID: <202509260516.HpgJQTcR-lkp@intel.com>
+User-Agent: s-nail v14.9.24
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_150024_919213_11C01A5B 
+X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,179 +81,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 03:39:13PM +0800, Richard Zhu wrote:
-> The CLKREQ# is an open drain, active low signal that is driven low by
-> the card to request reference clock. It's an optional signal added in
-> PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
-> reserved.
-> 
-> Since the reference clock controlled by CLKREQ# may be required by i.MX
-> PCIe host too. To make sure this clock is ready even when the CLKREQ#
-> isn't driven low by the card(e.x the scenario described above), force
-> CLKREQ# override active low for i.MX PCIe host during initialization.
-> 
-> The CLKREQ# override can be cleared safely when supports-clkreq is
-> present and PCIe link is up later. Because the CLKREQ# would be driven
-> low by the card at this time.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 43 ++++++++++++++++++++++++++-
->  1 file changed, 42 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 80e48746bbaf..6b03b1111d06 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -52,6 +52,8 @@
->  #define IMX95_PCIE_REF_CLKEN			BIT(23)
->  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
->  #define IMX95_PCIE_SS_RW_REG_1			0xf4
-> +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-> +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
->  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
->  
->  #define IMX95_PE0_GEN_CTRL_1			0x1050
-> @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
->  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
->  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
->  	int (*wait_pll_lock)(struct imx_pcie *pcie);
-> +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
->  	const struct dw_pcie_host_ops *ops;
->  };
->  
-> @@ -149,6 +152,7 @@ struct imx_pcie {
->  	struct gpio_desc	*reset_gpiod;
->  	struct clk_bulk_data	*clks;
->  	int			num_clks;
-> +	bool			supports_clkreq;
->  	struct regmap		*iomuxc_gpr;
->  	u16			msi_ctrl;
->  	u32			controller_id;
-> @@ -239,6 +243,16 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
->  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
->  }
->  
-> +static void  imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
-> +{
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
-> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-> +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-> +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0);
-> +}
-> +
->  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  {
->  	/*
-> @@ -685,7 +699,7 @@ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
->  	return 0;
->  }
->  
-> -static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
-> +static void imx8mm_pcie_clkreq_override(struct imx_pcie *imx_pcie, bool enable)
->  {
->  	int offset = imx_pcie_grp_offset(imx_pcie);
->  
-> @@ -695,6 +709,11 @@ static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
->  	regmap_update_bits(imx_pcie->iomuxc_gpr, offset,
->  			   IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN,
->  			   enable ? IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN : 0);
-> +}
-> +
-> +static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
-> +{
-> +	imx8mm_pcie_clkreq_override(imx_pcie, enable);
->  	return 0;
->  }
->  
-> @@ -1298,6 +1317,16 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
->  		regulator_disable(imx_pcie->vpcie);
->  }
->  
-> +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-> +{
-> +	imx8mm_pcie_clkreq_override(imx_pcie, false);
-> +}
-> +
-> +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-> +{
-> +	imx95_pcie_clkreq_override(imx_pcie, false);
-> +}
-> +
->  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
->  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> @@ -1322,6 +1351,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
->  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
->  		dw_pcie_dbi_ro_wr_dis(pci);
->  	}
-> +
-> +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
-> +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
-> +		if (imx_pcie->drvdata->clr_clkreq_override)
-> +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
-> +	}
->  }
->  
->  /*
-> @@ -1745,6 +1780,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	pci->max_link_speed = 1;
->  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
->  
-> +	imx_pcie->supports_clkreq =
-> +		of_property_read_bool(node, "supports-clkreq");
->  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
->  	if (IS_ERR(imx_pcie->vpcie)) {
->  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
-> @@ -1873,6 +1910,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
->  		.init_phy = imx8mq_pcie_init_phy,
->  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
->  	},
->  	[IMX8MM] = {
->  		.variant = IMX8MM,
-> @@ -1883,6 +1921,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_off[0] = IOMUXC_GPR12,
->  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
->  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
->  	},
->  	[IMX8MP] = {
->  		.variant = IMX8MP,
-> @@ -1893,6 +1932,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_off[0] = IOMUXC_GPR12,
->  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
->  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
-> +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tee/fix2
+branch HEAD: d5cf5b37064b1699d946e8b7ab4ac7d7d101814c  tee: fix register_shm_helper()
 
-imx8mm_pcie_enable_ref_clk() and imx8mm_pcie_clr_clkreq_override()
-both call imx8mm_pcie_clkreq_override().
+elapsed time: 1459m
 
-All these devices that use imx8mm_pcie_clr_clkreq_override() also
-enable the refclk in .init() by overriding clkreq, so .post_init()
-clears that override.
+configs tested: 251
+configs skipped: 4
 
->  	},
->  	[IMX8Q] = {
->  		.variant = IMX8Q,
-> @@ -1913,6 +1953,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.core_reset = imx95_pcie_core_reset,
->  		.init_phy = imx95_pcie_init_phy,
->  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
-> +		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-But here there's no .enable_ref_clk() method, so I guess this device
-must override clkreq automatically and the driver doesn't have to
-enable that?
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                               allnoconfig    clang-22
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    clang-19
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20250925    gcc-13.4.0
+arc                   randconfig-002-20250925    gcc-13.4.0
+arc                   randconfig-002-20250925    gcc-15.1.0
+arm                              allmodconfig    clang-19
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                                 defconfig    clang-19
+arm                   randconfig-001-20250925    gcc-11.5.0
+arm                   randconfig-001-20250925    gcc-13.4.0
+arm                   randconfig-002-20250925    gcc-10.5.0
+arm                   randconfig-002-20250925    gcc-13.4.0
+arm                   randconfig-003-20250925    gcc-13.4.0
+arm                   randconfig-003-20250925    gcc-8.5.0
+arm                   randconfig-004-20250925    gcc-13.4.0
+arm                   randconfig-004-20250925    gcc-14.3.0
+arm                           sama7_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20250925    gcc-11.5.0
+arm64                 randconfig-001-20250925    gcc-13.4.0
+arm64                 randconfig-002-20250925    gcc-13.4.0
+arm64                 randconfig-002-20250925    gcc-15.1.0
+arm64                 randconfig-003-20250925    clang-19
+arm64                 randconfig-003-20250925    gcc-13.4.0
+arm64                 randconfig-004-20250925    gcc-13.4.0
+arm64                 randconfig-004-20250925    gcc-8.5.0
+csky                              allnoconfig    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    clang-19
+csky                  randconfig-001-20250925    clang-22
+csky                  randconfig-001-20250925    gcc-14.3.0
+csky                  randconfig-002-20250925    clang-22
+csky                  randconfig-002-20250925    gcc-15.1.0
+hexagon                          alldefconfig    gcc-15.1.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20250925    clang-22
+hexagon               randconfig-002-20250925    clang-22
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    clang-20
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20250925    clang-20
+i386        buildonly-randconfig-001-20250925    gcc-14
+i386        buildonly-randconfig-001-20250926    clang-20
+i386        buildonly-randconfig-002-20250925    clang-20
+i386        buildonly-randconfig-002-20250925    gcc-14
+i386        buildonly-randconfig-002-20250926    clang-20
+i386        buildonly-randconfig-003-20250925    gcc-14
+i386        buildonly-randconfig-003-20250926    clang-20
+i386        buildonly-randconfig-004-20250925    gcc-14
+i386        buildonly-randconfig-004-20250926    clang-20
+i386        buildonly-randconfig-005-20250925    clang-20
+i386        buildonly-randconfig-005-20250925    gcc-14
+i386        buildonly-randconfig-005-20250926    clang-20
+i386        buildonly-randconfig-006-20250925    clang-20
+i386        buildonly-randconfig-006-20250925    gcc-14
+i386        buildonly-randconfig-006-20250926    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250925    gcc-14
+i386                  randconfig-001-20250926    clang-20
+i386                  randconfig-002-20250925    gcc-14
+i386                  randconfig-002-20250926    clang-20
+i386                  randconfig-003-20250925    gcc-14
+i386                  randconfig-003-20250926    clang-20
+i386                  randconfig-004-20250925    gcc-14
+i386                  randconfig-004-20250926    clang-20
+i386                  randconfig-005-20250925    gcc-14
+i386                  randconfig-005-20250926    clang-20
+i386                  randconfig-006-20250925    gcc-14
+i386                  randconfig-006-20250926    clang-20
+i386                  randconfig-007-20250925    gcc-14
+i386                  randconfig-007-20250926    clang-20
+i386                  randconfig-011-20250925    clang-20
+i386                  randconfig-011-20250926    gcc-12
+i386                  randconfig-012-20250925    clang-20
+i386                  randconfig-012-20250926    gcc-12
+i386                  randconfig-013-20250925    clang-20
+i386                  randconfig-013-20250926    gcc-12
+i386                  randconfig-014-20250925    clang-20
+i386                  randconfig-014-20250926    gcc-12
+i386                  randconfig-015-20250925    clang-20
+i386                  randconfig-015-20250926    gcc-12
+i386                  randconfig-016-20250925    clang-20
+i386                  randconfig-016-20250926    gcc-12
+i386                  randconfig-017-20250925    clang-20
+i386                  randconfig-017-20250926    gcc-12
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20250925    clang-18
+loongarch             randconfig-001-20250925    clang-22
+loongarch             randconfig-002-20250925    clang-22
+loongarch             randconfig-002-20250925    gcc-12.5.0
+m68k                             allmodconfig    clang-19
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    clang-19
+m68k                             allyesconfig    gcc-15.1.0
+m68k                         apollo_defconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+microblaze                       allmodconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    clang-19
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                           ip30_defconfig    gcc-15.1.0
+mips                         rt305x_defconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20250925    clang-22
+nios2                 randconfig-001-20250925    gcc-8.5.0
+nios2                 randconfig-002-20250925    clang-22
+nios2                 randconfig-002-20250925    gcc-10.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-14
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250925    clang-22
+parisc                randconfig-001-20250925    gcc-8.5.0
+parisc                randconfig-002-20250925    clang-22
+parisc                randconfig-002-20250925    gcc-15.1.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                 canyonlands_defconfig    gcc-15.1.0
+powerpc                     mpc512x_defconfig    gcc-15.1.0
+powerpc                  mpc866_ads_defconfig    clang-22
+powerpc                      pmac32_defconfig    clang-22
+powerpc               randconfig-001-20250925    clang-22
+powerpc               randconfig-002-20250925    clang-22
+powerpc               randconfig-002-20250925    gcc-8.5.0
+powerpc               randconfig-003-20250925    clang-22
+powerpc               randconfig-003-20250925    gcc-8.5.0
+powerpc64             randconfig-001-20250925    clang-22
+powerpc64             randconfig-002-20250925    clang-22
+powerpc64             randconfig-002-20250925    gcc-14.3.0
+powerpc64             randconfig-003-20250925    clang-22
+powerpc64             randconfig-003-20250925    gcc-8.5.0
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                               defconfig    gcc-14
+riscv                 randconfig-001-20250925    clang-22
+riscv                 randconfig-001-20250925    gcc-12.5.0
+riscv                 randconfig-002-20250925    clang-22
+riscv                 randconfig-002-20250925    gcc-12.5.0
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    gcc-14
+s390                  randconfig-001-20250925    gcc-12.5.0
+s390                  randconfig-001-20250925    gcc-15.1.0
+s390                  randconfig-002-20250925    gcc-12.5.0
+s390                  randconfig-002-20250925    gcc-13.4.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-14
+sh                        dreamcast_defconfig    gcc-15.1.0
+sh                    randconfig-001-20250925    gcc-12.5.0
+sh                    randconfig-001-20250925    gcc-15.1.0
+sh                    randconfig-002-20250925    gcc-12.5.0
+sh                    randconfig-002-20250925    gcc-13.4.0
+sh                      rts7751r2d1_defconfig    gcc-15.1.0
+sh                           se7206_defconfig    gcc-15.1.0
+sh                           se7712_defconfig    gcc-15.1.0
+sparc                            alldefconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250925    gcc-12.5.0
+sparc                 randconfig-001-20250925    gcc-15.1.0
+sparc                 randconfig-002-20250925    gcc-12.5.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20250925    gcc-10.5.0
+sparc64               randconfig-001-20250925    gcc-12.5.0
+sparc64               randconfig-002-20250925    gcc-10.5.0
+sparc64               randconfig-002-20250925    gcc-12.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                               allyesconfig    gcc-14
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20250925    gcc-12.5.0
+um                    randconfig-001-20250925    gcc-14
+um                    randconfig-002-20250925    clang-22
+um                    randconfig-002-20250925    gcc-12.5.0
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250925    clang-20
+x86_64      buildonly-randconfig-002-20250925    clang-20
+x86_64      buildonly-randconfig-002-20250925    gcc-14
+x86_64      buildonly-randconfig-003-20250925    clang-20
+x86_64      buildonly-randconfig-003-20250925    gcc-14
+x86_64      buildonly-randconfig-004-20250925    clang-20
+x86_64      buildonly-randconfig-005-20250925    clang-20
+x86_64      buildonly-randconfig-006-20250925    clang-20
+x86_64      buildonly-randconfig-006-20250925    gcc-14
+x86_64                              defconfig    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250925    gcc-14
+x86_64                randconfig-002-20250925    gcc-14
+x86_64                randconfig-003-20250925    gcc-14
+x86_64                randconfig-004-20250925    gcc-14
+x86_64                randconfig-005-20250925    gcc-14
+x86_64                randconfig-006-20250925    gcc-14
+x86_64                randconfig-007-20250925    gcc-14
+x86_64                randconfig-008-20250925    gcc-14
+x86_64                randconfig-071-20250925    gcc-14
+x86_64                randconfig-072-20250925    gcc-14
+x86_64                randconfig-073-20250925    gcc-14
+x86_64                randconfig-074-20250925    gcc-14
+x86_64                randconfig-075-20250925    gcc-14
+x86_64                randconfig-076-20250925    gcc-14
+x86_64                randconfig-077-20250925    gcc-14
+x86_64                randconfig-078-20250925    gcc-14
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                       common_defconfig    gcc-15.1.0
+xtensa                randconfig-001-20250925    gcc-12.5.0
+xtensa                randconfig-002-20250925    gcc-11.5.0
+xtensa                randconfig-002-20250925    gcc-12.5.0
 
->  	},
->  	[IMX8MQ_EP] = {
->  		.variant = IMX8MQ_EP,
-> -- 
-> 2.37.1
-> 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
