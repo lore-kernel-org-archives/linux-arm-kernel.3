@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B2BCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17549CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l66vPUYO6qAiXGMjpxlui3KNqTDmW4IVuyx4wLrx4tM=; b=JaftzwlW+TySnuTaHi6jJV7tmD
-	TWPFZ+r2tv2S5z0Fwd2THAIKruonv3/mt+mHQQKA0nvr98JfHAt8iwom9w1hWgMNbvO8PT4CDBnsm
-	1x43t+11o7Q65s7yYU3hvHP6W2GTMM265Sg0GyBVglasPhRn/Guz5hnpjrxFmoUACI4JGGt76HqCj
-	UBHHqkPpWNavE6NxLWsUVxgAl7mnlFBDnd4pRa4iHIBe/1lOHEqkuXhLyJOKaGiOCE8caI5bWcJaA
-	UmLorx0/waWaS3ej+1/fd7Zvhr259O734L7f3nizVuVirZK0kHYmANXvjM4zFeV/god2o0He5wrpP
-	P48a4iWw==;
+	bh=1fHEVpJwGLqx7yUTszEOmrCF8XxdUjdHdqja2MtxXYo=; b=CLTuRVwRSfXWmY5yMzcbC2i7Nb
+	qxcbOm55rVHcvTCy94ESorNx73kFY9eGKocf3Q2XYN8srf8J60EN5aJmvvU4aRtdnGt0MdNPTDKuV
+	AjaRtpTlNoTrZRgXIEjB6ocxUzoQBUx1l++ybY6P0eAwLG/PfsmlADOeQaG0w2LJK+lDQgyKnRrTy
+	inus1t4qXuFxXLBn+TShKRUMKIHuMl3SYXoAEABgnLRGIyM/J6qeznEVRVYXfn4zVR9u8DjPav61+
+	3crfZfi0MDQ8uPX2cUaWKTb6YFrUdfyZmA7p2mq8cdY2Vit8nBESZ+tDiyTzmzA0rXTIoQ9Ifcy/8
+	Hf2Z32DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1shf-0000000CmvB-17CN;
+	id 1v1shf-0000000CmwG-3yJG;
 	Thu, 25 Sep 2025 20:36:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1shX-0000000Cmq7-3Xoi
+	id 1v1shd-0000000Cmtu-1sb7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 20:36:29 +0000
+	Thu, 25 Sep 2025 20:36:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A72041692;
-	Thu, 25 Sep 2025 13:36:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2BF91692;
+	Thu, 25 Sep 2025 13:36:24 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 094F33F694;
-	Thu, 25 Sep 2025 13:36:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EAA93F694;
+	Thu, 25 Sep 2025 13:36:29 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -49,17 +49,17 @@ Cc: sudeep.holla@arm.com,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 02/10] firmware: arm_scmi: Reduce the scope of protocols mutex
-Date: Thu, 25 Sep 2025 21:35:46 +0100
-Message-ID: <20250925203554.482371-3-cristian.marussi@arm.com>
+Subject: [PATCH 04/10] uapi: Add ARM SCMI definitions
+Date: Thu, 25 Sep 2025 21:35:48 +0100
+Message-ID: <20250925203554.482371-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250925203554.482371-1-cristian.marussi@arm.com>
 References: <20250925203554.482371-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_133628_008383_91817F82 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250925_133633_583495_458D5F38 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,114 +74,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the mutex dedicated to the protection of the list of registered
-protocols is held during all the protocol initialization phase.
-
-Such a wide locking region is not needed and causes problem when trying to
-initialize notifications from within a protocol initialization routine.
-
-Reduce the scope of the protocol mutex.
+Add a number of structures and ioctls definitions used by the ARM
+SCMI Telemetry protocol.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/driver.c | 53 +++++++++++++++---------------
- 1 file changed, 26 insertions(+), 27 deletions(-)
+ MAINTAINERS               |   1 +
+ include/uapi/linux/scmi.h | 286 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 287 insertions(+)
+ create mode 100644 include/uapi/linux/scmi.h
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index bd56a877fdfc..71ee25b78624 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -17,6 +17,7 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f6206963efbf..5c10e096e638 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24552,6 +24552,7 @@ F:	drivers/regulator/scmi-regulator.c
+ F:	drivers/reset/reset-scmi.c
+ F:	include/linux/sc[mp]i_protocol.h
+ F:	include/trace/events/scmi.h
++F:	include/uapi/linux/scmi.h
+ F:	include/uapi/linux/virtio_scmi.h
  
- #include <linux/bitmap.h>
-+#include <linux/cleanup.h>
- #include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/export.h>
-@@ -2179,10 +2180,13 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 	if (ret)
- 		goto clean;
- 
--	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
--			GFP_KERNEL);
--	if (ret != proto->id)
--		goto clean;
-+	/* Finally register the initialized protocol */
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
-+				GFP_KERNEL);
-+		if (ret != proto->id)
-+			goto clean;
-+	}
- 
- 	/*
- 	 * Warn but ignore events registration errors since we do not want
-@@ -2243,25 +2247,22 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- static struct scmi_protocol_instance * __must_check
- scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
- {
--	struct scmi_protocol_instance *pi;
-+	struct scmi_protocol_instance *pi = ERR_PTR(-EPROBE_DEFER);
- 	struct scmi_info *info = handle_to_scmi_info(handle);
-+	const struct scmi_protocol *proto;
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
--
--	if (pi) {
--		refcount_inc(&pi->users);
--	} else {
--		const struct scmi_protocol *proto;
--
--		/* Fails if protocol not registered on bus */
--		proto = scmi_protocol_get(protocol_id, &info->version);
--		if (proto)
--			pi = scmi_alloc_init_protocol_instance(info, proto);
--		else
--			pi = ERR_PTR(-EPROBE_DEFER);
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (pi) {
-+			refcount_inc(&pi->users);
-+			return pi;
-+		}
- 	}
--	mutex_unlock(&info->protocols_mtx);
+ SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX Extension Message Protocol drivers
+diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+new file mode 100644
+index 000000000000..b1a6d34fee4a
+--- /dev/null
++++ b/include/uapi/linux/scmi.h
+@@ -0,0 +1,286 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2025 ARM Ltd.
++ */
++#ifndef _UAPI_LINUX_SCMI_H
++#define _UAPI_LINUX_SCMI_H
 +
-+	/* Fails if protocol not registered on bus */
-+	proto = scmi_protocol_get(protocol_id, &info->version);
-+	if (proto)
-+		pi = scmi_alloc_init_protocol_instance(info, proto);
- 
- 	return pi;
- }
-@@ -2294,10 +2295,11 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 	struct scmi_info *info = handle_to_scmi_info(handle);
- 	struct scmi_protocol_instance *pi;
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
--	if (WARN_ON(!pi))
--		goto out;
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (WARN_ON(!pi))
-+			return;
-+	}
- 
- 	if (refcount_dec_and_test(&pi->users)) {
- 		void *gid = pi->gid;
-@@ -2316,9 +2318,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
- 			protocol_id);
- 	}
--
--out:
--	mutex_unlock(&info->protocols_mtx);
- }
- 
- void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
++/*
++ * Userspace interface SCMI Telemetry
++ */
++
++#include <linux/types.h>
++#include <linux/ioctl.h>
++
++#define SCMI_TLM_DE_IMPL_MAX_DWORDS	4
++
++#define SCMI_TLM_GRP_INVALID            0xFFFFFFFF
++
++/**
++ * scmi_tlm_base_info - Basic info about an instance
++ *
++ * @version: SCMI Telemetry protocol version
++ * @de_impl_version: SCMI Telemetry DE implementation revision
++ * @num_de: Number of defined DEs
++ * @num_groups Number of defined DEs groups
++ * @num_intervals: Number of update intervals available (instance-level)
++ * @flags: Instance specific feature-support bitmap
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_INFO
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_base_info {
++	__u32 version;
++	__u32 de_impl_version[SCMI_TLM_DE_IMPL_MAX_DWORDS];
++	__u32 num_des;
++	__u32 num_groups;
++	__u32 num_intervals;
++	__u32 flags;
++#define SCMI_TLM_CAN_RESET	(1 << 0)
++///TODO more flags
++};
++
++/**
++ * scmi_tlm_config  - Whole instance or group configuration
++ *
++ * @enable: Enable/Disable Telemetry for the whole instance or the group
++ * @t_enable: Enable/Disable timestamping for all the DEs belonging to a group.
++ * @current_update_interval: Get/Set currently active update interval for the
++ *			     whole instance or a group.
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_CFG
++ *	WO - SCMI_TLM_SET_CFG
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_config {
++	__u8 enable;
++	__u8 t_enable;
++	__u8 reserved[2];
++	__u32 current_update_interval;
++};
++
++/**
++ * scmi_tlm_intervals  - Update intervals descriptor
++ *
++ * @discrete: Flag to indicate the nature of the intervals described in
++ *	      @update_intervals.
++ *	      When 'false' @update_intervals is a triplet: min/max/step
++ * @num: Number of entries of @available
++ * @update_intervals: A variably-sized array containing the update intervals
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_INTRVS
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_intervals {
++	__u8 discrete;
++	__u8 reserved[3];
++	__u32 num;
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
++	__u32 update_intervals[];
++};
++
++/**
++ * scmi_tlm_de_config  - DE configuration
++ *
++ * @id: Identifier of the DE to act upon (ignored by SCMI_TLM_SET_ALL_CFG)
++ * @enable: A boolean to enable/disable the DE
++ * @t_enable: A boolean to enable/disable the timestamp for this DE
++ *	      (if supported)
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_CFG
++ *	RW - SCMI_TLM_SET_DE_CFG
++ *	WO - SCMI_TLM_SET_ALL_CFG
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_config {
++	__u32 id;
++	__u32 enable;
++	__u32 t_enable;
++};
++
++/**
++ * scmi_tlm_de_info  - DE Descriptor
++ *
++ * @id: DE identifier
++ * @grp_id: Identifier of the group which this DE belongs to; reported as
++ *	    SCMI_TLM_GRP_INVALID when not part of any group
++ * @data_sz: DE data size in bytes
++ * @type: DE type
++ * @unit: DE unit of measurements
++ * @unit_exp: Power-of-10 multiplier for DE unit
++ * @tstamp_exp: Power-of-10 multiplier for DE timestamp (if supported)
++ * @instance_id: DE instance ID
++ * @compo_instance_id: DE component instance ID
++ * @compo_type: Type of component which is associated to this DE
++ * @peristent: Data value for this DE survives reboot (non-cold ones)
++ * @name: Optional name of this DE
++ *
++ * Used to get the full description of a DE: it reflects DE Descriptors
++ * definitions in 3.12.4.6.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_INFO
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_info {
++	__u32 id;
++	__u32 grp_id;
++	__u32 data_sz;
++	__u32 type;
++	__u32 unit;
++	__s32 unit_exp;
++	__s32 tstamp_exp;
++	__u32 instance_id;
++	__u32 compo_instance_id;
++	__u32 compo_type;
++	__u32 persistent;
++	__u8 name[16];
++};
++
++/**
++ * scmi_tlm_des_list  - List of all defined DEs
++ *
++ * @num_des: Number of entries in @des
++ * @des: An array containing descriptors for all defined DEs
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_LIST
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_des_list {
++	__u32 num_des;
++	struct scmi_tlm_de_info des[];
++};
++
++/**
++ * scmi_tlm_de_sample - A DE reading
++ *
++ * @id: DE identifier
++ * @tstamp: DE reading timestamp (equal 0 is NOT supported)
++ * @val: Reading of the DE data value
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_VALUE
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_de_sample {
++	__u32 id;
++	__u64 tstamp;
++	__u64 val;
++};
++
++/**
++ * scmi_tlm_data_read - Bulk read of multiple DEs
++ *
++ * @num_samples: Number of entries returned in @samples
++ * @samples: An array of samples containing an entry for each DE that was
++ *	     enabled when the single sample read request was issued.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_SINGLE_SAMPLE
++ *	RW - SCMI_TLM_BULK_READ
++ *
++ * Supported by:
++ *	control/
++ *	groups/<N>/control
++ */
++struct scmi_tlm_data_read {
++	__u32 num_samples;
++	struct scmi_tlm_de_sample samples[];
++};
++
++/**
++ * scmi_tlm_grp_info  - DE-group descriptor
++ *
++ * @id: Group ID number
++ * @num_des: Number of DEs part of this group
++ * @num_intervals: Number of update intervals supported. Zero if group does not
++ *		   support per-group update interval configuration.
++ *
++ * Used by:
++ *	RO - SCMI_TLM_GET_GRP_INFO
++ *
++ * Supported by:
++ *	groups/<N>control/
++ */
++struct scmi_tlm_grp_info {
++	__u32 id;
++	__u32 num_des;
++	__u32 num_intervals;
++};
++
++/**
++ * scmi_tlm_grps_list  - DE-groups List
++ *
++ * @num_grps: Number of entries returned in @grps
++ * @grps: An array containing descriptors for all defined DE Groups
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_LIST
++ *
++ * Supported by:
++ *	control/
++ */
++struct scmi_tlm_grps_list {
++	__u32 num_grps;
++	struct scmi_tlm_grp_info grps[];
++};
++
++/**
++ * scmi_tlm_grp_desc  - Group descriptor
++ *
++ * @num_des: Number of DEs part of this group
++ * @composing_des: An array containing the DE IDs that belongs to this group.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_DESC
++ *
++ * Supported by:
++ *	groups/<N>control/
++ */
++struct scmi_tlm_grp_desc {
++	__u32 num_des;
++	__u32 composing_des[];
++};
++
++#define SCMI 0xF1
++
++#define SCMI_TLM_GET_INFO	_IOR(SCMI,  0x00, struct scmi_tlm_base_info)
++#define SCMI_TLM_GET_CFG	_IOR(SCMI,  0x01, struct scmi_tlm_config)
++#define SCMI_TLM_SET_CFG	_IOW(SCMI,  0x02, struct scmi_tlm_config)
++#define SCMI_TLM_GET_INTRVS	_IOWR(SCMI, 0x03, struct scmi_tlm_intervals)
++#define SCMI_TLM_GET_DE_CFG	_IOWR(SCMI, 0x04, struct scmi_tlm_de_config)
++#define SCMI_TLM_SET_DE_CFG	_IOWR(SCMI, 0x05, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_DE_INFO	_IOWR(SCMI, 0x06, struct scmi_tlm_de_info)
++#define SCMI_TLM_GET_DE_LIST	_IOWR(SCMI, 0x07, struct scmi_tlm_des_list)
++#define SCMI_TLM_GET_DE_VALUE	_IOWR(SCMI, 0x08, struct scmi_tlm_de_sample)
++#define SCMI_TLM_SET_ALL_CFG	_IOW(SCMI,  0x09, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_GRP_LIST	_IOWR(SCMI, 0x0A, struct scmi_tlm_grps_list)
++#define SCMI_TLM_GET_GRP_INFO	_IOR(SCMI,  0x0B, struct scmi_tlm_grp_info)
++#define SCMI_TLM_GET_GRP_DESC	_IOWR(SCMI, 0x0C, struct scmi_tlm_grp_desc)
++#define SCMI_TLM_SINGLE_SAMPLE	_IOWR(SCMI, 0x0D, struct scmi_tlm_data_read)
++#define SCMI_TLM_BULK_READ	_IOWR(SCMI, 0x0E, struct scmi_tlm_data_read)
++
++#endif /* _UAPI_LINUX_SCMI_H */
 -- 
 2.51.0
 
