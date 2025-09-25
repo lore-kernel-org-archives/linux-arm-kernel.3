@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199D8CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8621CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CijZ3Xqd6wqxDdeAlLP2vKxFbA+8L+sWoLSvg2ZGilI=; b=QRXgzFcLWuvoSYgKL1GyO+CANV
-	OHRMGhctkiqKKQVDy0fvRsK5CZOwOl4N1blI0ne++fOT/ZXxkuyltF1dF/SU4FASEDHABtWVWimIn
-	t6GUDVQbDw6sX/tAFhorPhAkpF4QANN6CiHfOZlB0DBvJd2X7+7BNzr1jdLAjnZBeGmV2NcrkYPsL
-	Xf0IwvR7ANV7R4V2vw3nemDQraIsUFNaBPTOmFM/N9ZRX8MySzEvo/c1pl76B7BQnr3WdLmGD9ALO
-	QfiJPA58m5emkclA7bpztuZG2zhi+0UoAjYKPFK8XDRGy8R898UHnsFXEJh3ls8w0x/8O+2h82xkk
-	JC+7Akyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pRiRz65gfxP/K+El944Fw9vGdwL/oexgMM0ZUDURBSA=; b=LgVNyxki1ZUxTr88fZJTngA8Ss
+	pjqpH6wqAGzqnicZChjClQbHJ10b2ckASO7rvEWojI0iH9gAPvNJQbcUFIGo2etRHCALv7tH5Vzmv
+	ReZ+Z7oUEBRdOQkOvF7c2Trep3xNsm+1QHE6MSCECg2XfcgtxfabDgOrzJdEkGz9H3XTl6u/vMroX
+	gjup+C/Df72xgRo6yATUpjLkfd9+mmv/uJLvsfRyG05XROJy6Upf4xbBa6adRyPigH01NGab0qcBA
+	1ia5xGcl6FOPf68XNW1V6i2wpuoyD0rBLPurdmCTQ1sbG2JVaq3Urlcrseerexj7JsfPI6y9nXV1v
+	/xl0yX3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1smj-0000000CqIC-1G1T;
-	Thu, 25 Sep 2025 20:41:49 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1v1suB-0000000CtFC-1eA7;
+	Thu, 25 Sep 2025 20:49:31 +0000
+Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1smg-0000000CqFN-1a6s
+	id 1v1su9-0000000CtE4-1wYP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 20:41:47 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cXlxd5FDcz9t6q;
-	Thu, 25 Sep 2025 22:41:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1758832901;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CijZ3Xqd6wqxDdeAlLP2vKxFbA+8L+sWoLSvg2ZGilI=;
-	b=r/jHz6jnoaua6QeLVAKaSSvhFNHUK1SEppt1e4VfZcHodDk0zlMAdXYuen99UuKB+ssZUu
-	zIouJzVc2yEVwP8p/SAQlZGLe/Z1Zl0SsbllTruD79VTA2he6cWIWiTz1jN8W5MEnLzF25
-	Gr/ezLzyiwEVn4u13TZxJsqJdHTnrFWTU8WEZ+G5yWBnEWQteTCi04Czn5/cuMV/b2mmQD
-	UlseG98XIWiJDk5doIyOtt9KYJlIs69B8+hgPFzAVRhmPHzmKJCuWWU1E9TgBRKDEZI5TK
-	9Wg7q/Llf2ayJDuNxwRBGnw7A4ZePEH3XGxWeCszEed6TRhUvQLt/n4popvhng==
-Message-ID: <609113fa-6af3-4e7e-b47a-45b3152d8581@mailbox.org>
-Date: Thu, 25 Sep 2025 22:41:37 +0200
+	Thu, 25 Sep 2025 20:49:30 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id C606A1D00114;
+	Thu, 25 Sep 2025 16:49:27 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Thu, 25 Sep 2025 16:49:28 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1758833367; x=1758919767; bh=pRiRz65gfx
+	P/K+El944Fw9vGdwL/oexgMM0ZUDURBSA=; b=M0LCMS3AMM5et0J+Os6Vqxb9uV
+	xtGeNgr7XsvnZ34/4CrFJcs0SkmFgqqMCflWm1o9NECRJNFrz+yx1ce7cCbBgdZf
+	TxYe+vt/4bUyuKTmh9WrVxmHCegGlZupXQK7PVvpbkY89pyn4nltIOcX9IilLhwM
+	EGcGWEnsXBtXTfLtQWP8R+bCBtC10b/P0hNcttCDuf3rgAzTi1aVp2iIQSZEnNa3
+	y9Lk5/ZsO+rpL/XaQve1aricuNCnXYCQ6G9Aj+KQcViuK4Sg0aygazmETZCDlfjT
+	zgewFs3gQiMi6u4d+Cztn3ij38UeM+ZtrlVkoCbsM2/w1sK5qAnoDTBfhHcQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1758833367; x=1758919767; bh=pRiRz65gfxP/K+El944Fw9vGdwL/oexgMM0
+	ZUDURBSA=; b=Yj2sMtu8O3F+Kx5i7Z8uf9scVDTtK5+EyXh/XZHb92EPEHNf2Tg
+	yxOuQECbUF+8fwRvG+ojcO8N3LnMCMCqHRD72k9DY4Z9T6xxt7WXbCM4n4LryxGj
+	GMQz2CGgKvu/3bzMVK56t4LKKGE3CF7s4zKQjE64lHZ9PqOiOEJnl3I0FJZdPrhc
+	SIDSv/vWwFCeCSKMXSYEW2Z/MfKuoFnU/n4wQxf1/6TQIjQ+lo7UCBFkgXka+I82
+	4M6EUjIx6XYVVAMyiXe/BegcXfvMoBbkASDq4Yv7fNZeyL9dg2wNifDUrP+PuImg
+	PEDPQVGCYhyP3qXf8uyn9d/biRKwuX+B3GA==
+X-ME-Sender: <xms:1qrVaC8vHx0FpK7wVQfSLwIvvTSaKAhaMFti864vkkGFU45BmkKNhw>
+    <xme:1qrVaOmfAog4fGntob1mM3p8kBr5b0pPjQfBUu3X74nT0NB0v7U2UrLuBdO-2d50_
+    1eIFuz8szwZ2-Mq0poW1q-I7CC4SQMDwloAiP3at71RRPPtFCilfjY>
+X-ME-Received: <xmr:1qrVaDhTqcaLfeHQyar0Irs-daUc5U30lYTPM0bYaimB2niY_edu8Zq0lNM8tq5XoCP0F_DTr3JvC1ZkrxCdGPGMPAQz175J0qw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeijeeglecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpeffhffvvefukfhfgggtuggjsehttdertddttdejnecuhfhrohhmpeflrghnnhgvucfi
+    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfdvff
+    evleegudejfeefheehkeehleehfefgjefffeetudegtefhuedufeehfeetnecuvehluhhs
+    thgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurd
+    hnvghtpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghpthht
+    oheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjtggrlhhlihhgvghroh
+    hsleelsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtth
+    hopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehlvggvsehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtth
+    hopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlvgigrghn
+    ughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomh
+X-ME-Proxy: <xmx:1qrVaOao71GXLxPMCXF8ifhw7iuU7G3UHMrNsnwc2o-jchzXIdFaIg>
+    <xmx:1qrVaPFGPdiKIQc4Xwf_Bsk9IwdYAzAmz_PqGC1BWOvA2KE5cLotsA>
+    <xmx:1qrVaDZRW0RLE7tZskpIiJIJEuKlspTdiDgj-WJi3FGjSN-EhrLSdQ>
+    <xmx:1qrVaI05auGkBWHysFMA1b2pqfzRAK4YHkx-EyN_n6VuJSVyrIJZ4w>
+    <xmx:16rVaJelfvLVoBNkaYohj4h6QucSt7TTsZJRro5KPpfrnJIBUDHJH2Wv>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 25 Sep 2025 16:49:26 -0400 (EDT)
+Date: Thu, 25 Sep 2025 22:49:25 +0200
+From: Janne Grunau <j@jannau.net>
+To: Rob Herring <robh@kernel.org>
+Cc: James Calligeros <jcalligeros99@gmail.com>,
+	Sven Peter <sven@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org
+Subject: Re: [PATCH v2 02/11] dt-bindings: hwmon: Add Apple System Management
+ Controller hwmon schema
+Message-ID: <20250925204925.GA637503@robin.jannau.net>
+References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
+ <20250827-macsmc-subdevs-v2-2-ce5e99d54c28@gmail.com>
+ <20250829164057.GA976361-robh@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: airlied@gmail.com, boris.brezillon@collabora.com, conor+dt@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- p.zabel@pengutronix.de, peng.fan@nxp.com, robh@kernel.org,
- s.hauer@pengutronix.de, shawnguo@kernel.org, simona@ffwll.ch,
- sre@kernel.org, steven.price@arm.com, tzimmermann@suse.de,
- xianzhong.li@nxp.com
-References: <20250904082224.113d0cd1@fedora>
- <7d4e773b-64ac-49ce-8d8b-7a39c353d18f@mailbox.org>
- <20250904160445.1671f140@fedora>
- <36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
- <20250904172019.58e5f589@fedora>
- <4147d10f-fb54-4f1b-ac1b-58cf657a3aeb@mailbox.org>
- <aMk1CISrn2_p0qzJ@oss.nxp.com>
- <c34dc4bc-de12-42fc-aaf5-50474dc53042@mailbox.org>
- <aMoTtr9KmdrgDUiE@oss.nxp.com>
- <c1a45cfa-a249-4782-b5c8-0ee2d173fc97@mailbox.org>
- <aMrDKkIoZvAlBD8d@oss.nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aMrDKkIoZvAlBD8d@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 1dyck573mitkj4nhekjarxur44xtxn3t
-X-MBO-RS-ID: 09b1e6ab6b2edc227a4
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250829164057.GA976361-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_134146_565216_ECD7A5C8 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250925_134929_559994_883DC5C5 
+X-CRM114-Status: GOOD (  28.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +124,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/17/25 4:18 PM, Rain Yang wrote:
+On Fri, Aug 29, 2025 at 11:40:57AM -0500, Rob Herring wrote:
+> On Wed, Aug 27, 2025 at 09:22:36PM +1000, James Calligeros wrote:
+> > Apple Silicon devices integrate a vast array of sensors, monitoring
+> > current, power, temperature, and voltage across almost every part of
+> > the system. The sensors themselves are all connected to the System
+> > Management Controller (SMC). The SMC firmware exposes the data
+> > reported by these sensors via its standard FourCC-based key-value
+> > API. The SMC is also responsible for monitoring and controlling any
+> > fans connected to the system, exposing them in the same way.
+> > 
+> > For reasons known only to Apple, each device exposes its sensors with
+> > an almost totally unique set of keys. This is true even for devices
+> > which share an SoC. An M1 Mac mini, for example, will report its core
+> > temperatures on different keys to an M1 MacBook Pro. Worse still, the
+> > SMC does not provide a way to enumerate the available keys at runtime,
+> > nor do the keys follow any sort of reasonable or consistent naming
+> > rules that could be used to deduce their purpose. We must therefore
+> > know which keys are present on any given device, and which function
+> > they serve, ahead of time.
+> > 
+> > Add a schema so that we can describe the available sensors for a given
+> > Apple Silicon device in the Devicetree.
+> > 
+> > Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> > ---
+> >  .../bindings/hwmon/apple,smc-hwmon.yaml  | 132 +++++++++++++++++++++++++
+> >  .../bindings/mfd/apple,smc.yaml          |  36 +++++++
+> >  MAINTAINERS                              |   1 +
+> >  3 files changed, 169 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..08cc4f55f3a41ca8b3b428088f96240266fa42e8
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+> > @@ -0,0 +1,132 @@
+> 
+> This should be something like this:
+> 
+> "^current-[A-Za-z0-9]{4}$":
+>   $ref: "#/$defs/sensor"
+>   unevaluatedProperties: false
+> 
+> With the $defs/sensor being:
+> 
+> $defs:
+>   sensor:
+>     type: object
+>     
+>     properties:
+>       apple,key-id:
+>         $ref: /schemas/types.yaml#/definitions/string
+>         pattern: "^[A-Za-z0-9]{4}$"
+>         description: 
+>           The SMC FourCC key of the desired sensor. Must match the 
+>           node's suffix.
+> 
+>       label:
+>         description: Human-readable name for the sensor
+> 
+>     required:
+>       - apple,key-id
+>       - label
+> 
+> Though in general, 'label' should never be required being just for human 
+> convenience.
 
-Hello Jiyu,
+That does not sound as it would be compatible with skipping nodes in the
+driver if the node misses label. The driver could of course fall back
+to create a hwmon sensors without labels. I looks to me it would be a
+stretch to call the presence of the labels human convenience.
 
-sorry for the late reply.
-
->>> sorry for the inconvienence. this uboot version don't include SM-184's change.
->>> I heard you're using i.MX95 A1 Chip, so you can extract the uboot in below link[1],
->>> or build from source, or raise one ticket in this website[2].
->>
->> I use mainline U-Boot 2025.07 with about 10 extra patches, but nothing
->> significant. I don't think this is U-Boot issue, is it ?
->>
->> I can rebuild SM, which commit in SM (from imx-sm repository) do I need to
->> use ?
->>
->> -- 
->> Best regards,
->> Marek Vasut
-> Hi Marek,
-> I think the problem may be about the multi power domain, the second power domain named perf
-> is for frequency change only, you can try to power on gpumix power domain only.
-
-I dropped that one.
-
-> as the 0x4d810008 is a write-once register and whose operation has been moved into the SM side,
-> so please drop the reset change.
-> can you also change the label of the gpu node from gpu to mali like "mali: gpu@4d900000",
-> as the internal driver use mali label to control the thermal up/low limitation.
-
-I updated all of the AHAB container, imx-oei and imx-sm components, and 
-the reset controller is no longer needed indeed.
-
-> BTW, does the dynamic frequency work well on your side so far with perf domain?
-
-How do I test that ?
-
--- 
-Best regards,
-Marek Vasut
+Janne
 
