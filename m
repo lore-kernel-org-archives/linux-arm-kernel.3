@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA736CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 14:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C66CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 14:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=458JGkmDUnAD0XQKnKDk7C8t0pN4Ax7dLlfm59xLtrY=; b=RJmpG8EHIhokDw6kDL8NldJqj1
-	TjzdZkbodEPkTip1FJnPfLeRfl7sFu4YktyDQfwPC9/m4G9FA2uK4MC+Sadey1lLN2ZOsZsSl8GIa
-	9tVMF1QKF66XBfKKPeXtLFt7Xb+JQUoKV8OS3lcnj9K3K7X5AJzosHiFSo7TSdsrThxr1ZUUNd3IK
-	1X39Mc90mdFDwQlaMLlTt2L9YZ/C2YWInqQqUIXkoa9dLP2gAvilwOpPT2eQ4gLkRT2Artowg0/fY
-	PS2L2b5pTU56b9NzMlyfpqKqG09IFN8CsyYR+NClXCbvbcSzx2IEy35DDMbI1WGG2XsXql6LJa9Nl
-	+k/h33nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I0t7ozr8R0y7L7Ia/qOG5GKnLAJmLy1UlDO9kkxmSJw=; b=OaabqIM8TbEpA7QgZCAGzgzoBZ
+	21XSMyJhF60OG6qkUD87ltdAMZt9jwsBjf1z/wj6hinh4QVYcGFgEqAojvv/ObTX+VSVj7j6MGi0e
+	WwU46myGDux5iqTSduwbUZgLhA48BPllrMhn1LCWq81SPxQW//o3Kz8ZYDs6mzmdT14zmWQs7U6sk
+	n+I6sKUAfGfSkX7DrHeDhlYTdopHKt8VCADcHi0Y4IToRLZkSyU5NiLrAYGasjUjdLUFaG160wS8W
+	p38B4aYavppL9MaI4bGW7axVdl9CkP9XTSX/cjV1RBwLCkvin+1X9U56i5umibegh+tmYt/WO8+2i
+	VnWQInUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mi5-00000009rRU-2uIo;
-	Thu, 25 Sep 2025 14:12:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v1mjl-00000009sgK-2bAh;
+	Thu, 25 Sep 2025 14:14:21 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mi2-00000009rQ6-3XF3;
-	Thu, 25 Sep 2025 14:12:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C1EF40522;
-	Thu, 25 Sep 2025 14:12:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C787FC4CEF0;
-	Thu, 25 Sep 2025 14:12:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758809553;
-	bh=h7xLn3JbQ44tHSWjgTil1jBLnAigdCGXSZlWVSiK9lw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=uKHmwWPiAF26pecH3W9083RZX+cel1OzbqbxPPt9XyJNIippOCmR4KZyLlcoNab8O
-	 7s3YmLQSeL4KJC4etojwVlSGD6mUVLbyKNfcLqdPU0KufuFFnQoelwStmvZQKH/EhY
-	 vSAsFD6/FATRyQ87RSNOGE/zWgRNyI88bPI1PBUMw5xn4TGIXz3Dtx4z2wb3UJQBZN
-	 /9o7gNeh+hVHspM8IRqskHmJhHqfxpe2a8D2uicY5ZDhoNEWf+oI9fyIp4D/z3SRDv
-	 pl0GSB9flrxXRqnaa3fAEOyNHcLZunI1a/MgBWQ++2yFFv+WE3OAUMcC4EzdnLtRH2
-	 +L359CtHBWxhQ==
-Date: Thu, 25 Sep 2025 09:12:33 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1v1mjj-00000009s5b-2FEY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Sep 2025 14:14:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=I0t7ozr8R0y7L7Ia/qOG5GKnLAJmLy1UlDO9kkxmSJw=; b=FBqAIEjfEYjB7gCRJfZ/zgmY87
+	mDOE39iI2LRBclqTdgQT8ldj1khf6g/FtegjZwMwBmxWPg3NWSBPyQcLNdqfLHPLXfePo1xaAHkY9
+	KfmAG1sJ/aY5STKe7z/qdgv+mkX4jlHWJqmjOnvzV6poZBfgZ8E61G6plgkdEUcruFyq0izcToLpA
+	s2q6bw8X1ZiL0bt16WdLnmnB8BbX/cyg6vjVaULT/Hc6blqANh6c9GxC6n8P9l5foJ1z7KZPj6gRc
+	HrUteKtA3XlO17gu+R0q7g0yT3w51lN8TqEiTuXdcv5F85OEPR6YWXCG9y5xr6xH6IqFx1MbnKfyT
+	LQz9WM8A==;
+Received: from [122.175.9.182] (port=9537 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1v1mj2-00000005fRb-1Afp;
+	Thu, 25 Sep 2025 10:13:36 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	basharath@couthit.com,
+	afd@ti.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next 0/3] RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Date: Thu, 25 Sep 2025 19:32:09 +0530
+Message-ID: <20250925141246.3433603-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: kever.yang@rock-chips.com, krzk+dt@kernel.org, heiko@sntech.de, 
- alchark@gmail.com, linux-rockchip@lists.infradead.org, 
- didi.debian@cknow.org, pbrobinson@gmail.com, honyuenkwun@gmail.com, 
- naoki@radxa.com, mani@kernel.org, neil.armstrong@linaro.org, 
- linux-arm-kernel@lists.infradead.org, quentin.schulz@cherry.de, 
- jbx6244@gmail.com, conor+dt@kernel.org, dsimic@manjaro.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, inindev@gmail.com, 
- ivan8215145640@gmail.com
-To: Liangbin Lian <jjm2473@gmail.com>
-In-Reply-To: <20250925092037.13582-1-jjm2473@gmail.com>
-References: <20250925092037.13582-1-jjm2473@gmail.com>
-Message-Id: <175880949051.820269.9096832740960574577.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] arm64: dts: rockchip: introduce LinkEase EasePi
- R1
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_071234_918598_315C73C3 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250925_071419_655861_934AFD88 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,71 +100,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Thu, 25 Sep 2025 17:20:34 +0800, Liangbin Lian wrote:
-> LinkEase EasePi R1 [1] is a high-performance mini router.
-> 
-> Specification:
-> - Rockchip RK3568
-> - 2GB/4GB LPDDR4 RAM
-> - 16GB on-board eMMC
-> - 1x M.2 key for 2280 NVMe (PCIe 3.0)
-> - 1x USB 3.0 Type-A
-> - 1x USB 2.0 Type-C (for USB flashing)
-> - 2x 1000 Base-T (native, RTL8211F)
-> - 2x 2500 Base-T (PCIe, RTL8125B)
-> - 1x HDMI 2.0 Output
-> - 12v DC Jack
-> - 1x Power key connected to PMIC
-> - 2x LEDs (one static power supplied, one GPIO controlled)
-> 
-> [1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
-> 
-> Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
-> ---
-> Changes in v2:
-> - Change deprecated "rockchip,system-power-controller" to "system-power-controller"
-> - Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm2473@gmail.com/
-> 
-> ---
-> 
-> 
+The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
+(ICSSM), which provides the foundational support for Ethernet functionality
+over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
+net-next recently [1].
 
+This patch series enhances the PRU-ICSSM Ethernet driver to support
+RSTP SWITCH mode, which has been implemented based on "switchdev" and
+interacts with "mstp daemon" to support Rapid Spanning Tree Protocol
+(RSTP) as well.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Once the RSTP SWITCH mode is enabled, forwarding of Ethernet packets using
+either the traditional store-and-forward mechanism or via cut-through is
+offloaded to the two PRU based Ethernet interfaces available within the
+ICSSM. The firmware running on the PRU inspects the STP port states and
+performs multiple checks before forwarding a packet. This improves the
+overall system performance and significantly reduces the packet forwarding
+latency.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Protocol switching from dual EMAC to RSTP SWITCH mode can be done as follows.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Assuming eth2 and eth3 are the two physical ports of the ICSS2 instance:
 
-  pip3 install dtschema --upgrade
+>> brctl addbr br0
+>> ip maddr add 01:80:c2:00:00:00 dev br0
+>> ip link set dev br0 address $(cat /sys/class/net/eth2/address)
+>> brctl addif br0 eth2
+>> brctl addif br0 eth3
+>> mstpd
+>> brctl stp br0 on
+>> mstpctl setforcevers br0 rstp
+>> ip link set dev br0 up
 
+To revert back to the default dual EMAC mode, the steps are as follows:
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: failed to guess base
+>> ip link set dev br0 down
+>> brctl delif br0 eth2
+>> brctl delif br0 eth3
+>> brctl delbr br0
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250925092037.13582-1-jjm2473@gmail.com:
+Sample test logs obtained from AM33x, AM43x and AM57x verifying the
+functionality on Linux next kernel are available here:
 
-arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dtb: mmc@fe000000 (rockchip,rk3568-dw-mshc): status: 'oneOf' conditional failed, one must be fixed:
-	['disable'] is not of type 'object'
-	'disable' is not one of ['okay', 'disabled', 'reserved', 'fail', 'fail-needs-probe']
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dtb: mmc@fe2b0000 (rockchip,rk3568-dw-mshc): status: 'oneOf' conditional failed, one must be fixed:
-	['disable'] is not of type 'object'
-	'disable' is not one of ['okay', 'disabled', 'reserved', 'fail', 'fail-needs-probe']
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+[Interface up Testing](https://gist.github.com/ParvathiPudi/ee90d6f7778f01660eec714d128ee224)
 
+[Ping Testing](https://gist.github.com/ParvathiPudi/ea7fc58da454b9c1d15517f84a502ae2)
 
+[Iperf Testing](https://gist.github.com/ParvathiPudi/505d8c6e9de231098215c59b66dee20b)
 
+[1] https://lore.kernel.org/all/20250912104741.528721-1-parvathi@couthit.com/
 
+Thanks and Regards,
+Parvathi.
+
+Roger Quadros (3):
+  net: ti: icssm-prueth: Adds helper functions to configure and maintain
+    FDB
+  net: ti: icssm-prueth: Adds switchdev support for icssm_prueth driver
+  net: ti: icssm-prueth: Adds support for ICSSM RSTP switch
+
+ drivers/net/ethernet/ti/Makefile              |   2 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 554 +++++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  27 +-
+ .../ethernet/ti/icssm/icssm_prueth_fdb_tbl.h  |  66 ++
+ .../ethernet/ti/icssm/icssm_prueth_switch.c   | 999 ++++++++++++++++++
+ .../ethernet/ti/icssm/icssm_prueth_switch.h   |  37 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  82 ++
+ .../net/ethernet/ti/icssm/icssm_switchdev.c   | 332 ++++++
+ .../net/ethernet/ti/icssm/icssm_switchdev.h   |  13 +
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   | 120 +++
+ 10 files changed, 2209 insertions(+), 23 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_fdb_tbl.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.43.0
 
 
