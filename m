@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77FC8CAC5A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 16:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4587FCAC5A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 16:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ms//Cx2KpQPodFvmBjr5qtYhxMu5fF/NuoJ5civygTU=; b=47+7DVIY3ITpBCrE3/NlbLVy74
-	ka18HvVFw0rgEzk42z6rDEn2Wbr7Z1QHOkp2uVh/pXwPRgIY+U52YoDTDEEHsSLE+JCnthFQrbL54
-	mdlYnxrUn5BEl/nJ7ElJujfJwjB90SkuM150TxcNHrdC+wVvr/vjMl4Ufm0ZiGh6IkoWrQndGOSaU
-	AYiz8Oz80mlyEY0qKHs/rj/i3rP/9wxt+71laBw5mEatmuKeoOmS2VgWSg4QyRjFTSwPHKI0T5ULb
-	lQn/CLs2ffHE3ZgADUSIrNPYoL+ZgxE9tW39M18c5FIcLiYbuGdcX2WuS/QXWY68wT5vkuBlP0ZJw
-	QzAZMgUw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4zaJq9JJc/9ryK6cY2Xn8ASZ9hmcyfG8y41VjWW8NY=; b=uG/BQBO/h/5+JfH7EaGJVdFBTM
+	Ul7vCJcdWRIp7rqXjDIQWE5KaXQUtH9tHsZd1lxGSXVf9gdFHPI8FWsNImKN9qRv4UhhEgOdrnAs1
+	PNxzMe7vB4iiBhE2vPSWhXKBefRcZHAnecANhiY/gc90Ez2AWujcbFvpo3582yTBJtwTGvjZ6wTPJ
+	nNYmJ+An35q1/BcOlWY6nsIF2/t0oFJRXY+mFey4914Gz7OU9L2YpmukJKKlwd2jTFDBzyW/jcOoj
+	isLXIwaYZhpJ0uiQv3eWfyDgcnwFoaoBq0Y8NFZeVwQvCDmk6f7Q+v7bU0z/MBrYOVdK5HksysUZV
+	zNb17Qkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1p1V-0000000BCsj-2kAW;
-	Thu, 25 Sep 2025 16:40:49 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1v1p1c-0000000BD06-1yJp;
+	Thu, 25 Sep 2025 16:40:56 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1p1T-0000000BCqf-1Env
+	id 1v1p1X-0000000BCt5-0LXx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 16:40:48 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3b9edf4cf6cso1304771f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 09:40:46 -0700 (PDT)
+	Thu, 25 Sep 2025 16:40:52 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3ee64bc6b85so1146817f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 09:40:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758818445; x=1759423245; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ms//Cx2KpQPodFvmBjr5qtYhxMu5fF/NuoJ5civygTU=;
-        b=WKRNz9/YC+jABPa4HdHE/cH9rWhN7yprThkwkayXO9D+Gxu5rXh6Ti3BWZWlbzQeFi
-         Jh/nmU5jMt6XbSOBwVC0Lr4D0Vu/kAH6N3rAQ0bjjGbFekfFLAFV8tr02tRzuLxqXB1E
-         amVmbN0oNspmiD5PuHXxVh4mv1dSWZlcoc1ZpamLcYRhkHPIbZn9TTF90RDelWHZvtYr
-         WavMevTR9NwVlt3S+9P3OD46b+DXeHeee8FnSC4khwMdgrH8cqEdRxXQb24DNXNM+hSS
-         YTUsawpEAv5VyNlxG0bYsYV0s6CCVM3hQnt6Ybd/emAgcDg8rdV8M1p2gQYbLMSxoRxq
-         FBfw==
+        d=gmail.com; s=20230601; t=1758818449; x=1759423249; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k4zaJq9JJc/9ryK6cY2Xn8ASZ9hmcyfG8y41VjWW8NY=;
+        b=FbQcYtL9d2YgsNRb0iMiEFJh4dFvfNLtFzGIFNk5Z9aig97t8gJVAfrbDP8tE+bINz
+         GKOnDc2IHbaDP2Sa4/ozPuHc0+iY86+5hLO2v8rYZ3O8fwYxZ9gbTQWZ/H1u5TcWYebq
+         jNTueF1deBhrzhCcfj1imxcsgbzb9WTidIhZP/JhAlRqXzfjmUUz75yknngPHXH01IPl
+         kCDEi23EuLH/Qig2OjYtE3gHwBGkH5WCHK7l2xT17C/AV3ZFmiMDc46e2qUYmvOIvJ3I
+         XzoY6kFNkUYAw0mdiGkksNDhBA/JF/Lt2ivptziUm8Ouhb3XwVcxoJbJfYmgQxw+PM6n
+         zWxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758818445; x=1759423245;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ms//Cx2KpQPodFvmBjr5qtYhxMu5fF/NuoJ5civygTU=;
-        b=MeBOfmha89IuWwWwJHzJKan6fo3kIZ2LJZ31XaK8/n3FGth8uvfdJPphotlLFgjZ2l
-         yXctBp0VBsUrVRxaoyqxMaKa+UZdHScP7HKtkzHjNfgWYR/4gadr7qWFCfUAD/R/82WQ
-         wIp+xQRYSkOMXS4wj6QLjcG48KxSg084UlpjiDOtFmhV4W6UpsrP+fFmTHzLMnJ0s6gg
-         woXxUo02NwYZ9f581AqdtZPa0UTTD11tVqZy4npdYkaQ05PxSxxhvxptSWFzN1V+NRlU
-         CGMJwlpVwQyLVnoyO/DSUY18hi3Kt8M5o8tKrQBfbOrrc71sjFCsyvmQvJClcXVk4Uhd
-         rKwA==
-X-Forwarded-Encrypted: i=1; AJvYcCU9klFMsdzDD3NKX7Ol7IbJebCclIpPlD8ozjuTJY0W6EuHkA51onbVvprWWygDO/JzGxikNV/cP0wxsBlfcB48@lists.infradead.org
-X-Gm-Message-State: AOJu0YycrP2YZU2wr+qxE7DTVbuwISAxchQCtBIdTRhxtp0LsGtrC2P6
-	pS/UC908pf9egtQXi583+KjxPhB+Hc9BcPT6+b+d5ugo/jFWoibYICyD
-X-Gm-Gg: ASbGnctYyOL8wFu4ctrk8ZYRyZ9tsaSln4/fnjQ0daC8dz38tpMLLLKRqy7N0zVZZSM
-	Xs5ZeOVi+JxpGsrxtzQi1tz8cb6N2ic/EgkZeBZfEgX5QtgXo3Htawlw1wfB4okC46t6/3Dz9Q3
-	+3gTfj7e3BokXxVHUf9K+DCp0PP2YXExr1X/S0kbvcBLCNRke60L+/fkhamnxTj5GiKUymfT3/b
-	BAIzHU2nf+OdsqIgg6omwSwmLZaGwneO8dVeX071aiW3r/w6skgwbiALZTawfSJ/YqfaoIyNFmG
-	dZakBdrukd8bpNZL8z57v8Qqnr2FGgm+wL/6VbUAJbR/47rGuzPIyma8zfAgbunRraY5HAmMLJ1
-	+0mT1VHMa/zAjIeYcYR2It0Rrp/27tjY1puHwBSZtH5TCYeJ+DU1HgsIMbxDIdOCy/aDCY+w=
-X-Google-Smtp-Source: AGHT+IFhsb6qW5/GahKJeP2Wl3RdIGj6vmskf1jEdNXYYA/Gj3jq1OBG69r49jeZED4H7pHpv3jTpA==
-X-Received: by 2002:a5d:588c:0:b0:3e7:6268:71fd with SMTP id ffacd0b85a97d-40e4cb6e2fbmr4192124f8f.52.1758818445399;
-        Thu, 25 Sep 2025 09:40:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1758818449; x=1759423249;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=k4zaJq9JJc/9ryK6cY2Xn8ASZ9hmcyfG8y41VjWW8NY=;
+        b=oyUaQ/aLbz8BUoEWVLT713UsxI9Il5juzEiPA35kT/KnkEkLuyVwLestvOW3L7Tflr
+         cnOJ6INovEqA9eQjZDyY95orrOsi2uPyG+jHix2iJ/qAtmiJXS1JEnACzIsUO2OTDi1p
+         NsEO+81q6IFTvr8Mitqv6FBJ5io9C5vFnC4lYWiW1nUK4OBisnhnzUtA4xM3Re7pxx12
+         6s/lEV+9JATwz7mrwC5r7COgymUxrHX5oj8DTY/E2k7KgHmA5f/02p7WyoRszUYlcz45
+         PzPF36dGzXrlPOYyX3oecoAdfzssogcITd8e5ZFMnXkREO2xAWRuiA6K8yVq0FD6SH90
+         zEbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXj2PWE6fBUiTvNrnM6ge3NmcNucZ4ABxFizaqB005lK6TN63mZaISne702hpXgxx0X/nIUg8EraWFE/tfLKqxI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNNKZAggZp5X5NRBNpeI5OdwMEmmujRRm3b1meqfdqCcQv7Hvl
+	onnkScNgKhszuHEkumQWZktp6YBII4daUkmo6qnhwawTq9g7oPuMbOXL
+X-Gm-Gg: ASbGncu0uIOhpxywvbyUCvbtqHlIQTli94LDHx9jcexkDZgo+JCSwpNtujhNzJr//4Y
+	UoYrOeBm6QIivgLSq2MW4RhchcgX5BgoGB/CqhzFGAVMU43M/Mk6Qd6G2Ung4dioOAULGkJWJ0E
+	5a3x/7ndah5Zk325QPMAD+cqrc2KtQcncQ5ZpHxqhVNAZI0razn5twcCpYha1LBu8XU6u6GZ15M
+	LRdzgdjZcq1VshBDAFlLi/kRacSjRxJmGB9CGyQbMKSVSx25vwAGbcTOuqSq/eq63vXiNCDdgrP
+	VLojt0qIVp29jevFC6aoVitAzXnlow4q45oI9SHkmZN/O+Th3NOU6x+2gXG+OzUkIRXn0P2OzWI
+	/meUQpXS3T5maUfZGaGGPCb6kw2SG4wDBG/9/GhOW1L/9QdEU6Y+Nz31qQcxuBtAOmIgPL+U=
+X-Google-Smtp-Source: AGHT+IETYpPO9LAGX7zUAqFXRCr1IR36jr+nRkmsy96nynVShQ03CfruIEzXhdMASLXdFRjMR/RaLw==
+X-Received: by 2002:a5d:5f52:0:b0:3cd:7200:e025 with SMTP id ffacd0b85a97d-40e429c98f2mr4337564f8f.5.1758818448972;
+        Thu, 25 Sep 2025 09:40:48 -0700 (PDT)
 Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-40fc6921f4esm3591904f8f.44.2025.09.25.09.40.41
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-40fc6921f4esm3591904f8f.44.2025.09.25.09.40.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Sep 2025 09:40:45 -0700 (PDT)
+        Thu, 25 Sep 2025 09:40:48 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -86,15 +88,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-watchdog@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 0/4] arm64: Add AN7583 DTSI
-Date: Thu, 25 Sep 2025 18:40:33 +0200
-Message-ID: <20250925164038.13987-1-ansuelsmth@gmail.com>
+Subject: [PATCH v3 1/4] dt-bindings: crypto: Add support for Airoha AN7583 SoC
+Date: Thu, 25 Sep 2025 18:40:34 +0200
+Message-ID: <20250925164038.13987-2-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250925164038.13987-1-ansuelsmth@gmail.com>
+References: <20250925164038.13987-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_094047_339224_0709EE71 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250925_094051_145366_A6952B5B 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +113,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simple series to add initial AN7583 DTSI. More node will be
-included as they will be supported.
+Add compatible for Airoha AN7583 SoC. The implementation is exactly the
+same of Airoha EN7581 hence we add the compatible in addition to EN7581
+ones.
 
-Changes v3:
-- Fix typo EN7583 -> AN7583
-- Add specific compatible for watchdog and crypto engine
-Changes v2:
-- Fix DTB BOT warning (fix crypto compatible and OPP node name)
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ .../bindings/crypto/inside-secure,safexcel-eip93.yaml         | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Christian Marangi (4):
-  dt-bindings: crypto: Add support for Airoha AN7583 SoC
-  dt-bindings: watchdog: airoha: Add support for Airoha AN7583 SoC
-  dt-bindings: arm64: dts: airoha: Add AN7583 compatible
-  arm64: dts: Add Airoha AN7583 SoC and AN7583 Evaluation Board
-
- .../devicetree/bindings/arm/airoha.yaml       |   4 +
- .../crypto/inside-secure,safexcel-eip93.yaml  |   4 +
- .../bindings/watchdog/airoha,en7581-wdt.yaml  |   6 +-
- arch/arm64/boot/dts/airoha/Makefile           |   1 +
- arch/arm64/boot/dts/airoha/an7583-evb.dts     |  22 ++
- arch/arm64/boot/dts/airoha/an7583.dtsi        | 283 ++++++++++++++++++
- 6 files changed, 319 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/airoha/an7583-evb.dts
- create mode 100644 arch/arm64/boot/dts/airoha/an7583.dtsi
-
+diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+index 997bf9717f9e..2269d78a4a80 100644
+--- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
++++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+@@ -30,6 +30,10 @@ description: |
+ properties:
+   compatible:
+     oneOf:
++      - items:
++          - const: airoha,an7583-eip93
++          - const: airoha,en7581-eip93
++          - const: inside-secure,safexcel-eip93ies
+       - items:
+           - const: airoha,en7581-eip93
+           - const: inside-secure,safexcel-eip93ies
 -- 
 2.51.0
 
