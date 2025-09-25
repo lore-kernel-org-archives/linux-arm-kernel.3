@@ -4,160 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC9ACAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 04:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA66CAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 04:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVLoNqcHzjdHSJF0+cAjgbUnE3s1NqEYDp0FPp5OiX8=; b=idPDo9UXtq/uaDwQMFo22LUH2r
-	Fmpuh19DcrK/zcUS+lSMekdQMPMXP2+prNyvWpxZLqPXjyTqFiuHFyMkqphUKzAeWf6T8mMqIy49/
-	N0bwDcy1Kp3/HG30C5gFEwH64BNmk7eoD8PPaBjV3SYR+Th7qNmFxBV40rGYoJqEH6kA4jh7aaG3e
-	mulkYKErqeJ8PvMgUgHSk0e2VTXbmZTKmGNBVgBz/8Q5LqAfPSeSoH638Gq6cew4Q+xxR/OsZRXJI
-	BkTLkeoTK4vm0vgUdX/OluZjko3Cu8EkMy1oJfsx5EVGfMa3YvaR6eCFhYGReqvT2INiM/kPwy71i
-	+a1Z6ChA==;
+	bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=; b=P2lXsFnQelutZAvOdDHCqStMVh
+	P9r5hwkSM8S27l3e9MzV3s6e3M0Aj7gLvPQuxs/SoMXaecQRVdWZG1u7LTWPATwv6NYmaD4e4Gz+8
+	q4PL55fYXclGwlBvP+OfIgfF0pcwmxXIjKmjp6dt2vyQMZsoYnXiF1alvTpcHHNqEfzVlipVys3SZ
+	vAftfdezMjYEQiOtRvc01V3YPaUz+yzxDJRjN4NMI2rl1SsL66y58Yj6WTDEST6giZS7ah+5Wdp86
+	U2AgUlOomsYWPON6XcP+fUX+2LxTgL6vJn48of4n5AJvQcGI2FhcGvFvlJER+Em5TKkWVdP0VdBA5
+	az2BujMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1dDA-00000005S8u-1L9y;
-	Thu, 25 Sep 2025 04:04:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v1dJB-00000005SXw-0bAO;
+	Thu, 25 Sep 2025 04:10:17 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1dD8-00000005S8n-1d8n
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 25 Sep 2025 04:04:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IVLoNqcHzjdHSJF0+cAjgbUnE3s1NqEYDp0FPp5OiX8=; b=QfVgACt1Wy/shdV7cyK8S/BdMN
-	pcONP8Nv9Go+uZtzHh0DbrwlMmsJooEXgi4CiwO+RmdLnLGQ/QJDaasnvL5mJzpG2xObrDct8e5ED
-	ASiugaIgjZPQts5LkInQcstPSQVhFKDmlWvTbM18a/kfy8Ixeuh3NOtD1WqUXVGUu7Ww3cME0BbG6
-	gpx3nYQKyau5j1IWszrBdtrjmqc6Wpwfu7HQ6CMsyup/5oTPu+/vl0nhumBsihjDb0xbl7cvvgWB+
-	AStPdpJKESJKvhxUISx5xK/RFfiiTo1O8qM4P30jUXGwxXbqSZLQnkSws9EheHUjCtQn1TspLMYeY
-	RS+d4j4Q==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1dAo-00000008uUr-0H4a
+	id 1v1dJ8-00000005SWk-3u3s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 04:03:57 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58P17Ihe016452
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 04:01:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IVLoNqcHzjdHSJF0+cAjgbUnE3s1NqEYDp0FPp5OiX8=; b=Pd3iiixgXSsj/gci
-	E3l4G7wAxQyNa42+rTKII4AMq+rUVNsGkBpa/g5SNNPnOf/hI1BhC7MX0Zm/dK0i
-	Xg5dPonGOJ2QBpcTTrHrbJGJRD2WQLjandGmfdUEONhh6bwc+9v9UGe+Dp2+w6Tt
-	tTY0XzEcYKzya1Ti8L21OaqMELHUkrzM95KGvQviKfIiSkXYXlGiPEb6XYa0ch5Q
-	YIs6a0SDge50q2pxK5cLXKYO9RV0x5C9FO8WTE5CpZbK92u4C5UOi7156BOgTBXz
-	oRaGhF4DEtw6Yu0ojWnFbXJYYKAWYu5IZ5Jc9px4mtpyWmwsZzVyU3bISfeVmtty
-	DE9e8g==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49b3nyjg1c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 04:01:32 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4d413127749so11410431cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Sep 2025 21:01:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758772891; x=1759377691;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IVLoNqcHzjdHSJF0+cAjgbUnE3s1NqEYDp0FPp5OiX8=;
-        b=DhJSX5ewaGeMjpRucUMyEBlBG4Q3cu5UAm6I7Uif8R9Yds3WyaBPxAsFErNazbNHvM
-         IZdqsECThvYHAbKmaqAGnVZGAsT/Kv0yy5NeazXVf8bfIDJ1v9ueJTDZ3x2i9WefUAQa
-         ldXTqzf0xNkg120RD2TYQUQLoTLB5NJTfDUElHjOyCDquGaJqpB5S0mcoIZeG8fhwI+G
-         fSvG0NPjv2HyVZBDnWYaDkV085F/aAVag6gQVUvaXCqx0uCZ9jArdjTuwBThp7WcaRHS
-         3xzp+yZ8cgx+gGjjZPlJPouYDU0uSM84n3WldvNbgta8vUGM4CaxmeVx4A07suxWJQ1S
-         fjgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUx6xr42uvYsXUOpR45vcCcuQgArwegtRpfTwBL63AXE2Om6VH3IN2vXo8ur/vSEYdla2bvw920MZradOU9WP0S@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYf7vIZ4Jm6CsInKNHtshzo7UQJIYHwgmbSAuvF7jZnxkQdoTr
-	3MrDOPXNSLQmbd9GEfIpgHVr78NShILMxhoEgf6FRiRleUr4Pspbn6Wf6qUWbX4avIXbsMf7j6a
-	L2sAWLqsrb+n0Upp+KTZh9FEVLoSUQ0blASCHYzM67fxVUX5wbyLjZMhXz4Nbkqh7cScwuHE9Bl
-	lClQ==
-X-Gm-Gg: ASbGnctRt0cs+wPUG1vWueRcW5x2tteEufAu16KPy0DXtP8iLk+T8f1GgGsM0N0ViF6
-	7ANkscBSajG32m36WzGH7pVGzCdicc/zaC/uODF6sUQbPZRzNDkWNu+y4nWLD9uwL8GJNpYpbel
-	r/ZN45CMQH1NLsvWRA5LIzVJbuQyd9cTK/6lvFrFFjOV014whbNpiMQb9fPpyl1ojbXqHoayxVR
-	vZRJOYuAzxUdSz8N1h1hgav0UFGve4BTplUqXLW8haHXTC+AqiLp3Nk8+KdWgejb4zwdXSPj3TQ
-	51/9/nlxle0sRJV6Um+QHT5ZBW/D8Ns4wZLS/JfVdFdPkLkH31HW0dcn9LW6ZawhMvsaC28yC9V
-	qYZ6UZTIQva0QO9AAdv6YIUfZ/Mpfig5xOwn83ukFBoYbrIzarHiA
-X-Received: by 2002:ac8:5949:0:b0:4d8:fb05:d12b with SMTP id d75a77b69052e-4da4744e2c2mr27729731cf.10.1758772890801;
-        Wed, 24 Sep 2025 21:01:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGZca+Iw2GZZsul8eiKgFQhtN//Wh11qIWaGFhGrwSz/NV22XiiNrfgNPym6U08AZdNqARbEg==
-X-Received: by 2002:ac8:5949:0:b0:4d8:fb05:d12b with SMTP id d75a77b69052e-4da4744e2c2mr27729001cf.10.1758772889959;
-        Wed, 24 Sep 2025 21:01:29 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-36fb4773b19sm2521751fa.13.2025.09.24.21.01.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Sep 2025 21:01:27 -0700 (PDT)
-Date: Thu, 25 Sep 2025 07:01:24 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v4 1/7] usb: typec: Add default HPD device when register
- DisplayPort altmode
-Message-ID: <6jlv47fgiq4anpflbs6agre4irf7grgvzorrk7roxwprtyuek6@edrya2syhchi>
-References: <20250922012039.323-1-kernel@airkyi.com>
- <20250922012039.323-2-kernel@airkyi.com>
- <mygbqhiom6pkwsadzz2bqf5bth3ogsbd6iku5a7r5swxrakein@fjhz7udnkcks>
- <e9cf0aa8-ed32-4ffb-a755-150742455808@rock-chips.com>
- <sgvrzhbhkzxbuybmws44kyenhfyppm3blijkarypcin4fiscvx@mnajrlmicyxi>
- <18f55fe7-7c68-4982-916d-11752325c667@rock-chips.com>
- <bh73nttewwhom2pqccfnapnfkrys3zljkykgqmh4hsdalqgyzi@gbl5oejxsp3z>
- <86753f21-1996-4b93-acca-575a193a5bb8@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Thu, 25 Sep 2025 04:10:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ylayh/FIGEG6dAm7wPWx+sl9rLEDW89o5lyqwXkSsbAdv+aSwZQJlILMnrrB9yZLx2Kk5MFmP59yL9okfdBoSFNLEklSLV5hnyDNLdcpMT8efwot/BkRsrmCDE0zNlveXJV2A3dMlfUK/Dfiy/RC0nohCSZZa9JRVhWigC1PNs8bJ66qPyB41udWWTwIxd9v58fOmveP/LP8MH5KAN6ePRsIGoMRgCCB+D1iEYzw7vk5dHUbQ0y67ci25qVaAgTIj3/ULEkjLNn8BSqNLKOppu58zsYrpTR99Jt6QUMnFbOenV3yRev/seAIWpJvDSwax2wSNgZPvh1onxPhJL6y9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=;
+ b=v0j6J44FelDHtRawT1u+e9gEDjMpXLYlKH7xeY08kXY5u104OMfQu6jXuKwY1EsseYOIi2KAfg4GgTlLppd/Rak4KTCaJtn9zylMqv+1Ubqpjb9l2UNcg202/iOqclbcrGpjlm1pNJ4HRw0nfDcO6cYznt8dOkCQCPSECgwS5QnC13HqsBEeHypO+MuRvtrxJKXji2dhwJtpsjtnBnBXNjbhzLLYjEbLZnTp0wgVJdJwvfvvYzjJSE0ofjuONy+TBpy7sW0FR4oKTWZNNFoXZHc/NA8+fLTHCITWnXEXHEGiaVkHsI92crsKaMXcsmX0pzPCVNa12pMe4s1plfzK1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=;
+ b=ku6+10dcFxtGLI1jfaMo+HQMqlk9hf1Ma4rZeCS+JOYo7P7xfqlU1RHJHKfnVZDUbDGYKH+rHnvc1Vceig8IE+brfTuhUsLhdqy0oOZWeUZt7thhG9znI6+c2pk7I1eA3Mn/1ZsBcT4MPPiQIz4FkT4fkpAO8ysOxe4ZZqW94uvb7qV8NeN/DHMu4UsGVGKipiBGQvDSF2iTdo++B5eZl05UgzIjaVe7yf5ZQl4m8hbQMaAHANvgC7ghUGAh66a9V0wHeJzoPP18xYgZEIjJwKWuQdhBHRXadnpMNVXFxnkcjSEcWGAS9KVx1IjV+tN7c64IbbZPLPZp4A4AMBKt0w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by PAXPR04MB9424.eurprd04.prod.outlook.com (2603:10a6:102:2b2::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Thu, 25 Sep
+ 2025 04:09:58 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
+ 04:09:57 +0000
+Date: Thu, 25 Sep 2025 00:09:50 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bjorn.andersson@oss.qualcomm.com" <bjorn.andersson@oss.qualcomm.com>,
+	Ze Huang <huang.ze@linux.dev>
+Subject: Re: [PATCH v2 2/3] usb: dwc3: dwc3-generic-plat: add layerscape dwc3
+ support
+Message-ID: <aNTAjk1zsWF5lm3p@lizhi-Precision-Tower-5810>
+References: <20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com>
+ <20250923-ls_dma_coherence-v2-2-ce3176396bdb@nxp.com>
+ <20250924221331.migo5szpf4svxpyr@synopsys.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <86753f21-1996-4b93-acca-575a193a5bb8@rock-chips.com>
-X-Authority-Analysis: v=2.4 cv=EuPSrTcA c=1 sm=1 tr=0 ts=68d4be9c cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=s8YR1HE3AAAA:8 a=nLKCdIsASqLPV_WZ6OsA:9
- a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10 a=dawVfQjAaf238kedN5IG:22
- a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: u6WFltGbPD9vxUqaZhl8IKqsEIkVHH-a
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIyMDA5MCBTYWx0ZWRfXwhRji0cePIK1
- cZq+SbKVbfza4CK+YL99Y/D/Wul/xHpJwe+0DyMpBBjQuTEIjxRPV+27wXy2g201gGVBQiveO1O
- 8UmIYfOAY+TRvp/qytQJhxJ7ejvf5FtqOFinPf4YD2227LAuZjeEcb6fqlYjQL0tFRwmTiGC9js
- fBR4I9CKPYhVnhkl9gFxEJyqdwUsbJ49iFKgW/ZO/kA8LLVlQVfgXb4w+tldCKioHuYeNonFvSG
- 1xjc/nFKXa0KgUfcYiumMfOGRPUUdfT668YhOEFFB/Cwb76btOjgnr5MaJJNZPnMoSQD743BKL1
- gWPjds2i1u5o/ZAnNFTOJXPp3t/APWtBju71CwwBx3I79u3pueilus5Q8URLgAj1n/oAj9qsa78
- qG1WD0D6
-X-Proofpoint-ORIG-GUID: u6WFltGbPD9vxUqaZhl8IKqsEIkVHH-a
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-24_07,2025-09-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 malwarescore=0 spamscore=0 adultscore=0
- clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2509220090
+In-Reply-To: <20250924221331.migo5szpf4svxpyr@synopsys.com>
+X-ClientProxiedBy: PH3PEPF000040AC.namprd05.prod.outlook.com
+ (2603:10b6:518:1::5b) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PAXPR04MB9424:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1be7f91f-633f-4aa5-1b01-08ddfbe96367
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?25dqwPRXcHPKMe2EsqCsruOnnlYeNNK1AMMrepymsranydmQHOVwdy0JalzZ?=
+ =?us-ascii?Q?mZPSzG2/UNjDAWLcXMbqnPxwN+CXHzeHy7yNOR+z86t8L8utaB2HmPnpALgC?=
+ =?us-ascii?Q?vvVd3CqkZiILq1qaMZfV6DyO/A6JQkWsa1/DZe99Y2nPfvNCf96Y44mPj0au?=
+ =?us-ascii?Q?bvKQeVIoRzO2DVSKC7SrhhnOQQVwiGIn2YvvfTFhbVGO+nZCAyK08qsTaJis?=
+ =?us-ascii?Q?MUxv/RmgyJJE6NGWaopQnZ8yb4l+/tmdw1fXVUzsHVtwBZOCGCLDVs8A5uxy?=
+ =?us-ascii?Q?0vPXNpCW2YAoaVAOE8ETKRaTq3sPG+qRXJLlFrDx6G6mEiZGjYimgWJd7uAd?=
+ =?us-ascii?Q?WzBEoqwc3jOLhO308a4s6Pem01DtGVspv9e7/rLLnv947W6jexHaa718MJ6X?=
+ =?us-ascii?Q?y+r31snsbTfdc7FjAvFKWwcTmhghecYm0oMz3MeXBNn8abS8q4jJuImKcus+?=
+ =?us-ascii?Q?x+VyXAaoCWVrGEiHkV50ssN6guCyVHe0uP5r4ayOxFqMiLmNUvLNO40EDq9C?=
+ =?us-ascii?Q?Vw8/i+ckvJpHxCX7iajBuB01b8CeFH2xAr1pzWaK/RoF3Arne4bKIbpZK8+G?=
+ =?us-ascii?Q?g7QpSup/qri37+dLhe76ECct7caaPhYb3RsLoTu5sUdQGj5an9LFLMKcVcP7?=
+ =?us-ascii?Q?EGsoyTQf52GyYVSUhWm28QEdik/zRyCjpVM30Zlb5kozEynfmBPhnAUa6qV+?=
+ =?us-ascii?Q?g0Elg3BQ3mKVSRSEpElM7JfxXb/yFneaN9oCgmt19B0d8YgthK0PBReJgWm/?=
+ =?us-ascii?Q?NrEKdzXmIZlkh0RN6Tlc9PvY7NANBgX6lf28rHrpbcQDfqPWbxj8Es6zdqLT?=
+ =?us-ascii?Q?GZay+FoVoIKog21GDw55aIX6JzcN57v+rBI6BMblG7SNZTe9y6LSJ5GjLbM8?=
+ =?us-ascii?Q?ZozxUqRXlCK6vpa6N8nBZYzRhdfRtdIO5x/MON36TEqx/tD5o7mGtbz+ymSG?=
+ =?us-ascii?Q?vdzQVuIUognSpXTINucQdJ00wTKH0wgeYGrvmAyhBET/2m8WKB5rNLBLn0Ej?=
+ =?us-ascii?Q?DVK1C/ntdo7abhrZXbjmnQKZcyGeZVObQMwMqPqyvl6OOz9qzYtZTvPnciDN?=
+ =?us-ascii?Q?E6at3kjDtcSMmPLaiyxDTJmgGYiuT5ODGnNCyc9aN88B06z8Zw8x56Iuu0YX?=
+ =?us-ascii?Q?c/XLwdMqkAev+jZnDffaNllb8phRWfn3XMqhQZwXq4xZSc7Yd2qR9HxJYgey?=
+ =?us-ascii?Q?/TyapiwNSm2tClaVK+aYjS+LSNHNVzAyqBP66lBdSQEPY5YtnYN15wuVlUkl?=
+ =?us-ascii?Q?+V7yGyvQPOlpcaI8A+NvPQNkQafQMsZtRC/O+RC0F3EYg9pzzqYuC2Uc18BY?=
+ =?us-ascii?Q?ICzQTFUrZSRfOvyNRGbw7JyyFQn13VJUMKZFXJYcR48zkD3qpME00PB1Pxl9?=
+ =?us-ascii?Q?yBCZNuA2Kuhkkn9WTkypKW3Wdbfl0riRUDxHdIDTa7exUXhduGlffDtW4hgo?=
+ =?us-ascii?Q?Y7StTxr85z+WEqIO5V4rn53JX46R+51aMMip5svsE9L4pJkxlgSiBILNOMSB?=
+ =?us-ascii?Q?j3wrm7RZHTKriXYwn2+zkYcSpkCA59mZVCAQ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?duFU2Tu1WaoY7wfwZfSxKNwW6ppBECxe4IoMJru4vH3wrnIL8C0HMsKKAiqg?=
+ =?us-ascii?Q?uHVvvyLG4fgXJ4afsPzBZ/8HzS4HhUrR8Zh5LGL5So4xnNn+lFmOG4e4nWd+?=
+ =?us-ascii?Q?gAzs6Dn4xTpwL+vzv2pnCQJcwLqTu2T4n32KGrSGC5rqkD9bkamisqJ18mfI?=
+ =?us-ascii?Q?KGJpsmuQ1Lcp9VdMtZNpRwfH+ECY8m6zs4AUkDKk+D99u5Mol6VRMED7T42R?=
+ =?us-ascii?Q?9ymOi6JrKFcC/5wfrfpMwRkjdjO86DvZ+s5csOZT7fC+InWr+0rmFEKGxeFn?=
+ =?us-ascii?Q?wJV0ontxRWwQ2fbAsfCGt0OLjGKLz/pj4bsaBYL4n6jeTb06h/2mwnFhZ6K4?=
+ =?us-ascii?Q?gT5esymJ5S0V+3jtAEqZBfg1eVyUolJHa3Pg33CnKuqmNT3KYAkEYZIPTJsY?=
+ =?us-ascii?Q?P/H8N23HggGB3qLdif+VQWZzZIpI673wiIwjyoq15RQi8oDaYdIN8DEyvBsE?=
+ =?us-ascii?Q?DA0MjlMV/zPC6UPuCQk2n7VsEsm2fD/8qEVTISyHRURomDZYXemhWabZMZnx?=
+ =?us-ascii?Q?8jysIToyN0t6yDLgUbwsGHQEywfmCf+kFbiA3I8LJ+idRtdDFIxK5TpeZP0k?=
+ =?us-ascii?Q?ioGW0jRhlAdzIFhF+mCzmzIZPAXw0vcyaaF5ccNFyfbVJF7AG471gZvLynpp?=
+ =?us-ascii?Q?TvXuRLD3COG3U0MwRAmzuh7Io+5A3W23DKZAUAX+s8CMRFLJUWOzO8Vrnl09?=
+ =?us-ascii?Q?zbwxo1+4p954eIRRuMe0pXXgEmT/yIi/vn2Fv7gtP4/SeNKsIPws6O4lopbL?=
+ =?us-ascii?Q?Prm4FwXwcMtrMoxPTRuk6yPFoVopHiU2hr12G5VluiNBxpEgwzblVq3qRxhf?=
+ =?us-ascii?Q?+MVjabCun8MqhaxRLNJAKzmw2z+eoK8BAByup4TMqZYSUI9GoBopTSQFU8MT?=
+ =?us-ascii?Q?BDTAWMiw8r+09hg7kVe4quS2mVWDAODHrPzRf2IKPu3Eb0/FlPh4P+nHofsE?=
+ =?us-ascii?Q?YJXm6PaZdhKiICspg05RrochUR1ZICObL1UgLOLGrg+/Uw+tbCDOSxh69hnG?=
+ =?us-ascii?Q?3QdCcHho3F+sk7h4jUQXxlsRSZ16L5SWl25mIoLg2U3BlDXHljHImKhLcnz0?=
+ =?us-ascii?Q?EvR+o3SAnSdYnhvX394vQcfTbv6CrmCsjMGXmD5rrpqkWTm3c+otuHrON+Wa?=
+ =?us-ascii?Q?0mBZ5hBjWBHvPdCTa7Z5xNav2gOoH7o8EPpegDOncFwoRSGj6TuGD2fnCysb?=
+ =?us-ascii?Q?wS1Kp3RNqP9t2xT0dyfi7nhYTce9E4mj+VP9XUPGRLJL8t2s8nwzUCAqN+GM?=
+ =?us-ascii?Q?OLXeFzpAnAkZmaF7RznzzWd4GxWdI0UAYOSXCWL18RQxzP5ROCvDr5znaHXr?=
+ =?us-ascii?Q?EEytCbl1LOV+hLDdYmfS+F2MJL8QWPq/eo2b+7RpZnUL7LnPzzwZfcNkUpFk?=
+ =?us-ascii?Q?ERQGUan674JvqyFfp9qM2tD0Eee5mSxTrA52I/uDpuFvSM90l4I7x3tC4btO?=
+ =?us-ascii?Q?GMzcPVaQYhL4+kypkv8U9fYldc/pDVu8zjxsiEzcQzJv6qAFngNL+84J43HY?=
+ =?us-ascii?Q?FRxfDwZwghYVph2/gayzSPi+xfbqS8KD96EtkBwzmd8iOwwv7vmLwNuisXCY?=
+ =?us-ascii?Q?oic0G8O0GKBNGA6iyBAI+Wrn8jg0QD6Yq8nNqT8v?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1be7f91f-633f-4aa5-1b01-08ddfbe96367
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 04:09:57.2048
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: okDvLB0psOYJKvLgH7u1GlYkBBeIlHA4jItuWawZ5dmQWKKpVsdmaKdJvjd9gntarP/VlZrC3k0YXa7Odx4E3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_050157_773839_E30032C1 
-X-CRM114-Status: GOOD (  58.85  )
+X-CRM114-CacheID: sfid-20250924_211014_978771_8A79E948 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,160 +167,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 05:55:39PM +0800, Chaoyi Chen wrote:
-> On 9/23/2025 6:40 PM, Dmitry Baryshkov wrote:
-> 
-> > On Tue, Sep 23, 2025 at 05:07:25PM +0800, Chaoyi Chen wrote:
-> > > On 9/23/2025 11:11 AM, Dmitry Baryshkov wrote:
-> > > 
-> > > > On Tue, Sep 23, 2025 at 09:34:39AM +0800, Chaoyi Chen wrote:
-> > > > > On 9/23/2025 9:10 AM, Dmitry Baryshkov wrote:
-> > > > > 
-> > > > > > On Mon, Sep 22, 2025 at 09:20:33AM +0800, Chaoyi Chen wrote:
-> > > > > > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > > > 
-> > > > > > > Add default DRM AUX HPD bridge device when register DisplayPort
-> > > > > > > altmode. That makes it redundant for each Type-C driver to implement
-> > > > > > > a similar registration process in embedded scenarios.
-> > > > > > > 
-> > > > > > > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> > > > > > > ---
-> > > > > > >     drivers/usb/typec/altmodes/displayport.c | 27 ++++++++++++++++++++++++
-> > > > > > >     drivers/usb/typec/altmodes/displayport.h |  2 ++
-> > > > > > >     drivers/usb/typec/class.c                |  8 +++++++
-> > > > > > >     include/linux/usb/typec_altmode.h        |  2 ++
-> > > > > > >     4 files changed, 39 insertions(+)
-> > > > > > > 
-> > > > > > > diff --git a/drivers/usb/typec/altmodes/displayport.c b/drivers/usb/typec/altmodes/displayport.c
-> > > > > > > index 1dcb77faf85d..e026dc6e5430 100644
-> > > > > > > --- a/drivers/usb/typec/altmodes/displayport.c
-> > > > > > > +++ b/drivers/usb/typec/altmodes/displayport.c
-> > > > > > > @@ -14,6 +14,7 @@
-> > > > > > >     #include <linux/property.h>
-> > > > > > >     #include <linux/usb/pd_vdo.h>
-> > > > > > >     #include <linux/usb/typec_dp.h>
-> > > > > > > +#include <drm/bridge/aux-bridge.h>
-> > > > > > >     #include <drm/drm_connector.h>
-> > > > > > >     #include "displayport.h"
-> > > > > > > @@ -182,6 +183,10 @@ static int dp_altmode_status_update(struct dp_altmode *dp)
-> > > > > > >     				dp->pending_irq_hpd = true;
-> > > > > > >     		}
-> > > > > > >     	} else {
-> > > > > > > +		if (dp->port->hpd_dev)
-> > > > > > > +			drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
-> > > > > > > +						  hpd ? connector_status_connected :
-> > > > > > > +							connector_status_disconnected);
-> > > > > > There should be no need for these calls. Once the HPD bridge is added to
-> > > > > > a correct fwnode, the drm_connector_oob_hotplug_event() calls should
-> > > > > > deliver the signal as expected.
-> > > > > It seems that only drm_bridge_connector can do this. I'm not sure if I remember correctly. I'll give it a try.
-> > > > Other connectors can implement the .oob_hotplug_event call. Calling
-> > > > drm_bridge_hpd_notify() also depends on the connector setting the
-> > > > callbacks via drm_bridge_hpd_enable(), a step which is done by only a
-> > > > few drivers.
-> > > Hmm, let's go over this again. First, drm_connector_oob_hotplug_event() requires a connector fwnode.
-> > > 
-> > > On the Qualcomm platforms, the fwnode corresponds to the USB-C controller device node, so
-> > > 
-> > > drm_connector_oob_hotplug_event(dp->connector_fwnode, ..) can handle them directly.
-> > > 
-> > > But our platform doesn't use the USB-C controller device node as drm connector fwnode :(
-> > This sounds like an issue to be fixed. Alternative option would be make
-> > the AltMode code find your fwnode and report OOB events against it.
-> > But... I reallly think that using connector's fwnode is the cleanest
-> > solution. In the end, your final 'display' connector is the USB-C
-> > connector present on the board. If your display has a USB-C connector,
-> > that will be the socket that gets the cable from the display, etc.
-> > 
-> > > So I use drm_dp_hpd_bridge_register() and drm_aux_hpd_bridge_notify() here, I think it just create a simple hpd bridge to bridge_list.
-> > > 
-> > > But drm_connector_oob_hotplug_event() use connector_list instead of bridge_list.
-> > The OOB interface was created by x86 people, but we successfully reused
-> > it. I think that addign drm_bridge_hpd_notify() calls just duplicates
-> > the effort unnecessarily.
-> 
-> Yes, that commit comment said,  "It was proposed to add the displayport OF property to the DT bindings, but it was rejected in favor of properly describing the electrical signal path using of_graph."
-> 
-> But in the embedded case, we don't seem to have the opportunity to describe this kind of of_graph relationship between drm connector and usb connector in usb-connector.yaml. On the Qualcomm platform, the DRM connector fwnode to correspond to the USB-C controller, which is a clean solution.
-> 
-> However, on our platform we are using external USB-C controllers. In v4 and the previous versions, I focused on directly linking the USB-C controller with the DP controller. Referring to your suggest in [0], I think maybe this can be achieved with the help of the drm bridge chain. Assuming the bridge chain is like this:
-> 
-> 
-> Other birdges ... ->PHY drm aux hpd bridge -> CDN-DP bridge -> DP to HDMI bridge or other bridge or nothing...
+On Wed, Sep 24, 2025 at 10:13:36PM +0000, Thinh Nguyen wrote:
+> On Tue, Sep 23, 2025, Frank Li wrote:
+> > Add layerscape dwc3 support by using flatten dwc3 core library. Layerscape
+> > dwc3 need set software managed property snps,gsbuscfg0-reqinfo as 0x2222
+> > when dma-coherence set.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  drivers/usb/dwc3/dwc3-generic-plat.c | 30 +++++++++++++++++++++++++++++-
+> >  1 file changed, 29 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+> > index d96b20570002dc619ea813f4d6a8013636a0f346..d886b6e557b12edda71203e4f640a9a0a53b4f35 100644
+> > --- a/drivers/usb/dwc3/dwc3-generic-plat.c
+> > +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+> > @@ -8,10 +8,15 @@
+> >   */
+> >
+> >  #include <linux/clk.h>
+> > +#include <linux/of_address.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/reset.h>
+> >  #include "glue.h"
+> >
+> > +struct dwc3_generic_drvdata {
+> > +	u32	gsbuscfg0;
+>
+> Are we going to overwrite the entire register or just the REQINFO
+> fields? The "snps,gsbuscfg0-reqinfo" property only updates the reqinfo
+> of GSBUSCFG0. Perhaps rename this?
 
-Looks good to me.
+Yes
+>
+> > +};
+> > +
+> >  struct dwc3_generic {
+> >  	struct device		*dev;
+> >  	struct dwc3		dwc;
+> > @@ -29,6 +34,7 @@ static void dwc3_generic_reset_control_assert(void *data)
+> >
+> >  static int dwc3_generic_probe(struct platform_device *pdev)
+> >  {
+> > +	const struct dwc3_generic_drvdata *drvdata;
+> >  	struct dwc3_probe_data probe_data = {};
+> >  	struct device *dev = &pdev->dev;
+> >  	struct dwc3_generic *dwc3g;
+> > @@ -41,6 +47,8 @@ static int dwc3_generic_probe(struct platform_device *pdev)
+> >
+> >  	dwc3g->dev = dev;
+> >
+> > +	drvdata = of_device_get_match_data(dev);
+> > +
+> >  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> >  	if (!res) {
+> >  		dev_err(&pdev->dev, "missing memory resource\n");
+> > @@ -70,6 +78,17 @@ static int dwc3_generic_probe(struct platform_device *pdev)
+> >  	if (ret < 0)
+> >  		return dev_err_probe(dev, ret, "failed to get clocks\n");
+> >
+> > +	if (of_dma_is_coherent(pdev->dev.of_node)) {
+> > +		struct property_entry props[2] = {};
+> > +
+> > +		props[0] = PROPERTY_ENTRY_U16("snps,gsbuscfg0-reqinfo", drvdata->gsbuscfg0);
+> > +
+> > +		ret = device_create_managed_software_node(dev, props, NULL);
+> > +		if (ret)
+> > +			return dev_err_probe(dev, ret,
+> > +					     "fail create software managed property node\n");
+> > +	}
+> > +
+> >  	dwc3g->num_clocks = ret;
+> >  	dwc3g->dwc.dev = dev;
+> >  	probe_data.dwc = &dwc3g->dwc;
+> > @@ -145,8 +164,17 @@ static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
+> >  		       dwc3_generic_runtime_idle)
+> >  };
+> >
+> > +static const struct dwc3_generic_drvdata spacemit_k1_dwc3 = {
+> > +	.gsbuscfg0 = DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED,
+>
+> Why do we need to do this?
 
-> We can use drm_bridge_chain_get_first_bridge() to get first bridge. In this case, that is drm aux hpd bridge from USB-C controller device. Next, we can obtain the fwnode corresponding to this bridge, and once we have it, we can set the connector's fwnode to it. In this way, drm_connector_oob_hotplug_event() can take effect.
+because is 0 valildate setting for cfg0_regqinfo.
 
-drm_bridge_chain_get_last_bridge(), yes. That's what
-drm_bridge_connector is doing. You'd need to make sure that there is a
-drm_aux_hpd_bridge() registered for the USB-C connector node (from your
-Type-C controller driver or from the altmode driver as per your patch).
+Avoid add new flags like REGINFO_VALDATE in drvdata. dwc3 will use default
+value if reginfo is DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED.
 
-> 
-> 
-> Would this be a good idea? Thanks.
-> 
-> 
-> [0] https://lore.kernel.org/all/p3kgqn3euumhysckh4yyqavqv5y6any5zcrgkrcg3j5a7z7cyw@lfpkla5p3put/
-> 
-> 
-> > 
-> > > 
-> > > 
-> > > > > > >     		drm_connector_oob_hotplug_event(dp->connector_fwnode,
-> > > > > > >     						hpd ? connector_status_connected :
-> > > > > > >     						      connector_status_disconnected);
-> > > > > > > @@ -206,6 +211,9 @@ static int dp_altmode_configured(struct dp_altmode *dp)
-> > > > > > >     	 * configuration is complete to signal HPD.
-> > > > > > >     	 */
-> > > > > > >     	if (dp->pending_hpd) {
-> > > > > > > +		if (dp->port->hpd_dev)
-> > > > > > > +			drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
-> > > > > > > +						  connector_status_connected);
-> > > > > > >     		drm_connector_oob_hotplug_event(dp->connector_fwnode,
-> > > > > > >     						connector_status_connected);
-> > > > > > >     		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
-> > > > > > > @@ -391,6 +399,9 @@ static int dp_altmode_vdm(struct typec_altmode *alt,
-> > > > > > >     			dp->data.status = 0;
-> > > > > > >     			dp->data.conf = 0;
-> > > > > > >     			if (dp->hpd) {
-> > > > > > > +				if (dp->port->hpd_dev)
-> > > > > > > +					drm_aux_hpd_bridge_notify(dp->port->hpd_dev,
-> > > > > > > +								  connector_status_disconnected);
-> > > > > > >     				drm_connector_oob_hotplug_event(dp->connector_fwnode,
-> > > > > > >     								connector_status_disconnected);
-> > > > > > >     				dp->hpd = false;
-> > > > > > > @@ -751,6 +762,18 @@ static const struct attribute_group *displayport_groups[] = {
-> > > > > > >     	NULL,
-> > > > > > >     };
-> > > > > > > +void dp_altmode_hpd_device_register(struct typec_altmode *alt)
-> > > > > > > +{
-> > > > > > > +	if (alt->svid != USB_TYPEC_DP_SID)
-> > > > > > > +		return;
-> > > > > > > +
-> > > > > > > +	alt->hpd_dev = drm_dp_hpd_bridge_register(alt->dev.parent->parent,
-> > > > > > > +						  dev_of_node(alt->dev.parent->parent));
-> > > > > > This needs at least a comment, what is dev.parent->parent. Also, the
-> > > > > > of_node is not correct here. It should be a node of the connector,
-> > > > > > rather than the device itself. Consider USB-C controllers which handle
-> > > > > > several USB-C connectors (e.g. UCSI). The DRM core won't be able to
-> > > > > > identify the correct bridge.
-> > > > > I think  alt.dev->parent->parent is the connector device. Am I missing something?
-> > > > As I wrote, it needs a comment (in the source file). No, it's not a
-> > > > connector device, it's a USB-C controller device. There is no guarantee
-> > > > that there is a separate struct device for the USB-C connector. On
-> > > > Qualcomm platforms, the device will point to the USB-C controller (TCPM
-> > > > or UCSI), which contain usb-c-connector(s) as child node(s) in DT.
-> > > Thanks for the clarification.
-> > I think it should be fine to pass the fwnode of the usb-c connector that
-> > is outside of the USB-C controller device (if that's what your platform
-> > uses). But I think this should be:
-> > - the usb-c-connector node
-> > - it should be coming from the Type-C controller driver, you can't guess
-> >    it here.
+of cousre, if you like add bool b_usebuscfg0 in drvdata, I am also fine.
 
--- 
-With best wishes
-Dmitry
+Frank
+>
+> > +};
+> > +
+> > +static const struct dwc3_generic_drvdata fsl_ls1028_dwc3 = {
+> > +	.gsbuscfg0 = 0x2222,
+> > +};
+> > +
+> >  static const struct of_device_id dwc3_generic_of_match[] = {
+> > -	{ .compatible = "spacemit,k1-dwc3", },
+> > +	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
+> > +	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+> >  	{ /* sentinel */ }
+> >  };
+> >  MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
+> >
+> > --
+> > 2.34.1
+> >
+>
+> Thanks,
+> Thinh
 
