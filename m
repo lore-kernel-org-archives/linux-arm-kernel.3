@@ -4,95 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38322CAC5B7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 14:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0100CAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 14:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxSn/XKZJ8nGzJm46+gGlk+s96fi6vy5LIT8pPU1udE=; b=iqo96rTTkr5rA6965CpC5xZzyd
-	ebO10GcvSmsl893SJfj8kzMUDk5ONCTeQoxAI99ofiHcMmtShPBxc7ROtCpilXlp/u+6GOrHgkbxG
-	t8tCd6wqgYL3G0eEJsFacfzHqRuzwci9Z681ugWWR4EfmJGnnKkdF3ww3LVgUJwF7vTt886TMmV/y
-	s8FxmdY119C9KU3sTiSH9Lzgbqfgjuda6Ui97I8xZZatk01nFbe45Enl5dkwGIkIbiXRbBzjdCcd1
-	hfj062TlhORm6Tv/r5MMyPCnPnH2BWGK0A4ZGRoex/mb/nu17ld1sevEDfzUGGXwDzvKMdUTrtCf4
-	4hig9jJA==;
+	bh=OjqkTZoCAD9ovROFl0rX5aKoq7H9e/i+GzLPj/Z2kg4=; b=hZe5T39gyaG7LWNr6L6Sc57Dft
+	6ECU+ESAIkunG2tCM15fP5ykS8rEGEyPWWmTaNUjD08UEdlamY1CP82DcDzOWUzMNU+DzYS4Tfgwg
+	qUl+dpvbWyCPpB6DwMRsOXcUbczJMSPkc2usNi7GCLVMfq1Xy64XpXHn1fFqu7s+1EW5SeUrI53/q
+	qwmJfRTDLuYgjzhAFDT8VBuq8rWFA+cmpL1GOnbN//BMqcqqygDvxzI0gKvS+T4Dt2eFpqadNgRXK
+	u/iQF9Fb62dDCcB61ODKfWsQpJCPguGuSIgP6l4iv+zXTo6uq8hocs2OHtG4ymt/51oiDuz0cUVji
+	1AklbQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mcL-00000009n6V-0FKm;
-	Thu, 25 Sep 2025 14:06:41 +0000
+	id 1v1mcd-00000009nP7-2sMN;
+	Thu, 25 Sep 2025 14:06:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mcE-00000009mxL-1OX4
+	id 1v1mcO-00000009n9m-0qFW
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 25 Sep 2025 14:06:34 +0000
+	Thu, 25 Sep 2025 14:06:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=nxSn/XKZJ8nGzJm46+gGlk+s96fi6vy5LIT8pPU1udE=; b=IIzu5O4qZYEDDT/YLbiv0hpvFL
-	3qKup2SD7U7AS514dWH9XmUI0axgHEr4m5dryPSvslqAVDFmA/wpbLUd5afPhYExE5JkQXx6A7pUE
-	ONKWktuYXSwEdJTHt9CiRr5fwW9ZnLNEcGON0pdlYnV1F7T9VHts5dbufuW2VImIixUEi/PtCNDNu
-	zfWH+dTnyiNGtWetszFwltjtpyCleWTK5cjEcE7Uz0EY+qmTcbdfCKgcN7HZTTOJhI/vqSZ1ZLW2u
-	8grzg1tjVqAG/aNZBS4obnq7kXLhmqnMGBLkaSq/vTbWKCQ/KyXhh9ZIo8fzbh5cUuazYFDSZdpWk
-	GBtXVvZQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=OjqkTZoCAD9ovROFl0rX5aKoq7H9e/i+GzLPj/Z2kg4=; b=G44VrAhKr0zPQizaQj4ge4wN5B
+	H2IdEyxzt2R0bP8Oy+JnBeeMF3RvzPfeypyeXJ+fmCJBxilSCxmjn1+s6AZgY20lqY0Gzc55zSa49
+	d0FxGWhXSJebepFWu4MGFf4XvlALCuJ4dItoGRrmcWtFCfR6mR1gZ2WFu6UL9VQc1fZTdvsLsmjso
+	lId2CqCPfocoB5yP3+l6Y8mO8R+uMEbhSBSoKAbjMewIKIidP8Wybv/5DjGj0oUlZx759Cf8qXaZk
+	ORKPJ8aySmgcqbve60KRL/D5yLlfQ0csWMnT/RYwFDrjMXTJ+XEzk9SRp+MjFVY//FMyeHEySs1cU
+	zPeKHccg==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1mcB-00000009D0G-0SSV
+	id 1v1mcL-00000009D2c-04qS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 14:06:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2D6E44FCB;
-	Thu, 25 Sep 2025 14:06:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CBAC1C4CEF7;
-	Thu, 25 Sep 2025 14:06:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758809187;
-	bh=zSY/958KOCpOwFRxar6kTLevxJFIWpMxyuGHYhwxU7k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=tiPz4dJA953Eq7WiiXNtY8Da30yNCIhru9tzAm1DI+1ynLbFstBbJYfR4g8TDh58l
-	 ZJgNm46swAELQTb96Kxq0JPV091OHhtfCAwTgOvM+/ChwjHqSKoDovJfeEgSvWHzSV
-	 2qz7sXJL3Wu4MAk75vwKFfn+4tuVga3ZVXKbz2aVhg/YSiKZwCitg08YOdnpk5/cdK
-	 SKoYBxqhXZVE4hW5LyQ7GHeFUMFkX6Nl7iyZd5dj+cxvJrcSI0i5wC8cTeIdpHPsbi
-	 +krgt+kPpndBKfBywNyzG5GrqoxYUUQ3zMkAPLGwhaaeLaNkewW6qsr3Ygn09/860D
-	 azuchr7Sxkk4Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD4FACAC5A7;
-	Thu, 25 Sep 2025 14:06:27 +0000 (UTC)
-From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Thu, 25 Sep 2025 22:06:13 +0800
-Subject: [PATCH net-next v3 1/2] net: stmmac: est: Drop frames causing HLBS
- error
+	Thu, 25 Sep 2025 14:06:42 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58P9M8QJ019926;
+	Thu, 25 Sep 2025 14:06:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OjqkTZoCAD9ovROFl0rX5aKoq7H9e/i+GzLPj/Z2kg4=; b=dZuU+YmoDbBxzAP4
+	lt58Ce7kpX6F2rkn/PsSiY90m/RaFclMKuBpk6Edrq28zeG9rXAsort9+W1hazXm
+	XqtI2NPSJZf5enkwZiElvy8tRrd1yMJCOjD+RAkmTuQhxYK+HjimmrG5eFVBXPqa
+	kQGdssVpQbYIkdCBsY8j2IezdpAFWNCR8vw3q3AhamRTkmm8kkkBMRk4abEKrcn8
+	Gr6MUqpQ47CYroaEvMF9xgzXU447v383sx+O1Kq+NOLM6Am2385zu/uQ5gu3VhnI
+	CM9K91I27L9XjU6YgOqfZ+Yd9F2sBS+2L8t5yflgX+U24pktflPtlIMXeBa1rihX
+	YD9X1A==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49bjpe1jdu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 25 Sep 2025 14:06:28 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 58PE6Rrh005732
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 25 Sep 2025 14:06:27 GMT
+Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.24; Thu, 25 Sep 2025 07:06:20 -0700
+From: Luo Jie <quic_luoj@quicinc.com>
+Date: Thu, 25 Sep 2025 22:05:40 +0800
+Subject: [PATCH v6 06/10] clk: qcom: gcc-ipq5424: Add gpll0_out_aux clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250925-hlbs_2-v3-1-3b39472776c2@altera.com>
-References: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
-In-Reply-To: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>, 
- Matthew Gerlach <matthew.gerlach@altera.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758809186; l=3161;
- i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=U2GpYPDapoJb67AF7YZfXLYJz7u/9hkBR8xWCl+t188=;
- b=k7vpTLnNXsMkDiKz+37H6mNODT5JstRk2/Veg+ISYJlBI6kE6Em5cTVhPKrovC0m83vJYK9pg
- uymIw+ThuLqDYqtYTtCsxFuIMmr7jI34nwSYdAqkxGEOKIcAdq58ONL
-X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
- pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
-X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
- with auth_id=494
-X-Original-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+Message-ID: <20250925-qcom_ipq5424_nsscc-v6-6-7fad69b14358@quicinc.com>
+References: <20250925-qcom_ipq5424_nsscc-v6-0-7fad69b14358@quicinc.com>
+In-Reply-To: <20250925-qcom_ipq5424_nsscc-v6-0-7fad69b14358@quicinc.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        "Varadarajan
+ Narayanan" <quic_varada@quicinc.com>,
+        Georgi Djakov <djakov@kernel.org>, "Rob
+ Herring" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>,
+        Anusha Rao <quic_anusha@quicinc.com>,
+        "Manikanta Mylavarapu" <quic_mmanikan@quicinc.com>,
+        Devi Priya
+	<quic_devipriy@quicinc.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Richard
+ Cochran" <richardcochran@gmail.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
+        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_suruchia@quicinc.com>, Luo Jie
+	<quic_luoj@quicinc.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758809144; l=1385;
+ i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
+ bh=Eimgia/Bx+eO8L8UJ+aEbzz/pUw0klt6lj4m5EBC2Fk=;
+ b=kTipSX6qdtnxoCsPVeJ8dNf5t5bicX7J+SNoB0v833KU0bd+4vMH4Zt3poREhamkj9ogWooBw
+ u2s2KAqJKM4DAcxZB324vs4bj+dtSItazCsuH6HibdztC1QWjcdIR0B
+X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
+ pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: ppUB0yGzFAmEq9lX7noTexl_LfelJPER
+X-Authority-Analysis: v=2.4 cv=Pc//hjhd c=1 sm=1 tr=0 ts=68d54c64 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8
+ a=COk6AnOGAAAA:8 a=PgHBclK_Yek0rHWKhOgA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: ppUB0yGzFAmEq9lX7noTexl_LfelJPER
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTIzMDAyMCBTYWx0ZWRfX8BK3grRJasH7
+ /cCa1/kqiZ80GWRfC7IB9NaMG3DEnFq3lfEEVrHeossvVS7OPqPBr3g3b3HOuL3VkQiAE1tkqgV
+ BHAjqtqUESX5OFdP55YKjWGGMuE9m3Z1wg+kEuShCihEh7QVOJAHiL59NhWyxYY0DnxXtw14gt2
+ Z/uqVtaSKMmBsl1MQZ7QRY4PKFUztGvN+qNCZ+xLl6j5ev85Mmr5ZJRusd3gZg64LbFJyOjEKpe
+ YwmV3ZG0Pnu3CF2X2l36o42OTDm9uSJ7MwFISdTXiDnS6qGFKe9EQTw8CygjJ1qxWoJZCMV98Le
+ h9xp6Gg/2dqYtwXNqq3ws0yFyDS+0YOGQx4B23YeOBBoymmn1mRe/TV7yEQqjmBj30s6qK7VEPO
+ 1/Ow+YCK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-25_01,2025-09-25_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 bulkscore=0 malwarescore=0 impostorscore=0
+ spamscore=0 suspectscore=0 clxscore=1015 adultscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2509230020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_150631_641798_2B577E3F 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250925_150641_495239_C78CE461 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,91 +157,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rohan.g.thomas@altera.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan G Thomas <rohan.g.thomas@altera.com>
+The clock gpll0_out_aux acts as the parent clock for some of the NSS
+(Network Subsystem) clocks.
 
-Drop those frames causing Head-of-Line Blocking due to Scheduling
-(HLBS) error to avoid HLBS interrupt flooding and netdev watchdog
-timeouts due to blocked packets. Tx queues can be configured to drop
-those blocked packets by setting Drop Frames causing Scheduling Error
-(DFBS) bit of EST_CONTROL register.
-
-Also, add per queue HLBS drop count.
-
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h     | 1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 9 ++++++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.h | 1 +
- 3 files changed, 8 insertions(+), 3 deletions(-)
+ drivers/clk/qcom/gcc-ipq5424.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index eaa1f2e1c5a53b297b014a8218bf8f3db5beb4de..8f34c9ad457f07553206841223fd38e55208d5ab 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -228,6 +228,7 @@ struct stmmac_extra_stats {
- 	unsigned long mtl_est_btrlm;
- 	unsigned long max_sdu_txq_drop[MTL_MAX_TX_QUEUES];
- 	unsigned long mtl_est_txq_hlbf[MTL_MAX_TX_QUEUES];
-+	unsigned long mtl_est_txq_hlbs[MTL_MAX_TX_QUEUES];
- 	/* per queue statistics */
- 	struct stmmac_txq_stats txq_stats[MTL_MAX_TX_QUEUES];
- 	struct stmmac_rxq_stats rxq_stats[MTL_MAX_RX_QUEUES];
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-index ac6f2e3a3fcd2f9ae21913845282ff015cd2f7ec..4b513d27a9889046e8b5e404adfd917f469c3f05 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-@@ -63,7 +63,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
- 			 EST_GMAC5_PTOV_SHIFT;
- 	}
- 	if (cfg->enable)
--		ctrl |= EST_EEST | EST_SSWL;
-+		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
- 	else
- 		ctrl &= ~EST_EEST;
+diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
+index 6cfe4f2b2888..35af6ffeeb85 100644
+--- a/drivers/clk/qcom/gcc-ipq5424.c
++++ b/drivers/clk/qcom/gcc-ipq5424.c
+@@ -79,6 +79,20 @@ static struct clk_fixed_factor gpll0_div2 = {
+ 	},
+ };
  
-@@ -109,6 +109,10 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
- 
- 		x->mtl_est_hlbs++;
- 
-+		for (i = 0; i < txqcnt; i++)
-+			if (value & BIT(i))
-+				x->mtl_est_txq_hlbs[i]++;
++static struct clk_alpha_pll_postdiv gpll0_out_aux = {
++	.offset = 0x20000,
++	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_DEFAULT],
++	.width = 4,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "gpll0_out_aux",
++		.parent_hws = (const struct clk_hw *[]) {
++			&gpll0.clkr.hw
++		},
++		.num_parents = 1,
++		.ops = &clk_alpha_pll_postdiv_ro_ops,
++	},
++};
 +
- 		/* Clear Interrupt */
- 		writel(value, est_addr + EST_SCH_ERR);
+ static struct clk_alpha_pll gpll2 = {
+ 	.offset = 0x21000,
+ 	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_NSS_HUAYRA],
+@@ -2934,6 +2948,7 @@ static struct clk_regmap *gcc_ipq5424_clocks[] = {
+ 	[GPLL2] = &gpll2.clkr,
+ 	[GPLL2_OUT_MAIN] = &gpll2_out_main.clkr,
+ 	[GPLL4] = &gpll4.clkr,
++	[GPLL0_OUT_AUX] = &gpll0_out_aux.clkr,
+ };
  
-@@ -131,10 +135,9 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
- 
- 		x->mtl_est_hlbf++;
- 
--		for (i = 0; i < txqcnt; i++) {
-+		for (i = 0; i < txqcnt; i++)
- 			if (feqn & BIT(i))
- 				x->mtl_est_txq_hlbf[i]++;
--		}
- 
- 		/* Clear Interrupt */
- 		writel(feqn, est_addr + EST_FRM_SZ_ERR);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-index d247fa383a6e44a5a8371dd491eab5b1c99cd1f2..f70221c9c84afe6bce62782c7847a8005e469dd7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-@@ -16,6 +16,7 @@
- #define EST_XGMAC_PTOV_MUL		9
- #define EST_SSWL			BIT(1)
- #define EST_EEST			BIT(0)
-+#define EST_DFBS			BIT(5)
- 
- #define EST_STATUS			0x00000008
- #define EST_GMAC5_BTRL			GENMASK(11, 8)
+ static const struct qcom_reset_map gcc_ipq5424_resets[] = {
 
 -- 
-2.35.3
-
+2.34.1
 
 
