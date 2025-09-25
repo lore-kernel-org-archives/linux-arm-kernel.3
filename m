@@ -4,169 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38354CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47494CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2I39N+U/H7g3FqPp/lHWzKeTZ8DH0ARsOj1XHH367Q=; b=dyIrIdnC5Zqq5vraGrjFAs/4Nd
-	k9ICCfHRutaHpsisobsNpPLidBUjoAT9lnzp9Kn1I4sBe1iZd+IhiTtds373NAehdKmEeVYPoPYmn
-	BL4CEqccTWZuaTptIKxVSe94yMiEtXxWOYyXqKFFjFcXFAENM75DtDfpwBn7ds7fmEKNXWh8tRaTc
-	pmQt0fIwMtygBDp0sdZvHHAQNPAtlj5FrePCBkJGVS4pyUtTU6DPNUtfhg/cXUd0NX6EHV1F60YU0
-	WLJ6LqxfIjmdrChJ7klL62wfwwUGNB+WoniA7xhab9CKGF7TMiKZ5Owll6joaZrUwnICtDQy7bjIh
-	exlAesXg==;
+	bh=CBMGwwXjzc/+YQPQQIT+QiMqEBKvZ+f5tr+AKAkfSmc=; b=XgLBfRz3RMKrk1bSCXJlj2jjVx
+	+Lbzm9I0qGDGZ3TM6dv6C/jV3aKzUDxLfjxv6aqy5RLP8Ed9PL0DP3lSgNAHBevVF5at1zXnW1YeE
+	oo/pTkBgSnvU3rUIBZ+4a/ffui9hLcG1RXZBbcOdw8HZkENFGZkCITzwS77I9PwbV9bI0GvoSmqIt
+	OJIXzigG4EJMr0pZXftMy43jJWRCxMlVYq8G3NtIowmYSBDUQXTf1pfzfQocRWG7+1M4MeN8ARBvc
+	IK04Pb1PLuonU2oVl92Mp8GD755kGKS7Ohzrp5Fu9+4w4obnQlCi7Xm1EtTcx63MoS4bmOthcCWEU
+	ciK43O3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1c1o-00000005Lf8-1laf;
-	Thu, 25 Sep 2025 02:48:16 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1v1cAQ-00000005MWj-3EkR;
+	Thu, 25 Sep 2025 02:57:10 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1c1m-00000005Lee-3Ot9
+	id 1v1cAO-00000005MW0-20PD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 02:48:15 +0000
+	Thu, 25 Sep 2025 02:57:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LtoLqfteFT2d7NHq0ipqrcY7QJWLeIJsLpXxYCnD/0iY80HF7ATpMdF3yADL//rKDw/q3AOYaNOYoWXwSU7jz3J+P5f7f1UpexIr4sFKlmfrEz7tNmydClaJX7VvZpG12ci2tIcG0sN3E1yH5dTDxWlfIw90pgK27licaHgsilUJFf/WpuVnbjljKfeDW93JB8d6tXXWDIgdx3mOitCUIEsC6DEGnTIWZO1k+Ir/oTqR/Y5iEprC71dAgsIFhc/OtD57PkR9L1reYF2JrJRPFe5yX7g65M2yxDbY8BeGv4cqDC74ayR9jxSv1XkKXsbcM4+Mu08xsSZPpwmZx1W1xw==
+ b=Ttq8JdwschLUV0IYshRyuC0SYib2/486dSyYGSkA5zBEnqk05LTQoKLDpDetSpf5srAVj7RKlhrWy6AP5u9T2nBp84bj9SUm12gWe6Nih3NATixX02VNV79adZlQyIB+d/n6gCkkNL65EN6bHn071IerZe21IhZfnQbVz0jzIj389rFz0CNZjCCEY5tlySOUIqfYXQSXtspizqHf2+zSe2lJZbgR/3MUr41KGEvilP9Dw+xu8AracyAircevKtUW+5Kt5FGR+Cig/7gz4E2eDFNC3yuixlgT1JzrLp2XD6tRGytBglBiaL+gj4c3yXY9XjNHuwkeLTsUw2R6pn+QoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K2I39N+U/H7g3FqPp/lHWzKeTZ8DH0ARsOj1XHH367Q=;
- b=Topu6E6ozavv18Kx8RfjwYU4mUbNKnwyDwmzoibF9p5MHo18aryBWvNPNFdU4+Pcf/YWV5cMj+fbMqvkpf3GEDwMZFbppbY0gA6LzJaz/xMXn9Lv9dKjtyVKMggkhs4tnQqYWLd0QeXJGDf4t9sr4vW9E+en1LJe0OMeYT6HM8ODCi+WWjXhr0rkmVCgeR72VIJLlIR8GzR4HKxdoiqCj6b4Ynoq2LvOKejDfFeBCt4SKozxxXC7DzX32Vb9wzqSZOMOrWhbNwRxvKsYXxxoM4uFkFIZIRPdhQd4lLBEwmpdk4kmq87A1Xzn2Vmu/vD26YsQ9qU9pUzfJf7pFgt0MQ==
+ bh=CBMGwwXjzc/+YQPQQIT+QiMqEBKvZ+f5tr+AKAkfSmc=;
+ b=b3Wxs5qqMmcszteSgBpoGhFmzbAEiDdDR5H1X4B7ABlmRcfWqjQnihDP85FDwEzU0TeMGnleRd0HBP7xMvlQzPMjN9QB8Wda8hbmJ6/0b1wxyiukRZ3CaeOBlQhzj653QL/tlocqqHiawFIC2iXdIDTlYNxzPZMrE+I/5HC5y6ZdxY43ABMFHx9M5A3DR/PRDB5XBImYBl1uEgBRObz3GhhXQUvq1sE67/qG2cQWRclTtcWd52oOgZf3Fg7OQVBmIdJOeY8VkSLgHNv2dXx1wmpmh2EOU/q+K3gSLEphya5T7abd8n7oDcQSRuTe0eS71KM9BujP1lUSBmeU5xf3sQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K2I39N+U/H7g3FqPp/lHWzKeTZ8DH0ARsOj1XHH367Q=;
- b=tGvhOY/tYMdeVTYYQbrOUCpVRjEyuWFlAFVpj2RzL0vv2ILyARAUBg6XfFMO6v0bPGKtjiRGPK6tWSMXntoHQhqBGlOVtWXdC4/z0fvZqo7hxp/zwgEATFy6AqfQzWgGP6Cxam0X4i+ROX/0Mm4nk/O+riCpYrFwQc/00t9WnrAkaXjdZSU+X2aww0Gb+3y8ntugtugijks8p63toh9LOCKN1lmY7Gbs/IRMyga6nJwKIvpkdNIogqKWug2jS16vN1YLvsUcrZH8ydb/6HlU95djXr19tEdqn+TQx2yXiASS0NLhAtLC5qrxDr5kaGjSQBDGElLtpqUDPYmdHW6MrQ==
-Received: from SA3PR03MB7187.namprd03.prod.outlook.com (2603:10b6:806:2f6::11)
- by CH5PR03MB7983.namprd03.prod.outlook.com (2603:10b6:610:212::11) with
+ bh=CBMGwwXjzc/+YQPQQIT+QiMqEBKvZ+f5tr+AKAkfSmc=;
+ b=bXQ2CW6I9kkz93pc+CBXIrUWghiDaU4Y7UIC5TZ9zmVRGjSFrwSiL5TWzWhyj9jhECCFkgqmLTtO1VcvquN6FO6s7n6uzDdbOxN2Y5DT6fcCcbJ1h/1Rfxn17FsMnnRCOj/FuxD6MQOaBHpm3CzVX4L3BQdj8k1Q8Gnm/DMPAqHCov+cXzyzUG1AWXiGBJO5kJq76xFRiv2DPKeMKV6Af+l5BLIkJ/6huSIrRswvEwFYm9uxLmttV0v+0NShaaMS/M0w9+uNVN8Sb487Z5nalBSOYhfzAoT3QJVxcbPkKPj8mK99qw4W1b49KKBFTh1NYog3I3eeE1xcbChWur85yg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AM9PR04MB8908.eurprd04.prod.outlook.com (2603:10a6:20b:40b::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Thu, 25 Sep
- 2025 02:48:05 +0000
-Received: from SA3PR03MB7187.namprd03.prod.outlook.com
- ([fe80::3145:43b1:92d7:f7a4]) by SA3PR03MB7187.namprd03.prod.outlook.com
- ([fe80::3145:43b1:92d7:f7a4%4]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
- 02:48:05 +0000
-From: "Ng, Boon Khai" <boon.khai.ng@altera.com>
-To: Jakub Kicinski <kuba@kernel.org>, "G Thomas, Rohan"
-	<rohan.g.thomas@altera.com>
-CC: Rohan G Thomas via B4 Relay
-	<devnull+rohan.g.thomas.altera.com@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>, Rohan G
- Thomas <rohan.g.thomas@intel.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Gerlach, Matthew"
-	<matthew.gerlach@altera.com>
-Subject: RE: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-Thread-Topic: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-Thread-Index: AQHcKCVSUjA/+iFPsE6iPjJqCYA0c7SX+60AgAnSuACAATDIgIAAPgFA
-Date: Thu, 25 Sep 2025 02:48:05 +0000
-Message-ID: <SA3PR03MB7187E86569E04FD731FA69AEB41FA@SA3PR03MB7187.namprd03.prod.outlook.com>
-References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
-	<20250915-qbv-fixes-v2-2-ec90673bb7d4@altera.com>
-	<20250917154920.7925a20d@kernel.org>	<20250917155412.7b2af4f1@kernel.org>
-	<a914f668-95b2-4e6d-bd04-01932fe0fe48@altera.com>
- <20250924160535.12c14ae9@kernel.org>
-In-Reply-To: <20250924160535.12c14ae9@kernel.org>
-Accept-Language: en-MY, en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Thu, 25 Sep
+ 2025 02:56:58 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
+ 02:56:58 +0000
+Message-ID: <215aff22-7923-4925-afa9-7663cd524b42@nxp.com>
+Date: Thu, 25 Sep 2025 10:58:27 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/14] drm/imx: dc: Add DPR channel support
+To: Frank Li <Frank.li@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250923-imx8-dc-prefetch-v2-0-5d69dc9ac8b5@nxp.com>
+ <20250923-imx8-dc-prefetch-v2-7-5d69dc9ac8b5@nxp.com>
+ <aNLnBbSr5BGDvmsG@lizhi-Precision-Tower-5810>
+ <eb070dbc-1e8e-437a-b519-69709b3feae4@nxp.com>
+ <aNQNn9EwZzCjapB6@lizhi-Precision-Tower-5810>
+From: Liu Ying <victor.liu@nxp.com>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA3PR03MB7187:EE_|CH5PR03MB7983:EE_
-x-ms-office365-filtering-correlation-id: 6b0cb85a-ccbb-406f-0d04-08ddfbddf3c6
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Txopmeu18fhH4dz0m2W9k9y1lizLLtx2s3STa7FlFujjLuGr4B5peBb1B66s?=
- =?us-ascii?Q?p+rxN+ZNuFSIL6QDKEBJcZxWBnTrmmSqMabn7t1BGmxqTBiAr5JT6p9fPwYr?=
- =?us-ascii?Q?dioLXNNX5pQTSE49xuUHEh5ASWbNrUQNL5x/OOYVHJGgGmEsOJxTEC9WwqJg?=
- =?us-ascii?Q?xQ5nAZZ/syZTML314US9mnHwBQSO/9/45NJfEc1l5XgpTge9i7CJvUQY+kY5?=
- =?us-ascii?Q?d31msoJDMiyYn5Fo3Byv8JyMnyg18HvDC9Gt2dZHf5pW8+9i1ccR4Yx3bphD?=
- =?us-ascii?Q?CJbphGSes35ueHee2jkUv9iKSoVaOb6SDOC9+qnQ46bOMs3gdRTVJQs6Q9Cy?=
- =?us-ascii?Q?1njOlXq7cgWxXZ4cbjFSq4zk0i+UWwqB8l0m74l5lLrSr6UvdMw5rqX4GvRT?=
- =?us-ascii?Q?7wRexqN6VNbTB8DKBKPd1B6xuhek3IE1lE43NLOdcXh2zXgpCFHpULA4m1Mg?=
- =?us-ascii?Q?pjA8jhbfZ4Swwdj1rfalb6wW1Y8m4qUAqYvzuKx3XXinakt01ijpbA01wiIW?=
- =?us-ascii?Q?ddqVlG7GoSYDBQLvyra8CxVew2yG6GV+CP+vXwDULtwrdnGl3icCdqrepsID?=
- =?us-ascii?Q?3ubbHi8jQYSrbrzrmyErb8AWMAacam+CupKlAyqbqaTd9b9PoO7n4Fg9jxAT?=
- =?us-ascii?Q?irKhh171sHkvu2iX9MTGyhe7h3mIOIDPEkfD5OmEfOqY1qWsVnPAxFL7/Pgw?=
- =?us-ascii?Q?nz3TQ7n6FhjHI1Ore8+4wvS7eIVfslpbGGxbGZYWPixmeZPxyihdQleMZDpA?=
- =?us-ascii?Q?NId7AHbop3+O1soWLdKutfmd8edNfH3X6LpBbESo8hYs6Fg+VBbdXXlNO7Qs?=
- =?us-ascii?Q?OjAip5BnN73UsGuXT2imbRSTk0VrpssPJtzaSDKL8VELlKDE8+/T6Ug80pDF?=
- =?us-ascii?Q?askq7yQIRF5hNlkGc7dQ7NZn99jHwDoNtu2nH8fd7R2bkHn0IE7t9qaXG5fs?=
- =?us-ascii?Q?iS4eQPu6EDI0EQ2BH1YdD/WpfgM00LUnWa7ICWDz9guwNOizpRgSotJY4w4n?=
- =?us-ascii?Q?MFhY98REV34mRxSrLvVJhRDcSIKM7tnHE/IFZij55G3DHJ8IGE/tbdY9lZL2?=
- =?us-ascii?Q?Fiq0fldQh7EcUhZ6uWNk/yCN1rR2a2d7tAxD4UVJdgTgayHuTqOr84D2JQqm?=
- =?us-ascii?Q?17v6PNNYRyJMLV3w0J4kVpYH3rRs6VmSfELcw58cxdDHNthEd0Z1QEl9LNr4?=
- =?us-ascii?Q?2XK1L+AMYve+fTsBOJ86FRdhhz61bOVu7E0Lz/dtma0VRBk5cTdwyf+7BZzi?=
- =?us-ascii?Q?NbwW0kF9GkwwmjlpjtpDD54q5reLlw3VPgROCi7ZX/v7P45HGfKHCN/YeDaY?=
- =?us-ascii?Q?YcMFLbmNQRXfWyKFVY/cJ/ZUH8rytz43bIonRWFQJTNSvLJFsWO0J34mpYId?=
- =?us-ascii?Q?Bvn/l61MnWHKLpqkTi0WeWMBfH04w6e+X1jRlg6Qvp2MPCujO8y69iz+6a0a?=
- =?us-ascii?Q?R6UK6ty3yxtLG+NcqEOVJFUHsJJsW4txaKQGFsYSkkeqLlzzt2L6zk/vapyS?=
- =?us-ascii?Q?UasQEJ1zTh1ID/oH7fUhLitz+3RCJNAY0xJa?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR03MB7187.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(7416014)(376014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ee9ukpcaY6ngAbCjC7GLy6U5egqUD1T5s86XXX8ucACJBOH10+woZQcqSk4q?=
- =?us-ascii?Q?GaTkJ79XzHf8/KBRkfg7EUo5fBBaSTIgjtHpYxWpgFvgTpMprMrzZBfLpE1K?=
- =?us-ascii?Q?j4AxL4MtUSfQrDd1ZOvleQ1q3UfhSoCAxtz+rJ6eQ1lbJaWUceiVoPM7/KTJ?=
- =?us-ascii?Q?C72a8q+vfVVifwcw0DcDre83NoFcZEb8mLSQJ7BY8Es3BE+8NBbNnJncxE1B?=
- =?us-ascii?Q?7ZJhzbckHa38zB12dJ/pqXj3LFkxxBoBoEV5FNQVXrKNMrYiV7u9WU6GYtVt?=
- =?us-ascii?Q?lnhzBbwzL9u12dVefFmmOPviVuCLLWFvWStBzcuVccU8SPlRYCNTEodPgtKa?=
- =?us-ascii?Q?8t1/SV0V5/tNCxy3Yj8OZf0URbbIPAvhKsfCq/eKAVsxOf+Dc0rBDe+vNkRA?=
- =?us-ascii?Q?0JDyukIUiDqJwri+X/vloyJvVQkLPBJSLdsZanP5vwc0bq/Uhk9z3Q16ueyc?=
- =?us-ascii?Q?GDQnGpUSBcotTZ7MRG2zlGHHLkjAo+pRlCrSDp2nCWoBn5JvTncEdNXcIqwf?=
- =?us-ascii?Q?vkg0Xw5c/0sQhMMfeizu53bTuafzRJL1NmQkeAIzrJ7JZdkSegXHqMvJi2/v?=
- =?us-ascii?Q?4X073tD+scu9hKSz88lN9ZVewmisDrQp9gJ/Laj3iFRCoQuZ5siEk2ldMFJs?=
- =?us-ascii?Q?sH4La0/FN6a7ZFWFujIdd36bnaGVGnvtH9+1RDjXuwpmdlEHW/4J7LTtrRxQ?=
- =?us-ascii?Q?IIcGVLxyjgxdUrI9L/vniNHVfZ0HfzoIAztrjYU7HACShUXaZpLFqZA7jdim?=
- =?us-ascii?Q?3IcX8npVGjpZIkJ1xURVTYM9/Wqbdtn5QtFoDaZi1X3MXyxXLrevCfWy/+u2?=
- =?us-ascii?Q?vylrwSxcQ4zBdod7CGe9bv/aeHD6+pBbJo11WnX9sZkBYiZJ2l1qMfRF4rjN?=
- =?us-ascii?Q?PWFjd5l2u0d4Fx6XQT/7xsfRCYhRCQoUynZNt0xjAVTL4AtN/sHJxziB0ttv?=
- =?us-ascii?Q?8rzOkrKZDD5FADjTcreP7A7+QpvUJcN2qbiwbqqgacxaIOZ1hES4zwCT2C+7?=
- =?us-ascii?Q?2GdO06ROqnRnGN9ypxwpamOAE4n7bWNnEB9Tl7QHWgfWejst1hHyQm6damdI?=
- =?us-ascii?Q?4BewNkmMW9AD5obJjxVJ2odRNCAEfsp4Rgui+Zav911qX92lcyCBTXBiNqOt?=
- =?us-ascii?Q?ifvxzl79WDZpqmbEBElHVI/vWew+YMDHSSeVbAK+KcqgBfpG0BXhx497+jjX?=
- =?us-ascii?Q?cjiqr8BOQKpNE307r8rXs40fEtQFmAf/+uBdeCOh7XSPJsOBSdvlGGdQ9bTX?=
- =?us-ascii?Q?XLvMp/IBi9h6nSaHL7wYcsqxZ19noN722qOqSh03dZZp4RfyKRfn/XCbiUik?=
- =?us-ascii?Q?7gH4QSC7MaXVZoGUj2aux5PYG7RBg+nuL1h2T4dc419zAKn9L7du3m5AVn/2?=
- =?us-ascii?Q?DRVkq1pKeHuhXPHvLKmvpDf2xO1YdJ8mLon9Ppc/xYJarj3XvoiUsOxXU+v0?=
- =?us-ascii?Q?vKB76B0sAgbKwNKKZ67Jki9bFDg94oWRM+aUj+Z2Lt0Za2V3Mxok4dmsZvrb?=
- =?us-ascii?Q?6Y8w6DaarGTjJlw2uP3SmFv7lrHR7bu1DM7sQ2IUFi2vkTctvgSYsVprj0P8?=
- =?us-ascii?Q?BWripk3BmJ6Yg7qsCu2e/X+H+94ESQ8UndPvX0Oa0CJnBE5br3EqG+aP+PZz?=
- =?us-ascii?Q?jiMUIZ8IvDnuOhC/0ZFgrJlvwLRsXP6I3Ll3hOyfujyY?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <aNQNn9EwZzCjapB6@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR03CA0120.apcprd03.prod.outlook.com
+ (2603:1096:4:91::24) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AM9PR04MB8908:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ea4c181-76d7-4a08-2621-08ddfbdf3161
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?djZ2b2pIUGZvaW1WOXZZVmhacHhic2JxSFZ1N1N6SWRKVk85SlJKUHJLbGt5?=
+ =?utf-8?B?d3hmaW94QytIWGtITWgzYzBWS0FSbjNpVUhhOStWMGlEajM1bzRiWXN2Zi84?=
+ =?utf-8?B?L0pmZ2NOejNXYzc4Y1dyOHdDYUcwYmlpcnhBRWZjUlcyVDdLaitpZlJMMGN6?=
+ =?utf-8?B?VktqNWxITFI0bTJvd0lOcWxCZlNFSHA4K1pWUTlLWkYyUFlWZm9lTU95Zit5?=
+ =?utf-8?B?djEyUFdJQ0FMa0NheFN1ODdLNE5hWEFoeU5RNG01RmxFcFJjNlhBMW9CSXFU?=
+ =?utf-8?B?SlhhelFmc2VhQUdVUE9yQzBXV1ZEdEJ2ZVhWQ2UyN1VhckZNYjMzbFJsQjJP?=
+ =?utf-8?B?N2xnUGNYbC9GZGNIM0oyZ1kyWWZOdWZoeUpRMElDbFRBYTdiZkVpaWNHL3g2?=
+ =?utf-8?B?bU5LaFU2c1FZc1hrZG04Y2MyK1FtbWpFWnM4N2t5MWlDV0hmbFlrTlEzTi92?=
+ =?utf-8?B?VVVldmNjZ0NaNW5BRDdESWcwOEloU2dQL25CTUV3V2FUSFgyWVUvQUVLNUNo?=
+ =?utf-8?B?dFRaWkJ2V0p2YmFvZzIvenhsK3NrN0h3NytlR1J1T29QTzlUSW1MY2poSElM?=
+ =?utf-8?B?RjlETFBVSjBCWjhYWkNtQlo3djlMRXNXem9QbnVrY2lLWURTMG42RUk3REZl?=
+ =?utf-8?B?YXJCNHJNVkNDM2M4S2FQYzJjakZEdG1BTUlQZGtSTE8zR0ZKbExDS3BNVldT?=
+ =?utf-8?B?VDNKOGZZZlBIaCtHZzIvS2pqWDRpMEc1eEw2ckUydmpIMWtNY3N0Q0tHK0lx?=
+ =?utf-8?B?Nk5KSERJR0NRQ2tDWXUvSGdDMmk1Y0MzVnRielBpdmRzclcyZ2p1blZMRWxL?=
+ =?utf-8?B?MlIxOEpHckVPcHExVVFpRzRjZkNFcUFUcVl4L0NDN3pJc3RtVXppc3hQQjV2?=
+ =?utf-8?B?SXJmSG9KeUh5UlRPbGl5dHRDR0txZHlrQlpxYUd1bnR1MnVyczJES0tRZVV1?=
+ =?utf-8?B?cGgzNGN6czJrQjllZnQvalpKd0QwRmVRT3ZOQmwrTXZjaldkc2FiaDJxVmZZ?=
+ =?utf-8?B?YnliMW1tZlFGelhsVlFKTzg0OVhhbjdUNEd1bEtWcGRmbEttRmhPQmR1dUtP?=
+ =?utf-8?B?VkdDajVVY3VMNmJZcnVHV0pqVWRNZExDamV0YXh3aW1tMVF3VjdmQ1FwSjBE?=
+ =?utf-8?B?YmIwYTZuT0Q0bzZQci9UY2E5bENUbitybDFXdnQxVnRYYTd0UURsSnoxMGFP?=
+ =?utf-8?B?TzJRY0FFZm9WdU5iZXhSZGpaSzNDUjdZYzVSNTVhZEpadi9WbWVxeGtBVDZS?=
+ =?utf-8?B?Y0NYNWFnZVRnVkxwaTJ4Tkd4UkRCczlhMGphSkJQaG9rb0JNQ0VUSEdHZjA5?=
+ =?utf-8?B?TS9QQ1IvYTdrOU1EQzdUTDlLUG84Z1lDOExRVXFPeDVxb2RBanNPd2lJRk96?=
+ =?utf-8?B?Qmx1ZXNKaHg5MzJYMDM0NUFzQ2tDLzRZY1Q1NDlkM1ExektvNWtPWUFzVEVt?=
+ =?utf-8?B?RTRmWVlpd2hFSlZoVEtUb2tEeXQ1cFkxdnlldzc0NnBvMCttOSswWVgzUFhz?=
+ =?utf-8?B?UXJoNW9OSVFmS3g4SDB2ZVRqWkRrUWpQSnJLQmd1Y0ZUdU9UM044V0dqSkh0?=
+ =?utf-8?B?WHJTZFJCZ1BIQ29pWjBLWEtIWkZaSG8velF5YTRpWkdhWHQzLzA0bEtkVjdx?=
+ =?utf-8?B?SFdDbXcrc0VQNUVhZDFIU1BuOWlNM0c2cjJkZ1d1cDNONTFldTN5OXYxdkNn?=
+ =?utf-8?B?UlpySFg5UjZTclc5QlNTOFhlTTQyYmR1eEx4Wk5QQzB3UHU3TytxVkJxRzlJ?=
+ =?utf-8?B?NXFURXNtY3orMFc0Z3puUWs5WHh2UndiTThpRHRkTEpkT1dDdHdrdjJmdEE4?=
+ =?utf-8?B?Y2c1RjExTDhadVdzbEFNR1RGeDVXaGpvRUhvdU9WdEs2S1c2Z3hZRy9YblE2?=
+ =?utf-8?B?c0RyTUlMY1BnbzVib2ViMFBxM0tMNGdHK0d5U0h4Mm5HaGc2a2FLOE1jZHNy?=
+ =?utf-8?Q?rv/iXzP3CXtcwbirXmfqnZ+paUYhE3li?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dmdVb0ppbEVWaXkyTzJERGloWGxaaG5obnpKOVo0dWZUTE44MitvLzhYT3dY?=
+ =?utf-8?B?cFoyUlJGcXhpWmoyTkFOK0FKR3hnWjNoZXV4S2ZyN1hGRDhFblNaMDNPVHND?=
+ =?utf-8?B?aUpVTFhLM0haUjFxUXQ2MkdLaVRHdzUwM2dKZFRCYUNSc1ZSUitURFBSZzYv?=
+ =?utf-8?B?T2xnYzFsbHR5eXpkWlpvcUNueHNsdkNzNGxrcEtFcFNmeTNUTUNrTldRM2oy?=
+ =?utf-8?B?MGtxRk9MQzYvSXZrK2o5T0k1aUxGNEdLUXp5UkFWWWU5eW9obFVRd1BjQmJE?=
+ =?utf-8?B?dlozUVdKS3VjZk5GOEdzb3NJTkllVzlTSDJ6dHRMMldwSjFTTVVPeWdrR0lP?=
+ =?utf-8?B?Umc4aGVzSGFpVjFTcHc4dGtUa05Yc1FMM3Q5a2R4dDFUa0J2eXVGcHVlWWlj?=
+ =?utf-8?B?RFhXUk9yVVI0b1dmbzZmMGVUZ3dGdUJCaUk0SkovSm1FdFBHS0xhMjVWczNU?=
+ =?utf-8?B?dGZqUVFnc0tsNG9GOGQ1MWt4c1gwQlB3ZWZaVFV1a1lVcFNEbEcwSVZFdS9u?=
+ =?utf-8?B?NHhCWGl2L1V2ZzdaYllzZ1FQYU5JZGRLQURMWFJnazdYd3NuamtwV0EyUHZa?=
+ =?utf-8?B?SU0wVFJYWTRkR3prejlObC82WkJDcVhRRWsrd2t3bTNwZUF5MzRUVStrbTc3?=
+ =?utf-8?B?N0xVM2NpK1pyZXpKLys4cUU0NVVUaHBpMXYxOUpKK3pKK0xlMTZmallHUmVE?=
+ =?utf-8?B?VlpmaXhBV3ZtdnJkaWluWnlKbWJ5ZFIvRlc5OVord2wwWWI0bzMvQUZOazRT?=
+ =?utf-8?B?bVBpVm5GUmdKMkNENnNlWXdaUmhzaXVtN0psdGsyTVJtRkFDbm9yYVlxQ0tO?=
+ =?utf-8?B?NGcvY0thUWxNY3IrbWpFbCtycDgvQVJCY3BGQ2NDNitkaUp5US9raXc2RVVY?=
+ =?utf-8?B?NHNSTk5hT3JBSk5vZmEvckd6TUNtY3RGU0hxWDF4bUVuRE16dnNXOVJvY0hv?=
+ =?utf-8?B?WWYvM0NxZjR4dVc4dkMrVlZYOHFib09STlRuYmN2SlEyZHNxZjBSTnQ4bStm?=
+ =?utf-8?B?OWkvL0Y4eTF3c3liUXdZZTRONmV5dHNSWkVSNnpFOG9QK3RHQ2Y5alRmZ3Vs?=
+ =?utf-8?B?ZUk1bEZYVHg1VmM0aUIzaVhLa05Bb2FKK1NZK3M0UDVHNGJTR2paMkFiOXFG?=
+ =?utf-8?B?SXdtNWkyc3NsR3kxSHpFdmVjaHZZUlUwanFYSWUweHdBOXpXc1BPR2hVYmRr?=
+ =?utf-8?B?VGlLTWJNZzZJQ0p1c1owMXRscUIxUncvbW51akZySUVSNlVxWTJYdjN2UjU1?=
+ =?utf-8?B?dDMyODRySkR2RVlaSnU1NW10YUZVMmh6K3R4bkk3L3F4dGl1MCtPdkVlQXhU?=
+ =?utf-8?B?alpSOHJyc3NNaEZnak42OHdzbUh2eVZVVXphYS95dnlBVnl1ZCtZRmdsMUVt?=
+ =?utf-8?B?UDVDajJJWVlWZmkzaFFDUEk2QlVlNGtqRlp5VVRNam5hM1ZDT0oyVlE2bUpM?=
+ =?utf-8?B?R0dRcWdZRjdNMTQydVRabzU2QkNmb1UrL2hmdEhrS3E2UDBYMG9nRkQ1QTkz?=
+ =?utf-8?B?U0wzZmRaMkh1emlrMDlwMmdmcllMc2tTU2FtVUdVQmRyZEtUTlJRZWUxRFR4?=
+ =?utf-8?B?RHEyZGlXL3Q5R0ovTk9jSkg0ZWNjZmZsRHRjWUM5MkdEbndKQi8zWGQxeCtU?=
+ =?utf-8?B?ZGxHNDFvNUVGTjdUakxPdE1nTnU3MzFvQ3VFd0J1UHQwL2gwcmFWbHFRdUxY?=
+ =?utf-8?B?NnBUaDFIQmZLS21iNkR1TFBJd0ZscXV6Q3Z5cUQ0aythNDhCRkRvQjhUMWZB?=
+ =?utf-8?B?bGhtMDkzb2xZbUFQenFkUzJteG1Yc3VYclpCOE44TDJ3WXl4bFN5cEg4cnFE?=
+ =?utf-8?B?TU16eWsrc1hmcXpISUJNbmdiTlZvMTYxb3F5cVN4M05aaVhkZTg1a3BRSVp2?=
+ =?utf-8?B?RkdPZ013QXQrNlUwQTVQdGdMREd1eG9MT08wditMc01xZFFlcVc1V09NTkV5?=
+ =?utf-8?B?VTdPQWNhQ2puVGNDM0p5Nnc5eWN2MkNuT040UUxOL0pFWE1lcTJTYm94cTkr?=
+ =?utf-8?B?SmhMdndXeU11TUV2Q3JNQUlWd3JTU2xRVXQyL1YrdjBlTURYc2Y2aGdPekJk?=
+ =?utf-8?B?VUpOazAvaXJxSnhPdTlyUjFUZTl4aExZR1AxeERQdTFtdjJNNEZOVGNzMnRU?=
+ =?utf-8?Q?q20yWW2phObXGibRTdXjFL1f9?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ea4c181-76d7-4a08-2621-08ddfbdf3161
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR03MB7187.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b0cb85a-ccbb-406f-0d04-08ddfbddf3c6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2025 02:48:05.2615
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 02:56:58.3960
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BF1CWOqqDAX5pyeFVgclSZG+MEfAHnvg7Cc21uzCaPB+mZJt2QucYpHVSaJlAT9zIkyMZSFpK42bx4XRyQEiPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH5PR03MB7983
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6jw9OyNbLmZ1yrx2qnhPpHJAXvjC9KqCm6jkbMf+Ekcz9ADAkFNOYr7g9IWtsUqraZ09aC2o/IZ0WzBySJUNvg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8908
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_194814_849479_EEE0C185 
-X-CRM114-Status: UNSURE (   5.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250924_195708_654716_683BCBF1 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,9 +188,446 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Please make sure to CC "Ng, Boon Khai" <boon.khai.ng@altera.com> who wrot=
-e
-> the VLAN support (IIRC).
+On 09/24/2025, Frank Li wrote:
+> On Wed, Sep 24, 2025 at 02:41:50PM +0800, Liu Ying wrote:
+>> On 09/23/2025, Frank Li wrote:
+>>> On Tue, Sep 23, 2025 at 10:07:57AM +0800, Liu Ying wrote:
+>>>> Display Prefetch Resolve Channel(DPRC) is a part of a prefetch engine.
+>>>> It fetches display data, transforms it to linear format and stores it
+>>>> to DPRC's RTRAM.  PRG, as the other part of a prefetch engine, acts as
+>>>> a gasket between the RTRAM controller and a FetchUnit.  Add a platform
+>>>> driver to support the DPRC.
+>>>>
+>>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>>>> ---
+>>>> v2:
+>>>> - Manage clocks with bulk interfaces.  (Frank)
+>>>> - Sort variables in probe function in reverse Christmas tree fashion.  (Frank)
+>>>> ---
+>>>>  drivers/gpu/drm/imx/dc/Kconfig   |   1 +
+>>>>  drivers/gpu/drm/imx/dc/Makefile  |   6 +-
+>>>>  drivers/gpu/drm/imx/dc/dc-dprc.c | 465 +++++++++++++++++++++++++++++++++++++++
+>>>>  drivers/gpu/drm/imx/dc/dc-dprc.h |  35 +++
+>>>>  drivers/gpu/drm/imx/dc/dc-drv.c  |   1 +
+>>>>  drivers/gpu/drm/imx/dc/dc-drv.h  |   1 +
+>>>>  drivers/gpu/drm/imx/dc/dc-prg.c  |  12 +
+>>>>  drivers/gpu/drm/imx/dc/dc-prg.h  |   4 +
+>>>>  8 files changed, 522 insertions(+), 3 deletions(-)
+>>>>
+>>> ...
+>>>> +
+>>>> +static void dc_dprc_reset(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	regmap_write(dprc->reg, SYSTEM_CTRL0 + SET, SOFT_RESET);
+>>>> +	fsleep(20);
+>>>> +	regmap_write(dprc->reg, SYSTEM_CTRL0 + CLR, SOFT_RESET);
+>>>> +	fsleep(20);
+>>>> +}
+>>>> +
+>>>> +static void dc_dprc_enable(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	dc_prg_enable(dprc->prg);
+>>>> +}
+>>>> +
+>>>> +static void dc_dprc_reg_update(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	dc_prg_reg_update(dprc->prg);
+>>>> +}
+>>>> +
+>>>> +static void dc_dprc_enable_ctrl_done_irq(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	guard(spinlock_irqsave)(&dprc->lock);
+>>>> +	regmap_write(dprc->reg, IRQ_MASK + CLR, IRQ_DPR_CRTL_DONE);
+>>>> +}
+>>>> +
+>>>> +void dc_dprc_configure(struct dc_dprc *dprc, unsigned int stream_id,
+>>>> +		       unsigned int width, unsigned int height,
+>>>> +		       unsigned int stride,
+>>>> +		       const struct drm_format_info *format,
+>>>> +		       dma_addr_t baddr, bool start)
+>>>> +{
+>>>> +	unsigned int prg_stride = width * format->cpp[0];
+>>>> +	unsigned int bpp = format->cpp[0] * 8;
+>>>> +	struct device *dev = dprc->dev;
+>>>> +	unsigned int p1_w, p1_h;
+>>>> +	u32 val;
+>>>> +	int ret;
+>>>> +
+>>>> +	if (start) {
+>>>> +		ret = pm_runtime_resume_and_get(dev);
+>>>> +		if (ret < 0) {
+>>>> +			dev_err(dev, "failed to get RPM: %d\n", ret);
+>>>> +			return;
+>>>> +		}
+>>>> +
+>>>> +		dc_dprc_set_stream_id(dprc, stream_id);
+>>>> +	}
+>>>> +
+>>>> +	p1_w = round_up(width, format->cpp[0] == 2 ? 32 : 16);
+>>>> +	p1_h = round_up(height, 4);
+>>>> +
+>>>> +	regmap_write(dprc->reg, FRAME_CTRL0, PITCH(stride));
+>>>> +	regmap_write(dprc->reg, FRAME_1P_CTRL0, BYTE_1K);
+>>>> +	regmap_write(dprc->reg, FRAME_1P_PIX_X_CTRL, NUM_X_PIX_WIDE(p1_w));
+>>>> +	regmap_write(dprc->reg, FRAME_1P_PIX_Y_CTRL, NUM_Y_PIX_HIGH(p1_h));
+>>>> +	regmap_write(dprc->reg, FRAME_1P_BASE_ADDR_CTRL0, baddr);
+>>>> +	regmap_write(dprc->reg, FRAME_PIX_X_ULC_CTRL, CROP_ULC_X(0));
+>>>> +	regmap_write(dprc->reg, FRAME_PIX_Y_ULC_CTRL, CROP_ULC_Y(0));
+>>>> +
+>>>> +	regmap_write(dprc->reg, RTRAM_CTRL0, THRES_LOW(3) | THRES_HIGH(7));
+>>>
+>>> Is it okay to access register if start is false since
+>>> pm_runtime_resume_and_get() have not called.
+>>
+>> Yes, it is okay, because dc_dprc_configure() is supposed to be called
+>> continously for multiple times(OFC, fine for only once as well).  For
+>> the first time, start is true in order to enable the DPRC.  After the
+>> first time(DPRC is running), it is called with start == false to do
+>> things like page-flip(update frame buffer address).
+>>
+>>>
+>>>> +
+>>>> +	val = LINE4 | BUF2;
+>>>> +	switch (format->format) {
+>>>> +	case DRM_FORMAT_XRGB8888:
+>>>> +		/*
+>>>> +		 * It turns out pixel components are mapped directly
+>>>> +		 * without position change via DPR processing with
+>>>> +		 * the following color component configurations.
+>>>> +		 * Leave the pixel format to be handled by the
+>>>> +		 * display controllers.
+>>>> +		 */
+>>>> +		val |= A_COMP_SEL(3) | R_COMP_SEL(2) |
+>>>> +		       G_COMP_SEL(1) | B_COMP_SEL(0);
+>>>> +		val |= PIX_SIZE_32BIT;
+>>>> +		break;
+>>>> +	default:
+>>>> +		dev_err(dev, "unsupported format 0x%08x\n", format->format);
+>>>> +		return;
+>>>> +	}
+>>>> +	regmap_write(dprc->reg, MODE_CTRL0, val);
+>>>> +
+>>>> +	if (start) {
+>>>> +		/* software shadow load for the first frame */
+>>>> +		val = SW_SHADOW_LOAD_SEL | SHADOW_LOAD_EN;
+>>>> +		regmap_write(dprc->reg, SYSTEM_CTRL0, val);
+>>>> +
+>>>> +		/* and then, run... */
+>>>> +		val |= RUN_EN | REPEAT_EN;
+>>>> +		regmap_write(dprc->reg, SYSTEM_CTRL0, val);
+>>>> +	}
+>>>> +
+>>>> +	dc_prg_configure(dprc->prg, width, height, prg_stride, bpp, baddr, start);
+>>>> +
+>>>> +	dc_dprc_enable(dprc);
+>>>> +
+>>>> +	dc_dprc_reg_update(dprc);
+>>>> +
+>>>> +	if (start)
+>>>> +		dc_dprc_enable_ctrl_done_irq(dprc);
+>>>> +
+>>>> +	dev_dbg(dev, "w: %u, h: %u, s: %u, fmt: 0x%08x\n",
+>>>> +		width, height, stride, format->format);
+>>>> +}
+>>>> +
+>>>> +void dc_dprc_disable_repeat_en(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	regmap_write(dprc->reg, SYSTEM_CTRL0 + CLR, REPEAT_EN);
+>>>> +	dev_dbg(dprc->dev, "disable REPEAT_EN\n");
+>>>> +}
+>>>> +
+>>>> +void dc_dprc_disable(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	dc_prg_disable(dprc->prg);
+>>>> +
+>>>> +	pm_runtime_put(dprc->dev);
+>>>
+>>> You call pm_runtime_put() in dc_dprc_disable(), but not call
+>>> pm_runtime_resume_and_get() at dc_dprc_enable().
+>>
+>> Yes, dc_dprc_configure()(start == true) is designed to get RPM and
+>> dc_dprc_disable() to put RPM.
+>>
+>> dc_dprc_enable() just sets PRG to non-bypass mode.
+>>
+>>>
+>>> Is it more reasonable to call pm_runtime_resume_and_get() in dc_dprc_enable()
+>>>
+>>> dc_dprc_enable()
+>>> {
+>>> 	...
+>>> 	pm_runtime_resume_and_get();
+>>> }
+>>>
+>>> dc_dprc_configure()
+>>> {
+>>> 	unconditional call
+>>> 	pm_runtime_resume_and_get()
+>>> 	...
+>>> 	pm_runtime_put()
+>>
+>> Here, as RPM is put, it's possible to actually disable the power domain,
+>> hence possibly lose all the DPRC configuration done between RPM get and
+>> RPM put.  So, this doesn't make sense.
+>>
+> 
+> Okay,
+> 
+> dc_dprc_enable()
+> {
+> 	...
+> 	pm_runtime_resume_and_get();
+> }
+> 
+> dc_dpdr_disable()
+> {
+> 	pm_runtime_put();
+> }
+> 
+> dc_dprc_configure()
+> {
+> 	pm_runtime_resume_and_get();
+> 
+> 	if (start)
+> 		dc_dprc_enable(dprc);
+> 
+> 	pm_runtime_put();
+> }
+> 
+> Look more reasonable for pair get()/put().  after first start, ref count
+> will not reduce 0 by pm_runtime_put();.
 
-Working closely with Rohan on this.
+Then, as dc_dprc_disable_repeat_en() also accesses DPRC register, it needs
+the RPM get/put too?  Same for PRG driver APIs, dc_prg_{enable,disable,
+configure,reg_update,shadow_enable} access PRG registers.  Though adding
+RPM get/put to all of them should work, I don't see much point in having
+the get/put dance.
+
+> 
+>>>
+>>> 	if (start) //look like only need enable when start is true
+>>
+>> I may add this check in next version.
+>>
+>>> 		dc_dprc_enable(dprc);
+>>> }
+>>>
+>>>> +
+>>>> +	dev_dbg(dprc->dev, "disable\n");
+>>>> +}
+>>>> +
+>>>> +void dc_dprc_disable_at_boot(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	dc_prg_disable_at_boot(dprc->prg);
+>>>> +
+>>>> +	clk_bulk_disable_unprepare(dprc->num_clks, dprc->clks);
+>>>> +
+>>>
+>>> you have runtime functions dc_dprc_runtime_suspend()
+>>>
+>>> If runtime pm status is correct, needn't call clk_bulk_disable_unprepare().
+>>>
+>>> Look like call pm_runtime_put() here to let runtime pm management clks.
+>>>
+>>> otherwise, runtime pm state will not match clock enable/disable state.
+>>>
+>>>> +	dev_dbg(dprc->dev, "disable at boot\n");
+>>>> +}
+>>>> +
+>>>> +static void dc_dprc_ctrl_done_handle(struct dc_dprc *dprc)
+>>>> +{
+>>>> +	regmap_write(dprc->reg, SYSTEM_CTRL0, REPEAT_EN);
+>>>> +
+>>>> +	dc_prg_shadow_enable(dprc->prg);
+>>>> +
+>>>> +	dev_dbg(dprc->dev, "CTRL done handle\n");
+>>>> +}
+>>>> +
+>>> ...
+>>>> +
+>>>> +static int dc_dprc_probe(struct platform_device *pdev)
+>>>> +{
+>>>> +	struct device *dev = &pdev->dev;
+>>>> +	struct device_node *np = dev->of_node;
+>>>> +	struct resource *res;
+>>>> +	struct dc_dprc *dprc;
+>>>> +	void __iomem *base;
+>>>> +	int ret, wrap_irq;
+>>>> +
+>>>> +	dprc = devm_kzalloc(dev, sizeof(*dprc), GFP_KERNEL);
+>>>> +	if (!dprc)
+>>>> +		return -ENOMEM;
+>>>> +
+>>>> +	ret = imx_scu_get_handle(&dprc->ipc_handle);
+>>>> +	if (ret)
+>>>> +		return dev_err_probe(dev, ret, "failed to get SCU ipc handle\n");
+>>>> +
+>>>> +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+>>>> +	if (IS_ERR(base))
+>>>> +		return PTR_ERR(base);
+>>>> +
+>>>> +	dprc->reg = devm_regmap_init_mmio(dev, base, &dc_dprc_regmap_config);
+>>>> +	if (IS_ERR(dprc->reg))
+>>>> +		return PTR_ERR(dprc->reg);
+>>>> +
+>>>> +	wrap_irq = platform_get_irq_byname(pdev, "dpr_wrap");
+>>>> +	if (wrap_irq < 0)
+>>>> +		return -ENODEV;
+>>>> +
+>>>> +	dprc->num_clks = devm_clk_bulk_get_all(dev, &dprc->clks);
+>>>> +	if (dprc->num_clks < 0)
+>>>> +		return dev_err_probe(dev, dprc->num_clks, "failed to get clocks\n");
+>>>> +
+>>>> +	ret = of_property_read_u32(np, "fsl,sc-resource", &dprc->sc_resource);
+>>>> +	if (ret) {
+>>>> +		dev_err(dev, "failed to get SC resource %d\n", ret);
+>>>> +		return ret;
+>>>> +	}
+>>>> +
+>>>> +	dprc->prg = dc_prg_lookup_by_phandle(dev, "fsl,prgs", 0);
+>>>> +	if (!dprc->prg)
+>>>> +		return dev_err_probe(dev, -EPROBE_DEFER,
+>>>> +				     "failed to lookup PRG\n");
+>>>> +
+>>>> +	dc_prg_set_dprc(dprc->prg, dprc);
+>>>> +
+>>>> +	dprc->dev = dev;
+>>>> +	spin_lock_init(&dprc->lock);
+>>>> +
+>>>> +	ret = devm_request_irq(dev, wrap_irq, dc_dprc_wrap_irq_handler,
+>>>> +			       IRQF_SHARED, dev_name(dev), dprc);
+>>>> +	if (ret < 0) {
+>>>> +		dev_err(dev, "failed to request dpr_wrap IRQ(%d): %d\n",
+>>>> +			wrap_irq, ret);
+>>>> +		return ret;
+>>>> +	}
+>>>> +
+>>>> +	dev_set_drvdata(dev, dprc);
+>>>> +
+>>>> +	ret = devm_pm_runtime_enable(dev);
+>>>> +	if (ret)
+>>>> +		return dev_err_probe(dev, ret, "failed to enable PM runtime\n");
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int dc_dprc_runtime_suspend(struct device *dev)
+>>>> +{
+>>>> +	struct dc_dprc *dprc = dev_get_drvdata(dev);
+>>>> +
+>>>> +	clk_bulk_disable_unprepare(dprc->num_clks, dprc->clks);
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int dc_dprc_runtime_resume(struct device *dev)
+>>>> +{
+>>>> +	struct dc_dprc *dprc = dev_get_drvdata(dev);
+>>>> +	int ret;
+>>>> +
+>>>> +	ret = clk_bulk_prepare_enable(dprc->num_clks, dprc->clks);
+>>>> +	if (ret) {
+>>>> +		dev_err(dev, "failed to enable clocks: %d\n", ret);
+>>>> +		return ret;
+>>>> +	}
+>>>> +
+>>>> +	dc_dprc_reset(dprc);
+>>>> +
+>>>> +	/* disable all control IRQs and enable all error IRQs */
+>>>> +	guard(spinlock_irqsave)(&dprc->lock);
+>>>> +	regmap_write(dprc->reg, IRQ_MASK, IRQ_CTRL_MASK);
+>>>
+>>> write one 32bit register is atomic, look like needn't spinlock.
+>>>
+>>> Only other place use dprc->lock is in dc_dprc_enable_ctrl_done_irq(), which
+>>> write 32bit clr register.
+>>
+>> No, dc_dprc_wrap_irq_handler() uses the lock to protect register access too,
+>> so it's needed.
+> 
+> guard only protect after it.
+
+scoped_guard() called by dc_dprc_wrap_irq_handler() protects register access
+too.
+
+> 
+> in dc_dprc_runtime_resume()
+> 
+> +	/* disable all control IRQs and enable all error IRQs */
+> +	guard(spinlock_irqsave)(&dprc->lock);
+> +	regmap_write(dprc->reg, IRQ_MASK, IRQ_CTRL_MASK);
+> +
+> +	return 0;
+> 
+> +static void dc_dprc_enable_ctrl_done_irq(struct dc_dprc *dprc)
+> +{
+> +	guard(spinlock_irqsave)(&dprc->lock);
+> +	regmap_write(dprc->reg, IRQ_MASK + CLR, IRQ_DPR_CRTL_DONE);
+> +}
+> 
+> How spin lock protect register access?
+
+With the error and control IRQs, dc_dprc_wrap_irq_handler() and
+dc_dprc_enable_ctrl_done_irq() could have concurrent access to IRQ_MASK
+registers(though there is SET/CLR/TOG register variants, they have a
+shared read-out value).
+
+> 
+> 1: IRQ_MASK <= IRQ_CTRL_MASK;
+> 2: IRQ_MASK + CLR <= IRQ_DPR_CRTL_DONE;
+> 
+> 2 possilbe result:
+> 	1 happen after 2
+> 	2 happen after 1
+> 
+> Frank
+> 
+>>
+>>>
+>>> Frank
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>> ...
+>>>> +void dc_prg_set_dprc(struct dc_prg *prg, struct dc_dprc *dprc)
+>>>> +{
+>>>> +	prg->dprc = dprc;
+>>>> +}
+>>>> +
+>>>> +struct dc_dprc *dc_prg_get_dprc(struct dc_prg *prg)
+>>>> +{
+>>>> +	return prg->dprc;
+>>>> +}
+>>>> +
+>>>>  static int dc_prg_probe(struct platform_device *pdev)
+>>>>  {
+>>>>  	struct device *dev = &pdev->dev;
+>>>> diff --git a/drivers/gpu/drm/imx/dc/dc-prg.h b/drivers/gpu/drm/imx/dc/dc-prg.h
+>>>> index 6fd9b050bfa12334720f83ff9ceaf337e3048a54..f29d154f7de597b9d20d5e71303049f6f8b022d6 100644
+>>>> --- a/drivers/gpu/drm/imx/dc/dc-prg.h
+>>>> +++ b/drivers/gpu/drm/imx/dc/dc-prg.h
+>>>> @@ -32,4 +32,8 @@ bool dc_prg_stride_supported(struct dc_prg *prg,
+>>>>  struct dc_prg *
+>>>>  dc_prg_lookup_by_phandle(struct device *dev, const char *name, int index);
+>>>>
+>>>> +void dc_prg_set_dprc(struct dc_prg *prg, struct dc_dprc *dprc);
+>>>> +
+>>>> +struct dc_dprc *dc_prg_get_dprc(struct dc_prg *prg);
+>>>> +
+>>>>  #endif
+>>>>
+>>>> --
+>>>> 2.34.1
+>>>>
+>>
+>>
+>> --
+>> Regards,
+>> Liu Ying
+
+
+-- 
+Regards,
+Liu Ying
 
