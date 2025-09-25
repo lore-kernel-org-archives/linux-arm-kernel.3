@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D5BCAC5B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CA3CAC5B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 15:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQT9GVOZ/CxFSAsNeM0e+TLbohQwdWAcTdknJofRraM=; b=jDCQv6lnubahcTPeasPBnyzG7Y
-	i1jeepP8U+P948xkJXGJBPOOSDLgkTj9GDDk8R8CizqySvlncQsXpNcl3TuQ3Q2jBiM+0dXJuzYla
-	O9d0aT7SemjJp2DQjaw+cj6RNP5yfvvfjxQGoBmptHqDOsa/mgjyH4fjLs8lmZy6pmrjLWGXdpWQF
-	lx9tzOtkmV/aYrXAUEKIUHA9n7/94qCVpRnR0l/x9ktgo7M2fgnH2Q2zcpK3CRajMAvCOXtPvc63c
-	wVzvzoUt6HJluk8l5HpfFawNI1hefx6joAvAtovcUenVsPlxmZUMUQlRJB6aSG/guDB7nXG3ID8rj
-	XT7xBLOw==;
+	bh=u9YA1im3wEOb6KkWmE0LxXVTCU1RLEVMgcacqoHF18s=; b=XKxIo3SMcTRkbU1G+Xf21mJyNQ
+	KkIQyecIeFyEg67Unot0QUcKP8wYpapZylyse+gVwU37x7LYNDIfKrjY//XJO+elU/HLI7oUmVZyb
+	PBVLhyjbiFXZBdWleIB5AYdYmMq7KJLDsDwbt79kgFeCT37kSVcYdFTSUGvMcEjCNQEcrPcseu25K
+	APhE/TMX/yqVXxOgVZiYbfS74CVhIdEsZ3uuGG1+VxZca+JSKdMfE6hZVhx2e6i2JrHk6z/D5zg6j
+	977UdRShZgJIh0dgajoZAx0iNfijsOsEG/Q3SPZtHkns8BT0Eb102F0A9L0rCB33micYYnCD+ChD5
+	6oA+7mSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nxI-0000000AevO-0Ch3;
+	id 1v1nxI-0000000Aevm-1TIs;
 	Thu, 25 Sep 2025 15:32:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1nx8-0000000AeoL-1j5K
+	id 1v1nxC-0000000AerS-03Eu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 15:32:15 +0000
+	Thu, 25 Sep 2025 15:32:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C8624537B;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5EA2C6110C;
+	Thu, 25 Sep 2025 15:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F7AC4CEF5;
 	Thu, 25 Sep 2025 15:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25FFFC4CEF7;
-	Thu, 25 Sep 2025 15:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758814333;
-	bh=nJtC9h9+MFddQfow64tKhZDUie+SLtMhzJFDXayXg1Q=;
+	s=k20201202; t=1758814337;
+	bh=lOn+sMnUt7bIPp7bcc5ObRMjOMjVuljGt0F5zR+sAQY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bJhomZjcuVQrsHtrwBqbU+0MZQ0FrWB1VHntRw2PT8v8rBNupBnMn33m3k4k9UV8K
-	 YZnj3knKOay2cX3MtpylgvUzKVndJtBYnW2Gi+sYrsdiQs670EN5OqM5BGm3lGwCQ3
-	 nIMDTD0aGLZpRwy2MtdkVa0YMXWbEc22xktR+l0p5evgMyAOthM2CHVcc6qrkrKunf
-	 N7dI23kY6Ry7Yoz3hn2VVAibpDeTSvoLSO6VdS2AE3bDnswUpL5hbbfnnwm3/UDNwj
-	 nqJn3PaNjQcbb2wKbjMtkZUwxkYPQuhwXgn7/2KR98ki2uBY3LN0rhEf7KPKTgkR1i
-	 MTt4XfjJb6KVQ==
+	b=emLiPHCnSA5Cs7xjZUozLm9BjPLfe8KcKq6xpZlQjtIQpI4PrhCJCOMWCK8rUYLAC
+	 /nK0eNvRQ4LzvMGt1WTaHOR/dJ1i9cwJasfhfUF8T+IJ0pLCOC5tfwCwxdMn7oC4/o
+	 AIbUByDpAjl4kegFbETjHoHvitIpX5JHtrK+8OJ47Js2z4OnCKTRQOOrkntoRMJrXD
+	 vfpHFc5WFjq0wkjQBLEn4xtPkQnB6w+PT84AZ3n7/ecdWcWwb9QVqqxjMwHATGjjC4
+	 02MkHR+n17hA8t8YkZof0+0pn1Xkfbe9Z3g6+clraom3d8Kp4jRafNB3wZ/gNsJKBu
+	 /lEgxl+xygLug==
 From: Will Deacon <will@kernel.org>
-To: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mark.rutland@arm.com,
-	catalin.marinas@arm.com,
-	revest@chromium.org,
-	olsajiri@gmail.com,
-	andrii@kernel.org,
-	ast@kernel.org,
-	Feng Yang <yangfeng59949@163.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
+To: mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: Re: [PATCH] tracing: Fix the bug where bpf_get_stackid returns -EFAULT on the ARM64
-Date: Thu, 25 Sep 2025 16:32:02 +0100
-Message-Id: <175880516935.3262599.14788507714084459007.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Yicong Yang <yangyicong@huawei.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	jonathan.cameron@huawei.com,
+	prime.zeng@hisilicon.com,
+	linuxarm@huawei.com,
+	yangyicong@hisilicon.com,
+	wangyushan12@huawei.com,
+	hejunhao3@h-partners.com,
+	yangyccccc@gmail.com
+Subject: Re: [PATCH] drivers/perf: hisi: Add tt_core_deprecated for compatibility
+Date: Thu, 25 Sep 2025 16:32:03 +0100
+Message-Id: <175880472273.3260342.8602469761490497790.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250925020822.119302-1-yangfeng59949@163.com>
-References: <20250925020822.119302-1-yangfeng59949@163.com>
+In-Reply-To: <20250925033123.5836-1-yangyicong@huawei.com>
+References: <20250925033123.5836-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_083214_472218_5DC8FD55 
-X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,24 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sep 2025 10:08:22 +0800, Feng Yang wrote:
-> When using bpf_program__attach_kprobe_multi_opts on ARM64 to hook a BPF program
-> that contains the bpf_get_stackid function, the BPF program fails
-> to obtain the stack trace and returns -EFAULT.
+On Thu, 25 Sep 2025 11:31:23 +0800, Yicong Yang wrote:
+> Previously tt_core is defined as config1:0-7 which may not cover all
+> the CPUs sharing L3C on platforms with more than 8 CPUs in a L3C. In
+> order to support such platforms extend tt_core to 16 bits, since no
+> spare space in config1, tt_core was moved to config2:0-15.
 > 
-> This is because ftrace_partial_regs omits the configuration of the pstate register,
-> leaving pstate at the default value of 0. When get_perf_callchain executes,
-> it uses user_mode(regs) to determine whether it is in kernel mode.
-> This leads to a misjudgment that the code is in user mode,
-> so perf_callchain_kernel is not executed and the function returns directly.
-> As a result, trace->nr becomes 0, and finally -EFAULT is returned.
+> Though linux expects the users to retrieve the control encoding from
+> sysfs first for each option, it's possible if user doesn't follow
+> this and hardcoded tt_core in config1. So add an option
+> tt_core_deprecated for config1:0-7 for backward compatibility.
 > 
 > [...]
 
 Applied to arm64 (for-next/core), thanks!
 
-[1/1] tracing: Fix the bug where bpf_get_stackid returns -EFAULT on the ARM64
-      https://git.kernel.org/arm64/c/fd2f74f8f3d3
+[1/1] drivers/perf: hisi: Add tt_core_deprecated for compatibility
+      https://git.kernel.org/arm64/c/a084c3c4a267
 
 Cheers,
 -- 
