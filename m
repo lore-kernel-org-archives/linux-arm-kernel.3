@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF362CAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 09:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0EEDCAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 09:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Qe3xfGFmIVMF6CqhJOdRE5h4PSOi9dIsttGyzx+Zh0=; b=xx8vwq6bA4wzdfVQ7E1RD2OVEE
-	/A/I4G86JRqHZfNfccTlIU852Q1CqnFR7RUmZqdHoCk7TvCC06SMwgP4W2Fvz+FY04Kojx2YDS+wB
-	mpMpv1kHpan/ly2lsJyyQMC+P4CkeG+dINPal1Cni2FaCBMsvni5D4YS0OKwRlc1zUOmpnCt1s0Tn
-	JNJebZ0r/IaDE/oI669vCxWBFYOakosjWju7Y8E2V+L0aLB8/5SNeGQFIXp/d2jjaphQ4WX85ZCv8
-	wCG4+SZwFaaXldP3yJw+b1tQ4i0F24v0or9oZ7ep8Z9sQ4D8hde1+YZkJN1knu5L+Pka+RC24jkii
-	vq35Hryw==;
+	bh=0DhrsaNuhSxVlQYKeIzRpHEryPeJrUlat2vNZyj7co8=; b=FJnMprOPBkaJPcHssFP1PB81Uu
+	8eGqPBZjmrujdJ02PKwzD0PET85Ow9M1+dTQLcQbwQG1SB93hjbUXEjWIgFM8qFBtrIdGb1a5T8HH
+	kCWEHSjeZtHMHVBeEF7jgolvuntdKZIXF/iX9fakI/1D8WYC/bEBXXBf2ygzy05vh7Mt9K10VKRXx
+	t64ohQJ+VTWCxxravAiJzR1dUjxvNlY7Zj4f+Y5P17eNzTyKgprQGRjkSSmM7AREo0d+KWEgHmA18
+	4zxzlp94ffArhqzpdqmNHauvgUVQ4G8X2P7UqCa67K0bxn4bhwAOueTEDXHkj7UeLF1JG1lmhdM9l
+	zTsRJYbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1hrp-00000007O46-3Lj0;
-	Thu, 25 Sep 2025 09:02:21 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1v1htn-00000007P9p-33iw;
+	Thu, 25 Sep 2025 09:04:23 +0000
+Received: from mail-m32111.qiye.163.com ([220.197.32.111])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1hrn-00000007O29-37wV
+	id 1v1htl-00000007P6x-1AVZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 09:02:20 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3fa528f127fso513938f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 02:02:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758790938; x=1759395738; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5Qe3xfGFmIVMF6CqhJOdRE5h4PSOi9dIsttGyzx+Zh0=;
-        b=teXmnmGarC5phhm8mJXsWfAY2c+o1v2CdEBvmTszMmVGgEQeekTusSJ/g+XkpGxjXn
-         DW/rQd4iuuyD7ql9B2nIGd2Hmx41HgPeqGCfTbzW0AuHN8X2UZkYprf0AOD5sKxlFxEc
-         ZWbGrjXfK5yD+dWbIlM3/6+Fq8qESBszvsMWW5xXcPbg3zfSILxuMHa/T/cQ25M2djqw
-         rB2I8AHZvzQVfytqiM8WhNpPJJY9511yi091InTHiVfBc8m2VjSou/EJKBgAjKLY+mCj
-         PzvzVAbdt9wqFnjYxHekxx6HcYX20fdOa3MEPdkc6h1w0NeyqoxND0Bfom9IFUBrn+BY
-         iYKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758790938; x=1759395738;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5Qe3xfGFmIVMF6CqhJOdRE5h4PSOi9dIsttGyzx+Zh0=;
-        b=TNWadi7CYINECuzc8LtewQKO8gS3qui58jT5034Ig8Mg8IXmjV0yFo3+7IjfeBi8qc
-         i7OXoYay0BPQqrOQdP0GlnaT/+t09V+tneBl2HGsJIlHnguGowwSatFStEm9EeUeDSW+
-         cVZzfPBknj6UyRCBQk8MAq/6ea3I+mj0q8U3JF/PnasT/VKiecIILIVopdWlwT34RKqp
-         iiSTS4XCUlSYJ/i+JgnoHJK/D3TvBxaByp4oXwuRyPhUbGPPkGnlBvM3r/1/+6LrqLL/
-         IIZJsExWhMDrs0OkaWAKS3YtwVjttezKKEv+i/IS03hENO2Kv7VATl2RR9RPlMdCKpAt
-         VpPg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3BlDAsbTMiObU4kKTnRoh9GzkvIYDfYyk+BSpszD7aEgLDgXgnfkxeNE2Yjq4QRmGgaVqntq1D3hK/dlpufCz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRwk26HCxhXGsMiSEJ/i+GmZpMu81IBgJkOy0xytvEwl7CH3Eg
-	TpWHtTwIuPJNz/HvYboTJz74RAQttnGBDDaHSQnXV9reI5DLkdFuICZE3E4FGiZSIQs=
-X-Gm-Gg: ASbGnct0m3EHEJvF/5XHHXjrfYSDkG/+jaDPLdI3Lu+UQNc8eVmutkoQTEkb8CCcoUk
-	HTm5rd/Tbymr7uK/VDxFqqxIN4jaOFz86TjqO30OAtIa46JM2sy5xL93w//SOqntm0rxhMAc+sw
-	a1cnseGiNWiXZMlCNJ9d18stlH1ryzzH7EXSWUQgzv0iKGonrO3QVrgTAp60SuySqiOGZ7WKJCC
-	tzL8CZizQ4X7RxEwN7CQ2y5syHWn61CxIYxMbA7d76XeUP8fSrL6TO7osF6wzXWiPX7+L8nuAz1
-	1klbuEPheYCrZorAl88RY1oz09v+SfMLaoVa5X8P8hac6CQ9IVn0lr1gHCocfLYdiQXCq7KUyUG
-	+82mLTVX5FaWoOed0GdtxcEWqo72cono3wg4WKrYDa+EwxdvgLlD56PJx/UIQIo+hqDCj4opCzT
-	yWGEv08IJiTsL/WcmuCsbi
-X-Google-Smtp-Source: AGHT+IG6omy3mi4l5IjwhwiD+yQndxiCA+tBSpwYG7hEz4IaSuBeLRkN2eEbLT+qy6PzJRqtHh6D9g==
-X-Received: by 2002:a05:6000:2dc1:b0:3d0:e221:892e with SMTP id ffacd0b85a97d-40f6617670dmr1826060f8f.27.1758790937794;
-        Thu, 25 Sep 2025 02:02:17 -0700 (PDT)
-Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fb985e080sm2143861f8f.24.2025.09.25.02.02.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Sep 2025 02:02:17 -0700 (PDT)
-Message-ID: <69e8c15d-108e-4832-849e-a23c7ddfe625@linaro.org>
-Date: Thu, 25 Sep 2025 10:02:15 +0100
+	Thu, 25 Sep 2025 09:04:23 +0000
+Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 240893680;
+	Thu, 25 Sep 2025 17:04:13 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: arnd@arndb.de
+Cc: adrian.hunter@intel.com,
+	bst-upstream@bstai.top,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	gordon.ge@bst.ai,
+	krzk+dt@kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	robh@kernel.org,
+	soc@lists.linux.dev,
+	ulf.hansson@linaro.org,
+	will@kernel.org,
+	yangzh0906@thundersoft.com
+Subject: Re: [PATCH 0/9] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
+Date: Thu, 25 Sep 2025 17:03:57 +0800
+Message-ID: <20250925090412.2068216-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <09b1318e-21dc-4354-8733-866b70696295@app.fastmail.com>
+References: <09b1318e-21dc-4354-8733-866b70696295@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/9] dt-bindings: clock: qcom: Add Kaanapali video clock
- controller
-To: Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Jagadeesh Kona <quic_jkona@quicinc.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Taniya Das <taniya.das@oss.qualcomm.com>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, aiqun.yu@oss.qualcomm.com,
- tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
- yijie.yang@oss.qualcomm.com
-References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
- <20250924-knp-mmclk-v1-4-d7ea96b4784a@oss.qualcomm.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20250924-knp-mmclk-v1-4-d7ea96b4784a@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a99801dae4c09cckunm84ce030b7ee644
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGR1KVkJPHUNMTkseSEsZTlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
+	tLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=EaUyY8h5CHAcit44dzTgBh8rziyTnDfx62RPx1X0zkPa+VBwXUyvBJ5a9I0175tPIT3VBBs09v8NfXhfxg4PPc99k5QeJGpYLE7JmmKKCQslGg05RxuwcZX2mpog+9rojAY1CvqEEHw5UY7EV6npvt2oBHs0szhCugygrqvSNk0=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=0DhrsaNuhSxVlQYKeIzRpHEryPeJrUlat2vNZyj7co8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_020219_812908_6A2D4BE1 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250925_020421_829286_6759A5AE 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,111 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2025 00:56, Jingyi Wang wrote:
-> From: Taniya Das <taniya.das@oss.qualcomm.com>
-> 
-> Add device tree bindings for the video clock controller on Qualcomm
-> Kaanapali SoC.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-> ---
->   .../bindings/clock/qcom,sm8450-videocc.yaml        |  3 ++
->   include/dt-bindings/clock/qcom,kaanapali-videocc.h | 58 ++++++++++++++++++++++
->   2 files changed, 61 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
-> index b31bd8335529..e6beebd6a36e 100644
-> --- a/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
-> +++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-videocc.yaml
-> @@ -15,6 +15,7 @@ description: |
->     domains on SM8450.
->   
->     See also:
-> +    include/dt-bindings/clock/qcom,kaanapali-videocc.h
->       include/dt-bindings/clock/qcom,sm8450-videocc.h
->       include/dt-bindings/clock/qcom,sm8650-videocc.h
->       include/dt-bindings/clock/qcom,sm8750-videocc.h
-> @@ -22,6 +23,7 @@ description: |
->   properties:
->     compatible:
->       enum:
-> +      - qcom,kaanapali-videocc
->         - qcom,sm8450-videocc
->         - qcom,sm8475-videocc
->         - qcom,sm8550-videocc
-> @@ -61,6 +63,7 @@ allOf:
->           compatible:
->             contains:
->               enum:
-> +              - qcom,kaanapali-videocc
->                 - qcom,sm8450-videocc
->                 - qcom,sm8550-videocc
->                 - qcom,sm8750-videocc
-> diff --git a/include/dt-bindings/clock/qcom,kaanapali-videocc.h b/include/dt-bindings/clock/qcom,kaanapali-videocc.h
-> new file mode 100644
-> index 000000000000..cc0d41b895c9
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/qcom,kaanapali-videocc.h
-> @@ -0,0 +1,58 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_QCOM_VIDEO_CC_KAANAPALI_H
-> +#define _DT_BINDINGS_CLK_QCOM_VIDEO_CC_KAANAPALI_H
-> +
-> +/* VIDEO_CC clocks */
-> +#define VIDEO_CC_AHB_CLK					0
-> +#define VIDEO_CC_AHB_CLK_SRC					1
-> +#define VIDEO_CC_MVS0_CLK					2
-> +#define VIDEO_CC_MVS0_CLK_SRC					3
-> +#define VIDEO_CC_MVS0_FREERUN_CLK				4
-> +#define VIDEO_CC_MVS0_SHIFT_CLK					5
-> +#define VIDEO_CC_MVS0_VPP0_CLK					6
-> +#define VIDEO_CC_MVS0_VPP0_FREERUN_CLK				7
-> +#define VIDEO_CC_MVS0_VPP1_CLK					8
-> +#define VIDEO_CC_MVS0_VPP1_FREERUN_CLK				9
-> +#define VIDEO_CC_MVS0A_CLK					10
-> +#define VIDEO_CC_MVS0A_CLK_SRC					11
-> +#define VIDEO_CC_MVS0A_FREERUN_CLK				12
-> +#define VIDEO_CC_MVS0B_CLK					13
-> +#define VIDEO_CC_MVS0B_CLK_SRC					14
-> +#define VIDEO_CC_MVS0B_FREERUN_CLK				15
-> +#define VIDEO_CC_MVS0C_CLK					16
-> +#define VIDEO_CC_MVS0C_CLK_SRC					17
-> +#define VIDEO_CC_MVS0C_FREERUN_CLK				18
-> +#define VIDEO_CC_MVS0C_SHIFT_CLK				19
-> +#define VIDEO_CC_PLL0						20
-> +#define VIDEO_CC_PLL1						21
-> +#define VIDEO_CC_PLL2						22
-> +#define VIDEO_CC_PLL3						23
-> +#define VIDEO_CC_SLEEP_CLK					24
-> +#define VIDEO_CC_TS_XO_CLK					25
-> +#define VIDEO_CC_XO_CLK						26
-> +#define VIDEO_CC_XO_CLK_SRC					27
-> +
-> +/* VIDEO_CC power domains */
-> +#define VIDEO_CC_MVS0A_GDSC					0
-> +#define VIDEO_CC_MVS0_GDSC					1
-> +#define VIDEO_CC_MVS0_VPP1_GDSC					2
-> +#define VIDEO_CC_MVS0_VPP0_GDSC					3
-> +#define VIDEO_CC_MVS0C_GDSC					4
-> +
-> +/* VIDEO_CC resets */
-> +#define VIDEO_CC_INTERFACE_BCR					0
-> +#define VIDEO_CC_MVS0_BCR					1
-> +#define VIDEO_CC_MVS0_VPP0_BCR					2
-> +#define VIDEO_CC_MVS0_VPP1_BCR					3
-> +#define VIDEO_CC_MVS0A_BCR					4
-> +#define VIDEO_CC_MVS0C_CLK_ARES					5
-> +#define VIDEO_CC_MVS0C_BCR					6
-> +#define VIDEO_CC_MVS0_FREERUN_CLK_ARES				7
-> +#define VIDEO_CC_MVS0C_FREERUN_CLK_ARES				8
-> +#define VIDEO_CC_XO_CLK_ARES					9
-> +
-> +#endif
-> 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Hi Arnd,
+
+Thanks a lot for the clear guidance and for looking at the series.
+
+You are absolutely right about the soc@lists.linux.dev submission. The 
+inclusion was an unintended side effect of using:
+    b4 prep --auto-to-cc
+I mistakenly trusted the automatically generated list without pruning it.
+I'll manually adjust the To/Cc going forward and only add soc@lists.linux.dev 
+once the SoC base is ready for your tree.
+
+> I'd be happy to merge the actual SoC portions in arch/arm64 as they
+> do seem to be ready, and for a new SoC support I sometimes merge
+> in required driver changes with a subsystem (uart, irqchip, clk, ...)
+> maintainer's Ack as well. However the MMC driver portions in patches
+> 4-6 don't really fall into that category, as there has not been
+> any Ack for this version yet, and MMC is not one of the subsystems
+> we normally make this exception for.
+
+Understood. Not all patches in the series have Acked-by/Reviewed-by yet 
+(especially the MMC related ones), so I'll restructure for v5 per your 
+recommendation instead of waiting for every Ack before resubmitting.
+
+> Given the current timing, I would suggest that you respin the
+> series for 6.19 once 6.18-rc1 is out and leave out those three
+> patches in the submission to soc@lists.linux.dev.
+
+Will do. Planned split for v5:
+
+  Series A (SoC foundation) -> target: arm-soc (NOT including MMC driver patches)
+    1. Vendor prefix dt-binding
+    2. SoC / board dt-bindings  
+    3. ARCH_BST Kconfig/Makefile enablement
+    4. Initial dtsi/dts (without the sdhci/mmc nodes, see note below)
+    5. MAINTAINERS entry
+    6. (Optional/minimal) defconfig updates – avoiding enabling symbols 
+       that rely on not-yet-merged drivers
+
+  Separate MMC series -> target: linux-mmc (cc: devicetree, you, lists)
+    a. MMC controller dt-binding (current patch 4)
+    b. MMC driver patches (current patches 5–6)
+
+> If the MMC driver gets merged for 6.19, it's ok to keep the
+> sdhci device nodes in the dtsi file here, but to make things
+> easier, you can also leave out those nodes in the initial
+> submission and send this as a follow-up patch to
+> soc@lists.linux.dev once the driver is actually merged.
+
+My preference is to OMIT the sdhci/mmc nodes entirely in v5 to keep the 
+base SoC description minimal and avoid orphan nodes. If you would rather 
+I keep them present but with status = "disabled", please let me know and 
+I will adjust accordingly before sending.
+
+After the MMC driver lands, I'll send a follow-up patch adding the 
+sdhci/mmc nodes to the SoC dtsi.
+
+I will also:
+  - Ensure vendor prefix binding precedes its usage
+  - Trim any defconfig entries referencing the unmerged driver
+  - Remove soc@lists.linux.dev from To/Cc until the SoC subset is 
+    really intended for your tree
+
+Does this split and sequencing match your expectations? Any further 
+adjustments you'd like before I prepare v5?
+
+Thanks again for the review and direction.
+
+-- 
+Best regards,
+Albert Yang
 
