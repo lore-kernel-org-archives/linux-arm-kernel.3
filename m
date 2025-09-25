@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4E0CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 01:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC71CCAC5B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 02:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ynf+6JVe8qx70BIJa2YsOoJZFjYIQqVWH6WDtkKuWb0=; b=PpZ8Qiw/Vm0Pl8ldDHT/sbdyPW
-	lVJHF7Ma1yK3CMiKqsFGk/BHQkKFOSlMaXs0oGr9UCAS2ompUP8YAplhgnIiLDHlVX/izlfwqAasL
-	xBZy/OppJR76M57Ku+ORZsu+iE4PNTdipx7H/Camjzzc0FwXdyhBrh0Fb1cqzCzPSPWsuRtx6opkd
-	JzUG/A7QEXLjPfNWhbms7lJxRLobteylDU7XPeJipmg3ZmdfTFLMAQowUKKNn0LENpJ+gDyKZgmsu
-	oG6U0Xf4oq0I7SPobStKTQsSPWUC4FfanPzZVoUEWosTjl2BXw2ccdJn9ScBmYJ7AxkgfJHCzzd2I
-	00BUcEvg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=adiBphAPScR6QQjh2KwjN5aarvz+PskpFpyHr3Y87gs=; b=oSFt8Gssz7HSwArLyrKccZJ+U9
+	SkfZHbN4zm47PI/8ONKffRDJpBJ8//jcwdn9+/bIz7F7moujH760LH+cjL/0DZN89sVQJCrsySQaS
+	wW7I8cf6OLOCqd50lhbpjswN9qytAPKAAjivKd/bnXNpkmwFMastej12491KvYQ7bE+FU7WUzjoyI
+	4Bwi2apwjWS2E6MGGxb91ffg7OFMYiZw0DKc8ADqt2FvpRsuhae1dZKHRXbOMlOSC6dwSGzcmL1qv
+	8tV85ktJVqebx9teLTaFMYxKXPQFI9TrWnAyNj3mr1TEFrlUBSsmpMFDCqFXkLsDzsECjVr/Qk8m7
+	E7DIc2Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1b1X-00000005DLr-3ZpL;
-	Thu, 25 Sep 2025 01:43:55 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1v1bPn-00000005GC7-3LhY;
+	Thu, 25 Sep 2025 02:08:59 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1b1U-00000005DJ2-1PUa;
-	Thu, 25 Sep 2025 01:43:53 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4cXGb80jBLzddVk;
-	Thu, 25 Sep 2025 09:39:00 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2D3111401E9;
-	Thu, 25 Sep 2025 09:43:39 +0800 (CST)
-Received: from [10.174.179.35] (10.174.179.35) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 25 Sep 2025 09:43:37 +0800
-Message-ID: <8313b0c1-bf62-4257-951c-fd7e29193ae2@huawei.com>
-Date: Thu, 25 Sep 2025 09:43:37 +0800
+	id 1v1bPk-00000005GBG-0XZH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Sep 2025 02:08:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ad
+	iBphAPScR6QQjh2KwjN5aarvz+PskpFpyHr3Y87gs=; b=WjzIx70LpoyMNUwCIh
+	ePB4aB07F7rsQrRR/e9WPkjqZgFTnVXn+ilrjtG3btzPXzxyt4Bw3Bch3tRw3RgX
+	G8/lxsmodMkMGGdq8UqCKLDF6EtEsIXwhwzs2JtslgNJ4+d7EEX5x48n62Gq/osK
+	wYuql/ibaoeh7FrMobRX80/gI=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDnEQkXpNRowQcHEQ--.9650S2;
+	Thu, 25 Sep 2025 10:08:24 +0800 (CST)
+From: Feng Yang <yangfeng59949@163.com>
+To: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mark.rutland@arm.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	revest@chromium.org,
+	alexei.starovoitov@gmail.com,
+	olsajiri@gmail.com,
+	andrii@kernel.org,
+	ast@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH] tracing: Fix the bug where bpf_get_stackid returns -EFAULT on the ARM64
+Date: Thu, 25 Sep 2025 10:08:22 +0800
+Message-Id: <20250925020822.119302-1-yangfeng59949@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/2] mm: add PMD-level huge page support for
- remap_pfn_range()
-To: David Hildenbrand <david@redhat.com>, <akpm@linux-foundation.org>,
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
-	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
-	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <willy@infradead.org>,
-	<apopple@nvidia.com>, <samuel.holland@sifive.com>,
-	<luxu.kernel@bytedance.com>, <abrestic@rivosinc.com>,
-	<yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>
-References: <20250923133104.926672-1-yintirui@huawei.com>
- <20250923133104.926672-3-yintirui@huawei.com>
- <f8571506-30c0-4dc8-9995-41a6469f8fc7@redhat.com>
-From: Yin Tirui <yintirui@huawei.com>
-In-Reply-To: <f8571506-30c0-4dc8-9995-41a6469f8fc7@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.35]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgDnEQkXpNRowQcHEQ--.9650S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFyxur1kWF4xJrW8tr4xZwb_yoW8XFWkp3
+	9F9rykGFWDWFs0kw47WrsxXr15Cws3ArWrCry8Cw1akF4DZFyUCr9FkFWjkF1xA34Du3yx
+	uF1avry5Cws8ZFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjuWLUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: p1dqww5hqjkmqzuzqiywtou0bp/1tbiVhrSeGjUYEjeAQABss
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_184352_533870_137F1A98 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250924_190856_583323_1C0D2528 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Feng Yang <yangfeng@kylinos.cn>
 
+When using bpf_program__attach_kprobe_multi_opts on ARM64 to hook a BPF program
+that contains the bpf_get_stackid function, the BPF program fails
+to obtain the stack trace and returns -EFAULT.
 
-On 9/24/2025 5:50 PM, David Hildenbrand wrote:
->> Introduce pfnmap_max_page_shift parameter to control maximum page
->> size and "nohugepfnmap" boot option to disable huge pfnmap entirely.
-> 
-> Why? If an arch supports it we should just do it. Or what's the reason 
-> behind that?
-> 
-There's no specific reason for this - it was just intended to provide an 
-additional option. I'll remove it in the next version.
+This is because ftrace_partial_regs omits the configuration of the pstate register,
+leaving pstate at the default value of 0. When get_perf_callchain executes,
+it uses user_mode(regs) to determine whether it is in kernel mode.
+This leads to a misjudgment that the code is in user mode,
+so perf_callchain_kernel is not executed and the function returns directly.
+As a result, trace->nr becomes 0, and finally -EFAULT is returned.
 
-...
-> Are you sure we can just entirely remove this block for ! 
-> vma_is_anonymous(vma)?
->
-Thank you for pointing this out!
-There is definitely a problem with removing this block entirely for 
-non-anonymous VMAs. I've also found some other problems. I'll fix all of 
-them in the next version.
+Therefore, the assignment of the pstate register is added here.
 
+Fixes: b9b55c8912ce ("tracing: Add ftrace_partial_regs() for converting ftrace_regs to pt_regs")
+Closes: https://lore.kernel.org/bpf/20250919071902.554223-1-yangfeng59949@163.com/
+Signed-off-by: Feng Yang <yangfeng@kylinos.cn>
+---
+ arch/arm64/include/asm/ftrace.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+index bfe3ce9df197..ba7cf7fec5e9 100644
+--- a/arch/arm64/include/asm/ftrace.h
++++ b/arch/arm64/include/asm/ftrace.h
+@@ -153,6 +153,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+ 	regs->pc = afregs->pc;
+ 	regs->regs[29] = afregs->fp;
+ 	regs->regs[30] = afregs->lr;
++	regs->pstate = PSR_MODE_EL1h;
+ 	return regs;
+ }
+ 
 -- 
-Best regards,
-Yin Tirui
+2.25.1
 
 
