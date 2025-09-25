@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F73CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A07CCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 20:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNKk1kU6SOtjUkITv/KCJkuTdw/0nVnpYUbhmN061yY=; b=kf+szERHJ9yGDc6KrhEkXauhCs
-	+38E3f/EMxMa16TMcI3nZV+JrH4KYVzLRUyPe8CM2mJ6ATEJdafKSfBQwnvJCVYdZftW05ykU7byh
-	Gder5/Lz8ulc10JlT/mxyWMdNKMepIGf2tBFGPgOIp/WjRnosC5e9gD3brsY7nYqhyQowjoqXKJKQ
-	wgZpub+tNOGwHUwFEm6xze+iRm1TTB07j9Q3y8MxerUPDVeEbOgEdts6UysMeF8ZFCTpx8sgc40eC
-	AVwq1D4OAMJaC53zpqf6yqoRSZL4Wqe7dQLYbPjLpdRVYKHiNJgDhSenV47NyLxNd+KR39eft6f1g
-	tG1XOMEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hc9FLuq1Qle+dUOfMSuq+9OePYiOG6ObgpQkfAy276I=; b=blVkIKZAm8Fv/x9NhdWlxHBxg9
+	dY8ob+Sb3gj1IlNJRW4isnZEr59pRQBLniiE9iDaIo5Ka2TpOMaCAmR+ab6jh12s9EAnqgruOpFTK
+	xo8M6osGd0rK16fVBglowOvcU1lqCn8esYFzbQDNPm5CcbeAjgGpPMzJhd0AwogPW4kecZZPtksVf
+	nf3gKrUk0pwRwWvx0auZZQahoLUN8Ome4qi9pgoupwqe55sS71ciE0C4zboC9uYh6ouKOpyCTO//L
+	dLWpEqDTv+u9YMqx+zWBVRJ8tFLsxgjgB5PTRTO7UKH1sc1C/upLo86pht+lPSGZI3K1dtEyVsSL6
+	fTeoXgFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1sii-0000000Cnpn-2sKt;
-	Thu, 25 Sep 2025 20:37:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1v1sl3-0000000CpDF-0GhQ;
+	Thu, 25 Sep 2025 20:40:05 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1sif-0000000Cnlm-2EBQ
+	id 1v1sl0-0000000Cp8Y-29gs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 20:37:39 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-27eed7bdfeeso2269125ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 13:37:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758832656; x=1759437456; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eNKk1kU6SOtjUkITv/KCJkuTdw/0nVnpYUbhmN061yY=;
-        b=Ssag8JyN0bNv9W8uQYdwpeFxrBTz1bN8uBaUBw3RMvxwpZhkDDvHY27JOCGQV4Yktz
-         iK7tT+hlP1lUJW5H7vR9dx5k4Eh04C7uIVCDebpnMJidDVsBJOREtjRXz2ktJYNJBVh6
-         PoUIwRcqG5Q3XmjTxKtUTMoAMieWPKwgYmh2fZKA9NJFevCYzVwYaSDCBy1OrrtacpBG
-         UeG+iKGLepx/1jTUZpAxFS/Z8PC/Ov4xTnT3CaZvFJrfbpRRldFp4snXzPOLfKneAwr8
-         JZIXli0zpJkaVEe6/eQCslzU7NKM9A9HCrMV8i4FA2sLaBfGgUNVmGqFjShx0OnWoj2f
-         QgJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758832656; x=1759437456;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eNKk1kU6SOtjUkITv/KCJkuTdw/0nVnpYUbhmN061yY=;
-        b=UeJQS+5dS+Ns4z+AUfPQZNaez0CkBhFgErH5U0l/v92xkAXkQEN57MSZl/Mfxo4CTX
-         KJpAeCtYWsWEUyl7zecPmXihC21qhBahTX9WwOlGyO2NZ2+ZAHmz9Xj7Y8oIOzAZnlpS
-         a5/MzDIsaCNt2y2AiGLBbLcHMc/Cspi3jfH7wRlJKiLbtX1NUs9Py1nI0KCtzpSrlRL9
-         gshaOaGLbFppPRL4r1odcVEjWgFrxvKiopoc2/UI6GKKqYYe/4c4Hjh1vswNCYnnODce
-         kVdPYepe7eyJOhzmCqBeUvONnWyDb9xF+/p7ryhdMb+i2XIL/6HWLniPAd4ryZ5SQtlM
-         K5Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCXgsNc4zY3VYfunTseA9yVMBxtxM4J7BngiDD05UB289Vaz5xf6w7R9KD8w72C8YIzos3vHq38lGZosmJJEP55D@lists.infradead.org
-X-Gm-Message-State: AOJu0YyumSacOKOzmOPJcxLEkJ628uH/lIszYdBUXIF2p0t5tQWjfzks
-	eoKGHR0VbQ7ceK/M10MotDKS4c6rZwVCDCtjGpt1W8cfz/NQkmYBQHpj
-X-Gm-Gg: ASbGncswIblaBsVnj5RN9zZ8JpJGF9HPx6m6Ve4W4+b5xTGWlRlWkt8/JD0FlWz0gZC
-	xDjU9Hc/4Mafbyf0nSULuTrYaM4IelEm2EtFo2SyFh71pTaaUrkzRGTpUIj9tL9Zc02ttJuNyvs
-	LRTMk5UDOk3yJ9DwmT5aDZlSQFWFdbe62uDb28vzXyGqcthOKlTZzuMZqYtPPeUmTJ2Aa7tdtjb
-	RjLbsdlt2igd7npro0Us06pnDJvPwWPSYrKY0SO4TuUZgjuDtm0KC5KcAAK8CThrJ8IVt0pKpI9
-	pnDBdv9bsHhpK7N6oS44nkBV+hVF+XyRqYyyov0cGMoL9cx/Bo0CKlQvXJiaTX2Fky7QlVWThHk
-	AnqdWXuWU67tDtfdfF6q2DSGJTOfkJ3X8oVP+/LqD+menTA==
-X-Google-Smtp-Source: AGHT+IGdaPC8LUhy5y9eJbG77kWOllABnqIUJud8kZmzafxvaX4bFrJ9tXNvo9qzIrnH2+Si1arwcw==
-X-Received: by 2002:a17:903:1b6e:b0:267:99be:628e with SMTP id d9443c01a7336-27ed6abad48mr50663105ad.2.1758832656340;
-        Thu, 25 Sep 2025 13:37:36 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66cda43sm34135455ad.25.2025.09.25.13.37.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Sep 2025 13:37:35 -0700 (PDT)
-Date: Thu, 25 Sep 2025 13:37:35 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Conor Dooley <conor@kernel.org>
-Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-hwmon@vger.kernel.org, Jean Delvare <jdelvare@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Thu, 25 Sep 2025 20:40:03 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cXlvd1cnBz9tW3;
+	Thu, 25 Sep 2025 22:39:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1758832797;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Hc9FLuq1Qle+dUOfMSuq+9OePYiOG6ObgpQkfAy276I=;
+	b=Rl+CXYA3AgQzWX/4AJa0LbV/qICcbZO9/heHpxU+S0CyJRddwmTIuB4jnkLQ1jd00wmYrm
+	U+O89ng2qm4VGC/6GR/0YPoOOOiuMSbp2wtf/zw8DAsoinoAyT1LZ4B5mK1wVThovS//zG
+	ApAubaoJ/SXXqKuGzlTrkdupHZMfFJwvIZ7CyLzuK969sV+juVsw6yw/QFZ8MmK87QLMUu
+	I0r4NrnAn97aKephBGdmF8FlFaIeonidCnYdMdVFxYBAdU3dKzttllvgrXNv9/gQUR0vXy
+	iqhuO1mkThdcS+hPM1wxJ+0lBYlvw+Gjc6bL4d/iMcrpe2zS6NiWiI2PXQcILw==
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1758832795;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Hc9FLuq1Qle+dUOfMSuq+9OePYiOG6ObgpQkfAy276I=;
+	b=yhFHUA5l+noNrPehhfXmDBy6NNPqTttvCXrx58XxmPTr7HFyBWz8s0mmY4CL1V1o5rGdtm
+	qshzeQFkR/BEmhBfFAYpGJDBUnqs9QnvmhWtmrYBW8plJQTEEH4SMY6vWaRrnrGd9COHFf
+	oUvrl4mlAIc+jNen4vjs8ZodNbgIwIB6H5vNqnyjLVKFxjLlJzgzVSYqqPl8NkA0Frlswr
+	KZu9917vOFJbcmDWjYVxLTbiKZ4NZYzE4NlN3v17GL9BHK6guEYo2mOVJ6PDksU3WtwWzX
+	kmCrVwEgycfki7OFa/U58/CXnRQdY08HjoqbL4WRHkpD8VrBdb++deUGvQToOQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Jiyu Yang (OSS)" <jiyu.yang@oss.nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 1/4] dt-bindings: Add Raspberry Pi's RP1 ADC
-Message-ID: <89dd04b9-e261-4bdd-83ab-499e46fc9c01@roeck-us.net>
-References: <20250925000416.2408457-1-svarbanov@suse.de>
- <20250925000416.2408457-2-svarbanov@suse.de>
- <20250925-outlying-causal-015d8ba33c53@spud>
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Reichel <sre@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Steven Price <steven.price@arm.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Xianzhong Li <xianzhong.li@nxp.com>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev
+Subject: [PATCH v3 1/2] dt-bindings: gpu: mali-valhall-csf: Document i.MX95 support
+Date: Thu, 25 Sep 2025 22:38:30 +0200
+Message-ID: <20250925203938.169880-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250925-outlying-causal-015d8ba33c53@spud>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 1a2f3377f62ae1cf85f
+X-MBO-RS-META: tfwgks6u4kmgzo837okm8a7dbguzuxds
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_133737_581108_F1904CAD 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250925_134002_701643_F6A8340C 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 08:40:54PM +0100, Conor Dooley wrote:
-> On Thu, Sep 25, 2025 at 03:04:13AM +0300, Stanimir Varbanov wrote:
-> > Document dt-bindings for Raspberry Pi's RP1 ADC.
-> > 
-> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> > ---
-> >  .../bindings/hwmon/raspberrypi,rp1-adc.yaml   | 46 +++++++++++++++++++
-> >  1 file changed, 46 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
-> > new file mode 100644
-> > index 000000000000..5266b253fd2b
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
-> > @@ -0,0 +1,46 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/hwmon/raspberrypi,rp1-adc.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rasberry Pi RP1 ADC device
-> > +
-> > +maintainers:
-> > +  - Stanimir Varbanov <svarbanov@suse.de>
-> > +
-> > +description: |
-> > +  The RP1 ADC is a five input successive-approximation ADC with 12-bit
-> > +  resolution (ENOB 9.5-bit) at 500kSPS. It has four external inputs
-> > +  and one internal temperature sensor.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: raspberrypi,rp1-adc
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 1
-> > +
-> > +  vref-supply:
-> > +    description:
-> > +      Reference voltage regulator 3.3V.
-> 
-> Looks like you're missing the io-channels-cells property that allows
-> this device to be a provider of adc channels to other devices.
-> 
-Only makes sense if the driver is implemented as iio driver.
-Which would be fine with me, assuming this is a generic ADC.
-The iio -> hwmon bridge can then be used to instantiate a
-hwmon device if needed.
+The instance of the GPU populated in Freescale i.MX95 is the
+Mali G310, document support for this variant.
 
-Guenter
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Jiyu Yang (OSS) <jiyu.yang@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Sebastian Reichel <sre@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Xianzhong Li <xianzhong.li@nxp.com>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+---
+V2: - Add RB from Frank and Alexander
+    - Make resets: mandatory on i.MX95
+    - Switch from fsl, to nxp, vendor prefix
+V3: - Add RB from Rob
+    - Drop the reset part, this is now unnecessary
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+index a5b4e00217587..b220cbd5362f4 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+@@ -18,6 +18,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              - nxp,imx95-mali            # G310
+               - rockchip,rk3588-mali
+           - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
+ 
+-- 
+2.51.0
+
 
