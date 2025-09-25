@@ -4,155 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA66CAC5AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 04:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4DCCAC5AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 04:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=; b=P2lXsFnQelutZAvOdDHCqStMVh
-	P9r5hwkSM8S27l3e9MzV3s6e3M0Aj7gLvPQuxs/SoMXaecQRVdWZG1u7LTWPATwv6NYmaD4e4Gz+8
-	q4PL55fYXclGwlBvP+OfIgfF0pcwmxXIjKmjp6dt2vyQMZsoYnXiF1alvTpcHHNqEfzVlipVys3SZ
-	vAftfdezMjYEQiOtRvc01V3YPaUz+yzxDJRjN4NMI2rl1SsL66y58Yj6WTDEST6giZS7ah+5Wdp86
-	U2AgUlOomsYWPON6XcP+fUX+2LxTgL6vJn48of4n5AJvQcGI2FhcGvFvlJER+Em5TKkWVdP0VdBA5
-	az2BujMg==;
+	bh=pL4il6Mcz3AjJ60/DLAuos3cvtVE8VY2cOJbTK/DwQU=; b=0tXfFZJa/fKlbxW7TqX+2TZVHZ
+	UjbMqZGlMjni1UmH9dygcJaes1mzwf9eTU8X7oOfV6wCd8hmum/rR8V1/kJ/+FjE+i3vQVDHIVlLe
+	HC0MgprGeG/g7onLyK3o+42rlsNJA7TepK3yORIpfB89trigMKLFcsCXLH93ufC2d06Ls+RACBVnI
+	+g+zdkmuMvXuGe33+dorLLW0LVzcosmpqBKoKuZ8ytruRQ8GfRoDU+WZVuU8aCR4hzxw0gEzrUnvi
+	3AjDgGnd03dpd1x/HovKG+6qqNjxD1aKWudYoLPBJ9K/W4wfOlPGQM4aIisljy6qlNVb/qYAeLieM
+	d9ow47tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1dJB-00000005SXw-0bAO;
-	Thu, 25 Sep 2025 04:10:17 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1v1duN-00000005e7d-3kJB;
+	Thu, 25 Sep 2025 04:48:43 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1dJ8-00000005SWk-3u3s
+	id 1v1duK-00000005e6l-3aY2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Sep 2025 04:10:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ylayh/FIGEG6dAm7wPWx+sl9rLEDW89o5lyqwXkSsbAdv+aSwZQJlILMnrrB9yZLx2Kk5MFmP59yL9okfdBoSFNLEklSLV5hnyDNLdcpMT8efwot/BkRsrmCDE0zNlveXJV2A3dMlfUK/Dfiy/RC0nohCSZZa9JRVhWigC1PNs8bJ66qPyB41udWWTwIxd9v58fOmveP/LP8MH5KAN6ePRsIGoMRgCCB+D1iEYzw7vk5dHUbQ0y67ci25qVaAgTIj3/ULEkjLNn8BSqNLKOppu58zsYrpTR99Jt6QUMnFbOenV3yRev/seAIWpJvDSwax2wSNgZPvh1onxPhJL6y9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=;
- b=v0j6J44FelDHtRawT1u+e9gEDjMpXLYlKH7xeY08kXY5u104OMfQu6jXuKwY1EsseYOIi2KAfg4GgTlLppd/Rak4KTCaJtn9zylMqv+1Ubqpjb9l2UNcg202/iOqclbcrGpjlm1pNJ4HRw0nfDcO6cYznt8dOkCQCPSECgwS5QnC13HqsBEeHypO+MuRvtrxJKXji2dhwJtpsjtnBnBXNjbhzLLYjEbLZnTp0wgVJdJwvfvvYzjJSE0ofjuONy+TBpy7sW0FR4oKTWZNNFoXZHc/NA8+fLTHCITWnXEXHEGiaVkHsI92crsKaMXcsmX0pzPCVNa12pMe4s1plfzK1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8JuDRoPdj0MrzTm7WDRkgD3v/L8mxV7MXFPn1/dVtIY=;
- b=ku6+10dcFxtGLI1jfaMo+HQMqlk9hf1Ma4rZeCS+JOYo7P7xfqlU1RHJHKfnVZDUbDGYKH+rHnvc1Vceig8IE+brfTuhUsLhdqy0oOZWeUZt7thhG9znI6+c2pk7I1eA3Mn/1ZsBcT4MPPiQIz4FkT4fkpAO8ysOxe4ZZqW94uvb7qV8NeN/DHMu4UsGVGKipiBGQvDSF2iTdo++B5eZl05UgzIjaVe7yf5ZQl4m8hbQMaAHANvgC7ghUGAh66a9V0wHeJzoPP18xYgZEIjJwKWuQdhBHRXadnpMNVXFxnkcjSEcWGAS9KVx1IjV+tN7c64IbbZPLPZp4A4AMBKt0w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by PAXPR04MB9424.eurprd04.prod.outlook.com (2603:10a6:102:2b2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.9; Thu, 25 Sep
- 2025 04:09:58 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.008; Thu, 25 Sep 2025
- 04:09:57 +0000
-Date: Thu, 25 Sep 2025 00:09:50 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"bjorn.andersson@oss.qualcomm.com" <bjorn.andersson@oss.qualcomm.com>,
-	Ze Huang <huang.ze@linux.dev>
-Subject: Re: [PATCH v2 2/3] usb: dwc3: dwc3-generic-plat: add layerscape dwc3
- support
-Message-ID: <aNTAjk1zsWF5lm3p@lizhi-Precision-Tower-5810>
-References: <20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com>
- <20250923-ls_dma_coherence-v2-2-ce3176396bdb@nxp.com>
- <20250924221331.migo5szpf4svxpyr@synopsys.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250924221331.migo5szpf4svxpyr@synopsys.com>
-X-ClientProxiedBy: PH3PEPF000040AC.namprd05.prod.outlook.com
- (2603:10b6:518:1::5b) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Thu, 25 Sep 2025 04:48:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1758775715;
+	bh=pL4il6Mcz3AjJ60/DLAuos3cvtVE8VY2cOJbTK/DwQU=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=CV6c2crvVUcHe2qjR9Qzl+GBuzhFgZhDC/szv3jlJ/Pa00f7kT7OIlNqsBnJjaaVz
+	 BbD2qw3qLncAoOw6Ax3rHRYC9M7IOMMwHLWIl6Gpvu4OfRLfWMmWYqBNsbgBhjYTID
+	 KQH9PrHekbp/0YF6kK3Jjz29RixtMsxdZK9YO/5Hx07CvzbT+Es2VoqAQ8W1S6LApg
+	 oOsBk4Q5nupg0ITnrhbqsBw8NUs8WblmNsobylyNkk5GBXASYnwEZWUupxQLC4lftV
+	 RPMYdEbdOKonJsWx024g6oOGk6LQRJ4cJ5/N8nU2INgPOfdLFCGCqDSpsSliqNElva
+	 fe5bHpil9CRjA==
+Received: from [192.168.68.113] (unknown [180.150.112.213])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1C98264743;
+	Thu, 25 Sep 2025 12:48:33 +0800 (AWST)
+Message-ID: <005c9928cde01c8a3bf4840692eddf13f2c08282.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 3/4] pinctrl: aspeed: Add AST2700 pinmux support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Billy Tsai <billy_tsai@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
+ 	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ linus.walleij@linaro.org, 	brgl@bgdev.pl, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, 	openbmc@lists.ozlabs.org,
+ linux-gpio@vger.kernel.org, BMC-SW@aspeedtech.com
+Date: Thu, 25 Sep 2025 14:18:31 +0930
+In-Reply-To: <20250904103401.88287-4-billy_tsai@aspeedtech.com>
+References: <20250904103401.88287-1-billy_tsai@aspeedtech.com>
+	 <20250904103401.88287-4-billy_tsai@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PAXPR04MB9424:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1be7f91f-633f-4aa5-1b01-08ddfbe96367
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?25dqwPRXcHPKMe2EsqCsruOnnlYeNNK1AMMrepymsranydmQHOVwdy0JalzZ?=
- =?us-ascii?Q?mZPSzG2/UNjDAWLcXMbqnPxwN+CXHzeHy7yNOR+z86t8L8utaB2HmPnpALgC?=
- =?us-ascii?Q?vvVd3CqkZiILq1qaMZfV6DyO/A6JQkWsa1/DZe99Y2nPfvNCf96Y44mPj0au?=
- =?us-ascii?Q?bvKQeVIoRzO2DVSKC7SrhhnOQQVwiGIn2YvvfTFhbVGO+nZCAyK08qsTaJis?=
- =?us-ascii?Q?MUxv/RmgyJJE6NGWaopQnZ8yb4l+/tmdw1fXVUzsHVtwBZOCGCLDVs8A5uxy?=
- =?us-ascii?Q?0vPXNpCW2YAoaVAOE8ETKRaTq3sPG+qRXJLlFrDx6G6mEiZGjYimgWJd7uAd?=
- =?us-ascii?Q?WzBEoqwc3jOLhO308a4s6Pem01DtGVspv9e7/rLLnv947W6jexHaa718MJ6X?=
- =?us-ascii?Q?y+r31snsbTfdc7FjAvFKWwcTmhghecYm0oMz3MeXBNn8abS8q4jJuImKcus+?=
- =?us-ascii?Q?x+VyXAaoCWVrGEiHkV50ssN6guCyVHe0uP5r4ayOxFqMiLmNUvLNO40EDq9C?=
- =?us-ascii?Q?Vw8/i+ckvJpHxCX7iajBuB01b8CeFH2xAr1pzWaK/RoF3Arne4bKIbpZK8+G?=
- =?us-ascii?Q?g7QpSup/qri37+dLhe76ECct7caaPhYb3RsLoTu5sUdQGj5an9LFLMKcVcP7?=
- =?us-ascii?Q?EGsoyTQf52GyYVSUhWm28QEdik/zRyCjpVM30Zlb5kozEynfmBPhnAUa6qV+?=
- =?us-ascii?Q?g0Elg3BQ3mKVSRSEpElM7JfxXb/yFneaN9oCgmt19B0d8YgthK0PBReJgWm/?=
- =?us-ascii?Q?NrEKdzXmIZlkh0RN6Tlc9PvY7NANBgX6lf28rHrpbcQDfqPWbxj8Es6zdqLT?=
- =?us-ascii?Q?GZay+FoVoIKog21GDw55aIX6JzcN57v+rBI6BMblG7SNZTe9y6LSJ5GjLbM8?=
- =?us-ascii?Q?ZozxUqRXlCK6vpa6N8nBZYzRhdfRtdIO5x/MON36TEqx/tD5o7mGtbz+ymSG?=
- =?us-ascii?Q?vdzQVuIUognSpXTINucQdJ00wTKH0wgeYGrvmAyhBET/2m8WKB5rNLBLn0Ej?=
- =?us-ascii?Q?DVK1C/ntdo7abhrZXbjmnQKZcyGeZVObQMwMqPqyvl6OOz9qzYtZTvPnciDN?=
- =?us-ascii?Q?E6at3kjDtcSMmPLaiyxDTJmgGYiuT5ODGnNCyc9aN88B06z8Zw8x56Iuu0YX?=
- =?us-ascii?Q?c/XLwdMqkAev+jZnDffaNllb8phRWfn3XMqhQZwXq4xZSc7Yd2qR9HxJYgey?=
- =?us-ascii?Q?/TyapiwNSm2tClaVK+aYjS+LSNHNVzAyqBP66lBdSQEPY5YtnYN15wuVlUkl?=
- =?us-ascii?Q?+V7yGyvQPOlpcaI8A+NvPQNkQafQMsZtRC/O+RC0F3EYg9pzzqYuC2Uc18BY?=
- =?us-ascii?Q?ICzQTFUrZSRfOvyNRGbw7JyyFQn13VJUMKZFXJYcR48zkD3qpME00PB1Pxl9?=
- =?us-ascii?Q?yBCZNuA2Kuhkkn9WTkypKW3Wdbfl0riRUDxHdIDTa7exUXhduGlffDtW4hgo?=
- =?us-ascii?Q?Y7StTxr85z+WEqIO5V4rn53JX46R+51aMMip5svsE9L4pJkxlgSiBILNOMSB?=
- =?us-ascii?Q?j3wrm7RZHTKriXYwn2+zkYcSpkCA59mZVCAQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?duFU2Tu1WaoY7wfwZfSxKNwW6ppBECxe4IoMJru4vH3wrnIL8C0HMsKKAiqg?=
- =?us-ascii?Q?uHVvvyLG4fgXJ4afsPzBZ/8HzS4HhUrR8Zh5LGL5So4xnNn+lFmOG4e4nWd+?=
- =?us-ascii?Q?gAzs6Dn4xTpwL+vzv2pnCQJcwLqTu2T4n32KGrSGC5rqkD9bkamisqJ18mfI?=
- =?us-ascii?Q?KGJpsmuQ1Lcp9VdMtZNpRwfH+ECY8m6zs4AUkDKk+D99u5Mol6VRMED7T42R?=
- =?us-ascii?Q?9ymOi6JrKFcC/5wfrfpMwRkjdjO86DvZ+s5csOZT7fC+InWr+0rmFEKGxeFn?=
- =?us-ascii?Q?wJV0ontxRWwQ2fbAsfCGt0OLjGKLz/pj4bsaBYL4n6jeTb06h/2mwnFhZ6K4?=
- =?us-ascii?Q?gT5esymJ5S0V+3jtAEqZBfg1eVyUolJHa3Pg33CnKuqmNT3KYAkEYZIPTJsY?=
- =?us-ascii?Q?P/H8N23HggGB3qLdif+VQWZzZIpI673wiIwjyoq15RQi8oDaYdIN8DEyvBsE?=
- =?us-ascii?Q?DA0MjlMV/zPC6UPuCQk2n7VsEsm2fD/8qEVTISyHRURomDZYXemhWabZMZnx?=
- =?us-ascii?Q?8jysIToyN0t6yDLgUbwsGHQEywfmCf+kFbiA3I8LJ+idRtdDFIxK5TpeZP0k?=
- =?us-ascii?Q?ioGW0jRhlAdzIFhF+mCzmzIZPAXw0vcyaaF5ccNFyfbVJF7AG471gZvLynpp?=
- =?us-ascii?Q?TvXuRLD3COG3U0MwRAmzuh7Io+5A3W23DKZAUAX+s8CMRFLJUWOzO8Vrnl09?=
- =?us-ascii?Q?zbwxo1+4p954eIRRuMe0pXXgEmT/yIi/vn2Fv7gtP4/SeNKsIPws6O4lopbL?=
- =?us-ascii?Q?Prm4FwXwcMtrMoxPTRuk6yPFoVopHiU2hr12G5VluiNBxpEgwzblVq3qRxhf?=
- =?us-ascii?Q?+MVjabCun8MqhaxRLNJAKzmw2z+eoK8BAByup4TMqZYSUI9GoBopTSQFU8MT?=
- =?us-ascii?Q?BDTAWMiw8r+09hg7kVe4quS2mVWDAODHrPzRf2IKPu3Eb0/FlPh4P+nHofsE?=
- =?us-ascii?Q?YJXm6PaZdhKiICspg05RrochUR1ZICObL1UgLOLGrg+/Uw+tbCDOSxh69hnG?=
- =?us-ascii?Q?3QdCcHho3F+sk7h4jUQXxlsRSZ16L5SWl25mIoLg2U3BlDXHljHImKhLcnz0?=
- =?us-ascii?Q?EvR+o3SAnSdYnhvX394vQcfTbv6CrmCsjMGXmD5rrpqkWTm3c+otuHrON+Wa?=
- =?us-ascii?Q?0mBZ5hBjWBHvPdCTa7Z5xNav2gOoH7o8EPpegDOncFwoRSGj6TuGD2fnCysb?=
- =?us-ascii?Q?wS1Kp3RNqP9t2xT0dyfi7nhYTce9E4mj+VP9XUPGRLJL8t2s8nwzUCAqN+GM?=
- =?us-ascii?Q?OLXeFzpAnAkZmaF7RznzzWd4GxWdI0UAYOSXCWL18RQxzP5ROCvDr5znaHXr?=
- =?us-ascii?Q?EEytCbl1LOV+hLDdYmfS+F2MJL8QWPq/eo2b+7RpZnUL7LnPzzwZfcNkUpFk?=
- =?us-ascii?Q?ERQGUan674JvqyFfp9qM2tD0Eee5mSxTrA52I/uDpuFvSM90l4I7x3tC4btO?=
- =?us-ascii?Q?GMzcPVaQYhL4+kypkv8U9fYldc/pDVu8zjxsiEzcQzJv6qAFngNL+84J43HY?=
- =?us-ascii?Q?FRxfDwZwghYVph2/gayzSPi+xfbqS8KD96EtkBwzmd8iOwwv7vmLwNuisXCY?=
- =?us-ascii?Q?oic0G8O0GKBNGA6iyBAI+Wrn8jg0QD6Yq8nNqT8v?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1be7f91f-633f-4aa5-1b01-08ddfbe96367
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Sep 2025 04:09:57.2048
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: okDvLB0psOYJKvLgH7u1GlYkBBeIlHA4jItuWawZ5dmQWKKpVsdmaKdJvjd9gntarP/VlZrC3k0YXa7Odx4E3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250924_211014_978771_8A79E948 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20250924_214841_146984_A3B44D31 
+X-CRM114-Status: GOOD (  29.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,115 +74,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 10:13:36PM +0000, Thinh Nguyen wrote:
-> On Tue, Sep 23, 2025, Frank Li wrote:
-> > Add layerscape dwc3 support by using flatten dwc3 core library. Layerscape
-> > dwc3 need set software managed property snps,gsbuscfg0-reqinfo as 0x2222
-> > when dma-coherence set.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  drivers/usb/dwc3/dwc3-generic-plat.c | 30 +++++++++++++++++++++++++++++-
-> >  1 file changed, 29 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-> > index d96b20570002dc619ea813f4d6a8013636a0f346..d886b6e557b12edda71203e4f640a9a0a53b4f35 100644
-> > --- a/drivers/usb/dwc3/dwc3-generic-plat.c
-> > +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-> > @@ -8,10 +8,15 @@
-> >   */
-> >
-> >  #include <linux/clk.h>
-> > +#include <linux/of_address.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/reset.h>
-> >  #include "glue.h"
-> >
-> > +struct dwc3_generic_drvdata {
-> > +	u32	gsbuscfg0;
->
-> Are we going to overwrite the entire register or just the REQINFO
-> fields? The "snps,gsbuscfg0-reqinfo" property only updates the reqinfo
-> of GSBUSCFG0. Perhaps rename this?
+Hi Billy,
 
-Yes
->
-> > +};
-> > +
-> >  struct dwc3_generic {
-> >  	struct device		*dev;
-> >  	struct dwc3		dwc;
-> > @@ -29,6 +34,7 @@ static void dwc3_generic_reset_control_assert(void *data)
-> >
-> >  static int dwc3_generic_probe(struct platform_device *pdev)
-> >  {
-> > +	const struct dwc3_generic_drvdata *drvdata;
-> >  	struct dwc3_probe_data probe_data = {};
-> >  	struct device *dev = &pdev->dev;
-> >  	struct dwc3_generic *dwc3g;
-> > @@ -41,6 +47,8 @@ static int dwc3_generic_probe(struct platform_device *pdev)
-> >
-> >  	dwc3g->dev = dev;
-> >
-> > +	drvdata = of_device_get_match_data(dev);
-> > +
-> >  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> >  	if (!res) {
-> >  		dev_err(&pdev->dev, "missing memory resource\n");
-> > @@ -70,6 +78,17 @@ static int dwc3_generic_probe(struct platform_device *pdev)
-> >  	if (ret < 0)
-> >  		return dev_err_probe(dev, ret, "failed to get clocks\n");
-> >
-> > +	if (of_dma_is_coherent(pdev->dev.of_node)) {
-> > +		struct property_entry props[2] = {};
-> > +
-> > +		props[0] = PROPERTY_ENTRY_U16("snps,gsbuscfg0-reqinfo", drvdata->gsbuscfg0);
-> > +
-> > +		ret = device_create_managed_software_node(dev, props, NULL);
-> > +		if (ret)
-> > +			return dev_err_probe(dev, ret,
-> > +					     "fail create software managed property node\n");
-> > +	}
-> > +
-> >  	dwc3g->num_clocks = ret;
-> >  	dwc3g->dwc.dev = dev;
-> >  	probe_data.dwc = &dwc3g->dwc;
-> > @@ -145,8 +164,17 @@ static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
-> >  		       dwc3_generic_runtime_idle)
-> >  };
-> >
-> > +static const struct dwc3_generic_drvdata spacemit_k1_dwc3 = {
-> > +	.gsbuscfg0 = DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED,
->
-> Why do we need to do this?
+On Thu, 2025-09-04 at 18:34 +0800, Billy Tsai wrote:
+> This patch adds pinmux support for the AST2700, which includes two SoC
+> configurations:
+> - SoC0 closely resembles previous generations of ASPEED BMC SoCs, allowin=
+g
+> =C2=A0 the reuse of existing macros and callback functions.
+> - SoC1, however, introduces a new logic for configuring pin functions.
+> =C2=A0 Therefore, new g7_set_mux and gpio_request_enable functions are
+> =C2=A0 implemented to properly configure the pinctrl registers using the
+> =C2=A0 pin_cfg table and to resolve GPIO request errors.
 
-because is 0 valildate setting for cfg0_regqinfo.
+Do you mind splitting support for soc0 and soc1 into separate patches?
+Having taken a brief look I think we're also due for some further
+separation of the code. Particularly, isolating the patch for soc0
+would be nice, as the register design for soc1 is just _so_ much nicer,
+and I'd like to avoid dragging the baggage of previous generations
+along with it.
 
-Avoid add new flags like REGINFO_VALDATE in drvdata. dwc3 will use default
-value if reginfo is DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED.
+>=20
+> The driver supports:
+> - All 12 GPIO-capable pins in SoC0
+> - All 212 GPIO-capable pins in SoC1
+>=20
+> Additionally, this patch introduces several pseudo-ball definitions for
+> specific configuration purposes:
+> - USB function selection
+> - JTAG target selection
+> - PCIe RC PERST configuration
+> - SGMII PHY selection
+>=20
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+> ---
+> =C2=A0drivers/pinctrl/aspeed/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 =
+8 +
+> =C2=A0drivers/pinctrl/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
+> =C2=A0.../pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c=C2=A0=C2=A0 |=C2=A0 503=
+ ++++
+> =C2=A0.../pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c=C2=A0=C2=A0 | 2523 ++++=
++++++++++++++
+> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 47 +
+> =C2=A0drivers/pinctrl/aspeed/pinctrl-aspeed.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 11 +-
+> =C2=A0drivers/pinctrl/aspeed/pinmux-aspeed.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 35 +-
 
-of cousre, if you like add bool b_usebuscfg0 in drvdata, I am also fine.
+The impression I get from the changes to the latter three files here is
+that the soc0 support might even be different enough to warrant
+separation from the previous generations as well. You're defining
+similar-but-different structs and macros to what we already have. If
+the those are genuinely necessary (not yet resolved), I'd rather they
+be their own driver.
 
-Frank
->
-> > +};
-> > +
-> > +static const struct dwc3_generic_drvdata fsl_ls1028_dwc3 = {
-> > +	.gsbuscfg0 = 0x2222,
-> > +};
-> > +
-> >  static const struct of_device_id dwc3_generic_of_match[] = {
-> > -	{ .compatible = "spacemit,k1-dwc3", },
-> > +	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
-> > +	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
-> >  	{ /* sentinel */ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
-> >
-> > --
-> > 2.34.1
-> >
->
-> Thanks,
-> Thinh
+> =C2=A07 files changed, 3123 insertions(+), 5 deletions(-)
+> =C2=A0create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+> =C2=A0create mode 100644 drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+>=20
+> diff --git a/drivers/pinctrl/aspeed/Kconfig b/drivers/pinctrl/aspeed/Kcon=
+fig
+> index 1a4e5b9ed471..16743091a139 100644
+> --- a/drivers/pinctrl/aspeed/Kconfig
+> +++ b/drivers/pinctrl/aspeed/Kconfig
+> @@ -31,3 +31,11 @@ config PINCTRL_ASPEED_G6
+> =C2=A0	help
+> =C2=A0	=C2=A0 Say Y here to enable pin controller support for Aspeed's 6t=
+h
+> =C2=A0	=C2=A0 generation SoCs. GPIO is provided by a separate GPIO driver=
+.
+> +
+> +config PINCTRL_ASPEED_G7
+> +	bool "Aspeed G7 SoC pin control"
+> +	depends on (ARCH_ASPEED || COMPILE_TEST) && OF
+> +	select PINCTRL_ASPEED
+> +	help
+> +	=C2=A0 Say Y here to enable pin controller support for Aspeed's 7th
+> +	=C2=A0 generation SoCs. GPIO is provided by a separate GPIO driver.
+> diff --git a/drivers/pinctrl/aspeed/Makefile b/drivers/pinctrl/aspeed/Mak=
+efile
+> index db2a7600ae2b..1713f678a984 100644
+> --- a/drivers/pinctrl/aspeed/Makefile
+> +++ b/drivers/pinctrl/aspeed/Makefile
+> @@ -6,3 +6,4 @@ obj-$(CONFIG_PINCTRL_ASPEED)	+=3D pinctrl-aspeed.o pinmux=
+-aspeed.o
+> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G4)	+=3D pinctrl-aspeed-g4.o
+> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G5)	+=3D pinctrl-aspeed-g5.o
+> =C2=A0obj-$(CONFIG_PINCTRL_ASPEED_G6)	+=3D pinctrl-aspeed-g6.o
+> +obj-$(CONFIG_PINCTRL_ASPEED_G7) +=3D pinctrl-aspeed-g7-soc0.o pinctrl-as=
+peed-g7-soc1.o
+> \ No newline at end of file
+> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c b/drivers/pi=
+nctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+> new file mode 100644
+> index 000000000000..86da889cc010
+> --- /dev/null
+> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+> @@ -0,0 +1,503 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <linux/bits.h>
+> +#include <linux/device.h>
+> +#include <linux/gpio/driver.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/pinctrl/machine.h>
+> +#include <linux/pinctrl/pinconf.h>
+> +#include <linux/pinctrl/pinconf-generic.h>
+> +#include <linux/pinctrl/pinctrl.h>
+> +#include <linux/pinctrl/pinmux.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/property.h>
+> +#include <linux/regmap.h>
+> +#include "pinctrl-aspeed.h"
+> +#include "../pinctrl-utils.h"
+> +
+> +#define SCU200 0x200 /* System Reset Control #1=C2=A0 */
+> +
+> +#define SCU400 0x400 /* Multi-function Pin Control #1=C2=A0 */
+> +#define SCU404 0x404 /* Multi-function Pin Control #2=C2=A0 */
+> +#define SCU408 0x408 /* Multi-function Pin Control #3=C2=A0 */
+> +#define SCU40C 0x40C /* Multi-function Pin Control #3=C2=A0 */
+> +#define SCU410 0x410 /* USB Multi-function Control Register=C2=A0 */
+> +#define SCU414 0x414 /* VGA Function Control Register=C2=A0 */
+> +
+> +#define SCU480 0x480 /* GPIO18A0 IO Control Register */
+> +#define SCU484 0x484 /* GPIO18A1 IO Control Register */
+> +#define SCU488 0x488 /* GPIO18A2 IO Control Register */
+> +#define SCU48C 0x48c /* GPIO18A3 IO Control Register */
+> +#define SCU490 0x490 /* GPIO18A4 IO Control Register */
+> +#define SCU494 0x494 /* GPIO18A5 IO Control Register */
+> +#define SCU498 0x498 /* GPIO18A6 IO Control Register */
+> +#define SCU49C 0x49c /* GPIO18A7 IO Control Register */
+> +#define SCU4A0 0x4A0 /* GPIO18B0 IO Control Register */
+> +#define SCU4A4 0x4A4 /* GPIO18B1 IO Control Register */
+> +#define SCU4A8 0x4A8 /* GPIO18B2 IO Control Register */
+> +#define SCU4AC 0x4AC /* GPIO18B3 IO Control Register */
+> +
+> +enum {
+> +	AC14,
+> +	AE15,
+
+Are the ball enums necessary? Historically we haven't needed it as the
+undefined macro symbols were just used for token-pasting or
+stringification purposes.
+
+> +	AD14,
+> +	AE14,
+> +	AF14,
+> +	AB13,
+> +	AB14,
+> +	AF15,
+> +	AF13,
+> +	AC13,
+> +	AD13,
+> +	AE13,
+> +	PORTA_U3, // SCU410[1:0]
+> +	PORTA_U2, // SCU410[3:2]
+> +	PORTB_U3, // SCU410[5:4]
+> +	PORTB_U2, // SCU410[7:6]
+> +	PORTA_U3_XHCI, // SCU410[9]
+> +	PORTA_U2_XHCI, // SCU410[9]
+> +	PORTB_U3_XHCI, // SCU410[10]
+> +	PORTB_U2_XHCI, // SCU410[10]
+> +	PORTA_MODE, // SCU410[25:24]
+> +	PORTB_MODE, // SCU410[29:28]
+> +	PORTA_U2_PHY,
+> +	PORTA_U3_PHY,
+> +	PORTB_U2_PHY,
+> +	PORTB_U3_PHY,
+> +	JTAG_PORT,
+> +	PCIERC0_PERST,
+> +	PCIERC1_PERST,
+> +};
+> +
+> +GROUP_DECL(EMMCG1, AC14, AE15, AD14);
+> +GROUP_DECL(EMMCG4, AC14, AE15, AD14, AE14, AF14, AB13);
+> +GROUP_DECL(EMMCG8, AC14, AE15, AD14, AE14, AF14, AB13, AF13, AC13, AD13,=
+ AE13);
+> +GROUP_DECL(EMMCWPN, AF15);
+> +GROUP_DECL(EMMCCDN, AB14);
+> +GROUP_DECL(VGADDC, AD13, AE13);
+> +GROUP_DECL(VB1, AC14, AE15, AD14, AE14);
+> +GROUP_DECL(VB0, AF15, AB14, AF13, AC13);
+
+For the previous generation drivers my philosophy was "keep things that
+go together together," so signal descriptors, groups and functions were
+all located around the definition for one or a set of balls.
+
+Given I'm potentially escaping maintenance of ASPEED pinctrl drivers
+for the 2700 onwards I won't complain too much, but was this a specific
+choice to break from that approach? You're defining all the groups,
+then all the functions, then all the configurations.=20
+
+*snip*
+
+
+> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c b/drivers/pi=
+nctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+> new file mode 100644
+> index 000000000000..7c5a5e208f63
+> --- /dev/null
+> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+>=20
+
+*snip*
+
+> +
+> +FUNCFG_DESCL(C16, PIN_CFG(ESPI1, SCU400, GENMASK(2, 0), 1),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(2, 0), 2),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(2, 0), 3),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C0, SCU400, GENMASK(2, 0), 4),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(2, 0), 5));
+> +FUNCFG_DESCL(C14, PIN_CFG(ESPI1, SCU400, GENMASK(6, 4), (1 << 4)),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(6, 4), (2 << 4))=
+,
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(6, 4), (3 << 4)),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C1, SCU400, GENMASK(6, 4), (4 << 4)=
+),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(6, 4), (5 << 4)))=
+;
+> +FUNCFG_DESCL(C11, PIN_CFG(ESPI1, SCU400, GENMASK(10, 8), (1 << 8)),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(LPC1, SCU400, GENMASK(10, 8), (2 << 8)=
+),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(SD, SCU400, GENMASK(10, 8), (3 << 8)),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(DI2C3, SCU400, GENMASK(10, 8), (4 << 8=
+)),
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 PIN_CFG(VPI, SCU400, GENMASK(10, 8), (5 << 8))=
+);
+
+If we're going to continue the macro soup we need to take the
+opportunity to clean this up. You shouldn't need to open-code the
+shifts like this, the data model needs more thought.
+
+*snip*
+
+> +
+> +static const struct aspeed_g7_pincfg pin_cfg[] =3D {
+> +	PINCFG_PIN(C16),=C2=A0=C2=A0=C2=A0 PINCFG_PIN(C14),=C2=A0=C2=A0 PINCFG_=
+PIN(C11),
+> +	PINCFG_PIN(D9),	=C2=A0=C2=A0=C2=A0 PINCFG_PIN(F14),=C2=A0=C2=A0 PINCFG_=
+PIN(D10),
+
+My preference is that this array definition be one entry per line,
+sorted, that way we don't get weird alignment or reflow affecting the
+remainder of the struct if we change things in the middle.
+
+Cheers,
+
+Andrew
 
